@@ -149,7 +149,10 @@ caption{caption-side:top;text-align:left;font-size:var(--fs-xs);color:var(--mute
 /* HF model_type / hfArch 这类标识符（Qwen3_5ForConditionalGeneration）本身是
    一个不可分的词，但窄屏必须能换行，否则整页横向溢出 */
 .muted{overflow-wrap:anywhere}
-code{font-family:var(--mono);font-size:var(--fs-xs);background:var(--bg-soft);padding:.1em .38em;border-radius:var(--r-xs);overflow-wrap:anywhere}
+/* ⚠ 2026-10-10：删掉了这条里的 `overflow-wrap:anywhere` —— 共享层 brand.css:525
+   的 `code,kbd,pre{overflow-wrap:anywhere}` 已经覆盖，ui-core 报为冗余配方。
+   同值副本最危险：今天一样，明天改一处就悄悄分叉。 */
+code{font-family:var(--mono);font-size:var(--fs-xs);background:var(--bg-soft);padding:.1em .38em;border-radius:var(--r-xs)}
 
 .budget th{width:9em}
 /* 超大MoE 的前置提醒：最小档超过单卡上限时，必须在选档表之前就说清「不是不能跑，是要换运行方式」 */
