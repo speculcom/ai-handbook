@@ -21,6 +21,21 @@
 - ❌ 不是权重镜像站（**不下载、不托管任何模型文件**）
 - ❌ 不是资讯站（不追热点、不写新闻）
 
+## 我该怎么读
+
+10 个基础模型、132 个量化档、1253 个 GGUF 文件 —— 全列出来没人看得到底。按你的处境走：
+
+| 你的处境 | 走哪条路 |
+|---|---|
+| 「我电脑跑得动吗」 | 从下面的**系列表**里挑，看成员数和量化档数；体量在 `data/series/*.json` 里 |
+| 「这个档位下载量为什么这么高」 | 先看 [`data/quantizers/`](./data/quantizers/) 里量化者档案 —— 同一个模型，不同人做的档质量差很多 |
+| 「我该不该用某个模型」 | 看 [`docs/selection-*.json`](./docs/)：为什么当初选了这些，过程可追溯 |
+| 「为什么没有 Q4_K_M」 | 读 [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md) 里档名规则那节 |
+
+一句话：**这里只回答「下哪个、为什么」，不回答「哪个更强」。**
+
+站上的版本：<https://models.specul.com/>
+
 ## 目录结构
 
 ```
@@ -128,6 +143,26 @@ node scripts/build.mjs
 | [agent.specul.com](https://agent.specul.com/) | Agent 图谱 · 成品 agent / harness / MCP 工具 |
 | [learn.specul.com](https://learn.specul.com/) | 术语表 · 概念层 |
 | [vg.specul.com](https://vg.specul.com/) | AI 做游戏 · 实践层 |
+
+<!-- INDEX:BEGIN 由 _audit/gen-repo-docs.mjs 生成，勿手改 -->
+
+## 内容索引
+
+| 系列 | 厂商 | 发布时间 | 模型仓 | 量化档 | 规模 |
+|---|---|---|---|---|---|
+| [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护… |
+| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google 开放权重最新一代，三种规格各自都有量化覆盖。 |
+| [GLM 5](data/series/glm-5.json) | 智谱 AI | 2026-08-25 | 2 | 17 | 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。 |
+| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 4 | OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。 |
+| [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。 |
+| [Kimi K3](data/series/kimi-k3.json) | 月之暗面 | 2026-06-13 | 1 | 10 | 月之暗面当前最新一代，41 家量化仓但整体热度中等。 |
+| [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | 代码方向的开放权重系列，许可为 OpenMDW-1.1（使用前须读原文）。 |
+| [MiniCPM 5](data/series/minicpm5.json) | 面壁智能 · OpenBMB | 2026-08-27 | 1 | 10 | 国产小尺寸代表，2B 规模适合低显存与端侧。 |
+| [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta 的开放权重系列，apache-2.0，量化覆盖横跨多家主力量化者。 |
+| [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。 |
+| [千问 3.8](data/series/qwen3-8.json) | 阿里 · 通义千问 | 2026-08-05 | 2 | 18 | 阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。 |
+
+<!-- INDEX:END -->
 
 ## 实测规模（A8）
 
