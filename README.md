@@ -144,7 +144,7 @@ node scripts/build.mjs
 | [learn.specul.com](https://learn.specul.com/) | 术语表 · 概念层 |
 | [vg.specul.com](https://vg.specul.com/) | AI 做游戏 · 实践层 |
 
-<!-- INDEX:BEGIN 由 _audit/gen-repo-docs.mjs 生成，勿手改 -->
+<!-- INDEX:BEGIN generated, do not edit -->
 
 ## 内容索引
 
@@ -166,7 +166,7 @@ node scripts/build.mjs
 
 ## 实测规模（A8）
 
-<!-- STATS:BEGIN 由 _audit/gen-repo-docs.mjs 生成，勿手改 -->
+<!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
 | 系列 | 11 个 |
