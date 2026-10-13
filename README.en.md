@@ -2,8 +2,6 @@
 
 > 中文版：[README.md](./README.md)
 
-> 中文 | [English](README.md)
-
 > **An atlas of quantized models you can run locally** — it answers exactly one question:
 > for this base model, which quantized version should I download, and why?
 >
@@ -24,6 +22,23 @@ An **index**, not a review site.
 - ❌ Not a review site (no capability comparisons)
 - ❌ Not a weight mirror (**we do not download or host any model files**)
 - ❌ Not a news site (no hot takes, no news)
+
+## How to read this
+
+10 base models, 132 quant variants, 1253 GGUF files. Nobody reads that list top to
+bottom, so don't. Start from where you are:
+
+| Where you are | What to do |
+|---|---|
+| "Will this run on my machine?" | Pick from the **series table** below; member and variant counts are there, file sizes live in `data/series/*.json` |
+| "Why is this variant downloaded so much?" | Read the quantizer profiles in [`data/quantizers/`](./data/quantizers/) — the same model quantized by different people differs a lot |
+| "Should I use this model at all?" | Read [`docs/selection-*.json`](./docs/): why these were chosen, and the process is traceable |
+| "Why is there no Q4_K_M?" | The naming rules section of [`docs/METHODOLOGY.md`](./docs/METHODOLOGY.md) |
+
+One line to keep in mind: this repo answers **"which file do I download, and why"**.
+It does not answer "which model is stronger".
+
+Live version: <https://models.specul.com/>
 
 ## Layout
 
@@ -143,29 +158,29 @@ or faster need benchmarks, and this site makes none.
 | [learn.specul.com](https://learn.specul.com/) | Glossary · concept layer |
 | [vg.specul.com](https://vg.specul.com/) | Vibe gaming · practice layer |
 
-<!-- INDEX:BEGIN 由 _audit/gen-repo-docs.mjs 生成，勿手改 -->
+<!-- INDEX:BEGIN generated, do not edit -->
 
 ## Content index
 
 | Series | Vendor | Released | Members | Variants | Summary |
 |---|---|---|---|---|---|
-| [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护… |
-| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google 开放权重最新一代，三种规格各自都有量化覆盖。 |
-| [GLM 5](data/series/glm-5.json) | Zhipu AI | 2026-08-25 | 2 | 17 | 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。 |
-| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 4 | OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。 |
-| [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。 |
-| [Kimi K3](data/series/kimi-k3.json) | Moonshot AI | 2026-06-13 | 1 | 10 | 月之暗面当前最新一代，41 家量化仓但整体热度中等。 |
-| [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | 代码方向的开放权重系列，许可为 OpenMDW-1.1（使用前须读原文）。 |
-| [MiniCPM 5](data/series/minicpm5.json) | OpenBMB | 2026-08-27 | 1 | 10 | 国产小尺寸代表，2B 规模适合低显存与端侧。 |
-| [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta 的开放权重系列，apache-2.0，量化覆盖横跨多家主力量化者。 |
-| [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。 |
-| [Qwen3.8](data/series/qwen3-8.json) | Alibaba Qwen | 2026-08-05 | 2 | 18 | 阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。 |
+| [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT-licensed, with a lively quantizatio… |
+| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google's newest open-weight generation;… |
+| [GLM 5](data/series/glm-5.json) | Zhipu AI | 2026-08-25 | 2 | 17 | Zhipu's current generation. The MIT-lic… |
+| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 4 | OpenAI's only open-weight series. The 2… |
+| [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | A code-focused open-weight series under… |
+| [Kimi K3](data/series/kimi-k3.json) | Moonshot AI | 2026-06-13 | 1 | 10 | Moonshot AI's current generation. 41 qu… |
+| [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | A code-focused open-weight series under… |
+| [MiniCPM 5](data/series/minicpm5.json) | OpenBMB | 2026-08-27 | 1 | 10 | A leading small-footprint Chinese model… |
+| [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta's open-weight series under Apache-… |
+| [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | MIT-licensed; across its two sizes it h… |
+| [Qwen3.8](data/series/qwen3-8.json) | Alibaba Qwen | 2026-08-05 | 2 | 18 | Alibaba's current generation. The 27B d… |
 
 <!-- INDEX:END -->
 
 ## Measured size (A8)
 
-<!-- STATS:BEGIN 由 _audit/gen-repo-docs.mjs 生成，勿手改 -->
+<!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
 | Series | 11 |
