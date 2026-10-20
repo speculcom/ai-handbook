@@ -6,7 +6,7 @@ titleEn: Pre-training: how a model comes to know a bit of everything
 summary: 预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。
 summaryEn: What pre-training optimises, how corpora reach trillions of tokens, how compute and data are budgeted, and how the scaling-law story changed. The practitioner-depth version; the one-page explainer lives on the Learn site — cross-linked, not duplicated.
 sources:
-  - label: GPT-3 论文（arXiv 2005.14165，自回归目标与 3000 亿参数规模，2026-10-20 直抓摘要页）
+  - label: GPT-3 论文（arXiv 2005.14165，自回归目标与 1750 亿参数规模，2026-10-21 复核摘要页）
     url: https://arxiv.org/abs/2005.14165
     kind: paper
   - label: Kaplan 缩放律论文（arXiv 2001.08361，2026-10-20 直抓摘要页）
@@ -30,8 +30,8 @@ sources:
   - label: FineWeb 技术报告（arXiv 2406.17557，Hugging Face 官方复现的 15T token 开放语料，2026-10-20 直抓摘要页）
     url: https://arxiv.org/abs/2406.17557
     kind: paper
-  - label: DCLM 技术报告（arXiv 2406.11746，普林斯顿官方：数据筛选比规模更关键的实验系列，2026-10-20 直抓摘要页）
-    url: https://arxiv.org/abs/2406.11746
+  - label: DCLM 技术报告（arXiv 2406.11794，普林斯顿官方：数据筛选比规模更关键的实验系列，2026-10-21 直抓摘要页）
+    url: https://arxiv.org/abs/2406.11794
     kind: paper
   - label: BPE 分词论文（arXiv 1508.07909，子词切分的原始方法，2026-10-20 直抓摘要页）
     url: https://arxiv.org/abs/1508.07909
@@ -74,7 +74,7 @@ T5 论文的 C4 附录给出了一套被广泛沿用的清洗规则：
 LLaMA 论文明确说只用公开可得数据训练，把「数据配方」本身当成贡献。
 
 清洗比规模更关键这件事，有官方对照实验。
-普林斯顿的 DCLM 报告（arXiv 2406.11746）用同一套训练预算只换数据筛选方法，
+普林斯顿的 DCLM 报告（arXiv 2406.11794）用同一套训练预算只换数据筛选方法，
 模型表现差距巨大——多喂不如喂对。
 
 Hugging Face 的 FineWeb（arXiv 2406.17557）把这套清洗做成 15T token 的开放语料，
@@ -133,4 +133,5 @@ Llama 用 128K 词表（官方模型卡），OpenAI 的 o200k_base 到 20 万（
 这一篇是从业者视角的深版：讲决定、讲代价、讲口径变化。
 
 同一个词在两处深度不同，互链不重复。
-数据与算力的成本量级、开源训练栈见本站「数据与算力」篇（S56）。
+数据与算力的成本量级见本站[数据与算力篇](data-compute.html)，
+开源训练栈见[开源训练栈篇](training-stack.html)。

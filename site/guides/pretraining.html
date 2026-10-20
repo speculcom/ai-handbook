@@ -110,7 +110,7 @@
       <h2><span data-zh>数据：规模、清洗、去重</span><span data-en>Data: scale, cleaning, deduplication</span></h2>
 <p>网页语料（Common Crawl）是脏的：重复、垃圾页、机器生成文本混在里面。<br>T5 论文的 C4 附录给出了一套被广泛沿用的清洗规则：<br>去重、过滤低质量行、按语言筛。</p>
 <p>LLaMA 论文明确说只用公开可得数据训练，把「数据配方」本身当成贡献。</p>
-<p>清洗比规模更关键这件事，有官方对照实验。<br>普林斯顿的 DCLM 报告（arXiv 2406.11746）用同一套训练预算只换数据筛选方法，<br>模型表现差距巨大——多喂不如喂对。</p>
+<p>清洗比规模更关键这件事，有官方对照实验。<br>普林斯顿的 DCLM 报告（arXiv 2406.11794）用同一套训练预算只换数据筛选方法，<br>模型表现差距巨大——多喂不如喂对。</p>
 <p>Hugging Face 的 FineWeb（arXiv 2406.17557）把这套清洗做成 15T token 的开放语料，<br>每步清洗的消融都公开，可以直接复现。</p>
 <p>去重是硬功夫：同一篇网文在 Common Crawl 里可能出现几十次。<br>重复数据不仅浪费算力，还会让模型把训练文本原样背下来。<br>这是评测污染的一大来源。</p>
     </section>
@@ -136,13 +136,13 @@
     <section class="fam-sec">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
 <p>学 AI 站的 <a href="https://learn.specul.com/term/预训练/" target="_blank" rel="noopener">预训练</a> 与<br><a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a> 是使用者视角的一页科普；<br>这一篇是从业者视角的深版：讲决定、讲代价、讲口径变化。</p>
-<p>同一个词在两处深度不同，互链不重复。<br>数据与算力的成本量级、开源训练栈见本站「数据与算力」篇（S56）。</p>
+<p>同一个词在两处深度不同，互链不重复。<br>数据与算力的成本量级见本站[数据与算力篇](data-compute.html)，<br>开源训练栈见[开源训练栈篇](training-stack.html)。</p>
     </section>
 
     <section class="fam-sec fam-sources">
       <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
       <ul class="fam-src-list">
-        <li>GPT-3 论文（arXiv 2005.14165，自回归目标与 3000 亿参数规模，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener">https://arxiv.org/abs/2005.14165</a></li>
+        <li>GPT-3 论文（arXiv 2005.14165，自回归目标与 1750 亿参数规模，2026-10-21 复核摘要页）：<a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener">https://arxiv.org/abs/2005.14165</a></li>
         <li>Kaplan 缩放律论文（arXiv 2001.08361，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener">https://arxiv.org/abs/2001.08361</a></li>
         <li>Chinchilla 论文（arXiv 2203.15556，「每参数约 20 token」的算力最优结论，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noopener">https://arxiv.org/abs/2203.15556</a></li>
         <li>LLaMA 论文（arXiv 2302.13971，用公开数据训 7B–65B 的路线，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2302.13971" target="_blank" rel="noopener">https://arxiv.org/abs/2302.13971</a></li>
@@ -150,7 +150,7 @@
         <li>Llama 3 官方模型卡（15T token、128K 上下文的官方口径，2026-10-20 直抓 200）：<a href="https://huggingface.co/meta-llama/Llama-3.1-8B" target="_blank" rel="noopener">https://huggingface.co/meta-llama/Llama-3.1-8B</a></li>
         <li>C4 语料说明（T5 论文 arXiv 1910.10683 附录，网页语料的清洗规则，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/1910.10683" target="_blank" rel="noopener">https://arxiv.org/abs/1910.10683</a></li>
         <li>FineWeb 技术报告（arXiv 2406.17557，Hugging Face 官方复现的 15T token 开放语料，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2406.17557" target="_blank" rel="noopener">https://arxiv.org/abs/2406.17557</a></li>
-        <li>DCLM 技术报告（arXiv 2406.11746，普林斯顿官方：数据筛选比规模更关键的实验系列，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2406.11746" target="_blank" rel="noopener">https://arxiv.org/abs/2406.11746</a></li>
+        <li>DCLM 技术报告（arXiv 2406.11794，普林斯顿官方：数据筛选比规模更关键的实验系列，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2406.11794" target="_blank" rel="noopener">https://arxiv.org/abs/2406.11794</a></li>
         <li>BPE 分词论文（arXiv 1508.07909，子词切分的原始方法，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/1508.07909" target="_blank" rel="noopener">https://arxiv.org/abs/1508.07909</a></li>
         <li>OpenAI tiktoken 官方仓库（o200k_base 词表的官方实现与说明，2026-10-20 直抓 200）：<a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">https://github.com/openai/tiktoken</a></li>
       </ul>

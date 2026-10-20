@@ -67,12 +67,16 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 
 - [偏好对齐：RLHF 与 DPO 在解决什么问题](https://models.specul.com/guides/alignment.html): 奖励模型怎么从人排序里炼出来、PPO 那一步贵在哪、DPO 为什么能免掉强化学习、以及「对齐税」与谄媚这些代价。从业者视角深版；一页科普在学 AI 站。
   8 节 · 6 条官方出处 · 核验 2026-10-20
+- [数据与算力：做模型的两大开销](https://models.specul.com/guides/data-compute.html): 语料从哪来、怎么洗到万亿 token；算力怎么用 GPU-hours 与 MFU 记账；成本量级怎么估——只讲构成方法，不存任何单价。从业者视角；词条版在学 AI 站，互链不重复。
+  8 节 · 9 条官方出处 · 核验 2026-10-21
 - [蒸馏：小模型怎么从大模型身上学](https://models.specul.com/guides/distillation.html): logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
   7 节 · 8 条官方出处 · 核验 2026-10-20
 - [预训练：模型怎么做到「什么都知道一点」](https://models.specul.com/guides/pretraining.html): 预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。
   8 节 · 11 条官方出处 · 核验 2026-10-20
 - [SFT：让续写机器学会「好好回答」](https://models.specul.com/guides/sft.html): 监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。
   7 节 · 7 条官方出处 · 核验 2026-10-20
+- [开源训练栈：多卡训练的工具链](https://models.specul.com/guides/training-stack.html): 一张卡装不下大模型之后，数据并行、ZeRO、张量并行、流水线并行怎么组合；DeepSpeed、Megatron-LM、torchtitan、nanotron、TRL 各站在哪一层。从业者视角的选型地图；词条版在学 AI 站，互链不重复。
+  6 节 · 8 条官方出处 · 核验 2026-10-21
 
 ## 已收录系列
 

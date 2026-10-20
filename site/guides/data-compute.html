@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据与算力：做模型的两大开销 · 做模型专题</title>
+  <meta name="description" content="语料从哪来、怎么洗到万亿 token；算力怎么用 GPU-hours 与 MFU 记账；成本量级怎么估——只讲构成方法，不存任何单价。从业者视角；词条版在学 AI 站，互链不重复。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/data-compute.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="数据与算力：做模型的两大开销 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/data-compute.html" />
+  <meta property="og:title" content="数据与算力：做模型的两大开销 · 做模型专题" />
+  <meta property="og:description" content="语料从哪来、怎么洗到万亿 token；算力怎么用 GPU-hours 与 MFU 记账；成本量级怎么估——只讲构成方法，不存任何单价。从业者视角；词条版在学 AI 站，互链不重复。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../brand.css" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Data and compute: the two big bills of making a model","description":"Where corpora come from and how they get washed down to trillions of tokens; how compute is booked in GPU-hours and MFU; how to estimate cost magnitude — method only, no unit prices stored. Practitioner view; the term pages live on the Learn site, cross-linked, not duplicated.","url":"https://models.specul.com/guides/data-compute.html","dateModified":"2026-10-21"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>本地模型</span><span data-en>Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://agent.specul.com/"><span><span data-zh>Agent</span><span data-en>Agent</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>本地模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>导航</span><span data-en>Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span>　<span class="t-tag"><span data-zh>训练管线 · 第 5 站</span><span data-en>training pipeline · stage 5</span></span></p>
+      <h1><span data-zh>数据与算力：做模型的两大开销</span><span data-en>Data and compute: the two big bills of making a model</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>语料从哪来、怎么洗到万亿 token；算力怎么用 GPU-hours 与 MFU 记账；成本量级怎么估——只讲构成方法，不存任何单价。从业者视角；词条版在学 AI 站，互链不重复。</span><span data-en>Where corpora come from and how they get washed down to trillions of tokens; how compute is booked in GPU-hours and MFU; how to estimate cost magnitude — method only, no unit prices stored. Practitioner view; the term pages live on the Learn site, cross-linked, not duplicated.</span></p>
+    </header>
+
+    <section class="fam-sec">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
+<p><b>做模型的钱主要花在两处：数据与算力。</b><br>这一篇讲从业者怎么给这两笔开销记账：语料从哪来、洗到什么规模；<br>算力用什么单位自报、利用率实际有多高；成本量级怎么估。</p>
+<p>本站不实测，也不收录任何具体价格。<br>所有数字都是论文或官方报告自报的口径，出处列在文末。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>语料从哪来：Common Crawl 与清洗管线</span><span data-en>Where corpora come from: Common Crawl and the washing pipeline</span></h2>
+<p>预训练语料的主力来源是 Common Crawl——<br>一家非营利组织维护的免费开放网页存档，每月发布一批 dump。</p>
+<p>原始网页是脏的。同一篇文章在几十个站点上有几十个副本。<br>导航栏、模板文本、机器生成内容混在正文里。<br>清洗管线大致是：抽正文、按语言筛、启发式过滤、去重。</p>
+<p>去重是整条管线里最贵的步骤之一。<br>Common Crawl 各批 dump 之间互相重叠。<br>跨批去重要在几十万亿 token 上做相似度匹配。<br>FineWeb 报告把每一步的取舍都做了消融，公开可查。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>开放语料三件套：FineWeb、DCLM、Dolma</span><span data-en>Three open corpora: FineWeb, DCLM, Dolma</span></h2>
+<p>头部模型的语料配方多数不公开。公开语料的价值就在这里：<br>让没预算攒数据的人也能训出能用的模型。</p>
+<p>FineWeb（Hugging Face）：15T token，来自 96 批 Common Crawl 存档。<br>另附教育向子集 FineWeb-Edu，1.3T token。</p>
+<p>DCLM（普林斯顿）：语料标准化到 240T token，训练预算固定。<br>参与者只比一项：数据筛选方法。结论直白：多喂不如喂对。</p>
+<p>Dolma（AI2）：3T token 英文研究语料，明确定位是给科研用的对照底座。</p>
+<p>三家都把清洗代码一起放出。选开放语料时看许可与清洗记录，<br>别只看 token 总数——总数大、洗得糙，训出来照样差。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>算力怎么记账：GPU-hours 与 MFU</span><span data-en>Booking compute: GPU-hours and MFU</span></h2>
+<p>训练算力通行的记账单位是「卡时」：一张加速卡跑一小时。<br>论文自报口径各不相同，比较前先看清是什么卡。</p>
+<p>DeepSeek-V3 论文自报：完整训练用了 2.788M 个 H800 卡时。<br>Llama 3 论文自报：405B 模型最多用 16K 块 H100 训练。<br>PaLM 论文自报：6144 块 TPU v4，训练 FLOPs 约 2.56×10²⁴。<br>三篇论文的编号都在文末出处清单里。</p>
+<p>卡与卡不同代、不同厂商，卡时不能直接互比。<br>跨硬件比较用 FLOPs（浮点运算次数）更公平，但论文未必都报。</p>
+<p>MFU（模型算力利用率）是另一个关键口径：<br>模型真正用到的运算，除以硬件理论峰值。<br>Llama 3 论文自报 MFU 38–43%。<br>也就是说，一半以上硬件时间花在通信、重算与故障恢复上。<br>看别人晒的「卡数」时，先问 MFU，不然会严重低估真实开销。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>规模之外：故障也是成本</span><span data-en>Beyond scale: failures are a cost too</span></h2>
+<p>千卡级训练里，硬件故障不是意外，是日常。<br>Llama 3 论文自报：预训练 54 天快照期内共 466 次任务中断，<br>其中 419 次是意外中断，约 78% 归因于硬件问题；<br>即便如此，有效训练时间仍超过 90%。</p>
+<p>这意味着算力账单里含一大块「白烧」：<br>故障回滚掉的重训、检查点保存、为稳定性预留的冗余。<br>DeepSeek-V3 摘要自报：全程没有不可恢复的 loss spike，也没有回滚。<br>这句话被当成卖点写进摘要，说明它在业界是稀缺事件。</p>
+<p>架构选择也能改这笔账。GLaM 论文自报：<br>模型 1.2 万亿参数，训练能耗约为 GPT-3 的三分之一，推理 FLOPs 约一半。<br>稀疏激活省的是「每个 token 激活的参数量」，不是参数量本身。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>成本量级怎么估：讲方法，不存单价</span><span data-en>Estimating cost magnitude: method, not unit prices</span></h2>
+<p>训练成本的构成是一条乘法链：<br>卡时数 × 每卡每小时的租用价格 ≈ 训练成本。</p>
+<p>第一项论文会自报（见上节）；第二项随市场每月波动，<br>本站按纪律不收录任何具体单价，也不做「训一个模型要多少钱」的报价。</p>
+<p>能诚实给出的是量级判断方法：<br>先查同规模模型的自报卡时；再按 Chinchilla 口径核对训练量，<br>即每参数约 20 个 token；最后用 MFU 修正硬件利用率。<br>三步走完，你至少知道这笔账是十万卡时级还是千万卡时级。<br>这已经足够支撑「要不要自己做模型」的判断。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
+<p>学 AI 站的 <a href="https://learn.specul.com/term/%E8%AE%AD%E7%BB%83%E8%AF%AD%E6%96%99/" target="_blank" rel="noopener">训练语料</a>、<br><a href="https://learn.specul.com/term/%E8%AE%AD%E7%BB%83%E7%AE%97%E5%8A%9B/" target="_blank" rel="noopener">训练算力</a> 与<br><a href="https://learn.specul.com/term/AI%20%E8%8A%AF%E7%89%87/" target="_blank" rel="noopener">AI 芯片</a> 是使用者视角的一页科普；<br>这一篇讲从业者怎么记账：语料管线、自报口径、利用率与故障成本。</p>
+<p>同一个概念在两处深度不同，互链不重复。<br>把并行训练落地的开源工具链见本站「开源训练栈」篇。</p>
+    </section>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li>Common Crawl 官网（免费开放网页存档的非营利组织，2026-10-21 直抓 200）：<a href="https://commoncrawl.org" target="_blank" rel="noopener">https://commoncrawl.org</a></li>
+        <li>FineWeb 技术报告（arXiv 2406.17557，15T token 开放语料与逐步消融，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2406.17557" target="_blank" rel="noopener">https://arxiv.org/abs/2406.17557</a></li>
+        <li>DCLM 技术报告（arXiv 2406.11794，240T token 标准化语料与筛选对照，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2406.11794" target="_blank" rel="noopener">https://arxiv.org/abs/2406.11794</a></li>
+        <li>Dolma 技术报告（arXiv 2402.00159，AI2 官方 3T token 研究语料，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2402.00159" target="_blank" rel="noopener">https://arxiv.org/abs/2402.00159</a></li>
+        <li>Chinchilla 论文（arXiv 2203.15556，算力最优配比，2026-10-21 复核摘要页）：<a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noopener">https://arxiv.org/abs/2203.15556</a></li>
+        <li>DeepSeek-V3 论文（arXiv 2412.19437，自报 2.788M H800 GPU 小时与 14.8T token，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noopener">https://arxiv.org/abs/2412.19437</a></li>
+        <li>Llama 3 论文（arXiv 2407.21783，自报 16K H100、15.6T token、MFU 38–43%、419 次意外中断，2026-10-21 直抓全文）：<a href="https://arxiv.org/abs/2407.21783" target="_blank" rel="noopener">https://arxiv.org/abs/2407.21783</a></li>
+        <li>PaLM 论文（arXiv 2204.02311，自报 6144 块 TPU v4 与训练 FLOPs 表，2026-10-21 直抓全文）：<a href="https://arxiv.org/abs/2204.02311" target="_blank" rel="noopener">https://arxiv.org/abs/2204.02311</a></li>
+        <li>GLaM 论文（arXiv 2112.06905，MoE 训练能耗约为 GPT-3 的三分之一，2026-10-21 经检索核实摘要口径）：<a href="https://arxiv.org/abs/2112.06905" target="_blank" rel="noopener">https://arxiv.org/abs/2112.06905</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>核验快照：2026-10-21 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-21 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 投机取巧 · <span data-zh>Specul</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+          <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+          <a href="https://github.com/speculcom/ai-quantized-llm" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://agent.specul.com/"><span class="ti" aria-hidden="true">◈</span>Agent</a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+  <script src="../brand.js"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
+      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
+      sync();
+    })();
+  </script>
+</body>
+</html>
