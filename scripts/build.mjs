@@ -103,6 +103,62 @@ const seriesList = fs.readdirSync(path.join(ROOT, 'data', 'series'))
   .filter((f) => f.endsWith('.json'))
   .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'series', f), 'utf8')));
 
+/* v7 S51：家族谱系卡（「开放权重该怎么选」的第一层：选家族/代次/尺寸/许可）。
+ * 与 series（第二层：量化版）平行。真相源 data/families/*.json。 */
+const familyList = (fs.existsSync(path.join(ROOT, 'data', 'families'))
+  ? fs.readdirSync(path.join(ROOT, 'data', 'families')).filter((f) => f.endsWith('.json'))
+  : []
+).map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'families', f), 'utf8')));
+
+/* v7 S54：闭源谱系卡（data/closed/*.json）。本站主体仍是开放权重选型，
+ * 闭源卡回答的是对照面的问题：这家 API 现在哪一代、官方规格声明是什么、
+ * 我们上次核验是什么时候——每条事实挂官方出处，每张卡带复核到期日。
+ * ⚠ D9：卡内不采价格数字，只放官方定价页链接。 */
+const closedList = (fs.existsSync(path.join(ROOT, 'data', 'closed'))
+  ? fs.readdirSync(path.join(ROOT, 'data', 'closed')).filter((f) => f.endsWith('.json'))
+  : []
+).map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'closed', f), 'utf8')));
+
+/* v7 S55：做模型专题（guides/*.md · 训练四阶段等方法论文章）。
+ * 格式对齐 agent 仓 SCHEMA §十；正文节标题写 `## [中文|English]`，渲染成 bi 双节点。
+ * frontmatter 是刻意简单的 YAML 子集（validate.mjs 第 8 节按同一子集校验，两边口径一致）。 */
+const guideList = (() => {
+  const dir = path.join(ROOT, 'guides');
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((f) => f.endsWith('.md')).sort().map((f) => {
+    const raw = fs.readFileSync(path.join(dir, f), 'utf8');
+    const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+    if (!fm) return null;
+    const get = (k) => {
+      const m = fm[1].match(new RegExp('^' + k + ':[ \\t]*(\\S.*)$', 'm'));
+      return m ? m[1].trim().replace(/^"|"$/g, '') : '';
+    };
+    const sources = [];
+    const srcBlock = fm[1].match(/^sources:\r?\n((?:(?:[ \t]+.*)\r?\n?)*)/m);
+    if (srcBlock) {
+      let cur = null;
+      for (const line of srcBlock[1].split(/\r?\n/)) {
+        if (/^[ \t]*-[ \t]+label:/.test(line)) { cur = { label: line.replace(/^[ \t]*-[ \t]+label:[ \t]*/, '').trim() }; sources.push(cur); continue; }
+        const m2 = /^[ \t]+(url|kind):[ \t]*(\S.*)$/.exec(line);
+        if (m2 && cur) cur[m2[1]] = m2[2].trim();
+      }
+    }
+    const body = raw.slice(fm[0].length);
+    const sections = [];
+    for (const part of body.split(/^## /m).slice(body.startsWith('## ') ? 1 : 0)) {
+      const nl = part.indexOf('\n');
+      if (nl < 0) continue;
+      sections.push({ head: part.slice(0, nl).trim(), text: part.slice(nl + 1).trim() });
+    }
+    return {
+      id: get('id'), title: get('title'), titleEn: get('titleEn'),
+      summary: get('summary'), summaryEn: get('summaryEn'),
+      lastVerified: get('last_verified'), confidence: get('confidence'),
+      sources, sections,
+    };
+  }).filter(Boolean);
+})();
+
 const quantizerDocs = {};
 const qDir = path.join(ROOT, 'data', 'quantizers');
 if (fs.existsSync(qDir)) {
@@ -144,6 +200,48 @@ function licBadge(lic, { asSpan = false } = {}) {
   return `<a class="${cls}" href="https://huggingface.co/search?license=${encodeURIComponent(lic)}" target="_blank" rel="noopener">${esc(lic)}</a>`;
 }
 const NEEDS_REVIEW = /^(other|unknown|cc-by|gpl|agpl|openrail|bigscience|noassertion)/i;
+
+// ── 中文生态透镜（v7 S52 · 2026-10-20）────────────────────────────────
+// 「国产 / 国内可直接用 / 备案状态」——总纲 §1.7 缺口 #2，models 与 tools 共用同一字段口径。
+// 版式复用 brand.css 的 .t-tag / .t-state（宪章 1：不新造组件）。
+// 数据纪律见 validate.mjs 第 6 节：枚举封闭、filed 必带编号、not-filed 必带检索口径 note。
+const CN_ORIGIN_LABEL = { domestic: ['国产', 'domestic'], foreign: ['国外出品', 'foreign-made'] };
+const CN_DIRECT_LABEL = { yes: ['国内可直连', 'direct OK'], no: ['直连不可达', 'direct blocked'], unknown: ['直连未核验', 'direct unknown'] };
+const CN_FILING_LABEL = { filed: ['已备案', 'filed'], 'not-filed': ['未见于备案名单', 'not in filing list'], unknown: ['备案未核验', 'filing unknown'] };
+function cnChips(cn) {
+  if (!cn) return '';
+  const out = [];
+  if (CN_ORIGIN_LABEL[cn.origin]) out.push(`<span class="t-tag${cn.origin === 'domestic' ? '' : ' is-cyan'}">${bi(CN_ORIGIN_LABEL[cn.origin][0], CN_ORIGIN_LABEL[cn.origin][1])}</span>`);
+  if (CN_DIRECT_LABEL[cn.direct]) out.push(`<span class="t-tag${cn.direct === 'yes' ? ' is-cyan' : ''}">${bi(CN_DIRECT_LABEL[cn.direct][0], CN_DIRECT_LABEL[cn.direct][1])}</span>`);
+  if (cn.filing && CN_FILING_LABEL[cn.filing.status]) {
+    const dot = cn.filing.status === 'filed' ? ' is-ok' : (cn.filing.status === 'unknown' ? ' is-warn' : '');
+    out.push(`<span class="t-state${dot}">${bi(CN_FILING_LABEL[cn.filing.status][0], CN_FILING_LABEL[cn.filing.status][1])}</span>`);
+  }
+  return out.join(' ');
+}
+/* 详情页的「中文生态」节：三行判断 + 依据 + 出处 + 快照日。
+ * 每行都回答「这个结论怎么来的」——备案抄公示原文编号，直连写实测日期与渠道。 */
+function cnSection(cn) {
+  if (!cn) return '';
+  const f = cn.filing || {};
+  const filingRow = f.status === 'filed'
+    ? `${bi('已备案', 'Filed')}：<code>${esc(f.no || '')}</code>　${bi('公示名称', 'listed as')}「${esc(f.name || '')}」　·　${bi('备案时间', 'filed')} ${esc(f.date || '')}${f.note ? `　·　${bi(esc(f.note), esc(f.noteEn || f.note))}` : ''}`
+    : `${bi(CN_FILING_LABEL[f.status] ? CN_FILING_LABEL[f.status][0] : '备案未核验', CN_FILING_LABEL[f.status] ? CN_FILING_LABEL[f.status][1] : 'filing unknown')}${f.note ? `：${bi(esc(f.note), esc(f.noteEn || f.note))}` : ''}`;
+  const mirrorRow = cn.mirror
+    ? `　·　<a href="${esc(cn.mirror)}" target="_blank" rel="noopener">${bi('国内镜像入口', 'domestic mirror')}</a>`
+    : '';
+  return `
+    <section class="fam-sec cn-sec">
+      <h2>${bi('中文生态', 'China availability')} <small>${bi('国产 / 国内可直接用 / 备案状态 · 快照', 'domestic / direct access / CAC filing · snapshot')} ${esc(cn.last_verified || '')}</small></h2>
+      <ul class="fam-claims cn-rows">
+        <li><b>${bi('出品属地', 'Origin')}</b>　${bi(CN_ORIGIN_LABEL[cn.origin] ? CN_ORIGIN_LABEL[cn.origin][0] : '?', CN_ORIGIN_LABEL[cn.origin] ? CN_ORIGIN_LABEL[cn.origin][1] : '?')}　${bi(esc(cn.originNote || ''), esc(cn.originNoteEn || cn.originNote || ''))}</li>
+        <li><b>${bi('国内下载', 'Direct access')}</b>　${bi(CN_DIRECT_LABEL[cn.direct] ? CN_DIRECT_LABEL[cn.direct][0] : '?', CN_DIRECT_LABEL[cn.direct] ? CN_DIRECT_LABEL[cn.direct][1] : '?')}　${bi(esc(cn.directNote || ''), esc(cn.directNoteEn || cn.directNote || ''))}${mirrorRow}</li>
+        <li><b>${bi('备案状态', 'CAC filing')}</b>　${filingRow}</li>
+      </ul>
+      <p class="fam-claims-note">${bi('备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站从大陆网络直连实测的结果，不是厂商承诺。', 'Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site\'s own reachability measurement from a mainland network, not a vendor promise.')}</p>
+      <ul class="fam-src-list cn-srcs">${(cn.sources || []).map((s) => `<li>${esc(s.label)}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}</ul>
+    </section>`;
+}
 
 // 量化仓自己没写 license 字段时，backfill-license.mjs 会继承基座许可并打上这两个标记。
 // 继承在著作权上是必然的（量化只是对权重做舍入/缩放/imatrix 加权的数学变换，不新增也不删除
@@ -868,6 +966,7 @@ ${blockF(s, m)}
       <nav class="member-nav">${memberNav}</nav>
     </header>
 ${trustBanner()}
+${cnSection(s.cn)}
 ${sections}
 ${companionBlock()}
     <section class="legal-note">
@@ -903,7 +1002,335 @@ repo: 'https://github.com/speculcom/ai-quantized-llm',
   });
 }
 
+/* ═════════════════════════════════════════════════════════════════════════
+ * v7 S51：家族谱系卡详情页（/families/<code>/）
+ * 回答「这类开放权重模型是什么来头、现在哪一代、各档什么许可、官方声明过什么」。
+ * 与 series 页的关系：家族卡管「选哪个模型」，series 页管「选哪个量化版」。
+ * ⚠ 版式走 css/models.css 的 .m-fam 组件（宪章 1：models 站内一处定义、全家页消费）。
+ * ═════════════════════════════════════════════════════════════════════════ */
+function familyPage(f) {
+  const gens = f.generations.map((g) => `
+        <li class="fam-gen">
+          <div class="fam-gen-head"><b>${esc(g.gen)}</b><span class="fam-gen-date">${esc(g.date)}</span>${g.gen === f.currentGen.zh || g.gen === f.currentGen.en ? `<span class="fam-gen-cur">${bi('当前代','current')}</span>` : ''}</div>
+          <p>${bi(esc(g.zh), esc(g.en || g.zh))}</p>
+          ${g.url ? `<a class="fam-src" href="${esc(g.url)}" target="_blank" rel="noopener">${bi('官方页面 ↗','official page ↗')}</a>` : ''}
+        </li>`).join('');
+
+  const tiers = f.sizeTiers.map((t) => `<li>${bi(esc(t.zh), esc(t.en || t.zh))}</li>`).join('');
+
+  const lics = f.licenses.map((L2) => `<li>${licBadge(L2.id)}<span class="fam-lic-txt">${bi(esc(L2.zh), esc(L2.en || L2.zh))}</span>${L2.url ? ` <a class="fam-src" href="${esc(L2.url)}" target="_blank" rel="noopener">${bi('许可原文 ↗','licence text ↗')}</a>` : ''}</li>`).join('');
+
+  const claims = f.claims.map((c) => `
+        <li>${bi(esc(c.zh), esc(c.en || c.zh))}<a class="fam-src" href="${esc(c.url)}" target="_blank" rel="noopener">${bi('出处 ↗','source ↗')}</a></li>`).join('');
+
+  /* onSite：已收录 → 链到本站系列页（量化对比）；未收录 → 诚实说明（不造空壳链接）。 */
+  const onSiteHtml = (f.onSite?.series || []).length
+    ? `<p class="fam-onsite">${bi('本站已收录该家族的量化对比：', 'This site covers this family\'s quantisations: ')}${(f.onSite.series || []).map((sc) => {
+        const s = seriesList.find((x) => x.code === sc);
+        return s ? `<a href="../series/${sc}/">${bi(esc(s.name.zh), esc(s.name.en || s.name.zh))}</a>` : '';
+      }).join(' ')}</p>`
+    : `<p class="fam-onsite fam-onsite-no">${bi(esc(f.onSite?.zh || ''), esc(f.onSite?.en || ''))}</p>`;
+
+  /* S53 派生标记（A6.5 base_model 口径）：官方模型卡声明 base_model 的家族，
+   * 把「权重谱系从哪来」写进卡页——派生不是贬义，选它=选基座谱系+该厂商后训练。 */
+  const derivedHtml = f.derived ? `
+    <section class="fam-sec">
+      <h2>${bi('派生标记', 'Derived from')} <small>${bi('按官方模型卡 base_model 声明', 'per the official model-card base_model declaration')}</small></h2>
+      <p class="fam-derived">${bi(esc(f.derived.zh), esc(f.derived.en))}　${bi('基座', 'base')}：<code>${esc(f.derived.base)}</code>　<a class="fam-src" href="${esc(f.derived.url)}" target="_blank" rel="noopener">${bi('出处 ↗','source ↗')}</a></p>
+    </section>` : '';
+
+  const body = `  <div class="container">
+    <nav class="crumbs"><a href="${DOMAIN}">← ${bi('全部家族','All families')}</a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>${esc(f.vendor.zh)}</span><span data-en>${esc(f.vendor.en)}</span>　·　${bi('当前代','current generation')} ${esc(f.currentGen.zh)}（${esc(f.currentGenDate)}）</p>
+      <h1><span data-zh>${esc(f.name.zh)}</span><span data-en>${esc(f.name.en)}</span><span class="sub">${bi('模型家族谱系卡','model family lineage card')}</span></h1>
+      <p class="lede">${bi(esc(f.positioning.zh), esc(f.positioning.en))}</p>
+      ${onSiteHtml}
+    </header>
+${trustBanner()}
+${cnSection(f.cn)}
+
+    <section class="fam-sec">
+      <h2>${bi('代次','Generations')}</h2>
+      <ul class="fam-gens">${gens}
+      </ul>
+    </section>
+${derivedHtml}
+
+    <section class="fam-sec">
+      <h2>${bi('尺寸档','Size tiers')}</h2>
+      <ul class="fam-tiers">${tiers}</ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2>${bi('许可','Licences')}</h2>
+      <ul class="fam-lics">${lics}</ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2>${bi('官方能力声明（带出处）','Official capability claims (with sources)')}</h2>
+      <ul class="fam-claims">${claims}
+      </ul>
+      <p class="fam-claims-note">${bi('以上均为厂商官方页面原文或官方自评基准的转述；涉及横评结论的，本站不背书——本站不跑 benchmark。', 'The above are quotations of official pages or transcriptions of vendor-run benchmarks; this site does not endorse cross-model conclusions — it runs no benchmarks.')}</p>
+    </section>
+
+    <section class="fam-sec fam-sources">
+      <h2>${bi('出处','Sources')}</h2>
+      <ul class="fam-src-list">${f.sources.map((s) => `<li>${esc(s.label)}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}
+      </ul>
+      <p class="fam-foot">${bi(`核验快照：${f.last_verified} · 本站不实测、不排名，未知就写未知。`, `Verification snapshot: ${f.last_verified} · no benchmarks, no rankings — unknown stays unknown.`)}</p>
+    </section>
+  </div>`;
+
+  return shell({
+    current: 'models',
+    /* 子页在 /families/<code>/（两级深），品牌资源在站点根 → ../../（同 series 页）。
+     * 深度算错的表现是子页静默丢样式（本地服务 404 但不报错，最容易漏）。 */
+    assetPrefix: '../../',
+    title: `${f.name.zh} 家族 · 开放权重谱系`,
+    desc: `${f.name.zh}（${f.vendor.zh}）的家族谱系卡：当前代 ${f.currentGen.zh}、代次沿革、尺寸档、许可与官方能力声明，全部带官方出处。核验于 ${f.last_verified}。`,
+    canonical: `${DOMAIN}families/${f.code}/`,
+    accent: ACCENT,
+    body,
+    repo: 'https://github.com/speculcom/ai-quantized-llm',
+    jsonLd: {
+      '@context': 'https://schema.org', '@type': 'Article',
+      headline: `${f.name.zh} 家族谱系卡`,
+      description: f.positioning.zh,
+      url: `${DOMAIN}families/${f.code}/`,
+      dateModified: f.last_verified,
+    },
+  });
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+ * v7 S54：闭源谱系卡详情页（/closed/<code>/）
+ * 闭源事实会腐烂——stale 机制的核心是「复核到期必须可见」：
+ * 到期 → 页顶金色横幅（不是静默放行）；未到期 → 页脚写明下次复核日。
+ * validate.mjs 第 7 节对到期发卡内警告，本渲染层兑现横幅，models-check 验证兑现。
+ * ═════════════════════════════════════════════════════════════════════════ */
+function staleState(c) {
+  const due = new Date(c.last_verified);
+  due.setDate(due.getDate() + c.review_interval_days);
+  const overdue = due < new Date();
+  return { due: due.toISOString().slice(0, 10), overdue };
+}
+
+function closedPage(c) {
+  const st = staleState(c);
+  const staleBanner = st.overdue
+    ? `    <section class="stale-banner" role="alert">
+      <b>${bi('复核已到期', 'Review overdue')}</b>　${bi(`这张卡上次核验是 ${esc(c.last_verified)}，按 ${c.review_interval_days} 天复核周期应在 ${esc(st.due)} 前复核。闭源厂商改规格不通知任何人——下面的内容截至核验日可信，之后可能已变，请以官方页为准。`, `Last verified ${esc(c.last_verified)}; per the ${c.review_interval_days}-day review cycle it should have been re-checked by ${esc(st.due)}. Closed vendors change specs without notice — everything below was true as of the verification date and may have changed since. Check the official pages.`)}
+    </section>`
+    : '';
+
+  const gens = c.generations.map((g) => `
+        <li class="fam-gen">
+          <div class="fam-gen-head"><b>${esc(g.gen)}</b><span class="fam-gen-date">${esc(g.date)}</span>${g.date === c.currentGenDate && (c.currentGen.zh.includes(g.gen) || c.currentGen.en.includes(g.gen)) ? `<span class="fam-gen-cur">${bi('当前代','current')}</span>` : ''}</div>
+          <p>${bi(esc(g.zh), esc(g.en || g.zh))}</p>
+          ${g.url ? `<a class="fam-src" href="${esc(g.url)}" target="_blank" rel="noopener">${bi('官方页面 ↗','official page ↗')}</a>` : ''}
+        </li>`).join('');
+
+  const factRows = c.facts.map((fct) => `
+        <li><b>${bi(esc(fct.k.zh), esc(fct.k.en))}</b>　${bi(esc(fct.v.zh), esc(fct.v.en))}<a class="fam-src" href="${esc(fct.url)}" target="_blank" rel="noopener">${bi('出处 ↗','source ↗')}</a></li>`).join('');
+
+  const onSiteHtml = (c.onSite?.zh || c.onSite?.en)
+    ? `<p class="fam-onsite">${bi(esc(c.onSite.zh), esc(c.onSite.en))}</p>`
+    : '';
+
+  const body = `  <div class="container">
+    <nav class="crumbs"><a href="${DOMAIN}">← ${bi('回开放权重图谱','Back to the open-weight map')}</a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>${esc(c.vendor.zh)}</span><span data-en>${esc(c.vendor.en)}</span>　·　${bi('闭源谱系卡','closed model lineage card')}　·　${bi('当前代','current generation')} ${esc(c.currentGen.zh)}（${esc(c.currentGenDate)}）</p>
+      <h1><span data-zh>${esc(c.name.zh)}</span><span data-en>${esc(c.name.en)}</span><span class="sub">${bi('闭源模型 · 官方规格快照 · 带复核周期','closed model · official spec snapshot · with review cycle')}</span></h1>
+      <p class="lede">${bi(esc(c.positioning.zh), esc(c.positioning.en))}</p>
+      <p class="closed-access"><b>${bi('怎么用得到', 'How you can use it')}：</b>${bi(esc(c.access.zh), esc(c.access.en))}</p>
+      ${onSiteHtml}
+    </header>
+${staleBanner}
+${cnSection(c.cn)}
+
+    <section class="fam-sec">
+      <h2>${bi('代次','Generations')} <small>${bi('按官方发布/文档页记录', 'as recorded by official releases and docs')}</small></h2>
+      <ul class="fam-gens">${gens}
+      </ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2>${bi('官方规格事实（每条挂出处）','Official spec facts (each with a source)')} <small>${bi('截至核验日', 'as of the verification date')}</small></h2>
+      <ul class="fam-claims cn-rows">${factRows}
+      </ul>
+      <p class="fam-claims-note">${bi('以上均为官方文档/发布页原文的转述，核验日之后厂商可能已改规格；本站不实测、不排名、不背书厂商自评，也不收录价格数字——定价请直接看官方定价页（出处节有链接）。', 'The above transcribe official docs/release pages as of the verification date; vendors may have changed specs since. This site runs no benchmarks, ranks nothing, endorses no vendor self-assessments, and records no price figures — for pricing go to the official pricing page (linked in Sources).')}</p>
+    </section>
+
+    <section class="fam-sec fam-sources">
+      <h2>${bi('出处','Sources')}</h2>
+      <ul class="fam-src-list">${c.sources.map((s) => `<li>${esc(s.label)}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}
+      </ul>
+      <p class="fam-foot">${bi(`核验快照：${c.last_verified} · 复核周期 ${c.review_interval_days} 天，下次应在 ${esc(st.due)} 前复核${st.overdue ? '（已到期——见页顶横幅）' : ''}。本站不实测、不排名，未知就写未知。`, `Verification snapshot: ${c.last_verified} · ${c.review_interval_days}-day review cycle, next re-check due by ${esc(st.due)}${st.overdue ? ' (overdue — see the banner above)' : ''}. No benchmarks, no rankings — unknown stays unknown.`)}</p>
+    </section>
+  </div>`;
+
+  return shell({
+    current: 'models',
+    /* /closed/<code>/ 也是两级深 → 品牌资源 ../../（S50 教训：深度错=子页静默丢样式） */
+    assetPrefix: '../../',
+    title: `${c.name.zh} · 闭源谱系卡`,
+    desc: `${c.name.zh}（${c.vendor.zh}）的闭源谱系卡：当前代 ${c.currentGen.zh}、官方规格事实全部挂出处、${c.review_interval_days} 天复核周期。核验于 ${c.last_verified}。`,
+    canonical: `${DOMAIN}closed/${c.code}/`,
+    accent: ACCENT,
+    body,
+    repo: 'https://github.com/speculcom/ai-quantized-llm',
+    jsonLd: {
+      '@context': 'https://schema.org', '@type': 'Article',
+      headline: `${c.name.zh} 闭源谱系卡`,
+      description: c.positioning.zh,
+      url: `${DOMAIN}closed/${c.code}/`,
+      dateModified: c.last_verified,
+    },
+  });
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+ * v7 S55：做模型专题详情页（/guides/<id>.html）
+ * 方法论文章：节标题 `## [中文|English]` → bi 双节点；正文 markdown 链接
+ * （含跨站链向 learn 词条）渲染成真链接。版式复用 .fam-sec（宪章 1）。
+ * ═════════════════════════════════════════════════════════════════════════ */
+function guideInline(t) {
+  return esc(t)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+    .replace(/`(.+?)`/g, '<code>$1</code>');
+}
+function guideBlockMd(md) {
+  return md.split(/\n{2,}/).map((blk) => {
+    const lines = blk.split('\n').filter((l) => l.trim());
+    if (lines.every((l) => /^\s*(?:[-*]|\d+\.)\s+/.test(l))) {
+      return `<ul>\n${lines.map((l) => `  <li>${guideInline(l.replace(/^\s*(?:[-*]|\d+\.)\s+/, ''))}</li>`).join('\n')}\n</ul>`;
+    }
+    return `<p>${lines.map(guideInline).join('<br>')}</p>`;
+  }).join('\n');
+}
+
+function guidePage(g) {
+  const secs = g.sections.map((s) => {
+    const bm = s.head.match(/^\[(.+)\|(.+)\]$/);
+    const head = bm ? bi(esc(bm[1]), esc(bm[2])) : guideInline(s.head);
+    return `    <section class="fam-sec">
+      <h2>${head}</h2>
+${guideBlockMd(s.text)}
+    </section>`;
+  }).join('\n');
+  const srcRows = g.sources.map((s) => `        <li>${guideInline(s.label || '')}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('\n');
+  /* .guide-body：文章页的排印作用域（models.css 的正文规则限定在它内部，
+   * 防裸 `.fam-sec ul` 之类把家族页的无点列表带偏）。 */
+  const body = `  <div class="container guide-body">
+    <nav class="crumbs"><a href="${DOMAIN}">← ${bi('回开放权重图谱','Back to the open-weight map')}</a></nav>
+    <header class="page-head">
+      <p class="eyebrow">${bi('做模型专题','How models are made')}</p>
+      <h1><span data-zh>${esc(g.title)}</span><span data-en>${esc(g.titleEn)}</span><span class="sub">${bi('从业者视角的方法论 · 关键事实挂官方出处','practitioner-perspective methodology · key facts carry official sources')}</span></h1>
+      <p class="lede">${bi(esc(g.summary), esc(g.summaryEn))}</p>
+    </header>
+
+${secs}
+
+    <section class="fam-sec fam-sources">
+      <h2>${bi('出处','Sources')}</h2>
+      <ul class="fam-src-list">
+${srcRows}
+      </ul>
+      <p class="fam-foot">${bi(`核验快照：${g.lastVerified} · 本站不实测、不排名、不裁决路线之争，未知就写未知。`, `Verification snapshot: ${g.lastVerified} · no benchmarks, no rankings, no route adjudication — unknown stays unknown.`)}</p>
+    </section>
+  </div>`;
+  return shell({
+    current: 'models',
+    /* /guides/<id>.html 是一级深（与 /families/<code>/ 不同构）→ assetPrefix '../'。
+     * ⚠ 深度按页面实际层级传（S50 教训：错一级 = 子页静默丢样式）。 */
+    assetPrefix: '../',
+    title: `${g.title} · 做模型专题`,
+    desc: `${g.summary}（核验于 ${g.lastVerified}，关键事实挂官方出处）`,
+    canonical: `${DOMAIN}guides/${g.id}.html`,
+    accent: ACCENT,
+    body,
+    repo: 'https://github.com/speculcom/ai-quantized-llm',
+    jsonLd: {
+      '@context': 'https://schema.org', '@type': 'Article',
+      headline: g.titleEn || g.title,
+      description: g.summaryEn || g.summary,
+      url: `${DOMAIN}guides/${g.id}.html`,
+      dateModified: g.lastVerified,
+    },
+  });
+}
+
 function indexPage() {
+  /* v7 S51：家族卡网格。卡面信息：家族名 + 厂商 · 当前代（日期）+ 定位一句话
+   * + 尺寸档数 / 代次数 + 许可徽标 + 本站收录入口（或诚实说明未收录原因）。 */
+  const familyCards = familyList.map((f) => {
+    const onSite = (f.onSite?.series || []).map((sc) => seriesList.find((x) => x.code === sc)).filter(Boolean);
+    const cn = f.cn || {};
+    return `        <a class="m-famcard" href="families/${f.code}/" data-lic="${esc(f.licenses.map((L2) => L2.id).join(' '))}" data-cn-origin="${esc(cn.origin || '')}" data-cn-direct="${esc(cn.direct || '')}" data-cn-filing="${esc((cn.filing || {}).status || '')}">
+          <div class="m-famcard-h">
+            <h3>${bi(esc(f.name.zh), esc(f.name.en))}</h3>
+            <span class="m-famcard-vendor">${bi(esc(f.vendor.zh), esc(f.vendor.en || f.vendor.zh))}</span>
+          </div>
+          <p class="m-famcard-cur">${bi('当前代','current')} <b>${bi(esc(f.currentGen.zh), esc(f.currentGen.en))}</b> · ${esc(f.currentGenDate)}${f.derived ? `　<span class="t-tag">${bi(`派生自 ${esc(f.derived.base)}`, `derived from ${esc(f.derived.base)}`)}</span>` : ''}</p>
+          <p class="m-famcard-sum">${bi(esc(f.positioning.zh), esc(f.positioning.en))}</p>
+          <div class="m-famcard-meta">
+            <span><b>${f.generations.length}</b> ${bi('代','generations')}</span>
+            <span><b>${f.sizeTiers.length}</b> ${bi('个尺寸档','size tiers')}</span>
+            <span>${f.licenses.map((L2) => licBadge(L2.id, { asSpan: true })).join(' ')}</span>
+          </div>
+          <div class="m-famcard-cn">${cnChips(cn)}</div>
+          <p class="m-famcard-go">${onSite.length
+            ? bi(`看量化对比（${onSite.map((s) => s.name.zh).join(' / ')}）→`, `Quantisation coverage (${onSite.map((s) => s.name.en || s.name.zh).join(' / ')}) →`)
+            : bi('未收量化对比，卡内说明原因 →', 'No quantisation coverage — see the card →')}</p>
+        </a>`;
+  }).join('\n');
+
+  /* v7 S54：闭源谱系卡网格（复用 .m-famcard 版式，宪章 1：一套 UI 一处定义）。
+   * 卡面多一行「复核状态」——到期与否是可见状态，不装作永远最新。 */
+  const closedCards = closedList.map((c) => {
+    const cn = c.cn || {};
+    const st = staleState(c);
+    return `        <a class="m-famcard" href="closed/${c.code}/" data-cn-origin="${esc(cn.origin || '')}" data-cn-direct="${esc(cn.direct || '')}" data-cn-filing="${esc((cn.filing || {}).status || '')}">
+          <div class="m-famcard-h">
+            <h3>${bi(esc(c.name.zh), esc(c.name.en))}</h3>
+            <span class="m-famcard-vendor">${bi(esc(c.vendor.zh), esc(c.vendor.en || c.vendor.zh))}</span>
+          </div>
+          <p class="m-famcard-cur">${bi('当前代','current')} <b>${bi(esc(c.currentGen.zh), esc(c.currentGen.en))}</b> · ${esc(c.currentGenDate)}</p>
+          <p class="m-famcard-sum">${bi(esc(c.positioning.zh), esc(c.positioning.en))}</p>
+          <div class="m-famcard-meta">
+            <span><b>${c.generations.length}</b> ${bi('代','generations')}</span>
+            <span><b>${c.facts.length}</b> ${bi('条官方事实','official facts')}</span>
+            <span class="t-state${st.overdue ? ' is-warn' : ' is-ok'}">${st.overdue ? bi(`复核已到期（${esc(st.due)}）`, `review overdue (${esc(st.due)})`) : bi(`核验 ${esc(c.last_verified)}`, `verified ${esc(c.last_verified)}`)}</span>
+          </div>
+          <div class="m-famcard-cn">${cnChips(cn)}</div>
+          <p class="m-famcard-go">${bi('看官方规格快照 →', 'Official spec snapshot →')}</p>
+        </a>`;
+  }).join('\n');
+
+  /* v7 S55：做模型专题卡（复用 .m-famcard 版式）。
+   * 卡序按训练管线走（预训练→SFT→对齐→蒸馏），不是字母序——读者按流程读。 */
+  const GUIDE_ORDER = ['pretraining', 'sft', 'alignment', 'distillation'];
+  const ordered = [...guideList].sort((a, b) => {
+    const ia = GUIDE_ORDER.indexOf(a.id), ib = GUIDE_ORDER.indexOf(b.id);
+    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+  });
+  const guideCards = ordered.map((g) => `        <a class="m-famcard" href="guides/${g.id}.html">
+          <div class="m-famcard-h">
+            <h3>${bi(esc(g.title), esc(g.titleEn))}</h3>
+            <span class="m-famcard-vendor">${bi('做模型专题','how models are made')}</span>
+          </div>
+          <p class="m-famcard-sum">${bi(esc(g.summary), esc(g.summaryEn))}</p>
+          <div class="m-famcard-meta">
+            <span><b>${g.sections.length}</b> ${bi('节','sections')}</span>
+            <span><b>${g.sources.length}</b> ${bi('条官方出处','official sources')}</span>
+            <span class="t-state is-ok">${bi(`核验 ${esc(g.lastVerified)}`, `verified ${esc(g.lastVerified)}`)}</span>
+          </div>
+          <p class="m-famcard-go">${bi('读这一篇 →', 'Read this guide →')}</p>
+        </a>`).join('\n');
+
   const cards = seriesList.map((s) => {
     const vTotal = s.members.reduce((n, m) => n + m.variantCount, 0);
     const fTotal = s.members.reduce((n, m) => n + m.variants.reduce((k, v) => k + v.coverage, 0), 0);
@@ -913,7 +1340,8 @@ function indexPage() {
      * 许可挂成 data-lic（空格分隔，因为一个系列可能有多个许可），搜索文本挂 data-blob。 */
     const licSet = [...new Set(s.members.map((m) => m.license || ''))].filter(Boolean);
     const blob = [s.name.zh, s.name.en, s.vendor.zh, s.vendor.en, s.summary, ...s.positions].join(' ').toLowerCase();
-    return `        <a class="scard${loose ? ' scard-loose' : ''}" href="series/${s.code}/" data-lic="${esc(licSet.join(' '))}" data-blob="${esc(blob)}">
+    const cn = s.cn || {};
+    return `        <a class="scard${loose ? ' scard-loose' : ''}" href="series/${s.code}/" data-lic="${esc(licSet.join(' '))}" data-cn-origin="${esc(cn.origin || '')}" data-cn-direct="${esc(cn.direct || '')}" data-cn-filing="${esc((cn.filing || {}).status || '')}" data-blob="${esc(blob)}">
           <div class="scard-h">
             <h3>${bi(esc(s.name.zh), esc(s.name.en))}</h3>
             <span class="scard-vendor">${bi(esc(s.vendor.zh), esc(s.vendor.en || s.vendor.zh))}</span>
@@ -926,7 +1354,7 @@ function indexPage() {
             <span><b>${fTotal}</b> ${bi('档位','tiers')}</span>
             <span><b>${owners.length}</b> ${bi('量化者','quantisers')}</span>
           </div>
-          <div class="scard-lic">${s.members.map((m) => licBadge(m.license, { asSpan: true })).join(' ')}</div>
+          <div class="scard-lic">${s.members.map((m) => licBadge(m.license, { asSpan: true })).join(' ')} ${cnChips(cn)}</div>
           <p class="scard-go">${bi('看该选哪一档 →','Which tier to pick →')}</p>
         </a>`;
   }).join('\n');
@@ -942,22 +1370,59 @@ function indexPage() {
   const totalFile = seriesList.reduce((n, s) => n + s.members.reduce((k, m) => k + m.variants.reduce((j, v) => j + v.coverage, 0), 0), 0);
   const allOwners = [...new Set(seriesList.flatMap((s) => s.members.flatMap((m) => m.variants.map((v) => v.quantizer))))].sort();
 
+  /* v7 S52：中文生态三个筛选下拉的选项（只列数据里真实出现的值——
+   * 空选项不会变成「选了等于没选」的死控件，与 agent 站 asel-* 同一原则）。 */
+  const cnOpts = (dim) => {
+    const labelMap = dim === 'origin' ? CN_ORIGIN_LABEL : dim === 'direct' ? CN_DIRECT_LABEL : CN_FILING_LABEL;
+    const vals = [...new Set(seriesList.map((s) => (dim === 'filing' ? (s.cn || {}).filing?.status : (s.cn || {})[dim])).filter(Boolean))];
+    return '<option value="">全部 / All</option>' + vals.map((v) => {
+      const L2 = labelMap[v] || [v, v];
+      return `<option value="${esc(v)}">${bi(L2[0], L2[1])}</option>`;
+    }).join('');
+  };
+
   const body = `  <div class="container">
     <header class="page-head home-head">
-      <p class="eyebrow">${bi('本地部署 · 量化版索引','Run it locally · quantisation index')}</p>
-      <h1><span class="grad-title">${bi('挑对量化版，适配你的本地硬件','Pick the quantisation that fits your hardware')}</span><span class="sub">${bi('同一个模型几十个版本，按你的显存选','Dozens of builds per model — pick the one that fits your VRAM')}</span></h1>
-      <p class="lede">${bi('你想在<b>自己电脑上</b>跑一个大模型，卡住的往往不是选哪个模型，而是——<b>同一个模型有几十个量化版，我该下哪一个？</b><br>本站就管这一件事：告诉你<b>你的显卡能跑哪个版本、该下多大体积</b>。不评模型强弱，也不排名。', 'You want to run a large model <b>on your own machine</b>. The hard part usually isn\'t choosing the model — it\'s that <b>a single model has dozens of quantisations, and which one should I download?</b><br>This site answers exactly that: <b>which build your GPU can run, and how big the download is.</b> It does not rank models against each other.')}</p>
-      <p class="lede lede-sub">${bi('<b>收录范围：只收开放权重、可本地部署的开源模型</b>（HF 上有公开权重的 MoE 与 dense模型）。闭源 / API-only 模型不在收录范围内——它们没有量化产物，下载和选型的问题不存在。', '<b>Scope: open-weight models you can run locally</b> (MoE and dense models with public weights on HF). Closed-source / API-only models are out of scope — they have no quantisations, so the download and selection questions do not arise.')}</p>
-<div class="home-stats">
+      <p class="eyebrow">${bi('开放权重 · 怎么选','Open weights · how to choose')}</p>
+      <h1><span class="grad-title">${bi('开放权重，该怎么选','How to choose open-weight models')}</span><span class="sub">${bi('先选家族与规格，再选量化版——两步都有出处','Pick the family and size first, the quantisation second — both steps carry sources')}</span></h1>
+      <p class="lede">${bi('你想在<b>自己电脑上</b>跑一个大模型。问题分两层：<b>第一层</b>，开放权重的家族、代次、尺寸档、许可各不相同，该选哪个；<b>第二层</b>，同一个模型有几十个量化版，该下哪一个。本站把两层分开答：<b>家族谱系卡</b>讲第一层（出品方 / 代次 / 尺寸 / 许可 / 官方声明），<b>系列页</b>讲第二层（你的显存能跑哪档、该下多大体积）。不评模型强弱，也不排名。', 'You want to run a large model <b>on your own machine</b>. The question has two layers: <b>first</b>, which family, generation, size tier and licence; <b>second</b>, which of dozens of quantisations to download. This site answers them separately: <b>family lineage cards</b> cover layer one (vendor / generations / sizes / licences / official claims), and <b>series pages</b> cover layer two (which tier fits your VRAM, how big the download is). It does not rank models against each other.')}</p>
+      <p class="lede lede-sub">${bi('<b>收录范围：只收开放权重、可本地部署的开源模型</b>（HF 上有公开权重的 MoE 与 dense 模型）。闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，下载和选型的问题不存在。本站另设<b>闭源谱系卡</b>做对照：只记官方规格快照与复核周期，不采价格、不排名。', '<b>Scope: open-weight models you can run locally</b> (MoE and dense models with public weights on HF). Closed-source / API-only models are out of the quantisation scope — they have no quantisations, so the download and selection questions do not arise. The site keeps a separate set of <b>closed-model lineage cards</b> for contrast: official spec snapshots with a review cycle, no prices, no rankings.')}</p>
+      <div class="home-stats">
+<div><b>${familyList.length}</b><span>${bi('个家族','families')}</span></div>
 <div><b>${seriesList.length}</b><span>${bi('个系列','series')}</span></div>
 <div><b>${totalRepo}</b><span>${bi('个模型仓','model repos')}</span></div>
 <div><b>${totalTier}</b><span>${bi('个量化档','quantised builds')}</span></div>
 <div><b>${allOwners.length}</b><span>${bi('位量化者','quantisers')}</span></div>
 <div><b>${totalFile}</b><span>${bi('个 GGUF 文件','GGUF files')}</span></div>
+<div><b>${closedList.length}</b><span>${bi('张闭源谱系卡','closed cards')}</span></div>
       </div>
     </header>
 
 ${trustBanner()}
+
+    <section class="family-list">
+      <h2>${bi('家族谱系','Model families')} <small>${bi('第一层：出品方 · 代次 · 尺寸档 · 许可 · 官方声明','layer one: vendor · generations · size tiers · licences · official claims')}</small></h2>
+      <p class="sec-desc">${bi('每个开放权重家族一张卡：它是什么来头、现在哪一代、有哪些尺寸档、许可能不能商用、官方声明过什么能力（声明全部挂官方出处）。家族内哪一代有本站量化对比，卡上直接给出入口。', 'One card per open-weight family: where it comes from, which generation is current, what size tiers exist, whether the licence allows commercial use, and what the vendor officially claims (every claim links to its official source). Where a generation has quantisation coverage on this site, the card links straight to it.')}</p>
+      <div class="famcards">
+${familyCards}
+      </div>
+    </section>
+
+    <section class="closed-list">
+      <h2>${bi('闭源谱系卡','Closed-model cards')} <small>${bi('对照面：官方规格快照 · 每条挂出处 · 带复核到期日', 'the contrast set: official spec snapshots · every fact sourced · with review due dates')}</small></h2>
+      <p class="sec-desc">${bi('本站主体是开放权重选型，但选型绕不开闭源 API 对照。每张闭源卡只记三件事：现在哪一代、官方声明过什么规格（每条挂官方出处）、我们上次核验是什么时候。闭源厂商改规格不通知任何人——所以每张卡带复核周期，到期会在页顶挂横幅，不装作永远最新。不采价格数字（D9），定价看官方定价页链接。', 'This site is about open-weight selection, but that choice always sits next to the closed API alternative. Each closed card records exactly three things: which generation is current, what specs the vendor officially claims (every fact linked to its official source), and when we last verified it. Closed vendors change specs without notice — so every card carries a review cycle, and an overdue card shows a banner at the top instead of pretending to be current. No price figures (rule D9); pricing lives at the linked official pricing page.')}</p>
+      <div class="famcards">
+${closedCards}
+      </div>
+    </section>
+
+    <section class="guide-list">
+      <h2>${bi('做模型专题','How models are made')} <small>${bi('从业者视角：训练四阶段 · 数据与算力 · 跑起来','practitioner view: the four training stages · data & compute · serving')}</small></h2>
+      <p class="sec-desc">${bi('这一栏回答「模型是怎么被造出来、又是怎么跑起来的」。它与学 AI 站互链不重复：学 AI 教使用者视角的一页科普，这里是从业者视角的深版——讲决定、讲代价、讲口径变化。关键事实全部挂论文或官方模型卡出处；本站不实测、不裁决路线之争。', 'This section answers "how models are built and how they run". It cross-links with the Learn site without duplicating it: Learn gives user-perspective one-page explainers; this is the practitioner-depth version — decisions, costs, and how the consensus changed. Key facts carry paper or official model-card sources; the site runs no benchmarks and adjudicates no route disputes.')}</p>
+      <div class="famcards">
+${guideCards}
+      </div>
+    </section>
 
     <section class="howto">
       <h2>${bi('怎么用这个站','How to use this site')}</h2>
@@ -971,7 +1436,7 @@ ${trustBanner()}
     </section>
 
     <section class="series-list">
-      <h2>${bi('已收录系列','Series covered')} <small>${bi('按 GGUF 量化实际下载量排序','ranked by measured GGUF download volume')}</small></h2>
+      <h2>${bi('已收录系列','Series covered')} <small>${bi('第二层：同一模型该下哪个量化版','layer two: which quantisation of the same model')} · ${bi('按 GGUF 量化实际下载量排序','ranked by measured GGUF download volume')}</small></h2>
       <!-- B2：系列筛选（搜索 + 许可）。选项来自数据，许可用全站并集。 -->
       <div class="sfilter" role="search">
         <label class="vf-f"><span class="vh">${bi('筛选系列', 'Filter series')}</span>
@@ -981,6 +1446,9 @@ ${trustBanner()}
           [...new Set(seriesList.flatMap((s) => s.members.map((m) => m.license || '')))].filter(Boolean).sort()
             .map((L2) => `<option value="${esc(L2)}">${esc(L2)}</option>`).join('')
         }</select></label>
+        <label class="vf-f"><span class="vh">${bi('出品属地', 'Origin')}</span><select class="ssel-cnorigin">${cnOpts('origin')}</select></label>
+        <label class="vf-f"><span class="vh">${bi('国内下载', 'Direct access')}</span><select class="ssel-cndirect">${cnOpts('direct')}</select></label>
+        <label class="vf-f"><span class="vh">${bi('备案状态', 'CAC filing')}</span><select class="ssel-cnfiling">${cnOpts('filing')}</select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>
       <div class="scards">
@@ -1008,17 +1476,17 @@ ${allOwners.map((o) => `        <a class="qchip" href="series/qwen3-8/#e0"><code
 
   return shell({
     current: 'models',
-    title: '挑对量化版 · 本地部署模型图谱',
-    desc: `想在本地跑大模型？告诉你你的显卡能跑哪个量化版、该下多大体积。${seriesList.length} 个系列、${totalRepo} 个模型仓、${totalTier} 个量化档、${allOwners.length} 位量化者、${totalFile} 个 GGUF 文件，每个数字都标注来源。不跑 benchmark，不托管权重。`,
+    title: '开放权重该怎么选 · 本地部署模型图谱',
+    desc: `想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（${seriesList.length} 个系列、${totalRepo} 个模型仓、${totalTier} 个量化档、${allOwners.length} 位量化者、${totalFile} 个 GGUF 文件）。不跑 benchmark，不托管权重。`,
     canonical: DOMAIN,
     accent: ACCENT,
     body,
 repo: 'https://github.com/speculcom/ai-quantized-llm',
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'WebSite',
-      name: '挑对量化版 · 本地部署模型图谱',
+      name: '开放权重该怎么选 · 本地部署模型图谱',
       url: DOMAIN,
-      description: '想在本地跑大模型，告诉你你的显卡能跑哪个量化版、该下多大体积。不评模型强弱，不排名。',
+      description: '开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。',
     },
   });
 }
@@ -1027,6 +1495,10 @@ repo: 'https://github.com/speculcom/ai-quantized-llm',
 // 输出
 // ═════════════════════════════════════════════════════════════════════════
 fs.mkdirSync(path.join(SITE, 'series'), { recursive: true });
+/* v7 S51：家族卡页 /families/<code>/（与 series 同构：目录形式，尾斜杠与无尾斜杠都命中）。 */
+fs.mkdirSync(path.join(SITE, 'families'), { recursive: true });
+/* v7 S54：闭源谱系卡页 /closed/<code>/（同构：目录形式）。 */
+fs.mkdirSync(path.join(SITE, 'closed'), { recursive: true });
 
 const idx = indexPage();
 fs.writeFileSync(path.join(SITE, 'index.html'), idx);
@@ -1039,9 +1511,34 @@ for (const s of seriesList) {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'index.html'), seriesPage(s));
 }
+for (const f of familyList) {
+  const dir = path.join(SITE, 'families', f.code);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), familyPage(f));
+}
+for (const c of closedList) {
+  const dir = path.join(SITE, 'closed', c.code);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), closedPage(c));
+}
+/* v7 S55：guides 是单文件页（guides/<id>.html），不是目录页——
+ * 文章没有可参数化的子层，目录形式反而多一层重定向。 */
+if (guideList.length) {
+  fs.mkdirSync(path.join(SITE, 'guides'), { recursive: true });
+  for (const g of guideList) fs.writeFileSync(path.join(SITE, 'guides', `${g.id}.html`), guidePage(g));
+}
 
 console.log('══════════ 建站完成 ══════════');
 console.log('index.html           ', (idx.length / 1024).toFixed(0) + ' KB');
+for (const f of familyList) {
+  const h = fs.statSync(path.join(SITE, 'families', f.code, 'index.html')).size;
+  console.log(`families/${f.code}/`.padEnd(24), (h / 1024).toFixed(0) + ' KB  ', f.name.zh, '—', f.currentGen.zh);
+}
+for (const c of closedList) {
+  const h = fs.statSync(path.join(SITE, 'closed', c.code, 'index.html')).size;
+  const st = staleState(c);
+  console.log(`closed/${c.code}/`.padEnd(24), (h / 1024).toFixed(0) + ' KB  ', c.name.zh, '—', c.currentGen.zh, st.overdue ? '⚠ 复核已到期' : `（复核应在 ${st.due} 前）`);
+}
 for (const s of seriesList) {
   const h = fs.statSync(path.join(SITE, 'series', s.code, 'index.html')).size;
   console.log(`series/${s.code}/`.padEnd(24), (h / 1024).toFixed(0) + ' KB  ', s.name.zh, '—', s.members.length, '成员');
@@ -1377,8 +1874,8 @@ fs.writeFileSync(path.join(SITE, '.nojekyll'), '');
 fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: https://models.specul.com/sitemap.xml\n');
 {
   const lines = [
-    '# 挑对量化版 · 本地部署模型图谱',
-    '> 只回答一个问题：这个基础模型，我该下载哪个量化版、为什么。',
+    '# 开放权重该怎么选 · 本地部署模型图谱',
+    '> 两步选型：先看家族谱系卡（出品方/代次/尺寸档/许可/官方声明），再看系列页选量化版。',
     '> 不跑 benchmark，不给质量与速度结论，不托管任何模型权重文件。',
     '',
     '## 收录范围',
@@ -1386,12 +1883,38 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
     '**只收开放权重、可本地部署的开源模型。** 具体指：Hugging Face 上有公开权重文件、且第三方能做出',
     'GGUF 量化的模型（MoE 与 dense 都在内）。',
     '',
-    '闭源 / API-only 模型不在收录范围内——它们没有量化产物，「该下载哪个量化版」这个问题对它们不成立。',
+    '闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，「该下载哪个量化版」这个问题对它们不成立。',
+    '本站另设「闭源谱系卡」做对照：只记官方规格快照与复核周期，不采价格、不排名（见下节）。',
     '本站也不做模型能力横评（那属于另一个问题，且需要实测）。',
     '',
-    '## 已收录系列',
+    '## 家族谱系卡',
     '',
   ];
+  for (const f of familyList) {
+    lines.push(`- [${f.name.zh}](${DOMAIN}families/${f.code}/): ${f.positioning.zh}`);
+    lines.push(`  ${f.vendor.zh}　当前代 ${f.currentGen.zh}（${f.currentGenDate}）　${f.generations.length} 代　许可 ${f.licenses.map((L2) => L2.id).join(', ')}${(f.onSite?.series || []).length ? `　本站量化对比：${(f.onSite.series || []).join(', ')}` : '　本站未收录其量化对比'}`);
+  }
+  lines.push('');
+  lines.push('## 闭源谱系卡');
+  lines.push('');
+  lines.push('对照面：只记当前代、官方规格事实（每条挂官方出处）、核验快照与复核周期。不采价格数字，不排名。复核到期的卡页顶有横幅。');
+  lines.push('');
+  for (const c of closedList) {
+    lines.push(`- [${c.name.zh}](${DOMAIN}closed/${c.code}/): ${c.positioning.zh}`);
+    lines.push(`  ${c.vendor.zh}　当前代 ${c.currentGen.zh}（${c.currentGenDate}）　${c.facts.length} 条官方事实　核验 ${c.last_verified}　复核周期 ${c.review_interval_days} 天`);
+  }
+  lines.push('');
+  lines.push('## 做模型专题');
+  lines.push('');
+  lines.push('从业者视角的方法论文章（与学 AI 站互链不重复）。关键事实挂论文/官方模型卡出处；不实测、不排名、不裁决路线之争。');
+  lines.push('');
+  for (const g of guideList) {
+    lines.push(`- [${g.title}](${DOMAIN}guides/${g.id}.html): ${g.summary}`);
+    lines.push(`  ${g.sections.length} 节 · ${g.sources.length} 条官方出处 · 核验 ${g.last_verified || g.lastVerified}`);
+  }
+  lines.push('');
+  lines.push('## 已收录系列');
+  lines.push('');
   for (const s of seriesList) {
     const vTotal = s.members.reduce((n, m) => n + m.variantCount, 0);
     const fTotal = s.members.reduce((n, m) => n + m.variants.reduce((k, v) => k + v.coverage, 0), 0);
@@ -1453,6 +1976,9 @@ fs.writeFileSync(path.join(SITE, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${DOMAIN}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+${familyList.map((f) => `  <url><loc>${DOMAIN}families/${f.code}/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`).join('\n')}
+${closedList.map((c) => `  <url><loc>${DOMAIN}closed/${c.code}/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join('\n')}
+${guideList.map((g) => `  <url><loc>${DOMAIN}guides/${g.id}.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join('\n')}
 ${seriesList.map((s) => `  <url><loc>${DOMAIN}series/${s.code}/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`).join('\n')}
 </urlset>
 `);

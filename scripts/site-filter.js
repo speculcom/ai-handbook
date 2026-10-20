@@ -174,6 +174,13 @@
   var sf = document.querySelector('.sfilter');  if (sf) {
     var sq = sf.querySelector('.sq');
     var ssel = sf.querySelector('.ssel');
+    /* v7 S52：中文生态三个共用筛选（出品属地 / 国内直连 / 备案状态）。
+     * 与许可同一个作用域、同一套 URL 还原逻辑——一套筛选体系，不另造。 */
+    var cnSels = [
+      { el: sf.querySelector('.ssel-cnorigin'), attr: 'data-cn-origin', key: 'cnorigin' },
+      { el: sf.querySelector('.ssel-cndirect'), attr: 'data-cn-direct', key: 'cndirect' },
+      { el: sf.querySelector('.ssel-cnfiling'), attr: 'data-cn-filing', key: 'cnfiling' },
+    ].filter(function (x) { return x.el; });
     var scount = sf.querySelector('.vcount');
     var scards = Array.prototype.slice.call(document.querySelectorAll('.scard'));
     if (sq && scards.length) {
@@ -184,7 +191,10 @@
         scards.forEach(function (c) {
           var okQ = !term || (c.getAttribute('data-blob') || '').indexOf(term) !== -1 || (c.textContent || '').toLowerCase().indexOf(term) !== -1;
           var okL = !lic || (c.getAttribute('data-lic') || '').split(' ').indexOf(lic) !== -1;
-          var on = okQ && okL;
+          var okCn = cnSels.every(function (x) {
+            return !x.el.value || (c.getAttribute(x.attr) || '') === x.el.value;
+          });
+          var on = okQ && okL && okCn;
           c.hidden = !on;
           if (on) shown++;
         });
@@ -194,11 +204,27 @@
           scount.setAttribute('data-en', shown + ' / ' + scards.length + ' series');
         }
       };
-      var syncS = function () { writeUrl({ q: sq.value.trim(), lic: ssel ? ssel.value : '' }); };
+      var syncS = function () {
+        var pairs = { q: sq.value.trim(), lic: ssel ? ssel.value : '' };
+        cnSels.forEach(function (x) { pairs[x.key] = x.el.value; });
+        writeUrl(pairs);
+      };
       sq.value = param('q');
       if (ssel && param('lic')) ssel.value = param('lic');
+      cnSels.forEach(function (x) {
+        var v = param(x.key);
+        if (!v) return;
+        /* 同 .vsel 的教训：select 对选项外的值会静默忽略 → 补成选项，筛出 0 条如实显示。 */
+        if (!Array.prototype.some.call(x.el.options, function (o) { return o.value === v; })) {
+          var extra = document.createElement('option');
+          extra.value = v; extra.textContent = v;
+          x.el.appendChild(extra);
+        }
+        x.el.value = v;
+      });
       sq.addEventListener('input', function () { applyS(); syncS(); });
       if (ssel) ssel.addEventListener('change', function () { applyS(); syncS(); });
+      cnSels.forEach(function (x) { x.el.addEventListener('change', function () { applyS(); syncS(); }); });
       applyS();
     }
   }

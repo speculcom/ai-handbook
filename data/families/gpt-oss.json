@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "code": "gpt-oss",
+  "series": "gpt-oss",
+  "name": {
+    "zh": "gpt-oss",
+    "en": "gpt-oss"
+  },
+  "vendor": {
+    "zh": "OpenAI",
+    "en": "OpenAI"
+  },
+  "currentGen": {
+    "zh": "gpt-oss",
+    "en": "gpt-oss"
+  },
+  "currentGenDate": "2025-08",
+  "generations": [
+    {
+      "gen": "gpt-oss",
+      "date": "2025-08",
+      "zh": "唯一一代（2025-08 发布）。官方 README：120B 版 117B 总参 / 5.1B 激活，20B 版 21B 总参 / 3.6B 激活；MoE 权重以 MXFP4 后训练量化，120B 单张 80GB 卡可跑、20B 16GB 内可跑。",
+      "en": "Sole generation (released 2025-08). Official README: the 120B build has 117B total / 5.1B active parameters, the 20B build 21B total / 3.6B active; MoE weights post-trained with MXFP4 quantization — 120B fits one 80GB GPU, 20B fits within 16GB.",
+      "url": "https://huggingface.co/openai/gpt-oss-120b"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "本地 20B（21B 总参 / 3.6B 激活，16GB 内）",
+      "en": "Local 20B (21B total / 3.6B active, within 16GB)"
+    },
+    {
+      "zh": "单卡服务器 120B（117B 总参 / 5.1B 激活，80GB 卡）",
+      "en": "Single-GPU server 120B (117B total / 5.1B active, 80GB card)"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "apache-2.0",
+      "zh": "Apache-2.0（官方 README：「Permissive Apache 2.0 license」，可自由商用）",
+      "en": "Apache-2.0 (official README: \"Permissive Apache 2.0 license\", free for commercial use)",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "官方 README：两档规格与激活参数（117B/5.1B、21B/3.6B）、MXFP4 量化后训练、可配置推理强度（low/medium/high）、支持微调。",
+      "en": "Official README: the two size builds with active-parameter counts (117B/5.1B, 21B/3.6B), MXFP4 post-training quantization, configurable reasoning effort (low/medium/high), fine-tunable.",
+      "url": "https://huggingface.co/openai/gpt-oss-120b"
+    }
+  ],
+  "positioning": {
+    "zh": "OpenAI 首次放出的开放权重 MoE：Apache-2.0、官方就按「量化后交付」设计（MXFP4），单卡可跑是它的主打场景。本站收录 gpt-oss 系列的量化对比。",
+    "en": "OpenAI's first open-weight MoE line: Apache-2.0, designed to ship quantized (MXFP4) from the start, single-GPU operation is its headline scenario. This site covers the gpt-oss quantisation comparison."
+  },
+  "onSite": {
+    "series": [
+      "gpt-oss"
+    ],
+    "zh": "本站已收录 gpt-oss 的量化对比（2 个模型仓）",
+    "en": "This site covers gpt-oss quantisations (2 model repos)"
+  },
+  "sources": [
+    {
+      "label": "gpt-oss-120b 模型页与 README（2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/openai/gpt-oss-120b",
+      "kind": "docs"
+    },
+    {
+      "label": "gpt-oss-20b 模型页（HF API 2026-10-20：apache-2.0）",
+      "url": "https://huggingface.co/openai/gpt-oss-20b",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 OpenAI。",
+    "originNoteEn": "Made by OpenAI.",
+    "direct": "no",
+    "directNote": "Hugging Face 直连不可达；ModelScope 检索 gpt-oss 未命中镜像（2026-10-20）。",
+    "directNoteEn": "Hugging Face direct unreachable; no gpt-oss mirror found on ModelScope (2026-10-20).",
+    "filing": {
+      "status": "not-filed",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "公示名单未检索到 OpenAI / GPT 相关条目（2026-10-20）。"
+    },
+    "mirror": null,
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      },
+      {
+        "label": "ModelScope 站内检索 gpt-oss（2026-10-20，无结果）",
+        "url": "https://www.modelscope.cn/search?search=gpt-oss"
+      }
+    ],
+    "last_verified": "2026-10-20"
+  }
+}

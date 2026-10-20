@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "code": "grok",
+  "name": {
+    "zh": "Grok（闭源 API）",
+    "en": "Grok (closed API)"
+  },
+  "vendor": {
+    "zh": "xAI（官方文档页 2026-10 自称 SpaceXSI）",
+    "en": "xAI (official docs self-brand as SpaceXSI, Oct 2026)"
+  },
+  "access": {
+    "zh": "API 与 X 订阅；权重不开源。",
+    "en": "API and X subscription; weights are not open."
+  },
+  "currentGen": {
+    "zh": "Grok 4.5",
+    "en": "Grok 4.5"
+  },
+  "currentGenDate": "2026-07",
+  "review_interval_days": 30,
+  "generations": [
+    {
+      "gen": "Grok 4.5",
+      "date": "2026",
+      "zh": "当前旗舰：官方模型页 500,000 上下文、文本+图像输入；知识截点 2026-02-01（官方文档 Models 页）。",
+      "en": "Current flagship: official model page lists 500,000 context, text + image input; knowledge cutoff Feb 1, 2026 (official docs Models page).",
+      "url": "https://x.ai/docs/developers/models/grok-4.5"
+    },
+    {
+      "gen": "Grok 4.x 前代",
+      "date": "2025–2026",
+      "zh": "grok-4.20 及更早代在官方文档在册（官方注明 grok-4.20 起不支持 logprobs 字段）。",
+      "en": "grok-4.20 and earlier listed in official docs (which note logprobs are unsupported from grok-4.20 on).",
+      "url": "https://docs.x.ai/developers/models"
+    }
+  ],
+  "facts": [
+    {
+      "k": {
+        "zh": "上下文窗口",
+        "en": "Context window"
+      },
+      "v": {
+        "zh": "500,000 tokens（官方模型页 At a glance）",
+        "en": "500,000 tokens (official model page, At a glance)"
+      },
+      "url": "https://x.ai/docs/developers/models/grok-4.5"
+    },
+    {
+      "k": {
+        "zh": "知识截点",
+        "en": "Knowledge cutoff"
+      },
+      "v": {
+        "zh": "2026-02-01（官方文档）",
+        "en": "Feb 1, 2026 (official docs)"
+      },
+      "url": "https://docs.x.ai/developers/models/grok-3"
+    },
+    {
+      "k": {
+        "zh": "输入模态",
+        "en": "Input modalities"
+      },
+      "v": {
+        "zh": "文本 + 图像输入、文本输出（官方模型页）",
+        "en": "Text + image input, text output (official model page)"
+      },
+      "url": "https://x.ai/docs/developers/models/grok-4.5"
+    },
+    {
+      "k": {
+        "zh": "实时信息",
+        "en": "Realtime data"
+      },
+      "v": {
+        "zh": "官方文档：模型本身无实时事件知识，需开启服务端搜索工具（Web Search / X Search）",
+        "en": "Official docs: no realtime knowledge by default; server-side search tools (Web Search / X Search) must be enabled"
+      },
+      "url": "https://docs.x.ai/developers/models/grok-3"
+    }
+  ],
+  "positioning": {
+    "zh": "闭源旗舰线（代码与 agentic 向）：官方文档规格直抄。诚实标注：2026-10-20 快照里官方文档页自称 SpaceXSI（Memphis 数据中心口径），品牌归属变化本站不推测、只记录页面原文。",
+    "en": "A closed flagship line (code and agentic focus): specs copied from official docs. Honest note: in the 2026-10-20 snapshot the official docs self-brand as SpaceXSI (Memphis data-center wording); this site records the page text without speculating on brand changes."
+  },
+  "onSite": {
+    "zh": "权重不开源，本站无量化对比；X 内产品形态在 AI 导航有站点条目。",
+    "en": "No open weights, no quantisation coverage; the X product entry lives on the nav site."
+  },
+  "sources": [
+    {
+      "label": "Grok 4.5 官方模型页（2026-10-20 经代理直抓 200）",
+      "url": "https://x.ai/docs/developers/models/grok-4.5",
+      "kind": "docs"
+    },
+    {
+      "label": "xAI 文档 Models 页（2026-10-20 检索快照：知识截点与搜索工具口径）",
+      "url": "https://docs.x.ai/developers/models/grok-3",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 xAI（美国）；官方文档页 2026-10 自称 SpaceXSI，属地按 xAI 记录。",
+    "originNoteEn": "Made by xAI (US); the Oct 2026 docs self-brand as SpaceXSI — origin recorded as xAI.",
+    "direct": "no",
+    "directNote": "x.ai 大陆直连实测不可达（2026-10-20，S52 探测口径）；官方服务不面向大陆。",
+    "directNoteEn": "x.ai unreachable direct from the mainland (measured 2026-10-20, S52 convention); the official service does not serve the mainland.",
+    "filing": {
+      "status": "not-filed",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "公示名单未检索到 xAI 相关条目（2026-10-20 检索 13 批附件）。"
+    },
+    "mirror": "",
+    "last_verified": "2026-10-20",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      }
+    ]
+  }
+}

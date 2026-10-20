@@ -2,7 +2,7 @@
 
 > English version: [README.en.md](./README.en.md)
 
-> **本地部署量化模型图谱** —— 只回答一个问题：这个基础模型，我该下载哪个量化版、为什么。
+> **本地部署开放权重图谱** —— 两步选型：先看家族谱系卡（出品方 / 代次 / 尺寸档 / 许可 / 官方声明），再回答「这个基础模型，我该下载哪个量化版、为什么」。
 >
 > 线上：https://models.specul.com/
 > 部署仓：https://github.com/speculcom/models
@@ -174,5 +174,7 @@ node scripts/build.mjs
 | 量化档（variants） | 132 个 |
 | GGUF 文件 | 1253 个 |
 | 量化者 | 55 位 |
+| 家族谱系卡（families） | 15 张 |
+| 闭源谱系卡（closed） | 6 张 |
 | 基座许可分布 | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->

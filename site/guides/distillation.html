@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>蒸馏：小模型怎么从大模型身上学 · 做模型专题</title>
+  <meta name="description" content="logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/distillation.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="蒸馏：小模型怎么从大模型身上学 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/distillation.html" />
+  <meta property="og:title" content="蒸馏：小模型怎么从大模型身上学 · 做模型专题" />
+  <meta property="og:description" content="logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../brand.css" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Distillation: how small models learn from big ones","description":"Logit distillation versus data distillation, why nearly every open-weight family distils, and what the \"distilled\" label means when choosing a model. Practitioner depth; the one-page explainer lives on the Learn site.","url":"https://models.specul.com/guides/distillation.html","dateModified":"2026-10-20"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>本地模型</span><span data-en>Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://agent.specul.com/"><span><span data-zh>Agent</span><span data-en>Agent</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>本地模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>导航</span><span data-en>Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span></p>
+      <h1><span data-zh>蒸馏：小模型怎么从大模型身上学</span><span data-en>Distillation: how small models learn from big ones</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。</span><span data-en>Logit distillation versus data distillation, why nearly every open-weight family distils, and what the &quot;distilled&quot; label means when choosing a model. Practitioner depth; the one-page explainer lives on the Learn site.</span></p>
+    </header>
+
+    <section class="fam-sec">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
+<p><b>蒸馏 = 让小模型向大模型学，而不是直接从原始数据学。</b></p>
+<p>原始方法是 Hinton 等人的软标签蒸馏（出处见文末清单）。<br>不只给「答案是猫」这个硬结论，还给出概率分布：<br>六成像猫、三成像狗、一成像狐狸。</p>
+<p>类间相似度信息比硬标签的信息量大。<br>大模型时代，这条路分成了两支。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>两支：logit 蒸馏与数据蒸馏</span><span data-en>Two branches: logits versus data</span></h2>
+<p><b>logit 蒸馏</b>要同时跑教师与学生，教师输出分布当训练信号。</p>
+<p>DistilBERT 是公开范例：同架构自蒸馏，参数减半、<br>速度提升 60%、保留 97% 语言理解能力（论文口径）。</p>
+<p>开放权重家族里 logit 级蒸馏越来越少——教师太大，跑不起。</p>
+<p><b>数据蒸馏</b>只要教师生成数据，学生照常 SFT。<br>LLaMA 2 论文写明：13B 与 34B 用 70B 生成的对话数据训练。</p>
+<p>DeepSeek-R1 把自家的长思维链样本蒸馏进一系列小模型，<br>从 1.5B 一直做到 70B，官方论文给出各尺寸的成绩表。<br>这是「思维链蒸馏」的官方范例。</p>
+<p>MiniCPM 谱系把蒸馏写进训练流程的正式阶段（论文口径）。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>为什么开放权重几乎人人蒸馏</span><span data-en>Why every open-weight family distils</span></h2>
+<p>三个理由，都有官方出处可查：</p>
+<ul>
+  <li><b>便宜</b>：数据蒸馏不需要教师常驻显存，成本结构等于普通 SFT。</li>
+</ul>
+<ul>
+  <li><b>快</b>：小模型推理便宜，跑在端侧与显卡农场里都划算（与预训练篇的「过训练」同一张账）。</li>
+</ul>
+<ul>
+  <li><b>许可</b>：多数家族许可允许用其输出再训模型（以各许可文本为准，本站不解读条款）。</li>
+</ul>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>选型时「蒸馏来的」意味着什么</span><span data-en>What &quot;distilled&quot; means when choosing</span></h2>
+<p>本站口径与 S53 派生标记同一套纪律：<br><b>只有官方自己声明的谱系才标「蒸馏/派生」</b>。<br>依据是模型卡的 <code>base_model</code> 字段，或论文、技术报告的明文。<br>不猜，也不根据「像」来推断。</p>
+<p>事实层面的含义：蒸馏模型的能力上限受教师约束。<br>教师不会的，它大概率不会。</p>
+<p>但小模型在窄任务上可以超过教师。<br>R1 蒸馏出的 7B 在数学评测上超过不少更大的通用模型（官方论文口径）。</p>
+<p>「蒸馏来的」不是贬义标签。它告诉你权重谱系从哪来。<br>选型时把它当出处信息读，不当质量结论读。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>许可与合规：蒸馏不豁免原模型条款</span><span data-en>Licences: distilling does not escape the base terms</span></h2>
+<p>用某模型的输出去训新模型，是否受原模型许可约束？<br>各许可写法不同，Llama 与 Gemma 的条款各有附加约定（条款文本见文末清单）。</p>
+<p>本站的立场与全站法律页一致：<br>只索引、只引述、不解读许可、不给法律意见。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
+<p>一页科普版在学 AI 站：<a href="https://learn.specul.com/term/知识蒸馏/" target="_blank" rel="noopener">知识蒸馏</a><br>与 <a href="https://learn.specul.com/term/剪枝/" target="_blank" rel="noopener">剪枝</a>（压缩的另一条路）。</p>
+<p>本篇讲两支蒸馏的成本结构、官方范例、选型读法与许可边界。<br>本站家族卡上的「派生自 X」标记（S53）用的就是本篇的谱系口径。</p>
+    </section>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li>知识蒸馏原始论文（arXiv 1503.02531，Hinton 等，软标签蒸馏，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/1503.02531" target="_blank" rel="noopener">https://arxiv.org/abs/1503.02531</a></li>
+        <li>DistilBERT 论文（arXiv 1910.01108，自蒸馏减半 BERT 的公开范例，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/1910.01108" target="_blank" rel="noopener">https://arxiv.org/abs/1910.01108</a></li>
+        <li>MiniCPM 论文（arXiv 2404.06395，小模型训练含蒸馏阶段的小模型谱系，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2404.06395" target="_blank" rel="noopener">https://arxiv.org/abs/2404.06395</a></li>
+        <li>DeepSeek-R1 论文（arXiv 2501.12948，用 R1 蒸馏 1.5B–70B 小模型的官方路线，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noopener">https://arxiv.org/abs/2501.12948</a></li>
+        <li>LLaMA 2 论文（arXiv 2307.09288，13B/34B 用 70B 生成数据蒸馏的官方说明，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener">https://arxiv.org/abs/2307.09288</a></li>
+        <li>Gemma 技术报告（arXiv 2403.08295，基于 Gemini 技术栈训练，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2403.08295" target="_blank" rel="noopener">https://arxiv.org/abs/2403.08295</a></li>
+        <li>Llama Community License 原文页（官方许可文本入口，2026-10-20 直抓 200）：<a href="https://www.llama.com/llama-license/" target="_blank" rel="noopener">https://www.llama.com/llama-license/</a></li>
+        <li>Gemma Terms of Use 原文页（官方许可文本入口，2026-10-20 直抓 200）：<a href="https://ai.google.dev/gemma/terms" target="_blank" rel="noopener">https://ai.google.dev/gemma/terms</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>核验快照：2026-10-20 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-20 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 投机取巧 · <span data-zh>Specul</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+          <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+          <a href="https://github.com/speculcom/ai-quantized-llm" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://agent.specul.com/"><span class="ti" aria-hidden="true">◈</span>Agent</a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+  <script src="../brand.js"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
+      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
+      sync();
+    })();
+  </script>
+</body>
+</html>

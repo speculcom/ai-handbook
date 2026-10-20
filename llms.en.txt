@@ -2,7 +2,7 @@
 
 > For this base model, which quantized build should I download — and why.
 
-Only covers **open-weight, locally deployable** models with a third-party GGUF quantization ecosystem. Closed-source / API-only models are out of scope ("which quantized build" does not apply to them).
+Only covers **open-weight, locally deployable** models with a third-party GGUF quantization ecosystem. Closed-source / API-only models are out of the quantization scope ("which quantized build" does not apply to them); a separate `data/closed/` set of closed-model lineage cards provides the contrast: official spec snapshots + review cycle, no prices, no rankings.
 
 ## Size (computed from data — see the build scripts under `scripts/` and `_audit/gen-repo-docs.mjs`)
 
@@ -12,6 +12,8 @@ Only covers **open-weight, locally deployable** models with a third-party GGUF q
 
 - `config.js` — Series roster (the selection criteria are in the file-header comments)
 - `data/series/*.json` — **Collected output**: series / members / quant repos / variants / sizes — do not edit by hand
+- `data/families/*.json` — Family lineage cards (layer-one choice: vendor / generations / size tiers / licences / official claims)
+- `data/closed/*.json` — Closed-model lineage cards (the contrast set: official spec snapshots + review cycle; rule D9 records no price figures)
 - `data/quantizers/*.md` — Quantizer profiles
 - `enums.en.json` — English for the data-layer closed enums
 - `summaries.en.json` — Series summaries in English (key = series code)

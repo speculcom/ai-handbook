@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "code": "kimi",
+  "series": "kimi-k3",
+  "name": {
+    "zh": "Kimi",
+    "en": "Kimi"
+  },
+  "vendor": {
+    "zh": "月之暗面（Moonshot AI）",
+    "en": "Moonshot AI"
+  },
+  "currentGen": {
+    "zh": "Kimi K3",
+    "en": "Kimi K3"
+  },
+  "currentGenDate": "2026-06",
+  "generations": [
+    {
+      "gen": "Kimi K3",
+      "date": "2026-06",
+      "zh": "当前代。官方 README：2.8T 总参 MoE（Stable LatentMoE，896 专家激活 16），KDA + AttnRes 架构，原生多模态（文本/图像/视频），1M token 上下文；「world's first open 3T-class model」为厂商自评口径。",
+      "en": "Current generation. Official README: a 2.8T-parameter MoE (Stable LatentMoE, 16 of 896 experts active), KDA + AttnRes architecture, native multimodality (text/image/video), 1M-token context; \"world's first open 3T-class model\" is vendor-run wording.",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3"
+    },
+    {
+      "gen": "Kimi K2 系",
+      "date": "2025–2026",
+      "zh": "上一代线：K2 / K2-Instruct / K2-Thinking / K2.5 / K2.6 / K2.7-Code 等在官方 org 在册（2025-07 起）。",
+      "en": "Previous line: K2 / K2-Instruct / K2-Thinking / K2.5 / K2.6 / K2.7-Code listed in the official org (from July 2025).",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.5"
+    },
+    {
+      "gen": "Kimi-VL / Kimi-Linear",
+      "date": "2025",
+      "zh": "并行支线：视觉语言 Kimi-VL-A3B 与线性注意力 Kimi-Linear-48B-A3B（官方 org 在册）。",
+      "en": "Parallel branches: the vision-language Kimi-VL-A3B line and the linear-attention Kimi-Linear-48B-A3B (official org).",
+      "url": "https://huggingface.co/moonshotai/Kimi-Linear-48B-A3B-Instruct"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "旗舰 2.8T MoE（K3，激活数官方未逐条公开）",
+      "en": "Flagship 2.8T MoE (K3; active count not itemised officially)"
+    },
+    {
+      "zh": "支线 7B–72B（Kimi-Audio / Kimi-Dev 等）",
+      "en": "Branch builds 7B–72B (Kimi-Audio / Kimi-Dev etc.)"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "other",
+      "zh": "Kimi K3 License（模型卡 license_name: \"kimi-k3\"，非 OSI 标准许可，下载前读原文）",
+      "en": "Kimi K3 License (model-card license_name \"kimi-k3\"; not an OSI-standard licence — read the text before download)",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "官方 README：「a 2.8T-parameter model built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes), with native vision capabilities and a 1-million-token context window」「activates 16 out of 896 experts — yielding an approximate 2.5× improvement in overall scaling efficiency over Kimi K2」（2.5× 为厂商自评口径）。",
+      "en": "Official README: \"a 2.8T-parameter model built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes), with native vision capabilities and a 1-million-token context window\"; \"activates 16 out of 896 experts — yielding an approximate 2.5× improvement in overall scaling efficiency over Kimi K2\" (the 2.5× figure is vendor-run wording).",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3"
+    }
+  ],
+  "positioning": {
+    "zh": "国产开放权重旗舰：K3 是官方口径的首个开放 3T 级模型，许可是自定义 Kimi K3 License。对话产品「Kimi 智能助手」在网信办首批备案（Beijing-MoonShot-20231016）；模型权重本身与备案是两回事，卡上分开写。",
+    "en": "The domestic open-weight flagship: K3 is, per the vendor, the first open 3T-class model, under a custom Kimi K3 License. The consumer chat product was filed in the CAC's first batch (Beijing-MoonShot-20231016); model weights and service filing are different things — the card keeps them apart."
+  },
+  "onSite": {
+    "series": [
+      "kimi-k3"
+    ],
+    "zh": "本站已收录 Kimi K3 的量化对比",
+    "en": "This site covers Kimi K3 quantisations"
+  },
+  "sources": [
+    {
+      "label": "Kimi-K3 模型页与 README（2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3",
+      "kind": "docs"
+    },
+    {
+      "label": "moonshotai 官方 org 模型清单（HF API 2026-10-20，19 仓在册）",
+      "url": "https://huggingface.co/moonshotai",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为月之暗面（北京）。",
+    "originNoteEn": "Made by Moonshot AI (Beijing).",
+    "direct": "yes",
+    "directNote": "ModelScope 官方镜像直连可达（2026-10-20 实测 200）；Hugging Face 直连不可达。",
+    "directNoteEn": "Official ModelScope mirror reachable (measured 200); Hugging Face direct unreachable.",
+    "filing": {
+      "status": "filed",
+      "name": "Moonshot",
+      "no": "Beijing-MoonShot-20231016",
+      "date": "2023-11-03",
+      "note": "首批第 16 行（月之暗面科技）。"
+    },
+    "mirror": "https://www.modelscope.cn/models/moonshotai/Kimi-K3",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      },
+      {
+        "label": "ModelScope 官方镜像 moonshotai/Kimi-K3（2026-10-20 实测 200）",
+        "url": "https://www.modelscope.cn/models/moonshotai/Kimi-K3"
+      }
+    ],
+    "last_verified": "2026-10-20"
+  }
+}

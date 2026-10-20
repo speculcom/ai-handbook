@@ -111,6 +111,17 @@
         <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-09</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
       </p>
     </section>
+
+    <section class="fam-sec cn-sec">
+      <h2><span data-zh>中文生态</span><span data-en>China availability</span> <small><span data-zh>国产 / 国内可直接用 / 备案状态 · 快照</span><span data-en>domestic / direct access / CAC filing · snapshot</span> 2026-10-20</small></h2>
+      <ul class="fam-claims cn-rows">
+        <li><b><span data-zh>出品属地</span><span data-en>Origin</span></b>　<span data-zh>国外出品</span><span data-en>foreign-made</span>　<span data-zh>出品方为 OpenAI。</span><span data-en>Made by OpenAI.</span></li>
+        <li><b><span data-zh>国内下载</span><span data-en>Direct access</span></b>　<span data-zh>直连不可达</span><span data-en>direct blocked</span>　<span data-zh>Hugging Face 直连不可达；ModelScope 检索 gpt-oss 未命中镜像（2026-10-20）。</span><span data-en>Hugging Face direct unreachable; no gpt-oss mirror found on ModelScope (2026-10-20).</span></li>
+        <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>未见于备案名单</span><span data-en>not in filing list</span>：<span data-zh>公示名单未检索到 OpenAI / GPT 相关条目（2026-10-20）。</span><span data-en>公示名单未检索到 OpenAI / GPT 相关条目（2026-10-20）。</span></li>
+      </ul>
+      <p class="fam-claims-note"><span data-zh>备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站从大陆网络直连实测的结果，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site's own reachability measurement from a mainland network, not a vendor promise.</span></p>
+      <ul class="fam-src-list cn-srcs"><li>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：<a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li>ModelScope 站内检索 gpt-oss（2026-10-20，无结果）：<a href="https://www.modelscope.cn/search?search=gpt-oss" target="_blank" rel="noopener">https://www.modelscope.cn/search?search=gpt-oss</a></li></ul>
+    </section>
       <section class="member" id="m0">
         <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span>gpt-oss 20B</h3>
         <p class="member-meta"><span data-zh>20B（MoE，约 3.6B 激活）</span><span data-en>20B（MoE，约 3.6B 激活）</span>　·　<span data-zh>单卡甜点</span><span data-en>Single-GPU sweet spot</span>　·　<span data-zh>4 个量化来源</span><span data-en>4 quant sources</span></p>
@@ -640,7 +651,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q4_K_S 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q4_K_S), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>Q4_K_S</code>（12 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q4_K_S</code> (12 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_K_S</code>（12 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_K_S</code> directly (12 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>已 297 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 297 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>已 305 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 305 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="ggml-org" data-lic="apache-2.0" data-tiers="平衡档 近似无损" data-blob="ggml-org ggml-org/gpt-oss-20b-gguf apache-2.0">
           <header class="vcard-h">
@@ -674,7 +685,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（MXFP4 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as MXFP4), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>MXFP4</code>（12 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>MXFP4</code> (12 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>MXFP4</code>（12 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>MXFP4</code> directly (12 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>档位极少，没有升降空间，被显存卡住时无路可退</span><span data-en>Very few tiers, so there is no room to move up or down when VRAM runs out</span><br>· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>已 432 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 432 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>档位极少，没有升降空间，被显存卡住时无路可退</span><span data-en>Very few tiers, so there is no room to move up or down when VRAM runs out</span><br>· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>已 441 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 441 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="bartowski" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="bartowski bartowski/openai_gpt-oss-20b-gguf apache-2.0">
           <header class="vcard-h">
@@ -691,7 +702,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（MXFP4 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as MXFP4), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>档位覆盖最广的一档（27 档），从极限压缩到近似无损都能选</span><span data-en>The widest tier coverage here (27 tiers), from extreme compression up to near lossless</span><br>· <span data-zh>平衡档落在 <code>MXFP4</code>（12 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>MXFP4</code> (12 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>MXFP4</code>（12 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>MXFP4</code> directly (12 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>全仓 307 GB，硬盘紧张的话建议只下需要的 1~2 个档位</span><span data-en>307 GB for the whole repo — if disk is tight, download only the one or two tiers you need</span><br>· <span data-zh>量化仓<b>自己没写许可字段</b>，这里的 <code>apache-2.0</code> 是继承基座 <code>openai/gpt-oss-20b</code> 的推断值——著作权上量化不可能脱离基座许可，但量化者的 redistribution 条款是否另有约定，需自己去读基座许可原文确认</span><span data-en>The quant repo <b>declares no licence of its own</b>; the <code>apache-2.0</code> shown here is inferred from the base model's <code>openai/gpt-oss-20b</code> — under copyright, a quantisation cannot escape the base licence. Whether the quantiser adds its own redistribution terms is for you to determine by reading the base licence.</span><br>· <span data-zh>已 426 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 426 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>全仓 307 GB，硬盘紧张的话建议只下需要的 1~2 个档位</span><span data-en>307 GB for the whole repo — if disk is tight, download only the one or two tiers you need</span><br>· <span data-zh>量化仓<b>自己没写许可字段</b>，这里的 <code>apache-2.0</code> 是继承基座 <code>openai/gpt-oss-20b</code> 的推断值——著作权上量化不可能脱离基座许可，但量化者的 redistribution 条款是否另有约定，需自己去读基座许可原文确认</span><span data-en>The quant repo <b>declares no licence of its own</b>; the <code>apache-2.0</code> shown here is inferred from the base model's <code>openai/gpt-oss-20b</code> — under copyright, a quantisation cannot escape the base licence. Whether the quantiser adds its own redistribution terms is for you to determine by reading the base licence.</span><br>· <span data-zh>已 435 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 435 days, so it may no longer track a newer base model</span></span></div>
         </article>
       </div>
         </div>
@@ -1042,6 +1053,13 @@
   var sf = document.querySelector('.sfilter');  if (sf) {
     var sq = sf.querySelector('.sq');
     var ssel = sf.querySelector('.ssel');
+    /* v7 S52：中文生态三个共用筛选（出品属地 / 国内直连 / 备案状态）。
+     * 与许可同一个作用域、同一套 URL 还原逻辑——一套筛选体系，不另造。 */
+    var cnSels = [
+      { el: sf.querySelector('.ssel-cnorigin'), attr: 'data-cn-origin', key: 'cnorigin' },
+      { el: sf.querySelector('.ssel-cndirect'), attr: 'data-cn-direct', key: 'cndirect' },
+      { el: sf.querySelector('.ssel-cnfiling'), attr: 'data-cn-filing', key: 'cnfiling' },
+    ].filter(function (x) { return x.el; });
     var scount = sf.querySelector('.vcount');
     var scards = Array.prototype.slice.call(document.querySelectorAll('.scard'));
     if (sq && scards.length) {
@@ -1052,7 +1070,10 @@
         scards.forEach(function (c) {
           var okQ = !term || (c.getAttribute('data-blob') || '').indexOf(term) !== -1 || (c.textContent || '').toLowerCase().indexOf(term) !== -1;
           var okL = !lic || (c.getAttribute('data-lic') || '').split(' ').indexOf(lic) !== -1;
-          var on = okQ && okL;
+          var okCn = cnSels.every(function (x) {
+            return !x.el.value || (c.getAttribute(x.attr) || '') === x.el.value;
+          });
+          var on = okQ && okL && okCn;
           c.hidden = !on;
           if (on) shown++;
         });
@@ -1062,11 +1083,27 @@
           scount.setAttribute('data-en', shown + ' / ' + scards.length + ' series');
         }
       };
-      var syncS = function () { writeUrl({ q: sq.value.trim(), lic: ssel ? ssel.value : '' }); };
+      var syncS = function () {
+        var pairs = { q: sq.value.trim(), lic: ssel ? ssel.value : '' };
+        cnSels.forEach(function (x) { pairs[x.key] = x.el.value; });
+        writeUrl(pairs);
+      };
       sq.value = param('q');
       if (ssel && param('lic')) ssel.value = param('lic');
+      cnSels.forEach(function (x) {
+        var v = param(x.key);
+        if (!v) return;
+        /* 同 .vsel 的教训：select 对选项外的值会静默忽略 → 补成选项，筛出 0 条如实显示。 */
+        if (!Array.prototype.some.call(x.el.options, function (o) { return o.value === v; })) {
+          var extra = document.createElement('option');
+          extra.value = v; extra.textContent = v;
+          x.el.appendChild(extra);
+        }
+        x.el.value = v;
+      });
       sq.addEventListener('input', function () { applyS(); syncS(); });
       if (ssel) ssel.addEventListener('change', function () { applyS(); syncS(); });
+      cnSels.forEach(function (x) { x.el.addEventListener('change', function () { applyS(); syncS(); }); });
       applyS();
     }
   }

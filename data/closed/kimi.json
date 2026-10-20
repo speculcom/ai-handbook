@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "code": "kimi",
+  "name": {
+    "zh": "Kimi（闭源 API）",
+    "en": "Kimi (closed API)"
+  },
+  "vendor": {
+    "zh": "月之暗面（Moonshot AI）",
+    "en": "Moonshot AI"
+  },
+  "access": {
+    "zh": "platform.kimi.com API 与 Kimi 应用；K3 权重同时开放（见本站开放权重侧的 kimi 谱系卡）——API 与开放权重是同一模型的两条使用路径。",
+    "en": "platform.kimi.com API and the Kimi app; K3 weights are also open (see the kimi family card on the open-weight side) — API and open weights are two usage paths to the same model."
+  },
+  "currentGen": {
+    "zh": "Kimi K3（API）",
+    "en": "Kimi K3 (API)"
+  },
+  "currentGenDate": "2026-06",
+  "review_interval_days": 30,
+  "generations": [
+    {
+      "gen": "Kimi K3",
+      "date": "2026-06",
+      "zh": "当前代：官方 API 文档 1M token 上下文（max_completion_tokens 默认 131072、最大 1048576）、始终启用思考（Preserved Thinking，推理强度 low/high/max 默认 max）、多模态；平台横幅「Kimi K3 旗舰模型已正式发布」。",
+      "en": "Current generation: official API docs list a 1M-token context (max_completion_tokens default 131072, max 1048576), always-on thinking (Preserved Thinking; reasoning effort low/high/max, default max), multimodal; the platform banner reads \"Kimi K3 flagship officially released\".",
+      "url": "https://platform.kimi.com/docs/api/chat"
+    },
+    {
+      "gen": "Kimi K2.7 Code / K2.6",
+      "date": "2026-04–06",
+      "zh": "上一档：API 文档同页列 kimi-k2.7-code 与 kimi-k2.6 模型对象。",
+      "en": "Previous step: the same API docs page lists kimi-k2.7-code and kimi-k2.6 model objects.",
+      "url": "https://platform.kimi.com/docs/api/chat"
+    }
+  ],
+  "facts": [
+    {
+      "k": {
+        "zh": "上下文窗口",
+        "en": "Context window"
+      },
+      "v": {
+        "zh": "1M token（官方 API 文档：max_completion_tokens 最大可设 1048576）",
+        "en": "1M tokens (official API docs: max_completion_tokens can reach 1048576)"
+      },
+      "url": "https://platform.kimi.com/docs/api/chat"
+    },
+    {
+      "k": {
+        "zh": "思考模式",
+        "en": "Thinking mode"
+      },
+      "v": {
+        "zh": "K3 始终启用思考 + Preserved Thinking；推理强度 low/high/max，默认 max（官方 API 文档）",
+        "en": "K3 always thinks, with Preserved Thinking; reasoning effort low/high/max, default max (official API docs)"
+      },
+      "url": "https://platform.kimi.com/docs/api/chat"
+    },
+    {
+      "k": {
+        "zh": "输入模态",
+        "en": "Input modalities"
+      },
+      "v": {
+        "zh": "多模态理解与 Tool Calling（官方平台文档口径）",
+        "en": "Multimodal understanding and Tool Calling (official platform docs)"
+      },
+      "url": "https://platform.kimi.com/docs/api/chat"
+    }
+  ],
+  "positioning": {
+    "zh": "国产闭源旗舰，但它是本站唯一「API 与开放权重双轨」的家族：K3 权重在 Hugging Face / ModelScope 开放（自定义 Kimi K3 License），API 走 platform.kimi.com。选型时两条路径的许可与数据条款不同，分开读。",
+    "en": "The domestic closed flagship — yet the only family here with dual tracks: K3 weights are open on Hugging Face / ModelScope (custom Kimi K3 License) while the API runs on platform.kimi.com. Licences and data terms differ between the two paths — read them separately."
+  },
+  "onSite": {
+    "zh": "开放权重侧本站收录 kimi-k3 系列（谱系卡 + 量化对比）；对话产品轻档案在 AI 工具站。",
+    "en": "On the open-weight side this site covers the kimi-k3 series (family card + quantisation); the chat light entry lives on the tools site."
+  },
+  "sources": [
+    {
+      "label": "Kimi 开放平台 API 文档（2026-10-20 直抓 200：K3 上下文/思考/推理强度参数）",
+      "url": "https://platform.kimi.com/docs/api/chat",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为月之暗面（北京）。",
+    "originNoteEn": "Made by Moonshot AI (Beijing).",
+    "direct": "yes",
+    "directNote": "platform.kimi.com 大陆直连可达（2026-10-20 实测 200）。",
+    "directNoteEn": "platform.kimi.com reachable direct from the mainland (measured 200, 2026-10-20).",
+    "filing": {
+      "status": "filed",
+      "name": "Moonshot",
+      "no": "Beijing-MoonShot-20231016",
+      "date": "2023-11-03",
+      "note": "首批第 16 行（月之暗面科技）。"
+    },
+    "mirror": "",
+    "last_verified": "2026-10-20",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      }
+    ]
+  }
+}

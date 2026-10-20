@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "code": "gpt",
+  "name": {
+    "zh": "GPT（闭源 API）",
+    "en": "GPT (closed API)"
+  },
+  "vendor": {
+    "zh": "OpenAI",
+    "en": "OpenAI"
+  },
+  "access": {
+    "zh": "API 与 ChatGPT 订阅；权重不开源。",
+    "en": "API and ChatGPT subscription; weights are not open."
+  },
+  "currentGen": {
+    "zh": "GPT-6 系（Astra / 6.1 Sol / 6 Luna）",
+    "en": "GPT-6 line (Astra / 6.1 Sol / 6 Luna)"
+  },
+  "currentGenDate": "2026-10",
+  "review_interval_days": 30,
+  "generations": [
+    {
+      "gen": "GPT-6 Astra",
+      "date": "2026-10",
+      "zh": "当前旗舰：官方模型页 1,050,000 上下文 / 128,000 最大输出 / 知识截点 2026-04-30；发布走 Trusted Access 分批开放（央视新闻 2026-10 报道同口径）。",
+      "en": "Current flagship: official model page lists 1,050,000 context / 128,000 max output / knowledge cutoff Apr 30, 2026; launched through the Trusted Access Program in phases (same account in CCTV's October 2026 report).",
+      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+    },
+    {
+      "gen": "GPT-5.2 / 5.6 系",
+      "date": "2025-12–2026-02",
+      "zh": "上一代线：GPT-5.2（400K 上下文）与 GPT-5.6 Sol/Terra/Luna（1.05M 上下文）在官方文档在册。",
+      "en": "Previous line: GPT-5.2 (400K context) and GPT-5.6 Sol/Terra/Luna (1.05M context) listed in official docs.",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.2"
+    }
+  ],
+  "facts": [
+    {
+      "k": {
+        "zh": "上下文窗口",
+        "en": "Context window"
+      },
+      "v": {
+        "zh": "1,050,000 tokens（GPT-6 Astra 官方模型页）",
+        "en": "1,050,000 tokens (official GPT-6 Astra model page)"
+      },
+      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+    },
+    {
+      "k": {
+        "zh": "最大输出",
+        "en": "Max output"
+      },
+      "v": {
+        "zh": "128,000 tokens（同上）",
+        "en": "128,000 tokens (same page)"
+      },
+      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+    },
+    {
+      "k": {
+        "zh": "知识截点",
+        "en": "Knowledge cutoff"
+      },
+      "v": {
+        "zh": "2026-04-30（同上）",
+        "en": "Apr 30, 2026 (same page)"
+      },
+      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+    },
+    {
+      "k": {
+        "zh": "输入模态",
+        "en": "Input modalities"
+      },
+      "v": {
+        "zh": "文本 + 图像输入、文本输出（官方模型页 Modalities 行）",
+        "en": "Text + image input, text output (Modalities row on the official page)"
+      },
+      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+    }
+  ],
+  "positioning": {
+    "zh": "闭源旗舰线：能力声明以官方发布页为准，本站只抄规格不背书横评。注意 OpenAI 另有一条开放权重线（gpt-oss），与这条 API 线是两回事——本站两边都有卡。",
+    "en": "The closed flagship line: capability claims follow the official release pages; this site copies specs without endorsing comparisons. Note OpenAI also runs an open-weight line (gpt-oss) — a different thing from this API line; this site cards both."
+  },
+  "onSite": {
+    "zh": "本站开放权重侧收录的是 gpt-oss 系列（谱系卡与量化对比都在）；GPT-6 系不开权重，无量化话题。",
+    "en": "On the open-weight side this site covers the gpt-oss line (family card + quantisation comparison); the GPT-6 line ships no weights, so quantisation does not apply."
+  },
+  "sources": [
+    {
+      "label": "GPT-6 Astra 官方模型页（2026-10-20 经代理直抓 200）",
+      "url": "https://platform.openai.com/docs/models/gpt-6-astra",
+      "kind": "docs"
+    },
+    {
+      "label": "OpenAI API 平台首页 frontier 模型规格（2026-10-20 检索快照，与模型页同口径）",
+      "url": "https://openai.com/api/",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 OpenAI（美国）。",
+    "originNoteEn": "Made by OpenAI (US).",
+    "direct": "no",
+    "directNote": "chatgpt.com 大陆直连实测不可达（2026-10-20，S52 探测口径）；官方服务不面向大陆。",
+    "directNoteEn": "chatgpt.com unreachable direct from the mainland (measured 2026-10-20, S52 probe convention); the official service does not serve the mainland.",
+    "filing": {
+      "status": "not-filed",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "公示名单未检索到 OpenAI 相关条目（2026-10-20 检索 13 批附件）。"
+    },
+    "mirror": "",
+    "last_verified": "2026-10-20",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      }
+    ]
+  }
+}

@@ -2,8 +2,9 @@
 
 > 中文版：[README.md](./README.md)
 
-> **An atlas of quantized models you can run locally** — it answers exactly one question:
-> for this base model, which quantized version should I download, and why?
+> **An atlas of open-weight models you can run locally** — a two-step choice: family lineage
+> cards first (vendor / generations / size tiers / licences / official claims), then "for this
+> base model, which quantized version should I download, and why?"
 >
 > Live: https://models.specul.com/
 > Deploy repo: https://github.com/speculcom/models
@@ -188,5 +189,7 @@ or faster need benchmarks, and this site makes none.
 | Quant variants | 132 |
 | GGUF files | 1253 |
 | Quantizers | 55 |
+| Family lineage cards (families) | 15 |
+| Closed-model cards (closed) | 6 |
 | Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->

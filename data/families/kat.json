@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "code": "kat",
+  "series": "kat-coder",
+  "name": {
+    "zh": "KAT Coder",
+    "en": "KAT Coder"
+  },
+  "vendor": {
+    "zh": "Kwaipilot（快手）",
+    "en": "Kwaipilot (Kuaishou)"
+  },
+  "currentGen": {
+    "zh": "KAT-Coder-V2.5",
+    "en": "KAT-Coder-V2.5"
+  },
+  "currentGenDate": "2026-07",
+  "derived": {
+    "base": "Qwen3.6-35B-A3B",
+    "zh": "官方模型卡 cardData 声明 base_model: Qwen3.6-35B-A3B —— 本站按 A6.5 口径把它标为「派生自 Qwen 系」：权重谱系上它是 Qwen3.6-35B-A3B 的 SFT/RL 后训练产物，不是从零预训练。",
+    "en": "The official model card declares base_model: Qwen3.6-35B-A3B — under this site's A6.5 convention it is marked as derived from the Qwen line: on the weight lineage it is an SFT/RL post-train of Qwen3.6-35B-A3B, not trained from scratch.",
+    "url": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev"
+  },
+  "generations": [
+    {
+      "gen": "KAT-Coder-V2.5",
+      "date": "2026-07",
+      "zh": "当前代。官方 README：V2.5 于 2026-07 发布（闭源 API 版），开放权重的 V2.5-Dev 为 35B 总参 / 3B 激活 MoE，经 SFT/RL 训练；模型卡声明派生自 Qwen3.6-35B-A3B。",
+      "en": "Current generation. Official README: V2.5 shipped July 2026 (closed API); the open-weight V2.5-Dev is a 35B-total / 3B-active MoE trained with SFT/RL; the model card declares it derived from Qwen3.6-35B-A3B.",
+      "url": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev"
+    },
+    {
+      "gen": "KAT-V1",
+      "date": "2025",
+      "zh": "更早一代（KAT-V1-40B 仓 2025-08 出现在官方 org）。",
+      "en": "Earlier line (the KAT-V1-40B repo appeared in the official org in August 2025).",
+      "url": "https://huggingface.co/Kwaipilot/KAT-V1-40B"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "代码专用 35B-A3B（35B 总参 / 3B 激活）",
+      "en": "Code-focused 35B-A3B (35B total / 3B active)"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "apache-2.0",
+      "zh": "Apache-2.0（V2.5-Dev 开放权重版；V2.5 完整版走 API，不开权重）",
+      "en": "Apache-2.0 (the open-weight V2.5-Dev; the full V2.5 stays behind the API)",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "官方 README：「an MOE model with a total parameter count of 35B and 3B activated parameters」「Through SFT/RL training, KAT-Coder-V2.5-Dev achieves SOTA results … among models with similar parameter scales」——SOTA 为厂商自评基准口径。",
+      "en": "Official README: \"an MOE model with a total parameter count of 35B and 3B activated parameters\"; \"Through SFT/RL training, KAT-Coder-V2.5-Dev achieves SOTA results … among models with similar parameter scales\" — the SOTA claim is vendor-run benchmark wording.",
+      "url": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev"
+    }
+  ],
+  "positioning": {
+    "zh": "快手 Kwaipilot 的代码家族：API 版闭源、Dev 版开放权重。它是本站收录的「派生模型」代表——官方自己声明基座是 Qwen3.6-35B-A3B，选它等于选 Qwen 谱系 + 快手代码后训练。",
+    "en": "Kuaishou Kwaipilot's coding line: the API build stays closed, the Dev build is open-weight. It is this site's representative \"derived model\" — the vendor itself declares Qwen3.6-35B-A3B as its base, so choosing it means choosing the Qwen lineage plus Kuaishou's code post-training."
+  },
+  "onSite": {
+    "series": [
+      "kat-coder"
+    ],
+    "zh": "本站已收录 KAT-Coder-V2.5-Dev 的量化对比",
+    "en": "This site covers KAT-Coder-V2.5-Dev quantisations"
+  },
+  "sources": [
+    {
+      "label": "KAT-Coder-V2.5-Dev 模型页与 README（2026-10-20 直抓 200，含 base_model 声明）",
+      "url": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev",
+      "kind": "docs"
+    },
+    {
+      "label": "Kwaipilot 官方 org 模型清单（HF API 2026-10-20）",
+      "url": "https://huggingface.co/Kwaipilot",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方 Kwaipilot 是快手（北京）的 AI 团队——官方 HF 组织页自述「the AI explorers from Kuaishou」。",
+    "originNoteEn": "Kwaipilot is the AI team of Kuaishou (Beijing) — its official HF org page says \"the AI explorers from Kuaishou\".",
+    "direct": "yes",
+    "directNote": "ModelScope 官方镜像直连可达（2026-10-20 实测 200）；Hugging Face 直连不可达。",
+    "directNoteEn": "Official ModelScope mirror reachable (measured 200); Hugging Face direct unreachable.",
+    "filing": {
+      "status": "not-filed",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "「KAT Coder」未出现在网信办公示名单（2026-10-20 检索）；快手旗下「快意大模型」「可图大模型」「可灵」等已备案，但本站不替 KAT Coder 推断。"
+    },
+    "mirror": "https://www.modelscope.cn/models/Kwaipilot/KAT-Coder-V2.5-Dev",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      },
+      {
+        "label": "Kwaipilot 官方 Hugging Face 组织页（自述来自快手）",
+        "url": "https://huggingface.co/Kwaipilot"
+      },
+      {
+        "label": "ModelScope 官方镜像 Kwaipilot/KAT-Coder-V2.5-Dev（2026-10-20 实测 200）",
+        "url": "https://www.modelscope.cn/models/Kwaipilot/KAT-Coder-V2.5-Dev"
+      }
+    ],
+    "last_verified": "2026-10-20"
+  }
+}

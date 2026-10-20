@@ -96,6 +96,106 @@ C 级内容必须写成「我们的口径」并说明依据，不允许伪装成
 }
 ```
 
+## families/*.json（v7 S51 · 家族谱系卡）
+
+家族卡是「第一层选型」：出品方 / 代次 / 尺寸档 / 许可 / 官方能力声明带出处 / 定位。
+与 `series/*.json`（第二层：量化版）平行——卡上的 `onSite.series` 指向本站已收录的系列 code，
+互链成「选家族 → 看这代的量化对比」路径；该家族没有过量化门槛时 `series` 为空 +
+`onSite.zh/en` 写清原因（诚实口径，不造空壳链接）。
+
+```jsonc
+{
+  "schemaVersion": 1,
+  "code": "qwen",                    // 文件名 = code，URL /families/qwen/
+  "name": { "zh": "千问 Qwen", "en": "Qwen" },
+  "vendor": { "zh": "阿里巴巴 · 通义千问", "en": "Alibaba · Qwen" },
+  "currentGen": { "zh": "Qwen3.8", "en": "Qwen3.8" },
+  "currentGenDate": "2026-08",       // YYYY-MM
+  "generations": [{                  // 代次沿革（新→旧），每条带官方 URL
+    "gen": "Qwen3.8", "date": "2026-08",
+    "zh": "…", "en": "…", "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+  }],
+  "sizeTiers":  [{ "zh": "小杯 0.6B–9B…", "en": "…" }],
+  "licenses":   [{ "id": "apache-2.0", "zh": "…", "en": "…", "url": "许可原文" }],
+  "claims":     [{ "zh": "官方声明…", "en": "…", "url": "出处" }],  // 官方能力声明，逐条挂 URL
+  "positioning": { "zh": "…", "en": "…" },
+  "derived": {                       // 可选（v7 S53）：官方模型卡声明 base_model 的家族才写
+    "base": "Qwen3.6-35B-A3B",       // 基座名（照官方 cardData.base_model 抄）
+    "zh": "…", "en": "…", "url": "声明所在页"
+  },
+  "onSite": { "series": ["qwen3-8"], "zh": "…", "en": "…" },   // series 空 = 本站未收量化对比
+  "sources":    [{ "label": "…（2026-10-20 直抓 200）", "url": "…", "kind": "docs" }],
+  "last_verified": "2026-10-20",
+  "confidence": "verified"
+}
+```
+
+纪律（与 series 同一套 R5 口径）：
+
+1. `claims` 是**厂商官方声明**的转述，不是本站结论——涉及横评的必须点名是厂商自评基准（GLM-5.3 的 Code Bench 就是这样标的）；
+2. 官方页抓不到的内容写「官方未说明」（Llama-4 的上下文长度即此处理：README 门控 + llama.com 有身份确认，不转述未核验数字）；
+3. 许可按档位如实分列（Mistral 的 Small 4 = Apache-2.0、Medium 3.5 = Modified MIT；GLM 的大杯 other、Flash 杯 MIT）；
+4. `last_verified` 是核验快照日；换链接前先实测新 URL。
+5. **派生标记（S53）**：只有官方模型卡自己声明 `base_model` 的家族才写 `derived`（A6.5 口径——这是量化仓/模型仓自报的溯源字段，本站不猜谱系）。写了就必须带 url 出处；索引页卡上会渲染「派生自 X」chip。家族 code 与系列 code 同名是允许的（gpt-oss / laguna），validate 的「onSite 不指家族卡」守卫按在册系列放行。
+
+## closed/*.json（v7 S54 · 闭源谱系卡）
+
+闭源卡是**对照面**：本站主体仍是开放权重选型，闭源卡只记三件事——
+当前代、官方规格事实（每条挂官方出处）、核验快照与复核周期。
+URL `/closed/<code>/`。它回答的是「选型绕不开的 API 对照面现在是什么状态」，
+不是「闭源模型怎么部署」（那不存在——没有权重就没有量化选型）。
+
+```jsonc
+{
+  "schemaVersion": 1,
+  "code": "gpt",                      // 文件名 = code，URL /closed/gpt/
+  "name": { "zh": "GPT（闭源 API）", "en": "GPT (closed API)" },
+  "vendor": { "zh": "OpenAI", "en": "OpenAI" },
+  "access": { "zh": "怎么用得到…", "en": "…" },   // API/产品入口一句话（读者最关心的第一问）
+  "currentGen": { "zh": "…", "en": "…" },
+  "currentGenDate": "2026-06",        // YYYY-MM
+  "review_interval_days": 30,         // 复核周期（≥7 整数）：last_verified + 它 = 复核到期日
+  "generations": [{ "gen": "…", "date": "…", "zh": "…", "en": "…", "url": "官方页" }],
+  "facts": [{                         // 官方规格事实（上下文/输出/模态/思考模式等）
+    "k": { "zh": "上下文窗口", "en": "Context window" },
+    "v": { "zh": "…", "en": "…" },
+    "url": "https://…"                // 每条必填 https 官方出处——无出处的「事实」不收
+  }],
+  "positioning": { "zh": "…", "en": "…" },
+  "onSite": { "zh": "与开放权重侧/工具站的分工", "en": "…" },  // 防读者混线（kimi 双轨就是例子）
+  "sources": [{ "label": "…（2026-10-20 直抓 200）", "url": "…", "kind": "docs" }],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",           // verified | partial | stale
+  "cn": { … }                         // S52 共用透镜（origin/direct/filing），checkCn 校验
+}
+```
+
+纪律（S54 特有，叠加 R5 通用口径）：
+
+1. **D9 反向守卫**：卡内不采价格数字。validate 拦两样——价格类**字段名**（price/cost/pricing/fee/rate/monthly/per_*_token 等 key）与值里的**价格数字模式**（¥3.5、$5、6元/百万、USD 10）；「prices may change」这类定性口径放行。定价只放官方定价页链接。
+2. **stale 是状态不是错误**：`review_interval_days` + `last_verified` 算复核到期日。到期 → validate 发卡内警告 + 渲染层必须出 `.stale-banner` 横幅（models-check 断言兑现：到期必有横幅、未到期不许有）。闭源厂商改规格不通知任何人——过期可见胜过装作最新。
+3. `facts` 每条必须挂官方出处（官方文档/发布页 > 官方定价页链接），禁二手转述；抓不到的写「官方未说明」，不编数字。
+4. 官方页自称与常识不符时**如实记录原文**（先例：Grok 官方页自称 SpaceXSI，卡上照记并标注出处口径）。
+5. `onSite` 必填双语：说清与开放权重侧（kimi 双轨）、工具站（对话产品轻档案）的分工，防读者把两条线混成一条。
+
+## guides/*.md（v7 S55 · 做模型专题）
+
+方法论文章（训练四阶段、数据与算力、跑起来深水），格式对齐 agent 仓 SCHEMA §十，
+但 **models 仓双语必填**：`titleEn` / `summaryEn` 缺失是硬失败（不是警告）。
+
+frontmatter 字段：`id`（= 文件名 slug）、`title/titleEn`、`summary/summaryEn`、
+`sources[]`（label+url https+kind，≥1）、`last_verified`（YYYY-MM-DD）、
+`confidence`（verified/partial/stale）。
+
+正文纪律：
+
+1. 节标题写 `## [中文标题|English heading]`——渲染层按它出 bi 双节点，**至少一节必须这样写**（validate 硬校验）；
+2. 关键事实挂论文/官方模型卡出处（frontmatter sources 或正文内联链接）；官方没写的写「官方未说明」；
+3. **不排名、不裁决路线之争**（不排名宪章）：写机制、写代价、写口径变化，优劣留给读者；
+4. **与学 AI 站互链不重复**（总纲 §1.4 边界）：每篇正文必须链向至少一个 learn 词条（content-freshness 1d 节机器验「互链」；「不重复」人工对读）；
+5. plain-language 门禁适用（CORPORA 已加 `models-guide`）：句 P90 ≤40、段 P90 ≤120、开场判据；
+6. 渲染落点 `/guides/<id>.html`（单文件页，一级深 → assetPrefix `'../'`——注意与 families/closed 的两级不同构）。
+
 ## 字段来源对照
 
 | 字段 | 来源 | 级别 |

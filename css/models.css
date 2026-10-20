@@ -116,7 +116,12 @@
 /* ── 区块 ── */
 .howto{margin:2.4em 0}
 .howto h2,.series-list h2,.quantizer-index h2{font-size:var(--fs-lg);margin:0 0 .9em}
-.howto h2 small,.series-list h2 small,.quantizer-index h2 small{font-weight:400;color:var(--muted);font-size:var(--fs-xs);margin-left:.5em}
+/* ⚠ 新章节的 h2 small 必须加进这条选择器（v7 S51 踩过：家族区漏加 → small 回落
+ * 浏览器默认 smaller = 32px×0.8333 = 26.67px 半像素，design-audit 抓到）。
+ * 加新区块时先问一句「这个 h2 里有 small 吗」。 */
+/* v7 S54：闭源区 h2 也有 small，必须同条接入（S51 教训：漏一条 → 半像素字号被 design-audit 抓）。
+ * v7 S55：做模型专题区同样有 small，一起接入。 */
+.howto h2 small,.family-list h2 small,.closed-list h2 small,.guide-list h2 small,.series-list h2 small,.quantizer-index h2 small,.fam-sec h2 small{font-weight:400;color:var(--muted);font-size:var(--fs-xs);margin-left:.5em}
 .steps{counter-reset:st;list-style:none;padding:0;margin:0;display:grid;gap:.7em}
 .steps li{counter-increment:st;position:relative;padding-left:2.2em;font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim)}
 .steps li::before{content:counter(st);position:absolute;left:0;top:.1em;width:1.6em;height:1.6em;display:grid;place-items:center;border-radius:50%;background:var(--bg-soft);border:1px solid var(--line);color:var(--brand);font-size:var(--fs-xs)}
@@ -270,6 +275,76 @@ details.all-quants summary{cursor:pointer;font-size:var(--fs-xs);color:var(--bra
 .scard-lic{margin:.7em 0 .6em;display:flex;gap:.35em;flex-wrap:wrap;min-width:0}
 .scard-lic>*{min-width:0}
 .scard-go{margin:0;font-size:var(--fs-xs);color:var(--brand)}
+
+/* ── 家族谱系卡（v7 S51）──
+ * 首页「家族谱系」区网格 + families/<code>/ 详情页共用同一族类。
+ * 版式跟随 .scard 的共享语言（panel 底 / line 边 / brand hover），
+ * 不另起第套视觉 —— 宪章 1：models 站内一处定义、全家页消费。 */
+.famcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:1em}
+.m-famcard{display:block;padding:1.15em 1.25em;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;min-width:0}
+.m-famcard:hover{border-color:var(--brand);transform:translateY(-2px)}
+.m-famcard-h{display:flex;justify-content:space-between;align-items:baseline;gap:.6em;flex-wrap:wrap}
+.m-famcard-h h3{margin:0;font-size:var(--fs-lg);color:var(--text)}
+.m-famcard-vendor{font-size:var(--fs-xs);color:var(--muted)}
+.m-famcard-cur{margin:.5em 0 .4em;font-size:var(--fs-xs);color:var(--muted)}
+.m-famcard-cur b{color:var(--text)}
+.m-famcard-sum{margin:.4em 0 .8em;font-size:var(--fs-xs);line-height:1.7;color:var(--text-dim)}
+.m-famcard-meta{display:flex;gap:1em;flex-wrap:wrap;align-items:center;padding:.7em 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:var(--fs-xs);color:var(--muted)}
+.m-famcard-meta b{color:var(--brand);font-variant-numeric:tabular-nums}
+/* v7 S52：家族卡上的中文生态 chip 行。chip 本体（.t-tag/.t-state）在 brand.css 定义一次，
+ * 这里只管「一行放不下就换行」的容器排布——不是第二套组件。 */
+.m-famcard-cn{display:flex;gap:.45em;flex-wrap:wrap;align-items:center;margin:.6em 0 0}
+.m-famcard-go{margin:.7em 0 0;font-size:var(--fs-xs);color:var(--brand)}
+
+/* ── 家族卡详情页（/families/<code>/）── */
+.fam-onsite{margin:1.1em 0 0;padding:.7em .9em;border-left:3px solid var(--brand);background:var(--bg-soft);border-radius:0 6px 6px 0;font-size:var(--fs-xs);line-height:1.7}
+.fam-onsite-no{border-left-color:var(--gold)}
+.fam-onsite a{color:var(--brand)}
+.fam-sec{margin:2.2em 0}
+.fam-sec h2{font-size:var(--fs-sm);margin:0 0 1em;padding-bottom:.5em;border-bottom:1px solid var(--line)}
+.fam-gens{list-style:none;padding:0;margin:0}
+.fam-gen{padding:.9em 0;border-bottom:1px dotted var(--line)}
+.fam-gen-head{display:flex;gap:.7em;align-items:baseline;flex-wrap:wrap}
+.fam-gen-head b{color:var(--text);font-size:var(--fs-sm)}
+.fam-gen-date{font-size:var(--fs-xs);color:var(--muted);font-variant-numeric:tabular-nums}
+.fam-gen-cur{font-size:var(--fs-xs);padding:.12em .55em;border-radius:999px;background:var(--brand-soft);color:var(--brand)}
+.fam-gen p{margin:.5em 0 .3em;font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim)}
+.fam-src{font-size:var(--fs-xs);color:var(--brand);text-decoration:none}
+.fam-src:hover{text-decoration:underline}
+.fam-tiers,.fam-lics,.fam-claims,.fam-src-list{list-style:none;padding:0;margin:0}
+.fam-tiers li,.fam-lics li,.fam-claims li{font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim);padding:.55em 0;border-bottom:1px dotted var(--line)}
+.fam-lic-txt{color:var(--text-dim)}
+.fam-claims li{color:var(--text-dim)}
+.fam-claims-note{margin:.8em 0 0;font-size:var(--fs-xs);color:var(--muted);line-height:1.7}
+/* S53 派生标记行（家族页）；chip 本体 .t-tag 在 brand.css，这里只排行内间距 */
+.fam-derived{margin:0;font-size:var(--fs-sm);line-height:1.8;color:var(--text-dim)}
+.fam-derived code{background:var(--bg-inset);padding:1px 6px;border-radius:var(--r-xs);font-size:var(--fs-xs)}
+.fam-src-list li{font-size:var(--fs-xs);line-height:1.8;color:var(--muted);word-break:break-all}
+.fam-src-list a{color:var(--brand)}
+.fam-foot{margin:.9em 0 0;font-size:var(--fs-xs);color:var(--muted)}
+
+/* ── v7 S54：闭源谱系卡（/closed/<code>/）──
+ * 卡面复用 .m-famcard（宪章 1），这里只补闭源页独有的三样：
+ * access 行、stale 到期横幅、闭源区 h2 与家族区同款。 */
+.closed-list h2{font-size:var(--fs-lg);margin:0 0 .9em}
+/* v7 S55：做模型专题（/guides/<id>.html）。版式复用 .fam-sec；
+ * 文章正文的裸 <p>/<ul> 在这里补基础排印（其余组件不新造）。
+ * ⚠ 必须限定在 .guide-body 内——裸 `.fam-sec ul` 与 `.fam-tiers{list-style:none}`
+ *   同特异度且写在后面，会把家族页的无点列表全变成 disc 圆点（构造性验证过）。 */
+.guide-list h2{font-size:var(--fs-lg);margin:0 0 .9em}
+.guide-body .fam-sec p{margin:0 0 .9em;font-size:var(--fs-sm);line-height:1.85;color:var(--text-dim);max-width:var(--measure)}
+.guide-body .fam-sec p b{color:var(--text)}
+.guide-body .fam-sec p a,.guide-body .fam-sec li a{color:var(--brand)}
+.guide-body .fam-sec ul:not(.fam-src-list){list-style:disc;padding-left:1.4em;margin:0 0 .9em}
+.guide-body .fam-sec ul:not(.fam-src-list) li{font-size:var(--fs-sm);line-height:1.8;color:var(--text-dim);padding:.15em 0;border-bottom:none}
+.guide-body .fam-sec code{background:var(--bg-inset);padding:1px 6px;border-radius:var(--r-xs);font-size:var(--fs-xs)}
+.closed-access{margin:1.1em 0 0;font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim);padding:.7em .9em;background:var(--bg-soft);border-radius:var(--r-sm);border-left:3px solid var(--vio)}
+.closed-access b{color:var(--text)}
+/* stale 横幅：复核到期是「必须可见的状态」——金色（与 fam-onsite-no 同族警示色），
+ * 不是错误红：数据不是错了，是旧了。validate 发卡内警告，这里兑现页面横幅，
+ * models-check 断言「到期卡页必须有 .stale-banner」。 */
+.stale-banner{margin:1.6em 0 0;padding:.9em 1.1em;border:1px solid var(--gold);border-left:4px solid var(--gold);background:var(--bg-soft);border-radius:var(--r-sm);font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim)}
+.stale-banner b{color:var(--gold)}
 
 /* ── 量化者 chips ── */
 .qchips{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:.6em}
