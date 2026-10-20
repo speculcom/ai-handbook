@@ -1,5 +1,6 @@
 ---
 id: alignment
+stage: 3
 title: 偏好对齐：RLHF 与 DPO 在解决什么问题
 titleEn: Preference alignment: what RLHF and DPO actually solve
 summary: 奖励模型怎么从人排序里炼出来、PPO 那一步贵在哪、DPO 为什么能免掉强化学习、以及「对齐税」与谄媚这些代价。从业者视角深版；一页科普在学 AI 站。

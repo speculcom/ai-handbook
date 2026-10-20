@@ -1,5 +1,6 @@
 ---
 id: sft
+stage: 2
 title: SFT：让续写机器学会「好好回答」
 titleEn: SFT: teaching a completion machine to answer well
 summary: 监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。

@@ -61,6 +61,19 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 - [Kimi（闭源 API）](https://models.specul.com/closed/kimi/): 国产闭源旗舰，但它是本站唯一「API 与开放权重双轨」的家族：K3 权重在 Hugging Face / ModelScope 开放（自定义 Kimi K3 License），API 走 platform.kimi.com。选型时两条路径的许可与数据条款不同，分开读。
   月之暗面（Moonshot AI）　当前代 Kimi K3（API）（2026-06）　3 条官方事实　核验 2026-10-20　复核周期 30 天
 
+## 做模型专题
+
+从业者视角的方法论文章（与学 AI 站互链不重复）。关键事实挂论文/官方模型卡出处；不实测、不排名、不裁决路线之争。
+
+- [偏好对齐：RLHF 与 DPO 在解决什么问题](https://models.specul.com/guides/alignment.html): 奖励模型怎么从人排序里炼出来、PPO 那一步贵在哪、DPO 为什么能免掉强化学习、以及「对齐税」与谄媚这些代价。从业者视角深版；一页科普在学 AI 站。
+  8 节 · 6 条官方出处 · 核验 2026-10-20
+- [蒸馏：小模型怎么从大模型身上学](https://models.specul.com/guides/distillation.html): logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
+  7 节 · 8 条官方出处 · 核验 2026-10-20
+- [预训练：模型怎么做到「什么都知道一点」](https://models.specul.com/guides/pretraining.html): 预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。
+  8 节 · 11 条官方出处 · 核验 2026-10-20
+- [SFT：让续写机器学会「好好回答」](https://models.specul.com/guides/sft.html): 监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。
+  7 节 · 7 条官方出处 · 核验 2026-10-20
+
 ## 已收录系列
 
 - [DeepSeek V4](https://models.specul.com/series/deepseek-v4/): MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。

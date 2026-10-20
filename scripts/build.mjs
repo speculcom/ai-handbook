@@ -151,7 +151,7 @@ const guideList = (() => {
       sections.push({ head: part.slice(0, nl).trim(), text: part.slice(nl + 1).trim() });
     }
     return {
-      id: get('id'), title: get('title'), titleEn: get('titleEn'),
+      id: get('id'), stage: get('stage'), title: get('title'), titleEn: get('titleEn'),
       summary: get('summary'), summaryEn: get('summaryEn'),
       lastVerified: get('last_verified'), confidence: get('confidence'),
       sources, sections,
@@ -1227,7 +1227,7 @@ ${guideBlockMd(s.text)}
   const body = `  <div class="container guide-body">
     <nav class="crumbs"><a href="${DOMAIN}">← ${bi('回开放权重图谱','Back to the open-weight map')}</a></nav>
     <header class="page-head">
-      <p class="eyebrow">${bi('做模型专题','How models are made')}</p>
+      <p class="eyebrow">${bi('做模型专题','How models are made')}${g.stage ? `　<span class="t-tag">${bi(`训练管线 · 第 ${g.stage} 站`, `training pipeline · stage ${g.stage}`)}</span>` : ''}</p>
       <h1><span data-zh>${esc(g.title)}</span><span data-en>${esc(g.titleEn)}</span><span class="sub">${bi('从业者视角的方法论 · 关键事实挂官方出处','practitioner-perspective methodology · key facts carry official sources')}</span></h1>
       <p class="lede">${bi(esc(g.summary), esc(g.summaryEn))}</p>
     </header>
@@ -1311,17 +1311,14 @@ function indexPage() {
   }).join('\n');
 
   /* v7 S55：做模型专题卡（复用 .m-famcard 版式）。
-   * 卡序按训练管线走（预训练→SFT→对齐→蒸馏），不是字母序——读者按流程读。 */
-  const GUIDE_ORDER = ['pretraining', 'sft', 'alignment', 'distillation'];
-  const ordered = [...guideList].sort((a, b) => {
-    const ia = GUIDE_ORDER.indexOf(a.id), ib = GUIDE_ORDER.indexOf(b.id);
-    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
-  });
+   * 卡序按 frontmatter 的 stage（训练管线站序）走，不是字母序——读者按流程读。 */
+  const ordered = [...guideList].sort((a, b) => (Number(a.stage) || 99) - (Number(b.stage) || 99));
   const guideCards = ordered.map((g) => `        <a class="m-famcard" href="guides/${g.id}.html">
           <div class="m-famcard-h">
             <h3>${bi(esc(g.title), esc(g.titleEn))}</h3>
             <span class="m-famcard-vendor">${bi('做模型专题','how models are made')}</span>
           </div>
+          <p class="m-famcard-cur">${g.stage ? `<span class="t-tag">${bi(`训练管线 · 第 ${esc(g.stage)} 站`, `pipeline · stage ${esc(g.stage)}`)}</span>` : ''}</p>
           <p class="m-famcard-sum">${bi(esc(g.summary), esc(g.summaryEn))}</p>
           <div class="m-famcard-meta">
             <span><b>${g.sections.length}</b> ${bi('节','sections')}</span>

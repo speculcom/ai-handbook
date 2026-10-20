@@ -365,6 +365,7 @@ const closedSeen = new Set();
       if (!get(k)) errors.push(`${tag} · 缺 ${k}（R2 中英同步：models 仓双语必填）`);
     }
     if (!/^\d{4}-\d{2}-\d{2}$/.test(get('last_verified'))) errors.push(`${tag} · last_verified 应为 YYYY-MM-DD`);
+    if (get('stage') && !/^[1-9]$/.test(get('stage'))) errors.push(`${tag} · stage（训练管线站序）若写应为 1–9 的整数`);
     if (!['verified', 'partial', 'stale'].includes(get('confidence'))) errors.push(`${tag} · confidence 越枚举: ${get('confidence')}`);
     const srcUrls = [...fm[1].matchAll(/^\s+url:[ \t]*(\S+)/gm)].map((m) => m[1]);
     if (!srcUrls.length) errors.push(`${tag} · sources 为空（R5：关键事实挂官方出处）`);

@@ -1,5 +1,6 @@
 ---
 id: pretraining
+stage: 1
 title: 预训练：模型怎么做到「什么都知道一点」
 titleEn: Pre-training: how a model comes to know a bit of everything
 summary: 预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。

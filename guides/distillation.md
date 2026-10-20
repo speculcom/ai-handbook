@@ -1,5 +1,6 @@
 ---
 id: distillation
+stage: 4
 title: 蒸馏：小模型怎么从大模型身上学
 titleEn: Distillation: how small models learn from big ones
 summary: logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
