@@ -149,7 +149,7 @@ const AXIS_DESC = {
 };
 
 /* ============================================================
- * 站点 + 分区配置：agent.specul.com 一个站，三个分区
+ * 站点 + 分区配置：tools.specul.com 一个站，三个分区
  * ============================================================
  * 2026-10-02 重构：原来 ide/cli/mcp/harness 四个独立站（四个域名），
  * 合成**一站三分区**。理由：
@@ -164,7 +164,7 @@ const AXIS_DESC = {
  *
  * ── URL 与CNAME 的分工（曾踩过的坑）────────────────────────────────
  * `domain` 一律是**根域名**，不带路径：CNAME 文件只接受域名，
- * 写 `agent.specul.com/harness/` 会让 Pages 绑定失败。
+ * 写 `tools.specul.com/harness/` 会让 Pages 绑定失败。
  * 分区路径由 `dir` 单独表达（'' 表示落在根）。
  */
 /* 双语节点。
@@ -215,15 +215,16 @@ function cnPanel(cn) {
 }
 
 const SITE = {
-  domain: 'agent.specul.com',
-  name: 'Agent 图谱',
+  // v7 S16（2026-10-21）改名：Agent 图谱→AI 工具（域名切换 tools.specul.com 在 S20）
+  domain: 'tools.specul.com',
+  name: 'AI 工具',
   /* 站名与 desc 的英文（2026-10-04）—— 首页 kicker 走 t-site.name、hero 走 desc，
    * 之前都是纯中文，英文态下这两处露中文。desc 改成双节点字符串。 */
-  nameEn: 'Agent Atlas',
+  nameEn: 'AI Tools',
   tagline: '让 AI 替你干活 —— 装在哪、连什么、边界在哪',
-  desc: bi('按角色分三层：自己跑的成品 agent、自己搭的运行时与 SDK、给 agent 装的 MCP 工具。三层的坐标系不同，不做横向排名。',
-    'Three layers by role: finished agents you run yourself, runtimes and SDKs you assemble yourself, and MCP tools you install for an agent. The three layers use different coordinate systems, so this site does not rank across them.'),
-  repo: 'https://github.com/speculcom/ai-agent-guide',
+  desc: bi('按角色分三层：现成的 AI 工具、自己搭（进阶）的运行时与 SDK、给 AI 装的工具（MCP）。三层的坐标系不同，不做横向排名。',
+    'Three layers by role: ready-made AI tools, runtimes and SDKs you assemble yourself (advanced), and tools you install for an AI (MCP). The three layers use different coordinate systems, so this site does not rank across them.'),
+  repo: 'https://github.com/speculcom/ai-handbook',
   // 站内分区导航（跨站导航在 shell.mjs 的 NAV 里，那是全站唯一定义处）
   partitions: ['agents', 'harness', 'tools'],
 };
@@ -252,9 +253,9 @@ const SITES = {
     navKey: 'agent',   // 跨站导航的 key：三分区共用一个导航项
     dir: '',              // 落站点根：导航「Agent」指的就是它，不该让访客多点一次
     domain: SITE.domain,
-    name: '成品 Agent',
-    nameEn: 'Finished agents',
-    short: 'Agents',
+    name: '现成的 AI 工具',
+    nameEn: 'Ready-made AI tools',
+    short: 'Tools',
     accent: '#8b7cf8',
     tagline: bi('装在编辑器、终端，或厂商云里','Installed in an editor, a terminal, or a vendor cloud'),
     // desc 只说「本分区比较什么维度」，不逐个列对象名——
@@ -274,8 +275,8 @@ const SITES = {
     navKey: 'agent',   // 跨站导航的 key：三分区共用一个导航项
     dir: 'harness',
     domain: SITE.domain,
-    name: '自己搭的底座',
-    nameEn: 'Runtimes & SDKs',
+    name: '自己搭（进阶）',
+    nameEn: 'Build your own (advanced)',
     short: 'Harness',
     accent: '#3b82f6',
     tagline: bi('运行时、编排框架、SDK','Runtimes, orchestration frameworks, SDKs'),
@@ -290,8 +291,8 @@ const SITES = {
     navKey: 'agent',   // 跨站导航的 key：三分区共用一个导航项
     dir: 'tools',
     domain: SITE.domain,
-    name: '给 agent 装的工具',
-    nameEn: 'MCP tools',
+    name: '给 AI 装工具',
+    nameEn: 'Tools for your AI',
     short: 'Tools',
     accent: '#22d3c5',
     // 「你装，它调」——用户动作是装不是调，这是这站正确的表述
@@ -1953,7 +1954,7 @@ ${srcRows}
 
 // ── 主流程 ───────────────────────────────────────────────────────────────
 /* 输出布局（一站三分区）：
- *   OUT/                ← 站点根 = agent.specul.com，CNAME / robots / sitemap 都在这里
+ *   OUT/                ← 站点根 = tools.specul.com，CNAME / robots / sitemap 都在这里
  *     index.html        ← agents 分区（17 份档案的首页 + 详情）
  *     brand.css brand.js site.css
  *     harness/index.html + 10 份详情
@@ -1963,7 +1964,7 @@ ${srcRows}
  *   它是本站默认落点（导航「Agent」指的就是它），也是三者里唯一
  *   不该让访客多点一次的。其余两个分区作为子目录，天然是「次级内容」。
  *
- * **CNAME 只写一次、只写根域名**（曾差点写成 agent.specul.com/harness/）：
+ * **CNAME 只写一次、只写根域名**（曾差点写成 tools.specul.com/harness/）：
  *   Pages 的自定义域名绑定只接受域名，带路径会让绑定失败。
  */
 function copyBrand(dir) {

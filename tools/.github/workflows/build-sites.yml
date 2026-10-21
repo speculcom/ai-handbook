@@ -1,6 +1,6 @@
 name: build & deploy sites
 
-# 数据层是唯一真相源：这里一改，agent.specul.com 重建并推送。
+# 数据层是唯一真相源：这里一改，tools.specul.com 重建并推送。
 #
 # 2026-10-03 按 v4 三站架构重写。此前那版自检写死 `for t in ide cli mcp harness`，
 # 而 v4 已把四个旧站合成 agent 一站三分区 → 每次 push 必然失败在「产出自检」。
@@ -107,7 +107,7 @@ jobs:
           retention-days: 7
 
   deploy:
-    name: 部署到 agent.specul.com
+    name: 部署到 tools.specul.com
     needs: build
     runs-on: ubuntu-latest
     # ⚠ 2026-10-03 暂时禁用。原因：部署需要 AGENT_SITE_TOKEN secret

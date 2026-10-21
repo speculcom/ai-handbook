@@ -1,8 +1,8 @@
-# ai-agent-guide
+# AI 工具（ai-handbook / tools）
 
 > English version: [README.en.md](./README.en.md)
 
-**AI agent 地图集** · 纯 Markdown · 开源
+**AI 工具图谱** · 纯 Markdown · 开源
 
 记录 **AI coding agent / agent runtime / MCP server** 的能力边界、运行位置与官方证据，
 用一套固定坐标系组织，让选型变成可回溯的判断而不是感觉。
@@ -12,9 +12,9 @@
 
 | 分区 | 主题 | 收录对象 |
 |---|---|---|
-| `agent.specul.com/` | 成品 agent（含 IDE / CLI / 厂商云三种形态） | Cursor · Claude Code · Copilot · Windsurf · Zed · Cline · Aider · Codex · OpenCode · Crush · Gemini CLI · Kiro · Goose · Warp · Jules · Dot · Muse · Grok Bot 等 27 份 |
-| `agent.specul.com/harness/` | Agent 运行时 / 编排框架 / SDK | Claude Agent SDK · Codex SDK · OpenAI Agents SDK · Pydantic AI · smolagents · CrewAI · Google ADK · LangGraph · LlamaIndex · Microsoft Agent Framework · AG2 · Mastra · Deep Agents · Hermes Agent · OpenHands |
-| `agent.specul.com/tools/` | MCP 服务器 / 工具生态 | filesystem · git · memory · sequential-thinking · fetch · time · playwright · context7 · everything · github-mcp |
+| `tools.specul.com/` | 成品 agent（含 IDE / CLI / 厂商云三种形态） | Cursor · Claude Code · Copilot · Windsurf · Zed · Cline · Aider · Codex · OpenCode · Crush · Gemini CLI · Kiro · Goose · Warp · Jules · Dot · Muse · Grok Bot 等 27 份 |
+| `tools.specul.com/harness/` | Agent 运行时 / 编排框架 / SDK | Claude Agent SDK · Codex SDK · OpenAI Agents SDK · Pydantic AI · smolagents · CrewAI · Google ADK · LangGraph · LlamaIndex · Microsoft Agent Framework · AG2 · Mastra · Deep Agents · Hermes Agent · OpenHands |
+| `tools.specul.com/tools/` | MCP 服务器 / 工具生态 | filesystem · git · memory · sequential-thinking · fetch · time · playwright · context7 · everything · github-mcp |
 
 **为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 52 个对象定位的地图。
 
@@ -53,7 +53,7 @@
 有个坑值得先说：成品 agent 和 harness 不是一回事。
 前者问「哪个好用」，后者问「底座怎么搭」。混在一起比，比出来的结论没有意义。
 
-站上的版本：<https://agent.specul.com/>
+站上的版本：<https://tools.specul.com/>
 
 ---
 
@@ -103,7 +103,7 @@
 ## 目录结构
 
 ```
-ai-agent-guide/
+tools/（ai-handbook 子树）
 ├── METHODOLOGY.md              方法论总纲
 ├── SCHEMA.md                   数据格式规范
 ├── CONTRIBUTING.md             贡献指引
@@ -225,7 +225,7 @@ harness 的 15 个对象按**抽象层**分三组，这是本站对该赛道最�
 |---|---|
 | **specul.com** | 品牌站（投机 · 推演） |
 | **nav.specul.com** | 结论层：AI 站点导航 |
-| **agent.specul.com** | 结论层：成品 agent / harness / MCP 工具三分区 |
+| **tools.specul.com** | 结论层：成品 agent / harness / MCP 工具三分区 |
 | **learn.specul.com** | 结论层：AI 术语表 |
 | **models.specul.com** | 结论层：本地部署量化模型索引 |
 | **vg.specul.com** | 结论层：AI 做游戏 |

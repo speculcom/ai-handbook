@@ -1,8 +1,8 @@
-# AI Quantized LLM Atlas
+# AI 模型（ai-handbook / models）
 
 > English version: [README.en.md](./README.en.md)
 
-> **本地部署开放权重图谱** —— 两步选型：先看家族谱系卡（出品方 / 代次 / 尺寸档 / 许可 / 官方声明），再回答「这个基础模型，我该下载哪个量化版、为什么」。
+> **AI 模型 · 开放权重（含蒸馏）图谱** —— 两步选型：先看家族谱系卡（出品方 / 代次 / 尺寸档 / 许可 / 官方声明），再回答「这个基础模型，我该下载哪个量化版、为什么」。
 >
 > 线上：https://models.specul.com/
 > 部署仓：https://github.com/speculcom/models
@@ -146,7 +146,7 @@ node scripts/build.mjs
 |---|---|
 | [specul.com](https://specul.com/) | 首页 · 总入口 |
 | [nav.specul.com](https://nav.specul.com/) | 导航 · AI 站点目录 |
-| [agent.specul.com](https://agent.specul.com/) | Agent 图谱 · 成品 agent / harness / MCP 工具 |
+| [tools.specul.com](https://tools.specul.com/) | AI 工具 · 现成的 AI 工具 / 自己搭（进阶） / 给 AI 装工具 |
 | [learn.specul.com](https://learn.specul.com/) | 术语表 · 概念层 |
 | [vg.specul.com](https://vg.specul.com/) | AI 做游戏 · 实践层 |
 

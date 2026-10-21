@@ -1,8 +1,8 @@
-# AI Quantized LLM Atlas
+# AI Models (ai-handbook / models)
 
 > 中文版：[README.md](./README.md)
 
-> **An atlas of open-weight models you can run locally** — a two-step choice: family lineage
+> **An atlas of open-weight models (distillation included) you can run locally** — a two-step choice: family lineage
 > cards first (vendor / generations / size tiers / licences / official claims), then "for this
 > base model, which quantized version should I download, and why?"
 >
@@ -161,7 +161,7 @@ or faster need benchmarks, and this site makes none.
 |---|---|
 | [specul.com](https://specul.com/) | Home · main entry |
 | [nav.specul.com](https://nav.specul.com/) | Directory · AI site index |
-| [agent.specul.com](https://agent.specul.com/) | Agent atlas · products / harnesses / MCP tools |
+| [tools.specul.com](https://tools.specul.com/) | Agent atlas · products / harnesses / MCP tools |
 | [learn.specul.com](https://learn.specul.com/) | Glossary · concept layer |
 | [vg.specul.com](https://vg.specul.com/) | Vibe gaming · practice layer |
 

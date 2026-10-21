@@ -1,4 +1,4 @@
-# Learn AI · Glossary Atlas (ai-glossary)
+# Learn AI · Terminology Map (ai-handbook / terms)
 
 > 中文版：[README.md](./README.md)
 
@@ -62,7 +62,7 @@ Saying it up front so you don't go hunting for something that isn't here:
 ## What's in these files
 
 ```
-ai-glossary/
+terms/ (ai-handbook subtree)
 ├── terms/              200 terms, one file each (frontmatter + a fixed body skeleton)
 │   └── INDEX.md        build output · station-grouped index, do not edit by hand
 ├── terms.en.json       English text (keyed by the Chinese term name)

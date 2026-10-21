@@ -651,12 +651,12 @@ if (fs.existsSync(learnDir)) {
    * 推不出来的**不硬凑**：宁可少一条，也不指一个对不上的站。 */
   const SITE_ACTION = {
     models: { href: 'https://models.specul.com/', zh: '去 Models 图谱：看这个模型有哪些量化版、按你的显存该下哪一档', en: 'Models atlas: which quantisations exist and which tier fits your VRAM' },
-    agent: { href: 'https://agent.specul.com/', zh: '去 Agent 图谱：看有哪些装得上的客户端、运行时与工具', en: 'Agent atlas: which clients, runtimes and tools you can install' },
+    agent: { href: 'https://tools.specul.com/', zh: '去 Agent 图谱：看有哪些装得上的客户端、运行时与工具', en: 'Agent atlas: which clients, runtimes and tools you can install' },
     vg: { href: 'https://vg.specul.com/', zh: '去「AI 做游戏」：看这一步在真实项目里会卡在哪', en: 'AI for games: where this step breaks down in a real project' },
     nav: { href: 'https://nav.specul.com/', zh: '去导航：找现成的工具、平台、评测与学习资源', en: 'Directory: ready-made tools, platforms, benchmarks and courses' },
     www: { href: 'https://specul.com/', zh: '看站群怎么分工：这一站回答「是什么」，其他站回答「选哪个」', en: 'How the site family divides the work' },
   };
-  const HOST2SITE = { 'agent.specul.com': 'agent', 'models.specul.com': 'models', 'vg.specul.com': 'vg', 'nav.specul.com': 'nav', 'specul.com': 'www' };
+  const HOST2SITE = { 'tools.specul.com': 'agent', 'models.specul.com': 'models', 'vg.specul.com': 'vg', 'nav.specul.com': 'nav', 'specul.com': 'www' };
   const CROSS_RULES = [
     ['models', /量化|显存|bpw|gguf|权重|参数量|推理成本|调用成本|缓存|kv ?缓存|上下文窗口|长上下文|分词|token|词表|微调|蒸馏|预训练|训练|卸载|吞吐|并发|路由|gpu|芯片|算力/i],
     ['agent', /agent|智能体|工具调用|mcp|提示词|编码助手|代码补全|仓库级|终端|ide|cli|编排|工作流|人机协作|可观测|监控|服务中断|迭代速度|退出成本|迁移/i],
@@ -683,8 +683,8 @@ ${SHELL.header(cur)}
 ${SHELL.drawer(cur)}`;
 
   /* 页脚：共享实现，只传「内容仓地址」与「开源」文案。
-     learn 的内容仓是 ai-glossary（markdown 原文），不是部署仓 speculcom/learn。 */
-  const FOOTER = SHELL.footer('https://github.com/speculcom/ai-glossary', SHELL.OPEN_SOURCE_LABEL);
+     learn 的内容仓是 ai-handbook（markdown 原文，terms/ 子树），不是部署仓 speculcom/learn。 */
+  const FOOTER = SHELL.footer('https://github.com/speculcom/ai-handbook', SHELL.OPEN_SOURCE_LABEL);
 
 /* 底部 tab bar —— 手机端「像 App 一样」的固定导航（2026-10-10 用户要求：分站也要有）。
    与共享 shell.mjs / www 首页同一份标记；样式在 brand.css（默认 none，≤768px 显示），

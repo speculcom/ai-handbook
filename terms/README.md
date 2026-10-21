@@ -57,7 +57,7 @@ AI 圈的黑话，一天不听十遍，听一百遍还是不知道人家在讲�
 ## 这些文件是什么
 
 ```
-ai-glossary/
+terms/（ai-handbook 子树）
 ├── terms/              200 个词条，一词一文件（frontmatter + 固定骨架正文）
 │   └── INDEX.md        构建产物 · 分站索引，不要手改
 ├── terms.en.json       英文正文（键 = 词条名）

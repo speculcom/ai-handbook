@@ -1,8 +1,8 @@
-# ai-agent-guide
+# AI Tools (ai-handbook / tools)
 
 > 中文版：[README.md](./README.md)
 
-**An atlas of AI agents** · plain Markdown · open source
+**An atlas of AI tools** · plain Markdown · open source
 
 Records the capability boundaries, runtime location and official evidence for
 **AI coding agents / agent runtimes / MCP servers**, organized in one fixed coordinate
@@ -14,9 +14,9 @@ is consumed by one site with three divisions (v4 architecture since 2026-10-04; 
 
 | Division | Subject | Objects covered |
 |---|---|---|
-| `agent.specul.com/` | Finished agents (IDE / CLI / vendor-cloud forms) | Cursor · Claude Code · Copilot · Windsurf · Zed · Cline · Aider · Codex · OpenCode · Crush · Gemini CLI · Kiro · Goose · Warp · Jules · Dot · Muse · Grok Bot and 27 profiles |
-| `agent.specul.com/harness/` | Agent runtimes / orchestration frameworks / SDKs | Claude Agent SDK · Codex SDK · OpenAI Agents SDK · Pydantic AI · smolagents · CrewAI · Google ADK · LangGraph · LlamaIndex · Microsoft Agent Framework · AG2 · Mastra · Deep Agents · Hermes Agent · OpenHands |
-| `agent.specul.com/tools/` | MCP servers / tool ecosystem | filesystem · git · memory · sequential-thinking · fetch · time · playwright · context7 · everything · github-mcp |
+| `tools.specul.com/` | Finished agents (IDE / CLI / vendor-cloud forms) | Cursor · Claude Code · Copilot · Windsurf · Zed · Cline · Aider · Codex · OpenCode · Crush · Gemini CLI · Kiro · Goose · Warp · Jules · Dot · Muse · Grok Bot and 27 profiles |
+| `tools.specul.com/harness/` | Agent runtimes / orchestration frameworks / SDKs | Claude Agent SDK · Codex SDK · OpenAI Agents SDK · Pydantic AI · smolagents · CrewAI · Google ADK · LangGraph · LlamaIndex · Microsoft Agent Framework · AG2 · Mastra · Deep Agents · Hermes Agent · OpenHands |
+| `tools.specul.com/tools/` | MCP servers / tool ecosystem | filesystem · git · memory · sequential-thinking · fetch · time · playwright · context7 · everything · github-mcp |
 
 **Why "atlas"**: not a pile of tool names, but a map that can place every object.
 
@@ -59,7 +59,7 @@ kind of thing. The first question is "which one is nicer to use"; the second is
 "where do I keep state, how do I fit the context in, how much permission do I
 grant". Mixing the two produces a comparison that means nothing.
 
-Live version: <https://agent.specul.com/>
+Live version: <https://tools.specul.com/>
 
 ---
 
@@ -109,7 +109,7 @@ Read the division's `tasks/_protocol.md`, follow the protocol, and write results
 ## Layout
 
 ```
-ai-agent-guide/
+tools/ (ai-handbook subtree)
 ├── METHODOLOGY.md              methodology
 ├── SCHEMA.md                   data format spec
 ├── CONTRIBUTING.md             how to contribute
@@ -237,7 +237,7 @@ If you need the raw snapshots for research, please contact us via an Issue.
 |---|---|
 | **specul.com** | Brand site (投机 · 推演 — speculation · inference) |
 | **nav.specul.com** | Conclusion layer: AI site directory |
-| **agent.specul.com** | Conclusion layer: agents / harnesses / MCP tools, three divisions |
+| **tools.specul.com** | Conclusion layer: agents / harnesses / MCP tools, three divisions |
 | **learn.specul.com** | Conclusion layer: AI glossary |
 | **models.specul.com** | Conclusion layer: quantized model index for local deployment |
 | **vg.specul.com** | Conclusion layer: making games with AI |

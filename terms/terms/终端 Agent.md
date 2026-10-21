@@ -5,7 +5,7 @@ purpose: "在命令行里自主执行任务：改文件、跑测试、提交代�
 def: ["运行在终端中的 AI 智能体，能直接操作开发环境。"]
 why: "它比 IDE 类工具更适合自动化和脚本化场景。也是脚本/CI 环境的唯一选择。"
 refs:
-  - ["6 份 CLI 对照", "https://agent.specul.com/", "6 CLI agents compared"]
+  - ["6 份 CLI 对照", "https://tools.specul.com/", "6 CLI agents compared"]
 domain: "dev"
 purposeTag: "apply"
 level: 3
@@ -22,7 +22,7 @@ ord: 15
 **为什么需要知道**：它比 IDE 类工具更适合自动化和脚本化场景。也是脚本/CI 环境的唯一选择。
 
 **看具体例子**：
-- [6 份 CLI 对照](https://agent.specul.com/)
+- [6 份 CLI 对照](https://tools.specul.com/)
 
 ---
 

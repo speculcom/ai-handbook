@@ -378,7 +378,7 @@ export const PRIMARY_QUANTIZERS = new Set([
 // ============================================================================
 // ⚠ **URL 路径因分区而异，不能一律拼到根**：
 //   agents 分区的详情页在站点根（/crush.html），harness / tools 分区在各自子目录下
-//   （/harness/pydantic-ai.html）。第一版一律写成 `agent.specul.com/<id>.html`，
+//   （/harness/pydantic-ai.html）。第一版一律写成 `tools.specul.com/<id>.html`，
 //   于是 pydantic-ai / smolagents 两个链接**上线会 404** —— 被 `site-check` 的同域死链核查抓到。
 //   `part` 字段就是为此存在的，且 `_audit/companion-check.mjs` 会核对产物文件真的在那个路径。
 export const COMPANION = [

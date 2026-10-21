@@ -11,7 +11,7 @@ terms: ["隐私与合规", "数据不出网", "数据驻留", "提示注入"]
 refs:
   - ["AWS 数据隐私常见问题", "https://aws.amazon.com/compliance/data-privacy-faq/", "AWS data privacy FAQs"]
   - ["AWS 数字主权", "https://aws.amazon.com/compliance/digital-sovereignty/", "AWS digital sovereignty"]
-  - ["自托管方案对照（本站）", "https://agent.specul.com/", "Self-hosted options compared"]
+  - ["自托管方案对照（本站）", "https://tools.specul.com/", "Self-hosted options compared"]
 ---
 
 # 怎么排查 AI 的数据泄露路径（How to Trace AI Data Leak Paths）
@@ -30,7 +30,7 @@ refs:
 
 - [AWS 数据隐私常见问题](https://aws.amazon.com/compliance/data-privacy-faq/)
 - [AWS 数字主权](https://aws.amazon.com/compliance/digital-sovereignty/)
-- [自托管方案对照（本站）](https://agent.specul.com/)
+- [自托管方案对照（本站）](https://tools.specul.com/)
 
 ---
 <!-- 微型指南 · 第二站（上手） · 约 8 分钟 -->

@@ -5,7 +5,7 @@ purpose: "让不同厂商的 AI 编码工具能挂进同一个编辑器。"
 def: ["一种协议约定，使编辑器能加载各家不同的 Agent 实现。"]
 why: "它和 MCP 是同一类思路——用标准接口替代逐个适配。"
 refs:
-  - ["Zed 的三种 agent path 编排", "https://agent.specul.com/zed.html", "Zed's three agent-path orchestration"]
+  - ["Zed 的三种 agent path 编排", "https://tools.specul.com/zed.html", "Zed's three agent-path orchestration"]
 domain: "dev"
 purposeTag: "apply"
 level: 3
@@ -22,7 +22,7 @@ ord: 18
 **为什么需要知道**：它和 MCP 是同一类思路——用标准接口替代逐个适配。
 
 **看具体例子**：
-- [Zed 的三种 agent path 编排](https://agent.specul.com/zed.html)
+- [Zed 的三种 agent path 编排](https://tools.specul.com/zed.html)
 
 ---
 

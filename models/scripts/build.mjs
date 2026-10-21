@@ -699,7 +699,7 @@ function companionBlock() {
       <h2>${bi('下好之后用什么跑', 'What runs it')}</h2>
       <p class="block-lead">${bi('本站只负责「该下哪一档」。跑起来是另一件事 —— 下面这几个工具<b>自己的文档里写明了支持本地模型</b>（Ollama / vLLM / llama.cpp / LM Studio），点进去看具体怎么接。', 'This site only answers which tier to download. Running it is a different problem — the tools below <b>document local-model support in their own docs</b> (Ollama / vLLM / llama.cpp / LM Studio). Follow the link to see how.')}</p>
       <div class="comp-grid">
-${COMPANION.map((c) => `        <a class="comp-card" href="https://agent.specul.com/${c.part === 'agents' ? '' : esc(c.part) + '/'}${esc(c.id)}.html">
+${COMPANION.map((c) => `        <a class="comp-card" href="https://tools.specul.com/${c.part === 'agents' ? '' : esc(c.part) + '/'}${esc(c.id)}.html">
           <b>${bi(esc(c.label.zh), esc(c.label.en))}</b>
           <span>${bi(esc(c.why.zh), esc(c.why.en))}</span>
         </a>`).join('\n')}
@@ -991,7 +991,7 @@ ${companionBlock()}
     canonical: `${DOMAIN}series/${s.code}/`,
     accent: ACCENT,
     body,
-repo: 'https://github.com/speculcom/ai-quantized-llm',
+repo: 'https://github.com/speculcom/ai-handbook',
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'Dataset',
       name: `${s.name.zh} GGUF 量化版本索引`,
@@ -1094,7 +1094,7 @@ ${derivedHtml}
     canonical: `${DOMAIN}families/${f.code}/`,
     accent: ACCENT,
     body,
-    repo: 'https://github.com/speculcom/ai-quantized-llm',
+    repo: 'https://github.com/speculcom/ai-handbook',
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'Article',
       headline: `${f.name.zh} 家族谱系卡`,
@@ -1182,7 +1182,7 @@ ${cnSection(c.cn)}
     canonical: `${DOMAIN}closed/${c.code}/`,
     accent: ACCENT,
     body,
-    repo: 'https://github.com/speculcom/ai-quantized-llm',
+    repo: 'https://github.com/speculcom/ai-handbook',
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'Article',
       headline: `${c.name.zh} 闭源谱系卡`,
@@ -1254,7 +1254,7 @@ ${srcRows}
     canonical: `${DOMAIN}guides/${g.id}.html`,
     accent: ACCENT,
     body,
-    repo: 'https://github.com/speculcom/ai-quantized-llm',
+    repo: 'https://github.com/speculcom/ai-handbook',
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'Article',
       headline: g.titleEn || g.title,
@@ -1385,7 +1385,7 @@ function indexPage() {
       <p class="eyebrow">${bi('开放权重 · 怎么选','Open weights · how to choose')}</p>
       <h1><span class="grad-title">${bi('开放权重，该怎么选','How to choose open-weight models')}</span><span class="sub">${bi('先选家族与规格，再选量化版——两步都有出处','Pick the family and size first, the quantisation second — both steps carry sources')}</span></h1>
       <p class="lede">${bi('你想在<b>自己电脑上</b>跑一个大模型。问题分两层：<b>第一层</b>，开放权重的家族、代次、尺寸档、许可各不相同，该选哪个；<b>第二层</b>，同一个模型有几十个量化版，该下哪一个。本站把两层分开答：<b>家族谱系卡</b>讲第一层（出品方 / 代次 / 尺寸 / 许可 / 官方声明），<b>系列页</b>讲第二层（你的显存能跑哪档、该下多大体积）。不评模型强弱，也不排名。', 'You want to run a large model <b>on your own machine</b>. The question has two layers: <b>first</b>, which family, generation, size tier and licence; <b>second</b>, which of dozens of quantisations to download. This site answers them separately: <b>family lineage cards</b> cover layer one (vendor / generations / sizes / licences / official claims), and <b>series pages</b> cover layer two (which tier fits your VRAM, how big the download is). It does not rank models against each other.')}</p>
-      <p class="lede lede-sub">${bi('<b>收录范围：只收开放权重、可本地部署的开源模型</b>（HF 上有公开权重的 MoE 与 dense 模型）。闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，下载和选型的问题不存在。本站另设<b>闭源谱系卡</b>做对照：只记官方规格快照与复核周期，不采价格、不排名。', '<b>Scope: open-weight models you can run locally</b> (MoE and dense models with public weights on HF). Closed-source / API-only models are out of the quantisation scope — they have no quantisations, so the download and selection questions do not arise. The site keeps a separate set of <b>closed-model lineage cards</b> for contrast: official spec snapshots with a review cycle, no prices, no rankings.')}</p>
+      <p class="lede lede-sub">${bi('<b>收录范围：开放权重（含蒸馏）——可本地部署的模型都收</b>，无论它是原生训练还是从别家模型蒸馏而来（HF 上有公开权重的 MoE 与 dense 模型）。闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，下载和选型的问题不存在。本站另设<b>闭源谱系卡</b>做对照：只记官方规格快照与复核周期，不采价格、不排名。', '<b>Scope: open weights (distillation included) — any model you can run locally</b>, whether trained from scratch or distilled from another model (MoE and dense models with public weights on HF). Closed-source / API-only models are out of the quantisation scope — they have no quantisations, so the download and selection questions do not arise. The site keeps a separate set of <b>closed-model lineage cards</b> for contrast: official spec snapshots with a review cycle, no prices, no rankings.')}</p>
       <div class="home-stats">
 <div><b>${familyList.length}</b><span>${bi('个家族','families')}</span></div>
 <div><b>${seriesList.length}</b><span>${bi('个系列','series')}</span></div>
@@ -1467,7 +1467,7 @@ ${allOwners.map((o) => `        <a class="qchip" href="series/qwen3-8/#e0"><code
       <p>${bi('数据来自','Data comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开 API（模型元数据 + 文件体积），采集','public API (model metadata + file sizes), collected')}时间 <code>${esc((seriesList[0]?.collectedAt || '').slice(0, 10))}</code>，为快照数据而非实时。</p>
       <p>${bi('<b>本站不跑 benchmark，不给质量与速度结论。</b>凡涉及主观判断处均标注「我们的口径」。', '<b>This site does not run benchmarks and does not draw quality or speed conclusions.</b> Every place we offer a judgement is marked as our own reading.')}</p>
       <p><b>${bi('不下载、不托管任何权重文件','No weight files are downloaded or hosted here')}</b>${bi('；许可原样引自发布页，本站不解读许可、不构成法律意见，一切以','; licences are quoted verbatim from release pages, this site does not interpret them or give legal advice, and everything is governed by')}<a href="https://specul.com/legal.html" target="_blank" rel="noopener">${bi('发布页原文', 'the legal page')}</a>${bi('为准。', '.')}</p>
-      <p>${bi('系列选择依据四维打分（量化热度 40 / 量化广度 25 / 规模可及性 20 / 新鲜度 15），方法与落选名单见 ', 'Series selection uses a four-factor score (quantisation heat 40 / coverage 25 / size reachability 20 / freshness 15); the method and the rejected candidates are documented in ')}<a href="https://github.com/speculcom/ai-quantized-llm" target="_blank" rel="noopener">${bi('数据仓 METHODOLOGY.md ↗', 'the data repo\'s METHODOLOGY.md ↗')}</a>${bi('。', '.')}</p>
+      <p>${bi('系列选择依据四维打分（量化热度 40 / 量化广度 25 / 规模可及性 20 / 新鲜度 15），方法与落选名单见 ', 'Series selection uses a four-factor score (quantisation heat 40 / coverage 25 / size reachability 20 / freshness 15); the method and the rejected candidates are documented in ')}<a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener">${bi('数据仓 METHODOLOGY.md ↗', 'the data repo\'s METHODOLOGY.md ↗')}</a>${bi('。', '.')}</p>
     </section>
   </div>
   <!-- B2：系列筛选（脚本在 site-filter.js，读 .sfilter 作用域） -->
@@ -1475,15 +1475,15 @@ ${allOwners.map((o) => `        <a class="qchip" href="series/qwen3-8/#e0"><code
 
   return shell({
     current: 'models',
-    title: '开放权重该怎么选 · 本地部署模型图谱',
+    title: '开放权重该怎么选 · AI 模型',
     desc: `想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（${seriesList.length} 个系列、${totalRepo} 个模型仓、${totalTier} 个量化档、${allOwners.length} 位量化者、${totalFile} 个 GGUF 文件）。不跑 benchmark，不托管权重。`,
     canonical: DOMAIN,
     accent: ACCENT,
     body,
-repo: 'https://github.com/speculcom/ai-quantized-llm',
+repo: 'https://github.com/speculcom/ai-handbook',
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'WebSite',
-      name: '开放权重该怎么选 · 本地部署模型图谱',
+      name: '开放权重该怎么选 · AI 模型',
       url: DOMAIN,
       description: '开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。',
     },
@@ -1941,7 +1941,7 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('- 采集接口：`hf-mirror.com/api/models`（HF 国内镜像）与 `hf-mirror.com/api/models/{id}/tree/main`');
   lines.push('- 原始来源：<https://huggingface.co>');
   lines.push(`- 采集时间：${(seriesList[0]?.collectedAt || '').slice(0, 10)}（快照数据，非实时）`);
-  lines.push('- 选型方法：<https://github.com/speculcom/ai-quantized-llm/blob/main/docs/METHODOLOGY.md>');
+  lines.push('- 选型方法：<https://github.com/speculcom/ai-handbook/blob/main/docs/METHODOLOGY.md>');
   lines.push('');
   lines.push('## 法律立场');
   lines.push('');
@@ -1963,8 +1963,8 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('## 站点群');
   lines.push('');
   lines.push('- 首页 <https://specul.com/>　导航 <https://nav.specul.com/>　术语 <https://learn.specul.com/>');
-  lines.push('- Agent <https://agent.specul.com/>　AI 做游戏 <https://vg.specul.com/>');
-  lines.push('- （v3 时代的 ide / cli / mcp / harness 四个独立子域已于 2026-10-04 并入 agent.specul.com，不再存在）');
+  lines.push('- Agent <https://tools.specul.com/>　AI 做游戏 <https://vg.specul.com/>');
+  lines.push('- （v3 时代的 ide / cli / mcp / harness 四个独立子域已于 2026-10-04 并入 tools.specul.com，不再存在）');
   lines.push('');
   lines.push(`--- 最后更新：${(seriesList[0]?.collectedAt || '').slice(0, 10)}`);
   lines.push('');

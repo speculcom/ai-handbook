@@ -167,7 +167,7 @@ var TERMS = [
      ],
      [
       "哪个模型适合编程",
-      "https://agent.specul.com/",
+      "https://tools.specul.com/",
       "Which models suit coding"
      ]
     ],
@@ -364,7 +364,7 @@ var TERMS = [
      ],
      [
       "MCP 怎么解决喂资料的问题",
-      "https://agent.specul.com/tools/context7.html",
+      "https://tools.specul.com/tools/context7.html",
       "How MCP feeds documents (context7)"
      ]
     ],
@@ -489,7 +489,7 @@ var TERMS = [
     "refs": [
      [
       "Agent 框架对照",
-      "https://agent.specul.com/",
+      "https://tools.specul.com/",
       "Agent profiles & comparisons"
      ]
     ],
@@ -579,17 +579,17 @@ var TERMS = [
     "refs": [
      [
       "FileSystem server 为什么强制声明目录",
-      "https://agent.specul.com/tools/filesystem.html",
+      "https://tools.specul.com/tools/filesystem.html",
       "Why Filesystem requires declared dirs"
      ],
      [
       "OpenHands 的受限模式",
-      "https://agent.specul.com/harness/openhands.html",
+      "https://tools.specul.com/harness/openhands.html",
       "OpenHands Restricted Mode"
      ],
      [
       "CLI 的权限询问机制",
-      "https://agent.specul.com/opencode.html",
+      "https://tools.specul.com/opencode.html",
       "CLI permission prompts"
      ]
     ],
@@ -1528,12 +1528,12 @@ var TERMS = [
     "refs": [
      [
       "context7 用 MCP 喂文档的方案",
-      "https://agent.specul.com/tools/context7.html",
+      "https://tools.specul.com/tools/context7.html",
       "Feeding docs via MCP (context7)"
      ],
      [
       "LlamaIndex 文档解析",
-      "https://agent.specul.com/harness/llamaindex.html",
+      "https://tools.specul.com/harness/llamaindex.html",
       "LlamaIndex document parsing"
      ],
      [
@@ -1566,7 +1566,7 @@ var TERMS = [
     "refs": [
      [
       "向量与上下文",
-      "https://agent.specul.com/tools/context7.html",
+      "https://tools.specul.com/tools/context7.html",
       "Vectors and context (context7)"
      ]
     ],
@@ -2392,12 +2392,12 @@ var TERMS = [
     "refs": [
      [
       "10 份 Agent 框架档案",
-      "https://agent.specul.com/",
+      "https://tools.specul.com/",
       "10 agent framework profiles"
      ],
      [
       "CrewAI 的角色分工",
-      "https://agent.specul.com/harness/crewai.html",
+      "https://tools.specul.com/harness/crewai.html",
       "CrewAI role division"
      ]
     ],
@@ -2462,17 +2462,17 @@ var TERMS = [
     "refs": [
      [
       "MCP 是什么·9 份 server 档案",
-      "https://agent.specul.com/tools/index.html",
+      "https://tools.specul.com/tools/index.html",
       "What MCP is · 9 server profiles"
      ],
      [
       "文件操作 server",
-      "https://agent.specul.com/tools/filesystem.html",
+      "https://tools.specul.com/tools/filesystem.html",
       "Filesystem server"
      ],
      [
       "网页抓取 server",
-      "https://agent.specul.com/tools/fetch.html",
+      "https://tools.specul.com/tools/fetch.html",
       "Fetch server"
      ]
     ],
@@ -2501,12 +2501,12 @@ var TERMS = [
     "refs": [
      [
       "CrewAI 的角色分工模式",
-      "https://agent.specul.com/harness/crewai.html",
+      "https://tools.specul.com/harness/crewai.html",
       "CrewAI role division"
      ],
      [
       "LangGraph 低层编排",
-      "https://agent.specul.com/harness/langgraph.html",
+      "https://tools.specul.com/harness/langgraph.html",
       "LangGraph low-level orchestration"
      ]
     ],
@@ -2535,12 +2535,12 @@ var TERMS = [
     "refs": [
      [
       "Google ADK 的图执行引擎",
-      "https://agent.specul.com/harness/google-adk.html",
+      "https://tools.specul.com/harness/google-adk.html",
       "Google ADK graph engine"
      ],
      [
       "OpenAI Agents SDK",
-      "https://agent.specul.com/harness/openai-agents-sdk.html",
+      "https://tools.specul.com/harness/openai-agents-sdk.html",
       "OpenAI Agents SDK"
      ]
     ],
@@ -2569,7 +2569,7 @@ var TERMS = [
     "refs": [
      [
       "知识图谱记忆 server",
-      "https://agent.specul.com/tools/memory.html",
+      "https://tools.specul.com/tools/memory.html",
       "Knowledge-graph memory server"
      ]
     ],
@@ -2598,12 +2598,12 @@ var TERMS = [
     "refs": [
      [
       "Hermes 的学习闭环",
-      "https://agent.specul.com/harness/hermes-agent.html",
+      "https://tools.specul.com/harness/hermes-agent.html",
       "Hermes learning loop"
      ],
      [
       "Deep Agents 长任务设计",
-      "https://agent.specul.com/harness/deepagents.html",
+      "https://tools.specul.com/harness/deepagents.html",
       "Deep Agents long-task design"
      ]
     ],
@@ -2631,7 +2631,7 @@ var TERMS = [
     "refs": [
      [
       "CLI 的权限询问机制",
-      "https://agent.specul.com/opencode.html",
+      "https://tools.specul.com/opencode.html",
       "CLI permission prompts"
      ]
     ],
@@ -2659,7 +2659,7 @@ var TERMS = [
     "refs": [
      [
       "OpenHands 的受限模式",
-      "https://agent.specul.com/harness/openhands.html",
+      "https://tools.specul.com/harness/openhands.html",
       "OpenHands Restricted Mode"
      ]
     ],
@@ -2786,7 +2786,7 @@ var TERMS = [
     "refs": [
      [
       "8 份 IDE 对照",
-      "https://agent.specul.com/",
+      "https://tools.specul.com/",
       "8 IDE tools compared"
      ]
     ],
@@ -2842,7 +2842,7 @@ var TERMS = [
     "refs": [
      [
       "6 份 CLI 对照",
-      "https://agent.specul.com/",
+      "https://tools.specul.com/",
       "6 CLI agents compared"
      ]
     ],
@@ -2870,7 +2870,7 @@ var TERMS = [
     "refs": [
      [
       "Aider 的 Git 集成设计",
-      "https://agent.specul.com/aider-cli.html",
+      "https://tools.specul.com/aider-cli.html",
       "Aider's Git integration"
      ]
     ],
@@ -2898,12 +2898,12 @@ var TERMS = [
     "refs": [
      [
       "Codex 的 app server 架构",
-      "https://agent.specul.com/codex-cli.html",
+      "https://tools.specul.com/codex-cli.html",
       "Codex app-server architecture"
      ],
      [
       "Codex IDE 扩展",
-      "https://agent.specul.com/codex-ide.html",
+      "https://tools.specul.com/codex-ide.html",
       "Codex IDE extension"
      ]
     ],
@@ -2931,7 +2931,7 @@ var TERMS = [
     "refs": [
      [
       "Zed 的三种 agent path 编排",
-      "https://agent.specul.com/zed.html",
+      "https://tools.specul.com/zed.html",
       "Zed's three agent-path orchestration"
      ]
     ],
@@ -2959,7 +2959,7 @@ var TERMS = [
     "refs": [
      [
       "Aider 的设计理念",
-      "https://agent.specul.com/aider-cli.html",
+      "https://tools.specul.com/aider-cli.html",
       "Aider's design philosophy"
      ]
     ],
@@ -2987,12 +2987,12 @@ var TERMS = [
     "refs": [
      [
       "Playwright MCP server",
-      "https://agent.specul.com/tools/playwright.html",
+      "https://tools.specul.com/tools/playwright.html",
       "Playwright MCP server"
      ],
      [
       "网页抓取 server 的安全警告",
-      "https://agent.specul.com/tools/fetch.html",
+      "https://tools.specul.com/tools/fetch.html",
       "Fetch server's security warning"
      ]
     ],
@@ -3020,12 +3020,12 @@ var TERMS = [
     "refs": [
      [
       "Everything 是测试用 server",
-      "https://agent.specul.com/tools/everything.html",
+      "https://tools.specul.com/tools/everything.html",
       "The Everything test server"
      ],
      [
       "Filesystem 实现",
-      "https://agent.specul.com/tools/filesystem.html",
+      "https://tools.specul.com/tools/filesystem.html",
       "Filesystem server"
      ]
     ],
@@ -3056,7 +3056,7 @@ var TERMS = [
     "refs": [
      [
       "Git MCP server 的作用域",
-      "https://agent.specul.com/tools/git.html",
+      "https://tools.specul.com/tools/git.html",
       "Git MCP server scope"
      ]
     ],
@@ -3117,7 +3117,7 @@ var TERMS = [
     "refs": [
      [
       "Fetch server 的安全警告",
-      "https://agent.specul.com/tools/fetch.html",
+      "https://tools.specul.com/tools/fetch.html",
       "Fetch server's security warning"
      ]
     ],
@@ -3145,7 +3145,7 @@ var TERMS = [
     "refs": [
      [
       "Cursor 的云端 Agent 与自托管",
-      "https://agent.specul.com/cursor.html",
+      "https://tools.specul.com/cursor.html",
       "Cursor cloud agent & self-hosting"
      ]
     ],
@@ -3681,7 +3681,7 @@ var TERMS = [
     "refs": [
      [
       "RAG server 的做法",
-      "https://agent.specul.com/tools/context7.html",
+      "https://tools.specul.com/tools/context7.html",
       "How a RAG server does it (context7)"
      ]
     ],
@@ -5946,12 +5946,12 @@ var TERMS = [
     "refs": [
      [
       "自托管方案对照",
-      "https://agent.specul.com/",
+      "https://tools.specul.com/",
       "Self-hosted options compared"
      ],
      [
       "Cursor 的自托管支持",
-      "https://agent.specul.com/cursor.html",
+      "https://tools.specul.com/cursor.html",
       "Cursor's self-hosted support"
      ]
     ],
@@ -6111,7 +6111,7 @@ var TERMS = [
     "refs": [
      [
       "MCP server 的权限边界",
-      "https://agent.specul.com/tools/filesystem.html",
+      "https://tools.specul.com/tools/filesystem.html",
       "MCP server permission boundary"
      ]
     ],
@@ -6294,12 +6294,12 @@ var TERMS = [
     "refs": [
      [
       "MCP 作为标准接口的价值",
-      "https://agent.specul.com/tools/index.html",
+      "https://tools.specul.com/tools/index.html",
       "MCP as a standard interface"
      ],
      [
       "ACP 协议",
-      "https://agent.specul.com/zed.html",
+      "https://tools.specul.com/zed.html",
       "The ACP protocol (Zed)"
      ]
     ],
@@ -6327,7 +6327,7 @@ var TERMS = [
     "refs": [
      [
       "站点如何逐条核实并写来源",
-      "https://agent.specul.com/harness/claude-agent-sdk.html",
+      "https://tools.specul.com/harness/claude-agent-sdk.html",
       "How sources are verified item by item"
      ]
     ],
@@ -6422,7 +6422,7 @@ var TERMS = [
     "refs": [
      [
       "官方档位与额度核实",
-      "https://agent.specul.com/harness/crewai.html",
+      "https://tools.specul.com/harness/crewai.html",
       "Plans and quotas verified item by item"
      ],
      [
@@ -6457,12 +6457,12 @@ var TERMS = [
     "refs": [
      [
       "MCP 三维里的传输方式",
-      "https://agent.specul.com/tools/index.html",
+      "https://tools.specul.com/tools/index.html",
       "Transport in MCP's three axes"
      ],
      [
       "远程托管 vs 本地 server",
-      "https://agent.specul.com/tools/context7.html",
+      "https://tools.specul.com/tools/context7.html",
       "Remote vs local servers (context7)"
      ]
     ],

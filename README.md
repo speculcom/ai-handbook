@@ -11,7 +11,7 @@
 | 子树 | 回答的问题 | 渲染成哪个站 |
 |---|---|---|
 | `terms/` | 这些名词是什么、为什么要知道它？ | [learn.specul.com](https://learn.specul.com/) |
-| `tools/` | 该用哪个 agent / 运行时 / 工具？ | [agent.specul.com](https://agent.specul.com/) |
+| `tools/` | 该用哪个 agent / 运行时 / 工具？ | [tools.specul.com](https://tools.specul.com/) |
 | `models/` | 同一模型几十个量化版，我该下哪个？ | [models.specul.com](https://models.specul.com/) |
 
 每个子树有自己的 `README.md`（内容地图、字段规范、校验器），本文件只放总目录与共同纪律。

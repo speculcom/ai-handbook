@@ -11,7 +11,7 @@ This is the **merged repo** (2026-10, v7 D8) of the three content columns of the
 | Subtree | Question it answers | Rendered as |
 |---|---|---|
 | `terms/` | What are these terms, and why should you know them? | [learn.specul.com](https://learn.specul.com/) |
-| `tools/` | Which agent / runtime / tool should you use? | [agent.specul.com](https://agent.specul.com/) |
+| `tools/` | Which agent / runtime / tool should you use? | [tools.specul.com](https://tools.specul.com/) |
 | `models/` | With dozens of quantized builds of the same model, which should I download? | [models.specul.com](https://models.specul.com/) |
 
 Each subtree has its own `README.md` (content map, field schema, validator); this file only carries the master table of contents and the shared discipline.
