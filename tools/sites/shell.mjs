@@ -21,7 +21,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const vendored = path.join(here, '..', 'brand', 'shell.mjs');
+/* S9（2026-10-21）：三仓合并 ai-handbook——共享核心只有一份在仓根 shared/brand/（宪章 3）。 */
+const vendored = path.join(here, '..', '..', 'shared', 'brand', 'shell.mjs');
 
 if (!fs.existsSync(vendored)) {
   throw new Error(

@@ -51,23 +51,21 @@ function findDataDir() {
     if (parent === dir) break;
     dir = parent;
   }
-  // 回退：按本地开发布局推断（2026-10-02 起内容仓改名为 _data/agent-guide）
-  return path.resolve(HERE, '..', '..', '_data', 'agent-guide');
+  // 回退：按本地开发布局推断（2026-10-21 S9：三内容仓合并为 ai-handbook，本仓是 tools/ 子树）
+  return path.resolve(HERE, '..', '..', '..', '_data', 'handbook', 'tools');
 }
 
 function findOutDir(dataDir) {
   if (process.env.OUT_DIR) return path.resolve(process.env.OUT_DIR);
-  /* 判定依据是「脚本是否落在 monorepo 的 _data/<内容仓>/sites/ 下」，
+  /* 判定依据是「脚本是否落在 monorepo 的 _data/handbook/tools/sites/ 下」，
    * 而不是「_sites 目录是否存在」——后者会误判：CI 里上溯路径可能是任意位置，
    * 恰好存在 _sites 就被当成本地布局。
    *
-   * 上溯层数别数错：脚本在 <repo>/_data/agent-guide/sites/ 下，
-   * 要上溯 **三层** 才到 <repo>（sites → agent-guide → _data → repo）。
-   * 数成两层会拿到 <repo>/_data，然后去比 _data/_data/agent-guide —— 永远不成立，
-   * 于是本地构建悄悄落到 <内容仓>/dist/ 而不是 _sites/（2026-10-02 实际踩到）。
+   * 上溯层数别数错（S9 后）：脚本在 <repo>/_data/handbook/tools/sites/ 下，
+   * 要上溯 **四层** 才到 <repo>（sites → tools → handbook → _data → repo）。
    */
-  const repoRoot = path.resolve(HERE, '..', '..', '..');
-  const isLocalLayout = dataDir === path.join(repoRoot, '_data', 'agent-guide');
+  const repoRoot = path.resolve(HERE, '..', '..', '..', '..');
+  const isLocalLayout = dataDir === path.join(repoRoot, '_data', 'handbook', 'tools');
   return isLocalLayout
     ? path.join(repoRoot, '_sites', 'agent.specul')
     : path.join(dataDir, 'dist');
@@ -75,14 +73,17 @@ function findOutDir(dataDir) {
 
 function findBrandDir() {
   if (process.env.BRAND_DIR) return path.resolve(process.env.BRAND_DIR);
-  /* 1. 本仓 vendored 副本（铁律 R3）。
+  /* 1. 共享品牌核心（S9 · 2026-10-21：ai-handbook/shared/brand/，仓内只有一份，宪章 3）。
    * 之前只有两种来源：本机 <repo>/www.specul/，或 CI 约定的 .build/。
    * 克隆者两个都没有 → 构建在 copyFileSync('.build/brand.css') 处 ENOENT 直接挂。
-   * 副本与真相源的一致性由 _audit/brand-sync.mjs 守着（brand/MANIFEST.json 记哈希）。 */
-  const vendored = path.resolve(HERE, '..', 'brand');
+   * 副本与真相源的一致性由 _audit/brand-sync.mjs 守着（shared/brand/MANIFEST.json 记哈希）。 */
+  const vendored = path.resolve(HERE, '..', '..', 'shared', 'brand');
   if (fs.existsSync(path.join(vendored, 'brand.css'))) return vendored;
-  // 本地布局：品牌壳在 <repo>/www.specul/（上溯三层到 repo，见 findOutDir）
-  const repoGuess = path.resolve(HERE, '..', '..', '..', 'www.specul');
+  // 旧布局兼容：子树内 brand/（合并前形态）
+  const legacy = path.resolve(HERE, '..', 'brand');
+  if (fs.existsSync(path.join(legacy, 'brand.css'))) return legacy;
+  // 本地布局：品牌壳在 <repo>/www.specul/（上溯四层到 repo，见 findOutDir）
+  const repoGuess = path.resolve(HERE, '..', '..', '..', '..', 'www.specul');
   if (fs.existsSync(path.join(repoGuess, 'brand.css'))) return repoGuess;
   return '.build'; // CI 约定
 }
