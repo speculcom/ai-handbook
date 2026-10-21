@@ -132,7 +132,10 @@ for (const f of dataFiles) {
 const docDir = path.join(ROOT, 'data', 'quantizers');
 const docs = fs.existsSync(docDir) ? fs.readdirSync(docDir).filter((f) => f.endsWith('.md')).map((f) => f.slice(0, -3)) : [];
 const noDoc = [...used].filter((q) => !docs.includes(q));
-const primaryNoDoc = noDoc.filter((q) => PRIMARY_QUANTIZERS.has(q));
+/* 第一方（base model owner 自己发 GGUF，如 openbmb）不算「缺专属档案」——
+ * 他们的量化行为由 `official.md`（官方量化）档案覆盖，与下方「名单外」统计的
+ * 首方豁免同一口径（见「第一方自发 GGUF」一节）。否则同一文件里一处豁免一处报警，自相矛盾。 */
+const primaryNoDoc = noDoc.filter((q) => PRIMARY_QUANTIZERS.has(q) && !firstPartyOwners.has(q));
 if (primaryNoDoc.length) warnings.push(`主力量化者缺专属档案 ${primaryNoDoc.length} 位: ${primaryNoDoc.join(', ')}`);
 
 /* ── 5. 家族谱系卡（v7 S51 · data/families/*.json）──
