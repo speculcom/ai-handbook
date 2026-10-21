@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 // ============================================================================
-// 内容仓推送：_data/models/{data,docs,scripts,config.js,README.md}
+// 内容仓推送：_data/handbook/models/{data,docs,scripts,config.js,README.md}
 //           → speculcom/ai-quantized-llm
 // ----------------------------------------------------------------------------
 // 与 deploy.mjs 同机制（gh.exe + Contents API，git transport 被沙箱封锁）。

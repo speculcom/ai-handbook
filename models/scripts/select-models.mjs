@@ -16,7 +16,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 //   D3 规模可及性 是否存在单卡可跑的密集档（7~35B）        权重 20
 //   D4 基础新鲜度 官方仓 lastModified 距今                权重 15
 //
-// 输出：_data/models/docs/selection-report.json
+// 输出：_data/handbook/models/docs/selection-report.json
 // 时间预算：约 60~90 秒（受 HF 响应速度影响）
 // ============================================================================
 

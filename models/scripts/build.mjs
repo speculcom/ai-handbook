@@ -16,10 +16,12 @@ const SITE = path.join(ROOT, 'site');
 /* 品牌 shell 来源（铁律 R3）。
  * 原来无条件读 <工作区>/_sites/_template/shell.mjs —— 那是**主仓**的路径，
  * 克隆 ai-quantized-llm 的人根本没有它，于是构建第一步就 ERR_MODULE_NOT_FOUND。
- * 现在优先用本仓 brand/ 下的 vendored 副本（一致性由 _audit/brand-sync.mjs 守着），
- * 找不到才回退到主仓，保持本地开发的原有行为。 */
-const WORKSPACE = path.resolve(ROOT, '..', '..');
-const VENDORED = path.join(ROOT, 'brand');
+ * 现在优先用共享核心的 vendored 副本（一致性由 _audit/brand-sync.mjs 守着），
+ * 找不到才回退到主仓，保持本地开发的原有行为。
+ * S9（2026-10-21）：三仓合并 ai-handbook——共享核心只有一份在仓根 shared/brand/（宪章 3）。 */
+const HANDBOOK = path.resolve(ROOT, '..');
+const WORKSPACE = path.resolve(ROOT, '..', '..', '..');
+const VENDORED = path.join(HANDBOOK, 'shared', 'brand');
 const SHELL_SRC = fs.existsSync(path.join(VENDORED, 'shell.mjs'))
   ? path.join(VENDORED, 'shell.mjs')
   : path.join(WORKSPACE, '_sites', '_template', 'shell.mjs');
@@ -45,7 +47,7 @@ function bi(zh, en) {
  * 缺键时回退中文（可接受降级），构建时 warn 报缺失数。*/
 let ENUMS_EN = {};
 try {
-  /* HERE = <root>/_data/models/scripts →到 <root>/_audit 需要三级 .. */
+  /* HERE = <root>/_data/handbook/models/scripts →到 <root>/_audit 需要三级 .. */
   ENUMS_EN = JSON.parse(fs.readFileSync(path.join(HERE, '..', 'enums.en.json'), 'utf8'));
 } catch (e) {
   throw new Error('枚举英文读不到：' + e.message);
@@ -1845,9 +1847,9 @@ details.all-quants summary{cursor:pointer;font-size:var(--fs-xs);color:var(--bra
 `;
 
 // ── 产物写盘（必须在 CSS/HTML 模板常量声明之后）────────────────────
-// 品牌资源：从 www 复制（保持全站唯一定义）
+// 品牌资源：从共享核心 shared/brand/ 复制（S9 · D8：仓内只有一份，哈希由 brand-sync 守）
 for (const f of ['brand.css', 'brand.js']) {
-  const src = path.join(ROOT, '..', '..', 'www.specul', f);
+  const src = path.join(VENDORED, f);
   if (fs.existsSync(src)) fs.copyFileSync(src, path.join(SITE, f));
   else console.log('⚠ 缺品牌文件', f);
 }

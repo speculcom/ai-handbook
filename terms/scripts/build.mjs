@@ -25,6 +25,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
+/* S9（2026-10-21）：三内容仓合并为 ai-handbook（D8）。本文件现住在
+ * ai-handbook/terms/scripts/ —— 仓根是上一级，共享品牌核心在 shared/brand/（宪章 3：仓内只有一份）。 */
+const handbookRoot = path.resolve(repoRoot, '..');
+const workspaceRoot = path.resolve(handbookRoot, '..', '..');
 const termsDir = path.join(repoRoot, 'terms');
 const metaPath = path.join(repoRoot, 'meta.js');
 
@@ -33,7 +37,7 @@ const metaPath = path.join(repoRoot, 'meta.js');
  * 副本已经跟丢过（body 漏 has-tabbar、nav-tools 留在 <nav> 内部）。
  * 现在六站共用 _sites/_template/shell.mjs 一处实现，
  * 改一处全站生效 —— 用户要的「统一管理」。 */
-const SHELL_PATH = path.join(repoRoot, 'brand', 'shell.mjs');
+const SHELL_PATH = path.join(handbookRoot, 'shared', 'brand', 'shell.mjs');
 if (!fs.existsSync(SHELL_PATH)) {
   throw new Error(
     `glossary 仓缺少 vendored 外壳：${SHELL_PATH}\n` +
@@ -495,23 +499,24 @@ if (ACCEPT) {
 /* ---------- 同步到部署目录 ----------
  * 为什么必须在这里做（2026-10-03 发现）：
  *   站点真正的部署目录是仓库外的 `learn.specul/`（GitHub Pages 从那儿取文件），
- *   而本脚本只写 `_data/glossary/site/data/` —— 中间隔着一次**手工复制**。
+ *   而本脚本只写 `_data/handbook/terms/site/data/` —— 中间隔着一次**手工复制**。
  *   后果：改完词跑完 build，脚本报「构建完成」，但线上还是旧词，
  *   而且**没有任何检查会报错**（这跟 agent 站的「静默丢内容」是同一类问题）。
  *   把同步收进构建流程之后，「改词 → build → 站点到位」才是一条命令。
  */
-const deployDir = path.resolve(repoRoot, '..', '..', 'learn.specul', 'data');
+const deployDir = path.join(workspaceRoot, 'learn.specul', 'data');
 /* B5（2026-10-09）：learn 站的 brand.css / brand.js 也纳入同步。
  * 起因：改品牌 token 做对比度达标时发现 `learn.specul/brand.css` 是**旧版**——
  *   它既不在 `_tmp/vendor-brand.mjs` 的列表里，也不在 `_audit/brand-sync.mjs` 的守卫里，
  *   于是四个 `_data/` 仓都同步了，只有 learn 站在**静默漂移**（35.3KB vs 36.4KB）。
  *   现在：本仓 `brand/` 存 vendored 副本（有 MANIFEST 哈希），构建时同步到部署目录，
- *   守卫覆盖本仓 —— 与其他四仓同一套路。 */
-const brandDir = path.resolve(repoRoot, '..', '..', 'learn.specul');
+ *   守卫覆盖本仓 —— 与其他四仓同一套路。
+ * S9（2026-10-21）：品牌副本搬到 ai-handbook/shared/brand/（仓内只有一份）。 */
+const brandDir = path.join(workspaceRoot, 'learn.specul');
 if (fs.existsSync(path.dirname(deployDir))) {
   fs.mkdirSync(deployDir, { recursive: true });
   for (const f of ['brand.css', 'brand.js']) {
-    const from = path.join(repoRoot, 'brand', f);
+    const from = path.join(handbookRoot, 'shared', 'brand', f);
     const to = path.join(brandDir, f);
     if (!fs.existsSync(from)) { console.log('跳过同步（仓内缺 vendored 副本）：brand/' + f); continue; }
     const a = fs.readFileSync(from);
@@ -568,7 +573,7 @@ if (fs.existsSync(path.dirname(deployDir))) {
  * 双语：与站上一致，用 `data-zh` / `data-en` 双 span（brand.js 负责切换），
  *   所以词条页**不需要**额外的翻译文件（R2 在同一份产物里满足）。
  * ═══════════════════════════════════════════════════════════════════════ */
-const learnDir = path.resolve(repoRoot, '..', '..', 'learn.specul');
+const learnDir = path.join(workspaceRoot, 'learn.specul');
 if (fs.existsSync(learnDir)) {
   /* 展示名映射来自 meta.js（与页面同一个真相源）——**不要在这里重抄一份中文名**，
    * 那正是「两处口径并存」的老毛病。 */

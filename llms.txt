@@ -1,0 +1,32 @@
+# AI 手册（ai-handbook）
+
+> 学 AI · 用 AI 工具 · 跑 AI 模型 —— 一本手册，三部分。
+
+一本手册三部分：`terms/`（学 AI —— 术语、路径、指南）· `tools/`（AI 工具 —— 产品档案、固定维度对比）· `models/`（AI 模型 —— 量化索引、谱系卡）。三部分共用 `shared/` 的品牌与外壳（只有一份）。每条判断带官方出处，未知就写未知，不给总分排名。
+
+## 规模（由数据算出，见 `scripts/` 的构建脚本与 `_audit/gen-repo-docs.mjs`）
+
+一仓三部分 —— 200 个术语，按「先学什么后学什么」排成六站（进门 / 上手 / 用深 / 看懂 / 跑起来 / 选得对）；3 条精选学习路径各带检查点；39 篇微型指南；一页编年史与版图（18 条时间线 · 12 家公司 · 5 条术语演变）；423 条出处；英文覆盖 200/200。 52 份档案，分三个分区（agents 27、harness 15、tools 10），按 8 个固定维度横向对比。 11 个系列 / 16 个模型仓 / 132 个量化档 / 1253 个 GGUF 文件，来自 55 位量化者。
+
+## 内容地图
+
+- `terms/` — 学 AI：术语图谱（六站）、学习路径、微型指南、编年史与版图
+- `tools/` — AI 工具：三分区（agents / harness / tools）× 固定维度档案
+- `models/` — AI 模型：量化档索引、家族谱系卡、闭源对照卡、做模型专题
+- `shared/brand/` — 全站共享品牌资产（唯一一份 vendored 副本）
+
+## 不做什么
+
+- 不给总分排名 —— 加权总分掩盖取舍
+- 不做实测（没有实验室数据，就写「未知」）
+- 不托管任何模型权重或第三方二进制
+
+## 规范与校验
+
+- 字段规范：`terms/SCHEMA.md · tools/SCHEMA.md · models/docs/SCHEMA.md`
+- 校验器：`terms/scripts/validate.mjs · tools/scripts/validate.mjs · models/scripts/validate.mjs`（不合规直接失败退出）
+
+
+## 站点
+
+https://learn.specul.com/ · https://agent.specul.com/ · https://models.specul.com/

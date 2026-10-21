@@ -45,7 +45,7 @@
 ## 目录结构
 
 ```
-_data/models/
+_data/handbook/models/
 ├── config.js              系列名单 + 量化者档案（人工维护）
 ├── data/
 │   ├── series/*.json      采集产物（勿手改，由脚本生成）
@@ -106,7 +106,7 @@ node scripts/build.mjs
 5. 跑 `backfill-license.mjs`（见上方警告）
 6. 跑 `audit-licenses.mjs` 确认合规
 7. 跑 `build.mjs` 生成
-8. **同步跨站数字**：`_data/glossary/terms/参数.md`（「N 系列 M 规格」）、`www.specul/index.html` 的徽标
+8. **同步跨站数字**：`_data/handbook/terms/terms/参数.md`（「N 系列 M 规格」）、`www.specul/index.html` 的徽标
    —— 这两处有 `_audit/content-freshness.mjs` 的「www枢纽」/learn 守卫盯着，漂了会报
 9. 部署
 

@@ -1,5 +1,5 @@
 > 量化者说明文档的英文（2026-10-04）。
-> 键 = `_data/models/data/quantizers/` 下的**文件名**（不含 .md）。
+> 键 = `_data/handbook/models/data/quantizers/` 下的**文件名**（不含 .md）。
 > 结构与中文版一一对应：`定位 / 特点 / 怎么选 / 适合谁 / 不适合谁 / 注意 / 发布页`。
 >
 > 翻译原则：

@@ -14,7 +14,7 @@
  * 实测英文态词条详情仍见「核心概念 / 第一层 · 入门层」等中文。
  * 每条补 nameEn / shortEn / descEn，由页面的 L()/LS()/LN() 按当前语言取值。
  *
- * ⚠⚠ **这份是真相源**（_data/glossary/meta.js）。build.mjs 把它复制到
+ * ⚠⚠ **这份是真相源**（_data/handbook/terms/meta.js）。build.mjs 把它复制到
  *   site/data/meta.js，再同步到 learn.specul/data/meta.js。
  *   **改learn.specul/data/meta.js 会被下次构建覆盖** ——
  *   2026-10-04 踩过一次：英文字段加在产物上，重建即丢，表现为
