@@ -1,0 +1,37 @@
+{
+  "id": "afternoon-principles",
+  "ord": 2,
+  "zh": "一个下午看懂原理",
+  "en": "One Afternoon Under the Hood",
+  "span": { "zh": "一个下午", "en": "one afternoon" },
+  "lead": {
+    "zh": "第一站挑 4 个地基词，第四站读 8 个原理词。读完说得清大模型为什么这样表现，不再死记硬背。",
+    "en": "Four foundation terms from station one, eight from station four. Finish able to say why large models behave the way they do."
+  },
+  "steps": [
+    "大模型 - 大语言模型",
+    "Token",
+    "训练",
+    "预训练",
+    "训练三阶段",
+    "Transformer",
+    "嵌入层",
+    "注意力机制",
+    "自回归生成",
+    "幻觉的成因",
+    "上下文窗口的代价",
+    "缩放定律"
+  ],
+  "checkpoint": {
+    "zh": [
+      "说出 Transformer 处理一句话的大致流程：切词 → 变向量 → 注意力 → 逐词生成",
+      "说清聊天模型的训练三阶段，每一阶段各解决什么问题",
+      "解释模型为什么会一本正经地编，以及上下文为什么越大越贵"
+    ],
+    "en": [
+      "Walk through how a Transformer handles a sentence: split, embed, attend, generate one token at a time",
+      "Explain the three training stages of a chat model and what each stage solves",
+      "Say why a model fabricates confidently, and why bigger context costs more"
+    ]
+  }
+}

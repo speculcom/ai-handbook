@@ -1,0 +1,321 @@
+{
+  "_comment": "微型指南英文正文。键 = guides/<文件名> 去 .md（与 terms.en.json 同一套路）。值形如 {lead, points[], myth, fact}。",
+  "怎么向 AI 提问": {
+    "lead": "The same question asked differently produces very different answers. This guide covers the five things to state before you ask.",
+    "points": [
+      "State the goal and the done-criteria: not \"write an article\" but \"write a 300-word intro for absolute beginners\".",
+      "Give context: who you are, who the audience is, and what constraints apply — length, format, tone.",
+      "Paste the source text into the conversation; don't make the AI guess which passage you mean.",
+      "Ask for an outline first: have it list the structure, you approve it, then expand.",
+      "When unhappy, point out exactly what is wrong — more effective than a vague \"try again\"."
+    ]
+  },
+  "怎么验证 AI 的输出": {
+    "lead": "AI will state fabricated facts with full confidence. This guide turns \"what it said\" into \"what you can check\".",
+    "points": [
+      "Break the output into individual checkable claims: numbers, dates, names, citations.",
+      "For every citation (paper, statute, API name), verify at the original source — never trust the title it gives you.",
+      "Demand sources for key numbers; treat numbers without sources as assumptions.",
+      "Self-review catches only a fraction of errors; cross-checking (different source, different tool) is what works.",
+      "The more specific the domain (local law, your own data), the more a human must check — general models don't have these facts."
+    ]
+  },
+  "AI 真的读懂了你的话吗": {
+    "lead": "A fitting answer is not understanding — it is doing something else.",
+    "myth": "It answers aptly and keeps up with the conversation, so it must have understood what you meant.",
+    "fact": "It predicts the next word by probability. An apt answer shows it saw similar patterns in training, not that it grasps your situation."
+  },
+  "参数越多就越聪明": {
+    "lead": "Parameter count is one variable, not a dial for intelligence.",
+    "myth": "Parameter count decides how smart a model is — bigger is always stronger.",
+    "fact": "The quality and amount of training data decide performance just as much; small models match larger ones on suitable tasks."
+  },
+  "通用人工智能快到了": {
+    "lead": "\"Soon\" is a claim, not a verifiable milestone.",
+    "myth": "Everyone says AGI is near, so there must be a checkable date when it arrives.",
+    "fact": "There is no agreed definition of AGI; the houses mean different things. Without a definition, \"arrived\" has no test."
+  },
+  "它说得笃定，所以可信": {
+    "lead": "Fluency and correctness are separate; a confident tone adds no reliability.",
+    "myth": "A confident tone and a tidy structure mean the content is trustworthy.",
+    "fact": "In the hallucination surveys, most recorded errors are exactly this kind of smoothly written fabrication."
+  },
+  "温度调高会更聪明": {
+    "lead": "Temperature changes randomness only, not how much the model knows.",
+    "myth": "Raising temperature makes the model more imaginative, therefore smarter.",
+    "fact": "Temperature only changes how randomly it picks tokens; raising it adds drift and errors while the model knows no more."
+  },
+  "它记得你之前说过的": {
+    "lead": "What it can see is the context window; anything outside is not in its input.",
+    "myth": "Within one conversation it always remembers everything said earlier.",
+    "fact": "It only sees what fits the context window; anything beyond it is simply not in the input, which has nothing to do with remembering."
+  },
+  "榜单分数高就是好用": {
+    "lead": "A benchmark covers only what it measures — your task is a different question.",
+    "myth": "A model that scores high on the leaderboards must also be good at your task.",
+    "fact": "HELM concludes precisely that a single leaderboard is incomplete; a high score only means strength on the items tested."
+  },
+  "上下文窗口越大越好": {
+    "lead": "Window size has a price; enough beats maximum.",
+    "myth": "The larger the context window, the better long documents get handled.",
+    "fact": "A larger window raises VRAM and latency. In a long input, the middle is used unevenly. Choosing by need beats choosing the maximum."
+  },
+  "它拒绝，是因为做不到": {
+    "lead": "Most refusals are a trained choice, not a capability ceiling.",
+    "myth": "When it says \"I cannot do that\", it lacks the capability.",
+    "fact": "Most refusals come from alignment training; having the capability and being willing to output it are different things."
+  },
+  "它逐字读懂你的文字": {
+    "lead": "What it sees is not characters but ids from a vocabulary.",
+    "myth": "It reads your input word by word, the way you do.",
+    "fact": "The input is first cut into token ids from a vocabulary. An uncommon word may be split into pieces. What it works on is the ids, not the characters."
+  },
+  "它在一步步推理": {
+    "lead": "The steps it writes are not guaranteed to be the path that produced the answer.",
+    "myth": "The reasoning it shows you is the reasoning it actually performed.",
+    "fact": "It generates word by word by probability; the intermediate steps it writes need not match the path that produced the answer."
+  },
+  "注意力就是它注意到重点": {
+    "lead": "Attention is a weighted computation, not the model paying heed.",
+    "myth": "\"Attention mechanism\" means it picks out what matters, like a person would.",
+    "fact": "Attention weights positions by relatedness; a high weight does not mean it judged that part important."
+  },
+  "量化会让模型变笨一半": {
+    "lead": "The impact varies by tier; the ruler is bits per weight.",
+    "myth": "Quantising cuts model quality in half.",
+    "fact": "The impact varies by tier and by model. The ruler is bpw, meaning bits per weight. The differences between tiers have to be read item by item."
+  },
+  "显存不够就跑不了": {
+    "lead": "Whether it runs and how fast it runs are two questions.",
+    "myth": "If it does not fit in VRAM, the only option is a better graphics card.",
+    "fact": "Some layers can be moved to system memory or to the CPU. The price is speed. Whether it runs at all and how fast it runs are separate questions."
+  },
+  "接口兼容就等于行为一致": {
+    "lead": "Compatibility guarantees the shape of requests and responses, nothing more.",
+    "myth": "If the API is OpenAI-compatible, switching over gives the same behaviour.",
+    "fact": "Compatibility covers the shape of requests and responses; parameter defaults, error behaviour and output quality differ between implementations."
+  },
+  "预览版不能用于生产": {
+    "lead": "Judge it by the terms and the timeline, not by the word \"preview\".",
+    "myth": "Anything labelled \"preview\" is an experiment and cannot go to production.",
+    "fact": "Lifecycle and support policies differ between providers. The basis is that provider's terms and deprecation schedule. Whether the name says \"preview\" is not evidence."
+  },
+  "开源模型一定更省钱": {
+    "lead": "Open guarantees the right to use and modify, not that it is free.",
+    "myth": "Once a model is open, running it is necessarily cheaper than calling an API.",
+    "fact": "Self-hosting costs hardware, operations and people; open concerns the right to use and modify, not price."
+  },
+  "换模型只是改个名字": {
+    "lead": "A compatible interface does not mean a zero-cost migration.",
+    "myth": "Switching models is just changing a name in the config.",
+    "fact": "Switching means retesting behaviour, cost and compliance; a compatible interface does not make the migration free."
+  },
+  "怎么保护自己的数据": {
+    "lead": "Before handing material to an AI, be clear about where it goes and what it leaves behind. Six moves.",
+    "points": [
+      "Sort material by whether it may leave: personal identity, company secrets, and customer data are three different categories.",
+      "Do not accept terms you cannot read; check specifically whether your data is used for training.",
+      "Anonymize first: strip names, IDs, and contact details before pasting anything in.",
+      "For sensitive work, prefer local or private deployment so data never leaves your own network.",
+      "Afterwards, check retention: can the chat history and uploaded files be deleted, and how soon?",
+      "Set team rules: which materials may go into an AI, and which must stay in internal tools."
+    ]
+  },
+  "AI 常犯什么错": {
+    "lead": "AI mistakes follow fixed patterns. Recognizing these categories prevents most of them in advance.",
+    "points": [
+      "Inventing facts: it produces plausible-looking fake citations, numbers, and dates.",
+      "Agreeing with you: imply a wrong premise and it usually will not correct it, just build on it.",
+      "Bad at exact math: precise counts, multi-digit arithmetic, and tricky date conversions fail most often.",
+      "Over-answering: it rarely says \"I do not know\", preferring a vague answer instead.",
+      "Swayed by phrasing: the same question asked differently can produce a different answer."
+    ]
+  },
+  "怎么读模型卡": {
+    "lead": "A model card is the manufacturer's spec sheet for a model. This guide covers which sections to read and which claims to discount.",
+    "points": [
+      "Start with intended-use and limitations: what the maker says it is and is not good for beats marketing copy.",
+      "When reading benchmarks, first ask which ones were tested; a score without a benchmark is no score.",
+      "Read the training-data section: the data mix determines which biases it may carry.",
+      "Read the license: commercial use, attribution duties, and whether derivatives must share the same license.",
+      "Trust the known-limitations section: failure modes the maker admits are worth more than \"state-of-the-art\".",
+      "Compare vendors only on equal terms: same benchmark, same settings, or the numbers are not comparable."
+    ]
+  },
+  "怎么判断 AI 新闻是不是炒作": {
+    "lead": "AI news is usually more optimistic than the facts. This guide gives you a checking order: read it before deciding what to believe.",
+    "points": [
+      "Find the original source first: a paper, an official announcement, or just a demo video. The longer the retelling chain, the more distortion accumulates.",
+      "Separate \"demo\" from \"average\": cherry-picked success cases are not everyday performance. Ask what the success rate is.",
+      "Ask about the measuring stick before reading numbers: only same-benchmark, same-setting comparisons count. A score jump after switching benchmarks is not progress.",
+      "Check the publisher's motive: a company mid-fundraise and an independent evaluator do not word things with the same reliability.",
+      "Look for independent replication. Results only the publisher measured itself should be treated as unconfirmed.",
+      "Discount timelines: \"next year\" and \"will replace X in a few years\" are predictions, not facts."
+    ]
+  },
+  "怎么防提示注入": {
+    "lead": "Prompt injection is an attack where outside content hijacks an AI. This guide covers how to build defenses so your AI tool treats web pages as data, not commands.",
+    "points": [
+      "Treat outside content as data, not instructions: web pages, documents, and emails can hide \"ignore your previous instructions\".",
+      "Grant least privilege: if reading suffices, grant read-only; if one directory suffices, do not hand over the whole disk.",
+      "Keep a human gate on irreversible actions: deletions, transfers, and outbound messages ask a person first.",
+      "Isolate sessions: do not mix a session that processes outside content with one that holds keys or manages accounts.",
+      "Check what a tool can touch before installing it: read the MCP server's permission declarations.",
+      "Keep execution logs: when something goes wrong, you can replay what it actually did."
+    ]
+  },
+  "怎么给 AI 工具配权限": {
+    "lead": "How dangerous an AI tool is is mostly decided by the permissions you give it. This guide covers granting exactly enough and no more.",
+    "points": [
+      "Decide the job first, then the permissions: coding work gets the code directory, not your whole home directory.",
+      "Grant read and write separately: if the task completes read-only, do not grant write.",
+      "Mark off-limits zones: key files, account configs, and system directories are explicitly excluded.",
+      "Turn on confirmation mode: deletions, overwrites, and outbound sends must ask before acting.",
+      "Reclaim permissions regularly: when a project ends or the task changes, take back what you opened.",
+      "Run experiments in restricted mode: try untrusted usage inside a sandbox first."
+    ]
+  },
+  "怎么安全地用 MCP 工具": {
+    "lead": "MCP lets an AI touch your files and the web. The tools themselves are not the danger; what gets fed to them and what permissions they hold is.",
+    "points": [
+      "Install only the servers you need: every extra tool is one more channel something can go wrong through.",
+      "Read the permission declarations: file servers should scope to directories; fetch servers should carry security warnings.",
+      "Treat fetched content as data: web page text can contain instructions aimed at the AI.",
+      "Keep sensitive directories out: before connecting a file server, confirm keys and account configs are not inside.",
+      "Check who maintains the server: official and third-party carry different trust levels.",
+      "Cut the link first during an incident: if injection is suspected, stop the tool, then investigate the session."
+    ]
+  },
+  "怎么查生成式 AI 合规义务": {
+    "lead": "Launching an AI feature in China, compliance is not mysticism but a handful of checkable articles. This guide walks them in launch order.",
+    "points": [
+      "Classify first: does the service face the public in mainland China? If so, the Interim Measures for Generative AI Services apply.",
+      "Check training-data provenance: Article 7 requires \"lawfully sourced data and foundation models\".",
+      "Check labeling duties: generated images and video must carry labels per the deep-synthesis rules.",
+      "Check filing: services with public-opinion attributes or social mobilization capacity need security assessments and algorithm filing.",
+      "Check the new labeling rules: the Labeling Measures take effect 1 September 2025 — explicit labels plus implicit labels in file metadata.",
+      "When unsure, ask legal: this site states what the articles say, it does not hand down legal conclusions for you."
+    ]
+  },
+  "怎么对照 EU AI Act 自查": {
+    "lead": "The EU AI Act sorts AI into four risk tiers, with obligations taking effect in batches. This guide covers how to classify yourself and which tier you hit.",
+    "points": [
+      "Set your risk tier first: unacceptable / high / transparency / minimal. Most applications land in minimal, with no extra duties.",
+      "Check the ban list: nine practices are prohibited outright, including social scoring and real-time remote biometric identification in public spaces.",
+      "Transparency duties: chatbots must let people know they are talking to a machine; AI-generated content must be identifiable, and deepfakes visibly labeled.",
+      "General-purpose model duties are already live: GPAI providers face transparency and copyright requirements.",
+      "High-risk duties are the heaviest: risk assessment, data quality, logging, and human oversight, none optional.",
+      "Watch the timeline: obligations take effect in batches, so the same product must meet different requirements on different dates."
+    ]
+  },
+  "怎么查 AI 生成内容的版权风险": {
+    "lead": "AI content copyright has two ends: whether the data fed in is lawful, and whether what comes out belongs to you. This guide checks both ends.",
+    "points": [
+      "Input side, check provenance: Chinese rules require \"lawfully sourced data and foundation models\".",
+      "Input side, check exceptions: the EU Directive on Copyright in the Digital Single Market sets text-and-data-mining exceptions, with research and commercial terms differing.",
+      "Output side, do not assume ownership: whether AI-generated content can be copyrighted differs by jurisdiction; check local practice first.",
+      "Before commercial use, read the vendor terms: model terms of use differ on commercial use, competing products, and output ownership.",
+      "Keep provenance records: where materials came from and what the training data was — the chain of provenance comes first in disputes.",
+      "Litigation is ongoing: case law changes; for major commercial decisions consult legal counsel, not news headlines."
+    ]
+  },
+  "怎么读开源模型的许可证": {
+    "lead": "\"Open source\" does not mean use however you like. The conditions in a model license decide whether you may use it commercially, attribute, and what derivatives inherit.",
+    "points": [
+      "Separate open-source software licenses from model licenses: the latter often carry extra conditions you cannot infer from the words \"open source\".",
+      "Check commercial terms: some licenses ban commercial use; others set a scale threshold.",
+      "Check attribution: Apache 2.0 requires keeping notices and the NOTICE file.",
+      "Check derivative duties: copyleft licenses require models you fine-tune to carry the same license.",
+      "Check use restrictions: many model licenses forbid certain use cases; violating them voids the license.",
+      "Check license inheritance: which license a fine-tuned, quantized, or merged model carries is recorded repo by repo in this site's model profiles."
+    ]
+  },
+  "怎么排查 AI 的数据泄露路径": {
+    "lead": "Data usually leaves you through more than one path. This guide lists the common leak paths one by one so you can check which ones you are on.",
+    "points": [
+      "Input path: anything pasted into a cloud chat box has already left your device.",
+      "Training path: many services default to improving models with your conversations; find the opt-out switch.",
+      "Tool path: a connected server can carry content to its own backend.",
+      "Log path: how long chat history and uploaded files persist on the other side's servers.",
+      "Memory path: a model may repeat content it saw during training.",
+      "Recovery path: confirm the deletion entry point and effective time in advance; do not expect instant cleanliness."
+    ]
+  },
+  "怎么给 AI 内容做发布前检查": {
+    "lead": "Before publishing AI-generated content, a few classes of error appear almost inevitably. This guide is the pre-publication checklist.",
+    "points": [
+      "Re-verify facts line by line: numbers, dates, and quotes — AI produces ones that look right.",
+      "Verify citations exist: paper IDs, book titles, links — open each one and confirm.",
+      "Run sensitive statements once more: sentences about people, organizations, or the law get rewritten in professional register.",
+      "Check image labels: add explicit labels per China's Labeling Measures; do not miss the implicit label in metadata.",
+      "Unify the voice: strip the AI register (parallel clauses, empty summaries) or readers will spot it instantly.",
+      "Keep a change record: which parts AI wrote and what you changed — traceable when something goes wrong."
+    ]
+  },
+  "怎么给文档做分块": {
+    "lead": "The first step of retrieval-augmented generation is cutting documents into chunks. How well you cut decides whether answers can be found at all.",
+    "points": [
+      "Cut by meaning, not by character count: never slice a complete argument in half.",
+      "Chunks too small: context is lost, and even a hit cannot support a full answer.",
+      "Chunks too large: one chunk mixes several topics, and the similarity signal gets diluted.",
+      "A few hundred to a thousand characters is a common starting point; tune by results, do not trust a fixed value.",
+      "Overlap adjacent chunks: sharing a few sentences prevents information from breaking at the boundary.",
+      "Keep structural information: store titles, sections, and page numbers as metadata so retrieval can filter on them."
+    ]
+  },
+  "怎么给检索结果重排": {
+    "lead": "Vector retrieval does the coarse pass; reranking does the fine pass. The two-stage combo beats single-stage retrieval on recall quality.",
+    "points": [
+      "Coarse pass retrieves wide: pull dozens of candidates, not just the top three.",
+      "Fine pass switches models: a reranker compares query and candidate item by item, finer than vector distance.",
+      "Reranking has a cost: more candidates means slower and pricier; set the candidate count by your latency budget.",
+      "Check language support of the reranker: not every reranking model handles Chinese.",
+      "Tune top-k: fewer final items beats more — irrelevant chunks drag the answer off course.",
+      "Measure the two stages separately: coarse recall and fine ranking are scored apart, so you know which stage drags."
+    ]
+  },
+  "怎么做混合检索": {
+    "lead": "Vector search is good at similar meaning; keyword search is good at exact matches. Hybrid search merges the results of both paths.",
+    "points": [
+      "Give exact terms to keywords: model numbers, IDs, and names — vector search misses them, keyword search does not.",
+      "Give fuzzy phrasing to vectors: a reworded question still hits, which keywords cannot do.",
+      "Fuse the two result lists: reciprocal rank fusion (RRF) merges by rank, not by force-adding scores.",
+      "Scores cannot be added directly: cosine similarity and BM25 scores have different scales; adding them skews results.",
+      "Check native support: hybrid queries are built into Qdrant and Weaviate.",
+      "Hybrid still needs reranking: fusion only merges candidates; the fine pass is still a reranker's job."
+    ]
+  },
+  "怎么挑 embedding 模型": {
+    "lead": "The embedding model decides how \"similar in meaning\" is computed. Pick it wrong and retrieval, reranking, and answering all suffer.",
+    "points": [
+      "Check language support first: for Chinese tasks, read scores on Chinese or multilingual benchmarks; a good English leaderboard says nothing about Chinese.",
+      "Weigh dimensions against cost: higher dimensions usually mean pricier storage and compute; estimate by data volume.",
+      "Screen with benchmarks like MTEB, then test on your own data; the leaderboard is only a starting point.",
+      "Queries and documents must use the same model: vectors from different models have no meaningful distance.",
+      "Mind normalization: some models require normalized outputs before cosine similarity is valid.",
+      "Switching models means rebuilding the index: old and new vectors are incompatible; migration means recomputing everything."
+    ]
+  },
+  "怎么评测 RAG 的效果": {
+    "lead": "A RAG failure can come from retrieval or from generation. Evaluate them separately, or you will fix the wrong part.",
+    "points": [
+      "Build an eval set first: real questions with gold answers; a few dozen is enough to start.",
+      "Retrieval side, measure recall: did the chunk that should be found make it into the candidates?",
+      "Generation side, measure faithfulness: can every sentence in the answer be supported by the retrieved chunks?",
+      "Measure answer relevance separately: on-topic answers with wrong grounding are still a problem.",
+      "Automate with a framework like RAGAS, then spot-check by hand to calibrate its scoring.",
+      "Break scores down by scenario: average scores hide the weak spots of specific question types."
+    ]
+  },
+  "什么时候不该用 RAG": {
+    "lead": "RAG is not the default. It fits \"knowledge changes, citations required\"; it hurts other scenarios, and forcing it makes things worse.",
+    "points": [
+      "Small, stable knowledge: put it straight in the context; a retrieval layer is needless complexity.",
+      "Exact arithmetic or reasoning required: retrieval does not help; the limit is the model itself.",
+      "Poor document quality: garbage in, garbage out — fix the documents before talking about retrieval.",
+      "Tight latency budget: retrieval plus reranking plus generation is a long chain; weigh it for real-time use.",
+      "Strict consistency required: two runs of the same question may retrieve differently; assess this for compliance settings.",
+      "Try the baseline first: ask without retrieval; if it is good enough, do not build RAG."
+    ]
+  }
+}

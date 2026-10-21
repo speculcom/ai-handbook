@@ -1,0 +1,36 @@
+# Learn AI · Terminology Map (ai-glossary)
+
+> What are these terms, and why should you know them?
+
+For **people new to AI**: 200 terms arranged into six stations by "what to learn first"; every term cites its sources; no overall ranking.
+
+## Size (computed from data — see the build scripts under `scripts/` and `_audit/gen-repo-docs.mjs`)
+
+200 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 3 curated learning paths with checkpoints; 39 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 423 source entries; English coverage 200/200.
+
+## Content map
+
+- `terms/<name-in-Chinese>.md` — One term per file (frontmatter + fixed-skeleton body)
+- `terms/INDEX.md` — **Build output**: station-grouped index — do not edit by hand
+- `terms.en.json` — English bodies (key = term name)
+- `paths/<path-id>.json` — Learning-path source of truth (ordered slugs + checkpoints, bilingual)
+- `guides/<guide-name>.md` — Short-guide source of truth (frontmatter discipline as terms; kind=guide/myth)
+- `guides.en.json` — English guide bodies (key = file name)
+- `atlas/atlas.json` — Chronicle-and-atlas source of truth (timeline / companies / vocabulary shifts, each entry with a sourced reference)
+- `scripts/build.mjs` — Build (includes a field-by-field equivalence gate)
+
+## What this repo does not do
+
+- No ranking or scoring (scores hide trade-offs; trade-offs are the decision basis)
+- No hands-on testing (without lab data, write "unknown")
+- No terms without sources (every term has at least 1 refs entry)
+
+## Schema and validation
+
+- Field schema: `SCHEMA.md`
+- Validator: `scripts/validate.mjs` (non-compliant entries fail the build)
+
+
+## Site
+
+https://learn.specul.com/

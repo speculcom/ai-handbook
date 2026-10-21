@@ -1,0 +1,1599 @@
+{
+ "_comment": "词条释义英文。键 = md 文件名（不含扩展名），必须与 _data/glossary/terms/ 的文件名一字不差。",
+ "_fields": "purpose / def / why，对应源 md 的同名字段。缺字段时英文态回退中文（可接受降级）。",
+ "_progress": "全部译完（200 个词条逐条人工翻译，六站全覆盖；INDEX.md 无释义不译）",
+ "人工智能": {
+  "purpose": "Let machines do what used to need human intelligence — see images, understand speech, write, and decide.",
+  "def": [
+   "A broad field: making machines behave in ways we recognise as intelligent. It is not one technology but many, and today's chatbots are only a branch of it."
+  ],
+  "why": "People often use \"AI\" to mean a chat model. Strictly speaking a large language model is one approach inside AI, not AI itself — most claims about \"AI\" are really claims about one kind of model."
+ },
+ "机器学习": {
+  "purpose": "Instead of writing rules by hand, let the machine find patterns in data.",
+  "def": [
+   "A method where a system improves at a task by fitting parameters to examples, rather than following rules a programmer wrote."
+  ],
+  "why": "It is the foundation under essentially everything called AI today. Knowing where the rules came from tells you what the system can and cannot do."
+ },
+ "深度学习": {
+  "purpose": "Stack many layers so the network learns its own features instead of being told them.",
+  "def": [
+   "Machine learning using multi-layer neural networks, where representations are learned from raw data rather than hand-designed."
+  ],
+  "why": "It is what made image, speech and language tasks leap forward. Understanding it helps you judge which claims about \"deep learning\" are real."
+ },
+ "神经网络": {
+  "purpose": "A network of simple units whose combined output can approximate very complex functions.",
+  "def": [
+   "Layers of connected units, each applying a small transformation, whose overall behaviour is learned from data rather than specified."
+  ],
+  "why": "It is the mechanism behind deep learning. You do not need the maths to use it, but it explains both what it can do and why it fails in particular ways."
+ },
+ "训练": {
+  "purpose": "Let the system learn its parameters from data by repeated exposure.",
+  "def": [
+   "Fitting parameters so predictions match targets, usually by minimising a loss over many examples."
+  ],
+  "why": "Training determines what the model knows. It is also where cost and bias enter — training data is not neutral."
+ },
+ "推理": {
+  "purpose": "The model you trained is now answering real queries — a different phase with different costs.",
+  "def": [
+   "Running a trained model to produce an answer. Often confused with \"reasoning\", but inference simply means using the model."
+  ],
+  "why": "Training and inference have different cost structures. It explains why a model can be cheap to make and expensive to serve."
+ },
+ "参数": {
+  "purpose": "The numbers the training process adjusts; everything the model knows lives in them.",
+  "def": [
+   "Weights and biases inside the network. Model size usually refers to how many there are, and larger counts generally mean more capacity."
+  ],
+  "why": "It grounds abstract claims: a \"7B model\" is a statement about parameter count, not about being better than everything else."
+ },
+ "提示词": {
+  "purpose": "The instructions you give the model, and often the main lever you actually control.",
+  "def": [
+   "The input text shaping the model's behaviour. In a chat interface it is what you type; in an API it is part of the request."
+  ],
+  "why": "For using models, prompt quality often matters more than model choice — the same model behaves very differently under different phrasing."
+ },
+ "上下文窗口": {
+  "purpose": "How much the model can see at once — the page of text it can keep in mind while answering.",
+  "def": [
+   "The token budget for one request: system prompt, documents, conversation history and the reply all draw from it."
+  ],
+  "why": "It sets a hard ceiling on what can be asked. \"It forgot what I told it\" is usually a context-window limit, not a memory bug."
+ },
+ "幻觉": {
+  "purpose": "The model states something plausible and confident that is simply not true.",
+  "def": [
+   "Output that is fluent and confident but factually wrong. It comes from producing likely-sounding text rather than retrieving verified facts."
+  ],
+  "why": "It is the single biggest practical risk with language models, and the reason fact-checking matters more than ever."
+ },
+ "多模态": {
+  "purpose": "Handle text, images, audio and video in one system rather than bolting separate models together.",
+  "def": [
+   "A model that takes or produces more than one kind of input or output, so images and text can be reasoned about together."
+  ],
+  "why": "It is what makes document Q&A, screenshot understanding and video generation practical rather than staged pipelines."
+ },
+ "工具调用": {
+  "purpose": "Let the model actually do things — search, run code, edit files — rather than only describe them.",
+  "def": [
+   "A mechanism where the model emits a structured request for a function, the system runs it, and the result goes back into the conversation."
+  ],
+  "why": "It is what turns a language model into a usable assistant. It also introduces real risk: the model can act wrongly, not just speak wrongly."
+ },
+ "微调": {
+  "purpose": "Teach an existing model a specific task or style, rather than describing the task in the prompt.",
+  "def": [
+   "Further training of an already-trained model on task-specific data, changing its weights rather than its instructions."
+  ],
+  "why": "It can beat prompting for a narrow task, but it costs more and is harder to maintain. Prompting first is usually the right order."
+ },
+ "大模型 - 大语言模型": {
+  "purpose": "After training, the learned parameters that let a system generalise to inputs it has never seen.",
+  "def": [
+   "The trained artefact: parameters plus the architecture that produced them. \"Loading a model\" means loading these, not running a program."
+  ],
+  "why": "Model and product are different things. Many misunderstandings about AI products come from treating a model as if it were an application."
+ },
+ "智能体 - Agent": {
+  "purpose": "Stop answering and start acting: let the model take multi-step actions on its own.",
+  "def": [
+   "A system where a model plans, calls tools, reads results and repeats until the task is done, rather than replying once."
+  ],
+  "why": "It is the difference between \"it tells you how\" and \"it does it for you\". Most of the practical value in agents comes from tool use, not conversation."
+ },
+ "向量 - 嵌入": {
+  "purpose": "Represent text as coordinates, so meaning can be compared by geometry rather than by string match.",
+  "def": [
+   "Turning text into a list of numbers where closer vectors mean closer meaning. It is how semantic search and retrieval work."
+  ],
+  "why": "Most retrieval systems are built on it. It also explains why keyword search still matters alongside vector search."
+ },
+ "联网 - 检索增强": {
+  "purpose": "Let the model look things up before answering, instead of answering from memory alone.",
+  "def": [
+   "Retrieval-augmented generation: fetch relevant passages first, then have the model answer using them, ideally with citations."
+  ],
+  "why": "It is the most practical way to reduce hallucination and give a model private or current knowledge."
+ },
+ "_removed": "「通用人工智能」与「蒸馏」无对应源文件，已移除 —— 键名对不上会被构建器静默忽略，留着只会让人误以为已覆盖。",
+ "AI 搜索": {
+  "purpose": "Describe what you want in a sentence instead of keywords, and get an answer directly.",
+  "def": [
+   "Search products that understand natural-language queries and generate an answer instead of returning links."
+  ],
+  "why": "It changes how you look things up, and partly replaces conventional search engines."
+ },
+ "AI 芯片": {
+  "purpose": "Chips built specifically for AI computation — more efficient than general GPUs, but with a more closed ecosystem.",
+  "def": [
+   "Processors optimised for matrix computation, usually referring to AI-specific accelerator hardware of various kinds."
+  ],
+  "why": "It determines how large a model you can fit onto a device at a given price."
+ },
+ "CLIP": {
+  "purpose": "Lets a model relate text descriptions to image content — the foundation of text-to-image generation.",
+  "def": [
+   "Maps images and text into the same space, so the phrase \"a cat\" lands near the visual features of cats."
+  ],
+  "why": "Nearly every text-to-image tool ships it. It sets the ceiling on how well a model understands a prompt."
+ },
+ "ControlNet": {
+  "purpose": "Gives precise control over the result using line art, depth maps or pose skeletons.",
+  "def": [
+   "A control network attached to a diffusion model, constraining the shape and pose of what gets generated."
+  ],
+  "why": "The most practical control mechanism in image generation, and essential when you need an exact composition."
+ },
+ "偏好对齐": {
+  "purpose": "Makes a model's output match human preference, rather than merely continuing text.",
+  "def": [
+   "Training a model on human rankings of several candidate answers so it tends to be helpful, harmless and honest."
+  ],
+  "why": "It explains why a model sometimes refuses or is excessively agreeable — that is trained behaviour, not a technical limit."
+ },
+ "具身智能": {
+  "purpose": "Giving AI a body so it can sense its surroundings and act — the robotics side of things.",
+  "def": [
+   "A technology system extending AI into the physical world, covering perception, control and planning."
+  ],
+  "why": "It is the branch of AI furthest from everyday life, and also the largest category in this directory (87 entries)."
+ },
+ "分块": {
+  "purpose": "Cut a long document into pieces before feeding it to the model. How you chunk decides how accurate the answer is.",
+  "def": [
+   "The step in a RAG pipeline that splits a document into passages. Too small loses context; too large does not fit the context window."
+  ],
+  "why": "The most overlooked yet most consequential step in RAG. Many \"the AI answered wrongly\" cases trace back to bad chunking."
+ },
+ "向量数据库": {
+  "purpose": "A database built to store and search those numeric arrays, so RAG can find the relevant passages among millions of documents in an instant.",
+  "def": [
+   "Storage engines designed for similarity search — a query traditional databases cannot serve."
+  ],
+  "why": "If you are building RAG this is a must-have. Understanding it tells you why an approach is fast or slow."
+ },
+ "扩散模型": {
+  "purpose": "The dominant method for image generation: \"wipe\" an image out of noise step by step.",
+  "def": [
+   "A generative model that starts from random noise and produces an image through many denoising steps.",
+   "Almost every image-generation tool today, including the open-source Stable Diffusion family, is built on it."
+  ],
+  "why": "It is the technical base of image generation. Understanding it explains why generation takes a moment and why \"steps\" is a parameter."
+ },
+ "推理模型": {
+  "purpose": "Works through a chain of internal steps before answering, which markedly improves accuracy on hard problems.",
+  "def": [
+   "A model that produces intermediate reasoning before its conclusion — typically one with a thinking or reasoning mode.",
+   "The cost is slower responses and more output tokens."
+  ],
+  "why": "The single most important attribute when choosing a model: reasoning models for coding, arithmetic and planning; ordinary models for speed and cost."
+ },
+ "数字人": {
+  "purpose": "A virtual person with an appearance and a voice, used for customer service, virtual presenters and similar.",
+  "def": [
+   "A virtual human form combining speech synthesis, image generation and animation."
+  ],
+  "why": "It is a combined application of multimodal capability, and a category of its own in this directory."
+ },
+ "机器视觉": {
+  "purpose": "Lets a camera \"see\" — recognise people, objects, text and actions.",
+  "def": [
+   "Technology that extracts and understands information from images and video."
+  ],
+  "why": "The technical foundation of autonomous driving, security and medical imaging — two stages along the same direction as multimodal models."
+ },
+ "温度": {
+  "purpose": "Controls how random the output is. Lower is steadier; higher is more creative.",
+  "def": [
+   "A sampling parameter controlling how often the highest-probability token is chosen. A temperature of 0 gives the most deterministic output."
+  ],
+  "why": "Low temperature for code and extraction; high temperature for naming and copywriting. It is one of the few parameters you can adjust directly."
+ },
+ "潜空间": {
+  "purpose": "The key mechanism in image generation — the model works in a compressed space, not on raw pixels.",
+  "def": [
+   "An encoder first compresses an image into a lower-dimensional space; generation happens there and a decoder restores it."
+  ],
+  "why": "It explains why image models need to load a VAE, and why that compression affects fine detail."
+ },
+ "知识截止": {
+  "purpose": "The date boundary of a model's training data. Anything after it, the model does not know.",
+  "def": [
+   "The cut-off date of the training corpus. Information later than that was never learned."
+  ],
+  "why": "Ask it about recent events, today's news or current prices and it either does not know or makes something up. Anything current needs search."
+ },
+ "ACP": {
+  "purpose": "Let AI coding tools from different vendors plug into the same editor.",
+  "def": [
+   "A protocol agreement that lets an editor load agent implementations from any vendor."
+  ],
+  "why": "It is the same idea as MCP — a standard interface instead of per-vendor integration."
+ },
+ "App Server": {
+  "purpose": "Let one AI session hand off between terminal, editor and web.",
+  "def": [
+   "A design where AI session state lives in a standalone service that several front ends can attach to."
+  ],
+  "why": "It explains why some tools let you close the terminal and carry on in another interface: the session lives in a service, not in the terminal."
+ },
+ "MCP": {
+  "purpose": "A standard interface for connecting AI to external tools and data in one uniform way, without a bespoke integration per service.",
+  "def": [
+   "An open protocol proposed by Anthropic describing, in one specification, which tools an AI may call and which resources it may read.",
+   "It plays the role of USB-C for AI: whatever device you plug in, the interface is the same."
+  ],
+  "why": "If you want to connect data to an AI, this is the least-effort and most general approach today. This site's MCP track covers it."
+ },
+ "人机协作": {
+  "purpose": "A human confirms the key steps instead of the system running on unattended.",
+  "def": [
+   "Inserting human review at specific points in a flow, so a person decides whether to continue or how to change it."
+  ],
+  "why": "Anything that writes files, sends requests, spends money or modifies a database should have a human checkpoint. This is the main lever against accidents."
+ },
+ "仓库级理解": {
+  "purpose": "Let the AI read the whole project, not just the file that happens to be open.",
+  "def": [
+   "The AI builds an index and structural model of the entire codebase, so it can answer across files and reason about blast radius."
+  ],
+  "why": "This is the dividing line between Copilot-class tools and simple completion. Refactoring tasks require it."
+ },
+ "代码补全": {
+  "purpose": "Complete the following code automatically in the editor, based on context.",
+  "def": [
+   "Inferring and inserting the code that follows, from the cursor position and what is already written."
+  ],
+  "why": "The earliest and most basic AI coding capability — every IDE-class tool started here."
+ },
+ "参考服务器": {
+  "purpose": "Official \"reference\" implementations showing how the protocol should be written.",
+  "def": [
+   "Minimal implementations published by the MCP project — not for end users, but for developers to reference and test against."
+  ],
+  "why": "Reading the official implementation is the fastest way to understand a protocol — far quicker than the documentation."
+ },
+ "可观测性": {
+  "purpose": "See what the model actually did this run, what it cost, and which step went wrong.",
+  "def": [
+   "Recording the call chain, each step's input and output, token usage and latency so problems can be traced."
+  ],
+  "why": "Model behaviour is probabilistic; without records you can never diagnose a problem. This is what separates a demo from a production system."
+ },
+ "多 Agent 协作": {
+  "purpose": "Split a complex job across several roles, each strong at something different.",
+  "def": [
+   "Multiple agents with different tools and prompts working together — the classic pattern is planner plus executor plus reviewer.",
+   "The cost is that token consumption and latency both multiply."
+  ],
+  "why": "Not everything needs multiple agents. On simple tasks one agent with tools is faster and more reliable."
+ },
+ "工作流编排": {
+  "purpose": "Fix a repeated pattern: the AI does a step, a human confirms, the next step runs.",
+  "def": [
+   "Writing the step order and branch conditions explicitly in code, rather than leaving every decision to the model."
+  ],
+  "why": "Reliable production systems are mostly human-in-the-loop workflows, not fully autonomous agents. This is the key design decision for controlling risk."
+ },
+ "差异对比": {
+  "purpose": "See exactly what the AI changed — the most important step when accepting AI-written code.",
+  "def": [
+   "Comparing before and after line by line, the basic means of reviewing AI output."
+  ],
+  "why": "A pattern that recurs in official guidance: keep AI changes under version control, diffable and revertible. That is a precondition for safety."
+ },
+ "技能 - Skills": {
+  "purpose": "Package a repetitive workflow into a reusable capability.",
+  "def": [
+   "Wrapping a set of prompts, tool configuration and execution steps so they can be called across many tasks."
+  ],
+  "why": "It is the mechanism that moves you from re-explaining every time to configuring once and reusing."
+ },
+ "护栏": {
+  "purpose": "Constrain what the model may and may not do, so it does not drift or take dangerous actions.",
+  "def": [
+   "A layer of checks on the input and output side — keywords, permissions, or another model's judgement."
+  ],
+  "why": "If you give an agent the ability to write files and run commands, you must give it guardrails. This is a direct trade of capability for risk."
+ },
+ "持续集成": {
+  "purpose": "Tests and checks run automatically as soon as code is committed.",
+  "def": [
+   "An automated verification pipeline that triggers a build and tests on commit."
+  ],
+  "why": "It decides whether AI output can be verified automatically — and verifiable output is what makes batch use safe."
+ },
+ "提示注入": {
+  "purpose": "The main security risk in agent systems: content that talks the model into doing something you did not intend.",
+  "def": [
+   "An attack where instructions hidden in retrieved documents, tool output or a web page hijack the model's behaviour."
+  ],
+  "why": "It is the single most important thing to understand before deploying an agent that reads untrusted content."
+ },
+ "版本控制": {
+  "purpose": "Record every change and roll back at will — the safety foundation of AI-assisted coding.",
+  "def": [
+   "A mechanism tracking the history of file changes, supporting collaboration and rollback."
+  ],
+  "why": "AI makes mistakes and deletes the wrong file. Without version control you cannot afford to let it act."
+ },
+ "终端 Agent": {
+  "purpose": "Run tasks autonomously in the command line: edit files, run tests, commit code.",
+  "def": [
+   "An AI agent running in the terminal, able to operate the development environment directly."
+  ],
+  "why": "It suits automation and scripting better than IDE-class tools, and is the only option in scripted or CI environments."
+ },
+ "结构化输出": {
+  "purpose": "Make the model's answer a strict format (JSON and the like) rather than a paragraph of prose.",
+  "def": [
+   "Constraining the model to output machine-parsable structure that a program can consume directly."
+  ],
+  "why": "A precondition for tool calling. Without it a model cannot reliably tell a program what to call or which arguments to pass."
+ },
+ "记忆": {
+  "purpose": "Let an agent remember things across conversations instead of restating the background every time.",
+  "def": [
+   "Persisting historical information so later sessions can retrieve it.",
+   "Two approaches: store it in the program (controllable), or in external storage the model can reach (flexible, but then permissions matter)."
+  ],
+  "why": "\"The AI forgets everything every time\" is the most common complaint in use, and the answer is a memory layer."
+ },
+ "评估": {
+  "purpose": "Decide whether an approach is actually good, rather than merely plausible-sounding.",
+  "def": [
+   "A fixed set of questions plus scoring criteria, to compare models, prompts or approaches quantitatively."
+  ],
+  "why": "Without evaluation there is no basis for improvement. It is the dividing line between a product built seriously and one that merely sounds good."
+ },
+ "远程执行": {
+  "purpose": "A cloud agent runs tasks on your machine, so closing the laptop does not stop it.",
+  "def": [
+   "Moving execution to a remote server, with the local machine acting only as a viewer."
+  ],
+  "why": "It is the basis for long-running tasks and the core difference between hosted and self-hosted setups."
+ },
+ "配对编程": {
+  "purpose": "AI as a programming partner taking part in development in real time.",
+  "def": [
+   "The practice of two people writing code together, extended to a human plus AI collaboration model."
+  ],
+  "why": "It is the original concept behind every AI coding tool — they all automate this pattern to different degrees."
+ },
+ "长时任务": {
+  "purpose": "Work running for hours or days across many contexts.",
+  "def": [
+   "Tasks exceeding a single context window or session, requiring external progress storage and staged resumption."
+  ],
+  "why": "This is the ceiling on agent capability. For a framework claiming long-running tasks, check how it stores progress."
+ },
+ "KV 缓存": {
+  "purpose": "Stops the model recomputing the whole passage on every token it generates — this is what makes generation speed usable.",
+  "def": [
+   "Caching the attention intermediates already computed, so only new tokens need incremental work.",
+   "The cost is that it **occupies VRAM continuously** — which directly caps how long a context you can afford."
+  ],
+  "why": "It is the most common cause of OOM when deploying locally. Raise the context size and you hit this first."
+ },
+ "Transformer": {
+  "purpose": "The architecture underneath every mainstream large model today.",
+  "def": [
+   "A neural network structure built around the attention mechanism, handling the relationships across a whole passage of text.",
+   "It processes a sentence in parallel rather than one word at a time — which is why it scales to trillions of parameters."
+  ],
+  "why": "It is the root of large models. Understand it and the origin of context windows, hallucination and the KV cache becomes clear."
+ },
+ "上下文窗口的代价": {
+  "purpose": "A larger context window is slower and more expensive — it is not free capacity.",
+  "def": [
+   "A bigger window means attention computation and KV cache memory both grow."
+  ],
+  "why": "It explains a counter-intuitive result: pasting in everything at once is often worse than retrieving in batches with RAG."
+ },
+ "传输方式": {
+  "purpose": "How your data actually reaches the model or tool: staying on your machine, or going to a third party.",
+  "def": [
+   "The channel data moves through between components. In-process local transfer and cross-network transfer have very different safety properties.",
+   "The two common forms: local inter-process communication, and remote HTTP requests."
+  ],
+  "why": "It is the first question to ask when deciding whether your data can leak. **Anything sent to a remote service is inherently unsuitable for sensitive material.**"
+ },
+ "位置编码": {
+  "purpose": "Lets the model know the order of words in a sentence.",
+  "def": [
+   "Attaching a set of numbers to each position so the model can tell \"the cat chased the dog\" from \"the dog chased the cat\"."
+  ],
+  "why": "It explains why comprehension of long passages degrades noticeably once you exceed the context window."
+ },
+ "嵌入层": {
+  "purpose": "The first step of turning words into numeric vectors — models only work in numbers internally.",
+  "def": [
+   "The layer mapping each token to a high-dimensional vector inside the model — the origin of vector retrieval."
+  ],
+  "why": "It connects the conceptual layer to the applied one: the embedding you use in practice is this."
+ },
+ "推理成本": {
+  "purpose": "What a model costs per answer, determined by how many tokens go in and come out.",
+  "def": [
+   "Usually priced separately for input and output tokens, with output more expensive.",
+   "The same model can cost an order of magnitude more depending on how you phrase the question."
+  ],
+  "why": "The easiest trap to fall into when using AI day to day, and a cost item any model choice has to account for."
+ },
+ "注意力机制": {
+  "purpose": "When processing one word, the model automatically looks at the most relevant other words in the sentence.",
+  "def": [
+   "Computing how related each word is to every other word, and aggregating information weighted by that.",
+   "\"Attention\" inside a Transformer and \"the model isn't paying attention\" in everyday speech are the same word meaning different things."
+  ],
+  "why": "It explains why models can resolve references across a long sentence — and is one technical root of the context length limit."
+ },
+ "训练算力": {
+  "purpose": "Both training and inference burn compute. This is AI's hardest resource threshold.",
+  "def": [
+   "Training needs many GPUs and a lot of time; inference is far cheaper but costs continuously."
+  ],
+  "why": "It explains why large-model companies burn money, and why running one locally means doing the VRAM arithmetic first."
+ },
+ "预训练": {
+  "purpose": "Predicting the next token over vast text — the stage where a model absorbs world knowledge.",
+  "def": [
+   "The first training run, with a single objective: continue the text. It costs hundreds of millions."
+  ],
+  "why": "It explains why a model \"knows a bit about everything\": that is the result of reading widely, not learning for your task."
+ },
+ "bpw": {
+  "purpose": "The numeric form of a quantisation level: how many bits each weight averages.",
+  "def": [
+   "A measure of how aggressively a model is quantised. This site groups them into five tiers: extreme compression, long context first, balanced, conservative and near-lossless.",
+   "Lower numbers mean a smaller model."
+  ],
+  "why": "It unifies vendor-specific names like Q4, Q8 and Q3 into one comparable number — the most practical yardstick when choosing."
+ },
+ "GGUF": {
+  "purpose": "The de facto standard file format for running models locally. The llama.cpp ecosystem accepts little else.",
+  "def": [
+   "The model file format defined by the llama.cpp project, packaging the model structure together with its quantisation parameters.",
+   "The vast majority of community quantisations ship in this format."
+  ],
+  "why": "If you run models locally, this is what you download. Other formats usually need an extra conversion step."
+ },
+ "GPU 层卸载": {
+  "purpose": "Give part of the model to the GPU and keep the rest on the CPU — the compromise when VRAM falls short.",
+  "def": [
+   "Assigning layers across devices: whatever fits in VRAM goes to the GPU, the rest runs on the CPU backed by system memory.",
+   "In llama.cpp this is usually controlled with the `-ngl` flag."
+  ],
+  "why": "It lets models that \"almost\" fit run at all, at a clear cost in speed. A trade-off, not a free lunch."
+ },
+ "GPU": {
+  "purpose": "The chip that actually does the matrix arithmetic. Large models run on it; a CPU is far too slow.",
+  "def": [
+   "A processor built for large-scale parallel computation, originally designed for graphics rendering and now the workhorse of model training and inference."
+  ],
+  "why": "It decides whether a model runs and how fast. On the same card, VRAM capacity matters more than the compute tier."
+ },
+ "llama.cpp": {
+  "purpose": "The mainstream open-source engine for running large models on an ordinary computer, CPU included.",
+  "def": [
+   "An inference engine written in C/C++ that emphasises lightness and cross-platform support, with mixed CPU and GPU inference.",
+   "It is the foundation of the local deployment ecosystem — many quantisations exist specifically for it."
+  ],
+  "why": "The default choice for local deployment. Picking it means access to the largest set of quantisations and community support."
+ },
+ "Prompt Cache": {
+  "purpose": "Cache repeated system prompts and documents, saving time and money when asking about the same context again.",
+  "def": [
+   "Reusing processing already done for an identical prefix so it is not computed twice."
+  ],
+  "why": "System prompts in agent work are usually long, so caching meaningfully lowers cost. It is also why this site does not host models itself."
+ },
+ "vLLM": {
+  "purpose": "A serving engine for running models at high concurrency on a server.",
+  "def": [
+   "A production-oriented high-throughput inference engine that improves concurrency via techniques such as continuous batching."
+  ],
+  "why": "You will not need it for a personal local setup, but you do need something like it to offer an API to others."
+ },
+ "专家卸载": {
+  "purpose": "For sparse models with many experts where only a few activate per token, keep the rarely-used experts in memory.",
+  "def": [
+   "A mixture-of-experts (MoE) model activates only a few experts per inference, so the remaining weights can sit on slower storage and be fetched as needed."
+  ],
+  "why": "It explains why some very large models run on a single card: not all weights participate at once."
+ },
+ "吞吐": {
+  "purpose": "How many tokens per second come out. It determines how long you wait for a long generation.",
+  "def": [
+   "Tokens produced per second. Higher throughput means faster long-form generation."
+  ],
+  "why": "It is a separate metric from time-to-first-token, and the two must be read together — looking at only one misleads the actual experience."
+ },
+ "张量并行": {
+  "purpose": "Split one model across several GPUs when it does not fit on a single card.",
+  "def": [
+   "Partitioning model weights across multiple GPUs by dimension, each computing part, with inter-card communication required."
+  ],
+  "why": "The main technique for multi-GPU deployment. Prefer a single card when VRAM allows — communication overhead slows things down."
+ },
+ "显存": {
+  "purpose": "Memory on the graphics card. If the model does not fit, it simply does not run — nothing else matters.",
+  "def": [
+   "High-speed memory on the GPU. Model weights and the KV cache both live there, and overflowing means it cannot run.",
+   "VRAM is the first hard threshold for local deployment — not a performance question but a can-it-run-at-all question."
+  ],
+  "why": "It is the only budget you must settle before running a model locally. Choosing a quantisation tier is essentially about fitting inside VRAM."
+ },
+ "API - 接口调用": {
+  "purpose": "Do not run a model yourself — pay per use for someone else's.",
+  "def": [
+   "Send the prompt to a model provider over a network interface and get the result back."
+  ],
+  "why": "This is how most people actually use AI. No graphics card needed and you pay as you go; the cost is that data leaves your machine and the bill keeps going."
+ },
+ "供应商锁定": {
+  "purpose": "The deeper you go, the harder it is to switch models or providers.",
+  "def": [
+   "Depending on a vendor's proprietary prompt formats, tool-calling conventions or fine-tuning formats, so migrating costs a lot."
+  ],
+  "why": "The long-term cost most easily missed during selection. The test: how much code changes if you swap models?"
+ },
+ "单次调用成本": {
+  "purpose": "What a task actually costs to run, not just the unit price.",
+  "def": [
+   "Unit price times the tokens actually consumed. Consumption can differ by orders of magnitude between tasks."
+  ],
+  "why": "Choosing a model on unit price alone is easy to get wrong. Two models can cost the same per token and end up in the opposite order overall."
+ },
+ "可替换性": {
+  "purpose": "How much has to change if you swap models or providers.",
+  "def": [
+   "How dependent a design is on a particular provider. Open protocols and formats raise substitutability substantially."
+  ],
+  "why": "The most easily overlooked item in long-term cost, and the basis of resilience when something breaks."
+ },
+ "基准测试": {
+  "purpose": "Compare models head to head using a shared question set.",
+  "def": [
+   "Scores from standardised evaluation suites such as MMLU or HumanEval."
+  ],
+  "why": "Important but not to be trusted blindly — public leaderboards go stale and may have little relation to your actual task."
+ },
+ "开源模型": {
+  "purpose": "The weights are public: you can download them, run them on your own machine, and pay nobody.",
+  "def": [
+   "Models whose parameter weights are published. Note that open code and open weights are different things — only open weights mean you can self-host."
+  ],
+  "why": "It decides whether you can work offline, whether you can fine-tune, and whether private data has to leave."
+ },
+ "总分 - 综合评测": {
+  "purpose": "Collapse several benchmark scores into one number for quick comparison.",
+  "def": [
+   "A weighted aggregate across several evaluation dimensions. Weighting differs substantially between providers."
+  ],
+  "why": "When you see \"an overall score of X\", ask first: how was it weighted, which question set, and when was the data collected."
+ },
+ "数据不出网": {
+  "purpose": "Your material never passes through a third party. This is a hard requirement in many situations.",
+  "def": [
+   "All data processed on machines you control, never uploaded to an external service."
+  ],
+  "why": "Where contracts, personal data or source code are involved, this is the line between usable and not — not a nice-to-have."
+ },
+ "服务中断风险": {
+  "purpose": "Depending on someone else's service means it may raise prices, shut down, or rate-limit you.",
+  "def": [
+   "The risk that an unavailable third-party service blocks your work."
+  ],
+  "why": "If a critical process depends entirely on one provider, this is a very real operational risk."
+ },
+ "自托管成本": {
+  "purpose": "Running locally costs no per-token fee, but hardware, electricity and operations are real costs.",
+  "def": [
+   "The total of hardware purchase, power, VRAM expansion and the ongoing maintenance work."
+  ],
+  "why": "It makes the common assumption \"local is always cheaper than an API\" testable — compute it against your actual usage."
+ },
+ "许可证": {
+  "purpose": "What you may do with it: use, modify, or commercialise. The constraint most often overlooked during selection.",
+  "def": [
+   "The licence terms attached to a model; providers vary widely in strictness.",
+   "The points to check: commercial use allowed? Redistribution allowed? Do derivatives inherit the original licence?"
+  ],
+  "why": "A hard legal constraint. However good the technology is, if the licence forbids it, you cannot use it."
+ },
+ "路由": {
+  "purpose": "Send easy questions to a cheap fast model and hard ones to a strong model.",
+  "def": [
+   "Mechanism that picks a model automatically based on task complexity."
+  ],
+  "why": "The most effective way to control cost and quality together, and standard practice in current product design."
+ },
+ "迭代速度": {
+  "purpose": "How fast the project moves and how stable its versions are.",
+  "def": [
+   "Release frequency and stability. Frequent updates mean faster improvement but also possible breaking changes."
+  ],
+  "why": "It decides whether you are chasing something moving quickly or using a tool that is settling down."
+ },
+ "退出成本": {
+  "purpose": "What it costs to migrate away when you stop using it.",
+  "def": [
+   "The cost of moving your data and workflow elsewhere when you abandon a given approach."
+  ],
+  "why": "Two sides of the same coin as substitutability. Invisible at selection time, most painful when something breaks."
+ },
+ "闭源模型": {
+  "purpose": "You do not get the weights; you can only call it through the official interface.",
+  "def": [
+   "Models whose weights are not published, usable only through the provider's API or product."
+  ],
+  "why": "Usually stronger and updated faster, but data leaves your machine, you pay per use, and you carry outage risk."
+ },
+ "隐私与合规": {
+  "purpose": "Which machines data passes through, how long it is retained, and whether it is audited.",
+  "def": [
+   "Constraints around personal information, commercial secrets and industry regulation."
+  ],
+  "why": "This is a **veto item** in selection rather than a bonus — a non-compliant option cannot be used however good it is."
+ },
+ "_strength": "选型层的措辞保留原文强度：「否决项」→ veto item、「硬约束」→ hard constraint，不软化。",
+ "AI Agent 与聊天机器人的区别": {
+  "purpose": "A chatbot's job ends with an answer; an agent's ends with the work being done.",
+  "def": [
+   "A chatbot is question and answer. An agent plans its own steps, calls tools, checks results and loops until finished."
+  ],
+  "why": "Which of the two you are looking at decides whether it is worth your time to configure."
+ },
+ "Token": {
+  "purpose": "The smallest unit a model processes text in. Both billing and length limits are measured in it.",
+  "def": [
+   "The pieces a model splits text into. One token is roughly a quarter of an English word, or one to two Chinese characters.",
+   "Context length and API pricing are both denominated in tokens."
+  ],
+  "why": "The most easily overlooked word that most affects your bill. \"Is my context enough\" and \"why is this so expensive\" are both answered here."
+ },
+ "开源生态": {
+  "purpose": "Models, tools, data and documentation all maintained by the community, freely combinable.",
+  "def": [
+   "A collaborative system built on public code and community contribution, especially active around models and quantisations."
+  ],
+  "why": "When choosing local deployment, this ecosystem's activity directly determines how many ready-made solutions you can get."
+ },
+ "成本": {
+  "purpose": "What an AI approach actually costs. Beyond unit price there is also how much you consume.",
+  "def": [
+   "The real expense once costs are amortised across a task.",
+   "It comprises unit price times actual consumption (token count, duration, concurrency)."
+  ],
+  "why": "**Choosing a model on unit price alone is easy to get wrong** — two models with identical prices can invert once real consumption differs."
+ },
+ "生成式 AI": {
+  "purpose": "AI that produces new content from nothing — text, images, audio, video all count.",
+  "def": [
+   "AI that samples from an existing data distribution to generate new content, as opposed to discriminative AI which only judges or classifies."
+  ],
+  "why": "Nearly all AI you encounter is generative. Its capability boundary differs sharply from recognition and classification."
+ },
+ "能力边界": {
+  "purpose": "Knowing precisely what a model cannot do prevents more mistakes than knowing what it can.",
+  "def": [
+   "The region outside the range in which a system reliably produces correct output for a given input."
+  ],
+  "why": "It is core literacy for using AI — keep important tasks inside the reliable range."
+ },
+ "词表": {
+  "purpose": "The full set of characters a model knows. Its size decides whether it handles Chinese or code well.",
+  "def": [
+   "The set of characters or pieces a model can use when producing output.",
+   "The larger the vocabulary, the more concepts the model must learn, and usually the better support for rare languages and code."
+  ],
+  "why": "It explains a common observation: small models get markedly worse at Chinese and code — there simply are not enough pieces in the vocabulary."
+ },
+ "系统提示": {
+  "purpose": "The role and rules set for a model, which determine the tone of the whole conversation.",
+  "def": [
+   "Instructions preset by the application developer, outside the user's input, constraining behaviour and output format."
+  ],
+  "why": "It is why the same model behaves so differently across applications. Every AI product you use has one behind it."
+ },
+ "自动驾驶": {
+  "purpose": "The vehicle senses its surroundings, plans a route and controls the steering itself.",
+  "def": [
+   "A technology system for autonomous driving using sensor fusion and AI decision-making."
+  ],
+  "why": "The most mature application of embodied AI, and the one with clear established grading levels."
+ },
+ "视频生成": {
+  "purpose": "Generating short video clips from text or images.",
+  "def": [
+   "Producing video content conditioned on a text prompt or a still image."
+  ],
+  "why": "It is the next step beyond image generation, and the gap between a striking demo and controllable output is still wide."
+ },
+ "权限": {
+  "purpose": "The set of operations a tool is allowed to perform. Wider is more convenient and more dangerous.",
+  "def": [
+   "The permitted action scope of a tool. A wider scope is easier to use and easier to get into trouble with.",
+   "Good tools authorise in tiers: reading needs approval, writing needs approval, deleting needs confirmation."
+  ],
+  "why": "It is the first gate on AI tool safety. **Giving a tool that writes files and runs commands no permission limits is handing over the machine.**"
+ },
+ "沙箱": {
+  "purpose": "Confine what the AI does to a controlled environment so a mistake stays contained.",
+  "def": [
+   "An isolated execution environment — a container or restricted directory — limiting which files and commands it can touch."
+  ],
+  "why": "When judging whether an agent tool is trustworthy, first check whether it runs sandboxed by default."
+ },
+ "浏览 - 网页操作": {
+  "purpose": "Let the AI click pages, fill forms and take screenshots to gather information.",
+  "def": [
+   "Technology controlling a browser programmatically, used by many agents to collect information."
+  ],
+  "why": "It is both one of the most useful capabilities and one of the most security-sensitive, because it can operate real accounts."
+ },
+ "量化": {
+  "purpose": "Compress model weights from high to low precision, saving VRAM and speeding things up at the cost of quality.",
+  "def": [
+   "Representing each weight value with fewer bits. The common unit is bpw — average bits per weight.",
+   "Fewer bits saves more but loses more quality."
+  ],
+  "why": "The core technique in local deployment. For the same model, choosing the right quantisation tier often decides whether it runs at all."
+ },
+ "预填充": {
+  "purpose": "The step where your whole input is read through before generation begins.",
+  "def": [
+   "The stage where the model processes the input portion. Longer input means slower prefill and higher time to first token."
+  ],
+  "why": "It explains a common observation: after you paste a long document the model \"thinks\" for a long time before answering — that is prefill computing."
+ },
+ "首字延迟": {
+  "purpose": "How long from sending a question to seeing the first word. This number decides whether it feels fast.",
+  "def": [
+   "The time taken to produce the first token, driven mainly by prompt length and whether prefill is needed."
+  ],
+  "why": "The key metric for perceived speed. A model that generates fast per token but waits three seconds for the first one still feels slow."
+ },
+ "本地部署": {
+  "purpose": "Download the model and run it on your own machine, so data never leaves.",
+  "def": [
+   "Running model inference on your own hardware or server, without going through a third-party API."
+  ],
+  "why": "Usually the better choice when data is sensitive, when you need a specific quantisation, or when calling at high volume long-term."
+ },
+ "模型评测的局限": {
+  "purpose": "A leaderboard score is not the same as your actual result — this matters.",
+  "def": [
+   "Public evaluations struggle to cover your specific task, and suffer from data contamination and staleness."
+  ],
+  "why": "The right approach is a small-scale test with your own real tasks rather than reading leaderboards alone."
+ },
+ "社区与文档": {
+  "purpose": "When something breaks, can you find someone to ask, and is the API properly documented.",
+  "def": [
+   "Non-technical factors: project activity, documentation quality, responsiveness to issues."
+  ],
+  "why": "It carries heavy weight in selection while being the easiest to overlook — poor documentation consumes your time for a long time."
+ },
+ "缓存策略": {
+  "purpose": "Do not recompute repeated content; reuse it directly. The first lever for cutting cost.",
+  "def": [
+   "Caching repeated inputs and results to avoid duplicate calls and computation."
+  ],
+  "why": "Its effect on cost is often larger than choosing a cheaper model."
+ },
+ "AI 产品 vs AI 模型": {
+  "purpose": "Separate the model itself from the piece of software you actually use.",
+  "def": [
+   "The model is the underlying capability; the product wraps it with interface, billing, collaboration features and permission management.",
+   "One model can appear inside many products, and the experience varies widely."
+  ],
+  "why": "It explains why \"top of the model leaderboard\" does not mean \"the tool you use is the best\"."
+ },
+ "语音合成": {
+  "purpose": "Read text out loud.",
+  "def": [
+   "Technology converting text into natural-sounding speech."
+  ],
+  "why": "It is the output side of any voice feature. It can now produce tone and emotion close to a real person."
+ },
+ "语音识别": {
+  "purpose": "Turn what was said into text.",
+  "def": [
+   "Technology converting an audio signal into text, also called speech-to-text."
+  ],
+  "why": "It is the entry point for all voice interaction, and transcription quality directly caps how well the rest of the system understands."
+ },
+ "采样 - 采样参数": {
+  "purpose": "How the model picks among candidate tokens — this determines how far the output diverges.",
+  "def": [
+   "A collective term for parameters controlling generation: temperature, Top-p, Top-k and so on.",
+   "They affect only how a token is chosen, not the intelligence of the model itself."
+  ],
+  "why": "Once you know these parameters, unstable output has an explainable cause instead of \"it was feeling odd today\"."
+ },
+ "_note_INDEX": "源目录里的 INDEX.md 没有 purpose/def/why（是元文件），故不映射 —— 无内容可译。",
+ "多头注意力": {
+  "purpose": "Lets a model look at a sentence from several angles at once, instead of tracking only one kind of relation.",
+  "def": [
+   "Repeats the attention computation several times, each pass focusing on a different kind of relation, then combines the results.",
+   "The original paper used 8 heads — like 8 readers examining the same sentence simultaneously."
+  ],
+  "why": "A single attention pass yields a single kind of understanding. Multiple heads capture grammar, coreference, and adjacency at the same time."
+ },
+ "前馈网络": {
+  "purpose": "The digestion step inside every Transformer layer: attention looks around, then this part processes.",
+  "def": [
+   "A basic neural-network structure: information passes layer by layer, each layer applying one transformation.",
+   "In a Transformer, each layer runs attention first, then a feed-forward network.",
+   "This feed-forward network works position by position, alternating with attention."
+  ],
+  "why": "Attention decides which words relate to each other; the feed-forward network turns those relations into judgments. Without it, a model can only draw lines, not think."
+ },
+ "残差连接": {
+  "purpose": "Gives the network a \"pass-through lane\" so the signal survives passing through many layers.",
+  "def": [
+   "Each layer adds its raw input back onto its processed output.",
+   "It came from ResNet in image recognition.",
+   "Later it became one of the prerequisites for Transformers stacking dozens of layers."
+  ],
+  "why": "Deeper networks are harder to train — signals get distorted across dozens of layers. The pass-through lane lets the model \"change a bit, keep most of it,\" which is what makes depth feasible."
+ },
+ "层归一化": {
+  "purpose": "Levels out each layer's output so deep training doesn't spiral out of control.",
+  "def": [
+   "Normalizes all values of a single sample within one layer (back to a common mean and variance) before passing them on.",
+   "In Transformers it follows every sub-layer, paired with residual connections."
+  ],
+  "why": "Values in deep networks drift as they propagate; once they spiral, training collapses. Leveling is one of the behind-the-scenes reasons models train stably at dozens of layers."
+ },
+ "编码器与解码器": {
+  "purpose": "The two halves of a Transformer: one reads, one generates.",
+  "def": [
+   "The encoder reads a whole passage and builds understanding; the decoder reads what has been generated so far and keeps writing.",
+   "BERT is built on the encoder. GPT-style models use only the decoder half.",
+   "The papers call it \"a Transformer that attends only to left context\"."
+  ],
+  "why": "The divide between \"understanding models\" and \"generation models\" sits right here. It decides what a model is good at: retrieval and comprehension, or continuation and generation."
+ },
+ "子词分词": {
+  "purpose": "Cuts words into smaller fragments so a model can still assemble words it has never seen.",
+  "def": [
+   "The dominant scheme is BPE: start from characters, repeatedly merge the most frequent adjacent pairs into a subword inventory.",
+   "It eases the out-of-vocabulary problem — a whole word may miss the vocabulary, but its fragments usually are in it."
+  ],
+  "why": "When a model splits a rare word into odd fragments, it is not \"failing to recognize\" it — subword tokenization is at work. Vocabulary size and merge rules together decide how friendly a model is to Chinese and code."
+ },
+ "训练三阶段": {
+  "purpose": "How chat models are trained: first they learn to continue text, then they learn to answer well.",
+  "def": [
+   "Stage one is pretraining: learning to continue text from massive corpora.",
+   "Stage two trains a reward model: humans rank candidate answers, and a model learns to judge quality.",
+   "Stage three is reinforcement learning: keep optimizing against the reward model's scores."
+  ],
+  "why": "What makes ChatGPT-style models \"follow instructions\" comes from stages two and three, not pretraining. The newer DPO merges the last two stages into one, with no separate reward model."
+ },
+ "知识蒸馏": {
+  "purpose": "Train a small model on a big model's soft outputs: keep most of the capability, deploy far more easily.",
+  "def": [
+   "The large model emits \"soft targets\" via a high-temperature softmax; the small model learns those probability distributions.",
+   "The popular \"teacher / student\" wording is a later community name; the original paper says cumbersome model and distilled model."
+  ],
+  "why": "Many small models you can run locally are distilled products. Model names containing -distill or -distilled usually relate to this."
+ },
+ "MoE - 混合专家": {
+  "purpose": "A model architecture: each layer holds many \"experts,\" but each word uses only a few of them.",
+  "def": [
+   "An MoE layer is several expert sub-networks plus a trainable gating (routing) network.",
+   "Each token activates only a few experts — total parameters grow hugely while per-token compute stays roughly constant.",
+   "Switch Transformer simplified routing to one expert per token."
+  ],
+  "why": "DeepSeek and Mixtral use it. \"Total parameters\" and \"active parameters\" are two different numbers — do not let the first one intimidate or mislead you."
+ },
+ "上下文学习": {
+  "purpose": "Learning on the spot inside a conversation: give a few examples and the model does a new task, no retraining.",
+  "def": [
+   "The core claim of the GPT-3 paper: the model updates no weights, relying only on task instructions and a few examples in the prompt.",
+   "Whether you give 0, 1, or several examples changes results a lot — the paper's title is literally \"Few-Shot Learners.\""
+  ],
+  "why": "Tweaking prompts, giving examples, pasting reference text — all of it uses this. Knowing its limits tells you when fine-tuning is the better route."
+ },
+ "长上下文": {
+  "purpose": "The technology behind reading hundreds of thousands of words at once — and why it is expensive.",
+  "def": [
+   "Attention cost grows with the square of text length — 10x the text means 100x the compute.",
+   "Vendors tame the cost with modified attention, positional encoding, and caching; windows grew from thousands of tokens to millions.",
+   "A long window does not mean accurate reading: grasp of the middle of very long text drops."
+  ],
+  "why": "\"Can fit it in\" and \"can use it well\" are different things. Before comparing window sizes, check how long you actually need and how the model performs on long text in practice."
+ },
+ "自回归生成": {
+  "purpose": "How large models emit text one token at a time — the root of many downstream issues.",
+  "def": [
+   "An autoregressive model generates token by token: each step predicts the next token conditioned on what has already been generated.",
+   "The GPT papers define their own models as autoregressive language models.",
+   "Output quality depends on every single step; errors get carried forward."
+  ],
+  "why": "Why streamed output arrives word by word, why it can be stopped mid-way, why one bad pick warps what follows — it all traces back to this."
+ },
+ "logits 与概率分布": {
+  "purpose": "What the model outputs at each step is not a word but a score table over the whole vocabulary. All sampling parameters act on it.",
+  "def": [
+   "At each step the model assigns a score — a logit — to every candidate token in the vocabulary.",
+   "Softmax turns the scores into a probability distribution: all candidates sum to 1.",
+   "Temperature, top-k and top-p all reshape this distribution."
+  ],
+  "why": "Once you get it, sampling parameters stop being mysticism: they change the shape of the distribution, not the model's 'mind'."
+ },
+ "贪心解码与束搜索": {
+  "purpose": "Decoding that always picks the most likely token — and why it instead produces hollow, repetitive text.",
+  "def": [
+   "Greedy decoding takes the highest-probability token at each step; beam search keeps several best paths in parallel.",
+   "Holtzman et al. identified the problem with this class of decoding.",
+   "Maximization-based decoding yields text that is bland, incoherent, or stuck in repetitive loops.",
+   "One countermeasure is nucleus sampling (top-p): sample from the smallest candidate set whose cumulative probability first reaches p."
+  ],
+  "why": "'Pick the most likely word' sounds safest but in practice writes the dullest, most repetitive prose. This is why chat models ship with randomness by default."
+ },
+ "幻觉的成因": {
+  "purpose": "Why models fabricate with a straight face: not deception, but the training objective.",
+  "def": [
+   "A language model is a word-by-word probability predictor; training requires it to always guess the next word.",
+   "Anthropic's research page states plainly that training incentivizes hallucination, so the model confabulates plausible-but-untrue responses.",
+   "The standard definition: generated content not supported by the input source or contrary to fact.",
+   "Fluent, natural surface coexists with unfaithfulness — that is exactly why it is hard to spot."
+  ],
+  "why": "Knowing the cause tells you which mitigations actually work (provide sources, allow 'I don't know') and which are just reassurance."
+ },
+ "困惑度": {
+  "purpose": "The most common intrinsic metric for language models: how surprised the model is by test text.",
+  "def": [
+   "Perplexity is the exponentiated average negative log-likelihood of a sequence, token by token.",
+   "Equivalently, the exponent of the average cross-entropy loss; lower perplexity means the model predicts the text more confidently.",
+   "It is sensitive to tokenization: compare it directly only between models sharing the same tokenizer.",
+   "It applies to autoregressive models and is ill-defined for masked models like BERT."
+  ],
+  "why": "Papers and model cards report this number. Knowing it is only comparable across same-tokenizer models keeps you from being misled by cross-vendor figures."
+ },
+ "缩放定律": {
+  "purpose": "The empirical power-law by which loss falls with parameters, data, and compute — the theory behind the scaling arms race.",
+  "def": [
+   "Kaplan et al. found loss follows power laws in model size, dataset size, and training compute, with trends spanning more than seven orders of magnitude.",
+   "That paper favored growing model size under a fixed compute budget, summarized as 'big models may be more important than big data'.",
+   "Hoffmann et al. (Chinchilla), from over 400 trained models, countered: compute-optimal training scales parameters and training tokens equally.",
+   "They concluded that existing large models were significantly undertrained."
+  ],
+  "why": "'How big, how much data' is not guesswork — these two papers are behind it. The industry's shift to massive data diets traces to them."
+ },
+ "涌现能力": {
+  "purpose": "Abilities small models lack that large models suddenly have — and the dispute that they may be a metric artifact.",
+  "def": [
+   "Wei et al. define an emergent ability as one absent in smaller models but present in larger ones, unpredictable by extrapolating small-model scaling curves.",
+   "Chain-of-thought prompting is their flagship example.",
+   "Schaeffer et al. offered the opposite account: many apparent emergences come from discontinuous metric choices.",
+   "With continuous metrics, performance changes smoothly with scale; emergence may not be a fundamental property of scaling."
+  ],
+  "why": "'Suddenly gets smart past some size' is a marketing staple. Read both sides before you judge the claim."
+ },
+ "思维链": {
+  "purpose": "Prompting the model to lay out reasoning steps before answering — and its dependence on model scale.",
+  "def": [
+   "Wei et al. showed that a few chain-of-thought exemplars markedly improve reasoning in sufficiently large models.",
+   "PaLM 540B with just eight exemplars reached state-of-the-art accuracy on the GSM8K math benchmark.",
+   "The same paper shows CoT is an emergent ability of scale: it hurts models below roughly 10B parameters.",
+   "Small models produce fluent but illogical chains of thought."
+  ],
+  "why": "'Make the model think step by step' can backfire on small models. Knowing the scale threshold tells you when the trick works and when it is self-comfort."
+ },
+ "数据污染": {
+  "purpose": "Eval questions leaking into training data — models have 'seen the exam', so scores become distorted.",
+  "def": [
+   "Contamination means evaluation-set content was inadvertently seen during pre-training.",
+   "The GPT-3 paper itself ran n-gram overlap checks to assess contamination across eval sets.",
+   "Magar & Schwartz split contamination into memorization and exploitation, and quantified both.",
+   "With static eval sets publicly available, contamination is nearly unavoidable."
+  ],
+  "why": "'Model X tops benchmark Y' may just mean it saw the questions. Before trusting a leaderboard slot, ask whether that benchmark has already leaked into training data."
+ },
+ "评测饱和": {
+  "purpose": "Benchmarks approach perfect scores and lose discriminating power — why leaderboards need constant renewal.",
+  "def": [
+   "Ott et al.'s study of 3,765 benchmarks found a large fraction quickly trended towards near-saturation.",
+   "Saturation plus publicly available static data leads to overfitting the eval set.",
+   "The community therefore advocates evaluation on continuously updated data streams instead of one-shot exams.",
+   "When reading a leaderboard, check the benchmark's release date and how saturated it is."
+  ],
+  "why": "The value of 'number one on X' depends on how much headroom that benchmark still has. Rank gaps on a saturated board can be meaningless."
+ },
+ "AGI": {
+  "purpose": "The hypothetical 'capable of anything a human can' AI: a word labs use to state their goal — it does not exist yet.",
+  "def": [
+   "AGI refers to a hypothetical intelligent system reaching or exceeding human level across a wide range of tasks.",
+   "OpenAI's charter defines it as 'highly autonomous systems that outperform humans at most economically valuable work'.",
+   "The same charter states the timeline to AGI remains uncertain; it is a goal, not a reality.",
+   "Google DeepMind proposed a levels-of-AGI framework grading progress by depth of capability and breadth of generality."
+  ],
+  "why": "Marketing often implies 'AGI is close'. Knowing it is a hypothetical goal with an industry grading framework lets you judge which level a 'breakthrough' claim is actually about."
+ },
+ "强化学习": {
+  "purpose": "Learning by trial and error against rewards: one of the three training paradigms alongside supervised and unsupervised learning.",
+  "def": [
+   "Reinforcement learning studies how an agent learns to act by interacting with an environment and maximizing cumulative reward.",
+   "It differs from supervised learning (labeled answers) and unsupervised learning (finding structure without labels).",
+   "RLHF in the three-stage training recipe is this paradigm applied to fine-tuning language models."
+  ],
+  "why": "The alignment stage of chat models runs on it. Understanding 'learning against rewards' explains why models are trained to please."
+ },
+ "基础模型": {
+  "purpose": "The academic name for 'large models': pre-trained on massive data, adaptable to a wide range of tasks.",
+  "def": [
+   "The term was proposed by Bommasani et al. at Stanford in 2021.",
+   "It refers to models pre-trained on broad data at scale and adaptable to a wide range of downstream tasks.",
+   "The authors chose 'foundation' to underscore their central yet incomplete character."
+  ],
+  "why": "Papers and regulation say 'foundation model' where marketing says 'large model'. Knowing they name the same thing keeps you from treating them as two categories."
+ },
+ "训练语料": {
+  "purpose": "The massive text compilation a model has 'read': its sources and flaws shape everything the model does.",
+  "def": [
+   "A large model's pre-training corpus is a cleaned compilation of vast public web text.",
+   "Common Crawl is a representative source: a non-profit founded in 2007 maintaining a free, open repository of web crawl data.",
+   "The GPT-3 paper acknowledges methodological issues from training on large web corpora; corpus details are in §2.2.",
+   "Biases, errors, and outdated information in the corpus carry straight into the model."
+  ],
+  "why": "What a model knows is capped by its corpus. Understanding where it comes from and what's wrong with it explains knowledge cutoffs and bias."
+ },
+ "开放权重": {
+  "purpose": "Weights you can download, but a license that may not qualify as 'open source' — a third form between open and closed.",
+  "def": [
+   "Open weights means model weights are publicly downloadable, often with restrictive license terms.",
+   "The strict definition of 'open source' is OSI's ten-criterion Open Source Definition, including source availability and no field-of-use restrictions.",
+   "OSI has stated explicitly that the Llama 3.x community license does not meet the open source definition.",
+   "Researchers and OSI typically call such licenses 'open weights' rather than open source."
+  ],
+  "why": "'Open-source model' marketing is often actually open weights. The commercial terms differ a lot — read the license before choosing."
+ },
+ "小语言模型": {
+  "purpose": "The 1B–8B parameter class: cheap, fast, runnable locally — and not necessarily weak.",
+  "def": [
+   "Small language models usually mean roughly 1B–8B parameters, aimed at consumer hardware and edge devices.",
+   "A survey of about 160 papers concludes models in this range can match or even outperform large models.",
+   "Their advantages are cost, latency, and local deployment — not capability ceilings."
+  ],
+  "why": "Not every task needs a flagship model. Knowing small models exist and where their limits are tells you when the cheap option is the right one."
+ },
+ "模型卡": {
+  "purpose": "A model's 'spec sheet': intended use, measured performance, known shortcomings — issued with the model.",
+  "def": [
+   "The model card concept was proposed by Mitchell et al. in 2019: short documents accompanying released models.",
+   "They report intended use, benchmarked performance across groups and conditions, evaluation procedures, and known limitations.",
+   "The motivation: reduce misuse of models in contexts they are not suited for.",
+   "Major model releases now commonly ship model cards or equivalent documentation."
+  ],
+  "why": "When choosing a model, don't stop at the name and scores. The model card is the vendor's own admitted shortcoming list — more honest than any review."
+ },
+ "合成数据": {
+  "purpose": "Data generated by programs or models to train on: saves labeling money, but has its own problems.",
+  "def": [
+   "Synthetic data is training data generated by simulation software or models rather than collected from real people and events.",
+   "It rose in computer vision: 3D-rendered scenes yield pixel-perfect labels at a fraction of manual cost.",
+   "The core problem is synthetic-to-real transfer: synthetic data does not fully resemble real data.",
+   "In the LLM era, model-generated text is increasingly used as training data."
+  ],
+  "why": "Training models on model-made data is an active area of risk and benefit. When a vendor says 'we used synthetic data', ask whether transfer validation was done."
+ },
+ "文生图": {
+  "purpose": "Typing turns into pictures: diffusion's most visible application — practical only after moving from pixel space to latent space.",
+  "def": [
+   "Early diffusion models denoised directly in pixel space, costing hundreds of GPU-days to train.",
+   "The latent diffusion paper moved diffusion into the latent space of a pretrained autoencoder, slashing training and inference cost.",
+   "Adding cross-attention let text and other conditions guide generation — making text-to-image work.",
+   "That paper, the basis of Stable Diffusion, was published at CVPR 2022."
+  ],
+  "why": "'Type a sentence, get a picture' is not magic but this architecture stack. Knowing the latent-space step explains why it is affordable where early approaches were not."
+ },
+ "越狱": {
+  "purpose": "Prompting tricks that bypass a model's safety guardrails: alignment is not a safe.",
+  "def": [
+   "A jailbreak makes an aligned model produce content it is supposed to refuse.",
+   "Early jailbreaks were hand-crafted and brittle.",
+   "Zou et al. used automated search to generate 'adversarial suffixes' — one suffix working across many different queries.",
+   "These suffixes transferred to black-box products like ChatGPT, Bard, and Claude, not just open models."
+  ],
+  "why": "'This model is safe' deserves skepticism: the paper showed major products were then breakable by one shared suffix. Guardrails are an ongoing offense-defense, not a one-time certification."
+ },
+ "AI 安全": {
+  "purpose": "The field studying what general-purpose AI can do, what risks it poses, and how to mitigate them — now with a government-backed international review.",
+  "def": [
+   "The International AI Safety Report is chaired by Turing Award winner Yoshua Bengio and written by over 100 independent experts.",
+   "It is backed by 30+ countries and international organizations, stemming from the 2023 Bletchley Summit consensus.",
+   "The report synthesizes scientific evidence only — capabilities, risks, mitigations — without policy recommendations.",
+   "Its second annual edition was published in February 2026, with an Extended Summary for Policymakers."
+  ],
+  "why": "When debating AI risk, this report is the most neutral shared factual baseline available. Citing it beats citing any single company's safety statement."
+ },
+ "图灵测试": {
+  "purpose": "Turing's 1950 classic: if conversation can't tell machine from human, does that count as machine thinking?",
+  "def": [
+   "From Turing's 1950 paper 'Computing Machinery and Intelligence', where he called it the 'imitation game'.",
+   "Setup: a judge converses with a machine and a human; if the judge can't tell which is which, the machine passes.",
+   "Modern evaluation generally no longer treats it as a rigorous capability measure.",
+   "But it is the source of the whole 'can AI pass as real' discussion."
+  ],
+  "why": "'Passed the Turing test' is still a media favorite. Knowing it dates to 1950 and is no longer taken seriously by professional evaluation inoculates you against such headlines."
+ },
+ "校准": {
+  "purpose": "A model's stated confidence often exceeds its actual accuracy: confident is not the same as correct.",
+  "def": [
+   "Guo et al. 2017: modern neural networks are poorly calibrated.",
+   "The symptom: output confidence does not match real accuracy, usually overconfidence.",
+   "A large model confidently stating something wrong is this problem in plain view.",
+   "The paper proposed post-hoc fixes such as temperature scaling."
+  ],
+  "why": "'I'm sure' from a model is not a statistical guarantee. Knowing confidence is generally inflated makes you more wary of confidently wrong answers."
+ },
+ "LoRA": {
+  "purpose": "Budget fine-tuning: freeze the original weights, train only a small 'patch'.",
+  "def": [
+   "LoRA freezes pre-trained weights and injects trainable low-rank decomposition matrices into each layer.",
+   "Versus full fine-tuning of GPT-3 175B: about 10,000x fewer trainable parameters and roughly 3x less GPU memory.",
+   "After training the low-rank matrices can be merged into the weights, adding no inference latency.",
+   "Many community fine-tunes trained on consumer GPUs use it."
+  ],
+  "why": "LoRA is the watershed that made 'fine-tune on your own GPU' routine. It is the default starting point when choosing a fine-tuning approach."
+ },
+ "流式输出": {
+  "purpose": "Answers stream out as they are generated: you read word by word instead of waiting for the full text.",
+  "def": [
+   "Autoregressive models generate token by token; streaming pushes each token to the client immediately.",
+   "A common implementation is SSE (server-sent events): the server delivers a continuous event stream.",
+   "The value is time-to-first-token: long answers don't wait for full computation before you start reading.",
+   "It can be stopped mid-way: canceling the request stops generation and billing."
+  ],
+  "why": "The word-by-word effect in chat UIs, why you can interrupt, why output tokens are billed — all come from this mechanism."
+ },
+ "拒答": {
+  "purpose": "The model flatly declines certain requests: a direct product of safety alignment.",
+  "def": [
+   "Alignment training aims precisely at making models refuse to produce disallowed content.",
+   "Zou et al.'s attack research takes this as its premise: their attack aims for 'an affirmative response rather than refusing to answer'.",
+   "Refusal is a signal the guardrails are working — and a source of friction when legitimate requests get caught.",
+   "The same request refused by one vendor and answered by another is a real product difference."
+  ],
+  "why": "When refused, you should know the model isn't 'broken' — alignment is working. When evaluating models, refusal boundaries are a selection dimension."
+ },
+ "红队测试": {
+  "purpose": "Hiring people to attack a model before release to find holes: the real process behind safety claims.",
+  "def": [
+   "Red teaming means testing a system adversarially to identify potential vulnerabilities.",
+   "Anthropic's official framing: red teaming is a critical tool for improving AI safety.",
+   "Frontier labs run internal evaluations before deployment and bring in external red teamers, including crowdworker platforms.",
+   "Anthropic itself concedes red teaming lacks standardized practice; approaches differ widely."
+  ],
+  "why": "'Tested for safety' is only as strong as how the red teaming was done. Knowing there is no uniform standard makes you ask for details."
+ },
+ "水印与内容凭证": {
+  "purpose": "Two routes to identify AI-generated content: watermarks embedded in the content, provenance metadata beside it.",
+  "def": [
+   "DeepMind's SynthID embeds invisible digital watermarks directly into generated images, audio, text, or video.",
+   "The watermarks are imperceptible to humans but detectable by matching technology.",
+   "C2PA 'Content Credentials' takes the other route: metadata recording the content's origin and edit history.",
+   "They complement each other: one changes the content itself, one changes its paperwork."
+  ],
+  "why": "'Is this AI-made?' has no universal answer yet. Knowing each route's strengths keeps you from being sold absolute promises by 'AI detectors'."
+ },
+ "深度伪造": {
+  "purpose": "Generative models producing indistinguishable fake video and audio of real people: seeing is no longer believing.",
+  "def": [
+   "Deepfakes are deep-learning-synthesized or manipulated images, audio, or video that humans struggle to distinguish from authentic ones, often targeting real people.",
+   "Surveys: deepfake algorithms can create fake media indistinguishable from authentic media.",
+   "Detection and generation are an ongoing arms race; detectors generally lag generators.",
+   "Abuse scenarios include impersonation scams and fabricated footage of events."
+  ],
+  "why": "When you see 'real footage', ask first whether it could be synthetic. For audio and video involving money or decisions, verify through a second channel."
+ },
+ "偏见": {
+  "purpose": "Uneven model performance across groups, languages, and cultures — rooted in training data.",
+  "def": [
+   "The International AI Safety Report notes performance declines in languages and cultural contexts less common in training data.",
+   "The unevenness is attributed directly to the distribution of training data.",
+   "Stereotypes carried by the corpus are learned and reproduced by the model.",
+   "Humans accepting AI suggestions without checking (automation bias) is a separate layer — don't conflate it with model bias."
+  ],
+  "why": "The same model is not equally good for everyone. When evaluating an AI product, 'how does it perform in your context' is a required question."
+ },
+ "自动化偏见": {
+  "purpose": "The human-side flaw: smooth AI output makes people skip checking and accept it wholesale.",
+  "def": [
+   "The International AI Safety Report notes people exhibit automation bias — accepting AI suggestions without checking them carefully.",
+   "It is distinct from model bias: one is the model being wrong, the other is how humans use it.",
+   "The more fluent and confident the output and the more authoritative the interface, the more people relax their checking.",
+   "Process countermeasure: mandatory second verification for high-stakes decisions, not reliance on seeming reliable."
+  ],
+  "why": "Model error is only half of many incidents; the other half is humans no longer verifying. Knowing this flaw is why critical workflows need enforced checkpoints."
+ },
+ "上下文工程": {
+  "purpose": "Deciding what goes into the model's limited window is itself a discipline.",
+  "def": [
+   "Anthropic calls context \"a critical but finite resource\" for agents.",
+   "The core work is curating what enters the window and what stays out."
+  ],
+  "why": "Bigger windows are not free. Curating is how you decide what to include and what to drop."
+ },
+ "上下文压缩": {
+  "purpose": "When a conversation nearly fills the window, summarize it and start again.",
+  "def": [
+   "Anthropic's definition: summarize a conversation nearing the window limit, then reinitiate a new window with the summary.",
+   "Compaction loses detail, so it is usually paired with external notes."
+  ],
+  "why": "A long task that \"forgets\" halfway is usually a compaction failure."
+ },
+ "提示链": {
+  "purpose": "Split a job into fixed steps, feeding each output into the next.",
+  "def": [
+   "Anthropic's definition: decompose a task into a sequence of steps, passing each output to the next.",
+   "Each step is testable on its own; the cost is a longer chain and more latency."
+  ],
+  "why": "More controllable than asking for everything at once. Many \"agents\" are really chains."
+ },
+ "Workflow 还是 Agent": {
+  "purpose": "First decide whether the job should be agentic at all.",
+  "def": [
+   "Anthropic's distinction: workflows orchestrate models and tools through predefined code paths.",
+   "Agents are systems where the model dynamically directs its own process and tool use.",
+   "The official advice is to find the simplest solution and add complexity only when needed."
+  ],
+  "why": "The first selection question. Forcing a workflow into an agent costs more and works worse."
+ },
+ "编排模式": {
+  "purpose": "A few officially named collaboration structures you can reuse.",
+  "def": [
+   "Parallelization: run divided subtasks simultaneously and aggregate outputs.",
+   "Orchestrator-workers: a central LLM breaks down tasks, delegates to workers, then synthesizes results.",
+   "Evaluator-optimizer: one call generates, another critiques, in a loop."
+  ],
+  "why": "Official patterns already exist; you do not have to invent one."
+ },
+ "工具定义": {
+  "purpose": "The instructions you write for the model about what a tool does and how to fill it.",
+  "def": [
+   "Anthropic notes that tool descriptions and specs are themselves prompt engineering.",
+   "Vague descriptions lead the model to pick the wrong tool or fill wrong arguments."
+  ],
+  "why": "When an agent misbehaves, the cause is often the tool description, not the model."
+ },
+ "速率限制": {
+  "purpose": "The quota on how many requests you may send in a time window.",
+  "def": [
+   "HTTP 429 means \"Too Many Requests\"; MDN states it is commonly used for rate limiting.",
+   "When quota is exhausted the server rejects requests and the client must wait and retry."
+  ],
+  "why": "Batch jobs hit this first, not model capability."
+ },
+ "子代理隔离": {
+  "purpose": "Let sub-agents do the searching so the main conversation keeps only the conclusions.",
+  "def": [
+   "Anthropic's pattern: detailed search context stays isolated inside sub-agents.",
+   "The lead agent focuses on synthesizing results, keeping the window for decisions."
+  ],
+  "why": "\"The window filled up with search results\" is a classic long-task failure; this is the fix."
+ },
+ "连续批处理": {
+  "purpose": "The server batches requests that arrived at different moments instead of queueing them.",
+  "def": [
+   "vLLM lists it as a core acceleration technique: continuous batching of incoming requests.",
+   "Together with chunked prefill and prefix caching it forms the throughput base of a serving engine."
+  ],
+  "why": "Same model, different serving engine: concurrency differs by multiples."
+ },
+ "分块预填充": {
+  "purpose": "Process a long input in smaller chunks, mixing it with requests that are generating.",
+  "def": [
+   "vLLM's definition: process large prefills in smaller chunks and batch them with decode requests.",
+   "The docs say it improves both throughput and latency by balancing compute-bound and memory-bound work."
+  ],
+  "why": "When a long input wrecks time-to-first-token, this is the standard server-side mitigation."
+ },
+ "流水线并行": {
+  "purpose": "Cut the model into layer ranges and run them on different GPUs in relay.",
+  "def": [
+   "One of vLLM's listed distributed techniques: tensor, pipeline, data, expert and context parallelism.",
+   "It lets a model larger than one GPU's memory run in pieces, at the cost of passing intermediate results."
+  ],
+  "why": "These are the official ways to split work across cards. Pick wrong and extra cards do not help."
+ },
+ "上下文并行": {
+  "purpose": "Split a very long context across several cards for processing.",
+  "def": [
+   "vLLM lists it alongside tensor, pipeline, data and expert parallelism for distributed inference.",
+   "It targets the quadratic growth of attention cost with sequence length."
+  ],
+  "why": "Very long contexts come from techniques like this, not from a single bigger card."
+ },
+ "投机解码": {
+  "purpose": "Guess several tokens cheaply, then have the big model verify them in one pass.",
+  "def": [
+   "Leviathan et al.'s definition: an algorithm to sample from autoregressive models faster, computing several tokens in parallel with no changes to the outputs.",
+   "The paper reports 2x-3x acceleration on T5-XXL with identical outputs.",
+   "vLLM ships n-gram, EAGLE and other speculative decoding implementations."
+  ],
+  "why": "For local inference this is one of the few speedups you get for free."
+ },
+ "FlashAttention": {
+  "purpose": "A more memory-efficient, faster attention algorithm; the base of long contexts.",
+  "def": [
+   "Dao et al.'s definition: an IO-aware exact attention algorithm using tiling to cut reads and writes between GPU memory and on-chip SRAM.",
+   "The paper identifies quadratic cost in sequence length as why long sequences are slow."
+  ],
+  "why": "This is the underlying reason bigger contexts are slower, and a standard kernel in serving stacks."
+ },
+ "PagedAttention": {
+  "purpose": "Manage the KV cache with OS paging ideas so memory is barely wasted.",
+  "def": [
+   "Kwon et al.'s definition: an attention algorithm inspired by classical virtual memory and paging in operating systems.",
+   "The paper reports vLLM achieving near-zero KV cache waste and 2-4x throughput."
+  ],
+  "why": "The real reason vLLM is fast. Memory budgeting is about cache, not only weights."
+ },
+ "safetensors": {
+  "purpose": "A safer file format for model weights.",
+  "def": [
+   "The official description: a simple format for storing tensors safely (as opposed to pickle) that is still fast (zero-copy).",
+   "The docs state pickle is unsafe and runs arbitrary code; the format supports lazy loading."
+  ],
+  "why": "Loading untrusted weights is running someone else's code. Check the format first."
+ },
+ "MLX": {
+  "purpose": "A machine learning framework for Apple silicon, open-sourced by Apple's research team.",
+  "def": [
+   "The official description: an array framework for machine learning on Apple silicon, from Apple machine learning research.",
+   "Its notable feature is the unified memory model: arrays live in shared memory, so CPU and GPU operations need no data transfer."
+  ],
+  "why": "Worth knowing if you run models on a Mac. Note the docs do not claim unified memory runs large models."
+ },
+ "OpenAI 兼容接口": {
+  "purpose": "Serve a local model so existing OpenAI clients can connect unchanged.",
+  "def": [
+   "vLLM provides an HTTP server compatible with OpenAI's Completions, Chat Completions and Embeddings APIs.",
+   "llama.cpp's server likewise launches as an OpenAI-compatible API server."
+  ],
+  "why": "Swap backends without touching your code: the cheapest switch between local and cloud."
+ },
+ "CPU 推理": {
+  "purpose": "You can run models without a GPU; the cost is speed.",
+  "def": [
+   "llama.cpp states its goal is LLM (and VLM) inference with minimal setup and state-of-the-art performance on a wide range of hardware.",
+   "It lists CPU-facing backends such as BLAS, ZenDNN and OpenVINO."
+  ],
+  "why": "Answers \"can I run this without a graphics card\". Yes, but expect tokens per second, not per millisecond."
+ },
+ "模型退役": {
+  "purpose": "Cloud models get retired; treat it as a selection risk.",
+  "def": [
+   "Microsoft distinguishes two stages: once deprecated, new customers cannot deploy while existing deployments keep working.",
+   "Once retired, all inference requests return 410 Gone.",
+   "The docs describe a standard 18-month lifecycle with at least 60 days' notice before retirement."
+  ],
+  "why": "\"Will this API shut down someday\" has a concrete answer: yes, on a published schedule."
+ },
+ "预览版与正式版": {
+  "purpose": "Two maturity levels of a model API, deciding whether it belongs in production.",
+  "def": [
+   "Microsoft defines Preview as experimental: weights, runtime and API schema might change, with no guarantee of reaching GA.",
+   "The docs state preview models are not recommended for production workloads.",
+   "GA means production-ready with fixed weights and APIs."
+  ],
+  "why": "Check this label first. Preview is newer, but it can change at any time."
+ },
+ "模型版本与变体": {
+  "purpose": "The date and the mini/nano suffix in a model name mean different things.",
+  "def": [
+   "Microsoft's definition: a model family is a generation; a version is a dated release within it.",
+   "A variant is a size or capability tier in the same family, such as mini or nano."
+  ],
+  "why": "Switching to a \"newer version of the same name\" often changes behavior. Pin the date to stay reproducible."
+ },
+ "区域可用性": {
+  "purpose": "A model may simply not exist in the region you are in.",
+  "def": [
+   "Microsoft states that not all model and version combinations are available in all regions.",
+   "Successive versions may not appear in the same region at the same time."
+  ],
+  "why": "Before cross-region deployment or switching vendors, confirm \"is it here\"."
+ },
+ "数据驻留": {
+  "purpose": "Which region your data sits in, and who decides.",
+  "def": [
+   "AWS states that the customer chooses the AWS Region(s) where customer content is stored.",
+   "AWS says it will not move or replicate content outside the chosen region(s) except as necessary to provide the service or comply with law."
+  ],
+  "why": "The cloud form of \"data never leaves our network\", and a written commitment to collect during review."
+ },
+ "训练内容摘要": {
+  "purpose": "The EU requires general-purpose model providers to publish a summary of training content.",
+  "def": [
+   "Article 53(1)(d) requires providers to draw up and make publicly available a sufficiently detailed summary about the content used for training.",
+   "The summary must follow a template provided by the AI Office.",
+   "The wording is \"content used for training\", not \"training dataset\"."
+  ],
+  "why": "Inside the EU there is now a legal trail for asking what a model was trained on."
+ },
+ "生成式 AI 合规义务": {
+  "purpose": "The specific duties when serving generative AI to the public in China.",
+  "def": [
+   "Article 7 requires using data and base models with lawful sources in training-data processing.",
+   "Article 12 requires labeling generated images and videos per the deep-synthesis rules.",
+   "Article 17 requires services with public-opinion or mobilization attributes to run a security assessment and complete algorithm filing."
+  ],
+  "why": "These three are the first checks before shipping an AI feature domestically."
+ },
+ "迁移评估": {
+  "purpose": "How to decide on a new model instead of waiting for the vendor's recommendation.",
+  "def": [
+   "Microsoft advises not to wait for the official replacement before evaluating newer models.",
+   "The official replacement is selected roughly 90-120 days before retirement.",
+   "Evaluate candidates against your own application, prompts and representative data, comparing quality, latency and cost together."
+  ],
+  "why": "This turns \"limits of benchmarks\" into practice: switching models means testing them yourself."
+ },
+ "扩散模型怎么生成": {
+  "purpose": "What the mainstream image-generation method looks like at the principle level: add noise, remove noise, predict noise.",
+  "def": [
+   "Training has two processes. The forward process adds noise to a real image step by step until it is pure noise.",
+   "The reverse process learns denoising: at each step it predicts how much noise the current image contains.",
+   "Generation starts from random noise and 'erases' an image by following the learned denoising steps.",
+   "DDPM (Ho et al., 2020) established this recipe as the mainstream method.",
+   "Latent diffusion (LDM, 2021) runs the diffusion inside a VAE-compressed latent space, cutting compute sharply. Most image models today are this branch."
+  ],
+  "why": "The station-2 entry 'diffusion model' tells you what it is; this one tells you why it works that way. The many iterations and the 'steps' parameter both come from here."
+ },
+ "视频生成是怎么做的": {
+  "purpose": "Video generation is not simply 'generate one frame at a time': temporal consistency is the hard part.",
+  "def": [
+   "Video diffusion models add a temporal dimension on top of image diffusion so neighbouring frames stay coherent.",
+   "Video Diffusion Models (Ho et al., 2022) is an early landmark. Build the spatial model first, then add temporal layers.",
+   "The difficulty is consistency — object motion and camera motion must stay coherent across frames, and models fail here most often.",
+   "Duration and consistency are the current limits. That is why it is less mature than image generation."
+  ],
+  "why": "When choosing a video tool, 'how long can it generate, how stable is it' separates products better than 'does the picture look good'."
+ },
+ "语音克隆是怎么做的": {
+  "purpose": "A few seconds of recording is enough to synthesise someone's voice: the principle is training 'voiceprint vector' and 'reading text' separately.",
+  "def": [
+   "A speaker encoder first compresses a few seconds of reference audio into a fixed-length voice embedding.",
+   "The synthesis model conditions on that vector while reading text, producing audio in that timbre.",
+   "Google's 2018 approach established the path: encoder and synthesizer are trained independently, so neither drags the other down.",
+   "YourTTS (2021) made it open-source and zero-shot: no fine-tuning, a few seconds of audio to clone, and it works across languages.",
+   "This is among the highest-abuse-risk generation capabilities. Article 12 of China's Interim Measures for Generative AI Services requires generated content to carry deep-synthesis labelling."
+  ],
+  "why": "When someone asks for 'a voice like so-and-so', you need to know it is technically easy, carries a labelling obligation under regulation, and ethically requires that person's consent."
+ },
+ "语音识别是怎么听的": {
+  "purpose": "The mainstream way to turn speech into text: large-scale weak supervision, one model for many accents.",
+  "def": [
+   "Whisper (OpenAI, 2022) trains on 680,000 hours of web audio-video with weak supervision; one model covers many languages and accents.",
+   "It turns recognition into a translation-style task: audio goes into an encoder, text comes out as decoded output word by word.",
+   "The cost of weak supervision: training data has no human proofreading, so transcripts fail on specialist terms and accent edges.",
+   "The evaluation metric is word error rate (WER): wrong words divided by total words — lower is better."
+  ],
+  "why": "The error rate of the speech stage directly determines the quality of everything after it. Knowing it is statistical transcription rather than understanding tells you where to add a safety net."
+ },
+ "文字怎么变成声音": {
+  "purpose": "How modern TTS works end to end: one model outputs the waveform, and rhythm is a distribution it samples rather than an average.",
+  "def": [
+   "Old-style TTS had two stages: text to spectrogram, then a vocoder back to waveform. Training them separately lets errors compound.",
+   "FastSpeech 2 (2020) generates spectrograms in parallel with a non-autoregressive model, a 3x training speed-up over FastSpeech.",
+   "VITS (2021) merges the two stages into one end-to-end model that generates waveform directly from text, with human listening tests close to real recordings.",
+   "The one-to-many mapping is the core difficulty: the same sentence can be spoken at many speeds and intonations. VITS models that variation as a distribution with a stochastic duration predictor instead of averaging it.",
+   "Averaging is exactly what produces the 'robotic' sound."
+  ],
+  "why": "When synthesised speech 'doesn't sound human', the problem is usually in rhythm modelling, not audio quality or sample rate."
+ },
+ "监督学习": {
+  "purpose": "Give the machine practice questions with answers, so it learns to derive answers from inputs.",
+  "def": [
+   "Every training example carries the correct answer; the model learns to map input to answer.",
+   "Two classic task families: predicting a continuous number is regression, deciding a category is classification."
+  ],
+  "why": "Pretraining a large model is not this kind of learning. Telling them apart is how you understand how models are actually trained."
+ },
+ "无监督学习": {
+  "purpose": "No answers given — the machine finds structure in the data by itself.",
+  "def": [
+   "Training data carries no labels; the model discovers groupings, compressions or patterns on its own.",
+   "Clustering and dimensionality reduction are its two classic task families."
+  ],
+  "why": "Embeddings and data grouping often rest on it. It also explains why unlabeled data still has value."
+ },
+ "泛化": {
+  "purpose": "A model has truly learned only when it performs well on data it has never seen.",
+  "def": [
+   "Doing well on training data proves nothing; doing well on new data is what counts.",
+   "How it is measured: hold part of the data out of training and use it purely as an exam."
+  ],
+  "why": "Scores advertised by AI products only mean something if they come from unseen data. This is the first test of whether an evaluation is real."
+ },
+ "过拟合": {
+  "purpose": "Memorized the practice questions, then fails a different set of questions.",
+  "def": [
+   "The model memorises noise and details in the training data and gets worse on new data.",
+   "The classic signal: training score keeps climbing while the exam score turns downward."
+  ],
+  "why": "Inflated benchmarks and leaderboard games are usually tied to it. Treat \"99 on the training set\" with suspicion."
+ },
+ "训练集与测试集": {
+  "purpose": "Split the data into two piles: one to practice with, one kept for the exam.",
+  "def": [
+   "The training set is what the model learns from; the test set never takes part in training and is used only for evaluation.",
+   "A score reflects real ability only when it comes from the test set."
+  ],
+  "why": "The same model scores differently on different test sets. When comparing two models, first ask whether they sat the same exam."
+ },
+ "Ollama": {
+  "purpose": "A tool that runs an open model on your own computer with a single command.",
+  "def": [
+   "It packages download, quantisation and running into one command.",
+   "It ships its own model library — pick a name and run; it offers both a command line and an API."
+  ],
+  "why": "The lowest-threshold path to running models locally. If you want to see what a large model feels like on your own machine, start here."
+ },
+ "LM Studio": {
+  "purpose": "A local-model desktop app with a graphical interface — no command line needed.",
+  "def": [
+   "One desktop app: search models, download them and chat, all inside it.",
+   "It can also expose a local API so other programs connect to it."
+  ],
+  "why": "For people who do not want to install environments or type commands. It and Ollama are two entry points to the same thing."
+ },
+ "量化方法": {
+  "purpose": "Shrinking a model has more than one method, and the methods differ in results.",
+  "def": [
+   "GPTQ and AWQ are the two most common families of post-training quantisation.",
+   "Both calibrate with a small sample to decide which values keep their precision; AWQ picks the weights to keep by how much each matters to activations."
+  ],
+  "why": "Different quantisation tiers of the same model may come from different methods. Two files both labelled 4-bit need not be equal in quality."
+ },
+ "剪枝": {
+  "purpose": "Delete the unimportant connections in a model to make it smaller and faster.",
+  "def": [
+   "Removing weights close to zero makes the model smaller and inference faster.",
+   "Measured in the paper: structured pruning of a pretrained model can lose very little accuracy."
+  ],
+  "why": "It is a compression route complementary to quantisation. A model that will not fit locally is sometimes rescued by pruning."
+ },
+ "QLoRA": {
+  "purpose": "Quantise the model to 4-bit first, then fine-tune — one consumer GPU is enough.",
+  "def": [
+   "The model is quantised to 4-bit and frozen; only a small set of added parameters is trained.",
+   "Measured in the paper: a single 48GB GPU can fine-tune a 65-billion-parameter model."
+  ],
+  "why": "It moved \"fine-tuning a large model\" from the datacentre to the personal computer. If you want to train a model yourself, check it against your card first."
+ }
+}
