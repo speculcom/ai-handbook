@@ -1,0 +1,48 @@
+{
+  "_comment": "S43 任务化入口 · 任务元信息（v7 §247：首页入口从「三个分区」改为任务视角）。唯一真相源是各档案 frontmatter 的 tasks: 字段——本文件只定义任务本身。chip 条数从档案现算，绝不写死（R4）。任务卡只渲染在「该页至少有一份该任务档案」的分区页上，点卡 = 本页按 ?task= 现筛（复用 B2 的 URL 筛选体系，不另造一套）。",
+  "_fields": "id 与档案 tasks 取值一一对应；validate.mjs 双向对账（档案→任务枚举 + 任务→档案覆盖）。",
+  "tasks": [
+    {
+      "id": "write-code",
+      "zh": "让 AI 替我写代码",
+      "en": "Get AI to write code for me",
+      "lead": "编辑器里、终端里、或厂商云上替你干活的编码 agent。",
+      "leadEn": "Coding agents that work in your editor, your terminal, or the vendor's cloud."
+    },
+    {
+      "id": "build-agent",
+      "zh": "自己搭 agent",
+      "en": "Build your own agent",
+      "lead": "给程序用的底座与编排框架：agent loop、图工作流、多 agent。",
+      "leadEn": "Bases and orchestration frameworks for programs: agent loops, graph workflows, multi-agent."
+    },
+    {
+      "id": "long-task",
+      "zh": "无人值守跑长任务",
+      "en": "Run long tasks unattended",
+      "lead": "关掉笔记本它还在跑的：厂商云形态与通用 harness。",
+      "leadEn": "Keeps running after you shut your laptop: vendor-cloud forms and general harnesses."
+    },
+    {
+      "id": "read-files",
+      "zh": "读我的文件与记忆",
+      "en": "Read my files and memory",
+      "lead": "给 agent 接上本地文件、持久记忆与文档检索的工具。",
+      "leadEn": "Tools that wire local files, persistent memory and doc retrieval into an agent."
+    },
+    {
+      "id": "web",
+      "zh": "上网、浏览器、抓网页",
+      "en": "Browse, fetch, act on the web",
+      "lead": "让 agent 触网：抓页面、开浏览器、连 GitHub。",
+      "leadEn": "Give an agent network reach: fetch pages, drive a browser, connect GitHub."
+    },
+    {
+      "id": "extend",
+      "zh": "给 agent 装工具",
+      "en": "Give an agent new tools",
+      "lead": "MCP server 一览：每个都能回到官方 README 核对权限边界。",
+      "leadEn": "The MCP server shelf: every entry traces back to its official README and permission scope."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "_comment": "agent 站 11 个维度的英文（名称 + 提问）。2026-10-04。",
+  "_note": "key 必须与 AXES / MCP_AXES / AXIS_DESC 的键一字不差。提问文案含判断（如「远程控制不等于云端执行」），保留这种语气。",
+  "_progress": "8 通用 + 3 MCP = 11 个维度全覆盖",
+
+  "model_access": { "name": "Model & openness", "ask": "Whose model does it use? Can you switch to a third party? How is multi-model routing configured?" },
+  "runtime": { "name": "Where it runs", "ask": "Local, cloud or hybrid? Is the index local or remote? Remote control is not the same as cloud execution." },
+  "local_files": { "name": "Local files", "ask": "How wide an area can it reach? How does it read large files you have not opened? How capable is it at the symbol level?" },
+  "background": { "name": "Tasks after shutdown", "ask": "Does it keep running once the computer is off? This is the most common misconception about local forms." },
+  "tools": { "name": "Tools & extensions", "ask": "How wide is the toolchain: MCP · LSP · plugins · hooks · custom instructions?" },
+  "context": { "name": "Context & memory", "ask": "Indexing algorithm, context window, session resume and fork, and the boundary of cross-session memory." },
+  "permissions": { "name": "Permissions & limits", "ask": "Sandbox and approval boundaries, credential handling, whether data leaves your machine, and how quota is charged." },
+  "fit": { "name": "Best for", "ask": "What tasks is it best at? When should you not use it?" },
+
+  "transport": { "name": "Transport", "ask": "How the client connects to it: stdio / SSE / Streamable HTTP / remote." },
+  "auth": { "name": "Authentication", "ask": "How identity is proved. Note that authentication is not authorisation: the former is who you are, the latter is what you may do." },
+  "scope": { "name": "Permission scope", "ask": "How much can it reach? Can it modify? Delete? Be tightened? This is the first priority in the MCP track." }
+}

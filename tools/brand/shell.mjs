@@ -1,0 +1,256 @@
+// ============================================================================
+// 统一站点骨架：header / footer / skip-link 的唯一生成处
+// ----------------------------------------------------------------------------
+// 为什么要有这个：五个站的导航项、页脚署名、法律链接曾是各写一份，
+// 结果 www 只有 3 项导航、其余站 6 项；品牌署名有三种格式。
+// 现在骨架从这一份生成，任何站的导航与页脚都不可能再分叉。
+//
+// 用法（build 脚本里）：
+//   import { shell, HEAD, BODY_START, BODY_END } from './shell.mjs';
+//   const html = shell(site, `…页面主体…`);
+// ============================================================================
+
+/** 品牌唯一真相源（改这里等于改全站） */
+// 品牌名随语言切换：中文「投机取巧」/ 英文「Speculative Speculation」（用户 2026-10-01 定）。
+//
+// ⚠ 「不要加 brand-sub」是 **2026-10-01** 的结论，现在**部分推翻**（用户 2026-10-10 指示：
+//   「所有分站都要和首页一样，上面中文、下面英文」）。
+//   当时的问题是 `short` 与 `zh` **都是**「投机取巧」，于是 brand-name 与 brand-sub
+//   在中文态渲染出同一句话（左上角「重影」）—— 症结是**两个元素内容相同**，
+//   不是「有副标题」这件事本身。
+//   现在的做法：副标题**只放英文**，中文态显示「投机取巧 / Speculative Speculation」
+//   （即首页的样子），英文态只显示英文站名一行 —— 不重复、不重影 ✓
+export const BRAND = {
+  zh: '投机取巧',
+  en: 'Speculative Speculation',
+  short: '投机取巧',
+  /* 副标题只在中文态出现（见上方说明）。英文态不显示，
+   * 否则英文站名与副标题会是同一句话 —— 那正是 10-01「重影」的成因。 */
+  sub: 'Speculative Speculation',
+  repo: 'https://github.com/speculcom/ai-coding-agent-atlas',
+};
+
+/** 全站导航（五项，顺序固定；各站自己那项由 current 高亮）
+ *  顺序依据 `_plan/v4-三站架构.md` §2（唯一真相源）：
+ *  首页 · 学 AI · Agent · 本地模型 · 导航
+ *  「导航」放末位：它是「去别的站」的兜底出口，不是内容层。
+ *
+ *  2026-10-02 从八项改来，三处变化：
+ *   - IDE / CLI / MCP / Harness 四项合成 Agent 一项（四站合成 agent.specul.com 一站三分区）
+ *   - 新增「学 AI」= learn.specul.com（116 词术语表站）
+ *   - 移除「规划中」：keel.specul.com 已于 2026-10-03 整体退役（本地已归档）
+ *  2026-10-05 新增「AI 做游戏」= vg.specul.com（第五项，共 6 项）。
+ *   「作品库」demos.specul.com 尚未建站，上线时变 7 项。
+ *  改这里等于改全站：audit/consistency.mjs 的 EXPECT_NAV 与
+ *  test-consistency.mjs 的 EXPECT.navItems 必须同步改，否则审计会误报。 */
+export const NAV = [
+  { key: 'www', href: 'https://specul.com/', zh: '首页', en: 'Home' },
+  { key: 'learn', href: 'https://learn.specul.com/', zh: '学 AI', en: 'Learn' },
+  { key: 'agent', href: 'https://agent.specul.com/', zh: 'Agent', en: 'Agent' },
+  { key: 'models', href: 'https://models.specul.com/', zh: '本地模型', en: 'Models' },
+  // 2026-10-05 新增：AI 做游戏（占位站，内容在P1~P3 建）
+  { key: 'vg', href: 'https://vg.specul.com/', zh: 'AI 做游戏', en: 'Vibe Gaming' },
+  // ⚠ 作品库（demos.specul.com）**尚未建** —— 占位页还没上线，先不占导航位。
+  //   上线时在此加：{ key: 'demos', href: 'https://demos.specul.com/', zh: '作品库', en: 'Demos' }
+  { key: 'nav', href: 'https://nav.specul.com/', zh: '导航', en: 'Directory' },
+];
+
+/** header —— current 为当前站的 key */
+export function header(current) {
+  const items = NAV.map((n) => {
+    const cur = n.key === current ? ' aria-current="page"' : '';
+    return `        <a href="${n.href}"${cur}><span data-zh>${n.zh}</span><span data-en>${n.en}</span></a>`;
+  }).join('\n');
+
+  return `  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="${BRAND.zh}">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="${BRAND.zh}" data-en-name="${BRAND.en}">${BRAND.zh}</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="${BRAND.sub}" data-en-sub="">${BRAND.sub}</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+${items}
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+${drawer(current)}`;
+}
+
+/** B6：站点导航抽屉（六站同一份内容，只有 aria-current 随当前站变化）。
+ *  与页脚的区别是「位置」：页脚要滚到底，抽屉任何时候一点就到 —— 这是它在
+ *  窄屏存在的理由（底部 tab bar 没有推给五站，因为那五站页脚的站群链接
+ *  在 390px 下本来就可见，再加一条只是把同一批入口写两遍）。 */
+export function drawer(current) {
+  const items = NAV.map((n) => {
+    const cur = n.key === current ? ' aria-current="page"' : '';
+    return `      <a href="${n.href}"${cur}><span><span data-zh>${n.zh}</span><span data-en>${n.en}</span></span><span class="ar" aria-hidden="true">→</span></a>`;
+  }).join('\n');
+  return `  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>${BRAND.zh}</span><span data-en>${BRAND.en}</span></span>
+      <span class="brand-sub" data-zh-sub="${BRAND.sub}" data-en-sub="">${BRAND.sub}</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+${items}
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>`;
+}
+
+/** 页脚「开源」链接的文案（2026-10-10 用户定案：不再叫 GitHub，叫「开源」）
+ *  ⚠ repoLabel 是**原样进 HTML** 的（footer() 不做转义），所以调用方要传就传完整节点。
+ *    统一用这个常量，别再各写各的双节点 —— 之前 models 传「数据仓」、其余传 GitHub，
+ *    同一个位置出现了三种叫法。既然都是指向 markdown 内容仓，就该同名。 */
+export const OPEN_SOURCE_LABEL = '<span data-zh>开源</span><span data-en>Open source</span>';
+
+/** 底部 tab bar —— 手机端「像 App 一样」的固定导航（2026-10-10 用户要求：分站也要有）
+ *
+ *  · 标记与 www 首页完全一致（同样 5 项：首页/学 AI/Agent/模型/更多）；
+ *    样式在共享 brand.css —— 默认 `display:none`，≤768px 才 `display:flex`；
+ *  · 行为**不需要新脚本**：brand.js 已经监听 `.nav-tabbar [aria-controls]` 作为「更多」，
+ *    点它开的就是同一个抽屉（实测 www 上可用）；
+ *  · 页脚留白靠 <body class="has-tabbar"> 触发 brand.css 里的
+ *    `body.has-tabbar .site-footer { padding-bottom: … }` —— 漏了这个类，
+ *    底部 tab bar 会盖住页脚最后一行；
+ *  · 只有 4 个入口 + 「更多」，vg / nav 不单列：和主站一样放进抽屉，
+ *    5 个格子是手机上的舒适密度（6 个挤、4 个太空）。
+ */
+export function tabbar(current) {
+  const items = [
+    { key: 'www', ti: '◎', zh: '首页', en: 'Home', plain: false },
+    { key: 'learn', ti: '▤', zh: '学 AI', en: 'Learn', plain: false },
+    { key: 'agent', ti: '◈', zh: 'Agent', en: 'Agent', plain: true },
+    { key: 'models', ti: '▦', zh: '模型', en: 'Models', plain: false },
+  ].map(({ key, ti, zh, en, plain }) => {
+    const n = NAV.find((x) => x.key === key);
+    const cur = key === current ? ' aria-current="page"' : '';
+    // plain=true 的项中英同名，走单节点（避免英文态出现两个同词）
+    const label = plain ? zh : `<span data-zh>${zh}</span><span data-en>${en}</span>`;
+    return `  <a href="${n.href}"${cur}><span class="ti" aria-hidden="true">${ti}</span>${label}</a>`;
+  }).join('\n');
+
+  return `<nav class="nav-tabbar" aria-label="快捷导航">
+${items}
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>`;
+}
+
+/** footer —— repo 参数让各站链自己的 **markdown 内容仓**（不是部署仓） */
+export function footer(repo = 'https://github.com/speculcom/ai-agent-guide', repoLabel = OPEN_SOURCE_LABEL) {
+  // 2026-10-04 修：原先对 nav / www 两项特殊处理，输出**纯中文** `${n.zh}`（无 data-en），
+  // 其余项才走双节点 —— 结果英文态的页脚露出「学 AI」「本地模型」等中文。
+  // 实测（渲染态审计）：英文态页脚有 2 处中文可见。
+  // 现在统一走双节点，不再有特例 —— 页脚不该是英文页的唯一中文区。
+  const links = NAV.map((n) =>
+    `          <a href="${n.href}"><span data-zh>${n.zh}</span><span data-en>${n.en}</span></a>`
+  ).join('\n');
+
+  return `  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 ${BRAND.zh} · <span data-zh>Specul</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+${links}
+          <a href="${repo}" target="_blank" rel="noopener">${repoLabel}</a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+  </footer>`;
+}
+
+/** 完整页面外壳 */
+export function shell({ current, title, desc, canonical, accent, body, repo, repoLabel, jsonLd, headExtra = '', langBridge = false, assetPrefix = '' }) {
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${esc(title)}</title>
+  <meta name="description" content="${esc(desc)}" />
+  <link rel="canonical" href="${esc(canonical)}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="${esc(title.split(' — ')[0] || '投机取巧')}" />
+  <meta property="og:url" content="${esc(canonical)}" />
+  <meta property="og:title" content="${esc(title)}" />
+  <meta property="og:description" content="${esc(desc)}" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="${depth(assetPrefix)}brand.css" />
+  <link rel="stylesheet" href="${depth(assetPrefix)}site.css" />
+${accent ? `  <style>:root { --accent: ${accent}; }${headExtra ? '\n' + headExtra : ''}</style>\n` : ''}${jsonLd ? `  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n` : ''}</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+${header(current)}
+  <main id="main">
+${body}
+  </main>
+${footer(repo, repoLabel)}
+${tabbar(current)}
+  <script src="${depth(assetPrefix)}brand.js"></script>${BRIDGE}
+</body>
+</html>
+`;
+}
+
+/**
+ * 相对 brand.css 的前缀：站点在子目录时用 ../。
+ * 全站大多数站点都部署在域名根目录，所以默认空串。
+ * 只有当页面被放在子目录（如 models.specul.com/series/gemma-4/）时，
+ * 调用方需传 assetPrefix: '../'，否则子页会 404 掉 brand.css / site.css / brand.js。
+ */
+function depth(assetPrefix) {
+  return assetPrefix || '';
+}
+
+/** 语言桥接：brand.js 只切 <html lang>，而 data-zh/data-en 显隐需要 html[data-lang] */
+export const BRIDGE = `
+  <script>
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
+      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
+      sync();
+    })();
+  </script>`;
+
+export function esc(s) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}

@@ -1,0 +1,33 @@
+# Agent 图谱（ai-agent-guide）
+
+> 该用哪个 agent / 运行时 / 工具？
+
+把「能替你做事的 AI 产品」按**分区**（成品 agent / 自己搭的底座 / 给 agent 装的工具）与**形态**（IDE / CLI / 厂商云 / 运行时 / MCP）两层组织，同一组固定维度横向对比。
+
+## 规模（由数据算出，见 `scripts/` 的构建脚本与 `_audit/gen-repo-docs.mjs`）
+
+52 份档案，分三个分区（agents 27、harness 15、tools 10），按 8 个固定维度横向对比。
+
+## 内容地图
+
+- `tracks/agents/products/` — 成品 agent（IDE / CLI / 厂商云三种形态都在这里）
+- `tracks/harness/products/` — 自己搭的底座：运行时 / 编排框架 / SDK
+- `tracks/tools/products/` — 给 agent 装的 MCP 工具
+- `axes/` — 对比维度定义（每个维度问什么）
+- `SCHEMA.md` — 字段规范
+
+## 不做什么
+
+- 不给总分排名 —— 加权总分掩盖取舍
+- 不做实测（未实测的维度写「未知」，不猜）
+- 不写「最好用」，只写「适合谁 / 不适合谁」
+
+## 规范与校验
+
+- 字段规范：`SCHEMA.md`
+- 校验器：`scripts/validate.mjs`（不合规直接失败退出）
+- 跨分区互链：每条档案 `related` 至少 1 条**跨分区**条目（探针：`_audit/link-graph.mjs`）
+
+## 站点
+
+https://agent.specul.com/

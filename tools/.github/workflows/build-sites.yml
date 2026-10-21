@@ -1,0 +1,148 @@
+name: build & deploy sites
+
+# 数据层是唯一真相源：这里一改，agent.specul.com 重建并推送。
+#
+# 2026-10-03 按 v4 三站架构重写。此前那版自检写死 `for t in ide cli mcp harness`，
+# 而 v4 已把四个旧站合成 agent 一站三分区 → 每次 push 必然失败在「产出自检」。
+# ⚠ 这类「脚本没跟上结构调整」的失效是静默的：不看 Actions 红叉根本发现不了，
+#   而本地构建正常、只有远程 workflow 挂。
+#
+# 流程：checkout → 校验 → 拉品牌壳 → 构建 → 自检 → 推 agent 站仓库
+# 手动触发：Actions 页面 → Run workflow
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**/*.md.orig'
+      - '.gitignore'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: '是否部署到线上'
+        type: boolean
+        required: false
+        default: true
+
+concurrency:
+  group: build-sites-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: 校验并构建
+    runs-on: ubuntu-latest
+    outputs:
+      built: ${{ steps.build.outputs.built }}
+    steps:
+      - name: Checkout 数据仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 结构校验
+        run: node scripts/validate.mjs
+
+      - name: 内部一致性审计
+        run: node scripts/audit.mjs
+
+      - name: 内容质量审计
+        run: node scripts/quality.mjs
+
+      - name: 拉取品牌壳
+        run: |
+          set -euo pipefail
+          mkdir -p .build
+          # 品牌壳（顶栏/页脚/基础 token）的唯一来源是品牌站仓库。
+          # 拉不到就中止 —— 不要用副本兜底，那会让本站与品牌站悄悄脱钩。
+          curl -fsSL --retry 2 \
+            https://raw.githubusercontent.com/speculcom/www/main/brand.css \
+            -o .build/brand.css
+          curl -fsSL --retry 2 \
+            https://raw.githubusercontent.com/speculcom/www/main/brand.js \
+            -o .build/brand.js
+          wc -c .build/brand.css .build/brand.js
+
+      - name: 构建 agent 站三分区
+        id: build
+        run: |
+          set -euo pipefail
+          node sites/build.mjs
+          # 产出目录：agents 分区落站点根，harness / tools 各自子目录
+          echo "built=1" >> "$GITHUB_OUTPUT"
+
+      - name: 产出自检
+        run: |
+          set -euo pipefail
+          # ⚠ CNAME 与 .nojekyll **只在站点根写一次**（build.mjs 的既定约定：
+          #   CNAME 文件只接受域名，三个分区是同一域名下的路径，不是三个独立站）。
+          #   第一版自检让每个分区都验这两个文件 → harness 分区必然报「缺少 CNAME」。
+          #   这是我自己写的检查违反了我自己代码里的注释 —— 判据要照抄产物结构的真相源。
+          [ -f dist/CNAME ] || { echo "缺少 dist/CNAME"; exit 1; }
+          [ -f dist/.nojekyll ] || { echo "缺少 dist/.nojekyll（Pages 会构建失败）"; exit 1; }
+          cat dist/CNAME
+          # 分区自检：只验 index.html 与页面数
+          for t in "" harness tools; do
+            d="dist/${t}"
+            [ -d "$d" ] || { echo "缺少 $d"; exit 1; }
+            [ -f "$d/index.html" ] || { echo "缺少 $d/index.html"; exit 1; }
+            n=$(ls "$d"/*.html 2>/dev/null | wc -l)
+            echo "  ${t:-根}: $n 个页面"
+            [ "$n" -ge 2 ] || { echo "  ${t:-根} 页面数异常"; exit 1; }
+          done
+
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-site
+          path: dist/
+          retention-days: 7
+
+  deploy:
+    name: 部署到 agent.specul.com
+    needs: build
+    runs-on: ubuntu-latest
+    # ⚠ 2026-10-03 暂时禁用。原因：部署需要 AGENT_SITE_TOKEN secret
+    # （一个能 push speculcom/agent 的 PAT），目前未配置。
+    # 与 www / nav / models 站保持一致的做法：部署走本地 push-site.sh 脚本，
+    # 不依赖 Actions secrets —— 少一条需要维护的凭据链路。
+    # 恢复时把 false 改回 true，并在仓库 Settings → Secrets 里加 AGENT_SITE_TOKEN。
+    if: false
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout 数据仓库
+        uses: actions/checkout@v4
+
+      - name: 下载构建产物
+        uses: actions/download-artifact@v4
+        with:
+          name: agent-site
+          path: dist
+
+      - name: 推送到 agent 站仓库
+        uses: actions/checkout@v4
+        with:
+          repository: speculcom/agent
+          token: ${{ secrets.AGENT_SITE_TOKEN }}
+          path: _site
+
+      - name: 同步产物（跳过 .git）
+        run: |
+          set -euo pipefail
+          cd _site
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf .git
+          cp -r "$GITHUB_WORKSPACE/dist/." .
+          git add -A
+          git commit -m "deploy: agent 站构建产物 $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "无改动"
+          git push origin HEAD:main

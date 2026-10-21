@@ -1,0 +1,662 @@
+/* ==========================================================================
+   三站（IDE / CLI / MCP）内容层样式
+   --------------------------------------------------------------------------
+   基调全部来自 brand.css（v2 设计系统），这里只做两件事：
+     1. 旧类名映射到新原语（保证 build.mjs 不用大改）
+     2. 图谱站特有的结构（对象网格 / 对比表 / 维度表）
+   原则：内容层不定义字号、颜色、间距——那些只看 brand.css。
+   ========================================================================== */
+
+/* ── 旧类名 → 新设计系统的桥接 ────────────────────────────────────────── */
+.hero {
+  /* 2026-10-03：原--sp-7(80) 0 --sp-6(52) → 留白实测 80/52，
+     与 www(40) / models(32) 不同档。改用 --section-pad 体系，全站同一节奏。 */
+  /* 2026-10-03：原calc(--section-pad * 2)（顶部 80px）→ 实测首屏顶部空白 152px。
+     首屏顶部大空白是现代设计最忌讳的「装饰性留白」—— 内容要立刻出现。
+     顶部与底部统一 --section-pad(40px)。 */
+  padding: var(--section-pad) 0;
+  border-bottom: 0;
+}
+.kicker {
+  display: flex; align-items: center; gap: var(--sp-2);
+  font-size: var(--fs-micro); font-weight: 600; letter-spacing: .14em;
+  color: var(--ink-faint); margin: 0 0 var(--sp-3);
+}
+.kicker::before {
+  content: ""; width: 14px; height: 2px; border-radius:var(--r-xs);
+  background: var(--accent, var(--brand)); flex-shrink: 0;
+}
+/* ⚠ 2026-10-10：整块删除这个 `h1` 规则 —— 与 _sites/_template/site.css 同步。
+   它是 brand.css 的 h1 副本（--fs-3xl 其实等于 --display-sub），只多了 24px 下边距。
+   六站主标下边距实测各不相同（0 / 4.8 / 8 / 10 / 12 / 13.8 / 20px），
+   h1 属骨架，间距也该由 brand.css 一处决定。 */
+.lede {
+  color: var(--ink-mid); font-size: 17px; line-height: 1.72;
+  max-width: var(--measure-wide); margin: 0;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5);
+  margin-top: var(--sp-5); font-size: var(--fs-xs); color: var(--ink-dim);
+}
+.hero-meta b {
+  color: var(--ink); font-weight: 700; font-size: var(--fs-lg);
+  font-variant-numeric: tabular-nums; margin-right: 3px;
+}
+
+.section { padding-block: var(--section-pad); border-top: 1px solid var(--line); }
+.section:first-of-type { border-top: 0; }
+.section > h2 {
+  font-size: var(--fs-xl); font-weight: 700;
+  letter-spacing: -.018em; margin: 0 0 var(--sp-2);
+}
+.section > .section-desc {
+  color: var(--ink-dim); font-size: var(--fs-sm); line-height: 1.72;
+  margin: 0 0 var(--sp-5); max-width: var(--measure);
+}
+
+/* ── 「从这里开始」引导区 ────────────────────────────────────────────────
+   访客从搜索/推荐落地后的第一屏。目的不是罗列对象，而是先让他回答一个
+   是非题（我属于哪一类），再给下一跳。数据再准，读者不知道用途就等于没用。
+   视觉上刻意比下面的对象表轻：左边一条竖线表明这是「导读」不是「结论」。
+   ────────────────────────────────────────────────────────────────────── */
+.guide-band { border-top: 0; }
+.guide-list {
+  list-style: none; margin: 0 0 var(--sp-5); padding: 0;
+  display: grid; gap: var(--sp-2);
+  max-width: var(--measure);
+}
+.guide-step {
+  display: grid;
+  /* 两列：左侧「你的情况」，右侧「所以看哪」。用 grid 而非 flex 是为了让
+     两列在窄屏能干净地叠成一列，不出现挤压。 */
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--sp-2) var(--sp-5);
+  align-items: baseline;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--accent, var(--brand));
+  border-radius:var(--r-xs);
+  background: var(--bg-raise);
+}
+.guide-q {
+  display: flex; align-items: baseline; gap: var(--sp-2);
+  font-size: var(--fs-sm); color: var(--ink-mid); line-height: 1.6;
+}
+.guide-n {
+  flex-shrink: 0;
+  display: inline-grid; place-items: center;
+  width: 18px; height: 18px; border-radius: 50%;
+  font-size: 11px; font-weight: 700; line-height: 1;
+  color: var(--accent, var(--brand));
+  border: 1px solid color-mix(in srgb, var(--accent, var(--brand)) 42%, transparent);
+  background: color-mix(in srgb, var(--accent, var(--brand)) 11%, transparent);
+  transform: translateY(2px);
+}
+.guide-a {
+  display: flex; flex-direction: column; gap: 2px;
+  font-size: var(--fs-sm); line-height: 1.6;
+}
+.guide-a strong { color: var(--ink); font-weight: 700; }
+/* 为什么这样分——一行灰字，是本文档存在的理由，别删 */
+.guide-why { color: var(--ink-faint); font-size: var(--fs-xs); line-height: 1.62; }
+.guide-foot {
+  font-size: var(--fs-xs); color: var(--ink-dim); line-height: 1.7;
+  margin: 0; max-width: var(--measure);
+  padding-top: var(--sp-3); border-top: 1px solid var(--line);
+}
+.guide-foot strong { color: var(--ink-mid); }
+
+@media (max-width: 760px) {
+  .guide-step { grid-template-columns: 1fr; gap: var(--sp-1); }
+  .guide-a { padding-left: calc(18px + var(--sp-2)); }
+}
+/* ≤520px 时两级缩进 + 长平台名串（"Telegram/Discord/Slack/WhatsApp/Signal/Email"）
+   会把 grid item 撑到容器外——grid item 默认 min-width:auto 不允许比容器窄。
+   min-width:0 让它可收缩，overflow-wrap让长串能断。
+   实测 320px 视口下 harness 站引导区scrollWidth 361，超出 41px。 */
+@media (max-width: 520px) {
+  .guide-step { padding: var(--sp-3); }
+  .guide-q, .guide-a, .guide-why, .guide-foot { min-width: 0; overflow-wrap: anywhere; }
+  .guide-a { padding-left: 0; }
+  .guide-n { display: none; }  /* 序号已由列表序号表达，去掉圆圈省出整行宽度 */
+}
+
+/* 站点强调色 · agent Agent — 蓝（工程、编排）
+   2026-10-03：原先只加在产物 site.css 上，重建就丢 → 必须写进真相源。
+   暗色蓝配深色前景 7.6:1；亮色蓝配白字 5.1:1。 */
+html:not([data-theme="light"]) {
+  --brand: #8b7cf8; --brand-on:#fff;
+  --brand-soft:rgba(139, 124, 248, .14); --brand-line:rgba(139, 124, 248, .34);
+}
+html[data-theme="light"] {
+  --brand: #6d4fd6; --brand-on:#fff;
+  --brand-soft:rgba(109, 79, 214, .08); --brand-line:rgba(109, 79, 214, .28);
+}
+
+/* ── harness 站的family 分组 ────────────────────────────────────────────────
+   validate 把 family 定为必填枚举，注释写明「决定首页矩阵怎么分组」。
+   分组标题里必须带这一层的判别理由（不只是名字），否则分组只是装饰。
+   ────────────────────────────────────────────────────────────────────── */
+/* harness 站的family 分组 = 「抽象层」内容维度。
+   2026-10-03：用 --c-layer 色板给三类上色（原语 / 编排 / 开箱）。
+   为什么：**色彩比留白更省空间** —— 原来靠 margin-bottom: var(--sp-6) 分组，
+   一组一道52px 留白，三个分组就有 156px 纯空白；现在色条 + 徽章承担分组识别，
+   留白收进 --section-pad。这正是「空间利用率高 + 配色区分内容」同时成立的点。 */
+.fam-block { margin-bottom: var(--section-pad); }
+.fam-block:last-child { margin-bottom: 0; }
+.fam-head { margin-bottom: var(--sp-3); display: flex; align-items: baseline; gap: var(--sp-3); }
+.fam-head h3 {
+  display: flex; align-items: baseline; gap: var(--sp-2);
+  font-size: var(--fs-lg); font-weight: 700; letter-spacing: -.012em;
+  margin: 0;
+}
+/* 分组色条：2px 竖条替代上下留白做分组标识 */
+.fam-head::before {
+  content: ""; width: 3px; align-self: stretch; border-radius:var(--r-xs);
+  background: var(--fam-c, var(--c-layer)); flex-shrink: 0;
+}
+/* 三类各一色（相邻不重用，避免读成渐变） */
+.fam-block[data-family="primitive"] { --fam-c: var(--c-form);--fam-soft: var(--c-form-soft); }
+.fam-block[data-family="orchestration"] { --fam-c: var(--c-layer); --fam-soft: var(--c-layer-soft); }
+.fam-block[data-family="turnkey"] { --fam-c: var(--c-use);   --fam-soft: var(--c-use-soft); }
+.fam-badge {
+  font-size: var(--fs-micro); font-weight: 600; line-height: 1; letter-spacing: .02em;
+  color: var(--fam-c, var(--c-layer)); background: var(--fam-soft, var(--c-layer-soft));
+  padding: 4px 9px; border-radius: 999px; flex-shrink: 0;
+}
+.fam-n {
+  font-size: var(--fs-micro); font-weight: 600; line-height: 1;
+  color: var(--ink-dim); font-variant-numeric: tabular-nums;
+  padding: 3px 7px; border: 1px solid var(--line-mid); border-radius: 999px;
+}
+.fam-head p {
+  margin: 0; font-size: var(--fs-sm); line-height: 1.7;
+  color: var(--ink-dim); max-width: 84ch;
+}
+
+/* ── 状态声明带：诚实边界必须显眼，但不是喊 ────────────────────────── */
+.status-band { border-top: 1px solid var(--brand-line); }
+.status-inner {
+  display: grid; grid-template-columns: 30px 1fr; gap: var(--sp-3);
+  align-items: start; max-width: 80ch;
+}
+.status-mark {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 13px; font-weight: 700;
+  color: var(--accent, var(--brand));
+  border: 1px solid color-mix(in srgb, var(--accent, var(--brand)) 45%, transparent);
+  background: color-mix(in srgb, var(--accent, var(--brand)) 12%, transparent);
+}
+.status-inner h2 {
+  font-size: var(--fs-lg); font-weight: 700;
+  margin: 2px 0 var(--sp-2); letter-spacing: -.01em;
+}
+/* ⚠ 正文里的**小标题**（`### …` / `#### …`）。
+ *   2026-10-09 之前 `blockMd()` 不认 `###`，**15 页 / 33 处**把它们渲染成字面文本 ✗；
+ *   补上渲染后**必须同时补样式** —— 否则浏览器默认 `<h3>` 的 **18.72px**（1.17em×16）
+ *   会混进字号体系，被 `_design-audit.mjs` 的门禁「字号落整数 px」抓到 ✗
+ *   （实测就是这么被抓到的）。所以这里显式用档位变量，不留给浏览器默认值。 */
+/* ⚠ 表格的**可横向滚动容器**（2026-10-09 加，修 `responsive-overflow` 的 3 处失败）。
+ *   实测 `grok-bot.html` 在 320 / 375 / 390px 下整页被宽表格撑到 402–405 ✗
+ *   （越界元素 `TABLE` / `THEAD` / `TR`）。宽表格不该让读者横滚**整页** ✓ ——
+ *   让它在自己框里滚 ✓，页面宽度就不受它影响 ✓。 */
+.tbl-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+.tbl-wrap > table { margin: 0; }
+
+.sub-h {
+  font-size: var(--fs-md); font-weight: 700; letter-spacing: -.01em;
+  color: var(--ink); margin: var(--sp-4) 0 var(--sp-2);
+}
+dd .sub-h:first-child, .warn-p .sub-h:first-child { margin-top: 0; }
+h4.sub-h {
+  font-size: var(--fs-sm); font-weight: 700; color: var(--ink-mid);
+  margin: var(--sp-3) 0 var(--sp-1);
+}
+.status-inner p {
+  font-size: var(--fs-sm); line-height: 1.72;
+  color: var(--ink-mid); margin: 0 0 var(--sp-2);
+}
+.status-inner p:last-child { margin-bottom: 0; }
+
+/* ── 对象网格：给每张卡一个视觉锚（字母标识 + 状态色条）───────────── */
+.grid {
+  display: grid; gap: var(--sp-3);
+  /* min(330px, 100%) 而非 minmax(330px, 1fr)：后者在视口 < 330px 时
+     仍强制 330px 下限 → 卡片溢出（320px 视口实测 scrollWidth 469）。
+     100% 上限让它在窄屏收缩到容器宽。 */
+  grid-template-columns: repeat(auto-fill, minmax(min(330px, 100%), 1fr));
+}
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: var(--sp-4);
+  display: flex; flex-direction: column; gap: var(--sp-2);
+  min-width: 0;
+  transition: border-color .18s var(--ease), transform .18s var(--ease);
+}
+.card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.card-top { display: flex; align-items: flex-start; gap: var(--sp-3); }
+/* 字母标识：实心方块，给眼睛一个落点（v1 是纯文字块，没有锚） */
+.mark {
+  width: 38px; height: 38px; flex-shrink: 0;
+  display: grid; place-items: center;
+  font-size: 15px; font-weight: 700; letter-spacing: -.01em;
+  border-radius:var(--r-sm);
+  /* B5（2026-10-09）：字色改用**中性 ink**，品牌色只留在底色与描边上。
+     为什么不能直接用品牌色当字色（两次都试过，都不成立）：
+       ① 沿用原来的「品牌色 13% 透明底」：深色 logo（GitHub #24292F、Cursor #111）
+          在深色卡上 1.04–1.52:1，等于看不见；
+       ② 改成「近白底片」：深色 logo 好了，但中间调品牌色（OpenAI #10A37F 2.9:1、
+          Anthropic #D97757 2.6:1、Google #4285F4 3.5:1）在浅底上又不够。
+     厂商 logo 色的明度跨度太大，**任何固定底片都覆盖不了**。
+     所以：字母用中性 ink（深色主题近白、浅色主题近黑，两侧都是 13:1 以上），
+     品牌色退到底色与描边 —— 视觉识别仍在，但可读性不再取决于 logo 色。
+     （这比给 logo 申请 WCAG 的 logotype 豁免更实在：豁免只是允许它不可读。） */
+  color: var(--ink);
+  background: color-mix(in srgb, var(--card-accent, var(--accent, var(--brand))) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent, var(--brand))) 38%, transparent);
+}
+.card h3 {
+  font-size: var(--fs-lg); font-weight: 650; line-height: var(--lh-snug);
+  margin: 0 0 2px; letter-spacing: -.012em;
+}
+.card h3 a { color: var(--ink); transition: color .16s var(--ease); }
+.card h3 a:hover { color: var(--accent, var(--brand)); }
+.card-id { min-width: 0; }
+.card .vendor {
+  font-size: var(--fs-micro); color: var(--ink-faint);
+  letter-spacing: .06em; line-height: 1.4;
+}
+.card .tagline {
+  font-size: var(--fs-sm); line-height: 1.64;
+  color: var(--ink-mid); margin: 0;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* 卡底：状态 + 入口，一行放平 */
+.card-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-2); margin-top: auto; padding-top: var(--sp-3);
+  border-top: 1px solid var(--line);
+}
+.more {
+  font-size: var(--fs-xs); font-weight: 600;
+  color: var(--accent, var(--brand));
+  transition: opacity .16s var(--ease);
+}
+.more:hover { opacity: .72; }
+
+/* ── 面板：节奏统一（v1 各面板间距不一，看起来很乱）───────────── */
+.panel {
+  margin: 0 0 var(--sp-3);
+  padding: var(--sp-4);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--bg-panel);
+}
+/* 内容少的面板（适合/价格/未知项/实测）用紧凑版式 */
+.panel.is-slim { padding: var(--sp-3) var(--sp-4); }
+.panel.is-slim h2 {
+  font-size: var(--fs-base); font-weight: 650;
+  margin: 0 0 var(--sp-2); letter-spacing: -.01em;
+}
+.panel.is-slim p { font-size: var(--fs-sm); }
+.panel:last-child { margin-bottom: 0; }
+.panel h2 {
+  font-size: var(--fs-lg); font-weight: 700;
+  margin: 0 0 var(--sp-3); letter-spacing: -.012em;
+}
+.panel.warn { border-color: color-mix(in srgb, var(--accent, var(--brand)) 38%, transparent); }
+.panel.warn h2 { color: var(--accent, var(--brand)); }
+.panel p {
+  font-size: var(--fs-sm); line-height: 1.72;
+  color: var(--ink-mid); margin: 0 0 var(--sp-2);
+}
+.panel p:last-child { margin-bottom: 0; }
+.panel ul { margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
+.panel li {
+  font-size: var(--fs-sm); line-height: 1.7; color: var(--ink-mid);
+  padding-left: var(--sp-3); position: relative;
+}
+.panel li::before {
+  content: ""; position: absolute; left: 0; top: .72em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent, var(--brand));
+}
+.panel code {
+  font-size: var(--fs-xs); background: var(--bg-inset);
+  padding: 1px 5px; border-radius:var(--r-xs); color: var(--ink);
+}
+
+/* ── 相关条目 ────────────────────────────────────────────────────────
+ * 每条 = 「显示名链接」+「为什么要读它」两段。
+ * 分两个 span 而不是把整行塞进 <a>：嵌套 <a> 会被解析器静默吞掉后续兄弟节点。
+ * ⚠ grid item 必须显式 min-width:0 —— 理由里有 `Qwen/Qwen3-Flash` 这类
+ *   不可断词的长串，不置 0 会在窄屏把整格撑破（记忆里的硬约束）。*/
+.rel-list li {
+  display: grid; gap: 2px; min-width: 0;
+}
+.rel-t { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.rel-t a { color: var(--ink); }
+.rel-n { color: var(--ink-dim); min-width: 0; overflow-wrap: anywhere; }
+
+/* ── 表格：对比表与证据表 ───────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--bg-panel);
+}
+table.cmp, table.src { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+table.cmp { min-width: 720px; }
+table.cmp th, table.cmp td,
+table.src th, table.src td {
+  text-align: left; padding: 11px var(--sp-3);
+  border-bottom: 1px solid var(--line); vertical-align: top;
+}
+table.cmp thead th, table.src thead th {
+  font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint);
+  border-bottom-color: var(--line-mid);
+}
+table.cmp tbody tr:last-child td, table.src tbody tr:last-child td { border-bottom: 0; }
+table.cmp tbody tr:hover, table.src tbody tr:hover { background: var(--bg-inset); }
+table.src a { color: var(--accent, var(--brand)); word-break: break-all; }
+table.src a:hover { text-decoration: underline; }
+.td-mark {
+  display: inline-grid; place-items: center;
+  width: 22px; height: 22px; border-radius:var(--r-sm);
+  font-size: 11px; font-weight: 700; vertical-align: -5px; margin-right: 8px;
+  color: var(--ink);
+  /* 同 .mark：中性字色 + 品牌色底，理由见那里。 */
+  background: color-mix(in srgb, var(--card-accent, var(--accent, var(--brand))) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent, var(--brand))) 38%, transparent);
+}
+td a { display: inline-flex; align-items: center; color: var(--ink); }
+td a:hover { color: var(--accent, var(--brand)); }
+.td-vendor, .td-date { color: var(--ink-dim); font-size: var(--fs-xs); white-space: nowrap; }
+.td-fit { color: var(--ink-dim); font-size: var(--fs-xs); line-height: 1.6; min-width: 190px; }
+.td-conf {
+  display: inline-block; font-size: var(--fs-micro);
+  padding: 2px 8px; border-radius:var(--r-xs);
+  border: 1px solid var(--line); color: var(--ink-dim); white-space: nowrap;
+}
+.td-conf.verified { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 36%, transparent); }
+.td-conf.partial { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 36%, transparent); }
+.td-conf.stale { color: var(--stop); border-color: color-mix(in srgb, var(--stop) 36%, transparent); }
+
+/* ── 维度说明：mesh 网格 + 编号锚（不再是纯文字长列表）──────────── */
+.axis-mesh { grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); }
+.axis-cell { display: flex; flex-direction: column; gap: var(--sp-1); }
+.axis-name {
+  font-size: var(--fs-base); font-weight: 650; line-height: 1.4;
+  margin: 0; letter-spacing: -.008em;
+}
+.axis-ask {
+  font-size: var(--fs-xs); line-height: 1.62;
+  color: var(--ink-dim); margin: 0;
+}
+
+.panel-lead {
+  margin: 0 0 var(--sp-3);
+  padding: var(--sp-4);
+  border-left: 2px solid var(--accent, var(--brand));
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: var(--bg-inset);
+  font-size: var(--fs-base); line-height: 1.74; color: var(--ink);
+}
+
+/* ── 工具类（替代内联样式）────────────────────────────────────────── */
+.panel.is-lead { padding-block: var(--sp-3); }
+.panel.is-lead p { font-size: var(--fs-base); line-height: 1.74; }
+.lead { font-size: var(--fs-base); line-height: 1.74; color: var(--ink); margin: 0; }
+.t-sm.mb-2 { margin-bottom: var(--sp-2); }
+.t-sm.mb-3 { margin-bottom: var(--sp-3); }
+.em { font-size: var(--fs-base); color: var(--ink); }
+.link-brand { color: var(--accent, var(--brand)); }
+.link-brand:hover { text-decoration: underline; }
+.fine { font-size: var(--fs-xs); line-height: 1.66; color: var(--ink-dim); margin: 0; }
+.fine.mt-2 { margin-top: var(--sp-2); }
+.fine.mt-3 { margin-top: var(--sp-3); }
+.fine.mt-6 { margin-top: var(--sp-6); }
+table.src.is-flush { margin: 0; }
+table.src.is-flush.mb-3 { margin: 0 0 var(--sp-3); }
+/* .panel 里直接放的表格（没有 .table-wrap 包裹）列多时会把面板撑出横向滚动条。
+   给它自己的 display:block + overflow-x:auto，溢出被限制在表格内部，
+   全站仍无横向滚动条。
+   ⚠ 不要只写`.is-flush` —— 详情页的「证据来源」表（类型/名称/链接 三列，
+   th.w-20 = 80px + th.w-52 = 208px）在 320px 下把表格撑到 334px，
+   而它**没有** is-flush 类，所以曾经漏掉。现在按「.panel 内的表格」一刀切。*/
+.panel > table.src,
+.panel > table.cmp {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+th.w-20 { width: 80px; }  th.w-24 { width: 96px; }
+th.w-28 { width: 112px; } th.w-52 { width: 208px; }
+
+/* 证据来源表在窄屏转成卡片 —— 不是为了修横向溢出（那个 .panel > table.src
+   的 overflow-x:auto 已经解决了），而是因为**横向滚动解决了可读性**：
+   th.w-20 + th.w-52 = 288px 固定列宽，在 320px 视口下正好等于面板内宽，
+   把第三列（链接）挤到只剩 20px —— `https://github.com/anthropics/...`
+   被压成每行一个字符的竖排，肉眼读不了（2026-10-03 实测）。
+ * `display:block` + 逐格堆叠，让每条证据占一行块、链接独占一行可完整折行。
+ * ⚠ td 不能用 `display:flex` —— 格内多个 span / <br> 会各成一个不可换行的
+ *   flex item，文字被压成 30px 窄带（这个坑两列表 table.budget 已经踩过）。*/
+@media (max-width: 560px) {
+  .panel > table.src thead { display: none; }
+  .panel > table.src tbody,
+  .panel > table.src tr,
+  .panel > table.src td { display: block; width: auto; }
+  .panel > table.src tr {
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .panel > table.src tbody tr:last-child { border-bottom: 0; }
+  .panel > table.src td { border: 0; padding: 2px 0; }
+  /* 类型是元信息，压暗一号；链接是这一格唯一的长内容，允许任意位置折行 */
+  .panel > table.src td:first-child {
+    color: var(--ink-dim); font-size: var(--fs-xs);
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+}
+.nw { white-space: nowrap; }
+.vendor.is-caps { text-transform: uppercase; letter-spacing: .06em; }
+.block-head { margin-top: var(--sp-6); }
+.block-head .t-section-lead { margin-bottom: var(--sp-3); }
+
+/* ── 详情页 ────────────────────────────────────────────────────────── */
+.detail { padding-block: var(--section-pad) calc(var(--section-pad) * 1.5); }
+.back {
+  font-size: var(--fs-xs); color: var(--ink-dim);
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-bottom: var(--sp-4); transition: color .16s var(--ease);
+}
+.back:hover { color: var(--accent, var(--brand)); }
+.detail-head { display: flex; align-items: flex-start; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+/* ⚠ 2026-10-10：窄屏把「图标 + 标题 + 标签」这一行**竖排**。
+   横排时 52px 的图标和标签一起挤占同一行，标题只剩 200px 宽、
+   左边缩进 84px（实测）—— 详情页标题比全站主标窄一半，看着像另一个站。
+   竖排后标题拿回整行 351px，与首页/其余站的正文列一致。
+   ⚠ 必须同时写 `align-items: stretch`：竖排后交叉轴变成宽度，
+     而父级是 `align-items: flex-start` —— 不覆盖的话标题所在那个
+     div 会收缩成 fit-content（实测宽 300、右侧多出 71px 空档）。 */
+@media (max-width: 760px) {
+  .detail-head { flex-direction: column; gap: var(--sp-2); align-items: stretch; }
+}
+.detail-head .mark { width: 52px; height: 52px; font-size: 20px; border-radius:var(--r); }
+.detail-head h1 {
+  /* 2026-10-03：原 --fs-2xl(30px) → 实测详情页 h1 仅 30px，而首页 66px，差 2.2 倍。
+     这条规则特异性 (0,1,1) 高于 brand.css 的裸 h1，所以必须在这里改才生效。 */
+  font-size: var(--display-sub); line-height: var(--lh-tight);
+  font-weight: 800; letter-spacing: -.028em; margin: 0 0 var(--sp-2);
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--sp-5); }
+.badge {
+  font-size: var(--fs-micro); padding: 4px 10px; border-radius:var(--r-sm);
+  border: 1px solid var(--line); color: var(--ink-dim);
+}
+.badge.accent {
+  color: var(--accent, var(--brand));
+  border-color: color-mix(in srgb, var(--accent, var(--brand)) 38%, transparent);
+  background: color-mix(in srgb, var(--accent, var(--brand)) 9%, transparent);
+}
+
+/* 维度：定义列表，左侧一条细线做锚 */
+.axis {
+  padding-block: var(--sp-3);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.axis:last-of-type { border-bottom: 0; }
+.axis::before {
+  content: ""; position: absolute; left: -14px; top: 20px;
+  width: 6px; height: 1px; background: var(--line-strong);
+}
+.axis dt {
+  font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: .1em; color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+.axis dd {
+  margin: 0; font-size: var(--fs-sm); line-height: 1.74; color: var(--ink);
+}
+/* 维度正文的分段与清单（2026-10-09）。
+ * 起因：解析器过去把 `>-` 折叠标量里的空行删掉，于是维度正文永远只有一段，
+ * 这两条规则也就没有存在的必要。修好之后正文开始真的有多段与 `- ` 清单，
+ * 没有间距的话段落会糊成一坨、列表会被读成句子里的破折号。 */
+.axis dd p { margin: 0; }
+.axis dd p + p { margin-top: var(--sp-2); }
+.axis dd ul { margin: var(--sp-2) 0 0; padding-left: 1.15em; }
+.axis dd li + li { margin-top: 4px; }
+.axis dd blockquote {
+  margin: var(--sp-2) 0 0; padding: 6px 10px;
+  border-left: 2px solid var(--line-strong);
+  background: var(--bg-inset); color: var(--ink-faint);
+  font-size: var(--fs-xs); line-height: 1.6;
+}
+.axis dd code {
+  background: var(--bg-inset); padding: 1px 5px;
+  border-radius:var(--r-xs); font-size: var(--fs-xs);
+}
+dl.axes { margin: 0; }
+
+/* ── S52 中文生态面板（详情页）与 chip 行（卡片/轻档案卡）──────────
+ * 与 models 站 cnSection 同一口径；chip 本体（.t-tag/.t-state）在 brand.css，
+ * 这里只补面板内的行式布局，配色全部复用既有 token，不引入新色。 */
+dl.cn-rows { margin: 0; }
+.cn-rows dt {
+  font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: .1em; color: var(--ink-faint);
+  margin-top: var(--sp-2);
+}
+.cn-rows dt:first-child { margin-top: 0; }
+.cn-rows dd {
+  margin: 2px 0 0; font-size: var(--fs-sm); line-height: 1.74; color: var(--ink);
+}
+.cn-foot {
+  margin: var(--sp-3) 0 0; font-size: var(--fs-xs); color: var(--ink-faint); line-height: 1.7;
+}
+.panel h2 .panel-note {
+  font-size: var(--fs-xs); font-weight: 400; color: var(--ink-faint);
+  letter-spacing: 0;
+}
+.m-famcard-cn { display: flex; gap: .45em; flex-wrap: wrap; align-items: center; margin: .6em 0 0; }
+
+/* 未知项：用状态色，不靠文字说明 */
+.unknown { color: var(--warn); }
+
+/* ── 站内分区导航（一站三分区用）─────────────────────────────────────
+ * 跨站导航在 brand.css 的 .nav-links，这里只解决「在本站换层」。
+ * 配色复用 --pa（每分区自己的 accent，由内联 style 传进来），
+ * 不引入新色—— 全站配色真相源只有 brand.css 一处。 */
+.part-bar {
+  border-block: 1px solid var(--line);
+  background: var(--bg-raise);
+}
+.part-bar .container {
+  display: flex; flex-wrap: wrap; gap: 0;
+  padding-inline: 0;
+}
+.part-bar a {
+  flex: 1 1 200px; min-width: 0;
+  display: flex; flex-direction: column; gap: 3px;
+  padding: var(--sp-3) var(--sp-4);
+  border-left: 1px solid var(--line);
+  text-decoration: none;
+  transition: background .16s var(--ease);
+}
+.part-bar a:first-child { border-left: 0; }
+.part-bar a:hover { background: var(--bg-panel); }
+.part-bar a[aria-current="page"] {
+  background: var(--bg-panel);
+  box-shadow: inset 0 2px 0 var(--pa, var(--brand));
+}
+.part-bar a b {
+  font-size: var(--fs-sm); font-weight: 700; line-height: 1.3;
+  color: var(--ink); letter-spacing: -.01em;
+}
+.part-bar a[aria-current="page"] b { color: var(--pa, var(--brand)); }
+/* B6（2026-10-09）：分区色改为**带亮色变体的 token**。
+ * 原先由内联 style 直接传十六进制（#8b7cf8 / #3b82f6 / #22d3c5），
+ * 这三个是**深色主题**调出来的亮色，亮色主题下当文字色只有 3.3–3.9:1 —— 不够 AA。
+ * 现在 markup 传的是 `var(--pa-agents)` 这类 token，两套主题各有一份值。
+ * 亮色值取的是共享 `--brand` / `--c-form` / `--c-use` 的亮色档（同一色相、已按 4.5:1 算过）。 */
+:root {
+  --pa-agents: #8b7cf8;
+  /* v6：底色改亮后（共享层采用首页暖紫 #221c34），蓝色的对比掉到 4.45:1，微调到 4.51。 */
+  --pa-harness: #3d83f6;
+  --pa-tools: #22d3c5;
+}
+[data-theme="light"] {
+  --pa-agents: #6d4fd6;
+  --pa-harness: #1f6fc4;
+  --pa-tools: #0b7c72;
+}
+.part-bar a span {
+  font-size: var(--fs-micro); line-height: 1.5; color: var(--ink-faint);
+  overflow-wrap: anywhere;
+}
+@media (max-width: 640px) {
+  .part-bar a { flex-basis: 100%; border-left: 0; border-top: 1px solid var(--line); }
+  .part-bar a:first-child { border-top: 0; }
+}
+
+/* 详情页面包屑：站→ 分区 → 本页 */
+.crumbs {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  font-size: var(--fs-micro); color: var(--ink-faint);
+  margin-bottom: var(--sp-3);
+}
+.crumbs a { color: var(--ink-dim); text-decoration: none; }
+.crumbs a:hover { color: var(--brand); }
+.crumbs span[aria-current="page"] { color: var(--ink); }
+.crumbs > * + *::before { content: "/"; margin-right: 6px; color: var(--ink-faint); }
+
+/* ═══ B2（2026-10-09）· 索引页筛选与排序 ═══
+   作用域 .afilter（三张分区页各一份），脚本在 agent-filter.js。
+   一律用 brand.css 的 token（本仓原则：内容层不定义字号/颜色/间距）——
+   顺带避开半像素字号：--fs-micro=11 / --fs-xs=12 / --fs-sm=14 都是整数 px
+   （手写 .8125rem=13px 看着也对，却绕过设计系统，_design-audit 会抓）。 */
+.afilter{display:flex;flex-wrap:wrap;gap:var(--sp-2);align-items:flex-end;margin:var(--sp-4) 0;padding:var(--sp-3) var(--sp-4);border:1px solid var(--line);border-radius:var(--r-sm)}
+.afilter .af-f{display:flex;flex-direction:column;gap:var(--sp-1);min-width:9rem}
+.afilter .af-h{font-size:var(--fs-micro);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+/* v6（2026-10-09）：筛选控件必须**显式定宽并可收缩**。
+ * 起因：`input` 原先没写宽度，靠浏览器默认 `size` 决定固有宽度 ——
+ * v6 把 `--fs-sm` 从 14px 提到 15px 后，固有宽度跟着涨到 310px，
+ * 而 320px 视口下容器只有 288px → 横向溢出（responsive-overflow 在 agent/harness 页抓到）。
+ * `width:100%` + `min-width:0` + `box-sizing:border-box` 三者齐上才治得住：
+ * 只写 width 会因 box-sizing 把 padding/border 加到外面，只写 min-width 在 flex 里仍会被固有宽度顶开。 */
+.afilter input,.afilter select{width:100%;min-width:0;box-sizing:border-box;font:inherit;font-size:var(--fs-sm);padding:var(--sp-1) var(--sp-2);border:1px solid var(--line);border-radius:var(--r-xs);background:transparent;color:var(--ink)}
+.afilter .af-f:first-child{min-width:13rem;flex:1 1 13rem}
+.acount{margin-left:auto;font-size:var(--fs-xs);color:var(--ink-faint);white-space:nowrap}
+@media(max-width:560px){.afilter{flex-direction:column;align-items:stretch}.acount{margin-left:0}}
+
+/* B2：无差异维度的说明（取代不产生变化的排序控件） */
+.afilter .af-note{font-size:var(--fs-xs);color:var(--ink-faint);align-self:center}

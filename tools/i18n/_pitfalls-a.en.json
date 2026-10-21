@@ -1,0 +1,288 @@
+{
+  "_comment": "agent 站档案的 pitfalls（头号误解）英文 —— 第 1 批（agents 与 harness 分区）。2026-10-08 A6.1 扩至含全部 26 个 agents/harness 条目。",
+  "_critical": "⚠⚠ 这是全站**最敏感**的一段内容：每一条都在纠正读者对产品的**错误理解**，很多直接关系到会不会误用（比如「以为默认是安全的 —— 默认是 full toolset 且没有沙箱层」）。",
+  "_rules": [
+    "0) **判断强度必须完全保留**。「以为 X」型误解 → 'Thinking X'；「忽略 Y」→ 'Ignoring Y'。",
+    "1) **否定强调不能丢**：原文用「**不是**」「**核验发现**」强调的地方，英文也要 bold。",
+    "2) **未核验标记保留**：「本次未核验」「核验 2026-09-30」→ not verified / checked on 2026-09-30。这是本站的诚实边界。",
+    "3) 参数与命令原样（allowed_tools、disallowed_tools、--isolated、UnixLocalSandboxClient、GOOGLE_GENAI_USE_ENTERPRISE）。",
+    "4) 官方引用原样（production-grade、Move from experiment to production without changing frameworks）。"
+  ],
+  "aider-cli": [
+    "Assuming it is still actively maintained — the latest release stopped at 2025-08-09, 13 months before collection",
+    "Assuming the models the README recommends are current — the list is still on the previous generation",
+    "Assuming auto-commit is a side effect — it is the core design, and you need to know git's undo workflow first"
+  ],
+  "aider": [
+    "Assuming it is an editor plugin — it is a resident Aider process plus a browser UI",
+    "Treating watch mode as a cloud background job — it needs a local process running the whole time",
+    "Not realising auto-commit applies in watch mode too, which makes it riskier under a resident process"
+  ],
+  "claude-code-cli": [
+    "Assuming a GitHub repo means open source — LICENSE.md is All rights reserved plus commercial terms",
+    "Overlooking the default that reads outside the working directory ask first — your first run may be interrupted",
+    "Assuming compression fixes every over-long case; the official docs still address the \"still too long after compression\" edge"
+  ],
+  "claude-code": [
+    "Assuming the IDE form is a separate product — it is one process with three entry points, same as the CLI",
+    "Carrying the CLI's permission design over to the IDE form; this round did not verify that they match",
+    "Assuming open source means free to use — the licence is proprietary"
+  ],
+  "cline": [
+    "Assuming it is a single-form VS Code extension — it actually has CLI, Desktop and extension",
+    "Overlooking headless mode — the CLI form supports CI/CD integration in its own right",
+    "Assuming approval behaves identically across forms: the extension explicitly has human-in-the-loop, but behaviour under CLI headless was not verified",
+    "Assuming auto-commit is by design — by default every edit needs approval, and auto-approve enables unattended runs"
+  ],
+  "codex-cli": [
+    "Treating API credits as part of the subscription — they are billed separately",
+    "Assuming the CLI is the whole thing — there is also an app server for custom clients",
+    "Assuming the docs site can be curled directly — a CDN may block it"
+  ],
+  "codex-ide": [
+    "Treating it as a standalone IDE — it is really an extension installed into an existing editor",
+    "Assuming the IDE extension and the CLI are two separate systems — the app server architecture lets them share sessions",
+    "Assuming the IDE extension has its own permission model — both share config.toml, and the sandbox and approvals are the same"
+  ],
+  "copilot": [
+    "Reading Flex allotment as a fixed quota — the official docs say it changes",
+    "Overlooking third-party agent delegation in Preview (Claude / Codex)",
+    "Assuming individual plans share a quota pool — pooled usage is Business / Enterprise only",
+    "Assuming the cloud agent honours content exclusion — the official docs say plainly that it does not"
+  ],
+  "crush": [
+    "Assuming the licence clearly permits commercial use — GitHub reports NOASSERTION and the terms were not verified",
+    "Assuming it only works with your own models — it can also connect to Anthropic / OpenAI and others",
+    "Assuming each terminal window is configured independently — within the same workspace, first-wins locks the settings"
+  ],
+  "cursor": [
+    "Treating Cursor as a purely local editor — since 2026-09-02 there is a self-hosted form where code need not leave your infrastructure",
+    "Treating the cloud capability as \"having an entry point is enough\" — the official docs are explicit that closing the laptop does not stop it",
+    "Confusing Security Review with Bugbot — one covers exploitable defects, the other style and quality issues"
+  ],
+  "gemini-cli": [
+    "Assuming open source means unlimited use — the free tier has clear daily limits (6,000 code requests + 240 chats/day)",
+    "Assuming the npx form pollutes your local environment — it runs temporarily with no install",
+    "Overlooking MCP support — the repository README lists it explicitly as an extensibility feature"
+  ],
+  "grok-bot": [
+    "Treating \"separate usage\" as free — the official pages only say it is billed apart from the main plan",
+    "Expecting to look up approval granularity and credential handling — the release page does not state them and this entry does not fill them in",
+    "Inferring from Grok 4.6's \"focus on long-running agents\" that this is what it runs — neither page names the other",
+    "Assuming it only works with SuperGrok — the official pages have already extended it to all Cursor tiers",
+    "Assuming it can pay directly the way Muse can — the official Grok Bot page never mentions payment or checkout"
+  ],
+  "meta-muse": [
+    "Treating Confidential VM as a shipping feature — the official docs say Later this year; it is not live",
+    "Treating Sentinel as \"Muse asking first\" — it is a separately isolated system agent",
+    "Assuming deleting a message erases the memory — the official docs say it may still recall what it learned",
+    "Reading \"free for most\" as free for everything — the boundary is not quantified and subscription pricing was not verified",
+    "Describing Muse's background permission as \"the docs say read-only\" — what they give is a mechanism (writes must be approved), not a read-only statement",
+    "Assuming disconnecting a Connector clears the related memory — the docs say it might still remain",
+    "Assuming forget skill guarantees erasure — the wording is \"to the best of its ability\""
+  ],
+  "openai-dot": [
+    "Reading \"proactive research\" as background access to change your things — the official docs limit it to read-only tools",
+    "Assuming custom rules can relax the official limits — the docs state built-in safety requirements always apply",
+    "Treating Dot as a standalone product to subscribe to — it comes with Pro / Business Premium",
+    "Assuming it is on by default in Enterprise — the docs say it is off by default and a workspace admin must enable it",
+    "Generalising \"content is not used for training\" to every tier — the docs name Business / Enterprise / Edu only",
+    "Assuming background work runs to completion — the docs state safety monitoring can pause it mid-run"
+  ],
+  "opencode": [
+    "Reading the provider support list as entitlement — a connector being available is not the same as having a model subscription",
+    "Assuming it executes commands with full rights by default — the README says it asks before bash commands",
+    "Assuming access to a provider means it is free — model costs are still yours"
+  ],
+  "windsurf": [
+    "Not knowing the product is now Devin Desktop — searching for Windsurf may not find the matching docs",
+    "Assuming Teams is a single per-seat price — it is two layers: plan fee plus $40 per full-time seat",
+    "Assuming add-on usage is discounted — the official docs say it is billed at API pricing"
+  ],
+  "zed": [
+    "Treating Zed as yet another AI coding tool — it is an orchestration layer for three agent paths, and can use Claude / Codex / OpenCode / Cursor",
+    "Assuming the model is locked in — there are five integration paths, including local models and reusing an existing subscription",
+    "Choosing External Agent and assuming Zed governs permissions — they are determined by that agent's own auth/config"
+  ],
+  "claude-agent-sdk": [
+    "Assuming it is \"Anthropic's version of the OpenAI Agents SDK\" — **it is not**. It is the SDK for the Claude Code CLI; its capabilities come from that CLI, not from the framework",
+    "Assuming `allowed_tools` restricts the toolset — the official docs state \"It does not remove tools from Claude's toolset\"; use `disallowed_tools` to disable",
+    "Assuming the default is safe — the default is the **full toolset (Read/Write/Edit/Bash)**, with no sandbox layer",
+    "Assuming a system prompt change takes effect immediately — a snapshot freezes it. It lands only after a compact or a new session (unless snapshot=False)",
+    "Assuming MIT means no additional terms — Anthropic's commercial terms still apply (see the body above)",
+    "Assuming the TypeScript build is licensed like the Python one: **verification found no LICENSE file in the TS build, and the licence API returns null**. Its licensing status is unknown (checked 2026-09-30)"
+  ],
+  "codex-sdk": [
+    "Assuming openai/codex-sdk from the v3 roadmap exists — that repo 404s; the SDK is a subdirectory of the monorepo",
+    "Assuming the SDK version number reflects the capability — package.json says 0.0.0-dev; the real version tracks the CLI (currently 0.159.3)",
+    "Expecting it to work out of the box outside a Git directory — the CLI requires the working directory to be a Git repository, so you must skip explicitly",
+    "Treating `sandbox_workspace_write.network_access` and the SDK's `networkAccessEnabled` as two separate things — the latter is the SDK-level entry point; the former is a config passthrough",
+    "Treating OpenAI Agents SDK (a pure Python library) as a like-for-like alternative — the forms differ, see layer_position"
+  ],
+  "crewai": [
+    "Assuming it is a role-play toy — the official positioning is production-grade, and the README states \"Move from experiment to production without changing frameworks\"",
+    "Taking Crew Control Plane's capabilities as built into the open version — tracing, centralised control, enterprise security, 24×7 support and local/cloud deployment are CrewAI AMP selling points",
+    "Treating guardrails as a permission boundary — the official docs state they validate task output only, never input, and there is no sandbox",
+    "Assuming memory and knowledge are two separate memory systems — knowledge is a RAG fact store, memory is the unified record store",
+    "Assuming checkpointing is a later concern — the official docs already ship Json and Sqlite backends plus a resume CLI, so it can be enabled on demand",
+    "Assuming a Flow gives you vendor-hosted background execution — Flow provides state management; the process still runs on your own machine"
+  ],
+  "deepagents": [
+    "Treating Deep Agents / LangChain / LangGraph as one thing — the official docs are explicit that these are three layers with different responsibilities (see `layer_position`)",
+    "Reading \"trust the LLM\" as a product feature rather than a risk warning — the official text tells you to set boundaries at the tool/sandbox layer yourself",
+    "Assuming open source means zero cost — model inference plus LangSmith (the officially recommended tracing/eval) both cost money",
+    "Assuming the latest version is 0.7.0 — a competitor site snapshotted 0.7.0; **it is actually 0.7.20** (checked 2026-09-30)"
+  ],
+  "google-adk": [
+    "Assuming it is \"Google's version of the OpenAI Agents SDK\" — **it is an orchestration framework** whose core asset is the Workflow Runtime graph engine, not single-agent primitives",
+    "Reading `state management` as \"has context management\" — the former is process state; the latter is the separate Context Compaction mechanism (1.16+)",
+    "Treating MCP as a core dependency — the README lists MCP only as one tool source, which is not the same as OpenAI Agents SDK putting `mcp>=1.19.0` in `dependencies`",
+    "Assuming Tool Confirmation equals a sandbox — it is \"ask once before running\", not a boundary",
+    "Assuming open source and free means zero cost — Cloud Run / Vertex Agent Engine costs are yours, and there is a `GOOGLE_GENAI_USE_ENTERPRISE` switch",
+    "Assuming it is Python-only — there is a separate TypeScript repo (`google/adk-js`, 1,426★); the Python body is the only thing indexed here",
+    "Mixing up repo names — the sample repo shows as `google/adk-recipes` while the description says adk-samples"
+  ],
+  "hermes-agent": [
+    "Using it as a programming framework — **it is a general personal assistant**; coding is one of many things it does, and its form is nothing like LangGraph/CrewAI",
+    "Taking \"the only agent with a built-in learning loop\" as this site's conclusion — **that is the vendor's marketing line; this site ran no cross-product comparison**",
+    "Reading the seven terminal backends as seven deployment modes — the official text says terminal backends (the backend that executes tools), and Modal/Daytona there provide **sleep**, not always-on",
+    "Assuming `/compress` is automatic — **it is an explicit command**; nothing is compressed unless you trigger it",
+    "Overlooking DM pairing — for an agent that reaches six messaging platforms and touches your filesystem, who can command it is the central safety question",
+    "Running `hermes claw migrate` without reading the dry-run first — the command touches API keys (the README lists five providers)",
+    "Migrating without confirming — this site's view of the Hermes / OpenClaw relationship was not verified; it records only the README's first-hand facts"
+  ],
+  "langgraph": [
+    "Treating Deep Agents and LangGraph as two competitors — **Deep Agents is a higher-level package built on LangGraph** (the README says so)",
+    "Using releases/latest to judge the version — **latest on a monorepo is unreliable**: on this entry latest returned `cli==0.4.32.dev0` (a sub-package dev build); the main package version has to be picked out of the release list (1.2.12 at the time of this check)",
+    "Reading checkpoint persistence as \"context management\" — a checkpoint stores **graph state**; context compression and memory are a separate layer the README calls memory",
+    "Assuming it ships a filesystem or a tool system — it handles neither; wire up your own, or go through Deep Agents",
+    "Assuming interrupts are a permission guardrail — they \"check and modify state\"; they do not draw file or network boundaries",
+    "Assuming that installing LangGraph is enough — the official front page points you at LangSmith for debugging and deployment, and that is a commercial product"
+  ],
+  "llamaindex": [
+    "Reading 52k★ as \"an actively developed orchestration framework\" — **the official front page states the primary focus has shifted to document parsing**",
+    "Assuming workflow / agent orchestration lives in the OSS — the README puts Workflows in the section about the commercial LlamaAgents platform",
+    "Conflating LlamaIndex's \"data connectors\" with Deep Agents' \"filesystem\" — the former is data-source ingestion and parsing, the latter is an agent's workspace file operations",
+    "Treating LlamaParse as a free open-source component — it is a commercial platform and you must sign up for a key",
+    "Reading 300+ integrations as equally reliable — the official wording is \"work seamlessly\"; this site has not measured how well they align",
+    "Missing the NOTE the README writes about itself — \"This README is not updated as frequently as the documentation\""
+  ],
+  "openai-agents-sdk": [
+    "Reading \"provider-agnostic\" as \"switching providers costs nothing\" — the docs promise 100+ without a quantified guarantee; this site marks it unverified",
+    "Assuming SandboxAgent works out of the box on Windows — the local path is only `UnixLocalSandboxClient` (macOS/Linux); Windows needs Docker or hosted",
+    "Assuming Guardrails work as a permission boundary — they are input/output validation, not a sandbox boundary; they address different risk types",
+    "Assuming this is an official shell around OpenAI's closed-source SDK — it is itself an MIT-licensed framework, and the official docs state they are \"committed to continuing to build the Agents SDK as an open source framework\""
+  ],
+  "openhands": [
+    "Assuming it is a Python SDK — **the main repo is a TypeScript web control centre**; the programming entry point is `OpenHands/software-agent-sdk` (a further 1,190★)",
+    "Judging by the repo name and description that it is an \"AI-driven software development tool\" — **the README's front-page title is now Agent Canvas**, and the positioning is a control centre",
+    "Assuming it competes with Codex SDK / Claude Agent SDK — **it is their orchestration layer** (the README says it can run those agents)",
+    "Going straight to Option 1 in production — the official docs put a WARNING on that option: the agent has full access to your filesystem",
+    "Reading `--public` mode as \"more convenient\" — it is the safeguard that keeps the key out of the front end, meant for non-local access",
+    "Assuming \"has run history\" means \"has context management\" — the former is state; the latter has its own mechanism (LLMSummarizingCondenser / RollingCondenser)",
+    "Assuming it uses ACP only and does not support MCP — the MCP Servers page says both the CLI and the Canvas can configure it (http / sse / stdio plus Bearer / API Key / OAuth); ACP is the separate line for orchestrating third-party agents"
+  ],
+  "context7": [
+    "Assuming it is a purely local tool — queries actually go to Upstash's remote servers",
+    "Omitting a version number gets you mismatched docs — the README calls out \"Specify a Version\" specifically",
+    "Assuming open source means fully local — the code is MIT but the core is a hosted service"
+  ],
+  "everything": [
+    "Assuming it is a usable all-in-one tool server — the official docs say it is a test server",
+    "Enabling it in production — it was never positioned as production-ready",
+    "Assuming more tools means more usefulness — these tools demonstrate protocol features rather than serve real purposes"
+  ],
+  "fetch": [
+    "Enabling it directly where the intranet is reachable — the official docs warn it can reach local and internal IPs",
+    "Assuming it fetches pages behind a login — it is a stateless fetch",
+    "Assuming the output is clean Markdown — the structure varies with the target page"
+  ],
+  "filesystem": [
+    "Assuming the official repo's server is production-ready — the README states it is a reference implementation only",
+    "Starting it without a directory argument — it errors at initialisation rather than silently touching the whole disk",
+    "Assuming that withholding write tools prevents file changes — write_file / edit_file do write"
+  ],
+  "git": [
+    "Assuming it is read-only — it can commit and switch branches"
+  ],
+  "ag2": [
+    "Assuming `pip install ag2` is still classic AutoGen — since v1.0 ConversableAgent / GroupChat / `import autogen` all moved to the ag2-classic package",
+    "Assuming ag2 is a smooth upgrade from autogen — officially v1.0 is not a drop-in upgrade; the agent model, orchestration, and imports all changed",
+    "Assuming it is a Microsoft-official project — it is maintained by community volunteers (ag2ai), a different line from Microsoft's Microsoft Agent Framework",
+    "Assuming `blocked=[...]` is a security boundary — officially it is only best-effort; isolation in the restricted shell comes from the `allowed` allowlist and `readonly`"
+  ],
+  "amp": [
+    "Assuming tools run only after approval — officially, Amp does not ask for approval before running tools.",
+    "Expecting a standalone VS Code extension — integration is via the CLI and `ide connect` (VS Code / Cursor / Windsurf / Zed / Neovim).",
+    "Treating $20/mo as the whole cost — orbs are billed by the minute and overage is charged against credits."
+  ],
+  "continue": [
+    "Assuming Continue is still actively maintained — the repo README now states it is \"no longer actively maintained and is read-only for all users\".",
+    "Assuming the old Hub commercial price list still applies — the site is now an acquisition notice and continue.dev/pricing returns 404.",
+    "Assuming models come with included quota — the extension itself is free and open source, but model costs are yours (bring your own provider or run local Ollama)."
+  ],
+  "copilot-cli": [
+    "Thinking Copilot CLI is a separate purchase — it comes with a Copilot subscription and has no standalone price",
+    "Thinking the CLI costs no quota — each prompt deducts one premium request, and premium models multiply it",
+    "Taking the about page's plan list (Pro/Pro+/Business/Enterprise) as the only wording — the quickstart page says all plans"
+  ],
+  "cursor-cli": [
+    "Thinking Cursor CLI is a standalone free tool: it needs a Cursor account or an API key, and usage draws on the same account quota pools.",
+    "Assuming print mode writes files by default: the headless page states that without --force / --yolo changes are only proposed, not applied.",
+    "Expecting Shell Mode to run long tasks: commands time out after 30 seconds and the limit is not configurable."
+  ],
+  "factory-droid": [
+    "Assuming BYOK has no quota — official docs state Individual plans include only an allowance of free BYOK usage",
+    "Treating Droid as CLI-only, when the vendor actually leads with CLI + desktop App + SDK",
+    "Expecting droid exec to edit files, when it defaults to read-only mode"
+  ],
+  "goose": [
+    "Assuming approval is on by default — it runs in Autonomous mode and will execute commands and edit files without asking.",
+    "Assuming it only writes code — the official positioning is a general-purpose agent (research, writing, automation, data analysis).",
+    "Assuming it works right after install — you must configure an LLM provider first (`goose configure`)."
+  ],
+  "jules": [
+    "Treating the old beta docs' \"2 concurrent / 5 total tasks per day\" as today's free tier",
+    "Assuming API-created sessions wait for you to approve the plan — they auto-approve by default",
+    "Mistaking Jules for a local/IDE live agent — it is an asynchronous cloud agent"
+  ],
+  "junie": [
+    "Assuming Junie is a standalone IDE — it is a plugin inside JetBrains IDEs (plus a separate CLI form)",
+    "Assuming Junie is available under the AI Enterprise tier — the official page states that tier does not currently include Junie",
+    "Assuming MCP remote servers work — the docs state only the stdio transport is currently supported"
+  ],
+  "kiro": [
+    "Treating Kiro as an IDE-only tool: there is also CLI / Web / Mobile and Crew, and a Cloud Session keeps running after shutdown",
+    "Assuming credits are model-specific — Kiro uses one credit pool and each model consumes it by a multiplier (up to 4.4x)",
+    "Taking Kiro Free as a long-term free tier — it is 50 credits/month, limited to open-weight models and specific Claude models"
+  ],
+  "mastra": [
+    "Assuming Mastra is entirely Apache-2.0 and free - the `ee/` directory is source-available and needs an enterprise licence for production; the repo licence API returns NOASSERTION",
+    "Treating Mastra Studio / observability / hosted deployment as part of the framework - those are Mastra platform products, billed on Starter $0 / Teams $250 / Enterprise tiers",
+    "Taking the README's \"40+ providers\" as the ceiling - the official `/models` directory page states 213 providers / 7815 models",
+    "Assuming local models need code changes - the official path is an OpenAI-compatible endpoint with LMStudio recommended, configured via `id` + `url`"
+  ],
+  "microsoft-agent-framework": [
+    "Treating it as \"yet another new framework\" — officially it is the successor of Semantic Kernel + AutoGen, built by the same teams",
+    "Assuming it is .NET-only — officially it is Python and C#/.NET with consistent APIs, plus a separate Go repo (microsoft/agent-framework-go)",
+    "Assuming it is already GA — the official overview marks it public preview and the Python install requires --pre",
+    "Assuming AutoGen / AG2 code upgrades as-is — official migration guides exist, and both the agent model and the APIs changed; it is not a drop-in",
+    "Reading a workflow checkpoint as context compression — checkpoints persist superstep-level workflow state, a different mechanism from conversational memory"
+  ],
+  "pydantic-ai": [
+    "Assuming it is a purely thin harness — the official Pydantic AI Harness now bundles memory, guardrails, sub-agents and context management as capabilities, plus a complete Coder agent.",
+    "Reading \"durability\" as \"conversation storage\" — official docs state plainly that \"Durability is not storage\": the durable engine only keeps a run alive, while thread persistence is a separate module.",
+    "Assuming evals / observability require Pydantic Logfire — official docs state instrumentation is standard OpenTelemetry, so any OTLP backend works.",
+    "Assuming A2A is a long-term built-in — the official docs mark `Agent.to_a2a()` as deprecated in 1.x and removed in 2.0, with `fasta2a` moved to datalayer/fasta2a."
+  ],
+  "smolagents": [
+    "Treating `LocalPythonExecutor` as a security sandbox — the official docs state it is not a security boundary and can be bypassed.",
+    "Assuming it is only for writing code — the official positioning is a barebones library for *agents*; `CodeAgent` just expresses actions as code.",
+    "Assuming it ships hosted execution or resumable runs — it is a pure library: stop the process and it stops, and memory is not persisted to disk."
+  ],
+  "warp": [
+    "Assuming Free means unlimited agent use — the official page says \"Limited cloud agents access\"",
+    "Assuming auto-approve bypasses the command denylist — a team denylist set in the Admin Panel is never bypassed",
+    "Assuming open source means entirely free — the client is open source, but cloud agents and Warp Drive are metered by tier"
+  ]
+}

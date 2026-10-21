@@ -1,0 +1,54 @@
+{
+  "_comment": "agent 站分区引导的英文（GUIDE 的另一半）。2026-10-04。",
+  "_principles": [
+    "0) 这段是人写的内容，含判断与安全警告 —— 不机译。",
+    "1) 保留 <strong> 与 <code>：强调位置是原文的一部分（哪些词被强调 = 哪些是判断）。",
+    "2) 保留 ⚠ 与「没写」「未核验」这类诚实标记 —— 它们是本站的立场，不能在翻译里被磨平。",
+    "3) 产品名与参数原样保留（Claude Agent SDK、--isolated、read-only / workspace-write / danger-full-access）。",
+    "4) 数值原样保留（17 份 / 14 份 / 9 个条目 / 六平台）。"
+  ],
+
+  "agents": {
+    "title": "Answer one question first: how much do you want it to do for you",
+    "lede": "This section holds 27 entries, <strong>split three ways</strong>: 23 are installed on your own machine (11 IDE form + 12 CLI form, of which <strong>five pairs are the same product in two forms</strong> — Aider, Claude Code, Codex, Copilot and Cursor each have an IDE entry and a CLI entry; they are not competitors, and they differ in <strong>where they install, how they are invoked, and whether they drop into scripts</strong>). The other 4 are <strong>vendor cloud</strong> — nothing installs locally, the work happens on someone else's machine.",
+    "steps": [
+      ["I want an editor I can launch myself", "See <strong>IDE · standalone editor</strong>", "Cursor, Windsurf (now renamed Devin Desktop), Zed and AWS's Kiro are all in this group."],
+      ["I already use VS Code / Cursor", "See <strong>IDE · extension form</strong>", "Claude Code, Codex, Copilot, Cline, JetBrains' Junie and Continue all install into an existing editor. Note that <strong>Claude Code, Codex and Copilot also have CLI forms</strong> — do not compare them as if they were two products."],
+      ["I do not want to switch editors or install plugins", "See Aider (Watch mode)", "It is not an editor plugin but a background resident process: add an AI comment in any editor and it responds."],
+      ["I want it to ask me at every step", "See the CLIs that <strong>confirm every action by default</strong>", "Crush asks before every tool call by default; Aider has auto-commit but its sandbox mechanism is unverified."],
+      ["I want it to run on its own within a set scope", "See those with an <strong>explicit sandbox / trusted directories</strong>", "Gemini CLI documents its sandbox and Trusted Folders separately; Claude Code CLI has the finest permission granularity, including \"allow just this once\"."],
+      ["I need it to run in CI / scripts", "<strong>A whole batch now has official evidence</strong>", "Beyond Gemini CLI and Codex CLI, the 2026-10 additions all document non-interactive execution: Cursor CLI (headless), Copilot CLI (<code>-p</code>), Continue (<code>cn -p</code>), goose (<code>goose run</code>), Droid (<code>droid exec</code>) and the Kiro CLI (<code>--no-interactive</code>)."],
+      ["I want <strong>it to keep working after I close the client</strong>", "Start with <strong>the 4 vendor-cloud entries</strong>", "That layer is 'the whole machine is in the cloud': Dot, Muse, Grok Bot and Jules — they differ in <strong>how approval and async flow are designed</strong> — Muse has a separate Sentinel agent, Dot reviews automatically, Grok Bot's official page <strong>does not say</strong>, and Jules gates on an approved plan (skippable via API). Some local forms also offer cloud execution for <strong>specific tasks</strong> (Cursor's cloud agents, Kiro's Cloud Sessions, Amp's orb, Copilot's coding agent) — so check the `background` dimension per entry instead of assuming by form."],
+      ["I need data never to leave my machine", "<strong>Nothing here fits either</strong>", "The vendor-cloud machines are on someone else's (Dot is isolated from your machine by default and only touches it once authorised); among local forms, only the sandbox / trusted-directory tier can restrict write scope."]
+    ],
+    "foot": "⚠ Two misconceptions people fall into most easily: <strong>\"AI-native editor\" does not mean \"model is selectable\"</strong> — form is `runtime`, model access is `model_access`, and the two dimensions are separate. <strong>Codex CLI's approval modes and sandbox tiers are not in its CLI documentation</strong>, only in its SDK source: four approval modes × three sandbox tiers (read-only / workspace-write / danger-full-access), plus per-path denies on reading `.env`. Cross-platform differences remain unverified."
+  },
+
+  "tools": {
+    "title": "Answer one question first: what capability are you actually missing",
+    "lede": "MCP is not \"making AI smarter\" — it is <strong>giving AI access to what it could not otherwise reach</strong>. If all you want is chat and writing code, you do not need it. <strong>You install it, the AI calls it</strong> — 10 entries: 7 are the MCP org's reference servers, 2 are maintained by their own official teams (Playwright / Context7), and 1 is vendor-official (GitHub's own github-mcp-server).",
+    "steps": [
+      ["I need to read/write local files / work with Git", "filesystem, git", "Both have read and write permissions; for the git category it is worth checking what directories the scope can be limited to."],
+      ["I need it to remember things across sessions", "memory", "This is the most misunderstood category — <strong>it is not \"model memory\"</strong> but an external knowledge-graph store."],
+      ["I need AI to reach the web for material", "context7, fetch", "fetch carries the highest risk: the entry quotes an official warning — <strong>it can reach local and internal IPs, with no address allowlist and no approval mechanism</strong>."],
+      ["I need to drive a real browser", "playwright", "Note the official <strong>explicit statement that source restrictions are not a security boundary</strong>; real isolation requires `--isolated` or a containerised network policy."],
+      ["I want time / decomposition / cross-platform file search", "time, sequential-thinking, everything", "All three are read-only, so risk is lowest."],
+      ["I need to work with GitHub (repos / issues / PRs / Actions)", "See <strong>github-mcp</strong>", "GitHub's own MCP server — not the same line as the archived reference server; permissions follow the GitHub token and can be tightened to read-only."]
+    ],
+    "foot": "⚠ An easily overlooked dimension: <strong>data leaving the country</strong>. Context7 is delivered as a remote service by default — queries go to Upstash's servers; GitHub MCP Server offers both a remote hosted and a local Docker form; the other eight are local stdio processes. And — <strong>installing an MCP server is manual; calling it is not</strong>: once running, the server reports its tool list to your client automatically, and after that the agent decides whether and when to call it. You only get involved at the approval step."
+  },
+
+  "harness": {
+    "title": "Answer one question first: do you need to build one at all",
+    "lede": "This is the only reason this section exists. <strong>If a finished product already does the job, the right answer is \"do not build\"</strong> — go to <a href=\"/\">Finished Agents</a> and stop reading. If you really are building, the first step is being clear which abstraction layer you want.",
+    "steps": [
+      ["I want the finest control and will manage the filesystem myself", "<strong>Primitives only</strong>", "You get the raw agent-loop primitives and it does not decide for you how the filesystem, planning or memory work — OpenAI Agents SDK is in this group."],
+      ["I want a mature CLI turned into an API object", "<strong>Wrapping an existing CLI</strong>", "Claude Agent SDK bundles a complete CLI with all tools and no sandbox — you save reinventing it, but the permission model is inherited."],
+      ["I want a general long-task assistant that works out of the box", "<strong>Batteries included</strong>", "Deep Agents describes itself as opinionated: more is preset, and more has been decided for you."],
+      ["I need a graph, interruptible resumption, and multi-agent collaboration", "<strong>Orchestration frameworks</strong>: LangGraph / Google ADK / CrewAI", "LangGraph has the clearest checkpoint granularity (graph state saved every superstep), ADK has the most complete graph execution engine, CrewAI uses two abstractions: role division and event flow."],
+      ["I want it resident, cross-platform, able to run on a schedule", "<strong>Platform / resident type</strong>: OpenHands / Hermes Agent", "OpenHands is a self-hosted control centre with a web UI; Hermes goes further — it attaches to Telegram, Discord, Slack, WhatsApp, Signal and Email, and can run unattended on cron."],
+      ["I just want a tool to use, not something to maintain", "You should not be in this section", "That belongs on the \"do not build\" side — see <a href=\"/\">Finished Agents</a>."]
+    ],
+    "foot": "⚠ Three traps people fall into most easily: <strong>\"state\" and \"context\" are not the same thing</strong> — compressing context loses information, while state persistence is what makes long-term reliable operation possible (and vendors differ a lot in how complete these two layers are). <strong>\"provider-agnostic\" does not mean \"local models work\"</strong> — Claude Agent SDK supports only Claude, while CrewAI explicitly names Ollama support. <strong>Orchestration frameworks provide no sandbox</strong> — you have to establish the permission boundary yourself."
+  }
+}

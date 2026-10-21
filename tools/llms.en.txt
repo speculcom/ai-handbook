@@ -1,0 +1,33 @@
+# Agent Atlas (ai-agent-guide)
+
+> Which agent / runtime / tool should you use?
+
+Organizes "AI products that do work for you" along two levels: **division** (finished agents / build-your-own foundations / tools to install for an agent) and **form** (IDE / CLI / vendor cloud / runtime / MCP), compared across one fixed set of dimensions.
+
+## Size (computed from data — see the build scripts under `scripts/` and `_audit/gen-repo-docs.mjs`)
+
+52 profiles across three divisions (agents 27, harness 15, tools 10), compared across a fixed set of 8 dimensions.
+
+## Content map
+
+- `tracks/agents/products/` — Finished agents (the IDE / CLI / vendor-cloud forms all live here)
+- `tracks/harness/products/` — Build-your-own foundations: runtimes / orchestration frameworks / SDKs
+- `tracks/tools/products/` — MCP tools to install for an agent
+- `axes/` — Comparison dimension definitions (what each dimension asks)
+- `SCHEMA.md` — Field schema
+
+## What this repo does not do
+
+- No overall ranking — a weighted total hides trade-offs
+- No hands-on testing (untested dimensions are marked "unknown", never guessed)
+- No "best to use" — only "who it suits / who it does not"
+
+## Schema and validation
+
+- Field schema: `SCHEMA.md`
+- Validator: `scripts/validate.mjs` (non-compliant entries fail the build)
+- Cross-division links: every profile needs at least 1 `related` entry from **another division** (probe: `_audit/link-graph.mjs`)
+
+## Site
+
+https://agent.specul.com/

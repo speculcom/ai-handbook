@@ -1,0 +1,552 @@
+{
+  "_comment": "轻档案真相源（v7 S45 格式 · S46 对话问答 6 条 · S47 陪你创作 8 条 · 2026-10-20）。D4 定案：对话问答类与创作工具类用三要素卡（能做什么 / 数据去哪 / 适合谁），明确不上八维。D9 定案：价格不进数据层——没有 cost 字段，pricing_url 只放官方定价页链接。S47 定案：创作类多一列「商用许可」（license 必填，逐条抄官方条款——许可稳定、不是价格）。字段规范见 SCHEMA.md §九。",
+  "kindEnum": [
+    "chat",
+    "creation"
+  ],
+  "items": [
+    {
+      "id": "chatgpt",
+      "kind": "chat",
+      "name": "ChatGPT",
+      "nameEn": "ChatGPT",
+      "vendor": "OpenAI",
+      "homepage": "https://chatgpt.com/",
+      "pricing_url": "https://openai.com/chatgpt/pricing/",
+      "what": "对话问答 + 文件与图像输入 + 联网搜索 + 语音；有临时聊天（不进历史记录、不建记忆）。",
+      "whatEn": "Chat, file and image inputs, web search and voice; Temporary Chat mode keeps conversations out of history and memory.",
+      "data": "官方口径：个人服务（ChatGPT / Codex 等）默认可能用你的对话训练模型，可在「设置 → 数据控制」关闭「为所有用户改进模型」或在隐私门户选「请勿使用我的内容进行训练」；临时聊天不用于训练。企业侧（Team / Enterprise / API）默认不训练，API 需显式 opt-in 才共享。你主动点赞/点踩的反馈，其整段对话仍可能用于训练。",
+      "dataEn": "Per official policy: for individual services (ChatGPT / Codex), conversations may train models by default — opt out via Settings → Data Controls (turn off \"Improve model for everyone\") or the privacy portal (\"do not train on my content\"). Temporary Chats are never used for training. Business products (Team / Enterprise / API) are not trained on by default; API customers must explicitly opt in. Feedback you submit (thumbs up/down) may train models on the whole related conversation.",
+      "who": "要「什么都能问一点」、接受云端处理的人。敏感内容先关训练开关或用临时聊天；企业数据走 Team / Enterprise / API 线。",
+      "whoEn": "For general-purpose question answering that accepts cloud processing. For sensitive content, turn training off or use Temporary Chat; business data belongs on the Team / Enterprise / API line.",
+      "sources": [
+        {
+          "label": "OpenAI · How your data is used to improve model performance（官方政策页，2026-10-20 经搜索快照取到正文；直连 403 为反爬拦截）",
+          "url": "https://openai.com/policies/how-your-data-is-used-to-improve-model-performance"
+        },
+        {
+          "label": "OpenAI Help · 你的数据如何用于提升模型性能（5722486，含「设置 > 数据控制」路径与临时聊天口径）",
+          "url": "https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "no",
+        "direct_note": "chatgpt.com 大陆直连稳定超时（同日两次 000）。",
+        "direct_note_en": "chatgpt.com times out consistently from mainland (000 twice).",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "claude-chat",
+      "kind": "chat",
+      "name": "Claude（对话应用）",
+      "nameEn": "Claude (chat app)",
+      "vendor": "Anthropic",
+      "homepage": "https://claude.ai/",
+      "pricing_url": "https://www.anthropic.com/pricing",
+      "what": "对话问答 + 长文档分析 + Artifacts 代码与内容产出；与本站的 Claude Code（编码 agent）是两条产品线。",
+      "whatEn": "Chat, long-document analysis and Artifacts for code and content — a different product line from Claude Code, the coding agent.",
+      "data": "官方隐私政策（2026-09-10 生效）：消费者对话默认可能用于训练，可在账户设置的数据隐私控制里 opt out；即使退出，被安全审查标记的对话仍会被用。删除的对话立即从前端移除、后端 30 天内自动删除。API / Enterprise 数据不适用本政策，由客户协议管辖。",
+      "dataEn": "Per the official privacy policy (effective 2026-09-10): consumer conversations may train models by default — opt out in account settings under data privacy controls. Even after opting out, conversations flagged for safety review are still used. Deleted conversations disappear from history immediately and are removed from the backend within 30 days. API / Enterprise data is governed by customer agreements, not this policy.",
+      "who": "重长文阅读与写作质量的人。要「对话绝不进训练」就在设置里 opt out；要合同级数据条款走 API / Enterprise。",
+      "whoEn": "For people who weight long-document reading and writing quality. To keep conversations out of training, opt out in settings; for contractual data terms use API / Enterprise.",
+      "sources": [
+        {
+          "label": "Anthropic · Privacy Policy（2026-10-20 直抓正文核验：训练 opt-out、安全审查例外、30 天删除、API 由客户协议管辖）",
+          "url": "https://www.anthropic.com/legal/privacy"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "no",
+        "direct_note": "claude.ai 直连 302 到官方「本地区域不可用」页（app-unavailable-in-region）——官方明确不可用。",
+        "direct_note_en": "claude.ai redirects to the official \"app unavailable in region\" page — the vendor itself states unavailability.",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "gemini-chat",
+      "kind": "chat",
+      "name": "Gemini（对话应用）",
+      "nameEn": "Gemini (chat app)",
+      "vendor": "Google",
+      "homepage": "https://gemini.google.com/",
+      "pricing_url": "https://one.google.com/about/google-ai-plans",
+      "what": "对话问答 + Google 生态联动（搜索、Workspace、Chrome）+ 多模态输入；Connected Apps 可接第三方工具（含 MCP server 工具）。",
+      "whatEn": "Chat with deep Google integration (Search, Workspace, Chrome) and multimodal input; Connected Apps can include third-party tools such as MCP server tools.",
+      "data": "官方 Gemini Apps 隐私声明（2026-10-13 更新）：Keep Activity 开启时，你的提示、生成内容与反馈会用于改进 Google 服务（含训练生成式模型）；关闭后未来对话不用于训练（除非你提交反馈）。临时聊天与关闭活动记录时保留 72 小时、不用于训练。官方明确：不直接拿 Gmail / Drive / Photos 原库训练，但回答中产生的摘要、摘录与推断会被用于训练。人工审核员会审阅部分数据——官方提醒勿输入机密信息。",
+      "dataEn": "Per the official Gemini Apps Privacy Notice (updated 2026-10-13): with Keep Activity on, your prompts, generated content and feedback are used to maintain and improve Google services, including training generative models; with it off, future chats are not used for training unless you submit feedback. Temporary chats and activity-off chats are retained 72 hours and not used for training. Google states it does not train directly on your Gmail / Drive / Photos libraries, but summaries, excerpts and inferences produced while answering do train models. Human reviewers review some data — the notice warns against entering confidential information.",
+      "who": "已在 Google 生态里工作的人（联动是真优势）。在意训练就关 Keep Activity；在意机密内容按官方提醒不要输入。",
+      "whoEn": "Best for people already working inside the Google ecosystem — the integration is a real advantage. Turn Keep Activity off if training use matters; per the official warning, keep confidential content out.",
+      "sources": [
+        {
+          "label": "Google · Gemini Apps Privacy Notice（官方声明，2026-10-20 经搜索快照取到正文；直连超时为网络受限）",
+          "url": "https://support.google.com/gemini/answer/13594961"
+        },
+        {
+          "label": "Google · About personalization with Connected Apps（16836988，Connected Apps 训练口径：摘要/摘录/推断被训练）",
+          "url": "https://support.google.com/gemini/answer/16836988"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "no",
+        "direct_note": "gemini.google.com 大陆直连稳定超时（同日两次 000）。",
+        "direct_note_en": "gemini.google.com times out consistently from mainland (000 twice).",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "grok-chat",
+      "kind": "chat",
+      "name": "Grok",
+      "nameEn": "Grok",
+      "vendor": "xAI",
+      "homepage": "https://grok.com/",
+      "pricing_url": "https://x.ai/grok",
+      "what": "对话问答 + 实时网络搜索 + 公开 X 帖子检索；风格可调，图像生成与编辑。",
+      "whatEn": "Chat with real-time web search and public X post retrieval; adjustable persona, image generation and editing.",
+      "data": "官方 Consumer FAQ：默认可能用你的内容与 Grok 回复训练模型——在 App「Settings → Data Controls → Improve the model」或 grok.com「Settings → Data → Improve the Model」关闭；Private Chat 内容不用于训练；企业与 API 内容不用于训练。未登录使用时，官方称可匿名保留内容，部分地区（EU/UK 除外）没有退出训练的选项。删除的数据 30 天内从系统移除。在 X 内使用 Grok 适用 X 的隐私政策，是另一套条款。",
+      "dataEn": "Per the official Consumer FAQ: content and Grok's responses may train models by default — toggle it off in the app (Settings → Data Controls → Improve the model) or on grok.com (Settings → Data → Improve the Model). Private Chat content is never used for training; business and API content is not used for training. When unauthenticated, xAI says your content may be retained anonymously, and in some regions (excluding the EU/UK) there is no training opt-out option at all. Deleted data is removed within 30 days. Grok inside X falls under X's own privacy policy — a different set of terms.",
+      "who": "要接 X 实时信息的人。注意两处硬边界：未登录可能没有退出训练的选项；在 X 内用是 X 的条款，不是 xAI 的。",
+      "whoEn": "For people who want live X information baked in. Mind two hard edges: unauthenticated use may offer no training opt-out at all, and Grok inside X is governed by X's terms, not xAI's.",
+      "sources": [
+        {
+          "label": "xAI · Consumer FAQ（官方页，2026-10-20 经搜索快照取到正文；直连超时为网络受限）",
+          "url": "https://x.ai/legal/faq"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "no",
+        "direct_note": "grok.com 大陆直连稳定超时（同日两次 000）。",
+        "direct_note_en": "grok.com times out consistently from mainland (000 twice).",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "kimi-chat",
+      "kind": "chat",
+      "name": "Kimi",
+      "nameEn": "Kimi",
+      "vendor": "月之暗面 Moonshot AI",
+      "homepage": "https://www.kimi.com/",
+      "pricing_url": "https://www.kimi.com/membership",
+      "what": "中文对话问答 + 长文档解析与检索；另有开放平台 API（Moonshot 开放平台）。",
+      "whatEn": "Chinese-language chat with long-document parsing and retrieval; a separate Open Platform API exists for developers.",
+      "data": "官方数据使用与共享说明：在「经安全加密技术处理、严格去标识化且无法重新识别特定个人」的前提下，输入、指令与生成回复可能用于模型训练；退出须联系客服登记（验证身份后 5-7 个工作日），账号级统一退出、不支持按对话退出，退出后历史与新增数据都不再进训练集。数据存储于中国境内服务器。未经同意、法律要求或产品功能必需，不向第三方共享个人对话数据。Kimi Business 企业版核心承诺：企业数据不进入模型训练流程，个人与企业空间完全隔离。",
+      "dataEn": "Per the official Data Usage and Sharing notice: subject to encryption, strict de-identification and non-re-identifiability, your inputs, instructions and generated responses may be used for model training. Opting out requires a support request (completed within 5-7 working days after identity verification); it is account-wide — per-conversation opt-out is not supported — and once registered, neither historical nor new data enters the training set. Data is stored on servers within mainland China. Personal conversation data is not shared with third parties without consent, legal requirement or product necessity. Kimi Business commits that enterprise data never enters the training pipeline, with fully isolated personal and enterprise workspaces.",
+      "who": "中文长文档场景的主力。退出训练要走客服登记、不是自助开关——在意这一点要先确认；企业数据走 Kimi Business。",
+      "whoEn": "A workhorse for Chinese long-document work. Note the opt-out is a support-desk registration, not a self-serve toggle — confirm that fits your expectations; enterprise data belongs on Kimi Business.",
+      "sources": [
+        {
+          "label": "Kimi · 数据使用与共享说明（官方帮助页，2026-10-20 直抓核验：训练前提、退出流程、境内存储、Business 不训练）",
+          "url": "https://www.kimi.com/en/help/others/data-usage"
+        },
+        {
+          "label": "Kimi · 隐私政策（NOVASCENT PRIVATE LIMITED / Moonshot AI，2026-08-13 更新）",
+          "url": "https://www.kimi.ai/user/agreement/userPrivacy?version=v2"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "domestic",
+        "origin_note": "月之暗面（北京）。",
+        "origin_note_en": "Moonshot AI (Beijing).",
+        "direct": "yes",
+        "direct_note": "kimi.com 大陆直连实测 200。",
+        "direct_note_en": "kimi.com measured 200 direct.",
+        "filing": "filed",
+        "filing_note": "首批公告第 16 行。",
+        "filing_note_en": "Listed in the CAC registry as Moonshot（月之暗面） (Beijing-MoonShot-20231016, filed 2023-11-03).",
+        "verified": "2026-10-20",
+        "filing_name": "Moonshot（月之暗面）",
+        "filing_no": "Beijing-MoonShot-20231016",
+        "filing_date": "2023-11-03"
+      }
+    },
+    {
+      "id": "doubao-chat",
+      "kind": "chat",
+      "name": "豆包",
+      "nameEn": "Doubao",
+      "vendor": "字节跳动",
+      "homepage": "https://www.doubao.com/",
+      "pricing_url": "https://www.doubao.com/",
+      "what": "中文对话问答 + 文生图 + 语音对话 + 文档解析；另有火山引擎「火山方舟」提供企业级 API。",
+      "whatEn": "Chinese-language chat, image generation, voice chat and document parsing; enterprise-grade APIs are sold separately through Volcengine Ark.",
+      "data": "官方隐私政策 §1.10：在「经安全加密技术处理、严格去标识化且无法重新识别特定个人」的前提下，输入数据、指令与生成回复可能用于模型训练；可在「设置 → 隐私与权限 → 帮助模型改进效果」（移动端）或「设置 → 帮助模型改进效果」（PC / 网页端）关闭。API 侧是另一套口径：火山引擎《豆包模型服务协议》§4.1 —— 除非你单独同意，不使用你提交或输出的内容训练基础模型。",
+      "dataEn": "Per the official privacy policy §1.10: subject to encryption, strict de-identification and non-re-identifiability, your inputs, instructions and generated responses may be used for model training; turn it off under Settings → Privacy & Permissions → \"Help improve the model\" (mobile) or Settings → \"Help improve the model\" (PC / web). The API line follows different terms: Volcengine's Doubao Model Service Agreement §4.1 — content you submit or receive is not used to train foundation models unless you separately agree.",
+      "who": "中文日常问答与文生图。App 训练开关是自助的，API 默认不训练——两条线的条款不同，别混着理解。",
+      "whoEn": "For everyday Chinese chat and image generation. The consumer training toggle is self-serve, while the API defaults to no training — the two lines carry different terms, so don't read one through the other.",
+      "sources": [
+        {
+          "label": "豆包 · 隐私政策（官方页，2026-10-20 直抓核验 §1.10：训练前提与关闭路径）",
+          "url": "https://doubao.com/legal/privacy"
+        },
+        {
+          "label": "火山引擎 · 豆包模型服务协议（§4.1：除非单独同意，不训练）",
+          "url": "https://www.volcengine.com/docs/82379/1142195"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "domestic",
+        "origin_note": "字节跳动（北京）。",
+        "origin_note_en": "ByteDance (Beijing).",
+        "direct": "yes",
+        "direct_note": "doubao.com 大陆直连实测 200。",
+        "direct_note_en": "doubao.com measured 200 direct.",
+        "filing": "filed",
+        "filing_note": "首批第 3 行；抖音官方备案公示页确认「豆包大模型」即此编号（2024-08 算法备案由云雀更名为豆包）。",
+        "filing_note_en": "Listed in the CAC registry as 云雀大模型（豆包前身） (Beijing-YunQue-20230821, filed 2023-08-31).",
+        "verified": "2026-10-20",
+        "filing_name": "云雀大模型（豆包前身）",
+        "filing_no": "Beijing-YunQue-20230821",
+        "filing_date": "2023-08-31"
+      }
+    },
+    {
+      "id": "midjourney",
+      "kind": "creation",
+      "name": "Midjourney",
+      "nameEn": "Midjourney",
+      "vendor": "Midjourney, Inc.",
+      "homepage": "https://www.midjourney.com/",
+      "pricing_url": "https://docs.midjourney.com/hc/en-us/articles/27174136160653-Subscription-Plans",
+      "what": "图像与视频生成；网页应用与 Discord Bot 两条使用线；社区公开浏览与 Remix 是产品默认形态。",
+      "whatEn": "Image and video generation via the web app and the Discord bot; public browsing and remixing are the product's default community shape.",
+      "data": "官方隐私政策 §1 明确其适用范围包含「通过训练 Midjourney 机器学习算法的过程收集的数据」；官方 AB2013 训练数据披露称训练集含「第三方与 Midjourney 用户提供的数据」。官方帮助页称默认公开可浏览、可被他人 Remix，仅 Pro / Mega 档的 Stealth 模式承诺尽力不公开。官方文档未见面向用户的训练退出开关。",
+      "dataEn": "The official privacy policy §1 states it applies to data 'collected through the process of training Midjourney machine learning algorithms'; the official AB2013 training-data disclosure lists 'data our users provide through use of the Midjourney service' among training sources. Official docs describe content as publicly viewable and remixable by default, with Stealth Mode (Pro / Mega only) as the best-efforts non-publishing option. No user-facing training opt-out control is documented.",
+      "who": "重图像风格质量、能接受「默认公开」社区形态的人。要作品不公开或商用归属清晰，先看订阅档与 Stealth 条款再开工。",
+      "whoEn": "For people who weight image style quality and accept an open-by-default community. If non-public work or clean commercial ownership matters, read the plan tiers and Stealth terms before starting.",
+      "license": "官方 ToS §4「Content Rights」：付费用户拥有 Assets——「You own all Assets You create with the Services to the fullest extent possible under applicable law」，且「Your ownership of the Assets you created persists even if in subsequent months You downgrade or cancel Your membership」；例外：年营收超 100 万美元的公司（或其员工）必须订阅 Pro / Mega 档才拥有 Assets；他人图像 upscale 后仍归原作者。非付费用户不拥有 Assets，只获 CC BY-NC 4.0（非商用）许可。另授予 Midjourney 对输入与 Assets 的永久免许可金。",
+      "licenseEn": "Official ToS §4 'Content Rights': paid users own their Assets — 'You own all Assets You create with the Services to the fullest extent possible under applicable law', and ownership 'persists even if in subsequent months You downgrade or cancel Your membership'. Exceptions: companies (or their employees) with more than $1,000,000 USD annual revenue must subscribe to a Pro or Mega plan to own Assets; upscaling another user's image leaves it owned by the original creator. Non-paid members do not own Assets — they receive a Creative Commons Noncommercial 4.0 license. Users also grant Midjourney a perpetual royalty-free license over Content and Assets.",
+      "sources": [
+        {
+          "label": "Midjourney · Terms of Service（官方 ToS，2026-10-20 经搜索快照取到 §4 全文；直连 403 为反爬拦截）",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/32083055291277-Terms-of-Service"
+        },
+        {
+          "label": "Midjourney · AB2013 Training Data Documentation（官方训练数据披露，含用户数据入训练集）",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/42829949256205-AB2013-Documentation"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "unknown",
+        "direct_note": "midjourney.com 对 curl 直连与代理都返回 403（反爬拦截），本方法无法判定可达性。",
+        "direct_note_en": "midjourney.com returns 403 to curl both direct and proxied (anti-bot) — reachability cannot be judged by this method.",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "stability-ai",
+      "kind": "creation",
+      "name": "Stability AI（Stable Image 平台）",
+      "nameEn": "Stability AI (Stable Image platform)",
+      "vendor": "Stability AI",
+      "homepage": "https://stability.ai/",
+      "pricing_url": "https://stability.ai/membership",
+      "what": "图像生成平台（Stable Image 系列模型）；另有可自托管的开源权重模型（Stable Diffusion 系）。",
+      "whatEn": "An image-generation platform built on the Stable Image models; separately, open-weight Stable Diffusion models can be self-hosted.",
+      "data": "官方 ToS：用户可选择退出把内容用于训练（opt-out 机制在条款内写明）；平台对上传内容取得运营所需许可。开源权重模型的训练数据口径见官方模型卡与基准报告。",
+      "dataEn": "Per the official Terms of Service, users may opt out of having their content used for training (the opt-out mechanism is written into the terms); the platform takes the licenses it needs to operate. Training-data disclosures for the open-weight models live in the official model cards and benchmark reports.",
+      "who": "想要「平台服务 + 可自托管开源模型」两条线都摸得到的人。商用条款平台版与开源版不同，分开读。",
+      "whoEn": "For people who want both a hosted platform and self-hostable open weights. Platform licensing and open-model licensing are different documents — read them separately.",
+      "license": "官方 ToS §4(a)：「we assign to you all of our right, title, and interest (if any) in the Outputs」——输出物所有权归用户；§3(b) 限制：不得转售输出、不得用输出训练竞争模型、不得去除水印或来源标识。开源的 Stable Diffusion 权重按各自的开源许可证发布（自托管商用看模型许可证）。",
+      "licenseEn": "Official ToS §4(a): 'we assign to you all of our right, title, and interest (if any) in the Outputs' — output ownership is assigned to the user. §3(b) limits: no reselling outputs, no training competing models on outputs, no removing watermarks or provenance marks. The open-weight Stable Diffusion models are released under their own open licenses; commercial self-hosting follows those model licenses.",
+      "sources": [
+        {
+          "label": "Stability AI · Terms of Service（官方条款，2026-10-20 直抓 200 核验 §4(a) 所有权转让与 §3(b) 限制）",
+          "url": "https://stability.ai/terms-of-service"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "yes",
+        "direct_note": "官网直连实测 200。",
+        "direct_note_en": "official site measured 200 direct.",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "flux",
+      "kind": "creation",
+      "name": "FLUX（Black Forest Labs）",
+      "nameEn": "FLUX (Black Forest Labs)",
+      "vendor": "Black Forest Labs",
+      "homepage": "https://bfl.ai/",
+      "pricing_url": "https://bfl.ai/pricing",
+      "what": "图像生成模型家族（FLUX 系）：官方 API 与 playground 提供托管生成，部分权重开源可自托管。",
+      "whatEn": "The FLUX family of image models: hosted generation through the official API and playground, with some weights open for self-hosting.",
+      "data": "官方 ToS：默认可能用输入与输出改进模型，退出走 legal@blackforestlabs.ai 邮件申请；条款对「用输出训练其他模型」有明确限制。",
+      "dataEn": "Per the official ToS, inputs and outputs may be used to improve the models by default; opt-out is requested by emailing legal@blackforestlabs.ai. The terms explicitly restrict training other models on outputs.",
+      "who": "要接 FLUX 官方 API、或想自托管开源 FLUX 权重的人。托管与自托管的许可路径不同，商用前先确认走哪条。",
+      "whoEn": "For people using the official FLUX API or self-hosting open FLUX weights. Hosted and self-hosted licensing are different paths — confirm which one you are on before commercial use.",
+      "license": "官方 ToS 1.2(a)：平台不主张输出物所有权；1.3(e)：商用权限于用户自己的 Output；1.3(n)：禁止用 Output 训练其他模型。开源 FLUX 权重按各自的开源许可证发布（自托管商用看模型许可证）。",
+      "licenseEn": "Official ToS 1.2(a): the platform does not claim ownership of Outputs. 1.3(e): commercial use is limited to your own Outputs. 1.3(n): training other models on Outputs is prohibited. Open FLUX weights are released under their respective open licenses; commercial self-hosting follows those model licenses.",
+      "sources": [
+        {
+          "label": "Black Forest Labs · Terms of Service（官方条款，2026-10-20 直抓 200 核验 1.2(a)/1.3(e)/1.3(n) 与 legal@ 退出路径）",
+          "url": "https://blackforestlabs.ai/terms-of-service/"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "yes",
+        "direct_note": "官网 bfl.ai 直连实测 200。",
+        "direct_note_en": "bfl.ai measured 200 direct.",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "veo",
+      "kind": "creation",
+      "name": "Veo（Google）",
+      "nameEn": "Veo (Google)",
+      "vendor": "Google",
+      "homepage": "https://deepmind.google/technologies/veo/",
+      "pricing_url": "https://cloud.google.com/vertex-ai/generative/pricing",
+      "what": "Google 的视频生成模型家族：经 Gemini API / Vertex AI 与 Google AI 订阅计划提供，带水印与 SynthID 溯源标记。",
+      "whatEn": "Google's video-generation model family, available through the Gemini API / Vertex AI and Google AI plans, with watermarks and SynthID provenance marks.",
+      "data": "官方 Gemini API 附加条款（2026-03-23 生效）：非付费服务（AI Studio、免费配额）提交的内容与生成回答会被用于「提供、改进与开发 Google 产品与机器学习技术」，且人工审核员可能阅读；付费服务不用于改进产品，按数据处理附加条款处理。EEA / 瑞士 / 英国用户即使免费配额也按付费口径。",
+      "dataEn": "Per the official Gemini API Additional Terms (effective 2026-03-23): for Unpaid Services (AI Studio, free quota), submitted content and generated responses are used 'to provide, improve, and develop Google products and services and machine learning technologies', and human reviewers may read them; for Paid Services, prompts and responses are not used to improve products and are handled under the Data Processing Addendum. Users in the EEA / Switzerland / the UK get the Paid-Services data terms even on free quota.",
+      "who": "已在 Google 云 / Workspace 生态、需要企业级数据条款（付费不训练）的视频生成用户。免费配额线会被训练，别混。",
+      "whoEn": "For video generation inside the Google cloud ecosystem that needs enterprise data terms (no training on paid tiers). The free-quota line is trained on — don't conflate the two.",
+      "license": "官方 Gemini API 附加条款「Use of Generated Content」：「Google won't claim ownership over that content」——Google 不主张生成内容所有权；商用按适用法律合规使用（API 返回时可能需向你的用户提供归属信息）。官方同时声明输出可能与他人相似、并保留水印与 SynthID 标记。",
+      "licenseEn": "Official Gemini API Additional Terms, 'Use of Generated Content': 'Google won't claim ownership over that content.' Commercial use must comply with applicable law, and content returned via API calls may require attribution to your users. Google also notes outputs may be similar across users and reserves watermarking and SynthID marks.",
+      "sources": [
+        {
+          "label": "Google · Gemini API Additional Terms of Service（官方条款，2026-10-20 经搜索快照取到全文；直连超时为网络受限）",
+          "url": "https://ai.google.dev/gemini-api/terms"
+        },
+        {
+          "label": "Google DeepMind · Veo 产品页（官方页，2026-10-20 直抓 200）",
+          "url": "https://deepmind.google/technologies/veo/"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "yes",
+        "direct_note": "介绍页 deepmind.google 直连实测 200；产品入口 gemini.google.com 大陆直连不可达（实测 000）——能不能用取决于产品入口。",
+        "direct_note_en": "the intro page deepmind.google measured 200 direct; the product entry gemini.google.com is unreachable direct (measured 000) — actual availability hinges on the product entry.",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "runway",
+      "kind": "creation",
+      "name": "Runway",
+      "nameEn": "Runway",
+      "vendor": "Runway AI, Inc.",
+      "homepage": "https://runwayml.com/",
+      "pricing_url": "https://runwayml.com/pricing",
+      "what": "视频与图像生成平台（Gen 系模型 + API）；API 可嵌入自有应用（须按品牌指引标注 Powered by Runway）。",
+      "whatEn": "A video and image generation platform (the Gen model family plus APIs); APIs can be embedded in your own applications subject to 'Powered by Runway' branding guidelines.",
+      "data": "官方 ToU §4.4：输入与输出可能被用于训练与改进其模型——条款写明用户授予「non-exclusive, irrevocable, perpetual」训练许可；§4.2 平台不主张 Your Content 所有权，但公开区内容会授予大范围许可。未见训练退出开关。",
+      "dataEn": "Per the official Terms of Use §4.4, Inputs and Outputs may be used to train and improve Runway's models — the clause grants a 'non-exclusive, irrevocable, perpetual' license for that purpose. §4.2 states the company does not claim ownership of Your Content, while publicly posted content carries a broad license. No training opt-out control is documented.",
+      "who": "重视频生成工作流、要 API 集成的团队。在意「素材绝不进训练」的要先确认这一点——条款层面没有退出选项。",
+      "whoEn": "For teams weighting video-generation workflows and API integration. If 'my material never enters training' is a hard requirement, note the terms offer no opt-out.",
+      "license": "官方 ToU §4.4「User Inputs and Outputs」：「The Company does not claim ownership of any of your Inputs or Outputs. Subject to your compliance with the Agreement, the Company does not restrict your commercial use of your Outputs.」——不主张所有权、商用不设限（以遵守条款为前提）；§10.1(a) 声明输出可能不唯一。§5(viii) 禁止用输出开发竞争产品。",
+      "licenseEn": "Official Terms of Use §4.4 'User Inputs and Outputs': 'The Company does not claim ownership of any of your Inputs or Outputs. Subject to your compliance with the Agreement, the Company does not restrict your commercial use of your Outputs.' §10.1(a) warns outputs may not be unique. §5(viii) bars using outputs to develop competing products.",
+      "sources": [
+        {
+          "label": "Runway · Terms of Use（官方条款，Last Updated 2026-09-15，2026-10-20 直抓 200 核验 §4.4 全文）",
+          "url": "https://runwayml.com/terms-of-use"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "yes",
+        "direct_note": "官网直连实测 200。",
+        "direct_note_en": "official site measured 200 direct.",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "kling",
+      "kind": "creation",
+      "name": "可灵 Kling AI",
+      "nameEn": "Kling AI",
+      "vendor": "Kling AI Pte. Ltd.（快手）",
+      "homepage": "https://klingai.com/global/",
+      "pricing_url": "https://klingai.com/global/membership",
+      "what": "视频与图像生成（Kling 视频系 + Image 系）；网页 / App / API 三线，另有 Team Space 团队空间。",
+      "whatEn": "Video and image generation (the Kling video and image model families) across web, app and API, with Team Spaces for collaboration.",
+      "data": "官方国际版 ToS（2026-04-21 生效）§4.7.3(f)：平台可为「create, test, improve, train」其模型处理内容；§4.7.4 退出走邮件 support@kling.ai（撤销面向未来，不溯及已完成的训练）。§4.8：发布到社区的内容可被其他用户 Recreate / 下载。",
+      "dataEn": "Per the official international ToS (effective 2026-04-21) §4.7.3(f), Kling may process content to 'create, test, improve, train' its models; §4.7.4 offers revocation by emailing support@kling.ai — forward-looking only, not unwinding completed training. §4.8: content published to the community may be recreated or downloaded by other users.",
+      "who": "重图生视频质量与中文生态的人。商用要先过会员线（见许可列），发布到社区等于公开。",
+      "whoEn": "For people weighting image-to-video quality and the Chinese-language ecosystem. Commercial use runs through the membership line (see the license column); publishing to the community means publishing.",
+      "license": "官方国际版 ToS §4.4：「You own all intellectual property rights and other proprietary interests in and to the Content under applicable law… We do not claim ownership of the Content.」——所有权归用户；但 §4.6：「without our written permission, you may not use, reproduce, distribute… the Output for any commercial purposes」——商用需书面许可。会员的商业许可在《Terms of Paid Service》（3.1.2 会员商用不受限、7.2 水印归属）——该页正文为动态加载、本次直抓未能取得，本站不转述其细节；非会员按 §4.5 须为输出标注 Kling 品牌。",
+      "licenseEn": "Official international ToS §4.4: 'You own all intellectual property rights and other proprietary interests in and to the Content under applicable law… We do not claim ownership of the Content.' But §4.6: 'without our written permission, you may not use, reproduce, distribute… the Output for any commercial purposes' — commercial use requires written permission. The membership commercial license lives in the Terms of Paid Service (reported as 3.1.2 members' commercial use unrestricted and 7.2 watermark rights) — that page loads its text dynamically and could not be fetched directly on 2026-10-20, so this site does not restate its details. Non-members must label output with Kling branding per §4.5.",
+      "sources": [
+        {
+          "label": "Kling AI · Terms of Service（国际版官方条款，2026-10-20 直抓 200 核验 §4.4/§4.6/§4.7 全文）",
+          "url": "https://app.klingai.com/global/docs/user-policy"
+        },
+        {
+          "label": "Kling AI · Terms of Paid Service（条款入口页，正文动态加载、本次未能直抓核验——会员商用细节本站不转述）",
+          "url": "https://app.klingai.com/global/docs/paid-service-terms"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "partial",
+      "cn": {
+        "origin": "domestic",
+        "origin_note": "快手（北京）旗下产品。",
+        "origin_note_en": "Kuaishou product (Beijing).",
+        "direct": "yes",
+        "direct_note": "klingai.com 大陆直连实测 200。",
+        "direct_note_en": "klingai.com measured 200 direct.",
+        "filing": "filed",
+        "filing_note": "2024-11 批次附件第 218 行。",
+        "filing_note_en": "Listed in the CAC registry as 可灵 (Beijing-KeLing-202409250032, filed 2024-10-15).",
+        "verified": "2026-10-20",
+        "filing_name": "可灵",
+        "filing_no": "Beijing-KeLing-202409250032",
+        "filing_date": "2024-10-15"
+      }
+    },
+    {
+      "id": "suno",
+      "kind": "creation",
+      "name": "Suno",
+      "nameEn": "Suno",
+      "vendor": "Suno Inc.",
+      "homepage": "https://suno.com/",
+      "pricing_url": "https://suno.com/pricing",
+      "what": "AI 音乐生成（歌曲 + 人声 + Voice Model 声音克隆）；网页与移动端。",
+      "whatEn": "AI music generation — songs, vocals and Voice Models (voice cloning) on web and mobile.",
+      "data": "官方 ToS：用户保留 Submissions 所有权（「you retain all right, title, and interest in and to your Submissions」），但授予 Suno 全球免许可金（含创建衍生作品）；条款明确该许可覆盖「train, develop, fine-tune or otherwise improve」其模型，未见训练退出开关。禁止用输出训练其他模型。",
+      "dataEn": "Per the official ToS, users retain all right, title and interest in their Submissions, while granting Suno a worldwide royalty-free license (including creating derivative works); the terms state this license covers using content 'to train, develop, fine-tune or otherwise improve' its models, with no training opt-out documented. Training other models on outputs is prohibited.",
+      "who": "做 AI 音乐、在意「上传素材归我」的人。商用要走付费下载通道（见许可列），Remix 一律非商用。",
+      "whoEn": "For AI-music makers who care that uploads stay theirs. Commercial exploitation runs through paid download channels (see the license column); Remixes are non-commercial across the board.",
+      "license": "官方 ToS：Pro / Premier 付费档——「Suno hereby assigns to you all of its right, title and interest in and to any Output owned by Suno」；免费 / Basic 档——输出仅限「lawful, personal and non-commercial purposes」。商用许可绑定「Permitted Commercial Use」：只有经付费档下载配额下载的 Output 可商用；Remix（他人二创）无论档位一律非商用。",
+      "licenseEn": "Official ToS: on the Pro / Premier paid tiers, 'Suno hereby assigns to you all of its right, title and interest in and to any Output owned by Suno'; on the free / Basic tier, Outputs may only be used for 'lawful, personal and non-commercial purposes'. Commercial rights are tied to 'Permitted Commercial Use' — only Outputs downloaded through your paid tier's download allocation may be commercially exploited. Remixes are non-commercial regardless of tier.",
+      "sources": [
+        {
+          "label": "Suno · Terms of Service（官方条款，2026-10-20 直抓 200 核验 Pro/Premier 转让、免费档非商用、Permitted Commercial Use、Remix 条款）",
+          "url": "https://suno.com/terms"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "no",
+        "direct_note": "suno.com 大陆直连稳定超时（同日两次 000）。",
+        "direct_note_en": "suno.com times out consistently from mainland (000 twice).",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    },
+    {
+      "id": "elevenlabs",
+      "kind": "creation",
+      "name": "ElevenLabs",
+      "nameEn": "ElevenLabs",
+      "vendor": "ElevenLabs",
+      "homepage": "https://elevenlabs.io/",
+      "pricing_url": "https://elevenlabs.io/pricing",
+      "what": "语音合成与配音（TTS / 朗读 / Voice Design 声音设计 / 克隆）；网页、API 与移动端。",
+      "whatEn": "Text-to-speech, dubbing and voice design / cloning across web, API and mobile.",
+      "data": "官方 ToU §4(d) 授予平台为运营与改进（含训练）使用内容的许可；§4(i) 提供 Data use 设置菜单可退出把内容用于训练。声音克隆须本人授权或取得合法授权。",
+      "dataEn": "Per the official ToU §4(d), users grant the platform a license to use content for operating and improving the service (including training); §4(i) provides a Data use settings menu to opt out of training use. Voice cloning requires the person's own consent or lawful authorization.",
+      "who": "做配音、有声内容、语音产品的团队。训练退出是自助菜单（相对少见，值得点名）；克隆他人声音前先拿授权。",
+      "whoEn": "For teams doing dubbing, audio content or voice products. The training opt-out is a self-serve menu (uncommon — worth knowing); get consent before cloning anyone's voice.",
+      "license": "官方 ToU §1(c)：付费用户可将输出用于商用，免费用户仅限「non-commercial purposes」；§4(c)(ii)：用户保留 Output 的权利与所有权。商用权与档位绑定——换档即换商用许可。",
+      "licenseEn": "Official ToU §1(c): paid users may use Outputs commercially, while free users are limited to 'non-commercial purposes'. §4(c)(ii): users retain rights and ownership in their Outputs. Commercial rights are tier-bound — changing plans changes the commercial license.",
+      "sources": [
+        {
+          "label": "ElevenLabs · Terms of Use（官方条款，2026-10-20 直抓 200 核验 §1(c)/§4(c)(ii)/§4(d)/§4(i)）",
+          "url": "https://elevenlabs.io/terms-of-use"
+        }
+      ],
+      "last_verified": "2026-10-20",
+      "confidence": "verified",
+      "cn": {
+        "origin": "foreign",
+        "origin_note": "国外主体（网信办公示名单未见对应备案主体）。",
+        "origin_note_en": "foreign entity (no matching filing entity in the CAC registry).",
+        "direct": "yes",
+        "direct_note": "官网直连实测 200。",
+        "direct_note_en": "official site measured 200 direct.",
+        "filing": "not-filed",
+        "filing_note": "未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。",
+        "filing_note_en": "not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.",
+        "verified": "2026-10-20"
+      }
+    }
+  ]
+}
