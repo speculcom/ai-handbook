@@ -24,6 +24,12 @@ An **index**, not a review site.
 - ❌ Not a weight mirror (**we do not download or host any model files**)
 - ❌ Not a news site (no hot takes, no news)
 
+## The no-ranking charter
+
+This site only lays out facts side by side (size / licence / official claims; prices are out of scope by rule) — merits are left to the reader.
+Official leaderboards are relayed with sources cited; this site publishes no ranking of its own and adjudicates no route disputes.
+Written into the charter from day one — every page footer carries "no benchmarks, no rankings — unknown stays unknown".
+
 ## How to read this
 
 10 base models, 132 quant variants, 1253 GGUF files. Nobody reads that list top to
