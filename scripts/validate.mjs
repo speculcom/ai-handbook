@@ -244,6 +244,13 @@ function checkCn(j, tag) {
   } else if (f.status === 'not-filed' && !f.note) {
     errors.push(`${tag} · cn.filing 未备案必须写 note 说明检索口径（「本站查过没查到」要可证）`);
   }
+  /* R2（v7 S59）：filing.note 有就必须有 noteEn——渲染层 bi(note, noteEn||note)
+   * 缺 noteEn 时英文态回落中文，i18n-render 探针会抓到英文态中文残留。
+   * 11 个系列的 filing.note 曾全部缺 noteEn（探针只扫 qwen3-8 详情页，只抓到一处），
+   * 这条把「探针扫到的那一处」升级成「数据层全量硬校验」。 */
+  if (f.note && !f.noteEn) {
+    errors.push(`${tag} · cn.filing.note 有就必须有 noteEn（R2：英文态不能回落中文）`);
+  }
   const srcs = c.sources || [];
   if (!srcs.length) errors.push(`${tag} · cn.sources 为空（R5：备案以官方公示为准、镜像/直连以实测出处为准）`);
   for (const [i, s] of srcs.entries()) {
