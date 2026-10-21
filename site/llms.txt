@@ -71,8 +71,12 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   8 节 · 9 条官方出处 · 核验 2026-10-21
 - [蒸馏：小模型怎么从大模型身上学](https://models.specul.com/guides/distillation.html): logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
   7 节 · 8 条官方出处 · 核验 2026-10-20
+- [GPU 事实与成本数学：跑模型的硬件账](https://models.specul.com/guides/gpu-cost-math.html): 推理卡的关键事实（显存容量与带宽，只录官方规格页口径）；decode 为什么是带宽瓶颈；吞吐与成本怎么按构成方法估——不存任何单价、不做购卡推荐。
+  7 节 · 6 条官方出处 · 核验 2026-10-21
 - [预训练：模型怎么做到「什么都知道一点」](https://models.specul.com/guides/pretraining.html): 预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。
   8 节 · 11 条官方出处 · 核验 2026-10-20
+- [跑起来深水：KV 缓存、批处理与推理引擎](https://models.specul.com/guides/serving-deep-dive.html): 推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。
+  7 节 · 8 条官方出处 · 核验 2026-10-21
 - [SFT：让续写机器学会「好好回答」](https://models.specul.com/guides/sft.html): 监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。
   7 节 · 7 条官方出处 · 核验 2026-10-20
 - [开源训练栈：多卡训练的工具链](https://models.specul.com/guides/training-stack.html): 一张卡装不下大模型之后，数据并行、ZeRO、张量并行、流水线并行怎么组合；DeepSpeed、Megatron-LM、torchtitan、nanotron、TRL 各站在哪一层。从业者视角的选型地图；词条版在学 AI 站，互链不重复。
