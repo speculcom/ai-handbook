@@ -113,7 +113,7 @@ export function format(c) {
 /* 直接运行时打印（便于手工核对） */
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
   const c = computeCompleteness();
-  console.log(`\n全赛道维度补齐率：${format(c)}  （未核验 ${c.unknown}）`);
+  console.log(`\n全分区维度补齐率：${format(c)}  （未核验 ${c.unknown}）`);
   for (const [t, v] of Object.entries(c.byTrack)) {
     console.log(`  ${t.padEnd(9)} ${v.done}/${v.total} = ${v.total ? Math.round(v.done / v.total * 100) : 0}%`);
   }

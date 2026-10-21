@@ -30,7 +30,7 @@ function requireArchives(track, dir) {
   return n;
 }
 
-console.log('=== 1. 赛道声明 vs 实际文件 ===');
+console.log('=== 1. 分区收录声明 vs 实际文件 ===');
 for (const t of TRACKS) {
   const txt = fs.readFileSync(R(`tracks/${t}/_track.md`), 'utf8');
   // 只认「至少 3 列」的表格行才算档案声明 —— `tracks/agents/_track.md` 里有一张
@@ -97,7 +97,7 @@ if (tagIssues.length) {
   console.log('  ✅ 所有条目标签都在池内');
 }
 
-console.log('\n=== 3. 赛道文件引用的 taxonomy 路径 ===');
+console.log('\n=== 3. 分区收录文件引用的 taxonomy 路径 ===');
 // v4：MCP 维度定义随赛道改名 mcp → tools，所以这里扫 tracks/tools/_track.md。
 // 保留 track 变量名 mcpTrack 只是历史叫法，实际读的是 tools。
 const mcpTrack = fs.readFileSync(R('tracks/tools/_track.md'), 'utf8');

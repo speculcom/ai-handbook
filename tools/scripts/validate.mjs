@@ -86,7 +86,7 @@ function validateEntry(file) {
       if (v === undefined || v === null || v === '') fail(`缺 MCP 维度: mcp.${a}`);
     }
   } else if (fm.mcp) {
-    // 非 MCP 赛道的对象不是 server，不该有 mcp 字段
+    // 非 MCP 形态的对象不是 server，不该有 mcp 字段
     fail(`track=${fm.track} 的条目不应有 mcp 字段（只有 track=mcp 的 server 才有）`);
   }
 
@@ -212,7 +212,7 @@ function crossCheck(entries) {
     if (byId.has(fm.id)) errors.push(`id 重复: ${fm.id} (${byId.get(fm.id)} vs ${rel})`);
     else byId.set(fm.id, rel);
   }
-  // 同名对象跨赛道：vendor + name 相同则 homepage 必须一致。
+  // 同名对象跨形态：vendor + name 相同则 homepage 必须一致。
   // 注意：同一 vendor 下的**不同对象**（如 MCP servers 仓库里的多个 server）
   // 本来就该有不同 homepage，不做一致性要求。
   const byName = new Map();
@@ -435,12 +435,12 @@ const TRACK_DIRS = {
   tools: '_track.md',
 };
 for (const [d, f] of Object.entries(TRACK_DIRS)) {
-  if (!fs.existsSync(path.join(ROOT, 'tracks', d, f))) errors.push(`缺赛道定义: tracks/${d}/${f}`);
+  if (!fs.existsSync(path.join(ROOT, 'tracks', d, f))) errors.push(`缺分区收录声明: tracks/${d}/${f}`);
 }
 
 console.log('=== ai-compare schema 校验 ===');
 console.log(`条目数: ${stats.files}`);
-console.log(`分赛道: ${JSON.stringify(stats.tracks)}`);
+console.log(`分形态: ${JSON.stringify(stats.tracks)}`);
 console.log(`错误: ${errors.length}  警告: ${warnings.length}`);
 if (errors.length) {
   console.log('\n--- 错误 ---');

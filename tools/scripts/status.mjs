@@ -7,8 +7,8 @@ const AXES = ['model_access','runtime','local_files','background','tools','conte
 const MCP_AXES = ['transport','auth','scope'];
 const PAT = /(未核验|未知|未声明|未逐条|本次未能|未能逐)/;
 
-console.log('=== 各赛道现状 ===');
-console.log('赛道  对象  verified  partial  stale  未核验维度/总维度');
+console.log('=== 各分区现状 ===');
+console.log('分区  对象  verified  partial  stale  未核验维度/总维度');
 
 const totals = { objects: 0, verified: 0, partial: 0, stale: 0, unknown: 0, dims: 0 };
 
@@ -73,7 +73,7 @@ console.log(`维度补齐：${totals.dims - totals.unknown}/${totals.dims} = ${M
 
 // 未核验维度的成因分类
 console.log('');
-console.log('=== 未核验维度成因（每赛道抽 3 条）===');
+console.log('=== 未核验维度成因（每分区抽 3 条）===');
 for (const t of TRACKS) {
   const dir = trackDir(t);
   if (!fs.existsSync(dir)) continue;

@@ -15,16 +15,16 @@ console.log('\n（未知维度 = 该维度正文里仍有「未核验/未知/未
 
 const c = computeCompleteness({ tracks: only, root: ROOT });
 const pct = c.total ? Math.round(c.done / c.total * 100) : 0;
-console.log('分赛道：');
+console.log('分分区：');
 for (const [t, v] of Object.entries(c.byTrack)) {
   const p = v.total ? Math.round(v.done / v.total * 100) : 0;
   console.log(`  ${t.padEnd(9)} ${v.done}/${v.total} = ${p}%`);
 }
-console.log(`\n全赛道维度补齐率：${c.done}/${c.total} = ${pct}%  （未核验 ${c.unknown}）`);
+console.log(`\n全分区维度补齐率：${c.done}/${c.total} = ${pct}%  （未核验 ${c.unknown}）`);
 if (pct >= 60) console.log('  → 已过半，继续补齐可显著提升 confidence 分布');
 if (c.missing.length) {
   console.log(`\n⚠ ${c.missing.length} 个维度在 frontmatter 里找不到对应键（分母已计入、内容算未核验）：`);
   console.log('  ' + c.missing.slice(0, 10).join('\n  '));
 }
 
-console.log('（逐条明细见各赛道页的「完整度」区块；补内容后重跑本脚本）');
+console.log('（逐条明细见各分区页的「完整度」区块；补内容后重跑本脚本）');
