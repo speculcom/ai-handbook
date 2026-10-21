@@ -1,19 +1,34 @@
-# 数据格式规范
+# 数据格式规范（v2 · v8 改版）
 
 > 这份文档定义每个条目**必须怎么写**。构建脚本会按这里的约束校验，不通过就不出站。
+>
+> **v8（2026-10-21）改了什么**：目录 = 大类（10 个，见 `categories.md`）；
+> frontmatter `track:` 改名 `form:` 并扩枚举（8 值）；`tasks:` 字段退役（D2）；
+> light 层退役、全部升八维（D3），`license` 字段进八维 frontmatter；
+> 新增法律引述纪律（§十一）；`raw/` 全文快照移出公开仓（L1）。
+> **过渡状态（T5–T7 迁移批）**：旧 `tracks/{agents,harness,tools}/` 通道暂存存量档案，
+> 迁移完成后删除——新旧通道并存期间 validate 双规则路由，见 §一。
 
 ---
 
 ## 一、文件位置与命名
 
+**v8 目标结构**（T5–T7 迁移完成后唯一结构）：
+
 ```
-tracks/<track>/products/<id>.md
+tracks/<category>/
+  _category.md          大类收录声明（替代旧 _track.md）
+  products/<id>.md      八维档案
 ```
 
 | 规则 | 说明 |
 |---|---|
-| `<track>`（**目录名 = 分区**）| `agents` / `harness` / `tools` —— ⚠ 这里是**分区**，不是 frontmatter 的 `track`（**形态**）。两级命名的区别见 §2.5.1；旧写法 `ide` / `cli` / `mcp` 已在 v4 改为分区目录，勿再照抄 |
+| `<category>`（**目录名 = 大类**）| 十个之一：`coding` / `chat` / `image` / `video` / `audio` / `research` / `automation` / `framework` / `mcp` / `runner`。定义、收录标准、边界裁决见 [categories.md](./categories.md)。⚠ 这里是**大类**，不是 frontmatter 的 `form`（**形态**）——两级命名见 §2.5.1 |
 | `<id>` | 小写字母 + 连字符，全仓库唯一。例：`claude-code`、`sequential-thinking` |
+
+**过渡结构**（T5–T7 期间）：旧 `tracks/{agents,harness,tools}/products/` 仍可被 validate
+以旧规则（`track:` 五值枚举）校验；`tracks/<大类>/` 一律走新规则（`form:` 八值枚举、
+`track:`/`tasks:` 出现即硬失败）。`tracks/` 下出现两边都不是的一级目录 → 硬失败（防拼错目录名静默漏检）。
 
 ---
 
@@ -24,17 +39,20 @@ tracks/<track>/products/<id>.md
 | 字段 | 类型 | 必填 | 约束 |
 |---|---|:---:|---|
 | `id` | string | ✓ | `^[a-z0-9]+(-[a-z0-9]+)*$`，全仓库唯一 |
-| `track` | enum | ✓ | **形态**分类（不是分区）：`ide` / `cli` / `cloud` / `harness` / `mcp` |
+| `form` | enum | ✓ | **形态**分类（不是大类）：`ide` / `cli` / `cloud` / `harness` / `mcp` / `web` / `app` / `local-app`（v8 改名自 `track:` 并扩后三值，见 §2.5.1） |
 | `name` | string | ✓ | 产品官方名；本站为区分同一产品的不同形态而加的中文后缀也写在这里（如「Claude Code IDE 扩展」） |
 | `nameEn` | string | | `name` 含中文时的英文名（2026-10-08 起）。英文态渲染 `nameEn`，缺失则回落中文并在英文页露出中文 —— 有中文后缀的条目**必须**填 |
 | `vendor` | string | ✓ | 厂商；个人项目填作者或组织名 |
 | `homepage` | url | ✓ | 官方主页 |
-| `mark` | string | | 1-2 字符标识符，用于 UI 展示 |
-| `accent` | string | | `#rrggbb`，品牌主色，无则省略 |
+| `mark` | string | | 1-2 字符标识符，用于 UI 展示（字母标记，**不用第三方 logo**，L8） |
+| `accent` | string | | `#rrggbb`，品牌主色，无则省略（自定色，非取色于对方品牌，L8） |
+| `license` / `licenseEn` | string | 消费级五类 ✓ | **v8（D3）**：输出物归属与商用许可，逐条挂官方条款。`chat` / `image` / `video` / `audio` / `research` 五类必填（原 S47 创作类规则的八维迁移版）；许可稳定、不是价格，D9 明确保留 |
 
 ### 2.2 商业信息（已随 D9 退役）
 
 **没有 `pricing` / `pricing_pitfalls` 字段族（D9 定案，2026-10-20）**：价格与档位报价高频变动、本站不采不存。frontmatter 出现 `pricing` 或 `pricing_pitfalls` → 校验硬失败。
+
+**没有 `tasks:` 字段（v8 D2 定案，2026-10-21）**：任务入口取消，大类页承担「我要做 X」的导航职责。新通道档案出现 `tasks:` → 校验硬失败（旧通道过渡期仍按 S43 对账，T7 后整体删除）。
 
 商业事实的去处：
 - **定性口径**（免费 / 开源 / 按量 / 随订阅）与**额度配额事实**（每日轮数、次数上限、席位规则）写在 axes 与正文——它们不随价格变动失效；
@@ -57,22 +75,42 @@ tracks/<track>/products/<id>.md
 
 **长度**：每个字段 30-300 字。太短说明没查清，太长说明混入了别的东西。
 
-### 2.4 MCP 赛道特有维度
+**消费级产品读法（v8 D3）**：八维不是只为编程工具设计的。`axes/*.md` 每维都补了
+「消费级产品读法」一节——对话/图像/视频/音频/研究类产品按那一列回答，每维都有实质可答：
 
-仅 `track: mcp` 必填：
+| 维度 | 编程工具读法 | 消费级读法 |
+|---|---|---|
+| model_access | 可选哪些模型/BYOK | 背后模型是否披露、能否选档 |
+| runtime | 装在哪跑 | 网页/应用/API；处理在谁的机器 |
+| local_files | 读不读你工作区 | 你能上传什么、文件归谁 |
+| background | 关机后任务 | 异步任务（生成队列、后台渲染） |
+| tools | 能否接 MCP/扩展 | API/插件/生态扩展面 |
+| context | 上下文窗口与记忆 | 历史/项目记忆机制与上限 |
+| permissions | 权限面 | 账户数据用途、训练开关、商用条款 |
+| fit | 适合什么任务 | 适合谁、什么时候别用 |
+
+**假八维防线**：「不适用+理由」合法，但整页 ≥5 维写「不适用」→ validate 警告
+（防「一堆不适用」冒充档案）。注意「官方未声明」不算「不适用」——那是查过之后的诚实结论。
+
+**引述纪律（v8 L2）**：axes 引「官方原文」只引事实性陈述，单条引述 ≤100 字符（或一句），
+一律带出处链接与核验日；大段条款转述用自己的话概括。见 §十一。
+
+### 2.4 MCP 形态特有维度
+
+仅 `form: mcp` 必填：
 
 | 字段 | 必填 | 说明 |
 |---|:---:|---|
-| `mcp.transport` | ✓ | 见 [taxonomy/transport.md](./tracks/tools/taxonomy/transport.md) |
+| `mcp.transport` | ✓ | 见 [taxonomy/transport.md](./tracks/tools/taxonomy/transport.md)（迁移后为 `tracks/mcp/taxonomy/`） |
 | `mcp.auth` | ✓ | 见 [taxonomy/auth.md](./tracks/tools/taxonomy/auth.md) |
 | `mcp.scope` | ✓ | 见 [tracks/tools/taxonomy/scope.md](./tracks/tools/taxonomy/scope.md) |
 
-**非 MCP 赛道的条目禁止使用 `mcp` 字段。**
+**非 MCP 形态的条目禁止使用 `mcp` 字段。**
 IDE / CLI 工具不是 MCP server，不适用这三个维度。
 
-### 2.4b MCP 支持（IDE / CLI 赛道）
+### 2.4b MCP 支持（非 MCP 形态）
 
-IDE / CLI 赛道要回答「**这个工具能不能接 MCP**」，
+编码/框架/自动化类产品要回答「**这个工具能不能接 MCP**」，
 但这是 `axes.tools` 里的一项内容，不是独立字段：
 
 ```yaml
@@ -101,35 +139,41 @@ axes:
 - 正例：`以为索引是实时的，大仓库首次打开需等`（具体）
 - 正例：`把活动赠送额度当成永久套餐额度`（具体）
 
-#### 2.5.1 两级命名：分区 vs 形态（容易混，先读这条）
+#### 2.5.1 两级命名：大类 vs 形态（v8 版，容易混，先读这条）
 
 | 概念 | 取值 | 谁决定 | 用在哪 |
 |---|---|---|---|
-| **分区**（3 个） | `agents` / `harness` / `tools` | **目录**：`tracks/<分区>/products/` | 站点落点、面包屑、`related` 的「跨分区」判定 |
-| **形态**（5 个） | `ide` / `cli` / `cloud` / `harness` / `mcp` | frontmatter `track:` | 首页分组、形态标签（`FORM_LABEL`） |
+| **大类**（10 个） | `coding` / `chat` / `image` / `video` / `audio` / `research` / `automation` / `framework` / `mcp` / `runner` | **目录**：`tracks/<大类>/products/` | 站点落点、面包屑、`related` 的「跨大类」判定、license 五类硬失败 |
+| **形态**（8 个） | `ide` / `cli` / `cloud` / `harness` / `mcp` / `web` / `app` / `local-app` | frontmatter `form:` | 首页分组、形态标签（`FORM_LABEL`） |
 
-`ide` / `cli` / `cloud` 三种形态**都落在 `agents` 分区**（v4 把原 ide 站与 cli 站合并成一个分区）。
-所以「跨分区」不等于「跨形态」：`claude-code.md`（`track: ide`）与 `claude-code-cli.md`（`track: cli`）
-是**同一分区内的两个形态** —— 这类对照写在正文 `## 相关条目` 里，不写进 `related`。
+大类回答「它是什么」，形态回答「它以什么形态使用」——两个维度正交：
+Cursor 是 `coding` 大类、`ide` 形态；Claude Code 同大类、`cli` 形态；
+ChatGPT 是 `chat` 大类、`web`/`app` 形态。
+
+`claude-code.md`（`form: ide`）与 `claude-code-cli.md`（`form: cli`）
+是**同一大类内的两个形态** —— 这类对照写在正文 `## 相关条目` 里，不写进 `related`。
+
+> 旧口径（v4–v7）：分区 3 个（agents/harness/tools）× 形态 5 个（track 字段）。
+> v8 D1 把分区层换成大类层，`track:` 改名 `form:` 并扩 `web` / `app` / `local-app`。
 
 #### 2.5.2 `related` 与正文「相关条目」的分工
 
 | | 正文 `## 相关条目` | frontmatter `related` |
 |---|---|---|
 | 谁写 | 人工，逐条写理由 | 只给 id，理由由构建器生成 |
-| 格式 | `- [名](./x.md 或 ../../<分区>/products/x.md) — 哪一维不同` | `related: [id, id]` |
-| 装什么 | 同分区对照（含同产品不同形态） | **只装跨分区** id |
-| 页面呈现 | 理由原样显示 | 「另一层 · <分区名>」 |
+| 格式 | `- [名](./x.md 或 ../../<大类>/products/x.md) — 哪一维不同` | `related: [id, id]` |
+| 装什么 | 同大类对照（含同产品不同形态） | **只装跨大类** id |
+| 页面呈现 | 理由原样显示 | 「另一类 · <大类名>」 |
 
 三条纪律：
-1. **`related` 不表示兼容性**。它回答的是「读完这页，另一层最该看什么」；
+1. **`related` 不表示兼容性**。它回答的是「读完这页，另一类最该看什么」；
    兼容性（这个 agent 能不能装这个 server）由 `axes.tools` 里的 MCP 事实负责。
 2. **按目标 id 去重**：正文已链到的对象，`related` 不重复列（构建器自动跳过）。
 3. **两边都要真**：正文链接与 `related` 的 id 都会进产物；指向不存在的 id 由
    `sites/build.mjs` 构建期报出，`_audit/link-graph.mjs` 再复核一次。
 
 **守卫**：`node _audit/link-graph.mjs`（`--self-test` 为阴性对照）双口径各要求 100% ——
-数据层（`related` 含跨分区 id）与**渲染层**（产物「相关条目」面板里真有跨分区出链）。
+数据层（`related` 含跨大类 id）与**渲染层**（产物「相关条目」面板里真有跨大类出链）。
 只看数据层会漏掉本仓犯过两次的老毛病：字段采集了却从不渲染。
 
 ### 2.6 证据
@@ -292,7 +336,7 @@ frontmatter 之后的 Markdown 正文。
 ```markdown
 ---
 id: example-tool
-track: ide
+form: ide
 name: Example Tool
 vendor: Example Org
 homepage: https://example.com
@@ -384,7 +428,7 @@ confidence: verified
 | 2 | `id` 全仓库唯一 | 硬失败 |
 | 3 | 必填字段齐全 | 硬失败（报文件路径 + 缺失字段） |
 | 4 | `id` 格式合法 | 硬失败 |
-| 5 | `track` 在枚举内 | 硬失败 |
+| 5 | `form` 在枚举内（新通道）/ `track` 在旧枚举内（旧通道过渡期） | 硬失败 |
 | 6 | 8 维度字段齐全且非空 | 硬失败 |
 | 7 | `pitfalls` ≥1 条 | 硬失败 |
 | 8 | `sources` ≥2 条且含 `changelog` | 硬失败 |
@@ -398,6 +442,11 @@ confidence: verified
 | 16 | 正文声明「已归档」而 `confidence == verified` | 硬失败 |
 | 17 | 同 id 工具在三站的 `last_verified` 差异 >30 天 | **警告** |
 | 18 | `last_verified` 距今 >90 天 | **警告**，降级为 `partial` |
+| 19 | **v8**：新通道出现 `track:` / `tasks:` 字段（改名/退役反向守卫） | 硬失败 |
+| 20 | **v8**：`tracks/` 下未知一级目录（既非旧分区也非大类） | 硬失败 |
+| 21 | **v8**：大类目录存在但缺 `_category.md` 收录声明 | 硬失败 |
+| 22 | **v8**：消费级五类（chat/image/video/audio/research）缺 `license` | 硬失败 |
+| 23 | **v8**：整页 ≥5 维写「不适用」（假八维线；「官方未声明」不计） | **警告** |
 
 **为什么大部分是硬失败**：数据有缺口就不该出站。宁可少几个工具，也不发半成品页面。
 
@@ -591,7 +640,16 @@ runtime: >-
 
 ---
 
-## 九、轻档案（`light/light.json` · v7 S45 · 2026-10-20）
+## 九、轻档案（`light/light.json` · v7 S45 · **v8 D3 已退役**）
+
+> **v8（2026-10-21 用户定案 D3）：轻档案层退役，全部升八维。**
+> 本节保留作迁移对照：`light/light.json` 的 14 条数据在 T6 迁入大类目录八维档案
+> （chat/image/video/audio 各归其类），字段去处：`what`→fit、`data`→local_files+permissions、
+> `who`→fit 的「适合谁」、`license/licenseEn`→八维 frontmatter `license`（消费级五类必填）、
+> `pricing_url` 机制照旧。迁移完成后 `light/` 目录与本节一并删除。
+> 假八维的缓解靠 §2.3 的「消费级读法」+ 规则 23 警告线，不靠降级分层。
+
+（以下为 v7 历史口径，T6 前仍被 validate 旧通道消费）
 
 对话问答类（ChatGPT 等）与创作工具类（Midjourney 等）**不走八维档案**——
 八维是为「能接任务、能装、能连数据」的产品设计的坐标系，对话产品没有
@@ -672,3 +730,21 @@ runtime: >-
 - 落点：AI 工具站 tools 分区「深水指南」区（guideSection 之后的独立区）；
 - 版式走 brand.css 共享类（宪章 1：新组件先落共享层一次）；
 - guides 为空时整区不渲染（不造空壳）。
+
+---
+
+## 十一、法律引述纪律（v8 新增硬条款，L1–L8）
+
+> 总原则：本站是**评论与索引，不是产品方**；自有内容 CC BY 4.0；对第三方只作
+> 事实转述 + 简短引述 + 出处链接。计划全文见 `_plan/v8-工具站分类重整-计划.md` §3。
+
+| # | 条款 | 在数据层的落点 |
+|---|---|---|
+| **L1** | **不公开托管第三方网页全文**。本仓是公开仓——官网全文快照（旧 `raw/web-*.txt`）一律不许进仓。核验证据只存**短摘录（单条 ≤100 字符）+ URL + 核验日**。存量快照已于 T4 移出（`_archive/v8-evidence/`，本地留存不推送） | 仓内出现 `raw/web-*` 类文件 = 违规；T34 复查 |
+| **L2** | **引述长度纪律**：axes 引官方原文只引事实性陈述，单条 ≤100 字符（或一句），带出处与核验日；大段条款转述用自己的话 | 规则 23 之外由 `_content-audit` 超长引述启发式扫描（T34） |
+| **L3** | **商标声明**：README（中英）+ 页脚固定一句「产品名与商标归各权利方所有，本站仅作识别与评论之用」 | T8 落 README |
+| **L4** | **负面判断挂源**：fit/permissions/pitfalls 的每个负面事实挂出处；挂不了源的观点显式标「本站观点」；「官方未声明」≠「官方不允许」——措辞不许越过证据 | R5 既有纪律，v8 升级为逐条核对 |
+| **L5** | **国产产品口径**：备案/登记只转述官方来源（cn 块机制）；内容合规只转述官方条款，不评价监管本身 | cn 块（S52）已承载 |
+| **L6** | **停运产品**：不收 + inventory 附官方停运公告链接 | inventory 去向枚举「不收+理由」 |
+| **L7** | **D9 重申**：定性口径与额度事实可写，具体价格数字一律不采 | §2.2 不变 |
+| **L8** | **不引入第三方图形资产**：不下载 logo、不截图官网进仓；mark 用字母、accent 用自定色 | 既有红线 |

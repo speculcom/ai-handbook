@@ -26,6 +26,18 @@ const CONFIDENCE = ['verified', 'partial', 'stale'];
 const LIFECYCLE = ['active', 'maintenance', 'archived', 'unknown'];
 /* PRICING_MODEL 已随 D9（2026-10-20 价格口径退役）删除 */
 
+/* ── v8（2026-10-21）：大类目录 + form 字段 ──────────────────────
+ * D1 定案：目录 = 大类（10 个），旧三分区 agents/harness/tools 退役。
+ * D3 定案：light 层退役，全部升八维；license 进八维 frontmatter。
+ * 过渡策略（T4 定规则，T5–T7 原子迁移批搬数据）：
+ *   新结构 = <category>/<id>.md → 走新规则（form 必填、license 五类硬失败）；
+ *   旧结构 = tracks/<旧分区>/products/*.md → 走旧规则（track 枚举），T7 后删除旧通道。 */
+const CATS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
+const FORMS = ['ide', 'cli', 'cloud', 'harness', 'mcp', 'web', 'app', 'local-app'];
+const OLD_TRACKS = ['ide', 'cli', 'cloud', 'mcp', 'harness'];
+/* v8：消费级五类缺 license 硬失败（原 S47「creation 缺 license」规则的八维迁移版） */
+const LICENSE_REQUIRED_CATS = ['chat', 'image', 'video', 'audio', 'research'];
+
 const errors = [];
 const warnings = [];
 const stats = { tracks: {}, files: 0 };
@@ -45,7 +57,9 @@ function collect(dir) {
   });
 }
 
-function validateEntry(file) {
+function validateEntry(file, mode, cat) {
+  // mode: 'old' = tracks/{agents,harness,tools}/（T5–T7 迁移批前的存量通道）
+  //       'new' = tracks/<大类>/（v8 新通道，目录 = 大类）
   const rel = path.relative(ROOT, file).replace(/\\/g, '/');
   const text = fs.readFileSync(file, 'utf8');
   const fm = parseFrontmatter(text);
@@ -58,14 +72,22 @@ function validateEntry(file) {
   const base = path.basename(file, '.md');
   if (fm.id !== base) fail(`文件名(${base}) != id(${fm.id})`);
 
-  for (const k of ['id', 'track', 'name', 'vendor', 'homepage']) {
+  for (const k of ['id', 'name', 'vendor', 'homepage']) {
     if (!fm[k]) fail(`缺必填字段: ${k}`);
   }
-  // cloud = 厂商云形态（2026-10-03 新增）：OpenAI Dot / Meta Muse / xAI Grok Bot 这类
-  // 本机不装任何东西、在厂商云上持续工作的成品 agent。
-  // 它归agents 分区（不是新分区）—— 与 ide/cli 共享同一套八维坐标系，
-  // 拆到新分区会让「八维对比」跨站分裂。
-  if (fm.track && !['ide', 'cli', 'cloud', 'mcp', 'harness'].includes(fm.track)) fail(`track 枚举非法: ${fm.track}`);
+  if (mode === 'new') {
+    // v8：新通道用 form（8 值枚举），track 字段不得回灌
+    if (!fm.form) fail('缺必填字段: form（v8：形态由 form 字段决定）');
+    else if (!FORMS.includes(fm.form)) fail(`form 枚举非法: ${fm.form}（允许 ${FORMS.join(' / ')}）`);
+    if (fm.track) fail('新通道出现已退役的 track 字段（v8：改名 form）');
+    if (fm.tasks) fail('出现已退役的 tasks 字段（D2：任务入口取消）');
+  } else {
+    if (!fm.track) fail('缺必填字段: track');
+    // cloud = 厂商云形态（2026-10-03 新增）：本机不装任何东西、在厂商云上持续工作的成品 agent。
+    if (fm.track && !OLD_TRACKS.includes(fm.track)) fail(`track 枚举非法: ${fm.track}`);
+    if (fm.form) fail('旧通道出现 form 字段（旧 tracks 用 track，T5–T7 迁移后旧通道删除）');
+  }
+  const formVal = mode === 'new' ? fm.form : fm.track;
 
   /* D9（2026-10-20 用户定案）：价格口径退役——pricing 字段族已删。
    * 反向守卫：档案里再出现 pricing / pricing_pitfalls → 硬失败（防旧口径回灌）。 */
@@ -78,8 +100,18 @@ function validateEntry(file) {
     if (v === undefined || v === null || v === '') fail(`缺维度: axes.${a}`);
     else if (String(v).length < 10) warn(`axes.${a} 过短(<10字)，可能没查清`);
   }
+  /* v8 假八维防线（§2.3）：「不适用+理由」合法，但整页 ≥5 维「不适用」→ 警告。
+   * 判据是「不适用」字样——「官方未声明」不算（那是查过之后的诚实结论，不是逃避）。 */
+  const naCount = AXES.filter((a) => /不适用/.test(String(ax[a] || ''))).length;
+  if (naCount >= 5) warn(`假八维嫌疑：${naCount} 个维度写「不适用」（≥5）——消费级读法见 axes/*.md，每维都有实质可答`);
 
-  if (fm.track === 'mcp') {
+  /* v8（D3）：license 进八维 frontmatter。消费级五类缺 license 硬失败
+   * （原 S47「creation 缺 license」的迁移版——输出物归属与商用许可是这些品类最关键事实）。 */
+  if (mode === 'new' && LICENSE_REQUIRED_CATS.includes(cat) && !String(fm.license || '').trim()) {
+    fail(`缺 license（v8：${cat} 类必填——输出物归属/商用许可逐条挂官方条款，D9 明确保留许可不保留价格）`);
+  }
+
+  if (formVal === 'mcp') {
     const m = fm.mcp || {};
     for (const a of MCP_AXES) {
       const v = m[a];
@@ -87,10 +119,10 @@ function validateEntry(file) {
     }
   } else if (fm.mcp) {
     // 非 MCP 形态的对象不是 server，不该有 mcp 字段
-    fail(`track=${fm.track} 的条目不应有 mcp 字段（只有 track=mcp 的 server 才有）`);
+    fail(`form=${formVal} 的条目不应有 mcp 字段（只有 mcp 形态的 server 才有）`);
   }
 
-  if (fm.track === 'harness') {
+  if (formVal === 'harness') {
     // harness 站的四条硬约束（v3 计划 §7.1）：
     //  1. family 必填且是四个分层之一 —— 它决定首页矩阵怎么分组
     //  2. provider 必填 —— 「支持哪些模型」是本站第一决策点
@@ -200,7 +232,7 @@ function validateEntry(file) {
     }
   }
 
-  stats.tracks[fm.track] = (stats.tracks[fm.track] || 0) + 1;
+  stats.tracks[formVal] = (stats.tracks[formVal] || 0) + 1;
   stats.files++;
   return fm;
 }
@@ -251,32 +283,52 @@ function crossCheck(entries) {
 
 // ── 主流程 ───────────────────────────────────────
 const entries = [];
+const oldEntries = []; // S43 tasks 校验只对旧通道生效（v8 D2：新通道无 tasks）
 if (fs.existsSync(path.join(ROOT, 'tracks'))) {
   for (const f of collect(path.join(ROOT, 'tracks'))) {
     if (!/\.md$/.test(f)) continue;
     if (path.basename(f).startsWith('_')) continue;
     const norm = f.replace(/\\/g, '/');
     if (/\/tasks\//.test(norm) || /\/runs\//.test(norm) || /\/taxonomy\//.test(norm)) continue;
-    const fm = validateEntry(f);
-    if (fm) entries.push([path.relative(ROOT, f).replace(/\\/g, '/'), fm]);
+    // 路由：tracks/<X>/products/… —— X ∈ CATS 走新通道，X ∈ {agents,harness,tools} 走旧通道
+    const m = /\/tracks\/([^/]+)\//.exec(norm);
+    const seg = m ? m[1] : '';
+    const isNew = CATS.includes(seg);
+    if (!isNew && !['agents', 'harness', 'tools'].includes(seg)) continue; // 未知目录不静默放行——下面有守卫报出
+    const fm = validateEntry(f, isNew ? 'new' : 'old', seg);
+    if (fm) {
+      entries.push([path.relative(ROOT, f).replace(/\\/g, '/'), fm]);
+      if (!isNew) oldEntries.push([path.relative(ROOT, f).replace(/\\/g, '/'), fm]);
+    }
+  }
+}
+// 未知一级目录守卫：tracks/ 下出现既非旧分区也非大类目录的目录 → 硬失败（防拼错目录名静默漏检）
+if (fs.existsSync(path.join(ROOT, 'tracks'))) {
+  for (const d of fs.readdirSync(path.join(ROOT, 'tracks'))) {
+    if (!fs.statSync(path.join(ROOT, 'tracks', d)).isDirectory()) continue;
+    if (!CATS.includes(d) && !['agents', 'harness', 'tools'].includes(d)) {
+      errors.push(`tracks/${d}/ 既不是旧分区也不是 v8 大类目录（拼错目录名？大类见 categories.md）`);
+    }
   }
 }
 crossCheck(entries);
 
 /* ── S43 任务化入口：tasks 字段校验（2026-10-19）──────────────────
+ * ⚠ v8 D2（2026-10-21）：任务入口取消——本块只对**旧通道**档案生效（过渡期）。
+ * T5–T7 迁移批把档案搬进大类目录后本块整体删除；新通道档案出现 tasks 字段直接硬失败。
  * 真相源：档案 frontmatter 的 tasks:（行内数组）+ sites/tasks.json（任务元信息）。
- * 规则：① 每份档案 tasks ≥1 且全部落在 tasks.json 的 id 集合内；
+ * 规则：① 每份旧通道档案 tasks ≥1 且全部落在 tasks.json 的 id 集合内；
  *       ② tasks.json 里每个任务至少被 1 份档案引用（空任务 = 假入口）。
  * 双向对账：档案→任务（枚举）+ 任务→档案（覆盖）。 */
 {
   const TASKS_FILE = path.join(ROOT, 'sites', 'tasks.json');
   if (!fs.existsSync(TASKS_FILE)) {
-    errors.push('缺任务定义: sites/tasks.json');
+    if (oldEntries.length) errors.push('缺任务定义: sites/tasks.json（旧通道档案仍引用任务入口）');
   } else {
     const taskDefs = JSON.parse(fs.readFileSync(TASKS_FILE, 'utf8')).tasks || [];
     const taskIds = new Set(taskDefs.map((t) => t.id));
     const used = new Map(taskDefs.map((t) => [t.id, 0]));
-    for (const [rel, fm] of entries) {
+    for (const [rel, fm] of oldEntries) {
       const ts = fm.tasks;
       if (!Array.isArray(ts) || ts.length === 0) {
         errors.push(`${rel} · 缺 tasks 字段（S43：每份档案必须至少挂一个任务入口）`);
@@ -423,20 +475,22 @@ for (const a of AXES) {
   const f = `${AXES_FILE[a]}.md`;
   if (!fs.existsSync(path.join(ROOT, 'axes', f))) errors.push(`缺维度定义: axes/${f}`);
 }
-/* 分区目录 → 分区定义的映射。
- * 2026-10-02 重构：ide + cli 合并为 agents 分区（档案仍按 track: ide/cli 分类，
- * **不合并档案**——三组产品各有两份，runtime/permissions 等维度取值不同）。
- * 所以「分区目录」是三个（agents/harness/tools），而「track 形态枚举」是五个
- * （ide/cli/cloud/harness/mcp，见下方 154 行的枚举校验；cloud 是 2026-10-03 新增）。
- * 两级命名别混：**分区由目录决定，形态由 frontmatter 决定** —— SCHEMA §2.5.1。*/
-const TRACK_DIRS = {
-  agents: '_track.md',
-  harness: '_track.md',
-  tools: '_track.md',
-};
-for (const [d, f] of Object.entries(TRACK_DIRS)) {
-  if (!fs.existsSync(path.join(ROOT, 'tracks', d, f))) errors.push(`缺分区收录声明: tracks/${d}/${f}`);
+/* 收录声明映射（v8 换轨中）：
+ * 旧通道：tracks/{agents,harness,tools}/_track.md（存在才要求，T7 后删）；
+ * 新通道：tracks/<大类>/_category.md（大类目录存在就必须带收录声明）。
+ * 两级命名 v8 版：**大类由目录决定（10 个），形态由 form 字段决定（8 值）** —— SCHEMA §2.5.1。*/
+for (const d of ['agents', 'harness', 'tools']) {
+  if (fs.existsSync(path.join(ROOT, 'tracks', d)) && !fs.existsSync(path.join(ROOT, 'tracks', d, '_track.md'))) {
+    errors.push(`缺分区收录声明: tracks/${d}/_track.md`);
+  }
 }
+for (const d of CATS) {
+  if (fs.existsSync(path.join(ROOT, 'tracks', d)) && !fs.existsSync(path.join(ROOT, 'tracks', d, '_category.md'))) {
+    errors.push(`缺大类收录声明: tracks/${d}/_category.md（v8：大类目录必须带声明）`);
+  }
+}
+/* v8：categories.md 是 10 大类定义的真相源，缺了大类目录无从校验 */
+if (!fs.existsSync(path.join(ROOT, 'categories.md'))) errors.push('缺大类定义: categories.md（v8 T3 产物）');
 
 console.log('=== ai-compare schema 校验 ===');
 console.log(`条目数: ${stats.files}`);

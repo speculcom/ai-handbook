@@ -129,8 +129,7 @@ tools/（ai-handbook 子树）
 │       ├── products/           10 个对象
 │       └── tasks/              实测协议（未开跑）
 ├── scripts/                    校验脚本（validate / audit / quality）
-├── CHANGELOG.md                数据层更新记录
-└── raw/                        采集的原始素材（网页快照等，不入库）
+└── CHANGELOG.md                数据层更新记录
 ```
 
 ### harness 赛道的 family 分组
