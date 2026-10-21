@@ -1,0 +1,69 @@
+{
+  "_comment": "models 站数据层枚举值的英文（2026-10-04）。键 = 中文原值，值 = 英文。",
+  "_why": "这些是**封闭枚举**（档位、定位、参数描述），不是自由文本 —— 可以穷举映射，比逐页改 HTML 可靠。自由文本（summary / 各变体的 what / why / cost）另走翻译文件。",
+  "_rules": [
+    "0) 技术术语用业界通用说法（MoE / KV cache / tokens / bf16）。",
+    "1) 档位名保持本站自己的命名体系（tier 是本站的五档），不要换成 llama.cpp 的说法 —— 两套并存会让读者困惑。",
+    "2) 数值与单位原样保留（27.8B、180B、GB、tokens）。",
+    "3) 缺键时回退中文（可接受降级），但构建时要 warn 报缺了多少键。"
+  ],
+
+  "positions": {
+    "通用对话": "General chat",
+    "工具调用": "Tool use",
+    "长上下文": "Long context",
+    "中文强项": "Strong Chinese",
+    "推理": "Reasoning",
+    "MoE 稀疏": "Sparse MoE",
+    "小尺寸": "Small sizes",
+    "小尺寸可跑": "Runnable at small sizes",
+    "端侧": "On-device",
+    "MIT 许可": "MIT licence",
+    "apache-2.0": "Apache-2.0"
+  },
+
+  "tier": {
+    "极限压缩": "Extreme compression",
+    "长上下文优先": "Long context first",
+    "平衡档": "Balanced",
+    "保守档": "Conservative",
+    "近似无损": "Near lossless"
+  },
+
+  "tierDesc": {
+    "能装下就装，质量明显下降": "Fit it in at the cost of visibly lower quality",
+    "KV 缓存也吃紧时的选择": "The pick when the KV cache is also tight",
+    "默认推荐，质量和体积的折中点": "The default recommendation — the compromise between quality and size",
+    "几乎无质量损失": "Almost no quality loss",
+    "体积接近原始精度": "Size close to the original precision",
+    "量化者在文件名中直接标注了每权重比特数": "The quantiser states the bits-per-weight directly in the filename"
+  },
+
+  "params": {
+    "密集": "dense",
+    "稀疏": "sparse"
+  },
+
+  "paramsPattern": {
+    "密集": "dense",
+    "MoE": "MoE",
+    "总参（激活数未公开）": "total params (activation count not disclosed)"
+  },
+
+  "tierShort": {
+    "极限压缩": "extreme",
+    "长上下文优先": "long ctx",
+    "平衡档": "balanced",
+    "保守档": "conservative",
+    "近似无损": "near lossless"
+  },
+
+  "gated": {
+    "false": "Open access",
+    "true": "Gated"
+  },
+
+  "paramsLabel": {
+    "参数量": "Parameters"
+  }
+}

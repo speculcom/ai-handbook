@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "code": "deepseek",
+  "name": {
+    "zh": "DeepSeek",
+    "en": "DeepSeek"
+  },
+  "vendor": {
+    "zh": "深度求索 DeepSeek",
+    "en": "DeepSeek"
+  },
+  "currentGen": {
+    "zh": "V4.1-Flash",
+    "en": "V4.1-Flash"
+  },
+  "currentGenDate": "2026-09",
+  "generations": [
+    {
+      "gen": "V4.1-Flash",
+      "date": "2026-09",
+      "zh": "当前代旗舰 Flash 线。官方定位「Pushing the Limits of KV Cache Compression」，MIT 许可。",
+      "en": "Current Flash-line flagship. Positioned as \"Pushing the Limits of KV Cache Compression\"; MIT-licensed.",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "gen": "V4-Flash / V4-Pro",
+      "date": "2026-07",
+      "zh": "V4 代两个分支：Flash（0731）与 Pro（0813）；本站收录的 deepseek-v4 系列在 V4.1-Flash 上。",
+      "en": "Two branches of the V4 generation: Flash (0731) and Pro (0813). This site's deepseek-v4 series tracks V4.1-Flash.",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731"
+    },
+    {
+      "gen": "V3.2",
+      "date": "2025",
+      "zh": "上一代主力（V3 系），MoE + 稀疏注意力路线从这一代开始成型。",
+      "en": "Previous mainline generation (V3 series); the MoE plus sparse-attention approach took shape here.",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "单一MoE大杯：552B 骨干参数（官方 README 口径），本地可跑性依赖量化与内存",
+      "en": "Single MoE tier: 552B backbone parameters (official README); local runability depends on quantisation and memory"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "mit",
+      "zh": "MIT（当前代 Flash 线）",
+      "en": "MIT (current Flash line)",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "官方 README：「a multimodal Mixture-of-Experts (MoE) model with 552B backbone parameters and support for contexts of up to one million tokens」——多模态 MoE、上下文上限 100 万 token。",
+      "en": "Official README: \"a multimodal Mixture-of-Experts (MoE) model with 552B backbone parameters and support for contexts of up to one million tokens\".",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "zh": "官方 README：CED 架构下每 token 预填充激活 8B 参数、解码激活 16B（「8B parameters per token during prefill and 16B during decode」）。",
+      "en": "Official README: under the CED architecture, 8B parameters activate per token during prefill and 16B during decode.",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "positioning": {
+    "zh": "MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（llama.cpp 作者亲自维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。",
+    "en": "MIT-licensed with a distinctive KV-cache-compression roadmap; an active quantisation ecosystem. For deployers who track the frontier and can host large models."
+  },
+  "onSite": {
+    "series": [
+      "deepseek-v4"
+    ],
+    "zh": "本站已收录 DeepSeek-V4.1-Flash 的量化对比（1 个模型仓 / 11 个量化档）",
+    "en": "This site covers DeepSeek-V4.1-Flash quantisations (1 repo / 11 tiers)"
+  },
+  "sources": [
+    {
+      "label": "DeepSeek-V4.1-Flash 模型页与 README（2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+      "kind": "docs"
+    },
+    {
+      "label": "DeepSeek-V4-Flash-0731 模型页（代次核验，2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "kind": "docs"
+    },
+    {
+      "label": "DeepSeek-V3.2 模型页（代次核验，2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为深度求索（北京）。",
+    "originNoteEn": "Made by DeepSeek (Beijing).",
+    "direct": "yes",
+    "directNote": "ModelScope 有 deepseek-ai 官方组织镜像（2026-10-20 实测 200）；Hugging Face 直连不可达。",
+    "directNoteEn": "Official deepseek-ai org mirror on ModelScope (measured 200); Hugging Face direct unreachable.",
+    "filing": {
+      "status": "filed",
+      "name": "求索对话DeepSeek Chat",
+      "no": "Beijing-DeepseekChat-202404280016",
+      "date": "2024-05-13",
+      "note": "2024-08 批次第 152 行。",
+      "noteEn": "Row 152 of the 2024-08 batch."
+    },
+    "mirror": "https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash",
+    "last_verified": "2026-10-20",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      },
+      {
+        "label": "ModelScope 官方组织镜像（2026-10-20 实测 200）",
+        "url": "https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash"
+      }
+    ]
+  }
+}

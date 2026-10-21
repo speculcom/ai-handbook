@@ -1,0 +1,739 @@
+{
+  "code": "kimi-k3",
+  "name": {
+    "zh": "Kimi K3",
+    "en": "Kimi K3"
+  },
+  "vendor": {
+    "zh": "月之暗面",
+    "en": "Moonshot AI"
+  },
+  "family": "kimi",
+  "released": "2026-06-13",
+  "summary": "月之暗面当前最新一代，41 家量化仓但整体热度中等。",
+  "summaryEn": "Moonshot AI's current generation. 41 quantization repos, though overall attention is middling.",
+  "positions": [
+    "通用对话",
+    "长上下文"
+  ],
+  "sources": {
+    "official": "https://huggingface.co/moonshotai/Kimi-K3"
+  },
+  "members": [
+    {
+      "repo": "moonshotai/Kimi-K3",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3",
+      "label": {
+        "zh": "Kimi K3",
+        "en": "Kimi K3"
+      },
+      "params": "2780B 总参（MoE，激活数未公开）",
+      "role": {
+        "zh": "通用",
+        "en": "General"
+      },
+      "note": "许可为 other，须读发布页原文。",
+      "license": "other",
+      "licenseLink": null,
+      "licenseName": "kimi-k3",
+      "pipeline": "image-text-to-text",
+      "downloads": 1234914,
+      "likes": 11639,
+      "lastModified": "2026-09-02T02:22:41.000Z",
+      "baseModelField": null,
+      "isBase": true,
+      "variants": [
+        {
+          "quantizer": "unsloth",
+          "isOfficial": false,
+          "repo": "unsloth/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/unsloth/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": null,
+          "downloads": 338514,
+          "likes": 397,
+          "lastModified": "2026-08-07T02:12:13.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": true,
+          "imatrixFile": "Kimi-K3-GGUF/imatrix_unsloth.gguf",
+          "totalFileSize": 7411821981888,
+          "declaredBase": [
+            "moonshotai/Kimi-K3"
+          ],
+          "coverage": 9,
+          "totalGB": 6902.8,
+          "recommended": {
+            "quant": "UD-Q8_K_XL",
+            "sizeGB": 1561.16,
+            "tier": "近似无损",
+            "name": "Kimi-K3-UD-Q8_K_XL.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-UD-Q1_0.gguf",
+              "path": "UD-Q1_0/Kimi-K3-UD-Q1_0.gguf",
+              "sizeBytes": 466369456320,
+              "sizeGB": 466.37,
+              "quant": "Q1_0",
+              "bitsPerWeight": 1.65,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 11,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-TQ1_0.gguf",
+              "path": "UD-TQ1_0/Kimi-K3-UD-TQ1_0.gguf",
+              "sizeBytes": 508912281952,
+              "sizeGB": 508.91,
+              "quant": "TQ1_0",
+              "bitsPerWeight": 1.69,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 12,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-IQ1_S.gguf",
+              "path": "UD-IQ1_S/Kimi-K3-UD-IQ1_S.gguf",
+              "sizeBytes": 594040923616,
+              "sizeGB": 594.04,
+              "quant": "UD-IQ1_S",
+              "bitsPerWeight": 1.7,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 14,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-IQ1_M.gguf",
+              "path": "UD-IQ1_M/Kimi-K3-UD-IQ1_M.gguf",
+              "sizeBytes": 648872012448,
+              "sizeGB": 648.87,
+              "quant": "UD-IQ1_M",
+              "bitsPerWeight": 1.96,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 15,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-TQ2_0.gguf",
+              "path": "UD-TQ2_0/Kimi-K3-UD-TQ2_0.gguf",
+              "sizeBytes": 551455107488,
+              "sizeGB": 551.46,
+              "quant": "TQ2_0",
+              "bitsPerWeight": 2.06,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 13,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-IQ2_XXS.gguf",
+              "path": "UD-IQ2_XXS/Kimi-K3-UD-IQ2_XXS.gguf",
+              "sizeBytes": 711067773664,
+              "sizeGB": 711.07,
+              "quant": "UD-IQ2_XXS",
+              "bitsPerWeight": 2.13,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 16,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-Q2_K_XL.gguf",
+              "path": "UD-Q2_K_XL/Kimi-K3-UD-Q2_K_XL.gguf",
+              "sizeBytes": 861277858912,
+              "sizeGB": 861.28,
+              "quant": "UD-Q2_K_XL",
+              "bitsPerWeight": 3.35,
+              "tier": "长上下文优先",
+              "tierDesc": "KV 缓存也吃紧时的选择",
+              "isSharded": true,
+              "shardCount": 19,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-Q4_K_XL.gguf",
+              "path": "UD-Q4_K_XL/Kimi-K3-UD-Q4_K_XL.gguf",
+              "sizeBytes": 1508668683104,
+              "sizeGB": 1508.67,
+              "quant": "UD-Q4_K_XL",
+              "bitsPerWeight": 5.62,
+              "tier": "保守档",
+              "tierDesc": "几乎无质量损失",
+              "isSharded": true,
+              "shardCount": 32,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-Q8_K_XL.gguf",
+              "path": "UD-Q8_K_XL/Kimi-K3-UD-Q8_K_XL.gguf",
+              "sizeBytes": 1561157884384,
+              "sizeGB": 1561.16,
+              "quant": "UD-Q8_K_XL",
+              "bitsPerWeight": 8.72,
+              "tier": "近似无损",
+              "tierDesc": "体积接近原始精度",
+              "isSharded": true,
+              "shardCount": 34,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 9
+        },
+        {
+          "quantizer": "AtomicChat",
+          "isOfficial": false,
+          "repo": "AtomicChat/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/AtomicChat/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": "LICENSE",
+          "downloads": 1377,
+          "likes": 16,
+          "lastModified": "2026-07-31T01:02:26.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": true,
+          "imatrixFile": "/data/imatrix_v2.dat",
+          "totalFileSize": 6200514640512,
+          "declaredBase": "moonshotai/Kimi-K3",
+          "coverage": 5,
+          "totalGB": 5774.7,
+          "recommended": {
+            "quant": "Q8_0",
+            "sizeGB": 2954.99,
+            "tier": "近似无损",
+            "name": "Kimi-K3-Q8_0.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-IQ1_S.gguf",
+              "path": "IQ1_S/Kimi-K3-IQ1_S.gguf",
+              "sizeBytes": 589543161824,
+              "sizeGB": 589.54,
+              "quant": "IQ1_S",
+              "bitsPerWeight": 1.62,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 14,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-IQ1_M.gguf",
+              "path": "IQ1_M/Kimi-K3-IQ1_M.gguf",
+              "sizeBytes": 689888739712,
+              "sizeGB": 689.89,
+              "quant": "IQ1_M",
+              "bitsPerWeight": 1.9,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 16,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-IQ2_XXS.gguf",
+              "path": "IQ2_XXS/Kimi-K3-IQ2_XXS.gguf",
+              "sizeBytes": 769117045152,
+              "sizeGB": 769.12,
+              "quant": "IQ2_XXS",
+              "bitsPerWeight": 2.13,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 18,
+              "authorLabeled": false
+            },
+            {
+              "name": "Q3_K_S.gguf",
+              "path": "Q3_K_S/Q3_K_S.gguf",
+              "sizeBytes": 1196975068384,
+              "sizeGB": 1196.98,
+              "quant": "Q3_K_S",
+              "bitsPerWeight": 3.5,
+              "tier": "长上下文优先",
+              "tierDesc": "KV 缓存也吃紧时的选择",
+              "isSharded": true,
+              "shardCount": 28,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-Q8_0.gguf",
+              "path": "Q8_0/Kimi-K3-Q8_0.gguf",
+              "sizeBytes": 2954990625440,
+              "sizeGB": 2954.99,
+              "quant": "Q8_0",
+              "bitsPerWeight": 8.5,
+              "tier": "近似无损",
+              "tierDesc": "体积接近原始精度",
+              "isSharded": true,
+              "shardCount": 71,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 5
+        },
+        {
+          "quantizer": "vcruz305",
+          "isOfficial": false,
+          "repo": "vcruz305/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/vcruz305/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": null,
+          "downloads": 698,
+          "likes": 6,
+          "lastModified": "2026-09-26T19:52:55.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 650497986496,
+          "declaredBase": "moonshotai/Kimi-K3",
+          "coverage": 1,
+          "totalGB": 605.8,
+          "recommended": {
+            "quant": "UD-IQ1_S",
+            "sizeGB": 330.17,
+            "tier": "极限压缩",
+            "name": "Kimi-K3-UD-IQ1_S.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-UD-IQ1_S.gguf",
+              "path": "UD-IQ1_S/Kimi-K3-UD-IQ1_S.gguf",
+              "sizeBytes": 330167807328,
+              "sizeGB": 330.17,
+              "quant": "UD-IQ1_S",
+              "bitsPerWeight": 1.7,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 9,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-IQ1_S_DENSE.gguf",
+              "path": "UD-IQ1_S_DENSE/Kimi-K3-UD-IQ1_S_DENSE.gguf",
+              "sizeBytes": 320330179168,
+              "sizeGB": 320.33,
+              "quant": "UD-IQ1_S",
+              "bitsPerWeight": 1.7,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 9,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 2
+        },
+        {
+          "quantizer": "Kuberwastaken",
+          "isOfficial": false,
+          "repo": "Kuberwastaken/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/Kuberwastaken/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
+          "downloads": 567,
+          "likes": 14,
+          "lastModified": "2026-07-27T19:49:06.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 0,
+          "declaredBase": "moonshotai/Kimi-K3",
+          "coverage": 0,
+          "totalGB": 0,
+          "recommended": null,
+          "files": [],
+          "variantCount": 0
+        },
+        {
+          "quantizer": "6block",
+          "isOfficial": false,
+          "repo": "6block/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/6block/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
+          "downloads": 220,
+          "likes": 1,
+          "lastModified": "2026-08-03T03:26:12.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": true,
+          "imatrixFile": "imatrix_k3.gguf",
+          "totalFileSize": 1119934343104,
+          "declaredBase": "moonshotai/Kimi-K3",
+          "coverage": 1,
+          "totalGB": 1043,
+          "recommended": {
+            "quant": "IQ1_S",
+            "sizeGB": 579.51,
+            "tier": "极限压缩",
+            "name": "Kimi-K3-IQ1_S-XS.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-IQ1_S-XS.gguf",
+              "path": "Kimi-K3-IQ1_S-XS.gguf",
+              "sizeBytes": 579511854944,
+              "sizeGB": 579.51,
+              "quant": "IQ1_S",
+              "bitsPerWeight": 1.62,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 34,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-IQ1_S-XXS-832e.gguf",
+              "path": "Kimi-K3-IQ1_S-XXS-832e.gguf",
+              "sizeBytes": 540422488160,
+              "sizeGB": 540.42,
+              "quant": "IQ1_S",
+              "bitsPerWeight": 1.62,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 11,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 2
+        },
+        {
+          "quantizer": "GrEarl",
+          "isOfficial": false,
+          "repo": "GrEarl/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/GrEarl/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": null,
+          "downloads": 182,
+          "likes": 30,
+          "lastModified": "2026-08-02T21:06:28.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 928581175840,
+          "declaredBase": "moonshotai/Kimi-K3",
+          "coverage": 1,
+          "totalGB": 864.8,
+          "recommended": {
+            "quant": "Q2_K",
+            "sizeGB": 928.58,
+            "tier": "极限压缩",
+            "name": "Kimi-K3-Q2_K.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-Q2_K.gguf",
+              "path": "Kimi-K3-Q2_K.gguf",
+              "sizeBytes": 928581175840,
+              "sizeGB": 928.58,
+              "quant": "Q2_K",
+              "bitsPerWeight": 2.8,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 94,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 1
+        },
+        {
+          "quantizer": "bullerwins",
+          "isOfficial": false,
+          "repo": "bullerwins/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/bullerwins/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": null,
+          "downloads": 109,
+          "likes": 0,
+          "lastModified": "2026-07-28T12:06:34.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 1561157853600,
+          "declaredBase": [
+            "moonshotai/Kimi-K3"
+          ],
+          "coverage": 1,
+          "totalGB": 1453.9,
+          "recommended": {
+            "quant": "MXFP4",
+            "sizeGB": 1561.16,
+            "tier": "平衡档",
+            "name": "Kimi-K3-mxfp4.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-mxfp4.gguf",
+              "path": "mxfp4/Kimi-K3-mxfp4.gguf",
+              "sizeBytes": 1561157853600,
+              "sizeGB": 1561.16,
+              "quant": "MXFP4",
+              "bitsPerWeight": 4.25,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": true,
+              "shardCount": 4,
+              "authorLabeled": false
+            }
+          ],
+          "licenseInherited": true,
+          "licenseFrom": "moonshotai/Kimi-K3",
+          "variantCount": 1
+        },
+        {
+          "quantizer": "qtum",
+          "isOfficial": false,
+          "repo": "qtum/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/qtum/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
+          "downloads": 107,
+          "likes": 0,
+          "lastModified": "2026-08-17T20:33:04.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": true,
+          "imatrixFile": "imatrix_k3.gguf",
+          "totalFileSize": 1119934343104,
+          "declaredBase": "moonshotai/Kimi-K3",
+          "coverage": 1,
+          "totalGB": 1043,
+          "recommended": {
+            "quant": "IQ1_S",
+            "sizeGB": 579.51,
+            "tier": "极限压缩",
+            "name": "Kimi-K3-IQ1_S-XS.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-IQ1_S-XS.gguf",
+              "path": "Kimi-K3-IQ1_S-XS.gguf",
+              "sizeBytes": 579511854944,
+              "sizeGB": 579.51,
+              "quant": "IQ1_S",
+              "bitsPerWeight": 1.62,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 34,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-IQ1_S-XXS-832e.gguf",
+              "path": "Kimi-K3-IQ1_S-XXS-832e.gguf",
+              "sizeBytes": 540422488160,
+              "sizeGB": 540.42,
+              "quant": "IQ1_S",
+              "bitsPerWeight": 1.62,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 11,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 2
+        },
+        {
+          "quantizer": "aria220",
+          "isOfficial": false,
+          "repo": "aria220/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/aria220/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": null,
+          "downloads": 96,
+          "likes": 0,
+          "lastModified": "2026-07-29T22:08:24.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": true,
+          "imatrixFile": "Kimi-K3-GGUF/imatrix_unsloth.gguf",
+          "totalFileSize": 5885042145536,
+          "declaredBase": [
+            "moonshotai/Kimi-K3"
+          ],
+          "coverage": 6,
+          "totalGB": 5480.9,
+          "recommended": {
+            "quant": "UD-Q8_K_XL",
+            "sizeGB": 1561.16,
+            "tier": "近似无损",
+            "name": "Kimi-K3-UD-Q8_K_XL.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-UD-IQ1_S.gguf",
+              "path": "UD-IQ1_S/Kimi-K3-UD-IQ1_S.gguf",
+              "sizeBytes": 593997933024,
+              "sizeGB": 594,
+              "quant": "UD-IQ1_S",
+              "bitsPerWeight": 1.7,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 14,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-IQ1_M.gguf",
+              "path": "UD-IQ1_M/Kimi-K3-UD-IQ1_M.gguf",
+              "sizeBytes": 648872012448,
+              "sizeGB": 648.87,
+              "quant": "UD-IQ1_M",
+              "bitsPerWeight": 1.96,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 15,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-IQ2_XXS.gguf",
+              "path": "UD-IQ2_XXS/Kimi-K3-UD-IQ2_XXS.gguf",
+              "sizeBytes": 711067773664,
+              "sizeGB": 711.07,
+              "quant": "UD-IQ2_XXS",
+              "bitsPerWeight": 2.13,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 16,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-Q2_K_XL.gguf",
+              "path": "UD-Q2_K_XL/Kimi-K3-UD-Q2_K_XL.gguf",
+              "sizeBytes": 861277858912,
+              "sizeGB": 861.28,
+              "quant": "UD-Q2_K_XL",
+              "bitsPerWeight": 3.35,
+              "tier": "长上下文优先",
+              "tierDesc": "KV 缓存也吃紧时的选择",
+              "isSharded": true,
+              "shardCount": 19,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-Q4_K_XL.gguf",
+              "path": "UD-Q4_K_XL/Kimi-K3-UD-Q4_K_XL.gguf",
+              "sizeBytes": 1508668683104,
+              "sizeGB": 1508.67,
+              "quant": "UD-Q4_K_XL",
+              "bitsPerWeight": 5.62,
+              "tier": "保守档",
+              "tierDesc": "几乎无质量损失",
+              "isSharded": true,
+              "shardCount": 32,
+              "authorLabeled": false
+            },
+            {
+              "name": "Kimi-K3-UD-Q8_K_XL.gguf",
+              "path": "UD-Q8_K_XL/Kimi-K3-UD-Q8_K_XL.gguf",
+              "sizeBytes": 1561157884384,
+              "sizeGB": 1561.16,
+              "quant": "UD-Q8_K_XL",
+              "bitsPerWeight": 8.72,
+              "tier": "近似无损",
+              "tierDesc": "体积接近原始精度",
+              "isSharded": true,
+              "shardCount": 34,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 6
+        },
+        {
+          "quantizer": "hudabey",
+          "isOfficial": false,
+          "repo": "hudabey/Kimi-K3-GGUF",
+          "url": "https://huggingface.co/hudabey/Kimi-K3-GGUF",
+          "license": "other",
+          "licenseLink": "LICENSE",
+          "downloads": 86,
+          "likes": 1,
+          "lastModified": "2026-07-30T02:19:46.000Z",
+          "contextLength": 1048576,
+          "architecture": "kimi-k3",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 1561160561216,
+          "declaredBase": "moonshotai/Kimi-K3",
+          "coverage": 1,
+          "totalGB": 1453.9,
+          "recommended": {
+            "quant": "MXFP4",
+            "sizeGB": 1561.16,
+            "tier": "平衡档",
+            "name": "Kimi-K3-896x60B-MXFP4_MOE.gguf"
+          },
+          "files": [
+            {
+              "name": "Kimi-K3-896x60B-MXFP4_MOE.gguf",
+              "path": "Kimi-K3-896x60B-MXFP4_MOE.gguf",
+              "sizeBytes": 1561160561216,
+              "sizeGB": 1561.16,
+              "quant": "MXFP4",
+              "bitsPerWeight": 4.25,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": true,
+              "shardCount": 34,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 1
+        }
+      ],
+      "variantCount": 10
+    }
+  ],
+  "collectedAt": "2026-10-09T00:05:07.834Z",
+  "schemaVersion": 1,
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为月之暗面（北京）。",
+    "originNoteEn": "Made by Moonshot AI (Beijing).",
+    "direct": "yes",
+    "directNote": "ModelScope 官方镜像直连可达（2026-10-20 实测 200）；Hugging Face 直连不可达。",
+    "directNoteEn": "Official ModelScope mirror reachable (measured 200); Hugging Face direct unreachable.",
+    "filing": {
+      "status": "filed",
+      "name": "Moonshot",
+      "no": "Beijing-MoonShot-20231016",
+      "date": "2023-11-03",
+      "note": "首批第 16 行（月之暗面科技）。",
+      "noteEn": "Row 16 of the first batch (Moonshot AI)."
+    },
+    "mirror": "https://www.modelscope.cn/models/moonshotai/Kimi-K3",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      },
+      {
+        "label": "ModelScope 官方镜像 moonshotai/Kimi-K3（2026-10-20 实测 200）",
+        "url": "https://www.modelscope.cn/models/moonshotai/Kimi-K3"
+      }
+    ],
+    "last_verified": "2026-10-20"
+  }
+}

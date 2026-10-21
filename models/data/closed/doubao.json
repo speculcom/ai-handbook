@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "code": "doubao",
+  "name": {
+    "zh": "豆包（闭源 API）",
+    "en": "Doubao (closed API)"
+  },
+  "vendor": {
+    "zh": "字节跳动 · 火山引擎",
+    "en": "ByteDance · Volcengine"
+  },
+  "access": {
+    "zh": "火山方舟 API 与豆包 App；权重不开源。",
+    "en": "Volcengine Ark API and the Doubao app; weights are not open."
+  },
+  "currentGen": {
+    "zh": "Doubao-Seed 2.1 系（+ Seed-Evolving）",
+    "en": "Doubao-Seed 2.1 line (+ Seed-Evolving)"
+  },
+  "currentGenDate": "2026-06",
+  "review_interval_days": 30,
+  "generations": [
+    {
+      "gen": "Doubao-Seed 2.1",
+      "date": "2026-06",
+      "zh": "当前代：模型广场列 doubao-seed-2-1-pro-260628（256k 上下文 / 256k 输出）与 2.1-turbo；另有 doubao-seed-evolving（1024k / 256k，Coding & Agent 持续升级定位）。",
+      "en": "Current line: the model marketplace lists doubao-seed-2-1-pro-260628 (256k context / 256k output) and 2.1-turbo; plus doubao-seed-evolving (1024k / 256k, pitched as a continuously upgraded Coding & Agent model).",
+      "url": "https://ai.volcengine.com/model"
+    },
+    {
+      "gen": "Doubao-Seed 2.0",
+      "date": "2026-02–04",
+      "zh": "上一代：2.0-pro/lite/mini（256k 上下文 / 128k 输出；lite 为官方口径「首款全模态理解模型」）；260215 档标注「即将下线」——闭源代次更替的直接证据。",
+      "en": "Previous line: 2.0-pro/lite/mini (256k context / 128k output; lite billed by the vendor as its \"first omni-modal understanding model\"); the 260215 snapshots are marked \"soon to be retired\" — direct evidence of closed-line churn.",
+      "url": "https://ai.volcengine.com/model"
+    }
+  ],
+  "facts": [
+    {
+      "k": {
+        "zh": "上下文窗口",
+        "en": "Context window"
+      },
+      "v": {
+        "zh": "2.1-pro / 2.1-turbo：256k；Seed-Evolving：1024k（火山模型广场）",
+        "en": "2.1-pro / 2.1-turbo: 256k; Seed-Evolving: 1024k (Volcengine model marketplace)"
+      },
+      "url": "https://ai.volcengine.com/model"
+    },
+    {
+      "k": {
+        "zh": "最大输出",
+        "en": "Max output"
+      },
+      "v": {
+        "zh": "2.1 系 256k；2.0 系 128k（同上）",
+        "en": "256k on the 2.1 line; 128k on 2.0 (same page)"
+      },
+      "url": "https://ai.volcengine.com/model"
+    },
+    {
+      "k": {
+        "zh": "输入模态",
+        "en": "Input modalities"
+      },
+      "v": {
+        "zh": "2.0-lite 起官方标注多模态理解（音视图文）；GUI 任务处理与工具调用在列（同上）",
+        "en": "From 2.0-lite the marketplace marks multimodal understanding (audio/video/image/text); GUI task handling and tool calling listed (same page)"
+      },
+      "url": "https://ai.volcengine.com/model"
+    },
+    {
+      "k": {
+        "zh": "代次更替",
+        "en": "Generation churn"
+      },
+      "v": {
+        "zh": "模型广场把 260215 档标为「即将下线」——闭源谱系按月更代的现场样本，本站按快照记录",
+        "en": "The marketplace marks 260215 snapshots \"soon to be retired\" — a live sample of monthly closed-line churn; recorded as a snapshot"
+      },
+      "url": "https://ai.volcengine.com/model"
+    }
+  ],
+  "positioning": {
+    "zh": "国产闭源主力：对话产品「豆包」与 API「Doubao-Seed」同族两条线；服务在网信办备案（Beijing-YunQue-20230821，豆包大模型=云雀更名，官方备案公示页确认）。代次更替快，本站卡带核验日与复核周期。",
+    "en": "The domestic closed flagship: the Doubao consumer app and the Doubao-Seed API are two lines of one family; the service is CAC-filed (Beijing-YunQue-20230821 — Doubao LLM is the renamed YunQue, confirmed on the official filing-disclosure page). Generations churn fast, so the card carries a check date and review interval."
+  },
+  "onSite": {
+    "zh": "权重不开源，本站无量化对比；对话产品三要素轻档案在 AI 工具站（对话问答区）。",
+    "en": "No open weights, no quantisation coverage; the three-essentials light entry for the app lives on the tools site (chat section)."
+  },
+  "sources": [
+    {
+      "label": "火山引擎模型广场（2026-10-20 直抓 200，规格与下线标注取自该页）",
+      "url": "https://ai.volcengine.com/model",
+      "kind": "docs"
+    },
+    {
+      "label": "火山方舟模型列表（控制台文档页，2026-10-20 检索快照同口径）",
+      "url": "https://console.volcengine.com/ark/region:cn-beijing/docs/model-list",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为字节跳动（北京）。",
+    "originNoteEn": "Made by ByteDance (Beijing).",
+    "direct": "yes",
+    "directNote": "火山引擎与豆包官网大陆直连可达（2026-10-20 实测 200）。",
+    "directNoteEn": "Volcengine and Doubao sites reachable direct from the mainland (measured 200, 2026-10-20).",
+    "filing": {
+      "status": "filed",
+      "name": "云雀（豆包大模型）",
+      "no": "Beijing-YunQue-20230821",
+      "date": "2023-08-31",
+      "note": "首批备案（公示表第 3 行「云雀大模型 · 北京抖音信息服务有限公司」）；豆包官方备案公示页确认豆包大模型即云雀（Beijing-YunQue-20230821）。",
+      "noteEn": "Filed in the first batch (row 3 of the public list: “YunQue model · Beijing Douyin Information Service Co.”); Doubao’s official filing page confirms Doubao is YunQue (Beijing-YunQue-20230821)."
+    },
+    "mirror": "",
+    "last_verified": "2026-10-20",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      },
+      {
+        "label": "豆包官方备案信息公示页（2026-10-20 检索快照：豆包大模型=Beijing-YunQue-20230821）",
+        "url": "https://aweme.snssdk.com/aweme/v1/public/draft/douyin_agreement/"
+      }
+    ]
+  }
+}

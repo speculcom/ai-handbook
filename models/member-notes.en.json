@@ -1,0 +1,31 @@
+{
+  "_comment": "models 站成员备注（note）的英文。2026-10-04。键= `<seriesCode>|<repo名>`。",
+  "_rules": [
+    "0) 这些备注包含**法律判断**（「许可为 other，须读发布页原文」）—— 强度必须保留，不能软化成 note。",
+    "1) 数字与许可证标识原样（MIT / apache-2.0 / 702 万 → 7.02M）。",
+    "2) 产品名与型号原样保留。"
+  ],
+  "gemma-4|gemma-4-26B-A4B-it": "MoE: 26B total parameters but only about 4B activate per token, so it runs at close to 4B-dense speed.",
+  "gemma-4|gemma-4-31B-it": "The heaviest of the sizes in this series.",
+  "gemma-4|gemma-4-E4B-it": "A small size, covered by 34 quantisations — the least resource-hungry entry point for local deployment.",
+  "glm-5|GLM-5.3": "Licence is \"other\"; you must read the release page text before using it.",
+  "glm-5|GLM-5.3-Flash": "MIT licensed — legally the cleanest GLM option for local deployment.",
+  "gpt-oss|gpt-oss-20b": "apache-2.0, 6.74M downloads. Not the newest generation, but a mature quantisation ecosystem and the cleanest licence.",
+  "kimi-k3|Kimi-K3": "Licence is \"other\"; you must read the release page text before using it.",
+  "minicpm5|MiniCPM5-2B": "The model authors publish GGUF themselves (openbmb, 249k downloads).",
+  "qwen3-8|Qwen3.8-27B": "apache-2.0, 7.02M downloads. The baseline model this site's quantisation comparison uses.",
+  "qwen3-8|Qwen3.8-Flash-Next": "Licence is \"other\"; read the licence text on the release page before use.",
+  "_paramsPattern": {
+    "小规格": "small size",
+    "主力通用": "general workhorse",
+    "轻量 / 端侧": "lightweight / on-device",
+    "通用": "general",
+    "旗舰": "flagship"
+  },
+  "deepseek-v4|DeepSeek-V4.1-Flash": "MIT licensed, 20 third-party quantisation repos; antirez alone accounts for 1.67M downloads.",
+  "ornith-1-5|Ornith-1.5-35B-A3B": "MIT licensed, 59 GGUF repos (58 third-party); the vendor also publishes its own GGUF.",
+  "ornith-1-5|Ornith-1.5-9B": "MIT licensed, 43 GGUF repos; the first-party GGUF alone has 5.15M downloads — the highest single repo among the series listed here.",
+  "muse-glimmer|Muse-Glimmer-30B": "apache-2.0, 61 GGUF repos (60 third-party), covered by all three of unsloth, LM Studio and bartowski.",
+  "kat-coder|KAT-Coder-V2.5-Dev": "apache-2.0, 34 third-party quantisation repos (mudler 974k / bartowski 279k). The base repo itself has modest downloads, but quantisation uptake is concentrated.",
+  "laguna|Laguna-XS-2.1": "Licensed OpenMDW-1.1 (not apache or mit) — read the original licence on the release page before use. 20 GGUF repos; the vendor publishes its own GGUF too."
+}

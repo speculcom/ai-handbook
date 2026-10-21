@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phi 家族 · 开放权重谱系</title>
+  <meta name="description" content="Phi（微软（Microsoft））的家族谱系卡：当前代 Phi-4-reasoning 系、代次沿革、尺寸档、许可与官方能力声明，全部带官方出处。核验于 2026-10-20。" />
+  <link rel="canonical" href="https://models.specul.com/families/phi/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Phi 家族 · 开放权重谱系" />
+  <meta property="og:url" content="https://models.specul.com/families/phi/" />
+  <meta property="og:title" content="Phi 家族 · 开放权重谱系" />
+  <meta property="og:description" content="Phi（微软（Microsoft））的家族谱系卡：当前代 Phi-4-reasoning 系、代次沿革、尺寸档、许可与官方能力声明，全部带官方出处。核验于 2026-10-20。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../../brand.css" />
+  <link rel="stylesheet" href="../../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Phi 家族谱系卡","description":"微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。本站未收其量化对比——当前代 GGUF 生态太薄（见下）。","url":"https://models.specul.com/families/phi/","dateModified":"2026-10-20"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>本地模型</span><span data-en>Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://agent.specul.com/"><span><span data-zh>Agent</span><span data-en>Agent</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>本地模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>导航</span><span data-en>Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>全部家族</span><span data-en>All families</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>微软（Microsoft）</span><span data-en>Microsoft</span>　·　<span data-zh>当前代</span><span data-en>current generation</span> Phi-4-reasoning 系（2026-08）</p>
+      <h1><span data-zh>Phi</span><span data-en>Phi</span><span class="sub"><span data-zh>模型家族谱系卡</span><span data-en>model family lineage card</span></span></h1>
+      <p class="lede"><span data-zh>微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。本站未收其量化对比——当前代 GGUF 生态太薄（见下）。</span><span data-en>Microsoft&#39;s small-but-high-quality line: MIT, sizes concentrated at 4B–15B, and the vendor&#39;s pitch is &quot;teach small models with synthetic data&quot;. The current line is reasoning-vision (still a phi-4 post-train on the weight lineage). This site carries no quantisation comparison — the current generation&#39;s GGUF ecosystem is too thin (see below).</span></p>
+      <p class="fam-onsite fam-onsite-no"><span data-zh>本站未收 Phi 的量化对比：当前代 Phi-4-reasoning-vision-15B 的 GGUF 生态实测仅约 2.9k 下载（2026-10-20 HF 检索），远低于本站 ~30 万门槛；老代 phi-4 / mini 生态虽大但不是当前代，本站不采老代（收录标准第 1 条）。</span><span data-en>No quantisation comparison on this site: the current Phi-4-reasoning-vision-15B GGUF ecosystem measured only ~2.9k downloads (HF search 2026-10-20), far below the ~300k threshold; the older phi-4 / mini ecosystems are larger but are not the current generation, and this site does not collect older generations (collection rule #1).</span></p>
+    </header>
+    <section class="trust">
+      <h2><span data-zh>先说清楚：这个站的数据怎么来的</span><span data-en>First, where this site's data comes from</span></h2>
+      <div class="trust-grid">
+        <div class="trust-item t-a">
+          <span class="trust-tag">✅ <span data-zh>实测字段</span><span data-en>Measured fields</span></span>
+          <p><span data-zh>直接从 Hugging Face 公开 API 读取的客观数据：文件体积（字节）、上下文长度、架构、许可、下载量、更新时间。</span><span data-en>Objective data read straight from the Hugging Face public API: file sizes in bytes, context length, architecture, licence, downloads, last updated.</span></p>
+        </div>
+        <div class="trust-item t-b">
+          <span class="trust-tag">✅ <span data-zh>推导</span><span data-en>Derived</span></span>
+          <p><span data-zh>由实测字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存需求区间。推导规则在</span><span data-en>Computed from the measured fields by published rules: bits per weight (per the llama.cpp naming convention), tier assignment, VRAM requirement range. The rules are fully published in</span> <code>METHODOLOGY.md</code><span data-zh> 完整公开，任何人可复算。</span><span data-en> — anyone can recompute them.</span></p>
+        </div>
+        <div class="trust-item t-c">
+          <span class="trust-tag">❌ <span data-zh>我们不说的</span><span data-en>What we do not claim</span></span>
+          <p><span data-zh><b>哪个量化质量更高、哪个更快、哪个模型更强</b>——这些需要实测，本站不跑 benchmark，所以不装作知道。凡我们给出的主观判断，一律显式标注「我们的口径」。</span><span data-en><b>Which quantisation is higher quality, which is faster, which model is stronger</b> — these need measurement. This site does not run benchmarks, so it does not pretend to know. Every subjective judgement we do offer is explicitly marked as our own reading.</span></p>
+        </div>
+      </div>
+      <p class="trust-foot">
+        <span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>。所有数字都来自公开元数据，点击即可回到发布页核对。</span><span data-en>. Every figure comes from public metadata, and clicking it takes you back to the release page to verify.</span>
+        <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-09</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
+      </p>
+    </section>
+
+    <section class="fam-sec cn-sec">
+      <h2><span data-zh>中文生态</span><span data-en>China availability</span> <small><span data-zh>国产 / 国内可直接用 / 备案状态 · 快照</span><span data-en>domestic / direct access / CAC filing · snapshot</span> 2026-10-20</small></h2>
+      <ul class="fam-claims cn-rows">
+        <li><b><span data-zh>出品属地</span><span data-en>Origin</span></b>　<span data-zh>国外出品</span><span data-en>foreign-made</span>　<span data-zh>出品方为微软（美国）。</span><span data-en>Made by Microsoft (US).</span></li>
+        <li><b><span data-zh>国内下载</span><span data-en>Direct access</span></b>　<span data-zh>国内可直连</span><span data-en>direct OK</span>　<span data-zh>ModelScope 有 microsoft 官方组织镜像（2026-10-20 实测 200）；Hugging Face 直连不可达。</span><span data-en>Official microsoft org mirror on ModelScope (measured 200); Hugging Face direct unreachable.</span>　·　<a href="https://www.modelscope.cn/models/microsoft/Phi-4-reasoning-vision-15B" target="_blank" rel="noopener"><span data-zh>国内镜像入口</span><span data-en>domestic mirror</span></a></li>
+        <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>未见于备案名单</span><span data-en>not in filing list</span>：<span data-zh>公示名单未检索到微软相关条目（2026-10-20 检索 13 批附件）。</span><span data-en>No Microsoft entry found in the public registry (13 batch attachments searched on 2026-10-20).</span></li>
+      </ul>
+      <p class="fam-claims-note"><span data-zh>备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站从大陆网络直连实测的结果，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site's own reachability measurement from a mainland network, not a vendor promise.</span></p>
+      <ul class="fam-src-list cn-srcs"><li>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：<a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li>ModelScope 官方组织镜像（2026-10-20 实测 200）：<a href="https://www.modelscope.cn/models/microsoft/Phi-4-reasoning-vision-15B" target="_blank" rel="noopener">https://www.modelscope.cn/models/microsoft/Phi-4-reasoning-vision-15B</a></li></ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2><span data-zh>代次</span><span data-en>Generations</span></h2>
+      <ul class="fam-gens">
+        <li class="fam-gen">
+          <div class="fam-gen-head"><b>Phi-4-reasoning-vision-15B</b><span class="fam-gen-date">2026-08</span></div>
+          <p><span data-zh>当前代：15B 视觉推理档（模型卡 base_model 指向 Phi-4-reasoning），MIT 许可；技术报告 arXiv:2511.19663。</span><span data-en>Current generation: the 15B vision-reasoning build (model card base_model points at Phi-4-reasoning), MIT licence; technical report arXiv:2511.19663.</span></p>
+          <a class="fam-src" href="https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B" target="_blank" rel="noopener"><span data-zh>官方页面 ↗</span><span data-en>official page ↗</span></a>
+        </li>
+        <li class="fam-gen">
+          <div class="fam-gen-head"><b>Phi-4-reasoning / -plus</b><span class="fam-gen-date">2025-11</span></div>
+          <p><span data-zh>推理强化代：官方 README「finetuned from Phi-4 using supervised fine-tuning on a dataset of chain-of-thought traces and reinforcement learning」，上下文 32K。</span><span data-en>Reasoning-focused step: official README &quot;finetuned from Phi-4 using supervised fine-tuning on a dataset of chain-of-thought traces and reinforcement learning&quot;, 32K context.</span></p>
+          <a class="fam-src" href="https://huggingface.co/microsoft/Phi-4-reasoning" target="_blank" rel="noopener"><span data-zh>官方页面 ↗</span><span data-en>official page ↗</span></a>
+        </li>
+        <li class="fam-gen">
+          <div class="fam-gen-head"><b>phi-4 / Phi-4-mini / Phi-4-multimodal</b><span class="fam-gen-date">2024-12–2025-03</span></div>
+          <p><span data-zh>基座代：phi-4 为 14B 密集 / 16K 上下文（官方 README 口径），mini 3.8B 与 multimodal 同代放出；全部 MIT。</span><span data-en>Base-generation step: phi-4 is 14B dense / 16K context per the official README, with the 3.8B mini and multimodal builds released alongside; all MIT.</span></p>
+          <a class="fam-src" href="https://huggingface.co/microsoft/phi-4" target="_blank" rel="noopener"><span data-zh>官方页面 ↗</span><span data-en>official page ↗</span></a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2><span data-zh>派生标记</span><span data-en>Derived from</span> <small><span data-zh>按官方模型卡 base_model 声明</span><span data-en>per the official model-card base_model declaration</span></small></h2>
+      <p class="fam-derived"><span data-zh>官方模型卡声明当前代 Phi-4-reasoning-vision-15B 的 base_model 是 Phi-4-reasoning，而 Phi-4-reasoning 又声明派生自 phi-4（SFT + RL 微调）——整条当前代线在权重谱系上是 phi-4 的后训练产物，不是从零预训练。</span><span data-en>The official model card declares the current-generation Phi-4-reasoning-vision-15B is based on Phi-4-reasoning, which in turn declares phi-4 as its base (SFT + RL fine-tuning) — the whole current line is a post-train lineage of phi-4, not trained from scratch.</span>　<span data-zh>基座</span><span data-en>base</span>：<code>microsoft/Phi-4-reasoning</code>　<a class="fam-src" href="https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></p>
+    </section>
+
+    <section class="fam-sec">
+      <h2><span data-zh>尺寸档</span><span data-en>Size tiers</span></h2>
+      <ul class="fam-tiers"><li><span data-zh>端侧 mini 3.8B</span><span data-en>On-device mini 3.8B</span></li><li><span data-zh>单卡 14B–15B（phi-4 密集 / reasoning-vision 15B）</span><span data-en>Single-card 14B–15B (phi-4 dense / reasoning-vision 15B)</span></li></ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2><span data-zh>许可</span><span data-en>Licences</span></h2>
+      <ul class="fam-lics"><li><a class="lic lic-loose" href="https://huggingface.co/search?license=mit" target="_blank" rel="noopener">mit</a><span class="fam-lic-txt"><span data-zh>MIT（phi-4 与 reasoning 系模型卡均 license: mit，许可原文在仓内 LICENSE）</span><span data-en>MIT (phi-4 and the reasoning-line model cards all say license: mit; licence text in-repo)</span></span> <a class="fam-src" href="https://huggingface.co/microsoft/phi-4/resolve/main/LICENSE" target="_blank" rel="noopener"><span data-zh>许可原文 ↗</span><span data-en>licence text ↗</span></a></li></ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2><span data-zh>官方能力声明（带出处）</span><span data-en>Official capability claims (with sources)</span></h2>
+      <ul class="fam-claims">
+        <li><span data-zh>官方 README（phi-4）：「14B parameters, dense decoder-only Transformer」「Context length: 16K tokens」；训练数据以合成数据集为主（官方明说 synthetic datasets 路线）。</span><span data-en>Official README (phi-4): &quot;14B parameters, dense decoder-only Transformer&quot;; &quot;Context length: 16K tokens&quot;; training leans on synthetic datasets (stated by the vendor).</span><a class="fam-src" href="https://huggingface.co/microsoft/phi-4" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+        <li><span data-zh>官方 README（Phi-4-reasoning）：「state-of-the-art open-weight reasoning model finetuned from Phi-4 using supervised fine-tuning … and reinforcement learning」「Context length: 32k tokens」。</span><span data-en>Official README (Phi-4-reasoning): &quot;state-of-the-art open-weight reasoning model finetuned from Phi-4 using supervised fine-tuning … and reinforcement learning&quot;; &quot;Context length: 32k tokens&quot;.</span><a class="fam-src" href="https://huggingface.co/microsoft/Phi-4-reasoning" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+      </ul>
+      <p class="fam-claims-note"><span data-zh>以上均为厂商官方页面原文或官方自评基准的转述；涉及横评结论的，本站不背书——本站不跑 benchmark。</span><span data-en>The above are quotations of official pages or transcriptions of vendor-run benchmarks; this site does not endorse cross-model conclusions — it runs no benchmarks.</span></p>
+    </section>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list"><li>phi-4 模型页与 README（2026-10-20 直抓 200）：<a href="https://huggingface.co/microsoft/phi-4" target="_blank" rel="noopener">https://huggingface.co/microsoft/phi-4</a></li><li>Phi-4-reasoning 模型页与 README（2026-10-20 直抓 200，含 base_model 声明）：<a href="https://huggingface.co/microsoft/Phi-4-reasoning" target="_blank" rel="noopener">https://huggingface.co/microsoft/Phi-4-reasoning</a></li><li>Phi-4-reasoning-vision-15B 模型页与 README（2026-10-20 直抓 200）：<a href="https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B" target="_blank" rel="noopener">https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>核验快照：2026-10-20 · 本站不实测、不排名，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-20 · no benchmarks, no rankings — unknown stays unknown.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 投机取巧 · <span data-zh>Specul</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+          <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+          <a href="https://github.com/speculcom/ai-quantized-llm" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://agent.specul.com/"><span class="ti" aria-hidden="true">◈</span>Agent</a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+  <script src="../../brand.js"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
+      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
+      sync();
+    })();
+  </script>
+</body>
+</html>

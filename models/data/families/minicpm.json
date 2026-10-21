@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "code": "minicpm",
+  "series": "minicpm5",
+  "name": {
+    "zh": "MiniCPM",
+    "en": "MiniCPM"
+  },
+  "vendor": {
+    "zh": "面壁智能 · OpenBMB",
+    "en": "OpenBMB (ModelBest)"
+  },
+  "currentGen": {
+    "zh": "MiniCPM5",
+    "en": "MiniCPM5"
+  },
+  "currentGenDate": "2026-08",
+  "generations": [
+    {
+      "gen": "MiniCPM5",
+      "date": "2026-08",
+      "zh": "当前代：2B / 1B 密集小杯（MiniCPM5-2B 2.5B 密集），官方称「2B-class open-source SOTA」（自评基准口径）；Base / SFT / DSpark 等中间档官方全部放出；配套开源 UltraData 系列训练数据。",
+      "en": "Current generation: 2B / 1B dense small builds (MiniCPM5-2B is 2.5B dense), pitched as \"2B-class open-source SOTA\" (vendor-run benchmark wording); Base / SFT / DSpark intermediate checkpoints all released; the UltraData training-data family ships alongside.",
+      "url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    },
+    {
+      "gen": "MiniCPM-V / MiniCPM-o 支线",
+      "date": "2024–2026",
+      "zh": "并行视觉与全模态支线（V-4.7 / o-4_5 等在册），与语言主线同 org。",
+      "en": "Parallel vision and omni-modal branches (V-4.7 / o-4_5 etc.) in the same org.",
+      "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-1B"
+    },
+    {
+      "gen": "MiniCPM4 / 4.1 · MiniCPM3",
+      "date": "2024–2025",
+      "zh": "上一代语言主线（MiniCPM4-8B / 4.1-8B / MiniCPM3-4B 在册）。",
+      "en": "Previous language line (MiniCPM4-8B / 4.1-8B / MiniCPM3-4B listed).",
+      "url": "https://huggingface.co/openbmb/MiniCPM4.1-8B"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "端侧 1B / 2B（MiniCPM5-1B / 2B，密集）",
+      "en": "On-device 1B / 2B (MiniCPM5-1B / 2B, dense)"
+    },
+    {
+      "zh": "上一代 4B–8B（MiniCPM3/4 系）",
+      "en": "Previous 4B–8B (MiniCPM3/4 line)"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "apache-2.0",
+      "zh": "Apache-2.0（MiniCPM5-2B 模型卡 license: apache-2.0）",
+      "en": "Apache-2.0 (MiniCPM5-2B model card: license apache-2.0)",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "官方 README：「compared with strong open-source models of similar size, MiniCPM5-2B achieves SOTA performance within this comparison set」（厂商自评基准口径）；官方放出 UltraX / UltraData-Code / UltraData-SFT-Agent / UltraData-RL 训练数据集。",
+      "en": "Official README: \"compared with strong open-source models of similar size, MiniCPM5-2B achieves SOTA performance within this comparison set\" (vendor-run benchmark wording); the UltraX / UltraData-Code / UltraData-SFT-Agent / UltraData-RL datasets are released by the vendor.",
+      "url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+    }
+  ],
+  "positioning": {
+    "zh": "国产端侧小杯家族：尺寸小、官方连训练数据一起开源，是「自己练一遍」路线最友好的中文家族。面壁 ChatGLM 之外的另一条国产备案线（MiniCPM 备案编号 Beijing-MiniCPM-202503180058）。",
+    "en": "The domestic on-device small-model family: small sizes plus fully open training data — the friendliest Chinese family for the \"train one yourself\" route. Alongside Zhipu, another filed domestic line (MiniCPM filing number Beijing-MiniCPM-202503180058)."
+  },
+  "onSite": {
+    "series": [
+      "minicpm5"
+    ],
+    "zh": "本站已收录 MiniCPM5-2B 的量化对比",
+    "en": "This site covers MiniCPM5-2B quantisations"
+  },
+  "sources": [
+    {
+      "label": "MiniCPM5-2B 模型页与 README（2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
+      "kind": "docs"
+    },
+    {
+      "label": "openbmb 官方 org 模型清单（HF API 2026-10-20，100+ 仓在册）",
+      "url": "https://huggingface.co/openbmb",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-10-20",
+  "confidence": "verified",
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为面壁智能 · OpenBMB（北京）。",
+    "originNoteEn": "Made by ModelBest · OpenBMB (Beijing).",
+    "direct": "yes",
+    "directNote": "ModelScope 官方镜像直连可达（2026-10-20 实测 200）；Hugging Face 直连不可达。",
+    "directNoteEn": "Official ModelScope mirror reachable (measured 200); Hugging Face direct unreachable.",
+    "filing": {
+      "status": "filed",
+      "name": "MiniCPM",
+      "no": "Beijing-MiniCPM-202503180058",
+      "date": "2025-04-10",
+      "note": "2025-06 批次附件第 351 行；此前「面壁露卡 LUCA」也在首批（Beijing-LuKa-20231016）。",
+      "noteEn": "Row 351 of the 2025-06 batch attachment; ModelBest’s “LuCa” was also in the first batch (Beijing-LuKa-20231016)."
+    },
+    "mirror": "https://www.modelscope.cn/models/OpenBMB/MiniCPM5-2B",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      },
+      {
+        "label": "ModelScope 官方镜像 OpenBMB/MiniCPM5-2B（2026-10-20 实测 200）",
+        "url": "https://www.modelscope.cn/models/OpenBMB/MiniCPM5-2B"
+      }
+    ],
+    "last_verified": "2026-10-20"
+  }
+}

@@ -1,0 +1,37 @@
+# Models Atlas (ai-quantized-llm)
+
+> For this base model, which quantized build should I download — and why.
+
+Only covers **open-weight, locally deployable** models with a third-party GGUF quantization ecosystem. Closed-source / API-only models are out of the quantization scope ("which quantized build" does not apply to them); a separate `data/closed/` set of closed-model lineage cards provides the contrast: official spec snapshots + review cycle, no prices, no rankings.
+
+## Size (computed from data — see the build scripts under `scripts/` and `_audit/gen-repo-docs.mjs`)
+
+11 series / 16 model repos / 132 quant variants / 1253 GGUF files, from 55 quantizers.
+
+## Content map
+
+- `config.js` — Series roster (the selection criteria are in the file-header comments)
+- `data/series/*.json` — **Collected output**: series / members / quant repos / variants / sizes — do not edit by hand
+- `data/families/*.json` — Family lineage cards (layer-one choice: vendor / generations / size tiers / licences / official claims)
+- `data/closed/*.json` — Closed-model lineage cards (the contrast set: official spec snapshots + review cycle; rule D9 records no price figures)
+- `guides/*.md` — Model-making guides (methodology articles such as the four training stages; see SCHEMA §model-making guides)
+- `data/quantizers/*.md` — Quantizer profiles
+- `enums.en.json` — English for the data-layer closed enums
+- `summaries.en.json` — Series summaries in English (key = series code)
+- `member-notes.en.json` — Member notes in English (key = code|repo name)
+
+## What this repo does not do
+
+- No benchmarks, no quality or speed conclusions
+- No downloading or hosting of any model weight files
+- No fake rankings (license / size / variant are facts; merits are left to the reader)
+
+## Schema and validation
+
+- Field schema: `docs/SCHEMA.md`
+- Validator: `scripts/validate.mjs` (non-compliant entries fail the build)
+- A separate legal hard constraint is enforced by `scripts/audit-licenses.mjs` (must pass before the site builds)
+
+## Site
+
+https://models.specul.com/

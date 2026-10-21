@@ -1,0 +1,431 @@
+{
+  "code": "deepseek-v4",
+  "name": {
+    "zh": "DeepSeek V4",
+    "en": "DeepSeek V4"
+  },
+  "vendor": {
+    "zh": "DeepSeek",
+    "en": "DeepSeek"
+  },
+  "family": "deepseek",
+  "released": "2026-09-10",
+  "summary": "MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。",
+  "summaryEn": "MIT-licensed, with a lively quantization scene — antirez (the author of llama.cpp) maintains the quantized weights himself.",
+  "positions": [
+    "通用对话",
+    "MIT 许可",
+    "推理"
+  ],
+  "sources": {
+    "official": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+  },
+  "members": [
+    {
+      "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+      "label": {
+        "zh": "DeepSeek V4.1 Flash",
+        "en": "DeepSeek V4.1 Flash"
+      },
+      "params": "763B 总参（MoE，激活数未公开）",
+      "role": {
+        "zh": "通用主力",
+        "en": "General"
+      },
+      "note": "MIT 许可，20 个第三方量化仓，antirez 一家 1.67M 下载。",
+      "license": "mit",
+      "licenseLink": null,
+      "licenseName": null,
+      "pipeline": "image-text-to-text",
+      "downloads": 1282524,
+      "likes": 4258,
+      "lastModified": "2026-10-01T05:56:24.000Z",
+      "baseModelField": null,
+      "isBase": true,
+      "variants": [
+        {
+          "quantizer": "vcruz305",
+          "isOfficial": false,
+          "repo": "vcruz305/DeepSeek-V4.1-Flash-GGUF",
+          "url": "https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF",
+          "license": "mit",
+          "licenseLink": null,
+          "downloads": 49490,
+          "likes": 41,
+          "lastModified": "2026-09-12T20:47:24.000Z",
+          "contextLength": 1048576,
+          "architecture": "deepseek41",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 1564478433472,
+          "declaredBase": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "coverage": 4,
+          "totalGB": 1457,
+          "recommended": {
+            "quant": "Q4_K_M",
+            "sizeGB": 444.74,
+            "tier": "平衡档",
+            "name": "DeepSeek-V4.1-Flash-Q4_K_M.gguf"
+          },
+          "files": [
+            {
+              "name": "DeepSeek-V4.1-Flash-Q2_K.gguf",
+              "path": "DeepSeek-V4.1-Flash-Q2_K.gguf",
+              "sizeBytes": 264515279456,
+              "sizeGB": 264.52,
+              "quant": "Q2_K",
+              "bitsPerWeight": 2.8,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 7,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-Q3_K_M.gguf",
+              "path": "DeepSeek-V4.1-Flash-Q3_K_M.gguf",
+              "sizeBytes": 347271472288,
+              "sizeGB": 347.27,
+              "quant": "Q3_K_M",
+              "bitsPerWeight": 3.55,
+              "tier": "长上下文优先",
+              "tierDesc": "KV 缓存也吃紧时的选择",
+              "isSharded": true,
+              "shardCount": 9,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-Q4_K_M.gguf",
+              "path": "DeepSeek-V4.1-Flash-Q4_K_M.gguf",
+              "sizeBytes": 444737454720,
+              "sizeGB": 444.74,
+              "quant": "Q4_K_M",
+              "bitsPerWeight": 4.85,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": true,
+              "shardCount": 11,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-Q8_0.gguf",
+              "path": "DeepSeek-V4.1-Flash-Q8_0.gguf",
+              "sizeBytes": 507954227008,
+              "sizeGB": 507.95,
+              "quant": "Q8_0",
+              "bitsPerWeight": 8.5,
+              "tier": "近似无损",
+              "tierDesc": "体积接近原始精度",
+              "isSharded": true,
+              "shardCount": 10,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 4
+        },
+        {
+          "quantizer": "smalinin",
+          "isOfficial": false,
+          "repo": "smalinin/DeepSeek-V4.1-Flash-GGUF",
+          "url": "https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF",
+          "license": "mit",
+          "licenseLink": null,
+          "downloads": 20309,
+          "likes": 3,
+          "lastModified": "2026-09-27T16:49:36.000Z",
+          "contextLength": 1048576,
+          "architecture": "deepseek41",
+          "imatrix": true,
+          "imatrixFile": "/home/sergei/_my_deepseek41/calibration/results/imatrix-stage5-full/imatrix-dsv41-262144.gguf",
+          "totalFileSize": 2070161218944,
+          "declaredBase": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "coverage": 5,
+          "totalGB": 1928,
+          "recommended": {
+            "quant": "MXFP4",
+            "sizeGB": 507.95,
+            "tier": "平衡档",
+            "name": "DeepSeek-V4.1-Flash-MXFP4.gguf"
+          },
+          "files": [
+            {
+              "name": "DeepSeek-V4.1-Flash-EngramQ8-IQ2_XXS_GU-Q2_K_Down.gguf",
+              "path": "IQ2_XXS_GU-Q2_K_Down-Q8/DeepSeek-V4.1-Flash-EngramQ8-IQ2_XXS_GU-Q2_K_Down.gguf",
+              "sizeBytes": 371438234464,
+              "sizeGB": 371.44,
+              "quant": "IQ2_XXS",
+              "bitsPerWeight": 2.13,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 10,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-EngramQ5-Q2_K.gguf",
+              "path": "Q2_K-Q5/DeepSeek-V4.1-Flash-EngramQ5-Q2_K.gguf",
+              "sizeBytes": 335382014624,
+              "sizeGB": 335.38,
+              "quant": "Q2_K",
+              "bitsPerWeight": 2.8,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 10,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-EngramQ8-Q2_K_Protected.gguf",
+              "path": "Q2_K_Protected-Q8/DeepSeek-V4.1-Flash-EngramQ8-Q2_K_Protected.gguf",
+              "sizeBytes": 413389886304,
+              "sizeGB": 413.39,
+              "quant": "Q2_K",
+              "bitsPerWeight": 2.8,
+              "tier": "极限压缩",
+              "tierDesc": "能装下就装，质量明显下降",
+              "isSharded": true,
+              "shardCount": 10,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-EngramQ8-IQ3_XS.gguf",
+              "path": "IQ3_XS-Q8/DeepSeek-V4.1-Flash-EngramQ8-IQ3_XS.gguf",
+              "sizeBytes": 434023895904,
+              "sizeGB": 434.02,
+              "quant": "IQ3_XS",
+              "bitsPerWeight": 3.36,
+              "tier": "长上下文优先",
+              "tierDesc": "KV 缓存也吃紧时的选择",
+              "isSharded": true,
+              "shardCount": 10,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-MXFP4.gguf",
+              "path": "MXFP4/DeepSeek-V4.1-Flash-MXFP4.gguf",
+              "sizeBytes": 507954227712,
+              "sizeGB": 507.95,
+              "quant": "MXFP4",
+              "bitsPerWeight": 4.25,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": true,
+              "shardCount": 10,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-DSpark-AUTO.gguf",
+              "path": "DeepSeek-V4.1-Flash-DSpark-AUTO.gguf",
+              "sizeBytes": 7972959936,
+              "sizeGB": 7.97,
+              "quant": "其他",
+              "bitsPerWeight": null,
+              "tier": "未识别",
+              "tierDesc": "",
+              "isSharded": false,
+              "shardCount": 1,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 6
+        },
+        {
+          "quantizer": "mxxm-t",
+          "isOfficial": false,
+          "repo": "mxxm-t/DeepSeek-V4.1-Flash-GGUF",
+          "url": "https://huggingface.co/mxxm-t/DeepSeek-V4.1-Flash-GGUF",
+          "license": "mit",
+          "licenseLink": null,
+          "downloads": 6097,
+          "likes": 2,
+          "lastModified": "2026-09-18T08:01:32.000Z",
+          "contextLength": 1048576,
+          "architecture": "deepseek41",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 411476016384,
+          "declaredBase": [
+            "deepseek-ai/DeepSeek-V4.1-Flash"
+          ],
+          "coverage": 1,
+          "totalGB": 383.2,
+          "recommended": {
+            "quant": "MXFP4",
+            "sizeGB": 403.5,
+            "tier": "平衡档",
+            "name": "DeepSeek-V4.1-Flash-MXFP4.gguf"
+          },
+          "files": [
+            {
+              "name": "DeepSeek-V4.1-Flash-DSpark-MXFP4.gguf",
+              "path": "DeepSeek-V4.1-Flash-DSpark-MXFP4.gguf",
+              "sizeBytes": 7972959904,
+              "sizeGB": 7.97,
+              "quant": "MXFP4",
+              "bitsPerWeight": 4.25,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": false,
+              "shardCount": 1,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-MXFP4.gguf",
+              "path": "DeepSeek-V4.1-Flash-MXFP4.gguf",
+              "sizeBytes": 403503056480,
+              "sizeGB": 403.5,
+              "quant": "MXFP4",
+              "bitsPerWeight": 4.25,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": true,
+              "shardCount": 12,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 2
+        },
+        {
+          "quantizer": "Solstice-AI",
+          "isOfficial": false,
+          "repo": "Solstice-AI/DeepSeek-V4.1-Flash-GGUF",
+          "url": "https://huggingface.co/Solstice-AI/DeepSeek-V4.1-Flash-GGUF",
+          "license": "mit",
+          "licenseLink": null,
+          "downloads": 2617,
+          "likes": 1,
+          "lastModified": "2026-09-12T16:37:30.000Z",
+          "contextLength": 1048576,
+          "architecture": "deepseek41",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 1299963154016,
+          "declaredBase": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "coverage": 3,
+          "totalGB": 1210.7,
+          "recommended": {
+            "quant": "Q4_K_M",
+            "sizeGB": 444.74,
+            "tier": "平衡档",
+            "name": "DeepSeek-V4.1-Flash-Q4_K_M.gguf"
+          },
+          "files": [
+            {
+              "name": "DeepSeek-V4.1-Flash-Q3_K_M.gguf",
+              "path": "DeepSeek-V4.1-Flash-Q3_K_M.gguf",
+              "sizeBytes": 347271472288,
+              "sizeGB": 347.27,
+              "quant": "Q3_K_M",
+              "bitsPerWeight": 3.55,
+              "tier": "长上下文优先",
+              "tierDesc": "KV 缓存也吃紧时的选择",
+              "isSharded": true,
+              "shardCount": 9,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-Q4_K_M.gguf",
+              "path": "DeepSeek-V4.1-Flash-Q4_K_M.gguf",
+              "sizeBytes": 444737454720,
+              "sizeGB": 444.74,
+              "quant": "Q4_K_M",
+              "bitsPerWeight": 4.85,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": true,
+              "shardCount": 11,
+              "authorLabeled": false
+            },
+            {
+              "name": "DeepSeek-V4.1-Flash-Q8_0.gguf",
+              "path": "DeepSeek-V4.1-Flash-Q8_0.gguf",
+              "sizeBytes": 507954227008,
+              "sizeGB": 507.95,
+              "quant": "Q8_0",
+              "bitsPerWeight": 8.5,
+              "tier": "近似无损",
+              "tierDesc": "体积接近原始精度",
+              "isSharded": true,
+              "shardCount": 10,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 3
+        },
+        {
+          "quantizer": "JigSawPT",
+          "isOfficial": false,
+          "repo": "JigSawPT/DeepSeek-V4.1-Flash-GGUF",
+          "url": "https://huggingface.co/JigSawPT/DeepSeek-V4.1-Flash-GGUF",
+          "license": "mit",
+          "licenseLink": null,
+          "downloads": 2083,
+          "likes": 8,
+          "lastModified": "2026-09-23T09:56:15.000Z",
+          "contextLength": 1048576,
+          "architecture": "deepseek41",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 501809981408,
+          "declaredBase": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "coverage": 1,
+          "totalGB": 467.3,
+          "recommended": {
+            "quant": "MXFP4",
+            "sizeGB": 501.81,
+            "tier": "平衡档",
+            "name": "DeepSeek-V4.1-Flash-MXFP4-engram.gguf"
+          },
+          "files": [
+            {
+              "name": "DeepSeek-V4.1-Flash-MXFP4-engram.gguf",
+              "path": "DeepSeek-V4.1-Flash-MXFP4-engram.gguf",
+              "sizeBytes": 501809981408,
+              "sizeGB": 501.81,
+              "quant": "MXFP4",
+              "bitsPerWeight": 4.25,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": true,
+              "shardCount": 11,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 1
+        }
+      ],
+      "variantCount": 5
+    }
+  ],
+  "collectedAt": "2026-10-09T00:05:07.834Z",
+  "schemaVersion": 1,
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为深度求索（北京）。",
+    "originNoteEn": "Made by DeepSeek (Beijing).",
+    "direct": "yes",
+    "directNote": "ModelScope 官方镜像直连可达（2026-10-20 实测 200）；Hugging Face 直连不可达。",
+    "directNoteEn": "Official ModelScope mirror reachable without proxy (measured 200); Hugging Face direct unreachable.",
+    "filing": {
+      "status": "filed",
+      "name": "求索对话DeepSeek Chat",
+      "no": "Beijing-DeepseekChat-202404280016",
+      "date": "2024-05-13",
+      "note": "2024-08 批次附件第 152 行。",
+      "noteEn": "Row 152 of the 2024-08 batch attachment."
+    },
+    "mirror": "https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm"
+      },
+      {
+        "label": "ModelScope 官方镜像 deepseek-ai/DeepSeek-V4.1-Flash（2026-10-20 实测 200）",
+        "url": "https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash"
+      }
+    ],
+    "last_verified": "2026-10-20"
+  }
+}

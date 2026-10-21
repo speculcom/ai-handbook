@@ -1,0 +1,562 @@
+{
+ "deepseek-ai/DeepSeek-V4-Flash": {
+  "createdAt": "2026-04-22T06:04:20.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "text-generation",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "deepseek_v4",
+   "text-generation",
+   "arxiv:2606.19348",
+   "license:mit",
+   "eval-results",
+   "endpoints_compatible",
+   "8-bit",
+   "fp8",
+   "deploy:azure",
+   "deploy:sagemaker",
+   "region:us"
+  ],
+  "tags": [
+   "text-generation",
+   "arXiv:2606.19348",
+   "license:mit"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 159641337663,
+  "license": "mit",
+  "licenseName": null,
+  "licenseLinkRaw": null,
+  "licenseUrl": "https://opensource.org/license/mit",
+  "configArch": [
+   "DeepseekV4ForCausalLM"
+  ],
+  "configModelType": "deepseek_v4",
+  "safetensorsTotal": 290944616402,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 1415259264,
+    "I64": 2327040,
+    "F32": 36168018,
+    "F8_E4M3": 6023020544,
+    "I8": 283467841536
+   }
+  },
+  "baseModelField": null,
+  "modelIndexName": null,
+  "sha": "60d8d70770c6776ff598c94bb586a859a38244f1"
+ },
+ "google/gemma-4-26B-A4B-it": {
+  "createdAt": "2026-03-11T21:25:57.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "image-text-to-text",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "gemma4",
+   "image-text-to-text",
+   "conversational",
+   "arxiv:2607.02770",
+   "base_model:google/gemma-4-26B-A4B",
+   "base_model:finetune:google/gemma-4-26B-A4B",
+   "license:apache-2.0",
+   "eval-results",
+   "endpoints_compatible",
+   "deploy:sagemaker",
+   "deploy:azure",
+   "region:us"
+  ],
+  "tags": [
+   "image-text-to-text",
+   "conversational",
+   "arXiv:2607.02770",
+   "license:apache-2.0"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 204839774980,
+  "license": "apache-2.0",
+  "licenseName": null,
+  "licenseLinkRaw": "https://ai.google.dev/gemma/docs/gemma_4_license",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "configArch": [
+   "Gemma4ForConditionalGeneration"
+  ],
+  "configModelType": "gemma4",
+  "safetensorsTotal": 25805936206,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 25805936206
+   }
+  },
+  "baseModelField": [
+   "google/gemma-4-26B-A4B"
+  ],
+  "modelIndexName": null,
+  "sha": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52"
+ },
+ "google/gemma-4-31B-it": {
+  "createdAt": "2026-03-11T18:22:36.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "image-text-to-text",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "gemma4",
+   "image-text-to-text",
+   "conversational",
+   "arxiv:2607.02770",
+   "base_model:google/gemma-4-31B",
+   "base_model:finetune:google/gemma-4-31B",
+   "license:apache-2.0",
+   "eval-results",
+   "endpoints_compatible",
+   "deploy:sagemaker",
+   "deploy:azure",
+   "region:us"
+  ],
+  "tags": [
+   "image-text-to-text",
+   "conversational",
+   "arXiv:2607.02770",
+   "license:apache-2.0"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 175739734665,
+  "license": "apache-2.0",
+  "licenseName": null,
+  "licenseLinkRaw": "https://ai.google.dev/gemma/docs/gemma_4_license",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "configArch": [
+   "Gemma4ForConditionalGeneration"
+  ],
+  "configModelType": "gemma4",
+  "safetensorsTotal": 31273088876,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 31273088876
+   }
+  },
+  "baseModelField": [
+   "google/gemma-4-31B"
+  ],
+  "modelIndexName": null,
+  "sha": "842da3794eaa0b77d5f08bae87a17459d91ff475"
+ },
+ "google/gemma-4-E4B-it": {
+  "createdAt": "2026-03-02T19:57:40.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "any-to-any",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "gemma4",
+   "image-text-to-text",
+   "any-to-any",
+   "arxiv:2607.02770",
+   "base_model:google/gemma-4-E4B",
+   "base_model:finetune:google/gemma-4-E4B",
+   "license:apache-2.0",
+   "eval-results",
+   "endpoints_compatible",
+   "deploy:sagemaker",
+   "deploy:azure",
+   "region:us"
+  ],
+  "tags": [
+   "image-text-to-text",
+   "arXiv:2607.02770",
+   "license:apache-2.0"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": null,
+  "usedStorage": 48074311520,
+  "license": "apache-2.0",
+  "licenseName": null,
+  "licenseLinkRaw": "https://ai.google.dev/gemma/docs/gemma_4_license",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "configArch": [
+   "Gemma4ForConditionalGeneration"
+  ],
+  "configModelType": "gemma4",
+  "safetensorsTotal": 7996156490,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 7996156490
+   }
+  },
+  "baseModelField": [
+   "google/gemma-4-E4B"
+  ],
+  "modelIndexName": null,
+  "sha": "ee0ef6023621cff504d758262d4e04895a5af4a2"
+ },
+ "zai-org/GLM-5.3": {
+  "createdAt": "2026-08-25T06:42:50.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "text-generation",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "glm_moe_dsa",
+   "text-generation",
+   "conversational",
+   "en",
+   "zh",
+   "arxiv:2602.15763",
+   "license:other",
+   "eval-results",
+   "endpoints_compatible",
+   "fp8",
+   "deploy:sagemaker",
+   "region:us"
+  ],
+  "tags": [
+   "text-generation",
+   "conversational",
+   "arXiv:2602.15763",
+   "license:other"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 755681496428,
+  "license": "other",
+  "licenseName": "glm-5.3",
+  "licenseLinkRaw": null,
+  "licenseUrl": "https://huggingface.co/zai-org/GLM-5.3/blob/main/LICENSE",
+  "configArch": [
+   "GlmMoeDsaForCausalLM"
+  ],
+  "configModelType": "glm_moe_dsa",
+  "safetensorsTotal": 753329940480,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 2103729152,
+    "F8_E4M3": 751226191872,
+    "F32": 19456
+   }
+  },
+  "baseModelField": null,
+  "modelIndexName": null,
+  "sha": "aca966e4e02791568aa6a4ced368624b3d897f42"
+ },
+ "zai-org/GLM-5.3-Flash": {
+  "createdAt": "2026-08-25T06:43:14.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "image-text-to-text",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "glm5_next",
+   "image-text-to-text",
+   "conversational",
+   "en",
+   "zh",
+   "arxiv:2602.15763",
+   "license:mit",
+   "eval-results",
+   "endpoints_compatible",
+   "fp8",
+   "region:us"
+  ],
+  "tags": [
+   "image-text-to-text",
+   "conversational",
+   "arXiv:2602.15763",
+   "license:mit"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 656694929761,
+  "license": "mit",
+  "licenseName": null,
+  "licenseLinkRaw": null,
+  "licenseUrl": "https://opensource.org/license/mit",
+  "configArch": [
+   "Glm5NextForConditionalGeneration"
+  ],
+  "configModelType": "glm5_next",
+  "safetensorsTotal": 321323031390,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 6926096640,
+    "F8_E4M3": 314396639232,
+    "F32": 295518
+   }
+  },
+  "baseModelField": null,
+  "modelIndexName": null,
+  "sha": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a"
+ },
+ "openai/gpt-oss-20b": {
+  "createdAt": "2025-08-04T22:33:29.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "text-generation",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "gpt_oss",
+   "text-generation",
+   "vllm",
+   "conversational",
+   "arxiv:2508.10925",
+   "license:apache-2.0",
+   "eval-results",
+   "endpoints_compatible",
+   "8-bit",
+   "mxfp4",
+   "deploy:sagemaker",
+   "deploy:azure",
+   "region:us"
+  ],
+  "tags": [
+   "text-generation",
+   "vllm",
+   "conversational",
+   "arXiv:2508.10925",
+   "license:apache-2.0"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 41382448021,
+  "license": "apache-2.0",
+  "licenseName": null,
+  "licenseLinkRaw": null,
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "configArch": [
+   "GptOssForCausalLM"
+  ],
+  "configModelType": "gpt_oss",
+  "safetensorsTotal": 20914757184,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 1804459584,
+    "U8": 19110297600
+   }
+  },
+  "baseModelField": null,
+  "modelIndexName": null,
+  "sha": "6cee5e81ee83917806bbde320786a8fb61efebee"
+ },
+ "moonshotai/Kimi-K3": {
+  "createdAt": "2026-06-13T06:42:57.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "image-text-to-text",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "kimi_k3",
+   "feature-extraction",
+   "compressed-tensors",
+   "conversational",
+   "image-text-to-text",
+   "custom_code",
+   "license:other",
+   "eval-results",
+   "8-bit",
+   "deploy:sagemaker",
+   "region:us"
+  ],
+  "tags": [
+   "feature-extraction",
+   "compressed-tensors",
+   "conversational",
+   "image-text-to-text",
+   "license:other"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 1561018243668,
+  "license": "other",
+  "licenseName": "kimi-k3",
+  "licenseLinkRaw": null,
+  "licenseUrl": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
+  "configArch": [
+   "KimiK3ForConditionalGeneration"
+  ],
+  "configModelType": "kimi_k3",
+  "safetensorsTotal": 2779931837184,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "F32": 11122432,
+    "BF16": 57179884544,
+    "U8": 2722740830208
+   }
+  },
+  "baseModelField": null,
+  "modelIndexName": null,
+  "sha": "f831ab66814297da540d832a5235f8e904f29d06"
+ },
+ "openbmb/MiniCPM5-2B": {
+  "createdAt": "2026-09-06T11:12:19.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "text-generation",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "llama",
+   "text-generation",
+   "minicpm",
+   "minicpm5",
+   "long-context",
+   "tool-calling",
+   "on-device",
+   "edge-ai",
+   "conversational",
+   "en",
+   "zh",
+   "dataset:openbmb/Ultra-FineWeb",
+   "dataset:openbmb/UltraX-Preview",
+   "dataset:openbmb/Ultra-FineWeb-L3",
+   "dataset:openbmb/UltraData-Math",
+   "dataset:openbmb/UltraData-Code",
+   "dataset:openbmb/UltraData-SFT-2605",
+   "dataset:openbmb/UltraData-SFT-Agent-2609",
+   "dataset:openbmb/UltraData-RL-2609",
+   "arxiv:2506.07900",
+   "arxiv:2602.09003",
+   "license:apache-2.0",
+   "text-generation-inference",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "tags": [
+   "text-generation",
+   "conversational",
+   "arXiv:2506.07900",
+   "arXiv:2602.09003",
+   "license:apache-2.0",
+   "text-generation-inference"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": null,
+  "usedStorage": 5033557096,
+  "license": "apache-2.0",
+  "licenseName": null,
+  "licenseLinkRaw": null,
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "configArch": [
+   "LlamaForCausalLM"
+  ],
+  "configModelType": "llama",
+  "safetensorsTotal": 2516756480,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 2516756480
+   }
+  },
+  "baseModelField": null,
+  "modelIndexName": null,
+  "sha": "f97400052a43d642bbc6e9975e2397e3ae6a6b52"
+ },
+ "Qwen/Qwen3.8-27B": {
+  "createdAt": "2026-08-05T08:22:59.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "image-text-to-text",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "qwen3_5",
+   "image-text-to-text",
+   "conversational",
+   "license:apache-2.0",
+   "eval-results",
+   "endpoints_compatible",
+   "deploy:azure",
+   "deploy:sagemaker",
+   "region:us"
+  ],
+  "tags": [
+   "image-text-to-text",
+   "conversational",
+   "license:apache-2.0"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 55615875685,
+  "license": "apache-2.0",
+  "licenseName": null,
+  "licenseLinkRaw": null,
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "configArch": [
+   "Qwen3_5ForConditionalGeneration"
+  ],
+  "configModelType": "qwen3_5",
+  "safetensorsTotal": 27781427952,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 27781427952
+   }
+  },
+  "baseModelField": null,
+  "modelIndexName": null,
+  "sha": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0"
+ },
+ "Qwen/Qwen3.8-Flash-Next": {
+  "createdAt": "2026-08-24T08:24:59.000Z",
+  "libraryName": "transformers",
+  "pipelineTag": "image-text-to-text",
+  "tagsRaw": [
+   "transformers",
+   "safetensors",
+   "qwen4_exp",
+   "image-text-to-text",
+   "conversational",
+   "license:other",
+   "eval-results",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "tags": [
+   "image-text-to-text",
+   "conversational",
+   "license:other"
+  ],
+  "gated": false,
+  "private": false,
+  "disabled": false,
+  "inference": "warm",
+  "usedStorage": 360065103050,
+  "license": "other",
+  "licenseName": "qwen-community-1.0",
+  "licenseLinkRaw": "LICENSE",
+  "licenseUrl": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/LICENSE",
+  "configArch": [
+   "Qwen4ExpForConditionalGeneration"
+  ],
+  "configModelType": "qwen4_exp",
+  "safetensorsTotal": 179999981459,
+  "safetensorsBreakdown": {
+   "parameters": {
+    "BF16": 179999981424,
+    "I64": 35
+   }
+  },
+  "baseModelField": null,
+  "modelIndexName": null,
+  "sha": "de4b8e4d43b917e7706784d8bb445c9af86a3540"
+ }
+}

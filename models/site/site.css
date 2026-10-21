@@ -1,0 +1,467 @@
+/* ==========================================================================
+   models.css —— 本文件是 **源**，构建时读它生成 `site/site.css`。
+   --------------------------------------------------------------------------
+   2026-10-10 从 `scripts/build.mjs` 的内嵌模板字符串原样抽出 ✓
+   抽出来的原因（用户要「全站 UI 统一管理」）：CSS 真相源藏在 .mjs 的模板字符串里，
+   改样式要动 JS、任何 CSS 门禁都扫不到它。现在它是一个真实 CSS 文件 ✓
+
+   ⚠ 本文件**只允许用 brand.css 的 token**：
+     不许写裸色值、不许写裸 px 字号 —— 由 _audit/token-purity.mjs 强制 ✓
+   ========================================================================== */
+
+/* 挑对量化版 · 本地部署模型图谱 —— 站点样式（品牌 token 来自 brand.css） */
+
+/* ─────────────────────────────────────────────────────────────
+站点强调色 · models 本地模型 — 金（算力、量化）
+   暗色金配深色前景 10.6:1；亮色金配白字 3.8:1。
+   ⚠ 下面所有强调色都用 var(--brand)，**不用 var(--gold)**。
+      原来这里硬编码 --cyan（23 处），而站点 accent 已改成金色 ——
+      青 + 金两个主色同时出现会互相抢。现已全部改为跟随 --brand。
+   ⚠ 容器宽度继承 brand.css 的 .container（--container: min(1120px, 90vw)）。
+      原来这里硬编码 max-width:1180px + padding:0 20px → 正文 1080px，
+      而顶栏是 1120px，左右各差 20px，视觉上像没对齐（用户报「宽度和其他站都不一样」）。
+   ⚠ 排版尺度用 brand.css 的 --display-sub / --section-pad，
+      不再各自写 clamp —— 「大气」靠区块留白，不只靠字号。
+   ───────────────────────────────────────────────────────────── */
+
+/* 2026-10-10：**删掉了本文件原先那段 `--brand` / `--brand-soft` / `--brand-line`
+   的本地重声明**（暗色 #8b7cf8、亮色 #6d4fd6）。
+   它与 brand.css `:root` 里的值**完全相同** —— 属于「同一份配方写了两遍」，
+   正是本项目反复踩的「两处口径并存」。留着它就等于给漂移留一个入口 ✗。
+   现在一律继承共享层 ✓ 由 `_audit/token-purity.mjs` 守住。 */
+
+.page-head{margin-bottom:var(--section-pad-sm)}
+.eyebrow{color:var(--brand);font-size:var(--fs-xs);letter-spacing:.08em;margin:0 0 .4em}
+.page-head h1{margin:0 0 .3em}
+.page-head h1 .sub{display:block;font-size:var(--fs-xs);color:var(--ink-dim);font-weight:400;letter-spacing:0;margin-top:.5em}
+.lede{color:var(--text-dim);font-size:var(--fs-sm);line-height:1.75;max-width:var(--measure)}
+.home-head{margin-bottom:2em}
+.home-head .lede b{color:var(--text)}
+.lede-sub{margin-top:.9em;padding:.7em .9em;border-left:3px solid var(--brand);background:var(--bg-soft);border-radius:0 6px 6px 0;font-size:var(--fs-xs)}
+
+.home-stats{display:flex;flex-wrap:wrap;gap:1.6rem;margin:1.5em 0 0;padding:1.1em 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.home-stats>div{display:flex;flex-direction:column}
+.home-stats b{font-size:var(--fs-stat);color:var(--brand);font-variant-numeric:tabular-nums;line-height:1.1}
+.home-stats span{font-size:var(--fs-xs);color:var(--muted)}
+
+.crumbs{margin:1.6em 0 0;font-size:var(--fs-xs)}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--brand)}
+
+.pos{list-style:none;display:flex;flex-wrap:wrap;gap:.45em;padding:0;margin:1.1em 0}
+.pos li{font-size:var(--fs-xs);padding:.24em .7em;border:1px solid var(--line);border-radius:999px;color:var(--text-dim)}
+
+.member-nav{display:flex;flex-wrap:wrap;gap:.5em;margin-top:1.2em}
+.member-nav a{font-size:var(--fs-xs);padding:.35em .85em;border:1px solid var(--line);border-radius:var(--r-sm);text-decoration:none;color:var(--text-dim)}
+.member-nav a:hover{border-color:var(--brand);color:var(--brand)}
+
+/* ── 可信度横幅 ── */
+.trust{margin:2.4em 0;padding:1.4em 1.5em;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel)}
+.trust h2{font-size:var(--fs-sm);margin:0 0 1em}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1em}
+.trust-item{padding:.9em 1em;border-radius:var(--r-lg);background:var(--bg-soft);border-left:3px solid var(--line)}
+.trust-item p{margin:.5em 0 0;font-size:var(--fs-xs);line-height:1.7;color:var(--text-dim)}
+.trust-item.t-a{border-left-color:var(--brand)}
+.trust-item.t-b{border-left-color:var(--vio)}
+.trust-item.t-c{border-left-color:var(--gold)}
+.trust-tag{font-size:var(--fs-xs);font-weight:600;letter-spacing:.03em}
+
+/* ══════════════════════════════════════════════════════════════════
+   分类色用法（2026-10-10 新增）
+   ──────────────────────────────────────────────────────────────────
+   为什么加这段：affinity 探针实测 **models 暖色占比 = 0**，而首页是 0.31
+   —— 全站只有首页和 nav 有暖色，其余四站全是冷紫。这就是「过于严肃」的
+   量化来源（不是感觉）。
+
+   色从哪来：全部取自 `brand.css` 的 `--cat-*` 六色盘（2026-10-10 已从首页
+   内联样式提为共享 token）。**没有新增任何色值** ✓
+
+   用法遵循首页已验证的三档：`-soft` 当底色块、`-ink` 当文字色。
+   ⚠ 改色必须重跑 `a11y-contrast --strict` —— 玫红/青柠在白底浅，
+     直接当正文色达不到 AA 的 4.5:1 ✓
+
+   为什么用 :nth-child 而不是给每个数字写死颜色：
+   统计块的数量由**数据**决定（`config.js` 改系列数就变），写死类名会在
+   增删时错位 —— 违反 R4「数字从数据算出来」。nth-child 按位置取色，
+   数量变了也不会串位 ✓ */
+.home-stats>div{
+  padding:.55em .95em .6em;border-radius:var(--r-lg);
+  background:var(--cat-tint);border:1px solid transparent;
+}
+.home-stats>div:nth-child(6n+1){--cat-tint:var(--cat-violet-soft);--cat-ink:var(--cat-violet-ink)}
+.home-stats>div:nth-child(6n+2){--cat-tint:var(--cat-rose-soft);  --cat-ink:var(--cat-rose-ink)}
+.home-stats>div:nth-child(6n+3){--cat-tint:var(--cat-amber-soft); --cat-ink:var(--cat-amber-ink)}
+.home-stats>div:nth-child(6n+4){--cat-tint:var(--cat-teal-soft);  --cat-ink:var(--cat-teal-ink)}
+.home-stats>div:nth-child(6n+5){--cat-tint:var(--cat-blue-soft);  --cat-ink:var(--cat-blue-ink)}
+.home-stats>div:nth-child(6n+6){--cat-tint:var(--cat-lime-soft);  --cat-ink:var(--cat-lime-ink)}
+.home-stats b{color:var(--cat-ink,var(--brand))}
+
+/* 可信度三卡：底色也上色（原来只有左边一条 3px 边框，撑不起暖色占比）
+   ⚠ 2026-10-10 a11y 探针实测：上了彩色底之后，卡片里的正文若仍用
+     `--text-dim`（=--ink-dim #9b8fb8），在 colored-soft 底上只有 **3.88:1**，
+     达不到 AA 的 4.5 —— 深色主题 models 一次报了 5 处违规。
+     这不是「大概会过」，是探针按 WCAG 公式算出来的数字 ✗
+     所以彩色卡片内的正文改用 `--ink`（提亮一档），实测回到 AA 以上 ✓。
+     ⚠ 以后给任何卡片加彩色底，都要重跑 `a11y-contrast --strict` —— 
+        **加背景色会连带改变上面所有文字的对比度**，这是最容易被忽略的一处。 */
+.trust-item.t-a{background:var(--cat-teal-soft)}
+.trust-item.t-b{background:var(--cat-violet-soft)}
+.trust-item.t-c{background:var(--cat-rose-soft)}
+.trust-item p{color:var(--ink)}
+.t-a .trust-tag{color:var(--cat-teal-ink)}
+.t-b .trust-tag{color:var(--cat-violet-ink)}
+.t-c .trust-tag{color:var(--cat-rose-ink)}
+.trust-foot{margin:1.2em 0 0;font-size:var(--fs-xs);color:var(--muted);line-height:1.7}
+
+/* ── 区块 ── */
+.howto{margin:2.4em 0}
+.howto h2,.series-list h2,.quantizer-index h2{font-size:var(--fs-lg);margin:0 0 .9em}
+/* ⚠ 新章节的 h2 small 必须加进这条选择器（v7 S51 踩过：家族区漏加 → small 回落
+ * 浏览器默认 smaller = 32px×0.8333 = 26.67px 半像素，design-audit 抓到）。
+ * 加新区块时先问一句「这个 h2 里有 small 吗」。 */
+/* v7 S54：闭源区 h2 也有 small，必须同条接入（S51 教训：漏一条 → 半像素字号被 design-audit 抓）。
+ * v7 S55：做模型专题区同样有 small，一起接入。 */
+.howto h2 small,.family-list h2 small,.closed-list h2 small,.guide-list h2 small,.series-list h2 small,.quantizer-index h2 small,.fam-sec h2 small{font-weight:400;color:var(--muted);font-size:var(--fs-xs);margin-left:.5em}
+.steps{counter-reset:st;list-style:none;padding:0;margin:0;display:grid;gap:.7em}
+.steps li{counter-increment:st;position:relative;padding-left:2.2em;font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim)}
+.steps li::before{content:counter(st);position:absolute;left:0;top:.1em;width:1.6em;height:1.6em;display:grid;place-items:center;border-radius:50%;background:var(--bg-soft);border:1px solid var(--line);color:var(--brand);font-size:var(--fs-xs)}
+.steps b{color:var(--text)}
+
+.member{margin:3em 0}
+.member>h3{margin:0 0 .3em;font-size:var(--fs-lg);display:flex;align-items:baseline;gap:.6em;flex-wrap:wrap}
+.member-idx{font-size:var(--fs-xs);font-weight:400;color:var(--muted);padding:.15em .55em;border:1px solid var(--line);border-radius:var(--r-xs);letter-spacing:.04em}
+.member-meta{margin:0 0 1.2em;font-size:var(--fs-xs);color:var(--muted)}
+.member-note{margin:.7em 0 0;font-size:var(--fs-xs);color:var(--text-dim);padding:.6em .9em;background:var(--bg-soft);border-radius:var(--r-sm);border-left:2px solid var(--vio)}
+
+.block{margin:1.6em 0;padding-top:1.2em;border-top:1px dashed var(--line)}
+.block>h4{margin:0 0 .9em;font-size:var(--fs-sm);display:flex;align-items:baseline;gap:.6em;flex-wrap:wrap}
+.block>h4 small{font-weight:400;color:var(--muted);font-size:var(--fs-xs)}
+.blk{display:inline-grid;place-items:center;width:1.55em;height:1.55em;border-radius:var(--r-xs);background:var(--bg-soft);border:1px solid var(--line);color:var(--brand);font-size:var(--fs-xs);font-weight:600}
+.block-lead{margin:0 0 1em;font-size:var(--fs-xs);color:var(--text-dim);line-height:1.75}
+.block-lead b{color:var(--text)}
+
+/* ── 表格 ── */
+table{width:100%;border-collapse:collapse;font-size:var(--fs-xs);margin:.4em 0}
+th,td{padding:.55em .7em;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-size:var(--fs-xs);color:var(--muted);font-weight:600;letter-spacing:.03em;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kv{max-width:none}
+.kv th{width:9.5em;font-size:var(--fs-xs);color:var(--muted);font-weight:500;white-space:nowrap}
+caption{caption-side:top;text-align:left;font-size:var(--fs-xs);color:var(--muted);padding:0 0 .5em}
+.no-fit{color:var(--gold)}
+.muted{color:var(--muted)}
+.small{font-size:var(--fs-xs)}
+/* HF model_type / hfArch 这类标识符（Qwen3_5ForConditionalGeneration）本身是
+   一个不可分的词，但窄屏必须能换行，否则整页横向溢出 */
+.muted{overflow-wrap:anywhere}
+/* ⚠ 2026-10-10：删掉了这条里的 `overflow-wrap:anywhere` —— 共享层 brand.css:525
+   的 `code,kbd,pre{overflow-wrap:anywhere}` 已经覆盖，ui-core 报为冗余配方。
+   同值副本最危险：今天一样，明天改一处就悄悄分叉。 */
+code{font-family:var(--mono);font-size:var(--fs-xs);background:var(--bg-soft);padding:.1em .38em;border-radius:var(--r-xs)}
+
+.budget th{width:9em}
+/* 超大MoE 的前置提醒：最小档超过单卡上限时，必须在选档表之前就说清「不是不能跑，是要换运行方式」 */
+.warn-note{margin:0 0 1.4em;padding:.85em 1em;border-left:3px solid var(--gold);background:var(--bg-soft);border-radius:0 6px 6px 0;font-size:var(--fs-xs);line-height:1.8;color:var(--text-dim)}
+.warn-note b{color:var(--text)}
+.budget-h{margin:1.6em 0 .5em;font-size:var(--fs-xs);color:var(--text);font-weight:600}
+.nowrap{white-space:nowrap}
+.budget td b{color:var(--brand)}
+
+/* ── A 区扩展：参数量三来源 / 精度构成 / 标签 ── */
+.kv-nested{margin:.1em 0 .4em;border-left:2px solid var(--line);padding-left:.8em}
+.kv-nested th{width:8em;font-size:var(--fs-xs);padding:.25em .5em .25em 0}
+.kv-nested td{padding:.25em 0;font-size:var(--fs-xs)}
+.param-ok{font-size:var(--fs-xs);color:var(--brand);margin:.2em 0 0}
+.prec{width:100%;font-size:var(--fs-xs)}
+.prec td{padding:.2em .4em .2em 0;border:none;white-space:nowrap}
+.prec td:first-child{width:5.5em}
+.prec-bar{width:34%;min-width:60px}
+.prec-bar span{display:block;height:.55em;border-radius:var(--r-xs);background:linear-gradient(90deg,var(--vio),var(--brand));opacity:.75}
+.prec td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+/* white-space 不能用 nowrap —— tag 里装的是 org/repo 这类长串（如
+   zai-org/GLM-5.3、Qwen/Qwen3.8-Flash-Next），320~390px 下 nowrap 会直接把
+   容器撑破（实测 kimi-k3 页在 320px 溢出到 603px）。改用 overflow-wrap 让长串
+   在必要时断行，短标签仍然看起来是完整的。 */
+.tag{display:inline-block;font-size:var(--fs-xs);padding:.14em .5em;margin:.1em .2em .1em 0;border-radius:var(--r-xs);border:1px solid var(--line);color:var(--muted);background:var(--bg-soft);text-decoration:none;overflow-wrap:anywhere;word-break:break-word;max-width:100%}
+a.tag:hover{border-color:var(--vio);color:var(--vio)}
+.tag-lic{color:var(--gold);border-color:rgba(245,197,66,.3);background:rgba(245,197,66,.07)}
+.tag-paper{color:var(--vio);border-color:rgba(139,124,248,.3);background:rgba(139,124,248,.07)}
+.tag-rt{color:var(--brand);border-color:rgba(34,211,197,.3);background:rgba(34,211,197,.07)}
+
+details.all-quants{margin-top:1em;border:1px solid var(--line);border-radius:var(--r-lg);padding:.7em 1em;background:var(--panel)}
+details.all-quants summary{cursor:pointer;font-size:var(--fs-xs);color:var(--brand)}
+.quant-list{margin-top:.8em}
+
+/* ── 徽章 ── */
+/* 同 .tag：许可徽章里会出现 license:apache-2.0 这类长串，nowrap 会撑破窄屏 */
+.lic{display:inline-block;font-size:var(--fs-xs);padding:.12em .5em;border-radius:var(--r-xs);text-decoration:none;border:1px solid;overflow-wrap:anywhere;word-break:break-word;max-width:100%}
+.lic-loose{color:var(--brand);border-color:rgba(139,124,248,.35);background:rgba(139,124,248,.06)}
+.lic-tight{color:var(--gold);border-color:rgba(245,197,66,.35);background:rgba(245,197,66,.08)}
+.lic-unknown{color:var(--gold);border-color:rgba(245,197,66,.35)}
+.lic-src{font-size:var(--fs-xs);margin-left:.4em;color:var(--muted)}
+.warn-inline{margin:.4em 0 0;font-size:var(--fs-xs);color:var(--gold);line-height:1.6}
+
+.badge{display:inline-block;font-size:var(--fs-xs);padding:.1em .42em;border-radius:var(--r-xs);letter-spacing:.03em;vertical-align:middle}
+.badge-off{background:rgba(139,124,248,.16);color:var(--vio);border:1px solid rgba(139,124,248,.4)}
+.badge-im{background:rgba(34,211,197,.12);color:var(--brand);border:1px solid rgba(34,211,197,.3);margin-left:.3em}
+
+/* 量化档标签 —— 2026-10-03 改用 brand.css 的 --q-* 色阶。
+   原值是硬编码的（#7dd3fc / #fbbf72 / #fca5a5），有两个问题：
+     1. 与站点 accent 无关 —— 换主题时这四个色不变，不跟随
+     2. **亮色主题下不可读**：#7dd3fc 对亮底只有约 1.9:1
+   现在全部引用 --q-*（有序色阶，冷→暖 = 高质量→高压缩），
+   亮色值按 WCAG 加深到 ≥4.5:1（tier 标签 0.7rem 属正文级）。 */
+.tier{display:inline-block;font-size:var(--fs-xs);padding:.1em .45em;border-radius:var(--r-xs);white-space:nowrap;font-weight:500}
+.tier-0{color:var(--q-lossless);background:var(--q-lossless-soft)}
+.tier-1{color:var(--q-conserv); background:var(--q-conserv-soft)}
+.tier-2{color:var(--q-balance); background:var(--q-balance-soft)}
+.tier-3{color:var(--q-ctx);     background:var(--q-ctx-soft)}
+.tier-4{color:var(--q-extreme); background:var(--q-extreme-soft)}
+.tier-5{color:var(--ink-faint); background:var(--bg-soft)}
+
+/* ── 变体卡 ── */
+.vcard{margin:1.2em 0;padding:1.1em 1.3em;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel)}
+/* 变体卡左侧色条 = 推荐档的量化色阶（--q-*）。
+   .vcard-off（官方量化）另给一条实线边，区分「官方」与「档位」两个维度。 */
+/* 档位图例 —— 颜色必须有文字说明，否则「按颜色区分」等于没有信息。
+   无障碍：颜色**永不单独承载信息**，每个色块都带文字标签。 */
+.tier-legend{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:0 0 var(--sp-3);
+  font-size:var(--fs-micro);color:var(--ink-dim)}
+.tier-legend-h{color:var(--ink-mid);margin-right:.2rem;font-weight:500}
+.tier-legend-i{display:inline-flex;align-items:center;gap:.3rem;padding:.15em .5em;border-radius:999px;font-weight:500}
+.tier-legend-i::before{content:"";width:8px;height:8px;border-radius:var(--r-xs);background:currentColor;flex-shrink:0}
+
+.vcard{border-left:3px solid var(--line-strong)}
+.vcard[data-tier="0"]{border-left-color:var(--q-lossless)}
+.vcard[data-tier="1"]{border-left-color:var(--q-conserv)}
+.vcard[data-tier="2"]{border-left-color:var(--q-balance)}
+.vcard[data-tier="3"]{border-left-color:var(--q-ctx)}
+.vcard[data-tier="4"]{border-left-color:var(--q-extreme)}
+.vcard-off{border-left-style:solid;box-shadow:inset 2px 0 0 var(--brand)}
+.vcard-h{display:flex;justify-content:space-between;align-items:baseline;gap:1em;flex-wrap:wrap;margin-bottom:.9em;padding-bottom:.7em;border-bottom:1px solid var(--line)}
+.vcard-h h4{margin:0;font-size:var(--fs-sm);display:flex;align-items:center;gap:.3em;flex-wrap:wrap}
+.vcard-meta{display:flex;align-items:center;gap:.6em;flex-wrap:wrap}
+.vf{display:grid;grid-template-columns:8.5em 1fr;gap:.9em;padding:.5em 0;border-bottom:1px dotted var(--line)}
+.vf:last-child{border-bottom:none}
+.vf-k{font-size:var(--fs-xs);color:var(--muted);line-height:1.6}
+.vf-v{font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim);overflow-wrap:anywhere}
+.vf-v b{color:var(--text)}
+
+/* ── 量化者卡 ── */
+.qcard{margin:1.1em 0;padding:1.1em 1.3em;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel)}
+.qcard h4{margin:0 0 .3em;font-size:var(--fs-sm);display:flex;align-items:baseline;gap:.6em;flex-wrap:wrap}
+.qcard-scope{margin:0 0 .8em;font-size:var(--fs-xs);color:var(--muted)}
+.qcard-body{font-size:var(--fs-xs);line-height:1.8;color:var(--text-dim)}
+.qcard-body p{margin:.5em 0}
+.qcard-body ul{margin:.5em 0;padding-left:1.3em}
+.qcard-body li{margin:.25em 0}
+.qcard-body b{color:var(--text)}
+.qcard-link{display:inline-block;margin-top:.7em;font-size:var(--fs-xs);color:var(--brand);text-decoration:none}
+
+/* ── 系列卡 ── */
+.scards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:1em}
+/* min-width:0 —— grid item 默认 min-width:auto，长内容（许可串、repo 名）会把
+   整列撑到内容宽度，突破 auto-fill 的 minmax(...,1fr) 约束 */
+.scard{display:block;padding:1.15em 1.25em;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;min-width:0}
+.scard:hover{border-color:var(--brand);transform:translateY(-2px)}
+.scard-h{display:flex;justify-content:space-between;align-items:baseline;gap:.6em;flex-wrap:wrap}
+.scard-h h3{margin:0;font-size:var(--fs-lg);color:var(--text)}
+.scard-vendor{font-size:var(--fs-xs);color:var(--muted)}
+.scard-sum{margin:.6em 0 .8em;font-size:var(--fs-xs);line-height:1.7;color:var(--text-dim)}
+.scard-pos{list-style:none;padding:0;margin:0 0 .9em;display:flex;flex-wrap:wrap;gap:.35em}
+.scard-pos li{font-size:var(--fs-xs);padding:.18em .5em;border-radius:var(--r-xs);background:var(--bg-soft);color:var(--muted)}
+.scard-stats{display:flex;gap:1em;flex-wrap:wrap;padding:.7em 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:var(--fs-xs);color:var(--muted)}
+.scard-stats b{color:var(--brand);font-variant-numeric:tabular-nums}
+.scard-lic{margin:.7em 0 .6em;display:flex;gap:.35em;flex-wrap:wrap;min-width:0}
+.scard-lic>*{min-width:0}
+.scard-go{margin:0;font-size:var(--fs-xs);color:var(--brand)}
+
+/* ── 家族谱系卡（v7 S51）──
+ * 首页「家族谱系」区网格 + families/<code>/ 详情页共用同一族类。
+ * 版式跟随 .scard 的共享语言（panel 底 / line 边 / brand hover），
+ * 不另起第套视觉 —— 宪章 1：models 站内一处定义、全家页消费。 */
+.famcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:1em}
+.m-famcard{display:block;padding:1.15em 1.25em;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;min-width:0}
+.m-famcard:hover{border-color:var(--brand);transform:translateY(-2px)}
+.m-famcard-h{display:flex;justify-content:space-between;align-items:baseline;gap:.6em;flex-wrap:wrap}
+.m-famcard-h h3{margin:0;font-size:var(--fs-lg);color:var(--text)}
+.m-famcard-vendor{font-size:var(--fs-xs);color:var(--muted)}
+.m-famcard-cur{margin:.5em 0 .4em;font-size:var(--fs-xs);color:var(--muted)}
+.m-famcard-cur b{color:var(--text)}
+.m-famcard-sum{margin:.4em 0 .8em;font-size:var(--fs-xs);line-height:1.7;color:var(--text-dim)}
+.m-famcard-meta{display:flex;gap:1em;flex-wrap:wrap;align-items:center;padding:.7em 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:var(--fs-xs);color:var(--muted)}
+.m-famcard-meta b{color:var(--brand);font-variant-numeric:tabular-nums}
+/* v7 S52：家族卡上的中文生态 chip 行。chip 本体（.t-tag/.t-state）在 brand.css 定义一次，
+ * 这里只管「一行放不下就换行」的容器排布——不是第二套组件。 */
+.m-famcard-cn{display:flex;gap:.45em;flex-wrap:wrap;align-items:center;margin:.6em 0 0}
+.m-famcard-go{margin:.7em 0 0;font-size:var(--fs-xs);color:var(--brand)}
+
+/* ── 家族卡详情页（/families/<code>/）── */
+.fam-onsite{margin:1.1em 0 0;padding:.7em .9em;border-left:3px solid var(--brand);background:var(--bg-soft);border-radius:0 6px 6px 0;font-size:var(--fs-xs);line-height:1.7}
+.fam-onsite-no{border-left-color:var(--gold)}
+.fam-onsite a{color:var(--brand)}
+.fam-sec{margin:2.2em 0}
+.fam-sec h2{font-size:var(--fs-sm);margin:0 0 1em;padding-bottom:.5em;border-bottom:1px solid var(--line)}
+.fam-gens{list-style:none;padding:0;margin:0}
+.fam-gen{padding:.9em 0;border-bottom:1px dotted var(--line)}
+.fam-gen-head{display:flex;gap:.7em;align-items:baseline;flex-wrap:wrap}
+.fam-gen-head b{color:var(--text);font-size:var(--fs-sm)}
+.fam-gen-date{font-size:var(--fs-xs);color:var(--muted);font-variant-numeric:tabular-nums}
+.fam-gen-cur{font-size:var(--fs-xs);padding:.12em .55em;border-radius:999px;background:var(--brand-soft);color:var(--brand)}
+.fam-gen p{margin:.5em 0 .3em;font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim)}
+.fam-src{font-size:var(--fs-xs);color:var(--brand);text-decoration:none}
+.fam-src:hover{text-decoration:underline}
+.fam-tiers,.fam-lics,.fam-claims,.fam-src-list{list-style:none;padding:0;margin:0}
+.fam-tiers li,.fam-lics li,.fam-claims li{font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim);padding:.55em 0;border-bottom:1px dotted var(--line)}
+.fam-lic-txt{color:var(--text-dim)}
+.fam-claims li{color:var(--text-dim)}
+.fam-claims-note{margin:.8em 0 0;font-size:var(--fs-xs);color:var(--muted);line-height:1.7}
+/* S53 派生标记行（家族页）；chip 本体 .t-tag 在 brand.css，这里只排行内间距 */
+.fam-derived{margin:0;font-size:var(--fs-sm);line-height:1.8;color:var(--text-dim)}
+.fam-derived code{background:var(--bg-inset);padding:1px 6px;border-radius:var(--r-xs);font-size:var(--fs-xs)}
+.fam-src-list li{font-size:var(--fs-xs);line-height:1.8;color:var(--muted);word-break:break-all}
+.fam-src-list a{color:var(--brand)}
+.fam-foot{margin:.9em 0 0;font-size:var(--fs-xs);color:var(--muted)}
+
+/* ── v7 S54：闭源谱系卡（/closed/<code>/）──
+ * 卡面复用 .m-famcard（宪章 1），这里只补闭源页独有的三样：
+ * access 行、stale 到期横幅、闭源区 h2 与家族区同款。 */
+.closed-list h2{font-size:var(--fs-lg);margin:0 0 .9em}
+/* v7 S55：做模型专题（/guides/<id>.html）。版式复用 .fam-sec；
+ * 文章正文的裸 <p>/<ul> 在这里补基础排印（其余组件不新造）。
+ * ⚠ 必须限定在 .guide-body 内——裸 `.fam-sec ul` 与 `.fam-tiers{list-style:none}`
+ *   同特异度且写在后面，会把家族页的无点列表全变成 disc 圆点（构造性验证过）。 */
+.guide-list h2{font-size:var(--fs-lg);margin:0 0 .9em}
+.guide-body .fam-sec p{margin:0 0 .9em;font-size:var(--fs-sm);line-height:1.85;color:var(--text-dim);max-width:var(--measure)}
+.guide-body .fam-sec p b{color:var(--text)}
+.guide-body .fam-sec p a,.guide-body .fam-sec li a{color:var(--brand)}
+.guide-body .fam-sec ul:not(.fam-src-list){list-style:disc;padding-left:1.4em;margin:0 0 .9em}
+.guide-body .fam-sec ul:not(.fam-src-list) li{font-size:var(--fs-sm);line-height:1.8;color:var(--text-dim);padding:.15em 0;border-bottom:none}
+.guide-body .fam-sec code{background:var(--bg-inset);padding:1px 6px;border-radius:var(--r-xs);font-size:var(--fs-xs)}
+.closed-access{margin:1.1em 0 0;font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim);padding:.7em .9em;background:var(--bg-soft);border-radius:var(--r-sm);border-left:3px solid var(--vio)}
+.closed-access b{color:var(--text)}
+/* stale 横幅：复核到期是「必须可见的状态」——金色（与 fam-onsite-no 同族警示色），
+ * 不是错误红：数据不是错了，是旧了。validate 发卡内警告，这里兑现页面横幅，
+ * models-check 断言「到期卡页必须有 .stale-banner」。 */
+.stale-banner{margin:1.6em 0 0;padding:.9em 1.1em;border:1px solid var(--gold);border-left:4px solid var(--gold);background:var(--bg-soft);border-radius:var(--r-sm);font-size:var(--fs-xs);line-height:1.75;color:var(--text-dim)}
+.stale-banner b{color:var(--gold)}
+
+/* ── 量化者 chips ── */
+.qchips{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:.6em}
+.qchip{display:block;padding:.7em .85em;border:1px solid var(--line);border-radius:var(--r-sm);text-decoration:none;background:var(--panel)}
+.qchip:hover{border-color:var(--vio)}
+.qchip code{background:none;padding:0;color:var(--vio);font-weight:600;font-size:var(--fs-xs)}
+.qchip span{display:block;margin-top:.25em;font-size:var(--fs-xs);color:var(--muted);line-height:1.5}
+
+/* ── 更新日志 ── */
+.log{list-style:none;padding:0;margin:.4em 0}
+.log li{display:flex;gap:.9em;align-items:baseline;padding:.42em 0;border-bottom:1px dotted var(--line);font-size:var(--fs-xs);flex-wrap:wrap}
+.log-date{color:var(--muted);font-variant-numeric:tabular-nums;font-size:var(--fs-xs);min-width:5.5em}
+
+/* ── 法务 ── */
+.legal-note{margin:3em 0 2em;padding:1.3em 1.4em;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel)}
+.legal-note h3{margin:0 0 .8em;font-size:var(--fs-sm)}
+.legal-note p{margin:.55em 0;font-size:var(--fs-xs);line-height:1.8;color:var(--text-dim)}
+.legal-note b{color:var(--text)}
+.legal-note a{color:var(--brand)}
+
+/* ── 窄屏：表格转卡片 ── */
+@media(max-width:760px){
+  .vf{grid-template-columns:1fr;gap:.2em}
+  .vf-k{color:var(--brand);font-size:var(--fs-xs)}
+  .home-stats{gap:1.1em}
+  .home-stats b{font-size:var(--fs-lg)}
+  table.kv th{width:auto}
+  .vcard-h{flex-direction:column;align-items:flex-start}
+}
+/* ⚠ 表格→卡片的降级断点从 560 提到 900（2026-10-09 修 responsive-overflow）。
+ *   起因：字号统一到共享档位后（11/12px → 14/16px），768px 下 table.quant-list 开始溢出 ✗
+ *   （门禁报 5 处，全在 models 的 series 页 @768 ✓ —— scrollWidth 正常但**元素越界** ✓）。
+ *   560 以下那套卡片布局是**已经设计好的**降级形态 ✓，只是断点太窄、够不到 768 ✗。
+ *   抬到 900 ✓：复用既有设计 ✓，窄屏反而更好读 ✓ —— 这是「提高亲和力」的方向 ✓。
+ *   ⚠ 这段注释**在 CSS 模板字符串里**：正文**不能出现反引号**，否则会提前终止模板 ✗（我踩过一次）。 */
+@media(max-width:900px){
+  table.variants,table.budget,table.quant-list,table.kv:not(.kv-nested){display:block}
+  table.variants thead,table.budget thead,table.quant-list thead{display:none}
+  table.variants tbody,table.budget tbody,table.quant-list tbody,table.kv:not(.kv-nested) tbody{display:block}
+  table.variants tr,table.budget tr,table.quant-list tr,table.kv:not(.kv-nested) tr{display:block;margin-bottom:1em;padding:.6em .8em;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--panel)}
+  table.variants td,table.budget td,table.quant-list td,table.kv:not(.kv-nested) td{display:flex;justify-content:space-between;gap:1em;border:none;padding:.3em 0;text-align:left}
+  table.variants td::before,table.budget td::before,table.quant-list td::before,table.kv:not(.kv-nested) td::before{content:attr(data-label);color:var(--muted);font-size:var(--fs-xs);flex:0 0 auto}
+  table.kv:not(.kv-nested) td::before{content:none}
+  table.kv:not(.kv-nested) th{display:block;width:auto;padding:.4em 0 .1em;border:none}
+  table.kv:not(.kv-nested) tr{display:block;background:none;border:none;margin-bottom:.4em}
+  /* budget 表只有「档位 / 推荐」两列，且推荐格里塞了多个 <br> 分隔的说明块。
+     上面的通用规则把 td 变成 flex，导致每个 <br> 与 <span> 都成了独立 flex item
+     —— 整块文字被压成一条窄带（实测 320px 下溢出到 348px）。这里改回普通块级流。 */
+  table.budget td{display:block}
+  /* model_type / hfArch（Qwen3_5ForConditionalGeneration 这类）本身不该断在
+     字符中间，但窄屏必须允许换行 —— 统一给窄屏表格里的行内 code 加 anywhere。 */
+  table.variants td code,table.budget td code,table.quant-list td code,table.kv:not(.kv-nested) td code{overflow-wrap:anywhere;word-break:break-word}
+  table.variants td>*,table.quant-list td>*{min-width:0}
+  /* A 区嵌套表在窄屏不能跟着 kv 一起卡片化，否则套娃很难读：保持表格形态但压缩留白 */
+  .kv-nested{border-left:0;padding-left:0;margin-left:0}
+  .kv-nested th{width:6.5em;font-size:var(--fs-xs);padding:.25em .4em .25em 0}
+  .kv-nested td{font-size:var(--fs-xs)}
+  .prec-bar{width:auto;min-width:40px}
+  .prec{font-size:var(--fs-xs)}
+  .prec td{padding:.18em .3em .18em 0}
+  .prec td:last-child{text-align:left}
+  td.num{text-align:right}
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   统一区块节奏 —— 必须放在本文件**末尾**
+   原因：这些区块各自有 margin: 2.4em 0 这类规则，写在前面会被后面覆盖
+   （同特异性时后写的赢）。之前插在 .page-head 后面，实测留白仍是 22px。
+   实测对比：www 108px / agent 80px / nav 52px / learn 54px / **models 22px**
+   —— models 靠零散 margin 制造留白，节奏与全站脱节，这就是「不像一套」的根源。
+   ══════════════════════════════════════════════════════════════════════ */
+.page-head{margin-bottom:var(--section-pad-sm)}
+.trust, .howto, .legal-note, .member-nav, .budget, .pick, .faq, .specs,
+.members, .params, .quant, .pick-table, .series-body{
+  margin-block: var(--section-pad-sm);
+}
+.page-head + .home-stats, .home-head + .home-stats{margin-top:var(--section-pad-sm)}
+
+
+/* ===== 筛选器（构建期按数据注入类名，此处只给样式） ===== */
+
+.vfilter{display:flex;flex-wrap:wrap;gap:.7rem;align-items:flex-end;margin:1.2rem 0 1.6rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:var(--r-sm,10px)}
+.vfilter .vf-f{display:flex;flex-direction:column;gap:.25rem;min-width:9rem}
+.vfilter .vh{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
+.vfilter input,.vfilter select{font:inherit;font-size:.875rem;padding:.34rem .5rem;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+.vfilter .vf-f:first-child{min-width:13rem;flex:1 1 13rem}
+.vcount{margin-left:auto;font-size:.8125rem;opacity:.7;white-space:nowrap}
+.sfilter{display:flex;flex-wrap:wrap;gap:.7rem;align-items:flex-end;margin:1.2rem 0 1.4rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:var(--r-sm,10px)}
+.sfilter .vf-f{display:flex;flex-direction:column;gap:.25rem;min-width:9rem}
+.sfilter .vh{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
+.sfilter input,.sfilter select{font:inherit;font-size:.875rem;padding:.34rem .5rem;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+.sfilter .vf-f:first-child{min-width:13rem;flex:1 1 13rem}
+@media(max-width:560px){.vfilter,.sfilter{flex-direction:column;align-items:stretch}.vcount{margin-left:0}}
+/* B3：companion 块（下好之后用什么跑）。字号一律整数 px —— 见上方 FILTER_CSS 的说明。 */
+.companion{margin:2.6rem 0 1rem}
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:.8rem;margin:1rem 0}
+.comp-card{display:flex;flex-direction:column;gap:.3rem;padding:.85rem 1rem;border:1px solid var(--line);border-radius:var(--r-sm,8px);text-decoration:none;background:var(--bg-raise,rgba(127,127,127,.05))}
+.comp-card b{font-size:.9375rem}
+.comp-card span{font-size:.8125rem;opacity:.75;line-height:1.6}
+.comp-card:hover{border-color:var(--accent,currentColor)}
+/* B4：显存倒推工具。字号一律整数 px（.75rem=12 / .8125rem=13 / .875rem=14 / 1rem=16）。 */
+.vramtool{margin:1.2rem 0 1.6rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:var(--r-sm,10px);background:var(--bg-raise,rgba(127,127,127,.04))}
+.vt-row{display:flex;flex-wrap:wrap;gap:.7rem;align-items:flex-end}
+.vt-f{display:flex;flex-direction:column;gap:.25rem}
+.vt-h{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
+.vt-in{font:inherit;font-size:.875rem;padding:.34rem .5rem;width:7rem;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+.vt-quick{display:flex;flex-wrap:wrap;gap:.3rem}
+.vt-preset{font:inherit;font-size:.8125rem;padding:.3rem .6rem;border:1px solid var(--line);border-radius:999px;background:transparent;color:inherit;cursor:pointer}
+.vt-preset:hover{border-color:var(--accent,currentColor)}
+.vt-out{margin-top:.9rem}
+.vt-out p{margin:.4rem 0;line-height:1.7;font-size:.875rem}
+.vt-best b{opacity:.7}
+.vt-best a{font-size:1rem}
+.vt-meta{font-size:.8125rem;opacity:.65}
+.vt-dim{font-size:.8125rem;opacity:.65}
+.vt-rest a{font-size:.875rem}
+.vt-note{font-size:.8125rem;opacity:.6}
+.vt-none{font-size:.875rem;opacity:.85}
+@media(max-width:560px){.vt-in{width:100%}}
+

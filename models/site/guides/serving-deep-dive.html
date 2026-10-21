@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>跑起来深水：KV 缓存、批处理与推理引擎 · 做模型专题</title>
+  <meta name="description" content="推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/serving-deep-dive.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="跑起来深水：KV 缓存、批处理与推理引擎 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/serving-deep-dive.html" />
+  <meta property="og:title" content="跑起来深水：KV 缓存、批处理与推理引擎 · 做模型专题" />
+  <meta property="og:description" content="推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../brand.css" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Serving deep dive: KV cache, batching, and inference engines","description":"Why serving throughput is bottlenecked by KV-cache memory; what PagedAttention, continuous batching and RadixAttention each solve; where vLLM and SGLang sit. Practitioner view; the one-page explainers live on the Learn site, cross-linked, not duplicated.","url":"https://models.specul.com/guides/serving-deep-dive.html","dateModified":"2026-10-21"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>本地模型</span><span data-en>Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://agent.specul.com/"><span><span data-zh>Agent</span><span data-en>Agent</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>本地模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>导航</span><span data-en>Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span>　<span class="t-tag"><span data-zh>训练管线 · 第 7 站</span><span data-en>training pipeline · stage 7</span></span></p>
+      <h1><span data-zh>跑起来深水：KV 缓存、批处理与推理引擎</span><span data-en>Serving deep dive: KV cache, batching, and inference engines</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。</span><span data-en>Why serving throughput is bottlenecked by KV-cache memory; what PagedAttention, continuous batching and RadixAttention each solve; where vLLM and SGLang sit. Practitioner view; the one-page explainers live on the Learn site, cross-linked, not duplicated.</span></p>
+    </header>
+
+    <section class="fam-sec">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
+<p><b>模型跑起来之后，吞吐的瓶颈多半不在算力，在显存里的 KV 缓存。</b><br>这一篇讲推理引擎围绕这块显存做的三件事：怎么存、怎么批、怎么复用。</p>
+<p>本站不实测。所有倍数都是论文自报口径，出处列在文末；<br>引擎能力一律以官方文档为准。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>KV 缓存：推理的第一本账</span><span data-en>The KV cache: the first bill of inference</span></h2>
+<p>自回归生成每产出一个 token，都要回看前文。<br>为避免重复计算，前文的 key/value 张量被缓存下来，这就是 KV 缓存。</p>
+<p>它的显存随「上下文长度 × 并发请求数」线性增长，而且动态伸缩。<br>PagedAttention 论文指出：低效管理下，碎片与冗余复制会显著浪费这块显存，<br>反过来限制批大小——吞吐上不去，往往不是算不动，是塞不进。</p>
+<p>判断依据：同一张卡，长上下文与高并发同时上来时吞吐骤降，<br>多半就是 KV 缓存显存先到顶。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>PagedAttention 与连续批处理</span><span data-en>PagedAttention and continuous batching</span></h2>
+<p>PagedAttention 借操作系统虚拟内存的分页思路：<br>KV 缓存按固定大小的块分配，不要求连续。论文自报近零浪费。<br>vLLM 在其上构建，论文自报同等延迟下吞吐提升 2–4 倍——注意这是论文实验口径。</p>
+<p>连续批处理解决另一件事：请求到达时间不齐。<br>静态批要等最慢的完成才能换下一批；连续批让完成的请求随时退出、新请求随时补位。<br>vLLM 官方文档把两者作为吞吐来源并列描述。</p>
+<p>分块预填充是配套的第三件：长提示的预填充阶段会独占 GPU，<br>把它切成块与解码步交替，延迟曲线更平。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>vLLM 与 SGLang：各站在哪</span><span data-en>Where vLLM and SGLang sit</span></h2>
+<p><b>vLLM</b>：通用 LLM 服务引擎，PagedAttention 的官方落地，<br>文档覆盖量化、并行、多机部署。开放权重部署讨论里的默认名字。</p>
+<p><b>SGLang</b>：面向「多调用程序」的服务框架——代理循环、推理链、结构化输出这类负载。<br>论文自报两项机制：RadixAttention 复用跨调用共享前缀的 KV 缓存；<br>压缩有限状态机加速结构化输出解码。论文自报此类任务上最高 6.4 倍吞吐。</p>
+<p>两者不是排名关系，负载画像不同：<br>单轮问答、批量离线生成，vLLM 路线成熟；<br>多轮代理、共享长前缀、严格格式输出，SGLang 的复用机制对症。<br>本站不裁决，论文口径都在文末。</p>
+<p>本地单机跑 GGUF 是另一条线：llama.cpp 一类实现不追求并发吞吐，<br>追求在有限显存里把模型装下。选型先问「几个并发」，再问引擎。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>投机解码：用算力换延迟</span><span data-en>Speculative decoding: trading compute for latency</span></h2>
+<p>解码每步只产一个 token，GPU 算力大量闲置。<br>投机解码让小模型先猜几个 token，大模型一次并行验证；猜对即白赚。</p>
+<p>它改的是单请求延迟，不是吞吐账；猜错率高的负载收益缩水。<br>vLLM 与 SGLang 官方文档都提供该选项，收益取决于草稿模型与任务匹配度。</p>
+    </section>
+    <section class="fam-sec">
+      <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
+<p>学 AI 站的 <a href="https://learn.specul.com/term/KV%20%E7%BC%93%E5%AD%98/" target="_blank" rel="noopener">KV 缓存</a>、<br><a href="https://learn.specul.com/term/PagedAttention/" target="_blank" rel="noopener">PagedAttention</a>、<br><a href="https://learn.specul.com/term/%E8%BF%9E%E7%BB%AD%E6%89%B9%E5%A4%84%E7%90%86/" target="_blank" rel="noopener">连续批处理</a> 与<br><a href="https://learn.specul.com/term/%E6%8A%95%E6%9C%BA%E8%A7%A3%E7%A0%81/" target="_blank" rel="noopener">投机解码</a> 是使用者视角的一页科普；<br>这一篇讲从业者怎么给推理记账、怎么按负载画像选引擎。</p>
+<p>同一个概念在两处深度不同，互链不重复。<br>硬件事实与成本数学见下一篇「GPU 事实与成本数学」。</p>
+    </section>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li>vLLM 官方文档首页（2026-10-21 直抓 200）：<a href="https://docs.vllm.ai/en/latest/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/</a></li>
+        <li>vLLM 架构总览（官方文档设计节，2026-10-21 直抓 200）：<a href="https://docs.vllm.ai/en/latest/design/arch_overview.html" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/design/arch_overview.html</a></li>
+        <li>vLLM PagedAttention 设计文档（官方文档设计节，2026-10-21 直抓 200）：<a href="https://docs.vllm.ai/en/latest/design/paged_attention.html" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/design/paged_attention.html</a></li>
+        <li>PagedAttention 论文（arXiv 2309.06180，自报吞吐 2–4 倍提升，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noopener">https://arxiv.org/abs/2309.06180</a></li>
+        <li>SGLang 官方文档首页（2026-10-21 直抓 200）：<a href="https://docs.sglang.ai/" target="_blank" rel="noopener">https://docs.sglang.ai/</a></li>
+        <li>SGLang 官方仓库（自述：LLM 与多模态模型的高性能服务框架，2026-10-21 直抓 200）：<a href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">https://github.com/sgl-project/sglang</a></li>
+        <li>SGLang 论文（arXiv 2312.07104，RadixAttention 与结构化输出，自报最高 6.4 倍吞吐，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noopener">https://arxiv.org/abs/2312.07104</a></li>
+        <li>llama.cpp 官方仓库（本地推理的代表实现，2026-10-21 直抓 200）：<a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">https://github.com/ggml-org/llama.cpp</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>核验快照：2026-10-21 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-21 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 投机取巧 · <span data-zh>Specul</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+          <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+          <a href="https://github.com/speculcom/ai-quantized-llm" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://agent.specul.com/"><span class="ti" aria-hidden="true">◈</span>Agent</a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+  <script src="../brand.js"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
+      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
+      sync();
+    })();
+  </script>
+</body>
+</html>

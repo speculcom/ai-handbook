@@ -1,0 +1,1050 @@
+{
+  "generatedAt": "2026-09-30T01:24:08.413Z",
+  "method": {
+    "source": "https://hf-mirror.com/api/models?filter=gguf&sort=downloads&direction=-1",
+    "dimensions": {
+      "D1": "量化热度 40",
+      "D2": "量化广度 25",
+      "D3": "规模可及性 20",
+      "D4": "基础新鲜度 15"
+    },
+    "note": "downloads 为 HF 公开字段，本站不下载任何权重文件。"
+  },
+  "candidates": [
+    {
+      "key": "Qwen3.8-27B",
+      "officialRepo": "unsloth/Qwen3.8-27B",
+      "baseModelField": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "license": "apache-2.0",
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 285354,
+      "baseLikes": 52,
+      "baseLastModified": "2026-08-14T15:16:02.000Z",
+      "ggufTotalDownloads": 13559057,
+      "ggufRepoCount": 7,
+      "quantizers": [
+        "unsloth",
+        "JonathanColetti",
+        "0bserverx",
+        "lmstudio-community",
+        "ggml-org",
+        "bartowski",
+        "byteshape"
+      ],
+      "topRepos": [
+        {
+          "id": "unsloth/Qwen3.8-27B-GGUF",
+          "downloads": 6425606,
+          "likes": 4729
+        },
+        {
+          "id": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
+          "downloads": 2250567,
+          "likes": 1333
+        },
+        {
+          "id": "0bserverx/Qwen3.8-27B-Heretic-Abliterated-Uncensored-GGUF",
+          "downloads": 1482951,
+          "likes": 582
+        },
+        {
+          "id": "lmstudio-community/Qwen3.8-27B-GGUF",
+          "downloads": 1397337,
+          "likes": 57
+        },
+        {
+          "id": "ggml-org/Qwen3.8-27B-GGUF",
+          "downloads": 1044004,
+          "likes": 101
+        },
+        {
+          "id": "bartowski/Qwen3.8-27B-GGUF",
+          "downloads": 485663,
+          "likes": 194
+        }
+      ],
+      "score": {
+        "D1": 40,
+        "D2": 21.875,
+        "D3": 20,
+        "D4": 13.71211484053498
+      },
+      "total": 95.6
+    },
+    {
+      "key": "Ornith-1.0-9B",
+      "officialRepo": "unsloth/Ornith-1.0-9B",
+      "baseModelField": [
+        "deepreinforce-ai/Ornith-1.0-9B"
+      ],
+      "license": "mit",
+      "pipeline": "text-generation",
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 1489,
+      "baseLikes": 12,
+      "baseLastModified": "2026-07-18T05:21:10.000Z",
+      "ggufTotalDownloads": 3099802,
+      "ggufRepoCount": 2,
+      "quantizers": [
+        "ornith-ai",
+        "unsloth"
+      ],
+      "topRepos": [
+        {
+          "id": "ornith-ai/Ornith-1.0-9B-GGUF",
+          "downloads": 2641124,
+          "likes": 671
+        },
+        {
+          "id": "unsloth/Ornith-1.0-9B-GGUF",
+          "downloads": 458678,
+          "likes": 63
+        }
+      ],
+      "score": {
+        "D1": 36.405637689784534,
+        "D2": 6.25,
+        "D3": 20,
+        "D4": 12.95063978909465
+      },
+      "total": 75.6
+    },
+    {
+      "key": "gemma-4-E4B-it",
+      "officialRepo": "unsloth/gemma-4-E4B-it",
+      "baseModelField": "google/gemma-4-E4B-it",
+      "license": "apache-2.0",
+      "pipeline": "image-text-to-text",
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 52642,
+      "baseLikes": 27,
+      "baseLastModified": "2026-07-17T11:55:04.000Z",
+      "ggufTotalDownloads": 2473419,
+      "ggufRepoCount": 3,
+      "quantizers": [
+        "ggml-org",
+        "unsloth",
+        "lmstudio-community"
+      ],
+      "topRepos": [
+        {
+          "id": "ggml-org/gemma-4-E4B-it-GGUF",
+          "downloads": 1385379,
+          "likes": 92
+        },
+        {
+          "id": "unsloth/gemma-4-E4B-it-GGUF",
+          "downloads": 617705,
+          "likes": 636
+        },
+        {
+          "id": "lmstudio-community/gemma-4-E4B-it-GGUF",
+          "downloads": 470335,
+          "likes": 72
+        }
+      ],
+      "score": {
+        "D1": 35.8558167630692,
+        "D2": 9.375,
+        "D3": 16,
+        "D4": 12.930460390946502
+      },
+      "total": 74.2
+    },
+    {
+      "key": "gemma-4-12B-it-qat",
+      "officialRepo": "unsloth/gemma-4-12B-it-qat-GGUF",
+      "baseModelField": "google/gemma-4-12B-it-qat-q4_0-unquantized",
+      "license": "apache-2.0",
+      "pipeline": "any-to-any",
+      "architecture": "gemma4",
+      "contextLength": 262144,
+      "baseDownloads": 691244,
+      "baseLikes": 554,
+      "baseLastModified": "2026-07-17T12:37:30.000Z",
+      "ggufTotalDownloads": 1516365,
+      "ggufRepoCount": 2,
+      "quantizers": [
+        "google",
+        "unsloth"
+      ],
+      "topRepos": [
+        {
+          "id": "google/gemma-4-12B-it-qat-q4_0-gguf",
+          "downloads": 825121,
+          "likes": 312
+        },
+        {
+          "id": "unsloth/gemma-4-12B-it-qat-GGUF",
+          "downloads": 691244,
+          "likes": 555
+        }
+      ],
+      "score": {
+        "D1": 34.66407816571942,
+        "D2": 6.25,
+        "D3": 20,
+        "D4": 12.931278935185185
+      },
+      "total": 73.8
+    },
+    {
+      "key": "nemotron-3.5-asr-streaming-0.6b",
+      "officialRepo": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+      "baseModelField": null,
+      "license": "other",
+      "pipeline": "automatic-speech-recognition",
+      "architecture": "asr",
+      "contextLength": null,
+      "baseDownloads": 1055710,
+      "baseLikes": 1150,
+      "baseLastModified": "2026-09-10T16:49:07.000Z",
+      "ggufTotalDownloads": 2855651,
+      "ggufRepoCount": 2,
+      "quantizers": [
+        "handy-computer",
+        "nvidia"
+      ],
+      "topRepos": [
+        {
+          "id": "handy-computer/nemotron-3.5-asr-streaming-0.6b-gguf",
+          "downloads": 1799941,
+          "likes": 11
+        },
+        {
+          "id": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+          "downloads": 1055710,
+          "likes": 1150
+        }
+      ],
+      "score": {
+        "D1": 36.20581903556693,
+        "D2": 6.25,
+        "D3": 16,
+        "D4": 14.463910429526749
+      },
+      "total": 72.9
+    },
+    {
+      "key": "Qwen3.5-9B",
+      "officialRepo": "unsloth/Qwen3.5-9B",
+      "baseModelField": [
+        "Qwen/Qwen3.5-9B"
+      ],
+      "license": "apache-2.0",
+      "pipeline": "image-text-to-text",
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 93528,
+      "baseLikes": 33,
+      "baseLastModified": "2026-05-13T13:06:06.000Z",
+      "ggufTotalDownloads": 1800429,
+      "ggufRepoCount": 2,
+      "quantizers": [
+        "unsloth",
+        "lmstudio-community"
+      ],
+      "topRepos": [
+        {
+          "id": "unsloth/Qwen3.5-9B-GGUF",
+          "downloads": 1335337,
+          "likes": 950
+        },
+        {
+          "id": "lmstudio-community/Qwen3.5-9B-GGUF",
+          "downloads": 465092,
+          "likes": 66
+        }
+      ],
+      "score": {
+        "D1": 35.082304766787054,
+        "D2": 6.25,
+        "D3": 20,
+        "D4": 11.126275077160493
+      },
+      "total": 72.5
+    },
+    {
+      "key": "Qwen3-Coder-30B-A3B-Instruct",
+      "officialRepo": "unsloth/Qwen3-Coder-30B-A3B-Instruct",
+      "baseModelField": [
+        "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+      ],
+      "license": "apache-2.0",
+      "pipeline": "text-generation",
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 4394,
+      "baseLikes": 29,
+      "baseLastModified": "2026-01-29T09:05:21.000Z",
+      "ggufTotalDownloads": 9901942,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "unsloth"
+      ],
+      "topRepos": [
+        {
+          "id": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "downloads": 9901942,
+          "likes": 1089
+        }
+      ],
+      "score": {
+        "D1": 39.234409963365586,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 8.232742091049383
+      },
+      "total": 70.6
+    },
+    {
+      "key": "gemma-4-12b-it",
+      "officialRepo": "unsloth/gemma-4-12b-it",
+      "baseModelField": "google/gemma-4-12B-it",
+      "license": "apache-2.0",
+      "pipeline": "image-text-to-text",
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 58188,
+      "baseLikes": 17,
+      "baseLastModified": "2026-07-17T11:54:25.000Z",
+      "ggufTotalDownloads": 1429802,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "unsloth"
+      ],
+      "topRepos": [
+        {
+          "id": "unsloth/gemma-4-12b-it-GGUF",
+          "downloads": 1429802,
+          "likes": 867
+        }
+      ],
+      "score": {
+        "D1": 34.52090927823032,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 12.930447852366255
+      },
+      "total": 70.6
+    },
+    {
+      "key": "MiniMax-H3",
+      "officialRepo": "unsloth/MiniMax-H3",
+      "baseModelField": null,
+      "license": "other",
+      "pipeline": "image-text-to-video",
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 125,
+      "baseLikes": 23,
+      "baseLastModified": "2026-08-07T04:38:58.000Z",
+      "ggufTotalDownloads": 2614972,
+      "ggufRepoCount": 3,
+      "quantizers": [
+        "unsloth",
+        "Abiray",
+        "DeepBeepMeep"
+      ],
+      "topRepos": [
+        {
+          "id": "unsloth/MiniMax-H3-GGUF",
+          "downloads": 1300040,
+          "likes": 320
+        },
+        {
+          "id": "Abiray/MiniMax-H3-GGUF",
+          "downloads": 804534,
+          "likes": 143
+        },
+        {
+          "id": "DeepBeepMeep/MiniMax-H3",
+          "downloads": 510398,
+          "likes": 65
+        }
+      ],
+      "score": {
+        "D1": 35.99136675257855,
+        "D2": 9.375,
+        "D3": 10,
+        "D4": 13.505381301440329
+      },
+      "total": 68.9
+    },
+    {
+      "key": "Ornith-1.5-9B",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 6389423,
+      "ggufRepoCount": 3,
+      "quantizers": [
+        "ornith-ai",
+        "mradermacher",
+        "dealignai"
+      ],
+      "topRepos": [
+        {
+          "id": "ornith-ai/Ornith-1.5-9B-GGUF",
+          "downloads": 5044575,
+          "likes": 460
+        },
+        {
+          "id": "mradermacher/Ornith-1.5-9B-uncensored-GGUF",
+          "downloads": 809005,
+          "likes": 205
+        },
+        {
+          "id": "dealignai/Ornith-1.5-9B-UNCENSORED-GGUF",
+          "downloads": 535843,
+          "likes": 25
+        }
+      ],
+      "score": {
+        "D1": 38.16737356026052,
+        "D2": 9.375,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 67.5
+    },
+    {
+      "key": "Qwen3.8-Flash-Next",
+      "officialRepo": "unsloth/Qwen3.8-Flash-Next",
+      "baseModelField": null,
+      "license": "other",
+      "pipeline": "image-text-to-text",
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 1988,
+      "baseLikes": 17,
+      "baseLastModified": "2026-08-26T12:57:40.000Z",
+      "ggufTotalDownloads": 2225667,
+      "ggufRepoCount": 2,
+      "quantizers": [
+        "unsloth",
+        "AtomicChat"
+      ],
+      "topRepos": [
+        {
+          "id": "unsloth/Qwen3.8-Flash-Next-GGUF",
+          "downloads": 1642012,
+          "likes": 1089
+        },
+        {
+          "id": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+          "downloads": 583655,
+          "likes": 167
+        }
+      ],
+      "score": {
+        "D1": 35.59874434916082,
+        "D2": 6.25,
+        "D3": 10,
+        "D4": 14.042779063786009
+      },
+      "total": 65.9
+    },
+    {
+      "key": "Qwen3.8-27B-iMatrix-NVFP4-MTP",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 4454640,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "cdiamond"
+      ],
+      "topRepos": [
+        {
+          "id": "cdiamond/Qwen3.8-27B-iMatrix-NVFP4-MTP-GGUF",
+          "downloads": 4454640,
+          "likes": 22
+        }
+      ],
+      "score": {
+        "D1": 37.28883201376211,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 60.4
+    },
+    {
+      "key": "Ornith-1.5-35B-A3B",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 3675528,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "ornith-ai"
+      ],
+      "topRepos": [
+        {
+          "id": "ornith-ai/Ornith-1.5-35B-A3B-GGUF",
+          "downloads": 3675528,
+          "likes": 468
+        }
+      ],
+      "score": {
+        "D1": 36.820575314865536,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 59.9
+    },
+    {
+      "key": "Ternary-Bonsai-2-27B",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 3581027,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "prism-ml"
+      ],
+      "topRepos": [
+        {
+          "id": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+          "downloads": 3581027,
+          "likes": 2268
+        }
+      ],
+      "score": {
+        "D1": 36.75713295426508,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 59.9
+    },
+    {
+      "key": "Huihui-Qwen3.8-27B",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 2064412,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "huihui-ai"
+      ],
+      "topRepos": [
+        {
+          "id": "huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
+          "downloads": 2064412,
+          "likes": 959
+        }
+      ],
+      "score": {
+        "D1": 35.415554526896244,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 58.5
+    },
+    {
+      "key": "Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 2059950,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "HauhauCS"
+      ],
+      "topRepos": [
+        {
+          "id": "HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
+          "downloads": 2059950,
+          "likes": 1539
+        }
+      ],
+      "score": {
+        "D1": 35.41028439195111,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 58.5
+    },
+    {
+      "key": "Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1805661,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "DavidAU"
+      ],
+      "topRepos": [
+        {
+          "id": "DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF",
+          "downloads": 1805661,
+          "likes": 879
+        }
+      ],
+      "score": {
+        "D1": 35.08937250126377,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 58.2
+    },
+    {
+      "key": "Ornith-1.0-35B",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1729872,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "ornith-ai"
+      ],
+      "topRepos": [
+        {
+          "id": "ornith-ai/Ornith-1.0-35B-GGUF",
+          "downloads": 1729872,
+          "likes": 1054
+        }
+      ],
+      "score": {
+        "D1": 34.984932574433756,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 58.1
+    },
+    {
+      "key": "Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1726231,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "DavidAU"
+      ],
+      "topRepos": [
+        {
+          "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+          "downloads": 1726231,
+          "likes": 1281
+        }
+      ],
+      "score": {
+        "D1": 34.979800618730884,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 58.1
+    },
+    {
+      "key": "Qwen3.8-27B-GSQ-RCO",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1678861,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "ISTA-DASLab"
+      ],
+      "topRepos": [
+        {
+          "id": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+          "downloads": 1678861,
+          "likes": 1827
+        }
+      ],
+      "score": {
+        "D1": 34.91202846523735,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 58
+    },
+    {
+      "key": "Tiel-Coder-35B-A3B-GGUF-MTP",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1408359,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "peculiar-ragdoll"
+      ],
+      "topRepos": [
+        {
+          "id": "peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF-MTP",
+          "downloads": 1408359,
+          "likes": 231
+        }
+      ],
+      "score": {
+        "D1": 34.484104393411414,
+        "D2": 3.125,
+        "D3": 20,
+        "D4": 0
+      },
+      "total": 57.6
+    },
+    {
+      "key": "JiRackUltra_1b",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 2484033,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "CMSManhattan"
+      ],
+      "topRepos": [
+        {
+          "id": "CMSManhattan/JiRackUltra_1b",
+          "downloads": 2484033,
+          "likes": 0
+        }
+      ],
+      "score": {
+        "D1": 35.866246420442295,
+        "D2": 3.125,
+        "D3": 16,
+        "D4": 0
+      },
+      "total": 55
+    },
+    {
+      "key": "parakeet-unified-en-0.6b",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1547233,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "handy-computer"
+      ],
+      "topRepos": [
+        {
+          "id": "handy-computer/parakeet-unified-en-0.6b-gguf",
+          "downloads": 1547233,
+          "likes": 9
+        }
+      ],
+      "score": {
+        "D1": 34.713162184737286,
+        "D2": 3.125,
+        "D3": 16,
+        "D4": 0
+      },
+      "total": 53.8
+    },
+    {
+      "key": "Gemma-4-E4B-Uncensored-HauhauCS-Aggressive",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1307666,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "HauhauCS"
+      ],
+      "topRepos": [
+        {
+          "id": "HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive",
+          "downloads": 1307666,
+          "likes": 1274
+        }
+      ],
+      "score": {
+        "D1": 34.30342306442335,
+        "D2": 3.125,
+        "D3": 16,
+        "D4": 0
+      },
+      "total": 53.4
+    },
+    {
+      "key": "locate-anything.cpp",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 6774225,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "mudler"
+      ],
+      "topRepos": [
+        {
+          "id": "mudler/locate-anything.cpp-gguf",
+          "downloads": 6774225,
+          "likes": 17
+        }
+      ],
+      "score": {
+        "D1": 38.30981413979593,
+        "D2": 3.125,
+        "D3": 10,
+        "D4": 0
+      },
+      "total": 51.4
+    },
+    {
+      "key": "audio.cpp",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 5406989,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "audio-cpp"
+      ],
+      "topRepos": [
+        {
+          "id": "audio-cpp/audio.cpp-gguf",
+          "downloads": 5406989,
+          "likes": 186
+        }
+      ],
+      "score": {
+        "D1": 37.76073413752461,
+        "D2": 3.125,
+        "D3": 10,
+        "D4": 0
+      },
+      "total": 50.9
+    },
+    {
+      "key": "Laguna-XS-2.1-APEX",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 2040346,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "mudler"
+      ],
+      "topRepos": [
+        {
+          "id": "mudler/Laguna-XS-2.1-APEX-GGUF",
+          "downloads": 2040346,
+          "likes": 15
+        }
+      ],
+      "score": {
+        "D1": 35.38699374407574,
+        "D2": 3.125,
+        "D3": 10,
+        "D4": 0
+      },
+      "total": 48.5
+    },
+    {
+      "key": "mxbai-embed-large-v1",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1984128,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "mixedbread-ai"
+      ],
+      "topRepos": [
+        {
+          "id": "mixedbread-ai/mxbai-embed-large-v1",
+          "downloads": 1984128,
+          "likes": 826
+        }
+      ],
+      "score": {
+        "D1": 35.318941368841514,
+        "D2": 3.125,
+        "D3": 10,
+        "D4": 0
+      },
+      "total": 48.4
+    },
+    {
+      "key": "deepseek-v4",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1666239,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "antirez"
+      ],
+      "topRepos": [
+        {
+          "id": "antirez/deepseek-v4-gguf",
+          "downloads": 1666239,
+          "likes": 477
+        }
+      ],
+      "score": {
+        "D1": 34.8936474345648,
+        "D2": 3.125,
+        "D3": 10,
+        "D4": 0
+      },
+      "total": 48
+    },
+    {
+      "key": "Ornith-1.5-397B",
+      "officialRepo": null,
+      "baseModelField": null,
+      "license": null,
+      "pipeline": null,
+      "architecture": null,
+      "contextLength": null,
+      "baseDownloads": 0,
+      "baseLikes": 0,
+      "baseLastModified": null,
+      "ggufTotalDownloads": 1299055,
+      "ggufRepoCount": 1,
+      "quantizers": [
+        "ornith-ai"
+      ],
+      "topRepos": [
+        {
+          "id": "ornith-ai/Ornith-1.5-397B-GGUF",
+          "downloads": 1299055,
+          "likes": 40
+        }
+      ],
+      "score": {
+        "D1": 34.28733109225253,
+        "D2": 3.125,
+        "D3": 8,
+        "D4": 0
+      },
+      "total": 45.4
+    }
+  ]
+}

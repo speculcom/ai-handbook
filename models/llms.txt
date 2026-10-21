@@ -1,0 +1,37 @@
+# Models 图谱（ai-quantized-llm）
+
+> 这个基础模型，我该下载哪个量化版、为什么。
+
+只收**开放权重、可本地部署**、且有第三方 GGUF 量化生态的模型。闭源 / API-only 不在量化收录范围内（「该下哪个量化版」对它们不成立）；另设 `data/closed/` 闭源谱系卡做对照：官方规格快照 + 复核周期，不采价格、不排名。
+
+## 规模（由数据算出，见 `scripts/` 的构建脚本与 `_audit/gen-repo-docs.mjs`）
+
+11 个系列 / 16 个模型仓 / 132 个量化档 / 1253 个 GGUF 文件，来自 55 位量化者。
+
+## 内容地图
+
+- `config.js` — 系列名单（选型标准写在文件头注释里）
+- `data/series/*.json` — **采集产物**：系列 / 成员 / 量化仓 / 档位 / 体积，不要手改
+- `data/families/*.json` — 家族谱系卡（第一层选型：出品方 / 代次 / 尺寸档 / 许可 / 官方声明）
+- `data/closed/*.json` — 闭源谱系卡（对照面：官方规格快照 + 复核周期，D9 不采价格数字）
+- `guides/*.md` — 做模型专题（训练四阶段等方法论文章，SCHEMA §做模型专题）
+- `data/quantizers/*.md` — 量化者档案
+- `enums.en.json` — 数据层封闭枚举的英文
+- `summaries.en.json` — 系列简介英文（键 = 系列 code）
+- `member-notes.en.json` — 成员备注英文（键 = code|repo 名）
+
+## 不做什么
+
+- 不跑 benchmark，不给质量与速度结论
+- 不下载、不托管任何模型权重文件
+- 不给虚假排名（许可 / 体积 / 档位都是事实，优劣留给读者判断）
+
+## 规范与校验
+
+- 字段规范：`docs/SCHEMA.md`
+- 校验器：`scripts/validate.mjs`（不合规直接失败退出）
+- 法律硬约束另由 `scripts/audit-licenses.mjs` 强制（建站前必须通过）
+
+## 站点
+
+https://models.specul.com/
