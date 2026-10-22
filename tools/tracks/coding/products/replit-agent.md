@@ -100,4 +100,4 @@ Free/Power/Max 模式选档不选裸模型，checkpoint 兜底回滚。
 ## 相关条目
 
 - [Devin](./devin.md) — 同为云形态：Devin 接你现有仓库提 PR，Replit 从想法建新项目。
-- Lovable / Bolt.new / v0（待建档）— 同为自然语言建站线，产物是可导出代码库；建档后在此互链。
+- [Lovable](./lovable.md) / [Bolt.new](./bolt-new.md) / [v0](./v0.md) — 同为自然语言建站线，产物是可导出代码库；Replit 给完整云开发环境，三家把环境藏进提示词流。

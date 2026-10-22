@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 165 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 168 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 165 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 168 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 165 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 168 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -128,7 +128,7 @@ tools/（ai-handbook 子树）
 ├── tracks/
 │   ├── coding/                 AI 编程大类
 │   │   ├── _category.md        大类收录声明（标准 + 形态判据 + 对象表）
-│   │   └── products/           33 个对象
+│   │   └── products/           36 个对象
 │   ├── chat/                   AI 对话助手（14 个对象）
 │   ├── image/ · video/ · audio/  AI 创作三大类（13 + 12 + 10 个对象）
 │   ├── framework/              Agent 框架与运行时（22 个对象）
@@ -243,7 +243,7 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 
 ## 内容索引
 
-### AI 编程 —— 33 份
+### AI 编程 —— 36 份
 
 装在编辑器 / 终端 / 厂商云上，面向代码库自主干活的编码 agent。
 
@@ -252,6 +252,7 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | partial | maintenance |
 | [Aider Watch 模式](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation（原 Sourcegraph，2025-12 分拆独立） | cli | partial | active |
+| [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | partial | active |
 | [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
 | [Claude Code IDE 扩展](tracks/coding/products/claude-code.md) | Anthropic | ide | partial | active |
 | [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
@@ -272,12 +273,14 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [Jules](tracks/coding/products/jules.md) | Google | cloud | partial | active |
 | [Junie](tracks/coding/products/junie.md) | JetBrains | ide | partial | active |
 | [Kiro](tracks/coding/products/kiro.md) | AWS | ide | partial | active |
+| [Lovable](tracks/coding/products/lovable.md) | Lovable | cloud | partial | active |
 | [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
 | [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | partial | active |
 | [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
 | [Qoder CN（原通义灵码）](tracks/coding/products/qoder-cn.md) | 阿里云 | ide | partial | active |
 | [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
 | [Trae](tracks/coding/products/trae.md) | 字节跳动 | ide | partial | active |
+| [v0](tracks/coding/products/v0.md) | Vercel | cloud | partial | active |
 | [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
 | [Windsurf / Devin Desktop](tracks/coding/products/windsurf.md) | Cognition | ide | partial | active |
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
@@ -486,8 +489,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 165 份 |
-| 大类分布 | coding 33 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
-| 形态分布（form） | web 69 · mcp 24 · harness 22 · cli 19 · ide 15 · cloud 10 · local-app 6 |
+| 档案总数 | 168 份 |
+| 大类分布 | coding 36 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
+| 形态分布（form） | web 69 · mcp 24 · harness 22 · cli 19 · ide 15 · cloud 13 · local-app 6 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

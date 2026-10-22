@@ -849,5 +849,20 @@
     "The domestic line qoder.com.cn (Qoder CN series) and the international qoder.com are two product lines — don't infer features or model sets from one to the other; the official relationship between them is not verified line by line",
     "The VS Code plugin has ended maintenance (stated on the official 'What is Qoder CN IDE' page) — the JetBrains plugin continues; readers migrating from the old Lingma VS Code plugin need to switch forms",
     "The Quest window has been retired (official product notice) — Quest workflows in older Lingma tutorials you find by search may no longer work"
+  ],
+  "lovable": [
+    "You cannot pick the build-side model (official FAQ: Lovable chooses and auto-updates models for Build/Plan/Chat modes) — a completely different experience from IDE-style model pickers; what you can pick are the AI-feature models inside your own app",
+    "Training policy splits by plan: the official FAQ states that from 2026-09-09 Free/Pro customer data may be used for training by default (switchable off in account settings), while Business/Enterprise is excluded by default — don't flatten the data boundary into one answer for the whole product",
+    "'Code is exportable' does not mean 'the backend comes free': the built-in backend is Lovable-hosted on the Supabase open-source foundation; database migration and external hosting follow the official migration paths (the deployment-hosting-ownership page gives routes and boundaries)"
+  ],
+  "bolt-new": [
+    "The meter is tokens, not message counts: the official Tokens page says agent work is billed by tokens — long sessions and big contexts burn quota directly; the docs even have a dedicated 'Maximize token efficiency' page",
+    "Bolt Cloud database auth/storage/secrets are the Bolt-hosted form — separate from 'connecting your own Supabase' (the official integrations page offers both); don't mix the data boundaries",
+    "Mobile apps go through the Expo integration line (official intro page) — not every Web-stack capability is equivalent on the mobile line"
+  ],
+  "v0": [
+    "The deployment chain is bound to Vercel: publishing goes through the Vercel project and domains (official deployments page) — GitHub sync only moves code; deployment via GitHub/Vercel CLI follows your Vercel role, two permission systems not to be conflated (the official page warns explicitly)",
+    "Custom models (the AI Gateway catalog) are an Enterprise-team feature requiring owner approval — the model menu on regular plans is narrower than the docs read like",
+    "The sandbox has two generations: VM-backed and the older in-browser one (the official sandbox page states the replacement) — 'runs in the browser' behavior described in older tutorials may be outdated"
   ]
 }

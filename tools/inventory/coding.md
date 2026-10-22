@@ -35,9 +35,9 @@
 | Zed | Zed Industries | https://zed.dev | 已有 | zed | |
 | Devin | Cognition | https://devin.ai | 已有 | devin | P1 · 云异步 agent，与 Windsurf 同厂 |
 | Replit Agent | Replit | https://replit.com | 已有 | replit-agent | P1 · 云 IDE+agent |
-| Lovable | Lovable（瑞典） | https://lovable.dev | 待建 | lovable | P2 · vibe 建站，产物是可导出代码库（与 Dify 判例区分） |
-| Bolt.new | StackBlitz | https://bolt.new | 待建 | bolt-new | P2 · 同上 |
-| v0 | Vercel | https://v0.dev | 待建 | v0 | P2 · 同上 |
+| Lovable | Lovable（瑞典） | https://lovable.dev | 已有 | lovable | P2 · vibe 建站，产物是可导出代码库（与 Dify 判例区分）；2026-10-22 建档 |
+| Bolt.new | StackBlitz | https://bolt.new | 已有 | bolt-new | P2 · 同上；浏览器内 WebContainers 底座；2026-10-22 建档 |
+| v0 | Vercel | https://v0.dev | 已有 | v0 | P2 · 同上；绑 Vercel 部署链；2026-10-22 建档 |
 | Qodo（原 CodiumAI） | Qodo | https://www.qodo.ai | 待建 | qodo | P2 · 生成+评审，agent 式 |
 | Tabnine | Tabnine（Salesforce 收购后现状待核） | https://www.tabnine.com | 待建 | tabnine | P2 · 从补全转 agent 平台，建档时按官方现状定 |
 | Augment Code | Augment | https://www.augmentcode.com | 待建 | augment-code | P2 |
@@ -63,5 +63,5 @@
 ## 备注
 
 - nav `cat=coding` 里的 AutoGPT / Dify / Coze / Manus / LangGraph / CrewAI / Relevance AI / Superagent / Botpress / SmythOS **不归本大类**——按 categories.md 边界裁决分别落 framework（T10）/ automation（T12）清单，nav 分类≠本站大类。
-- 「已有」33 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
-- 待建 12 行按 P2→P3 排批次——T24（coding +5）落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 第六份通义灵码已于 2026-10-22 建档（更名 Qoder CN，档案 id `qoder-cn`）；余 P2 8 行、P3 4 行留后续批次。
+- 「已有」36 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
+- 待建 9 行按 P2→P3 排批次——T24（coding +5）落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 第六份通义灵码已于 2026-10-22 建档（更名 Qoder CN，档案 id `qoder-cn`）；常态 M2（2026-10-22）落地 vibe 建站三件套（Lovable/Bolt.new/v0）；余 P2 5 行、P3 4 行留后续批次。

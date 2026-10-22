@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 165 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 168 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 165 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 168 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -134,7 +134,7 @@ tools/ (ai-handbook subtree)
 ├── tracks/
 │   ├── coding/                 AI coding category
 │   │   ├── _category.md        category declaration (criteria + form rulings + object table)
-│   │   └── products/           33 objects
+│   │   └── products/           36 objects
 │   ├── chat/                   chat assistants (14 objects)
 │   ├── image/ · video/ · audio/  three creation categories (13 + 12 + 10 objects)
 │   ├── framework/              agent frameworks & runtimes (22 objects)
@@ -258,7 +258,7 @@ are independently designed here.
 
 ## Content index
 
-### AI coding — 33
+### AI coding — 36
 
 Coding agents in your editor, terminal, or a vendor cloud
 
@@ -267,6 +267,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | partial | maintenance |
 | [Aider (Watch mode)](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation (spun out of Sourcegraph, Dec 2025) | cli | partial | active |
+| [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | partial | active |
 | [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
 | [Claude Code (IDE extension)](tracks/coding/products/claude-code.md) | Anthropic | ide | partial | active |
 | [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
@@ -287,12 +288,14 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Jules](tracks/coding/products/jules.md) | Google | cloud | partial | active |
 | [Junie](tracks/coding/products/junie.md) | JetBrains | ide | partial | active |
 | [Kiro](tracks/coding/products/kiro.md) | AWS | ide | partial | active |
+| [Lovable](tracks/coding/products/lovable.md) | Lovable | cloud | partial | active |
 | [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
 | [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | partial | active |
 | [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
 | [Qoder CN (formerly Lingma)](tracks/coding/products/qoder-cn.md) | Alibaba Cloud | ide | partial | active |
 | [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
 | [Trae](tracks/coding/products/trae.md) | ByteDance | ide | partial | active |
+| [v0](tracks/coding/products/v0.md) | Vercel | cloud | partial | active |
 | [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
 | [Windsurf / Devin Desktop](tracks/coding/products/windsurf.md) | Cognition | ide | partial | active |
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
@@ -501,8 +504,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 165 |
-| By category | coding 33 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
-| By form | web 69 · mcp 24 · harness 22 · cli 19 · ide 15 · cloud 10 · local-app 6 |
+| Total profiles | 168 |
+| By category | coding 36 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
+| By form | web 69 · mcp 24 · harness 22 · cli 19 · ide 15 · cloud 13 · local-app 6 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->
