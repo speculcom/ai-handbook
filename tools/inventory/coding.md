@@ -46,11 +46,11 @@
 | Google Antigravity（2.0/CLI/IDE/SDK） | Google | https://antigravity.google | 已有 | google-antigravity | P1 · agent-first 开发平台（原 Gemini Code Assist 线并入，建档时核官方口径） |
 | Trae | 字节跳动 | https://www.trae.ai | 已有 | trae | P1 · 国产（L5） |
 | Qoder（国际版） | 阿里云 | https://qoder.com | 已有 | qoder | P2 · Qoder CN 系列的国际线（国内线档案见 qoder-cn）；官方无两线对照说明页（案例页有「Alibaba Qoder」表述）；2026-10-22 建档 |
-| Roo Code | Roo Code 社区（Cline 分支） | https://roocode.com | 待建 | roocode | P3 |
-| Kilo Code | Kilo Code 社区 | https://kilocode.ai | 待建 | kilocode | P3 |
+| Roo Code | Roo Code Inc.（公司转 Roomote） | https://roocode.com | 不收 | | 官方文档明示扩展 2026-05-15 关停（指替代 ZooCode/Cline）、GitHub 仓 archived:true、roocode.com 301→roomote.dev——独立产品终结（Supermaven/Tabnine 判例同款） |
+| Kilo Code | Kilo-Org | https://kilo.ai | 已有 | kilocode | P3 · 开源 MIT 编码 agent（500+ 模型零加价/BYOK/本地模型）；域名已迁 kilo.ai（旧 kilocode.ai 308）；2026-10-22 建档 |
 | 通义灵码（现 Qoder CN） | 阿里云 | https://qoder.com.cn | 已有 | qoder-cn | P1 · 国产（L5）；2026-05-20 官方更名 Qoder CN 系列（docs.qoder.cn 系列页公告），档案 id 用现名 qoder-cn |
-| Comate | 百度 | https://comate.baidu.com | 待建 | baidu-comate | P2 · 国产（L5） |
-| CodeGeeX | 智谱 | https://codegeex.cn | 待建 | codegeex | P3 · 国产（L5） |
+| 文心快码（Baidu Comate） | 百度 | https://kuaima.baidu.com | 已有 | baidu-comate | P2 · 国产（L5）；2024-06 品牌焕新中文名文心快码；2026-09 媒体报道并入百度搭子（官方公告未检索到，官网仍活跃）；2026-10-22 建档 |
+| CodeGeeX | 智谱 | https://codegeex.cn | 不收 | | VS Code Marketplace 检索零结果（Thinkanya.codegeex/saqerdev.CodeGeeX 均 404）、JetBrains 插件 23063 重定向到无关插件、open-vsx API 报 not found、官方仓 2024-08 后无提交——插件产品面已撤（CodeGeeX4 模型仍在但编码助手不可核验使用） |
 | Sourcegraph Cody | Sourcegraph | https://sourcegraph.com/docs/cody/faq | 不收 | | Free/Pro/Enterprise Starter 已于 2025-07-23 停止（官方 FAQ 公告），仅 Enterprise 且不自助试用——读者无法核验使用 |
 | Supermaven | （并入 Cursor） | https://supermaven.com/blog/cursor-announcement | 不收 | | 官方公告加入 Cursor，独立产品终结（插件仍维护） |
 | Tabby | TabbyML | https://tabbyml.com | 只进nav | | 主体是自托管补全，agent 能力不足以过八维核验 |
@@ -63,5 +63,5 @@
 ## 备注
 
 - nav `cat=coding` 里的 AutoGPT / Dify / Coze / Manus / LangGraph / CrewAI / Relevance AI / Superagent / Botpress / SmythOS **不归本大类**——按 categories.md 边界裁决分别落 framework（T10）/ automation（T12）清单，nav 分类≠本站大类。
-- 「已有」39 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
-- 待建 4 行按 P2→P3 排批次——T24（coding +5）落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 第六份通义灵码已于 2026-10-22 建档（更名 Qoder CN，档案 id `qoder-cn`）；常态 M2（2026-10-22）落地 vibe 建站三件套（Lovable/Bolt.new/v0）；常态 M3（2026-10-22）落地 P2 收尾——建档 3（Qoder 国际线/Augment Code/Amazon Q Developer）、只进nav 1（Qodo 转型评审平台，CodeRabbit 判例）、不收 1（Tabnine 独立产品终结，nav 标 retired）；余 P2 1 行（Comate）、P3 3 行（Roo/Kilo/CodeGeeX）留后续批次。
+- 「已有」41 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
+- 待建 4 行按 P2→P3 排批次——T24（coding +5）落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 第六份通义灵码已于 2026-10-22 建档（更名 Qoder CN，档案 id `qoder-cn`）；常态 M2（2026-10-22）落地 vibe 建站三件套（Lovable/Bolt.new/v0）；常态 M3（2026-10-22）落地 P2 收尾——建档 3（Qoder 国际线/Augment Code/Amazon Q Developer）、只进nav 1（Qodo 转型评审平台，CodeRabbit 判例）、不收 1（Tabnine 独立产品终结，nav 标 retired）；常态 M4（2026-10-22）落地 P3 收尾——建档 2（Kilo Code/文心快码）、不收 2（Roo Code 扩展关停+repo archived、CodeGeeX 插件市场全撤）；待建清零，coding 清单转入维护常态。

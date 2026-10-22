@@ -325,3 +325,4 @@ ACP 生态参与者。
 
 - [Aider](./aider-cli.md) — 同类工具但已放缓维护
 - [Codex CLI](./codex-cli.md) — 同类工具，架构侧重点不同
+- [Kilo Code](./kilocode.md) — 官方明示的下游：Kilo 文档原文「The Kilo CLI is a fork of OpenCode」，同款配置可对照

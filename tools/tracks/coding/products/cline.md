@@ -347,3 +347,4 @@ README 原文：
 
 - [Zed](./zed.md) — 同分区另一端：以编辑器性能与多 agent 编排为主
 - [Aider](./aider.md) — 同为开源，Git 集成是其核心设计
+- [Kilo Code](./kilocode.md) — 同源代码谱系：Roo Code 官方关停公告指 Cline 为替代；Kilo 与 Cline 的社区血缘官方未声明，可对照 BYOK 与模型面
