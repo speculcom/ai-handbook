@@ -105,4 +105,5 @@ cn:
 ## 相关条目
 
 - [CodeBuddy](./codebuddy.md) — 同为国产编码助手三端叙事：腾讯云系走合规+云生态，Trae 走多模型+三端任务流。
+- [Qoder CN（原通义灵码）](./qoder-cn.md) — 同为国产出海编码工具：阿里云系国内合规叙事为主，国际线关系官方未对照。
 - [Cursor](./cursor.md) — 国际对照：同为独立 AI IDE，Cursor 无官方移动端任务面。

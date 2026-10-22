@@ -45,10 +45,10 @@
 | CodeBuddy（IDE/CLI/插件） | 腾讯云 | https://www.codebuddy.cn | 已有 | codebuddy | P1 · 国产（L5 只转述官方）；国际版 codebuddy.ai |
 | Google Antigravity（2.0/CLI/IDE/SDK） | Google | https://antigravity.google | 已有 | google-antigravity | P1 · agent-first 开发平台（原 Gemini Code Assist 线并入，建档时核官方口径） |
 | Trae | 字节跳动 | https://www.trae.ai | 已有 | trae | P1 · 国产（L5） |
-| Qoder | 阿里云 | https://qoder.com | 待建 | qoder | P2 · 国产（L5），建档前先核官方活跃度 |
+| Qoder（国际版） | 阿里云 | https://qoder.com | 待建 | qoder | P2 · Qoder CN 系列的国际线（国内线档案见 qoder-cn）；与国际版官网的官方关系未对照说明，建档前先核 |
 | Roo Code | Roo Code 社区（Cline 分支） | https://roocode.com | 待建 | roocode | P3 |
 | Kilo Code | Kilo Code 社区 | https://kilocode.ai | 待建 | kilocode | P3 |
-| 通义灵码 | 阿里云 | https://lingma.aliyun.com | 待建 | lingma | P1 · 国产（L5） |
+| 通义灵码（现 Qoder CN） | 阿里云 | https://qoder.com.cn | 已有 | qoder-cn | P1 · 国产（L5）；2026-05-20 官方更名 Qoder CN 系列（docs.qoder.cn 系列页公告），档案 id 用现名 qoder-cn |
 | Comate | 百度 | https://comate.baidu.com | 待建 | baidu-comate | P2 · 国产（L5） |
 | CodeGeeX | 智谱 | https://codegeex.cn | 待建 | codegeex | P3 · 国产（L5） |
 | Sourcegraph Cody | Sourcegraph | https://sourcegraph.com/docs/cody/faq | 不收 | | Free/Pro/Enterprise Starter 已于 2025-07-23 停止（官方 FAQ 公告），仅 Enterprise 且不自助试用——读者无法核验使用 |
@@ -63,5 +63,5 @@
 ## 备注
 
 - nav `cat=coding` 里的 AutoGPT / Dify / Coze / Manus / LangGraph / CrewAI / Relevance AI / Superagent / Botpress / SmythOS **不归本大类**——按 categories.md 边界裁决分别落 framework（T10）/ automation（T12）清单，nav 分类≠本站大类。
-- 「已有」27 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
-- 待建 18 行按 P1（6）→ P2（8）→ P3（4）排批次——T24（coding +5）已落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 余通义灵码、P2 8 行、P3 4 行留后续批次（coding 新增多，装不下时溢出到 T29 后补批，届时在计划里加批）。
+- 「已有」33 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
+- 待建 12 行按 P2→P3 排批次——T24（coding +5）落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 第六份通义灵码已于 2026-10-22 建档（更名 Qoder CN，档案 id `qoder-cn`）；余 P2 8 行、P3 4 行留后续批次。

@@ -48,9 +48,9 @@
 | terms · 用途（purposeTag） | learn 80 · apply 49 · guard 36 · judge 35 |
 | terms · 出处条目（refs） | 423 条 |
 | terms · 英文覆盖 | 200 / 200 |
-| tools · 档案总数 | 164 份 |
-| tools · 大类分布 | coding 32 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
-| tools · 形态分布（form） | web 69 · mcp 24 · harness 22 · cli 19 · ide 14 · cloud 10 · local-app 6 |
+| tools · 档案总数 | 165 份 |
+| tools · 大类分布 | coding 33 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
+| tools · 形态分布（form） | web 69 · mcp 24 · harness 22 · cli 19 · ide 15 · cloud 10 · local-app 6 |
 | tools · 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 | models · 系列 | 11 个 |
 | models · 模型仓（members） | 16 个 |

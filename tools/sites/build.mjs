@@ -192,7 +192,7 @@ const CN_FILING_LABEL = { filed: ['已备案', 'filed'], 'not-filed': ['未见�
  * 这就是发现新国产厂商的机制（先建档、探针报警、补键）。 */
 const VENDOR_EN = {
   '腾讯云': 'Tencent Cloud', '腾讯': 'Tencent', '字节跳动': 'ByteDance',
-  '阿里巴巴（魔搭社区）': 'Alibaba (ModelScope)', '阿里巴巴': 'Alibaba',
+  '阿里巴巴（魔搭社区）': 'Alibaba (ModelScope)', '阿里巴巴': 'Alibaba', '阿里云': 'Alibaba Cloud',
   'Princeton / Stanford（学术团队）': 'Princeton / Stanford (academic teams)',
   'Google（Chrome DevTools 团队）': 'Google (Chrome DevTools team)',
   'Amp Frontier Corporation（原 Sourcegraph，2025-12 分拆独立）': 'Amp Frontier Corporation (spun out of Sourcegraph, Dec 2025)',
