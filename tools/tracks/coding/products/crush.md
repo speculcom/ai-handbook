@@ -95,7 +95,7 @@ axes:
 
     官方 README 原文：
 
-    **官方原文**："A workspace lives as long as at least one client has an SSE event stream open against it. When the last stream disconnects, the workspace is torn down."
+    **官方原文**："A workspace lives as long as at least one client has an SSE event stream open against it." "When the last stream disconnects, the workspace is torn down."
 
     即最后一条流断开，workspace 就被拆除。
 

@@ -21,8 +21,8 @@ providers:
 layer_position: >-
   **本站收录的第一个「CLI 包装型」编程底座** —— 与 Claude Agent SDK 同一形态：
   SDK 不含 agent loop 实现，它 spawn 一个真实的 CLI 进程，用 JSONL over stdin/stdout 通信。
-  官方 README 原文：「The TypeScript SDK **wraps** the `codex` CLI from `@openai/codex`.
-  It **spawns the CLI** and exchanges JSONL events over stdin/stdout.」
+  官方 README 原文（两句）：「The TypeScript SDK **wraps** the `codex` CLI from `@openai/codex`.」
+  「It **spawns the CLI** and exchanges JSONL events over stdin/stdout.」
   **它与另外两个 SDK 的根本差别在「谁在跑」**：
   OpenAI Agents SDK 是在你的 Python 进程里跑一个库；Deep Agents 也是；
   而本 SDK 的推理与工具执行都发生在**外部 CLI 子进程**里，

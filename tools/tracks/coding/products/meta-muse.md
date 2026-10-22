@@ -150,7 +150,7 @@ axes:
     帮助中心页补充：即使 Accounts Center 里绑了其他 Meta 产品也一样。
 
     **⚠ 官方自己承认 prompt injection 未解决（2026-10-03 补，一手措辞）**：
-    **官方原文**："Websites, emails, files and connected services can contain instructions intended to manipulate an AI agent. This is sometimes called a prompt injection attack. Muse uses multiple protections to help detect and resist these attempts. These include model training, automated detection systems, and limits on the information and services Muse can access during a task."
+    **官方原文**（四句连引）："Websites, emails, files and connected services can contain instructions intended to manipulate an AI agent." "This is sometimes called a prompt injection attack." "Muse uses multiple protections to help detect and resist these attempts." "These include model training, automated detection systems, and limits on the information and services Muse can access during a task."
 
     **关键一句**：
     **官方原文**："Important permission and security checks operate separately from the AI model, meaning that they don't rely only on Muse recognizing that an instruction may be malicious."

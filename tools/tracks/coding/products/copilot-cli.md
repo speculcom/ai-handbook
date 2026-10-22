@@ -131,7 +131,7 @@ axes:
 
     官方原文：
 
-    **官方原文**："1. Yes / 2. Yes, and approve TOOL for the rest of the running session / 3. No, and tell Copilot what to do differently (Esc)"
+    **官方原文**（审批提示的三个选项）："1. Yes" / "2. Yes, and approve TOOL for the rest of the running session" / "3. No, and tell Copilot what to do differently (Esc)"
 
     **选项 2 的含义是本会话内该类命令全部放行。** 官方举例：批准 `rm ./this-file.txt`
     后，本会话可跑任意 `rm`。

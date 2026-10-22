@@ -220,7 +220,7 @@ axes:
 
     公告页给出记忆的可插拔后端：
 
-    **官方原文**："Developers can choose Redis, Pinecone, Qdrant, Weaviate, Elasticsearch, Postgres, or their own store for conversational memory. Agent Framework provides the abstraction; you decide the backend."
+    **官方原文**："Developers can choose Redis, Pinecone, Qdrant, Weaviate, Elasticsearch, Postgres, or their own store for conversational memory." "Agent Framework provides the abstraction; you decide the backend."
 
     **这一层是本站说的「上下文/记忆」。**
 
@@ -251,7 +251,7 @@ axes:
 
     **② 工具级审批**（官方公告页原文）：
 
-    **官方原文**："tools can be marked as **requiring human approval**. Agent Framework automatically emits a **pending approval request** that can be routed to a UI or queue, then continues or denies execution accordingly."
+    **官方原文**："tools can be marked as **requiring human approval**." "Agent Framework automatically emits a **pending approval request** that can be routed to a UI or queue, then continues or denies execution accordingly."
 
     **③ 安全样例**（官方 `02-agents/security`）：
 

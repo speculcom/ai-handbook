@@ -5,8 +5,8 @@ name: Runway
 nameEn: Runway
 vendor: Runway AI, Inc.
 homepage: https://runwayml.com/
-license: 官方 ToU §4.4「User Inputs and Outputs」：「The Company does not claim ownership of any of your Inputs or Outputs. Subject to your compliance with the Agreement, the Company does not restrict your commercial use of your Outputs.」——不主张所有权、商用不设限（以遵守条款为前提）；§10.1(a) 声明输出可能不唯一。§5(viii) 禁止用输出开发竞争产品。API 嵌入自有应用须按品牌指引标注 Powered by Runway。
-licenseEn: Official Terms of Use §4.4 'User Inputs and Outputs': 'The Company does not claim ownership of any of your Inputs or Outputs. Subject to your compliance with the Agreement, the Company does not restrict your commercial use of your Outputs.' §10.1(a) warns outputs may not be unique. §5(viii) bars using outputs to develop competing products. API embedding requires 'Powered by Runway' branding per guidelines.
+license: 官方 ToU §4.4「User Inputs and Outputs」：「The Company does not claim ownership of any of your Inputs or Outputs.」+「Subject to your compliance with the Agreement, the Company does not restrict your commercial use of your Outputs.」——不主张所有权、商用不设限（以遵守条款为前提）；§10.1(a) 声明输出可能不唯一。§5(viii) 禁止用输出开发竞争产品。API 嵌入自有应用须按品牌指引标注 Powered by Runway。
+licenseEn: Official Terms of Use §4.4 'User Inputs and Outputs': 'The Company does not claim ownership of any of your Inputs or Outputs.' + 'Subject to your compliance with the Agreement, the Company does not restrict your commercial use of your Outputs.' §10.1(a) warns outputs may not be unique. §5(viii) bars using outputs to develop competing products. API embedding requires 'Powered by Runway' branding per guidelines.
 
 axes:
   model_access: >-

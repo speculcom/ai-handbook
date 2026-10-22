@@ -210,7 +210,7 @@ cn:
 
 **官方 `agents.md` 把「agent path」和「harness」当成同一件事。**
 
-**官方原文**："An agent path is sometimes called **a harness**. It is the way agentic work is started, displayed, configured, and controlled in Zed."
+**官方原文**："An agent path is sometimes called **a harness**." "It is the way agentic work is started, displayed, configured, and controlled in Zed."
 
 **这句话把 AgentClash 的「Harness 章节」落到了产品文档里。**
 Agent 产品对比和 Harness 对比不是两件事。
@@ -248,7 +248,7 @@ AgentClash 区分它们，是因为它们落在不同的层。
 
 **另一条重要区分，官方明确**：
 
-**官方原文**："Model access paths do not configure External Agents or Terminal Threads. External Agents and Terminal Threads usually own their own model access, auth, and configuration."
+**官方原文**："Model access paths do not configure External Agents or Terminal Threads." "External Agents and Terminal Threads usually own their own model access, auth, and configuration."
 
 **即：Zed 的模型设置管不到外部 agent。** 这是很容易误解的点。
 

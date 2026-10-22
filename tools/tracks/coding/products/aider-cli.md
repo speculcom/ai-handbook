@@ -271,7 +271,7 @@ AI 改动始终在版本控制里，可 diff 可撤销。
 
 ## Git 集成是设计的一部分，不是副作用
 
-**官方原文**："Aider automatically commits changes with sensible commit messages. Use familiar git tools to easily diff, manage and undo AI changes."
+**官方原文**："Aider automatically commits changes with sensible commit messages." "Use familiar git tools to easily diff, manage and undo AI changes."
 
 **这一点值得单独强调**：很多工具需要用户自己管理 git。
 

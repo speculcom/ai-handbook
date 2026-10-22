@@ -108,7 +108,7 @@ axes:
   permissions: >-
     **官方明确不设防模型越界。** Security 章节原文：
 
-    **官方原文**："Deep Agents follows a "trust the LLM" model. The agent can do anything its tools allow. Enforce boundaries at the tool/sandbox level, not by expecting the model to self-police."
+    **官方原文**（三句连引）："Deep Agents follows a "trust the LLM" model." "The agent can do anything its tools allow." "Enforce boundaries at the tool/sandbox level, not by expecting the model to self-police."
 
     翻译：采用「信任 LLM」模型，Agent 能做任何它的工具允许的事。
     边界要在**工具/沙箱层**强制，不要指望模型自我约束。
