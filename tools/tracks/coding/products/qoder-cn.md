@@ -143,3 +143,4 @@ cn:
 
 - [CodeBuddy](./codebuddy.md) — 同为国产大厂编码助手：腾讯云系混元已备案可查、走云生态一条龙；Qoder CN 走「一方产品+全家桶 Credits」叙事，备案口径本站未核验到号。
 - [Trae](./trae.md) — 同为国产出海编码工具：字节系国内外两条线都活跃；Qoder CN 的国内线（qoder.com.cn）与国际版（qoder.com）关系官方未对照说明。
+- [Qoder（国际版）](./qoder.md) — 同品牌两条线：国际线走 qoder.com 账号与海外端点、家族含 Cloud Agents/QoderWork；两线功能与模型面别互推（官方无对照页）。

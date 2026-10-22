@@ -298,3 +298,4 @@ cn:
 - [Cursor](./cursor.md) — 同为 VS Code 衍生的独立 IDE，可对照「云端 Agent 关机续跑」与 Kiro 的 Cloud Session
 - [Codex IDE 扩展](./codex-ide.md) — 对照点：Codex 是装进已有编辑器的扩展，Kiro 是自带 harness 的独立 IDE
 - [Windsurf](./windsurf.md) — 同为独立 IDE 形态，可对照各自的云端与权限设计
+- [Amazon Q Developer](./amazon-q-developer.md) — 同厂交接线：AWS 官方公告 Q Developer IDE 插件 2027-04-30 停支持、点名 Kiro 承接 agentic coding/chat/MCP，Q CLI 已变 Kiro CLI

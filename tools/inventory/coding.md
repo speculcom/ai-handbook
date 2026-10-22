@@ -38,14 +38,14 @@
 | Lovable | Lovable（瑞典） | https://lovable.dev | 已有 | lovable | P2 · vibe 建站，产物是可导出代码库（与 Dify 判例区分）；2026-10-22 建档 |
 | Bolt.new | StackBlitz | https://bolt.new | 已有 | bolt-new | P2 · 同上；浏览器内 WebContainers 底座；2026-10-22 建档 |
 | v0 | Vercel | https://v0.dev | 已有 | v0 | P2 · 同上；绑 Vercel 部署链；2026-10-22 建档 |
-| Qodo（原 CodiumAI） | Qodo | https://www.qodo.ai | 待建 | qodo | P2 · 生成+评审，agent 式 |
-| Tabnine | Tabnine（Salesforce 收购后现状待核） | https://www.tabnine.com | 待建 | tabnine | P2 · 从补全转 agent 平台，建档时按官方现状定 |
-| Augment Code | Augment | https://www.augmentcode.com | 待建 | augment-code | P2 |
-| Amazon Q Developer | AWS | https://aws.amazon.com/q/developer/ | 待建 | amazon-q-developer | P2 · IDE 扩展+CLI，与 Kiro 同厂不同产品线 |
+| Qodo（原 CodiumAI） | Qodo | https://www.qodo.ai | 只进nav | | 官方 2026-04-23 公告废弃代码生成（autocomplete+chat）、IDE 插件 2026-10-30 退役；现产品=PR 评审+SDLC 治理平台——按 CodeRabbit 判例「评审机器人不是替你改代码库的编码 agent」不收 |
+| Tabnine | Tricentis（2026-07-30 收购） | https://www.tabnine.com | 不收 | | 官网整站 301 → tricentis.com、Tricentis 产品清单零命中 Tabnine——独立产品终结（Supermaven 判例同款）；nav 旧条目已标 retired。⚠ 旧备注「Salesforce 收购」是错的，收购方是 Tricentis |
+| Augment Code | Augment Code（2026-10 起部分资产并入 Harness） | https://www.augmentcode.com | 已有 | augment-code | P2 · Cosmos 软件工厂/self-hosted；2026-10-08 官方公告 Cosmos/Auggie CLI/Context Engine 加入 Harness；2026-10-22 建档 |
+| Amazon Q Developer | AWS | https://aws.amazon.com/q/developer/ | 已有 | amazon-q-developer | P2 · 官方 EOL：IDE 插件 2027-04-30 停支持、Q CLI 已变 Kiro CLI（官方指向 Kiro）；2026-10-22 建档带 EOL 警示 |
 | CodeBuddy（IDE/CLI/插件） | 腾讯云 | https://www.codebuddy.cn | 已有 | codebuddy | P1 · 国产（L5 只转述官方）；国际版 codebuddy.ai |
 | Google Antigravity（2.0/CLI/IDE/SDK） | Google | https://antigravity.google | 已有 | google-antigravity | P1 · agent-first 开发平台（原 Gemini Code Assist 线并入，建档时核官方口径） |
 | Trae | 字节跳动 | https://www.trae.ai | 已有 | trae | P1 · 国产（L5） |
-| Qoder（国际版） | 阿里云 | https://qoder.com | 待建 | qoder | P2 · Qoder CN 系列的国际线（国内线档案见 qoder-cn）；与国际版官网的官方关系未对照说明，建档前先核 |
+| Qoder（国际版） | 阿里云 | https://qoder.com | 已有 | qoder | P2 · Qoder CN 系列的国际线（国内线档案见 qoder-cn）；官方无两线对照说明页（案例页有「Alibaba Qoder」表述）；2026-10-22 建档 |
 | Roo Code | Roo Code 社区（Cline 分支） | https://roocode.com | 待建 | roocode | P3 |
 | Kilo Code | Kilo Code 社区 | https://kilocode.ai | 待建 | kilocode | P3 |
 | 通义灵码（现 Qoder CN） | 阿里云 | https://qoder.com.cn | 已有 | qoder-cn | P1 · 国产（L5）；2026-05-20 官方更名 Qoder CN 系列（docs.qoder.cn 系列页公告），档案 id 用现名 qoder-cn |
@@ -63,5 +63,5 @@
 ## 备注
 
 - nav `cat=coding` 里的 AutoGPT / Dify / Coze / Manus / LangGraph / CrewAI / Relevance AI / Superagent / Botpress / SmythOS **不归本大类**——按 categories.md 边界裁决分别落 framework（T10）/ automation（T12）清单，nav 分类≠本站大类。
-- 「已有」36 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
-- 待建 9 行按 P2→P3 排批次——T24（coding +5）落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 第六份通义灵码已于 2026-10-22 建档（更名 Qoder CN，档案 id `qoder-cn`）；常态 M2（2026-10-22）落地 vibe 建站三件套（Lovable/Bolt.new/v0）；余 P2 5 行、P3 4 行留后续批次。
+- 「已有」39 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
+- 待建 4 行按 P2→P3 排批次——T24（coding +5）落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 第六份通义灵码已于 2026-10-22 建档（更名 Qoder CN，档案 id `qoder-cn`）；常态 M2（2026-10-22）落地 vibe 建站三件套（Lovable/Bolt.new/v0）；常态 M3（2026-10-22）落地 P2 收尾——建档 3（Qoder 国际线/Augment Code/Amazon Q Developer）、只进nav 1（Qodo 转型评审平台，CodeRabbit 判例）、不收 1（Tabnine 独立产品终结，nav 标 retired）；余 P2 1 行（Comate）、P3 3 行（Roo/Kilo/CodeGeeX）留后续批次。
