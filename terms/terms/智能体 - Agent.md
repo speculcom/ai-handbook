@@ -7,7 +7,7 @@ def: ["给模型配上目标、工具和循环，让它自主执行多步骤任�
 why: "这是本站 harness 分区存在的全部理由。如果你只需要问答，不需要 Agent。"
 refs:
   - ["10 份 Agent 框架档案", "https://tools.specul.com/", "10 agent framework profiles"]
-  - ["CrewAI 的角色分工", "https://tools.specul.com/harness/crewai.html", "CrewAI role division"]
+  - ["CrewAI 的角色分工", "https://tools.specul.com/framework/crewai.html", "CrewAI role division"]
 domain: "agent"
 purposeTag: "apply"
 level: 3
@@ -29,7 +29,7 @@ ord: 1
 
 **看具体例子**：
 - [10 份 Agent 框架档案](https://tools.specul.com/)
-- [CrewAI 的角色分工](https://tools.specul.com/harness/crewai.html)
+- [CrewAI 的角色分工](https://tools.specul.com/framework/crewai.html)
 
 ---
 

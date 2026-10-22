@@ -4,22 +4,28 @@
 
 **AI 工具图谱** · 纯 Markdown · 开源
 
-记录 **AI coding agent / agent runtime / MCP server** 的能力边界、运行位置与官方证据，
-用一套固定坐标系组织，让选型变成可回溯的判断而不是感觉。
+记录 **AI 工具**（编码 agent、对话助手、图像/视频/音频创作、agent 框架、MCP 工具……）
+的能力边界、运行位置与官方证据，用一套固定坐标系组织，让选型变成可回溯的判断而不是感觉。
 
-这个仓库**只存数据，不出结论页面**。结论层由一站三分区消费（2026-10-04 起 v4 架构，
-旧的 ide / cli / mcp / harness 四个独立子域已合并）：
+这个仓库**只存数据，不出结论页面**。结论层由 tools.specul.com 站点消费（v8 · 2026-10-21 起
+内容按 **10 大类**重排，旧三分区 agents / harness / tools 已退役）：
 
-| 分区 | 主题 | 收录对象 |
-|---|---|---|
-| `tools.specul.com/` | 成品 agent（含 IDE / CLI / 厂商云三种形态） | Cursor · Claude Code · Copilot · Windsurf · Zed · Cline · Aider · Codex · OpenCode · Crush · Gemini CLI · Kiro · Goose · Warp · Jules · Dot · Muse · Grok Bot 等 27 份 |
-| `tools.specul.com/harness/` | Agent 运行时 / 编排框架 / SDK | Claude Agent SDK · Codex SDK · OpenAI Agents SDK · Pydantic AI · smolagents · CrewAI · Google ADK · LangGraph · LlamaIndex · Microsoft Agent Framework · AG2 · Mastra · Deep Agents · Hermes Agent · OpenHands |
-| `tools.specul.com/tools/` | MCP 服务器 / 工具生态 | filesystem · git · memory · sequential-thinking · fetch · time · playwright · context7 · everything · github-mcp |
+| 大类 | 主题 |
+|---|---|
+| `coding` | AI 编程——装在编辑器 / 终端 / 厂商云上，面向代码库自主干活的编码 agent |
+| `chat` | AI 对话助手——通用聊天产品，含国产 |
+| `image` · `video` · `audio` | AI 创作——图像、视频、音频与语音 |
+| `research` · `automation` | AI 搜索与研究、自动化与工作流 |
+| `framework` | Agent 框架与运行时——你拿来自己搭 agent 的底座 |
+| `mcp` | 给 AI 装的工具——MCP 服务器 |
+| `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 52 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 164 个对象定位的地图。
 
-**harness 分区为什么单列**：成品 agent 是「用户直接用的产品」，harness 是「你拿来自己搭 agent 的底座」。
-两者的选型问题完全不同——前者问「哪个好用」，后者问「状态存哪、上下文怎么压、权限给到哪一档」。
+**三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
+research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
+
+大类定义与边界裁决见 [categories.md](./categories.md)。
 
 ---
 
@@ -32,7 +38,7 @@
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 52 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 164 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -41,16 +47,17 @@
 
 ## 我该怎么读
 
-这个仓有 52 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 164 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
-| 「我该用哪个成品工具」 | 先分清是 IDE / CLI / 厂商云，再看 [`tracks/agents/`](./tracks/agents/) |
-| 「我要自己搭一个 agent」 | 直接去 [`tracks/harness/`](./tracks/harness/)，看状态怎么存、上下文怎么压、权限给到哪一档 |
-| 「我的 agent 需要连外部东西」 | [`tracks/tools/`](./tracks/tools/)，MCP 服务器生态 |
+| 「我该用哪个编码 agent」 | [`tracks/coding/`](./tracks/coding/)，先分清 IDE / CLI / 厂商云三种形态 |
+| 「我想找个对话助手 / 创作工具」 | [`tracks/chat/`](./tracks/chat/) · [`tracks/image/`](./tracks/image/) · [`tracks/video/`](./tracks/video/) · [`tracks/audio/`](./tracks/audio/)，每份档案的「商用许可」一行先看 |
+| 「我要自己搭一个 agent」 | 直接去 [`tracks/framework/`](./tracks/framework/)，看状态怎么存、上下文怎么压、权限给到哪一档 |
+| 「我的 agent 需要连外部东西」 | [`tracks/mcp/`](./tracks/mcp/)，MCP 服务器生态 |
 | 「我想比较两个东西到底差在哪」 | 先读 [`axes/`](./axes/) 里那 8 个维度分别问什么，再横向对着看 |
 
-有个坑值得先说：成品 agent 和 harness 不是一回事。
+有个坑值得先说：现成工具和自己搭的底座不是一回事。
 前者问「哪个好用」，后者问「底座怎么搭」。混在一起比，比出来的结论没有意义。
 
 站上的版本：<https://tools.specul.com/>
@@ -79,13 +86,13 @@
 ### 我想查一个工具的能力边界
 
 1. 在 [axes/](./axes/) 看 8 个维度分别问什么
-2. 在对应赛道的 `products/` 找条目
+2. 在对应大类的 `products/` 找条目（大类定义见 [categories.md](./categories.md)）
 3. 点条目里的 `sources` 回官方原文
 
 ### 我想新增一个工具
 
-1. 读 [SCHEMA.md](./SCHEMA.md) 了解字段格式
-2. 复制同赛道任意条目作为模板
+1. 读 [SCHEMA.md](./SCHEMA.md) 了解字段格式（v2：目录=大类、`form:` 8 值）
+2. 复制同大类任意条目作为模板
 3. 按 [axes/](./axes/) 的判定标准填 8 个维度
 4. 提 PR，附上你读过的官方源链接
 
@@ -96,7 +103,7 @@
 
 ### 我想跑一轮实测
 
-读对应赛道的 `tasks/_protocol.md`，按协议跑，结果写进 `runs/`。
+读对应大类的 `protocols/_protocol.md`（编码向 / 框架向 / MCP 向三套协议），按协议跑。
 
 ---
 
@@ -105,10 +112,11 @@
 ```
 tools/（ai-handbook 子树）
 ├── METHODOLOGY.md              方法论总纲
-├── SCHEMA.md                   数据格式规范
+├── SCHEMA.md                   数据格式规范（v2）
+├── categories.md               10 大类定义与边界裁决
 ├── CONTRIBUTING.md             贡献指引
 ├── SOURCES.md                  来源索引
-├── axes/                       8 个维度的定义与判定标准
+├── axes/                       8 个维度的定义与判定标准（含消费级读法）
 │   ├── model-access.md         模型与开放条件
 │   ├── runtime.md              运行位置
 │   ├── local-files.md          本地文件
@@ -118,23 +126,22 @@ tools/（ai-handbook 子树）
 │   ├── permissions.md          权限与限制
 │   └── fit.md                  适合什么任务
 ├── tracks/
-│   ├── agents/                 成品 agent 赛道（v4：含原 ide / cli / cloud 三种形态）
-│   │   ├── _track.md           赛道定义与收录标准
-│   │   ├── products/           27 个对象
-│   │   ├── tasks/              实测任务集
-│   │   └── runs/               实测记录
-│   ├── harness/                Agent 运行时 / 编排框架 / SDK 赛道
-│   └── tools/                  MCP 生态赛道（多 3 个特有维度）
-│       ├── _track.md           赛道定义与收录标准
-│       ├── products/           10 个对象
-│       └── tasks/              实测协议（未开跑）
+│   ├── coding/                 AI 编程大类
+│   │   ├── _category.md        大类收录声明（标准 + 形态判据 + 对象表）
+│   │   └── products/           32 个对象
+│   ├── chat/                   AI 对话助手（14 个对象）
+│   ├── image/ · video/ · audio/  AI 创作三大类（13 + 12 + 10 个对象）
+│   ├── framework/              Agent 框架与运行时（22 个对象）
+│   ├── mcp/                    MCP 生态（多 3 个特有维度，24 个对象）
+│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 14 + 12 个对象）
+├── protocols/                  实测协议（coding / framework / mcp 三套）
 ├── scripts/                    校验脚本（validate / audit / quality）
 └── CHANGELOG.md                数据层更新记录
 ```
 
-### harness 赛道的 family 分组
+### framework 大类的 family 分组
 
-harness 的 15 个对象按**抽象层**分三组，这是本站对该赛道最重要的一条判别依据：
+framework 的 22 个对象按**抽象层**分三组，这是本站对该大类最重要的一条判别依据：
 
 | family | 含义 | 对象 |
 |---|---|---|
@@ -202,7 +209,7 @@ harness 的 15 个对象按**抽象层**分三组，这是本站对该赛道最�
 内容采用 [CC BY 4.0](./LICENSE) 授权。
 
 **使用要求**：署名「ai-coding-agent-atlas contributors」并链接回本仓库。
-数据中的第三方商标与产品名归各自所有者，本仓库仅作索引与比较用途。
+**产品名与商标归各权利方所有，本仓库与站点仅作识别与评论之用**（L3 声明，与全站页脚同一句口径）。
 
 ---
 
@@ -224,90 +231,251 @@ harness 的 15 个对象按**抽象层**分三组，这是本站对该赛道最�
 |---|---|
 | **specul.com** | 品牌站（投机 · 推演） |
 | **nav.specul.com** | 结论层：AI 站点导航 |
-| **tools.specul.com** | 结论层：成品 agent / harness / MCP 工具三分区 |
+| **tools.specul.com** | 结论层：AI 工具 10 大类 |
 | **learn.specul.com** | 结论层：AI 术语表 |
 | **models.specul.com** | 结论层：本地部署量化模型索引 |
 | **vg.specul.com** | 结论层：AI 做游戏 |
 
 **方法论原型**：本仓库的「放弃总分 / 未知合法化 / 每条挂证据」三条规则
-借鉴自 [AgentClash](https://aiagentclash.com/)，但坐标系与赛道定义是本仓库独立设计。
+借鉴自 [AgentClash](https://aiagentclash.com/)，但坐标系与大类定义是本仓库独立设计。
 
 <!-- INDEX:BEGIN generated, do not edit -->
 
 ## 内容索引
 
-### 成品 agent —— 27 份
+### AI 编程 —— 32 份
 
-开箱能用的产品。IDE / CLI / 厂商云都是这一类。
+装在编辑器 / 终端 / 厂商云上，面向代码库自主干活的编码 agent。
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [Aider](tracks/agents/products/aider-cli.md) | Aider-AI | cli | partial | maintenance |
-| [Aider Watch 模式](tracks/agents/products/aider.md) | Aider-AI | ide | partial | maintenance |
-| [Amp](tracks/agents/products/amp.md) | Sourcegraph | cli | partial | active |
-| [Claude Code CLI](tracks/agents/products/claude-code-cli.md) | Anthropic | cli | partial | active |
-| [Claude Code IDE 扩展](tracks/agents/products/claude-code.md) | Anthropic | ide | partial | active |
-| [Cline](tracks/agents/products/cline.md) | Cline Bot | ide | partial | active |
-| [Codex CLI](tracks/agents/products/codex-cli.md) | OpenAI | cli | partial | active |
-| [Codex IDE 扩展](tracks/agents/products/codex-ide.md) | OpenAI | ide | partial | active |
-| [Continue](tracks/agents/products/continue.md) | Continue | ide | partial | archived |
-| [Crush](tracks/agents/products/crush.md) | Charm | cli | partial | active |
-| [Cursor](tracks/agents/products/cursor.md) | Anysphere | ide | partial | active |
-| [Cursor CLI](tracks/agents/products/cursor-cli.md) | Anysphere | cli | partial | active |
-| [Droid](tracks/agents/products/factory-droid.md) | Factory AI | cli | partial | active |
-| [Gemini CLI](tracks/agents/products/gemini-cli.md) | Google | cli | partial | active |
-| [GitHub Copilot](tracks/agents/products/copilot.md) | GitHub / Microsoft | ide | partial | active |
-| [GitHub Copilot CLI](tracks/agents/products/copilot-cli.md) | GitHub | cli | partial | active |
-| [Goose](tracks/agents/products/goose.md) | Agentic AI Foundation | cli | partial | active |
-| [Jules](tracks/agents/products/jules.md) | Google | cloud | partial | active |
-| [Junie](tracks/agents/products/junie.md) | JetBrains | ide | partial | active |
-| [Kiro](tracks/agents/products/kiro.md) | AWS | ide | partial | active |
-| [Meta Muse](tracks/agents/products/meta-muse.md) | Meta | cloud | partial | active |
-| [OpenAI Dot](tracks/agents/products/openai-dot.md) | OpenAI | cloud | partial | active |
-| [OpenCode](tracks/agents/products/opencode.md) | OpenCode | cli | partial | active |
-| [Warp](tracks/agents/products/warp.md) | Warp | cli | partial | active |
-| [Windsurf / Devin Desktop](tracks/agents/products/windsurf.md) | Cognition | ide | partial | active |
-| [xAI Grok Bot](tracks/agents/products/grok-bot.md) | xAI | cloud | partial | active |
-| [Zed](tracks/agents/products/zed.md) | Zed Industries | ide | partial | active |
+| [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | partial | maintenance |
+| [Aider Watch 模式](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
+| [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation（原 Sourcegraph，2025-12 分拆独立） | cli | partial | active |
+| [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
+| [Claude Code IDE 扩展](tracks/coding/products/claude-code.md) | Anthropic | ide | partial | active |
+| [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
+| [CodeBuddy](tracks/coding/products/codebuddy.md) | 腾讯云 | ide | partial | active |
+| [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | partial | active |
+| [Codex IDE 扩展](tracks/coding/products/codex-ide.md) | OpenAI | ide | partial | active |
+| [Continue](tracks/coding/products/continue.md) | Continue | ide | partial | archived |
+| [Crush](tracks/coding/products/crush.md) | Charm | cli | partial | active |
+| [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | partial | active |
+| [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | partial | active |
+| [Devin](tracks/coding/products/devin.md) | Cognition | cloud | partial | active |
+| [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | partial | active |
+| [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | partial | active |
+| [GitHub Copilot](tracks/coding/products/copilot.md) | GitHub / Microsoft | ide | partial | active |
+| [GitHub Copilot CLI](tracks/coding/products/copilot-cli.md) | GitHub | cli | partial | active |
+| [Google Antigravity](tracks/coding/products/google-antigravity.md) | Google | ide | partial | active |
+| [Goose](tracks/coding/products/goose.md) | Agentic AI Foundation | cli | partial | active |
+| [Jules](tracks/coding/products/jules.md) | Google | cloud | partial | active |
+| [Junie](tracks/coding/products/junie.md) | JetBrains | ide | partial | active |
+| [Kiro](tracks/coding/products/kiro.md) | AWS | ide | partial | active |
+| [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
+| [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | partial | active |
+| [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
+| [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
+| [Trae](tracks/coding/products/trae.md) | 字节跳动 | ide | partial | active |
+| [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
+| [Windsurf / Devin Desktop](tracks/coding/products/windsurf.md) | Cognition | ide | partial | active |
+| [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
+| [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
 
-### 自己搭的底座 —— 15 份
+### AI 对话助手 —— 14 份
+
+通用聊天助手——网页 / 应用形态，含国产。
+
+| 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
+|---|---|---|---|---|
+| [豆包](tracks/chat/products/doubao-chat.md) | 字节跳动 | web | partial | active |
+| [腾讯元宝](tracks/chat/products/yuanbao-chat.md) | 腾讯 | web | partial | active |
+| [通义千问](tracks/chat/products/tongyi-qianwen.md) | 阿里巴巴 | web | partial | active |
+| [文心](tracks/chat/products/wenxin.md) | 百度 | web | partial | active |
+| [讯飞星火](tracks/chat/products/xinghuo-spark.md) | 科大讯飞 | web | partial | active |
+| [智谱清言](tracks/chat/products/chatglm-chat.md) | 智谱 AI | web | partial | active |
+| [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | partial | active |
+| [Claude（对话应用）](tracks/chat/products/claude-chat.md) | Anthropic | web | verified | active |
+| [DeepSeek](tracks/chat/products/deepseek-chat.md) | 深度求索 | web | partial | active |
+| [Gemini（对话应用）](tracks/chat/products/gemini-chat.md) | Google | web | partial | active |
+| [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
+| [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | partial | active |
+| [Manus](tracks/chat/products/manus.md) | Manus AI（Monica 团队） | web | partial | active |
+| [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | partial | active |
+
+### AI 图像创作 —— 13 份
+
+文生图与图像编辑产品。
+
+| 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
+|---|---|---|---|---|
+| [即梦](tracks/image/products/jimeng.md) | 字节跳动（剪映团队） | web | partial | active |
+| [通义万相](tracks/image/products/tongyi-wanxiang.md) | 阿里巴巴 | web | partial | active |
+| [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | partial | active |
+| [Clipdrop](tracks/image/products/clipdrop.md) | Jasper（原 InitML，2023 并入 Stability AI，2024-02 售予 Jasper） | web | partial | active |
+| [FLUX（Black Forest Labs）](tracks/image/products/flux.md) | Black Forest Labs | cloud | partial | active |
+| [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | partial | active |
+| [Krea](tracks/image/products/krea.md) | Krea | web | partial | active |
+| [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo（2024-07 被 Canva 收购） | web | partial | active |
+| [Microsoft Designer](tracks/image/products/microsoft-designer.md) | 微软 | web | partial | active |
+| [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | partial | active |
+| [Recraft](tracks/image/products/recraft.md) | Recraft | web | partial | active |
+| [SeaArt](tracks/image/products/seaart.md) | 海艺（成都海艺互娱） | web | partial | active |
+| [Stability AI（Stable Image 平台）](tracks/image/products/stability-ai.md) | Stability AI | web | partial | active |
+
+### AI 视频创作 —— 12 份
+
+文生视频、图生视频与 AI 视频编辑产品。
+
+| 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
+|---|---|---|---|---|
+| [海螺视频](tracks/video/products/hailuo-video.md) | MiniMax（稀宇科技） | web | partial | active |
+| [可灵 Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd.（快手） | web | partial | active |
+| [D-ID](tracks/video/products/d-id.md) | D-ID | web | partial | active |
+| [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
+| [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
+| [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | partial | active |
+| [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
+| [PixVerse](tracks/video/products/pixverse.md) | 爱诗科技 | web | partial | active |
+| [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | partial | active |
+| [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | partial | active |
+| [Veo（Google）](tracks/video/products/veo.md) | Google | cloud | partial | active |
+| [Vidu](tracks/video/products/vidu.md) | 生数科技（清华系） | web | partial | active |
+
+### AI 音频与语音 —— 10 份
+
+语音合成（TTS）、音乐生成、语音转写产品。
+
+| 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
+|---|---|---|---|---|
+| [魔音工坊](tracks/audio/products/moyin.md) | 出门问问 | web | partial | active |
+| [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | partial | active |
+| [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | partial | active |
+| [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | partial | active |
+| [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
+| [MiniMax Audio（海螺语音）](tracks/audio/products/minimax-audio.md) | MiniMax（稀宇科技） | web | partial | active |
+| [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | partial | active |
+| [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | partial | active |
+| [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
+| [Whisper](tracks/audio/products/whisper.md) | OpenAI（开源） | local-app | partial | active |
+
+### AI 搜索与研究 —— 11 份
+
+主打「带引用的答案」的搜索与研究产品。
+
+| 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
+|---|---|---|---|---|
+| [秘塔 AI 搜索](tracks/research/products/metaso.md) | 秘塔科技（上海秘塔网络科技） | web | partial | active |
+| [天工 AI 搜索](tracks/research/products/tiangong.md) | 昆仑万维 | web | partial | active |
+| [Andi Search](tracks/research/products/andi.md) | Andi | web | partial | active |
+| [Consensus](tracks/research/products/consensus.md) | Consensus | web | partial | active |
+| [Devv](tracks/research/products/devv.md) | Devv AI | web | partial | active |
+| [Elicit](tracks/research/products/elicit.md) | Elicit | web | partial | active |
+| [Genspark](tracks/research/products/genspark.md) | Genspark | web | partial | active |
+| [Kagi](tracks/research/products/kagi.md) | Kagi | web | partial | active |
+| [NotebookLM](tracks/research/products/notebooklm.md) | Google | web | partial | active |
+| [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
+| [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
+
+### AI 自动化与工作流 —— 14 份
+
+可视化搭 AI 应用 / 跑自动化工作流的平台。
+
+| 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
+|---|---|---|---|---|
+| [扣子 / Coze](tracks/automation/products/coze.md) | 字节跳动 | web | partial | active |
+| [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
+| [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | partial | active |
+| [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | partial | active |
+| [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | partial | active |
+| [Langflow](tracks/automation/products/langflow.md) | DataStax（原 Langflow AI） | web | partial | active |
+| [Make](tracks/automation/products/make.md) | Make（原 Integromat） | web | partial | active |
+| [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | partial | active |
+| [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
+| [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
+| [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI（悉尼） | web | partial | active |
+| [Salesforce Agentforce](tracks/automation/products/agentforce.md) | Salesforce | web | partial | active |
+| [Vertex AI Agent Builder（Gemini Enterprise 平台线）](tracks/automation/products/vertex-agent-builder.md) | Google | web | partial | active |
+| [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
+
+### Agent 框架与运行时 —— 22 份
 
 拿它拼自己的 agent：状态存哪、上下文怎么压、权限给到哪一档。
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [AG2](tracks/harness/products/ag2.md) | ag2ai | harness | partial | active |
-| [Claude Agent SDK](tracks/harness/products/claude-agent-sdk.md) | Anthropic | harness | partial | active |
-| [Codex SDK](tracks/harness/products/codex-sdk.md) | OpenAI | harness | partial | active |
-| [CrewAI](tracks/harness/products/crewai.md) | CrewAI Inc | harness | partial | active |
-| [Deep Agents](tracks/harness/products/deepagents.md) | LangChain | harness | partial | active |
-| [Google ADK（Agent Development Kit）](tracks/harness/products/google-adk.md) | Google | harness | partial | active |
-| [Hermes Agent](tracks/harness/products/hermes-agent.md) | Nous Research | harness | partial | active |
-| [LangGraph](tracks/harness/products/langgraph.md) | LangChain Inc | harness | partial | active |
-| [LlamaIndex Framework](tracks/harness/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
-| [Mastra](tracks/harness/products/mastra.md) | Mastra AI | harness | partial | active |
-| [Microsoft Agent Framework](tracks/harness/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
-| [OpenAI Agents SDK](tracks/harness/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
-| [OpenHands Agent Canvas](tracks/harness/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
-| [Pydantic AI](tracks/harness/products/pydantic-ai.md) | Pydantic | harness | partial | active |
-| [smolagents](tracks/harness/products/smolagents.md) | Hugging Face | harness | partial | active |
+| [AG2](tracks/framework/products/ag2.md) | ag2ai | harness | partial | active |
+| [AgentScope](tracks/framework/products/agentscope.md) | 阿里巴巴（魔搭社区） | harness | partial | active |
+| [Claude Agent SDK](tracks/framework/products/claude-agent-sdk.md) | Anthropic | harness | partial | active |
+| [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | partial | active |
+| [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
+| [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
+| [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
+| [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
+| [Haystack](tracks/framework/products/haystack.md) | deepset | harness | partial | active |
+| [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
+| [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | partial | active |
+| [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
+| [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | partial | active |
+| [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
+| [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
+| [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
+| [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
+| [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
+| [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
+| [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
+| [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
+| [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford（学术团队） | harness | partial | active |
 
-### 给 agent 装的工具 —— 10 份
+### 给 AI 装的工具 —— 24 份
 
 MCP 服务器与工具生态。
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [Context7](tracks/tools/products/context7.md) | Upstash | mcp | partial | active |
-| [Everything MCP Server](tracks/tools/products/everything.md) | Model Context Protocol | mcp | verified | active |
-| [Fetch MCP Server](tracks/tools/products/fetch.md) | Model Context Protocol | mcp | verified | active |
-| [Filesystem MCP Server](tracks/tools/products/filesystem.md) | Model Context Protocol | mcp | verified | active |
-| [Git MCP Server](tracks/tools/products/git.md) | Model Context Protocol | mcp | verified | active |
-| [GitHub MCP Server](tracks/tools/products/github-mcp.md) | GitHub | mcp | partial | active |
-| [Knowledge Graph Memory Server](tracks/tools/products/memory.md) | Model Context Protocol | mcp | verified | active |
-| [Playwright MCP Server](tracks/tools/products/playwright.md) | Microsoft | mcp | verified | active |
-| [Sequential Thinking MCP Server](tracks/tools/products/sequential-thinking.md) | Model Context Protocol | mcp | verified | active |
-| [Time MCP Server](tracks/tools/products/time.md) | Model Context Protocol | mcp | verified | active |
+| [Atlassian Remote MCP Server（Jira/Confluence）](tracks/mcp/products/atlassian-mcp.md) | Atlassian | mcp | partial | active |
+| [Brave Search MCP Server](tracks/mcp/products/brave-search-mcp.md) | Brave | mcp | partial | active |
+| [Chrome DevTools MCP](tracks/mcp/products/chrome-devtools-mcp.md) | Google（Chrome DevTools 团队） | mcp | partial | active |
+| [Cloudflare MCP Server](tracks/mcp/products/cloudflare-mcp.md) | Cloudflare | mcp | partial | active |
+| [Context7](tracks/mcp/products/context7.md) | Upstash | mcp | partial | active |
+| [Everything MCP Server](tracks/mcp/products/everything.md) | Model Context Protocol | mcp | verified | active |
+| [Fetch MCP Server](tracks/mcp/products/fetch.md) | Model Context Protocol | mcp | verified | active |
+| [Figma MCP Server](tracks/mcp/products/figma-mcp.md) | Figma | mcp | partial | active |
+| [Filesystem MCP Server](tracks/mcp/products/filesystem.md) | Model Context Protocol | mcp | verified | active |
+| [Git MCP Server](tracks/mcp/products/git.md) | Model Context Protocol | mcp | verified | active |
+| [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | partial | active |
+| [Knowledge Graph Memory Server](tracks/mcp/products/memory.md) | Model Context Protocol | mcp | verified | active |
+| [Linear MCP](tracks/mcp/products/linear-mcp.md) | Linear | mcp | partial | active |
+| [MongoDB MCP Server](tracks/mcp/products/mongodb-mcp.md) | MongoDB | mcp | partial | active |
+| [Neon MCP Server](tracks/mcp/products/neon-mcp.md) | Neon | mcp | partial | active |
+| [Notion MCP](tracks/mcp/products/notion-mcp.md) | Notion | mcp | partial | active |
+| [Playwright MCP Server](tracks/mcp/products/playwright.md) | Microsoft | mcp | verified | active |
+| [Sentry MCP / Toolkit](tracks/mcp/products/sentry-mcp.md) | Sentry | mcp | partial | active |
+| [Sequential Thinking MCP Server](tracks/mcp/products/sequential-thinking.md) | Model Context Protocol | mcp | verified | active |
+| [Slack MCP Server](tracks/mcp/products/slack-mcp.md) | Slack（Salesforce） | mcp | partial | active |
+| [Stripe Agent Toolkit / MCP](tracks/mcp/products/stripe-mcp.md) | Stripe | mcp | partial | active |
+| [Supabase MCP](tracks/mcp/products/supabase-mcp.md) | Supabase | mcp | partial | active |
+| [Time MCP Server](tracks/mcp/products/time.md) | Model Context Protocol | mcp | verified | active |
+| [Zapier MCP](tracks/mcp/products/zapier-mcp.md) | Zapier | mcp | partial | active |
+
+### 本地模型运行器 —— 12 份
+
+在自己机器上跑开源模型的桌面应用。
+
+| 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
+|---|---|---|---|---|
+| [GPT4All](tracks/runner/products/gpt4all.md) | Nomic AI | local-app | partial | maintenance |
+| [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | partial | active |
+| [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins（KoboldAI 社区） | local-app | partial | active |
+| [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
+| [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | partial | active |
+| [LocalAI](tracks/runner/products/localai.md) | Mudler T.（mudler） | cli | partial | active |
+| [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
+| [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
+| [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
+| [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | maintenance |
+| [text-generation-webui / textgen](tracks/runner/products/text-generation-webui.md) | oobabooga | local-app | partial | maintenance |
+| [vLLM](tracks/runner/products/vllm.md) | vLLM 项目（PyTorch 基金会） | cli | partial | active |
 
 
 <!-- INDEX:END -->
@@ -317,8 +485,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 52 份 |
-| 分区分布 | agents 27 · harness 15 · tools 10 |
-| 形态分布（track） | harness 15 · cli 12 · ide 11 · mcp 10 · cloud 4 |
-| 对比维度 | 8 维（工具分区另加传输 / 认证 / 范围 3 维） |
+| 档案总数 | 164 份 |
+| 大类分布 | coding 32 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
+| 形态分布（form） | web 69 · mcp 24 · harness 22 · cli 19 · ide 14 · cloud 10 · local-app 6 |
+| 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

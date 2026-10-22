@@ -1,5 +1,5 @@
 {
-  "_comment": "agent 站档案的 pitfalls（头号误解）英文 —— 第 1 批（agents 与 harness 分区）。2026-10-08 A6.1 扩至含全部 26 个 agents/harness 条目。",
+  "_comment": "agent 站档案的 pitfalls（头号误解）英文 —— 第 1 批（agents 与 harness 分区）。2026-10-08 A6.1 扩至含全部 26 个 agents/harness 条目。 2026-10-21 v8 T7：新增 chat/image/video/audio 14 条档案的键。",
   "_critical": "⚠⚠ 这是全站**最敏感**的一段内容：每一条都在纠正读者对产品的**错误理解**，很多直接关系到会不会误用（比如「以为默认是安全的 —— 默认是 full toolset 且没有沙箱层」）。",
   "_rules": [
     "0) **判断强度必须完全保留**。「以为 X」型误解 → 'Thinking X'；「忽略 Y」→ 'Ignoring Y'。",
@@ -284,5 +284,564 @@
     "Assuming Free means unlimited agent use — the official page says \"Limited cloud agents access\"",
     "Assuming auto-approve bypasses the command denylist — a team denylist set in the Admin Panel is never bypassed",
     "Assuming open source means entirely free — the client is open source, but cloud agents and Warp Drive are metered by tier"
+  ],
+  "chatgpt": [
+    "Treating “turn off the training toggle” as Temporary Chat — two independent mechanisms; the toggle only governs future conversations",
+    "Assuming feedback (thumbs up/down) is exempt from the training toggle — the official docs say the whole related conversation may be trained on",
+    "Applying consumer terms to the API/Enterprise line — the two lines have different data clauses"
+  ],
+  "claude-chat": [
+    "Treating the chat app and Claude Code as one product line — two lines, two profiles",
+    "Assuming the training opt-out covers everything — conversations flagged by safety review are an explicitly documented exception",
+    "Treating memory as an uncontrollable black box — the official side provides per-item view/edit/delete controls"
+  ],
+  "gemini-chat": [
+    "Reading “won't directly train on raw Gmail/Drive” as “your conversations aren't trained on” — summaries and inferences produced during answering are still trained on (explicitly stated)",
+    "Confusing Keep Activity with Temporary Chat — two mechanisms: the former governs future-conversation training, the latter retention and history",
+    "Applying API terms to the consumer app — the Gemini Apps privacy notice and the Gemini API additional terms are two documents"
+  ],
+  "grok-chat": [
+    "Assuming Grok inside X and grok.com share one set of terms — inside X, the X privacy policy applies",
+    "Assuming everyone can opt out of training — the official docs explicitly say some regions (EU/UK excepted) lack that option in logged-out scenarios",
+    "Confusing the Grok chat app with Grok Bot — the latter is a cloud task-type agent with a separate profile (coding)"
+  ],
+  "kimi-chat": [
+    "Assuming the training opt-out is a self-serve toggle — the official flow is customer-service registration, an account-level unified opt-out",
+    "Mixing the old and new agreements — the old “non-commercial only” and current v2 “owns input and output IP” coexist; follow the current version",
+    "Confusing the consumer line with the open-platform API — the two lines have different terms"
+  ],
+  "doubao-chat": [
+    "Applying the App privacy policy to the Volcano Engine Ark API — the two lines have opposite training defaults (App may train by default, API doesn't by default)",
+    "Treating the “help improve the model” toggle as deleting history — it only governs future training",
+    "Treating the Doubao consumer line and Volcano Engine Ark as one product — different entities and different terms"
+  ],
+  "midjourney": [
+    "Reading “paid users own the Assets” as unconditional — companies with annual revenue over USD 1M only own Assets on the Pro/Mega tier",
+    "Treating Stealth as a training opt-out — it only governs public visibility; the official docs have no training opt-out switch",
+    "Assuming cancelling a subscription forfeits ownership of past outputs — the official docs state ownership continues after downgrade/cancellation"
+  ],
+  "stability-ai": [
+    "Applying the platform ToS to self-hosted open models — two license systems, completely different commercial paths",
+    "Assuming open weights are freely commercial — licenses differ per model (community/enterprise license lines); check model by model",
+    "Remembering “training opt-out available” as Midjourney-style no-switch — Stability's opt-out is written into the terms"
+  ],
+  "flux": [
+    "Reading “claims no ownership” as “commercialize freely” — commercial use is limited to your own Output, and 1.3(n) bans training other models",
+    "Applying hosted-API terms to self-hosted open weights — two license systems",
+    "The training opt-out is not a self-serve switch — email legal@ to request it"
+  ],
+  "veo": [
+    "Applying “paid means no training” to the free quota — free-line content and answers are used to improve the model (EEA/Switzerland/UK exceptions)",
+    "Applying the Gemini Apps privacy notice to the API — two documents, two sets of terms",
+    "Assuming outputs are exclusive — the official docs say different users may get similar outputs"
+  ],
+  "runway": [
+    "Training-sensitive users assuming they can opt out — the terms grant an irrevocable perpetual training license with no switch",
+    "Reading “unrestricted commercial use” as unconditional — it is conditioned on complying with the terms, and §5(viii) bans building competing products",
+    "Treating third-party models on the platform (Kling/Seedance etc.) as one Runway terms set — generation comes from multiple providers; the platform agreement is the interface, but each model source has its own positioning"
+  ],
+  "kling": [
+    "Reading “ownership belongs to the user” as “commercialize freely” — §4.6 requires written permission for commercial use, opened by the membership tier",
+    "Treating the training opt-out as immediate — the email request is future-only and doesn't retroact on completed training",
+    "Mixing international and domestic terms — two product term sets; this profile's main axis is the international version"
+  ],
+  "suno": [
+    "Reading “paid means commercial” precisely — commercial use is tied to the act of downloading via the paid-download quota, and Remix output is always non-commercial",
+    "Assuming uploaded material is taken away — you keep ownership of Submissions, but the platform obtains a broad license including training",
+    "Training other models on outputs — explicitly prohibited by the terms"
+  ],
+  "elevenlabs": [
+    "Commercial rights are tier-bound — free-tier output is non-commercial only, upgrading unlocks it",
+    "Assuming there is no training opt-out — §4(i) has a self-serve Data use menu (rare among peers; don't apply other vendors' experience)",
+    "Using voice cloning without authorization — the official side requires it be your own voice or lawfully authorized, involving personality rights"
+  ],
+  "n8n": [
+    "Reading “source available” as “open source” — SUL is fair-code with hard limits beyond internal business use",
+    "Hosting n8n for clients for money — explicitly not allowed under SUL, needs the n8n Embed agreement",
+    "Assuming Community supports team workflow sharing — sharing/projects/SSO are paid tiers",
+    "Treating AI capability as a standalone product — n8n's axis is automation; AI is one node type"
+  ],
+  "dify": [
+    "Reading “Apache 2.0 at its core” as unlimited — multi-tenant and LOGO conditions are hard lines",
+    "Conflating the cloud service with the self-hosted Community edition — enterprise items (SSO/RBAC/audit) sit on the commercial line",
+    "Treating it as only a chatbot builder — the official positioning is an agentic workflow platform (Workflow/Chatflow)"
+  ],
+  "coze": [
+    "Treating coze.com and coze.cn as two products — same product, two entries, different model and channel ecosystems (this site keeps one file covering both)",
+    "Reading “cloud phone/cloud PC” as controlling your own machine — those are platform-hosted execution environments",
+    "Assuming self-hosting exists — the official docs make no such statement"
+  ],
+  "zapier": [
+    "Treating Zapier as “traditional automation with AI bolted on” — the official narrative has moved AI/agents to the main axis (Canvas/Agents)",
+    "Underestimating long-flow costs under task-based billing — this site does not store price numbers (D9); read the official pricing page",
+    "Treating connector availability as a stable promise — third-party SaaS APIs change"
+  ],
+  "make": [
+    "Searching current docs under the old name Integromat — renamed to Make in 2022",
+    "Underestimating high-frequency scenarios under operation-based billing — see the official pricing page (no numbers stored here)",
+    "Treating connector availability as guaranteed — third-party APIs change"
+  ],
+  "activepieces": [
+    "Reading “MIT at the core” as whole-repo MIT — the ee/ directory is the commercial-license zone",
+    "Comparing connector counts with Zapier/Make — the gap is large; verify the integrations you need exist",
+    "Conflating cloud and self-hosted feature sets — SSO etc. are on the ee line"
+  ],
+  "flowise": [
+    "Reading “Apache 2.0 at the core” as whole-repo — the enterprise directory is the commercial zone",
+    "Aligning with 2024 star-count/hype impressions — release cadence has slowed; check the repo's last push",
+    "Treating canvas prototypes as production runtimes — prototyping is its strength; production hardening is on you"
+  ],
+  "langflow": [
+    "Treating it as a “LangChain official product” — it is an independent project (now under DataStax), a cousin of LangChain/LangGraph, not a sibling",
+    "Looking only at stars and not ownership — post-acquisition the narrative tilts to the enterprise data stack (filed per official positioning)"
+  ],
+  "pipedream": [
+    "Filing it under “pure low-code” — it is developer-facing: code steps are first-class, the UI is a flow shell",
+    "Conflating Connect and Workflows — two product lines (being integrated vs. automating yourself); merged in this file, read them separately in official docs"
+  ],
+  "copilot-studio": [
+    "Treating it as a standalone chatbot tool — its value is bound to the Power Platform/Dataverse ecosystem",
+    "Message/measurement-based billing — this site stores no price numbers (D9); see the official pricing page",
+    "The product page returns 403 to direct fetch (Cloudflare) — verification goes through the learn.microsoft.com docs line"
+  ],
+  "vertex-agent-builder": [
+    "Product naming changes frequently (Agent Builder → Gemini Enterprise → Gemini platform narrative) — read the current official page, don't search by old names",
+    "Conflating it with ADK (framework category) — ADK is the code framework, Agent Builder is the platform UI; Google pushes both legs"
+  ],
+  "bedrock-agents": [
+    "Using the old URL bedrock/agent/ — it is 404 (direct-verified); current entries are agents/ and agentcore/",
+    "Treating Agents (hosted orchestration) and AgentCore (hosted runtime) as one thing — different positioning; read the docs separately",
+    "Conflating with Strands Agents in the framework category — Strands is an open-source SDK, this is the hosted platform"
+  ],
+  "agentforce": [
+    "Treating it as a general agent platform — its value is anchored in CRM context and Salesforce flows",
+    "The old legal path on the site is 404 — read terms via the help.salesforce.com docs line",
+    "Per-conversation-style metering — this site stores no price numbers (D9); see the official pricing page"
+  ],
+  "relevance-ai": [
+    "Treating multi-agent as a universal answer under the “AI workforce” narrative — first check whether the task truly needs multi-role division",
+    "The old terms path on the site is 404 — read terms via the docs line (direct-fetched 2026-10-21)"
+  ],
+  "ollama": [
+    "Reading 'MIT Ollama' as 'models free for commercial use' — weight licenses follow the model, not the tool",
+    "Seeing only the local line — the official README explicitly states a cloud line; its data boundary needs a separate check",
+    "Running long documents on default context — context follows the Modelfile/params and varies by model"
+  ],
+  "lm-studio": [
+    "Reading 'free' as 'open source' — the app is closed; the open parts are the underlying runtimes",
+    "Remembering it only as a chat shell — the site now leads with the Bionic agent; the product surface has expanded",
+    "Generalizing 'voice never leaves the device' to all features — the site makes that promise only for voice transcription"
+  ],
+  "llama-cpp": [
+    "Treating GGUF support as 'every model has a quant build' — quant builds come from third-party quantizers; check the models-site index",
+    "Knowing only the CLI — llama-server is the official REST line many tools run on",
+    "Using an old-domain habit — the README now promotes the llama.app install script (direct-fetched 2026-10-21)"
+  ],
+  "vllm": [
+    "Treating 'runs open models' as equivalent everywhere — vLLM's strength is serving scheduling, not casual single-model use",
+    "Taking PagedAttention vendor numbers as our own benchmarks — they are an official-claim snapshot; this site does not benchmark",
+    "Expecting first-class GGUF support — quantized serving prefers the llama.cpp line (models-site yardstick)"
+  ],
+  "sglang": [
+    "Taking RadixAttention vendor numbers as our own benchmarks — official-claim snapshot, no local benchmarking",
+    "Choosing between it and vLLM on raw throughput alone — prefix reuse is the differentiator for agent multi-turn workloads",
+    "Confusing the LMSYS project with an LMSYS product — SGLang is its own project (sgl-project); Chatbot Arena is a separate line"
+  ],
+  "jan": [
+    "Reading NOASSERTION as 'license unclear' — the LICENSE is Apache-2.0 plus an attribution request; the API flag just cannot parse the extra sentence",
+    "Using the old path menloresearch/jan — the repo now lives at janhq/jan (old path 301s)",
+    "Mixing up 'open source' with 'models are free' — weight licenses follow the model"
+  ],
+  "gpt4all": [
+    "Reading 77k stars as current maintenance — last push 2025-05-27 (API snapshot); check the cadence before choosing",
+    "Extending the 'commercial use' promise to model weights — weight licenses follow the model",
+    "Expecting fast support for new architectures — under a slower cadence it is not guaranteed"
+  ],
+  "mlx": [
+    "Treating MLX as a general inference engine — it is Apple-silicon exclusive; x86/NVIDIA is not its arena",
+    "Remembering only the mlx framework — running LLMs needs the mlx-lm layer",
+    "Treating mlx-community models as official — a community conversion ecosystem whose quality varies by contributor"
+  ],
+  "koboldcpp": [
+    "AGPL copyleft — distributing a service built on it carries open-source obligations; read the terms before closed-source commercial integration",
+    "Finding the wrong repo — the official repo is under LostRuins; koboldai/koboldcpp 404s (direct-fetched 2026-10-21)",
+    "Reading 'single file' as 'feature-poor' — the context-management line is its flagship"
+  ],
+  "text-generation-webui": [
+    "Using the old repo name — it is now oobabooga/textgen (old name 301s; cite the current name)",
+    "AGPL copyleft — read the obligations before closed-source distribution",
+    "Treating the extension ecosystem as officially maintained — third-party quality varies; check sources before installing"
+  ],
+  "tgi": [
+    "Assuming 'made by HF' means 'default recommendation' — on the serving track vLLM/SGLang currently carry more heat; check repo cadence",
+    "Last push 2026-03-21 (API snapshot) — verify current maintenance before choosing",
+    "Treating GGUF as first-class — TGI's main line is safetensors"
+  ],
+  "localai": [
+    "Reading 'compatible with several APIs' as 'performance matches each vendor' — compatibility is the interface surface; performance follows the backend engine",
+    "Maintenance of an individual-led project — watch repo cadence and contributor breadth (GitHub API snapshot)",
+    "The engine matrix is complex — check the official engines docs before assuming a model runs"
+  ],
+  "sentry-mcp": [
+    "Using the old sentry-mcp repo name — it now redirects to getsentry/toolkit (direct-fetched 2026-10-21)",
+    "Reading FSL as Apache — FSL-1.1 has a production-use restriction window before it converts to Apache 2.0",
+    "Assuming 'query issues' means 'fix issues' — write-capability boundaries are not individually verified; do not infer write from read"
+  ],
+  "notion-mcp": [
+    "Assuming 'connected to Notion MCP' means 'the agent sees the whole workspace' — visibility equals the connected account's page permissions",
+    "Reading notion.mcp.run 000 as the service being dead — the live endpoint is mcp.notion.com/mcp (401 = auth required)",
+    "Writes take effect with no separate approval — think through the write surface before plugging in an agent"
+  ],
+  "slack-mcp": [
+    "Treating MCP as 'an agent living in Slack' — it only responds within a session; it does not watch or trigger",
+    "Looking for the official implementation in the old slackapi/slack-mcp-server repo — it 404s; the live line is the hosted mcp.slack.com",
+    "Confusing the archived reference server (handed to Zencoder) with the official one — this profile is Slack's self-operated hosted line",
+    "Ignoring the admin approval gate — in enterprise workspaces, failure to connect is usually admin policy, not a client bug"
+  ],
+  "supabase-mcp": [
+    "Treating tool trimming as a security sandbox — the SQL execution surface is real; credentials are the boundary",
+    "Using the old repo name mcp-server-supabase — it now redirects to supabase/mcp (direct-fetched 2026-10-21)",
+    "Treating it as a local database tool — it connects to Supabase cloud projects; local databases are out of scope"
+  ],
+  "stripe-mcp": [
+    "Mixing the Agent Toolkit with the agentic-commerce (ACP payments) line — one is a dev tool, the other a commerce product line",
+    "Plugging a live key into an agent for write rehearsals — start in test mode; defend write tools (refunds etc.) at the worst case",
+    "Looking for the old stripe/agent-toolkit repo name — the live official line is the stripe/ai repo (API-verified 2026-10-21)"
+  ],
+  "chrome-devtools-mcp": [
+    "Using it interchangeably with Playwright MCP — overlapping but different mechanisms (direct CDP vs Playwright driver); both lines are active",
+    "Forgetting that driving a real browser means a real network exit — the agent can reach whatever it is told to",
+    "Reading 53k stars as 'safe by default' — stars are popularity; the browser-identity permission surface needs its own assessment"
+  ],
+  "figma-mcp": [
+    "Reading 'beta free' as free forever — the official docs state it will become usage-based paid",
+    "Hard-wiring a client outside the catalog — Figma only accepts the MCP catalog list",
+    "Treating the desktop server as the recommended route — the official strong recommendation is the remote server; the desktop line serves enterprise/government needs",
+    "The old help.figma.com article URL 404s — the live docs line is developers.figma.com (direct-fetched 2026-10-21)"
+  ],
+  "linear-mcp": [
+    "Configuring the old /sse endpoint — it 404s (direct-fetched 2026-10-21); the live endpoint is /mcp (Streamable HTTP)",
+    "Assuming 'connected' means 'sees everything' — visibility follows the connected account's permissions",
+    "Writes have no approval — agent-created issues and status changes take effect immediately"
+  ],
+  "mongodb-mcp": [
+    "Looking for mongodb.com/docs/mcp — that path 404s (direct-fetched 2026-10-21); the live line is the mongodb-js repo",
+    "Treating 'delete tools ask for confirmation' as a security boundary — the agent can fill in the confirmation parameter itself; credentials are the boundary",
+    "Mixing direct local connections with Atlas in configuration — the two credential routes have different permission surfaces"
+  ],
+  "cloudflare-mcp": [
+    "Plugging a full-scope global API key into an agent — the official recommendation is restricted tokens; the granularity difference is huge",
+    "Treating 'deploy a Worker' as a config operation — that is pushing arbitrary code to the edge",
+    "Reading tool-group trimming as an approval layer — trimming narrows exposure; it is not per-operation confirmation"
+  ],
+  "atlassian-mcp": [
+    "Assuming 'connected' means 'sees the whole site' — visibility follows account and project permissions",
+    "Assuming Data Center (self-hosted) support — unverified; do not extrapolate from Cloud",
+    "The old developer.atlassian.com concept page 404s — the live entry points are the product page and changelog (direct-fetched)"
+  ],
+  "zapier-mcp": [
+    "Reading 'a thousand apps' as 'a thousand tools are enabled' — the tool surface is the action allowlist you ticked",
+    "Confusing it with Zapier's Zap automations — the MCP server executes within a session; Zaps are standing automations (the automation category)",
+    "Comparing against someone else's setup — tool surfaces are per-user; never assume identical tool sets"
+  ],
+  "brave-search-mcp": [
+    "Using the archived Brave reference in the modelcontextprotocol repo — it is archived; the live line is the official @brave/brave-search-mcp-server (the official README states the replacement)",
+    "Reading 'search' as 'scrape' — it returns result summaries and links, not page bodies",
+    "Quota and billing follow the Brave API account — this site records no price figures (rule D9)"
+  ],
+  "neon-mcp": [
+    "Looking for neon.com/docs/ai-and-mcp/mcp-server — that path 404s (direct-fetched 2026-10-21); the live line is the neondatabase repo",
+    "Treating 'branch isolation' as safe by default — the operating surface follows connection config; the main branch still gets writes",
+    "Mixing the management key with the data connection string — the management surface can delete projects; the data surface changes data"
+  ],
+  "langchain": [
+    "Blurring LangChain/LangGraph/Deep Agents into one blob — three lines from one vendor: component abstraction, graph orchestration, prebuilt deep agents",
+    "Reading 148k stars as 'every integration is first-class' — third-party integration quality varies; check official-maintenance markers",
+    "Plugging in the observability line without checking its upload surface — trace uploads are product semantics for LangSmith; verify defaults first"
+  ],
+  "dspy": [
+    "Treating DSPy as 'yet another prompt template library' — the core is the optimizer (prompts trained as parameters); skipping it wastes the tool",
+    "Running optimizers without an evaluation metric — optimizers need a metric; without one there is nothing to optimize",
+    "Leaving optimizer token budgets uncapped — set budget parameters before running (the official docs have controls)"
+  ],
+  "haystack": [
+    "Treating Haystack as a demo-grade RAG script — its positioning is production pipelines (index/query separation, evaluation loops)",
+    "Blurring deepset Cloud with the open-source library — the hosted line's data-upload terms are a separate product's clauses",
+    "The 1.x→2.x pipeline API rewrite — old-tutorial code breaks on the new version; check version markers"
+  ],
+  "agentscope": [
+    "Reading 'multi-agent framework' as 'multi-agent is always better' — single-agent is simpler for single tasks; multi-agent is an explicit cost",
+    "Blurring AgentScope with Tongyi Qianwen models — the framework is open-source Apache-2.0; the model service is a separate billing line",
+    "Assuming capabilities of the distributed-execution and Studio lines — use them per current official docs; do not assume unverified parts"
+  ],
+  "strands-agents": [
+    "Blurring it with the hosted Bedrock Agents line — Strands is an open-source SDK (Apache-2.0); Bedrock Agents is a hosted service (automation category)",
+    "Using the old repo name sdk-python — it now redirects to harness-sdk (direct-fetched 2026-10-21)",
+    "Shell/file tools really execute on your machine by default — before registering high-risk tools, defend as if 'the agent can run commands'"
+  ],
+  "swe-agent": [
+    "Treating it as a production coding agent — it is a research harness (paper and evaluation lines); productizing is on you",
+    "Running the command-execution surface on bare metal — the official recommendation is container isolation; do not skip that layer",
+    "Blurring it with the SWE-bench benchmark — SWE-bench is the eval set (another product by the same team); SWE-agent is the framework that runs it"
+  ],
+  "letta": [
+    "Treating Letta as 'yet another agent library' — it is an agent-server form (resident + persistent state); match the form before choosing",
+    "Confusion from the rename: MemGPT (paper/old project name) → Letta (the company's current name) — one line, not two projects",
+    "Memory lives in the server's database — self-hosted backups and access control are your operational duty; do not apply the 'frameworks don't manage data' intuition"
+  ],
+  "devin": [
+    "Devin and Windsurf share vendor Cognition but are two product lines — cloud async engineer vs IDE (Windsurf profiled separately); don't merge them into one",
+    "The 'three-hour rule' is the vendor's rule of thumb, not a guarantee — the official docs themselves stress tasks must be easy to verify (CI passes / auto-deploy checks)",
+    "Terminal runs on your machine, /handoff sends tasks to the cloud — the data boundary switches inside one tool; decide where your code goes before handing off"
+  ],
+  "replit-agent": [
+    "Treating Replit Agent as 'a coding agent installed into your existing repo' — the official positioning is idea-to-new-project (infrastructure included); collaborating on existing codebases is not the docs' main narrative",
+    "Free/Power/Max are modes, not model names — which models sit behind each tier shifts with official changes; don't treat tiers as a fixed model list",
+    "Artifacts and data live in Replit's cloud by default — export/migration paths exist but the boundaries are yours to verify (not verified line by line)"
+  ],
+  "codebuddy": [
+    "The domestic edition codebuddy.cn and the international edition codebuddy.ai are two lines — don't infer features or model availability from one to the other",
+    "'Filed' in the official wording refers to the Hunyuan model (filing no. Guangdong-TencentHunyuan-20230901, published in official docs) — it does not mean every product surface has its own filing; keep the subject precise when relaying",
+    "One-click CloudStudio deploys push artifacts into a cloud-side sandbox — 'code stays on your machine' does not mean 'artifacts never leave it'"
+  ],
+  "google-antigravity": [
+    "The four surfaces (App/CLI/IDE extensions/SDK) are one harness with four entry points, not four separate products — don't map old Gemini Code Assist or Firebase Studio notions onto it (the official docs carry a Firebase Studio migration page; that line folds into this platform's narrative)",
+    "'Always continue' mode = the agent auto-executes shell commands (official wording flags it: high autonomy, high risk) — the default is review-on-request; don't flip the switch and forget",
+    "The model list visible in the overview page's selector screenshot is an interface snapshot, not a promise — third-party model availability changes with official listings"
+  ],
+  "trae": [
+    "International trae.ai and domestic trae.cn are two lines — don't infer model lists or feature sets from one to the other",
+    "'Code never leaves your machine' is the official claim in the Privacy-mode context — the data boundaries of cloud tasks / web / mobile lines need separate reading (not verified line by line)",
+    "SOLO mode means 'AI takes the lead' through the whole flow (official wording) — a completely different control assumption from IDE mode; switch by task complexity"
+  ],
+  "deepseek-chat": [
+    "Mixing the chat product with the API platform — chat.deepseek.com and platform.deepseek.com are two interfaces of one vendor, with separate terms and quotas",
+    "Treating open weights as the product itself — running weights locally belongs to Ollama/llama.cpp runners, with a completely different data boundary from cloud chat",
+    "Direct fetch of chat.deepseek.com returns 429 — that is rate limiting, not a dead site (measured 2026-10-22); browsers reach it"
+  ],
+  "yuanbao-chat": [
+    "Confusing Yuanbao with Hunyuan — Hunyuan is the model (hunyuan.tencent.com is a model/research site you cannot chat on); Yuanbao is the consumer entry built on it",
+    "Treating 'free dual-model switching' as current state — official promotion has converged onto the Hy series; whether DeepSeek remains selectable needs a logged-in check (not verified logged in)",
+    "Treating Yuanbao and Tencent ima as one product — both run on Hunyuan, but one is a general assistant and the other a personal knowledge-base workbench"
+  ],
+  "chatglm-chat": [
+    "Mixing chatglm.cn (chat product) with open.bigmodel.cn (open-platform API) — one vendor, two interfaces, separate terms and quotas",
+    "Treating GLM open weights as the product itself — running weights locally belongs to the runner ecosystem, with a completely different data boundary",
+    "'Zhipu Qingyan' / 'ChatGLM' / 'GLM' is a name-overlap zone (product vs model family) — keep the subject per the official page when relaying"
+  ],
+  "tongyi-qianwen": [
+    "Mixing Tongyi Qianwen (chat), Tongyi Wanxiang (image/video) and Alibaba Cloud Bailian (API platform) — one vendor, three lines",
+    "Treating Qwen open weights as the product itself — local weight runs belong to the runner ecosystem, with a completely different data boundary",
+    "The terms page has no stable directly-fetchable URL (terms measures 404) — verify terms in-site by hand before quoting; never quote secondary reposts"
+  ],
+  "wenxin": [
+    "The rename-history trap — 'Wenxin Yiyan', 'Wenxiaoyan' and 'Wenxin' are one product across periods; don't treat them as three products",
+    "Mixing yiyan.baidu.com (chat product) with Baidu Intelligent Cloud Qianfan (API platform) — one vendor, two interfaces",
+    "Treating ERNIE as an open-weight family — unlike DeepSeek/GLM/Qwen, the ERNIE line keeps weights closed; 'run Wenxin locally' is not a viable path"
+  ],
+  "microsoft-copilot": [
+    "Mixing consumer Copilot with Microsoft 365 Copilot — the free web edition and the office-suite edition are two product surfaces with different terms and capabilities",
+    "It is also not GitHub Copilot — the coding tool belongs to the coding category (copilot profiled there); this profile is general chat",
+    "'Models routed by Microsoft' does not mean 'pinned to one model' — routing shifts with official changes; don't treat an interface snapshot as a promise"
+  ],
+  "manus": [
+    "Treating Manus as 'a chatting bot' — the official positioning is a general-task agent (chat is just one entry); execution happens in a cloud sandbox",
+    "Distinguish it from coding-category cloud agents (Devin/Jules): Manus's main axis is general tasks (reports/sites/data), not codebases",
+    "The cloud sandbox has a live network egress — think through what data it will carry while browsing before uploading anything sensitive (per official Privacy, not verified line by line)"
+  ],
+  "xinghuo-spark": [
+    "Mixing xinghuo.xfyun.cn (chat product) with the iFlytek open platform xfyun.cn (API/capability platform) — one vendor, two interfaces",
+    "Treating Spark as an open-weight family — the Spark line keeps weights closed; 'run Spark locally' is not a viable path",
+    "Voice strength is iFlytek's foundation — but each in-product voice capability (live interpretation, voice cloning) must be checked item by item against official pages; don't copy the marketing block wholesale"
+  ],
+  "jimeng": [
+    "The filing gap is honest labeling: only the ICP number was verified, the generative-AI service filing was not found — 'not found' ≠ 'not filed' (2026-10-22 search)",
+    "Jimeng (creation console) and Doubao (chat entry) are different entries of the same vendor — image generation inside Doubao and Jimeng's dedicated console have different capability surfaces",
+    "Seedream/Seedance are model names relayed per official pages — third-party claims about their capabilities are not relayed (L5: domestic vendors relayed from official sources only)"
+  ],
+  "tongyi-wanxiang": [
+    "Mixing the console with the weights — Tongyi Wanxiang (cloud console) and the Wan open-weight family are two things: the console is a subscription service, the weights run locally via the runner ecosystem",
+    "Mixing Wanxiang (image/video) with Qianwen (chat) and Bailian (API platform) — one vendor, three lines",
+    "Apache-2.0 verified via GitHub API for the Wan repos — but per-checkpoint licenses inside repos can differ; check the specific repo before commercial use"
+  ],
+  "ideogram": [
+    "'Open weights' ≠ 'commercially free' — the 4.0 open line is quantized and non-commercial-free per official licensing; commercial use needs the paid line",
+    "4.5 is closed — the 'Ideogram is open' narrative only covers the 4.0-era releases",
+    "ideogram.ai measures 000 direct from the mainland (2026-10-22; 403 via proxy = CF challenge) — unreachable without a network path, not a dead site"
+  ],
+  "recraft": [
+    "Free-plan works are public and not licensed for commercial use — an official-docs hard line; don't apply the 'free = commercial' habit",
+    "ComfyUI official nodes ≠ offline weights — they call the Recraft API (key required); 'running Recraft locally' is not viable",
+    "'Vector output' is the V3 Vector line only (recraftv3_vector) — not every model value emits SVG"
+  ],
+  "adobe-firefly": [
+    "Firefly (standalone product) ≠ the generation-fill inside Photoshop — this profile covers the standalone line; embedded CC capabilities follow each app's terms",
+    "'Licensed training data + enterprise indemnification' is the official narrative — the indemnification's applicable conditions are in enterprise terms, not verified line by line",
+    "Third-party models selectable inside Firefly per official positioning — 'everything Firefly outputs is a Firefly model' is outdated"
+  ],
+  "microsoft-designer": [
+    "Designer and Copilot's image generation are the same ecosystem, different entries — quotas link per Microsoft's accounting, not two independent products",
+    "Template surface resembles Canva but the inclusion boundary differs — this site includes Designer (AI generation is the main axis), excludes Canva (AI is secondary)",
+    "Commercial rights vary by subscription tier — check the current tier against Microsoft terms before commercial use"
+  ],
+  "leonardo-ai": [
+    "'Model hub aggregates third-party models' ≠ 'you can run them locally' — what's aggregated is cloud generation, not weight downloads",
+    "Ownership changed: under Canva since July 2024 — 'Leonardo the independent company' is outdated; post-acquisition terms/data-policy alignment not verified line by line",
+    "leonardo.ai returns CF 403 to curl — 'unreadable by our method' ≠ 'site down'"
+  ],
+  "krea": [
+    "Krea is an aggregation + self-developed mix — 'whose model is behind this feature' must be read off the official model list item by item",
+    "The realtime line and frontier lines are different models — realtime trades quality for speed; don't mix quality expectations",
+    "'Do not train' is marketing copy — training and data usage follow the privacy/terms text (not verified line by line)"
+  ],
+  "seaart": [
+    "Community-model commercial licenses differ per model — the model page's License Scope is the basis; 'platform membership = everything commercial' is wrong",
+    "'Downloadable models' ≠ 'SeaArt runs locally' — downloads feed the local ecosystem (ComfyUI etc.); the platform itself is a cloud service",
+    "Chinese team going overseas: the main site targets global users — mainland reachability and filing status must be read separately (see the cn block)"
+  ],
+  "clipdrop": [
+    "Ownership moved three times: InitML (2020) → Stability AI (Feb 2023) → Jasper (Feb 2024) — 'under Stability' is outdated; API terms now run on Jasper's side (per official FAQ)",
+    "Relight is the signature that separates it from other toolkits — judging it as just another background remover underestimates it",
+    "Free-plan caps are per tool per day — not one shared site-wide quota"
+  ],
+  "hailuo-video": [
+    "'Hailuo' is the product, 'MiniMax' is the company/model — media mix them up; relay per the official pages' subjects (L5)",
+    "Filing number Shanghai-MiniMax-202505230046 is model-level (the disclosure pages' subject is MiniMax) — it does not mean 'the Hailuo video entry is filed'; different subjects",
+    "Whether hailuoai.video (overseas entry) and the domestic entry share accounts/content policy was not verified — don't assume one account system"
+  ],
+  "vidu": [
+    "'Reference-to-video' is the signature differentiator — judging it as a plain text-to-video tool misses the multi-subject consistency value",
+    "vidu.cn (domestic) and vidu.com (overseas) are two entries — account/content policy interop not verified",
+    "The filing number's subject is the Vidu service (CAC registry) — algorithm filings (the CAC algorithm-filing numbers) and service filings are two numbering systems; don't cross-quote them"
+  ],
+  "pixverse": [
+    "'Real-time world model' (R-series) ≠ 'runs locally real-time' — generation stays in the cloud; the selling point is latency and interactivity",
+    "The filing subjects are models (Aishi multimodal / Aishi real-time) — not the pixverse.ai overseas site's own entry status",
+    "Effect-template playfulness is the community grip — reading it as a 'serious film tool' misjudges the product center"
+  ],
+  "pika": [
+    "Pikaffects is the memory point — treating it as a 'general video generator' misses the product center",
+    "Mainland direct access measures 000 (2026-10-22; 200 via proxy) — reachability, not a dead site",
+    "How Discord-era works/accounts migrated to pika.art was not verified — old tutorials' entry paths may be stale"
+  ],
+  "luma": [
+    "Luma's product surface is more than video — the 3D/NeRF capture line is still on the official site; 'Luma = video site' is a narrowing",
+    "Mainland direct access measures 000 (2026-10-22; 200 via proxy) — a reachability issue, not site death",
+    "Dream Machine is the product/model line name, Luma AI is the company — keep subjects straight when relaying"
+  ],
+  "higgsfield": [
+    "'Camera control' is preset application, not free directing — the preset library's boundary sets the ceiling",
+    "Aggregated models and self-developed lines coexist — 'whose model made this effect' must be read off the official site item by item",
+    "Mainland direct access measures 200 (2026-10-22) — a rare overseas video site reachable directly, but accounts/payments run on overseas rails"
+  ],
+  "heygen": [
+    "Cloning real people's likenesses/voices has a consent-verification flow — 'clone anyone' does not work under the terms; don't read product boundaries from demo videos",
+    "Digital-human video and generative video (Runway-type) are two species — HeyGen's main function is 'people talking', not 'world-building'",
+    "Lip-sync quality in translated video varies a lot by language — test against the target language before use"
+  ],
+  "synthesia": [
+    "'Subscription-first' is the product posture — the free tier is a trial door, not a long-term free plan; read pricing as enterprise procurement",
+    "Training-scenario compliance narrative (likeness consent/content review) is its core enterprise pitch — underestimating it as a personal tool misreads the value",
+    "Digital-human video and generative video are two species — Synthesia generates 'people talking', not worlds"
+  ],
+  "d-id": [
+    "'Any photo can talk' is both the signature and the risk surface — consent verification for real photos is strict under the terms",
+    "API-first is the product posture — its developer surface is heavier than peers; reading it as a 'web tool' underestimates it",
+    "Digital-human video and generative video are two species — D-ID makes photos talk, it doesn't build worlds"
+  ],
+  "udio": [
+    "Udio is mid-transition from copyright defendant to licensed platform — any old 'Udio outputs are commercial' tutorial may be stale; check the current ToS before use",
+    "Walled garden is the new-platform direction (UMG announcement wording) — assuming 'generate = own + download' misjudges the future form",
+    "Udio's and Suno's litigation/settlement tracks are independent — their terms diverge; don't infer one from the other"
+  ],
+  "minimax-audio": [
+    "Voice-clone 'consent' is a terms red line — cloning someone else's voice needs provable consent; don't read boundaries from feature availability",
+    "The web entry (hailuo/minimax.io) and the API platform are two quota/terms surfaces — don't infer one from the other",
+    "The filing number's subject is the MiniMax model layer — it does not mean each product entry is separately filed"
+  ],
+  "whisper": [
+    "Whisper is a model, not a product — 'meeting transcription tool' UX (Otter-type) means building your own shell or using a derivative product",
+    "Diarization/live streaming are not in the official repo — 'Whisper live captions' products are all derivatives; verify quality and license individually",
+    "The official repo and the OpenAI API whisper endpoint are one model in two forms — local MIT vs platform terms, completely different data boundaries"
+  ],
+  "fish-audio": [
+    "Zero-shot cloning 'works' ≠ 'compliant' — uploading someone else's voice samples is a terms red line; consent responsibility sits with the user",
+    "Community voice-market commercial rights are labeled per voice — don't assume 'usable on the platform = commercial'",
+    "fish.audio measures 000 direct from the mainland (2026-10-22; 200 via proxy) — reachability, not site death"
+  ],
+  "deepgram": [
+    "Deepgram is an API platform, not an end product — 'transcribe meetings with Deepgram' actually means 'build a transcription product on Deepgram'",
+    "Real-time streaming and batch are different endpoints with different billing — reading it as one 'transcription service' mis-architects",
+    "Quality varies by language/accent/domain — official benchmarks are English-first narratives; test Chinese yourself"
+  ],
+  "assemblyai": [
+    "Like Deepgram it is an API platform, not an end product — the difference: AssemblyAI builds the understanding layer (summary/entities/Q&A) into the API",
+    "'Not used for training' promises only count once they land in terms and the DPA — site narrative ≠ terms text (not verified line by line)",
+    "Quality varies by language/accent — official benchmarks are English-first; test Chinese yourself"
+  ],
+  "otter": [
+    "Bot-joins mode = a third-party bot entering your meeting — enterprises need IT/compliance review; informed consent is the user's responsibility",
+    "A public 'trained on customer audio' controversy (2021-2022 reporting) — current practice follows the official privacy page; sensitive settings should read the terms text",
+    "The engine is English-mature — Chinese meeting accuracy needs testing; don't infer from the English experience"
+  ],
+  "moyin": [
+    "Algorithm filings (the CAC algorithm numbers) ≠ generative-AI service filing numbers — two numbering systems; don't cross-quote",
+    "Voice-clone consent verification and commercial boundaries follow the official agreement — 'the feature works' ≠ 'clone freely'",
+    "Mobvoi runs multiple product lines (Moyin/Qimiaoyuan etc.) — this profile covers Moyin Workshop only"
+  ],
+  "perplexity": [
+    "\"Has sources\" is not \"sources are reliable\" — click the footnotes and check the original; aggregation-style search also aggregates bad sources",
+    "Comet is a browser, not a search add-on — its agentic browsing means it may act on web pages for you, a bigger permission surface than search",
+    "perplexity.ai measured 000 direct from the mainland (2026-10-22, reachable via proxy); the site often returns 403 to curl (Cloudflare) — verification-method limits noted honestly"
+  ],
+  "notebooklm": [
+    "NotebookLM is not a search engine — it answers only inside the sources you give; for \"search the whole web\" use a Perplexity-class product",
+    "Audio Overview quality tracks source quality — garbage in, garbage out holds just as hard in a source-anchored product",
+    "\"Your sources are not used for training\" is an official FAQ promise — for sensitive enterprise material still check the terms and the Workspace compliance surface (not verified line by line)"
+  ],
+  "elicit": [
+    "\"AI reads papers for you\" is not \"AI conclusions are trustworthy\" — every cell of the extraction table needs checking against the original, especially numbers",
+    "Retrieval coverage depends on the underlying academic database — papers outside it cannot be found; systematic reviews need multi-database cross-checks",
+    "elicit.com returns a Cloudflare 403 to curl — our verification method is limited and noted honestly; it is not a site problem"
+  ],
+  "metaso": [
+    "\"No ads, straight to results\" is a product slogan — the \"straight result\" is still an AI synthesis; click the source footnotes and check originals",
+    "Self-built MetaLLM means the capability curve follows Metaso itself — when comparing against products built on GPT/Claude-class models, do not assume the same capabilities",
+    "The membership/credits purchase page only shows after login — this site does not relay pricing (D9); quota details follow the post-login page"
+  ],
+  "genspark": [
+    "Genspark and Manus sit in the same \"task agent\" camp — the main axis is research/content artifacts, not codebases (contrast with the coding category)",
+    "Sparkpage reorganizes retrieval results — reorganization quality does not change source quality; bad sources in, bad pages out",
+    "genspark.ai returns 403 direct (Cloudflare block, 2026-10-22) — reachability follows the proxy route; the site is not dead"
+  ],
+  "kagi": [
+    "Kagi is \"search engine + AI add-on\", not \"AI search\" — the index is self-built and the answer layer is the add-on; keep the comparison frame straight",
+    "Subscription is the product posture — no free-tier fallback, so the \"just try it\" cost structure differs from the others (D9: no pricing relayed)",
+    "kagi.com measured 200 direct from the mainland (2026-10-22) — reachable, but account/payment follow the overseas route"
+  ],
+  "you-com": [
+    "The old \"You.com is a consumer AI search product\" framing is outdated — the official current main axis is enterprise search infrastructure (ARI/Research API)",
+    "The consumer side still runs but the investment direction is in question — list \"consumer-side longevity\" as a risk when choosing",
+    "you.com measured 000 direct from the mainland (2026-10-22, 200 via proxy) — reachability follows the proxy route"
+  ],
+  "consensus": [
+    "The Consensus Meter is an unweighted polarity count over papers, not a scientific verdict — paper quality is not equal-weighted; read the Meter together with the underlying papers",
+    "Coverage skews to English empirical literature — humanities, Chinese, and non-journal sources are limited; evaluate field by field",
+    "consensus.app returns a Cloudflare 403 to curl — our verification method is limited and noted honestly; it is not a site problem"
+  ],
+  "tiangong": [
+    "Tiangong's shift from \"AI search\" to \"super agent\" is a product-positioning change — old evaluation frames (pure search comparisons) are outdated",
+    "Kunlun Tech runs many product lines (open-source Skywork, Mureka, SkyReels, etc.) — this profile covers only the tiangong.cn consumer product",
+    "The one-chain quality of generated PPTs/spreadsheets varies by topic — human-review artifacts before delivery"
+  ],
+  "devv": [
+    "Devv is \"code Q&A search\", not a coding agent — it does not touch your repository; do not use it with Cursor-class expectations",
+    "The quality of doc links in answers depends on live fetching — docs behind paywalls or login walls cannot be fetched and links may not reach the actual content",
+    "devv.ai measured 000 direct from the mainland (2026-10-22, 200 via proxy) — the \"domestic team but not directly reachable\" combination is noted honestly"
+  ],
+  "andi": [
+    "The \"direct answer\" route means the retrieval process is semi-transparent to the user — when checking sources, look at its citation surface, not just the answer text",
+    "A small-team product — its feature cadence and long-term outlook differ from big vendors; list \"longevity\" as a risk item when choosing (no official roadmap found)",
+    "andisearch.com measured 200 direct from the mainland (2026-10-22) — reachable, and the account/payment side is simple (free-first)"
   ]
 }

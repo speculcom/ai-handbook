@@ -63,8 +63,9 @@ Claude Code 同一个大类、`cli` 形态。
 **边界裁决**：
 - 编程向的对话产品（如编码 agent 的聊天界面）→ 归 `coding`；
 - 搜索向的对话产品（主打「带引用的答案」）→ 归 `research`；
-- 社交/内容平台内嵌的 AI 助手（如 X 上的 Grok、Meta 系应用里的助手）→ 归 `chat`——
-  它们本质是通用助手换了个入口，现有 `grok-bot` / `meta-muse` / `openai-dot` 即此类。
+- 对话产品带代码能力（ChatGPT 能写代码）→ 仍归 `chat`（官方自我定位是通用助手）；
+- **云端常驻的任务型 agent**（OpenAI Dot / Meta Muse / xAI Grok Bot）→ 归 `coding`（`form: cloud`）——
+  它们的主轴是「替你干活」（含建站、修代码、跑任务），不是「跟你聊天」；聊天只是入口。
 
 **不收示例**：客服机器人、垂直问答（医疗/法律/招聘等单一场景）——不满足「通用」；
 角色扮演陪伴类应用——不收（内容合规风险高，且非通用助手）。
@@ -233,8 +234,8 @@ Claude Code 同一个大类、`cli` 形态。
 
 | 大类 | 现有对象（52 全档案 + 14 轻档案升维后） | 现数 | 目标 |
 |---|---|:--:|:--:|
-| `coding` | aider · aider-cli · amp · claude-code · claude-code-cli · cline · codex-cli · codex-ide · continue · copilot · copilot-cli · crush · cursor · cursor-cli · factory-droid · gemini-cli · goose · jules · junie · kiro · opencode · warp · windsurf · zed | 24 | 32 |
-| `chat` | grok-bot · meta-muse · openai-dot · chatgpt · claude-chat · gemini-chat · grok-chat · kimi-chat · doubao-chat | 9 | 14 |
+| `coding` | aider · aider-cli · amp · claude-code · claude-code-cli · cline · codex-cli · codex-ide · continue · copilot · copilot-cli · crush · cursor · cursor-cli · factory-droid · gemini-cli · goose · grok-bot · jules · junie · kiro · meta-muse · openai-dot · opencode · warp · windsurf · zed | 27 | 32 |
+| `chat` | chatgpt · claude-chat · gemini-chat · grok-chat · kimi-chat · doubao-chat（轻档案升维） | 6 | 14 |
 | `image` | midjourney · stability-ai · flux | 3 | 14 |
 | `video` | veo · runway · kling | 3 | 12 |
 | `audio` | suno · elevenlabs | 2 | 10 |

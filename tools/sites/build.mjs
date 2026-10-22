@@ -185,6 +185,32 @@ function biLabel(pair, fallback) {
 const CN_ORIGIN_LABEL = { domestic: ['国产', 'domestic'], foreign: ['国外出品', 'foreign-made'] };
 const CN_DIRECT_LABEL = { yes: ['大陆可直连', 'direct OK'], no: ['直连不可达', 'direct blocked'], unknown: ['直连未核验', 'direct unknown'] };
 const CN_FILING_LABEL = { filed: ['已备案', 'filed'], 'not-filed': ['未见于备案名单', 'not in filing list'], unknown: ['备案未核验', 'filing unknown'] };
+
+/* vendor 英文态映射（与 _audit/repo-indexes.mjs 的 VENDOR_EN 同一口径）：
+ * 档案 vendor 保持官方语境名（中文合法），渲染英文态时在这里换。
+ * 未收录的 vendor 走原样回退——渲染探针会把它报成「英文态中文残留」，
+ * 这就是发现新国产厂商的机制（先建档、探针报警、补键）。 */
+const VENDOR_EN = {
+  '腾讯云': 'Tencent Cloud', '腾讯': 'Tencent', '字节跳动': 'ByteDance',
+  '阿里巴巴（魔搭社区）': 'Alibaba (ModelScope)', '阿里巴巴': 'Alibaba',
+  'Princeton / Stanford（学术团队）': 'Princeton / Stanford (academic teams)',
+  'Google（Chrome DevTools 团队）': 'Google (Chrome DevTools team)',
+  'Amp Frontier Corporation（原 Sourcegraph，2025-12 分拆独立）': 'Amp Frontier Corporation (spun out of Sourcegraph, Dec 2025)',
+  '深度求索': 'DeepSeek', '智谱 AI': 'Zhipu AI', '百度': 'Baidu',
+  '科大讯飞': 'iFlytek', '月之暗面 Moonshot AI': 'Moonshot AI',
+  'MiniMax': 'MiniMax', '阶跃星辰': 'StepFun', 'Manus AI（Monica 团队）': 'Manus AI (Monica team)',
+  '微软': 'Microsoft', '字节跳动（剪映团队）': 'ByteDance (Jianying/CapCut team)',
+  'Jasper（原 InitML，2023 并入 Stability AI，2024-02 售予 Jasper）': 'Jasper (formerly InitML; via Stability AI 2023, sold to Jasper Feb 2024)',
+  'Leonardo（2024-07 被 Canva 收购）': 'Leonardo (acquired by Canva, Jul 2024)',
+  '海艺（成都海艺互娱）': 'Haiyi (Chengdu Haiyi Huyu)',
+  'MiniMax（稀宇科技）': 'MiniMax (Xiyu Jizhi)', '生数科技（清华系）': 'Shengshu Technology (Tsinghua-linked)',
+  '爱诗科技': 'Aishi Technology', 'OpenAI（开源）': 'OpenAI (open source)', '出门问问': 'Mobvoi',
+  '秘塔科技（上海秘塔网络科技）': 'Metaso (Shanghai Metaso Network Technology)', '昆仑万维': 'Kunlun Tech',
+};
+const vendorBi = (v) => {
+  const en = VENDOR_EN[v];
+  return en ? bi(esc(v), esc(en)) : esc(v);
+};
 function cnChips(cn) {
   if (!cn) return '';
   const out = [];
@@ -222,11 +248,12 @@ const SITE = {
    * 之前都是纯中文，英文态下这两处露中文。desc 改成双节点字符串。 */
   nameEn: 'AI Tools',
   tagline: '让 AI 替你干活 —— 装在哪、连什么、边界在哪',
-  desc: bi('按角色分三层：现成的 AI 工具、自己搭（进阶）的运行时与 SDK、给 AI 装的工具（MCP）。三层的坐标系不同，不做横向排名。',
-    'Three layers by role: ready-made AI tools, runtimes and SDKs you assemble yourself (advanced), and tools you install for an AI (MCP). The three layers use different coordinate systems, so this site does not rank across them.'),
+  desc: bi('按任务分 10 大类，归三族：找现成的（编程 / 对话 / 图像 / 视频 / 音频 / 研究）、自己搭（自动化 / 框架）、接上与跑起来（MCP 工具 / 本地运行器）。各族坐标系不同，不做横向排名。',
+    'Ten categories grouped into three families by task: ready-made (coding / chat / image / video / audio / research), build-your-own (automation / frameworks), and plug-in-and-run (MCP tools / local runners). The families use different coordinate systems, so this site does not rank across them.'),
   repo: 'https://github.com/speculcom/ai-handbook',
   // 站内分区导航（跨站导航在 shell.mjs 的 NAV 里，那是全站唯一定义处）
-  partitions: ['agents', 'harness', 'tools'],
+  // v8 T30：10 大类页全部上线（旧三页退役，旧 URL 走跳转桩）。
+  partitions: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'],
 };
 
 /* ── 双语辅助（2026-10-04）────────────────────────────────────────
@@ -247,59 +274,105 @@ function plainTagline(node) {
 const FORM_LABEL_MD = (track, family) =>
   (FORM_LABEL[track] || FAMILY_SHORT[family] || [track])[0];
 
+/* v8 T7：SITES 键 = 大类名（与内容仓 tracks/<大类>/ 同名）。
+ * T30 前产物落点仍走旧三页（dir 保留 ''/harness/tools），
+ * T30 重写时 dir 改成大类同名、并给旧 URL 生成跳转桩。 */
+/* v8 T30（2026-10-22）：站点层换轨——10 张大类页，dir = 大类同名（URL /<category>/<id>.html）。
+ * 旧落点（coding 落根、framework 落 harness/、mcp 落 tools/）退役，
+ * 旧 URL 由主流程末尾的跳转桩接管（meta-refresh + noindex）。
+ * desc 只说「本大类比较什么维度」，不逐个列对象名——逐个列会在档案分期补齐时
+ * 与实际数量不一致（曾出现「3 个对象」却列了 10 个名字）。
+ * accent 只用于大类标识（part-bar 当前页色 / 卡片色条）；页面主 accent 仍是全站品牌色。 */
 const SITES = {
-  agents: {
-    key: 'agents',
-    navKey: 'agent',   // 跨站导航的 key：三分区共用一个导航项
-    dir: '',              // 落站点根：导航「Agent」指的就是它，不该让访客多点一次
-    domain: SITE.domain,
-    name: '现成的 AI 工具',
-    nameEn: 'Ready-made AI tools',
-    short: 'Tools',
-    accent: '#8b7cf8',
-    tagline: bi('装在编辑器、终端，或厂商云里','Installed in an editor, a terminal, or a vendor cloud'),
-    // desc 只说「本分区比较什么维度」，不逐个列对象名——
-    // 逐个列会在档案分期补齐时与实际数量不一致（曾出现「3 个对象」却列了 10 个名字）
-    desc: bi('自己能跑的成品 AI agent，共用八维（模型接入 / 运行位置 / 本地文件 / 关机后任务 / 工具扩展 / 上下文 / 权限 / 适合场景）。按形态分三列——IDE 形态、CLI 形态、厂商云形态。前两者是同一产品的不同装法、不是竞争关系；厂商云形态则是另一个方向：不需要自己装，工作在别人的机器上做。',
-      'Finished AI agents you can run yourself, compared on eight shared dimensions (model access / where it runs / local files / tasks after shutdown / tools and extensions / context / permissions / best fit). Grouped into three forms — IDE, CLI and vendor cloud. The first two are different install forms of the same product, not competitors; vendor cloud is a different direction entirely: nothing to install, the work happens on someone else\'s machine.'),
-    // cloud 是 2026-10-03 新增的第三种形态（OpenAI Dot / Meta Muse / xAI Grok Bot）。
-    // 它们既不是 IDE 也不是终端 CLI —— 装在厂商的云上，本机不装任何东西。
-    // 归agents 分区是因为它们和 ide/cli 共享同一套八维坐标系；
-    // **不新开分区**是因为新开分区会让「八维对比」这件事跨站分裂。
+  coding: {
+    key: 'coding', navKey: 'agent', dir: 'coding', domain: SITE.domain,
+    name: 'AI 编程', nameEn: 'AI coding', short: 'Coding', accent: '#8b7cf8',
+    tagline: bi('装在编辑器、终端，或厂商云里', 'Installed in an editor, a terminal, or a vendor cloud'),
+    desc: bi('自己能跑的成品 AI 编程工具，共用八维（模型接入 / 运行位置 / 本地文件 / 关机后任务 / 工具扩展 / 上下文 / 权限 / 适合场景）。按形态分三列——IDE 形态、CLI 形态、厂商云形态。前两者是同一产品的不同装法、不是竞争关系；厂商云形态则是另一个方向：不需要自己装，工作在别人的机器上做。',
+      'Finished AI coding tools you can run yourself, compared on eight shared dimensions (model access / where it runs / local files / tasks after shutdown / tools and extensions / context / permissions / best fit). Grouped into three forms — IDE, CLI and vendor cloud. The first two are different install forms of the same product, not competitors; vendor cloud is a different direction entirely: nothing to install, the work happens on someone else\'s machine.'),
     owns: ['ide', 'cli', 'cloud'],
-    // agents 分区额外按形态分三组呈现（ide/cli/cloud）——因为三组产品各有两份档案，不能合成一张表
-    splitBy: 'form',
+    splitBy: 'form',   // 按形态分三组呈现（ide/cli/cloud）——三组产品各有同产品两装法，不能合成一张表
   },
-  harness: {
-    key: 'harness',
-    navKey: 'agent',   // 跨站导航的 key：三分区共用一个导航项
-    dir: 'harness',
-    domain: SITE.domain,
-    name: '自己搭（进阶）',
-    nameEn: 'Build your own (advanced)',
-    short: 'Harness',
-    accent: '#3b82f6',
-    tagline: bi('运行时、编排框架、SDK','Runtimes, orchestration frameworks, SDKs'),
-    /* desc 原来只给中文 —— 分区页的 .lede 直读它，英文态整段露中文（2026-10-08 修）。 */
+  chat: {
+    key: 'chat', navKey: 'agent', dir: 'chat', domain: SITE.domain,
+    name: 'AI 对话助手', nameEn: 'Chat assistants', short: 'Chat', accent: '#f5c542',
+    tagline: bi('通用对话产品，含国产', 'General-purpose chat products, Chinese ones included'),
+    desc: bi('通用 AI 对话助手——网页入口的多模型对话产品，国产与国际阵营都收。八维按消费级读法：背后模型是否披露、能不能选档、历史与记忆机制、账户数据用途与训练开关、产物商用条款。',
+      'General AI chat assistants — multi-model web chat products, Chinese and international alike. The eight axes are read the consumer way: whether the model behind it is disclosed, whether you can pick tiers, how history and memory work, what your account data is used for, and what the terms say about commercial use.'),
+    owns: ['web'],
+    splitBy: null,
+  },
+  image: {
+    key: 'image', navKey: 'agent', dir: 'image', domain: SITE.domain,
+    name: 'AI 图像创作', nameEn: 'AI image creation', short: 'Image', accent: '#f472b6',
+    tagline: bi('文生图与图像工作台', 'Text-to-image and image workbenches'),
+    desc: bi('图像生成产品：文生图、编辑工作台、聚合模型入口。八维按消费级读法；permissions 维必答产物商用授权与训练用途——「能生成」≠「能商用」。',
+      'Image-generation products: text-to-image, editing workbenches, aggregated-model front ends. The eight axes are read the consumer way; the permissions axis must answer commercial use and training consent — "you can generate it" is not "you can sell it".'),
+    owns: ['web', 'cloud'],
+    splitBy: null,
+  },
+  video: {
+    key: 'video', navKey: 'agent', dir: 'video', domain: SITE.domain,
+    name: 'AI 视频创作', nameEn: 'AI video creation', short: 'Video', accent: '#fb923c',
+    tagline: bi('文生视频与数字人', 'Text-to-video and digital humans'),
+    desc: bi('视频生成产品：文生视频、图生视频、数字人视频。数字人线（造人说话）与生成线（造世界）是两种产品，档案里互链写清差别。国产阵营的备案号口径逐家挂公示编号。',
+      'Video-generation products: text-to-video, image-to-video, digital-human video. The digital-human line (making a person talk) and the generative line (making a world) are different products — the entries cross-link and spell out the difference. For Chinese products, the CAC filing number is quoted from the public registry, one by one.'),
+    owns: ['web', 'cloud'],
+    splitBy: null,
+  },
+  audio: {
+    key: 'audio', navKey: 'agent', dir: 'audio', domain: SITE.domain,
+    name: 'AI 音频与语音', nameEn: 'AI audio & voice', short: 'Audio', accent: '#34d399',
+    tagline: bi('音乐生成、语音合成与转写', 'Music generation, TTS and transcription'),
+    desc: bi('音频生成与转写产品：音乐生成、语音合成（TTS）、语音转写。声音克隆涉及人格权，permissions 维必须写清官方授权要求；开源模型（如 Whisper）按「模型不是产品」口径建档。',
+      'Audio generation and transcription products: music, TTS, speech-to-text. Voice cloning touches personality rights, so the permissions axis must state the official consent requirements; open-source models (Whisper, say) are filed under the "a model is not a product" rule.'),
+    owns: ['web', 'cloud', 'local-app'],
+    splitBy: null,
+  },
+  research: {
+    key: 'research', navKey: 'agent', dir: 'research', domain: SITE.domain,
+    name: 'AI 搜索与研究', nameEn: 'AI search & research', short: 'Research', accent: '#38bdf8',
+    tagline: bi('AI 搜索、学术检索与研究工作台', 'AI search, academic retrieval, research workbenches'),
+    desc: bi('联网搜索问答、学术检索、AI 笔记/研究工作台——「帮你找答案、读文献、整理笔记」的产品。各家「深度研究」模式不单独立档（对象归 chat 档案的 capabilities 维）；纯检索 API 基础设施归 nav。',
+      'Web-search Q&A, academic retrieval, and AI-native research/notebook workbenches — products that "find answers, read papers, organize notes". Each vendor\'s "deep research" mode is not filed separately (it lives in the chat entry\'s capability axes); pure retrieval-API infrastructure goes to the nav site.'),
+    owns: ['web'],
+    splitBy: null,
+  },
+  automation: {
+    key: 'automation', navKey: 'agent', dir: 'automation', domain: SITE.domain,
+    name: 'AI 自动化与工作流', nameEn: 'AI automation & workflows', short: 'Automation', accent: '#a3e635',
+    tagline: bi('可视化搭 AI 工作流与 agent', 'Visual AI workflows and agents'),
+    desc: bi('可视化/低代码搭 AI 工作流与 agent 的产品——交付物是「搭出来的应用/流程」，运行在平台的运行时上。给程序用的编排 SDK 归 framework；传统 RPA（无 LLM 主轴）归 nav。',
+      'Visual / low-code platforms for building AI workflows and agents — the deliverable is the app or flow you assemble, running on the platform\'s runtime. SDKs for programmers go to frameworks; classic RPA without an LLM core goes to the nav site.'),
+    owns: ['web'],
+    splitBy: null,
+  },
+  framework: {
+    key: 'framework', navKey: 'agent', dir: 'framework', domain: SITE.domain,
+    name: '框架与运行时', nameEn: 'Frameworks & runtimes', short: 'Frameworks', accent: '#3b82f6',
+    tagline: bi('运行时、编排框架、SDK', 'Runtimes, orchestration frameworks, SDKs'),
     desc: bi('Agent 运行时 / 编排框架 / SDK 的责任边界、状态持久化能力与权限模型。收录标准：提供 Agent 运行时或编排层、有官方文档可回溯、近 30 天有实质更新。',
       'The responsibility boundaries of agent runtimes, orchestration frameworks and SDKs, plus state persistence and permission models. Admission criteria: provides an agent runtime or orchestration layer, has official documentation that can be traced back, and has substantive updates within the last 30 days.'),
     owns: ['harness'],
     splitBy: 'family',   // 按抽象层分组：原语型 / 编排型 / 开箱型
   },
-  tools: {
-    key: 'tools',
-    navKey: 'agent',   // 跨站导航的 key：三分区共用一个导航项
-    dir: 'tools',
-    domain: SITE.domain,
-    name: '给 AI 装工具',
-    nameEn: 'Tools for your AI',
-    short: 'Tools',
-    accent: '#22d3c5',
+  mcp: {
+    key: 'mcp', navKey: 'agent', dir: 'mcp', domain: SITE.domain,
+    name: 'MCP 工具', nameEn: 'MCP tools', short: 'MCP', accent: '#22d3c5',
     // 「你装，它调」——用户动作是装不是调，这是这站正确的表述
-    tagline: bi('缺什么，装什么 —— 给 agent 装的 MCP 工具','Fill the gap — MCP tools an agent can install'),
+    tagline: bi('缺什么，装什么 —— 给 agent 装的 MCP 工具', 'Fill the gap — MCP tools an agent can install'),
     desc: bi('MCP server 的权限范围、传输方式与输出可用性。收录标准：已发布为可安装的 MCP server、有官方仓库或文档可回溯、近 30 天有实质更新。这里是能力缺口查表，不是选型对比。',
       'The permission scope, transport and output usability of MCP servers. Admission criteria: released as an installable MCP server, has an official repository or documentation that can be traced back, and has substantive updates within the last 30 days. This is a capability-gap reference table, not a selection comparison.'),
     owns: ['mcp'],
+    splitBy: null,
+  },
+  runner: {
+    key: 'runner', navKey: 'agent', dir: 'runner', domain: SITE.domain,
+    name: '本地模型运行器', nameEn: 'Local model runners', short: 'Runners', accent: '#94a3b8',
+    tagline: bi('在自己机器上跑开源模型', 'Run open-weight models on your own machine'),
+    desc: bi('本地模型运行器：把开源权重模型跑在自己的机器上——Ollama / LM Studio / llama.cpp / vLLM 这类。档案的 model_access / runtime 维写「格式 × 量化档」口径，具体量化数据在 models 站，两边互链不重复。',
+      'Local model runners — open-weight models running on your own machine (Ollama / LM Studio / llama.cpp / vLLM class). The model_access / runtime axes are written in "format × quant tier" terms; the per-tier numbers live on the models site, cross-linked rather than duplicated.'),
+    owns: ['local-app', 'cli'],
     splitBy: null,
   },
 };
@@ -347,28 +420,44 @@ for (const d of COMPLETENESS.detail) {
  * ⚠ 筛选样式**不在这里** —— 本仓的 site.css 是**原样复制**到产物的（不是构建生成的），
  *   所以样式写进 `sites/site.css` 源文件本身。CSS 与 JS 分开放，各归其位。 */
 
-/* S43（2026-10-19）任务化入口：任务元信息来自 sites/tasks.json。
- * 真相源分工：档案 frontmatter 的 tasks: 决定「谁属于哪个任务」；
- * 这里只管任务的名字与导语。条数一律从 entries 现算（R4），不写死。 */
-const TASKS = JSON.parse(fs.readFileSync(path.join(HERE, 'tasks.json'), 'utf8')).tasks;
+/* v8 T7（2026-10-21）：S43 任务化入口退役——D2 定案任务入口取消，
+ * sites/tasks.json 已删、档案 tasks: 字段回灌即硬失败（validate 守卫）。
+ * 任务卡与 ?task= 筛选随之下线（T30 重写站点层时不再回来）。 */
 const AGENT_FILTER_JS = fs.readFileSync(path.join(HERE, 'agent-filter.js'), 'utf8');
 /** 每个赛道一行；说明文字保留旧的手写语境（那是解读，不是数字） */
 const COVERAGE_BY_TRACK = Object.fromEntries(
   Object.entries(COMPLETENESS.byTrack).map(([t, v]) => [t, { done: v.done, total: v.total }]),
 );
-/* 每个分区展示哪些赛道行。现在分区与赛道一一对应，直接用自己那一行。 */
-const COVERAGE_ROWS = { agents: ['agents'], harness: ['harness'], tools: ['tools'] };
-/* TRACK_LABEL 现在是 [zh, en] 数组，取用时包一层双节点。
- * agent 是静态站点 → 双节点由 CSS 按 [data-lang] 选显。*/
-function TRACK_LABEL_BI(track) {
-  const p = TRACK_LABEL[track];
-  return Array.isArray(p) ? bi(p[0], p[1]) : esc(p || track);
-}
-
-const TRACK_LABEL = {
-  mcp: ['MCP 服务器', 'MCP server'],
-  cli: ['CLI 形态', 'CLI form'],
-  ide: ['IDE 形态', 'IDE form'],
+/** v8 T30：10 大类固定顺序（categories.md §2.1 的编号序）。 */
+const TRACK_KEYS_10 = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
+/* v8 T7：完整度行按 10 大类（completeness.mjs 的 byTrack 键已换大类名）。
+ * v8 T30：10 张大类页全部上线——每个大类页展示自己那一行。 */
+const COVERAGE_ROWS = Object.fromEntries(TRACK_KEYS_10.map((k) => [k, [k]]));
+/* 每个赛道的说明文字（那是解读，不是数字——手写但要如实反映该大类的核验现实）。 */
+const COVERAGE_NOTE = {
+  coding: bi('多为闭源产品，索引策略等细节官方不公开；CLI 类官方文档相对完整', 'Mostly closed-source, so details like indexing strategy are not disclosed; CLI entries have better official docs'),
+  framework: bi('编排框架的版本演进快、接口变化多，逐条核验成本最高 —— 也是全站最低的一档', 'Orchestration frameworks move fast and change APIs often, so these are the most expensive to verify — and the lowest fill rate on the site'),
+  mcp: bi('官方 README 信息充分，绝大多数维度可直接引述', 'Official READMEs cover most of it, so most dimensions can be quoted directly'),
+  chat: bi('消费级对话产品对模型路由、记忆机制披露少；帮助中心与官方公告是最可核验的渠道', 'Consumer chat products disclose little about model routing or memory internals; help centers and official announcements are the most verifiable channels'),
+  image: bi('创作产品的条款密度高（商用与训练授权是重点），模型与数据细节常不公开', 'Creation products have dense terms (commercial and training licensing matter most); model and data details often stay undisclosed'),
+  video: bi('同上，另加国产阵营的备案编号口径——逐家挂公示批次', 'Same as above, plus CAC filing numbers for Chinese products — quoted batch by batch from the public registry'),
+  audio: bi('声音克隆的授权条款必须逐家读原文；开源模型（Whisper 等）文档反而最全', 'Voice-clone consent terms have to be read one by one; open-source models (Whisper and friends) actually have the fullest docs'),
+  research: bi('检索与排序机制大多不公开；备案号、官方公告与条款页是最可核验的部分', 'Retrieval and ranking internals are mostly undisclosed; filing numbers, official announcements and terms pages are the verifiable parts'),
+  automation: bi('平台产品的功能文档充分，运行时内部与额度计费细节变动频繁', 'Platform feature docs are solid; runtime internals and quota mechanics change often'),
+  runner: bi('开源项目文档最完整，但版本演进快 —— 核验快照最容易过期', 'Open-source projects document the most, but they release fast — these snapshots go stale first'),
+};
+/* v8 T7：大类名（中英）——完整度表与分区导航共用。 */
+const CAT_LABEL = {
+  coding: ['AI 编程', 'AI coding'],
+  chat: ['通用对话', 'General chat'],
+  image: ['图像生成', 'Image generation'],
+  video: ['视频生成', 'Video generation'],
+  audio: ['音频生成', 'Audio generation'],
+  research: ['深度研究', 'Deep research'],
+  automation: ['自动化编排', 'Automation'],
+  framework: ['框架与运行时', 'Frameworks & runtimes'],
+  mcp: ['MCP 工具', 'MCP tools'],
+  runner: ['本地运行器', 'Local runners'],
 };
 
 // ── 读取一个赛道 ───────────────────────────────────────────────────────────
@@ -401,20 +490,21 @@ try {
   console.log(`  · 头号误解英文：${ks.length} 份档案、${ks.reduce((n, k) => n + PITFALLS_EN[k].length, 0)} 条已加载`);
 }
 
-const TRACK_DIRS = { agents: 'agents', harness: 'harness', tools: 'tools' };
+/* v8 T7：目录 = 大类（tracks/coding、tracks/framework、tracks/mcp）。
+ * 旧 TRACK_DIRS（agents/harness/tools）退役。 */
 
 function loadTrack(partKey) {
-  /* 按分区读档案。ide 与 cli 的档案现在同处 tracks/agents/，
-   * 但 track: 值不同 —— 不能只按目录过滤，否则会丢三组里各一份的一半。
-   * 做法：读该分区目录下的products，用 frontmatter 的 track 判归属
+  /* 按大类读档案。ide 与 cli 的档案同处 tracks/coding/，
+   * 但 form: 值不同 —— 不能只按目录过滤，否则会丢三组里各一份的一半。
+   * 做法：读该大类目录下的products，用 frontmatter 的 form 判归属
    *（SITES[partKey].owns），目录外的档案自然不会被读到。 */
   const site = SITES[partKey];
-  const dir = path.join(DATA, 'tracks', TRACK_DIRS[partKey], 'products');
+  const dir = path.join(DATA, 'tracks', partKey, 'products');
   if (!fs.existsSync(dir)) return { entries: [], errors: [`目录不存在: ${dir}`] };
   const entries = [];
   const errors = [];
   const seen = new Set();
-  // 归属：分区 → 它收哪些 track 值的档案
+  // 归属：大类 → 它收哪些 form 值的档案
   const OWNED = site.owns;
 
   for (const f of fs.readdirSync(dir).filter(x => x.endsWith('.md')).sort()) {
@@ -423,16 +513,14 @@ function loadTrack(partKey) {
     const fm = parseFrontmatter(raw);
     const rel = path.relative(DATA, abs).replace(/\\/g, '/');
     if (!fm) { errors.push(`${rel} · frontmatter 解析失败`); continue; }
-    if (OWNED && !OWNED.includes(fm.track)) continue;
+    if (OWNED && !OWNED.includes(fm.form)) continue;
 
     const id = fm.id || f.replace('.md', '');
     if (f.replace('.md', '') !== id) errors.push(`${rel} · 文件名与 id 不符`);
     if (seen.has(id)) errors.push(`${rel} · id 重复: ${id}`);
     seen.add(id);
-    // 断言改成「track 值必须属于该分区收的集合」——
-    // 原来比的是 `fm.track !== track`，那时 track 恰好等于 track 值；
-    // 一站三分区后 track 是分区名（agents/tools），直接比会全库报错。
-    if (!OWNED.includes(fm.track)) errors.push(`${rel} · track 字段(${fm.track})不属于分区 ${partKey}`);
+    // 断言：form 值必须属于该大类收的集合（v8 T7：track: 字段已退役，form: 是唯一形态字段）
+    if (!OWNED.includes(fm.form)) errors.push(`${rel} · form 字段(${fm.form})不属于大类 ${partKey}`);
 
     const need = ['id','name','vendor','homepage','last_verified','confidence','lifecycle'];
     for (const k of need) if (!fm[k]) errors.push(`${rel} · 缺必填 ${k}`);
@@ -539,9 +627,8 @@ try {
       pitfalls: fm.pitfalls || [],
       lastVerified: fm.last_verified, lastUpdated: fm.last_updated,
       lifecycle: fm.lifecycle, confidence: fm.confidence,
-      family: fm.family || '',  // harness 分层；validate 强制必填，页面需按它分组呈现
-      track: fm.track,// 仍是内容分类四取值（ide/cli/harness/mcp），首页按它分形态
-      tasks: Array.isArray(fm.tasks) ? fm.tasks : [], // S43 任务入口（validate 强制 ≥1）
+      family: fm.family || '',  // framework 分层；validate 强制必填，页面需按它分组呈现
+      form: fm.form, // v8 T7：形态 8 值枚举（ide/cli/cloud/harness/mcp/web/app/local-app），首页按它分形态
       cn: fm.cn || null, // S52 中文生态透镜（validate 强制必填，页面按它渲染 chip + 筛选）
       axesKeys: [...AXES.map(x => x[0]), ...mcpKeys],
       body,
@@ -667,43 +754,70 @@ function mdInline(s) {
  * 现在两种写法都认，且存量链接已归一化成当前目录名（仓与站同时对）。
  */
 const TRACK_TO_PART = {
-  /* 当前目录名（v4 三站迁移后：tracks/{agents,harness,tools}）—— A6.3 起是新写链接的标准写法 */
-  agents: 'agents', harness: 'harness', tools: 'tools',
-  /* 旧目录名（迁移前 ide/cli 两站合并成 agents，mcp 降为 tools）—— 存量正文里还有，
-   * 正则必须同时认；两种写法都要能重写到正确的分区落点。*/
-  ide: 'agents', cli: 'agents', mcp: 'tools',
+  /* v8 T7：当前目录名 = 10 大类（tracks/{coding,chat,image,video,audio,research,automation,framework,mcp,runner}） */
+  coding: 'coding', chat: 'chat', image: 'image', video: 'video', audio: 'audio',
+  research: 'research', automation: 'automation', framework: 'framework', mcp: 'mcp', runner: 'runner',
+  /* 旧目录名（v4 三分区时代 tracks/{agents,harness,tools} 与更早的 ide/cli）——
+   * 存量正文里还有，正则必须同时认；两种写法都要能重写到正确的大类落点。
+   * ⚠ T30 前只有 coding/framework/mcp 三页有产物，其余大类的档案还没有产物页——
+   *   存量正文目前也没有链向它们的链接（已扫），T30 后自然对。 */
+  agents: 'coding', ide: 'coding', cli: 'coding',
+  harness: 'framework',
+  tools: 'mcp',
 };
+/* v8 T30：渲染上下文。mdLinks()/rewriteInternal() 是各处共用的，
+ * 但「裸 ../_category.md 指哪个大类首页」取决于**发起页当前在哪个大类**——
+ * 每个渲染函数入口处设 CTX.partKey，mdLinks 按它解析裸写法。
+ * ⚠ 单线程构建（顺序渲染），不存在竞态；漏设时回退 coding 会**静默指错**，
+ *   所以每个 render* 入口都必须设。 */
+const CTX = { partKey: 'coding' };
 function rewriteInternal(href) {
-  // 1. 跨分区：指向另一个赛道的档案
-  let m = /^(?:\.\.\/)+(agents|harness|tools|ide|cli|mcp)\/products\/([A-Za-z0-9._-]+)\.md$/.exec(href);
+  // 1. 跨大类：指向另一个大类的档案
+  let m = /^(?:\.\.\/)+(coding|chat|image|video|audio|research|automation|framework|mcp|runner|agents|harness|tools|ide|cli)\/products\/([A-Za-z0-9._-]+)\.md$/.exec(href);
   if (m) {
+    // v8 T30：10 大类全部有产物页（旧「T30 前无产物 → 原样输出」兜底退役，
+    // 原样输出 .md 只会把死链漏到站上）。TRACK_TO_PART 的旧目录名键全部映射到 10 大类。
     const s = SITES[TRACK_TO_PART[m[1]]];
-    return s.dir ? `/${s.dir}/${m[2]}.html` : `/${m[2]}.html`;
+    return `/${s.dir}/${m[2]}.html`;
   }
-  // 2. 同分区互引：./x.md 与裸 x.md 两种写法都见过
+  // 2. 同大类互引：./x.md 与裸 x.md 两种写法都见过
   m = /^(?:\.\/)?([A-Za-z0-9._-]+)\.md$/.exec(href);
   if (m) return `./${m[1]}.html`;
-  // 3. 实测协议文档 —— 站内没有，链到内容仓
-  m = /^(?:\.\.\/)+tasks\/(_protocol\.md)$/.exec(href);
-  if (m) return `${SITE.repo}/blob/main/tracks/agents/tasks/${m[1]}`;
-  /* ⚠ **分区索引 `_track.md`** 要映射到**站点自己的分区首页**（2026-10-09 补，修 3 条死链）。
-   *   实测 `zed.html -> ../_track.md` 与 `-> ../../tools/_track.md` 是站上真死链 ✗ ——
-   *   因为 `_track.md` 只存在于内容仓。但它的**语义目标**正是站上的分区列表页 ✓：
-   *     `../_track.md`          → 当前分区首页（agents 是根 → `/index.html`）
-   *     `../../tools/_track.md` → `/tools/index.html`
-   *   所以这不是「外链到 GitHub」了事，而是把读者送到他真正想去的那一页 ✓。
-   *   ⚠ 判据要**先**匹配带分区名的形态，再匹配裸 `_track.md` ——
-   *   否则 `../../tools/_track.md` 会被后一条吃掉、当成当前分区 ✗。 */
+  /* 3. v8 T7：实测协议文档 —— 站内没有，链到内容仓的**当前路径**。
+   *    ⚠ ai-handbook 仓里 tools 子树在 `tools/` 下（v7 合并后），
+   *    旧代码写的 `blob/main/tracks/agents/tasks/...` 是合并前的旧仓布局残留，
+   *    在现仓里是 404 —— 一并修正为 `tools/protocols/<大类>/_protocol.md`。 */
+  m = /^(?:\.\.\/)+protocols\/([a-z-]+)\/(_protocol\.md)$/.exec(href);
+  if (m) return `${SITE.repo}/blob/main/tools/protocols/${m[1]}/${m[2]}`;
+  /* ⚠ **大类索引 `_category.md`** 要映射到**站点自己的大类首页**（v8 T7 接管旧 `_track.md` 规则）。
+   *   `_category.md` 只存在于内容仓，但它的**语义目标**正是站上的大类列表页 ✓：
+   *     `../_category.md`          → 当前大类首页（v8 T30：大类名从发起页所在目录推）
+   *     `../../mcp/_category.md`   → `/mcp/index.html`
+   *   ⚠ 判据要**先**匹配带大类名的形态，再匹配裸 `_category.md` ——
+   *   否则 `../../mcp/_category.md` 会被后一条吃掉、当成当前大类 ✗。
+   * ⚠ v8 T30：裸 `_category.md` 的落点**不再固定 /index.html**——coding 不再落站点根，
+   *   站点根现在是首页（三族 10 卡）。裸写法只能从**发起页所在的大类目录**推，
+   *   所以 mdLinks() 要把当前大类传进来（CTX.partKey），否则跨大类正文里的
+   *   `../_category.md` 会全指到 coding 页 ✗（zed.md 实测有一处）。 */
+  m = /^(?:\.\.\/)+([a-z-]+)\/_category\.md$/.exec(href);
+  if (m && TRACK_TO_PART[m[1]]) {
+    const s = SITES[TRACK_TO_PART[m[1]]];
+    return `/${s.dir}/index.html`;
+  }
+  m = /^(?:\.\.\/)+_category\.md$/.exec(href);
+  if (m) return `/${SITES[CTX.partKey].dir}/index.html`;
+  /* 旧 `_track.md` 形态（存量正文可能还有）—— 同义映射到当前大类首页。 */
   m = /^(?:\.\.\/)+([A-Za-z]+)\/_track\.md$/.exec(href);
   if (m && TRACK_TO_PART[m[1]]) {
     const s = SITES[TRACK_TO_PART[m[1]]];
-    return s.dir ? `/${s.dir}/index.html` : '/index.html';
+    return `/${s.dir}/index.html`;
   }
   m = /^(?:\.\.\/)+_track\.md$/.exec(href);
-  if (m) return '/index.html';
-  /* `METHODOLOGY.md` 同样只在内容仓里（实测 `windsurf.html -> ../METHODOLOGY.md`）✗ → 链回内容仓 ✓。 */
+  if (m) return `/${SITES[CTX.partKey].dir}/index.html`;
+  /* `METHODOLOGY.md` 同样只在内容仓里（实测 `windsurf.html -> ../METHODOLOGY.md`）✗ → 链回内容仓 ✓。
+   * v8 T7 修正：ai-handbook 仓里它在 `tools/METHODOLOGY.md`（旧代码写 tracks/ 是合并前布局）。 */
   m = /^(?:\.\.\/)+METHODOLOGY\.md$/.exec(href);
-  if (m) return `${SITE.repo}/blob/main/tracks/METHODOLOGY.md`;
+  if (m) return `${SITE.repo}/blob/main/tools/METHODOLOGY.md`;
   return href;
 }
 
@@ -813,13 +927,13 @@ function renderList(items, cls = '') {
 // 每站回答该赛道客户最关心的那个问题，并给出明确的下一跳。
 // 分赛道写，因为「客户来这个站要解决什么」本来就不同。
 const GUIDE = {
-  /* agents 分区的引导由原ide + cli 两份合并而成。
+  /* coding 大类的引导由原ide + cli 两份合并而成（v8 T7：键随大类改名）。
    * 合并的关键：**分类轴从「形态」换成「你要它替你干多少事」**——
    * 原来 ide 站按形态分、cli 站按权限确认粒度分，两套轴放在一个站里会打架。
    * 新轴的好处：IDE 形态与 CLI 形态都能落进去，且回答的是访客真正在问的问题。 */
-  agents: {
+  coding: {
     title: '先回答一件事：你要它替你干多少事',
-    lede: '这一分区 27 份档案，<strong>分三个方向</strong>：23 份是装在自己机器上的（IDE 形态 11 + CLI 形态 12，其中<strong>五组是同一个产品的两种装法</strong>——Aider、Claude Code、Codex、Copilot、Cursor 各有一份 IDE 形态和一份 CLI 形态，它们不是竞品，差别在<strong>装在哪、怎么被唤起、能不能塞进脚本</strong>）；另 4 份是<strong>厂商云形态</strong>——本机什么都不装，工作在别人的机器上做。',
+    lede: '这一大类 32 份档案，<strong>分三个方向</strong>：26 份是装在自己机器上的（IDE 形态 14 + CLI 形态 12，其中<strong>五组是同一个产品的两种装法</strong>——Aider、Claude Code、Codex、Copilot、Cursor 各有一份 IDE 形态和一份 CLI 形态，它们不是竞品，差别在<strong>装在哪、怎么被唤起、能不能塞进脚本</strong>）；另 6 份是<strong>厂商云形态</strong>——本机什么都不装，工作在别人的机器上做。',
     steps: [
       ['我要一个自己能开的编辑器', '看 <strong>IDE · 独立编辑器</strong>', 'Cursor、已改称 Devin Desktop 的 Windsurf、Zed、AWS 的 Kiro 都在这一类。'],
       ['我已经在用 VS Code / Cursor 了', '看 <strong>IDE · 扩展形态</strong>', 'Claude Code、Codex、Copilot、Cline、JetBrains 的 Junie、Continue 都是在既有编辑器里装。注意其中 <strong>Claude Code / Codex / Copilot 另有 CLI 形态</strong>，别当成两个产品比。'],
@@ -832,9 +946,9 @@ const GUIDE = {
     ],
     foot: '⚠ 两个最容易踩的误解：<strong>「AI 原生编辑器」不等于「模型可自选」</strong>——形态看 <code>runtime</code>，模型接入看 <code>model_access</code>，两个维度是分开的；<strong>Codex CLI 的审批模式与沙箱档位在 CLI 文档里查不到，在它 SDK 的源码里有</strong>——四种审批 × 三档沙箱（read-only / workspace-write / danger-full-access），还能按路径 deny 掉读 <code>.env</code>，跨平台差异仍未核验。',
   },
-  tools: {
+  mcp: {
     title: '先回答一件事：你到底缺什么能力',
-    lede: 'MCP 不是「让 AI 更聪明」，是<strong>给 AI 接上它本来够不到的东西</strong>。如果你要的只是聊天和写代码，你不需要它。<strong>你装，它调</strong>——10 个条目：7 个是 MCP 官方 reference server，2 个由各自的官方团队维护（Playwright / Context7），1 个是厂商官方（GitHub 自己的 github-mcp-server）。',
+    lede: 'MCP 不是「让 AI 更聪明」，是<strong>给 AI 接上它本来够不到的东西</strong>。如果你要的只是聊天和写代码，你不需要它。<strong>你装，它调</strong>——这一大类收的 server 分四种出身：MCP 官方 reference server、由各自官方团队维护的（Playwright / Context7）、厂商官方自营的（GitHub 自己的 github-mcp-server），以及本站按收录标准纳入的社区 server。每份档案的出身与权限范围写在 scope 维里。',
     steps: [
       ['我要读写本地文件 / 操作 Git', 'filesystem、git', '两个都是读写权限，git 那一类值得先看 scope 里能限制到哪些目录。'],
       ['我要它记住东西、跨会话召回', 'memory', '这是最容易被误解的一类——<strong>它不是「模型记忆」</strong>，是外部知识图谱存储。'],
@@ -845,48 +959,36 @@ const GUIDE = {
     ],
     foot: '⚠ 一个容易忽略的维度：<strong>数据出境</strong>。Context7 默认以远程服务交付，查询内容会发到 Upstash 服务器；GitHub MCP Server 提供远程托管与本地 Docker 两种形态；其余八个都是本地 stdio 进程。另外——<strong>装 MCP 需要你手动做，调用不需要</strong>：server 启动后自动把工具清单报给你的客户端，之后调不调、什么时候调，由 agent 自己判断，你只在审批环节介入。',
   },
-  harness: {
+  framework: {
     title: '先回答一件事：你要不要自己搭',
-    lede: '这是本分区存在的唯一理由。<strong>如果现成产品已经够用，正确答案是「不要搭」</strong>——那就去 <a href="/">成品 Agent</a>，不用往下看。真要自己搭，第一步是认清你要的抽象层。',
+    lede: '这是本大类存在的唯一理由。<strong>如果现成产品已经够用，正确答案是「不要搭」</strong>——那就去看 <a href="/coding/">AI 编程</a> 那一类，不用往下看。真要自己搭，第一步是认清你要的抽象层。',
     steps: [
       ['我要最细的控制权，文件系统我自己管', '<strong>原语型</strong>（primitives-only）', '只给你 agent loop 的原语，不替你决定文件系统 / 规划 / 记忆怎么做 —— OpenAI Agents SDK 是这一类。'],
       ['我要一个成熟 CLI 直接变成 API 对象', '<strong>包装既有 CLI</strong>', 'Claude Agent SDK 捆绑完整 CLI，默认给全工具无沙箱 —— 你省了造轮子，但权限模型是继承来的。'],
       ['我要开箱即跑的通用长任务助手', '<strong>batteries-included</strong>', 'Deep Agents 官方自述 opinionated：预置更多东西，也替你做了更多决定。'],
       ['流程要图、要能中断恢复、要多 Agent 协作', '<strong>编排框架</strong>：LangGraph / Google ADK / CrewAI', 'LangGraph 的落盘粒度最明确（每 superstep 存一次图状态），ADK 的图执行引擎最完整，CrewAI 用「角色分工 + 事件流程」两套抽象。'],
       ['我要它常驻、跨平台、能定时跑', '<strong>平台型 / 常驻型</strong>：OpenHands / Hermes Agent', 'OpenHands 是带 Web UI 的自托管控制中心；Hermes 更进一步——能挂 Telegram/Discord/Slack/WhatsApp/Signal/Email 六平台，还能 cron 无人值守。'],
-      ['我只想要个工具用，不想维护', '不该来这个分区', '这属于「不自建」那一侧，见 <a href="/">成品 Agent</a>。'],
+      ['我只想要个工具用，不想维护', '不该来这个大类', '这属于「不自建」那一侧，见 <a href="/coding/">AI 编程</a>。'],
     ],
     foot: '⚠ 三个最容易踩的坑：<strong>「状态」和「上下文」不是一回事</strong>——压缩上下文会丢信息，状态持久化才是长期可靠运行的前提（各家在这两层的完备程度差别很大）；<strong>「provider 无关」不等于「本地模型可用」</strong>（Claude Agent SDK 只支持 Claude，CrewAI 则点名支持 Ollama）；<strong>编排框架不给沙箱</strong>——权限边界要自己确认。',
   },
 };
 
-/* S44（2026-10-20）边界声明三句（D4 定案：「这里收录能接任务、能装、能连你数据的产品」）。
- * 设计定案：
- *  - 三张分区索引页**同一份文案**（不各写一套 —— 本项目头号疾病是同一件事两个口径）。
- *  - 三句各答一个问题：收什么 / 不收什么（纯对话问答去哪）/ 用什么格式。
- *  - 措辞诚实：对话问答的「轻档案」是 S46 的活，**现在还不存在**，
- *    所以只说「去 AI 导航」这条现在就能兑现的路，不承诺本站已有。
- *    S46 更新（2026-10-20）：本站轻档案已落地 → 第二句补上「本页上方的三要素轻档案」，
+/* S44（2026-10-20）边界声明三句 → v8 T7 换口径：
+ * D2/D3 定案后「纯聊天不走八维」已经不成立——chat/image/video/audio 也是八维档案。
+ * 三句改答：收什么（10 大类）/ 怎么组织（大类=目录，形态=form）/ 什么格式（核验快照）。
+ * 设计定案不变：三张分区索引页**同一份文案**（本项目头号疾病是同一件事两个口径）。
  *  - 版式走 brand.css 的 .t-boundary（宪章 1）。 */
 function boundarySection(partKey) {
-  /* 第二句按分区分口径（S46 · 2026-10-20）：
-   * agents 页下方真的渲染对话问答轻档案 → 指本站；
-   * harness / tools 页不渲染对话轻档案 → 只指 AI 导航（可兑现才写）。 */
-  const chatLine = partKey === 'agents'
-    ? [
-        '<strong>纯聊天工具不走八维坐标系。</strong>它们没有「安装形态 / 工具清单」这些维度，硬套只会产出一堆「不适用」——本站给它们的是本页下方的三要素轻档案；更全的对话产品目录在 <a href="https://nav.specul.com/">AI 导航</a>。',
-        '<strong>Plain chat products are not on the 8-axis grid.</strong> They lack dimensions like install form or tool inventory, and forcing them would produce a wall of "not applicable" — this site covers them with the three-essentials light entries below; a fuller directory of chat products lives in the <a href="https://nav.specul.com/">AI Directory</a>.',
-      ]
-    : [
-        '<strong>纯聊天工具不在这里。</strong>如果你只想找一个对话问答的网页，去 <a href="https://nav.specul.com/">AI 导航</a>，ChatGPT、豆包、Kimi 这些都在那里。',
-        '<strong>Plain chat products are not here.</strong> If you just want a chat webpage, go to the <a href="https://nav.specul.com/">AI Directory</a> — ChatGPT, Doubao and Kimi are listed there.',
-      ];
   const LINES = [
     [
-      '<strong>这里收录能接任务的产品。</strong>它要么在编辑器或终端里替你写代码，要么能被你装进自己的程序，要么能连上你的文件和账号。',
-      '<strong>This site lists products that take on tasks.</strong> They either write code for you in your editor or terminal, or can be installed into your own program, or connect to your files and accounts.',
+      '<strong>本站按 10 大类收录 AI 产品。</strong>编程、对话、图像、视频、音频、研究、自动化、框架、MCP 工具、本地运行器——每类都有明确的收录标准，写在各大类的目录页里。',
+      '<strong>This site files AI products into 10 categories.</strong> Coding, chat, image, video, audio, research, automation, frameworks, MCP tools and local runners — each with explicit admission criteria, written on the category page itself.',
     ],
-    chatLine,
+    [
+      '<strong>大类看目录，形态看字段。</strong>一个产品属于哪一类由收录边界决定；它怎么装进你的工作流（IDE / CLI / 厂商云 / 框架 / MCP…）是另一根独立的轴。',
+      '<strong>Category comes from the shelf, form from a field.</strong> Which category a product belongs to is decided by admission boundaries; how it installs into your workflow (IDE / CLI / vendor cloud / framework / MCP…) is a separate axis.',
+    ],
     [
       '<strong>每条档案都是核验快照。</strong>字段逐条挂官方出处与核验日期，本站不实测、不排名，未知就写未知。',
       '<strong>Every entry is a verification snapshot.</strong> Each field carries an official source and a checked date; we run no benchmarks, publish no rankings, and write "unknown" when it is unknown.',
@@ -904,95 +1006,11 @@ ${LINES.map(([zh, en]) => `            <li>${bi(zh, en)}</li>`).join('\n')}
 `;
 }
 
-/* S43（2026-10-19）任务化入口：「我想让 AI 替我写代码 / 自己搭 agent / …」。
- * 设计定案：
- *  - 任务卡渲染在**各分区索引页**，只列「本页至少有一份该任务档案」的任务 ——
- *    跨页任务（如 long-task 同时有 agents 的 cloud 与 harness 的 general-harness）
- *    在两页各出现一次，各自显示本页的条数。点卡 = 本页按 ?task= 现筛（复用 B2 的
- *    URL 筛选体系，不另造一套）。这样卡片上的每个数字都是本页可兑现的，
- *    不会出现「写着 7 个、点进去只有 3 个」的假承诺。
- *  - 条数从 entries 现算（R4）。validate.mjs 双向对账保证任务不空、引用不悬空。
- *  - 版式走 brand.css 的 .t-taskcard（宪章 1：共享层定义一次）。 */
-function taskSection(partKey, site, entries) {
-  const cards = [];
-  for (const t of TASKS) {
-    const n = entries.filter((e) => (e.tasks || []).includes(t.id)).length;
-    if (!n) continue;
-    cards.push(`        <article class="t-taskcard">
-          <h3><a href="./?task=${encodeURIComponent(t.id)}">${bi(esc(t.zh), esc(t.en))}</a> <span class="t-taskn">${n}</span></h3>
-          <p class="t-tasklead">${bi(esc(t.lead), esc(t.leadEn))}</p>
-          <a class="t-taskgo" href="./?task=${encodeURIComponent(t.id)}">${bi('只看这一类 →', 'Show only these →')}</a>
-        </article>`);
-  }
-  if (!cards.length) return '';
-  return `
-    <section class="section">
-      <div class="container">
-        <h2>${bi('按任务找', 'Find by task')}</h2>
-        <p class="section-desc">${bi(`这一页有 ${entries.length} 个对象。下面的数字是本页真正收录的条数——点进去就是筛选后的结果，不是跨站的总数。`, `This page holds ${entries.length} objects. The numbers below are what this page actually carries — clicking filters right here, not a site-wide total.`)}</p>
-        <div class="grid">
-${cards.join('\n')}
-        </div>
-      </div>
-    </section>`;
-}
+/* v8 T7：S43 任务化入口（taskSection）整体退役——D2 定案取消任务入口。 */
 
-/* S45（2026-10-20）轻档案区（D4 定案：对话问答 / 创作工具走三要素卡，不上八维）。
- * 设计定案：
- *  - 真相源 light/light.json（SCHEMA §9.2 校验：三要素任一空 / 出现 cost 字段 /
- *    sources 空 / kind 越枚举都硬失败）。validate 阴性对照实测：注入坏条目必报错。
- *  - D9（2026-10-20 用户定案）：价格不进数据层——卡上「多少钱」一行只放
- *    pricing_url（缺省回落 homepage）的官方定价页链接，本站不存报价数字。
- *  - 版式走 brand.css 的 .t-lightcard（宪章 1）。
- *  - items 为空时整区不渲染（S46/S47 填条目后自动出现）——
- *    不渲染空壳区，也不提前承诺「本站有轻档案」。
- *  - 每张卡带「轻档案 · 不上八维」标注：防读者拿它和八维档案横向比。 */
-const LIGHT = (() => {
-  const p = path.join(HERE, '..', 'light', 'light.json');
-  if (!fs.existsSync(p)) return [];
-  return JSON.parse(fs.readFileSync(p, 'utf8')).items || [];
-})();
-const LIGHT_KIND = {
-  chat: ['对话问答', 'Chat products'],
-  /* 区名对齐总纲 §1.7「陪你创作」区（S47） */
-  creation: ['陪你创作', 'Create with AI'],
-};
-function lightSection(partKey) {
-  /* 落点（总纲 §1.4 落点表 + D4）：对话问答 → agents 分区（成品那一侧，
-   * 读者搜 ChatGPT 进来不能看不到）；创作工具 → tools 分区（「陪你创作」区）。
-   * harness 分区不渲染 —— 它是「自己搭」，与两类轻档案都不同层。 */
-  const want = partKey === 'agents' ? 'chat' : partKey === 'tools' ? 'creation' : null;
-  if (!want) return '';
-  const items = LIGHT.filter((it) => it.kind === want);
-  if (!items.length) return '';
-  const kindLabel = want === 'chat' ? LIGHT_KIND.chat : LIGHT_KIND.creation;
-  const cards = items.map((it) => `        <article class="t-lightcard">
-          <h3><a href="${esc(it.homepage)}" rel="noopener">${bi(esc(it.name), esc(it.nameEn || it.name))}</a></h3>
-          <p class="t-lightvendor">${esc(it.vendor)} · ${bi('轻档案 · 不上八维', 'light entry · not on the 8-axis grid')}</p>
-          ${it.cn ? `<p class="m-famcard-cn">${cnChips(it.cn)}</p>` : ''}
-          <dl>
-            <dt>${bi('能做什么', 'What it does')}</dt><dd>${bi(esc(it.what), esc(it.whatEn || it.what))}</dd>
-            <dt>${bi('数据去哪', 'Where your data goes')}</dt><dd>${bi(esc(it.data), esc(it.dataEn || it.data))}</dd>
-            <dt>${bi('适合谁', 'Who it suits')}</dt><dd>${bi(esc(it.who), esc(it.whoEn || it.who))}</dd>
-            ${it.license ? `<dt>${bi('商用许可', 'Commercial use')}</dt><dd>${bi(esc(it.license), esc(it.licenseEn || it.license))}</dd>` : ''}
-          </dl>
-          <p class="t-lightnote">${bi(`多少钱：价格常变，本站不存报价，请看 <a href="${esc(it.pricing_url || it.homepage)}" rel="noopener">官方定价页</a>。`, `Price: prices change often; this site stores no quotes — see the <a href="${esc(it.pricing_url || it.homepage)}" rel="noopener">official pricing page</a>.`)}</p>
-          <p class="t-lightsrc">${bi(`出处：${(it.sources || []).length} 条官方链接 · 核验 ${esc(it.last_verified || '未标注')} · ${esc(it.confidence)}`, `Sources: ${(it.sources || []).length} official links · checked ${esc(it.last_verified || 'n/a')} · ${esc(it.confidence)}`)}</p>
-        </article>`);
-  return `
-    <section class="section">
-      <div class="container">
-        <h2>${bi(kindLabel[0], kindLabel[1])}</h2>
-        <p class="section-desc">${want === 'creation'
-          ? bi('这些工具不走八维坐标系——它们没有「安装形态 / 工具清单」这些维度，硬套只会产出一堆「不适用」。创作工具真正可比的是「能做什么 / 数据去哪 / 适合谁 / 输出物能不能商用」；<strong>商用许可逐条抄官方条款</strong>（许可稳定，值得存），价格常变，本站不存报价，一律看官方定价页。', 'These tools are not on the 8-axis grid — they lack dimensions like install form or tool inventory, and forcing them would produce a wall of "not applicable". What is genuinely comparable for creation tools is what they do, where your inputs go, who they suit, and whether the output may be used commercially. <strong>Commercial licensing is quoted line by line from the official terms</strong> (licences are stable, worth storing); prices change often, so this site stores no quotes and always points to the official pricing page.')
-          : bi('这些产品不走八维坐标系——它们没有「安装形态 / 工具清单」这些维度，硬套只会产出一堆「不适用」。三要素是它们真正可比的地方；价格常变，本站不存报价，一律看官方定价页。', 'These products are not on the 8-axis grid — they lack dimensions like install form or tool inventory, and forcing them would produce a wall of "not applicable". The three essentials are where they are genuinely comparable; prices change often, so this site stores no quotes and always points to the official pricing page.')}
-        </p>
-        <div class="grid">
-${cards.join('\n')}
-        </div>
-      </div>
-    </section>`;
-}
+/* v8 T7：S45 轻档案区（lightSection）整体退役——D3 定案全部升八维，
+ * light/light.json 已删（备份 _archive/v8-evidence/light-2026-10-20.json），
+ * 对话/创作产品都是八维档案，不再有「三要素卡」这一层。 */
 
 function guideSection(partKey, site, entries) {
   const g = GUIDE[partKey];
@@ -1078,7 +1096,7 @@ function loadGuides() {
 }
 
 function deepGuidesSection(partKey, guides) {
-  if (partKey !== 'tools' || !guides.length) return '';
+  if (partKey !== 'mcp' || !guides.length) return '';   // v8 T7：guides 落 mcp 大类（产物仍 /tools/guides/，T30 换）
   const cards = guides.map((g) => {
     const t = TOPIC_LABEL[g.topic] || [g.topic, g.topic];
     return `          <a class="t-guidecard" href="guides/${g.id}.html">
@@ -1100,6 +1118,7 @@ ${cards}
 }
 
 function renderGuidePage(g, site) {
+  CTX.partKey = site.key;   // v8 T30：正文里的 .md 链接按当前大类解析
   const t = TOPIC_LABEL[g.topic] || [g.topic, g.topic];
   const secs = g.sections.map((s) => {
     /* 双语节标题写法：`## [中文标题|English heading]` → 渲染成 bi 双节点 */
@@ -1142,10 +1161,10 @@ ${srcRows}
       description: plain(g.summaryEn || g.summary, 300),
       dateModified: g.lastVerified,
     },
-    canonical: `https://${SITE.domain}/tools/guides/${g.id}.html`,
-    /* ⚠ assetPrefix 是 **两级**：guide 详情页落在 /tools/guides/<id>.html，
-     * 比 tools/ 下的档案页深一层 —— '../' 会指向 /tools/ 这个不存在 brand.css 的
-     * 目录（2026-10-20 deadlink 实测抓到：6 页全部 poster 404 样式全掉）。
+    canonical: `https://${SITE.domain}/mcp/guides/${g.id}.html`,
+    /* ⚠ assetPrefix 是 **两级**：guide 详情页落在 /mcp/guides/<id>.html（v8 T30：
+     * 落点随大类改名 tools/→mcp/），比 mcp/ 下的档案页深一层 —— '../' 会指向 /mcp/
+     * 这个不存在 brand.css 的目录（2026-10-20 deadlink 实测抓到：6 页全部样式全掉）。
      * shell 的 depth() 只做透传，深度由调用方按页面实际层级传。 */
     assetPrefix: '../../',
   });
@@ -1169,15 +1188,16 @@ const SITE_CSS = '';
 // **链接必须用绝对路径**（/harness/）：分区首页分布在不同深度
 // （agents 在根、harness/ 与 tools/ 在子目录），相对路径在子目录页面上会指错。
 function partitionBar(current) {
-  return `    <nav class="part-bar" aria-label="站内分区">
+  /* v8 T30：10 张大类页。一行放 10 项带 tagline 会撑爆——tagline 移到 title 提示，
+   * 视觉只留大类名（short）。配色仍走 --pa token（每大类一份，两套主题各一值）。 */
+  return `    <nav class="part-bar" aria-label="站内大类">
       <div class="container">
 ${SITE.partitions.map(k => {
     const s = SITES[k];
     const cur = k === current ? ' aria-current="page"' : '';
-    /* tagline 已是 bi() 产出的双节点（<span data-zh>/<span data-en>），
-     * **不能走 esc** —— 转义会把标签变成字面文本，实测英文态显示
-     * 「<span data-zh>装在编辑器…</span>」这种源码。 */
-    return `        <a href="/${pfx(s)}"${cur} style="--pa:var(--pa-${s.key})"><b>${esc(s.short)}</b><span>${s.tagline}</span></a>`;
+    /* tagline 是 bi() 双节点，进 title 属性要取中文纯文本（属性里放 HTML 是垃圾）。 */
+    const tip = plainTagline(s.tagline);
+    return `        <a href="/${pfx(s)}"${cur} title="${esc(tip)}" style="--pa:var(--pa-${s.key})"><b>${esc(s.short)}</b></a>`;
   }).join('\n')}
       </div>
     </nav>`;
@@ -1195,6 +1215,11 @@ const FORM_LABEL = {
   cli:   ['CLI 形态', 'CLI form'],
   cloud: ['厂商云形态', 'Vendor cloud'],
   mcp:   ['MCP', 'MCP'],
+  /* v8 T7：form 8 值枚举补齐（chat/image/video/audio 等新大类档案用这三个） */
+  web:   ['网页服务', 'Web service'],
+  app:   ['桌面/移动应用', 'Desktop / mobile app'],
+  'local-app': ['本机应用', 'Local app'],
+  harness: ['框架 / SDK', 'Framework / SDK'],
 };
 const FAMILY_SHORT = {
   'coding-base':     ['编程底座', 'Coding base'],
@@ -1203,6 +1228,7 @@ const FAMILY_SHORT = {
 };
 
 function renderIndex(site, partKey, entries) {
+  CTX.partKey = partKey;   // v8 T30：正文里的 .md 链接按当前大类解析
   const base = pfx(site);
   const isTools = site.owns.includes('mcp');
   const axisKeys = isTools ? [...AXES, ...MCP_AXES] : AXES;
@@ -1237,12 +1263,12 @@ function renderIndex(site, partKey, entries) {
      *  - data-blob 是搜索口径：名称 + 厂商 + 定位句（不含正文 —— 正文会提到别的产品）。 */
     const pc = PRODUCT_COMPLETENESS[e.id] || { done: 0, total: 0 };
     const blob = [e.name, e.nameEn, e.vendor, lineRaw].filter(Boolean).join(' ').toLowerCase();
-    return `        <article class="card" style="--card-accent:${esc(e.accent || site.accent)}" data-track="${esc(e.track || '')}" data-family="${esc(e.family || '')}" data-task="${esc((e.tasks || []).join(' '))}" data-conf="${esc(e.confidence || '')}" data-cn-origin="${esc((e.cn || {}).origin || '')}" data-cn-direct="${esc((e.cn || {}).direct || '')}" data-cn-filing="${esc((e.cn || {}).filing || '')}" data-done="${pc.done}" data-total="${pc.total}" data-name="${esc(e.name)}" data-blob="${esc(blob)}">
+    return `        <article class="card" style="--card-accent:${esc(e.accent || site.accent)}" data-track="${esc(e.form || '')}" data-family="${esc(e.family || '')}" data-conf="${esc(e.confidence || '')}" data-cn-origin="${esc((e.cn || {}).origin || '')}" data-cn-direct="${esc((e.cn || {}).direct || '')}" data-cn-filing="${esc((e.cn || {}).filing || '')}" data-done="${pc.done}" data-total="${pc.total}" data-name="${esc(e.name)}" data-blob="${esc(blob)}">
           <div class="card-top">
             <div class="mark" aria-hidden="true">${esc(e.mark || e.name.slice(0,2))}</div>
             <div class="card-id">
               <h3><a href="./${esc(e.id)}.html">${bi(esc(e.name), esc(e.nameEn || e.name))}</a></h3>
-              <div class="vendor">${esc(e.vendor)}</div>
+              <div class="vendor">${vendorBi(e.vendor)}</div>
             </div>
           </div>
           <p class="tagline">${line}</p>   // line 已是双节点，勿走 esc -->
@@ -1311,7 +1337,7 @@ ${entries.map(cardFor).join('\n')}
         </div>`;
     }
     const meta = SPLIT_META[splitBy];
-    const pick = (e) => (splitBy === 'form' ? e.track : e.family);
+    const pick = (e) => (splitBy === 'form' ? e.form : e.family);
     const blocks = [];
     for (const m of meta) {
       const inG = entries.filter(e => pick(e) === m.key);
@@ -1355,8 +1381,12 @@ ${orphan.map(cardFor).join('\n')}
    *   所以：维度值 < 2 种就不出这个下拉；完整度无差异就不出完整度排序，改为**如实说明**。 */
   const filterBar = () => {
     const bySplit = splitBy ? SPLIT_META[splitBy] : null;
+    /* v8 T7：splitAttr 是**卡片 HTML 属性名**（data-track，筛选脚本按它比对）；
+     * entries 里的字段名已随 frontmatter 改名（track→form）——两个名字必须分开，
+     * 否则 splitVals 取不到值、分组下拉整个不渲染（agent-filter 实测抓到）。 */
     const splitAttr = splitBy === 'form' ? 'track' : splitBy === 'family' ? 'family' : null;
-    const splitVals = splitAttr ? new Set(entries.map((e) => e[splitAttr]).filter(Boolean)) : new Set();
+    const splitField = splitBy === 'form' ? 'form' : splitBy === 'family' ? 'family' : null;
+    const splitVals = splitField ? new Set(entries.map((e) => e[splitField]).filter(Boolean)) : new Set();
     const confVals = new Set(entries.map((e) => e.confidence).filter(Boolean));
     const ratios = new Set(entries.map((e) => {
       const pc = PRODUCT_COMPLETENESS[e.id] || { done: 0, total: 0 };
@@ -1380,13 +1410,7 @@ ${orphan.map(cardFor).join('\n')}
       parts.push(`          <label class="af-f"><span class="af-h">${bi('核验状态', 'Verification')}</span>
             <select class="asel-conf">${opt([...confVals].map((k) => ({ key: k, label: CONF_LABEL[k] || k })))}</select></label>`);
     }
-    /* S43 任务筛选：下拉只列本页有档案的任务（与任务卡同一口径）。
-     * 任务卡链来的 ?task=<id> 会落到这个 select 上 —— 一套筛选体系，不另造。 */
-    const taskVals = TASKS.filter((t) => entries.some((e) => (e.tasks || []).includes(t.id)));
-    if (taskVals.length > 1) {
-      parts.push(`          <label class="af-f"><span class="af-h">${bi('任务', 'Task')}</span>
-            <select class="asel-task">${opt(taskVals.map((t) => ({ key: t.id, label: `${t.zh} / ${t.en}` })))}</select></label>`);
-    }
+    /* v8 T7：任务筛选（S43）退役——tasks.json 已删、tasks: 字段回灌即硬失败。 */
     /* S52 中文生态筛选：与 models 站同一套字段口径（origin/direct/filing）。
      * 下拉只列本页档案里真实出现的取值（B2 原则：取值唯一则不出控件）。 */
     const cnOpts = (dim, labels) => {
@@ -1417,19 +1441,15 @@ ${parts.join('\n')}
   }[splitBy] || [bi('全部对象','All objects'), bi(`按统一坐标系排列。点开任一对象可看到 ${axisNames.join(' / ')} 的完整记录、证据链接与未知项清单。`,
     `Everything on one coordinate system. Open any object to see its full record across ${axisNamesEn.join(' / ')}, with source links and a list of unknowns.`)];
 
-  // 完整度表按分区取对应赛道行；说明文字是解读，数字来自实时计算
-  const COVERAGE_NOTE = {
-    agents: bi('多为闭源产品，索引策略等细节官方不公开；CLI 类官方文档相对完整', 'Mostly closed-source, so details like indexing strategy are not disclosed; CLI entries have better official docs'),
-    harness: bi('编排框架的版本演进快、接口变化多，逐条核验成本最高 —— 也是全站最低的一档', 'Orchestration frameworks move fast and change APIs often, so these are the most expensive to verify — and the lowest fill rate on the site'),
-    tools: bi('官方 README 信息充分，绝大多数维度可直接引述', 'Official READMEs cover most of it, so most dimensions can be quoted directly'),
-  };
+  // 完整度表按大类取自己那一行；说明文字是解读（顶层 COVERAGE_NOTE），数字来自实时计算
   const covRows = (COVERAGE_ROWS[partKey] || []).filter((t) => COVERAGE_BY_TRACK[t]);
   const covTable = covRows.length ? `          <table class="src is-flush mb-3">
-            <thead><tr><th>${bi('形态','Form')}</th><th>${bi('已补齐','Filled')}</th><th>${bi('说明','Meaning')}</th></tr></thead>
+            <thead><tr><th>${bi('大类','Category')}</th><th>${bi('已补齐','Filled')}</th><th>${bi('说明','Meaning')}</th></tr></thead>
             <tbody>
 ${covRows.map(t => {
     const c = COVERAGE_BY_TRACK[t];
-    return `              <tr><td class="nw">${TRACK_LABEL_BI(t)}</td>
+    const lbl = CAT_LABEL[t] || [t, t];
+    return `              <tr><td class="nw">${bi(lbl[0], lbl[1])}</td>
                 <td class="nw"><strong>${c.done}/${c.total}</strong></td>
                 <td class="td-vendor">${COVERAGE_NOTE[t] || ''}</td></tr>`;
   }).join('\n')}
@@ -1454,10 +1474,6 @@ ${covRows.map(t => {
 ${partitionBar(partKey)}
 
     ${boundarySection(partKey)}
-
-    ${taskSection(partKey, site, entries)}
-
-    ${lightSection(partKey)}
 
     ${deepGuidesSection(partKey, GUIDES)}
 
@@ -1532,8 +1548,8 @@ ${axisKeys.map(([k, label], i) => `          <div class="axis-cell">
             <tbody>
 ${entries.map(e => `              <tr>
                 <td><a href="./${esc(e.id)}.html"><span class="td-mark" style="--card-accent:${esc(e.accent || site.accent)}">${esc(e.mark || e.name.slice(0, 2))}</span>${bi(esc(e.name), esc(e.nameEn || e.name))}</a></td>
-                <td class="td-vendor">${biLabel(FORM_LABEL[e.track], e.track) || biLabel(FAMILY_SHORT[e.family], e.family)}</td>
-                <td class="td-vendor">${esc(e.vendor)}</td>
+                <td class="td-vendor">${biLabel(FORM_LABEL[e.form], e.form) || biLabel(FAMILY_SHORT[e.family], e.family)}</td>
+                <td class="td-vendor">${vendorBi(e.vendor)}</td>
                 <td class="td-fit">${(e.fit || e.axes.fit)
                   ? bi(
                       plain(e.fit || e.axes.fit, 70),
@@ -1558,7 +1574,7 @@ ${entries.map(e => `              <tr>
             <li>${bi('<strong>「未知」是合法答案。</strong>','<strong>"Unknown" is a legitimate answer.</strong>')}查不到就写「未知」并说明为什么，不用推测填充。缺信息本身也是信息。</li>
             <li>${bi('来源链接、类型与核验日都在详情页里，可以逐条回去复核。', 'The source link, its kind and the checked date are all on the detail page, so you can walk any of them back and re-check.')}</li>
             <li>${bi('<strong>lifecycle 单独标注。</strong>核验日新不等于数据有效——上游归档后数据会失效，所以单独标 <code>active</code> / <code>maintenance</code> / <code>archived</code>。', '<strong>lifecycle is marked separately.</strong> A recent check date does not mean the data is still valid — it goes stale when upstream archives the repo, so <code>active</code> / <code>maintenance</code> / <code>archived</code> are tracked separately.')}</li>
-            <li>${bi('<strong>不同层不混排。</strong>成品 agent、自己搭的底座、给 agent 装的工具是三种角色，坐标系不同；硬合成一张 33 行的表只会制造假的可比性。', '<strong>Layers are not mixed.</strong> Finished agents, bases you assemble yourself, and tools you install for an agent are three different roles with different coordinate systems; forcing them into one 33-row table would manufacture false comparability.')}</li>
+            <li>${bi('<strong>不同族不混排。</strong>找现成的、自己搭的、接上与跑起来的是三种角色，坐标系不同；硬合成一张总表只会制造假的可比性。', '<strong>Families are not mixed.</strong> Ready-made tools, things you build yourself, and plug-in-and-run components are three different roles with different coordinate systems; forcing them into one master table would manufacture false comparability.')}</li>
           </ul>
         </div>
         <div class="panel">
@@ -1576,7 +1592,7 @@ ${entries.map(e => `              <tr>
           <h2>${bi('本站当前的完整度','Current completeness on this site')}</h2>
           <p class="t-sm mb-2">
             数据层用 <code>node scripts/audit-gaps.mjs</code> 可随时复核这个数字。
-            以下是最近一次核验的快照（核验日 2026-09-29）：
+            下表实时计算（本页档案最后核验日 ${latestVerified}）：
           </p>
 ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/${COVERAGE.total} 维度已补齐`, `Site-wide ${COVERAGE.done}/${COVERAGE.total} dimensions filled`)}（${Math.round(COVERAGE.done / COVERAGE.total * 100)}%）</strong></p>
           <p class="t-sm">
@@ -1588,13 +1604,13 @@ ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/$
         </div>
         <div class="panel">
           <h2>${bi('数据来源与复核方式','Sources and how to re-check them')}</h2>
-          <p>${bi('全部数据来自开源仓库', 'All data comes from the open-source repository')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">speculcom/ai-agent-guide</a>（CC BY 4.0）。</p>
-          <p>${bi('每个条目都是纯 Markdown + frontmatter，含 8 个维度、证据链', 'Every entry is plain Markdown plus frontmatter, carrying 8 dimensions and an evidence chain')}接、核验日与可信度标记。仓库内含：</p>
+          <p>${bi('全部数据来自开源仓库', 'All data comes from the open-source repository')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">speculcom/ai-handbook</a>（CC BY 4.0）。</p>
+          <p>${bi('每个条目都是纯 Markdown + frontmatter，含维度记录、证据链', 'Every entry is plain Markdown plus frontmatter, carrying dimension records and an evidence chain')}接、核验日与可信度标记。仓库内含：</p>
           <ul>
-            <li><code>METHODOLOGY.md</code> —— 方法论总纲与四条核心规则</li>
-            <li><code>axes/</code> —— 每个维度的定义与判定标准（含正反例）</li>
-            <li><code>SCHEMA.md</code> —— 数据格式规范与构建校验规则</li>
-            <li><code>tracks/*/tasks/_protocol.md</code> —— 实测协议(${bi('<strong>尚未执行</strong>', '<strong>not yet run</strong>')}${bi('，故本站暂无实测结论', ', so this site has no measured conclusions')})</li>
+            <li><code>tools/METHODOLOGY.md</code> —— 方法论总纲与核心规则</li>
+            <li><code>tools/axes/</code> —— 每个维度的定义与判定标准（含正反例）</li>
+            <li><code>tools/SCHEMA.md</code> —— 数据格式规范与构建校验规则</li>
+            <li><code>tools/protocols/&lt;大类&gt;/_protocol.md</code> —— 实测协议(${bi('<strong>尚未执行</strong>', '<strong>not yet run</strong>')}${bi('，故本站暂无实测结论', ', so this site has no measured conclusions')})</li>
           </ul>
           <p class="t-sm">${bi('发现错误或有新证据，欢迎提 Issue 或 PR——每条修正都会注明依据与影响范围。', 'Found an error or have new evidence? Open an issue or a PR — each correction notes its basis and blast radius.')}</p>
         </div>
@@ -1625,7 +1641,8 @@ ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/$
     body,
     jsonLd,
     canonical: `https://${site.domain}/${base}`,
-    assetPrefix: site.dir ? '../' : '',
+    // v8 T30：10 大类全部落一级子目录（/<cat>/），assetPrefix 恒为 '../'
+    assetPrefix: '../',
   });
 }
 
@@ -1668,12 +1685,21 @@ function metaDesc(s, max = 158) {
 }
 
 function renderDetail(site, partKey, e) {
+  CTX.partKey = partKey;   // v8 T30：正文里的 .md 链接按当前大类解析
   const base = pfx(site);
   const isTools = site.owns.includes('mcp');
   // 8 维度读 axes 块；MCP 特有 3 维度读 mcp 块
   const axisKeys = AXES.map(([k, label]) => ({ k, label, v: e.axes[k] }));
   if (isTools) {
     for (const [k, label] of MCP_AXES) axisKeys.push({ k, label, v: e.mcp[k] });
+  }
+  /* v8 T30：axes 块里的**可选附加维**也要渲染——`name_history`（改名史，wenxin 首例）
+   * 此前「采集了从不渲染」（本仓第 4 次同病）。structure-fidelity 按块数对账，
+   * 源侧数了它、产物侧没有 → 报「结构不保真」。判据反过来用：
+   * axes 里出现八维之外的键，就必须在这里有落点。 */
+  const EXTRA_AXES = { name_history: ['改名史', 'Name history'] };
+  for (const [k, label] of Object.entries(EXTRA_AXES)) {
+    if (e.axes[k]) axisKeys.push({ k, label: label[0], labelEn: label[1], v: e.axes[k] });
   }
   /* 一个维度单元格的正文渲染（2026-10-09 加）。
    * 为什么需要它：解析器修好之后（保留空行，见 parseFrontmatter 里 folded 的注释），
@@ -1682,9 +1708,9 @@ function renderDetail(site, partKey, e) {
    * 而这正是 _plan/文风规范-说人话.md 第 2 条要消灭的形态。
    * 这里用**最小**的块级规则（段落 / 无序清单 / 引用块 / 空行），不引入完整 markdown 解析。*/
 
-  const axesHtml = axisKeys.map(({ label, k, v }) => {
+  const axesHtml = axisKeys.map(({ label, labelEn, k, v }) => {
     return `        <div class="axis">
-          <dt>${bi(label, AXES_EN[k]?.name || label)}</dt>
+          <dt>${bi(label, labelEn || AXES_EN[k]?.name || label)}</dt>
           <dd>${blockMd(v)}</dd>
         </div>`;
   }).join('\n');
@@ -1725,9 +1751,18 @@ function renderDetail(site, partKey, e) {
   const relatedHtml = (() => {
     // 捕获完整的 `[名](href)` —— mdLinks() 要靠 href 才能经 rewriteInternal 转成站内 .html，
     // 只把显示名传进去会得到一段没有链接的纯文本（第一版就这么写错了）。
-    const items = (e.sec.related || '').split(/\r?\n/)
-      .map(l => /^\s*[-*]\s*(\[[^\]]+\]\([^)]+\.md\))\s*—\s*(.+)$/.exec(l))
-      .filter(Boolean);
+    // ⚠ v8 T7：嵌套子清单（`  - 补充行`）与续行必须并入上一项的 reason ——
+    //   原写法只认「带链接的行」，llamaindex/ag2 的对照补充整段被丢
+    //   （_render-parity 实测 47%/72%——真截断，不是守卫误报）。
+    const items = [];
+    for (const l of (e.sec.related || '').split(/\r?\n/)) {
+      const m = /^\s*[-*]\s*(\[[^\]]+\]\([^)]+\.md\))\s*—\s*(.+)$/.exec(l);
+      if (m) { items.push(m); continue; }
+      if (items.length && l.trim()) {
+        // 续行/嵌套行：并进上一项的理由（用空格连接，mdLinks 会渲染其中的标记）
+        items[items.length - 1][2] += ' ' + l.replace(/^\s*[-*]\s*/, '').trim();
+      }
+    }
 
     // 正文已链到的目标 id（正文里的 href 一定以 `<id>.md` 结尾）
     const linkedIds = new Set();
@@ -1767,18 +1802,13 @@ ${lis}
       </div>\n`;
   })();
 
-  // 面包屑：站 → 分区 → 本页。
-  // 分区链接写绝对路径（/harness/），因为本页可能在子目录里。
-  // 注意 agents 的 dir 是空串，拼接必须走 pfx() —— 直接写 `/${s.dir}/`
-  // 会拼出 `//`，而 `//` 在页面里是协议相对URL，会指到站外的 evil.com。
+  // 面包屑：站 → 大类 → 本页。
+  // 大类链接写绝对路径（/coding/），因为本页在二级目录里。
+  // v8 T30：10 大类都在 part-bar 里横向可达，面包屑只纵向摆「站 → 本大类 → 本页」三级——
+  // 把 10 个大类全塞进面包屑既挤又没信息量（当前页之外的 9 个不是这条路径的祖先）。
   const crumb = `      <nav class="crumbs" aria-label="面包屑">
         <a href="https://${SITE.domain}/">${esc(SITE.name)}</a>
-${SITE.partitions.map(k => {
-    const s = SITES[k];
-    return k === partKey
-      ? `        <span aria-current="page">${esc(s.short)}</span>`
-      : `        <a href="/${pfx(s)}">${esc(s.short)}</a>`;
-  }).join('\n')}
+        <span aria-current="page">${esc(site.short)}</span>
       </nav>`;
 
   const body = `    <div class="container detail">
@@ -1789,7 +1819,7 @@ ${crumb}
         <div class="mark" style="--card-accent:${esc(e.accent || site.accent)}" aria-hidden="true">${esc(e.mark || e.name.slice(0,2))}</div>
         <div>
           <h1>${bi(esc(e.name), esc(e.nameEn || e.name))}</h1>
-          <div class="vendor is-caps">${esc(e.vendor)}</div>
+          <div class="vendor is-caps">${vendorBi(e.vendor)}</div>
         </div>
       </div>
 
@@ -1878,25 +1908,23 @@ ${(() => {
 
       ${e.sec.unknowns && /^\s*[-*]/m.test(e.sec.unknowns) ? `      <div class="panel is-slim">
         <h2>${bi('未知项清单','Known unknowns')}</h2>
-        <ul>
-${(() => {
-          /* 列表项的**缩进续行**必须并入上一项。
-           * 原写法 `filter(l => /^\s*[-*]/.test(l))`只留列表行、丢掉所有续行 ——
-           * 像「未知项清单」这种「一句结论 + 缩进补充条件」的写法（本次实测 google-adk
-           * 命中：`- Gemini 单价…的实际费率`后面跟着缩进行
-           * `（GOOGLE_GENAI_USE_ENTERPRISE 的含义已核验，费率未核验）`），
-           * 那句补充就整段消失，**页面照常渲染、不报错**。
-           * 判据用「有没有 `- ` 前缀」而不是「有没有缩进」——
-           * 缩进续行与顶层列表项的缩进层级不一定一致（嵌套列表也会缩进）。*/
+        ${(() => {
+          /* v8 T7：清单前的**引导段与引用块**也要渲染。
+           * 原渲染器只出 <ul>——windsurf 的「以下各项本次未核验，confidence 因此是
+           * partial 而非 verified：」与 everything 的「A6.2 已核对…升回 verified」
+           * 整段消失（_render-parity 实测 59%/37%——这是真截断，不是守卫误报）。
+           * 做法：非列表行按原顺序合成前置块走 blockMd，列表行进 <ul>。 */
+          const lead = [];
           const items = [];
           for (const raw of e.sec.unknowns.split(/\r?\n/)) {
             const li = /^\s*[-*]\s+(.*)$/.exec(raw);
             if (li) { items.push(li[1]); continue; }
-            if (items.length && raw.trim()) items[items.length - 1] += ' ' + raw.trim();
+            if (items.length && raw.trim()) { items[items.length - 1] += ' ' + raw.trim(); continue; }
+            lead.push(raw);
           }
-          return items.map(t => `          <li>${mdLinks(t)}</li>`).join('\n');
+          const leadHtml = lead.join('\n').trim() ? blockMd(lead.join('\n')) : '';
+          return `${leadHtml}\n        <ul>\n${items.map(t => `          <li>${mdLinks(t)}</li>`).join('\n')}\n        </ul>`;
         })()}
-        </ul>
       </div>\n` : ''}
 
       <div class="panel">
@@ -1923,7 +1951,7 @@ ${srcRows}
       ${relatedHtml}
 
       <p class="fine mt-6">
-        ${bi('本页由', 'This page is generated from the')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">ai-agent-guide</a> ${bi('数据层生成（CC BY 4.0）。', 'data layer (CC BY 4.0).')}
+        ${bi('本页由', 'This page is generated from the')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">ai-handbook</a> ${bi('数据层生成（CC BY 4.0）。', 'data layer (CC BY 4.0).')}
         方法论与坐标系定义见仓库内 <code>METHODOLOGY.md</code>。
       </p>
     </div>`;
@@ -1948,21 +1976,205 @@ ${srcRows}
     body,
     jsonLd,
     canonical: `https://${site.domain}/${base}${e.id}.html`,
-    assetPrefix: site.dir ? '../' : '',
+    // v8 T30：详情页全部落一级子目录（/<cat>/<id>.html），assetPrefix 恒为 '../'
+    assetPrefix: '../',
   });
 }
 
+/* ── v8 T30：站点首页（三族 10 卡）──────────────────────────────────────
+ * 首页不是「第 11 个索引页」，是**目录页**：读者先选族（找现成的 / 自己搭 /
+ * 接上与跑起来），再进大类。三族表照 categories.md「三族分组」一节——
+ * 那是设计真相源，这里只是投影（R4：卡上的对象数/verified 数全部从 loaded 算）。
+ * ⚠ 十张大类卡必须进 <main>：cross-site-links 的孤岛判定只算正文入链，
+ *   大类页若只活在 part-bar（导航区）里，10 页全算孤岛 → 孤岛率爆线。 */
+const FAMILIES = [
+  { key: 'ready', name: '找现成的', nameEn: 'Ready-made',
+    ask: '「有没有能直接用的？」', askEn: '"Is there something I can use directly?"',
+    cats: ['coding', 'chat', 'image', 'video', 'audio', 'research'] },
+  { key: 'build', name: '自己搭', nameEn: 'Build your own',
+    ask: '「我想自己搭一个？」', askEn: '"I want to build one myself?"',
+    cats: ['automation', 'framework'] },
+  { key: 'plug', name: '接上与跑起来', nameEn: 'Plug in and run',
+    ask: '「怎么给它接工具 / 在自己机器上跑模型？」', askEn: '"How do I hook tools into an agent, or run models on my own machine?"',
+    cats: ['mcp', 'runner'] },
+];
+/* 大类卡的 mark 字符（单字比两个拉丁字母辨识度高；mcp 保留协议名）。 */
+const CAT_MARK = { coding: '编', chat: '话', image: '图', video: '视', audio: '音', research: '搜', automation: '流', framework: '框', mcp: 'MCP', runner: '跑' };
+
+function renderHome(loaded) {
+  CTX.partKey = 'coding';   // 首页正文没有 .md 链接，仅为一致性设
+  const byKey = Object.fromEntries(loaded.map((x) => [x.partKey, x]));
+  const total = loaded.reduce((n, x) => n + x.entries.length, 0);
+  const verified = loaded.reduce((n, x) => n + x.entries.filter((e) => e.confidence === 'verified').length, 0);
+  const latestVerified = loaded
+    .flatMap((x) => x.entries.map((e) => e.lastVerified).filter(Boolean))
+    .sort().pop() || '未标注';
+
+  const catCard = (k) => {
+    const s = SITES[k];
+    const { entries } = byKey[k];
+    const v = entries.filter((e) => e.confidence === 'verified').length;
+    return `          <article class="card" style="--card-accent:${esc(s.accent)}" data-cat="${k}">
+            <div class="card-top">
+              <div class="mark" aria-hidden="true">${esc(CAT_MARK[k] || s.short.slice(0, 2))}</div>
+              <div class="card-id">
+                <h3><a href="/${s.dir}/">${bi(esc(s.name), esc(s.nameEn))}</a></h3>
+                <!-- tagline 本身就是 bi() 双节点（源码常量，无注入风险），直接透传 -->
+                <div class="vendor">${s.tagline}</div>
+              </div>
+            </div>
+            <p class="tagline">${bi(`${entries.length} 份档案 · ${v} 份已完整核验`, `${entries.length} entries · ${v} fully verified`)}</p>
+            <div class="card-foot">
+              <span class="t-state ${v === entries.length ? 'is-ok' : 'is-warn'}">${bi('核验快照', 'Snapshot')}</span>
+              <a class="more" href="/${s.dir}/" aria-label="${esc(s.name)}">${bi('进入 →', 'Browse →')}</a>
+            </div>
+          </article>`;
+  };
+
+  const famBlocks = FAMILIES.map((f) => {
+    const n = f.cats.reduce((s, k) => s + byKey[k].entries.length, 0);
+    return `        <div class="fam-block" data-family="${f.key}">
+          <div class="fam-head">
+            <h3>${bi(f.name, f.nameEn)} <span class="fam-n">${n}</span></h3>
+            <p>${bi(f.ask, f.askEn)}</p>
+          </div>
+          <div class="grid">
+${f.cats.map(catCard).join('\n')}
+          </div>
+        </div>`;
+  }).join('\n');
+
+  const body = `    <section class="hero">
+      <div class="container">
+        <p class="kicker">${bi(esc(SITE.name), esc(SITE.nameEn))}</p>
+        <h1 class="t-hero">${bi(esc(SITE.name), esc(SITE.nameEn))}</h1>
+        <p class="lede">${SITE.desc}</p>
+        <div class="hero-meta">
+          <span><b>${total}</b> ${bi('个对象','objects')}</span>
+          <span><b>${SITE.partitions.length}</b> ${bi('个大类','categories')}</span>
+          <span><b>${verified}</b> ${bi('个已完整核验','fully verified')}</span>
+          <span>${bi('最后核验','Last checked')} <b>${latestVerified}</b></span>
+        </div>
+      </div>
+    </section>
+
+${partitionBar('')}
+
+    ${boundarySection('home')}
+
+    <section class="section">
+      <div class="container">
+        <h2>${bi('先说你在找什么','Start with what you are looking for')}</h2>
+        <p class="section-desc">${bi('三族 = 三种读者的问题。族不是目录层——目录是 10 个大类；族只是首页的摆法，让你先对上自己的那一问。', 'Three families = three reader questions. The families are not a directory layer — the directories are the 10 categories; they are just how the home page is arranged, so you can find your question first.')}</p>
+${famBlocks}
+      </div>
+    </section>
+
+    <section class="section status-band">
+      <div class="container">
+        <div class="status-inner">
+          <div class="status-mark" aria-hidden="true">!</div>
+          <div>
+            <h2>${bi('本站是「核验快照」，不是实测榜单', 'This site is a verification snapshot, not a benchmark chart')}</h2>
+            <p>${bi('每份档案的每个字段都能回到官方一手源核对，附来源类型与核验日期。但<strong>我们还没有在同一批任务上实测过这些工具</strong>——所以本站给的是<strong>能力边界与证据</strong>，不给总分排名。', 'Every field of every entry traces back to an official first-hand source, with source kind and checked date. But <strong>we have not yet run these tools on the same batch of tasks</strong> — so this site gives <strong>capability boundaries and evidence</strong>, not an overall ranking.')}</p>
+            <p class="t-sm">${bi('「未知」是合法答案——查不到就写未知并说明原因，不用推测填充。', '"Unknown" is a legitimate answer — if it cannot be found, we say so and explain why, instead of filling the gap with guesses.')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>${bi('八个维度，每格都能回溯', 'Eight dimensions, every cell traceable')}</h2>
+        <p class="section-desc">${bi('档案都在同一坐标系下被描述（MCP 大类另有 3 个特有维度）。点开任一对象，每一格下面都有官方源链接与核验日期——不认同可以自己回去查。', 'Entries are described on one coordinate system (MCP servers carry 3 additional dimensions). Open any object and every cell carries an official source link and a checked date — disagree and verify it yourself.')}</p>
+        <div class="t-mesh axis-mesh">
+${AXES.map(([k, label], i) => `          <div class="axis-cell">
+            <span class="t-index">${String(i + 1).padStart(2, '0')}</span>
+            <h3 class="axis-name">${bi(label, AXES_EN[k]?.name || label)}</h3>
+            <p class="axis-ask">${bi(AXIS_DESC[k] || '', AXIS_DESC_EN[k] || AXIS_DESC[k] || '')}</p>
+          </div>`).join('\n')}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel">
+          <h2>${bi('数据来源与复核方式','Sources and how to re-check them')}</h2>
+          <p>${bi('全部数据来自开源仓库', 'All data comes from the open-source repository')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">speculcom/ai-handbook</a>（CC BY 4.0）。</p>
+          <p>${bi('每个条目都是纯 Markdown + frontmatter，含维度记录、证据链、核验日与可信度标记。仓库内含 METHODOLOGY.md（方法论）、axes/（维度定义）、SCHEMA.md（数据规范）。', 'Every entry is plain Markdown plus frontmatter carrying dimension records, an evidence chain, checked dates and a confidence mark. The repository includes METHODOLOGY.md, axes/ (dimension definitions) and SCHEMA.md (data format).')}</p>
+          <p class="t-sm">${bi('发现错误或有新证据，欢迎提 Issue 或 PR——每条修正都会注明依据与影响范围。', 'Found an error or have new evidence? Open an issue or a PR — each correction notes its basis and blast radius.')}</p>
+        </div>
+      </div>
+    </section>`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    // SITE.desc 是 bi() 双节点——JSON-LD/meta 只取中文侧（plainTagline），
+    // 直接 plain() 会把英文 span 的 HTML 标签也卷进来。
+    description: plain(plainTagline(SITE.desc), 300),
+    url: `https://${SITE.domain}/`,
+    inLanguage: ['zh-CN', 'en'],
+    publisher: { '@type': 'Organization', name: 'Specul', url: 'https://specul.com/' },
+  };
+
+  return buildShell({
+    current: 'agent',
+    repo: SITE.repo,
+    title: `${SITE.name} — ${plainTagline(SITE.tagline)} | 投机取巧`,
+    desc: metaDesc(plainTagline(SITE.desc)),
+    body,
+    jsonLd,
+    canonical: `https://${SITE.domain}/`,
+    assetPrefix: '',
+  });
+}
+
+/* ── v8 T30：旧 URL 跳转桩 ──────────────────────────────────────────────
+ * D1 定案「目录按大类重排」= URL 全变。旧 URL 曾从 learn 深链、nav 条目、
+ * 搜索引擎索引里进来（learn 的 terms.all.js 里有 13 条 tools.specul.com 深链），
+ * 直接 404 等于把老读者的入口拆掉。桩的口径：
+ *   · meta refresh（0 秒）+ 一个可见的 <a>（无脚本环境也能走）；
+ *   · noindex——桩不是内容页，不该被索引，也不进 sitemap；
+ *   · canonical 指向新页——把旧 URL 攒下的权重让给新页；
+ *   · 不进 sitemap（sitemap 只收真页）。
+ * ⚠ seo-basics 会扫全部 .html——桩没有 h1/JSON-LD，会被判违规。
+ *   探针按「noindex 页不参与 SEO 断言」跳过（语义正确：搜索引擎根本不索引它）。 */
+function renderStub(toPath, titleZh) {
+  const href = toPath;
+  // canonical 写**绝对 URL**（相对 canonical 各家搜索引擎处理不一，
+  // 而这里的目的就是把权重让给新页——写全才稳）。
+  const canon = `https://${SITE.domain}${href}`;
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=${href}" />
+  <link rel="canonical" href="${canon}" />
+  <meta name="robots" content="noindex" />
+  <title>${esc(titleZh)} — 页面已移动 | 投机取巧</title>
+  <meta name="description" content="此页面已移动到站内新位置，正在自动跳转；若没有自动跳转，请点击页面上的链接。" />
+</head>
+<body>
+  <p>${esc(titleZh)}${'——此页面已移动到 '}<a href="${href}">${esc(href)}</a>。</p>
+</body>
+</html>
+`;
+}
+
 // ── 主流程 ───────────────────────────────────────────────────────────────
-/* 输出布局（一站三分区）：
- *   OUT/                ← 站点根 = tools.specul.com，CNAME / robots / sitemap 都在这里
- *     index.html        ← agents 分区（17 份档案的首页 + 详情）
- *     brand.css brand.js site.css
- *     harness/index.html + 10 份详情
- *     tools/index.html   + 9 份详情
+/* 输出布局（v8 T30：一站十分区 = 10 大类）：
+ *   OUT/                ← 站点根 = tools.specul.com
+ *     index.html        ← 首页（三族 10 卡，不是任何大类的索引）
+ *     <大类>/index.html + <大类>/<id>.html   ← 10 个大类各一目录（目录名=大类名）
+ *     mcp/guides/<id>.html                   ← 深水指南（落 mcp 大类下）
+ *     旧 URL 跳转桩：根级 <id>.html、harness/、tools/、tools/guides/
+ *       （meta refresh + noindex，不进 sitemap）
  *
- * 为什么 agents 分区落在根而不是 /agents/：
- *   它是本站默认落点（导航「Agent」指的就是它），也是三者里唯一
- *   不该让访客多点一次的。其余两个分区作为子目录，天然是「次级内容」。
+ * 为什么大类不再有一个落根：v7 前 coding 落根是「三分区时代默认落点」的惯性；
+ * 10 大类里任何一家落根都偏袒，且首页（目录页）才是根的正确住户。
  *
  * **CNAME 只写一次、只写根域名**（曾差点写成 tools.specul.com/harness/）：
  *   Pages 的自定义域名绑定只接受域名，带路径会让绑定失败。
@@ -2038,24 +2250,45 @@ fs.writeFileSync(path.join(OUT, 'CNAME'), SITE.domain + '\n', 'utf8');
 //  而线上还能访问 —— 因为服务的是上一次成功的旧产物）。
 fs.writeFileSync(path.join(OUT, '.nojekyll'), '', 'utf8');
 
+/* ── v8 T30：先清旧产物结构 ────────────────────────────────────────────
+ * 旧结构 = 根级 .html（coding 落根）+ harness/ + tools/（含 tools/guides/）。
+ * 新结构 = 10 个大类目录 + 首页 + 旧 URL 桩。桩恰好落在旧路径上，
+ * 所以「清旧」与「写桩」是同一批位置先清后写——不先清会留孤儿页
+ * （旧结构里有、新映射里没有的 id 页会永远留在产物里）。
+ * ⚠ 只清 .html 与旧 README.md，不动 brand 壳 / CNAME / .nojekyll。 */
+{
+  const rmHtml = (dir) => {
+    if (!fs.existsSync(dir)) return;
+    for (const f of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, f.name);
+      if (f.isDirectory()) rmHtml(p);
+      else if (f.name.endsWith('.html')) fs.unlinkSync(p);
+    }
+  };
+  rmHtml(OUT);   // 全树 .html（含根、harness/、tools/、tools/guides/）
+  for (const f of ['harness/README.md', 'tools/README.md']) {
+    const p = path.join(OUT, f);
+    if (fs.existsSync(p)) fs.unlinkSync(p);
+  }
+}
+
+/* ── 10 张大类页 + 详情页 + guides ───────────────────────────────────── */
 for (const { partKey, site, entries } of loaded) {
-  const dir = site.dir ? path.join(OUT, site.dir) : OUT;
+  const dir = path.join(OUT, site.dir);
   fs.mkdirSync(dir, { recursive: true });
-  // 清旧页面（只清 .html，不动 brand 壳与 .nojekyll）
-  for (const f of fs.readdirSync(dir).filter(x => x.endsWith('.html'))) fs.unlinkSync(path.join(dir, f));
 
   const base = pfx(site);
   fs.writeFileSync(path.join(dir, 'index.html'), renderIndex(site, partKey, entries), 'utf8');
-  allPages.push({ loc: `https://${SITE.domain}/${base}`, pri: partKey === 'agents' ? '1.0' : '0.9' });
+  allPages.push({ loc: `https://${SITE.domain}/${base}`, pri: '0.9' });
 
   for (const e of entries) {
     fs.writeFileSync(path.join(dir, `${e.id}.html`), renderDetail(site, partKey, e), 'utf8');
     allPages.push({ loc: `https://${SITE.domain}/${base}${e.id}.html`, pri: '0.7' });
   }
 
-  /* S48 深水指南详情页：只落 tools 分区（guides 的落点）。
+  /* S48 深水指南详情页：落 mcp 大类（v8 T30：/mcp/guides/<id>.html）。
    * 先清旧目录（guides 清空时不留孤儿页），再按需写。 */
-  if (partKey === 'tools') {
+  if (partKey === 'mcp') {
     const gdir = path.join(dir, 'guides');
     if (fs.existsSync(gdir)) {
       for (const f of fs.readdirSync(gdir).filter((x) => x.endsWith('.html'))) fs.unlinkSync(path.join(gdir, f));
@@ -2064,27 +2297,27 @@ for (const { partKey, site, entries } of loaded) {
       fs.mkdirSync(gdir, { recursive: true });
       for (const g of GUIDES) {
         fs.writeFileSync(path.join(gdir, `${g.id}.html`), renderGuidePage(g, site), 'utf8');
-        allPages.push({ loc: `https://${SITE.domain}/tools/guides/${g.id}.html`, pri: '0.7' });
+        allPages.push({ loc: `https://${SITE.domain}/mcp/guides/${g.id}.html`, pri: '0.7' });
       }
     }
   }
 
-  // 仓库 README（GitHub 落地页，说明这个分区是什么、数据从哪来）
+  // 仓库 README（GitHub 落地页，说明这个大类是什么、数据从哪来）
   const isTools = site.owns.includes('mcp');
   const axisNames = (isTools ? [...AXES, ...MCP_AXES] : AXES).map(x => x[1]);
   const verifiedCount = entries.filter(e => e.confidence === 'verified').length;
   fs.writeFileSync(path.join(dir, 'README.md'),
 `# ${SITE.name} · ${site.name}
 
-> ${site.tagline}
+> ${plainTagline(site.tagline)}
 
 **${SITE.domain}/${base}** · 独立信息项目（非厂商官方榜单）
 
-${site.desc}
+${plainTagline(site.desc)}
 
-本站共 ${SITE.partitions.length} 个分区（\`${SITE.partitions.join('` / `')}\`），本 README 描述「${site.short}」这一个。
+本站共 ${SITE.partitions.length} 个大类（\`${SITE.partitions.join('` / `')}\`），本 README 描述「${site.name}」这一个。
 
-## 这个分区提供什么
+## 这个大类提供什么
 
 - **${entries.length} 个对象**，按固定 ${axisNames.length} 个维度记录${isTools ? '（8 个通用维度 + 3 个 MCP 特有维度）' : ''}
 - 每个维度都能回溯到官方一手源，附来源类型与核验日期
@@ -2095,7 +2328,7 @@ ${site.desc}
 
 | 对象 | 形态 | 厂商 | 可信度 | 核验日 |
 |---|---|---|---|---|
-${entries.map(e => `| [${e.name}](./${e.id}.html) | ${FORM_LABEL_MD(e.track, e.family)} | ${esc(e.vendor)} | ${e.confidence} | ${e.lastVerified} |`).join('\n')}
+${entries.map(e => `| [${e.name}](./${e.id}.html) | ${FORM_LABEL_MD(e.form, e.family)} | ${esc(e.vendor)} | ${e.confidence} | ${e.lastVerified} |`).join('\n')}
 
 ## 可信度标记
 
@@ -2109,19 +2342,19 @@ ${entries.map(e => `| [${e.name}](./${e.id}.html) | ${FORM_LABEL_MD(e.track, e.f
 
 ## 数据来源
 
-全部数据来自 **[speculcom/ai-agent-guide](https://github.com/speculcom/ai-agent-guide)**（CC BY 4.0），
-由 \`sites/build.mjs\` 从该仓库的 Markdown + frontmatter 构建，本仓库只存产物。
+全部数据来自 **[speculcom/ai-handbook](https://github.com/speculcom/ai-handbook)**（CC BY 4.0），
+由 \`tools/sites/build.mjs\` 从该仓库的 Markdown + frontmatter 构建，本仓库只存产物。
 
 发现错误或有新证据，欢迎去数据仓库提 Issue 或 PR。
 
-## 站内分区
+## 站内大类
 
-| 分区 | 主题 | 对象数 |
+| 大类 | 主题 | 对象数 |
 |---|---|---|
 ${SITE.partitions.map(k => {
     const s = SITES[k];
     const n = k === partKey ? entries.length : (loaded.find(x => x.partKey === k)?.entries.length ?? '—');
-    return `| [${s.short}](/${s.dir ? s.dir + '/' : ''}) | ${s.tagline} | ${n} |`;
+    return `| [${s.name}](/${s.dir}/) | ${plainTagline(s.tagline)} | ${n} |`;
   }).join('\n')}
 
 ---
@@ -2130,10 +2363,49 @@ ${SITE.partitions.map(k => {
 `, 'utf8');
 
   const v = verifiedCount;
-  summary.push(`[${partKey}] ${entries.length} 个对象（${v} verified）→ ${site.dir ? site.dir + '/' : '(站点根)'}`);
+  summary.push(`[${partKey}] ${entries.length} 个对象（${v} verified）→ ${site.dir}/`);
 }
 
-// sitemap：一个站一份，覆盖三个分区（原先是每站一份）
+/* ── 站点首页（三族 10 卡）：站点根 index.html ───────────────────────── */
+fs.writeFileSync(path.join(OUT, 'index.html'), renderHome(loaded), 'utf8');
+allPages.unshift({ loc: `https://${SITE.domain}/`, pri: '1.0' });
+
+/* ── v8 T30：旧 URL 跳转桩 ─────────────────────────────────────────────
+ * 旧落点（v7 及以前）：coding 落根、framework 落 harness/、mcp 落 tools/。
+ * 桩的映射从**现行数据**机器生成（BY_ID 里有每个 id 的大类归属）——
+ * 不手写清单，手写会在档案增删时漂移。
+ * learn 深链清单（terms.all.js 里 13 条）全部落在桩覆盖范围内：
+ *   /tools/{context7,filesystem,fetch,memory}.html → /mcp/…
+ *   /harness/{openhands,llamaindex,crewai,langgraph,google-adk,openai-agents-sdk,hermes-agent}.html → /framework/…
+ *   /opencode.html → /coding/opencode.html；/tools/index.html → /mcp/
+ * ⚠ 桩不进 allPages（sitemap 只收真页）。 */
+let stubCount = 0;
+{
+  const OLD_DIR_OF = { coding: '', framework: 'harness', mcp: 'tools' };
+  const writeStub = (relPath, toPath, title) => {
+    const abs = path.join(OUT, relPath);
+    fs.mkdirSync(path.dirname(abs), { recursive: true });
+    fs.writeFileSync(abs, renderStub(toPath, title), 'utf8');
+    stubCount++;
+  };
+  for (const [id, { entry, partKey }] of BY_ID) {
+    const oldDir = OLD_DIR_OF[partKey];
+    if (oldDir === undefined) continue;   // 新大类（chat/image/…）没有旧页，无需桩
+    const s = SITES[partKey];
+    writeStub(
+      oldDir ? `${oldDir}/${id}.html` : `${id}.html`,
+      `/${s.dir}/${id}.html`,
+      entry.name,
+    );
+  }
+  // 旧索引页 → 新大类页（根 index.html 不桩——它现在是首页，同一 URL 换内容）
+  writeStub('harness/index.html', '/framework/', '框架与运行时（旧 harness 索引）');
+  writeStub('tools/index.html', '/mcp/', 'MCP 工具（旧 tools 索引）');
+  // 旧 guides 页 → /mcp/guides/（guides 落点随大类改名）
+  for (const g of GUIDES) writeStub(`tools/guides/${g.id}.html`, `/mcp/guides/${g.id}.html`, g.title);
+}
+
+// sitemap：一个站一份——首页 + 10 大类索引 + 全部详情 + guides（桩不进）
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -2149,7 +2421,7 @@ Allow: /
 Sitemap: https://${SITE.domain}/sitemap.xml
 `, 'utf8');
 
-// 站点根 README：介绍整站三分区
+// 站点根 README：介绍整站 10 大类
 fs.writeFileSync(path.join(OUT, 'README.md'),
 `# ${SITE.name}
 
@@ -2157,31 +2429,31 @@ fs.writeFileSync(path.join(OUT, 'README.md'),
 
 **${SITE.domain}** · 独立信息项目（非厂商官方榜单）
 
-${SITE.desc}
+${plainTagline(SITE.desc)}
 
-## 三个分区，坐标系不同
+## 10 个大类，归三族
 
-| 分区 | 主题 | 对象数 | 主要坐标系 |
+| 大类 | 主题 | 对象数 | 主要坐标系 |
 |---|---|---|---|
 ${loaded.map(({ partKey, site, entries }) => {
     const isT = site.owns.includes('mcp');
-    return `| [${site.short}](${partKey === 'agents' ? './' : './' + site.dir + '/'}) | ${site.tagline} | ${entries.length} | ${isT ? '8 通用 + 3 MCP 特有' : '8 通用维度'}${site.splitBy === 'form' ? '，按形态分组' : site.splitBy === 'family' ? '，按抽象层分组' : ''} |`;
+    return `| [${site.name}](./${site.dir}/) | ${plainTagline(site.tagline)} | ${entries.length} | ${isT ? '8 通用 + 3 MCP 特有' : '8 通用维度'}${site.splitBy === 'form' ? '，按形态分组' : site.splitBy === 'family' ? '，按抽象层分组' : ''} |`;
   }).join('\n')}
 
-**为什么不给一张 33 行的总表**：三层的坐标系不同，混排会制造假的可比性。
-成品 agent 与自己搭的底座都能进同一个八维坐标系，但它们解决的不是同一个问题；
+**为什么不把所有对象塞进一张总表**：三族的坐标系不同，混排会制造假的可比性。
+成品工具与自己搭的底座都能进同一个八维坐标系，但它们解决的不是同一个问题；
 MCP 工具层用的是另外三个维度（传输 / 认证 / 权限范围），八维套不上去。
 
 ## 方法
 
 - **不给总分排名**——缺少跨工具的统一实测，排名会误导
 - **「未知」是合法答案**——查不到就写未知并说明原因，不用推测填充
-- **不同层不混排**——三条铁律都写在数据仓 \`METHODOLOGY.md\` 里
+- **不同族不混排**——铁律都写在数据仓 \`METHODOLOGY.md\` 里
 
 ## 数据来源
 
-全部数据来自 **[speculcom/ai-agent-guide](https://github.com/speculcom/ai-agent-guide)**（CC BY 4.0），
-由 \`sites/build.mjs\` 构建，本仓库只存产物。
+全部数据来自 **[speculcom/ai-handbook](https://github.com/speculcom/ai-handbook)**（CC BY 4.0），
+由 \`tools/sites/build.mjs\` 构建，本仓库只存产物。
 
 ---
 
@@ -2189,4 +2461,4 @@ MCP 工具层用的是另外三个维度（传输 / 认证 / 权限范围），�
 `, 'utf8');
 
 summary.forEach(s => console.log(s));
-console.log(`\n共 ${allPages.length} 个页面 → ${path.basename(OUT)}/（含 brand.css / brand.js / site.css）`);
+console.log(`\n共 ${allPages.length} 个真页 + ${stubCount} 个旧 URL 跳转桩 → ${path.basename(OUT)}/（含 brand.css / brand.js / site.css）`);

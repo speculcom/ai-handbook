@@ -9,8 +9,8 @@ const R = (p) => path.join(ROOT, p);
 const AXES = ['model_access','runtime','local_files','background','tools','context','permissions','fit'];
 const MCP_AXES = ['transport','auth','scope'];
 
-// v4 赛道目录（此前写死 ['ide','cli','mcp']，v4 合成 agent 分区后那三个目录已删）
-const TRACKS = ['agents', 'harness', 'tools'];
+// v8 T7：三分区退役——TRACKS = 10 大类目录名（与 completeness.mjs 同一口径）
+const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
 
 const files = [];
 for (const t of TRACKS) {
@@ -68,7 +68,7 @@ for (const { track, name } of files) {
     dimLens[d] = chunk.replace(/\s+/g, '').length;
   }
 
-  const allDims = track === 'tools' ? MCP_AXES : AXES;  // v4: tools 分区用 MCP 三维（块名仍是 mcp:）
+  const allDims = track === 'mcp' ? MCP_AXES : AXES;  // v8 T7：MCP 大类用 MCP 三维（块名仍是 mcp:）
   const missing = allDims.filter(d => dimLens[d] === undefined);
   const minLens = Math.min(...Object.values(dimLens).filter(v => v > 0));
   

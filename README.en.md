@@ -48,10 +48,10 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 | terms · Purpose (purposeTag) | learn 80 · apply 49 · guard 36 · judge 35 |
 | terms · Source entries (refs) | 423 |
 | terms · English coverage | 200 / 200 |
-| tools · Total profiles | 52 |
-| tools · By division | agents 27 · harness 15 · tools 10 |
-| tools · By form (track) | harness 15 · cli 12 · ide 11 · mcp 10 · cloud 4 |
-| tools · Comparison axes | 8 (tools division adds 3 more: transport / auth / scope) |
+| tools · Total profiles | 164 |
+| tools · By category | coding 32 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
+| tools · By form | web 69 · mcp 24 · harness 22 · cli 19 · ide 14 · cloud 10 · local-app 6 |
+| tools · Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 | models · Series | 11 |
 | models · Model repos (members) | 16 |
 | models · Quant variants | 132 |
@@ -65,3 +65,4 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 ## Licence
 
 Own content CC BY 4.0; the data layer quotes third-party originals entry by entry (model licenses are governed by the original text on each release page).
+**Product names and trademarks belong to their respective owners; this repo and all its sites use them for identification and commentary only** (the L3 notice, same wording as the site-wide footer).

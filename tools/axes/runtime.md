@@ -107,7 +107,7 @@ runtime: >-
 |---|---|
 | IDE | 本地 vs 云索引 |
 | CLI | 全部本地，但要区分 SDK 模式 |
-| MCP | **传输方式决定运行位置**，见 [mcp/taxonomy/transport.md](../tracks/tools/taxonomy/transport.md) |
+| MCP | **传输方式决定运行位置**，见 [mcp/taxonomy/transport.md](../tracks/mcp/taxonomy/transport.md) |
 
 ---
 

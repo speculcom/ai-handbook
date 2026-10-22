@@ -376,23 +376,29 @@ export const PRIMARY_QUANTIZERS = new Set([
 //
 // evidence 字段是**核对用的关键词**（必须在对方条目的正文里能找到），不是给人看的文案。
 // ============================================================================
-// ⚠ **URL 路径因分区而异，不能一律拼到根**：
-//   agents 分区的详情页在站点根（/crush.html），harness / tools 分区在各自子目录下
-//   （/harness/pydantic-ai.html）。第一版一律写成 `tools.specul.com/<id>.html`，
-//   于是 pydantic-ai / smolagents 两个链接**上线会 404** —— 被 `site-check` 的同域死链核查抓到。
-//   `part` 字段就是为此存在的，且 `_audit/companion-check.mjs` 会核对产物文件真的在那个路径。
+// ⚠ **URL 路径因大类而异，不能一律拼到根**：
+//   v8 T7 起 `part` = 内容仓的**大类目录**（10 大类制：coding / framework / …），
+//   `_audit/companion-check.mjs` 拿它核对内容仓里文件真的在那个目录。
+//   但**产物 URL 段**是另一回事：T30（站点层重写）之前 tools 站产物还是旧结构
+//   （agents 在根、harness 在子目录），所以 URL 段走 `COMPANION_URL_PREFIX` 映射，
+//   与内容仓目录解耦——T30 换产物结构时只改这张映射表，不动清单本体。
+//   （历史教训：第一版一律拼到根，pydantic-ai / smolagents 上线即 404，被 site-check 抓到。）
 export const COMPANION = [
-  { id: 'crush', part: 'agents', label: { zh: 'Crush', en: 'Crush' }, evidence: /llamacpp|lmstudio|ollama/i,
+  { id: 'crush', part: 'coding', label: { zh: 'Crush', en: 'Crush' }, evidence: /llamacpp|lmstudio|ollama/i,
     why: { zh: '官方支持 llamacpp / lmstudio / ollama —— 直接吃掉本地 GGUF', en: 'Officially supports llamacpp / lmstudio / ollama — it takes local GGUF directly' } },
-  { id: 'goose', part: 'agents', label: { zh: 'Goose', en: 'Goose' }, evidence: /Ollama|LM Studio|Ramalama/i,
+  { id: 'goose', part: 'coding', label: { zh: 'Goose', en: 'Goose' }, evidence: /Ollama|LM Studio|Ramalama/i,
     why: { zh: '可完全走本地模型（Ollama / LM Studio / Ramalama），无 API 费用', en: 'Can run entirely on local models (Ollama / LM Studio / Ramalama), no API bill' } },
-  { id: 'pydantic-ai', part: 'harness', label: { zh: 'Pydantic AI', en: 'Pydantic AI' }, evidence: /Ollama|vLLM|LiteLLM/i,
+  { id: 'pydantic-ai', part: 'framework', label: { zh: 'Pydantic AI', en: 'Pydantic AI' }, evidence: /Ollama|vLLM|LiteLLM/i,
     why: { zh: '官方文档给了 Ollama / vLLM / LiteLLM 三种自托管接法', en: 'Docs cover three self-hosted routes: Ollama / vLLM / LiteLLM' } },
-  { id: 'smolagents', part: 'harness', label: { zh: 'smolagents', en: 'smolagents' }, evidence: /Ollama|vLLM|mlx-lm/i,
+  { id: 'smolagents', part: 'framework', label: { zh: 'smolagents', en: 'smolagents' }, evidence: /Ollama|vLLM|mlx-lm/i,
     why: { zh: '本地推理支持 Transformers / mlx-lm / Ollama / vLLM', en: 'Local inference via Transformers / mlx-lm / Ollama / vLLM' } },
-  { id: 'cline', part: 'agents', label: { zh: 'Cline', en: 'Cline' }, evidence: /Ollama/i,
+  { id: 'cline', part: 'coding', label: { zh: 'Cline', en: 'Cline' }, evidence: /Ollama/i,
     why: { zh: '编辑器内直接接 Ollama 本地模型', en: 'Hooks up to Ollama local models from inside the editor' } },
-  { id: 'aider-cli', part: 'agents', label: { zh: 'Aider', en: 'Aider' }, evidence: /本地 ?LLM|local LLM/i,
+  { id: 'aider-cli', part: 'coding', label: { zh: 'Aider', en: 'Aider' }, evidence: /本地 ?LLM|local LLM/i,
     why: { zh: '命令行里可切本地 LLM，不绑厂商', en: 'Switches to a local LLM from the terminal, no vendor lock-in' } },
 ];
+
+// 大类 → tools 站产物 URL 段。v8 T30（2026-10-22）：站点换 10 大类同名目录，
+// 前缀 = 大类名 + '/'（旧落点 coding 在根、framework 在 harness/ 已退役，旧 URL 走跳转桩）。
+export const COMPANION_URL_PREFIX = { coding: 'coding/', framework: 'framework/' };
 

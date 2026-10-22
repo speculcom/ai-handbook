@@ -14,7 +14,8 @@ const totals = { objects: 0, verified: 0, partial: 0, stale: 0, unknown: 0, dims
 
 // 2026-10-08：['ide','cli','mcp'] 是 v3 旧赛道名，v4 改成 agents/harness/tools。
 // 旧值导致目录全不存在 → 循环 continue → 静默报告「0 对象」，看不出是脚本坏了。
-const TRACKS = ['agents', 'harness', 'tools'];
+// v8 T7：三分区退役——TRACKS = 10 大类目录名（与 completeness.mjs 同一口径）。
+const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
 const trackDir = t => path.join(ROOT, 'tracks', t, 'products');
 
 if (!TRACKS.some(t => fs.existsSync(trackDir(t)))) {
@@ -41,8 +42,8 @@ for (const t of TRACKS) {
     const pi = fm.indexOf('\npitfalls:');
     const axesSeg = ai >= 0 ? fm.slice(ai, mi > ai ? mi : pi) : '';
     const mcpSeg = mi >= 0 ? fm.slice(mi, pi) : '';
-    // 2026-10-08：v3 时 MCP 维度只属于 mcp 赛道；v4 合并后落在 tools 赛道（9/9 文件都有 mcp: 段）。
-    const keys = t === 'tools' ? [...AXES, ...MCP_AXES] : AXES;
+    // v8 T7：MCP 维度属于 mcp 大类（块名仍是 mcp:）。
+    const keys = t === 'mcp' ? [...AXES, ...MCP_AXES] : AXES;
 
     for (const k of keys) {
       const seg = (k === 'transport' || k === 'auth' || k === 'scope') ? mcpSeg : axesSeg;

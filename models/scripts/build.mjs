@@ -8,7 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SERIES, QUANTIZER_NOTES, COMPANION } from '../config.js';
+import { SERIES, QUANTIZER_NOTES, COMPANION, COMPANION_URL_PREFIX } from '../config.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
@@ -699,7 +699,7 @@ function companionBlock() {
       <h2>${bi('下好之后用什么跑', 'What runs it')}</h2>
       <p class="block-lead">${bi('本站只负责「该下哪一档」。跑起来是另一件事 —— 下面这几个工具<b>自己的文档里写明了支持本地模型</b>（Ollama / vLLM / llama.cpp / LM Studio），点进去看具体怎么接。', 'This site only answers which tier to download. Running it is a different problem — the tools below <b>document local-model support in their own docs</b> (Ollama / vLLM / llama.cpp / LM Studio). Follow the link to see how.')}</p>
       <div class="comp-grid">
-${COMPANION.map((c) => `        <a class="comp-card" href="https://tools.specul.com/${c.part === 'agents' ? '' : esc(c.part) + '/'}${esc(c.id)}.html">
+${COMPANION.map((c) => `        <a class="comp-card" href="https://tools.specul.com/${esc(COMPANION_URL_PREFIX[c.part] ?? '')}${esc(c.id)}.html">
           <b>${bi(esc(c.label.zh), esc(c.label.en))}</b>
           <span>${bi(esc(c.why.zh), esc(c.why.en))}</span>
         </a>`).join('\n')}

@@ -101,9 +101,9 @@ tracks/<category>/
 
 | 字段 | 必填 | 说明 |
 |---|:---:|---|
-| `mcp.transport` | ✓ | 见 [taxonomy/transport.md](./tracks/tools/taxonomy/transport.md)（迁移后为 `tracks/mcp/taxonomy/`） |
-| `mcp.auth` | ✓ | 见 [taxonomy/auth.md](./tracks/tools/taxonomy/auth.md) |
-| `mcp.scope` | ✓ | 见 [tracks/tools/taxonomy/scope.md](./tracks/tools/taxonomy/scope.md) |
+| `mcp.transport` | ✓ | 见 [taxonomy/transport.md](./tracks/mcp/taxonomy/transport.md)（迁移后为 `tracks/mcp/taxonomy/`） |
+| `mcp.auth` | ✓ | 见 [taxonomy/auth.md](./tracks/mcp/taxonomy/auth.md) |
+| `mcp.scope` | ✓ | 见 [tracks/mcp/taxonomy/scope.md](./tracks/mcp/taxonomy/scope.md) |
 
 **非 MCP 形态的条目禁止使用 `mcp` 字段。**
 IDE / CLI 工具不是 MCP server，不适用这三个维度。
@@ -549,59 +549,60 @@ CLI包装 · 仅Claude · 商业平台 · 战略转移 · eval · CloudRun · �
 
 ## 七、交叉引用规则
 
-同一个产品的多种形态现在**同属一个分区**（v4 合并后 `ide` / `cli` 都落在 `agents`，
-用 frontmatter `track:` 区分形态 —— 见 §2.5.1）。但 **`id` 仍必须全仓库唯一**。
+同一个产品的多种形态现在**同属一个大类**（v8 起 `ide` / `cli` / `cloud` 三形态都落在
+`coding` 大类，用 frontmatter `form:` 区分形态 —— 见 §2.5.1）。但 **`id` 仍必须全仓库唯一**。
 
 **约定**：
 
 | 规则 | 说明 |
 |---|---|
-| **id 必须跨分区唯一** | 文件名不同，`id` 也不同；重复由 `sites/build.mjs` 构建期硬失败 |
-| **命名加形态后缀** | `claude-code-cli` / `aider-cli` 等；同分区内的形态差异靠后缀，不靠目录 |
+| **id 必须跨大类唯一** | 文件名不同，`id` 也不同；重复由 `sites/build.mjs` 构建期硬失败 |
+| **命名加形态后缀** | `claude-code-cli` / `aider-cli` 等；同大类内的形态差异靠后缀，不靠目录 |
 | **`name` 可相同或加形态说明** | 如「Claude Code CLI」/「Claude Code 扩展」 |
-| **`related` 指向另一分区** | `agents` / `harness` / `tools` 三者之一，见 §2.5.2 |
+| **`related` 指向另一大类** | 10 大类中除自己所在类之外者，见 §2.5.2 |
 | **共享数据不许复制** | 构建时若两个条目的 `vendor` 或底层仓库不一致会报错 |
 
 ### 实例
 
-同一产品的两种形态（都在 `agents` 分区）：
+同一产品的两种形态（都在 `coding` 大类）：
 
 ```
-tracks/agents/products/claude-code-cli.md   id: claude-code-cli   track: cli
-tracks/agents/products/claude-code.md       id: claude-code       track: ide
+tracks/coding/products/claude-code-cli.md   id: claude-code-cli   form: cli
+tracks/coding/products/claude-code.md       id: claude-code       form: ide
 ```
 
-跨分区互链写进 `related`（这里指向 `harness` 分区它自己的官方 SDK）：
+跨大类互链写进 `related`（这里指向 `framework` 大类它自己的官方 SDK）：
 
 ```
-tracks/agents/products/claude-code-cli.md
+tracks/coding/products/claude-code-cli.md
   id: claude-code-cli
-  track: cli
-  related: [claude-agent-sdk]      # harness 分区
+  form: cli
+  related: [claude-agent-sdk]      # framework 大类
 ```
 
 **为什么 id 必须不同**：构建脚本把 `id` 当全局主键。
 两个条目同 id 会导致：
-- 跨分区引用指向错误对象
-- 三分区渲染时数据串位
+- 跨大类引用指向错误对象
+- 大类渲染时数据串位
 - 贡献者 PR 冲突
 
 **校验器会强制这条**：id 重复直接硬失败（`scripts/validate.mjs` + `sites/build.mjs` 双重）。
 
-### 路径写法（A6.3 修）
+### 路径写法（A6.3 立 · v8 T8 换轨）
 
-正文里引用另一个分区的档案，路径用**当前目录名**：
+正文里引用另一个大类的档案，路径用**当前目录名**：
 
 ```
-../../harness/products/codex-sdk.md      ✅
-../../agents/products/aider.md           ✅
-../../tools/products/filesystem.md       ✅
-../../cli/products/aider-cli.md          ❌ 旧目录名，仓里没有这个路径
+../../framework/products/codex-sdk.md      ✅
+../../coding/products/aider.md             ✅
+../../mcp/products/filesystem.md           ✅
+../../harness/products/codex-sdk.md        ❌ 旧分区名，仓里没有这个路径
+../../agents/products/aider.md             ❌ 同上
 ```
 
-`rewriteInternal()`（`sites/build.mjs`）同时认旧名（`ide` / `cli` / `mcp`）以便存量正文仍可构建，
-但**新写一律用当前目录名** —— 旧名在站点上能跳、在内容仓里是死链，两个方向都不对。
-2026-10-09 已把全仓 27 条旧名引用归一化（逐条验证目标存在）。
+`rewriteInternal()`（`sites/build.mjs`）同时认旧名（`agents` / `harness` / `tools` / `ide` / `cli`）
+以便存量正文仍可构建，但**新写一律用当前目录名** —— 旧名在站点上能跳、在内容仓里是死链，
+两个方向都不对。
 
 ### 可复用的数据怎么写
 
@@ -610,7 +611,7 @@ tracks/agents/products/claude-code-cli.md
 **做法 A · 引用 + 简述**
 ```yaml
 runtime: >-
-  本地进程，在终端运行（详见 [CLI 条目](../../agents/products/codex-cli.md)）。
+  本地进程，在终端运行（详见 [CLI 条目](../../coding/products/codex-cli.md)）。
   **本条目只记录 IDE 形态的差异点**：装进 VS Code / Cursor / Windsurf。
 ```
 

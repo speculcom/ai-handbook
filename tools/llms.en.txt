@@ -2,17 +2,16 @@
 
 > Which agent / runtime / tool should you use?
 
-Organizes "AI products that do work for you" along two levels: **division** (finished agents / build-your-own foundations / tools to install for an agent) and **form** (IDE / CLI / vendor cloud / runtime / MCP), compared across one fixed set of dimensions.
+Organizes "AI products that do work for you" along two levels: **category** (coding / chat / image / video / audio / research / automation / framework / mcp / runner — 10 in all) and **form** (IDE / CLI / vendor cloud / web / app / framework / MCP / local app — 8 values), compared across one fixed set of dimensions.
 
 ## Size (computed from data — see the build scripts under `scripts/` and `_audit/gen-repo-docs.mjs`)
 
-52 profiles across three divisions (agents 27, harness 15, tools 10), compared across a fixed set of 8 dimensions.
+164 profiles across 10 categories (coding 32, chat 14, image 13, video 12, audio 10, research 11, automation 14, framework 22, mcp 24, runner 12), compared across a fixed set of 8 dimensions.
 
 ## Content map
 
-- `tracks/agents/products/` — Finished agents (the IDE / CLI / vendor-cloud forms all live here)
-- `tracks/harness/products/` — Build-your-own foundations: runtimes / orchestration frameworks / SDKs
-- `tracks/tools/products/` — MCP tools to install for an agent
+- `categories.md` — The 10 categories: admission criteria / boundary rulings / what we do not take
+- `tracks/<category>/products/` — Eight-dimension profiles (the directory IS the category; research / automation / runner being inventoried)
 - `axes/` — Comparison dimension definitions (what each dimension asks)
 - `SCHEMA.md` — Field schema
 
@@ -26,7 +25,7 @@ Organizes "AI products that do work for you" along two levels: **division** (fin
 
 - Field schema: `SCHEMA.md`
 - Validator: `scripts/validate.mjs` (non-compliant entries fail the build)
-- Cross-division links: every profile needs at least 1 `related` entry from **another division** (probe: `_audit/link-graph.mjs`)
+- Cross-category links: every profile needs at least 1 `related` entry from **another category** (probe: `_audit/link-graph.mjs`)
 
 ## Site
 

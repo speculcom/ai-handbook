@@ -142,9 +142,9 @@
 
 ---
 
-## MCP 赛道
+## MCP 大类
 
-MCP 赛道的源以**仓库 README + releases/commits** 为主。
+MCP 大类的源以**仓库 README + releases/commits** 为主。
 
 ### 官方规范与仓库
 

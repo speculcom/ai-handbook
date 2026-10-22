@@ -159,6 +159,11 @@ html[data-theme="light"] {
 .fam-block[data-family="primitive"] { --fam-c: var(--c-form);--fam-soft: var(--c-form-soft); }
 .fam-block[data-family="orchestration"] { --fam-c: var(--c-layer); --fam-soft: var(--c-layer-soft); }
 .fam-block[data-family="turnkey"] { --fam-c: var(--c-use);   --fam-soft: var(--c-use-soft); }
+/* v8 T30：首页三族（找现成的 / 自己搭 / 接上与跑起来）复用同一组三色——
+ * 族色不是新调色板，是 brand.css 三枚语义色（用途/抽象层/形态）的又一次投影。 */
+.fam-block[data-family="ready"] { --fam-c: var(--c-use);   --fam-soft: var(--c-use-soft); }
+.fam-block[data-family="build"] { --fam-c: var(--c-layer); --fam-soft: var(--c-layer-soft); }
+.fam-block[data-family="plug"]  { --fam-c: var(--c-form);  --fam-soft: var(--c-form-soft); }
 .fam-badge {
   font-size: var(--fs-micro); font-weight: 600; line-height: 1; letter-spacing: .02em;
   color: var(--fam-c, var(--c-layer)); background: var(--fam-soft, var(--c-layer-soft));
@@ -585,7 +590,10 @@ dl.cn-rows { margin: 0; }
   padding-inline: 0;
 }
 .part-bar a {
-  flex: 1 1 200px; min-width: 0;
+  /* v8 T30：10 项（原 3 项）。flex-basis 收到 150px——1120px 容器里
+   * 10×150=1500 > 1120，flex-shrink 会把每项压到 ~112px，一行放齐；
+   * 窄屏（≤640px）仍走下面的单列堆叠。 */
+  flex: 1 1 150px; min-width: 0;
   display: flex; flex-direction: column; gap: 3px;
   padding: var(--sp-3) var(--sp-4);
   border-left: 1px solid var(--line);
@@ -606,18 +614,37 @@ dl.cn-rows { margin: 0; }
 /* B6（2026-10-09）：分区色改为**带亮色变体的 token**。
  * 原先由内联 style 直接传十六进制（#8b7cf8 / #3b82f6 / #22d3c5），
  * 这三个是**深色主题**调出来的亮色，亮色主题下当文字色只有 3.3–3.9:1 —— 不够 AA。
- * 现在 markup 传的是 `var(--pa-agents)` 这类 token，两套主题各有一份值。
- * 亮色值取的是共享 `--brand` / `--c-form` / `--c-use` 的亮色档（同一色相、已按 4.5:1 算过）。 */
+ * 现在 markup 传的是 `var(--pa-coding)` 这类 token，两套主题各有一份值。
+ * 亮色值取的是共享 `--brand` / `--c-form` / `--c-use` 的亮色档（同一色相、已按 4.5:1 算过）。
+ * v8 T7：token 名随分区改名（agents→coding / harness→framework / tools→mcp）。 */
 :root {
-  --pa-agents: #8b7cf8;
+  --pa-coding: #8b7cf8;
   /* v6：底色改亮后（共享层采用首页暖紫 #221c34），蓝色的对比掉到 4.45:1，微调到 4.51。 */
-  --pa-harness: #3d83f6;
-  --pa-tools: #22d3c5;
+  --pa-framework: #3d83f6;
+  --pa-mcp: #22d3c5;
+  /* v8 T30：其余 7 个大类的 token（深色态 = 各大类 accent 直用，
+   * 它们都是亮色，对深色底 ≥4.5:1；runner 的灰蓝也够）。 */
+  --pa-chat: #f5c542;
+  --pa-image: #f472b6;
+  --pa-video: #fb923c;
+  --pa-audio: #34d399;
+  --pa-research: #38bdf8;
+  --pa-automation: #a3e635;
+  --pa-runner: #9db0c6;
 }
 [data-theme="light"] {
-  --pa-agents: #6d4fd6;
-  --pa-harness: #1f6fc4;
-  --pa-tools: #0b7c72;
+  --pa-coding: #6d4fd6;
+  --pa-framework: #1f6fc4;
+  --pa-mcp: #0b7c72;
+  /* 浅色态全部压深到 ≥4.5:1（同色相取深档；gold/orange/lime 这类亮色
+   * 在浅底上必须大幅压深，否则就是 2:1 的装饰色而不是可读文字色）。 */
+  --pa-chat: #8a6a00;
+  --pa-image: #b62a6e;
+  --pa-video: #b04a12;
+  --pa-audio: #0c7a52;
+  --pa-research: #0a66a6;
+  --pa-automation: #4d7c0f;
+  --pa-runner: #55657a;
 }
 .part-bar a span {
   font-size: var(--fs-micro); line-height: 1.5; color: var(--ink-faint);

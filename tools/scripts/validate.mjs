@@ -29,12 +29,10 @@ const LIFECYCLE = ['active', 'maintenance', 'archived', 'unknown'];
 /* ── v8（2026-10-21）：大类目录 + form 字段 ──────────────────────
  * D1 定案：目录 = 大类（10 个），旧三分区 agents/harness/tools 退役。
  * D3 定案：light 层退役，全部升八维；license 进八维 frontmatter。
- * 过渡策略（T4 定规则，T5–T7 原子迁移批搬数据）：
- *   新结构 = <category>/<id>.md → 走新规则（form 必填、license 五类硬失败）；
- *   旧结构 = tracks/<旧分区>/products/*.md → 走旧规则（track 枚举），T7 后删除旧通道。 */
+ * T7（2026-10-21）：旧通道退役完成——唯一通道 = tracks/<大类>/products/（form 必填、
+ * license 五类硬失败、track/tasks 回灌硬失败）。 */
 const CATS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
 const FORMS = ['ide', 'cli', 'cloud', 'harness', 'mcp', 'web', 'app', 'local-app'];
-const OLD_TRACKS = ['ide', 'cli', 'cloud', 'mcp', 'harness'];
 /* v8：消费级五类缺 license 硬失败（原 S47「creation 缺 license」规则的八维迁移版） */
 const LICENSE_REQUIRED_CATS = ['chat', 'image', 'video', 'audio', 'research'];
 
@@ -57,9 +55,9 @@ function collect(dir) {
   });
 }
 
-function validateEntry(file, mode, cat) {
-  // mode: 'old' = tracks/{agents,harness,tools}/（T5–T7 迁移批前的存量通道）
-  //       'new' = tracks/<大类>/（v8 新通道，目录 = 大类）
+function validateEntry(file, cat) {
+  // v8 T7：旧通道（tracks/{agents,harness,tools}/）已清空退役——
+  // 唯一通道 = tracks/<大类>/（目录 = 大类，cat 即大类名）
   const rel = path.relative(ROOT, file).replace(/\\/g, '/');
   const text = fs.readFileSync(file, 'utf8');
   const fm = parseFrontmatter(text);
@@ -75,19 +73,12 @@ function validateEntry(file, mode, cat) {
   for (const k of ['id', 'name', 'vendor', 'homepage']) {
     if (!fm[k]) fail(`缺必填字段: ${k}`);
   }
-  if (mode === 'new') {
-    // v8：新通道用 form（8 值枚举），track 字段不得回灌
-    if (!fm.form) fail('缺必填字段: form（v8：形态由 form 字段决定）');
-    else if (!FORMS.includes(fm.form)) fail(`form 枚举非法: ${fm.form}（允许 ${FORMS.join(' / ')}）`);
-    if (fm.track) fail('新通道出现已退役的 track 字段（v8：改名 form）');
-    if (fm.tasks) fail('出现已退役的 tasks 字段（D2：任务入口取消）');
-  } else {
-    if (!fm.track) fail('缺必填字段: track');
-    // cloud = 厂商云形态（2026-10-03 新增）：本机不装任何东西、在厂商云上持续工作的成品 agent。
-    if (fm.track && !OLD_TRACKS.includes(fm.track)) fail(`track 枚举非法: ${fm.track}`);
-    if (fm.form) fail('旧通道出现 form 字段（旧 tracks 用 track，T5–T7 迁移后旧通道删除）');
-  }
-  const formVal = mode === 'new' ? fm.form : fm.track;
+  // v8：形态由 form（8 值枚举）决定，track 字段不得回灌
+  if (!fm.form) fail('缺必填字段: form（v8：形态由 form 字段决定）');
+  else if (!FORMS.includes(fm.form)) fail(`form 枚举非法: ${fm.form}（允许 ${FORMS.join(' / ')}）`);
+  if (fm.track) fail('出现已退役的 track 字段（v8：改名 form）');
+  if (fm.tasks) fail('出现已退役的 tasks 字段（D2：任务入口取消）');
+  const formVal = fm.form;
 
   /* D9（2026-10-20 用户定案）：价格口径退役——pricing 字段族已删。
    * 反向守卫：档案里再出现 pricing / pricing_pitfalls → 硬失败（防旧口径回灌）。 */
@@ -107,7 +98,7 @@ function validateEntry(file, mode, cat) {
 
   /* v8（D3）：license 进八维 frontmatter。消费级五类缺 license 硬失败
    * （原 S47「creation 缺 license」的迁移版——输出物归属与商用许可是这些品类最关键事实）。 */
-  if (mode === 'new' && LICENSE_REQUIRED_CATS.includes(cat) && !String(fm.license || '').trim()) {
+  if (LICENSE_REQUIRED_CATS.includes(cat) && !String(fm.license || '').trim()) {
     fail(`缺 license（v8：${cat} 类必填——输出物归属/商用许可逐条挂官方条款，D9 明确保留许可不保留价格）`);
   }
 
@@ -283,110 +274,37 @@ function crossCheck(entries) {
 
 // ── 主流程 ───────────────────────────────────────
 const entries = [];
-const oldEntries = []; // S43 tasks 校验只对旧通道生效（v8 D2：新通道无 tasks）
 if (fs.existsSync(path.join(ROOT, 'tracks'))) {
   for (const f of collect(path.join(ROOT, 'tracks'))) {
     if (!/\.md$/.test(f)) continue;
     if (path.basename(f).startsWith('_')) continue;
     const norm = f.replace(/\\/g, '/');
     if (/\/tasks\//.test(norm) || /\/runs\//.test(norm) || /\/taxonomy\//.test(norm)) continue;
-    // 路由：tracks/<X>/products/… —— X ∈ CATS 走新通道，X ∈ {agents,harness,tools} 走旧通道
+    // v8 T7：唯一通道 tracks/<大类>/products/… —— X ∈ CATS；旧三分区已退役
     const m = /\/tracks\/([^/]+)\//.exec(norm);
     const seg = m ? m[1] : '';
-    const isNew = CATS.includes(seg);
-    if (!isNew && !['agents', 'harness', 'tools'].includes(seg)) continue; // 未知目录不静默放行——下面有守卫报出
-    const fm = validateEntry(f, isNew ? 'new' : 'old', seg);
-    if (fm) {
-      entries.push([path.relative(ROOT, f).replace(/\\/g, '/'), fm]);
-      if (!isNew) oldEntries.push([path.relative(ROOT, f).replace(/\\/g, '/'), fm]);
-    }
+    if (!CATS.includes(seg)) continue; // 未知目录不静默放行——下面有守卫报出
+    const fm = validateEntry(f, seg);
+    if (fm) entries.push([path.relative(ROOT, f).replace(/\\/g, '/'), fm]);
   }
 }
-// 未知一级目录守卫：tracks/ 下出现既非旧分区也非大类目录的目录 → 硬失败（防拼错目录名静默漏检）
+// 未知一级目录守卫：tracks/ 下出现非大类目录 → 硬失败（防拼错目录名静默漏检）
 if (fs.existsSync(path.join(ROOT, 'tracks'))) {
   for (const d of fs.readdirSync(path.join(ROOT, 'tracks'))) {
     if (!fs.statSync(path.join(ROOT, 'tracks', d)).isDirectory()) continue;
-    if (!CATS.includes(d) && !['agents', 'harness', 'tools'].includes(d)) {
-      errors.push(`tracks/${d}/ 既不是旧分区也不是 v8 大类目录（拼错目录名？大类见 categories.md）`);
+    if (!CATS.includes(d)) {
+      errors.push(`tracks/${d}/ 不是 v8 大类目录（拼错目录名？旧三分区已退役，大类见 categories.md）`);
     }
   }
 }
 crossCheck(entries);
 
-/* ── S43 任务化入口：tasks 字段校验（2026-10-19）──────────────────
- * ⚠ v8 D2（2026-10-21）：任务入口取消——本块只对**旧通道**档案生效（过渡期）。
- * T5–T7 迁移批把档案搬进大类目录后本块整体删除；新通道档案出现 tasks 字段直接硬失败。
- * 真相源：档案 frontmatter 的 tasks:（行内数组）+ sites/tasks.json（任务元信息）。
- * 规则：① 每份旧通道档案 tasks ≥1 且全部落在 tasks.json 的 id 集合内；
- *       ② tasks.json 里每个任务至少被 1 份档案引用（空任务 = 假入口）。
- * 双向对账：档案→任务（枚举）+ 任务→档案（覆盖）。 */
-{
-  const TASKS_FILE = path.join(ROOT, 'sites', 'tasks.json');
-  if (!fs.existsSync(TASKS_FILE)) {
-    if (oldEntries.length) errors.push('缺任务定义: sites/tasks.json（旧通道档案仍引用任务入口）');
-  } else {
-    const taskDefs = JSON.parse(fs.readFileSync(TASKS_FILE, 'utf8')).tasks || [];
-    const taskIds = new Set(taskDefs.map((t) => t.id));
-    const used = new Map(taskDefs.map((t) => [t.id, 0]));
-    for (const [rel, fm] of oldEntries) {
-      const ts = fm.tasks;
-      if (!Array.isArray(ts) || ts.length === 0) {
-        errors.push(`${rel} · 缺 tasks 字段（S43：每份档案必须至少挂一个任务入口）`);
-        continue;
-      }
-      for (const t of ts) {
-        if (!taskIds.has(t)) errors.push(`${rel} · tasks 引用未知任务 id: ${t}`);
-        else used.set(t, used.get(t) + 1);
-      }
-    }
-    for (const [id, n] of used) {
-      if (n === 0) errors.push(`sites/tasks.json · 任务 ${id} 没有任何档案引用（假入口）`);
-    }
-  }
-}
+/* ── v8 T7：S43 任务化入口校验块整体退役（D2 定案：任务入口取消，
+ * sites/tasks.json 已删、档案 tasks: 字段回灌即硬失败，见上文）。 */
 
-/* ── S45 轻档案：light/light.json 校验（2026-10-20 · D9 修订）─────────
- * 对话问答类 / 创作工具类不走八维（D4 定案），走三要素卡。
- * 规则（SCHEMA §9.2）：kind 枚举 · 三要素任一为空硬失败 · 出现 cost 字段硬失败（D9 价格退役）·
- * sources ≥1 · last_verified 在 · confidence 枚举 · id 不与档案撞 · 英文缺 → 警告（R2）。 */
-{
-  const LIGHT_FILE = path.join(ROOT, 'light', 'light.json');
-  if (!fs.existsSync(LIGHT_FILE)) {
-    errors.push('缺轻档案真相源: light/light.json（S45）');
-  } else {
-    const light = JSON.parse(fs.readFileSync(LIGHT_FILE, 'utf8'));
-    const KINDS = new Set(light.kindEnum || ['chat', 'creation']);
-    const entryIds = new Set(entries.map(([rel, fm]) => fm.id || rel));
-    const seen = new Set();
-    for (const it of light.items || []) {
-      const tag = `light.json · ${it.id || '(无 id)'}`;
-      if (!it.id) { errors.push(`${tag} · 缺 id`); continue; }
-      if (seen.has(it.id)) errors.push(`${tag} · id 重复`);
-      seen.add(it.id);
-      if (entryIds.has(it.id)) errors.push(`${tag} · id 与八维档案撞`);
-      if (!KINDS.has(it.kind)) errors.push(`${tag} · kind 不在枚举: ${it.kind}`);
-      for (const k of ['name', 'vendor', 'homepage']) {
-        if (!it[k]) errors.push(`${tag} · 缺 ${k}`);
-      }
-      for (const k of ['what', 'data', 'who']) {
-        if (!it[k] || !String(it[k]).trim()) errors.push(`${tag} · 缺三要素之一: ${k}（缺一个就不是轻档案）`);
-      }
-      /* D9（2026-10-20 用户定案）：价格字段退役——出现即硬失败，防旧口径回灌 */
-      if (it.cost !== undefined || it.costEn !== undefined) errors.push(`${tag} · 出现已退役的 cost 字段（D9：价格不进数据层，只许 pricing_url 指针）`);
-      if (it.pricing_url !== undefined && !/^https?:\/\//.test(it.pricing_url)) errors.push(`${tag} · pricing_url 必须是 http(s) URL（只许指针，不许文字报价）`);
-      /* S47（2026-10-20）：创作类必须有「商用许可」主打列——许可逐条抄官方，不许缺 */
-      if (it.kind === 'creation' && (!it.license || !String(it.license).trim())) {
-        errors.push(`${tag} · 创作类缺 license（S47：商用许可是创作区主打列，逐条挂官方条款）`);
-      }
-      if (!Array.isArray(it.sources) || it.sources.length === 0) errors.push(`${tag} · sources 为空（R5：每条挂官方出处）`);
-      if (!it.last_verified) errors.push(`${tag} · 缺 last_verified（核验快照语义）`);
-      if (!CONFIDENCE.includes(it.confidence)) errors.push(`${tag} · confidence 不在枚举: ${it.confidence}`);
-      for (const k of ['nameEn', 'whatEn', 'dataEn', 'whoEn', ...(it.kind === 'creation' ? ['licenseEn'] : [])]) {
-        if (!it[k]) warnings.push(`${tag} · 缺 ${k}（R2 中英同步）`);
-      }
-    }
-  }
-}
+/* ── v8 T6：S45 轻档案校验块退役（D3 定案：light 层退役、14 条全部升八维）。
+ * light/light.json 已删除（数据备份在 _archive/v8-evidence/light-2026-10-20.json）。
+ * license 字段进八维 frontmatter（消费级五类缺 license 硬失败见上文新通道校验）。 */
 
 /* ── S48 深水指南：guides/*.md 校验（2026-10-20 · SCHEMA §十）─────────
  * 方法论内容，不是产品档案——不走八维，也不进 tracks/（tracks 扫描只认
@@ -399,11 +317,6 @@ crossCheck(entries);
   if (!fs.existsSync(GUIDES_DIR)) {
     warnings.push('缺 guides/ 目录（S48：深水指南真相源，允许先建格式后灌内容）');
   } else {
-    const lightIds = new Set(
-      fs.existsSync(path.join(ROOT, 'light', 'light.json'))
-        ? (JSON.parse(fs.readFileSync(path.join(ROOT, 'light', 'light.json'), 'utf8')).items || []).map((i) => i.id)
-        : []
-    );
     const entryIds = new Set(entries.map(([rel, fm]) => fm.id || rel));
     const seen = new Set();
     for (const f of collect(GUIDES_DIR)) {
@@ -419,7 +332,6 @@ crossCheck(entries);
       if (seen.has(fm.id)) errors.push(`${tag} · id 重复`);
       seen.add(fm.id);
       if (entryIds.has(fm.id)) errors.push(`${tag} · id 与八维档案撞`);
-      if (lightIds.has(fm.id)) errors.push(`${tag} · id 与轻档案撞`);
       if (!TOPICS.has(fm.topic)) errors.push(`${tag} · topic 不在枚举: ${fm.topic}`);
       for (const k of ['title', 'summary']) {
         if (!fm[k] || !String(fm[k]).trim()) errors.push(`${tag} · 缺 ${k}`);
@@ -460,13 +372,6 @@ function checkCn(cn, tag, push) {
 for (const [rel, fm] of entries) {
   checkCn(fm.cn, `档案 ${rel}`, (lvl, msg) => (lvl === 'error' ? errors : warnings).push(msg));
 }
-{
-  const LIGHT_FILE = path.join(ROOT, 'light', 'light.json');
-  if (fs.existsSync(LIGHT_FILE)) {
-    const light = JSON.parse(fs.readFileSync(LIGHT_FILE, 'utf8'));
-    for (const it of light.items || []) checkCn(it.cn, `light.json · ${it.id}`, (lvl, msg) => (lvl === 'error' ? errors : warnings).push(msg));
-  }
-}
 
 for (const req of ['README.md', 'METHODOLOGY.md', 'SCHEMA.md', 'CONTRIBUTING.md', 'SOURCES.md', 'LICENSE']) {
   if (!fs.existsSync(path.join(ROOT, req))) errors.push(`缺必需文档: ${req}`);
@@ -475,15 +380,9 @@ for (const a of AXES) {
   const f = `${AXES_FILE[a]}.md`;
   if (!fs.existsSync(path.join(ROOT, 'axes', f))) errors.push(`缺维度定义: axes/${f}`);
 }
-/* 收录声明映射（v8 换轨中）：
- * 旧通道：tracks/{agents,harness,tools}/_track.md（存在才要求，T7 后删）；
- * 新通道：tracks/<大类>/_category.md（大类目录存在就必须带收录声明）。
+/* 收录声明（v8 T7 换轨完成）：tracks/<大类>/_category.md——大类目录存在就必须带收录声明。
+ * 旧分区 _track.md 守卫随三分区退役删除。
  * 两级命名 v8 版：**大类由目录决定（10 个），形态由 form 字段决定（8 值）** —— SCHEMA §2.5.1。*/
-for (const d of ['agents', 'harness', 'tools']) {
-  if (fs.existsSync(path.join(ROOT, 'tracks', d)) && !fs.existsSync(path.join(ROOT, 'tracks', d, '_track.md'))) {
-    errors.push(`缺分区收录声明: tracks/${d}/_track.md`);
-  }
-}
 for (const d of CATS) {
   if (fs.existsSync(path.join(ROOT, 'tracks', d)) && !fs.existsSync(path.join(ROOT, 'tracks', d, '_category.md'))) {
     errors.push(`缺大类收录声明: tracks/${d}/_category.md（v8：大类目录必须带声明）`);

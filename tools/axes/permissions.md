@@ -161,4 +161,4 @@ permissions: >-
 - [维度 2 · 运行位置](./runtime.md) — 云端运行意味着数据出境
 - [维度 3 · 本地文件](./local-files.md) — 目录授权边界
 - [维度 5 · 工具与扩展](./tools.md) — 工具边界决定权限风险
-- [MCP · 权限范围](../tracks/tools/taxonomy/scope.md) — MCP 赛道的权限判定标准
+- [MCP · 权限范围](../tracks/mcp/taxonomy/scope.md) — MCP 大类的权限判定标准

@@ -107,7 +107,7 @@ background: >-
 |---|---|
 | IDE | 多数需要客户端常驻，云端任务能力有限 |
 | CLI | 基本不支持（本来就是本地的） |
-| MCP | 取决于部署方式，见 [mcp/taxonomy/transport.md](../tracks/tools/taxonomy/transport.md) |
+| MCP | 取决于部署方式，见 [mcp/taxonomy/transport.md](../tracks/mcp/taxonomy/transport.md) |
 
 **CLI 赛道这一维度经常是"不支持"**。这不是缺点，是形态决定的——写清楚就行，不要为了好看而含糊。
 

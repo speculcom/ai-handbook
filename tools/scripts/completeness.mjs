@@ -28,7 +28,10 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-export const TRACKS = ['agents', 'harness', 'tools'];
+/* v8 T7：三分区退役，TRACKS = 10 大类目录名（与 validate.mjs 的 CATS 同一口径）。
+ * 目录不存在的大类（research/automation/runner 等）由 computeCompleteness 的
+ * existsSync 自然跳过——建档一批、这里自动进分母，不需要再改这里。 */
+export const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
 export const AXES = ['model_access', 'runtime', 'local_files', 'background', 'tools', 'context', 'permissions', 'fit'];
 export const MCP_AXES = ['transport', 'auth', 'scope'];
 
@@ -89,7 +92,9 @@ export function computeCompleteness({ tracks = TRACKS, root = ROOT } = {}) {
     for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.md')).sort()) {
       const fm = frontmatter(fs.readFileSync(path.join(dir, f), 'utf8'));
       const seg = segments(fm);
-      const isMcp = /^track:\s*mcp/m.test(fm);
+      /* v8 T7：track: 退役——mcp 判定改看目录（大类目录是唯一真相源，
+       * frontmatter 的 form: 是旁证；目录判定与 validate/build 同一口径） */
+      const isMcp = t === 'mcp';
       const keys = isMcp ? [...AXES, ...MCP_AXES] : AXES;
       const obj = f.replace('.md', '');
       for (const k of keys) {

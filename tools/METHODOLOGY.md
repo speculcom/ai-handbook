@@ -60,7 +60,7 @@ AI 工具对比面临三个结构性难题：
 | 7 | [权限与限制](./axes/permissions.md) | 沙箱 · 审批 · 数据出境？ |
 | 8 | [适合什么任务](./axes/fit.md) | 这东西最擅长什么？ |
 
-MCP 赛道在这 8 个之外另加 3 个特有维度，见 [`tracks/tools/taxonomy/`](./tracks/tools/taxonomy/)。
+MCP 大类在这 8 个之外另加 3 个特有维度，见 [`tracks/mcp/taxonomy/`](./tracks/mcp/taxonomy/)。
 
 **为什么坐标系要固定**：
 - **横向可比**：换维度就会毁掉对比能力
@@ -91,23 +91,23 @@ MCP 赛道在这 8 个之外另加 3 个特有维度，见 [`tracks/tools/taxono
 - A 的权限控制更严，B 的索引更快 → **先看本地文件的覆盖完整性**，再按「宁严勿松」选 A
 - A 支持后台任务，B 的代码索引是本地的 → 看 [运行位置](./axes/runtime.md)，本地索引意味着关机就没了
 
-#### MCP 赛道
+#### MCP 大类
 
 优先级完全不同：
 
 | 优先级 | 维度 | 为什么 |
 |:--:|---|---|
-| 1 | [权限范围](./tracks/tools/taxonomy/scope.md) | **安全第一**，权限失控是直接风险 |
-| 2 | [认证机制](./tracks/tools/taxonomy/auth.md) | 认证与授权决定凭据风险 |
+| 1 | [权限范围](./tracks/mcp/taxonomy/scope.md) | **安全第一**，权限失控是直接风险 |
+| 2 | [认证机制](./tracks/mcp/taxonomy/auth.md) | 认证与授权决定凭据风险 |
 | 3 | 权限与限制 | 沙箱与审批 |
-| 4 | [传输方式](./tracks/tools/taxonomy/transport.md) | 决定能否被你的客户端用 |
+| 4 | [传输方式](./tracks/mcp/taxonomy/transport.md) | 决定能否被你的客户端用 |
 | 5 | 工具与扩展 | 输出是否可消费 |
 | 6 | 本地文件 | 赛道特化，看它能碰什么 |
 | 7 | 上下文与记忆 | MCP 多为无状态，区分度低 |
 | 8 | 运行位置 / 关机后的任务 | stdio 形态下几乎无差异 |
 
 **这条优先级表本身就是本站的差异化内容**：
-它明确说「MCP 赛道的第一个问题是安全问题，不是能力问题」。
+它明确说「MCP 大类的第一个问题是安全问题，不是能力问题」。
 
 ---
 

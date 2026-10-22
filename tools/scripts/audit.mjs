@@ -9,12 +9,11 @@ const PLAN_MODE = process.argv.includes('--plan');
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const R = (p) => path.join(ROOT, p);
 
-// v4 赛道目录（2026-10-03）。此前写死 ['ide','cli','mcp']，而那三个目录已在
-// v4 合成 agent 分区时被删 —— 脚本直接崩在 readFileSync，读不到文件就抛异常。
-// 注意：赛道**目录**是 agents/harness/tools，而档案里的 `track:` 字段仍是
-// ide/cli/cloud/harness/mcp（那是「形态」标记，build.mjs 用 owns 映射到分区），
-// 两者刻意不同，改任何一边都要同步另一边。
-const TRACKS = ['agents', 'harness', 'tools'];
+// v8（2026-10-21）：目录 = 大类（10 个，见 categories.md）。旧三分区 agents/harness/tools
+// 已退役（T5 迁移批）。已建大类的目录清单随 T20–T29 建档批逐步扩。
+// 注意：大类**目录**是 coding/framework/mcp/…，而档案里的 `form:` 字段是「形态」
+// （ide/cli/cloud/harness/mcp/web/app/local-app），两者刻意不同，改任何一边都要同步另一边。
+const TRACKS = ['coding', 'framework', 'mcp'];
 
 // 赛道目录必须能读到档案 —— 扫到 0 个文件时**必须报错而不是通过**。
 // 2026-10-03 实测：quality.mjs 扫 0 个文件却输出「有问题条目: 0 / 0」并退出 0，
@@ -30,9 +29,9 @@ function requireArchives(track, dir) {
   return n;
 }
 
-console.log('=== 1. 分区收录声明 vs 实际文件 ===');
+console.log('=== 1. 大类收录声明 vs 实际文件 ===');
 for (const t of TRACKS) {
-  const txt = fs.readFileSync(R(`tracks/${t}/_track.md`), 'utf8');
+  const txt = fs.readFileSync(R(`tracks/${t}/_category.md`), 'utf8');
   // 只认「至少 3 列」的表格行才算档案声明 —— `tracks/agents/_track.md` 里有一张
   // 2 列的「形态判据表」（| `ide` | 主要交互在图形界面… |），那是 track 取值的说明，
   // 不是档案。第一版不过滤列数，于是把 ide / cli 当成两个「声明但缺文件」的档案。
@@ -97,12 +96,11 @@ if (tagIssues.length) {
   console.log('  ✅ 所有条目标签都在池内');
 }
 
-console.log('\n=== 3. 分区收录文件引用的 taxonomy 路径 ===');
-// v4：MCP 维度定义随赛道改名 mcp → tools，所以这里扫 tracks/tools/_track.md。
-// 保留 track 变量名 mcpTrack 只是历史叫法，实际读的是 tools。
-const mcpTrack = fs.readFileSync(R('tracks/tools/_track.md'), 'utf8');
+console.log('\n=== 3. 大类收录文件引用的 taxonomy 路径 ===');
+// v8：MCP 维度定义在 tracks/mcp/taxonomy/，收录声明是 tracks/mcp/_category.md。
+const mcpTrack = fs.readFileSync(R('tracks/mcp/_category.md'), 'utf8');
 for (const m of mcpTrack.matchAll(/\]\((\.\/[^)]+)\)/g)) {
-  const tp = path.join(R('tracks/tools'), m[1]);
+  const tp = path.join(R('tracks/mcp'), m[1]);
   console.log(`  ${fs.existsSync(tp) ? 'OK  ' : 'MISS'} ${m[1]}`);
 }
 
