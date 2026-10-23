@@ -87,7 +87,7 @@ link:
   url: https://github.com/modelcontextprotocol/servers/tree/main/src/time
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: verified

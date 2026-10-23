@@ -187,7 +187,7 @@ link:
   url: https://jules.google
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial

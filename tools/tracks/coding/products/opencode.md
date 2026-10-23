@@ -3,7 +3,7 @@ id: opencode
 form: cli
 name: OpenCode
 vendor: OpenCode
-homepage: https://github.com/sst/opencode
+homepage: https://opencode.ai
 mark: OC
 accent: "#E5705A"
 
@@ -165,12 +165,12 @@ tags: [编程, 终端, 本地, 开源]
 related: [filesystem]
 
 sources:
-  - label: OpenCode · 仓库 README
-    url: https://github.com/sst/opencode
+  - label: OpenCode · 仓库 README（现址 anomalyco/opencode，旧 sst/opencode 301 跳转，滚动核验 2026-10-23）
+    url: https://github.com/anomalyco/opencode
     kind: repo
 
-  - label: OpenCode · Releases（v1.18.33 @ 2026-09-28）
-    url: https://github.com/sst/opencode/releases
+  - label: OpenCode · Releases（v1.19.4 @ 2026-10-22）
+    url: https://github.com/anomalyco/opencode/releases
     kind: changelog
 
   - label: OpenCode · 官方站 Changelog
@@ -213,8 +213,8 @@ link:
   url: https://opencode.ai
   kind: official
 
-last_verified: 2026-10-08
-last_updated: 2026-10-08
+last_verified: 2026-10-23
+last_updated: 2026-10-23
 lifecycle: active
 confidence: partial
 cn:
@@ -296,7 +296,7 @@ ACP 载入、恢复、分叉时保留模型、effort 和模式边界
 
 `confidence: partial` 的原因：
 
-- ✅ 已核验：仓库、许可（MIT）、最新版本与日期、star 数（210,642，本分区最高）、权限策略（allow/ask/deny 细粒度）、ACP、安装方式；**A6.2 本轮补**：75+ provider 与本地模型、内置工具清单与 MCP 接入方式、`compaction` 上下文策略
+- ✅ 已核验：仓库、许可（MIT）、最新版本与日期、star 数（220,242 · 滚动核验 2026-10-23，本分区最高）、权限策略（allow/ask/deny 细粒度）、ACP、安装方式；**滚动核验补**：仓库已从 `sst/opencode` 迁移到 `anomalyco/opencode`（GitHub 301 跳转坐实，仓 homepage 字段=opencode.ai）；**A6.2 本轮补**：75+ provider 与本地模型、内置工具清单与 MCP 接入方式、`compaction` 上下文策略
 - ❌ 未核验：YOLO 模式的具体开关方式、子代理的调度细节与 token 开销
 
 ## 适合与不适合

@@ -9,7 +9,7 @@ mark: CA
 accent: "#EB6658"
 stars: 59246
 license: MIT
-latest_version: 1.15.23
+latest_version: 1.15.28
 language: Python
 
 # 支持哪些模型 provider（本站第一决策点）
@@ -283,7 +283,7 @@ tags: [Python, 开源, MIT, 编排框架, 多Agent, Crew, Flow, 事件驱动, �
 related: [filesystem]
 
 sources:
-  - label: crewAIInc/crewAI · 仓库（59,246★，MIT，核验 2026-10-01）
+  - label: crewAIInc/crewAI · 仓库（60,002★，MIT，滚动核验 2026-10-23）
     url: https://github.com/crewAIInc/crewAI
     kind: repo
 
@@ -357,7 +357,7 @@ link:
   url: https://crewai.com
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial
@@ -641,8 +641,8 @@ OSS 是否有网络访问控制的官方机制。
 - `FileReadTool` 页（`base_dir` 路径沙箱）
 - `lib/crewai/pyproject.toml`（`mcp~=1.28.1` 在核心依赖、`a2a` 为可选 extra）
 
-已核验（存量）：仓库存在与星数（59,246）、许可（MIT，经 license API）、
-最近推送（2026-10-01，仍活跃）、最新版 **1.15.23**（releases @ 2026-09-28）、
+已核验（存量）：仓库存在与星数（60,002 · 滚动核验 2026-10-23）、许可（MIT，经 license API）、
+最近推送（2026-10-22，仍活跃）、最新版 **1.15.28**（releases @ 2026-10-14）、
 README 关键段落（双抽象、七项 Key Features、模型接入、Crews/Flows FAQ、
 MarketState 结构化状态示例、Telemetry 与 License 段）。
 

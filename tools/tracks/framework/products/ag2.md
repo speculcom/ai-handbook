@@ -8,7 +8,7 @@ homepage: https://ag2.ai
 mark: AG
 stars: 4983
 license: Apache-2.0
-latest_version: 1.1.2
+latest_version: 1.2.1
 language: Python
 
 # 支持哪些模型 provider（本站第一决策点）
@@ -292,7 +292,7 @@ tags: [编排框架, Python, 开源, Apache-2.0, 多Agent, 角色分工, 子代�
 related: [filesystem]
 
 sources:
-  - label: ag2ai/ag2 · 仓库（4,983★，Apache-2.0，pushed_at 2026-10-08，topics 含 mcp/a2a/ag2，核验 2026-10-08）
+  - label: ag2ai/ag2 · 仓库（5,011★，Apache-2.0，pushed_at 2026-10-22，topics 含 mcp/a2a/ag2，滚动核验 2026-10-23）
     url: https://github.com/ag2ai/ag2
     kind: repo
 
@@ -332,7 +332,7 @@ link:
   url: https://ag2.ai
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial
@@ -504,8 +504,8 @@ harness 三组原语、provider 清单（含本地模型）。
 `beta/model_configuration`、Grok 兼容页、经典线 LLM Configuration 页、releases 页、
 `ag2ai/ag2-classic` 仓。
 
-**已核验元数据**：仓库存在、★4,983、许可 Apache-2.0（经 license API）、
-最近推送 2026-10-08（仍活跃）、最新版 **v1.1.2**（releases @ 2026-10-03）。
+**已核验元数据**：仓库存在、★5,011（滚动核验 2026-10-23）、许可 Apache-2.0（经 license API）、
+最近推送 2026-10-22（仍活跃）、最新版 **v1.2.1**（releases @ 2026-10-21）。
 
 ## 实测记录
 

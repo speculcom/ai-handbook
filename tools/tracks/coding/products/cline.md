@@ -217,7 +217,7 @@ link:
   url: https://docs.cline.bot
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial
@@ -321,7 +321,7 @@ README 原文：
 
 `confidence: partial`：
 
-- ✅ **已核验（仓库与产品面）**：仓库、许可（Apache-2.0）、star 数（69,514）
+- ✅ **已核验（仓库与产品面）**：仓库、许可（Apache-2.0）、star 数（70,745 · 滚动核验 2026-10-23）
 - ✅ **已核验（能力面）**：三形态能力与各自的运行特征、两条 release 线及日期、Plan/Act 双模式
 - ✅ **已核验（权限与工具面）**：每次编辑需批准 + auto-approve、diff 呈现与 checkpoint 回滚（shadow Git）、linter/编译器错误监控、`.clinerules` 项目规则、Desktop 的 cron 定时任务（重启后仍生效）、MCP 管理与 MCP Marketplace、**30+ provider 清单与 BYOK / 本地模型**、**内置工具清单**、**Auto Compact 与 Memory Bank**、**CLI / headless 审批默认值**
 - ❌ 未核验：换 provider 后的 tool calling / structured output 质量对齐、Desktop 0.0.x 的稳定性预期

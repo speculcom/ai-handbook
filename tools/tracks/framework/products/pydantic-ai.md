@@ -8,7 +8,7 @@ homepage: https://ai.pydantic.dev
 mark: PA
 stars: 12978
 license: MIT
-latest_version: 2.54.0
+latest_version: 2.60.0
 language: Python
 
 # 支持哪些模型 provider（本站第一决策点）
@@ -283,7 +283,7 @@ tags: [Python, 开源, MIT, 编程底座, 通用harness, 类型安全, MCP, A2A,
 related: [filesystem]
 
 sources:
-  - label: pydantic/pydantic-ai · 仓库（12,978★，MIT，Python，核验 2026-10-08）
+  - label: pydantic/pydantic-ai · 仓库（20,801★，MIT，Python，滚动核验 2026-10-23）
     url: https://github.com/pydantic/pydantic-ai
     kind: repo
 
@@ -339,7 +339,7 @@ link:
   url: https://ai.pydantic.dev
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial

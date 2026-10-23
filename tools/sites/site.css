@@ -319,15 +319,23 @@ h4.sub-h {
 }
 .panel.warn { border-color: color-mix(in srgb, var(--accent, var(--brand)) 38%, transparent); }
 .panel.warn h2 { color: var(--accent, var(--brand)); }
+/* ⚠ `overflow-wrap: anywhere`（2026-10-23 补，修 `responsive-overflow` 的 cursor 页失败）。
+ *   实测 `coding/cursor.html` @320px：正文里 `Hobby/Pro/Pro+/Ultra/Teams/Enterprise`
+ *   这类 51 字符无空格斜杠串不可断词，`<p>` 的 min-content 撑破内容盒（sw 286 > cw 246），
+ *   逐层上传 panel 306 → container 307 → MAIN 323 ✗。
+ *   与 2026-10-09 宽表格同理——**这是渲染层的错**（档案正文里这类档位名串是合法内容），
+ *   全站硬约束就是 `overflow-wrap:anywhere`（guide/rel/part-bar 早已置过，panel 漏了）。 */
 .panel p {
   font-size: var(--fs-sm); line-height: 1.72;
   color: var(--ink-mid); margin: 0 0 var(--sp-2);
+  overflow-wrap: anywhere;
 }
 .panel p:last-child { margin-bottom: 0; }
 .panel ul { margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
 .panel li {
   font-size: var(--fs-sm); line-height: 1.7; color: var(--ink-mid);
   padding-left: var(--sp-3); position: relative;
+  overflow-wrap: anywhere;
 }
 .panel li::before {
   content: ""; position: absolute; left: 0; top: .72em;

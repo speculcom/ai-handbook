@@ -192,7 +192,7 @@ link:
   url: https://github.com/Aider-AI/aider
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: maintenance
 confidence: partial
@@ -228,7 +228,7 @@ AI 改动始终在版本控制里，可 diff 可撤销。
 | 最新 release | `v0.86.0` | **2025-08-09（13 个月前）** |
 | 上一个 release | `v0.85.0` | 2025-06-27 |
 | 最后 commit | 扩充 ANTHROPIC_MODELS 名单 | 2026-05-22 |
-| star 数 | 49,249 | — |
+| star 数 | 49,702（滚动核验 2026-10-23） | — |
 | PyPI 安装量 | 680 万 | — |
 
 **判断：lifecycle = `maintenance`**

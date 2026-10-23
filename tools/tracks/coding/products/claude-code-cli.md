@@ -121,7 +121,7 @@ link:
   url: https://code.claude.com/docs/en/overview
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial
@@ -289,7 +289,7 @@ once more, keeping less of the recent conversation
 > 按 v3 铁律「未知就说未知」，这些条目存在时标 verified 属于虚高，故降为 partial。
 > 主要缺口：完整工具清单、沙箱实现细节、是否支持本地模型、API 与订阅额度关系。
 
-- ✅ 已核验：仓库、**许可状态原文**、最近 5 个版本与日期、star 数（148,488）、**模型规格原文**（报价按 D9 不存）、权限设计的三个具体机制、MCP 两处改动、上下文压缩策略、Atom feed 存在、**云端形态（`claude --cloud` / Routines / 关机后续跑）**
+- ✅ 已核验：仓库、**许可状态原文**、最近 5 个版本与日期、star 数（152,928 · 滚动核验 2026-10-23，最新 release v2.1.309 @ 2026-10-22）、**模型规格原文**（报价按 D9 不存）、权限设计的三个具体机制、MCP 两处改动、上下文压缩策略、Atom feed 存在、**云端形态（`claude --cloud` / Routines / 关机后续跑）**
 - ❌ 未核验：完整工具清单、沙箱实现细节、是否支持本地模型、API 与订阅额度关系
 
 **这曾是 CLI 形态第一个达到 `verified` 的条目**。它把大量信息写在了 CHANGELOG 与 LICENSE 里。

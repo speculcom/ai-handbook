@@ -9,7 +9,7 @@ mark: MA
 accent: "#0078D4"
 stars: 14007
 license: MIT
-latest_version: python-1.20.0
+latest_version: python-1.23.0
 language: Python（主）/ C#/.NET
 
 # 支持哪些模型 provider（本站第一决策点）
@@ -289,7 +289,7 @@ tags: [编排框架, Python, 开源, MIT, 图执行, 工作流, checkpoint, supe
 related: [copilot]
 
 sources:
-  - label: microsoft/agent-framework · 仓库（14,007★，MIT，pushed_at 2026-10-08，核验 2026-10-08）
+  - label: microsoft/agent-framework · 仓库（14,281★，MIT，pushed_at 2026-10-23，滚动核验 2026-10-23）
     url: https://github.com/microsoft/agent-framework
     kind: repo
 
@@ -341,7 +341,7 @@ link:
   url: https://learn.microsoft.com/en-us/agent-framework/
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial
@@ -552,9 +552,9 @@ checkpoint 会一并保存 pending 请求，恢复时重新发出。
 
 **已核验元数据**：
 
-- 仓库存在、★14,007、许可 MIT（经 license API）
-- 最近推送 2026-10-08（仍活跃）
-- 最新版 **python-1.20.0**（releases @ 2026-10-02）
+- 仓库存在、★14,281（滚动核验 2026-10-23）、许可 MIT（经 license API）
+- 最近推送 2026-10-23（仍活跃）
+- 最新版 **python-1.23.0**（releases @ 2026-10-22）
 
 ## 实测记录
 

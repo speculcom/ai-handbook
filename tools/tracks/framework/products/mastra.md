@@ -8,7 +8,7 @@ homepage: https://mastra.ai
 mark: MA
 stars: 28639
 license: 核心 Apache-2.0 + ee/ 目录 Mastra Enterprise License（仓库 license API 返回 NOASSERTION）
-latest_version: 1.75.0
+latest_version: 1.79.0
 language: TypeScript
 
 # 支持哪些模型 provider（本站第一决策点）
@@ -238,7 +238,7 @@ tags: [TypeScript, 开源, Apache-2.0, 编排框架, 工作流, 图执行, 事�
 related: [filesystem]
 
 sources:
-  - label: mastra-ai/mastra · 仓库（28,639★，NOASSERTION 双许可，核验 2026-10-08）
+  - label: mastra-ai/mastra · 仓库（29,020★，NOASSERTION 双许可，滚动核验 2026-10-23）
     url: https://github.com/mastra-ai/mastra
     kind: repo
 
@@ -306,7 +306,7 @@ link:
   url: https://mastra.ai
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial

@@ -175,7 +175,7 @@ tags: [Python, 开源, Apache-2.0, 编程底座, 沙箱, MCP, 多Agent, 子代�
 related: [filesystem]
 
 sources:
-  - label: huggingface/smolagents · 仓库（29,693★，Apache-2.0，核验 2026-10-08）
+  - label: huggingface/smolagents · 仓库（29,996★，Apache-2.0，滚动核验 2026-10-23）
     url: https://github.com/huggingface/smolagents
     kind: repo
 
@@ -219,7 +219,7 @@ link:
   url: https://huggingface.co/docs/smolagents
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial
@@ -340,7 +340,7 @@ README 里 agents 和 tools 都是 Hub 对象：
 - examples/multiagents
 - conceptual_guides/intro_agents
 
-仓库元数据经 GitHub API 核验（29,693★、Apache-2.0、最近推送 2026-09-30、最新版 1.26.0）。
+仓库元数据经 GitHub API 核验（29,996★、Apache-2.0、最近推送 2026-10-22、最新版 1.26.0；滚动核验 2026-10-23 时 1.26.0 仍是最新 release——仓库活跃提交但发版节奏放缓）。
 
 ## 实测记录
 

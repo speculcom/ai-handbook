@@ -185,7 +185,7 @@ tags: [版本控制, API, 读写, 远程, 本地, 多平台]
 related: [copilot]
 
 sources:
-  - label: github/github-mcp-server · 仓库（33,446★，MIT，核验 2026-10-08）
+  - label: github/github-mcp-server · 仓库（33,871★，MIT，滚动核验 2026-10-23）
     url: https://github.com/github/github-mcp-server
     kind: repo
 
@@ -221,7 +221,7 @@ link:
   url: https://github.com/github/github-mcp-server
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial
@@ -248,7 +248,7 @@ cn:
 它**不是** MCP 组织那个已归档的参考 server。原 `github` reference server 已归档至
 [servers-archived](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github)，
 而本条目指的是 **GitHub 官方仓库 `github/github-mcp-server`**——
-活跃维护（核验 2026-10-08 当天仍有发布 v2.0.2）、MIT、33k+ 星。
+活跃维护（滚动核验 2026-10-23：最新 release v2.0.3 @ 2026-10-21）、MIT、33k+ 星。
 
 > 修这条的理由很直接：两条目同名，搜「github mcp server」会同时命中「已归档的参考实现」与
 > 「GitHub 官方活跃产品」，而它们的能力与维护状态完全不同。
@@ -320,7 +320,7 @@ lockdown 的边界官方写得很实。它只减少一种 prompt injection 风�
 **本轮核到的官方页**：README（两形态、toolsets 全表、认证、read-only / lockdown、i18n 覆写）、
 docs/remote-server.md（端点、URL 修饰、X-MCP-* 头）、docs/server-configuration.md、
 docs/scope-filtering.md、docs/streamable-http.md、docs/insiders-features.md、docs/feature-flags.md；
-仓库元数据经 GitHub API 核验（33,446★、MIT、语言 Go、最近推送 2026-10-08、最新版 v2.0.2）。
+仓库元数据经 GitHub API 核验（33,871★、MIT、语言 Go、最近推送 2026-10-22、最新版 v2.0.3；滚动核验 2026-10-23）。
 
 ## 实测记录
 

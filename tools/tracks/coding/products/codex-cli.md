@@ -257,7 +257,7 @@ link:
   url: https://github.com/openai/codex
   kind: official
 
-last_verified: 2026-10-08
+last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
 confidence: partial
@@ -331,7 +331,7 @@ Codex 的设计重点不是 CLI 本身，而是**它背后的 app server**。
 `confidence: partial` 的原因：
 
 - ✅ 已核验（每条都能回到官方页）：仓库存在、许可（Apache-2.0）、
-  最新版本、发布日期、star 数（126,978）、安装方式、ChatGPT 订阅授权
+  最新版本、发布日期、star 数（130,498 · 滚动核验 2026-10-23）、安装方式、ChatGPT 订阅授权
 
 - ✅ 已核验（默认模型与 provider 配置面、沙箱档位与默认值、审批策略枚举、
   工具清单与 MCP、上下文压缩与 memories、云端任务形态）
