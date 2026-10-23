@@ -100,12 +100,16 @@ axes:
 
     **核验**：已查 providers 页与 configuration 页。
   runtime: >-
-    **这是它最强的一维：七种终端后端，加两个入口。**
+    **这是它最强的一维：六种终端后端加插件后端，再加两个入口。**
 
-    **README 原文列举**：
+    **README 原文列举**（2026-10-23 滚动核验版）：
 
-    "**Seven terminal backends** — **local, Docker, SSH, Singularity, Modal, Daytona,
-    and Vercel Sandbox**."
+    "**terminal backends** — **local, Docker, SSH, Modal, Daytona, and Vercel Sandbox** —
+    **plus plugin backends such as Singularity/Apptainer**."
+
+    ⚠ 旧版 README（2026-10-01 核验时）写的是 "**Seven terminal backends** — local,
+    Docker, SSH, Singularity, Modal, Daytona, and Vercel Sandbox" ——
+    **Singularity 已被官方挪到 plugin backends 一类**，本站按现口径记录。
 
     官方还特别点出这两个后端：Daytona 与 Modal。
     它们带来 serverless persistence。
@@ -139,8 +143,8 @@ axes:
     这些后端各自提供一层隔离：
 
     - Docker / SSH
-    - Singularity
     - Modal / Daytona / Vercel
+    - Singularity（README 现口径归入 plugin backends）
 
     **Context Files 是官方的一等概念，格式与优先级已核验。**
     （文档 `features/context-files`）
@@ -376,7 +380,7 @@ axes:
 pitfalls:
   - 当成编程框架用 —— **它是通用个人助手**，编程只是它能做的事之一，形态与 LangGraph/CrewAI 完全不同
   - 相信「the only agent with a built-in learning loop」是本站结论—— **那是官方宣传语，本站未做跨产品对比验证**
-  - 把七种终端后端理解成七种部署方式 —— 官方说的是 terminal backends（工具执行的后端），且其中 Modal/Daytona 提供的是**休眠**不是常驻
+  - 把终端后端清单理解成部署方式清单 —— 官方说的是 terminal backends（工具执行的后端），且其中 Modal/Daytona 提供的是**休眠**不是常驻；清单本身也在变（Singularity 已从主列表挪到 plugin backends）
   - 以为 `/compress` 是自动的 —— **它是显式命令**，不触发就不会压缩
   - 忽略 DM pairing 的重要性 —— 一个能接六个消息平台、还能在文件系统动手的 agent，谁能指挥它就是最关键的安全问题
   - 跑 `hermes claw migrate` 前不看 dry-run —— 该命令会接触 API keys（README 列出五家）
@@ -386,11 +390,11 @@ tags: [Python, 开源, MIT, 通用harness, 通用助手, 常驻, 跨平台消息
 related: [memory]
 
 sources:
-  - label: NousResearch/hermes-agent · 仓库（250,401★，MIT，核验 2026-10-01）
+  - label: NousResearch/hermes-agent · 仓库（256,242★，MIT，滚动核验 2026-10-23）
     url: https://github.com/NousResearch/hermes-agent
     kind: repo
 
-  - label: 主 README（定位、六项特性表含七种终端后端与学习闭环、CLI vs Messaging 对照表、文档目录、安全与 MCP 页、OpenClaw 迁移清单）
+  - label: 主 README（定位、六项特性表含终端后端清单与学习闭环、CLI vs Messaging 对照表、文档目录、安全与 MCP 页、OpenClaw 迁移清单）
     url: https://github.com/NousResearch/hermes-agent/blob/main/README.md
     kind: docs
 
@@ -454,8 +458,8 @@ link:
   url: https://hermes-agent.nousresearch.com/
   kind: official
 
-last_verified: 2026-10-01
-last_updated: 2026-10-01
+last_verified: 2026-10-23
+last_updated: 2026-10-23
 lifecycle: active
 confidence: partial
 cn:
@@ -534,22 +538,26 @@ cn:
 
 **`/compress` 是两边都有的显式命令** —— 详见下方 context 一节。
 
-## 七种终端后端：这是它最独特的一格
+## 终端后端清单：这是它最独特的一格
 
-> README 原文：
+> README 原文（2026-10-23 滚动核验版）：
 
-> **Seven terminal backends** — **local, Docker, SSH, Singularity, Modal, Daytona,
-> and Vercel Sandbox**.
+> **terminal backends** — **local, Docker, SSH, Modal, Daytona, and Vercel Sandbox** —
+> **plus plugin backends such as Singularity/Apptainer**.
 > Daytona and Modal offer **serverless persistence** — your agent's environment
 > **hibernates when idle and wakes on demand**, costing nearly nothing between sessions.
 
-⚠ **两点要说清。**
+⚠ **三点要说清。**
 
-**① 这是 terminal backend，指的是「工具在哪执行」，不是七种部署方式。**
-local 就是本机执行，Docker/Singularity 是容器，SSH 是远端机，
+**① 这是 terminal backend，指的是「工具在哪执行」，不是部署方式清单。**
+local 就是本机执行，Docker 是容器，SSH 是远端机，
 Modal/Daytona/Vercel 是 serverless。
 
-**② 「空闲时休眠」不等于「常驻」。**
+**② 清单本身在变。** 2026-10-01 核验时 README 写「Seven terminal backends」并把
+Singularity 列在主列表；2026-10-23 滚动核验时 Singularity 已挪到 plugin backends
+（such as Singularity/Apptainer），主列表剩六种。引用这类清单要带核验日。
+
+**③ 「空闲时休眠」不等于「常驻」。**
 官方用词是 hibernate，唤醒有延迟。
 休眠期间的状态一致性本站未核验。
 
@@ -752,10 +760,10 @@ hermes claw migrate --preset user-data     # 不导入密钥
 
 **已核验：**
 
-- 仓库存在与星数（250,401，**本站收录对象里最高**）
-- 许可（MIT，经 license API）、最近推送（2026-10-01，仍活跃）
-- 最新版 **v2026.9.24**（releases @ 2026-09-24）
-- README 全文 243 行。它含定位段、六项特性表与七种终端后端原文
+- 仓库存在与星数（256,242 · 滚动核验 2026-10-23，**本站收录对象里最高**）
+- 许可（MIT，经 license API）、最近推送（2026-10-22，仍活跃）
+- 最新版 **v0.22.4**（releases @ 2026-10-21）——⚠ 版本命名已从日期式（v2026.9.24）换成 semver（v0.22.x），换轨发生在 2026-10-08 至 2026-10-12 之间（v2026.9.24 之后直接是 v0.21.6）
+- README 全文 243 行。它含定位段、六项特性表与终端后端原文（现口径：六种主列表 + plugin backends）
 - 它还有完整的 CLI vs Messaging 对照表
 - 十四节文档目录、OpenClaw 迁移清单、社区与许可段
 - 仓库有中文与西语等 README 分支、Nous Portal 入口

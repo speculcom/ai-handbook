@@ -135,7 +135,7 @@ pitfalls:
   - 把 Deep Agents / LangChain / LangGraph 当成同一个东西 —— 官方自己明确是三层，职责不同（见 `layer_position`）
   - 以为 "trust the LLM" 是产品特性而不是风险声明 —— 官方原文是让你在工具/沙箱层自行设边界
   - 以为开源就零成本 —— 模型推理 + LangSmith（官方推荐的 tracing/eval）都要付费
-  - 以为最新版是 0.7.0 —— 竞品站的快照记的是 0.7.0，**实际已 0.7.20**（核验 2026-09-30）
+  - 以为最新版是 0.7.0 —— 竞品站的快照记的是 0.7.0，**实际已 0.7.30**（滚动核验 2026-10-23）
 
 tags: [Python, 开源, MIT, 通用harness, 长任务, 子代理]
 related: [amp]
@@ -177,7 +177,7 @@ link:
   url: https://github.com/langchain-ai/deepagents
   kind: official
 
-last_verified: 2026-09-30
+last_verified: 2026-10-23
 last_updated: 2026-09-30
 lifecycle: active
 confidence: partial
@@ -314,9 +314,9 @@ README 提到 **Deep Agents Code** —— 预构建的终端 coding agent。
 > 主要缺口：LangSmith 配套的商业条款、LangGraph interrupt 细节、多 agent 并发文件冲突。
 
 - ✅ 已核验：
-  - 仓库存在与星数（29,862）
+  - 仓库存在与星数（30,517 · 滚动核验 2026-10-23）
   - **许可原文（MIT，经 license API）**
-  - 最新版本 **0.7.20**（2026-09-29 releases）
+  - 最新版本 **0.7.30**（2026-10-22 releases）
   - 仓库描述原文、README 全文四条原则与九条特性清单
   - FAQ 三层关系原文、Security 声明原文、provider 支持范围原文、Quickstart 代码示例
 - ❌ 未核验：

@@ -48,7 +48,7 @@ layer_position: >-
     ADK 在 1.16+ 给出 Context Compaction
     —— 滑动窗口机制，2026-10-08 核验。
 
-  ⚠ **同厂还有 TypeScript 版。** `google/adk-js`（Apache-2.0，1,426★，独立仓，核验 2026-10-01）。
+  ⚠ **同厂还有 TypeScript 版。** `google/adk-js`（Apache-2.0，1,448★，独立仓，滚动核验 2026-10-23）。
 
   按本站「一个对象 = 一套决策依据」的粒度，本档只收录 Python 主体。
 
@@ -246,7 +246,7 @@ tags: [Python, TypeScript, 开源, Apache-2.0, 编排框架, 图执行, 工作�
 related: [gemini-cli]
 
 sources:
-  - label: google/adk-python · 仓库（21,688★，Apache-2.0，核验 2026-10-01）
+  - label: google/adk-python · 仓库（21,966★，Apache-2.0，滚动核验 2026-10-23）
     url: https://github.com/google/adk-python
     kind: repo
 
@@ -310,7 +310,7 @@ sources:
     url: https://github.com/google/adk-recipes
     kind: repo
 
-  - label: Releases（v2.10.0 @ 2026-09-25）
+  - label: Releases（v2.12.0 @ 2026-10-13）
     url: https://github.com/google/adk-python/releases
     kind: changelog
 
@@ -318,7 +318,7 @@ link:
   url: https://google.github.io/adk-docs/
   kind: official
 
-last_verified: 2026-10-01
+last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
 confidence: partial
@@ -495,7 +495,7 @@ OpenAPI specs、MCP tools。
 
 | 仓库 | 用途 | 核验（2026-10-01） |
 |---|---|---|
-| `google/adk-python` | Python 主体（本档收录） | 21,688★ · Apache-2.0 |
+| `google/adk-python` | Python 主体（本档收录） | 21,966★ · Apache-2.0 |
 | `google/adk-js` | TypeScript 版 | 1,426★ · Apache-2.0 |
 | `google/adk-recipes` | 样例集（描述里写 adk-samples） | 10,404★ |
 
@@ -535,8 +535,8 @@ OpenAPI specs、MCP tools。
 - 跨进程跨机续跑语义
 - 分布式状态存储
 
-> **已核验**：仓库存在与星数（21,688）、许可（Apache-2.0，经 license API）、
-> 最近推送（2026-10-01，仍活跃）、最新版 **v2.10.0**（releases @ 2026-09-25）、
+> **已核验**：仓库存在与星数（21,966 · 滚动核验 2026-10-23）、许可（Apache-2.0，经 license API）、
+> 最近推送（2026-10-22，仍活跃）、最新版 **v2.12.0**（releases @ 2026-10-13）、
 > README 全文的六项特性列表与四类运行形态、两种 `adk deploy` 命令与
 > `GOOGLE_GENAI_USE_ENTERPRISE` 环境变量、`adk eval` 命令与 `.evalset.json` 格式、
 > `google/adk-js`（1,426★ · Apache-2.0）与 `google/adk-recipes`（10,404★）两仓元数据

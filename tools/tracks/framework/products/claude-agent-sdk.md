@@ -254,7 +254,7 @@ link:
   url: https://platform.claude.com/docs/en/agent-sdk/python
   kind: official
 
-last_verified: 2026-09-30
+last_verified: 2026-10-23
 last_updated: 2026-09-30
 lifecycle: active
 confidence: partial
@@ -507,15 +507,15 @@ Python 版是 MIT + 商业条款；TS 版**无文件可查**。
 
 **已核验**：
 
-- ✅ 仓库存在与星数（8,197）
+- ✅ 仓库存在与星数（8,334 · 滚动核验 2026-10-23）
 - ✅ 许可（license API 返回 MIT）
-- ✅ 最近推送（2026-09-30 22:29）
-- ✅ 最新版本 **0.2.163**（**2026-09-30 19:47 发布**）
+- ✅ 最近推送（2026-10-22，仍活跃）
+- ✅ 最新版本 **0.2.173**（**2026-10-22 发布**）
 - ✅ 捆绑 CLI 版本 **2.1.286**（`_cli_version.py` 原文）
 - ✅ README 全文 —— 权限求值链、hooks 定位、错误类型清单、default full toolset 表述
 - ✅ README 全文 —— custom tools 为进程内 MCP server、system prompt snapshot 语义
 - ✅ 许可条款末节原文
-- ✅ v3 计划记录的 **0.2.162** 已被超越（今天发布 0.2.163）
+- ✅ v3 计划记录的 **0.2.162** 已被超越（2026-10-23 滚动核验时最新为 0.2.173）
 
 **⚠ 异常发现**：
 

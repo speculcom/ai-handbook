@@ -131,7 +131,7 @@
     "Treating Deep Agents / LangChain / LangGraph as one thing — the official docs are explicit that these are three layers with different responsibilities (see `layer_position`)",
     "Reading \"trust the LLM\" as a product feature rather than a risk warning — the official text tells you to set boundaries at the tool/sandbox layer yourself",
     "Assuming open source means zero cost — model inference plus LangSmith (the officially recommended tracing/eval) both cost money",
-    "Assuming the latest version is 0.7.0 — a competitor site snapshotted 0.7.0; **it is actually 0.7.20** (checked 2026-09-30)"
+    "Assuming the latest version is 0.7.0 — a competitor site snapshotted 0.7.0; **it is actually 0.7.30** (rolling check 2026-10-23)"
   ],
   "google-adk": [
     "Assuming it is \"Google's version of the OpenAI Agents SDK\" — **it is an orchestration framework** whose core asset is the Workflow Runtime graph engine, not single-agent primitives",
@@ -145,7 +145,7 @@
   "hermes-agent": [
     "Using it as a programming framework — **it is a general personal assistant**; coding is one of many things it does, and its form is nothing like LangGraph/CrewAI",
     "Taking \"the only agent with a built-in learning loop\" as this site's conclusion — **that is the vendor's marketing line; this site ran no cross-product comparison**",
-    "Reading the seven terminal backends as seven deployment modes — the official text says terminal backends (the backend that executes tools), and Modal/Daytona there provide **sleep**, not always-on",
+    "Reading the terminal backend list as a deployment-mode list — the official text says terminal backends (the backend that executes tools), and Modal/Daytona there provide **sleep**, not always-on; the list itself changes (Singularity moved from the main list to plugin backends)",
     "Assuming `/compress` is automatic — **it is an explicit command**; nothing is compressed unless you trigger it",
     "Overlooking DM pairing — for an agent that reaches six messaging platforms and touches your filesystem, who can command it is the central safety question",
     "Running `hermes claw migrate` without reading the dry-run first — the command touches API keys (the README lists five providers)",

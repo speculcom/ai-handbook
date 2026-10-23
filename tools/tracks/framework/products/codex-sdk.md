@@ -277,7 +277,7 @@ link:
   url: https://developers.openai.com/codex/
   kind: official
 
-last_verified: 2026-10-01
+last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
 confidence: partial
@@ -434,8 +434,8 @@ SDK README 全文没有出现 MCP，主仓 `docs/` 目录里也没有 `mcp.md`�
 > 主要缺口：三档沙箱的**逐平台**实现差异、第三方 provider 能力对齐、权限审计规则语法。
 > （A6.2 已补：MCP 官方支持、model/provider 配置面、沙箱与审批默认值、非交互配置已核验。）
 
-- ✅ 已核验：仓库存在与星数（127,448）、许可（Apache-2.0）、最近推送（2026-10-01，仍活跃）、
-  最新稳定版 **0.159.3**（releases @ 2026-09-30）与预发布 0.161.0-alpha.7、
+- ✅ 已核验：仓库存在与星数（130,474 · 滚动核验 2026-10-23）、许可（Apache-2.0）、最近推送（2026-10-22，仍活跃）、
+  最新稳定版 **0.163.0**（releases @ 2026-10-15）、
   `sdk/typescript/package.json` 全文（包名 `@openai/codex-sdk`、版本 0.0.0-dev、Node≥18）、
   `sdk/typescript/README.md` 全文六节（quickstart / streaming / structured output / images / resume / 环境与 config）、
   **`sdk/typescript/src/threadOptions.ts` 类型定义全文**（审批四档、沙箱三档、网络与检索、推理八档）、

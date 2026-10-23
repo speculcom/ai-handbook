@@ -206,7 +206,7 @@ link:
   url: https://github.com/charmbracelet/crush
   kind: official
 
-last_verified: 2026-09-29
+last_verified: 2026-10-23
 last_updated: 2026-09-29
 lifecycle: active
 confidence: partial
@@ -284,7 +284,7 @@ GitHub API 返回的许可证字段是 **`NOASSERTION`**，也就是无法识别
 
 本条目 `confidence: partial` 的原因：
 
-- ✅ 已核验：仓库、star 数（28,350）、最新 release（nightly）与日期、MCP 三种传输、
+- ✅ 已核验：仓库、star 数（28,756 · 滚动核验 2026-10-23）、最新 release（nightly）与日期、MCP 三种传输、
   Hyper 官方 provider、自定义 provider 方式、安装方式；**A6.2 本轮补**：
   完整 provider 清单与本地模型、LSP 与上下文文件机制、auto-summarize、
   权限 allow/deny 与 `--yolo`、`crush serve` 本地后端边界

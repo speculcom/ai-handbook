@@ -295,7 +295,7 @@ link:
   url: https://github.com/google-gemini/gemini-cli
   kind: official
 
-last_verified: 2026-09-29
+last_verified: 2026-10-23
 last_updated: 2026-09-29
 lifecycle: active
 confidence: partial
@@ -362,7 +362,7 @@ README 有独立章节 **「Non-interactive mode for scripts」**，定位是 wo
 
 `confidence: partial` 的原因：
 
-- ✅ **已核验**：仓库、许可（Apache-2.0）、版本形态与日期、star 数（107,180）、
+- ✅ **已核验**：仓库、许可（Apache-2.0）、版本形态与日期、star 数（107,524 · 滚动核验 2026-10-23）、
   MCP 支持及文档页、非交互模式、npx 安装方式、MCP 接入多模态生成的官方举例
 
 - ✅ **A6.2 本轮补**：额度政策（Code Assist individuals 6,000/240 等）、

@@ -238,7 +238,7 @@ sources:
     url: https://openai.github.io/openai-agents-python/sandbox/clients/
     kind: docs
 
-  - label: Agents SDK JS/TS（独立仓，MIT，3,882★，核验 2026-09-30）
+  - label: Agents SDK JS/TS（独立仓，MIT，3,935★，滚动核验 2026-10-23）
     url: https://github.com/openai/openai-agents-js
     kind: repo
 
@@ -250,7 +250,7 @@ link:
   url: https://openai.github.io/openai-agents-python/
   kind: official
 
-last_verified: 2026-09-30
+last_verified: 2026-10-23
 last_updated: 2026-09-30
 lifecycle: active
 confidence: partial
@@ -383,7 +383,7 @@ guardrail 是用户可编程校验钩子。真正的沙箱边界交宿主机或 
 
 ## 附：JS/TS 版是独立仓，本站不单独收录
 
-README 里明确指向 `openai/openai-agents-js`（核验 2026-09-30：MIT，3,882★，活跃）。
+README 里明确指向 `openai/openai-agents-js`（滚动核验 2026-10-23：MIT，3,935★，活跃）。
 
 > ⚠ **本站不把它作为独立对象收录**：同一产品的第二语言实现，
 > 与本站「一个对象 = 一套决策依据」的粒度不符（同 Deep Agents Code 的处理法）。
@@ -411,9 +411,9 @@ README 里明确指向 `openai/openai-agents-js`（核验 2026-09-30：MIT，3,8
 
 ✅ 已核验清单：
 
-- 仓库存在与星数（29,792）、许可（MIT，经 license API）。
-- 最近推送（2026-10-01，仍活跃）。
-- 最新版本 **0.22.3**（releases @ 2026-09-17）。
+- 仓库存在与星数（30,233 · 滚动核验 2026-10-23）、许可（MIT，经 license API）。
+- 最近推送（2026-10-22，仍活跃）。
+- 最新版本 **0.24.0**（releases @ 2026-10-15）。
 - `pyproject.toml` 全文关键项（`requires-python >=3.10`、`mcp>=1.19.0,<3` 是核心依赖、
   litellm/any-llm/sqlalchemy 均为可选 extra）。
 
