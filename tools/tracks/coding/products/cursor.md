@@ -26,17 +26,16 @@ axes:
     - Gemini 3.1 Pro
     - Composer 2.5
 
-    **额度按档递增，官方原文**：
+    **额度机制（2026-10-23 滚动核验：已换轨）**：
 
-    - Pro = extended
-    - Pro+ = "3x Pro limits on Agent"
-    - Ultra = "20x Pro limits on Agent"
+    旧口径是按月额度倍数（Pro=extended、Pro+=3x、Ultra=20x）；
+    官方定价页现改为**每档一个跨 Cursor 与 Grok 共享的用量池、按周刷新**
+    （官方原文 "allowance refreshes weekly"）。
 
-    三档都写 **"Access to frontier models"**。
-    所以差别在额度倍数，不在能不能用前沿模型。
-    **这一条与常见误解相反，值得单独记。**
-
-    Hobby 档**仅可用 Auto 模型**。
+    ⚠ **换轨后模型可得性成了档位差异**：Plus 仅含 Grok 模型
+    （"Plus includes Grok models only"），Premium 及以上给 Grok 宽裕用量
+    但仍不含第三方模型额度（"do not include an allowance for third-party models"）。
+    **这与旧版「差别只在额度倍数、不在模型可得性」的结论相反。**
 
     **Cursor Router 按 cost / balance / intelligence 三档在多模型间路由。**
     官方说明按被路由到的模型标价计费。
@@ -110,9 +109,12 @@ axes:
     也就是**无需等待提示**就会动手。
 
   tools: >-
-    **MCP、技能（Skills）与钩子（Hooks）从 Pro+ 起可用。**
+    **MCP、技能（Skills）与钩子（Hooks）三项官方成页。**
 
-    官方在 Pro+ 及以上档列出这三项，另有云端智能体与按用量计费的 Bugbot。
+    ⚠ 旧版档案写「从 Pro+ 起可用」——那是旧定价页能力清单的表述；
+    2026-10-23 滚动核验时档位已换轨（见「档位结构」一节），
+    新定价页与 MCP 文档页均未再标注这三项的档位门槛，
+    **本站未核验到新档位下这三项的可用范围**。
     **Bugbot 是智能体驱动的代码审查。**
 
     Teams 档另有团队应用市场，面向内部规则、技能与插件。
@@ -143,7 +145,7 @@ axes:
 
     还支持 `envFile` 从 `.env` 读密钥（仅 stdio）。
 
-    ⚠ 注意 `~` 是 home 目录，与「Pro+」无关。
+    ⚠ 注意 `~` 是 home 目录缩写，与任何档位无关。
 
     **工具审批默认开启。**
 
@@ -259,7 +261,7 @@ link:
   url: https://cursor.com
   kind: official
 
-last_verified: 2026-10-03
+last_verified: 2026-10-23
 last_updated: 2026-09-29
 lifecycle: active
 confidence: partial
@@ -352,26 +354,32 @@ cn:
 
 **职责边界很清楚**：代码风格和质量问题仍由 Bugbot 负责。
 
-## 档位结构（6 档，能力差异 2026-10-01 核实）
+## 档位结构（2026-10-23 滚动核验：已换轨为 7 档）
 
-官方定价页 + 帮助页逐档核实（报价数字按 D9 口径不存，见官方定价页）：
+⚠ **档位命名与结构已整体换轨**（旧 6 档 Hobby/Pro/Pro+/Ultra/Teams/Enterprise 已退役）。
+官方定价页现列 **Free / Plus / Premium / Super / Ultra / Teams / Enterprise**
+（报价数字按 D9 口径不存，见官方定价页）：
 
-| 档位 | 关键能力 |
+| 档位 | 关键能力（官方口径） |
 |---|---|
-| **Hobby** | 免费档：无需信用卡、有限的智能体请求、Composer 访问权限。**仅可用 Auto 模型** |
-| **Pro** | 扩展的 Agent 额度、Generous limits for Grok、前沿模型访问、Grok Bot 访问、**MCP + 技能 + 钩子**、云端智能体、按用量计费的 Bugbot |
-| **Pro+** | **3x Pro limits on Agent**，其余同 Pro，**Grok Bot 用量更高** |
-| **Ultra** | **20x Pro limits on Agent**，Grok Bot 用量最高，**新功能优先访问** |
-| **Teams** | 集中计费、**团队应用市场**（内部规则/技能/插件）、**共享团队上下文的云端智能体与自动化**、Bugbot 代码审查、**用量分析**、团队级隐私模式、SAML/OIDC 单点登录 |
-| **Enterprise** | 洽谈：汇总用量、发票/采购订单结算、SCIM 管理席位 |
+| **Free** | 个人免费档（官方原文 "Free for individuals"） |
+| **Plus** | **仅含 Grok 模型**（官方原文 "Plus includes Grok models only"）；官方定位给轻度 AI 使用者 |
+| **Premium** | Grok 模型宽裕用量，但**不含第三方模型额度**（官方原文 "do not include an allowance for third-party models"） |
+| **Super** | 官方定位「daily agent users」 |
+| **Ultra** | 官方定位「power users」 |
+| **Teams** | 官方定位协作专业人士；更大组织走 Enterprise |
+| **Enterprise** | 洽谈：发票/电汇结算、汇总用量（pooled usage）、高级安全 |
 
-**三个值得注意的设计**：
+**换轨带来的两个机制变化**（官方 FAQ 原文）：
 
-- **Teams 档的「用量分析」**——「帮助您了解团队行为」，这类需求通常只有企业级工具才有
-- **Teams 档的「团队级隐私模式」**——与自托管能力呼应
-- **Pro / Pro+ / Ultra 的差别是额度倍数，不是模型可得性**
+- **额度改为「周刷新的共享池」**：每档含一个跨 Cursor 与 Grok 共享的 AI 用量池
+  （Grok 侧覆盖 Chat/Imagine/Voice/Bot），**allowance refreshes weekly**——
+  旧口径是「按月的额度倍数（1x/3x/20x）」，本站旧版记录的倍数表述已随之过时。
+- **Plus 与 Premium 的差别是模型可得性**：Plus 只有 Grok，Premium 及以上才给 Grok 宽裕用量
+  但仍不含第三方模型额度。**这与旧版「差别只在额度倍数、不在模型可得性」的结论相反**——
+  换轨后模型可得性成了档位差异的一部分。
 
-三档都写 **"Access to frontier models"**。
+**付费档含 Grok API 访问**，但 API 用量按标准模型价单独计费、不占用套餐池（官方 FAQ）。
 
 ## 一个值得留意的商业信号
 
@@ -402,14 +410,14 @@ Cursor Router 按 cost / balance / intelligence 三档路由，
 **代码不能离开自有基础设施的企业**（自托管形态）。
 
 **不适合**要求额度透明到可直接比较的人——
-各档额度倍数（1x / 3x / 20x）官方未给出具体请求数或 token 量，
-只有倍数表述。
+换轨后各档的用量池具体量值官方未给出（旧版的 1x/3x/20x 倍数口径也已过时），
+只有「池按周刷新、档位越高池越大」的定性表述。
 
-## 采集状态（2026-10-01 更新 · D9 修订）
+## 采集状态（2026-10-23 滚动核验 · D9 修订）
 
 | 页面 | 状态 |
 |---|---|
-| 定价页 | ✅ 6 档结构与能力清单已核实（报价数字按 D9 口径不存） |
+| 定价页 | ✅ 档位已换轨为 7 档（Free/Plus/Premium/Super/Ultra/Teams/Enterprise），结构与 FAQ 口径已核实（报价数字按 D9 口径不存） |
 | 帮助页（account-and-billing/pricing） | ✅ 档位切换机制与额度口径已核 |
 | 文档页 | ✅ 取到文本 |
 | Changelog | ✅ 取到三条完整条目（09-23 / 09-10 / 09-02） |
@@ -417,7 +425,7 @@ Cursor Router 按 cost / balance / intelligence 三档路由，
 **因此本条目标 `confidence: partial`**：
 
 - 能力侧证据充分
-- 但额度倍数（1x / 3x / 20x）无具体数值
+- 但换轨后各档用量池的具体量值官方未给出，新档位下 MCP/技能/钩子的档位门槛也未标注
 - 自托管部署细节未核
 
 ## 实测记录
@@ -430,7 +438,8 @@ Cursor Router 按 cost / balance / intelligence 三档路由，
 
 ## 未知项清单
 
-- 各档额度倍数（1x / 3x / 20x）对应的具体请求数或 token 量
+- 换轨后各档用量池的具体量值（旧 1x/3x/20x 倍数口径已随档位退役过时）
+- 新档位下 MCP / 技能 / 钩子的可用范围（官方页未标注门槛）
 - 自托管形态的具体部署方式与前置条件
 - 大仓库的索引性能与规模上限（官方未给数字）
 - 「项目」beta 的功能边界

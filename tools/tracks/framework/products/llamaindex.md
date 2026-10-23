@@ -21,7 +21,7 @@ providers:
 layer_position: >-
   **本站收录对象里唯一一个「公司战略已明显转移」的对象。**
 
-  这一点必须放在最前面，否则读者会被 52,377★ 误导成「一个活跃的编排框架」。
+  这一点必须放在最前面，否则读者会被 52,625★ 误导成「一个活跃的编排框架」。
 
   README 首屏自己写明，这家公司在 2023 年框架上线后「undergone an evolution」，
   并把 primary focus 转向 LlamaParse（文档解析 / agentic OCR）
@@ -230,7 +230,7 @@ tags: [Python, 开源, MIT, 编排框架, RAG, 数据接入, 文档解析, 检�
 related: [memory]
 
 sources:
-  - label: run-llama/llama_index · 仓库（52,377★，MIT，核验 2026-10-01）
+  - label: run-llama/llama_index · 仓库（52,625★，MIT，滚动核验 2026-10-23）
     url: https://github.com/run-llama/llama_index
     kind: repo
 
@@ -286,7 +286,7 @@ link:
   url: https://developers.llamaindex.ai/
   kind: official
 
-last_verified: 2026-10-01
+last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
 confidence: partial
@@ -345,7 +345,7 @@ cn:
 **这条档案的价值在别处。**
 
 - **收录判断**：符合 v3 铁律「近 30 天有实质更新」（推送 2026-09-29，仍活跃）
-- **真正价值**：如实记录这个转折 —— 52,377★ 背后的公司正往文档解析 / agentic OCR 走
+- **真正价值**：如实记录这个转折 —— 52,625★ 背后的公司正往文档解析 / agentic OCR 走
 - 那是 LlamaParse 与 ParseBench 的战场，不是这个开源框架的
 
 ## 两个安装档位：它少见的清晰之处
@@ -463,10 +463,10 @@ from llama_index.xxx.yyy import SubclassABC    # 不带 = 集成包
 
 **已核验（存量）**：
 
-- 仓库存在与星数（52,377）
+- 仓库存在与星数（52,625 · 滚动核验 2026-10-23）
 - 许可（MIT，经license API）
-- 最近推送（2026-09-29，仍活跃）
-- 最新版 **v0.14.25**（releases @ 2026-09-21）
+- 最近推送（2026-10-21，仍活跃）
+- 最新版 **v0.14.25**（releases @ 2026-09-21；2026-10-23 滚动核验时主包无新版本）
 
 **README 全文 223 行**，覆盖：
 

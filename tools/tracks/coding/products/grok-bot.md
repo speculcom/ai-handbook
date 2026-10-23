@@ -253,7 +253,7 @@ link:
   url: https://x.ai/news/introducing-grok-bot
   kind: official
 
-last_verified: 2026-10-03
+last_verified: 2026-10-23
 last_updated: 2026-10-03
 lifecycle: active
 confidence: partial

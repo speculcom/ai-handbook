@@ -9,7 +9,7 @@ mark: LG
 accent: "#1C3C3C"
 stars: 42538
 license: MIT
-latest_version: 1.2.12
+latest_version: 1.2.16
 language: Python（主）/ TypeScript（langgraphjs 独立仓）
 
 # 支持哪些模型 provider（本站第一决策点）
@@ -237,7 +237,7 @@ tags: [Python, 开源, MIT, 编排框架, 图执行, 持久化, 状态管理, ch
 related: [filesystem]
 
 sources:
-  - label: langchain-ai/langgraph · 仓库（42,538★，MIT，核验 2026-10-01）
+  - label: langchain-ai/langgraph · 仓库（43,731★，MIT，滚动核验 2026-10-23）
     url: https://github.com/langchain-ai/langgraph
     kind: repo
 
@@ -301,7 +301,7 @@ link:
   url: https://docs.langchain.com/oss/python/langgraph/
   kind: official
 
-last_verified: 2026-10-01
+last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
 confidence: partial
@@ -495,8 +495,8 @@ monorepo 的子包命名是 `<子包>==<版本>`，无前缀那个才是主包�
 > 长期记忆（store 语义搜索 + 内容过滤）、`langchain-mcp-adapters`、
 > 「可不用 LangChain」四项已从缺口移出。
 
-- ✅ 已核验：仓库存在与星数（42,538）、许可（MIT，经 license API）、
-  > 最近推送（2026-10-01，仍活跃）、官方首页全文（定位、三项核心能力、
+- ✅ 已核验：仓库存在与星数（43,731 · 滚动核验 2026-10-23）、许可（MIT，经 license API）、
+  > 最近推送（2026-10-22，仍活跃）、官方首页全文（定位、三项核心能力、
   > Deep Agents 上下层关系、Pregel/Beam/NetworkX 溯源、can be used without LangChain）、
   > `libs/checkpoint/README.md` 的 "save graph state at every superstep" 原文、
   > `libs/` 下 9 个子包清单（`checkpoint`、`checkpoint-sqlite`、`checkpoint-postgres`、

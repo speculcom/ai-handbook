@@ -9,7 +9,7 @@ mark: OH
 accent: "#F97316"
 stars: 89675
 license: MIT
-latest_version: 1.24.0
+latest_version: 1.31.0
 language: TypeScript（前端/编排） + Python（Agent Server）
 
 # 支持哪些模型 provider（本站第一决策点）
@@ -240,7 +240,7 @@ tags: [TypeScript, Python, 开源, MIT, 自托管, 平台型, WebUI, 调度层, 
 related: [opencode, filesystem]
 
 sources:
-  - label: OpenHands/OpenHands · 仓库（Agent Canvas 控制中心，89,675★，MIT，核验 2026-10-01）
+  - label: OpenHands/OpenHands · 仓库（Agent Canvas 控制中心，91,593★，MIT，滚动核验 2026-10-23）
     url: https://github.com/OpenHands/OpenHands
     kind: repo
 
@@ -264,7 +264,7 @@ sources:
     url: https://github.com/OpenHands/automation
     kind: repo
 
-  - label: Releases（v1.24.0 @ 2026-09-25）
+  - label: Releases（v1.31.0 @ 2026-10-22）
     url: https://github.com/OpenHands/OpenHands/releases
     kind: changelog
 
@@ -304,7 +304,7 @@ link:
   url: https://openhands.dev
   kind: official
 
-last_verified: 2026-10-01
+last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
 confidence: partial
@@ -366,11 +366,11 @@ Codex / Claude Code / Gemini」。
 
 | 仓库 | 职责 | 核验（2026-10-01） |
 |---|---|---|
-| `OpenHands/OpenHands` | 前端控制中心、后端选择、本地栈编排 | 89,675★ · MIT · TypeScript |
+| `OpenHands/OpenHands` | 前端控制中心、后端选择、本地栈编排 | 91,593★ · MIT · TypeScript |
 | `OpenHands/software-agent-sdk` | **Python SDK、Agent Server、agents、tools、conversations、workspaces、events** | 1,190★ · MIT · Python |
 | `OpenHands/automation` | 定时调度、webhook、run history、分发 | 32★ · MIT · Python |
 
-> ⚠ **89,675★ 是控制中心的星数，不是 SDK 的星数**。
+> ⚠ **91,593★ 是控制中心的星数，不是 SDK 的星数**。
 > 如果你要的是「嵌进自己 Python 进程的 SDK」，那对象是 `software-agent-sdk`（1,190★），
 > 不是本条目。
 > **本站本次未单独收录它** —— 见下方实测建议第 1 条。
@@ -426,7 +426,7 @@ Codex / Claude Code / Gemini」。
 | 形态 | 命令要点 | 沙箱 | 要Node 24+/uv？ |
 |---|---|---|---|
 | **① 无沙箱本地** | `npm i -g @openhands/agent-canvas` → `agent-canvas` | ❌ 无 | 是 |
-| **② Docker 沙箱** | `docker run ... ghcr.io/openhands/agent-canvas:1.24.0` | ✅收敛到 `PROJECTS_PATH` | 否 |
+| **② Docker 沙箱** | `docker run ... ghcr.io/openhands/agent-canvas:1.31.0` | ✅收敛到 `PROJECTS_PATH` | 否 |
 | **③ 每会话独立容器** | `OH_CONVERSATION_RUNTIME=docker agent-canvas` | ✅每会话隔离 | 是 + Docker |
 | **④ 从源码** | clone → `npm install` → `npm run dev` | ❌ 无 | 是 |
 
@@ -534,8 +534,8 @@ condenser，见 axes.context）。仍留 partial 是因为还存在**官方确�
 
 **已核验（这部分扎实）**：
 
-- 仓库存在与星数（89,675）、许可（MIT，经 license API）
-- 最近推送（2026-10-01，仍活跃）、最新版 **v1.24.0**（releases @ 2026-09-25）
+- 仓库存在与星数（91,593 · 滚动核验 2026-10-23）、许可（MIT，经 license API）
+- 最近推送（2026-10-22，仍活跃）、最新版 **v1.31.0**（releases @ 2026-10-22）
 - README 全文九节（定位、四项特性表、Quickstart 四种 Option、Architecture 与
   Repository boundaries 表、More documentation）
 

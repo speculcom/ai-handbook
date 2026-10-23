@@ -220,7 +220,7 @@ link:
   url: https://about.fb.com/news/2026/09/introducing-muse/
   kind: official
 
-last_verified: 2026-10-03
+last_verified: 2026-10-23
 last_updated: 2026-10-03
 lifecycle: active
 confidence: partial

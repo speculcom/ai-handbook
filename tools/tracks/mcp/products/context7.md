@@ -68,7 +68,7 @@ mcp:
     **需 API Key**，通过 `Authorization: Bearer YOUR_API_KEY` 头传递。
     README 说明可经 OAuth 流程由安装器自动生成 key。
 
-    **额度档位本轮已核验（2026-10-01，官方 plans 页）**：
+    **额度档位已核验（2026-10-23 滚动复验，官方 plans 页）**：
     Free **1,000 次/月**（Search API + Context API 合计），
 
     Pro **2,000 次/席位/月**、超出**不阻塞**（超量单价按 D9 口径不存，见官方 plans 页）。
@@ -99,7 +99,7 @@ sources:
     url: https://github.com/upstash/context7
     kind: docs
 
-  - label: 官方 Pricing & Plans（核验 2026-10-01：Free 1,000 次每月、Pro 2,000 次每席位每月且超出不阻塞、Private Repo Parsing 是独立计费项、Enterprise Custom 含 SOC-2/SSO/Self-Hosted；报价按 D9 口径不存；**与第三方「Pro 5,000 次」冲突，按官方 2,000**）
+  - label: 官方 Pricing & Plans（滚动核验 2026-10-23：Free 1,000 次每月、Pro 2,000 次每席位每月且超出不阻塞、Private Repo Parsing 是独立计费项、Enterprise Custom 含 SOC-2/SSO/Self-Hosted；报价按 D9 口径不存；**与第三方「Pro 5,000 次」冲突，按官方 2,000**）
     url: https://context7.com/docs/plans-pricing.md
     kind: pricing
 
@@ -119,7 +119,7 @@ link:
   url: https://github.com/upstash/context7
   kind: official
 
-last_verified: 2026-10-01
+last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
 confidence: partial
