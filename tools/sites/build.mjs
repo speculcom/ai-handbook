@@ -532,6 +532,47 @@ try {
   console.warn('  ! _fits.en.json 读不到，「适合与不适合」保持中文：' + e.message);
 }
 
+/* ── C0 正文英译（2026-10-24）──────────────────────────────────────────
+ * 每档案一份 `i18n/bodies/<id>.en.json`：axes/mcp 单元格、正文小节（sections，
+ * 键 = 中文小节标题）、runs、unknowns、related 理由与 sources 标签（按索引对齐）。
+ * 与 _leads/_onelines/_fits 的分工：那些是「摘要层」翻译；bodies 是「完整正文」翻译。
+ * 诚实降级：缺文件 = 整档案保持中文；缺键 = 该块保持中文 —— 都不报错也不隐藏中文。
+ * 键漂移要报错：译文文件里出现源侧没有的 axes 键或小节标题（改名/删节后译文残留），
+ * 构建期就报出来，不让它变成「页面上悄悄少一块」。
+ * 缓存：Map 按 id 缓存，每档案至多读一次（与「翻译表构建时加载一次」同口径）。*/
+const BODIES_DIR = path.join(I18N_DIR, 'bodies');
+const BODIES_EN = new Map();
+function loadBodyEn(id) {
+  if (BODIES_EN.has(id)) return BODIES_EN.get(id);
+  let v = null;
+  const p = path.join(BODIES_DIR, id + '.en.json');
+  if (fs.existsSync(p)) {
+    try { v = JSON.parse(fs.readFileSync(p, 'utf8')); }
+    catch (e) { throw new Error('正文英文读不到：' + p + ' —— ' + e.message); }
+  }
+  BODIES_EN.set(id, v);
+  return v;
+}
+console.log(`  · 正文英译目录：${fs.existsSync(BODIES_DIR) ? fs.readdirSync(BODIES_DIR).filter(f => f.endsWith('.en.json')).length + ' 份档案已备' : '（未建）'}`);
+
+/* 详情页英文态提示行的判据：正文是否**每一块**都有译文。
+ * 覆盖：axes 每格（含附加维）、mcp 每格、每个 extraSection、runs、unknowns、
+ * 正文「相关条目」每条理由、sources 每条标签。
+ * 任何一块缺 → 返回 false → 提示行保留（对读者诚实，不假装全文已译）。 */
+function bodyEnComplete(e) {
+  const b = e.bodyEn;
+  if (!b) return false;
+  for (const [k] of AXES) if (!(b.axes || {})[k]) return false;
+  if (e.axes.name_history && !(b.axes || {}).name_history) return false;
+  for (const [k] of MCP_AXES) if (e.mcp[k] && !(b.mcp || {})[k]) return false;
+  for (const s of e.extraSections || []) if (!(b.sections || {})[s.title]) return false;
+  if (e.sec.runs && !b.runs) return false;
+  if (e.sec.unknowns && !b.unknowns) return false;
+  if (e.sec.related && !(Array.isArray(b.related) && b.related.length)) return false;
+  if (!(Array.isArray(b.sources) && b.sources.length === e.sources.length)) return false;
+  return true;
+}
+
 function loadTrack(partKey) {
   /* 按大类读档案。ide 与 cli 的档案同处 tracks/coding/，
    * 但 form: 值不同 —— 不能只按目录过滤，否则会丢三组里各一份的一半。
@@ -627,6 +668,8 @@ function loadTrack(partKey) {
       /* D9（2026-10-20）：pricing / pricing_pitfalls 字段族已退役，不再读取 */
       axes, mcp: mcpBlock, sources, extraSections,
       pitfalls: fm.pitfalls || [],
+      /* C0 正文英译（2026-10-24）：null = 该档案还没有正文译文（保持中文，诚实降级）。 */
+      bodyEn: loadBodyEn(id),
       lastVerified: fm.last_verified, lastUpdated: fm.last_updated,
       lifecycle: fm.lifecycle, confidence: fm.confidence,
       family: fm.family || '',  // framework 分层；validate 强制必填，页面需按它分组呈现
@@ -668,6 +711,31 @@ function validate(partKey, entries, errors) {
     if (!e.sec.unknowns) errs.push(`${partKey}/${e.id} · 正文缺「未知项清单」`);
     if (e.confidence === 'verified' && e.lifecycle !== 'active') {
       errs.push(`${partKey}/${e.id} · confidence=verified 但 lifecycle=${e.lifecycle}`);
+    }
+    /* C0 正文英译的键漂移守卫（2026-10-24）：
+     * 译文文件引用了源侧不存在的 axes 键 / 小节标题 / 数量不齐的 related·sources
+     * —— 源文改名或删节后译文残留会「悄悄少一块」，构建期必须报。 */
+    if (e.bodyEn) {
+      const b = e.bodyEn;
+      for (const k of Object.keys(b.axes || {})) {
+        if (!e.axes[k]) errs.push(`${partKey}/${e.id} · bodies 译文 axes.${k} 在源侧不存在`);
+      }
+      for (const k of Object.keys(b.mcp || {})) {
+        if (!e.mcp[k]) errs.push(`${partKey}/${e.id} · bodies 译文 mcp.${k} 在源侧不存在`);
+      }
+      const srcTitles = new Set(e.extraSections.map(s => s.title));
+      for (const k of Object.keys(b.sections || {})) {
+        if (!srcTitles.has(k)) errs.push(`${partKey}/${e.id} · bodies 译文小节「${k}」在源侧不存在`);
+      }
+      for (const k of Object.keys(b.sectionTitles || {})) {
+        if (!srcTitles.has(k)) errs.push(`${partKey}/${e.id} · bodies 译文 sectionTitles「${k}」在源侧不存在`);
+      }
+      if (b.related && Array.isArray(b.related) && b.related.length !== (e.sec.related ? (e.sec.related.match(/^\s*[-*]\s*\[[^\]]+\]\([^)]+\.md\)/gm) || []).length : 0)) {
+        errs.push(`${partKey}/${e.id} · bodies 译文 related 条数与源侧「相关条目」链接数不齐`);
+      }
+      if (b.sources && Array.isArray(b.sources) && b.sources.length !== e.sources.length) {
+        errs.push(`${partKey}/${e.id} · bodies 译文 sources 条数（${b.sources.length}）与源侧（${e.sources.length}）不齐`);
+      }
     }
   }
   return errs;
@@ -1572,7 +1640,7 @@ ${entries.map(e => `              <tr>
         <div class="panel">
           <ul>
             <li>${bi('<strong>缺统一实测，就不给分。</strong>跨工具的跑分口径不同——题目、预算、执行环境都不一样，A 的 90 分和 B 的 88 分不可比。', '<strong>No shared measurement, no score.</strong> Benchmarks across tools use different rules — different questions, budgets and environments. A 90 and a B 88 are not comparable.')}</li>
-            <li>${bi('<strong>「未知」是合法答案。</strong>','<strong>"Unknown" is a legitimate answer.</strong>')}查不到就写「未知」并说明为什么，不用推测填充。缺信息本身也是信息。</li>
+            <li>${bi('<strong>「未知」是合法答案。</strong>查不到就写「未知」并说明为什么，不用推测填充。缺信息本身也是信息。', '<strong>"Unknown" is a legitimate answer.</strong> If it cannot be found, we write "unknown" and explain why, instead of filling the gap with guesses. Missing information is itself information.')}</li>
             <li>${bi('来源链接、类型与核验日都在详情页里，可以逐条回去复核。', 'The source link, its kind and the checked date are all on the detail page, so you can walk any of them back and re-check.')}</li>
             <li>${bi('<strong>lifecycle 单独标注。</strong>核验日新不等于数据有效——上游归档后数据会失效，所以单独标 <code>active</code> / <code>maintenance</code> / <code>archived</code>。', '<strong>lifecycle is marked separately.</strong> A recent check date does not mean the data is still valid — it goes stale when upstream archives the repo, so <code>active</code> / <code>maintenance</code> / <code>archived</code> are tracked separately.')}</li>
             <li>${bi('<strong>不同族不混排。</strong>找现成的、自己搭的、接上与跑起来的是三种角色，坐标系不同；硬合成一张总表只会制造假的可比性。', '<strong>Families are not mixed.</strong> Ready-made tools, things you build yourself, and plug-in-and-run components are three different roles with different coordinate systems; forcing them into one master table would manufacture false comparability.')}</li>
@@ -1605,13 +1673,13 @@ ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/$
         </div>
         <div class="panel">
           <h2>${bi('数据来源与复核方式','Sources and how to re-check them')}</h2>
-          <p>${bi('全部数据来自开源仓库', 'All data comes from the open-source repository')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">speculcom/ai-handbook</a>（CC BY 4.0）。</p>
-          <p>${bi('每个条目都是纯 Markdown + frontmatter，含维度记录、证据链', 'Every entry is plain Markdown plus frontmatter, carrying dimension records and an evidence chain')}接、核验日与可信度标记。仓库内含：</p>
+          <p>${bi('全部数据来自开源仓库', 'All data comes from the open-source repository')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">speculcom/ai-handbook</a>${bi('（CC BY 4.0）。', ' (CC BY 4.0).')}</p>
+          <p>${bi('每个条目都是纯 Markdown + frontmatter，含维度记录、证据链接、核验日与可信度标记。仓库内含：', 'Every entry is plain Markdown plus frontmatter, carrying dimension records and an evidence chain with links, checked dates and confidence marks. The repository contains:')}</p>
           <ul>
-            <li><code>tools/METHODOLOGY.md</code> —— 方法论总纲与核心规则</li>
-            <li><code>tools/axes/</code> —— 每个维度的定义与判定标准（含正反例）</li>
-            <li><code>tools/SCHEMA.md</code> —— 数据格式规范与构建校验规则</li>
-            <li><code>tools/protocols/&lt;大类&gt;/_protocol.md</code> —— 实测协议(${bi('<strong>尚未执行</strong>', '<strong>not yet run</strong>')}${bi('，故本站暂无实测结论', ', so this site has no measured conclusions')})</li>
+            <li><code>tools/METHODOLOGY.md</code> —— ${bi('方法论总纲与核心规则', 'the methodology charter and core rules')}</li>
+            <li><code>tools/axes/</code> —— ${bi('每个维度的定义与判定标准（含正反例）', 'the definition and decision criteria for each dimension (with positive and negative examples)')}</li>
+            <li><code>tools/SCHEMA.md</code> —— ${bi('数据格式规范与构建校验规则', 'the data-format spec and build validation rules')}</li>
+            <li><code>tools/protocols/<span data-zh>&lt;大类&gt;</span><span data-en>&lt;category&gt;</span>/_protocol.md</code> —— ${bi('实测协议(', 'the measurement protocol (')}${bi('<strong>尚未执行</strong>', '<strong>not yet run</strong>')}${bi('，故本站暂无实测结论)', ', so this site has no measured conclusions)')}</li>
           </ul>
           <p class="t-sm">${bi('发现错误或有新证据，欢迎提 Issue 或 PR——每条修正都会注明依据与影响范围。', 'Found an error or have new evidence? Open an issue or a PR — each correction notes its basis and blast radius.')}</p>
         </div>
@@ -1710,9 +1778,13 @@ function renderDetail(site, partKey, e) {
    * 这里用**最小**的块级规则（段落 / 无序清单 / 引用块 / 空行），不引入完整 markdown 解析。*/
 
   const axesHtml = axisKeys.map(({ label, labelEn, k, v }) => {
+    /* C0 正文英译：该维度有 bodies 译文 → 双语 dd；没有 → 保持中文（诚实降级）。
+     * MCP 特有维度查 bodyEn.mcp，八维与附加维查 bodyEn.axes。 */
+    const en = e.bodyEn ? ((e.bodyEn.axes || {})[k] || (e.bodyEn.mcp || {})[k] || '') : '';
+    const cell = en ? bi(blockMd(v), blockMd(en)) : blockMd(v);
     return `        <div class="axis">
           <dt>${bi(label, labelEn || AXES_EN[k]?.name || label)}</dt>
-          <dd>${blockMd(v)}</dd>
+          <dd>${cell}</dd>
         </div>`;
   }).join('\n');
 
@@ -1721,9 +1793,12 @@ function renderDetail(site, partKey, e) {
    *   用 `esc` 是**原样转义**，于是星号直接显示给读者 ✗（实测 grok-bot / llamaindex /
    *   openhands / context7 等页共 5 处）。
    *   `mdLinks` 同样会做转义（它内部处理），只是额外认链接 / 加粗 / 代码 ✓。 */
-  const srcRows = e.sources.map(s =>
-    `            <tr><td>${esc(s.kind)}</td><td>${mdLinks(s.label)}</td><td><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></td></tr>`
-  ).join('\n');
+  const srcRows = e.sources.map((s, i) => {
+    /* C0 正文英译：出处标签按索引对齐；缺译文保持中文。URL 不译。 */
+    const labelEn = e.bodyEn && Array.isArray(e.bodyEn.sources) ? e.bodyEn.sources[i] : '';
+    const labelCell = labelEn ? bi(mdLinks(s.label), mdLinks(labelEn)) : mdLinks(s.label);
+    return `            <tr><td>${esc(s.kind)}</td><td>${labelCell}</td><td><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></td></tr>`;
+  }).join('\n');
 
   /* D9（2026-10-20 用户定案）：价格面板（priceRows）整体删除。
    *   原先这里渲染 monthly_label / monthly_usd / annual_label / note 四行 +
@@ -1791,13 +1866,16 @@ function renderDetail(site, partKey, e) {
     if (!items.length && !auto.length) return '';
     // 显示名进 <a>、理由进 <span> —— 不能把整行塞进 <a>：
     // 嵌套 <a> 会被 HTML 解析器静默吞掉后续兄弟节点（这坑全站踩过）。
+    // C0 正文英译：理由按索引对齐 bodies.related（数量不齐已在 validate 报错）。
+    const relEn = e.bodyEn && Array.isArray(e.bodyEn.related) ? e.bodyEn.related : null;
     const lis = [
-      ...items.map(m => {
+      ...items.map((m, i) => {
         const [,label,href] = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(m[1]);
         const id = /(?:^|\/)([A-Za-z0-9._-]+)\.md$/.exec(href)?.[1];
         const target = BY_ID.get(id);
         const title = target ? bi(esc(label),esc(target.entry.nameEn || target.entry.name)) : esc(label);
-        return `          <li><span class="rel-t"><a href="${esc(rewriteInternal(href))}">${title}</a></span><span class="rel-n">${mdLinks(m[2])}</span></li>`;
+        const reason = relEn && relEn[i] ? bi(mdLinks(m[2]), mdLinks(relEn[i])) : mdLinks(m[2]);
+        return `          <li><span class="rel-t"><a href="${esc(rewriteInternal(href))}">${title}</a></span><span class="rel-n">${reason}</span></li>`;
       }),
       ...auto.map(a => `          <li><span class="rel-t"><a href="${a.href}">${a.label}</a></span><span class="rel-n">${a.reason}</span></li>`),
     ].join('\n');
@@ -1848,7 +1926,11 @@ ${crumb}
          *   于是引言的清单会显示成字面「- a - b - c」✗（实测占 agent 站残留的绝大部分：
          *   `llamaindex` 的「…但编排能力没有离开 OSS： - README 把 Workflows…」就是它）。
          *   改成 `<div>` 而不是 `<p>` —— `blockMd` 会产出 `<ul>` / `<p>`，塞进 `<p>` 是非法 HTML ✗。 */
-        ? `      <p class="t-xs" data-en>English summaries and interface labels are available. Detailed source notes below are currently in Chinese.</p>
+        /* C0（2026-10-24）：英文态提示行只在**正文尚未全译**时显示。
+         * 判据从数据算（R4）：axes/mcp 每格、每个 extraSection、runs、unknowns、
+         * related、sources 都有 bodies 译文 → 不再提示「notes below are in Chinese」。
+         * 缺任何一块 → 提示保留 —— 提示语必须对读者诚实。*/
+        ? `      ${bodyEnComplete(e) ? '' : `<p class="t-xs" data-en>English summaries and interface labels are available. Detailed source notes below are currently in Chinese.</p>`}
       <div class="panel-lead">${bi(blockMd(e.sec.oneline), blockMd(e.sec.leadEn || e.sec.onelineEn || e.sec.oneline))}</div>\n`
         : ''}
       ${e.sec.fit ? (() => {
@@ -1922,16 +2004,29 @@ ${(() => {
            * partial 而非 verified：」与 everything 的「A6.2 已核对…升回 verified」
            * 整段消失（_render-parity 实测 59%/37%——这是真截断，不是守卫误报）。
            * 做法：非列表行按原顺序合成前置块走 blockMd，列表行进 <ul>。 */
-          const lead = [];
-          const items = [];
-          for (const raw of e.sec.unknowns.split(/\r?\n/)) {
-            const li = /^\s*[-*]\s+(.*)$/.exec(raw);
-            if (li) { items.push(li[1]); continue; }
-            if (items.length && raw.trim()) { items[items.length - 1] += ' ' + raw.trim(); continue; }
-            lead.push(raw);
-          }
-          const leadHtml = lead.join('\n').trim() ? blockMd(lead.join('\n')) : '';
-          return `${leadHtml}\n        <ul>\n${items.map(t => `          <li>${mdLinks(t)}</li>`).join('\n')}\n        </ul>`;
+          const splitUnknowns = (txt) => {
+            const lead = [];
+            const items = [];
+            for (const raw of txt.split(/\r?\n/)) {
+              const li = /^\s*[-*]\s+(.*)$/.exec(raw);
+              if (li) { items.push(li[1]); continue; }
+              if (items.length && raw.trim()) { items[items.length - 1] += ' ' + raw.trim(); continue; }
+              lead.push(raw);
+            }
+            return { lead, items };
+          };
+          const zh = splitUnknowns(e.sec.unknowns);
+          const enTxt = e.bodyEn && e.bodyEn.unknowns ? e.bodyEn.unknowns : '';
+          const en = enTxt ? splitUnknowns(enTxt) : null;
+          const one = (z) => {
+            const leadHtml = z.lead.join('\n').trim() ? blockMd(z.lead.join('\n')) : '';
+            const ul = `<ul>\n${z.items.map((t) => `          <li>${mdLinks(t)}</li>`).join('\n')}\n        </ul>`;
+            return `${leadHtml}\n        ${ul}`;
+          };
+          /* 有 bodies.unknowns → 整块双语（引导段与列表一起进 span，避免混排错位）；
+           * 没有 → 整块保持中文（诚实降级）。 */
+          if (en) return `<span data-zh>${one(zh)}</span><span data-en>${one(en)}</span>`;
+          return one(zh);
         })()}
       </div>\n` : ''}
 
@@ -1948,13 +2043,20 @@ ${srcRows}
 
       ${e.sec.runs ? `      <div class="panel is-slim">
         <h2>${bi('实测记录','Measured runs')}</h2>
-        ${blockMd(e.sec.runs)}
+        ${e.bodyEn && e.bodyEn.runs ? `<span data-zh>${blockMd(e.sec.runs)}</span><span data-en>${blockMd(e.bodyEn.runs)}</span>` : blockMd(e.sec.runs)}
       </div>\n` : ''}
 
-      ${(e.extraSections || []).map((s) => `      <div class="panel is-slim">
-        <h2>${mdLinks(s.title)}</h2>
-        ${blockMd(s.content)}
-      </div>`).join('\n')}
+      ${(e.extraSections || []).map((s) => {
+        /* C0 正文英译：小节标题与正文都按 bodies 双语；缺译文保持中文。 */
+        const tEn = e.bodyEn && e.bodyEn.sectionTitles ? e.bodyEn.sectionTitles[s.title] : '';
+        const cEn = e.bodyEn && e.bodyEn.sections ? e.bodyEn.sections[s.title] : '';
+        const title = tEn ? `${bi(mdLinks(s.title), mdLinks(tEn))}` : mdLinks(s.title);
+        const content = cEn ? `<span data-zh>${blockMd(s.content)}</span><span data-en>${blockMd(cEn)}</span>` : blockMd(s.content);
+        return `      <div class="panel is-slim">
+        <h2>${title}</h2>
+        ${content}
+      </div>`;
+      }).join('\n')}
 
       ${relatedHtml}
 

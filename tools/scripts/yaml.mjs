@@ -190,16 +190,47 @@ export function bodyAfter(text) {
  * 正则取旧 build.mjs 的版本（比旧 validate.mjs 的多做两件事）：
  *   - 标签允许反引号包裹（`` `官方文档` ``），反引号不进 label 值；
  *   - `[^`\n]+` 不允许跨行，`(.+)` 在无反引号档案上行为相同。
+ *
+ * ⚠ **C0 试点抓出的静默丢内容（2026-10-24，本仓第 5 次同病）**：
+ *   旧正则的 label 段 `[^`\n]+` **不认标签中段的反引号** ——
+ *   像 `官方文档 · Workflows（`llama_index.core.workflow` 仍在 OSS core）` 这种
+ *   「标签里带 `code`」的条目整条匹配失败、**被静默跳过**：
+ *   数据层声明了、页面上不存在，validate 与构建全绿。
+ *   实测 11 份档案共 16 条出处被丢（llamaindex 13 声明只渲染 11）。
+ *   修第一版（整行取 label）后又抓到第二层：**跨行折行的 label** 同样被丢
+ *   （crush / gemini-cli / crewai 共 6 条）—— 正则只认单行 label。
+ *   现在改成**逐行状态机**：`- label:` 开条目，后续非 `url:`/`kind:` 的行
+ *   并进 label（折行用空格接），`url:`/`kind:` 各一行。中段反引号保留
+ *   （它们是标签里的 markdown code，mdLinks 会渲染）；成对包裹整条标签的
+ *   反引号剥掉（沿用旧行为）。
+ *   守卫：build.mjs 的 bodies 译文 sources 条数对账 + `_tmp/c0-sources-drop-scan.mjs`
+ *   （声明数 vs 解析数，全站应为 0 差）。
  */
 export function parseSources(text) {
   const sourceBlock = /sources:\n([\s\S]*?)(?=\n[a-z_]+:)/.exec(text);
   const sources = [];
-  if (sourceBlock) {
-    const sm = /- label:\s*`?([^`\n]+)`?\s*\n\s*url:\s*(\S+)\s*\n\s*kind:\s*(\S+)/g;
-    let mm;
-    while ((mm = sm.exec(sourceBlock[1])) !== null) {
-      sources.push({ label: mm[1].trim(), url: mm[2].trim(), kind: mm[3].trim() });
+  if (!sourceBlock) return sources;
+  let cur = null;
+  const flush = () => {
+    if (cur && cur.label && cur.url && cur.kind) {
+      let label = cur.label.trim();
+      if (label.length > 1 && label.startsWith('`') && label.endsWith('`')) label = label.slice(1, -1).trim();
+      sources.push({ label, url: cur.url, kind: cur.kind });
     }
+    cur = null;
+  };
+  for (const raw of sourceBlock[1].split('\n')) {
+    const t = raw.trim();
+    if (!t) continue;
+    const m = /^- label:\s*(.*)$/.exec(t);
+    if (m) { flush(); cur = { label: m[1], url: '', kind: '' }; continue; }
+    if (!cur) continue;                       // 块里 label 之前的杂行：跳过
+    const u = /^url:\s*(\S+)$/.exec(t);
+    if (u) { cur.url = u[1]; continue; }
+    const k = /^kind:\s*(\S+)$/.exec(t);
+    if (k) { cur.kind = k[1]; continue; }
+    cur.label += ' ' + t;                     // label 的折行：并进同一标签
   }
+  flush();
   return sources;
 }
