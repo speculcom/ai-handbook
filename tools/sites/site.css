@@ -659,8 +659,9 @@ dl.cn-rows { margin: 0; }
   overflow-wrap: anywhere;
 }
 @media (max-width: 640px) {
-  .part-bar a { flex-basis: 100%; border-left: 0; border-top: 1px solid var(--line); }
-  .part-bar a:first-child { border-top: 0; }
+  .part-bar .container { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); padding-block: var(--sp-3); }
+  .part-bar a { min-height: 44px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg-panel); }
+  .part-bar a:first-child { border: 1px solid var(--line); }
 }
 
 /* 详情页面包屑：站→ 分区 → 本页 */

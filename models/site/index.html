@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>开放权重该怎么选 · AI 模型</title>
   <meta name="description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、132 个量化档、55 位量化者、1253 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
   <link rel="canonical" href="https://models.specul.com/" />
@@ -13,7 +13,8 @@
   <meta property="og:description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、132 个量化档、55 位量化者、1253 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="brand.css" />
+  <script src="brand.js?v=6a580ac0420e"></script>
+  <link rel="stylesheet" href="brand.css?v=6a580ac0420e" />
   <link rel="stylesheet" href="site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"开放权重该怎么选 · AI 模型","url":"https://models.specul.com/","description":"开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。"}</script>
 </head>
@@ -585,10 +586,10 @@
       <div class="sfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选系列</span><span data-en>Filter series</span></span>
           <input type="search" class="sq" autocomplete="off" placeholder="Qwen · gemma · GLM · DeepSeek"></label>
-        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="ssel"><option value="">全部 / All</option><option value="apache-2.0">apache-2.0</option><option value="mit">mit</option><option value="openmdw-1.1">openmdw-1.1</option><option value="other">other</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>出品属地</span><span data-en>Origin</span></span><select class="ssel-cnorigin"><option value="">全部 / All</option><option value="domestic"><span data-zh>国产</span><span data-en>domestic</span></option><option value="foreign"><span data-zh>国外出品</span><span data-en>foreign-made</span></option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>国内下载</span><span data-en>Direct access</span></span><select class="ssel-cndirect"><option value="">全部 / All</option><option value="yes"><span data-zh>国内可直连</span><span data-en>direct OK</span></option><option value="no"><span data-zh>直连不可达</span><span data-en>direct blocked</span></option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>备案状态</span><span data-en>CAC filing</span></span><select class="ssel-cnfiling"><option value="">全部 / All</option><option value="filed"><span data-zh>已备案</span><span data-en>filed</span></option><option value="not-filed"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="ssel"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="apache-2.0">apache-2.0</option><option value="mit">mit</option><option value="openmdw-1.1">openmdw-1.1</option><option value="other">other</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>出品属地</span><span data-en>Origin</span></span><select class="ssel-cnorigin"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="domestic" data-ui-text-zh="国产" data-ui-text-en="domestic">国产</option><option value="foreign" data-ui-text-zh="国外出品" data-ui-text-en="foreign-made">国外出品</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>国内下载</span><span data-en>Direct access</span></span><select class="ssel-cndirect"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="yes" data-ui-text-zh="国内可直连" data-ui-text-en="direct OK">国内可直连</option><option value="no" data-ui-text-zh="直连不可达" data-ui-text-en="direct blocked">直连不可达</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>备案状态</span><span data-en>CAC filing</span></span><select class="ssel-cnfiling"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="filed" data-ui-text-zh="已备案" data-ui-text-en="filed">已备案</option><option value="not-filed" data-ui-text-zh="未见于备案名单" data-ui-text-en="not in filing list">未见于备案名单</option></select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>
       <div class="scards">
@@ -834,7 +835,7 @@
 
     <section class="legal-note">
       <h3><span data-zh>数据来源与法律立场</span><span data-en>Sources and legal position</span></h3>
-      <p><span data-zh>数据来自</span><span data-en>Data comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API（模型元数据 + 文件体积），采集</span><span data-en>public API (model metadata + file sizes), collected</span>时间 <code>2026-10-09</code>，为快照数据而非实时。</p>
+      <p><span data-zh>数据来自</span><span data-en>Data comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API（模型元数据 + 文件体积），采集</span><span data-en>public API (model metadata + file sizes), collected</span><span data-zh>时间</span><span data-en>at</span> <code>2026-10-09</code><span data-zh>，为快照数据而非实时。</span><span data-en>; this is a snapshot, not live data.</span></p>
       <p><span data-zh><b>本站不跑 benchmark，不给质量与速度结论。</b>凡涉及主观判断处均标注「我们的口径」。</span><span data-en><b>This site does not run benchmarks and does not draw quality or speed conclusions.</b> Every place we offer a judgement is marked as our own reading.</span></p>
       <p><b><span data-zh>不下载、不托管任何权重文件</span><span data-en>No weight files are downloaded or hosted here</span></b><span data-zh>；许可原样引自发布页，本站不解读许可、不构成法律意见，一切以</span><span data-en>; licences are quoted verbatim from release pages, this site does not interpret them or give legal advice, and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
       <p><span data-zh>系列选择依据四维打分（量化热度 40 / 量化广度 25 / 规模可及性 20 / 新鲜度 15），方法与落选名单见 </span><span data-en>Series selection uses a four-factor score (quantisation heat 40 / coverage 25 / size reachability 20 / freshness 15); the method and the rejected candidates are documented in </span><a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>数据仓 METHODOLOGY.md ↗</span><span data-en>the data repo's METHODOLOGY.md ↗</span></a><span data-zh>。</span><span data-en>.</span></p>
@@ -1078,7 +1079,7 @@
     <div class="container foot-row">
       <div class="foot-brand">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span class="foot-copy">© 2026 投机取巧 · <span data-zh>Specul</span><span data-en>Specul</span></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
       </div>
       <nav class="foot-links" aria-label="页脚导航">
           <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
@@ -1106,14 +1107,5 @@
   <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
   <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
 </nav>
-  <script src="brand.js"></script>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
-      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
-      sync();
-    })();
-  </script>
 </body>
 </html>

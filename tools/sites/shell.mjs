@@ -45,3 +45,4 @@ export const tabbar = mod.tabbar;
 export const footer = mod.footer;
 export const shell = mod.shell;
 export const esc = mod.esc;
+export const nativeOption = mod.nativeOption;

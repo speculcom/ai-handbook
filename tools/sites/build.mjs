@@ -20,7 +20,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { shell as buildShell } from './shell.mjs';
+import { shell as buildShell, nativeOption } from './shell.mjs';
 import { computeCompleteness } from '../scripts/completeness.mjs';
 import { parseFrontmatter, parseSources, bodyAfter } from '../scripts/yaml.mjs';
 
@@ -40,6 +40,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
  * 于是 `git clone speculcom/ai-agent-guide` 之后构建直接 ENOENT，英文站产不出来，
  * 而该仓 README 声称自己是唯一数据源。2026-10-08 迁入本仓。 */
 const I18N_DIR = path.join(HERE, '..', 'i18n');
+const UI_EN = JSON.parse(fs.readFileSync(path.join(I18N_DIR, '_ui.en.json'), 'utf8'));
 
 function findDataDir() {
   if (process.env.DATA_DIR) return path.resolve(process.env.DATA_DIR);
@@ -208,7 +209,7 @@ const VENDOR_EN = {
   '秘塔科技（上海秘塔网络科技）': 'Metaso (Shanghai Metaso Network Technology)', '昆仑万维': 'Kunlun Tech',
 };
 const vendorBi = (v) => {
-  const en = VENDOR_EN[v];
+  const en = UI_EN.vendors[v] || VENDOR_EN[v];
   return en ? bi(esc(v), esc(en)) : esc(v);
 };
 function cnChips(cn) {
@@ -265,9 +266,9 @@ const SITE = {
 /* README 是 Markdown（不是 HTML）→ 只能用纯文本，取中文侧。*/
 /* 取双节点里的纯文本（用于 <title> / meta description）。
  * tagline 现在是 bi() 的产物（带标签），直接塞进 title 会变成源码。*/
-function plainTagline(node) {
+function plainTagline(node, language = 'zh') {
   const s = String(node || '');
-  const m = s.match(/<span data-zh>([\s\S]*?)<\/span>/);
+  const m = s.match(new RegExp('<span data-' + language + '>([\\s\\S]*?)</span>'));
   return (m ? m[1] : s).replace(/<[^>]+>/g, '');
 }
 
@@ -493,6 +494,44 @@ try {
 /* v8 T7：目录 = 大类（tracks/coding、tracks/framework、tracks/mcp）。
  * 旧 TRACK_DIRS（agents/harness/tools）退役。 */
 
+/* ↓ 翻译数据必须在**解析档案之前**加载 —— 顺序错了不报错，只是取到空值。
+ *2026-10-04：ONELINES_EN / FIT_EN 曾加载在解析之后（444 行解析 vs 529 行加载），
+ * 所有 onelineEn / fitEn 都是空字符串，翻译「看起来没生效」且零报错。 */
+/* 档案正文首段的英文（2026-10-04）—— 键 = 档案 id。
+ * 加载**必须在 sec 解析之前**：否则解析时拿到空对象，所有 leadEn 为空字符串，
+ * 翻译「看起来没生效」且零报错（这个坑踩过一次）。 */
+let LEADS_EN = {};
+try {
+  LEADS_EN = JSON.parse(fs.readFileSync(path.join(I18N_DIR, '_leads.en.json'), 'utf8'));
+} catch (e) {
+  throw new Error('档案首段英文读不到：' + e.message);
+}
+console.log(`  · 档案首段英文：${Object.keys(LEADS_EN).filter(k => !k.startsWith('_')).length} 条已加载`);
+
+/* 36 份产品档案的「一句话定位」英文。人工翻译（原文含定位判断与比较级）。
+ * 同样**加载失败抛错**。*/
+const ONELINES_EN_PATH = path.join(I18N_DIR, '_onelines.en.json');
+let ONELINES_EN = {};
+try {
+  ONELINES_EN = JSON.parse(fs.readFileSync(ONELINES_EN_PATH, 'utf8'));
+} catch (e) {
+  throw new Error('一句话定位英文读不到：' + ONELINES_EN_PATH + ' —— ' + e.message);
+}
+console.log(`  · 一句话定位英文：${Object.keys(ONELINES_EN).filter(k => !k.startsWith('_')).length} 条已加载`);
+
+/* 「适合与不适合」的英文（36 条选型判断）—— 单独一份，与 oneline 分开。
+ * 这批是**核心选型判断**（什么适合 / 什么不适合），译错会直接误导用户，
+ * 所以单独成文件便于逐条校对。键= 档案 id。*/
+let FIT_EN = {};
+try {
+  FIT_EN = JSON.parse(fs.readFileSync(path.join(I18N_DIR, '_fits.en.json'), 'utf8'));
+} catch (e) {
+  /* 不抛错：fit 缺英文时回退中文仍可用（oneline 已覆盖主要阅读需求）。
+   * 与 ONELINES_EN 的差别：oneline 是「这是什么」，缺了就完全读不到对象；
+   * fit 是「何时用」，缺了主体内容仍在。*/
+  console.warn('  ! _fits.en.json 读不到，「适合与不适合」保持中文：' + e.message);
+}
+
 function loadTrack(partKey) {
   /* 按大类读档案。ide 与 cli 的档案同处 tracks/coding/，
    * 但 form: 值不同 —— 不能只按目录过滤，否则会丢三组里各一份的一半。
@@ -553,43 +592,6 @@ function loadTrack(partKey) {
      * 说明这个 bug 存在整个仓库生命周期，只是没人核对章节完整性
      * （2026-10-03 补云上agent 档案、核对渲染结果时才发现）。
      * EOF 用「后面什么都没有」的否定前瞻 `(?!\s*\z)` 才准确。 */
-/* ↓ 翻译数据必须在**解析档案之前**加载 —— 顺序错了不报错，只是取到空值。
- *2026-10-04：ONELINES_EN / FIT_EN 曾加载在解析之后（444 行解析 vs 529 行加载），
- * 所有 onelineEn / fitEn 都是空字符串，翻译「看起来没生效」且零报错。 */
-/* 档案正文首段的英文（2026-10-04）—— 键 = 档案 id。
- * 加载**必须在 sec 解析之前**：否则解析时拿到空对象，所有 leadEn 为空字符串，
- * 翻译「看起来没生效」且零报错（这个坑踩过一次）。 */
-let LEADS_EN = {};
-try {
-  LEADS_EN = JSON.parse(fs.readFileSync(path.join(I18N_DIR, '_leads.en.json'), 'utf8'));
-} catch (e) {
-  throw new Error('档案首段英文读不到：' + e.message);
-}
-console.log(`  · 档案首段英文：${Object.keys(LEADS_EN).filter(k => !k.startsWith('_')).length} 条已加载`);
-
-/* 36 份产品档案的「一句话定位」英文。人工翻译（原文含定位判断与比较级）。
- * 同样**加载失败抛错**。*/
-const ONELINES_EN_PATH = path.join(I18N_DIR, '_onelines.en.json');
-let ONELINES_EN = {};
-try {
-  ONELINES_EN = JSON.parse(fs.readFileSync(ONELINES_EN_PATH, 'utf8'));
-} catch (e) {
-  throw new Error('一句话定位英文读不到：' + ONELINES_EN_PATH + ' —— ' + e.message);
-}
-console.log(`  · 一句话定位英文：${Object.keys(ONELINES_EN).filter(k => !k.startsWith('_')).length} 条已加载`);
-
-/* 「适合与不适合」的英文（36 条选型判断）—— 单独一份，与 oneline 分开。
- * 这批是**核心选型判断**（什么适合 / 什么不适合），译错会直接误导用户，
- * 所以单独成文件便于逐条校对。键= 档案 id。*/
-let FIT_EN = {};
-try {
-  FIT_EN = JSON.parse(fs.readFileSync(path.join(I18N_DIR, '_fits.en.json'), 'utf8'));
-} catch (e) {
-  /* 不抛错：fit 缺英文时回退中文仍可用（oneline 已覆盖主要阅读需求）。
-   * 与 ONELINES_EN 的差别：oneline 是「这是什么」，缺了就完全读不到对象；
-   * fit 是「何时用」，缺了主体内容仍在。*/
-  console.warn('  ! _fits.en.json 读不到，「适合与不适合」保持中文：' + e.message);
-}
     const section = (name) => {
       const m = new RegExp(`^##\\s+${name}\\s*\\r?\\n([\\s\\S]*?)(?=\\r?\\n##\\s|$(?![\\s\\S]))`, 'm').exec(body);
       return m ? m[1].trim() : '';
@@ -1131,7 +1133,7 @@ function renderGuidePage(g, site) {
   }).join('\n');
   const srcRows = g.sources.map((s) => `          <tr><td>${mdLinks(s.label || '')}</td><td><a href="${s.url}" target="_blank" rel="noopener">${esc(s.url)}</a></td></tr>`).join('\n');
   const body = `    <div class="container detail">
-      <a class="back" href="../">← ${esc('深水指南')}</a>
+      <a class="back" href="../">← ${bi("深水指南", "Guides")}</a>
       <div class="detail-head">
         <div>
           <h1>${bi(esc(g.title), esc(g.titleEn))}</h1>
@@ -1190,14 +1192,14 @@ const SITE_CSS = '';
 function partitionBar(current) {
   /* v8 T30：10 张大类页。一行放 10 项带 tagline 会撑爆——tagline 移到 title 提示，
    * 视觉只留大类名（short）。配色仍走 --pa token（每大类一份，两套主题各一值）。 */
-  return `    <nav class="part-bar" aria-label="站内大类">
+  return `    <nav class="part-bar" aria-label="站内大类" data-ui-aria-label-zh="站内大类" data-ui-aria-label-en="Tool categories">
       <div class="container">
 ${SITE.partitions.map(k => {
     const s = SITES[k];
     const cur = k === current ? ' aria-current="page"' : '';
     /* tagline 是 bi() 双节点，进 title 属性要取中文纯文本（属性里放 HTML 是垃圾）。 */
     const tip = plainTagline(s.tagline);
-    return `        <a href="/${pfx(s)}"${cur} title="${esc(tip)}" style="--pa:var(--pa-${s.key})"><b>${esc(s.short)}</b></a>`;
+    return `        <a href="/${pfx(s)}"${cur} title="${esc(tip)}" data-ui-title-zh="${esc(tip)}" data-ui-title-en="${esc(plainTagline(s.tagline,'en'))}" style="--pa:var(--pa-${s.key})"><b>${esc(s.short)}</b></a>`;
   }).join('\n')}
       </div>
     </nav>`;
@@ -1265,16 +1267,16 @@ function renderIndex(site, partKey, entries) {
     const blob = [e.name, e.nameEn, e.vendor, lineRaw].filter(Boolean).join(' ').toLowerCase();
     return `        <article class="card" style="--card-accent:${esc(e.accent || site.accent)}" data-track="${esc(e.form || '')}" data-family="${esc(e.family || '')}" data-conf="${esc(e.confidence || '')}" data-cn-origin="${esc((e.cn || {}).origin || '')}" data-cn-direct="${esc((e.cn || {}).direct || '')}" data-cn-filing="${esc((e.cn || {}).filing || '')}" data-done="${pc.done}" data-total="${pc.total}" data-name="${esc(e.name)}" data-blob="${esc(blob)}">
           <div class="card-top">
-            <div class="mark" aria-hidden="true">${esc(e.mark || e.name.slice(0,2))}</div>
+            <div class="mark" aria-hidden="true">${bi(esc(e.mark || e.name.slice(0,2)), esc((e.nameEn || e.name).slice(0,2).toUpperCase()))}</div>
             <div class="card-id">
               <h3><a href="./${esc(e.id)}.html">${bi(esc(e.name), esc(e.nameEn || e.name))}</a></h3>
               <div class="vendor">${vendorBi(e.vendor)}</div>
             </div>
           </div>
-          <p class="tagline">${line}</p>   // line 已是双节点，勿走 esc -->
+          <p class="tagline">${line}</p>
           <div class="card-foot">
             <span class="t-state ${e.confidence === 'verified' ? 'is-ok' : e.confidence === 'stale' ? 'is-stop' : 'is-warn'}">${bi(e.confidence === 'verified' ? '已核验' : e.confidence === 'stale' ? '待复核' : '部分核验', e.confidence === 'verified' ? 'Verified' : e.confidence === 'stale' ? 'Needs review' : 'Partly verified')}</span>
-            <a class="more" href="./${esc(e.id)}.html" aria-label="${esc(e.name)} 详情">${bi('详情 →', 'Details →')}</a>
+            <a class="more" href="./${esc(e.id)}.html" aria-label="${esc(e.name)} 详情" data-ui-aria-label-zh="${esc(e.name)} 详情" data-ui-aria-label-en="${esc(e.nameEn || e.name)} details">${bi('详情 →', 'Details →')}</a>
           </div>
         </article>`;
   };
@@ -1394,21 +1396,20 @@ ${orphan.map(cardFor).join('\n')}
     }));
     const ratiosVary = ratios.size > 1;
 
-    const opt = (arr) => '<option value="">全部 / All</option>' +
-      arr.map((o) => `<option value="${esc(o.key)}">${esc(o.label)}</option>`).join('');
-    const CONF_LABEL = { verified: '已核验 / Verified', partial: '部分核验 / Partly verified', stale: '待复核 / Needs review' };
+    const opt = (arr) => nativeOption('', '全部', 'All') + arr.map((o) => nativeOption(o.key, o.zh || o.label || o.key, o.en || o.label || o.key)).join('');
+    const CONF_LABEL = { verified: ['已核验', 'Verified'], partial: ['部分核验', 'Partly verified'], stale: ['待复核', 'Needs review'] };
 
     const parts = [`          <label class="af-f"><span class="af-h">${bi('筛选档案', 'Filter entries')}</span>
             <input type="search" class="aq" autocomplete="off" placeholder="Cursor · Claude · Aider"></label>`];
 
     if (bySplit && splitVals.size > 1) {
-      const opts = bySplit.filter((m) => splitVals.has(m.key)).map((m) => ({ key: m.key, label: `${m.name} / ${m.nameEn || m.name}` }));
+      const opts = bySplit.filter((m) => splitVals.has(m.key)).map((m) => ({ key: m.key, zh: m.name, en: m.nameEn || m.name }));
       parts.push(`          <label class="af-f"><span class="af-h">${splitBy === 'form' ? bi('形态', 'Form') : bi('抽象层', 'Layer')}</span>
             <select class="asel-form" data-attr="${splitAttr}">${opt(opts)}</select></label>`);
     }
     if (confVals.size > 1) {
       parts.push(`          <label class="af-f"><span class="af-h">${bi('核验状态', 'Verification')}</span>
-            <select class="asel-conf">${opt([...confVals].map((k) => ({ key: k, label: CONF_LABEL[k] || k })))}</select></label>`);
+            <select class="asel-conf">${opt([...confVals].map((k) => ({ key: k, zh: (CONF_LABEL[k] || [k,k])[0], en: (CONF_LABEL[k] || [k,k])[1] })))}</select></label>`);
     }
     /* v8 T7：任务筛选（S43）退役——tasks.json 已删、tasks: 字段回灌即硬失败。 */
     /* S52 中文生态筛选：与 models 站同一套字段口径（origin/direct/filing）。
@@ -1417,7 +1418,7 @@ ${orphan.map(cardFor).join('\n')}
       const vals = [...new Set(entries.map((e) => (e.cn || {})[dim]).filter(Boolean))];
       if (vals.length < 2) return null;
       return { key: `cn${dim}`, attr: `data-cn-${dim}`, label: bi(dim === 'origin' ? '出品属地' : dim === 'direct' ? '国内直连' : '备案状态', dim === 'origin' ? 'Origin' : dim === 'direct' ? 'Direct access' : 'Filing'),
-        opts: vals.map((k) => ({ key: k, label: labels[k] ? `${labels[k][0]} / ${labels[k][1]}` : k })) };
+        opts: vals.map((k) => ({ key: k, zh: labels[k] ? labels[k][0] : k, en: labels[k] ? labels[k][1] : k })) };
     };
     for (const c of [cnOpts('origin', CN_ORIGIN_LABEL), cnOpts('direct', CN_DIRECT_LABEL), cnOpts('filing', CN_FILING_LABEL)]) {
       if (c) parts.push(`          <label class="af-f"><span class="af-h">${c.label}</span>
@@ -1425,7 +1426,7 @@ ${orphan.map(cardFor).join('\n')}
     }
     if (ratiosVary) {
       parts.push(`          <label class="af-f"><span class="af-h">${bi('排序', 'Sort')}</span>
-            <select class="asel-sort"><option value="">默认 / Default</option><option value="done-desc">完整度 高 → 低 / Completeness high–low</option><option value="done-asc">完整度 低 → 高 / Completeness low–high</option></select></label>`);
+            <select class="asel-sort">${nativeOption('', '默认', 'Default')}${nativeOption('done-desc', '完整度 高 → 低', 'Completeness high–low')}${nativeOption('done-asc', '完整度 低 → 高', 'Completeness low–high')}</select></label>`);
     } else {
       parts.push(`          <span class="af-note">${bi(`完整度：全部 ${entries.length} 份均 100%（无差异，故不提供排序）`, `Completeness: all ${entries.length} entries are at 100% (no variation, so no sort)`)}</span>`);
     }
@@ -1547,7 +1548,7 @@ ${axisKeys.map(([k, label], i) => `          <div class="axis-cell">
             </thead>
             <tbody>
 ${entries.map(e => `              <tr>
-                <td><a href="./${esc(e.id)}.html"><span class="td-mark" style="--card-accent:${esc(e.accent || site.accent)}">${esc(e.mark || e.name.slice(0, 2))}</span>${bi(esc(e.name), esc(e.nameEn || e.name))}</a></td>
+                <td><a href="./${esc(e.id)}.html"><span class="td-mark" style="--card-accent:${esc(e.accent || site.accent)}">${bi(esc(e.mark || e.name.slice(0,2)), esc((e.nameEn || e.name).slice(0,2).toUpperCase()))}</span>${bi(esc(e.name), esc(e.nameEn || e.name))}</a></td>
                 <td class="td-vendor">${biLabel(FORM_LABEL[e.form], e.form) || biLabel(FAMILY_SHORT[e.family], e.family)}</td>
                 <td class="td-vendor">${vendorBi(e.vendor)}</td>
                 <td class="td-fit">${(e.fit || e.axes.fit)
@@ -1591,8 +1592,8 @@ ${entries.map(e => `              <tr>
         <div class="panel">
           <h2>${bi('本站当前的完整度','Current completeness on this site')}</h2>
           <p class="t-sm mb-2">
-            数据层用 <code>node scripts/audit-gaps.mjs</code> 可随时复核这个数字。
-            下表实时计算（本页档案最后核验日 ${latestVerified}）：
+            ${bi("数据层用", "Recheck this figure with")} <code>node scripts/audit-gaps.mjs</code>${bi(" 可随时复核这个数字。", ".")}
+            ${bi(`下表实时计算（本页档案最后核验日 ${latestVerified}）：`, `Computed from current data; profiles last checked ${latestVerified}:`)}
           </p>
 ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/${COVERAGE.total} 维度已补齐`, `Site-wide ${COVERAGE.done}/${COVERAGE.total} dimensions filled`)}（${Math.round(COVERAGE.done / COVERAGE.total * 100)}%）</strong></p>
           <p class="t-sm">
@@ -1791,7 +1792,13 @@ function renderDetail(site, partKey, e) {
     // 显示名进 <a>、理由进 <span> —— 不能把整行塞进 <a>：
     // 嵌套 <a> 会被 HTML 解析器静默吞掉后续兄弟节点（这坑全站踩过）。
     const lis = [
-      ...items.map(m => `          <li><span class="rel-t">${mdLinks(m[1])}</span><span class="rel-n">${mdLinks(m[2])}</span></li>`),
+      ...items.map(m => {
+        const [,label,href] = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(m[1]);
+        const id = /(?:^|\/)([A-Za-z0-9._-]+)\.md$/.exec(href)?.[1];
+        const target = BY_ID.get(id);
+        const title = target ? bi(esc(label),esc(target.entry.nameEn || target.entry.name)) : esc(label);
+        return `          <li><span class="rel-t"><a href="${esc(rewriteInternal(href))}">${title}</a></span><span class="rel-n">${mdLinks(m[2])}</span></li>`;
+      }),
       ...auto.map(a => `          <li><span class="rel-t"><a href="${a.href}">${a.label}</a></span><span class="rel-n">${a.reason}</span></li>`),
     ].join('\n');
     return `      <div class="panel is-slim">
@@ -1806,8 +1813,8 @@ ${lis}
   // 大类链接写绝对路径（/coding/），因为本页在二级目录里。
   // v8 T30：10 大类都在 part-bar 里横向可达，面包屑只纵向摆「站 → 本大类 → 本页」三级——
   // 把 10 个大类全塞进面包屑既挤又没信息量（当前页之外的 9 个不是这条路径的祖先）。
-  const crumb = `      <nav class="crumbs" aria-label="面包屑">
-        <a href="https://${SITE.domain}/">${esc(SITE.name)}</a>
+  const crumb = `      <nav class="crumbs" aria-label="面包屑" data-ui-aria-label-zh="面包屑" data-ui-aria-label-en="Breadcrumb">
+        <a href="https://${SITE.domain}/">${bi(esc(SITE.name), esc(SITE.nameEn))}</a>
         <span aria-current="page">${esc(site.short)}</span>
       </nav>`;
 
@@ -1816,7 +1823,7 @@ ${crumb}
       <a class="back" href="./">← ${esc(site.short)}</a>
 
       <div class="detail-head">
-        <div class="mark" style="--card-accent:${esc(e.accent || site.accent)}" aria-hidden="true">${esc(e.mark || e.name.slice(0,2))}</div>
+        <div class="mark" style="--card-accent:${esc(e.accent || site.accent)}" aria-hidden="true">${bi(esc(e.mark || e.name.slice(0,2)), esc((e.nameEn || e.name).slice(0,2).toUpperCase()))}</div>
         <div>
           <h1>${bi(esc(e.name), esc(e.nameEn || e.name))}</h1>
           <div class="vendor is-caps">${vendorBi(e.vendor)}</div>
@@ -1824,7 +1831,7 @@ ${crumb}
       </div>
 
       <div class="badges">
-        ${(e.tags || []).map(t => `<span class="tag on">${esc(t)}</span>`).join('\n        ')}
+        ${(e.tags || []).map(t => `<span class="tag on">${bi(esc(t), esc(UI_EN.tags[t] || t))}</span>`).join('\n        ')}
         <span class="badge accent">${esc(e.confidence)}</span>
         <span class="badge">lifecycle: ${esc(e.lifecycle)}</span>
         <span class="badge">${bi('核验','Checked')} ${esc(e.lastVerified)}</span>
@@ -1841,7 +1848,8 @@ ${crumb}
          *   于是引言的清单会显示成字面「- a - b - c」✗（实测占 agent 站残留的绝大部分：
          *   `llamaindex` 的「…但编排能力没有离开 OSS： - README 把 Workflows…」就是它）。
          *   改成 `<div>` 而不是 `<p>` —— `blockMd` 会产出 `<ul>` / `<p>`，塞进 `<p>` 是非法 HTML ✗。 */
-        ? `      <div class="panel-lead">${bi(blockMd(e.sec.oneline), blockMd(e.sec.leadEn || e.sec.onelineEn || e.sec.oneline))}</div>\n`
+        ? `      <p class="t-xs" data-en>English summaries and interface labels are available. Detailed source notes below are currently in Chinese.</p>
+      <div class="panel-lead">${bi(blockMd(e.sec.oneline), blockMd(e.sec.leadEn || e.sec.onelineEn || e.sec.oneline))}</div>\n`
         : ''}
       ${e.sec.fit ? (() => {
         /* 「适合与不适合」双语（2026-10-04）。
@@ -1952,7 +1960,7 @@ ${srcRows}
 
       <p class="fine mt-6">
         ${bi('本页由', 'This page is generated from the')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">ai-handbook</a> ${bi('数据层生成（CC BY 4.0）。', 'data layer (CC BY 4.0).')}
-        方法论与坐标系定义见仓库内 <code>METHODOLOGY.md</code>。
+        ${bi("方法论与坐标系定义见仓库内", "For the methodology and coordinate definitions, see")} <code>METHODOLOGY.md</code>.
       </p>
     </div>`;
 
@@ -2026,7 +2034,7 @@ function renderHome(loaded) {
             <p class="tagline">${bi(`${entries.length} 份档案 · ${v} 份已完整核验`, `${entries.length} entries · ${v} fully verified`)}</p>
             <div class="card-foot">
               <span class="t-state ${v === entries.length ? 'is-ok' : 'is-warn'}">${bi('核验快照', 'Snapshot')}</span>
-              <a class="more" href="/${s.dir}/" aria-label="${esc(s.name)}">${bi('进入 →', 'Browse →')}</a>
+              <a class="more" href="/${s.dir}/" aria-label="${esc(s.name)}" data-ui-aria-label-zh="${esc(s.name)}" data-ui-aria-label-en="${esc(s.nameEn)}">${bi('进入 →', 'Browse →')}</a>
             </div>
           </article>`;
   };

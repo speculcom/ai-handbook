@@ -679,8 +679,7 @@ if (fs.existsSync(learnDir)) {
   /* 顶栏 + 抽屉：共享实现。learn 的词条页在 term/xxx/ 子目录，
      资源相对路径由 shell() 的 assetPrefix 处理，这里只用标记部分。 */
   const HEADER = (cur) => `  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
-${SHELL.header(cur)}
-${SHELL.drawer(cur)}`;
+${SHELL.header(cur)}`;
 
   /* 页脚：共享实现，只传「内容仓地址」与「开源」文案。
      learn 的内容仓是 ai-handbook（markdown 原文，terms/ 子树），不是部署仓 speculcom/learn。 */
@@ -706,6 +705,7 @@ const TABBAR = SHELL.tabbar('learn');
    * 三种页型（词条/路径/指南）共用同一份定义，改一处全站生效。
    * 这里不再写任何版式样式；页面里只剩 :root{--accent} 的值注入（不是版式）。 */
 
+  const termLabel = slug => { const found = flat.find(({t}) => slugOf(t) === slug); return found ? bi(found.t.zh, found.t.en) : esc(slug); };
   const DEPLOY_TERM = path.join(learnDir, 'term');
   let pageChanged = 0, pageTotal = 0;
   const wantSlugs = new Set();
@@ -735,7 +735,7 @@ const TABBAR = SHELL.tabbar('learn');
     const defListEn = (t.defEn && t.defEn.length ? t.defEn : t.def).map((d) => `      <p class="tp-li" data-en>${escMd(d)}</p>`).join('\n');
 
     const aliasZh = (t.alias && t.alias.length)
-      ? `      <div class="tp-sec"><div class="tp-lab">别名</div><p class="tp-p"><span data-zh>${esc(t.alias.join(' · '))}</span></p></div>\n`
+      ? `      <div class="tp-sec"><div class="tp-lab">${bi("别名", "Chinese aliases")}</div><p class="tp-p"><span data-zh>${esc(t.alias.join(' · '))}</span></p></div>\n`
       : '';
 
     /* B3：跨站动作（一条）+ 站内动作（同层其他词）。
@@ -762,9 +762,9 @@ const TABBAR = SHELL.tabbar('learn');
       }))
       .sort((a, b) => (a.sameDomain - b.sameDomain) || (a.dLayer - b.dLayer) || (a.dOrd - b.dOrd) || slugOf(a.x.t).localeCompare(slugOf(b.x.t), 'zh'))
       .slice(0, 3);
-    const related = `      <div class="tp-sec">
+    const related = `      <div class="tp-sec tp-related">
         <div class="tp-lab">${bi('相关词条', 'Related terms')}</div>
-        <p class="tp-p">${near.map(({ x }) => `<a href="../${ENC(slugOf(x.t))}/">${esc(x.t.zh)}</a>`).join(' · ')}</p>
+        <p class="tp-p">${near.map(({ x }) => `<a href="../${ENC(slugOf(x.t))}/">${bi(x.t.zh,x.t.en)}</a>`).join(' · ')}</p>
       </div>
 `;
 
@@ -772,7 +772,7 @@ const TABBAR = SHELL.tabbar('learn');
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>${esc(t.zh)} · 学 AI | 投机取巧</title>
   <meta name="description" content="${esc(metaDesc(t))}" />
   <link rel="canonical" href="https://learn.specul.com/term/${ENC(slug)}/" />
@@ -783,7 +783,8 @@ const TABBAR = SHELL.tabbar('learn');
   <meta property="og:description" content="${esc(metaDesc(t))}" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
-  <link rel="stylesheet" href="../../brand.css" />
+  <script src="../../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
+  <link rel="stylesheet" href="../../brand.css?v=${SHELL.RUNTIME_VERSION}" />
   <link rel="stylesheet" href="../../learn.css" />
   <style>:root { --accent: var(--cyan); }</style>
   <!-- B5：词条页的结构性数据（DefinedTerm） -->
@@ -799,7 +800,7 @@ ${HEADER('learn')}
           <span aria-hidden="true">·</span>
           <a href="../../#layer-${esc(String(t.level))}">${bi(layer.name, lv.shortEn || lv.nameEn || layer.name)}</a>
         </nav>
-        <h1>${esc(t.zh)}</h1>
+        <h1>${bi(t.zh, t.en)}</h1>
         <p class="tp-en">${esc(t.en || '')}</p>
         <ul class="tp-tags">
           <li class="tp-tag">${bi((META.domains[t.domain] || {}).name || t.domain, (META.domains[t.domain] || {}).nameEn || t.domain)}</li>
@@ -835,16 +836,15 @@ ${refs || '        <li class="tp-p">—</li>'}
           </ul>
         </div>
 
-        <nav class="tp-pn" aria-label="上下篇">
-${prev ? `          <a href="../${ENC(slugOf(prev.t))}/"><span class="tp-ph">${bi('上一篇', 'Previous')}</span>${esc(prev.t.zh)}</a>` : '          <span></span>'}
-${next ? `          <a href="../${ENC(slugOf(next.t))}/" style="text-align:right"><span class="tp-ph">${bi('下一篇', 'Next')}</span>${esc(next.t.zh)}</a>` : '          <span></span>'}
+        <nav class="tp-pn" aria-label="上下篇" data-ui-aria-label-zh="上下篇" data-ui-aria-label-en="Previous and next">
+${prev ? `          <a href="../${ENC(slugOf(prev.t))}/"><span class="tp-ph">${bi('上一篇', 'Previous')}</span>${bi(prev.t.zh, prev.t.en)}</a>` : '          <span></span>'}
+${next ? `          <a href="../${ENC(slugOf(next.t))}/" style="text-align:right"><span class="tp-ph">${bi('下一篇', 'Next')}</span>${bi(next.t.zh, next.t.en)}</a>` : '          <span></span>'}
         </nav>
       </article>
     </div>
   </main>
 ${FOOTER}
 ${TABBAR}
-  <script src="../../brand.js"></script>
 </body>
 </html>
 `;
@@ -891,7 +891,7 @@ ${TABBAR}
     wantPathIds.add(p.id);
     const stepsHtml = p.steps.map((s, i) => {
       const t = flat.find((x) => slugOf(x.t) === s).t;
-      return `        <li><a href="../../term/${ENC(slugOf(t))}/">${esc(t.zh)}</a></li>`;
+      return `        <li><a href="../../term/${ENC(slugOf(t))}/">${bi(t.zh, t.en)}</a></li>`;
     }).join('\n');
     const ckZh = p.checkpoint.zh.map((c) => `          <li>${esc(c)}</li>`).join('\n');
     const ckEn = p.checkpoint.en.map((c) => `          <li>${esc(c)}</li>`).join('\n');
@@ -901,7 +901,7 @@ ${TABBAR}
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>${esc(p.zh)} · 学 AI 学习路径 | 投机取巧</title>
   <meta name="description" content="${esc(pathDesc(p))}" />
   <link rel="canonical" href="https://learn.specul.com/path/${p.id}/" />
@@ -912,7 +912,8 @@ ${TABBAR}
   <meta property="og:description" content="${esc(pathDesc(p))}" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
-  <link rel="stylesheet" href="../../brand.css" />
+  <script src="../../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
+  <link rel="stylesheet" href="../../brand.css?v=${SHELL.RUNTIME_VERSION}" />
   <link rel="stylesheet" href="../../learn.css" />
   <style>:root { --accent: var(--cyan); }</style>
   <script type="application/ld+json">${JSON.stringify({
@@ -975,7 +976,6 @@ ${ckEn}
   </main>
 ${FOOTER}
 ${TABBAR}
-  <script src="../../brand.js"></script>
 </body>
 </html>
 `;
@@ -1055,7 +1055,7 @@ ${liEn}
     const linked = (g.terms || []).length
       ? `        <div class="tp-sec">
           <div class="tp-lab">${bi('先懂这几个词', 'Terms behind this')}</div>
-          <p class="tp-p">${g.terms.map((s) => `<a class="t-guidechip" href="../../term/${ENC(s)}/">${esc(s)}</a>`).join(' ')}</p>
+          <p class="tp-p">${g.terms.map((s) => `<a class="t-guidechip" href="../../term/${ENC(s)}/">${termLabel(s)}</a>`).join(' ')}</p>
         </div>\n`
       : '';
     const otherGuides = GUIDES.filter((q) => q !== g)
@@ -1064,7 +1064,7 @@ ${liEn}
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>${esc(g.zh)} · 学 AI 微型指南 | 投机取巧</title>
   <meta name="description" content="${esc(guideDesc(g))}" />
   <link rel="canonical" href="https://learn.specul.com/guide/${ENC(slug)}/" />
@@ -1075,7 +1075,8 @@ ${liEn}
   <meta property="og:description" content="${esc(guideDesc(g))}" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
-  <link rel="stylesheet" href="../../brand.css" />
+  <script src="../../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
+  <link rel="stylesheet" href="../../brand.css?v=${SHELL.RUNTIME_VERSION}" />
   <link rel="stylesheet" href="../../learn.css" />
   <style>:root { --accent: var(--gold); }</style>
   <script type="application/ld+json">${guideJsonLd(g, slug)}</script>
@@ -1112,7 +1113,6 @@ ${refs}
   </main>
 ${FOOTER}
 ${TABBAR}
-  <script src="../../brand.js"></script>
 </body>
 </html>
 `;
@@ -1154,15 +1154,15 @@ ${TABBAR}
     const timelineHtml = ATLAS.timeline.map((ev) => tlItem(ev.date, ev.zh, ev.en, ev.note.zh, ev.note.en, ev.ref)).join('\n');
     const termsHtml = ATLAS.terms.map((tm) => tlItem(null, tm.zh, tm.en, tm.note.zh, tm.note.en, tm.ref)).join('\n');
     const orgsHtml = ATLAS.orgs.map((o) =>
-      `        <div class="t-atlas-org"><h3>${esc(o.name)}</h3>` +
+      `        <div class="t-atlas-org"><h3>${bi(o.name, o.nameEn || o.name.replace("月之暗面 ", ""))}</h3>` +
       `<span class="t-atlas-founded">${bi(`创立 ${o.founded}`, `founded ${o.founded}`)}</span>` +
-      `<p>${bi(o.zh, o.en)} <a href="${esc(o.url)}" target="_blank" rel="noopener">官网 ↗</a></p></div>`).join('\n');
-    const chipsHtml = ATLAS.links.map((s) => `<a class="t-guidechip" href="../term/${ENC(s)}/">${esc(s)}</a>`).join(' ');
+      `<p>${bi(o.zh, o.en)} <a href="${esc(o.url)}" target="_blank" rel="noopener">${bi("官网 ↗", "Website ↗")}</a></p></div>`).join('\n');
+    const chipsHtml = ATLAS.links.map((s) => `<a class="t-guidechip" href="../term/${ENC(s)}/">${termLabel(s)}</a>`).join(' ');
     const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>${esc(ATLAS.zh)} | 投机取巧</title>
   <meta name="description" content="${esc(atlasDesc)}" />
   <link rel="canonical" href="https://learn.specul.com/atlas/" />
@@ -1173,7 +1173,8 @@ ${TABBAR}
   <meta property="og:description" content="${esc(atlasDesc)}" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
-  <link rel="stylesheet" href="../brand.css" />
+  <script src="../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
+  <link rel="stylesheet" href="../brand.css?v=${SHELL.RUNTIME_VERSION}" />
   <link rel="stylesheet" href="../learn.css" />
   <script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
@@ -1224,7 +1225,6 @@ ${termsHtml}
   </main>
 ${FOOTER}
 ${TABBAR}
-  <script src="../brand.js"></script>
 </body>
 </html>
 `;

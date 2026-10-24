@@ -30,6 +30,7 @@ var DIMENSIONS8 = [
   {
     key: 'model_access',
     label: '模型接入',
+    labelEn: 'Model access',
     q: '这个工具能用哪些模型？是自带的还是自己接的？接的是什么形态（接口 / 本地权重）？',
     terms: ['开源模型', '闭源模型', 'API / 接口调用', '本地部署', '大模型 / 大语言模型', '推理模型'],
     caveat: '最容易误解的一点：**「支持前沿模型」不等于「这是前沿模型档位」**。Cursor 官方三档都写了前沿模型访问权，差别在额度倍数——这跟model_access 考察的不是一回事。'
@@ -37,6 +38,7 @@ var DIMENSIONS8 = [
   {
     key: 'runtime',
     label: '运行形态',
+    labelEn: 'Runtime',
     q: '它在哪里跑？是编辑器插件、终端进程、桌面应用，还是远程服务？关掉电脑还有效吗？',
     terms: ['推理', '远程执行', '长时任务', '终端 Agent', 'App Server'],
     caveat: '运行形态决定了这个工具**能不能被脚本化**。编辑器插件不能进 CI，CLI 可以。'
@@ -44,6 +46,7 @@ var DIMENSIONS8 = [
   {
     key: 'local_files',
     label: '本地文件',
+    labelEn: 'Local files',
     q: '它能读你电脑上的哪些文件？需不需要你逐个批准？能不能碰整个磁盘？',
     terms: ['沙箱', '人机协作', '本地部署', '数据不出网'],
     caveat: '这一维是安全边界，不只是功能。**能读整个磁盘的工具和只能读指定目录的工具，信任级别完全不同**。'
@@ -51,6 +54,7 @@ var DIMENSIONS8 = [
   {
     key: 'background',
     label: '关机后',
+    labelEn: 'Background work',
     q: '关掉电脑 / 关掉窗口之后，它还在跑吗？长任务靠什么维持？',
     terms: ['长时任务', '远程执行', '记忆', 'AI Agent 与聊天机器人的区别'],
     caveat: '这一维区分了「随进程结束」和「随账户存活」两种完全不同的工作方式。'
@@ -58,6 +62,7 @@ var DIMENSIONS8 = [
   {
     key: 'tools',
     label: '工具与扩展',
+    labelEn: 'Tools and extensions',
     q: '它能调哪些外部工具？能接什么协议？怎么扩展？',
     terms: ['工具调用', 'MCP', '技能 / Skills', '结构化输出', '浏览 / 网页操作', '参考服务器', 'ACP', '代码补全', '仓库级理解', '配对编程'],
     caveat: 'MCP 分区这一维尤其关键：接的是**远程托管服务**还是**本地进程**，决定数据会不会出网。'
@@ -65,6 +70,7 @@ var DIMENSIONS8 = [
   {
     key: 'context',
     label: '上下文能力',
+    labelEn: 'Context',
     q: '它一次能看多少内容？上下文长了会怎样？超了怎么办？',
     terms: ['上下文窗口', 'KV 缓存', '预填充', '上下文窗口的代价', '分块', '向量 / 嵌入', '向量数据库', '联网 / 检索增强', '词表', 'Token', 'Prompt Cache'],
     caveat: '窗口大不等于能用好。**把500 页文档塞进去仍可能答不出来**——超窗是截断，不是记不住。'
@@ -72,6 +78,7 @@ var DIMENSIONS8 = [
   {
     key: 'permissions',
     label: '权限与风险',
+    labelEn: 'Permissions and risks',
     q: '它做事之前要不要问你？改了哪些文件、发了哪些请求？出错了怎么拦？',
     terms: ['护栏', '沙箱', '提示注入', '人机协作', '差异对比', '版本控制', '持续集成', '权限'],
     caveat: '**Agent 时代最重要的安全维度**。涉及写文件、发请求、花钱、改数据库的，都应该留人工确认。'
@@ -79,6 +86,7 @@ var DIMENSIONS8 = [
   {
     key: 'fit',
     label: '适合谁',
+    labelEn: 'Who it suits',
     q: '它最适合什么场景、最不适合什么场景？',
     terms: ['能力边界', '生成式 AI', '成本', '评估', '隐私与合规', '可替换性', '退出成本'],
     caveat: '这一维是判断「该不该用它的最终依据，前七维都是技术事实，只有这一维涉及取舍。'
@@ -90,12 +98,14 @@ var DIMENSIONS3 = [
   {
     key: 'transport',
     label: '传输方式',
+    labelEn: 'Transport',
     q: '客户端怎么跟它说话？本地进程还是远程 HTTP？',
     terms: ['MCP', '传输方式', '远程执行', '上下文窗口', '参考服务器'],    caveat: '这一维直接决定安全边界：**远程托管的 server（如 context7）会把你的查询发到第三方，本地 stdio server 不会**。'
   },
   {
     key: 'auth',
     label: '认证与额度',
+    labelEn: 'Authentication and quotas',
     q: '要不要登录？要花钱吗？额度怎么算？',
     terms: ['API / 接口调用', '单次调用成本', '缓存策略', '推理成本'],
     caveat: '容易看错的地方：**「无限 API 调用」不等于免费**——官方原文常是「Unlimited（超出后按量计费）」。'
@@ -103,6 +113,7 @@ var DIMENSIONS3 = [
   {
     key: 'scope',
     label: '权限范围',
+    labelEn: 'Permission scope',
     q: '它能读什么、能写什么？数据会不会出网？',
     terms: ['权限', '沙箱', '数据不出网', '隐私与合规', '提示注入', '人机协作'],    caveat: 'Filesystem 这类 server 强制要求显式声明允许目录，**不允许静默访问整个磁盘**——这是设计，不是限制。'
   }

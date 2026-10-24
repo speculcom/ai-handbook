@@ -25,7 +25,7 @@ const VENDORED = path.join(HANDBOOK, 'shared', 'brand');
 const SHELL_SRC = fs.existsSync(path.join(VENDORED, 'shell.mjs'))
   ? path.join(VENDORED, 'shell.mjs')
   : path.join(WORKSPACE, '_sites', '_template', 'shell.mjs');
-const { shell, esc } = await import(
+const { shell, esc, nativeOption } = await import(
   'file:///' + SHELL_SRC.replace(/\\/g, '/')
 );
 
@@ -227,7 +227,7 @@ function cnSection(cn) {
   if (!cn) return '';
   const f = cn.filing || {};
   const filingRow = f.status === 'filed'
-    ? `${bi('已备案', 'Filed')}：<code>${esc(f.no || '')}</code>　${bi('公示名称', 'listed as')}「${esc(f.name || '')}」　·　${bi('备案时间', 'filed')} ${esc(f.date || '')}${f.note ? `　·　${bi(esc(f.note), esc(f.noteEn || f.note))}` : ''}`
+    ? `${bi('已备案', 'Filed')}：<code>${esc(f.no || '')}</code>　${bi('公示名称', 'listed as')}<span lang="zh-CN" data-source-name>「${esc(f.name || '')}」</span>　·　${bi('备案时间', 'filed')} ${esc(f.date || '')}${f.note ? `　·　${bi(esc(f.note), esc(f.noteEn || f.note))}` : ''}`
     : `${bi(CN_FILING_LABEL[f.status] ? CN_FILING_LABEL[f.status][0] : '备案未核验', CN_FILING_LABEL[f.status] ? CN_FILING_LABEL[f.status][1] : 'filing unknown')}${f.note ? `：${bi(esc(f.note), esc(f.noteEn || f.note))}` : ''}`;
   const mirrorRow = cn.mirror
     ? `　·　<a href="${esc(cn.mirror)}" target="_blank" rel="noopener">${bi('国内镜像入口', 'domestic mirror')}</a>`
@@ -564,7 +564,7 @@ ${fitRows(GPU_BUDGETS, 'gpu')}
       </table>
       <h3 class="budget-h">${bi('显存不够时的替代路径','When VRAM is not enough')}</h3>
       <p class="muted small">${bi('llama.cpp 的',"llama.cpp’s")} <code>-ngl</code> ${bi('可以只把部分层放显存、其余落系统内存；多卡则自动切分。', 'can keep only some layers on the GPU and spill the rest to system memory; with multiple cards it splits automatically.')}
-        代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</p>
+        ${bi("代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。", "The trade-off is speed: CPU-only inference is usually several times slower than a comparable GPU, but still produces results.")}</p>
       <table class="budget">
         <caption>${bi('系统内存 / 多卡 → 档位速查','System memory / multi-GPU → tier cheat sheet')}</caption>
         <tbody>
@@ -630,7 +630,7 @@ function blockC(s, m) {
 ${trs}
         </tbody>
       </table>
-      <p class="tier-legend" role="list" ${bi('aria-label="量化档色阶图例"','aria-label="Quantisation tier colour scale"')}>
+      <p class="tier-legend" role="list" aria-label="量化档色阶图例" data-ui-aria-label-zh="量化档色阶图例" data-ui-aria-label-en="Quantisation tier colour scale">
         <span class="tier-legend-h">${bi('卡片左侧色条 = 推荐档位','Colour bar on the left = recommended tier')}</span>
         <span class="tier-legend-i tier-0">${bi('近似无损','Near lossless')}</span>
         <span class="tier-legend-i tier-1">${bi('保守','Conservative')}</span>
@@ -827,13 +827,13 @@ ${f(bi('已知取舍', 'Known trade-offs'), cost.map((c) => '· ' + c).join('<br
   /* ⚠ `<option>` 里**不能放 HTML**（浏览器的 option 只按纯文本渲染）——
    *   把 bi() 的双 span 塞进去会直接露出标记文字。所以下拉标签一律用
    *   「中文 / English」的语言中立写法，不依赖 data-lang 切换。 */
-  const opt = (vals, label) => `<option value="">全部 / All</option>` +
-    vals.map((x) => `<option value="${esc(x)}">${label ? label(x) : esc(x)}</option>`).join('');
+  const opt = (vals, label) => nativeOption('', '全部', 'All') +
+    vals.map((x) => nativeOption(x, x, label ? label(x) : x)).join('');
   const filterBar = `      <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh">${bi('筛选量化仓', 'Filter quant repos')}</span>
           <input type="search" class="vq" autocomplete="off" placeholder="unsloth · bartowski · ggml-org"></label>
         <label class="vf-f"><span class="vh">${bi('量化者', 'Quantiser')}</span><select class="vsel" data-dim="q">${opt(qList)}</select></label>
-        <label class="vf-f"><span class="vh">${bi('包含档位', 'Includes tier')}</span><select class="vsel" data-dim="tier">${opt(tierList, (t) => esc(t + ' / ' + (EN('tier', t) || t)))}</select></label>
+        <label class="vf-f"><span class="vh">${bi('包含档位', 'Includes tier')}</span><select class="vsel" data-dim="tier">${opt(tierList, (t) => EN('tier', t) || t)}</select></label>
         <label class="vf-f"><span class="vh">${bi('许可', 'Licence')}</span><select class="vsel" data-dim="lic">${opt(licList)}</select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>`;
@@ -930,7 +930,7 @@ function seriesPage(s) {
     `<a href="#m${i}">${bi(esc(m.label.zh), esc(m.label.en || m.label.zh))}</a>`).join('');
 
   const sections = s.members.map((m, i) => `      <section class="member" id="m${i}">
-        <h3><span class="member-idx">${bi('成员','Member')} ${i + 1}</span>${esc(m.label.zh)}</h3>
+        <h3><span class="member-idx">${bi('成员','Member')} ${i + 1}</span>${bi(esc(m.label.zh), esc(m.label.en || ENWords(m.label.zh)))}</h3>
         <p class="member-meta">${bi(esc(EN('params', m.params || '')), esc(ENWords(m.params || '')))}　·　${bi(esc(m.role?.zh || ''), esc(m.role?.en || ENWords(m.role?.zh || '')))}　·　${bi(`${m.variantCount} 个量化来源`, `${m.variantCount} quant sources`)}</p>
         <div class="block" id="a${i}">
           <h4><span class="blk">A</span>${bi('基础模型卡','Base model card')} <small>${bi('规格 · 许可 · 访问门槛 · 参数量三来源交叉核对','specs · licence · access · parameter count cross-checked across three sources')}</small></h4>
@@ -973,7 +973,7 @@ ${sections}
 ${companionBlock()}
     <section class="legal-note">
       <h3>${bi('关于数据与许可', 'Data and licensing')}</h3>
-      <p>${bi('本站数据全部来自','All data here comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开 API，采集时间','public API, collected')} <code>${esc((s.collectedAt || '').slice(0, 10))}</code>，为快照数据。</p>
+      <p>${bi('本站数据全部来自','All data here comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开 API，采集时间','public API, collected')} <code>${esc((s.collectedAt || '').slice(0, 10))}</code>${bi("，为快照数据。", "; this is a snapshot.")}</p>
       <p>${bi('本站','This site does')} <b>${bi('不下载、不托管任何模型权重文件','not download or host any model weight files')}</b>${bi('，只提供发布页链接。许可字段原样引自发布页，',' — it only links to release pages. Licence fields are quoted verbatim from them,')} <b>${bi('本站不解读许可条款、不构成法律意见','this site does not interpret licence terms or give legal advice')}</b>${bi('，一切以',' and everything is governed by')}<a href="https://specul.com/legal.html" target="_blank" rel="noopener">${bi('发布页原文', 'the legal page')}</a>${bi('为准。', '.')}</p>
       <p>${bi('模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。', 'Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.')}</p>
     </section>
@@ -1044,7 +1044,7 @@ function familyPage(f) {
   const body = `  <div class="container">
     <nav class="crumbs"><a href="${DOMAIN}">← ${bi('全部家族','All families')}</a></nav>
     <header class="page-head">
-      <p class="eyebrow"><span data-zh>${esc(f.vendor.zh)}</span><span data-en>${esc(f.vendor.en)}</span>　·　${bi('当前代','current generation')} ${esc(f.currentGen.zh)}（${esc(f.currentGenDate)}）</p>
+      <p class="eyebrow"><span data-zh>${esc(f.vendor.zh)}</span><span data-en>${esc(f.vendor.en)}</span>　·　${bi('当前代','current generation')} ${bi(esc(f.currentGen.zh), esc(f.currentGen.en))}（${esc(f.currentGenDate)}）</p>
       <h1><span data-zh>${esc(f.name.zh)}</span><span data-en>${esc(f.name.en)}</span><span class="sub">${bi('模型家族谱系卡','model family lineage card')}</span></h1>
       <p class="lede">${bi(esc(f.positioning.zh), esc(f.positioning.en))}</p>
       ${onSiteHtml}
@@ -1143,7 +1143,7 @@ function closedPage(c) {
   const body = `  <div class="container">
     <nav class="crumbs"><a href="${DOMAIN}">← ${bi('回开放权重图谱','Back to the open-weight map')}</a></nav>
     <header class="page-head">
-      <p class="eyebrow"><span data-zh>${esc(c.vendor.zh)}</span><span data-en>${esc(c.vendor.en)}</span>　·　${bi('闭源谱系卡','closed model lineage card')}　·　${bi('当前代','current generation')} ${esc(c.currentGen.zh)}（${esc(c.currentGenDate)}）</p>
+      <p class="eyebrow"><span data-zh>${esc(c.vendor.zh)}</span><span data-en>${esc(c.vendor.en)}</span>　·　${bi('闭源谱系卡','closed model lineage card')}　·　${bi('当前代','current generation')} ${bi(esc(c.currentGen.zh), esc(c.currentGen.en))}（${esc(c.currentGenDate)}）</p>
       <h1><span data-zh>${esc(c.name.zh)}</span><span data-en>${esc(c.name.en)}</span><span class="sub">${bi('闭源模型 · 官方规格快照 · 带复核周期','closed model · official spec snapshot · with review cycle')}</span></h1>
       <p class="lede">${bi(esc(c.positioning.zh), esc(c.positioning.en))}</p>
       <p class="closed-access"><b>${bi('怎么用得到', 'How you can use it')}：</b>${bi(esc(c.access.zh), esc(c.access.en))}</p>
@@ -1374,9 +1374,9 @@ function indexPage() {
   const cnOpts = (dim) => {
     const labelMap = dim === 'origin' ? CN_ORIGIN_LABEL : dim === 'direct' ? CN_DIRECT_LABEL : CN_FILING_LABEL;
     const vals = [...new Set(seriesList.map((s) => (dim === 'filing' ? (s.cn || {}).filing?.status : (s.cn || {})[dim])).filter(Boolean))];
-    return '<option value="">全部 / All</option>' + vals.map((v) => {
+    return nativeOption('', '全部', 'All') + vals.map((v) => {
       const L2 = labelMap[v] || [v, v];
-      return `<option value="${esc(v)}">${bi(L2[0], L2[1])}</option>`;
+      return nativeOption(v, L2[0], L2[1]);
     }).join('');
   };
 
@@ -1441,7 +1441,7 @@ ${guideCards}
         <label class="vf-f"><span class="vh">${bi('筛选系列', 'Filter series')}</span>
           <input type="search" class="sq" autocomplete="off" placeholder="Qwen · gemma · GLM · DeepSeek"></label>
         <label class="vf-f"><span class="vh">${bi('许可', 'Licence')}</span><select class="ssel">${
-          '<option value="">全部 / All</option>' +
+          nativeOption('', '全部', 'All') +
           [...new Set(seriesList.flatMap((s) => s.members.map((m) => m.license || '')))].filter(Boolean).sort()
             .map((L2) => `<option value="${esc(L2)}">${esc(L2)}</option>`).join('')
         }</select></label>
@@ -1464,7 +1464,7 @@ ${allOwners.map((o) => `        <a class="qchip" href="series/qwen3-8/#e0"><code
 
     <section class="legal-note">
       <h3>${bi('数据来源与法律立场','Sources and legal position')}</h3>
-      <p>${bi('数据来自','Data comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开 API（模型元数据 + 文件体积），采集','public API (model metadata + file sizes), collected')}时间 <code>${esc((seriesList[0]?.collectedAt || '').slice(0, 10))}</code>，为快照数据而非实时。</p>
+      <p>${bi('数据来自','Data comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开 API（模型元数据 + 文件体积），采集','public API (model metadata + file sizes), collected')}${bi('时间', 'at')} <code>${esc((seriesList[0]?.collectedAt || '').slice(0, 10))}</code>${bi("，为快照数据而非实时。", "; this is a snapshot, not live data.")}</p>
       <p>${bi('<b>本站不跑 benchmark，不给质量与速度结论。</b>凡涉及主观判断处均标注「我们的口径」。', '<b>This site does not run benchmarks and does not draw quality or speed conclusions.</b> Every place we offer a judgement is marked as our own reading.')}</p>
       <p><b>${bi('不下载、不托管任何权重文件','No weight files are downloaded or hosted here')}</b>${bi('；许可原样引自发布页，本站不解读许可、不构成法律意见，一切以','; licences are quoted verbatim from release pages, this site does not interpret them or give legal advice, and everything is governed by')}<a href="https://specul.com/legal.html" target="_blank" rel="noopener">${bi('发布页原文', 'the legal page')}</a>${bi('为准。', '.')}</p>
       <p>${bi('系列选择依据四维打分（量化热度 40 / 量化广度 25 / 规模可及性 20 / 新鲜度 15），方法与落选名单见 ', 'Series selection uses a four-factor score (quantisation heat 40 / coverage 25 / size reachability 20 / freshness 15); the method and the rejected candidates are documented in ')}<a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener">${bi('数据仓 METHODOLOGY.md ↗', 'the data repo\'s METHODOLOGY.md ↗')}</a>${bi('。', '.')}</p>

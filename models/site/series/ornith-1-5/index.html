@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Ornith 1.5 量化版 · 本地部署</title>
   <meta name="description" content="Ornith 1.5（Ornith AI）的第三方 GGUF 量化版本对比：2 个规格、20 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <link rel="canonical" href="https://models.specul.com/series/ornith-1-5/" />
@@ -13,7 +13,8 @@
   <meta property="og:description" content="Ornith 1.5（Ornith AI）的第三方 GGUF 量化版本对比：2 个规格、20 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="../../brand.css" />
+  <script src="../../brand.js?v=6a580ac0420e"></script>
+  <link rel="stylesheet" href="../../brand.css?v=6a580ac0420e" />
   <link rel="stylesheet" href="../../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Ornith 1.5 GGUF 量化版本索引","description":"MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。","url":"https://models.specul.com/series/ornith-1-5/","isAccessibleForFree":true,"license":"https://creativecommons.org/publicdomain/zero/1.0/","temporalCoverage":"2026-10-09"}</script>
 </head>
@@ -123,7 +124,7 @@
       <ul class="fam-src-list cn-srcs"><li>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：<a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li>Ornith 官方 Hugging Face 组织页：<a href="https://huggingface.co/ornith-ai" target="_blank" rel="noopener">https://huggingface.co/ornith-ai</a></li><li>ModelScope ornith-ai 组织镜像 Ornith-1.5-35B-A3B（2026-10-20 实测 200）：<a href="https://www.modelscope.cn/models/ornith-ai/Ornith-1.5-35B-A3B" target="_blank" rel="noopener">https://www.modelscope.cn/models/ornith-ai/Ornith-1.5-35B-A3B</a></li></ul>
     </section>
       <section class="member" id="m0">
-        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span>Ornith 1.5 35B-A3B（MoE）</h3>
+        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span><span data-zh>Ornith 1.5 35B-A3B（MoE）</span><span data-en>Ornith 1.5 35B-A3B (MoE)</span></h3>
         <p class="member-meta"><span data-zh>35.95B 总参（MoE，激活数未公开）</span><span data-en>35.95B total params（MoE，activation count not disclosed）</span>　·　<span data-zh>主力通用</span><span data-en>Flagship general</span>　·　<span data-zh>10 个量化来源</span><span data-en>10 quant sources</span></p>
         <div class="block" id="a0">
           <h4><span class="blk">A</span><span data-zh>基础模型卡</span><span data-en>Base model card</span> <small><span data-zh>规格 · 许可 · 访问门槛 · 参数量三来源交叉核对</span><span data-en>specs · licence · access · parameter count cross-checked across three sources</span></small></h4>
@@ -214,7 +215,7 @@
       </table>
       <h3 class="budget-h"><span data-zh>显存不够时的替代路径</span><span data-en>When VRAM is not enough</span></h3>
       <p class="muted small"><span data-zh>llama.cpp 的</span><span data-en>llama.cpp’s</span> <code>-ngl</code> <span data-zh>可以只把部分层放显存、其余落系统内存；多卡则自动切分。</span><span data-en>can keep only some layers on the GPU and spill the rest to system memory; with multiple cards it splits automatically.</span>
-        代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</p>
+        <span data-zh>代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</span><span data-en>The trade-off is speed: CPU-only inference is usually several times slower than a comparable GPU, but still produces results.</span></p>
       <table class="budget">
         <caption><span data-zh>系统内存 / 多卡 → 档位速查</span><span data-en>System memory / multi-GPU → tier cheat sheet</span></caption>
         <tbody>
@@ -700,7 +701,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="tier-legend" role="list" <span data-zh>aria-label="量化档色阶图例"</span><span data-en>aria-label="Quantisation tier colour scale"</span>>
+      <p class="tier-legend" role="list" aria-label="量化档色阶图例" data-ui-aria-label-zh="量化档色阶图例" data-ui-aria-label-en="Quantisation tier colour scale">
         <span class="tier-legend-h"><span data-zh>卡片左侧色条 = 推荐档位</span><span data-en>Colour bar on the left = recommended tier</span></span>
         <span class="tier-legend-i tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span>
         <span class="tier-legend-i tier-1"><span data-zh>保守</span><span data-en>Conservative</span></span>
@@ -717,9 +718,9 @@
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
           <input type="search" class="vq" autocomplete="off" placeholder="unsloth · bartowski · ggml-org"></label>
-        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="">全部 / All</option><option value="AtomicChat">AtomicChat</option><option value="Fastiraz">Fastiraz</option><option value="Flipmode234">Flipmode234</option><option value="LemesoftNostalgic">LemesoftNostalgic</option><option value="NANI-Nithin">NANI-Nithin</option><option value="SandLogicTechnologies">SandLogicTechnologies</option><option value="bartowski">bartowski</option><option value="mradermacher">mradermacher</option><option value="ornith-ai">ornith-ai</option><option value="vcruz305">vcruz305</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="">全部 / All</option><option value="保守档">保守档 / Conservative</option><option value="平衡档">平衡档 / Balanced</option><option value="极限压缩">极限压缩 / Extreme compression</option><option value="近似无损">近似无损 / Near lossless</option><option value="长上下文优先">长上下文优先 / Long context first</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="">全部 / All</option><option value="apache-2.0">apache-2.0</option><option value="mit">mit</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="AtomicChat" data-ui-text-zh="AtomicChat" data-ui-text-en="AtomicChat">AtomicChat</option><option value="Fastiraz" data-ui-text-zh="Fastiraz" data-ui-text-en="Fastiraz">Fastiraz</option><option value="Flipmode234" data-ui-text-zh="Flipmode234" data-ui-text-en="Flipmode234">Flipmode234</option><option value="LemesoftNostalgic" data-ui-text-zh="LemesoftNostalgic" data-ui-text-en="LemesoftNostalgic">LemesoftNostalgic</option><option value="NANI-Nithin" data-ui-text-zh="NANI-Nithin" data-ui-text-en="NANI-Nithin">NANI-Nithin</option><option value="SandLogicTechnologies" data-ui-text-zh="SandLogicTechnologies" data-ui-text-en="SandLogicTechnologies">SandLogicTechnologies</option><option value="bartowski" data-ui-text-zh="bartowski" data-ui-text-en="bartowski">bartowski</option><option value="mradermacher" data-ui-text-zh="mradermacher" data-ui-text-en="mradermacher">mradermacher</option><option value="ornith-ai" data-ui-text-zh="ornith-ai" data-ui-text-en="ornith-ai">ornith-ai</option><option value="vcruz305" data-ui-text-zh="vcruz305" data-ui-text-en="vcruz305">vcruz305</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="保守档" data-ui-text-zh="保守档" data-ui-text-en="Conservative">保守档</option><option value="平衡档" data-ui-text-zh="平衡档" data-ui-text-en="Balanced">平衡档</option><option value="极限压缩" data-ui-text-zh="极限压缩" data-ui-text-en="Extreme compression">极限压缩</option><option value="近似无损" data-ui-text-zh="近似无损" data-ui-text-en="Near lossless">近似无损</option><option value="长上下文优先" data-ui-text-zh="长上下文优先" data-ui-text-en="Long context first">长上下文优先</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="apache-2.0" data-ui-text-zh="apache-2.0" data-ui-text-en="apache-2.0">apache-2.0</option><option value="mit" data-ui-text-zh="mit" data-ui-text-en="mit">mit</option></select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>
         <article class="vcard vcard-off" data-tier="2" data-q="ornith-ai" data-lic="mit" data-tiers="平衡档 保守档 近似无损" data-blob="ornith-ai ornith-ai/ornith-1.5-35b-a3b-gguf mit">
@@ -1053,7 +1054,7 @@
         </div>
       </section>
       <section class="member" id="m1">
-        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 2</span>Ornith 1.5 9B（密集）</h3>
+        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 2</span><span data-zh>Ornith 1.5 9B（密集）</span><span data-en>Ornith 1.5 9B (Dense)</span></h3>
         <p class="member-meta"><span data-zh>9.65B 密集</span><span data-en>9.65B dense</span>　·　<span data-zh>单卡可跑</span><span data-en>Single-GPU</span>　·　<span data-zh>10 个量化来源</span><span data-en>10 quant sources</span></p>
         <div class="block" id="a1">
           <h4><span class="blk">A</span><span data-zh>基础模型卡</span><span data-en>Base model card</span> <small><span data-zh>规格 · 许可 · 访问门槛 · 参数量三来源交叉核对</span><span data-en>specs · licence · access · parameter count cross-checked across three sources</span></small></h4>
@@ -1151,7 +1152,7 @@
       </table>
       <h3 class="budget-h"><span data-zh>显存不够时的替代路径</span><span data-en>When VRAM is not enough</span></h3>
       <p class="muted small"><span data-zh>llama.cpp 的</span><span data-en>llama.cpp’s</span> <code>-ngl</code> <span data-zh>可以只把部分层放显存、其余落系统内存；多卡则自动切分。</span><span data-en>can keep only some layers on the GPU and spill the rest to system memory; with multiple cards it splits automatically.</span>
-        代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</p>
+        <span data-zh>代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</span><span data-en>The trade-off is speed: CPU-only inference is usually several times slower than a comparable GPU, but still produces results.</span></p>
       <table class="budget">
         <caption><span data-zh>系统内存 / 多卡 → 档位速查</span><span data-en>System memory / multi-GPU → tier cheat sheet</span></caption>
         <tbody>
@@ -1664,7 +1665,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="tier-legend" role="list" <span data-zh>aria-label="量化档色阶图例"</span><span data-en>aria-label="Quantisation tier colour scale"</span>>
+      <p class="tier-legend" role="list" aria-label="量化档色阶图例" data-ui-aria-label-zh="量化档色阶图例" data-ui-aria-label-en="Quantisation tier colour scale">
         <span class="tier-legend-h"><span data-zh>卡片左侧色条 = 推荐档位</span><span data-en>Colour bar on the left = recommended tier</span></span>
         <span class="tier-legend-i tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span>
         <span class="tier-legend-i tier-1"><span data-zh>保守</span><span data-en>Conservative</span></span>
@@ -1681,9 +1682,9 @@
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
           <input type="search" class="vq" autocomplete="off" placeholder="unsloth · bartowski · ggml-org"></label>
-        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="">全部 / All</option><option value="AtomicChat">AtomicChat</option><option value="Fastiraz">Fastiraz</option><option value="Mungert">Mungert</option><option value="NANI-Nithin">NANI-Nithin</option><option value="aquaduck">aquaduck</option><option value="bartowski">bartowski</option><option value="kizzlah">kizzlah</option><option value="mradermacher">mradermacher</option><option value="ornith-ai">ornith-ai</option><option value="prithivMLmods">prithivMLmods</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="">全部 / All</option><option value="保守档">保守档 / Conservative</option><option value="平衡档">平衡档 / Balanced</option><option value="极限压缩">极限压缩 / Extreme compression</option><option value="近似无损">近似无损 / Near lossless</option><option value="长上下文优先">长上下文优先 / Long context first</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="">全部 / All</option><option value="apache-2.0">apache-2.0</option><option value="mit">mit</option><option value="other">other</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="AtomicChat" data-ui-text-zh="AtomicChat" data-ui-text-en="AtomicChat">AtomicChat</option><option value="Fastiraz" data-ui-text-zh="Fastiraz" data-ui-text-en="Fastiraz">Fastiraz</option><option value="Mungert" data-ui-text-zh="Mungert" data-ui-text-en="Mungert">Mungert</option><option value="NANI-Nithin" data-ui-text-zh="NANI-Nithin" data-ui-text-en="NANI-Nithin">NANI-Nithin</option><option value="aquaduck" data-ui-text-zh="aquaduck" data-ui-text-en="aquaduck">aquaduck</option><option value="bartowski" data-ui-text-zh="bartowski" data-ui-text-en="bartowski">bartowski</option><option value="kizzlah" data-ui-text-zh="kizzlah" data-ui-text-en="kizzlah">kizzlah</option><option value="mradermacher" data-ui-text-zh="mradermacher" data-ui-text-en="mradermacher">mradermacher</option><option value="ornith-ai" data-ui-text-zh="ornith-ai" data-ui-text-en="ornith-ai">ornith-ai</option><option value="prithivMLmods" data-ui-text-zh="prithivMLmods" data-ui-text-en="prithivMLmods">prithivMLmods</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="保守档" data-ui-text-zh="保守档" data-ui-text-en="Conservative">保守档</option><option value="平衡档" data-ui-text-zh="平衡档" data-ui-text-en="Balanced">平衡档</option><option value="极限压缩" data-ui-text-zh="极限压缩" data-ui-text-en="Extreme compression">极限压缩</option><option value="近似无损" data-ui-text-zh="近似无损" data-ui-text-en="Near lossless">近似无损</option><option value="长上下文优先" data-ui-text-zh="长上下文优先" data-ui-text-en="Long context first">长上下文优先</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="apache-2.0" data-ui-text-zh="apache-2.0" data-ui-text-en="apache-2.0">apache-2.0</option><option value="mit" data-ui-text-zh="mit" data-ui-text-en="mit">mit</option><option value="other" data-ui-text-zh="other" data-ui-text-en="other">other</option></select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>
         <article class="vcard vcard-off" data-tier="2" data-q="ornith-ai" data-lic="mit" data-tiers="平衡档 保守档 近似无损" data-blob="ornith-ai ornith-ai/ornith-1.5-9b-gguf mit">
@@ -2051,7 +2052,7 @@
 
     <section class="legal-note">
       <h3><span data-zh>关于数据与许可</span><span data-en>Data and licensing</span></h3>
-      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-09</code>，为快照数据。</p>
+      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-09</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
       <p><span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>，只提供发布页链接。许可字段原样引自发布页，</span><span data-en> — it only links to release pages. Licence fields are quoted verbatim from them,</span> <b><span data-zh>本站不解读许可条款、不构成法律意见</span><span data-en>this site does not interpret licence terms or give legal advice</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
       <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
     </section>
@@ -2294,7 +2295,7 @@
     <div class="container foot-row">
       <div class="foot-brand">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span class="foot-copy">© 2026 投机取巧 · <span data-zh>Specul</span><span data-en>Specul</span></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
       </div>
       <nav class="foot-links" aria-label="页脚导航">
           <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
@@ -2322,14 +2323,5 @@
   <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
   <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
 </nav>
-  <script src="../../brand.js"></script>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
-      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
-      sync();
-    })();
-  </script>
 </body>
 </html>

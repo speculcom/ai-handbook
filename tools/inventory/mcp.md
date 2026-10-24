@@ -30,10 +30,10 @@
 | Zapier MCP | Zapier | https://actions.zapier.com/docs/platform/mcp/ | 已有 | zapier-mcp | P2 · 官方（千余应用入口） |
 | Brave Search MCP | Brave | https://github.com/brave/brave-search-mcp-server | 已有 | brave-search-mcp | P2 · 厂商官方（补 reference 归档后的搜索位） |
 | Neon MCP | Neon | https://github.com/neondatabase/mcp-server-neon | 已有 | neon-mcp | P2 · 厂商官方（旧 docs 路径 404；官方仓 200，MIT） |
-| Grafana MCP | Grafana Labs | https://grafana.com/docs/grafana-cloud/machine-learning/mcp/ | 待建 | grafana-mcp | P2 |
-| Datadog MCP | Datadog | https://www.datadoghq.com/about/partners/mcp/ | 待建 | datadog-mcp | P2 |
-| Exa MCP | Exa | https://github.com/exa-labs/exa-mcp-server | 待建 | exa-mcp | P2 |
-| Firecrawl MCP | Firecrawl | https://github.com/mendableai/firecrawl-mcp-server | 待建 | firecrawl-mcp | P2 |
+| Grafana MCP | Grafana Labs | https://grafana.com/docs/grafana-cloud/machine-learning/mcp/ | 已有 | grafana-mcp | P2 |
+| Datadog MCP | Datadog | https://www.datadoghq.com/about/partners/mcp/ | 已有 | datadog-mcp | P2 |
+| Exa MCP | Exa | https://github.com/exa-labs/exa-mcp-server | 已有 | exa-mcp | P2 |
+| Firecrawl MCP | Firecrawl | https://github.com/mendableai/firecrawl-mcp-server | 已有 | firecrawl-mcp | P2 |
 | Browserbase MCP | Browserbase | https://github.com/browserbase/mcp-server-browserbase | 待建 | browserbase-mcp | P3 |
 | Shopify MCP（MCP 化 Storefront） | Shopify | https://shopify.dev/docs/agents-of-change | 待建 | shopify-mcp | P3 · 建档前核官方现状 |
 | 1Password MCP | 1Password | https://developer.1password.com/docs/mcp/ | 待建 | 1password-mcp | P3 · 凭据类，建档时权限维度重点 |
@@ -46,8 +46,8 @@
 
 ## 备注
 
-- 「已有」10 行 = `tracks/mcp/products/` 现有档案全集（孤儿检查守）。
+- 「已有」28 行 = `tracks/mcp/products/` 现有档案全集（孤儿检查守）。
 - MCP 特有三维（transport/auth/scope）见 `tracks/mcp/taxonomy/`——建档时逐条挂官方文档。
 - 官方 servers 仓的 **archived 区**（2026-10-21 直抓 README 核验）：AWS KB Retrieval / Brave Search（已由官方 `@brave/brave-search-mcp-server` 接替）/ EverArt / GitHub（旧参考版）/ GitLab / Google Drive / Google Maps / **PostgreSQL** / **Puppeteer** / Redis / **Sentry（参考版）** / **Slack（参考版，转 Zencoder 维护）** / SQLite——官方自己不再维护，收进来会误导选型，全部「不收」或转收厂商官方版。现役 reference 只有 7 个（Everything/Fetch/Filesystem/Git/Memory/Sequential Thinking/Time）= 已有档案的官方来源。
 - 官方 README 明示：reference server 是**教学示例不是生产方案**；找服务器去 **MCP Registry**（registry 是候选池，收录仍按「官方自营或头部」标准）。
-- T22 建档批已落地 14 份（P1 9 + P2 5：Sentry/Notion/Slack/Supabase/Stripe/Chrome DevTools/Figma/Linear/MongoDB + Cloudflare/Atlassian/Zapier/Brave/Neon）；P2 余 4（Grafana/Datadog/Exa/Firecrawl）与 P3 5 行留后续批次。2026-10-21 建档时 URL 重核：Sentry 仓 redirect 到 getsentry/toolkit（FSL-1.1-Apache-2.0）、Slack 旧仓 404（现役官方托管 mcp.slack.com）、Supabase 仓现名 supabase/mcp、Figma 旧 help 文章 404（现役 developers.figma.com）、MongoDB docs/mcp 404（现役 mongodb-js 仓）、Neon 旧 docs 路径 404（现役 neondatabase 仓）、Linear 旧 /sse 端点 404（现役 /mcp）。
+- T22 建档批已落地 14 份（P1 9 + P2 5：Sentry/Notion/Slack/Supabase/Stripe/Chrome DevTools/Figma/Linear/MongoDB + Cloudflare/Atlassian/Zapier/Brave/Neon）；P2 四份 Grafana/Datadog/Exa/Firecrawl 已于 2026-10-24 补齐；P3 清单留后续批次。2026-10-21 建档时 URL 重核：Sentry 仓 redirect 到 getsentry/toolkit（FSL-1.1-Apache-2.0）、Slack 旧仓 404（现役官方托管 mcp.slack.com）、Supabase 仓现名 supabase/mcp、Figma 旧 help 文章 404（现役 developers.figma.com）、MongoDB docs/mcp 404（现役 mongodb-js 仓）、Neon 旧 docs 路径 404（现役 neondatabase 仓）、Linear 旧 /sse 端点 404（现役 /mcp）。

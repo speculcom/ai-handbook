@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>DeepSeek V4 量化版 · 本地部署</title>
   <meta name="description" content="DeepSeek V4（DeepSeek）的第三方 GGUF 量化版本对比：1 个规格、5 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <link rel="canonical" href="https://models.specul.com/series/deepseek-v4/" />
@@ -13,7 +13,8 @@
   <meta property="og:description" content="DeepSeek V4（DeepSeek）的第三方 GGUF 量化版本对比：1 个规格、5 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="../../brand.css" />
+  <script src="../../brand.js?v=6a580ac0420e"></script>
+  <link rel="stylesheet" href="../../brand.css?v=6a580ac0420e" />
   <link rel="stylesheet" href="../../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"DeepSeek V4 GGUF 量化版本索引","description":"MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。","url":"https://models.specul.com/series/deepseek-v4/","isAccessibleForFree":true,"license":"https://creativecommons.org/publicdomain/zero/1.0/","temporalCoverage":"2026-10-09"}</script>
 </head>
@@ -117,13 +118,13 @@
       <ul class="fam-claims cn-rows">
         <li><b><span data-zh>出品属地</span><span data-en>Origin</span></b>　<span data-zh>国产</span><span data-en>domestic</span>　<span data-zh>出品方为深度求索（北京）。</span><span data-en>Made by DeepSeek (Beijing).</span></li>
         <li><b><span data-zh>国内下载</span><span data-en>Direct access</span></b>　<span data-zh>国内可直连</span><span data-en>direct OK</span>　<span data-zh>ModelScope 官方镜像直连可达（2026-10-20 实测 200）；Hugging Face 直连不可达。</span><span data-en>Official ModelScope mirror reachable without proxy (measured 200); Hugging Face direct unreachable.</span>　·　<a href="https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener"><span data-zh>国内镜像入口</span><span data-en>domestic mirror</span></a></li>
-        <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>已备案</span><span data-en>Filed</span>：<code>Beijing-DeepseekChat-202404280016</code>　<span data-zh>公示名称</span><span data-en>listed as</span>「求索对话DeepSeek Chat」　·　<span data-zh>备案时间</span><span data-en>filed</span> 2024-05-13　·　<span data-zh>2024-08 批次附件第 152 行。</span><span data-en>Row 152 of the 2024-08 batch attachment.</span></li>
+        <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>已备案</span><span data-en>Filed</span>：<code>Beijing-DeepseekChat-202404280016</code>　<span data-zh>公示名称</span><span data-en>listed as</span><span lang="zh-CN" data-source-name>「求索对话DeepSeek Chat」</span>　·　<span data-zh>备案时间</span><span data-en>filed</span> 2024-05-13　·　<span data-zh>2024-08 批次附件第 152 行。</span><span data-en>Row 152 of the 2024-08 batch attachment.</span></li>
       </ul>
       <p class="fam-claims-note"><span data-zh>备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站从大陆网络直连实测的结果，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site's own reachability measurement from a mainland network, not a vendor promise.</span></p>
       <ul class="fam-src-list cn-srcs"><li>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：<a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li>ModelScope 官方镜像 deepseek-ai/DeepSeek-V4.1-Flash（2026-10-20 实测 200）：<a href="https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener">https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash</a></li></ul>
     </section>
       <section class="member" id="m0">
-        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span>DeepSeek V4.1 Flash</h3>
+        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span><span data-zh>DeepSeek V4.1 Flash</span><span data-en>DeepSeek V4.1 Flash</span></h3>
         <p class="member-meta"><span data-zh>763B 总参（MoE，激活数未公开）</span><span data-en>763B total params（MoE，activation count not disclosed）</span>　·　<span data-zh>通用主力</span><span data-en>General</span>　·　<span data-zh>5 个量化来源</span><span data-en>5 quant sources</span></p>
         <div class="block" id="a0">
           <h4><span class="blk">A</span><span data-zh>基础模型卡</span><span data-en>Base model card</span> <small><span data-zh>规格 · 许可 · 访问门槛 · 参数量三来源交叉核对</span><span data-en>specs · licence · access · parameter count cross-checked across three sources</span></small></h4>
@@ -217,7 +218,7 @@
       </table>
       <h3 class="budget-h"><span data-zh>显存不够时的替代路径</span><span data-en>When VRAM is not enough</span></h3>
       <p class="muted small"><span data-zh>llama.cpp 的</span><span data-en>llama.cpp’s</span> <code>-ngl</code> <span data-zh>可以只把部分层放显存、其余落系统内存；多卡则自动切分。</span><span data-en>can keep only some layers on the GPU and spill the rest to system memory; with multiple cards it splits automatically.</span>
-        代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</p>
+        <span data-zh>代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</span><span data-en>The trade-off is speed: CPU-only inference is usually several times slower than a comparable GPU, but still produces results.</span></p>
       <table class="budget">
         <caption><span data-zh>系统内存 / 多卡 → 档位速查</span><span data-en>System memory / multi-GPU → tier cheat sheet</span></caption>
         <tbody>
@@ -417,7 +418,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="tier-legend" role="list" <span data-zh>aria-label="量化档色阶图例"</span><span data-en>aria-label="Quantisation tier colour scale"</span>>
+      <p class="tier-legend" role="list" aria-label="量化档色阶图例" data-ui-aria-label-zh="量化档色阶图例" data-ui-aria-label-en="Quantisation tier colour scale">
         <span class="tier-legend-h"><span data-zh>卡片左侧色条 = 推荐档位</span><span data-en>Colour bar on the left = recommended tier</span></span>
         <span class="tier-legend-i tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span>
         <span class="tier-legend-i tier-1"><span data-zh>保守</span><span data-en>Conservative</span></span>
@@ -434,9 +435,9 @@
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
           <input type="search" class="vq" autocomplete="off" placeholder="unsloth · bartowski · ggml-org"></label>
-        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="">全部 / All</option><option value="JigSawPT">JigSawPT</option><option value="Solstice-AI">Solstice-AI</option><option value="mxxm-t">mxxm-t</option><option value="smalinin">smalinin</option><option value="vcruz305">vcruz305</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="">全部 / All</option><option value="平衡档">平衡档 / Balanced</option><option value="极限压缩">极限压缩 / Extreme compression</option><option value="近似无损">近似无损 / Near lossless</option><option value="长上下文优先">长上下文优先 / Long context first</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="">全部 / All</option><option value="mit">mit</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="JigSawPT" data-ui-text-zh="JigSawPT" data-ui-text-en="JigSawPT">JigSawPT</option><option value="Solstice-AI" data-ui-text-zh="Solstice-AI" data-ui-text-en="Solstice-AI">Solstice-AI</option><option value="mxxm-t" data-ui-text-zh="mxxm-t" data-ui-text-en="mxxm-t">mxxm-t</option><option value="smalinin" data-ui-text-zh="smalinin" data-ui-text-en="smalinin">smalinin</option><option value="vcruz305" data-ui-text-zh="vcruz305" data-ui-text-en="vcruz305">vcruz305</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="平衡档" data-ui-text-zh="平衡档" data-ui-text-en="Balanced">平衡档</option><option value="极限压缩" data-ui-text-zh="极限压缩" data-ui-text-en="Extreme compression">极限压缩</option><option value="近似无损" data-ui-text-zh="近似无损" data-ui-text-en="Near lossless">近似无损</option><option value="长上下文优先" data-ui-text-zh="长上下文优先" data-ui-text-en="Long context first">长上下文优先</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="mit" data-ui-text-zh="mit" data-ui-text-en="mit">mit</option></select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>
         <article class="vcard" data-tier="2" data-q="vcruz305" data-lic="mit" data-tiers="极限压缩 长上下文优先 平衡档 近似无损" data-blob="vcruz305 vcruz305/deepseek-v4.1-flash-gguf mit">
@@ -628,7 +629,7 @@
 
     <section class="legal-note">
       <h3><span data-zh>关于数据与许可</span><span data-en>Data and licensing</span></h3>
-      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-09</code>，为快照数据。</p>
+      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-09</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
       <p><span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>，只提供发布页链接。许可字段原样引自发布页，</span><span data-en> — it only links to release pages. Licence fields are quoted verbatim from them,</span> <b><span data-zh>本站不解读许可条款、不构成法律意见</span><span data-en>this site does not interpret licence terms or give legal advice</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
       <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
     </section>
@@ -871,7 +872,7 @@
     <div class="container foot-row">
       <div class="foot-brand">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span class="foot-copy">© 2026 投机取巧 · <span data-zh>Specul</span><span data-en>Specul</span></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
       </div>
       <nav class="foot-links" aria-label="页脚导航">
           <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
@@ -899,14 +900,5 @@
   <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
   <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
 </nav>
-  <script src="../../brand.js"></script>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
-      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
-      sync();
-    })();
-  </script>
 </body>
 </html>

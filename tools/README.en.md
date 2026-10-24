@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 173 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 177 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 173 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 177 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -138,7 +138,7 @@ tools/ (ai-handbook subtree)
 │   ├── chat/                   chat assistants (14 objects)
 │   ├── image/ · video/ · audio/  three creation categories (13 + 12 + 10 objects)
 │   ├── framework/              agent frameworks & runtimes (22 objects)
-│   ├── mcp/                    MCP ecosystem (3 additional axes, 24 objects)
+│   ├── mcp/                    MCP ecosystem (3 additional axes, 28 objects)
 │   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 14 + 12 objects)
 ├── protocols/                  measurement protocols (coding / framework / mcp)
 ├── scripts/                    validators (validate / audit / quality)
@@ -451,7 +451,7 @@ Building blocks for your own agent
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | partial | active |
 
-### Tools for your AI — 24
+### Tools for your AI — 28
 
 MCP servers and the tool ecosystem
 
@@ -462,12 +462,16 @@ MCP servers and the tool ecosystem
 | [Chrome DevTools MCP](tracks/mcp/products/chrome-devtools-mcp.md) | Google (Chrome DevTools team) | mcp | partial | active |
 | [Cloudflare MCP Server](tracks/mcp/products/cloudflare-mcp.md) | Cloudflare | mcp | partial | active |
 | [Context7](tracks/mcp/products/context7.md) | Upstash | mcp | partial | active |
+| [Datadog MCP Server](tracks/mcp/products/datadog-mcp.md) | Datadog | mcp | partial | active |
 | [Everything MCP Server](tracks/mcp/products/everything.md) | Model Context Protocol | mcp | verified | active |
+| [Exa MCP Server](tracks/mcp/products/exa-mcp.md) | Exa | mcp | partial | active |
 | [Fetch MCP Server](tracks/mcp/products/fetch.md) | Model Context Protocol | mcp | verified | active |
 | [Figma MCP Server](tracks/mcp/products/figma-mcp.md) | Figma | mcp | partial | active |
 | [Filesystem MCP Server](tracks/mcp/products/filesystem.md) | Model Context Protocol | mcp | verified | active |
+| [Firecrawl MCP Server](tracks/mcp/products/firecrawl-mcp.md) | Firecrawl | mcp | partial | active |
 | [Git MCP Server](tracks/mcp/products/git.md) | Model Context Protocol | mcp | verified | active |
 | [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | partial | active |
+| [Grafana MCP Server](tracks/mcp/products/grafana-mcp.md) | Grafana Labs | mcp | partial | active |
 | [Knowledge Graph Memory Server](tracks/mcp/products/memory.md) | Model Context Protocol | mcp | verified | active |
 | [Linear MCP](tracks/mcp/products/linear-mcp.md) | Linear | mcp | partial | active |
 | [MongoDB MCP Server](tracks/mcp/products/mongodb-mcp.md) | MongoDB | mcp | partial | active |
@@ -509,8 +513,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 173 |
-| By category | coding 41 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 24 · runner 12 |
-| By form | web 69 · mcp 24 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 6 |
+| Total profiles | 177 |
+| By category | coding 41 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 28 · runner 12 |
+| By form | web 69 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 6 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

@@ -549,6 +549,31 @@
     "Reading 'search' as 'scrape' — it returns result summaries and links, not page bodies",
     "Quota and billing follow the Brave API account — this site records no price figures (rule D9)"
   ],
+  "grafana-mcp": [
+    "Treating \"open source\" as \"zero config\" — it needs GRAFANA_URL plus a service-account token, and RBAC scopes decide which tools actually work",
+    "Pulling full dashboard JSON by default — the official README warns it eats the context window; summary/JSONPath/patch are the intended tools",
+    "Assuming every tool is on — run-panel-query, query examples and Graphite are disabled by default and need --enabled-tools",
+    "Grabbing the built-in Editor role for convenience — the README notes it is coarser than hand-applied scopes; avoid it under strict least-privilege"
+  ],
+  "datadog-mcp": [
+    "Treating the Datadog MCP as a privilege-exceeding side door — the README states credentials pass through; data the user cannot see, the server cannot fetch",
+    "Conflating the Code Security MCP Server with the main line — that is a separate narrow local code-scanning server, explicitly distinguished in the docs",
+    "Enabling all toolsets at once — the official docs recommend scoping tools; too many eat the context window",
+    "Planning access in GovCloud — the docs state outright: not GovCloud compatible"
+  ],
+  "exa-mcp": [
+    "Seeing only the two default tools — advanced search and agent_run require the ?tools= URL parameter, which REPLACES the default set (README: include all you want)",
+    "Treating GitHub releases as the release line — that repo's releases are empty; the live version is on npm (exa-mcp-server)",
+    "Treating the anonymous tier as production — anonymous works but is rate-limited; Exa Agent requires auth (OAuth or key)",
+    "Confusing \"search\" with \"whole-site crawling\" — it gives retrieval and single-page content; site-level crawl/map is not its shape"
+  ],
+  "firecrawl-mcp": [
+    "Treating GitHub releases as the release line — releases stop at v3.2.1 (2025-09) while npm is at 3.34.x; watch npm",
+    "Treating the keyless tier as full-featured — hosted keyless exposes 3 tools only; crawl/map/agent etc. need a key",
+    "Putting the API key in the server URL or the agent chat — the README forbids both; client config or secret manager only",
+    "Treating interact as a step-by-step driven browser session — each call runs one prompt/code turn and returns control; persistence across calls goes through scrapeId",
+    "Referencing the old repo name mendableai/firecrawl-mcp-server — it moved to the firecrawl/ org (301 confirmed); update references"
+  ],
   "neon-mcp": [
     "Looking for neon.com/docs/ai-and-mcp/mcp-server — that path 404s (direct-fetched 2026-10-21); the live line is the neondatabase repo",
     "Treating 'branch isolation' as safe by default — the operating surface follows connection config; the main branch still gets writes",

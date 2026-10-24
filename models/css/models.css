@@ -281,7 +281,7 @@ details.all-quants summary{cursor:pointer;font-size:var(--fs-xs);color:var(--bra
  * 版式跟随 .scard 的共享语言（panel 底 / line 边 / brand hover），
  * 不另起第套视觉 —— 宪章 1：models 站内一处定义、全家页消费。 */
 .famcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:1em}
-.m-famcard{display:block;padding:1.15em 1.25em;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;min-width:0}
+.m-famcard{display:block;padding:1.15em 1.25em;border:1px solid var(--line);background:var(--panel);text-decoration:none;color:inherit;min-width:0}
 .m-famcard:hover{border-color:var(--brand);transform:translateY(-2px)}
 .m-famcard-h{display:flex;justify-content:space-between;align-items:baseline;gap:.6em;flex-wrap:wrap}
 .m-famcard-h h3{margin:0;font-size:var(--fs-lg);color:var(--text)}

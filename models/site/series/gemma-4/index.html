@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Gemma 4 量化版 · 本地部署</title>
   <meta name="description" content="Gemma 4（Google）的第三方 GGUF 量化版本对比：3 个规格、26 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <link rel="canonical" href="https://models.specul.com/series/gemma-4/" />
@@ -13,7 +13,8 @@
   <meta property="og:description" content="Gemma 4（Google）的第三方 GGUF 量化版本对比：3 个规格、26 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="../../brand.css" />
+  <script src="../../brand.js?v=6a580ac0420e"></script>
+  <link rel="stylesheet" href="../../brand.css?v=6a580ac0420e" />
   <link rel="stylesheet" href="../../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Gemma 4 GGUF 量化版本索引","description":"Google 开放权重最新一代，三种规格各自都有量化覆盖。","url":"https://models.specul.com/series/gemma-4/","isAccessibleForFree":true,"license":"https://creativecommons.org/publicdomain/zero/1.0/","temporalCoverage":"2026-10-09"}</script>
 </head>
@@ -123,7 +124,7 @@
       <ul class="fam-src-list cn-srcs"><li>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：<a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li>ModelScope google 组织镜像 gemma-4-31B-it（2026-10-20 实测 200）：<a href="https://www.modelscope.cn/models/google/gemma-4-31B-it" target="_blank" rel="noopener">https://www.modelscope.cn/models/google/gemma-4-31B-it</a></li></ul>
     </section>
       <section class="member" id="m0">
-        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span>Gemma 4 26B-A4B（MoE）</h3>
+        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span><span data-zh>Gemma 4 26B-A4B（MoE）</span><span data-en>Gemma 4 26B-A4B (MoE)</span></h3>
         <p class="member-meta"><span data-zh>25.8B 总参 / 4B 激活</span><span data-en>25.8B total params / 4B 激活</span>　·　<span data-zh>低延迟 MoE</span><span data-en>Low-latency MoE</span>　·　<span data-zh>8 个量化来源</span><span data-en>8 quant sources</span></p>
         <div class="block" id="a0">
           <h4><span class="blk">A</span><span data-zh>基础模型卡</span><span data-en>Base model card</span> <small><span data-zh>规格 · 许可 · 访问门槛 · 参数量三来源交叉核对</span><span data-en>specs · licence · access · parameter count cross-checked across three sources</span></small></h4>
@@ -221,7 +222,7 @@
       </table>
       <h3 class="budget-h"><span data-zh>显存不够时的替代路径</span><span data-en>When VRAM is not enough</span></h3>
       <p class="muted small"><span data-zh>llama.cpp 的</span><span data-en>llama.cpp’s</span> <code>-ngl</code> <span data-zh>可以只把部分层放显存、其余落系统内存；多卡则自动切分。</span><span data-en>can keep only some layers on the GPU and spill the rest to system memory; with multiple cards it splits automatically.</span>
-        代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</p>
+        <span data-zh>代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</span><span data-en>The trade-off is speed: CPU-only inference is usually several times slower than a comparable GPU, but still produces results.</span></p>
       <table class="budget">
         <caption><span data-zh>系统内存 / 多卡 → 档位速查</span><span data-en>System memory / multi-GPU → tier cheat sheet</span></caption>
         <tbody>
@@ -769,7 +770,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="tier-legend" role="list" <span data-zh>aria-label="量化档色阶图例"</span><span data-en>aria-label="Quantisation tier colour scale"</span>>
+      <p class="tier-legend" role="list" aria-label="量化档色阶图例" data-ui-aria-label-zh="量化档色阶图例" data-ui-aria-label-en="Quantisation tier colour scale">
         <span class="tier-legend-h"><span data-zh>卡片左侧色条 = 推荐档位</span><span data-en>Colour bar on the left = recommended tier</span></span>
         <span class="tier-legend-i tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span>
         <span class="tier-legend-i tier-1"><span data-zh>保守</span><span data-en>Conservative</span></span>
@@ -786,9 +787,9 @@
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
           <input type="search" class="vq" autocomplete="off" placeholder="unsloth · bartowski · ggml-org"></label>
-        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="">全部 / All</option><option value="AtomicChat">AtomicChat</option><option value="bartowski">bartowski</option><option value="ggml-org">ggml-org</option><option value="giladgd">giladgd</option><option value="indiansatoshi">indiansatoshi</option><option value="lmstudio-community">lmstudio-community</option><option value="mradermacher">mradermacher</option><option value="unsloth">unsloth</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="">全部 / All</option><option value="保守档">保守档 / Conservative</option><option value="平衡档">平衡档 / Balanced</option><option value="极限压缩">极限压缩 / Extreme compression</option><option value="近似无损">近似无损 / Near lossless</option><option value="长上下文优先">长上下文优先 / Long context first</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="">全部 / All</option><option value="apache-2.0">apache-2.0</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="AtomicChat" data-ui-text-zh="AtomicChat" data-ui-text-en="AtomicChat">AtomicChat</option><option value="bartowski" data-ui-text-zh="bartowski" data-ui-text-en="bartowski">bartowski</option><option value="ggml-org" data-ui-text-zh="ggml-org" data-ui-text-en="ggml-org">ggml-org</option><option value="giladgd" data-ui-text-zh="giladgd" data-ui-text-en="giladgd">giladgd</option><option value="indiansatoshi" data-ui-text-zh="indiansatoshi" data-ui-text-en="indiansatoshi">indiansatoshi</option><option value="lmstudio-community" data-ui-text-zh="lmstudio-community" data-ui-text-en="lmstudio-community">lmstudio-community</option><option value="mradermacher" data-ui-text-zh="mradermacher" data-ui-text-en="mradermacher">mradermacher</option><option value="unsloth" data-ui-text-zh="unsloth" data-ui-text-en="unsloth">unsloth</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="保守档" data-ui-text-zh="保守档" data-ui-text-en="Conservative">保守档</option><option value="平衡档" data-ui-text-zh="平衡档" data-ui-text-en="Balanced">平衡档</option><option value="极限压缩" data-ui-text-zh="极限压缩" data-ui-text-en="Extreme compression">极限压缩</option><option value="近似无损" data-ui-text-zh="近似无损" data-ui-text-en="Near lossless">近似无损</option><option value="长上下文优先" data-ui-text-zh="长上下文优先" data-ui-text-en="Long context first">长上下文优先</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="apache-2.0" data-ui-text-zh="apache-2.0" data-ui-text-en="apache-2.0">apache-2.0</option></select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>
         <article class="vcard" data-tier="2" data-q="unsloth" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="unsloth unsloth/gemma-4-26b-a4b-it-gguf apache-2.0">
@@ -908,7 +909,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q4_K_M 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q4_K_M), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>Q4_K_M</code>（17 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q4_K_M</code> (17 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_K_M</code>（17 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_K_M</code> directly (17 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>已 198 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 198 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>已 201 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 201 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="indiansatoshi" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="indiansatoshi indiansatoshi/google_gemma-4-26b-a4b-it-gguf apache-2.0">
           <header class="vcard-h">
@@ -1122,7 +1123,7 @@
         </div>
       </section>
       <section class="member" id="m1">
-        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 2</span>Gemma 4 31B（密集）</h3>
+        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 2</span><span data-zh>Gemma 4 31B（密集）</span><span data-en>Gemma 4 31B (Dense)</span></h3>
         <p class="member-meta"><span data-zh>31.3B 密集</span><span data-en>31.3B dense</span>　·　<span data-zh>质量优先</span><span data-en>Quality first</span>　·　<span data-zh>8 个量化来源</span><span data-en>8 quant sources</span></p>
         <div class="block" id="a1">
           <h4><span class="blk">A</span><span data-zh>基础模型卡</span><span data-en>Base model card</span> <small><span data-zh>规格 · 许可 · 访问门槛 · 参数量三来源交叉核对</span><span data-en>specs · licence · access · parameter count cross-checked across three sources</span></small></h4>
@@ -1220,7 +1221,7 @@
       </table>
       <h3 class="budget-h"><span data-zh>显存不够时的替代路径</span><span data-en>When VRAM is not enough</span></h3>
       <p class="muted small"><span data-zh>llama.cpp 的</span><span data-en>llama.cpp’s</span> <code>-ngl</code> <span data-zh>可以只把部分层放显存、其余落系统内存；多卡则自动切分。</span><span data-en>can keep only some layers on the GPU and spill the rest to system memory; with multiple cards it splits automatically.</span>
-        代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</p>
+        <span data-zh>代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</span><span data-en>The trade-off is speed: CPU-only inference is usually several times slower than a comparable GPU, but still produces results.</span></p>
       <table class="budget">
         <caption><span data-zh>系统内存 / 多卡 → 档位速查</span><span data-en>System memory / multi-GPU → tier cheat sheet</span></caption>
         <tbody>
@@ -1750,7 +1751,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="tier-legend" role="list" <span data-zh>aria-label="量化档色阶图例"</span><span data-en>aria-label="Quantisation tier colour scale"</span>>
+      <p class="tier-legend" role="list" aria-label="量化档色阶图例" data-ui-aria-label-zh="量化档色阶图例" data-ui-aria-label-en="Quantisation tier colour scale">
         <span class="tier-legend-h"><span data-zh>卡片左侧色条 = 推荐档位</span><span data-en>Colour bar on the left = recommended tier</span></span>
         <span class="tier-legend-i tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span>
         <span class="tier-legend-i tier-1"><span data-zh>保守</span><span data-en>Conservative</span></span>
@@ -1767,9 +1768,9 @@
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
           <input type="search" class="vq" autocomplete="off" placeholder="unsloth · bartowski · ggml-org"></label>
-        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="">全部 / All</option><option value="AtomicChat">AtomicChat</option><option value="Mungert">Mungert</option><option value="bartowski">bartowski</option><option value="ggml-org">ggml-org</option><option value="giladgd">giladgd</option><option value="lmstudio-community">lmstudio-community</option><option value="mradermacher">mradermacher</option><option value="unsloth">unsloth</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="">全部 / All</option><option value="保守档">保守档 / Conservative</option><option value="平衡档">平衡档 / Balanced</option><option value="极限压缩">极限压缩 / Extreme compression</option><option value="近似无损">近似无损 / Near lossless</option><option value="长上下文优先">长上下文优先 / Long context first</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="">全部 / All</option><option value="apache-2.0">apache-2.0</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="AtomicChat" data-ui-text-zh="AtomicChat" data-ui-text-en="AtomicChat">AtomicChat</option><option value="Mungert" data-ui-text-zh="Mungert" data-ui-text-en="Mungert">Mungert</option><option value="bartowski" data-ui-text-zh="bartowski" data-ui-text-en="bartowski">bartowski</option><option value="ggml-org" data-ui-text-zh="ggml-org" data-ui-text-en="ggml-org">ggml-org</option><option value="giladgd" data-ui-text-zh="giladgd" data-ui-text-en="giladgd">giladgd</option><option value="lmstudio-community" data-ui-text-zh="lmstudio-community" data-ui-text-en="lmstudio-community">lmstudio-community</option><option value="mradermacher" data-ui-text-zh="mradermacher" data-ui-text-en="mradermacher">mradermacher</option><option value="unsloth" data-ui-text-zh="unsloth" data-ui-text-en="unsloth">unsloth</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="保守档" data-ui-text-zh="保守档" data-ui-text-en="Conservative">保守档</option><option value="平衡档" data-ui-text-zh="平衡档" data-ui-text-en="Balanced">平衡档</option><option value="极限压缩" data-ui-text-zh="极限压缩" data-ui-text-en="Extreme compression">极限压缩</option><option value="近似无损" data-ui-text-zh="近似无损" data-ui-text-en="Near lossless">近似无损</option><option value="长上下文优先" data-ui-text-zh="长上下文优先" data-ui-text-en="Long context first">长上下文优先</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="apache-2.0" data-ui-text-zh="apache-2.0" data-ui-text-en="apache-2.0">apache-2.0</option></select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>
         <article class="vcard" data-tier="2" data-q="unsloth" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="unsloth unsloth/gemma-4-31b-it-gguf apache-2.0">
@@ -2103,7 +2104,7 @@
         </div>
       </section>
       <section class="member" id="m2">
-        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 3</span>Gemma 4 E4B（高效）</h3>
+        <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 3</span><span data-zh>Gemma 4 E4B（高效）</span><span data-en>Gemma 4 E4B (Efficient)</span></h3>
         <p class="member-meta"><span data-zh>8B 总参 / 4B 激活（E4B = 激活 4B）</span><span data-en>8B total params / 4B 激活（E4B = 激活 4B）</span>　·　<span data-zh>小显存首选</span><span data-en>Low VRAM</span>　·　<span data-zh>10 个量化来源</span><span data-en>10 quant sources</span></p>
         <div class="block" id="a2">
           <h4><span class="blk">A</span><span data-zh>基础模型卡</span><span data-en>Base model card</span> <small><span data-zh>规格 · 许可 · 访问门槛 · 参数量三来源交叉核对</span><span data-en>specs · licence · access · parameter count cross-checked across three sources</span></small></h4>
@@ -2201,7 +2202,7 @@
       </table>
       <h3 class="budget-h"><span data-zh>显存不够时的替代路径</span><span data-en>When VRAM is not enough</span></h3>
       <p class="muted small"><span data-zh>llama.cpp 的</span><span data-en>llama.cpp’s</span> <code>-ngl</code> <span data-zh>可以只把部分层放显存、其余落系统内存；多卡则自动切分。</span><span data-en>can keep only some layers on the GPU and spill the rest to system memory; with multiple cards it splits automatically.</span>
-        代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</p>
+        <span data-zh>代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。</span><span data-en>The trade-off is speed: CPU-only inference is usually several times slower than a comparable GPU, but still produces results.</span></p>
       <table class="budget">
         <caption><span data-zh>系统内存 / 多卡 → 档位速查</span><span data-en>System memory / multi-GPU → tier cheat sheet</span></caption>
         <tbody>
@@ -2714,7 +2715,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="tier-legend" role="list" <span data-zh>aria-label="量化档色阶图例"</span><span data-en>aria-label="Quantisation tier colour scale"</span>>
+      <p class="tier-legend" role="list" aria-label="量化档色阶图例" data-ui-aria-label-zh="量化档色阶图例" data-ui-aria-label-en="Quantisation tier colour scale">
         <span class="tier-legend-h"><span data-zh>卡片左侧色条 = 推荐档位</span><span data-en>Colour bar on the left = recommended tier</span></span>
         <span class="tier-legend-i tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span>
         <span class="tier-legend-i tier-1"><span data-zh>保守</span><span data-en>Conservative</span></span>
@@ -2731,9 +2732,9 @@
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
           <input type="search" class="vq" autocomplete="off" placeholder="unsloth · bartowski · ggml-org"></label>
-        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="">全部 / All</option><option value="AtomicChat">AtomicChat</option><option value="Mungert">Mungert</option><option value="bartowski">bartowski</option><option value="batiai">batiai</option><option value="ggml-org">ggml-org</option><option value="giladgd">giladgd</option><option value="lmstudio-community">lmstudio-community</option><option value="mradermacher">mradermacher</option><option value="prithivMLmods">prithivMLmods</option><option value="unsloth">unsloth</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="">全部 / All</option><option value="保守档">保守档 / Conservative</option><option value="平衡档">平衡档 / Balanced</option><option value="极限压缩">极限压缩 / Extreme compression</option><option value="近似无损">近似无损 / Near lossless</option><option value="长上下文优先">长上下文优先 / Long context first</option></select></label>
-        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="">全部 / All</option><option value="apache-2.0">apache-2.0</option><option value="other">other</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>量化者</span><span data-en>Quantiser</span></span><select class="vsel" data-dim="q"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="AtomicChat" data-ui-text-zh="AtomicChat" data-ui-text-en="AtomicChat">AtomicChat</option><option value="Mungert" data-ui-text-zh="Mungert" data-ui-text-en="Mungert">Mungert</option><option value="bartowski" data-ui-text-zh="bartowski" data-ui-text-en="bartowski">bartowski</option><option value="batiai" data-ui-text-zh="batiai" data-ui-text-en="batiai">batiai</option><option value="ggml-org" data-ui-text-zh="ggml-org" data-ui-text-en="ggml-org">ggml-org</option><option value="giladgd" data-ui-text-zh="giladgd" data-ui-text-en="giladgd">giladgd</option><option value="lmstudio-community" data-ui-text-zh="lmstudio-community" data-ui-text-en="lmstudio-community">lmstudio-community</option><option value="mradermacher" data-ui-text-zh="mradermacher" data-ui-text-en="mradermacher">mradermacher</option><option value="prithivMLmods" data-ui-text-zh="prithivMLmods" data-ui-text-en="prithivMLmods">prithivMLmods</option><option value="unsloth" data-ui-text-zh="unsloth" data-ui-text-en="unsloth">unsloth</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>包含档位</span><span data-en>Includes tier</span></span><select class="vsel" data-dim="tier"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="保守档" data-ui-text-zh="保守档" data-ui-text-en="Conservative">保守档</option><option value="平衡档" data-ui-text-zh="平衡档" data-ui-text-en="Balanced">平衡档</option><option value="极限压缩" data-ui-text-zh="极限压缩" data-ui-text-en="Extreme compression">极限压缩</option><option value="近似无损" data-ui-text-zh="近似无损" data-ui-text-en="Near lossless">近似无损</option><option value="长上下文优先" data-ui-text-zh="长上下文优先" data-ui-text-en="Long context first">长上下文优先</option></select></label>
+        <label class="vf-f"><span class="vh"><span data-zh>许可</span><span data-en>Licence</span></span><select class="vsel" data-dim="lic"><option value="" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="apache-2.0" data-ui-text-zh="apache-2.0" data-ui-text-en="apache-2.0">apache-2.0</option><option value="other" data-ui-text-zh="other" data-ui-text-en="other">other</option></select></label>
         <span class="vcount" aria-live="polite"></span>
       </div>
         <article class="vcard" data-tier="2" data-q="ggml-org" data-lic="apache-2.0" data-tiers="平衡档 近似无损" data-blob="ggml-org ggml-org/gemma-4-e4b-it-gguf apache-2.0">
@@ -2836,7 +2837,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q4_K_M 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q4_K_M), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>Q4_K_M</code>（5.3 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q4_K_M</code> (5.3 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_K_M</code>（5.3 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_K_M</code> directly (5.3 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>档位极少，没有升降空间，被显存卡住时无路可退</span><span data-en>Very few tiers, so there is no room to move up or down when VRAM runs out</span><br>· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>许可是 <code>other</code>，<b>必须自己读发布页原文</b>再决定能不能用</span><span data-en>The licence is <code>other</code> — <b>read the release page yourself</b> before deciding whether you may use it</span><br>· <span data-zh>已 187 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 187 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>档位极少，没有升降空间，被显存卡住时无路可退</span><span data-en>Very few tiers, so there is no room to move up or down when VRAM runs out</span><br>· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>许可是 <code>other</code>，<b>必须自己读发布页原文</b>再决定能不能用</span><span data-en>The licence is <code>other</code> — <b>read the release page yourself</b> before deciding whether you may use it</span><br>· <span data-zh>已 189 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 189 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="Mungert" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="mungert mungert/gemma-4-e4b-it-gguf apache-2.0">
           <header class="vcard-h">
@@ -2887,7 +2888,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q4_K_M 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q4_K_M), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>Q4_K_M</code>（5.3 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q4_K_M</code> (5.3 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_K_M</code>（5.3 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_K_M</code> directly (5.3 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>已 194 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 194 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>已 196 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 196 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="prithivMLmods" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="prithivmlmods prithivmlmods/gemma-4-e4b-it-gguf apache-2.0">
           <header class="vcard-h">
@@ -3157,7 +3158,7 @@
 
     <section class="legal-note">
       <h3><span data-zh>关于数据与许可</span><span data-en>Data and licensing</span></h3>
-      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-09</code>，为快照数据。</p>
+      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-09</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
       <p><span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>，只提供发布页链接。许可字段原样引自发布页，</span><span data-en> — it only links to release pages. Licence fields are quoted verbatim from them,</span> <b><span data-zh>本站不解读许可条款、不构成法律意见</span><span data-en>this site does not interpret licence terms or give legal advice</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
       <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
     </section>
@@ -3400,7 +3401,7 @@
     <div class="container foot-row">
       <div class="foot-brand">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span class="foot-copy">© 2026 投机取巧 · <span data-zh>Specul</span><span data-en>Specul</span></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
       </div>
       <nav class="foot-links" aria-label="页脚导航">
           <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
@@ -3428,14 +3429,5 @@
   <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
   <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
 </nav>
-  <script src="../../brand.js"></script>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
-      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
-      sync();
-    })();
-  </script>
 </body>
 </html>
