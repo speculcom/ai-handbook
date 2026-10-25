@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-15 localai bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（ollama/vllm），related 写 2 条（frontmatter related 是 [openai-agents-sdk, llamaindex]，键按正文链接行对齐=2）。sources 4 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "A multi-engine architecture connecting various backends; official-site stance \"Run text, voice, vision, image, video, 3D and agent workloads through one open runtime\" (direct-fetched); the model/engine matrix not inventoried item by item.",
+    "runtime": "A single binary: an OpenAI-compatible API fronting multiple backends; the site also claims Anthropic/Ollama/ElevenLabs API compatibility (direct-fetched); GitHub 49,830★ (API verified 2026-10-21).",
+    "local_files": "Official-site stance \"keep your data on your hardware\" (direct-fetched); fully self-hosted.",
+    "background": "A resident-service form (single-binary API server); CPU-only mode is named on the official site (direct-fetched); concurrency details not verified item by item.",
+    "tools": "Agent workloads sit inside the official multimodal narrative; the tool-calling surface and MCP support not verified item by item.",
+    "context": "Context length varies by backend engine and deployment configuration; cross-request caching and memory lines not verified item by item.",
+    "permissions": "Self-hosted with no account system; API authentication configured by the deploying party; the credential surface of multi-engine backends (e.g. connecting cloud APIs) not verified item by item.",
+    "fit": "Fits: switching existing OpenAI clients to local by just changing a URL with one binary; wanting text-plus (voice/image) multimodal workloads on one runtime. Does not fit: single-LLM maximum performance (dedicated engines are sharper); wanting big-institution backing (an individual-led project)."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the local-endpoint and credential-boundary sections are reusable; no runner-specific protocol exists on this site yet).",
+  "unknowns": "- The full engines matrix and each engine's model-support surface (not inventoried item by item)\n- The completeness of the Anthropic/ElevenLabs compatibility surfaces (official-site claims direct-fetched; details not verified item by item)\n- MCP support status (not verified item by item)",
+  "related": [
+    "Both OpenAI-compatible local stacks: Ollama's model library is smoother out of the box, LocalAI is broader on multimodal and multi-API compatibility.",
+    "vLLM is sharper on single-LLM service throughput; LocalAI's value is \"one runtime, many workloads\"."
+  ],
+  "sources": [
+    "LocalAI · official site (MIT/v4.8.0/multi-API compatibility stance, direct-fetched and verified 2026-10-21)",
+    "mudler/LocalAI · repo (MIT; 49,830★, last push 2026-10-21, GitHub API verified)",
+    "LocalAI · official docs",
+    "mudler/LocalAI · Releases (changelog)"
+  ]
+}

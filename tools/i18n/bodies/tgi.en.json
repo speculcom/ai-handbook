@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-15 tgi bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（vllm/sglang 同一行两个链接、llama-cpp 第二行）——守卫正则只数行首 `[-*] [..](..md)`：第 1 行行首是 vllm 链接（sglang 链接在行中不另计），第 2 行 llama-cpp，共 2 行=2 条。sources 3 条对齐 frontmatter。runs 引用 models 站 guides 口径，照源短译。",
+  "axes": {
+    "model_access": "Native hookup to HF Hub weights (Hugging Face's own product line); safetensors-first; the supported model/architecture matrix follows the official docs, not inventoried item by item.",
+    "runtime": "A serving inference server (the Rust+Python hybrid line); GitHub 10,880★, last push 2026-03-21 (GitHub API verified 2026-10-21 — the slowdown is a fact, recorded as such).",
+    "local_files": "Self-hosted deployment, data in your own environment; pulling weights from HF Hub goes over the network, inference data stays inside the deployment environment.",
+    "background": "The product form is a resident service; continuous batching and streaming output are the official docs' main axes, queue details not verified item by item.",
+    "tools": "The text-generation client line includes tool calling; MCP not verified item by item.",
+    "context": "Context length is set by model and deployment configuration; the current default switches of optimizations like prefix caching and chunked prefill not verified item by item.",
+    "permissions": "Self-hosted with no account system; API authentication configured by the deploying party; the token permission surface of HF Hub interactions not verified item by item.",
+    "fit": "Fits: serving deployment inside the HF ecosystem (weights/clients/docs through one door), wanting the official Docker line. Does not fit: the default first choice for new projects (the vLLM/SGLang ecosystems are hotter — per the snapshot cadence); single-machine out-of-the-box."
+  },
+  "runs": "This site has not completed measured runs. The models-site guides `serving-deep-dive.md` has covered the serving-inference comparison framing; no runner-specific test protocol exists on this site yet.",
+  "unknowns": "- The current state of the supported-architecture matrix (not inventoried item by item)\n- An official explanation of the maintenance-cadence change (none seen — only repo facts recorded, no guessing at causes)\n- MCP support status (no official statement verified)",
+  "related": [
+    "The two current poles of serving inference; TGI is the official option inside the HF ecosystem.",
+    "The root of the single-machine GGUF route; TGI's main line is safetensors serving."
+  ],
+  "sources": [
+    "huggingface/text-generation-inference · repo (Apache-2.0; 10,880★, last push 2026-03-21, GitHub API verified 2026-10-21)",
+    "TGI · official docs",
+    "huggingface/text-generation-inference · Releases (changelog)"
+  ]
+}

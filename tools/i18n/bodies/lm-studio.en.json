@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-15 lm-studio bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（ollama/jan），related 写 2 条（frontmatter related 是 [openai-agents-sdk, langgraph]，键按正文链接行对齐=2）。sources 4 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Download the latest local LLMs directly in-app (as seen on the official site, direct-fetched); GGUF-first, with MLX and llama.cpp dual runtimes (official wording: \"Powered by the LM Studio runtime, with MLX and llama.cpp under the hood\").",
+    "runtime": "Desktop app (macOS/Windows/Linux); the site now leads with the \"Bionic\" agent (a local agent for work and code) — the product narrative has expanded from pure chat to agent, per the filing snapshot.",
+    "local_files": "Models and conversations land on your machine; the site states plainly that speech transcription is \"processed locally and never leaves your device\" (direct-fetched).",
+    "background": "A built-in local server (OpenAI-compatible endpoint) can stay on for external clients; default switch and authentication details not verified item by item.",
+    "tools": "The Bionic agent line includes document editing/automation/computer control (official site, direct-fetched); MCP support status not verified item by item.",
+    "context": "Context management for chat and agent sessions is in-app; cross-session memory and long-term memory — no official statement seen.",
+    "permissions": "Desktop-app permissions follow the system; the permission boundary of the agent's computer-control surface not verified item by item.",
+    "fit": "Fits: running local models through a graphical interface, trying the agent (Bionic) in the same app. Does not fit: headless server deployment (use llama.cpp/vLLM); reading the full license terms (the terms page loads dynamically and this site could not direct-fetch it)."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the local-endpoint and credential-boundary sections are reusable; no runner-specific protocol exists on this site yet).",
+  "unknowns": "- The full terms page (loads dynamically, direct fetch came back empty — content not guessed)\n- The computer-control permission model of the Bionic agent (not verified item by item)\n- Cross-session memory capability (no official statement seen)",
+  "related": [
+    "Both out-of-the-box model runners: Ollama's main axis is the command line, LM Studio's GUI and agent narrative are heavier.",
+    "Both desktop GUI routes beyond open source: Jan is open-source (Apache2.0 core + attribution), LM Studio is closed-source."
+  ],
+  "sources": [
+    "LM Studio · official site (the Bionic narrative and local promises, direct-fetched and verified 2026-10-21)",
+    "LM Studio · official docs",
+    "LM Studio · official blog",
+    "LM Studio · GitHub org (the llama.cpp/MLX integration-side repos)"
+  ]
+}

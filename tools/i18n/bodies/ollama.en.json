@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-15 ollama bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（vllm/llama-cpp），related 写 2 条（frontmatter related 是 [llamaindex, openai-agents-sdk]，键按正文链接行对齐=2）。sources 4 条对齐 frontmatter。runs 第二段（models 站 GGUF 索引衔接句）照源译出。",
+  "axes": {
+    "model_access": "One-click pulls of open-source models from the official model library (ollama.com/search direct-fetched 200); GGUF and safetensors importable (docs.ollama.com/import direct-fetch verified); the library catalog shifts with listings, not inventoried item by item.",
+    "runtime": "A local process (CLI + API server, port 11434 by default); the official README states \"locally or in the cloud\" — a cloud line (Ollama Cloud) exists, details not verified item by item. GitHub 184,165★ (API verified 2026-10-21).",
+    "local_files": "Model weights and conversation data land on your machine by default; the storage and processing boundaries of the cloud line (Ollama Cloud) not verified item by item.",
+    "background": "The resident API server carries background inference; official docs have keep-alive/concurrency pages, details not verified item by item.",
+    "tools": "Official docs include a tool-calling page (as seen in the docs.ollama.com navigation, direct-fetched); MCP support status — no official statement verified.",
+    "context": "Context length is set by Modelfile/parameters (the Modelfile Reference is in the official docs navigation); cross-session memory — no official statement seen.",
+    "permissions": "Runs locally with no account needed (the API server listens locally by default); the cloud line requires login, its permission surface not verified item by item.",
+    "fit": "Fits: getting an open-source model running with one command, wanting an OpenAI-compatible local API, desktop and server alike. Does not fit: maximum throughput/service scheduling (that's vLLM/SGLang's job); item-by-item verification of the cloud line's data boundaries."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the local-endpoint and credential-boundary sections are reusable; no runner-specific protocol exists on this site yet).\nThe models site's GGUF index framing (llama.cpp as the format source) connects with this dossier's model_access axis.",
+  "unknowns": "- Ollama Cloud's data storage and processing boundaries (not verified item by item)\n- MCP support status (no official statement verified)\n- The full model-library catalog and the commercial terms of each weight (not inventoried item by item)",
+  "related": [
+    "Both open-source model runners: vLLM leads on service-style high throughput, Ollama on single-machine out-of-the-box.",
+    "The GGUF ecosystem root Ollama depends on underneath; for fine-grained control use llama.cpp directly."
+  ],
+  "sources": [
+    "ollama/ollama · LICENSE (MIT, direct-fetched and verified 2026-10-21)",
+    "ollama/ollama · repo (184,165★, last push 2026-10-21, GitHub API verified)",
+    "Ollama · official docs (import/Modelfile/tool-calling pages in the navigation)",
+    "ollama/ollama · Releases (changelog)"
+  ]
+}

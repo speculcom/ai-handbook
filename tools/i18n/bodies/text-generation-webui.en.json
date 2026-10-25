@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-15 text-generation-webui bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（koboldcpp/llama-cpp），related 写 2 条（frontmatter related 是 [openai-agents-sdk]，键按正文链接行对齐=2）。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "GGUF/safetensors multi-backend (the llama.cpp/exllama-line loader ecosystem); the model/loader matrix not inventoried item by item.",
+    "runtime": "A local WebUI (the Gradio line) + command line; GitHub 47,735★, last push 2026-08-17 (GitHub API verified 2026-10-21). The repo is now named oobabooga/textgen (the old name text-generation-webui 301-redirects, direct-fetch verified).",
+    "local_files": "Fully local: models, conversations and extension data live in your own environment; no official cloud line or telemetry statement seen.",
+    "background": "A built-in OpenAI-compatible API server extension line; details not verified item by item.",
+    "tools": "The extensions ecosystem is one of the main axes; MCP not verified item by item.",
+    "context": "Context length and chat-template management are core surfaces; long-context trimming-strategy details not verified item by item.",
+    "permissions": "A local process with no account system; the WebUI listens locally by default, sharing/public exposure requires the user's own configuration.",
+    "fit": "Fits: wanting extension-ecosystem and multi-loader flexibility, community play (character cards/fine-tuning handoffs). Does not fit: wanting minimal out-of-the-box simplicity (the UI is information-dense); closed-source distribution built on a license other than AGPL."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the local-endpoint and credential-boundary sections are reusable; no runner-specific protocol exists on this site yet).",
+  "unknowns": "- The full loader matrix (version correspondences of llama.cpp/exllama etc. not verified item by item)\n- The current activity of the extensions ecosystem (a third-party ecosystem, not inventoried item by item)\n- An official explanation of the rename (to textgen) (no announcement direct-fetched — only the repo-name fact recorded)",
+  "related": [
+    "Both AGPL community GUIs: KoboldCpp travels light as a single file, TGW deploys heavy with extensions.",
+    "The underlying layer of one of the multi loaders; TGW's value is the interface and extensions above the loaders."
+  ],
+  "sources": [
+    "oobabooga/textgen · repo (AGPL-3.0; 47,735★, last push 2026-08-17, GitHub API verified 2026-10-21)",
+    "oobabooga/textgen · LICENSE (direct-fetched and verified 2026-10-21)",
+    "oobabooga/textgen · Releases (changelog)"
+  ]
+}
