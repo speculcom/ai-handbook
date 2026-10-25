@@ -1,0 +1,30 @@
+{
+  "_comment": "C0-12 n8n bodies EN. 附加小节「许可是它最该先读的一页」按中文节标题为键。",
+  "axes": {
+    "model_access": "The platform ships no model itself; AI nodes reach external LLMs via per-vendor credentials (OpenAI, Anthropic, Google etc. through the LangChain node family and dedicated nodes); the node coverage list has not been verified item by item — the official nodes docs are authoritative. When self-hosted, model credentials live on your own instance.",
+    "runtime": "Two official forms: self-hosted (Docker/npm, free Community edition with no execution cap) and n8n Cloud managed subscription. Self-hosted queue mode (worker scaling) is included in Community; multi-main HA belongs to paid tiers (official choose-n8n framing, 2026-10 third-party paraphrase cross-checked against official docs).",
+    "local_files": "A self-hosted instance runs on your own machine/server — workflow data, credentials and execution logs all land in your own environment; external storage for binary data (S3 etc.) is a paid tier. In the Cloud form, data sits in n8n's cloud.",
+    "background": "Workflows are executed by the instance: a continuously running self-hosted instance carries scheduled and webhook triggers; the official docs provide Cron/queue mechanisms. \"Keeps running when your laptop is off\" depends on where you run the instance — the platform does not hold executions for you after shutdown.",
+    "tools": "The core is the integration-node ecosystem (officially \"hundreds of integrations\", not verified item by item); MCP is named explicitly in the official license FAQ (\"configuring workflows through the n8n editor, your UI, the n8n API, MCP or an AI agent\" is one of the commercial-license scenarios) — MCP is an officially supported usage surface.",
+    "context": "In-workflow data transformation and sub-workflow passing are the main axis; cross-workflow persistent memory mechanisms have not been verified item by item (unknown means unknown). Credentials and execution data persist per instance.",
+    "permissions": "Self-hosted permission boundary = your instance boundary; in Community, workflows/credentials are accessible only to their creator and the instance owner (sharing is a paid tier). Enterprise SSO/RBAC unlocks via Business/Enterprise license keys. The license boundary matters more than the permission boundary: SUL's three restrictions see the license field.",
+    "fit": "Fits: cross-system automation as the main axis, embedding AI nodes into existing flows, self-hosting to control data. Does not fit: wrapping n8n into your product to sell to customers (needs a commercial agreement); pure-code orchestration (go to framework); out-of-the-box multi-tenant SaaS (Community has no sharing)."
+  },
+  "sectionTitles": {
+    "许可是它最该先读的一页": "The license is the page to read first"
+  },
+  "sections": {
+    "许可是它最该先读的一页": "The official Community license page states SUL's three restrictions (key points paraphrased): use only for **your own internal business or non-commercial personal purposes**; redistribution must be **free of charge and non-commercial**; the license and copyright notices may not be removed. Files whose names contain `.ee.` fall under the Enterprise License.\n\nThe official help center adds case-law-style guidance: running workflows for a client on your own instance while the client only receives the results — allowed; the client entering the editor or configuring workflows through your UI/API/MCP/AI agent — requires a commercial agreement (n8n Embed)."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- The full LLM-provider catalog covered by AI nodes (official nodes docs not verified item by item)\n- Cross-workflow persistent memory mechanisms (no official documentation found)\n- The exact count behind the official \"hundreds of integrations\" (not verified item by item)",
+  "related": [
+    "Code-first vs canvas-first contrast: the same \"let AI call tools to do work\" — one side writes code, the other drags nodes."
+  ],
+  "sources": [
+    "n8n · Community license official page (SUL's three restrictions, the .ee. file exception, and the lineage from the old Apache+Commons Clause)",
+    "n8n help center · Which license do I need (internal-business-use case rulings, MCP named explicitly, customers may not open the editor)",
+    "n8n-io/n8n · repository (208,219★, last push 2026-10-21, verified via GitHub API)",
+    "n8n · Release notes (version iteration records entry point)"
+  ]
+}

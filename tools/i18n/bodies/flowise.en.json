@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-12 flowise bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（langflow），related 写 1 条。",
+  "axes": {
+    "model_access": "Canvas nodes connect to each vendor's LLMs/embeddings/vector stores (built on the LangChain component family); provider coverage follows the official docs, not verified item by item.",
+    "runtime": "Open-source self-hosting (npm/Docker) + official cloud, two lines; GitHub 55,513★ (API-verified 2026-10-21; last push 2026-08-13 — the slowing cadence is a fact, recorded honestly).",
+    "local_files": "Self-hosted instance data lands in your own environment; chatflow uploaded-file handling happens inside the instance.",
+    "background": "A continuously running self-hosted instance carries API serving and queues; the official docs provide a queue mode (details not verified item by item).",
+    "tools": "The node ecosystem includes tools/retrieval/agent flows; MCP support status not verified item by item.",
+    "context": "Chatflow memory nodes (buffer/window and other LangChain memory components) are the official context surface; cross-app memory not verified item by item.",
+    "permissions": "Community edition has basic auth; SSO/workspace isolation etc. live in the enterprise directory (commercial-license zone).",
+    "fit": "Fits: fast starts building LLM apps on a canvas (RAG/agent flows), self-hosting. Does not fit: out-of-the-box enterprise features; an active release cadence (pushes slowed after 2026-08 — dossier-snapshot framing)."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- The full provider/node catalog (not verified item by item)\n- MCP support status (no official documentation found)\n- An official explanation for the slowing release cadence (none found — only repository facts recorded, no guessing at causes)",
+  "related": [
+    "Both LLM canvases: Langflow belongs to DataStax, is MIT repo-wide, and is larger; Flowise came earlier with a mixed license."
+  ],
+  "sources": [
+    "FlowiseAI/Flowise · LICENSE.md (Apache 2.0 + enterprise commercial zone, direct-fetched & verified 2026-10-21)",
+    "FlowiseAI/Flowise · repository (55,513★, last push 2026-08-13, verified via GitHub API 2026-10-21)",
+    "Flowise · official docs",
+    "FlowiseAI/Flowise · Releases (changelog)"
+  ]
+}

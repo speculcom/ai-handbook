@@ -1,0 +1,23 @@
+{
+  "_comment": "C0-12 vertex-agent-builder bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（google-adk），related 写 1 条。",
+  "axes": {
+    "model_access": "The platform natively connects to the Gemini model family and can reach third-party models via Model Garden; the official page (fetched directly 2026-10-21) shows the product line folded into the \"Gemini platform\" narrative (Innovate, build, and deploy enterprise-ready agents).",
+    "runtime": "Cloud-hosted: agents run on Google Cloud (Vertex/Agentspace lines); no self-hosted form.",
+    "local_files": "Data sources connect to in-cloud connectors such as BigQuery/Drive/SharePoint; it hosts no local-file runtime.",
+    "background": "Cloud-hosted residency is the default form: the agent service stays online with the GCP deployment, triggers and scheduling carried by the platform; \"keeps running when your laptop is off\" naturally holds in the hosted form. No official statement of a self-hosted form.",
+    "tools": "Official component/extension library + function calling + data connectors; MCP support status not verified item by item.",
+    "context": "Sessions and retrieval (RAG/grounding) are the official context main axis; cross-session memory not verified item by item.",
+    "permissions": "IAM/organization policies follow the Google Cloud system; data-residency options follow the GCP region model.",
+    "fit": "Fits: GCP-installed enterprises, the Gemini-native stack, governance ready-made. Does not fit: outside the GCP ecosystem; self-hosting."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- The current product-line naming (the relationship among Agent Builder / Gemini Enterprise / Agentspace — the official page narrative drifts; only what direct fetching showed is recorded)\n- MCP support status (no official documentation found)\n- The complete list of third-party model connections",
+  "related": [
+    "Two legs of the same family: ADK writes code, Agent Builder drags a UI, and both land on Google Cloud runtimes."
+  ],
+  "sources": [
+    "Google Cloud · Agent Builder product page (fetched directly 200 on 2026-10-21, Gemini platform narrative on record)",
+    "Google Cloud · Agent Builder docs (overview)",
+    "Google Cloud · Vertex AI Release Notes (changelog)"
+  ]
+}

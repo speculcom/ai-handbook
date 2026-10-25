@@ -1,0 +1,31 @@
+{
+  "_comment": "C0-12 dify bodies EN. 附加小节「许可的两条附加条件」按中文节标题为键。",
+  "axes": {
+    "model_access": "The platform reaches each LLM via \"model provider\" plugins (OpenAI/Anthropic/Gemini/local Ollama etc., installed uniformly through the Marketplace); officially models can be switched freely. The full provider list has not been verified item by item.",
+    "runtime": "Community edition source is open with Docker self-hosting (official homepage framing: one-command deployment, full agent runtime and Workflow editor); there is also a Dify official cloud service. Self-hosted data stays in your own environment.",
+    "local_files": "The knowledge-base line is officially described as \"data pipelines for files, websites, online docs and cloud drives\" (extraction/cleaning/chunking/indexing/retrieval testing); when self-hosted, files and indexes live on your own instance.",
+    "background": "Apps published as hosted apps/APIs/embeddable widgets/MCP-compatible tools are carried by the platform runtime; a self-hosted instance running continuously can serve persistently. Scheduled/background task forms not verified item by item.",
+    "tools": "Marketplace installs model providers, tools, data sources and MCP integrations (official homepage framing); apps can be published as MCP-compatible tools — it both consumes and produces MCP.",
+    "context": "The official Agent description includes \"remembering context\"; knowledge-base retrieval is the flagship official context-supply line. The concrete cross-session memory mechanism has not been verified item by item.",
+    "permissions": "The enterprise line officially lists SSO/SAML, RBAC, audit logs, SOC 2 Type II + ISO 27001 (homepage framing); the community edition's permission model has not been verified item by item. License boundary (multi-tenant restriction) see the license field.",
+    "fit": "Fits: teams that want \"prompt logic turned into a visible execution path\", self-hosted Chinese-origin global-facing stacks, knowledge-base + agent delivered together. Does not fit: running multi-tenant SaaS from the source (needs commercial licensing); pure-code frameworks (belongs to framework)."
+  },
+  "sectionTitles": {
+    "许可的两条附加条件": "The license's two additional conditions"
+  },
+  "sections": {
+    "许可的两条附加条件": "Key points of the official LICENSE text (paraphrased): **without written permission from Dify, you may not operate a multi-tenant environment from the source code** (one workspace = one tenant); **when using its frontend you may not remove or modify the console/app LOGO and copyright information** (frontend-free use is exempt). Everything else follows Apache 2.0. The interaction design is additionally covered by a design patent."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- The full model-provider plugin catalog (Marketplace not verified item by item)\n- Community-edition permission-model details (whether RBAC partially lands in the community edition is unverified)\n- The official boundary of scheduled/background task forms\n- Domestic filing form (reason for marking unknown: see the cn block)",
+  "related": [
+    "Canvas vs code contrast: the same thing (a controllable agent execution path) — one side drags nodes, the other writes a graph."
+  ],
+  "sources": [
+    "langgenius/dify · LICENSE (official repo, full additional conditions, fetched & verified directly 2026-10-21)",
+    "Dify · official homepage (Workflow/Agent/knowledge pipelines/Marketplace/publishing lines; community edition 148K+ Star framing)",
+    "langgenius/dify · repository (159,137★, last push 2026-10-21, verified via GitHub API)",
+    "Dify · official docs site",
+    "langgenius/dify · Releases (version iteration records)"
+  ]
+}

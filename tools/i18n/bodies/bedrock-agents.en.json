@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-12 bedrock-agents bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（microsoft-agent-framework），related 写 1 条。",
+  "axes": {
+    "model_access": "Each vendor's models are reached via Bedrock (Anthropic Claude, Meta, Mistral, Amazon's own etc. — per the Bedrock model catalog framing); the specific list has not been verified item by item.",
+    "runtime": "Cloud-hosted: agents run on AWS (two lines: Agents orchestration + AgentCore runtime); no self-hosted form. The old product URL bedrock/agent/ now 404s (direct-fetched & verified 2026-10-21); current entries are bedrock/agents/ and bedrock/agentcore/.",
+    "local_files": "Knowledge bases connect to S3, vector stores and other in-AWS resources — the file surface is entirely in the cloud; it hosts no local-file runtime — the \"AI reads/writes local files\" form does not exist here (recorded honestly, not \"officially not allowed\").",
+    "background": "Cloud-hosted and resident; AgentCore pitches a \"managed runtime for any framework\" (official narrative; details not verified item by item).",
+    "tools": "Official action groups/gateway + MCP support (the Bedrock docs line includes MCP entries; details not verified item by item).",
+    "context": "Session state and Knowledge Bases retrieval are the official context surface; cross-session memory not verified item by item.",
+    "permissions": "IAM/resource policies follow the AWS system — enterprise governance is a native AWS strength.",
+    "fit": "Fits: AWS-installed enterprises, IAM-grade governance, a \"framework-agnostic managed runtime\" (AgentCore). Does not fit: outside the AWS ecosystem; self-hosting."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- Feature overlap and division between Agents and AgentCore (the official narrative is evolving; not verified item by item)\n- MCP support details (docs-line entries exist but not verified item by item)\n- The current Bedrock model catalog",
+  "related": [
+    "Cloud-giant contrast: Microsoft open-sources its framework (MAF), AWS pushes a managed platform — two routes."
+  ],
+  "sources": [
+    "AWS · Bedrock Agents product page (old-URL 404 verification on record, 2026-10-21)",
+    "AWS · Bedrock AgentCore product page (fetched directly 200 on 2026-10-21)",
+    "AWS · Bedrock User Guide · Agents chapter",
+    "AWS · Bedrock documentation change history (changelog)"
+  ]
+}

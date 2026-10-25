@@ -1,0 +1,23 @@
+{
+  "_comment": "C0-12 agentforce bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（copilot-studio），related 写 1 条。",
+  "axes": {
+    "model_access": "Models are reached through the Atlas reasoning engine (OpenAI etc. via Salesforce-hosted access; official framing not verified item by item); model selection being opaque to users is normal for CRM-embedded products — this site honestly records \"not verified item by item\".",
+    "runtime": "Pure cloud hosting, deeply bound to Salesforce Data Cloud/CRM object model; no self-hosted form.",
+    "local_files": "The data surface is CRM objects and Data Cloud; it hosts no local-file runtime.",
+    "background": "Cloud-hosted and resident; connects with Flow/automation platforms (official product-page navigation includes Agentforce Builder/Voice, fetched directly 2026-10-21).",
+    "tools": "Actions/Topics system + MuleSoft connector ecosystem; MCP support status not verified item by item.",
+    "context": "CRM records and Data Cloud are the natural context source — this is its biggest structural advantage over general-purpose platforms.",
+    "permissions": "Permissions follow the Salesforce sharing-model/permission-set system — enterprise governance is a native Salesforce strength.",
+    "fit": "Fits: Salesforce-installed enterprises (service/sales scenarios), CRM context out of the box. Does not fit: outside the Salesforce ecosystem (the value anchor disappears); self-hosting."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- Model selection and transparency under the Atlas engine (not verified item by item)\n- MCP support status (no official documentation found)\n- Feature boundaries of Agentforce Builder/Voice (product-page navigation on record; details not verified item by item)",
+  "related": [
+    "Suite-embedded agent contrast: Microsoft binds M365/Power Platform, Salesforce binds CRM/Data Cloud — ecosystem binding is the shared main axis."
+  ],
+  "sources": [
+    "Salesforce · Agentforce product page (fetched directly 200 on 2026-10-21)",
+    "Salesforce Help · Agentforce docs (fetched directly 200 on 2026-10-21)",
+    "Salesforce Help · Release Notes (changelog entry point)"
+  ]
+}

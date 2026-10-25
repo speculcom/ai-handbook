@@ -1,0 +1,23 @@
+{
+  "_comment": "C0-12 copilot-studio bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（bedrock-agents），related 写 1 条。",
+  "axes": {
+    "model_access": "The official docs line (learn.microsoft.com/microsoft-copilot-studio, fetched directly 200 on 2026-10-21) covers model and generative-answers configuration; the selectable-model list has not been verified item by item. The platform is deeply bound to the Microsoft ecosystem (Dataverse/Power Platform).",
+    "runtime": "Pure cloud hosting: agents run on the Microsoft 365 / Power Platform cloud; no self-hosted form.",
+    "local_files": "Knowledge sources connect to in-platform data such as SharePoint/files/Dataverse; it hosts no local-file runtime.",
+    "background": "Cloud-hosted residency is the default form; triggers and automation connect via Power Automate (official docs line).",
+    "tools": "Official docs list the topics/actions/connectors system (Power Platform connector ecosystem); MCP support status not verified item by item.",
+    "context": "Conversation topics and variables are the official context-organization scheme; cross-session memory mechanisms not verified item by item.",
+    "permissions": "Enterprise identity/governance follows the Microsoft 365 system (Entra ID etc.); data residency and compliance follow Microsoft commercial terms.",
+    "fit": "Fits: Microsoft 365/Power Platform-installed enterprises, governance ready-made, distribution inside the M365 ecosystem. Does not fit: outside the Microsoft ecosystem; self-hosting."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- The selectable-model list and switching granularity (not verified item by item)\n- MCP support status (no official documentation found)\n- Cross-session memory mechanism (no official documentation found)",
+  "related": [
+    "Cloud-giant managed agent platform contrast: AWS leans toward developer components, Microsoft leans toward business users + ecosystem binding."
+  ],
+  "sources": [
+    "Microsoft Copilot Studio · official docs entry (fetched directly 200 on 2026-10-21)",
+    "Copilot Studio · official product page (direct fetch 403 = Cloudflare block; reachable via browser)",
+    "Microsoft Learn · Copilot Studio release notes (changelog entry point)"
+  ]
+}

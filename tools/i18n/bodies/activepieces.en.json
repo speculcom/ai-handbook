@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-12 activepieces bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（n8n），related 写 1 条。",
+  "axes": {
+    "model_access": "AI pieces reach each vendor's models via credentials (OpenAI etc.); the specific list has not been verified item by item. When self-hosted, credentials live on your instance.",
+    "runtime": "Open-source self-hosting (Docker) + official cloud, two lines; GitHub 25,150★, last push 2026-10-21 (API-verified, active).",
+    "local_files": "Self-hosted instance data lands in your own environment; the pieces ecosystem's credentials and execution data sit inside the instance.",
+    "background": "A continuously running self-hosted instance carries schedules/webhooks; the official docs provide a queue-worker mode (details not verified item by item).",
+    "tools": "The pieces (integration) ecosystem + community-contribution mechanism are the core; MCP support status has not been verified item by item.",
+    "context": "Step-to-step data passing and variable references within a flow are the official context main axis; cross-flow shared memory mechanisms have not been verified item by item (unknown means unknown). Execution history within the instance persists per flow.",
+    "permissions": "Community edition has basic roles; SSO/projects etc. live in the ee/ directory (commercial-license zone) — the feature boundary is the license boundary.",
+    "fit": "Fits: self-hosted automation wanting an MIT-main license, low-code you can hack on. Does not fit: out-of-the-box enterprise features (in the ee commercial line); a connector ecosystem on Zapier's scale (much smaller)."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- The exact count of the pieces ecosystem (not verified item by item)\n- MCP support status (no official documentation found)\n- The full boundary of queue-worker mode in the community edition",
+  "related": [
+    "License contrast: both self-hosted automation platforms — SUL (fair-code) vs MIT+ee mixed is the core divide."
+  ],
+  "sources": [
+    "Activepieces/Activepieces · LICENSE (MIT Expat + ee commercial zone, direct-fetched & verified 2026-10-21)",
+    "Activepieces/Activepieces · repository (25,150★, last push 2026-10-21, verified via GitHub API)",
+    "Activepieces · official docs",
+    "Activepieces/Activepieces · Releases (changelog)"
+  ]
+}

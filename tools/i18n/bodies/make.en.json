@@ -1,0 +1,23 @@
+{
+  "_comment": "C0-12 make bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（zapier），related 写 1 条。",
+  "axes": {
+    "model_access": "AI modules reach each vendor's models through the platform (OpenAI and other connectors); the specific list has not been verified item by item. The main axis remains visual scenario orchestration — AI is one of the modules.",
+    "runtime": "Pure cloud hosting: scenarios run on Make's cloud execution engine; no official statement of a self-hosted form. Execution history and queues all live inside the platform.",
+    "local_files": "It hosts no local-file runtime; data flows between SaaS services via modules and temporary files are processed in the cloud. The \"AI reads/writes local files\" form does not exist here (recorded honestly).",
+    "background": "Cloud-hosted residency is the default form: scheduled timing, webhook triggers and error-retry queues are all native official capabilities — scenarios keep running when your laptop is off; that is the essential difference between hosted and self-hosted forms.",
+    "tools": "The module (apps) ecosystem is the core asset (official framing: thousands of integrations, not verified item by item); MCP support status not verified item by item.",
+    "context": "In-scenario data routing and iterators are the official context-organization scheme; cross-scenario memory not verified item by item.",
+    "permissions": "Team/organization roles and the credentials vault are the official permission surface; enterprise-compliance claims not verified item by item.",
+    "fit": "Fits: visual flowchart-style automation; complex branching/iteration logic reads more directly than form-style tools. Does not fit: self-hosting; wanting AI to be the product's main axis (automation is its identity)."
+  },
+  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
+  "unknowns": "- The model catalog connected by AI modules (not verified item by item)\n- The current official integration-count framing (not verified item by item)\n- MCP support status (no official documentation found)",
+  "related": [
+    "Form-style vs flowchart-style contrast: both connector-ecosystem automation — canvas expressiveness is the divide."
+  ],
+  "sources": [
+    "Make · official homepage (fetched directly 200 on 2026-10-21)",
+    "Make · official Terms (direct fetch 403 = Cloudflare block; reachable via browser)",
+    "Make · What's new (changelog entry point; direct fetch 403 = Cloudflare block, reachable via browser)"
+  ]
+}
