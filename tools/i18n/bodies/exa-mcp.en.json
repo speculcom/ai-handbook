@@ -1,0 +1,29 @@
+{
+  "_comment": "C0-9 正文英译 · exa-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Exa's retrieval and fetching\n(web search, web page text, multi-step research Agent) as tools for agents.",
+    "runtime": "Mainly the official hosted remote server (https://mcp.exa.ai/mcp, streamable-http);\nthe repo doubles as an Agent Plugin (agent-plugins.org ecosystem) and a Claude/Codex plugin line.\nGitHub 5,162★, last push 2026-10-19 (API verified); GitHub releases are empty,\nthe release line lives on npm (exa-mcp-server 3.4.2).",
+    "local_files": "Reads and writes no local files — it outputs search results and web page text (clean markdown).",
+    "background": "The service lives on Exa's side; session request-response, no background-listening semantics.",
+    "tools": "Two tools by default: web_search_exa (search for clean content), web_fetch_exa (read full-page markdown by URL);\noptional tools are enabled via the URL parameter ?tools=: web_search_advanced_exa (filters/domains/dates/subpage crawling),\nagent_run (Exa Agent multi-step research / list building / structured output).\nThe repo's skills/ directory ships two Agent Skills, search and exa-agent (loaded when the plugin is installed).",
+    "context": "No server-side cross-session memory — each retrieval is independent; multi-step state lives inside the Exa Agent task.",
+    "permissions": "**Usable anonymously**: the hosted endpoint accepts anonymous connections with rate limits (official README wording);\nhigher quotas and Exa Agent require OAuth (recommended, the client pops a login) or an API key\n(three ways: ?exaApiKey= parameter / Authorization Bearer / x-api-key).\nPurely read-only surface — it cannot write to any system; the risk surface is query content leaving your machine and quota.",
+    "fit": "Fits: giving an agent one route with a combined \"search + read text\" retrieval surface (the two default tools cover it),\nzero-barrier onboarding (anonymous works), and the advanced multi-step research Agent surface.\nNot a fit: deep site-level crawl orchestration (the crawl/map surface lives in the firecrawl line);\nfully offline use (the hosted line needs to reach Exa)."
+  },
+  "mcp": {
+    "transport": "**streamable-http** (https://mcp.exa.ai/mcp); the same hosted endpoint when installed via the Agent Plugin / Claude / Codex\nplugin lines. Verified: repo README (fetched directly 2026-10-23).",
+    "auth": "Anonymous works (rate-limited); OAuth first (?login or /oauth force the login flow);\nAPI key can go through the ?exaApiKey= query parameter, Authorization Bearer, or the x-api-key header.",
+    "scope": "Purely read: search family + web page reading + research Agent. No write surface; no approval needs."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The exact rate limits of the anonymous vs authenticated tiers (the official README only says \"rate limits\", not verified item by item; per snapshot discipline no numbers are recorded)\n- The Exa Agent tool surface and Connect providers details (README points to docs.exa.ai, not verified page by page)\n- The compatible-client list of the Agent Plugin ecosystem (README cites agent-plugins.org, not verified item by item)",
+  "related": [
+    "Also an official retrieval+fetch server: Exa defaults to a minimal two tools, Firecrawl is a 27-tool full-family surface.",
+    "A retrieval↔fetch division-of-labor contrast: fetch is reference-level single-page reading, Exa packages search and reading into one route."
+  ],
+  "sources": [
+    "exa-labs/exa-mcp-server · repository (MIT; 5,162★, last push 2026-10-19, GitHub API verified)",
+    "npm · exa-mcp-server (release line: GitHub releases are empty, npm 3.4.2 is latest)",
+    "Exa · official MCP docs (pointed to by the repo homepage field; direct fetch returned 000 network-restricted, not page-verified)"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-9 正文英译 · stripe-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Stripe dashboard capabilities\n(product/price/customer/payment queries, docs retrieval) as tools for agents.",
+    "runtime": "Mainly a local process (Python/TS packages starting stdio); GitHub stripe/ai 1,965★,\nlast push 2026-10-21 (API verified). Stripe also has an agentic commerce product line (ACP etc.) —\nthat is a separate layer of \"agents taking payments directly\" and does not count as this server itself.",
+    "local_files": "Never touches the local file system — the scope is Stripe cloud account data (customers/products/invoices etc.).",
+    "background": "stdio lives and dies with the client; no background-task semantics.",
+    "tools": "Stripe API retrieval, account data queries, docs search, etc.; write capabilities (creating products/prices) exist —\nthe complete inventory follows the repo README, not enumerated item by item.",
+    "context": "No server-side cross-session memory — state lives in the Stripe account itself.",
+    "permissions": "**Credential = Stripe API key, everything follows the key's permissions**: the difference between test and live keys is huge.\nThe official tooling supports trimming by key type and tool allowlists; payment write operations (refunds/sending invoices) genuinely exist —\nbefore hooking up an agent, defend against the worst case of the key's permissions.",
+    "fit": "Fits: letting an agent look up API usage, query account objects, and try test-mode operations while developing Stripe integrations.\nNot a fit: hard \"read-only insurance\" boundaries; non-Stripe stacks."
+  },
+  "mcp": {
+    "transport": "**stdio** (Python/TS packages starting a local process) is primary; the official docs also describe a remote line — not verified item by item.\nVerified: docs.stripe.com/agentic-commerce 200, stripe/ai repo (direct fetch 2026-10-21).",
+    "auth": "Stripe API key (test/live states); key permissions = the upper bound of tool permissions.\nSupport surface of restricted keys not verified item by item.",
+    "scope": "Read surface: account object queries, API reference retrieval; write surface: create products/prices, invoice and refund tools exist.\nTool-allowlist trimming can narrow it; no official docs for a tool-level human approval mechanism."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The full tool inventory and write-tool details (not enumerated item by item)\n- The granularity of restricted-keys support (not verified item by item)\n- The current status of the hosted remote line (not verified item by item)",
+  "related": [
+    "Both \"dev-tooling servers\": both state plainly that \"credential permissions = the security boundary\"."
+  ],
+  "sources": [
+    "Stripe · official agentic commerce docs (tooling line wording, direct-fetched and verified 2026-10-21)",
+    "stripe/ai · repository (MIT; 1,965★, last push 2026-10-21, GitHub API verified)",
+    "Stripe · official changelog (changelog)"
+  ]
+}

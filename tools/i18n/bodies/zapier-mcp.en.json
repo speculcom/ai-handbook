@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-9 正文英译 · zapier-mcp（2026-10-25）。无 extraSections。related 空数组：源侧「相关条目」唯一一行（Make/n8n 待建档）无 .md 链接，build.mjs 733 行守卫数 0——按 C0-7 口径教训对齐。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It is \"an entry point to a thousand-plus apps\":\nthe user picks on the Zapier side which actions are exposed to the agent, and the server wraps those actions as MCP tools.",
+    "runtime": "Official hosted remote server (actions.zapier.com docs line direct fetch 200); each user gets a dedicated endpoint URL generated from their configuration.",
+    "local_files": "Never touches the local file system — what it executes on your behalf are Zapier-platform-side actions (reading and writing various SaaS apps).",
+    "background": "The service lives on Zapier's side; request-response semantics. Note: Zapier's platform Zaps (the automation line) are resident automations —\nthat is another product surface in the automation category, not part of this MCP server itself.",
+    "tools": "**A dynamic tool surface**: which tools are exposed = which actions of which apps the user checked in the Zapier MCP configuration\n(Gmail/Sheets/Notion/Slack… a thousand-plus apps). The tool inventory varies per person and cannot be enumerated item by item —\nthis is its biggest structural difference from other vendor servers.",
+    "context": "No server-side cross-session memory — state lives in the various target apps.",
+    "permissions": "**Two permission layers stack**: the Zapier-side \"which actions are checked\" is the first allowlist layer; each target app's\nOAuth authorization is the second layer. Write capabilities follow the checkboxes — unchecked actions do not exist,\nwhich is its structural tightening advantage over \"single-app full-permission servers\".",
+    "fit": "Fits: one server reaching many apps (when an agent needs to touch Gmail+Sheets+CRM at once), tightening by action allowlist.\nNot a fit: needing a deep single-app tool surface (official single-vendor servers go deeper); expecting free (Zapier plan-line constraints)."
+  },
+  "mcp": {
+    "transport": "**Streamable HTTP remote hosting** (a dedicated endpoint URL per user); verified: actions.zapier.com docs 200 (2026-10-21).",
+    "auth": "The endpoint URL itself carries authentication semantics (a dedicated secret endpoint) + OAuth for each target app;\nendpoint leak = permission leak — treat its custody at credential grade.",
+    "scope": "Scope = the checked action set; both read and write (following each action's nature).\nThe allowlist is the first tightening layer; no official docs for a per-operation approval mechanism."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- Plan constraints on MCP details (not verified item by item; D9 does not collect price numbers)\n- Rotation/revocation mechanism of the dedicated endpoint (not verified item by item)\n- The complete app×action support matrix (a thousand-plus apps, not enumerated item by item)",
+  "related": [],
+  "sources": [
+    "Zapier · official MCP docs (configuration and endpoint wording, direct-fetched and verified 2026-10-21)",
+    "Zapier · official update log (changelog)",
+    "Zapier · official MCP product page"
+  ]
+}

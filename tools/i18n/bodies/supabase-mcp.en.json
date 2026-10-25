@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-9 正文英译 · supabase-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Supabase platform capabilities\n(projects, database queries, migrations, logs, docs retrieval) as tools for coding agents.",
+    "runtime": "Two forms: local npx process (stdio) + an official hosted remote line; GitHub 2,966★,\nlast push 2026-10-21 (GitHub API verified).",
+    "local_files": "In the local form it does not directly read or write your local project files (that is the filesystem server's job) —\nit operates on Supabase cloud projects: tables, migrations, logs.",
+    "background": "Local stdio lives and dies with the client; the hosted remote form lives on Supabase's side. No background-task semantics.",
+    "tools": "Database queries/migrations, project management, logs and diagnostics, docs retrieval, etc.;\ntools can be trimmed on demand (the official side supports selectively enabling tool groups); the complete inventory follows the repo README.",
+    "context": "No server-side cross-session memory — state lives in the Supabase project itself (schema, data).",
+    "permissions": "**Credential = Supabase access token, a large permission surface**: it can reach project-level APIs (including the SQL execution surface).\nThe official side offers tool trimming and read-only tool distinctions, but SQL write/DDL capabilities genuinely exist —\nbefore hooking up an agent, defend on the worst-case assumption \"you gave it a credential that can modify the database\".",
+    "fit": "Fits: coding agents directly managing your own Supabase projects (inspect schema, run migrations, read logs).\nNot a fit: hard boundaries needing \"read-only insurance\" (trimming narrows but is not a sandbox); non-Supabase-stack projects."
+  },
+  "mcp": {
+    "transport": "Local **stdio** (npx starting a process) is primary; the official side also has a hosted remote endpoint line (details follow the official docs, not verified item by item).\nVerified: repo README and GitHub API (2026-10-21).",
+    "auth": "Supabase access token (scopes configurable); the local form passes the token via env var/parameter.\nThe official docs give guidance on token rotation and least-privilege practices — details not verified item by item.",
+    "scope": "Project level: read schema, execute SQL (including writes/DDL), manage migrations, read logs.\nTool-group trimming can shrink the exposure surface; no official docs for a tool-level human approval mechanism."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The current status and differences of the hosted remote endpoint (not verified item by item)\n- The complete tool-group trimming matrix (not enumerated item by item)\n- Token scope granularity details (not verified item by item)",
+  "related": [
+    "A \"two-forms + tool-trimming\" design contrast: GitHub has a mandatory read-only switch, Supabase has no equivalent switch."
+  ],
+  "sources": [
+    "supabase/mcp · repository (Apache-2.0; 2,966★, last push 2026-10-21, GitHub API verified)",
+    "supabase/mcp · Releases (changelog)",
+    "Supabase · official docs MCP line"
+  ]
+}

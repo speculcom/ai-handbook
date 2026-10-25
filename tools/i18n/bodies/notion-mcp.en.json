@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-9 正文英译 · notion-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Notion workspace capabilities\n(search, page read/write, database queries) as tools for agents.",
+    "runtime": "Official hosted remote server (endpoint mcp.notion.com/mcp — direct fetch 401 = exists but needs auth, not a dead link);\nno official docs for a local form. notion.mcp.run direct-fetched 000 (noted as network-restricted).",
+    "local_files": "Never touches the local file system — the scope is the Notion cloud workspace (pages, databases, comments).",
+    "background": "The service is resident on Notion's side; MCP sessions are request-response, no background-task semantics.",
+    "tools": "Search, fetch pages, create/edit pages and database entries, etc.; the complete tool inventory follows the official docs, not enumerated item by item.\nWrite capabilities exist (create pages/edit blocks); the boundary follows workspace sharing and permissions.",
+    "context": "No server-side cross-session memory — state lives in the Notion workspace itself; the Notion AI memory line is a separate product and does not count as this one.",
+    "permissions": "OAuth user auth + the workspace permission model: what the agent can see/change follows the page-sharing permissions of the connected Notion account —\nthis is the selection key: whose account you connect = whose visibility.",
+    "fit": "Fits: agents reading and writing the team knowledge base, writing meeting notes/tasks into Notion databases, retrieving context from the wiki.\nNot a fit: offline/self-hosted needs (no local form); tool-level isolation finer than account permissions."
+  },
+  "mcp": {
+    "transport": "**Streamable HTTP remote hosting** (mcp.notion.com/mcp); no official docs for a local stdio form.\nVerified: official docs page 200, endpoint 401 (direct fetch 2026-10-21).",
+    "auth": "OAuth browser authorization flow (log into the Notion account on first connection); no official docs for a plaintext-token configuration route.\nWorkspace admins can control connections (admin-approval surface details not verified item by item).",
+    "scope": "Scope = the connected account's workspace visibility; both read and write (search/fetch pages/create pages/edit blocks).\nNo official docs seen for a tool-level approval mechanism — tightening the write surface relies on account permissions and client-side confirmation."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The complete tool inventory (not enumerated item by item)\n- The granularity of workspace-admin control over MCP connections (not verified item by item)\n- Rate-limit details (official docs give no numbers)",
+  "related": [
+    "Both official remote servers for collaboration SaaS: the Slack version has a heavier admin-approval surface, the Notion version's write surface is more direct."
+  ],
+  "sources": [
+    "Notion · official MCP docs (endpoint and auth wording, direct-fetched and verified 2026-10-21)",
+    "Notion · official release notes (changelog)",
+    "Notion · developer docs home"
+  ]
+}

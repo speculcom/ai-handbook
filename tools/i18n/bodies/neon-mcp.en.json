@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-9 正文英译 · neon-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Neon's (serverless Postgres)\nmanagement API and database operations as tools for agents.",
+    "runtime": "A local process (npx stdio) + an official hosted remote line; GitHub 655★, last push 2026-10-21 (API verified).\nThe old docs path (neon.com/docs/ai-and-mcp/mcp-server) direct-fetched 404 — the current line is the repo itself.",
+    "local_files": "Reads and writes no local project files — the scope is Neon cloud projects/branches and databases.",
+    "background": "stdio lives and dies with the client; Neon's branch capability is its signature — an agent can create database branches for isolated experiments.",
+    "tools": "Project management, branch create/delete, database query execution, schema inspection, etc.; write capabilities are complete\n(create branches, execute SQL). The complete inventory follows the repo README.",
+    "context": "No cross-session memory — state lives in the Neon project itself.",
+    "permissions": "**Two credentials**: a Neon API key (management surface: projects/branches) + a Postgres connection string (data surface: SQL).\nNeon's branch model enables the \"agent tries things on a copy\" isolation play — but when connected to the main branch by default the write surface is unchanged;\ndefend on the assumption \"it can execute SQL\".",
+    "fit": "Fits: agent dev flows for the Neon stack (create branch→try changes→merge), hooking serverless Postgres management into an agent.\nNot a fit: non-Neon Postgres (it manages its own platform); hard read-only boundaries."
+  },
+  "mcp": {
+    "transport": "**stdio** (npx) is primary + an official hosted remote line (details follow the repo README, not verified item by item).\nVerified: the repo and GitHub API (2026-10-21).",
+    "auth": "Two routes: Neon API key (management surface) + Postgres connection string (data surface).",
+    "scope": "Management surface: project/branch add/delete/query; data surface: SQL execution (including writes/DDL).\nNo official docs for a tool-level approval mechanism; the branch model is a structural isolation means, not an approval layer."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The status of the hosted remote endpoint (not verified item by item)\n- The full tool inventory (not enumerated item by item)\n- Details of product-wording changes after the Databricks acquisition (not verified item by item — the vendor line follows the current official owner)",
+  "related": [
+    "Both BaaS database servers: Supabase's project surface is broader, Neon's branch isolation is the structural differentiator."
+  ],
+  "sources": [
+    "neondatabase/mcp-server-neon · repository (MIT; 655★, last push 2026-10-21, GitHub API verified)",
+    "neondatabase/mcp-server-neon · Releases (changelog)",
+    "Neon · official docs home (product background)"
+  ]
+}

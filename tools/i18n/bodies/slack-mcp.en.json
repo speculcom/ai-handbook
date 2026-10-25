@@ -1,0 +1,29 @@
+{
+  "_comment": "C0-9 正文英译 · slack-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Slack workspace capabilities\n(search, read messages/threads, send messages, canvases, Lists) as tools for agents.",
+    "runtime": "Official hosted remote server (mcp.slack.com/mcp — direct fetch 401 = exists but needs auth);\nStreamable HTTP + JSON-RPC 2.0 (official docs wording). The old slackapi/slack-mcp-server repo is now 404 (direct fetch 2026-10-21).",
+    "local_files": "Never touches the local file system — the scope is the Slack cloud workspace (messages, files, canvases, Lists).",
+    "background": "The service lives on Slack's side; session request-response, no background-listening semantics — \"the agent does not watch Slack, it waits for you to ask\".",
+    "tools": "Search (messages/files/users/channels), read channels and threads, send messages, create conversations, reactions,\ncanvas read/write, user profiles, Lists CRUD, file uploads (the official changelog has new-tool records for 2026-05);\nthe complete inventory follows docs.slack.dev.",
+    "context": "No server-side cross-session memory — state lives in the Slack workspace itself; the search tools are its main means of \"fetching context\".",
+    "permissions": "**The permission surface is the core of this entry**: OAuth user-token scopes mapped per tool (search:read, chat:write,\ncanvases:write etc.) + **workspace admin approval** (admins decide which MCP clients may connect) —\nunpublished Marketplace/internal apps cannot connect. Write actions (sending messages/creating conversations) follow the granted scopes.",
+    "fit": "Fits: coding/research agents fetching \"the team's decisions and context in Slack\", summarizing channels, drafting messages on your behalf.\nNot a fit: event-triggered automation (MCP is not a trigger — automation goes through the Workflow/automation line);\nbot-token routes without OAuth (the official line uses user-token OAuth)."
+  },
+  "mcp": {
+    "transport": "**Streamable HTTP** (JSON-RPC 2.0), endpoint mcp.slack.com/mcp.\nThe official docs state plainly that **SSE and Dynamic Client Registration are not supported for now** (third-party verification page paraphrasing the official docs) —\nclients must take the current remote MCP/OAuth path. Verified: docs.slack.dev 200, endpoint 401 (direct fetch 2026-10-21).",
+    "auth": "OAuth 2.0 user-token flow (authorization at the slack.com OAuth endpoints); tools map one-to-one to scopes.\n**Admin approval is a front gate**: the workspace admin must approve the MCP client integration before it can connect.",
+    "scope": "Read surface: search/history/user profiles/canvas reads; write surface: send messages, create conversations, reactions, canvas writes,\nLists writes, file uploads. All of it follows OAuth scopes and admin policy; no official docs for a tool-level separate approval mechanism."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The full tool inventory and the per-tool scope mapping table (not enumerated item by item — docs.slack.dev has pages not checked one by one)\n- The granularity of admin approval (per client/per scope? not verified item by item)\n- Rate-limit details (the official side follows Web API rate-limit wording, numbers not verified item by item)",
+  "related": [
+    "Both official remote servers for collaboration SaaS: Notion's write surface is direct, Slack adds an admin-approval gate.",
+    "A cross-category contrast: the official Slack server only covers Slack; for \"Slack triggering cross-app actions\" go the Zapier line."
+  ],
+  "sources": [
+    "Slack · official MCP docs (endpoint, transport, auth wording, direct-fetched and verified 2026-10-21)",
+    "Slack · developer changelog (MCP new-tool records)",
+    "Slack · official help-center MCP guide"
+  ]
+}

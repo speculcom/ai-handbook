@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-9 正文英译 · linear-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Linear issue management\n(searching issues, creating/updating issues, querying projects and teams) as tools for agents.",
+    "runtime": "Official hosted remote server (mcp.linear.app/mcp — direct fetch 401 = exists but needs auth; the old /sse endpoint 404 —\nthe transport line has changed generations, direct-fetched and verified 2026-10-21).",
+    "local_files": "Never touches the local file system — the scope is the Linear cloud workspace (issues/projects/teams).",
+    "background": "The service lives on Linear's side; request-response semantics, no background tasks.",
+    "tools": "Search/read/create/update issues, query projects and teams, comments, etc.; write capabilities are complete (create issues, change status).\nThe complete inventory follows the official docs; it has not been enumerated item by item.",
+    "context": "No server-side cross-session memory — state lives in the Linear workspace itself.",
+    "permissions": "OAuth user auth: the agent-visible surface = the connected Linear account's permissions; write operations take effect directly,\nand there is no official docs for a tool-level approval mechanism — before hooking up an agent, defend on the assumption \"it can create and edit issues for you\".",
+    "fit": "Fits: coding agents creating/updating issues as they finish work, pulling \"what did this requirement say back then\" from Linear.\nNot a fit: strict write control needing approval flows; non-Linear stacks."
+  },
+  "mcp": {
+    "transport": "**Streamable HTTP** (mcp.linear.app/mcp); the old SSE endpoint is retired (direct fetch 404 verified).\nVerified: linear.app/docs/mcp 200, endpoint 401 (2026-10-21).",
+    "auth": "OAuth browser authorization flow (log into the Linear account on first connection); no official docs for a plaintext-PAT configuration route.\nAuthorization granularity and token-revocation details not verified item by item.",
+    "scope": "Read surface: issue search/read, project and team queries; write surface: create/update issues, comments.\nIt follows the account's permissions; there is no separate approval layer."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The full tool inventory (not enumerated item by item)\n- Rate-limit details (official gives no numbers)\n- The workspace-level control surface (not verified item by item)",
+  "related": [
+    "Both the \"task surface for coding agents\": GitHub manages PRs/issues on the code side, Linear manages the product-issues side."
+  ],
+  "sources": [
+    "Linear · official MCP docs (endpoint and auth wording, direct-fetched and verified 2026-10-21)",
+    "Linear · official changelog (changelog)",
+    "Linear · MCP entry page (direct fetch 200)"
+  ]
+}

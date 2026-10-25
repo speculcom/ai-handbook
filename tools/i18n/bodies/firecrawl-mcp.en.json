@@ -1,0 +1,29 @@
+{
+  "_comment": "C0-9 正文英译 · firecrawl-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Firecrawl (the \"context API for\nAI agents\") search/fetch/parse/browser-interaction capabilities as tools for agents.",
+    "runtime": "Official hosted remote server (https://mcp.firecrawl.dev/v2/mcp) + local npx (firecrawl-mcp), two lines;\nthe official README states support for both cloud and self-hosted. GitHub 7,673★, last push 2026-10-23 (API verified);\nthe release line lives on npm (firecrawl-mcp 3.34.1), GitHub releases stopped at v3.2.1 (2025-09-26) — behind npm.",
+    "local_files": "Reads and writes no local files — it outputs web page text (markdown/structured JSON) and parsed artifacts (PDF and other documents).",
+    "background": "The hosted line lives on Firecrawl's side; the monitor tool family can watch page changes on a schedule on Firecrawl's side and emit diffs/alerts —\nthat is a \"server-side task\", not a local background process.",
+    "tools": "The full profile registers **27 tools** by default (README wording, including the feedback tool;\nthe FIRECRAWL_NO_SEARCH_FEEDBACK/NO_ENDPOINT_FEEDBACK env vars can trim it):\nscrape / search / parse / crawl / map / interact (real-browser clicks·form filling·navigation) /\nthe monitor family / credit_usage / agent tasks / the developer·gov·research vertical search index families.\nThe hosted keyless endpoint exposes only 3 (scrape/search/parse); the search-only endpoint is fixed at 9.",
+    "context": "No server-side cross-session memory; interact sessions can continue across calls via scrapeId (official README:\nyou cannot drive it step by step from within a single client call — each call runs one prompt/code round and hands control back).",
+    "permissions": "**The keyless free tier works** (scrape/search/parse three tools, rate-limited); the other tools need an API key.\nThree hard rules from the official README: the key never goes into the server URL, never into the agent chat,\nonly into the client or a secret manager. The OAuth endpoint (/v2/mcp-oauth) uses interactive account connection.",
+    "fit": "Fits: agents that want the full chain covered in one package — \"search→fetch text→structured JSON→browser interaction→site-level crawl/map→page monitoring\";\ngradual onboarding that starts keyless and upgrades to a key.\nNot a fit: holding a browser session long-term and driving it step by step (the README states plainly this is not its interaction model);\nminimal scenarios that only need single-page reading (the fetch reference is lighter)."
+  },
+  "mcp": {
+    "transport": "**streamable-http** (hosted https://mcp.firecrawl.dev/v2/mcp; plus /v2/mcp-oauth\nand /v2/mcp-search endpoints) + **stdio** (npx -y firecrawl-mcp), two lines; the README also mentions SSE support.\nVerified: repo README (fetched directly 2026-10-23).",
+    "auth": "Keyless free tier (rate-limited) → API key (Authorization Bearer, configured in the client/secret manager)\n→ OAuth interactive connection (/v2/mcp-oauth). The local npx line uses the FIRECRAWL_API_KEY env var.",
+    "scope": "Mostly read (search/fetch/parse/monitor); interact can click and fill forms in a real browser —\nthe boundary between \"reading\" and \"touching things on a web page\" must be gated yourself against the target site's authorization boundaries. No local write surface."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The full parameter surface of the 27 tools and the feedback tool's behavior (the README has an inventory and trimming wording, not enumerated item by item)\n- Rate/quota numbers for the keyless vs keyed tiers (the README only says rate-limited; per D9 and snapshot discipline no numbers are recorded)\n- The functional boundaries of the self-hosted deployment line (README claims support, not verified item by item)",
+  "related": [
+    "Also an official retrieval+fetch server: Exa defaults to a minimal two tools, Firecrawl is a 27-tool full-family surface.",
+    "A light-vs-heavy contrast: fetch is reference-level single-page reading, Firecrawl carries the heavy crawl/map/interact surface."
+  ],
+  "sources": [
+    "firecrawl/firecrawl-mcp-server · repository (MIT; 7,673★, last push 2026-10-23, GitHub API verified; old name mendableai/ 301 migration confirmed)",
+    "npm · firecrawl-mcp (release line: 3.34.1; GitHub releases stopped at v3.2.1)",
+    "Firecrawl · official docs MCP page (hosted endpoints and client configuration line)"
+  ]
+}

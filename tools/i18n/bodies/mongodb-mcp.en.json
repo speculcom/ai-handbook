@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-9 正文英译 · mongodb-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps MongoDB database operations\n(connecting, collection queries, aggregations) and Atlas management as tools for agents.",
+    "runtime": "A local process (npx stdio); GitHub 1,146★, last push 2026-10-21 (API verified).\nThe official docs/mcp page direct-fetched 404 — the current official line is the repo itself (direct-fetch verified 2026-10-21).",
+    "local_files": "Reads and writes no local project files — the scope is database instances (a local mongod or an Atlas cluster both count as its targets).",
+    "background": "stdio lives and dies with the client; no background-task semantics.",
+    "tools": "Connect/list databases and collections, find/aggregate/insert/update/delete, Atlas cluster management, etc.;\nwrite capabilities are complete. The complete inventory follows the repo README.",
+    "context": "No cross-session memory — data state lives in the database itself.",
+    "permissions": "**Two credential routes**: a connection string direct connection (whatever database it can reach = whatever it can do, including writes/deletes) or an Atlas API key (the Atlas management surface).\nThe official README explicitly notes a confirmation mechanism for high-risk operations (delete-class tools carry a confirmation parameter) —\nbut the boundary is still the credential: before hooking up an agent, defend on the assumption \"it can drop collections\".",
+    "fit": "Fits: agent dev flows for MongoDB projects (inspect schemas, run aggregations, try write operations).\nNot a fit: hard read-only sandboxes; non-MongoDB stacks."
+  },
+  "mcp": {
+    "transport": "**stdio** (npx starts a local process). Verified: repo README (fetched directly 2026-10-21).",
+    "auth": "Two routes: connection string (mongodb:// direct to an instance) or Atlas API credentials;\nthe support surface of read-only connection options not verified item by item.",
+    "scope": "Read surface: list databases/collections, find/aggregate; write surface: insert/update/delete, Atlas cluster management.\nDelete-class tools carry a confirmation parameter (official README wording); no separate approval layer."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The support surface of read-only connection options (not verified item by item)\n- The complete Atlas tool inventory (not enumerated item by item)\n- Whether the docs/mcp official page will come back (no statement seen — only the 404 fact is recorded)",
+  "related": [
+    "Both database-class servers: Supabase works through its own BaaS project surface, MongoDB through the connection-string direct-to-instance surface."
+  ],
+  "sources": [
+    "mongodb-js/mongodb-mcp-server · repository (Apache-2.0; 1,146★, last push 2026-10-21, GitHub API verified)",
+    "mongodb-js/mongodb-mcp-server · Releases (changelog)",
+    "MongoDB · official docs home (product background)"
+  ]
+}

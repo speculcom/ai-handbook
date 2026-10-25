@@ -1,0 +1,29 @@
+{
+  "_comment": "C0-9 正文英译 · sentry-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients; choosing the model is the client's business.\nIt wraps Sentry platform capabilities (issues, events, releases, alerts) as MCP tools for agents to query and diagnose.",
+    "runtime": "Mainly the official hosted remote server (mcp.sentry.dev direct fetch 200); the getsentry/toolkit repo is the official tooling line\n(936★, last push 2026-10-21, GitHub API verified). The old repo name getsentry/sentry-mcp now redirects (seen in the direct fetch).",
+    "local_files": "Never touches the local file system — it operates on Sentry cloud data (issues/events/releases).\nLocal logs and source code are outside its scope; reading local files requires pairing a filesystem server.",
+    "background": "The hosted form is independent of the client process; the service lives on Sentry's side; no resume-from-checkpoint semantics —\nthe MCP session model is request-response, the official side provides no background-task mechanism.",
+    "tools": "A toolset aimed at \"agents checking crashes/diagnosing production issues\": whoami, find issues, view issue details,\nevents and stacks, release comparisons, etc.; the complete tool inventory follows the official docs, not enumerated item by item.",
+    "context": "No cross-session memory — each session is independent, state lives in the Sentry platform itself.\nThe official side provides no server-side memory or retrieval layer (not verified ≠ absent; docs checked showed none).",
+    "permissions": "Permissions are determined by Sentry account auth (OAuth login flow); it can read issue and event data,\nthe write surface (e.g. resolving issues) follows the official tool inventory — write-capability boundaries not verified item by item.",
+    "fit": "Fits: coding agents directly asking \"does this error exist in Sentry\", hooking production-incident diagnosis into agent workflows.\nNot a fit: local log analysis (out of scope); closed-source commercial integrations during the FSL restriction window (read the license terms first)."
+  },
+  "mcp": {
+    "transport": "Officially primary **Streamable HTTP remote hosting** (mcp.sentry.dev);\nclient configuration follows the official docs. Support status of the older SSE transport not verified item by item.\nVerified: official docs page and mcp.sentry.dev direct fetch 200 (2026-10-21).",
+    "auth": "Goes through the Sentry account OAuth login flow (browser authorization); no official docs for a plaintext-PAT configuration route —\nnot verified item by item. Credential storage and rotation details are not expanded in the official docs.",
+    "scope": "Scope = the org/project data visible to the Sentry account; reading issues/events is primary.\nThe write operations and high-risk tool inventory not verified item by item; no official docs for a separate approval mechanism."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The complete tool inventory and write-operation boundaries (not enumerated item by item)\n- SSE transport support status (not verified item by item)\n- The change date of each FSL version (not verified item by item — check the current LICENSE.md terms before use)",
+  "related": [
+    "Both vendor-official remote servers: the GitHub version has a wide tool surface with complete write capabilities, the Sentry version is primarily read-diagnosis."
+  ],
+  "sources": [
+    "getsentry/toolkit · repository (FSL-1.1-Apache-2.0; 936★, last push 2026-10-21, GitHub API verified)",
+    "getsentry/toolkit · LICENSE.md (FSL-1.1-Apache-2.0 original text, direct-fetched and verified 2026-10-21)",
+    "Sentry MCP · official hosted endpoint page (direct fetch 200)",
+    "getsentry/toolkit · Releases (changelog)"
+  ]
+}

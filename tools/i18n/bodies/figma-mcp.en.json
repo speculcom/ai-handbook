@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-9 正文英译 · figma-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It feeds Figma design context\n(components, variables, layout data, Code Connect mappings) to coding agents so generated code matches the real design system.",
+    "runtime": "**Two forms**: official hosted remote (mcp.figma.com/mcp — direct fetch 405 = exists but needs auth, officially recommended) +\ndesktop local server (127.0.0.1:3845/mcp, requires the desktop app + a Dev/Full seat).\nThe official docs state \"strongly recommend the remote server\".",
+    "local_files": "In the desktop form it can download image assets into the project (Download assets setting, seen in the directly fetched official docs);\nthe remote form returns asset links. Design data lives in Figma's cloud.",
+    "background": "The remote form lives on Figma's side; the desktop form lives and dies with the desktop app. No background-task semantics.",
+    "tools": "Fetch design context and code, read FigJam/Make content, Code Connect mappings, writing to the canvas\n(create/update components and variables — \"write to canvas\", Professional plan or above);\nthe complete inventory follows the developer docs.",
+    "context": "No server-side cross-session memory — design state lives in the Figma files themselves; Code Connect is a \"design↔code\" mapping layer, not memory.",
+    "permissions": "**Plans and seats are hard gates**: the remote server is available on all plans but writing to the canvas needs Professional+ and editing non-draft files needs a Full seat;\nthe desktop server needs a Dev/Full seat; **only clients in the Figma MCP catalog can connect** (VS Code/Cursor/Claude Code etc.).\nFree during beta, moving to usage-based billing later (seen in the directly fetched official help page).",
+    "fit": "Fits: design-system-driven coding flows (the agent generates code from real components/variables), code↔canvas two-way flow.\nNot a fit: clients outside the MCP catalog (needs the developer waitlist); teams wanting free canvas writes (plan gates)."
+  },
+  "mcp": {
+    "transport": "**Streamable HTTP, two entry points**: remote mcp.figma.com/mcp (recommended) + desktop local http://127.0.0.1:3845/mcp.\nVerified: developers.figma.com docs fetched directly (2026-10-21); endpoint returns 405 (exists, GET not accepted).",
+    "auth": "First connection goes through Figma account login (OAuth semantics); no official docs for a plaintext-token configuration route.\nThe seat type (Dev/Full) determines the capability surface.",
+    "scope": "Read surface: design context, FigJam/Make, Code Connect; write surface: canvas create/update (plan + seat gates).\nThe client whitelist (catalog) is Figma's side access gate — the biggest difference between it and most MCP servers."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The complete MCP catalog client list (not enumerated item by item)\n- Pricing details of usage-based billing (official gives no numbers — D9 discipline does not collect prices)\n- A full tool-difference table between the remote and desktop forms (not compared item by item)",
+  "related": [
+    "Both connect agents to design/runtime: DevTools handles the browser runtime, Figma handles design-system context."
+  ],
+  "sources": [
+    "Figma · official MCP developer docs (two forms, endpoints, seat gates, direct-fetched and verified 2026-10-21)",
+    "Figma · official help-center MCP getting-started (plan and beta billing wording)",
+    "Figma · official release notes (changelog)"
+  ]
+}

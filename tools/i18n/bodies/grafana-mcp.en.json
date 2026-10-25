@@ -1,0 +1,29 @@
+{
+  "_comment": "C0-9 正文英译 · grafana-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps your Grafana instance\n(dashboards, data sources, alerts, OnCall/IRM etc.) as tools for agents.",
+    "runtime": "A local process (uvx mcp-grafana stdio; the official line also offers Docker, binary, Helm deployment paths);\nGitHub 3,593★, last push 2026-10-23, latest release v2.1.1 (2026-10-20, API verified).\nFull functionality requires Grafana 9.0 or newer (official README: older versions lack API endpoints, data-source operations may be unavailable).",
+    "local_files": "Reads and writes no local files — the scope is the Grafana instance and its connected data sources;\nunified-SQL credentials are handled by data source configuration, the official README states the server never sees the credentials.",
+    "background": "stdio lives and dies with the client; no background-task semantics.",
+    "tools": "Dashboard family (search/read/summary/JSONPath property extraction/update/create/patch), data source family,\nunified SQL (ClickHouse/Snowflake/Athena/MySQL/PostgreSQL/MSSQL),\nthe Prometheus/Loki/CloudWatch/Elasticsearch query families, Cloud Logging, the RBAC and user-management families;\nsome tool groups (running panel queries, query examples, Graphite) are **disabled by default**, enable with --enabled-tools.\nThe complete inventory follows the repo README.",
+    "context": "No server-side cross-session memory — state lives in the Grafana instance itself.\nThe official README warns specifically: full dashboard JSON eats the context window,\nprefer the window-saving tools summary/JSONPath/patch.",
+    "permissions": "**The permission surface is the core of this entry**: Grafana service account token + fine-grained RBAC scopes\n(the official README lists the minimum action per tool); the README also gives a convenience note — the built-in Editor role\nis coarser than hand-made scopes, use it only when \"convenience matters more than least privilege\".\nThe SSE/streamable-http line can set separate caller authentication (--server-auth-token); stdio is unaffected.",
+    "fit": "Fits: agents querying dashboards/metrics/alerts, modifying dashboards, and running cross-data-source unified SQL\non self-hosted or Grafana Cloud instances.\nNot a fit: zero-config tokenless scenarios (a service account token is required); Grafana below 9.0 (some features missing)."
+  },
+  "mcp": {
+    "transport": "**stdio** (uvx mcp-grafana) is primary; the official line also provides an SSE/streamable-http server mode\n(with optional caller auth). Verified: repo README (fetched directly 2026-10-23).",
+    "auth": "Server side connects to Grafana with GRAFANA_SERVICE_ACCOUNT_TOKEN; client side optional\n--server-auth-token Bearer (only effective for SSE/streamable-http).\nOfficial README: when caller auth is enabled, validated Authorization headers are stripped before reaching Grafana.",
+    "scope": "Both read and write: dashboard reads + update/create/patch, alert and IRM lines have write actions;\nthe minimum RBAC action per tool is listed in the README. SQL credentials go through data source configuration, the server never handles them."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The full tool inventory and the per-tool RBAC action mapping (the README has lists, not enumerated item by item)\n- The current usage surface of the SSE/streamable-http server mode (the README explains the mode; the official side provides no hosted endpoint)\n- The functional boundaries of the Docker/Helm deployment lines (not verified item by item)",
+  "related": [
+    "Both observability surfaces: Sentry focuses on error-issue triage, Grafana is the dashboard and data-source query surface.",
+    "Same-category contrast: Grafana is open source and self-hostable, Datadog is closed source with official hosting plus credential pass-through."
+  ],
+  "sources": [
+    "grafana/mcp-grafana · repository (Apache-2.0; 3,593★, last push 2026-10-23, GitHub API verified)",
+    "grafana/mcp-grafana · Releases (v2.1.1 @ 2026-10-20)",
+    "Grafana Cloud · MCP docs page (official docs line; direct fetch 000 network-restricted, not page-verified)"
+  ]
+}
