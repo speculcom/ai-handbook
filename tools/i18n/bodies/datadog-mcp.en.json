@@ -1,0 +1,29 @@
+{
+  "_comment": "C0-8 正文英译 · datadog-mcp（2026-10-25）。无 extraSections。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Datadog observability data\n(logs/metrics/traces/dashboards/monitors/incidents/security signals, etc.) as tools for agents.\nThe official docs' position: most tools query the Datadog backend directly without a model; a few semantic-search / natural-language-to-query tools\ndo use models hosted by Datadog's AI providers, and can be disabled org-wide.",
+    "runtime": "An official hosted remote server (mcp.datadoghq.com/v1/mcp — direct fetch 401 = exists, auth required);\nthere is also a local-binary line (the coterm.datadoghq.com install script installs datadog_mcp_cli, stdio connecting to remote tools).\nThe official docs state plainly **not GovCloud compatible**; HIPAA-eligible.",
+    "local_files": "Never touches the local file system — the scope is Datadog cloud data.\nException: the official docs carry a **separate Code Security MCP Server** (running SAST/SCA/IaC/secrets/SBOM scans locally);\nthe docs say explicitly it is a narrow, separate line, not the subject of this entry.",
+    "background": "The service lives on Datadog's side; session request-response, no background-listening semantics.\nThe official docs state that MCP usage information is collected (tool names/parameters/errors/user identifiers, excluding prompts and model reasoning), stored for 120 days.",
+    "tools": "Grouped by **toolsets** (selected via the URL parameter ?toolsets=, default core): core (logs/metrics/traces/\ndashboards/monitors/incidents/hosts/services/events/notebooks), alerting, apm (Preview),\ncases, dbm, ddsql (Preview), error-tracking, feature-flags, llmobs, product-analytics,\nnetworks, onboarding, security, software-delivery, synthetics, workflows; toolsets=all enables every GA group.",
+    "context": "No server-side cross-session memory — state lives on the Datadog platform itself; the official docs recommend trimming tools via toolsets to save context window.",
+    "permissions": "**The permission surface is the core of this entry**: the official docs state plainly that the server forwards the authenticated user's own credentials to the Datadog API —\n**RBAC / Data Access Control / log restrictions apply unchanged; the server cannot grant a user anything beyond their own access**.\nWrite actions require the corresponding permission (e.g. monitors_write), checked on every tool call; read-only users calling write tools get rejected.\nOrg admins can manage global MCP access and write capability in Organization Settings, and can enable an IP allowlist.",
+    "fit": "Fits: coding/ops agents pulling live production context (logs/metrics/traces/incidents) while debugging,\ndebugging against real data inside the IDE.\nNot a fit: GovCloud environments (officially stated incompatible); needing fully local offline (the remote line must reach Datadog;\nthe local binary is only a local auth shell — tools still live remotely)."
+  },
+  "mcp": {
+    "transport": "**Streamable HTTP** (remote https://mcp.datadoghq.com/v1/mcp) is primary;\nthe local binary datadog_mcp_cli uses stdio (authentication happens locally, tools remain remote).\nVerified against: the official docs setup page (direct-fetched 2026-10-23).",
+    "auth": "OAuth 2.0 (recommended, clients run the flow automatically; custom subdomains need a ?subdomain= parameter);\nor a PAT/SAT Bearer header; or DD_API_KEY + DD_APPLICATION_KEY headers (the official docs recommend a scoped service-account key).\nThe endpoint's direct-fetch 401 = exists, auth required.",
+    "scope": "A large read surface (logs/metrics/traces/dashboards/monitors/incidents etc., grouped by toolsets);\nwrite actions (creating monitors, modifying cases, etc.) require the corresponding write permission, checked per call.\nThe official position: all MCP tool calls go into the Audit Trail (tool name/parameters/user/client),\nplus two standard metrics, datadog.mcp.session.starts and datadog.mcp.tool.calls."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The complete tool list within each toolset (the official docs list group names and some tools, not enumerated item by item)\n- Current rate-limit numbers (the official docs gave figures and state plainly they \"may change\"; per our D9 rule and snapshot discipline no specific numbers are stored)\n- Windows support details of the local-binary line (the official docs give download guidance, not verified item by item)",
+  "related": [
+    "Also the observability surface: Grafana is open-source and self-hostable; Datadog is closed-source hosted with credential pass-through.",
+    "Same-category contrast: Sentry focuses on error issues; Datadog is the full-stack observability platform surface."
+  ],
+  "sources": [
+    "Datadog · official MCP Server docs (positioning, toolsets, permission and compliance positions, direct-fetched 2026-10-23)",
+    "Datadog · official setup docs (endpoint, OAuth/PAT/SAT auth, local binary, rate limits)",
+    "Datadog · official launch blog (remote MCP server launch and tool inventory)"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "_comment": "C0-8 正文英译 · time（2026-10-25）。",
+  "axes": {
+    "model_access": "It calls no model itself; it is an interface implementation called by clients.\nIt uses IANA timezone names and supports automatic system-timezone detection.",
+    "runtime": "A local **Python** process communicating over stdio.\n\nIt depends on the Python MCP SDK 1.x (requires mcp>=1.29.0,<2); SDK 2.0 renamed the APIs this server uses.\n\nA 2026-08-30 fix addressed security and compatibility issues of container bind mounts under Docker / Podman / SELinux.\n\nRunning directly with uvx, no pre-install needed, is recommended.",
+    "local_files": "**No file-access capability whatsoever.** No file reads or writes involved.",
+    "background": "Not supported. A single time query is a synchronous operation, ending with the client process.",
+    "tools": "It provides 2 tools: `get_current_time` (current time in a given timezone)\nand `convert_time` (conversion between timezones).\nOutput is structured time data, ready for direct consumption.",
+    "context": "Stateless. Each call is independent; no history is kept.",
+    "permissions": "**No substantive permission risk**: no file access, no network access, writes no state.\nIts entire permission set is \"being able to query the current time and convert timezones\".",
+    "fit": "Gives an Agent reliable time and timezone-conversion capability.\nSuits scenarios where the model should not guess the time (scheduling, cross-timezone collaboration)."
+  },
+  "mcp": {
+    "transport": "Supports stdio, **and offers container deployment (Docker / Podman)**.\n\nThe 2026-08-30 bind-mount security/compatibility fix (including SELinux) is the same commit (#2205) as for fetch and git.\n\nThe official README (full-text verification 2026-10-08) gives only local-process integration (uvx / pip / Docker);\nthere is no official launch method for a remote transport.",
+    "auth": "No separate authentication layer, but **this server accesses no external resources**;\nwhether auth exists makes no security difference.",
+    "scope": "**No file or network access; reads and writes no external resources.**\nTogether with sequential-thinking it is the lowest permission-risk class; safe in sensitive environments."
+  },
+  "sectionTitles": {
+    "变更记录说明": "Change-log notes",
+    "工具清单": "Tool inventory",
+    "权限评价": "Permission assessment",
+    "安装": "Installation"
+  },
+  "sections": {
+    "变更记录说明": "**This object has no standalone changelog page**; change records are in the directory's commit history:\n\n| Date | Content |\n|---|---|\n| 2026-08-30 | Fix container bind-mount security and compatibility (same commit #2205 as fetch and git) |\n| 2026-08-18 | Document the Python MCP 1.x version requirement |\n\n**Note**: SDK 2.0 renamed the APIs this server uses, and the official side pins `mcp>=1.29.0,<2`.\nIf your environment has SDK 2.x installed, this server may fail to start.",
+    "工具清单": "| Tool | Parameters | Description |\n|---|---|---|\n| `get_current_time` | `timezone` (IANA name) | current time in the given timezone |\n| `convert_time` | `source_timezone` `time` (HH:MM) `target_timezone` | timezone conversion |\n\n**It uses IANA timezone names** (e.g. `America/New_York`), not UTC offsets.\nThat is also where it beats \"letting the model do timezone math\" — IANA names carry daylight-saving rules.",
+    "权限评价": "**The lowest permission-risk class among MCP servers**:\n\n| Check | Result |\n|---|---|\n| Read files | ❌ none |\n| Write files | ❌ none |\n| Network access | ❌ none |\n| Persisted state | ❌ none |\n| Delete capability | ❌ none |\n\nIts entire permission set is \"being able to ask the system what time it is\". This class of server deserves calling out —\nit shows the MCP ecosystem also has zero-risk tools.",
+    "安装": "The official recommendation is running directly with `uvx`, no pre-install needed:\n```bash\nuvx mcp-server-time\n```\n`pip install mcp-server-time` is also supported."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- Whether Streamable HTTP is supported (not declared in the repo)\n- Authentication configuration in the container form\n- Whether edge cases of daylight-saving transitions are handled",
+  "related": [
+    "Also in the zero-risk class",
+    "A testing server — not for production"
+  ],
+  "sources": [
+    "MCP · Time Server",
+    "MCP · Time directory change history",
+    "MCP · Servers Releases",
+    "MCP · Servers repo README (production-use disclaimer)"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "_comment": "C0-8 正文英译 · filesystem（2026-10-25）。官方英文引文原样保留（B 类），中文「翻译」段在英文侧省略。",
+  "axes": {
+    "model_access": "It calls no model itself; it is an interface implementation called by clients.\nIt depends on @modelcontextprotocol/sdk (npm measured 2026.8.31: ^1.30.0);\nthe protocol version is negotiated between SDK and client at the initialize handshake, not pinned to a single version.",
+    "runtime": "A local Node.js child process communicating with the client over stdio.\nIts lifecycle is bound to the client process — it stops when the client exits.",
+    "local_files": "The core capability. **Unrestricted access is not the default**:\nallowed directories must be given via command-line arguments, or delivered dynamically if the client supports the Roots protocol.\n**If started with no arguments and the client does not support roots, the server errors out directly at initialization.**",
+    "background": "Not supported. A local stdio process lives and dies with the client;\nthere is no standalone daemon or cloud-execution form.",
+    "tools": "It provides 11 tools: read_text_file, read_media_file, read_multiple_files,\n\nwrite_file, edit_file, create_directory, list_directory,\n\nlist_directory_with_sizes, move_file, search_files, directory_tree.\nOutput is structured content, ready for direct consumption.",
+    "context": "Stateless. Each call is independent; no session memory is kept.\nlist_allowed_directories can query the currently effective directories.",
+    "permissions": "**No separate approval mechanism**; the permission boundary is defined entirely by the allowed directories.\nAll file operations are confined to the allowed directories; anything outside is rejected.\n\n**Note: it provides write_file / edit_file / move_file / create_directory —\na combination that is writable but has no delete tool.**",
+    "fit": "Lets an Agent safely read and write text and media files inside specified directories.\nNot a fit for scenarios needing delete operations or cross-directory aggregation."
+  },
+  "mcp": {
+    "transport": "stdio only. A local Node.js process communicating over standard input/output.\nThe official README (full-text verified 2026-10-08) gives only two local launch methods:\nnpx and Docker. There is no official configuration for a remote transport.\nDirectory control goes through command-line arguments or MCP Roots (dynamically updatable).",
+    "auth": "No separate authentication layer. In stdio form it inherits all file permissions of the client user that launches it.\nThe permission boundary is not an auth mechanism but a directory allowlist.",
+    "scope": "**The default scope is narrow and explicitly forced**: allowed directories must be given via command-line arguments,\nor delivered dynamically if the client supports the Roots protocol.\nWith no arguments and no client roots support, the server errors out at initialization.\n\n**No delete tool is provided**; write, edit, move and create-directory are.\nlist_allowed_directories can query the currently effective directories."
+  },
+  "sectionTitles": {
+    "变更记录说明": "Change-log notes",
+    "⚠ 生产环境免责声明（适用于全部官方 reference server）": "⚠ Production-use disclaimer (applies to all official reference servers)",
+    "权限设计实测记录": "Permission-design test notes",
+    "工具清单": "Tool inventory"
+  },
+  "sections": {
+    "变更记录说明": "**This object has no standalone changelog page**. Change records are on the MCP servers repo's releases page. Directory-level changes are in that directory's commit history:\n\n| Date | Type | Content |\n|---|---|---|\n| 2026-09-03 | fix | Declare the zod runtime dependency |\n| 2026-08-30 | fix | Reject Windows paths under POSIX |\n| 2026-08-28 | fix | `create_directory` does not create parent directories |\n\nRepo-wide releases: 2026.8.31 / 2026.8.18 / 2026.7.10.\n\n**Note the 08-30 fix**. It shows the filesystem server had path-semantics issues across platforms — a point worth watching during measurement.",
+    "⚠ 生产环境免责声明（适用于全部官方 reference server）": "The MCP servers repo README, original wording:\n\n> The servers in this repository are intended as **reference implementations**\n> to demonstrate MCP features and SDK usage. They are meant to serve as\n> educational examples for developers building their own MCP servers,\n> **not as production-ready solutions**. Developers should evaluate their own\n> security requirements and implement appropriate safeguards based on their\n> specific threat model and use case.\n\n> **Note**: this statement applies to every official reference server in this section;\neach entry's body should keep this reminder.",
+    "权限设计实测记录": "This is the most valuable design detail of this server.\n\n| Scenario | Behaviour |\n|---|---|\n| Directory arguments passed at launch | The arguments become the allowed directories |\n| No arguments + client supports Roots | Client roots **fully replace** server-side directories |\n| No arguments + client lacks Roots | **Error at initialization** |\n| Client roots change at runtime | Updated via `roots/list_changed` notification, no restart needed |\n\n**The \"no arguments + no roots support = startup failure\" design deserves credit** —\nit turns a potential permission escape (unrestricted file access) into an explicit failure.",
+    "工具清单": "| Category | Tools |\n|---|---|\n| Read | `read_text_file` `read_media_file` `read_multiple_files` |\n| Write | `write_file` `edit_file` |\n| Directory | `create_directory` `list_directory` `list_directory_with_sizes` `move_file` `directory_tree` |\n| Search | `search_files` |\n\n**Note**: **there is no delete tool**. This is a deliberate permission-narrowing design."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- Minimum protocol version requirement (not declared in the repo)\n- Whether Streamable HTTP is supported (not declared in the repo)\n- The concrete schema of output structures (requires reading source or measuring)\n- The quality of error messages from each tool when a path does not exist",
+  "related": [
+    "The version-control direction",
+    "The cross-session memory direction"
+  ],
+  "sources": [
+    "MCP · Servers Releases (2026.8.31 / 2026.8.18 / 2026.7.10)",
+    "MCP · Filesystem directory change history",
+    "MCP · Filesystem Server",
+    "MCP · Servers repo README (with production-use disclaimer)",
+    "MCP · specification"
+  ]
+}

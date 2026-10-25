@@ -1,0 +1,43 @@
+{
+  "_comment": "C0-8 正文英译 · everything（2026-10-25）。键结构见 context7.en.json。官方英文引文原样保留（B 类），中文「翻译」段在英文侧省略（对英文读者冗余）。",
+  "axes": {
+    "model_access": "It calls no model itself. **The official docs state outright that this server is not intended to be a useful server** —\nit exists for MCP client developers to test features against.\n\nIt implements prompts, tools, resources, sampling and other protocol features to showcase MCP capabilities.",
+    "runtime": "A local Node.js process communicating over stdio.\nA 2026-09-22 fix addressed subscription cleanup on session disconnect.",
+    "local_files": "For testing purposes; it provides no real file-access capability.\nThe detailed resource and tool inventory is in the repo's `docs/features.md`.",
+    "background": "Not supported. It ends with the client process.",
+    "tools": "19 tools in total; **this site has checked them one by one against the repo's `docs/features.md`** (2026-10-08):\n\n- echo, get-annotated-message, get-env, get-resource-links,\n\n- get-resource-reference, get-roots-list, gzip-file-as-resource,\n\n- get-structured-content, get-sum, get-tiny-image,\n\n- trigger-long-running-operation, toggle-simulated-logging,\n\n- toggle-subscriber-updates, trigger-elicitation-request,\n\n- trigger-url-elicitation, trigger-sampling-request,\n\n- simulate-research-query, plus the two async variants of sampling / elicitation.\n\nThere are also 4 prompts and a batch of resource templates (also in features.md).\nOutput shapes are designed for demonstration targets, **not fit for direct consumption**.",
+    "context": "No cross-session memory. A test server — it offers no practical memory capability.",
+    "permissions": "**Not for production use**; permission boundaries are not a design goal.\nThe official positioning is a testing tool — its permission hardening was never designed for production.",
+    "fit": "**Fit for exactly one thing: testing whether your MCP client implements the protocol correctly.**\nNot a fit for any real task scenario."
+  },
+  "mcp": {
+    "transport": "Supports stdio (default, launched via npx).\n**The repo README documents two more remote forms** (verified 2026-10-08):\nStreamable HTTP (`npx @modelcontextprotocol/server-everything streamableHttp`)\nand SSE (the `sse` subcommand; officially marked deprecated since the 2025-03-26 spec).",
+    "auth": "No separate authentication layer. **Not for production use** — permission design is not this server's goal.\nThis entry records no concrete auth mechanism, because the official positioning is a protocol-testing tool;\nproduction safeguards are left to whoever deploys it.",
+    "scope": "**Not for production use.** As a testing tool, neither its permission scope nor its real operational capability\nhas been narrowed for production scenarios.\nBefore enabling it, make sure your environment is not exposed to risk as a result."
+  },
+  "sectionTitles": {
+    "官方定位（原文）": "Official positioning (original wording)",
+    "为什么仍然收录": "Why we still include it",
+    "变更记录说明": "Change-log notes",
+    "与其他 reference server 的区别": "How it differs from the other reference servers"
+  },
+  "sections": {
+    "官方定位（原文）": "> This MCP server attempts to exercise all the features of the MCP protocol.\n> **It is not intended to be a useful server**, but rather a test server for builders of MCP clients.\n> It implements prompts, tools, resources, sampling, and more to showcase MCP capabilities.",
+    "为什么仍然收录": "A comparison site that only lists \"handy\" tools would miss something important:\n**what exists in the ecosystem for other purposes.**\n\nIts inclusion value:\n\n| Reader | What they get |\n|---|---|\n| MCP client developers | A test target with the broadest protocol coverage |\n| MCP server developers | A reference implementation showing how protocol features are used |\n| General readers | Learning to tell a \"reference server\" from a \"usable server\" |\n\n**But it must never be recommended as a practical tool.**",
+    "变更记录说明": "| Date | Content |\n|---|---|\n| 2026-09-22 | Clean up subscriptions on session disconnect |\n| 2026-08-28 | Remove template URI validation and dead code in subscription cleanup |\n\n**The 09-22 entry is a substantive fix**: subscriptions not cleaned up on session disconnect cause a resource leak.",
+    "与其他 reference server 的区别": "| server | Positioning | Usable for real tasks |\n|---|---|:---:|\n| `filesystem` | Reference implementation | ✅ |\n| `git` | Reference implementation | ✅ |\n| `memory` | Reference implementation | ✅ |\n| `sequential-thinking` | Reference implementation | ✅ |\n| `fetch` | Reference implementation | △ needs a security assessment |\n| `time` | Reference implementation | ✅ |\n| **`everything`** | **Testing tool** | ❌ |\n\n**This very comparison column is part of the site's value**: judging only by \"they are all in the official servers repo\"\nmakes them seem identical in nature. They are completely different."
+  },
+  "runs": "This site has not completed measured runs.\n\n**What \"measurement\" means for this server is different**: what to test is not whether it can do work,\nbut whether your MCP client correctly handles every protocol feature it exposes.\nThe test checklist is in the repo's `docs/features.md`.",
+  "unknowns": "> 2026-10-08 A6.2: the tool list has been checked item by item against the repo's `docs/features.md` (19 tools + 4 prompts),\n> and the transport has been verified against the README's Streamable HTTP / SSE launch docs —\n> the original downgrade reason is gone; `confidence` is raised back to `verified`.\n\n- The full scope of protocol-feature coverage (features.md has been read; remaining details evolve with SDK versions — the repo is authoritative)\n- Maintenance status of the SSE subcommand under newer specs (officially marked deprecated; no removal plan seen)",
+  "related": [
+    "A genuinely usable reference implementation",
+    "Also a low-risk simple implementation"
+  ],
+  "sources": [
+    "MCP · Everything Server (officially declared a test server)",
+    "MCP · Everything Server Features (itemized list of 19 tools, checked 2026-10-08)",
+    "MCP · Everything directory change history",
+    "MCP · Servers Releases",
+    "MCP · Servers repo README (production-use disclaimer)"
+  ]
+}

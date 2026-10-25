@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-8 正文英译 · brave-search-mcp（2026-10-25）。无 extraSections。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps the Brave Search API\n(web search, news, images, local places) as tools for agents.",
+    "runtime": "A local process (npx stdio) plus a remote-hosted line (the official docs describe a remote endpoint); GitHub 1,516★,\nlast push 2026-10-21 (API verified).",
+    "local_files": "Reads and writes no local files — it outputs search-result text/links; fetching page content is out of its scope (that is the fetch server's job).",
+    "background": "stdio lives and dies with the client; no background-task semantics.",
+    "tools": "web_search / news_search / image_search / video_search / local_search etc., grouped by API family,\ntrimmable via configuration; the complete inventory follows the repo README.",
+    "context": "No cross-session memory — each search is independent.",
+    "permissions": "A Brave Search API key (free/paid tiers follow the Brave API account); a pure read surface —\nit cannot write to any system; the risk surface is mainly query egress and quota consumption.",
+    "fit": "Fits: giving an agent a \"live search\" capability (after the archived Brave reference in the MCP repo, the official @brave package took over),\na retrieval source independent of the LLM's built-in search.\nNot a fit: deep content fetching (the fetch/firecrawl line); zero-configuration scenarios without an API key."
+  },
+  "mcp": {
+    "transport": "**stdio** (npx @brave/brave-search-mcp-server) is primary; the official docs also describe a remote line — not verified item by item.\nVerified against: the repo README (direct-fetched 2026-10-21).",
+    "auth": "The BRAVE_API_KEY environment variable; the key's quota/plan tiers follow the Brave API account (prices not collected per our D9 rule).",
+    "scope": "Pure read: the search-family tools (web/news/image/video/local). No write surface; no approval needed."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The current status of the remote-hosted line (not verified item by item)\n- The full parameter surface of each search-family tool (not enumerated item by item)",
+  "related": [
+    "The search↔fetch division-of-labour contrast: Brave tells you \"which page\", fetch gives you \"this page's body text\"."
+  ],
+  "sources": [
+    "brave/brave-search-mcp-server · repository (MIT; 1,516★, last push 2026-10-21, GitHub API verified)",
+    "brave/brave-search-mcp-server · Releases (changelog)",
+    "modelcontextprotocol/servers · README (official archival note: Brave taken over by the @brave package)"
+  ]
+}

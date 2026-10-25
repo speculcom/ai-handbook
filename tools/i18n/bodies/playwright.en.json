@@ -1,0 +1,48 @@
+{
+  "_comment": "C0-8 正文英译 · playwright（2026-10-25）。官方英文引文原样保留（B 类），中文「翻译」段在英文侧省略。",
+  "axes": {
+    "model_access": "It calls no model itself; it is an interface implementation called by clients.\n**It drives Playwright's accessibility tree rather than pixel input**,\nso no vision model is needed and output is structured snapshots.",
+    "runtime": "A local Node.js process (Node.js 18+ required), communicating over stdio.\nIt also offers an HTTP endpoint mode, plus a browser-extension mode (Edge / Chrome).\nHeaded mode is the default; switch with --headless.",
+    "local_files": "**No local file-access capability.** The core capability is browser control.\nThe user profile is persisted by default in the Playwright cache directory (isolated by workspace hash);\n--isolated switches it to in-memory only.",
+    "background": "The browser process can stay resident. --idle-timeout controls idle shutdown:\n**headless closes after 1 hour idle by default; headed mode never closes by default**;\nthe next tool call relaunches the browser.",
+    "tools": "It provides a full browser-automation toolset. **This site has checked it item by item against the official README: 72 tools in total**\n(2026-10-08):\n\n- navigation and tabs\n- click / drag-and-drop / hover\n- forms and keyboard input\n- accessibility-tree snapshots\n- screenshots and PDF\n- network requests and routing (route / unroute)\n- reading and writing cookies and localStorage / sessionStorage\n- file uploads\n- dialog handling\n- video recording and tracing (start / stop), plus the verify_* assertion group, etc.\n\nOutput is mainly accessibility-tree structure — structured data, ready for direct consumption.",
+    "context": "**Keeping the browser context is this server's core value** —\nthe README states explicitly that the MCP form suits agentic loops needing persistent state,\nrich introspection and iterative reasoning,\ne.g. exploratory automation, self-healing tests, long-running autonomous workflows.",
+    "permissions": "**The browser must be granted permissions, and the official docs state plainly that the restriction controls are not a security boundary.**\n\n--grant-permissions can grant geolocation, clipboard-read, clipboard-write and similar permissions.\n\n**The documentation for --allowed-origins and --blocked-origins states verbatim**:\n\"does not serve as a security boundary\" and does not affect redirects.\nAll origins are allowed by default.",
+    "fit": "Scenarios needing browser automation that must keep session state:\nexploratory automation, self-healing tests, long-running autonomous workflows.\n\n**Not a fit for high-throughput coding agents** — the README itself recommends\nPlaywright CLI + SKILLS for those, for better token efficiency."
+  },
+  "mcp": {
+    "transport": "Supports **stdio**, and offers an **HTTP endpoint** mode (--endpoint)\nplus a browser-extension connection mode (--extension; requires the Playwright extension, Edge / Chrome only).\n\n--shared-browser-context shares a browser context;\nmultiple HTTP clients can share one context.",
+    "auth": "The stdio form has no separate authentication layer; it inherits the client user's permissions.\n\n**HTTP mode (official README verified 2026-10-08)**: the options table has no token/auth parameter.\nThe Docker example listens bare with `--host 0.0.0.0`. The official docs state plainly\n\n\"Playwright MCP is **not** a security boundary\", requiring users to harden it themselves\n(reverse proxy / network layer) per MCP security best practices. **Add authentication yourself; do not assume it exists.**",
+    "scope": "**What it controls is the browser, not files — but the risk surface is just as wide**:\nall origins are allowed by default (--allowed-origins allows everything by default),\nand browser permissions such as geolocation and clipboard read/write can be granted.\n\nThe official docs **state plainly that origin restrictions are not a security boundary**;\nfor real isolation use --isolated or containerized network policies."
+  },
+  "sectionTitles": {
+    "变更记录说明": "Change-log notes",
+    "核心设计：用无障碍树，不用像素": "Core design: the accessibility tree, not pixels",
+    "⚠ 官方对来源限制的自我限制（原文）": "⚠ The official self-limitation on origin restrictions (original wording)",
+    "MCP 还是 CLI？官方给了明确建议": "MCP or CLI? The official docs give a clear recommendation",
+    "配置项与安全相关性": "Configuration options and security relevance",
+    "浏览器生命周期": "Browser lifecycle",
+    "能力边界": "Capability boundaries"
+  },
+  "sections": {
+    "变更记录说明": "This object has its own releases, directly citable:\n\n| Version | Date |\n|---|---|\n| v0.0.83 | 2026-09-28 |\n| v0.0.82 | 2026-09-18 |\n| v0.0.81 | 2026-09-14 |\n\n**The version is still 0.0.x**, meaning interfaces may still change — take care when citing specific tool names.",
+    "核心设计：用无障碍树，不用像素": "```\nFast and lightweight — Uses Playwright's accessibility tree, not pixel-based input.\nLLM-friendly — No vision models needed, operates purely on structured data.\nDeterministic tool application — Avoids ambiguity common with screenshot-based approaches.\n```\n\n**These three points are the fundamental difference between this server and other browser-automation approaches**:\n\n| Approach | Cost | Determinism |\n|---|---|---|\n| Screenshot + vision model | heavy token consumption, needs vision capability | low (the model may misread) |\n| **Accessibility tree** | controllable tokens | **high** (structured data) |",
+    "⚠ 官方对来源限制的自我限制（原文）": "The docs for `--allowed-origins` and `--blocked-origins` state:\n\n> Important: **does not serve as a security boundary** and **does not affect redirects**.\n\nThis means:\n\n- even with allowed-origins configured, **redirects can still bypass it**\n- it is a tool for \"reducing accidents\", **not a mechanism for \"blocking access\"**\n\n**The official docs writing this sentence themselves is worth more than our own inference.**\nThat is exactly what this site aims to do: record the boundaries the official side itself acknowledges.",
+    "MCP 还是 CLI？官方给了明确建议": "This is a rare passage in the README that gives a direct selection recommendation:\n\n| Form | Official judgement | Reason |\n|---|---|---|\n| **Playwright CLI + SKILLS** | **better for high-throughput coding agents** | CLI calls are more token-efficient; no large tool schemas or verbose accessibility trees to load |\n| **MCP** | better for specific agentic loops | when persistent state, rich introspection and iterative reasoning over page structure are needed |\n\nConcrete scenarios: exploratory automation, self-healing tests, long-running autonomous workflows.\n\n**In other words**: if you are a coding agent frequently driving the browser, the official docs recommend **not using MCP**.",
+    "配置项与安全相关性": "| Flag | Default | Security impact |\n|---|---|---|\n| `--allowed-origins` | **allows everything** | officially stated not to be a security boundary |\n| `--blocked-origins` | unset | the blocklist is evaluated before the allowlist; alone, unmatched origins still pass |\n| `--grant-permissions` | none | can grant geolocation / clipboard-read / clipboard-write |\n| `--isolated` | off | when on, the profile is in-memory only, never persisted |\n| `--headless` | off (headed) | affects idle-timeout behaviour |\n\n**`--isolated` is the security option most worth noting here**. It keeps the browser profile off disk.\nIt suits scenarios handling sensitive login state.",
+    "浏览器生命周期": "```\n--idle-timeout: close the browser after this many ms idle; the next tool call relaunches it.\n  headless  defaults to 1 hour\n  headed    never closes by default\n  0         disables the behaviour\n```\n\n**This default-value difference matters a lot**. Headless closes automatically (saving resources). Headed stays resident (keeping login state).\nIf you depend on login state, headed mode is actually less hassle.",
+    "能力边界": "- ✅ browser automation, accessibility-tree snapshots, structured output\n- ✅ three connection modes: stdio / HTTP endpoint / extension\n- ❌ **provides no file access**\n- ⚠ origin restrictions **do not constitute a security boundary**"
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).\n\n**Suggested measurement**: focus on token consumption — the context-footprint difference between the MCP form and the screenshot form on the same task.\nThat is the core basis of the official selection recommendation and is worth quantifying.",
+  "unknowns": "- How isolated state is when multiple clients share a context (`--shared-browser-context`)\n- The concrete behaviour of redirects bypassing origin restrictions",
+  "related": [
+    "Also network-access direction; the official docs likewise flag the security warning explicitly",
+    "A testing server — not for production"
+  ],
+  "sources": [
+    "Microsoft · Playwright MCP README (with the origin-restriction disclaimer)",
+    "Microsoft · Playwright MCP Releases (v0.0.83 / v0.0.82 / v0.0.81)",
+    "Microsoft · Playwright MCP Commits",
+    "Model Context Protocol · specification"
+  ]
+}

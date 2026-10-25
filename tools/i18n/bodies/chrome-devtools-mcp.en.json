@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-8 正文英译 · chrome-devtools-mcp（2026-10-25）。无 extraSections。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Chrome DevTools Protocol (CDP) capabilities\nas tools: navigation, clicking, screenshots, performance traces, network and console logs.",
+    "runtime": "A local process (npx starts stdio, driving the machine's Chrome); GitHub 53,940★, last push 2026-10-21 (API verified) —\none of the top-traffic projects in the MCP ecosystem.",
+    "local_files": "What it operates is the browser runtime: pages, network, console; screenshots/traces can be saved to local paths (specified by parameters).\nIt does not read or write your project source code — that is the filesystem server's job.",
+    "background": "Lives and dies with the client (a stdio child process); the Chrome instance is launched or attached by it. No background-task semantics.",
+    "tools": "Navigation/interaction (click/type/upload), screenshots, performance tracing and analysis, network and console reading,\n emulation (CPU/network throttling), etc.; the complete inventory follows the repo README.",
+    "context": "No cross-session memory — page state lives in the browser instance; when the session ends the instance closes.",
+    "permissions": "**It drives a real browser**: it can visit any URL the client tells it to and interact as the browser.\nThe official positioning is giving coding agents the ability to \"see the browser\"; isolation and allowlists rely on client/browser-profile configuration —\nthere is no official statement of a URL-allowlist mechanism in the server itself.",
+    "fit": "Fits: coding agents debugging real pages, performance analysis, the E2E verification loop (change code → look at the browser → change again).\nNot a fit: headless bulk scraping (the fetch/firecrawl line); scenarios needing URL-level hard isolation (the server has no such mechanism)."
+  },
+  "mcp": {
+    "transport": "**stdio** (npx chrome-devtools-mcp@latest); HTTP-mode support status not verified item by item.\nVerified against: the repo README (direct-fetched 2026-10-21).",
+    "auth": "No credential layer — it needs no account token; permissions = whatever the browser instance can do.\nSupport for connecting to an existing Chrome instance (a --connect-to-existing-browser kind of option) not verified item by item.",
+    "scope": "The scope is the browser runtime: arbitrary navigation, interaction, reading network/console, running performance traces.\nNo official statement of a URL allowlist or approval layer — tightening relies on client-side tool approval and browser-profile isolation."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- HTTP transport-mode support status (not verified item by item)\n- The parameter surface for attaching to an existing browser instance (not verified item by item)\n- The capability-difference matrix vs Playwright MCP (the overlap area not compared item by item)",
+  "related": [
+    "The browser-automation duo contrast: Playwright MCP takes the Playwright-driver line; this entry takes the CDP-direct + performance-analysis line."
+  ],
+  "sources": [
+    "ChromeDevTools/chrome-devtools-mcp · repository (Apache-2.0; 53,940★, last push 2026-10-21, GitHub API verified)",
+    "ChromeDevTools/chrome-devtools-mcp · Releases (changelog)",
+    "Chrome DevTools · official docs (CDP capability background)"
+  ]
+}

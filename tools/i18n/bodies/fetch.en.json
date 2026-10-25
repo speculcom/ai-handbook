@@ -1,0 +1,44 @@
+{
+  "_comment": "C0-8 正文英译 · fetch（2026-10-25）。官方英文警告原样保留（B 类），中文「翻译」段在英文侧省略。",
+  "axes": {
+    "model_access": "It calls no model itself; it is an interface implementation called by clients.\nIts core is converting web-page HTML into Markdown for LLM consumption.",
+    "runtime": "A local **Python** process communicating over stdio.\nIt depends on the Python MCP SDK 1.x (requires mcp>=1.29.0,<2); SDK 2.0 renamed the APIs this server uses.\n\nA 2026-08-30 fix addressed security and compatibility issues of container bind mounts under Docker / Podman / SELinux.",
+    "local_files": "**No file read/write tools.** The core capability is web fetching; local files are not involved.",
+    "background": "Not supported. A single fetch is a synchronous operation, ending with the client process.",
+    "tools": "It provides the fetch tool to retrieve web content and convert it to Markdown.\nOutput is converted text; **its degree of structure depends on the target page itself**.",
+    "context": "Stateless. Each call is independent; no fetch history is kept.",
+    "permissions": "**The official docs warn explicitly about the security risk**: the README states this server\n**can access local/internal IP addresses and may represent a security risk**.\nUse with caution and make sure no sensitive data is exposed.\nThere is no separate approval mechanism, and the target-address range cannot be restricted.",
+    "fit": "Converts public web content to Markdown for an Agent to read.\n**Not a fit for environments with intranet access**,\nnor for pages requiring login state."
+  },
+  "mcp": {
+    "transport": "Supports stdio, **and offers container deployment (Docker / Podman)**.\nThe 2026-08-30 fix addressed bind-mount security and compatibility (including SELinux).\n\nThe official README (full-text verification 2026-10-08) gives only local-process integration:\nuvx / pip / Docker; there is no official launch method for a remote transport.",
+    "auth": "No separate authentication layer. In stdio form it inherits the client user's permissions.\n**Authentication configuration for the container form is not stated in the repo.**",
+    "scope": "**The highest-risk class**: no file scope (files are not involved),\nbut **the network range cannot be narrowed** —\nthe official warning says it can access local/internal IPs.\nNo address allowlist, no approval mechanism.\nAn assessment is mandatory before using it in production or in environments hosting intranet services."
+  },
+  "sectionTitles": {
+    "⚠ 官方安全警告（原文）": "⚠ The official security warning (original wording)",
+    "为什么这个风险值得单独说": "Why this risk deserves its own section",
+    "变更记录说明": "Change-log notes",
+    "输出质量评估": "Output-quality assessment",
+    "部署建议": "Deployment advice"
+  },
+  "sections": {
+    "⚠ 官方安全警告（原文）": "> **CAUTION**\n> This server can access local/internal IP addresses and may represent a security risk.\n> Exercise caution when using this MCP server to ensure this does not expose any sensitive data.\n\n**This is the clearest self-flagged risk by the official side in this entire section**,\nand the site considers it the most valuable first-hand information — such warnings are rare;\nmost comparable tools only write \"be careful when using\".",
+    "为什么这个风险值得单独说": "| Scenario | Risk |\n|---|---|\n| Intranet has database admin panels (`10.x` / `192.168.x`) | The Agent may fetch intranet pages |\n| Cloud metadata services (e.g. `169.254.169.254`) | Instance metadata and credentials may be obtained |\n| A dev server runs on the local machine | Local service responses may be fetched |\n| The Agent is lured into fetching a malicious URL | Intranet topology can be probed |\n\n**The key point**: there is no address allowlist and no approval mechanism.\nOnce enabled, the Agent has a channel for probing the intranet.",
+    "变更记录说明": "**This object has no standalone changelog page**; change records are in the directory's commit history:\n\n| Date | Content |\n|---|---|\n| 2026-08-30 | Fix container bind-mount security and compatibility (Docker / Podman / SELinux) |\n| 2026-08-18 | Document the Python MCP 1.x version requirement |\n| 2026-08-18 | Pin the dependency `mcp>=1.29.0,<2` |\n| 2026-07-29 | Batch uv dependency updates |\n\n**Two entries worth noting**:\n\n- **The 08-18 version pin**: SDK 2.0 renamed the APIs this server uses, and the official side pins it to 1.x.\n  If your environment has SDK 2.x installed, this server may fail to start.\n\n- **The 08-30 container fix** is the same commit (#2205) as git / time, showing these three servers shared a containerization problem.",
+    "输出质量评估": "**Output structure depends on the target page itself**; there is no unified schema:\n\n| Target page type | Output quality |\n|---|---|\n| Documentation sites (regular structure) | good |\n| Blog article bodies | medium |\n| Single-page apps (content rendered by JS) | **poor** — the body text cannot be fetched |\n| Pages requiring login | **fails** |\n| Pure images / PDFs | unusable |\n\n**This is not a defect of the server, but it defines the tool's applicability boundary.**",
+    "部署建议": "If you really need it, consider it only under these conditions:\n\n| Condition | Explanation |\n|---|---|\n| Isolated network environment | not on the same segment as intranet services |\n| or containerized with egress restricted | allowlist outbound, only target domains permitted |\n| and no intranet-access requirement is accepted | because it cannot be restricted |\n\n**Note**: containerization alone does not solve this risk —\ninside a container the host network is still reachable unless network policies are configured."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).\n\n**Suggested measurement**: measurement of this server **should not be done in environments containing sensitive intranet services**.\nVerify fetch success rate and output quality in an isolated container or test network.",
+  "unknowns": "- Whether Streamable HTTP is supported (not declared in the repo)\n- Whether there are timeout and retry policies\n- Truncation behaviour on very large pages\n- Authentication configuration in the container form",
+  "related": [
+    "The lowest permission-risk contrast",
+    "The file direction, with more conservative permission design"
+  ],
+  "sources": [
+    "MCP · Fetch Server (with the official security warning)",
+    "MCP · Fetch directory change history",
+    "MCP · Servers Releases",
+    "MCP · Servers repo README (production-use disclaimer)"
+  ]
+}

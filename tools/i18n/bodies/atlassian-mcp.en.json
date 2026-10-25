@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-8 正文英译 · atlassian-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Jira/Confluence capabilities\n(searching issues, reading and writing pages, querying projects) as tools for agents.",
+    "runtime": "An official hosted remote server (product page direct-fetched 200); a single endpoint covers both the Jira and Confluence product surfaces.",
+    "local_files": "Never touches the local file system — the scope is Atlassian cloud sites (issues, pages).",
+    "background": "The service lives on Atlassian's side; request-response semantics, no background tasks.",
+    "tools": "Jira: search/read/create/update issues, query projects; Confluence: search/read/create/update pages.\nThe complete inventory follows the official docs; it has not been enumerated item by item.",
+    "context": "No server-side cross-session memory — state lives on the sites themselves.",
+    "permissions": "OAuth 3LO user authorization: the agent-visible surface = the connected account's permissions on the site (including project-level restrictions);\nwrite capabilities (creating issues / editing pages) take effect directly — defend on the assumption \"it can edit your wiki for you\".",
+    "fit": "Fits: agents in enterprise dev flows pulling Jira requirement context and writing Confluence docs.\nNot a fit: scenarios needing write-approval flows; Data Center self-hosted support status is unverified."
+  },
+  "mcp": {
+    "transport": "**Streamable HTTP remote hosting** (official endpoint); verified: product page 200 (2026-10-21).\nThe concrete endpoint URL follows the official docs (not verified item by item).",
+    "auth": "OAuth 3LO (user login authorization); scopes are split by product (separate scope families for Jira / Confluence).",
+    "scope": "Read surface: issue/page search and reading; write surface: create/update issues, create/update pages.\nIt follows the account's permissions; there is no tool-level approval layer."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The endpoint URL and the full scope table (not verified item by item)\n- Data Center support status (no official statement seen)\n- The complete tool inventory (not enumerated item by item)",
+  "related": [
+    "Also an issue-management server: Linear is lightweight single-product; Atlassian is one endpoint for two products with a heavier enterprise permission surface."
+  ],
+  "sources": [
+    "Atlassian · official Remote MCP product page (direct-fetched 2026-10-21)",
+    "Atlassian · developer changelog",
+    "Atlassian · official MCP launch announcement (2025-06 initial launch line)"
+  ]
+}

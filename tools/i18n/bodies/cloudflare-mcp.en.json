@@ -1,0 +1,28 @@
+{
+  "_comment": "C0-8 正文英译 · cloudflare-mcp（2026-10-25）。无 extraSections。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps the Cloudflare platform\n(Workers, Pages, D1, R2, DNS, docs retrieval, etc.) as tools for agents.",
+    "runtime": "Primarily an official hosted remote server (the docs carry a remote-endpoint line) + runnable locally; GitHub 4,399★,\nlast push 2026-10-21 (API verified).",
+    "local_files": "Reads and writes no local project files — the scope is Cloudflare account resources (deploying Workers, writing D1/R2, etc.).",
+    "background": "The remote form lives on Cloudflare's side; no background-task semantics (deploy actions complete immediately).",
+    "tools": "Grouped by product (Workers/Pages/D1/R2/DNS/Docs…), trimmable via configuration; write capability is complete\n(deploying Workers, creating KV/D1 databases, changing DNS records). The complete grouping follows the repo README.",
+    "context": "No cross-session memory — state lives in the Cloudflare account resources themselves.",
+    "permissions": "**API-token permissions = agent permissions**: Cloudflare tokens can narrowly restrict resources and operation surfaces —\nthe official recommendation is to connect MCP with a restricted token. This is the finest-grained credential line among its peers,\nbut \"able to deploy code to Workers\" means able to run arbitrary code — defend against that worst case.",
+    "fit": "Fits: the agent deployment flow on the Cloudflare stack (write Worker → deploy → check logs), docs retrieval.\nNot a fit: a hard \"configure but never deploy\" boundary (token granularity can narrow it, but must be configured carefully)."
+  },
+  "mcp": {
+    "transport": "Remote **Streamable HTTP** (official hosted endpoints) + a local stdio line;\nthe endpoint matrix is grouped by product (one remote server URL per product) — follows the repo README.\nVerified against: the repository and developers.cloudflare.com/changelog (2026-10-21).",
+    "auth": "A Cloudflare API token (a restricted token is recommended: limit account/resources/operations);\nOAuth-line support status not verified item by item.",
+    "scope": "Read surface: docs retrieval, resource queries; write surface: deploying Workers, creating/modifying D1/R2/KV, DNS record changes.\nToken granularity is the primary tightening control; no official statement of a tool-level approval mechanism."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The full product-grouping table and remote endpoint matrix (not enumerated item by item)\n- OAuth support status (not verified item by item)\n- Rate limits of each endpoint (not verified item by item)",
+  "related": [
+    "Also a model of the \"multiple trimmable toolsets\" design: GitHub uses toolsets; Cloudflare splits servers by product."
+  ],
+  "sources": [
+    "cloudflare/mcp-server-cloudflare · repository (Apache-2.0; 4,399★, last push 2026-10-21, GitHub API verified)",
+    "cloudflare/mcp-server-cloudflare · Releases (changelog)",
+    "Cloudflare · developer changelog"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "_comment": "C0-8 正文英译 · git（2026-10-25）。",
+  "axes": {
+    "model_access": "It calls no model itself; it is an interface implementation called by clients.\nIt invokes the local git command line directly, inheriting the local git version and configuration.",
+    "runtime": "A local process communicating over stdio;\ncontainer deployment (Docker / Podman) is also supported, but repository directories must be mounted explicitly.\n\nA 2026-08-30 fix addressed security and compatibility issues of container bind mounts under Docker / Podman / SELinux.",
+    "local_files": "**Operates repositories through git; no arbitrary file read/write is needed**.\nEvery tool requires a repo_path, scoping it to that git repository.\nFile contents inside the repository are read indirectly via git show / git_log and similar commands.",
+    "background": "Not supported. The local process lives and dies with the client;\nunder container deployment it depends on the container orchestration, not controlled by this server itself.",
+    "tools": "It provides 11 tools, including:\n\n- git_status\n- git_diff_unstaged\n- git_diff_staged\n- git_diff\n- git_commit\n- git_add\n- git_reset\n- git_log\n- git_create_branch\n- git_checkout\n- git_show\n\n**Including 4 write operations** (commit / add / reset / checkout);\noutput is structured text or diffs, ready for direct consumption.",
+    "context": "No cross-session memory. State is carried entirely by the git repository itself;\nsession disconnects do not affect repository state.",
+    "permissions": "**No separate approval mechanism.** The permission boundary equals the local git user's file permissions,\nand **it has full write capability**, including committing, resetting the staging area and switching branches.\n\ngit_reset only unstages and does not discard working-tree changes;\nbut git_checkout can switch to any branch.",
+    "fit": "Lets an Agent read repository status, history and diffs, and perform commits and branch operations under controlled conditions.\nNot a fit for scenarios needing push / PRs / remote repository management. This server provides no remote operations."
+  },
+  "mcp": {
+    "transport": "Supports stdio. The README also gives container deployment (Docker / Podman)\n\nand uvx / pip local installation (full-text verification 2026-10-08);\nthere is no official launch method for a remote transport (SSE / Streamable HTTP).",
+    "auth": "No separate authentication layer. In stdio form it inherits the client user's git permissions;\nfor the container form, authentication depends on the container orchestration configuration and is not stated in the repo.",
+    "scope": "**The scope is confined to the git repository passed in** — narrower than the filesystem server.\n\nBut **it has full write capability** (commit / add / reset / checkout),\nwith no separate approval. Switching branches can change working-tree state — take care."
+  },
+  "sectionTitles": {
+    "变更记录说明": "Change-log notes",
+    "工具清单与读写属性": "Tool inventory and read/write attributes",
+    "与 filesystem server 的对比": "Comparison with the filesystem server",
+    "能力边界": "Capability boundaries",
+    "已归档的替代方案": "The archived alternative"
+  },
+  "sections": {
+    "变更记录说明": "**This object has no standalone changelog page**; change records are in the directory's commit history:\n\n| Date | Content |\n|---|---|\n| 2026-09-02 | Unify the `git_log` output schema; remove `raise_exceptions` from `run` |\n| 2026-08-30 | Fix container bind-mount security and compatibility for Fetch / Git / Time (Docker / Podman / SELinux) |\n| 2026-08-18 | Document the Python MCP 1.x version requirement for fetch, git, time |\n\n**Two entries worth noting**:\n\n- **The 09-02 output-schema unification** means `git_log`'s return structure has changed. If you parse its output, check the version.\n- **The 08-30 container security fix** shows the container deployment path of these servers once had security issues, involving SELinux — if you run containers in an enterprise environment, that commit is worth reading.",
+    "工具清单与读写属性": "| Tool | Attribute | Description |\n|---|---|---|\n| `git_status` | read | working-tree and staging-area status |\n| `git_diff_unstaged` | read | unstaged changes |\n| `git_diff_staged` | read | staged changes |\n| `git_diff` | read | comparison against a target branch/commit |\n| `git_log` | read | commit history, with time filtering |\n| `git_show` | read | the content of a given commit |\n| `git_add` | **write** | stage specified files |\n| `git_commit` | **write** | commit and return the new hash |\n| `git_reset` | **write** | unstage everything (working tree untouched) |\n| `git_create_branch` | **write** | create a branch from current or a specified base |\n| `git_checkout` | **write** | switch branches, changing working-tree state |\n\n**6 read, 5 write**. This is not a read-only tool. `git_checkout` switching branches directly changes the working tree. If it has uncommitted changes, the behaviour deserves special care.",
+    "与 filesystem server 的对比": "| Dimension | filesystem | git |\n|---|---|---|\n| Scope | directory allowlist | the git repository passed in |\n| Write operations | yes (write / edit / move) | **yes and stronger** (commit / reset / checkout) |\n| Delete | not provided | not provided |\n| Command execution | not provided | invokes the git command line internally |\n| Authentication | none (relies on process permissions) | none (relies on process permissions) |\n\n**Conclusion**: the git server's write capability is stronger, but its scope is confined to the git repository, so its risk surface is smaller than filesystem's.",
+    "能力边界": "**This server does local operations only**; it does not provide:\n\n- `git push`\n- creating PRs / issues\n- remote repository management\n\nRemote operations need another solution (the old github server is archived, see below).",
+    "已归档的替代方案": "The original `github` server provided repository management, file operations and GitHub API integration. It is **archived** to\n[servers-archived](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github). The archived repo has seen essentially no updates since 2025-05."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- Whether SSE / Streamable HTTP is supported (not declared in the repo)\n- The authentication mechanism in the container form\n- How the specific lower bound of Python MCP 1.x versions affects functionality\n- The exact structure of the new `git_log` schema",
+  "related": [
+    "Same repository, with more conservative scope design",
+    "The cross-session memory direction"
+  ],
+  "sources": [
+    "MCP · Git Server",
+    "MCP · Git directory change history",
+    "MCP · Servers Releases",
+    "MCP · Servers repo README (production-use disclaimer)"
+  ]
+}

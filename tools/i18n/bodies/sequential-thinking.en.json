@@ -1,0 +1,42 @@
+{
+  "_comment": "C0-8 正文英译 · sequential-thinking（2026-10-25）。",
+  "axes": {
+    "model_access": "It calls no model itself; it is an interface implementation called by clients.\n**This server produces no intelligence, only structure** —\nwhat it constrains is how the Agent calls it (step-by-step thinking with revisions allowed);\nthe actual reasoning is still done by the model behind the client.",
+    "runtime": "A local Node.js process communicating over stdio. No file or network access needed.",
+    "local_files": "**No file-access capability whatsoever.** It provides no read/write tools — one of the narrowest-permission entries in this section.",
+    "background": "Not supported. A pure-computation tool: stateless, no background needed.",
+    "tools": "**A single tool** `sequential_thinking`,\n\nwhose parameters include:\n\n- thought\n- thoughtNumber\n- totalThoughts\n- nextThoughtNeeded\n\nplus revision (isRevision / revisesThought) and\nbranching (branchFromThought / branchId) controls.\n\nOutput is a structured object.",
+    "context": "No cross-session memory. Each call receives the full thinking text;\nrevisions and branches are passed explicitly via parameters, with no reliance on server-side storage.",
+    "permissions": "**No permission risk at all**: no file access, no network access, writes no state.\nIts entire permission set is \"being able to call one pure function\".",
+    "fit": "Lets an Agent advance complex problems in a structured, revisable, branchable way.\nNot a fit for simple tasks (extra call rounds bring no benefit)."
+  },
+  "mcp": {
+    "transport": "stdio only. npx / Docker local process (full README verification 2026-10-08);\nthere is no official launch method for a remote transport. The Docker image is mcp/sequentialthinking.",
+    "auth": "No separate authentication layer, but **this is the only server in this section with no substantive permission boundary** —\nno files, no network, no state; whether auth exists makes no security difference.",
+    "scope": "**No file or network access; reads and writes no external resources.**\nIts permission scope is empty — the lowest permission-risk class among MCP servers.\nSafe to use in sensitive environments."
+  },
+  "sectionTitles": {
+    "变更记录说明": "Change-log notes",
+    "工具设计": "Tool design",
+    "关键澄清：它不提升模型能力": "Key clarification: it does not boost model capability",
+    "权限评价": "Permission assessment"
+  },
+  "sections": {
+    "变更记录说明": "**This object has no standalone changelog page**; change records are in the directory's commit history:\n\n| Date | Content |\n|---|---|\n| 2026-09-03 | Declare the zod runtime dependency |\n| 2026-08-28 | Restore `nextThoughtNeeded` in the inputSchema required array |\n| 2026-08-28 | Read the server version from package.json (no longer hardcoded) |\n| 2026-07-29 | Batch dependency updates |\n\n**The 08-28 schema fix is worth noting**: `nextThoughtNeeded` had been wrongly removed from the required array.\nIf your client validates the schema strictly, this causes calls to be rejected.",
+    "工具设计": "**There is only one tool**; its parameters fall into four groups:\n\n| Group | Parameters | Purpose |\n|---|---|---|\n| **Progress** | `thought` `thoughtNumber` `totalThoughts` `nextThoughtNeeded` | what this step is, how many steps total, whether to continue |\n| **Revision** | `isRevision` `revisesThought` | acknowledge revising an earlier step |\n| **Branching** | `branchFromThought` `branchId` | fork another reasoning path from some step |\n| **Extension** | `needsMoreThoughts` | discover mid-way that more steps are needed |\n\n**\"Revision\" and \"branching\" are this server's core value** —\nthey let the Agent go back and change steps mid-reasoning, instead of one path to the end.",
+    "关键澄清：它不提升模型能力": "This is the most easily misunderstood point.\n\n```\nThis server calls no model and does no reasoning.\nIt constrains how the client calls it; reasoning is still done by the model.\n```\n\n**It solves a \"structure\" problem, not an \"intelligence\" problem**:\n\n| What it does | What it does not do |\n|---|---|\n| Makes reasoning visible step by step | Make the model smarter |\n| Allows mid-way revision | Improve conclusion accuracy |\n| Supports parallel branch exploration | Reduce token consumption (it increases it instead) |\n| Lets the caller observe the process | Replace thinking-budget control |\n\n**Using it on simple tasks adds call rounds with no benefit.** The applicable scenarios the README itself lists are also limited to:\nbreaking down complex problems, analyses that may need correction, tasks with unclear initial scope, long tasks needing irrelevant information filtered out.",
+    "权限评价": "**The lowest permission-risk class among MCP servers**; safe in sensitive environments:\n\n| Check | Result |\n|---|---|\n| Read files | ❌ none |\n| Write files | ❌ none |\n| Network access | ❌ none |\n| Persisted state | ❌ none |\n| Delete capability | ❌ none |\n\nIts entire permission set is \"being able to call one pure function\". This class of server deserves calling out —\nit shows the MCP ecosystem also has zero-risk tools; not everything is permission-sensitive."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).\n\n**Suggested measurement**: for this class of server the focus is **call rounds and token cost**,\nnot whether the task completes. Compare total tokens and rounds \"with / without\" on the same task.",
+  "unknowns": "- Whether Streamable HTTP is supported (not declared in the repo)\n- Whether branches require the caller to maintain a full context tree\n- The degree of overlap with clients' built-in reasoning capabilities",
+  "related": [
+    "The cross-session memory direction (has persistence and delete capability)",
+    "The file-operations direction (permission-sensitive)"
+  ],
+  "sources": [
+    "MCP · Sequential Thinking Server",
+    "MCP · Sequentialthinking directory change history",
+    "MCP · Servers Releases",
+    "MCP · Servers repo README (production-use disclaimer)"
+  ]
+}

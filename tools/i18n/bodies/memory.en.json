@@ -1,0 +1,44 @@
+{
+  "_comment": "C0-8 正文英译 · memory（2026-10-25）。官方英文引文原样保留（B 类）。",
+  "axes": {
+    "model_access": "It calls no model itself; it is an interface implementation called by clients.\n\nIts design is tied to Claude's persistent-memory scenario (the README states plainly **\"lets Claude remember information about the user across chats\"**).",
+    "runtime": "A local Node.js process communicating over stdio.\n\nData persists in a local JSONL file, with a lifecycle independent of the client process.",
+    "local_files": "**Accesses only its own memory file** (by default under the memory directory); it provides no arbitrary file read/write tools.\n\nThe storage location can be set via a parameter; the actual accessible range depends on the permissions of that path.",
+    "background": "The server process lives and dies with the client,\n\nbut **memory data persists on disk and survives restarts**.\n\nA 2026-09-03 fix serialized graph mutations to avoid concurrent-write races.",
+    "tools": "It provides 9 tools:\n\n- create_entities, create_relations, add_observations, delete_entities, delete_observations, delete_relations, read_graph, search_nodes, open_nodes.\n\nIt also exposes one resource: `memory://knowledge-graph`.\n\n**Including 3 delete tools** (delete_entities / delete_observations / delete_relations);\noutput is structured JSON, ready for direct consumption.",
+    "context": "**This is the server's core capability**: cross-session persistent memory.\n\nIt stores entities, relations and observations in a knowledge-graph structure,\nsupporting retrieval (search_nodes) and read-by-name (open_nodes).",
+    "permissions": "**No separate approval mechanism.**\n\nThe memory graph is global shared state; **every write affects all subsequent sessions**.\n\nIt provides 3 delete tools that can remove entities, observations and relations.\n\nOn 2026-09-03 a search_nodes query-length limit and a deduplication fix were added.",
+    "fit": "Lets an Agent remember long-term information such as user preferences and project context across sessions.\n\nNot a fit for scenarios needing audit or traceability (the graph is mutated in place)."
+  },
+  "mcp": {
+    "transport": "stdio only. A local Node.js process communicating over standard input/output (launched via npx).\n\nThe official README (full-text verification 2026-10-08) has no official launch method for a remote transport.",
+    "auth": "No separate authentication layer. In stdio form it inherits the client user's permissions.\n\nThe memory file itself is unencrypted — **any process that can read that file can obtain all memory content**.",
+    "scope": "**The narrowest-scope class**: it reads and writes only its own memory file and provides no arbitrary file-access tools.\n\nThe permission risk lies not in file scope but in **content sensitivity** —\n\nthe memory may hold user preferences, project information and other privacy,\nand the file is unencrypted with no independent access control."
+  },
+  "sectionTitles": {
+    "变更记录说明": "Change-log notes",
+    "数据结构": "Data structures",
+    "工具清单与读写属性": "Tool inventory and read/write attributes",
+    "权限风险的特点": "What is distinctive about its permission risk",
+    "与 filesystem 的对比": "Comparison with filesystem"
+  },
+  "sections": {
+    "变更记录说明": "**This object has no standalone changelog page**; change records are in the directory's commit history:\n\n| Date | Content |\n|---|---|\n| 2026-09-03 | Serialize graph mutations to avoid concurrent-write races |\n| 2026-09-03 | Skip duplicate entities and relations within one batch |\n| 2026-09-03 | Limit `search_nodes` query length |\n\n**All three fixes landed on the same day (09-03)**, showing that release concentrated on stability. Especially the \"concurrent-write race\" — it means simultaneous multi-session reads/writes of memory once risked data corruption.\n\n**If you use it in a multi-session environment, these three are worth reading at the source.**",
+    "数据结构": "| Concept | Description | Example |\n|---|---|---|\n| **Entity** | a graph node with a unique name, type and observation list | `{name: \"X\", entityType: \"person\", observations: [...]}` |\n| **Relation** | a directed connection between entities | `{from: \"A\", to: \"B\", relationType: \"works_at\"}` |\n| **Observation** | an atomic fact attached to an entity | one fact per observation is recommended |\n\n**Relations are stored in active voice**, e.g. `works_at` rather than \"works at\". This is an explicit convention in the docs.",
+    "工具清单与读写属性": "| Tool | Attribute | Description |\n|---|---|---|\n| `read_graph` | read | read the whole graph |\n| `search_nodes` | read | search nodes by condition |\n| `open_nodes` | read | read specific nodes by name |\n| `create_entities` | **write** | create entities |\n| `create_relations` | **write** | create relations |\n| `add_observations` | **write** | append observations to entities |\n| `delete_entities` | **delete** | delete entities and their connections |\n| `delete_observations` | **delete** | delete observations |\n| `delete_relations` | **delete** | delete relations |\n\n**6 read, 3 write, 3 delete**. Delete capability gets three tools — the thickest group in this entry.",
+    "权限风险的特点": "Unlike other MCP servers, memory's risk is **not in file scope but in content**:\n\n| Dimension | Assessment |\n|---|---|\n| File-access scope | **narrowest** — touches only its own memory file |\n| Write impact | **global** — affects all subsequent sessions |\n| Content sensitivity | **high** — may hold user preferences, project information |\n| Access control | **none** — the file is unencrypted, no independent auth |\n\n**Any process that can read that JSONL file obtains the entire memory.**\n\nIf you store sensitive information with it, this point must be considered.",
+    "与 filesystem 的对比": "| Dimension | filesystem | memory |\n|---|---|---|\n| Access scope | directory allowlist (can be wide) | **only its own memory file (very narrow)** |\n| Delete capability | not provided | **provides 3 delete tools** |\n| Persistence | stateless | **graph persisted to disk** |\n| Cross-session | not supported | **the core capability** |\n\n**The trade-off is clear**: memory trades \"limited capability but sensitive content\" for \"cross-session capability\"."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The default location and naming of the memory file\n- Whether Streamable HTTP is supported (not declared in the repo)\n- Whether the storage backend is replaceable (is JSONL the only supported form)\n- The degree of eventual-consistency guarantees for concurrent writes",
+  "related": [
+    "The reasoning-structuring direction",
+    "If you want to manage memory files yourself, it can serve as a substitute"
+  ],
+  "sources": [
+    "MCP · Memory Server",
+    "MCP · Memory directory change history",
+    "MCP · Servers Releases",
+    "MCP · Servers repo README (production-use disclaimer)"
+  ]
+}
