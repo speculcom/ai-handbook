@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-14 runway bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（veo/kling），related 写 2 条（frontmatter related 是 [gemini-chat]，键按正文链接行对齐=2）。sources 3 条对齐 frontmatter。runs 无「实测建议」段（视频生成口径），照源短译。",
+  "axes": {
+    "model_access": "Two forms: Runway's own Gen-series models + third-party model aggregation: the changelog shows the platform can call Seedance 2.5, Kling 3.0/O3, Ideogram 4.5, Seedream 5.0 Flash, ElevenLabs V4 and other third-party models (2026-09~10 entries, direct-fetched and verified 2026-10-21); tier routing follows the Free/Standard/Pro/Enterprise line (the pricing page is authoritative).",
+    "runtime": "Mainly a web app, plus a DaVinci Resolve plugin (2026-09-23), Premiere Pro/After Effects plugins (2026-09-08 entry) and other in-host entries; generation processed on Runway's cloud.",
+    "local_files": "Supports uploading materials (image/video/audio) as input; materials organized via the Brand Kits asset library; the training stance for uploaded content is in the permissions axis.",
+    "background": "Generation is task-based; the Agent form can plan multi-step generation (Seedance Draft Mode entry 2026-10-02); no official statement of a \"keep-running-after-shutdown\" form.",
+    "tools": "Runway MCP is the official extension surface: Cursor Marketplace (2026-09-23), Grok Bot plugin (2026-09-17), OpenAI Dots integration (2026-10-01) all appear in the changelog; the platform also aggregates third-party generation models for calling.",
+    "context": "Brand Kits provide brand-asset reuse (the Agent can create/edit them, 2026-09-10 entry); no cross-session conversation-memory form.",
+    "permissions": "Official ToU §4.4: inputs and outputs may be used to train and improve its models — the terms state users grant a \"non-exclusive, irrevocable, perpetual\" training license; §4.2 the platform does not claim ownership of Your Content, but content in public areas grants broad licenses. No training opt-out switch seen.",
+    "fit": "Teams that weight video-generation workflows and want API/MCP integration. If you care about \"materials never entering training\" confirm first — at the clause level there is no opt-out; enterprise credit controls (Project Credit Caps 2026-10-09) are a team-facing plus."
+  },
+  "runs": "This site has not completed measured runs. Video generation does not fit the coding test protocol; capability claims follow the official changelog.",
+  "unknowns": "- The layered terms for outputs of third-party models inside the platform (the responsibility interface between model sources and the platform agreement, not verified item by item by this site)\n- The full current model lineup and tier-routing matrix (disclosed rolling in the changelog; this site has not verified each tier)",
+  "related": [
+    "Contrast route: model-interface form, paid means no training",
+    "Contrast route: domestic video generation, commercial use must pass the membership line"
+  ],
+  "sources": [
+    "Runway · Product Updates & Changelog (official log; MCP/plugin/third-party-model-aggregation entries verified by direct fetch 2026-10-21)",
+    "Runway · Terms of Use (official terms, Last Updated 2026-09-15; direct-fetched 200 on 2026-10-20 verifying the full §4.4)",
+    "Runway · Pricing (pricing-page pointer; D9: this site does not collect price figures)"
+  ]
+}

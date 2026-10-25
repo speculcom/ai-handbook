@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-14 veo bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（runway/kling），related 写 2 条（frontmatter related 是 [gemini-chat, gemini-cli]，键按正文链接行对齐=2）。sources 4 条对齐 frontmatter。runs 无「实测建议」段（模型接口口径），照源短译。",
+  "axes": {
+    "model_access": "Model versions disclosed on Google's official release line: Vertex AI release notes record Veo 3.1 GA (2025-11-17 entry), Veo 3.1 reference-to-video and video extension previews, Veo 3.1 Lite (2026-04-02 entry, officially called the most cost-effective Veo on Vertex AI) — verified via proxied direct fetch 2026-10-21.",
+    "runtime": "Delivered via the Gemini API / Vertex AI cloud APIs and Google AI subscription plans (product entries such as Flow); generation processed on Google's cloud, no models run locally.",
+    "local_files": "Supports reference-image input (the reference-to-video capability is in the Vertex release notes entries); retention of input content is in the permissions axis.",
+    "background": "The API is request-poll based (generation tasks submitted then retrieved); no official statement of a \"keep-running-after-shutdown\" form.",
+    "tools": "The main form is a model interface (Gemini API / Vertex AI) integrated by Flow, third-party editing and agent workflows; outputs carry watermarks and SynthID provenance marks.",
+    "context": "Generation is task-based, no cross-session memory form; context is organized by the caller — reference-to-video and video extension are in-request/across-task linking capabilities (see the Vertex release notes entries), not session memory.",
+    "permissions": "Official Gemini API Additional Terms (effective 2026-03-23): content submitted and generated answers on non-paid services (AI Studio, free quota) are used to \"provide, improve and develop Google products and machine-learning technology\", and human reviewers may read them; paid services are not used to improve products and are handled under the data-processing additional terms. EEA/Switzerland/UK users are treated as paid even on the free quota.",
+    "fit": "Video-generation users and teams already in the Google cloud/Workspace ecosystem needing enterprise-grade data terms (paid means no training). The free-quota line does get trained — don't conflate them; for scenarios that care about provenance marks (SynthID) this is a plus."
+  },
+  "runs": "This site has not completed measured runs. Video generation does not fit the coding test protocol; capability claims follow the official release notes and model docs.",
+  "unknowns": "- Tier routing and capability differences of entry products like Flow (not verified product by product by this site)\n- The current availability matrix of Veo versions (GA/preview/Lite status rolls with the release notes)",
+  "related": [
+    "Contrast route: creation-platform form, training license with no opt-out option",
+    "Contrast route: domestic video generation, commercial use must pass the membership line"
+  ],
+  "sources": [
+    "Google Cloud · Vertex AI Generative AI release notes (official log; Veo 3.1 GA/Lite/reference-to-video entries verified via proxied direct fetch 2026-10-21)",
+    "Google · Gemini API Additional Terms of Service (official terms; full text obtained via search snapshot on 2026-10-20; direct-connection timeout is a network limitation)",
+    "Google DeepMind · Veo product page (official page, direct-fetched 200 on 2026-10-20)",
+    "Google Cloud Vertex AI pricing (pricing-page pointer; D9: this site does not collect price figures)"
+  ]
+}

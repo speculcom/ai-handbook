@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-14 luma bodies EN. 无附加小节。正文「相关条目」4 行带 .md 链接（runway/veo/pika/midjourney），related 写 4 条。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "In-house Dream Machine video model line (official-site narrative); plus the Ray model line (seen on the official site). Users do not pick bare models. An open-weights line — no official statement verified.",
+    "runtime": "Web (lumalabs.ai) + API (an API entry on the official site, details not verified item by item); generation on the vendor's cloud. The company started in NeRF/3D capture (the original-Luma narrative); video generation became the main product line later.",
+    "local_files": "Works stored account-side in the cloud, generation history visible on the web works page; downloads go local. No officially stated local data surface.",
+    "background": "Generation is instant/queued (varies by tier, not verified item by item); no \"keep-running-after-shutdown\" task surface (no claim verified).",
+    "tools": "Text-to-video, image-to-video, keyframe interpolation (first/last frames, per the official narrative), Modify/extend editing lines (seen on the official site); the 3D/NeRF capture line is still a visible product surface on the official site (alongside the video line).",
+    "context": "Organized via the account works page (generation history reviewable); cross-session memory — no official statement verified. First/last-frame control is an in-task constraint, not cross-task memory.",
+    "permissions": "Account + subscription system (D9: prices not collected); the training-use switch not verified line by line; free-tier commercial and watermark limits follow the terms (not verified line by line).",
+    "fit": "Fits: short-film generation with strong camera motion (the official lead narrative), first/last-frame control, mixed 3D-capture-and-video workflows. Does not fit: mainland direct connection (measured 000), a long-narrative character-consistency focus, open weights."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Motion plausibility of first/last-frame interpolation** (whether complex actions break down)\n- **The capability gap between the API and the web tiers**\n- **The interlock surface between the 3D-capture line and the video line**",
+  "unknowns": "- The open-weights line (no official statement verified)\n- API billing and quota surfaces (D9: prices not collected; not verified item by item)\n- The training-use switch (not verified line by line)\n- Cross-session memory mechanism (no official statement verified)",
+  "related": [
+    "Both overseas professional-oriented video benches: Runway has deeper editing workflows, Luma a stronger generation narrative.",
+    "Both camera-narrative oriented: Veo hangs on the Google ecosystem, Luma is a standalone site.",
+    "Both lightweight overseas entries: Pika leans playful effects, Luma leans camera-move narrative.",
+    "Image-to-video upstream: Luma's first-frame workflow often starts from a Midjourney image."
+  ],
+  "sources": [
+    "Luma · official site (product and capability narrative)",
+    "Luma · Terms (official terms, direct-fetched and verified 2026-10-22)",
+    "Luma · Changelog (official update line)"
+  ]
+}
