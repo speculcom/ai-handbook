@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-16 正文英译 · consensus（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（elicit/notebooklm/metaso），related 写 3 条（frontmatter related 是 [elicit, notebooklm, metaso, chatgpt]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Scientific-literature retrieval engine + conclusion extraction: a self-built paper index (200M+ papers narrative, official-site framing — not verified item by item) + Consensus Meter (polarity statistics across multiple studies' conclusions, the product's signature).",
+    "runtime": "Web (consensus.app) as the main entry; literature retrieval and conclusion generation both happen on the vendor's cloud; no officially stated local form seen.",
+    "local_files": "Search history and highlight annotations are stored on the account-side cloud; PDF/citation exports count as local. No other local data surfaces officially stated seen.",
+    "background": "Retrieval and Meter statistics return instantly; no official task queue or \"keep-running-after-shutdown\" style background task surface seen (not verified item by item).",
+    "tools": "**Consensus Meter is the signature**: a statistical summary of \"which way science leans on X\" (support/oppose/mixed counts); filtering by study type/sample size; AI synthesized answers with citations; PDF highlight Q&A (Pro line, official product surface).",
+    "context": "Research projects organized via search history and folders; cross-session memory and user profiling not verified to an official statement (not verified item by item).",
+    "permissions": "Account + subscription system (D9: pricing not collected); free-tier feature limits not verified item by item; the training-use switch not verified item by item.",
+    "fit": "Fits: \"what does science say\" questions (medicine/nutrition/climate and other empirical fields), quick polarity calls, literature triage. Does not fit: deep systematic reviews (its extraction surface is lighter than Elicit's), Chinese-literature-first, treating the Meter as settled science."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **How the Meter's polarity stats on contested topics deviate from human reviews**\n- **How the statistics shift after filtering by sample size/study type**\n- **The feature boundary between the free tier and Pro**",
+  "unknowns": "- Index size and source composition (official narrative not verified item by item)\n- ToS details (CF 403 blocked direct fetch)\n- The training-use switch (not verified item by item)\n- Chinese-literature coverage (no official statement verified)",
+  "related": [
+    "Also scientific-literature oriented: Consensus gives quick polarity reads, Elicit does deep extraction for reviews.",
+    "Complementary: Consensus finds literature and gives polarity, NotebookLM digs deep inside the sources you pick.",
+    "Chinese academic counterpart: Metaso's academic tier searches Chinese libraries, Consensus works the English empirical pool."
+  ],
+  "sources": [
+    "Consensus · official site (product and capability narrative)",
+    "Consensus · Terms (official terms; direct fetch hit CF 403, 2026-10-22)",
+    "Consensus · Blog (official update line, changelog; direct fetch hit CF 403)"
+  ]
+}

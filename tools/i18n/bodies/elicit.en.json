@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-16 正文英译 · elicit（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（notebooklm/consensus/metaso），related 写 3 条（frontmatter related 是 [notebooklm, consensus, metaso, manus]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Academic retrieval system + LLM extraction pipeline: a self-built paper index (Semantic Scholar-family academic libraries as one underlying layer, official narrative) + multiple LLMs doing extraction/synthesis (official narrative, not inventoried item by item).",
+    "runtime": "Web (elicit.com) as the main entry; literature retrieval and extraction generation both happen on the vendor's cloud; no officially stated local form seen.",
+    "local_files": "Projects/literature libraries stored on the account-side cloud; exports (CSV/review documents) count as local. No officially stated local data surface seen.",
+    "background": "Retrieval is instant; systematic-review style tasks (multi-round screening/extraction tables) are a task line; no \"keep-running-after-shutdown\" concept.",
+    "tools": "**Literature retrieval + structured extraction is the main axis**: searching papers by research question, screening (inclusion/exclusion criteria surface), extraction tables (sample/method/conclusion columns), review synthesis (with citations); a \"find similar papers\" line (official product surface).",
+    "context": "Literature work organized by project; cross-session memory not verified to an official statement.",
+    "permissions": "Account + subscription system (D9: pricing not collected); free-tier retrieval/extraction quota limits not verified item by item; the training-use switch not verified item by item.",
+    "fit": "Fits: systematic reviews/literature surveys (medicine/social sciences/ML and other English literature pools), researchers who want \"extraction tables\" rather than \"reading abstracts\". Does not fit: Chinese-literature-first (the academic libraries are English-leaning), non-academic retrieval, wanting full-text access (it anchors abstracts and available full-text snippets)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Accuracy of numeric fields in extraction tables** (sampling against the originals)\n- **The set difference between retrieval recall and a manual PubMed search**\n- **The free-tier quota boundary** (retrieval/extraction counts)",
+  "unknowns": "- The underlying academic-library list and coverage (official narrative says Semantic Scholar-family, not verified item by item)\n- The LLM list currently in use (not inventoried item by item)\n- ToS details (CF 403 blocked direct fetch)\n- The training-use switch (not verified item by item)",
+  "related": [
+    "Source-anchoring contrast: Elicit finds sources then anchors, NotebookLM only anchors the sources you give it.",
+    "Also scientific-literature oriented: Consensus leads with \"conclusion polarity\" retrieval, Elicit leads with review extraction.",
+    "Chinese academic retrieval counterpart: Metaso has Chinese libraries/an academic tier, Elicit's English pool is deep."
+  ],
+  "sources": [
+    "Elicit · official site (product and capability narrative)",
+    "Elicit · Terms (official terms; direct fetch hit CF 403, 2026-10-22)",
+    "Elicit · Blog (official update line, changelog)"
+  ]
+}

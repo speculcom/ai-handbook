@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-16 正文英译 · kagi（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（perplexity/andi/metaso），related 写 3 条（frontmatter related 是 [perplexity, andi, metaso, chatgpt]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "A self-built search index (Kagi's self-built index is the core narrative) + FastGPT-style LLM answer layers (multiple models switchable, official product surface); the \"search is the substance, AI is the add-on\" ordering is the reverse of most AI search products.",
+    "runtime": "Web (kagi.com) + browser extension + Mini Bar (official product line); Kagi FastGPT/FastGPT-style Q&A on the cloud; the search index self-built.",
+    "local_files": "Search history can optionally be localized / zero-retention mode (official privacy narrative: no tracking, no profiling); no other local data surfaces officially stated seen.",
+    "background": "Search returns instantly; no official task queue or \"keep-running-after-shutdown\" style background task surface seen (not verified item by item).",
+    "tools": "Ad-free search (the signature), Teclis/Exa-style \"search first, then LLM reads full texts\" answer lines (official product surface), Universal Summarizer (URL/video/document summarization), translation; **the privacy promise is one of the product's main axes** (no-tracking narrative).",
+    "context": "No conversation-memory selling point — search is organized per session; cross-session memory and profiling not verified to an official statement (the privacy posture instead stresses not tracking).",
+    "permissions": "Subscription-first (D9: pricing not collected); **\"no tracking, no selling data\" is the official privacy narrative** — terms-level landing not verified item by item; paying for privacy is its product logic.",
+    "fit": "Fits: users willing to pay for an ad-free/untracked search experience, wanting \"search + full-text reading\" style answers (Teclis line), tracking-sensitive users. Does not fit: free users (no free tier as the lead), mainland-direct-sensitive (direct 200 reachable but payments follow overseas conventions), wanting Chinese retrieval as the mainstay."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Long-tail query coverage gap: self-built index vs Google/Bing**\n- **Teclis \"search then read full text\" answers vs Perplexity's quality**\n- **Actual verification that zero-retention mode takes effect** (history-behavior observation)",
+  "unknowns": "- Self-built index size and update frequency (no official statement verified)\n- The currently switchable-model list for each answer line (not inventoried item by item)\n- The terms-level landing of the privacy promises (not verified item by item)\n- Actual retrieval quality for Chinese queries (not measured)",
+  "related": [
+    "Ordering contrast: Perplexity is an AI answer with search attached, Kagi is search with AI answers attached.",
+    "Also privacy-oriented AI search: Andi is free + AI answers directly, Kagi is subscription + self-built index.",
+    "Also \"no ads, straight to results\" slogans: Metaso is Chinese-leaning free + membership, Kagi is English-leaning subscription."
+  ],
+  "sources": [
+    "Kagi · official site (product and capability narrative)",
+    "Kagi · Privacy (official privacy page, direct-fetch verified 2026-10-22)",
+    "Kagi · Blog (official update line, changelog)"
+  ]
+}

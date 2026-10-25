@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-16 正文英译 · perplexity（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（chatgpt/kagi/metaso），related 写 3 条（frontmatter related 是 [chatgpt, kagi, metaso]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Multi-model routing + an in-house line: several frontier models selectable in the UI (official product surface), plus a self-developed model line (official narrative); the current concrete list not verified item by item. An API platform (perplexity.ai/api) exists, details not verified item by item.",
+    "runtime": "Web + mobile App as main entries; the Comet browser (official product line: an AI browser, retrieval + agentic browsing); retrieval and generation on the vendor's cloud.",
+    "local_files": "Threads/bookmarked history stored on the account-side cloud; no officially stated local data surface or offline mode seen (not verified item by item).",
+    "background": "Q&A is instant; the Deep Research line (multi-step retrieval reports, official product surface); no \"keep-running-after-shutdown\" concept.",
+    "tools": "Answers carry source markers (the product's signature), Focus modes (switching retrieval domains: academic/social etc.), Spaces (knowledge collections), Pages (publishing), file-upload Q&A; Comet extends retrieval into browsing operations.",
+    "context": "Organized by threads/Spaces, history reviewable; a cross-session memory surface exists (official narrative), details not verified item by item.",
+    "permissions": "Account + subscription system (D9: pricing not collected); the training-use switch is in account settings (official narrative), default state not verified item by item; publisher-partnership/revenue-share narrative (official announcement line) — content licensing is one of its industry roles.",
+    "fit": "Fits: sourced factual Q&A, quick research entry, English-leaning retrieval quality first. Does not fit: mainland direct connection (measured 000), treating answers as source-free conclusions (you must click the markers and check the original), Chinese deep retrieval as the mainstay."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **How accurately source markers map to the claims in the answer text** (sampling check)\n- **The agentic-operation permission boundary of Comet** (what it will click on your behalf)\n- **Quality gap: Deep Research report vs manual multi-round searching**",
+  "unknowns": "- The current selectable-model list (not verified item by item)\n- ToS clause details (CF 403 blocked direct fetch — does not mean they do not exist)\n- Training-switch default state (not verified item by item)\n- The concrete mechanism of publisher revenue share (official narrative, details not verified item by item)",
+  "related": [
+    "Both are search-enabled Q&A: ChatGPT is a dialogue product with a search mode, Perplexity is a search product with a dialogue surface.",
+    "Both are paid ad-free search: Kagi self-builds its index + no-tracking narrative, Perplexity aggregates + answer-engine narrative.",
+    "Chinese-leaning counterpart: Metaso self-develops MetaLLM + mainland direct connection, Perplexity needs a network path."
+  ],
+  "sources": [
+    "Perplexity · official site (product and capability narrative)",
+    "Perplexity · ToS (official terms; direct fetch hit CF 403, 2026-10-22)",
+    "Perplexity · Blog (official update line, changelog; direct fetch hit CF 403)"
+  ]
+}

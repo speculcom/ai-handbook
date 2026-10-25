@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-16 正文英译 · andi（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（kagi/perplexity/metaso），related 写 3 条（frontmatter related 是 [kagi, perplexity, metaso, chatgpt]，键按正文链接行对齐=3）。sources 4 条对齐 frontmatter。runs 照源短译（含三条实测建议段）。",
+  "axes": {
+    "model_access": "Self-developed retrieval+generation architecture (official narrative: generating answers directly rather than \"retrieve then wrap\" — the \"direct answer\" route); an in-house model line (official narrative), no routing to third-party LLMs (official framing, not verified item by item).",
+    "runtime": "Web (andisearch.com) as the main entry; retrieval and generation both happen on the vendor's cloud; no officially stated local/offline form seen.",
+    "local_files": "Privacy narrative: no tracking, no profiles stored (the official privacy page's narrative); no other local data surfaces officially stated seen.",
+    "background": "Search Q&A returns instantly; no official task queue or \"keep-running-after-shutdown\" style background task surface seen (not verified item by item).",
+    "tools": "AI-native search (answers generated directly + source attribution), a follow-up-dialogue line, and an **\"explain it like a friend\" plain-language answer style** (official narrative); no ads (product posture).",
+    "context": "Follow-up questions work within the same session; cross-session memory and personalization profiles not verified to an official statement (the privacy narrative instead stresses not storing profiles).",
+    "permissions": "Free product (D9: pricing not collected); the terms-level landing of the privacy promises (no-tracking narrative) not verified item by item; the training-use switch not verified item by item.",
+    "fit": "Fits: lightweight research wanting direct answers with an explanation style, tracking-sensitive users, free-and-ad-free needs. Does not fit: deep academic retrieval (no academic vertical), Chinese-first usage, wanting an auditable retrieval process."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Answer-quality comparison of \"direct answer\" vs Perplexity's \"retrieval + citation\"** (same question set)\n- **Coverage of source attribution** (how many answers carry verifiable citations)\n- **Actual verification of the no-tracking narrative** (network-request observation)",
+  "unknowns": "- Technical details of the self-developed architecture (official narrative, not verified item by item)\n- Product longevity/funding status (no official statement verified — risk item)\n- The training-use switch (not verified item by item)\n- Chinese-query quality (not measured)",
+  "related": [
+    "Also privacy-oriented search: Kagi self-builds its index on a subscription model, Andi self-builds its answer architecture for free.",
+    "Route contrast: Perplexity aggregates retrieval + citations, Andi generates answers directly.",
+    "Chinese counterpart: Metaso goes deep in Chinese, Andi is English-leaning and lightweight."
+  ],
+  "sources": [
+    "Andi · official site (product and capability narrative)",
+    "Andi · Terms (official terms, direct-fetch verified 2026-10-22)",
+    "Andi · Privacy (official privacy page, direct-fetch verified 2026-10-22)",
+    "Andi · official blog (linked from andisearch.com to andiai.com/blogs; page is JS-rendered, body verified via a 2026-10-22 search snapshot — includes dated feature-announcement entries)"
+  ]
+}

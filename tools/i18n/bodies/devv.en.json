@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-16 正文英译 · devv（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（metaso/perplexity/cursor），related 写 3 条（frontmatter related 是 [metaso, perplexity, cursor]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。cn 块备案 unknown 由 filing_note_en 承担，不在 bodies 内。",
+  "axes": {
+    "model_access": "Multi-model routing (several frontier models selectable in the UI, official product surface) + a self-built code-docs retrieval index (the product's differentiator: fetching official docs in real time); the concrete model list not inventoried item by item.",
+    "runtime": "Web (devv.ai) + browser extension (seen on the official site); retrieval and generation on the vendor's cloud.",
+    "local_files": "Conversation history stored on the account-side cloud; no officially stated local data surface or offline mode seen (not verified item by item).",
+    "background": "Q&A returns instantly; no official task queue or \"keep-running-after-shutdown\" style background task surface seen (not verified item by item).",
+    "tools": "**Developer-oriented AI search is the main axis**: code questions → real-time retrieval of official docs/code examples → answers with links; codebase-understanding Q&A (official-site narrative); the difference from coding agents: it answers code questions, it does not modify your codebase (boundary ruling: \"search-style conversation belongs to research\").",
+    "context": "Retrieval history organized as conversation threads; cross-session memory not verified to an official statement (not verified item by item).",
+    "permissions": "Account + subscription system (D9: pricing not collected); the training-use switch not verified item by item — **code snippets pasted by developers may contain sensitive information; think it through before uploading**.",
+    "fit": "Fits: looking up API usage/errors/library docs (answers carry official-doc links), Chinese developers wanting a directly reachable search Q&A. Does not fit: modifying codebases (that is the coding category), pasting sensitive code without a second thought."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Index freshness for brand-new framework docs (released <1 month ago)**\n- **Hit rate of pasted error-stack → answer** (vs searching Stack Overflow directly)\n- **Model-switching differences between the free tier and the paid tier**",
+  "unknowns": "- The registered entity and filing status (see the cn block — entity unclear)\n- The current selectable-model list (not inventoried item by item)\n- The dedicated agreement-page URL (the in-site agreement line could not be located by direct fetch — honestly noted)\n- The training-use switch (not verified item by item)",
+  "related": [
+    "Also China-background search: Metaso is general + academic, Devv is developer-vertical.",
+    "General counterpart: Perplexity can answer code too; Devv's doc-index verticality is the difference.",
+    "Boundary contrast: Cursor modifies your codebase, Devv only answers code questions — both developer AI, different main axes."
+  ],
+  "sources": [
+    "Devv · official site (product and capability narrative)",
+    "Devv · official site Chinese entry (product surface direct-fetch verified 2026-10-22)",
+    "Devv · changelog (official update line, changelog)"
+  ]
+}

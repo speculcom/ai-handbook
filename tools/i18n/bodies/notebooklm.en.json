@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-16 正文英译 · notebooklm（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（gemini-chat/elicit/metaso），related 写 3 条（frontmatter related 是 [gemini-chat, elicit, metaso]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Driven by Gemini-family models (official narrative); users do not pick models — the product form is \"source-anchored Q&A\", the model is an internal implementation detail.",
+    "runtime": "Web (notebooklm.google.com) + mobile App; processing on Google's cloud.",
+    "local_files": "Notebooks and sources stored on the account-side cloud; sources can be uploaded (PDF/Docs/web links/YouTube etc., official product surface).",
+    "background": "Q&A is instant; Audio Overview (podcast-style audio overview) is a generation task line; no \"keep-running-after-shutdown\" concept.",
+    "tools": "**Source anchoring is the product's main axis**: answers carry source citations and support follow-ups; the Studio line generates derived forms such as audio overviews/briefs/study guides (official product surface); in-notebook source management (add/remove/summarize).",
+    "context": "Organized by notebook — each notebook is a set of sources + conversation; cross-notebook memory not verified to an official statement.",
+    "permissions": "Google account system; the notebook/source-count limits differing between free and subscription tiers per the official page (not verified item by item, D9: pricing not collected); training use: the official FAQ carries a \"your sources are not used for training\"-type promise — check the FAQ original before quoting (not verified item by item).",
+    "fit": "Fits: Q&A and research organization inside a given material set (paper groups/due-diligence materials/course materials), turning long materials into audio overviews, scenarios wanting \"answers only from your sources\". Does not fit: open-web retrieval (it does no whole-web search — the sources are what you give it), mainland direct connection (measured 000)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Source coverage completeness for long PDFs (500+ pages)** (whether it silently truncates)\n- **Audio Overview's support quality for Chinese sources**\n- **Actual values of the free tier's notebook/source limits** (D9: pricing not collected; quotas measured)",
+  "unknowns": "- Notebook/source-count limits per subscription tier (not verified item by item)\n- Terms-level landing of the training promise (FAQ narrative, not verified item by item)\n- Cross-notebook memory (no official statement verified)\n- The current driving-model tier (not verified item by item)",
+  "related": [
+    "Same vendor, different product: Gemini is open dialogue + retrieval, NotebookLM is closed source-set Q&A.",
+    "Also literature-research oriented: Elicit searches academic libraries then anchors, NotebookLM only anchors the sources you upload.",
+    "Chinese-leaning counterpart: Metaso does academic retrieval + whole web, NotebookLM digs inside the source set."
+  ],
+  "sources": [
+    "NotebookLM · official site (product and capability narrative)",
+    "NotebookLM · Terms (official terms, direct-fetch verified 2026-10-22)",
+    "NotebookLM · Release Notes (official update line, changelog, direct-fetch verified 2026-10-22)"
+  ]
+}
