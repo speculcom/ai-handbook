@@ -1,0 +1,31 @@
+{
+  "_comment": "C0-2 正文英译 · google-antigravity（2026-10-24）。axes=八维单元格；runs/unknowns=实测记录与未知项；related/sources=按索引对齐的理由与出处标签。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "**The UI screenshot on the official overview page lists the model picker directly**: Gemini-family and Claude-family, GPT-OSS etc. shown side by side as selectable (a screenshot-shown list; not verified one by one as a complete list). The CLI session header shows the current model (e.g. Gemini 3.8 Flash High). The model surface is decided by Google-side listing; third-party model availability changes with official adjustments.",
+    "runtime": "**Four official surfaces** (overview page wording): Antigravity App (desktop, v2.5+, a standalone command center evolved from the Agent Manager), Antigravity CLI (a terminal client that runs on local shell / remote cloud environments / SSH), Editor extensions (extensions for 5 IDEs), Antigravity SDK (a Python programming runtime). App/CLI/IDE-extension execution all happen in your local environment; the SDK is \"run an agent harness in a few lines of Python\".",
+    "local_files": "**The official settings docs state the boundary explicitly**: by default the agent can only access the active project folder and `~/.gemini/antigravity-ide/` (artifacts, knowledge items and configuration all live in this local directory); \"non-workspace file access\" is an explicit toggle, off by default.",
+    "background": "**The official narrative covers both synchronous pair-programming and asynchronous background agents**: the App supports archiving conversations per project and scheduled messages/tasks that handle routine work automatically; the CLI can schedule background subagents.",
+    "tools": "The Artifacts mechanism (implementation plans / verification reports / proposed changes) is a core surface; browser-in-the-loop does front-end automated verification. **MCP support status: not verified one by one** (no standalone MCP page found in the official docs navigation; not read page by page this pass).",
+    "context": "Knowledge items land in the local `~/.gemini/antigravity-ide/` directory (settings docs framing). How productized cross-session memory is: not verified one by one.",
+    "permissions": "**The official settings docs give a three-layer control surface**: terminal-command auto-execution (request review vs always continue + configurable allow/deny lists), the non-workspace file access toggle (off by default), and strict mode (restricts external resources and sensitive operations). Accounts go through the Google system.",
+    "fit": "Good fit: wanting Google-family models plus multi-surface coordination (desktop command center / terminal / IDE extensions / SDK on one harness), scheduled tasks and background subagents, teams wanting an explicitly tunable \"command execution policy\".\n\nNot a fit: mainland direct-connection scenarios (the main domain's direct connection is unstable), wanting artifacts kept outside the Google account system."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **The actual complete list in the model picker** (the overview page screenshot is not a committed list)\n- **Whether scheduled tasks keep running after the App is closed** (the official narrative has scheduled tasks; execution location not read page by page)\n- **The actual interception behavior of each strict-mode sub-toggle**",
+  "unknowns": "- MCP support status (official docs navigation not read page by page)\n- Free/paid boundaries and quota details (D9: price figures not collected; capability boundaries not verified one by one)\n- How productized cross-session memory is (knowledge-item mechanism details not verified one by one)\n- Where scheduled tasks execute (local vs cloud; not verified to an official statement)",
+  "related": [
+    "Same vendor's terminal-agent predecessor line: the relationship between Antigravity CLI and it is not declared page by page by the official.",
+    "Same vendor's cloud async line: Jules runs in cloud VMs; all four Antigravity surfaces run on your machine."
+  ],
+  "sources": [
+    "Google Antigravity · official site (four product surfaces narrative)",
+    "Antigravity Docs · Choose your Antigravity (four-surface comparison / model picker UI)",
+    "Antigravity Docs · Settings (command execution / workspace boundary / strict mode)",
+    "Antigravity Docs · Release Notes (changelog)"
+  ]
+}

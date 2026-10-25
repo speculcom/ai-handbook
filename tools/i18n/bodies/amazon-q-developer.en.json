@@ -1,0 +1,33 @@
+{
+  "_comment": "C0-2 正文英译 · amazon-q-developer（2026-10-24）。axes=八维单元格；runs/unknowns=实测记录与未知项；related/sources=按索引对齐的理由与出处标签。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "**The official what-is page states explicitly: Powered by Amazon Bedrock** — models are invoked through Bedrock; the models answer questions over Bedrock-augmented AWS content; includes automated abuse detection (a Bedrock-side safety mechanism). Users cannot self-select the underlying model (the official gives no model picker); BYOK does not apply — billing and accounts go through AWS.",
+    "runtime": "**Two form lines**: the IDE plugin (conversation, inline completion, generating new code, security vulnerability scans, language upgrades/debugging/optimization and other code transformations inside VS Code / JetBrains) and the command line (official CLI page original: \"The Q CLI has become the Kiro CLI\" — the CLI line has migrated to the Kiro brand). The positioning is a generative assistant for \"understanding, building, extending and operating AWS applications\"; AWS architecture/resources/best-practices/docs Q&A is the official main line.",
+    "local_files": "The IDE plugin processes code inside your local IDE (completion/generation/scanning happen within the plugin workflow). **Whether code leaves the machine to the service side is not verified one by one** (Bedrock inference being service-side is a settled fact). The Q&A surface references your AWS resource context (official framing: cited answers grounded in your AWS resources and architecture).",
+    "background": "**No official long-running async task surface** (no background-continuation statement verified). Agentic coding capabilities are pointed by the official to Kiro (EOL announcement original: \"For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro… including agentic coding, chat and MCP support\").",
+    "tools": "Built-in IDE-plugin capabilities listed officially: code conversation, inline completion, generating new code, security scans, code transformations (Java version upgrades etc.), debugging and optimization. **MCP support sits on the Kiro side** (the EOL announcement names Kiro as having MCP support); MCP on the Amazon Q plugin side is not verified.",
+    "context": "Context is anchored on the AWS side: your AWS resources, architecture, documentation and support content (official what-is page framing); inside the IDE it follows the current project. **Cross-session memory: not verified to an official statement.**",
+    "permissions": "Accounts and billing go through AWS (IAM/account system). Approval details for the IDE plugin operating on local files are not verified one by one. Bedrock-side automated abuse detection is the officially stated safety mechanism.",
+    "fit": "Good fit: heavy AWS users — architecture/resource/best-practice questions with citations, and official-signature transformation tasks in the IDE like Java upgrades and security scans.\n\nNot a fit: wanting agentic coding's new capabilities (the official clearly points to Kiro), betting long-term on the IDE plugin line (support ends 2027-04-30, see pitfalls)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **The plugin's actual usable window after EOL** (whether the plugin keeps updating with IDE versions before 2027-04-30)\n- **The concrete boundary of what the IDE plugin uploads to the service side** (which content leaves the machine for completion/scanning)\n- **Whether the China regions (GDS/NNET) have corresponding feature surfaces** (not verified)",
+  "unknowns": "- Whether the IDE plugin side supports MCP (the official names MCP support only on the Kiro side)\n- Cross-session memory mechanism (not verified to an official statement)\n- Details of the approval model for the plugin operating on local files (not verified one by one)\n- Feature surface in the China regions (not verified)",
+  "related": [
+    "Same vendor's successor line: the AWS official EOL announcement names Kiro as taking over agentic coding/chat/MCP; the Q CLI has become the Kiro CLI.",
+    "Both IDE-form comparisons: Cursor is a standalone IDE with no EOL risk; Amazon Q is a plugin inside your existing editor and already has a fixed end-of-support date.",
+    "Cross-category comparison: the Amazon Q plugin has no MCP surface (not stated officially); GitHub integration goes through its own plugin system."
+  ],
+  "sources": [
+    "AWS docs · What is Amazon Q Developer (Bedrock-driven / IDE capability list / EOL announcement banner)",
+    "AWS docs · Amazon Q Developer IDE plugins end of support (2027-04-30 end-of-support notice)",
+    "AWS docs · Using Amazon Q Developer on the command line (the Q CLI has become the Kiro CLI)",
+    "AWS docs · Document history (changelog)",
+    "Amazon Q Developer product page (pricing / form entry points)"
+  ]
+}

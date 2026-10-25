@@ -121,9 +121,23 @@ export function parseFrontmatter(text) {
       // 折叠/字面量标量：保留换行（见函数头决定 1）
       data[key] = blockLines.map(l => l.trim()).join('\n').trim();
     } else if (isListBlock(blockLines)) {
-      // 数组
-      data[key] = blockLines
-        .map(l => l.trim().replace(/^-\s*/, '').trim())
+      /* 数组 —— ⚠ C0-2 修（2026-10-24，「采集了却从不渲染」第 6 次）：
+       *   旧写法把块内**每一行**都当独立条目，续行（不带 `- ` 的缩进折行）被拆成单独一项，
+       *   虚增条目数 → 与 `_pitfalls-*.en.json` 的人工译文条数不齐 → build.mjs 整段回退中文。
+       *   实测 17 份档案的 pitfalls 英文因此**从不渲染**（译文存在、页面上看不到）。
+       *   修法：`- ` 开新项，其余非空行并入上一项（与正文 related/unknowns 渲染器同口径）。
+       *   守卫：`_tmp/c0-pitfalls-scope.mjs`（语义条数 vs EN 字典条数，全站应只剩
+       *   mcp/git 这类「EN 真缺」的合法缺口，不再有解析虚增造成的假不齐）。 */
+      const items = [];
+      for (const l of blockLines) {
+        const t = l.trim();
+        if (!t) continue;
+        const li = /^-\s*(.*)$/.exec(t);
+        if (li) items.push(li[1].trim());
+        else if (items.length) items[items.length - 1] += ' ' + t;
+        else items.push(t); // 首行不带 `- `（不应发生，保守保留原行）
+      }
+      data[key] = items
         .map(s => s.replace(/^["']|["']$/g, ''))
         .filter(Boolean);
     } else {

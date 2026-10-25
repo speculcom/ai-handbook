@@ -1,0 +1,32 @@
+{
+  "_comment": "C0-2 正文英译 · trae（2026-10-24）。axes=八维单元格；runs/unknowns=实测记录与未知项；related/sources=按索引对齐的理由与出处标签。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "**The official docs (docs.trae.ai/ide/models) explicitly state built-in multi-model support, plus adding custom models via API key.** The built-in list changes with versions (the list captured this pass includes GPT-family / DeepSeek / Gemini-family entries; not enumerated as a complete list). The international edition (trae.ai) and domestic edition (trae.cn) differ in model surface — each official page is authoritative.",
+    "runtime": "**Official framing: three clients** — Desktop (a standalone app that does not depend on TRAE IDE to run; supports local and cloud tasks), Web (a no-install cloud environment), Mobile (dispatch and manage tasks; auto-switches to cloud execution when the device is offline). Desktop gives dual windows: the Agent window and the IDE window; inside the IDE window you switch between IDE mode and SOLO mode.",
+    "local_files": "The official security page states explicitly: **codebase files always stay on the local device** (in the Privacy mode context). Sandboxed execution puts agent-generated commands into a restricted environment (file-access control + high-risk command interception). **Data boundaries of the cloud-task line: not verified one by one.**",
+    "background": "**The background/async surface is part of the official narrative**: Desktop supports handing long tasks to the cloud, Mobile monitors task progress across devices, offline auto-switches to cloud execution — task state syncs across the three clients (official docs framing).",
+    "tools": "The agent can search the codebase, plan in multiple steps and call tools. Custom agents can configure prompt / MCP servers / tool sets (the official docs state the MCP configuration surface explicitly). The CUE completion line (multi-line edits / next-edit prediction) has its own page.",
+    "context": "Context can be fed files / folders / code snippets / terminal output / repositories / document sets / web pages (enumerated in the official docs). **Cross-session memory: not verified to an official statement.**",
+    "permissions": "Account system (ByteDance-side accounts). Privacy mode toggle — when on, the official states your chats / code / outputs are not used for analysis, optimization or training. Sandboxed-execution toggle. **Enterprise/team control surface: not verified one by one.**",
+    "fit": "Good fit: desktop + Web + mobile sharing one task flow, SOLO mode for whole-segment delegation, built-in multi-model to start without configuring your own keys.\n\nNot a fit: expecting the domestic and international editions to be feature-identical (they are two lines), wanting fully offline use (the cloud-task line is part of the product semantics)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **The current model list of the domestic edition trae.cn** (docs.trae.cn is dynamically loaded; not fetched directly this pass)\n- **How SOLO-mode high-risk commands are actually intercepted inside the sandbox**\n- **Task boundaries of Mobile's offline auto-switch to cloud** (which tasks can switch, how context carries over)",
+  "unknowns": "- The domestic edition's model list and where its filing is disclosed (docs.trae.cn dynamically loaded; not fetched directly)\n- Storage and processing boundaries of the cloud-task/Web lines (not verified one by one)\n- Cross-session memory mechanism (not verified to an official statement)\n- Enterprise/team control surface (not verified one by one)",
+  "related": [
+    "Both are China-origin coding assistants with a three-client narrative: Tencent Cloud's line goes compliance + cloud ecosystem; Trae goes multi-model + three-client task flow.",
+    "Both are China-origin coding tools going overseas: Alibaba Cloud's line leads with domestic compliance narrative; the relationship to the international line is not officially cross-referenced.",
+    "International comparison: both are standalone AI IDEs; Cursor has no official mobile task surface."
+  ],
+  "sources": [
+    "TRAE docs · About TRAE (three clients / dual windows / dual modes / security page)",
+    "TRAE docs · Built-in models & custom models",
+    "TRAE docs · Changelog (changelog)",
+    "TRAE domestic edition official site"
+  ]
+}

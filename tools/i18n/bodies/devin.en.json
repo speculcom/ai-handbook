@@ -1,0 +1,31 @@
+{
+  "_comment": "C0-2 正文英译 · devin（2026-10-24）。axes=八维单元格；runs/unknowns=实测记录与未知项；related/sources=按索引对齐的理由与出处标签。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "**The official readable pages (docs intro and release notes) show no \"user picks the model\" surface** — models and versions are decided on the vendor side. This is common to the vendor-cloud form (this site's judgement, based on \"checked the intro page, no model-selection docs found\" — not on \"the official states selection is unavailable\").",
+    "runtime": "**Sessions run in Devin's cloud workspace**: the web app (app.devin.ai) embeds a three-piece set — Shell (watch commands execute), an embedded IDE (take over and edit code live), and a Browser (watch it read docs / test the app). There is also **Devin for Terminal** (installed from cli.devin.ai) running on your machine, with `/handoff` sending long tasks to the cloud Devin; plus the Devin API.",
+    "local_files": "Cloud sessions do not touch your local files — it clones, edits and opens PRs on repositories you authorize; repo visibility is set by integration grants. **The Terminal form is the exception**: it runs directly in your local environment, taking over the local codebase.",
+    "background": "**The main axis is asynchrony**: the official defines it as an \"autonomous AI software engineer\", suited to handling multiple tasks in parallel — Linear/Jira issues, whole new features, bug reproduction and fixes, migrations and refactors. The official rule of thumb (original wording): \"if you can do it in three hours, Devin can most likely do it\" (tasks with high verifiability have higher success rates).",
+    "tools": "The workspace ships with three tool classes — shell, browser, IDE. Dispatch tasks by @Devin directly in Slack/Teams threads; Linear/Jira issue-line integrations exist. **MCP support status: not verified one by one** (docs have an integrations section; not read page by page this pass).",
+    "context": "Work is organized per session; the knowledge-accumulation/memory surface is not verified one by one. The official recommends writing tasks with clear completion criteria, broken into verifiable steps — how much context to give is decided when you dispatch.",
+    "permissions": "Account + organization system: enterprise admins assign permissions; repository access is scoped by integration grants (GitHub etc.); API access is configured separately. The cloud environment has internet access (the Browser tool is part of the product semantics) — the official asks you to treat it by the standard you would apply to a public compute surface.",
+    "fit": "Good fit: delegating backlogged issues in bulk, running multiple tasks in parallel, @-dispatching casually in Slack, wanting \"a draft PR first, then take over\".\n\nNot a fit: wanting model choice, wanting fully local execution end to end (Terminal only covers light tasks), keeping secrets inside the cloned repositories."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **Whether a model-choice surface actually exists** — no model-selection page found in the official docs; logging in and measuring can confirm\n- **End-to-end latency and failure-retry behavior from Slack dispatch to PR opened**\n- **How uncommitted local changes are handled during Terminal ↔ /handoff transitions**",
+  "unknowns": "- Whether a model-choice surface exists (not found in official docs; not measured)\n- MCP support status (docs integrations section not read page by page)\n- Details of the knowledge/memory accumulation mechanism (not verified one by one)\n- Details of the cloud workspace's network egress and persistence policy (not verified one by one)",
+  "related": [
+    "Same vendor's other line: IDE-form human-and-AI editing on the same side, complementary to the cloud async engineer.",
+    "Same cloud async agent: Google's per-task new VM vs Devin's session workspace."
+  ],
+  "sources": [
+    "Devin Docs · Introducing Devin (product definition / workspace three-piece set / access paths)",
+    "Devin Docs · Release Notes (changelog)",
+    "Cognition · Devin GA blog",
+    "Devin for Terminal · install entry"
+  ]
+}

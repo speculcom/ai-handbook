@@ -1,0 +1,36 @@
+{
+  "_comment": "C0-2 正文英译 · v0（2026-10-24）。axes=八维单元格；runs/unknowns=实测记录与未知项；related/sources=按索引对齐的理由与出处标签。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "**Official \"Choosing models\" page**: pick the v0 model in the in-chat model picker, or add custom models from the AI Gateway catalog. The updated picker and custom models target Enterprise teams (custom models need team-owner approval). The model in a session follows the most recent response until you switch. In-app AI features have a separate ai-models integration page (Grok/fal/Deep Infra etc.).",
+    "runtime": "**Web form (v0.app); VM-backed chats run in isolated VMs on Vercel Sandbox** (official sandbox page: hosts project files / runs previews / executes commands; state does not leak between chats; it replaces the older in-browser environment). Coding agents are pre-installed in the sandbox (official page: run CLIs like claude directly in the terminal, alongside v0's built-in assistant in the same project).",
+    "local_files": "Projects live on the v0 platform. The GitHub integration is an official page: code goes into your repositories, branch isolation, PRs and CI follow the standard flow; existing GitHub repositories can be imported (git-import page). **The official states explicitly that GitHub sync only moves code — it does not grant deployment permission via GitHub** (deployment permission follows Vercel roles).",
+    "background": "**The deployment line is persistent**: preview deployments build per branch, publish updates the Vercel production deployment (official deployments page); deployment errors can be diagnosed and fixed via \"Fix with v0\" reading the logs (agentic-features page). **Whether build tasks keep running after the page is closed: not verified to an official statement.**",
+    "tools": "**Agent capabilities are official pages**: web search, browser use, terminal commands, error fixing, external tool integration — all inside the sandbox. Two MCP lines (bring-your-own MCP servers with a preset list / Remote MCP via Marketplace integrations). Database integrations: Supabase/Blob/Neon/Upstash; Figma import; v0 itself can also act as an MCP server called by other agents.",
+    "context": "The code viewer (browse/edit code, review changes, add comments as next-round context); Design mode visually selects elements, edits styles and writes back to code; projects organize multiple chats. **Cross-session memory: not verified to an official statement.**",
+    "permissions": "**Tool-call permissions have three modes (Ask/Auto/Full) + Agent Permissions rules** (MCP page and agentic-features page framing). The enterprise side goes through Vercel Enterprise: seats/v0 roles (Builder etc.) and Vercel team roles are managed separately (enterprise page). Security page official framing: do not trust LLM-generated code — security analysis before execution, sandbox isolation, input validation, adversarial testing.",
+    "fit": "Good fit: Next.js/Vercel-stack teams (the deployment chain is natively connected), wanting real terminals and pre-installed agents inside a sandbox, unifying enterprise seats with the Vercel account system.\n\nNot a fit: stacks outside the Next.js/Vercel ecosystem (the deployment line is part of the product semantics), non-Enterprise wanting custom models."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **The actual interception granularity of Ask/Auto/Full on terminal commands** (the official gives mode definitions, not a per-command-class matrix)\n- **How much context the pre-installed claude and v0's built-in assistant can see of each other when running in parallel on one project**\n- **Migration behavior for existing projects on the old in-browser sandbox** (the official page only says it was replaced; no guidance for existing projects)",
+  "unknowns": "- Cross-session memory mechanism (not verified to an official statement)\n- Whether build tasks keep running after the page is closed (not verified to an official statement)\n- The complete allowance-difference table across free/paid plans (the pricing page exists; not enumerated one by one)\n- The complete selectable model list on the chat-generation side (the picker changes with plans and the gateway catalog; not enumerated one by one)",
+  "related": [
+    "Same product category: Lovable ships its own backend and multi-Git-platform sync; v0 binds the Vercel deployment chain.",
+    "Same product category: Bolt runs WebContainers in the browser; v0 has switched to Vercel Sandbox VMs.",
+    "Ecosystem interop comparison: v0's sandbox pre-installs claude; the Codex extension installs the agent into your IDE."
+  ],
+  "sources": [
+    "v0 docs · Quickstart (product entry v0.app / main workflow)",
+    "v0 docs · Sandbox (Vercel Sandbox VM / replaces the in-browser environment)",
+    "v0 docs · Agentic features (search / browser / terminal / error fixing / permission modes)",
+    "v0 docs · Choosing models (picker / AI Gateway / Enterprise gating)",
+    "v0 docs · GitHub (sync and the deployment-permission separation warning)",
+    "v0 docs · Security (threat model / sandboxed-execution framing)",
+    "v0 docs · Pre-installed Agents (running claude etc. inside the sandbox)",
+    "Vercel Changelog · v0-related entries (product-change announcement channel)"
+  ]
+}

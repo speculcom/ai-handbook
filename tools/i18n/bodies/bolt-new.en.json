@@ -1,0 +1,35 @@
+{
+  "_comment": "C0-2 正文英译 · bolt-new（2026-10-24）。axes=八维单元格；runs/unknowns=实测记录与未知项；related/sources=按索引对齐的理由与出处标签。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "**The official help center has a Bolt Forge page**: Pro/Lite plans can use and switch open-source models via Forge. The reference page (Introduction to LLMs) explains model/token concepts but gives no complete selectable list — the list changes with versions; not enumerated one by one. The build agent comes in two tiers (official \"Choose an agent\" page): Standard and Max, switched by task type.",
+    "runtime": "**In-browser execution is the officially stated technical foundation**: Bolt is built by StackBlitz and runs on WebContainers (official wording: Node.js runs directly in the browser — the \"install an environment\" step is cancelled). Primarily a web form; no desktop/mobile client narrative found in the official docs.",
+    "local_files": "Projects live inside the Bolt platform. The GitHub integration is an official page: connect repositories to back up code, auto-sync commits, work across branches, keep both sides in sync. Bolt Cloud provides built-in hosting + database + domain (official bolt-cloud page); the database has backup/restore/version-history pages. Code leaves the platform via the GitHub sync line.",
+    "background": "Version history and rollback are official pages (built-in version history, restore to an earlier version); apps hosted on Bolt Cloud run persistently. **Whether build tasks keep running after the page is closed: not verified to an official statement.**",
+    "tools": "**MCP is an official page** (connect MCP servers for the agent). The integration list includes GitHub/Figma/Supabase/Stripe etc.; a Skills page (reusable rules and workflows); Code view reads and writes project files directly; a built-in security-scan page (checks project security issues before publishing).",
+    "context": "Plan Mode talks the app through before building it (official prompting/plan-mode page); context management is an official page (\"make project context smaller over time\" — teaching readers to manage tokens); design systems can be plugged in (design-system, three pages). **Cross-session memory: not verified to an official statement.**",
+    "permissions": "Account + Teams plan (member roles / who can publish / team management are official pages); GitHub organization access can be controlled by org admins (github-org page); project settings manage visibility and collaboration; a database security-settings page (scan issues). Token metering is an official page (agent workload is metered in tokens).",
+    "fit": "Good fit: building full-stack apps in the browser with no environment install (the WebContainers foundation), wanting the GitHub sync line, wanting built-in hosting + database one-stop (Bolt Cloud), non-technical people and developers sharing one environment.\n\nNot a fit: deep offline work (the narrative is in-platform), wanting full control over the build model (Forge is the plan-bound open-source model line)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **WebContainers' actual compatibility boundary for heavy backend stacks (e.g. native dependencies)** — the official describes in-browser Node.js but gives no limitations list\n- **Context continuity when mixing Standard and Max agents in one project** (the official page covers switching, not mixing consequences)\n- **The actual path to export a Bolt Cloud database to self-hosted Postgres** (backup pages exist; the export migration has not been walked end to end)",
+  "unknowns": "- The complete current model list (the Forge line changes with versions; not enumerated one by one)\n- Cross-session memory mechanism (not verified to an official statement)\n- Whether build tasks keep running after the page is closed (not verified to an official statement)\n- The complete capability-difference table between free and paid plans (the official has a plans page; not enumerated one by one)",
+  "related": [
+    "Same product category: Lovable hosts its backend in the cloud (Supabase foundation); Bolt runs WebContainers in the browser.",
+    "Both in the Vercel family: v0 binds the Vercel deployment chain; Bolt ships its own Bolt Cloud.",
+    "Cloud IDE + agent comparison: Replit gives a full cloud development environment; Bolt compresses the environment into the browser."
+  ],
+  "sources": [
+    "Bolt help center · Intro to Bolt (positioning / WebContainers / StackBlitz)",
+    "Bolt help center · Choose an agent (Standard/Max two tiers)",
+    "Bolt help center · Bolt Cloud (built-in hosting / domain / database)",
+    "Bolt help center · GitHub for version control (sync line)",
+    "Bolt help center · Bolt Forge (open-source model line)",
+    "Bolt help center · Connect to an MCP server",
+    "Bolt help center · Release Notes (changelog)"
+  ]
+}

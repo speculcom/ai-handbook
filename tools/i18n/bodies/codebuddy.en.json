@@ -1,0 +1,31 @@
+{
+  "_comment": "C0-2 正文英译 · codebuddy（2026-10-24）。axes=八维单元格；runs/unknowns=实测记录与未知项；related/sources=按索引对齐的理由与出处标签。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "**The official docs state explicitly**: besides Tencent's self-developed Hunyuan LLM, other LLMs can be connected and switched (the official product-overview page names DeepSeek as an example). The concrete selectable list follows versions; not enumerated one by one. The international edition (codebuddy.ai) and domestic edition (codebuddy.cn) are two lines whose model surfaces may differ — each official page is authoritative.",
+    "runtime": "**Official framing: \"plugin, IDE and CLI cover all development scenarios\"** — the IDE plugin (VS Code / JetBrains family), the standalone AI IDE (codebuddy.cn/ide), and the command-line form each have official docs pages. Execution happens on your machine (common to the plugin/IDE/CLI forms; this site's judgement — the official does not state execution location page by page).",
+    "local_files": "Code lives in your local editor/project. The IDE form's deployment line (CloudStudio one-click deploy: a sandbox environment generates a share link) **uploads artifacts to the Tencent Cloud side** — upload scope and retention policy not verified one by one.",
+    "background": "**No official statement of a background-resident/async task surface was found.** All three forms lead with interactive sessions (checked the official docs navigation; no background-agent page — \"not verified\" does not mean \"does not exist\").",
+    "tools": "The official docs include an MCP configuration surface (within the IDE docs navigation); an enterprise-side article mentions MCP-server allowlist configuration (paraphrasing the official; capability details not verified one by one). Design-to-code (Figma import generating pages) is one of the official flagship scenarios.",
+    "context": "The enterprise edition has a RAG knowledge base (stated explicitly on the official product-overview page: a team-specific knowledge base that enhances Q&A and coding). The personal edition's memory surface is not verified one by one.",
+    "permissions": "Account system (Tencent Cloud accounts). The enterprise edition has an admin console (audit logs, custom secure-coding instructions, etc. — paraphrased from official Tencent Cloud developer articles). Data surface: the official leads with a \"meets domestic security requirements\" compliance narrative (Tencent Cloud official PDF wording, contrasted with ChatGPT).",
+    "fit": "Good fit: domestic teams wanting a compliance narrative (Hunyuan is filed), one-stop build-to-deploy inside the Tencent Cloud ecosystem (CloudBase/CloudStudio), plugin + IDE + CLI switching under one account.\n\nNot a fit: wanting to self-select from a global model list (the model surface follows what the official lists), deep dependence on overseas SaaS integration chains."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **A feature-difference list between the domestic and international editions** (each has its own official pages; no comparison table)\n- **The actual capability boundary of the CLI form** (the CLI page is the thinnest in the official three-client narrative)\n- **Retention and access control of CloudStudio deployment artifacts**",
+  "unknowns": "- The complete current model list (changes with versions; not enumerated one by one)\n- Detailed capability surface of the CLI form (official docs are thin; not verified one by one)\n- Personal-edition memory/context mechanism details (not verified one by one)\n- Background/async task surface (not verified to an official statement)",
+  "related": [
+    "Both are China-origin big-vendor coding assistants: Alibaba Cloud's line runs the \"first-party product + whole-suite Credits\" narrative; this site has not verified a filing number for it. CodeBuddy's Hunyuan filing number is checkable in the official docs.",
+    "Both are China-origin coding tools going overseas: ByteDance's IDE line, with the SOLO-mode narrative."
+  ],
+  "sources": [
+    "CodeBuddy · official site (three-client coverage / scenario narrative)",
+    "CodeBuddy docs · plugin product overview (model info / filing number / RAG knowledge base)",
+    "CodeBuddy IDE · Release Notes (changelog)",
+    "CodeBuddy international edition"
+  ]
+}
