@@ -1,0 +1,25 @@
+{
+  "_comment": "English bodies for letta (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. layer_position/providers not rendered — not included.",
+  "axes": {
+    "model_access": "Various models connect via a provider layer (OpenAI/Anthropic/Gemini/local etc., per the official docs, not itemized one by one); its core narrative is the **stateful agent**: memory tiers (core/archival) edited and managed by the agent itself (the MemGPT paper line).",
+    "runtime": "**An agent-server form** (unlike a pure library): run a resident service (letta server); agents and memory persist inside the server; SDK/CLI connect to it. GitHub 25,216★, last push 2026-10-18 (API verified).",
+    "local_files": "The self-hosted server keeps agent state and memory in your database (SQLite by default, Postgres configurable) — data on your side; the Letta Cloud hosted line is a separate product surface.",
+    "background": "**The server form carries residency semantics by itself** — the structural difference from the other framework entries: the agent is a persistent entity, sessions can be interrupted and resumed (the official core narrative).",
+    "tools": "Tool/function calling + built-in file-read/write tool lines; MCP support status not itemized (the official docs have related lines, details unchecked).",
+    "context": "**Memory management is the product itself**: the core memory (agent self-edited) + archival (external retrieval store) tiering is the MemGPT design — cross-session memory is its default surface, not an add-on.",
+    "permissions": "The server has an authentication configuration surface (details not itemized); tool execution (file/command kinds) happens in the server environment — the self-hosted machine's permission surface must be defended by you.",
+    "fit": "Fits: agents needing a \"persistent persona\" (long-term memory + state resumption), self-hosted agent servers, the MemGPT design route. Does not fit: stateless one-shot calls (the server form is a cost); wanting only a library, not a service (a form-factor choice)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
+  "unknowns": "- MCP support status (the official docs have related lines; details not itemized)\n- Details of the server authentication configuration surface (not itemized)\n- A capability-difference table between Letta Cloud and self-hosted (not compared item by item)",
+  "related": [
+    "State-management contrast: LangGraph gives graphs and the checkpoint mechanism; Letta makes \"memory\" the agent-self-edited core.",
+    "Cross-category contrast: the memory server gives client-side knowledge-graph memory; Letta gives server-side agent memory."
+  ],
+  "sources": [
+    "letta-ai/letta · repository (Apache-2.0; 25,216★, last push 2026-10-18, GitHub API verified)",
+    "Letta · official docs",
+    "Letta · official changelog",
+    "letta-ai/letta · Releases (changelog)"
+  ]
+}
