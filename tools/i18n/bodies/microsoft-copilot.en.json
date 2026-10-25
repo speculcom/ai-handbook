@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-11 正文英译 · microsoft-copilot（2026-10-25）。",
+  "axes": {
+    "model_access": "Models are routed on Microsoft's side with a limited user-facing choice: the official narrative says Copilot uses OpenAI-family models (GPT line) plus Microsoft's own MAI line; the current tiering is not verified item by item. \"Whether a selector exists and what it offers\" is per the signed-in UI.",
+    "runtime": "Web (copilot.microsoft.com) + Windows-embedded + iOS/Android apps + Edge-embedded; generation is processed on Microsoft's cloud. It is an adjacent but different product surface from Microsoft 365 Copilot (office-suite embedded) — this dossier covers the consumer Copilot.",
+    "local_files": "Chat history is stored on the Microsoft account side; there are account-linked surfaces with Bing search history and Edge data (governed by the Microsoft privacy dashboard), details not verified item by item.",
+    "background": "Chats return instantly; the product includes proactive capability lines like \"Copilot Vision/Actions\" (official narrative); no official statement verified for an async task queue.",
+    "tools": "Built-in capability lines incl. web retrieval (Bing-based), image generation (Designer/DALL·E line) and image understanding; integration with Microsoft 365 apps belongs to another product surface. MCP support not verified item by item.",
+    "context": "Chat history syncs when signed in; the cross-session memory mechanism is not verified item by item (there is an official \"Copilot Memory\"-type narrative; implementation details unverified).",
+    "permissions": "Microsoft account system (enterprise/personal account lines); the training-use switch is in the Microsoft privacy dashboard (account privacy settings); the exact path and default state not verified item by item.",
+    "fit": "Suits: Windows/Edge/Bing ecosystem users, free web-connected Q&A, enterprises already in the Microsoft ecosystem. Does not suit: model self-selection, leaving the Microsoft account, or mainland direct-connection scenarios (see the cn block)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Whether a model selector exists and its options** (verify in the signed-in UI)\n- **The path and default state of the training switch in the account privacy dashboard**\n- **The actual trigger boundary of Copilot Vision/Actions**",
+  "unknowns": "- The list of currently routed models (changes with official adjustments; not verified item by item)\n- The training switch path and default state (not verified item by item)\n- Implementation details of the Copilot Memory-type narrative (not verified item by item)\n- The capability boundary between free and M365 subscription (D9: prices not collected; capability boundary not verified item by item)",
+  "related": [
+    "General-chat contrast: ChatGPT's model line is more single and clear, Copilot goes through Microsoft routing.",
+    "Also a big-tech ecosystem chat entry: Google-family vs Microsoft-family."
+  ],
+  "sources": [
+    "Microsoft Copilot · official site (product entry and capability narrative)",
+    "Microsoft · Services Agreement (official terms, direct-fetch verified 2026-10-22)",
+    "Microsoft 365 Copilot · Release Notes (update line of the adjacent product surface, changelog)"
+  ]
+}

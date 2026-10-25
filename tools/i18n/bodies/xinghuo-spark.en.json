@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-11 正文英译 · xinghuo-spark（2026-10-25）。",
+  "axes": {
+    "model_access": "The main line is iFlytek's self-developed Spark series — there is an official version-iteration line (V-series version numbers are findable on the official news page); the iFlytek Open Platform (xfyun.cn) is the developer API line, another interface from the same vendor. In-app model tiers are per the signed-in UI.",
+    "runtime": "Web (xinghuo.xfyun.cn) + iOS/Android apps + PC client; generation is processed on iFlytek's cloud, no model runs locally. The Spark main line does not open-source its weights (unlike DeepSeek/GLM/Qwen).",
+    "local_files": "Chat history is stored on the account side; document/image parsing happens in the cloud. No locally-oriented data surface declared by the official side.",
+    "background": "Chats return instantly; no official statement verified for an async task-queue form. The product includes a \"deep research\"-type long-task capability line (official news-page narrative); whether execution can continue after leaving the page is unverified.",
+    "tools": "In-product capability lines incl. web search, document parsing, AI writing, problem-solving Q&A and deep research (seen in the official-site navigation); speech capabilities (recognition/synthesis/simultaneous interpretation) are iFlytek's traditional strength and a differentiator inside the product. MCP support not verified item by item.",
+    "context": "Session history syncs when signed in; no official statement verified for a cross-session memory mechanism (if unknown, say unknown).",
+    "permissions": "Account system (phone-number registration); the training-use switch path not verified item by item. The Spark model filing number is in the cn block (cross-verified against official public disclosures).",
+    "fit": "Suits: speech-heavy scenarios (iFlytek's speech foundation is strong), Chinese Q&A + problem-solving, education/office document scenarios. Does not suit: running models locally (Spark does not open-source its weights), or leaving the iFlytek account."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The actual form of the in-app model tier selector** (only visible after signing in)\n- **The training-use switch path and default state**\n- **Whether the \"deep research\" long task can continue after leaving the page** (the async boundary is unverified)",
+  "unknowns": "- In-app model tier routing (not verified while signed in)\n- The training-use switch path and default state (not verified item by item)\n- The cross-session memory mechanism (no official statement verified)\n- The execution location and continuation behavior of the \"deep research\" task (unverified)",
+  "related": [
+    "Also a domestic big-tech chat entry: Wenxin lives in the Baidu ecosystem, Spark wins on the speech foundation.",
+    "Also domestic general chat: Doubao leans on text-to-image and Douyin login, Spark leans on speech and education."
+  ],
+  "sources": [
+    "iFlytek Spark · official site (product entry and capability narrative)",
+    "iFlytek Spark · agreement page (official page, direct-fetch verified 2026-10-22)",
+    "iFlytek Spark · News (product-update entry, changelog)",
+    "National table of filed generative-AI services (Spark Cognitive Model filing number cross-verification)"
+  ]
+}

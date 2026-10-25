@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-11 正文英译 · chatglm-chat（2026-10-25）。",
+  "axes": {
+    "model_access": "The main line is Zhipu's self-developed GLM series (Zhipu's official site zhipuai.cn has a model-release line); the GLM open-weight line (HF/ModelScope) and the cloud chat are the same family — running locally belongs to the runner dossiers. In-app model tiers are per the signed-in UI.",
+    "runtime": "Web (chatglm.cn) + iOS/Android apps; generation is processed on the vendor's cloud, no model runs locally. The developer entry is the open platform (open.bigmodel.cn) — same vendor, two interfaces alongside the chat product.",
+    "local_files": "Chat history and knowledge-base files are stored on the account side; the product has a \"knowledge base\" surface (upload documents for retrieval Q&A), data lives in the cloud account.",
+    "background": "Chats return instantly; the product includes agent and browser-extension entries (seen in official navigation); no official statement verified for an \"offline continuation\" form.",
+    "tools": "In-product capability lines incl. data analysis (code-interpreter type), text-to-image, web retrieval and PPT generation (seen in the official feature-page navigation); an agent-creation surface exists. MCP support not verified item by item.",
+    "context": "Session history syncs when signed in; the knowledge base is an explicit cross-session material surface; finer memory mechanics not verified item by item.",
+    "permissions": "Account system (phone-number registration); the training-use switch path not verified item by item. The GLM model filing number is in the cn block (cross-verified against official public disclosures).",
+    "fit": "Suits: Chinese long-document parsing and retrieval Q&A, wanting the GLM open-weight same family (run locally if the cloud isn't enough), student/workplace document scenarios. Does not suit: office/social ecosystem integration, or fully leaving the account system."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Knowledge-base capacity limits and retrieval-quality boundary** (the official entry exists; limits unverified)\n- **The training-use switch path and default state**\n- **The actual form of the in-app model tier selector**",
+  "unknowns": "- Knowledge-base capacity/retrieval details (not verified item by item)\n- The training-use switch path and default state (not verified item by item)\n- In-app model tier routing (not verified while signed in)\n- The capability boundary of agents and the browser extension (not verified item by item)",
+  "related": [
+    "Also a domestic open-weight same family: both GLM and DeepSeek weights can run locally under runner dossiers.",
+    "Also domestic long-document-oriented: Kimi leads with ultra-long context, Qingyan leads with knowledge-base retrieval."
+  ],
+  "sources": [
+    "ChatGLM (Zhipu Qingyan) · official site (product and feature lines)",
+    "ChatGLM (Zhipu Qingyan) · Terms of Service (official page, direct-fetch verified 2026-10-22)",
+    "ChatGLM (Zhipu Qingyan) · Blog (product-update entry, changelog)",
+    "Alibaba Cloud Model Studio · Model Filing Information Publicity (Zhipu Qingyan (ChatGLM) filing number cross-verification)"
+  ]
+}

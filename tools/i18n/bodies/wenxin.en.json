@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-11 正文英译 · wenxin（2026-10-25）。含 name_history 可选轴（build.mjs 585 行：缺它 bodyEnComplete=false）。",
+  "axes": {
+    "model_access": "The main line is Baidu's self-developed Wenxin (ERNIE) model series; Baidu Intelligent Cloud Qianfan is the developer API line, another interface from the same vendor. In-app model tiers are per the signed-in UI; not verified while signed in.",
+    "runtime": "Web (yiyan.baidu.com) + iOS/Android apps + PC client; generation is processed on Baidu's cloud, no model runs locally.",
+    "local_files": "Chat history is stored on the account side; document/image parsing happens in the cloud. No locally-oriented data surface declared by the official side.",
+    "background": "Chats return instantly; no official statement verified for an async task-queue form. The product includes \"deep search/agent\"-type capability lines (seen in the official-site navigation).",
+    "tools": "In-product capability lines incl. web search (the Baidu search ecosystem is its source differentiator), document parsing, image generation and agent creation; integration with Baidu Wenku (doc library)/Netdisk is part of the official narrative. MCP support not verified item by item.",
+    "context": "Session history syncs when signed in; no official statement verified for a cross-session memory mechanism (if unknown, say unknown).",
+    "permissions": "Account system (Baidu account login); the training-use switch path not verified item by item. The Wenxin model filing number is in the cn block (cross-verified against official public disclosures).",
+    "fit": "Suits: people living in the Baidu ecosystem (search/Wenku/Netdisk), Chinese Q&A + web retrieval, wanting traceable official docs for Wenxin-series models. Does not suit: running models locally (the Wenxin main line does not open-source its weights), or leaving the Baidu account.",
+    "name_history": "Brand renaming history (dossiers must state it clearly): Wenxin Yiyan (2023 launch) → Wenxiaoyan (2024-09 App-side rename) → unified as \"Wenxin\" (official wording 2025-11-02) — one product with three names across periods; recognize all three when searching."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The actual form of the in-app model tier selector** (only visible after signing in)\n- **The training-use switch path and default state**\n- **The data boundary of the Baidu Wenku/Netdisk integration** (integration is the selling point; the boundary needs measurement)",
+  "unknowns": "- In-app model tier routing (not verified while signed in)\n- The training-use switch path and default state (not verified item by item)\n- The cross-session memory mechanism (no official statement verified)\n- The data boundary of the Wenku/Netdisk integration (not verified item by item)",
+  "related": [
+    "Also a domestic big-tech consumer assistant: Doubao lives in Douyin, Wenxin lives in Baidu.",
+    "Also ecosystem-integration type: Yuanbao lives in WeChat, Wenxin lives in Baidu."
+  ],
+  "sources": [
+    "Wenxin · official site (product entry and capability narrative)",
+    "Wenxin · agreement page (official page, direct-fetch verified 2026-10-22)",
+    "Wenxin · Blog (product-update entry, changelog)",
+    "Baidu Intelligent Cloud · Model Filing Information Publicity (Wenxin Yiyan filing number, official disclosure)"
+  ]
+}

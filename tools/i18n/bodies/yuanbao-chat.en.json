@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-11 正文英译 · yuanbao-chat（2026-10-25）。",
+  "axes": {
+    "model_access": "The main line is Tencent's self-developed Hunyuan (Hy) series — Tencent's official news page has model-iteration records (Hy3 preview released 2026-04-24 etc.); Yuanbao was early on known for \"Hunyuan + DeepSeek dual-model switching\", but current external promotion has converged onto the Hy series; the model selector is only visible after signing in and this site did not verify while signed in — go by what the signed-in UI actually shows.",
+    "runtime": "Web (yuanbao.tencent.com) + iOS/Android apps + PC/Mac clients, multi-surface; generation is processed on Tencent's cloud, no model runs locally. It and Tencent ima (a knowledge-base workbench) both belong to Tencent and both build on Hunyuan but are positioned differently — Yuanbao is a general assistant, ima is a personal knowledge-base RAG.",
+    "local_files": "Chat history and favorites are stored on the account side; deep document reading supports multiple formats and can process ultra-long single documents (official narrative); uploaded content is stored in the cloud account. No model runs locally — the client is just an entry.",
+    "background": "Chats return instantly with no official statement of an \"offline continuation\" form; deep thinking is an in-session reasoning tier, not an async task.",
+    "tools": "In-product capability lines incl. web search (exclusive WeChat Official Account / Channels sources are its differentiator), deep document reading, AI image generation, agent creation and AI coding (multi-language run-and-verify); integration with Tencent Docs / WeChat Read. No official statement verified for MCP support.",
+    "context": "Chat history syncs across devices when signed in; there is an \"incognito temporary chat\" (not saved to history after chatting); the cross-session long-term memory mechanism is not verified item by item.",
+    "permissions": "Account system (WeChat/QQ/phone-number login); the training-use switch path not verified item by item. The Hunyuan model filing number is in the cn block (official disclosure).",
+    "fit": "Suits: people living in the WeChat ecosystem (searching Official Accounts/Channels, @ to interpret in comment sections, integrating Tencent Docs and WeChat Read), long-document deep reading, free quota. Does not suit: running models locally, or leaving the Tencent account system."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Whether the signed-in model selector still includes DeepSeek** (official promotion has converged onto Hy; this site did not verify while signed in)\n- **The training-use switch path and default state**\n- **Format and single-document length limits of deep document reading** (the official narrative has an \"about 10 million characters\" claim, not measured)",
+  "unknowns": "- The current list of selectable models (visible after signing in, not verified while signed in)\n- The training-use switch path and default state (not verified item by item)\n- The cross-session long-term memory mechanism (not verified item by item)\n- Deep-reading format/length limits (not measured)",
+  "related": [
+    "Also a domestic big-tech consumer assistant: Doubao wins on Douyin login and free quota, Yuanbao wins on WeChat-ecosystem sources.",
+    "Same vendor, different line: CodeBuddy is a coding assistant, Yuanbao is general chat."
+  ],
+  "sources": [
+    "Tencent Yuanbao · official site (product and capability narrative)",
+    "Tencent Yuanbao · User Agreement (official page, direct-fetch verified 2026-10-22)",
+    "Tencent Yuanbao · News (product-update entry, changelog)",
+    "Tencent Cloud · AI Workbench filing information (Hunyuan model filing number cross-verification)"
+  ]
+}

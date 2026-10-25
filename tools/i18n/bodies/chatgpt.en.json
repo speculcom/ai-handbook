@@ -1,0 +1,27 @@
+{
+  "_comment": "C0-11 正文英译 · chatgpt（2026-10-25）。",
+  "axes": {
+    "model_access": "The model family is officially disclosed and routed by tier: release notes (2026-10-07) state Plus/Pro/Business/Enterprise use GPT-6 Sol, Free/Go use GPT-6 Luna, and Pro reasoning options use GPT-6 Astra; models are selectable in chat.",
+    "runtime": "Web, iOS/Android, macOS/Windows desktop apps; all generation and retrieval are processed on OpenAI's cloud — no model runs locally. Desktop quick-chat/screenshot features are just entry points; processing still happens in the cloud.",
+    "local_files": "Can upload files, images and audio (audio upload per release notes 2026-10-06: transcription, summarization, Q&A); uploaded content is stored in the OpenAI account — ownership and retention are covered by the permissions dimension.",
+    "background": "Chats return instantly; the Codex Cloud line explicitly says \"tasks can continue while your computer sleeps\" (release notes 2026-09-29). The chat product itself has no offline-continuation form.",
+    "tools": "Official connectors (Gmail/Calendar etc.) and partner Apps; built-in feature lines like Slides/Sites/Finances; a separate API line exists. Plugins are disclosed on the Codex line; the consumer chat surface extends mainly via official connectors.",
+    "context": "Has memory and Projects for organizing history; temporary chats leave no history and build no memory. The full boundary of cross-session memory is per the official help pages.",
+    "permissions": "Official policy pages: personal services may use chats for model training by default; you can turn this off under \"Settings → Data controls\" or choose \"Don't use my content for training\" in the privacy portal; temporary chats are not used for training; Team/Enterprise/API do not train by default (API requires explicit opt-in); for the thumbs up/down feedback you submit, the whole related conversation may still be used for training.",
+    "fit": "Suits \"ask anything a bit\" general Q&A and writing, provided you accept cloud processing. For sensitive content, turn off the training switch first or use temporary chat; enterprise data goes through Team/Enterprise/API. For local processing or swappable models, closed cloud assistants like this are not suitable."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).",
+  "unknowns": "- The full boundary of the cross-session memory feature (per the official help pages; not item-by-item verified by this site)",
+  "related": [
+    "Also general chat; the training opt-out mechanism and the \"safety-review exception\" differ",
+    "Ecosystem-integration route: the counterpart choice for Google-family users",
+    "Chinese-context counterpart: App training switch is self-service, API does not train by default"
+  ],
+  "sources": [
+    "OpenAI Help · ChatGPT release notes (official changelog; body captured via search snapshot on 2026-10-21; direct fetch 403 is anti-scraping)",
+    "OpenAI · How your data is used to improve model performance (official policy page, snapshot-verified 2026-10-20)",
+    "OpenAI Help · How your data is used to improve model performance (5722486, incl. settings path and temporary-chat wording)",
+    "OpenAI · Terms of Use (content-ownership and assignment clauses, verified via search snapshot 2026-10-21)",
+    "OpenAI · ChatGPT Pricing (pricing page pointer, D9: this site does not collect price numbers)"
+  ]
+}

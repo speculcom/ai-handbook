@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-11 正文英译 · claude-chat（2026-10-25）。",
+  "axes": {
+    "model_access": "The model family is disclosed via official release notes and routed by tier (2026 line: release records for Claude Fable 5.1 / Mythos 5.1 / Opus 5 / Sonnet 5 / Haiku 5.5 etc.); models are selectable in chat, and Enterprise admins can control which models members may use.",
+    "runtime": "Web, desktop (macOS/Windows), mobile apps; chat generation is processed on Anthropic's cloud. The Cowork line has a local-session form (runs on your computer) alongside cloud sessions — this dossier's main axis is the chat app.",
+    "local_files": "Can upload documents for long-document analysis; uploaded content is stored in the Claude account. Deleted chats disappear from the front end immediately and are deleted from the back end within 30 days (official privacy policy).",
+    "background": "Cowork remote sessions (beta) officially state \"Work continues when you close your laptop, and scheduled tasks run with no device online\" (release notes 2026-07-07) — offline continuation and scheduled tasks have an official source.",
+    "tools": "Connector ecosystem (Microsoft 365 incl. write tools, Salesforce plugin and other official entries); Artifacts produce code and content; Skills/plugin security scanning (Enterprise beta).",
+    "context": "Memory is a categorized-entry system: Settings > Memory shows all Topics with per-entry edit or delete; sensitive topics are kept out of memory by default; on by default for Free/Pro/Max, off by default for Team/Enterprise (release notes 2026-08-25).",
+    "permissions": "Official privacy policy (effective 2026-09-10): consumer chats may be used for training by default; you can opt out in account settings; even after opting out, chats flagged by safety review are still used; API/Enterprise data is governed by customer agreements and this policy does not apply.",
+    "fit": "For people who value long-document reading and writing quality. For \"chats never used for training\", opt out in settings (note the safety-review exception); for contract-grade data terms go API/Enterprise. It is two product lines with Claude Code — don't conflate them."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).",
+  "unknowns": "- None",
+  "related": [
+    "Also general chat; the training switch mechanism differs (feedback exception vs safety-review exception)",
+    "Ecosystem-integration route counterpart"
+  ],
+  "sources": [
+    "Claude Help Center · Release notes (official changelog; direct fetch 200 on 2026-10-21 verified memory/Cowork/model-release entries)",
+    "Anthropic · Privacy Policy (direct-fetch verified 2026-10-20: training opt-out, safety-review exception, 30-day deletion)",
+    "Anthropic · Consumer Terms of Service (output-assignment clause, verified via search snapshot 2026-10-21)",
+    "Anthropic · Pricing (pricing page pointer, D9: this site does not collect price numbers)"
+  ]
+}

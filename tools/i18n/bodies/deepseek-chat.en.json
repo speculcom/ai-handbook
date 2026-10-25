@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-11 正文英译 · deepseek-chat（2026-10-25）。",
+  "axes": {
+    "model_access": "The consumer app and the API line share the official model family: api-docs.deepseek.com's official docs list model names and version records (the news page carries model-update announcements); in-app model tiers are per what the signed-in UI shows. The open-weight line (HF/ModelScope) is the same vendor's other face — running locally belongs to the runner dossiers.",
+    "runtime": "Web (chat.deepseek.com) + iOS/Android apps; generation is processed on the vendor's cloud, no model runs locally. The API line (platform.deepseek.com) is the developer entry — same vendor, two interfaces alongside the chat product.",
+    "local_files": "Chat history is stored on the account side; uploaded-file parsing happens in the cloud. No locally-oriented data surface declared by the official side — the chat product does not carry local files.",
+    "background": "Chats return instantly with no offline task-queue form (no background-task surface declared officially); the \"Deep Thinking\" mode is an in-session reasoning-tier switch, not an async task.",
+    "tools": "Web search and file parsing are in-product capability lines; no self-built agent/workflow surface (not declared officially). No official statement verified for MCP support.",
+    "context": "Session history is organized per conversation and syncs when signed in; no official statement verified for a cross-session memory mechanism (if unknown, say unknown). Context length is decided by the model tier; the official docs have a model-parameters page.",
+    "permissions": "Account system (phone-number registration); the training-use terms are in the official privacy policy and the dedicated \"Model Mechanism and Training Methods\" page (entry seen via direct fetch of cdn.deepseek.com); the exact switch path not verified item by item.",
+    "fit": "Suits: Chinese reasoning-oriented Q&A, wanting traceable official model documentation (the API docs quality stands out among domestic products), open weights and cloud being the same family with both options. Does not suit: background long tasks/workflows, or ecosystem integration (office/social suites)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The actual form of the in-app model tier selector** (only visible after signing in; this site did not verify while signed in)\n- **The training switch path and default state** (the privacy-policy entry was seen; the switch not verified item by item)\n- **Format and size limits of file parsing** (the product page has the narrative; the boundary unverified)",
+  "unknowns": "- In-app model tier routing details (not verified while signed in)\n- The training switch path and default state (not verified item by item)\n- The cross-session memory mechanism (no official statement verified)\n- File-parsing format/size limits (unverified)",
+  "related": [
+    "Also domestic general chat: Doubao leans on ecosystem integration and text-to-image, DeepSeek leans on reasoning and traceable docs.",
+    "Also domestic with open-weight same family: both GLM and DeepSeek weights can run locally in runners."
+  ],
+  "sources": [
+    "DeepSeek API Docs · official docs (model names/versions/news update line)",
+    "DeepSeek API Docs · News (model-update announcements, changelog)",
+    "DeepSeek · Terms of Use (official terms, direct-fetch verified 2026-10-22)",
+    "Alibaba Cloud Model Studio · Model Filing Information Publicity (DeepSeek Chat filing number cross-verification)"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_comment": "C0-11 正文英译 · gemini-chat（2026-10-25）。",
+  "axes": {
+    "model_access": "The model family is disclosed via official release notes and routed by subscription tier: the 2026-10-13 entry states Gemini 4 Argon rolling out globally to Google AI Pro & Ultra subscribers; free and paid tiers get different models — per the release notes.",
+    "runtime": "Web is the main entry; official desktop apps exist — a Windows app (release notes 2026-09-10, Alt+Space to summon) and a macOS app (2026-07-29 voice-creation entry, 2026-10-13 Antigravity coding entry); generation is processed on Google's cloud.",
+    "local_files": "Supports multimodal input and file uploads; the official privacy notice states Google does not train directly on your Gmail/Drive/Photos source libraries, but summaries, excerpts and inferences produced during answering are used for training (Connected Apps personalization page).",
+    "background": "Chats return instantly; the Skills feature (release notes 2026-09-30) is a reusable instruction set with automatic matching/triggering, but there is no official statement of an \"offline continuation\" form.",
+    "tools": "Google ecosystem integration (Search, Workspace, Chrome) is the main selling point; Connected Apps can connect third-party tools (incl. MCP server tools, official help page 16836988); the Gemini macOS app embeds the Antigravity coding agent (2026-10-13).",
+    "context": "Has memory and personalization; Gems (custom instructions) are being replaced by Skills and migrate automatically (release notes 2026-09-30). The full boundary of cross-session memory is per the official help pages.",
+    "permissions": "Official Gemini Apps privacy notice (updated 2026-10-13): with Keep Activity on, prompts, generated content and feedback are used to improve Google services (incl. training generative models); with it off, future chats are not used for training (unless you submit feedback); temporary chats and activity-recording-off data are kept 72 hours and not used for training; human reviewers review some data — the official notice warns against entering confidential information.",
+    "fit": "For people already working inside the Google ecosystem — the integration is a real advantage. For training concerns, turn off Keep Activity; for confidential content, follow the official warning and don't enter it. For running models locally or swapping models freely, closed cloud assistants like this are not suitable."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).",
+  "unknowns": "- The full boundary of the cross-session memory feature (per the official help pages; not item-by-item verified by this site)\n- The current list of models available on the free tier (release notes disclose tiers per entry; this site has not verified tier by tier)",
+  "related": [
+    "Also general chat; the training switch mechanism and tier routing differ",
+    "Its training opt-out has a \"safety-review exception\" — read as a contrast",
+    "Chinese-context counterpart: App training switch is self-service, API does not train by default"
+  ],
+  "sources": [
+    "Google · Gemini release notes (official changelog; verified via proxy direct fetch on 2026-10-21 for 4 Argon tier routing/Skills/Windows app/Antigravity entries)",
+    "Google · Gemini Apps Privacy Notice (official statement; body captured via search snapshot on 2026-10-20; direct-fetch timeout is network restriction)",
+    "Google · About personalization with Connected Apps (16836988, Connected Apps training wording)",
+    "Google · Gemini API Additional Terms of Service (content ownership and free/paid training wording, snapshot-verified 2026-10-20)",
+    "Google AI plans (pricing page pointer, D9: this site does not collect price numbers)"
+  ]
+}

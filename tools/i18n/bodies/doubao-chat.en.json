@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-11 正文英译 · doubao-chat（2026-10-25）。",
+  "axes": {
+    "model_access": "The Doubao model series is disclosed via ByteDance's official release line (the official-site news page has model-iteration records); the specific model tier routing inside the consumer app is not verified item by item; enterprise-grade model interfaces are provided on a separate line via Volcengine's \"Volcengine Ark\".",
+    "runtime": "Web (doubao.com), mobile app and PC client — three lines covered; generation is processed on ByteDance's cloud, no model runs locally. Features are largely aligned across the three lines; voice chat is most convenient on mobile.",
+    "local_files": "Supports document parsing, text-to-image and voice chat; uploaded content is stored in the account, the training switch path is in the permissions dimension.",
+    "background": "Chats return instantly with no offline task queue; no official statement of an \"offline continuation\" form — the chat product itself does not carry long tasks; long-document processing also completes within the session.",
+    "tools": "In-product capability lines incl. text-to-image, voice chat and document parsing; enterprise-grade capabilities are provided on the separate Volcengine Ark API line.",
+    "context": "Chat history is organized per session and syncs across devices when signed in; the cross-session memory mechanism is not verified item by item (no official docs verified for a standalone memory-management entry — if unknown, say unknown).",
+    "permissions": "Official privacy policy §1.10: on the premise of \"processing with secure encryption, strict de-identification such that specific individuals cannot be re-identified\", input data, prompts and generated replies may be used for model training; you can turn it off via \"Settings → Privacy & Permissions → Help improve the model\" (mobile) or \"Settings → Help improve the model\" (PC/web). The API line has a different term: Volcengine's Doubao Model Service Agreement §4.1 — unless you separately consent, content you submit or output is not used to train the foundation models.",
+    "fit": "Chinese everyday Q&A and text-to-image. The App training switch is self-service and the API does not train by default — the two lines' terms differ, don't blend them. For running models locally or swapping models freely, it is not suitable."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).",
+  "unknowns": "- Model tier routing details inside the consumer app (the official-site news page has iteration records; this site has not verified tier by tier)\n- The cross-session memory mechanism (no official docs verified for a standalone memory-management entry)",
+  "related": [
+    "General-chat contrast: the training switch and feedback wording differ",
+    "Also domestic general chat: Kimi's training opt-out goes through customer-service registration, Doubao's App switch is self-service",
+    "Ecosystem-integration route counterpart"
+  ],
+  "sources": [
+    "Doubao · Privacy Policy (official page, direct-fetch verified 2026-10-20 §1.10: training premise and opt-out path)",
+    "Volcengine · Doubao Model Service Agreement (§4.1: no training without separate consent)",
+    "Doubao · official-site news page (entry for product and model-iteration records)"
+  ]
+}

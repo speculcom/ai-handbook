@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-11 正文英译 · manus（2026-10-25）。",
+  "axes": {
+    "model_access": "Models are orchestrated and routed on the Manus side (no complete model list published officially); users do not pick models directly — \"which model does the work\" is an internal product decision, one of its key differences from general chat products.",
+    "runtime": "Tasks run in Manus's cloud sandbox (the sandbox surface on the manus.computer domain, as seen via direct fetch): the agent executes code, browses the web and produces files inside a cloud VM; the web UI issues and follows up, nothing is installed locally.",
+    "local_files": "Artifacts (files/web pages/reports) are generated in the cloud sandbox and can be downloaded/exported; uploaded data is stored on the account side. The exact opposite of a \"local agent\" — the execution surface is on the vendor's cloud.",
+    "background": "Asynchronous tasks are its native form: after submitting a task you can leave the page and the agent keeps running in the cloud (the official narrative is \"hand the task to it\"); there are productization traces of grace-period/queueing mechanics (credit system and concurrency limits).",
+    "tools": "Built-in tool surfaces incl. browser, code execution, file operations and deployment (the manus.space publishing surface); connecting external services (email/calendar etc.) goes through official integration lines. MCP support not verified item by item.",
+    "context": "Work is organized per task (session); no official statement verified for a cross-task memory mechanism.",
+    "permissions": "Account + subscription system; the cloud sandbox has network egress (browsing/downloading is product semantics); data retention and training terms are governed by the official Terms/Privacy, details not verified item by item.",
+    "fit": "Suits: handing whole tasks (research reports, data tidying, site building & publishing) asynchronously to a cloud agent, with artifacts published directly (manus.space). Does not suit: picking models, local files participating in execution, or heavy free use (credit system)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Credit-deduction rules when a task fails/is interrupted** (a credit-based product; billing on failure is what users care about most)\n- **The network egress scope of the cloud sandbox** (which domains it can reach, whether intranet-type services are reachable)\n- **Retention and access control of artifacts on manus.space**",
+  "unknowns": "- The model-orchestration list (not published officially)\n- Details of data retention and training terms (Terms/Privacy direct-fetched but clauses not verified line by line)\n- The cross-task memory mechanism (no official statement verified)\n- Filing status (no public-registry entry verified)",
+  "related": [
+    "Also a cloud async agent: Devin's main axis is codebases, Manus's main axis is general tasks.",
+    "Also cloud site-building & publishing: Replit is bound to its IDE ecosystem, Manus is a task-outsourcing form."
+  ],
+  "sources": [
+    "Manus · official site (product positioning and capability narrative)",
+    "Manus · Blog (product update line, changelog)",
+    "Manus · Terms (official terms, direct-fetch verified 2026-10-22)",
+    "Manus · Privacy (official privacy page)"
+  ]
+}

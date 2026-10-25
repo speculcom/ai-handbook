@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-11 正文英译 · tongyi-qianwen（2026-10-25）。",
+  "axes": {
+    "model_access": "The main line is Alibaba's Tongyi Qianwen (Qwen) series — the Qwen official blog (qwenlm.github.io/blog) has a model-release line, and the open-weight line (HF/ModelScope) and the cloud chat are the same family. In-app model tiers are per the signed-in UI; Alibaba Cloud Model Studio (Bailian) is the developer API line, another interface from the same vendor.",
+    "runtime": "Web (tongyi.aliyun.com) + iOS/Android apps + PC client; generation is processed on Alibaba's cloud, no model runs locally. The Tongyi product line also has adjacent products like Tongyi Wanxiang (image/video generation) — don't mix them into this dossier.",
+    "local_files": "Chat history is stored on the account side; document/image parsing happens in the cloud. No locally-oriented data surface declared by the official side.",
+    "background": "Chats return instantly; \"efficiency/deep thinking\"-type modes are in-session tier switches; no official statement verified for an async task-queue form.",
+    "tools": "In-product capability lines incl. document parsing, image understanding and web retrieval (seen in the official-site navigation); agent/browser-extension entries exist, details not verified item by item. No official statement verified for MCP support.",
+    "context": "Session history syncs across devices when signed in; no official statement verified for a cross-session memory mechanism (if unknown, say unknown).",
+    "permissions": "Account system (Alipay/Alibaba/phone-number login); the training-use switch path not verified item by item. The Qwen model filing number is in the cn block (cross-verified against official public disclosures).",
+    "fit": "Suits: Chinese Q&A + multimodal understanding, wanting the Qwen open-weight same family (cloud and local both options), connecting with the Alibaba Cloud ecosystem (Model Studio API). Does not suit: office/social ecosystem integration (the DingTalk line is another product surface), or fully leaving the account system."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The actual form of the in-app model tier selector** (only visible after signing in)\n- **The training-use switch path and default state** (the terms page could not be direct-fetched in full, so the switch needs measurement even more)\n- **The capability boundary of agents/the browser extension**",
+  "unknowns": "- The full product terms (terms direct fetch 404, not captured)\n- The training-use switch path and default state (not verified item by item)\n- The cross-session memory mechanism (no official statement verified)\n- In-app model tier routing (not verified while signed in)",
+  "related": [
+    "Also a domestic general chat product with open-weight same family.",
+    "Also a domestic big-tech chat entry: Qingyan leans on the knowledge base, Qianwen leans on multimodal and the weight ecosystem."
+  ],
+  "sources": [
+    "Tongyi Qianwen · official site (product entry and capability narrative)",
+    "Qwen · official blog (model-release line, changelog)",
+    "Alibaba Cloud Model Studio · Model Filing Information Publicity (Tongyi Qianwen filing number, official disclosure)"
+  ]
+}
