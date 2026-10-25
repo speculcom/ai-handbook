@@ -1,0 +1,38 @@
+{
+  "_comment": "C0-6 正文英译 · qoder（2026-10-25）。axes 含可选轴 name_history；正文除内置五节外无额外小节，sections/sectionTitles 省略；related 按正文「相关条目」3 链接索引对齐（frontmatter related 里的 claude-agent-sdk 由构建器自动补理由）。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "Official model-selector page: auto routing (Auto smart routing ~0.5×), tiers (Ultimate ~2.0× deep reasoning, Fast low-cost quick)\nor direct model selection, with the Credit rate shown before sending; the Lite tier only supports Auto/Efficient and a curated model list.\nThe official docs state you can bring your own API keys: after adding custom models under Settings → Models, the task/Agent/automation selectors can all use them (Custom Models page).\nThere are also two release notes — \"model consumption reference factor adjustment notice\" and \"Lite model tier retirement notice\" — factors and tiers change; the client is authoritative.",
+    "runtime": "The official family page (What is Qoder) gives the product matrix: Qoder (an integrated agentic workspace), Qoder IDE (the Editor window for\nAI-assisted coding / multi-file changes), a JetBrains plugin (completion/Ask/Agent/MCP/project rules), Qoder CLI (a terminal coding agent,\nconnectable to scripts and automation), Cloud Agents (a fully managed cloud sandbox: define Agent/Environment via API, start Sessions, stream results back),\nQoderWork, QoderWake, Agent SDK. The official positioning is \"agentic platform for real work\" —\nunderstand the task and context → plan → execute with tools → verify → iterate, an end-to-end loop.",
+    "local_files": "The IDE/plugin/CLI forms work with local code and projects; the CLI's official line: \"understand your entire codebase, write and modify\ncode, run commands\"; Cloud Agents run in a vendor-managed cloud sandbox (official Overview: no building your own agent loop,\nno managing the tool-execution sandbox, no managing long connections). Storage and retention policies for code inside the sandbox were not verified item by item.",
+    "background": "Cloud Agents is the official managed surface: fully managed runtime, Sessions run in the cloud, results stream back in real time;\nthe Quest window in Qoder IDE (an async task workflow) was officially retired at 2026-10-15 23:59 UTC+8 —\nthe official notice gives a timeline and migration advice (move to Qoder or keep using the Editor window).\nThe CLI side's background/scheduled-task surface was not verified item by item.",
+    "tools": "The official extension surface has pages: Connectors (connector marketplace or custom MCP servers), Skills (find/install/create reusable task capabilities),\nSubagents (expert Agents provided by extensions), Plugins, a custom-extension publishing guide (personal Skill/Plugin/custom MCP);\nthe official marketplace republishes Cloud Agents as Plugin/Skill/MCP connectors for other AI tools to plug into;\nRepo Wiki (generates project knowledge from a code repository for use in tasks).",
+    "context": "The memory mechanism has an official page (Memory: letting Qoder reuse stable preferences and project context across later tasks);\nRepo Wiki generates repository knowledge; rules/project settings. Experts Mode (a requirement auto-decomposed, multiple expert Agents developing in parallel)\nhas an official page and customer-case narratives. Where cross-session memory is stored was not verified item by item.",
+    "permissions": "The official \"Access Permissions\" page: pick the permission mode before sending a task / during execution, default Ask for approval (key operations request approval),\ncovering files, terminal, network and enabled tools; changing the permission mode does not change the task's workspace or execution mode.\nThe account system uses a qoder.com account; on the enterprise side there are Teams/Enterprise plan pages (governance details not verified item by item).",
+    "fit": "Fits: one account covering the whole \"IDE+plugin+CLI+cloud\" agentic coding loop, the Repo Wiki/memory/Skills context system,\nBYOK to add your own models, Cloud Agents running long tasks managed.\nDoes not fit: those looking for a domestic compliance narrative (the international line uses qoder.com accounts and overseas endpoints; the domestic line is Qoder CN — see the qoder-cn dossier),\nor anyone depending on the old Quest window workflow (retired).",
+    "name_history": "Qoder and Qoder CN (formerly Tongyi Lingma) share the Qoder brand but are two product lines: the domestic line qoder.com.cn (dossier qoder-cn),\nthe international line qoder.com (this dossier). The docs.qoder.com customer-case pages mention \"Alibaba Qoder\" and a\n\"Qoder workshop hosted by Alibaba Cloud\", pointing at the same Alibaba umbrella; but the official docs give no cross-reference page on the two lines' relationship."
+  },
+  "runs": "This site has not completed measured runs.\n\nThe test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three items, all pointing at what the official readable pages do not provide):\n\n- **the actual feature differences between the international qoder.com and the domestic qoder.com.cn** (no official comparison table)\n- **the real migration path of existing workflows to Qoder/Editor after the Quest window retirement** (the notice only gives a timeline)\n- **where code inside Cloud Agents sandboxes is stored and for how long** (the official Overview does not state data boundaries)",
+  "unknowns": "- The official cross-reference of the international line vs Qoder CN (only the \"Alibaba Qoder\" wording on case pages, no relationship page)\n- Storage region and retention policy of Cloud Agents sandbox code (not verified item by item)\n- Teams/Enterprise console details (SSO/audit etc. not verified item by item)\n- The CLI's background/scheduled-task surface (no official statement found)",
+  "related": [
+    "same brand, two lines: the CN line runs domestic models and the domestic-deployment compliance narrative, the international line uses qoder.com accounts and overseas endpoints; no official cross-reference of the two lines",
+    "both are domestic-gone-global coding tools with two lines: ByteDance is active on both its domestic and international lines — a useful contrast to how the Alibaba Qoder/Qoder CN lines are split",
+    "also a big-tech coding-assistant family (Tencent Cloud line) — compare each one's domestic compliance narrative and full-family form"
+  ],
+  "sources": [
+    "Qoder docs · What is Qoder (family matrix/end-to-end loop positioning)",
+    "Qoder docs · Quick Start (IDE/plugin/CLI/Cloud Agents four routes)",
+    "Qoder docs · Model Selector (tiers/Credit rates/BYOK custom models)",
+    "Qoder docs · Qoder CLI Overview (terminal form/autonomous read-write-execute/permission confirmation)",
+    "Qoder docs · Cloud Agents Overview (fully managed cloud sandbox/Plugin-Skill-MCP three integration paths)",
+    "Qoder docs · Access Permissions (Ask for approval default/file terminal network permissions)",
+    "Qoder docs · Quest window retirement notice (2026-10-15 retirement timeline)",
+    "Qoder docs · JetBrains Plugin Release Notes (changelog)",
+    "Qoder official site (product family/downloads)"
+  ]
+}

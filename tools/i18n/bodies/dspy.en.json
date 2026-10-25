@@ -1,0 +1,30 @@
+{
+  "_comment": "C0-6 正文英译 · dspy（2026-10-25）。短档案：正文除内置五节外无额外小节，sections/sectionTitles 省略；related 按正文「相关条目」2 链接索引对齐（frontmatter related 的 cursor/claude-code 由构建器自动补理由）。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "Each vendor's LM connects uniformly through dspy.LM (OpenAI/Anthropic/Gemini/local vLLM etc.,\nfollowing the official docs' LM-integration line, not enumerated item by item); its differentiator is **treating prompts as programmable parameters** —\nsignatures declare inputs and outputs, and optimizers automatically tune prompts and few-shot examples.",
+    "runtime": "A Python library (pip-installed into your process); GitHub 38,719★, last push 2026-10-20 (API verified).\nAcademic origin (Stanford NLP), with industrial-side Databricks investment (per the official narrative).",
+    "local_files": "The library form runs inside your process; optimization artifacts (program state/examples) land at paths you specify — data never leaves your side.",
+    "background": "A library has no resident semantics; optimization (teleprompting) is an offline batch task that ends when it finishes.",
+    "tools": "ReAct-style agent modules and tool calling are within the official module family; MCP support status has no verified official mainline statement.",
+    "context": "State management follows your program; cross-session memory is not part of its narrative — its \"memory\" is the optimized examples and weights.",
+    "permissions": "No account system; the permission surface is whatever vendors' API keys you connect. The optimization process calls models heavily (a token-cost surface);\nbudget-control parameters are in the official docs line, details not verified item by item.",
+    "fit": "Fits: turning \"prompt tuning\" into a reproducible optimization process (with metrics, with a training set); pipelines where models are swappable.\nDoes not fit: wanting an out-of-the-box agent runtime; small samples without metrics (optimizers consume metrics — without metrics there is nothing to optimize)."
+  },
+  "runs": "This site has not completed measured runs.\n\nThe test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
+  "unknowns": "- The full LM-integration catalog (not enumerated item by item)\n- MCP support status (no verified official mainline statement)\n- Sample-size rules of thumb per optimizer (the official docs have guidance; not verified item by item)",
+  "related": [
+    "same-layer contrast: LangChain orchestrates components, DSPy optimizes prompts — one handles wiring, the other handles training",
+    "both on the \"types/structure first\" route: Pydantic governs output structure, DSPy governs prompt quality"
+  ],
+  "sources": [
+    "stanfordnlp/dspy · repository (MIT; 38,719★, last push 2026-10-20, GitHub API verified)",
+    "DSPy · official docs",
+    "stanfordnlp/dspy · Releases (changelog)"
+  ]
+}

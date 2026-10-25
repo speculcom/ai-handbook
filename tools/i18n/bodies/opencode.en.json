@@ -1,0 +1,55 @@
+{
+  "_comment": "C0-6 正文英译 · opencode（2026-10-25）。axes=八维单元格；sections/sectionTitles=「一句话定位/适合与不适合/实测记录/未知项清单/相关条目」之外的小节；related/sources=按索引对齐的理由与出处标签。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "A coding harness that plugs into many providers. Official `models` and `providers` pages:\n\nOpenCode uses AI SDK and Models.dev, **supporting 75+ LLM providers, and also supports running local models**. The catalog includes:\n\n- 302.AI\n- Amazon Bedrock\n- Anthropic\n- Azure OpenAI\n- DeepSeek\n- Google Vertex AI\n- Groq\n- Hugging Face\n- llama.cpp\n- LM Studio\n- Ollama\n- OpenAI\n- OpenRouter\n- xAI\n- Z.AI\n- ZenMux and more.\n\nCredentials go through `/connect` into `~/.local/share/opencode/auth.json`;\n\n`enabled_providers` / `disabled_providers` act as allow/deny lists,\nand custom providers can be defined (`npm` + `baseURL`, OpenAI-compatible included);\nthere is also the official curated list OpenCode Zen. **Local models can be connected** —\n\nthe official docs name llama.cpp, LM Studio, Ollama, Atomic Chat.\n\nNote: connecting via a Claude Pro/Max subscription **is not an Anthropic-officially-supported usage**.",
+    "runtime": "A local process running in the terminal. Multi-platform installs are provided (macOS Homebrew / Windows Scoop etc.).\nIts lifecycle is bound to the terminal session.",
+    "local_files": "Coding capability aimed at real code repositories. `read`/`edit`/`write`/`grep`/`glob`\nread and write the workspace directly. `grep`/`glob` use ripgrep underneath, **following `.gitignore` by default**.\n\n**Access is confined by default to the working directory at launch** — paths outside it must be explicitly allowed\nvia `external_directory` in `permission` (e.g. `~/projects/personal/**`).\n\n`read` is allow by default, but **`.env` / `.env.*` are deny by default** (`.env.example` allow).\nThe `@` key fuzzy-searches project files; file changes have a `watcher` (with configurable `ignore`).\n\nSymbol-level capability comes from the **LSP tool (experimental)**: it needs `OPENCODE_EXPERIMENTAL_LSP_TOOL=true`\nplus your own LSP servers, supporting goToDefinition / findReferences / hover and more.\n\n**No description of codebase vectorized indexing was found officially** (tools / config / permissions pages checked).",
+    "background": "Terminal form, local process, lifecycle bound to the session.\n\nThe official docs also have `opencode serve` (a headless HTTP server).\nThere is also `opencode web` and a desktop app. **They all run on your own machine.**\nThey expose a session API to clients, including `prompt_async` for async sending. The execution environment is yours,\nnot a vendor-hosted cloud.\n\n**No cloud background capability that \"keeps running after the client closes / survives shutdown\" was found officially**\n(server page and docs overview checked).",
+    "tools": "**Built-in tools are listed item by item officially**:\n\n- bash\n- edit\n- write\n- read\n- grep\n- glob\n- lsp (experimental)\n- patch\n- skill\n- todowrite\n- webfetch\n- websearch (Exa, requires the OpenCode provider or `OPENCODE_ENABLE_EXA`)\n- question\n\nThere is also `task` for dispatching subagents.\n\nBuilt-in agents include:\n\n- build\n- plan\n- general\n- explore\n- scout\n- compaction\n- title\n- summary\n\n**MCP integration verified**:\nlocal `type:\"local\"` and remote `type:\"remote\"`, with OAuth\ndynamic client registration (RFC 7591) and commands like `opencode mcp auth`;\ncustom tools and plugins (hooks) are also supported.",
+    "context": "**ACP (Agent Client Protocol) load capability is its differentiating design** —\npreserving model, effort and mode boundaries across restore and fork.\n\nSession mechanics verified: the `/session` API supports creating,\n**forking (branching at a given message)**, revert/unrevert and summarize. The TUI has `/undo`, `/redo`, `/share`.\n\n**The compaction policy is configured officially** — the `compaction` item:\n\n- `auto` (default true, auto-compacts the session when context fills up)\n- `prune` (deletes old tool output to save tokens, default false)\n- `reserved` (compaction buffer)\n\nThere are also three built-in agents: compaction / title / summary.",
+    "permissions": "**Permission policy verified**: the `permission` config decides per operation whether it runs automatically,\nasks for approval, or is blocked — three tiers `\"allow\"` / `\"ask\"` / `\"deny\"`.\n\nFine-grained per-tool config is supported, with wildcards and object syntax (for bash:\n`git *` allow, `rm *` deny, **the last matching rule wins**).\n\nConfigurable permission keys:\n\n- read\n- edit (covers edit, write, patch)\n- glob\n- grep\n- bash\n- task\n- skill\n- lsp\n- webfetch\n- websearch\n- external_directory\n- doom_loop\n\n**Defaults are permissive**: most are allow,\n`doom_loop` and `external_directory` are ask; `read` is allow but\n`.env` / `.env.*` are deny by default.\n\nThe official config page also says \"all operations are allowed by default, no explicit approval needed\".\n\nThe approval UI offers once / always / reject. It can be overridden per agent.\n\nSince v1.1.1 the legacy `tools` boolean config has been merged into `permission`.",
+    "fit": "Users who need switchable multi-provider access and value confirmation before command execution.\nParticipants in the ACP ecosystem."
+  },
+  "sectionTitles": {
+    "变更记录说明": "Change-log notes",
+    "权限设计：执行前询问": "Permission design: asks before executing",
+    "子代理能力": "Subagent capability",
+    "ACP：Agent Client Protocol": "ACP: Agent Client Protocol",
+    "稳定性修复是重要信号": "Stability fixes are a meaningful signal",
+    "权限定级说明": "Confidence-level notes"
+  },
+  "sections": {
+    "变更记录说明": "| Version | Date |\n|---|---|\n| `v1.18.33` | 2026-09-28 |\n\n**Update cadence is very high** (release and changelog both on 09-28).",
+    "权限设计：执行前询问": "This is the single most notable line in this entry, from the README:\n\n```\nAsks permission before running bash commands\n```\n\n**Most terminal agents execute commands automatically by default; OpenCode asks.**\n\nThis lowers the risk of \"the model deleting files / running dangerous commands by mistake\",\nat the cost of interrupting the flow. The README also mentions **YOLO**,\nlikely an optional no-ask mode,\n**but the exact switch was not verified this pass — recorded as unknown**.",
+    "子代理能力": "```\nAlso included is a general subagent for complex searches and multistep tasks.\n```\n\nA built-in **general subagent** for complex searches and multistep tasks.\nThis lets it handle \"investigate first, then act\" style tasks that need multiple rounds.\n\n**The subagent's scheduling details and token overhead were not verified this pass.**",
+    "ACP：Agent Client Protocol": "This is its architectural highlight:\n\n```\nACP load/restore/fork preserves model, effort and mode boundaries (translated from the dossier's Chinese paraphrase)\n```\n\n**\"Preserving model and effort across forks\" is a detail worth noting** —\nmany tools lose settings after a fork, forcing you to re-set them every time.",
+    "稳定性修复是重要信号": "Referring to AgentClash's verification record of OpenCode v1.18.33 (09-28),\nthat version contains four fixes:\n\n1. Cloudflare timeout control\n2. MCP browser launch-failure feedback\n3. **debug credential redaction**\n4. Gemini reasoning-parameter correction\n\n**Two of the four relate to permissions/reliability** (credential redaction, MCP launch-failure feedback).\nThis shows the project's reliability investment goes into permissions and diagnosability —\nbut it also means **these areas had problems before**.",
+    "权限定级说明": "Why `confidence: partial`:\n\n- ✅ Verified: repository, license (MIT), latest version and date, star count (220,242 · rolling check 2026-10-23, highest in this track), permission policy (allow/ask/deny fine-grained), ACP, install methods; **rolling-check addition**: the repo has migrated from `sst/opencode` to `anomalyco/opencode` (GitHub 301 redirect confirms it; the repo homepage field = opencode.ai); **A6.2 this-round addition**: 75+ providers and local models, built-in tool list and MCP integration, `compaction` context policy\n- ❌ Not verified: the exact YOLO-mode switch, subagent scheduling details and token overhead"
+  },
+  "runs": "This site has not completed measured runs.\n\nThe test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement**: the testing focus for this tool should be\n**the real interruption cost of the \"ask-before-command\" design in long tasks** —\nthis is its core workflow difference from full-autonomy tools.",
+  "unknowns": "- The exact YOLO-mode switch and its risks\n- Subagent scheduling and token overhead\n- Real-world behavior on large repos under the \"no vectorized index (ripgrep / LSP only)\" route",
+  "related": [
+    "same category of tool, but maintenance has slowed",
+    "same category of tool, with different architectural emphasis",
+    "an official downstream: Kilo docs state verbatim \"The Kilo CLI is a fork of OpenCode\" — configs can be compared side by side"
+  ],
+  "sources": [
+    "OpenCode · repository README (now at anomalyco/opencode; old sst/opencode 301-redirects; rolling check 2026-10-23)",
+    "OpenCode · Releases (v1.19.4 @ 2026-10-22)",
+    "OpenCode · official site Changelog",
+    "OpenCode · official docs",
+    "OpenCode · official docs · Providers (75+ providers, catalog, custom providers, credential storage)",
+    "OpenCode · official docs · Models (75+ providers, local models, default model and variants)",
+    "OpenCode · official docs · Permissions (allow/ask/deny, fine-grained rules, external_directory, defaults)",
+    "OpenCode · official docs · Tools (built-in tool list, subagents, MCP, custom tools)",
+    "OpenCode · official docs · MCP Servers (local/remote, OAuth, management)",
+    "OpenCode · official docs · Config (compaction, watcher, permission, server)",
+    "OpenCode · official docs · Server (opencode serve, session API, fork/summarize)"
+  ]
+}

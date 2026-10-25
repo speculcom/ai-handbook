@@ -1,0 +1,53 @@
+{
+  "_comment": "C0-6 正文英译 · windsurf（2026-10-25）。官方英文引文原样保留；related 按正文「相关条目」2 链接索引对齐（frontmatter related 的 playwright 由构建器自动补理由）。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "**The Pro tier lists providers explicitly**: OpenAI, Claude, Gemini, **SpaceXAI**\nand leading open-source models.\n\n**The in-house model SWE-2 is officially labeled \"Free use of SWE-2\"**,\nand the pricing page header additionally states **\"SWE-2, our latest model, is now available\"**.\n\n**The Free tier is labeled \"Limited model availability\".**",
+    "runtime": "**Important change: Windsurf has been renamed Devin Desktop** —\n\nthe official docs title the stable-release notes \"agent-native editor\";\nthe download page offers macOS (Apple Silicon / Intel),\nWindows (arm64 / x64) and Linux x64 for Debian.\n\n**Folder selection on SSH or WSL hosts is supported**.",
+    "local_files": "A local editor that reads and writes the workspace directly. **Official context-awareness page wording**:\n\"The entire local codebase is then indexed (including files that are\nnot open)\" — **the whole local codebase is indexed by the RAG context engine**, with snippets fetched on demand at retrieval time.\n\nThe Pro tier has larger index caps and context length; **Teams / Enterprise can index remote repositories**.\n\nFiles in `.gitignore` are not exposed to Cascade by default (Cascade Gitignore Access is off by default); `.codeiumignore` can exclude paths.\n\n**Fast Context is a dedicated retrieval subagent**\n(SWE-grep / SWE-grep-mini models, using only grep / read / glob,\nup to 4 rounds, at most 8 parallel tool calls per round). You can also drag files into the panel or send a selection to chat.",
+    "background": "**True background comes from Devin Cloud**: official `windsurf/devin` page wording\n\"Each Devin session runs on its own VM with a desktop, browser,\nand computer use, so it can keep working after you close your laptop\" —\n\neach Devin session runs on its own cloud VM, **keeping working after you close the laptop**.\nYou can plan locally with Cascade and hand it to Devin cloud for implementation in one click,\nwith sessions appearing in the Agent Command Center.\n\nLocal Cascade and Devin Local\nrun on your machine (Devin Local **\"operates on your machine\"**) and need the client resident.\n\nNote Devin Cloud access is rolling out, and Enterprise requires an admin to enable it.",
+    "tools": "**Supports the Agent Client Protocol (ACP)** —\nthe docs site has **\"Agent Client Protocol (preview)\"** and\n**\"Building a custom ACP agent\"** as dedicated pages, indicating ACP is in preview.\n\n**MCP support has one important detail**:\n\nthe changelog records that MCP servers passed in by ACP clients\ncan now be used and listed by the agent,\n**including HTTP and SSE type MCP servers**.",
+    "context": "**The Memories mechanism is verified** (official `cascade/memories` page): Cascade\nautomatically generates and stores memories during conversations, and you can ask it to \"create a memory\";\n\nmemories bind to the workspace, stored locally at `~/.codeium/windsurf/memories/`,\nnot committed to the repo, **consuming no credits**, auto-retrieved when Cascade deems them relevant.\n\nFor cross-session persistence the official recommendation is Rules (global / workspace / system three levels,\n`.windsurf/rules/*.md`) or `AGENTS.md`. **There is also session history**:\n\nthe changelog records that switching back to one of the 10 most recently viewed sessions shows its transcript immediately.\n\nThe underlying context engine is RAG (official M-Query retrieval).",
+    "permissions": "**There are explicit security mechanisms and CVE fix records**:\nthe changelog records a fix for a Restricted Mode bypass\n(CVE-2026-81376) —\npreviously only dotted-form restricted workspace settings were checked,\nnow nested-object form is checked too.\n\n**This one is worth noting: Restricted Mode could once be bypassed via nested objects.**",
+    "fit": "People who need multiple model providers to choose from (not locked to a single model);\npeople who need ACP to plug in custom agents (note it is preview);\npeople who need remote-host (SSH / WSL) support.\nThe Free tier fits people who only need unlimited inline edits and unlimited Tab completion."
+  },
+  "sectionTitles": {
+    "最重要的一件事：产品已改名": "The single most important thing: the product has been renamed",
+    "档位结构：两层计费要特别注意": "Tier structure: two-layer billing deserves attention",
+    "模型供应：多供应商 + 自研模型": "Model supply: multi-provider + in-house model",
+    "ACP 支持（preview 阶段）": "ACP support (preview stage)",
+    "安全：有过 Restricted Mode 的 CVE": "Security: a Restricted Mode CVE happened",
+    "平台支持": "Platform support",
+    "采集限制": "Collection limits"
+  },
+  "sections": {
+    "最重要的一件事：产品已改名": "**The release-notes title on the official docs site is now \"Devin Desktop\"**,\ndescribed as an \"agent-native editor\".\n\nThis means:\n\n- you may not find Windsurf's latest docs by searching the old name\n- brand, version numbers and pricing structure all follow Cognition\n- **Cognition runs two product lines at once: Devin (cloud) and Devin Desktop (the editor)**\n\n**This item has confirmatory significance for this site's methodology**:\n[Methodology rule 3 \"don't mix layers\"](../../../METHODOLOGY.md) is exactly about this kind of problem —\na renamed product kept under its old name would directly mislead.",
+    "档位结构：两层计费要特别注意": "(Quote numbers are not stored per the D9 rule; see the official pricing page.)\n\n| Tier | Key contents |\n|---|---|\n| **Free** | Light quota, **limited model availability**, **unlimited inline edits**, **unlimited Tab completion** |\n| **Pro** | Higher quota covering **OpenAI / Claude / Gemini / SpaceXAI** frontier models + leading open-source models, full model availability, **free use of SWE-2**, **an officially labeled limited-time free period for Devin Desktop and CLI (until 2026-10-10)**, Devin Cloud access, **add-on usage billed at API prices** |\n| **Teams** | **Two-layer billing: a plan monthly fee + per-full-time-developer seats**, up to 200 users, collaboration and centralized billing |\n\n**Three easy pitfalls**:\n\n| Misconception | Reality |\n|---|---|\n| Teams bills by seats only | **two layers**: plan monthly fee + seat fee |\n| Add-on usage gets a discount | **billed at API prices**, i.e. no discount |\n| The free period is long-term | **ends 2026-10-10** (Devin Desktop and CLI) |",
+    "模型供应：多供应商 + 自研模型": "**The Pro tier lists four providers explicitly**:\nOpenAI, Claude, Gemini, **SpaceXAI** (xAI).\n\n**The in-house model SWE-2**:\n\n- the pricing page header states \"SWE-2, our latest model, is now available\"\n- the Pro tier states \"Free use of SWE-2\"\n\n**The Free tier is \"Limited model availability\"** —\nthis is the core Free-vs-Pro difference, more notable than quota.",
+    "ACP 支持（preview 阶段）": "The docs site has two ACP dedicated pages:\n\n- **Agent Client Protocol (preview)**\n- **Building a custom ACP agent**\n\n**This shows ACP is in preview, not a stable feature.**\n\n**But the changelog has one notable advance**:\n\n```\nMCP servers passed by an ACP client ... are now usable by the agent\nand listed in ..., including for HTTP and SSE MCP servers\n```\n\n**MCP servers passed in via ACP clients are now usable,\nincluding HTTP and SSE types.**\n\nThis is stronger than what the official reference servers can do —\nin this repository's tools section, most official servers only support stdio.",
+    "安全：有过 Restricted Mode 的 CVE": "The changelog records one fix:\n\n```\nRestricted Mode blocks restricted workspace settings written in\nnested object form, not just the dotted form (CVE-2026-81376).\n```\n\n**What it means**: Restricted Mode used to block only restricted workspace settings written in dotted form (`a.b.c`);\nnow it also blocks nested-object form.\n\n**This deserves a standalone record**, because it reveals a real permission bypass:\n**Restricted Mode could once be bypassed via nested-object form.**\n\nFor an AI coding tool, Restricted Mode is an important security boundary,\nand the existence of such a fix reminds us: this boundary was once more fragile than it looked.",
+    "平台支持": "The coverage visible from the download page is broad:\n\n| Platform | Architecture |\n|---|---|\n| macOS | Apple Silicon / Intel |\n| Windows | arm64 / x64 |\n| Linux | x64 for Debian |\n\n**And folder selection on SSH or WSL hosts is supported** —\nmeaning it can operate on directories on remote hosts.",
+    "采集限制": "| Page | Status |\n|---|---|\n| Pricing page | ✅ three-tier structure and capability differences verified (quote numbers not stored per the D9 rule) |\n| Docs site | ✅ 9,772 characters of text captured |\n| Changelog | ✅ 116K characters captured, covering multiple release notes |"
+  },
+  "runs": "This site has not completed measured runs.\n\nThe test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement**: focus on two things\n(1) **the real constraining power of Restricted Mode** — given it had a CVE fix;\n(2) whether HTTP/SSE type MCP servers passed in via ACP actually work.",
+  "unknowns": "- The priority relationship between SWE-2 and third-party models\n- The timeline from ACP preview to stable\n- The official description of the indexing algorithm (the official docs give behavioral boundaries only, implementation not disclosed)",
+  "related": [
+    "same track, same \"hybrid + cloud\" form",
+    "another ACP implementer"
+  ],
+  "sources": [
+    "Windsurf · official pricing page (Free / Pro / Teams structure and capabilities)",
+    "Windsurf · official Changelog (Devin Desktop release notes + CVE fix)",
+    "Windsurf · official docs",
+    "Windsurf · ACP docs (preview)",
+    "Windsurf · official docs · Context Awareness (RAG indexing, Fast Context, remote-repo indexing)",
+    "Windsurf · official docs · Memories & Rules (auto-generated memories, local storage, three-level Rules)",
+    "Windsurf · official docs · Devin (cloud agent on its own VM, keeps running after laptop closes, delegation flow)",
+    "Windsurf · official docs · Devin Local Agent (local harness, subagents, sandbox, permissions)"
+  ]
+}
