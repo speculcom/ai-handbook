@@ -1,0 +1,35 @@
+{
+  "_comment": "C0-5 body translation for coding/kilocode. No extraSections in the source body, so sections/sectionTitles are omitted. axes includes the optional name_history axis (rendered via EXTRA_AXES).",
+  "_rules": [
+    "0) Keep ** emphasis, `code`, links and table structure, block-for-block with the Chinese side.",
+    "1) Official English quotes stay verbatim; Chinese-rendered paraphrases of official wording are marked (translated) on the English side — never fabricate English originals.",
+    "2) Do not upgrade 'unverified / not stated officially' semantics; the translation changes no facts.",
+    "3) Translation does not refresh last_verified."
+  ],
+  "axes": {
+    "model_access": "Official stance: 500+ models at zero markup: the Kilo Gateway connects hundreds of models through one API (streaming, BYOK, usage tracking); Auto Model routes automatically across Efficient/Frontier/Free tiers; BYOK has its own official page (bring your own key and use it directly); local models via Ollama / LM Studio also have official pages. Billing has three parts: Free-tier usage is billed separately (at the provider's list price), Kilo Pass, Teams per-seat subscription, Enterprise (official pricing page; concrete prices are not collected by this site per D9).",
+    "runtime": "Open source (GitHub MIT, main repo Kilo-Org/kilocode): VS Code extension + JetBrains plugin + CLI + Kilo Desktop (beta). Official docs state explicitly that Kilo CLI is a fork of OpenCode (supporting the same configuration). Cloud Agents: an isolated Linux container per session (Node.js/git/gh/glab preinstalled, apt available), automatic branch creation with continuous pushing, ephemeral environments — official stance: \"no local machine required\" (translated).",
+    "local_files": "The IDE extension/CLI processes your codebase on your own machine (open source, auditable by you); Cloud Agents run inside vendor-hosted isolated containers, with the repo cloned into the container and automatic branch management. Storage and retention policies for code inside containers have not been verified item by item.",
+    "background": "Cloud Agents are the hosted surface: start cloud sessions from any device with automatic git management; there is also Automation (scheduled/event automation, the docs have an Automate section), Code Reviewer (AI PR review), and Slack integration (use Kilo from Slack). The official homepage claims \"5M+ developers\".",
+    "tools": "MCP has official pages (Overview + Integrations); Custom Rules (custom rule files); Custom Modes; shared custom agents (Teams surface); the kilo-marketplace extension market (fork-and-submit flow has an official page).",
+    "context": "Sessions & Sharing and Session History and Search have official pages; Custom Rules provide persistent project instructions. An automatic cross-session memory mechanism has not been verified in any official statement.",
+    "permissions": "The official settings pages form a system: Auto-Approving Actions, Sandboxing, Cost Controls and Usage Safeguards. Enterprise surface: SSO/SAML, SCIM, audit logs, data residency (EU Sovereignty official page), SLA, restricting available models/providers, Shared Private Gateway BYOK (official pricing/enterprise pages).",
+    "fit": "Fits: people who want open source they can audit + 500+ models at zero markup + full BYOK/local-model support, VS Code/JetBrains/CLI/cloud multi-form, free start with pay-as-you-go.\nDoes not fit: people wanting strong vendor-backed governance narratives (an enterprise surface exists but the entity is an open-source community company); people looking for the \"official Roo Code successor\" (Roo's official shutdown notice points to ZooCode/Cline and does not mention Kilo — see pitfalls).",
+    "name_history": "Domain migration: kilocode.ai → kilo.ai (308 redirect measured 2026-10-22); the product name remains Kilo Code.\nLineage with Roo Code/Cline: community consensus holds Kilo descends from a Roo Code fork, but the official docs never state this lineage (officially stated only that the CLI is an OpenCode fork) — this site records the official stance."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three items, all pointing at what the readable official pages do not give):\n\n- **The actual billing behavior of Gateway's zero markup** (compare per-token prices against using the provider API directly)\n- **Retention duration and billing boundary of code inside Cloud Agents containers** (not written on the official pages)\n- **Transparency of where Auto Model's three-tier routing actually lands** (which model each request lands on)",
+  "unknowns": "- Lineage with Roo Code/Cline (not stated in official docs; community perception and official stance recorded separately)\n- Storage and retention policy of Cloud Agents container code (not verified item by item)\n- Automatic cross-session memory mechanism (no official statement verified)\n- Capability boundary of Kilo Desktop (beta) (official pages give entry-level description only)",
+  "related": [
+    "same-source code-lineage contrast: Roo Code's official shutdown notice names Cline as a replacement; the Kilo–Cline community lineage is not stated officially — compare the two products' BYOK and model surfaces",
+    "also a VS Code-family coding agent: Cursor is a closed-source standalone IDE, Kilo an open-source plugin form + Gateway zero-markup narrative — opposite philosophies",
+    "the officially stated CLI lineage: Kilo CLI is a fork of OpenCode (official docs wording)"
+  ],
+  "sources": [
+    "Kilo site · llms.txt (product matrix: VS Code/JetBrains/CLI/Cloud/Gateway/500+ models zero markup)",
+    "Kilo docs · Getting Started (install/auth/first task)",
+    "Kilo · Pricing (Free/Teams/Enterprise three tiers + three-part billing stance)",
+    "Kilo · Cloud Agents (isolated containers/automatic branches/any device)",
+    "Kilo GitHub main repository (MIT open source)",
+    "Kilo GitHub Releases (changelog)"
+  ]
+}

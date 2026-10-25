@@ -1,0 +1,35 @@
+{
+  "_comment": "C0-5 body translation for coding/lovable. No extraSections in the source body, so sections/sectionTitles are omitted. related aligns with the 3 links in the body's 相关条目 section.",
+  "_rules": [
+    "0) Keep ** emphasis, `code`, links and table structure, block-for-block with the Chinese side.",
+    "1) Official English quotes stay verbatim; Chinese-rendered paraphrases of official wording are marked (translated) on the English side — never fabricate English originals.",
+    "2) Do not upgrade 'unverified / not stated officially' semantics; the translation changes no facts.",
+    "3) Translation does not refresh last_verified."
+  ],
+  "axes": {
+    "model_access": "The official FAQ states plainly: build-side models are chosen by Lovable and updated automatically; users cannot pin a specific model for Build/Plan/Chat modes. AI features inside your own app can pick models from the supported list on the official AI features page (chat/image/video/audio each have their own pages). Enterprise has EU inference (model requests stay on European endpoints).",
+    "runtime": "The web app is the primary form; the official pages also list a desktop app, iOS/Android mobile apps, the Lovable API (publish projects / manage workspaces), and the Lovable MCP server (plug Lovable into IDEs and external agents). Projects are built inside workspaces; one project maps to one application whose codebase can be synced out (per the official welcome page).",
+    "local_files": "Project code lives inside the Lovable platform; Git sync provides automatic two-way synchronization with GitHub/GitLab/Bitbucket repos (stated on the official page), and Download codebase is available (paid plans). The built-in backend (Cloud) is hosted by Lovable, built on the open-source Supabase base (stated on the official cloud page: database/auth/storage/edge functions, no need to self-host Supabase). The official \"deployment, hosting and ownership\" page stance is \"you are never locked in\": export code, migrate data, self-host part or all of the stack.",
+    "background": "The hosted surface is part of the product semantics: hosted applications scale automatically with traffic, database instances are adjustable (official cloud page); project monitoring checks apps on schedule catching bugs and visitor errors; Subagents split research/code exploration of complex tasks into parallel work. Whether build tasks continue after closing the browser has not been verified in any official statement.",
+    "tools": "The connector system has official pages: app connectors (apps calling external services), app user connectors (end users connecting their own accounts), custom REST connectors, chat connectors (MCP servers, including custom remote MCP and MCP registries); built-in security scanning + Aikido/Wiz integrations; Code mode has a built-in code editor; published apps can be reverse-published as MCP servers.",
+    "context": "Project sessions have three modes: Chat (discuss) / Plan (write a structured plan first, then execute) / Build (implement directly and verify); cross-project referencing reuses implementations across projects; projects can be imported from Replit/Bolt/v0 etc.; design systems can be plugged in. A cross-session memory mechanism has not been verified in any official statement.",
+    "permissions": "Account + workspace system; the enterprise surface has official pages: SSO (Okta/Auth0/Entra/OIDC/SAML), SCIM user provisioning, audit logs (exportable to SIEM/cloud storage), Action center (approving release requests), workspace security center and sensitive-data scanning; project visibility (private/internal/public) and RLS row-level security policies control data access; personal 2FA.",
+    "fit": "Fits: one-stop from idea to a full-stack app with database/auth/hosting; wanting Git two-way sync to put code in your own repo; an enterprise governance narrative (SSO/SCIM/audit/EU inference).\nDoes not fit: people who want to pin the build model (the official FAQ says you cannot); people wanting to download the codebase back locally for free (Download codebase is a paid-plan feature)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three items, all pointing at what the readable official pages do not give):\n\n- **Actual conflict behavior of Git two-way sync when code is changed on both sides at once** (the official page describes the mechanism but gives no conflict example)\n- **Completeness of the actual steps for migrating the built-in backend to self-hosted Supabase** (an official migration page exists but was not walked end to end)\n- **Whether Build-mode tasks continue after closing the browser** (no official statement verified)",
+  "unknowns": "- Cross-session memory mechanism (no official statement verified)\n- Offline continuation behavior of build tasks (no official statement verified)\n- Storage region and data-residency defaults of the built-in backend (EU inference is the enterprise surface; regions for personal/regular plans not verified item by item)\n- The complete current model list for in-app AI features (the official page changes with versions; not enumerated item by item)",
+  "related": [
+    "also prompt-to-full-stack app: Bolt runs in-browser WebContainers, Lovable uses a cloud-hosted backend",
+    "also Vercel-adjacent: v0 binds the Vercel deployment chain and the Next.js stack, Lovable ships its own backend and multi-Git-platform sync",
+    "cloud IDE + agent contrast: Replit gives you a full cloud development environment, Lovable hides the environment inside the prompt flow"
+  ],
+  "sources": [
+    "Lovable docs · Welcome (full-stack positioning / workspaces / codebase sync)",
+    "Lovable docs · Built-in backend (Supabase base / hosting boundary)",
+    "Lovable docs · Git sync overview (GitHub/GitLab/Bitbucket two-way sync)",
+    "Lovable docs · Deployment, hosting and ownership (no-lock-in stance / export and self-host paths)",
+    "Lovable docs · FAQ (models not pinnable / training-data policy)",
+    "Lovable docs · Chat connectors (MCP integration surface)",
+    "Lovable docs · Release Notes (changelog)"
+  ]
+}
