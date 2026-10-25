@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-17 正文英译 · otter（2026-10-26）。无附加小节。正文「相关条目」4 行带 .md 链接（deepgram/assemblyai/whisper/zapier），related 写 4 条（frontmatter related 是 [deepgram, assemblyai, zapier]，键按正文链接行对齐=4——whisper 行在正文但不在 frontmatter）。sources 3 条对齐 frontmatter。runs 带「实测建议」三条段。",
+  "axes": {
+    "model_access": "A self-developed transcription/minutes model line (Otter's self-described transcription engine); users do not pick models. There was a privacy controversy over \"training on customer audio\" (2021-2022 public-report narrative) — the current training stance follows the official privacy page (not verified item by item).",
+    "runtime": "Web + mobile App + meeting-platform bot joining (Zoom/Meet/Teams bots join meetings for live transcription, official product surface); processing on the vendor's cloud.",
+    "local_files": "Meeting recordings/transcripts/minutes stored on the account-side cloud; exports (txt/csv/srt etc.) count as local. No officially stated local-processing form seen.",
+    "background": "Live bot-joined meeting transcription is the core form (a bot resides in the meeting); batch upload alongside; no \"keep-running-after-shutdown\" concept (cloud service).",
+    "tools": "Live transcription + speaker diarization + auto minutes/action items (official product surface), Otter Chat (ask questions of the transcript, official product surface), collaborative editing and sharing; the enterprise side has an admin console (seen on the official site).",
+    "context": "A cross-meeting knowledge base is the product narrative (past meetings searchable/answerable) — that is its \"memory\" surface, details not verified item by item.",
+    "permissions": "Account + subscription + enterprise system (D9: pricing not collected); the free tier has a monthly transcription-minutes cap (official pricing-page narrative, exact quota not verified item by item); **meeting recordings involve multiple parties' privacy — informed consent for a bot joining is the user's responsibility** (terms stance not verified item by item).",
+    "fit": "Fits: meeting/interview documentation (mature for English), transcription-minutes pipelines for individuals and small teams. Does not fit: Chinese meetings as the mainstay (the transcription engine has an English-leaning narrative), extremely privacy-sensitive scenarios (cloud + bot joining), treating the free tier as a long-term plan (minute limits)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Transcription accuracy on Chinese / Chinese-English mixed meetings**\n- **Otter Chat's recall quality across multiple past meetings**\n- **Bot joining's actual reachability under enterprise Zoom policy restrictions**",
+  "unknowns": "- The current training stance (privacy page not verified item by item — the policy direction after the controversy requires reading the original text)\n- The free tier's current minute quota (not verified item by item)\n- A Chinese transcription model line (no official statement verified)",
+  "related": [
+    "Upstream contrast: the transcription base of Otter-class products can be engines like Deepgram/Whisper.",
+    "Also transcription + minutes oriented: AssemblyAI gives developers an API, Otter gives end users a product directly.",
+    "Open-source-base contrast: if you don't want meeting audio leaving your machine, build your own pipeline on Whisper.",
+    "Minutes downstream: Otter's exported minutes are often distributed to tasks/calendars via Zapier-class platforms (cross-linked after filing)."
+  ],
+  "sources": [
+    "Otter · official site (product and capability narrative)",
+    "Otter · Terms of Service (official terms, direct-fetch verified 2026-10-22)",
+    "Otter · Blog (official update line, changelog)"
+  ]
+}

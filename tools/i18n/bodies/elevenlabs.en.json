@@ -1,0 +1,23 @@
+{
+  "_comment": "C0-17 正文英译 · elevenlabs（2026-10-26）。无附加小节。正文「相关条目」1 行带 .md 链接（suno），related 写 1 条（frontmatter related 是 [gemini-chat]，键按正文链接行对齐=1）。sources 3 条对齐 frontmatter。runs 无「实测建议」段（能力口径以官方 changelog 为准），照源短译。",
+  "axes": {
+    "model_access": "Model iterations disclosed via the official changelog: Eleven v4 and Eleven v4 Turbo released (2026-09-28 entries), Scribe v2 Medical generally available (2026-09-11), music_v2_5 API support (2026-09-14) — direct-fetch verified 2026-10-21; the platform also aggregates third-party model configurations (changelog entries include gpt/claude-family LLM integrations).",
+    "runtime": "Web, API and mobile; generation processed in the cloud. The API is one of the main entry points for dubbing/voice product integration.",
+    "local_files": "Supports text, script and audio-material input (transcription, clone training); the material-processing stance is in the permissions axis.",
+    "background": "Generation is request-based; Agents/telephony products have persistent-session forms (changelog call-queueing and similar entries); no official statement of a \"keep-running-after-shutdown\" form.",
+    "tools": "Wide product surface: TTS, Voice Design/cloning, Speech to Text (Scribe line), Text to Dialogue, Conversational AI (phone/Widget), Workflows/Flows orchestration, audio effects (audio_effects 2026-10-12 entry).",
+    "context": "Generation is request-based, no cross-session conversation-memory form; voice assets (Voice Library/personal voices) are the persistence form.",
+    "permissions": "Official ToU §4(d) grants the platform a license to use content for operating and improving (including training); §4(i) provides a Data use settings menu to opt out of using content for training — self-service opt-out is rare in this category. Voice cloning requires the person's own consent or lawful authorization.",
+    "fit": "Teams making dubbing, audio content, voice products. Training opt-out is a self-service menu (relatively rare, worth calling out); get authorization before cloning someone else's voice — that is a personality-rights red line, not merely a terms question."
+  },
+  "runs": "This site has not completed measured runs. Voice generation does not fit the coding test protocol; capability claims follow the official changelog.",
+  "unknowns": "- How models and quotas split across tiers (disclosed rolling via the changelog; this site has not verified tier by tier)\n- Retention and deletion details for voice-clone training material (the ToU has no dedicated section verified item by item)",
+  "related": [
+    "Also audio generation: the music-leaning contrast, with no opt-out option in its training license"
+  ],
+  "sources": [
+    "ElevenLabs · Changelog (official log; Eleven v4/v4 Turbo, Scribe v2 Medical, audio_effects and other entries with dates, direct-fetch verified 2026-10-21)",
+    "ElevenLabs · Terms of Use (official terms; direct-fetched 200 on 2026-10-20, verifying §1(c)/§4(c)(ii)/§4(d)/§4(i))",
+    "ElevenLabs · Pricing (pricing-page pointer; D9: this site does not collect price figures)"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-17 正文英译 · whisper（2026-10-26）。无附加小节。正文「相关条目」3 行带 .md 链接（deepgram/otter/ollama），related 写 3 条（frontmatter related 是 [deepgram, otter, ollama]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。runs 带「实测建议」三条段。",
+  "axes": {
+    "model_access": "An open-source transcription model family (tiny→large-v3 multiple tiers, the official README lists model sizes and language coverage); weights distributed via Hugging Face (linked from the official README). A huge derivative ecosystem: whisper.cpp, faster-whisper, WhisperX etc. (partially mentioned in the official README — the ecosystem's full shape not inventoried item by item).",
+    "runtime": "Runs locally (Python + PyTorch, the official README's install surface); GPU or CPU both work, tiers trade speed/quality. Hosted line: the whisper transcription endpoint on the OpenAI API (platform.openai.com docs line) is the cloud form of the same model.",
+    "local_files": "Fully local: audio and transcription results stay on your machine — this is its most fundamental data-boundary difference from every cloud transcription product.",
+    "background": "Batch task-based (file in, text out, runs and exits locally); no background-resident/memory concept.",
+    "tools": "CLI and Python API (official repo); timestamps/translation (into English) built in (official README); VAD/speaker diarization are not in the official repo — they rely on derivatives like WhisperX (derivative surface not verified item by item).",
+    "context": "No context concept — segment-by-segment transcription; long audio relies on segmentation strategies (the official repo has long-audio handling notes).",
+    "permissions": "Running locally means no account, no upload — privacy-sensitive audio (medical/legal/personal) going local is its irreplaceable scenario; the cloud API form follows OpenAI platform terms (not verified item by item).",
+    "fit": "Fits: privacy-sensitive transcription (audio never leaves your machine), offline environments, developer integration (MIT, no licensing burden), multilingual transcription. Does not fit: out-of-the-box meeting-notes product experience (it is a model, not a product), out-of-the-box speaker diarization (needs derivatives), heavy use without a GPU (big tiers are slow on CPU)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Tier choice for Chinese transcription in Chinese/English mixed scenes** (large-v3 vs fine-tuned derivatives)\n- **whisper.cpp's real-time factor on consumer GPUs**\n- **Chinese accuracy vs the Deepgram/AssemblyAI cloud APIs**",
+  "unknowns": "- The derivative ecosystem's full shape (whisper.cpp/faster-whisper/WhisperX etc., quality and licenses not verified item by item)\n- Whether the OpenAI API endpoint's current model version matches the local repo version (not verified)\n- The official successor model line's direction (no statement verified)",
+  "related": [
+    "Cloud transcription API contrast: Deepgram offers real-time streaming and hosted convenience, Whisper offers locality and privacy boundaries.",
+    "Product-shell contrast: Otter is a meeting-transcription product; Whisper is one of the model bases under such products.",
+    "Local-runner ecosystem: Whisper-class local models and Ollama both belong to the \"data never leaves your machine\" camp."
+  ],
+  "sources": [
+    "Whisper · official repo (README/model list/LICENSE)",
+    "Whisper · official repo Releases (changelog)",
+    "OpenAI · Whisper launch page (model narrative)"
+  ]
+}

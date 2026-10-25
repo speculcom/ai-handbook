@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-17 正文英译 · assemblyai（2026-10-26）。无附加小节。正文「相关条目」4 行带 .md 链接（deepgram/whisper/otter/chatgpt），related 写 4 条（frontmatter related 是 [deepgram, whisper, chatgpt]，键按正文链接行对齐=4——otter 行在正文但不在 frontmatter）。sources 3 条对齐 frontmatter。runs 带「实测建议」三条段。",
+  "axes": {
+    "model_access": "A self-developed unified speech-understanding model line (best-seller narrative: one model transcribes + understands, official site); hosted-API form, developers do not pick bare model weights.",
+    "runtime": "API/SDK as the main entry (REST + WebSocket + SDKs, official docs surface); pre-recorded file transcription is the traditional strength, with real-time streaming endpoints alongside (official docs).",
+    "local_files": "Cloud API — audio uploaded via the API; data-retention policy per the terms (not verified item by item); the official site carries a \"not used for training\"-type promise narrative (seen on the site), terms-level details not verified item by item.",
+    "background": "Batch (file → result polling/webhook) + real-time streaming, two forms; no \"keep-running-after-shutdown\" concept (API service).",
+    "tools": "Transcription + speaker diarization + summarization + topics/entities/sentiment and other understanding-layer parameters (fully listed in official docs); the LeMUR line (post-transcription LLM Q&A/extraction, official docs narrative) — \"transcription + understanding\" in one is its differentiating narrative.",
+    "context": "APIs have no memory concept; LeMUR Q&A over existing transcripts is \"an LLM over transcript artifacts\", not product memory.",
+    "permissions": "API key + usage billing (D9: pricing not collected); enterprise-compliance narrative (SOC2/HIPAA-type certification lines seen on the site, details not verified item by item); data-retention/training switches per the terms (not verified item by item).",
+    "fit": "Fits: developers building \"transcription + understanding\" pipelines (summarization/extraction/Q&A in one step), English-leaning high accuracy, teams that prioritize documented developer experience. Does not fit: non-developers using it directly, privacy-sensitive audio (cloud), Chinese-first usage."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **LeMUR Q&A recall quality over long-meeting transcripts**\n- **Speaker diarization's actual behavior in Chinese meetings**\n- **The terms-level landing of the \"not used for training\" promise** (DPA original text)",
+  "unknowns": "- Data-retention and training-clause details (not verified item by item)\n- Chinese model-tier status (not verified item by item)\n- Enterprise-compliance certification list details (not verified item by item)",
+  "related": [
+    "The two titans of transcription APIs: Deepgram is strong on real-time streaming, AssemblyAI strong on the understanding layer.",
+    "Open-source-base contrast: the accuracy gap between AssemblyAI's transcription base and Whisper-class open models needs self-testing.",
+    "End-product contrast: Otter serves end users directly, AssemblyAI serves the people building products.",
+    "Understanding-layer contrast: AssemblyAI's LeMUR and \"dump the transcript into ChatGPT for a summary\" are two roads to the same need."
+  ],
+  "sources": [
+    "AssemblyAI · official site (product and capability narrative)",
+    "AssemblyAI · Terms (official terms, direct-fetch verified 2026-10-22)",
+    "AssemblyAI · Changelog (docs update line)"
+  ]
+}

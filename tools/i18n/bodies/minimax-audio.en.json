@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-17 正文英译 · minimax-audio（2026-10-26）。无附加小节。正文「相关条目」3 行带 .md 链接（elevenlabs/fish-audio/hailuo-video），related 写 3 条（frontmatter related 是 [elevenlabs, fish-audio, hailuo-video]，键按正文链接行对齐=3）。sources 4 条对齐 frontmatter。runs 带「实测建议」三条段。备案句内只有备案号 Shanghai-MiniMax-202505230046（拉丁文本不计），无中文登记名——本页预期 0 B 类。",
+  "axes": {
+    "model_access": "MiniMax's self-developed speech/audio model line (speech-02 series models served via API, official docs narrative); dual entry points: web (hailuoai.com/audio and minimax.io/audio) + API platform (platform.minimaxi.com line).",
+    "runtime": "Web + API; generation on the vendor's cloud. No official open-weights audio-model statement seen (the language models have an open-weights precedent; the audio line does not).",
+    "local_files": "Generated outputs download to local; account-side retention surfaces not verified item by item. No officially stated local data surface seen.",
+    "background": "Generation is instant/task-based (API calls produce and return immediately); no \"keep-running-after-shutdown\" form stated — a cloud service does not depend on your machine being online.",
+    "tools": "TTS (multilingual/multi-style), **voice cloning/voice design** (official product surface), a music-generation line (music models served via API, official docs narrative); API parameter surfaces (speed/volume/emotion control) documented.",
+    "context": "Tool-type product with no conversation-memory concept; voice assets are its \"consistency\" mechanism — cloned voices being reusable is not memory.",
+    "permissions": "Account + subscription + API billing system (D9: pricing not collected); **voice cloning involves personality rights — the official site has an authorization-framing page, details not verified item by line** (inclusion criterion 3: the clone-authorization line is a must-answer). Filing: MiniMax model filing no. Shanghai-MiniMax-202505230046 (cross-checked on Bailian/Baidu Cloud disclosure pages, 2026-10-22) — the subject is the model layer.",
+    "fit": "Fits: high-quality Chinese TTS, voice-cloning workflows (with authorization for your own voice), API-integrated voice, domestic direct connection. Does not fit: cloning other people's voices (authorization red line), wanting open weights, running offline."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Emotional-performance gap between cloned voices and the official voice library**\n- **Whether API and web entry points run synchronized model versions**\n- **Actual strictness of the voice-clone authorization verification flow**",
+  "unknowns": "- Open weights for the audio models (no official statement verified)\n- Filing status of each product entry point itself (not verified one by one)\n- The training-use switch (not verified item by item)\n- Whether music and speech models share one billing pool (not verified item by item)",
+  "related": [
+    "Both TTS + cloning: ElevenLabs has a wider multilingual surface, MiniMax is stronger in Chinese.",
+    "Also cloning-oriented: fish audio leans on its community voice library, MiniMax on its official voice library + API.",
+    "Same vendor, different product line: Hailuo Video is the video line, this dossier is the audio line."
+  ],
+  "sources": [
+    "MiniMax · official site (product and capability narrative)",
+    "MiniMax Audio · audio product page (direct-fetch verified 2026-10-22)",
+    "MiniMax · News (official update line, changelog, direct-fetch verified 2026-10-22)",
+    "Alibaba Cloud Bailian · model filing information publicity (filing-no. cross-verification source)"
+  ]
+}

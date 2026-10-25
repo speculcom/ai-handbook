@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-17 正文英译 · deepgram（2026-10-26）。无附加小节。正文「相关条目」4 行带 .md 链接（assemblyai/whisper/otter/zapier），related 写 4 条（frontmatter related 是 [assemblyai, whisper, zapier]，键按正文链接行对齐=4——otter 行在正文但不在 frontmatter）。sources 3 条对齐 frontmatter。runs 带「实测建议」三条段。",
+  "axes": {
+    "model_access": "A self-developed speech model family (Nova-line transcription models, Aura-line TTS models — listed on the official docs models page, developers.deepgram.com/docs/models direct-fetched and verified 2026-10-22); developers pick model tiers and do not train their own models (hosted-API form).",
+    "runtime": "API/SDK as the main entry (REST + WebSocket + per-language SDKs, official docs surface); **real-time streaming transcription is the flagship** (WebSocket streaming endpoint documented officially); browser/pre-recorded-file endpoints also exist.",
+    "local_files": "Cloud API — audio uploaded and processed via the API; data-retention policy per the official terms (not verified item by item).",
+    "background": "Real-time streaming is the core form (transcribe while speaking); batch endpoints alongside; no \"keep-running-after-shutdown\" concept (API service).",
+    "tools": "Transcription (multilingual/keyword boosts/punctuation/speaker-diarization parameter surfaces), TTS (Aura line), speech-understanding parameter surfaces (seen in official docs); developer toolchain (SDKs/examples/latency metrics documented).",
+    "context": "APIs have no memory concept — conversation context is managed entirely by the calling (integrating) side; multi-turn correction is stitched together at the application layer.",
+    "permissions": "API-key system + usage billing (D9: pricing not collected); an enterprise compliance narrative (SOC2-type certification lines seen on the site, details not verified item by item); data-retention/training switches per the terms (not verified item by item).",
+    "fit": "Fits: developers building real-time voice apps (support/meetings/caption streams), low-latency transcription API integration, English-leaning high accuracy. Does not fit: non-developers using it directly (it is an API platform, not an end product), privacy-sensitive audio (cloud processing), Chinese-first usage."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **End-to-end latency of WebSocket streaming** (official latency metrics vs real networks)\n- **Chinese / Chinese-English mixed-speech transcription accuracy** (the official benchmark is an English-leaning narrative)\n- **Where the data-retention switch actually takes effect**",
+  "unknowns": "- Data-retention and training-use clause details (not verified item by item)\n- Current status of Chinese model tiers (not verified item by item)\n- Enterprise-compliance certification list details (not verified item by item)",
+  "related": [
+    "Also the two titans of transcription APIs: AssemblyAI has the better productized docs experience, Deepgram the stronger real-time-stream performance narrative.",
+    "Open-source-base contrast: Whisper offers local free privacy boundaries, Deepgram hosted real-time performance.",
+    "End-product contrast: Otter is a meeting-transcription product; Deepgram is often the upstream API of such products.",
+    "Pipeline downstream: Deepgram transcription results often flow through Zapier-class platforms into ticketing/CRM workflows (cross-linked after filing)."
+  ],
+  "sources": [
+    "Deepgram · official site (product and capability narrative)",
+    "Deepgram · developer docs models page (model line, direct-fetch verified 2026-10-22)",
+    "Deepgram · docs Changelog (update line)"
+  ]
+}

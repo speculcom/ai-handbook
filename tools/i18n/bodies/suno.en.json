@@ -1,0 +1,23 @@
+{
+  "_comment": "C0-17 正文英译 · suno（2026-10-26）。无附加小节。正文「相关条目」1 行带 .md 链接（elevenlabs），related 写 1 条（frontmatter related 是 [runway]，键按正文链接行对齐=1）。sources 3 条对齐 frontmatter。runs 无「实测建议」段（音乐生成不适用编码协议；能力口径以官方博客为准），照源短译。",
+  "axes": {
+    "model_access": "Model iterations disclosed via the official blog: the \"Introducing v6\" entry (2026-09-09, signed by Mikey Shulman, title and date verified via proxied direct fetch 2026-10-21); the pricing-page snapshot's model labels (v4.5-all/v5) lag behind the blog's v6 entry — the current default model follows what the logged-in app shows, this site does not adjudicate.",
+    "runtime": "Web and mobile apps as main entries; generation processed on Suno's cloud, no model runs locally. Suno Studio is an in-browser generative workstation (multitrack timeline, stem export), still a cloud form — the interface lives in the browser, the compute in the cloud.",
+    "local_files": "Supports uploading audio as reference/continuation (paid tiers allow longer uploads, see the pricing-page pointer); ownership of uploaded material is in the permissions axis.",
+    "background": "Generation is task-based: submit prompts/material, it queues and produces, outputs enter the account library. No official statement of a \"keep-running-after-shutdown\" form — tasks run in the cloud, independent of your machine being online.",
+    "tools": "Suno Studio (web-based generative audio workstation: multitrack, stem export) and the editing-tools line (blog entries Studio 2.0, Speech (beta) 2026-10-01 etc.); Persona/Inspo and other style controls.",
+    "context": "Generation is task-based, no cross-session conversation-memory form; style continuity works through Persona and similar mechanisms.",
+    "permissions": "Official ToS: users retain ownership of Submissions (\"you retain all right, title, and interest in and to your Submissions\"), but grant Suno a worldwide royalty-free license (including creating derivative works); the terms explicitly cover using them to \"train, develop, fine-tune or otherwise improve\" its models, and no training opt-out switch is seen. Training other models with Outputs is prohibited by the terms.",
+    "fit": "People making AI music who care about \"uploaded material stays mine\". Commercial use must go through the paid download channel (see the license column); Remixes are non-commercial across the board; if you care about \"material never entering training\" — the terms have no opt-out option, you must accept that first."
+  },
+  "runs": "This site has not completed measured runs. Music generation does not fit the coding test protocol; capability claims follow the official blog.",
+  "unknowns": "- The current default model version (the blog's v6 entry and the pricing-page snapshot labels lag each other; this site does not adjudicate)\n- How record-label licensing deals (WMG/BMG/Believe entries) concretely affect ownership of generated content (terms layer not verified item by item)",
+  "related": [
+    "Also audio generation: the speech-synthesis-leaning contrast, with training opt-out as a self-service menu"
+  ],
+  "sources": [
+    "Suno · Blog (official blog; v6/Studio 2.0/Speech beta/Believe-TuneCore partnership entries with dates, verified via proxied direct fetch 2026-10-21)",
+    "Suno · Terms of Service (official terms; direct-fetched 200 on 2026-10-20, verifying Pro/Premier assignment, free-tier non-commercial use, Permitted Commercial Use, Remix clauses)",
+    "Suno · Pricing (pricing-page pointer; D9: this site does not collect price figures)"
+  ]
+}
