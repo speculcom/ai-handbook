@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-13 clipdrop bodies EN. 无附加小节。正文「相关条目」4 行带 .md 链接（stability-ai/adobe-firefly/recraft/zapier），related 写 4 条。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Tool-suite form: behind each tool is a dedicated capability (background removal/cleanup/relighting/upscaling/uncrop etc., listed item by item on the official site); the text-to-image tool uses SD-family models (official-site FAQ narrative). Users pick tools, not models.",
+    "runtime": "Web (clipdrop.co) + API (official FAQ: the API is served via Jasper API); processing happens on the vendor's cloud.",
+    "local_files": "Processed results download to local; no officially stated account-side work library or local data surface — whether uploaded images are retained after processing is not verified line by line in the terms text.",
+    "background": "Processing is instant (single-image atomic operations, no queue concept); no \"keep-running-after-shutdown\" task surface (no claim verified); on the API side, batching runs on the caller's own concurrency — the platform offers no managed batch processing.",
+    "tools": "The tool surface listed on the official site: Remove Background, Cleanup, Replace Background, Uncrop, Image Upscaler, Relight (relighting — the site's signature tool), Text Remover, Universal Resizer, Text to image; the editing toolset is the main function (inclusion criterion 1 satisfied, see inventory).",
+    "context": "No project/memory concept — a one-image-in, one-image-out tool flow; context is managed entirely by the caller (a human or an API integrator).",
+    "permissions": "The free tier has per-tool daily caps (official FAQ framing); paid tiers raise the caps (D9: prices not collected); the training-use switch is not verified line by line.",
+    "fit": "Fits: batch single-image atomic operations (cutout/object removal/relighting/upscaling), e-commerce product-image workflows, API integration into your own product. Does not fit: creation-oriented generation (text-to-image is a side act), style consistency, project-based management."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Relight's actual effectiveness boundary on non-product images (portraits/scenes)**\n- **The real experience of the free tier's per-tool caps** (behavior after exceeding them)\n- **Endpoint compatibility between the Jasper-migrated API and the old Clipdrop API**",
+  "unknowns": "- The specific model tiers behind each tool (no official statement verified)\n- The training-use switch (not verified line by line)\n- Whether the account side keeps processing history (no official statement verified)\n- Jasper's long-term investment in the Clipdrop product line (no official statement verified)",
+  "related": [
+    "Former owner: Clipdrop was once under Stability, now the API runs on Jasper terms — see the Stability dossier for its open-model main line.",
+    "Both editing-oriented: Firefly embeds in the professional design suite, Clipdrop is a standalone atomic toolset.",
+    "Editing surfaces overlap (inpainting/background replacement): Recraft has editing inside a creation bench, Clipdrop is a pure toolset.",
+    "API downstream: Clipdrop's per-tool APIs often reach batch flows through Zapier-style automation platforms — the automation side is where it scales."
+  ],
+  "sources": [
+    "Clipdrop · official site (tool surface and FAQ, incl. ownership-history self-account)",
+    "Clipdrop · Terms (official terms, direct-fetched and verified 2026-10-22)",
+    "Jasper · Blog (current-owner movement line, changelog)"
+  ]
+}

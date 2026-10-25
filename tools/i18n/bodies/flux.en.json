@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-13 flux bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（midjourney/stability-ai），related 写 2 条（frontmatter related 是 [veo]，related 键按正文链接行对齐）。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Model family with an iteration line disclosed on the official blog: FLUX 3 (2026-07-23 \"Real World Models\" multimodal flow-model entry), FLUX 3 Video Part 1 (2026-08-04), FLUX Video Upscale 2K/4K (2026-08-20), FLUX 3 Action (2026-09-23), FLUX 3 Image Klein (2026-10-15, 5.6B open-weights entry) — verified by direct fetch of bfl.ai/blog on 2026-10-21; some weights are open and self-hostable.",
+    "runtime": "Hosted line: official API and playground, generation in the cloud; open line: weights downloadable for self-hosting, plus an official on-device entry (FLUX.2 Klein into ASUS ProArt laptops, 2026-06-04).",
+    "local_files": "API/playground can upload images as input; on the self-hosted line, when the model runs locally the data never leaves your machine.",
+    "background": "The API is request-output based: tasks run in the cloud, clients can disconnect and poll to retrieve results; no official statement of a \"keep-running-after-shutdown\" form — the model interface itself carries no cross-session tasks.",
+    "tools": "The main form is a model interface (API/playground) integrated by third-party apps and platforms (e.g. Runway, various image workflows); the official side does not build an end-user creation suite.",
+    "context": "The model interface is stateless: each request is independent, with no cross-request memory; context continuity is organized by the caller's application layer (multi-reference-image input is an in-request capability, not session memory).",
+    "permissions": "Official ToS: inputs and outputs may by default be used to improve the model, opting out requires an email request to legal@blackforestlabs.ai; the terms explicitly restrict \"training other models on Outputs\" (1.3(n)).",
+    "fit": "People/teams that want the official FLUX API, or want to self-host open FLUX weights. Hosted and self-hosted licensing paths differ — confirm which one you are on before commercial use; anyone doing model training should note the 1.3(n) output-training ban."
+  },
+  "runs": "This site has not completed measured runs. Image generation does not fit the coding test protocol; capability claims follow the official blog and model cards.",
+  "unknowns": "- The full current model lineup and tier routing of the hosted API (disclosed entry by entry on the blog; this site has not verified each tier)\n- The concrete commercial boundaries of each open-weight license (per-model licenses not verified one by one by this site)",
+  "related": [
+    "Contrast route: closed-source community form, outputs public by default and remixable",
+    "Contrast route: platform + open weights, both lines"
+  ],
+  "sources": [
+    "Black Forest Labs · Blog (official blog; FLUX 3/Klein/Video Upscale entries and dates verified by direct fetch 2026-10-21)",
+    "Black Forest Labs · Terms of Service (official terms; direct-fetched 200 on 2026-10-20, verifying 1.2(a)/1.3(e)/1.3(n) and the legal@ opt-out path)",
+    "Black Forest Labs · Pricing (pricing-page pointer; D9: this site does not collect price figures)"
+  ]
+}

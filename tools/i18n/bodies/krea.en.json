@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-13 krea bodies EN. 无附加小节。正文「相关条目」3 行带 .md 链接（ideogram/flux/veo），related 写 3 条。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Multi-model aggregation + in-house hybrid: the official site lists 64+ models (Veo/Ideogram/Runway/Luma/Flux/Gemini etc., as seen in the site navigation); the in-house Krea 2 line (named on the official site); a real-time generation line (site copy: \"real-time as you type or draw\").",
+    "runtime": "Web (krea.ai); generation on the vendor's cloud. No official offline-weights line seen; the real-time line is latency-sensitive, official copy stresses low latency (no concrete SLA verified).",
+    "local_files": "Works stored account-side in the cloud; no officially stated local data surface. Whether training artifacts (LoRA) can be exported to local — no clear statement on official pages (unverified).",
+    "background": "Real-time generation is the selling point (output as you type/draw, official copy); no \"keep-running-after-shutdown\" task surface (no claim verified).",
+    "tools": "Real-time canvas, LoRA fine-tuning (official copy), upscaling line (official copy mentions a 22K ceiling; the fetched snapshot did not show that figure — not verified item by item), video-model aggregation (Veo/Runway etc. served through the aggregation surface); an API surface exists, details not verified item by item.",
+    "context": "Organized by projects/boards (as seen in site navigation); cross-session memory — no official statement verified. The real-time canvas's \"current frame\" is in-session state, not persistent memory.",
+    "permissions": "Account + subscription system (D9: prices not collected); training use: official marketing copy claims user content is not used for training (\"Do not train\"); the privacy-page original wording not verified line by line — marketing talk vs. terms, the original text governs.",
+    "fit": "Fits: real-time interactive creation (draw-and-see), switching between multiple vendors' models on one platform, LoRA training without a local environment. Does not fit: wanting open weights, offline use, or deep per-model parameter control."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The real quality-latency curves of the real-time line vs. the frontier line** (same-prompt comparison)\n- **Whether aggregated models' outputs are post-processed by Krea** (upscaling/filter chains)\n- **The export and reuse surface of LoRA training artifacts**",
+  "unknowns": "- Upscaling ceiling (official copy mentions 22K, the fetched snapshot did not show it — not verified item by item)\n- The training-terms original text and its clause-level correspondence to \"Do not train\" (not verified line by line)\n- The API's model coverage and quotas (not verified item by item)\n- Cross-session memory mechanism (no official statement verified)",
+  "related": [
+    "It is right inside the aggregation surface: Krea offers an Ideogram generation entry, while Ideogram's own bench has a fuller feature surface.",
+    "It is right inside the aggregation surface: Krea runs Flux in the cloud, Flux weights can be downloaded and run locally.",
+    "Also an aggregation relationship: Krea's video line aggregates Veo; see the Veo dossier for the model itself's capability boundaries."
+  ],
+  "sources": [
+    "Krea · official site (product and capability narrative, model list)",
+    "Krea · Changelog (product update line)",
+    "Krea · Privacy (official privacy page, direct-fetched and verified 2026-10-22)"
+  ]
+}

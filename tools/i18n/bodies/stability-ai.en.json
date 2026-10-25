@@ -1,0 +1,24 @@
+{
+  "_comment": "C0-13 stability-ai bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（midjourney/flux），related 写 2 条（frontmatter related 是 [gemini-chat]，related 键按正文链接行对齐=2）。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Model family disclosed on the official news page: the Stable Image series (platform), Stable Audio 3.0 (released 2026-05-20, open weights, officially claimed fully licensed training data), the Stable Diffusion 3.5 series (self-hostable) and other entries (stability.ai/news direct-fetched and verified 2026-10-21).",
+    "runtime": "Platform line: web app and API, generation in the cloud; open line: weights downloadable, self-hosted on your machine or your own cloud — the two lines are two runtime forms of the same vendor; this dossier's main axis is the platform.",
+    "local_files": "The platform can upload images as input; on the open line, when the model runs locally the data never leaves your machine (an inherent property of the self-hosted form).",
+    "background": "Platform generation is request-output based: tasks run in the cloud and are retrieved on completion; no official statement of a \"keep-running-after-shutdown\" form. On the open line, self-hosted tasks are carried entirely by your own machines — keep-running-after-shutdown depends on your own deployment.",
+    "tools": "The platform includes Brand Studio (2026-04-08 entry: a brand-oriented creative production platform); the enterprise-integration line (Amazon Bedrock 2025-09-18 entry, NVIDIA NIM 2025-08-12 entry); the open-source ecosystem (ComfyUI and other third-party tools) is out of this dossier's scope.",
+    "context": "Generation is task-based, no cross-session memory form; each generation is independent, style continuity relies on prompts and in-platform asset libraries (Brand Studio materials), not session memory.",
+    "permissions": "Official ToS: users can opt out of having their content used for training (the opt-out mechanism is written into the terms); the platform takes operationally necessary licenses over uploaded content. Training-data stance for the open-weight models is in the official model cards and benchmark reports.",
+    "fit": "People who want both lines within reach: \"platform service + self-hostable open models\". Commercial terms differ between the platform and open versions — read them separately; scenarios sensitive to training-data compliance may note its audio line's \"fully licensed data\" stance."
+  },
+  "runs": "This site has not completed measured runs. Image generation does not fit the coding test protocol; capability claims follow the official news page and model cards.",
+  "unknowns": "- The full current model list and tier routing available on the platform (disclosed entry by entry on the news page; this site has not verified each tier)\n- The concrete commercial boundaries of each open-weight model's license (per-model licenses not verified one by one by this site)",
+  "related": [
+    "Contrast route: closed-source community form, public by default and remixable",
+    "Contrast route: API platform + open-weight family"
+  ],
+  "sources": [
+    "Stability AI · News & Updates (official news page; Stable Audio 3.0/Brand Studio/Bedrock entries verified by direct fetch 2026-10-21)",
+    "Stability AI · Terms of Service (official terms; direct-fetched 200 on 2026-10-20, verifying the §4(a) ownership assignment and §3(b) limits)",
+    "Stability AI · Membership (pricing-page pointer; D9: this site does not collect price figures)"
+  ]
+}

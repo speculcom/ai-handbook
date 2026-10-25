@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-13 ideogram bodies EN. 无附加小节。正文「相关条目」3 行带 .md 链接（flux/stability-ai/chatgpt），related 写 3 条。sources 4 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Own model family: 4.0 open weights (quantized version on HF, inference code Apache-2.0 on GitHub ideogram-oss), 4.5 closed-source hosted (official docs only give the api.ideogram.ai hosted-call line); the platform catalog also aggregates third-party image/video models (official narrative, not inventoried item by item). The signature differentiator is in-image type rendering (the official \"crystal-clear type\" framing).",
+    "runtime": "Web (ideogram.ai) + API (developer.ideogram.ai direct-fetched 200) + official MCP server (official docs state plainly \"Connect Ideogram to Claude, Cursor, and other MCP clients\"); 4.0 weights can be self-hosted.",
+    "local_files": "On the hosted line works live account-side; on the 4.0 self-hosted line everything is on your side — the two lines have different data boundaries (the official licensing page lists \"keep your data in your stack\" as a licensing selling point).",
+    "background": "Hosted generation is instant/queued; no \"keep-running-after-shutdown\" task surface (no claim verified). Background behavior on the self-hosted line is determined by your deployment.",
+    "tools": "The product includes generation, editing (4.5 precise edit: verbatim copying of untouched pixels is the official selling point), dedicated apps for background removal/object removal etc., style controls; the API switches models on a unified endpoint; the MCP server is officially provided.",
+    "context": "Organized by projects/works; cross-session memory — no official statement verified. \"Drift control\" in multi-turn editing is the 4.5 official narrative.",
+    "permissions": "Account + subscription system; the open-weights line has two licensing tiers, non-commercial agreement / commercial license (D9: prices not collected; the tiers' existence is the fact); output commercial restriction = do not train competing models (official FAQ direct-fetch framing).",
+    "fit": "Fits: high demands on in-image type (posters/brand materials), wanting open weights for non-commercial research + a commercial self-hosting path, wanting the official MCP hookup into agent flows. Does not fit: wanting free commercial self-hosting (commercial self-hosting needs a paid license), wanting 4.5 weights (closed-source)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The actually usable tier of the 4.0 quantized weights on consumer GPUs (belongs to the models/runner side)**\n- **Measured verification of 4.5 precise edit's \"verbatim copying of untouched pixels\"** (a strong official claim)\n- **The platform catalog's current third-party model list** (the official narrative has not been inventoried item by item)",
+  "unknowns": "- The full third-party model list in the platform catalog (not inventoried item by item)\n- The concrete differences between the 4.0 quantization tiers (fp8/nf4) (HF repos return 401 behind gating; not verified repo by repo)\n- Cross-session memory mechanism (no official statement verified)\n- The training-use switch on the hosted line (not verified line by line)",
+  "related": [
+    "Both open-weight image-generation families: FLUX has a full-precision open line, Ideogram only ships the quantized version.",
+    "Both \"product + open weights\" dual tracks: SD-family weights are more permissive (lower commercial threshold).",
+    "Both text-rendering image lines: GPT Image draws inside the conversation, Ideogram is a dedicated typography-oriented creation bench."
+  ],
+  "sources": [
+    "Ideogram · Licensing (the three-tier open-weights licensing structure, direct-fetched and verified 2026-10-22)",
+    "Ideogram · official docs (product/API/MCP narrative)",
+    "ideogram-oss · GitHub org (4.0 inference code Apache-2.0)",
+    "ideogram-oss/ideogram4 · Releases (changelog)"
+  ]
+}

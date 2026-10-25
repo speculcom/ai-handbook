@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-13 leonardo-ai bodies EN. 无附加小节。正文「相关条目」3 行带 .md 链接（flux/midjourney/runway），related 写 3 条。sources 3 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "In-house model line (Phoenix/Lucid frontier image models, official-site narrative) + a model hub aggregating third-party models (as seen in site navigation); no open-weights line (no official release seen).",
+    "runtime": "Web (leonardo.ai) + API (an API entry on the official site, details not verified item by item); generation on the vendor's cloud.",
+    "local_files": "Works and training artifacts (Elements) stored account-side in the cloud; no officially stated local data surface or export surface — whether training artifacts can be taken away, no clear statement on official pages (unverified).",
+    "background": "Generation is instant/queued (varies by account tier, not verified item by item); no \"keep-running-after-shutdown\" task surface (no claim verified); training jobs run on the cloud after submission and you can leave the page and wait for completion (official FAQ narrative, details not verified item by item).",
+    "tools": "Element training (the officially named few-shot fine-tuning line, style/character consistency), a real-time canvas, the model hub marketplace, game-asset-oriented workflows (official narrative: concept art/textures/asset batching); the Motion video line (as seen in site navigation).",
+    "context": "Organized by projects; cross-session memory — no official statement verified. Element training is its \"consistency\" mechanism — reusable training artifacts are not memory.",
+    "permissions": "Account + subscription system (D9: prices not collected); the training-use switch not verified line by line. Acquired by Canva in 2024-07 (Canva official newsroom announcement) — whether data policy unified under Canva post-acquisition, unverified.",
+    "fit": "Fits: game-asset/concept-art workflows, Element training for style and character consistency, picking models inside an aggregating platform. Does not fit: open weights running offline, leaving the account, deep per-model parameter control."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Element training's actual sample size and consistency stability** (compared against local LoRA training)\n- **Generation-quality differences among third-party models in the model hub**\n- **Account/work data migration and policy direction after the Canva acquisition**",
+  "unknowns": "- Whether terms and data policy are unified under Canva post-acquisition (unverified)\n- The API's billing and quota surface (D9: prices not collected; quota behavior not verified item by item)\n- The training-use switch path (not verified line by line)\n- Capability differences across Phoenix/Lucid tiers (not verified item by item)",
+  "related": [
+    "Both open-weight families inside aggregation entry points: FLUX weights can be downloaded and run locally, Leonardo only serves generation in the cloud.",
+    "Both \"in-house models + subscription creation bench\": MJ has no model marketplace, Leonardo has a model hub.",
+    "Both image benches extending into video lines: Leonardo's Motion and Runway's dedicated video line differ in depth."
+  ],
+  "sources": [
+    "Leonardo · official site (product and capability narrative)",
+    "Leonardo · News (product update line, changelog; direct fetch hit CF 403)",
+    "Canva Newsroom · acquisition announcement (2024-07, official; direct fetch hit CF 403)"
+  ]
+}

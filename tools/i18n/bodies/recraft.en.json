@@ -1,0 +1,26 @@
+{
+  "_comment": "C0-13 recraft bodies EN. 无附加小节。正文「相关条目」3 行带 .md 链接（adobe-firefly/ideogram/figma-mcp），related 写 3 条。sources 4 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Own model family (V3/V4 lines): the official API docs list model values (recraftv3 / recraftv3_vector etc.); closed-source, no open weights. The differentiator is **vector-native** — it can output real SVG files (official docs state the vector/SVG output line plainly).",
+    "runtime": "Web (recraft.ai) + API (external.api.recraft.ai, the endpoint in official docs); generation on the vendor's cloud. The official ComfyUI node is an API bridge (needs a key, online) — not offline weights.",
+    "local_files": "Works stored account-side in the cloud; SVG/PNG downloads go local. No officially stated local data surface.",
+    "background": "Generation is instant/queued (varies by account tier, not verified item by item); no \"keep-running-after-shutdown\" task surface (no claim verified); on the API side, batching runs on the caller's own concurrency.",
+    "tools": "The product includes a style library + custom brand styles (brand kit), inpainting/outpainting, background replacement, mockup generation, text placement (official docs: the V3 line is the only one that can place text precisely inside images); the full API operation surface is documented.",
+    "context": "Organized by projects; cross-session memory — no official statement verified. Brand styles are its \"consistency\" mechanism — reusable styles are not memory.",
+    "permissions": "Account + subscription system; free-plan works are public by default and not licensed for commercial use (official docs framing) — this is its most critical tier difference from most peers; paid plans grant commercial rights (D9: prices not collected).",
+    "fit": "Fits: design-oriented output (logos/icons/illustrations needing editable SVG), brand consistency (brand kit), precise in-image text layout. Does not fit: free commercial use (the free plan's no-commercial line is hard); a photorealistic-realism focus (it leans design)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The editability quality of SVG output** (whether path structures are truly editable or bitmap tracing)\n- **The actual stability of brand-kit style consistency**\n- **The concrete meaning of the free plan's \"public\"** (whether works enter a public gallery)",
+  "unknowns": "- The display scope and withdrawal mechanism of free-plan publicity (not verified item by item)\n- Cross-session memory mechanism (no official statement verified)\n- The training-use switch (not verified line by line)\n- Capability-difference details between the V4 and V3 lines (listed in API docs, not verified item by item)",
+  "related": [
+    "Both design-oriented: Firefly embeds in the Adobe ecosystem, Recraft is a standalone vector-native bench.",
+    "Both strong in-image-type lines: Ideogram leads with typography-photo hybrids, Recraft with design vectors.",
+    "Design-asset downstream: Recraft outputs SVG, Figma MCP plugs the design files into agent toolchains (cross-linked after filing)."
+  ],
+  "sources": [
+    "Recraft · official site (product and capability narrative)",
+    "Recraft · Terms (official terms, direct-fetched and verified 2026-10-22)",
+    "Recraft · API docs (model values/operation surface/vector line)",
+    "Recraft · Blog (product update line, changelog)"
+  ]
+}

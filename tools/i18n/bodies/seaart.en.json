@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-13 seaart bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（flux/kling），related 写 2 条（frontmatter related 有 3 项含 stability-ai，但 related 键按正文链接行对齐=2）。sources 4 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "Multi-model aggregation platform: the official site lists third-party models (Seedance/Wan/GPT Image/Seedream/Flux/Qwen Image etc., as seen in site navigation and the privacy page) + a community model library (checkpoint/LoRA hosting; model pages mark Base Model and license scope); an in-house model line — no official statement verified.",
+    "runtime": "Web (seaart.ai / seaart.me) + app (an APP entry on the official site); generation on the vendor's cloud. Community models can be downloaded (model pages have a Download surface) — running them locally after download goes through the local ecosystem; SeaArt does not provide a local runtime.",
+    "local_files": "Works and models stored account-side in the cloud; community models downloadable to local (Download surface on model pages). No officially stated local data surface — downloaded model files belong to the local filesystem, unrelated to the platform.",
+    "background": "Generation is instant/queued (queuing at peak hours is a common community feedback; tier differences not verified item by item); no \"keep-running-after-shutdown\" task surface (no claim verified); LoRA training runs on the cloud after submission.",
+    "tools": "Online LoRA training (official page: upload a dataset, pick a base model FLUX/SDXL/Pony/Wan etc., exportable to interoperate with ComfyUI), ControlNet/inpainting, image+video dual lines (as seen in site navigation), a community gallery (works shared with prompts), a model-marketplace monetization surface (official FAQ framing).",
+    "context": "Organized by works/model pages; cross-session memory — no official statement verified. The community model library is its \"consistency\" mechanism — reusable style models are not memory.",
+    "permissions": "Account + subscription system (D9: prices not collected); commercial rights labeled per model (License Scope surface on model pages); the training-use switch not verified line by line. The entity is a Chinese team's going-overseas product (high share of overseas users; the main site targets overseas).",
+    "fit": "Fits: anime/illustration community ecosystem, cloud LoRA training + export to ComfyUI, aggregating multiple vendors' models on one platform, downloading community models. Does not fit: wanting official in-house frontier models (it is an aggregator), enterprise-grade compliance narratives, scenarios sensitive to community content moderation."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Compatibility when exporting online-LoRA-training artifacts into ComfyUI** (whether format/trigger words are lossless)\n- **Whether the community model library's download-license surface matches its generation-license surface**\n- **Queuing and quality variance across the aggregated vendors' models**",
+  "unknowns": "- The in-house model line (no official statement verified)\n- The training-use switch and its default state (not verified line by line)\n- Whether the main site and the domestic line (Haiyi AI) share accounts/data (unverified)\n- Cross-session memory mechanism (no official statement verified)",
+  "related": [
+    "Both the community library and the training surface are largely built on FLUX bases: see the Flux dossier for the weight licenses themselves.",
+    "Both domestic going-overseas dual lines (image+video): Kling is in-house models, SeaArt is an aggregator."
+  ],
+  "sources": [
+    "SeaArt · official site (product and capability narrative, model list)",
+    "SeaArt · Terms (official terms, direct-fetched and verified 2026-10-22)",
+    "SeaArt · Privacy (official privacy page, direct-fetched and verified 2026-10-22)",
+    "SeaArt · Blog (product update line, changelog)"
+  ]
+}

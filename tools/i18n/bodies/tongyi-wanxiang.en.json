@@ -1,0 +1,25 @@
+{
+  "_comment": "C0-13 tongyi-wanxiang bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（jimeng/flux），related 写 2 条（frontmatter related 有 4 项，related 键按正文链接行对齐=2）。sources 4 条对齐 frontmatter。filing_name「通义万相大模型」属合法 B 类残留（官方登记名）。",
+  "axes": {
+    "model_access": "The Wanxiang (Wan) model series runs on two tracks: the product side (tongyi.aliyun.com/wanxiang) + open weights (the Wan-Video org on GitHub, the Wan-AI org on HF — both orgs direct-fetched 200 and verified). Product-side model tiers follow what the site displays; open weights can run locally via the runner/ComfyUI ecosystem (Apache-2.0 code verified).",
+    "runtime": "Web product + app; generation processed on Alibaba Cloud. The open line is its unique surface: the same model family can be chosen between the cloud product and a local deployment.",
+    "local_files": "On the product side, works and materials are stored in the cloud account; on the open line, weights and generated artifacts are entirely on your side — the two lines have completely different data boundaries.",
+    "background": "Product-side generation tasks queue in the cloud; on the open line, local runs are entirely determined by your own processes. No managed \"keep-running-after-shutdown\" task surface (no claim verified).",
+    "tools": "Capability lines inside the product: text-to-image, image-to-image, image editing, text-to-video/image-to-video (the Wan video line), etc.; Alibaba Cloud Model Studio provides the API line. MCP support — no official statement verified.",
+    "context": "The product side is organized by works; cross-session memory — no official statement verified. The open line has no memory surface (the model itself is stateless).",
+    "permissions": "Product-side account system (Alibaba account); the open line has no accounts. The training-use switch not verified line by line. The Wanxiang model's filing no. is in the cn block (Alibaba Cloud official disclosure).",
+    "fit": "Fits: wanting the \"cloud product + open weights\" dual track (compliance-sensitive scenarios can run locally), image+video in one family, Chinese semantics. Does not fit: wanting fully managed long tasks; wanting the product-side experience without the Alibaba account."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The mapping between the product side's current model tiers and the open-source Wan versions** (version narratives lag each other)\n- **The product side's training-use switch path**\n- **The actually usable tier of open-source Wan2.2 on consumer GPUs** (belongs to the models/runner side measurements)",
+  "unknowns": "- The complete product-side model-tier list (follows what the site displays)\n- License differences across the HF weight repos (per-repo model cards not verified item by item)\n- The product-side training-use switch (not verified line by line)\n- Cross-session memory mechanism (no official statement verified)",
+  "related": [
+    "Both domestic image+video one-stop creation benches: Wanxiang has an open-weights line, Jimeng does not.",
+    "Both open-weight image-generation families: the FLUX weight family and the Wan weight family both run in the local ecosystem."
+  ],
+  "sources": [
+    "Tongyi Wanxiang · official site (product entry and capability narrative)",
+    "Wan-Video/Wan2.2 · GitHub (open-weights line, Apache-2.0 verified via API)",
+    "Wan-Video/Wan2.2 · Releases (changelog)",
+    "Alibaba Cloud Model Studio · model filing information disclosure (the Tongyi Wanxiang LLM filing no., official disclosure)"
+  ]
+}
