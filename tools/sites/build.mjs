@@ -555,6 +555,25 @@ function loadBodyEn(id) {
 }
 console.log(`  · 正文英译目录：${fs.existsSync(BODIES_DIR) ? fs.readdirSync(BODIES_DIR).filter(f => f.endsWith('.en.json')).length + ' 份档案已备' : '（未建）'}`);
 
+/* ── C0-10 指南正文英译（2026-10-25）──────────────────────────────────
+ * 每篇一份 `i18n/guides/<id>.en.json`：sections（键 = 节标题的中文部分，
+ * 即 `## [中文|English]` 的中文侧）、sources 标签（按索引对齐）。
+ * 诚实降级与档案 bodies 同口径：缺文件 = 整篇保持中文；缺键 = 该节保持中文。 */
+const GUIDE_BODIES_DIR = path.join(I18N_DIR, 'guides');
+const GUIDE_BODIES_EN = new Map();
+function loadGuideBodyEn(id) {
+  if (GUIDE_BODIES_EN.has(id)) return GUIDE_BODIES_EN.get(id);
+  let v = null;
+  const p = path.join(GUIDE_BODIES_DIR, id + '.en.json');
+  if (fs.existsSync(p)) {
+    try { v = JSON.parse(fs.readFileSync(p, 'utf8')); }
+    catch (e) { throw new Error('指南英文正文读不到：' + p + ' —— ' + e.message); }
+  }
+  GUIDE_BODIES_EN.set(id, v);
+  return v;
+}
+console.log(`  · 指南英译目录：${fs.existsSync(GUIDE_BODIES_DIR) ? fs.readdirSync(GUIDE_BODIES_DIR).filter(f => f.endsWith('.en.json')).length + ' 篇已备' : '（未建）'}`);
+
 /* 详情页英文态提示行的判据：正文是否**每一块**都有译文。
  * 覆盖：axes 每格（含附加维）、mcp 每格、每个 extraSection、runs、unknowns、
  * 正文「相关条目」每条理由、sources 每条标签。
@@ -1149,6 +1168,24 @@ function loadGuides() {
       if (m) { cur = { head: m[1].trim(), lines: [] }; sections.push(cur); continue; }
       if (cur) cur.lines.push(line);
     }
+    const sources = parseSources(text);
+    /* C0-10 指南正文英译（2026-10-25）：每篇一份 `i18n/guides/<id>.en.json`
+     * （sections 键 = 节标题的中文部分；sources 按索引对齐）。
+     * 诚实降级同档案 bodies：缺文件/缺键 = 该块保持中文；
+     * 键漂移（译文引用源侧不存在的节）= 构建期报错。 */
+    const bodyEn = loadGuideBodyEn(fm.id);
+    if (bodyEn) {
+      const zhHeads = new Set(sections.map((s) => {
+        const hm = s.head.match(/^\[(.+)\|(.+)\]$/);
+        return (hm ? hm[1] : s.head).trim();
+      }));
+      for (const k of Object.keys(bodyEn.sections || {})) {
+        if (!zhHeads.has(k)) throw new Error(`guides/${fm.id} · 指南译文小节「${k}」在源侧不存在`);
+      }
+      if (bodyEn.sources && Array.isArray(bodyEn.sources) && bodyEn.sources.length !== sources.length) {
+        throw new Error(`guides/${fm.id} · 指南译文 sources 条数（${bodyEn.sources.length}）与源侧（${sources.length}）不齐`);
+      }
+    }
     guides.push({
       id: fm.id, topic: fm.topic,
       title: fm.title || '', titleEn: fm.titleEn || fm.title || '',
@@ -1157,9 +1194,9 @@ function loadGuides() {
        * 对象数组每项是 label / url / kind 三行，parseFrontmatter 不解析对象数组）。
        * ⚠ 注释里不要出现 sources 正则的指纹字样——yaml-single-source 门禁按
        * 全文指纹计数，注释引用也算一份副本（2026-10-20 踩过）。 */
-      sources: parseSources(text),
+      sources,
       lastVerified: fm.last_verified || '', confidence: fm.confidence || '',
-      sections,
+      sections, bodyEn,
     });
   }
   return guides;
@@ -1194,12 +1231,25 @@ function renderGuidePage(g, site) {
     /* 双语节标题写法：`## [中文标题|English heading]` → 渲染成 bi 双节点 */
     const bm = s.head.match(/^\[(.+)\|(.+)\]$/);
     const head = bm ? bi(esc(bm[1]), esc(bm[2])) : mdLinks(s.head);
+    /* C0-10：节正文按中文节标题查译文；缺译文保持中文（诚实降级）。 */
+    const zhKey = (bm ? bm[1] : s.head).trim();
+    const secEn = g.bodyEn && (g.bodyEn.sections || {})[zhKey];
+    const inner = secEn ? bi(blockMd(s.lines.join('\n')), blockMd(secEn)) : blockMd(s.lines.join('\n'));
     return `      <div class="panel is-slim">
         <h2>${head}</h2>
-        ${blockMd(s.lines.join('\n'))}
+        ${inner}
       </div>`;
   }).join('\n');
-  const srcRows = g.sources.map((s) => `          <tr><td>${mdLinks(s.label || '')}</td><td><a href="${s.url}" target="_blank" rel="noopener">${esc(s.url)}</a></td></tr>`).join('\n');
+  const srcRows = g.sources.map((s, i) => {
+    /* C0-10：出处标签按索引对齐 guides 译文；缺译文保持中文。URL 不译。 */
+    const labelEn = g.bodyEn && Array.isArray(g.bodyEn.sources) ? g.bodyEn.sources[i] : '';
+    const labelCell = labelEn ? bi(mdLinks(s.label), mdLinks(labelEn)) : mdLinks(s.label);
+    return `          <tr><td>${labelCell}</td><td><a href="${s.url}" target="_blank" rel="noopener">${esc(s.url)}</a></td></tr>`;
+  }).join('\n');
+  /* 英文态诚实提示：任何一节缺译文 → 提示行保留（同档案 bodyEnComplete 口径）。 */
+  const guideEnComplete = g.bodyEn
+    && g.sections.every((s) => { const bm = s.head.match(/^\[(.+)\|(.+)\]$/); return (g.bodyEn.sections || {})[(bm ? bm[1] : s.head).trim()]; })
+    && Array.isArray(g.bodyEn.sources) && g.bodyEn.sources.length === g.sources.length;
   const body = `    <div class="container detail">
       <a class="back" href="../">← ${bi("深水指南", "Guides")}</a>
       <div class="detail-head">
@@ -1209,6 +1259,7 @@ function renderGuidePage(g, site) {
         </div>
       </div>
       <div class="panel-lead">${bi(blockMd(g.summary), blockMd(g.summaryEn))}</div>
+${guideEnComplete ? '' : `      <p class="t-xs" data-en>English summaries and interface labels are available. The guide body below is currently in Chinese.</p>`}
 ${secs}
       <div class="panel is-slim">
         <h2>${bi('出处', 'Sources')}</h2>
