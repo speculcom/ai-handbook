@@ -1,0 +1,35 @@
+{
+  "_comment": "C0-3 正文英译 · baidu-comate（2026-10-25）。axes 含 name_history 第 9 维；related/sources 按索引对齐。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "The official \"Models\" docs page lists the selectable roster: DeepSeek V4 Flash/V4 Pro, GLM-4.7/5-Turbo/5.0/5.1/5.2/5v-Turbo,\nKimi-K2.5/K2.6, MiniMax M2.5/M3/M2.7 — note the main line is third-party domestic LLMs, not just the ERNIE family;\nenterprise users can additionally add third-party model-provider APIs (the official page names the Baidu Intelligent Cloud Qianfan ModelBuilder roster).\nSwitching goes through the Auto button in the chat box or the model-selection page (the official documents both methods).",
+    "runtime": "A full form family (official docs navigation): Comate AI IDE (standalone IDE), VS Code / all JetBrains / Visual Studio /\nXcode plugins, CLI; the enterprise console (permissions/usage/knowledge management/instruction management/open center) plus Deepwiki and AgentHub enterprise pages.\nPersonal / Enterprise / private-deployment editions come in three tiers (the official FAQ spells out the differences: license management, data reports, large-scale private deployment).",
+    "local_files": "Plugin/IDE/CLI forms work on local code; the official FAQ states that SaaS inference must pass the preceding context of the file being written to the model,\nand promises (translated from the official wording) \"no subsequent accumulation, analysis or processing is done with this uploaded code\";\nunder private deployment the models and services all sit in the customer's private domain — data never leaves the domain (per the FAQ wording).",
+    "background": "Mission Mode (end-to-end delivery toward an explicit goal: autonomously decomposing goals and executing until done) and Spec mode (spec-driven) both have official pages;\nAutomation (scheduled/event-driven automation) as an extension capability has its own page; the Comate NEXT plan (cloud workbench, autonomous agent collaboration)\nis per the official docs page.",
+    "tools": "Extension capabilities all have official pages: Subagent (built-in Explore subagent with its own independent context window), Skills (open-standard capability packs),\nRules (custom instructions: code standards / framework preferences / project conventions), MCP, Command, Memory;\nthe \"@\" shortcut adds File/Folder/Terminal/Doc/Rules context, the \"/\" shortcut adds Skills/Commands/Subagents.",
+    "context": "Memory has an official page (cross-session memory); code indexing has an official page (repo-level index);\nenterprise-side knowledge management (private-domain knowledge injection). The built-in Explore subagent handles codebase exploration.",
+    "permissions": "Accounts run on the Baidu Intelligent Cloud system; the enterprise console has permission management / three-level roles (enterprise admin / department admin / regular member per the enterprise docs);\napproval details for Agent file/terminal operations were not verified item by item.",
+    "fit": "Good fit: domestic compliance and private-deployment narratives (finance/healthcare customer segments are named by the official side), an IDE full family (including Xcode/Visual Studio that peers rarely cover),\nswitchable domestic-model roster, enterprise console + AgentHub asset middle platform.\nNot a fit: needing an overseas frontier-model roster (the official model page's main line is domestic models), needing BYOK with any personal key\n(the enterprise side goes through Qianfan/third-party providers; personal BYOK was not verified).",
+    "name_history": "Brand history: Comate (2023-06 invite-only beta on Baidu Intelligent Cloud) → Comate X (2023-08 commercial edition) →\nChinese name \"Wenxin Kuaima\" (2024-06 brand refresh at the ERNIE model conference); the official sites kuaima.baidu.com and\ncomate.baidu.com both work in parallel, docs live at cloud.baidu.com/doc/COMATE — when searching, recognize both Comate and Wenxin Kuaima."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **Product independence after the \"joining Baidu DuMate\" reports** (whether sites/docs/billing still run independently under the Comate brand)\n- **Actual boundary of code-context transmission on the SaaS side** (the FAQ only covers completion context; what an Agent sends when reading multiple files is not written)\n- **Model-switching freedom in the private-deployment edition** (the official claims support for ERNIE / open-source / enterprise fine-tuned models; not measured)",
+  "unknowns": "- The official stance on joining Baidu DuMate (media reports only; no official announcement found; the official site remains active)\n- Published filing numbers for the models used (the official docs do not publish them)\n- Whether personal BYOK is supported (the enterprise side goes through Qianfan/third-party providers; the personal side was not verified)\n- Details of the approval model for Agent file/terminal operations (not verified item by item)",
+  "related": [
+    "Same domestic big-tech coding full family: Tencent's Hunyuan filing number is checkable in official docs; Baidu Comate's model filing numbers are not published by the official side.",
+    "Same domestic big-tech coding line: Alibaba runs the \"first-party product + full-family Credits\" stance; Comate runs the \"private deployment, data never leaves the domain\" narrative.",
+    "Both domestic coding tools: Trae's overseas dual line is active; Comate's main line is the domestic enterprise side (private deployment)."
+  ],
+  "sources": [
+    "Baidu Intelligent Cloud Docs · COMATE overview (Tab/Agent/Mode four modes/Skills/Rules/Subagents/shortcuts)",
+    "Baidu Intelligent Cloud Docs · COMATE Models (selectable model roster and switching methods)",
+    "Baidu Intelligent Cloud Docs · COMATE FAQ (three-tier differences / IDE list / code-data stance)",
+    "Baidu Intelligent Cloud Docs · CLI quick start (CLI form in place)",
+    "Baidu Intelligent Cloud Docs · Comate AI IDE changelog (changelog)",
+    "Baidu Comate (Wenxin Kuaima) official site (product entry / latest updates)"
+  ]
+}

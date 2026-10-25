@@ -1,0 +1,36 @@
+{
+  "_comment": "C0-3 正文英译 · augment-code（2026-10-25）。related/sources 按索引对齐；正文无 extraSections，故无 sections 键。",
+  "_rules": [
+    "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
+    "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
+    "2) 「未核验/官方未给」等未知语义不升级；不借翻译改事实。",
+    "3) 翻译不刷新 last_verified。"
+  ],
+  "axes": {
+    "model_access": "The official Available Models page lists the full roster: the Anthropic Claude family (Fable 5.1/5, Opus 5/4.8/4.7/4.6, Sonnet 5.5/5, Haiku 4.5),\nGoogle Gemini (3.8/3.7 Flash, 3.1 Pro), OpenAI GPT (6.1 Sol, 6 Astra, 5.6 Sol/Terra/Luna, 5.5),\nxAI Grok 4.6/4.5, Zhipu GLM 5.3 Flash/5.2 and Moonshot Kimi K3/K2.7 Code (hosted on Fireworks/Baseten),\nplus in-house Prism (a model ensemble combining Claude and GPT; the Prism option routes across curated model families).\nBilling is token-based (Token-Based Pricing page: three segments — LLM tokens + Cosmos compute + service fee).",
+    "runtime": "The main line is the Cosmos platform (official Introduction: five building blocks — Environments/Experts/Sessions/Capabilities/Triggers):\nit chains plan-implement-review-feedback into a repeatable Software Factory workflow (four official loops:\nRequirements→Ticket, Ticket→PR, PR→Merge, Signal→Ticket). Environments come in three flavors: Augment-hosted cloud sandbox, your own VM/physical machine\n(self-hosted daemon), or even your local laptop. There is also the Auggie CLI (terminal agent: repo implementation / code exploration / running tests / CI automation)\nand IDE extension surfaces for VS Code / JetBrains.",
+    "local_files": "IDE extensions and the Auggie CLI work on local codebases; Cosmos's Environments decide where the code lives — hosted cloud sandbox,\nself-hosted daemon (running on your own infrastructure, configured via daemon-config.json for workspace and isolation) or local.\nThe self-hosted surface is an official first-class citizen (the official page explicitly says own virtual or physical infrastructure).",
+    "background": "Cosmos leads with long-horizon multi-step delivery: durable environments, scheduled automations,\ncross-repo cross-tool coordination (wording from the official llms.txt usage guide); Triggers wire events into the loop.\nThe official narrative is an \"always-on software delivery system\" — running continuously from spec to verification.",
+    "tools": "The MCP surface has multiple official pages: Cosmos Experts connect MCP servers (MCP Registry), CLI/IDE-side MCP configuration,\nContext Engine MCP (plugging the context engine into any agent via MCP), MCP context hookup for Code Review;\nthe official side also ships a Docs MCP server (Streamable HTTP) so external agents can query Augment docs.",
+    "context": "The signature is the Code Context Engine: the official stance is a world-class context engine with structured cross-codebase understanding;\nit is exported as MCP for other agents to use (Context Engine MCP page).\nWisdom-class context (PR history, business requirements) is expanded on the Software Factory loop pages.",
+    "permissions": "Enterprise positioning (the enterprise-grade stance runs through the official docs): Trust Center and Status Page entries sit in the navigation;\nthe Analytics API uses scoped OAuth tokens or service-account bearer tokens, with write permissions requested on demand (per the official llms.txt).\nThe individual-side permission model was not verified item by item.",
+    "fit": "Good fit: the enterprise \"software factory\" narrative — agent pipelines across the SDLC (ticket→PR→merge→monitor),\nself-hosted environments running agents on your own infrastructure, one of the fullest frontier-model rosters (with in-house Prism routing).\nNot a fit: looking for a personal free tier to get started (the main line is enterprise delivery with token billing);\nreaders who need product ownership to be stable — since 2026-10 the Cosmos/Auggie CLI/Context Engine assets have been joining Harness."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **Actual changes to the purchase/renewal path after the Harness integration** (the announcement only covers assets and team joining; no customer migration details)\n- **Isolation and audit behavior of the self-hosted daemon in real CI** (there is an official daemon-config page; not measured)\n- **Actual transparency of Prism routing's model choice** (can you see which model each request lands on)",
+  "unknowns": "- Brand and product-line direction after the Harness integration (the official announcement gives no complete statement)\n- Whether personal/small-team plans exist (navigation is enterprise-sales-led; no personal tier verified)\n- Code storage region and retention policy of the hosted cloud sandbox (not verified item by item)\n- Details of the individual-side permission model (not verified item by item)",
+  "related": [
+    "Same \"async delivery agent\" narrative: Devin leads with a cloud autonomous engineer; Augment leads with enterprise SDLC pipelines and self-hosted.",
+    "Both multi-model coding platforms: Cursor centers on the editor; Augment centers on the Cosmos pipeline and the Context Engine.",
+    "Terminal-agent counterpart: Auggie CLI and Claude Code both enter CI/CD — worth contrasting their context engines."
+  ],
+  "sources": [
+    "Augment Code Docs · Introduction (Cosmos five building blocks / IDE and CLI entry points)",
+    "Augment Code Docs · Available Models (full model roster and Prism routing)",
+    "Augment Code Docs · Token-Based Pricing (three-segment billing stance)",
+    "Augment Code Docs · Self-Hosted Environments (agents on your own infrastructure)",
+    "Augment Code Docs · Software Factory Overview (the four official loops)",
+    "Augment Code blog · Augment Code's next chapter (2026-10-08 announcement of assets joining Harness)",
+    "Augment Code · Changelog (changelog)",
+    "Augment Code official site (Cosmos / software-factory narrative)"
+  ]
+}
