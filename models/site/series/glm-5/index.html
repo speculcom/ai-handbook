@@ -121,7 +121,7 @@
         <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>已备案</span><span data-en>Filed</span>：<code>Beijing-ChatGLM-20230821</code>　<span data-zh>公示名称</span><span data-en>listed as</span><span lang="zh-CN" data-source-name>「智谱清言（ChatGLM）」</span>　·　<span data-zh>备案时间</span><span data-en>filed</span> 2023-08-31　·　<span data-zh>首批第 2 行；2025-06 起另有「智谱清言」登记 Beijing-ZhiPuQingYan-20250606S0055。</span><span data-en>Row 2 of the first batch; since 2025-06 there is also a “ZhiPu QingYan” filing, Beijing-ZhiPuQingYan-20250606S0055.</span></li>
       </ul>
       <p class="fam-claims-note"><span data-zh>备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站从大陆网络直连实测的结果，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site's own reachability measurement from a mainland network, not a vendor promise.</span></p>
-      <ul class="fam-src-list cn-srcs"><li>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：<a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li>ModelScope 官方组织 ZhipuAI 的 GLM-5.3 镜像（2026-10-20 实测 200）：<a href="https://www.modelscope.cn/models/ZhipuAI/GLM-5.3" target="_blank" rel="noopener">https://www.modelscope.cn/models/ZhipuAI/GLM-5.3</a></li></ul>
+      <ul class="fam-src-list cn-srcs"><li><span data-zh>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：</span><span data-en>CAC · filed generative-AI service information (rolling announcement page, 13 batch attachment PDFs, full download &amp; search on 2026-10-20): </span><a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li><span data-zh>ModelScope 官方组织 ZhipuAI 的 GLM-5.3 镜像（2026-10-20 实测 200）：</span><span data-en>ModelScope mirror of GLM-5.3 under the official ZhipuAI org (200 verified on 2026-10-20): </span><a href="https://www.modelscope.cn/models/ZhipuAI/GLM-5.3" target="_blank" rel="noopener">https://www.modelscope.cn/models/ZhipuAI/GLM-5.3</a></li></ul>
     </section>
       <section class="member" id="m0">
         <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span><span data-zh>GLM 5.3（完整版）</span><span data-en>GLM 5.3 (Full)</span></h3>
@@ -156,10 +156,12 @@
         <div class="block" id="b0">
           <h4><span class="blk">B</span><span data-zh>该选哪个</span><span data-en>Which one to pick</span> <small><span data-zh>按你的显存倒推</span><span data-en>work backwards from your VRAM</span></small></h4>
       <p class="block-lead"><span data-zh>按「你实际能腾出多少显存或内存」选档位，而不是按参数猜。下面每档的体积都是<b>实测值</b>（来自发布页文件列表），<b>加权 15% 余量</b>给运行时与 KV cache。</span><span data-en>Pick a tier by how much VRAM or memory you can actually free up, not by guessing from spec sheets. Every size below is <b>measured</b> (from the release page file listing) with <b>15% headroom</b> added for runtime and the KV cache.</span></p>
-      <p class="warn-note"><span data-zh><b>先看这一条：</b>本系列最小档</span><span data-en><b>Read this first:</b> the smallest tier in this series</span>（181 GB）已超过任何单张消费级显卡，
-        所以<span class="nowrap">不存在「买张大卡就能跑」的选项</span>。可选路径是
+      <p class="warn-note"><span data-zh><b>先看这一条：</b>本系列最小档</span><span data-en><b>Read this first:</b> the smallest tier in this series</span>（181 GB）<span data-zh>已超过任何单张消费级显卡，
+        所以</span><span data-en>exceeds what any single consumer GPU can hold, so</span><span class="nowrap"><span data-zh>不存在「买张大卡就能跑」的选项</span><span data-en>there is no "buy a bigger card and it runs" option</span></span><span data-zh>。可选路径是
         <b>①</b> 大内存机器纯 CPU 推理、<b>②</b> 多卡张量并行、<b>③</b> 选同系列的小规格成员。
-        下面的表按这两类运行方式给出建议。</p>
+        下面的表按这两类运行方式给出建议。</span><span data-en>. The viable paths are
+        <b>①</b> CPU-only inference on a high-RAM machine, <b>②</b> multi-GPU tensor parallelism, <b>③</b> a smaller member of the same series.
+        The table below gives recommendations for these two running modes.</span></p>
       <div class="vramtool">
         <div class="vt-row">
           <label class="vt-f"><span class="vt-h"><span data-zh>你的显存（GB）</span><span data-en>Your VRAM (GB)</span></span>
@@ -167,7 +169,7 @@
           <span class="vt-quick"><button type="button" class="vt-preset" data-gb="4">4</button><button type="button" class="vt-preset" data-gb="8">8</button><button type="button" class="vt-preset" data-gb="12">12</button><button type="button" class="vt-preset" data-gb="16">16</button><button type="button" class="vt-preset" data-gb="24">24</button><button type="button" class="vt-preset" data-gb="48">48</button><button type="button" class="vt-preset" data-gb="80">80</button></span>
         </div>
         <div class="vt-out" aria-live="polite"></div>
-        <script type="application/json" class="vt-data">[{"q":"IQ1_KT","g":181.22,"t":"极限压缩","u":"https://huggingface.co/muzzy/GLM-5.3-GGUF","b":"muzzy","rp":"muzzy/GLM-5.3-GGUF"},{"q":"Q2_K","g":216.62,"t":"极限压缩","u":"https://huggingface.co/sokann/GLM-5.3-GGUF","b":"sokann","rp":"sokann/GLM-5.3-GGUF"},{"q":"UD-IQ1_S","g":216.72,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"IQ2_XS","g":227.69,"t":"极限压缩","u":"https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF","b":"0ppxnhximxr","rp":"0ppxnhximxr/GLM-5.3-GGUF"},{"q":"UD-IQ1_M","g":228.49,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"UD-IQ2_M","g":238.58,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"UD-Q2_K_XL","g":253.88,"t":"长上下文优先","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"IQ2_S","g":259.13,"t":"极限压缩","u":"https://huggingface.co/AesSedai/GLM-5.3-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-GGUF"},{"q":"UD-IQ3_XXS","g":281.69,"t":"长上下文优先","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"IQ3_S","g":285.55,"t":"长上下文优先","u":"https://huggingface.co/AesSedai/GLM-5.3-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-GGUF"},{"q":"IQ3_XXS","g":297.09,"t":"长上下文优先","u":"https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF","b":"0ppxnhximxr","rp":"0ppxnhximxr/GLM-5.3-GGUF"},{"q":"UD-Q3_K_XL","g":342.97,"t":"平衡档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"Q3_K","g":343.38,"t":"长上下文优先","u":"https://huggingface.co/muzzy/GLM-5.3-GGUF","b":"muzzy","rp":"muzzy/GLM-5.3-GGUF"},{"q":"UD-IQ4_XS","g":365.31,"t":"平衡档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"IQ4_XS","g":367.24,"t":"平衡档","u":"https://huggingface.co/AesSedai/GLM-5.3-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-GGUF"},{"q":"Q4_K","g":431.4,"t":"平衡档","u":"https://huggingface.co/L-Alchemyst/GLM-5.3-GGUF","b":"L-Alchemyst","rp":"L-Alchemyst/GLM-5.3-GGUF"},{"q":"Q4_K_M","g":454.85,"t":"平衡档","u":"https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF","b":"0ppxnhximxr","rp":"0ppxnhximxr/GLM-5.3-GGUF"},{"q":"UD-Q4_K_XL","g":467.29,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"Q5_K_M","g":561.65,"t":"保守档","u":"https://huggingface.co/AesSedai/GLM-5.3-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-GGUF"},{"q":"UD-Q5_K_XL","g":562.47,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"UD-Q6_K","g":684.37,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"Q8_0","g":801.36,"t":"近似无损","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"BF16","g":1506.92,"t":"近似无损","u":"https://huggingface.co/sokann/GLM-5.3-GGUF","b":"sokann","rp":"sokann/GLM-5.3-GGUF"}]</script>
+        <script type="application/json" class="vt-data">[{"q":"IQ1_KT","qe":"IQ1_KT","g":181.22,"t":"极限压缩","u":"https://huggingface.co/muzzy/GLM-5.3-GGUF","b":"muzzy","rp":"muzzy/GLM-5.3-GGUF"},{"q":"Q2_K","qe":"Q2_K","g":216.62,"t":"极限压缩","u":"https://huggingface.co/sokann/GLM-5.3-GGUF","b":"sokann","rp":"sokann/GLM-5.3-GGUF"},{"q":"UD-IQ1_S","qe":"UD-IQ1_S","g":216.72,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"IQ2_XS","qe":"IQ2_XS","g":227.69,"t":"极限压缩","u":"https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF","b":"0ppxnhximxr","rp":"0ppxnhximxr/GLM-5.3-GGUF"},{"q":"UD-IQ1_M","qe":"UD-IQ1_M","g":228.49,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"UD-IQ2_M","qe":"UD-IQ2_M","g":238.58,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"UD-Q2_K_XL","qe":"UD-Q2_K_XL","g":253.88,"t":"长上下文优先","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"IQ2_S","qe":"IQ2_S","g":259.13,"t":"极限压缩","u":"https://huggingface.co/AesSedai/GLM-5.3-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-GGUF"},{"q":"UD-IQ3_XXS","qe":"UD-IQ3_XXS","g":281.69,"t":"长上下文优先","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"IQ3_S","qe":"IQ3_S","g":285.55,"t":"长上下文优先","u":"https://huggingface.co/AesSedai/GLM-5.3-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-GGUF"},{"q":"IQ3_XXS","qe":"IQ3_XXS","g":297.09,"t":"长上下文优先","u":"https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF","b":"0ppxnhximxr","rp":"0ppxnhximxr/GLM-5.3-GGUF"},{"q":"UD-Q3_K_XL","qe":"UD-Q3_K_XL","g":342.97,"t":"平衡档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"Q3_K","qe":"Q3_K","g":343.38,"t":"长上下文优先","u":"https://huggingface.co/muzzy/GLM-5.3-GGUF","b":"muzzy","rp":"muzzy/GLM-5.3-GGUF"},{"q":"UD-IQ4_XS","qe":"UD-IQ4_XS","g":365.31,"t":"平衡档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"IQ4_XS","qe":"IQ4_XS","g":367.24,"t":"平衡档","u":"https://huggingface.co/AesSedai/GLM-5.3-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-GGUF"},{"q":"Q4_K","qe":"Q4_K","g":431.4,"t":"平衡档","u":"https://huggingface.co/L-Alchemyst/GLM-5.3-GGUF","b":"L-Alchemyst","rp":"L-Alchemyst/GLM-5.3-GGUF"},{"q":"Q4_K_M","qe":"Q4_K_M","g":454.85,"t":"平衡档","u":"https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF","b":"0ppxnhximxr","rp":"0ppxnhximxr/GLM-5.3-GGUF"},{"q":"UD-Q4_K_XL","qe":"UD-Q4_K_XL","g":467.29,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"Q5_K_M","qe":"Q5_K_M","g":561.65,"t":"保守档","u":"https://huggingface.co/AesSedai/GLM-5.3-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-GGUF"},{"q":"UD-Q5_K_XL","qe":"UD-Q5_K_XL","g":562.47,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"UD-Q6_K","qe":"UD-Q6_K","g":684.37,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"Q8_0","qe":"Q8_0","g":801.36,"t":"近似无损","u":"https://huggingface.co/unsloth/GLM-5.3-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-GGUF"},{"q":"BF16","qe":"BF16","g":1506.92,"t":"近似无损","u":"https://huggingface.co/sokann/GLM-5.3-GGUF","b":"sokann","rp":"sokann/GLM-5.3-GGUF"}]</script>
       </div>
       <h3 class="budget-h"><span data-zh>单卡全量装得下</span><span data-en>Fits entirely on one card</span></h3>
       <table class="budget">
@@ -192,7 +194,7 @@
         <tr>
           <th><span data-zh>256 GB 统一内存 / 多卡</span><span data-en>256 GB unified memory / multi-GPU</span></th>
           <td>
-            <b>IQ1_KT</b>（181 GB · <span data-zh>极限压缩</span><span data-en>Extreme compression</span>）
+            <b><span data-zh>IQ1_KT</span><span data-en>IQ1_KT</span></b>（181 GB · <span data-zh>极限压缩</span><span data-en>Extreme compression</span>）
             
             <br><span class="muted"><span data-zh>Mac Studio / 服务器内存，或 2~4 张 80G 卡张量并行</span><span data-en>Mac Studio / server memory, or 2–4 × 80G cards under tensor parallel</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
@@ -200,8 +202,8 @@
         <tr>
           <th><span data-zh>640 GB+ 内存 / 8×80G</span><span data-en>640 GB+ memory / 8×80G</span></th>
           <td>
-            <b>UD-Q4_K_XL</b>（467 GB · <span data-zh>保守档</span><span data-en>Conservative</span>）
-            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span>Q4_K_M 455 GB / Q4_K 431 GB</span>
+            <b><span data-zh>UD-Q4_K_XL</span><span data-en>UD-Q4_K_XL</span></b>（467 GB · <span data-zh>保守档</span><span data-en>Conservative</span>）
+            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span> 455 GB / <span data-zh>Q4_K</span><span data-en>Q4_K</span> 431 GB</span>
             <br><span class="muted"><span data-zh>超大 MoE 的门槛，需要多卡切分或大内存服务器</span><span data-en>the threshold for very large MoE — needs multi-GPU splitting or a big-memory server</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
         </tr>
@@ -215,7 +217,7 @@
           <thead><tr><th><span data-zh>量化档</span><span data-en>Quant</span></th><th><span data-zh>最小体积</span><span data-en>Min size</span></th><th><span data-zh>每权重比特</span><span data-en>bpw</span></th><th><span data-zh>档位</span><span data-en>Tier</span></th><th><span data-zh>这档意味着什么</span><span data-en>What this tier means</span></th><th><span data-zh>该档文件数 / 体积跨度</span><span data-en>Files in tier / size range</span></th><th>最小体积来源</th></tr></thead>
           <tbody>
             <tr>
-              <td><code>IQ1_KT</code></td>
+              <td><code><span data-zh>IQ1_KT</span><span data-en>IQ1_KT</span></code></td>
               <td><b>181 GB</b></td>
               <td>1.50<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -224,7 +226,7 @@
               <td class="muted"><a href="https://huggingface.co/muzzy/GLM-5.3-GGUF" target="_blank" rel="noopener">muzzy</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ1_S</code></td>
+              <td><code><span data-zh>UD-IQ1_S</span><span data-en>UD-IQ1_S</span></code></td>
               <td><b>217 GB</b></td>
               <td>1.70<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -233,7 +235,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ1_M</code></td>
+              <td><code><span data-zh>UD-IQ1_M</span><span data-en>UD-IQ1_M</span></code></td>
               <td><b>228 GB</b></td>
               <td>1.96<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -242,7 +244,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ2_XS</code></td>
+              <td><code><span data-zh>IQ2_XS</span><span data-en>IQ2_XS</span></code></td>
               <td><b>228 GB</b></td>
               <td>2.31<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -251,7 +253,7 @@
               <td class="muted"><a href="https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF" target="_blank" rel="noopener">0ppxnhximxr</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ2_M</code></td>
+              <td><code><span data-zh>UD-IQ2_M</span><span data-en>UD-IQ2_M</span></code></td>
               <td><b>239 GB</b></td>
               <td>2.39<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -260,7 +262,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ2_S</code></td>
+              <td><code><span data-zh>IQ2_S</span><span data-en>IQ2_S</span></code></td>
               <td><b>259 GB</b></td>
               <td>2.46<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -269,7 +271,7 @@
               <td class="muted"><a href="https://huggingface.co/AesSedai/GLM-5.3-GGUF" target="_blank" rel="noopener">AesSedai</a></td>
             </tr>
             <tr>
-              <td><code>Q2_K</code></td>
+              <td><code><span data-zh>Q2_K</span><span data-en>Q2_K</span></code></td>
               <td><b>217 GB</b></td>
               <td>2.80<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -278,7 +280,7 @@
               <td class="muted"><a href="https://huggingface.co/sokann/GLM-5.3-GGUF" target="_blank" rel="noopener">sokann</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ3_XXS</code></td>
+              <td><code><span data-zh>UD-IQ3_XXS</span><span data-en>UD-IQ3_XXS</span></code></td>
               <td><b>282 GB</b></td>
               <td>3.06<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -287,7 +289,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ3_XXS</code></td>
+              <td><code><span data-zh>IQ3_XXS</span><span data-en>IQ3_XXS</span></code></td>
               <td><b>297 GB</b></td>
               <td>3.06<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -296,7 +298,7 @@
               <td class="muted"><a href="https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF" target="_blank" rel="noopener">0ppxnhximxr</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q2_K_XL</code></td>
+              <td><code><span data-zh>UD-Q2_K_XL</span><span data-en>UD-Q2_K_XL</span></code></td>
               <td><b>254 GB</b></td>
               <td>3.35<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -305,7 +307,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ3_S</code></td>
+              <td><code><span data-zh>IQ3_S</span><span data-en>IQ3_S</span></code></td>
               <td><b>286 GB</b></td>
               <td>3.35<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -314,7 +316,7 @@
               <td class="muted"><a href="https://huggingface.co/AesSedai/GLM-5.3-GGUF" target="_blank" rel="noopener">AesSedai</a></td>
             </tr>
             <tr>
-              <td><code>Q3_K</code></td>
+              <td><code><span data-zh>Q3_K</span><span data-en>Q3_K</span></code></td>
               <td><b>343 GB</b></td>
               <td>3.55<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -323,7 +325,7 @@
               <td class="muted"><a href="https://huggingface.co/muzzy/GLM-5.3-GGUF" target="_blank" rel="noopener">muzzy</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ4_XS</code></td>
+              <td><code><span data-zh>UD-IQ4_XS</span><span data-en>UD-IQ4_XS</span></code></td>
               <td><b>365 GB</b></td>
               <td>4.25<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -332,7 +334,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ4_XS</code></td>
+              <td><code><span data-zh>IQ4_XS</span><span data-en>IQ4_XS</span></code></td>
               <td><b>367 GB</b></td>
               <td>4.25<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -341,7 +343,7 @@
               <td class="muted"><a href="https://huggingface.co/AesSedai/GLM-5.3-GGUF" target="_blank" rel="noopener">AesSedai</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q3_K_XL</code></td>
+              <td><code><span data-zh>UD-Q3_K_XL</span><span data-en>UD-Q3_K_XL</span></code></td>
               <td><b>343 GB</b></td>
               <td>4.42<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -350,7 +352,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>Q4_K</code></td>
+              <td><code><span data-zh>Q4_K</span><span data-en>Q4_K</span></code></td>
               <td><b>431 GB</b></td>
               <td>4.85<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -359,7 +361,7 @@
               <td class="muted"><a href="https://huggingface.co/L-Alchemyst/GLM-5.3-GGUF" target="_blank" rel="noopener">L-Alchemyst</a></td>
             </tr>
             <tr>
-              <td><code>Q4_K_M</code></td>
+              <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code></td>
               <td><b>455 GB</b></td>
               <td>4.85<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -368,7 +370,7 @@
               <td class="muted"><a href="https://huggingface.co/0ppxnhximxr/GLM-5.3-GGUF" target="_blank" rel="noopener">0ppxnhximxr</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q4_K_XL</code></td>
+              <td><code><span data-zh>UD-Q4_K_XL</span><span data-en>UD-Q4_K_XL</span></code></td>
               <td><b>467 GB</b></td>
               <td>5.62<span class="muted"> bpw</span></td>
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
@@ -377,7 +379,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>Q5_K_M</code></td>
+              <td><code><span data-zh>Q5_K_M</span><span data-en>Q5_K_M</span></code></td>
               <td><b>562 GB</b></td>
               <td>5.69<span class="muted"> bpw</span></td>
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
@@ -386,7 +388,7 @@
               <td class="muted"><a href="https://huggingface.co/AesSedai/GLM-5.3-GGUF" target="_blank" rel="noopener">AesSedai</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q5_K_XL</code></td>
+              <td><code><span data-zh>UD-Q5_K_XL</span><span data-en>UD-Q5_K_XL</span></code></td>
               <td><b>562 GB</b></td>
               <td>5.84<span class="muted"> bpw</span></td>
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
@@ -395,7 +397,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q6_K</code></td>
+              <td><code><span data-zh>UD-Q6_K</span><span data-en>UD-Q6_K</span></code></td>
               <td><b>684 GB</b></td>
               <td>6.54<span class="muted"> bpw</span></td>
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
@@ -404,7 +406,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>Q8_0</code></td>
+              <td><code><span data-zh>Q8_0</span><span data-en>Q8_0</span></code></td>
               <td><b>801 GB</b></td>
               <td>8.50<span class="muted"> bpw</span></td>
               <td><span class="tier tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span></td>
@@ -413,7 +415,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>BF16</code></td>
+              <td><code><span data-zh>BF16</span><span data-en>BF16</span></code></td>
               <td><b>1507 GB</b></td>
               <td>16.00<span class="muted"> bpw</span></td>
               <td><span class="tier tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span></td>
@@ -451,7 +453,7 @@
             <td class="num">12</td>
             <td class="num">5542 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>UD-IQ4_XS</code><br><span class="muted small">365 GB</span></td>
+            <td><code><span data-zh>UD-IQ4_XS</span><span data-en>UD-IQ4_XS</span></code><br><span class="muted small">365 GB</span></td>
             <td class="num">488k</td>
             <td class="muted small">2026-08-29</td>
           </tr>
@@ -465,7 +467,7 @@
             <td class="num">2</td>
             <td class="num">1605 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>BF16</code><br><span class="muted small">1507 GB</span></td>
+            <td><code><span data-zh>BF16</span><span data-en>BF16</span></code><br><span class="muted small">1507 GB</span></td>
             <td class="num">733</td>
             <td class="muted small">2026-09-21</td>
           </tr>
@@ -479,7 +481,7 @@
             <td class="num">3</td>
             <td class="num">960 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K</code><br><span class="muted small">431 GB</span></td>
+            <td><code><span data-zh>Q4_K</span><span data-en>Q4_K</span></code><br><span class="muted small">431 GB</span></td>
             <td class="num">637</td>
             <td class="muted small">2026-09-07</td>
           </tr>
@@ -493,7 +495,7 @@
             <td class="num">5</td>
             <td class="num">1809 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K_M</code><br><span class="muted small">469 GB</span></td>
+            <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">469 GB</span></td>
             <td class="num">634</td>
             <td class="muted small">2026-09-03</td>
           </tr>
@@ -507,7 +509,7 @@
             <td class="num">12</td>
             <td class="num">5542 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>UD-IQ4_XS</code><br><span class="muted small">365 GB</span></td>
+            <td><code><span data-zh>UD-IQ4_XS</span><span data-en>UD-IQ4_XS</span></code><br><span class="muted small">365 GB</span></td>
             <td class="num">471</td>
             <td class="muted small">2026-09-08</td>
           </tr>
@@ -521,7 +523,7 @@
             <td class="num">4</td>
             <td class="num">1361 GB</td>
             <td class="num">—</td>
-            <td><code>Q4_K</code><br><span class="muted small">435 GB</span></td>
+            <td><code><span data-zh>Q4_K</span><span data-en>Q4_K</span></code><br><span class="muted small">435 GB</span></td>
             <td class="num">452</td>
             <td class="muted small">2026-09-29</td>
           </tr>
@@ -535,7 +537,7 @@
             <td class="num">3</td>
             <td class="num">912 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K_M</code><br><span class="muted small">455 GB</span></td>
+            <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">455 GB</span></td>
             <td class="num">177</td>
             <td class="muted small">2026-08-29</td>
           </tr>
@@ -826,10 +828,12 @@
         <div class="block" id="b1">
           <h4><span class="blk">B</span><span data-zh>该选哪个</span><span data-en>Which one to pick</span> <small><span data-zh>按你的显存倒推</span><span data-en>work backwards from your VRAM</span></small></h4>
       <p class="block-lead"><span data-zh>按「你实际能腾出多少显存或内存」选档位，而不是按参数猜。下面每档的体积都是<b>实测值</b>（来自发布页文件列表），<b>加权 15% 余量</b>给运行时与 KV cache。</span><span data-en>Pick a tier by how much VRAM or memory you can actually free up, not by guessing from spec sheets. Every size below is <b>measured</b> (from the release page file listing) with <b>15% headroom</b> added for runtime and the KV cache.</span></p>
-      <p class="warn-note"><span data-zh><b>先看这一条：</b>本系列最小档</span><span data-en><b>Read this first:</b> the smallest tier in this series</span>（93 GB）已超过任何单张消费级显卡，
-        所以<span class="nowrap">不存在「买张大卡就能跑」的选项</span>。可选路径是
+      <p class="warn-note"><span data-zh><b>先看这一条：</b>本系列最小档</span><span data-en><b>Read this first:</b> the smallest tier in this series</span>（93 GB）<span data-zh>已超过任何单张消费级显卡，
+        所以</span><span data-en>exceeds what any single consumer GPU can hold, so</span><span class="nowrap"><span data-zh>不存在「买张大卡就能跑」的选项</span><span data-en>there is no "buy a bigger card and it runs" option</span></span><span data-zh>。可选路径是
         <b>①</b> 大内存机器纯 CPU 推理、<b>②</b> 多卡张量并行、<b>③</b> 选同系列的小规格成员。
-        下面的表按这两类运行方式给出建议。</p>
+        下面的表按这两类运行方式给出建议。</span><span data-en>. The viable paths are
+        <b>①</b> CPU-only inference on a high-RAM machine, <b>②</b> multi-GPU tensor parallelism, <b>③</b> a smaller member of the same series.
+        The table below gives recommendations for these two running modes.</span></p>
       <div class="vramtool">
         <div class="vt-row">
           <label class="vt-f"><span class="vt-h"><span data-zh>你的显存（GB）</span><span data-en>Your VRAM (GB)</span></span>
@@ -837,7 +841,7 @@
           <span class="vt-quick"><button type="button" class="vt-preset" data-gb="4">4</button><button type="button" class="vt-preset" data-gb="8">8</button><button type="button" class="vt-preset" data-gb="12">12</button><button type="button" class="vt-preset" data-gb="16">16</button><button type="button" class="vt-preset" data-gb="24">24</button><button type="button" class="vt-preset" data-gb="48">48</button><button type="button" class="vt-preset" data-gb="80">80</button></span>
         </div>
         <div class="vt-out" aria-live="polite"></div>
-        <script type="application/json" class="vt-data">[{"q":"IQ1_M","g":70.68,"t":"极限压缩","u":"https://huggingface.co/6block/GLM-5.3-Flash-GGUF","b":"6block","rp":"6block/GLM-5.3-Flash-GGUF"},{"q":"IQ2_XXS","g":82.25,"t":"极限压缩","u":"https://huggingface.co/batiai/GLM-5.3-Flash-GGUF","b":"batiai","rp":"batiai/GLM-5.3-Flash-GGUF"},{"q":"IQ2_XS","g":92.11,"t":"极限压缩","u":"https://huggingface.co/6block/GLM-5.3-Flash-GGUF","b":"6block","rp":"6block/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ1_S","g":93.09,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ1_M","g":97.58,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ2_XXS","g":101.84,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"UD-Q2_K_XL","g":108.72,"t":"长上下文优先","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"Q2_K_S","g":110.03,"t":"极限压缩","u":"https://huggingface.co/ggml-org/GLM-5.3-Flash-GGUF","b":"ggml-org","rp":"ggml-org/GLM-5.3-Flash-GGUF"},{"q":"IQ3_XXS","g":112.41,"t":"长上下文优先","u":"https://huggingface.co/aj9o9/GLM-5.3-Flash-GGUF","b":"aj9o9","rp":"aj9o9/GLM-5.3-Flash-GGUF"},{"q":"IQ2_S","g":113.62,"t":"极限压缩","u":"https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-Flash-GGUF"},{"q":"Q2_K","g":114.16,"t":"极限压缩","u":"https://huggingface.co/batiai/GLM-5.3-Flash-GGUF","b":"batiai","rp":"batiai/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ3_XXS","g":120.37,"t":"长上下文优先","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"IQ3_S","g":124.72,"t":"长上下文优先","u":"https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-Flash-GGUF"},{"q":"作者标注 3.49bpw","g":139.75,"t":"长上下文优先","u":"https://huggingface.co/ddh0/GLM-5.3-Flash-GGUF","b":"ddh0","rp":"ddh0/GLM-5.3-Flash-GGUF"},{"q":"UD-Q3_K_XL","g":147.54,"t":"平衡档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"Q3_K_M","g":149.06,"t":"长上下文优先","u":"https://huggingface.co/batiai/GLM-5.3-Flash-GGUF","b":"batiai","rp":"batiai/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ4_XS","g":156.82,"t":"平衡档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"IQ4_XS","g":159.18,"t":"平衡档","u":"https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-Flash-GGUF"},{"q":"Q4_K","g":181.37,"t":"平衡档","u":"https://huggingface.co/ggml-org/GLM-5.3-Flash-GGUF","b":"ggml-org","rp":"ggml-org/GLM-5.3-Flash-GGUF"},{"q":"Q4_K_M","g":188.67,"t":"平衡档","u":"https://huggingface.co/batiai/GLM-5.3-Flash-GGUF","b":"batiai","rp":"batiai/GLM-5.3-Flash-GGUF"},{"q":"UD-Q4_K_XL","g":199.71,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"UD-Q5_K_XL","g":240.31,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"Q5_K_M","g":240.83,"t":"保守档","u":"https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-Flash-GGUF"},{"q":"UD-Q6_K","g":291.83,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"Q8_0","g":340.98,"t":"近似无损","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"BF16","g":641.64,"t":"近似无损","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"}]</script>
+        <script type="application/json" class="vt-data">[{"q":"IQ1_M","qe":"IQ1_M","g":70.68,"t":"极限压缩","u":"https://huggingface.co/6block/GLM-5.3-Flash-GGUF","b":"6block","rp":"6block/GLM-5.3-Flash-GGUF"},{"q":"IQ2_XXS","qe":"IQ2_XXS","g":82.25,"t":"极限压缩","u":"https://huggingface.co/batiai/GLM-5.3-Flash-GGUF","b":"batiai","rp":"batiai/GLM-5.3-Flash-GGUF"},{"q":"IQ2_XS","qe":"IQ2_XS","g":92.11,"t":"极限压缩","u":"https://huggingface.co/6block/GLM-5.3-Flash-GGUF","b":"6block","rp":"6block/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ1_S","qe":"UD-IQ1_S","g":93.09,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ1_M","qe":"UD-IQ1_M","g":97.58,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ2_XXS","qe":"UD-IQ2_XXS","g":101.84,"t":"极限压缩","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"UD-Q2_K_XL","qe":"UD-Q2_K_XL","g":108.72,"t":"长上下文优先","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"Q2_K_S","qe":"Q2_K_S","g":110.03,"t":"极限压缩","u":"https://huggingface.co/ggml-org/GLM-5.3-Flash-GGUF","b":"ggml-org","rp":"ggml-org/GLM-5.3-Flash-GGUF"},{"q":"IQ3_XXS","qe":"IQ3_XXS","g":112.41,"t":"长上下文优先","u":"https://huggingface.co/aj9o9/GLM-5.3-Flash-GGUF","b":"aj9o9","rp":"aj9o9/GLM-5.3-Flash-GGUF"},{"q":"IQ2_S","qe":"IQ2_S","g":113.62,"t":"极限压缩","u":"https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-Flash-GGUF"},{"q":"Q2_K","qe":"Q2_K","g":114.16,"t":"极限压缩","u":"https://huggingface.co/batiai/GLM-5.3-Flash-GGUF","b":"batiai","rp":"batiai/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ3_XXS","qe":"UD-IQ3_XXS","g":120.37,"t":"长上下文优先","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"IQ3_S","qe":"IQ3_S","g":124.72,"t":"长上下文优先","u":"https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-Flash-GGUF"},{"q":"作者标注 3.49bpw","qe":"author-stated 3.49bpw","g":139.75,"t":"长上下文优先","u":"https://huggingface.co/ddh0/GLM-5.3-Flash-GGUF","b":"ddh0","rp":"ddh0/GLM-5.3-Flash-GGUF"},{"q":"UD-Q3_K_XL","qe":"UD-Q3_K_XL","g":147.54,"t":"平衡档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"Q3_K_M","qe":"Q3_K_M","g":149.06,"t":"长上下文优先","u":"https://huggingface.co/batiai/GLM-5.3-Flash-GGUF","b":"batiai","rp":"batiai/GLM-5.3-Flash-GGUF"},{"q":"UD-IQ4_XS","qe":"UD-IQ4_XS","g":156.82,"t":"平衡档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"IQ4_XS","qe":"IQ4_XS","g":159.18,"t":"平衡档","u":"https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-Flash-GGUF"},{"q":"Q4_K","qe":"Q4_K","g":181.37,"t":"平衡档","u":"https://huggingface.co/ggml-org/GLM-5.3-Flash-GGUF","b":"ggml-org","rp":"ggml-org/GLM-5.3-Flash-GGUF"},{"q":"Q4_K_M","qe":"Q4_K_M","g":188.67,"t":"平衡档","u":"https://huggingface.co/batiai/GLM-5.3-Flash-GGUF","b":"batiai","rp":"batiai/GLM-5.3-Flash-GGUF"},{"q":"UD-Q4_K_XL","qe":"UD-Q4_K_XL","g":199.71,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"UD-Q5_K_XL","qe":"UD-Q5_K_XL","g":240.31,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"Q5_K_M","qe":"Q5_K_M","g":240.83,"t":"保守档","u":"https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF","b":"AesSedai","rp":"AesSedai/GLM-5.3-Flash-GGUF"},{"q":"UD-Q6_K","qe":"UD-Q6_K","g":291.83,"t":"保守档","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"Q8_0","qe":"Q8_0","g":340.98,"t":"近似无损","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"},{"q":"BF16","qe":"BF16","g":641.64,"t":"近似无损","u":"https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF","b":"unsloth","rp":"unsloth/GLM-5.3-Flash-GGUF"}]</script>
       </div>
       <h3 class="budget-h"><span data-zh>单卡全量装得下</span><span data-en>Fits entirely on one card</span></h3>
       <table class="budget">
@@ -861,24 +865,24 @@
         <tr>
           <th><span data-zh>128 GB 系统内存</span><span data-en>128 GB system RAM</span></th>
           <td>
-            <b>UD-Q2_K_XL</b>（109 GB · <span data-zh>长上下文优先</span><span data-en>Long context first</span>）
-            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span>UD-IQ2_XXS 102 GB / UD-IQ1_M 98 GB</span>
+            <b><span data-zh>UD-Q2_K_XL</span><span data-en>UD-Q2_K_XL</span></b>（109 GB · <span data-zh>长上下文优先</span><span data-en>Long context first</span>）
+            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span><span data-zh>UD-IQ2_XXS</span><span data-en>UD-IQ2_XXS</span> 102 GB / <span data-zh>UD-IQ1_M</span><span data-en>UD-IQ1_M</span> 98 GB</span>
             <br><span class="muted"><span data-zh>工作站标准配置，纯 CPU 可跑中等规模 MoE</span><span data-en>the standard workstation config; CPU-only handles mid-size MoE</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
         </tr>
         <tr>
           <th><span data-zh>256 GB 统一内存 / 多卡</span><span data-en>256 GB unified memory / multi-GPU</span></th>
           <td>
-            <b>UD-Q4_K_XL</b>（200 GB · <span data-zh>保守档</span><span data-en>Conservative</span>）
-            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span>Q4_K_M 189 GB / Q4_K 181 GB</span>
+            <b><span data-zh>UD-Q4_K_XL</span><span data-en>UD-Q4_K_XL</span></b>（200 GB · <span data-zh>保守档</span><span data-en>Conservative</span>）
+            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span> 189 GB / <span data-zh>Q4_K</span><span data-en>Q4_K</span> 181 GB</span>
             <br><span class="muted"><span data-zh>Mac Studio / 服务器内存，或 2~4 张 80G 卡张量并行</span><span data-en>Mac Studio / server memory, or 2–4 × 80G cards under tensor parallel</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
         </tr>
         <tr>
           <th><span data-zh>640 GB+ 内存 / 8×80G</span><span data-en>640 GB+ memory / 8×80G</span></th>
           <td>
-            <b>Q8_0</b>（341 GB · <span data-zh>近似无损</span><span data-en>Near lossless</span>）
-            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span>UD-Q6_K 292 GB / Q5_K_M 241 GB</span>
+            <b><span data-zh>Q8_0</span><span data-en>Q8_0</span></b>（341 GB · <span data-zh>近似无损</span><span data-en>Near lossless</span>）
+            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span><span data-zh>UD-Q6_K</span><span data-en>UD-Q6_K</span> 292 GB / <span data-zh>Q5_K_M</span><span data-en>Q5_K_M</span> 241 GB</span>
             <br><span class="muted"><span data-zh>超大 MoE 的门槛，需要多卡切分或大内存服务器</span><span data-en>the threshold for very large MoE — needs multi-GPU splitting or a big-memory server</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
         </tr>
@@ -892,7 +896,7 @@
           <thead><tr><th><span data-zh>量化档</span><span data-en>Quant</span></th><th><span data-zh>最小体积</span><span data-en>Min size</span></th><th><span data-zh>每权重比特</span><span data-en>bpw</span></th><th><span data-zh>档位</span><span data-en>Tier</span></th><th><span data-zh>这档意味着什么</span><span data-en>What this tier means</span></th><th><span data-zh>该档文件数 / 体积跨度</span><span data-en>Files in tier / size range</span></th><th>最小体积来源</th></tr></thead>
           <tbody>
             <tr>
-              <td><code>UD-IQ1_S</code></td>
+              <td><code><span data-zh>UD-IQ1_S</span><span data-en>UD-IQ1_S</span></code></td>
               <td><b>93 GB</b></td>
               <td>1.70<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -901,7 +905,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ1_M</code></td>
+              <td><code><span data-zh>IQ1_M</span><span data-en>IQ1_M</span></code></td>
               <td><b>71 GB</b></td>
               <td>1.90<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -910,7 +914,7 @@
               <td class="muted"><a href="https://huggingface.co/6block/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">6block</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ1_M</code></td>
+              <td><code><span data-zh>UD-IQ1_M</span><span data-en>UD-IQ1_M</span></code></td>
               <td><b>98 GB</b></td>
               <td>1.96<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -919,7 +923,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ2_XXS</code></td>
+              <td><code><span data-zh>UD-IQ2_XXS</span><span data-en>UD-IQ2_XXS</span></code></td>
               <td><b>102 GB</b></td>
               <td>2.13<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -928,7 +932,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ2_XXS</code></td>
+              <td><code><span data-zh>IQ2_XXS</span><span data-en>IQ2_XXS</span></code></td>
               <td><b>82 GB</b></td>
               <td>2.13<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -937,7 +941,7 @@
               <td class="muted"><a href="https://huggingface.co/batiai/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">batiai</a></td>
             </tr>
             <tr>
-              <td><code>IQ2_XS</code></td>
+              <td><code><span data-zh>IQ2_XS</span><span data-en>IQ2_XS</span></code></td>
               <td><b>92 GB</b></td>
               <td>2.31<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -946,7 +950,7 @@
               <td class="muted"><a href="https://huggingface.co/6block/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">6block</a></td>
             </tr>
             <tr>
-              <td><code>IQ2_S</code></td>
+              <td><code><span data-zh>IQ2_S</span><span data-en>IQ2_S</span></code></td>
               <td><b>114 GB</b></td>
               <td>2.46<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -955,7 +959,7 @@
               <td class="muted"><a href="https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">AesSedai</a></td>
             </tr>
             <tr>
-              <td><code>Q2_K_S</code></td>
+              <td><code><span data-zh>Q2_K_S</span><span data-en>Q2_K_S</span></code></td>
               <td><b>110 GB</b></td>
               <td>2.71<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -964,7 +968,7 @@
               <td class="muted"><a href="https://huggingface.co/ggml-org/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">ggml-org</a></td>
             </tr>
             <tr>
-              <td><code>Q2_K</code></td>
+              <td><code><span data-zh>Q2_K</span><span data-en>Q2_K</span></code></td>
               <td><b>114 GB</b></td>
               <td>2.80<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -973,7 +977,7 @@
               <td class="muted"><a href="https://huggingface.co/batiai/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">batiai</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ3_XXS</code></td>
+              <td><code><span data-zh>UD-IQ3_XXS</span><span data-en>UD-IQ3_XXS</span></code></td>
               <td><b>120 GB</b></td>
               <td>3.06<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -982,7 +986,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ3_XXS</code></td>
+              <td><code><span data-zh>IQ3_XXS</span><span data-en>IQ3_XXS</span></code></td>
               <td><b>112 GB</b></td>
               <td>3.06<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -991,7 +995,7 @@
               <td class="muted"><a href="https://huggingface.co/aj9o9/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">aj9o9</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q2_K_XL</code></td>
+              <td><code><span data-zh>UD-Q2_K_XL</span><span data-en>UD-Q2_K_XL</span></code></td>
               <td><b>109 GB</b></td>
               <td>3.35<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -1000,7 +1004,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ3_S</code></td>
+              <td><code><span data-zh>IQ3_S</span><span data-en>IQ3_S</span></code></td>
               <td><b>125 GB</b></td>
               <td>3.35<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -1009,7 +1013,7 @@
               <td class="muted"><a href="https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">AesSedai</a></td>
             </tr>
             <tr>
-              <td><code>作者标注 3.49bpw</code></td>
+              <td><code><span data-zh>作者标注 3.49bpw</span><span data-en>author-stated 3.49bpw</span></code></td>
               <td><b>140 GB</b></td>
               <td>3.49<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -1018,7 +1022,7 @@
               <td class="muted"><a href="https://huggingface.co/ddh0/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">ddh0</a></td>
             </tr>
             <tr>
-              <td><code>Q3_K_M</code></td>
+              <td><code><span data-zh>Q3_K_M</span><span data-en>Q3_K_M</span></code></td>
               <td><b>149 GB</b></td>
               <td>3.55<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -1027,7 +1031,7 @@
               <td class="muted"><a href="https://huggingface.co/batiai/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">batiai</a></td>
             </tr>
             <tr>
-              <td><code>UD-IQ4_XS</code></td>
+              <td><code><span data-zh>UD-IQ4_XS</span><span data-en>UD-IQ4_XS</span></code></td>
               <td><b>157 GB</b></td>
               <td>4.25<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -1036,7 +1040,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>IQ4_XS</code></td>
+              <td><code><span data-zh>IQ4_XS</span><span data-en>IQ4_XS</span></code></td>
               <td><b>159 GB</b></td>
               <td>4.25<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -1045,7 +1049,7 @@
               <td class="muted"><a href="https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">AesSedai</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q3_K_XL</code></td>
+              <td><code><span data-zh>UD-Q3_K_XL</span><span data-en>UD-Q3_K_XL</span></code></td>
               <td><b>148 GB</b></td>
               <td>4.42<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -1054,7 +1058,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>Q4_K_M</code></td>
+              <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code></td>
               <td><b>189 GB</b></td>
               <td>4.85<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -1063,7 +1067,7 @@
               <td class="muted"><a href="https://huggingface.co/batiai/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">batiai</a></td>
             </tr>
             <tr>
-              <td><code>Q4_K</code></td>
+              <td><code><span data-zh>Q4_K</span><span data-en>Q4_K</span></code></td>
               <td><b>181 GB</b></td>
               <td>4.85<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -1072,7 +1076,7 @@
               <td class="muted"><a href="https://huggingface.co/ggml-org/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">ggml-org</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q4_K_XL</code></td>
+              <td><code><span data-zh>UD-Q4_K_XL</span><span data-en>UD-Q4_K_XL</span></code></td>
               <td><b>200 GB</b></td>
               <td>5.62<span class="muted"> bpw</span></td>
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
@@ -1081,7 +1085,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>Q5_K_M</code></td>
+              <td><code><span data-zh>Q5_K_M</span><span data-en>Q5_K_M</span></code></td>
               <td><b>241 GB</b></td>
               <td>5.69<span class="muted"> bpw</span></td>
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
@@ -1090,7 +1094,7 @@
               <td class="muted"><a href="https://huggingface.co/AesSedai/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">AesSedai</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q5_K_XL</code></td>
+              <td><code><span data-zh>UD-Q5_K_XL</span><span data-en>UD-Q5_K_XL</span></code></td>
               <td><b>240 GB</b></td>
               <td>5.84<span class="muted"> bpw</span></td>
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
@@ -1099,7 +1103,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>UD-Q6_K</code></td>
+              <td><code><span data-zh>UD-Q6_K</span><span data-en>UD-Q6_K</span></code></td>
               <td><b>292 GB</b></td>
               <td>6.54<span class="muted"> bpw</span></td>
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
@@ -1108,7 +1112,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>Q8_0</code></td>
+              <td><code><span data-zh>Q8_0</span><span data-en>Q8_0</span></code></td>
               <td><b>341 GB</b></td>
               <td>8.50<span class="muted"> bpw</span></td>
               <td><span class="tier tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span></td>
@@ -1117,7 +1121,7 @@
               <td class="muted"><a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener">unsloth</a></td>
             </tr>
             <tr>
-              <td><code>BF16</code></td>
+              <td><code><span data-zh>BF16</span><span data-en>BF16</span></code></td>
               <td><b>642 GB</b></td>
               <td>16.00<span class="muted"> bpw</span></td>
               <td><span class="tier tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span></td>
@@ -1155,7 +1159,7 @@
             <td class="num">12</td>
             <td class="num">2366 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>UD-IQ4_XS</code><br><span class="muted small">157 GB</span></td>
+            <td><code><span data-zh>UD-IQ4_XS</span><span data-en>UD-IQ4_XS</span></code><br><span class="muted small">157 GB</span></td>
             <td class="num">1.0M</td>
             <td class="muted small">2026-10-05</td>
           </tr>
@@ -1169,7 +1173,7 @@
             <td class="num">2</td>
             <td class="num">186 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>IQ3_XXS</code><br><span class="muted small">112 GB</span></td>
+            <td><code><span data-zh>IQ3_XXS</span><span data-en>IQ3_XXS</span></code><br><span class="muted small">112 GB</span></td>
             <td class="num">22k</td>
             <td class="muted small">2026-09-01</td>
           </tr>
@@ -1183,7 +1187,7 @@
             <td class="num">2</td>
             <td class="num">288 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K_M</code><br><span class="muted small">193 GB</span></td>
+            <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">193 GB</span></td>
             <td class="num">4k</td>
             <td class="muted small">2026-08-27</td>
           </tr>
@@ -1197,7 +1201,7 @@
             <td class="num">5</td>
             <td class="num">783 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K_M</code><br><span class="muted small">202 GB</span></td>
+            <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">202 GB</span></td>
             <td class="num">2k</td>
             <td class="muted small">2026-08-30</td>
           </tr>
@@ -1211,7 +1215,7 @@
             <td class="num">3</td>
             <td class="num">396 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K</code><br><span class="muted small">181 GB</span></td>
+            <td><code><span data-zh>Q4_K</span><span data-en>Q4_K</span></code><br><span class="muted small">181 GB</span></td>
             <td class="num">2k</td>
             <td class="muted small">2026-10-08</td>
           </tr>
@@ -1225,7 +1229,7 @@
             <td class="num">5</td>
             <td class="num">610 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K_M</code><br><span class="muted small">189 GB</span></td>
+            <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">189 GB</span></td>
             <td class="num">967</td>
             <td class="muted small">2026-09-04</td>
           </tr>
@@ -1239,7 +1243,7 @@
             <td class="num">1</td>
             <td class="num">130 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>作者标注 3.49bpw</code><br><span class="muted small">140 GB</span></td>
+            <td><code><span data-zh>作者标注 3.49bpw</span><span data-en>author-stated 3.49bpw</span></code><br><span class="muted small">140 GB</span></td>
             <td class="num">936</td>
             <td class="muted small">2026-09-12</td>
           </tr>
@@ -1253,7 +1257,7 @@
             <td class="num">1</td>
             <td class="num">181 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K_M</code><br><span class="muted small">194 GB</span></td>
+            <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">194 GB</span></td>
             <td class="num">650</td>
             <td class="muted small">2026-09-06</td>
           </tr>
@@ -1267,7 +1271,7 @@
             <td class="num">4</td>
             <td class="num">420 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>IQ4_XS</code><br><span class="muted small">167 GB</span></td>
+            <td><code><span data-zh>IQ4_XS</span><span data-en>IQ4_XS</span></code><br><span class="muted small">167 GB</span></td>
             <td class="num">539</td>
             <td class="muted small">2026-08-28</td>
           </tr>
@@ -1281,7 +1285,7 @@
             <td class="num">4</td>
             <td class="num">420 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>IQ4_XS</code><br><span class="muted small">167 GB</span></td>
+            <td><code><span data-zh>IQ4_XS</span><span data-en>IQ4_XS</span></code><br><span class="muted small">167 GB</span></td>
             <td class="num">370</td>
             <td class="muted small">2026-08-31</td>
           </tr>
@@ -1423,9 +1427,9 @@
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/ddh0/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener"><code>ddh0/GLM-5.3-Flash-GGUF</code> ↗</a>，提供 <b>1</b> 个 GGUF 量化档，合计 130 GB。由 <code>ddh0</code> 发布。</span><span data-en><a href="https://huggingface.co/ddh0/GLM-5.3-Flash-GGUF" target="_blank" rel="noopener"><code>ddh0/GLM-5.3-Flash-GGUF</code> ↗</a>, providing <b>1</b> GGUF tiers totalling 130 GB. Published by <code>ddh0</code>.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>带重要性矩阵（imatrix：<code>./imatrices/GLM-5.3-Flash-imatrix.gguf</code>），用激活数据统计各层重要性后再量化，通常比纯 RTN 稳</span><span data-en>Ships an importance matrix (imatrix: <code>./imatrices/GLM-5.3-Flash-imatrix.gguf</code>) — quantises after scoring each layer by activation statistics, usually steadier than plain RTN</span>；<span data-zh>针对 <code>glm5-next</code> 架构优化</span><span data-en>Optimised for the <code>glm5-next</code> architecture</span>；<span data-zh>声明上下文 1,048,576 tokens</span><span data-en>Declared context 1,048,576 tokens</span>；<span data-zh>发布页声明溯源到 <code>zai-org/GLM-5.3-Flash</code></span><span data-en>The release page traces this back to <code>zai-org/GLM-5.3-Flash</code></span>；<span data-zh>权重总字节 139.8 GB（发布页 <code>gguf.total</code> 字段）</span><span data-en>Total weight bytes 139.8 GB (the release page's <code>gguf.total</code> field)</span>。</span></div>
         <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 9 个量化来源（<code>unsloth</code> 12 <span data-zh>档</span><span data-en>tiers</span>、<code>aj9o9</code> 2 <span data-zh>档</span><span data-en>tiers</span>、<code>vcruz305</code> 2 <span data-zh>档</span><span data-en>tiers</span>、<code>AesSedai</code> 5 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 9 other quantisation sources (<code>unsloth</code> 12 tiers, <code>aj9o9</code> 2 tiers, <code>vcruz305</code> 2 tiers, <code>AesSedai</code> 5 tiers, among others).</span><span data-zh> 本仓 1 档，覆盖最少。</span><span data-en> This repo has 1 tiers — the narrowest coverage in this series.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（作者标注 3.49bpw 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as 作者标注 3.49bpw), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>带 imatrix，同档位下质量通常更稳</span><span data-en>Ships imatrix, so quality at the same tier is usually steadier</span><br>· <span data-zh>平衡档落在 <code>作者标注 3.49bpw</code>（140 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>作者标注 3.49bpw</code> (140 GB), the starting point for most people</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>作者标注 3.49bpw</code>（140 GB，长上下文优先）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>作者标注 3.49bpw</code> directly (140 GB, Long context first).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（作者标注 3.49bpw 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as author-stated 3.49bpw), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>带 imatrix，同档位下质量通常更稳</span><span data-en>Ships imatrix, so quality at the same tier is usually steadier</span><br>· <span data-zh>平衡档落在 <code>作者标注 3.49bpw</code>（140 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>author-stated 3.49bpw</code> (140 GB), the starting point for most people</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>作者标注 3.49bpw</code>（140 GB，长上下文优先）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>author-stated 3.49bpw</code> directly (140 GB, Long context first).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>档位极少，没有升降空间，被显存卡住时无路可退</span><span data-en>Very few tiers, so there is no room to move up or down when VRAM runs out</span><br>· <span data-zh>量化仓<b>自己没写许可字段</b>，这里的 <code>mit</code> 是继承基座 <code>zai-org/GLM-5.3-Flash</code> 的推断值——著作权上量化不可能脱离基座许可，但量化者的 redistribution 条款是否另有约定，需自己去读基座许可原文确认</span><span data-en>The quant repo <b>declares no licence of its own</b>; the <code>mit</code> shown here is inferred from the base model's <code>zai-org/GLM-5.3-Flash</code> — under copyright, a quantisation cannot escape the base licence. Whether the quantiser adds its own redistribution terms is for you to determine by reading the base licence.</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="backpack-run" data-lic="mit" data-tiers="平衡档" data-blob="backpack-run backpack-run/glm-5.3-flash-gguf mit">
@@ -1812,14 +1816,14 @@
       if (!fits.length) {
         var smallest = DATA[0];
         vtOut.innerHTML = '<p class="vt-none">' + esc(IS_EN()
-          ? 'No tier fits. The smallest here is ' + smallest.q + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB with headroom. Below that, use -ngl to keep only some layers on the GPU (see the table below).'
+          ? 'No tier fits. The smallest here is ' + (smallest.qe || smallest.q) + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB with headroom. Below that, use -ngl to keep only some layers on the GPU (see the table below).'
           : '装不下任何档。本成员最小的档是 ' + smallest.q + '（' + smallest.g + ' GB），加余量约需 ' + need(smallest) + ' GB 显存。再少就只能用 -ngl 只把部分层放显存（见下方替代路径）。') + '</p>';
         return;
       }
       var best = fits[fits.length - 1];
       var rest = fits.slice(0, -1).reverse();
       var link = function (x) {
-        return '<a href="' + esc(x.u) + '" target="_blank" rel="noopener">' + esc(x.q) + '</a>'
+        return '<a href="' + esc(x.u) + '" target="_blank" rel="noopener">' + esc(IS_EN() ? (x.qe || x.q) : x.q) + '</a>'
           + ' <span class="vt-meta">' + x.g + ' GB · ' + esc(x.t) + ' · ' + esc(x.b) + '</span>';
       };
       var h = '<p class="vt-best"><b>' + (IS_EN() ? 'Recommended: ' : '建议：') + '</b>' + link(best)

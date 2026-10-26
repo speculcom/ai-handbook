@@ -89,11 +89,25 @@ const EN_WORDS = {
   '稀疏': 'sparse',
   '总参': 'total params',
   '激活数未公开': 'activation count not disclosed',
+  '激活': 'active',
+  '约': 'approx. ',
 };
 function ENWords(s) {
   let out = String(s == null ? '' : s);
   for (const zh of Object.keys(EN_WORDS)) {
     if (out.indexOf(zh) >= 0) out = out.split(zh).join(EN_WORDS[zh]);
+  }
+  return out;
+}
+
+/* 量化档名的词级英文（C0-19，2026-10-26）。档名里混着本站起的中文描述
+ * （「作者标注 3.49bpw」= 量化者没写 bpw、按文件名推导口径；「其他」= 未识别档），
+ * 与 params 的 EN_WORDS 同型：数据层不动（中文态原样），渲染层英文槽替换。 */
+const QEN_WORDS = { '作者标注': 'author-stated', '其他': 'other' };
+function QEN(s) {
+  let out = String(s == null ? '' : s);
+  for (const zh of Object.keys(QEN_WORDS)) {
+    if (out.indexOf(zh) >= 0) out = out.split(zh).join(QEN_WORDS[zh]);
   }
   return out;
 }
@@ -261,7 +275,7 @@ function cnSection(cn) {
         <li><b>${bi('备案状态', 'CAC filing')}</b>　${filingRow}</li>
       </ul>
       <p class="fam-claims-note">${bi('备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站从大陆网络直连实测的结果，不是厂商承诺。', 'Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site\'s own reachability measurement from a mainland network, not a vendor promise.')}</p>
-      <ul class="fam-src-list cn-srcs">${(cn.sources || []).map((s) => `<li>${esc(s.label)}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}</ul>
+      <ul class="fam-src-list cn-srcs">${(cn.sources || []).map((s) => `<li>${bi(esc(s.label) + '：', esc(s.labelEn || s.label) + ': ')}<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}</ul>
     </section>`;
 }
 
@@ -536,8 +550,8 @@ function blockB(s, m) {
     return `        <tr>
           <th>${bi(esc(b.label), esc(b.labelEn || b.label))}</th>
           <td>
-            <b>${esc(best.quant)}</b>（${fmtGB(best.sizeGB)} · ${bi(esc(best.tier), esc(EN('tier', best.tier)))}）
-            ${also.length ? `<br><span class="muted">${bi('更省：', 'Smaller: ')}${also.map((a) => `${esc(a.quant)} ${fmtGB(a.sizeGB)}`).join(' / ')}</span>` : ''}
+            <b>${bi(esc(best.quant), esc(QEN(best.quant)))}</b>（${fmtGB(best.sizeGB)} · ${bi(esc(best.tier), esc(EN('tier', best.tier)))}）
+            ${also.length ? `<br><span class="muted">${bi('更省：', 'Smaller: ')}${also.map((a) => `${bi(esc(a.quant), esc(QEN(a.quant)))} ${fmtGB(a.sizeGB)}`).join(' / ')}</span>` : ''}
             <br><span class="muted">${bi(esc(b.note), esc(b.noteEn || b.note))}</span>${extra}
           </td>
         </tr>`;
@@ -547,10 +561,7 @@ function blockB(s, m) {
   const maxSize = rows.length ? rows[rows.length - 1].sizeGB : null;
   // 超大 MoE 提示：最小档就超过单卡上限时，必须显式说明「不是不能跑，是要换运行方式」
   const hugeNote = minSize && minSize > 80
-    ? `<p class="warn-note">${bi('<b>先看这一条：</b>本系列最小档','<b>Read this first:</b> the smallest tier in this series')}（${fmtGB(minSize)}）已超过任何单张消费级显卡，
-        所以<span class="nowrap">不存在「买张大卡就能跑」的选项</span>。可选路径是
-        <b>①</b> 大内存机器纯 CPU 推理、<b>②</b> 多卡张量并行、<b>③</b> 选同系列的小规格成员。
-        下面的表按这两类运行方式给出建议。</p>`
+    ? `<p class="warn-note">${bi('<b>先看这一条：</b>本系列最小档','<b>Read this first:</b> the smallest tier in this series')}（${fmtGB(minSize)}）${bi('已超过任何单张消费级显卡，\n        所以', 'exceeds what any single consumer GPU can hold, so')}<span class="nowrap">${bi('不存在「买张大卡就能跑」的选项', 'there is no "buy a bigger card and it runs" option')}</span>${bi('。可选路径是\n        <b>①</b> 大内存机器纯 CPU 推理、<b>②</b> 多卡张量并行、<b>③</b> 选同系列的小规格成员。\n        下面的表按这两类运行方式给出建议。', '. The viable paths are\n        <b>①</b> CPU-only inference on a high-RAM machine, <b>②</b> multi-GPU tensor parallelism, <b>③</b> a smaller member of the same series.\n        The table below gives recommendations for these two running modes.')}</p>`
     : '';
 
   /* B4（2026-10-09）：显存倒推**决策工具**。
@@ -560,7 +571,7 @@ function blockB(s, m) {
    * 数据内嵌为 JSON（不是再渲染一张表），这样前端算的就是库里的原始数字。 */
   const vtData = [...byQuant.values()]
     .filter((r) => r.tier && r.tier !== '未识别' && r.sizeGB > 0)
-    .map((r) => ({ q: r.quant, g: +Number(r.sizeGB).toFixed(2), t: r.tier, u: r.url, b: r.by, rp: r.repo }))
+    .map((r) => ({ q: r.quant, qe: QEN(r.quant), g: +Number(r.sizeGB).toFixed(2), t: r.tier, u: r.url, b: r.by, rp: r.repo }))
     .sort((a, b) => a.g - b.g);
   const vramTool = `      <div class="vramtool">
         <div class="vt-row">
@@ -599,7 +610,7 @@ ${fitRows(RAM_BUDGETS, 'cpu')}
           <thead><tr><th>${bi('量化档','Quant')}</th><th>${bi('最小体积','Min size')}</th><th>${bi('每权重比特','bpw')}</th><th>${bi('档位','Tier')}</th><th>${bi('这档意味着什么','What this tier means')}</th><th>${bi('该档文件数 / 体积跨度', 'Files in tier / size range')}</th><th>最小体积来源</th></tr></thead>
           <tbody>
 ${rows.map((r) => `            <tr>
-              <td><code>${esc(r.quant)}</code></td>
+              <td><code>${bi(esc(r.quant), esc(QEN(r.quant)))}</code></td>
               <td><b>${fmtGB(r.sizeGB)}</b></td>
               <td>${r.bitsPerWeight?.toFixed(2) ?? '—'}<span class="muted"> bpw</span></td>
               <td><span class="tier tier-${TIER_ORDER.indexOf(r.tier)}">${bi(esc(r.tier), esc(EN('tier', r.tier)))}</span></td>
@@ -633,7 +644,7 @@ function blockC(s, m) {
             <td class="num">${v.coverage}</td>
             <td class="num">${fmtGB(v.totalGB)}</td>
             <td class="num">${ctx}</td>
-            <td>${rec ? `<code>${esc(rec.quant)}</code><br><span class="muted small">${fmtGB(rec.sizeGB)}</span>` : '—'}</td>
+            <td>${rec ? `<code>${bi(esc(rec.quant), esc(QEN(rec.quant)))}</code><br><span class="muted small">${fmtGB(rec.sizeGB)}</span>` : '—'}</td>
             <td class="num">${fmtNum(v.downloads)}</td>
             <td class="muted small">${fmtDate(v.lastModified)}</td>
           </tr>`;
@@ -769,7 +780,7 @@ function blockD(s, m) {
       ? bi('模型作者最清楚哪几层权重对质量敏感，官方量化通常是最保守、最不会出错的选择——<b>官方出了就优先用它</b>。',
            'The model author knows best which layers are quality-sensitive, and official quantisation is usually the most conservative, least likely to break — <b>reach for the official build first</b>.')
       : bi(`补上官方没覆盖的档位（${rec ? esc(rec.quant) : '—'} 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。`,
-           `Fills tiers the official build does not cover (such as ${rec ? esc(rec.quant) : '—'}), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.`);
+           `Fills tiers the official build does not cover (such as ${rec ? esc(QEN(rec.quant)) : '—'}), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.`);
 
     // 字段 5 · 优势
     const adv = [];
@@ -777,13 +788,13 @@ function blockD(s, m) {
     if (v.imatrix) adv.push(bi('带 imatrix，同档位下质量通常更稳', 'Ships imatrix, so quality at the same tier is usually steadier'));
     if (v.isOfficial) adv.push(bi('官方出品，出错时责任明确', 'Made by the model author, so there is someone accountable when it goes wrong'));
     if (v.downloads >= 1e6) adv.push(bi(`社区验证充分（${fmtNum(v.downloads)} 次下载），踩坑的人少`, `Well exercised by the community (${fmtNum(v.downloads)} downloads), so fewer people hit its rough edges`));
-    if (rec) adv.push(bi(`平衡档落在 <code>${esc(rec.quant)}</code>（${fmtGB(rec.sizeGB)}），是大多数人的起点`, `The balanced tier lands on <code>${esc(rec.quant)}</code> (${fmtGB(rec.sizeGB)}), the starting point for most people`));
+    if (rec) adv.push(bi(`平衡档落在 <code>${esc(rec.quant)}</code>（${fmtGB(rec.sizeGB)}），是大多数人的起点`, `The balanced tier lands on <code>${esc(QEN(rec.quant))}</code> (${fmtGB(rec.sizeGB)}), the starting point for most people`));
     if (adv.length === 0) adv.push(bi('体量较小，适合只想快速验证能不能跑的场景', 'Small enough for a quick check of whether it runs at all'));
 
     // 字段 6 · 为什么选它 / 目的
     const purpose = rec
       ? bi(`如果你的瓶颈是<b>显存</b>：直接下 <code>${esc(rec.quant)}</code>（${fmtGB(rec.sizeGB)}，${esc(rec.tier)}）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。`,
-           `If <b>VRAM</b> is your constraint: take <code>${esc(rec.quant)}</code> directly (${fmtGB(rec.sizeGB)}, ${esc(EN('tier', rec.tier))}).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).`)
+           `If <b>VRAM</b> is your constraint: take <code>${esc(QEN(rec.quant))}</code> directly (${fmtGB(rec.sizeGB)}, ${esc(EN('tier', rec.tier))}).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).`)
       : bi('该仓无可用档位。', 'This repo has no usable tier.');
 
     // 字段 7 · 已知取舍
@@ -1033,7 +1044,7 @@ repo: 'https://github.com/speculcom/ai-handbook',
 function familyPage(f) {
   const gens = f.generations.map((g) => `
         <li class="fam-gen">
-          <div class="fam-gen-head"><b>${esc(g.gen)}</b><span class="fam-gen-date">${esc(g.date)}</span>${g.gen === f.currentGen.zh || g.gen === f.currentGen.en ? `<span class="fam-gen-cur">${bi('当前代','current')}</span>` : ''}</div>
+          <div class="fam-gen-head"><b>${bi(esc(g.gen), esc(g.genEn || g.gen))}</b><span class="fam-gen-date">${esc(g.date)}</span>${g.gen === f.currentGen.zh || g.gen === f.currentGen.en ? `<span class="fam-gen-cur">${bi('当前代','current')}</span>` : ''}</div>
           <p>${bi(esc(g.zh), esc(g.en || g.zh))}</p>
           ${g.url ? `<a class="fam-src" href="${esc(g.url)}" target="_blank" rel="noopener">${bi('官方页面 ↗','official page ↗')}</a>` : ''}
         </li>`).join('');
@@ -1098,7 +1109,7 @@ ${derivedHtml}
 
     <section class="fam-sec fam-sources">
       <h2>${bi('出处','Sources')}</h2>
-      <ul class="fam-src-list">${f.sources.map((s) => `<li>${esc(s.label)}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}
+      <ul class="fam-src-list">${f.sources.map((s) => `<li>${bi(esc(s.label) + '：', esc(s.labelEn || s.label) + ': ')}<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}
       </ul>
       <p class="fam-foot">${bi(`核验快照：${f.last_verified} · 本站不实测、不排名，未知就写未知。`, `Verification snapshot: ${f.last_verified} · no benchmarks, no rankings — unknown stays unknown.`)}</p>
     </section>
@@ -1148,7 +1159,7 @@ function closedPage(c) {
 
   const gens = c.generations.map((g) => `
         <li class="fam-gen">
-          <div class="fam-gen-head"><b>${esc(g.gen)}</b><span class="fam-gen-date">${esc(g.date)}</span>${g.date === c.currentGenDate && (c.currentGen.zh.includes(g.gen) || c.currentGen.en.includes(g.gen)) ? `<span class="fam-gen-cur">${bi('当前代','current')}</span>` : ''}</div>
+          <div class="fam-gen-head"><b>${bi(esc(g.gen), esc(g.genEn || g.gen))}</b><span class="fam-gen-date">${esc(g.date)}</span>${g.date === c.currentGenDate && (c.currentGen.zh.includes(g.gen) || c.currentGen.en.includes(g.gen)) ? `<span class="fam-gen-cur">${bi('当前代','current')}</span>` : ''}</div>
           <p>${bi(esc(g.zh), esc(g.en || g.zh))}</p>
           ${g.url ? `<a class="fam-src" href="${esc(g.url)}" target="_blank" rel="noopener">${bi('官方页面 ↗','official page ↗')}</a>` : ''}
         </li>`).join('');
@@ -1187,7 +1198,7 @@ ${cnSection(c.cn)}
 
     <section class="fam-sec fam-sources">
       <h2>${bi('出处','Sources')}</h2>
-      <ul class="fam-src-list">${c.sources.map((s) => `<li>${esc(s.label)}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}
+      <ul class="fam-src-list">${c.sources.map((s) => `<li>${bi(esc(s.label) + '：', esc(s.labelEn || s.label) + ': ')}<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}
       </ul>
       <p class="fam-foot">${bi(`核验快照：${c.last_verified} · 复核周期 ${c.review_interval_days} 天，下次应在 ${esc(st.due)} 前复核${st.overdue ? '（已到期——见页顶横幅）' : ''}。本站不实测、不排名，未知就写未知。`, `Verification snapshot: ${c.last_verified} · ${c.review_interval_days}-day review cycle, next re-check due by ${esc(st.due)}${st.overdue ? ' (overdue — see the banner above)' : ''}. No benchmarks, no rankings — unknown stays unknown.`)}</p>
     </section>

@@ -972,14 +972,14 @@
       if (!fits.length) {
         var smallest = DATA[0];
         vtOut.innerHTML = '<p class="vt-none">' + esc(IS_EN()
-          ? 'No tier fits. The smallest here is ' + smallest.q + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB with headroom. Below that, use -ngl to keep only some layers on the GPU (see the table below).'
+          ? 'No tier fits. The smallest here is ' + (smallest.qe || smallest.q) + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB with headroom. Below that, use -ngl to keep only some layers on the GPU (see the table below).'
           : '装不下任何档。本成员最小的档是 ' + smallest.q + '（' + smallest.g + ' GB），加余量约需 ' + need(smallest) + ' GB 显存。再少就只能用 -ngl 只把部分层放显存（见下方替代路径）。') + '</p>';
         return;
       }
       var best = fits[fits.length - 1];
       var rest = fits.slice(0, -1).reverse();
       var link = function (x) {
-        return '<a href="' + esc(x.u) + '" target="_blank" rel="noopener">' + esc(x.q) + '</a>'
+        return '<a href="' + esc(x.u) + '" target="_blank" rel="noopener">' + esc(IS_EN() ? (x.qe || x.q) : x.q) + '</a>'
           + ' <span class="vt-meta">' + x.g + ' GB · ' + esc(x.t) + ' · ' + esc(x.b) + '</span>';
       };
       var h = '<p class="vt-best"><b>' + (IS_EN() ? 'Recommended: ' : '建议：') + '</b>' + link(best)

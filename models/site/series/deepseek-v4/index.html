@@ -121,7 +121,7 @@
         <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>已备案</span><span data-en>Filed</span>：<code>Beijing-DeepseekChat-202404280016</code>　<span data-zh>公示名称</span><span data-en>listed as</span><span lang="zh-CN" data-source-name>「求索对话DeepSeek Chat」</span>　·　<span data-zh>备案时间</span><span data-en>filed</span> 2024-05-13　·　<span data-zh>2024-08 批次附件第 152 行。</span><span data-en>Row 152 of the 2024-08 batch attachment.</span></li>
       </ul>
       <p class="fam-claims-note"><span data-zh>备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站从大陆网络直连实测的结果，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site's own reachability measurement from a mainland network, not a vendor promise.</span></p>
-      <ul class="fam-src-list cn-srcs"><li>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：<a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li>ModelScope 官方镜像 deepseek-ai/DeepSeek-V4.1-Flash（2026-10-20 实测 200）：<a href="https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener">https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash</a></li></ul>
+      <ul class="fam-src-list cn-srcs"><li><span data-zh>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：</span><span data-en>CAC · filed generative-AI service information (rolling announcement page, 13 batch attachment PDFs, full download &amp; search on 2026-10-20): </span><a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li><span data-zh>ModelScope 官方镜像 deepseek-ai/DeepSeek-V4.1-Flash（2026-10-20 实测 200）：</span><span data-en>ModelScope official mirror deepseek-ai/DeepSeek-V4.1-Flash (200 verified on 2026-10-20): </span><a href="https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener">https://www.modelscope.cn/models/deepseek-ai/DeepSeek-V4.1-Flash</a></li></ul>
     </section>
       <section class="member" id="m0">
         <h3><span class="member-idx"><span data-zh>成员</span><span data-en>Member</span> 1</span><span data-zh>DeepSeek V4.1 Flash</span><span data-en>DeepSeek V4.1 Flash</span></h3>
@@ -156,10 +156,12 @@
         <div class="block" id="b0">
           <h4><span class="blk">B</span><span data-zh>该选哪个</span><span data-en>Which one to pick</span> <small><span data-zh>按你的显存倒推</span><span data-en>work backwards from your VRAM</span></small></h4>
       <p class="block-lead"><span data-zh>按「你实际能腾出多少显存或内存」选档位，而不是按参数猜。下面每档的体积都是<b>实测值</b>（来自发布页文件列表），<b>加权 15% 余量</b>给运行时与 KV cache。</span><span data-en>Pick a tier by how much VRAM or memory you can actually free up, not by guessing from spec sheets. Every size below is <b>measured</b> (from the release page file listing) with <b>15% headroom</b> added for runtime and the KV cache.</span></p>
-      <p class="warn-note"><span data-zh><b>先看这一条：</b>本系列最小档</span><span data-en><b>Read this first:</b> the smallest tier in this series</span>（371 GB）已超过任何单张消费级显卡，
-        所以<span class="nowrap">不存在「买张大卡就能跑」的选项</span>。可选路径是
+      <p class="warn-note"><span data-zh><b>先看这一条：</b>本系列最小档</span><span data-en><b>Read this first:</b> the smallest tier in this series</span>（371 GB）<span data-zh>已超过任何单张消费级显卡，
+        所以</span><span data-en>exceeds what any single consumer GPU can hold, so</span><span class="nowrap"><span data-zh>不存在「买张大卡就能跑」的选项</span><span data-en>there is no "buy a bigger card and it runs" option</span></span><span data-zh>。可选路径是
         <b>①</b> 大内存机器纯 CPU 推理、<b>②</b> 多卡张量并行、<b>③</b> 选同系列的小规格成员。
-        下面的表按这两类运行方式给出建议。</p>
+        下面的表按这两类运行方式给出建议。</span><span data-en>. The viable paths are
+        <b>①</b> CPU-only inference on a high-RAM machine, <b>②</b> multi-GPU tensor parallelism, <b>③</b> a smaller member of the same series.
+        The table below gives recommendations for these two running modes.</span></p>
       <div class="vramtool">
         <div class="vt-row">
           <label class="vt-f"><span class="vt-h"><span data-zh>你的显存（GB）</span><span data-en>Your VRAM (GB)</span></span>
@@ -167,7 +169,7 @@
           <span class="vt-quick"><button type="button" class="vt-preset" data-gb="4">4</button><button type="button" class="vt-preset" data-gb="8">8</button><button type="button" class="vt-preset" data-gb="12">12</button><button type="button" class="vt-preset" data-gb="16">16</button><button type="button" class="vt-preset" data-gb="24">24</button><button type="button" class="vt-preset" data-gb="48">48</button><button type="button" class="vt-preset" data-gb="80">80</button></span>
         </div>
         <div class="vt-out" aria-live="polite"></div>
-        <script type="application/json" class="vt-data">[{"q":"MXFP4","g":7.97,"t":"平衡档","u":"https://huggingface.co/mxxm-t/DeepSeek-V4.1-Flash-GGUF","b":"mxxm-t","rp":"mxxm-t/DeepSeek-V4.1-Flash-GGUF"},{"q":"Q2_K","g":264.52,"t":"极限压缩","u":"https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF","b":"vcruz305","rp":"vcruz305/DeepSeek-V4.1-Flash-GGUF"},{"q":"Q3_K_M","g":347.27,"t":"长上下文优先","u":"https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF","b":"vcruz305","rp":"vcruz305/DeepSeek-V4.1-Flash-GGUF"},{"q":"IQ2_XXS","g":371.44,"t":"极限压缩","u":"https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF","b":"smalinin","rp":"smalinin/DeepSeek-V4.1-Flash-GGUF"},{"q":"IQ3_XS","g":434.02,"t":"长上下文优先","u":"https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF","b":"smalinin","rp":"smalinin/DeepSeek-V4.1-Flash-GGUF"},{"q":"Q4_K_M","g":444.74,"t":"平衡档","u":"https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF","b":"vcruz305","rp":"vcruz305/DeepSeek-V4.1-Flash-GGUF"},{"q":"Q8_0","g":507.95,"t":"近似无损","u":"https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF","b":"vcruz305","rp":"vcruz305/DeepSeek-V4.1-Flash-GGUF"}]</script>
+        <script type="application/json" class="vt-data">[{"q":"MXFP4","qe":"MXFP4","g":7.97,"t":"平衡档","u":"https://huggingface.co/mxxm-t/DeepSeek-V4.1-Flash-GGUF","b":"mxxm-t","rp":"mxxm-t/DeepSeek-V4.1-Flash-GGUF"},{"q":"Q2_K","qe":"Q2_K","g":264.52,"t":"极限压缩","u":"https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF","b":"vcruz305","rp":"vcruz305/DeepSeek-V4.1-Flash-GGUF"},{"q":"Q3_K_M","qe":"Q3_K_M","g":347.27,"t":"长上下文优先","u":"https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF","b":"vcruz305","rp":"vcruz305/DeepSeek-V4.1-Flash-GGUF"},{"q":"IQ2_XXS","qe":"IQ2_XXS","g":371.44,"t":"极限压缩","u":"https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF","b":"smalinin","rp":"smalinin/DeepSeek-V4.1-Flash-GGUF"},{"q":"IQ3_XS","qe":"IQ3_XS","g":434.02,"t":"长上下文优先","u":"https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF","b":"smalinin","rp":"smalinin/DeepSeek-V4.1-Flash-GGUF"},{"q":"Q4_K_M","qe":"Q4_K_M","g":444.74,"t":"平衡档","u":"https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF","b":"vcruz305","rp":"vcruz305/DeepSeek-V4.1-Flash-GGUF"},{"q":"Q8_0","qe":"Q8_0","g":507.95,"t":"近似无损","u":"https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF","b":"vcruz305","rp":"vcruz305/DeepSeek-V4.1-Flash-GGUF"}]</script>
       </div>
       <h3 class="budget-h"><span data-zh>单卡全量装得下</span><span data-en>Fits entirely on one card</span></h3>
       <table class="budget">
@@ -177,7 +179,7 @@
         <tr>
           <th><span data-zh>12 GB 显存</span><span data-en>12 GB VRAM</span></th>
           <td>
-            <b>MXFP4</b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
+            <b><span data-zh>MXFP4</span><span data-en>MXFP4</span></b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
             
             <br><span class="muted"><span data-zh>RTX 3060 12G / 4050 12G</span><span data-en>RTX 3060 12G / 4050 12G</span></span>
           </td>
@@ -185,7 +187,7 @@
         <tr>
           <th><span data-zh>16 GB 显存</span><span data-en>16 GB VRAM</span></th>
           <td>
-            <b>MXFP4</b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
+            <b><span data-zh>MXFP4</span><span data-en>MXFP4</span></b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
             
             <br><span class="muted"><span data-zh>RTX 4060 Ti 16G / 5060 Ti 16G</span><span data-en>RTX 4060 Ti 16G / 5060 Ti 16G</span></span>
           </td>
@@ -193,7 +195,7 @@
         <tr>
           <th><span data-zh>24 GB 显存</span><span data-en>24 GB VRAM</span></th>
           <td>
-            <b>MXFP4</b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
+            <b><span data-zh>MXFP4</span><span data-en>MXFP4</span></b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
             
             <br><span class="muted"><span data-zh>RTX 3090 / 4090 / 5090</span><span data-en>RTX 3090 / 4090 / 5090</span></span>
           </td>
@@ -201,7 +203,7 @@
         <tr>
           <th><span data-zh>48 GB 显存</span><span data-en>48 GB VRAM</span></th>
           <td>
-            <b>MXFP4</b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
+            <b><span data-zh>MXFP4</span><span data-en>MXFP4</span></b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
             
             <br><span class="muted"><span data-zh>RTX A6000 / L40S / A100 40G×2</span><span data-en>RTX A6000 / L40S / A100 40G×2</span></span>
           </td>
@@ -209,7 +211,7 @@
         <tr>
           <th><span data-zh>80 GB 显存</span><span data-en>80 GB VRAM</span></th>
           <td>
-            <b>MXFP4</b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
+            <b><span data-zh>MXFP4</span><span data-en>MXFP4</span></b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
             
             <br><span class="muted"><span data-zh>A100 80G / H100 80G / Mac Studio 大统一内存</span><span data-en>A100 80G / H100 80G / Mac Studio large unified memory</span></span>
           </td>
@@ -225,7 +227,7 @@
         <tr>
           <th><span data-zh>64 GB 系统内存</span><span data-en>64 GB system RAM</span></th>
           <td>
-            <b>MXFP4</b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
+            <b><span data-zh>MXFP4</span><span data-en>MXFP4</span></b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
             
             <br><span class="muted"><span data-zh>纯 CPU 推理，速度慢但可跑；建议开swap 兜底</span><span data-en>CPU-only inference — slow but it runs; enable swap as a safety net</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
@@ -233,7 +235,7 @@
         <tr>
           <th><span data-zh>128 GB 系统内存</span><span data-en>128 GB system RAM</span></th>
           <td>
-            <b>MXFP4</b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
+            <b><span data-zh>MXFP4</span><span data-en>MXFP4</span></b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
             
             <br><span class="muted"><span data-zh>工作站标准配置，纯 CPU 可跑中等规模 MoE</span><span data-en>the standard workstation config; CPU-only handles mid-size MoE</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
@@ -241,7 +243,7 @@
         <tr>
           <th><span data-zh>256 GB 统一内存 / 多卡</span><span data-en>256 GB unified memory / multi-GPU</span></th>
           <td>
-            <b>MXFP4</b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
+            <b><span data-zh>MXFP4</span><span data-en>MXFP4</span></b>（8.0 GB · <span data-zh>平衡档</span><span data-en>Balanced</span>）
             
             <br><span class="muted"><span data-zh>Mac Studio / 服务器内存，或 2~4 张 80G 卡张量并行</span><span data-en>Mac Studio / server memory, or 2–4 × 80G cards under tensor parallel</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
@@ -249,8 +251,8 @@
         <tr>
           <th><span data-zh>640 GB+ 内存 / 8×80G</span><span data-en>640 GB+ memory / 8×80G</span></th>
           <td>
-            <b>Q8_0</b>（508 GB · <span data-zh>近似无损</span><span data-en>Near lossless</span>）
-            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span>Q4_K_M 445 GB / IQ3_XS 434 GB</span>
+            <b><span data-zh>Q8_0</span><span data-en>Q8_0</span></b>（508 GB · <span data-zh>近似无损</span><span data-en>Near lossless</span>）
+            <br><span class="muted"><span data-zh>更省：</span><span data-en>Smaller: </span><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span> 445 GB / <span data-zh>IQ3_XS</span><span data-en>IQ3_XS</span> 434 GB</span>
             <br><span class="muted"><span data-zh>超大 MoE 的门槛，需要多卡切分或大内存服务器</span><span data-en>the threshold for very large MoE — needs multi-GPU splitting or a big-memory server</span></span><span data-zh><br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span></span><span data-en><br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span></span>
           </td>
         </tr>
@@ -264,7 +266,7 @@
           <thead><tr><th><span data-zh>量化档</span><span data-en>Quant</span></th><th><span data-zh>最小体积</span><span data-en>Min size</span></th><th><span data-zh>每权重比特</span><span data-en>bpw</span></th><th><span data-zh>档位</span><span data-en>Tier</span></th><th><span data-zh>这档意味着什么</span><span data-en>What this tier means</span></th><th><span data-zh>该档文件数 / 体积跨度</span><span data-en>Files in tier / size range</span></th><th>最小体积来源</th></tr></thead>
           <tbody>
             <tr>
-              <td><code>IQ2_XXS</code></td>
+              <td><code><span data-zh>IQ2_XXS</span><span data-en>IQ2_XXS</span></code></td>
               <td><b>371 GB</b></td>
               <td>2.13<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -273,7 +275,7 @@
               <td class="muted"><a href="https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener">smalinin</a></td>
             </tr>
             <tr>
-              <td><code>Q2_K</code></td>
+              <td><code><span data-zh>Q2_K</span><span data-en>Q2_K</span></code></td>
               <td><b>265 GB</b></td>
               <td>2.80<span class="muted"> bpw</span></td>
               <td><span class="tier tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span></td>
@@ -282,7 +284,7 @@
               <td class="muted"><a href="https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener">vcruz305</a></td>
             </tr>
             <tr>
-              <td><code>IQ3_XS</code></td>
+              <td><code><span data-zh>IQ3_XS</span><span data-en>IQ3_XS</span></code></td>
               <td><b>434 GB</b></td>
               <td>3.36<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -291,7 +293,7 @@
               <td class="muted"><a href="https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener">smalinin</a></td>
             </tr>
             <tr>
-              <td><code>Q3_K_M</code></td>
+              <td><code><span data-zh>Q3_K_M</span><span data-en>Q3_K_M</span></code></td>
               <td><b>347 GB</b></td>
               <td>3.55<span class="muted"> bpw</span></td>
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
@@ -300,7 +302,7 @@
               <td class="muted"><a href="https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener">vcruz305</a></td>
             </tr>
             <tr>
-              <td><code>MXFP4</code></td>
+              <td><code><span data-zh>MXFP4</span><span data-en>MXFP4</span></code></td>
               <td><b>8.0 GB</b></td>
               <td>4.25<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -309,7 +311,7 @@
               <td class="muted"><a href="https://huggingface.co/mxxm-t/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener">mxxm-t</a></td>
             </tr>
             <tr>
-              <td><code>Q4_K_M</code></td>
+              <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code></td>
               <td><b>445 GB</b></td>
               <td>4.85<span class="muted"> bpw</span></td>
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
@@ -318,7 +320,7 @@
               <td class="muted"><a href="https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener">vcruz305</a></td>
             </tr>
             <tr>
-              <td><code>Q8_0</code></td>
+              <td><code><span data-zh>Q8_0</span><span data-en>Q8_0</span></code></td>
               <td><b>508 GB</b></td>
               <td>8.50<span class="muted"> bpw</span></td>
               <td><span class="tier tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span></td>
@@ -356,7 +358,7 @@
             <td class="num">4</td>
             <td class="num">1457 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K_M</code><br><span class="muted small">445 GB</span></td>
+            <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">445 GB</span></td>
             <td class="num">49k</td>
             <td class="muted small">2026-09-12</td>
           </tr>
@@ -370,7 +372,7 @@
             <td class="num">5</td>
             <td class="num">1928 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>MXFP4</code><br><span class="muted small">508 GB</span></td>
+            <td><code><span data-zh>MXFP4</span><span data-en>MXFP4</span></code><br><span class="muted small">508 GB</span></td>
             <td class="num">20k</td>
             <td class="muted small">2026-09-27</td>
           </tr>
@@ -384,7 +386,7 @@
             <td class="num">1</td>
             <td class="num">383 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>MXFP4</code><br><span class="muted small">404 GB</span></td>
+            <td><code><span data-zh>MXFP4</span><span data-en>MXFP4</span></code><br><span class="muted small">404 GB</span></td>
             <td class="num">6k</td>
             <td class="muted small">2026-09-18</td>
           </tr>
@@ -398,7 +400,7 @@
             <td class="num">3</td>
             <td class="num">1211 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>Q4_K_M</code><br><span class="muted small">445 GB</span></td>
+            <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">445 GB</span></td>
             <td class="num">3k</td>
             <td class="muted small">2026-09-12</td>
           </tr>
@@ -412,7 +414,7 @@
             <td class="num">1</td>
             <td class="num">467 GB</td>
             <td class="num">1,048,576</td>
-            <td><code>MXFP4</code><br><span class="muted small">502 GB</span></td>
+            <td><code><span data-zh>MXFP4</span><span data-en>MXFP4</span></code><br><span class="muted small">502 GB</span></td>
             <td class="num">2k</td>
             <td class="muted small">2026-09-23</td>
           </tr>
@@ -765,14 +767,14 @@
       if (!fits.length) {
         var smallest = DATA[0];
         vtOut.innerHTML = '<p class="vt-none">' + esc(IS_EN()
-          ? 'No tier fits. The smallest here is ' + smallest.q + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB with headroom. Below that, use -ngl to keep only some layers on the GPU (see the table below).'
+          ? 'No tier fits. The smallest here is ' + (smallest.qe || smallest.q) + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB with headroom. Below that, use -ngl to keep only some layers on the GPU (see the table below).'
           : '装不下任何档。本成员最小的档是 ' + smallest.q + '（' + smallest.g + ' GB），加余量约需 ' + need(smallest) + ' GB 显存。再少就只能用 -ngl 只把部分层放显存（见下方替代路径）。') + '</p>';
         return;
       }
       var best = fits[fits.length - 1];
       var rest = fits.slice(0, -1).reverse();
       var link = function (x) {
-        return '<a href="' + esc(x.u) + '" target="_blank" rel="noopener">' + esc(x.q) + '</a>'
+        return '<a href="' + esc(x.u) + '" target="_blank" rel="noopener">' + esc(IS_EN() ? (x.qe || x.q) : x.q) + '</a>'
           + ' <span class="vt-meta">' + x.g + ' GB · ' + esc(x.t) + ' · ' + esc(x.b) + '</span>';
       };
       var h = '<p class="vt-best"><b>' + (IS_EN() ? 'Recommended: ' : '建议：') + '</b>' + link(best)
