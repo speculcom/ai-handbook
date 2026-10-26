@@ -98,50 +98,64 @@
     </section>
     <section class="fam-sec">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
-<p><b>模型一大，第一道坎不是算法，是装不下。</b><br>一张显存装不下参数、梯度和优化器状态，训练就必须拆到很多张卡上。</p>
-<p>这一篇讲拆法的分类学，以及开源工具链各站在哪一层。<br>本站不实测，工具能力一律以官方仓库自述与论文口径为准，出处列在文末。</p>
+<span data-zh><p><b>模型一大，第一道坎不是算法，是装不下。</b><br>一张显存装不下参数、梯度和优化器状态，训练就必须拆到很多张卡上。</p>
+<p>这一篇讲拆法的分类学，以及开源工具链各站在哪一层。<br>本站不实测，工具能力一律以官方仓库自述与论文口径为准，出处列在文末。</p></span><span data-en><p><b>As a model grows, the first wall is not the algorithm — it does not fit.</b><br>When one GPU cannot hold parameters, gradients and optimiser states, training must be split across many cards.</p>
+<p>This guide is the taxonomy of splitting methods and which layer each open toolchain sits at.<br>This site runs no benchmarks; tool capabilities follow the official repositories&#39; self-descriptions and paper figures, sourced at the end.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>三种拆法：数据、张量、流水线</span><span data-en>Three ways to split: data, tensor, pipeline</span></h2>
-<p><b>数据并行</b>：每张卡都有完整模型，各吃一批数据，梯度汇总。<br>简单，但模型本身必须装得下——这是天花板。</p>
+<span data-zh><p><b>数据并行</b>：每张卡都有完整模型，各吃一批数据，梯度汇总。<br>简单，但模型本身必须装得下——这是天花板。</p>
 <p><b>ZeRO 及其后代（FSDP）</b>：模型仍按数据并行跑，<br>但把优化器状态、梯度、参数分片到各卡，用时再取回。<br>ZeRO 论文（arXiv 1910.02054）的核心洞察：数据并行的显存浪费是冗余，不是必需。<br>PyTorch 的 FSDP 是这条思路的官方实现（arXiv 2304.11277）。</p>
 <p><b>张量并行</b>：把单层矩阵乘法切给多张卡同时算。<br>通信最密，一般只在单机内 NVLink 互联的卡之间用。<br>原始方法是 Megatron-LM 论文（arXiv 1909.08053）。</p>
 <p><b>流水线并行</b>：按层切段，前向像流水线一样逐段传递。<br>通信少，但要注意「气泡」——流水线空转的时段。</p>
-<p>大模型训练实际是三者叠加（业界俗称 3D 并行），<br>再按集群拓扑调各维度的大小。Llama 3 论文自报的并行配置就是这种组合。</p>
+<p>大模型训练实际是三者叠加（业界俗称 3D 并行），<br>再按集群拓扑调各维度的大小。Llama 3 论文自报的并行配置就是这种组合。</p></span><span data-en><p><b>Data parallelism</b>: every card holds the full model, each chews a batch of data, gradients are aggregated.<br>Simple, but the model itself must fit — that is the ceiling.</p>
+<p><b>ZeRO and its descendants (FSDP)</b>: the model still runs data-parallel,<br>but optimiser states, gradients and parameters are sharded across cards and fetched back when needed.<br>The core insight of the ZeRO paper (arXiv 1910.02054): data parallelism&#39;s memory waste is redundancy, not necessity.<br>PyTorch&#39;s FSDP is the official implementation of this idea (arXiv 2304.11277).</p>
+<p><b>Tensor parallelism</b>: one layer&#39;s matrix multiplications are cut across several cards computed simultaneously.<br>The most communication-dense; normally used only between cards linked by NVLink inside one machine.<br>The original method is the Megatron-LM paper (arXiv 1909.08053).</p>
+<p><b>Pipeline parallelism</b>: split by layer into stages, the forward pass moves stage by stage like an assembly line.<br>Less communication, but mind the “bubbles” — stretches where the pipeline idles.</p>
+<p>Real large-model training stacks all three (industry shorthand: 3D parallelism),<br>sizing each dimension to the cluster topology. The parallel configuration the Llama 3 paper self-reports is exactly such a combination.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>工具链地图：谁在哪一层</span><span data-en>The toolchain map: who sits at which layer</span></h2>
-<p><b>DeepSpeed</b>（微软官方仓库）：通用分布式训练优化库，ZeRO 系列的落地处。</p>
+<span data-zh><p><b>DeepSpeed</b>（微软官方仓库）：通用分布式训练优化库，ZeRO 系列的落地处。</p>
 <p><b>Megatron-LM</b>（NVIDIA 官方仓库）：规模化 transformer 训练框架，<br>张量并行的参考实现，大量开放权重模型的训练底座。</p>
 <p><b>torchtitan</b>（PyTorch 官方仓库）：PyTorch 原生的训练平台，<br>把 FSDP、张量并行、流水线并行作为原生组合提供。</p>
 <p><b>nanotron</b>（Hugging Face 官方仓库）：极简的 3D 并行训练库，<br>官方自述就是「minimalistic」，读代码学并行策略的入口。</p>
 <p><b>TRL</b>（Hugging Face 官方仓库）：站在后训练层——SFT、奖励模型、<br>DPO、RLHF 的工具链，接在预训练框架之后用。</p>
-<p>选型判断依据（不是排名）：想读懂并行原理，从 nanotron 或 torchtitan 入手；<br>要复现大模型训练，看目标模型的官方训练说明用了什么；<br>只做后训练微调，TRL 加 FSDP 通常够——预训练级并行根本用不上。</p>
+<p>选型判断依据（不是排名）：想读懂并行原理，从 nanotron 或 torchtitan 入手；<br>要复现大模型训练，看目标模型的官方训练说明用了什么；<br>只做后训练微调，TRL 加 FSDP 通常够——预训练级并行根本用不上。</p></span><span data-en><p><b>DeepSpeed</b> (Microsoft&#39;s official repository): the general distributed-training optimisation library, where the ZeRO line landed.</p>
+<p><b>Megatron-LM</b> (NVIDIA&#39;s official repository): the scaled transformer training framework,<br>the reference implementation of tensor parallelism, the training base under many open-weight models.</p>
+<p><b>torchtitan</b> (PyTorch&#39;s official repository): PyTorch-native training platform,<br>offering FSDP, tensor and pipeline parallelism as native combinations.</p>
+<p><b>nanotron</b> (Hugging Face&#39;s official repository): a minimal 3D-parallel training library,<br>self-described by the team as “minimalistic” — the entry point for learning parallel strategies by reading code.</p>
+<p><b>TRL</b> (Hugging Face&#39;s official repository): sits at the post-training layer — the toolchain for SFT, reward models,<br>DPO and RLHF, used after the pre-training framework.</p>
+<p>Judgement basis for selection (not a ranking): to understand parallelism, start from nanotron or torchtitan;<br>to reproduce large-model training, see what the target model&#39;s official training notes say it used;<br>for post-training fine-tuning only, TRL plus FSDP is usually enough — pre-training-grade parallelism never comes up.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>常见的坑</span><span data-en>Common traps</span></h2>
-<p><b>把框架当配方。</b> 同一个框架换个并行配置，MFU 能差出几倍。<br>框架解决「能不能跑」，调优决定「跑得多贵」。</p>
+<span data-zh><p><b>把框架当配方。</b> 同一个框架换个并行配置，MFU 能差出几倍。<br>框架解决「能不能跑」，调优决定「跑得多贵」。</p>
 <p><b>低估通信。</b> 张量并行跨机跑，带宽墙会吃掉论文里看不到的性能。<br>各家论文自报的并行维度分配（哪些维度在机内、哪些跨机）值得照抄结构、不照抄数字。</p>
 <p><b>把训练栈与推理栈混为一谈。</b> 训练框架管「怎么造」，<br>vLLM 这类推理引擎管「怎么跑」，优化目标完全不同。</p>
-<p><b>拿开源栈的数字对标闭源大厂。</b> 大厂集群的网络拓扑、故障恢复、<br>检查点策略都是自研的。开源栈给你的是同量级的方法，不是同量级的利用率。</p>
+<p><b>拿开源栈的数字对标闭源大厂。</b> 大厂集群的网络拓扑、故障恢复、<br>检查点策略都是自研的。开源栈给你的是同量级的方法，不是同量级的利用率。</p></span><span data-en><p><b>Mistaking the framework for the recipe.</b> The same framework with a different parallel configuration can differ several-fold in MFU.<br>Frameworks decide “can it run”; tuning decides “how expensive it runs”.</p>
+<p><b>Underestimating communication.</b> Tensor parallelism across machines hits a bandwidth wall that eats performance invisible in papers.<br>The parallel-dimension layouts papers self-report (which dimensions stay in-machine, which cross machines) are worth copying as structure, not as numbers.</p>
+<p><b>Confusing the training stack with the inference stack.</b> Training frameworks manage “how to build it”;<br>vLLM-class inference engines manage “how to run it” — the optimisation targets are completely different.</p>
+<p><b>Benchmarking open stacks against closed giants.</b> Big labs&#39; cluster network topology, failure recovery and<br>checkpointing strategies are all in-house. Open stacks give you methods of the same order, not utilisations of the same order.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
-<p>学 AI 站的 <a href="https://learn.specul.com/term/%E5%BC%A0%E9%87%8F%E5%B9%B6%E8%A1%8C/" target="_blank" rel="noopener">张量并行</a> 与<br><a href="https://learn.specul.com/term/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B9%B6%E8%A1%8C/" target="_blank" rel="noopener">流水线并行</a> 是使用者视角的一页科普；<br>这一篇是从业者的选型地图：各工具站在哪一层、坑在哪。</p>
-<p>同一个概念在两处深度不同，互链不重复。<br>语料与算力的记账方法见上一篇「数据与算力」。</p>
+<span data-zh><p>学 AI 站的 <a href="https://learn.specul.com/term/%E5%BC%A0%E9%87%8F%E5%B9%B6%E8%A1%8C/" target="_blank" rel="noopener">张量并行</a> 与<br><a href="https://learn.specul.com/term/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B9%B6%E8%A1%8C/" target="_blank" rel="noopener">流水线并行</a> 是使用者视角的一页科普；<br>这一篇是从业者的选型地图：各工具站在哪一层、坑在哪。</p>
+<p>同一个概念在两处深度不同，互链不重复。<br>语料与算力的记账方法见上一篇「数据与算力」。</p></span><span data-en><p>The Learn site&#39;s <a href="https://learn.specul.com/term/%E5%BC%A0%E9%87%8F%E5%B9%B6%E8%A1%8C/" target="_blank" rel="noopener">tensor parallelism</a> and<br><a href="https://learn.specul.com/term/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B9%B6%E8%A1%8C/" target="_blank" rel="noopener">pipeline parallelism</a> pages are user-perspective explainers;<br>this guide is the practitioner&#39;s selection map: which layer each tool sits at, and where the traps are.</p>
+<p>Same concept, different depth on each side, cross-linked without duplication.<br>For the bookkeeping method of corpora and compute see the previous guide, “Data and compute”.</p></span>
     </section>
 
     <section class="fam-sec fam-sources">
       <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
       <ul class="fam-src-list">
-        <li>ZeRO 论文（arXiv 1910.02054，消除数据并行里的显存冗余，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/1910.02054" target="_blank" rel="noopener">https://arxiv.org/abs/1910.02054</a></li>
-        <li>Megatron-LM 论文（arXiv 1909.08053，张量并行的原始方法，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/1909.08053" target="_blank" rel="noopener">https://arxiv.org/abs/1909.08053</a></li>
-        <li>FSDP 论文（arXiv 2304.11277，PyTorch 官方全分片数据并行经验，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2304.11277" target="_blank" rel="noopener">https://arxiv.org/abs/2304.11277</a></li>
-        <li>DeepSpeed 官方仓库（微软官方：分布式训练与推理优化库，2026-10-21 直抓 200）：<a href="https://github.com/deepspeedai/DeepSpeed" target="_blank" rel="noopener">https://github.com/deepspeedai/DeepSpeed</a></li>
-        <li>Megatron-LM 官方仓库（NVIDIA 官方：规模化 transformer 训练研究框架，2026-10-21 直抓 200）：<a href="https://github.com/NVIDIA/Megatron-LM" target="_blank" rel="noopener">https://github.com/NVIDIA/Megatron-LM</a></li>
-        <li>torchtitan 官方仓库（PyTorch 官方：原生训练生成式模型的平台，2026-10-21 直抓 200）：<a href="https://github.com/pytorch/torchtitan" target="_blank" rel="noopener">https://github.com/pytorch/torchtitan</a></li>
-        <li>nanotron 官方仓库（Hugging Face 官方：极简 LLM 3D 并行训练，2026-10-21 直抓 200）：<a href="https://github.com/huggingface/nanotron" target="_blank" rel="noopener">https://github.com/huggingface/nanotron</a></li>
-        <li>TRL 官方仓库（Hugging Face 官方：用强化学习训练 transformer，2026-10-21 直抓 200）：<a href="https://github.com/huggingface/trl" target="_blank" rel="noopener">https://github.com/huggingface/trl</a></li>
+        <li><span data-zh>ZeRO 论文（arXiv 1910.02054，消除数据并行里的显存冗余，2026-10-21 直抓摘要页）</span><span data-en>ZeRO paper (arXiv 1910.02054, eliminating memory redundancy in data parallelism; abstract page fetched directly 2026-10-21)</span>：<a href="https://arxiv.org/abs/1910.02054" target="_blank" rel="noopener">https://arxiv.org/abs/1910.02054</a></li>
+        <li><span data-zh>Megatron-LM 论文（arXiv 1909.08053，张量并行的原始方法，2026-10-21 直抓摘要页）</span><span data-en>Megatron-LM paper (arXiv 1909.08053, the original tensor-parallel method; abstract page fetched directly 2026-10-21)</span>：<a href="https://arxiv.org/abs/1909.08053" target="_blank" rel="noopener">https://arxiv.org/abs/1909.08053</a></li>
+        <li><span data-zh>FSDP 论文（arXiv 2304.11277，PyTorch 官方全分片数据并行经验，2026-10-21 直抓摘要页）</span><span data-en>FSDP paper (arXiv 2304.11277, PyTorch&#39;s official fully-sharded data-parallel experience; abstract page fetched directly 2026-10-21)</span>：<a href="https://arxiv.org/abs/2304.11277" target="_blank" rel="noopener">https://arxiv.org/abs/2304.11277</a></li>
+        <li><span data-zh>DeepSpeed 官方仓库（微软官方：分布式训练与推理优化库，2026-10-21 直抓 200）</span><span data-en>DeepSpeed official repository (Microsoft&#39;s official distributed training and inference optimisation library; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/deepspeedai/DeepSpeed" target="_blank" rel="noopener">https://github.com/deepspeedai/DeepSpeed</a></li>
+        <li><span data-zh>Megatron-LM 官方仓库（NVIDIA 官方：规模化 transformer 训练研究框架，2026-10-21 直抓 200）</span><span data-en>Megatron-LM official repository (NVIDIA&#39;s official research framework for scaled transformer training; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/NVIDIA/Megatron-LM" target="_blank" rel="noopener">https://github.com/NVIDIA/Megatron-LM</a></li>
+        <li><span data-zh>torchtitan 官方仓库（PyTorch 官方：原生训练生成式模型的平台，2026-10-21 直抓 200）</span><span data-en>torchtitan official repository (PyTorch&#39;s official native platform for training generative models; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/pytorch/torchtitan" target="_blank" rel="noopener">https://github.com/pytorch/torchtitan</a></li>
+        <li><span data-zh>nanotron 官方仓库（Hugging Face 官方：极简 LLM 3D 并行训练，2026-10-21 直抓 200）</span><span data-en>nanotron official repository (Hugging Face&#39;s official minimal LLM 3D-parallel training; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/huggingface/nanotron" target="_blank" rel="noopener">https://github.com/huggingface/nanotron</a></li>
+        <li><span data-zh>TRL 官方仓库（Hugging Face 官方：用强化学习训练 transformer，2026-10-21 直抓 200）</span><span data-en>TRL official repository (Hugging Face&#39;s official transformer training with reinforcement learning; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/huggingface/trl" target="_blank" rel="noopener">https://github.com/huggingface/trl</a></li>
       </ul>
       <p class="fam-foot"><span data-zh>核验快照：2026-10-21 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-21 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
     </section>

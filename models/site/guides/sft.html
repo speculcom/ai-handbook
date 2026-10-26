@@ -98,50 +98,61 @@
     </section>
     <section class="fam-sec">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
-<p><b>SFT 就是拿「问题 → 好回答」的示范对，继续训练预训练模型。</b></p>
-<p>预训练模型会续写，但不会对话：你问它问题，<br>它可能把问题续写成「这个问题有以下几种答案……」而不是直接回答。<br>SFT 教的是形式与分寸：按对话格式答、别瞎编、该拒就拒。</p>
+<span data-zh><p><b>SFT 就是拿「问题 → 好回答」的示范对，继续训练预训练模型。</b></p>
+<p>预训练模型会续写，但不会对话：你问它问题，<br>它可能把问题续写成「这个问题有以下几种答案……」而不是直接回答。<br>SFT 教的是形式与分寸：按对话格式答、别瞎编、该拒就拒。</p></span><span data-en><p><b>SFT means continuing to train a pre-trained model on demonstration pairs of “question → good answer”.</b></p>
+<p>A pre-trained model can continue text but cannot hold a conversation: ask it a question<br>and it may continue the question into “This question has the following answers…” instead of answering directly.<br>What SFT teaches is form and judgement: answer in conversational format, don&#39;t fabricate, refuse when refusal is due.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>数据从哪来：人写、模型写、混合</span><span data-en>Where the data comes from</span></h2>
-<p>InstructGPT（arXiv 2203.02155）的路线是外包标注员写示范回答，<br>成本高、规模小（SFT 阶段约一万多条）。</p>
+<span data-zh><p>InstructGPT（arXiv 2203.02155）的路线是外包标注员写示范回答，<br>成本高、规模小（SFT 阶段约一万多条）。</p>
 <p>FLAN（arXiv 2109.01652）走另一路：<br>把上百个传统 NLP 数据集改写成指令模板，让模型见遍任务形态。</p>
 <p>LLaMA 2（arXiv 2307.09288）混合两者，并加入自举：<br>用自家模型生成候选、人工筛，扩大数据量。</p>
-<p>现在开放权重家族的 SFT 配方多数只公开数量不公开来源明细，<br>本站按官方写明的部分转述；没写明的不猜。</p>
+<p>现在开放权重家族的 SFT 配方多数只公开数量不公开来源明细，<br>本站按官方写明的部分转述；没写明的不猜。</p></span><span data-en><p>InstructGPT (arXiv 2203.02155) went with outsourced annotators writing the demonstration answers —<br>expensive and small-scale (a little over ten thousand examples in the SFT stage).</p>
+<p>FLAN (arXiv 2109.01652) took another route:<br>rewriting hundreds of classic NLP datasets into instruction templates so the model sees every task shape.</p>
+<p>LLaMA 2 (arXiv 2307.09288) mixes both and adds bootstrapping:<br>its own models generate candidates, humans filter them, scaling the data volume up.</p>
+<p>Today most open-weight families publish only the quantity of their SFT recipe, not the source breakdown;<br>this site transcribes what the official statements say and does not guess at what they leave out.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>质量压过数量：LIMA 一役</span><span data-en>Quality beats quantity: the LIMA result</span></h2>
-<p>LIMA（arXiv 2305.11206）只用 1000 条人工精选样本做 SFT，<br>输出质量接近数万条的流水线数据。</p>
+<span data-zh><p>LIMA（arXiv 2305.11206）只用 1000 条人工精选样本做 SFT，<br>输出质量接近数万条的流水线数据。</p>
 <p>结论不是「1000 条就够」，而是：SFT 主要教形式，知识在预训练里已经有了。<br>示范对里的知识含量不重要，回答的风格、结构、边界才是它学的东西。</p>
-<p>从业者推论：SFT 数据里混进错误事实，模型学到的不是那条事实，<br>是「这种错误说法是合格回答」的风格。数据审核的重点在示范质量，不在条数。</p>
+<p>从业者推论：SFT 数据里混进错误事实，模型学到的不是那条事实，<br>是「这种错误说法是合格回答」的风格。数据审核的重点在示范质量，不在条数。</p></span><span data-en><p>LIMA (arXiv 2305.11206) did SFT on just 1,000 hand-curated samples,<br>with output quality close to pipeline data of tens of thousands.</p>
+<p>The conclusion is not “1,000 examples are enough” but this: SFT mostly teaches form — the knowledge was already there from pre-training.<br>How much knowledge sits inside the demonstration pairs does not matter; what the model learns is the style, structure and boundaries of the answers.</p>
+<p>Practitioner corollary: when wrong facts slip into SFT data, what the model learns is not the fact itself<br>but the style of “this kind of wrong claim is an acceptable answer”. Data review should focus on demonstration quality, not on counts.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>省显存微调：LoRA 与 QLoRA</span><span data-en>Memory-savers: LoRA and QLoRA</span></h2>
-<p>全参数微调要存全部梯度和优化器状态，显存翻倍不止。</p>
+<span data-zh><p>全参数微调要存全部梯度和优化器状态，显存翻倍不止。</p>
 <p>LoRA（arXiv 2106.09685）冻结基座权重，只训注入的低秩小矩阵。<br>可训参数降到千分之几，产物只有几十 MB，可以热插拔换装。</p>
 <p>QLoRA（arXiv 2305.14314）把基座压到 4-bit 再挂 LoRA，<br>单卡微调 30B/65B 成为可能——本站收录的不少社区微调模型走的就是这条路。</p>
-<p>边界要如实说：LoRA 改「表达与风格」效率高，往模型里灌新知识的效果弱于全参训练。<br>低秩增量装不下多少新事实。「用 LoRA 把私有知识库训进模型」通常是错的工具，<br>检索（RAG）才是常规解。</p>
+<p>边界要如实说：LoRA 改「表达与风格」效率高，往模型里灌新知识的效果弱于全参训练。<br>低秩增量装不下多少新事实。「用 LoRA 把私有知识库训进模型」通常是错的工具，<br>检索（RAG）才是常规解。</p></span><span data-en><p>Full-parameter fine-tuning has to store every gradient and optimiser state — memory more than doubles.</p>
+<p>LoRA (arXiv 2106.09685) freezes the base weights and trains only injected low-rank matrices.<br>Trainable parameters drop to a fraction of a percent, the artefact is tens of MB, and adapters can be hot-swapped.</p>
+<p>QLoRA (arXiv 2305.14314) squeezes the base to 4-bit before attaching LoRA,<br>making single-GPU fine-tuning of 30B/65B models possible — quite a few community fine-tunes listed on this site follow exactly this route.</p>
+<p>State the limits honestly: LoRA is efficient at changing “expression and style” but weak at injecting new knowledge compared with full-parameter training.<br>A low-rank delta cannot hold many new facts. “Training a private knowledge base into the model with LoRA” is usually the wrong tool;<br>retrieval (RAG) is the standard answer.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>SFT 之后：对齐另有一步</span><span data-en>What comes after SFT</span></h2>
-<p>SFT 教了形式，但「哪个回答更好」它只会模仿示范，不会判断。<br>判断好坏交给下一步——奖励模型与偏好优化（RLHF/DPO），见下一篇。</p>
-<p>学 AI 站的 <a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a> 词条<br>把三步的科普版一页讲完；这一篇是每步的从业者深版。</p>
+<span data-zh><p>SFT 教了形式，但「哪个回答更好」它只会模仿示范，不会判断。<br>判断好坏交给下一步——奖励模型与偏好优化（RLHF/DPO），见下一篇。</p>
+<p>学 AI 站的 <a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a> 词条<br>把三步的科普版一页讲完；这一篇是每步的从业者深版。</p></span><span data-en><p>SFT teaches form, but for “which answer is better” it can only imitate the demonstrations — it cannot judge.<br>Judging quality belongs to the next step — reward models and preference optimisation (RLHF/DPO), covered in the next guide.</p>
+<p>The Learn site&#39;s <a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">three-stage training</a> term page<br>covers all three steps in one explainer page; this guide is the practitioner deep-dive for each step.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
-<p>使用者视角的一页科普：学 AI 站的 <a href="https://learn.specul.com/term/监督学习/" target="_blank" rel="noopener">监督学习</a><br>与 <a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a>。</p>
-<p>本篇讲数据路线的取舍、LIMA 的口径变化、LoRA 的适用边界——<br>同一个词，两处深度不同，互链不重复。</p>
+<span data-zh><p>使用者视角的一页科普：学 AI 站的 <a href="https://learn.specul.com/term/监督学习/" target="_blank" rel="noopener">监督学习</a><br>与 <a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a>。</p>
+<p>本篇讲数据路线的取舍、LIMA 的口径变化、LoRA 的适用边界——<br>同一个词，两处深度不同，互链不重复。</p></span><span data-en><p>The user-perspective explainers live on the Learn site: <a href="https://learn.specul.com/term/监督学习/" target="_blank" rel="noopener">supervised learning</a><br>and <a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">three-stage training</a>.</p>
+<p>This guide covers the trade-offs between data routes, how LIMA changed the consensus, and where LoRA applies —<br>same term, different depth on each side, cross-linked without duplication.</p></span>
     </section>
 
     <section class="fam-sec fam-sources">
       <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
       <ul class="fam-src-list">
-        <li>InstructGPT 论文（arXiv 2203.02155，SFT→奖励模型→RL 三阶段的原始流程，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">https://arxiv.org/abs/2203.02155</a></li>
-        <li>LLaMA 2 论文（arXiv 2307.09288，SFT 数据量与蒸馏（SFT 自举）做法，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener">https://arxiv.org/abs/2307.09288</a></li>
-        <li>FLAN 论文（arXiv 2109.01652，指令模板池化训练，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2109.01652" target="_blank" rel="noopener">https://arxiv.org/abs/2109.01652</a></li>
-        <li>LIMA 论文（arXiv 2305.11206，「1000 条精选样本」的少数据 SFT 实验，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2305.11206" target="_blank" rel="noopener">https://arxiv.org/abs/2305.11206</a></li>
-        <li>LoRA 论文（arXiv 2106.09685，低秩适配的原始方法，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">https://arxiv.org/abs/2106.09685</a></li>
-        <li>QLoRA 论文（arXiv 2305.14314，4-bit 基座 + LoRA 的微调路线，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener">https://arxiv.org/abs/2305.14314</a></li>
-        <li>OpenAI Cookbook · Finetuning 指南（官方微调教程与数据格式，2026-10-20 直抓 200）：<a href="https://cookbook.openai.com/examples/openai_llm_cookbook" target="_blank" rel="noopener">https://cookbook.openai.com/examples/openai_llm_cookbook</a></li>
+        <li><span data-zh>InstructGPT 论文（arXiv 2203.02155，SFT→奖励模型→RL 三阶段的原始流程，2026-10-20 直抓摘要页）</span><span data-en>InstructGPT paper (arXiv 2203.02155, the original SFT → reward model → RL pipeline; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">https://arxiv.org/abs/2203.02155</a></li>
+        <li><span data-zh>LLaMA 2 论文（arXiv 2307.09288，SFT 数据量与蒸馏（SFT 自举）做法，2026-10-20 直抓摘要页）</span><span data-en>LLaMA 2 paper (arXiv 2307.09288, SFT data volume and distillation (SFT bootstrapping); abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener">https://arxiv.org/abs/2307.09288</a></li>
+        <li><span data-zh>FLAN 论文（arXiv 2109.01652，指令模板池化训练，2026-10-20 直抓摘要页）</span><span data-en>FLAN paper (arXiv 2109.01652, pooling instruction templates for training; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2109.01652" target="_blank" rel="noopener">https://arxiv.org/abs/2109.01652</a></li>
+        <li><span data-zh>LIMA 论文（arXiv 2305.11206，「1000 条精选样本」的少数据 SFT 实验，2026-10-20 直抓摘要页）</span><span data-en>LIMA paper (arXiv 2305.11206, the low-data SFT experiment with “1,000 curated samples”; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2305.11206" target="_blank" rel="noopener">https://arxiv.org/abs/2305.11206</a></li>
+        <li><span data-zh>LoRA 论文（arXiv 2106.09685，低秩适配的原始方法，2026-10-20 直抓摘要页）</span><span data-en>LoRA paper (arXiv 2106.09685, the original low-rank adaptation method; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">https://arxiv.org/abs/2106.09685</a></li>
+        <li><span data-zh>QLoRA 论文（arXiv 2305.14314，4-bit 基座 + LoRA 的微调路线，2026-10-20 直抓摘要页）</span><span data-en>QLoRA paper (arXiv 2305.14314, fine-tuning route with a 4-bit base + LoRA; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener">https://arxiv.org/abs/2305.14314</a></li>
+        <li><span data-zh>OpenAI Cookbook · Finetuning 指南（官方微调教程与数据格式，2026-10-20 直抓 200）</span><span data-en>OpenAI Cookbook · Finetuning guide (official fine-tuning tutorial and data formats; fetched directly, HTTP 200, 2026-10-20)</span>：<a href="https://cookbook.openai.com/examples/openai_llm_cookbook" target="_blank" rel="noopener">https://cookbook.openai.com/examples/openai_llm_cookbook</a></li>
       </ul>
       <p class="fam-foot"><span data-zh>核验快照：2026-10-20 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-20 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
     </section>

@@ -98,51 +98,60 @@
     </section>
     <section class="fam-sec">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
-<p><b>对齐解决的是「回答得好」，不是「回答得出」。</b></p>
-<p>SFT 之后模型会按格式答，但「哪个答案更好、哪里越界」没有信号。<br>这一步的原始流程是 InstructGPT（arXiv 2203.02155）的 RLHF：<br>人给回答排序，训一个奖励模型，再用 PPO 让语言模型去讨好这个奖励模型。</p>
+<span data-zh><p><b>对齐解决的是「回答得好」，不是「回答得出」。</b></p>
+<p>SFT 之后模型会按格式答，但「哪个答案更好、哪里越界」没有信号。<br>这一步的原始流程是 InstructGPT（arXiv 2203.02155）的 RLHF：<br>人给回答排序，训一个奖励模型，再用 PPO 让语言模型去讨好这个奖励模型。</p></span><span data-en><p><b>Alignment solves “answering well”, not “being able to answer”.</b></p>
+<p>After SFT the model answers in format, but there is no signal for “which answer is better, where the line is crossed”.<br>The original recipe for this step is InstructGPT&#39;s (arXiv 2203.02155) RLHF:<br>humans rank answers, a reward model is trained, then PPO makes the language model court that reward model.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>奖励模型：把「人觉得好」变成可微信号</span><span data-en>Reward models: turning human judgement into a differentiable signal</span></h2>
-<p>人不直接打分，而是成对比较：同一提示的两个回答，选哪个更好。<br>Anthropic 的 HH 数据（arXiv 2204.05862）把维度拆成 helpful 与 harmless 两条。<br>奖励模型学的就是这个排序倾向，输出一个标量分。</p>
-<p>从业者要盯的坑：奖励模型是代理指标，不是好坏本身。<br>它能被讨好——回答更长、更自信、结构更像范文，分就高。<br>「长度偏差」是 RLHF 时代反复被官方论文承认的副作用。</p>
+<span data-zh><p>人不直接打分，而是成对比较：同一提示的两个回答，选哪个更好。<br>Anthropic 的 HH 数据（arXiv 2204.05862）把维度拆成 helpful 与 harmless 两条。<br>奖励模型学的就是这个排序倾向，输出一个标量分。</p>
+<p>从业者要盯的坑：奖励模型是代理指标，不是好坏本身。<br>它能被讨好——回答更长、更自信、结构更像范文，分就高。<br>「长度偏差」是 RLHF 时代反复被官方论文承认的副作用。</p></span><span data-en><p>Humans do not score directly; they compare pairs: of two answers to the same prompt, which is better.<br>Anthropic&#39;s HH data (arXiv 2204.05862) splits the axes into helpful and harmless.<br>The reward model learns this ranking tendency and emits a scalar score.</p>
+<p>The trap practitioners must watch: the reward model is a proxy metric, not goodness itself.<br>It can be gamed — longer, more confident, model-essay-like answers score higher.<br>“Length bias” is a side effect repeatedly acknowledged in RLHF-era papers.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>PPO 那一步：贵在哪</span><span data-en>The PPO step: why it costs so much</span></h2>
-<p>InstructGPT 的 RL 阶段要同时驻留四个模型：<br>被训的策略模型、防跑偏的参考模型（KL 约束）、奖励模型、critic。<br>显存与算力开销约是 SFT 的数倍，调参敏感（KL 系数一歪就崩）。</p>
-<p>LLaMA 2（arXiv 2307.09288）同时给了两条路线对照：<br>SFT 循环自举，对比拒绝采样加 PPO，各自在不同评测上互有胜负。<br>官方自己也没宣布一边完胜，本站照实转述。</p>
+<span data-zh><p>InstructGPT 的 RL 阶段要同时驻留四个模型：<br>被训的策略模型、防跑偏的参考模型（KL 约束）、奖励模型、critic。<br>显存与算力开销约是 SFT 的数倍，调参敏感（KL 系数一歪就崩）。</p>
+<p>LLaMA 2（arXiv 2307.09288）同时给了两条路线对照：<br>SFT 循环自举，对比拒绝采样加 PPO，各自在不同评测上互有胜负。<br>官方自己也没宣布一边完胜，本站照实转述。</p></span><span data-en><p>InstructGPT&#39;s RL stage keeps four models resident at once:<br>the policy being trained, the reference model that keeps it on the rails (KL constraint), the reward model, and the critic.<br>Memory and compute cost several times SFT, and tuning is touchy (a skewed KL coefficient collapses the run).</p>
+<p>LLaMA 2 (arXiv 2307.09288) published both routes side by side:<br>iterative SFT bootstrapping versus rejection sampling plus PPO, each winning on different evaluations.<br>The authors themselves declared no outright winner; this site reports it as stated.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>DPO：把两步并成一步</span><span data-en>DPO: collapsing two steps into one</span></h2>
-<p>DPO（arXiv 2305.18290）的推导说明：最优策略有闭式解，<br>可以直接拿偏好对做分类式损失，不用训奖励模型、不用跑 RL。<br>显存回到 SFT 量级，代码几十行。</p>
+<span data-zh><p>DPO（arXiv 2305.18290）的推导说明：最优策略有闭式解，<br>可以直接拿偏好对做分类式损失，不用训奖励模型、不用跑 RL。<br>显存回到 SFT 量级，代码几十行。</p>
 <p>Zephyr（arXiv 2310.16944）用公开数据把 7B 做到当时同规模前列，<br>证明这条路线社区可复现。</p>
-<p>代价也要说：DPO 对偏好对的分布敏感，离线数据训容易「过拟合排序风格」；<br>在线 RLHF 能持续采样新回答，信号更新鲜。<br>两条路线的公开对照结论不稳定，因数据而异。<br>本站不裁决哪条更好，只记录各自的机制与已发表的边界。</p>
+<p>代价也要说：DPO 对偏好对的分布敏感，离线数据训容易「过拟合排序风格」；<br>在线 RLHF 能持续采样新回答，信号更新鲜。<br>两条路线的公开对照结论不稳定，因数据而异。<br>本站不裁决哪条更好，只记录各自的机制与已发表的边界。</p></span><span data-en><p>DPO&#39;s (arXiv 2305.18290) derivation shows the optimal policy has a closed form,<br>so preference pairs can feed a classification-style loss directly — no reward model to train, no RL to run.<br>Memory drops back to SFT scale, the code is dozens of lines.</p>
+<p>Zephyr (arXiv 2310.16944) took a 7B model to the front of its size class at the time using public data,<br>proving the route is community-reproducible.</p>
+<p>The cost too: DPO is sensitive to the distribution of preference pairs, and offline training easily “overfits the ranking style”;<br>online RLHF keeps sampling fresh answers, so the signal stays fresher.<br>Published head-to-head conclusions between the two routes are unstable and data-dependent.<br>This site adjudicates neither — it records each mechanism and its published limits.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>RLAIF：人不够时用模型排</span><span data-en>RLAIF: models ranking when humans run out</span></h2>
-<p>Constitutional AI（arXiv 2212.08073）用一组书面原则让模型自我批评、<br>自我修订，再由模型偏好模型。人工排序退到校准位。</p>
-<p>开放权重家族的后训练普遍混用这条路——<br>规模上不去的瓶颈从算力转到标注。</p>
+<span data-zh><p>Constitutional AI（arXiv 2212.08073）用一组书面原则让模型自我批评、<br>自我修订，再由模型偏好模型。人工排序退到校准位。</p>
+<p>开放权重家族的后训练普遍混用这条路——<br>规模上不去的瓶颈从算力转到标注。</p></span><span data-en><p>Constitutional AI (arXiv 2212.08073) uses a written set of principles to make the model criticise and<br>revise itself, then lets models prefer models. Human ranking retreats to a calibration role.</p>
+<p>Open-weight families&#39; post-training routinely mixes this route in —<br>the bottleneck that caps scale moves from compute to annotation.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>代价：对齐税与谄媚</span><span data-en>The costs: alignment tax and sycophancy</span></h2>
-<p>「对齐税」指对齐后模型在原始任务评测上可能掉分。<br>InstructGPT 论文自己观察到 GPT-3 在部分公开基准上因对齐回落。</p>
+<span data-zh><p>「对齐税」指对齐后模型在原始任务评测上可能掉分。<br>InstructGPT 论文自己观察到 GPT-3 在部分公开基准上因对齐回落。</p>
 <p>谄媚（sycophancy）是偏好数据的镜像产物：<br>人偏爱「顺着我说」的回答，奖励模型就学会顺着说。</p>
-<p>这两条都不是传闻，是论文正文承认的副作用。<br>读任何模型的官方 benchmark 时都要记得：<br>对齐后的分数是「讨好评测的风格」与「真实能力」的混合量。</p>
+<p>这两条都不是传闻，是论文正文承认的副作用。<br>读任何模型的官方 benchmark 时都要记得：<br>对齐后的分数是「讨好评测的风格」与「真实能力」的混合量。</p></span><span data-en><p>The “alignment tax” is the score a model can lose on original-task evaluations after alignment.<br>The InstructGPT paper itself observed GPT-3 regressing on some public benchmarks because of alignment.</p>
+<p>Sycophancy is the mirror image of preference data:<br>humans favour answers that agree with them, so the reward model learns to agree.</p>
+<p>Neither is rumour — both are side effects admitted in the papers themselves.<br>When reading any model&#39;s official benchmarks, remember:<br>post-alignment scores mix “a style that pleases the grader” with “actual capability”.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
-<p>一页科普版在学 AI 站：<a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a><br>与 <a href="https://learn.specul.com/term/偏好对齐/" target="_blank" rel="noopener">偏好对齐</a>。</p>
-<p>本篇讲四模型驻留的成本结构、代理指标可被讨好的机制、<br>对齐税与谄媚的出处——从业者要盯的坑，一页科普装不下。</p>
+<span data-zh><p>一页科普版在学 AI 站：<a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a><br>与 <a href="https://learn.specul.com/term/偏好对齐/" target="_blank" rel="noopener">偏好对齐</a>。</p>
+<p>本篇讲四模型驻留的成本结构、代理指标可被讨好的机制、<br>对齐税与谄媚的出处——从业者要盯的坑，一页科普装不下。</p></span><span data-en><p>The one-page explainers live on the Learn site: <a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">three-stage training</a><br>and <a href="https://learn.specul.com/term/偏好对齐/" target="_blank" rel="noopener">preference alignment</a>.</p>
+<p>This guide covers the cost structure of four resident models, how a proxy metric can be gamed,<br>and the sources behind the alignment tax and sycophancy — the traps practitioners watch, which an explainer page cannot hold.</p></span>
     </section>
 
     <section class="fam-sec fam-sources">
       <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
       <ul class="fam-src-list">
-        <li>InstructGPT 论文（arXiv 2203.02155，RLHF 三阶段与 PPO 细节，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">https://arxiv.org/abs/2203.02155</a></li>
-        <li>DPO 论文（arXiv 2305.18290，免奖励模型免 RL 的偏好优化，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener">https://arxiv.org/abs/2305.18290</a></li>
-        <li>LLaMA 2 论文（arXiv 2307.09288，拒绝采样 + PPO 与 SFT 双路线对照，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener">https://arxiv.org/abs/2307.09288</a></li>
-        <li>Zephyr 论文（arXiv 2310.16944，DPO 用于 7B 社区模型的公开范例，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2310.16944" target="_blank" rel="noopener">https://arxiv.org/abs/2310.16944</a></li>
-        <li>Anthropic HH 偏好数据论文（arXiv 2204.05862，helpful/harmless 双维排序数据，2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2204.05862" target="_blank" rel="noopener">https://arxiv.org/abs/2204.05862</a></li>
-        <li>Constitutional AI 论文（arXiv 2212.08073，用原则替代部分人工排序（RLAIF），2026-10-20 直抓摘要页）：<a href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener">https://arxiv.org/abs/2212.08073</a></li>
+        <li><span data-zh>InstructGPT 论文（arXiv 2203.02155，RLHF 三阶段与 PPO 细节，2026-10-20 直抓摘要页）</span><span data-en>InstructGPT paper (arXiv 2203.02155, the three-stage RLHF and PPO details; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">https://arxiv.org/abs/2203.02155</a></li>
+        <li><span data-zh>DPO 论文（arXiv 2305.18290，免奖励模型免 RL 的偏好优化，2026-10-20 直抓摘要页）</span><span data-en>DPO paper (arXiv 2305.18290, preference optimisation without a reward model or RL; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener">https://arxiv.org/abs/2305.18290</a></li>
+        <li><span data-zh>LLaMA 2 论文（arXiv 2307.09288，拒绝采样 + PPO 与 SFT 双路线对照，2026-10-20 直抓摘要页）</span><span data-en>LLaMA 2 paper (arXiv 2307.09288, rejection sampling + PPO versus the SFT route side by side; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener">https://arxiv.org/abs/2307.09288</a></li>
+        <li><span data-zh>Zephyr 论文（arXiv 2310.16944，DPO 用于 7B 社区模型的公开范例，2026-10-20 直抓摘要页）</span><span data-en>Zephyr paper (arXiv 2310.16944, the public example of DPO on a 7B community model; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2310.16944" target="_blank" rel="noopener">https://arxiv.org/abs/2310.16944</a></li>
+        <li><span data-zh>Anthropic HH 偏好数据论文（arXiv 2204.05862，helpful/harmless 双维排序数据，2026-10-20 直抓摘要页）</span><span data-en>Anthropic HH preference-data paper (arXiv 2204.05862, rankings on the helpful/harmless axes; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2204.05862" target="_blank" rel="noopener">https://arxiv.org/abs/2204.05862</a></li>
+        <li><span data-zh>Constitutional AI 论文（arXiv 2212.08073，用原则替代部分人工排序（RLAIF），2026-10-20 直抓摘要页）</span><span data-en>Constitutional AI paper (arXiv 2212.08073, principles replacing part of the human ranking (RLAIF); abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener">https://arxiv.org/abs/2212.08073</a></li>
       </ul>
       <p class="fam-foot"><span data-zh>核验快照：2026-10-20 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-20 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
     </section>

@@ -98,50 +98,60 @@
     </section>
     <section class="fam-sec">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
-<p><b>模型跑起来之后，吞吐的瓶颈多半不在算力，在显存里的 KV 缓存。</b><br>这一篇讲推理引擎围绕这块显存做的三件事：怎么存、怎么批、怎么复用。</p>
-<p>本站不实测。所有倍数都是论文自报口径，出处列在文末；<br>引擎能力一律以官方文档为准。</p>
+<span data-zh><p><b>模型跑起来之后，吞吐的瓶颈多半不在算力，在显存里的 KV 缓存。</b><br>这一篇讲推理引擎围绕这块显存做的三件事：怎么存、怎么批、怎么复用。</p>
+<p>本站不实测。所有倍数都是论文自报口径，出处列在文末；<br>引擎能力一律以官方文档为准。</p></span><span data-en><p><b>Once a model is running, the throughput bottleneck is usually not compute but the KV cache in memory.</b><br>This guide covers the three things inference engines do around that memory: how to store, how to batch, how to reuse.</p>
+<p>This site runs no benchmarks. Every multiplier is a paper&#39;s self-reported figure, sourced at the end;<br>engine capabilities always follow the official docs.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>KV 缓存：推理的第一本账</span><span data-en>The KV cache: the first bill of inference</span></h2>
-<p>自回归生成每产出一个 token，都要回看前文。<br>为避免重复计算，前文的 key/value 张量被缓存下来，这就是 KV 缓存。</p>
+<span data-zh><p>自回归生成每产出一个 token，都要回看前文。<br>为避免重复计算，前文的 key/value 张量被缓存下来，这就是 KV 缓存。</p>
 <p>它的显存随「上下文长度 × 并发请求数」线性增长，而且动态伸缩。<br>PagedAttention 论文指出：低效管理下，碎片与冗余复制会显著浪费这块显存，<br>反过来限制批大小——吞吐上不去，往往不是算不动，是塞不进。</p>
-<p>判断依据：同一张卡，长上下文与高并发同时上来时吞吐骤降，<br>多半就是 KV 缓存显存先到顶。</p>
+<p>判断依据：同一张卡，长上下文与高并发同时上来时吞吐骤降，<br>多半就是 KV 缓存显存先到顶。</p></span><span data-en><p>Autoregressive generation revisits the preceding text for every token it produces.<br>To avoid recomputation, the earlier key/value tensors are cached — that is the KV cache.</p>
+<p>Its memory grows linearly with “context length × concurrent requests” and scales dynamically.<br>The PagedAttention paper points out that under inefficient management, fragmentation and redundant copies waste this memory badly,<br>which in turn caps batch size — throughput stalls not because compute ran out but because requests won&#39;t fit.</p>
+<p>Rule of thumb: on the same card, throughput collapses when long context and high concurrency arrive together —<br>most likely the KV-cache memory hit its ceiling first.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>PagedAttention 与连续批处理</span><span data-en>PagedAttention and continuous batching</span></h2>
-<p>PagedAttention 借操作系统虚拟内存的分页思路：<br>KV 缓存按固定大小的块分配，不要求连续。论文自报近零浪费。<br>vLLM 在其上构建，论文自报同等延迟下吞吐提升 2–4 倍——注意这是论文实验口径。</p>
+<span data-zh><p>PagedAttention 借操作系统虚拟内存的分页思路：<br>KV 缓存按固定大小的块分配，不要求连续。论文自报近零浪费。<br>vLLM 在其上构建，论文自报同等延迟下吞吐提升 2–4 倍——注意这是论文实验口径。</p>
 <p>连续批处理解决另一件事：请求到达时间不齐。<br>静态批要等最慢的完成才能换下一批；连续批让完成的请求随时退出、新请求随时补位。<br>vLLM 官方文档把两者作为吞吐来源并列描述。</p>
-<p>分块预填充是配套的第三件：长提示的预填充阶段会独占 GPU，<br>把它切成块与解码步交替，延迟曲线更平。</p>
+<p>分块预填充是配套的第三件：长提示的预填充阶段会独占 GPU，<br>把它切成块与解码步交替，延迟曲线更平。</p></span><span data-en><p>PagedAttention borrows the paging idea from operating-system virtual memory:<br>the KV cache is allocated in fixed-size blocks that need not be contiguous. The paper self-reports near-zero waste.<br>vLLM builds on it; the paper self-reports 2–4× throughput at equal latency — note this is the paper&#39;s experimental setting.</p>
+<p>Continuous batching solves a different problem: requests arrive unevenly.<br>A static batch waits for the slowest request before swapping in the next batch; continuous batching lets finished requests leave at any time and new ones slot in.<br>vLLM&#39;s official docs describe both side by side as throughput sources.</p>
+<p>Chunked prefill is the companion third move: a long prompt&#39;s prefill phase hogs the GPU,<br>so it is cut into chunks interleaved with decode steps, flattening the latency curve.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>vLLM 与 SGLang：各站在哪</span><span data-en>Where vLLM and SGLang sit</span></h2>
-<p><b>vLLM</b>：通用 LLM 服务引擎，PagedAttention 的官方落地，<br>文档覆盖量化、并行、多机部署。开放权重部署讨论里的默认名字。</p>
+<span data-zh><p><b>vLLM</b>：通用 LLM 服务引擎，PagedAttention 的官方落地，<br>文档覆盖量化、并行、多机部署。开放权重部署讨论里的默认名字。</p>
 <p><b>SGLang</b>：面向「多调用程序」的服务框架——代理循环、推理链、结构化输出这类负载。<br>论文自报两项机制：RadixAttention 复用跨调用共享前缀的 KV 缓存；<br>压缩有限状态机加速结构化输出解码。论文自报此类任务上最高 6.4 倍吞吐。</p>
 <p>两者不是排名关系，负载画像不同：<br>单轮问答、批量离线生成，vLLM 路线成熟；<br>多轮代理、共享长前缀、严格格式输出，SGLang 的复用机制对症。<br>本站不裁决，论文口径都在文末。</p>
-<p>本地单机跑 GGUF 是另一条线：llama.cpp 一类实现不追求并发吞吐，<br>追求在有限显存里把模型装下。选型先问「几个并发」，再问引擎。</p>
+<p>本地单机跑 GGUF 是另一条线：llama.cpp 一类实现不追求并发吞吐，<br>追求在有限显存里把模型装下。选型先问「几个并发」，再问引擎。</p></span><span data-en><p><b>vLLM</b>: the general-purpose LLM serving engine, the official landing of PagedAttention,<br>with docs covering quantisation, parallelism and multi-node deployment. The default name in open-weight deployment discussions.</p>
+<p><b>SGLang</b>: a serving framework aimed at “multi-call programs” — agent loops, reasoning chains, structured-output workloads.<br>The paper self-reports two mechanisms: RadixAttention reuses KV cache across shared prefixes between calls;<br>compressed finite-state machines speed up structured-output decoding. The paper self-reports up to 6.4× throughput on such tasks.</p>
+<p>The two are not a ranking — their workload profiles differ:<br>for single-turn Q&amp;A and batch offline generation, the vLLM route is mature;<br>for multi-turn agents, shared long prefixes and strict-format output, SGLang&#39;s reuse mechanisms fit.<br>This site adjudicates neither; the paper figures are all at the end.</p>
+<p>Running GGUF locally on one machine is a separate line: llama.cpp-style implementations do not chase concurrent throughput,<br>they chase fitting the model into limited memory. Ask “how many concurrent requests” first, then ask about the engine.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>投机解码：用算力换延迟</span><span data-en>Speculative decoding: trading compute for latency</span></h2>
-<p>解码每步只产一个 token，GPU 算力大量闲置。<br>投机解码让小模型先猜几个 token，大模型一次并行验证；猜对即白赚。</p>
-<p>它改的是单请求延迟，不是吞吐账；猜错率高的负载收益缩水。<br>vLLM 与 SGLang 官方文档都提供该选项，收益取决于草稿模型与任务匹配度。</p>
+<span data-zh><p>解码每步只产一个 token，GPU 算力大量闲置。<br>投机解码让小模型先猜几个 token，大模型一次并行验证；猜对即白赚。</p>
+<p>它改的是单请求延迟，不是吞吐账；猜错率高的负载收益缩水。<br>vLLM 与 SGLang 官方文档都提供该选项，收益取决于草稿模型与任务匹配度。</p></span><span data-en><p>Decoding produces one token per step, leaving most GPU compute idle.<br>Speculative decoding has a small model guess several tokens first while the big model verifies them in one parallel pass; correct guesses are free profit.</p>
+<p>It changes single-request latency, not the throughput ledger; workloads with high miss rates see the gains shrink.<br>Both vLLM and SGLang official docs offer the option; the payoff depends on how well the draft model matches the task.</p></span>
     </section>
     <section class="fam-sec">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
-<p>学 AI 站的 <a href="https://learn.specul.com/term/KV%20%E7%BC%93%E5%AD%98/" target="_blank" rel="noopener">KV 缓存</a>、<br><a href="https://learn.specul.com/term/PagedAttention/" target="_blank" rel="noopener">PagedAttention</a>、<br><a href="https://learn.specul.com/term/%E8%BF%9E%E7%BB%AD%E6%89%B9%E5%A4%84%E7%90%86/" target="_blank" rel="noopener">连续批处理</a> 与<br><a href="https://learn.specul.com/term/%E6%8A%95%E6%9C%BA%E8%A7%A3%E7%A0%81/" target="_blank" rel="noopener">投机解码</a> 是使用者视角的一页科普；<br>这一篇讲从业者怎么给推理记账、怎么按负载画像选引擎。</p>
-<p>同一个概念在两处深度不同，互链不重复。<br>硬件事实与成本数学见下一篇「GPU 事实与成本数学」。</p>
+<span data-zh><p>学 AI 站的 <a href="https://learn.specul.com/term/KV%20%E7%BC%93%E5%AD%98/" target="_blank" rel="noopener">KV 缓存</a>、<br><a href="https://learn.specul.com/term/PagedAttention/" target="_blank" rel="noopener">PagedAttention</a>、<br><a href="https://learn.specul.com/term/%E8%BF%9E%E7%BB%AD%E6%89%B9%E5%A4%84%E7%90%86/" target="_blank" rel="noopener">连续批处理</a> 与<br><a href="https://learn.specul.com/term/%E6%8A%95%E6%9C%BA%E8%A7%A3%E7%A0%81/" target="_blank" rel="noopener">投机解码</a> 是使用者视角的一页科普；<br>这一篇讲从业者怎么给推理记账、怎么按负载画像选引擎。</p>
+<p>同一个概念在两处深度不同，互链不重复。<br>硬件事实与成本数学见下一篇「GPU 事实与成本数学」。</p></span><span data-en><p>The Learn site&#39;s <a href="https://learn.specul.com/term/KV%20%E7%BC%93%E5%AD%98/" target="_blank" rel="noopener">KV cache</a>,<br><a href="https://learn.specul.com/term/PagedAttention/" target="_blank" rel="noopener">PagedAttention</a>,<br><a href="https://learn.specul.com/term/%E8%BF%9E%E7%BB%AD%E6%89%B9%E5%A4%84%E7%90%86/" target="_blank" rel="noopener">continuous batching</a> and<br><a href="https://learn.specul.com/term/%E6%8A%95%E6%9C%BA%E8%A7%A3%E7%A0%81/" target="_blank" rel="noopener">speculative decoding</a> pages are user-perspective explainers;<br>this guide is about how practitioners keep the inference ledger and pick an engine by workload profile.</p>
+<p>Same concept, different depth on each side, cross-linked without duplication.<br>For hardware facts and cost math see the next guide, “GPU facts and cost math”.</p></span>
     </section>
 
     <section class="fam-sec fam-sources">
       <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
       <ul class="fam-src-list">
-        <li>vLLM 官方文档首页（2026-10-21 直抓 200）：<a href="https://docs.vllm.ai/en/latest/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/</a></li>
-        <li>vLLM 架构总览（官方文档设计节，2026-10-21 直抓 200）：<a href="https://docs.vllm.ai/en/latest/design/arch_overview.html" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/design/arch_overview.html</a></li>
-        <li>vLLM PagedAttention 设计文档（官方文档设计节，2026-10-21 直抓 200）：<a href="https://docs.vllm.ai/en/latest/design/paged_attention.html" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/design/paged_attention.html</a></li>
-        <li>PagedAttention 论文（arXiv 2309.06180，自报吞吐 2–4 倍提升，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noopener">https://arxiv.org/abs/2309.06180</a></li>
-        <li>SGLang 官方文档首页（2026-10-21 直抓 200）：<a href="https://docs.sglang.ai/" target="_blank" rel="noopener">https://docs.sglang.ai/</a></li>
-        <li>SGLang 官方仓库（自述：LLM 与多模态模型的高性能服务框架，2026-10-21 直抓 200）：<a href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">https://github.com/sgl-project/sglang</a></li>
-        <li>SGLang 论文（arXiv 2312.07104，RadixAttention 与结构化输出，自报最高 6.4 倍吞吐，2026-10-21 直抓摘要页）：<a href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noopener">https://arxiv.org/abs/2312.07104</a></li>
-        <li>llama.cpp 官方仓库（本地推理的代表实现，2026-10-21 直抓 200）：<a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">https://github.com/ggml-org/llama.cpp</a></li>
+        <li><span data-zh>vLLM 官方文档首页（2026-10-21 直抓 200）</span><span data-en>vLLM official docs home page (fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://docs.vllm.ai/en/latest/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/</a></li>
+        <li><span data-zh>vLLM 架构总览（官方文档设计节，2026-10-21 直抓 200）</span><span data-en>vLLM architecture overview (official docs design section; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://docs.vllm.ai/en/latest/design/arch_overview.html" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/design/arch_overview.html</a></li>
+        <li><span data-zh>vLLM PagedAttention 设计文档（官方文档设计节，2026-10-21 直抓 200）</span><span data-en>vLLM PagedAttention design document (official docs design section; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://docs.vllm.ai/en/latest/design/paged_attention.html" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/design/paged_attention.html</a></li>
+        <li><span data-zh>PagedAttention 论文（arXiv 2309.06180，自报吞吐 2–4 倍提升，2026-10-21 直抓摘要页）</span><span data-en>PagedAttention paper (arXiv 2309.06180, self-reported 2–4× throughput; abstract page fetched directly 2026-10-21)</span>：<a href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noopener">https://arxiv.org/abs/2309.06180</a></li>
+        <li><span data-zh>SGLang 官方文档首页（2026-10-21 直抓 200）</span><span data-en>SGLang official docs home page (fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://docs.sglang.ai/" target="_blank" rel="noopener">https://docs.sglang.ai/</a></li>
+        <li><span data-zh>SGLang 官方仓库（自述：LLM 与多模态模型的高性能服务框架，2026-10-21 直抓 200）</span><span data-en>SGLang official repository (self-described: a high-performance serving framework for LLMs and multimodal models; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">https://github.com/sgl-project/sglang</a></li>
+        <li><span data-zh>SGLang 论文（arXiv 2312.07104，RadixAttention 与结构化输出，自报最高 6.4 倍吞吐，2026-10-21 直抓摘要页）</span><span data-en>SGLang paper (arXiv 2312.07104, RadixAttention and structured output, self-reported up to 6.4× throughput; abstract page fetched directly 2026-10-21)</span>：<a href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noopener">https://arxiv.org/abs/2312.07104</a></li>
+        <li><span data-zh>llama.cpp 官方仓库（本地推理的代表实现，2026-10-21 直抓 200）</span><span data-en>llama.cpp official repository (the representative local-inference implementation; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">https://github.com/ggml-org/llama.cpp</a></li>
       </ul>
       <p class="fam-foot"><span data-zh>核验快照：2026-10-21 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-21 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
     </section>

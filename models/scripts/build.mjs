@@ -161,6 +161,26 @@ const guideList = (() => {
   }).filter(Boolean);
 })();
 
+/* C0-18（2026-10-26）：guides 正文英译 —— i18n/guides/<id>.en.json（本仓内，铁律 R3）。
+ * 机制对齐 tools 仓 bodies：sections 按 frontmatter 之后 `## ` 节**索引**对齐，
+ * sources 按 frontmatter sources **索引**对齐；缺文件/缺键诚实降级中文（宁缺勿错配）。
+ * 节标题本身在 md 里已是 [zh|en] 双语，不在译文文件。数量不一致 → 整节回退中文。 */
+const GUIDE_EN = {};
+{
+  const gdir = path.join(HERE, '..', 'i18n', 'guides');
+  if (fs.existsSync(gdir)) {
+    for (const f of fs.readdirSync(gdir).filter((x) => x.endsWith('.en.json'))) {
+      try {
+        GUIDE_EN[f.replace(/\.en\.json$/, '')] = JSON.parse(fs.readFileSync(path.join(gdir, f), 'utf8'));
+      } catch (e) {
+        console.warn('  ! guides 译文读不到，该篇保持中文：' + f + ' —— ' + e.message);
+      }
+    }
+  }
+  const n = Object.keys(GUIDE_EN).length;
+  if (n) console.log(`  · guides 正文英文：${n} 篇已加载`);
+}
+
 const quantizerDocs = {};
 const qDir = path.join(ROOT, 'data', 'quantizers');
 if (fs.existsSync(qDir)) {
@@ -1215,15 +1235,30 @@ function guideBlockMd(md) {
 }
 
 function guidePage(g) {
-  const secs = g.sections.map((s) => {
+  /* C0-18：正文译文按节索引对齐（i18n/guides/<id>.en.json）。
+   * 数量不一致或缺文件 → 该节/该条诚实回退中文（宁缺勿错配，同 tools bodies 口径）。 */
+  const en = GUIDE_EN[g.id];
+  /* ⚠ guideList 解析会把首个 `## ` 之前的空段也收进来（既有行为，渲染成空节）——
+   * 译文按**有标题的真节**索引对齐，空段不参与。 */
+  const realIdx = g.sections.map((s) => s.head !== '').reduce((a, v, i) => (v ? a.concat(i) : a), []);
+  const secsOk = !!(en && Array.isArray(en.sections) && en.sections.length === realIdx.length);
+  const srcOk = !!(en && Array.isArray(en.sources) && en.sources.length === g.sources.length);
+  let ri = -1;
+  const secs = g.sections.map((s, i) => {
     const bm = s.head.match(/^\[(.+)\|(.+)\]$/);
     const head = bm ? bi(esc(bm[1]), esc(bm[2])) : guideInline(s.head);
+    const zhHtml = guideBlockMd(s.text);
+    if (s.head !== '') ri++;
+    const bodyHtml = secsOk && s.head !== '' ? bi(zhHtml, guideBlockMd(en.sections[ri])) : zhHtml;
     return `    <section class="fam-sec">
       <h2>${head}</h2>
-${guideBlockMd(s.text)}
+${bodyHtml}
     </section>`;
   }).join('\n');
-  const srcRows = g.sources.map((s) => `        <li>${guideInline(s.label || '')}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('\n');
+  const srcRows = g.sources.map((s, i) => {
+    const labelHtml = srcOk ? bi(guideInline(s.label || ''), guideInline(en.sources[i] || '')) : guideInline(s.label || '');
+    return `        <li>${labelHtml}：<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`;
+  }).join('\n');
   /* .guide-body：文章页的排印作用域（models.css 的正文规则限定在它内部，
    * 防裸 `.fam-sec ul` 之类把家族页的无点列表带偏）。 */
   const body = `  <div class="container guide-body">
