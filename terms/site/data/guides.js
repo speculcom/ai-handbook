@@ -389,6 +389,136 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "怎么把提示词写结构",
+  "zh": "怎么把提示词写结构",
+  "en": "How to Structure a Prompt",
+  "kind": "guide",
+  "station": 2,
+  "ord": 11,
+  "span": 7,
+  "lead": {
+   "zh": "「怎么向 AI 提问」讲问前交代什么；这篇讲把这些交代放进什么形状：角色、任务、约束、格式，四块分开写。",
+   "en": "\"How to Ask AI\" covers what to state before asking; this guide covers what shape to put it in: role, task, constraints, and format, written as separate blocks."
+  },
+  "points": [
+   "分块写，别写成一整段散文：角色与背景一块、任务一块、约束一块、输出格式一块，模型对分块指令的遵循更稳。",
+   "系统提示放长期规则（语气、边界），用户消息放本次任务——两层各司其职，别把一次性要求塞进系统提示。",
+   "用标题或标签划界（如「背景：」「要求：」），长输入时把待处理原文与指令明确隔开，防止模型把材料当指令。",
+   "约束写成可检查的条目：「不超过 300 字」「面向零基础」「给出来源」，比「简短一点」「专业一点」可执行。",
+   "输出格式单独一块并给例子：一段样例输出胜过三段描述。",
+   "改提示词一次只改一处并对比效果，同时改多处就说不清是哪处起了作用。"
+  ],
+  "pointsEn": [
+   "Write in blocks, not one wall of prose: role and background in one block, the task in another, constraints in another, output format in another — models follow blocked instructions more reliably.",
+   "Put standing rules (tone, boundaries) in the system prompt and the current task in the user message — each layer does its job; don't stuff one-off requests into the system prompt.",
+   "Mark sections with headings or tags (e.g. \"Background:\", \"Requirements:\"), and on long inputs clearly separate the material to process from the instructions, so the model doesn't treat data as directives.",
+   "Write constraints as checkable items: \"under 300 words\", \"for absolute beginners\", \"cite sources\" — these beat \"shorter\" or \"more professional\".",
+   "Give the output format its own block plus one worked example: a single sample output beats three paragraphs describing it.",
+   "Change one thing at a time when editing a prompt and compare results; change five at once and you can't tell which one worked."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "few-shot示例怎么选",
+  "zh": "few-shot 示例怎么选",
+  "en": "How to Pick Few-Shot Examples",
+  "kind": "guide",
+  "station": 2,
+  "ord": 12,
+  "span": 6,
+  "lead": {
+   "zh": "在提示里放几个「输入→输出」例子能明显改变表现，但例子选得不好反而带偏。这篇讲选例子的五条标准。",
+   "en": "Dropping a few input→output examples into the prompt changes performance noticeably — but bad examples steer the model the wrong way. Five criteria for picking them."
+  },
+  "points": [
+   "例子覆盖你要的边界情况，而不是只放最简单的：模型会模仿例子的分布。",
+   "格式与真实输入完全一致：示例里的字段名、标点、换行都会被照抄。",
+   "数量从两三个起步，边际收益递减快；塞太多还挤占上下文、拉高成本。",
+   "示例之间要有差异：三个几乎一样的例子等于一个，还让模型以为只会这一种。",
+   "遇到输出跑偏，先检查是不是某个示例在带节奏——错误示例比没有示例更糟。"
+  ],
+  "pointsEn": [
+   "Cover the edge cases you actually need, not just the easy ones: the model imitates the distribution of your examples.",
+   "Keep the format identical to real inputs: field names, punctuation, and line breaks in the examples get copied verbatim.",
+   "Start with two or three examples; marginal returns drop fast, and too many crowd the context and raise cost.",
+   "Make examples differ from each other: three near-identical ones are worth one, and they teach the model it can only do that one thing.",
+   "When outputs go off the rails, first check whether an example is steering them — a wrong example is worse than no example."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "思维链什么时候有用",
+  "zh": "思维链什么时候有用",
+  "en": "When Chain-of-Thought Helps",
+  "kind": "guide",
+  "station": 2,
+  "ord": 13,
+  "span": 6,
+  "lead": {
+   "zh": "「一步步想」对某些任务提升明显，对另一些几乎没用甚至帮倒忙。这篇讲怎么判断值不值得让模型展开推理。",
+   "en": "\"Think step by step\" helps some tasks a lot and barely helps — or actively hurts — others. How to tell whether extended reasoning is worth it."
+  },
+  "points": [
+   "先分清任务类型：算术、多步逻辑、规划类任务收益大；简单抽取、翻译、格式转换基本无收益。",
+   "「一步步想」这类触发语对老一代模型才关键；推理模型已内置长思维链，再手动催只是浪费 token。",
+   "要求模型先列步骤再作答，比只加一句「想一想」更有效，也更可控。",
+   "思维链输出不是可靠的思考记录：它可能事后编出说得通的过程，别把它当审计日志。",
+   "展开推理会成倍增加输出长度和延迟，实时场景先量代价再决定。",
+   "判断有没有用只有一个办法：拿你自己的任务对比测，别信「普遍提升」的说法。"
+  ],
+  "pointsEn": [
+   "Sort the task type first: arithmetic, multi-step logic, and planning gain a lot; simple extraction, translation, and format conversion gain almost nothing.",
+   "Trigger phrases like \"think step by step\" mattered for older models; reasoning models already have long chains built in, so prompting for one just wastes tokens.",
+   "Asking the model to list steps before answering works better — and is more controllable — than a bare \"think about it\".",
+   "Chain-of-thought output is not a reliable record of thinking: the model may fabricate a plausible-sounding process after the fact; don't treat it as an audit log.",
+   "Extended reasoning multiplies output length and latency; measure the cost before enabling it in real-time settings.",
+   "There is only one way to know if it helps: run a comparison on your own task, don't trust claims of \"general improvement\"."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么让AI按格式输出",
+  "zh": "怎么让 AI 按格式输出",
+  "en": "How to Get AI to Output in Your Format",
+  "kind": "guide",
+  "station": 2,
+  "ord": 14,
+  "span": 6,
+  "lead": {
+   "zh": "程序要接 AI 的输出时，「请输出 JSON」经常不够。这篇讲从提示约束到结构化输出的三级做法。",
+   "en": "When a program has to consume AI output, \"please output JSON\" often isn't enough. Three levels, from prompt-level constraints to structured outputs."
+  },
+  "points": [
+   "第一级：提示里给格式说明加一个完整样例，多数场景够用，但字段缺失、多余解释仍会发生。",
+   "第二级：用接口的结构化输出/工具调用能力，由服务端约束解码保证格式合法，比口头要求可靠得多。",
+   "定义 schema 只写需要的字段并收紧类型：字段越少，出错面越小。",
+   "无论哪一级，接收端都要校验：模式校验失败就重试或降级，别直接喂给下游。",
+   "格式约束和任务质量会互相拉扯：强制格式可能让内容变差，两者要分开评测。",
+   "别用格式技巧代替内容评测：输出合法不等于输出正确。"
+  ],
+  "pointsEn": [
+   "Level one: a format spec plus one complete sample in the prompt. Enough for most cases, but missing fields and stray commentary still happen.",
+   "Level two: use the API's structured-output / tool-calling capability — server-side constrained decoding guarantees valid format, far more reliable than asking nicely.",
+   "Define schemas with only the fields you need and tighten types: fewer fields, smaller failure surface.",
+   "Validate on the receiving end regardless of level: on schema-validation failure, retry or degrade — never feed downstream code unchecked.",
+   "Format constraints and task quality pull against each other: forcing a format can degrade content, so evaluate the two separately.",
+   "Don't let format tricks substitute for content evaluation: valid output is not correct output."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "它说得笃定，所以可信",
   "zh": "它说得笃定，所以可信",
   "en": "Confident Tone Means Correct",
@@ -633,6 +763,39 @@ var GUIDES = [
    "Check image labels: add explicit labels per China's Labeling Measures; do not miss the implicit label in metadata.",
    "Unify the voice: strip the AI register (parallel clauses, empty summaries) or readers will spot it instantly.",
    "Keep a change record: which parts AI wrote and what you changed — traceable when something goes wrong."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么自建评测口径",
+  "zh": "怎么自建评测口径",
+  "en": "How to Build Your Own Eval",
+  "kind": "guide",
+  "station": 3,
+  "ord": 7,
+  "span": 8,
+  "lead": {
+   "zh": "公共榜单测不出「它在我这活儿上行不行」。这篇讲怎么搭一套只属于你的评测：题目、判分、跑法。",
+   "en": "Public leaderboards can't answer \"is it good at my job\". How to build an eval that is yours alone: questions, grading, and how to run it."
+  },
+  "points": [
+   "从真实失败案例攒题：20-50 道你业务里真会遇到的输入，比抄公开题集有用。",
+   "每题写清「什么算对」：有标准答案的精确比对，开放题给评分标准或让强模型按标准打分。",
+   "固定题目版本和输入条件（模型、参数、提示词），否则分数变化说不清原因。",
+   "分开看两类错误：格式错（能用规则判）和内容错（要人或模型判），修法完全不同。",
+   "跑回归：换模型、改提示词后重跑同一套题，看哪些题从对变错——变错比变对更值得警惕。",
+   "警惕题目泄漏：公开题集可能混进训练数据，自建题能规避这一点，也要定期换题。"
+  ],
+  "pointsEn": [
+   "Collect questions from real failures: 20–50 inputs from your actual work beat copying a public benchmark.",
+   "Write down what counts as correct for each question: exact matching where there's a gold answer; a rubric — or a strong model grading against one — for open-ended ones.",
+   "Pin the question version and the input conditions (model, parameters, prompt), otherwise score changes have no explanation.",
+   "Separate the two error kinds: format errors (rule-checkable) and content errors (need a human or a model judge) — the fixes are completely different.",
+   "Run regressions: after swapping a model or editing a prompt, re-run the same set and watch which questions flip from right to wrong — flips to wrong deserve more attention than flips to right.",
+   "Watch for contamination: public benchmarks may sit in training data; your own questions dodge that, but rotate them periodically too."
   ],
   "myth": null,
   "mythEn": null,

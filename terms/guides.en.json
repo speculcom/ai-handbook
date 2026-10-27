@@ -317,5 +317,59 @@
       "Strict consistency required: two runs of the same question may retrieve differently; assess this for compliance settings.",
       "Try the baseline first: ask without retrieval; if it is good enough, do not build RAG."
     ]
+  },
+  "怎么把提示词写结构": {
+    "lead": "\"How to Ask AI\" covers what to state before asking; this guide covers what shape to put it in: role, task, constraints, and format, written as separate blocks.",
+    "points": [
+      "Write in blocks, not one wall of prose: role and background in one block, the task in another, constraints in another, output format in another — models follow blocked instructions more reliably.",
+      "Put standing rules (tone, boundaries) in the system prompt and the current task in the user message — each layer does its job; don't stuff one-off requests into the system prompt.",
+      "Mark sections with headings or tags (e.g. \"Background:\", \"Requirements:\"), and on long inputs clearly separate the material to process from the instructions, so the model doesn't treat data as directives.",
+      "Write constraints as checkable items: \"under 300 words\", \"for absolute beginners\", \"cite sources\" — these beat \"shorter\" or \"more professional\".",
+      "Give the output format its own block plus one worked example: a single sample output beats three paragraphs describing it.",
+      "Change one thing at a time when editing a prompt and compare results; change five at once and you can't tell which one worked."
+    ]
+  },
+  "few-shot示例怎么选": {
+    "lead": "Dropping a few input→output examples into the prompt changes performance noticeably — but bad examples steer the model the wrong way. Five criteria for picking them.",
+    "points": [
+      "Cover the edge cases you actually need, not just the easy ones: the model imitates the distribution of your examples.",
+      "Keep the format identical to real inputs: field names, punctuation, and line breaks in the examples get copied verbatim.",
+      "Start with two or three examples; marginal returns drop fast, and too many crowd the context and raise cost.",
+      "Make examples differ from each other: three near-identical ones are worth one, and they teach the model it can only do that one thing.",
+      "When outputs go off the rails, first check whether an example is steering them — a wrong example is worse than no example."
+    ]
+  },
+  "思维链什么时候有用": {
+    "lead": "\"Think step by step\" helps some tasks a lot and barely helps — or actively hurts — others. How to tell whether extended reasoning is worth it.",
+    "points": [
+      "Sort the task type first: arithmetic, multi-step logic, and planning gain a lot; simple extraction, translation, and format conversion gain almost nothing.",
+      "Trigger phrases like \"think step by step\" mattered for older models; reasoning models already have long chains built in, so prompting for one just wastes tokens.",
+      "Asking the model to list steps before answering works better — and is more controllable — than a bare \"think about it\".",
+      "Chain-of-thought output is not a reliable record of thinking: the model may fabricate a plausible-sounding process after the fact; don't treat it as an audit log.",
+      "Extended reasoning multiplies output length and latency; measure the cost before enabling it in real-time settings.",
+      "There is only one way to know if it helps: run a comparison on your own task, don't trust claims of \"general improvement\"."
+    ]
+  },
+  "怎么让AI按格式输出": {
+    "lead": "When a program has to consume AI output, \"please output JSON\" often isn't enough. Three levels, from prompt-level constraints to structured outputs.",
+    "points": [
+      "Level one: a format spec plus one complete sample in the prompt. Enough for most cases, but missing fields and stray commentary still happen.",
+      "Level two: use the API's structured-output / tool-calling capability — server-side constrained decoding guarantees valid format, far more reliable than asking nicely.",
+      "Define schemas with only the fields you need and tighten types: fewer fields, smaller failure surface.",
+      "Validate on the receiving end regardless of level: on schema-validation failure, retry or degrade — never feed downstream code unchecked.",
+      "Format constraints and task quality pull against each other: forcing a format can degrade content, so evaluate the two separately.",
+      "Don't let format tricks substitute for content evaluation: valid output is not correct output."
+    ]
+  },
+  "怎么自建评测口径": {
+    "lead": "Public leaderboards can't answer \"is it good at my job\". How to build an eval that is yours alone: questions, grading, and how to run it.",
+    "points": [
+      "Collect questions from real failures: 20–50 inputs from your actual work beat copying a public benchmark.",
+      "Write down what counts as correct for each question: exact matching where there's a gold answer; a rubric — or a strong model grading against one — for open-ended ones.",
+      "Pin the question version and the input conditions (model, parameters, prompt), otherwise score changes have no explanation.",
+      "Separate the two error kinds: format errors (rule-checkable) and content errors (need a human or a model judge) — the fixes are completely different.",
+      "Run regressions: after swapping a model or editing a prompt, re-run the same set and watch which questions flip from right to wrong — flips to wrong deserve more attention than flips to right.",
+      "Watch for contamination: public benchmarks may sit in training data; your own questions dodge that, but rotate them periodically too."
+    ]
   }
 }
