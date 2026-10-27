@@ -382,5 +382,38 @@
       "Ask whether the gap is meaningful: 1–2 points is usually within eval noise; adjacent ranks are effectively a tie.",
       "Fill the gap with your own eval: public leaderboards answer \"general level\"; your own 20–50 questions answer \"is it good at my job\"."
     ]
+  },
+  "提示词怎么版本化": {
+    "lead": "If you can't say which change moved your live numbers, it's usually because prompts live inside code and get edited on the fly. The minimal way to treat prompts like code.",
+    "points": [
+      "Move prompts out of code strings into their own files: editing a prompt shouldn't require a rebuild or redeploy.",
+      "Commit every change with the motivation written down: traceable, diffable, revertable — just like code.",
+      "Pair changes with a regression run: fixed inputs, old vs new outputs; without an eval, \"improved\" is a feeling.",
+      "Record prompt and model version as a pair: the same prompt can break on a new model; log them together.",
+      "When production misbehaves, check the prompt changelog first: prompts are a common change source that rarely sits inside the audit trail.",
+      "Control variables in A/B comparisons: swap prompt and model together and you'll never know which one did it."
+    ]
+  },
+  "系统提示怎么设计": {
+    "lead": "A system prompt is the invisible spec of your product's behavior. What to put in it, what to leave out, and how to test whether it actually holds.",
+    "points": [
+      "Standing rules only: identity, tone, boundaries, refusal policy. One-off tasks go in the user message — don't mix them in.",
+      "Write checkable clauses: \"cite a link when quoting external information\" beats \"be honest\" — it's enforceable and testable one by one.",
+      "Give boundary clauses an exit: refuse with a reason plus an alternative; a bare \"don't do X\" yields robotic refusals.",
+      "A system prompt is not a security boundary: a motivated user can always get around it; the real defenses sit in permissions and tools.",
+      "Test clause by clause: each rule gets one should-trigger and one should-not-trigger input; re-run on every revision.",
+      "Version it like a prompt: system-prompt edits need model-version records and regression runs too."
+    ]
+  },
+  "换模型前怎么迁移评估": {
+    "lead": "Switching models is not renaming: the same prompt set can break on the new one. Four checks to pass before you switch.",
+    "points": [
+      "Run your own eval on old vs new first: public leaderboards show general level; only your real inputs say whether the switch works.",
+      "Diff the API surface item by item: parameter names, streaming behavior, structured-output support, context length — a compatible interface is not identical behavior.",
+      "Re-test everything that depends on prompts: the same prompt can behave very differently across models; boundary clauses drift most.",
+      "Check licenses and data terms: the new model's license, data-retention policy, and regional availability may differ from the old one.",
+      "Keep a rollback path: retain the old model's configuration until the confirmation window closes, so you can switch back with one click.",
+      "Close out with live metrics during the confirmation window: task completion, refusal rate, and cost against baseline — retire the old model only when they pass."
+    ]
   }
 }

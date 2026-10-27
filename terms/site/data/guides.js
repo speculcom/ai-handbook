@@ -836,6 +836,72 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "提示词怎么版本化",
+  "zh": "提示词怎么版本化",
+  "en": "How to Version Your Prompts",
+  "kind": "guide",
+  "station": 3,
+  "ord": 9,
+  "span": 6,
+  "lead": {
+   "zh": "线上效果说不清是哪次改动带来的，多半因为提示词散在代码里随手改。这篇讲把提示词当代码管的最小做法。",
+   "en": "If you can't say which change moved your live numbers, it's usually because prompts live inside code and get edited on the fly. The minimal way to treat prompts like code."
+  },
+  "points": [
+   "提示词从代码字符串里拆出来单独存放：改提示词不该触发重新编译或部署。",
+   "每次改动进版本控制并写清动机：和代码一样可回溯、可对比、可回滚。",
+   "改动配回归：跑一套固定输入对比新旧输出，没有评测就谈不上「改好了」。",
+   "记录提示词与模型版本的配对：同一提示词换模型可能失效，两者要一起记。",
+   "线上出问题时先查提示词变更记录：它和代码一样是常见变更源，却常不在审计范围里。",
+   "A/B 对比要控制变量：同时换提示词和模型，就永远说不清是哪个起作用。"
+  ],
+  "pointsEn": [
+   "Move prompts out of code strings into their own files: editing a prompt shouldn't require a rebuild or redeploy.",
+   "Commit every change with the motivation written down: traceable, diffable, revertable — just like code.",
+   "Pair changes with a regression run: fixed inputs, old vs new outputs; without an eval, \"improved\" is a feeling.",
+   "Record prompt and model version as a pair: the same prompt can break on a new model; log them together.",
+   "When production misbehaves, check the prompt changelog first: prompts are a common change source that rarely sits inside the audit trail.",
+   "Control variables in A/B comparisons: swap prompt and model together and you'll never know which one did it."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "系统提示怎么设计",
+  "zh": "系统提示怎么设计",
+  "en": "How to Design a System Prompt",
+  "kind": "guide",
+  "station": 3,
+  "ord": 10,
+  "span": 7,
+  "lead": {
+   "zh": "系统提示是产品行为的隐形规格书。这篇讲写什么、不写什么、怎么测它有没有生效。",
+   "en": "A system prompt is the invisible spec of your product's behavior. What to put in it, what to leave out, and how to test whether it actually holds."
+  },
+  "points": [
+   "只放长期规则：身份、语气、边界、拒答口径；一次性任务放用户消息，别混进系统提示。",
+   "写成可检查的条款：「引用外部信息必须给链接」比「要诚实」可执行，也便于逐条测试。",
+   "边界条款要给出路：拒绝时说明原因并给替代方案，只写「不能做」会得到生硬拒答。",
+   "系统提示不是安全边界：足够用心的用户总能绕开，真正的防线在权限与工具侧。",
+   "逐条写测试：每条规则配一个「应触发/不应触发」的输入，改一版跑一遍。",
+   "版本与配对同提示词管理：系统提示改动也要配模型版本记录和回归。"
+  ],
+  "pointsEn": [
+   "Standing rules only: identity, tone, boundaries, refusal policy. One-off tasks go in the user message — don't mix them in.",
+   "Write checkable clauses: \"cite a link when quoting external information\" beats \"be honest\" — it's enforceable and testable one by one.",
+   "Give boundary clauses an exit: refuse with a reason plus an alternative; a bare \"don't do X\" yields robotic refusals.",
+   "A system prompt is not a security boundary: a motivated user can always get around it; the real defenses sit in permissions and tools.",
+   "Test clause by clause: each rule gets one should-trigger and one should-not-trigger input; re-run on every revision.",
+   "Version it like a prompt: system-prompt edits need model-version records and regression runs too."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "榜单分数高就是好用",
   "zh": "榜单分数高就是好用",
   "en": "A High Benchmark Score Means It Works For You",
@@ -1165,6 +1231,39 @@ var GUIDES = [
    "Check derivative duties: copyleft licenses require models you fine-tune to carry the same license.",
    "Check use restrictions: many model licenses forbid certain use cases; violating them voids the license.",
    "Check license inheritance: which license a fine-tuned, quantized, or merged model carries is recorded repo by repo in this site's model profiles."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "换模型前怎么迁移评估",
+  "zh": "换模型前怎么迁移评估",
+  "en": "How to Assess a Model Migration",
+  "kind": "guide",
+  "station": 6,
+  "ord": 6,
+  "span": 7,
+  "lead": {
+   "zh": "换模型不是改个名字：同一套提示词在新模型上可能失效。这篇讲换之前要过的四道检查。",
+   "en": "Switching models is not renaming: the same prompt set can break on the new one. Four checks to pass before you switch."
+  },
+  "points": [
+   "先跑自建评测对比新旧：公共榜单只说明普遍水平，你的真实输入才说明能不能换。",
+   "逐项核接口差异：参数名、流式行为、结构化输出支持、上下文长度——兼容接口不等于行为一致。",
+   "重测依赖提示词的功能：同一提示词在不同模型上表现可以差很多，边界条款尤其容易漂。",
+   "核许可与数据条款：新模型的许可证、数据保留政策、区域可用性可能和旧模型不同。",
+   "留回滚路径：旧模型配置保留到确认期结束，出问题能一键切回。",
+   "确认期用线上指标收尾：任务完成率、拒答率、成本三项对比基线，达标才下线旧模型。"
+  ],
+  "pointsEn": [
+   "Run your own eval on old vs new first: public leaderboards show general level; only your real inputs say whether the switch works.",
+   "Diff the API surface item by item: parameter names, streaming behavior, structured-output support, context length — a compatible interface is not identical behavior.",
+   "Re-test everything that depends on prompts: the same prompt can behave very differently across models; boundary clauses drift most.",
+   "Check licenses and data terms: the new model's license, data-retention policy, and regional availability may differ from the old one.",
+   "Keep a rollback path: retain the old model's configuration until the confirmation window closes, so you can switch back with one click.",
+   "Close out with live metrics during the confirmation window: task completion, refusal rate, and cost against baseline — retire the old model only when they pass."
   ],
   "myth": null,
   "mythEn": null,
