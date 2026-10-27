@@ -803,6 +803,39 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "榜单怎么读",
+  "zh": "榜单怎么读",
+  "en": "How to Read a Leaderboard",
+  "kind": "guide",
+  "station": 3,
+  "ord": 8,
+  "span": 7,
+  "lead": {
+   "zh": "误区篇说「榜单分数高不等于好用」；这篇讲怎么把榜单读出信息：谁做的、怎么测、哪里失真。",
+   "en": "The myth page says a high leaderboard score doesn't mean it works well; this guide shows how to squeeze real information out of a leaderboard: who runs it, how it tests, and where it distorts."
+  },
+  "points": [
+   "先查三件事：谁维护、题目从哪来、分数怎么算——三者不明的榜单只当广告看。",
+   "看题目发布时间：榜单晚于模型训练截止才有区分度；疑似泄漏的公开题集分数普遍虚高。",
+   "总分拆开看：同一模型在不同任务子集上排名可以完全颠倒，按你要的任务子集比。",
+   "对比要同口径：不同榜单的分数不能互比，同一榜单里不同评测条件（上下文长度、工具开关）也不能混比。",
+   "看分数差有没有意义：1-2 分常在评测噪声范围内，排名相邻基本等于打平。",
+   "自建口径补位：公共榜单回答「普遍水平」，你自己的 20-50 道题回答「在我这活儿上行不行」。"
+  ],
+  "pointsEn": [
+   "Check three things first: who maintains it, where the questions come from, and how scores are computed — a leaderboard missing all three is an ad.",
+   "Look at when the questions were published: a benchmark only discriminates if it postdates the model's training cutoff; suspected-contaminated public sets inflate scores across the board.",
+   "Break the aggregate apart: the same model can rank completely differently across task subsets — compare on the subset you care about.",
+   "Compare only like with like: scores from different leaderboards are not comparable, and neither are different eval settings (context length, tools on/off) within one.",
+   "Ask whether the gap is meaningful: 1–2 points is usually within eval noise; adjacent ranks are effectively a tie.",
+   "Fill the gap with your own eval: public leaderboards answer \"general level\"; your own 20–50 questions answer \"is it good at my job\"."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "榜单分数高就是好用",
   "zh": "榜单分数高就是好用",
   "en": "A High Benchmark Score Means It Works For You",

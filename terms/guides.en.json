@@ -371,5 +371,16 @@
       "Run regressions: after swapping a model or editing a prompt, re-run the same set and watch which questions flip from right to wrong — flips to wrong deserve more attention than flips to right.",
       "Watch for contamination: public benchmarks may sit in training data; your own questions dodge that, but rotate them periodically too."
     ]
+  },
+  "榜单怎么读": {
+    "lead": "The myth page says a high leaderboard score doesn't mean it works well; this guide shows how to squeeze real information out of a leaderboard: who runs it, how it tests, and where it distorts.",
+    "points": [
+      "Check three things first: who maintains it, where the questions come from, and how scores are computed — a leaderboard missing all three is an ad.",
+      "Look at when the questions were published: a benchmark only discriminates if it postdates the model's training cutoff; suspected-contaminated public sets inflate scores across the board.",
+      "Break the aggregate apart: the same model can rank completely differently across task subsets — compare on the subset you care about.",
+      "Compare only like with like: scores from different leaderboards are not comparable, and neither are different eval settings (context length, tools on/off) within one.",
+      "Ask whether the gap is meaningful: 1–2 points is usually within eval noise; adjacent ranks are effectively a tie.",
+      "Fill the gap with your own eval: public leaderboards answer \"general level\"; your own 20–50 questions answer \"is it good at my job\"."
+    ]
   }
 }

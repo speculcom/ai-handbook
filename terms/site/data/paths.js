@@ -133,5 +133,127 @@ var PATHS = [
     "Read a benchmark table and name at least one thing it cannot say about your actual use"
    ]
   }
+ },
+ {
+  "id": "for-writers",
+  "ord": 4,
+  "zh": "内容工作者路线",
+  "en": "The Writer's Route",
+  "span": {
+   "zh": "约 40 分钟",
+   "en": "about 40 minutes"
+  },
+  "lead": {
+   "zh": "给靠文字吃饭的人：先懂 AI 怎么生成、哪里会错，再学会让它替你干活而不是替你编活。",
+   "en": "For people who make a living on words: first understand how AI generates and where it goes wrong, then make it work for you instead of inventing work for you."
+  },
+  "steps": [
+   "生成式 AI",
+   "提示词",
+   "上下文窗口",
+   "幻觉",
+   "幻觉的成因",
+   "知识截止",
+   "联网 - 检索增强",
+   "温度",
+   "系统提示",
+   "水印与内容凭证"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说出幻觉的两种成因，各配一个写作场景里的例子",
+    "用「联网检索 + 自己核对」替代直接采信 AI 给的引用",
+    "拿到一段 AI 文字，说清哪些部分必须人工复核、复核什么"
+   ],
+   "en": [
+    "Name two causes of hallucination, each with an example from a writing scenario",
+    "Replace trusting AI-provided citations on faith with retrieval plus your own verification",
+    "Given a passage of AI text, say which parts require human review and what to check"
+   ]
+  }
+ },
+ {
+  "id": "for-builders",
+  "ord": 5,
+  "zh": "动手开发者路线",
+  "en": "The Builder's Route",
+  "span": {
+   "zh": "约 60 分钟",
+   "en": "about 60 minutes"
+  },
+  "lead": {
+   "zh": "要接 API 做点东西的人：按搭建顺序读——接口、检索、工具调用、评测与成本，读完能跑通一条最小链路。",
+   "en": "For developers wiring up an API: read in build order — interface, retrieval, tool calling, evaluation, cost — and finish able to run a minimal pipeline."
+  },
+  "steps": [
+   "API - 接口调用",
+   "OpenAI 兼容接口",
+   "上下文窗口",
+   "向量 - 嵌入",
+   "分块",
+   "联网 - 检索增强",
+   "工具定义",
+   "工具调用",
+   "MCP",
+   "智能体 - Agent",
+   "工作流编排",
+   "评估",
+   "单次调用成本",
+   "提示注入"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说清一次 API 调用的费用由哪几段 token 构成",
+    "解释检索链路里分块与嵌入各自决定什么",
+    "指出接入工具调用时最先要设的两道防线"
+   ],
+   "en": [
+    "Break down an API call's cost into its token segments",
+    "Explain what chunking and embedding each determine in a retrieval pipeline",
+    "Name the first two defenses to put in place when adding tool calling"
+   ]
+  }
+ },
+ {
+  "id": "for-managers",
+  "ord": 6,
+  "zh": "选型决策者路线",
+  "en": "The Decision-Maker's Route",
+  "span": {
+   "zh": "约 50 分钟",
+   "en": "about 50 minutes"
+  },
+  "lead": {
+   "zh": "替团队做选择的人：不学原理，只学决策要看的维度——成本、锁定、合规、评测口径。",
+   "en": "For whoever chooses for the team: skip the mechanics, learn the dimensions a decision turns on — cost, lock-in, compliance, and how scores are produced."
+  },
+  "steps": [
+   "AI 产品 vs AI 模型",
+   "开源模型",
+   "开放权重",
+   "许可证",
+   "成本",
+   "自托管成本",
+   "供应商锁定",
+   "退出成本",
+   "数据不出网",
+   "数据驻留",
+   "隐私与合规",
+   "生成式 AI 合规义务",
+   "基准测试",
+   "模型评测的局限"
+  ],
+  "checkpoint": {
+   "zh": [
+    "用三个维度对比「调 API」与「自己部署」的总成本",
+    "说出更换模型供应商之前必须核实的三件事",
+    "看一份供应商评测报告，判断哪些分数可以直接采信、哪些要打问号"
+   ],
+   "en": [
+    "Compare API usage against self-hosting on three cost dimensions",
+    "Name three things to verify before switching model vendors",
+    "Read a vendor's evaluation report and say which scores stand up and which need a question mark"
+   ]
+  }
  }
 ];

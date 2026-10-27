@@ -1,0 +1,42 @@
+{
+  "id": "for-builders",
+  "ord": 5,
+  "zh": "动手开发者路线",
+  "en": "The Builder's Route",
+  "span": {
+    "zh": "约 60 分钟",
+    "en": "about 60 minutes"
+  },
+  "lead": {
+    "zh": "要接 API 做点东西的人：按搭建顺序读——接口、检索、工具调用、评测与成本，读完能跑通一条最小链路。",
+    "en": "For developers wiring up an API: read in build order — interface, retrieval, tool calling, evaluation, cost — and finish able to run a minimal pipeline."
+  },
+  "steps": [
+    "API - 接口调用",
+    "OpenAI 兼容接口",
+    "上下文窗口",
+    "向量 - 嵌入",
+    "分块",
+    "联网 - 检索增强",
+    "工具定义",
+    "工具调用",
+    "MCP",
+    "智能体 - Agent",
+    "工作流编排",
+    "评估",
+    "单次调用成本",
+    "提示注入"
+  ],
+  "checkpoint": {
+    "zh": [
+      "说清一次 API 调用的费用由哪几段 token 构成",
+      "解释检索链路里分块与嵌入各自决定什么",
+      "指出接入工具调用时最先要设的两道防线"
+    ],
+    "en": [
+      "Break down an API call's cost into its token segments",
+      "Explain what chunking and embedding each determine in a retrieval pipeline",
+      "Name the first two defenses to put in place when adding tool calling"
+    ]
+  }
+}
