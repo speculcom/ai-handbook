@@ -41,7 +41,7 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 |---|---|
 | terms · Terms | 200 |
 | terms · Stations | Getting In 35 · Hands On 35 · Going Deeper 35 · Under the Hood 35 · Running It 30 · Choosing Right 30 |
-| terms · Learning paths | 6 curated ordered routes, each with a checkpoint |
+| terms · Learning paths | 8 curated ordered routes, each with a checkpoint |
 | terms · Short guides | 48 guides of 5-10 minutes each (English coverage 48/48) |
 | terms · Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |
 | terms · Domain | concept 56 · infra 34 · choice 33 · agent 25 · media 19 · model 14 · dev 10 · data 9 |

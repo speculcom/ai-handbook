@@ -255,5 +255,89 @@ var PATHS = [
     "Read a vendor's evaluation report and say which scores stand up and which need a question mark"
    ]
   }
+ },
+ {
+  "id": "for-researchers",
+  "ord": 7,
+  "zh": "研究学习者路线",
+  "en": "The Researcher's Route",
+  "span": {
+   "zh": "约 60 分钟",
+   "en": "about 60 minutes"
+  },
+  "lead": {
+   "zh": "给想读懂论文和技术报告的人：从模型怎么训练、怎么变小变快，到怎么判断一个评测结果可不可信。",
+   "en": "For people who want to read papers and tech reports: how models are trained, how they get smaller and faster, and when an eval result is trustworthy."
+  },
+  "steps": [
+   "Transformer",
+   "注意力机制",
+   "预训练",
+   "训练三阶段",
+   "缩放定律",
+   "微调",
+   "知识蒸馏",
+   "量化",
+   "困惑度",
+   "基准测试",
+   "模型评测的局限",
+   "数据污染",
+   "开放权重",
+   "模型卡"
+  ],
+  "checkpoint": {
+   "zh": [
+    "把一份技术报告的训练章节拆成预训练/后训练两段，各说出关键变量",
+    "看到「刷新 SOTA」的说法，先查评测集发布时间和训练截止日期的关系",
+    "读模型卡时能指出许可证、评测口径和已知局限三处关键信息"
+   ],
+   "en": [
+    "Split a tech report's training section into pretraining and post-training, naming the key variables of each",
+    "On seeing a \"new SOTA\" claim, first check the benchmark's release date against the model's training cutoff",
+    "When reading a model card, point out the license, the eval setup, and the stated limitations"
+   ]
+  }
+ },
+ {
+  "id": "for-operators",
+  "ord": 8,
+  "zh": "运维上线路线",
+  "en": "The Operator's Route",
+  "span": {
+   "zh": "约 60 分钟",
+   "en": "about 60 minutes"
+  },
+  "lead": {
+   "zh": "负责把 AI 服务跑起来并稳住的人：性能从哪来、成本从哪来、出事时先看哪里。",
+   "en": "For people who keep AI services running: where performance comes from, where cost comes from, and what to check first when things break."
+  },
+  "steps": [
+   "推理成本",
+   "首字延迟",
+   "吞吐",
+   "KV 缓存",
+   "缓存策略",
+   "连续批处理",
+   "速率限制",
+   "可观测性",
+   "护栏",
+   "提示注入",
+   "权限",
+   "服务中断风险",
+   "模型退役",
+   "本地部署"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说出首字延迟和吞吐各自受什么影响，各给一个优化手段",
+    "给线上服务列出三件必须监控的事，并说明各自先查什么",
+    "供应商宣布模型退役时，能走一遍迁移评估的四个检查项"
+   ],
+   "en": [
+    "Say what drives time-to-first-token and throughput respectively, with one optimization for each",
+    "List three things a live service must monitor, and what to check first for each",
+    "When a vendor announces retirement, walk through the four migration-assessment checks"
+   ]
+  }
  }
 ];
