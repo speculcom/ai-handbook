@@ -415,5 +415,16 @@
       "Keep a rollback path: retain the old model's configuration until the confirmation window closes, so you can switch back with one click.",
       "Close out with live metrics during the confirmation window: task completion, refusal rate, and cost against baseline — retire the old model only when they pass."
     ]
+  },
+  "数据标注与质检怎么看": {
+    "lead": "\"We used a million annotated rows\" says nothing about quality. How to size up a training or eval dataset from three angles: who labeled it, how consistent they were, and how QA ran.",
+    "points": [
+      "Start with who did the labeling: crowdworkers, in-house staff, or domain experts — unit price is usually a good proxy for data quality.",
+      "Check inter-annotator agreement: low agreement on the same batch means the guidelines themselves are ambiguous, so the noise is real.",
+      "QA process beats label count: sampling rate, rework loop, and disagreement arbitration — miss any of the three and the scale number is hollow.",
+      "\"What counts as correct\" must be written into the annotation guidelines: vague rules make annotators guess, and guessed data trains a wobbly model.",
+      "Model-labeled data (synthetic data, AI feedback) is not exempt: it carries the labeling model's biases; at minimum add human spot-checks plus eval regression.",
+      "Data problems surface in evals eventually: when model behavior gets weird, audit the latest batch's guideline changes before touching hyperparameters."
+    ]
   }
 }

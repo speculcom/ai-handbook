@@ -902,6 +902,39 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "数据标注与质检怎么看",
+  "zh": "数据标注与质检怎么看",
+  "en": "How to Read Data Annotation and QA",
+  "kind": "guide",
+  "station": 3,
+  "ord": 11,
+  "span": 8,
+  "lead": {
+   "zh": "「我们用了百万条标注数据」不说明质量。这篇讲怎么从标注者、一致性、质检流程三处看穿一份训练或评测数据的成色。",
+   "en": "\"We used a million annotated rows\" says nothing about quality. How to size up a training or eval dataset from three angles: who labeled it, how consistent they were, and how QA ran."
+  },
+  "points": [
+   "先看标注者是谁：众包、内部员工还是领域专家，单价差在哪，数据质量大概率就在哪。",
+   "看一致性指标：同一批数据多人标注的吻合度低，说明规则本身有歧义，数据噪声不会小。",
+   "质检流程比标注量重要：抽查比例、返工机制、分歧仲裁，三样缺一样，规模都是虚的。",
+   "「什么算对」必须写进标注规则：规则含糊，标注员只能猜，猜出来的数据会教出摇摆的模型。",
+   "模型标的数据（合成数据、AI 反馈）不免检：它自带模型偏见，至少要人工抽检加评测回归兜底。",
+   "数据问题最后都在评测里显形：模型行为怪异时，先查最近一批数据的规则变更，别急着调参数。"
+  ],
+  "pointsEn": [
+   "Start with who did the labeling: crowdworkers, in-house staff, or domain experts — unit price is usually a good proxy for data quality.",
+   "Check inter-annotator agreement: low agreement on the same batch means the guidelines themselves are ambiguous, so the noise is real.",
+   "QA process beats label count: sampling rate, rework loop, and disagreement arbitration — miss any of the three and the scale number is hollow.",
+   "\"What counts as correct\" must be written into the annotation guidelines: vague rules make annotators guess, and guessed data trains a wobbly model.",
+   "Model-labeled data (synthetic data, AI feedback) is not exempt: it carries the labeling model's biases; at minimum add human spot-checks plus eval regression.",
+   "Data problems surface in evals eventually: when model behavior gets weird, audit the latest batch's guideline changes before touching hyperparameters."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "榜单分数高就是好用",
   "zh": "榜单分数高就是好用",
   "en": "A High Benchmark Score Means It Works For You",

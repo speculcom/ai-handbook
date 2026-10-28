@@ -42,11 +42,11 @@
 | terms · 词条 | 200 词 |
 | terms · 分站 | 进门 35 · 上手 35 · 用深 35 · 看懂 35 · 跑起来 30 · 选得对 30 |
 | terms · 学习路径 | 8 条（精选有序路径 · 各带检查点） |
-| terms · 微型指南 | 48 篇（5-10 分钟一篇 · 英文覆盖 48/48） |
+| terms · 微型指南 | 49 篇（5-10 分钟一篇 · 英文覆盖 49/49） |
 | terms · 编年史与版图 | 18 条时间线 · 12 家公司 · 5 条术语演变 |
 | terms · 领域（domain） | concept 56 · infra 34 · choice 33 · agent 25 · media 19 · model 14 · dev 10 · data 9 |
 | terms · 用途（purposeTag） | learn 80 · apply 49 · guard 36 · judge 35 |
-| terms · 出处条目（refs） | 451 条 |
+| terms · 出处条目（refs） | 454 条 |
 | terms · 英文覆盖 | 200 / 200 |
 | tools · 档案总数 | 177 份 |
 | tools · 大类分布 | coding 41 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 28 · runner 12 |
