@@ -2137,7 +2137,29 @@
           "variantCount": 10
         }
       ],
-      "variantCount": 10
+      "variantCount": 10,
+      "caps": {
+        "modality": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡「Supported modalities」：输入文本+图像、输出文本；带 ViT-G/14 感知编码器；音频不支持；视频按帧处理（未针对视频优化）。经 hf-mirror 镜像核实（原站在当前区域被屏蔽）。",
+            "en": "Card \"Supported modalities\": input text + image, output text; ViT-G/14 perception encoder; audio not supported; video processed frame-by-frame (not optimized for video). Verified via the hf-mirror.com mirror (the origin page is region-blocked)."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：Reliable Tool Use——跨多轮长流程按 schema 可靠调用函数；工具失败会诊断并重试。经 hf-mirror 镜像核实。",
+            "en": "Card: \"Reliable Tool Use\" — schema-based function calls across extended multi-turn workflows; failed tool calls are diagnosed and retried. Verified via the hf-mirror.com mirror."
+          }
+        }
+      }
     }
   ],
   "collectedAt": "2026-10-09T00:05:07.836Z",
