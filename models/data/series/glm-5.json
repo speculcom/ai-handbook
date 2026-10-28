@@ -795,7 +795,29 @@
           "variantCount": 3
         }
       ],
-      "variantCount": 7
+      "variantCount": 7,
+      "caps": {
+        "modality": {
+          "v": "no",
+          "src": "model-card",
+          "url": "https://huggingface.co/zai-org/GLM-5.3",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "HF 任务标签 text-generation；模型卡未提图像输入（同系列 GLM-5.3-Flash 才是多模态）。",
+            "en": "HF task tag text-generation; the card does not mention image input (the sibling GLM-5.3-Flash is the multimodal one)."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/zai-org/GLM-5.3",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：评测在 Claude Code 等 agent 框架内跑 Terminal-Bench/ALE 等工具类基准，模型在循环中调用工具。",
+            "en": "Card: evaluated inside agent harnesses (Claude Code) on tool-heavy benchmarks such as Terminal-Bench and ALE, with the model driving tools in the loop."
+          }
+        }
+      }
     },
     {
       "repo": "zai-org/GLM-5.3-Flash",
@@ -1620,7 +1642,29 @@
           "variantCount": 4
         }
       ],
-      "variantCount": 10
+      "variantCount": 10,
+      "caps": {
+        "modality": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：GLM-5 系列首个原生多模态；HF 任务标签 image-text-to-text。",
+            "en": "Card: the first natively multimodal model in the GLM-5 series; HF task tag image-text-to-text."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：评测在 mini-swe-agent、Claude Code、AutomationBench 等 agent 框架内跑，模型在循环中调用工具。",
+            "en": "Card: evaluated in agent harnesses (mini-swe-agent, Claude Code, AutomationBench), with the model driving tools in the loop."
+          }
+        }
+      }
     }
   ],
   "collectedAt": "2026-10-09T00:05:07.833Z",

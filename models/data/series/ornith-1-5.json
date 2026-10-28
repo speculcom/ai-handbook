@@ -1531,7 +1531,29 @@
           "variantCount": 5
         }
       ],
-      "variantCount": 10
+      "variantCount": 10,
+      "caps": {
+        "modality": {
+          "v": "unknown",
+          "src": "model-card",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "HF 标签同时带 image-text-to-text 与 text-generation，模型卡全文未提图像/视觉输入，证据矛盾且卡面沉默。",
+            "en": "HF tags carry both image-text-to-text and text-generation, while the card never mentions image/vision input — conflicting tags plus card silence."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：明确擅长 tool-calling 与 agentic coding，OpenAI 兼容端点带工具调用开箱即用。",
+            "en": "Card: explicitly strong at tool-calling and agentic coding; OpenAI-compatible endpoint with tool calling out of the box."
+          }
+        }
+      }
     },
     {
       "repo": "ornith-ai/Ornith-1.5-9B",
@@ -3698,7 +3720,29 @@
           "variantCount": 3
         }
       ],
-      "variantCount": 10
+      "variantCount": 10,
+      "caps": {
+        "modality": {
+          "v": "unknown",
+          "src": "model-card",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "HF 标签同时带 image-text-to-text 与 text-generation，模型卡全文未提图像/视觉输入，证据矛盾且卡面沉默。",
+            "en": "HF tags carry both image-text-to-text and text-generation, while the card never mentions image/vision input — conflicting tags plus card silence."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：OpenAI 兼容端点带工具调用，配 qwen3_xml/qwen3_coder 解析器。",
+            "en": "Card: OpenAI-compatible endpoint with tool calling, paired with qwen3_xml/qwen3_coder parsers."
+          }
+        }
+      }
     }
   ],
   "collectedAt": "2026-10-09T00:05:07.835Z",

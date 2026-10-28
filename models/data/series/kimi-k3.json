@@ -703,7 +703,29 @@
           "variantCount": 1
         }
       ],
-      "variantCount": 10
+      "variantCount": 10,
+      "caps": {
+        "modality": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：原生多模态，同一模型理解文本、图像与视频；带 Vision Encoder。",
+            "en": "Card: native multimodal — understands text, images, and video in one model; includes a vision encoder."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：原生 agentic，编排终端工具；多轮工具调用需回传完整 assistant 消息（含 tool_calls）。",
+            "en": "Card: natively agentic, orchestrates terminal tools; multi-turn tool calls require passing back the full assistant message (including tool_calls)."
+          }
+        }
+      }
     }
   ],
   "collectedAt": "2026-10-09T00:05:07.834Z",

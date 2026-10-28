@@ -969,7 +969,29 @@
           "variantCount": 1
         }
       ],
-      "variantCount": 6
+      "variantCount": 6,
+      "caps": {
+        "modality": {
+          "v": "no",
+          "src": "model-card",
+          "url": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡明确：开放权重版仅语言模型权重、纯文本；视觉组件未包含（HF 标签里的 image-text-to-text 与卡面说明冲突，以卡面为准）。",
+            "en": "Card states the open-weight release ships language-model weights only and operates as a text-only model; vision components are not included (the HF image-text-to-text tag conflicts with the card; the card wins)."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：vLLM/SGLang 部署带 --tool-call-parser qwen3_coder，明确支持 tool use。",
+            "en": "Card: vLLM/SGLang serving recipes pass --tool-call-parser qwen3_coder; tool use explicitly supported."
+          }
+        }
+      }
     }
   ],
   "collectedAt": "2026-10-09T00:05:07.837Z",

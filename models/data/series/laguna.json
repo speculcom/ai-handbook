@@ -881,7 +881,29 @@
           "variantCount": 11
         }
       ],
-      "variantCount": 6
+      "variantCount": 6,
+      "caps": {
+        "modality": {
+          "v": "no",
+          "src": "model-card",
+          "url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "HF 任务标签 text-generation；模型卡未提图像输入。",
+            "en": "HF task tag text-generation; the card does not mention image input."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/poolside/Laguna-XS-2.1",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：内置 tool-call 解析器（vLLM poolside_v1 / TRT-LLM laguna），推理与工具调用开箱即用。",
+            "en": "Card: built-in tool-call parsers (vLLM poolside_v1 / TRT-LLM laguna); reasoning and tool-calling work out of the box."
+          }
+        }
+      }
     }
   ],
   "collectedAt": "2026-10-09T00:05:07.837Z",
