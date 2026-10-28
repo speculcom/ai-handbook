@@ -395,7 +395,29 @@
           "variantCount": 1
         }
       ],
-      "variantCount": 5
+      "variantCount": 5,
+      "caps": {
+        "modality": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "HF 任务标签含 image-text-to-text；模型卡参考实现覆盖交错图像内容。",
+            "en": "HF task tags include image-text-to-text; the card's reference implementation covers interleaved image content."
+          }
+        },
+        "tools": {
+          "v": "yes",
+          "src": "model-card",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "date": "2026-10-28",
+          "note": {
+            "zh": "模型卡：参考实现覆盖 tool calling；本发布不带 Jinja chat 模板。",
+            "en": "Card: reference implementation covers tool calling; this release ships no Jinja chat template."
+          }
+        }
+      }
     }
   ],
   "collectedAt": "2026-10-09T00:05:07.834Z",

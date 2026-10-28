@@ -255,6 +255,15 @@ for (const s of SERIES) {
 // ── 落盘 ────────────────────────────────────────────────────────────────
 fs.mkdirSync(`${OUT}/data/series`, { recursive: true });
 for (const s of out) {
+  // 保留旧产物里人工核实的字段（caps 等）：按 repo 合并，采集器不覆盖人工证据。
+  const prevPath = `${OUT}/data/series/${s.code}.json`;
+  if (fs.existsSync(prevPath)) {
+    try {
+      const prev = JSON.parse(fs.readFileSync(prevPath, 'utf8'));
+      const prevCaps = new Map((prev.members || []).map((m) => [m.repo, m.caps]).filter(([, c]) => c));
+      for (const m of s.members) if (prevCaps.has(m.repo)) m.caps = prevCaps.get(m.repo);
+    } catch { /* 旧文件坏了就不合并，照常落盘 */ }
+  }
   fs.writeFileSync(`${OUT}/data/series/${s.code}.json`, JSON.stringify({
     ...s,
     collectedAt: new Date().toISOString(),

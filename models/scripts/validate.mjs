@@ -103,6 +103,19 @@ for (const s of SERIES) {
       if (!/^https:\/\//.test(v.url || '')) errors.push(`${vw} · 变体 ${v.repo || '?'} 的 url 不是 https`);
       if (!v.license) warnings.push(`${vw} · 变体 ${v.repo || '?'} 缺 license（跑 backfill-license.mjs 回填）`);
     }
+    // C2 能力字段（caps）：封闭枚举 + 出处纪律。缺 caps 不报错（渐进铺开），有则必须完整。
+    if (m.caps) {
+      const cw = `${s.code}/${m.repo.split('/')[1]} · caps`;
+      for (const key of Object.keys(m.caps)) {
+        if (!['modality', 'tools'].includes(key)) { errors.push(`${cw} · 未登记的键「${key}」（当前只允许 modality/tools）`); continue; }
+        const c = m.caps[key];
+        if (!['yes', 'no', 'unknown'].includes(c?.v)) errors.push(`${cw}.${key} · v 必须是 yes/no/unknown`);
+        if (!c?.src) errors.push(`${cw}.${key} · 缺 src（证据来源）`);
+        if (!/^https:\/\//.test(c?.url || '')) errors.push(`${cw}.${key} · url 必须是 https 出处`);
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(c?.date || '')) errors.push(`${cw}.${key} · date 必须是 YYYY-MM-DD 核实日期`);
+        if (c?.note && (!c.note.zh || !c.note.en)) errors.push(`${cw}.${key} · note 中英必须成对`);
+      }
+    }
   }
 }
 const codes = new Set(SERIES.map((s) => s.code));

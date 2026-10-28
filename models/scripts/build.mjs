@@ -440,6 +440,21 @@ ${paramRows.map(([k, v]) => `          <tr><th>${k}</th><td>${v}</td></tr>`).joi
     ? `${bi(`<b>${fmtGB(m.usedStorage / 1e9)}</b>　<span class="muted small">该仓全部文件合计，含各精度原始权重</span>`, `<b>${fmtGB(m.usedStorage / 1e9)}</b>　<span class="muted small">all files in the repo combined, including original weights at every precision</span>`)}`
     : '<span class="muted">—</span>';
 
+  const capCell = (key) => {
+    const c = m.caps?.[key];
+    if (!c) return '<span class="muted">— ' + bi('未核实', 'not verified') + '</span>';
+    const mark = c.v === 'yes'
+      ? bi('<b>✓ 支持</b>', '<b>✓ Supported</b>')
+      : c.v === 'no'
+        ? bi('<b>✗ 不支持</b>', '<b>✗ Not supported</b>')
+        : bi('<b>未知</b>', '<b>Unknown</b>');
+    const src = c.url
+      ? ` <a class="lic-src" href="${esc(c.url)}" target="_blank" rel="noopener">${bi('出处 ↗', 'source ↗')}</a>`
+      : '';
+    const meta = ` <span class="muted small">${c.src === 'model-card' ? bi('模型卡', 'model card') : esc(c.src)}${c.date ? ' · ' + esc(c.date) : ''}</span>`;
+    const note = c.note?.zh ? `<br><span class="muted small">${bi(esc(c.note.zh), esc(c.note.en || c.note.zh))}</span>` : '';
+    return `${mark}${src}${meta}${note}`;
+  };
   const rows = [
     [bi('官方发布页', 'Official release page'), `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.repo)} ↗</a><br><span class="muted small">${esc(m.modelType ? 'HF model_type：' + m.modelType : '')}${m.hfArch?.length ? '　·　' + esc(m.hfArch.join(' / ')) : ''}</span>`],
     [bi('许可', 'Licence'), `${licBadge(m.license)}${m.licenseName ? ` <code>${esc(m.licenseName)}</code>` : ''}${m.licenseLink ? ` <a class="lic-src" href="${esc(m.licenseLink)}" target="_blank" rel="noopener">${bi('许可原文 ↗', 'licence text ↗')}</a>` : ''}${NEEDS_REVIEW.test(m.license || '') ? bi('<p class="warn-inline">⚠ 非宽松许可，<b>以发布页原文为准</b>。本站不解读许可条款，也不给法律意见。</p>', '<p class="warn-inline">⚠ Non-permissive licence — <b>the release page is authoritative</b>. This site does not interpret licence terms or give legal advice.</p>') : ''}`],
@@ -450,6 +465,8 @@ ${paramRows.map(([k, v]) => `          <tr><th>${k}</th><td>${v}</td></tr>`).joi
     [bi('上下文长度', 'Context length'), ctxCell],
     [bi('基座', 'Base model'), baseModel],
     [bi('任务类型', 'Task type'), m.pipelineTag ? `<code>${esc(m.pipelineTag)}</code>` : '<span class="muted">—</span>'],
+    [bi('输入模态', 'Input modality'), capCell('modality')],
+    [bi('工具调用', 'Tool calling'), capCell('tools')],
     [bi('定位', 'Role'), bi(esc(m.role?.zh || ''), esc(m.role?.en || m.role?.zh || ''))],
     [bi('标签', 'Tags'), tagCell],
     [bi('官方下载量', 'Downloads'), `<b>${fmtNum(m.downloads)}</b>　<span class="muted">${bi('点赞','likes')} ${fmtNum(m.likes)}</span>`],
