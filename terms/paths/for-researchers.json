@@ -3,22 +3,28 @@
   "ord": 7,
   "zh": "研究学习者路线",
   "en": "The Researcher's Route",
-  "span": { "zh": "约 60 分钟", "en": "about 60 minutes" },
+  "span": { "zh": "约 100 分钟", "en": "about 100 minutes" },
   "lead": {
-    "zh": "给想读懂论文和技术报告的人：从模型怎么训练、怎么变小变快，到怎么判断一个评测结果可不可信。",
-    "en": "For people who want to read papers and tech reports: how models are trained, how they get smaller and faster, and when an eval result is trustworthy."
+    "zh": "给想读懂论文和技术报告的人：从模型怎么训练、怎么变小变快，到怎么判断一个评测结果可不可信；沿途五张经典论文卡示范怎么读一篇具体论文。",
+    "en": "For people who want to read papers and tech reports: how models are trained, how they get smaller and faster, and when an eval result is trustworthy — with five classic paper cards showing how to read a specific paper."
   },
   "steps": [
     "Transformer",
     "注意力机制",
+    "论文卡-Attention Is All You Need",
     "预训练",
     "训练三阶段",
+    "论文卡-GPT-3",
     "缩放定律",
+    "论文卡-Chinchilla",
     "微调",
+    "论文卡-InstructGPT",
     "知识蒸馏",
     "量化",
     "困惑度",
+    "怎么读一篇AI论文",
     "基准测试",
+    "论文卡-HELM",
     "模型评测的局限",
     "数据污染",
     "开放权重",
@@ -28,12 +34,14 @@
     "zh": [
       "把一份技术报告的训练章节拆成预训练/后训练两段，各说出关键变量",
       "看到「刷新 SOTA」的说法，先查评测集发布时间和训练截止日期的关系",
-      "读模型卡时能指出许可证、评测口径和已知局限三处关键信息"
+      "读模型卡时能指出许可证、评测口径和已知局限三处关键信息",
+      "对路线里的论文卡，各说出研究问题与核心证据位置，并说出至少一条「论文没有主张」的流行说法"
     ],
     "en": [
       "Split a tech report's training section into pretraining and post-training, naming the key variables of each",
       "On seeing a \"new SOTA\" claim, first check the benchmark's release date against the model's training cutoff",
-      "When reading a model card, point out the license, the eval setup, and the stated limitations"
+      "When reading a model card, point out the license, the eval setup, and the stated limitations",
+      "For each paper card on this route, state its research question and where the core evidence sits, and name at least one popular claim the paper never makes"
     ]
   }
 }

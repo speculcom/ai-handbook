@@ -247,12 +247,17 @@ const slugOf = (t) => t.slug || path.basename(t.__file || '').replace(/\.md$/, '
  * 为什么是 JSON 而不是 md：路径没有正文散文，只有「顺序 + 检查点」——
  *   它是数据，不是文章。顺序就是它的全部内容，所以顺序必须写在数组里、由门禁校验。
  * 构建期校验（门禁 path-check 在产物层再查一遍）：
- *   · 每个 step 必须是真实存在的 slug —— 防「路径链到不存在的词条」（anchor-check 的同类）
+ *   · 每个 step 必须是真实存在的 slug（词条或指南/论文卡，C5-3 起）—— 防「路径链到不存在的页面」（anchor-check 的同类）
  *   · steps 不得重复 —— 同一条路径里同一个词出现两次是编排错误
  *   · id 唯一、双语字段齐（R2）、检查点中英各 3 条
  */
 const pathsDir = path.join(repoRoot, 'paths');
 const slugSet = new Set(flat.map(({ t }) => slugOf(t)));
+/* C5-3（2026-10-29）：steps 允许指向指南/论文卡 slug（guides/ 文件名即 slug）。
+ * 这里先按目录名预取（GUIDES 在下方才加载），渲染层再用完整对象。 */
+const guideSlugSet = fs.existsSync(path.join(repoRoot, 'guides'))
+  ? new Set(fs.readdirSync(path.join(repoRoot, 'guides')).filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, '')))
+  : new Set();
 const PATHS = [];
 if (fs.existsSync(pathsDir)) {
   for (const f of fs.readdirSync(pathsDir).filter((f) => f.endsWith('.json')).sort()) {
@@ -268,7 +273,7 @@ if (fs.existsSync(pathsDir)) {
     if (p.checkpoint.zh.length !== p.checkpoint.en.length) throw new Error(`${tag}: 检查点中英条数不等`);
     const seen = new Set();
     p.steps.forEach((s, i) => {
-      if (!slugSet.has(s)) throw new Error(`${tag}: 第 ${i + 1} 步「${s}」不是任何词条的 slug（路径会链到不存在的页面）`);
+      if (!slugSet.has(s) && !guideSlugSet.has(s)) throw new Error(`${tag}: 第 ${i + 1} 步「${s}」不是任何词条或指南的 slug（路径会链到不存在的页面）`);
       if (seen.has(s)) throw new Error(`${tag}: 第 ${i + 1} 步「${s}」重复`);
       seen.add(s);
     });
@@ -470,7 +475,7 @@ fs.writeFileSync(outFile, header + JSON.stringify(out, null, 1) + ';\n', 'utf8')
  * 与 terms.all.js 同理：这是产物，不手改；真相源是 paths/*.json。 */
 fs.writeFileSync(path.join(outDir, 'paths.js'),
   `/* AI 名词地图 · 学习路径（S23）\n * **这是产物，不要手改。** 源在 paths/*.json。\n` +
-  ` * 每条：id / ord / zh / en / span / lead / steps（有序 slug）/ checkpoint。\n */\n` +
+  ` * 每条：id / ord / zh / en / span / lead / steps（有序 slug；C5-3 起可指词条或指南/论文卡）/ checkpoint。\n */\n` +
   `var PATHS = ` + JSON.stringify(PATHS, null, 1) + ';\n', 'utf8');
 
 /* S24：指南产物（首页导览条读它；指南页本身已由 build 直接渲染成静态 HTML）。
@@ -890,6 +895,9 @@ ${TABBAR}
   for (const p of PATHS) {
     wantPathIds.add(p.id);
     const stepsHtml = p.steps.map((s, i) => {
+      /* C5-3：step 可能是词条 slug，也可能是指南/论文卡 slug——两类页面都在 learn 站内 */
+      const g = GUIDES.find((x) => path.basename(x.__file || '').replace(/\.md$/, '') === s);
+      if (g) return `        <li><a href="../../guide/${ENC(s)}/">${bi(g.zh, g.en)}</a></li>`;
       const t = flat.find((x) => slugOf(x.t) === s).t;
       return `        <li><a href="../../term/${ENC(slugOf(t))}/">${bi(t.zh, t.en)}</a></li>`;
     }).join('\n');
@@ -928,7 +936,7 @@ ${TABBAR}
     itemListElement: p.steps.map((s, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      url: `https://learn.specul.com/term/${ENC(s)}/`,
+      url: `https://learn.specul.com/${GUIDES.some((x) => path.basename(x.__file || '').replace(/\.md$/, '') === s) ? 'guide' : 'term'}/${ENC(s)}/`,
     })),
   })}</script>
 </head>
