@@ -935,6 +935,39 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "怎么读一篇AI论文",
+  "zh": "怎么读一篇AI论文",
+  "en": "How to Read an AI Paper",
+  "kind": "guide",
+  "station": 3,
+  "ord": 12,
+  "span": 8,
+  "lead": {
+   "zh": "读不动论文，多半不是英语问题，是顺序问题。这份指南讲拿到一篇 AI 论文后按什么顺序读、每步要回答什么问题。",
+   "en": "Not being able to get through a paper is usually a sequencing problem, not an English problem. This guide is the order to read an AI paper in, and the question each step should answer."
+  },
+  "points": [
+   "先找研究问题：引言里「这篇要解决什么」那一两句。找不到，论文自己就没说清，谨慎往下读。",
+   "摘要只当目录不当结论：NeurIPS 官方清单要求作者自查「摘要与引言的主张是否准确反映论文的贡献与范围」——摘要是承诺，证据在正文的表里。",
+   "定位主证据：先回答「核心结论依据哪张表/哪张图」，再看那张表的设置——什么基准、什么基线、什么指标，最后才看数字。",
+   "直接读局限节：NeurIPS 清单同样要求作者描述局限。作者自己写的局限就是适用范围的边界，比任何第三方解读可靠。",
+   "分清「方法新」与「结果好」：有消融实验才能看出哪个组件在起作用；没有消融，提升的来源就是未知。",
+   "引用数、会议录用、发布热度都不是质量依据；看到 SOTA 声明先查数据污染，再查是否同口径对比。"
+  ],
+  "pointsEn": [
+   "Find the research question first: the one or two sentences in the intro saying what the paper sets out to solve. If you can't find it, the paper itself isn't clear — read on cautiously.",
+   "Treat the abstract as a table of contents, not a conclusion: NeurIPS's official checklist makes authors self-audit whether 'the main claims in the abstract and introduction accurately reflect the paper's contributions and scope' — an abstract is a promise; the evidence lives in the tables.",
+   "Locate the main evidence: first answer 'which table/figure does the headline claim rest on', then check that table's setup — which benchmark, which baseline, which metric — and only then look at the numbers.",
+   "Read the limitations section directly: the NeurIPS checklist also asks authors to describe limitations. What authors admit themselves is the boundary of applicability — more reliable than any third-party take.",
+   "Separate 'new method' from 'good results': ablations are what show which component actually matters; without ablations, the source of the gain is unknown.",
+   "Citation counts, conference acceptance, and launch buzz are not evidence of quality; on seeing a SOTA claim, check benchmark contamination first, then whether the comparison is apples-to-apples."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "榜单分数高就是好用",
   "zh": "榜单分数高就是好用",
   "en": "A High Benchmark Score Means It Works For You",

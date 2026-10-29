@@ -426,5 +426,16 @@
       "Model-labeled data (synthetic data, AI feedback) is not exempt: it carries the labeling model's biases; at minimum add human spot-checks plus eval regression.",
       "Data problems surface in evals eventually: when model behavior gets weird, audit the latest batch's guideline changes before touching hyperparameters."
     ]
+  },
+  "怎么读一篇AI论文": {
+    "lead": "Not being able to get through a paper is usually a sequencing problem, not an English problem. This guide is the order to read an AI paper in, and the question each step should answer.",
+    "points": [
+      "Find the research question first: the one or two sentences in the intro saying what the paper sets out to solve. If you can't find it, the paper itself isn't clear — read on cautiously.",
+      "Treat the abstract as a table of contents, not a conclusion: NeurIPS's official checklist makes authors self-audit whether 'the main claims in the abstract and introduction accurately reflect the paper's contributions and scope' — an abstract is a promise; the evidence lives in the tables.",
+      "Locate the main evidence: first answer 'which table/figure does the headline claim rest on', then check that table's setup — which benchmark, which baseline, which metric — and only then look at the numbers.",
+      "Read the limitations section directly: the NeurIPS checklist also asks authors to describe limitations. What authors admit themselves is the boundary of applicability — more reliable than any third-party take.",
+      "Separate 'new method' from 'good results': ablations are what show which component actually matters; without ablations, the source of the gain is unknown.",
+      "Citation counts, conference acceptance, and launch buzz are not evidence of quality; on seeing a SOTA claim, check benchmark contamination first, then whether the comparison is apples-to-apples."
+    ]
   }
 }
