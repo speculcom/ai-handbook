@@ -1237,6 +1237,37 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "论文卡-Llama 2",
+  "zh": "论文卡-Llama 2",
+  "en": "Paper Card - Llama 2",
+  "kind": "paper",
+  "station": 4,
+  "ord": 5,
+  "span": 7,
+  "lead": {
+   "zh": "开放权重对话模型的标志性技术报告。这张卡列清它要解决什么、证据在哪一节、以及它没有主张什么。",
+   "en": "The landmark tech report for open-weight chat models. This card lays out what it set out to solve, where the evidence sits, and what it does not claim."
+  },
+  "points": [
+   "研究问题：摘要原话——发布 \"a collection of pretrained and fine-tuned large language models (LLMs) ranging in scale from 7 billion to 70 billion parameters\"（70 亿到 700 亿参数的预训练+微调模型集）；微调版 Llama 2-Chat 的目标是 \"optimized for dialogue use cases\"（面向对话场景）。",
+   "核心证据：第 3 节微调流程（SFT+拒绝采样+PPO）与第 4 节安全改进——摘要自陈贡献是 \"We provide a detailed description of our approach to fine-tuning and safety improvements\"（详细公开微调与安全方法）；对比主张带限定词：\"outperform open-source chat models on most benchmarks we tested\"（多数而非全部基准）。",
+   "作者自陈局限：这篇论文没有独立的 Limitations 节（2026-10-29 核对 arXiv HTML 版）；最接近的是第 5 节 Discussion（权衡与风险讨论）和第 4 节 Safety（含内容警告）——是讨论不是局限清单，适用范围要读者自己补判断。",
+   "它没有主张的：摘要原话是 \"may be a suitable substitute for closed-source models\"（可能适合替代闭源模型）——没有主张超越闭源模型。「开放权重」也不等于开源：社区许可证带使用限制（见「开放权重」词条）。",
+   "读法提示：这篇的核心贡献是微调与安全流程的公开程度，不是基准分数；只看评测表会错过论文真正给的东西。"
+  ],
+  "pointsEn": [
+   "Research question: the abstract announces \"a collection of pretrained and fine-tuned large language models (LLMs) ranging in scale from 7 billion to 70 billion parameters\"; the fine-tuned Llama 2-Chat is \"optimized for dialogue use cases\".",
+   "Core evidence: Section 3's fine-tuning pipeline (SFT + rejection sampling + PPO) and Section 4's safety work — the abstract itself frames the contribution as \"We provide a detailed description of our approach to fine-tuning and safety improvements\"; the comparison claim carries a qualifier: \"outperform open-source chat models on most benchmarks we tested\" (most, not all).",
+   "Author-stated limits: no standalone Limitations section (checked against the arXiv HTML version on 2026-10-29); the closest are Section 5 Discussion (trade-offs and risks) and Section 4 Safety (with a content warning) — discussion, not a limitations list. Scope of validity is the reader's job.",
+   "What it does not claim: the abstract says \"may be a suitable substitute for closed-source models\" — never a claim of surpassing them. And open-weight is not open-source: the community license carries use restrictions (see the Open weights term).",
+   "How to read it: the core contribution is the openness of the fine-tuning and safety process, not the benchmark scores; reading only the eval tables misses what the paper actually gives."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "量化会让模型变笨一半",
   "zh": "量化会让模型变笨一半",
   "en": "Quantisation Halves the Quality",

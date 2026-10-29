@@ -487,5 +487,15 @@
       "Declared trade-off: broad, not exhaustive — cite HELM together with its scenario list; a HELM ranking detached from scenarios is meaningless.",
       "What it does not claim: HELM is not a replacement leaderboard — it opposes single-metric ranking itself; 'ranked first on HELM' contradicts the paper's stance."
     ]
+  },
+  "论文卡-Llama 2": {
+    "lead": "The landmark tech report for open-weight chat models. This card lays out what it set out to solve, where the evidence sits, and what it does not claim.",
+    "points": [
+      "Research question: the abstract announces \"a collection of pretrained and fine-tuned large language models (LLMs) ranging in scale from 7 billion to 70 billion parameters\"; the fine-tuned Llama 2-Chat is \"optimized for dialogue use cases\".",
+      "Core evidence: Section 3's fine-tuning pipeline (SFT + rejection sampling + PPO) and Section 4's safety work — the abstract itself frames the contribution as \"We provide a detailed description of our approach to fine-tuning and safety improvements\"; the comparison claim carries a qualifier: \"outperform open-source chat models on most benchmarks we tested\" (most, not all).",
+      "Author-stated limits: no standalone Limitations section (checked against the arXiv HTML version on 2026-10-29); the closest are Section 5 Discussion (trade-offs and risks) and Section 4 Safety (with a content warning) — discussion, not a limitations list. Scope of validity is the reader's job.",
+      "What it does not claim: the abstract says \"may be a suitable substitute for closed-source models\" — never a claim of surpassing them. And open-weight is not open-source: the community license carries use restrictions (see the Open weights term).",
+      "How to read it: the core contribution is the openness of the fine-tuning and safety process, not the benchmark scores; reading only the eval tables misses what the paper actually gives."
+    ]
   }
 }
