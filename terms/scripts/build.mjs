@@ -297,11 +297,11 @@ if (fs.existsSync(guidesDir)) {
     const g = parseFmRaw(fs.readFileSync(path.join(guidesDir, f), 'utf8'), `guides/${f}`);
     const tag = `guides/${f}`;
     const kind = g.kind;
-    if (kind !== 'guide' && kind !== 'myth') throw new Error(`${tag}: kind 必须是 guide 或 myth`);
+    if (kind !== 'guide' && kind !== 'myth' && kind !== 'paper') throw new Error(`${tag}: kind 必须是 guide、myth 或 paper`);
     const station = Number(g.station);
     if (!Number.isInteger(station) || station < 1 || station > 6) throw new Error(`${tag}: station 必须是 1-6 的整数（指南挂在第几站）`);
     if (!g.lead) throw new Error(`${tag}: 缺 lead`);
-    if (kind === 'guide' && (!Array.isArray(g.points) || g.points.length < 3)) throw new Error(`${tag}: guide 类必须有 ≥3 条 points`);
+    if ((kind === 'guide' || kind === 'paper') && (!Array.isArray(g.points) || g.points.length < 3)) throw new Error(`${tag}: guide/paper 类必须有 ≥3 条 points`);
     if (kind === 'myth' && (!g.myth || !g.fact)) throw new Error(`${tag}: myth 类必须有 myth 与 fact 两段`);
     if (!Array.isArray(g.refs) || !g.refs.length) throw new Error(`${tag}: refs 不能为空（R5）`);
     for (const s of g.terms || []) {
@@ -1005,8 +1005,8 @@ ${TABBAR}
      myth 类拼 fact 而不是 myth：搜索摘要该说本页的结论，不该把误区原文当成本站主张。 */
   const guideDesc = (g) => {
     let out = plainTxt(g.lead);
-    const first = g.kind === 'guide' ? (g.points[0] || '') : plainTxt(g.fact);
-    const parts = [first, `学 AI 第${g.station}站微型指南`];
+    const first = (g.kind === 'guide' || g.kind === 'paper') ? (g.points[0] || '') : plainTxt(g.fact);
+    const parts = [first, g.kind === 'paper' ? '学 AI 论文卡' : `学 AI 第${g.station}站微型指南`];
     for (const x of parts) { if (!x) continue; out += ' ' + x; if (esc(out).length >= 70) break; }
     if (esc(out).length > 158) out = out.slice(0, 120).replace(/[\s,，、;；:：\-—]+$/, '') + '…';
     return out;
@@ -1034,11 +1034,11 @@ ${TABBAR}
     const refs = (g.refs || []).map((r) =>
       `      <li>${bi(r[0], r[2])} <a href="${esc(r[1])}" target="_blank" rel="noopener">↗</a></li>`).join('\n');
     let bodySec = '';
-    if (g.kind === 'guide') {
+    if (g.kind === 'guide' || g.kind === 'paper') {
       const liZh = g.points.map((p) => `      <p class="tp-li">${escMd(p)}</p>`).join('\n');
       const liEn = (g.pointsEn && g.pointsEn.length ? g.pointsEn : g.points).map((p) => `      <p class="tp-li" data-en>${escMd(p)}</p>`).join('\n');
       bodySec = `        <div class="tp-sec">
-          <div class="tp-lab">${bi('怎么做', 'How to')}</div>
+          <div class="tp-lab">${g.kind === 'paper' ? bi('读这张论文要带走的', 'What to take away') : bi('怎么做', 'How to')}</div>
 <span data-zh>
 ${liZh}
 </span>
@@ -1060,18 +1060,20 @@ ${liEn}
       : '';
     const otherGuides = GUIDES.filter((q) => q !== g)
       .map((q) => `<a href="../${path.basename(q.__file).replace(/\.md$/, '')}/">${bi(q.zh, q.en)}</a>`).join(' · ');
+    const KIND_ZH = g.kind === 'paper' ? '论文卡' : '微型指南';
+    const KIND_EN = g.kind === 'paper' ? 'Paper card' : 'Guide';
     const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>${esc(g.zh)} · 学 AI 微型指南 | 投机取巧</title>
+  <title>${esc(g.zh)} · 学 AI ${KIND_ZH} | 投机取巧</title>
   <meta name="description" content="${esc(guideDesc(g))}" />
   <link rel="canonical" href="https://learn.specul.com/guide/${ENC(slug)}/" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="学 AI" />
   <meta property="og:url" content="https://learn.specul.com/guide/${ENC(slug)}/" />
-  <meta property="og:title" content="${esc(g.zh)} · 学 AI 微型指南" />
+  <meta property="og:title" content="${esc(g.zh)} · 学 AI ${KIND_ZH}" />
   <meta property="og:description" content="${esc(guideDesc(g))}" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
@@ -1091,10 +1093,10 @@ ${HEADER('learn')}
           <span aria-hidden="true">·</span>
           <a href="../../#layer-${esc(String(g.station))}">${bi(`第${g.station}站 · ${lv.name || ''}`, `Station ${g.station} · ${lv.shortEn || lv.nameEn || ''}`)}</a>
           <span aria-hidden="true">·</span>
-          <span>${bi('微型指南', 'Guide')}</span>
+          <span>${bi(KIND_ZH, KIND_EN)}</span>
         </nav>
         <h1>${bi(g.zh, g.en)}</h1>
-        <p class="tp-en">${bi(`微型指南 · 约 ${g.span} 分钟`, `Guide · about ${g.span} min`)}</p>
+        <p class="tp-en">${bi(`${KIND_ZH} · 约 ${g.span} 分钟`, `${KIND_EN} · about ${g.span} min`)}</p>
         <p class="tp-p"><span data-zh>${escMd(g.lead)}</span><span data-en>${escMd(g.leadEn)}</span></p>
 ${bodySec}
 ${linked}
@@ -1105,7 +1107,7 @@ ${refs}
           </ul>
         </div>
         <div class="tp-sec">
-          <div class="tp-lab">${bi('其他指南', 'Other guides')}</div>
+          <div class="tp-lab">${bi('其他指南与论文卡', 'Other guides & paper cards')}</div>
           <p class="tp-p">${otherGuides || '—'}</p>
         </div>
       </article>

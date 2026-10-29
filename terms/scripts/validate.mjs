@@ -155,10 +155,12 @@ if (!fs.existsSync(enPath)) {
 /* ══ S24（2026-10-19）· 微型指南 guides/ 扩类校验 ══
  * 与词条同一套 frontmatter 纪律，但字段不同（指南没有 def/why/ord 层内全局序）。
  * kind=myth 是「常见误区」子类型（S25）：用 myth/fact 两段代替 points —— 不另起炉灶。
+ * kind=paper 是「论文卡」子类型（C5-2，2026-10-29）：字段同 guide，内容口径不同
+ * （研究问题/证据位置/作者自陈局限/它没有主张的——v9：论文卡与方法分别计数）。
  * ord 按「站 × kind」分别 1..n 连续（写误区不会挪动 guide 的序号）。 */
 const GUIDES = path.join(ROOT, 'guides');
-const GUIDE_KINDS = ['guide', 'myth'];
-const GUIDE_REQUIRED = { guide: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'points', 'refs'], myth: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'myth', 'fact', 'refs'] };
+const GUIDE_KINDS = ['guide', 'myth', 'paper'];
+const GUIDE_REQUIRED = { guide: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'points', 'refs'], myth: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'myth', 'fact', 'refs'], paper: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'points', 'refs'] };
 const guideFiles = fs.existsSync(GUIDES) ? fs.readdirSync(GUIDES).filter((f) => f.endsWith('.md')).sort() : [];
 const guideSeen = new Set();
 const guideOrd = {};   // `${station}:${kind}` → [ord…]
@@ -179,8 +181,8 @@ if (guideFiles.length) {
     const ord = Number(g.scalars.ord);
     if (!Number.isInteger(ord) || ord < 1) errors.push(`${rel} · ord 必须是正整数，现为 ${g.scalars.ord}`);
     else (guideOrd[`${station}:${kind}`] ||= []).push({ ord, rel });
-    const points = kind === 'guide' ? g.inlineArr('points') : null;
-    if (kind === 'guide' && (!points || points.length < 3 || points.length > 7)) {
+    const points = (kind === 'guide' || kind === 'paper') ? g.inlineArr('points') : null;
+    if ((kind === 'guide' || kind === 'paper') && (!points || points.length < 3 || points.length > 7)) {
       errors.push(`${rel} · points 必须是 3-7 条的行内数组（现有 ${points ? points.length : 0}）`);
     }
     if (!g.refs.length) errors.push(`${rel} · refs 不能为空（R5：每条论断都要有可核对出处）`);

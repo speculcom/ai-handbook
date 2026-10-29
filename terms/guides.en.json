@@ -437,5 +437,55 @@
       "Separate 'new method' from 'good results': ablations are what show which component actually matters; without ablations, the source of the gain is unknown.",
       "Citation counts, conference acceptance, and launch buzz are not evidence of quality; on seeing a SOTA claim, check benchmark contamination first, then whether the comparison is apples-to-apples."
     ]
+  },
+  "论文卡-Attention Is All You Need": {
+    "lead": "The source paper of the Transformer. This card lays out the question it set out to solve, where the evidence lives, and what the paper does not claim.",
+    "points": [
+      "Research question: can sequence transduction work with attention alone — the abstract's \"dispensing with recurrence and convolutions entirely\".",
+      "Core evidence: Section 4 and Table 1 compare three architectures on path length, per-layer compute, and sequential operations; experiments are two machine-translation tasks, 28.4 BLEU on WMT 2014 EN-DE (abstract).",
+      "Author-stated limitations: the paper has no standalone Limitations section (verified against the arXiv HTML version on 2026-10-29); Section 7's attention visualizations explain the mechanism, not the limits — applicability is the reader's job.",
+      "What it does not claim: the paper never says this architecture will train general-purpose language models. \"Transformer is the foundation of LLMs\" is our retrospective framing, not the paper's conclusion.",
+      "Reading tip: the three-way complexity comparison in Table 1 is the actual argument; looking only at the architecture diagram misses the claim."
+    ]
+  },
+  "论文卡-GPT-3": {
+    "lead": "The starting point of the 'big model' narrative. This card separates what the paper actually demonstrated, what the authors themselves flagged as limits, and which popular claims are not in the paper.",
+    "points": [
+      "Research question: pre-train + fine-tune needs task-specific labeled data, yet humans learn new language tasks from a few examples or instructions — can a model learn tasks from context without updating weights (abstract).",
+      "Core evidence: the Section 3 tables organized by task family (language modeling, closed-book QA, translation, commonsense, SuperGLUE…). The claim is one model, no fine-tuning, many tasks — check baselines and settings table by table.",
+      "Author-stated limitations (Section 5, verified): \"it still has notable weaknesses in text synthesis and several NLP tasks\".",
+      "The words 'emergent abilities' / 'emergence' do not appear in the paper (full-text check on 2026-10-29) — that framing comes from later papers.",
+      "What it does not claim: the paper does not claim the model 'understands' language, and 'scale always delivers' is not its wording either — its claims are strictly about few-shot task performance."
+    ]
+  },
+  "论文卡-InstructGPT": {
+    "lead": "The landmark paper that moved 'alignment' into mainstream training. This card pins down the question, the key numbers, and where the authors list their own limitations.",
+    "points": [
+      "Research question: the abstract opens with \"Making language models bigger does not inherently make them better at following a user's intent\" — bigger models can be untruthful, toxic, or simply unhelpful.",
+      "Core evidence: labelers prefer outputs from the 1.3B InstructGPT to the 175B GPT-3 — \"despite having 100x fewer parameters\" (abstract). Alignment quality decouples from parameter count; this is the paper's hardest result.",
+      "Author-stated limitations: Section 5 (the HTML version contains 5.3 limitations / 5.4 open questions / 5.5 broader impacts); the abstract itself says toxicity improved only slightly and bias not at all.",
+      "Key line for evaluation readers (abstract): \"Public NLP datasets are not reflective of how our language models are used\" — this directly supports our 'How to Read a Leaderboard' stance.",
+      "What it does not claim: RLHF did not solve hallucination or bias — the paper says so; 'alignment = safer' cannot be inferred from this paper either."
+    ]
+  },
+  "论文卡-Chinchilla": {
+    "lead": "The calibration paper on 'how big should the model be, how much data should it see'. This card quotes the conclusion, states the evidence scale, and notes the extrapolation boundary the authors themselves flag.",
+    "points": [
+      "Research question (abstract): under a fixed compute budget, what is the optimal model size and token count; the finding is that current LLMs are \"significantly undertrained\" because the field scaled models while keeping data constant.",
+      "Conclusion verbatim: \"for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled\".",
+      "Evidence scale: 400+ models trained (70M to 16B+ parameters, 5B to 500B tokens) to fit the scaling law, then validated with the 70B Chinchilla, which \"outperforms Gopher\" (Section 4.2, verified).",
+      "Author-flagged boundary (verified): Chinchilla trained on 4× more data than Gopher, and the authors warn train/test leakage may artificially boost results — even a calibration paper guards against contamination.",
+      "What it does not claim: the law is fitted on ≤16B models and extrapolated — 'the rule holds past 70B' is extrapolation, not measurement; 'parameter count doesn't matter' is not the paper's claim either."
+    ]
+  },
+  "论文卡-HELM": {
+    "lead": "The evaluation-framework paper behind 'don't trust a single score'. This card lays out the question, how the framework is built, and the trade-offs the authors declare.",
+    "points": [
+      "Research question (abstract): LMs' \"capabilities, limitations, and risks are not well understood\"; HELM aims at transparency, not at crowning a strongest model.",
+      "Framework: taxonomize scenarios (use cases) and metrics (desiderata), select a subset by coverage and feasibility, and state what is missing (the abstract names QA for neglected English dialects and trustworthiness metrics) — admitting coverage gaps is part of the method.",
+      "Core approach verbatim: measure 7 metrics (accuracy, calibration, robustness, fairness, bias, toxicity, efficiency) across 16 core scenarios where possible, \"ensuring metrics beyond accuracy don't fall to the wayside\".",
+      "Declared trade-off: broad, not exhaustive — cite HELM together with its scenario list; a HELM ranking detached from scenarios is meaningless.",
+      "What it does not claim: HELM is not a replacement leaderboard — it opposes single-metric ranking itself; 'ranked first on HELM' contradicts the paper's stance."
+    ]
   }
 }

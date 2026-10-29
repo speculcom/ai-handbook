@@ -1025,6 +1025,37 @@ var GUIDES = [
   "factEn": "Most refusals come from alignment training; having the capability and being willing to output it are different things."
  },
  {
+  "id": "论文卡-HELM",
+  "zh": "论文卡-HELM",
+  "en": "Paper Card - HELM",
+  "kind": "paper",
+  "station": 3,
+  "ord": 1,
+  "span": 8,
+  "lead": {
+   "zh": "「别只看一个总分」的评测框架论文。这张卡列清它要解决什么、框架怎么搭、以及它自己声明的取舍。",
+   "en": "The evaluation-framework paper behind 'don't trust a single score'. This card lays out the question, how the framework is built, and the trade-offs the authors declare."
+  },
+  "points": [
+   "研究问题：摘要原话——语言模型的能力、局限与风险「未被充分理解」（\"their capabilities, limitations, and risks are not well understood\"）；HELM 的目标是提高透明度，不是宣布某个模型最强。",
+   "框架：先对场景（用例）与指标（期望）做分类，再按覆盖度与可行性选取子集，并明说什么是缺失的（摘要点名：被忽视英语变体的问答、可信度指标）——「承认覆盖面有缺口」本身就是方法的一部分。",
+   "核心做法原话：对 16 个核心场景尽可能测 7 个指标（accuracy/calibration/robustness/fairness/bias/toxicity/efficiency），\"ensuring metrics beyond accuracy don't fall to the wayside\"——保证准确率之外的指标不被丢下。",
+   "作者自陈的取舍：选的是「广」不是「全」——摘要明说按 coverage 与 feasibility 选取，未覆盖处会标注；引用 HELM 时要连它的场景清单一起看，脱离场景的 HELM 排名没有意义。",
+   "它没有主张的：HELM 不是新基准榜单的替代品——它反对的正是单一口径；「HELM 总分第一」这种说法与论文立场相反。"
+  ],
+  "pointsEn": [
+   "Research question (abstract): LMs' \"capabilities, limitations, and risks are not well understood\"; HELM aims at transparency, not at crowning a strongest model.",
+   "Framework: taxonomize scenarios (use cases) and metrics (desiderata), select a subset by coverage and feasibility, and state what is missing (the abstract names QA for neglected English dialects and trustworthiness metrics) — admitting coverage gaps is part of the method.",
+   "Core approach verbatim: measure 7 metrics (accuracy, calibration, robustness, fairness, bias, toxicity, efficiency) across 16 core scenarios where possible, \"ensuring metrics beyond accuracy don't fall to the wayside\".",
+   "Declared trade-off: broad, not exhaustive — cite HELM together with its scenario list; a HELM ranking detached from scenarios is meaningless.",
+   "What it does not claim: HELM is not a replacement leaderboard — it opposes single-metric ranking itself; 'ranked first on HELM' contradicts the paper's stance."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "它逐字读懂你的文字",
   "zh": "它逐字读懂你的文字",
   "en": "It Reads Your Words One By One",
@@ -1080,6 +1111,130 @@ var GUIDES = [
   "mythEn": "\"Attention mechanism\" means it picks out what matters, like a person would.",
   "fact": "注意力按相关性给不同位置加权；权重高不等于它认为那部分重要。",
   "factEn": "Attention weights positions by relatedness; a high weight does not mean it judged that part important."
+ },
+ {
+  "id": "论文卡-Attention Is All You Need",
+  "zh": "论文卡-Attention Is All You Need",
+  "en": "Paper Card - Attention Is All You Need",
+  "kind": "paper",
+  "station": 4,
+  "ord": 1,
+  "span": 7,
+  "lead": {
+   "zh": "Transformer 的源头论文。这张卡列清它要解决什么、证据在哪一节、以及它没有主张什么。",
+   "en": "The source paper of the Transformer. This card lays out the question it set out to solve, where the evidence lives, and what the paper does not claim."
+  },
+  "points": [
+   "研究问题：只用注意力、不用循环和卷积，能不能做序列转换——摘要原话 \"dispensing with recurrence and convolutions entirely\"（完全弃用循环与卷积）。",
+   "核心证据：第 4 节与 Table 1 对比三种架构量——最大路径长度、每层计算量、最少顺序操作数；实验是两个机器翻译任务，WMT 2014 英德翻译 28.4 BLEU（摘要原话）。",
+   "作者自陈局限：这篇论文没有独立的 Limitations 节（当日核对 arXiv HTML 版）；最接近的是第 7 节注意力可视化——那是机制解读，不是局限声明。适用范围要读者自己补判断。",
+   "它没有主张的：论文没有说这套架构能训出通用语言模型。「Transformer 是大模型的地基」是本站回顾性说法，不是论文结论。",
+   "读法提示：Table 1 的三量对比才是论证核心；只看架构图会错过论文真正的主张。"
+  ],
+  "pointsEn": [
+   "Research question: can sequence transduction work with attention alone — the abstract's \"dispensing with recurrence and convolutions entirely\".",
+   "Core evidence: Section 4 and Table 1 compare three architectures on path length, per-layer compute, and sequential operations; experiments are two machine-translation tasks, 28.4 BLEU on WMT 2014 EN-DE (abstract).",
+   "Author-stated limitations: the paper has no standalone Limitations section (verified against the arXiv HTML version on 2026-10-29); Section 7's attention visualizations explain the mechanism, not the limits — applicability is the reader's job.",
+   "What it does not claim: the paper never says this architecture will train general-purpose language models. \"Transformer is the foundation of LLMs\" is our retrospective framing, not the paper's conclusion.",
+   "Reading tip: the three-way complexity comparison in Table 1 is the actual argument; looking only at the architecture diagram misses the claim."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "论文卡-GPT-3",
+  "zh": "论文卡-GPT-3",
+  "en": "Paper Card - GPT-3",
+  "kind": "paper",
+  "station": 4,
+  "ord": 2,
+  "span": 8,
+  "lead": {
+   "zh": "「大模型」叙事的起点论文。这张卡列清它真正论证了什么、局限作者自己怎么写的、以及哪些流行说法不在论文里。",
+   "en": "The starting point of the 'big model' narrative. This card separates what the paper actually demonstrated, what the authors themselves flagged as limits, and which popular claims are not in the paper."
+  },
+  "points": [
+   "研究问题：预训练+微调范式要求每个任务都有专门标注数据，而人类只靠少量例子或简单指令就能做新任务——能不能让模型也做到「不更新参数、从上下文例子学任务」（摘要原话）。",
+   "核心证据：第 3 节按任务族铺开的大表（语言建模、闭卷问答、翻译、常识推理、SuperGLUE 等）——主张是「同一模型不加微调跨多任务可用」，读时要逐表看基线与设置。",
+   "作者自陈局限（第 5 节 Limitations，当日核对）：原话 \"it still has notable weaknesses in text synthesis and several NLP tasks\"——生成文本与若干 NLP 任务仍有明显弱点。",
+   "论文里没有「涌现能力」（emergent abilities/emergence）字样（当日全文核对）：「GPT-3 展现了涌现能力」是后续论文的提法，不是这篇的结论。",
+   "它没有主张的：论文没有主张模型「理解」语言；「规模一定带来一切」也不是论文措辞——论文的主张严格限定在少样本任务表现。"
+  ],
+  "pointsEn": [
+   "Research question: pre-train + fine-tune needs task-specific labeled data, yet humans learn new language tasks from a few examples or instructions — can a model learn tasks from context without updating weights (abstract).",
+   "Core evidence: the Section 3 tables organized by task family (language modeling, closed-book QA, translation, commonsense, SuperGLUE…). The claim is one model, no fine-tuning, many tasks — check baselines and settings table by table.",
+   "Author-stated limitations (Section 5, verified): \"it still has notable weaknesses in text synthesis and several NLP tasks\".",
+   "The words 'emergent abilities' / 'emergence' do not appear in the paper (full-text check on 2026-10-29) — that framing comes from later papers.",
+   "What it does not claim: the paper does not claim the model 'understands' language, and 'scale always delivers' is not its wording either — its claims are strictly about few-shot task performance."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "论文卡-InstructGPT",
+  "zh": "论文卡-InstructGPT",
+  "en": "Paper Card - InstructGPT",
+  "kind": "paper",
+  "station": 4,
+  "ord": 3,
+  "span": 8,
+  "lead": {
+   "zh": "「对齐」进入主流训练的标志性论文。这张卡列清它要解决什么、关键数字在哪、以及作者自己列的局限在哪一节。",
+   "en": "The landmark paper that moved 'alignment' into mainstream training. This card pins down the question, the key numbers, and where the authors list their own limitations."
+  },
+  "points": [
+   "研究问题：摘要开篇原话 \"Making language models bigger does not inherently make them better at following a user's intent\"——模型变大不天然更听话，会生成不真实、有害或无用的输出。",
+   "核心证据：1.3B 参数的 InstructGPT 输出被标注者偏好于 175B GPT-3（摘要原话 \"despite having 100x fewer parameters\"，参数量少 100 倍）——对齐质量与参数量解耦，这是全文最硬的一条。",
+   "作者自陈局限：第 5 节（当日核对 HTML 版含 limitations 5.3 / open questions 5.4 / broader impacts 5.5 小节）；摘要还明说毒性只有小幅改善、偏见没有改善（\"small improvements in toxicity over GPT-3, but not bias\"）。",
+   "对评测读者的关键一句（摘要）：\"Public NLP datasets are not reflective of how our language models are used\"——公开基准反映不了真实用法。这条直接支撑本站「榜单怎么读」的立场。",
+   "它没有主张的：RLHF 解决了幻觉或偏见——论文自己说没有；「对齐=更安全」也不能从这篇直接推出，作者列的是开放问题。"
+  ],
+  "pointsEn": [
+   "Research question: the abstract opens with \"Making language models bigger does not inherently make them better at following a user's intent\" — bigger models can be untruthful, toxic, or simply unhelpful.",
+   "Core evidence: labelers prefer outputs from the 1.3B InstructGPT to the 175B GPT-3 — \"despite having 100x fewer parameters\" (abstract). Alignment quality decouples from parameter count; this is the paper's hardest result.",
+   "Author-stated limitations: Section 5 (the HTML version contains 5.3 limitations / 5.4 open questions / 5.5 broader impacts); the abstract itself says toxicity improved only slightly and bias not at all.",
+   "Key line for evaluation readers (abstract): \"Public NLP datasets are not reflective of how our language models are used\" — this directly supports our 'How to Read a Leaderboard' stance.",
+   "What it does not claim: RLHF did not solve hallucination or bias — the paper says so; 'alignment = safer' cannot be inferred from this paper either."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "论文卡-Chinchilla",
+  "zh": "论文卡-Chinchilla",
+  "en": "Paper Card - Chinchilla",
+  "kind": "paper",
+  "station": 4,
+  "ord": 4,
+  "span": 7,
+  "lead": {
+   "zh": "「模型该多大、数据该多少」的定标论文。这张卡列清它的结论原话、证据规模、以及作者自己提醒的外推边界。",
+   "en": "The calibration paper on 'how big should the model be, how much data should it see'. This card quotes the conclusion, states the evidence scale, and notes the extrapolation boundary the authors themselves flag."
+  },
+  "points": [
+   "研究问题：摘要原话——给定算力预算下，最优的模型大小与训练 token 数各是多少；结论是「当前大模型普遍训练不足」（\"significantly undertrained\"），因为业界只顾加大模型、不增加数据。",
+   "核心结论原话：\"for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled\"——模型与数据要等比例扩。",
+   "证据规模：训练 400 多个模型（70M 到 16B+ 参数、5 到 500B token）做定标拟合，再用 70B 的 Chinchilla 验证——它「超过 Gopher 及其他大模型」（第 4.2 节，当日核对）。",
+   "作者自陈的边界（当日核对）：Chinchilla 比 Gopher 多训 4 倍数据，作者自己提醒「训练/测试集泄漏可能人为抬高结果」，因此更看重其他任务——连定标论文都在防数据污染。",
+   "它没有主张的：结论来自 ≤16B 模型的拟合再外推——「70B 之后规律不变」是外推不是实测；「参数量不重要」也不是论文说法，是等比例扩。"
+  ],
+  "pointsEn": [
+   "Research question (abstract): under a fixed compute budget, what is the optimal model size and token count; the finding is that current LLMs are \"significantly undertrained\" because the field scaled models while keeping data constant.",
+   "Conclusion verbatim: \"for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled\".",
+   "Evidence scale: 400+ models trained (70M to 16B+ parameters, 5B to 500B tokens) to fit the scaling law, then validated with the 70B Chinchilla, which \"outperforms Gopher\" (Section 4.2, verified).",
+   "Author-flagged boundary (verified): Chinchilla trained on 4× more data than Gopher, and the authors warn train/test leakage may artificially boost results — even a calibration paper guards against contamination.",
+   "What it does not claim: the law is fitted on ≤16B models and extrapolated — 'the rule holds past 70B' is extrapolation, not measurement; 'parameter count doesn't matter' is not the paper's claim either."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
  },
  {
   "id": "量化会让模型变笨一半",
