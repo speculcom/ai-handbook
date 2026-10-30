@@ -1268,6 +1268,68 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "论文卡-LIMA",
+  "zh": "论文卡-LIMA",
+  "en": "Paper Card - LIMA",
+  "kind": "paper",
+  "station": 4,
+  "ord": 6,
+  "span": 7,
+  "lead": {
+   "zh": "「少即是多」的对齐数据实验：只用 1000 条精选样本微调。这张卡列清它要测什么、证据在哪一节、以及它没有主张什么。",
+   "en": "The 'less is more' alignment-data experiment: fine-tuning on just 1,000 curated examples. This card lays out what it set out to test, where the evidence sits, and what it does not claim."
+  },
+  "points": [
+   "研究问题：摘要原话——按两阶段训练 LIMA（65B 参数 LLaMa 模型），\"fine-tuned with the standard supervised loss on only 1,000 carefully curated prompts and responses\"（只用 1000 条精选问答做标准监督微调），\"without any reinforcement learning or human preference modeling\"（不做强化学习也不做人类偏好建模）——要测的就是两个训练阶段的相对重要性。",
+   "核心证据：第 4 节人工评测（对照 GPT-4/Bard/DaVinci003）与第 5 节消融（数据多样性/质量/数量）——摘要给出受控人评数字：\"responses from LIMA are either equivalent or strictly preferred to GPT-4 in 43% of cases\"（43% 的情况下 LIMA 的回答与 GPT-4 相当或更好）；结论句是 \"almost all knowledge in large language models is learned during pretraining\"（几乎所有知识都在预训练阶段学到）。",
+   "作者自陈局限：没有独立的 Limitations 节（2026-10-30 核对 arXiv HTML 版）；第 7 节 Discussion 开头明确自陈两条——构造样例的心智成本难以规模化、\"LIMA is not as robust as product-grade models\"（不如产品级模型稳健，解码 unlucky sample 或对抗性提示常出弱回答）。",
+   "它没有主张的：43%/58%/65% 是「相当或更好」的受控人评占比，不是「整体达到 GPT-4 水平」；「1000 条足够」是对话风格层面的证据，论文没有主张安全、事实性、鲁棒性也能靠 1000 条解决——这三项恰恰是它自陈薄弱的地方。",
+   "读法提示：这篇的价值是把「知识来自预训练、对齐数据管的是风格」这个假设做成了可检验的消融；引用它时先分清「少数据能对齐」与「少数据能对齐一切」是两个命题。"
+  ],
+  "pointsEn": [
+   "Research question: the abstract describes training LIMA (a 65B LLaMa model) \"fine-tuned with the standard supervised loss on only 1,000 carefully curated prompts and responses\", \"without any reinforcement learning or human preference modeling\" — the point is to measure the relative importance of the two training stages.",
+   "Core evidence: Section 4's human evaluation (against GPT-4, Bard, DaVinci003) and Section 5's ablations on data diversity/quality/quantity — the abstract gives the controlled human-study number: \"responses from LIMA are either equivalent or strictly preferred to GPT-4 in 43% of cases\"; the conclusion line is \"almost all knowledge in large language models is learned during pretraining\".",
+   "Author-stated limits: no standalone Limitations section (checked against the arXiv HTML version on 2026-10-30); Section 7's Discussion states two limits outright — the mental effort of building such examples is hard to scale, and \"LIMA is not as robust as product-grade models\" (an unlucky decode or an adversarial prompt often yields a weak response).",
+   "What it does not claim: 43%/58%/65% are shares of \"equivalent or strictly preferred\" in a controlled human study — not \"matches GPT-4 overall\"; \"1,000 examples suffice\" is evidence about dialogue style, not about safety, factuality, or robustness — the very areas the authors admit are weak.",
+   "How to read it: its value is turning the hypothesis \"knowledge comes from pretraining, alignment data shapes style\" into testable ablations; when citing it, separate \"little data can align a model\" from \"little data can align everything\"."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "论文卡-Self-Instruct",
+  "zh": "论文卡-Self-Instruct",
+  "en": "Paper Card - Self-Instruct",
+  "kind": "paper",
+  "station": 4,
+  "ord": 7,
+  "span": 7,
+  "lead": {
+   "zh": "合成指令数据的开山框架：让模型自己生成指令来训练自己。这张卡列清它要解决什么、证据在哪一节、以及它没有主张什么。",
+   "en": "The founding framework for synthetic instruction data: models generate the instructions that train them. This card lays out what it set out to solve, where the evidence sits, and what it does not claim."
+  },
+  "points": [
+   "研究问题：摘要原话——指令微调模型 \"depend heavily on human-written instruction data that is often limited in quantity, diversity, and creativity\"（重度依赖人类写的指令数据，而这类数据在数量/多样性/创造力上有限）；解法是 Self-Instruct——\"improving the instruction-following capabilities of pretrained language models by bootstrapping off their own generations\"（用模型自己的生成来-bootstrapping 提升指令跟随）。",
+   "核心证据：第 2 节方法（生成指令+输入+输出、过滤无效与相似样本再微调原模型；种子为 175 个人工标注任务）与第 4 节结果——把方法套在原版 GPT3 上，\"a 33% absolute improvement over the original model on Super-NaturalInstructions\"（Super-NaturalInstructions 上绝对提升 33 个百分点），\"on par with the performance of InstructGPT-001\"（与用私有用户数据和人工标注训练的 InstructGPT-001 相当）。",
+   "作者自陈局限：有独立的第 8 节 Limitations（2026-10-30 核对 arXiv HTML 版），三条：长尾现象（收益偏向预训练语料高频任务，对罕见/创造性指令可能脆弱）、依赖大模型（小模型上未必有效，可能抬高门槛）、强化模型自身偏差（迭代算法可能放大不良社会偏见）。",
+   "它没有主张的：摘要口径是 on par（相当）且人评 \"leaving only a 5% absolute gap behind InstructGPT-001\"（还差 5 个百分点）——没有主张超越 InstructGPT；\"almost annotation-free\"（几乎免标注）也不等于零标注：175 个种子任务和过滤规则仍是人工设计。",
+   "读法提示：这篇是「合成数据训练自己」路线的源头——后来大量指令数据集与自改进方法都走它的生成+过滤骨架；读它时把「方法可复用」与「GPT3 上的具体数字」分开，数字随底座模型能力变化很大。"
+  ],
+  "pointsEn": [
+   "Research question: the abstract notes instruction-tuned models \"depend heavily on human-written instruction data that is often limited in quantity, diversity, and creativity\"; the fix is Self-Instruct — \"improving the instruction-following capabilities of pretrained language models by bootstrapping off their own generations\".",
+   "Core evidence: Section 2's method (generate instructions, inputs, and outputs; filter invalid or near-duplicate samples; fine-tune the original model; seeded from 175 human-annotated tasks) and Section 4's results — applied to vanilla GPT3, \"a 33% absolute improvement over the original model on Super-NaturalInstructions\", \"on par with the performance of InstructGPT-001\", which was trained on private user data and human annotations.",
+   "Author-stated limits: a standalone Section 8 Limitations exists (checked against the arXiv HTML version on 2026-10-30), naming three: tail phenomena (gains skew toward tasks frequent in the pretraining corpus, brittleness on uncommon or creative instructions), dependence on large models (may work best for big models, raising access barriers), and reinforcing the model's own biases (the iterative loop can amplify problematic social biases).",
+   "What it does not claim: the abstract says on par, and the human eval leaves \"only a 5% absolute gap behind InstructGPT-001\" — never a claim of surpassing it; and \"almost annotation-free\" is not zero annotation: the 175 seed tasks and the filtering rules are still human-designed.",
+   "How to read it: this is the source of the \"synthesize data to train yourself\" line — many later instruction datasets and self-improvement methods reuse its generate-and-filter skeleton. Separate the reusable method from the specific GPT3 numbers, which move a lot with base-model capability."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "量化会让模型变笨一半",
   "zh": "量化会让模型变笨一半",
   "en": "Quantisation Halves the Quality",

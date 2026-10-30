@@ -497,5 +497,25 @@
       "What it does not claim: the abstract says \"may be a suitable substitute for closed-source models\" — never a claim of surpassing them. And open-weight is not open-source: the community license carries use restrictions (see the Open weights term).",
       "How to read it: the core contribution is the openness of the fine-tuning and safety process, not the benchmark scores; reading only the eval tables misses what the paper actually gives."
     ]
+  },
+  "论文卡-LIMA": {
+    "lead": "The 'less is more' alignment-data experiment: fine-tuning on just 1,000 curated examples. This card lays out what it set out to test, where the evidence sits, and what it does not claim.",
+    "points": [
+      "Research question: the abstract describes training LIMA (a 65B LLaMa model) \"fine-tuned with the standard supervised loss on only 1,000 carefully curated prompts and responses\", \"without any reinforcement learning or human preference modeling\" — the point is to measure the relative importance of the two training stages.",
+      "Core evidence: Section 4's human evaluation (against GPT-4, Bard, DaVinci003) and Section 5's ablations on data diversity/quality/quantity — the abstract gives the controlled human-study number: \"responses from LIMA are either equivalent or strictly preferred to GPT-4 in 43% of cases\"; the conclusion line is \"almost all knowledge in large language models is learned during pretraining\".",
+      "Author-stated limits: no standalone Limitations section (checked against the arXiv HTML version on 2026-10-30); Section 7's Discussion states two limits outright — the mental effort of building such examples is hard to scale, and \"LIMA is not as robust as product-grade models\" (an unlucky decode or an adversarial prompt often yields a weak response).",
+      "What it does not claim: 43%/58%/65% are shares of \"equivalent or strictly preferred\" in a controlled human study — not \"matches GPT-4 overall\"; \"1,000 examples suffice\" is evidence about dialogue style, not about safety, factuality, or robustness — the very areas the authors admit are weak.",
+      "How to read it: its value is turning the hypothesis \"knowledge comes from pretraining, alignment data shapes style\" into testable ablations; when citing it, separate \"little data can align a model\" from \"little data can align everything\"."
+    ]
+  },
+  "论文卡-Self-Instruct": {
+    "lead": "The founding framework for synthetic instruction data: models generate the instructions that train them. This card lays out what it set out to solve, where the evidence sits, and what it does not claim.",
+    "points": [
+      "Research question: the abstract notes instruction-tuned models \"depend heavily on human-written instruction data that is often limited in quantity, diversity, and creativity\"; the fix is Self-Instruct — \"improving the instruction-following capabilities of pretrained language models by bootstrapping off their own generations\".",
+      "Core evidence: Section 2's method (generate instructions, inputs, and outputs; filter invalid or near-duplicate samples; fine-tune the original model; seeded from 175 human-annotated tasks) and Section 4's results — applied to vanilla GPT3, \"a 33% absolute improvement over the original model on Super-NaturalInstructions\", \"on par with the performance of InstructGPT-001\", which was trained on private user data and human annotations.",
+      "Author-stated limits: a standalone Section 8 Limitations exists (checked against the arXiv HTML version on 2026-10-30), naming three: tail phenomena (gains skew toward tasks frequent in the pretraining corpus, brittleness on uncommon or creative instructions), dependence on large models (may work best for big models, raising access barriers), and reinforcing the model's own biases (the iterative loop can amplify problematic social biases).",
+      "What it does not claim: the abstract says on par, and the human eval leaves \"only a 5% absolute gap behind InstructGPT-001\" — never a claim of surpassing it; and \"almost annotation-free\" is not zero annotation: the 175 seed tasks and the filtering rules are still human-designed.",
+      "How to read it: this is the source of the \"synthesize data to train yourself\" line — many later instruction datasets and self-improvement methods reuse its generate-and-filter skeleton. Separate the reusable method from the specific GPT3 numbers, which move a lot with base-model capability."
+    ]
   }
 }

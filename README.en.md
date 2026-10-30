@@ -42,11 +42,11 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 | terms · Terms | 200 |
 | terms · Stations | Getting In 35 · Hands On 35 · Going Deeper 35 · Under the Hood 35 · Running It 30 · Choosing Right 30 |
 | terms · Learning paths | 8 curated ordered routes, each with a checkpoint |
-| terms · Short guides | 56 guides of 5-10 minutes each (English coverage 56/56) |
+| terms · Short guides | 58 guides of 5-10 minutes each (English coverage 58/58) |
 | terms · Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |
 | terms · Domain | concept 56 · infra 34 · choice 33 · agent 25 · media 19 · model 14 · dev 10 · data 9 |
 | terms · Purpose (purposeTag) | learn 80 · apply 49 · guard 36 · judge 35 |
-| terms · Source entries (refs) | 473 |
+| terms · Source entries (refs) | 481 |
 | terms · English coverage | 200 / 200 |
 | tools · Total profiles | 177 |
 | tools · By category | coding 41 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 28 · runner 12 |
