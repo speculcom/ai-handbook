@@ -1,0 +1,27 @@
+{
+  "_comment": "C6-4 body translation · gumloop (2026-10-30).",
+  "axes": {
+    "model_access": "The multi-model picker is an explicit product surface (same-day homepage: the Model item in Agent Settings shows \"Smartest (Claude 5.5 Opus)\"; the usage panel lists per-vendor consumption for GPT-6.1 Sol / Claude Opus 5.5 / Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash) — models are billed via credits; the available list per vendor follows the UI.",
+    "runtime": "Cloud-hosted form (www.gumloop.com direct 200); no official self-hosted distribution found (a community clone repo open-gumloop exists, unofficial); agents run in Gumloop's cloud, metered by credits.",
+    "local_files": "Workflow and agent data live in Gumloop's cloud; the local-file concept does not apply — artifacts land in third-party systems via connectors (Slack/HubSpot/Gong/Gmail/Salesforce); the SDKs (gumloop-py/js) offer a code-side entry but the runtime stays in the cloud.",
+    "background": "Always-on and scheduled agents are on record (same-day homepage use-case panel: Renewal Watch / Ticket Triage watch-type agents); queueing and retry details not verified item by item.",
+    "tools": "The Connectors ecosystem is on record same day (Slack/HubSpot/Gong/Gmail/Salesforce, with a View all entry); the Skills surface is on record (Account Research/Outbound Email/Call Summary/CRM Hygiene); the guMCP_template repo is on record (an official MCP-direction template).",
+    "context": "Agent instructions (Add instructions) and Skills are the persistent configuration surface; cross-session memory is not verified in official statements, treated as unknown — the knowledge surface mainly comes from connector-pulled external data (CRM/Gong records).",
+    "permissions": "Enterprise-facing (an Enterprise nav column is on record); ToS entity AgentHub Inc. (doing business as Gumloop) (on record same day); credits billing on record; training-use toggle path not verified item by item.",
+    "fit": "Fits: multi-model agents for GTM/support (canvas + connectors), unified credits-based usage governance (the Model Providers panel). Not a fit: self-hosting, a filed direct-mainland entry, free unlimited usage (credits metering)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to agent platforms).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The live per-vendor model list and routing rules** (the decision logic behind \"Smartest\" auto-routing is not on record)\n- **Credit pricing and per-vendor consumption rates** (the panel shows consumption volume; the conversion rate is not on record)\n- **Data permission boundaries of connector authorizations** (read/write scopes of Salesforce/Gong-level connections not verified item by item)",
+  "unknowns": "- The decision logic of \"Smartest\" model routing (no official explanation verified)\n- Self-hosting/private deployment form (no official statement verified; open-gumloop is a community clone)\n- Cross-session memory mechanism (no official statement verified)\n- Training-use toggle path and default state (not verified item by item)",
+  "related": [
+    "Also a work-agent platform: Lindy is the hired \"AI employee\", Gumloop the self-built canvas+connectors agent.",
+    "Integration-automation contrast: n8n is fair-code and self-hostable; Gumloop is fully hosted with agents and multi-model governance as the main axis.",
+    "The code-first contrast: source-level control belongs to the framework class, hosted canvas to this class."
+  ],
+  "sources": [
+    "Gumloop · official site (Build AI agents for work; Model/Connectors/Skills panels, direct-fetched 200 on 2026-10-30)",
+    "Gumloop · Terms of Service (entity AgentHub Inc. dba Gumloop, updated 2026-10-07, direct-fetched 200 on 2026-10-30)",
+    "Gumloop · Privacy Policy (direct-fetched 200 on 2026-10-30)",
+    "Gumloop · Changelog (latest entry 2026-10-28, direct-fetched 200 on 2026-10-30)",
+    "gumloop/gumloop-py · official Python SDK (Apache-2.0, GitHub API verified same day)"
+  ]
+}

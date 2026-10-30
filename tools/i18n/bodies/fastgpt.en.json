@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-4 body translation · fastgpt (2026-10-30).",
+  "axes": {
+    "model_access": "The platform ships no in-house model — it connects to various LLMs (OpenAI-compatible interfaces are the main axis); the hosted versions' (fastgpt.io/fastgpt.cn) built-in model list not verified item by item; the self-hosted version can attach local models (paired with runner-class tools).",
+    "runtime": "Two forms: open-source repo self-hosted (labring/FastGPT, GitHub direct 200, pushed same day 2026-10-30) + official hosted versions (fastgpt.io international direct 200; fastgpt.cn mainland direct 200, footer entity Guangzhou Huanji Cloud Computing Co., Ltd. + an ICP website registration on record, number in the cn block).",
+    "local_files": "In the self-hosted form data lives in your own databases (MongoDB/vector store — deployment docs on record); the hosted version keeps data in the official cloud. Knowledge-base files are ingested and vectorized after upload; raw-file retention not verified item by item.",
+    "background": "The product's main axis is RAG knowledge-base Q&A and application orchestration (doc.fastgpt.io docs on record); agent/workflow orchestration is on record; scheduling and background-execution details not verified item by item.",
+    "tools": "The workflow-node ecosystem is on record in the docs (knowledge retrieval / HTTP request / code-execution nodes etc.); plugin and tool-extension surfaces are on record in the docs; MCP support not verified item by item in official statements, treated as unknown.",
+    "context": "The knowledge base (RAG) is the core persistent knowledge surface (the product's main axis); multi-turn context and variable storage on record; cross-application memory details not verified item by item.",
+    "permissions": "Open source and auditable (Apache + extra terms rather than the GPL family, see license); hosted versions follow official cloud terms; the mainland version fastgpt.cn carries an ICP registration on record; training-use toggle path not verified item by item.",
+    "fit": "Fits: Chinese knowledge-base Q&A / RAG apps (self-hosted and controllable), a direct-mainland hosted entry (fastgpt.cn). Not a fit: wanting pure Apache 2.0 without extra terms (multi-tenant SaaS restricted), code-level agent frameworks (canvas/configuration is the main axis)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to agent platforms).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Capability gap between the hosted and self-hosted versions** (both forms run in parallel; the functional delta is not on record)\n- **Knowledge-base retrieval quality and default chunking strategy** (the core quality surface of a RAG product — docs list parameters but the effect is unmeasured)\n- **The live MCP/tool-calling support surface** (not verified item by item in official statements)",
+  "unknowns": "- The hosted versions' built-in model list (not verified item by item)\n- MCP support (no official statement verified)\n- Training-use toggle path and default state (not verified item by item)\n- Whether the mainland hosted version went through generative-AI service filing (no entry in the public registries; written as not-filed)",
+  "related": [
+    "Also a China-origin open-source agent-building platform: Dify is the general agent canvas; FastGPT centers on RAG knowledge-base Q&A.",
+    "Also a China-origin open-source enterprise KB Q&A tool: MaxKB is GPL-3.0 with Fit2Cloud's enterprise delivery; FastGPT is Apache + extra terms with a larger community ecosystem.",
+    "The local-model layer contrast: the self-hosted FastGPT can attach local models; model runners belong to the runner class."
+  ],
+  "sources": [
+    "FastGPT · international site (direct-fetched 200 on 2026-10-30)",
+    "FastGPT · mainland site (footer entity + ICP number on record, direct-fetched 200 on 2026-10-30)",
+    "FastGPT · official docs (doc.fastgpt.io, direct-fetched 307→200 on 2026-10-30)",
+    "labring/FastGPT · official repo (GitHub API verified same day: ★29,949 / pushed 2026-10-30; releases v4.17.2 2026-10-09)"
+  ]
+}

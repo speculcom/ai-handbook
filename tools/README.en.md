@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 191 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 198 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 191 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 198 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -139,7 +139,7 @@ tools/ (ai-handbook subtree)
 │   ├── image/ · video/ · audio/  three creation categories (13 + 12 + 17 objects)
 │   ├── framework/              agent frameworks & runtimes (22 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 28 objects)
-│   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 15 + 12 objects)
+│   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 22 + 12 objects)
 ├── protocols/                  measurement protocols (coding / framework / mcp)
 ├── scripts/                    validators (validate / audit / quality)
 └── CHANGELOG.md                data-layer changelog
@@ -253,11 +253,6 @@ If you need the raw snapshots for research, please contact us via an Issue.
 "unknown" legitimate, attach evidence to every judgement — are borrowed from
 [AgentClash](https://aiagentclash.com/), but the coordinate system and category definitions
 are independently designed here.
-
-
-
-
-
 
 <!-- INDEX:BEGIN generated, do not edit -->
 
@@ -419,7 +414,7 @@ Citation-first search and research products
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
-### Automation & workflows — 15
+### Automation & workflows — 22
 
 Visual AI-app builders and workflow automation platforms
 
@@ -427,18 +422,25 @@ Visual AI-app builders and workflow automation platforms
 |---|---|---|---|---|
 | [Coze](tracks/automation/products/coze.md) | ByteDance | web | partial | active |
 | [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
+| [AutoGPT (now the Experts AI-team platform)](tracks/automation/products/autogpt.md) | AutoGPT (operated by Determinist Ltd) | web | partial | active |
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | partial | active |
 | [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
 | [Dify](tracks/automation/products/dify.md) | LangGenius (China-origin, global-facing) | web | partial | active |
+| [FastGPT](tracks/automation/products/fastgpt.md) | labring (Huanji Cloud, China-origin) | web | partial | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | partial | active |
+| [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | partial | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax (formerly Langflow AI) | web | partial | active |
+| [Lindy](tracks/automation/products/lindy.md) | Lindy | web | partial | active |
 | [Make](tracks/automation/products/make.md) | Make (formerly Integromat) | web | partial | active |
+| [MaxKB](tracks/automation/products/maxkb.md) | Fit2Cloud (China-origin) | web | partial | active |
 | [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | partial | active |
 | [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
 | [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
 | [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI (Sydney) | web | partial | active |
 | [Salesforce Agentforce](tracks/automation/products/agentforce.md) | Salesforce | web | partial | active |
+| [SmythOS](tracks/automation/products/smythos.md) | SmythOS | web | partial | maintenance |
 | [Vertex AI Agent Builder](tracks/automation/products/vertex-agent-builder.md) | Google | web | partial | active |
+| [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
 ### Agent frameworks & runtimes — 22
@@ -532,8 +534,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 191 |
-| By category | coding 41 · chat 20 · image 13 · video 12 · audio 17 · research 11 · automation 15 · framework 22 · mcp 28 · runner 12 |
-| By form | web 81 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| Total profiles | 198 |
+| By category | coding 41 · chat 20 · image 13 · video 12 · audio 17 · research 11 · automation 22 · framework 22 · mcp 28 · runner 12 |
+| By form | web 88 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

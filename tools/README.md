@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 191 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 198 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 191 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 198 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 191 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 198 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -133,7 +133,7 @@ tools/（ai-handbook 子树）
 │   ├── image/ · video/ · audio/  AI 创作三大类（13 + 12 + 17 个对象）
 │   ├── framework/              Agent 框架与运行时（22 个对象）
 │   ├── mcp/                    MCP 生态（多 3 个特有维度，28 个对象）
-│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 15 + 12 个对象）
+│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 22 + 12 个对象）
 ├── protocols/                  实测协议（coding / framework / mcp 三套）
 ├── scripts/                    校验脚本（validate / audit / quality）
 └── CHANGELOG.md                数据层更新记录
@@ -238,11 +238,6 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 
 **方法论原型**：本仓库的「放弃总分 / 未知合法化 / 每条挂证据」三条规则
 借鉴自 [AgentClash](https://aiagentclash.com/)，但坐标系与大类定义是本仓库独立设计。
-
-
-
-
-
 
 <!-- INDEX:BEGIN generated, do not edit -->
 
@@ -404,7 +399,7 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
-### AI 自动化与工作流 —— 15 份
+### AI 自动化与工作流 —— 22 份
 
 可视化搭 AI 应用 / 跑自动化工作流的平台。
 
@@ -412,18 +407,25 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 |---|---|---|---|---|
 | [扣子 / Coze](tracks/automation/products/coze.md) | 字节跳动 | web | partial | active |
 | [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
+| [AutoGPT（现 Experts AI 团队平台）](tracks/automation/products/autogpt.md) | AutoGPT（Determinist Ltd 运营） | web | partial | active |
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | partial | active |
 | [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
 | [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | partial | active |
+| [FastGPT](tracks/automation/products/fastgpt.md) | labring（环际云，国产） | web | partial | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | partial | active |
+| [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | partial | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax（原 Langflow AI） | web | partial | active |
+| [Lindy](tracks/automation/products/lindy.md) | Lindy | web | partial | active |
 | [Make](tracks/automation/products/make.md) | Make（原 Integromat） | web | partial | active |
+| [MaxKB](tracks/automation/products/maxkb.md) | 飞致云（国产） | web | partial | active |
 | [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | partial | active |
 | [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
 | [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
 | [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI（悉尼） | web | partial | active |
 | [Salesforce Agentforce](tracks/automation/products/agentforce.md) | Salesforce | web | partial | active |
+| [SmythOS](tracks/automation/products/smythos.md) | SmythOS | web | partial | maintenance |
 | [Vertex AI Agent Builder（Gemini Enterprise 平台线）](tracks/automation/products/vertex-agent-builder.md) | Google | web | partial | active |
+| [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
 ### Agent 框架与运行时 —— 22 份
@@ -517,8 +519,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 191 份 |
-| 大类分布 | coding 41 · chat 20 · image 13 · video 12 · audio 17 · research 11 · automation 15 · framework 22 · mcp 28 · runner 12 |
-| 形态分布（form） | web 81 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| 档案总数 | 198 份 |
+| 大类分布 | coding 41 · chat 20 · image 13 · video 12 · audio 17 · research 11 · automation 22 · framework 22 · mcp 28 · runner 12 |
+| 形态分布（form） | web 88 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

@@ -985,5 +985,39 @@
     "The pitch is “realtime low latency” — official latency numbers are the vendor's own claims (on record in docs/site), not third-party verified; self-test under equal conditions when comparing",
     "Ink is a speech-to-text model (not a TTS side feature) — treating it as “the transcription side of a TTS vendor” undersells its independent model line",
     "The main-site changelog path 404s — the current changelog lives at docs.cartesia.ai/changelog (2026 on record); don't judge the update surface missing by the main-domain path"
+  ],
+  "voiceflow": [
+    "The changelog lives at voiceflow.com/docs/changelog (a docs subpath) — the main-site nav's Changelog link also points into the docs area; don't judge it missing by probing \"/changelog\" on the main domain",
+    "The product has moved from an early \"voice-flow prototyping tool\" to an enterprise CX agent platform (same-day homepage headline) — keeping the old voice-prototype-only impression misleads, since text dialogue agents are one of the current main axes"
+  ],
+  "lindy": [
+    "The terms' entity only self-describes as \"Lindy (a company registered in Oregon)\" — no Inc./LLC full name on record; don't complete the entity name yourself when citing it",
+    "\"AI employee\" is product packaging, not a capability guarantee: the Lindy Phone line's terms assign recording/consent compliance obligations to the user — read the phone section of the terms before phone scenarios",
+    "The changelog is active (latest 2026-10-28) and product lines expand fast (Phone/Apps are recent additions) — judging the feature surface from old review impressions will lag"
+  ],
+  "gumloop": [
+    "The ToS entity is **AgentHub Inc. (doing business as Gumloop)** — brand and legal entity differ; cite the entity as written in the ToS",
+    "The terms path is /tos (/terms and /legal/terms both 404) — probing conventional paths will misjudge \"no terms page\"",
+    "The multi-model panel shows **usage attribution** (per-vendor token consumption), not \"any model can be freely specified\" — the selectable list follows the UI"
+  ],
+  "fastgpt": [
+    "**Two versions, two entities, two entries**: fastgpt.io (international hosted) vs fastgpt.cn (mainland hosted, footer entity Guangzhou Huanji Cloud Computing Co., Ltd. + an ICP website registration on record — number in the profile's cn block) — an ICP website registration ≠ generative-AI service filing; don't conflate them",
+    "license=NOASSERTION does not mean \"no license\" — the LICENSE is actually Apache 2.0 + two extra conditions (multi-tenant SaaS restriction + LOGO retention), the same pattern as Dify",
+    "The docs domain is doc.fastgpt.io (direct 307→200) — main-site paths like /en/introduction 404; don't judge the docs missing by probing main-site paths"
+  ],
+  "maxkb": [
+    "**Mind the filing category**: MaxKB passed the **deep-synthesis service algorithm filing** (16th batch, publicized 2026-03-12, two entries: service provider + technology supporter) — not generative-AI service filing; the two are different categories",
+    "maxkb.cn measures 403 direct from mainland (Cloudflare-style block, not a dead link; reachable via proxy) — don't judge reachability by the site entry alone; the repo and docs domains (GitHub/docs.fit2cloud.com) measure 200 direct",
+    "GPL-3.0 ≠ the Apache family — before embedding MaxKB into a closed-source product you must assess copyleft distribution obligations; a completely different compliance path from Dify/FastGPT's Apache + extra terms"
+  ],
+  "autogpt": [
+    "The **terms entity is Determinist Ltd trading as \"AutoGPT\" (England and Wales)** — the GitHub org name Significant-Gravitas is not the contracting entity; cite the entity as written in the terms",
+    "**Licensing splits by directory**: inside autogpt_platform = Polyform Shield, outside = MIT — \"AutoGPT is MIT\" only holds for the classic line; the repo's license=NOASSERTION is precisely the result of the split",
+    "**The product line pivoted twice**: autonomous-agent experiment (classic) → low-code platform → the current Experts AI team (same-day homepage headline) — building a profile from any generation's old impression misleads wholesale; the classic line still lives in the repo (classic/ directory) but is no longer the lead"
+  ],
+  "smythos": [
+    "**The site yields to the repo**: smythos.com 302-redirects to github.com/smythos/sre the same day — the intuition \"has a site = has an active product\" misleads; the current truth surface is the GitHub org",
+    "**Contraction signals on record**: pushes across the SRE/studio/docs repos all stopped at 2026-04-03 (GitHub API verified same day, not archived) — assessing maintenance/security response as an \"active project\" carries risk; this profile is written on maintenance terms",
+    "Early SmythOS led with a \"no-code agent building platform + hosted service\" — after the site redirect that positioning no longer self-attests; historical positioning ≠ current form"
   ]
 }

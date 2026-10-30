@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-4 body translation · maxkb (2026-10-30).",
+  "axes": {
+    "model_access": "The platform ships no in-house model — it connects to various mainstream LLMs (same-day official blog wording); the self-hosted form can attach local models (paired with runner-class tools); the hosted/commercial editions' built-in model list not verified item by item.",
+    "runtime": "Open-source self-hosting is the main current form (1Panel-dev/MaxKB repo direct 200, pushed same day 2026-10-30; releases v2.10.8-lts 2026-10-22); one-click deployment via the 1Panel app store is on record (Fit2Cloud ecosystem); official docs live at docs.fit2cloud.com/maxkb (direct 200).",
+    "local_files": "In the self-hosted form data lives on your own machines (deployment docs on record) — the core difference from hosted products: knowledge-base files and chat logs all stay inside your own deployment; the commercial editions' data surface not verified item by item.",
+    "background": "The product's main axis is enterprise knowledge-base Q&A (RAG) + workflow orchestration + Skills + MCP tool calling (four capabilities on record in the same-day official blog); scheduling and background-execution details not verified item by item.",
+    "tools": "MCP tool calling is an officially stated capability (same-day blog: \"supports RAG, workflow orchestration, Skills and MCP tool calling\"); workflow node surfaces are on record in the docs; the concrete connector list not verified item by item.",
+    "context": "The knowledge base (RAG) is the core persistent knowledge surface; multi-turn context on record; cross-application memory details not verified item by item.",
+    "permissions": "GPL-3.0 strong copyleft — derivative-distribution obligations differ from the Apache family (embedding into closed-source products requires assessing the propagation surface); two deep-synthesis algorithm filing entries on record (see the cn block: both the service-provider and the technology-supporter roles are filed); training-use toggle path not verified item by item.",
+    "fit": "Fits: intranet self-hosted KB Q&A (data never leaves the domain), a China-origin open-source option with MCP tool calling and workflow orchestration, a filed-compliance narrative (two algorithm-filing entries on record). Not a fit: permissive licensing (GPL-3.0 copyleft), casual personal use (enterprise-delivery oriented)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to agent platforms).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Workflow nodes vs Dify/FastGPT capability deltas** (three China-origin peers; the cross-comparison surface is not on record)\n- **The live Skills/MCP calling boundaries** (officially stated capability; the concrete list and stability not verified item by item)\n- **Feature split between Community and Professional/Enterprise editions** (commercial editions exist; the split is not on record)",
+  "unknowns": "- Community vs Professional/Enterprise feature split (not on record)\n- Connector/plugin list (not verified item by item)\n- Training-use toggle path and default state (not verified item by item)\n- Whether a hosted SaaS form exists (self-hosting is the main form; the hosted surface not verified)",
+  "related": [
+    "Also a China-origin open-source RAG Q&A platform: FastGPT is Apache + extra terms with a big community ecosystem; MaxKB is GPL-3.0 with enterprise delivery and a filing narrative.",
+    "China-origin open-source agent platform contrast: Dify is the general canvas going global; MaxKB targets intranet enterprise delivery.",
+    "The local-model layer contrast: self-hosted MaxKB can attach local models; model runners belong to the runner class."
+  ],
+  "sources": [
+    "1Panel-dev/MaxKB · official repo (GPL-3.0, GitHub API verified same day: ★23,081 / pushed 2026-10-30; releases v2.10.8-lts 2026-10-22)",
+    "CAC · Domestic Deep-Synthesis Service Algorithm Filing List (March 2026 / 16th batch, downloaded and parsed same day: MaxKB service-provider entry 605, filing no. 网信算备330106491701101260019; technology-supporter entry 750, filing no. 网信算备330106491701101260027; entity Hangzhou Fit2Cloud Information Technology Co., Ltd.; announcement portal beian.cac.gov.cn)",
+    "Fit2Cloud official blog · MaxKB passed the deep-synthesis algorithm filing (16th-batch framing + four-capability positioning, on record via same-day search)",
+    "MaxKB · official docs (docs.fit2cloud.com/maxkb, direct-fetched 200 on 2026-10-30)"
+  ]
+}
