@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 198 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 200 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 198 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 200 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 198 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 200 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -130,7 +130,7 @@ tools/（ai-handbook 子树）
 │   │   ├── _category.md        大类收录声明（标准 + 形态判据 + 对象表）
 │   │   └── products/           41 个对象
 │   ├── chat/                   AI 对话助手（20 个对象）
-│   ├── image/ · video/ · audio/  AI 创作三大类（13 + 12 + 17 个对象）
+│   ├── image/ · video/ · audio/  AI 创作三大类（13 + 14 + 17 个对象）
 │   ├── framework/              Agent 框架与运行时（22 个对象）
 │   ├── mcp/                    MCP 生态（多 3 个特有维度，28 个对象）
 │   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 22 + 12 个对象）
@@ -338,7 +338,7 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [SeaArt](tracks/image/products/seaart.md) | 海艺（成都海艺互娱） | web | partial | active |
 | [Stability AI（Stable Image 平台）](tracks/image/products/stability-ai.md) | Stability AI | web | partial | active |
 
-### AI 视频创作 —— 12 份
+### AI 视频创作 —— 14 份
 
 文生视频、图生视频与 AI 视频编辑产品。
 
@@ -347,8 +347,10 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [海螺视频](tracks/video/products/hailuo-video.md) | MiniMax（稀宇科技） | web | partial | active |
 | [可灵 Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd.（快手） | web | partial | active |
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | partial | active |
+| [Genmo](tracks/video/products/genmo.md) | Genmo | web | partial | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
+| [invideo AI](tracks/video/products/invideo.md) | invideo | web | partial | active |
 | [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | partial | active |
 | [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
 | [PixVerse](tracks/video/products/pixverse.md) | 爱诗科技 | web | partial | active |
@@ -519,8 +521,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 198 份 |
-| 大类分布 | coding 41 · chat 20 · image 13 · video 12 · audio 17 · research 11 · automation 22 · framework 22 · mcp 28 · runner 12 |
-| 形态分布（form） | web 88 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| 档案总数 | 200 份 |
+| 大类分布 | coding 41 · chat 20 · image 13 · video 14 · audio 17 · research 11 · automation 22 · framework 22 · mcp 28 · runner 12 |
+| 形态分布（form） | web 90 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

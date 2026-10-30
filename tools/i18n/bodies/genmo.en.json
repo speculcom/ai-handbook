@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-5 genmo bodies EN. 无附加小节。正文「相关条目」3 行带 .md 链接（runway/luma/flux），related 写 3 条。sources 4 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "In-house model line + open weights: Mochi 1, an open-source text-to-video model (GitHub genmoai/mochi, Apache-2.0, 3,757 stars, pushed 2026-10-22, GitHub API verified the same day); the in-product model-selection surface sits behind a login wall, not verified item by item.",
+    "runtime": "Web (genmo.ai, /playground 200); product generation on the vendor's cloud. Open weights + training/inference code can run locally (provided in the repo) — self-running is a repo-level fact; the product itself ships no offline client.",
+    "local_files": "Product works stored account-side in the cloud; open weights and code go local (Apache-2.0). No officially stated local data surface.",
+    "background": "Generation is instant/queued (varies by tier, not verified item by item); no \"keep-running-after-shutdown\" task surface (no claim verified).",
+    "tools": "Text-to-video (the Mochi 1 line); the homepage headlines the \"Open world models\" narrative (direct-fetched the same day); product-side editing/interaction details not verified item by item (/docs and /api both 307 into a login wall).",
+    "context": "Organized via account works; cross-session memory — no official statement verified. Reusable open weights are asset reuse, not product memory.",
+    "permissions": "Account + subscription system (/pricing 200, D9: prices not collected); the training-use switch not verified line by line; training/commercial freedom of the open-weights repo follows Apache-2.0 itself.",
+    "fit": "Fits: creators and researchers who want open weights to self-run (Apache-2.0 is a rare permissive tier in this category), world-model narrative tracking, creative experiments. Does not fit: mainland compliance scenarios (not filed, not serving the mainland), enterprise SLA as the headline (no claim verified)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Mochi 1's real usability and output quality on consumer-grade VRAM**\n- **The quality gap between open-weights output and product-side output**\n- **The actual boundary between the \"world model\" narrative and today's interactive capability**",
+  "unknowns": "- The model list and differences inside the product playground (behind a login wall, unverified)\n- API commercialization status (/api 404; no public API page verified)\n- The training-use switch (not verified line by line)\n- Cross-session memory mechanism (no official statement verified)",
+  "related": [
+    "Both overseas video benches: Runway is a closed professional toolchain, Genmo carries an open-weights line.",
+    "Both narrative-oriented overseas video benches: Luma keeps weights closed, Genmo's Mochi is open and self-runnable.",
+    "The image-side counterpart of the same \"open weights + self-runnable\" ecosystem logic: permissive weights grew a local ecosystem."
+  ],
+  "sources": [
+    "Genmo · official site (\"Open world models\" positioning, direct-fetched 2026-10-30)",
+    "Genmo · Terms of Service (entity Genmo, Inc. on record, direct-fetched and verified 2026-10-30)",
+    "Genmo · Blog (official update line, changelog; the Mochi 1 SOTA post is on record)",
+    "Mochi 1 · GitHub repo (Apache-2.0, 3,757 stars, pushed 2026-10-22)"
+  ]
+}

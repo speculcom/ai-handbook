@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-5 invideo bodies EN. 无附加小节。正文「相关条目」3 行带 .md 链接（runway/synthesia/figma-mcp），related 写 3 条（figma-mcp 跨大类）。sources 4 条对齐 frontmatter。",
+  "axes": {
+    "model_access": "No disclosed model-selection surface — the product is a \"script-to-finished-video\" pipeline; underlying generation-model providers not verified item by item.",
+    "runtime": "Web cloud editor (invideo.io); the official agents.md narrative: projects live in the browser, several people can edit at once, generation and rendering on the vendor's cloud. No official offline client.",
+    "local_files": "Works stored account-side in the cloud (agents.md narrative: projects live in the browser, full edit history stored cloud-side with the project); finished-video exports go local. No officially stated local data surface or offline project file format.",
+    "background": "Cloud rendering/queuing (not verified item by item); projects have a main timeline, branches, and full edit history (agents.md narrative), changes can be proposed before merging — a collaboration mechanism, not \"keep-running-after-shutdown\".",
+    "tools": "**The remote MCP server is the signature difference** (the /mcp/ page on record the same day: an agent opens a project by URL, brings media in, edits timelines, and edits land live in the real editor where a human can take over; invideo.io/agents.md gives agent connection instructions); script-to-video and marketing-template lines (homepage \"agentic video editor for serious creatives\" on record).",
+    "context": "Project = main timeline + branches + full edit history (the GitHub-for-video narrative in agents.md); cross-session memory — no official statement verified. Reviewable history is a project mechanism, not model memory.",
+    "permissions": "Account + subscription system (/pricing 200, D9: prices not collected); MCP connection requires the user to sign in via the client (on record in agents.md); the training-use switch not verified line by line.",
+    "fit": "Fits: marketing/talking-head video pipelines, delegating editing to an AI agent (official MCP surface), small-team collaborative editing. Does not fit: open weights, cinematic compositing, mainland direct access (measures 000)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The real granularity and error rate of agent editing over MCP (against the tool surface claimed in agents.md)**\n- **Actual support for Chinese scripts/materials in the script-to-video pipeline**\n- **How useful the \"branch + propose-to-merge\" collaboration mechanism is in a solo-plus-agent setup**",
+  "unknowns": "- The underlying generation-model provider list (no official statement verified)\n- The full granularity of the MCP tool list (not verified item by item)\n- The training-use switch (not verified line by line)\n- Which signing entity corresponds to which signup entry (two entities on record, not verified line by line)",
+  "related": [
+    "Both video editing: Runway is a generation toolchain you operate yourself, invideo is a finished-video editor plus agent delegation.",
+    "Both marketing-video oriented: Synthesia does digital-human training videos, invideo does footage-plus-narration finished videos.",
+    "Same \"professional tool exposing an official MCP server\" logic: Figma MCP connects design, invideo MCP connects editing."
+  ],
+  "sources": [
+    "invideo · official site (\"agentic video editor for serious creatives\" positioning, direct-fetched 2026-10-30)",
+    "invideo · Privacy Policy (two entities on record: Invideo Inc. / Invideo Innovation Pte. Ltd.)",
+    "invideo · MCP server page (remote MCP: agents editing timelines, direct-fetched 2026-10-30)",
+    "invideo · Blog (official update line, changelog)"
+  ]
+}
