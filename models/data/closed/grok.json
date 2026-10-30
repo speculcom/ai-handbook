@@ -14,18 +14,26 @@
     "en": "API and X subscription; weights are not open."
   },
   "currentGen": {
-    "zh": "Grok 4.5",
-    "en": "Grok 4.5"
+    "zh": "Grok 4.7",
+    "en": "Grok 4.7"
   },
-  "currentGenDate": "2026-07",
+  "currentGenDate": "2026-08",
   "review_interval_days": 30,
   "generations": [
     {
-      "gen": "Grok 4.5",
+      "gen": "Grok 4.7",
+      "date": "2026-08",
+      "zh": "当前旗舰：官方模型页 At a glance 列 500,000 上下文、Text+Image 输入 / Text 输出；页面元数据 datePublished 2026-08-17；官方文档注明「Grok 4.7 的知识截点是 2026 年 5 月」。",
+      "en": "Current flagship: official model page At a glance lists 500,000 context, Text+Image input / Text output; page metadata datePublished 2026-08-17; official docs state \"The knowledge cut-off date of Grok 4.7 is May 2026\".",
+      "url": "https://docs.x.ai/developers/models/grok-4.7"
+    },
+    {
+      "gen": "Grok 4.5 / 4.6",
       "date": "2026",
-      "zh": "当前旗舰：官方模型页 500,000 上下文、文本+图像输入；知识截点 2026-02-01（官方文档 Models 页）。",
-      "en": "Current flagship: official model page lists 500,000 context, text + image input; knowledge cutoff Feb 1, 2026 (official docs Models page).",
-      "url": "https://x.ai/docs/developers/models/grok-4.5"
+      "zh": "上一档：grok-4.5 模型页仍在册（At a glance 500,000 上下文）；官方 Models 总览页 4.20 / 4.3 / 4.5 / 4.6 / 4.7 各档并列在册。",
+      "en": "Previous tier: the grok-4.5 model page is still listed (At a glance 500,000 context); the official Models overview lists 4.20 / 4.3 / 4.5 / 4.6 / 4.7 side by side.",
+      "url": "https://x.ai/docs/developers/models/grok-4.5",
+      "genEn": "Grok 4.5 / 4.6"
     },
     {
       "gen": "Grok 4.x 前代",
@@ -43,10 +51,10 @@
         "en": "Context window"
       },
       "v": {
-        "zh": "500,000 tokens（官方模型页 At a glance）",
-        "en": "500,000 tokens (official model page, At a glance)"
+        "zh": "500,000 tokens（Grok 4.7 官方模型页 At a glance）",
+        "en": "500,000 tokens (Grok 4.7 official model page, At a glance)"
       },
-      "url": "https://x.ai/docs/developers/models/grok-4.5"
+      "url": "https://docs.x.ai/developers/models/grok-4.7"
     },
     {
       "k": {
@@ -54,8 +62,8 @@
         "en": "Knowledge cutoff"
       },
       "v": {
-        "zh": "2026-02-01（官方文档）",
-        "en": "Feb 1, 2026 (official docs)"
+        "zh": "2026-05（官方文档信息框原文：「The knowledge cut-off date of Grok 4.7 is May 2026」；旧口径 2026-02-01 是 4.5 代截点，已随换代更新）",
+        "en": "May 2026 (official docs info box verbatim: \"The knowledge cut-off date of Grok 4.7 is May 2026\"; the older Feb 1, 2026 figure was the 4.5-generation cutoff and moved with the generation change)"
       },
       "url": "https://docs.x.ai/developers/models/grok-3"
     },
@@ -65,10 +73,10 @@
         "en": "Input modalities"
       },
       "v": {
-        "zh": "文本 + 图像输入、文本输出（官方模型页）",
-        "en": "Text + image input, text output (official model page)"
+        "zh": "文本 + 图像输入、文本输出（Grok 4.7 官方模型页 At a glance：Modalities = Text, Image → Text）",
+        "en": "Text + image input, text output (Grok 4.7 official model page At a glance: Modalities = Text, Image → Text)"
       },
-      "url": "https://x.ai/docs/developers/models/grok-4.5"
+      "url": "https://docs.x.ai/developers/models/grok-4.7"
     },
     {
       "k": {
@@ -92,27 +100,27 @@
   },
   "sources": [
     {
-      "label": "Grok 4.5 官方模型页（2026-10-20 经代理直抓 200）",
-      "url": "https://x.ai/docs/developers/models/grok-4.5",
+      "label": "Grok 4.7 官方模型页（2026-10-30 经代理直抓 200；At a glance 规格与 datePublished 元数据取自该页）",
+      "url": "https://docs.x.ai/developers/models/grok-4.7",
       "kind": "docs",
-      "labelEn": "Grok 4.5 official model page (direct fetch via proxy 200 on 2026-10-20)"
+      "labelEn": "Grok 4.7 official model page (direct fetch via proxy 200 on 2026-10-30; At a glance specs and datePublished metadata from this page)"
     },
     {
-      "label": "xAI 文档 Models 页（2026-10-20 检索快照：知识截点与搜索工具口径）",
+      "label": "xAI 文档 Grok Models & Pricing 页（原 grok-3 URL 现承载全站模型定价与截点信息；2026-10-30 直抓 200：4.7 截点原文与搜索工具口径）",
       "url": "https://docs.x.ai/developers/models/grok-3",
       "kind": "docs",
-      "labelEn": "xAI docs Models page (search snapshot 2026-10-20: knowledge cutoff and search-tool basis)"
+      "labelEn": "xAI docs Grok Models & Pricing page (the former grok-3 URL now carries site-wide model pricing and cutoff info; direct fetch 200 on 2026-10-30: the 4.7 cutoff verbatim and search-tool basis)"
     }
   ],
-  "last_verified": "2026-10-20",
+  "last_verified": "2026-10-30",
   "confidence": "verified",
   "cn": {
     "origin": "foreign",
     "originNote": "出品方为 xAI（美国）；官方文档页 2026-10 自称 SpaceXSI，属地按 xAI 记录。",
     "originNoteEn": "Made by xAI (US); the Oct 2026 docs self-brand as SpaceXSI — origin recorded as xAI.",
     "direct": "no",
-    "directNote": "x.ai 大陆直连实测不可达（2026-10-20，S52 探测口径）；官方服务不面向大陆。",
-    "directNoteEn": "x.ai unreachable direct from the mainland (measured 2026-10-20, S52 convention); the official service does not serve the mainland.",
+    "directNote": "x.ai 大陆直连实测不可达（2026-10-30 复测同口径，S52 探测）；官方服务不面向大陆。",
+    "directNoteEn": "x.ai unreachable direct from the mainland (re-measured 2026-10-30, S52 convention); the official service does not serve the mainland.",
     "filing": {
       "status": "not-filed",
       "name": "",

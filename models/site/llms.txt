@@ -49,17 +49,17 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 对照面：只记当前代、官方规格事实（每条挂官方出处）、核验快照与复核周期。不采价格数字，不排名。复核到期的卡页顶有横幅。
 
 - [Claude（闭源 API）](https://models.specul.com/closed/claude/): 闭源旗舰线（agentic 编码与企业向）：官方模型总览是规格真相源；模型 ID 是钉死快照不是常青指针（官方文档明说），选型时按 ID 对版本。
-  Anthropic　当前代 Claude 5.5 代（Fable 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5）（2026-09）　4 条官方事实　核验 2026-10-20　复核周期 30 天
+  Anthropic　当前代 Claude 5.5 代（Fable 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5）（2026-09）　4 条官方事实　核验 2026-10-30　复核周期 30 天
 - [豆包（闭源 API）](https://models.specul.com/closed/doubao/): 国产闭源主力：对话产品「豆包」与 API「Doubao-Seed」同族两条线；服务在网信办备案（Beijing-YunQue-20230821，豆包大模型=云雀更名，官方备案公示页确认）。代次更替快，本站卡带核验日与复核周期。
-  字节跳动 · 火山引擎　当前代 Doubao-Seed 2.1 系（+ Seed-Evolving）（2026-06）　4 条官方事实　核验 2026-10-20　复核周期 30 天
+  字节跳动 · 火山引擎　当前代 Doubao-Seed 2.1 系（+ Seed-Evolving）（2026-06）　4 条官方事实　核验 2026-10-30　复核周期 30 天
 - [Gemini（闭源 API）](https://models.specul.com/closed/gemini/): Google 的闭源旗舰线；与开放权重的 Gemma 是两条线，别混。选型注意官方「预览版」标注——预览意味着规格与价格都可能变，本站只抄快照。
-  Google DeepMind　当前代 Gemini 3 系（3.1 Pro / 3 Flash / 3.1 Flash-Lite）（2026-06）　4 条官方事实　核验 2026-10-20　复核周期 30 天
+  Google DeepMind　当前代 Gemini 3 系（最新 3.8 Flash；3.1 Pro / 3.7 / 3.6 / 3.5 Flash 在册）（2026-09）　4 条官方事实　核验 2026-10-30　复核周期 30 天
 - [GPT（闭源 API）](https://models.specul.com/closed/gpt/): 闭源旗舰线：能力声明以官方发布页为准，本站只抄规格不背书横评。注意 OpenAI 另有一条开放权重线（gpt-oss），与这条 API 线是两回事——本站两边都有卡。
-  OpenAI　当前代 GPT-6 系（Astra / 6.1 Sol / 6 Luna）（2026-10）　4 条官方事实　核验 2026-10-20　复核周期 30 天
+  OpenAI　当前代 GPT-6 系（Astra / 6.1 Sol / 6 Luna）（2026-10）　4 条官方事实　核验 2026-10-30　复核周期 30 天
 - [Grok（闭源 API）](https://models.specul.com/closed/grok/): 闭源旗舰线（代码与 agentic 向）：官方文档规格直抄。诚实标注：2026-10-20 快照里官方文档页自称 SpaceXSI（Memphis 数据中心口径），品牌归属变化本站不推测、只记录页面原文。
-  xAI（官方文档页 2026-10 自称 SpaceXSI）　当前代 Grok 4.5（2026-07）　4 条官方事实　核验 2026-10-20　复核周期 30 天
+  xAI（官方文档页 2026-10 自称 SpaceXSI）　当前代 Grok 4.7（2026-08）　4 条官方事实　核验 2026-10-30　复核周期 30 天
 - [Kimi（闭源 API）](https://models.specul.com/closed/kimi/): 国产闭源旗舰，但它是本站唯一「API 与开放权重双轨」的家族：K3 权重在 Hugging Face / ModelScope 开放（自定义 Kimi K3 License），API 走 platform.kimi.com。选型时两条路径的许可与数据条款不同，分开读。
-  月之暗面（Moonshot AI）　当前代 Kimi K3（API）（2026-06）　3 条官方事实　核验 2026-10-20　复核周期 30 天
+  月之暗面（Moonshot AI）　当前代 Kimi K3（API）（2026-06）　3 条官方事实　核验 2026-10-30　复核周期 30 天
 
 ## 做模型专题
 
@@ -87,25 +87,25 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 - [DeepSeek V4](https://models.specul.com/series/deepseek-v4/): MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。
   DeepSeek　发布 2026-09-10　1 个模型仓 / 5 个量化档 / 14 个 GGUF 文件　许可 mit
 - [Gemma 4](https://models.specul.com/series/gemma-4/): Google 开放权重最新一代，三种规格各自都有量化覆盖。
-  Google　发布 2026-06　3 个模型仓 / 26 个量化档 / 344 个 GGUF 文件　许可 apache-2.0, apache-2.0, apache-2.0
+  Google　发布 2026-06　3 个模型仓 / 26 个量化档 / 340 个 GGUF 文件　许可 apache-2.0, apache-2.0, apache-2.0
 - [GLM 5](https://models.specul.com/series/glm-5/): 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。
-  智谱 AI　发布 2026-08-25　2 个模型仓 / 17 个量化档 / 80 个 GGUF 文件　许可 other, mit
+  智谱 AI　发布 2026-08-25　2 个模型仓 / 13 个量化档 / 79 个 GGUF 文件　许可 other, mit
 - [gpt-oss](https://models.specul.com/series/gpt-oss/): OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。
-  OpenAI　发布 2025-08-04　1 个模型仓 / 4 个量化档 / 47 个 GGUF 文件　许可 apache-2.0
+  OpenAI　发布 2025-08-04　1 个模型仓 / 6 个量化档 / 59 个 GGUF 文件　许可 apache-2.0
 - [KAT Coder V2.5](https://models.specul.com/series/kat-coder/): 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。
   Kwaipilot　发布 2026-07-23　1 个模型仓 / 6 个量化档 / 57 个 GGUF 文件　许可 apache-2.0
 - [Kimi K3](https://models.specul.com/series/kimi-k3/): 月之暗面当前最新一代，41 家量化仓但整体热度中等。
-  月之暗面　发布 2026-06-13　1 个模型仓 / 10 个量化档 / 26 个 GGUF 文件　许可 other
+  月之暗面　发布 2026-06-13　1 个模型仓 / 10 个量化档 / 31 个 GGUF 文件　许可 other
 - [Laguna 2.1](https://models.specul.com/series/laguna/): 代码方向的开放权重系列，许可为 OpenMDW-1.1（使用前须读原文）。
   Poolside　发布 2026-06-20　1 个模型仓 / 6 个量化档 / 50 个 GGUF 文件　许可 openmdw-1.1
 - [MiniCPM 5](https://models.specul.com/series/minicpm5/): 国产小尺寸代表，2B 规模适合低显存与端侧。
-  面壁智能 · OpenBMB　发布 2026-08-27　1 个模型仓 / 10 个量化档 / 143 个 GGUF 文件　许可 apache-2.0
+  面壁智能 · OpenBMB　发布 2026-08-27　1 个模型仓 / 10 个量化档 / 139 个 GGUF 文件　许可 apache-2.0
 - [Muse Glimmer](https://models.specul.com/series/muse-glimmer/): Meta 的开放权重系列，apache-2.0，量化覆盖横跨多家主力量化者。
-  Meta　发布 2026-08-09　1 个模型仓 / 10 个量化档 / 122 个 GGUF 文件　许可 apache-2.0
+  Meta　发布 2026-08-09　1 个模型仓 / 10 个量化档 / 118 个 GGUF 文件　许可 apache-2.0
 - [Ornith 1.5](https://models.specul.com/series/ornith-1-5/): MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。
-  Ornith AI　发布 2026-08-18　2 个模型仓 / 20 个量化档 / 213 个 GGUF 文件　许可 mit, mit
+  Ornith AI　发布 2026-08-18　2 个模型仓 / 20 个量化档 / 208 个 GGUF 文件　许可 mit, mit
 - [千问 3.8](https://models.specul.com/series/qwen3-8/): 阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。
-  阿里 · 通义千问　发布 2026-08-05　2 个模型仓 / 18 个量化档 / 157 个 GGUF 文件　许可 apache-2.0, other
+  阿里 · 通义千问　发布 2026-08-05　2 个模型仓 / 17 个量化档 / 175 个 GGUF 文件　许可 apache-2.0, other
 
 ## 每个系列页包含六个区块
 
@@ -126,7 +126,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 
 - 采集接口：`hf-mirror.com/api/models`（HF 国内镜像）与 `hf-mirror.com/api/models/{id}/tree/main`
 - 原始来源：<https://huggingface.co>
-- 采集时间：2026-10-09（快照数据，非实时）
+- 采集时间：2026-10-30（快照数据，非实时）
 - 选型方法：<https://github.com/speculcom/ai-handbook/blob/main/docs/METHODOLOGY.md>
 
 ## 法律立场
@@ -152,4 +152,4 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 - Agent <https://tools.specul.com/>　AI 做游戏 <https://vg.specul.com/>
 - （v3 时代的 ide / cli / mcp / harness 四个独立子域已于 2026-10-04 并入 tools.specul.com，不再存在）
 
---- 最后更新：2026-10-09
+--- 最后更新：2026-10-30

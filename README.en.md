@@ -54,9 +54,9 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 | tools · Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 | models · Series | 11 |
 | models · Model repos (members) | 16 |
-| models · Quant variants | 132 |
-| models · GGUF files | 1253 |
-| models · Quantizers | 55 |
+| models · Quant variants | 129 |
+| models · GGUF files | 1270 |
+| models · Quantizers | 54 |
 | models · Family lineage cards (families) | 15 |
 | models · Closed-model cards (closed) | 6 |
 | models · Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |

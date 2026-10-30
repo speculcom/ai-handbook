@@ -14,18 +14,18 @@
     "en": "API (Gemini API / Vertex) and the Gemini app subscription; weights are not open (the open-weight line is Gemma)."
   },
   "currentGen": {
-    "zh": "Gemini 3 系（3.1 Pro / 3 Flash / 3.1 Flash-Lite）",
-    "en": "Gemini 3 line (3.1 Pro / 3 Flash / 3.1 Flash-Lite)"
+    "zh": "Gemini 3 系（最新 3.8 Flash；3.1 Pro / 3.7 / 3.6 / 3.5 Flash 在册）",
+    "en": "Gemini 3 line (latest 3.8 Flash; 3.1 Pro / 3.7 / 3.6 / 3.5 Flash listed)"
   },
-  "currentGenDate": "2026-06",
+  "currentGenDate": "2026-09",
   "review_interval_days": 30,
   "generations": [
     {
-      "gen": "Gemini 3.1 / 3",
+      "gen": "Gemini 3.8 / 3.1 / 3",
       "date": "2025-11–2026",
-      "zh": "当前代：官方开发者指南列 gemini-3.1-pro / 3-flash / 3.1-flash-lite 等，全部 1M 输入 / 64K 输出上下文，知识截点 2025-01；指南页注明「所有 Gemini 3 模型目前均为预览版」。",
-      "en": "Current line: the official developer guide lists gemini-3.1-pro / 3-flash / 3.1-flash-lite etc., all 1M input / 64K output context, knowledge cutoff Jan 2025; the guide notes all Gemini 3 models are still in preview.",
-      "url": "https://ai.google.dev/gemini-api/docs/gemini-3"
+      "zh": "当前代：官方模型总览页现役 gemini-3.8-flash（模型页 1,048,576 输入 / 65,536 输出、Preview 标注）；3.8 Flash 指南链接已从 3 系指南页挂出。指南页仍注明「所有 Gemini 3 模型目前均为预览版」。Google Cloud 模型版本页标注 gemini-3.8-flash 发布日期 2026-09-02（GA）。",
+      "en": "Current line: the official models overview lists gemini-3.8-flash (model page: 1,048,576 input / 65,536 output, Preview label); the 3.8 Flash guide is linked from the Gemini 3 guide page. The guide still notes all Gemini 3 models are currently in preview. The Google Cloud model-versions page lists gemini-3.8-flash release date 2026-09-02 (GA).",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash"
     },
     {
       "gen": "Gemini 2.5 系",
@@ -43,10 +43,10 @@
         "en": "Context window"
       },
       "v": {
-        "zh": "1M 输入 / 64K 输出（Gemini 3 系官方指南表）",
-        "en": "1M input / 64K output (Gemini 3 line, official guide table)"
+        "zh": "3.8 Flash：1,048,576 输入 / 65,536 输出（官方模型页）；3/3.1 代指南表口径 1M 输入 / 64K 输出",
+        "en": "3.8 Flash: 1,048,576 input / 65,536 output (official model page); the 3/3.1 guide-table figure is 1M input / 64K output"
       },
-      "url": "https://ai.google.dev/gemini-api/docs/gemini-3"
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash"
     },
     {
       "k": {
@@ -54,8 +54,8 @@
         "en": "Knowledge cutoff"
       },
       "v": {
-        "zh": "2025-01（官方指南表列）",
-        "en": "Jan 2025 (official guide table)"
+        "zh": "3/3.1 代 2025-01（官方指南表列）；3.8 Flash 模型页未标知识截点——本站按未知处理",
+        "en": "3/3.1 line: Jan 2025 (official guide table); the 3.8 Flash model page lists no knowledge cutoff — this site records it as unknown"
       },
       "url": "https://ai.google.dev/gemini-api/docs/gemini-3"
     },
@@ -65,8 +65,8 @@
         "en": "Release status"
       },
       "v": {
-        "zh": "官方指南注明「所有 Gemini 3 模型目前均为预览版」（2026-10-20 快照）",
-        "en": "The official guide states all Gemini 3 models are currently in preview (2026-10-20 snapshot)"
+        "zh": "官方指南注明「所有 Gemini 3 模型目前均为预览版」（2026-10-30 快照，原文 All Gemini 3 models are currently in preview）",
+        "en": "The official guide states \"All Gemini 3 models are currently in preview\" (2026-10-30 snapshot)"
       },
       "url": "https://ai.google.dev/gemini-api/docs/gemini-3"
     },
@@ -92,27 +92,39 @@
   },
   "sources": [
     {
-      "label": "Gemini 3 开发者指南（2026-10-20 经代理直抓 200，中文页）",
-      "url": "https://ai.google.dev/gemini-api/docs/gemini-3?hl=zh-cn",
-      "kind": "docs",
-      "labelEn": "Gemini 3 developer guide (direct fetch via proxy 200 on 2026-10-20, Chinese page)"
+      "label": "Google Cloud · Gemini Enterprise Agent Platform 模型版本页（gemini-3.8-flash 发布日期 2026-09-02，GA）",
+      "labelEn": "Google Cloud · model-versions page (gemini-3.8-flash release date 2026-09-02, GA)",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
+      "verified": "2026-10-30"
     },
     {
-      "label": "Google Cloud 博客：Gemini 3 面向企业可用（2026-10-20 检索快照）",
+      "label": "Gemini 3.8 Flash 官方模型页（2026-10-30 经代理直抓 200：1,048,576/65,536、Preview 标注）",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash",
+      "kind": "docs",
+      "labelEn": "Gemini 3.8 Flash official model page (direct fetch via proxy 200 on 2026-10-30: 1,048,576/65,536, Preview label)"
+    },
+    {
+      "label": "Gemini 3 开发者指南（2026-10-30 经代理直抓 200，中文页）",
+      "url": "https://ai.google.dev/gemini-api/docs/gemini-3?hl=zh-cn",
+      "kind": "docs",
+      "labelEn": "Gemini 3 developer guide (direct fetch via proxy 200 on 2026-10-30, Chinese page)"
+    },
+    {
+      "label": "Google Cloud 博客：Gemini 3 面向企业可用（2026-10-30 检索快照）",
       "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-is-available-for-enterprise",
       "kind": "docs",
-      "labelEn": "Google Cloud blog: Gemini 3 available for enterprises (search snapshot 2026-10-20)"
+      "labelEn": "Google Cloud blog: Gemini 3 available for enterprises (search snapshot 2026-10-30)"
     }
   ],
-  "last_verified": "2026-10-20",
+  "last_verified": "2026-10-30",
   "confidence": "verified",
   "cn": {
     "origin": "foreign",
     "originNote": "出品方为 Google。",
     "originNoteEn": "Made by Google.",
     "direct": "no",
-    "directNote": "gemini.google.com 大陆直连实测不可达（2026-10-20，S52 探测口径）；官方服务不面向大陆。",
-    "directNoteEn": "gemini.google.com unreachable direct from the mainland (measured 2026-10-20, S52 convention); the official service does not serve the mainland.",
+    "directNote": "gemini.google.com 大陆直连实测不可达（2026-10-30 复测同口径，S52 探测）；官方服务不面向大陆。",
+    "directNoteEn": "gemini.google.com unreachable direct from the mainland (re-measured 2026-10-30, S52 convention); the official service does not serve the mainland.",
     "filing": {
       "status": "not-filed",
       "name": "",

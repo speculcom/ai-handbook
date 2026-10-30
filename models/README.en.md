@@ -32,7 +32,7 @@ Written into the charter from day one — every page footer carries "no benchmar
 
 ## How to read this
 
-10 base models, 132 quant variants, 1253 GGUF files. Nobody reads that list top to
+16 base models, 129 quant variants, 1270 GGUF files. Nobody reads that list top to
 bottom, so don't. Start from where you are:
 
 | Where you are | What to do |
@@ -173,15 +173,15 @@ or faster need benchmarks, and this site makes none.
 |---|---|---|---|---|---|
 | [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT-licensed, with a lively quantizatio… |
 | [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google's newest open-weight generation;… |
-| [GLM 5](data/series/glm-5.json) | Zhipu AI | 2026-08-25 | 2 | 17 | Zhipu's current generation. The MIT-lic… |
-| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 4 | OpenAI's only open-weight series. The 2… |
+| [GLM 5](data/series/glm-5.json) | Zhipu AI | 2026-08-25 | 2 | 13 | Zhipu's current generation. The MIT-lic… |
+| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI's only open-weight series. The 2… |
 | [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | A code-focused open-weight series under… |
 | [Kimi K3](data/series/kimi-k3.json) | Moonshot AI | 2026-06-13 | 1 | 10 | Moonshot AI's current generation. 41 qu… |
 | [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | A code-focused open-weight series under… |
 | [MiniCPM 5](data/series/minicpm5.json) | OpenBMB | 2026-08-27 | 1 | 10 | A leading small-footprint Chinese model… |
 | [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta's open-weight series under Apache-… |
 | [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | MIT-licensed; across its two sizes it h… |
-| [Qwen3.8](data/series/qwen3-8.json) | Alibaba Qwen | 2026-08-05 | 2 | 18 | Alibaba's current generation. The 27B d… |
+| [Qwen3.8](data/series/qwen3-8.json) | Alibaba Qwen | 2026-08-05 | 2 | 17 | Alibaba's current generation. The 27B d… |
 
 <!-- INDEX:END -->
 
@@ -192,9 +192,9 @@ or faster need benchmarks, and this site makes none.
 |---|---|
 | Series | 11 |
 | Model repos (members) | 16 |
-| Quant variants | 132 |
-| GGUF files | 1253 |
-| Quantizers | 55 |
+| Quant variants | 129 |
+| GGUF files | 1270 |
+| Quantizers | 54 |
 | Family lineage cards (families) | 15 |
 | Closed-model cards (closed) | 6 |
 | Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |

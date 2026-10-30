@@ -16,7 +16,7 @@
   <script src="../../brand.js?v=6a580ac0420e"></script>
   <link rel="stylesheet" href="../../brand.css?v=6a580ac0420e" />
   <link rel="stylesheet" href="../../site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"KAT Coder V2.5 GGUF 量化版本索引","description":"面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。","url":"https://models.specul.com/series/kat-coder/","isAccessibleForFree":true,"license":"https://creativecommons.org/publicdomain/zero/1.0/","temporalCoverage":"2026-10-09"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"KAT Coder V2.5 GGUF 量化版本索引","description":"面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。","url":"https://models.specul.com/series/kat-coder/","isAccessibleForFree":true,"license":"https://creativecommons.org/publicdomain/zero/1.0/","temporalCoverage":"2026-10-30"}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -109,7 +109,7 @@
       </div>
       <p class="trust-foot">
         <span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>。所有数字都来自公开元数据，点击即可回到发布页核对。</span><span data-en>. Every figure comes from public metadata, and clicking it takes you back to the release page to verify.</span>
-        <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-09</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
+        <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-30</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
       </p>
     </section>
 
@@ -148,12 +148,12 @@
         <tr><th><span data-zh>工具调用</span><span data-en>Tool calling</span></th><td><span data-zh><b>✓ 支持</b></span><span data-en><b>✓ Supported</b></span> <a class="lic-src" href="https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a> <span class="muted small"><span data-zh>模型卡</span><span data-en>model card</span> · 2026-10-28</span><br><span class="muted small"><span data-zh>模型卡：vLLM/SGLang 部署带 --tool-call-parser qwen3_coder，明确支持 tool use。</span><span data-en>Card: vLLM/SGLang serving recipes pass --tool-call-parser qwen3_coder; tool use explicitly supported.</span></span></td></tr>
         <tr><th><span data-zh>定位</span><span data-en>Role</span></th><td><span data-zh>代码专用</span><span data-en>Coding</span></td></tr>
         <tr><th><span data-zh>标签</span><span data-en>Tags</span></th><td><span class="muted">—</span></td></tr>
-        <tr><th><span data-zh>官方下载量</span><span data-en>Downloads</span></th><td><b>10k</b>　<span class="muted"><span data-zh>点赞</span><span data-en>likes</span> 660</span></td></tr>
+        <tr><th><span data-zh>官方下载量</span><span data-en>Downloads</span></th><td><b>6k</b>　<span class="muted"><span data-zh>点赞</span><span data-en>likes</span> 677</span></td></tr>
         <tr><th><span data-zh>发布日</span><span data-en>Released</span></th><td><span class="muted">—</span></td></tr>
         <tr><th><span data-zh>最近更新</span><span data-en>Last updated</span></th><td>2026-07-28</td></tr>
         <tr><th><span data-zh>发布页体积</span><span data-en>Release-page size</span></th><td><span class="muted">—</span></td></tr>
       </table>
-            <p class="member-note"><span data-zh>apache-2.0，34 个第三方量化仓（mudler 974k / bartowski 279k）。基准仓自身下载量不高，但量化采用集中。</span><span data-en>apache-2.0, 34 third-party quantisation repos (mudler 974k / bartowski 279k). The base repo itself has modest downloads, but quantisation uptake is concentrated.</span></p>
+            <p class="member-note"><span data-zh>apache-2.0，34 个第三方量化仓（mudler 805k（APEX 仓，原 Dev-GGUF 仓已下架）/ bartowski 279k）。基准仓自身下载量不高，但量化采用集中。</span><span data-en>apache-2.0, 34 third-party quantisation repos (mudler 805k on the APEX repo; the original Dev-GGUF repo has been taken down / bartowski 279k). The base repo itself has modest downloads, but quantisation uptake is concentrated.</span></p>
         </div>
         <div class="block" id="b0">
           <h4><span class="blk">B</span><span data-zh>该选哪个</span><span data-en>Which one to pick</span> <small><span data-zh>按你的显存倒推</span><span data-en>work backwards from your VRAM</span></small></h4>
@@ -166,7 +166,7 @@
           <span class="vt-quick"><button type="button" class="vt-preset" data-gb="4">4</button><button type="button" class="vt-preset" data-gb="8">8</button><button type="button" class="vt-preset" data-gb="12">12</button><button type="button" class="vt-preset" data-gb="16">16</button><button type="button" class="vt-preset" data-gb="24">24</button><button type="button" class="vt-preset" data-gb="48">48</button><button type="button" class="vt-preset" data-gb="80">80</button></span>
         </div>
         <div class="vt-out" aria-live="polite"></div>
-        <script type="application/json" class="vt-data">[{"q":"IQ2_XXS","qe":"IQ2_XXS","g":9.78,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ2_XS","qe":"IQ2_XS","g":10.8,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ2_S","qe":"IQ2_S","g":11.01,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ2_M","qe":"IQ2_M","g":12.07,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q2_K","qe":"Q2_K","g":12.62,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q2_K_L","qe":"Q2_K_L","g":13.11,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ3_XXS","qe":"IQ3_XXS","g":14.87,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q3_K_S","qe":"Q3_K_S","g":15.18,"t":"长上下文优先","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ3_XS","qe":"IQ3_XS","g":16.22,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q3_K_M","qe":"Q3_K_M","g":16.23,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q3_K_L","qe":"Q3_K_L","g":16.89,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ3_M","qe":"IQ3_M","g":16.9,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q3_K_XL","qe":"Q3_K_XL","g":17.33,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ4_XS","qe":"IQ4_XS","g":18.81,"t":"平衡档","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_0","qe":"Q4_0","g":19.72,"t":"平衡档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ4_NL","qe":"IQ4_NL","g":19.86,"t":"平衡档","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_K_S","qe":"Q4_K_S","g":19.89,"t":"平衡档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_K_M","qe":"Q4_K_M","g":21.17,"t":"平衡档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_K_L","qe":"Q4_K_L","g":21.77,"t":"平衡档","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_1","qe":"Q4_1","g":21.85,"t":"平衡档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_K_S","qe":"Q5_K_S","g":23.98,"t":"保守档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_0","qe":"Q5_0","g":23.98,"t":"保守档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_K_M","qe":"Q5_K_M","g":24.73,"t":"保守档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_K_L","qe":"Q5_K_L","g":25.33,"t":"保守档","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_1","qe":"Q5_1","g":26.11,"t":"保守档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q6_K","qe":"Q6_K","g":28.51,"t":"保守档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q8_0","qe":"Q8_0","g":36.9,"t":"近似无损","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"BF16","qe":"BF16","g":69.38,"t":"近似无损","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"}]</script>
+        <script type="application/json" class="vt-data">[{"q":"IQ2_XXS","qe":"IQ2_XXS","g":9.78,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ2_XS","qe":"IQ2_XS","g":10.8,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ2_S","qe":"IQ2_S","g":11.01,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ2_M","qe":"IQ2_M","g":12.07,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q2_K","qe":"Q2_K","g":12.62,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q2_K_L","qe":"Q2_K_L","g":13.11,"t":"极限压缩","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ3_XXS","qe":"IQ3_XXS","g":14.87,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q3_K_S","qe":"Q3_K_S","g":15.18,"t":"长上下文优先","u":"https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF","b":"mradermacher","rp":"mradermacher/KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ3_XS","qe":"IQ3_XS","g":16.22,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q3_K_M","qe":"Q3_K_M","g":16.23,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q3_K_L","qe":"Q3_K_L","g":16.89,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ3_M","qe":"IQ3_M","g":16.9,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q3_K_XL","qe":"Q3_K_XL","g":17.33,"t":"长上下文优先","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ4_XS","qe":"IQ4_XS","g":18.81,"t":"平衡档","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_0","qe":"Q4_0","g":19.72,"t":"平衡档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"IQ4_NL","qe":"IQ4_NL","g":19.86,"t":"平衡档","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_K_S","qe":"Q4_K_S","g":19.89,"t":"平衡档","u":"https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF","b":"mradermacher","rp":"mradermacher/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_K_M","qe":"Q4_K_M","g":21.17,"t":"平衡档","u":"https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF","b":"mradermacher","rp":"mradermacher/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_K_L","qe":"Q4_K_L","g":21.77,"t":"平衡档","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q4_1","qe":"Q4_1","g":21.85,"t":"平衡档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_K_S","qe":"Q5_K_S","g":23.98,"t":"保守档","u":"https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF","b":"mradermacher","rp":"mradermacher/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_0","qe":"Q5_0","g":23.98,"t":"保守档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_K_M","qe":"Q5_K_M","g":24.73,"t":"保守档","u":"https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF","b":"mradermacher","rp":"mradermacher/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_K_L","qe":"Q5_K_L","g":25.33,"t":"保守档","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q5_1","qe":"Q5_1","g":26.11,"t":"保守档","u":"https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF","b":"RemySkye","rp":"RemySkye/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q6_K","qe":"Q6_K","g":28.51,"t":"保守档","u":"https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF","b":"mradermacher","rp":"mradermacher/KAT-Coder-V2.5-Dev-GGUF"},{"q":"Q8_0","qe":"Q8_0","g":36.9,"t":"近似无损","u":"https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF","b":"mradermacher","rp":"mradermacher/KAT-Coder-V2.5-Dev-GGUF"},{"q":"BF16","qe":"BF16","g":69.38,"t":"近似无损","u":"https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF","b":"bartowski","rp":"bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF"}]</script>
       </div>
       <h3 class="budget-h"><span data-zh>单卡全量装得下</span><span data-en>Fits entirely on one card</span></h3>
       <table class="budget">
@@ -341,7 +341,7 @@
               <td><span class="tier tier-3"><span data-zh>长上下文优先</span><span data-en>Long context first</span></span></td>
               <td class="muted small"><span data-zh>KV 缓存也吃紧时的选择</span><span data-en>The pick when the KV cache is also tight</span></td>
               <td class="muted small">3 <span data-zh>个</span><span data-en></span></td>
-              <td class="muted"><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">RemySkye</a></td>
+              <td class="muted"><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">mradermacher</a></td>
             </tr>
             <tr>
               <td><code><span data-zh>Q3_K_M</span><span data-en>Q3_K_M</span></code></td>
@@ -413,7 +413,7 @@
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
               <td class="muted small"><span data-zh>默认推荐，质量和体积的折中点</span><span data-en>The default recommendation — the compromise between quality and size</span></td>
               <td class="muted small">3 <span data-zh>个</span><span data-en></span></td>
-              <td class="muted"><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">RemySkye</a></td>
+              <td class="muted"><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">mradermacher</a></td>
             </tr>
             <tr>
               <td><code><span data-zh>Q4_1</span><span data-en>Q4_1</span></code></td>
@@ -431,7 +431,7 @@
               <td><span class="tier tier-2"><span data-zh>平衡档</span><span data-en>Balanced</span></span></td>
               <td class="muted small"><span data-zh>默认推荐，质量和体积的折中点</span><span data-en>The default recommendation — the compromise between quality and size</span></td>
               <td class="muted small">4 <span data-zh>个</span><span data-en></span></td>
-              <td class="muted"><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">RemySkye</a></td>
+              <td class="muted"><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">mradermacher</a></td>
             </tr>
             <tr>
               <td><code><span data-zh>Q4_K_L</span><span data-en>Q4_K_L</span></code></td>
@@ -449,7 +449,7 @@
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
               <td class="muted small"><span data-zh>几乎无质量损失</span><span data-en>Almost no quality loss</span></td>
               <td class="muted small">3 <span data-zh>个</span><span data-en></span></td>
-              <td class="muted"><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">RemySkye</a></td>
+              <td class="muted"><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">mradermacher</a></td>
             </tr>
             <tr>
               <td><code><span data-zh>Q5_0</span><span data-en>Q5_0</span></code></td>
@@ -467,7 +467,7 @@
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
               <td class="muted small"><span data-zh>几乎无质量损失</span><span data-en>Almost no quality loss</span></td>
               <td class="muted small">3 <span data-zh>个</span><span data-en></span></td>
-              <td class="muted"><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">RemySkye</a></td>
+              <td class="muted"><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">mradermacher</a></td>
             </tr>
             <tr>
               <td><code><span data-zh>Q5_1</span><span data-en>Q5_1</span></code></td>
@@ -494,7 +494,7 @@
               <td><span class="tier tier-1"><span data-zh>保守档</span><span data-en>Conservative</span></span></td>
               <td class="muted small"><span data-zh>几乎无质量损失</span><span data-en>Almost no quality loss</span></td>
               <td class="muted small">6 <span data-zh>个</span><span data-en></span> · 29 GB~31 GB</td>
-              <td class="muted"><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">RemySkye</a></td>
+              <td class="muted"><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">mradermacher</a></td>
             </tr>
             <tr>
               <td><code><span data-zh>Q8_0</span><span data-en>Q8_0</span></code></td>
@@ -503,7 +503,7 @@
               <td><span class="tier tier-0"><span data-zh>近似无损</span><span data-en>Near lossless</span></span></td>
               <td class="muted small"><span data-zh>体积接近原始精度</span><span data-en>Size close to the original precision</span></td>
               <td class="muted small">3 <span data-zh>个</span><span data-en></span></td>
-              <td class="muted"><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">RemySkye</a></td>
+              <td class="muted"><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener">mradermacher</a></td>
             </tr>
             <tr>
               <td><code><span data-zh>BF16</span><span data-en>BF16</span></code></td>
@@ -550,20 +550,6 @@
           </tr>
           <tr>
             <td>
-              <a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>RemySkye</code></a>
-              
-              <br><span class="muted small"><code>qwen35moe</code></span>
-            </td>
-            <td><a class="lic lic-loose" href="https://huggingface.co/search?license=apache-2.0" target="_blank" rel="noopener">apache-2.0</a></td>
-            <td class="num">16</td>
-            <td class="num">371 GB</td>
-            <td class="num">262,144</td>
-            <td><code><span data-zh>Q4_1</span><span data-en>Q4_1</span></code><br><span class="muted small">22 GB</span></td>
-            <td class="num">7k</td>
-            <td class="muted small">2026-07-24</td>
-          </tr>
-          <tr>
-            <td>
               <a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>mradermacher</code></a>
               
               <br><span class="muted small"><code>qwen35moe</code></span>
@@ -573,8 +559,22 @@
             <td class="num">221 GB</td>
             <td class="num">262,144</td>
             <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">21 GB</span></td>
-            <td class="num">1k</td>
+            <td class="num">7k</td>
             <td class="muted small">2026-10-08</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>RemySkye</code></a>
+              
+              <br><span class="muted small"><code>qwen35moe</code></span>
+            </td>
+            <td><a class="lic lic-loose" href="https://huggingface.co/search?license=apache-2.0" target="_blank" rel="noopener">apache-2.0</a></td>
+            <td class="num">16</td>
+            <td class="num">371 GB</td>
+            <td class="num">262,144</td>
+            <td><code><span data-zh>Q4_1</span><span data-en>Q4_1</span></code><br><span class="muted small">22 GB</span></td>
+            <td class="num">1k</td>
+            <td class="muted small">2026-07-24</td>
           </tr>
           <tr>
             <td>
@@ -587,7 +587,7 @@
             <td class="num">111 GB</td>
             <td class="num">262,144</td>
             <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">21 GB</span></td>
-            <td class="num">309</td>
+            <td class="num">225</td>
             <td class="muted small">2026-08-23</td>
           </tr>
           <tr>
@@ -601,7 +601,7 @@
             <td class="num">0.0 GB</td>
             <td class="num">262,144</td>
             <td>—</td>
-            <td class="num">93</td>
+            <td class="num">148</td>
             <td class="muted small">2026-08-02</td>
           </tr>
           <tr>
@@ -615,7 +615,7 @@
             <td class="num">29 GB</td>
             <td class="num">262,144</td>
             <td><code><span data-zh>Q6_K</span><span data-en>Q6_K</span></code><br><span class="muted small">31 GB</span></td>
-            <td class="num">31</td>
+            <td class="num">19</td>
             <td class="muted small">2026-07-29</td>
           </tr>
         </tbody>
@@ -653,28 +653,11 @@
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>，提供 <b>26</b> 个 GGUF 量化档，合计 530 GB。由 <code>bartowski</code> 发布。</span><span data-en><a href="https://huggingface.co/bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>, providing <b>26</b> GGUF tiers totalling 530 GB. Published by <code>bartowski</code>.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>带重要性矩阵（imatrix：<code>/models_out/KAT-Coder-V2.5-Dev-GGUF/Kwaipilot_KAT-Coder-V2.5-Dev-imatrix.gguf</code>），用激活数据统计各层重要性后再量化，通常比纯 RTN 稳</span><span data-en>Ships an importance matrix (imatrix: <code>/models_out/KAT-Coder-V2.5-Dev-GGUF/Kwaipilot_KAT-Coder-V2.5-Dev-imatrix.gguf</code>) — quantises after scoring each layer by activation statistics, usually steadier than plain RTN</span>；<span data-zh>针对 <code>qwen35moe</code> 架构优化</span><span data-en>Optimised for the <code>qwen35moe</code> architecture</span>；<span data-zh>声明上下文 262,144 tokens</span><span data-en>Declared context 262,144 tokens</span>；<span data-zh>发布页声明溯源到 <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span><span data-en>The release page traces this back to <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span>；<span data-zh>权重总字节 568.8 GB（发布页 <code>gguf.total</code> 字段）</span><span data-en>Total weight bytes 568.8 GB (the release page's <code>gguf.total</code> field)</span>。</span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>RemySkye</code> 16 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>robertxxiv</code> 3 <span data-zh>档</span><span data-en>tiers</span>、<code>Ninnix96</code> 0 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>RemySkye</code> 16 tiers, <code>mradermacher</code> 11 tiers, <code>robertxxiv</code> 3 tiers, <code>Ninnix96</code> 0 tiers, among others).</span><span data-zh> 本仓 26 档，覆盖最全。</span><span data-en> This repo has 26 tiers — the broadest coverage coverage in this series.</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>RemySkye</code> 16 <span data-zh>档</span><span data-en>tiers</span>、<code>robertxxiv</code> 3 <span data-zh>档</span><span data-en>tiers</span>、<code>Ninnix96</code> 0 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>mradermacher</code> 11 tiers, <code>RemySkye</code> 16 tiers, <code>robertxxiv</code> 3 tiers, <code>Ninnix96</code> 0 tiers, among others).</span><span data-zh> 本仓 26 档，覆盖最全。</span><span data-en> This repo has 26 tiers — the broadest coverage coverage in this series.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q4_1 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q4_1), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>档位覆盖最广的一档（26 档），从极限压缩到近似无损都能选</span><span data-en>The widest tier coverage here (26 tiers), from extreme compression up to near lossless</span><br>· <span data-zh>带 imatrix，同档位下质量通常更稳</span><span data-en>Ships imatrix, so quality at the same tier is usually steadier</span><br>· <span data-zh>平衡档落在 <code>Q4_1</code>（22 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q4_1</code> (22 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_1</code>（22 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_1</code> directly (22 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>全仓 530 GB，硬盘紧张的话建议只下需要的 1~2 个档位</span><span data-en>530 GB for the whole repo — if disk is tight, download only the one or two tiers you need</span></span></div>
-        </article>
-        <article class="vcard" data-tier="2" data-q="RemySkye" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="remyskye remyskye/kat-coder-v2.5-dev-gguf apache-2.0">
-          <header class="vcard-h">
-            <h4><code>RemySkye</code></h4>
-            <div class="vcard-meta">
-              <a class="lic lic-loose" href="https://huggingface.co/search?license=apache-2.0" target="_blank" rel="noopener">apache-2.0</a>
-              
-              <span class="muted small"><span data-zh>16 档</span><span data-en>16 tiers</span> · 371 GB · <span data-zh>7k 下载</span><span data-en>7k downloads</span></span>
-            </div>
-          </header>
-        <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>RemySkye/KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>，提供 <b>16</b> 个 GGUF 量化档，合计 371 GB。由 <code>RemySkye</code> 发布。</span><span data-en><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>RemySkye/KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>, providing <b>16</b> GGUF tiers totalling 371 GB. Published by <code>RemySkye</code>.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>未提供重要性矩阵（imatrix），走的是纯权重量化路线</span><span data-en>No importance matrix (imatrix); this is pure weight quantisation</span>；<span data-zh>针对 <code>qwen35moe</code> 架构优化</span><span data-en>Optimised for the <code>qwen35moe</code> architecture</span>；<span data-zh>声明上下文 262,144 tokens</span><span data-en>Declared context 262,144 tokens</span>；<span data-zh>发布页声明溯源到 <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span><span data-en>The release page traces this back to <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span>；<span data-zh>权重总字节 398.2 GB（发布页 <code>gguf.total</code> 字段）</span><span data-en>Total weight bytes 398.2 GB (the release page's <code>gguf.total</code> field)</span>。</span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>bartowski</code> 26 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>robertxxiv</code> 3 <span data-zh>档</span><span data-en>tiers</span>、<code>Ninnix96</code> 0 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>bartowski</code> 26 tiers, <code>mradermacher</code> 11 tiers, <code>robertxxiv</code> 3 tiers, <code>Ninnix96</code> 0 tiers, among others).</span><span data-zh> 本仓 16 档，覆盖中等。</span><span data-en> This repo has 16 tiers — middling coverage in this series.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q4_1 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q4_1), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>Q4_1</code>（22 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q4_1</code> (22 GB), the starting point for most people</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_1</code>（22 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_1</code> directly (22 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>全仓 371 GB，硬盘紧张的话建议只下需要的 1~2 个档位</span><span data-en>371 GB for the whole repo — if disk is tight, download only the one or two tiers you need</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="mradermacher" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="mradermacher mradermacher/kat-coder-v2.5-dev-gguf apache-2.0">
           <header class="vcard-h">
@@ -682,7 +665,7 @@
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=apache-2.0" target="_blank" rel="noopener">apache-2.0</a>
               
-              <span class="muted small"><span data-zh>11 档</span><span data-en>11 tiers</span> · 221 GB · <span data-zh>1k 下载</span><span data-en>1k downloads</span></span>
+              <span class="muted small"><span data-zh>11 档</span><span data-en>11 tiers</span> · 221 GB · <span data-zh>7k 下载</span><span data-en>7k downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>mradermacher/KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>，提供 <b>11</b> 个 GGUF 量化档，合计 221 GB。由 <code>mradermacher</code> 发布。</span><span data-en><a href="https://huggingface.co/mradermacher/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>mradermacher/KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>, providing <b>11</b> GGUF tiers totalling 221 GB. Published by <code>mradermacher</code>.</span></span></div>
@@ -693,18 +676,35 @@
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_K_M</code>（21 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_K_M</code> directly (21 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>全仓 221 GB，硬盘紧张的话建议只下需要的 1~2 个档位</span><span data-en>221 GB for the whole repo — if disk is tight, download only the one or two tiers you need</span></span></div>
         </article>
+        <article class="vcard" data-tier="2" data-q="RemySkye" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="remyskye remyskye/kat-coder-v2.5-dev-gguf apache-2.0">
+          <header class="vcard-h">
+            <h4><code>RemySkye</code></h4>
+            <div class="vcard-meta">
+              <a class="lic lic-loose" href="https://huggingface.co/search?license=apache-2.0" target="_blank" rel="noopener">apache-2.0</a>
+              
+              <span class="muted small"><span data-zh>16 档</span><span data-en>16 tiers</span> · 371 GB · <span data-zh>1k 下载</span><span data-en>1k downloads</span></span>
+            </div>
+          </header>
+        <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>RemySkye/KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>，提供 <b>16</b> 个 GGUF 量化档，合计 371 GB。由 <code>RemySkye</code> 发布。</span><span data-en><a href="https://huggingface.co/RemySkye/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>RemySkye/KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>, providing <b>16</b> GGUF tiers totalling 371 GB. Published by <code>RemySkye</code>.</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>未提供重要性矩阵（imatrix），走的是纯权重量化路线</span><span data-en>No importance matrix (imatrix); this is pure weight quantisation</span>；<span data-zh>针对 <code>qwen35moe</code> 架构优化</span><span data-en>Optimised for the <code>qwen35moe</code> architecture</span>；<span data-zh>声明上下文 262,144 tokens</span><span data-en>Declared context 262,144 tokens</span>；<span data-zh>发布页声明溯源到 <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span><span data-en>The release page traces this back to <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span>；<span data-zh>权重总字节 398.2 GB（发布页 <code>gguf.total</code> 字段）</span><span data-en>Total weight bytes 398.2 GB (the release page's <code>gguf.total</code> field)</span>。</span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>bartowski</code> 26 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>robertxxiv</code> 3 <span data-zh>档</span><span data-en>tiers</span>、<code>Ninnix96</code> 0 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>bartowski</code> 26 tiers, <code>mradermacher</code> 11 tiers, <code>robertxxiv</code> 3 tiers, <code>Ninnix96</code> 0 tiers, among others).</span><span data-zh> 本仓 16 档，覆盖中等。</span><span data-en> This repo has 16 tiers — middling coverage in this series.</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q4_1 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q4_1), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>Q4_1</code>（22 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q4_1</code> (22 GB), the starting point for most people</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_1</code>（22 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_1</code> directly (22 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）</span><span data-en>No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)</span><br>· <span data-zh>全仓 371 GB，硬盘紧张的话建议只下需要的 1~2 个档位</span><span data-en>371 GB for the whole repo — if disk is tight, download only the one or two tiers you need</span></span></div>
+        </article>
         <article class="vcard" data-tier="2" data-q="robertxxiv" data-lic="apache-2.0" data-tiers="平衡档 保守档 近似无损" data-blob="robertxxiv robertxxiv/kat-coder-v2.5-dev apache-2.0">
           <header class="vcard-h">
             <h4><code>robertxxiv</code></h4>
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=apache-2.0" target="_blank" rel="noopener">apache-2.0</a>
               
-              <span class="muted small"><span data-zh>3 档</span><span data-en>3 tiers</span> · 111 GB · <span data-zh>309 下载</span><span data-en>309 downloads</span></span>
+              <span class="muted small"><span data-zh>3 档</span><span data-en>3 tiers</span> · 111 GB · <span data-zh>225 下载</span><span data-en>225 downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/robertxxiv/KAT-Coder-V2.5-Dev" target="_blank" rel="noopener"><code>robertxxiv/KAT-Coder-V2.5-Dev</code> ↗</a>，提供 <b>3</b> 个 GGUF 量化档，合计 111 GB。由 <code>robertxxiv</code> 发布。</span><span data-en><a href="https://huggingface.co/robertxxiv/KAT-Coder-V2.5-Dev" target="_blank" rel="noopener"><code>robertxxiv/KAT-Coder-V2.5-Dev</code> ↗</a>, providing <b>3</b> GGUF tiers totalling 111 GB. Published by <code>robertxxiv</code>.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>未提供重要性矩阵（imatrix），走的是纯权重量化路线</span><span data-en>No importance matrix (imatrix); this is pure weight quantisation</span>；<span data-zh>针对 <code>qwen35moe</code> 架构优化</span><span data-en>Optimised for the <code>qwen35moe</code> architecture</span>；<span data-zh>声明上下文 262,144 tokens</span><span data-en>Declared context 262,144 tokens</span>；<span data-zh>发布页声明溯源到 <code>Qwen3.6-35B-A3B</code></span><span data-en>The release page traces this back to <code>Qwen3.6-35B-A3B</code></span>；<span data-zh>权重总字节 119.1 GB（发布页 <code>gguf.total</code> 字段）</span><span data-en>Total weight bytes 119.1 GB (the release page's <code>gguf.total</code> field)</span>。</span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>bartowski</code> 26 <span data-zh>档</span><span data-en>tiers</span>、<code>RemySkye</code> 16 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>Ninnix96</code> 0 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>bartowski</code> 26 tiers, <code>RemySkye</code> 16 tiers, <code>mradermacher</code> 11 tiers, <code>Ninnix96</code> 0 tiers, among others).</span><span data-zh> 本仓 3 档，覆盖中等。</span><span data-en> This repo has 3 tiers — middling coverage in this series.</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>bartowski</code> 26 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>RemySkye</code> 16 <span data-zh>档</span><span data-en>tiers</span>、<code>Ninnix96</code> 0 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>bartowski</code> 26 tiers, <code>mradermacher</code> 11 tiers, <code>RemySkye</code> 16 tiers, <code>Ninnix96</code> 0 tiers, among others).</span><span data-zh> 本仓 3 档，覆盖中等。</span><span data-en> This repo has 3 tiers — middling coverage in this series.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q4_K_M 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q4_K_M), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>Q4_K_M</code>（21 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q4_K_M</code> (21 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q4_K_M</code>（21 GB，平衡档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q4_K_M</code> directly (21 GB, Balanced).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
@@ -716,12 +716,12 @@
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=apache-2.0" target="_blank" rel="noopener">apache-2.0</a>
               
-              <span class="muted small"><span data-zh>0 档</span><span data-en>0 tiers</span> · 0.0 GB · <span data-zh>93 下载</span><span data-en>93 downloads</span></span>
+              <span class="muted small"><span data-zh>0 档</span><span data-en>0 tiers</span> · 0.0 GB · <span data-zh>148 下载</span><span data-en>148 downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/Ninnix96/KAT-Coder-V2.5-Dev-gguf" target="_blank" rel="noopener"><code>Ninnix96/KAT-Coder-V2.5-Dev-gguf</code> ↗</a>，提供 <b>0</b> 个 GGUF 量化档，合计 0.0 GB。由 <code>Ninnix96</code> 发布。</span><span data-en><a href="https://huggingface.co/Ninnix96/KAT-Coder-V2.5-Dev-gguf" target="_blank" rel="noopener"><code>Ninnix96/KAT-Coder-V2.5-Dev-gguf</code> ↗</a>, providing <b>0</b> GGUF tiers totalling 0.0 GB. Published by <code>Ninnix96</code>.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>带重要性矩阵（imatrix：<code>gguf/Kwaipilot_KAT-Coder-V2.5-Dev-imatrix.gguf</code>），用激活数据统计各层重要性后再量化，通常比纯 RTN 稳</span><span data-en>Ships an importance matrix (imatrix: <code>gguf/Kwaipilot_KAT-Coder-V2.5-Dev-imatrix.gguf</code>) — quantises after scoring each layer by activation statistics, usually steadier than plain RTN</span>；<span data-zh>针对 <code>qwen35moe</code> 架构优化</span><span data-en>Optimised for the <code>qwen35moe</code> architecture</span>；<span data-zh>声明上下文 262,144 tokens</span><span data-en>Declared context 262,144 tokens</span>；<span data-zh>发布页声明溯源到 <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span><span data-en>The release page traces this back to <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span>。</span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>bartowski</code> 26 <span data-zh>档</span><span data-en>tiers</span>、<code>RemySkye</code> 16 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>robertxxiv</code> 3 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>bartowski</code> 26 tiers, <code>RemySkye</code> 16 tiers, <code>mradermacher</code> 11 tiers, <code>robertxxiv</code> 3 tiers, among others).</span><span data-zh> 本仓 0 档，覆盖最少。</span><span data-en> This repo has 0 tiers — the narrowest coverage in this series.</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>bartowski</code> 26 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>RemySkye</code> 16 <span data-zh>档</span><span data-en>tiers</span>、<code>robertxxiv</code> 3 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>bartowski</code> 26 tiers, <code>mradermacher</code> 11 tiers, <code>RemySkye</code> 16 tiers, <code>robertxxiv</code> 3 tiers, among others).</span><span data-zh> 本仓 0 档，覆盖最少。</span><span data-en> This repo has 0 tiers — the narrowest coverage in this series.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（— 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as —), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>带 imatrix，同档位下质量通常更稳</span><span data-en>Ships imatrix, so quality at the same tier is usually steadier</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>该仓无可用档位。</span><span data-en>This repo has no usable tier.</span></span></div>
@@ -733,12 +733,12 @@
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=apache-2.0" target="_blank" rel="noopener">apache-2.0</a>
               
-              <span class="muted small"><span data-zh>1 档</span><span data-en>1 tiers</span> · 29 GB · <span data-zh>31 下载</span><span data-en>31 downloads</span></span>
+              <span class="muted small"><span data-zh>1 档</span><span data-en>1 tiers</span> · 29 GB · <span data-zh>19 下载</span><span data-en>19 downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/dinerburger/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>dinerburger/KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>，提供 <b>1</b> 个 GGUF 量化档，合计 29 GB。由 <code>dinerburger</code> 发布。</span><span data-en><a href="https://huggingface.co/dinerburger/KAT-Coder-V2.5-Dev-GGUF" target="_blank" rel="noopener"><code>dinerburger/KAT-Coder-V2.5-Dev-GGUF</code> ↗</a>, providing <b>1</b> GGUF tiers totalling 29 GB. Published by <code>dinerburger</code>.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>未提供重要性矩阵（imatrix），走的是纯权重量化路线</span><span data-en>No importance matrix (imatrix); this is pure weight quantisation</span>；<span data-zh>针对 <code>qwen35moe</code> 架构优化</span><span data-en>Optimised for the <code>qwen35moe</code> architecture</span>；<span data-zh>声明上下文 262,144 tokens</span><span data-en>Declared context 262,144 tokens</span>；<span data-zh>发布页声明溯源到 <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span><span data-en>The release page traces this back to <code>Kwaipilot/KAT-Coder-V2.5-Dev</code></span>；<span data-zh>权重总字节 30.8 GB（发布页 <code>gguf.total</code> 字段）</span><span data-en>Total weight bytes 30.8 GB (the release page's <code>gguf.total</code> field)</span>。</span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>bartowski</code> 26 <span data-zh>档</span><span data-en>tiers</span>、<code>RemySkye</code> 16 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>robertxxiv</code> 3 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>bartowski</code> 26 tiers, <code>RemySkye</code> 16 tiers, <code>mradermacher</code> 11 tiers, <code>robertxxiv</code> 3 tiers, among others).</span><span data-zh> 本仓 1 档，覆盖中等。</span><span data-en> This repo has 1 tiers — middling coverage in this series.</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 5 个量化来源（<code>bartowski</code> 26 <span data-zh>档</span><span data-en>tiers</span>、<code>mradermacher</code> 11 <span data-zh>档</span><span data-en>tiers</span>、<code>RemySkye</code> 16 <span data-zh>档</span><span data-en>tiers</span>、<code>robertxxiv</code> 3 <span data-zh>档</span><span data-en>tiers</span> 等）。</span><span data-en>The series has 5 other quantisation sources (<code>bartowski</code> 26 tiers, <code>mradermacher</code> 11 tiers, <code>RemySkye</code> 16 tiers, <code>robertxxiv</code> 3 tiers, among others).</span><span data-zh> 本仓 1 档，覆盖中等。</span><span data-en> This repo has 1 tiers — middling coverage in this series.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（Q6_K 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as Q6_K), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>Q6_K</code>（31 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>Q6_K</code> (31 GB), the starting point for most people</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>如果你的瓶颈是<b>显存</b>：直接下 <code>Q6_K</code>（31 GB，保守档）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。</span><span data-en>If <b>VRAM</b> is your constraint: take <code>Q6_K</code> directly (31 GB, Conservative).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).</span></span></div>
@@ -774,14 +774,8 @@
           <a class="qcard-link" href="https://huggingface.co/bartowski" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
-          <h4><code>RemySkye</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 7k 下载</span><span data-en>In this series: 1 repos · 7k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
-          <a class="qcard-link" href="https://huggingface.co/RemySkye" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
-        </article>
-        <article class="qcard">
           <h4><code>mradermacher</code> <span class="muted small"><span data-zh>Mirostat 作者，长期做低比特实验性量化</span><span data-en>Known for experimental low-bit quants</span></span></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 1k 下载</span><span data-en>In this series: 1 repos · 1k downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 7k 下载</span><span data-en>In this series: 1 repos · 7k downloads</span></p>
           <div class="qcard-body"><span data-zh><p><b>定位</b>：Mirostat 采样算法作者，长期做低比特实验性量化。</p>
 <ul>
   <li><b>特点</b>：</li>
@@ -804,20 +798,26 @@
           <a class="qcard-link" href="https://huggingface.co/mradermacher" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
+          <h4><code>RemySkye</code></h4>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 1k 下载</span><span data-en>In this series: 1 repos · 1k downloads</span></p>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <a class="qcard-link" href="https://huggingface.co/RemySkye" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
+        </article>
+        <article class="qcard">
           <h4><code>robertxxiv</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 309 下载</span><span data-en>In this series: 1 repos · 309 downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 225 下载</span><span data-en>In this series: 1 repos · 225 downloads</span></p>
           <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/robertxxiv" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>Ninnix96</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 93 下载</span><span data-en>In this series: 1 repos · 93 downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 148 下载</span><span data-en>In this series: 1 repos · 148 downloads</span></p>
           <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/Ninnix96" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>dinerburger</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 31 下载</span><span data-en>In this series: 1 repos · 31 downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 19 下载</span><span data-en>In this series: 1 repos · 19 downloads</span></p>
           <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/dinerburger" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
@@ -857,7 +857,7 @@
           <span class="muted"><span data-zh>更新了 26 个档位</span><span data-en>updated 26 tiers</span><span data-zh> · 含 imatrix</span><span data-en> · with imatrix</span></span>
         </li>
       </ul>
-      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>Kwaipilot/KAT-Coder-V2.5-Dev</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-07-28　·　<span data-zh>本站采集时间：</span><span data-en>collected:</span> 2026-10-09</p>
+      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>Kwaipilot/KAT-Coder-V2.5-Dev</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-07-28　·　<span data-zh>本站采集时间：</span><span data-en>collected:</span> 2026-10-30</p>
         </div>
       </section>
     <section class="companion">
@@ -895,7 +895,7 @@
 
     <section class="legal-note">
       <h3><span data-zh>关于数据与许可</span><span data-en>Data and licensing</span></h3>
-      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-09</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
+      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-30</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
       <p><span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>，只提供发布页链接。许可字段原样引自发布页，</span><span data-en> — it only links to release pages. Licence fields are quoted verbatim from them,</span> <b><span data-zh>本站不解读许可条款、不构成法律意见</span><span data-en>this site does not interpret licence terms or give legal advice</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
       <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
     </section>

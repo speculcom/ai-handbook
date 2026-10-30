@@ -11,7 +11,6 @@
   "family": "laguna",
   "released": "2026-06-20",
   "summary": "代码方向的开放权重系列，许可为 OpenMDW-1.1（使用前须读原文）。",
-  "summaryEn": "A code-focused open-weight series under OpenMDW-1.1 — read the license text before you use it.",
   "positions": [
     "工具调用",
     "长上下文"
@@ -32,13 +31,13 @@
         "zh": "代码 / 工具调用",
         "en": "Coding & tool use"
       },
-      "note": "许可为 OpenMDW-1.1（非 apache/mit），使用前须读发布页许可原文；20 个 GGUF 仓，官方自己也出 GGUF。",
+      "note": "许可 OpenMDW-1.1（非 apache/mit），使用前须读发布页许可原文；20 个 GGUF 仓，官方自己也出 GGUF。",
       "license": "openmdw-1.1",
       "licenseLink": null,
       "licenseName": null,
       "pipeline": "text-generation",
-      "downloads": 248890,
-      "likes": 255,
+      "downloads": 758119,
+      "likes": 261,
       "lastModified": "2026-08-19T15:41:00.000Z",
       "baseModelField": null,
       "isBase": true,
@@ -50,8 +49,8 @@
           "url": "https://huggingface.co/poolside/Laguna-XS-2.1-GGUF",
           "license": "openmdw-1.1",
           "licenseLink": null,
-          "downloads": 194619,
-          "likes": 99,
+          "downloads": 180329,
+          "likes": 100,
           "lastModified": "2026-07-18T13:49:48.000Z",
           "contextLength": 262144,
           "architecture": "laguna",
@@ -106,7 +105,7 @@
           "url": "https://huggingface.co/bartowski/Laguna-XS-2.1-GGUF",
           "license": "openmdw-1.1",
           "licenseLink": null,
-          "downloads": 8479,
+          "downloads": 8424,
           "likes": 20,
           "lastModified": "2026-07-22T16:59:34.000Z",
           "contextLength": 262144,
@@ -485,9 +484,9 @@
           "url": "https://huggingface.co/ggml-org/Laguna-XS-2.1-GGUF",
           "license": "openmdw-1.1",
           "licenseLink": null,
-          "downloads": 3299,
+          "downloads": 4879,
           "likes": 4,
-          "lastModified": "2026-08-23T02:11:27.000Z",
+          "lastModified": "2026-10-19T14:14:50.000Z",
           "contextLength": 262144,
           "architecture": "laguna",
           "imatrix": false,
@@ -554,9 +553,9 @@
           "url": "https://huggingface.co/AtomicChat/Laguna-XS-2.1-GGUF",
           "license": "openmdw-1.1",
           "licenseLink": "https://huggingface.co/poolside/Laguna-XS-2.1/blob/main/LICENSE.md",
-          "downloads": 2269,
+          "downloads": 1506,
           "likes": 17,
-          "lastModified": "2026-07-22T20:03:29.000Z",
+          "lastModified": "2026-10-28T08:53:17.000Z",
           "contextLength": 262144,
           "architecture": "laguna",
           "imatrix": true,
@@ -643,80 +642,13 @@
           "variantCount": 5
         },
         {
-          "quantizer": "lmstudio-community",
-          "isOfficial": false,
-          "repo": "lmstudio-community/Laguna-XS-2.1-GGUF",
-          "url": "https://huggingface.co/lmstudio-community/Laguna-XS-2.1-GGUF",
-          "license": "openmdw-1.1",
-          "licenseLink": null,
-          "downloads": 1223,
-          "likes": 5,
-          "lastModified": "2026-07-29T18:50:11.000Z",
-          "contextLength": 262144,
-          "architecture": "laguna",
-          "imatrix": false,
-          "imatrixFile": null,
-          "totalFileSize": 83374146144,
-          "declaredBase": "poolside/Laguna-XS-2.1",
-          "coverage": 3,
-          "totalGB": 77.6,
-          "recommended": {
-            "quant": "Q4_K_M",
-            "sizeGB": 20.27,
-            "tier": "平衡档",
-            "name": "Laguna-XS-2.1-Q4_K_M.gguf"
-          },
-          "files": [
-            {
-              "name": "Laguna-XS-2.1-Q4_K_M.gguf",
-              "path": "Laguna-XS-2.1-Q4_K_M.gguf",
-              "sizeBytes": 20274299936,
-              "sizeGB": 20.27,
-              "quant": "Q4_K_M",
-              "bitsPerWeight": 4.85,
-              "tier": "平衡档",
-              "tierDesc": "默认推荐，质量和体积的折中点",
-              "isSharded": false,
-              "shardCount": 1,
-              "authorLabeled": false
-            },
-            {
-              "name": "Laguna-XS-2.1-Q6_K.gguf",
-              "path": "Laguna-XS-2.1-Q6_K.gguf",
-              "sizeBytes": 27502729760,
-              "sizeGB": 27.5,
-              "quant": "Q6_K",
-              "bitsPerWeight": 6.59,
-              "tier": "保守档",
-              "tierDesc": "几乎无质量损失",
-              "isSharded": false,
-              "shardCount": 1,
-              "authorLabeled": false
-            },
-            {
-              "name": "Laguna-XS-2.1-Q8_0.gguf",
-              "path": "Laguna-XS-2.1-Q8_0.gguf",
-              "sizeBytes": 35597116448,
-              "sizeGB": 35.6,
-              "quant": "Q8_0",
-              "bitsPerWeight": 8.5,
-              "tier": "近似无损",
-              "tierDesc": "体积接近原始精度",
-              "isSharded": false,
-              "shardCount": 1,
-              "authorLabeled": false
-            }
-          ],
-          "variantCount": 3
-        },
-        {
           "quantizer": "mradermacher",
           "isOfficial": false,
           "repo": "mradermacher/Laguna-XS-2.1-GGUF",
           "url": "https://huggingface.co/mradermacher/Laguna-XS-2.1-GGUF",
           "license": "openmdw-1.1",
           "licenseLink": null,
-          "downloads": 500,
+          "downloads": 1231,
           "likes": 0,
           "lastModified": "2026-07-27T19:18:26.000Z",
           "contextLength": 262144,
@@ -879,6 +811,73 @@
             }
           ],
           "variantCount": 11
+        },
+        {
+          "quantizer": "lmstudio-community",
+          "isOfficial": false,
+          "repo": "lmstudio-community/Laguna-XS-2.1-GGUF",
+          "url": "https://huggingface.co/lmstudio-community/Laguna-XS-2.1-GGUF",
+          "license": "openmdw-1.1",
+          "licenseLink": null,
+          "downloads": 1011,
+          "likes": 5,
+          "lastModified": "2026-07-29T18:50:11.000Z",
+          "contextLength": 262144,
+          "architecture": "laguna",
+          "imatrix": false,
+          "imatrixFile": null,
+          "totalFileSize": 83374146144,
+          "declaredBase": "poolside/Laguna-XS-2.1",
+          "coverage": 3,
+          "totalGB": 77.6,
+          "recommended": {
+            "quant": "Q4_K_M",
+            "sizeGB": 20.27,
+            "tier": "平衡档",
+            "name": "Laguna-XS-2.1-Q4_K_M.gguf"
+          },
+          "files": [
+            {
+              "name": "Laguna-XS-2.1-Q4_K_M.gguf",
+              "path": "Laguna-XS-2.1-Q4_K_M.gguf",
+              "sizeBytes": 20274299936,
+              "sizeGB": 20.27,
+              "quant": "Q4_K_M",
+              "bitsPerWeight": 4.85,
+              "tier": "平衡档",
+              "tierDesc": "默认推荐，质量和体积的折中点",
+              "isSharded": false,
+              "shardCount": 1,
+              "authorLabeled": false
+            },
+            {
+              "name": "Laguna-XS-2.1-Q6_K.gguf",
+              "path": "Laguna-XS-2.1-Q6_K.gguf",
+              "sizeBytes": 27502729760,
+              "sizeGB": 27.5,
+              "quant": "Q6_K",
+              "bitsPerWeight": 6.59,
+              "tier": "保守档",
+              "tierDesc": "几乎无质量损失",
+              "isSharded": false,
+              "shardCount": 1,
+              "authorLabeled": false
+            },
+            {
+              "name": "Laguna-XS-2.1-Q8_0.gguf",
+              "path": "Laguna-XS-2.1-Q8_0.gguf",
+              "sizeBytes": 35597116448,
+              "sizeGB": 35.6,
+              "quant": "Q8_0",
+              "bitsPerWeight": 8.5,
+              "tier": "近似无损",
+              "tierDesc": "体积接近原始精度",
+              "isSharded": false,
+              "shardCount": 1,
+              "authorLabeled": false
+            }
+          ],
+          "variantCount": 3
         }
       ],
       "variantCount": 6,
@@ -906,8 +905,7 @@
       }
     }
   ],
-  "collectedAt": "2026-10-09T00:05:07.837Z",
-  "schemaVersion": 1,
+  "summaryEn": "A code-focused open-weight series under OpenMDW-1.1 — read the license text before you use it.",
   "cn": {
     "origin": "foreign",
     "originNote": "出品方为 Poolside。",
@@ -937,5 +935,7 @@
       }
     ],
     "last_verified": "2026-10-20"
-  }
+  },
+  "collectedAt": "2026-10-30T05:56:40.861Z",
+  "schemaVersion": 1
 }

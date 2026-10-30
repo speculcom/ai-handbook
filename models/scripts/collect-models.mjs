@@ -256,12 +256,31 @@ for (const s of SERIES) {
 fs.mkdirSync(`${OUT}/data/series`, { recursive: true });
 for (const s of out) {
   // 保留旧产物里人工核实的字段（caps 等）：按 repo 合并，采集器不覆盖人工证据。
+  // ⚠ V5（2026-10-30）扩面：顶层人工字段 summaryEn / cn 也必须保留——
+  //   config.js 里没有它们，原来只并 caps，重跑一次采集就会**静默丢掉**
+  //   整块中文生态透镜（cn）和英文摘要。这正是 C2 立的口径：
+  //   「给采集产物加人工字段，必查采集器是否保留」。
   const prevPath = `${OUT}/data/series/${s.code}.json`;
   if (fs.existsSync(prevPath)) {
     try {
       const prev = JSON.parse(fs.readFileSync(prevPath, 'utf8'));
       const prevCaps = new Map((prev.members || []).map((m) => [m.repo, m.caps]).filter(([, c]) => c));
       for (const m of s.members) if (prevCaps.has(m.repo)) m.caps = prevCaps.get(m.repo);
+      if (prev.summaryEn && !s.summaryEn) s.summaryEn = prev.summaryEn;
+      if (prev.cn && !s.cn) s.cn = prev.cn;
+      // 变体层人工字段（backfill-license.mjs 的 licenseInherited/licenseFrom、
+      // V5 的 repoGone 标记）：按 repo 合并，采集器不覆盖。
+      const prevExtra = new Map();
+      for (const pm of prev.members || []) for (const pv of pm.variants || []) {
+        const keep = {};
+        if (pv.licenseInherited) { keep.licenseInherited = true; keep.licenseFrom = pv.licenseFrom; }
+        if (pv.repoGone) keep.repoGone = pv.repoGone;
+        if (Object.keys(keep).length) prevExtra.set(pv.repo, keep);
+      }
+      for (const m of s.members) for (const v of m.variants || []) {
+        const k = prevExtra.get(v.repo);
+        if (k) Object.assign(v, k);
+      }
     } catch { /* 旧文件坏了就不合并，照常落盘 */ }
   }
   fs.writeFileSync(`${OUT}/data/series/${s.code}.json`, JSON.stringify({

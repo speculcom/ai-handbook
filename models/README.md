@@ -29,7 +29,7 @@
 
 ## 我该怎么读
 
-10 个基础模型、132 个量化档、1253 个 GGUF 文件 —— 全列出来没人看得到底。按你的处境走：
+16 个基础模型、129 个量化档、1270 个 GGUF 文件 —— 全列出来没人看得到底。按你的处境走：
 
 | 你的处境 | 走哪条路 |
 |---|---|
@@ -158,15 +158,15 @@ node scripts/build.mjs
 |---|---|---|---|---|---|
 | [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护… |
 | [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google 开放权重最新一代，三种规格各自都有量化覆盖。 |
-| [GLM 5](data/series/glm-5.json) | 智谱 AI | 2026-08-25 | 2 | 17 | 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。 |
-| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 4 | OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。 |
+| [GLM 5](data/series/glm-5.json) | 智谱 AI | 2026-08-25 | 2 | 13 | 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。 |
+| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。 |
 | [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。 |
 | [Kimi K3](data/series/kimi-k3.json) | 月之暗面 | 2026-06-13 | 1 | 10 | 月之暗面当前最新一代，41 家量化仓但整体热度中等。 |
 | [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | 代码方向的开放权重系列，许可为 OpenMDW-1.1（使用前须读原文）。 |
 | [MiniCPM 5](data/series/minicpm5.json) | 面壁智能 · OpenBMB | 2026-08-27 | 1 | 10 | 国产小尺寸代表，2B 规模适合低显存与端侧。 |
 | [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta 的开放权重系列，apache-2.0，量化覆盖横跨多家主力量化者。 |
 | [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。 |
-| [千问 3.8](data/series/qwen3-8.json) | 阿里 · 通义千问 | 2026-08-05 | 2 | 18 | 阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。 |
+| [千问 3.8](data/series/qwen3-8.json) | 阿里 · 通义千问 | 2026-08-05 | 2 | 17 | 阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。 |
 
 <!-- INDEX:END -->
 
@@ -177,9 +177,9 @@ node scripts/build.mjs
 |---|---|
 | 系列 | 11 个 |
 | 模型仓（members） | 16 个 |
-| 量化档（variants） | 132 个 |
-| GGUF 文件 | 1253 个 |
-| 量化者 | 55 位 |
+| 量化档（variants） | 129 个 |
+| GGUF 文件 | 1270 个 |
+| 量化者 | 54 位 |
 | 家族谱系卡（families） | 15 张 |
 | 闭源谱系卡（closed） | 6 张 |
 | 基座许可分布 | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |

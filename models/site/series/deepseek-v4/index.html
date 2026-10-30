@@ -16,7 +16,7 @@
   <script src="../../brand.js?v=6a580ac0420e"></script>
   <link rel="stylesheet" href="../../brand.css?v=6a580ac0420e" />
   <link rel="stylesheet" href="../../site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"DeepSeek V4 GGUF 量化版本索引","description":"MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。","url":"https://models.specul.com/series/deepseek-v4/","isAccessibleForFree":true,"license":"https://creativecommons.org/publicdomain/zero/1.0/","temporalCoverage":"2026-10-09"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"DeepSeek V4 GGUF 量化版本索引","description":"MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。","url":"https://models.specul.com/series/deepseek-v4/","isAccessibleForFree":true,"license":"https://creativecommons.org/publicdomain/zero/1.0/","temporalCoverage":"2026-10-30"}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -109,7 +109,7 @@
       </div>
       <p class="trust-foot">
         <span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>。所有数字都来自公开元数据，点击即可回到发布页核对。</span><span data-en>. Every figure comes from public metadata, and clicking it takes you back to the release page to verify.</span>
-        <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-09</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
+        <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-30</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
       </p>
     </section>
 
@@ -148,12 +148,12 @@
         <tr><th><span data-zh>工具调用</span><span data-en>Tool calling</span></th><td><span data-zh><b>✓ 支持</b></span><span data-en><b>✓ Supported</b></span> <a class="lic-src" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a> <span class="muted small"><span data-zh>模型卡</span><span data-en>model card</span> · 2026-10-28</span><br><span class="muted small"><span data-zh>模型卡：参考实现覆盖 tool calling；本发布不带 Jinja chat 模板。</span><span data-en>Card: reference implementation covers tool calling; this release ships no Jinja chat template.</span></span></td></tr>
         <tr><th><span data-zh>定位</span><span data-en>Role</span></th><td><span data-zh>通用主力</span><span data-en>General</span></td></tr>
         <tr><th><span data-zh>标签</span><span data-en>Tags</span></th><td><span class="muted">—</span></td></tr>
-        <tr><th><span data-zh>官方下载量</span><span data-en>Downloads</span></th><td><b>1.3M</b>　<span class="muted"><span data-zh>点赞</span><span data-en>likes</span> 4k</span></td></tr>
+        <tr><th><span data-zh>官方下载量</span><span data-en>Downloads</span></th><td><b>1.9M</b>　<span class="muted"><span data-zh>点赞</span><span data-en>likes</span> 5k</span></td></tr>
         <tr><th><span data-zh>发布日</span><span data-en>Released</span></th><td><span class="muted">—</span></td></tr>
-        <tr><th><span data-zh>最近更新</span><span data-en>Last updated</span></th><td>2026-10-01</td></tr>
+        <tr><th><span data-zh>最近更新</span><span data-en>Last updated</span></th><td>2026-10-16</td></tr>
         <tr><th><span data-zh>发布页体积</span><span data-en>Release-page size</span></th><td><span class="muted">—</span></td></tr>
       </table>
-            <p class="member-note"><span data-zh>MIT 许可，20 个第三方量化仓，antirez 一家 1.67M 下载。</span><span data-en>MIT licensed, 20 third-party quantisation repos; antirez alone accounts for 1.67M downloads.</span></p>
+            <p class="member-note"><span data-zh>MIT 许可，20 个第三方量化仓，antirez 一家 124 万下载（2026-10-30 复测）。</span><span data-en>MIT licensed, 20 third-party quantisation repos; antirez alone accounts for 1.24M downloads (re-measured 2026-10-30).</span></p>
         </div>
         <div class="block" id="b0">
           <h4><span class="blk">B</span><span data-zh>该选哪个</span><span data-en>Which one to pick</span> <small><span data-zh>按你的显存倒推</span><span data-en>work backwards from your VRAM</span></small></h4>
@@ -361,7 +361,7 @@
             <td class="num">1457 GB</td>
             <td class="num">1,048,576</td>
             <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">445 GB</span></td>
-            <td class="num">49k</td>
+            <td class="num">23k</td>
             <td class="muted small">2026-09-12</td>
           </tr>
           <tr>
@@ -375,8 +375,8 @@
             <td class="num">1928 GB</td>
             <td class="num">1,048,576</td>
             <td><code><span data-zh>MXFP4</span><span data-en>MXFP4</span></code><br><span class="muted small">508 GB</span></td>
-            <td class="num">20k</td>
-            <td class="muted small">2026-09-27</td>
+            <td class="num">16k</td>
+            <td class="muted small">2026-10-23</td>
           </tr>
           <tr>
             <td>
@@ -389,8 +389,8 @@
             <td class="num">383 GB</td>
             <td class="num">1,048,576</td>
             <td><code><span data-zh>MXFP4</span><span data-en>MXFP4</span></code><br><span class="muted small">404 GB</span></td>
-            <td class="num">6k</td>
-            <td class="muted small">2026-09-18</td>
+            <td class="num">2k</td>
+            <td class="muted small">2026-10-27</td>
           </tr>
           <tr>
             <td>
@@ -403,8 +403,8 @@
             <td class="num">1211 GB</td>
             <td class="num">1,048,576</td>
             <td><code><span data-zh>Q4_K_M</span><span data-en>Q4_K_M</span></code><br><span class="muted small">445 GB</span></td>
-            <td class="num">3k</td>
-            <td class="muted small">2026-09-12</td>
+            <td class="num">2k</td>
+            <td class="muted small">2026-10-15</td>
           </tr>
           <tr>
             <td>
@@ -417,7 +417,7 @@
             <td class="num">467 GB</td>
             <td class="num">1,048,576</td>
             <td><code><span data-zh>MXFP4</span><span data-en>MXFP4</span></code><br><span class="muted small">502 GB</span></td>
-            <td class="num">2k</td>
+            <td class="num">899</td>
             <td class="muted small">2026-09-23</td>
           </tr>
         </tbody>
@@ -450,7 +450,7 @@
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=mit" target="_blank" rel="noopener">mit</a>
               
-              <span class="muted small"><span data-zh>4 档</span><span data-en>4 tiers</span> · 1457 GB · <span data-zh>49k 下载</span><span data-en>49k downloads</span></span>
+              <span class="muted small"><span data-zh>4 档</span><span data-en>4 tiers</span> · 1457 GB · <span data-zh>23k 下载</span><span data-en>23k downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>vcruz305/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>，提供 <b>4</b> 个 GGUF 量化档，合计 1457 GB。由 <code>vcruz305</code> 发布。</span><span data-en><a href="https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>vcruz305/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>, providing <b>4</b> GGUF tiers totalling 1457 GB. Published by <code>vcruz305</code>.</span></span></div>
@@ -467,7 +467,7 @@
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=mit" target="_blank" rel="noopener">mit</a>
               
-              <span class="muted small"><span data-zh>5 档</span><span data-en>5 tiers</span> · 1928 GB · <span data-zh>20k 下载</span><span data-en>20k downloads</span></span>
+              <span class="muted small"><span data-zh>5 档</span><span data-en>5 tiers</span> · 1928 GB · <span data-zh>16k 下载</span><span data-en>16k downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>smalinin/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>，提供 <b>5</b> 个 GGUF 量化档，合计 1928 GB。由 <code>smalinin</code> 发布。</span><span data-en><a href="https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>smalinin/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>, providing <b>5</b> GGUF tiers totalling 1928 GB. Published by <code>smalinin</code>.</span></span></div>
@@ -484,11 +484,11 @@
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=mit" target="_blank" rel="noopener">mit</a>
               
-              <span class="muted small"><span data-zh>1 档</span><span data-en>1 tiers</span> · 383 GB · <span data-zh>6k 下载</span><span data-en>6k downloads</span></span>
+              <span class="muted small"><span data-zh>1 档</span><span data-en>1 tiers</span> · 383 GB · <span data-zh>2k 下载</span><span data-en>2k downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/mxxm-t/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>mxxm-t/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>，提供 <b>1</b> 个 GGUF 量化档，合计 383 GB。由 <code>mxxm-t</code> 发布。</span><span data-en><a href="https://huggingface.co/mxxm-t/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>mxxm-t/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>, providing <b>1</b> GGUF tiers totalling 383 GB. Published by <code>mxxm-t</code>.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>未提供重要性矩阵（imatrix），走的是纯权重量化路线</span><span data-en>No importance matrix (imatrix); this is pure weight quantisation</span>；<span data-zh>针对 <code>deepseek41</code> 架构优化</span><span data-en>Optimised for the <code>deepseek41</code> architecture</span>；<span data-zh>声明上下文 1,048,576 tokens</span><span data-en>Declared context 1,048,576 tokens</span>；<span data-zh>发布页声明溯源到 <code>deepseek-ai/DeepSeek-V4.1-Flash</code></span><span data-en>The release page traces this back to <code>deepseek-ai/DeepSeek-V4.1-Flash</code></span>；<span data-zh>权重总字节 411.5 GB（发布页 <code>gguf.total</code> 字段）</span><span data-en>Total weight bytes 411.5 GB (the release page's <code>gguf.total</code> field)</span>。</span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>量化者做了什么</span><span data-en>What the quantiser did</span></span><span class="vf-v"><span data-zh>未提供重要性矩阵（imatrix），走的是纯权重量化路线</span><span data-en>No importance matrix (imatrix); this is pure weight quantisation</span>；<span data-zh>针对 <code>deepseek41</code> 架构优化</span><span data-en>Optimised for the <code>deepseek41</code> architecture</span>；<span data-zh>声明上下文 1,048,576 tokens</span><span data-en>Declared context 1,048,576 tokens</span>；<span data-zh>发布页声明溯源到 <code>deepseek-ai/DeepSeek-V4.1-Flash-1017</code></span><span data-en>The release page traces this back to <code>deepseek-ai/DeepSeek-V4.1-Flash-1017</code></span>；<span data-zh>权重总字节 411.5 GB（发布页 <code>gguf.total</code> 字段）</span><span data-en>Total weight bytes 411.5 GB (the release page's <code>gguf.total</code> field)</span>。</span></div>
         <div class="vf"><span class="vf-k"><span data-zh>与同系列其他变体的区别</span><span data-en>How it differs from other variants in this series</span></span><span class="vf-v"><span data-zh>同系列另有 4 个量化来源（<code>vcruz305</code> 4 <span data-zh>档</span><span data-en>tiers</span>、<code>smalinin</code> 5 <span data-zh>档</span><span data-en>tiers</span>、<code>Solstice-AI</code> 3 <span data-zh>档</span><span data-en>tiers</span>、<code>JigSawPT</code> 1 <span data-zh>档</span><span data-en>tiers</span>）。</span><span data-en>The series has 4 other quantisation sources (<code>vcruz305</code> 4 tiers, <code>smalinin</code> 5 tiers, <code>Solstice-AI</code> 3 tiers, <code>JigSawPT</code> 1 tiers).</span><span data-zh> 本仓 1 档，覆盖最少。</span><span data-en> This repo has 1 tiers — the narrowest coverage in this series.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>补上官方没覆盖的档位（MXFP4 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。</span><span data-en>Fills tiers the official build does not cover (such as MXFP4), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>平衡档落在 <code>MXFP4</code>（404 GB），是大多数人的起点</span><span data-en>The balanced tier lands on <code>MXFP4</code> (404 GB), the starting point for most people</span></span></div>
@@ -501,7 +501,7 @@
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=mit" target="_blank" rel="noopener">mit</a>
               
-              <span class="muted small"><span data-zh>3 档</span><span data-en>3 tiers</span> · 1211 GB · <span data-zh>3k 下载</span><span data-en>3k downloads</span></span>
+              <span class="muted small"><span data-zh>3 档</span><span data-en>3 tiers</span> · 1211 GB · <span data-zh>2k 下载</span><span data-en>2k downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/Solstice-AI/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>Solstice-AI/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>，提供 <b>3</b> 个 GGUF 量化档，合计 1211 GB。由 <code>Solstice-AI</code> 发布。</span><span data-en><a href="https://huggingface.co/Solstice-AI/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>Solstice-AI/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>, providing <b>3</b> GGUF tiers totalling 1211 GB. Published by <code>Solstice-AI</code>.</span></span></div>
@@ -518,7 +518,7 @@
             <div class="vcard-meta">
               <a class="lic lic-loose" href="https://huggingface.co/search?license=mit" target="_blank" rel="noopener">mit</a>
               
-              <span class="muted small"><span data-zh>1 档</span><span data-en>1 tiers</span> · 467 GB · <span data-zh>2k 下载</span><span data-en>2k downloads</span></span>
+              <span class="muted small"><span data-zh>1 档</span><span data-en>1 tiers</span> · 467 GB · <span data-zh>899 下载</span><span data-en>899 downloads</span></span>
             </div>
           </header>
         <div class="vf"><span class="vf-k"><span data-zh>它是什么</span><span data-en>What it is</span></span><span class="vf-v"><span data-zh><a href="https://huggingface.co/JigSawPT/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>JigSawPT/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>，提供 <b>1</b> 个 GGUF 量化档，合计 467 GB。由 <code>JigSawPT</code> 发布。</span><span data-en><a href="https://huggingface.co/JigSawPT/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>JigSawPT/DeepSeek-V4.1-Flash-GGUF</code> ↗</a>, providing <b>1</b> GGUF tiers totalling 467 GB. Published by <code>JigSawPT</code>.</span></span></div>
@@ -536,31 +536,31 @@
       <p class="block-lead"><span data-zh>量化者决定了这个包的<b>档位覆盖、命名规范、是否带 imatrix、什么时候跟进新模型</b>。这一区块说明「选这个量化者的量化意味着什么」。</span><span data-en>The quantiser decides this build's <b>tier coverage, naming convention, whether it ships imatrix, and how fast it follows new models</b>. This section spells out what choosing that quantiser means.</span></p>
         <article class="qcard">
           <h4><code>vcruz305</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 49k 下载</span><span data-en>In this series: 1 repos · 49k downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 23k 下载</span><span data-en>In this series: 1 repos · 23k downloads</span></p>
           <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/vcruz305" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>smalinin</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 20k 下载</span><span data-en>In this series: 1 repos · 20k downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 16k 下载</span><span data-en>In this series: 1 repos · 16k downloads</span></p>
           <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/smalinin" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>mxxm-t</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 6k 下载</span><span data-en>In this series: 1 repos · 6k downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 2k 下载</span><span data-en>In this series: 1 repos · 2k downloads</span></p>
           <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/mxxm-t" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>Solstice-AI</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 3k 下载</span><span data-en>In this series: 1 repos · 3k downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 2k 下载</span><span data-en>In this series: 1 repos · 2k downloads</span></p>
           <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/Solstice-AI" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>JigSawPT</code></h4>
-          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 2k 下载</span><span data-en>In this series: 1 repos · 2k downloads</span></p>
+          <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 899 下载</span><span data-en>In this series: 1 repos · 899 downloads</span></p>
           <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/JigSawPT" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
@@ -570,9 +570,19 @@
       <p class="block-lead"><span data-zh>按更新时间倒序。更新频繁说明该量化者在跟进新版本；长期不更新则基础模型升版后可能不同步。</span><span data-en>Sorted by most recent update. Frequent updates mean the quantiser is tracking new releases; a long silence means it may have fallen behind the base model.</span></p>
       <ul class="log">
         <li>
-          <span class="log-date">2026-09-27</span>
+          <span class="log-date">2026-10-27</span>
+          <a href="https://huggingface.co/mxxm-t/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>mxxm-t</code></a>
+          <span class="muted"><span data-zh>更新了 1 个档位</span><span data-en>updated 1 tiers</span></span>
+        </li>
+        <li>
+          <span class="log-date">2026-10-23</span>
           <a href="https://huggingface.co/smalinin/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>smalinin</code></a>
           <span class="muted"><span data-zh>更新了 5 个档位</span><span data-en>updated 5 tiers</span><span data-zh> · 含 imatrix</span><span data-en> · with imatrix</span></span>
+        </li>
+        <li>
+          <span class="log-date">2026-10-15</span>
+          <a href="https://huggingface.co/Solstice-AI/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>Solstice-AI</code></a>
+          <span class="muted"><span data-zh>更新了 3 个档位</span><span data-en>updated 3 tiers</span></span>
         </li>
         <li>
           <span class="log-date">2026-09-23</span>
@@ -580,22 +590,12 @@
           <span class="muted"><span data-zh>更新了 1 个档位</span><span data-en>updated 1 tiers</span></span>
         </li>
         <li>
-          <span class="log-date">2026-09-18</span>
-          <a href="https://huggingface.co/mxxm-t/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>mxxm-t</code></a>
-          <span class="muted"><span data-zh>更新了 1 个档位</span><span data-en>updated 1 tiers</span></span>
-        </li>
-        <li>
           <span class="log-date">2026-09-12</span>
           <a href="https://huggingface.co/vcruz305/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>vcruz305</code></a>
           <span class="muted"><span data-zh>更新了 4 个档位</span><span data-en>updated 4 tiers</span></span>
         </li>
-        <li>
-          <span class="log-date">2026-09-12</span>
-          <a href="https://huggingface.co/Solstice-AI/DeepSeek-V4.1-Flash-GGUF" target="_blank" rel="noopener"><code>Solstice-AI</code></a>
-          <span class="muted"><span data-zh>更新了 3 个档位</span><span data-en>updated 3 tiers</span></span>
-        </li>
       </ul>
-      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>deepseek-ai/DeepSeek-V4.1-Flash</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-10-01　·　<span data-zh>本站采集时间：</span><span data-en>collected:</span> 2026-10-09</p>
+      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>deepseek-ai/DeepSeek-V4.1-Flash</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-10-16　·　<span data-zh>本站采集时间：</span><span data-en>collected:</span> 2026-10-30</p>
         </div>
       </section>
     <section class="companion">
@@ -633,7 +633,7 @@
 
     <section class="legal-note">
       <h3><span data-zh>关于数据与许可</span><span data-en>Data and licensing</span></h3>
-      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-09</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
+      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-30</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
       <p><span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>，只提供发布页链接。许可字段原样引自发布页，</span><span data-en> — it only links to release pages. Licence fields are quoted verbatim from them,</span> <b><span data-zh>本站不解读许可条款、不构成法律意见</span><span data-en>this site does not interpret licence terms or give legal advice</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
       <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
     </section>

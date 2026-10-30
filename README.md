@@ -54,9 +54,9 @@
 | tools · 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 | models · 系列 | 11 个 |
 | models · 模型仓（members） | 16 个 |
-| models · 量化档（variants） | 132 个 |
-| models · GGUF 文件 | 1253 个 |
-| models · 量化者 | 55 位 |
+| models · 量化档（variants） | 129 个 |
+| models · GGUF 文件 | 1270 个 |
+| models · 量化者 | 54 位 |
 | models · 家族谱系卡（families） | 15 张 |
 | models · 闭源谱系卡（closed） | 6 张 |
 | models · 基座许可分布 | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
