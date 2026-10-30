@@ -13,7 +13,7 @@ axes:
     它把 Sentry 平台能力（issue、事件、release、告警）包装成 MCP 工具供 agent 查询与诊断。
   runtime: >-
     官方托管远程 server 为主（mcp.sentry.dev 直抓 200）；仓 getsentry/toolkit 是官方工具线
-    （936★，最近推送 2026-10-21，GitHub API 核验）。旧仓名 getsentry/sentry-mcp 已 redirect（直抓所见）。
+    （949★，最近推送 2026-10-30，GitHub API 核验）。旧仓名 getsentry/sentry-mcp 已 redirect（直抓所见）。
   local_files: >-
     不碰本机文件系统——它操作的是 Sentry 云端数据（issue/事件/release）。
     本地日志与源码不在它作用域内；要读本地文件得配 filesystem server。
@@ -54,7 +54,7 @@ mcp:
     写操作与高危工具清单未逐条核验；无独立审批机制的官方说明。
 
 sources:
-  - label: getsentry/toolkit · 仓库（FSL-1.1-Apache-2.0；936★，最近推送 2026-10-21，GitHub API 核验）
+  - label: getsentry/toolkit · 仓库（FSL-1.1-Apache-2.0；949★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/getsentry/toolkit
     kind: repo
   - label: getsentry/toolkit · LICENSE.md（FSL-1.1-Apache-2.0 原文，2026-10-21 直抓核验）
@@ -67,7 +67,7 @@ sources:
     url: https://github.com/getsentry/toolkit/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

@@ -4,7 +4,7 @@ form: mcp
 name: Cloudflare MCP Server
 vendor: Cloudflare
 homepage: https://github.com/cloudflare/mcp-server-cloudflare
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
@@ -12,8 +12,8 @@ axes:
     **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Cloudflare 平台
     （Workers、Pages、D1、R2、DNS、docs 检索等）包装成工具给 agent 用。
   runtime: >-
-    官方托管远程 server 为主（docs 有远程端点线）+ 本地可跑；GitHub 4,399★，
-    最近推送 2026-10-21（API 核验）。
+    官方托管远程 server 为主（docs 有远程端点线）+ 本地可跑；GitHub 4,431★，
+    最近推送 2026-10-22（API 核验）。
   local_files: >-
     不读写本机项目文件——作用域是 Cloudflare 账户资源（部署 Workers、写 D1/R2 等）。
   background: >-
@@ -52,7 +52,7 @@ mcp:
     token 粒度是主收紧手段；无工具级审批机制的官方说明。
 
 sources:
-  - label: cloudflare/mcp-server-cloudflare · 仓库（Apache-2.0；4,399★，最近推送 2026-10-21，GitHub API 核验）
+  - label: cloudflare/mcp-server-cloudflare · 仓库（Apache-2.0；4,431★，最近推送 2026-10-22，GitHub API 核验）
     url: https://github.com/cloudflare/mcp-server-cloudflare
     kind: repo
   - label: cloudflare/mcp-server-cloudflare · Releases（changelog）
@@ -62,7 +62,7 @@ sources:
     url: https://developers.cloudflare.com/changelog/
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

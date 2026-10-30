@@ -58,7 +58,7 @@ sources:
     url: https://developer.atlassian.com/blog/2025/06/atlassian-remote-mcp-server/
     kind: docs
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

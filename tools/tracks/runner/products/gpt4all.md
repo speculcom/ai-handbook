@@ -4,7 +4,7 @@ form: local-app
 name: GPT4All
 vendor: Nomic AI
 homepage: https://www.nomic.ai/gpt4all
-license: MIT（GitHub API 核验 2026-10-21；官方描述「open-source and available for commercial use」直抓所见）。
+license: MIT（GitHub API 核验 2026-10-30；官方描述「open-source and available for commercial use」直抓所见）。
 licenseEn: MIT (GitHub API verified 2026-10-21; official description "open-source and available for commercial use", direct-fetched).
 
 axes:
@@ -12,8 +12,8 @@ axes:
     官方模型目录（GPT4All 格式 .ggjt/.gguf 线）+ 本地导入；模型目录可用性随维护节奏变化——
     未逐条清点。
   runtime: >-
-    桌面应用（Windows/macOS/Linux）；基于 llama.cpp 系。GitHub 77,351★，
-    最近推送 2025-05-27（GitHub API 核验 2026-10-21——发版放缓是事实，如实记）。
+    桌面应用（Windows/macOS/Linux）；基于 llama.cpp 系。GitHub 77,349★，
+    最近推送 2025-05-27（GitHub API 核验 2026-10-30——发版放缓是事实，如实记）。
   local_files: >-
     模型与对话默认落本机；官方口径是本地运行，未见官方云线（与 Ollama 的云端线不同）。
   background: >-
@@ -37,7 +37,7 @@ tags: [开源, MIT, 桌面应用, CPU优先, llama.cpp系]
 related: [openai-agents-sdk]
 
 sources:
-  - label: nomic-ai/gpt4all · 仓库（MIT；77,351★，最近推送 2025-05-27，GitHub API 核验 2026-10-21）
+  - label: nomic-ai/gpt4all · 仓库（MIT；77,349★，最近推送 2025-05-27，GitHub API 核验 2026-10-30）
     url: https://github.com/nomic-ai/gpt4all
     kind: repo
   - label: GPT4All · 官网产品页
@@ -50,7 +50,7 @@ sources:
     url: https://github.com/nomic-ai/gpt4all/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: maintenance
 confidence: partial

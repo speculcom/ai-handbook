@@ -4,7 +4,7 @@ form: mcp
 name: Supabase MCP
 vendor: Supabase
 homepage: https://github.com/supabase/mcp
-license: Apache-2.0（GitHub API 核验 2026-10-21；旧仓名 mcp-server-supabase redirect 到 supabase/mcp）。
+license: Apache-2.0（GitHub API 核验 2026-10-30；旧仓名 mcp-server-supabase redirect 到 supabase/mcp）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21; the old repo name mcp-server-supabase redirects to supabase/mcp).
 
 axes:
@@ -12,8 +12,8 @@ axes:
     **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Supabase 平台能力
     （项目、数据库查询、迁移、日志、文档检索）包装成工具给编码 agent 用。
   runtime: >-
-    双形态：本地 npx 进程（stdio）+ 官方托管远程线；GitHub 2,966★，
-    最近推送 2026-10-21（GitHub API 核验）。
+    双形态：本地 npx 进程（stdio）+ 官方托管远程线；GitHub 2,983★，
+    最近推送 2026-10-29（GitHub API 核验）。
   local_files: >-
     本地形态不直接读写你本机项目文件（那是 filesystem server 的活）——
     它操作的是 Supabase 云端项目：表、迁移、日志。
@@ -52,7 +52,7 @@ mcp:
     工具组裁剪可缩小暴露面；无工具级人工审批机制的官方说明。
 
 sources:
-  - label: supabase/mcp · 仓库（Apache-2.0；2,966★，最近推送 2026-10-21，GitHub API 核验）
+  - label: supabase/mcp · 仓库（Apache-2.0；2,983★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/supabase/mcp
     kind: repo
   - label: supabase/mcp · Releases（changelog）
@@ -62,7 +62,7 @@ sources:
     url: https://supabase.com/docs/guides/getting-started/mcp
     kind: docs
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

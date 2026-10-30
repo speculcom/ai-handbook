@@ -4,7 +4,7 @@ form: cli
 name: LocalAI
 vendor: Mudler T.（mudler）
 homepage: https://localai.io
-license: MIT（官网直抓所见「Open source · MIT · v4.8.0」+ GitHub API 核验 2026-10-21）。
+license: MIT（官网直抓所见「Open source · MIT · v4.8.0」+ GitHub API 核验 2026-10-30）。
 licenseEn: MIT (official site states "Open source · MIT · v4.8.0", GitHub API verified 2026-10-21).
 
 axes:
@@ -13,7 +13,7 @@ axes:
     workloads through one open runtime」（直抓所见）；模型/引擎矩阵未逐条清点。
   runtime: >-
     单二进制 OpenAI 兼容 API 前置多后端；官网称亦兼容 Anthropic/Ollama/ElevenLabs API（直抓所见）；
-    GitHub 49,830★（API 核验 2026-10-21）。
+    GitHub 50,065★（API 核验 2026-10-21）。
   local_files: >-
     官网口径「keep your data on your hardware」（直抓所见）；全自托管。
   background: >-
@@ -40,7 +40,7 @@ sources:
   - label: LocalAI · 官网（MIT/v4.8.0/多 API 兼容口径，2026-10-21 直抓核验）
     url: https://localai.io
     kind: docs
-  - label: mudler/LocalAI · 仓库（MIT；49,830★，最近推送 2026-10-21，GitHub API 核验）
+  - label: mudler/LocalAI · 仓库（MIT；50,065★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/mudler/LocalAI
     kind: repo
   - label: LocalAI · 官方文档
@@ -50,7 +50,7 @@ sources:
     url: https://github.com/mudler/LocalAI/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

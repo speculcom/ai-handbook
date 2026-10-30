@@ -2,7 +2,7 @@
   "_comment": "C0-9 正文英译 · supabase-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
   "axes": {
     "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Supabase platform capabilities\n(projects, database queries, migrations, logs, docs retrieval) as tools for coding agents.",
-    "runtime": "Two forms: local npx process (stdio) + an official hosted remote line; GitHub 2,966★,\nlast push 2026-10-21 (GitHub API verified).",
+    "runtime": "Two forms: local npx process (stdio) + an official hosted remote line; GitHub 2,983★,\nlast push 2026-10-29 (GitHub API verified).",
     "local_files": "In the local form it does not directly read or write your local project files (that is the filesystem server's job) —\nit operates on Supabase cloud projects: tables, migrations, logs.",
     "background": "Local stdio lives and dies with the client; the hosted remote form lives on Supabase's side. No background-task semantics.",
     "tools": "Database queries/migrations, project management, logs and diagnostics, docs retrieval, etc.;\ntools can be trimmed on demand (the official side supports selectively enabling tool groups); the complete inventory follows the repo README.",
@@ -21,7 +21,7 @@
     "A \"two-forms + tool-trimming\" design contrast: GitHub has a mandatory read-only switch, Supabase has no equivalent switch."
   ],
   "sources": [
-    "supabase/mcp · repository (Apache-2.0; 2,966★, last push 2026-10-21, GitHub API verified)",
+    "supabase/mcp · repository (Apache-2.0; 2,983★, last push 2026-10-29, GitHub API verified)",
     "supabase/mcp · Releases (changelog)",
     "Supabase · official docs MCP line"
   ]

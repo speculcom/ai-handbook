@@ -2,7 +2,7 @@
   "_comment": "English bodies for swe-agent (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. related aligns with the 相关条目 section (2 links).",
   "axes": {
     "model_access": "Various LLMs connect through an interface layer (OpenAI/Anthropic/HF etc., per the official docs, not itemized one by one);\nits core contribution is the **ACI (agent-computer interface)** — a file-editing/command-interaction interface designed for agents.",
-    "runtime": "A Python library + command line (pip install); GitHub 20,607★, last push 2026-10-19 (API verified).\nAcademic origins (the Princeton/Stanford paper line); deeply tied to the SWE-bench evaluation ecosystem (the benchmark line from the same team).",
+    "runtime": "A Python library + command line (pip install); GitHub 20,682★, last push 2026-10-26 (API verified).\nAcademic origins (the Princeton/Stanford paper line); deeply tied to the SWE-bench evaluation ecosystem (the benchmark line from the same team).",
     "local_files": "The agent reads/writes files and runs commands inside a container or local environment — file operations really happen in the environment you give it;\nthe official docs recommend running containerized (the isolation position).",
     "background": "Task-form runs: given an issue → run the fix → done; no resident semantics. Batch evaluation runs (SWE-bench style) are one of its main uses.",
     "tools": "The tool surface is the core of its ACI design: file viewing/editing, search, command execution —\n\"an interface designed for agents\" is its research thesis, not a general tool ecosystem.",
@@ -17,7 +17,7 @@
     "Cross-category contrast: the use-case divide between a production coding agent and an evaluation harness."
   ],
   "sources": [
-    "SWE-agent/SWE-agent · repository (MIT; 20,607★, last push 2026-10-19, GitHub API verified)",
+    "SWE-agent/SWE-agent · repository (MIT; 20,682★, last push 2026-10-26, GitHub API verified)",
     "SWE-agent · official docs site",
     "SWE-agent/SWE-agent · Releases (changelog)"
   ]

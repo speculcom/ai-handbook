@@ -4,7 +4,7 @@ form: harness
 name: Haystack
 vendor: deepset
 homepage: https://haystack.deepset.ai
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 family: orchestration
@@ -16,7 +16,7 @@ axes:
     各家生成模型与嵌入模型经集成接入（OpenAI/Anthropic/本地 HF 等，以官方集成目录为准，
     未逐条清点）；RAG 检索栈（dense/sparse/hybrid）是它的看家面。
   runtime: >-
-    Python 库（pip 装进你的进程）；GitHub 26,804★，最近推送 2026-10-21（API 核验）。
+    Python 库（pip 装进你的进程）；GitHub 26,880★，最近推送 2026-10-30（API 核验）。
     管线（pipeline）抽象是主轴：组件连成图，跑批或跑服务都在你的进程里。
   local_files: >-
     文档索引与检索数据在你选的存储（文件/向量库/文档库）——数据不出你侧；
@@ -43,7 +43,7 @@ tags: [开源, Apache2.0, RAG, 检索管线, 生产级]
 related: [cursor, claude-code]
 
 sources:
-  - label: deepset-ai/haystack · 仓库（Apache-2.0；26,804★，最近推送 2026-10-21，GitHub API 核验）
+  - label: deepset-ai/haystack · 仓库（Apache-2.0；26,880★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/deepset-ai/haystack
     kind: repo
   - label: Haystack · 官方文档
@@ -53,7 +53,7 @@ sources:
     url: https://github.com/deepset-ai/haystack/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

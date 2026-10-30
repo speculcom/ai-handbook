@@ -4,7 +4,7 @@ form: mcp
 name: Neon MCP Server
 vendor: Neon
 homepage: https://github.com/neondatabase/mcp-server-neon
-license: MIT（GitHub API 核验 2026-10-21）。
+license: MIT（GitHub API 核验 2026-10-30）。
 licenseEn: MIT (GitHub API verified 2026-10-21).
 
 axes:
@@ -12,7 +12,7 @@ axes:
     **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Neon（serverless Postgres）
     的管理 API 与数据库操作包装成工具给 agent 用。
   runtime: >-
-    本地进程（npx stdio）+ 官方托管远程线；GitHub 655★，最近推送 2026-10-21（API 核验）。
+    本地进程（npx stdio）+ 官方托管远程线；GitHub 659★，最近推送 2026-10-29（API 核验）。
     旧 docs 路径（neon.com/docs/ai-and-mcp/mcp-server）直抓 404——现役以仓为准。
   local_files: >-
     不读写本机项目文件——作用域是 Neon 云端项目/分支与数据库。
@@ -50,7 +50,7 @@ mcp:
     无工具级审批机制的官方说明；分支模型是结构性隔离手段而非审批层。
 
 sources:
-  - label: neondatabase/mcp-server-neon · 仓库（MIT；655★，最近推送 2026-10-21，GitHub API 核验）
+  - label: neondatabase/mcp-server-neon · 仓库（MIT；659★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/neondatabase/mcp-server-neon
     kind: repo
   - label: neondatabase/mcp-server-neon · Releases（changelog）
@@ -60,7 +60,7 @@ sources:
     url: https://neon.com/docs
     kind: docs
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

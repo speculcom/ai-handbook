@@ -2,7 +2,7 @@
   "_comment": "English bodies for langchain (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. layer_position/providers not rendered — not included.",
   "axes": {
     "model_access": "The model-access layer is its home-turf capability: a unified interface family across LLMs/embeddings/tools (the provider integration surface is huge, per the official integrations catalog, not itemized one by one); it does not call models itself — it is the abstraction layer where \"switch providers without changing code\".",
-    "runtime": "Python/JS libraries (pip/npm installed into your process); GitHub 148,205★ (API verified 2026-10-21) — the main body of the LLM application framework ecosystem. The companion LangGraph (orchestration) / LangSmith (observability) are adjacent product lines from the same vendor.",
+    "runtime": "Python/JS libraries (pip/npm installed into your process); GitHub 148,689★ (API verified 2026-10-21) — the main body of the LLM application framework ecosystem. The companion LangGraph (orchestration) / LangSmith (observability) are adjacent product lines from the same vendor.",
     "local_files": "Library form running inside your own code and process; where data lands is decided by your integrations (vector stores/files all on your side).",
     "background": "The library itself has no resident semantics; residency depends on the application you build with it. The official hosted line (the LangSmith platform) is a separate product surface.",
     "tools": "Tool definition and invocation abstractions are a core surface; an MCP adapter line exists (langchain-mcp-adapters), support details not itemized.",
@@ -17,7 +17,7 @@
     "Same-vendor batteries-included line: when you don't want to hand-build the whole loop, use its deep-agent skeleton."
   ],
   "sources": [
-    "langchain-ai/langchain · repository (MIT; 148,205★, last push 2026-10-21, GitHub API verified)",
+    "langchain-ai/langchain · repository (MIT; 148,689★, last push 2026-10-29, GitHub API verified)",
     "LangChain · official docs",
     "LangChain · official changelog",
     "langchain-ai/langchain · Releases (changelog)"

@@ -2,7 +2,7 @@
   "_comment": "C0-15 vllm bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（sglang/llama-cpp），related 写 2 条（frontmatter related 是 [openai-agents-sdk, llamaindex]，键按正文链接行对齐=2）。sources 3 条对齐 frontmatter。runs 引用 models 站 guides 快照口径，照源短译。",
   "axes": {
     "model_access": "safetensors/HF-line weights are the mainstay (GGUF support is limited — models-site framing: the first choice for quantized serving remains the llama.cpp route); the supported-model list follows the official docs, not inventoried item by item.",
-    "runtime": "A serving inference engine: PagedAttention memory management is the official signature (the self-reported figures were verified as a snapshot in the models-site guides serving-deep-dive.md, same source); GitHub 94,749★ (API verified 2026-10-21).",
+    "runtime": "A serving inference engine: PagedAttention memory management is the official signature (the self-reported figures were verified as a snapshot in the models-site guides serving-deep-dive.md, same source); GitHub 95,878★ (API verified 2026-10-21).",
     "local_files": "Self-hosted deployment, data in your own environment; no official managed cloud line (third-party cloud hosting does not count as official).",
     "background": "The product form is a resident service (an OpenAI-compatible server); concurrency/batch scheduling is the main axis.",
     "tools": "The OpenAI-compatible API includes tool calling; MCP support status not verified item by item.",
@@ -17,7 +17,7 @@
     "The root of the single-machine GGUF route; the two routes are compared in the models-site guides."
   ],
   "sources": [
-    "vllm-project/vllm · repo (Apache-2.0; 94,749★, last push 2026-10-21, GitHub API verified)",
+    "vllm-project/vllm · repo (Apache-2.0; 95,878★, last push 2026-10-30, GitHub API verified)",
     "vLLM · official docs",
     "vllm-project/vllm · Releases (changelog)"
   ]

@@ -2,7 +2,7 @@
   "_comment": "English bodies for haystack (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. layer_position/providers not rendered — not included.",
   "axes": {
     "model_access": "Generation and embedding models plug in via integrations (OpenAI/Anthropic/local HF and the like, per the official integration catalog, not itemized one by one); the RAG retrieval stack (dense/sparse/hybrid) is its home turf.",
-    "runtime": "A Python library (pip-installed into your process); GitHub 26,804★, last push 2026-10-21 (API verified). The pipeline abstraction is the main axis: components wired into a graph, batch or serving — it all runs inside your process.",
+    "runtime": "A Python library (pip-installed into your process); GitHub 26,880★, last push 2026-10-30 (API verified). The pipeline abstraction is the main axis: components wired into a graph, batch or serving — it all runs inside your process.",
     "local_files": "Document indexes and retrieval data live in the storage you choose (files/vector stores/document stores) — data never leaves your side; the deepset Cloud hosted line is a separate product surface.",
     "background": "A library has no resident semantics; indexing pipelines can run offline in batches, and the query service is deployed by you. 2.x rewrote 1.x's node system into the component/pipeline model — upgrading is a major rewrite, not a smooth migration.",
     "tools": "The agent layer (since 2.x) includes a tool-calling loop; MCP support status not itemized.",
@@ -17,7 +17,7 @@
     "Component-ecosystem contrast: LangChain has a wider integration surface, Haystack a more specialized retrieval pipeline."
   ],
   "sources": [
-    "deepset-ai/haystack · repository (Apache-2.0; 26,804★, last push 2026-10-21, GitHub API verified)",
+    "deepset-ai/haystack · repository (Apache-2.0; 26,880★, last push 2026-10-30, GitHub API verified)",
     "Haystack · official docs",
     "deepset-ai/haystack · Releases (changelog)"
   ]

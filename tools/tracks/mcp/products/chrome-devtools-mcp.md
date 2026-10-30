@@ -4,7 +4,7 @@ form: mcp
 name: Chrome DevTools MCP
 vendor: Google（Chrome DevTools 团队）
 homepage: https://github.com/ChromeDevTools/chrome-devtools-mcp
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
@@ -12,7 +12,7 @@ axes:
     **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Chrome DevTools 协议（CDP）能力
     包装成工具：导航、点击、截图、性能 trace、网络与 console 日志。
   runtime: >-
-    本地进程（npx 起 stdio，驱动本机 Chrome）；GitHub 53,940★，最近推送 2026-10-21（API 核验）——
+    本地进程（npx 起 stdio，驱动本机 Chrome）；GitHub 54,460★，最近推送 2026-10-29（API 核验）——
     MCP 生态头部流量之一。
   local_files: >-
     操作的是浏览器运行时：页面、网络、console；截图/trace 可落本地路径（由参数指定）。
@@ -52,7 +52,7 @@ mcp:
     无 URL 白名单/审批层的官方说明——收紧靠客户端侧工具审批与浏览器 profile 隔离。
 
 sources:
-  - label: ChromeDevTools/chrome-devtools-mcp · 仓库（Apache-2.0；53,940★，最近推送 2026-10-21，GitHub API 核验）
+  - label: ChromeDevTools/chrome-devtools-mcp · 仓库（Apache-2.0；54,460★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/ChromeDevTools/chrome-devtools-mcp
     kind: repo
   - label: ChromeDevTools/chrome-devtools-mcp · Releases（changelog）
@@ -62,7 +62,7 @@ sources:
     url: https://developer.chrome.com/docs/devtools
     kind: docs
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

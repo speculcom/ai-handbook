@@ -4,7 +4,7 @@ form: cli
 name: Text Generation Inference（TGI）
 vendor: Hugging Face
 homepage: https://huggingface.co/docs/text-generation-inference/index
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
@@ -12,8 +12,9 @@ axes:
     HF Hub 权重原生对接（Hugging Face 自家产品线）；safetensors 为主；
     支持模型/架构矩阵以官方 docs 为准，未逐条清点。
   runtime: >-
-    服务化推理服务器（Rust+Python 混合线）；GitHub 10,880★，最近推送 2026-03-21
-    （GitHub API 核验 2026-10-21——节奏放缓是事实，如实记）。
+    服务化推理服务器（Rust+Python 混合线）；GitHub 10,880★，最近推送 2026-03-21；
+    仓库已于 2026-03-21 由官方归档为只读（GitHub API 核验 2026-10-30：archived=true，
+    页面横幅「archived by the owner on Mar 21, 2026. It is now read-only」）。
   local_files: >-
     自托管部署，数据在自有环境；HF Hub 拉取权重走网络，推理数据不出部署环境。
   background: >-
@@ -25,19 +26,19 @@ axes:
   permissions: >-
     自托管无账号体系；API 鉴权由部署方自配；与 HF Hub 交互的 token 权限面未逐条核验。
   fit: >-
-    适合：HF 生态内服务化部署（权重/客户端/文档同一门）、要官方 Docker 线。
-    不适合：新项目首选（vLLM/SGLang 生态更热——按快照节奏口径）；单机开箱。
+    适合：HF 生态内既有 TGI 部署的延续（权重/客户端/文档同一门）、要官方 Docker 线。
+    不适合：新项目选型——官方公告点名推荐 vLLM/SGLang 与 llama.cpp/MLX；仓库已归档只读。
 
 pitfalls:
-  - 把 HF 出品当「默认推荐」——服务化推理这条线 vLLM/SGLang 现行热度更高，看仓库节奏
-  - 最近推送 2026-03-21（API 快照）——选型前核实现行维护度
+  - 把 HF 出品当「默认推荐」——官方 README 公告已明确推荐改用 vLLM/SGLang（及 llama.cpp/MLX 这类互操作本地引擎）
+  - 仓库已归档只读（2026-03-21）——不再有安全补丁与新模型支持，存量部署选型要评估维护风险
   - 把 GGUF 当一等公民——TGI 主路线是 safetensors
 
 tags: [开源, Apache2.0, 服务化推理, HuggingFace生态]
 related: [openai-agents-sdk]
 
 sources:
-  - label: huggingface/text-generation-inference · 仓库（Apache-2.0；10,880★，最近推送 2026-03-21，GitHub API 核验 2026-10-21）
+  - label: huggingface/text-generation-inference · 仓库（Apache-2.0；10,880★，最近推送 2026-03-21；2026-03-21 官方归档只读，GitHub API 核验 2026-10-30 archived=true）
     url: https://github.com/huggingface/text-generation-inference
     kind: repo
   - label: TGI · 官方文档
@@ -47,9 +48,9 @@ sources:
     url: https://github.com/huggingface/text-generation-inference/releases
     kind: changelog
 
-last_verified: 2026-10-21
-last_updated: 2026-10-21
-lifecycle: maintenance
+last_verified: 2026-10-30
+last_updated: 2026-10-30
+lifecycle: archived
 confidence: partial
 
 cn:
@@ -68,12 +69,12 @@ cn:
 ## 一句话定位
 
 **TGI 是 Hugging Face 官方的服务化推理服务器**：权重、客户端、文档同一门生态，Apache-2.0。
-诚实标注：最近推送 2026-03-21（API 快照）——服务化推理这条线的现行热度在 vLLM/SGLang，选型看维护节奏。
+诚实标注：仓库已于 2026-03-21 归档只读（GitHub API 核验 2026-10-30）；官方 README 公告自陈进入 maintenance mode——只收小修小补，并点名推荐改用 vLLM、SGLang 与 llama.cpp/MLX。存量部署可用，新项目按官方推荐选型。
 
 ## 适合与不适合
 
-适合：HF Hub 重度用户的服务化部署、要官方 Docker/客户端配套。
-不适合：单机开箱（Ollama）；服务化新项目默认选型（对照 vLLM/SGLang 节奏再定）。
+适合：HF Hub 重度用户的既有 TGI 部署延续、要官方 Docker/客户端配套。
+不适合：新项目默认选型——官方公告点名推荐 vLLM/SGLang（服务化）与 llama.cpp/MLX（本地）；单机开箱走 Ollama。
 
 ## 实测记录
 
@@ -83,7 +84,7 @@ cn:
 ## 未知项清单
 
 - 支持架构矩阵现状（未逐条清点）
-- 维护节奏变化的官方说明（未见——只记仓库事实，不猜原因）
+- 归档后是否仍有安全补丁渠道（未见官方说明——仓库只读，按无补丁评估）
 - MCP 支持状态（未核验到官方声明）
 
 ## 相关条目

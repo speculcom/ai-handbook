@@ -12,7 +12,7 @@ axes:
     官方定位「100% offline on your computer」（仓库描述直抓所见）；GGUF 本地模型为主，
     模型清单随版本滚动，未逐条清点。
   runtime: >-
-    桌面应用（Jan 自研运行时 jan-core/jan-engine 线）；GitHub 45,028★（API 核验 2026-10-21）。
+    桌面应用（Jan 自研运行时 jan-core/jan-engine 线）；GitHub 45,158★（API 核验 2026-10-21）。
     仓库现归 Menlo Research 名下（janhq/jan；menloresearch/jan 为旧路径 301 跳转，直抓核验）。
   local_files: >-
     对话与模型全落本机（官方「100% offline on your computer」口径，仓库描述直抓所见）。
@@ -40,7 +40,7 @@ sources:
   - label: janhq/jan · LICENSE（Apache2.0+署名请求，2026-10-21 直抓核验）
     url: https://github.com/janhq/jan/blob/main/LICENSE
     kind: docs
-  - label: janhq/jan · 仓库（45,028★，最近推送 2026-10-21，GitHub API 核验）
+  - label: janhq/jan · 仓库（45,158★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/janhq/jan
     kind: repo
   - label: Jan · 官网
@@ -50,7 +50,7 @@ sources:
     url: https://github.com/janhq/jan/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

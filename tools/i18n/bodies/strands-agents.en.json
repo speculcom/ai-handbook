@@ -2,7 +2,7 @@
   "_comment": "English bodies for strands-agents (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. related has 2 entries: one .md link + one plain-text placeholder (Bedrock Agents not yet profiled) — index-aligned with the source 相关条目 list.",
   "axes": {
     "model_access": "Multi-provider access (Bedrock-first, plus Anthropic/OpenAI/LiteLLM lines — per the official docs, not itemized one by one); the official narrative is \"model-driven\": in the agent loop the model itself decides which tools to call.",
-    "runtime": "Python/TS SDK (installed into your process); GitHub 8,896★, last push 2026-10-21 (API verified).\nAn AWS open-source line (officially produced, not a hosted service — distinct from the Bedrock Agents hosted line).",
+    "runtime": "Python/TS SDK (installed into your process); GitHub 8,997★, last push 2026-10-29 (API verified).\nAn AWS open-source line (officially produced, not a hosted service — distinct from the Bedrock Agents hosted line).",
     "local_files": "Library form running inside your process; where data lands is your call. Tool execution (shell/file kinds) happens on your machine —\nthe permissions surface follows the tools you grant.",
     "background": "A library has no resident semantics; whether your agent application stays resident depends on your deployment. The observability line (agent trace export) is in the official docs.",
     "tools": "Tool definition is minimal (decorator style); **MCP support is an explicit official surface** (the MCP client integration sits in the docs mainline) —\none of its differentiators versus most frameworks.",
@@ -16,7 +16,7 @@
     "Both lightweight official SDKs: the OpenAI version binds shallowly to its own ecosystem; Strands binds deeply to Bedrock. Bedrock Agents / AgentCore (automation category, dossier pending) — same-vendor two-line contrast: hosted vs open-source SDK; tell them apart first when selecting; cross-link once that dossier goes live."
   ],
   "sources": [
-    "strands-agents/harness-sdk · repository (Apache-2.0; 8,896★, last push 2026-10-21, GitHub API verified)",
+    "strands-agents/harness-sdk · repository (Apache-2.0; 8,997★, last push 2026-10-29, GitHub API verified)",
     "Strands Agents · official docs",
     "strands-agents/harness-sdk · Releases (changelog)"
   ]

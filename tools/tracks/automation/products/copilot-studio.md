@@ -45,7 +45,7 @@ sources:
     url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

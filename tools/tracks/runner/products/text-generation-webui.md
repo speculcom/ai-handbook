@@ -4,14 +4,14 @@ form: local-app
 name: text-generation-webui / textgen
 vendor: oobabooga
 homepage: https://github.com/oobabooga/textgen
-license: AGPL-3.0（GitHub API 核验 2026-10-21；官方仓 LICENSE 直抓核验）。
+license: AGPL-3.0（GitHub API 核验 2026-10-30；官方仓 LICENSE 直抓核验）。
 licenseEn: AGPL-3.0 (GitHub API verified 2026-10-21; official repo LICENSE direct-fetched).
 
 axes:
   model_access: >-
     GGUF/safetensors 多后端（llama.cpp/exllama 系等 loader 生态）；模型与 loader 矩阵未逐条清点。
   runtime: >-
-    本地 WebUI（Gradio 线）+ 命令行；GitHub 47,735★，最近推送 2026-08-17（GitHub API 核验 2026-10-21）。
+    本地 WebUI（Gradio 线）+ 命令行；GitHub 47,728★，最近推送 2026-08-17（GitHub API 核验 2026-10-30）。
     仓库现名 oobabooga/textgen（旧名 text-generation-webui 301 跳转，直抓核验）。
   local_files: >-
     全本地：模型、对话与扩展数据都在自有环境；未见官方云线或遥测声明。
@@ -36,7 +36,7 @@ tags: [开源, AGPL3.0, WebUI, 多loader, 扩展生态]
 related: [openai-agents-sdk]
 
 sources:
-  - label: oobabooga/textgen · 仓库（AGPL-3.0；47,735★，最近推送 2026-08-17，GitHub API 核验 2026-10-21）
+  - label: oobabooga/textgen · 仓库（AGPL-3.0；47,728★，最近推送 2026-08-17，GitHub API 核验 2026-10-30）
     url: https://github.com/oobabooga/textgen
     kind: repo
   - label: oobabooga/textgen · LICENSE（2026-10-21 直抓核验）
@@ -46,7 +46,7 @@ sources:
     url: https://github.com/oobabooga/textgen/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: maintenance
 confidence: partial

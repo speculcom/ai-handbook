@@ -13,7 +13,7 @@ axes:
     支持模型清单随合入滚动变化，未逐条清点。
   runtime: >-
     C/C++ 推理库 + llama-server（REST API）+ 各后端（CUDA/Metal/Vulkan/CPU 等，docs/build.md 口径）；
-    官方安装入口已含 llama.app 脚本（README 直抓所见）。GitHub 131,918★（API 核验 2026-10-21）。
+    官方安装入口已含 llama.app 脚本（README 直抓所见）。GitHub 132,794★（API 核验 2026-10-21）。
   local_files: >-
     全本地：模型文件、对话输出都在自有环境；未见官方云线——第三方云托管不算官方。
   background: >-
@@ -37,7 +37,7 @@ tags: [开源, MIT, GGUF, C++ , 本地推理, llama-server]
 related: [openai-agents-sdk, llamaindex]
 
 sources:
-  - label: ggml-org/llama.cpp · 仓库（MIT；131,918★，最近推送 2026-10-21，GitHub API 核验）
+  - label: ggml-org/llama.cpp · 仓库（MIT；132,794★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/ggml-org/llama.cpp
     kind: repo
   - label: ggml-org/llama.cpp · Releases（changelog，含 nightly）
@@ -47,7 +47,7 @@ sources:
     url: https://llama.app
     kind: docs
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

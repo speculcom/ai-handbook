@@ -2,7 +2,7 @@
   "_comment": "English bodies for letta (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. layer_position/providers not rendered — not included.",
   "axes": {
     "model_access": "Various models connect via a provider layer (OpenAI/Anthropic/Gemini/local etc., per the official docs, not itemized one by one); its core narrative is the **stateful agent**: memory tiers (core/archival) edited and managed by the agent itself (the MemGPT paper line).",
-    "runtime": "**An agent-server form** (unlike a pure library): run a resident service (letta server); agents and memory persist inside the server; SDK/CLI connect to it. GitHub 25,216★, last push 2026-10-18 (API verified).",
+    "runtime": "**An agent-server form** (unlike a pure library): run a resident service (letta server); agents and memory persist inside the server; SDK/CLI connect to it. GitHub 25,290★, last push 2026-10-18 (API verified).",
     "local_files": "The self-hosted server keeps agent state and memory in your database (SQLite by default, Postgres configurable) — data on your side; the Letta Cloud hosted line is a separate product surface.",
     "background": "**The server form carries residency semantics by itself** — the structural difference from the other framework entries: the agent is a persistent entity, sessions can be interrupted and resumed (the official core narrative).",
     "tools": "Tool/function calling + built-in file-read/write tool lines; MCP support status not itemized (the official docs have related lines, details unchecked).",
@@ -17,7 +17,7 @@
     "Cross-category contrast: the memory server gives client-side knowledge-graph memory; Letta gives server-side agent memory."
   ],
   "sources": [
-    "letta-ai/letta · repository (Apache-2.0; 25,216★, last push 2026-10-18, GitHub API verified)",
+    "letta-ai/letta · repository (Apache-2.0; 25,290★, last push 2026-10-18, GitHub API verified)",
     "Letta · official docs",
     "Letta · official changelog",
     "letta-ai/letta · Releases (changelog)"

@@ -2,7 +2,7 @@
   "_comment": "C0-8 正文英译 · chrome-devtools-mcp（2026-10-25）。无 extraSections。",
   "axes": {
     "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Chrome DevTools Protocol (CDP) capabilities\nas tools: navigation, clicking, screenshots, performance traces, network and console logs.",
-    "runtime": "A local process (npx starts stdio, driving the machine's Chrome); GitHub 53,940★, last push 2026-10-21 (API verified) —\none of the top-traffic projects in the MCP ecosystem.",
+    "runtime": "A local process (npx starts stdio, driving the machine's Chrome); GitHub 54,460★, last push 2026-10-29 (API verified) —\none of the top-traffic projects in the MCP ecosystem.",
     "local_files": "What it operates is the browser runtime: pages, network, console; screenshots/traces can be saved to local paths (specified by parameters).\nIt does not read or write your project source code — that is the filesystem server's job.",
     "background": "Lives and dies with the client (a stdio child process); the Chrome instance is launched or attached by it. No background-task semantics.",
     "tools": "Navigation/interaction (click/type/upload), screenshots, performance tracing and analysis, network and console reading,\n emulation (CPU/network throttling), etc.; the complete inventory follows the repo README.",
@@ -21,7 +21,7 @@
     "The browser-automation duo contrast: Playwright MCP takes the Playwright-driver line; this entry takes the CDP-direct + performance-analysis line."
   ],
   "sources": [
-    "ChromeDevTools/chrome-devtools-mcp · repository (Apache-2.0; 53,940★, last push 2026-10-21, GitHub API verified)",
+    "ChromeDevTools/chrome-devtools-mcp · repository (Apache-2.0; 54,460★, last push 2026-10-29, GitHub API verified)",
     "ChromeDevTools/chrome-devtools-mcp · Releases (changelog)",
     "Chrome DevTools · official docs (CDP capability background)"
   ]

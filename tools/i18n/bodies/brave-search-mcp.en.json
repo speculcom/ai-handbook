@@ -2,7 +2,7 @@
   "_comment": "C0-8 正文英译 · brave-search-mcp（2026-10-25）。无 extraSections。",
   "axes": {
     "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps the Brave Search API\n(web search, news, images, local places) as tools for agents.",
-    "runtime": "A local process (npx stdio) plus a remote-hosted line (the official docs describe a remote endpoint); GitHub 1,516★,\nlast push 2026-10-21 (API verified).",
+    "runtime": "A local process (npx stdio) plus a remote-hosted line (the official docs describe a remote endpoint); GitHub 1,544★,\nlast push 2026-10-27 (API verified).",
     "local_files": "Reads and writes no local files — it outputs search-result text/links; fetching page content is out of its scope (that is the fetch server's job).",
     "background": "stdio lives and dies with the client; no background-task semantics.",
     "tools": "web_search / news_search / image_search / video_search / local_search etc., grouped by API family,\ntrimmable via configuration; the complete inventory follows the repo README.",
@@ -21,7 +21,7 @@
     "The search↔fetch division-of-labour contrast: Brave tells you \"which page\", fetch gives you \"this page's body text\"."
   ],
   "sources": [
-    "brave/brave-search-mcp-server · repository (MIT; 1,516★, last push 2026-10-21, GitHub API verified)",
+    "brave/brave-search-mcp-server · repository (MIT; 1,544★, last push 2026-10-27, GitHub API verified)",
     "brave/brave-search-mcp-server · Releases (changelog)",
     "modelcontextprotocol/servers · README (official archival note: Brave taken over by the @brave package)"
   ]

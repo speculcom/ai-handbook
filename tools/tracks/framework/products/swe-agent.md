@@ -4,7 +4,7 @@ form: harness
 name: SWE-agent
 vendor: Princeton / Stanford（学术团队）
 homepage: https://swe-agent.com
-license: MIT（GitHub API 核验 2026-10-21）。
+license: MIT（GitHub API 核验 2026-10-30）。
 licenseEn: MIT (GitHub API verified 2026-10-21).
 
 family: general-harness
@@ -16,7 +16,7 @@ axes:
     各家 LLM 经接口层接入（OpenAI/Anthropic/HF 等，以官方文档为准，未逐条清点）；
     它的核心贡献是 **ACI（agent-computer interface）**——为 agent 设计的文件编辑/命令交互界面。
   runtime: >-
-    Python 库 + 命令行（pip 装）；GitHub 20,607★，最近推送 2026-10-19（API 核验）。
+    Python 库 + 命令行（pip 装）；GitHub 20,682★，最近推送 2026-10-26（API 核验）。
     学术出身（Princeton/Stanford 论文线）；SWE-bench 评测生态与它深度关联（同团队的基准线）。
   local_files: >-
     agent 在容器或本机环境里读写文件、跑命令——文件操作真实发生在你给的环境；
@@ -44,7 +44,7 @@ tags: [开源, MIT, 研究向, 代码修复, ACI, SWE-bench]
 related: [claude-code-cli, codex-cli]
 
 sources:
-  - label: SWE-agent/SWE-agent · 仓库（MIT；20,607★，最近推送 2026-10-19，GitHub API 核验）
+  - label: SWE-agent/SWE-agent · 仓库（MIT；20,682★，最近推送 2026-10-26，GitHub API 核验）
     url: https://github.com/SWE-agent/SWE-agent
     kind: repo
   - label: SWE-agent · 官方文档站
@@ -54,7 +54,7 @@ sources:
     url: https://github.com/SWE-agent/SWE-agent/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

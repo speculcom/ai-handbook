@@ -57,7 +57,7 @@ sources:
     url: https://docs.midjourney.com/hc/en-us/articles/27174136160653-Subscription-Plans
     kind: pricing
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

@@ -4,7 +4,7 @@ form: harness
 name: DSPy
 vendor: Stanford NLP / Databricks
 homepage: https://dspy.ai
-license: MIT（GitHub API 核验 2026-10-21）。
+license: MIT（GitHub API 核验 2026-10-30）。
 licenseEn: MIT (GitHub API verified 2026-10-21).
 
 family: orchestration
@@ -17,7 +17,7 @@ axes:
     以官方 docs 的 LM 集成线为准，未逐条清点）；它的差异点是**把提示词当可编程参数**——
     签名（signature）声明输入输出，优化器自动调提示与权重示例。
   runtime: >-
-    Python 库（pip 装进你的进程）；GitHub 38,719★，最近推送 2026-10-20（API 核验）。
+    Python 库（pip 装进你的进程）；GitHub 38,850★，最近推送 2026-10-29（API 核验）。
     学术出身（Stanford NLP），工业侧 Databricks 投入（官方叙事口径）。
   local_files: >-
     库形态跑在你进程里；优化产物（program 状态/示例）落你指定路径——数据不出你侧。
@@ -43,7 +43,7 @@ tags: [开源, MIT, 提示优化, 编程式LM, 学术出身]
 related: [cursor, claude-code]
 
 sources:
-  - label: stanfordnlp/dspy · 仓库（MIT；38,719★，最近推送 2026-10-20，GitHub API 核验）
+  - label: stanfordnlp/dspy · 仓库（MIT；38,850★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/stanfordnlp/dspy
     kind: repo
   - label: DSPy · 官方文档
@@ -53,7 +53,7 @@ sources:
     url: https://github.com/stanfordnlp/dspy/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

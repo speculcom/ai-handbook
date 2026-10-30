@@ -2,7 +2,7 @@
   "_comment": "C0-9 正文英译 · sentry-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
   "axes": {
     "model_access": "**It calls no model itself** — an interface implementation called by MCP clients; choosing the model is the client's business.\nIt wraps Sentry platform capabilities (issues, events, releases, alerts) as MCP tools for agents to query and diagnose.",
-    "runtime": "Mainly the official hosted remote server (mcp.sentry.dev direct fetch 200); the getsentry/toolkit repo is the official tooling line\n(936★, last push 2026-10-21, GitHub API verified). The old repo name getsentry/sentry-mcp now redirects (seen in the direct fetch).",
+    "runtime": "Mainly the official hosted remote server (mcp.sentry.dev direct fetch 200); the getsentry/toolkit repo is the official tooling line\n(949★, last push 2026-10-30, GitHub API verified). The old repo name getsentry/sentry-mcp now redirects (seen in the direct fetch).",
     "local_files": "Never touches the local file system — it operates on Sentry cloud data (issues/events/releases).\nLocal logs and source code are outside its scope; reading local files requires pairing a filesystem server.",
     "background": "The hosted form is independent of the client process; the service lives on Sentry's side; no resume-from-checkpoint semantics —\nthe MCP session model is request-response, the official side provides no background-task mechanism.",
     "tools": "A toolset aimed at \"agents checking crashes/diagnosing production issues\": whoami, find issues, view issue details,\nevents and stacks, release comparisons, etc.; the complete tool inventory follows the official docs, not enumerated item by item.",
@@ -21,7 +21,7 @@
     "Both vendor-official remote servers: the GitHub version has a wide tool surface with complete write capabilities, the Sentry version is primarily read-diagnosis."
   ],
   "sources": [
-    "getsentry/toolkit · repository (FSL-1.1-Apache-2.0; 936★, last push 2026-10-21, GitHub API verified)",
+    "getsentry/toolkit · repository (FSL-1.1-Apache-2.0; 949★, last push 2026-10-30, GitHub API verified)",
     "getsentry/toolkit · LICENSE.md (FSL-1.1-Apache-2.0 original text, direct-fetched and verified 2026-10-21)",
     "Sentry MCP · official hosted endpoint page (direct fetch 200)",
     "getsentry/toolkit · Releases (changelog)"

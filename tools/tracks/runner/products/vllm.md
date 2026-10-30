@@ -4,7 +4,7 @@ form: cli
 name: vLLM
 vendor: vLLM 项目（PyTorch 基金会）
 homepage: https://docs.vllm.ai
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
@@ -13,7 +13,7 @@ axes:
     支持模型清单以官方 docs 为准，未逐条清点。
   runtime: >-
     服务化推理引擎：PagedAttention 显存管理是官方招牌（自报数字在 models 站 guides
-    serving-deep-dive.md 已核验快照，出处同源）；GitHub 94,749★（API 核验 2026-10-21）。
+    serving-deep-dive.md 已核验快照，出处同源）；GitHub 95,878★（API 核验 2026-10-21）。
   local_files: >-
     自托管部署，数据在自有环境；无官方托管云线（第三方云托管不算官方）。
   background: >-
@@ -37,7 +37,7 @@ tags: [开源, Apache2.0, 服务化推理, PagedAttention, OpenAI兼容]
 related: [openai-agents-sdk, llamaindex]
 
 sources:
-  - label: vllm-project/vllm · 仓库（Apache-2.0；94,749★，最近推送 2026-10-21，GitHub API 核验）
+  - label: vllm-project/vllm · 仓库（Apache-2.0；95,878★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/vllm-project/vllm
     kind: repo
   - label: vLLM · 官方文档
@@ -47,7 +47,7 @@ sources:
     url: https://github.com/vllm-project/vllm/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

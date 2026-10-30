@@ -486,7 +486,7 @@ MCP 服务器与工具生态。
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
 | [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
-| [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | maintenance |
+| [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | archived |
 | [text-generation-webui / textgen](tracks/runner/products/text-generation-webui.md) | oobabooga | local-app | partial | maintenance |
 | [vLLM](tracks/runner/products/vllm.md) | vLLM 项目（PyTorch 基金会） | cli | partial | active |
 

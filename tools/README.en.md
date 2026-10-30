@@ -501,7 +501,7 @@ Desktop apps that run open-weight models on your machine
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
 | [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
-| [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | maintenance |
+| [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | archived |
 | [text-generation-webui / textgen](tracks/runner/products/text-generation-webui.md) | oobabooga | local-app | partial | maintenance |
 | [vLLM](tracks/runner/products/vllm.md) | vLLM project (PyTorch Foundation) | cli | partial | active |
 

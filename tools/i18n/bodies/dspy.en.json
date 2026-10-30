@@ -8,7 +8,7 @@
   ],
   "axes": {
     "model_access": "Each vendor's LM connects uniformly through dspy.LM (OpenAI/Anthropic/Gemini/local vLLM etc.,\nfollowing the official docs' LM-integration line, not enumerated item by item); its differentiator is **treating prompts as programmable parameters** —\nsignatures declare inputs and outputs, and optimizers automatically tune prompts and few-shot examples.",
-    "runtime": "A Python library (pip-installed into your process); GitHub 38,719★, last push 2026-10-20 (API verified).\nAcademic origin (Stanford NLP), with industrial-side Databricks investment (per the official narrative).",
+    "runtime": "A Python library (pip-installed into your process); GitHub 38,850★, last push 2026-10-29 (API verified).\nAcademic origin (Stanford NLP), with industrial-side Databricks investment (per the official narrative).",
     "local_files": "The library form runs inside your process; optimization artifacts (program state/examples) land at paths you specify — data never leaves your side.",
     "background": "A library has no resident semantics; optimization (teleprompting) is an offline batch task that ends when it finishes.",
     "tools": "ReAct-style agent modules and tool calling are within the official module family; MCP support status has no verified official mainline statement.",
@@ -23,7 +23,7 @@
     "both on the \"types/structure first\" route: Pydantic governs output structure, DSPy governs prompt quality"
   ],
   "sources": [
-    "stanfordnlp/dspy · repository (MIT; 38,719★, last push 2026-10-20, GitHub API verified)",
+    "stanfordnlp/dspy · repository (MIT; 38,850★, last push 2026-10-29, GitHub API verified)",
     "DSPy · official docs",
     "stanfordnlp/dspy · Releases (changelog)"
   ]

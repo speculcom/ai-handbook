@@ -13,7 +13,7 @@ axes:
     （docs.ollama.com/import 直抓核验）；模型库目录随上架变化，未逐条清点。
   runtime: >-
     本地进程（CLI + API server，默认 11434 端口）；官方 README 声明「locally or in the cloud」——
-    云端线（Ollama Cloud）存在，细节未逐条核验。GitHub 184,165★（API 核验 2026-10-21）。
+    云端线（Ollama Cloud）存在，细节未逐条核验。GitHub 185,274★（API 核验 2026-10-21）。
   local_files: >-
     模型权重与对话数据默认落本机；云端线（Ollama Cloud）的存储与处理边界未逐条核验。
   background: >-
@@ -40,7 +40,7 @@ sources:
   - label: ollama/ollama · LICENSE（MIT，2026-10-21 直抓核验）
     url: https://github.com/ollama/ollama/blob/main/LICENSE
     kind: docs
-  - label: ollama/ollama · 仓库（184,165★，最近推送 2026-10-21，GitHub API 核验）
+  - label: ollama/ollama · 仓库（185,274★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/ollama/ollama
     kind: repo
   - label: Ollama · 官方文档（import/Modelfile/tool calling 页在导航内）
@@ -50,7 +50,7 @@ sources:
     url: https://github.com/ollama/ollama/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

@@ -2,7 +2,7 @@
   "_comment": "C0-9 正文英译 · stripe-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
   "axes": {
     "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Stripe dashboard capabilities\n(product/price/customer/payment queries, docs retrieval) as tools for agents.",
-    "runtime": "Mainly a local process (Python/TS packages starting stdio); GitHub stripe/ai 1,965★,\nlast push 2026-10-21 (API verified). Stripe also has an agentic commerce product line (ACP etc.) —\nthat is a separate layer of \"agents taking payments directly\" and does not count as this server itself.",
+    "runtime": "Mainly a local process (Python/TS packages starting stdio); GitHub stripe/ai 2,000★,\nlast push 2026-10-30 (API verified). Stripe also has an agentic commerce product line (ACP etc.) —\nthat is a separate layer of \"agents taking payments directly\" and does not count as this server itself.",
     "local_files": "Never touches the local file system — the scope is Stripe cloud account data (customers/products/invoices etc.).",
     "background": "stdio lives and dies with the client; no background-task semantics.",
     "tools": "Stripe API retrieval, account data queries, docs search, etc.; write capabilities (creating products/prices) exist —\nthe complete inventory follows the repo README, not enumerated item by item.",
@@ -22,7 +22,7 @@
   ],
   "sources": [
     "Stripe · official agentic commerce docs (tooling line wording, direct-fetched and verified 2026-10-21)",
-    "stripe/ai · repository (MIT; 1,965★, last push 2026-10-21, GitHub API verified)",
+    "stripe/ai · repository (MIT; 2,000★, last push 2026-10-30, GitHub API verified)",
     "Stripe · official changelog (changelog)"
   ]
 }

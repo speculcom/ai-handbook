@@ -4,7 +4,7 @@ form: cli
 name: SGLang
 vendor: LMSYS / sgl-project
 homepage: https://docs.sglang.ai
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
@@ -13,7 +13,7 @@ axes:
     官方定位含「large language models and multimodal models」（仓库描述直抓所见）。
   runtime: >-
     服务化推理框架：RadixAttention 前缀缓存复用是官方招牌（自报数字在 models 站 guides
-    serving-deep-dive.md 已核验快照，出处同源）；GitHub 37,571★（API 核验 2026-10-21）。
+    serving-deep-dive.md 已核验快照，出处同源）；GitHub 38,370★（API 核验 2026-10-21）。
   local_files: >-
     自托管部署，数据在自有环境；未见官方托管云线——第三方云托管不算官方口径。
   background: >-
@@ -37,7 +37,7 @@ tags: [开源, Apache2.0, 服务化推理, RadixAttention, 多模态]
 related: [openai-agents-sdk, langgraph]
 
 sources:
-  - label: sgl-project/sglang · 仓库（Apache-2.0；37,571★，最近推送 2026-10-21，GitHub API 核验）
+  - label: sgl-project/sglang · 仓库（Apache-2.0；38,370★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/sgl-project/sglang
     kind: repo
   - label: SGLang · 官方文档
@@ -47,7 +47,7 @@ sources:
     url: https://github.com/sgl-project/sglang/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

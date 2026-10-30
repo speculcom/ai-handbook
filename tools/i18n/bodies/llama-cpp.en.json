@@ -2,7 +2,7 @@
   "_comment": "C0-15 llama-cpp bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（ollama/koboldcpp），related 写 2 条（frontmatter related 是 [openai-agents-sdk, llamaindex]，键按正文链接行对齐=2）。sources 3 条对齐 frontmatter。runs 无「实测建议」段（引用 models 站 guides 快照口径），照源短译。",
   "axes": {
     "model_access": "The ecosystem root of the GGUF format — the models-site quantization index is built to llama.cpp's framing; safetensors convertible; the supported-model list rolls with merges, not inventoried item by item.",
-    "runtime": "A C/C++ inference library + llama-server (REST API) + various backends (CUDA/Metal/Vulkan/CPU etc., per docs/build.md); the official install entry now includes the llama.app script (as seen in the README, direct-fetched). GitHub 131,918★ (API verified 2026-10-21).",
+    "runtime": "A C/C++ inference library + llama-server (REST API) + various backends (CUDA/Metal/Vulkan/CPU etc., per docs/build.md); the official install entry now includes the llama.app script (as seen in the README, direct-fetched). GitHub 132,794★ (API verified 2026-10-21).",
     "local_files": "Fully local: model files and conversation outputs live in your own environment; no official cloud line seen — third-party cloud hosting does not count as official.",
     "background": "llama-server stays resident as a service; concurrency/quantization scheduling details not verified item by item.",
     "tools": "The server side has a function-calling docs line; MCP support status — no official statement verified.",
@@ -17,7 +17,7 @@
     "The single-file GUI route built on llama.cpp."
   ],
   "sources": [
-    "ggml-org/llama.cpp · repo (MIT; 131,918★, last push 2026-10-21, GitHub API verified)",
+    "ggml-org/llama.cpp · repo (MIT; 132,794★, last push 2026-10-30, GitHub API verified)",
     "ggml-org/llama.cpp · Releases (changelog, incl. nightly)",
     "llama.app · official install entry (as seen in the README, direct-fetched)"
   ]

@@ -4,7 +4,7 @@ form: mcp
 name: MongoDB MCP Server
 vendor: MongoDB
 homepage: https://github.com/mongodb-js/mongodb-mcp-server
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
@@ -12,7 +12,7 @@ axes:
     **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 MongoDB 数据库操作
     （连接、集合查询、聚合）与 Atlas 管理包装成工具给 agent 用。
   runtime: >-
-    本地进程（npx stdio）；GitHub 1,146★，最近推送 2026-10-21（API 核验）。
+    本地进程（npx stdio）；GitHub 1,152★，最近推送 2026-10-30（API 核验）。
     官方 docs/mcp 页直抓 404——现役官方线以仓为准（直抓核验 2026-10-21）。
   local_files: >-
     不读写本机项目文件——作用域是数据库实例（本地 mongod 或 Atlas 集群都算它的目标）。
@@ -50,7 +50,7 @@ mcp:
     删除类工具带确认参数（官方 README 口径）；无独立审批层。
 
 sources:
-  - label: mongodb-js/mongodb-mcp-server · 仓库（Apache-2.0；1,146★，最近推送 2026-10-21，GitHub API 核验）
+  - label: mongodb-js/mongodb-mcp-server · 仓库（Apache-2.0；1,152★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/mongodb-js/mongodb-mcp-server
     kind: repo
   - label: mongodb-js/mongodb-mcp-server · Releases（changelog）
@@ -60,7 +60,7 @@ sources:
     url: https://www.mongodb.com/docs
     kind: docs
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

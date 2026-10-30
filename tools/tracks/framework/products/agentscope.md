@@ -4,7 +4,7 @@ form: harness
 name: AgentScope
 vendor: 阿里巴巴（魔搭社区）
 homepage: https://agentscope.io
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 family: orchestration
@@ -16,7 +16,7 @@ axes:
     各家模型经 wrapper 接入（通义/DashScope 系为主，兼 OpenAI 兼容面与本地模型——
     以官方文档为准，未逐条清点）；多智能体消息传递是它的核心抽象（Msg 对象在 agent 间流转）。
   runtime: >-
-    Python 库（pip 装进你的进程）；GitHub 33,594★，最近推送 2026-10-21（API 核验）。
+    Python 库（pip 装进你的进程）；GitHub 34,871★，最近推送 2026-10-30（API 核验）。
     官方叙事是「面向多智能体的生产框架」——含可视化工作台（Studio）与分布式执行线。
   local_files: >-
     库形态跑在你进程里；数据落点由你决定。官方 Studio 工作台是本地起的可视化面。
@@ -42,7 +42,7 @@ tags: [开源, Apache2.0, 多智能体, 国产, 消息传递]
 related: [cursor, claude-code]
 
 sources:
-  - label: agentscope-ai/agentscope · 仓库（Apache-2.0；33,594★，最近推送 2026-10-21，GitHub API 核验）
+  - label: agentscope-ai/agentscope · 仓库（Apache-2.0；34,871★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/agentscope-ai/agentscope
     kind: repo
   - label: AgentScope · 官方文档站
@@ -52,7 +52,7 @@ sources:
     url: https://github.com/agentscope-ai/agentscope/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

@@ -4,7 +4,7 @@ form: cli
 name: MLX（mlx-lm）
 vendor: Apple
 homepage: https://ml-explore.github.io/mlx/build/html/index.html
-license: MIT（GitHub API 核验 2026-10-21；mlx 与 mlx-lm 两仓皆 MIT）。
+license: MIT（GitHub API 核验 2026-10-30；mlx 与 mlx-lm 两仓皆 MIT）。
 licenseEn: MIT (GitHub API verified 2026-10-21; both mlx and mlx-lm repos are MIT).
 
 axes:
@@ -13,7 +13,7 @@ axes:
     模型清单随社区滚动，未逐条清点。
   runtime: >-
     Apple 硅（M 系）统一内存架构的原生张量框架；mlx-lm 是官方 LLM 运行线
-    （「Run LLMs with MLX」仓库描述直抓所见）。GitHub mlx 28,877★ / mlx-lm 7,426★（API 核验 2026-10-21）。
+    （「Run LLMs with MLX」仓库描述直抓所见）。GitHub mlx 28,975★ / mlx-lm 7,506★（API 核验 2026-10-21）。
   local_files: >-
     全本地：模型与输出都在自有环境；未见官方云线——Apple 未提供配套云端推理线（未见声明）。
   background: >-
@@ -37,10 +37,10 @@ tags: [开源, MIT, Apple硅, 统一内存, mlx-lm]
 related: [openai-agents-sdk]
 
 sources:
-  - label: ml-explore/mlx · 仓库（MIT；28,877★，最近推送 2026-10-21，GitHub API 核验）
+  - label: ml-explore/mlx · 仓库（MIT；28,975★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/ml-explore/mlx
     kind: repo
-  - label: ml-explore/mlx-lm · 仓库（MIT；7,426★，最近推送 2026-10-20，GitHub API 核验）
+  - label: ml-explore/mlx-lm · 仓库（MIT；7,506★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/ml-explore/mlx-lm
     kind: repo
   - label: MLX · 官方文档
@@ -50,7 +50,7 @@ sources:
     url: https://github.com/ml-explore/mlx/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

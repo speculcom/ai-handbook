@@ -2,7 +2,7 @@
   "_comment": "C0-8 正文英译 · cloudflare-mcp（2026-10-25）。无 extraSections。",
   "axes": {
     "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps the Cloudflare platform\n(Workers, Pages, D1, R2, DNS, docs retrieval, etc.) as tools for agents.",
-    "runtime": "Primarily an official hosted remote server (the docs carry a remote-endpoint line) + runnable locally; GitHub 4,399★,\nlast push 2026-10-21 (API verified).",
+    "runtime": "Primarily an official hosted remote server (the docs carry a remote-endpoint line) + runnable locally; GitHub 4,431★,\nlast push 2026-10-22 (API verified).",
     "local_files": "Reads and writes no local project files — the scope is Cloudflare account resources (deploying Workers, writing D1/R2, etc.).",
     "background": "The remote form lives on Cloudflare's side; no background-task semantics (deploy actions complete immediately).",
     "tools": "Grouped by product (Workers/Pages/D1/R2/DNS/Docs…), trimmable via configuration; write capability is complete\n(deploying Workers, creating KV/D1 databases, changing DNS records). The complete grouping follows the repo README.",
@@ -21,7 +21,7 @@
     "Also a model of the \"multiple trimmable toolsets\" design: GitHub uses toolsets; Cloudflare splits servers by product."
   ],
   "sources": [
-    "cloudflare/mcp-server-cloudflare · repository (Apache-2.0; 4,399★, last push 2026-10-21, GitHub API verified)",
+    "cloudflare/mcp-server-cloudflare · repository (Apache-2.0; 4,431★, last push 2026-10-22, GitHub API verified)",
     "cloudflare/mcp-server-cloudflare · Releases (changelog)",
     "Cloudflare · developer changelog"
   ]

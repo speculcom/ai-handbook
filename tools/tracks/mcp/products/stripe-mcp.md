@@ -4,7 +4,7 @@ form: mcp
 name: Stripe Agent Toolkit / MCP
 vendor: Stripe
 homepage: https://docs.stripe.com/agentic-commerce
-license: MIT（stripe/ai 仓 GitHub API 核验 2026-10-21——Stripe 官方 AI 工具仓，含 MCP 工具线）。
+license: MIT（stripe/ai 仓 GitHub API 核验 2026-10-30——Stripe 官方 AI 工具仓，含 MCP 工具线）。
 licenseEn: MIT (stripe/ai repo, GitHub API verified 2026-10-21 — Stripe's official AI tooling repo including the MCP tool line).
 
 axes:
@@ -12,8 +12,8 @@ axes:
     **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Stripe 后台能力
     （产品/价格/客户/支付查询、文档检索）包装成工具给 agent 用。
   runtime: >-
-    本地进程（Python/TS 包起 stdio）为主；GitHub stripe/ai 1,965★，
-    最近推送 2026-10-21（API 核验）。Stripe 另有 agentic commerce 产品线（ACP 等）——
+    本地进程（Python/TS 包起 stdio）为主；GitHub stripe/ai 2,000★，
+    最近推送 2026-10-30（API 核验）。Stripe 另有 agentic commerce 产品线（ACP 等）——
     那是「agent 直接收款」的另一层，不算这个 server 本体。
   local_files: >-
     不碰本机文件系统——作用域是 Stripe 云端账户数据（customers/products/invoices 等）。
@@ -55,14 +55,14 @@ sources:
   - label: Stripe · 官方 agentic commerce 文档（工具线口径，2026-10-21 直抓核验）
     url: https://docs.stripe.com/agentic-commerce
     kind: docs
-  - label: stripe/ai · 仓库（MIT；1,965★，最近推送 2026-10-21，GitHub API 核验）
+  - label: stripe/ai · 仓库（MIT；2,000★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/stripe/ai
     kind: repo
   - label: Stripe · 官方 changelog（changelog）
     url: https://docs.stripe.com/changelog
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

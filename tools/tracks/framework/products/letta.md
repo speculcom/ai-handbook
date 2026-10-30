@@ -4,7 +4,7 @@ form: harness
 name: Letta / MemGPT
 vendor: Letta, Inc.
 homepage: https://www.letta.com
-license: Apache-2.0（GitHub API 核验 2026-10-21）。
+license: Apache-2.0（GitHub API 核验 2026-10-30）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 family: general-harness
@@ -17,7 +17,7 @@ axes:
     它的核心叙事是**有状态 agent**：记忆分层（core/archival）由 agent 自己编辑管理（MemGPT 论文线）。
   runtime: >-
     **agent 服务器形态**（区别于纯库）：起一个常驻服务（letta server），agent 与记忆在服务器里持久存在；
-    SDK/CLI 连它。GitHub 25,216★，最近推送 2026-10-18（API 核验）。
+    SDK/CLI 连它。GitHub 25,290★，最近推送 2026-10-18（API 核验）。
   local_files: >-
     自托管服务器把 agent 状态与记忆存在你的数据库（默认 SQLite，可配 Postgres）——数据在你侧；
     Letta Cloud 托管线是另一产品面。
@@ -45,7 +45,7 @@ tags: [开源, Apache2.0, 有状态agent, 记忆分层, MemGPT, 服务器形态]
 related: [cursor, claude-code]
 
 sources:
-  - label: letta-ai/letta · 仓库（Apache-2.0；25,216★，最近推送 2026-10-18，GitHub API 核验）
+  - label: letta-ai/letta · 仓库（Apache-2.0；25,290★，最近推送 2026-10-18，GitHub API 核验）
     url: https://github.com/letta-ai/letta
     kind: repo
   - label: Letta · 官方文档
@@ -58,7 +58,7 @@ sources:
     url: https://github.com/letta-ai/letta/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

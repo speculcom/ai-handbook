@@ -4,7 +4,7 @@ form: harness
 name: Strands Agents SDK
 vendor: AWS
 homepage: https://strandsagents.com
-license: Apache-2.0（GitHub API 核验 2026-10-21；仓现名 strands-agents/harness-sdk——
+license: Apache-2.0（GitHub API 核验 2026-10-30；仓现名 strands-agents/harness-sdk——
 旧引用 sdk-python 路径 redirect，直抓核验）。
 licenseEn: Apache-2.0 (GitHub API verified 2026-10-21; the repo now lives at strands-agents/harness-sdk —
 the older sdk-python reference redirects, direct-fetched).
@@ -18,7 +18,7 @@ axes:
     多 provider 接入（Bedrock 系为主，兼 Anthropic/OpenAI/LiteLLM 线——以官方文档为准，
     未逐条清点）；官方叙事是「model-driven」：agent 循环由模型决定调哪些工具。
   runtime: >-
-    Python/TS SDK（装进你的进程）；GitHub 8,896★，最近推送 2026-10-21（API 核验）。
+    Python/TS SDK（装进你的进程）；GitHub 8,997★，最近推送 2026-10-29（API 核验）。
     AWS 开源线（官方出品，非托管服务——与 Bedrock Agents 托管线区分）。
   local_files: >-
     库形态跑在你进程里；数据落点由你决定。工具执行（shell/文件类）在你机器上发生——
@@ -46,7 +46,7 @@ tags: [开源, Apache2.0, AWS, SDK, MCP支持, 代码优先]
 related: [cursor, claude-code]
 
 sources:
-  - label: strands-agents/harness-sdk · 仓库（Apache-2.0；8,896★，最近推送 2026-10-21，GitHub API 核验）
+  - label: strands-agents/harness-sdk · 仓库（Apache-2.0；8,997★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/strands-agents/harness-sdk
     kind: repo
   - label: Strands Agents · 官方文档
@@ -56,7 +56,7 @@ sources:
     url: https://github.com/strands-agents/harness-sdk/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

@@ -55,7 +55,7 @@ sources:
     url: https://cli.devin.ai
     kind: official
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

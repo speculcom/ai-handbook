@@ -4,7 +4,7 @@ form: local-app
 name: KoboldCpp
 vendor: LostRuins（KoboldAI 社区）
 homepage: https://github.com/LostRuins/koboldcpp
-license: AGPL-3.0（GitHub API 核验 2026-10-21；官方仓 LICENSE 直抓 200）。
+license: AGPL-3.0（GitHub API 核验 2026-10-30；官方仓 LICENSE 直抓 200）。
 licenseEn: AGPL-3.0 (GitHub API verified 2026-10-21; official repo LICENSE direct-fetched 200).
 
 axes:
@@ -13,7 +13,7 @@ axes:
     支持量化档看 models 站 GGUF 索引口径。
   runtime: >-
     单文件可执行程序（「One File. Zero Install.」官方描述）；基于 llama.cpp 系；
-    GitHub 12,042★（API 核验 2026-10-21）。
+    GitHub 12,097★（API 核验 2026-10-21）。
   local_files: >-
     全本地运行：模型、对话与生成记录都在自有环境；未见官方云线或遥测声明。
   background: >-
@@ -37,7 +37,7 @@ tags: [开源, AGPL3.0, 单文件, GGUF, 角色扮演, 长上下文]
 related: [openai-agents-sdk]
 
 sources:
-  - label: LostRuins/koboldcpp · 仓库（AGPL-3.0；12,042★，最近推送 2026-10-21，GitHub API 核验）
+  - label: LostRuins/koboldcpp · 仓库（AGPL-3.0；12,097★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/LostRuins/koboldcpp
     kind: repo
   - label: LostRuins/koboldcpp · LICENSE（2026-10-21 直抓核验）
@@ -50,7 +50,7 @@ sources:
     url: https://github.com/LostRuins/koboldcpp/wiki
     kind: docs
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

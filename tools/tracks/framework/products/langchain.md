@@ -4,7 +4,7 @@ form: harness
 name: LangChain
 vendor: LangChain, Inc.
 homepage: https://www.langchain.com
-license: MIT（GitHub API 核验 2026-10-21）。
+license: MIT（GitHub API 核验 2026-10-30）。
 licenseEn: MIT (GitHub API verified 2026-10-21).
 
 family: orchestration
@@ -17,7 +17,7 @@ axes:
     模型接入层是它的看家能力：各家 LLM/嵌入/工具的统一接口族（provider 集成面巨大，
     以官方 integrations 目录为准，未逐条清点）；它本身不调模型，是「换模型不改代码」的抽象层。
   runtime: >-
-    Python/JS 库（pip/npm 装进你的进程）；GitHub 148,205★（API 核验 2026-10-21）——
+    Python/JS 库（pip/npm 装进你的进程）；GitHub 148,689★（API 核验 2026-10-21）——
     LLM 应用框架生态的主体。配套 LangGraph（编排）/LangSmith（观测）是同一厂商的相邻产品线。
   local_files: >-
     库形态跑在你自己的代码与进程里；数据落点由你的集成决定（向量库/文件都在你侧）。
@@ -42,7 +42,7 @@ tags: [开源, MIT, 框架, 集成生态, RAG, Python, JS]
 related: [cursor, claude-code]
 
 sources:
-  - label: langchain-ai/langchain · 仓库（MIT；148,205★，最近推送 2026-10-21，GitHub API 核验）
+  - label: langchain-ai/langchain · 仓库（MIT；148,689★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/langchain-ai/langchain
     kind: repo
   - label: LangChain · 官方文档
@@ -55,7 +55,7 @@ sources:
     url: https://github.com/langchain-ai/langchain/releases
     kind: changelog
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial

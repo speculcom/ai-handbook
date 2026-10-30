@@ -4,7 +4,7 @@ form: mcp
 name: Brave Search MCP Server
 vendor: Brave
 homepage: https://github.com/brave/brave-search-mcp-server
-license: MIT（GitHub API 核验 2026-10-21）。
+license: MIT（GitHub API 核验 2026-10-30）。
 licenseEn: MIT (GitHub API verified 2026-10-21).
 
 axes:
@@ -12,8 +12,8 @@ axes:
     **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Brave Search API
     （web 搜索、新闻、图像、local 地点）包装成工具给 agent 用。
   runtime: >-
-    本地进程（npx stdio）+ 远程托管线（官方有 remote 端点说明）；GitHub 1,516★，
-    最近推送 2026-10-21（API 核验）。
+    本地进程（npx stdio）+ 远程托管线（官方有 remote 端点说明）；GitHub 1,544★，
+    最近推送 2026-10-27（API 核验）。
   local_files: >-
     不读写本机文件——它输出搜索结果文本/链接；抓取网页内容不在它范围（那是 fetch server 的活）。
   background: >-
@@ -49,7 +49,7 @@ mcp:
     纯读：搜索族工具（web/news/image/video/local）。无写面；无审批需求。
 
 sources:
-  - label: brave/brave-search-mcp-server · 仓库（MIT；1,516★，最近推送 2026-10-21，GitHub API 核验）
+  - label: brave/brave-search-mcp-server · 仓库（MIT；1,544★，最近推送 2026-10-27，GitHub API 核验）
     url: https://github.com/brave/brave-search-mcp-server
     kind: repo
   - label: brave/brave-search-mcp-server · Releases（changelog）
@@ -59,7 +59,7 @@ sources:
     url: https://github.com/modelcontextprotocol/servers
     kind: docs
 
-last_verified: 2026-10-21
+last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
 confidence: partial
