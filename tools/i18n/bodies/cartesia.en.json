@@ -1,0 +1,27 @@
+{
+  "_comment": "C6-3 body translation · cartesia (2026-10-30).",
+  "axes": {
+    "model_access": "Its own model line on record same day: Sonic (TTS), Ink (speech-to-text model) + Managed Agents (hosted voice agents); a 44-language speech surface is on record; no third-party model picking.",
+    "runtime": "Cloud API + hosted agents (docs.cartesia.ai on record same day); the site headline is \"Realtime AI models and voice agents\" — low-latency realtime synthesis is the pitch; no local model.",
+    "local_files": "No locally-held data surface declared by the vendor was found; synthesis and transcription results live on Cartesia's cloud account side — downloaded audio files are yours locally, but session records and voice configurations do not land on your machine.",
+    "background": "API form (streaming synthesis is the lead narrative); Managed Agents is an always-on hosted form; queueing/resume details not verified item by item.",
+    "tools": "Product surfaces on record same day: Sonic TTS, Ink STT, Voice Agents (scenario pages for customer support / appointment scheduling / outbound calls / SDR / recruiting screening); the docs site is complete (get-started/changelog 2026 on record). No MCP support verified in official statements.",
+    "context": "The Voice Agents line has a session-state surface (support scenarios); the specific memory mechanism was not verified in official statements (say unknown when unknown).",
+    "permissions": "Account system (free + subscription + enterprise Contact Sales); the cloned-voice consent surface not verified item by item (the docs surface not read in depth).",
+    "fit": "Fits: low-latency realtime TTS (voice-agent backbone), 44-language coverage, out-of-box managed voice agents. Not a fit: a filed direct-mainland entry, picking third-party models, running models locally."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to audio products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **End-to-end first-packet latency under the official latency claims** (the official line self-claims realtime; no third-party re-check; head-to-head against ElevenLabs/Murf under equal conditions is the most informative)\n- **Ink's Chinese coverage and quality** (44 languages is the aggregate speech figure; Ink's per-language surface not verified item by item)\n- **Call cost structure of Managed Agents** (per-minute billing details not verified item by item)",
+  "unknowns": "- Exact tier prices (the pricing page is JS-rendered; not fetched item by item)\n- Cloned-voice consent verification flow (the docs surface not read in depth)\n- Sonic model architecture details (the official Research/News pages exist; not verified item by item)\n- MCP support (no official statement verified)",
+  "related": [
+    "Also a commercial TTS platform: ElevenLabs leans into the voice marketplace and cloning ecosystem; Cartesia leads on realtime latency and hosted agents.",
+    "Also a TTS + voice-agent two-liner: Murf has a dubbing-studio surface; Cartesia is pure API/hosted with no studio.",
+    "Two layers of the voice-agent stack: Botpress is the support-agent orchestration platform, Cartesia can serve as its speech backbone (the TTS/STT layer)."
+  ],
+  "sources": [
+    "Cartesia · official site (Sonic/Ink/Managed Agents/44-language product lines, direct-fetched 200 on 2026-10-30)",
+    "Cartesia · Terms of Service (entity Cartesia AI, Inc., direct-fetched 200 on 2026-10-30)",
+    "Cartesia · docs (get-started overview, direct-fetched 200 on 2026-10-30)",
+    "Cartesia · docs changelog (2026 update line, direct-fetched 200 on 2026-10-30)",
+    "Cartesia · Pricing (tier surface, direct-fetched 200 on 2026-10-30)"
+  ]
+}

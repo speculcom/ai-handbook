@@ -3,7 +3,7 @@
 > 去向枚举：`已有` / `待建`（P1>P2>P3）/ `只进nav` / `不收`（必须带理由）。
 > 收录标准见 [categories.md §5](../categories.md)：TTS/音乐生成/转写是**主功能**；声音克隆的授权条款 permissions 维必答；音频 SDK 看官方定位归 framework 或 nav。
 > 候选来源交叉（≥2）：nav cat=gen 音频向约 10 条 + 计划候选名单 + 2026-10-21 官方核验补漏（23 个 URL 直抓）。
-> 本类现有档案 12 份（T6 升八维批 2 + T28 建档批 8 + C6-2 建档批 2）。
+> 本类现有档案 17 份（T6 升八维批 2 + T28 建档批 8 + C6-2 建档批 2 + C6-3 建档批 5）。
 
 | 工具 | 厂商 | 官方 URL | 去向 | 档案 id | 理由/备注 |
 |---|---|---|---|---|---|
@@ -19,19 +19,19 @@
 | 魔音工坊 | 出门问问 | https://www.moyin.com | 已有 | moyin | T28 落地 · 直连 200 · 算法备案在清单（原始附件未直抓→编号以官方查询平台为准）· L5 |
 | Murf | Murf AI | https://murf.ai | 已有 | murf | C6-2 落地 · 直连 200 · 工作室+API+语音agent 三线（官网招牌已转向 agent 平台）· 克隆 FAQ 只给法律提示 |
 | CosyVoice | 阿里 FunAudioLLM（开源） | https://github.com/FunAudioLLM/CosyVoice | 已有 | cosyvoice | C6-2 落地 · 仓迁 QwenAudio org（301 当日核验）· Apache-2.0（GitHub API）· 三代线 · L5 只转述官方 |
-| F5-TTS | SWivid 等（开源） | https://github.com/SWivid/F5-TTS | 待建 | f5-tts | P3 · 直抓 200 · 开源 TTS |
+| F5-TTS | SWivid 等（开源） | https://github.com/SWivid/F5-TTS | 已有 | f5-tts | P3 · C6-3 落地（MIT ★15,487 当日核验；ModelScope 直连 200=大陆获取路径） |
 | Play.ht | Play.ht | https://play.ht | 待建 | playht | P3 · 直抓 000（网络受限未能核验）· 建档前再核 |
-| AIVA | AIVA | https://www.aiva.ai | 待建 | aiva | P3 · 直抓 200 · 配乐生成 |
-| Soundraw | Soundraw | https://soundraw.io | 待建 | soundraw | P3 · 直抓 200 · 免版税配乐 |
-| Resemble AI | Resemble AI | https://www.resemble.ai | 待建 | resemble | P3 · 直抓 200 · 声音克隆——permissions 维重点档案 |
-| Cartesia | Cartesia | https://cartesia.ai | 待建 | cartesia | P3 · 直抓 200 · 低延迟 TTS |
+| AIVA | AIVA | https://www.aiva.ai | 已有 | aiva | P3 · C6-3 落地（版权按档位分层：免费档归平台限四平台变现/Pro 永久完整版权） |
+| Soundraw | Soundraw | https://soundraw.io | 已有 | soundraw | P3 · C6-3 落地（in-house 训练自述叙事；无独立 changelog 页） |
+| Resemble AI | Resemble AI | https://www.resemble.ai | 已有 | resemble | P3 · C6-3 落地（**定位已整体转向深伪检测/水印**——生成语音线转 Research Archive 不再商用售卖；permissions 维=身份注册涉生物特征） |
+| Cartesia | Cartesia | https://cartesia.ai | 已有 | cartesia | P3 · C6-3 落地（Sonic TTS+Ink STT+Managed Agents 三线；44 语言） |
 | Speak | Speak | https://www.speak.com | 只进nav | | 官方定位开发者语音平台（SDK/API 向）——categories.md 边界「音频 SDK 看官方定位」→nav |
 | Boomy | Boomy | https://boomy.com | 只进nav | | 直抓 000 未能核验（2026-10-21）；轻量玩具向音乐生成——先只进nav |
 | VALL-E（VALL-E-X） | 微软 | https://github.com/microsoft/VALL-E-X | 不收 | | 官方仓 URL 已 404（2026-10-21 直抓核验：仓库不存在或已删）——官方入口消失，不收（同 GPT-Frontend 先例） |
 
 ## 备注
 
-- 本类 12 已有——T28（audio +8）已落地 P1（4）+ P2（4）；C6-2 落地 murf/cosyvoice；P3 剩（f5-tts/playht/aiva/soundraw/resemble/cartesia）留后续批次。
+- 本类 17 已有——T28（audio +8）已落地 P1（4）+ P2（4）；C6-2 落地 murf/cosyvoice；C6-3 落地 f5-tts/aiva/soundraw/resemble/cartesia；P3 剩 playht（直连+代理双 000，建档前再核）。
 - **厂商修正**：魔音工坊厂商是出门问问（原候选名单误写标贝科技——算法备案清单主语「出门问问语音合成类算法（魔音工坊）」纠正了它）。
 - **声音克隆授权线**（收录标准 3）：fish audio/Resemble/ElevenLabs 克隆声音涉人格权——permissions 维要写官方条款原文，「官方未声明」要写明查过哪些页面（L4）。
 - 会议软件实时字幕（Teams/Zoom 字幕等）不收——categories.md 边界点名，不单列行。

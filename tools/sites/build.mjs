@@ -208,6 +208,7 @@ const VENDOR_EN = {
   '爱诗科技': 'Aishi Technology', 'OpenAI（开源）': 'OpenAI (open source)', '出门问问': 'Mobvoi',
   '秘塔科技（上海秘塔网络科技）': 'Metaso (Shanghai Metaso Network Technology)', '昆仑万维': 'Kunlun Tech',
   '阿里 FunAudioLLM（开源）': 'Alibaba FunAudioLLM (open source)',
+  'SWivid / 上交 X-LANCE 等（开源）': 'SWivid / SJTU X-LANCE et al. (open source)',
 };
 const vendorBi = (v) => {
   const en = UI_EN.vendors[v] || VENDOR_EN[v];

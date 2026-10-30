@@ -1,0 +1,27 @@
+{
+  "_comment": "C6-3 body translation · f5-tts (2026-10-30).",
+  "axes": {
+    "model_access": "Open-weights line: two models on record (README verified same day) — F5-TTS (Diffusion Transformer + ConvNeXt V2) and an E2 TTS reproduction; the v1 base model released 2025-03-12; download the weights and run inference locally, no official hosted service.",
+    "runtime": "Local Python inference stack (conda + PyTorch; NVIDIA CUDA and AMD ROCm install paths on record in the README, ROCm Linux-only); community Gradio Spaces (E2-F5-TTS) exist for trying it out but are not an official hosted product.",
+    "local_files": "Weights, code and generated audio all stay on your machine; the ModelScope weights page measured 200 direct from mainland (2026-10-30) — the acquisition path works from the mainland; no account or cloud data surface at all.",
+    "background": "Local batch inference, no task-queue form; inference time varies with hardware and the official line gives no unified latency figure (not verified).",
+    "tools": "CLI/library usage is the main form (usage examples in the README); zero-shot cloning = give a reference clip + text and synthesize (usage on record); the Sway Sampling inference-time sampling strategy is on record. No hosted API.",
+    "context": "No session concept — every inference call is independent and carries no state between calls; cross-session memory does not apply (local-model form; context management is entirely up to the caller's own code).",
+    "permissions": "MIT gives a commercial base (on record via GitHub same day); the model itself performs no consent check on the cloning side — there is no platform-side blocking (a local form has no platform), users carry the consent responsibility themselves (no legal notice on record in the official README, honestly marked unverified).",
+    "fit": "Fits: local/private Chinese + English TTS and zero-shot cloning research, an MIT commercial base, mainland weight acquisition via ModelScope. Not a fit: wanting an out-of-box hosted API, zero-ops setups, SLAs."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to audio products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Speaker similarity and stability of Chinese/English zero-shot cloning** (the paper has benchmarks, no third-party re-check; head-to-head against CosyVoice 3.0 in the same scenario is the most informative)\n- **Real-time factor on consumer GPUs** (the README gives install paths but no latency figures)\n- **Audio-quality gap between the v1 base and the older base** (the 2025-03-12 news says only \"better\", no comparison table)",
+  "unknowns": "- Whether weight-license details match across distributions (HF/ModelScope/Wisemodel, not verified item by item)\n- Official legal notices on cloning consent (not on record in the README, honestly marked unverified)\n- Training-data composition and licensing (the paper's account not verified item by item)\n- Current usability of the Apple Silicon path (the README install section read same day details only the NVIDIA/AMD sections)",
+  "related": [
+    "Also an open-source Chinese + English TTS: CosyVoice is Alibaba's industry-team three-generation line with a training stack; F5-TTS is an academic team's single-repo flow-matching route.",
+    "fish audio has a hosted line + voice marketplace; F5-TTS is pure open weights with no hosting.",
+    "Same local-inference form as a reference point: Ollama manages LLMs, F5-TTS is the manual equivalent on the TTS side."
+  ],
+  "sources": [
+    "F5-TTS · GitHub repo (MIT / ★15,487 / last push 2026-10-23, GitHub API verified same day)",
+    "F5-TTS · arXiv paper (2410.06885, on record as the repo homepage)",
+    "F5-TTS · official demo page (swivid.github.io, direct-fetched 200 on 2026-10-30)",
+    "F5-TTS · ModelScope weights page (direct-fetched 200 from mainland on 2026-10-30)",
+    "F5-TTS · Releases (change log, proxy-fetched 200 on 2026-10-30; direct 000)"
+  ]
+}

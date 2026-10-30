@@ -1,0 +1,27 @@
+{
+  "_comment": "C6-3 body translation · resemble (2026-10-30).",
+  "axes": {
+    "model_access": "Its own detection-model line on record same day: RAD-S1 (official wording: the first System One model for AI agent detection), DETECT-World (a world-model architecture for detection), PerTh (multimodal watermarking); on the generation side, Chatterbox and other speech models moved into the Research Archive (kept open-source, no longer offered as commercial paid products, on record in the docs same day).",
+    "runtime": "Cloud API platform (docs.resemble.ai on record same day: Detect/Watermark/Identity/Meetings endpoints) + ready-to-use surfaces (the Meetings bot joining Zoom/Teams/Google Meet, a Chrome extension); no local model.",
+    "local_files": "No locally-held data surface declared by the vendor was found; detection submissions and results live on Resemble's cloud. Chatterbox open weights can run locally (the Research Archive line).",
+    "background": "API job form (submit a detection job / poll for results, on record in the docs); Meetings is a real-time in-meeting detection form.",
+    "tools": "Product surfaces on record same day: Deepfake Detection (audio/video/image), Watermarking (C2PA provenance), Identity (voiceprint enrollment & matching), Intelligence (human-readable verdicts), Agent Detection, Audio Source Tracing; the docs site offers an MCP server (docs.resemble.ai/_mcp/server on record).",
+    "context": "No session concept — API jobs and enrolled identities (voiceprint/likeness) are the persistent surfaces, and jobs share no context between them; cross-session memory does not apply (detection-platform form).",
+    "permissions": "Enterprise-oriented (Contact Sales is the lead); the identity-enrollment surface (enroll and authenticate a voice) involves biometrics — consent and compliance (an EU AI Act Article 50 compliance-checklist resource page is on record) is the key dimension.",
+    "fit": "Fits: enterprise anti-deepfake (meeting protection / support fraud / KYC / media watermarking), AI agent detection, C2PA provenance compliance. Not a fit: looking for hosted TTS/voice cloning (the commercial voice line was withdrawn, see pitfalls), personal free use, a filed direct-mainland entry."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to audio products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **False-positive rate of deepfake detection** (the official Benchmarks page self-claims comparisons; no third-party re-check — the make-or-break metric for a detection product)\n- **Actual latency and coverage of the Meetings in-meeting bot** (Zoom/Teams/Google Meet on record; the measured surface not verified)\n- **Feature gap between Chatterbox open weights and the withdrawn hosted voice line** (the archive statement is on record; the gap not verified item by item)",
+  "unknowns": "- The full legal entity name (the same-day terms-page fetch shows no \"Inc.\" suffix on record)\n- The exact timing of the commercial voice line's withdrawal and migration arrangements for existing customers (the archive statement is on record; details not on record)\n- Detection API tiers and pricing (enterprise Contact Sales; not verified item by item)\n- Data retention and deletion policy for the identity-enrollment surface (voiceprint biometrics; the privacy-policy page not verified item by item)",
+  "related": [
+    "A mirror-image contrast: ElevenLabs sells speech generation + cloning with an AI-detection side feature; Resemble flipped it — detection is the main business, the generation line went to the archive.",
+    "Also an audio API platform: AssemblyAI does transcription and understanding, Resemble does authenticity adjudication.",
+    "The detection surface covers synthetic video: HeyGen-style digital-human video is exactly one of the object forms deepfake detection has to adjudicate."
+  ],
+  "sources": [
+    "Resemble AI · official site (detection/watermarking/identity product lines and the RAD-S1/DETECT-World/PerTh model line, direct-fetched 200 on 2026-10-30)",
+    "Resemble AI · Voice Archive (official statement moving the generative voice line to an open-source research archive, direct-fetched 200 on 2026-10-30)",
+    "Resemble AI · Terms of Service (direct-fetched 200 on 2026-10-30)",
+    "Resemble AI · Product Changelog (official change log, direct-fetched 200 on 2026-10-30)",
+    "Resemble AI · docs (API platform docs including the MCP server entry, direct-fetched 200 on 2026-10-30)"
+  ]
+}

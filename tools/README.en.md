@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 186 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 191 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 186 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 191 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -136,7 +136,7 @@ tools/ (ai-handbook subtree)
 │   │   ├── _category.md        category declaration (criteria + form rulings + object table)
 │   │   └── products/           41 objects
 │   ├── chat/                   chat assistants (20 objects)
-│   ├── image/ · video/ · audio/  three creation categories (13 + 12 + 12 objects)
+│   ├── image/ · video/ · audio/  three creation categories (13 + 12 + 17 objects)
 │   ├── framework/              agent frameworks & runtimes (22 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 28 objects)
 │   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 15 + 12 objects)
@@ -253,6 +253,9 @@ If you need the raw snapshots for research, please contact us via an Issue.
 "unknown" legitimate, attach evidence to every judgement — are borrowed from
 [AgentClash](https://aiagentclash.com/), but the coordinate system and category definitions
 are independently designed here.
+
+
+
 
 
 
@@ -374,21 +377,26 @@ Text/image-to-video generation and AI-native video editing
 | [Veo (Google)](tracks/video/products/veo.md) | Google | cloud | partial | active |
 | [Vidu](tracks/video/products/vidu.md) | Shengshu Technology (Tsinghua-linked) | web | partial | active |
 
-### Audio & voice — 12
+### Audio & voice — 17
 
 TTS, music generation, transcription products
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Moyin Workshop](tracks/audio/products/moyin.md) | Mobvoi | web | partial | active |
+| [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | partial | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | partial | active |
+| [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | partial | active |
 | [CosyVoice](tracks/audio/products/cosyvoice.md) | Alibaba FunAudioLLM (open source) | local-app | partial | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | partial | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | partial | active |
+| [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / SJTU X-LANCE et al. (open source) | local-app | partial | active |
 | [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
 | [MiniMax Audio (Hailuo Voice)](tracks/audio/products/minimax-audio.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
 | [Murf](tracks/audio/products/murf.md) | Murf AI | web | partial | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | partial | active |
+| [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | partial | active |
+| [SOUNDRAW](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | partial | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | partial | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
 | [Whisper](tracks/audio/products/whisper.md) | OpenAI (open source) | local-app | partial | active |
@@ -524,8 +532,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 186 |
-| By category | coding 41 · chat 20 · image 13 · video 12 · audio 12 · research 11 · automation 15 · framework 22 · mcp 28 · runner 12 |
-| By form | web 77 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 7 |
+| Total profiles | 191 |
+| By category | coding 41 · chat 20 · image 13 · video 12 · audio 17 · research 11 · automation 15 · framework 22 · mcp 28 · runner 12 |
+| By form | web 81 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->
