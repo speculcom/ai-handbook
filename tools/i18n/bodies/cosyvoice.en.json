@@ -1,0 +1,28 @@
+{
+  "_comment": "C6-2 body translation · cosyvoice (2026-10-30).",
+  "axes": {
+    "model_access": "The core is an open-source model family: v1 (CosyVoice-300M) → v2 (CosyVoice2-0.5B) → Fun-CosyVoice 3.0 (Fun-CosyVoice3-0.5B-2512, the three-generation line on record in the README same day); download the weights and run inference locally, no hosted API.",
+    "runtime": "Local Python runtime (the README gives conda install + inference/training/deployment full stack, official description \"inference, training and deployment full-stack ability\"); the repo moved to the QwenAudio org (FunAudioLLM/CosyVoice 301 → QwenAudio/CosyVoice, verified same day); the README's clone command still writes the old org name.",
+    "local_files": "Weights, code and synthesized output all stay on your machine — an open-source model repo has no account-side data surface (the structural difference from hosted TTS products).",
+    "background": "Local batch/streaming inference: Bi-Streaming is on record in the README (text-in/audio-out dual streams, official claim of latency as low as 150ms); no cloud task surface.",
+    "tools": "Pronunciation-control surface on record (README: Chinese Pinyin / English CMU phoneme pronunciation inpainting, text normalization without a traditional frontend, Instruct support for emotion/speed/volume commands); MCP does not apply (a model repo is not an agent host).",
+    "context": "The conversational-context dimension does not apply — a TTS model works per synthesis request; zero-shot cloning conditions on reference audio (multilingual/cross-lingual zero-shot cloning on record in the README).",
+    "permissions": "Apache-2.0 code license (GitHub API verified same day); voice cloning touches personality rights — the official README carries no usage-consent clause, labeled as \"not declared by the official side\" per the pages checked (README/repo root files); 9 languages + 18 Chinese dialects coverage on record in the README.",
+    "fit": "Fits: local/private Chinese + dialect TTS, zero-shot cloning with a full training/fine-tuning stack, an Apache-2.0 commercial base. Not a fit: out-of-box hosted APIs (the official line sells none), zero-ops setups."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to audio models).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Reproducing the official evaluation table** (the README's eval table is the authors' self-reported numbers — CER/SS not third-party re-checked)\n- **Real-time streaming latency on consumer GPUs** (the official 150ms claim is on specific hardware)\n- **Minimum reference-audio length/quality for zero-shot cloning** (no hard spec in the README)",
+  "unknowns": "- License details on each generation's weight pages (repo LICENSE=Apache-2.0 verified; ModelScope/HF weight pages not checked one by one)\n- Platform-side cloning usage-consent terms (not declared in the README — labeled per the pages checked)\n- Whether an official hosted service exists (no official statement verified mapping Bailian's TTS line to a CosyVoice base)",
+  "related": [
+    "Same open-source-speech-model-as-repo convention: Whisper handles transcription (listening), CosyVoice handles synthesis (speaking).",
+    "Also a zero-shot cloning route: fish audio is a hosted product + voice marketplace, CosyVoice is open weights run locally.",
+    "Commercial hosted-TTS contrast: ElevenLabs sells a service, CosyVoice gives weights and the full-stack code."
+  ],
+  "sources": [
+    "CosyVoice · official repo (QwenAudio/CosyVoice, Apache-2.0, GitHub API verified same day: ★24,192 / pushed 2026-05-25)",
+    "CosyVoice · README (three-generation model line / eval table / install path, proxy-fetched 200 on 2026-10-30)",
+    "Fun-CosyVoice3-0.5B-2512 · ModelScope weights page (direct-fetched 200 on 2026-10-30)",
+    "Fun-CosyVoice 3.0 · arXiv paper (2505.17589, direct-fetched 200 on 2026-10-30)",
+    "CosyVoice · commits (change log — the repo has no formal releases, README Roadmap section on record; proxy-fetched 200 on 2026-10-30)",
+    "QwenAudio · official demo page (cosyvoice3, direct-fetched 200 on 2026-10-30; old domain funaudiollm.github.io 404 same day)"
+  ]
+}

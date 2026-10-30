@@ -1,0 +1,27 @@
+{
+  "_comment": "C6-1 body translation · hailuo-chat (2026-10-30).",
+  "axes": {
+    "model_access": "MiniMax's self-developed H series — the official site page on the day shows the version narrative \"MiniMax H3 officially launched\" / \"Hailuo Agent H3 officially launched\"; the chat product does not open model picking, and the concrete tiers are only visible after login (not verified logged in).",
+    "runtime": "Web (hailuoai.com, chat entry at /chat) + App; generation runs on MiniMax's cloud, nothing runs locally. The same vendor also has a developer API line (minimax.io, see the MiniMax Audio entry) and a separate video domain (hailuoai.video, see the Hailuo Video entry).",
+    "local_files": "Chats and creation assets are stored on the account side (the official nav has an \"assets\" surface); no locally-held data surface declared by the vendor was found.",
+    "background": "Chat returns instantly; no official statement verified for an async-task form. Queueing/resume behavior on the video/image generation lines not verified item by item.",
+    "tools": "The official nav on the day shows Design/assets/tools/video/image/audio multimodal creation surfaces; in-chat tools like web search not verified item by item. No MCP support verified in official statements.",
+    "context": "Chats organized per conversation; creation assets (video/image/audio) are managed centrally in the account-side \"Assets\" area and connect with the chat-creation flow. Single-session context-window length and cross-session memory mechanism have no verified official statement (say unknown when unknown).",
+    "permissions": "Account system (login required); training-usage toggle path not verified item by item. Model-layer filing number in the cn block (cross-verified on the Bailian disclosure page same day).",
+    "fit": "Fits: a domestic multimodal creation entry combining video+image+audio+chat (MiniMax ecosystem), direct access from the mainland. Not a fit: picking models, running models locally, leaving the MiniMax account."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Model tiers and multimodal input forms on the chat line after login** (official narrative and in-product capability often diverge)\n- **Commercial-license boundaries of creation assets** (membership vs free tiers for generated video/images)\n- **Training-usage toggle path and default state**",
+  "unknowns": "- Model-tier routing inside the chat product (not verified logged in)\n- Cross-session memory mechanism (no official statement verified)\n- Training-usage toggle path and default state (not verified item by item)\n- Filing status of the chat product entry itself (the filing number's subject is the model layer)",
+  "related": [
+    "Also a domestic multimodal chat entry: Doubao is bound to the Douyin ecosystem, Hailuo to MiniMax's creation ecosystem.",
+    "Also a domestic big-tech chat entry: Yuanbao leans on the WeChat ecosystem, Hailuo on the creation-asset surface.",
+    "Same vendor's developer line: minimax.io is the API/capability platform, Hailuo is the consumer entry."
+  ],
+  "sources": [
+    "Hailuo AI · official site (product entry and capability narrative, direct-fetched 200 on 2026-10-30)",
+    "Hailuo AI · chat entry /chat (direct-fetched 200 on 2026-10-30)",
+    "Hailuo AI · agreement page (direct-fetched 200 on 2026-10-30)",
+    "MiniMax · News (official update line, changelog, proxy-fetched 200 on 2026-10-30)",
+    "Alibaba Cloud Bailian · model filing-information disclosure (filing-number cross-verification source, proxy-fetched 200 on 2026-10-30)"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_comment": "C6-2 body translation · murf (2026-10-30).",
+  "axes": {
+    "model_access": "Its own speech-model line: the site navigation on the day splits into \"Models\" (TTS API, official wording \"purpose built for voice agents\") and Creators (200+ stock voices); no third-party model picking.",
+    "runtime": "Web studio (murf.ai) + API (murf.ai/api, docs at murf.ai/api/docs, direct-fetched 200 same day); generation runs on Murf's cloud, no local model. Integrations on record: Canva/Google Slides/PowerPoint and more.",
+    "local_files": "Studio projects and audio assets live on the account side (the site navigation carries an Assets/Studio area); no locally-held data surface declared by the vendor was found — downloaded exported audio files are yours locally, but projects and voice libraries stay on Murf's cloud.",
+    "background": "Studio rendering and API synthesis are task-shaped; queueing/resume details not verified item by item. The Agents line (AI Receptionist/Call Center etc.) is a real-time conversational form, a different track from batch studio work.",
+    "tools": "Three product lines on record same-day: Agents (voice agents), API (TTS/Voice Changer/Dubbing/Translation), Creators (dubbing studio + Voice Cloning). No MCP support verified in official statements.",
+    "context": "The studio organizes work by project; no official statement verified for cross-session memory (say unknown when unknown).",
+    "permissions": "Account system (free + subscription); the cloning consent line is on record in the official FAQ — the cloning page states outright that \"using voice duplication without consent can be considered illegal\" and cloning a celebrity voice without permission is unethical (direct-fetched 2026-10-30); Instant vs Professional cloning tiers are on record.",
+    "fit": "Fits: a commercial voice platform combining dubbing studio + TTS API + voice agents, 200+ stock voices without cloning. Not a fit: a filed direct-mainland entry, picking third-party models, running models locally."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to audio products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Quality gap and consent-check flow between Instant and Professional cloning** (the FAQ gives only legal notes; the platform-side blocking surface is not on record)\n- **TTS API latency and concurrency tiers** (the official TTS Benchmarks page self-claims latency comparisons; no third-party re-check)\n- **Commercial-rights boundaries across free/subscription tiers** (ToS not verified item by item)",
+  "unknowns": "- How tiers bind to commercial rights (ToS not verified item by item)\n- Platform-side cloning consent verification flow (FAQ gives only legal notes)\n- Training-use toggle path and default state (no official statement verified)\n- The model base behind the Agents line (the Models page self-claims in-house speech models; details not on record)",
+  "related": [
+    "Also a commercial TTS dual-line product: ElevenLabs leans into cloning and the voice marketplace, Murf into the studio and agent lines.",
+    "Also TTS + cloning: fish audio leads with zero-shot and a voice marketplace, Murf with stock voices and commercial dubbing.",
+    "Voice + avatar synthesis often pair up: HeyGen makes the digital-human video, Murf makes the voiceover track."
+  ],
+  "sources": [
+    "Murf · official site (three-line navigation and 200+ voices narrative, direct-fetched 200 on 2026-10-30)",
+    "Murf · Voice Cloning page (Instant/Professional tiers + consent FAQ, direct-fetched 200 on 2026-10-30)",
+    "Murf · Terms of Service (entity Murf Inc., direct-fetched 200 on 2026-10-30)",
+    "Murf · API docs (direct-fetched 200 → /introduction/overview on 2026-10-30)",
+    "Murf · API changelog (change log, direct-fetched 200 on 2026-10-30)"
+  ]
+}

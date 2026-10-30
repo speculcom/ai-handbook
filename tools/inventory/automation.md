@@ -3,7 +3,7 @@
 > 去向枚举：`已有` / `待建`（P1>P2>P3）/ `只进nav` / `不收`（必须带理由）。
 > 收录标准见 [categories.md §7](../categories.md)：可视化/低代码搭 AI 工作流与 agent；平台自带运行时；官方文档可核验。**代码优先的 SDK 归 framework；无 LLM 主轴的传统 RPA 归 nav。**
 > 候选来源交叉（≥2）：nav（cat=coding 里的 Dify/Coze/Manus/Relevance/Superagent/Botpress/SmythOS/百宝箱 + cat=tools/app 相关）+ v8 计划候选名单 + 2026-10-21 官方核验补漏。
-> 本类现有档案 14 份（T20 建档批 2026-10-21 落地）。
+> 本类现有档案 15 份（T20 建档批 2026-10-21 落地 14 + C6-2 建档批 1）。
 
 | 工具 | 厂商 | 官方 URL | 去向 | 档案 id | 理由/备注 |
 |---|---|---|---|---|---|
@@ -22,7 +22,7 @@
 | Bedrock 可视化 agent（Flows/AgentCore） | AWS | https://aws.amazon.com/bedrock/agents/ | 已有 | bedrock-agents | P2 · 托管 agent 平台（与 framework 的 Strands 区分）· 旧 URL bedrock/agent/ 已 404（2026-10-21 直抓核验），现行入口 bedrock/agents/ 与 bedrock/agentcore/ |
 | Salesforce Agentforce | Salesforce | https://www.salesforce.com/agentforce/ | 已有 | agentforce | P2 |
 | Relevance AI | Relevance AI | https://relevanceai.com | 已有 | relevance-ai | P2 · 无代码 agent 团队 |
-| Botpress | Botpress | https://botpress.com | 待建 | botpress | P2 · 对话应用构建平台 |
+| Botpress | Botpress | https://botpress.com | 已有 | botpress | C6-2 落地 · 直连 200 · 客服向 agent 平台（主仓 MIT=集成/工具面≠产品开源；v12 on-prem AGPL-3.0） |
 | Voiceflow | Voiceflow | https://www.voiceflow.com | 待建 | voiceflow | P3 · 对话/语音 agent 画布 |
 | Lindy | Lindy.ai | https://www.lindy.ai | 待建 | lindy | P3 |
 | Gumloop | Gumloop | https://www.gumloop.com | 待建 | gumloop | P3 |

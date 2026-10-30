@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-1 body translation · poe (2026-10-30).",
+  "axes": {
+    "model_access": "Multi-model aggregation is its native form: the official page on the day shows \"Chat with the best AI… Explore GPT-5, Claude-Sonnet-5, DeepSeek-R1, Veo-3.1, and thousands of others\" — users pick models and chat directly, models connect via Poe's side to each vendor's API (point costs differ per model).",
+    "runtime": "Web (poe.com) + iOS/Android apps; chats are relayed through Poe's servers to each model API, nothing runs locally. poe.com returned 307→login 403 to headless fetching on the day (login wall + CF, not a dead link).",
+    "local_files": "Chat history stored on the account side, synced after login; no locally-held data surface declared by the vendor — every model call is relayed through Poe's servers, so conversation content necessarily passes the Poe side (a structural premise of an aggregation-relay product, not an optional toggle).",
+    "background": "Chat returns instantly; no official statement verified for an async-task form. The points system limits usage on high-frequency/long-context models.",
+    "tools": "The official page on the day shows group chat, Leaderboard, and a bot-creation surface (build your own bot on a model + persona); image/video models (Veo-3.1 on record) are also in the aggregation list. No MCP support verified in official statements.",
+    "context": "Chats organized per conversation, synced after login; bot personas (self-built bots binding a model + persona) are a persistent configuration surface reused across sessions. Context-window length varies per underlying model; Poe's product-level cross-session memory mechanism has no verified official statement.",
+    "permissions": "Account system (register + login); the points system is the usage-permission surface; training-usage toggle path not verified item by item — Poe previously drew controversy over \"user chats used for training\" terms; read the current official Terms/Privacy item by item.",
+    "fit": "Fits: using many vendors' models under one account (domestic DeepSeek models included), building your own bot personas. Not a fit: unlimited free flagship models (points system), direct mainland access (not filed), data not relayed through Poe."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Point costs per model and the free-tier boundary** (the points exchange rate is not spelled out on official pages)\n- **Training-usage toggle path and default state** (read the current Terms/Privacy item by item)\n- **Context truncation policy at the aggregation layer** (whether each model's context is discounted after relaying)",
+  "unknowns": "- Point exchange rate and free-tier boundary (not verified item by item)\n- Training-usage toggle path and default state (not verified item by item)\n- Cross-session memory mechanism (no official statement verified)\n- How the aggregation layer handles each model's context (unverified)",
+  "related": [
+    "Also a chat entry: ChatGPT offers only its own models, Poe sells the choice of aggregation.",
+    "Also an overseas chat product: Claude goes deep on one vendor, Poe lays many vendors side by side.",
+    "Another \"many models\" route: Ollama runs open weights locally, Poe aggregates each vendor's API in the cloud."
+  ],
+  "sources": [
+    "Poe · official site (product positioning and model-aggregation narrative, proxy-fetched 307→login 403 on 2026-10-30 = login wall, not a dead link)",
+    "Poe · Terms (official terms, proxy-fetched 200 on 2026-10-30)",
+    "Poe · Privacy (official privacy page, proxy-fetched 200 on 2026-10-30)",
+    "Poe · Changelog (official update line, changelog, proxy-fetched 200 on 2026-10-30)"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "C6-1 body translation · meta-ai (2026-10-30).",
+  "axes": {
+    "model_access": "The base is Meta's self-developed Llama family (an open-weights family — downloading weights to self-deploy is a separate line, see the Llama series entries on the models site); in-product model versions and switching form not verified item by item.",
+    "runtime": "Web (meta.ai) + apps, deeply embedded as AI entries inside WhatsApp/Instagram/Facebook/Messenger; generation runs on Meta's cloud, nothing runs locally. www.meta.ai returned 403 to headless fetching on the day (Cloudflare block, not a dead link).",
+    "local_files": "Chat history stored on the Meta account side, under the same account system as the social graph; no locally-held data surface declared by the vendor — downloadable open weights for self-deployment is a separate line (see the Llama family entries on the models site); product chat data does not land on your machine with the weights.",
+    "background": "Chat returns instantly; no official statement verified for an async-task form. Whether sessions interoperate between the in-app entries (WhatsApp/IG) and the standalone site (meta.ai), and how histories link, was not verified item by item.",
+    "tools": "Image generation (the Imagine line), web and other capabilities are on record in the official narrative; no MCP support verified in official statements.",
+    "context": "Chats organized per conversation; cross-app history linkage across Meta surfaces not verified item by item; no official statement verified for cross-session memory.",
+    "permissions": "Meta account system (sharing one account with the social graph is its biggest permission surface); training-usage toggle path not verified item by item — Meta's data-use terms have historically been sensitive, read the official privacy page item by item.",
+    "fit": "Fits: users already working inside Meta apps (WhatsApp/IG), wanting free chat + image generation. Not a fit: leaving the Meta account, direct mainland access (not filed), running weights locally inside the product."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **In-product model versions and switching form** (how Llama version iterations surface on the product side)\n- **Training-usage toggle path and default state** (Meta's data-use terms are sensitive; read the official privacy page item by item)\n- **History-linkage boundaries across WhatsApp/IG/meta.ai**",
+  "unknowns": "- In-product model-version routing (not verified item by item)\n- Cross-session memory and cross-app history linkage (no official statement verified)\n- Training-usage toggle path and default state (not verified item by item)\n- MCP support (no official statement verified)",
+  "related": [
+    "Also a chat assistant embedded in a social ecosystem: Grok is bound to X, Meta AI to WhatsApp/IG.",
+    "Also an overseas big-tech flagship chat entry: ChatGPT runs an independent ecosystem, Meta AI parasitizes the social graph.",
+    "Same vendor's other product line: Muse is the coding/building cloud, Meta AI is the consumer chat assistant."
+  ],
+  "sources": [
+    "Meta AI · product entry (proxy-fetched 403 on 2026-10-30 = Cloudflare block, not a dead link)",
+    "Meta AI · vendor AI portal (proxy-fetched 200 on 2026-10-30)",
+    "Meta AI · Blog (official update line, changelog, proxy-fetched 200 on 2026-10-30)"
+  ]
+}

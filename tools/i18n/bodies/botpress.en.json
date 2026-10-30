@@ -1,0 +1,27 @@
+{
+  "_comment": "C6-2 body translation · botpress (2026-10-30).",
+  "axes": {
+    "model_access": "The platform ships no in-house model — the README's official wording is \"powered by OpenAI\", models are integrated through the platform; the current Cloud line's model list not verified item by item.",
+    "runtime": "Cloud-hosted form (app.botpress.cloud / studio.botpress.cloud direct 200 same day); the GitHub main repo's on-record \"This Repository\" = integrations/devtools/bots/plugins (the integrations & devtools surface, not the product itself); self-hosting goes through the old v12 repo (botpress/v12, AGPL-3.0).",
+    "local_files": "On the Cloud line data lives in Botpress's cloud (Knowledge Bases/Tables components on record same day); the v12 on-prem form keeps data on your machine — the two generations have different data surfaces.",
+    "background": "Always-on agents are the official lead form (same-day homepage wording: taking real actions on refunds/account updates/multi-step workflows); queueing and resume details not verified item by item.",
+    "tools": "The Hub integration ecosystem is on record same day (Intercom/Zendesk/Hubspot/Salesforce); channels on record (Webchat/WhatsApp/Slack etc.); dev surface on record (@botpress/sdk, @botpress/cli, bots-as-code examples). No MCP support verified in official statements.",
+    "context": "Knowledge Bases/Tables are the persistent knowledge surface (on record same day); cross-session memory mechanism details not verified item by item.",
+    "permissions": "Enterprise-facing (same-day homepage on record: SOC 2 compliant); the ToS routes customers to two contracting entities by location (on record same day); the terms state a business purpose (\"not for personal or household purposes\"); training-use toggle path not verified item by item.",
+    "fit": "Fits: support-scenario agents (ticket deflection, escalation & handoff, AI actions), a ready integration ecosystem (CRM/helpdesk). Not a fit: wanting the product itself open source, a filed direct-mainland entry, personal use (the ToS says business-only)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to agent platforms).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The Cloud line's current model list and switching surface** (the README only says \"powered by OpenAI\"; the live UI not verified item by item)\n- **Capability gap between v12 on-prem and Cloud** (both generations on record; the delta is not)\n- **Data isolation and retention terms of Knowledge Bases/Tables** (ToS/privacy pages not verified item by item)",
+  "unknowns": "- The Cloud line's current model list (not verified item by item)\n- MCP support (no official statement verified)\n- Training-use toggle path and default state (not verified item by item)\n- Cross-session memory mechanism details (not verified item by item)",
+  "related": [
+    "Also an agent-building platform: Dify is open source and self-hostable and general-purpose; Botpress is cloud-hosted with support-scenario depth.",
+    "Also a low-code agent platform: Coze binds domestic distribution channels, Botpress binds the support integration ecosystem.",
+    "The code-first contrast: source-level control belongs to the framework class, platform hosting to this class."
+  ],
+  "sources": [
+    "Botpress · official site (support-agent positioning, components/integrations/channels, direct-fetched 200 on 2026-10-30)",
+    "Botpress · Terms of Service (dual-entity routing + business-use clause, direct-fetched 200 on 2026-10-30)",
+    "botpress/botpress · official main repo (MIT, GitHub API verified same day: ★14,975 / pushed 2026-10-29)",
+    "botpress/v12 · on-prem old-generation repo (AGPL-3.0, GitHub API verified same day: ★156 / pushed 2025-04-10)",
+    "Botpress · Docs changelog (change log, direct-fetched 200 on 2026-10-30)"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "_comment": "C6-1 body translation · huggingchat (2026-10-30).",
+  "axes": {
+    "model_access": "Open-source model aggregation is its native form: the in-page list \"Models 137\" and Omni auto-routing were visible on the day (official copy: \"Omni automatically picks the best AI model… You can also choose from any available open source models\") — users pick open-source models directly, all hosted on HF's inference side.",
+    "runtime": "Web (huggingface.co/chat); the frontend is open source (the chat-ui repo, Apache-2.0, ★11,004 / pushed 2026-10-30 verified via GitHub API same day) — self-deployable (the runner-class tools like text-generation-webui are a separate local route). The hosted version generates on HF's side.",
+    "local_files": "On the hosted version, chat history lives on the account/browser side; on a self-deployed version data stays entirely on your own machine (the structural difference from hosted chat products).",
+    "background": "Chat returns instantly; no official statement verified for an async-task form. A new \"ML Intern\" entry (papers/training/spaces-oriented) was on the page on the day.",
+    "tools": "MCP tool integration in the open-source frontend is on record in the official README (tools exposed by MCP servers called via OpenAI function calling; trusted servers can be preconfigured via env, users can add their own in the UI with a health check; the preconfigured example includes Web Search (Exa)); the hosted version runs on the same codebase, its exact toggle form not verified item by item.",
+    "context": "Chats organized per conversation; hosted history lives on the account/browser side. No official statement verified for cross-session memory — the open-source frontend's data layer is entirely under the self-deployer's control, the structural difference from hosted chat products.",
+    "permissions": "HF account optional (usable without login, with reduced features); data terms are governed jointly by HF's privacy page and each chosen model's license, not verified item by item.",
+    "fit": "Fits: open-source models only, lining up 137 open entries under one account, referencing/self-deploying an open-source chat frontend. Not a fit: closed-source flagship models (GPT/Claude are not on the list), direct mainland access (not filed)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Omni auto-routing's selection logic and explainability** (the official copy only says \"picks the best\")\n- **Hosted-version chat-data retention and training terms** (read the HF privacy page item by item)\n- **Cost of wiring inference backends to a self-deployed chat-ui** (the official docs give the path; hands-on untested)",
+  "unknowns": "- Omni routing logic details (unverified)\n- Hosted-version data retention and training terms (not verified item by item)\n- Cross-session memory mechanism (no official statement verified)\n- Exact form of the hosted version's MCP server toggle (on record in the README; hosted UI not verified item by item)",
+  "related": [
+    "Also multi-model aggregation: Poe's pool includes closed APIs, HuggingChat's pool is open-source models only.",
+    "Also an open-source-model route: Ollama runs locally, HuggingChat is hosted (and its frontend can be self-deployed against a local backend).",
+    "Open models also have a vendor-run entry: DeepSeek's official entry goes deep on one vendor, HuggingChat lays many side by side."
+  ],
+  "sources": [
+    "HuggingChat · product entry (proxy-fetched 308→200 on 2026-10-30; Models 137 / Omni / ML Intern on record same day)",
+    "HuggingChat · Terms (product terms, proxy-fetched 200 on 2026-10-30)",
+    "HuggingChat · Privacy (product privacy page, proxy-fetched 200 on 2026-10-30)",
+    "chat-ui · official repo (frontend code, Apache-2.0, GitHub API verified 2026-10-30: ★11,004 / pushed 2026-10-30)",
+    "chat-ui · Releases (change log, proxy-fetched 200 on 2026-10-30)",
+    "chat-ui · docs (proxy-fetched 200 on 2026-10-30)"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-1 body translation · le-chat (2026-10-30).",
+  "axes": {
+    "model_access": "The main axis is Mistral's own models (Mistral Large/Medium etc.; the official news page on the day shows version narratives like Medium 3.5); whether third-party models are mixed in-product not verified item by item. The open-weights line (same vendor's weights open on HF) is a separate interface.",
+    "runtime": "Web (chat.mistral.ai) + iOS/Android apps; generation runs on Mistral's cloud, nothing runs locally. The page returned 403 to headless fetching on the day (Cloudflare block, not a dead link — browser reachability handled per existing convention).",
+    "local_files": "Chat history stored on the account side (synced after login); no locally-held data surface or export surface declared by the vendor was found — the open-weights line (model weights on HF) is a separate matter; product chat data does not land on your machine with the weights.",
+    "background": "Chat returns instantly; the official news page on the day mentions Le Chat's \"Work mode\" (complex tasks) and Vibe remote agents — async/agent forms are on record in the official narrative, execution details not verified item by item.",
+    "tools": "Web search, code execution (Le Chat's canvas/code surface) and similar capabilities are on record in the official narrative; MCP support is on record via the Studio line (official news \"built-in and custom MCPs in Studio\"); the MCP form inside the Le Chat product not verified item by item.",
+    "context": "Chat history syncs after login; no official statement verified for cross-session memory (say unknown when unknown).",
+    "permissions": "Account system; training-usage toggle path not verified item by item. EU vendor under GDPR jurisdiction (per the official privacy page, not verified item by item).",
+    "fit": "Fits: users wanting Mistral-family models (European-vendor narrative, open-weights linkage from the same vendor) and Le Chat's code/Work surface. Not a fit: direct mainland access (not filed), picking arbitrary third-party models (the product's main axis is its own models)."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The actual model selector inside the product** (whether third-party models are mixed beyond the vendor's own)\n- **Work mode's execution form** (async boundary, whether it resumes after leaving the page)\n- **Training-usage toggle path and default state** (the GDPR-side settings surface)",
+  "unknowns": "- Whether third-party models are mixed in-product (not verified item by item)\n- Work mode/Vibe execution location and resume behavior (official narrative on record, details unverified)\n- Cross-session memory mechanism (no official statement verified)\n- Nature of mainland direct access (000 cannot distinguish blocking from regional restriction)",
+  "related": [
+    "Also a flagship overseas chat product: ChatGPT has the largest ecosystem, Le Chat wins on the European entity and open-weights linkage.",
+    "Also a model-vendor-run chat entry: Grok is bound to the X ecosystem, Le Chat to Mistral's developer line.",
+    "Another route to open weights: Ollama runs them locally, Le Chat's vendor also opens weights on HF."
+  ],
+  "sources": [
+    "Le Chat · product entry (proxy-fetched 403 on 2026-10-30 = Cloudflare block, not a dead link)",
+    "Mistral AI · main site (proxy-fetched 200 on 2026-10-30)",
+    "Mistral AI · News (official update line, changelog, proxy-fetched 200 on 2026-10-30; Le Chat Work mode / MCP in Studio narratives on record same day)",
+    "Mistral AI · docs site (proxy-fetched 200 on 2026-10-30)"
+  ]
+}

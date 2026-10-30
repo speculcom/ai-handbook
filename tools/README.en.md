@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 177 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 186 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 177 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 186 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -135,11 +135,11 @@ tools/ (ai-handbook subtree)
 │   ├── coding/                 AI coding category
 │   │   ├── _category.md        category declaration (criteria + form rulings + object table)
 │   │   └── products/           41 objects
-│   ├── chat/                   chat assistants (14 objects)
-│   ├── image/ · video/ · audio/  three creation categories (13 + 12 + 10 objects)
+│   ├── chat/                   chat assistants (20 objects)
+│   ├── image/ · video/ · audio/  three creation categories (13 + 12 + 12 objects)
 │   ├── framework/              agent frameworks & runtimes (22 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 28 objects)
-│   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 14 + 12 objects)
+│   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 15 + 12 objects)
 ├── protocols/                  measurement protocols (coding / framework / mcp)
 ├── scripts/                    validators (validate / audit / quality)
 └── CHANGELOG.md                data-layer changelog
@@ -254,6 +254,8 @@ If you need the raw snapshots for research, please contact us via an Issue.
 [AgentClash](https://aiagentclash.com/), but the coordinate system and category definitions
 are independently designed here.
 
+
+
 <!-- INDEX:BEGIN generated, do not edit -->
 
 ## Content index
@@ -306,13 +308,15 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
 | [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
 
-### Chat assistants — 14
+### Chat assistants — 20
 
 General-purpose chat assistants, web/app, including Chinese products
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Doubao](tracks/chat/products/doubao-chat.md) | ByteDance | web | partial | active |
+| [Hailuo AI](tracks/chat/products/hailuo-chat.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
+| [StepFun (Step Chat)](tracks/chat/products/stepfun.md) | StepFun | web | partial | active |
 | [Tencent Yuanbao](tracks/chat/products/yuanbao-chat.md) | Tencent | web | partial | active |
 | [Tongyi Qianwen (Qwen Chat)](tracks/chat/products/tongyi-qianwen.md) | Alibaba | web | partial | active |
 | [Wenxin](tracks/chat/products/wenxin.md) | Baidu | web | partial | active |
@@ -323,9 +327,13 @@ General-purpose chat assistants, web/app, including Chinese products
 | [DeepSeek Chat](tracks/chat/products/deepseek-chat.md) | DeepSeek | web | partial | active |
 | [Gemini (chat app)](tracks/chat/products/gemini-chat.md) | Google | web | partial | active |
 | [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
+| [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | partial | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | Moonshot AI | web | partial | active |
+| [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | partial | active |
 | [Manus](tracks/chat/products/manus.md) | Manus AI (Monica team) | web | partial | active |
+| [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | partial | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | Microsoft | web | partial | active |
+| [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
 
 ### Image creation — 13
 
@@ -366,7 +374,7 @@ Text/image-to-video generation and AI-native video editing
 | [Veo (Google)](tracks/video/products/veo.md) | Google | cloud | partial | active |
 | [Vidu](tracks/video/products/vidu.md) | Shengshu Technology (Tsinghua-linked) | web | partial | active |
 
-### Audio & voice — 10
+### Audio & voice — 12
 
 TTS, music generation, transcription products
 
@@ -374,10 +382,12 @@ TTS, music generation, transcription products
 |---|---|---|---|---|
 | [Moyin Workshop](tracks/audio/products/moyin.md) | Mobvoi | web | partial | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | partial | active |
+| [CosyVoice](tracks/audio/products/cosyvoice.md) | Alibaba FunAudioLLM (open source) | local-app | partial | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | partial | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | partial | active |
 | [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
 | [MiniMax Audio (Hailuo Voice)](tracks/audio/products/minimax-audio.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
+| [Murf](tracks/audio/products/murf.md) | Murf AI | web | partial | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | partial | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | partial | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
@@ -401,7 +411,7 @@ Citation-first search and research products
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
-### Automation & workflows — 14
+### Automation & workflows — 15
 
 Visual AI-app builders and workflow automation platforms
 
@@ -410,6 +420,7 @@ Visual AI-app builders and workflow automation platforms
 | [Coze](tracks/automation/products/coze.md) | ByteDance | web | partial | active |
 | [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | partial | active |
+| [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
 | [Dify](tracks/automation/products/dify.md) | LangGenius (China-origin, global-facing) | web | partial | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | partial | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax (formerly Langflow AI) | web | partial | active |
@@ -513,8 +524,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 177 |
-| By category | coding 41 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 28 · runner 12 |
-| By form | web 69 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 6 |
+| Total profiles | 186 |
+| By category | coding 41 · chat 20 · image 13 · video 12 · audio 12 · research 11 · automation 15 · framework 22 · mcp 28 · runner 12 |
+| By form | web 77 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 7 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

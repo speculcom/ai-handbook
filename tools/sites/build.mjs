@@ -207,6 +207,7 @@ const VENDOR_EN = {
   'MiniMax（稀宇科技）': 'MiniMax (Xiyu Jizhi)', '生数科技（清华系）': 'Shengshu Technology (Tsinghua-linked)',
   '爱诗科技': 'Aishi Technology', 'OpenAI（开源）': 'OpenAI (open source)', '出门问问': 'Mobvoi',
   '秘塔科技（上海秘塔网络科技）': 'Metaso (Shanghai Metaso Network Technology)', '昆仑万维': 'Kunlun Tech',
+  '阿里 FunAudioLLM（开源）': 'Alibaba FunAudioLLM (open source)',
 };
 const vendorBi = (v) => {
   const en = UI_EN.vendors[v] || VENDOR_EN[v];

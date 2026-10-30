@@ -1,0 +1,28 @@
+{
+  "_comment": "C6-1 body translation · stepfun (2026-10-30).",
+  "axes": {
+    "model_access": "StepFun's self-developed Step series — the open-weights line has an org page on Hugging Face (huggingface.co/stepfun-ai fetched 200 same day, e.g. the step series open models); the in-product model-picking form is only visible after login (not verified logged in).",
+    "runtime": "Web (chat.stepfun.com, branded \"Jieyue AI\" in-page) + App; generation runs on StepFun's cloud. Product-line entries visible in-page on the day: StepClaw, Step Audio Studio (ASR); nothing runs locally.",
+    "local_files": "Chat history syncs after login (in-page \"Please log in to access your history\" seen on the day); no locally-held data surface declared by the vendor was found.",
+    "background": "Chat returns instantly; no official statement verified for an async-task form. The StepClaw (agent-oriented) entry is on record on the day; its execution form not verified item by item.",
+    "tools": "In-page entries visible on the day: Web Search Tool, Knowledge Base Q&A, StepClaw, Step Audio Studio; MCP support not verified item by item.",
+    "context": "Chat history syncs after login; no official statement verified for cross-session memory (say unknown when unknown).",
+    "permissions": "Account system (login required); training-usage toggle path not verified item by item. Filing number in the cn block (cross-verified via CAC batch PDF mirror).",
+    "fit": "Fits: users wanting domestic chat linked with the open-weights ecosystem (the same vendor's weights can run locally — quantized entries on the models site); direct access from the mainland. Not a fit: leaving the StepFun account, running local models inside the chat product."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The actual model-tier selector after login** (the logged-out page on the day only shows \"Tap @ to explore more\")\n- **StepClaw's execution form** (agent entry on record; where it runs, whether it can resume unverified)\n- **Training-usage toggle path and default state**",
+  "unknowns": "- In-product model-tier routing (not verified logged in)\n- StepClaw's execution location and resume behavior (unverified)\n- Cross-session memory mechanism (no official statement verified)\n- Which filing entry covers the chat product (the filing number's subject is the JieYue LLM; multimodal/on-device have separate filings)",
+  "related": [
+    "Also domestic chat linked with open weights: DeepSeek's weights ecosystem is larger, StepFun's product surface is wider (ASR/agent entries).",
+    "Also a domestic model-vendor chat entry: Zhipu leans on academic/enterprise lines, StepFun on terminal and multimodal lines.",
+    "Another route to \"many models\": Ollama runs open weights locally, StepFun's weights line also self-deploys via HF."
+  ],
+  "sources": [
+    "Step Chat · chat entry chat.stepfun.com (direct-fetched 200 on 2026-10-30)",
+    "StepFun · vendor portal (direct-fetched 200 on 2026-10-30)",
+    "StepFun · News (official update line, changelog, direct-fetched 200 on 2026-10-30)",
+    "StepFun · privacy page (direct-fetched 200 on 2026-10-30)",
+    "StepFun · Hugging Face org page (open-weights line, proxy-fetched 200 on 2026-10-30)",
+    "Filed generative-AI services (April 2024 batch PDF mirror: JieYue / Shanghai Jieyue Xingchen Intelligent Technology / Shanghai-JieYue-20231106 / 2023-11-24)"
+  ]
+}

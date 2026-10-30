@@ -915,5 +915,50 @@
     "A 2026-09-07 media report (Jiemian via Cailianshe) says Comate merged into the general-agent platform DuMate (Baidu Dazi) — no official announcement was found by this site; the official site and docs remain independently active. Record both claims separately; do not treat it as retired",
     "The current official model menu is mostly third-party domestic LLMs (DeepSeek/GLM/Kimi/MiniMax) — the old impression 'Comate = Wenxin model only' is outdated; enterprises can additionally add Qianfan and other providers",
     "On the SaaS side, the code context of the file you are editing is sent server-side for inference (official FAQ), with a no-retention/no-processing promise; the official path for sensitive data is the private-deployment tier — don't assume 'plugin = fully local'"
+  ],
+  "hailuo-chat": [
+    "Hailuo AI (hailuoai.com, the consumer creation entry), the MiniMax developer line (minimax.io) and Hailuo Video (hailuoai.video) are three entries of one vendor — do not merge them into one object",
+    "The filing number's subject is the model layer (Shanghai-MiniMax-202505230046) — the chat product entry's own filing status was not separately verified",
+    "The official site headlines video creation (\"every idea becomes a film\") — the chat line's capability boundary should be measured after login; don't infer it from the video marquee"
+  ],
+  "stepfun": [
+    "The Step Chat product and the Step open weights are two lines — the chat product does not run local weights; the weights line self-deploys via the HF org page (quantized entries on the models site)",
+    "The filing number's subject is the \"JieYue\" LLM (Shanghai-JieYue-20231106, filed 2023-11-24); a separate \"JieYue multimodal\" filing exists (2025-06-09) — which filing covers which multimodal capability should be read per public batch",
+    "www.stepfun.com is the vendor portal (a pure JS shell on the day; the product is seen via /chat) — do not mistake the portal for the chat entry"
+  ],
+  "le-chat": [
+    "Le Chat (consumer chat product), La Plateforme/Studio (developer API platform) and the open weights (download & self-deploy from HF) are three lines of one vendor — do not merge them",
+    "chat.mistral.ai returning 403 to headless fetching is Cloudflare anti-scraping, not a product shutdown — judge it separately from the mistral.ai main site (200)",
+    "The official news page is dense with product names (Vibe/Work mode/Studio/Workflows) — when writing profiles, keep the boundary between \"inside the Le Chat product\" and \"other products of the same vendor\"; don't credit Studio capabilities to Le Chat"
+  ],
+  "meta-ai": [
+    "Meta AI (www.meta.ai chat assistant) and meta-muse in the coding category (coding cloud) are two product lines — noted at inventory registration, do not merge them",
+    "\"Llama open weights\" does not mean \"Meta AI can run locally\" — the product runs on Meta's cloud; the weights line is download-and-self-deploy",
+    "Meta AI embedded in WhatsApp/IG = data linkage under one account system — think it through separately before sensitive use"
+  ],
+  "poe": [
+    "Poe is a relay/aggregation layer — your chats are forwarded from Poe's servers to each model API; assess sensitive data as \"one more party handling it\"",
+    "The points system is not \"free unlimited\" — flagship models and long contexts burn points fast; the free-tier boundary needs measuring",
+    "Model names with suffixes (e.g. Claude-Sonnet-5) are the specific versions Poe connects on its side — do not equate them with that vendor's latest capability"
+  ],
+  "huggingchat": [
+    "HuggingChat lists open-source models only — like Poe it aggregates, but the model pools are completely different (Poe includes closed APIs)",
+    "\"Frontend open source, self-deployable\" and \"the hosted version runs on HF inference\" are two things — self-deploying means wiring your own inference backend (hang runner-class tools)",
+    "Model licenses differ (some carry commercial restrictions) — an aggregation UI does not change each weight's own license terms"
+  ],
+  "murf": [
+    "Murf's same-day site navigation leads with Agents (voice-agent platform) — treating it as \"just a dubbing tool\" undersells its API/agent lines",
+    "The cloning FAQ gives only legal-risk notes, no platform-side mandatory consent check — \"what the official page says\" and \"what the platform blocks\" are different things (blocking not verified item by item)",
+    "The old docs domain docs.murf.ai measured 000 direct on the day — current API docs live at murf.ai/api/docs; don't call the old domain a dead link"
+  ],
+  "cosyvoice": [
+    "The official org renamed from FunAudioLLM to QwenAudio (301 verified same day) — old links still resolve but the live repo is QwenAudio/CosyVoice; the README's clone command still writes the old org name, follow the post-301 address",
+    "It is a model, not a product — no account, no console, no SLA; a \"CosyVoice service\" does not exist in official terms (Bailian's TTS line is a separate hosted line, don't conflate)",
+    "The official demo page (funaudiollm.github.io/cosyvoice3) 404s on the day; the new address qwenaudio.github.io/cosyvoice3 fetched 200 direct — README internal links still point to the old domain, verify against the new one"
+  ],
+  "botpress": [
+    "\"GitHub main repo MIT\" ≠ \"the Botpress product is open source\" — the repo's on-record content is integrations/devtools/plugins; the Cloud product itself is closed (README \"This Repository\" section, fetched same day)",
+    "Self-hosting only exists on the old v12 line (AGPL-3.0, pushes slowing after 2025-04) — the current product is the Cloud line; don't judge the current form by v12",
+    "The old docs domain docs.botpress.cloud measured 000 direct on the day — current docs live at botpress.com/docs (changelog at /docs/changelog); don't call the old domain a dead link"
   ]
 }

@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 177 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 186 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 177 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 186 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 177 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 186 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -129,11 +129,11 @@ tools/（ai-handbook 子树）
 │   ├── coding/                 AI 编程大类
 │   │   ├── _category.md        大类收录声明（标准 + 形态判据 + 对象表）
 │   │   └── products/           41 个对象
-│   ├── chat/                   AI 对话助手（14 个对象）
-│   ├── image/ · video/ · audio/  AI 创作三大类（13 + 12 + 10 个对象）
+│   ├── chat/                   AI 对话助手（20 个对象）
+│   ├── image/ · video/ · audio/  AI 创作三大类（13 + 12 + 12 个对象）
 │   ├── framework/              Agent 框架与运行时（22 个对象）
 │   ├── mcp/                    MCP 生态（多 3 个特有维度，28 个对象）
-│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 14 + 12 个对象）
+│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 15 + 12 个对象）
 ├── protocols/                  实测协议（coding / framework / mcp 三套）
 ├── scripts/                    校验脚本（validate / audit / quality）
 └── CHANGELOG.md                数据层更新记录
@@ -239,6 +239,8 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 **方法论原型**：本仓库的「放弃总分 / 未知合法化 / 每条挂证据」三条规则
 借鉴自 [AgentClash](https://aiagentclash.com/)，但坐标系与大类定义是本仓库独立设计。
 
+
+
 <!-- INDEX:BEGIN generated, do not edit -->
 
 ## 内容索引
@@ -291,13 +293,15 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
 | [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
 
-### AI 对话助手 —— 14 份
+### AI 对话助手 —— 20 份
 
 通用聊天助手——网页 / 应用形态，含国产。
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
 | [豆包](tracks/chat/products/doubao-chat.md) | 字节跳动 | web | partial | active |
+| [海螺AI](tracks/chat/products/hailuo-chat.md) | MiniMax（稀宇科技） | web | partial | active |
+| [阶跃AI](tracks/chat/products/stepfun.md) | 阶跃星辰 | web | partial | active |
 | [腾讯元宝](tracks/chat/products/yuanbao-chat.md) | 腾讯 | web | partial | active |
 | [通义千问](tracks/chat/products/tongyi-qianwen.md) | 阿里巴巴 | web | partial | active |
 | [文心](tracks/chat/products/wenxin.md) | 百度 | web | partial | active |
@@ -308,9 +312,13 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [DeepSeek](tracks/chat/products/deepseek-chat.md) | 深度求索 | web | partial | active |
 | [Gemini（对话应用）](tracks/chat/products/gemini-chat.md) | Google | web | partial | active |
 | [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
+| [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | partial | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | partial | active |
+| [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | partial | active |
 | [Manus](tracks/chat/products/manus.md) | Manus AI（Monica 团队） | web | partial | active |
+| [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | partial | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | partial | active |
+| [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
 
 ### AI 图像创作 —— 13 份
 
@@ -351,7 +359,7 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [Veo（Google）](tracks/video/products/veo.md) | Google | cloud | partial | active |
 | [Vidu](tracks/video/products/vidu.md) | 生数科技（清华系） | web | partial | active |
 
-### AI 音频与语音 —— 10 份
+### AI 音频与语音 —— 12 份
 
 语音合成（TTS）、音乐生成、语音转写产品。
 
@@ -359,10 +367,12 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 |---|---|---|---|---|
 | [魔音工坊](tracks/audio/products/moyin.md) | 出门问问 | web | partial | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | partial | active |
+| [CosyVoice](tracks/audio/products/cosyvoice.md) | 阿里 FunAudioLLM（开源） | local-app | partial | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | partial | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | partial | active |
 | [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
 | [MiniMax Audio（海螺语音）](tracks/audio/products/minimax-audio.md) | MiniMax（稀宇科技） | web | partial | active |
+| [Murf](tracks/audio/products/murf.md) | Murf AI | web | partial | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | partial | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | partial | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
@@ -386,7 +396,7 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
-### AI 自动化与工作流 —— 14 份
+### AI 自动化与工作流 —— 15 份
 
 可视化搭 AI 应用 / 跑自动化工作流的平台。
 
@@ -395,6 +405,7 @@ framework 的 22 个对象按**抽象层**分三组，这是本站对该大类�
 | [扣子 / Coze](tracks/automation/products/coze.md) | 字节跳动 | web | partial | active |
 | [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | partial | active |
+| [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
 | [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | partial | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | partial | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax（原 Langflow AI） | web | partial | active |
@@ -498,8 +509,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 177 份 |
-| 大类分布 | coding 41 · chat 14 · image 13 · video 12 · audio 10 · research 11 · automation 14 · framework 22 · mcp 28 · runner 12 |
-| 形态分布（form） | web 69 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 6 |
+| 档案总数 | 186 份 |
+| 大类分布 | coding 41 · chat 20 · image 13 · video 12 · audio 12 · research 11 · automation 15 · framework 22 · mcp 28 · runner 12 |
+| 形态分布（form） | web 77 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 7 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->
