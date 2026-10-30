@@ -6,22 +6,22 @@ titleEn: Agent memory systems
 summary: 会话内的状态、跨会话的持久事实、外部记忆库——三层记忆各自解决什么问题，以及共同的坑。
 summaryEn: In-session state, cross-session facts, and external stores — what each memory layer solves, and the pitfalls they share.
 sources:
-  - label: LangGraph 官方文档 · Persistence（2026-10-20 直抓 200）
+  - label: LangGraph 官方文档 · Persistence（2026-10-30 直抓 200）
     url: https://docs.langchain.com/oss/python/langgraph/persistence
     kind: docs
-  - label: OpenAI Agents SDK 官方文档 · Sessions（2026-10-20 直抓 200）
+  - label: OpenAI Agents SDK 官方文档 · Sessions（2026-10-30 直抓 200）
     url: https://openai.github.io/openai-agents-python/sessions/
     kind: docs
-  - label: Mem0 官方文档 · How Mem0 Works（2026-10-20 直抓 200）
+  - label: Mem0 官方文档 · How Mem0 Works（2026-10-30 直抓 200）
     url: https://docs.mem0.ai/core-concepts/how-it-works
     kind: docs
-  - label: Letta 官方文档 · Memory & dreaming（2026-10-20 直抓 200）
+  - label: Letta 官方文档 · Memory & dreaming（2026-10-30 直抓 200）
     url: https://docs.letta.com/configuration/memory/
     kind: docs
-  - label: MemGPT 论文（arXiv 2310.08560，2026-10-20 直抓摘要页）
+  - label: MemGPT 论文（arXiv 2310.08560，2026-10-30 直抓摘要页）
     url: https://arxiv.org/abs/2310.08560
     kind: paper
-last_verified: 2026-10-20
+last_verified: 2026-10-30
 confidence: verified
 ---
 

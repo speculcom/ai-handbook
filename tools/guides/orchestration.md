@@ -6,22 +6,22 @@ titleEn: Multi-agent orchestration
 summary: 多个 agent 怎么分工、怎么交接、怎么收拢结果，以及什么时候根本不该上多 agent。
 summaryEn: How multiple agents divide work, hand off, and merge results — and when not to go multi-agent at all.
 sources:
-  - label: LangGraph 官方文档 · Multi-agent（2026-10-20 直抓 200）
+  - label: LangGraph 官方文档 · Multi-agent（2026-10-30 直抓 200）
     url: https://docs.langchain.com/oss/python/langchain/multi-agent
     kind: docs
-  - label: OpenAI Agents SDK 官方文档 · Handoffs（2026-10-20 直抓 200）
+  - label: OpenAI Agents SDK 官方文档 · Handoffs（2026-10-30 直抓 200）
     url: https://openai.github.io/openai-agents-python/handoffs/
     kind: docs
-  - label: Google ADK 官方文档 · Collaborative workflows（2026-10-20 直抓 200）
+  - label: Google ADK 官方文档 · Collaborative workflows（2026-10-30 直抓 200）
     url: https://adk.dev/workflows/collaboration/
     kind: docs
-  - label: CrewAI 官方文档 · Processes（2026-10-20 直抓 200）
+  - label: CrewAI 官方文档 · Processes（2026-10-30 直抓 200）
     url: https://docs.crewai.com/en/concepts/processes
     kind: docs
-  - label: Anthropic 工程博客 · Building effective agents（2026-10-20 WebFetch 核验官方页）
+  - label: Anthropic 工程博客 · Building effective agents（2026-10-30 直抓 200）
     url: https://www.anthropic.com/engineering/building-effective-agents
     kind: docs
-last_verified: 2026-10-20
+last_verified: 2026-10-30
 confidence: verified
 ---
 

@@ -6,16 +6,16 @@ titleEn: Guardrails for agents
 summary: 输入输出与工具三层防线、触发即止的 tripwire 机制，以及并行与阻塞的成本取舍。
 summaryEn: Input, output, and tool-level defenses, tripwires that halt on trigger, and the cost trade-off between parallel and blocking checks.
 sources:
-  - label: OpenAI Agents SDK 官方文档 · Guardrails（2026-10-20 直抓 200）
+  - label: OpenAI Agents SDK 官方文档 · Guardrails（2026-10-30 直抓 200）
     url: https://openai.github.io/openai-agents-python/guardrails/
     kind: docs
-  - label: Llama Guard 论文（arXiv 2312.06674，2026-10-20 直抓摘要页）
+  - label: Llama Guard 论文（arXiv 2312.06674，2026-10-30 直抓摘要页）
     url: https://arxiv.org/abs/2312.06674
     kind: paper
-  - label: Anthropic 工程博客 · Building effective agents（2026-10-20 WebFetch 核验官方页）
+  - label: Anthropic 工程博客 · Building effective agents（2026-10-30 直抓 200）
     url: https://www.anthropic.com/engineering/building-effective-agents
     kind: docs
-last_verified: 2026-10-20
+last_verified: 2026-10-30
 confidence: verified
 ---
 

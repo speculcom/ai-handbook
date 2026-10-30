@@ -6,16 +6,16 @@ titleEn: Planning for agents
 summary: 先想清楚步骤再动手，还是边做边定——规划模式怎么选，以及规划为什么会失效、失效了怎么救。
 summaryEn: Plan first or decide as you go — how to choose a planning pattern, and why plans fail.
 sources:
-  - label: Anthropic 工程博客 · Building effective agents（2026-10-20 WebFetch 核验官方页）
+  - label: Anthropic 工程博客 · Building effective agents（2026-10-30 直抓 200）
     url: https://www.anthropic.com/engineering/building-effective-agents
     kind: docs
-  - label: Reflexion 论文（arXiv 2303.11366，2026-10-20 直抓摘要页）
+  - label: Reflexion 论文（arXiv 2303.11366，2026-10-30 直抓摘要页）
     url: https://arxiv.org/abs/2303.11366
     kind: paper
-  - label: LangGraph 官方文档 · Persistence（2026-10-20 直抓 200）
+  - label: LangGraph 官方文档 · Persistence（2026-10-30 直抓 200）
     url: https://docs.langchain.com/oss/python/langgraph/persistence
     kind: docs
-last_verified: 2026-10-20
+last_verified: 2026-10-30
 confidence: verified
 ---
 

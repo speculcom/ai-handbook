@@ -6,16 +6,16 @@ titleEn: Evaluating agents
 summary: 没有评测就没有迭代：上线前用数据集测回归，上线后盯住真实流量，以及评测器自己会犯的坑。
 summaryEn: No evaluation, no iteration — offline regression testing, live monitoring, and the pitfalls of evaluators themselves.
 sources:
-  - label: LangSmith 官方文档 · Evaluation（2026-10-20 直抓 200）
+  - label: LangSmith 官方文档 · Evaluation（2026-10-30 直抓 200）
     url: https://docs.langchain.com/langsmith/evaluation
     kind: docs
-  - label: Anthropic 工程博客 · Building effective agents（2026-10-20 WebFetch 核验官方页）
+  - label: Anthropic 工程博客 · Building effective agents（2026-10-30 直抓 200）
     url: https://www.anthropic.com/engineering/building-effective-agents
     kind: docs
-  - label: Reflexion 论文（arXiv 2303.11366，2026-10-20 直抓摘要页）
+  - label: Reflexion 论文（arXiv 2303.11366，2026-10-30 直抓摘要页）
     url: https://arxiv.org/abs/2303.11366
     kind: paper
-last_verified: 2026-10-20
+last_verified: 2026-10-30
 confidence: verified
 ---
 

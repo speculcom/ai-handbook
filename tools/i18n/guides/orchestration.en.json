@@ -9,10 +9,10 @@
     "怎么选": "A decision order that is usually enough:\n\n1. Can a single agent with tools solve it? If yes, stop here.\n2. Can the task be cleanly cut into a fixed few steps? If yes, use a sequential flow (CrewAI sequential, Anthropic's prompt chaining).\n3. Are the inputs clearly categorized with large per-category differences? Use Router / routing.\n4. Are subtasks not enumerable in advance, needing dynamic decomposition? Use orchestrator-workers or Subagents.\n5. Do humans need to review key nodes? Add human checkpoints inside a custom workflow.\n\nSplitting wrong costs more than not splitting. Before splitting, think through:\nwhat each agent's own context should contain — and what it should not."
   },
   "sources": [
-    "LangGraph official docs · Multi-agent (direct fetch 200 on 2026-10-20)",
-    "OpenAI Agents SDK official docs · Handoffs (direct fetch 200 on 2026-10-20)",
-    "Google ADK official docs · Collaborative workflows (direct fetch 200 on 2026-10-20)",
-    "CrewAI official docs · Processes (direct fetch 200 on 2026-10-20)",
-    "Anthropic engineering blog · Building effective agents (official page verified via WebFetch on 2026-10-20)"
+    "LangGraph official docs · Multi-agent (direct fetch 200 on 2026-10-30)",
+    "OpenAI Agents SDK official docs · Handoffs (direct fetch 200 on 2026-10-30)",
+    "Google ADK official docs · Collaborative workflows (direct fetch 200 on 2026-10-30)",
+    "CrewAI official docs · Processes (direct fetch 200 on 2026-10-30)",
+    "Anthropic engineering blog · Building effective agents (official page verified via WebFetch on 2026-10-30)"
   ]
 }

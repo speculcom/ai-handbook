@@ -6,19 +6,19 @@ titleEn: Cost control for agents
 summary: 钱花在哪、怎么省：token 记账、前缀缓存、上下文膨胀与步数上限——只讲机制，不报价格。
 summaryEn: Where the money goes and how to curb it: token accounting, prefix caching, context bloat, and step caps — mechanisms only, no prices.
 sources:
-  - label: OpenAI 官方文档 · Prompt caching（2026-10-20 经官方页快照核验，直连被 Cloudflare 拦截）
+  - label: OpenAI 官方文档 · Prompt caching（2026-10-30 经代理通道直抓 200，直连仍被 Cloudflare 拦截）
     url: https://developers.openai.com/docs/guides/prompt-caching
     kind: docs
-  - label: Anthropic 官方文档 · Prompt caching（2026-10-20 经官方页快照核验，直连被地区策略拦截）
+  - label: Anthropic 官方文档 · Prompt caching（2026-10-30 经代理通道直抓 200，直连仍被地区策略拦截）
     url: https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching
     kind: docs
-  - label: OpenAI Agents SDK 官方文档 · Guardrails（2026-10-20 直抓 200）
+  - label: OpenAI Agents SDK 官方文档 · Guardrails（2026-10-30 直抓 200）
     url: https://openai.github.io/openai-agents-python/guardrails/
     kind: docs
-  - label: Anthropic 工程博客 · Building effective agents（2026-10-20 WebFetch 核验官方页）
+  - label: Anthropic 工程博客 · Building effective agents（2026-10-30 直抓 200）
     url: https://www.anthropic.com/engineering/building-effective-agents
     kind: docs
-last_verified: 2026-10-20
+last_verified: 2026-10-30
 confidence: verified
 ---
 
