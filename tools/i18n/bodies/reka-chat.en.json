@@ -1,0 +1,28 @@
+{
+  "_comment": "EN translation of tracks/chat/products/reka-chat.md — keys aligned by index with the Chinese source; facts unchanged.",
+  "axes": {
+    "model_access": "Dual pool of in-house models + curated open models: the Reka API model table verified same day lists reka-edge-2603 (16k context, text/image/video input) and reka-flash-3 (64k) alongside open tiers such as deepseek4-flash/glm5.3/qwen3.8-27b/gemma4-26b, all called through the api.reka.ai/v1 OpenAI-compatible endpoint; how the chat entry (app.reka.ai \"Edge Chat\") relates to the API pool was not verified item by item.",
+    "runtime": "Web entry at app.reka.ai (chat.reka.ai 307→app.reka.ai/chat, verified same day; page title \"Reka Playground / Edge Chat\"); plus an API (api.reka.ai/v1) and an open-weights local route (docs \"Run locally\": macOS Apple Silicon 32 GB+ / Linux serving).",
+    "local_files": "Hosted chat data is governed by the official privacy policy (June 2026 version verified same day), not verified item by item; the open Reka Edge weights run entirely on your own machine once downloaded (docs run-locally page on record) — hosted entry and local weights are two data boundaries.",
+    "background": "Chat returns immediately; no official statement verified for async/agentic task forms. The company's current mainline is research/Reka Cloud/video infrastructure/data infrastructure (four self-described sections on the homepage verified same day); the chat entry is not in the homepage's marquee area.",
+    "tools": "API-side tooling surface on record: the model table carries Tools/Structured outputs/Reasoning columns (reka-edge-2603 Yes on all three; reka-flash-3 Tools=No); the docs site ships its own MCP server (docs.reka.ai/_mcp/server, on record in llms.txt) for agents to read the docs.",
+    "context": "Conversations are organized per chat; no cross-session memory mechanism verified in official statements. On the API side context length varies by model (table same day: reka-edge-2603 16k, reka-flash-3 64k, open tiers 262k); the effective value in the chat entry was not verified.",
+    "permissions": "Account-gated (app.reka.ai requires login); contracting party Reka AI, Inc. (Terms of Use 2026-09: the contract covers reka.ai and its vision/creator/developer subdomains plus Reka Labs/Cloud/Vision services); the privacy page (June 2026) carries an EEA/UK section.",
+    "fit": "Fits: following the Reka in-house model line (Edge/Flash) + lining up curated open tiers (DeepSeek/GLM/Qwen/Gemma) through one API; wanting the Reka Edge open-weights local route. Not a fit: wanting a mature consumer chat product (thin entry surface, company focus has shifted to physical AI); wanting mainland-direct chat service (not filed)."
+  },
+  "runs": "This site has not completed measured runs. The coding test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task set does not apply to chat products).\n\n**Suggested runs** (three, each pointing at what the official pages do not give):\n\n- **Which model the Edge Chat entry actually serves, and whether it matches the API model table** (the entry is a JS app, unverified)\n- **Retention and training-use terms for hosted chat data** (read the June 2026 privacy policy item by item)\n- **Hands-on feel of the Reka Edge weights local hardware bar** (docs say Apple Silicon 32 GB+, not actually tested)",
+  "unknowns": "- Model selection, memory, and file-upload features of the Edge Chat entry (no official statement verified)\n- Retention and training-use terms for hosted chat data (not verified item by item)\n- The exact license terms of the Reka Edge weights page (HF page not verified verbatim)\n- How the chat entry relates to API quota/billing (pricing page on record in docs; entry side not verified)",
+  "related": [
+    "Also multi-model aggregation chat: Poe headlines a closed-source API pool, while Reka's entry is thin and its aggregation surface sits mainly on the API side.",
+    "Open-weights local route contrast: Reka Edge weights, once downloaded, are carried by a local runner stack — data never leaves the machine.",
+    "OpenAI-compatible endpoint consumer-side contrast: api.reka.ai/v1 can be plugged straight into coding agents that support custom endpoints."
+  ],
+  "sources": [
+    "Reka · official homepage (2026-10-31 direct 200; \"physical AI era\" four-section self-description + Reka Cloud/video/data infrastructure on record same day)",
+    "Reka Chat · product entry (chat.reka.ai 307→app.reka.ai/chat direct 200; page title Reka Playground/Edge Chat)",
+    "Reka · Terms of Use (2026-10-31 direct 200; Last Updated September 2026; party Reka AI, Inc.)",
+    "Reka · Privacy Policy (2026-10-31 direct 200; Effective June 2026; carries an EEA/UK section)",
+    "Reka API · documentation (2026-10-31 direct 200; api.reka.ai/v1 OpenAI-compatible; model table/Run locally/MCP server on record)",
+    "Reka News (change-record line, 2026-10-31 direct 200; Rho-1 2026-10-05/Inverse Dynamics 2026-10-02/EdgeQ 2026-09-22 entries on record same day)"
+  ]
+}

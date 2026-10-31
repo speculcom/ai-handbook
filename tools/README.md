@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 215 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 216 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 215 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 216 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 215 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 216 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -129,7 +129,7 @@ tools/（ai-handbook 子树）
 │   ├── coding/                 AI 编程大类
 │   │   ├── _category.md        大类收录声明（标准 + 形态判据 + 对象表）
 │   │   └── products/           41 个对象
-│   ├── chat/                   AI 对话助手（20 个对象）
+│   ├── chat/                   AI 对话助手（21 个对象）
 │   ├── image/ · video/ · audio/  AI 创作三大类（15 + 14 + 17 个对象）
 │   ├── framework/              Agent 框架与运行时（27 个对象）
 │   ├── mcp/                    MCP 生态（多 3 个特有维度，32 个对象）
@@ -291,7 +291,7 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
 | [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
 
-### AI 对话助手 —— 20 份
+### AI 对话助手 —— 21 份
 
 通用聊天助手——网页 / 应用形态，含国产。
 
@@ -317,6 +317,7 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | partial | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | partial | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
+| [Reka Chat（Reka Playground / Edge Chat）](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | partial | active |
 
 ### AI 图像创作 —— 15 份
 
@@ -536,8 +537,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 215 份 |
-| 大类分布 | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
-| 形态分布（form） | web 92 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
+| 档案总数 | 216 份 |
+| 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
+| 形态分布（form） | web 93 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

@@ -3,7 +3,7 @@
 > 去向枚举：`已有` / `待建`（P1>P2>P3）/ `只进nav` / `不收`（必须带理由）。
 > 收录标准见 [categories.md §2](../categories.md)：**通用**对话产品（网页/应用/API），官方定位「什么都能问」；垂直问答、角色扮演陪伴类不收。
 > 候选来源交叉（≥2）：nav cat=llm 44 条（对话向约 20 条）+ 计划候选名单 + 2026-10-21 官方核验补漏（18 个 URL 直抓：全部 200 或 Cloudflare 403 拦截，无死链）。
-> 本类现有档案 20 份（T6 升八维批 6 + T25 建档批 8 + C6-1 建档批 6）。
+> 本类现有档案 21 份（T6 升八维批 6 + T25 建档批 8 + C6-1 建档批 6 + C6-10 建档批 1）。
 
 | 工具 | 厂商 | 官方 URL | 去向 | 档案 id | 理由/备注 |
 |---|---|---|---|---|---|
@@ -27,7 +27,7 @@
 | Meta AI | Meta | https://www.meta.ai | 已有 | meta-ai | C6-1 落地 · 403=CF 拦截非死链（ai.meta.com/blog 200）· 与 coding 的 meta-muse 两条产品线 |
 | Poe | Quora | https://poe.com | 已有 | poe | C6-1 落地 · 307→login 403=登录墙非死链（terms/privacy/changelog 200）· 多模型聚合对话 |
 | HuggingChat | Hugging Face | https://huggingface.co/chat | 已有 | huggingchat | C6-1 落地 · 308→200 · 前端 chat-ui Apache-2.0（GitHub API 当日核验）· Models 137/Omni 当日在册 |
-| Reka | Reka AI | https://www.reka.ai | 待建 | reka-chat | P3 |
+| Reka | Reka AI | https://www.reka.ai | 已有 | reka-chat | C6-10 落地 · reka.ai 直连 200（www 308→裸域）· 公司主线已整体转向 physical AI（omni 模型/Reka Cloud/视频与数据基础设施），对话入口 app.reka.ai「Edge Chat」面薄——档案主轴=API 池（OpenAI 兼容，自家 Edge/Flash+精选开源档）与 Reka Edge 开放权重本机路线 |
 | DeepSeek 平台 | 深度求索 | https://platform.deepseek.com | 只进nav | | API 控制台，不是对话产品——档案 deepseek-chat 覆盖该厂商 |
 | Google AI Studio | Google | https://aistudio.google.com | 只进nav | | 开发者模型试验台（API 向），非 C 端对话 |
 | Anthropic Console | Anthropic | https://console.anthropic.com | 只进nav | | API 控制台 |
@@ -40,7 +40,7 @@
 
 ## 备注
 
-- 本类 20 已有——T25（chat +8）已落地 P1 六份（DeepSeek/元宝/智谱清言/通义千问/文心/Microsoft Copilot）+ P2 前二（Manus/讯飞星火）；C6-1（chat +6，2026-10-30）落地 P2 余六份（海螺AI/阶跃AI/Le Chat/Meta AI/Poe/HuggingChat）。⚠ Microsoft Copilot 档案 id 用 `microsoft-copilot`——`copilot` 已被 coding 大类的 GitHub Copilot 占用。
+- 本类 21 已有——T25（chat +8）已落地 P1 六份（DeepSeek/元宝/智谱清言/通义千问/文心/Microsoft Copilot）+ P2 前二（Manus/讯飞星火）；C6-1（chat +6，2026-10-30）落地 P2 余六份（海螺AI/阶跃AI/Le Chat/Meta AI/Poe/HuggingChat）；C6-10（2026-10-31）落地 P3 最后一份（Reka）——**chat 大类 inventory 全部销账**。⚠ Microsoft Copilot 档案 id 用 `microsoft-copilot`——`copilot` 已被 coding 大类的 GitHub Copilot 占用。
 - **不归本大类的 nav 条目**（写明去向，防分类混淆）：Perplexity / 秘塔 AI 搜索 / 天工 / You.com / Phind / Devv / 博查 / Brave Search / Consensus / Andi——搜索向对话归 `research`（T18 裁决）；Cohere/Nomic 等模型厂商 API 归 nav。
 - Manus 裁决链：T12 automation 标「T14 再裁」→ 本表落 chat/待建 P2（通用任务 agent，聊天是入口之一）。
 - L5：DeepSeek/元宝/智谱清言/通义/文心/星火/海螺/阶跃——国产只转述官方口径。

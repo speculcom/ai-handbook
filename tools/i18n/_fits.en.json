@@ -223,5 +223,6 @@
   "mlc-llm": "Fits: one engine deployed across platforms (especially mobile and browser ends); an engineering route trading compile-time optimization for performance. Not a fit: the GGUF download-and-run convenience route (llama.cpp/Ollama); users who do not want to touch a compile step.",
   "tabbyapi": "Fits: the ExLlamaV3 (GPTQ family) wanting an OpenAI-compatible API; one-shot Docker local inference servers. Not a fit: production-grade serving (officially self-described as not production-oriented); broad GGUF quant coverage (the llama.cpp root).",
   "msty": "Fits: hybrid local+cloud use in one app; private enterprise LLMs (Nexus). Not a fit: open-source auditable stacks; pure CLI serving routes.",
-  "llamaedge": "Fits: the portable-WASM route, edge/embedded devices; WasmEdge-ecosystem users. Not a fit: an active release cadence; llama.cpp's full native feature surface."
+  "llamaedge": "Fits: the portable-WASM route, edge/embedded devices; WasmEdge-ecosystem users. Not a fit: an active release cadence; llama.cpp's full native feature surface.",
+  "reka-chat": "Fits: following the Reka model line (Edge/Flash), lining up curated open tiers through one API, the Edge open-weights local route. Not a fit: mature consumer chat products; mainland-direct chat service (not filed)."
 }

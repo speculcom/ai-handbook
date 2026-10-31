@@ -20,7 +20,7 @@
 | Murf | Murf AI | https://murf.ai | 已有 | murf | C6-2 落地 · 直连 200 · 工作室+API+语音agent 三线（官网招牌已转向 agent 平台）· 克隆 FAQ 只给法律提示 |
 | CosyVoice | 阿里 FunAudioLLM（开源） | https://github.com/FunAudioLLM/CosyVoice | 已有 | cosyvoice | C6-2 落地 · 仓迁 QwenAudio org（301 当日核验）· Apache-2.0（GitHub API）· 三代线 · L5 只转述官方 |
 | F5-TTS | SWivid 等（开源） | https://github.com/SWivid/F5-TTS | 已有 | f5-tts | P3 · C6-3 落地（MIT ★15,487 当日核验；ModelScope 直连 200=大陆获取路径） |
-| Play.ht | Play.ht | https://play.ht | 待建 | playht | P3 · 直抓 000（网络受限未能核验）· 建档前再核 |
+| Play.ht | PlayAI（2025-07 被 Meta 收购） | https://play.ht | 不收 | | 停运坐实（C6-10 复核，2026-10-31）：DoH 解析 play.ht/www.play.ht 均无 A 记录=域名停止解析；playht.com 解析到 162.4.84.240（冒名站嫌疑，第三方多源点名 playhtai.com 等冒名）；docs.play.ht（readme.io 托管）仍在线=文档残骸非产品。停运线：Meta 2025-07 收购 PlayAI（TechCrunch 2025-07-13 确认报道）、API 2025-07-26 下线、2025-12-31 永久停服无迁移路径。nav 条目已 retired=true。L6 停运不收 |
 | AIVA | AIVA | https://www.aiva.ai | 已有 | aiva | P3 · C6-3 落地（版权按档位分层：免费档归平台限四平台变现/Pro 永久完整版权） |
 | Soundraw | Soundraw | https://soundraw.io | 已有 | soundraw | P3 · C6-3 落地（in-house 训练自述叙事；无独立 changelog 页） |
 | Resemble AI | Resemble AI | https://www.resemble.ai | 已有 | resemble | P3 · C6-3 落地（**定位已整体转向深伪检测/水印**——生成语音线转 Research Archive 不再商用售卖；permissions 维=身份注册涉生物特征） |
@@ -31,7 +31,7 @@
 
 ## 备注
 
-- 本类 17 已有——T28（audio +8）已落地 P1（4）+ P2（4）；C6-2 落地 murf/cosyvoice；C6-3 落地 f5-tts/aiva/soundraw/resemble/cartesia；P3 剩 playht（直连+代理双 000，建档前再核）。
+- 本类 17 已有——T28（audio +8）已落地 P1（4）+ P2（4）；C6-2 落地 murf/cosyvoice；C6-3 落地 f5-tts/aiva/soundraw/resemble/cartesia；P3 唯一余项 playht 已于 C6-10（2026-10-31）裁决**不收**（停运坐实：域名停解析+Meta 收购后 2025-12-31 永久停服）——**audio 大类 inventory 全部销账**。
 - **厂商修正**：魔音工坊厂商是出门问问（原候选名单误写标贝科技——算法备案清单主语「出门问问语音合成类算法（魔音工坊）」纠正了它）。
 - **声音克隆授权线**（收录标准 3）：fish audio/Resemble/ElevenLabs 克隆声音涉人格权——permissions 维要写官方条款原文，「官方未声明」要写明查过哪些页面（L4）。
 - 会议软件实时字幕（Teams/Zoom 字幕等）不收——categories.md 边界点名，不单列行。

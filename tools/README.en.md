@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 215 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 216 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 215 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 216 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -135,7 +135,7 @@ tools/ (ai-handbook subtree)
 │   ├── coding/                 AI coding category
 │   │   ├── _category.md        category declaration (criteria + form rulings + object table)
 │   │   └── products/           41 objects
-│   ├── chat/                   chat assistants (20 objects)
+│   ├── chat/                   chat assistants (21 objects)
 │   ├── image/ · video/ · audio/  three creation categories (15 + 14 + 17 objects)
 │   ├── framework/              agent frameworks & runtimes (27 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 32 objects)
@@ -306,7 +306,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
 | [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
 
-### Chat assistants — 20
+### Chat assistants — 21
 
 General-purpose chat assistants, web/app, including Chinese products
 
@@ -332,6 +332,7 @@ General-purpose chat assistants, web/app, including Chinese products
 | [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | partial | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | Microsoft | web | partial | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
+| [Reka Chat (Reka Playground / Edge Chat)](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | partial | active |
 
 ### Image creation — 15
 
@@ -551,8 +552,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 215 |
-| By category | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
-| By form | web 92 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
+| Total profiles | 216 |
+| By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
+| By form | web 93 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->
