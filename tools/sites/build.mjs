@@ -210,6 +210,7 @@ const VENDOR_EN = {
   '阿里 FunAudioLLM（开源）': 'Alibaba FunAudioLLM (open source)',
   'SWivid / 上交 X-LANCE 等（开源）': 'SWivid / SJTU X-LANCE et al. (open source)',
   'labring（环际云，国产）': 'labring (Huanji Cloud, China-origin)', '飞致云（国产）': 'Fit2Cloud (China-origin)',
+  'Open Interpreter（开源社区）': 'Open Interpreter (open-source community)', 'ElizaOS 社区（Eliza Research）': 'ElizaOS community (Eliza Research)', 'DeepWisdom（深度赋智，国产）': 'DeepWisdom (China-origin)',
   'AutoGPT（Determinist Ltd 运营）': 'AutoGPT (operated by Determinist Ltd)',
 };
 const vendorBi = (v) => {

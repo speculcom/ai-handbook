@@ -1,0 +1,26 @@
+{
+  "_comment": "English bodies for agno (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. providers not rendered — not included.",
+  "axes": {
+    "model_access": "Multi-model access (each vendor's API and local lines, not itemized); the positioning line is \"The self-driving agent platform\" (official repo description) — two layers: a framework library + a control plane (AgentOS).",
+    "runtime": "A Python framework + the AgentOS runtime: the library side defines agents/teams/workflows, the control-plane side runs and observes them. GitHub agno-agi/agno 42,981 stars, last push 2026-10-30 (API verified, highly active); releases are frequent (v3.1.12, 2026-10-29); the site changelog's latest entry is 2026-10-30.",
+    "local_files": "The library and AgentOS can be self-hosted (\"runs in your cloud\", official wording); the hosted control plane is a separate product surface (os.agno.com).",
+    "background": "The AgentOS control plane carries resident-running and observability semantics by itself (agents run inside the plane, tasks can be scheduled); pure library usage is ordinary in-process calls.",
+    "tools": "Built-in tool / knowledge-base / memory component lines (framework-native memory + knowledge components are the selling point); MCP support status not itemized.",
+    "context": "Built-in memory and knowledge components (agent memory, knowledge/RAG surfaces) are part of the product narrative; details not itemized.",
+    "permissions": "The control plane holds credentials and runs agents and tools — authentication and isolation of a self-hosted plane are operational duties; on the hosted surface (os.agno.com) data sits vendor-side.",
+    "fit": "Fits: wanting \"framework + control plane\" as one (run + observe + schedule), the Python ecosystem, selections that need frequent releases and active maintenance. Does not fit: wanting only a thin library without a plane, the TS ecosystem (Python-first)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
+  "unknowns": "- MCP support status (not itemized)\n- A capability-difference table between the hosted control plane (os.agno.com) and self-hosted AgentOS (not compared item by item)\n- The signing-entity line was not parsed in plain text from the fetched terms HTML (footer \"Agno Inc.\" on record; entity details not verified word by word)",
+  "related": [
+    "Same-category contrast: LangGraph gives you graphs and state mechanisms so you build the plane; Agno hands you the plane (AgentOS) directly — build vs. given.",
+    "Same-category contrast: Letta's memory is the agent-self-edited core (server form); Agno's memory is a framework-built-in component (plane-observability form).",
+    "Cross-category contrast: Dify builds agent apps visually with low-code; Agno defines agents in code and hands them to a plane to run — a boundary sample between automation and framework."
+  ],
+  "sources": [
+    "agno-agi/agno · repository (Apache-2.0; 42,981 stars, last push 2026-10-30, GitHub API verified)",
+    "Agno · official docs (docs.agno.com, the 308 target of the main site's /docs)",
+    "Agno · official changelog (latest entry 2026-10-30)",
+    "Agno · terms (os.agno.com/legal/tos, entity Agno Inc.)"
+  ]
+}

@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 200 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 205 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 200 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 205 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -137,7 +137,7 @@ tools/ (ai-handbook subtree)
 │   │   └── products/           41 objects
 │   ├── chat/                   chat assistants (20 objects)
 │   ├── image/ · video/ · audio/  three creation categories (13 + 14 + 17 objects)
-│   ├── framework/              agent frameworks & runtimes (22 objects)
+│   ├── framework/              agent frameworks & runtimes (27 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 28 objects)
 │   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 22 + 12 objects)
 ├── protocols/                  measurement protocols (coding / framework / mcp)
@@ -152,9 +152,9 @@ important distinguishing axis for this category:
 
 | family | Meaning | Objects |
 |---|---|---|
-| `coding-base` | Bases aimed directly at programming tasks | Claude Agent SDK · Codex SDK · OpenAI Agents SDK · Pydantic AI · smolagents |
-| `orchestration` | Orchestration / graph-execution frameworks | CrewAI · Google ADK · LangGraph · LlamaIndex · Microsoft Agent Framework · AG2 · Mastra |
-| `general-harness` | General-assistant style, or shipping a complete runtime | Deep Agents · Hermes Agent · OpenHands |
+| `coding-base` | Bases aimed directly at programming tasks | Claude Agent SDK · Codex SDK · OpenAI Agents SDK · Pydantic AI · smolagents · Open Interpreter |
+| `orchestration` | Orchestration / graph-execution frameworks | CrewAI · Google ADK · LangGraph · LlamaIndex · Microsoft Agent Framework · AG2 · Mastra · MetaGPT · Agno · Semantic Kernel |
+| `general-harness` | General-assistant style, or shipping a complete runtime | Deep Agents · Hermes Agent · OpenHands · ElizaOS |
 
 Grouping is not a ranking — frameworks in the same group solve different problems, so they
 cannot be compared directly.
@@ -445,7 +445,7 @@ Visual AI-app builders and workflow automation platforms
 | [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
-### Agent frameworks & runtimes — 22
+### Agent frameworks & runtimes — 27
 
 Building blocks for your own agent
 
@@ -453,11 +453,13 @@ Building blocks for your own agent
 |---|---|---|---|---|
 | [AG2](tracks/framework/products/ag2.md) | ag2ai | harness | partial | active |
 | [AgentScope](tracks/framework/products/agentscope.md) | Alibaba (ModelScope) | harness | partial | active |
+| [Agno (formerly Phidata)](tracks/framework/products/agno.md) | Agno Inc. | harness | partial | active |
 | [Claude Agent SDK](tracks/framework/products/claude-agent-sdk.md) | Anthropic | harness | partial | active |
 | [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | partial | active |
 | [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
 | [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
+| [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS community (Eliza Research) | harness | partial | active |
 | [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | partial | active |
 | [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
@@ -466,10 +468,13 @@ Building blocks for your own agent
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | partial | active |
 | [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
 | [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
+| [MetaGPT](tracks/framework/products/metagpt.md) | DeepWisdom (China-origin) | harness | partial | maintenance |
 | [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
+| [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter (open-source community) | harness | partial | active |
 | [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
 | [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
 | [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
+| [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | partial | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | partial | active |
@@ -536,8 +541,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 200 |
-| By category | coding 41 · chat 20 · image 13 · video 14 · audio 17 · research 11 · automation 22 · framework 22 · mcp 28 · runner 12 |
-| By form | web 90 · mcp 28 · harness 22 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| Total profiles | 205 |
+| By category | coding 41 · chat 20 · image 13 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 28 · runner 12 |
+| By form | web 90 · mcp 28 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

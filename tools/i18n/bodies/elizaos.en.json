@@ -1,0 +1,26 @@
+{
+  "_comment": "English bodies for elizaos (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. providers not rendered — not included.",
+  "axes": {
+    "model_access": "Plugin-style multi-model access (each vendor's API and local lines have plugins, not itemized); its core is not the model but the \"character\" abstraction — one agent configuration file defines persona + capabilities.",
+    "runtime": "A TypeScript runtime (official repo description: \"Open source agentic operating system\"): run a resident process, the agent connects to channels per its character config. GitHub elizaOS/eliza 19,739 stars, last push 2026-10-30 (API verified, active).",
+    "local_files": "Self-hosted, running in your own process/machine; memory and state live in a local storage layer (details not itemized).",
+    "background": "Resident process + multi-channel connection is the default form: the agent stays online long-term receiving messages and acting per its character — the \"character agent\" is the core of its product narrative.",
+    "tools": "The plugin ecosystem is the main axis (channel plugins / action plugins); MCP support status not itemized.",
+    "context": "The character file defines persona and knowledge surface, shared across channels (official docs: Character Interface / Agent Configuration on record).",
+    "permissions": "Plugins and actions can reach external accounts/channels — which channels to connect and which credentials to grant is the configurator's responsibility; third-party plugin code must be audited by you.",
+    "fit": "Fits: \"a resident agent with a persona\" (social/companion/community bots), the TS ecosystem, plugin-style extension. Does not fit: coding-task bases, enterprise workflow orchestration, scenarios sensitive to third-party plugin supply chains."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
+  "unknowns": "- MCP support status (not itemized)\n- Memory/state storage-layer details (not itemized)\n- The governance relationship between Eliza Research, the elizaOS community, and the token ecosystem (not verified, no assertion made)",
+  "related": [
+    "Same-category contrast: CrewAI orchestrates multi-agent work by \"role division\"; ElizaOS keeps a single agent resident by \"role persona\" — two meanings of \"character\".",
+    "Same-category contrast: both are resident general-purpose agent runtimes — Hermes follows the model-vendor line, ElizaOS the community-plugin line.",
+    "Cross-category contrast: ChatGPT's \"custom GPTs\" are also persona-style characters but run inside the official hosted surface; ElizaOS runs characters in your own process and channels."
+  ],
+  "sources": [
+    "elizaOS/eliza · repository (MIT; 19,739 stars, last push 2026-10-30, GitHub API verified)",
+    "ElizaOS · official docs (Overview / Character Interface / Agent Configuration)",
+    "Eliza Research · entity site (the 301 target of elizaos.ai, verified same day)",
+    "elizaOS/eliza · Releases (changelog)"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "_comment": "English bodies for semantic-kernel (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. providers not rendered — not included.",
+  "axes": {
+    "model_access": "Connector-style multi-model access (OpenAI / Azure OpenAI / Anthropic etc., not itemized); the positioning is embedding LLM capability into enterprise applications (official repo description: \"Integrate cutting-edge LLM technology quickly and easily into your apps\").",
+    "runtime": "**A multi-language SDK form** (C#/.NET and Python lines both release — dotnet-1.81.0 and python-1.46.0 both shipped in 2026-10, GitHub API verified): a library embedded in your application process, not a standalone runtime. GitHub microsoft/semantic-kernel 28,724 stars, last push 2026-10-30 (API verified, still releasing actively).",
+    "local_files": "As a library it lives inside your app, so the data surface follows your app; Azure-side services (Azure OpenAI etc.) keep data cloud-side — it splits by the connector you wire in.",
+    "background": "In-process calls are the main mode (library form); residency semantics follow the host application — SK itself provides no plane.",
+    "tools": "The skills/plugins function-calling line is the long-standing selling point (SK early on became known for the \"kernel + skills\" abstraction); MCP support status not itemized.",
+    "context": "Context management for enterprise-app embedding scenarios (planner/agent line details not itemized).",
+    "permissions": "The enterprise selection surface is the main axis (Azure-ecosystem auth/compliance lines follow the Microsoft cloud system); the library's own permission surface follows the host application.",
+    "fit": "Fits: .NET/enterprise stacks embedding AI into existing apps, the Azure ecosystem, needing dual-language (C#/Python) SDKs. Does not fit: greenfield starts — the official docs name Microsoft Agent Framework as its successor (see pitfalls)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
+  "unknowns": "- MCP support status (not itemized)\n- Coverage of the official SK → MAF migration guide (not checked item by item)\n- Maintenance-status breakdown of individual planner/agent components (not itemized)",
+  "related": [
+    "Same-category contrast: the same-vendor designated successor (the SK+AutoGen convergence line) — SK stays in active maintenance, MAF takes the new investment; choose by project stage.",
+    "Same-category contrast: Agno ships its own control plane (AgentOS); SK is only a library embedded in your app — \"give a plane\" vs. \"give a library\", two enterprise forms.",
+    "Cross-category contrast: both are Microsoft AI lines — Copilot is a finished assistant, SK is the base for embedding AI into your own apps — product vs. base, two faces."
+  ],
+  "sources": [
+    "microsoft/semantic-kernel · repository (MIT; 28,724 stars, last push 2026-10-30, GitHub API verified)",
+    "Semantic Kernel · official docs",
+    "microsoft/semantic-kernel · Releases (python-1.46.0 2026-10-28 / dotnet-1.81.0 2026-10-06)",
+    "Microsoft Agent Framework · official docs (the official designated successor of SK, migration reference)"
+  ]
+}

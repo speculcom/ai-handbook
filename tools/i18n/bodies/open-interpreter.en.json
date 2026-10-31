@@ -1,0 +1,26 @@
+{
+  "_comment": "English bodies for open-interpreter (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. providers not rendered — not included.",
+  "axes": {
+    "model_access": "Positioned as \"a coding agent for open models\" (official repo description and site title agree, naming open-weight models like Kimi K3 / GLM 5.3); open weights run locally + a terminal agent is its combined narrative.",
+    "runtime": "**A coding agent that runs in your terminal** (CLI form): the agent executes code/commands on your machine. GitHub openinterpreter/openinterpreter 68,746 stars, last push 2026-10-11 (API verified); releases follow the rust-v* line (rust-v0.0.56, 2026-10-07) — a Rust rewrite line on record.",
+    "local_files": "Local execution is the product itself: code and commands run directly on your machine, the working directory is your filesystem; there is no \"runs for you in the cloud\" hosted surface (no official hosted line found).",
+    "background": "**Resident in your terminal session**, looping execute-observe-continue per task; it is not a library-form base but a ready-to-use terminal agent (a different form factor from the SDK/framework entries).",
+    "tools": "Code execution / file / command tool surfaces are the core capability; MCP support status not itemized (the official docs have a terminal guide, details unchecked).",
+    "context": "Conversational context advances task by task (details not itemized); on the open-model side the context window depends on the local model you choose.",
+    "permissions": "**The permission surface is the selection crux**: the agent executes code and commands on your machine — the permission boundary of a local-execution agent must be defended by you (sandbox / least privilege / approval flows are operational duties, not a default safety net from the framework).",
+    "fit": "Fits: open-weight models + a local terminal coding agent, wanting execution on your own machine, followers of the Rust rewrite line. Does not fit: wanting cloud-hosted execution, enterprise control surfaces, or treating \"local execution\" as default-safe."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
+  "unknowns": "- The site's signing entity (the /privacy page's raw HTML does not plainly state an entity name; /terms is 404)\n- MCP support status (the official docs have a terminal guide; details not itemized)\n- A feature-comparison table between the Rust rewrite line and the old Python line (not compared item by item)",
+  "related": [
+    "Cross-category contrast: both are terminal coding agents — Claude Code binds its own model line, Open Interpreter leads with open models.",
+    "Cross-category contrast: both are open-source terminal coding agents — Aider's main axis is iterating inside git, Open Interpreter's main axis is local execution.",
+    "Cross-category contrast: Ollama runs open models locally; Open Interpreter consumes such local models for a terminal agent."
+  ],
+  "sources": [
+    "openinterpreter/openinterpreter · repository (Apache-2.0; 68,746 stars, last push 2026-10-11, GitHub API verified; migrated via 301 from OpenInterpreter/open-interpreter)",
+    "Open Interpreter · official docs (/docs/terminal)",
+    "Open Interpreter · Releases (rust-v0.0.56, 2026-10-07)",
+    "Open Interpreter · official blog"
+  ]
+}

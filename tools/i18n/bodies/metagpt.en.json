@@ -1,0 +1,26 @@
+{
+  "_comment": "English bodies for metagpt (framework). Mechanism per C0-1..6. No extraSections in source; sections/sectionTitles omitted. providers not rendered — not included.",
+  "axes": {
+    "model_access": "Multi-model access (each vendor's API and local lines, not itemized); its narrative is not the model but \"writing a software company's process into multi-agent collaboration\" (official repo description: \"The Multi-Agent Framework: First AI Software Company\").",
+    "runtime": "A Python multi-agent framework: a role pipeline of \"product manager → architect → engineer → QA\" collaborates to produce software artifacts. GitHub FoundationAgents/MetaGPT 71,097 stars (API verified); **last push 2026-01-21, latest release v0.8.2 (2025-03-09)** — mainline repo updates clearly slowed (other org repos remain active, see pitfalls).",
+    "local_files": "Runs locally: install via pip and it executes on your own machine; generated code, documents and temp artifacts all land in your working directory; there is no cloud-runs-it-for-you hosted execution line (the official docs offer no hosted surface).",
+    "background": "Batch-style pipelines are the main mode (one task runs through one software-production pipeline), not a resident message-receiving form; the research line is active (org repos such as CEO-Arena still pushing in 2026-10).",
+    "tools": "Built-in role-action / code-execution / document-output tool lines; MCP support status not itemized.",
+    "context": "Encoding SOPs (standard operating procedures) into role interactions is its core design — context is organized as inter-role messaging (per the official docs).",
+    "permissions": "Code execution happens on your machine; intermediate artifacts of a fully automatic multi-agent pipeline should be human-reviewed before landing — the output quality and responsibility surface of a fully automatic \"software company\" sits with the user.",
+    "fit": "Fits: multi-agent collaboration research, SOP pipeline experiments, academic reproduction of the software-generation process (heavily cited paper line). Does not fit: production selections needing active maintenance (pushes/releases slowed), fine-grained single-agent control."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
+  "unknowns": "- MCP support status (not itemized)\n- Whether the mainline has moved into a \"research-maintenance only\" state (not stated officially; recorded as maintenance per push/release facts, no assertion made)\n- The relationship between DeepWisdom's commercial product line and the framework (not verified)",
+  "related": [
+    "Same-category contrast: both are multi-role collaboration frameworks — CrewAI targets production orchestration and releases actively, MetaGPT leans to research pipelines and its repo has slowed; activity is the selection gap.",
+    "Same-category contrast: both are China-origin multi-agent frameworks — AgentScope (Alibaba line) is still pushing actively while MetaGPT's repo has slowed; even within the China-origin line there is an active/slow split.",
+    "Cross-category contrast: Devin is a finished product that works for you (coding category); MetaGPT is a base for you to build a \"software-company pipeline\" (framework category) — the two sides of the §7 inclusion standard."
+  ],
+  "sources": [
+    "FoundationAgents/MetaGPT · repository (MIT; 71,097 stars, last push 2026-01-21, GitHub API verified)",
+    "MetaGPT · official docs (docs.deepwisdom.ai, \"The Multi-Agent Framework\")",
+    "FoundationAgents/MetaGPT · Releases (v0.8.2, 2025-03-09)",
+    "FoundationAgents · organization page (activity contrast with related repos OpenManus / CEO-Arena)"
+  ]
+}
