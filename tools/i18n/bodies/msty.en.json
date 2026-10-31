@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-9 正文英译 · msty（2026-10-31）。八维+runs/unknowns/related/sources 全键非空。",
+  "axes": {
+    "model_access": "**A hybrid surface** — local models (GGUF download/management, llama.cpp-lineage backend) + cloud-model access\n(OpenAI/Anthropic and similar API keys); four product lines: Studio (the desktop flagship) / Go (mobile) / Nexus (private enterprise LLM platform) / Stack (cloud-hosted).",
+    "runtime": "A **desktop GUI app** (Windows/macOS) + the Go mobile app; local inference runs on the built-in llama.cpp-lineage backend.\nThe live site is msty.ai (msty.app 301-redirects to msty.ai; www.msty.app measured 000 direct — three-channel verification 2026-10-31);\nthe vendor entity is CloudStack, LLC (official-site wording).",
+    "local_files": "Reads and writes local files — local model files, chat history (local storage is its headline privacy positioning).",
+    "background": "The desktop app is persistent; the cloud lines (Stack/Nexus) involve a cloud account. Hybrid architecture: local inference does not depend on the cloud; cloud-model access needs an account/key.",
+    "tools": "In-app RAG/knowledge bases (document Q&A), an MCP access surface (per the official product-line wording); not a tool-plugging surface for agents — it is a consumer/enterprise desktop app.",
+    "context": "In-app chat history persists locally; knowledge bases (RAG document libraries) are reused across sessions.\nContext length varies with the chosen model and configuration (local models are bound by the llama.cpp-lineage backend's parameters).",
+    "permissions": "Desktop-app permissions = local files + network; the cloud lines need an account and subscription. Closed-source — no code-audit surface; privacy positioning follows the official site's self-description.",
+    "fit": "Fits: wanting \"one desktop app for local + cloud\" hybrid use; private enterprise LLMs (the Nexus line).\nDoes not fit: open-source auditable stacks (closed-source); CLI-only serving routes (the vLLM/TGI line)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/runner/_protocol.md](../../../protocols/runner/_protocol.md).",
+  "unknowns": "- Free/paid boundaries and quotas per product line (the pricing page not verified item by item)\n- The bundled llama.cpp backend version and quant-tier support (closed-source; the version ships with the app)\n- What the MCP access surface actually supports and how it is configured (mentioned in official product-line wording, not measured)",
+  "related": [
+    "Same family: desktop GUI local-model apps; LM Studio is free closed-source, Msty leans heavier on hybrid cloud + enterprise lines.",
+    "Same family: the open-source desktop GUI Jan contrasted with the closed-source desktop GUI Msty.",
+    "Backend contrast: desktop GUI apps mostly ride a llama.cpp/Ollama-style local inference backend.",
+    "Hybrid-surface contrast: Msty connects local and cloud models in one app; ChatGPT has only the cloud line — the hybrid trade-off (one entry, two data boundaries) is exactly its product claim."
+  ],
+  "sources": [
+    "Msty · official site (live domain msty.ai returned 200 direct; product matrix Studio/Go/Nexus/Stack; CloudStack, LLC)",
+    "Msty · docs-site changelog (docs.msty.app/getting-started/changelog; docs.msty.app 307-redirects to onboarding)",
+    "Msty · docs site (onboarding / product positioning)"
+  ]
+}

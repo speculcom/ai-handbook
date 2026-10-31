@@ -3,7 +3,7 @@
 > 去向枚举：`已有` / `待建`（P1>P2>P3）/ `只进nav` / `不收`（必须带理由）。
 > 收录标准见 [categories.md §10](../categories.md)：核心是**加载并运行**模型（本地应用或推理服务）；模型格式/量化支持可核验（与 models 站口径衔接）。**训练/微调工具不收；模型权重与量化索引是 models 站的活。**
 > 候选来源交叉（≥2）：models 站 guides（serving-deep-dive / gpu-cost-math 已核验过 vLLM/SGLang/llama.cpp 官方口径）+ nav + 2026-10-21 官方核验补漏。
-> 本类现有档案 0 份——全部候选首次盘点。
+> 本类现有档案 16 份（C6-9 后）。
 
 | 工具 | 厂商 | 官方 URL | 去向 | 档案 id | 理由/备注 |
 |---|---|---|---|---|---|
@@ -19,10 +19,10 @@
 | text-generation-webui | oobabooga | https://github.com/oobabooga/text-generation-webui | 已有 | text-generation-webui | P2 |
 | TGI（Text Generation Inference） | Hugging Face | https://huggingface.co/docs/text-generation-inference | 已有 | tgi | P2 · 服务化推理 |
 | LocalAI | Mudler | https://localai.io | 已有 | localai | P3 · OpenAI 兼容本地栈 |
-| MLC LLM | MLCEngine（CMU 系） | https://llm.mlc.ai | 待建 | mlc-llm | P3 · 多平台编译栈 |
-| TabbyAPI | Royal Lab（theroyallab） | https://github.com/theroyallab/tabbyAPI | 待建 | tabbyapi | P3 · ExLlama 官方 API server；README 声明本仓是唯一官方信息源（tabbyapi.com 反而非官方） |
-| Msty | Msty | https://www.msty.app | 待建 | msty | P3 |
-| LlamaEdge | LlamaEdge 社区 | https://llamaedge.com | 待建 | llamaedge | P3 · WASM 路线 |
+| MLC LLM | MLCEngine（CMU 系） | https://llm.mlc.ai | 已有 | mlc-llm | P3 · 多平台编译栈（C6-9 建档 2026-10-31：Apache-2.0 23,284★ 推送 2026-10-30；发版线在 PyPI 非 GitHub releases） |
+| TabbyAPI | Royal Lab（theroyallab） | https://github.com/theroyallab/tabbyAPI | 已有 | tabbyapi | P3 · ExLlama 官方 API server；README 声明本仓是唯一官方信息源（tabbyapi.com 反而非官方）（C6-9 建档 2026-10-31：AGPL-3.0 1,502★ 推送 2026-10-30；rolling release 无 releases） |
+| Msty | Msty | https://www.msty.app | 已有 | msty | P3（C6-9 建档 2026-10-31：现役域 msty.ai——msty.app 301→msty.ai、www.msty.app 直连 000；闭源，CloudStack, LLC） |
+| LlamaEdge | LlamaEdge 社区 | https://llamaedge.com | 已有 | llamaedge | P3 · WASM 路线（C6-9 建档 2026-10-31：Apache-2.0 1,663★ 推送停 2026-02-08、release 0.29.0 同日→lifecycle=maintenance） |
 | SillyTavern | SillyTavern 社区 | https://docs.sillytavern.app | 只进nav | | 前端/UI 壳，本身不加载模型（连后端跑）——不满足标准 1 |
 | Candle | Hugging Face | https://huggingface.co/docs/candle | 只进nav | | Rust 张量库（写代码跑模型），不是「运行器」产品 |
 | LLaMA-Factory | hiyouga | https://github.com/hiyouga/LLaMA-Factory | 不收 | | 训练/微调工具——categories.md 边界点名不收（归 nav） |
@@ -31,6 +31,6 @@
 
 ## 备注
 
-- T21 建档批已落地 12 份（P1 5 + P2 6 + P3 补位 1：LocalAI）；P3 层其余（MLC LLM/TabbyAPI/Msty/LlamaEdge）留后续批次。
+- T21 建档批已落地 12 份（P1 5 + P2 6 + P3 补位 1：LocalAI）；P3 层其余（MLC LLM/TabbyAPI/Msty/LlamaEdge）已于 2026-10-31 补齐（C6-9）——**runner 大类 inventory 全部销账**（已有 16 · 只进nav 2 · 不收 3）。
 - **与 models 站的口径衔接**：档案的 model_access / runtime 维要写「支持哪些格式（GGUF/safetensors/MLX…）× 哪些量化档」，与 models 站 GGUF 索引互链（learn 站 llama.cpp/KV 缓存词条已有 refs 回链先例）。
 - vLLM/SGLang 的官方口径（PagedAttention/RadixAttention 自报数字）在 models guides `serving-deep-dive.md` 已核验过——建档直接复用该快照并挂同一出处，不重复抓取。

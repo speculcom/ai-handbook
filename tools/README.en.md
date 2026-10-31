@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 211 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 215 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 211 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 215 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -139,7 +139,7 @@ tools/ (ai-handbook subtree)
 │   ├── image/ · video/ · audio/  three creation categories (15 + 14 + 17 objects)
 │   ├── framework/              agent frameworks & runtimes (27 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 32 objects)
-│   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 22 + 12 objects)
+│   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 22 + 16 objects)
 ├── protocols/                  measurement protocols (coding / framework / mcp)
 ├── scripts/                    validators (validate / audit / quality)
 └── CHANGELOG.md                data-layer changelog
@@ -520,7 +520,7 @@ MCP servers and the tool ecosystem
 | [Time MCP Server](tracks/mcp/products/time.md) | Model Context Protocol | mcp | verified | active |
 | [Zapier MCP](tracks/mcp/products/zapier-mcp.md) | Zapier | mcp | partial | active |
 
-### Local model runners — 12
+### Local model runners — 16
 
 Desktop apps that run open-weight models on your machine
 
@@ -530,11 +530,15 @@ Desktop apps that run open-weight models on your machine
 | [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | partial | active |
 | [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins (KoboldAI community) | local-app | partial | active |
 | [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
+| [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge community (WasmEdge / Second State ecosystem) | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | partial | active |
 | [LocalAI](tracks/runner/products/localai.md) | Mudler T. (mudler) | cli | partial | active |
+| [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine (CMU lineage, mlc-ai) | cli | partial | active |
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
+| [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | partial | active |
 | [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
+| [TabbyAPI](tracks/runner/products/tabbyapi.md) | Royal Lab（theroyallab） | cli | partial | active |
 | [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | archived |
 | [text-generation-webui / textgen](tracks/runner/products/text-generation-webui.md) | oobabooga | local-app | partial | maintenance |
 | [vLLM](tracks/runner/products/vllm.md) | vLLM project (PyTorch Foundation) | cli | partial | active |
@@ -547,8 +551,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 211 |
-| By category | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 12 |
-| By form | web 92 · mcp 32 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| Total profiles | 215 |
+| By category | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
+| By form | web 92 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

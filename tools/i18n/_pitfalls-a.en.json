@@ -1094,5 +1094,28 @@
     "Old connections (built before the Operator permission) erroring when calling Operator tools — reconnect (official troubleshooting wording)",
     "Self-built MCP client OAuth callbacks not on the allowlist — registration and authorization fail unless localhost; otherwise request allowlisting first",
     "apply_proposals really changes live workspace configuration — Operator proposals are not a preview toy"
+  ],
+  "mlc-llm": [
+    "Treating GitHub releases as the release line — releases nominally stop at v0.20.0 (tag v0.26.dev0); actual releases happen on PyPI — watch PyPI",
+    "Treating it as part of the GGUF ecosystem — MLC follows the safetensors compile route; pre-quantized GGUF is the llama.cpp root; the model-preparation step differs",
+    "Reading llm.mlc.ai's 000 direct measurement as a dead site — network restriction, not retirement (the GitHub repo and docs are reachable via proxy)",
+    "Ignoring the compile step — \"compile then deploy\" is its operational model: the first run compiles or fetches compiled artifacts, it is not pull-and-run"
+  ],
+  "tabbyapi": [
+    "Treating tabbyapi.com as the official site — the README carries the official warning \"The ONLY official source for TabbyAPI information is this repository\"; any other site/download/service claiming to represent TabbyAPI is unaffiliated (tabbyapi.com serves a Cloudflare verification page direct)",
+    "Waiting for GitHub releases — releases count is 0; it is a rolling release, watch commits and the Wiki",
+    "Using it as a production server — the README disclaimer plainly says hobby project, not production-oriented",
+    "Forgetting --shm-size in Docker — ExLlamaV3 tensor parallelism/MoE offload uses shared memory; the 64 MiB default breaks (the README says to keep the flag)"
+  ],
+  "msty": [
+    "Using the legacy domain msty.app — it 301-redirects to msty.ai (www.msty.app measured 000 direct); the live domain is msty.ai (verified 2026-10-31)",
+    "Conflating the four product lines — Studio (desktop) / Go (mobile) / Nexus (private enterprise) / Stack (cloud-hosted) are different products with different capability and billing surfaces",
+    "Treating closed-source as open-source — no published source license; privacy/telemetry claims can only follow the official site's self-description, not code audit"
+  ],
+  "llamaedge": [
+    "Looking for the repo under the old org name — the live main repo is LlamaEdge/LlamaEdge (the README still links second-state/LlamaEdge downloads; both orgs are the same ecosystem)",
+    "Reading the 2026-02-08 push stop as retirement — the llamaedge.com docs line is online (200 direct) and release 0.29.0 shipped the same day; lifecycle follows the maintenance wording",
+    "Forgetting the WasmEdge prerequisite — it is not a standalone binary runner but .wasm apps on WasmEdge; install_v2.sh is step one",
+    "Treating the six model lines as equally mature — the LLM line is the main repo's core; embedding/speech/image lines live in separate repos and docs pages with different maturity"
   ]
 }

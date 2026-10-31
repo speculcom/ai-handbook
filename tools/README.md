@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 211 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 215 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 211 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 215 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 211 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 215 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -133,7 +133,7 @@ tools/（ai-handbook 子树）
 │   ├── image/ · video/ · audio/  AI 创作三大类（15 + 14 + 17 个对象）
 │   ├── framework/              Agent 框架与运行时（27 个对象）
 │   ├── mcp/                    MCP 生态（多 3 个特有维度，32 个对象）
-│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 22 + 12 个对象）
+│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 22 + 16 个对象）
 ├── protocols/                  实测协议（coding / framework / mcp 三套）
 ├── scripts/                    校验脚本（validate / audit / quality）
 └── CHANGELOG.md                数据层更新记录
@@ -505,7 +505,7 @@ MCP 服务器与工具生态。
 | [Time MCP Server](tracks/mcp/products/time.md) | Model Context Protocol | mcp | verified | active |
 | [Zapier MCP](tracks/mcp/products/zapier-mcp.md) | Zapier | mcp | partial | active |
 
-### 本地模型运行器 —— 12 份
+### 本地模型运行器 —— 16 份
 
 在自己机器上跑开源模型的桌面应用。
 
@@ -515,11 +515,15 @@ MCP 服务器与工具生态。
 | [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | partial | active |
 | [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins（KoboldAI 社区） | local-app | partial | active |
 | [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
+| [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge 社区（WasmEdge / Second State 生态） | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | partial | active |
 | [LocalAI](tracks/runner/products/localai.md) | Mudler T.（mudler） | cli | partial | active |
+| [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine（CMU 系，mlc-ai） | cli | partial | active |
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
+| [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | partial | active |
 | [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
+| [TabbyAPI](tracks/runner/products/tabbyapi.md) | Royal Lab（theroyallab） | cli | partial | active |
 | [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | archived |
 | [text-generation-webui / textgen](tracks/runner/products/text-generation-webui.md) | oobabooga | local-app | partial | maintenance |
 | [vLLM](tracks/runner/products/vllm.md) | vLLM 项目（PyTorch 基金会） | cli | partial | active |
@@ -532,8 +536,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 211 份 |
-| 大类分布 | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 12 |
-| 形态分布（form） | web 92 · mcp 32 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| 档案总数 | 215 份 |
+| 大类分布 | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
+| 形态分布（form） | web 92 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

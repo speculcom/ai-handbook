@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-9 正文英译 · llamaedge（2026-10-31）。八维+runs/unknowns/related/sources 全键非空。",
+  "axes": {
+    "model_access": "**Local GGUF weights + a WASM app layer** — models load via GGML/AUTO preloading (README command wording),\nwhile the inference logic is compiled into Wasm apps (llama-chat.wasm and friends) running on the WasmEdge runtime;\nsix model lines covered: LLM/embedding/speech-to-text/TTS/text-to-image/multimodal (README category links).",
+    "runtime": "**Cross-platform Wasm apps on the WasmEdge runtime** — \"cross-platform portable Wasm app that can run on many\nCPU and GPU devices\" (README); install WasmEdge first, then download a GGUF + a .wasm app and run.\nGitHub LlamaEdge/LlamaEdge Apache-2.0 1,663 stars, pushes stopped 2026-02-08 (API verified);\nthe latest release 0.29.0 was published the same day (2026-02-08).",
+    "local_files": "Reads and writes local files — GGUF model files, .wasm app files; wasmedge --dir .:. mounts the current directory.",
+    "background": "A CLI/local-service process (OpenAI-compatible web endpoints: /v1/chat/completions, /v1/embeddings,\n/v1/audio/transcriptions, etc. — README endpoint list); no persistent cloud surface.",
+    "tools": "The OpenAI-compatible API endpoint surface + the CLI chat app; not an agent-tool host.",
+    "context": "No cross-session memory (it is an inference-serving surface) — context length follows the GGUF model and WasmEdge preload parameters;\nconversation state is carried by the client, the server stores no sessions.",
+    "permissions": "Runs locally; the permission surface = local files and CPU/GPU. The Wasm sandbox is the runtime layer's selling point (WasmEdge wording).",
+    "fit": "Fits: the WASM portability route — one .wasm app across many CPU/GPU devices; edge/embedded scenarios (the WasmEdge ecosystem).\nDoes not fit: an active release cadence (main-repo pushes stopped 2026-02-08); llama.cpp's full native feature surface (the WASM layer is a transpiled route)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/runner/_protocol.md](../../../protocols/runner/_protocol.md).",
+  "unknowns": "- Whether there is any migration/successor statement after the update pause (most repos in the org stopped updating from 2025; no official statement found)\n- The support matrix of each GPU backend (CUDA/Metal) on the WasmEdge side (docs pages exist; not verified item by item)\n- The release repos and version cadence of each of the six model lines (README category links point to different repos)",
+  "related": [
+    "Backend contrast: LlamaEdge compiles llama.cpp-lineage inference into Wasm running on WasmEdge; GGUF is the same source.",
+    "Contrast: Ollama is a productized wrapper; LlamaEdge is the portable-Wasm route, aimed at edge devices.",
+    "Same family: both are OpenAI-compatible local serving stacks; LocalAI goes the Go backend-plugin route, LlamaEdge the Wasm-app route.",
+    "Consumer-side contrast: coding agents like Aider can point at any OpenAI-compatible endpoint — once LlamaEdge serves a local endpoint, agent workflows can run on the WASM inference stack (endpoint compatibility is where the two lines meet)."
+  ],
+  "sources": [
+    "LlamaEdge/LlamaEdge · repository (Apache-2.0; 1,663 stars, pushes stopped 2026-02-08, GitHub API verified; README quick start + endpoint list)",
+    "GitHub releases · LlamaEdge (change-record line: latest release 0.29.0, published 2026-02-08)",
+    "LlamaEdge · official docs site (llamaedge.com/docs returned 200 direct; six model-category pages)"
+  ]
+}

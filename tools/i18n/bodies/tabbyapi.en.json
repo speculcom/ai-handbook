@@ -1,0 +1,26 @@
+{
+  "_comment": "C6-9 正文英译 · tabbyapi（2026-10-31）。八维+runs/unknowns/related/sources 全键非空。",
+  "axes": {
+    "model_access": "**The official API backend for ExLlamaV3** — the README says \"TabbyAPI is also the official API backend server for Exllamav3\":\nit runs local weights supported by ExLlamaV3 (the exllamav3 backend) such as GPTQ/GGUF, not a service calling an external model.\nModel files live in a local directory mounted into the process (Docker wording: mount the models directory into the container).",
+    "runtime": "A **FastAPI local server** (Python 3.10–3.14); the official CUDA image is on GHCR (ghcr.io/theroyallab/tabbyapi),\ntags latest (CUDA 12.8)/cu13/latest-rocm (AMD RX 7900 series)/latest-extras (with the optional embeddings stack).\nGitHub theroyallab/tabbyAPI AGPL-3.0 1,502 stars, pushed 2026-10-30 (API verified);\n**GitHub releases count is 0 — releases follow a rolling-release model (README self-description); the change-record line is commits**.",
+    "local_files": "Reads and writes local files — the model-weights directory, config.yml; the API defaults to localhost:5000.",
+    "background": "A persistent local process (FastAPI server); no persistent cloud surface. The README disclaimer self-describes it as a \"hobby project…not meant to run\non production servers\" — for production workloads the official advice is to look elsewhere.",
+    "tools": "An OpenAI-compatible API surface (chat/completions and similar endpoints) + an admin surface (admin UI/status page; admin features visible evolving in commits);\nnot an agent-tool host — it is an inference-API server for frontends (SillyTavern-style) or clients.",
+    "context": "No cross-session memory (it is an inference-serving surface) — context length follows the ExLlamaV3 backend config (max_context-style parameters);\nconversation state is carried by the frontend client (SillyTavern-style); the server stores no chat history.",
+    "permissions": "Runs locally; an API key can be configured (config.yml); the permission surface = local files and GPU. The Docker wording requires a larger --shm-size\n(ExLlamaV3 uses POSIX shared memory for tensor parallelism and CPU MoE offload; the 64 MiB default is not enough — stated plainly in the README).",
+    "fit": "Fits: the ExLlamaV3 ecosystem (GPTQ-family quantization) wanting an OpenAI-compatible API — the standard answer; one-shot Docker CUDA/ROCm inference servers.\nDoes not fit: production-grade serving (officially self-described as not production-oriented — that is the vLLM/TGI line); broad GGUF quant coverage (the llama.cpp root)."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/runner/_protocol.md](../../../protocols/runner/_protocol.md).",
+  "unknowns": "- The full quantization-format support matrix (per-tier GPTQ/GGUF support; the Wiki has wording, not verified item by item)\n- All config.yml options (API key, admin-surface toggles, etc.; not enumerated item by item)\n- What the embeddings stack (latest-extras) actually covers (mentioned in the README, not verified)",
+  "related": [
+    "Contrast: llama.cpp is the GGUF inference root; TabbyAPI stands on the ExLlamaV3 backend (strong on the GPTQ family).",
+    "Contrast: Ollama is a productized pull-and-run wrapper; TabbyAPI is an API server for frontends, with a more engineering-oriented configuration surface.",
+    "Same family: both belong to the local-inference-server + web-admin ecosystem; TabbyAPI has no UI shell — it is a pure API server.",
+    "Boundary contrast: a cloud chat entry vs a local ExLlamaV3 inference API — both OpenAI-compatible endpoints, completely different data boundaries and model ownership."
+  ],
+  "sources": [
+    "theroyallab/tabbyAPI · repository (AGPL-3.0; 1,502 stars, pushed 2026-10-30, GitHub API verified; README official-uniqueness warning + Exllamav3 backend + Docker wording)",
+    "GitHub commits · tabbyAPI (change-record line: rolling release, no releases)",
+    "TabbyAPI · official docs (theroyallab.github.io/tabbyAPI, the API-docs badge linked from the README)"
+  ]
+}

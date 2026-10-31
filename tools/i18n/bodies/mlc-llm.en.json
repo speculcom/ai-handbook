@@ -1,0 +1,25 @@
+{
+  "_comment": "C6-9 正文英译 · mlc-llm（2026-10-31）。八维+runs/unknowns/related/sources 全键非空。",
+  "axes": {
+    "model_access": "**Ships its own compiled inference engine (MLCEngine)** — not a service calling an external model; it compiles models into native executables for the target platform\n(the official positioning: \"Universal LLM Deployment Engine with ML Compilation\"). On the model side it takes the safetensors family\n(the HF-weights-compile route), a different root from llama.cpp's pre-quantized GGUF route.",
+    "runtime": "A **compile-and-deploy CLI/library** (pip mlc-llm / the mlc_llm command); the platform matrix is its headline surface:\nNVIDIA/AMD/Intel GPUs (CUDA/Vulkan/ROCm/OpenCL), Apple Metal (incl. iOS/iPadOS),\nweb browsers (WebGPU+WASM, the sister project WebLLM), Android (OpenCL) — the README platform table marks cell by cell.\nGitHub mlc-ai/mlc-llm Apache-2.0 23,284 stars, pushed 2026-10-30 (API verified);\n**GitHub releases nominally stop at v0.20.0 (dev tag v0.26.dev0) — the release line is on PyPI (the mlc-llm package)**.",
+    "local_files": "Reads and writes local files — model weights (compiled artifacts cached locally), compile-config JSON; the REST server runs on a local port.\nThe compile step itself produces platform-specific artifacts (its operational difference from \"download-and-run\" runners).",
+    "background": "The REST server is a persistent local process (OpenAI-compatible API); no persistent cloud surface — purely local/self-hosted.",
+    "tools": "Not an agent-tool surface — its \"tools\" are the command line and the API: the mlc_llm generate/generate-config/compile\nsubcommands + MLCEngine's **OpenAI-compatible REST API** (REST server/python/javascript/iOS/Android\nbacked by the same engine and same compiler — README wording).",
+    "context": "No cross-session memory (it is an inference-serving surface) — context length follows the compile-time model config and runtime parameters;\nconversation state is carried by the client, the server stores no sessions.",
+    "permissions": "Local runs are unauthenticated by default (REST server on a local port); the permission surface = local files and GPU access. No cloud account, no telemetry disclosure surface.",
+    "fit": "Fits: \"one engine, multi-platform deployment\" — especially mobile (iOS/Android native Metal/OpenCL) and browser (WebLLM)\nends that llama.cpp/Ollama do not cover; an engineering route that trades compile-time optimization for runtime performance.\nDoes not fit: the convenience route of GGUF download-and-run (llama.cpp/Ollama); users who do not want to touch a compile step."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/runner/_protocol.md](../../../protocols/runner/_protocol.md).",
+  "unknowns": "- The current PyPI version number and upload date (pypi.org measured 000 direct and unreachable; per snapshot discipline no unverified numbers are recorded)\n- The complete supported-model list (the docs have a list; not enumerated item by item)\n- How compiled artifacts are distributed per platform (precompiled vs user-compiled boundary; the docs wording not verified item by item)",
+  "related": [
+    "Contrast: Ollama is a productized GGUF pull-and-run wrapper; MLC is a compile-and-deploy engine, and its end coverage (phones/browsers) is what Ollama lacks.",
+    "Two roots contrasted: llama.cpp runs pre-quantized GGUF directly; MLC compiles safetensors into platform-native code.",
+    "Boundary contrast: a cloud chat entry (data on their side) vs a local compile-and-deploy engine (data never leaves the machine) — the OpenAI-compatible API makes them interchangeable for clients, while the data boundaries are completely different."
+  ],
+  "sources": [
+    "mlc-ai/mlc-llm · repository (Apache-2.0; 23,284 stars, pushed 2026-10-30, GitHub API verified; README platform matrix + MLCEngine positioning)",
+    "GitHub releases/tags · mlc-llm (change-record line: releases nominally v0.20.0, tag v0.26.dev0 — the release line is on PyPI)",
+    "MLC LLM · official docs site (install/quick start/engine positioning; llm.mlc.ai measured 000 direct due to network restriction, 200 via proxy)"
+  ]
+}

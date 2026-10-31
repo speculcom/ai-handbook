@@ -212,6 +212,8 @@ const VENDOR_EN = {
   'labring（环际云，国产）': 'labring (Huanji Cloud, China-origin)', '飞致云（国产）': 'Fit2Cloud (China-origin)',
   'Open Interpreter（开源社区）': 'Open Interpreter (open-source community)', 'ElizaOS 社区（Eliza Research）': 'ElizaOS community (Eliza Research)', 'DeepWisdom（深度赋智，国产）': 'DeepWisdom (China-origin)',
   'AutoGPT（Determinist Ltd 运营）': 'AutoGPT (operated by Determinist Ltd)',
+  'MLCEngine（CMU 系，mlc-ai）': 'MLCEngine (CMU lineage, mlc-ai)',
+  'LlamaEdge 社区（WasmEdge / Second State 生态）': 'LlamaEdge community (WasmEdge / Second State ecosystem)',
 };
 const vendorBi = (v) => {
   const en = UI_EN.vendors[v] || VENDOR_EN[v];
