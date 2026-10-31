@@ -1,0 +1,31 @@
+{
+  "_comment": "C6-8 正文英译 · intercom-mcp（2026-10-31）。八维+mcp 三维+runs/unknowns/related/sources 全键非空。",
+  "axes": {
+    "model_access": "**It calls no model itself** — an official hosted remote server called by MCP clients. One exception wording: the **Fin Operator tool family**\ndrives Intercom's own AI (Operator) to work — send_operator_message consumes Operator credits\n(billed the same way as starting a turn inside Intercom), while the other four Operator tools are free.",
+    "runtime": "An **official hosted remote server** (no self-hosted line): the US endpoint https://mcp.intercom.com/mcp,\nthe EU endpoint https://mcp.eu.intercom.com/mcp (EU requests are processed within the EU, in line with its Regional Data Hosting commitments);\n**AU-hosted workspaces are not yet supported** (stated plainly by the official docs). The endpoints measured 401 direct (they exist, auth required — not dead links).",
+    "local_files": "Reads and writes no local files — the read/write objects all live on the Intercom workspace side (conversations/contacts/companies/Help Center articles).",
+    "background": "No persistent local background; the connection lives between the client and Intercom's hosted endpoint (official wording: the connection stays live to receive updates).",
+    "tools": "The current official-docs count is **14 tools**: the universal family **search** (query DSL: object_type:conversations/contacts,\nfield operators eq/neq/gt/contains, pagination via starting_after) + **fetch** (full details by prefixed ID);\nthe direct-API family search_conversations / get_conversation / search_contacts / companies /\nHelp Center articles (**list/search/get read + create/update write**);\nand the **five Fin Operator tools** (send_operator_message / get_operator_response / get_proposal_details /\napply_proposals / reject_proposals — apply changes your workspace's live configuration).",
+    "context": "No server-side cross-session memory; the context is your Intercom workspace data itself (official narrative: AI assistants keep awareness of your workspace).\nOperator chats have server-side session state (get_operator_response collects the answer later).",
+    "permissions": "**Two authentication modes**: OAuth (recommended; Dynamic Client Registration, but every registered redirect URI passes an allowlist —\nlocalhost/127.0.0.1 on any port is already allowed, other callbacks must be requested first) or Bearer token (an Intercom API token,\nwith scopes: read users/companies, read conversations, read+write articles).\n**Bearer connections do not get the Fin Operator tools** (stated plainly by the official docs); connections made before the Operator permission existed must reconnect.\nTools are authorized as you — mirroring your own workspace permissions, MCP grants no extra rights.",
+    "fit": "Fits: support teams plugging Intercom data into AI tools (Claude/Cursor/VS Code and other officially listed clients) —\nquerying conversations and contacts, reading and writing Help Center docs, driving Operator; EU workspaces get a data-residency line.\nNot a fit: AU-hosted workspaces (unsupported); wanting a self-hosted/open-source implementation (none); wanting Bearer simplicity while also using Operator (you won't get it)."
+  },
+  "mcp": {
+    "transport": "**streamable-http** (recommended: US https://mcp.intercom.com/mcp, EU https://mcp.eu.intercom.com/mcp)\n+ **legacy SSE** (/sse, marked deprecated by the official docs, kept only for backwards compatibility).\nVerified: the mcp.intercom.com landing page and developers.intercom.com/docs/guides/mcp (200 direct on 2026-10-31; endpoints 401 direct = exist, auth required).",
+    "auth": "OAuth (recommended; DCR + redirect-URI allowlist) or Bearer token (API token + scopes: read users/companies, read conversations, read+write articles).\nTool authorization mirrors your own workspace permissions — MCP grants no extra rights.",
+    "scope": "Read surface (conversations/contacts/companies/articles) + **write surface** (Help Center article create/update,\nOperator apply_proposals changing live workspace configuration); no local surface. The write surface is gated by workspace permissions and proposal approval."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- The full parameter surface of the 14 tools and the pagination-cursor semantics in detail (the docs are thorough; not enumerated item by item)\n- Operator credit pricing and quota numbers (per D9 and snapshot discipline no numbers are recorded)\n- The support timeline for AU-hosted workspaces (the official docs only say not yet supported)",
+  "related": [
+    "A customer-support vertical vs a thousand-app hub: Intercom is an official single-product deep integration, Zapier is a cross-application entry point.",
+    "Both are official SaaS remote servers: Atlassian covers tickets/knowledge, Intercom covers customer conversations plus Help Center read-and-write."
+  ],
+  "sources": [
+    "Intercom Developers · MCP guide (14-tool inventory / OAuth vs Bearer / scopes / troubleshooting; 200 direct)",
+    "mcp.intercom.com · official MCP landing page (regional US/EU endpoints, tool and pagination wording; reachable direct)",
+    "Intercom · official integration page \"Intercom MCP Server integration\" (the OAuth wording / US-hosted availability / client list)",
+    "intercom/intercom-mcp-server · documentation-only repo (no license; last push 2025-09-22, GitHub API verified; commits as the change-record line)",
+    "GitHub commits · intercom-mcp-server (documentation change-record line)"
+  ]
+}

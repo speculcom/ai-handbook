@@ -1,0 +1,30 @@
+{
+  "_comment": "C6-8 正文英译 · shopify-mcp（2026-10-31）。八维+mcp 三维+runs/unknowns/related/sources 全键非空。",
+  "axes": {
+    "model_access": "**It calls no model itself** — a local server (stdio) called by MCP clients. It feeds your coding agent\n\"Shopify platform context\": shopify.dev documentation retrieval, Admin GraphQL schema introspection, and the like.",
+    "runtime": "A **local npx line** (npx -y @shopify/dev-mcp@latest, Node 18+); the official docs state plainly \"the server runs locally\nand doesn't require authentication\". The release line lives on npm (1.18.0, 2026-10-27, 143 versions);\n**there is no standalone dev-mcp GitHub repo** (Shopify/dev-mcp is 404) — the code ships with the npm package,\nwhile the plugin/skills line lives in the Shopify/Shopify-AI-Toolkit repo (MIT 621★, pushed 2026-10-27).\nThe official package also ships instrumentation telemetry (opt out via OPT_OUT_INSTRUMENTATION).",
+    "local_files": "Reads and writes no local files — it outputs documentation search results and schema structures; it serves the scenario of \"you writing Shopify code\",\nand the code files land on disk via your agent/editor, not through it.",
+    "background": "No persistent background — the stdio server is spawned by the MCP client; the process lifecycle follows the client.",
+    "tools": "Four core tools (official docs wording): **search_dev_docs** (search shopify.dev docs) /\n**introspect_admin_schema** (access and search the Admin GraphQL schema) /\n**fetch_docs_by_path** (retrieve doc pages by path) / **get_started** (API onboarding guidance);\nbuilt-in prompt: shopify_admin_graphql (helps you write Admin API GraphQL operations).\nPolaris Web Components support is opt-in via the POLARIS_UNIFIED env var (experimental).",
+    "context": "No server-side cross-session memory; context is carried by the MCP client session. The schema is queryable by API version\n(including field-level docs and deprecation notices — official docs wording).",
+    "permissions": "**No authentication needed** (the official docs state the local server needs no auth) — it only reads public docs and schemas,\nit never touches your store data; store operations (creating apps/themes, running the CLI) go through Shopify CLI's authenticated context,\nwhich is a different line of the AI Toolkit, not this MCP server's capability.\nInstrumentation telemetry is on by default; OPT_OUT_INSTRUMENTATION=true opts out.",
+    "fit": "Fits: Shopify developers giving a coding agent \"platform context\" — doc retrieval + schema probing so the model stops guessing API fields;\nzero-auth zero-config onboarding.\nNot a fit: agents operating the store directly (it has no store surface); non-Shopify ecosystems (single-vendor only)."
+  },
+  "mcp": {
+    "transport": "**stdio** (npx -y @shopify/dev-mcp@latest; the official example is claude mcp add --transport stdio).\nVerified: the shopify.dev AI Toolkit page and the Polaris using-mcp page (200 direct on 2026-10-31).",
+    "auth": "No auth (the official docs state the local server requires no auth). Instrumentation telemetry is on by default,\nopt out via the OPT_OUT_INSTRUMENTATION env var; Polaris support is opt-in via POLARIS_UNIFIED.",
+    "scope": "Pure read (public docs + schema), no store-data surface, no local write surface — among the lightest permission surfaces in MCP servers."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- Whether the dev-mcp source is readable as shipped in the npm package (the repo field is empty; the package was not unpacked to verify)\n- The API-version coverage and update cadence of introspect_admin_schema (the changelog has a POS UI extensions entry; the full range was not enumerated)\n- The capability delta between the AI Toolkit plugin form and the Dev MCP form (the official docs say the plugin \"bundles everything\"; not compared item by item)",
+  "related": [
+    "\"Domain-specific docs+schema MCP\" vs \"general web-context MCP\": Shopify is single-vendor, extremely narrow and deep; Firecrawl is web-wide and extremely broad.",
+    "The same \"feed library/platform docs to agents\" route: Context7 is cross-library and general, Shopify Dev MCP is single-vendor official first-party."
+  ],
+  "sources": [
+    "shopify.dev · AI Toolkit official page (Dev MCP install and positioning; the current docs page after the old agents-of-change path 404s; 200 direct)",
+    "shopify.dev · changelog \"Dev MCP now supports POS UI extensions\" (change-record line; 200 direct)",
+    "npm · @shopify/dev-mcp (release line: 1.18.0, 2026-10-27, 143 versions; ISC; empty repo field = code not independently open-sourced)",
+    "Shopify/Shopify-AI-Toolkit · plugin/skills repo (MIT; 621★, pushed 2026-10-27, GitHub API verified)"
+  ]
+}

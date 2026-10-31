@@ -1,0 +1,30 @@
+{
+  "_comment": "C6-8 正文英译 · browserbase-mcp（2026-10-31）。八维+mcp 三维+runs/unknowns/related/sources 全键非空。",
+  "axes": {
+    "model_access": "**It needs an external model to run Stagehand** — on the hosted line Browserbase itself covers the LLM costs for Gemini\n(the official README states the hosted version \"provides the LLM costs for Gemini\"); the self-hosted line requires your own\nGEMINI_API_KEY (switch models with --modelName plus the matching key). It is a browser-automation-plus-model hybrid,\nnot a pure interface wrapper.",
+    "runtime": "The current flagship is the **official hosted remote server** (https://mcp.browserbase.com/mcp, streamable-http);\nthe self-hosted line goes through npm (@browserbasehq/mcp 3.0.0, 2026-03-31) or cloning the GitHub repo.\n**The GitHub repo browserbase/mcp-server-browserbase is archived** (API-verified archived=true,\n3,397★, last push 2026-07-20) — the README top states plainly it is \"no longer maintained, kept for historical purposes,\nnot representative of current production services\"; the underlying Stagehand repo remains active (MIT 25,883★, pushed 2026-10-30).",
+    "local_files": "Reads and writes no local files — the artifacts are page state and extraction results (text/structured data) inside a cloud browser session.\nThe self-hosted line runs on your machine, but the browser itself is still a Browserbase cloud session (BROWSERBASE_API_KEY required).",
+    "background": "The browser session lives on Browserbase's cloud (start creates/reuses a session, end closes it); no local background process.\nThe session lifecycle is managed explicitly by tool calls, not persistent.",
+    "tools": "**6 tools** (README wording; hosted and self-hosted share the same set): start (create/reuse a session) / end (close the session) /\nnavigate (go to a URL) / act (manipulate the page from a natural-language instruction) / observe (observe actionable elements) /\nextract (extract page data per instruction). The act/observe/extract trio is driven by Stagehand's act-and-observe paradigm.",
+    "context": "No server-side cross-session memory; the context is the current Browserbase browser session (start can reuse an existing one).\nIn-session page state is naturally continuous; nothing persists across sessions.",
+    "permissions": "The hosted line needs a Browserbase account (API key + project id, configured in the client); the self-hosted line needs the\nBROWSERBASE_API_KEY/BROWSERBASE_PROJECT_ID/GEMINI_API_KEY environment variables.\n**act manipulates real web pages** (clicks/form filling) — gate the authorization boundary per target site; cloud session content\nis retained on Browserbase's side, so sensitive flows need your own assessment.",
+    "fit": "Fits: agents wanting \"cloud browser + natural-language web driving\" (no local browser to set up); the hosted line for easy onboarding\nwith the vendor covering LLM costs.\nNot a fit: wanting an open-source auditable full implementation (the GitHub repo is archived; the current implementation is closed on the hosted side);\nscenarios that only need local browser automation (Playwright MCP is more direct)."
+  },
+  "mcp": {
+    "transport": "**streamable-http** (hosted https://mcp.browserbase.com/mcp, officially recommended) + **stdio**\n(npx @browserbasehq/mcp self-hosted); the README states both STDIO and SHTTP transports are supported, recommending SHTTP via the hosted line.\nVerified: repo README (fetched via GitHub API raw 2026-10-31) + the docs.browserbase.com MCP page (200 direct).",
+    "auth": "Browserbase account credentials (BROWSERBASE_API_KEY + BROWSERBASE_PROJECT_ID); the self-hosted line adds a model key\n(GEMINI_API_KEY by default). The hosted endpoint measured 400 direct (exists, requires a proper MCP handshake and auth — not a dead link).",
+    "scope": "Read surface (navigate/observe/extract) + **web write surface (act clicks and fills forms)**; no local file write surface.\nCloud browser sessions can carry login state — gate the \"touching things on a web page\" boundary per the target site's authorization."
+  },
+  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
+  "unknowns": "- Rate/session-duration/concurrency quotas on the hosted line (the docs have account-tier wording, not enumerated item by item; per D9 and snapshot discipline no numbers are recorded)\n- The model list supported by the self-hosted line's --modelName switch and each provider's key requirements (the README gives only the mechanism)\n- Retention period and compliance boundaries of cloud session content on Browserbase's side (the ToS surface was not verified item by item)",
+  "related": [
+    "A browser-automation contrast: Playwright drives a local browser as a pure interface with no model; Browserbase is a cloud session plus Stagehand model-driving.",
+    "Both are official web-facing servers: Firecrawl leans \"read\" (search/fetch/crawl/monitor), Browserbase leans \"manipulate pages\"."
+  ],
+  "sources": [
+    "Browserbase · official docs MCP integration page (hosted endpoint and configuration line; 200 direct)",
+    "browserbase/mcp-server-browserbase · repository (archived=true; Apache-2.0; 3,397★, last push 2026-07-20, GitHub API verified; README-top archive notice + 6-tool table + hosted recommendation)",
+    "GitHub commits · mcp-server-browserbase (change-record line before the repo was archived)",
+    "npm · @browserbasehq/mcp (self-hosted release line: 3.0.0, 2026-03-31)"
+  ]
+}

@@ -34,10 +34,10 @@
 | Datadog MCP | Datadog | https://www.datadoghq.com/about/partners/mcp/ | 已有 | datadog-mcp | P2 |
 | Exa MCP | Exa | https://github.com/exa-labs/exa-mcp-server | 已有 | exa-mcp | P2 |
 | Firecrawl MCP | Firecrawl | https://github.com/mendableai/firecrawl-mcp-server | 已有 | firecrawl-mcp | P2 |
-| Browserbase MCP | Browserbase | https://github.com/browserbase/mcp-server-browserbase | 待建 | browserbase-mcp | P3 |
-| Shopify MCP（MCP 化 Storefront） | Shopify | https://shopify.dev/docs/agents-of-change | 待建 | shopify-mcp | P3 · 建档前核官方现状 |
-| 1Password MCP | 1Password | https://developer.1password.com/docs/mcp/ | 待建 | 1password-mcp | P3 · 凭据类，建档时权限维度重点 |
-| Intercom MCP | Intercom | https://www.intercom.com/mcp | 待建 | intercom-mcp | P3 |
+| Browserbase MCP | Browserbase | https://docs.browserbase.com/integrations/mcp/introduction | 已有 | browserbase-mcp | P3 · 建档 2026-10-31：GitHub 仓 archived=true（README 顶部归档声明），现役托管线 mcp.browserbase.com/mcp（直连 400=存在需鉴权）；npm @browserbasehq/mcp 3.0.0；底座 Stagehand 25,883★ 推送 2026-10-30 |
+| Shopify Dev MCP Server | Shopify | https://shopify.dev/docs/apps/build/ai-toolkit | 已有 | shopify-mcp | P3 · 建档 2026-10-31：旧 URL agents-of-change 404，现役 AI Toolkit 页（Dev MCP 三形态之一）；npm @shopify/dev-mcp 1.18.0（2026-10-27，ISC）；GitHub 无独立 dev-mcp 仓（404），插件仓 Shopify-AI-Toolkit MIT 621★ |
+| 1Password Environments MCP Server | 1Password | https://developer.1password.com/docs/environments/mcp-server | 已有 | 1password-mcp | P3 · 建档 2026-10-31：旧 docs/mcp 路径 301→www.1password.dev（Mintlify 文档站 MCP 端点另属他物）；现役=Environments MCP（本地 stdio 随桌面应用，by design 密钥值不回传）；配套插件仓 MIT 推送 2026-10-29 |
+| Intercom MCP | Intercom | https://developers.intercom.com/docs/guides/mcp | 已有 | intercom-mcp | P3 · 建档 2026-10-31：旧 intercom.com/mcp 404，现役 developers 文档线；官方托管 remote（US/EU 双端点直连 401=存在需鉴权、AU 不支持）；14 工具含 Fin Operator 五工具（Bearer 拿不到 Operator） |
 | Postgres MCP（community） | crystaldba 等社区 | https://github.com/crystaldba/postgres-mcp | 只进nav | | 无厂商官方 server，社区实现分散——八维核验价值低 |
 | Puppeteer MCP | modelcontextprotocol（已归档） | https://github.com/modelcontextprotocol/servers | 不收 | | 官方 servers 仓已把它移入 **archived**（不再维护），官方推荐 Playwright MCP——已有档案 |
 | Slack MCP（旧 reference） | modelcontextprotocol（已归档） | https://github.com/modelcontextprotocol/servers | 不收 | | reference 版已归档，现役是 slackapi 官方仓（进待建 P1），不重复收 |
@@ -46,8 +46,8 @@
 
 ## 备注
 
-- 「已有」28 行 = `tracks/mcp/products/` 现有档案全集（孤儿检查守）。
+- 「已有」32 行 = `tracks/mcp/products/` 现有档案全集（孤儿检查守）。
 - MCP 特有三维（transport/auth/scope）见 `tracks/mcp/taxonomy/`——建档时逐条挂官方文档。
 - 官方 servers 仓的 **archived 区**（2026-10-21 直抓 README 核验）：AWS KB Retrieval / Brave Search（已由官方 `@brave/brave-search-mcp-server` 接替）/ EverArt / GitHub（旧参考版）/ GitLab / Google Drive / Google Maps / **PostgreSQL** / **Puppeteer** / Redis / **Sentry（参考版）** / **Slack（参考版，转 Zencoder 维护）** / SQLite——官方自己不再维护，收进来会误导选型，全部「不收」或转收厂商官方版。现役 reference 只有 7 个（Everything/Fetch/Filesystem/Git/Memory/Sequential Thinking/Time）= 已有档案的官方来源。
 - 官方 README 明示：reference server 是**教学示例不是生产方案**；找服务器去 **MCP Registry**（registry 是候选池，收录仍按「官方自营或头部」标准）。
-- T22 建档批已落地 14 份（P1 9 + P2 5：Sentry/Notion/Slack/Supabase/Stripe/Chrome DevTools/Figma/Linear/MongoDB + Cloudflare/Atlassian/Zapier/Brave/Neon）；P2 四份 Grafana/Datadog/Exa/Firecrawl 已于 2026-10-24 补齐；P3 清单留后续批次。2026-10-21 建档时 URL 重核：Sentry 仓 redirect 到 getsentry/toolkit（FSL-1.1-Apache-2.0）、Slack 旧仓 404（现役官方托管 mcp.slack.com）、Supabase 仓现名 supabase/mcp、Figma 旧 help 文章 404（现役 developers.figma.com）、MongoDB docs/mcp 404（现役 mongodb-js 仓）、Neon 旧 docs 路径 404（现役 neondatabase 仓）、Linear 旧 /sse 端点 404（现役 /mcp）。
+- T22 建档批已落地 14 份（P1 9 + P2 5：Sentry/Notion/Slack/Supabase/Stripe/Chrome DevTools/Figma/Linear/MongoDB + Cloudflare/Atlassian/Zapier/Brave/Neon）；P2 四份 Grafana/Datadog/Exa/Firecrawl 已于 2026-10-24 补齐；P3 四份 Browserbase/Shopify/1Password/Intercom 已于 2026-10-31 补齐（C6-8）——**mcp 大类 inventory 全部销账**。2026-10-21 建档时 URL 重核：Sentry 仓 redirect 到 getsentry/toolkit（FSL-1.1-Apache-2.0）、Slack 旧仓 404（现役官方托管 mcp.slack.com）、Supabase 仓现名 supabase/mcp、Figma 旧 help 文章 404（现役 developers.figma.com）、MongoDB docs/mcp 404（现役 mongodb-js 仓）、Neon 旧 docs 路径 404（现役 neondatabase 仓）、Linear 旧 /sse 端点 404（现役 /mcp）。

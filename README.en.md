@@ -48,9 +48,9 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 | terms · Purpose (purposeTag) | learn 80 · apply 49 · guard 36 · judge 35 |
 | terms · Source entries (refs) | 481 |
 | terms · English coverage | 200 / 200 |
-| tools · Total profiles | 207 |
-| tools · By category | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 28 · runner 12 |
-| tools · By form | web 92 · mcp 28 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| tools · Total profiles | 211 |
+| tools · By category | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 12 |
+| tools · By form | web 92 · mcp 32 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | tools · Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 | models · Series | 11 |
 | models · Model repos (members) | 16 |

@@ -1065,5 +1065,34 @@
     "Three product eras must be separated: in-house models (2022-2024, v2/v2.5/v3) -> the 2025-01 legacy cut and refunds -> the post-sale new team (founder confirmed the sale in 2026-06 via the official blog). Both 'Playground shut down' and 'Playground never changed' are wrong; today it is a design bench + third-party aggregation",
     "The terms entity AI Playground, Inc. (Dover, Delaware notice address; California law) is NOT the namesake trademark-dispute party Playground AI LLC (a different company, litigation history since 2023) — cite the entity exactly as the terms page records it",
     "Public assets are viewable and remixable by others by default (per terms) — commercial users should actively check visibility settings"
+  ],
+  "browserbase-mcp": [
+    "Treating the GitHub repo as the current implementation — the repo is archived (stated plainly at the README top); the official recommendation is the hosted line mcp.browserbase.com/mcp; \"repo archived != product discontinued\" is this dossier's core two-wording",
+    "Thinking self-hosting needs no Browserbase account — self-hosting only puts the server process on your machine; the browser session still lives on Browserbase cloud and the API key is still required",
+    "Thinking it needs no model key at all — the self-hosted line requires your own GEMINI_API_KEY (or a swapped model with its key); only the hosted line has the vendor covering Gemini costs",
+    "Treating act as a safe action — it clicks and fills forms on real web pages; login-state and write-operation risks are gated per target site"
+  ],
+  "shopify-mcp": [
+    "Treating the old inventory URL (shopify.dev/docs/agents-of-change) as the docs line — measured 404 on 2026-10-31; the current docs page is docs/apps/build/ai-toolkit (the Dev MCP is one of three AI Toolkit forms)",
+    "Looking for a GitHub source repo — Shopify/dev-mcp does not exist (404); the code ships with npm; plugins/skills live in the Shopify/Shopify-AI-Toolkit repo, don't mix",
+    "Treating it as \"an MCP that operates the store\" — it only reads docs and schema, no auth and no store surface; store operations go through the Shopify CLI line",
+    "Ignoring instrumentation — telemetry is on by default; set OPT_OUT_INSTRUMENTATION=true if you mind",
+    "Treating the early per-surface skills (shopify-admin/shopify-liquid and 23 others) as current — the official line deprecated them for a single shopify skill (npx skills add Shopify/shopify-ai-toolkit)"
+  ],
+  "1password-mcp": [
+    "Treating it as \"an MCP that lets agents read 1Password passwords\" — by design secret values never return to the agent; it is the Environments (dev-secrets container) management surface, not a vault-reading surface",
+    "Using a remote-only MCP client — the official docs require stdio support; the server runs on your machine riding the desktop app",
+    "Confusing Environments with the personal password Vault — it manages Developer Environments (.env scenarios), not the autofill vault",
+    "Assuming it works by default in enterprises — the admin policy (Agentic permissions > Local MCP server) can switch it off wholesale",
+    "Mistaking community \"1Password MCPs\" (the secret-value-reading bunch) for official — the official line is this Environments one only; value-reading implementations are all community, with a completely different security model"
+  ],
+  "intercom-mcp": [
+    "Treating the old inventory URL (intercom.com/mcp) as the docs line — measured 404 on 2026-10-31; the current line is developers.intercom.com/docs/guides/mcp plus the endpoint itself",
+    "Treating the intercom/intercom-mcp-server repo as source — it is a documentation repo (no license, push stopped 2025-09); the server is closed-source hosted",
+    "Using a Bearer token yet expecting Operator tools — the official docs state Bearer connections exclude the Fin Operator tools; use OAuth",
+    "Mixing US/EU endpoints — app.intercom.com is US (mcp.intercom.com), app.eu.intercom.com is EU (mcp.eu.intercom.com); AU is unsupported",
+    "Old connections (built before the Operator permission) erroring when calling Operator tools — reconnect (official troubleshooting wording)",
+    "Self-built MCP client OAuth callbacks not on the allowlist — registration and authorization fail unless localhost; otherwise request allowlisting first",
+    "apply_proposals really changes live workspace configuration — Operator proposals are not a preview toy"
   ]
 }

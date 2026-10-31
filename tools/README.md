@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 207 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 211 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 207 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 211 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 207 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 211 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -132,7 +132,7 @@ tools/（ai-handbook 子树）
 │   ├── chat/                   AI 对话助手（20 个对象）
 │   ├── image/ · video/ · audio/  AI 创作三大类（15 + 14 + 17 个对象）
 │   ├── framework/              Agent 框架与运行时（27 个对象）
-│   ├── mcp/                    MCP 生态（多 3 个特有维度，28 个对象）
+│   ├── mcp/                    MCP 生态（多 3 个特有维度，32 个对象）
 │   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 22 + 12 个对象）
 ├── protocols/                  实测协议（coding / framework / mcp 三套）
 ├── scripts/                    校验脚本（validate / audit / quality）
@@ -466,14 +466,16 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford（学术团队） | harness | partial | active |
 
-### 给 AI 装的工具 —— 28 份
+### 给 AI 装的工具 —— 32 份
 
 MCP 服务器与工具生态。
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
+| [1Password Environments MCP Server](tracks/mcp/products/1password-mcp.md) | 1Password | mcp | partial | active |
 | [Atlassian Remote MCP Server（Jira/Confluence）](tracks/mcp/products/atlassian-mcp.md) | Atlassian | mcp | partial | active |
 | [Brave Search MCP Server](tracks/mcp/products/brave-search-mcp.md) | Brave | mcp | partial | active |
+| [Browserbase MCP Server](tracks/mcp/products/browserbase-mcp.md) | Browserbase | mcp | partial | active |
 | [Chrome DevTools MCP](tracks/mcp/products/chrome-devtools-mcp.md) | Google（Chrome DevTools 团队） | mcp | partial | active |
 | [Cloudflare MCP Server](tracks/mcp/products/cloudflare-mcp.md) | Cloudflare | mcp | partial | active |
 | [Context7](tracks/mcp/products/context7.md) | Upstash | mcp | partial | active |
@@ -487,6 +489,7 @@ MCP 服务器与工具生态。
 | [Git MCP Server](tracks/mcp/products/git.md) | Model Context Protocol | mcp | verified | active |
 | [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | partial | active |
 | [Grafana MCP Server](tracks/mcp/products/grafana-mcp.md) | Grafana Labs | mcp | partial | active |
+| [Intercom MCP Server](tracks/mcp/products/intercom-mcp.md) | Intercom | mcp | partial | active |
 | [Knowledge Graph Memory Server](tracks/mcp/products/memory.md) | Model Context Protocol | mcp | verified | active |
 | [Linear MCP](tracks/mcp/products/linear-mcp.md) | Linear | mcp | partial | active |
 | [MongoDB MCP Server](tracks/mcp/products/mongodb-mcp.md) | MongoDB | mcp | partial | active |
@@ -495,6 +498,7 @@ MCP 服务器与工具生态。
 | [Playwright MCP Server](tracks/mcp/products/playwright.md) | Microsoft | mcp | verified | active |
 | [Sentry MCP / Toolkit](tracks/mcp/products/sentry-mcp.md) | Sentry | mcp | partial | active |
 | [Sequential Thinking MCP Server](tracks/mcp/products/sequential-thinking.md) | Model Context Protocol | mcp | verified | active |
+| [Shopify Dev MCP Server](tracks/mcp/products/shopify-mcp.md) | Shopify | mcp | partial | active |
 | [Slack MCP Server](tracks/mcp/products/slack-mcp.md) | Slack（Salesforce） | mcp | partial | active |
 | [Stripe Agent Toolkit / MCP](tracks/mcp/products/stripe-mcp.md) | Stripe | mcp | partial | active |
 | [Supabase MCP](tracks/mcp/products/supabase-mcp.md) | Supabase | mcp | partial | active |
@@ -528,8 +532,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 207 份 |
-| 大类分布 | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 28 · runner 12 |
-| 形态分布（form） | web 92 · mcp 28 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| 档案总数 | 211 份 |
+| 大类分布 | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 12 |
+| 形态分布（form） | web 92 · mcp 32 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->
