@@ -1,0 +1,26 @@
+{
+  "_comment": "EN translation of tracks/image/products/tensor-art.md body; keys aligned with zh structure. Facts unchanged; verification dates as in zh.",
+  "axes": {
+    "model_access": "Community-model hosting and online runs are the core: checkpoint/LoRA/ControlNet/Textual Inversion upload, sharing and online generation (a Civitai-style community model ecosystem; clause 1.2 names it the \"image generation and posting service\"); base models (SD1.5 and the like) available for direct generation; online LoRA training (the privacy policy's Model Training features); no official statement found for an in-house model line.",
+    "runtime": "Web (tensor.art) + an official software application (the terms repeatedly mention the Tensor.Art software application, downloadable); generation runs on the vendor's cloud via credits; no local runtime is provided — the downloadable app is a client, not a local inference engine (details not verified line by line).",
+    "local_files": "Works and models live on the account side in the cloud; the terms mention a downloadable app (an on-machine install surface is on record), but its local data surface is unverified; the community-model download surface was not verified today (the whole site sits behind Cloudflare anti-bot — curl returns 403; only some official pages were reached via WebFetch).",
+    "background": "Credit-based instant generation: VIP members get 300 credits refreshed daily, non-rollover (membership terms on record); no persistent-task surface (no statement verified); LoRA training runs in the cloud after submission (Model Training feature on record; queue/duration details unverified).",
+    "tools": "Online LoRA training (privacy policy's Model Training features), model upload and community sharing (clause 3.7: reposting requires the original author's written consent), community gallery and posting; the news page's latest entry \"Free Video Trial with Wan2.2\" shows a video-generation trial surface (2026-10-31); no official statement verified for an API surface (third-party reviews claim there is none — not used as evidence).",
+    "context": "Organized around model pages/work pages; cross-session memory not verified in any official statement. The community model library (reusable style models) is its consistency mechanism, not memory.",
+    "permissions": "Free + VIP subscription (1/30/90-day passes, 300 daily credits; D9: prices not collected); clause 3.1 — the platform makes no ownership claims over models or generated images and content may be freely used; 3.7 — reposting a model needs the author's written consent; 3.6 — NSFW content discouraged (community-governance stance); accounts require 18+ (2.2).",
+    "fit": "Good for: free-credit generation + community model treasure hunts (the SD ecosystem), online LoRA training, a model-sharing community. Bad for: wanting official frontier models (it is a hosting + base-model platform), enterprise compliance narratives (thin terms surface, no DPA surface), sensitivity to community content governance."
+  },
+  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the anti-bot surface keeps unverifiable):\n\n- **Ownership and download surface of online-LoRA-training artifacts** (can trained models be downloaded, how are licenses labeled)\n- **License consistency between 'run online' and 'download then run locally' for community models**\n- **Actual generation experience under the credit system at peak times**",
+  "unknowns": "- The in-house model line (no official statement verified)\n- Historical entries and dates on the news page (only the latest entry \"Free Video Trial with Wan2.2\" was reached today; the list was not expanded)\n- The community-model download surface and post-download license labeling (not verified today)\n- The API surface (third-party reviews claim none; no official statement verified)\n- The entity relationship to mainland echo.tech (unverified)\n- Mainland filing applicability (Hong Kong entity; no registry entry found)",
+  "related": [
+    "Both pair a community model library with LoRA training: SeaArt runs an aggregator + going-overseas narrative, Tensor.Art is the community hosting body itself.",
+    "Newer style models in community libraries are largely built on FLUX/SD bases: see the Flux dossier for the weight licenses themselves.",
+    "Cross-category contrast: both are community model hosting ecosystems — one is the HF Hub-side chat front end, the other is the image-generation community body."
+  ],
+  "sources": [
+    "Tensor.Art · Terms of Service (official terms, WebFetch-verified 2026-10-31; curl path blocked by Cloudflare)",
+    "Tensor.Art · VIP membership terms (tiers and credit rules, WebFetch-verified 2026-10-31)",
+    "Tensor.Art · Privacy Policy (ECHO INTERNATIONAL HK LIMITED on record, WebFetch-verified 2026-10-31)",
+    "Tensor.Art · News (update line: latest entry \"Free Video Trial with Wan2.2\", WebFetch-verified 2026-10-31)"
+  ]
+}

@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 205 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 207 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 205 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 207 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 205 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 207 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -130,7 +130,7 @@ tools/（ai-handbook 子树）
 │   │   ├── _category.md        大类收录声明（标准 + 形态判据 + 对象表）
 │   │   └── products/           41 个对象
 │   ├── chat/                   AI 对话助手（20 个对象）
-│   ├── image/ · video/ · audio/  AI 创作三大类（13 + 14 + 17 个对象）
+│   ├── image/ · video/ · audio/  AI 创作三大类（15 + 14 + 17 个对象）
 │   ├── framework/              Agent 框架与运行时（27 个对象）
 │   ├── mcp/                    MCP 生态（多 3 个特有维度，28 个对象）
 │   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 22 + 12 个对象）
@@ -318,7 +318,7 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | partial | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
 
-### AI 图像创作 —— 13 份
+### AI 图像创作 —— 15 份
 
 文生图与图像编辑产品。
 
@@ -334,9 +334,11 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo（2024-07 被 Canva 收购） | web | partial | active |
 | [Microsoft Designer](tracks/image/products/microsoft-designer.md) | 微软 | web | partial | active |
 | [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | partial | active |
+| [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | partial | active |
 | [Recraft](tracks/image/products/recraft.md) | Recraft | web | partial | active |
 | [SeaArt](tracks/image/products/seaart.md) | 海艺（成都海艺互娱） | web | partial | active |
 | [Stability AI（Stable Image 平台）](tracks/image/products/stability-ai.md) | Stability AI | web | partial | active |
+| [Tensor.Art](tracks/image/products/tensor-art.md) | ECHO INTERNATIONAL HK LIMITED（Tensor.Art） | web | partial | active |
 
 ### AI 视频创作 —— 14 份
 
@@ -526,8 +528,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 205 份 |
-| 大类分布 | coding 41 · chat 20 · image 13 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 28 · runner 12 |
-| 形态分布（form） | web 90 · mcp 28 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| 档案总数 | 207 份 |
+| 大类分布 | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 28 · runner 12 |
+| 形态分布（form） | web 92 · mcp 28 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

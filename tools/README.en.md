@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 205 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 207 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 205 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 207 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -136,7 +136,7 @@ tools/ (ai-handbook subtree)
 │   │   ├── _category.md        category declaration (criteria + form rulings + object table)
 │   │   └── products/           41 objects
 │   ├── chat/                   chat assistants (20 objects)
-│   ├── image/ · video/ · audio/  three creation categories (13 + 14 + 17 objects)
+│   ├── image/ · video/ · audio/  three creation categories (15 + 14 + 17 objects)
 │   ├── framework/              agent frameworks & runtimes (27 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 28 objects)
 │   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 22 + 12 objects)
@@ -333,7 +333,7 @@ General-purpose chat assistants, web/app, including Chinese products
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | Microsoft | web | partial | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
 
-### Image creation — 13
+### Image creation — 15
 
 Text-to-image and AI image editing
 
@@ -349,9 +349,11 @@ Text-to-image and AI image editing
 | [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo (acquired by Canva, Jul 2024) | web | partial | active |
 | [Microsoft Designer](tracks/image/products/microsoft-designer.md) | Microsoft | web | partial | active |
 | [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | partial | active |
+| [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | partial | active |
 | [Recraft](tracks/image/products/recraft.md) | Recraft | web | partial | active |
 | [SeaArt](tracks/image/products/seaart.md) | Haiyi (Chengdu Haiyi Huyu) | web | partial | active |
 | [Stability AI (Stable Image platform)](tracks/image/products/stability-ai.md) | Stability AI | web | partial | active |
+| [Tensor.Art](tracks/image/products/tensor-art.md) | ECHO INTERNATIONAL HK LIMITED（Tensor.Art） | web | partial | active |
 
 ### Video creation — 14
 
@@ -541,8 +543,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 205 |
-| By category | coding 41 · chat 20 · image 13 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 28 · runner 12 |
-| By form | web 90 · mcp 28 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
+| Total profiles | 207 |
+| By category | coding 41 · chat 20 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 28 · runner 12 |
+| By form | web 92 · mcp 28 · harness 27 · cli 19 · ide 19 · cloud 14 · local-app 8 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->
