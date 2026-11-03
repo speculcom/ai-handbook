@@ -70,6 +70,7 @@ cn:
   direct_note_en: xinghuo.xfyun.cn measured 200 direct from mainland (2026-10-22).
   filing: filed
   filing_name: 星火认知大模型
+  filing_name_en: Xinghuo Cognitive LLM
   filing_no: Anhui-XingHuoRenZhiDaMoXing-20230823
   filing_date: 2023-08-23
   filing_note: 首批备案（备案时间 2023-08-23，属地安徽）；备案号经全国已备案信息汇总表（东莞市政府镜像附件）交叉核验。

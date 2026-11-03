@@ -70,7 +70,7 @@ cn:
   direct_note_en: coze.cn / docs.coze.cn / coze.com measured 200 direct (2026-10-21).
   filing: unknown
   filing_note: 未核验到「扣子」在网信办公示名单的独立备案条目（2026-10-21 检索）；字节系模型备案在豆包名下，扣子作为应用与其关系未核验，标 unknown。
-  filing_note_en: no standalone 扣子 entry found in the CAC registry (searched 2026-10-21); ByteDance's model filing sits under Doubao, and Coze's relationship to it is unverified — marked unknown.
+  filing_note_en: no standalone Coze (Kouzi) entry found in the CAC registry (searched 2026-10-21); ByteDance's model filing sits under Doubao, and Coze's relationship to it is unverified — marked unknown.
   verified: 2026-10-21
 ---
 

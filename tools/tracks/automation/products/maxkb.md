@@ -72,6 +72,7 @@ cn:
   direct_note_en: the GitHub repo and docs.fit2cloud.com/maxkb measured 200 direct from mainland (2026-10-30); maxkb.cn measured 403 direct (Cloudflare-style block, not a dead link; reachable via proxy) — acquisition paths go by the repo and docs domains.
   filing: filed
   filing_no: 网信算备330106491701101260019号 / 网信算备330106491701101260027号
+  filing_no_en: CAC algorithm filing no. 330106491701101260019 / 330106491701101260027
   filing_date: 2026-03-12
   filing_note: 第十六批《境内深度合成服务算法备案清单》（2026-03-12 公示）当日下载官方文件解析双条目在册：
     条目 605「MaxKB多模态生成合成算法-1」服务提供者=杭州飞致云信息科技有限公司（MaxKB智能体平台网站/其他，
@@ -79,8 +80,8 @@ cn:
     330106491701101260027号）；与飞致云官方博客公告交叉一致。属深度合成算法备案类别，非生成式 AI 服务备案。
   filing_note_en: the 16th "Domestic Deep-Synthesis Service Algorithm Filing List" (publicized 2026-03-12) was downloaded and parsed
     same day, two entries on record: row 605 "MaxKB multimodal generative synthesis algorithm-1" as service provider = Hangzhou
-    Fit2Cloud Information Technology Co., Ltd. (MaxKB agent platform, website/other, filing no. 网信算备330106491701101260019号);
-    row 750 as service technology supporter (filing no. 网信算备330106491701101260027号); consistent with Fit2Cloud's official blog
+    Fit2Cloud Information Technology Co., Ltd. (MaxKB agent platform, website/other, CAC algorithm filing no. 330106491701101260019);
+    row 750 as service technology supporter (CAC algorithm filing no. 330106491701101260027); consistent with Fit2Cloud's official blog
     announcement. This is the deep-synthesis algorithm filing category, not generative-AI service filing.
   verified: 2026-10-30
 ---

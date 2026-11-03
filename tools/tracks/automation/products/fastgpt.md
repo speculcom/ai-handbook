@@ -75,7 +75,7 @@ cn:
   filing: not-filed
   filing_note: 未见于生成式 AI 服务/深度合成算法备案公示名单（2026-10-30 检索百炼公示页与第十六批批次清单，未见 FastGPT 条目）；
     fastgpt.cn 页脚 ICP备2023048773号 是网站 ICP 备案，与生成式 AI 服务备案是不同类别，不混记。
-  filing_note_en: not in the generative-AI / deep-synthesis filing registries (Bailian disclosure page and the 16th batch list searched 2026-10-30; no FastGPT entry); the ICP number on fastgpt.cn's footer (ICP备2023048773号) is a website ICP registration, a different category from generative-AI service filing — not conflated.
+  filing_note_en: not in the generative-AI / deep-synthesis filing registries (Bailian disclosure page and the 16th batch list searched 2026-10-30; no FastGPT entry); the ICP number on fastgpt.cn's footer (ICP filing No. 2023048773) is a website ICP registration, a different category from generative-AI service filing — not conflated.
   verified: 2026-10-30
 ---
 

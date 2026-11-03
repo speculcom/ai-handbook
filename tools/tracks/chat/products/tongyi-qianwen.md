@@ -67,6 +67,7 @@ cn:
   direct_note_en: tongyi.aliyun.com measured 200 direct from mainland (2026-10-22).
   filing: filed
   filing_name: 通义千问大模型
+  filing_name_en: Tongyi Qianwen LLM
   filing_no: ZheJiang-TongYiQianWen-20230901
   filing_note: 备案号经阿里云百炼官方公示页核验（备案单位阿里巴巴达摩院（杭州）科技有限公司）；
     该备案号同时出现在手机终端进网许可公示等第三方引用中，交叉一致。

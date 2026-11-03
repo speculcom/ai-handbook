@@ -70,6 +70,7 @@ cn:
   direct_note_en: yiyan.baidu.com measured 200 direct from mainland (2026-10-22).
   filing: filed
   filing_name: 文心一言
+  filing_name_en: Wenxin Yiyan
   filing_no: Beijing-WenXinYiYan-20230821
   filing_date: 2023-08-31
   filing_note: 首批备案（备案时间 2023-08-31，属地北京）；备案号经百度智能云官方公示页核验——

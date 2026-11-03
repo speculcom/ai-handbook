@@ -70,6 +70,7 @@ cn:
   direct_note_en: tongyi.aliyun.com/wanxiang measured 200 direct from mainland (2026-10-22).
   filing: filed
   filing_name: 通义万相大模型
+  filing_name_en: Tongyi Wanxiang LLM
   filing_no: Shanghai-TongYiWanXiang-202410090024
   filing_note: 备案号经阿里云百炼官方公示页核验（属地上海，2024-10 批次）；该号同时出现在手机终端进网许可等第三方引用中。
   filing_note_en: filing no. verified on Alibaba Cloud Model Studio official disclosure page (Shanghai, 2024-10 batch);

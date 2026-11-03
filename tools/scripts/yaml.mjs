@@ -82,6 +82,16 @@ export function parseFrontmatter(text) {
     if (v === '>' || v === '>-' || v === '|' || v === '|-' || v === '>+' || v === '|+') return { block: true, fold: v[0] === '>' };
     return { block: false, val: v === 'null' ? null : v.replace(/^["']|["']$/g, '') };
   };
+  /* plain scalar 折行按 YAML 折叠成空格；中文行尾/行首不加空格，避免「， 各代」这类缝隙。 */
+  const CJK_EDGE = /[一-鿿，。；：、！？（）「」『』《》〈〉—…·]/;
+  const foldPlain = (parts) => {
+    let out = '';
+    for (const p of parts) {
+      if (!out) { out = p; continue; }
+      out += CJK_EDGE.test(out.slice(-1)) || CJK_EDGE.test(p[0]) ? p : ` ${p}`;
+    }
+    return out.trim();
+  };
 
   while (i < lines.length) {
     const line = lines[i];
@@ -97,10 +107,23 @@ export function parseFrontmatter(text) {
       if (m[2].trim().startsWith('[')) {
         data[key] = m[2].trim().replace(/[[\]]/g, '').split(',')
           .map(s => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
-      } else {
-        data[key] = info.val;
+        i++;
+        continue;
       }
-      i++;
+      /* 2026-11-03：plain scalar 的续行此前被丢弃（只取了第一行）。
+       * license / cn.origin_note_en 这类为可读性折行的值，后半段从不渲染；
+       * YAML 语义是折叠为空格，这里按同一口径补齐。 */
+      const parts = [m[2].trim()];
+      let j = i + 1;
+      while (j < lines.length) {
+        const l = lines[j];
+        if (!l.trim()) { j++; continue; }
+        if (indentOf(l) === 0) break;
+        parts.push(l.trim());
+        j++;
+      }
+      data[key] = foldPlain(parts);
+      i = j;
       continue;
     }
 
@@ -175,7 +198,18 @@ export function parseFrontmatter(text) {
           })();
           sub[sm[1]] = cinfo.fold ? folded : parts.join('\n').trim();
         } else {
-          sub[sm[1]] = cinfo.val;
+          /* 2026-11-03：嵌套 plain scalar 的续行同样补齐（cn.*_note_en 最常见）。 */
+          const parts = [cinfo.val];
+          let k = bi + 1;
+          while (k < blockLines.length) {
+            const nl = blockLines[k];
+            if (!nl.trim()) { k++; continue; }
+            if (indentOf(nl) <= indentOf(l)) break;
+            parts.push(nl.trim());
+            k++;
+          }
+          sub[sm[1]] = foldPlain(parts);
+          bi = k - 1;
         }
       }
       data[key] = sub;

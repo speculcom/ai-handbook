@@ -70,6 +70,7 @@ cn:
   direct_note_en: yuanbao.tencent.com measured 200 direct from mainland (2026-10-22).
   filing: filed
   filing_name: 腾讯混元助手大模型（元宝所用模型）
+  filing_name_en: Tencent Hunyuan Assistant LLM (the model Yuanbao uses)
   filing_no: Guangdong-TencentHunyuan-20230901
   filing_note: 元宝所用混元模型备案号经腾讯云官方文档交叉核验（Guangdong-TencentHunyuan-20230901）；
     元宝作为 C 端入口承载该已备案模型。

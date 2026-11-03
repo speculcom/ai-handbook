@@ -234,8 +234,16 @@ function cnChips(cn) {
  * 与 models 站 cnSection 同一口径：备案抄公示编号，直连写实测日期与渠道。 */
 function cnPanel(cn) {
   if (!cn) return '';
+  /* 2026-11-03 正文层双语收口：备案号与公示名称在英文态只做转写或指向，
+   * 不把官方中文原名直出英文块（models 站的 data-source-name 是另一套豁免，不混用）。 */
+  const filingNoZh = esc(cn.filing_no || '');
+  const filingNoEnRaw = cn.filing_no_en || (/[一-鿿]/.test(String(cn.filing_no || '')) ? '' : cn.filing_no);
+  const filingNo = bi(`<code>${filingNoZh}</code>`, filingNoEnRaw ? `<code>${esc(filingNoEnRaw)}</code>` : '<em>number in the Chinese entry</em>');
+  const filingName = cn.filing_name
+    ? bi(`　公示名称「${esc(cn.filing_name)}」`, `　listed as "${esc(cn.filing_name_en || 'the Chinese registered name')}"`)
+    : '';
   const filingRow = cn.filing === 'filed'
-    ? `${bi('已备案', 'Filed')}：<code>${esc(cn.filing_no || '')}</code>${cn.filing_name ? `　${bi('公示名称', 'listed as')}「${esc(cn.filing_name)}」` : ''}${cn.filing_date ? `　·　${bi('备案时间', 'filed')} ${esc(cn.filing_date)}` : ''}${cn.filing_note ? `　·　${bi(esc(cn.filing_note), esc(cn.filing_note_en || cn.filing_note))}` : ''}`
+    ? `${bi('已备案', 'Filed')}：${filingNo}${filingName}${cn.filing_date ? `　·　${bi('备案时间', 'filed')} ${esc(cn.filing_date)}` : ''}${cn.filing_note ? `　·　${bi(esc(cn.filing_note), esc(cn.filing_note_en || cn.filing_note))}` : ''}`
     : `${bi(CN_FILING_LABEL[cn.filing] ? CN_FILING_LABEL[cn.filing][0] : '备案未核验', CN_FILING_LABEL[cn.filing] ? CN_FILING_LABEL[cn.filing][1] : 'filing unknown')}${cn.filing_note ? `：${bi(esc(cn.filing_note), esc(cn.filing_note_en || cn.filing_note))}` : ''}`;
   return `      <div class="panel">
         <h2>${bi('中文生态', 'China availability')} <span class="panel-note">${bi('国产 / 国内可直接用 / 备案状态 · 快照', 'domestic / direct access / CAC filing · snapshot')} ${esc(cn.verified || '')}</span></h2>

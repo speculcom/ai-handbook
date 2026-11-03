@@ -68,6 +68,7 @@ cn:
   direct_note_en: chatglm.cn measured 200 direct from mainland (2026-10-22).
   filing: filed
   filing_name: 智谱清言(ChatGLM)
+  filing_name_en: Zhipu Qingyan (ChatGLM)
   filing_no: Beijing-ChatGLM-20230821
   filing_date: 2023-08-31
   filing_note: 首批备案（备案时间 2023-08-31，属地北京）；备案号经阿里云百炼与火山方舟两页官方公示交叉核验。

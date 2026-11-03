@@ -68,9 +68,10 @@ cn:
   direct_note_en: doubao.com measured 200 direct.
   filing: filed
   filing_note: 首批第 3 行；抖音官方备案公示页确认「豆包大模型」即此编号（2024-08 算法备案由云雀更名为豆包）。
-  filing_note_en: Listed in the CAC registry as 云雀大模型（豆包前身） (Beijing-YunQue-20230821, filed 2023-08-31).
+  filing_note_en: Listed in the CAC registry as "Yunque LLM" (Doubao's predecessor; Beijing-YunQue-20230821, filed 2023-08-31).
   verified: 2026-10-20
   filing_name: 云雀大模型（豆包前身）
+  filing_name_en: Yunque LLM (Doubao's predecessor)
   filing_no: Beijing-YunQue-20230821
   filing_date: 2023-08-31
 ---

@@ -72,7 +72,8 @@ cn:
   origin_note: 阿里系语音团队开源项目（GitHub org 描述当日在册「QwenAudio Team（千问语音团队）」，
     关联站 funasr.com 当日直抓在册「达摩院推出的语音识别模型」叙事）。
   origin_note_en: open-source project of the Alibaba speech team (GitHub org description on record same day:
-    "QwenAudio Team (千问语音团队)"; the linked site funasr.com carries the "达摩院" narrative, direct-fetched 200 same day).
+    "QwenAudio Team" (the Chinese description adds "Qianwen speech team"); the linked site funasr.com carries
+    the "DAMO Academy" narrative, direct-fetched 200 same day).
   direct: unknown
   direct_note: 官方入口 github.com 大陆直连当日实测 000（代理 200）——GitHub 大陆可达性长期波动，
     不下「被墙/区域限制」结论；权重经 ModelScope 分发当日直连 200，本机获取路径大陆可用。

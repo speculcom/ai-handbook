@@ -71,6 +71,7 @@ cn:
   direct_note_en: chat.deepseek.com measured 429 direct from mainland (2026-10-22) — rate-limited but reachable, not dead.
   filing: filed
   filing_name: 求索对话 DeepSeek Chat
+  filing_name_en: Qiusuo Chat (DeepSeek Chat)
   filing_no: Beijing-DeepseekChat-202404280016
   filing_note: 备案号经阿里云百炼与火山方舟两页官方公示交叉核验；属地北京，2024 年新增批次。
   filing_note_en: filing no. cross-verified on Alibaba Cloud Model Studio and Volcengine Ark official disclosure pages;

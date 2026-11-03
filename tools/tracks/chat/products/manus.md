@@ -70,7 +70,6 @@ cn:
   direct_note: manus.im 大陆直连实测 200（2026-10-22）。
   direct_note_en: manus.im measured 200 direct from mainland (2026-10-22).
   filing: unknown
-  filing_name: ''
   filing_note: 未核验到 Manus 在网信办公示名单的条目（2026-10-22 检索）；其面向大陆用户的服务形态与备案状态
     官方未声明——「未核验到」不等于「未备案」。
   filing_note_en: no Manus entry verified in the CAC public registry (searched 2026-10-22); its mainland-facing

@@ -71,9 +71,10 @@ cn:
   direct_note_en: kimi.com measured 200 direct.
   filing: filed
   filing_note: 首批公告第 16 行。
-  filing_note_en: Listed in the CAC registry as Moonshot（月之暗面） (Beijing-MoonShot-20231016, filed 2023-11-03).
+  filing_note_en: Listed in the CAC registry as "Moonshot" (Moonshot AI; Beijing-MoonShot-20231016, filed 2023-11-03).
   verified: 2026-10-20
   filing_name: Moonshot（月之暗面）
+  filing_name_en: Moonshot (Moonshot AI)
   filing_no: Beijing-MoonShot-20231016
   filing_date: 2023-11-03
 ---

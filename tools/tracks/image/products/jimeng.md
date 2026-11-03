@@ -71,7 +71,7 @@ cn:
   filing: unknown
   filing_note: 站点有 ICP 备案（粤ICP备13065114号系列）；其图片/视频模型的生成式 AI 服务备案号
     未核验到官方公示页（2026-10-22 检索）——「未核验到」不等于「未备案」，且 ICP 号不是 AI 备案号。
-  filing_note_en: the site carries an ICP filing (粤ICP备13065114 series); no generative-AI service filing no.
+  filing_note_en: the site carries a Guangdong ICP filing (No. 13065114 series); no generative-AI service filing no.
     verified on official disclosure pages for its image/video models (searched 2026-10-22) — "not verified"
     does not mean "not filed", and an ICP number is not an AI-service filing.
   verified: 2026-10-22

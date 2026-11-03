@@ -74,9 +74,10 @@ cn:
   direct_note_en: klingai.com measured 200 direct.
   filing: filed
   filing_note: 2024-11 批次附件第 218 行。
-  filing_note_en: Listed in the CAC registry as 可灵 (Beijing-KeLing-202409250032, filed 2024-10-15).
+  filing_note_en: Listed in the CAC registry as "Kling" (Beijing-KeLing-202409250032, filed 2024-10-15).
   verified: 2026-10-20
   filing_name: 可灵
+  filing_name_en: Kling
   filing_no: Beijing-KeLing-202409250032
   filing_date: 2024-10-15
 ---
