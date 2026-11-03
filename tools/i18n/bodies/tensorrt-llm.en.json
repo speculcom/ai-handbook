@@ -1,0 +1,25 @@
+{
+  "_comment": "P2-8 TensorRT-LLM bodies EN（2026-11-03）。sections 与源侧固定小节对齐；sources 按索引对齐 frontmatter。",
+  "axes": {
+    "model_access": "An LLM inference toolkit for NVIDIA GPUs: model definitions go through a Python API and trtllm-serve exposes a serving endpoint; the supported-model list follows official docs and is not enumerated here.",
+    "runtime": "Compile then serve: the model is compiled into a TensorRT engine and exposed through trtllm-serve with an OpenAI-compatible interface; the official positioning is large-scale data-centre/cloud deployment.",
+    "local_files": "Self-hosted, with weights and engines in your own environment; NVIDIA GPUs only, with CPU/AMD acceleration outside the official support scope.",
+    "background": "A long-running service suited to batching and high concurrency; no official statement of continuing after shutdown.",
+    "tools": "trtllm-serve provides the API; tool-calling and MCP support not verified item by item.",
+    "context": "Long context depends on model and VRAM; KV-cache optimisation lives in official docs, not verified item by item.",
+    "permissions": "Self-hosted with no account system; authentication, quotas and multi-tenant isolation are configured by the deployer.",
+    "fit": "Fits NVIDIA GPU clusters that need production throughput and low latency and already have container/compile pipelines. Does not fit single-card consumer setups, AMD/CPU deployment, or download-and-run GGUF workflows."
+  },
+  "runs": "This site has not completed throughput or VRAM tests; the conclusions cover runtime capability and licensing only.",
+  "unknowns": "- Current supported-model list (official docs are authoritative; not enumerated here)\n- Tool-calling and MCP support status\n- Compile time and engine size per release",
+  "related": [
+    "Both are serving engines; vLLM targets general GPUs while TensorRT-LLM focuses on NVIDIA compilation.",
+    "Another high-throughput serving route to read in contrast."
+  ],
+  "sources": [
+    "NVIDIA · TensorRT-LLM official docs (Python API / trtllm-serve / production positioning)",
+    "NVIDIA · TensorRT Product Family (LLM inference toolkit positioning)",
+    "NVIDIA · TensorRT-LLM GitHub (code and release notes)",
+    "TensorRT-LLM · Releases (official changelog)"
+  ]
+}

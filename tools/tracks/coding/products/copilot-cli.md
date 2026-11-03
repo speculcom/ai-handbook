@@ -353,7 +353,7 @@ Free 档官方写每月最多 50 次 premium requests。付费档的内置模型
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测三件事。
 

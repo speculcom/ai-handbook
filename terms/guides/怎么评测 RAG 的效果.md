@@ -12,6 +12,8 @@ refs:
   - ["RAGAS 论文（Es 等，arXiv 2023）", "https://arxiv.org/abs/2309.15217", "Ragas: Automated Evaluation of Retrieval Augmented Generation (arXiv 2309.15217)"]
   - ["RAGAS 官方文档", "https://docs.ragas.io/en/stable/", "RAGAS official documentation"]
   - ["BEIR 零样本检索基准论文（Thakur 等，arXiv 2021）", "https://arxiv.org/abs/2104.08663", "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models (arXiv 2104.08663)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么评测 RAG 的效果（How to Evaluate a RAG System）

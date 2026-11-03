@@ -13,6 +13,8 @@ refs:
   - ["Sandve 等《Ten Simple Rules for Reproducible Computational Research》（PLOS Comput Biol 2013）", "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285", "Sandve et al., Ten Simple Rules for Reproducible Computational Research (PLOS CB 2013)"]
   - ["Liang 等《Holistic Evaluation of Language Models》（HELM）", "https://arxiv.org/abs/2211.09110", "Liang et al., Holistic Evaluation of Language Models (HELM)"]
   - ["Touvron 等《Llama 2: Open Foundation and Fine-Tuned Chat Models》", "https://arxiv.org/abs/2307.09288", "Touvron et al., Llama 2: Open Foundation and Fine-Tuned Chat Models"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么读一篇 AI 论文（How to Read an AI Paper）

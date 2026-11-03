@@ -15,7 +15,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 
 - [Command A](https://models.specul.com/families/command/): Cohere 的企业向 agentic 家族：A+ 放开了 Apache-2.0（上一代还是门控），主打企业场景与多语言。尺寸在 218B 级，本地部署门槛高。本站未收其量化对比（GGUF 生态太薄，见下）。
   Cohere　当前代 Command A+（2026-05）　3 代　许可 apache-2.0　本站未收录其量化对比
-- [DeepSeek](https://models.specul.com/families/deepseek/): MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（llama.cpp 作者亲自维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。
+- [DeepSeek](https://models.specul.com/families/deepseek/): MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。
   深度求索 DeepSeek　当前代 V4.1-Flash（2026-09）　3 代　许可 mit　本站量化对比：deepseek-v4
 - [Gemma](https://models.specul.com/families/gemma/): 尺寸档最全的家族（E2B 到 31B），端侧到服务器一条线；许可是 Apache-2.0 + 使用政策组合，下载前读政策原文。本站收录的 gemma-4 系列覆盖其中三档。
   Google DeepMind　当前代 Gemma 4（2026-03）　2 代　许可 apache-2.0　本站量化对比：gemma-4
@@ -43,6 +43,8 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   微软（Microsoft）　当前代 Phi-4-reasoning 系（2026-08）　3 代　许可 mit　本站未收录其量化对比
 - [千问 Qwen](https://models.specul.com/families/qwen/): 中文与代码口碑最强的开放权重家族之一；Apache-2.0 主力规格许可干净。本站量化对比的基准系列（qwen3-8）就在这一代。
   阿里巴巴 · 通义千问　当前代 Qwen3.8（2026-08）　3 代　许可 apache-2.0, other　本站量化对比：qwen3-8
+- [腾讯混元](https://models.specul.com/families/tencent/): 中文开放权重家族里少有的「大总参 + 高激活」路线；Hy4 把上下文拉到 1M+，对长程 agent 与工程代码有明确指向。本站暂无 GGUF 量化收录，选型前先看官方许可与硬件门槛。
+  腾讯　当前代 Hy4 preview（2026-08）　2 代　许可 other　本站未收录其量化对比
 
 ## 闭源谱系卡
 
@@ -84,14 +86,14 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 
 ## 已收录系列
 
-- [DeepSeek V4](https://models.specul.com/series/deepseek-v4/): MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。
-  DeepSeek　发布 2026-09-10　1 个模型仓 / 5 个量化档 / 14 个 GGUF 文件　许可 mit
+- [DeepSeek V4](https://models.specul.com/series/deepseek-v4/): MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cpp 生态参与者）维护量化版。
+  DeepSeek　发布 2026-09-10　1 个模型仓 / 5 个量化档 / 13 个 GGUF 文件　许可 mit
 - [Gemma 4](https://models.specul.com/series/gemma-4/): Google 开放权重最新一代，三种规格各自都有量化覆盖。
   Google　发布 2026-06　3 个模型仓 / 26 个量化档 / 340 个 GGUF 文件　许可 apache-2.0, apache-2.0, apache-2.0
 - [GLM 5](https://models.specul.com/series/glm-5/): 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。
   智谱 AI　发布 2026-08-25　2 个模型仓 / 13 个量化档 / 79 个 GGUF 文件　许可 other, mit
 - [gpt-oss](https://models.specul.com/series/gpt-oss/): OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。
-  OpenAI　发布 2025-08-04　1 个模型仓 / 6 个量化档 / 59 个 GGUF 文件　许可 apache-2.0
+  OpenAI　发布 2025-08-04　1 个模型仓 / 6 个量化档 / 57 个 GGUF 文件　许可 apache-2.0
 - [KAT Coder V2.5](https://models.specul.com/series/kat-coder/): 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。
   Kwaipilot　发布 2026-07-23　1 个模型仓 / 6 个量化档 / 57 个 GGUF 文件　许可 apache-2.0
 - [Kimi K3](https://models.specul.com/series/kimi-k3/): 月之暗面当前最新一代，41 家量化仓但整体热度中等。
@@ -101,11 +103,11 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 - [MiniCPM 5](https://models.specul.com/series/minicpm5/): 国产小尺寸代表，2B 规模适合低显存与端侧。
   面壁智能 · OpenBMB　发布 2026-08-27　1 个模型仓 / 10 个量化档 / 139 个 GGUF 文件　许可 apache-2.0
 - [Muse Glimmer](https://models.specul.com/series/muse-glimmer/): Meta 的开放权重系列，apache-2.0，量化覆盖横跨多家主力量化者。
-  Meta　发布 2026-08-09　1 个模型仓 / 10 个量化档 / 118 个 GGUF 文件　许可 apache-2.0
+  Meta　发布 2026-08-09　1 个模型仓 / 10 个量化档 / 116 个 GGUF 文件　许可 apache-2.0
 - [Ornith 1.5](https://models.specul.com/series/ornith-1-5/): MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。
   Ornith AI　发布 2026-08-18　2 个模型仓 / 20 个量化档 / 208 个 GGUF 文件　许可 mit, mit
 - [千问 3.8](https://models.specul.com/series/qwen3-8/): 阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。
-  阿里 · 通义千问　发布 2026-08-05　2 个模型仓 / 17 个量化档 / 175 个 GGUF 文件　许可 apache-2.0, other
+  阿里 · 通义千问　发布 2026-08-05　2 个模型仓 / 17 个量化档 / 172 个 GGUF 文件　许可 apache-2.0, other
 
 ## 每个系列页包含六个区块
 

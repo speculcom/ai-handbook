@@ -88,7 +88,7 @@ Slides/Sheets/网站直接出产物；agent 形态意味着过程黑箱度要心
 
 ## 实测记录
 
-本站尚未完成实测。编码向实测协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)（创作产品不适用编码任务集）。
+本档未跑检索质量评测；结论只覆盖产品能力与来源披露。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

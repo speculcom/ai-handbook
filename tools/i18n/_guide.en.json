@@ -9,7 +9,7 @@
   ],
   "coding": {
     "title": "Answer one question first: how much do you want it to do for you",
-    "lede": "This section holds 27 entries, <strong>split three ways</strong>: 23 are installed on your own machine (11 IDE form + 12 CLI form, of which <strong>five pairs are the same product in two forms</strong> — Aider, Claude Code, Codex, Copilot and Cursor each have an IDE entry and a CLI entry; they are not competitors, and they differ in <strong>where they install, how they are invoked, and whether they drop into scripts</strong>). The other 4 are <strong>vendor cloud</strong> — nothing installs locally, the work happens on someone else's machine.",
+    "lede": "This section holds 41 entries, <strong>split three ways</strong>: 19 are <strong>IDE-form</strong> tools installed on your own machine, 12 are <strong>CLI-form</strong>, and 10 are <strong>vendor cloud</strong> — nothing installs locally, the work happens on someone else's machine. <strong>Five pairs are the same product in two forms</strong> — Aider, Claude Code, Codex, Copilot and Cursor each have an IDE entry and a CLI entry; they are not competitors, and they differ in <strong>where they install, how they are invoked, and whether they drop into scripts</strong>. Deduplicated, that is 36 products.",
     "steps": [
       [
         "I want an editor I can launch myself",
@@ -43,8 +43,8 @@
       ],
       [
         "I want <strong>it to keep working after I close the client</strong>",
-        "Start with <strong>the 4 vendor-cloud entries</strong>",
-        "That layer is 'the whole machine is in the cloud': Dot, Muse, Grok Bot and Jules — they differ in <strong>how approval and async flow are designed</strong> — Muse has a separate Sentinel agent, Dot reviews automatically, Grok Bot's official page <strong>does not say</strong>, and Jules gates on an approved plan (skippable via API). Some local forms also offer cloud execution for <strong>specific tasks</strong> (Cursor's cloud agents, Kiro's Cloud Sessions, Amp's orb, Copilot's coding agent) — so check the `background` dimension per entry instead of assuming by form."
+        "Start with <strong>the 10 vendor-cloud entries</strong>",
+        "That layer is 'the whole machine is in the cloud': Dot, Muse, Grok Bot, Jules, Augment, Bolt, Devin, Lovable, Replit Agent and v0 — they differ in <strong>how approval and async flow are designed</strong> — Muse has a separate Sentinel agent, Dot reviews automatically, Grok Bot's official page <strong>does not say</strong>, and Jules gates on an approved plan (skippable via API). Some local forms also offer cloud execution for <strong>specific tasks</strong> (Cursor's cloud agents, Kiro's Cloud Sessions, Amp's orb, Copilot's coding agent) — so check the `background` dimension per entry instead of assuming by form."
       ],
       [
         "I need data never to leave my machine",
@@ -56,7 +56,7 @@
   },
   "mcp": {
     "title": "Answer one question first: what capability are you actually missing",
-    "lede": "MCP is not \"making AI smarter\" — it is <strong>giving AI access to what it could not otherwise reach</strong>. If all you want is chat and writing code, you do not need it. <strong>You install it, the AI calls it</strong> — 10 entries: 7 are the MCP org's reference servers, 2 are maintained by their own official teams (Playwright / Context7), and 1 is vendor-official (GitHub's own github-mcp-server).",
+    "lede": "MCP is not \"making AI smarter\" — it is <strong>giving AI access to what it could not otherwise reach</strong>. If all you want is chat and writing code, you do not need it. <strong>You install it, the AI calls it</strong> — 32 entries by origin: 7 are the MCP org's reference servers, and 25 are maintained by their own vendor or official teams (Playwright, Context7, GitHub, and Neon / Notion / Stripe and others). Each entry states its origin and permission scope in the scope axis.",
     "steps": [
       [
         "I need to read/write local files / work with Git",

@@ -12,6 +12,8 @@ refs:
   - ["Touvron 等《Llama 2: Open Foundation and Fine-Tuned Chat Models》（arXiv 2307.09288）", "https://arxiv.org/abs/2307.09288", "Touvron et al., Llama 2: Open Foundation and Fine-Tuned Chat Models (arXiv 2307.09288)"]
   - ["HTML 版 · 第 3 节 Fine-tuning", "https://arxiv.org/html/2307.09288#S3", "HTML version · Section 3 Fine-tuning"]
   - ["HTML 版 · 第 4 节 Safety", "https://arxiv.org/html/2307.09288#S4", "HTML version · Section 4 Safety"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 论文卡：Llama 2（How to Read It）

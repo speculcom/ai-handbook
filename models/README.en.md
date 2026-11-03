@@ -192,10 +192,11 @@ or faster need benchmarks, and this site makes none.
 |---|---|
 | Series | 11 |
 | Model repos (members) | 16 |
-| Quant variants | 129 |
-| GGUF files | 1270 |
+| Quant repos (variants) | 129 |
+| Quant builds (sum of coverage) | 1262 |
+| GGUF files | 1337 |
 | Quantizers | 54 |
-| Family lineage cards (families) | 15 |
+| Family lineage cards (families) | 16 |
 | Closed-model cards (closed) | 6 |
 | Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->

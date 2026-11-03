@@ -22,6 +22,9 @@
 | Pydantic AI | Pydantic | https://ai.pydantic.dev | 已有 | pydantic-ai | |
 | smolagents | Hugging Face | https://huggingface.co/docs/smolagents | 已有 | smolagents | |
 | LangChain（核心） | LangChain, Inc. | https://www.langchain.com | 已有 | langchain | P1 · 生态主体，档案缺核心框架本体 |
+| LangChain4j | LangChain4j 社区 | https://docs.langchain4j.dev/ | 已有 | langchain4j | P3 · Java/JVM 系 agent 框架 |
+| Spring AI | Spring（VMware/Broadcom） | https://docs.spring.io/spring-ai/reference/ | 已有 | spring-ai | P3 · Spring Boot 官方路线 |
+| Vercel AI SDK 7 | Vercel | https://vercel.com/blog/ai-sdk-7 | 已有 | vercel-ai-sdk | P2 · HarnessAgent 与多 harness 适配 |
 | DSPy | Stanford NLP / Databricks | https://dspy.ai | 已有 | dspy | P2 · 编程语言模型而非手搭 prompt |
 | Haystack | deepset | https://haystack.deepset.ai | 已有 | haystack | P2 · RAG 管线出身，现含 agent 层 |
 | AgentScope | 阿里巴巴（魔搭） | https://agentscope.io | 已有 | agentscope | P2 · 国产（L5 只转述官方） |

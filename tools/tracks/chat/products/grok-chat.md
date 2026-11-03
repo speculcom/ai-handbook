@@ -87,7 +87,7 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。编码向实测协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)（对话产品不适用编码任务集）。
+本档未跑对话任务集；能力结论来自官方文档，不评价回答质量。
 
 ## 未知项清单
 

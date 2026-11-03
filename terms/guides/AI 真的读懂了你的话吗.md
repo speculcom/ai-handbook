@@ -11,6 +11,8 @@ fact: "它在按概率预测下一个词。贴切说明训练里见过相似的�
 terms: ["大模型 - 大语言模型", "自回归生成"]
 refs:
   - ["GPT-3 论文（Brown et al. 2020，摘要自称 an autoregressive language model）", "https://arxiv.org/abs/2005.14165", "GPT-3 paper (Brown et al. 2020)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # AI 真的读懂了你的话吗（Does AI Really Understand You）

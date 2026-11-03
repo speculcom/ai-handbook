@@ -14,16 +14,20 @@ axes:
     用 GPT-6 Sol、Free/Go 用 GPT-6 Luna，Pro 推理选项用 GPT-6 Astra；聊天内可选模型。
   runtime: >-
     网页、iOS/Android、macOS/Windows 桌面端；全部生成与检索在 OpenAI 云端处理，本机不跑模型。
+    桌面端内置浏览器，浏览器智能体能力并入 ChatGPT 与 Codex（官方版本说明：Atlas 浏览器于 2026-08-09 停运）。
     桌面端快捷聊天/截屏功能也只是入口，处理仍在云端。
   local_files: >-
     可上传文件、图像与音频（音频上传见 release notes 2026-10-06：转写、摘要、问答）；
     上传内容存于 OpenAI 账户，归谁与留存见 permissions 维。
   background: >-
-    对话即时返回；Codex Cloud 线明确「任务可在你电脑休眠时继续」（release notes 2026-09-29）。
-    对话产品本体没有关机续跑形态。
+    对话即时返回。ChatGPT 工作（官方版本说明，2026-07）面向长任务：可跟踪进度、回答问题、调整方向、
+    批准重要操作，并支持一次性或按计划/触发条件重复运行。Codex Cloud 线明确「任务可在你电脑休眠时继续」
+    （release notes 2026-09-29）。对话产品本体没有关机续跑形态。
   tools: >-
-    官方连接器（Gmail/Calendar 等）与合作 Apps；Slides/Sites/Finances 等内建功能线；
-    另有独立 API 线。插件（plugins）在 Codex 线披露，消费对话端扩展面以官方连接器为主。
+    Deep Research（官方 2026-02-10 更新：可连接任意 MCP 或 app、把网页搜索限定到可信站点、实时进度并可中断补充）；
+    ChatGPT 智能体 agent mode（公开网站、上传文件、已连接第三方来源，官方 2025-07-17 发布、2025-08-08 向 Enterprise/Edu 推出）；
+    ChatGPT 图像 2.0（2026-04-21 上线；官方 DALL·E GPT 于 2026-08-30 停用）；
+    官方连接器（Gmail/Calendar 等）与合作 Apps；Slides/Sites/Finances 等内建功能线；另有独立 API 线。
   context: >-
     有记忆功能与 Projects 组织历史；临时聊天不进历史、不建记忆。
     跨会话记忆的完整边界以官方帮助页为准。
@@ -39,20 +43,31 @@ pitfalls:
   - 把「关闭训练开关」当成临时聊天——两套独立机制，开关只管未来对话
   - 以为反馈（点赞/点踩）不受训练开关约束——官方明说整段相关对话可能入训练
   - 把消费线条款套到 API/Enterprise——两条线数据条款不同
+  - 还在找 ChatGPT Atlas 浏览器——官方已宣布 2026-08-09 停运，浏览器智能体能力并入 ChatGPT 与 Codex
+  - 以为 DALL·E GPT 仍是现役图像入口——官方于 2026-08-30 停用，改用 ChatGPT 图像
 
 tags: [云端, 多模态, 记忆, 商业]
 
 related: [openai-dot, codex-cli]
 
 sources:
-  - label: OpenAI Help · ChatGPT release notes（官方更新日志，2026-10-21 经搜索快照取到正文；直连 403 为反爬拦截）
-    url: https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+  - label: OpenAI Help · ChatGPT release notes（官方更新日志；2026-11-03 取到正文，含 Atlas 停运、ChatGPT 工作、DALL·E GPT 停用）
+    url: https://help.openai.com/zh-hans-cn/articles/6825453-chatgpt-%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
     kind: changelog
+  - label: OpenAI Help · ChatGPT Atlas release notes（Atlas 版本记录，2026-03-10 最后一条）
+    url: https://help.openai.com/zh-hans-cn/articles/12591856-chatgpt-atlas-release-notes
+    kind: changelog
+  - label: OpenAI Help · ChatGPT 智能体 release notes（2025-07-17 发布 / 2025-08-08 Enterprise+Edu）
+    url: https://help.openai.com/zh-hans-cn/articles/11794368-chatgpt-agent-release-notes
+    kind: changelog
+  - label: OpenAI · Introducing deep research（2025-02-02 发布；2026-02-10 更新 MCP/app 连接与可信站点限制）
+    url: https://openai.com/index/introducing-deep-research/
+    kind: docs
+  - label: OpenAI · ChatGPT 图像 2.0 现已上线（2026-04-21）
+    url: https://openai.com/zh-Hans-CN/index/introducing-chatgpt-images-2-0/
+    kind: docs
   - label: OpenAI · How your data is used to improve model performance（官方政策页，2026-10-20 快照核验）
     url: https://openai.com/policies/how-your-data-is-used-to-improve-model-performance
-    kind: docs
-  - label: OpenAI Help · 你的数据如何用于提升模型性能（5722486，含设置路径与临时聊天口径）
-    url: https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance
     kind: docs
   - label: OpenAI · Terms of Use（内容所有权与转让条款，2026-10-21 经搜索快照核验）
     url: https://openai.com/policies/row-terms-of-use/
@@ -61,8 +76,8 @@ sources:
     url: https://openai.com/chatgpt/pricing/
     kind: pricing
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-03
+last_updated: 2026-11-03
 lifecycle: active
 confidence: partial
 
@@ -92,7 +107,7 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。编码向实测协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)（对话产品不适用编码任务集）。
+本档未跑对话任务集；能力结论来自官方文档，不评价回答质量。
 
 ## 未知项清单
 

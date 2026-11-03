@@ -1817,12 +1817,12 @@
      "architecture": "llama",
      "imatrix": false,
      "imatrixFile": null,
-     "totalFileSize": 19114734528,
+     "totalFileSize": 17918680576,
      "declaredBase": [
       "openbmb/MiniCPM5-2B"
      ],
      "coverage": 8,
-     "totalGB": 17.8,
+     "totalGB": 17.92,
      "recommended": {
       "quant": "Q4_K_M",
       "sizeGB": 1.56,
@@ -1861,19 +1861,6 @@
        "path": "minicpm5-2b-Q4_K_M.gguf",
        "sizeBytes": 1561320384,
        "sizeGB": 1.56,
-       "quant": "Q4_K_M",
-       "bitsPerWeight": 4.85,
-       "tier": "平衡档",
-       "tierDesc": "默认推荐，质量和体积的折中点",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
-      {
-       "name": "minicpm5-2b-dspark-Q4_K_M.gguf",
-       "path": "minicpm5-2b-dspark-Q4_K_M.gguf",
-       "sizeBytes": 194103104,
-       "sizeGB": 0.19,
        "quant": "Q4_K_M",
        "bitsPerWeight": 4.85,
        "tier": "平衡档",
@@ -1935,19 +1922,6 @@
        "authorLabeled": false
       },
       {
-       "name": "minicpm5-2b-dspark-Q8_0.gguf",
-       "path": "minicpm5-2b-dspark-Q8_0.gguf",
-       "sizeBytes": 349218624,
-       "sizeGB": 0.35,
-       "quant": "Q8_0",
-       "bitsPerWeight": 8.5,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
-      {
        "name": "minicpm5-2b-bf16.gguf",
        "path": "minicpm5-2b-bf16.gguf",
        "sizeBytes": 5039008704,
@@ -1959,22 +1933,9 @@
        "isSharded": false,
        "shardCount": 1,
        "authorLabeled": false
-      },
-      {
-       "name": "minicpm5-2b-dspark-bf16.gguf",
-       "path": "minicpm5-2b-dspark-bf16.gguf",
-       "sizeBytes": 652732224,
-       "sizeGB": 0.65,
-       "quant": "BF16",
-       "bitsPerWeight": 16,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
       }
      ],
-     "variantCount": 11
+     "variantCount": 8
     },
     {
      "quantizer": "Abiray",

@@ -413,12 +413,12 @@
      "architecture": "qwen35",
      "imatrix": false,
      "imatrixFile": null,
-     "totalFileSize": 108388969824,
+     "totalFileSize": 101377916224,
      "declaredBase": [
       "Qwen/Qwen3.8-27B"
      ],
-     "coverage": 4,
-     "totalGB": 100.9,
+     "coverage": 3,
+     "totalGB": 101.38,
      "recommended": {
       "quant": "Q4_K_M",
       "sizeGB": 18.97,
@@ -426,19 +426,6 @@
       "name": "Qwen3.8-27B-Q4_K_M.gguf"
      },
      "files": [
-      {
-       "name": "dflash-Qwen3.8-27B-Q4_0.gguf",
-       "path": "dflash-Qwen3.8-27B-Q4_0.gguf",
-       "sizeBytes": 1094346080,
-       "sizeGB": 1.09,
-       "quant": "Q4_0",
-       "bitsPerWeight": 4.55,
-       "tier": "平衡档",
-       "tierDesc": "默认推荐，质量和体积的折中点",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
       {
        "name": "Qwen3.8-27B-Q4_K_M.gguf",
        "path": "Qwen3.8-27B-Q4_K_M.gguf",
@@ -466,19 +453,6 @@
        "authorLabeled": false
       },
       {
-       "name": "dflash-Qwen3.8-27B-Q8_0.gguf",
-       "path": "dflash-Qwen3.8-27B-Q8_0.gguf",
-       "sizeBytes": 2056414560,
-       "sizeGB": 2.06,
-       "quant": "Q8_0",
-       "bitsPerWeight": 8.5,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
-      {
        "name": "Qwen3.8-27B-BF16.gguf",
        "path": "Qwen3.8-27B-BF16.gguf",
        "sizeBytes": 53808282048,
@@ -490,22 +464,9 @@
        "isSharded": false,
        "shardCount": 1,
        "authorLabeled": false
-      },
-      {
-       "name": "dflash-Qwen3.8-27B-BF16.gguf",
-       "path": "dflash-Qwen3.8-27B-BF16.gguf",
-       "sizeBytes": 3860292960,
-       "sizeGB": 3.86,
-       "quant": "BF16",
-       "bitsPerWeight": 16,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
       }
      ],
-     "variantCount": 6
+     "variantCount": 3
     },
     {
      "quantizer": "byteshape",
@@ -2709,12 +2670,12 @@
      "architecture": "qwen4exp",
      "imatrix": false,
      "imatrixFile": null,
-     "totalFileSize": 350022609888,
+     "totalFileSize": 347802524320,
      "declaredBase": [
       "Qwen/Qwen3.8-Flash-Next"
      ],
-     "coverage": 5,
-     "totalGB": 326,
+     "coverage": 3,
+     "totalGB": 347.8,
      "recommended": {
       "quant": "IQ4_NL",
       "sizeGB": 102.05,
@@ -2749,19 +2710,6 @@
        "authorLabeled": false
       },
       {
-       "name": "dflash-Qwen3.8-Flash-Next-Q4_0.gguf",
-       "path": "dflash-Qwen3.8-Flash-Next-Q4_0.gguf",
-       "sizeBytes": 350635456,
-       "sizeGB": 0.35,
-       "quant": "Q4_0",
-       "bitsPerWeight": 4.55,
-       "tier": "平衡档",
-       "tierDesc": "默认推荐，质量和体积的折中点",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
-      {
        "name": "Qwen3.8-Flash-Next-Q8_0.gguf",
        "path": "Qwen3.8-Flash-Next-Q8_0.gguf",
        "sizeBytes": 162624826848,
@@ -2773,35 +2721,9 @@
        "isSharded": true,
        "shardCount": 2,
        "authorLabeled": false
-      },
-      {
-       "name": "dflash-Qwen3.8-Flash-Next-Q8_0.gguf",
-       "path": "dflash-Qwen3.8-Flash-Next-Q8_0.gguf",
-       "sizeBytes": 652101056,
-       "sizeGB": 0.65,
-       "quant": "Q8_0",
-       "bitsPerWeight": 8.5,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
-      {
-       "name": "dflash-Qwen3.8-Flash-Next-BF16.gguf",
-       "path": "dflash-Qwen3.8-Flash-Next-BF16.gguf",
-       "sizeBytes": 1217349056,
-       "sizeGB": 1.22,
-       "quant": "BF16",
-       "bitsPerWeight": 16,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
       }
      ],
-     "variantCount": 6
+     "variantCount": 3
     },
     {
      "quantizer": "lmstudio-community",

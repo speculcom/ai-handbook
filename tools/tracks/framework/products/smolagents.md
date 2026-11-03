@@ -78,7 +78,7 @@ axes:
 
     CodeAgent 要读写文件。它靠的是**自己生成的 Python 代码**（如 `open()`）或你提供的自定义工具。
 
-    所以**文件边界不是框架给的，而是执行环境给的**。本地跑则受 `LocalPythonExecutor` 的
+    所以**文件边界由执行环境决定，框架不提供**。本地跑则受 `LocalPythonExecutor` 的
     import 白名单约束。远程沙箱跑则限在沙箱容器内。两种沙箱模式见 secure_code_execution 页。
 
     **未知：CodeAgent 默认允许的文件访问范围，官方未说明。**
@@ -344,7 +344,7 @@ README 里 agents 和 tools 都是 Hub 对象：
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按编程底座 + code-as-action 维度定制）：
 

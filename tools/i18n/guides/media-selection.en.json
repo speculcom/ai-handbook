@@ -1,0 +1,18 @@
+{
+  "_comment": "P1-5 选型指南英译 · media-selection（2026-11-03）。sections 键 = 节标题中文部分；sources 按索引对齐 frontmatter。",
+  "sections": {
+    "这一篇讲什么": "The first screen for image, video and audio tools is not \"does it look good\" but **commercial licensing**.\nThe second is input/output and edit chains, the third is local vs cloud, and price comes last.\nThis guide ranks nothing and quotes no prices; licence text and pricing follow the official pages.",
+    "第一道：商用许可": "| What to check | Why | Where |\n|---|---|---|\n| Commercial use of output | Free tiers often allow personal use only | official terms / pricing pages |\n| Training-data provenance | Some tools claim \"commercially safe\" based on licensed training data | official trust/legal pages |\n| Voice cloning and likeness | You need consent from the person cloned; platforms may require extra verification | official voice/face cloning terms |\n| Font and asset embedding | Font licences differ by embedding method; game/App embedding often needs a commercial licence | the font's official licence page |",
+    "第二道：输入输出与编辑链": "- **Input**: text-to-image, image-to-image, video-to-video, audio-driven lip sync; supported inputs determine the workflow.\n- **Output**: resolution, duration, watermark, file format; whether lossless or layered files can be exported.\n- **Edit chain**: inpainting, outpainting, subject replacement, character consistency; timeline or storyboard support.\n- **Batch and API**: for volume, check official APIs, concurrency limits and commercial terms, not just the web UI.",
+    "第三道：本地还是云端": "- **Local**: weights and compute stay with you — good for privacy, offline use and high long-term volume; the cost is GPUs, deployment and operations.\n- **Cloud**: ready to use and fast to update; the cost is metered billing, cross-border data and network dependency.\n- **Hybrid**: local for batches, cloud for hard cases — a common compromise; confirm both sides produce compatible formats and licences.",
+    "第四道：中文与区域可用": "- Test Chinese prompt adherence, Chinese text rendering and Chinese speech naturalness with your own samples.\n- Mainland reachability, filing and cross-border data are separate constraints; overseas tools may time out from the mainland.\n- Commercial publishing also depends on AI-content labelling rules (watermarks, content credentials).",
+    "常见误判": "- **Mistaking \"free to use\" for \"licensed for commercial use\"**: free tiers usually exclude commercial rights.\n- **Mistaking \"good output\" for \"usable workflow\"**: without local editing or consistency, volume creates rework.\n- **Mistaking \"has a web UI\" for \"has an API\"**: volume depends on official APIs and concurrency limits.\n- **Ignoring fonts and music**: fonts, scores and sound effects outside the generated image keep their own licences."
+  },
+  "sources": [
+    "Adobe · Firefly official page (commercially safe positioning and model notes)",
+    "Runway · official pricing and licence entry",
+    "ElevenLabs · official pricing and voice-cloning terms",
+    "OpenAI · Terms of Use (output ownership and usage terms)",
+    "Google · Gemini API Additional Terms (generated content and SynthID terms)"
+  ]
+}

@@ -17,7 +17,7 @@ providers:
   - 仅 Claude（Anthropic 官方 API）
 
 layer_position: >-
-  **它不是独立的 agent 实现，而是 Claude Code CLI 的编程接口。**
+  **它是 Claude Code CLI 的编程接口，自带 CLI 的完整工具面。**
 
   **agent 能力全部来自那个 CLI**：工具集、hooks、权限、会话，没有一样是 SDK 自带的。
 
@@ -283,7 +283,7 @@ cn:
 
 > 官方 README 首行："Python SDK for Claude Agent."
 
-## ⚠ 先讲清最容易误解的一点：它是 CLI 的包装，不是框架
+## 它是 CLI 的编程接口，不是独立框架
 
 **README 首行就把这事说了**：
 
@@ -371,7 +371,7 @@ cn:
 
 ## custom tools = 进程内 MCP server（一个省心的设计）
 
-**custom tools 不是普通函数调用，而是「进程内 MCP server」。**
+**custom tools 以「进程内 MCP server」的形式运行。**
 
 **官方原话**：
 
@@ -539,7 +539,7 @@ v3 计划 §2.2 记的是 v0.2.162。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**：
 

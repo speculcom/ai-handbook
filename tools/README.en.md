@@ -23,7 +23,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 | `mcp` | Tools for your AI — MCP servers |
 | `runner` | Local model runners |
 
-**Why "atlas"**: not a pile of tool names, but a map that can place all 216 objects.
+**Why "atlas"**: not a pile of tool names, but a map that can place all 225 objects.
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
@@ -51,7 +51,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
-There are 216 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
+There are 225 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
 |---|---|
@@ -137,9 +137,9 @@ tools/ (ai-handbook subtree)
 │   │   └── products/           41 objects
 │   ├── chat/                   chat assistants (21 objects)
 │   ├── image/ · video/ · audio/  three creation categories (15 + 14 + 17 objects)
-│   ├── framework/              agent frameworks & runtimes (27 objects)
+│   ├── framework/              agent frameworks & runtimes (30 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 32 objects)
-│   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 22 + 16 objects)
+│   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 23 + 21 objects)
 ├── protocols/                  measurement protocols (coding / framework / mcp)
 ├── scripts/                    validators (validate / audit / quality)
 └── CHANGELOG.md                data-layer changelog
@@ -419,7 +419,7 @@ Citation-first search and research products
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
-### Automation & workflows — 22
+### Automation & workflows — 23
 
 Visual AI-app builders and workflow automation platforms
 
@@ -433,6 +433,7 @@ Visual AI-app builders and workflow automation platforms
 | [Dify](tracks/automation/products/dify.md) | LangGenius (China-origin, global-facing) | web | partial | active |
 | [FastGPT](tracks/automation/products/fastgpt.md) | labring (Huanji Cloud, China-origin) | web | partial | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | partial | active |
+| [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | maintenance |
 | [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | partial | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax (formerly Langflow AI) | web | partial | active |
 | [Lindy](tracks/automation/products/lindy.md) | Lindy | web | partial | active |
@@ -448,7 +449,7 @@ Visual AI-app builders and workflow automation platforms
 | [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
-### Agent frameworks & runtimes — 27
+### Agent frameworks & runtimes — 30
 
 Building blocks for your own agent
 
@@ -467,6 +468,7 @@ Building blocks for your own agent
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | partial | active |
 | [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | partial | active |
+| [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j community | harness | partial | active |
 | [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | partial | active |
 | [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
@@ -479,8 +481,10 @@ Building blocks for your own agent
 | [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | partial | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
+| [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | partial | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | partial | active |
+| [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | partial | active |
 
 ### Tools for your AI — 32
 
@@ -521,15 +525,18 @@ MCP servers and the tool ecosystem
 | [Time MCP Server](tracks/mcp/products/time.md) | Model Context Protocol | mcp | verified | active |
 | [Zapier MCP](tracks/mcp/products/zapier-mcp.md) | Zapier | mcp | partial | active |
 
-### Local model runners — 16
+### Local model runners — 21
 
 Desktop apps that run open-weight models on your machine
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
+| [Docker Model Runner](tracks/runner/products/docker-model-runner.md) | Docker | local-app | partial | active |
+| [ExLlamaV3](tracks/runner/products/exllamav3.md) | turboderp-org | cli | partial | active |
 | [GPT4All](tracks/runner/products/gpt4all.md) | Nomic AI | local-app | partial | maintenance |
 | [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | partial | active |
 | [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins (KoboldAI community) | local-app | partial | active |
+| [Lemonade](tracks/runner/products/lemonade.md) | AMD / Lemonade community | local-app | partial | active |
 | [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
 | [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge community (WasmEdge / Second State ecosystem) | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | partial | active |
@@ -537,7 +544,9 @@ Desktop apps that run open-weight models on your machine
 | [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine (CMU lineage, mlc-ai) | cli | partial | active |
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
 | [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | partial | active |
+| [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | partial | active |
 | [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
+| [OpenVINO](tracks/runner/products/openvino.md) | Intel | cli | partial | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
 | [TabbyAPI](tracks/runner/products/tabbyapi.md) | Royal Lab（theroyallab） | cli | partial | active |
 | [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | archived |
@@ -552,8 +561,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 216 |
-| By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
-| By form | web 93 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
+| Total profiles | 225 |
+| By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 |
+| By form | web 94 · mcp 32 · harness 30 · cli 25 · ide 19 · cloud 14 · local-app 11 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

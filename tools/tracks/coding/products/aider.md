@@ -21,7 +21,7 @@ axes:
 
     所以参考这份列表时要自行核对。
   runtime: >-
-    **它不是编辑器插件，而是一种使用模式。**
+    **它的形态是后台常驻进程，不装进编辑器。**
 
     Aider 在后台 watch 你的文件。
 
@@ -310,7 +310,7 @@ watch 模式的官方描述已确认。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：这个工具的实测重点应是
 **「常驻进程 + 自动提交」的风险是否可控**。

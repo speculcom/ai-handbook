@@ -179,7 +179,7 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md)。
+本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 **实测建议**：这类 server 的实测重点在**调用轮次与 token 成本**，
 而不是能否完成任务。要对比「用 / 不用」在同一任务上的总 token 与轮次差异。

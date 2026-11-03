@@ -224,7 +224,7 @@ cn:
 
 ## 与本分区另两组形态的根本差别
 
-这不是「又一个AI 编码工具」，而是**另一个方向**：
+它走的是**厂商云形态**：任务提交后可在关机后继续推进，不和 IDE 或 CLI 比功能多少。
 
 | | IDE 形态 / CLI 形态 | 厂商云形态（本条目） |
 |---|---|---|
@@ -355,7 +355,7 @@ Pro 或 Business Premium 套餐已包含你的首个 Dot，无需额外付费。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：这三份厂商云 agent 的比较维度集中在 `background` 与 `permissions`，
 本地装不了（要 Pro / Business Premium 订阅），

@@ -286,9 +286,11 @@
     "Assuming open source means entirely free — the client is open source, but cloud agents and Warp Drive are metered by tier"
   ],
   "chatgpt": [
-    "Treating “turn off the training toggle” as Temporary Chat — two independent mechanisms; the toggle only governs future conversations",
-    "Assuming feedback (thumbs up/down) is exempt from the training toggle — the official docs say the whole related conversation may be trained on",
-    "Applying consumer terms to the API/Enterprise line — the two lines have different data clauses"
+    "Treating \"turn off training\" as temporary chat — two separate mechanisms; the switch only affects future chats",
+    "Assuming feedback (thumbs up/down) is exempt from the training switch — the official docs say the whole related conversation may be used",
+    "Applying consumer terms to API/Enterprise — the two lines have different data terms",
+    "Still looking for ChatGPT Atlas — the official notice says it was retired on 2026-08-09 and browser-agent capability moved into ChatGPT and Codex",
+    "Assuming DALL·E GPT is still the live image entry — the official notice retired it on 2026-08-30; use ChatGPT Images"
   ],
   "claude-chat": [
     "Treating the chat app and Claude Code as one product line — two lines, two profiles",
@@ -296,9 +298,10 @@
     "Treating memory as an uncontrollable black box — the official side provides per-item view/edit/delete controls"
   ],
   "gemini-chat": [
-    "Reading “won't directly train on raw Gmail/Drive” as “your conversations aren't trained on” — summaries and inferences produced during answering are still trained on (explicitly stated)",
-    "Confusing Keep Activity with Temporary Chat — two mechanisms: the former governs future-conversation training, the latter retention and history",
-    "Applying API terms to the consumer app — the Gemini Apps privacy notice and the Gemini API additional terms are two documents"
+    "Reading \"does not train directly on Gmail/Drive originals\" as \"your chats are not used for training\" — summaries and inferences from answers are still used (official wording)",
+    "Confusing Keep Activity with temporary chat — two mechanisms: one governs future training, the other retention and history",
+    "Applying API terms to the consumer app — the Gemini Apps Privacy Notice and the Gemini API Additional Terms are two documents",
+    "Treating Deep Research as \"one search\" — it runs multi-step research on Gemini 3.1 Pro and since 2026-04-21 supports MCP and custom sources"
   ],
   "grok-chat": [
     "Assuming Grok inside X and grok.com share one set of terms — inside X, the X privacy policy applies",
@@ -665,9 +668,10 @@
     "Treating ERNIE as an open-weight family — unlike DeepSeek/GLM/Qwen, the ERNIE line keeps weights closed; 'run Wenxin locally' is not a viable path"
   ],
   "microsoft-copilot": [
-    "Mixing consumer Copilot with Microsoft 365 Copilot — the free web edition and the office-suite edition are two product surfaces with different terms and capabilities",
-    "It is also not GitHub Copilot — the coding tool belongs to the coding category (copilot profiled there); this profile is general chat",
-    "'Models routed by Microsoft' does not mean 'pinned to one model' — routing shifts with official changes; don't treat an interface snapshot as a promise"
+    "Confusing consumer Copilot with Microsoft 365 Copilot — the free web app and the office-suite product are different surfaces with different terms",
+    "Confusing it with GitHub Copilot — coding belongs to the coding category (copilot profile); this profile is general chat",
+    "Reading \"routed by Microsoft\" as \"fixed to one model\" — routing changes with official updates; do not treat a UI snapshot as a promise",
+    "Still looking for Deep Research in consumer Copilot — it was retired on 2026-08-18; deep research moved to Researcher in Microsoft 365 Copilot"
   ],
   "manus": [
     "Treating Manus as 'a chatting bot' — the official positioning is a general-task agent (chat is just one entry); execution happens in a cloud sandbox",
@@ -1123,5 +1127,50 @@
     "The API pool includes curated open models (deepseek4-flash/glm5.3/qwen3.8-27b/gemma4-26b) — \"Reka API\" does not mean \"Reka models only\"; each open tier is used under its own weights license",
     "Reka Edge open weights and the closed flagship are two lines — reka-edge-2603 runs locally (docs run-locally), reka-flash-3 is API-only; capabilities and data boundaries differ",
     "The chat entry's feature surface is thin — app.reka.ai is a JS app (only the \"Edge Chat\" title visible same day); model choice/memory/upload unverified in official docs; do not expect ChatGPT-class maturity"
+  ],
+  "opal": [
+    "Treating Opal as a long-term production platform — the official notice says it exits Labs on 2026-11-17, workflows move to Gemini skills, and active workflows stop running after that",
+    "Expecting a model picker — the official narrative is an agent step choosing tools and models, not a per-model configuration",
+    "Treating \"free experiment\" as a commercial licence — commercial scope follows Google service terms"
+  ],
+  "vercel-ai-sdk": [
+    "Treating HarnessAgent as \"Claude Code built in\" — it is an adapter layer and still needs the harness and runtime",
+    "Assuming switching harness needs no permission changes — different harnesses expose different tools and sandbox boundaries",
+    "Treating the library as a hosted service — AI SDK does not run a task queue for you"
+  ],
+  "tensorrt-llm": [
+    "Treating TensorRT-LLM as a drop-in replacement for llama.cpp — it compiles engines and the deployment chain is heavier",
+    "Assuming AMD/CPU also run — the official positioning is NVIDIA GPUs",
+    "Taking official performance numbers as this site’s measurements — no throughput benchmarks are run here"
+  ],
+  "exllamav3": [
+    "Treating ExLlamaV3 as a replacement for llama.cpp — it uses EXL3/CUDA, not GGUF",
+    "Assuming installing the package is enough — you still need CUDA and a matching checkpoint",
+    "Treating TabbyAPI as ExLlama itself — TabbyAPI is the outer API server"
+  ],
+  "langchain4j": [
+    "Treating LangChain4j as a port of Python LangChain — it is an independent Java implementation",
+    "Assuming the framework ships a vector store — vector stores are separate dependencies you choose",
+    "Ignoring JVM memory and threading — a local large model does not belong in the same JVM"
+  ],
+  "spring-ai": [
+    "Treating Spring AI as the official version of LangChain4j — they are different projects with different abstractions",
+    "Assuming a starter auto-configures a model — you still need an API key and model configuration",
+    "Ignoring Spring version compatibility — starters and Boot versions must align"
+  ],
+  "openvino": [
+    "Assuming OpenVINO only supports Intel CPUs — official docs also cover GPU/NPU, with a hardware matrix",
+    "Assuming models run as-is — they usually need conversion to IR",
+    "Treating OVMS as a full agent platform — it is only the inference service layer"
+  ],
+  "lemonade": [
+    "Treating Lemonade as Windows-only — the SDK and Linux backends exist, but hardware support has a matrix",
+    "Assuming every model gets NPU acceleration — NPU support depends on model and chip",
+    "Treating the experimental vLLM ROCm backend as stable — the official announcement marks it experimental"
+  ],
+  "docker-model-runner": [
+    "Treating DMR as a cloud model service — it runs locally and data stays on the machine",
+    "Assuming any image can run a model — models are distributed as DMR OCI artefacts",
+    "Ignoring Docker Desktop licensing — read Docker terms before commercial use"
   ]
 }

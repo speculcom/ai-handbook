@@ -12,6 +12,8 @@ refs:
   - ["OpenAI 结构化输出指南", "https://developers.openai.com/api/docs/guides/structured-outputs", "OpenAI Structured outputs guide"]
   - ["Anthropic 工具使用文档", "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview", "Anthropic Tool use overview"]
   - ["JSON Schema 规范", "https://json-schema.org/", "JSON Schema specification"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么让 AI 按格式输出（How to Get AI to Output in Your Format）

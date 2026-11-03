@@ -80,7 +80,7 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。最接近的实测协议是代码侧的 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)（本地端点与凭据边界一节可借用；运行器专用协议本站未立）。
+本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
 models 站的 GGUF 索引口径（llama.cpp 格式源头）与本档案 model_access 维衔接。
 
 ## 未知项清单

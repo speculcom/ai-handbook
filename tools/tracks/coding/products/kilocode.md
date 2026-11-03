@@ -108,7 +108,7 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

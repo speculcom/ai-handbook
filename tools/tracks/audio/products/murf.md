@@ -91,7 +91,7 @@ AI Voice & Conversational Agent Platform）：200+ 预置音色主打，克隆�
 
 ## 实测记录
 
-本站尚未完成实测。编码向实测协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)（音频产品不适用编码任务集）。
+本档未跑音频质量与延迟测试；结论只覆盖能力面与许可面。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

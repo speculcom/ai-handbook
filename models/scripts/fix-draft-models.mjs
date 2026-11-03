@@ -23,9 +23,12 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const DIR = path.resolve(HERE, '..', 'data', 'series');
 
 // 命名即语义：这些前缀/词出现即代表「辅助网络」而非主权重。
-const DRAFT = /^(?:dflash[-_]|eagle\d?[-_]|medusa[-_]|draft[-_])|(?:[-_])(?:dflash|eagle\d?|medusa|draftmodel)[-_]/i;
+// DSpark 是部分发布方对投机解码 / 中间检查点的命名（MiniCPM 卡把 Base/SFT/DSpark 并列为中间档）。
+// DeepSeek-V4.1-Flash-DSpark-*.gguf 只有约 8 GB，而同一模型的 MXFP4 主权重约 404 GB，
+// 体积与 763B 总参不自洽，不能当作主量化档推荐。
+const DRAFT = /^(?:dflash[-_]|eagle\d?[-_]|medusa[-_]|draft[-_]|dspark[-_])|(?:[-_])(?:dflash|eagle\d?|medusa|draftmodel|dspark)[-_]/i;
 // 兜底：文件名任意位置出现这些词（排除 .gguf 之外的后缀误伤）
-const DRAFT_LOOSE = /(?:^|[-_])(dflash|eagle3?|medusa|draft[-_]?model)(?:[-_.]|$)/i;
+const DRAFT_LOOSE = /(?:^|[-_])(dflash|eagle3?|medusa|draft[-_]?model|dspark)(?:[-_.]|$)/i;
 
 function isDraft(name) {
   const base = name.replace(/\.gguf$/i, '');

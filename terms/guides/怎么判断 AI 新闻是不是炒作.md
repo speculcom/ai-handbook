@@ -12,6 +12,8 @@ refs:
   - ["HELM 论文（评测不完备性）", "https://arxiv.org/abs/2211.09110", "Holistic Evaluation of Language Models (HELM)"]
   - ["Ott 等《Mapping global dynamics of benchmark creation and saturation in AI》（Nature Communications 2022）", "https://arxiv.org/abs/2203.04592", "Ott et al., Benchmark creation and saturation in AI (Nature Communications 2022)"]
   - ["Anthropic 透明度中心（官方）", "https://www.anthropic.com/transparency", "Anthropic Transparency Hub (Model Report)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么判断 AI 新闻是不是炒作（How to Tell if AI News Is Hype）

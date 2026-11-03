@@ -278,7 +278,7 @@ Free 档已含无限 inline edits 与无限 Tab 补全。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测两处
 （1）**Restricted Mode 的实际约束力**——鉴于它有过 CVE 修复；

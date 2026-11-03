@@ -10,7 +10,8 @@
  },
  "family": "deepseek",
  "released": "2026-09-10",
- "summary": "MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。",
+ "summary": "MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cpp 生态参与者）维护量化版。",
+ "summaryEn": "MIT-licensed, with a lively quantization scene — antirez (author of Redis, a participant in the llama.cpp ecosystem) maintains the quantized weights himself.",
  "positions": [
   "通用对话",
   "MIT 许可",
@@ -27,12 +28,12 @@
     "zh": "DeepSeek V4.1 Flash",
     "en": "DeepSeek V4.1 Flash"
    },
-   "params": "763B 总参（MoE，激活数未公开）",
+   "params": "763B 总参（官方卡拆分：552B 骨干 + 196B Engram 条件记忆 + 视觉塔等）/ 激活 8B（prefill）· 16B（decode）",
    "role": {
     "zh": "通用主力",
     "en": "General"
    },
-   "note": "MIT 许可，20 个第三方量化仓，antirez 一家 124 万下载（2026-10-30 复测）。",
+   "note": "MIT 许可；本站逐档收录 5 个量化仓，HF API 另有统计显示第三方量化仓共 20 个（2026-10-30 快照）；antirez 一家 124 万下载。",
    "license": "mit",
    "licenseLink": null,
    "licenseName": null,
@@ -137,10 +138,10 @@
      "architecture": "deepseek41",
      "imatrix": true,
      "imatrixFile": "/home/sergei/_my_deepseek41/calibration/results/imatrix-stage5-full/imatrix-dsv41-262144.gguf",
-     "totalFileSize": 2070161218944,
+     "totalFileSize": 2062188259008,
      "declaredBase": "deepseek-ai/DeepSeek-V4.1-Flash",
-     "coverage": 5,
-     "totalGB": 1928,
+     "coverage": 4,
+     "totalGB": 2062.19,
      "recommended": {
       "quant": "MXFP4",
       "sizeGB": 507.95,
@@ -212,22 +213,9 @@
        "isSharded": true,
        "shardCount": 10,
        "authorLabeled": false
-      },
-      {
-       "name": "DeepSeek-V4.1-Flash-DSpark-AUTO.gguf",
-       "path": "DeepSeek-V4.1-Flash-DSpark-AUTO.gguf",
-       "sizeBytes": 7972959936,
-       "sizeGB": 7.97,
-       "quant": "其他",
-       "bitsPerWeight": null,
-       "tier": "未识别",
-       "tierDesc": "",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
       }
      ],
-     "variantCount": 6
+     "variantCount": 5
     },
     {
      "quantizer": "mxxm-t",
@@ -243,12 +231,12 @@
      "architecture": "deepseek41",
      "imatrix": false,
      "imatrixFile": null,
-     "totalFileSize": 411476016576,
+     "totalFileSize": 403503056576,
      "declaredBase": [
       "deepseek-ai/DeepSeek-V4.1-Flash-1017"
      ],
      "coverage": 1,
-     "totalGB": 383.2,
+     "totalGB": 403.5,
      "recommended": {
       "quant": "MXFP4",
       "sizeGB": 403.5,
@@ -256,19 +244,6 @@
       "name": "DeepSeek-V4.1-Flash-MXFP4.gguf"
      },
      "files": [
-      {
-       "name": "DeepSeek-V4.1-Flash-DSpark-MXFP4.gguf",
-       "path": "DeepSeek-V4.1-Flash-DSpark-MXFP4.gguf",
-       "sizeBytes": 7972960000,
-       "sizeGB": 7.97,
-       "quant": "MXFP4",
-       "bitsPerWeight": 4.25,
-       "tier": "平衡档",
-       "tierDesc": "默认推荐，质量和体积的折中点",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
       {
        "name": "DeepSeek-V4.1-Flash-MXFP4.gguf",
        "path": "DeepSeek-V4.1-Flash-MXFP4.gguf",
@@ -283,7 +258,7 @@
        "authorLabeled": false
       }
      ],
-     "variantCount": 2
+     "variantCount": 1
     },
     {
      "quantizer": "Solstice-AI",
@@ -419,7 +394,6 @@
    }
   }
  ],
- "summaryEn": "MIT-licensed, with a lively quantization scene — antirez (the author of llama.cpp) maintains the quantized weights himself.",
  "cn": {
   "origin": "domestic",
   "originNote": "出品方为深度求索（北京）。",

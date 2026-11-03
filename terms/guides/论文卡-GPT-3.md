@@ -11,6 +11,8 @@ terms: ["大模型 - 大语言模型", "预训练", "微调"]
 refs:
   - ["Brown 等《Language Models are Few-Shot Learners》（arXiv 2005.14165）", "https://arxiv.org/abs/2005.14165", "Brown et al., Language Models are Few-Shot Learners (arXiv 2005.14165)"]
   - ["HTML 版 · 第 5 节 Limitations", "https://arxiv.org/html/2005.14165#S5", "HTML version · Section 5 Limitations"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 论文卡：GPT-3（How to Read It）

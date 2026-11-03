@@ -1,0 +1,25 @@
+{
+  "_comment": "P3-3 Spring AI bodies EN（2026-11-03）。sections 与源侧固定小节对齐；sources 按索引对齐 frontmatter。",
+  "axes": {
+    "model_access": "A portable Model API behind one interface across providers; official docs list ChatClient and the model APIs. The current supported list follows official docs and is not enumerated here.",
+    "runtime": "Runs inside a Spring Boot application: official starters and auto-configuration inject models and vector stores as Spring beans.",
+    "local_files": "Document ingestion (ETL) and vector stores are configured by the application; the framework hosts no data itself.",
+    "background": "A library with no built-in task queue; async and long-running work is orchestrated on the Spring side.",
+    "tools": "Supports tool calling and MCP: official docs state it can consume MCP servers and expose Spring services to the AI ecosystem.",
+    "context": "Conversation memory is managed through ChatClient and memory configuration; persistence is yours to attach.",
+    "permissions": "Runs within Spring Security; permissions are application-configured, with no built-in multi-tenant isolation.",
+    "fit": "Fits Spring Boot teams who want AI as standard Spring components and need MCP plus vector-store integration. Does not fit non-Java teams, turnkey agents, or lightweight scripting."
+  },
+  "runs": "This site has not completed integration or performance tests; the conclusions cover the API and capabilities disclosed in official docs only.",
+  "unknowns": "- Full current list of supported models and vector stores (not enumerated here)\n- Versions and limits of bidirectional MCP integration\n- Spring Boot compatibility matrix",
+  "related": [
+    "Another Java route with a more LangChain-like abstraction.",
+    "A Python-side counterpart to read in contrast."
+  ],
+  "sources": [
+    "Spring AI · official reference docs (Model API / ChatClient / MCP / ETL)",
+    "Spring AI · project home (Spring AI 2.0 positioning)",
+    "Spring AI · GitHub repository",
+    "Spring AI · Releases (official changelog)"
+  ]
+}

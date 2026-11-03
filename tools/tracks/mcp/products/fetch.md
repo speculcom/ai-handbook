@@ -111,7 +111,7 @@ cn:
 
 把网页内容转成 Markdown 的 reference server，**官方在其 README 里明确标注了安全警告：它能访问本地与内网 IP**。
 
-## ⚠ 官方安全警告（原文）
+## 官方警告：可访问本地与内网地址
 
 > **CAUTION**
 > This server can access local/internal IP addresses and may represent a security risk.
@@ -190,7 +190,7 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md)。
+本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 **实测建议**：这个 server 的实测**不应在含内网敏感服务的环境中进行**。
 建议在隔离容器或测试网络中验证抓取成功率与输出质量。

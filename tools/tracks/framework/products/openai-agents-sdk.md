@@ -429,7 +429,7 @@ README 里明确指向 `openai/openai-agents-js`（滚动核验 2026-10-23：MIT
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按 harness 分区五维度定制到这个 SDK 的重点）：
 

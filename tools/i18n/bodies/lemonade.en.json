@@ -1,0 +1,25 @@
+{
+  "_comment": "P3-4 Lemonade bodies EN（2026-11-03）。sections 与源侧固定小节对齐；sources 按索引对齐 frontmatter。",
+  "axes": {
+    "model_access": "A local model server: pulls models from Hugging Face and runs them on the machine; supports the llama.cpp backend, plus an experimental vLLM ROCm backend on AMD Ryzen AI MAX+ (official FAQ).",
+    "runtime": "A long-running local service: Windows installer or the full SDK; exposes an OpenAI-compatible API and can work with the Ryzen AI toolchain.",
+    "local_files": "Models and data stay local; no cloud account dependency, which suits offline and privacy-sensitive use.",
+    "background": "A long-running service that other apps can call; no official statement of continuing after shutdown.",
+    "tools": "Primarily an inference service; tool-calling and MCP not verified item by item.",
+    "context": "Long context depends on model and VRAM/RAM configuration; limits follow the official FAQ.",
+    "permissions": "A local process with no account system; permissions come from the host environment.",
+    "fit": "Fits AMD Ryzen AI / NPU users who want a local OpenAI-compatible endpoint for offline or private work. Does not fit NVIDIA-only optimisation or an out-of-the-box GUI chat app (see LM Studio and similar)."
+  },
+  "runs": "This site has not completed throughput or VRAM tests; the conclusions cover runtime capability and licensing only.",
+  "unknowns": "- NPU/GPU acceleration matrix across Ryzen models\n- Tool-calling and MCP support status\n- Stability boundaries of the experimental vLLM ROCm backend",
+  "related": [
+    "Intel-side local inference, contrasting with the AMD route.",
+    "Another route that runs local models through containers."
+  ],
+  "sources": [
+    "Lemonade · official FAQ (backend and hardware support)",
+    "Lemonade · vLLM ROCm announcement (experimental backend)",
+    "AMD Ryzen AI · Lemonade Server docs",
+    "Lemonade · GitHub Releases (official changelog)"
+  ]
+}

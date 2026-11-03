@@ -12,6 +12,8 @@ refs:
   - ["Vaswani 等《Attention Is All You Need》（arXiv 1706.03762）", "https://arxiv.org/abs/1706.03762", "Vaswani et al., Attention Is All You Need (arXiv 1706.03762)"]
   - ["HTML 版 · 第 4 节 Table 1（架构复杂度对比）", "https://arxiv.org/html/1706.03762#S4", "HTML version · Section 4, Table 1 (complexity comparison)"]
   - ["HTML 版 · 第 7 节 Attention Visualizations", "https://arxiv.org/html/1706.03762#S7", "HTML version · Section 7 Attention Visualizations"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 论文卡：Attention Is All You Need（How to Read It）

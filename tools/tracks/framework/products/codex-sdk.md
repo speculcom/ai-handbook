@@ -451,7 +451,7 @@ SDK 是它的 `sdk/typescript` 子目录。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按本 SDK 形态定制）：
 

@@ -167,7 +167,7 @@ uvx mcp-server-time
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md)。
+本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 

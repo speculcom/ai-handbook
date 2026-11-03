@@ -66,7 +66,7 @@ mcp:
 
   auth: >-
     无独立认证层。stdio 形态继承启动它的客户端用户的全部文件权限。
-    权限边界不是认证机制，而是目录白名单。
+    权限边界靠目录白名单实现，不靠认证机制。
 
   scope: >-
     **默认范围窄且强制显式**：必须通过命令行参数指定允许目录，
@@ -147,7 +147,7 @@ MCP 官方 reference server 里的文件操作实现。**它是「白名单目�
 **不适合**需要删除操作、需要跨目录聚合，
 或需要任意路径访问的场景——本 server 的设计目标就是收紧这个边界。
 
-## ⚠ 生产环境免责声明（适用于全部官方 reference server）
+## 官方声明：reference server 不适合生产环境
 
 MCP servers 仓库 README 原文：
 
@@ -192,7 +192,7 @@ MCP servers 仓库 README 原文：
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md)。
+本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 

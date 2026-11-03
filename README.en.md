@@ -39,30 +39,31 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| terms · Terms | 200 |
-| terms · Stations | Getting In 35 · Hands On 35 · Going Deeper 35 · Under the Hood 35 · Running It 30 · Choosing Right 30 |
-| terms · Learning paths | 8 curated ordered routes, each with a checkpoint |
-| terms · Short guides | 58 guides of 5-10 minutes each (English coverage 58/58) |
+| terms · Terms | 204 |
+| terms · Stations | Getting In 35 · Hands On 36 · Going Deeper 37 · Under the Hood 36 · Running It 30 · Choosing Right 30 |
+| terms · Learning paths | 10 curated ordered routes, each with a checkpoint |
+| terms · Short guides | 64 guides of 5-10 minutes each (English coverage 64/64) |
 | terms · Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |
-| terms · Domain | concept 56 · infra 34 · choice 33 · agent 25 · media 19 · model 14 · dev 10 · data 9 |
-| terms · Purpose (purposeTag) | learn 80 · apply 49 · guard 36 · judge 35 |
-| terms · Source entries (refs) | 481 |
-| terms · English coverage | 200 / 200 |
-| tools · Total profiles | 216 |
-| tools · By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
-| tools · By form | web 93 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
+| terms · Domain | concept 56 · infra 34 · choice 33 · agent 26 · media 19 · model 16 · dev 10 · data 10 |
+| terms · Purpose (purposeTag) | learn 81 · apply 50 · guard 37 · judge 36 |
+| terms · Source entries (refs) | 513 |
+| terms · English coverage | 204 / 204 |
+| tools · Total profiles | 225 |
+| tools · By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 |
+| tools · By form | web 94 · mcp 32 · harness 30 · cli 25 · ide 19 · cloud 14 · local-app 11 |
 | tools · Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 | models · Series | 11 |
 | models · Model repos (members) | 16 |
-| models · Quant variants | 129 |
-| models · GGUF files | 1270 |
+| models · Quant repos (variants) | 129 |
+| models · Quant builds (sum of coverage) | 1262 |
+| models · GGUF files | 1337 |
 | models · Quantizers | 54 |
-| models · Family lineage cards (families) | 15 |
+| models · Family lineage cards (families) | 16 |
 | models · Closed-model cards (closed) | 6 |
 | models · Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->
 
 ## Licence
 
-Own content CC BY 4.0; the data layer quotes third-party originals entry by entry (model licenses are governed by the original text on each release page).
+Page composition, structure and layout are all rights reserved. The `tools/` subtree's profiles and data are released under CC BY 4.0 via that subtree's `LICENSE`; `terms/`, `models/` and `nav` have no separate licence file in this repository, so their text is not licensed for copying or redistribution — link and quote only. The data layer quotes third-party originals entry by entry (model licenses are governed by the original text on each release page).
 **Product names and trademarks belong to their respective owners; this repo and all its sites use them for identification and commentary only** (the L3 notice, same wording as the site-wide footer).

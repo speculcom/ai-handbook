@@ -12,6 +12,8 @@ refs:
   - ["《生成式人工智能服务管理暂行办法》全文（国家网信办）", "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm", "Interim Measures for Generative AI Services (CAC, full text)"]
   - ["欧盟《数字单一市场版权指令》全文（EUR-Lex, Directive 2019/790）", "https://eur-lex.europa.eu/eli/dir/2019/790/oj", "EU Directive on Copyright in the Digital Single Market (2019/790), EUR-Lex"]
   - ["欧盟委员会 AI Act 官方页（通用模型的版权规则）", "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai", "European Commission, AI Act (copyright rules for GPAI providers)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么查 AI 生成内容的版权风险（How to Check Copyright Risk for AI-Generated Content）

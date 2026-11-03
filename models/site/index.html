@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>开放权重该怎么选 · AI 模型</title>
-  <meta name="description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化档、54 位量化者、1270 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
+  <meta name="description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
   <link rel="canonical" href="https://models.specul.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="开放权重该怎么选 · AI 模型" />
   <meta property="og:url" content="https://models.specul.com/" />
   <meta property="og:title" content="开放权重该怎么选 · AI 模型" />
-  <meta property="og:description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化档、54 位量化者、1270 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
+  <meta property="og:description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=6a580ac0420e"></script>
@@ -89,12 +89,13 @@
       <p class="lede"><span data-zh>你想在<b>自己电脑上</b>跑一个大模型。问题分两层：<b>第一层</b>，开放权重的家族、代次、尺寸档、许可各不相同，该选哪个；<b>第二层</b>，同一个模型有几十个量化版，该下哪一个。本站把两层分开答：<b>家族谱系卡</b>讲第一层（出品方 / 代次 / 尺寸 / 许可 / 官方声明），<b>系列页</b>讲第二层（你的显存能跑哪档、该下多大体积）。不评模型强弱，也不排名。</span><span data-en>You want to run a large model <b>on your own machine</b>. The question has two layers: <b>first</b>, which family, generation, size tier and licence; <b>second</b>, which of dozens of quantisations to download. This site answers them separately: <b>family lineage cards</b> cover layer one (vendor / generations / sizes / licences / official claims), and <b>series pages</b> cover layer two (which tier fits your VRAM, how big the download is). It does not rank models against each other.</span></p>
       <p class="lede lede-sub"><span data-zh><b>收录范围：开放权重（含蒸馏）——可本地部署的模型都收</b>，无论它是原生训练还是从别家模型蒸馏而来（HF 上有公开权重的 MoE 与 dense 模型）。闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，下载和选型的问题不存在。本站另设<b>闭源谱系卡</b>做对照：只记官方规格快照与复核周期，不采价格、不排名。</span><span data-en><b>Scope: open weights (distillation included) — any model you can run locally</b>, whether trained from scratch or distilled from another model (MoE and dense models with public weights on HF). Closed-source / API-only models are out of the quantisation scope — they have no quantisations, so the download and selection questions do not arise. The site keeps a separate set of <b>closed-model lineage cards</b> for contrast: official spec snapshots with a review cycle, no prices, no rankings.</span></p>
       <div class="home-stats">
-<div><b>15</b><span><span data-zh>个家族</span><span data-en>families</span></span></div>
+<div><b>16</b><span><span data-zh>个家族</span><span data-en>families</span></span></div>
 <div><b>11</b><span><span data-zh>个系列</span><span data-en>series</span></span></div>
 <div><b>16</b><span><span data-zh>个模型仓</span><span data-en>model repos</span></span></div>
-<div><b>129</b><span><span data-zh>个量化档</span><span data-en>quantised builds</span></span></div>
+<div><b>129</b><span><span data-zh>个量化仓</span><span data-en>quant repos</span></span></div>
+<div><b>1262</b><span><span data-zh>个量化档</span><span data-en>quantised builds</span></span></div>
 <div><b>54</b><span><span data-zh>位量化者</span><span data-en>quantisers</span></span></div>
-<div><b>1270</b><span><span data-zh>个 GGUF 文件</span><span data-en>GGUF files</span></span></div>
+<div><b>1337</b><span><span data-zh>个 GGUF 文件</span><span data-en>GGUF files</span></span></div>
 <div><b>6</b><span><span data-zh>张闭源谱系卡</span><span data-en>closed cards</span></span></div>
       </div>
     </header>
@@ -146,7 +147,7 @@
             <span class="m-famcard-vendor"><span data-zh>深度求索 DeepSeek</span><span data-en>DeepSeek</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>V4.1-Flash</span><span data-en>V4.1-Flash</span></b> · 2026-09</p>
-          <p class="m-famcard-sum"><span data-zh>MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（llama.cpp 作者亲自维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。</span><span data-en>MIT-licensed with a distinctive KV-cache-compression roadmap; an active quantisation ecosystem. For deployers who track the frontier and can host large models.</span></p>
+          <p class="m-famcard-sum"><span data-zh>MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。</span><span data-en>MIT-licensed with a distinctive KV-cache-compression roadmap; an active quantisation ecosystem (antirez, author of Redis and a llama.cpp ecosystem participant, maintains a quantised build; recorded on the series page). For deployers who track the frontier and can host large models.</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>1</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -349,6 +350,21 @@
           </div>
           <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="m-famcard-go"><span data-zh>看量化对比（千问 3.8）→</span><span data-en>Quantisation coverage (Qwen3.8) →</span></p>
+        </a>
+        <a class="m-famcard" href="families/tencent/" data-lic="other" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="unknown">
+          <div class="m-famcard-h">
+            <h3><span data-zh>腾讯混元</span><span data-en>Tencent Hunyuan</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>腾讯</span><span data-en>Tencent</span></span>
+          </div>
+          <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Hy4 preview</span><span data-en>Hy4 preview</span></b> · 2026-08</p>
+          <p class="m-famcard-sum"><span data-zh>中文开放权重家族里少有的「大总参 + 高激活」路线；Hy4 把上下文拉到 1M+，对长程 agent 与工程代码有明确指向。本站暂无 GGUF 量化收录，选型前先看官方许可与硬件门槛。</span><span data-en>An uncommon large-total/high-active open-weight Chinese family; Hy4 pushes context past 1M and targets long-horizon agents and engineering code. This site has no GGUF coverage yet — read the official licence and hardware floor before choosing.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
+            <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
+            <span><span class="lic lic-tight">other</span></span>
+          </div>
+          <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-warn"><span data-zh>备案未核验</span><span data-en>filing unknown</span></span></div>
+          <p class="m-famcard-go"><span data-zh>未收量化对比，卡内说明原因 →</span><span data-en>No quantisation coverage — see the card →</span></p>
         </a>
       </div>
     </section>
@@ -593,17 +609,17 @@
         <span class="vcount" aria-live="polite"></span>
       </div>
       <div class="scards">
-        <a class="scard scard-loose" href="series/deepseek-v4/" data-lic="mit" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="deepseek v4 deepseek v4 deepseek deepseek mit 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。 通用对话 mit 许可 推理">
+        <a class="scard scard-loose" href="series/deepseek-v4/" data-lic="mit" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="deepseek v4 deepseek v4 deepseek deepseek mit 许可，量化生态活跃，antirez（redis 作者、llama.cpp 生态参与者）维护量化版。 通用对话 mit 许可 推理">
           <div class="scard-h">
             <h3><span data-zh>DeepSeek V4</span><span data-en>DeepSeek V4</span></h3>
             <span class="scard-vendor"><span data-zh>DeepSeek</span><span data-en>DeepSeek</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。</span><span data-en>MIT licensed with an active quantisation ecosystem — the quantisations are maintained by antirez (author of llama.cpp) himself.</span></p>
+          <p class="scard-sum"><span data-zh>MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cpp 生态参与者）维护量化版。</span><span data-en>MIT licensed with an active quantisation ecosystem — the quantisations are maintained by antirez (author of Redis, a participant in the llama.cpp ecosystem) himself.</span></p>
           <ul class="scard-pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>MIT 许可</span><span data-en>MIT licence</span></li><li><span data-zh>推理</span><span data-en>Reasoning</span></li></ul>
           <div class="scard-stats">
             <span><b>1</b> <span data-zh>规格</span><span data-en>sizes</span></span>
             <span><b>5</b> <span data-zh>量化源</span><span data-en>quant repos</span></span>
-            <span><b>14</b> <span data-zh>档位</span><span data-en>tiers</span></span>
+            <span><b>13</b> <span data-zh>档位</span><span data-en>tiers</span></span>
             <span><b>5</b> <span data-zh>量化者</span><span data-en>quantisers</span></span>
           </div>
           <div class="scard-lic"><span class="lic lic-loose">mit</span> <span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
@@ -651,7 +667,7 @@
           <div class="scard-stats">
             <span><b>1</b> <span data-zh>规格</span><span data-en>sizes</span></span>
             <span><b>6</b> <span data-zh>量化源</span><span data-en>quant repos</span></span>
-            <span><b>59</b> <span data-zh>档位</span><span data-en>tiers</span></span>
+            <span><b>57</b> <span data-zh>档位</span><span data-en>tiers</span></span>
             <span><b>6</b> <span data-zh>量化者</span><span data-en>quantisers</span></span>
           </div>
           <div class="scard-lic"><span class="lic lic-loose">apache-2.0</span> <span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连不可达</span><span data-en>direct blocked</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
@@ -731,7 +747,7 @@
           <div class="scard-stats">
             <span><b>1</b> <span data-zh>规格</span><span data-en>sizes</span></span>
             <span><b>10</b> <span data-zh>量化源</span><span data-en>quant repos</span></span>
-            <span><b>118</b> <span data-zh>档位</span><span data-en>tiers</span></span>
+            <span><b>116</b> <span data-zh>档位</span><span data-en>tiers</span></span>
             <span><b>10</b> <span data-zh>量化者</span><span data-en>quantisers</span></span>
           </div>
           <div class="scard-lic"><span class="lic lic-loose">apache-2.0</span> <span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
@@ -763,7 +779,7 @@
           <div class="scard-stats">
             <span><b>2</b> <span data-zh>规格</span><span data-en>sizes</span></span>
             <span><b>17</b> <span data-zh>量化源</span><span data-en>quant repos</span></span>
-            <span><b>175</b> <span data-zh>档位</span><span data-en>tiers</span></span>
+            <span><b>172</b> <span data-zh>档位</span><span data-en>tiers</span></span>
             <span><b>12</b> <span data-zh>量化者</span><span data-en>quantisers</span></span>
           </div>
           <div class="scard-lic"><span class="lic lic-loose">apache-2.0</span> <span class="lic lic-tight">other</span> <span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>

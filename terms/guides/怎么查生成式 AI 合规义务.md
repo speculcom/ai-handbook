@@ -12,6 +12,8 @@ refs:
   - ["《生成式人工智能服务管理暂行办法》全文（国家网信办）", "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm", "Interim Measures for Generative AI Services (CAC, full text)"]
   - ["《人工智能生成合成内容标识办法》全文（国家网信办）", "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm", "Measures for Labeling AI-Generated Synthetic Content (CAC, full text)"]
   - ["《标识办法》官方解读（中国政府网）", "https://www.gov.cn/zhengce/202503/content_7014281.htm", "Official explainer of the Labeling Measures (gov.cn)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么查生成式 AI 合规义务（How to Check Generative AI Compliance Duties）

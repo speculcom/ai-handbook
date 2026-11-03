@@ -1,0 +1,19 @@
+{
+  "_comment": "P1-5 选型指南英译 · api-vs-local（2026-11-03）。sections 键 = 节标题中文部分；sources 按索引对齐 frontmatter。",
+  "sections": {
+    "这一篇讲什么": "\"API or local\" is not a technical preference but a trade-off across four constraints: **cost structure, data and compliance, latency and throughput, model capability and updates**.\nIf any one of them is a hard constraint, the route is largely decided.\nThis guide quotes no specific prices; per-token and hardware prices follow the official pages.",
+    "第一条：成本结构": "| Route | Main cost | Cheaper when |\n|---|---|---|\n| API | per token / per call, linear with usage | low or spiky volume; no GPU purchase |\n| Local | GPU / memory / power / operations, fixed upfront | high long-term volume; hardware already owned |\n| Hybrid | local baseline + API for peaks | clear peaks and troughs, with data that can be split |\n\n**Method**: estimate monthly input + output tokens, multiply by official unit prices, then compare with GPU depreciation + power + operations time.\nDo not compare unit prices alone — include idle time; a local GPU depreciates even when idle.",
+    "第二条：数据与合规": "- **Data stays in-domain**: local or private deployment is the only route that can promise raw data never leaves.\n- **API data terms**: read training use, retention, cross-border transfer and sub-processor lists, not just the \"no training\" line.\n- **Compliance duties**: serving the public may trigger filing, content labelling and safety evaluation duties; running locally does not exempt you.",
+    "第三条：延迟与吞吐": "- **API**: latency depends on the network and provider queues; peak hours may be rate-limited.\n- **Local**: latency depends on the GPU, quantisation tier and concurrency; throughput improves with batching and tensor parallelism.\n- **Interactive**: time-to-first-token matters more than total throughput.\n- **Batch**: total throughput and unit cost matter more; queuing is acceptable.",
+    "第四条：模型能力与更新": "- **Frontier capability**: closed APIs usually get new models and product surfaces first (Deep Research, agents, image lines).\n- **Control and reproducibility**: local weights can pin a version and quantisation tier, which suits regression tests and offline environments.\n- **Upgrade cost**: API upgrades are usually invisible; local upgrades mean re-downloading, re-quantising and re-testing VRAM.",
+    "决策表": "| Your hard constraint | Choose |\n|---|---|\n| Raw data must never leave the intranet | local / private deployment |\n| Need the newest frontier capability without buying GPUs | API |\n| High long-term volume with GPUs already owned | local |\n| Clear peaks with splittable data | hybrid |\n| Need pinned versions for regression | local |\n| No operations team | API first |",
+    "常见误判": "- **Mistaking \"local\" for \"cheap\"**: at low volume, GPU depreciation and operations usually cost more than API calls.\n- **Mistaking \"API does not train\" for \"data does not leave the country\"**: training and cross-border transfer are separate clauses.\n- **Mistaking \"it runs\" for \"it handles concurrency\"**: a single-machine demo and production throughput are different things.\n- **Ignoring quantisation loss**: local deployments often drop tiers to fit VRAM, changing quality and context length."
+  },
+  "sources": [
+    "OpenAI · API Pricing (official per-token pricing entry)",
+    "Anthropic · Pricing (official per-token pricing entry)",
+    "vLLM official docs (local/self-hosted inference engine)",
+    "llama.cpp official repository (local GGUF inference)",
+    "Ollama official docs (local model runner)"
+  ]
+}

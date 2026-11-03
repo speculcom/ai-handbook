@@ -430,7 +430,7 @@ Cursor Router 按 cost / balance / intelligence 三档路由，
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：这个工具的实测重点应是
 **「项目」的上下文维持是否真的能撑数月**——

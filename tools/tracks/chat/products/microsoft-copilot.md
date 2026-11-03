@@ -23,9 +23,12 @@ axes:
     细节未逐条核验。
   background: >-
     对话即时返回；产品含「Copilot Vision/Actions」类主动能力线（官方叙事），异步任务队列未核验到官方声明。
+    C 端 Deep Research 已于 2026-08-18 退役（官方支持页）；深度研究体验改由 Microsoft 365 Copilot 的
+    Researcher 智能体承接，面向 M365 Premium / 商业版 / 企业版加购许可用户。
   tools: >-
-    联网检索（Bing 底座）、图像生成（Designer/DALL·E 线）、图像理解等能力线内建；
-    与 Microsoft 365 应用联动属另一产品面。MCP 支持未逐条核验。
+    联网检索（Bing 底座）、图像生成（Designer / DALL·E 线）、图像理解等能力线内建；
+    深度研究：C 端 Deep Research 于 2026-08-18 退役，Researcher 智能体在 Microsoft 365 Copilot 中提供
+    多步研究（官方 FAQ 与支持页）；与 Microsoft 365 应用联动属另一产品面。MCP 支持未逐条核验。
   context: >-
     对话历史登录同步；跨会话记忆机制未逐条核验（官方有「Copilot Memory」类叙事，实现细节未核验）。
   permissions: >-
@@ -39,6 +42,7 @@ pitfalls:
   - 把 C 端 Copilot 与 Microsoft 365 Copilot 混为一谈——免费网页版与办公套件内嵌是两个产品面，条款与能力不同
   - 与 GitHub Copilot 也不是一个产品——编码向归 coding 大类（copilot 档案），本档案是通用对话
   - 模型「由微软路由」不等于「固定某模型」——路由随官方调整，别把某次界面快照当承诺
+  - 还在 C 端找 Deep Research——官方已于 2026-08-18 退役，深度研究改用 M365 Copilot 的 Researcher
 
 tags: [免费+账号, 联网搜索, Windows生态, Bing底座]
 related: [chatgpt, gemini-chat, copilot]
@@ -53,9 +57,15 @@ sources:
   - label: Microsoft 365 Copilot · Release Notes（相邻产品面更新线，changelog）
     url: https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes
     kind: changelog
+  - label: Microsoft Support · Deep Research in Microsoft Copilot（C 端 2026-08-18 退役说明）
+    url: https://support.microsoft.com/en-us/microsoft-copilot/deep-research-in-microsoft-copilot
+    kind: docs
+  - label: Microsoft Learn · Researcher agent FAQ（M365 Copilot 的深度研究智能体）
+    url: https://learn.microsoft.com/en-gb/microsoft-365/copilot/faq-researcher
+    kind: docs
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-03
+last_updated: 2026-11-03
 lifecycle: active
 confidence: partial
 
@@ -86,13 +96,14 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。编码向实测协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)（对话产品不适用编码任务集）。
+本档未跑对话任务集；能力结论来自官方文档，不评价回答质量。
 
-**实测建议**（三条，都指向官方可读页没给的东西）：
+**实测建议**（四条，都指向官方可读页没给的东西）：
 
 - **模型选择器是否存在及可选项**（登录后界面核实）
 - **账户隐私面板里训练开关的路径与默认态**
 - **Copilot Vision/Actions 的实际触发边界**
+- **Researcher 智能体在 M365 中的许可与可用范围**（官方写 Premium/商业/企业加购；具体租户配置待核）
 
 ## 未知项清单
 

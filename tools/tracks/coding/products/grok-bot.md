@@ -482,7 +482,7 @@ and adds redirect rules.
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：若能订阅 SuperGrok 或 Cursor 任一档，
 本条最该测的是**审批触发点**。

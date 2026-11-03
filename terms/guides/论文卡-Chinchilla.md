@@ -11,6 +11,8 @@ terms: ["预训练", "大模型 - 大语言模型", "数据污染"]
 refs:
   - ["Hoffmann 等《Training Compute-Optimal Large Language Models》（arXiv 2203.15556）", "https://arxiv.org/abs/2203.15556", "Hoffmann et al., Training Compute-Optimal Large Language Models (arXiv 2203.15556)"]
   - ["HTML 版 · 第 4 节（Chinchilla 结果）", "https://arxiv.org/html/2203.15556#S4", "HTML version · Section 4 (Chinchilla results)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 论文卡：Chinchilla（How to Read It）

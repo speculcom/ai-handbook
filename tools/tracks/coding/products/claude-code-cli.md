@@ -143,7 +143,7 @@ cn:
 **本分区数据质量最高、发布最频繁的条目**。它自带 CHANGELOG 与 Atom feed。
 它的权限设计颗粒度最细。
 
-## ⚠ 许可状态（最重要的前提）
+## 许可状态：源码可见，但 All rights reserved
 
 `LICENSE.md` 原文：
 
@@ -305,7 +305,7 @@ once more, keeping less of the recent conversation
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测**「允许这一次」审批选项在长任务中的实际打断频率**，
 以及**恢复会话时的 MCP 重连行为**（官方刚修的地方最值得验证）。

@@ -217,7 +217,7 @@ cn:
 
 AI 改动始终在版本控制里，可 diff 可撤销。
 
-## ⚠ 维护状态（本条目最重要的信息）
+## 维护状态：release 已 13 个月未更新
 
 **结论：这个项目已进入维护状态，不该按活跃项目看待。**
 
@@ -317,7 +317,7 @@ Aider 把「自动提交 + 用 git 撤销」当作核心工作流。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点放在**「自动提交 + 撤销」这条链路是否顺畅**。
 

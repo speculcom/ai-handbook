@@ -11,6 +11,8 @@ purposeTag: "guard"
 level: 1
 layer: "一"
 ord: 29
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # AI 安全（AI Safety）

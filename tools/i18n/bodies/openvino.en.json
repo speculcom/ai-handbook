@@ -1,0 +1,25 @@
+{
+  "_comment": "P3-4 OpenVINO bodies EN（2026-11-03）。sections 与源侧固定小节对齐；sources 按索引对齐 frontmatter。",
+  "axes": {
+    "model_access": "Runs models after conversion to OpenVINO IR; supports Intel CPU, GPU and NPU. The supported model and operator list follows official docs and is not enumerated here.",
+    "runtime": "Runtime library plus Model Server (OVMS): OVMS can expose an OpenAI-compatible endpoint and be deployed with Docker; it runs on local, edge and server hardware.",
+    "local_files": "Self-hosted, with models and IR files on the local machine; no cloud account dependency.",
+    "background": "Runtime is a library while OVMS is a long-running service; long tasks and concurrency are orchestrated by the deployer.",
+    "tools": "OVMS provides OpenAI-compatible endpoints; tool-calling and MCP support not verified item by item.",
+    "context": "Long context depends on model and memory configuration; KV cache and continuous batching live in official docs.",
+    "permissions": "Local/self-hosted with no account system; authentication and quotas are configured by the deployer.",
+    "fit": "Fits Intel CPU/GPU/NPU, edge deployment and squeezing models onto local hardware. Does not fit NVIDIA-only optimisation (TensorRT-LLM/vLLM are more direct) or download-and-run GGUF."
+  },
+  "runs": "This site has not completed throughput or VRAM tests; the conclusions cover runtime capability and licensing only.",
+  "unknowns": "- Current supported model and operator list (not enumerated here)\n- OVMS tool-calling and MCP support status\n- Acceleration matrix by hardware model",
+  "related": [
+    "An AMD-side local inference server, contrasting with the Intel route.",
+    "Another route that distributes and runs models through containers."
+  ],
+  "sources": [
+    "OpenVINO · official docs (Runtime / inference pipeline)",
+    "OpenVINO · Model Server docs (OVMS / OpenAI-compatible endpoints)",
+    "OpenVINO · GitHub repository",
+    "OpenVINO · Releases (official changelog)"
+  ]
+}

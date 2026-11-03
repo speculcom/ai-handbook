@@ -243,7 +243,7 @@ cn:
 **GitHub 官方自己的 MCP server**（仓库自述 "GitHub's official MCP Server"），
 它有**本地 Docker 与远程托管两种形态**。它把 GitHub 平台能力暴露给任意 MCP 客户端。
 
-## ⚠ 先澄清一个最容易搞混的点
+## GitHub MCP Server 与旧 reference server 不是同一条线
 
 它**不是** MCP 组织那个已归档的参考 server。原 `github` reference server 已归档至
 [servers-archived](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github)，
@@ -324,7 +324,7 @@ docs/scope-filtering.md、docs/streamable-http.md、docs/insiders-features.md、
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md)。
+本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 **实测建议**：这个 server 的实测重点是「收得住吗」——
 

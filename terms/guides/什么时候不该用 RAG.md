@@ -11,6 +11,8 @@ terms: ["联网 - 检索增强", "上下文窗口", "能力边界"]
 refs:
   - ["RAG 综述论文（Gao 等，arXiv 2023）", "https://arxiv.org/abs/2312.10997", "Retrieval-Augmented Generation for Large Language Models: A Survey (arXiv 2312.10997)"]
   - ["Pinecone RAG 指南", "https://www.pinecone.io/learn/retrieval-augmented-generation/", "Retrieval-Augmented Generation (RAG) – Pinecone"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 什么时候不该用 RAG（When Not to Use RAG）

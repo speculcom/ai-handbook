@@ -12,6 +12,8 @@ refs:
   - ["FileSystem server 为什么强制声明目录（本站档案）", "https://tools.specul.com/tools/filesystem.html", "Why Filesystem requires declared dirs"]
   - ["OpenHands 的受限模式（本站档案）", "https://tools.specul.com/harness/openhands.html", "OpenHands Restricted Mode"]
   - ["CLI 的权限询问机制（本站档案）", "https://tools.specul.com/opencode.html", "CLI permission prompts"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么给 AI 工具配权限（How to Set Permissions for AI Tools）

@@ -11,6 +11,8 @@ terms: ["向量 - 嵌入", "向量数据库", "联网 - 检索增强"]
 refs:
   - ["MTEB 基准论文（Muennighoff 等，arXiv 2022）", "https://arxiv.org/abs/2210.07316", "MTEB: Massive Text Embedding Benchmark (arXiv 2210.07316)"]
   - ["Qdrant 什么是向量数据库（官方）", "https://qdrant.tech/documentation/overview/what-is-qdrant/", "What is Qdrant? Vector databases"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么挑 embedding 模型（How to Choose an Embedding Model）

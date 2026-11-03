@@ -12,6 +12,8 @@ refs:
   - ["Brown 等《Language Models are Few-Shot Learners》（GPT-3 论文）", "https://arxiv.org/abs/2005.14165", "Brown et al., Language Models are Few-Shot Learners (GPT-3)"]
   - ["Wei 等《Finetuned Language Models Are Zero-Shot Learners》（FLAN）", "https://arxiv.org/abs/2109.01652", "Wei et al., Finetuned Language Models Are Zero-Shot Learners (FLAN)"]
   - ["Wang 等《Self-Instruct: Aligning Language Models with Self-Generated Instructions》", "https://arxiv.org/abs/2212.10560", "Wang et al., Self-Instruct"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # few-shot 示例怎么选（How to Pick Few-Shot Examples）

@@ -486,6 +486,15 @@ function blockB(s, m) {
   // 汇总所有变体里各档位的最小体积 → 给出「按你的显存选哪档」。
   //
   // 取最小值的前提是「同名档位的体积差异只来自不同量化者的实现差异」。
+  //
+  // ⚠ 2026-11-03 硬伤修复：投机解码草稿模型（dflash / eagle3 / medusa / draft / DSpark）
+  // 是**辅助网络**，不是主权重。它们的文件名带 Q8_0 / MXFP4 等档位词，体积只有主模型的
+  // 几十分之一；若不排除，B 区会把它当成同档位最小体积推荐给用户
+  // （实测：Qwen3.8-27B 的 dflash-Q8_0 2.06 GB 被推荐进 12 GB 显存档；
+  // DeepSeek-V4.1-Flash 的 DSpark-MXFP4 7.97 GB 被推荐进 12 GB 档）。
+  // 数据层已由 fix-draft-models.mjs 剔除；这里再加一道防线，防止重新采集后回灌。
+  const AUX_FILE = /^(?:dflash[-_]|eagle\d?[-_]|medusa[-_]|draft[-_]|dspark[-_])|(?:[-_])(?:dflash|eagle\d?|medusa|draftmodel|dspark)(?:[-_.]|$)/i;
+  const isAux = (f) => AUX_FILE.test(String(f.name || '').replace(/\.gguf$/i, ''));
   // 实测（Qwen3.8-27B / gemma-4-E4B 等）同档名确实会带出不同的权重布局：
   //   -AD-<bpw>- 前缀（all-density 混合精度，bpw 更低 → 体积更小）
   //   -PLEQ4_0 后缀（动态上下文扩展附加）
@@ -501,6 +510,7 @@ function blockB(s, m) {
       // sizeGB 是全部分片之和 —— 所以**不能**因为 isSharded 就排除，否则 Kimi-K3
       // （全部成员都是分片）这类大模型的显存选档表会整张空掉。
       if (f.tier === '未识别') continue;
+      if (isAux(f)) continue;
       if (!f.sizeGB || f.sizeGB <= 0) continue;
       const cur = byQuant.get(f.quant);
       if (!cur) {
@@ -578,7 +588,7 @@ function blockB(s, m) {
   const maxSize = rows.length ? rows[rows.length - 1].sizeGB : null;
   // 超大 MoE 提示：最小档就超过单卡上限时，必须显式说明「不是不能跑，是要换运行方式」
   const hugeNote = minSize && minSize > 80
-    ? `<p class="warn-note">${bi('<b>先看这一条：</b>本系列最小档','<b>Read this first:</b> the smallest tier in this series')}（${fmtGB(minSize)}）${bi('已超过任何单张消费级显卡，\n        所以', 'exceeds what any single consumer GPU can hold, so')}<span class="nowrap">${bi('不存在「买张大卡就能跑」的选项', 'there is no "buy a bigger card and it runs" option')}</span>${bi('。可选路径是\n        <b>①</b> 大内存机器纯 CPU 推理、<b>②</b> 多卡张量并行、<b>③</b> 选同系列的小规格成员。\n        下面的表按这两类运行方式给出建议。', '. The viable paths are\n        <b>①</b> CPU-only inference on a high-RAM machine, <b>②</b> multi-GPU tensor parallelism, <b>③</b> a smaller member of the same series.\n        The table below gives recommendations for these two running modes.')}</p>`
+    ? `<p class="warn-note">${bi('<b>先看这一条：</b>本成员最小档','<b>Read this first:</b> the smallest tier of this member')}（${fmtGB(minSize)}）${bi('已超过任何单张消费级显卡，\n        所以', 'exceeds what any single consumer GPU can hold, so')}<span class="nowrap">${bi('不存在「买张大卡就能跑」的选项', 'there is no "buy a bigger card and it runs" option')}</span>${bi('。可选路径是\n        <b>①</b> 大内存机器纯 CPU 推理、<b>②</b> 多卡张量并行、<b>③</b> 选同系列的小规格成员。\n        下面的表按这两类运行方式给出建议。', '. The viable paths are\n        <b>①</b> CPU-only inference on a high-RAM machine, <b>②</b> multi-GPU tensor parallelism, <b>③</b> a smaller member of the same series.\n        The table below gives recommendations for these two running modes.')}</p>`
     : '';
 
   /* B4（2026-10-09）：显存倒推**决策工具**。
@@ -1421,15 +1431,17 @@ function indexPage() {
         </a>`;
   }).join('\n');
 
-  /* ⚠ 这三个数字过去叫 totalV / totalF，标签贴错了一年半：
-   *   totalV 其实是「量化档数」（member.variantCount 之和 = 91），却被写成「个量化仓」；
-   *   totalF 其实是「GGUF 文件数」（variant.coverage 之和 = 846），却被写成「个量化档位」。
-   *   结果首页大字是 91 仓 / 846 档，而真实关系是 **11 仓 / 91 档** —— 91 被当成了仓数。
-   *   （2026-10-08 由 _audit/content-freshness.mjs 抓出。）
-   * 变量名改成自解释的 TIER / FILE / REPO，避免下次再贴错。*/
+  /* ⚠ 这些数字过去互相贴错标签（2026-10-08 由 content-freshness 抓出一次，
+   * 2026-11-03 内容审计又抓到 still 混用）。现在四个口径分开算，标签一一对应：
+   *   totalRepo    = 模型仓（member）数
+   *   totalQuantRepo = 量化仓（variant）数 —— 每个第三方/官方 GGUF 仓算一个
+   *   totalTier    = 量化档数（sum(variant.coverage)，按去分片后的档名去重）
+   *   totalFile    = GGUF 文件数（sum(variant.files.length)，分片已聚合）
+   * 首页大字与 desc 都用这组变量，不再出现「129 量化档 / 1270 GGUF」这种错位。*/
   const totalRepo = seriesList.reduce((n, s) => n + s.members.length, 0);
-  const totalTier = seriesList.reduce((n, s) => n + s.members.reduce((k, m) => k + m.variantCount, 0), 0);
-  const totalFile = seriesList.reduce((n, s) => n + s.members.reduce((k, m) => k + m.variants.reduce((j, v) => j + v.coverage, 0), 0), 0);
+  const totalQuantRepo = seriesList.reduce((n, s) => n + s.members.reduce((k, m) => k + m.variants.length, 0), 0);
+  const totalTier = seriesList.reduce((n, s) => n + s.members.reduce((k, m) => k + m.variants.reduce((j, v) => j + v.coverage, 0), 0), 0);
+  const totalFile = seriesList.reduce((n, s) => n + s.members.reduce((k, m) => k + m.variants.reduce((j, v) => j + v.files.length, 0), 0), 0);
   const allOwners = [...new Set(seriesList.flatMap((s) => s.members.flatMap((m) => m.variants.map((v) => v.quantizer))))].sort();
 
   /* v7 S52：中文生态三个筛选下拉的选项（只列数据里真实出现的值——
@@ -1453,6 +1465,7 @@ function indexPage() {
 <div><b>${familyList.length}</b><span>${bi('个家族','families')}</span></div>
 <div><b>${seriesList.length}</b><span>${bi('个系列','series')}</span></div>
 <div><b>${totalRepo}</b><span>${bi('个模型仓','model repos')}</span></div>
+<div><b>${totalQuantRepo}</b><span>${bi('个量化仓','quant repos')}</span></div>
 <div><b>${totalTier}</b><span>${bi('个量化档','quantised builds')}</span></div>
 <div><b>${allOwners.length}</b><span>${bi('位量化者','quantisers')}</span></div>
 <div><b>${totalFile}</b><span>${bi('个 GGUF 文件','GGUF files')}</span></div>
@@ -1539,7 +1552,7 @@ ${allOwners.map((o) => `        <a class="qchip" href="series/qwen3-8/#e0"><code
   return shell({
     current: 'models',
     title: '开放权重该怎么选 · AI 模型',
-    desc: `想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（${seriesList.length} 个系列、${totalRepo} 个模型仓、${totalTier} 个量化档、${allOwners.length} 位量化者、${totalFile} 个 GGUF 文件）。不跑 benchmark，不托管权重。`,
+    desc: `想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（${seriesList.length} 个系列、${totalRepo} 个模型仓、${totalQuantRepo} 个量化仓、${totalTier} 个量化档、${allOwners.length} 位量化者、${totalFile} 个 GGUF 文件）。不跑 benchmark，不托管权重。`,
     canonical: DOMAIN,
     accent: ACCENT,
     body,

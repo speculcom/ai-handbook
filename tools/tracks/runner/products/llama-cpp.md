@@ -77,7 +77,7 @@ Ollama/LM Studio/KoboldCpp 都在它上面盖楼。MIT、纯 C/C++、llama-serve
 
 ## 实测记录
 
-本站尚未完成实测。models 站 guides 的 `serving-deep-dive.md` 已核验过 llama.cpp 官方口径（与 vLLM/SGLang 对照），
+本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
 档案的格式/量化维直接复用该快照出处。运行器专用实测协议本站未立。
 
 ## 未知项清单

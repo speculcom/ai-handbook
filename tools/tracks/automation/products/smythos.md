@@ -86,7 +86,7 @@ local/cloud/edge 三态）：官网 smythos.com 已 302 重定向到 SRE 仓—�
 
 ## 实测记录
 
-本站尚未完成实测。编码向实测协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)（agent 平台不适用编码任务集）。
+本档未跑工作流搭建实测；结论只覆盖平台能力与权限边界。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

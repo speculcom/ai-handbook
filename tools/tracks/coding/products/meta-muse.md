@@ -382,7 +382,7 @@ AI glasses 形态「coming soon」）；
 
 ## 三个值得单独记的官方自认风险
 
-这次补核验最大的收获不是补上了什么，而是**官方自己承认的三处限制**：
+这次补核验最重要的收获，是**官方自己承认的三处限制**：
 
 | 官方原话 | 含义 |
 |---|---|
@@ -414,7 +414,7 @@ might still remain in Muse's memories and your conversation history.
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：与 OpenAI Dot 做**同题对照**才有意义 ——
 两者同期发布、定位相近。差异集中在 `permissions`（Sentinel vs 自动审核）

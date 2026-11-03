@@ -12,6 +12,8 @@ refs:
   - ["AWS 数据隐私常见问题", "https://aws.amazon.com/compliance/data-privacy-faq/", "AWS data privacy FAQs"]
   - ["AWS 数字主权", "https://aws.amazon.com/compliance/digital-sovereignty/", "AWS digital sovereignty"]
   - ["自托管方案对照（本站）", "https://tools.specul.com/", "Self-hosted options compared"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么排查 AI 的数据泄露路径（How to Trace AI Data Leak Paths）

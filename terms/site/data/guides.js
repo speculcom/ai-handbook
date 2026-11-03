@@ -4,6 +4,41 @@
  */
 var GUIDES = [
  {
+  "id": "AI 常见误区总索引",
+  "zh": "AI 常见误区总索引",
+  "en": "AI Misconceptions: Index",
+  "kind": "guide",
+  "station": 1,
+  "ord": 1,
+  "span": 6,
+  "lead": {
+   "zh": "把「参数越多越聪明」「上下文越大越好」「榜单高就好用」这些误区串成一张索引，每条指向对应的解释。",
+   "en": "An index of misconceptions — more parameters is smarter, bigger context is better, a high leaderboard score means usable — each pointing to its explanation."
+  },
+  "points": [
+   "参数越多越聪明：参数规模与训练数据、架构、任务都有关，不能单看数字。",
+   "上下文窗口越大越好：窗口有显存与延迟代价，长输入中段利用也不均匀。",
+   "温度调高会更聪明：温度只改变采样随机性，不改变模型知道多少。",
+   "榜单分数高就是好用：基准有版本、污染与任务错配问题，最终要跑你自己的任务集。",
+   "量化会让模型变笨一半 / 显存不够就跑不了：质量取决于档位与校准；显存不够可以 CPU 卸载、多卡切分或选更小规格。",
+   "开源一定更省钱 / 预览版不能生产：硬件、电费、运维与时间都要算；预览版看具体产品条款。",
+   "接口兼容 = 行为一致 / 换模型只是改名字：协议兼容不保证输出语义，提示词、工具与评测都要重新对齐。"
+  ],
+  "pointsEn": [
+   "More parameters is smarter: scale interacts with data, architecture and task; a single number is not enough.",
+   "Bigger context is better: context has VRAM and latency costs, and middle-of-input use is uneven.",
+   "Higher temperature is smarter: temperature changes sampling randomness, not what the model knows.",
+   "A high leaderboard score means usable: benchmarks have version, contamination and task-mismatch problems; run your own task set.",
+   "Quantisation halves intelligence / not enough VRAM means it cannot run: quality depends on tier and calibration; low VRAM can use CPU offload, multi-GPU splitting or a smaller member.",
+   "Open models are always cheaper / preview builds cannot be used in production: hardware, power, operations and time all count; check the specific product terms.",
+   "API compatibility means behaviour matches / switching models is just a rename: protocol compatibility is not output semantics; prompts, tools and evals all need realignment."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "AI 真的读懂了你的话吗",
   "zh": "AI 真的读懂了你的话吗",
   "en": "Does AI Really Understand You",
@@ -519,6 +554,41 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "RAG 全链路：从文档到答案",
+  "zh": "RAG 全链路：从文档到答案",
+  "en": "RAG End to End: From Documents to Answers",
+  "kind": "guide",
+  "station": 2,
+  "ord": 15,
+  "span": 9,
+  "lead": {
+   "zh": "分块、嵌入、检索、重排、生成、引用——RAG 的每一步都会单独失败；这篇把它们串成一条可排障的链路。",
+   "en": "Parsing, chunking, embedding, retrieval, reranking, generation and citation — every step fails on its own. This guide strings them into a debuggable pipeline."
+  },
+  "points": [
+   "文档解析与分块：先处理版式、表格与扫描件，再按语义边界切、保留标题与来源；解析错，后面全错。",
+   "嵌入与索引：记录模型版本与维度，换嵌入模型要重建索引。",
+   "检索：先召回足够多的候选，再用重排模型或规则收窄；只看 top-1 容易漏。",
+   "拼上下文：只放相关块，带来源标识；块之间去重，避免同一段重复占 token。",
+   "生成与引用：要求答案逐条对应来源；没有来源的句子标为「推断」。",
+   "Agentic RAG：让 agent 自己改 query、决定是否再检索、判断资料够不够；代价是步数与成本上升。",
+   "评测：分开测召回率、答案正确率与引用正确率，不要只测最终回答。"
+  ],
+  "pointsEn": [
+   "Document parsing and chunking: handle layout, tables and scans first, then cut on semantic boundaries and keep headings and provenance; parse wrong and everything downstream is wrong.",
+   "Embedding and index: record model version and dimensions; changing the embedding model means rebuilding the index.",
+   "Retrieval: recall enough candidates first, then narrow with a reranker or rules; top-1 alone misses too much.",
+   "Assemble context: include only relevant chunks with source labels; deduplicate chunks so the same passage does not consume tokens twice.",
+   "Generation and citation: require each answer sentence to map to a source; mark unsourced sentences as inference.",
+   "Agentic RAG: let the agent rewrite queries, decide whether to retrieve again and judge whether material is sufficient; the price is more steps and cost.",
+   "Evaluate separately: recall, answer correctness and citation correctness, not just the final answer."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "它说得笃定，所以可信",
   "zh": "它说得笃定，所以可信",
   "en": "Confident Tone Means Correct",
@@ -968,6 +1038,107 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "Agent 评估怎么做",
+  "zh": "Agent 评估怎么做",
+  "en": "How to Evaluate Agents",
+  "kind": "guide",
+  "station": 3,
+  "ord": 13,
+  "span": 8,
+  "lead": {
+   "zh": "Agent 的成败不只在最终答案：工具选对没、参数对不对、走了多少步、花了多少钱，都要进评测。",
+   "en": "Agent success is not only the final answer: whether tools were chosen correctly, arguments were right, how many steps it took and what it cost all belong in the eval."
+  },
+  "points": [
+   "先定义任务成功条件：不是「回答像样」，而是「目标完成 + 工具调用正确 + 没有越权」。",
+   "记录完整轨迹：消息、工具调用、参数、返回值、步数、耗时与 token；没有轨迹就无法归因。",
+   "分开评四件事：最终答案、工具选择、参数正确性、过程效率（步数与成本）。",
+   "用多次运行看稳定性：同一任务跑 k 次，报 pass@k 与失败类型分布，而不是只看一次成功。",
+   "算成本：token × 步数 × 重试次数；成本失控通常来自重复调用与上下文膨胀。",
+   "建回归集：把线上失败案例收进固定题集，每次换模型/改提示词后重跑。"
+  ],
+  "pointsEn": [
+   "Define task success first: not \"a plausible answer\" but \"goal achieved + correct tool calls + no overreach\".",
+   "Record the full trajectory: messages, tool calls, arguments, return values, steps, latency and tokens; without it you cannot attribute failure.",
+   "Score four things separately: final answer, tool choice, argument correctness and process efficiency (steps and cost).",
+   "Run k times to see stability: report pass@k and the distribution of failure types, not a single success.",
+   "Count cost: tokens × steps × retries; runaway cost usually comes from repeated calls and context bloat.",
+   "Build a regression set: put production failures into a fixed question set and rerun after every model or prompt change."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "上下文工程怎么做",
+  "zh": "上下文工程怎么做",
+  "en": "How to Do Context Engineering",
+  "kind": "guide",
+  "station": 3,
+  "ord": 14,
+  "span": 8,
+  "lead": {
+   "zh": "上下文工程不是「多塞资料」，而是决定每一轮该让模型看到什么、看不到什么，以及怎么压缩。",
+   "en": "Context engineering is not \"stuff more material in\". It decides what the model sees each turn, what it does not see, and how to compress the rest."
+  },
+  "points": [
+   "先定必放项：当前目标、硬约束、可用工具、输出格式、一两个示例；其余都是可选项。",
+   "删掉无关历史与重复工具输出：同一份文件读三次，只保留最新一次与差异。",
+   "压缩用摘要或结构化状态：把长对话压成「已确认事实 / 待办 / 未决问题」，而不是逐字截断。",
+   "工具输出要治理：分页、截断、只取相关段落，并保留来源引用，避免把整页塞进上下文。",
+   "给记忆划边界：会话内状态、跨会话事实、外部检索三层分开，不要把检索结果当记忆。",
+   "验收看两件事：任务成功率是否上升、每轮 token 是否下降；两者都变好才算有效。"
+  ],
+  "pointsEn": [
+   "Fix the must-haves first: current goal, hard constraints, available tools, output format and one or two examples; everything else is optional.",
+   "Drop irrelevant history and repeated tool output: if the same file was read three times, keep the latest read and the diff.",
+   "Compress with summaries or structured state: turn a long conversation into \"confirmed facts / open tasks / unresolved questions\" rather than truncating verbatim.",
+   "Govern tool output: paginate, truncate, extract only relevant passages and keep source references instead of pasting whole pages.",
+   "Draw memory boundaries: in-session state, cross-session facts and external retrieval are three layers; do not treat retrieval results as memory.",
+   "Acceptance looks at two numbers: task success rate up and tokens per turn down; only both count as effective."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "2026 评测基准地图",
+  "zh": "2026 评测基准地图",
+  "en": "The 2026 Benchmark Map",
+  "kind": "guide",
+  "station": 3,
+  "ord": 15,
+  "span": 9,
+  "lead": {
+   "zh": "榜单不是真理，但不同基准测的是不同能力。这张地图按编码、Agent、长文、多模态、安全分组，并给出读榜检查项。",
+   "en": "Leaderboards are not truth, but different benchmarks measure different abilities. This map groups coding, agents, long context, multimodal and safety, with a reading checklist."
+  },
+  "points": [
+   "编码：HumanEval 已偏老，SWE-bench 系列更接近真实仓库任务；看 Verified 子集与版本。",
+   "Agent：τ-bench、AgentBench、Terminal-Bench 测多步任务与工具调用；看任务集、工具面与运行次数。",
+   "长文：RULER、LongBench 测长上下文检索与推理；看长度档位与「中段」表现。",
+   "多模态：MMMU 测大学级图文推理，Video-MME 测视频理解；看模态覆盖与评测协议。",
+   "安全与对齐：看拒答、越狱、偏见与红队基准，但不要用单一分数替代你的业务验收。",
+   "读榜六问：版本、训练截止日、任务集是否公开、是否去污染、pass@k 还是单次、成本与步数是否披露。",
+   "结论：基准帮你缩小候选，不能替你决定；最终用你自己的任务集回归。"
+  ],
+  "pointsEn": [
+   "Coding: HumanEval is dated; the SWE-bench family is closer to real repository work. Check the Verified subset and version.",
+   "Agents: τ-bench, AgentBench and Terminal-Bench measure multi-step tasks and tool use. Check the task set, tool surface and number of runs.",
+   "Long context: RULER and LongBench measure retrieval and reasoning over long inputs. Check length tiers and middle-of-context behaviour.",
+   "Multimodal: MMMU measures university-level image-text reasoning and Video-MME measures video understanding. Check modality coverage and protocol.",
+   "Safety and alignment: refusal, jailbreak, bias and red-team benchmarks exist, but a single score cannot replace your own acceptance test.",
+   "Six questions for any leaderboard: version, training cutoff, public task set, decontamination, pass@k versus single run, and whether cost/steps are disclosed.",
+   "Conclusion: benchmarks narrow the candidates; they do not decide for you. Run your own task set before shipping."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "榜单分数高就是好用",
   "zh": "榜单分数高就是好用",
   "en": "A High Benchmark Score Means It Works For You",
@@ -1323,6 +1494,39 @@ var GUIDES = [
    "Author-stated limits: a standalone Section 8 Limitations exists (checked against the arXiv HTML version on 2026-10-30), naming three: tail phenomena (gains skew toward tasks frequent in the pretraining corpus, brittleness on uncommon or creative instructions), dependence on large models (may work best for big models, raising access barriers), and reinforcing the model's own biases (the iterative loop can amplify problematic social biases).",
    "What it does not claim: the abstract says on par, and the human eval leaves \"only a 5% absolute gap behind InstructGPT-001\" — never a claim of surpassing it; and \"almost annotation-free\" is not zero annotation: the 175 seed tasks and the filtering rules are still human-designed.",
    "How to read it: this is the source of the \"synthesize data to train yourself\" line — many later instruction datasets and self-improvement methods reuse its generate-and-filter skeleton. Separate the reusable method from the specific GPT3 numbers, which move a lot with base-model capability."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "量化、蒸馏、剪枝的区别",
+  "zh": "量化、蒸馏、剪枝的区别",
+  "en": "Quantisation vs Distillation vs Pruning",
+  "kind": "guide",
+  "station": 5,
+  "ord": 1,
+  "span": 8,
+  "lead": {
+   "zh": "三条路线都在「让模型变小」，但动的对象不同：量化降精度、蒸馏换学生、剪枝删结构。",
+   "en": "All three routes make a model smaller, but they touch different things: quantisation lowers precision, distillation swaps in a student, pruning removes structure."
+  },
+  "points": [
+   "量化：把权重从 FP16 降到 4/8 bit，模型结构不变；显存下降，质量取决于档位与校准数据。",
+   "蒸馏：用大模型（教师）的输出训练小模型（学生）；换的是模型，不是精度。",
+   "剪枝：删掉部分权重、通道或层；需要再训练/微调，结构真的变小。",
+   "代价不同：量化最省事但可能掉质量；蒸馏要训练数据与算力；剪枝要重训且可能破坏能力。",
+   "组合顺序：先蒸馏得到小模型，再量化部署；剪枝后通常要微调，再量化。",
+   "验收：同任务集对比质量、显存、延迟与成本；不要只比体积。"
+  ],
+  "pointsEn": [
+   "Quantisation: lower weights from FP16 to 4/8 bit while keeping the architecture; VRAM drops, quality depends on the tier and calibration data.",
+   "Distillation: train a small student on a large teacher’s outputs; you change the model, not the precision.",
+   "Pruning: remove weights, channels or layers; it needs retraining/fine-tuning and the structure really shrinks.",
+   "Costs differ: quantisation is easiest but may lose quality; distillation needs data and compute; pruning needs retraining and may damage capability.",
+   "Order: distil to a smaller model, then quantise for deployment; after pruning, fine-tune, then quantise.",
+   "Acceptance: compare quality, VRAM, latency and cost on the same task set; do not compare size alone."
   ],
   "myth": null,
   "mythEn": null,

@@ -1037,7 +1037,7 @@ const GUIDE = {
    * 新轴的好处：IDE 形态与 CLI 形态都能落进去，且回答的是访客真正在问的问题。 */
   coding: {
     title: '先回答一件事：你要它替你干多少事',
-    lede: '这一大类 32 份档案，<strong>分三个方向</strong>：26 份是装在自己机器上的（IDE 形态 14 + CLI 形态 12，其中<strong>五组是同一个产品的两种装法</strong>——Aider、Claude Code、Codex、Copilot、Cursor 各有一份 IDE 形态和一份 CLI 形态，它们不是竞品，差别在<strong>装在哪、怎么被唤起、能不能塞进脚本</strong>）；另 6 份是<strong>厂商云形态</strong>——本机什么都不装，工作在别人的机器上做。',
+    lede: '这一大类 41 份档案，<strong>分三个方向</strong>：19 份是装在自己机器上的 <strong>IDE 形态</strong>、12 份是 <strong>CLI 形态</strong>、10 份是<strong>厂商云形态</strong>（本机什么都不装，工作在别人的机器上做）。其中<strong>五组是同一个产品的两种装法</strong>——Aider、Claude Code、Codex、Copilot、Cursor 各有一份 IDE 形态和一份 CLI 形态，它们不是竞品，差别在<strong>装在哪、怎么被唤起、能不能塞进脚本</strong>；去重后是 36 个产品。',
     steps: [
       ['我要一个自己能开的编辑器', '看 <strong>IDE · 独立编辑器</strong>', 'Cursor、已改称 Devin Desktop 的 Windsurf、Zed、AWS 的 Kiro 都在这一类。'],
       ['我已经在用 VS Code / Cursor 了', '看 <strong>IDE · 扩展形态</strong>', 'Claude Code、Codex、Copilot、Cline、JetBrains 的 Junie、Continue 都是在既有编辑器里装。注意其中 <strong>Claude Code / Codex / Copilot 另有 CLI 形态</strong>，别当成两个产品比。'],
@@ -1045,14 +1045,14 @@ const GUIDE = {
       ['我要它每一步都问我', '看<strong>默认逐次确认</strong>的那几个 CLI', 'Crush 默认每次工具调用都问；Aider 有自动提交但沙箱机制未核验。'],
       ['我要它在指定范围内自己跑', '看<strong>有明确沙箱 / 可信目录</strong>的那几个', 'Gemini CLI 的沙箱与 Trusted Folders 都有独立官方文档；Claude Code CLI 的权限粒度最细，还有「允许这一次」。'],
       ['我要它能塞进 CI / 脚本里跑', '<strong>有一整批有官方证据的落点</strong>', 'Gemini CLI、Codex CLI 之外，2026-10 收录的一批也都给了非交互文档：Cursor CLI（headless）、Copilot CLI（<code>-p</code>）、Continue（<code>cn -p</code>）、goose（<code>goose run</code>）、Droid（<code>droid exec</code>）、Kiro CLI（<code>--no-interactive</code>）。'],
-      ['我要<strong>关掉客户端后它还在干活</strong>', '主看<strong>厂商云形态那 4 份</strong>', '那一层是「整台机器都在云上」：Dot / Muse / Grok Bot / Jules，差别在<strong>审批与异步流程怎么设计</strong>——Muse 有独立的 Sentinel agent，Dot 是自动审核，Grok Bot 官方页<strong>没写</strong>，Jules 以「批准计划」为节点（API 可跳过）。本地形态里也有一批给<strong>特定任务</strong>提供云端执行（Cursor 的云端 Agent、Kiro 的 Cloud Session、Amp 的 orb、Copilot 的 coding agent），所以「关机后能不能跑」要按对象的 <code>background</code> 维度逐个看，别按形态一刀切。'],
+      ['我要<strong>关掉客户端后它还在干活</strong>', '主看<strong>厂商云形态那 10 份</strong>', '那一层是「整台机器都在云上」：Dot / Muse / Grok Bot / Jules / Augment / Bolt / Devin / Lovable / Replit Agent / v0，差别在<strong>审批与异步流程怎么设计</strong>——Muse 有独立的 Sentinel agent，Dot 是自动审核，Grok Bot 官方页<strong>没写</strong>，Jules 以「批准计划」为节点（API 可跳过）。本地形态里也有一批给<strong>特定任务</strong>提供云端执行（Cursor 的云端 Agent、Kiro 的 Cloud Session、Amp 的 orb、Copilot 的 coding agent），所以「关机后能不能跑」要按对象的 <code>background</code> 维度逐个看，别按形态一刀切。'],
       ['我要数据完全不离开本机', '<strong>这一层也没有合适的</strong>', '厂商云形态的机器在别人那里（Dot 默认与本机隔离、授权后才碰）；本地形态里只有 sandbox / 可信目录那一档能限制写入范围。'],
     ],
     foot: '⚠ 两个最容易踩的误解：<strong>「AI 原生编辑器」不等于「模型可自选」</strong>——形态看 <code>runtime</code>，模型接入看 <code>model_access</code>，两个维度是分开的；<strong>Codex CLI 的审批模式与沙箱档位在 CLI 文档里查不到，在它 SDK 的源码里有</strong>——四种审批 × 三档沙箱（read-only / workspace-write / danger-full-access），还能按路径 deny 掉读 <code>.env</code>，跨平台差异仍未核验。',
   },
   mcp: {
     title: '先回答一件事：你到底缺什么能力',
-    lede: 'MCP 不是「让 AI 更聪明」，是<strong>给 AI 接上它本来够不到的东西</strong>。如果你要的只是聊天和写代码，你不需要它。<strong>你装，它调</strong>——这一大类收的 server 分四种出身：MCP 官方 reference server、由各自官方团队维护的（Playwright / Context7）、厂商官方自营的（GitHub 自己的 github-mcp-server），以及本站按收录标准纳入的社区 server。每份档案的出身与权限范围写在 scope 维里。',
+    lede: 'MCP 不是「让 AI 更聪明」，是<strong>给 AI 接上它本来够不到的东西</strong>。如果你要的只是聊天和写代码，你不需要它。<strong>你装，它调</strong>——这一大类 32 份档案，按出身分：7 份是 MCP 官方 reference server，25 份由各自厂商或官方团队维护（Playwright、Context7、GitHub 以及 Neon / Notion / Stripe 等）。每份档案的出身与权限范围写在 scope 维里。',
     steps: [
       ['我要读写本地文件 / 操作 Git', 'filesystem、git', '两个都是读写权限，git 那一类值得先看 scope 里能限制到哪些目录。'],
       ['我要它记住东西、跨会话召回', 'memory', '这是最容易被误解的一类——<strong>它不是「模型记忆」</strong>，是外部知识图谱存储。'],

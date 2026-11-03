@@ -11,6 +11,8 @@ terms: ["生成式 AI 合规义务", "隐私与合规", "能力边界"]
 refs:
   - ["欧盟委员会 AI Act 官方页（风险分级与时间表）", "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai", "European Commission, AI Act (risk tiers and timeline)"]
   - ["AI Act 全文（Regulation (EU) 2024/1689，EUR-Lex）", "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689", "AI Act full text (Regulation (EU) 2024/1689), EUR-Lex"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么对照 EU AI Act 自查（How to Self-Check Against the EU AI Act）

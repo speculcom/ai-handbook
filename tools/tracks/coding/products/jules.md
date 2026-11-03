@@ -208,7 +208,7 @@ cn:
 
 **本机什么都不装，任务跑在 Google 的云机器上，做完给你一个 PR。**
 
-它和你熟悉的 IDE / CLI 助手最大的差别不是功能多少，而是**交互不是实时的**：
+它和你熟悉的 IDE / CLI 助手最大的差别在交互：**任务异步执行，不实时对话**。
 你提交任务、批准计划，然后走开，回头收 PR。
 
 **官方 GA 发布页原文**："clones your codebase into a secure Google Cloud virtual machine (VM)"，以及 "operates asynchronously"。
@@ -263,7 +263,7 @@ Jules API 与其 REST 参考、官方 FAQ 页、两份官方博客更新。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

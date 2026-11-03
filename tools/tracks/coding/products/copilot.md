@@ -309,7 +309,7 @@ Included AI credits are shared org-wide with admin controls for spending.
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测**第三方 agent 委派（Preview）**的实际可用性——
 这是本分区唯一有这个能力的对象，值得先验证。

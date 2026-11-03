@@ -19,7 +19,7 @@ providers:
   - 完整清单见官方 `docs/integrations/providers`（本轮未取到正文）
 
 layer_position: >-
-  **它不是一个编程助手，而是一个常驻的个人助手。**
+  **它的定位是常驻个人助手，覆盖消息平台与定时任务。**
 
   它也是本站收录对象里星数最高的一个。
 
@@ -249,7 +249,7 @@ axes:
     for cross-session recall.** Honcho dialectic user modeling.
     Compatible with the agentskills.io open standard."
 
-    **但把官方给的机制逐个归位，会发现它不是一个维度，而是三个。**
+    **但把官方给的机制逐个归位，会发现它其实是三个维度。**
 
     | 官方说法 | 本站归类 | 说明 |
     |---|---|---|
@@ -784,7 +784,7 @@ hermes claw migrate --preset user-data     # 不导入密钥
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按通用助手 + 常驻形态定制）：
 

@@ -29,7 +29,7 @@ layer_position: >-
 
   **关键词是 deterministic（确定性）。**
 
-    它要解决的不是「agent 能不能干活」，而是
+    它的设计目标是让 agent 能配置、能观测、能部署；
     「多个 agent 组成的流程在多次运行之间是否可重复、可预期」。
 
   证据是它 README 的第一项特性 **Workflow Runtime** 原文：
@@ -554,7 +554,7 @@ OpenAPI specs、MCP tools。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按编排框架维度定制）：
 

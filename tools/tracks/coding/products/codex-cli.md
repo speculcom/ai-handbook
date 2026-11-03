@@ -301,7 +301,7 @@ README 提供两种：
 
 ## 架构关键：app server
 
-Codex 的设计重点不是 CLI 本身，而是**它背后的 app server**。
+Codex 的 CLI 只是入口，真正的执行层是**它背后的 app server**。
 
 - 自定义客户端通过 app server 接入
 - 线程可启动、续接与恢复
@@ -354,7 +354,7 @@ Codex 的设计重点不是 CLI 本身，而是**它背后的 app server**。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 ## 未知项清单
 

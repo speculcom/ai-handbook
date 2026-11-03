@@ -24,6 +24,9 @@ axes:
   tools: >-
     Google 生态联动（搜索、Workspace、Chrome）是主卖点；Connected Apps 可接第三方工具
     （含 MCP server 工具，官方帮助页 16836988）；Gemini macOS 应用内置 Antigravity 编码 agent（2026-10-13）。
+    研究线有 Deep Research 与 Deep Research Max（官方 blog 2026-04-21：基于 Gemini 3.1 Pro，支持 MCP、
+    原生可视化与自定义来源）；图像线有 Nano Banana 2（Gemini 3.1 Flash Image，官方 blog 2026-02-26，
+    支持图像生成与编辑）。
   context: >-
     有记忆与个性化功能；Gems（定制指令）将被 Skills 取代并自动迁移（release notes 2026-09-30）。
     跨会话记忆的完整边界以官方帮助页为准。
@@ -39,6 +42,7 @@ pitfalls:
   - 把「不直接训练 Gmail/Drive 原库」读成「你的对话内容不训练」——回答中产生的摘要与推断仍会被训练（官方明写）
   - 把 Keep Activity 与临时聊天混为一谈——两套机制，前者管未来对话训练，后者管留存与历史
   - 把 API 条款套到消费应用——Gemini Apps 隐私声明与 Gemini API 附加条款是两份文件
+  - 把 Deep Research 当成「一次搜索」——它基于 Gemini 3.1 Pro 做多步研究，2026-04-21 起支持 MCP 与自定义来源
 
 tags: [云端, 多模态, 生态联动, 记忆, 商业]
 
@@ -57,12 +61,18 @@ sources:
   - label: Google · Gemini API Additional Terms of Service（内容所有权与免费/付费训练口径，2026-10-20 快照核验）
     url: https://ai.google.dev/gemini-api/terms
     kind: docs
+  - label: Google blog · Introducing Deep Research and Deep Research Max（2026-04-21，Gemini 3.1 Pro / MCP / 原生可视化）
+    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/next-generation-gemini-deep-research/
+    kind: docs
+  - label: Google blog · Nano Banana 2（Gemini 3.1 Flash Image，2026-02-26）
+    url: https://blog.google/intl/pt-br/produtos/nano-banana-2/
+    kind: docs
   - label: Google AI plans（定价页指针，D9：本站不采价格数字）
     url: https://one.google.com/about/google-ai-plans
     kind: pricing
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-03
+last_updated: 2026-11-03
 lifecycle: active
 confidence: partial
 
@@ -92,7 +102,7 @@ Google 生态里的通用对话助手：网页/Windows/macOS 三端覆盖，模�
 
 ## 实测记录
 
-本站尚未完成实测。编码向实测协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)（对话产品不适用编码任务集）。
+本档未跑对话任务集；能力结论来自官方文档，不评价回答质量。
 
 ## 未知项清单
 

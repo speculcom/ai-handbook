@@ -598,6 +598,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 18,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The set of operations a tool is allowed to perform. Wider is more convenient and more dangerous.",
     "defEn": [
@@ -916,6 +918,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 27,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Typing turns into pictures: diffusion's most visible application — practical only after moving from pixel space to latent space.",
     "defEn": [
@@ -950,6 +954,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 28,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Prompting tricks that bypass a model's safety guardrails: alignment is not a safe.",
     "defEn": [
@@ -984,6 +990,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 29,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The field studying what general-purpose AI can do, what risks it poses, and how to mitigate them — now with a government-backed international review.",
     "defEn": [
@@ -1266,6 +1274,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 2,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "purposeEn": "Handle text, images, audio and video in one system rather than bolting separate models together.",
     "defEn": [
      "A model that takes or produces more than one kind of input or output, so images and text can be reasoned about together."
@@ -1547,6 +1557,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 10,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "purposeEn": "Let the model look things up before answering, instead of answering from memory alone.",
     "defEn": [
      "Retrieval-augmented generation: fetch relevant passages first, then have the model answer using them, ideally with citations."
@@ -1787,6 +1799,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 18,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "purposeEn": "Turn what was said into text.",
     "defEn": [
      "Technology converting an audio signal into text, also called speech-to-text."
@@ -1823,6 +1837,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 19,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "purposeEn": "Read text out loud.",
     "defEn": [
      "Technology converting text into natural-sounding speech."
@@ -1870,7 +1886,7 @@ var TERMS = [
     "def": [
      "理解自然语言查询、直接生成回答的搜索产品。"
     ],
-    "why": "它改变了「找资料」的方式，也部分替代了传统搜索引擎。",
+    "why": "它把检索结果直接合成带来源的答案；底层仍依赖搜索引擎索引，不是取代搜索，而是多了一层答案组织。",
     "refs": [
      [
       "OpenAI 网页搜索工具指南",
@@ -1916,6 +1932,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 22,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Generating short video clips from text or images.",
     "defEn": [
@@ -2212,6 +2230,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 31,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Hiring people to attack a model before release to find holes: the real process behind safety claims.",
     "defEn": [
@@ -2251,6 +2271,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 32,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Two routes to identify AI-generated content: watermarks embedded in the content, provenance metadata beside it.",
     "defEn": [
@@ -2285,6 +2307,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 33,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Generative models producing indistinguishable fake video and audio of real people: seeing is no longer believing.",
     "defEn": [
@@ -2324,6 +2348,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 34,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Uneven model performance across groups, languages, and cultures — rooted in training data.",
     "defEn": [
@@ -2358,6 +2384,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 35,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The human-side flaw: smooth AI output makes people skip checking and accept it wholesale.",
     "defEn": [
@@ -2368,6 +2396,43 @@ var TERMS = [
     ],
     "whyEn": "Model error is only half of many incidents; the other half is humans no longer verifying. Knowing this flaw is why critical workflows need enforced checkpoints.",
     "slug": "自动化偏见"
+   },
+   {
+    "zh": "世界模型",
+    "en": "World Model",
+    "purpose": "让模型在内部预测「世界接下来会怎样」，而不只是描述当前画面。",
+    "def": [
+     "世界模型是对环境状态与变化的压缩表示：给定当前状态与动作，预测下一状态、画面或物理结果。",
+     "视频生成、3D 生成与机器人规划都在用这个概念，但各自「世界」的粒度不同。"
+    ],
+    "why": "它把「生成一段视频」和「理解物理规律」区分开：画面好看不代表模型真的知道物体会怎么动。",
+    "refs": [
+     [
+      "Ha & Schmidhuber · World Models（arXiv 1803.10122）",
+      "https://arxiv.org/abs/1803.10122",
+      "Ha & Schmidhuber, World Models"
+     ],
+     [
+      "DeepMind · Genie 2 官方介绍",
+      "https://deepmind.google/discover/blog/genie-2-a-large-scale-foundation-world-model/",
+      "DeepMind · Genie 2"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "learn",
+    "level": 2,
+    "layer": "二",
+    "ord": 36,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Let a model predict what the world will do next, not merely describe the current frame.",
+    "defEn": [
+     "A world model is a compressed representation of environment state and change: given the current state and an action, it predicts the next state, frame or physical outcome.",
+     "Video generation, 3D generation and robot planning all use the term, but at different granularity."
+    ],
+    "whyEn": "It separates \"generating a video\" from \"understanding physics\": good-looking frames do not prove the model knows how objects move.",
+    "slug": "世界模型"
    }
   ]
  },
@@ -2668,6 +2733,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 9,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Constrain what the model may and may not do, so it does not drift or take dangerous actions.",
     "defEn": [
@@ -2714,9 +2781,10 @@ var TERMS = [
     "en": "Evaluation, Evals",
     "purpose": "判断一个方案到底好不好，而不是「看起来不错」。",
     "def": [
-     "用一批固定题目和评分标准，量化比较不同模型、不同提示词、不同方案的效果。"
+     "用一批固定题目和评分标准，量化比较不同模型、不同提示词、不同方案的效果。",
+     "评 agent 时还要看轨迹：工具调用是否正确、参数是否对、步数与成本是否可接受。"
     ],
-    "why": "没有评估就没有改进依据。这是区分「认真做的产品」和「说得好听的产品」的分水岭。",
+    "why": "没有评估就没有改进依据。这是区分「认真做的产品」和「说得好听的产品」的分水岭；agent 评测还要看过程，不只看看最终答案。",
     "refs": [
      [
       "OpenAI Evals 官方指南",
@@ -2734,6 +2802,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 11,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Decide whether an approach is actually good, rather than merely plausible-sounding.",
     "defEn": [
@@ -3126,6 +3196,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 24,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The main security risk in agent systems: content that talks the model into doing something you did not intend.",
     "defEn": [
@@ -3249,6 +3321,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 28,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Deciding what goes into the model's limited window is itself a discipline.",
     "defEn": [
@@ -3283,6 +3357,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 29,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "purposeEn": "When a conversation nearly fills the window, summarize it and start again.",
     "defEn": [
      "Anthropic's definition: summarize a conversation nearing the window limit, then reinitiate a new window with the summary.",
@@ -3491,6 +3567,80 @@ var TERMS = [
     ],
     "whyEn": "\"The window filled up with search results\" is a classic long-task failure; this is the fix.",
     "slug": "子代理隔离"
+   },
+   {
+    "zh": "Agentic RAG",
+    "en": "Agentic RAG",
+    "purpose": "让 agent 自己决定要不要检索、检索几次、怎么改写 query，而不是一次检索就生成。",
+    "def": [
+     "Agentic RAG 把检索当成 agent 的工具：它可以多轮改写查询、选择不同索引、判断资料是否足够，再决定是否继续。",
+     "与固定 RAG 链路相比，它更灵活，但步数、成本与不可控性也更高。"
+    ],
+    "why": "复杂问题常常一次检索不够；理解这一层，才能判断「RAG 效果不好」到底是检索器的问题，还是流程设计的问题。",
+    "refs": [
+     [
+      "Lewis 等 · Retrieval-Augmented Generation（arXiv 2005.11401）",
+      "https://arxiv.org/abs/2005.11401",
+      "Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+     ],
+     [
+      "LlamaIndex · Agentic RAG 文档",
+      "https://docs.llamaindex.ai/en/stable/optimizing/agentic_strategies/",
+      "LlamaIndex · Agentic strategies"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 36,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Let the agent decide whether to retrieve, how many times, and how to rewrite the query, instead of generating after one retrieval.",
+    "defEn": [
+     "Agentic RAG treats retrieval as an agent tool: it can rewrite queries over multiple turns, choose different indexes, judge whether the material is sufficient and decide whether to continue.",
+     "Compared with a fixed RAG pipeline it is more flexible, but also less predictable and more expensive in steps."
+    ],
+    "whyEn": "Complex questions often need more than one retrieval. Understanding this layer tells you whether poor RAG results come from the retriever or from workflow design.",
+    "slug": "Agentic RAG"
+   },
+   {
+    "zh": "Computer Use",
+    "en": "Computer Use",
+    "purpose": "让 AI 直接操作电脑界面：看屏幕、点按钮、输入文字，而不是只调用 API。",
+    "def": [
+     "Computer Use 指模型通过截图/无障碍树观察屏幕，并执行鼠标、键盘操作来完成 GUI 任务。",
+     "它与「浏览网页」不同：粒度更细、权限更大，风险也更高。"
+    ],
+    "why": "很多旧系统没有 API，只能靠界面操作；这也是 agent 从「聊天」走向「替你干活」的关键一步，但需要沙箱与审批。",
+    "refs": [
+     [
+      "Anthropic · Computer Use 官方文档",
+      "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use",
+      "Anthropic · Computer Use"
+     ],
+     [
+      "OpenAI · Computer use 指南",
+      "https://platform.openai.com/docs/guides/computer-use",
+      "OpenAI · Computer use guide"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "guard",
+    "level": 3,
+    "layer": "三",
+    "ord": 37,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Let AI operate a computer directly — read the screen, click buttons, type — instead of only calling APIs.",
+    "defEn": [
+     "Computer Use means a model observes the screen through screenshots or the accessibility tree and performs mouse/keyboard actions to complete GUI tasks.",
+     "It differs from \"browsing the web\": finer granularity, broader permissions, higher risk."
+    ],
+    "whyEn": "Many legacy systems have no API and can only be driven through their UI. It is a key step from chat to doing work for you, but it needs sandboxing and approvals.",
+    "slug": "Computer Use"
    }
   ]
  },
@@ -3795,6 +3945,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 9,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "What a model costs per answer, determined by how many tokens go in and come out.",
     "defEn": [
@@ -4084,6 +4236,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 17,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Train a small model on a big model's soft outputs: keep most of the capability, deploy far more easily.",
     "defEn": [
@@ -4191,6 +4345,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 20,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The technology behind reading hundreds of thousands of words at once — and why it is expensive.",
     "defEn": [
@@ -4772,6 +4928,43 @@ var TERMS = [
     ],
     "whyEn": "When synthesised speech 'doesn't sound human', the problem is usually in rhythm modelling, not audio quality or sample rate.",
     "slug": "文字怎么变成声音"
+   },
+   {
+    "zh": "测试时计算",
+    "en": "Test-time Compute",
+    "purpose": "在推理阶段多花算力换质量：多采样、多步推理、搜索与验证。",
+    "def": [
+     "测试时计算指模型在回答时额外消耗的算力，例如多次采样、思维链、树搜索、投票或自我验证。",
+     "它与训练时计算相对：不改权重，只改推理过程。"
+    ],
+    "why": "它解释了为什么推理模型更贵、也更慢；同时说明「多花 token」在什么任务上值得、在什么任务上只是浪费。",
+    "refs": [
+     [
+      "Snell 等 · Scaling LLM Test-Time Compute（arXiv 2408.03314）",
+      "https://arxiv.org/abs/2408.03314",
+      "Snell et al., Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters"
+     ],
+     [
+      "Wei 等 · Chain-of-Thought（arXiv 2201.11903）",
+      "https://arxiv.org/abs/2201.11903",
+      "Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "judge",
+    "level": 4,
+    "layer": "四",
+    "ord": 36,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Spend more compute at inference time to buy quality: more samples, more reasoning steps, search and verification.",
+    "defEn": [
+     "Test-time compute is the extra compute a model spends while answering — multiple samples, chain-of-thought, tree search, voting or self-verification.",
+     "It contrasts with training-time compute: weights do not change, only the inference process."
+    ],
+    "whyEn": "It explains why reasoning models cost more and run slower, and when spending more tokens is worth it versus wasteful.",
+    "slug": "测试时计算"
    }
   ]
  },
@@ -4877,6 +5070,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 3,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Compress model weights from high to low precision, saving VRAM and speeding things up at the cost of quality.",
     "defEn": [
@@ -5735,6 +5930,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 29,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Delete the unimportant connections in a model to make it smaller and faster.",
     "defEn": [
@@ -5973,14 +6170,25 @@ var TERMS = [
     "en": "Benchmark",
     "purpose": "用统一的题库横向比较模型强弱。",
     "def": [
-     "标准化评测集（如 MMLU、HumanEval 等）给出的分数。"
+     "标准化评测集（如 MMLU、HumanEval、SWE-bench、RULER 等）给出的分数。",
+     "不同基准测不同能力：知识问答、代码修复、长上下文、Agent 任务不能互相替代。"
     ],
-    "why": "重要但不可尽信——公开榜单容易过时，也可能与你的实际任务无关。",
+    "why": "重要但不可尽信——公开榜单容易过时，也可能与你的实际任务无关；看版本、训练截止日与是否去污染。",
     "refs": [
      [
       "MMLU 论文",
       "https://arxiv.org/abs/2009.03300",
       "Measuring Massive Multitask Language Understanding (MMLU)"
+     ],
+     [
+      "SWE-bench 论文（arXiv 2310.06770）",
+      "https://arxiv.org/abs/2310.06770",
+      "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"
+     ],
+     [
+      "RULER 论文（arXiv 2404.06654）",
+      "https://arxiv.org/abs/2404.06654",
+      "RULER: What's the Real Context Size of Your Long-Context Language Models?"
      ],
      [
       "HELM 评测榜",
@@ -5993,12 +6201,15 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 7,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
-    "purposeEn": "Compare models head to head using a shared question set.",
+    "purposeEn": "Compare models on a common question set.",
     "defEn": [
-     "Scores from standardised evaluation suites such as MMLU or HumanEval."
+     "A score from a standardised evaluation set such as MMLU, HumanEval, SWE-bench or RULER.",
+     "Different benchmarks measure different abilities: knowledge Q&A, code repair, long context and agent tasks are not interchangeable."
     ],
-    "whyEn": "Important but not to be trusted blindly — public leaderboards go stale and may have little relation to your actual task.",
+    "whyEn": "Important but not gospel: public leaderboards age quickly and may not match your task; check the version, training cutoff and decontamination.",
     "slug": "基准测试"
    },
    {
@@ -6120,6 +6331,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 11,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Which machines data passes through, how long it is retained, and whether it is audited.",
     "defEn": [
@@ -6153,6 +6366,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 12,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "What a task actually costs to run, not just the unit price.",
     "defEn": [
@@ -6242,6 +6457,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 15,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Running locally costs no per-token fee, but hardware, electricity and operations are real costs.",
     "defEn": [
@@ -6436,6 +6653,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 21,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "What an AI approach actually costs. Beyond unit price there is also how much you consume.",
     "defEn": [
@@ -6707,6 +6926,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 29,
+    "last_verified": "2026-11-03",
+    "verified_scope": "refs",
     "purposeEn": "The specific duties when serving generative AI to the public in China.",
     "defEn": [
      "Article 7 requires using data and base models with lawful sources in training-data processing.",

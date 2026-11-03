@@ -810,6 +810,7 @@ ${HEADER('learn')}
         <ul class="tp-tags">
           <li class="tp-tag">${bi((META.domains[t.domain] || {}).name || t.domain, (META.domains[t.domain] || {}).nameEn || t.domain)}</li>
           <li class="tp-tag">${bi(tagZh, tagEn)}</li>
+          ${t.last_verified ? `<li class="tp-tag">${bi('引用核验 ' + esc(String(t.last_verified)), 'refs checked ' + esc(String(t.last_verified)))}</li>` : ''}
         </ul>
 
         <div class="tp-sec">
@@ -1104,7 +1105,7 @@ ${HEADER('learn')}
           <span>${bi(KIND_ZH, KIND_EN)}</span>
         </nav>
         <h1>${bi(g.zh, g.en)}</h1>
-        <p class="tp-en">${bi(`${KIND_ZH} · 约 ${g.span} 分钟`, `${KIND_EN} · about ${g.span} min`)}</p>
+        <p class="tp-en">${bi(`${KIND_ZH} · 约 ${g.span} 分钟`, `${KIND_EN} · about ${g.span} min`)}${g.last_verified ? bi(` · 引用核验 ${esc(String(g.last_verified))}`, ` · refs checked ${esc(String(g.last_verified))}`) : ''}</p>
         <p class="tp-p"><span data-zh>${escMd(g.lead)}</span><span data-en>${escMd(g.leadEn)}</span></p>
 ${bodySec}
 ${linked}
@@ -1244,6 +1245,69 @@ ${TABBAR}
     if (atlasOld !== html) { fs.mkdirSync(atlasDir, { recursive: true }); fs.writeFileSync(atlasFile2, html, 'utf8'); atlasWritten = 1; }
   }
 
+  /* P2-11（2026-11-03）· 名词对照页：把 200+ 词条的中文名 / 英文名 / 别名集中到一页。
+   * 真相源仍是 terms/*.md 的 zh/en/alias；这一页只是渲染，不另存数据。 */
+  const aliasRows = flat
+    .filter(({ t }) => (t.alias || []).length || (t.aliasEn || []).length)
+    .sort((a, b) => String(a.t.zh).localeCompare(String(b.t.zh), 'zh-Hans'))
+    .map(({ t }) => {
+      const slug = slugOf(t);
+      const zhA = (t.alias || []).join(' · ');
+      const enA = (t.aliasEn || []).join(' · ');
+      return `          <li><a href="../term/${ENC(slug)}/">${esc(t.zh)}</a> <span class="muted">${esc(t.en || '')}</span>${zhA ? ` · ${bi(esc(zhA), esc(enA || zhA))}` : ''}</li>`;
+    }).join('\n');
+  const aliasHtml = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>名词对照 · 学 AI | 投机取巧</title>
+  <meta name="description" content="学 AI 词条的中英名词对照表：204 个词条的中文名、英文名与常见别名，一页查完并可直接跳转到词条页。" />
+  <link rel="canonical" href="https://learn.specul.com/aliases/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="学 AI" />
+  <meta property="og:url" content="https://learn.specul.com/aliases/" />
+  <meta property="og:title" content="名词对照 · 学 AI" />
+  <meta property="og:description" content="204 个词条的中文名、英文名与常见别名，一页查完。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
+  <script src="../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
+  <link rel="stylesheet" href="../brand.css?v=${SHELL.RUNTIME_VERSION}" />
+  <link rel="stylesheet" href="../learn.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"名词对照 · 学 AI","description":"204 个词条的中文名、英文名与常见别名对照表","url":"https://learn.specul.com/aliases/","inLanguage":"zh-Hans","isPartOf":{"@type":"WebSite","name":"学 AI","url":"https://learn.specul.com/"}}</script>
+</head>
+<body class="brand-ambient has-tabbar" style="--accent:var(--cyan)">
+${HEADER('learn')}
+  <main id="main">
+    <div class="container">
+      <article class="tp tp-wrap">
+        <nav class="tp-crumbs" aria-label="面包屑">
+          <a href="../"><span data-zh>← 名词地图</span><span data-en>← Term map</span></a>
+          <span aria-hidden="true">·</span>
+          <span>${bi('名词对照', 'Term index')}</span>
+        </nav>
+        <h1>${bi('名词对照', 'Term index')}</h1>
+        <p class="tp-p">${bi('中文名、英文名与常见别名集中在一页；点名字进词条。', 'Chinese names, English names and common aliases on one page; click a name to open the term.')}</p>
+        <div class="tp-sec">
+          <div class="tp-lab">${bi('有别名与英文名对照的词条', 'Terms with aliases or English names')}</div>
+          <ul class="tp-p">
+${aliasRows}
+          </ul>
+        </div>
+      </article>
+    </div>
+  </main>
+${FOOTER}
+${TABBAR}
+</body>
+</html>
+`;
+  const aliasDir = path.join(learnDir, 'aliases');
+  const aliasFile = path.join(aliasDir, 'index.html');
+  const aliasOld = fs.existsSync(aliasFile) ? fs.readFileSync(aliasFile, 'utf8') : null;
+  if (aliasOld !== aliasHtml) { fs.mkdirSync(aliasDir, { recursive: true }); fs.writeFileSync(aliasFile, aliasHtml, 'utf8'); }
+  const aliasWritten = aliasOld === aliasHtml ? 0 : 1;
+
   /* sitemap：1（地图）+ 词条页 + 路径页 + 指南页 + 版图页（S39）。
    * ⚠ 不写 lastmod —— 它推不出来（与 www/llms.txt 同一个理由：不能从内容推导的日期
    *   会让「产物 == 数据」这类比对失去意义）。changefreq / priority 是声明性字段，可以写。 */
@@ -1252,6 +1316,7 @@ ${TABBAR}
   for (const p of PATHS) urls.push(`https://learn.specul.com/path/${p.id}/`);
   for (const slug of wantGuideSlugs) urls.push(`https://learn.specul.com/guide/${ENC(slug)}/`);
   if (ATLAS) urls.push('https://learn.specul.com/atlas/');
+  urls.push('https://learn.specul.com/aliases/');
   const sm = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u, i) => `  <url><loc>${u}</loc><changefreq>weekly</changefreq><priority>${i === 0 ? '1.0' : '0.7'}</priority></url>`).join('\n')}

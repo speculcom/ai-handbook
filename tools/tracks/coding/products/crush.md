@@ -305,7 +305,7 @@ GitHub 识别为 NOASSERTION，条款未核验。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测**非 TTY 环境下的表现**。
 这类 TUI 形态的终端工具在 CI 里常出问题。

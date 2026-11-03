@@ -204,7 +204,7 @@ cn:
 
 ## 一句话定位
 
-**不是「又一个 AI 编码工具」，而是三种 agent path 的编排层** —— 能在同一个编辑器里用 Zed 原生 Agent，也能挂 Claude / Codex / OpenCode / Copilot / Cursor。
+**Zed 在一个编辑器里编排三种 agent 路径**：Zed 原生 Agent，Claude / Codex，OpenCode / Copilot / Cursor。
 
 ## 最重要的发现：Zed 自己就用「harness」这个词
 
@@ -314,7 +314,7 @@ External / Terminal 取决于所挂 agent 自己的配置。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：这个工具的实测重点应是**混合 agent 场景**。
 比如在 Zed 里挂 Claude Code 做 T01 任务，与直接用 Claude Code CLI 对比。

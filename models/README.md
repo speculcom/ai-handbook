@@ -156,7 +156,7 @@ node scripts/build.mjs
 
 | 系列 | 厂商 | 发布时间 | 模型仓 | 量化档 | 规模 |
 |---|---|---|---|---|---|
-| [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护… |
+| [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cp… |
 | [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google 开放权重最新一代，三种规格各自都有量化覆盖。 |
 | [GLM 5](data/series/glm-5.json) | 智谱 AI | 2026-08-25 | 2 | 13 | 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。 |
 | [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。 |
@@ -177,10 +177,11 @@ node scripts/build.mjs
 |---|---|
 | 系列 | 11 个 |
 | 模型仓（members） | 16 个 |
-| 量化档（variants） | 129 个 |
-| GGUF 文件 | 1270 个 |
+| 量化仓（variants） | 129 个 |
+| 量化档（coverage 之和） | 1262 个 |
+| GGUF 文件（files） | 1337 个 |
 | 量化者 | 54 位 |
-| 家族谱系卡（families） | 15 张 |
+| 家族谱系卡（families） | 16 张 |
 | 闭源谱系卡（closed） | 6 张 |
 | 基座许可分布 | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->

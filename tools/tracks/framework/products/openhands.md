@@ -355,7 +355,7 @@ cn:
 
 **它不是本站收录的 Codex SDK 或 Claude Agent SDK 的竞品**。它们是调度层与被调度者的关系。
 
-所以选型问题不是「选它还是选 Codex」，而是「要不要一个界面来统管
+所以选型问题是：要不要一个界面来统管
 Codex / Claude Code / Gemini」。
 
 **③ 真正的编程入口在另一个仓。**
@@ -563,7 +563,7 @@ Enterprise 档的具体内容仍未核验（按 D9 口径本站也不存任何�
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按本对象形态定制）：
 

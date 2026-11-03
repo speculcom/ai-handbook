@@ -1,0 +1,24 @@
+{
+  "_comment": "P3-3 LangChain4j bodies EN（2026-11-03）。sections 与源侧固定小节对齐；sources 按索引对齐 frontmatter。",
+  "axes": {
+    "model_access": "A unified Java interface over multiple LLMs and vector stores; the official docs list major commercial and open-source models. The current supported list follows official docs and is not enumerated here.",
+    "runtime": "Runs inside your JVM application; the official docs offer Quarkus, Spring Boot and Helidon integrations so LLM calls sit inside existing Java services.",
+    "local_files": "Files and vector stores are managed by the application; the framework hosts no data itself.",
+    "background": "A library with no built-in task queue; long-running work uses the application's own threads or message queue.",
+    "tools": "Supports tool calling (letting the LLM call Java methods) and MCP integration; details follow official docs.",
+    "context": "Conversation memory and context are configured by the application; the framework offers memory abstractions while persistence is yours to attach.",
+    "permissions": "Runs in-process on the JVM; permissions come from the application and deployment environment, with no built-in multi-tenant isolation.",
+    "fit": "Fits Java/Kotlin teams with existing Spring/Quarkus services who want LLMs and vector retrieval inside business code. Does not fit Python/TS teams, turnkey agents, or visual orchestration."
+  },
+  "runs": "This site has not completed integration or performance tests; the conclusions cover the API and capabilities disclosed in official docs only.",
+  "unknowns": "- Full current list of supported models and vector stores (not enumerated here)\n- Official details of MCP integration\n- Compatibility matrix with Spring Boot/Quarkus per release",
+  "related": [
+    "The Spring-official route, contrasting with LangChain4j's framework approach.",
+    "A Python-side counterpart with different interfaces and abstractions."
+  ],
+  "sources": [
+    "LangChain4j · official docs (Java integration, Quarkus/Spring Boot/Helidon)",
+    "LangChain4j · GitHub repository",
+    "LangChain4j · Releases (official changelog)"
+  ]
+}

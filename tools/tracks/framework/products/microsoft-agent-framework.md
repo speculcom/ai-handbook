@@ -374,7 +374,7 @@ cn:
 
 **理解它只需要记住一件事。**
 
-**它不是「又一个新框架」，而是微软把两条产品线收编成了一条。**
+**它是微软把两条 agent 产品线合并后的统一框架。**
 
 ## 两类 API：Agent 与 Workflow
 
@@ -558,7 +558,7 @@ checkpoint 会一并保存 pending 请求，恢复时重新发出。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按编排框架 + 双语言维度定制）：
 

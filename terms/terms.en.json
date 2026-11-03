@@ -579,11 +579,12 @@
   "why": "The most easily overlooked item in long-term cost, and the basis of resilience when something breaks."
  },
  "基准测试": {
-  "purpose": "Compare models head to head using a shared question set.",
+  "purpose": "Compare models on a common question set.",
   "def": [
-   "Scores from standardised evaluation suites such as MMLU or HumanEval."
+   "A score from a standardised evaluation set such as MMLU, HumanEval, SWE-bench or RULER.",
+   "Different benchmarks measure different abilities: knowledge Q&A, code repair, long context and agent tasks are not interchangeable."
   ],
-  "why": "Important but not to be trusted blindly — public leaderboards go stale and may have little relation to your actual task."
+  "why": "Important but not gospel: public leaderboards age quickly and may not match your task; check the version, training cutoff and decontamination."
  },
  "开源模型": {
   "purpose": "The weights are public: you can download them, run them on your own machine, and pay nobody.",
@@ -1595,5 +1596,37 @@
    "Measured in the paper: a single 48GB GPU can fine-tune a 65-billion-parameter model."
   ],
   "why": "It moved \"fine-tuning a large model\" from the datacentre to the personal computer. If you want to train a model yourself, check it against your card first."
+ },
+ "世界模型": {
+  "purpose": "Let a model predict what the world will do next, not merely describe the current frame.",
+  "def": [
+   "A world model is a compressed representation of environment state and change: given the current state and an action, it predicts the next state, frame or physical outcome.",
+   "Video generation, 3D generation and robot planning all use the term, but at different granularity."
+  ],
+  "why": "It separates \"generating a video\" from \"understanding physics\": good-looking frames do not prove the model knows how objects move."
+ },
+ "Computer Use": {
+  "purpose": "Let AI operate a computer directly — read the screen, click buttons, type — instead of only calling APIs.",
+  "def": [
+   "Computer Use means a model observes the screen through screenshots or the accessibility tree and performs mouse/keyboard actions to complete GUI tasks.",
+   "It differs from \"browsing the web\": finer granularity, broader permissions, higher risk."
+  ],
+  "why": "Many legacy systems have no API and can only be driven through their UI. It is a key step from chat to doing work for you, but it needs sandboxing and approvals."
+ },
+ "测试时计算": {
+  "purpose": "Spend more compute at inference time to buy quality: more samples, more reasoning steps, search and verification.",
+  "def": [
+   "Test-time compute is the extra compute a model spends while answering — multiple samples, chain-of-thought, tree search, voting or self-verification.",
+   "It contrasts with training-time compute: weights do not change, only the inference process."
+  ],
+  "why": "It explains why reasoning models cost more and run slower, and when spending more tokens is worth it versus wasteful."
+ },
+ "Agentic RAG": {
+  "purpose": "Let the agent decide whether to retrieve, how many times, and how to rewrite the query, instead of generating after one retrieval.",
+  "def": [
+   "Agentic RAG treats retrieval as an agent tool: it can rewrite queries over multiple turns, choose different indexes, judge whether the material is sufficient and decide whether to continue.",
+   "Compared with a fixed RAG pipeline it is more flexible, but also less predictable and more expensive in steps."
+  ],
+  "why": "Complex questions often need more than one retrieval. Understanding this layer tells you whether poor RAG results come from the retriever or from workflow design."
  }
 }

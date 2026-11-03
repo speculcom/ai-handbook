@@ -309,7 +309,7 @@ ACP 生态参与者。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：这个工具的实测重点应放在
 **「命令执行前的询问」这个设计在长任务中的实际打断成本**——

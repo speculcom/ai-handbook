@@ -1,0 +1,18 @@
+{
+  "_comment": "P3-7 academic research tools guide EN（2026-11-03）。sections 键 = 节标题中文部分；sources 按索引对齐 frontmatter。",
+  "sections": {
+    "这一篇讲什么": "Academic tools are not \"a smarter search box\"; they serve four different jobs: **find papers, read papers, check citation stance, build a review**.\nDecide which job you have first, then pick the tool. This guide ranks nothing and quotes no prices.",
+    "找论文：Semantic Scholar / Google Scholar / arXiv": "- **Semantic Scholar**: offers the Academic Graph API for authors, papers, citations and references, plus a Recommendations API; suited to programmatic search and citation networks.\n- **Google Scholar**: broad coverage, but no official API; bulk scraping is limited by its terms.\n- **arXiv**: the main preprint repository, easiest to browse by category and date; mark non-peer-reviewed versions explicitly.",
+    "读论文：SciSpace / Elicit / 通用聊天助手": "- **SciSpace**: paper-oriented Q&A, explanation and writing help with PDF chat and reference management; suited to close reading and writing.\n- **Elicit**: turns a research question into search plus extraction tables, suited to first-pass literature reviews.\n- **General chat assistants**: can read uploaded PDFs, but citations and page numbers are often wrong; verify key sentences against the original.",
+    "查引用态度：Scite": "Scite's Smart Citations classify citations as **supporting / contrasting / mentioning**, which helps tell whether a paper has been replicated or challenged.\nIt cannot replace reading the paper: classifications come from models and rules, and edge cases still need human checks.",
+    "做综述：Connected Papers / Elicit": "- **Connected Papers**: builds a citation graph around a seed paper, useful for finding upstream and downstream work.\n- **Elicit**: extracts samples, methods and conclusions across papers into tables, useful for first-pass systematic reviews.\n- **Human steps remain**: deduplication, inclusion/exclusion criteria, quality appraisal and conflict handling are still yours.",
+    "常见误判": "- **Mistaking an AI summary for the paper**: summaries drop limitations and counterexamples; go back to the source before citing.\n- **Mistaking citation count for quality**: highly cited papers can be contested or wrong; check citation stance and replication.\n- **Mistaking a preprint for peer review**: mark arXiv versions; the published version may have changed.\n- **Ignoring database coverage**: tools cover different journals, patents and conferences; state your search scope in a review."
+  },
+  "sources": [
+    "Semantic Scholar · Academic Graph API official page",
+    "Scite · official site (Smart Citations)",
+    "SciSpace · official site (AI research assistant and writing)",
+    "Elicit · official site (literature review and data extraction)",
+    "Connected Papers · official site (citation graph)"
+  ]
+}

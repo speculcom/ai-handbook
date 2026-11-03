@@ -80,7 +80,7 @@ AGPL-3.0——商用集成前先读 copyleft 义务。诚实标注：官方仓�
 
 ## 实测记录
 
-本站尚未完成实测。最接近的实测协议是代码侧的 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)（本地端点与凭据边界一节可借用；运行器专用协议本站未立）。
+本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 

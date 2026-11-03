@@ -350,5 +350,77 @@ var PATHS = [
     "When a vendor announces retirement, walk through the four migration-assessment checks"
    ]
   }
+ },
+ {
+  "id": "for-consumers",
+  "ord": 9,
+  "zh": "普通消费者路线",
+  "en": "The Everyday User's Route",
+  "span": {
+   "zh": "约 30 分钟",
+   "en": "about 30 minutes"
+  },
+  "lead": {
+   "zh": "不写代码、不做开发：先知道 AI 能做什么、哪里会错，再学会安全地用聊天、搜索与生成工具。",
+   "en": "No code, no development: learn what AI can do and where it fails, then use chat, search and generation tools safely."
+  },
+  "steps": [
+   "人工智能",
+   "生成式 AI",
+   "提示词",
+   "AI 搜索",
+   "幻觉",
+   "多模态",
+   "隐私与合规",
+   "水印与内容凭证"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说清 AI 的回答为什么可能错，并知道至少两种核对办法",
+    "拿到一段 AI 生成的文字或图片，能判断哪些信息必须人工复核",
+    "知道哪些内容不要输入公共聊天工具，以及怎么用临时聊天或关闭训练开关"
+   ],
+   "en": [
+    "Explain why an AI answer can be wrong and know at least two ways to check it",
+    "Given AI-generated text or images, identify which claims need human verification",
+    "Know what not to paste into a public chat tool, and how to use temporary chat or turn off training"
+   ]
+  }
+ },
+ {
+  "id": "for-creators",
+  "ord": 10,
+  "zh": "图像 / 视频 / 音频创作者路线",
+  "en": "The Image / Video / Audio Creator's Route",
+  "span": {
+   "zh": "约 40 分钟",
+   "en": "about 40 minutes"
+  },
+  "lead": {
+   "zh": "给做视觉与声音的人：先懂生成链路与许可，再谈风格、一致性与商用发布。",
+   "en": "For people working with visuals and sound: understand the generation pipeline and licensing first, then style, consistency and commercial release."
+  },
+  "steps": [
+   "生成式 AI",
+   "文生图",
+   "视频生成",
+   "语音合成",
+   "多模态",
+   "水印与内容凭证",
+   "生成式 AI 合规义务",
+   "隐私与合规"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说清文生图 / 视频生成 / 语音合成各自的一条主要失败模式",
+    "拿到一个生成工具，能先核对商用许可与训练数据来源，再看效果",
+    "知道发布 AI 生成内容时的标识义务，以及哪些素材不能直接商用"
+   ],
+   "en": [
+    "Name one main failure mode for text-to-image, video generation and speech synthesis each",
+    "Given a generation tool, check commercial licensing and training-data provenance before judging output",
+    "Know the labelling duties for publishing AI-generated content and which assets cannot be used commercially"
+   ]
+  }
  }
 ];

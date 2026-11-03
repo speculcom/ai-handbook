@@ -12,6 +12,8 @@ refs:
   - ["Liang 等《Holistic Evaluation of Language Models》（arXiv 2211.09110）", "https://arxiv.org/abs/2211.09110", "Liang et al., Holistic Evaluation of Language Models (arXiv 2211.09110)"]
   - ["HTML 版 · 第 1 节 Introduction", "https://arxiv.org/html/2211.09110#S1", "HTML version · Section 1 Introduction"]
   - ["HELM 平台（Stanford CRFM）", "https://crfm.stanford.edu/helm/", "HELM platform (Stanford CRFM)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 论文卡：HELM（How to Read It）

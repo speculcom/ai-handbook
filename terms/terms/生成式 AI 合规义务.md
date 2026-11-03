@@ -12,6 +12,8 @@ purposeTag: "guard"
 level: 6
 layer: "六"
 ord: 29
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 生成式 AI 合规义务（Generative AI Compliance Duties）

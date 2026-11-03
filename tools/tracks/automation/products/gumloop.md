@@ -95,7 +95,7 @@ Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 归因 credits 消耗）：GTM/客服�
 
 ## 实测记录
 
-本站尚未完成实测。编码向实测协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)（agent 平台不适用编码任务集）。
+本档未跑工作流搭建实测；结论只覆盖平台能力与权限边界。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

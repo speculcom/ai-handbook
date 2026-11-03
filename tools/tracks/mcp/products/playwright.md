@@ -180,7 +180,7 @@ Deterministic tool application — Avoids ambiguity common with screenshot-based
 | 截图 + 视觉模型 | token 消耗大，需要视觉能力 | 低（模型可能看错） |
 | **无障碍树** | token 可控 | **高**（结构化数据） |
 
-## ⚠ 官方对来源限制的自我限制（原文）
+## 官方原文：来源限制不是安全边界
 
 `--allowed-origins` 与 `--blocked-origins` 的文档里写着：
 
@@ -243,7 +243,7 @@ Deterministic tool application — Avoids ambiguity common with screenshot-based
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md)。
+本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 **实测建议**：重点测 token 消耗——同一任务下 MCP 形态 vs 截图形态的
 上下文占用差异，这是官方选型建议的核心依据，值得量化。

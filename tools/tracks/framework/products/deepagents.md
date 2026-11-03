@@ -237,7 +237,7 @@ cn:
 
 所以不是二选一。**可以用 Deep Agents 打底、LangGraph 图做子代理**。
 
-## ⚠ 最需要注意的一条：官方把安全责任交给你
+## 安全责任由使用者承担（官方 trust-the-LLM 模型）
 
 Security 章节原文：
 
@@ -333,7 +333,7 @@ README 提到 **Deep Agents Code** —— 预构建的终端 coding agent。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按本站 harness 分区特有的 5 个测试维度）：
 

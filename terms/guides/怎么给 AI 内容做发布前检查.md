@@ -11,6 +11,8 @@ terms: ["幻觉", "幻觉的成因", "能力边界"]
 refs:
   - ["International AI Safety Report 2026《Extended Summary for Policymakers》（能力与语境表现章节）", "https://internationalaisafetyreport.org/publication/2026-report-extended-summary-policymakers", "International AI Safety Report 2026, Extended Summary for Policymakers"]
   - ["《人工智能生成合成内容标识办法》全文（国家网信办）", "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm", "Measures for Labeling AI-Generated Synthetic Content (CAC, full text)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么给 AI 内容做发布前检查（How to Run a Pre-Publication Check on AI Content）

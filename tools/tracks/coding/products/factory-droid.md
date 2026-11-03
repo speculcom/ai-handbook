@@ -355,7 +355,7 @@ irm https://app.factory.ai/cli/windows | iex    # Windows
 npm install -g droid
 ```
 
-**它不是「一个 CLI 工具」，而是「一个 agent 的三个入口」。**
+**Factory Droid 把同一个 agent 做成三个入口。**
 
 - 定价页把 Pro 档内容写成「Factory App / Droid CLI / Droid SDK」
 - 官方文档另有「IDE Integrations」与 JetBrains / Zed 集成
@@ -422,7 +422,7 @@ Droid 可以跑在：
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测三窗口 Rate Limit 的实际打断频率。
 

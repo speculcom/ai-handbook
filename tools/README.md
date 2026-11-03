@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 216 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 225 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 216 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 225 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 216 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 225 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -131,9 +131,9 @@ tools/（ai-handbook 子树）
 │   │   └── products/           41 个对象
 │   ├── chat/                   AI 对话助手（21 个对象）
 │   ├── image/ · video/ · audio/  AI 创作三大类（15 + 14 + 17 个对象）
-│   ├── framework/              Agent 框架与运行时（27 个对象）
+│   ├── framework/              Agent 框架与运行时（30 个对象）
 │   ├── mcp/                    MCP 生态（多 3 个特有维度，32 个对象）
-│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 22 + 16 个对象）
+│   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 23 + 21 个对象）
 ├── protocols/                  实测协议（coding / framework / mcp 三套）
 ├── scripts/                    校验脚本（validate / audit / quality）
 └── CHANGELOG.md                数据层更新记录
@@ -141,7 +141,7 @@ tools/（ai-handbook 子树）
 
 ### framework 大类的 family 分组
 
-framework 的 27 个对象按**抽象层**分三组，这是本站对该大类最重要的一条判别依据：
+framework 的 30 个对象按**抽象层**分三组，这是本站对该大类最重要的一条判别依据：
 
 | family | 含义 | 对象 |
 |---|---|---|
@@ -404,7 +404,7 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
-### AI 自动化与工作流 —— 22 份
+### AI 自动化与工作流 —— 23 份
 
 可视化搭 AI 应用 / 跑自动化工作流的平台。
 
@@ -418,6 +418,7 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | partial | active |
 | [FastGPT](tracks/automation/products/fastgpt.md) | labring（环际云，国产） | web | partial | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | partial | active |
+| [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | maintenance |
 | [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | partial | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax（原 Langflow AI） | web | partial | active |
 | [Lindy](tracks/automation/products/lindy.md) | Lindy | web | partial | active |
@@ -433,7 +434,7 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
-### Agent 框架与运行时 —— 27 份
+### Agent 框架与运行时 —— 30 份
 
 拿它拼自己的 agent：状态存哪、上下文怎么压、权限给到哪一档。
 
@@ -452,6 +453,7 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | partial | active |
 | [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | partial | active |
+| [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j 社区 | harness | partial | active |
 | [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | partial | active |
 | [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
@@ -464,8 +466,10 @@ framework 的 27 个对象按**抽象层**分三组，这是本站对该大类�
 | [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | partial | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
+| [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | partial | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford（学术团队） | harness | partial | active |
+| [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | partial | active |
 
 ### 给 AI 装的工具 —— 32 份
 
@@ -506,15 +510,18 @@ MCP 服务器与工具生态。
 | [Time MCP Server](tracks/mcp/products/time.md) | Model Context Protocol | mcp | verified | active |
 | [Zapier MCP](tracks/mcp/products/zapier-mcp.md) | Zapier | mcp | partial | active |
 
-### 本地模型运行器 —— 16 份
+### 本地模型运行器 —— 21 份
 
 在自己机器上跑开源模型的桌面应用。
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
+| [Docker Model Runner](tracks/runner/products/docker-model-runner.md) | Docker | local-app | partial | active |
+| [ExLlamaV3](tracks/runner/products/exllamav3.md) | turboderp-org | cli | partial | active |
 | [GPT4All](tracks/runner/products/gpt4all.md) | Nomic AI | local-app | partial | maintenance |
 | [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | partial | active |
 | [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins（KoboldAI 社区） | local-app | partial | active |
+| [Lemonade](tracks/runner/products/lemonade.md) | AMD / Lemonade 社区 | local-app | partial | active |
 | [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
 | [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge 社区（WasmEdge / Second State 生态） | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | partial | active |
@@ -522,7 +529,9 @@ MCP 服务器与工具生态。
 | [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine（CMU 系，mlc-ai） | cli | partial | active |
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
 | [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | partial | active |
+| [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | partial | active |
 | [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
+| [OpenVINO](tracks/runner/products/openvino.md) | Intel | cli | partial | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
 | [TabbyAPI](tracks/runner/products/tabbyapi.md) | Royal Lab（theroyallab） | cli | partial | active |
 | [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | archived |
@@ -537,8 +546,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 216 份 |
-| 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
-| 形态分布（form） | web 93 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
+| 档案总数 | 225 份 |
+| 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 |
+| 形态分布（form） | web 94 · mcp 32 · harness 30 · cli 25 · ide 19 · cloud 14 · local-app 11 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

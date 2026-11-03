@@ -16,7 +16,7 @@
   <script src="../../brand.js?v=6a580ac0420e"></script>
   <link rel="stylesheet" href="../../brand.css?v=6a580ac0420e" />
   <link rel="stylesheet" href="../../site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DeepSeek 家族谱系卡","description":"MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（llama.cpp 作者亲自维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。","url":"https://models.specul.com/families/deepseek/","dateModified":"2026-10-30"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DeepSeek 家族谱系卡","description":"MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。","url":"https://models.specul.com/families/deepseek/","dateModified":"2026-10-30"}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -87,7 +87,7 @@
     <header class="page-head">
       <p class="eyebrow"><span data-zh>深度求索 DeepSeek</span><span data-en>DeepSeek</span>　·　<span data-zh>当前代</span><span data-en>current generation</span> <span data-zh>V4.1-Flash</span><span data-en>V4.1-Flash</span>（2026-09）</p>
       <h1><span data-zh>DeepSeek</span><span data-en>DeepSeek</span><span class="sub"><span data-zh>模型家族谱系卡</span><span data-en>model family lineage card</span></span></h1>
-      <p class="lede"><span data-zh>MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（llama.cpp 作者亲自维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。</span><span data-en>MIT-licensed with a distinctive KV-cache-compression roadmap; an active quantisation ecosystem. For deployers who track the frontier and can host large models.</span></p>
+      <p class="lede"><span data-zh>MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。</span><span data-en>MIT-licensed with a distinctive KV-cache-compression roadmap; an active quantisation ecosystem (antirez, author of Redis and a llama.cpp ecosystem participant, maintains a quantised build; recorded on the series page). For deployers who track the frontier and can host large models.</span></p>
       <p class="fam-onsite"><span data-zh>本站已收录该家族的量化对比：</span><span data-en>This site covers this family's quantisations: </span><a href="../series/deepseek-v4/"><span data-zh>DeepSeek V4</span><span data-en>DeepSeek V4</span></a></p>
     </header>
     <section class="trust">
@@ -147,7 +147,7 @@
 
     <section class="fam-sec">
       <h2><span data-zh>尺寸档</span><span data-en>Size tiers</span></h2>
-      <ul class="fam-tiers"><li><span data-zh>单一MoE大杯：552B 骨干参数（官方 README 口径），本地可跑性依赖量化与内存</span><span data-en>Single MoE tier: 552B backbone parameters (official README); local runability depends on quantisation and memory</span></li></ul>
+      <ul class="fam-tiers"><li><span data-zh>单一MoE大杯：552B 骨干 + 196B Engram 条件记忆 + 视觉塔等（官方卡组件相加约 763B 总参，官方 README 未给单一总参数字），本地可跑性依赖量化与内存</span><span data-en>Single MoE tier: 552B backbone plus a 196B Engram conditional-memory table and a vision tower (the official card&#39;s components add up to roughly 763B total; the README gives no single total), local runability depends on quantisation and memory</span></li></ul>
     </section>
 
     <section class="fam-sec">
@@ -160,6 +160,7 @@
       <ul class="fam-claims">
         <li><span data-zh>官方 README：「a multimodal Mixture-of-Experts (MoE) model with 552B backbone parameters and support for contexts of up to one million tokens」——多模态 MoE、上下文上限 100 万 token。</span><span data-en>Official README: &quot;a multimodal Mixture-of-Experts (MoE) model with 552B backbone parameters and support for contexts of up to one million tokens&quot;.</span><a class="fam-src" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
         <li><span data-zh>官方 README：CED 架构下每 token 预填充激活 8B 参数、解码激活 16B（「8B parameters per token during prefill and 16B during decode」）。</span><span data-en>Official README: under the CED architecture, 8B parameters activate per token during prefill and 16B during decode.</span><a class="fam-src" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+        <li><span data-zh>官方 README：DSpark 是投机解码的草稿生成（「DSpark speculative decoding (semi-autoregressive draft generation with confidence-scheduled verification)」），不是可单独使用的主权重。</span><span data-en>Official README: DSpark is speculative-decoding draft generation (&quot;semi-autoregressive draft generation with confidence-scheduled verification&quot;), not a standalone main weight set.</span><a class="fam-src" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
       </ul>
       <p class="fam-claims-note"><span data-zh>以上均为厂商官方页面原文或官方自评基准的转述；涉及横评结论的，本站不背书——本站不跑 benchmark。</span><span data-en>The above are quotations of official pages or transcriptions of vendor-run benchmarks; this site does not endorse cross-model conclusions — it runs no benchmarks.</span></p>
     </section>

@@ -11,6 +11,8 @@ terms: ["提示词", "上下文窗口", "能力边界"]
 refs:
   - ["OpenAI 提示工程指南", "https://platform.openai.com/docs/guides/prompt-engineering", "OpenAI Prompt engineering guide"]
   - ["Anthropic 提示工程总览", "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview", "Anthropic Prompt engineering overview"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么向 AI 提问（How to Ask AI）

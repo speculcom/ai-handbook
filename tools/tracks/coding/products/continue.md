@@ -210,7 +210,7 @@ cn:
 但它已停更：Continue 被 Cursor 收购，上游仓库转入 read-only，
 官网只剩收购公告 —— **代码仍可自由使用，后续不会再有更新**。
 
-## ⚠ 当前状态（最重要的前提）
+## 当前状态：仓库已只读，不再更新
 
 继续用没问题，别再等更新。官网 continue.dev 现为收购公告，原文：
 
@@ -322,7 +322,7 @@ CLI quickstart 与 CLI headless、商业线定价页 hub.continue.dev/pricing。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测两点。
 

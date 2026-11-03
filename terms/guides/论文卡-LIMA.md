@@ -13,6 +13,8 @@ refs:
   - ["HTML 版 · 第 4 节 Human Evaluation", "https://arxiv.org/html/2305.11206#S4", "HTML version · Section 4 Human Evaluation"]
   - ["HTML 版 · 第 5 节 Why is Less More?", "https://arxiv.org/html/2305.11206#S5", "HTML version · Section 5 Why is Less More?"]
   - ["HTML 版 · 第 7 节 Discussion", "https://arxiv.org/html/2305.11206#S7", "HTML version · Section 7 Discussion"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 论文卡：LIMA（How to Read It）

@@ -1,521 +1,590 @@
 {
-  "_comment": "微型指南英文正文。键 = guides/<文件名> 去 .md（与 terms.en.json 同一套路）。值形如 {lead, points[], myth, fact}。",
-  "怎么向 AI 提问": {
-    "lead": "The same question asked differently produces very different answers. This guide covers the five things to state before you ask.",
-    "points": [
-      "State the goal and the done-criteria: not \"write an article\" but \"write a 300-word intro for absolute beginners\".",
-      "Give context: who you are, who the audience is, and what constraints apply — length, format, tone.",
-      "Paste the source text into the conversation; don't make the AI guess which passage you mean.",
-      "Ask for an outline first: have it list the structure, you approve it, then expand.",
-      "When unhappy, point out exactly what is wrong — more effective than a vague \"try again\"."
-    ]
-  },
-  "怎么验证 AI 的输出": {
-    "lead": "AI will state fabricated facts with full confidence. This guide turns \"what it said\" into \"what you can check\".",
-    "points": [
-      "Break the output into individual checkable claims: numbers, dates, names, citations.",
-      "For every citation (paper, statute, API name), verify at the original source — never trust the title it gives you.",
-      "Demand sources for key numbers; treat numbers without sources as assumptions.",
-      "Self-review catches only a fraction of errors; cross-checking (different source, different tool) is what works.",
-      "The more specific the domain (local law, your own data), the more a human must check — general models don't have these facts."
-    ]
-  },
-  "AI 真的读懂了你的话吗": {
-    "lead": "A fitting answer is not understanding — it is doing something else.",
-    "myth": "It answers aptly and keeps up with the conversation, so it must have understood what you meant.",
-    "fact": "It predicts the next word by probability. An apt answer shows it saw similar patterns in training, not that it grasps your situation."
-  },
-  "参数越多就越聪明": {
-    "lead": "Parameter count is one variable, not a dial for intelligence.",
-    "myth": "Parameter count decides how smart a model is — bigger is always stronger.",
-    "fact": "The quality and amount of training data decide performance just as much; small models match larger ones on suitable tasks."
-  },
-  "通用人工智能快到了": {
-    "lead": "\"Soon\" is a claim, not a verifiable milestone.",
-    "myth": "Everyone says AGI is near, so there must be a checkable date when it arrives.",
-    "fact": "There is no agreed definition of AGI; the houses mean different things. Without a definition, \"arrived\" has no test."
-  },
-  "它说得笃定，所以可信": {
-    "lead": "Fluency and correctness are separate; a confident tone adds no reliability.",
-    "myth": "A confident tone and a tidy structure mean the content is trustworthy.",
-    "fact": "In the hallucination surveys, most recorded errors are exactly this kind of smoothly written fabrication."
-  },
-  "温度调高会更聪明": {
-    "lead": "Temperature changes randomness only, not how much the model knows.",
-    "myth": "Raising temperature makes the model more imaginative, therefore smarter.",
-    "fact": "Temperature only changes how randomly it picks tokens; raising it adds drift and errors while the model knows no more."
-  },
-  "它记得你之前说过的": {
-    "lead": "What it can see is the context window; anything outside is not in its input.",
-    "myth": "Within one conversation it always remembers everything said earlier.",
-    "fact": "It only sees what fits the context window; anything beyond it is simply not in the input, which has nothing to do with remembering."
-  },
-  "榜单分数高就是好用": {
-    "lead": "A benchmark covers only what it measures — your task is a different question.",
-    "myth": "A model that scores high on the leaderboards must also be good at your task.",
-    "fact": "HELM concludes precisely that a single leaderboard is incomplete; a high score only means strength on the items tested."
-  },
-  "上下文窗口越大越好": {
-    "lead": "Window size has a price; enough beats maximum.",
-    "myth": "The larger the context window, the better long documents get handled.",
-    "fact": "A larger window raises VRAM and latency. In a long input, the middle is used unevenly. Choosing by need beats choosing the maximum."
-  },
-  "它拒绝，是因为做不到": {
-    "lead": "Most refusals are a trained choice, not a capability ceiling.",
-    "myth": "When it says \"I cannot do that\", it lacks the capability.",
-    "fact": "Most refusals come from alignment training; having the capability and being willing to output it are different things."
-  },
-  "它逐字读懂你的文字": {
-    "lead": "What it sees is not characters but ids from a vocabulary.",
-    "myth": "It reads your input word by word, the way you do.",
-    "fact": "The input is first cut into token ids from a vocabulary. An uncommon word may be split into pieces. What it works on is the ids, not the characters."
-  },
-  "它在一步步推理": {
-    "lead": "The steps it writes are not guaranteed to be the path that produced the answer.",
-    "myth": "The reasoning it shows you is the reasoning it actually performed.",
-    "fact": "It generates word by word by probability; the intermediate steps it writes need not match the path that produced the answer."
-  },
-  "注意力就是它注意到重点": {
-    "lead": "Attention is a weighted computation, not the model paying heed.",
-    "myth": "\"Attention mechanism\" means it picks out what matters, like a person would.",
-    "fact": "Attention weights positions by relatedness; a high weight does not mean it judged that part important."
-  },
-  "量化会让模型变笨一半": {
-    "lead": "The impact varies by tier; the ruler is bits per weight.",
-    "myth": "Quantising cuts model quality in half.",
-    "fact": "The impact varies by tier and by model. The ruler is bpw, meaning bits per weight. The differences between tiers have to be read item by item."
-  },
-  "显存不够就跑不了": {
-    "lead": "Whether it runs and how fast it runs are two questions.",
-    "myth": "If it does not fit in VRAM, the only option is a better graphics card.",
-    "fact": "Some layers can be moved to system memory or to the CPU. The price is speed. Whether it runs at all and how fast it runs are separate questions."
-  },
-  "接口兼容就等于行为一致": {
-    "lead": "Compatibility guarantees the shape of requests and responses, nothing more.",
-    "myth": "If the API is OpenAI-compatible, switching over gives the same behaviour.",
-    "fact": "Compatibility covers the shape of requests and responses; parameter defaults, error behaviour and output quality differ between implementations."
-  },
-  "预览版不能用于生产": {
-    "lead": "Judge it by the terms and the timeline, not by the word \"preview\".",
-    "myth": "Anything labelled \"preview\" is an experiment and cannot go to production.",
-    "fact": "Lifecycle and support policies differ between providers. The basis is that provider's terms and deprecation schedule. Whether the name says \"preview\" is not evidence."
-  },
-  "开源模型一定更省钱": {
-    "lead": "Open guarantees the right to use and modify, not that it is free.",
-    "myth": "Once a model is open, running it is necessarily cheaper than calling an API.",
-    "fact": "Self-hosting costs hardware, operations and people; open concerns the right to use and modify, not price."
-  },
-  "换模型只是改个名字": {
-    "lead": "A compatible interface does not mean a zero-cost migration.",
-    "myth": "Switching models is just changing a name in the config.",
-    "fact": "Switching means retesting behaviour, cost and compliance; a compatible interface does not make the migration free."
-  },
-  "怎么保护自己的数据": {
-    "lead": "Before handing material to an AI, be clear about where it goes and what it leaves behind. Six moves.",
-    "points": [
-      "Sort material by whether it may leave: personal identity, company secrets, and customer data are three different categories.",
-      "Do not accept terms you cannot read; check specifically whether your data is used for training.",
-      "Anonymize first: strip names, IDs, and contact details before pasting anything in.",
-      "For sensitive work, prefer local or private deployment so data never leaves your own network.",
-      "Afterwards, check retention: can the chat history and uploaded files be deleted, and how soon?",
-      "Set team rules: which materials may go into an AI, and which must stay in internal tools."
-    ]
-  },
-  "AI 常犯什么错": {
-    "lead": "AI mistakes follow fixed patterns. Recognizing these categories prevents most of them in advance.",
-    "points": [
-      "Inventing facts: it produces plausible-looking fake citations, numbers, and dates.",
-      "Agreeing with you: imply a wrong premise and it usually will not correct it, just build on it.",
-      "Bad at exact math: precise counts, multi-digit arithmetic, and tricky date conversions fail most often.",
-      "Over-answering: it rarely says \"I do not know\", preferring a vague answer instead.",
-      "Swayed by phrasing: the same question asked differently can produce a different answer."
-    ]
-  },
-  "怎么读模型卡": {
-    "lead": "A model card is the manufacturer's spec sheet for a model. This guide covers which sections to read and which claims to discount.",
-    "points": [
-      "Start with intended-use and limitations: what the maker says it is and is not good for beats marketing copy.",
-      "When reading benchmarks, first ask which ones were tested; a score without a benchmark is no score.",
-      "Read the training-data section: the data mix determines which biases it may carry.",
-      "Read the license: commercial use, attribution duties, and whether derivatives must share the same license.",
-      "Trust the known-limitations section: failure modes the maker admits are worth more than \"state-of-the-art\".",
-      "Compare vendors only on equal terms: same benchmark, same settings, or the numbers are not comparable."
-    ]
-  },
-  "怎么判断 AI 新闻是不是炒作": {
-    "lead": "AI news is usually more optimistic than the facts. This guide gives you a checking order: read it before deciding what to believe.",
-    "points": [
-      "Find the original source first: a paper, an official announcement, or just a demo video. The longer the retelling chain, the more distortion accumulates.",
-      "Separate \"demo\" from \"average\": cherry-picked success cases are not everyday performance. Ask what the success rate is.",
-      "Ask about the measuring stick before reading numbers: only same-benchmark, same-setting comparisons count. A score jump after switching benchmarks is not progress.",
-      "Check the publisher's motive: a company mid-fundraise and an independent evaluator do not word things with the same reliability.",
-      "Look for independent replication. Results only the publisher measured itself should be treated as unconfirmed.",
-      "Discount timelines: \"next year\" and \"will replace X in a few years\" are predictions, not facts."
-    ]
-  },
-  "怎么防提示注入": {
-    "lead": "Prompt injection is an attack where outside content hijacks an AI. This guide covers how to build defenses so your AI tool treats web pages as data, not commands.",
-    "points": [
-      "Treat outside content as data, not instructions: web pages, documents, and emails can hide \"ignore your previous instructions\".",
-      "Grant least privilege: if reading suffices, grant read-only; if one directory suffices, do not hand over the whole disk.",
-      "Keep a human gate on irreversible actions: deletions, transfers, and outbound messages ask a person first.",
-      "Isolate sessions: do not mix a session that processes outside content with one that holds keys or manages accounts.",
-      "Check what a tool can touch before installing it: read the MCP server's permission declarations.",
-      "Keep execution logs: when something goes wrong, you can replay what it actually did."
-    ]
-  },
-  "怎么给 AI 工具配权限": {
-    "lead": "How dangerous an AI tool is is mostly decided by the permissions you give it. This guide covers granting exactly enough and no more.",
-    "points": [
-      "Decide the job first, then the permissions: coding work gets the code directory, not your whole home directory.",
-      "Grant read and write separately: if the task completes read-only, do not grant write.",
-      "Mark off-limits zones: key files, account configs, and system directories are explicitly excluded.",
-      "Turn on confirmation mode: deletions, overwrites, and outbound sends must ask before acting.",
-      "Reclaim permissions regularly: when a project ends or the task changes, take back what you opened.",
-      "Run experiments in restricted mode: try untrusted usage inside a sandbox first."
-    ]
-  },
-  "怎么安全地用 MCP 工具": {
-    "lead": "MCP lets an AI touch your files and the web. The tools themselves are not the danger; what gets fed to them and what permissions they hold is.",
-    "points": [
-      "Install only the servers you need: every extra tool is one more channel something can go wrong through.",
-      "Read the permission declarations: file servers should scope to directories; fetch servers should carry security warnings.",
-      "Treat fetched content as data: web page text can contain instructions aimed at the AI.",
-      "Keep sensitive directories out: before connecting a file server, confirm keys and account configs are not inside.",
-      "Check who maintains the server: official and third-party carry different trust levels.",
-      "Cut the link first during an incident: if injection is suspected, stop the tool, then investigate the session."
-    ]
-  },
-  "怎么查生成式 AI 合规义务": {
-    "lead": "Launching an AI feature in China, compliance is not mysticism but a handful of checkable articles. This guide walks them in launch order.",
-    "points": [
-      "Classify first: does the service face the public in mainland China? If so, the Interim Measures for Generative AI Services apply.",
-      "Check training-data provenance: Article 7 requires \"lawfully sourced data and foundation models\".",
-      "Check labeling duties: generated images and video must carry labels per the deep-synthesis rules.",
-      "Check filing: services with public-opinion attributes or social mobilization capacity need security assessments and algorithm filing.",
-      "Check the new labeling rules: the Labeling Measures take effect 1 September 2025 — explicit labels plus implicit labels in file metadata.",
-      "When unsure, ask legal: this site states what the articles say, it does not hand down legal conclusions for you."
-    ]
-  },
-  "怎么对照 EU AI Act 自查": {
-    "lead": "The EU AI Act sorts AI into four risk tiers, with obligations taking effect in batches. This guide covers how to classify yourself and which tier you hit.",
-    "points": [
-      "Set your risk tier first: unacceptable / high / transparency / minimal. Most applications land in minimal, with no extra duties.",
-      "Check the ban list: nine practices are prohibited outright, including social scoring and real-time remote biometric identification in public spaces.",
-      "Transparency duties: chatbots must let people know they are talking to a machine; AI-generated content must be identifiable, and deepfakes visibly labeled.",
-      "General-purpose model duties are already live: GPAI providers face transparency and copyright requirements.",
-      "High-risk duties are the heaviest: risk assessment, data quality, logging, and human oversight, none optional.",
-      "Watch the timeline: obligations take effect in batches, so the same product must meet different requirements on different dates."
-    ]
-  },
-  "怎么查 AI 生成内容的版权风险": {
-    "lead": "AI content copyright has two ends: whether the data fed in is lawful, and whether what comes out belongs to you. This guide checks both ends.",
-    "points": [
-      "Input side, check provenance: Chinese rules require \"lawfully sourced data and foundation models\".",
-      "Input side, check exceptions: the EU Directive on Copyright in the Digital Single Market sets text-and-data-mining exceptions, with research and commercial terms differing.",
-      "Output side, do not assume ownership: whether AI-generated content can be copyrighted differs by jurisdiction; check local practice first.",
-      "Before commercial use, read the vendor terms: model terms of use differ on commercial use, competing products, and output ownership.",
-      "Keep provenance records: where materials came from and what the training data was — the chain of provenance comes first in disputes.",
-      "Litigation is ongoing: case law changes; for major commercial decisions consult legal counsel, not news headlines."
-    ]
-  },
-  "怎么读开源模型的许可证": {
-    "lead": "\"Open source\" does not mean use however you like. The conditions in a model license decide whether you may use it commercially, attribute, and what derivatives inherit.",
-    "points": [
-      "Separate open-source software licenses from model licenses: the latter often carry extra conditions you cannot infer from the words \"open source\".",
-      "Check commercial terms: some licenses ban commercial use; others set a scale threshold.",
-      "Check attribution: Apache 2.0 requires keeping notices and the NOTICE file.",
-      "Check derivative duties: copyleft licenses require models you fine-tune to carry the same license.",
-      "Check use restrictions: many model licenses forbid certain use cases; violating them voids the license.",
-      "Check license inheritance: which license a fine-tuned, quantized, or merged model carries is recorded repo by repo in this site's model profiles."
-    ]
-  },
-  "怎么排查 AI 的数据泄露路径": {
-    "lead": "Data usually leaves you through more than one path. This guide lists the common leak paths one by one so you can check which ones you are on.",
-    "points": [
-      "Input path: anything pasted into a cloud chat box has already left your device.",
-      "Training path: many services default to improving models with your conversations; find the opt-out switch.",
-      "Tool path: a connected server can carry content to its own backend.",
-      "Log path: how long chat history and uploaded files persist on the other side's servers.",
-      "Memory path: a model may repeat content it saw during training.",
-      "Recovery path: confirm the deletion entry point and effective time in advance; do not expect instant cleanliness."
-    ]
-  },
-  "怎么给 AI 内容做发布前检查": {
-    "lead": "Before publishing AI-generated content, a few classes of error appear almost inevitably. This guide is the pre-publication checklist.",
-    "points": [
-      "Re-verify facts line by line: numbers, dates, and quotes — AI produces ones that look right.",
-      "Verify citations exist: paper IDs, book titles, links — open each one and confirm.",
-      "Run sensitive statements once more: sentences about people, organizations, or the law get rewritten in professional register.",
-      "Check image labels: add explicit labels per China's Labeling Measures; do not miss the implicit label in metadata.",
-      "Unify the voice: strip the AI register (parallel clauses, empty summaries) or readers will spot it instantly.",
-      "Keep a change record: which parts AI wrote and what you changed — traceable when something goes wrong."
-    ]
-  },
-  "怎么给文档做分块": {
-    "lead": "The first step of retrieval-augmented generation is cutting documents into chunks. How well you cut decides whether answers can be found at all.",
-    "points": [
-      "Cut by meaning, not by character count: never slice a complete argument in half.",
-      "Chunks too small: context is lost, and even a hit cannot support a full answer.",
-      "Chunks too large: one chunk mixes several topics, and the similarity signal gets diluted.",
-      "A few hundred to a thousand characters is a common starting point; tune by results, do not trust a fixed value.",
-      "Overlap adjacent chunks: sharing a few sentences prevents information from breaking at the boundary.",
-      "Keep structural information: store titles, sections, and page numbers as metadata so retrieval can filter on them."
-    ]
-  },
-  "怎么给检索结果重排": {
-    "lead": "Vector retrieval does the coarse pass; reranking does the fine pass. The two-stage combo beats single-stage retrieval on recall quality.",
-    "points": [
-      "Coarse pass retrieves wide: pull dozens of candidates, not just the top three.",
-      "Fine pass switches models: a reranker compares query and candidate item by item, finer than vector distance.",
-      "Reranking has a cost: more candidates means slower and pricier; set the candidate count by your latency budget.",
-      "Check language support of the reranker: not every reranking model handles Chinese.",
-      "Tune top-k: fewer final items beats more — irrelevant chunks drag the answer off course.",
-      "Measure the two stages separately: coarse recall and fine ranking are scored apart, so you know which stage drags."
-    ]
-  },
-  "怎么做混合检索": {
-    "lead": "Vector search is good at similar meaning; keyword search is good at exact matches. Hybrid search merges the results of both paths.",
-    "points": [
-      "Give exact terms to keywords: model numbers, IDs, and names — vector search misses them, keyword search does not.",
-      "Give fuzzy phrasing to vectors: a reworded question still hits, which keywords cannot do.",
-      "Fuse the two result lists: reciprocal rank fusion (RRF) merges by rank, not by force-adding scores.",
-      "Scores cannot be added directly: cosine similarity and BM25 scores have different scales; adding them skews results.",
-      "Check native support: hybrid queries are built into Qdrant and Weaviate.",
-      "Hybrid still needs reranking: fusion only merges candidates; the fine pass is still a reranker's job."
-    ]
-  },
-  "怎么挑 embedding 模型": {
-    "lead": "The embedding model decides how \"similar in meaning\" is computed. Pick it wrong and retrieval, reranking, and answering all suffer.",
-    "points": [
-      "Check language support first: for Chinese tasks, read scores on Chinese or multilingual benchmarks; a good English leaderboard says nothing about Chinese.",
-      "Weigh dimensions against cost: higher dimensions usually mean pricier storage and compute; estimate by data volume.",
-      "Screen with benchmarks like MTEB, then test on your own data; the leaderboard is only a starting point.",
-      "Queries and documents must use the same model: vectors from different models have no meaningful distance.",
-      "Mind normalization: some models require normalized outputs before cosine similarity is valid.",
-      "Switching models means rebuilding the index: old and new vectors are incompatible; migration means recomputing everything."
-    ]
-  },
-  "怎么评测 RAG 的效果": {
-    "lead": "A RAG failure can come from retrieval or from generation. Evaluate them separately, or you will fix the wrong part.",
-    "points": [
-      "Build an eval set first: real questions with gold answers; a few dozen is enough to start.",
-      "Retrieval side, measure recall: did the chunk that should be found make it into the candidates?",
-      "Generation side, measure faithfulness: can every sentence in the answer be supported by the retrieved chunks?",
-      "Measure answer relevance separately: on-topic answers with wrong grounding are still a problem.",
-      "Automate with a framework like RAGAS, then spot-check by hand to calibrate its scoring.",
-      "Break scores down by scenario: average scores hide the weak spots of specific question types."
-    ]
-  },
-  "什么时候不该用 RAG": {
-    "lead": "RAG is not the default. It fits \"knowledge changes, citations required\"; it hurts other scenarios, and forcing it makes things worse.",
-    "points": [
-      "Small, stable knowledge: put it straight in the context; a retrieval layer is needless complexity.",
-      "Exact arithmetic or reasoning required: retrieval does not help; the limit is the model itself.",
-      "Poor document quality: garbage in, garbage out — fix the documents before talking about retrieval.",
-      "Tight latency budget: retrieval plus reranking plus generation is a long chain; weigh it for real-time use.",
-      "Strict consistency required: two runs of the same question may retrieve differently; assess this for compliance settings.",
-      "Try the baseline first: ask without retrieval; if it is good enough, do not build RAG."
-    ]
-  },
-  "怎么把提示词写结构": {
-    "lead": "\"How to Ask AI\" covers what to state before asking; this guide covers what shape to put it in: role, task, constraints, and format, written as separate blocks.",
-    "points": [
-      "Write in blocks, not one wall of prose: role and background in one block, the task in another, constraints in another, output format in another — models follow blocked instructions more reliably.",
-      "Put standing rules (tone, boundaries) in the system prompt and the current task in the user message — each layer does its job; don't stuff one-off requests into the system prompt.",
-      "Mark sections with headings or tags (e.g. \"Background:\", \"Requirements:\"), and on long inputs clearly separate the material to process from the instructions, so the model doesn't treat data as directives.",
-      "Write constraints as checkable items: \"under 300 words\", \"for absolute beginners\", \"cite sources\" — these beat \"shorter\" or \"more professional\".",
-      "Give the output format its own block plus one worked example: a single sample output beats three paragraphs describing it.",
-      "Change one thing at a time when editing a prompt and compare results; change five at once and you can't tell which one worked."
-    ]
-  },
-  "few-shot示例怎么选": {
-    "lead": "Dropping a few input→output examples into the prompt changes performance noticeably — but bad examples steer the model the wrong way. Five criteria for picking them.",
-    "points": [
-      "Cover the edge cases you actually need, not just the easy ones: the model imitates the distribution of your examples.",
-      "Keep the format identical to real inputs: field names, punctuation, and line breaks in the examples get copied verbatim.",
-      "Start with two or three examples; marginal returns drop fast, and too many crowd the context and raise cost.",
-      "Make examples differ from each other: three near-identical ones are worth one, and they teach the model it can only do that one thing.",
-      "When outputs go off the rails, first check whether an example is steering them — a wrong example is worse than no example."
-    ]
-  },
-  "思维链什么时候有用": {
-    "lead": "\"Think step by step\" helps some tasks a lot and barely helps — or actively hurts — others. How to tell whether extended reasoning is worth it.",
-    "points": [
-      "Sort the task type first: arithmetic, multi-step logic, and planning gain a lot; simple extraction, translation, and format conversion gain almost nothing.",
-      "Trigger phrases like \"think step by step\" mattered for older models; reasoning models already have long chains built in, so prompting for one just wastes tokens.",
-      "Asking the model to list steps before answering works better — and is more controllable — than a bare \"think about it\".",
-      "Chain-of-thought output is not a reliable record of thinking: the model may fabricate a plausible-sounding process after the fact; don't treat it as an audit log.",
-      "Extended reasoning multiplies output length and latency; measure the cost before enabling it in real-time settings.",
-      "There is only one way to know if it helps: run a comparison on your own task, don't trust claims of \"general improvement\"."
-    ]
-  },
-  "怎么让AI按格式输出": {
-    "lead": "When a program has to consume AI output, \"please output JSON\" often isn't enough. Three levels, from prompt-level constraints to structured outputs.",
-    "points": [
-      "Level one: a format spec plus one complete sample in the prompt. Enough for most cases, but missing fields and stray commentary still happen.",
-      "Level two: use the API's structured-output / tool-calling capability — server-side constrained decoding guarantees valid format, far more reliable than asking nicely.",
-      "Define schemas with only the fields you need and tighten types: fewer fields, smaller failure surface.",
-      "Validate on the receiving end regardless of level: on schema-validation failure, retry or degrade — never feed downstream code unchecked.",
-      "Format constraints and task quality pull against each other: forcing a format can degrade content, so evaluate the two separately.",
-      "Don't let format tricks substitute for content evaluation: valid output is not correct output."
-    ]
-  },
-  "怎么自建评测口径": {
-    "lead": "Public leaderboards can't answer \"is it good at my job\". How to build an eval that is yours alone: questions, grading, and how to run it.",
-    "points": [
-      "Collect questions from real failures: 20–50 inputs from your actual work beat copying a public benchmark.",
-      "Write down what counts as correct for each question: exact matching where there's a gold answer; a rubric — or a strong model grading against one — for open-ended ones.",
-      "Pin the question version and the input conditions (model, parameters, prompt), otherwise score changes have no explanation.",
-      "Separate the two error kinds: format errors (rule-checkable) and content errors (need a human or a model judge) — the fixes are completely different.",
-      "Run regressions: after swapping a model or editing a prompt, re-run the same set and watch which questions flip from right to wrong — flips to wrong deserve more attention than flips to right.",
-      "Watch for contamination: public benchmarks may sit in training data; your own questions dodge that, but rotate them periodically too."
-    ]
-  },
-  "榜单怎么读": {
-    "lead": "The myth page says a high leaderboard score doesn't mean it works well; this guide shows how to squeeze real information out of a leaderboard: who runs it, how it tests, and where it distorts.",
-    "points": [
-      "Check three things first: who maintains it, where the questions come from, and how scores are computed — a leaderboard missing all three is an ad.",
-      "Look at when the questions were published: a benchmark only discriminates if it postdates the model's training cutoff; suspected-contaminated public sets inflate scores across the board.",
-      "Break the aggregate apart: the same model can rank completely differently across task subsets — compare on the subset you care about.",
-      "Compare only like with like: scores from different leaderboards are not comparable, and neither are different eval settings (context length, tools on/off) within one.",
-      "Ask whether the gap is meaningful: 1–2 points is usually within eval noise; adjacent ranks are effectively a tie.",
-      "Fill the gap with your own eval: public leaderboards answer \"general level\"; your own 20–50 questions answer \"is it good at my job\"."
-    ]
-  },
-  "提示词怎么版本化": {
-    "lead": "If you can't say which change moved your live numbers, it's usually because prompts live inside code and get edited on the fly. The minimal way to treat prompts like code.",
-    "points": [
-      "Move prompts out of code strings into their own files: editing a prompt shouldn't require a rebuild or redeploy.",
-      "Commit every change with the motivation written down: traceable, diffable, revertable — just like code.",
-      "Pair changes with a regression run: fixed inputs, old vs new outputs; without an eval, \"improved\" is a feeling.",
-      "Record prompt and model version as a pair: the same prompt can break on a new model; log them together.",
-      "When production misbehaves, check the prompt changelog first: prompts are a common change source that rarely sits inside the audit trail.",
-      "Control variables in A/B comparisons: swap prompt and model together and you'll never know which one did it."
-    ]
-  },
-  "系统提示怎么设计": {
-    "lead": "A system prompt is the invisible spec of your product's behavior. What to put in it, what to leave out, and how to test whether it actually holds.",
-    "points": [
-      "Standing rules only: identity, tone, boundaries, refusal policy. One-off tasks go in the user message — don't mix them in.",
-      "Write checkable clauses: \"cite a link when quoting external information\" beats \"be honest\" — it's enforceable and testable one by one.",
-      "Give boundary clauses an exit: refuse with a reason plus an alternative; a bare \"don't do X\" yields robotic refusals.",
-      "A system prompt is not a security boundary: a motivated user can always get around it; the real defenses sit in permissions and tools.",
-      "Test clause by clause: each rule gets one should-trigger and one should-not-trigger input; re-run on every revision.",
-      "Version it like a prompt: system-prompt edits need model-version records and regression runs too."
-    ]
-  },
-  "换模型前怎么迁移评估": {
-    "lead": "Switching models is not renaming: the same prompt set can break on the new one. Four checks to pass before you switch.",
-    "points": [
-      "Run your own eval on old vs new first: public leaderboards show general level; only your real inputs say whether the switch works.",
-      "Diff the API surface item by item: parameter names, streaming behavior, structured-output support, context length — a compatible interface is not identical behavior.",
-      "Re-test everything that depends on prompts: the same prompt can behave very differently across models; boundary clauses drift most.",
-      "Check licenses and data terms: the new model's license, data-retention policy, and regional availability may differ from the old one.",
-      "Keep a rollback path: retain the old model's configuration until the confirmation window closes, so you can switch back with one click.",
-      "Close out with live metrics during the confirmation window: task completion, refusal rate, and cost against baseline — retire the old model only when they pass."
-    ]
-  },
-  "数据标注与质检怎么看": {
-    "lead": "\"We used a million annotated rows\" says nothing about quality. How to size up a training or eval dataset from three angles: who labeled it, how consistent they were, and how QA ran.",
-    "points": [
-      "Start with who did the labeling: crowdworkers, in-house staff, or domain experts — unit price is usually a good proxy for data quality.",
-      "Check inter-annotator agreement: low agreement on the same batch means the guidelines themselves are ambiguous, so the noise is real.",
-      "QA process beats label count: sampling rate, rework loop, and disagreement arbitration — miss any of the three and the scale number is hollow.",
-      "\"What counts as correct\" must be written into the annotation guidelines: vague rules make annotators guess, and guessed data trains a wobbly model.",
-      "Model-labeled data (synthetic data, AI feedback) is not exempt: it carries the labeling model's biases; at minimum add human spot-checks plus eval regression.",
-      "Data problems surface in evals eventually: when model behavior gets weird, audit the latest batch's guideline changes before touching hyperparameters."
-    ]
-  },
-  "怎么读一篇AI论文": {
-    "lead": "Not being able to get through a paper is usually a sequencing problem, not an English problem. This guide is the order to read an AI paper in, and the question each step should answer.",
-    "points": [
-      "Find the research question first: the one or two sentences in the intro saying what the paper sets out to solve. If you can't find it, the paper itself isn't clear — read on cautiously.",
-      "Treat the abstract as a table of contents, not a conclusion: NeurIPS's official checklist makes authors self-audit whether 'the main claims in the abstract and introduction accurately reflect the paper's contributions and scope' — an abstract is a promise; the evidence lives in the tables.",
-      "Locate the main evidence: first answer 'which table/figure does the headline claim rest on', then check that table's setup — which benchmark, which baseline, which metric — and only then look at the numbers.",
-      "Read the limitations section directly: the NeurIPS checklist also asks authors to describe limitations. What authors admit themselves is the boundary of applicability — more reliable than any third-party take.",
-      "Separate 'new method' from 'good results': ablations are what show which component actually matters; without ablations, the source of the gain is unknown.",
-      "Citation counts, conference acceptance, and launch buzz are not evidence of quality; on seeing a SOTA claim, check benchmark contamination first, then whether the comparison is apples-to-apples."
-    ]
-  },
-  "论文卡-Attention Is All You Need": {
-    "lead": "The source paper of the Transformer. This card lays out the question it set out to solve, where the evidence lives, and what the paper does not claim.",
-    "points": [
-      "Research question: can sequence transduction work with attention alone — the abstract's \"dispensing with recurrence and convolutions entirely\".",
-      "Core evidence: Section 4 and Table 1 compare three architectures on path length, per-layer compute, and sequential operations; experiments are two machine-translation tasks, 28.4 BLEU on WMT 2014 EN-DE (abstract).",
-      "Author-stated limitations: the paper has no standalone Limitations section (verified against the arXiv HTML version on 2026-10-29); Section 7's attention visualizations explain the mechanism, not the limits — applicability is the reader's job.",
-      "What it does not claim: the paper never says this architecture will train general-purpose language models. \"Transformer is the foundation of LLMs\" is our retrospective framing, not the paper's conclusion.",
-      "Reading tip: the three-way complexity comparison in Table 1 is the actual argument; looking only at the architecture diagram misses the claim."
-    ]
-  },
-  "论文卡-GPT-3": {
-    "lead": "The starting point of the 'big model' narrative. This card separates what the paper actually demonstrated, what the authors themselves flagged as limits, and which popular claims are not in the paper.",
-    "points": [
-      "Research question: pre-train + fine-tune needs task-specific labeled data, yet humans learn new language tasks from a few examples or instructions — can a model learn tasks from context without updating weights (abstract).",
-      "Core evidence: the Section 3 tables organized by task family (language modeling, closed-book QA, translation, commonsense, SuperGLUE…). The claim is one model, no fine-tuning, many tasks — check baselines and settings table by table.",
-      "Author-stated limitations (Section 5, verified): \"it still has notable weaknesses in text synthesis and several NLP tasks\".",
-      "The words 'emergent abilities' / 'emergence' do not appear in the paper (full-text check on 2026-10-29) — that framing comes from later papers.",
-      "What it does not claim: the paper does not claim the model 'understands' language, and 'scale always delivers' is not its wording either — its claims are strictly about few-shot task performance."
-    ]
-  },
-  "论文卡-InstructGPT": {
-    "lead": "The landmark paper that moved 'alignment' into mainstream training. This card pins down the question, the key numbers, and where the authors list their own limitations.",
-    "points": [
-      "Research question: the abstract opens with \"Making language models bigger does not inherently make them better at following a user's intent\" — bigger models can be untruthful, toxic, or simply unhelpful.",
-      "Core evidence: labelers prefer outputs from the 1.3B InstructGPT to the 175B GPT-3 — \"despite having 100x fewer parameters\" (abstract). Alignment quality decouples from parameter count; this is the paper's hardest result.",
-      "Author-stated limitations: Section 5 (the HTML version contains 5.3 limitations / 5.4 open questions / 5.5 broader impacts); the abstract itself says toxicity improved only slightly and bias not at all.",
-      "Key line for evaluation readers (abstract): \"Public NLP datasets are not reflective of how our language models are used\" — this directly supports our 'How to Read a Leaderboard' stance.",
-      "What it does not claim: RLHF did not solve hallucination or bias — the paper says so; 'alignment = safer' cannot be inferred from this paper either."
-    ]
-  },
-  "论文卡-Chinchilla": {
-    "lead": "The calibration paper on 'how big should the model be, how much data should it see'. This card quotes the conclusion, states the evidence scale, and notes the extrapolation boundary the authors themselves flag.",
-    "points": [
-      "Research question (abstract): under a fixed compute budget, what is the optimal model size and token count; the finding is that current LLMs are \"significantly undertrained\" because the field scaled models while keeping data constant.",
-      "Conclusion verbatim: \"for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled\".",
-      "Evidence scale: 400+ models trained (70M to 16B+ parameters, 5B to 500B tokens) to fit the scaling law, then validated with the 70B Chinchilla, which \"outperforms Gopher\" (Section 4.2, verified).",
-      "Author-flagged boundary (verified): Chinchilla trained on 4× more data than Gopher, and the authors warn train/test leakage may artificially boost results — even a calibration paper guards against contamination.",
-      "What it does not claim: the law is fitted on ≤16B models and extrapolated — 'the rule holds past 70B' is extrapolation, not measurement; 'parameter count doesn't matter' is not the paper's claim either."
-    ]
-  },
-  "论文卡-HELM": {
-    "lead": "The evaluation-framework paper behind 'don't trust a single score'. This card lays out the question, how the framework is built, and the trade-offs the authors declare.",
-    "points": [
-      "Research question (abstract): LMs' \"capabilities, limitations, and risks are not well understood\"; HELM aims at transparency, not at crowning a strongest model.",
-      "Framework: taxonomize scenarios (use cases) and metrics (desiderata), select a subset by coverage and feasibility, and state what is missing (the abstract names QA for neglected English dialects and trustworthiness metrics) — admitting coverage gaps is part of the method.",
-      "Core approach verbatim: measure 7 metrics (accuracy, calibration, robustness, fairness, bias, toxicity, efficiency) across 16 core scenarios where possible, \"ensuring metrics beyond accuracy don't fall to the wayside\".",
-      "Declared trade-off: broad, not exhaustive — cite HELM together with its scenario list; a HELM ranking detached from scenarios is meaningless.",
-      "What it does not claim: HELM is not a replacement leaderboard — it opposes single-metric ranking itself; 'ranked first on HELM' contradicts the paper's stance."
-    ]
-  },
-  "论文卡-Llama 2": {
-    "lead": "The landmark tech report for open-weight chat models. This card lays out what it set out to solve, where the evidence sits, and what it does not claim.",
-    "points": [
-      "Research question: the abstract announces \"a collection of pretrained and fine-tuned large language models (LLMs) ranging in scale from 7 billion to 70 billion parameters\"; the fine-tuned Llama 2-Chat is \"optimized for dialogue use cases\".",
-      "Core evidence: Section 3's fine-tuning pipeline (SFT + rejection sampling + PPO) and Section 4's safety work — the abstract itself frames the contribution as \"We provide a detailed description of our approach to fine-tuning and safety improvements\"; the comparison claim carries a qualifier: \"outperform open-source chat models on most benchmarks we tested\" (most, not all).",
-      "Author-stated limits: no standalone Limitations section (checked against the arXiv HTML version on 2026-10-29); the closest are Section 5 Discussion (trade-offs and risks) and Section 4 Safety (with a content warning) — discussion, not a limitations list. Scope of validity is the reader's job.",
-      "What it does not claim: the abstract says \"may be a suitable substitute for closed-source models\" — never a claim of surpassing them. And open-weight is not open-source: the community license carries use restrictions (see the Open weights term).",
-      "How to read it: the core contribution is the openness of the fine-tuning and safety process, not the benchmark scores; reading only the eval tables misses what the paper actually gives."
-    ]
-  },
-  "论文卡-LIMA": {
-    "lead": "The 'less is more' alignment-data experiment: fine-tuning on just 1,000 curated examples. This card lays out what it set out to test, where the evidence sits, and what it does not claim.",
-    "points": [
-      "Research question: the abstract describes training LIMA (a 65B LLaMa model) \"fine-tuned with the standard supervised loss on only 1,000 carefully curated prompts and responses\", \"without any reinforcement learning or human preference modeling\" — the point is to measure the relative importance of the two training stages.",
-      "Core evidence: Section 4's human evaluation (against GPT-4, Bard, DaVinci003) and Section 5's ablations on data diversity/quality/quantity — the abstract gives the controlled human-study number: \"responses from LIMA are either equivalent or strictly preferred to GPT-4 in 43% of cases\"; the conclusion line is \"almost all knowledge in large language models is learned during pretraining\".",
-      "Author-stated limits: no standalone Limitations section (checked against the arXiv HTML version on 2026-10-30); Section 7's Discussion states two limits outright — the mental effort of building such examples is hard to scale, and \"LIMA is not as robust as product-grade models\" (an unlucky decode or an adversarial prompt often yields a weak response).",
-      "What it does not claim: 43%/58%/65% are shares of \"equivalent or strictly preferred\" in a controlled human study — not \"matches GPT-4 overall\"; \"1,000 examples suffice\" is evidence about dialogue style, not about safety, factuality, or robustness — the very areas the authors admit are weak.",
-      "How to read it: its value is turning the hypothesis \"knowledge comes from pretraining, alignment data shapes style\" into testable ablations; when citing it, separate \"little data can align a model\" from \"little data can align everything\"."
-    ]
-  },
-  "论文卡-Self-Instruct": {
-    "lead": "The founding framework for synthetic instruction data: models generate the instructions that train them. This card lays out what it set out to solve, where the evidence sits, and what it does not claim.",
-    "points": [
-      "Research question: the abstract notes instruction-tuned models \"depend heavily on human-written instruction data that is often limited in quantity, diversity, and creativity\"; the fix is Self-Instruct — \"improving the instruction-following capabilities of pretrained language models by bootstrapping off their own generations\".",
-      "Core evidence: Section 2's method (generate instructions, inputs, and outputs; filter invalid or near-duplicate samples; fine-tune the original model; seeded from 175 human-annotated tasks) and Section 4's results — applied to vanilla GPT3, \"a 33% absolute improvement over the original model on Super-NaturalInstructions\", \"on par with the performance of InstructGPT-001\", which was trained on private user data and human annotations.",
-      "Author-stated limits: a standalone Section 8 Limitations exists (checked against the arXiv HTML version on 2026-10-30), naming three: tail phenomena (gains skew toward tasks frequent in the pretraining corpus, brittleness on uncommon or creative instructions), dependence on large models (may work best for big models, raising access barriers), and reinforcing the model's own biases (the iterative loop can amplify problematic social biases).",
-      "What it does not claim: the abstract says on par, and the human eval leaves \"only a 5% absolute gap behind InstructGPT-001\" — never a claim of surpassing it; and \"almost annotation-free\" is not zero annotation: the 175 seed tasks and the filtering rules are still human-designed.",
-      "How to read it: this is the source of the \"synthesize data to train yourself\" line — many later instruction datasets and self-improvement methods reuse its generate-and-filter skeleton. Separate the reusable method from the specific GPT3 numbers, which move a lot with base-model capability."
-    ]
-  }
+ "_comment": "微型指南英文正文。键 = guides/<文件名> 去 .md（与 terms.en.json 同一套路）。值形如 {lead, points[], myth, fact}。",
+ "怎么向 AI 提问": {
+  "lead": "The same question asked differently produces very different answers. This guide covers the five things to state before you ask.",
+  "points": [
+   "State the goal and the done-criteria: not \"write an article\" but \"write a 300-word intro for absolute beginners\".",
+   "Give context: who you are, who the audience is, and what constraints apply — length, format, tone.",
+   "Paste the source text into the conversation; don't make the AI guess which passage you mean.",
+   "Ask for an outline first: have it list the structure, you approve it, then expand.",
+   "When unhappy, point out exactly what is wrong — more effective than a vague \"try again\"."
+  ]
+ },
+ "怎么验证 AI 的输出": {
+  "lead": "AI will state fabricated facts with full confidence. This guide turns \"what it said\" into \"what you can check\".",
+  "points": [
+   "Break the output into individual checkable claims: numbers, dates, names, citations.",
+   "For every citation (paper, statute, API name), verify at the original source — never trust the title it gives you.",
+   "Demand sources for key numbers; treat numbers without sources as assumptions.",
+   "Self-review catches only a fraction of errors; cross-checking (different source, different tool) is what works.",
+   "The more specific the domain (local law, your own data), the more a human must check — general models don't have these facts."
+  ]
+ },
+ "AI 真的读懂了你的话吗": {
+  "lead": "A fitting answer is not understanding — it is doing something else.",
+  "myth": "It answers aptly and keeps up with the conversation, so it must have understood what you meant.",
+  "fact": "It predicts the next word by probability. An apt answer shows it saw similar patterns in training, not that it grasps your situation."
+ },
+ "参数越多就越聪明": {
+  "lead": "Parameter count is one variable, not a dial for intelligence.",
+  "myth": "Parameter count decides how smart a model is — bigger is always stronger.",
+  "fact": "The quality and amount of training data decide performance just as much; small models match larger ones on suitable tasks."
+ },
+ "通用人工智能快到了": {
+  "lead": "\"Soon\" is a claim, not a verifiable milestone.",
+  "myth": "Everyone says AGI is near, so there must be a checkable date when it arrives.",
+  "fact": "There is no agreed definition of AGI; the houses mean different things. Without a definition, \"arrived\" has no test."
+ },
+ "它说得笃定，所以可信": {
+  "lead": "Fluency and correctness are separate; a confident tone adds no reliability.",
+  "myth": "A confident tone and a tidy structure mean the content is trustworthy.",
+  "fact": "In the hallucination surveys, most recorded errors are exactly this kind of smoothly written fabrication."
+ },
+ "温度调高会更聪明": {
+  "lead": "Temperature changes randomness only, not how much the model knows.",
+  "myth": "Raising temperature makes the model more imaginative, therefore smarter.",
+  "fact": "Temperature only changes how randomly it picks tokens; raising it adds drift and errors while the model knows no more."
+ },
+ "它记得你之前说过的": {
+  "lead": "What it can see is the context window; anything outside is not in its input.",
+  "myth": "Within one conversation it always remembers everything said earlier.",
+  "fact": "It only sees what fits the context window; anything beyond it is simply not in the input, which has nothing to do with remembering."
+ },
+ "榜单分数高就是好用": {
+  "lead": "A benchmark covers only what it measures — your task is a different question.",
+  "myth": "A model that scores high on the leaderboards must also be good at your task.",
+  "fact": "HELM concludes precisely that a single leaderboard is incomplete; a high score only means strength on the items tested."
+ },
+ "上下文窗口越大越好": {
+  "lead": "Window size has a price; enough beats maximum.",
+  "myth": "The larger the context window, the better long documents get handled.",
+  "fact": "A larger window raises VRAM and latency. In a long input, the middle is used unevenly. Choosing by need beats choosing the maximum."
+ },
+ "它拒绝，是因为做不到": {
+  "lead": "Most refusals are a trained choice, not a capability ceiling.",
+  "myth": "When it says \"I cannot do that\", it lacks the capability.",
+  "fact": "Most refusals come from alignment training; having the capability and being willing to output it are different things."
+ },
+ "它逐字读懂你的文字": {
+  "lead": "What it sees is not characters but ids from a vocabulary.",
+  "myth": "It reads your input word by word, the way you do.",
+  "fact": "The input is first cut into token ids from a vocabulary. An uncommon word may be split into pieces. What it works on is the ids, not the characters."
+ },
+ "它在一步步推理": {
+  "lead": "The steps it writes are not guaranteed to be the path that produced the answer.",
+  "myth": "The reasoning it shows you is the reasoning it actually performed.",
+  "fact": "It generates word by word by probability; the intermediate steps it writes need not match the path that produced the answer."
+ },
+ "注意力就是它注意到重点": {
+  "lead": "Attention is a weighted computation, not the model paying heed.",
+  "myth": "\"Attention mechanism\" means it picks out what matters, like a person would.",
+  "fact": "Attention weights positions by relatedness; a high weight does not mean it judged that part important."
+ },
+ "量化会让模型变笨一半": {
+  "lead": "The impact varies by tier; the ruler is bits per weight.",
+  "myth": "Quantising cuts model quality in half.",
+  "fact": "The impact varies by tier and by model. The ruler is bpw, meaning bits per weight. The differences between tiers have to be read item by item."
+ },
+ "显存不够就跑不了": {
+  "lead": "Whether it runs and how fast it runs are two questions.",
+  "myth": "If it does not fit in VRAM, the only option is a better graphics card.",
+  "fact": "Some layers can be moved to system memory or to the CPU. The price is speed. Whether it runs at all and how fast it runs are separate questions."
+ },
+ "接口兼容就等于行为一致": {
+  "lead": "Compatibility guarantees the shape of requests and responses, nothing more.",
+  "myth": "If the API is OpenAI-compatible, switching over gives the same behaviour.",
+  "fact": "Compatibility covers the shape of requests and responses; parameter defaults, error behaviour and output quality differ between implementations."
+ },
+ "预览版不能用于生产": {
+  "lead": "Judge it by the terms and the timeline, not by the word \"preview\".",
+  "myth": "Anything labelled \"preview\" is an experiment and cannot go to production.",
+  "fact": "Lifecycle and support policies differ between providers. The basis is that provider's terms and deprecation schedule. Whether the name says \"preview\" is not evidence."
+ },
+ "开源模型一定更省钱": {
+  "lead": "Open guarantees the right to use and modify, not that it is free.",
+  "myth": "Once a model is open, running it is necessarily cheaper than calling an API.",
+  "fact": "Self-hosting costs hardware, operations and people; open concerns the right to use and modify, not price."
+ },
+ "换模型只是改个名字": {
+  "lead": "A compatible interface does not mean a zero-cost migration.",
+  "myth": "Switching models is just changing a name in the config.",
+  "fact": "Switching means retesting behaviour, cost and compliance; a compatible interface does not make the migration free."
+ },
+ "怎么保护自己的数据": {
+  "lead": "Before handing material to an AI, be clear about where it goes and what it leaves behind. Six moves.",
+  "points": [
+   "Sort material by whether it may leave: personal identity, company secrets, and customer data are three different categories.",
+   "Do not accept terms you cannot read; check specifically whether your data is used for training.",
+   "Anonymize first: strip names, IDs, and contact details before pasting anything in.",
+   "For sensitive work, prefer local or private deployment so data never leaves your own network.",
+   "Afterwards, check retention: can the chat history and uploaded files be deleted, and how soon?",
+   "Set team rules: which materials may go into an AI, and which must stay in internal tools."
+  ]
+ },
+ "AI 常犯什么错": {
+  "lead": "AI mistakes follow fixed patterns. Recognizing these categories prevents most of them in advance.",
+  "points": [
+   "Inventing facts: it produces plausible-looking fake citations, numbers, and dates.",
+   "Agreeing with you: imply a wrong premise and it usually will not correct it, just build on it.",
+   "Bad at exact math: precise counts, multi-digit arithmetic, and tricky date conversions fail most often.",
+   "Over-answering: it rarely says \"I do not know\", preferring a vague answer instead.",
+   "Swayed by phrasing: the same question asked differently can produce a different answer."
+  ]
+ },
+ "怎么读模型卡": {
+  "lead": "A model card is the manufacturer's spec sheet for a model. This guide covers which sections to read and which claims to discount.",
+  "points": [
+   "Start with intended-use and limitations: what the maker says it is and is not good for beats marketing copy.",
+   "When reading benchmarks, first ask which ones were tested; a score without a benchmark is no score.",
+   "Read the training-data section: the data mix determines which biases it may carry.",
+   "Read the license: commercial use, attribution duties, and whether derivatives must share the same license.",
+   "Trust the known-limitations section: failure modes the maker admits are worth more than \"state-of-the-art\".",
+   "Compare vendors only on equal terms: same benchmark, same settings, or the numbers are not comparable."
+  ]
+ },
+ "怎么判断 AI 新闻是不是炒作": {
+  "lead": "AI news is usually more optimistic than the facts. This guide gives you a checking order: read it before deciding what to believe.",
+  "points": [
+   "Find the original source first: a paper, an official announcement, or just a demo video. The longer the retelling chain, the more distortion accumulates.",
+   "Separate \"demo\" from \"average\": cherry-picked success cases are not everyday performance. Ask what the success rate is.",
+   "Ask about the measuring stick before reading numbers: only same-benchmark, same-setting comparisons count. A score jump after switching benchmarks is not progress.",
+   "Check the publisher's motive: a company mid-fundraise and an independent evaluator do not word things with the same reliability.",
+   "Look for independent replication. Results only the publisher measured itself should be treated as unconfirmed.",
+   "Discount timelines: \"next year\" and \"will replace X in a few years\" are predictions, not facts."
+  ]
+ },
+ "怎么防提示注入": {
+  "lead": "Prompt injection is an attack where outside content hijacks an AI. This guide covers how to build defenses so your AI tool treats web pages as data, not commands.",
+  "points": [
+   "Treat outside content as data, not instructions: web pages, documents, and emails can hide \"ignore your previous instructions\".",
+   "Grant least privilege: if reading suffices, grant read-only; if one directory suffices, do not hand over the whole disk.",
+   "Keep a human gate on irreversible actions: deletions, transfers, and outbound messages ask a person first.",
+   "Isolate sessions: do not mix a session that processes outside content with one that holds keys or manages accounts.",
+   "Check what a tool can touch before installing it: read the MCP server's permission declarations.",
+   "Keep execution logs: when something goes wrong, you can replay what it actually did."
+  ]
+ },
+ "怎么给 AI 工具配权限": {
+  "lead": "How dangerous an AI tool is is mostly decided by the permissions you give it. This guide covers granting exactly enough and no more.",
+  "points": [
+   "Decide the job first, then the permissions: coding work gets the code directory, not your whole home directory.",
+   "Grant read and write separately: if the task completes read-only, do not grant write.",
+   "Mark off-limits zones: key files, account configs, and system directories are explicitly excluded.",
+   "Turn on confirmation mode: deletions, overwrites, and outbound sends must ask before acting.",
+   "Reclaim permissions regularly: when a project ends or the task changes, take back what you opened.",
+   "Run experiments in restricted mode: try untrusted usage inside a sandbox first."
+  ]
+ },
+ "怎么安全地用 MCP 工具": {
+  "lead": "MCP lets an AI touch your files and the web. The tools themselves are not the danger; what gets fed to them and what permissions they hold is.",
+  "points": [
+   "Install only the servers you need: every extra tool is one more channel something can go wrong through.",
+   "Read the permission declarations: file servers should scope to directories; fetch servers should carry security warnings.",
+   "Treat fetched content as data: web page text can contain instructions aimed at the AI.",
+   "Keep sensitive directories out: before connecting a file server, confirm keys and account configs are not inside.",
+   "Check who maintains the server: official and third-party carry different trust levels.",
+   "Cut the link first during an incident: if injection is suspected, stop the tool, then investigate the session."
+  ]
+ },
+ "怎么查生成式 AI 合规义务": {
+  "lead": "Launching an AI feature in China, compliance is not mysticism but a handful of checkable articles. This guide walks them in launch order.",
+  "points": [
+   "Classify first: does the service face the public in mainland China? If so, the Interim Measures for Generative AI Services apply.",
+   "Check training-data provenance: Article 7 requires \"lawfully sourced data and foundation models\".",
+   "Check labeling duties: generated images and video must carry labels per the deep-synthesis rules.",
+   "Check filing: services with public-opinion attributes or social mobilization capacity need security assessments and algorithm filing.",
+   "Check the new labeling rules: the Labeling Measures take effect 1 September 2025 — explicit labels plus implicit labels in file metadata.",
+   "When unsure, ask legal: this site states what the articles say, it does not hand down legal conclusions for you."
+  ]
+ },
+ "怎么对照 EU AI Act 自查": {
+  "lead": "The EU AI Act sorts AI into four risk tiers, with obligations taking effect in batches. This guide covers how to classify yourself and which tier you hit.",
+  "points": [
+   "Set your risk tier first: unacceptable / high / transparency / minimal. Most applications land in minimal, with no extra duties.",
+   "Check the ban list: nine practices are prohibited outright, including social scoring and real-time remote biometric identification in public spaces.",
+   "Transparency duties: chatbots must let people know they are talking to a machine; AI-generated content must be identifiable, and deepfakes visibly labeled.",
+   "General-purpose model duties are already live: GPAI providers face transparency and copyright requirements.",
+   "High-risk duties are the heaviest: risk assessment, data quality, logging, and human oversight, none optional.",
+   "Watch the timeline: obligations take effect in batches, so the same product must meet different requirements on different dates."
+  ]
+ },
+ "怎么查 AI 生成内容的版权风险": {
+  "lead": "AI content copyright has two ends: whether the data fed in is lawful, and whether what comes out belongs to you. This guide checks both ends.",
+  "points": [
+   "Input side, check provenance: Chinese rules require \"lawfully sourced data and foundation models\".",
+   "Input side, check exceptions: the EU Directive on Copyright in the Digital Single Market sets text-and-data-mining exceptions, with research and commercial terms differing.",
+   "Output side, do not assume ownership: whether AI-generated content can be copyrighted differs by jurisdiction; check local practice first.",
+   "Before commercial use, read the vendor terms: model terms of use differ on commercial use, competing products, and output ownership.",
+   "Keep provenance records: where materials came from and what the training data was — the chain of provenance comes first in disputes.",
+   "Litigation is ongoing: case law changes; for major commercial decisions consult legal counsel, not news headlines."
+  ]
+ },
+ "怎么读开源模型的许可证": {
+  "lead": "\"Open source\" does not mean use however you like. The conditions in a model license decide whether you may use it commercially, attribute, and what derivatives inherit.",
+  "points": [
+   "Separate open-source software licenses from model licenses: the latter often carry extra conditions you cannot infer from the words \"open source\".",
+   "Check commercial terms: some licenses ban commercial use; others set a scale threshold.",
+   "Check attribution: Apache 2.0 requires keeping notices and the NOTICE file.",
+   "Check derivative duties: copyleft licenses require models you fine-tune to carry the same license.",
+   "Check use restrictions: many model licenses forbid certain use cases; violating them voids the license.",
+   "Check license inheritance: which license a fine-tuned, quantized, or merged model carries is recorded repo by repo in this site's model profiles."
+  ]
+ },
+ "怎么排查 AI 的数据泄露路径": {
+  "lead": "Data usually leaves you through more than one path. This guide lists the common leak paths one by one so you can check which ones you are on.",
+  "points": [
+   "Input path: anything pasted into a cloud chat box has already left your device.",
+   "Training path: many services default to improving models with your conversations; find the opt-out switch.",
+   "Tool path: a connected server can carry content to its own backend.",
+   "Log path: how long chat history and uploaded files persist on the other side's servers.",
+   "Memory path: a model may repeat content it saw during training.",
+   "Recovery path: confirm the deletion entry point and effective time in advance; do not expect instant cleanliness."
+  ]
+ },
+ "怎么给 AI 内容做发布前检查": {
+  "lead": "Before publishing AI-generated content, a few classes of error appear almost inevitably. This guide is the pre-publication checklist.",
+  "points": [
+   "Re-verify facts line by line: numbers, dates, and quotes — AI produces ones that look right.",
+   "Verify citations exist: paper IDs, book titles, links — open each one and confirm.",
+   "Run sensitive statements once more: sentences about people, organizations, or the law get rewritten in professional register.",
+   "Check image labels: add explicit labels per China's Labeling Measures; do not miss the implicit label in metadata.",
+   "Unify the voice: strip the AI register (parallel clauses, empty summaries) or readers will spot it instantly.",
+   "Keep a change record: which parts AI wrote and what you changed — traceable when something goes wrong."
+  ]
+ },
+ "怎么给文档做分块": {
+  "lead": "The first step of retrieval-augmented generation is cutting documents into chunks. How well you cut decides whether answers can be found at all.",
+  "points": [
+   "Cut by meaning, not by character count: never slice a complete argument in half.",
+   "Chunks too small: context is lost, and even a hit cannot support a full answer.",
+   "Chunks too large: one chunk mixes several topics, and the similarity signal gets diluted.",
+   "A few hundred to a thousand characters is a common starting point; tune by results, do not trust a fixed value.",
+   "Overlap adjacent chunks: sharing a few sentences prevents information from breaking at the boundary.",
+   "Keep structural information: store titles, sections, and page numbers as metadata so retrieval can filter on them."
+  ]
+ },
+ "怎么给检索结果重排": {
+  "lead": "Vector retrieval does the coarse pass; reranking does the fine pass. The two-stage combo beats single-stage retrieval on recall quality.",
+  "points": [
+   "Coarse pass retrieves wide: pull dozens of candidates, not just the top three.",
+   "Fine pass switches models: a reranker compares query and candidate item by item, finer than vector distance.",
+   "Reranking has a cost: more candidates means slower and pricier; set the candidate count by your latency budget.",
+   "Check language support of the reranker: not every reranking model handles Chinese.",
+   "Tune top-k: fewer final items beats more — irrelevant chunks drag the answer off course.",
+   "Measure the two stages separately: coarse recall and fine ranking are scored apart, so you know which stage drags."
+  ]
+ },
+ "怎么做混合检索": {
+  "lead": "Vector search is good at similar meaning; keyword search is good at exact matches. Hybrid search merges the results of both paths.",
+  "points": [
+   "Give exact terms to keywords: model numbers, IDs, and names — vector search misses them, keyword search does not.",
+   "Give fuzzy phrasing to vectors: a reworded question still hits, which keywords cannot do.",
+   "Fuse the two result lists: reciprocal rank fusion (RRF) merges by rank, not by force-adding scores.",
+   "Scores cannot be added directly: cosine similarity and BM25 scores have different scales; adding them skews results.",
+   "Check native support: hybrid queries are built into Qdrant and Weaviate.",
+   "Hybrid still needs reranking: fusion only merges candidates; the fine pass is still a reranker's job."
+  ]
+ },
+ "怎么挑 embedding 模型": {
+  "lead": "The embedding model decides how \"similar in meaning\" is computed. Pick it wrong and retrieval, reranking, and answering all suffer.",
+  "points": [
+   "Check language support first: for Chinese tasks, read scores on Chinese or multilingual benchmarks; a good English leaderboard says nothing about Chinese.",
+   "Weigh dimensions against cost: higher dimensions usually mean pricier storage and compute; estimate by data volume.",
+   "Screen with benchmarks like MTEB, then test on your own data; the leaderboard is only a starting point.",
+   "Queries and documents must use the same model: vectors from different models have no meaningful distance.",
+   "Mind normalization: some models require normalized outputs before cosine similarity is valid.",
+   "Switching models means rebuilding the index: old and new vectors are incompatible; migration means recomputing everything."
+  ]
+ },
+ "怎么评测 RAG 的效果": {
+  "lead": "A RAG failure can come from retrieval or from generation. Evaluate them separately, or you will fix the wrong part.",
+  "points": [
+   "Build an eval set first: real questions with gold answers; a few dozen is enough to start.",
+   "Retrieval side, measure recall: did the chunk that should be found make it into the candidates?",
+   "Generation side, measure faithfulness: can every sentence in the answer be supported by the retrieved chunks?",
+   "Measure answer relevance separately: on-topic answers with wrong grounding are still a problem.",
+   "Automate with a framework like RAGAS, then spot-check by hand to calibrate its scoring.",
+   "Break scores down by scenario: average scores hide the weak spots of specific question types."
+  ]
+ },
+ "什么时候不该用 RAG": {
+  "lead": "RAG is not the default. It fits \"knowledge changes, citations required\"; it hurts other scenarios, and forcing it makes things worse.",
+  "points": [
+   "Small, stable knowledge: put it straight in the context; a retrieval layer is needless complexity.",
+   "Exact arithmetic or reasoning required: retrieval does not help; the limit is the model itself.",
+   "Poor document quality: garbage in, garbage out — fix the documents before talking about retrieval.",
+   "Tight latency budget: retrieval plus reranking plus generation is a long chain; weigh it for real-time use.",
+   "Strict consistency required: two runs of the same question may retrieve differently; assess this for compliance settings.",
+   "Try the baseline first: ask without retrieval; if it is good enough, do not build RAG."
+  ]
+ },
+ "怎么把提示词写结构": {
+  "lead": "\"How to Ask AI\" covers what to state before asking; this guide covers what shape to put it in: role, task, constraints, and format, written as separate blocks.",
+  "points": [
+   "Write in blocks, not one wall of prose: role and background in one block, the task in another, constraints in another, output format in another — models follow blocked instructions more reliably.",
+   "Put standing rules (tone, boundaries) in the system prompt and the current task in the user message — each layer does its job; don't stuff one-off requests into the system prompt.",
+   "Mark sections with headings or tags (e.g. \"Background:\", \"Requirements:\"), and on long inputs clearly separate the material to process from the instructions, so the model doesn't treat data as directives.",
+   "Write constraints as checkable items: \"under 300 words\", \"for absolute beginners\", \"cite sources\" — these beat \"shorter\" or \"more professional\".",
+   "Give the output format its own block plus one worked example: a single sample output beats three paragraphs describing it.",
+   "Change one thing at a time when editing a prompt and compare results; change five at once and you can't tell which one worked."
+  ]
+ },
+ "few-shot示例怎么选": {
+  "lead": "Dropping a few input→output examples into the prompt changes performance noticeably — but bad examples steer the model the wrong way. Five criteria for picking them.",
+  "points": [
+   "Cover the edge cases you actually need, not just the easy ones: the model imitates the distribution of your examples.",
+   "Keep the format identical to real inputs: field names, punctuation, and line breaks in the examples get copied verbatim.",
+   "Start with two or three examples; marginal returns drop fast, and too many crowd the context and raise cost.",
+   "Make examples differ from each other: three near-identical ones are worth one, and they teach the model it can only do that one thing.",
+   "When outputs go off the rails, first check whether an example is steering them — a wrong example is worse than no example."
+  ]
+ },
+ "思维链什么时候有用": {
+  "lead": "\"Think step by step\" helps some tasks a lot and barely helps — or actively hurts — others. How to tell whether extended reasoning is worth it.",
+  "points": [
+   "Sort the task type first: arithmetic, multi-step logic, and planning gain a lot; simple extraction, translation, and format conversion gain almost nothing.",
+   "Trigger phrases like \"think step by step\" mattered for older models; reasoning models already have long chains built in, so prompting for one just wastes tokens.",
+   "Asking the model to list steps before answering works better — and is more controllable — than a bare \"think about it\".",
+   "Chain-of-thought output is not a reliable record of thinking: the model may fabricate a plausible-sounding process after the fact; don't treat it as an audit log.",
+   "Extended reasoning multiplies output length and latency; measure the cost before enabling it in real-time settings.",
+   "There is only one way to know if it helps: run a comparison on your own task, don't trust claims of \"general improvement\"."
+  ]
+ },
+ "怎么让AI按格式输出": {
+  "lead": "When a program has to consume AI output, \"please output JSON\" often isn't enough. Three levels, from prompt-level constraints to structured outputs.",
+  "points": [
+   "Level one: a format spec plus one complete sample in the prompt. Enough for most cases, but missing fields and stray commentary still happen.",
+   "Level two: use the API's structured-output / tool-calling capability — server-side constrained decoding guarantees valid format, far more reliable than asking nicely.",
+   "Define schemas with only the fields you need and tighten types: fewer fields, smaller failure surface.",
+   "Validate on the receiving end regardless of level: on schema-validation failure, retry or degrade — never feed downstream code unchecked.",
+   "Format constraints and task quality pull against each other: forcing a format can degrade content, so evaluate the two separately.",
+   "Don't let format tricks substitute for content evaluation: valid output is not correct output."
+  ]
+ },
+ "怎么自建评测口径": {
+  "lead": "Public leaderboards can't answer \"is it good at my job\". How to build an eval that is yours alone: questions, grading, and how to run it.",
+  "points": [
+   "Collect questions from real failures: 20–50 inputs from your actual work beat copying a public benchmark.",
+   "Write down what counts as correct for each question: exact matching where there's a gold answer; a rubric — or a strong model grading against one — for open-ended ones.",
+   "Pin the question version and the input conditions (model, parameters, prompt), otherwise score changes have no explanation.",
+   "Separate the two error kinds: format errors (rule-checkable) and content errors (need a human or a model judge) — the fixes are completely different.",
+   "Run regressions: after swapping a model or editing a prompt, re-run the same set and watch which questions flip from right to wrong — flips to wrong deserve more attention than flips to right.",
+   "Watch for contamination: public benchmarks may sit in training data; your own questions dodge that, but rotate them periodically too."
+  ]
+ },
+ "榜单怎么读": {
+  "lead": "The myth page says a high leaderboard score doesn't mean it works well; this guide shows how to squeeze real information out of a leaderboard: who runs it, how it tests, and where it distorts.",
+  "points": [
+   "Check three things first: who maintains it, where the questions come from, and how scores are computed — a leaderboard missing all three is an ad.",
+   "Look at when the questions were published: a benchmark only discriminates if it postdates the model's training cutoff; suspected-contaminated public sets inflate scores across the board.",
+   "Break the aggregate apart: the same model can rank completely differently across task subsets — compare on the subset you care about.",
+   "Compare only like with like: scores from different leaderboards are not comparable, and neither are different eval settings (context length, tools on/off) within one.",
+   "Ask whether the gap is meaningful: 1–2 points is usually within eval noise; adjacent ranks are effectively a tie.",
+   "Fill the gap with your own eval: public leaderboards answer \"general level\"; your own 20–50 questions answer \"is it good at my job\"."
+  ]
+ },
+ "提示词怎么版本化": {
+  "lead": "If you can't say which change moved your live numbers, it's usually because prompts live inside code and get edited on the fly. The minimal way to treat prompts like code.",
+  "points": [
+   "Move prompts out of code strings into their own files: editing a prompt shouldn't require a rebuild or redeploy.",
+   "Commit every change with the motivation written down: traceable, diffable, revertable — just like code.",
+   "Pair changes with a regression run: fixed inputs, old vs new outputs; without an eval, \"improved\" is a feeling.",
+   "Record prompt and model version as a pair: the same prompt can break on a new model; log them together.",
+   "When production misbehaves, check the prompt changelog first: prompts are a common change source that rarely sits inside the audit trail.",
+   "Control variables in A/B comparisons: swap prompt and model together and you'll never know which one did it."
+  ]
+ },
+ "系统提示怎么设计": {
+  "lead": "A system prompt is the invisible spec of your product's behavior. What to put in it, what to leave out, and how to test whether it actually holds.",
+  "points": [
+   "Standing rules only: identity, tone, boundaries, refusal policy. One-off tasks go in the user message — don't mix them in.",
+   "Write checkable clauses: \"cite a link when quoting external information\" beats \"be honest\" — it's enforceable and testable one by one.",
+   "Give boundary clauses an exit: refuse with a reason plus an alternative; a bare \"don't do X\" yields robotic refusals.",
+   "A system prompt is not a security boundary: a motivated user can always get around it; the real defenses sit in permissions and tools.",
+   "Test clause by clause: each rule gets one should-trigger and one should-not-trigger input; re-run on every revision.",
+   "Version it like a prompt: system-prompt edits need model-version records and regression runs too."
+  ]
+ },
+ "换模型前怎么迁移评估": {
+  "lead": "Switching models is not renaming: the same prompt set can break on the new one. Four checks to pass before you switch.",
+  "points": [
+   "Run your own eval on old vs new first: public leaderboards show general level; only your real inputs say whether the switch works.",
+   "Diff the API surface item by item: parameter names, streaming behavior, structured-output support, context length — a compatible interface is not identical behavior.",
+   "Re-test everything that depends on prompts: the same prompt can behave very differently across models; boundary clauses drift most.",
+   "Check licenses and data terms: the new model's license, data-retention policy, and regional availability may differ from the old one.",
+   "Keep a rollback path: retain the old model's configuration until the confirmation window closes, so you can switch back with one click.",
+   "Close out with live metrics during the confirmation window: task completion, refusal rate, and cost against baseline — retire the old model only when they pass."
+  ]
+ },
+ "数据标注与质检怎么看": {
+  "lead": "\"We used a million annotated rows\" says nothing about quality. How to size up a training or eval dataset from three angles: who labeled it, how consistent they were, and how QA ran.",
+  "points": [
+   "Start with who did the labeling: crowdworkers, in-house staff, or domain experts — unit price is usually a good proxy for data quality.",
+   "Check inter-annotator agreement: low agreement on the same batch means the guidelines themselves are ambiguous, so the noise is real.",
+   "QA process beats label count: sampling rate, rework loop, and disagreement arbitration — miss any of the three and the scale number is hollow.",
+   "\"What counts as correct\" must be written into the annotation guidelines: vague rules make annotators guess, and guessed data trains a wobbly model.",
+   "Model-labeled data (synthetic data, AI feedback) is not exempt: it carries the labeling model's biases; at minimum add human spot-checks plus eval regression.",
+   "Data problems surface in evals eventually: when model behavior gets weird, audit the latest batch's guideline changes before touching hyperparameters."
+  ]
+ },
+ "怎么读一篇AI论文": {
+  "lead": "Not being able to get through a paper is usually a sequencing problem, not an English problem. This guide is the order to read an AI paper in, and the question each step should answer.",
+  "points": [
+   "Find the research question first: the one or two sentences in the intro saying what the paper sets out to solve. If you can't find it, the paper itself isn't clear — read on cautiously.",
+   "Treat the abstract as a table of contents, not a conclusion: NeurIPS's official checklist makes authors self-audit whether 'the main claims in the abstract and introduction accurately reflect the paper's contributions and scope' — an abstract is a promise; the evidence lives in the tables.",
+   "Locate the main evidence: first answer 'which table/figure does the headline claim rest on', then check that table's setup — which benchmark, which baseline, which metric — and only then look at the numbers.",
+   "Read the limitations section directly: the NeurIPS checklist also asks authors to describe limitations. What authors admit themselves is the boundary of applicability — more reliable than any third-party take.",
+   "Separate 'new method' from 'good results': ablations are what show which component actually matters; without ablations, the source of the gain is unknown.",
+   "Citation counts, conference acceptance, and launch buzz are not evidence of quality; on seeing a SOTA claim, check benchmark contamination first, then whether the comparison is apples-to-apples."
+  ]
+ },
+ "论文卡-Attention Is All You Need": {
+  "lead": "The source paper of the Transformer. This card lays out the question it set out to solve, where the evidence lives, and what the paper does not claim.",
+  "points": [
+   "Research question: can sequence transduction work with attention alone — the abstract's \"dispensing with recurrence and convolutions entirely\".",
+   "Core evidence: Section 4 and Table 1 compare three architectures on path length, per-layer compute, and sequential operations; experiments are two machine-translation tasks, 28.4 BLEU on WMT 2014 EN-DE (abstract).",
+   "Author-stated limitations: the paper has no standalone Limitations section (verified against the arXiv HTML version on 2026-10-29); Section 7's attention visualizations explain the mechanism, not the limits — applicability is the reader's job.",
+   "What it does not claim: the paper never says this architecture will train general-purpose language models. \"Transformer is the foundation of LLMs\" is our retrospective framing, not the paper's conclusion.",
+   "Reading tip: the three-way complexity comparison in Table 1 is the actual argument; looking only at the architecture diagram misses the claim."
+  ]
+ },
+ "论文卡-GPT-3": {
+  "lead": "The starting point of the 'big model' narrative. This card separates what the paper actually demonstrated, what the authors themselves flagged as limits, and which popular claims are not in the paper.",
+  "points": [
+   "Research question: pre-train + fine-tune needs task-specific labeled data, yet humans learn new language tasks from a few examples or instructions — can a model learn tasks from context without updating weights (abstract).",
+   "Core evidence: the Section 3 tables organized by task family (language modeling, closed-book QA, translation, commonsense, SuperGLUE…). The claim is one model, no fine-tuning, many tasks — check baselines and settings table by table.",
+   "Author-stated limitations (Section 5, verified): \"it still has notable weaknesses in text synthesis and several NLP tasks\".",
+   "The words 'emergent abilities' / 'emergence' do not appear in the paper (full-text check on 2026-10-29) — that framing comes from later papers.",
+   "What it does not claim: the paper does not claim the model 'understands' language, and 'scale always delivers' is not its wording either — its claims are strictly about few-shot task performance."
+  ]
+ },
+ "论文卡-InstructGPT": {
+  "lead": "The landmark paper that moved 'alignment' into mainstream training. This card pins down the question, the key numbers, and where the authors list their own limitations.",
+  "points": [
+   "Research question: the abstract opens with \"Making language models bigger does not inherently make them better at following a user's intent\" — bigger models can be untruthful, toxic, or simply unhelpful.",
+   "Core evidence: labelers prefer outputs from the 1.3B InstructGPT to the 175B GPT-3 — \"despite having 100x fewer parameters\" (abstract). Alignment quality decouples from parameter count; this is the paper's hardest result.",
+   "Author-stated limitations: Section 5 (the HTML version contains 5.3 limitations / 5.4 open questions / 5.5 broader impacts); the abstract itself says toxicity improved only slightly and bias not at all.",
+   "Key line for evaluation readers (abstract): \"Public NLP datasets are not reflective of how our language models are used\" — this directly supports our 'How to Read a Leaderboard' stance.",
+   "What it does not claim: RLHF did not solve hallucination or bias — the paper says so; 'alignment = safer' cannot be inferred from this paper either."
+  ]
+ },
+ "论文卡-Chinchilla": {
+  "lead": "The calibration paper on 'how big should the model be, how much data should it see'. This card quotes the conclusion, states the evidence scale, and notes the extrapolation boundary the authors themselves flag.",
+  "points": [
+   "Research question (abstract): under a fixed compute budget, what is the optimal model size and token count; the finding is that current LLMs are \"significantly undertrained\" because the field scaled models while keeping data constant.",
+   "Conclusion verbatim: \"for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled\".",
+   "Evidence scale: 400+ models trained (70M to 16B+ parameters, 5B to 500B tokens) to fit the scaling law, then validated with the 70B Chinchilla, which \"outperforms Gopher\" (Section 4.2, verified).",
+   "Author-flagged boundary (verified): Chinchilla trained on 4× more data than Gopher, and the authors warn train/test leakage may artificially boost results — even a calibration paper guards against contamination.",
+   "What it does not claim: the law is fitted on ≤16B models and extrapolated — 'the rule holds past 70B' is extrapolation, not measurement; 'parameter count doesn't matter' is not the paper's claim either."
+  ]
+ },
+ "论文卡-HELM": {
+  "lead": "The evaluation-framework paper behind 'don't trust a single score'. This card lays out the question, how the framework is built, and the trade-offs the authors declare.",
+  "points": [
+   "Research question (abstract): LMs' \"capabilities, limitations, and risks are not well understood\"; HELM aims at transparency, not at crowning a strongest model.",
+   "Framework: taxonomize scenarios (use cases) and metrics (desiderata), select a subset by coverage and feasibility, and state what is missing (the abstract names QA for neglected English dialects and trustworthiness metrics) — admitting coverage gaps is part of the method.",
+   "Core approach verbatim: measure 7 metrics (accuracy, calibration, robustness, fairness, bias, toxicity, efficiency) across 16 core scenarios where possible, \"ensuring metrics beyond accuracy don't fall to the wayside\".",
+   "Declared trade-off: broad, not exhaustive — cite HELM together with its scenario list; a HELM ranking detached from scenarios is meaningless.",
+   "What it does not claim: HELM is not a replacement leaderboard — it opposes single-metric ranking itself; 'ranked first on HELM' contradicts the paper's stance."
+  ]
+ },
+ "论文卡-Llama 2": {
+  "lead": "The landmark tech report for open-weight chat models. This card lays out what it set out to solve, where the evidence sits, and what it does not claim.",
+  "points": [
+   "Research question: the abstract announces \"a collection of pretrained and fine-tuned large language models (LLMs) ranging in scale from 7 billion to 70 billion parameters\"; the fine-tuned Llama 2-Chat is \"optimized for dialogue use cases\".",
+   "Core evidence: Section 3's fine-tuning pipeline (SFT + rejection sampling + PPO) and Section 4's safety work — the abstract itself frames the contribution as \"We provide a detailed description of our approach to fine-tuning and safety improvements\"; the comparison claim carries a qualifier: \"outperform open-source chat models on most benchmarks we tested\" (most, not all).",
+   "Author-stated limits: no standalone Limitations section (checked against the arXiv HTML version on 2026-10-29); the closest are Section 5 Discussion (trade-offs and risks) and Section 4 Safety (with a content warning) — discussion, not a limitations list. Scope of validity is the reader's job.",
+   "What it does not claim: the abstract says \"may be a suitable substitute for closed-source models\" — never a claim of surpassing them. And open-weight is not open-source: the community license carries use restrictions (see the Open weights term).",
+   "How to read it: the core contribution is the openness of the fine-tuning and safety process, not the benchmark scores; reading only the eval tables misses what the paper actually gives."
+  ]
+ },
+ "论文卡-LIMA": {
+  "lead": "The 'less is more' alignment-data experiment: fine-tuning on just 1,000 curated examples. This card lays out what it set out to test, where the evidence sits, and what it does not claim.",
+  "points": [
+   "Research question: the abstract describes training LIMA (a 65B LLaMa model) \"fine-tuned with the standard supervised loss on only 1,000 carefully curated prompts and responses\", \"without any reinforcement learning or human preference modeling\" — the point is to measure the relative importance of the two training stages.",
+   "Core evidence: Section 4's human evaluation (against GPT-4, Bard, DaVinci003) and Section 5's ablations on data diversity/quality/quantity — the abstract gives the controlled human-study number: \"responses from LIMA are either equivalent or strictly preferred to GPT-4 in 43% of cases\"; the conclusion line is \"almost all knowledge in large language models is learned during pretraining\".",
+   "Author-stated limits: no standalone Limitations section (checked against the arXiv HTML version on 2026-10-30); Section 7's Discussion states two limits outright — the mental effort of building such examples is hard to scale, and \"LIMA is not as robust as product-grade models\" (an unlucky decode or an adversarial prompt often yields a weak response).",
+   "What it does not claim: 43%/58%/65% are shares of \"equivalent or strictly preferred\" in a controlled human study — not \"matches GPT-4 overall\"; \"1,000 examples suffice\" is evidence about dialogue style, not about safety, factuality, or robustness — the very areas the authors admit are weak.",
+   "How to read it: its value is turning the hypothesis \"knowledge comes from pretraining, alignment data shapes style\" into testable ablations; when citing it, separate \"little data can align a model\" from \"little data can align everything\"."
+  ]
+ },
+ "论文卡-Self-Instruct": {
+  "lead": "The founding framework for synthetic instruction data: models generate the instructions that train them. This card lays out what it set out to solve, where the evidence sits, and what it does not claim.",
+  "points": [
+   "Research question: the abstract notes instruction-tuned models \"depend heavily on human-written instruction data that is often limited in quantity, diversity, and creativity\"; the fix is Self-Instruct — \"improving the instruction-following capabilities of pretrained language models by bootstrapping off their own generations\".",
+   "Core evidence: Section 2's method (generate instructions, inputs, and outputs; filter invalid or near-duplicate samples; fine-tune the original model; seeded from 175 human-annotated tasks) and Section 4's results — applied to vanilla GPT3, \"a 33% absolute improvement over the original model on Super-NaturalInstructions\", \"on par with the performance of InstructGPT-001\", which was trained on private user data and human annotations.",
+   "Author-stated limits: a standalone Section 8 Limitations exists (checked against the arXiv HTML version on 2026-10-30), naming three: tail phenomena (gains skew toward tasks frequent in the pretraining corpus, brittleness on uncommon or creative instructions), dependence on large models (may work best for big models, raising access barriers), and reinforcing the model's own biases (the iterative loop can amplify problematic social biases).",
+   "What it does not claim: the abstract says on par, and the human eval leaves \"only a 5% absolute gap behind InstructGPT-001\" — never a claim of surpassing it; and \"almost annotation-free\" is not zero annotation: the 175 seed tasks and the filtering rules are still human-designed.",
+   "How to read it: this is the source of the \"synthesize data to train yourself\" line — many later instruction datasets and self-improvement methods reuse its generate-and-filter skeleton. Separate the reusable method from the specific GPT3 numbers, which move a lot with base-model capability."
+  ]
+ },
+ "Agent 评估怎么做": {
+  "lead": "Agent success is not only the final answer: whether tools were chosen correctly, arguments were right, how many steps it took and what it cost all belong in the eval.",
+  "points": [
+   "Define task success first: not \"a plausible answer\" but \"goal achieved + correct tool calls + no overreach\".",
+   "Record the full trajectory: messages, tool calls, arguments, return values, steps, latency and tokens; without it you cannot attribute failure.",
+   "Score four things separately: final answer, tool choice, argument correctness and process efficiency (steps and cost).",
+   "Run k times to see stability: report pass@k and the distribution of failure types, not a single success.",
+   "Count cost: tokens × steps × retries; runaway cost usually comes from repeated calls and context bloat.",
+   "Build a regression set: put production failures into a fixed question set and rerun after every model or prompt change."
+  ]
+ },
+ "上下文工程怎么做": {
+  "lead": "Context engineering is not \"stuff more material in\". It decides what the model sees each turn, what it does not see, and how to compress the rest.",
+  "points": [
+   "Fix the must-haves first: current goal, hard constraints, available tools, output format and one or two examples; everything else is optional.",
+   "Drop irrelevant history and repeated tool output: if the same file was read three times, keep the latest read and the diff.",
+   "Compress with summaries or structured state: turn a long conversation into \"confirmed facts / open tasks / unresolved questions\" rather than truncating verbatim.",
+   "Govern tool output: paginate, truncate, extract only relevant passages and keep source references instead of pasting whole pages.",
+   "Draw memory boundaries: in-session state, cross-session facts and external retrieval are three layers; do not treat retrieval results as memory.",
+   "Acceptance looks at two numbers: task success rate up and tokens per turn down; only both count as effective."
+  ]
+ },
+ "RAG 全链路：从文档到答案": {
+  "lead": "Parsing, chunking, embedding, retrieval, reranking, generation and citation — every step fails on its own. This guide strings them into a debuggable pipeline.",
+  "points": [
+   "Document parsing and chunking: handle layout, tables and scans first, then cut on semantic boundaries and keep headings and provenance; parse wrong and everything downstream is wrong.",
+   "Embedding and index: record model version and dimensions; changing the embedding model means rebuilding the index.",
+   "Retrieval: recall enough candidates first, then narrow with a reranker or rules; top-1 alone misses too much.",
+   "Assemble context: include only relevant chunks with source labels; deduplicate chunks so the same passage does not consume tokens twice.",
+   "Generation and citation: require each answer sentence to map to a source; mark unsourced sentences as inference.",
+   "Agentic RAG: let the agent rewrite queries, decide whether to retrieve again and judge whether material is sufficient; the price is more steps and cost.",
+   "Evaluate separately: recall, answer correctness and citation correctness, not just the final answer."
+  ]
+ },
+ "2026 评测基准地图": {
+  "lead": "Leaderboards are not truth, but different benchmarks measure different abilities. This map groups coding, agents, long context, multimodal and safety, with a reading checklist.",
+  "points": [
+   "Coding: HumanEval is dated; the SWE-bench family is closer to real repository work. Check the Verified subset and version.",
+   "Agents: τ-bench, AgentBench and Terminal-Bench measure multi-step tasks and tool use. Check the task set, tool surface and number of runs.",
+   "Long context: RULER and LongBench measure retrieval and reasoning over long inputs. Check length tiers and middle-of-context behaviour.",
+   "Multimodal: MMMU measures university-level image-text reasoning and Video-MME measures video understanding. Check modality coverage and protocol.",
+   "Safety and alignment: refusal, jailbreak, bias and red-team benchmarks exist, but a single score cannot replace your own acceptance test.",
+   "Six questions for any leaderboard: version, training cutoff, public task set, decontamination, pass@k versus single run, and whether cost/steps are disclosed.",
+   "Conclusion: benchmarks narrow the candidates; they do not decide for you. Run your own task set before shipping."
+  ]
+ },
+ "量化、蒸馏、剪枝的区别": {
+  "lead": "All three routes make a model smaller, but they touch different things: quantisation lowers precision, distillation swaps in a student, pruning removes structure.",
+  "points": [
+   "Quantisation: lower weights from FP16 to 4/8 bit while keeping the architecture; VRAM drops, quality depends on the tier and calibration data.",
+   "Distillation: train a small student on a large teacher’s outputs; you change the model, not the precision.",
+   "Pruning: remove weights, channels or layers; it needs retraining/fine-tuning and the structure really shrinks.",
+   "Costs differ: quantisation is easiest but may lose quality; distillation needs data and compute; pruning needs retraining and may damage capability.",
+   "Order: distil to a smaller model, then quantise for deployment; after pruning, fine-tune, then quantise.",
+   "Acceptance: compare quality, VRAM, latency and cost on the same task set; do not compare size alone."
+  ]
+ },
+ "AI 常见误区总索引": {
+  "lead": "An index of misconceptions — more parameters is smarter, bigger context is better, a high leaderboard score means usable — each pointing to its explanation.",
+  "points": [
+   "More parameters is smarter: scale interacts with data, architecture and task; a single number is not enough.",
+   "Bigger context is better: context has VRAM and latency costs, and middle-of-input use is uneven.",
+   "Higher temperature is smarter: temperature changes sampling randomness, not what the model knows.",
+   "A high leaderboard score means usable: benchmarks have version, contamination and task-mismatch problems; run your own task set.",
+   "Quantisation halves intelligence / not enough VRAM means it cannot run: quality depends on tier and calibration; low VRAM can use CPU offload, multi-GPU splitting or a smaller member.",
+   "Open models are always cheaper / preview builds cannot be used in production: hardware, power, operations and time all count; check the specific product terms.",
+   "API compatibility means behaviour matches / switching models is just a rename: protocol compatibility is not output semantics; prompts, tools and evals all need realignment."
+  ]
+ }
 }

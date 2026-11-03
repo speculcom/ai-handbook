@@ -12,6 +12,8 @@ refs:
   - ["MCP 是什么·9 份 server 档案（本站）", "https://tools.specul.com/tools/index.html", "What MCP is · 9 server profiles"]
   - ["文件操作 server（本站档案）", "https://tools.specul.com/tools/filesystem.html", "Filesystem server"]
   - ["网页抓取 server 的安全警告（本站档案）", "https://tools.specul.com/tools/fetch.html", "Fetch server's security warning"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么安全地用 MCP 工具（How to Use MCP Tools Safely）

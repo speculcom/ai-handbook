@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "code": "tencent",
+  "name": { "zh": "腾讯混元", "en": "Tencent Hunyuan" },
+  "vendor": { "zh": "腾讯", "en": "Tencent" },
+  "currentGen": { "zh": "Hy4 preview", "en": "Hy4 preview" },
+  "currentGenDate": "2026-08",
+  "generations": [
+    {
+      "gen": "Hy4 preview",
+      "date": "2026-08",
+      "zh": "当前代旗舰：770B 总参 MoE、49B 激活、上下文超过 100 万 token，官方主打长程 agent、编码与办公任务。",
+      "en": "Current flagship: a 770B-total MoE with 49B active parameters and a context beyond one million tokens, positioned for long-horizon agents, coding and office work.",
+      "url": "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/"
+    },
+    {
+      "gen": "Hy3 / Hy3 preview",
+      "date": "2026-07",
+      "zh": "Hy3 于 2026-07 正式发布；preview 于 2026-04-23 发布并开源：295B 总参、21B 激活、最大 256K 上下文，快慢思考融合 MoE。",
+      "en": "Hy3 launched officially in July 2026; the preview was released and open-sourced on 2026-04-23: 295B total, 21B active, up to 256K context, a hybrid fast/slow-thinking MoE.",
+      "url": "https://www.tencent.com/tencent-hunyuan-officially-releases-hy3-advancing-agent-capabilities-and-deeper-product-integration/"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "Hy4 preview：770B 总参（MoE，49B 激活），1M+ 上下文",
+      "en": "Hy4 preview: 770B total (MoE, 49B active), 1M+ context"
+    },
+    {
+      "zh": "Hy3：295B 总参（MoE，21B 激活），256K 上下文",
+      "en": "Hy3: 295B total (MoE, 21B active), 256K context"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "other",
+      "zh": "非宽松许可：使用前须读腾讯混元发布页的许可原文，本站不解读条款。",
+      "en": "Non-permissive: read the licence text on the Tencent Hunyuan release page; this site does not interpret it.",
+      "url": "https://hunyuan.tencent.com/model/hy-model"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "腾讯官方：Hy4 preview 为 770B 总参、49B 激活、上下文超过 100 万 token，主打长程 agent、编码与办公。",
+      "en": "Tencent official: Hy4 preview has 770B total parameters, 49B active and a context beyond 1M tokens, pitched at long-horizon agents, coding and office work.",
+      "url": "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/"
+    },
+    {
+      "zh": "腾讯官方：Hy3 preview 为 295B 总参、21B 激活、最大 256K 上下文，快慢思考融合 MoE。",
+      "en": "Tencent official: Hy3 preview has 295B total parameters, 21B active and up to 256K context, a hybrid fast/slow-thinking MoE.",
+      "url": "https://www.tencent.com/zh-cn/articles/2202320.html"
+    }
+  ],
+  "positioning": {
+    "zh": "中文开放权重家族里少有的「大总参 + 高激活」路线；Hy4 把上下文拉到 1M+，对长程 agent 与工程代码有明确指向。本站暂无 GGUF 量化收录，选型前先看官方许可与硬件门槛。",
+    "en": "An uncommon large-total/high-active open-weight Chinese family; Hy4 pushes context past 1M and targets long-horizon agents and engineering code. This site has no GGUF coverage yet — read the official licence and hardware floor before choosing."
+  },
+  "onSite": {
+    "series": [],
+    "zh": "本站暂无腾讯混元的 GGUF 量化收录（未达量化热度与可核验覆盖门槛）。",
+    "en": "No GGUF coverage for Tencent Hunyuan on this site yet (below the quantisation-heat and verifiable-coverage threshold)."
+  },
+  "sources": [
+    {
+      "label": "Tencent · Tencent Releases and Open-Sources Tencent Hy4 preview（2026-08 官方发布页）",
+      "url": "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/",
+      "kind": "docs",
+      "labelEn": "Tencent · Tencent Releases and Open-Sources Tencent Hy4 preview (official release, 2026-08)"
+    },
+    {
+      "label": "Tencent · 腾讯混元 Hy3 preview 发布（2026-04-24 官方页）",
+      "url": "https://www.tencent.com/zh-cn/articles/2202320.html",
+      "kind": "docs",
+      "labelEn": "Tencent · Hunyuan Hy3 preview release (official page, 2026-04-24)"
+    },
+    {
+      "label": "腾讯混元 · 官方模型页（Hy 系列规格）",
+      "url": "https://hunyuan.tencent.com/model/hy-model",
+      "kind": "docs",
+      "labelEn": "Tencent Hunyuan · official model page (Hy series specs)"
+    }
+  ],
+  "last_verified": "2026-11-03",
+  "confidence": "partial",
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为腾讯（深圳）。",
+    "originNoteEn": "Made by Tencent (Shenzhen).",
+    "direct": "yes",
+    "directNote": "hunyuan.tencent.com 官方页大陆直连可达（2026-11-03 未逐条复测）。",
+    "directNoteEn": "Official hunyuan.tencent.com page reachable from the mainland (not re-tested item by item on 2026-11-03).",
+    "filing": {
+      "status": "unknown",
+      "note": "腾讯混元相关备案条目未逐条核验；以网信办公示名单为准。",
+      "noteEn": "Filing entries for Tencent Hunyuan not verified item by item; the CAC public registry is authoritative."
+    },
+    "mirror": "https://hunyuan.tencent.com/model/hy-model",
+    "last_verified": "2026-11-03",
+    "sources": [
+      {
+        "label": "腾讯混元官方模型页",
+        "url": "https://hunyuan.tencent.com/model/hy-model",
+        "labelEn": "Tencent Hunyuan official model page"
+      }
+    ]
+  }
+}

@@ -11,6 +11,8 @@ terms: ["幻觉", "幻觉的成因", "能力边界"]
 refs:
   - ["Ji 等《Hallucination in Large Language Models: A Survey》（ACM Computing Surveys 2023）", "https://arxiv.org/abs/2202.03629", "Ji et al., Hallucination Survey (ACM Computing Surveys 2023)"]
   - ["Anthropic 官方研究页《Tracing the thoughts of a large language model》", "https://www.anthropic.com/research/tracing-thoughts-language-model", "Anthropic research: Tracing the thoughts of a large language model"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 怎么验证 AI 的输出（How to Verify AI Output）

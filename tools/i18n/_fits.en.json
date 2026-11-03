@@ -224,5 +224,14 @@
   "tabbyapi": "Fits: the ExLlamaV3 (GPTQ family) wanting an OpenAI-compatible API; one-shot Docker local inference servers. Not a fit: production-grade serving (officially self-described as not production-oriented); broad GGUF quant coverage (the llama.cpp root).",
   "msty": "Fits: hybrid local+cloud use in one app; private enterprise LLMs (Nexus). Not a fit: open-source auditable stacks; pure CLI serving routes.",
   "llamaedge": "Fits: the portable-WASM route, edge/embedded devices; WasmEdge-ecosystem users. Not a fit: an active release cadence; llama.cpp's full native feature surface.",
-  "reka-chat": "Fits: following the Reka model line (Edge/Flash), lining up curated open tiers through one API, the Edge open-weights local route. Not a fit: mature consumer chat products; mainland-direct chat service (not filed)."
+  "reka-chat": "Fits: following the Reka model line (Edge/Flash), lining up curated open tiers through one API, the Edge open-weights local route. Not a fit: mature consumer chat products; mainland-direct chat service (not filed).",
+  "opal": "Fits people who do not code and want to chain generation, search and video into a small app, or prototype and share quickly. Does not fit self-hosting, model choice, or long-term production (Google has announced the 2026-11-17 exit from Labs).",
+  "vercel-ai-sdk": "Fits TypeScript/JS teams building agent apps who want to switch models or harnesses without rewriting business code. Does not fit turnkey agents (see coding/chat products) or Python ecosystems (see LangGraph/Agno).",
+  "tensorrt-llm": "Fits NVIDIA GPU clusters that need production throughput and low latency and already have container/compile pipelines. Does not fit single-card consumer setups, AMD/CPU deployment, or download-and-run GGUF workflows.",
+  "exllamav3": "Fits NVIDIA single/multi-GPU users chasing EXL3 quantisation and low-latency inference who are willing to set up CUDA. Does not fit AMD/CPU, an out-of-the-box GUI, or the GGUF ecosystem.",
+  "langchain4j": "Fits Java/Kotlin teams with existing Spring/Quarkus services who want LLMs and vector retrieval inside business code. Does not fit Python/TS teams, turnkey agents, or visual orchestration.",
+  "spring-ai": "Fits Spring Boot teams who want AI as standard Spring components and need MCP plus vector-store integration. Does not fit non-Java teams, turnkey agents, or lightweight scripting.",
+  "openvino": "Fits Intel CPU/GPU/NPU, edge deployment and squeezing models onto local hardware. Does not fit NVIDIA-only optimisation (TensorRT-LLM/vLLM are more direct) or download-and-run GGUF.",
+  "lemonade": "Fits AMD Ryzen AI / NPU users who want a local OpenAI-compatible endpoint for offline or private work. Does not fit NVIDIA-only optimisation or an out-of-the-box GUI chat app (see LM Studio and similar).",
+  "docker-model-runner": "Fits teams already on Docker who want model distribution inside container pipelines and a local OpenAI-compatible endpoint. Does not fit people avoiding Docker, extreme GPU optimisation, or a ready-made chat UI."
 }

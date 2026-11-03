@@ -81,7 +81,7 @@ Studio 桌面应用跑本地 GGUF（llama.cpp 系底座）也接云端 API，产
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/runner/_protocol.md](../../../protocols/runner/_protocol.md)。
+本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 

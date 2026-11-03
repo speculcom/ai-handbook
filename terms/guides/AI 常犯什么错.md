@@ -11,6 +11,8 @@ terms: ["幻觉", "偏见", "自动化偏见"]
 refs:
   - ["International AI Safety Report 2026《Extended Summary for Policymakers》（能力与语境表现章节）", "https://internationalaisafetyreport.org/publication/2026-report-extended-summary-policymakers", "International AI Safety Report 2026, Extended Summary for Policymakers"]
   - ["GPT-3 论文（大规模网络语料的方法学问题，§2.2）", "https://arxiv.org/abs/2005.14165", "GPT-3 paper (methodological issues of large web corpora, §2.2)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # AI 常犯什么错（What AI Gets Wrong）

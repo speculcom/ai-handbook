@@ -56,10 +56,10 @@
      "architecture": "muse-glimmer",
      "imatrix": false,
      "imatrixFile": null,
-     "totalFileSize": 38041852864,
+     "totalFileSize": 36410644736,
      "declaredBase": "meta-models/Muse-Glimmer-30B",
      "coverage": 2,
-     "totalGB": 35.4,
+     "totalGB": 36.41,
      "recommended": {
       "quant": "Q4_K",
       "sizeGB": 19.65,
@@ -92,22 +92,9 @@
        "isSharded": false,
        "shardCount": 1,
        "authorLabeled": false
-      },
-      {
-       "name": "dflash-Muse-Glimmer-30B-Q4_K_M.gguf",
-       "path": "dflash-Muse-Glimmer-30B-Q4_K_M.gguf",
-       "sizeBytes": 1631208128,
-       "sizeGB": 1.63,
-       "quant": "Q4_K_M",
-       "bitsPerWeight": 4.85,
-       "tier": "平衡档",
-       "tierDesc": "默认推荐，质量和体积的折中点",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
       }
      ],
-     "variantCount": 3
+     "variantCount": 2
     },
     {
      "quantizer": "unsloth",
@@ -123,12 +110,12 @@
      "architecture": "muse-glimmer",
      "imatrix": false,
      "imatrixFile": null,
-     "totalFileSize": 309739791488,
+     "totalFileSize": 308108586176,
      "declaredBase": [
       "meta-models/Muse-Glimmer-30B"
      ],
-     "coverage": 16,
-     "totalGB": 288.5,
+     "coverage": 15,
+     "totalGB": 308.11,
      "recommended": {
       "quant": "UD-Q3_K_XL",
       "sizeGB": 13.36,
@@ -330,22 +317,9 @@
        "isSharded": true,
        "shardCount": 2,
        "authorLabeled": false
-      },
-      {
-       "name": "dflash-kquant.gguf",
-       "path": "dflash-kquant.gguf",
-       "sizeBytes": 1631205312,
-       "sizeGB": 1.63,
-       "quant": "其他",
-       "bitsPerWeight": null,
-       "tier": "未识别",
-       "tierDesc": "",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
       }
      ],
-     "variantCount": 16
+     "variantCount": 15
     },
     {
      "quantizer": "lmstudio-community",
@@ -404,10 +378,10 @@
      "architecture": "muse-glimmer",
      "imatrix": true,
      "imatrixFile": "/models_out/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-imatrix.gguf",
-     "totalFileSize": 472225789760,
+     "totalFileSize": 468045649408,
      "declaredBase": "meta-models/Muse-Glimmer-30B",
      "coverage": 26,
-     "totalGB": 439.8,
+     "totalGB": 468.05,
      "recommended": {
       "quant": "Q4_K_L",
       "sizeGB": 18.3,
@@ -624,19 +598,6 @@
        "authorLabeled": false
       },
       {
-       "name": "dflash-Muse-Glimmer-30B-Q4_0.gguf",
-       "path": "dflash-Muse-Glimmer-30B-Q4_0.gguf",
-       "sizeBytes": 1451094176,
-       "sizeGB": 1.45,
-       "quant": "Q4_0",
-       "bitsPerWeight": 4.55,
-       "tier": "平衡档",
-       "tierDesc": "默认推荐，质量和体积的折中点",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
-      {
        "name": "Muse-Glimmer-30B-Q4_K_S.gguf",
        "path": "Muse-Glimmer-30B-Q4_K_S.gguf",
        "sizeBytes": 16320943136,
@@ -767,19 +728,6 @@
        "authorLabeled": false
       },
       {
-       "name": "dflash-Muse-Glimmer-30B-Q8_0.gguf",
-       "path": "dflash-Muse-Glimmer-30B-Q8_0.gguf",
-       "sizeBytes": 2729046176,
-       "sizeGB": 2.73,
-       "quant": "Q8_0",
-       "bitsPerWeight": 8.5,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
-      {
        "name": "Muse-Glimmer-30B-bf16.gguf",
        "path": "Muse-Glimmer-30B-bf16/Muse-Glimmer-30B-bf16.gguf",
        "sizeBytes": 55725511360,
@@ -793,7 +741,7 @@
        "authorLabeled": false
       }
      ],
-     "variantCount": 29
+     "variantCount": 27
     },
     {
      "quantizer": "AtomicChat",
@@ -809,10 +757,10 @@
      "architecture": "muse-glimmer",
      "imatrix": true,
      "imatrixFile": "/workspace/imatrix/muse-glimmer.imatrix.gguf",
-     "totalFileSize": 387075304960,
+     "totalFileSize": 381950098784,
      "declaredBase": "meta-models/Muse-Glimmer-30B",
      "coverage": 10,
-     "totalGB": 360.5,
+     "totalGB": 381.95,
      "recommended": {
       "quant": "Q4_K_M",
       "sizeGB": 19.06,
@@ -1053,22 +1001,9 @@
        "isSharded": true,
        "shardCount": 2,
        "authorLabeled": false
-      },
-      {
-       "name": "dflash-Muse-Glimmer-30B-BF16.gguf",
-       "path": "dflash-Muse-Glimmer-30B-BF16.gguf",
-       "sizeBytes": 5125206176,
-       "sizeGB": 5.13,
-       "quant": "BF16",
-       "bitsPerWeight": 16,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
       }
      ],
-     "variantCount": 19
+     "variantCount": 18
     },
     {
      "quantizer": "NANI-Nithin",
@@ -1515,12 +1450,12 @@
      "architecture": "muse-glimmer",
      "imatrix": false,
      "imatrixFile": null,
-     "totalFileSize": 113890044288,
+     "totalFileSize": 104584689600,
      "declaredBase": [
       "meta-models/Muse-Glimmer-30B"
      ],
-     "coverage": 4,
-     "totalGB": 106.1,
+     "coverage": 3,
+     "totalGB": 104.58,
      "recommended": {
       "quant": "Q4_K_M",
       "sizeGB": 19.25,
@@ -1528,19 +1463,6 @@
       "name": "Muse-Glimmer-30B-Q4_K_M.gguf"
      },
      "files": [
-      {
-       "name": "dflash-Muse-Glimmer-30B-Q4_0.gguf",
-       "path": "dflash-Muse-Glimmer-30B-Q4_0.gguf",
-       "sizeBytes": 1451096896,
-       "sizeGB": 1.45,
-       "quant": "Q4_0",
-       "bitsPerWeight": 4.55,
-       "tier": "平衡档",
-       "tierDesc": "默认推荐，质量和体积的折中点",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
       {
        "name": "Muse-Glimmer-30B-Q4_K_M.gguf",
        "path": "Muse-Glimmer-30B-Q4_K_M.gguf",
@@ -1568,19 +1490,6 @@
        "authorLabeled": false
       },
       {
-       "name": "dflash-Muse-Glimmer-30B-Q8_0.gguf",
-       "path": "dflash-Muse-Glimmer-30B-Q8_0.gguf",
-       "sizeBytes": 2729048896,
-       "sizeGB": 2.73,
-       "quant": "Q8_0",
-       "bitsPerWeight": 8.5,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
-      },
-      {
        "name": "Muse-Glimmer-30B-BF16.gguf",
        "path": "Muse-Glimmer-30B-BF16.gguf",
        "sizeBytes": 55725514048,
@@ -1592,22 +1501,9 @@
        "isSharded": false,
        "shardCount": 1,
        "authorLabeled": false
-      },
-      {
-       "name": "dflash-Muse-Glimmer-30B-BF16.gguf",
-       "path": "dflash-Muse-Glimmer-30B-BF16.gguf",
-       "sizeBytes": 5125208896,
-       "sizeGB": 5.13,
-       "quant": "BF16",
-       "bitsPerWeight": 16,
-       "tier": "近似无损",
-       "tierDesc": "体积接近原始精度",
-       "isSharded": false,
-       "shardCount": 1,
-       "authorLabeled": false
       }
      ],
-     "variantCount": 6
+     "variantCount": 3
     },
     {
      "quantizer": "Abiray",

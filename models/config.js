@@ -124,7 +124,7 @@ export const SERIES = [
     vendor: { zh: 'DeepSeek', en: 'DeepSeek' },
     family: 'deepseek',
     released: '2026-09-10',
-    summary: 'MIT 许可，量化生态活跃，antirez（llama.cpp 作者）亲自维护量化版。',
+    summary: 'MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cpp 生态参与者）维护量化版。',
     positions: ['通用对话', 'MIT 许可', '推理'],
     members: [
       {
@@ -318,7 +318,7 @@ export const QUANTIZER_NOTES = {
   },
   antirez: {
     zh: 'antirez', en: 'antirez',
-    oneLine: { zh: 'Redis 作者 / llama.cpp 主要作者，亲自发量化版', en: 'Redis & llama.cpp author, ships his own quants' },
+    oneLine: { zh: 'Redis 作者 / llama.cpp 生态参与者，亲自发量化版', en: 'Redis author and llama.cpp ecosystem participant; ships his own quants' },
   },
   'ISTA-DASLab': {
     zh: 'ISTA-DASLab', en: 'ISTA-DASLab',

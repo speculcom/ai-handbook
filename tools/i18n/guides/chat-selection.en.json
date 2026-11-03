@@ -1,0 +1,18 @@
+{
+  "_comment": "P1-5 选型指南英译 · chat-selection（2026-11-03）。sections 键 = 节标题中文部分；sources 按索引对齐 frontmatter。",
+  "sections": {
+    "这一篇讲什么": "Choosing a chat assistant is not about picking \"the strongest model\". Fix four constraints first: **Chinese, data, price, ecosystem**.\nThose constraints eliminate a batch of candidates; only then look at scenario.\nThis guide ranks nothing and quotes no prices; pricing and tiers follow the official pages.",
+    "先定四个约束": "| Constraint | Question to ask | Typical elimination |\n|---|---|---|\n| Chinese | Is the Chinese output good enough? Can it be reached from mainland China? | Products that time out from the mainland drop out unless you have a stable network path |\n| Data | Are chats used for training? Can it be turned off? Which line do enterprise data go through? | If training cannot be disabled and you handle sensitive content, exclude it |\n| Price | Is the free tier enough? Is the paid tier per seat or usage-based? | Per-seat pricing gets expensive quickly for larger teams |\n| Ecosystem | Do you need mail, calendar, drive or code-repo connections? | Deeper ecosystem lock-in means higher migration cost |",
+    "按场景缩小": "- **General Q&A and writing**: check whether the free tier is enough, whether export is easy, and whether file upload is supported.\n- **Long documents and research**: check Deep Research-style features, source citations and whether you can interrupt and add material (OpenAI updated these on 2026-02-10).\n- **Chinese and mainland access**: prefer products with a domestic mirror or direct reachability; check filing and cross-border data separately.\n- **Enterprise data**: look at the Team/Enterprise line's default training policy, permissions and audit, not the consumer tier.\n- **Browser/computer actions**: check whether agent features have official docs and permission boundaries; the Atlas browser was retired on 2026-08-09 and its capabilities moved into ChatGPT/Codex.",
+    "免费与付费的边界": "No prices here, only a method:\n\n1. **Check the unit**: messages, tokens, tasks or seats? The unit changes the cost dramatically for heavy users.\n2. **Check the capability gap**: does the free tier lack long context, file upload, deep research, image generation or team permissions?\n3. **Check export**: can chats and generated content be exported? If not, you are locked in.\n4. **Check team features**: shared spaces, permissions and audit logs usually exist only on paid tiers.",
+    "常见误判": "- **Mistaking \"strongest model\" for \"best fit\"**: Chinese quality, data terms and ecosystem lock-in often matter more than benchmark scores.\n- **Mistaking \"free\" for \"zero cost\"**: time, privacy and migration costs are costs too.\n- **Mistaking \"can opt out\" for \"does not train by default\"**: most consumer products may train by default and require manual opt-out.\n- **Applying consumer terms to enterprise tiers**: the two lines differ in data terms and permissions."
+  },
+  "sources": [
+    "OpenAI · ChatGPT Pricing (pricing page pointer, D9: this site does not collect price numbers)",
+    "Google · Google AI plans (Gemini subscription tier pointer)",
+    "Microsoft Copilot official site (consumer entry and capability narrative)",
+    "Anthropic · Claude Pricing (pricing page pointer)",
+    "DeepSeek official site (Chinese chat entry)",
+    "OpenAI · ChatGPT release notes (official changelog, capability-boundary check)"
+  ]
+}

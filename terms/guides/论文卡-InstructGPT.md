@@ -11,6 +11,8 @@ terms: ["偏好对齐", "微调", "基准测试"]
 refs:
   - ["Ouyang 等《Training language models to follow instructions with human feedback》（arXiv 2203.02155）", "https://arxiv.org/abs/2203.02155", "Ouyang et al., Training language models to follow instructions with human feedback (arXiv 2203.02155)"]
   - ["HTML 版 · 第 5 节（含 5.3 Limitations）", "https://arxiv.org/html/2203.02155#S5", "HTML version · Section 5 (incl. 5.3 Limitations)"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 论文卡：InstructGPT（How to Read It）

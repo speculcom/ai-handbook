@@ -13,6 +13,8 @@ refs:
   - ["HTML 版 · 第 2 节 Method", "https://arxiv.org/html/2212.10560#S2", "HTML version · Section 2 Method"]
   - ["HTML 版 · 第 4 节 Experimental Results", "https://arxiv.org/html/2212.10560#S4", "HTML version · Section 4 Experimental Results"]
   - ["HTML 版 · 第 8 节 Limitations", "https://arxiv.org/html/2212.10560#S8", "HTML version · Section 8 Limitations"]
+last_verified: "2026-11-03"
+verified_scope: "refs"
 ---
 
 # 论文卡：Self-Instruct（How to Read It）

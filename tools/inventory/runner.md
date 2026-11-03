@@ -17,6 +17,11 @@
 | MLX（mlx-lm / MLX LM Server） | Apple | https://ml-explore.github.io/mlx/build/html/index.html | 已有 | mlx | P2 · Apple 硅官方栈 |
 | KoboldCpp | LostRuins（KoboldAI 社区） | https://github.com/LostRuins/koboldcpp | 已有 | koboldcpp | P2 · 2026-10-21 直抓核验：旧传 koboldai/koboldcpp 仓 404，官方仓在 LostRuins 名下 |
 | text-generation-webui | oobabooga | https://github.com/oobabooga/text-generation-webui | 已有 | text-generation-webui | P2 |
+| TensorRT-LLM | NVIDIA | https://docs.nvidia.com/tensorrt-llm/ | 已有 | tensorrt-llm | P2 · NVIDIA 生产推理栈 |
+| ExLlamaV3 | turboderp-org | https://github.com/turboderp-org/exllamav3 | 已有 | exllamav3 | P2 · EXL3/CUDA 推理引擎 |
+| OpenVINO | Intel | https://docs.openvino.ai/ | 已有 | openvino | P3 · Intel CPU/GPU/NPU 推理 |
+| Lemonade | AMD / Lemonade 社区 | https://lemonade-server.ai/ | 已有 | lemonade | P3 · AMD Ryzen AI 本地服务器 |
+| Docker Model Runner | Docker | https://docs.docker.com/ai/model-runner/ | 已有 | docker-model-runner | P3 · OCI 模型分发与本地服务 |
 | TGI（Text Generation Inference） | Hugging Face | https://huggingface.co/docs/text-generation-inference | 已有 | tgi | P2 · 服务化推理 |
 | LocalAI | Mudler | https://localai.io | 已有 | localai | P3 · OpenAI 兼容本地栈 |
 | MLC LLM | MLCEngine（CMU 系） | https://llm.mlc.ai | 已有 | mlc-llm | P3 · 多平台编译栈（C6-9 建档 2026-10-31：Apache-2.0 23,284★ 推送 2026-10-30；发版线在 PyPI 非 GitHub releases） |

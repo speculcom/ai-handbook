@@ -323,7 +323,7 @@ Block 是创建方，写在正文里。
 
 ## 实测记录
 
-本站尚未完成实测。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 

@@ -286,7 +286,7 @@ features / settings / slash-commands 子页，
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测 **app server 的会话续接** ——
 在 IDE 开会话、切到 CLI 继续，看状态是否完整保留。

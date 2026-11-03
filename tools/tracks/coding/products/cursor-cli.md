@@ -364,7 +364,7 @@ Cursor CLI 是闭源商业产品，需 Cursor 账户或 API key，用量并入�
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测**非交互模式下「不落盘 / 落盘」的实际行为**。
 官方两页说法不一致。

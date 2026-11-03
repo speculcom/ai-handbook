@@ -39,30 +39,31 @@
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| terms · 词条 | 200 词 |
-| terms · 分站 | 进门 35 · 上手 35 · 用深 35 · 看懂 35 · 跑起来 30 · 选得对 30 |
-| terms · 学习路径 | 8 条（精选有序路径 · 各带检查点） |
-| terms · 微型指南 | 58 篇（5-10 分钟一篇 · 英文覆盖 58/58） |
+| terms · 词条 | 204 词 |
+| terms · 分站 | 进门 35 · 上手 36 · 用深 37 · 看懂 36 · 跑起来 30 · 选得对 30 |
+| terms · 学习路径 | 10 条（精选有序路径 · 各带检查点） |
+| terms · 微型指南 | 64 篇（5-10 分钟一篇 · 英文覆盖 64/64） |
 | terms · 编年史与版图 | 18 条时间线 · 12 家公司 · 5 条术语演变 |
-| terms · 领域（domain） | concept 56 · infra 34 · choice 33 · agent 25 · media 19 · model 14 · dev 10 · data 9 |
-| terms · 用途（purposeTag） | learn 80 · apply 49 · guard 36 · judge 35 |
-| terms · 出处条目（refs） | 481 条 |
-| terms · 英文覆盖 | 200 / 200 |
-| tools · 档案总数 | 216 份 |
-| tools · 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 22 · framework 27 · mcp 32 · runner 16 |
-| tools · 形态分布（form） | web 93 · mcp 32 · harness 27 · cli 22 · ide 19 · cloud 14 · local-app 9 |
+| terms · 领域（domain） | concept 56 · infra 34 · choice 33 · agent 26 · media 19 · model 16 · dev 10 · data 10 |
+| terms · 用途（purposeTag） | learn 81 · apply 50 · guard 37 · judge 36 |
+| terms · 出处条目（refs） | 513 条 |
+| terms · 英文覆盖 | 204 / 204 |
+| tools · 档案总数 | 225 份 |
+| tools · 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 |
+| tools · 形态分布（form） | web 94 · mcp 32 · harness 30 · cli 25 · ide 19 · cloud 14 · local-app 11 |
 | tools · 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 | models · 系列 | 11 个 |
 | models · 模型仓（members） | 16 个 |
-| models · 量化档（variants） | 129 个 |
-| models · GGUF 文件 | 1270 个 |
+| models · 量化仓（variants） | 129 个 |
+| models · 量化档（coverage 之和） | 1262 个 |
+| models · GGUF 文件（files） | 1337 个 |
 | models · 量化者 | 54 位 |
-| models · 家族谱系卡（families） | 15 张 |
+| models · 家族谱系卡（families） | 16 张 |
 | models · 闭源谱系卡（closed） | 6 张 |
 | models · 基座许可分布 | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->
 
 ## 许可
 
-自有内容 CC BY 4.0；数据层逐条引述第三方原文（模型许可以各发布页原文为准）。
+页面编排、结构设计与版式保留所有权利；`tools/` 子树的档案与数据按该子树 `LICENSE` 以 CC BY 4.0 发布，`terms/`、`models/` 与 `nav` 数据在仓内未见单独许可文件，未授权复制或再分发，仅引用链接。数据层逐条引述第三方原文（模型许可以各发布页原文为准）。
 **产品名与商标归各权利方所有，本仓与全站仅作识别与评论之用**（L3 声明，与全站页脚同一句口径）。

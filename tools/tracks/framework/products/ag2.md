@@ -509,7 +509,7 @@ harness 三组原语、provider 清单（含本地模型）。
 
 ## 实测记录
 
-本站尚未完成实测。测试协议见 [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md)。
+本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 **实测建议**（按编排框架 + 多 agent 会话维度定制）：
 

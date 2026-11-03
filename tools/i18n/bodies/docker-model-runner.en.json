@@ -1,0 +1,25 @@
+{
+  "_comment": "P3-4 Docker Model Runner bodies EN（2026-11-03）。sections 与源侧固定小节对齐；sources 按索引对齐 frontmatter。",
+  "axes": {
+    "model_access": "Pulls models from Docker Hub, any OCI-compatible registry or Hugging Face and runs them; supports LLMs and other AI models, with the exact list following official docs.",
+    "runtime": "Integrated into Docker Desktop and Docker Engine: starts models locally and serves them through OpenAI- and Ollama-compatible APIs (official docs).",
+    "local_files": "Models are stored and distributed as OCI artefacts; prompts and data are processed locally with no API key needed.",
+    "background": "A long-running local service callable by apps in the Docker ecosystem; no official statement of continuing after shutdown.",
+    "tools": "OpenAI/Ollama-compatible endpoints; Docker Agent can discover already-pulled models. Tool-calling and MCP not verified item by item.",
+    "context": "Long context depends on model and memory configuration; official presets cover low-memory and long-document setups.",
+    "permissions": "Runs inside the local Docker environment; permissions come from Docker and the host system.",
+    "fit": "Fits teams already on Docker who want model distribution inside container pipelines and a local OpenAI-compatible endpoint. Does not fit people avoiding Docker, extreme GPU optimisation, or a ready-made chat UI."
+  },
+  "runs": "This site has not completed throughput or VRAM tests; the conclusions cover runtime capability and licensing only.",
+  "unknowns": "- Current supported model formats and full list\n- Tool-calling and MCP support status\n- GPU acceleration matrix across platforms",
+  "related": [
+    "Intel-side inference runtime that can combine with containerised deployment.",
+    "An AMD-side local server to read in contrast."
+  ],
+  "sources": [
+    "Docker · Model Runner official docs (OCI/HF pulls, OpenAI/Ollama-compatible APIs)",
+    "Docker · Get started with DMR (enable, pull, run, publish)",
+    "Docker · DMR configuration (presets)",
+    "Docker · model-runner GitHub Releases (official changelog)"
+  ]
+}

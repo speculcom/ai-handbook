@@ -1,0 +1,24 @@
+{
+  "_comment": "P2-7 Vercel AI SDK 7 bodies EN（2026-11-03）。sections 与源侧固定小节对齐；sources 按索引对齐 frontmatter。",
+  "axes": {
+    "model_access": "Connects to multiple model providers through provider packages; model switching happens in application code. AI SDK 7 adds HarnessAgent, which treats existing agent harnesses as switchable runtimes (official changelog).",
+    "runtime": "A TypeScript/JavaScript library running inside your Node, edge or browser app; harness adapters drive external agent runtimes such as Claude Code, Codex and Pi, with sandboxes supplied by the adapter (the official example uses Vercel Sandbox).",
+    "local_files": "File access depends on the harness and sandbox: the official example uses createVercelSandbox for an isolated filesystem; local-file access not verified item by item.",
+    "background": "The library ships no task queue; whether long tasks continue in the background depends on the chosen harness and sandbox runtime.",
+    "tools": "Tool calling is a core abstraction; the official changelog shows HarnessAgent combined with sandboxes. MCP integration not verified item by item.",
+    "context": "Message history is managed by the application; the library has no built-in persistence, so you attach a database or session store yourself.",
+    "permissions": "Mostly BYOK with keys on the application side; sandbox boundaries come from the harness adapter, and the official example uses Vercel Sandbox as the isolation layer. Multi-tenant isolation is your design.",
+    "fit": "Fits TypeScript/JS teams building agent apps who want to switch models or harnesses without rewriting business code. Does not fit turnkey agents (see coding/chat products) or Python ecosystems (see LangGraph/Agno)."
+  },
+  "runs": "This site has not completed integration or performance tests; the conclusions cover the API and capabilities disclosed in official docs only.",
+  "unknowns": "- Official support status for MCP integration (not verified item by item)\n- Permission and sandbox differences across harness adapters (not verified item by item)\n- Local-file access and adapters beyond Vercel Sandbox",
+  "related": [
+    "Both are agent application frameworks; AI SDK leans TS/JS and multiple harnesses.",
+    "A programming interface for a single harness, contrasting with AI SDK's multi-harness route."
+  ],
+  "sources": [
+    "Vercel · AI SDK 7 is now available (2026 changelog, HarnessAgent and harness adapters)",
+    "Vercel · Program Claude Code, Codex, Pi and other agent harnesses with AI SDK (2026-06-12)",
+    "Vercel · Cline is now available in the AI SDK harness layer (2026-08-18)"
+  ]
+}
