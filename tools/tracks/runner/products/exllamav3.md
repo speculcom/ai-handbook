@@ -13,7 +13,7 @@ axes:
     EXL3 量化格式（.exl3 checkpoint）与部分 HF safetensors；模型支持以官方仓与文档为准，
     本站未逐条清点。它是 ExLlamaV2 的接续线。
   runtime: >-
-    CUDA 推理引擎，面向本地/单机多卡；PyPI 包 exllamav3（1.4.8，2026-10-25 发布）。
+    CUDA 推理引擎，面向本地/单机多卡；PyPI 包 exllamav3（1.6.5，2026-10-25 发布）。
     需要 CUDA 环境，具体版本以官方仓为准。
   local_files: >-
     自托管，权重与 .exl3 checkpoint 在本地；没有官方托管云。
@@ -42,7 +42,7 @@ sources:
   - label: turboderp-org · ExLlamaV3 官方仓库（README / docs；2026-11-03 复核官方页）
     url: https://github.com/turboderp-org/exllamav3
     kind: repo
-  - label: PyPI · exllamav3（1.4.8，2026-10-25）
+  - label: PyPI · exllamav3（1.6.5，2026-10-25；2026-11-03 复核）
     url: https://pypi.org/project/exllamav3/
     kind: docs
   - label: ExLlamaV3 · convert 文档（EXL3 checkpoint 转换）

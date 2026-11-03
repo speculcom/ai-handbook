@@ -1105,7 +1105,7 @@ ${HEADER('learn')}
           <span>${bi(KIND_ZH, KIND_EN)}</span>
         </nav>
         <h1>${bi(g.zh, g.en)}</h1>
-        <p class="tp-en">${bi(`${KIND_ZH} · 约 ${g.span} 分钟`, `${KIND_EN} · about ${g.span} min`)}${g.last_verified ? bi(` · 引用核验 ${esc(String(g.last_verified))}`, ` · refs checked ${esc(String(g.last_verified))}`) : ''}</p>
+        <p class="tp-en">${bi(`${KIND_ZH} · 约 ${g.span} 分钟`, `${KIND_EN} · about ${g.span} min`)}${g.last_verified ? bi(` · 引用核验 ${esc(String(g.last_verified))}${g.verified_scope === 'refs' ? '（批次·refs 链接与日期）' : ''}`, ` · refs checked ${esc(String(g.last_verified))}${g.verified_scope === 'refs' ? ' (batch · links and dates)' : ''}`) : ''}</p>
         <p class="tp-p"><span data-zh>${escMd(g.lead)}</span><span data-en>${escMd(g.leadEn)}</span></p>
 ${bodySec}
 ${linked}

@@ -18,7 +18,7 @@ sources:
   - label: LM Studio · 官方站（MLX + llama.cpp 双运行时；2026-10 快照）
     url: https://lmstudio.ai
     kind: official
-  - label: PyPI · exllamav3 1.4.8（2026-10-25）
+  - label: PyPI · exllamav3 1.6.5（2026-10-25；2026-11-03 复核）
     url: https://pypi.org/project/exllamav3/
     kind: package
 last_verified: 2026-11-03

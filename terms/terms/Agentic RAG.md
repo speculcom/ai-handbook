@@ -6,7 +6,7 @@ def: ["Agentic RAG 把检索当成 agent 的工具：它可以多轮改写查询
 why: "复杂问题常常一次检索不够；理解这一层，才能判断「RAG 效果不好」到底是检索器的问题，还是流程设计的问题。"
 refs:
   - ["Lewis 等 · Retrieval-Augmented Generation（arXiv 2005.11401）", "https://arxiv.org/abs/2005.11401", "Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"]
-  - ["LlamaIndex · Agentic RAG 文档", "https://docs.llamaindex.ai/en/stable/optimizing/agentic_strategies/", "LlamaIndex · Agentic strategies"]
+  - ["LlamaIndex · Agents 文档", "https://docs.llamaindex.ai/en/stable/understanding/agent/", "LlamaIndex · Agents"]
 domain: "data"
 purposeTag: "apply"
 level: 3

@@ -1156,7 +1156,7 @@ var GUIDES = [
    "停运线：ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex；微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。",
    "模型档位：Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出；Claude 的记忆与 Cowork 进入 2026-10-21 release notes。",
    "工具线：Google Opal 官方宣布 2026-11-17 从 Labs 毕业并迁移到 Gemini skills；Vercel AI SDK 7 在 2026 changelog 发布。",
-   "本地线：ExLlamaV3 1.4.8 于 2026-10-25 发布（PyPI）；本站 models 快照为 2026-10-30。",
+   "本地线：ExLlamaV3 1.6.5 于 2026-10-25 发布（PyPI）；本站 models 快照为 2026-10-30。",
    "读法：先看日期，再看适用档位；停运与迁移要看「能力去了哪」，不只看「产品没了」。"
   ],
   "pointsEn": [
@@ -1165,7 +1165,7 @@ var GUIDES = [
    "Retirements: the ChatGPT Atlas browser was retired on 2026-08-09 with capabilities moved into ChatGPT/Codex; Microsoft retired consumer Copilot Deep Research on 2026-08-18.",
    "Model tiers: Gemini 4 Argon reached AI Pro/Ultra on 2026-10-13; Claude memory and Cowork entered the 2026-10-21 release notes.",
    "Tools: Google Opal graduates Labs on 2026-11-17 and flows migrate to Gemini skills; Vercel AI SDK 7 shipped in the 2026 changelog.",
-   "Local: ExLlamaV3 1.4.8 was released on 2026-10-25 (PyPI); the models snapshot is dated 2026-10-30.",
+   "Local: ExLlamaV3 1.6.5 was released on 2026-10-25 (PyPI); the models snapshot is dated 2026-10-30.",
    "How to read it: check the date first, then the tier; for retirements, follow where the capability moved."
   ],
   "myth": null,

@@ -10,7 +10,7 @@ points: ["先定义任务成功条件：不是「回答像样」，而是「目�
 terms: ["评估", "基准测试", "模型评测的局限"]
 refs:
   - ["OpenAI Evals 官方指南", "https://platform.openai.com/docs/guides/evals", "OpenAI Working with Evals"]
-  - ["LangSmith · Evaluation 文档", "https://docs.langchain.com/langsmith/evaluate", "LangSmith Evaluation"]
+  - ["LangSmith · Evaluation 文档", "https://docs.langchain.com/langsmith/evaluation", "LangSmith Evaluation"]
   - ["AgentBench 论文（arXiv 2308.03688）", "https://arxiv.org/abs/2308.03688", "AgentBench: Evaluating LLMs as Agents"]
 last_verified: "2026-11-03"
 verified_scope: "refs"

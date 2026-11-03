@@ -3584,9 +3584,9 @@ var TERMS = [
       "Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
      ],
      [
-      "LlamaIndex · Agentic RAG 文档",
-      "https://docs.llamaindex.ai/en/stable/optimizing/agentic_strategies/",
-      "LlamaIndex · Agentic strategies"
+      "LlamaIndex · Agents 文档",
+      "https://docs.llamaindex.ai/en/stable/understanding/agent/",
+      "LlamaIndex · Agents"
      ]
     ],
     "domain": "data",
