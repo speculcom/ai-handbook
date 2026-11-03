@@ -45,7 +45,7 @@ tags: [开源, Java, SpringBoot, MCP, 向量库]
 related: [langchain4j, langchain, vllm]
 
 sources:
-  - label: Spring AI · 官方参考文档（Model API / ChatClient / MCP / ETL）
+  - label: Spring AI · 官方参考文档（Model API / ChatClient / MCP / ETL；2026-11-03 复核官方页）
     url: https://docs.spring.io/spring-ai/reference/
     kind: docs
   - label: Spring AI · 项目主页（Spring AI 2.0 定位）

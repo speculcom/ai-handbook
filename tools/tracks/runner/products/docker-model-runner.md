@@ -40,7 +40,7 @@ tags: [Docker, 本地推理, OCI, OpenAI兼容]
 related: [openvino, lemonade, openai-agents-sdk]
 
 sources:
-  - label: Docker · Model Runner 官方文档（OCI/HF 拉取、OpenAI/Ollama 兼容 API）
+  - label: Docker · Model Runner 官方文档（OCI/HF 拉取、OpenAI/Ollama 兼容 API；2026-11-03 复核官方页）
     url: https://docs.docker.com/ai/model-runner/
     kind: docs
   - label: Docker · Get started with DMR（启用、拉取、运行、发布）

@@ -47,7 +47,7 @@ tags: [开源, TypeScript, Agent框架, 多模型, Harness]
 related: [openai-agents-sdk, claude-agent-sdk, cursor]
 
 sources:
-  - label: Vercel · AI SDK 7 is now available（2026 changelog，HarnessAgent 与 harness adapters）
+  - label: Vercel · AI SDK 7 is now available（2026 changelog，HarnessAgent 与 harness adapters；2026-11-03 复核官方页）
     url: https://vercel.com/changelog/ai-sdk-7
     kind: changelog
   - label: Vercel · Program Claude Code, Codex, Pi and other agent harnesses with AI SDK（2026-06-12）

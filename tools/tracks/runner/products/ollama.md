@@ -93,3 +93,17 @@ models 站的 GGUF 索引口径（llama.cpp 格式源头）与本档案 model_ac
 
 - [vLLM](./vllm.md) — 同为开源模型运行器：vLLM 主打服务化高吞吐，Ollama 主打单机开箱。
 - [llama.cpp](./llama-cpp.md) — Ollama 底层依赖的 GGUF 生态根；要细粒度控制直接用 llama.cpp。
+
+## 第一次怎么用
+
+1. 安装后先跑 `ollama --version`，确认服务已启动。
+2. 从官方模型库拉一个模型；权重许可跟着模型走，商用前单独查。
+3. 本机默认起 OpenAI 兼容端点，客户端把 base URL 指过来即可。
+4. 显存不够时先降量化档，再考虑 CPU 卸载；不要直接换卡。
+5. 官方 README 另写有云端线；本地与云端是两条计费与数据路径。
+
+```text
+ollama pull <model>
+ollama run <model>
+# OpenAI 兼容端点默认在本机；客户端 base_url 指向它
+```

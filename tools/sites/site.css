@@ -347,6 +347,19 @@ h4.sub-h {
   padding: 1px 5px; border-radius:var(--r-xs); color: var(--ink);
 }
 
+/* 围栏代码块（2026-11-03 P1-4 起 blockMd 支持 ```）：
+ * 必须自己横向滚动，否则长命令会把整页顶出视口（responsive-overflow 实测 12 处）。
+ * 与 vg 站同款规则，token 名保持站内共享。 */
+pre.code {
+  margin: .8em 0; padding: .85em 1em;
+  background: var(--bg-inset); border: 1px solid var(--border);
+  border-radius: var(--r-sm); overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+pre.code code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: var(--fs-xs); line-height: 1.65; white-space: pre; color: var(--ink);
+}
+
 /* ── 相关条目 ────────────────────────────────────────────────────────
  * 每条 = 「显示名链接」+「为什么要读它」两段。
  * 分两个 span 而不是把整行塞进 <a>：嵌套 <a> 会被解析器静默吞掉后续兄弟节点。

@@ -1,0 +1,105 @@
+---
+id: playbook-research-brief
+topic: planning
+title: 任务：做一份可核查的研究简报
+titleEn: Playbook: producing a checkable research brief
+summary: 问题、检索、来源、综合、复核五步；每个结论挂来源与日期，含工具分工、失败模式与验收单。
+summaryEn: Five steps — question, search, sources, synthesis, review — with a source and date on every claim, plus tool roles, failure modes and an acceptance list.
+sources:
+  - label: NotebookLM · 官方站（源锚定回答、音频概览；2026-10 快照）
+    url: https://notebooklm.google.com
+    kind: official
+  - label: Elicit · 官方站（文献检索与结构化抽取；2026-10 快照）
+    url: https://elicit.com
+    kind: official
+  - label: Perplexity · 官方站（答案带来源角标；2026-10 快照）
+    url: https://www.perplexity.ai
+    kind: official
+  - label: Kagi · 官方站（自建索引、付费换隐私；2026-10 快照）
+    url: https://kagi.com
+    kind: official
+  - label: NotebookLM · 官方帮助中心（源锚定与音频概览说明）
+    url: https://support.google.com/notebooklm
+    kind: docs
+last_verified: 2026-11-03
+confidence: partial
+---
+
+## [准备：把问题写成可回答的句子|Prepare: a answerable question]
+
+1. **一句话问题**：对象、时间范围、地区、口径四项写全。
+2. **交付形态**：一页简报、五页 memo、还是带表格的对比。
+3. **截止条件**：资料够了就停，不要无限检索。
+4. **先列已知与未知**：已知三条、未知三条，检索围绕未知展开。
+
+**决策点**：问题里出现「最好」「最强」就改写；本站不排名，排名式问题会逼你编结论。
+
+## [检索：三种工具分工|Search roles]
+
+| 工具 | 用途 | 产出 |
+|---|---|---|
+| Perplexity | 从零找线索、英文检索 | 带角标的候选答案 |
+| Kagi | 补充检索、隐私敏感查询 | 原始结果页 |
+| NotebookLM | 读自己收集的一组源 | 源内问答与摘要 |
+| Elicit | 学术文献筛选与抽取 | 抽取表 |
+
+顺序：先用 Perplexity / Kagi 找源，把原文存进 NotebookLM，再用 Elicit 做文献表。**不要拿搜索答案直接当结论。**
+
+## [来源：每条结论三件套|Sources: claim, URL, date]
+
+- **原文 URL**：不是搜索页，不是二手转述。
+- **访问日期**：YYYY-MM-DD。
+- **原文关键句**：一句，不超过 100 字符；长引文拆句。
+
+做一张来源表：
+
+| # | 结论 | 来源 | 日期 | 原文句 |
+|---|---|---|---|---|
+| 1 | … | 官方文档 | 2026-10-21 | … |
+| 2 | … | 官方博客 | 2026-04-21 | … |
+
+**决策点**：同一个结论只有一个来源，标「单一来源」；两个来源冲突，两个都列，不裁决。
+
+## [综合：先写反方|Synthesise: write the counter-case]
+
+1. 每条结论先写「支持证据」，再写「反例或边界」。
+2. 数字只写能从来源复算的；不能复算就写「未核验」。
+3. 不用「普遍认为」「业内公认」这类无主语句。
+4. 结论分三档：已核验、单一来源、未知。
+
+**失败模式**：把搜索摘要改写成自己的话，来源却只挂搜索页；读者无法回原文。
+
+## [复核：交叉与反向|Review: cross and reverse]
+
+- **交叉**：抽 3 条结论，换一个工具重查，看是否一致。
+- **反向**：主动搜「反对该结论」的证据，找不到再写「未找到反例」。
+- **日期**：检查每条来源日期，过期事实要标「截至日期」。
+- **口径**：同一数字在不同段落是否一致。
+
+## [成本算式|Cost formula]
+
+```
+检索成本 ≈ 查询次数 × 单次检索成本
+阅读成本 ≈ 源数量 × 平均长度 × token 单价
+抽取成本 ≈ 论文数 × 每篇抽取时间
+```
+
+订阅与 API 单价以官方定价页为准；把复核时间按 30% 计入，别只算生成。
+
+## [验收单|Acceptance checklist]
+
+- [ ] 问题含对象、时间、地区、口径
+- [ ] 每条结论有 URL、访问日期、原文句
+- [ ] 单一来源与冲突来源已标注
+- [ ] 至少 3 条结论做过换工具交叉复核
+- [ ] 每条结论有反例或边界说明
+- [ ] 数字可复算，不能复算的标「未核验」
+- [ ] 全文无「普遍认为」类无主语句
+- [ ] 来源日期与「截至」口径写在页首
+
+## [常见失败模式|Failure modes]
+
+- **角标当核实**：引了来源，但来源本身错。
+- **摘要当原文**：没打开原文，结论层层转述。
+- **单一来源**：全篇只靠一个博客。
+- **日期漂移**：把 2026-04 的事实写成 2026-11 的现状。

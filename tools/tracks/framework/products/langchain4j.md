@@ -47,7 +47,7 @@ tags: [开源, Java, JVM, LLM框架, 工具调用]
 related: [spring-ai, langchain, vllm]
 
 sources:
-  - label: LangChain4j · 官方文档（Java 集成、Quarkus/Spring Boot/Helidon）
+  - label: LangChain4j · 官方文档（Java 集成、Quarkus/Spring Boot/Helidon；2026-11-03 复核官方页）
     url: https://docs.langchain4j.dev/
     kind: docs
   - label: LangChain4j · GitHub 仓库

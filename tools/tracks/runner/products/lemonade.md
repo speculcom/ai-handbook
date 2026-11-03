@@ -42,7 +42,7 @@ tags: [开源, AMD, NPU, 本地推理, OpenAI兼容]
 related: [openvino, docker-model-runner, openhands]
 
 sources:
-  - label: Lemonade · 官方 FAQ（后端与硬件支持）
+  - label: Lemonade · 官方 FAQ（后端与硬件支持；2026-11-03 复核官方页）
     url: https://lemonade-server.ai/docs/guide/faq/
     kind: docs
   - label: Lemonade · vLLM ROCm 公告（实验性后端）

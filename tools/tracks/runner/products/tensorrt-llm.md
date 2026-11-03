@@ -40,7 +40,7 @@ tags: [NVIDIA, 服务化推理, 编译引擎, 生产部署]
 related: [vllm, sglang, langgraph]
 
 sources:
-  - label: NVIDIA · TensorRT-LLM 官方文档（Python API / trtllm-serve / 生产定位）
+  - label: NVIDIA · TensorRT-LLM 官方文档（Python API / trtllm-serve / 生产定位；2026-11-03 复核官方页）
     url: https://docs.nvidia.com/tensorrt-llm/
     kind: docs
   - label: NVIDIA · TensorRT Product Family（LLM 推理工具包定位）

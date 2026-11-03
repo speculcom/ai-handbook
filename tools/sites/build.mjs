@@ -938,13 +938,16 @@ function mdLinks(s, base = '') {
 
 function blockMd(s) {
     const out = [];
-    let mode = null;                       // 'p' 段落 · 'ul' 清单 · 'bq' 引用块 · 'tbl' 表格
+    let mode = null;                       // 'p' 段落 · 'ul' 清单 · 'bq' 引用块 · 'tbl' 表格 · 'code' 代码块
     let buf = [];                          // 当前块累积的行
     let items = [];                        // 清单项（每项是若干行的数组）
     let rows = [];                         // 表格行（原始 | 行）
     const flush = () => {
       if (mode === 'p' && buf.length) out.push(`<p>${mdLinks(buf.join(' '))}</p>`);
       else if (mode === 'bq' && buf.length) out.push(`<blockquote>${mdLinks(buf.join(' '))}</blockquote>`);
+      /* 2026-11-03（P1-4）：围栏代码块此前不认，整段变成带反引号的段落 ✗。
+       * 现在按 ``` 开闭收集原文，输出可复制的 <pre><code>；语言标记只做 class 提示。 */
+      else if (mode === 'code' && buf.length) out.push(`<pre class="code"><code>${esc(buf.join('\n'))}</code></pre>`);
       else if (mode === 'ul' && items.length) {
         /* 清单项内的换行用空格接起来 —— 那是排版折行，不是新的一句。
          * 但**一行的正文折行**同理，所以段落也是 join(' ')。*/
@@ -976,7 +979,14 @@ function blockMd(s) {
     };
     for (const line of String(s || '').split('\n')) {
       const t = line.trim();
-      if (!t) { flush(); continue; }                     // 空行 = 块边界
+      if (!t) { if (mode !== 'code') flush(); else buf.push(''); continue; }  // 空行 = 块边界；代码块内保留空行
+      /* 围栏代码块：开或闭。闭合时 flush 输出 <pre>，后续内容重新分块。 */
+      if (/^```/.test(t)) {
+        if (mode === 'code') flush();
+        else { flush(); mode = 'code'; buf = []; }
+        continue;
+      }
+      if (mode === 'code') { buf.push(line); continue; }
       const isLi = /^[-*]\s+/.test(t);
       const isBq = /^>\s?/.test(t);
       /* ⚠ **小标题**（`### …` / `#### …`）必须渲染成标题（2026-10-09 加）。

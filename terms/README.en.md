@@ -372,10 +372,10 @@ inconsistent skeleton gets caught by the validator.
 | Terms | 204 |
 | Stations | Getting In 35 · Hands On 36 · Going Deeper 37 · Under the Hood 36 · Running It 30 · Choosing Right 30 |
 | Learning paths | 10 curated ordered routes, each with a checkpoint |
-| Short guides | 64 guides of 5-10 minutes each (English coverage 64/64) |
+| Short guides | 65 guides of 5-10 minutes each (English coverage 65/65) |
 | Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |
 | Domain | concept 56 · infra 34 · choice 33 · agent 26 · media 19 · model 16 · dev 10 · data 10 |
 | Purpose (purposeTag) | learn 81 · apply 50 · guard 37 · judge 36 |
-| Source entries (refs) | 513 |
+| Source entries (refs) | 521 |
 | English coverage | 204 / 204 |
 <!-- STATS:END -->

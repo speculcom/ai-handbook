@@ -1,0 +1,91 @@
+---
+id: playbook-60s-video
+topic: planning
+title: 任务：做一条 60 秒产品视频
+titleEn: Playbook: producing a 60-second product video
+summary: 脚本、分镜、生成、剪辑、权利登记五段；含单段时长限制、成本算式、失败模式与交付清单。
+summaryEn: Five stages — script, storyboard, generation, editing and rights logging — with per-clip limits, a cost formula, failure modes and a delivery checklist.
+sources:
+  - label: 可灵 Kling AI · 官方站（Kling 4.0 原生 30 秒、15 项参考；2026-10 快照）
+    url: https://klingai.com/global/
+    kind: official
+  - label: Google DeepMind · Veo 官方页（SynthID 溯源；2026-10 快照）
+    url: https://deepmind.google/technologies/veo/
+    kind: official
+  - label: Runway · 官方站（模型聚合与训练许可条款；2026-10 快照）
+    url: https://runwayml.com/
+    kind: official
+  - label: Google · Gemini API 视频生成文档（Veo 调用与限制；2026-10 快照）
+    url: https://ai.google.dev/gemini-api/docs/video
+    kind: docs
+last_verified: 2026-11-03
+confidence: partial
+---
+
+## [准备：先写能拍的分镜|Prepare: a shootable storyboard]
+
+1. **一句话卖点**：60 秒只讲一件事，写不出就砍。
+2. **分镜表**：镜号、时长、画面、字幕、音效，每镜 3–8 秒。
+3. **素材清单**：产品图、Logo、参考视频、品牌色与字体授权。
+4. **权利预检**：音乐、字体、素材图、数字人肖像，逐项记来源与许可。
+
+**决策点**：分镜超过 12 镜，先合并；生成模型不擅长复杂叙事，镜头越多越难一致。
+
+## [生成：按模型限制切段|Generate within clip limits]
+
+- Kling 4.0 单次原生 30 秒，60 秒片至少切两段（官方站，2026-10 快照）。
+- 需要多素材参考时，Kling 的全能参考支持 15 项素材；超出就分组。
+- 每段单独保存 prompt、种子（若有）、模型版本与生成日期。
+- 首尾帧能接上的镜头，优先用首尾帧插值，减少剪辑跳变。
+
+**失败模式**：一段里塞三个场景，模型会把主体变形；正确做法是一段一个主体动作。
+
+## [剪辑：先粗剪再精修|Edit: rough cut first]
+
+1. 按分镜顺序拼段，先不看转场。
+2. 统一色调与画幅；不同模型出来的色偏要手动校。
+3. 加字幕与品牌元素；字幕字号按移动端可读性定。
+4. 配乐与音效：只用已登记许可的音源。
+5. 输出两版：16:9 主版与 9:16 竖版。
+
+**决策点**：生成素材不够用时，补拍产品实拍，不要用生成模型硬凑产品细节。
+
+## [权利登记：一页表|Rights log]
+
+| 素材 | 来源 | 许可 | 日期 | 证据 |
+|---|---|---|---|---|
+| 视频片段 | 模型名 + 版本 | 平台条款 | 生成日 | 条款页截图 |
+| 音乐 | 曲库名 | 曲库许可 | 下载日 | 订单号 |
+| 字体 | 字体名 | 商用许可 | 下载日 | 许可页 |
+| 数字人 | 平台名 | 肖像授权 | 授权日 | 授权书 |
+
+- Veo 输出带 SynthID 溯源（官方，2026-10 快照）；发布前确认平台是否要求标注。
+- Runway 的训练许可不可撤销、无退出开关（官方条款，2026-10 快照）；上传敏感素材前先读条款。
+- Kling 所有权归用户，但商用要过会员线（官方条款，2026-10 快照）。
+
+## [成本算式|Cost formula]
+
+```
+生成成本 ≈ 单段秒数 × 单价 × 尝试次数
+总成本 ≈ 生成 + 剪辑人力 + 音乐/字体许可 + 返工
+```
+
+不写单价；按官方定价页与会员档位计算。把「尝试次数」按 2–3 倍估，生成模型一次过的概率不高。
+
+## [验收单|Acceptance checklist]
+
+- [ ] 60 秒成片，卖点只讲一件事
+- [ ] 每段生成参数与模型版本已存档
+- [ ] 字幕在手机屏可读
+- [ ] 音乐、字体、素材、数字人四项许可已登记
+- [ ] 16:9 与 9:16 两版输出
+- [ ] 需要溯源标注的平台已标注
+- [ ] 权利表与成片一起归档
+
+## [常见失败模式|Failure modes]
+
+- **镜头过密**：60 秒塞 20 个镜头，观众记不住卖点。
+- **主体漂移**：同段多主体，模型把产品变形。
+- **许可漏登**：音乐换了三首，只记了最后一首。
+- **版本不可追**：没记模型版本，返工时无法复现。
+- **竖版后补**：先做 16:9 再裁 9:16，主体被切掉。

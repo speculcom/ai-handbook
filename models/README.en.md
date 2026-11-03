@@ -32,7 +32,7 @@ Written into the charter from day one — every page footer carries "no benchmar
 
 ## How to read this
 
-16 base models, 129 quant variants, 1270 GGUF files. Nobody reads that list top to
+16 base models, 129 quantization repos, 1,262 quant variants, 1,337 GGUF files. Nobody reads that list top to
 bottom, so don't. Start from where you are:
 
 | Where you are | What to do |

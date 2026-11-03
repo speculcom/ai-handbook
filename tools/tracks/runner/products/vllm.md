@@ -90,3 +90,17 @@ Apache-2.0、PyTorch 基金会生态。数字口径：官方自报性能数字�
 
 - [SGLang](./sglang.md) — 同为服务化推理引擎：SGLang 主打 RadixAttention 与 agent 工作流前缀复用。
 - [llama.cpp](./llama-cpp.md) — 单机 GGUF 路线的根；两条路线在 models 站 guides 有对照。
+
+## 第一次怎么用
+
+1. 在 NVIDIA GPU 机器上安装 vLLM，先跑 `vllm --help` 确认版本。
+2. 用 `vllm serve <model>` 起 OpenAI 兼容服务；模型名与上下文长度按官方文档配。
+3. 多人并发前先测显存峰值与 tokens/s，再调 batch 与并行参数。
+4. PagedAttention 管显存，但上下文越长 KV 缓存越吃显存。
+5. 生产环境加监控与限流；不要直接把默认参数暴露到公网。
+
+```text
+pip install vllm
+vllm serve <model> --host 0.0.0.0 --port 8000
+# 然后按 OpenAI 兼容客户端调用；参数以官方文档为准
+```

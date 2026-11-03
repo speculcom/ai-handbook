@@ -39,7 +39,7 @@ tags: [开源, CUDA, EXL3, 本地推理]
 related: [tabbyapi, llama-cpp, llamaindex]
 
 sources:
-  - label: turboderp-org · ExLlamaV3 官方仓库（README / docs）
+  - label: turboderp-org · ExLlamaV3 官方仓库（README / docs；2026-11-03 复核官方页）
     url: https://github.com/turboderp-org/exllamav3
     kind: repo
   - label: PyPI · exllamav3（1.4.8，2026-10-25）

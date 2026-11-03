@@ -40,7 +40,7 @@ tags: [开源, Intel, 边缘推理, OVMS, 本地部署]
 related: [lemonade, docker-model-runner, dify]
 
 sources:
-  - label: OpenVINO · 官方文档（Runtime / 推理流水线）
+  - label: OpenVINO · 官方文档（Runtime / 推理流水线；2026-11-03 复核官方页）
     url: https://docs.openvino.ai/
     kind: docs
   - label: OpenVINO · Model Server 文档（OVMS / OpenAI 兼容端点）

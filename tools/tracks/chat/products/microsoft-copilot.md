@@ -64,7 +64,7 @@ sources:
     url: https://learn.microsoft.com/en-gb/microsoft-365/copilot/faq-researcher
     kind: docs
 
-last_verified: 2026-11-03
+last_verified: 2026-10-22
 last_updated: 2026-11-03
 lifecycle: active
 confidence: partial
@@ -116,3 +116,16 @@ cn:
 
 - [ChatGPT](./chatgpt.md) — 通用对话对照：ChatGPT 模型线更单一清晰，Copilot 走微软路由。
 - [Gemini（对话应用）](./gemini-chat.md) — 同为大厂生态对话入口：Google 系 vs 微软系。
+
+## 第一次怎么用
+
+1. 用微软账号登录 copilot.microsoft.com，先确认当前是 C 端还是 M365 入口。
+2. 在账户隐私面板检查训练用途开关；具体路径与默认态官方未逐条说明，以界面为准。
+3. 联网问答要求它给出处；Bing 底座是它的检索线。
+4. 深度研究不要在 C 端找：官方已于 2026-08-18 退役，改由 M365 Copilot 的 Researcher 承接。
+5. 企业数据走 M365 线，权限与审计与消费档不同。
+
+```text
+查一下【主题】的最新官方说法，列出 3 条，每条带来源与日期；
+找不到官方来源就写「未找到」，不要用二手转述。
+```

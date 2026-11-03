@@ -71,7 +71,7 @@ sources:
     url: https://one.google.com/about/google-ai-plans
     kind: pricing
 
-last_verified: 2026-11-03
+last_verified: 2026-10-21
 last_updated: 2026-11-03
 lifecycle: active
 confidence: partial
@@ -114,3 +114,16 @@ Google 生态里的通用对话助手：网页/Windows/macOS 三端覆盖，模�
 - [ChatGPT](./chatgpt.md) — 同为通用对话，训练开关机制与档位分流不同
 - [Claude（对话应用）](./claude-chat.md) — 训练 opt-out 有「安全审查例外」，对照读
 - [豆包](./doubao-chat.md) — 中文场景对照：App 训练开关自助、API 默认不训练
+
+## 第一次怎么用
+
+1. 打开 Keep Activity 设置，确认未来对话是否用于训练；临时聊天保留 72 小时且不训练。
+2. 研究线用 Deep Research / Deep Research Max（2026-04-21 起支持 MCP 与自定义来源），要求它给出来源表。
+3. 图像线用 Nano Banana 2（2026-02-26 上线），先定用途再定风格。
+4. 需要 Workspace 联动时，逐项确认 Connected Apps 的授权范围。
+5. 大陆直连会稳定超时（2026-10-20 两次 000），需要自备网络路径。
+
+```text
+给我一份带来源的研究摘要：主题【 】，时间范围【 】。
+要求：每条结论后标来源与日期；找不到就写「未找到」；不要合并冲突来源。
+```

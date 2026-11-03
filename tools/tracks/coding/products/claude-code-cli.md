@@ -322,3 +322,18 @@ once more, keeping less of the recent conversation
 
 - [Codex CLI](./codex-cli.md) — 同类 OpenAI 官方工具
 - [OpenCode](./opencode.md) — 开源替代方案
+
+## 第一次怎么用
+
+1. 安装命令以仓库 README 为准；安装后先在空目录跑 `claude --help` 确认版本。
+2. 进入目标仓库，先让它读 README 与测试命令，不要直接改代码。
+3. 用权限确认模式逐条看它要跑的命令；能白名单就白名单到具体命令。
+4. 让它先给「根因假设 + 验证方法」，再改代码；改动后必须跑回归测试。
+5. 源码可见但许可证是 All rights reserved，商用与再分发前先读 LICENSE。
+
+```text
+仓库在【路径】。先做三件事，不要改代码：
+1) 读 README 与测试配置，列出运行测试的命令；
+2) 复现【bug】，给出两个根因假设；
+3) 按成本排序，先验最便宜的那个。
+```

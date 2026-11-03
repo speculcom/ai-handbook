@@ -54,7 +54,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它答得贴切、接得上话，说明它读懂了你的意思。",
   "mythEn": "It answers aptly and keeps up with the conversation, so it must have understood what you meant.",
-  "fact": "它在按概率预测下一个词。贴切说明训练里见过相似的模式，不说明它理解你的处境。",
+  "fact": "它在按概率预测下一个词。贴切说明训练里见过相似的模式，不说明它理解你的处境。；反例：模型能完成改写却不理解指代，说明「读懂」是任务级表现，不是心智状态。",
   "factEn": "It predicts the next word by probability. An apt answer shows it saw similar patterns in training, not that it grasps your situation."
  },
  {
@@ -73,7 +73,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "参数量决定模型有多聪明，越大就一定越强。",
   "mythEn": "Parameter count decides how smart a model is — bigger is always stronger.",
-  "fact": "训练数据的质量与数量同样决定表现；小模型在合适的任务上能追平大模型。",
+  "fact": "训练数据的质量与数量同样决定表现；小模型在合适的任务上能追平大模型。；反例：同参数量的 MoE 与密集模型在具体任务上差异巨大，数据质量与训练配方同样决定结果。",
   "factEn": "The quality and amount of training data decide performance just as much; small models match larger ones on suitable tasks."
  },
  {
@@ -92,7 +92,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "各家都在说 AGI 临近，说明它有一个可核对的到达时间。",
   "mythEn": "Everyone says AGI is near, so there must be a checkable date when it arrives.",
-  "fact": "AGI 没有统一定义，各家口径不同；没有定义，也就没有「到达」这回事。",
+  "fact": "AGI 没有统一定义，各家口径不同；没有定义，也就没有「到达」这回事。；反例：官方路线图从未给出 AGI 日期；把研究目标当时间表是误读。",
   "factEn": "There is no agreed definition of AGI; the houses mean different things. Without a definition, \"arrived\" has no test."
  },
  {
@@ -604,7 +604,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "语气肯定、结构完整，说明内容可靠。",
   "mythEn": "A confident tone and a tidy structure mean the content is trustworthy.",
-  "fact": "幻觉综述里统计的错误，大多正是这种读起来很顺的编造。",
+  "fact": "幻觉综述里统计的错误，大多正是这种读起来很顺的编造。；反例：置信度与正确率不相关，高置信度的长尾错误很常见；要看出处与可复现证据。",
   "factEn": "In the hallucination surveys, most recorded errors are exactly this kind of smoothly written fabrication."
  },
  {
@@ -623,7 +623,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "温度调高，模型就更有想法、更聪明。",
   "mythEn": "Raising temperature makes the model more imaginative, therefore smarter.",
-  "fact": "温度只改变取词的随机性；调高会增加偏离和出错，模型知道的东西一点没多。",
+  "fact": "温度只改变取词的随机性；调高会增加偏离和出错，模型知道的东西一点没多。；反例：温度只改变采样分布，不改变知识；高温增加多样性，也增加胡编率。",
   "factEn": "Temperature only changes how randomly it picks tokens; raising it adds drift and errors while the model knows no more."
  },
  {
@@ -642,7 +642,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "一次对话里，它始终记得前面说过的所有内容。",
   "mythEn": "Within one conversation it always remembers everything said earlier.",
-  "fact": "它只能看到上下文窗口内的内容；超出的部分不在它的输入里，与记不记得无关。",
+  "fact": "它只能看到上下文窗口内的内容；超出的部分不在它的输入里，与记不记得无关。；反例：窗口内的「记得」是文本重放；跨会话记忆要产品侧存储，不是模型自带能力。",
   "factEn": "It only sees what fits the context window; anything beyond it is simply not in the input, which has nothing to do with remembering."
  },
  {
@@ -1139,6 +1139,41 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "2026 下半年变化线",
+  "zh": "2026 下半年变化线",
+  "en": "The 2026 Second-Half Timeline",
+  "kind": "guide",
+  "station": 3,
+  "ord": 16,
+  "span": 8,
+  "lead": {
+   "zh": "只列官方发布与停运日期，不做新闻、不做预测。用来回答「这个产品现在还是不是这样」：每条都带官方出处与核验日。",
+   "en": "Only official release, retirement and migration dates, with sources and a verification date — no news, no predictions."
+  },
+  "points": [
+   "研究线：Google 在 2026-04-21 发布 Deep Research 与 Deep Research Max，基于 Gemini 3.1 Pro，支持 MCP 与自定义来源。",
+   "图像线：Nano Banana 2（Gemini 3.1 Flash Image）于 2026-02-26 上线，支持生成与编辑。",
+   "停运线：ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex；微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。",
+   "模型档位：Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出；Claude 的记忆与 Cowork 进入 2026-10-21 release notes。",
+   "工具线：Google Opal 官方宣布 2026-11-17 从 Labs 毕业并迁移到 Gemini skills；Vercel AI SDK 7 在 2026 changelog 发布。",
+   "本地线：ExLlamaV3 1.4.8 于 2026-10-25 发布（PyPI）；本站 models 快照为 2026-10-30。",
+   "读法：先看日期，再看适用档位；停运与迁移要看「能力去了哪」，不只看「产品没了」。"
+  ],
+  "pointsEn": [
+   "Research: Google shipped Deep Research and Deep Research Max on 2026-04-21, built on Gemini 3.1 Pro with MCP and custom sources.",
+   "Image: Nano Banana 2 (Gemini 3.1 Flash Image) launched on 2026-02-26 with generation and editing.",
+   "Retirements: the ChatGPT Atlas browser was retired on 2026-08-09 with capabilities moved into ChatGPT/Codex; Microsoft retired consumer Copilot Deep Research on 2026-08-18.",
+   "Model tiers: Gemini 4 Argon reached AI Pro/Ultra on 2026-10-13; Claude memory and Cowork entered the 2026-10-21 release notes.",
+   "Tools: Google Opal graduates Labs on 2026-11-17 and flows migrate to Gemini skills; Vercel AI SDK 7 shipped in the 2026 changelog.",
+   "Local: ExLlamaV3 1.4.8 was released on 2026-10-25 (PyPI); the models snapshot is dated 2026-10-30.",
+   "How to read it: check the date first, then the tier; for retirements, follow where the capability moved."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "榜单分数高就是好用",
   "zh": "榜单分数高就是好用",
   "en": "A High Benchmark Score Means It Works For You",
@@ -1154,7 +1189,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "评测分数高的模型，在你的任务上也一定好。",
   "mythEn": "A model that scores high on the leaderboards must also be good at your task.",
-  "fact": "HELM 的结论正是单一榜单不完备；分数高只说明它在被测项上强。",
+  "fact": "HELM 的结论正是单一榜单不完备；分数高只说明它在被测项上强。；反例：榜单任务集与你的业务不同，污染与版本差异会让分数失效；最终要用自己的任务集回归。",
   "factEn": "HELM concludes precisely that a single leaderboard is incomplete; a high score only means strength on the items tested."
  },
  {
@@ -1173,7 +1208,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "上下文窗口越大，长文档就处理得越好。",
   "mythEn": "The larger the context window, the better long documents get handled.",
-  "fact": "窗口变大会推高显存与延迟。长输入里，中段内容的利用也不均匀。按需要选比选最大更划算。",
+  "fact": "窗口变大会推高显存与延迟。长输入里，中段内容的利用也不均匀。按需要选比选最大更划算。；反例：长上下文有中段信息丢失与成本上升，标称窗口不等于有效窗口；RULER 类评测专门测这一点。",
   "factEn": "A larger window raises VRAM and latency. In a long input, the middle is used unevenly. Choosing by need beats choosing the maximum."
  },
  {
@@ -1192,7 +1227,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它说「我不能做这个」，说明它没有这个能力。",
   "mythEn": "When it says \"I cannot do that\", it lacks the capability.",
-  "fact": "多数拒答来自对齐训练的选择；有没有能力与愿不愿意输出是两回事。",
+  "fact": "多数拒答来自对齐训练的选择；有没有能力与愿不愿意输出是两回事。；反例：拒答可能来自策略、权限或提示词，不是能力缺失；换权限或改写请求后可能完成。",
   "factEn": "Most refusals come from alignment training; having the capability and being willing to output it are different things."
  },
  {
@@ -1242,7 +1277,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它像你一样按字和词理解输入。",
   "mythEn": "It reads your input word by word, the way you do.",
-  "fact": "输入先被切成词表里的 token 编号。不常见的词可能被拆成几段。它处理的是编号，不是字。",
+  "fact": "输入先被切成词表里的 token 编号。不常见的词可能被拆成几段。它处理的是编号，不是字。；反例：模型按 token 处理，字符级任务（计数、拼写、标点）经常出错，不要用它做逐字校验。",
   "factEn": "The input is first cut into token ids from a vocabulary. An uncommon word may be split into pieces. What it works on is the ids, not the characters."
  },
  {
@@ -1261,7 +1296,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它给出的推理过程，就是它实际的思考步骤。",
   "mythEn": "The reasoning it shows you is the reasoning it actually performed.",
-  "fact": "它按概率逐词生成；写出来的中间步骤与产生答案的实际路径不一定一致。",
+  "fact": "它按概率逐词生成；写出来的中间步骤与产生答案的实际路径不一定一致。；反例：思维链是生成的文本，不是内部计算；中间步骤错了，后文仍会流畅地接下去。",
   "factEn": "It generates word by word by probability; the intermediate steps it writes need not match the path that produced the answer."
  },
  {
@@ -1280,7 +1315,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "「注意力机制」说明它会像人一样挑重点看。",
   "mythEn": "\"Attention mechanism\" means it picks out what matters, like a person would.",
-  "fact": "注意力按相关性给不同位置加权；权重高不等于它认为那部分重要。",
+  "fact": "注意力按相关性给不同位置加权；权重高不等于它认为那部分重要。；反例：注意力权重不等于解释，同一输出可以由多条注意力路径产生；别把热力图当因果。",
   "factEn": "Attention weights positions by relatedness; a high weight does not mean it judged that part important."
  },
  {
@@ -1549,7 +1584,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "量化就是把模型质量砍掉一半。",
   "mythEn": "Quantising cuts model quality in half.",
-  "fact": "影响随档位与模型而变。bpw 才是量尺，也就是每个权重占多少比特。各档差别要逐项看。",
+  "fact": "影响随档位与模型而变。bpw 才是量尺，也就是每个权重占多少比特。各档差别要逐项看。；反例：Q4 在多数任务上接近原模型，损失集中在长尾与代码精确任务；要用自己的评估集测。",
   "factEn": "The impact varies by tier and by model. The ruler is bpw, meaning bits per weight. The differences between tiers have to be read item by item."
  },
  {
@@ -1568,7 +1603,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "显存装不下，就只能换显卡。",
   "mythEn": "If it does not fit in VRAM, the only option is a better graphics card.",
-  "fact": "可以把部分层放到内存或 CPU 上跑。代价是速度。能不能跑与跑多快是两个问题。",
+  "fact": "可以把部分层放到内存或 CPU 上跑。代价是速度。能不能跑与跑多快是两个问题。；反例：量化、CPU 卸载与 MoE 稀疏激活都能降低门槛；先算权重与 KV 缓存，再决定换不换卡。",
   "factEn": "Some layers can be moved to system memory or to the CPU. The price is speed. Whether it runs at all and how fast it runs are separate questions."
  },
  {
@@ -1587,7 +1622,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "只要接口兼容 OpenAI，换过去效果就一样。",
   "mythEn": "If the API is OpenAI-compatible, switching over gives the same behaviour.",
-  "fact": "兼容保证的是请求与响应的形状；参数默认值、报错行为和输出质量各家不同。",
+  "fact": "兼容保证的是请求与响应的形状；参数默认值、报错行为和输出质量各家不同。；反例：OpenAI 兼容只保证端点形状；流式、工具调用与错误码仍可能不同。",
   "factEn": "Compatibility covers the shape of requests and responses; parameter defaults, error behaviour and output quality differ between implementations."
  },
  {
@@ -1804,7 +1839,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "带「预览」字样的模型只是试验品，不能上生产。",
   "mythEn": "Anything labelled \"preview\" is an experiment and cannot go to production.",
-  "fact": "各家的生命周期与支持政策不同。判断依据是该家的条款和弃用时间表。名字里有没有预览不算依据。",
+  "fact": "各家的生命周期与支持政策不同。判断依据是该家的条款和弃用时间表。名字里有没有预览不算依据。；反例：预览版条款常允许内部评估，限制的是对外生产承诺；能不能用要看条款，不是看「预览」二字。",
   "factEn": "Lifecycle and support policies differ between providers. The basis is that provider's terms and deprecation schedule. Whether the name says \"preview\" is not evidence."
  },
  {
@@ -1823,7 +1858,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "模型开源了，成本就一定比调用 API 低。",
   "mythEn": "Once a model is open, running it is necessarily cheaper than calling an API.",
-  "fact": "自建要算硬件、运维和人力；开源保证的是使用权与可改性，不是「免费」。",
+  "fact": "自建要算硬件、运维和人力；开源保证的是使用权与可改性，不是「免费」。；反例：开源省的是许可费，不省硬件、运维与评测；调用量小时云端通常更便宜。",
   "factEn": "Self-hosting costs hardware, operations and people; open concerns the right to use and modify, not price."
  },
  {
@@ -1842,7 +1877,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "换模型只是把配置里的名字改一下。",
   "mythEn": "Switching models is just changing a name in the config.",
-  "fact": "换模型要重测行为、成本和合规；接口兼容不等于迁移成本为零。",
+  "fact": "换模型要重测行为、成本和合规；接口兼容不等于迁移成本为零。；反例：提示词、工具 schema、评测集与安全策略都要重跑；换模型是一次迁移项目。",
   "factEn": "Switching means retesting behaviour, cost and compliance; a compatible interface does not make the migration free."
  }
 ];

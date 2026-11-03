@@ -376,7 +376,7 @@ function blockA(s, m) {
   const dp = m.declaredParams || null;
   const dv = m.derivedParams || null;
   const paramRows = [
-    [bi('官网标注', 'Vendor states'), `<b>${bi(esc(m.params || '—'), esc(ENWords(m.params || '—')))}</b>`],
+    [bi('官网标注', 'Vendor states'), `<b>${bi(esc(m.params || '—'), esc(m.paramsEn || ENWords(m.params || '—')))}</b>`],
     [bi('官方 API 申报', 'Official API'), dp ? `${fmtB(dp)} ${bi('<span class="muted small">（按 safetensors 张量逐个计数）</span>', '<span class="muted small"> (counted per safetensors tensor)</span>')}` : '<span class="muted">—</span>'],
     [bi('本站实测反推', 'This site, measured'), dv ? `${fmtB(dv)} ${bi('<span class="muted small">（GGUF 字节 ÷ 该档 bpw，取最密集簇中位）</span>', '<span class="muted small"> (GGUF bytes ÷ tier bpw, median of the densest cluster)</span>')}` : '<span class="muted">—</span>'],
   ];
@@ -989,7 +989,7 @@ function seriesPage(s) {
 
   const sections = s.members.map((m, i) => `      <section class="member" id="m${i}">
         <h3><span class="member-idx">${bi('成员','Member')} ${i + 1}</span>${bi(esc(m.label.zh), esc(m.label.en || ENWords(m.label.zh)))}</h3>
-        <p class="member-meta">${bi(esc(EN('params', m.params || '')), esc(ENWords(m.params || '')))}　·　${bi(esc(m.role?.zh || ''), esc(m.role?.en || ENWords(m.role?.zh || '')))}　·　${bi(`${m.variantCount} 个量化来源`, `${m.variantCount} quant sources`)}</p>
+        <p class="member-meta">${bi(esc(EN('params', m.params || '')), esc(m.paramsEn || ENWords(m.params || '')))}　·　${bi(esc(m.role?.zh || ''), esc(m.role?.en || ENWords(m.role?.zh || '')))}　·　${bi(`${m.variantCount} 个量化来源`, `${m.variantCount} quant sources`)}</p>
         <div class="block" id="a${i}">
           <h4><span class="blk">A</span>${bi('基础模型卡','Base model card')} <small>${bi('规格 · 许可 · 访问门槛 · 参数量三来源交叉核对','specs · licence · access · parameter count cross-checked across three sources')}</small></h4>
 ${blockA(s, m)}
@@ -1056,7 +1056,8 @@ repo: 'https://github.com/speculcom/ai-handbook',
       description: s.summary,
       url: `${DOMAIN}series/${s.code}/`,
       isAccessibleForFree: true,
-      license: 'https://creativecommons.org/publicdomain/zero/1.0/',
+      /* 许可：models 仓内无 LICENSE，legal.html 明确「未授权、仅引用链接」。
+       * 2026-11-03 删除原 CC0 1.0 声明 —— 与 legal 自相矛盾。 */
       temporalCoverage: (s.collectedAt || '').slice(0, 10),
     },
   });
