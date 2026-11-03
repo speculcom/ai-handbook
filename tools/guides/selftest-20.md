@@ -2,7 +2,7 @@
 id: selftest-20
 topic: planning
 title: 20 题自测：AI 基础、评测与选型
-titleEn: 20-question self-test: fundamentals, evaluation and selection
+titleEn: 20-question self-test: fundamentals and evaluation
 summary: 20 道只考站内已核验内容的选择/简答题，附参考答案与评分标准；先做题再看答案，36 分以上算优秀。
 summaryEn: Twenty questions drawn only from verified on-site content, with an answer key and scoring rules; do the questions first, then check the answers, 36+ is excellent.
 sources:

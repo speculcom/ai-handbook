@@ -2,7 +2,7 @@
 id: exercise-manager
 topic: planning
 title: 练习包 · Manager：写一页供应商决策备忘录
-titleEn: Exercise pack for managers: a one-page vendor decision memo
+titleEn: Exercise: a one-page vendor decision memo
 summary: 用三个成本维度对比「调 API」与「自己部署」，交一页决策备忘录、评分表、5 个尽职调查问题与退出计划；评分标准看口径、可复核与退出路径。
 summaryEn: Compare API usage with self-hosting on three cost dimensions and deliver a one-page decision memo, a score sheet, five due-diligence questions and an exit plan; the rubric checks conventions, reproducibility and exit paths.
 sources:

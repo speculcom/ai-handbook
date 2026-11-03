@@ -2,7 +2,7 @@
 id: exercise-creator
 topic: planning
 title: 练习包 · Creator：把一份官方资料做成三件套并留下事实表
-titleEn: Exercise pack for creators: three assets from one official source with a fact table
+titleEn: Exercise: three assets from one official source
 summary: 选一份官方产品页，产出短文、图像提示词与 30 秒口播稿，并附 5 条事实核对表与 2 条被拒的说法；评分标准看引用、边界与一致性。
 summaryEn: Take one official product page and produce a short post, an image prompt and a 30-second script, plus a five-claim fact table and two rejected claims; the rubric checks citations, boundaries and consistency.
 sources:

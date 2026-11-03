@@ -2,7 +2,7 @@
 id: exercise-builder
 topic: planning
 title: 练习包 · Builder：用 10 篇站内文档搭一个带引用的问答
-titleEn: Exercise pack for builders: answer questions from 10 source pages with citations
+titleEn: Exercise: cited answers from 10 source pages
 summary: 一个可独立完成的 RAG 练习：选 10 篇站内页面做语料，产出 10 题答案、引用表、评测表与失败记录；附评分标准与参考答案结构。
 summaryEn: A self-contained RAG exercise: use 10 site pages as a corpus and produce 10 answers, a citation table, an evaluation sheet and a failure log, with a rubric and a model-answer outline.
 sources:

@@ -2,7 +2,7 @@
 id: compare-browser-agents
 topic: planning
 title: 浏览器 Agent 三选一：Playwright MCP / Browserbase MCP / Chrome DevTools MCP
-titleEn: Browser agents compared: Playwright MCP vs Browserbase MCP vs Chrome DevTools MCP
+titleEn: Browser agents: Playwright, Browserbase, DevTools
 summary: 三个浏览器 MCP 的适用条件、能力边界与价格档位；按「本地还是云端、要不要模型、要不要性能分析」给出一句选择，并写明什么情况下换另一个。
 summaryEn: Applicability, capability limits and plan tiers for three browser MCP servers; a one-line choice based on local vs cloud, whether a model is needed and whether performance analysis is required, plus when to switch.
 sources:

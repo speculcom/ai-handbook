@@ -2,7 +2,7 @@
 id: checklist-procurement-access
 topic: guardrails
 title: 采购与权限审计清单：问厂商的 18 个问题
-titleEn: Procurement and access audit checklist: 18 questions for vendors
+titleEn: Procurement and access audit checklist
 summary: 一份可直接发给厂商的采购问卷，覆盖身份、数据、日志、模型、合同与退出六组；附权限矩阵模板与 6 项季度审计，问题都对应官方文档可查项。
 summaryEn: A vendor questionnaire you can send as-is, covering identity, data, logs, model, contract and exit in six groups, with a permission-matrix template and six quarterly audit items, each answerable from official docs.
 sources:

@@ -2,7 +2,7 @@
 id: playbook-team-90days
 topic: planning
 title: 团队 90 天落地 playbook：从试点到权限收口
-titleEn: A 90-day team rollout playbook: pilot to permission closeout
+titleEn: A 90-day team rollout playbook
 summary: 把团队引入 AI 拆成 0–30、31–60、61–90 三段，每段给目标、动作、验收点与负责人；权限矩阵与审计项按厂商官方 admin 文档落地，不写空泛口号。
 summaryEn: A 0–30, 31–60, 61–90 rollout with goals, actions, acceptance points and owners per phase; the permission matrix and audit items follow vendor admin documentation rather than slogans.
 sources:

@@ -2,7 +2,7 @@
 id: cn-availability
 topic: guardrails
 title: 国内可用性怎么读：直连、主体与备案的口径
-titleEn: How to read mainland availability: direct reach, operator and filing
+titleEn: How to read mainland availability
 summary: 用 tools 档案里的 cn 三个字段回答「国内能不能连、谁在运营、有没有备案」；给出 225 份档案的统计口径、限制与自查方法，不做实时可用性承诺。
 summaryEn: Three cn fields in the tool dossiers answer whether a product connects from the mainland, who operates it and whether it is filed; this page gives the counting rules, limits and a self-check method for 225 dossiers, with no real-time guarantee.
 sources:
