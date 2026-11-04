@@ -268,7 +268,7 @@ const SITE = {
     'Ten categories grouped into three families by task: ready-made (coding / chat / image / video / audio / research), build-your-own (automation / frameworks), and plug-in-and-run (MCP tools / local runners). The families use different coordinate systems, so this site does not rank across them.'),
   repo: 'https://github.com/speculcom/ai-handbook',
   // 站内分区导航（跨站导航在 shell.mjs 的 NAV 里，那是全站唯一定义处）
-  // v8 T30：10 大类页全部上线（旧三页退役，旧 URL 走跳转桩）。
+  // v8 T30：10 大类页全部上线（旧三页及旧 URL 已删除）。
   partitions: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'],
 };
 
@@ -292,10 +292,10 @@ const FORM_LABEL_MD = (track, family) =>
 
 /* v8 T7：SITES 键 = 大类名（与内容仓 tracks/<大类>/ 同名）。
  * T30 前产物落点仍走旧三页（dir 保留 ''/harness/tools），
- * T30 重写时 dir 改成大类同名、并给旧 URL 生成跳转桩。 */
+ * 当前 dir 与大类同名，旧 URL 不再生成。 */
 /* v8 T30（2026-10-22）：站点层换轨——10 张大类页，dir = 大类同名（URL /<category>/<id>.html）。
  * 旧落点（coding 落根、framework 落 harness/、mcp 落 tools/）退役，
- * 旧 URL 由主流程末尾的跳转桩接管（meta-refresh + noindex）。
+ * 旧 URL 已删除；内部链接直接使用正式地址。
  * desc 只说「本大类比较什么维度」，不逐个列对象名——逐个列会在档案分期补齐时
  * 与实际数量不一致（曾出现「3 个对象」却列了 10 个名字）。
  * accent 只用于大类标识（part-bar 当前页色 / 卡片色条）；页面主 accent 仍是全站品牌色。 */
@@ -2318,46 +2318,12 @@ ${AXES.map(([k, label], i) => `          <div class="axis-cell">
   });
 }
 
-/* ── v8 T30：旧 URL 跳转桩 ──────────────────────────────────────────────
- * D1 定案「目录按大类重排」= URL 全变。旧 URL 曾从 learn 深链、nav 条目、
- * 搜索引擎索引里进来（learn 的 terms.all.js 里有 13 条 tools.specul.com 深链），
- * 直接 404 等于把老读者的入口拆掉。桩的口径：
- *   · meta refresh（0 秒）+ 一个可见的 <a>（无脚本环境也能走）；
- *   · noindex——桩不是内容页，不该被索引，也不进 sitemap；
- *   · canonical 指向新页——把旧 URL 攒下的权重让给新页；
- *   · 不进 sitemap（sitemap 只收真页）。
- * ⚠ seo-basics 会扫全部 .html——桩没有 h1/JSON-LD，会被判违规。
- *   探针按「noindex 页不参与 SEO 断言」跳过（语义正确：搜索引擎根本不索引它）。 */
-function renderStub(toPath, titleZh) {
-  const href = toPath;
-  // canonical 写**绝对 URL**（相对 canonical 各家搜索引擎处理不一，
-  // 而这里的目的就是把权重让给新页——写全才稳）。
-  const canon = `https://${SITE.domain}${href}`;
-  return `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=${href}" />
-  <link rel="canonical" href="${canon}" />
-  <meta name="robots" content="noindex" />
-  <title>${esc(titleZh)} — 页面已移动 | 投机取巧</title>
-  <meta name="description" content="此页面已移动到站内新位置，正在自动跳转；若没有自动跳转，请点击页面上的链接。" />
-</head>
-<body>
-  <p>${esc(titleZh)}${'——此页面已移动到 '}<a href="${href}">${esc(href)}</a>。</p>
-</body>
-</html>
-`;
-}
-
 // ── 主流程 ───────────────────────────────────────────────────────────────
 /* 输出布局（v8 T30：一站十分区 = 10 大类）：
  *   OUT/                ← 站点根 = tools.specul.com
  *     index.html        ← 首页（三族 10 卡，不是任何大类的索引）
  *     <大类>/index.html + <大类>/<id>.html   ← 10 个大类各一目录（目录名=大类名）
  *     mcp/guides/<id>.html                   ← 深水指南（落 mcp 大类下）
- *     旧 URL 跳转桩：根级 <id>.html、harness/、tools/、tools/guides/
- *       （meta refresh + noindex，不进 sitemap）
  *
  * 为什么大类不再有一个落根：v7 前 coding 落根是「三分区时代默认落点」的惯性；
  * 10 大类里任何一家落根都偏袒，且首页（目录页）才是根的正确住户。
@@ -2438,8 +2404,8 @@ fs.writeFileSync(path.join(OUT, '.nojekyll'), '', 'utf8');
 
 /* ── v8 T30：先清旧产物结构 ────────────────────────────────────────────
  * 旧结构 = 根级 .html（coding 落根）+ harness/ + tools/（含 tools/guides/）。
- * 新结构 = 10 个大类目录 + 首页 + 旧 URL 桩。桩恰好落在旧路径上，
- * 所以「清旧」与「写桩」是同一批位置先清后写——不先清会留孤儿页
+ * 新结构 = 10 个大类目录 + 首页；不再生成旧 URL。
+ * 构建前清空旧 HTML，避免留下孤儿页
  * （旧结构里有、新映射里没有的 id 页会永远留在产物里）。
  * ⚠ 只清 .html 与旧 README.md，不动 brand 壳 / CNAME / .nojekyll。 */
 {
@@ -2556,41 +2522,6 @@ ${SITE.partitions.map(k => {
 fs.writeFileSync(path.join(OUT, 'index.html'), renderHome(loaded), 'utf8');
 allPages.unshift({ loc: `https://${SITE.domain}/`, pri: '1.0' });
 
-/* ── v8 T30：旧 URL 跳转桩 ─────────────────────────────────────────────
- * 旧落点（v7 及以前）：coding 落根、framework 落 harness/、mcp 落 tools/。
- * 桩的映射从**现行数据**机器生成（BY_ID 里有每个 id 的大类归属）——
- * 不手写清单，手写会在档案增删时漂移。
- * learn 深链清单（terms.all.js 里 13 条）全部落在桩覆盖范围内：
- *   /tools/{context7,filesystem,fetch,memory}.html → /mcp/…
- *   /harness/{openhands,llamaindex,crewai,langgraph,google-adk,openai-agents-sdk,hermes-agent}.html → /framework/…
- *   /opencode.html → /coding/opencode.html；/tools/index.html → /mcp/
- * ⚠ 桩不进 allPages（sitemap 只收真页）。 */
-let stubCount = 0;
-{
-  const OLD_DIR_OF = { coding: '', framework: 'harness', mcp: 'tools' };
-  const writeStub = (relPath, toPath, title) => {
-    const abs = path.join(OUT, relPath);
-    fs.mkdirSync(path.dirname(abs), { recursive: true });
-    fs.writeFileSync(abs, renderStub(toPath, title), 'utf8');
-    stubCount++;
-  };
-  for (const [id, { entry, partKey }] of BY_ID) {
-    const oldDir = OLD_DIR_OF[partKey];
-    if (oldDir === undefined) continue;   // 新大类（chat/image/…）没有旧页，无需桩
-    const s = SITES[partKey];
-    writeStub(
-      oldDir ? `${oldDir}/${id}.html` : `${id}.html`,
-      `/${s.dir}/${id}.html`,
-      entry.name,
-    );
-  }
-  // 旧索引页 → 新大类页（根 index.html 不桩——它现在是首页，同一 URL 换内容）
-  writeStub('harness/index.html', '/framework/', '框架与运行时（旧 harness 索引）');
-  writeStub('tools/index.html', '/mcp/', 'MCP 工具（旧 tools 索引）');
-  // 旧 guides 页 → /mcp/guides/（guides 落点随大类改名）
-  for (const g of GUIDES) writeStub(`tools/guides/${g.id}.html`, `/mcp/guides/${g.id}.html`, g.title);
-}
-
 // sitemap：一个站一份——首页 + 10 大类索引 + 全部详情 + guides（桩不进）
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
@@ -2647,4 +2578,4 @@ MCP 工具层用的是另外三个维度（传输 / 认证 / 权限范围），�
 `, 'utf8');
 
 summary.forEach(s => console.log(s));
-console.log(`\n共 ${allPages.length} 个真页 + ${stubCount} 个旧 URL 跳转桩 → ${path.basename(OUT)}/（含 brand.css / brand.js / site.css）`);
+console.log(`\n共 ${allPages.length} 个真页 → ${path.basename(OUT)}/（含 brand.css / brand.js / site.css）`);

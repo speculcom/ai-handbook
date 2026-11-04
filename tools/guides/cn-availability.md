@@ -10,13 +10,13 @@ sources:
     url: https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm
     kind: docs
   - label: 本站 · tools 档案索引（225 份档案的 cn 字段来源）
-    url: https://tools.specul.com/tools/index.html
+    url: https://tools.specul.com/mcp/
     kind: docs
   - label: 本站 · 怎么查生成式 AI 合规义务（条文口径）
     url: https://learn.specul.com/guide/怎么查生成式 AI 合规义务/
     kind: docs
   - label: 本站 · 分类页「国内直连」筛选（字段的查询入口）
-    url: https://tools.specul.com/tools/index.html
+    url: https://tools.specul.com/mcp/
     kind: docs
 last_verified: 2026-11-03
 confidence: partial

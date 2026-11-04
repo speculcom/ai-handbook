@@ -7,7 +7,7 @@ summary: 四个可直接复制的文本块：评估 rubric、四层护栏清单�
 summaryEn: Four copyable text blocks: an evaluation rubric, a four-layer guardrail checklist, a service acceptance sheet and an incident review checklist.
 sources:
   - label: 本站 · 深水指南（Agent 评估、护栏、客服 playbook；2026-11-03）
-    url: https://tools.specul.com/mcp/guides/
+    url: https://tools.specul.com/mcp/guides/evaluation.html
     kind: docs
 last_verified: 2026-11-03
 confidence: partial

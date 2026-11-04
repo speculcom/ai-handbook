@@ -7,7 +7,7 @@ summary: 四个可直接复制的文本块：Agent 权限矩阵、模型许可�
 summaryEn: Four copyable text blocks: an agent permission matrix, a model licence checklist, a video rights log and a cost formula template.
 sources:
   - label: 本站 · 深水指南（授权与成本方法；2026-11-03）
-    url: https://tools.specul.com/mcp/guides/
+    url: https://tools.specul.com/mcp/guides/cost-control.html
     kind: docs
   - label: Creative Commons · 许可说明（CC 许可条款；2026-10 快照）
     url: https://creativecommons.org/licenses/

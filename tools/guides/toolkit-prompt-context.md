@@ -7,7 +7,7 @@ summary: 四个可直接复制的文本块：提示词结构、上下文预算�
 summaryEn: Four copyable text blocks: a prompt structure, a context budget table, a RAG chunking/reranking checklist and a model selection worksheet.
 sources:
   - label: 本站 · 深水指南（上下文工程、RAG 全链路、选型方法；2026-11-03）
-    url: https://tools.specul.com/mcp/guides/
+    url: https://tools.specul.com/mcp/guides/planning.html
     kind: docs
 last_verified: 2026-11-03
 confidence: partial
