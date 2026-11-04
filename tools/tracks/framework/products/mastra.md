@@ -471,7 +471,7 @@ GitHub 的 license API 对整仓返回 **NOASSERTION**。
 
 这些不是「没查到」，是官方文档本身没给，故不足以升到 verified。
 
-> 本轮核到的官方页：仓库 README（定位、亮点、Licensing 双许可段）、
+> 已核到的官方页：仓库 README（定位、亮点、Licensing 双许可段）、
 > `/models`（provider 与本地模型）、`/models/providers`、`docs/workflows/overview`、
 > `docs/workflows/suspend-and-resume`、`docs/memory/overview`、`docs/rag/overview`、
 > `docs/evals/overview`、`docs/tools-mcp/mcp-overview`、`docs/deployment/overview`、
@@ -492,7 +492,7 @@ GitHub 的 license API 对整仓返回 **NOASSERTION**。
 | 2 | workflow 跑到一半 kill 进程，靠 snapshot 能否真从暂停 step 恢复 | 官方承诺 persist across restarts，须验证 |
 | 3 | 用 LMStudio 接本地模型跑通一个 workflow | 官方点名推荐，验证真实可行性 |
 | 4 | 同一任务分别用 agent 与 workflow 实现，代码量差多少 | 验证「明确流程用 workflow」的官方建议 |
-| 5 | Observational Memory 压缩后的信息损失与额外 LLM 成本 | 官方推荐默认开，代价未实测 |
+| 5 | Observational Memory 压缩后的信息损失与额外 LLM 成本 | 官方推荐默认开，代价未做实测 |
 | 6 | OSS 自托管走 `mastra build` 部署到自有容器的最小路径 | 验证「纯库也能上生产」的程度 |
 
 ## 未知项清单
@@ -502,7 +502,7 @@ GitHub 的 license API 对整仓返回 **NOASSERTION**。
 - OSS 核心是否有网络访问控制的官方机制（官方未说明）
 - `ee/` 目录之外还有哪些功能属企业许可范围（官方 README 只给目录示例，未给完整功能清单）
 - 跨进程 / 多实例并发 resume 同一 snapshot 的冲突语义（官方未说明）
-- Observational Memory 压缩后的信息损失与成本（本站未实测）
+- Observational Memory 压缩后的信息损失与成本（本站未做端到端实测）
 - Mastra 平台各档的实际吞吐与超量计费在真实负载下的表现（官方只给计费口径）
 
 ## 相关条目

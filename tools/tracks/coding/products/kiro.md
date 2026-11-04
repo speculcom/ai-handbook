@@ -271,7 +271,7 @@ cn:
 
 - ❌ 未取到：BYOK / 自有 Key 是否支持、IDE 索引是否上云、压缩触发阈值、Crew 的完整能力面
 
-**核验页**：本轮核到的官方页：kiro.dev/pricing、/changelog、/docs、/docs/how-kiro-works、
+**核验页**：已核到的官方页：kiro.dev/pricing、/changelog、/docs、/docs/how-kiro-works、
 /docs/specs、/docs/steering、/docs/hooks/types、/docs/mcp、/docs/models、
 /docs/permissions、/docs/cloud-sessions、/docs/tools/code-intelligence。
 
@@ -284,14 +284,14 @@ cn:
 - **spec 三段式的实际产出质量**
 - **Cloud Session 从 IDE 创建后，关掉本机、再从手机接回时的状态完整性**
 
-这两点是官方最强的承诺。
+这两点是官方最明确的承诺。
 
 ## 未知项清单
 
 - 是否支持自有 API Key（BYOK）与本地模型——官方未说明（已查 /docs/models 与 /pricing 两页）
 - IDE 代码索引是否上传云端——官网未公开索引位置（已查 codebase indexing 与 how-kiro-works 两页）
 - 各模型上下文自动压缩的触发阈值（官方未给数字）
-- Crew 的完整能力边界（本轮只核到首页入口与 changelog 条目）
+- Crew 的完整能力边界（只核到首页入口与 changelog 条目）
 
 ## 相关条目
 

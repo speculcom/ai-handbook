@@ -96,7 +96,7 @@ axes:
     托管要靠 Vertex AI Agent Engine 或 Cloud Run
     —— 那是 Google 的产品，不是本框架的。
   local_files: >-
-    **官方对「文件」的答案是抽象层 Artifacts，不是裸文件系统（本轮已核验）。**
+    **官方对「文件」的答案是抽象层 Artifacts，不是裸文件系统（已核验）。**
     换句话说，它自己不读写磁盘。
 
     官方 Artifacts 页 **原文**：
@@ -434,7 +434,7 @@ adk deploy cloud_run --with_ui <agent-folder>        # Cloud Run
 
 **README 的 Cloud Run 示例里出现了** `GOOGLE_GENAI_USE_ENTERPRISE=1`。
 
-**本轮已核验清楚（2026-10-01，Google 官方 codelab 与 Cloud 文档）**：
+**已核验清楚（2026-10-01，Google 官方 codelab 与 Cloud 文档）**：
 它**不是「解锁企业功能」的开关**。
 
 **它是一条路由开关：把请求从 Gemini Developer API 切到 Google Cloud 企业平台
@@ -520,7 +520,7 @@ OpenAPI specs、MCP tools。
 
 `confidence: partial` 的依据。
 
-**为什么不是 verified。** 三维本轮已核到官方机制：
+**为什么不是 verified。** 三维已核到官方机制：
 
 - `local_files` —— Artifacts 抽象
 - `context` —— 1.16+ 的 Context Compaction
@@ -541,7 +541,7 @@ OpenAPI specs、MCP tools。
 > `GOOGLE_GENAI_USE_ENTERPRISE` 环境变量、`adk eval` 命令与 `.evalset.json` 格式、
 > `google/adk-js`（1,426★ · Apache-2.0）与 `google/adk-recipes`（10,404★）两仓元数据
 
-> **本轮（2026-10-01）补上的**：`GOOGLE_GENAI_USE_ENTERPRISE` 的确切含义。
+> **2026-10-01 补充**：`GOOGLE_GENAI_USE_ENTERPRISE` 的确切含义。
 > 它是**计费路径开关**（切到 Gemini Enterprise Agent Platform / Vertex AI），
 > 不是企业功能开关。官方把 "enable billing" 挂在 `GOOGLE_CLOUD_PROJECT` 上，
 > 三个变量须成组设置。来源为 Google 官方 codelab 与 Cloud 文档。

@@ -1,31 +1,15 @@
 // ============================================================================
-// 系列定稿 —— 由 select-v2.mjs / select-v3.mjs 的实测数据决定；A6.5（2026-10-09）扩到 11 系列
+// 系列名单 —— 当前 11 个系列
 // ----------------------------------------------------------------------------
-// 选型标准（不是拍脑袋）：
-//   1. 是该厂商的当前最新代（老代一律不采，如 Qwen3-30B-A3B / Llama-3 / Gemma-3）
-//   2. 有 GGUF 量化生态且**下载量够大**（说明本地部署圈真在用）
-//      ⚠ A6.5 修正口径：原注释写「第三方 GGUF 下载 > 30 万」，但实测现役里最薄的
-//        MiniCPM5 是「第一方 277k + 第三方 134k」才过线 —— 实际门槛是**该模型的 GGUF 生态总量**约 30 万。
-//        两个数在 docs/A6.5-inventory.md 里并列给出，不合并成一个数。
-//   3. 规模本地可跑（7~35B 密集，或 MoE）
-//      ⚠ 实测口径：本表实际收过 292B / 754B / 2780B 的 MoE，所以这一条在实践里是
-//        「**有人真的在本地量化跑它**」（GGUF 生态存在）而不是参数量上限。参数量如实写进 `params`。
+// 选型标准：
+//   1. 是该厂商的当前最新代（老代不采，如 Qwen3-30B-A3B / Llama-3 / Gemma-3）
+//   2. 有 GGUF 量化生态且下载量够大（说明本地部署圈真在用）
+//      门槛：该模型的 GGUF 生态总量约 30 万（第一方 + 第三方合并看，不单看第三方）
+//   3. 规模本地可跑（7~35B 密集，或 MoE）；实践口径是「有人真的在本地量化跑它」
 //   4. 许可可核验（apache-2.0 / mit 优先；other 需标注原文链接）
 //
-// 数据来源：docs/final-candidates.json + docs/A6.5-inventory.md（后者是 A6.5 的盘点，
-//   用 HF 的 `cardData.base_model` 字段聚合 GGUF 榜，方法与局限见该文档）
-//
-// A6.5 盘点结论（值得记住的一条）：
-//   **「主流」不等于「有量化版可用」。** 响亮的大厂新系列量化采用都很薄 ——
-//   NVIDIA Nemotron 3 Nano 4B（第三方 73k）· IBM Granite 4.1 3B（253k）· AI2 Olmo 3 7B（72k）·
-//   HF SmolLM3 3B（85k）· 腾讯 Hunyuan Hy3（**0 个 GGUF 仓**）—— 全部落选。
-//   过线的是 Ornith-1.5 / Muse-Glimmer-30B / KAT-Coder-V2.5 / Laguna-XS-2.1 这一批。
-//
-// 落选（量化热度过低，冷到没必要上站）：
-//   Mistral-Small-4-119B  35k ｜ Llama-4-Scout  38k ｜ MiniMax-M3  17k ｜ Intern-S2  8k
-//   （A6.5 追加）：Nemotron-3-Nano-4B 73k ｜ Granite-4.1-3B 253k ｜ Olmo-3-7B 72k ｜ SmolLM3-3B 85k
-//   ｜ MiniMax-M2.7 31k ｜ Step-3.5-Flash 21k ｜ Hunyuan-Hy3 0 ｜ LFM2.5-2.6B 第三方仅 51k
-//   ｜ Spark-X2.5-4B（采用集中在降权量化者）｜ Inkling-Small（总参 266B，本地可跑性存疑，待定）
+// 「主流」不等于「有量化版可用」。响亮的大厂新系列量化采用常常很薄，
+// 过线的是 Ornith-1.5 / Muse-Glimmer-30B / KAT-Coder-V2.5 / Laguna-XS-2.1 这一批。
 // ============================================================================
 
 export const SERIES = [
@@ -128,7 +112,7 @@ export const SERIES = [
     positions: ['通用对话', 'MIT 许可', '推理'],
     members: [
       {
-        // ⚠ A6.5 修正：原指向 `DeepSeek-V4-Flash`（2026-04-22），但 `released` 写的是 07-31，
+        // 修正：原指向 `DeepSeek-V4-Flash`（2026-04-22），但 `released` 写的是 07-31，
         //   而 HF 上同一条线已有 `DeepSeek-V4-Flash-0731` 与更新的 `DeepSeek-V4.1-Flash`（2026-09-10）。
         //   「声明的最新代」与「实际取的仓」不一致，已改为最新代。
         repo: 'deepseek-ai/DeepSeek-V4.1-Flash',
@@ -201,8 +185,7 @@ export const SERIES = [
     sources: { official: 'https://huggingface.co/openbmb/MiniCPM5-2B' },
   },
 
-  // ── A6.5（2026-10-09）新增：以下 4 个系列由 docs/A6.5-inventory.md 的盘点数据选出 ──
-  //    依据：GGUF 生态下载（第三方/第一方分别标注）+ 许可可核验 + 是该厂商当前最新代。
+  // ── 以下 4 个系列按同一标准选出：GGUF 生态下载 + 许可可核验 + 厂商当前最新代 ──
 
   {
     code: 'ornith-1-5',

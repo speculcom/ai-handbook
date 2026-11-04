@@ -38,7 +38,7 @@ axes:
     不适合：开放权重、影视级合成、大陆直连（实测 000）。
 
 pitfalls:
-  - 「agentic」是产品自称——真实能力面是官方 MCP server（/mcp/ 与 agents.md 在册），剪辑操作质量本站未实测
+  - 「agentic」是产品自称——真实能力面是官方 MCP server（/mcp/ 与 agents.md 在册），剪辑操作质量本站未做端到端实测
   - 大陆直连实测 000（2026-10-30 两次复测，代理 200 可达）——不是死站，是可达性
   - 条款双主体（Invideo Inc.·特拉华 + Invideo Innovation Pte. Ltd.·新加坡，隐私页在册）——签约主体按注册入口，未逐条核验
 

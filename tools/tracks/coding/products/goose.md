@@ -319,7 +319,7 @@ Block 是创建方，写在正文里。
 
 文档站也已迁到 `goose-docs.ai`（旧 docs 链接会重定向）。
 
-> 本轮核到的官方页：仓库 README、Releases（v1.53.0）、Supported LLM Providers、Run Tasks、CLI Commands、Developer Extension、Browse Extensions、Usage Data
+> 已核到的官方页：仓库 README、Releases（v1.53.0）、Supported LLM Providers、Run Tasks、CLI Commands、Developer Extension、Browse Extensions、Usage Data
 
 ## 实测记录
 

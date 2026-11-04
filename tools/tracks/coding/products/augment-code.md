@@ -121,7 +121,7 @@ Environments 可托管云/自有基础设施/本机三选一，Code Context Engi
 **实测建议**（三条，都指向官方可读页没给的东西）：
 
 - **Harness 并入后购买/续约路径的实际变化**（公告只说资产与团队并入，未给客户迁移细则）
-- **self-hosted daemon 在真实 CI 里的隔离与审计行为**（官方有 daemon-config 页，未实测）
+- **self-hosted daemon 在真实 CI 里的隔离与审计行为**（官方有 daemon-config 页，未做实测）
 - **Prism 路由的实际模型选择透明度**（能否看到每次请求落到哪个模型）
 
 ## 未知项清单

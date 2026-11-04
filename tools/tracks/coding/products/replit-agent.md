@@ -8,7 +8,7 @@ homepage: https://replit.com
 axes:
   model_access: >-
     按「模式」选而非按裸模型选：官方文档列 Free/Auto/Power/Max 四态——Free 是套餐额度内的免费档，
-    Auto 自动路由，Power/Max 是付费档（Max 用最强前沿模型）；具体每档挂哪些模型官方按套餐页口径给，
+    Auto 自动路由，Power/Max 是付费档（Max 使用官方定位的前沿模型）；具体每档挂哪些模型官方按套餐页口径给，
     未逐条清点。企业工作区只有一个 Auto 模式，管理员可用 Enterprise model controls 管模型访问。
   runtime: >-
     云端 IDE 内建 agent：项目、依赖、数据库、部署全在 Replit 云上；官方文档明确 Agent 会

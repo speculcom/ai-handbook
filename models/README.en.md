@@ -100,10 +100,8 @@ node scripts/audit-licenses.mjs
 node scripts/build.mjs
 ```
 
-> ⚠ **Steps ②③ were missing from this file** (caught twice on 2026-10-09 while writing up
-> A6.5: jumping straight to the audit first failed with "quant variant missing license",
-> and after backfilling, "unrecognized" showed up on the page).
-> **Neither step can be skipped between collection and audit.**
+> ⚠ Between collection and audit, steps ②③ cannot be skipped: jumping straight to the audit
+> fails with "quant variant missing license", and after backfilling, "unrecognized" may appear.
 
 ## Changing the series list
 

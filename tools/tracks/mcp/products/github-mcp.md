@@ -317,7 +317,7 @@ lockdown 的边界官方写得很实。它只减少一种 prompt injection 风�
 所谓「动态工具发现」在当前官方文档中查不到（见未知项）。工具级审批机制官方也未提供。
 这些都非取证缺口，而是官方当前未提供，故不足以升到 verified。
 
-**本轮核到的官方页**：README（两形态、toolsets 全表、认证、read-only / lockdown、i18n 覆写）、
+**已核到的官方页**：README（两形态、toolsets 全表、认证、read-only / lockdown、i18n 覆写）、
 docs/remote-server.md（端点、URL 修饰、X-MCP-* 头）、docs/server-configuration.md、
 docs/scope-filtering.md、docs/streamable-http.md、docs/insiders-features.md、docs/feature-flags.md；
 仓库元数据经 GitHub API 核验（33,871★、MIT、语言 Go、最近推送 2026-10-22、最新版 v2.0.3；滚动核验 2026-10-23）。

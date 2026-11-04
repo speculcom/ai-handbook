@@ -10,7 +10,7 @@ licenseEn: MIT (GitHub API verified 2026-10-21).
 family: orchestration
 providers:
   - dspy.LM 统一接入：OpenAI/Anthropic/Gemini/本地 vLLM 等（官方 docs 列举，未逐条清点）
-  - 官方叙事里 LM 层依托 LiteLLM 的支持面——provider 面大体随 LiteLLM（本轮未逐条核验）
+  - 官方叙事里 LM 层依托 LiteLLM 的支持面——provider 面大体随 LiteLLM（未逐条核验）
 axes:
   model_access: >-
     各家 LM 通过 dspy.LM 统一接入（OpenAI/Anthropic/Gemini/本地 vLLM 等，

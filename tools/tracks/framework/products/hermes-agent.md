@@ -16,7 +16,7 @@ language: Python
 providers:
   - Nous Portal 是自家入口，README 说它可跳过 API key 收集
   - 另有 OpenRouter、OpenAI、自建 endpoint（README 明示）
-  - 完整清单见官方 `docs/integrations/providers`（本轮未取到正文）
+  - 完整清单见官方 `docs/integrations/providers`（未取到正文）
 
 layer_position: >-
   **它的定位是常驻个人助手，覆盖消息平台与定时任务。**
@@ -100,7 +100,7 @@ axes:
 
     **核验**：已查 providers 页与 configuration 页。
   runtime: >-
-    **这是它最强的一维：六种终端后端加插件后端，再加两个入口。**
+    **这是它证据最完整的一维：六种终端后端加插件后端，再加两个入口。**
 
     **README 原文列举**（2026-10-23 滚动核验版）：
 
@@ -656,7 +656,7 @@ README 的文档目录里有一节独立的 **Security**，副标题原文：
 
 ## 工具：40+ 且支持 MCP，还有一项很特别的能力
 
-> README 文档目录（本次核验的原文副标题）：
+> README 文档目录（原文副标题）：
 
 | 文档节 | 官方副标题 |
 |---|---|
@@ -755,7 +755,7 @@ hermes claw migrate --preset user-data     # 不导入密钥
 - `background` 的休眠 / 唤醒延迟与跨休眠状态一致性官方未说明
 - 「zero-context-cost」与 Honcho / skills 的实际效果未核验
 
-> A6.2 已补：permissions 三机制默认值、local_files 的 context files 格式与优先级、
+> 2026-10-08 已补：permissions 三机制默认值、local_files 的 context files 格式与优先级、
 > cron 补偿语义均已核验，见上。
 
 **已核验：**
@@ -776,7 +776,7 @@ hermes claw migrate --preset user-data     # 不导入密钥
 - Honcho 用户建模与 skills 自改进的实际效果
 - Hermes 与 OpenClaw 的确切关系
 
-**本轮（2026-10-01）补上的**：Nous Portal 计费的**官网状态**已核验 ——
+**2026-10-01 补充**：Nous Portal 计费的**官网状态**已核验 ——
 **官网不公开定价**（首页只有定性描述、无一个数字；`/pricing` 返 404）。
 第三方口径流传但**未获官方确认**——按 D9 口径本站不记录这些数字。
 

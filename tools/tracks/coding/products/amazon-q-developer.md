@@ -76,7 +76,7 @@ cn:
   origin: foreign
   origin_note: AWS（亚马逊云科技）；中国区（光环新网/西云数据）另有独立运营口径，未逐条核验。
   origin_note_en: AWS (Amazon Web Services); the China regions (GDS/NNET) have separate operations,
-    not verified dossier by dossier this pass.
+    not verified dossier by dossier in the 2026-10-08 pass.
   direct: yes
   direct_note: aws.amazon.com / docs.aws.amazon.com 大陆直连实测 200（2026-10-22）。
   direct_note_en: aws.amazon.com / docs.aws.amazon.com measured 200 direct from mainland (2026-10-22).

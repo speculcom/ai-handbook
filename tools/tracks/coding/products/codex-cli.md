@@ -310,15 +310,15 @@ Codex 的 CLI 只是入口，真正的执行层是**它背后的 app server**。
 **这意味着它可以脱离终端单独使用** ——
 如果你要自建集成，CLI 只是其中一个客户端。
 
-## 核验限制（A6.2 已解除）
+## 核验限制（已于 2026-10-08 解除）
 
 **初版采集时**这条目多个维度标为未知，原因是官方文档站
 `developers.openai.com` 当时对 curl 返回 **403**（CDN 拦截），
 仓库 README 又极简，拿不到「沙箱档位、工具清单、模型映射、审批模式」。
 
-**A6.2（2026-10-08）改用浏览器直取官方文档后已全部补齐。**
+**2026-10-08改用浏览器直取官方文档后已全部补齐。**
 
-本轮取到正文的官方页：
+取到正文的官方页：
 
 - `config-basic` / `config-advanced` / `config-reference`
 - `agent-approvals-security` / `noninteractive` / `mcp` / `cli/reference`

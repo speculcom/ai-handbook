@@ -365,7 +365,7 @@ README 有独立章节 **「Non-interactive mode for scripts」**，定位是 wo
 - ✅ **已核验**：仓库、许可（Apache-2.0）、版本形态与日期、star 数（107,524 · 滚动核验 2026-10-23）、
   MCP 支持及文档页、非交互模式、npx 安装方式、MCP 接入多模态生成的官方举例
 
-- ✅ **A6.2 本轮补**：额度政策（Code Assist individuals 6,000/240 等）、
+- ✅ **2026-10-08 补充**：额度政策（Code Assist individuals 6,000/240 等）、
   三种接入方式与 `-m` 换模型、GEMINI.md 三层上下文与自动历史压缩、
   沙箱 / 审批 / 信任目录 / 策略引擎权限机制
 

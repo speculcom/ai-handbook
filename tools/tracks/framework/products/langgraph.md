@@ -103,7 +103,7 @@ axes:
     或者走 Deep Agents 那一层。
 
   background: >-
-    **这是它最强的一维，且有官方明文。**
+    **这是它证据最完整的一维，且有官方明文。**
 
     第一条特性 **Durable execution** 官方原文是：
 
@@ -224,7 +224,7 @@ axes:
 pitfalls:
   - 把 Deep Agents 与 LangGraph 当两个竞品 —— **Deep Agents 是建在 LangGraph 上的高层包**（README 明确）
   - 用 releases/latest 判版本 —— **monorepo 的 latest 不可靠**：本条实测 latest 返回
-    `cli==0.4.32.dev0`（子包 dev 版），主包版本需从 release 列表里挑（本次核验主包为 1.2.12）
+    `cli==0.4.32.dev0`（子包 dev 版），主包版本需从 release 列表里挑（主包为 1.2.12）
 
   - 把 checkpoint 持久化读成「上下文管理」—— checkpoint 存的是 **graph state**，
     上下文压缩与记忆是 README 里另设的 memory 那一层
@@ -464,7 +464,7 @@ Codex SDK（源码里三档 `SandboxMode` 枚举）——
 **`cli==0.4.32.dev0`（子包 dev 版）**，不是主包版本。
 
 正确做法是列最近几个 release 自己挑主包。
-本次核验（2026-10-01）的结果：
+2026-10-01 核验的结果：
 
 | tag | 发布日| 说明 |
 |---|---|---|

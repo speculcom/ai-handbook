@@ -503,7 +503,7 @@ cn:
 
 这些不是「没查到」，是官方文档本身未给，故不足以升到 verified。
 
-**本轮核到的官方页**：
+**已核到的官方页**：
 
 - 仓库 README（定位、model-agnostic 清单、durable 八引擎、Harness、Coder 示例）
 - `docs/ai/overview`（Why use 十二条 + bank support 示例）

@@ -306,7 +306,7 @@ hub.continue.dev（2026-10-08 取到）现为 **Continuous AI** 的商业线，�
 - **已停止维护**：上游仓库 read-only、官网被收购公告替换，未来不会再更新。
 - **已无法从官方页取证的**：Hub 旧价目、账户/订阅的去向等历史能力。
 
-本轮核到的官方页：仓库 README 与 Releases、官网 continue.dev（含 www 变体）、
+已核到的官方页：仓库 README 与 Releases、官网 continue.dev（含 www 变体）、
 文档站首页、MCP 深潜、Model providers、Agent quick-start、
 CLI quickstart 与 CLI headless、商业线定价页 hub.continue.dev/pricing。
 

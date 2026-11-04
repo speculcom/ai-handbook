@@ -329,7 +329,7 @@ README 里 agents 和 tools 都是 Hub 对象：
 
 这些不是「没查到」，是官方文档本身没提供，故不足以升到 verified。
 
-**本轮核到的官方页**：
+**已核到的官方页**：
 
 - README（含 barebones 定位、code-as-action、四类工具、沙箱、ManagedAgent）
 - docs index

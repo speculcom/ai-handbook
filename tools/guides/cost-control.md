@@ -25,7 +25,7 @@ confidence: verified
 ## [这一篇讲什么|What this guide covers]
 
 **agent 的成本就是 token 乘以步数，再乘以每步带着的上下文。**
-三个因子，三个抓手：砍无效 token、缩短上下文、限制步数。
+三个因子，三个手段：砍无效 token、缩短上下文、限制步数。
 本篇只讲机制与做法，不引任何价格数字——
 具体价格以各厂商官方定价页为准。
 
@@ -44,7 +44,7 @@ OpenAI 的缓存文档示范了最小记账单位：
 3. 步数：agent 每跑一步就是一次完整调用，循环十次付十次。
 4. 工具往返：每次工具调用的定义和结果都进上下文。
 
-## [抓手一：前缀缓存|Lever one: prefix caching]
+## [手段一：前缀缓存|Lever one: prefix caching]
 
 同一段内容反复发给模型，是最大的浪费。
 主流厂商的解法都是**前缀缓存**：把请求开头完全相同的部分缓存下来复用。
@@ -73,7 +73,7 @@ GPT-5.6 及之后的模型上还支持显式缓存断点，
 **静态在前，变化在后**；
 **先确认命中再庆祝**——创建很多、读取很少，说明前缀根本没稳住。
 
-## [抓手二：上下文治理|Lever two: context hygiene]
+## [手段二：上下文治理|Lever two: context hygiene]
 
 上下文膨胀是 agent 成本的隐形推手。几个有据可查的手段：
 
@@ -90,7 +90,7 @@ RAG server 的做法，见 [context7](../../tools/products/context7.md) 档案�
 **OpenAI 官方原文**：guardrails 文档的例子是用一个快而省的模型先做检查，
 "saving time and money"，挡在贵模型前面。
 
-## [抓手三：挡在门外|Lever three: block before you pay]
+## [手段三：挡在门外|Lever three: block before you pay]
 
 最便宜的调用是从未发生的调用。
 OpenAI Agents SDK 的 guardrails 有两种执行方式，成本语义完全不同。

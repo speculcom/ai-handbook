@@ -260,7 +260,7 @@ Amp 原是 Sourcegraph 出的前沿编码 agent，2025-12 官方公告分拆为�
 - ① 安全参考页仍写「不支持 BYOK 与自托管」，与定价页 / news 的 BYOK 口径相反（以定价页与新近 news 为准）
 - ② 任务给的 npm 包名是 `@sourcegraph/amp`，而官方安装文档当前给的是 **`@ampcode/cli`（官方标注 not recommended）**，两者以官方文档为准
 
-本轮核到的官方页：首页、定价页、Chronicle、Owner's Manual、docs/cli、docs/tools、docs/customize/mcp、Security Reference。
+已核到的官方页：首页、定价页、Chronicle、Owner's Manual、docs/cli、docs/tools、docs/customize/mcp、Security Reference。
 
 ## 实测记录
 

@@ -63,7 +63,7 @@ Saying it up front so you don't go hunting for something that isn't here:
 
 ```
 terms/ (ai-handbook subtree)
-├── terms/              200 terms, one file each (frontmatter + a fixed body skeleton)
+├── terms/              204 terms, one file each (frontmatter + a fixed body skeleton)
 │   └── INDEX.md        build output · station-grouped index, do not edit by hand
 ├── terms.en.json       English text (keyed by the Chinese term name)
 ├── paths/              learning-path source of truth (ordered slugs + checkpoints, bilingual)

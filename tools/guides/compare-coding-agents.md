@@ -59,7 +59,7 @@ confidence: partial
 
 **Codex CLI**：适合 OpenAI 生态、要线程续接与脚本化的人；Rust 实现、app server 是它的架构特征。**什么情况下选另一个**：团队已经押注 Anthropic，就选 Claude Code CLI。
 
-**Gemini CLI**：Apache-2.0、npx 免安装、支持 MCP 与非交互脚本，适合 CI 与教学。**什么情况下选另一个**：要最强的权限控制与变更记录，就选 Claude Code CLI。
+**Gemini CLI**：Apache-2.0、npx 免安装、支持 MCP 与非交互脚本，适合 CI 与教学。**什么情况下选另一个**：要更细的权限控制与变更记录，就选 Claude Code CLI。
 
 **Cursor**：适合要 IDE 体验、又要云端 Agent 续跑的人；2026-09-02 官方加入自托管，代码不出网是它的差异点。**什么情况下选另一个**：只要终端、不想装编辑器，就选三家 CLI 之一。
 

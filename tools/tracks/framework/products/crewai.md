@@ -17,7 +17,7 @@ providers:
   - 默认走 OpenAI API（README 明示）
   - 可接本地模型：官方点名 Ollama 工具（README 明示），LM Studio 亦可（README FAQ）
   - 原生 SDK 接入 5 家（OpenAI / Anthropic / Google Gemini / Azure / AWS Bedrock），
-    其余走 LiteLLM 兜底（官方 Connect CrewAI to LLMs 页，本轮已核）
+    其余走 LiteLLM 兜底（官方 Connect CrewAI to LLMs 页，核验已核）
 
   - ⚠ 换 provider 之后 tool calling 与 structured output 的可靠性，官方未说明
 
@@ -422,7 +422,7 @@ class AdvancedAnalysisFlow(Flow[MarketState]):
 
 **这就是本站要找的「状态」** —— 显式、结构化、可按数值阈值分支。
 
-**落盘与跨进程恢复本轮已核到**（官方 `concepts/checkpointing`、`concepts/flows` 页）。
+**落盘与跨进程恢复已核到**（官方 `concepts/checkpointing`、`concepts/flows` 页）。
 README 把 checkpointing 写成**按需添加**。两处原话都加了限定语：
 
 - "Add tools, memory, **checkpointing**, and async execution **as your system grows**"
@@ -460,7 +460,7 @@ FAQ 补充 **LM Studio** 也能接。
 **这一点对本站读者有实际价值**：要拿本地量化模型跑编排框架，
 CrewAI 是三个编排对象里唯一在 README 首屏级别点名具体工具的。
 
-**完整 provider 清单本轮已核到**（官方 `learn/llm-connections` 页）：
+**完整 provider 清单已核到**（官方 `learn/llm-connections` 页）：
 
 - **原生 SDK 接入 5 家** —— OpenAI、Anthropic、Google Gemini、Azure、AWS Bedrock
 - **其余走 LiteLLM 兜底**（`uv add 'crewai[litellm]'`）。官方另点名单列：Ollama、
@@ -500,7 +500,7 @@ MCP 的接入面：
 
 ## 权限维度：guardrails 是「任务输出校验」，不是权限边界
 
-本轮把这一维核实了，**结论与旧判断不同**。官方 `concepts/tasks` 页
+已把这一维核实了，**结论与旧判断不同**。官方 `concepts/tasks` 页
 「Task Guardrails」原文：
 
 > validate and transform task outputs before they are passed to the next task
@@ -524,7 +524,7 @@ MCP 安全官方明说是「信任」问题、不提供内置防护。
 
 ## 记忆：统一 Memory 系统，机制已核到（旧判断作废）
 
-本轮核实官方 `concepts/memory` 页。**官方已把记忆统一成一个 `Memory` 类**。
+已核实官方 `concepts/memory` 页。**官方已把记忆统一成一个 `Memory` 类**。
 
 > a single `Memory` class that replaces separate short-term, long-term,
 > entity, and external memory types with one intelligent API
@@ -621,7 +621,7 @@ Enterprise 明确写可部署在 CrewAI 云。它也支持你自己的 VPC / 你
 
 `confidence: partial` 的依据：
 
-**为什么仍是 partial（A6.2 本轮后）**：八维已全部从「未核验」改为结论，
+**为什么仍是 partial（补充核验后）**：八维已全部从「未核验」改为结论，
 但仍有三处**官方确实没写**、只能记「官方未说明」的项 ——
 换 provider 后 tool calling / structured output 的可靠性、容器部署时的默认权限、
 OSS 是否有网络访问控制的官方机制。
@@ -629,7 +629,7 @@ OSS 是否有网络访问控制的官方机制。
 此外 A2A 规范属外部协议、AMP Enterprise 官方仅标 Custom。
 这些不是「没查到」，是官方文档本身没给，故仍不足以升到 verified。
 
-**A6.2 本轮补齐的官方源**：
+**2026-10-08 补充核验的官方源**：
 
 - `concepts/checkpointing`（落盘粒度 / 后端 / 恢复 / fork）
 - `concepts/flows`（`@persist` 与 `SQLiteFlowPersistence`）
@@ -646,7 +646,7 @@ OSS 是否有网络访问控制的官方机制。
 README 关键段落（双抽象、七项 Key Features、模型接入、Crews/Flows FAQ、
 MarketState 结构化状态示例、Telemetry 与 License 段）。
 
-**本轮（2026-10-01）补上的**：CrewAI AMP 档位结构。官方页两档，已写进正文表格。
+**2026-10-01 补充**：CrewAI AMP 档位结构。官方页两档，已写进正文表格。
 Enterprise 的部署形态（客户自有 VPC / 自有基础设施）。无强制联网授权表述。
 
 **核验方法**：先试渲染抓取 `crewai.com/pricing` 超时，

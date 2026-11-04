@@ -518,7 +518,7 @@ checkpoint 会一并保存 pending 请求，恢复时重新发出。
 
 `confidence: partial` 的依据如下。
 
-**为什么不是 verified**：本轮已核到不少机制。
+**为什么不是 verified**：已核到不少机制。
 
 - 血缘定位
 - Agent / Workflow 两类 API
@@ -537,7 +537,7 @@ checkpoint 会一并保存 pending 请求，恢复时重新发出。
 
 因此不足以升到 verified。
 
-**本轮核到的官方页**：
+**已核到的官方页**：
 
 - 仓库与 README
 - `overview/agent-framework-overview`

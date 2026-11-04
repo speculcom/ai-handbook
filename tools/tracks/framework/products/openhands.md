@@ -522,7 +522,7 @@ OSS 档默认单用户、单会话 key。
 
 `confidence: partial` 的依据：
 
-**为什么不是 verified**：并非缺轴。八维本轮均已核到官方机制（`context` 侧有官方
+**为什么不是 verified**：并非缺轴。八维核验均已核到官方机制（`context` 侧有官方
 condenser，见 axes.context）。仍留 partial 是因为还存在**官方确实没写、或需实测**的项：
 
 - context 压缩的端到端效果
@@ -554,7 +554,7 @@ condenser，见 axes.context）。仍留 partial 是因为还存在**官方确�
 - `software-agent-sdk` 的 API 形态
 - LLM profiles 的完整配置格式（官方页有，细节未逐条录入）
 
-**本轮（2026-10-01）补上的**：官方定价页三档已核实 ——
+**2026-10-01 补充**：官方定价页三档已核实 ——
 Open Source 与 Cloud Individual 均为免费档、Enterprise 定制；
 **Individual 每日 10 轮对话上限**（对照 Open Source 的 Unlimited）；
 Individual 支持 BYOK、无 key 时走 OpenHands provider 且官方声明 **at cost, no markup**；

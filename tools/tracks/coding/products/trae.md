@@ -71,7 +71,7 @@ cn:
   filing_note: 国内版所用模型的备案信息未核验到官方公示页（docs.trae.cn 为动态加载，本次未能直抓正文）；
     「未核验到」不等于「未备案」。
   filing_note_en: no official filing disclosure page verified for the domestic edition's models
-    (docs.trae.cn is dynamically loaded; body not fetched this pass); "not verified" does not mean "not filed".
+    (docs.trae.cn is dynamically loaded; body not fetched in the 2026-10-08 pass); "not verified" does not mean "not filed".
   verified: 2026-10-21
 ---
 

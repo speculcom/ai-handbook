@@ -1,5 +1,5 @@
 {
-  "_comment": "C0-3 正文英译 · codex-cli（2026-10-25）。官方英文引文原样保留；「核验限制（A6.2 已解除）」等小节按索引对齐。",
+  "_comment": "C0-3 正文英译 · codex-cli（2026-10-25）。官方英文引文原样保留；「核验限制（已于 2026-10-08 解除）」等小节按索引对齐。",
   "_rules": [
     "0) 保留 ** 强调、`code`、链接与表格结构，与中文侧逐块对应。",
     "1) 官方英文引文原样保留；档案里的中文转述引文在英文侧标注 (translated)，不伪造英文原文。",
@@ -20,14 +20,14 @@
     "变更记录说明": "Change-log note",
     "安装方式": "Installation methods",
     "架构关键：app server": "Architecture key: the app server",
-    "核验限制（A6.2 已解除）": "Verification limits (lifted in A6.2)",
+    "核验限制（已于 2026-10-08 解除）": "Verification limits (lifted in 2026-10-08)",
     "权限定级说明": "Permission-grading note"
   },
   "sections": {
     "变更记录说明": "This subject has standalone releases:\n\n| Version | Date |\n|---|---|\n| `rust-v0.158.0` | 2026-09-28 |\n\n**Note the version prefix is `rust-v`**, indicating the repository also contains implementations in other languages;\nwhen citing version numbers, write the prefix in full.",
     "安装方式": "The README offers two:\n\n- npm install\n- Homebrew install (`--cask`)\n\nAuthorization is explicit: the README has its own section **\"Using Codex with your ChatGPT plan\"**,\ni.e. authorization rides on the ChatGPT subscription.",
     "架构关键：app server": "The design focus of Codex is not the CLI itself but **the app server behind it**.\n\n- custom clients connect through the app server\n- threads can be started, resumed and recovered\n- the Python SDK is built on app-server JSON-RPC\n\n**That means it can be used independently of the terminal** —\nif you are building your own integration, the CLI is just one of its clients.",
-    "核验限制（A6.2 已解除）": "**At first collection** several dimensions of this entry were marked unknown, because the official docs site\n`developers.openai.com` then returned **403** to curl (CDN interception),\nand the repository README is minimal — no \"sandbox tiers, tool list, model mapping, approval modes\" could be obtained.\n\n**A6.2 (2026-10-08) filled everything in by fetching the official docs directly through a browser.**\n\nOfficial pages fetched in full this round:\n\n- `config-basic` / `config-advanced` / `config-reference`\n- `agent-approvals-security` / `noninteractive` / `mcp` / `cli/reference`\n- `cloud` / `memories`\n\nItem-by-item conclusions from these pages are in the axes above.",
+    "核验限制（已于 2026-10-08 解除）": "**At first collection** several dimensions of this entry were marked unknown, because the official docs site\n`developers.openai.com` then returned **403** to curl (CDN interception),\nand the repository README is minimal — no \"sandbox tiers, tool list, model mapping, approval modes\" could be obtained.\n\n**2026-10-08 (2026-10-08) filled everything in by fetching the official docs directly through a browser.**\n\nOfficial pages fetched in full the 2026-10-08 check:\n\n- `config-basic` / `config-advanced` / `config-reference`\n- `agent-approvals-security` / `noninteractive` / `mcp` / `cli/reference`\n- `cloud` / `memories`\n\nItem-by-item conclusions from these pages are in the axes above.",
     "权限定级说明": "Why `confidence: partial`:\n\n- ✅ Verified (each item traceable to an official page): repository exists, license (Apache-2.0),\n  latest version, release date, stars (130,498 · rolling re-check 2026-10-23), installation methods, ChatGPT-subscription authorization\n\n- ✅ Verified (default model and provider configuration surface, sandbox tiers and defaults, approval-policy enumeration,\n  tool list and MCP, context compaction and memories, the cloud-task form)\n\n- ❌ Not verified (**per-platform** implementation details of the three sandbox tiers): the official only says OS-level enforcement +\n  the Windows `elevated`/`unelevated` tiers, not broken out by platform\n\n- ❌ Not verified (tool-calling quality after switching providers; concrete concurrency/duration numbers for cloud tasks)\n\n**When citing this entry, use only the verified parts.**"
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).",

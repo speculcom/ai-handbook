@@ -107,7 +107,7 @@ cn:
     但所用各模型（Qwen/DeepSeek/GLM/Kimi/MiniMax）的备案号公示位置未逐条核验到；「未核验到」不等于「未备案」。
   filing_note_en: the official series page claims full-chain domestic cloud deployment meeting domestic
     data-security and compliance requirements, but per-model filing numbers (Qwen/DeepSeek/GLM/Kimi/MiniMax)
-    were not verified against an official disclosure page this pass; "not verified" does not mean "not filed".
+    were not verified against an official disclosure page the 2026-10-08 pass; "not verified" does not mean "not filed".
   verified: 2026-10-22
 ---
 

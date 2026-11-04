@@ -296,7 +296,7 @@ ACP 载入、恢复、分叉时保留模型、effort 和模式边界
 
 `confidence: partial` 的原因：
 
-- ✅ 已核验：仓库、许可（MIT）、最新版本与日期、star 数（220,242 · 滚动核验 2026-10-23，本分区最高）、权限策略（allow/ask/deny 细粒度）、ACP、安装方式；**滚动核验补**：仓库已从 `sst/opencode` 迁移到 `anomalyco/opencode`（GitHub 301 跳转坐实，仓 homepage 字段=opencode.ai）；**A6.2 本轮补**：75+ provider 与本地模型、内置工具清单与 MCP 接入方式、`compaction` 上下文策略
+- ✅ 已核验：仓库、许可（MIT）、最新版本与日期、star 数（220,242 · 滚动核验 2026-10-23，本分区最高）、权限策略（allow/ask/deny 细粒度）、ACP、安装方式；**滚动核验补**：仓库已从 `sst/opencode` 迁移到 `anomalyco/opencode`（GitHub 301 跳转坐实，仓 homepage 字段=opencode.ai）；**2026-10-08 补充**：75+ provider 与本地模型、内置工具清单与 MCP 接入方式、`compaction` 上下文策略
 - ❌ 未核验：YOLO 模式的具体开关方式、子代理的调度细节与 token 开销
 
 ## 适合与不适合

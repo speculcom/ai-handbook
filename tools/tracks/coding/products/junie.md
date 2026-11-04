@@ -313,7 +313,7 @@ ReSharper 2026.2 又把 Junie 带进 Visual Studio（Preview）。
 - 上下文窗口与压缩参数
 - Junie Local 的完整适用范围
 
-本轮核到的官方页：
+已核到的官方页：
 
 > jetbrains.com/junie/、/help/junie/（get-started、install、modes、
 > customize-guidelines、user-approval、aiignore、model-context-protocol-mcp、
@@ -334,7 +334,7 @@ ReSharper 2026.2 又把 Junie 带进 Visual Studio（Preview）。
 - 美元口径的订阅价（官方页本次以人民币年付呈现，本站不折算）
 - 上下文窗口大小与压缩策略的具体参数（官方未给数字）
 - Junie Local 支持的机型与模型范围
-- 各 JetBrains AI 档位对 Junie 的可用性勾选细节（官方未说明，本轮只取到许可页对 Enterprise 档的排除）
+- 各 JetBrains AI 档位对 Junie 的可用性勾选细节（官方未说明，只取到许可页对 Enterprise 档的排除）
 
 ## 相关条目
 

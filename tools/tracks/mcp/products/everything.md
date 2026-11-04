@@ -197,7 +197,7 @@ cn:
 
 ## 未知项清单
 
-> 2026-10-08 A6.2：工具清单已按仓库 `docs/features.md` 逐条核对（19 个工具 + 4 个 prompt），
+> 2026-10-08：工具清单已按仓库 `docs/features.md` 逐条核对（19 个工具 + 4 个 prompt），
 > transport 也已核到 README 的 Streamable HTTP / SSE 启动文档 ——
 > 原降级原因消失，`confidence` 升回 `verified`。
 

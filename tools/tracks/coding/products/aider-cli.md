@@ -60,7 +60,7 @@ axes:
 
     **map 的 token 预算由 `--map-tokens` 控制、刷新频率由 `--map-refresh`（auto/always/files/manual）控制。**
 
-    **大仓库的实际耗时与 token 开销官方未给数字，本站未实测。**
+    **大仓库的实际耗时与 token 开销官方未给数字，本站未做端到端实测。**
   background: >-
     **不支持终端形态的后台长任务。**
 
@@ -263,7 +263,7 @@ AI 改动始终在版本控制里，可 diff 可撤销。
 
 这与其他工具的"按需检索文件"是不同思路：**先建全库结构图，再据此工作**。
 
-**注意**：A6.2 已核到 —— **token 预算由 `--map-tokens` 控制**（设为 0 即关闭），刷新频率由 `--map-refresh`（auto/always/files/manual）控制。
+**注意**：2026-10-08 已核到 —— **token 预算由 `--map-tokens` 控制**（设为 0 即关闭），刷新频率由 `--map-refresh`（auto/always/files/manual）控制。
 
 **如何选文件进 map 的具体排序算法**官方 `docs/repomap.md` 有说明。
 
@@ -296,7 +296,7 @@ Aider 把「自动提交 + 用 git 撤销」当作核心工作流。
 `confidence: partial` 的原因：
 
 - ✅ 已核验：仓库、许可（Apache-2.0）、最新版本与日期、维护状态、star、PyPI 安装量、README 全部能力描述
-- ✅ A6.2 本轮新核：文件范围与忽略规则、自动提交/确认机制（`--auto-commits`/`--yes-always`）、lint/测试命令、上下文摘要压缩（`--max-chat-history-tokens`）、**官方无 MCP 支持**
+- ✅ 2026-10-08 核验：文件范围与忽略规则、自动提交/确认机制（`--auto-commits`/`--yes-always`）、lint/测试命令、上下文摘要压缩（`--max-chat-history-tokens`）、**官方无 MCP 支持**
 - ⚠️ 官方未给数字：大仓库 Repo Map 的实际耗时与 token 开销
 
 **维护状态的不确定性来自"未来会不会更新"**——这本身就是选型风险。

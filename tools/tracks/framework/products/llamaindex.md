@@ -223,7 +223,7 @@ pitfalls:
   - 以为 workflow / agent 编排在 OSS 里 —— README 把 Workflows 写在商业平台 LlamaAgents 那一节
   - 把 LlamaIndex 的「data connectors」与 Deep Agents 的「filesystem」混为一谈 —— 前者是数据源接入与解析，后者是 agent 的工作区文件操作
   - 把 LlamaParse 当免费开源件 —— 它是商业平台，需注册取 key
-  - 以为 300+ 集成等于都同等可靠 —— 官方原话 work seamlessly，本站未实测对齐度
+  - 以为 300+ 集成等于都同等可靠 —— 官方原话 work seamlessly，本站未做端到端实测对齐度
   - 没注意 README 自己写的 NOTE —— 原文"This README is not updated as frequently as the documentation"
 
 tags: [Python, 开源, MIT, 编排框架, RAG, 数据接入, 文档解析, 检索, 集成生态, 战略转移, 商业平台]
@@ -375,7 +375,7 @@ from llama_index.xxx.yyy import SubclassABC    # 不带 = 集成包
 
 ## 300+ 集成：优势也是维护负担
 
-⚠ **官方原话是 "work seamlessly"。** 本站未实测任何跨 provider 的能力对齐度。
+⚠ **官方原话是 "work seamlessly"。** 本站未做端到端实测，无法判断跨 provider 的能力对齐度。
 
 选型时不能只看包名存在，还要看那个集成包的维护状态与 issue。
 
@@ -451,7 +451,7 @@ from llama_index.xxx.yyy import SubclassABC    # 不带 = 集成包
 
 **为什么仍是 `confidence: partial`。**
 
-判定依据是 2026-10-08 A6.2 更新。
+判定依据是 2026-10-08 更新。
 
 原三项「为什么不是 verified」已全部核实并写进维度：
 
@@ -459,7 +459,7 @@ from llama_index.xxx.yyy import SubclassABC    # 不带 = 集成包
 - ② 权限维度（官方未给沙箱 / 权限收敛机制，结论见 permissions 维度）
 - ③ MCP 支持（官方 `llama-index-tools-mcp`，含 SSE / HTTP / stdio）
 
-`confidence` 是否升级由上层批次统一裁定，本轮只更新维度与说明。
+`confidence` 是否升级由上层批次统一裁定，仅更新维度与说明。
 
 **已核验（存量）**：
 

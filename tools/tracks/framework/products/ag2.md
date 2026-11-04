@@ -202,7 +202,7 @@ axes:
 
     **A2A 目前只能在官方仓库 topics 里看到（含 `a2a`）。**
 
-    本轮未取到 v1.0 的 A2A 专页正文，故不展开。
+    未取到 v1.0 的 A2A 专页正文，故不展开。
 
     子任务委派另有 `run_subtask` / `run_subtasks` 自动注入工具（见 context 轴）。
   context: >-
@@ -486,10 +486,10 @@ v1.0 用 **Network** 取代经典的 `GroupChat` / swarm / nested chat：
 
 `confidence: partial` 的依据：
 
-**为什么不是 verified**：本轮已核到 v1.0 与 Classic 的拆分、Network 的 Hub/channel 抽象、
+**为什么不是 verified**：已核到 v1.0 与 Classic 的拆分、Network 的 Hub/channel 抽象、
 harness 三组原语、provider 清单（含本地模型）。
 
-受限 shell 与工具审批机制也已核到。发布节奏（v1.1.1 / v1.1.2）同样在本轮核到。
+受限 shell 与工具审批机制也已核到。发布节奏（v1.1.1 / v1.1.2）同样在已核到。
 
 但仍有多处**官方确实没给**的项：
 
@@ -500,7 +500,7 @@ harness 三组原语、provider 清单（含本地模型）。
 
 加上版本迭代快（数日内连发两版），故不足以升到 verified。
 
-**本轮核到的官方页**：仓库与 README、`network/overview`、`agent_harness`、
+**已核到的官方页**：仓库与 README、`network/overview`、`agent_harness`、
 `beta/model_configuration`、Grok 兼容页、经典线 LLM Configuration 页、releases 页、
 `ag2ai/ag2-classic` 仓。
 
@@ -527,7 +527,7 @@ harness 三组原语、provider 清单（含本地模型）。
 - 框架级默认文件访问边界与容器级隔离（官方未说明）
 - 托管选项与崩溃场景下的断点续跑语义（官方未说明）
 - 换 provider 后 tool calling / structured output 的可靠性对比（官方未说明）
-- A2A 在 AG2 v1.0 的实现细节（官方仓库 topics 含 a2a，本轮未取到专页正文）
+- A2A 在 AG2 v1.0 的实现细节（官方仓库 topics 含 a2a，未取到专页正文）
 - 受限 shell 的完整命令白名单语义边界（官方给的是 allowed/readonly/blocked 三档，细节需实测）
 - Classic 线与 v1.0 的长期并行维护策略（官方仅称 Classic "remains maintained"）
 

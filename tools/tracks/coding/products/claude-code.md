@@ -324,7 +324,7 @@ v2.1.284 两处改动：
 `confidence: partial`：
 
 - ✅ 已核验：许可状态原文、三种用法的官方表述、模型规格原文（报价按 D9 不存）、权限设计三个机制、上下文压缩策略、MCP 两处改动、release 频率（5 天 5 版）、Atom feed 存在
-- ✅ A6.2 本轮新核（2026-10-08）：**VS Code / JetBrains 扩展与终端读同一批 settings 文件**；
+- ✅ 2026-10-08 核验（2026-10-08）：**VS Code / JetBrains 扩展与终端读同一批 settings 文件**；
   allow/ask/deny 规则语法与四级 settings；权限模式枚举；OS 级 Bash 沙箱（文件系统 + 网络隔离）；
   工作目录边界与凭据存储；CLAUDE.md 四级记忆层级与 auto memory；MCP 四种传输与三级 scope；
   云会话（关机后续跑）、GitHub Actions、Routines 定时

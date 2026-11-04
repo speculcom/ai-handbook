@@ -338,7 +338,7 @@ CI 侧，官方区分两种自主级别，并**推荐生产用「受限自主」
 
 仍缺的：两处结构性缺口（见下面的未知项清单），所以不标 `verified`。
 
-本轮核到的官方页：
+已核到的官方页：
 
 - 官方落地页 —— https://cursor.com/cli
 - 官方 CLI changelog —— https://cursor.com/docs/cli/changelog
