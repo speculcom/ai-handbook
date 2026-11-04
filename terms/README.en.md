@@ -376,6 +376,6 @@ inconsistent skeleton gets caught by the validator.
 | Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |
 | Domain | concept 56 · infra 34 · choice 33 · agent 26 · media 19 · model 16 · dev 10 · data 10 |
 | Purpose (purposeTag) | learn 81 · apply 50 · guard 37 · judge 36 |
-| Source entries (refs) | 521 |
+| Source entries (refs) | 522 |
 | English coverage | 204 / 204 |
 <!-- STATS:END -->

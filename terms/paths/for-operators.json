@@ -3,10 +3,13 @@
   "ord": 8,
   "zh": "运维上线路线",
   "en": "The Operator's Route",
-  "span": { "zh": "约 60 分钟", "en": "about 60 minutes" },
+  "span": {
+    "zh": "约 60 分钟",
+    "en": "about 60 minutes"
+  },
   "lead": {
-    "zh": "负责把 AI 服务跑起来并稳住的人：性能从哪来、成本从哪来、出事时先看哪里。",
-    "en": "For people who keep AI services running: where performance comes from, where cost comes from, and what to check first when things break."
+    "zh": "沿运行、监控、权限、故障与退役读十四个主题。先建立排查顺序，再用具体服务的配置与日志验证。",
+    "en": "Study fourteen topics covering runtime, monitoring, permissions, failure and retirement. Form an investigation order, then validate it against a service’s configuration and logs."
   },
   "steps": [
     "推理成本",
@@ -35,5 +38,27 @@
       "List three things a live service must monitor, and what to check first for each",
       "When a vendor announces retirement, walk through the four migration-assessment checks"
     ]
+  },
+  "answers": [
+    {
+      "zh": "首字延迟影响开始等待的时间，吞吐影响连续生成或并发能力。前者可先查输入处理与排队，后者可查批处理与硬件瓶颈；需用相同负载验证。",
+      "en": "Time to first token affects initial waiting; throughput affects generation/concurrency capacity. Investigate input processing and queues for the former, batching and hardware limits for the latter under equal load.",
+      "review": "首字延迟"
+    },
+    {
+      "zh": "先看任务完成率、延迟分布、错误、用量和权限异常。成本突增时对照请求数、输入长度、重试和工具调用记录，不立即归因于模型单价。",
+      "en": "Track completion, latency distribution, errors, usage and permission anomalies. For a cost spike, compare request count, input lengths, retries and tool calls before blaming the model rate.",
+      "review": "可观测性"
+    },
+    {
+      "zh": "至少覆盖接口与流式、任务质量、工具与权限、成本与延迟，并核对数据条款和回滚。先在代表性请求上对比，达到预先约定的条件再切换。",
+      "en": "Cover interface/streaming, task quality, tools/permissions and cost/latency, plus data terms and rollback. Compare representative requests before switching against agreed criteria.",
+      "review": "模型退役"
+    }
+  ],
+  "nextTask": {
+    "href": "https://tools.specul.com/mcp/guides/playbook-local-model.html#worked-example",
+    "zh": "从容量预算走到运行检查",
+    "en": "Move from a capacity budget to runtime checks"
   }
 }

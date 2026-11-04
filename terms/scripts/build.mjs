@@ -54,6 +54,8 @@ try {
   console.warn('  ! terms.en.json 读不到，词条释义保持中文：' + e.message);
 }
 
+const PRACTICE = JSON.parse(fs.readFileSync(path.join(repoRoot, 'practice.json'), 'utf8'));
+const READING_MAP = JSON.parse(fs.readFileSync(path.join(repoRoot, 'reading-map.json'), 'utf8'));
 const outFile = path.join(repoRoot, 'site', 'data', 'terms.all.js');
 const outDir = path.dirname(outFile);
 
@@ -277,6 +279,8 @@ if (fs.existsSync(pathsDir)) {
       if (seen.has(s)) throw new Error(`${tag}: 第 ${i + 1} 步「${s}」重复`);
       seen.add(s);
     });
+    p.stepUrls = p.steps.map(s => '/' + (guideSlugSet.has(s) ? 'guide' : 'term') + '/' + encodeURIComponent(s) + '/');
+    if (!Array.isArray(p.answers) || p.answers.length !== p.checkpoint.zh.length || p.answers.some(a => !a.zh || !a.en)) throw new Error(`${tag}: 每个自测题都需要中英参考回答`);
     PATHS.push(p);
   }
   PATHS.sort((a, b) => (a.ord || 0) - (b.ord || 0) || a.id.localeCompare(b.id));
@@ -313,6 +317,7 @@ if (fs.existsSync(guidesDir)) {
       if (!slugSet.has(s)) throw new Error(`${tag}: terms 互链「${s}」不是任何词条的 slug（会链到不存在的页面）`);
     }
     const slug = path.basename(f).replace(/\.md$/, '');
+    if (!PRACTICE[slug]?.zh || !PRACTICE[slug]?.en) throw new Error(`${tag}: 缺中英教学示例`);
     const en = enGuides[slug];   // 键 = 文件名（与 guides.en.json / validate 同一口径），不是 zh
     if (!en || !en.lead) throw new Error(`${tag}: guides.en.json 缺「${slug}」的英文 lead（R2 中英同步）`);
     g.leadEn = en.lead;
@@ -476,7 +481,7 @@ fs.writeFileSync(outFile, header + JSON.stringify(out, null, 1) + ';\n', 'utf8')
 fs.writeFileSync(path.join(outDir, 'paths.js'),
   `/* AI 名词地图 · 学习路径（S23）\n * **这是产物，不要手改。** 源在 paths/*.json。\n` +
   ` * 每条：id / ord / zh / en / span / lead / steps（有序 slug；C5-3 起可指词条或指南/论文卡）/ checkpoint。\n */\n` +
-  `var PATHS = ` + JSON.stringify(PATHS, null, 1) + ';\n', 'utf8');
+  `var PATHS = ` + JSON.stringify(PATHS.map(({answers, ...route}) => route), null, 1) + ';\n', 'utf8');
 
 /* S24：指南产物（首页导览条读它；指南页本身已由 build 直接渲染成静态 HTML）。
  * 只导出渲染需要的字段，正文（body）不进产物 —— 页面从 frontmatter 渲染。 */
@@ -539,6 +544,7 @@ if (fs.existsSync(path.dirname(deployDir))) {
     ['paths.js', path.join(outDir, 'paths.js')],
     // S24：微型指南（guides/*.md frontmatter 校验后合并成一份产物，首页导览条消费）
     ['guides.js', path.join(outDir, 'guides.js')],
+    ['reading.js', path.join(repoRoot, 'reading.js')],
   ];
   const synced = [];
   let changed = 0;
@@ -746,7 +752,9 @@ const TABBAR = SHELL.tabbar('learn');
     /* B3：跨站动作（一条）+ 站内动作（同层其他词）。
      * 跨站那条的措辞是「去哪个站**能拿到什么**」，不是一个光秃秃的站名。 */
     const target = crossTarget(t);
-    const act = SITE_ACTION[target];
+    const direct = READING_MAP.actions[slugOf(t)];
+    const sourceRef = (t.refs || []).find(r => /^https?:\/\/(tools|models|vg|nav)\.specul\.com\//.test(r[1]));
+    const act = direct ? {href:direct[0], zh:direct[1], en:direct[2]} : sourceRef ? {href:sourceRef[1], zh:sourceRef[0], en:sourceRef[2] || sourceRef[0]} : SITE_ACTION[target];
     const layerCount = layer.terms.length;
     const crossLink = `      <div class="tp-sec">
         <div class="tp-lab">${bi('现在能做什么', 'What you can do now')}</div>
@@ -755,23 +763,24 @@ const TABBAR = SHELL.tabbar('learn');
       </div>
 `;
 
-    /* B3：相关词条 —— 3 个邻近词条（先同 domain 优先，再按层级/序号邻近度）。
-     * 排序必须**确定**（同分按 slug），否则每次构建产物都不同、diff 全是噪声。 */
-    const near = flat
-      .filter((x) => x.t !== t)
-      .map((x) => ({
-        x,
-        sameDomain: x.t.domain === t.domain ? 0 : 1,
-        dLayer: Math.abs(Number(x.t.level) - Number(t.level)),
-        dOrd: Math.abs(Number(x.t.ord) - Number(t.ord)),
-      }))
-      .sort((a, b) => (a.sameDomain - b.sameDomain) || (a.dLayer - b.dLayer) || (a.dOrd - b.dOrd) || slugOf(a.x.t).localeCompare(slugOf(b.x.t), 'zh'))
-      .slice(0, 3);
-    const related = `      <div class="tp-sec tp-related">
-        <div class="tp-lab">${bi('相关词条', 'Related terms')}</div>
-        <p class="tp-p">${near.map(({ x }) => `<a href="../${ENC(slugOf(x.t))}/">${bi(x.t.zh,x.t.en)}</a>`).join(' · ')}</p>
-      </div>
-`;
+    const currentSlug = slugOf(t);
+    const connections = [];
+    const addConnection = (other, zh, english) => {
+      const found = flat.find(x => slugOf(x.t) === other);
+      if (found && other !== currentSlug && !connections.some(x => x.slug === other)) connections.push({slug:other, t:found.t, zh, en:english});
+    };
+    for (const [a,b,zh,english] of READING_MAP.relations) {
+      if (a === currentSlug) addConnection(b,zh,english);
+      if (b === currentSlug) addConnection(a,zh,english);
+    }
+    for (const g of GUIDES.filter(g => (g.terms || []).includes(currentSlug))) {
+      for (const other of g.terms || []) addConnection(other, `一起用于《${g.zh}》`, `Used together in “${g.en}”`);
+    }
+    for (const p of PATHS.filter(p => p.steps.includes(currentSlug))) {
+      const i = p.steps.indexOf(currentSlug);
+      for (const other of [p.steps[i-1],p.steps[i+1]].filter(Boolean)) addConnection(other, `在《${p.zh}》中接着读`, `Continue in “${p.en}”`);
+    }
+    const related = connections.length ? `<div class="tp-sec tp-related"><div class="tp-lab">${bi('接着读什么，为什么', 'What to read next, and why')}</div><ul>${connections.slice(0,3).map(c => `<li><a href="../${ENC(c.slug)}/">${bi(c.t.zh,c.t.en)}</a><p class="t-sm">${bi(esc(c.zh),esc(c.en))}</p></li>`).join('')}</ul></div>` : '';
 
     const html = `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -789,6 +798,8 @@ const TABBAR = SHELL.tabbar('learn');
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
   <script src="../../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
+  <script defer src="../../data/paths.js"></script>
+  <script defer src="../../data/reading.js"></script>
   <link rel="stylesheet" href="../../brand.css?v=${SHELL.RUNTIME_VERSION}" />
   <link rel="stylesheet" href="../../learn.css" />
   <style>:root { --accent: var(--cyan); }</style>
@@ -898,12 +909,13 @@ ${TABBAR}
     const stepsHtml = p.steps.map((s, i) => {
       /* C5-3：step 可能是词条 slug，也可能是指南/论文卡 slug——两类页面都在 learn 站内 */
       const g = GUIDES.find((x) => path.basename(x.__file || '').replace(/\.md$/, '') === s);
-      if (g) return `        <li><a href="../../guide/${ENC(s)}/">${bi(g.zh, g.en)}</a></li>`;
+      if (g) return `        <li><a href="../../guide/${ENC(s)}/?path=${ENC(p.id)}">${bi(g.zh, g.en)}</a></li>`;
       const t = flat.find((x) => slugOf(x.t) === s).t;
-      return `        <li><a href="../../term/${ENC(slugOf(t))}/">${bi(t.zh, t.en)}</a></li>`;
+      return `        <li><a href="../../term/${ENC(slugOf(t))}/?path=${ENC(p.id)}">${bi(t.zh, t.en)}</a></li>`;
     }).join('\n');
     const ckZh = p.checkpoint.zh.map((c) => `          <li>${esc(c)}</li>`).join('\n');
     const ckEn = p.checkpoint.en.map((c) => `          <li>${esc(c)}</li>`).join('\n');
+    const answersHtml = p.answers.map((a, i) => `<details class="tp-sec"><summary>${bi(`第 ${i + 1} 题 · 参考回答`, `Question ${i + 1} · Reference answer`)}</summary><p class="tp-p">${bi(esc(a.zh), esc(a.en))}</p>${a.review ? `<p><a href="../../${guideSlugSet.has(a.review)?'guide':'term'}/${ENC(a.review)}/?path=${ENC(p.id)}">${bi('回看这一题的概念', 'Revisit this concept')}</a></p>` : ''}</details>`).join('\n');
     const otherPaths = PATHS.filter((q) => q.id !== p.id)
       .map((q) => `<a href="../${q.id}/">${bi(q.zh, q.en)}</a>`).join(' · ');
     const html = `<!DOCTYPE html>
@@ -922,6 +934,8 @@ ${TABBAR}
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
   <script src="../../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
+  <script defer src="../../data/paths.js"></script>
+  <script defer src="../../data/reading.js"></script>
   <link rel="stylesheet" href="../../brand.css?v=${SHELL.RUNTIME_VERSION}" />
   <link rel="stylesheet" href="../../learn.css" />
   <style>:root { --accent: var(--cyan); }</style>
@@ -962,7 +976,7 @@ ${stepsHtml}
           </ol>
         </div>
 
-        <div class="t-check">
+        <div class="t-check" id="checkpoint">
           <div class="t-check-h">${bi('学完自测', 'Checkpoint')}</div>
 <span data-zh>
           <ol>
@@ -976,6 +990,9 @@ ${ckEn}
 </span>
         </div>
 
+        <p class="tp-p">${bi('先试着回答，再展开参考答案。答不上来的地方，可从上方步骤返回对应词条。参考回答是核对要点，不要求逐字复述。', 'Try answering before opening the reference. Revisit the relevant step above if needed. These answers highlight key ideas; you do not need to repeat the wording.')}</p>
+${answersHtml}
+        ${p.nextTask ? `<section class="tp-sec"><h2>${bi('用在一个具体任务里', 'Apply this to a concrete task')}</h2><p><a href="${esc(p.nextTask.href)}">${bi(esc(p.nextTask.zh),esc(p.nextTask.en))} →</a></p></section>` : ''}
         <div class="tp-sec">
           <div class="tp-lab">${bi('其他路径', 'Other paths')}</div>
           <p class="tp-p">${otherPaths}</p>
@@ -1067,7 +1084,7 @@ ${liEn}
           <p class="tp-p">${g.terms.map((s) => `<a class="t-guidechip" href="../../term/${ENC(s)}/">${termLabel(s)}</a>`).join(' ')}</p>
         </div>\n`
       : '';
-    const otherGuides = GUIDES.filter((q) => q !== g)
+    const otherGuides = GUIDES.filter((q) => q !== g && (q.terms || []).some(s => (g.terms || []).includes(s))).slice(0, 4)
       .map((q) => `<a href="../${path.basename(q.__file).replace(/\.md$/, '')}/">${bi(q.zh, q.en)}</a>`).join(' · ');
     const KIND_ZH = g.kind === 'paper' ? '论文卡' : '微型指南';
     const KIND_EN = g.kind === 'paper' ? 'Paper card' : 'Guide';
@@ -1087,6 +1104,8 @@ ${liEn}
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
   <script src="../../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
+  <script defer src="../../data/paths.js"></script>
+  <script defer src="../../data/reading.js"></script>
   <link rel="stylesheet" href="../../brand.css?v=${SHELL.RUNTIME_VERSION}" />
   <link rel="stylesheet" href="../../learn.css" />
   <style>:root { --accent: var(--gold); }</style>
@@ -1105,9 +1124,10 @@ ${HEADER('learn')}
           <span>${bi(KIND_ZH, KIND_EN)}</span>
         </nav>
         <h1>${bi(g.zh, g.en)}</h1>
-        <p class="tp-en">${bi(`${KIND_ZH} · 约 ${g.span} 分钟`, `${KIND_EN} · about ${g.span} min`)}${g.last_verified ? bi(` · 引用核验 ${esc(String(g.last_verified))}${g.verified_scope === 'refs' ? '（批次·refs 链接与日期）' : ''}`, ` · refs checked ${esc(String(g.last_verified))}${g.verified_scope === 'refs' ? ' (batch · links and dates)' : ''}`) : ''}</p>
+        <p class="tp-en">${bi(`${KIND_ZH} · 约 ${g.span} 分钟`, `${KIND_EN} · about ${g.span} min`)}${g.last_verified ? bi(` · 引用核验 ${esc(String(g.last_verified))}${g.verified_scope === 'refs' ? '（仅引用链接与日期）' : ''}`, ` · refs checked ${esc(String(g.last_verified))}${g.verified_scope === 'refs' ? ' (reference links and dates only)' : ''}`) : ''}</p>
         <p class="tp-p"><span data-zh>${escMd(g.lead)}</span><span data-en>${escMd(g.leadEn)}</span></p>
 ${bodySec}
+        <section class="tp-sec"><h2>${bi('例子与判断', 'Example and interpretation')}</h2><p class="t-sm">${bi('以下是教学情境，不是本站运行或实测记录。', 'A teaching scenario, not a measured or executed site test.')}</p><p class="tp-p">${bi(esc(PRACTICE[slug].zh),esc(PRACTICE[slug].en))}</p></section>
 ${linked}
         <div class="tp-sec">
           <div class="tp-lab">${bi('出处', 'Sources')}</div>
@@ -1116,7 +1136,7 @@ ${refs}
           </ul>
         </div>
         <div class="tp-sec">
-          <div class="tp-lab">${bi('其他指南与论文卡', 'Other guides & paper cards')}</div>
+          <div class="tp-lab">${bi('围绕这些概念继续读', 'More on these concepts')}</div>
           <p class="tp-p">${otherGuides || '—'}</p>
         </div>
       </article>

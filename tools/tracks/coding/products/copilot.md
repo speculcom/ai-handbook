@@ -201,7 +201,7 @@ cn:
 
 ## 一句话定位
 
-**形态最广、生态最依附 GitHub** 的一个——从网站到 CLI 到主流编辑器全覆盖，且能把任务委派给 Claude / Codex（Preview）。
+**与 GitHub 生态集成的编码工具**——从网站到 CLI 到主流编辑器全覆盖，且能把任务委派给 Claude / Codex（Preview）。
 
 ## 本分区的形态覆盖之最
 
@@ -295,7 +295,7 @@ Included AI credits are shared org-wide with admin controls for spending.
 企业采购需要额度池治理与管理员支出控制的人。
 
 **不适合**依赖第三方 agent 委派的场景（官方标注为 Preview）。
-报价与档位见官方 plans 页（本站按 D9 口径不存价格数字）。
+报价与档位见官方 plans 页（本站按本站的报价记录约定不存价格数字）。
 
 ## 采集限制
 

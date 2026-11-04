@@ -50,7 +50,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 
 对照面：只记当前代、官方规格事实（每条挂官方出处）、核验快照与复核周期。不采价格数字，不排名。复核到期的卡页顶有横幅。
 
-- [Claude（闭源 API）](https://models.specul.com/closed/claude/): 闭源旗舰线（agentic 编码与企业向）：官方模型总览是规格真相源；模型 ID 是钉死快照不是常青指针（官方文档明说），选型时按 ID 对版本。
+- [Claude（闭源 API）](https://models.specul.com/closed/claude/): 闭源旗舰线（agentic 编码与企业向）：官方模型总览是规格真相源；官方文档将模型 ID 定义为固定版本，而非持续更新的别名；选型时应核对具体 ID。
   Anthropic　当前代 Claude 5.5 代（Fable 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5）（2026-09）　4 条官方事实　核验 2026-10-30　复核周期 30 天
 - [豆包（闭源 API）](https://models.specul.com/closed/doubao/): 国产闭源主力：对话产品「豆包」与 API「Doubao-Seed」同族两条线；服务在网信办备案（Beijing-YunQue-20230821，豆包大模型=云雀更名，官方备案公示页确认）。代次更替快，本站卡带核验日与复核周期。
   字节跳动 · 火山引擎　当前代 Doubao-Seed 2.1 系（+ Seed-Evolving）（2026-06）　4 条官方事实　核验 2026-10-30　复核周期 30 天
@@ -74,7 +74,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 - [蒸馏：小模型怎么从大模型身上学](https://models.specul.com/guides/distillation.html): logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
   7 节 · 8 条官方出处 · 核验 2026-10-20
 - [GPU 事实与成本数学：跑模型的硬件账](https://models.specul.com/guides/gpu-cost-math.html): 推理卡的关键事实（显存容量与带宽，只录官方规格页口径）；decode 为什么是带宽瓶颈；吞吐与成本怎么按构成方法估——不存任何单价、不做购卡推荐。
-  7 节 · 6 条官方出处 · 核验 2026-10-21
+  8 节 · 6 条官方出处 · 核验 2026-10-21
 - [预训练：模型怎么做到「什么都知道一点」](https://models.specul.com/guides/pretraining.html): 预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。
   8 节 · 11 条官方出处 · 核验 2026-10-20
 - [跑起来深水：KV 缓存、批处理与推理引擎](https://models.specul.com/guides/serving-deep-dive.html): 推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。

@@ -107,7 +107,7 @@ cn:
 
 **Augment Code 是企业级「软件工厂」平台**：Cosmos 把规划-实现-评审-反馈连成可重复的 agent 流水线，
 Environments 可托管云/自有基础设施/本机三选一，Code Context Engine 招牌可经 MCP 插进别的 agent，
-前沿模型清单最全之一（含自研 Prism 路由）——**2026-10-08 官方公告 Cosmos/Auggie CLI/Context Engine 资产加入 Harness**。
+提供多厂商模型清单（含自研 Prism 路由）——**2026-10-08 官方公告 Cosmos/Auggie CLI/Context Engine 资产加入 Harness**。
 
 ## 适合与不适合
 

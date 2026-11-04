@@ -291,7 +291,7 @@ hub.continue.dev（2026-10-08 取到）现为 **Continuous AI** 的商业线，�
 | Team | 按席位订阅（含每席 credits）：团队内共享私有 agent，Gmail/GitHub SSO |
 | Company | 定制：SAML/OIDC、BYOK、承诺用量 / 发票 / SLA |
 
-报价数字按 D9 口径不存，见 hub.continue.dev/pricing。
+报价数字按本站的报价记录约定不存，见 hub.continue.dev/pricing。
 
 **注意这不是 IDE 扩展的订阅** —— 扩展本身免费开源。
 

@@ -171,7 +171,7 @@ sources:
     url: https://ampcode.com/
     kind: docs
 
-  - label: Amp · 官方定价页（Hobby 免费 / Individual / Teams / Enterprise 四档；报价按 D9 口径不存）
+  - label: Amp · 官方定价页（Hobby 免费 / Individual / Teams / Enterprise 四档；报价按本站的报价记录约定不存）
     url: https://ampcode.com/pricing
     kind: pricing
 
@@ -274,7 +274,7 @@ Amp 原是 Sourcegraph 出的前沿编码 agent，2025-12 官方公告分拆为�
 
 ## 未知项清单
 
-- Individual 档 Megawatt 与 Gigawatt 的**具体额度差**：官方定价页以切换形式呈现，未并列给出（orb 时长额度见官方页；报价按 D9 口径不存）
+- Individual 档 Megawatt 与 Gigawatt 的**具体额度差**：官方定价页以切换形式呈现，未并列给出（orb 时长额度见官方页；报价按本站的报价记录约定不存）
 - 官方定价页 FAQ 的**问答正文**：本页只抓到问题标题，具体答复内容未展开
 - orb 的并发上限与单次最长时长：官方未说明（已查 docs/orbs 与定价页）
 - 自托管部署：官方安全参考称为空（明确不支持），未提供任何自托管路径

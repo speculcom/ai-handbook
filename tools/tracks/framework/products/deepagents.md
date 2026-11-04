@@ -320,7 +320,7 @@ README 提到 **Deep Agents Code** —— 预构建的终端 coding agent。
   - 仓库描述原文、README 全文四条原则与九条特性清单
   - FAQ 三层关系原文、Security 声明原文、provider 支持范围原文、Quickstart 代码示例
 - ❌ 未核验：
-  - LangSmith 配套的商业条款（报价按 D9 口径本站不采）
+  - LangSmith 配套的商业条款（报价按本站的报价记录约定本站不采）
   - LangGraph interrupt 的细节
   - sandbox backend 的具体实现与可选项清单
   - `CompiledStateGraph` 作为 sub-agent 的具体 API 形态
@@ -347,7 +347,7 @@ README 提到 **Deep Agents Code** —— 预构建的终端 coding agent。
 
 ## 未知项清单
 
-- LangSmith 配套（README 推荐搭配，但商业条款未核验；报价按 D9 口径本站不采）
+- LangSmith 配套（README 推荐搭配，但商业条款未核验；报价按本站的报价记录约定本站不采）
 - sandbox backend 的具体可选项与隔离强度
 - interrupt / 补充询问机制在 Deep Agents 上的暴露方式
 - Deep Agents Code 是否与本仓同许可

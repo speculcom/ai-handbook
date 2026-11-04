@@ -327,7 +327,7 @@ Free 档官方写每月最多 50 次 premium requests。付费档的内置模型
 
 官方并宣布自 2026-06-01 起，把 Copilot 从 request-based billing 转为 usage-based billing。
 
-档位报价见官方 plans 页（本站按 D9 口径不存价格）。
+档位报价见官方 plans 页（本站按本站的报价记录约定不存价格）。
 
 ## 核验说明
 
@@ -337,7 +337,7 @@ Free 档官方写每月最多 50 次 premium requests。付费档的内置模型
 
 来源是官方 docs 与官方仓库。
 
-**剩余缺口主要是「CLI 与各档位的对应边界」**。官方 about 页列 Pro/Pro+/Business/Enterprise，quickstart 页写 all Copilot plans，两处口径不一致。按本站铁律记为「官方未说明」并列出所查页面，不替官方择一。
+**剩余缺口主要是「CLI 与各档位的对应边界」**。官方 about 页列 Pro/Pro+/Business/Enterprise，quickstart 页写 all Copilot plans，两处口径不一致。在本档案中记为「官方未说明」并列出所查页面，不替官方择一。
 
 ## 适合与不适合
 

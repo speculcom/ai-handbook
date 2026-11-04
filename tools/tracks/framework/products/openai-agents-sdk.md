@@ -423,7 +423,7 @@ README 里明确指向 `openai/openai-agents-js`（滚动核验 2026-10-23：MIT
 ❌ 未核验清单：
 
 - 100+ provider 的实际能力对齐度。
-- hosted sandbox client 的可用性与计费方式（报价按 D9 口径本站不采）。
+- hosted sandbox client 的可用性与计费方式（报价按本站的报价记录约定本站不采）。
 - Sessions 的具体后端语义。
 - Realtime/Voice 路径的成本。
 
@@ -444,7 +444,7 @@ README 里明确指向 `openai/openai-agents-js`（滚动核验 2026-10-23：MIT
 ## 未知项清单
 
 - 100+ provider 各自的能力对齐度矩阵
-- hosted sandbox client 的可用区域、配额与计费方式（报价按 D9 口径本站不采）
+- hosted sandbox client 的可用区域、配额与计费方式（报价按本站的报价记录约定本站不采）
 - Sessions 后端在多进程/多机下的并发写语义
 - litellm / any-llm extra 的实际依赖体积与升级冲突
 

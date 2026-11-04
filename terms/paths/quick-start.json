@@ -3,10 +3,13 @@
   "ord": 1,
   "zh": "半小时入门",
   "en": "The Half-Hour Primer",
-  "span": { "zh": "约 30 分钟", "en": "about 30 minutes" },
+  "span": {
+    "zh": "约 30 分钟",
+    "en": "about 30 minutes"
+  },
   "lead": {
-    "zh": "只走第一站的 10 个词，按顺序读。读完能跟人聊明白 AI 在做什么，不被黑话吓住。",
-    "en": "Ten terms from station one, in order. Finish able to explain what AI is doing, without being intimidated by jargon."
+    "zh": "先读十个常用概念，再做三道自测。目标是分清模型、产品与能力边界，不需要记住全部名词。",
+    "en": "Read ten common concepts, then try three questions. Aim to distinguish models, products and limits without memorizing the whole glossary."
   },
   "steps": [
     "人工智能",
@@ -31,5 +34,27 @@
       "Tell apart an AI product from an AI model, with one example each",
       "Name at least one thing a large model plainly cannot do"
     ]
+  },
+  "answers": [
+    {
+      "zh": "训练用样本调整模型参数，推理时依据输入生成输出。Token 是处理文本的单位；服务商通常分别统计输入与输出的用量，具体收费规则看产品说明。",
+      "en": "Training adjusts model parameters from examples; inference generates output from an input. Tokens are text-processing units. Providers commonly count input and output usage separately; the product defines billing.",
+      "review": "Token"
+    },
+    {
+      "zh": "模型是生成或处理内容的核心；产品还包括界面、检索、存储和权限。例如，一个聊天网站是产品，它接入的语言模型是其中一个部件。",
+      "en": "A model generates or processes content. A product also has an interface, retrieval, storage and permissions. A chat website is a product; its language model is one component.",
+      "review": "AI 产品 vs AI 模型"
+    },
+    {
+      "zh": "没有可靠资料或相应工具时，模型不能保证给出最新事实，也不能仅凭流畅的回答证明内容正确。可举一个需要核对原始出处的例子。",
+      "en": "Without reliable sources or suitable tools, a model cannot guarantee current facts. Fluent wording does not prove correctness. Give one example that needs an original-source check.",
+      "review": "能力边界"
+    }
+  ],
+  "nextTask": {
+    "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E5%90%91%20AI%20%E6%8F%90%E9%97%AE/",
+    "zh": "试着写一份有资料、有边界的提示",
+    "en": "Try writing a source-grounded, scoped prompt"
   }
 }

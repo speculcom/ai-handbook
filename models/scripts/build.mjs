@@ -1289,7 +1289,7 @@ function guidePage(g) {
     const zhHtml = guideBlockMd(s.text);
     if (s.head !== '') ri++;
     const bodyHtml = secsOk && s.head !== '' ? bi(zhHtml, guideBlockMd(en.sections[ri])) : zhHtml;
-    return `    <section class="fam-sec">
+    return `    <section class="fam-sec" id="guide-section-${i}">
       <h2>${head}</h2>
 ${bodyHtml}
     </section>`;
@@ -1308,6 +1308,7 @@ ${bodyHtml}
       <p class="lede">${bi(esc(g.summary), esc(g.summaryEn))}</p>
     </header>
 
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p>${bi('按问题阅读', 'On this page')}</p><ul>${g.sections.map((section,i)=>{const m=section.head.match(/^\[(.+)\|(.+)\]$/);return section.head?`<li><a href="#guide-section-${i}">${m?bi(esc(m[1]),esc(m[2])):esc(section.head)}</a></li>`:'';}).join('')}</ul></nav>
 ${secs}
 
     <section class="fam-sec fam-sources">
@@ -1315,7 +1316,7 @@ ${secs}
       <ul class="fam-src-list">
 ${srcRows}
       </ul>
-      <p class="fam-foot">${bi(`核验快照：${g.lastVerified} · 本站不实测、不排名、不裁决路线之争，未知就写未知。`, `Verification snapshot: ${g.lastVerified} · no benchmarks, no rankings, no route adjudication — unknown stays unknown.`)}</p>
+      <p class="fam-foot">${bi(`资料核验日期：${g.lastVerified}。下列原始来源提供规格、方法与适用条件。`, `Sources checked: ${g.lastVerified}. The originals below describe specifications, methods and conditions.`)}</p>
     </section>
   </div>`;
   return shell({

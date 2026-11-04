@@ -370,6 +370,6 @@ terms/（ai-handbook 子树）
 | 编年史与版图 | 18 条时间线 · 12 家公司 · 5 条术语演变 |
 | 领域（domain） | concept 56 · infra 34 · choice 33 · agent 26 · media 19 · model 16 · dev 10 · data 10 |
 | 用途（purposeTag） | learn 81 · apply 50 · guard 37 · judge 36 |
-| 出处条目（refs） | 521 条 |
+| 出处条目（refs） | 522 条 |
 | 英文覆盖 | 204 / 204 |
 <!-- STATS:END -->

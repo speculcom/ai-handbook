@@ -250,7 +250,7 @@ sources:
     url: https://cloud.llamaindex.ai
     kind: docs
 
-  - label: LlamaParse 官方定价页（Free/Starter/Pro 三档 credits 额度与加购上限；报价按 D9 口径不存；LiteParse 免费 OSS，核验 2026-10-01）
+  - label: LlamaParse 官方定价页（Free/Starter/Pro 三档 credits 额度与加购上限；报价按本站的报价记录约定不存；LiteParse 免费 OSS，核验 2026-10-01）
     url: https://www.llamaindex.ai/pricing
     kind: pricing
 

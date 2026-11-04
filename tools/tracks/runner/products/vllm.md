@@ -67,7 +67,7 @@ cn:
 
 ## 一句话定位
 
-**vLLM 是开源模型「服务化」的标杆**：PagedAttention 把显存管理做成核心竞争力，OpenAI 兼容 server 直接对接现有客户端。
+**vLLM 是开源模型的推理与服务化引擎**：PagedAttention 把显存管理做成核心竞争力，OpenAI 兼容 server 直接对接现有客户端。
 Apache-2.0、PyTorch 基金会生态。数字口径：官方自报性能数字在 models 站 guides 已核验快照，本站不实测。
 
 ## 适合与不适合

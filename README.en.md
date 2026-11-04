@@ -46,7 +46,7 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 | terms · Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |
 | terms · Domain | concept 56 · infra 34 · choice 33 · agent 26 · media 19 · model 16 · dev 10 · data 10 |
 | terms · Purpose (purposeTag) | learn 81 · apply 50 · guard 37 · judge 36 |
-| terms · Source entries (refs) | 521 |
+| terms · Source entries (refs) | 522 |
 | terms · English coverage | 204 / 204 |
 | tools · Total profiles | 225 |
 | tools · By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 |

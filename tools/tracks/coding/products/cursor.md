@@ -9,7 +9,7 @@ accent: "#111111"
 
 axes:
   model_access: >-
-    **可选多家厂商的模型；个人三档的差别是额度倍数，不是模型能不能用。**
+    **可选模型、额度和刷新周期随档位变化；核验时的具体限制见下文。**
 
     **官方首页列出的可选范围**：
 
@@ -237,7 +237,7 @@ sources:
     url: https://cursor.com/changelog
     kind: changelog
 
-  - label: Cursor · 官方定价页（5 档结构）
+  - label: Cursor · 官方定价页（档位结构）
     url: https://cursor.com/pricing
     kind: pricing
 
@@ -280,8 +280,7 @@ cn:
 
 ## 一句话定位
 
-**本分区架构最激进的三个之一**：
-云端 Agent 合上笔记本不中断、自托管代码不出网、代码审查拆成两个 bot 分工。
+支持编辑器、云端 Agent 与自有机器执行。模型可得性、额度和数据边界随档位与部署方式变化，需分别核对。
 
 ## 三个近期的架构级变化
 
@@ -358,7 +357,7 @@ cn:
 
 ⚠ **档位命名与结构已整体换轨**（旧 6 档 Hobby/Pro/Pro+/Ultra/Teams/Enterprise 已退役）。
 官方定价页现列 **Free / Plus / Premium / Super / Ultra / Teams / Enterprise**
-（报价数字按 D9 口径不存，见官方定价页）：
+（报价数字按本站的报价记录约定不存，见官方定价页）：
 
 | 档位 | 关键能力（官方口径） |
 |---|---|
@@ -407,17 +406,17 @@ Cursor Router 按 cost / balance / intelligence 三档路由，
 
 需要长周期（数月级）上下文维持与大规模子智能体编排的人。
 
-**代码不能离开自有基础设施的企业**（自托管形态）。
+希望将工具执行留在自有基础设施的团队；仍需单独核对模型请求的数据去向。
 
 **不适合**要求额度透明到可直接比较的人——
 换轨后各档的用量池具体量值官方未给出（旧版的 1x/3x/20x 倍数口径也已过时），
 只有「池按周刷新、档位越高池越大」的定性表述。
 
-## 采集状态（2026-10-23 滚动核验 · D9 修订）
+## 采集状态（2026-10-23 滚动核验 · 口径更新）
 
 | 页面 | 状态 |
 |---|---|
-| 定价页 | ✅ 档位已换轨为 7 档（Free/Plus/Premium/Super/Ultra/Teams/Enterprise），结构与 FAQ 口径已核实（报价数字按 D9 口径不存） |
+| 定价页 | ✅ 档位已换轨为 7 档（Free/Plus/Premium/Super/Ultra/Teams/Enterprise），结构与 FAQ 口径已核实（报价数字按本站的报价记录约定不存） |
 | 帮助页（account-and-billing/pricing） | ✅ 档位切换机制与额度口径已核 |
 | 文档页 | ✅ 取到文本 |
 | Changelog | ✅ 取到三条完整条目（09-23 / 09-10 / 09-02） |
@@ -447,7 +446,7 @@ Cursor Router 按 cost / balance / intelligence 三档路由，
 ## 相关条目
 
 - [Codex IDE 扩展](./codex-ide.md) — 同为多形态但自托管未确认
-- [Claude Code IDE 扩展](./claude-code.md) — 同分区，权限设计更细
+- [Claude Code IDE 扩展](./claude-code.md) — 同分区，对照权限设计
 
 ## 第一次怎么用
 

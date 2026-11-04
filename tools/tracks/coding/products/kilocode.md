@@ -97,7 +97,7 @@ cn:
 
 ## 一句话定位
 
-**Kilo Code 是最流行的开源编码 agent 之一**（GitHub MIT）：VS Code/JetBrains/CLI/Desktop + Cloud Agents
+**Kilo Code 是开源编码 agent**（GitHub MIT）：VS Code/JetBrains/CLI/Desktop + Cloud Agents
 隔离容器，500+ 模型零加价、BYOK 与本地模型（Ollama/LM Studio）全支持，免费起步按供应商原价计量——
 官方叙事「all-in-one agentic engineering platform」，域名已迁 kilo.ai。
 

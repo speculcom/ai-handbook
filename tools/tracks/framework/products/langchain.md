@@ -76,7 +76,7 @@ cn:
 ## 一句话定位
 
 **LangChain 是 LLM 应用框架生态的主体**（MIT，148k★）：模型/工具/检索的统一抽象层，
-集成面全网最大。同厂商三条线要分清：LangChain（组件抽象）、LangGraph（图编排）、Deep Agents（预制深 agent）。
+提供多类集成入口。同厂商三条线要分清：LangChain（组件抽象）、LangGraph（图编排）、Deep Agents（预制深 agent）。
 
 ## 适合与不适合
 

@@ -46,7 +46,7 @@
 | terms · 编年史与版图 | 18 条时间线 · 12 家公司 · 5 条术语演变 |
 | terms · 领域（domain） | concept 56 · infra 34 · choice 33 · agent 26 · media 19 · model 16 · dev 10 · data 10 |
 | terms · 用途（purposeTag） | learn 81 · apply 50 · guard 37 · judge 36 |
-| terms · 出处条目（refs） | 521 条 |
+| terms · 出处条目（refs） | 522 条 |
 | terms · 英文覆盖 | 204 / 204 |
 | tools · 档案总数 | 225 份 |
 | tools · 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 |

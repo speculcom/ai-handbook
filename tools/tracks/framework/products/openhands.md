@@ -378,7 +378,7 @@ Codex / Claude Code / Gemini」。
 ## 档位：三档里两档是免费档，但「免费」有个硬上限
 
 2026-10-01 核验官方定价页，结论可能与预期不同：**没有「付费个人档」。**
-（报价按 D9 口径不存，见官方定价页。）
+（报价按本站的报价记录约定不存，见官方定价页。）
 
 | 档位 | 部署 | 用户 | 每日对话 |
 |---|---|---|---|
@@ -397,7 +397,7 @@ Codex / Claude Code / Gemini」。
 供 CLI / Local Web UI / Software Agent SDK 使用。
 官方强调它按成本价、零加价、按量付费。
 
-**官方没有公开实际单价表**，只能确认官方声明不加价（本站按 D9 口径也不存报价）。
+**官方没有公开实际单价表**，只能确认官方声明不加价（本站按本站的报价记录约定也不存报价）。
 
 > 官方 FAQ 原文：Open Source 与 Cloud 各档都支持自带 LLM key；
 > 无 key 时走 OpenHands provider，官方强调 "**at cost, with no markup**"。
@@ -559,7 +559,7 @@ Open Source 与 Cloud Individual 均为免费档、Enterprise 定制；
 **Individual 每日 10 轮对话上限**（对照 Open Source 的 Unlimited）；
 Individual 支持 BYOK、无 key 时走 OpenHands provider 且官方声明 **at cost, no markup**；
 Enterprise 可部署客户自有 VPC。还有 SAML/SSO、RBAC、每用户无限并发。
-Enterprise 档的具体内容仍未核验（按 D9 口径本站也不存任何报价数字）。
+Enterprise 档的具体内容仍未核验（按本站的报价记录约定本站也不存任何报价数字）。
 
 ## 实测记录
 
@@ -582,7 +582,7 @@ Enterprise 档的具体内容仍未核验（按 D9 口径本站也不存任何�
 - 对话上下文压缩的端到端效果（机制已有官方 condenser，压缩率待实测）
 - OSS 档多用户方式（正式 RBAC / SSO 在 Enterprise，OSS 默认单用户）
 - ACP 与 MCP 的定位差异（两者都可用；边界官方未系统对比）
-- **Enterprise 档的具体内容**（官方仅标 Custom pricing / Contact Us；报价按 D9 口径本站不采）
+- **Enterprise 档的具体内容**（官方仅标 Custom pricing / Contact Us；报价按本站的报价记录约定本站不采）
 - Individual 每日 10 轮之外，超出后的行为（停用 / 提示升级 / 其它，官方页未写）
 - 后端远程部署时本地代码库的同步机制
 - `software-agent-sdk` 的 API 形态与版本独立节奏

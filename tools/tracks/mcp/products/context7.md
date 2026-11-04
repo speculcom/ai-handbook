@@ -71,7 +71,7 @@ mcp:
     **额度档位已核验（2026-10-23 滚动复验，官方 plans 页）**：
     Free **1,000 次/月**（Search API + Context API 合计），
 
-    Pro **2,000 次/席位/月**、超出**不阻塞**（超量单价按 D9 口径不存，见官方 plans 页）。
+    Pro **2,000 次/席位/月**、超出**不阻塞**（超量单价按本站的报价记录约定不存，见官方 plans 页）。
 
     另Free 档本身就用 OAuth 2.0（官方对比表把 OAuth 2.0 列为 Free 的能力）。
     ⚠ **Free 超出额度后的确切行为官方页面未给答案正文**，只列了问题标题。
@@ -99,7 +99,7 @@ sources:
     url: https://github.com/upstash/context7
     kind: docs
 
-  - label: 官方 Pricing & Plans（滚动核验 2026-10-23：Free 1,000 次每月、Pro 2,000 次每席位每月且超出不阻塞、Private Repo Parsing 是独立计费项、Enterprise Custom 含 SOC-2/SSO/Self-Hosted；报价按 D9 口径不存；**与第三方「Pro 5,000 次」冲突，按官方 2,000**）
+  - label: 官方 Pricing & Plans（滚动核验 2026-10-23：Free 1,000 次每月、Pro 2,000 次每席位每月且超出不阻塞、Private Repo Parsing 是独立计费项、Enterprise Custom 含 SOC-2/SSO/Self-Hosted；报价按本站的报价记录约定不存；**与第三方「Pro 5,000 次」冲突，按官方 2,000**）
     url: https://context7.com/docs/plans-pricing.md
     kind: pricing
 
@@ -138,7 +138,7 @@ cn:
 
 ## 一句话定位
 
-**工具分区里唯一的远程托管条目** —— 为 Agent 提供版本感知的库文档，MIT 开源但核心服务在 Upstash 侧。
+**远程托管的文档服务** —— 为 Agent 提供版本感知的库文档，MIT 开源但核心服务在 Upstash 侧。
 
 ## 为什么它和其他条目不一样
 
@@ -193,7 +193,7 @@ Context7 的风险是「你的查询会发到哪里去」。
 
 ### 额度档位（2026-10-01 核验官方 plans 页）
 
-（报价按 D9 口径不存，一律看官方 plans 页；额度是能力边界，照录。）
+（报价按本站的报价记录约定不存，一律看官方 plans 页；额度是能力边界，照录。）
 
 | 档 | 含额度 | 超出后 |
 |---|---|---|
@@ -264,7 +264,7 @@ API 后端、解析引擎、爬取引擎都是私有的。**
 ## 未知项清单
 
 - **Free 档超出 1,000 次/月后的确切行为**（官方页面只列了问题标题，未给答案正文；不做推测）
-- Enterprise 档的具体内容（报价按 D9 口径本站不采）
+- Enterprise 档的具体内容（报价按本站的报价记录约定本站不采）
 - 文档索引的覆盖范围与更新频率（官方有「Keeping Libraries Fresh」专题，未取正文）
 - 服务端 SLA
 - 官方隐私声明（只发查询与库名、不发源码与对话历史）**未做实测验证**

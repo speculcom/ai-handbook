@@ -54,8 +54,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它答得贴切、接得上话，说明它读懂了你的意思。",
   "mythEn": "It answers aptly and keeps up with the conversation, so it must have understood what you meant.",
-  "fact": "它在按概率预测下一个词。贴切说明训练里见过相似的模式，不说明它理解你的处境。；反例：模型能完成改写却不理解指代，说明「读懂」是任务级表现，不是心智状态。",
-  "factEn": "It predicts the next word by probability. An apt answer shows it saw similar patterns in training, not that it grasps your situation."
+  "fact": "语言模型依据上下文生成文本。回答贴切可以说明任务表现，但不能仅由流畅程度判断它是否理解了你的处境；还要检查指代、限制和事实是否保留。",
+  "factEn": "Language models generate text from context. A fitting response shows task behavior; fluency alone does not establish understanding of your situation. Check references, constraints and preserved facts."
  },
  {
   "id": "参数越多就越聪明",
@@ -73,8 +73,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "参数量决定模型有多聪明，越大就一定越强。",
   "mythEn": "Parameter count decides how smart a model is — bigger is always stronger.",
-  "fact": "训练数据的质量与数量同样决定表现；小模型在合适的任务上能追平大模型。；反例：同参数量的 MoE 与密集模型在具体任务上差异巨大，数据质量与训练配方同样决定结果。",
-  "factEn": "The quality and amount of training data decide performance just as much; small models match larger ones on suitable tasks."
+  "fact": "参数量之外，训练数据、架构、训练方法和任务都会影响表现。比较模型时要保持任务与设置一致，不能把参数量直接当作质量分数。",
+  "factEn": "Data, architecture, training methods and task also affect performance. Compare models under equal task conditions rather than treating parameter count as a quality score."
  },
  {
   "id": "通用人工智能快到了",
@@ -92,8 +92,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "各家都在说 AGI 临近，说明它有一个可核对的到达时间。",
   "mythEn": "Everyone says AGI is near, so there must be a checkable date when it arrives.",
-  "fact": "AGI 没有统一定义，各家口径不同；没有定义，也就没有「到达」这回事。；反例：官方路线图从未给出 AGI 日期；把研究目标当时间表是误读。",
-  "factEn": "There is no agreed definition of AGI; the houses mean different things. Without a definition, \"arrived\" has no test."
+  "fact": "AGI 的定义与评价标准并未统一。“临近”只有在能力范围、测试条件和完成标准明确时才可核对；研究目标或时间预测不能直接当作已经实现的证据。",
+  "factEn": "AGI definitions and evaluation criteria are not settled. A claim of proximity needs specified capabilities, test conditions and completion criteria; a research goal or forecast does not establish achievement."
  },
  {
   "id": "怎么向 AI 提问",
@@ -142,7 +142,7 @@ var GUIDES = [
    "先分清资料能不能出门：个人身份、公司机密、客户数据各算一类。",
    "看不懂的条款别默认同意，重点看数据会不会用于训练。",
    "能匿名化就先匿名化：去掉姓名、编号、联系方式再贴进去。",
-   "敏感场景优先选本地或私有部署，数据不出自己的网。",
+   "敏感场景可评估本地或私有部署；仍要检查模型接口、遥测、插件和日志是否向外发送数据。",
    "用完检查留存：对话记录和上传文件能不能删、多久删。",
    "给团队定规矩：哪些资料能进 AI，哪些必须走内部工具。"
   ],
@@ -150,7 +150,7 @@ var GUIDES = [
    "Sort material by whether it may leave: personal identity, company secrets, and customer data are three different categories.",
    "Do not accept terms you cannot read; check specifically whether your data is used for training.",
    "Anonymize first: strip names, IDs, and contact details before pasting anything in.",
-   "For sensitive work, prefer local or private deployment so data never leaves your own network.",
+   "Assess local/private deployment for sensitive work, while checking outbound model calls, telemetry, plugins and logs.",
    "Afterwards, check retention: can the chat history and uploaded files be deleted, and how soon?",
    "Set team rules: which materials may go into an AI, and which must stay in internal tools."
   ],
@@ -168,8 +168,8 @@ var GUIDES = [
   "ord": 3,
   "span": 6,
   "lead": {
-   "zh": "AI 新闻十有八九比事实更乐观。这份指南给你一套核对顺序，看完一条消息再决定信不信。",
-   "en": "AI news is usually more optimistic than the facts. This guide gives you a checking order: read it before deciding what to believe."
+   "zh": "AI 新闻可能省略测试条件或放大适用范围。先核对原始出处、评测设置和未验证的部分，再判断结论。",
+   "en": "AI news can omit test conditions or overstate scope. Check the original source, evaluation setup and unresolved claims before accepting a conclusion."
   },
   "points": [
    "先找原始出处：论文、官方公告还是演示视频。转述链越长，失真越多。",
@@ -267,8 +267,8 @@ var GUIDES = [
   "ord": 6,
   "span": 7,
   "lead": {
-   "zh": "向量检索先粗筛，重排再精筛。两阶段配合，比只靠一步检索的召回质量高。",
-   "en": "Vector retrieval does the coarse pass; reranking does the fine pass. The two-stage combo beats single-stage retrieval on recall quality."
+   "zh": "检索先取回候选，重排再调整顺序。它能否改善最终结果，要看候选是否包含答案、排序质量和延迟预算。",
+   "en": "Retrieval returns candidates; reranking changes their order. Benefits depend on answer coverage, ranking quality and latency budget."
   },
   "points": [
    "粗筛多取：向量检索先取回几十条候选，别只取前三。",
@@ -304,20 +304,20 @@ var GUIDES = [
    "en": "Vector search is good at similar meaning; keyword search is good at exact matches. Hybrid search merges the results of both paths."
   },
   "points": [
-   "精确词交给关键词：型号、编号、人名，向量检索容易漏，关键词不会。",
+   "型号、编号等精确条件可用关键词或结构化过滤；同时检查分词、拼写与索引字段，关键词检索也可能漏掉结果。",
    "模糊问法交给向量：换个说法也能命中，这是关键词做不到的。",
    "两路结果要融合：常用倒数排名融合（RRF），按名次合并而不是按分数硬加。",
    "分数不可直接相加：向量相似度和 BM25 分数量纲不同，硬加会偏。",
    "看数据库是否原生支持：混合查询在 Qdrant、Weaviate 里是现成功能。",
-   "混合后仍需重排：融合只是合并候选，精筛还是要重排模型。"
+   "融合后是否重排取决于质量和延迟预算；先量候选召回与排序，避免默认增加一层模型。"
   ],
   "pointsEn": [
-   "Give exact terms to keywords: model numbers, IDs, and names — vector search misses them, keyword search does not.",
+   "Use keyword search or structured filters for exact model/ID conditions, while checking tokenization, spelling and indexed fields; keyword retrieval can also miss results.",
    "Give fuzzy phrasing to vectors: a reworded question still hits, which keywords cannot do.",
    "Fuse the two result lists: reciprocal rank fusion (RRF) merges by rank, not by force-adding scores.",
    "Scores cannot be added directly: cosine similarity and BM25 scores have different scales; adding them skews results.",
    "Check native support: hybrid queries are built into Qdrant and Weaviate.",
-   "Hybrid still needs reranking: fusion only merges candidates; the fine pass is still a reranker's job."
+   "Decide about reranking after fusion from quality and latency needs. Measure candidate recall and ranking instead of adding another model by default."
   ],
   "myth": null,
   "mythEn": null,
@@ -604,8 +604,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "语气肯定、结构完整，说明内容可靠。",
   "mythEn": "A confident tone and a tidy structure mean the content is trustworthy.",
-  "fact": "幻觉综述里统计的错误，大多正是这种读起来很顺的编造。；反例：置信度与正确率不相关，高置信度的长尾错误很常见；要看出处与可复现证据。",
-  "factEn": "In the hallucination surveys, most recorded errors are exactly this kind of smoothly written fabrication."
+  "fact": "语气是否肯定，不能单独证明事实正确。核对原始出处是否支持具体句子，尤其是数字、日期、姓名和引用；无法确认的部分保留为未知。",
+  "factEn": "Confident wording alone does not establish correctness. Check support for each claim, especially numbers, dates, names and citations; leave unverified parts unknown."
  },
  {
   "id": "温度调高会更聪明",
@@ -623,8 +623,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "温度调高，模型就更有想法、更聪明。",
   "mythEn": "Raising temperature makes the model more imaginative, therefore smarter.",
-  "fact": "温度只改变取词的随机性；调高会增加偏离和出错，模型知道的东西一点没多。；反例：温度只改变采样分布，不改变知识；高温增加多样性，也增加胡编率。",
-  "factEn": "Temperature only changes how randomly it picks tokens; raising it adds drift and errors while the model knows no more."
+  "fact": "温度影响支持该参数时的采样分布，不会给模型增加知识。输出多样性与任务正确性要分别检查；参数是否适用、取值范围如何，以实际接口为准。",
+  "factEn": "Where supported, temperature affects sampling rather than adding knowledge. Check output diversity and task correctness separately, and consult the actual interface for applicability and range."
  },
  {
   "id": "它记得你之前说过的",
@@ -642,8 +642,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "一次对话里，它始终记得前面说过的所有内容。",
   "mythEn": "Within one conversation it always remembers everything said earlier.",
-  "fact": "它只能看到上下文窗口内的内容；超出的部分不在它的输入里，与记不记得无关。；反例：窗口内的「记得」是文本重放；跨会话记忆要产品侧存储，不是模型自带能力。",
-  "factEn": "It only sees what fits the context window; anything beyond it is simply not in the input, which has nothing to do with remembering."
+  "fact": "模型生成时使用本次请求提供的上下文；产品还可能检索历史或保存偏好。是否跨会话保留、保存什么和怎样删除，要看具体产品，不能由一次接话正确推断。",
+  "factEn": "Generation uses context supplied for the request; a product may also retrieve history or store preferences. Cross-session retention and deletion depend on the product, not on one correct continuation."
  },
  {
   "id": "怎么验证 AI 的输出",
@@ -923,7 +923,7 @@ var GUIDES = [
    "改动配回归：跑一套固定输入对比新旧输出，没有评测就谈不上「改好了」。",
    "记录提示词与模型版本的配对：同一提示词换模型可能失效，两者要一起记。",
    "线上出问题时先查提示词变更记录：它和代码一样是常见变更源，却常不在审计范围里。",
-   "A/B 对比要控制变量：同时换提示词和模型，就永远说不清是哪个起作用。"
+   "A/B 对比要控制变量：同时换提示词和模型，就难以区分两者各自的影响。"
   ],
   "pointsEn": [
    "Move prompts out of code strings into their own files: editing a prompt shouldn't require a rebuild or redeploy.",
@@ -1053,16 +1053,16 @@ var GUIDES = [
    "先定义任务成功条件：不是「回答像样」，而是「目标完成 + 工具调用正确 + 没有越权」。",
    "记录完整轨迹：消息、工具调用、参数、返回值、步数、耗时与 token；没有轨迹就无法归因。",
    "分开评四件事：最终答案、工具选择、参数正确性、过程效率（步数与成本）。",
-   "用多次运行看稳定性：同一任务跑 k 次，报 pass@k 与失败类型分布，而不是只看一次成功。",
-   "算成本：token × 步数 × 重试次数；成本失控通常来自重复调用与上下文膨胀。",
+   "多次运行时分别记录成功率与失败类型；pass@k 表示多次尝试中至少一次成功，不能用它代替每次都可靠。需要衡量重复可靠性时，应明确“全部 k 次成功”的统计口径。",
+   "按每次调用分别计算输入、输出和工具费用，再对全部步骤与重试求和；不要将已经汇总的 Token 再乘步数。",
    "建回归集：把线上失败案例收进固定题集，每次换模型/改提示词后重跑。"
   ],
   "pointsEn": [
    "Define task success first: not \"a plausible answer\" but \"goal achieved + correct tool calls + no overreach\".",
    "Record the full trajectory: messages, tool calls, arguments, return values, steps, latency and tokens; without it you cannot attribute failure.",
    "Score four things separately: final answer, tool choice, argument correctness and process efficiency (steps and cost).",
-   "Run k times to see stability: report pass@k and the distribution of failure types, not a single success.",
-   "Count cost: tokens × steps × retries; runaway cost usually comes from repeated calls and context bloat.",
+   "Across repeated runs, record success rate and failure types. pass@k concerns at least one success, not success every time. For repeatability, explicitly report an all-k-success metric.",
+   "Calculate input, output and tool charges for each call, then sum steps and retries. Do not multiply already aggregated tokens by the step count again.",
    "Build a regression set: put production failures into a fixed question set and rerun after every model or prompt change."
   ],
   "myth": null,
@@ -1189,8 +1189,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "评测分数高的模型，在你的任务上也一定好。",
   "mythEn": "A model that scores high on the leaderboards must also be good at your task.",
-  "fact": "HELM 的结论正是单一榜单不完备；分数高只说明它在被测项上强。；反例：榜单任务集与你的业务不同，污染与版本差异会让分数失效；最终要用自己的任务集回归。",
-  "factEn": "HELM concludes precisely that a single leaderboard is incomplete; a high score only means strength on the items tested."
+  "fact": "榜单结果受任务集、版本、设置和指标限制。它可以提供初筛证据，但不能替代你的输入、延迟、错误成本与权限条件；不同口径的分数也不能直接比较。",
+  "factEn": "Leaderboard results depend on tasks, versions, setup and metrics. They inform initial screening, not your inputs, latency, failure costs or permission constraints. Scores on different bases are not directly comparable."
  },
  {
   "id": "上下文窗口越大越好",
@@ -1208,8 +1208,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "上下文窗口越大，长文档就处理得越好。",
   "mythEn": "The larger the context window, the better long documents get handled.",
-  "fact": "窗口变大会推高显存与延迟。长输入里，中段内容的利用也不均匀。按需要选比选最大更划算。；反例：长上下文有中段信息丢失与成本上升，标称窗口不等于有效窗口；RULER 类评测专门测这一点。",
-  "factEn": "A larger window raises VRAM and latency. In a long input, the middle is used unevenly. Choosing by need beats choosing the maximum."
+  "fact": "标称窗口说明可处理的长度，不保证每段信息都被同样有效地利用。更长输入还可能增加内存与延迟，应按任务比较资料覆盖、答案质量和成本。",
+  "factEn": "A stated context window describes capacity, not equally effective use of every passage. Longer input can add memory use and latency. Compare evidence coverage, answer quality and cost for the task."
  },
  {
   "id": "它拒绝，是因为做不到",
@@ -1227,8 +1227,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它说「我不能做这个」，说明它没有这个能力。",
   "mythEn": "When it says \"I cannot do that\", it lacks the capability.",
-  "fact": "多数拒答来自对齐训练的选择；有没有能力与愿不愿意输出是两回事。；反例：拒答可能来自策略、权限或提示词，不是能力缺失；换权限或改写请求后可能完成。",
-  "factEn": "Most refusals come from alignment training; having the capability and being willing to output it are different things."
+  "fact": "拒答可能与产品政策、权限、输入条件或能力限制有关。先看具体原因和适用规则，不能仅凭一次拒答判断模型有没有某种能力。",
+  "factEn": "A refusal may reflect policy, permissions, input conditions or capability limits. Inspect the reason and applicable rules instead of inferring capability from one refusal."
  },
  {
   "id": "论文卡-HELM",
@@ -1277,8 +1277,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它像你一样按字和词理解输入。",
   "mythEn": "It reads your input word by word, the way you do.",
-  "fact": "输入先被切成词表里的 token 编号。不常见的词可能被拆成几段。它处理的是编号，不是字。；反例：模型按 token 处理，字符级任务（计数、拼写、标点）经常出错，不要用它做逐字校验。",
-  "factEn": "The input is first cut into token ids from a vocabulary. An uncommon word may be split into pieces. What it works on is the ids, not the characters."
+  "fact": "文本通常先被分成 Token，一个词或字符与一个 Token 不一定一一对应。需要精确计数、拼写或标点检查时，应明确规则并使用可核对的方法，不凭聊天表现推断准确性。",
+  "factEn": "Text is typically tokenized; tokens and words/characters need not map one-to-one. For exact counting, spelling or punctuation, define rules and use checkable methods rather than inferring accuracy from conversation."
  },
  {
   "id": "它在一步步推理",
@@ -1296,8 +1296,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它给出的推理过程，就是它实际的思考步骤。",
   "mythEn": "The reasoning it shows you is the reasoning it actually performed.",
-  "fact": "它按概率逐词生成；写出来的中间步骤与产生答案的实际路径不一定一致。；反例：思维链是生成的文本，不是内部计算；中间步骤错了，后文仍会流畅地接下去。",
-  "factEn": "It generates word by word by probability; the intermediate steps it writes need not match the path that produced the answer."
+  "fact": "生成的中间步骤可以供检查，但不一定完整反映产生答案的内部计算。应核对条件、可验证步骤和结果；解释连贯不能替代这些检查。",
+  "factEn": "Generated steps can be checked but need not fully expose the computation producing an answer. Verify conditions, observable steps and results; a coherent explanation is not a substitute."
  },
  {
   "id": "注意力就是它注意到重点",
@@ -1315,8 +1315,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "「注意力机制」说明它会像人一样挑重点看。",
   "mythEn": "\"Attention mechanism\" means it picks out what matters, like a person would.",
-  "fact": "注意力按相关性给不同位置加权；权重高不等于它认为那部分重要。；反例：注意力权重不等于解释，同一输出可以由多条注意力路径产生；别把热力图当因果。",
-  "factEn": "Attention weights positions by relatedness; a high weight does not mean it judged that part important."
+  "fact": "注意力权重是模型计算中的量，不能直接等同于人的注意或某个答案的因果解释。热力图可以帮助观察，但结论仍需要对照输入或其他验证。",
+  "factEn": "Attention weights are computational quantities, not direct equivalents of human attention or causal explanations. Visualizations aid observation; conclusions still need controlled checks or other validation."
  },
  {
   "id": "论文卡-Attention Is All You Need",
@@ -1584,8 +1584,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "量化就是把模型质量砍掉一半。",
   "mythEn": "Quantising cuts model quality in half.",
-  "fact": "影响随档位与模型而变。bpw 才是量尺，也就是每个权重占多少比特。各档差别要逐项看。；反例：Q4 在多数任务上接近原模型，损失集中在长尾与代码精确任务；要用自己的评估集测。",
-  "factEn": "The impact varies by tier and by model. The ruler is bpw, meaning bits per weight. The differences between tiers have to be read item by item."
+  "fact": "量化改变数值表示，质量影响取决于模型、方法、档位和任务。bpw 描述每个权重平均占多少比特，不是能力分数；需用相同任务比较质量、内存和速度。",
+  "factEn": "Quantization changes numeric representation. Effects depend on model, method, tier and task. Bits per weight describe average storage, not capability; compare quality, memory and speed on equal tasks."
  },
  {
   "id": "显存不够就跑不了",
@@ -1603,8 +1603,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "显存装不下，就只能换显卡。",
   "mythEn": "If it does not fit in VRAM, the only option is a better graphics card.",
-  "fact": "可以把部分层放到内存或 CPU 上跑。代价是速度。能不能跑与跑多快是两个问题。；反例：量化、CPU 卸载与 MoE 稀疏激活都能降低门槛；先算权重与 KV 缓存，再决定换不换卡。",
-  "factEn": "Some layers can be moved to system memory or to the CPU. The price is speed. Whether it runs at all and how fast it runs are separate questions."
+  "fact": "部分运行器支持把一部分工作放到系统内存或 CPU，但还受总内存、架构支持和速度要求限制。先分别计算权重、缓存与运行时占用，再评估更小规格、量化或卸载方案。",
+  "factEn": "Some runtimes support system-memory/CPU offload, subject to total memory, architecture and speed constraints. Budget weights, cache and runtime separately before assessing smaller variants, quantization or offload."
  },
  {
   "id": "接口兼容就等于行为一致",
@@ -1622,8 +1622,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "只要接口兼容 OpenAI，换过去效果就一样。",
   "mythEn": "If the API is OpenAI-compatible, switching over gives the same behaviour.",
-  "fact": "兼容保证的是请求与响应的形状；参数默认值、报错行为和输出质量各家不同。；反例：OpenAI 兼容只保证端点形状；流式、工具调用与错误码仍可能不同。",
-  "factEn": "Compatibility covers the shape of requests and responses; parameter defaults, error behaviour and output quality differ between implementations."
+  "fact": "兼容通常指某些请求与响应约定；支持范围、默认参数、流式、工具调用和错误处理仍需逐项核对。接口名称相同不代表产品行为或输出质量相同。",
+  "factEn": "Compatibility typically concerns specified request/response conventions. Check supported scope, defaults, streaming, tools and errors individually. Shared interface names do not establish equal behavior or output quality."
  },
  {
   "id": "怎么读模型卡",
@@ -1704,18 +1704,18 @@ var GUIDES = [
    "en": "The EU AI Act sorts AI into four risk tiers, with obligations taking effect in batches. This guide covers how to classify yourself and which tier you hit."
   },
   "points": [
-   "先定风险档：不可接受 / 高风险 / 透明性 / 最低。绝大多数应用落在最低档，无额外义务。",
-   "查禁用清单：社交评分、公共场所实时生物识别等九类做法被直接禁止。",
+   "先确定用途、服务地区和提供者或部署者角色，再逐条核对适用范围；“最低风险”标签不代表其他法律或通用义务都不适用。",
+   "按第 5 条逐项检查禁止做法，并阅读各项的条件、范围和例外；不能只凭“社交评分”或“生物识别”名称判断。",
    "透明性义务：聊天机器人要让人知道在和机器对话；生成内容要可识别，深度伪造要明显标注。",
-   "通用模型义务已生效：提供通用 AI 模型的厂商要处理透明度与版权要求。",
+   "通用 AI 模型的义务需要按提供者角色、模型情形、适用条款和过渡安排核对，不把所有模型或产品归为同一组。",
    "高风险义务最重：风险评估、数据质量、日志、人工监督，一项都不能少。",
    "时间线要盯：不同义务分批生效，同一产品在不同日期要满足不同要求。"
   ],
   "pointsEn": [
-   "Set your risk tier first: unacceptable / high / transparency / minimal. Most applications land in minimal, with no extra duties.",
-   "Check the ban list: nine practices are prohibited outright, including social scoring and real-time remote biometric identification in public spaces.",
+   "Identify purpose, service region and provider/deployer role before checking scope. A minimal-risk label does not remove other laws or generally applicable duties.",
+   "Check prohibited practices under Article 5 together with their conditions, scope and exceptions. Names such as social scoring or biometric identification are not enough to decide applicability.",
    "Transparency duties: chatbots must let people know they are talking to a machine; AI-generated content must be identifiable, and deepfakes visibly labeled.",
-   "General-purpose model duties are already live: GPAI providers face transparency and copyright requirements.",
+   "Check general-purpose AI model duties against provider role, model circumstances, provisions and transition rules; do not treat all models/products alike.",
    "High-risk duties are the heaviest: risk assessment, data quality, logging, and human oversight, none optional.",
    "Watch the timeline: obligations take effect in batches, so the same product must meet different requirements on different dates."
   ],
@@ -1839,8 +1839,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "带「预览」字样的模型只是试验品，不能上生产。",
   "mythEn": "Anything labelled \"preview\" is an experiment and cannot go to production.",
-  "fact": "各家的生命周期与支持政策不同。判断依据是该家的条款和弃用时间表。名字里有没有预览不算依据。；反例：预览版条款常允许内部评估，限制的是对外生产承诺；能不能用要看条款，不是看「预览」二字。",
-  "factEn": "Lifecycle and support policies differ between providers. The basis is that provider's terms and deprecation schedule. Whether the name says \"preview\" is not evidence."
+  "fact": "预览名称本身不足以决定可否使用。检查目标用途是否获准、支持和可用性承诺、退役安排与迁移方式；未说明的部分记为未知。",
+  "factEn": "The preview label alone does not decide permitted use. Check intended-use permission, support/availability commitments, retirement and migration. Keep undisclosed details unknown."
  },
  {
   "id": "开源模型一定更省钱",
@@ -1858,8 +1858,8 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "模型开源了，成本就一定比调用 API 低。",
   "mythEn": "Once a model is open, running it is necessarily cheaper than calling an API.",
-  "fact": "自建要算硬件、运维和人力；开源保证的是使用权与可改性，不是「免费」。；反例：开源省的是许可费，不省硬件、运维与评测；调用量小时云端通常更便宜。",
-  "factEn": "Self-hosting costs hardware, operations and people; open concerns the right to use and modify, not price."
+  "fact": "自建仍需要硬件、维护、监控与复核；具体许可证也可能有条件。应在相同任务量和质量要求下比较总成本，不能把下载免费等同于使用免费。",
+  "factEn": "Self-hosting still needs hardware, maintenance, monitoring and review, and actual license conditions matter. Compare total costs at equal workload and quality rather than equating free download with free use."
  },
  {
   "id": "换模型只是改个名字",
@@ -1877,7 +1877,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "换模型只是把配置里的名字改一下。",
   "mythEn": "Switching models is just changing a name in the config.",
-  "fact": "换模型要重测行为、成本和合规；接口兼容不等于迁移成本为零。；反例：提示词、工具 schema、评测集与安全策略都要重跑；换模型是一次迁移项目。",
-  "factEn": "Switching means retesting behaviour, cost and compliance; a compatible interface does not make the migration free."
+  "fact": "配置可能只改一行，但提示、工具参数、输出解析、质量、成本与数据条款都可能受影响。先用代表性输入比较并保留回滚方式，再决定是否完成迁移。",
+  "factEn": "Configuration may change by one line while prompts, tools, parsers, quality, cost and data terms change materially. Compare representative inputs and retain rollback before declaring migration complete."
  }
 ];

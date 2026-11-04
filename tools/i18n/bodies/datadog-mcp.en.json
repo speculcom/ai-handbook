@@ -16,7 +16,7 @@
     "scope": "A large read surface (logs/metrics/traces/dashboards/monitors/incidents etc., grouped by toolsets);\nwrite actions (creating monitors, modifying cases, etc.) require the corresponding write permission, checked per call.\nThe official position: all MCP tool calls go into the Audit Trail (tool name/parameters/user/client),\nplus two standard metrics, datadog.mcp.session.starts and datadog.mcp.tool.calls."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The complete tool list within each toolset (the official docs list group names and some tools, not enumerated item by item)\n- Current rate-limit numbers (the official docs gave figures and state plainly they \"may change\"; per our D9 rule and snapshot discipline no specific numbers are stored)\n- Windows support details of the local-binary line (the official docs give download guidance, not verified item by item)",
+  "unknowns": "- The complete tool list within each toolset (the official docs list group names and some tools, not enumerated item by item)\n- Current rate-limit numbers (the official docs gave figures and state plainly they \"may change\"; per our price-recording policy and snapshot discipline no specific numbers are stored)\n- Windows support details of the local-binary line (the official docs give download guidance, not verified item by item)",
   "related": [
     "Also the observability surface: Grafana is open-source and self-hostable; Datadog is closed-source hosted with credential pass-through.",
     "Same-category contrast: Sentry focuses on error issues; Datadog is the full-stack observability platform surface."

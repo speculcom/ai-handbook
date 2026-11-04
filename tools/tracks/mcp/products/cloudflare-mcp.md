@@ -83,7 +83,7 @@ cn:
 ## 一句话定位
 
 **Cloudflare 官方 MCP server**（Apache-2.0）：agent 写 Worker、部署、管 D1/R2/DNS、查官方 docs。
-同类里**受限 token 粒度做得最细**——但记住「能部署=能跑任意代码」，token 要按最小面配。
+提供**受限 token**——但记住「能部署=能跑任意代码」，token 要按最小面配。
 
 ## 适合与不适合
 

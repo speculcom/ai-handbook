@@ -239,7 +239,7 @@ cn:
 
 ## 一句话定位
 
-**唯一一家把「审批权交给另一个 agent」的**。Muse Secure VM 上跑着两个系统级隔离的东西：干活的 Muse，和否决它的 Sentinel。
+**用独立 agent 承担审批的设计**。Muse Secure VM 上跑着两个系统级隔离的东西：干活的 Muse，和否决它的 Sentinel。
 
 ## 与 Dot 的关键设计差异（两份同期档案，最值得对照的地方）
 

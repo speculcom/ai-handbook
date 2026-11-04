@@ -279,7 +279,7 @@ before a read outside the working directories
 
 ### ③ 额度显示具体金额
 
-CHANGELOG 原文（节选，金额示例按 D9 口径不摘录）：
+CHANGELOG 原文（节选，金额示例按本站的报价记录约定不摘录）：
 
 ```
 Added dollar amounts to the Claude apps gateway spend limit in /usage

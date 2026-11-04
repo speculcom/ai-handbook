@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "贯穿案例：空列表导致页面报错": "This fictional minimal case illustrates a repair record; it is not a project executed by this site.\n\n**Input and failure**: a page reads items[0].title; items=[] fails. Expected behavior is an empty state, while populated lists still show the first title.\n\n**Reproduce** with empty, single-item and multi-item lists. Establish the original failure and baseline behavior.\n\n**Scope**: handle the empty list before reading its first item. If the interface also permits null or missing fields, document those inputs separately instead of silently widening the contract.\n\n**Required evidence**: an empty state for no items, unchanged rules for populated lists and absence of the original error. These are acceptance requirements, not reported test results.\n\n**If failure remains**, inspect the actual input and error location rather than piling on defaults. Deliver reproduction inputs, changes, validation results and uncovered cases."
+  },
+  "sources": [
+    "Anthropic · Claude Code 仓库（权限与 CHANGELOG；2026-10 快照）",
+    "OpenAI · Codex CLI 仓库（线程续接与 app server；2026-10 快照）",
+    "Google · Gemini CLI 仓库（非交互脚本模式、MCP；2026-10 快照）",
+    "Anthropic · Claude Code 官方文档（权限与工作流；2026-10 快照）"
+  ]
+}

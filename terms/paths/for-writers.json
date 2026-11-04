@@ -8,8 +8,8 @@
     "en": "about 40 minutes"
   },
   "lead": {
-    "zh": "给靠文字吃饭的人：先懂 AI 怎么生成、哪里会错，再学会让它替你干活而不是替你编活。",
-    "en": "For people who make a living on words: first understand how AI generates and where it goes wrong, then make it work for you instead of inventing work for you."
+    "zh": "围绕资料整理、写作与引用，了解生成限制和核对方法。读完后用一小段真实资料练习，而非只记提问技巧。",
+    "en": "Study limitations and checks for research, writing and citations. Then practice on a short source passage rather than memorizing prompting tips."
   },
   "steps": [
     "生成式 AI",
@@ -34,5 +34,27 @@
       "Replace trusting AI-provided citations on faith with retrieval plus your own verification",
       "Given a passage of AI text, say which parts require human review and what to check"
     ]
+  },
+  "answers": [
+    {
+      "zh": "输出会受资料缺失、歧义和生成随机性影响。例：让模型编写活动介绍时，提供已确认的时间地点，并要求未提供的信息标为未知。",
+      "en": "Missing sources, ambiguity and generation randomness can affect output. For an event notice, provide confirmed time and venue and require missing facts to remain unknown.",
+      "review": "幻觉的成因"
+    },
+    {
+      "zh": "打开原始页面核对作者、日期与原文，再确认它是否支持你的句子；能打开链接并不代表引文成立。无法核实的引用不要当证据使用。",
+      "en": "Open the original page to check author, date and wording, then confirm that it supports the claim. A reachable URL is not enough. Do not treat unverified citations as evidence.",
+      "review": "联网 - 检索增强"
+    },
+    {
+      "zh": "复核姓名、数字、引用、事实判断和对外承诺；涉及专业判断时另找可靠依据。编辑还应检查文字是否改变了原意，而不只修语法。",
+      "en": "Verify names, numbers, quotations, factual claims and external commitments. Seek reliable support for specialist judgments. Check preservation of meaning, not grammar alone.",
+      "review": "水印与内容凭证"
+    }
+  ],
+  "nextTask": {
+    "href": "https://tools.specul.com/mcp/guides/playbook-research-brief.html#worked-example",
+    "zh": "写一页能逐条核对出处的摘要",
+    "en": "Write a one-page brief with traceable claims"
   }
 }

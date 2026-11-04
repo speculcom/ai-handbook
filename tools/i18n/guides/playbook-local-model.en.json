@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "贯穿案例：先算内存，再尝试启动": "These are hypothetical capacity figures, not a named model or measured performance.\n\nAssume a 10 GiB available budget and 6 GiB of weights. Reserve 2 GiB for context cache and 1 GiB for runtime, leaving 1 GiB headroom. The 9 GiB estimate is not a startup guarantee.\n\nCheck file provenance, licensing, runtime and architecture support. Start with short input and inspect loading, unsupported operations and actual memory. Increase context gradually, recording errors and response times.\n\nIf it does not fit, identify weights, cache and other applications separately. Assess smaller variants, quantizations or supported offload. Startup with unacceptable response time also fails the task.\n\nSee the [hardware-budget example](https://models.specul.com/guides/gpu-cost-math.html) for units and calculation."
+  },
+  "sources": [
+    "models.specul.com · 量化索引（129 量化仓 / 1,262 量化档 / 1,337 GGUF，2026-10-30 快照）",
+    "llama.cpp · 官方仓库（GGUF 与 llama-server；2026-10 快照）",
+    "vLLM · 官方文档（PagedAttention、OpenAI 兼容；2026-10 快照）",
+    "LM Studio · 官方站（MLX + llama.cpp 双运行时；2026-10 快照）",
+    "PyPI · exllamav3 1.6.5（2026-10-25；2026-11-03 复核）"
+  ]
+}

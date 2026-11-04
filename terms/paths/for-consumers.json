@@ -3,12 +3,24 @@
   "ord": 9,
   "zh": "普通消费者路线",
   "en": "The Everyday User's Route",
-  "span": { "zh": "约 30 分钟", "en": "about 30 minutes" },
-  "lead": {
-    "zh": "不写代码、不做开发：先知道 AI 能做什么、哪里会错，再学会安全地用聊天、搜索与生成工具。",
-    "en": "No code, no development: learn what AI can do and where it fails, then use chat, search and generation tools safely."
+  "span": {
+    "zh": "约 30 分钟",
+    "en": "about 30 minutes"
   },
-  "steps": ["人工智能", "生成式 AI", "提示词", "AI 搜索", "幻觉", "多模态", "隐私与合规", "水印与内容凭证"],
+  "lead": {
+    "zh": "从日常使用出发，了解 AI 能做什么、哪里可能出错，再检查资料、隐私与发布要求。无需编程基础。",
+    "en": "Start from everyday use: learn capabilities and errors, then check sources, privacy and publication requirements. No programming background required."
+  },
+  "steps": [
+    "人工智能",
+    "生成式 AI",
+    "提示词",
+    "AI 搜索",
+    "幻觉",
+    "多模态",
+    "隐私与合规",
+    "水印与内容凭证"
+  ],
   "checkpoint": {
     "zh": [
       "说清 AI 的回答为什么可能错，并知道至少两种核对办法",
@@ -20,5 +32,27 @@
       "Given AI-generated text or images, identify which claims need human verification",
       "Know what not to paste into a public chat tool, and how to use temporary chat or turn off training"
     ]
+  },
+  "answers": [
+    {
+      "zh": "模型可能补出没有依据的细节。两种核对办法：打开原始资料逐条比对；用独立可靠来源复核关键断言。让同一模型再说一遍不算独立证据。",
+      "en": "Models may invent unsupported details. Check each claim against the original material and cross-check key claims with an independent reliable source. Repeating the same model response is not independent evidence.",
+      "review": "幻觉"
+    },
+    {
+      "zh": "重点查人名、日期、金额、引文、图中标注和对外承诺。把无法确认的细节删掉或标为未知，不能因为画面或文字自然就直接发布。",
+      "en": "Check names, dates, amounts, quotations, image labels and external commitments. Remove or label unverified details; natural-looking output is not sufficient for publication.",
+      "review": "水印与内容凭证"
+    },
+    {
+      "zh": "先区分公开资料与身份、客户、内部资料。查看当前产品的数据用途、留存和删除说明；临时聊天或训练开关各自控制什么，以该产品说明为准，不把它们当作零留存保证。",
+      "en": "Separate public material from identity, customer and internal data. Read the product’s current data-use, retention and deletion terms. Temporary chats and training switches are not blanket zero-retention guarantees.",
+      "review": "隐私与合规"
+    }
+  ],
+  "nextTask": {
+    "href": "https://tools.specul.com/mcp/guides/chat-selection.html",
+    "zh": "按用途和数据条件挑聊天工具",
+    "en": "Choose chat tools by task and data constraints"
   }
 }

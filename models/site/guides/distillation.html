@@ -90,13 +90,14 @@
       <p class="lede"><span data-zh>logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。</span><span data-en>Logit distillation versus data distillation, why nearly every open-weight family distils, and what the &quot;distilled&quot; label means when choosing a model. Practitioner depth; the one-page explainer lives on the Learn site.</span></p>
     </header>
 
-    <section class="fam-sec">
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></a></li><li><a href="#guide-section-2"><span data-zh>两支：logit 蒸馏与数据蒸馏</span><span data-en>Two branches: logits versus data</span></a></li><li><a href="#guide-section-3"><span data-zh>为什么开放权重几乎人人蒸馏</span><span data-en>Why every open-weight family distils</span></a></li><li><a href="#guide-section-4"><span data-zh>选型时「蒸馏来的」意味着什么</span><span data-en>What &quot;distilled&quot; means when choosing</span></a></li><li><a href="#guide-section-5"><span data-zh>许可与合规：蒸馏不豁免原模型条款</span><span data-en>Licences: distilling does not escape the base terms</span></a></li><li><a href="#guide-section-6"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li></ul></nav>
+    <section class="fam-sec" id="guide-section-0">
       <h2></h2>
 <ul>
 
 </ul>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
 <span data-zh><p><b>蒸馏 = 让小模型向大模型学，而不是直接从原始数据学。</b></p>
 <p>原始方法是 Hinton 等人的软标签蒸馏（出处见文末清单）。<br>不只给「答案是猫」这个硬结论，还给出概率分布：<br>六成像猫、三成像狗、一成像狐狸。</p>
@@ -104,7 +105,7 @@
 <p>The original method is Hinton et al.&#39;s soft-label distillation (source in the list at the end).<br>It passes not just the hard verdict “the answer is cat” but the probability distribution:<br>six-tenths cat-like, three-tenths dog-like, one-tenth fox-like.</p>
 <p>Inter-class similarity carries more information than a hard label.<br>In the LLM era this route split into two branches.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-2">
       <h2><span data-zh>两支：logit 蒸馏与数据蒸馏</span><span data-en>Two branches: logits versus data</span></h2>
 <span data-zh><p><b>logit 蒸馏</b>要同时跑教师与学生，教师输出分布当训练信号。</p>
 <p>DistilBERT 是公开范例：同架构自蒸馏，参数减半、<br>速度提升 60%、保留 97% 语言理解能力（论文口径）。</p>
@@ -118,7 +119,7 @@
 <p>DeepSeek-R1 distilled its own long chain-of-thought samples into a series of small models,<br>from 1.5B up to 70B, with the official paper giving a results table per size.<br>This is the official example of “chain-of-thought distillation”.</p>
 <p>The MiniCPM lineage writes distillation in as a formal stage of its training pipeline (the paper&#39;s wording).</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>为什么开放权重几乎人人蒸馏</span><span data-en>Why every open-weight family distils</span></h2>
 <span data-zh><p>三个理由，都有官方出处可查：</p>
 <ul>
@@ -140,7 +141,7 @@
   <li><b>Licence</b>: most family licences allow re-training models on their outputs (each licence text governs; this site does not interpret terms).</li>
 </ul></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>选型时「蒸馏来的」意味着什么</span><span data-en>What &quot;distilled&quot; means when choosing</span></h2>
 <span data-zh><p>本站口径与 S53 派生标记同一套纪律：<br><b>只有官方自己声明的谱系才标「蒸馏/派生」</b>。<br>依据是模型卡的 <code>base_model</code> 字段，或论文、技术报告的明文。<br>不猜，也不根据「像」来推断。</p>
 <p>事实层面的含义：蒸馏模型的能力上限受教师约束。<br>教师不会的，它大概率不会。</p>
@@ -150,13 +151,13 @@
 <p>But small models can beat the teacher on narrow tasks.<br>The 7B distilled from R1 outperforms several much larger general models on math evaluations (the official paper&#39;s figures).</p>
 <p>“Distilled” is not a pejorative label. It tells you where the weight lineage comes from.<br>Read it as provenance when choosing, not as a quality verdict.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>许可与合规：蒸馏不豁免原模型条款</span><span data-en>Licences: distilling does not escape the base terms</span></h2>
 <span data-zh><p>用某模型的输出去训新模型，是否受原模型许可约束？<br>各许可写法不同，Llama 与 Gemma 的条款各有附加约定（条款文本见文末清单）。</p>
 <p>本站的立场与全站法律页一致：<br>只索引、只引述、不解读许可、不给法律意见。</p></span><span data-en><p>Does training a new model on some model&#39;s outputs fall under the original model&#39;s licence?<br>Each licence is worded differently; Llama&#39;s and Gemma&#39;s terms each carry extra conditions (licence texts in the list at the end).</p>
 <p>This site&#39;s stance matches the site-wide legal page:<br>index only, quote only, no licence interpretation, no legal advice.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-6">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
 <span data-zh><p>一页科普版在学 AI 站：<a href="https://learn.specul.com/term/知识蒸馏/" target="_blank" rel="noopener">知识蒸馏</a><br>与 <a href="https://learn.specul.com/term/剪枝/" target="_blank" rel="noopener">剪枝</a>（压缩的另一条路）。</p>
 <p>本篇讲两支蒸馏的成本结构、官方范例、选型读法与许可边界。<br>本站家族卡上的「派生自 X」标记（S53）用的就是本篇的谱系口径。</p></span><span data-en><p>The one-page explainers live on the Learn site: <a href="https://learn.specul.com/term/知识蒸馏/" target="_blank" rel="noopener">knowledge distillation</a><br>and <a href="https://learn.specul.com/term/剪枝/" target="_blank" rel="noopener">pruning</a> (the other compression route).</p>
@@ -175,7 +176,7 @@
         <li><span data-zh>Llama Community License 原文页（官方许可文本入口，2026-10-20 直抓 200）</span><span data-en>Llama Community License text page (entry to the official licence text; fetched directly, HTTP 200, 2026-10-20)</span>：<a href="https://www.llama.com/llama-license/" target="_blank" rel="noopener">https://www.llama.com/llama-license/</a></li>
         <li><span data-zh>Gemma Terms of Use 原文页（官方许可文本入口，2026-10-20 直抓 200）</span><span data-en>Gemma Terms of Use text page (entry to the official licence text; fetched directly, HTTP 200, 2026-10-20)</span>：<a href="https://ai.google.dev/gemma/terms" target="_blank" rel="noopener">https://ai.google.dev/gemma/terms</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>核验快照：2026-10-20 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-20 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
+      <p class="fam-foot"><span data-zh>资料核验日期：2026-10-20。下列原始来源提供规格、方法与适用条件。</span><span data-en>Sources checked: 2026-10-20. The originals below describe specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

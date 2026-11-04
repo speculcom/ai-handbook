@@ -8,8 +8,8 @@
     "en": "about 50 minutes"
   },
   "lead": {
-    "zh": "替团队做选择的人：不学原理，只学决策要看的维度——成本、锁定、合规、评测口径。",
-    "en": "For whoever chooses for the team: skip the mechanics, learn the dimensions a decision turns on — cost, lock-in, compliance, and how scores are produced."
+    "zh": "把产品、部署、数据、成本与退出条件逐项拆开。目标是形成一份能说明选择原因和未知项的采购记录。",
+    "en": "Separate product, deployment, data, cost and exit conditions. Aim for a procurement record explaining the choice and unresolved items."
   },
   "steps": [
     "AI 产品 vs AI 模型",
@@ -38,5 +38,27 @@
       "Name three things to verify before switching model vendors",
       "Read a vendor's evaluation report and say which scores stand up and which need a question mark"
     ]
+  },
+  "answers": [
+    {
+      "zh": "除调用或硬件费，还要算接入、数据处理、维护、监控、复核和迁移。对相同任务量与质量要求计算，避免拿不同范围的报价直接比较。",
+      "en": "Include integration, data processing, maintenance, monitoring, review and migration beyond API or hardware fees. Compare equal workload and quality requirements.",
+      "review": "自托管成本"
+    },
+    {
+      "zh": "核实数据留存与删除方式、服务可用与退役政策、数据和配置的导出迁移条件；把产品版本、条款链接与核验时间写入记录。",
+      "en": "Verify retention/deletion, availability/retirement policy, and export/migration of data and configuration. Record product version, terms URL and checking date.",
+      "review": "供应商锁定"
+    },
+    {
+      "zh": "相同基准版本和设置下的结果才适合对照；自选演示和未经披露的设置不能直接外推。要求提供失败样本和与你任务相近的评测说明。",
+      "en": "Compare results with the same benchmark version and settings. Selected demos and undisclosed setups do not support broad conclusions. Ask for failures and task-relevant evaluation details.",
+      "review": "模型评测的局限"
+    }
+  ],
+  "nextTask": {
+    "href": "https://tools.specul.com/mcp/guides/toolkit-worksheets.html#worked-example",
+    "zh": "照已填示例完成一份项目记录",
+    "en": "Complete a project record using the filled example"
   }
 }

@@ -34,7 +34,7 @@ axes:
 pitfalls:
   - 用 modelcontextprotocol 仓里的旧 Brave reference——已归档，现役是官方 @brave/brave-search-mcp-server（官方 README 明写接替关系）
   - 把「搜索」当「抓取」——它返回结果摘要与链接，不抓正文
-  - API key 配额与计费层按 Brave 账户走——D9 口径：本站不记价格数字
+  - API key 配额与计费层按 Brave 账户走——报价记录约定：本站不记价格数字
 
 tags: [MCP, 搜索, MIT, 本地stdio, 读面]
 related: [cursor, claude-code]

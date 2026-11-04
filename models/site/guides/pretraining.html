@@ -90,19 +90,20 @@
       <p class="lede"><span data-zh>预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。</span><span data-en>What pre-training optimises, how corpora reach trillions of tokens, how compute and data are budgeted, and how the scaling-law story changed. The practitioner-depth version; the one-page explainer lives on the Learn site — cross-linked, not duplicated.</span></p>
     </header>
 
-    <section class="fam-sec">
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></a></li><li><a href="#guide-section-2"><span data-zh>目标函数：预测下一个词</span><span data-en>The objective: next-token prediction</span></a></li><li><a href="#guide-section-3"><span data-zh>数据：规模、清洗、去重</span><span data-en>Data: scale, cleaning, deduplication</span></a></li><li><a href="#guide-section-4"><span data-zh>算力与数据怎么配：缩放律改过一次口径</span><span data-en>Budgeting compute and data: the scaling-law plot twist</span></a></li><li><a href="#guide-section-5"><span data-zh>训练过程：学习率与长上下文扩展</span><span data-en>The run: learning rate and context extension</span></a></li><li><a href="#guide-section-6"><span data-zh>词表：tokenization 怎么定</span><span data-en>The vocabulary: how tokenization is set</span></a></li><li><a href="#guide-section-7"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li></ul></nav>
+    <section class="fam-sec" id="guide-section-0">
       <h2></h2>
 <ul>
 
 </ul>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
 <span data-zh><p><b>预训练就是让模型在海量文本上学会续写。</b><br>学 AI 站有一页科普讲「它是什么」；这一篇讲从业者要做的决定：<br>语料怎么攒、算力怎么配、训练量怎么定、词表怎么切。</p>
 <p>关键事实都有公开的论文或官方模型卡做出处，<br>出处列在文末；本站只转述与对照，不实测。</p></span><span data-en><p><b>Pre-training is making a model learn to continue text on massive amounts of it.</b><br>The Learn site has an explainer page on “what it is”; this guide is about the decisions practitioners make:<br>how corpora are assembled, how compute is budgeted, how training volume is set, how vocabularies are cut.</p>
 <p>Every key fact has a public paper or official model card as its source,<br>listed at the end of the page; this site only transcribes and cross-checks — it runs no benchmarks.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-2">
       <h2><span data-zh>目标函数：预测下一个词</span><span data-en>The objective: next-token prediction</span></h2>
 <span data-zh><p>主流大模型的目标单一到乏味：给定前文，预测下一个 token 的概率分布。</p>
 <p>GPT-3 论文（arXiv 2005.14165）把这条路线推到 1750 亿参数，<br>证明规模够大之后不用专门教，能力会自己长出来。<br>BERT 那条「完形填空」路线（双向掩码）在生成任务上输了。<br>此后开放权重家族几乎全是自回归解码器结构。</p>
@@ -110,7 +111,7 @@
 <p>The GPT-3 paper (arXiv 2005.14165) pushed this route to 175 billion parameters and<br>showed that at sufficient scale abilities grow on their own without being taught explicitly.<br>BERT&#39;s “fill-in-the-blank” route (bidirectional masking) lost on generation tasks.<br>Since then, open-weight families are almost all autoregressive decoder architectures.</p>
 <p>Practitioner corollary: everything a model “knows” is a by-product of continuation statistics.<br>It was never trained for any specific task. That explains why it is general,<br>and also why it fabricates with a straight face.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>数据：规模、清洗、去重</span><span data-en>Data: scale, cleaning, deduplication</span></h2>
 <span data-zh><p>网页语料（Common Crawl）是脏的：重复、垃圾页、机器生成文本混在里面。<br>T5 论文的 C4 附录给出了一套被广泛沿用的清洗规则：<br>去重、过滤低质量行、按语言筛。</p>
 <p>LLaMA 论文明确说只用公开可得数据训练，把「数据配方」本身当成贡献。</p>
@@ -122,7 +123,7 @@
 <p>Hugging Face&#39;s FineWeb (arXiv 2406.17557) turned this cleaning pipeline into an open 15T-token corpus,<br>with an ablation published for every cleaning step, directly reproducible.</p>
 <p>Deduplication is hard graft: the same web article can appear dozens of times inside Common Crawl.<br>Duplicates waste compute and make the model memorise training text verbatim —<br>a major source of benchmark contamination.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>算力与数据怎么配：缩放律改过一次口径</span><span data-en>Budgeting compute and data: the scaling-law plot twist</span></h2>
 <span data-zh><p>2020 年 Kaplan 等人（arXiv 2001.08361）给出第一版缩放律：<br>损失随参数量、数据量、算力平滑下降，参数优先——钱该花在更大的模型上。</p>
 <p>2022 年 Chinchilla（arXiv 2203.15556）用更细的实验推翻了这个配比：<br>算力固定时，参数和数据要一起长，最优大约是每参数 20 个 token。<br>按旧口径训的大模型，很多是「喂少了」的。</p>
@@ -132,7 +133,7 @@
 <p>This result directly rerouted open weights.<br>The LLaMA line (1.0T tokens for 7B, 1.4T for 70B) is exactly “small model + over-abundant data”.<br>The Llama 3.1 official model card states 15T tokens — by Chinchilla&#39;s yardstick a far-past-optimal “over-training”.</p>
 <p>Why over-train knowingly? Because scaling laws optimise training cost,<br>while the model will be inferred against repeatedly. Feed a small model more data: training costs a bit more, inference gets much cheaper.<br>Open-weight models have to run on tens of millions of users&#39; GPUs — the math has to be done this way.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>训练过程：学习率与长上下文扩展</span><span data-en>The run: learning rate and context extension</span></h2>
 <span data-zh><p>一次预训练不是一根直线。学习率先升后降（常用余弦退火），<br>末期常在高质量数据上「退火」收尾。各家具体配方多数不公开，<br>本站只写官方公开过的部分，没公开的就不写。</p>
 <p>上下文长度是训练后再拉长的，这是常见做法。<br>LLaMA 2 论文写明用位置插值把 4K 扩到 32K；Llama 3.1 官方模型卡标 128K。<br>拉长靠改 RoPE 位置编码的频率基数等手法。</p>
@@ -140,7 +141,7 @@
 <p>Context length is usually stretched after training — standard practice.<br>The LLaMA 2 paper states it extended 4K to 32K with position interpolation; the Llama 3.1 model card lists 128K.<br>Stretching relies on techniques such as changing the frequency base of RoPE positional encoding.</p>
 <p>State the cost honestly: “length seen during training” and “nominal length” are not equal in ability.<br>A 128K label does not mean needle-in-a-haystack still works accurately at 128K — evaluate by length buckets yourself.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-6">
       <h2><span data-zh>词表：tokenization 怎么定</span><span data-en>The vocabulary: how tokenization is set</span></h2>
 <span data-zh><p>模型看到的不是字，是 token。主流切法是 BPE（arXiv 1508.07909）：<br>从字符起步，把最常共现的片段逐步合并成子词。</p>
 <p>词表大小是个权衡：表大，中文这类非英语文本更省 token；<br>表小，切得碎、序列变长。<br>Llama 用 128K 词表（官方模型卡），OpenAI 的 o200k_base 到 20 万（tiktoken 官方仓库）。</p>
@@ -148,7 +149,7 @@
 <p>Vocabulary size is a trade-off: a big table saves tokens on non-English text like Chinese;<br>a small table cuts finer and sequences get longer.<br>Llama uses a 128K vocabulary (official model card); OpenAI&#39;s o200k_base reaches 200K (tiktoken official repository).</p>
 <p>The same sentence can differ several-fold in token count across vocabularies.<br>Before comparing “context length” or “price per token”, check the vocabulary yardstick — otherwise the numbers are not comparable.</p></span>
     </section>
-    <section class="fam-sec">
+    <section class="fam-sec" id="guide-section-7">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
 <span data-zh><p>学 AI 站的 <a href="https://learn.specul.com/term/预训练/" target="_blank" rel="noopener">预训练</a> 与<br><a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a> 是使用者视角的一页科普；<br>这一篇是从业者视角的深版：讲决定、讲代价、讲口径变化。</p>
 <p>同一个词在两处深度不同，互链不重复。<br>数据与算力的成本量级见本站[数据与算力篇](data-compute.html)，<br>开源训练栈见[开源训练栈篇](training-stack.html)。</p></span><span data-en><p>The Learn site&#39;s <a href="https://learn.specul.com/term/预训练/" target="_blank" rel="noopener">pre-training</a> and<br><a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">three-stage training</a> pages are user-perspective explainers;<br>this guide is the practitioner deep version: decisions, costs, and how the consensus changed.</p>
@@ -170,7 +171,7 @@
         <li><span data-zh>BPE 分词论文（arXiv 1508.07909，子词切分的原始方法，2026-10-20 直抓摘要页）</span><span data-en>BPE tokenisation paper (arXiv 1508.07909, the original subword segmentation method; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/1508.07909" target="_blank" rel="noopener">https://arxiv.org/abs/1508.07909</a></li>
         <li><span data-zh>OpenAI tiktoken 官方仓库（o200k_base 词表的官方实现与说明，2026-10-20 直抓 200）</span><span data-en>OpenAI tiktoken official repository (the official implementation and docs of the o200k_base vocabulary; fetched directly, HTTP 200, 2026-10-20)</span>：<a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">https://github.com/openai/tiktoken</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>核验快照：2026-10-20 · 本站不实测、不排名、不裁决路线之争，未知就写未知。</span><span data-en>Verification snapshot: 2026-10-20 · no benchmarks, no rankings, no route adjudication — unknown stays unknown.</span></p>
+      <p class="fam-foot"><span data-zh>资料核验日期：2026-10-20。下列原始来源提供规格、方法与适用条件。</span><span data-en>Sources checked: 2026-10-20. The originals below describe specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

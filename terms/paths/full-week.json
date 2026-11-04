@@ -3,10 +3,13 @@
   "ord": 3,
   "zh": "一周路线",
   "en": "The Full Week",
-  "span": { "zh": "一周", "en": "one week" },
+  "span": {
+    "zh": "一周",
+    "en": "one week"
+  },
   "lead": {
-    "zh": "六站各挑代表词，共 25 个，按站的顺序走。读完面对一个新模型或新工具，有自己的判断框架。",
-    "en": "Representative terms from all six stations, 25 in station order. Finish with your own framework for judging a new model or tool."
+    "zh": "六站各选代表主题，共二十五步。把能力、成本、许可与评测放在一起看，最后用具体任务检查自己的选择。",
+    "en": "Follow twenty-five representative steps across six stations. Connect capability, cost, licensing and evaluation, then examine a choice for a concrete task."
   },
   "steps": [
     "人工智能",
@@ -46,5 +49,27 @@
       "Decide API or local for a given job, and state the reasoning",
       "Read a benchmark table and name at least one thing it cannot say about your actual use"
     ]
+  },
+  "answers": [
+    {
+      "zh": "先写任务和验收条件，再查能力限制、数据去向、总成本、许可证、导出与迁移方式。不能用一个榜单名次替代这些问题。",
+      "en": "Define the task and acceptance criteria, then check limits, data handling, total cost, licensing, export and migration. A leaderboard position cannot answer these questions.",
+      "review": "许可证"
+    },
+    {
+      "zh": "示例：低频且无部署经验的任务可先评估 API；不能把数据交给外部服务时，应评估符合约束的本地或私有方案。两边都要核算成本、质量、维护和硬件限制。",
+      "en": "For example, assess an API for occasional work without deployment expertise; assess a suitable local/private option when external data transfer is disallowed. Compare cost, quality, maintenance and hardware limits in both cases.",
+      "review": "开源模型"
+    },
+    {
+      "zh": "核对基准版本、输入、工具与评分口径；它未必覆盖你的中文材料、长文档、响应时间或失败成本。用自己的代表性任务补足缺口。",
+      "en": "Check benchmark version, inputs, tools and scoring. It may omit your Chinese documents, long inputs, latency requirements or cost of failure. Add representative tasks of your own.",
+      "review": "模型评测的局限"
+    }
+  ],
+  "nextTask": {
+    "href": "https://tools.specul.com/mcp/guides/toolkit-prompt-context.html#worked-example",
+    "zh": "把一个实际任务写进工作表",
+    "en": "Put a concrete task into a worksheet"
   }
 }

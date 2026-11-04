@@ -140,8 +140,7 @@ cn:
 
 ## 一句话定位
 
-**本分区数据质量最高、发布最频繁的条目**。它自带 CHANGELOG 与 Atom feed。
-它的权限设计颗粒度最细。
+**提供终端编程与工具执行的产品**，带 CHANGELOG 与 Atom feed；权限设置、执行边界与版本变化见下文。
 
 ## 许可状态：源码可见，但 All rights reserved
 
@@ -198,7 +197,7 @@ cn:
 
 ## 模型更新（v2.1.284 原文）
 
-CHANGELOG 原文（节选，API 报价部分按 D9 口径不摘录）：
+CHANGELOG 原文（节选，API 报价部分按本站的报价记录约定不摘录）：
 
 ```
 Added Claude Sonnet 5.5 (claude-sonnet-5-5), now the default Sonnet
@@ -254,7 +253,7 @@ Added dollar amounts to the Claude apps gateway spend limit in /usage
 and the status line
 ```
 
-`/usage` 与状态栏显示**具体花费数字**而非抽象百分比（原文示例含金额，按 D9 口径不摘录）。
+`/usage` 与状态栏显示**具体花费数字**而非抽象百分比（原文示例含金额，按本站的报价记录约定不摘录）。
 
 ## MCP 支持在持续加强
 

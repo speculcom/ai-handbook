@@ -3,10 +3,13 @@
   "ord": 7,
   "zh": "研究学习者路线",
   "en": "The Researcher's Route",
-  "span": { "zh": "约 115 分钟", "en": "about 115 minutes" },
+  "span": {
+    "zh": "约 115 分钟",
+    "en": "about 115 minutes"
+  },
   "lead": {
-    "zh": "给想读懂论文和技术报告的人：从模型怎么训练、怎么变小变快，到怎么判断一个评测结果可不可信；沿途七张经典论文卡示范怎么读一篇具体论文。",
-    "en": "For people who want to read papers and tech reports: how models are trained, how they get smaller and faster, and when an eval result is trustworthy — with seven classic paper cards showing how to read a specific paper."
+    "zh": "将原理词条与论文卡交替阅读。每篇都记录研究问题、证据设置和适用边界；未披露的部分保留为未知。",
+    "en": "Alternate concepts and paper cards. Record each research question, evidence setup and scope; leave undisclosed details unknown."
   },
   "steps": [
     "Transformer",
@@ -46,5 +49,32 @@
       "When reading a model card, point out the license, the eval setup, and the stated limitations",
       "For each paper card on this route, state its research question and where the core evidence sits, and name at least one popular claim the paper never makes"
     ]
+  },
+  "answers": [
+    {
+      "zh": "区分基础训练、监督数据和偏好优化，记录数据来源、目标函数与评测设置；技术报告没有披露的配方应标为未知，不按常见流程补写。",
+      "en": "Separate base training, supervised data and preference optimization. Record data sources, objectives and evaluation setup; leave undisclosed recipe details unknown.",
+      "review": "训练三阶段"
+    },
+    {
+      "zh": "对照题集公开时间、训练截止、基准版本与去重说明。时间重叠只能提示污染风险，不能单独证明泄题；还需看污染检查和未见任务表现。",
+      "en": "Compare dataset release, training cutoff, benchmark version and decontamination. Temporal overlap suggests risk, not proof of contamination; inspect checks and held-out tasks.",
+      "review": "数据污染"
+    },
+    {
+      "zh": "分别记录有实验支持、设置受限与未披露的项目。例如，模型卡只报告英文结果时，不推断中文表现或生产可靠性。",
+      "en": "Separate experimentally supported, setup-limited and undisclosed claims. English-only model-card results do not establish Chinese performance or production reliability.",
+      "review": "模型卡"
+    },
+    {
+      "zh": "示例：LIMA 研究少量高质量指令数据的作用，查看其受控人评与消融；不能据此声称少量数据能解决所有安全与鲁棒性问题。其他论文同样对应问题、证据和适用边界。",
+      "en": "For LIMA, inspect controlled human evaluation and ablations on small high-quality instruction datasets. This does not establish that little data solves every safety or robustness problem. Apply the same question/evidence/limits structure to other papers.",
+      "review": "论文卡-LIMA"
+    }
+  ],
+  "nextTask": {
+    "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E8%AF%BB%E4%B8%80%E7%AF%87AI%E8%AE%BA%E6%96%87/",
+    "zh": "选一篇论文完成问题、证据与局限记录",
+    "en": "Read a paper into a question/evidence/limits record"
   }
 }

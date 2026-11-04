@@ -74,7 +74,7 @@ cn:
 
 ## 一句话定位
 
-**SWE-agent 是「agent 修代码」研究线的标杆 harness**（MIT，Princeton/Stanford）：
+**SWE-agent 是「agent 修代码」研究线的参考实现**（MIT，Princeton/Stanford）：
 ACI（为 agent 设计的计算机界面）是它的核心命题，与 SWE-bench 评测生态同源。
 生产开箱不是它的定位——它是给研究与评测用的参考实现。
 

@@ -13,8 +13,8 @@ var PATHS = [
    "en": "about 30 minutes"
   },
   "lead": {
-   "zh": "只走第一站的 10 个词，按顺序读。读完能跟人聊明白 AI 在做什么，不被黑话吓住。",
-   "en": "Ten terms from station one, in order. Finish able to explain what AI is doing, without being intimidated by jargon."
+   "zh": "先读十个常用概念，再做三道自测。目标是分清模型、产品与能力边界，不需要记住全部名词。",
+   "en": "Read ten common concepts, then try three questions. Aim to distinguish models, products and limits without memorizing the whole glossary."
   },
   "steps": [
    "人工智能",
@@ -39,7 +39,24 @@ var PATHS = [
     "Tell apart an AI product from an AI model, with one example each",
     "Name at least one thing a large model plainly cannot do"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E5%90%91%20AI%20%E6%8F%90%E9%97%AE/",
+   "zh": "试着写一份有资料、有边界的提示",
+   "en": "Try writing a source-grounded, scoped prompt"
+  },
+  "stepUrls": [
+   "/term/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/",
+   "/term/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/",
+   "/term/%E5%A4%A7%E6%A8%A1%E5%9E%8B%20-%20%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/",
+   "/term/%E6%8F%90%E7%A4%BA%E8%AF%8D/",
+   "/term/Token/",
+   "/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3/",
+   "/term/AI%20%E4%BA%A7%E5%93%81%20vs%20AI%20%E6%A8%A1%E5%9E%8B/",
+   "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI/",
+   "/term/AI%20Agent%20%E4%B8%8E%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E5%8C%BA%E5%88%AB/",
+   "/term/%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/"
+  ]
  },
  {
   "id": "afternoon-principles",
@@ -51,8 +68,8 @@ var PATHS = [
    "en": "one afternoon"
   },
   "lead": {
-   "zh": "第一站挑 4 个地基词，第四站读 8 个原理词。读完说得清大模型为什么这样表现，不再死记硬背。",
-   "en": "Four foundation terms from station one, eight from station four. Finish able to say why large models behave the way they do."
+   "zh": "按基础、训练、架构与生成顺序读十二个主题。重点是解释现象和限制；技术细节可在需要时回查。",
+   "en": "Read twelve topics across foundations, training, architecture and generation. Focus on explaining behavior and limits; revisit details when needed."
   },
   "steps": [
    "大模型 - 大语言模型",
@@ -79,7 +96,26 @@ var PATHS = [
     "Explain the three training stages of a chat model and what each stage solves",
     "Say why a model fabricates confidently, and why bigger context costs more"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://models.specul.com/guides/pretraining.html",
+   "zh": "继续看预训练的数据与目标",
+   "en": "Study pretraining data and objectives"
+  },
+  "stepUrls": [
+   "/term/%E5%A4%A7%E6%A8%A1%E5%9E%8B%20-%20%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/",
+   "/term/Token/",
+   "/term/%E8%AE%AD%E7%BB%83/",
+   "/term/%E9%A2%84%E8%AE%AD%E7%BB%83/",
+   "/term/%E8%AE%AD%E7%BB%83%E4%B8%89%E9%98%B6%E6%AE%B5/",
+   "/term/Transformer/",
+   "/term/%E5%B5%8C%E5%85%A5%E5%B1%82/",
+   "/term/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/",
+   "/term/%E8%87%AA%E5%9B%9E%E5%BD%92%E7%94%9F%E6%88%90/",
+   "/term/%E5%B9%BB%E8%A7%89%E7%9A%84%E6%88%90%E5%9B%A0/",
+   "/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3%E7%9A%84%E4%BB%A3%E4%BB%B7/",
+   "/term/%E7%BC%A9%E6%94%BE%E5%AE%9A%E5%BE%8B/"
+  ]
  },
  {
   "id": "full-week",
@@ -91,8 +127,8 @@ var PATHS = [
    "en": "one week"
   },
   "lead": {
-   "zh": "六站各挑代表词，共 25 个，按站的顺序走。读完面对一个新模型或新工具，有自己的判断框架。",
-   "en": "Representative terms from all six stations, 25 in station order. Finish with your own framework for judging a new model or tool."
+   "zh": "六站各选代表主题，共二十五步。把能力、成本、许可与评测放在一起看，最后用具体任务检查自己的选择。",
+   "en": "Follow twenty-five representative steps across six stations. Connect capability, cost, licensing and evaluation, then examine a choice for a concrete task."
   },
   "steps": [
    "人工智能",
@@ -132,7 +168,39 @@ var PATHS = [
     "Decide API or local for a given job, and state the reasoning",
     "Read a benchmark table and name at least one thing it cannot say about your actual use"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://tools.specul.com/mcp/guides/toolkit-prompt-context.html#worked-example",
+   "zh": "把一个实际任务写进工作表",
+   "en": "Put a concrete task into a worksheet"
+  },
+  "stepUrls": [
+   "/term/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/",
+   "/term/%E5%A4%A7%E6%A8%A1%E5%9E%8B%20-%20%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/",
+   "/term/%E6%8F%90%E7%A4%BA%E8%AF%8D/",
+   "/term/%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C/",
+   "/term/%E5%B9%BB%E8%A7%89/",
+   "/term/%E6%B8%A9%E5%BA%A6/",
+   "/term/%E7%9F%A5%E8%AF%86%E6%88%AA%E6%AD%A2/",
+   "/term/%E8%81%94%E7%BD%91%20-%20%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA/",
+   "/term/%E6%99%BA%E8%83%BD%E4%BD%93%20-%20Agent/",
+   "/term/%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8/",
+   "/term/MCP/",
+   "/term/%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/",
+   "/term/%E8%AF%84%E4%BC%B0/",
+   "/term/Transformer/",
+   "/term/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/",
+   "/term/%E8%AE%AD%E7%BB%83%E4%B8%89%E9%98%B6%E6%AE%B5/",
+   "/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3%E7%9A%84%E4%BB%A3%E4%BB%B7/",
+   "/term/%E6%98%BE%E5%AD%98/",
+   "/term/%E9%87%8F%E5%8C%96/",
+   "/term/GGUF/",
+   "/term/llama.cpp/",
+   "/term/%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B/",
+   "/term/%E8%AE%B8%E5%8F%AF%E8%AF%81/",
+   "/term/%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/",
+   "/term/%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E7%9A%84%E5%B1%80%E9%99%90/"
+  ]
  },
  {
   "id": "for-writers",
@@ -144,8 +212,8 @@ var PATHS = [
    "en": "about 40 minutes"
   },
   "lead": {
-   "zh": "给靠文字吃饭的人：先懂 AI 怎么生成、哪里会错，再学会让它替你干活而不是替你编活。",
-   "en": "For people who make a living on words: first understand how AI generates and where it goes wrong, then make it work for you instead of inventing work for you."
+   "zh": "围绕资料整理、写作与引用，了解生成限制和核对方法。读完后用一小段真实资料练习，而非只记提问技巧。",
+   "en": "Study limitations and checks for research, writing and citations. Then practice on a short source passage rather than memorizing prompting tips."
   },
   "steps": [
    "生成式 AI",
@@ -170,7 +238,24 @@ var PATHS = [
     "Replace trusting AI-provided citations on faith with retrieval plus your own verification",
     "Given a passage of AI text, say which parts require human review and what to check"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://tools.specul.com/mcp/guides/playbook-research-brief.html#worked-example",
+   "zh": "写一页能逐条核对出处的摘要",
+   "en": "Write a one-page brief with traceable claims"
+  },
+  "stepUrls": [
+   "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI/",
+   "/term/%E6%8F%90%E7%A4%BA%E8%AF%8D/",
+   "/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3/",
+   "/term/%E5%B9%BB%E8%A7%89/",
+   "/term/%E5%B9%BB%E8%A7%89%E7%9A%84%E6%88%90%E5%9B%A0/",
+   "/term/%E7%9F%A5%E8%AF%86%E6%88%AA%E6%AD%A2/",
+   "/term/%E8%81%94%E7%BD%91%20-%20%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA/",
+   "/term/%E6%B8%A9%E5%BA%A6/",
+   "/term/%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA/",
+   "/term/%E6%B0%B4%E5%8D%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E5%87%AD%E8%AF%81/"
+  ]
  },
  {
   "id": "for-builders",
@@ -182,8 +267,8 @@ var PATHS = [
    "en": "about 60 minutes"
   },
   "lead": {
-   "zh": "要接 API 做点东西的人：按搭建顺序读——接口、检索、工具调用、评测与成本，读完能跑通一条最小链路。",
-   "en": "For developers wiring up an API: read in build order — interface, retrieval, tool calling, evaluation, cost — and finish able to run a minimal pipeline."
+   "zh": "按搭建顺序读接口、检索、工具调用、评测与成本。阅读用于理解链路；实际接入还需按当前版本检查并验证。",
+   "en": "Study interfaces, retrieval, tools, evaluation and cost in build order. This explains the pipeline; actual integration still needs version checks and validation."
   },
   "steps": [
    "API - 接口调用",
@@ -212,7 +297,28 @@ var PATHS = [
     "Explain what chunking and embedding each determine in a retrieval pipeline",
     "Name the first two defenses to put in place when adding tool calling"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://tools.specul.com/mcp/guides/playbook-fix-a-bug.html#worked-example",
+   "zh": "按一个小问题练习复现与验收",
+   "en": "Practice reproduction and acceptance on a small issue"
+  },
+  "stepUrls": [
+   "/term/API%20-%20%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8/",
+   "/term/OpenAI%20%E5%85%BC%E5%AE%B9%E6%8E%A5%E5%8F%A3/",
+   "/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3/",
+   "/term/%E5%90%91%E9%87%8F%20-%20%E5%B5%8C%E5%85%A5/",
+   "/term/%E5%88%86%E5%9D%97/",
+   "/term/%E8%81%94%E7%BD%91%20-%20%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA/",
+   "/term/%E5%B7%A5%E5%85%B7%E5%AE%9A%E4%B9%89/",
+   "/term/%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8/",
+   "/term/MCP/",
+   "/term/%E6%99%BA%E8%83%BD%E4%BD%93%20-%20Agent/",
+   "/term/%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/",
+   "/term/%E8%AF%84%E4%BC%B0/",
+   "/term/%E5%8D%95%E6%AC%A1%E8%B0%83%E7%94%A8%E6%88%90%E6%9C%AC/",
+   "/term/%E6%8F%90%E7%A4%BA%E6%B3%A8%E5%85%A5/"
+  ]
  },
  {
   "id": "for-managers",
@@ -224,8 +330,8 @@ var PATHS = [
    "en": "about 50 minutes"
   },
   "lead": {
-   "zh": "替团队做选择的人：不学原理，只学决策要看的维度——成本、锁定、合规、评测口径。",
-   "en": "For whoever chooses for the team: skip the mechanics, learn the dimensions a decision turns on — cost, lock-in, compliance, and how scores are produced."
+   "zh": "把产品、部署、数据、成本与退出条件逐项拆开。目标是形成一份能说明选择原因和未知项的采购记录。",
+   "en": "Separate product, deployment, data, cost and exit conditions. Aim for a procurement record explaining the choice and unresolved items."
   },
   "steps": [
    "AI 产品 vs AI 模型",
@@ -254,7 +360,28 @@ var PATHS = [
     "Name three things to verify before switching model vendors",
     "Read a vendor's evaluation report and say which scores stand up and which need a question mark"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://tools.specul.com/mcp/guides/toolkit-worksheets.html#worked-example",
+   "zh": "照已填示例完成一份项目记录",
+   "en": "Complete a project record using the filled example"
+  },
+  "stepUrls": [
+   "/term/AI%20%E4%BA%A7%E5%93%81%20vs%20AI%20%E6%A8%A1%E5%9E%8B/",
+   "/term/%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B/",
+   "/term/%E5%BC%80%E6%94%BE%E6%9D%83%E9%87%8D/",
+   "/term/%E8%AE%B8%E5%8F%AF%E8%AF%81/",
+   "/term/%E6%88%90%E6%9C%AC/",
+   "/term/%E8%87%AA%E6%89%98%E7%AE%A1%E6%88%90%E6%9C%AC/",
+   "/term/%E4%BE%9B%E5%BA%94%E5%95%86%E9%94%81%E5%AE%9A/",
+   "/term/%E9%80%80%E5%87%BA%E6%88%90%E6%9C%AC/",
+   "/term/%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%87%BA%E7%BD%91/",
+   "/term/%E6%95%B0%E6%8D%AE%E9%A9%BB%E7%95%99/",
+   "/term/%E9%9A%90%E7%A7%81%E4%B8%8E%E5%90%88%E8%A7%84/",
+   "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI%20%E5%90%88%E8%A7%84%E4%B9%89%E5%8A%A1/",
+   "/term/%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/",
+   "/term/%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E7%9A%84%E5%B1%80%E9%99%90/"
+  ]
  },
  {
   "id": "for-researchers",
@@ -266,8 +393,8 @@ var PATHS = [
    "en": "about 115 minutes"
   },
   "lead": {
-   "zh": "给想读懂论文和技术报告的人：从模型怎么训练、怎么变小变快，到怎么判断一个评测结果可不可信；沿途七张经典论文卡示范怎么读一篇具体论文。",
-   "en": "For people who want to read papers and tech reports: how models are trained, how they get smaller and faster, and when an eval result is trustworthy — with seven classic paper cards showing how to read a specific paper."
+   "zh": "将原理词条与论文卡交替阅读。每篇都记录研究问题、证据设置和适用边界；未披露的部分保留为未知。",
+   "en": "Alternate concepts and paper cards. Record each research question, evidence setup and scope; leave undisclosed details unknown."
   },
   "steps": [
    "Transformer",
@@ -307,7 +434,37 @@ var PATHS = [
     "When reading a model card, point out the license, the eval setup, and the stated limitations",
     "For each paper card on this route, state its research question and where the core evidence sits, and name at least one popular claim the paper never makes"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E8%AF%BB%E4%B8%80%E7%AF%87AI%E8%AE%BA%E6%96%87/",
+   "zh": "选一篇论文完成问题、证据与局限记录",
+   "en": "Read a paper into a question/evidence/limits record"
+  },
+  "stepUrls": [
+   "/term/Transformer/",
+   "/term/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/",
+   "/guide/%E8%AE%BA%E6%96%87%E5%8D%A1-Attention%20Is%20All%20You%20Need/",
+   "/term/%E9%A2%84%E8%AE%AD%E7%BB%83/",
+   "/term/%E8%AE%AD%E7%BB%83%E4%B8%89%E9%98%B6%E6%AE%B5/",
+   "/guide/%E8%AE%BA%E6%96%87%E5%8D%A1-GPT-3/",
+   "/term/%E7%BC%A9%E6%94%BE%E5%AE%9A%E5%BE%8B/",
+   "/guide/%E8%AE%BA%E6%96%87%E5%8D%A1-Chinchilla/",
+   "/term/%E5%BE%AE%E8%B0%83/",
+   "/guide/%E8%AE%BA%E6%96%87%E5%8D%A1-InstructGPT/",
+   "/guide/%E8%AE%BA%E6%96%87%E5%8D%A1-Self-Instruct/",
+   "/guide/%E8%AE%BA%E6%96%87%E5%8D%A1-LIMA/",
+   "/term/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/",
+   "/term/%E9%87%8F%E5%8C%96/",
+   "/term/%E5%9B%B0%E6%83%91%E5%BA%A6/",
+   "/guide/%E6%80%8E%E4%B9%88%E8%AF%BB%E4%B8%80%E7%AF%87AI%E8%AE%BA%E6%96%87/",
+   "/term/%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/",
+   "/guide/%E8%AE%BA%E6%96%87%E5%8D%A1-HELM/",
+   "/term/%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E7%9A%84%E5%B1%80%E9%99%90/",
+   "/term/%E6%95%B0%E6%8D%AE%E6%B1%A1%E6%9F%93/",
+   "/term/%E5%BC%80%E6%94%BE%E6%9D%83%E9%87%8D/",
+   "/guide/%E8%AE%BA%E6%96%87%E5%8D%A1-Llama%202/",
+   "/term/%E6%A8%A1%E5%9E%8B%E5%8D%A1/"
+  ]
  },
  {
   "id": "for-operators",
@@ -319,8 +476,8 @@ var PATHS = [
    "en": "about 60 minutes"
   },
   "lead": {
-   "zh": "负责把 AI 服务跑起来并稳住的人：性能从哪来、成本从哪来、出事时先看哪里。",
-   "en": "For people who keep AI services running: where performance comes from, where cost comes from, and what to check first when things break."
+   "zh": "沿运行、监控、权限、故障与退役读十四个主题。先建立排查顺序，再用具体服务的配置与日志验证。",
+   "en": "Study fourteen topics covering runtime, monitoring, permissions, failure and retirement. Form an investigation order, then validate it against a service’s configuration and logs."
   },
   "steps": [
    "推理成本",
@@ -349,7 +506,28 @@ var PATHS = [
     "List three things a live service must monitor, and what to check first for each",
     "When a vendor announces retirement, walk through the four migration-assessment checks"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://tools.specul.com/mcp/guides/playbook-local-model.html#worked-example",
+   "zh": "从容量预算走到运行检查",
+   "en": "Move from a capacity budget to runtime checks"
+  },
+  "stepUrls": [
+   "/term/%E6%8E%A8%E7%90%86%E6%88%90%E6%9C%AC/",
+   "/term/%E9%A6%96%E5%AD%97%E5%BB%B6%E8%BF%9F/",
+   "/term/%E5%90%9E%E5%90%90/",
+   "/term/KV%20%E7%BC%93%E5%AD%98/",
+   "/term/%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/",
+   "/term/%E8%BF%9E%E7%BB%AD%E6%89%B9%E5%A4%84%E7%90%86/",
+   "/term/%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6/",
+   "/term/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/",
+   "/term/%E6%8A%A4%E6%A0%8F/",
+   "/term/%E6%8F%90%E7%A4%BA%E6%B3%A8%E5%85%A5/",
+   "/term/%E6%9D%83%E9%99%90/",
+   "/term/%E6%9C%8D%E5%8A%A1%E4%B8%AD%E6%96%AD%E9%A3%8E%E9%99%A9/",
+   "/term/%E6%A8%A1%E5%9E%8B%E9%80%80%E5%BD%B9/",
+   "/term/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"
+  ]
  },
  {
   "id": "for-consumers",
@@ -361,8 +539,8 @@ var PATHS = [
    "en": "about 30 minutes"
   },
   "lead": {
-   "zh": "不写代码、不做开发：先知道 AI 能做什么、哪里会错，再学会安全地用聊天、搜索与生成工具。",
-   "en": "No code, no development: learn what AI can do and where it fails, then use chat, search and generation tools safely."
+   "zh": "从日常使用出发，了解 AI 能做什么、哪里可能出错，再检查资料、隐私与发布要求。无需编程基础。",
+   "en": "Start from everyday use: learn capabilities and errors, then check sources, privacy and publication requirements. No programming background required."
   },
   "steps": [
    "人工智能",
@@ -385,7 +563,22 @@ var PATHS = [
     "Given AI-generated text or images, identify which claims need human verification",
     "Know what not to paste into a public chat tool, and how to use temporary chat or turn off training"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://tools.specul.com/mcp/guides/chat-selection.html",
+   "zh": "按用途和数据条件挑聊天工具",
+   "en": "Choose chat tools by task and data constraints"
+  },
+  "stepUrls": [
+   "/term/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/",
+   "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI/",
+   "/term/%E6%8F%90%E7%A4%BA%E8%AF%8D/",
+   "/term/AI%20%E6%90%9C%E7%B4%A2/",
+   "/term/%E5%B9%BB%E8%A7%89/",
+   "/term/%E5%A4%9A%E6%A8%A1%E6%80%81/",
+   "/term/%E9%9A%90%E7%A7%81%E4%B8%8E%E5%90%88%E8%A7%84/",
+   "/term/%E6%B0%B4%E5%8D%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E5%87%AD%E8%AF%81/"
+  ]
  },
  {
   "id": "for-creators",
@@ -397,8 +590,8 @@ var PATHS = [
    "en": "about 40 minutes"
   },
   "lead": {
-   "zh": "给做视觉与声音的人：先懂生成链路与许可，再谈风格、一致性与商用发布。",
-   "en": "For people working with visuals and sound: understand the generation pipeline and licensing first, then style, consistency and commercial release."
+   "zh": "沿文字、图像、视频与声音的生成环节，检查常见失败、素材来源与发布条件。目标是能列出验收项。",
+   "en": "Study generation across text, image, video and sound, including failures, provenance and publication conditions. Aim to define acceptance checks."
   },
   "steps": [
    "生成式 AI",
@@ -421,6 +614,21 @@ var PATHS = [
     "Given a generation tool, check commercial licensing and training-data provenance before judging output",
     "Know the labelling duties for publishing AI-generated content and which assets cannot be used commercially"
    ]
-  }
+  },
+  "nextTask": {
+   "href": "https://tools.specul.com/mcp/guides/playbook-60s-video.html#worked-example",
+   "zh": "把素材与核对项放进一分钟视频计划",
+   "en": "Plan a one-minute video with asset and acceptance records"
+  },
+  "stepUrls": [
+   "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI/",
+   "/term/%E6%96%87%E7%94%9F%E5%9B%BE/",
+   "/term/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/",
+   "/term/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/",
+   "/term/%E5%A4%9A%E6%A8%A1%E6%80%81/",
+   "/term/%E6%B0%B4%E5%8D%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E5%87%AD%E8%AF%81/",
+   "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI%20%E5%90%88%E8%A7%84%E4%B9%89%E5%8A%A1/",
+   "/term/%E9%9A%90%E7%A7%81%E4%B8%8E%E5%90%88%E8%A7%84/"
+  ]
  }
 ];

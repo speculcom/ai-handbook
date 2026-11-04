@@ -75,7 +75,7 @@ cn:
 
 ## 一句话定位
 
-AI 音乐生成的头部：歌曲、人声、Voice Model 与 Suno Studio 工作站；
+AI 音乐生成平台：歌曲、人声、Voice Model 与 Suno Studio 工作站；
 「商用绑定付费下载配额、Remix 一律非商用」是许可条款里最具体的分层。
 
 ## 适合与不适合

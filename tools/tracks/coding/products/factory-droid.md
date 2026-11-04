@@ -239,7 +239,7 @@ tags: [编程, 终端, 多模型, 本地]
 related: [filesystem]
 
 sources:
-  - label: Factory AI · 官方定价页（Pro / Plus / Max 三档；报价按 D9 口径不存；2026-10-08 核验）
+  - label: Factory AI · 官方定价页（Pro / Plus / Max 三档；报价按本站的报价记录约定不存；2026-10-08 核验）
     url: https://factory.ai/pricing
     kind: pricing
 
@@ -374,7 +374,7 @@ npm install -g droid
 
 撞限后可以切 **Droid Core** 继续干：它是开放权重模型池，有独立的免费额度。
 
-也可以用 **Extra Usage**：预付制、不过期（起充额见官方页，本站按 D9 口径不存）。
+也可以用 **Extra Usage**：预付制、不过期（起充额见官方页，本站按本站的报价记录约定不存）。
 
 这是本站见到的最细的额度口径之一。
 

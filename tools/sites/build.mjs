@@ -1252,7 +1252,7 @@ ${cards}
 function renderGuidePage(g, site) {
   CTX.partKey = site.key;   // v8 T30：正文里的 .md 链接按当前大类解析
   const t = TOPIC_LABEL[g.topic] || [g.topic, g.topic];
-  const secs = g.sections.map((s) => {
+  const secs = g.sections.map((s, i) => {
     /* 双语节标题写法：`## [中文标题|English heading]` → 渲染成 bi 双节点 */
     const bm = s.head.match(/^\[(.+)\|(.+)\]$/);
     const head = bm ? bi(esc(bm[1]), esc(bm[2])) : mdLinks(s.head);
@@ -1260,8 +1260,8 @@ function renderGuidePage(g, site) {
     const zhKey = (bm ? bm[1] : s.head).trim();
     const secEn = g.bodyEn && (g.bodyEn.sections || {})[zhKey];
     const inner = secEn ? bi(blockMd(s.lines.join('\n')), blockMd(secEn)) : blockMd(s.lines.join('\n'));
-    return `      <div class="panel is-slim">
-        <h2>${head}</h2>
+    return `      <div class="panel is-slim" id="guide-section-${i}">
+        <h2${/贯穿案例|已填示例/.test(zhKey) ? ' id="worked-example"' : ''}>${head}</h2>
         ${inner}
       </div>`;
   }).join('\n');
@@ -1285,13 +1285,14 @@ function renderGuidePage(g, site) {
       </div>
       <div class="panel-lead">${bi(blockMd(g.summary), blockMd(g.summaryEn))}</div>
 ${guideEnComplete ? '' : `      <p class="t-xs" data-en>English summaries and interface labels are available. The guide body below is currently in Chinese.</p>`}
+      <nav class="panel is-slim" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p>${bi('按问题阅读', 'On this page')}</p><ul>${g.sections.map((section,i) => { const m=section.head.match(/^\[(.+)\|(.+)\]$/);return `<li><a href="#guide-section-${i}">${m?bi(esc(m[1]),esc(m[2])):esc(section.head)}</a></li>`;}).join('')}</ul></nav>
 ${secs}
       <div class="panel is-slim">
         <h2>${bi('出处', 'Sources')}</h2>
         <div class="tbl-wrap"><table><thead><tr><th>${bi('来源', 'Source')}</th><th>${bi('链接', 'URL')}</th></tr></thead><tbody>
 ${srcRows}
         </tbody></table></div>
-        <p class="guide-foot">${bi(`核验快照：${g.lastVerified} · 本站不实测、不排名，未知就写未知。`, `Verification snapshot: ${g.lastVerified} · no benchmarks, no rankings — unknown stays unknown.`)}</p>
+        <p class="guide-foot">${bi(`资料核验日期：${g.lastVerified}。产品功能与条款可能变化，使用前请核对原始来源。`, `Sources checked: ${g.lastVerified}. Features and terms may change; check the original sources before use.`)}</p>
       </div>
     </div>`;
   return buildShell({
@@ -1858,7 +1859,7 @@ function renderDetail(site, partKey, e) {
      * MCP 特有维度查 bodyEn.mcp，八维与附加维查 bodyEn.axes。 */
     const en = e.bodyEn ? ((e.bodyEn.axes || {})[k] || (e.bodyEn.mcp || {})[k] || '') : '';
     const cell = en ? bi(blockMd(v), blockMd(en)) : blockMd(v);
-    return `        <div class="axis">
+    return `        <div class="axis" id="dimension-${esc(k)}">
           <dt>${bi(label, labelEn || AXES_EN[k]?.name || label)}</dt>
           <dd>${cell}</dd>
         </div>`;
@@ -1984,6 +1985,7 @@ ${crumb}
         </div>
       </div>
 
+      <nav class="panel is-slim" aria-label="档案目录" data-ui-aria-label-zh="档案目录" data-ui-aria-label-en="Profile contents"><p>${bi('先看你关心的部分', 'Jump to what matters to you')}</p><p>${axisKeys.map(({k,label,labelEn})=>`<a href="#dimension-${esc(k)}">${bi(label,labelEn || AXES_EN[k]?.name || label)}</a>`).join(' · ')}</p></nav>
       <div class="badges">
         ${(e.tags || []).map(t => `<span class="tag on">${bi(esc(t), esc(UI_EN.tags[t] || t))}</span>`).join('\n        ')}
         <span class="badge accent">${esc(e.confidence)}</span>

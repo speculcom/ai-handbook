@@ -50,7 +50,7 @@ axes:
     哪些仓库对 Jules 可见，由 Jules GitHub app 的授权范围决定
     （FAQ 指引到 GitHub 的 applications 设置里逐项调整）。
   background: >-
-    **这是它最厚的一维，官方全程按「异步」定义它。**
+    **官方将后台任务描述为异步执行。**
 
     Jules operates asynchronously, allowing you to focus on other tasks
     while it works in the background
@@ -69,7 +69,7 @@ axes:
     Scheduled Tasks ... you can now define the cadence and Jules will
     perform the task at that time
 
-    **并发任务数随订阅档位变化**（具体数字见官方套餐页，本站按 D9 口径不存）。
+    **并发任务数随订阅档位变化**（具体数字见官方套餐页，本站按本站的报价记录约定不存）。
   tools: >-
     **工具面集中在云 VM 内的执行能力 + GitHub 集成。**
 
@@ -259,7 +259,7 @@ Jules API 与其 REST 参考、官方 FAQ 页、两份官方博客更新。
 - 「模型映射」：当前默认模型、各档位对应哪个模型
 - 以及：是否支持 MCP
 
-这些按本站铁律记为「官方未说明」，并列出所查页面 —— **不猜。**
+这些在本档案中记为「官方未说明」，并列出所查页面 —— **不猜。**
 
 ## 实测记录
 

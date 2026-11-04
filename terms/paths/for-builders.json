@@ -8,8 +8,8 @@
     "en": "about 60 minutes"
   },
   "lead": {
-    "zh": "要接 API 做点东西的人：按搭建顺序读——接口、检索、工具调用、评测与成本，读完能跑通一条最小链路。",
-    "en": "For developers wiring up an API: read in build order — interface, retrieval, tool calling, evaluation, cost — and finish able to run a minimal pipeline."
+    "zh": "按搭建顺序读接口、检索、工具调用、评测与成本。阅读用于理解链路；实际接入还需按当前版本检查并验证。",
+    "en": "Study interfaces, retrieval, tools, evaluation and cost in build order. This explains the pipeline; actual integration still needs version checks and validation."
   },
   "steps": [
     "API - 接口调用",
@@ -38,5 +38,27 @@
       "Explain what chunking and embedding each determine in a retrieval pipeline",
       "Name the first two defenses to put in place when adding tool calling"
     ]
+  },
+  "answers": [
+    {
+      "zh": "输入包括指令、历史、检索材料和工具返回；输出是模型生成的内容。按各自用量乘相应单价，再核对缓存、工具与重试是否另计，不用一个总 Token 数乘同一单价。",
+      "en": "Input includes instructions, history, retrieved material and tool results; output is generated content. Apply the relevant rates and check cache, tool and retry charges separately. Do not assume one rate for every token.",
+      "review": "单次调用成本"
+    },
+    {
+      "zh": "分块决定一次取回的信息单元；嵌入决定文本的向量表示。先查答案所在块是否进入候选，再检查排序与生成，避免把检索问题误当成生成问题。",
+      "en": "Chunking defines retrieval units; embedding represents text as vectors. Check whether the answer-bearing chunk reaches candidates before investigating ranking and generation.",
+      "review": "分块"
+    },
+    {
+      "zh": "执行端校验工具名称、参数与授权范围；把检索内容和工具结果作为不可信数据处理。涉及写入或外部影响的动作，按业务风险设置审批与可撤回方式。",
+      "en": "Validate tool names, arguments and authorization at execution. Treat retrieved text and tool results as untrusted data. Add approval and recovery according to the risk of writes or external effects.",
+      "review": "提示注入"
+    }
+  ],
+  "nextTask": {
+    "href": "https://tools.specul.com/mcp/guides/playbook-fix-a-bug.html#worked-example",
+    "zh": "按一个小问题练习复现与验收",
+    "en": "Practice reproduction and acceptance on a small issue"
   }
 }

@@ -3,7 +3,7 @@ id: evaluation
 topic: evaluation
 title: agent 评测
 titleEn: Evaluating agents
-summary: 没有评测就没有迭代：上线前用数据集测回归，上线后盯住真实流量，以及评测器自己会犯的坑。
+summary: 先定义任务和成功条件，再用固定样本检查改动、记录实际失败；评测器的判断也需要核对。
 summaryEn: No evaluation, no iteration — offline regression testing, live monitoring, and the pitfalls of evaluators themselves.
 sources:
   - label: LangSmith 官方文档 · Evaluation（2026-10-30 直抓 200）

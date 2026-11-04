@@ -70,7 +70,7 @@ cn:
 
 ## 一句话定位
 
-**Langflow 是 LLM 画布里体量最大、许可最干净（MIT 全仓）的一档**，现归 DataStax——
+**Langflow 是 使用 MIT 许可的 LLM 画布平台**，现归 DataStax——
 产品叙事向企业数据栈（AstraDB 向量线）倾斜。Python 自定义组件是它的扩展主轴。
 
 ## 适合与不适合

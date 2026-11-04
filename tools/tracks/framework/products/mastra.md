@@ -438,7 +438,7 @@ GitHub 的 license API 对整仓返回 **NOASSERTION**。
 - **平台三档**：Starter（免费档）、Teams（付费档）、Enterprise（定制）
 - **自托管两档**：Free 与 Enterprise
 
-**Studio、Observability、托管 Server 与 24/7 常驻都是平台产品**（常驻托管按项目计费，单价见官方页）。它们不是框架自带。报价按 D9 口径不存。
+**Studio、Observability、托管 Server 与 24/7 常驻都是平台产品**（常驻托管按项目计费，单价见官方页）。它们不是框架自带。报价按本站的报价记录约定不存。
 
 ## 适合与不适合
 

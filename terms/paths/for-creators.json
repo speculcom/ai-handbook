@@ -3,12 +3,24 @@
   "ord": 10,
   "zh": "图像 / 视频 / 音频创作者路线",
   "en": "The Image / Video / Audio Creator's Route",
-  "span": { "zh": "约 40 分钟", "en": "about 40 minutes" },
-  "lead": {
-    "zh": "给做视觉与声音的人：先懂生成链路与许可，再谈风格、一致性与商用发布。",
-    "en": "For people working with visuals and sound: understand the generation pipeline and licensing first, then style, consistency and commercial release."
+  "span": {
+    "zh": "约 40 分钟",
+    "en": "about 40 minutes"
   },
-  "steps": ["生成式 AI", "文生图", "视频生成", "语音合成", "多模态", "水印与内容凭证", "生成式 AI 合规义务", "隐私与合规"],
+  "lead": {
+    "zh": "沿文字、图像、视频与声音的生成环节，检查常见失败、素材来源与发布条件。目标是能列出验收项。",
+    "en": "Study generation across text, image, video and sound, including failures, provenance and publication conditions. Aim to define acceptance checks."
+  },
+  "steps": [
+    "生成式 AI",
+    "文生图",
+    "视频生成",
+    "语音合成",
+    "多模态",
+    "水印与内容凭证",
+    "生成式 AI 合规义务",
+    "隐私与合规"
+  ],
   "checkpoint": {
     "zh": [
       "说清文生图 / 视频生成 / 语音合成各自的一条主要失败模式",
@@ -20,5 +32,27 @@
       "Given a generation tool, check commercial licensing and training-data provenance before judging output",
       "Know the labelling duties for publishing AI-generated content and which assets cannot be used commercially"
     ]
+  },
+  "answers": [
+    {
+      "zh": "图像可检查局部结构与文字；视频检查跨帧连续性；语音检查读音、节奏与身份授权。列出检查项，再看生成结果，不只凭整体观感判断。",
+      "en": "Check local structure and text in images, continuity across video frames, and pronunciation, pacing and identity authorization in speech. Use explicit checks rather than overall polish.",
+      "review": "多模态"
+    },
+    {
+      "zh": "先读当前产品、档位和素材类型对应的条款；分别查输入素材能否使用、输出能否按计划发布、输入是否用于训练。允许发布不等于获得所有第三方权利。",
+      "en": "Read terms for the actual product, tier and asset type. Check input rights, intended output use and training use separately. Permission to publish does not clear every third-party right.",
+      "review": "隐私与合规"
+    },
+    {
+      "zh": "按发布地区和平台的现行规则核对标识；字体、音乐、人物形象和参考图分别记录来源与许可。无法确认的素材先替换或暂不发布。",
+      "en": "Check current labeling rules for the publication region and platform. Record sources and permissions for fonts, music, likenesses and references separately. Replace or withhold unresolved assets.",
+      "review": "水印与内容凭证"
+    }
+  ],
+  "nextTask": {
+    "href": "https://tools.specul.com/mcp/guides/playbook-60s-video.html#worked-example",
+    "zh": "把素材与核对项放进一分钟视频计划",
+    "en": "Plan a one-minute video with asset and acceptance records"
   }
 }

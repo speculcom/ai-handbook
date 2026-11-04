@@ -327,7 +327,7 @@ sources:
     url: https://pydantic.dev/docs/ai/integrations/a2a/
     kind: docs
 
-  - label: 官方定价页（核验 2026-10-08：Pydantic 库永久 MIT 免费；Logfire 免费档含 1,000 万 spans/月、另有 Pro 档；报价按 D9 口径不存）
+  - label: 官方定价页（核验 2026-10-08：Pydantic 库永久 MIT 免费；Logfire 免费档含 1,000 万 spans/月、另有 Pro 档；报价按本站的报价记录约定不存）
     url: https://pydantic.dev/pricing/
     kind: pricing
 
@@ -540,7 +540,7 @@ cn:
 - 核心 SDK 不经 Harness 时的文件访问默认边界（官方未说明，已查 overview 与 harness 页）
 - 核心 SDK 是否有进程/网络级沙箱与内置权限边界（官方未说明，沙箱在 Harness / Monty）
 - Harness compaction 的默认裁剪策略与阈值（官方未说明）
-- Pydantic AI Gateway 的计费细节（官方定价页未单列；费率按 D9 口径本站不采）
+- Pydantic AI Gateway 的计费细节（官方定价页未单列；费率按本站的报价记录约定本站不采）
 - 八种 durable 引擎之间的功能对齐度（官方未说明）
 - 不同 provider 之间行为完全等价性（官方已声明「取决于所选模型与 API」）
 - A2A 移除后官方在 2.0 的替代路线（官方指向 datalayer/fasta2a）

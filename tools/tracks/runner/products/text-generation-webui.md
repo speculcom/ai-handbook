@@ -66,7 +66,7 @@ cn:
 
 ## 一句话定位
 
-**text-generation-webui（现名 textgen）是本地 LLM 的「瑞士军刀」一代**：多 loader、扩展生态、社区玩法最全。
+**text-generation-webui（现名 textgen）是本地 LLM 的「瑞士军刀」一代**：多 loader、扩展生态、可结合多种社区扩展。
 诚实标注：仓库改名 oobabooga/textgen；最近推送 2026-08-17（API 快照）——维护节奏介于活跃与放缓之间。
 
 ## 适合与不适合

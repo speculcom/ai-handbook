@@ -3,10 +3,13 @@
   "ord": 2,
   "zh": "一个下午看懂原理",
   "en": "One Afternoon Under the Hood",
-  "span": { "zh": "一个下午", "en": "one afternoon" },
+  "span": {
+    "zh": "一个下午",
+    "en": "one afternoon"
+  },
   "lead": {
-    "zh": "第一站挑 4 个地基词，第四站读 8 个原理词。读完说得清大模型为什么这样表现，不再死记硬背。",
-    "en": "Four foundation terms from station one, eight from station four. Finish able to say why large models behave the way they do."
+    "zh": "按基础、训练、架构与生成顺序读十二个主题。重点是解释现象和限制；技术细节可在需要时回查。",
+    "en": "Read twelve topics across foundations, training, architecture and generation. Focus on explaining behavior and limits; revisit details when needed."
   },
   "steps": [
     "大模型 - 大语言模型",
@@ -33,5 +36,27 @@
       "Explain the three training stages of a chat model and what each stage solves",
       "Say why a model fabricates confidently, and why bigger context costs more"
     ]
+  },
+  "answers": [
+    {
+      "zh": "对自回归语言模型，可概括为分词、嵌入、带注意力的多层计算、得到下一个 Token 的分布，再选择并继续生成。这是简图，不代表每一种 Transformer 的任务流程。",
+      "en": "For an autoregressive language model: tokenize, embed, apply layers with attention, obtain a next-token distribution, select a token and repeat. This sketch does not describe every Transformer task.",
+      "review": "Transformer"
+    },
+    {
+      "zh": "常见聊天模型流程包括预训练、监督微调和偏好优化：分别学习基础模式、任务与回答形式、偏好或约束。具体模型可能合并、重复或省略阶段。",
+      "en": "A common chat-model recipe uses pretraining, supervised fine-tuning and preference optimization: general patterns, task/response formats, and preferences or constraints. Actual recipes can merge, repeat or omit stages.",
+      "review": "训练三阶段"
+    },
+    {
+      "zh": "生成目标不保证每个断言有事实依据；更多上下文还会增加处理量和缓存占用。应区分输入长度、输出长度与运行方式，不把长窗口理解成可靠性保证。",
+      "en": "The generation objective does not guarantee factual support for every claim. More context adds computation and cache use. Distinguish input length, output length and runtime; a long window does not guarantee reliability.",
+      "review": "上下文窗口的代价"
+    }
+  ],
+  "nextTask": {
+    "href": "https://models.specul.com/guides/pretraining.html",
+    "zh": "继续看预训练的数据与目标",
+    "en": "Study pretraining data and objectives"
   }
 }
