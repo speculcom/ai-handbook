@@ -19,7 +19,7 @@ export const SERIES = [
     vendor: { zh: '阿里 · 通义千问', en: 'Alibaba Qwen' },
     family: 'qwen',
     released: '2026-08-05',
-    summary: '阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。',
+    summary: '阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；收录不代表性能排名。',
     positions: ['通用对话', '工具调用', '长上下文', '中文强项'],
     // 一个系列可有多个规格（各规格独立一节）
     members: [
@@ -47,29 +47,29 @@ export const SERIES = [
     vendor: { zh: 'Google', en: 'Google' },
     family: 'gemma',
     released: '2026-06',
-    summary: 'Google 开放权重最新一代，三种规格各自都有量化覆盖。',
+    summary: 'Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。',
     positions: ['通用对话', 'MoE 稀疏', '小尺寸可跑'],
     members: [
       {
         repo: 'google/gemma-4-26B-A4B-it',
         label: { zh: 'Gemma 4 26B-A4B（MoE）', en: 'Gemma 4 26B-A4B (MoE)' },
         params: '25.8B 总参 / 4B 激活',
-        role: { zh: '低延迟 MoE', en: 'Low-latency MoE' },
-        note: 'MoE：总参 26B 但每 token 只激活约 4B，速度接近 4B 稠密。',
+        role: { zh: '稀疏激活 MoE', en: 'Sparsely activated MoE' },
+        note: 'MoE：总参约 26B，每 token 激活约 4B。激活参数不等于全部权重的内存需求，也不能单独推断延迟；还需核对硬件、量化与运行器。',
       },
       {
         repo: 'google/gemma-4-31B-it',
         label: { zh: 'Gemma 4 31B（密集）', en: 'Gemma 4 31B (Dense)' },
         params: '31.3B 密集',
-        role: { zh: '质量优先', en: 'Quality first' },
+        role: { zh: '31B 密集规格', en: '31B dense variant' },
         note: '同系列里最重的规格。',
       },
       {
         repo: 'google/gemma-4-E4B-it',
         label: { zh: 'Gemma 4 E4B（高效）', en: 'Gemma 4 E4B (Efficient)' },
         params: '8B 总参 / 4B 激活（E4B = 激活 4B）',
-        role: { zh: '小显存首选', en: 'Low VRAM' },
-        note: '小规格，量化覆盖 34 家，是入门本地部署最省资源的一档。',
+        role: { zh: '较小规格', en: 'Smaller variant' },
+        note: '量化覆盖 34 家；实际内存占用还包括上下文缓存与运行器开销，不能只看名称中的 4B。',
       },
     ],
     sources: { official: 'https://huggingface.co/google/gemma-4-26B-A4B-it' },
@@ -81,7 +81,7 @@ export const SERIES = [
     vendor: { zh: '智谱 AI', en: 'Zhipu AI' },
     family: 'glm',
     released: '2026-08-25',
-    summary: '智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。',
+    summary: '智谱开放权重系列；不同规格的许可分别标注，部署前核对对应版本与容量需求。',
     positions: ['通用对话', '工具调用', 'MIT 许可'],
     members: [
       {
@@ -96,7 +96,7 @@ export const SERIES = [
         label: { zh: 'GLM 5.3 Flash', en: 'GLM 5.3 Flash' },
         params: '321B 总参（MoE，激活数未公开）',
         role: { zh: '轻量主力', en: 'Lightweight main' },
-        note: 'MIT 许可，本地部署法律上最干净的 GLM 选项。',
+        note: '模型卡标注 MIT 许可；部署前仍需核对对应版本的许可原文、依赖与使用范围。',
       },
     ],
     sources: { official: 'https://huggingface.co/zai-org/GLM-5.3' },
@@ -131,15 +131,15 @@ export const SERIES = [
     vendor: { zh: 'OpenAI', en: 'OpenAI' },
     family: 'gpt-oss',
     released: '2025-08-04',
-    summary: 'OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。',
+    summary: 'OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。',
     positions: ['推理', 'MoE 稀疏', 'apache-2.0'],
     members: [
       {
         repo: 'openai/gpt-oss-20b',
         label: { zh: 'gpt-oss 20B', en: 'gpt-oss 20B' },
         params: '20B（MoE，约 3.6B 激活）',
-        role: { zh: '单卡甜点', en: 'Single-GPU sweet spot' },
-        note: 'apache-2.0，674 万下载。虽非最新代，但量化生态成熟且许可最干净。',
+        role: { zh: '20B MoE 规格', en: '20B MoE variant' },
+        note: '模型卡标注 apache-2.0。量化覆盖与许可分别核对；下载量不代表质量或适用性。',
       },
     ],
     sources: { official: 'https://huggingface.co/openai/gpt-oss-20b' },
@@ -151,7 +151,7 @@ export const SERIES = [
     vendor: { zh: '月之暗面', en: 'Moonshot AI' },
     family: 'kimi',
     released: '2026-06-13',
-    summary: '月之暗面当前最新一代，41 家量化仓但整体热度中等。',
+    summary: '月之暗面开放权重系列，快照收录 41 家量化仓；数量不代表模型质量或运行兼容性。',
     positions: ['通用对话', '长上下文'],
     members: [
       {
@@ -178,7 +178,7 @@ export const SERIES = [
         repo: 'openbmb/MiniCPM5-2B',
         label: { zh: 'MiniCPM5 2B', en: 'MiniCPM5 2B' },
         params: '2.5B 密集',
-        role: { zh: '端侧首选', en: 'On-device' },
+        role: { zh: '端侧候选', en: 'On-device candidate' },
         note: '官方自己也出 GGUF（openbmb 249k 下载）。',
       },
     ],
@@ -193,7 +193,7 @@ export const SERIES = [
     vendor: { zh: 'Ornith AI', en: 'Ornith AI' },
     family: 'ornith',
     released: '2026-08-18',
-    summary: 'MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。',
+    summary: '模型卡标注 MIT 许可，两个规格都有 GGUF 量化覆盖；具体文件与版本见下表。',
     positions: ['通用对话', 'MIT 许可', 'MoE 稀疏'],
     members: [
       {
@@ -208,7 +208,7 @@ export const SERIES = [
         label: { zh: 'Ornith 1.5 9B（密集）', en: 'Ornith 1.5 9B (Dense)' },
         params: '9.65B 密集',
         role: { zh: '单卡可跑', en: 'Single-GPU' },
-        note: 'MIT 许可，43 个 GGUF 仓；第一方 GGUF 下载 5.15M，是本站收录系列里最高的一个仓。',
+        note: 'MIT 许可，快照收录 43 个 GGUF 仓；第一方 GGUF 下载量为快照统计，不代表质量结论。',
       },
     ],
     sources: { official: 'https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B' },
@@ -277,11 +277,11 @@ export const SERIES = [
   },
 ];
 
-/** 量化者档案（人工撰写，站点会引用） */
+/** 量化者档案（内容配置，站点会引用） */
 export const QUANTIZER_NOTES = {
   unsloth: {
     zh: 'Unsloth', en: 'Unsloth',
-    oneLine: { zh: '量化覆盖面最广、下载量最高的第三方量化者', en: 'Broadest coverage, highest downloads' },
+    oneLine: { zh: '第三方量化发布者，具体覆盖与下载量见快照', en: 'Third-party quantiser; see snapshot coverage and downloads' },
   },
   'lmstudio-community': {
     zh: 'LM Studio Community', en: 'LM Studio Community',
@@ -293,11 +293,11 @@ export const QUANTIZER_NOTES = {
   },
   bartowski: {
     zh: 'bartowski', en: 'bartowski',
-    oneLine: { zh: '老牌量化者，档位命名规范、说明文档最完整', en: 'Veteran quantizer, best-documented naming' },
+    oneLine: { zh: '第三方量化发布者，档位与方法以仓库说明为准', en: 'Third-party quantiser; check repository notes for tiers and methods' },
   },
   mradermacher: {
     zh: 'mradermacher', en: 'mradermacher',
-    oneLine: { zh: 'Mirostat 作者，长期做低比特实验性量化', en: 'Known for experimental low-bit quants' },
+    oneLine: { zh: '发布低比特量化，具体方法与来源见仓库说明', en: 'Publishes low-bit quants; check repository methods and provenance' },
   },
   antirez: {
     zh: 'antirez', en: 'antirez',
@@ -309,7 +309,7 @@ export const QUANTIZER_NOTES = {
   },
   openbmb: {
     zh: '面壁智能官方', en: 'OpenBMB official',
-    oneLine: { zh: '模型方自己出的 GGUF（最可信的一档）', en: 'Published by the model authors themselves' },
+    oneLine: { zh: '模型方发布的 GGUF，仍需核对版本与运行器支持', en: 'Published by the model authors themselves' },
   },
   google: {
     zh: 'Google 官方', en: 'Google official',

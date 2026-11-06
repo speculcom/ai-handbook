@@ -1,0 +1,32 @@
+{
+  "_comment": "safety batch B (evaluation & observability platforms) · langfuse · en body · verified 2026-11-06.",
+  "axes": {
+    "model_access": "The platform produces no content itself; the evaluation capacity depends on models you configure — LLM-as-a-Judge runs through an \"LLM Connection\" with credentials you supply (judge doc direct-fetched today). Observed apps can use any framework or model, and self-hosting carries a \"Bring your own LLM API\" line (self-hosting page fetched today). **The full judge-model list and version mapping were not itemized today — recorded as unknown.**",
+    "runtime": "Open source and self-deployable (Docker Compose for testing, Kubernetes/Helm for production, per the self-hosting page fetched today), plus an official cloud (AWS US/EU/JP regions, security page fetched today); the interaction surface is a web console with SDKs and an API. **What runs on your machine is the platform service and UI, not the models under evaluation.**",
+    "local_files": "When self-hosted, traces, scores, prompts and datasets live in your own PostgreSQL, ClickHouse, Redis and object storage (fetched today); data arrives via SDK, OpenTelemetry and the API — the platform does not read your local codebase; the export and deletion interface surface was not itemized today.",
+    "background": "Online evaluation scores production traces asynchronously (evaluation overview and judge docs fetched today); Experiments run datasets in batch. Resume-after-shutdown is not a feature surface for this kind of platform. **Sampling ratios, scoring latency and retry semantics were not verified item by item — recorded as unknown.**",
+    "tools": "Python and JS SDKs, REST API, OpenTelemetry ingestion; the official documentation MCP server is on record from today's fetch and only exposes docs to agents — whether an authenticated MCP surface can read traces or scores is not verified. CI/CD is used to \"block deploys on regressions\" (evaluation overview fetched today).",
+    "context": "Observed objects are organized per project, with traces and scores linked to their source; the four score types NUMERIC, CATEGORICAL, BOOLEAN and TEXT are on record from today; turning traces into datasets and prompt versioning are on the product surface. Cross-project memory is not a platform feature and is not declared by the vendor.",
+    "permissions": "Self-hosting can be air-gapped so data stays in your environment; the cloud is SOC 2 Type II with project-level RBAC and SSO (security page fetched today). Tier and quota facts (Hobby plus Core, Pro, Enterprise; usage units and data-access windows vary by tier) are on the pricing page from today, with price numbers excluded per D9. **Whether customer data trains models was not found in clause text — recorded as unknown.**",
+    "fit": "Fits teams that must keep data in their own environment (self-hosted or air-gapped), want observation and evaluation on one trace store, and turn production samples into datasets that block regressions in CI. Not a fit for those who only want a vendor-hosted red-team or compliance-audit service, or who will not bring judge-model credentials. This site does not measure scores and does not rank."
+  },
+  "runs": "This site has not completed measured runs; conclusions cover the capability and license surfaces only.\n\n**Suggested measurements** (three, each pointing at what the readable official pages do not give):\n\n- Online-evaluation latency and missed coverage: for the same batch of production traces, how long the async judge takes and what the sampling rule is\n- The self-hosting upgrade path: migration cost for ClickHouse and object storage when moving from Docker Compose to Helm\n- The /ee boundary: which governance and evaluation capabilities exist only in the enterprise directory",
+  "unknowns": "- Full judge-model list and version mapping\n- Online-evaluation sampling ratio, scoring latency and retry semantics\n- The ee/LICENSE text and the enterprise feature boundary it implies\n- Whether customer data is used to train models (clause text not read)\n- The official changelog page body (404 today; Releases stand in)\n- Registry-filing search, and the export/deletion interface inventory",
+  "related": [
+    "Same line: promptfoo (in evaluation and observability); this entry states only what its own official sources support.",
+    "Same line: Content Credentials（内容凭证） (in evaluation and observability); this entry states only what its own official sources support.",
+    "Same line: OpenAI Evals (in evaluation and observability); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "Langfuse · official docs (self-described open-source AI engineering platform; tracing, prompts and evaluations capability surface, direct-fetched 200 on 2026-11-06)",
+    "Langfuse · Evaluation overview (judge, human annotation and custom evaluation flows; online scoring of production traces; blocking deploys on regressions, direct-fetched 200 on 2026-11-06)",
+    "Langfuse · Evaluation core concepts (four score types NUMERIC/CATEGORICAL/BOOLEAN/TEXT; annotation queues, direct-fetched 200 on 2026-11-06)",
+    "Langfuse · LLM-as-a-Judge (judge runs on an LLM Connection with your own credentials; online and experiment triggers, direct-fetched 200 on 2026-11-06)",
+    "Langfuse · Self-hosting (Docker Compose and Helm; PostgreSQL, ClickHouse, Redis and object storage; bring your own LLM API, direct-fetched 200 on 2026-11-06)",
+    "Langfuse · Security (AWS US/EU/JP regions, SOC 2 Type II, project RBAC and SSO, air-gapped option, direct-fetched 200 on 2026-11-06)",
+    "Langfuse · MCP (the official documentation MCP server exposes docs only, direct-fetched 200 on 2026-11-06)",
+    "Langfuse · Pricing (Hobby plus Core/Pro/Enterprise tier structure and quota facts; no price numbers, direct-fetched 200 on 2026-11-06)",
+    "langfuse/langfuse · LICENSE (core under MIT Expat; /ee covered by ee/LICENSE, direct-fetched 200 on 2026-11-06)",
+    "langfuse/langfuse · Releases (fetched today; newest v4.76.0 labelled Nov 05; change history taken from this page)"
+  ]
+}

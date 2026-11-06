@@ -1,0 +1,37 @@
+{
+  "_comment": "Safety batch A body translation · bedrock-guardrails (2026-11-06). Every URL was direct-fetched on 2026-11-06.",
+  "axes": {
+    "model_access": "It guards the models you invoke on Bedrock. The support page records that a guardrail applies to InvokeModel / InvokeModelWithResponseStream / Converse / ConverseStream on the bedrock-runtime endpoint, and that the bedrock-mantle endpoint does not support guardrails. Most catalogue models work; embeddings, rerankers, speech and a few text models listed on that page do not, and attaching a guardrail to them fails with ValidationException. ApplyGuardrail evaluates content on its own, so it also works for applications outside Bedrock.",
+    "runtime": "Hosted cloud: regional APIs plus the Bedrock console. Detection executes on AWS's side, and the Standard tier uses cross-Region inference. No local or offline form is recorded on the official pages; a guardrail is a cloud resource with a working draft and versions.",
+    "local_files": "It does not touch your workspace files: content is submitted through the API or the console test window. The data-protection page warns against putting confidential information into tags or free-form Name fields, because those may end up in billing and diagnostic logs.",
+    "background": "Synchronous evaluation is the main shape; cross-Region inference and cross-Region retention are on record. No hosted long-running job queue or resume-after-shutdown surface was verified, recorded as unknown.",
+    "tools": "Policy surface on record: content filters (Hate / Insults / Sexual / Violence / Misconduct / Prompt Attack), denied topics, word filters, sensitive-information filters (PII blocked or masked, with custom regex), contextual grounding checks and Automated Reasoning checks. Tagging lets only part of the user input be evaluated, and that capability is exposed through the SDK / API rather than the console.",
+    "context": "It evaluates text and image per request and keeps no session memory. Language coverage is tier-split: Classic supports English, French and Spanish, Standard covers more languages (tier page on record). A dedicated supported-languages page exists but its full list was not verified item by item.",
+    "permissions": "Retention is an explicit mode: none / default / aws_review / (legacy) provider_data_share / inherit, resolved as project then account then the model default. Recorded on the official pages: model providers get no access to customer prompts and completions; retained content is held inside the AWS boundary for up to 30 days; models requiring human review are simply unavailable under none or default. IAM and SCPs can enforce organisation-wide zero retention. Compliance certificate details were not verified item by item and are recorded as unknown.",
+    "fit": "Fits: teams whose models mostly live on Bedrock, who want the guardrail attached to the inference call itself, and who need governance switches for zero retention versus human review. Not a fit: teams needing self-hosted rails (the local-library line), one policy spanning several clouds, or anything depending on a mainland-China region."
+  },
+  "sections": {
+    "能力边界": "The tier difference is substantive: only the Standard tier covers harm hidden inside code elements, cross-Region inference and prompt-leakage detection, and it raises the denied-topic limit from 200 to 1,000 characters (tier page on record). Classic keeps English, French and Spanish. Standard contextual grounding works in a region subset and fails validation elsewhere. Automated Reasoning checks are a separate thing: they validate model answers against logical rules, which is not the same as content filtering.",
+    "变更记录说明": "Change history runs through the official documentation-history page. The newest recorded entry on the verification day is October 30, 2026 - Watermarking in Amazon Bedrock, listing which models add a watermark and how to detect it - and guardrail-related entries trace back through the same table. Lifecycle is therefore recorded as active, but there is no standalone guardrail release-notes page, which this archive notes as a documentation gap."
+  },
+  "sectionTitles": {
+    "能力边界": "Capability boundaries",
+    "变更记录说明": "Change record"
+  },
+  "runs": "This site has not completed measured runs; nothing here covers block rates, latency or cost.\n\n**Suggested measurements** (three):\n\n- How the same guardrail judges the same sample set under Classic versus Standard\n- What breaks in a workload when the account mode is set to none and a review-requiring model turns unavailable\n- Latency and result consistency between ApplyGuardrail and a guardrail attached to the inference call",
+  "unknowns": "- Whether a local operator offers this service in mainland China (no mainland region in the recorded tier region table)\n- Exact billing units and any free quota (the pricing page carried no guardrail detail on the verification day)\n- Input length limits for guardrail evaluation\n- The complete supported-language list (a dedicated page exists; not verified item by item)\n- SOC / ISO style certification lists (only the shared-responsibility wording was on record)\n- Whether any hosted asynchronous guardrail job queue exists",
+  "related": [
+    "Same line: Azure AI Content Safety (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: NeMo Guardrails (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: LiteLLM 网关（Proxy / AI Gateway） (in guardrails and content filtering); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "Amazon Bedrock Guardrails · documentation home (policy list, ApplyGuardrail, test window, direct-fetched 200 on 2026-11-06)",
+    "Amazon Bedrock Guardrails · Supported Regions and models (endpoints and the unsupported-model list, direct-fetched 200 on 2026-11-06)",
+    "Amazon Bedrock Guardrails · Safeguard tiers (Classic versus Standard differences and the recorded region list, direct-fetched 200 on 2026-11-06)",
+    "Amazon Bedrock Guardrails · Data protection (provider accounts have no access, shared responsibility, TLS / CloudTrail advice, direct-fetched 200 on 2026-11-06)",
+    "Amazon Bedrock Guardrails · Data retention (modes, resolution order, 30 days and the human-review boundary, direct-fetched 200 on 2026-11-06)",
+    "Amazon Bedrock Guardrails · documentation history (change entries from October 2026, direct-fetched 200 on 2026-11-06)",
+    "Amazon Bedrock · Pricing (billing structure only; this archive carries no price numbers, direct-fetched 200 on 2026-11-06 but the page gave no guardrail detail)"
+  ]
+}

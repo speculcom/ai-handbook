@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>把日志留在本地到底意味着什么 · 做模型专题</title>
+  <meta name="description" content="把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/local-log-retention.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="把日志留在本地到底意味着什么 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/local-log-retention.html" />
+  <meta property="og:title" content="把日志留在本地到底意味着什么 · 做模型专题" />
+  <meta property="og:description" content="把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="../brand.js?v=bf69a6d205ad"></script>
+  <link rel="stylesheet" href="../brand.css?v=bf69a6d205ad" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What keeping logs on your own machine actually means","description":"Unpack \"logs stay local\" into three lines: where they are written, who can read them, and how long they persist. Each item points at the runner's own documentation, and explains why disk encryption, backup sync and bind address are not contained in those four words.","url":"https://models.specul.com/guides/local-log-retention.html","dateModified":"2026-11-06"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span></p>
+      <h1><span data-zh>把日志留在本地到底意味着什么</span><span data-en>What keeping logs on your own machine actually means</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。</span><span data-en>Unpack &quot;logs stay local&quot; into three lines: where they are written, who can read them, and how long they persist. Each item points at the runner&#39;s own documentation, and explains why disk encryption, backup sync and bind address are not contained in those four words.</span></p>
+    </header>
+
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这是存储位置陈述，不是保密承诺</span><span data-en>A storage-location statement, not a confidentiality promise</span></a></li><li><a href="#guide-section-2"><span data-zh>先分清三条线</span><span data-en>Separate the three lines first</span></a></li><li><a href="#guide-section-3"><span data-zh>默认落在哪里</span><span data-en>Where the files land by default</span></a></li><li><a href="#guide-section-4"><span data-zh>留在本地不等于不出去</span><span data-en>Local files do not stay local by themselves</span></a></li><li><a href="#guide-section-5"><span data-zh>日志里装的是什么</span><span data-en>What the logs actually carry</span></a></li><li><a href="#guide-section-6"><span data-zh>留存与删除要按顺序做</span><span data-en>Retention and deletion, in order</span></a></li><li><a href="#guide-section-7"><span data-zh>容量与成本的连带账</span><span data-en>The capacity and cost side-effect</span></a></li><li><a href="#guide-section-8"><span data-zh>能说什么、不能说什么</span><span data-en>What this does and does not establish</span></a></li><li><a href="#guide-section-9"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li></ul></nav>
+    <section class="fam-sec" id="guide-section-0">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec" id="guide-section-1">
+      <h2><span data-zh>这是存储位置陈述，不是保密承诺</span><span data-en>A storage-location statement, not a confidentiality promise</span></h2>
+<span data-zh><p>「把日志留在本地」是一句关于文件写入位置的陈述，不是保密承诺。</p>
+<p>它只说明目标路径在同一台机器上，不说明谁能读、别处有没有副本，也不说明留多久。</p>
+<p>本站不替你判断任何合规义务，也不把「本地」写成「安全」。这一篇给的是核对顺序与证据位置。</p></span><span data-en><p>&quot;Keeping logs local&quot; is a statement about where files are written. It is not a confidentiality promise.</p>
+<p>It says the target path is on this machine. It does not say who can read them, whether copies exist elsewhere, or how long they persist.</p>
+<p>This site does not judge any compliance obligation for you and never writes &quot;local&quot; as &quot;safe&quot;. This guide gives the checking order and where the evidence lives.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-2">
+      <h2><span data-zh>先分清三条线</span><span data-en>Separate the three lines first</span></h2>
+<span data-zh><p>三个问题要三类证据，合并成一个「本地」就会漏掉东西。</p>
+<ul>
+  <li>写在哪：日志、会话历史、崩溃转储、缓存与临时文件是不同文件。</li>
+  <li>谁能读：账户权限、进程权限、磁盘是否加密、备份是否同步。</li>
+  <li>留多久：轮转策略、保留上限、删除之后是否还留有历史副本。</li>
+</ul>
+<p>查不到说明时只有一条处理办法：<b>官方未说明</b>就记为未说明。不用「一般都这样」替它补答案。</p></span><span data-en><p>The three questions need three kinds of evidence; collapsing them into the word &quot;local&quot; loses things.</p>
+<ul>
+  <li>Where they are written: logs, chat history, crash dumps, caches and temporary files are separate targets.</li>
+  <li>Who can read them: account permissions, process permissions, whether the volume is encrypted, and whether backups synchronise.</li>
+  <li>How long they persist: rotation policy, retention ceiling, and whether historical copies survive deletion.</li>
+</ul>
+<p>When documentation gives no answer there is one handling rule: <b>record it as not stated</b>. Do not substitute &quot;that is how it usually goes&quot; for an answer.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-3">
+      <h2><span data-zh>默认落在哪里</span><span data-en>Where the files land by default</span></h2>
+<span data-zh><p>这一层只有运行器自己的文档能回答，本站不代读任何机器。</p>
+<ul>
+  <li>Ollama 的排障文档给了日志位置：macOS 看 <code>~/.ollama/logs/server.log</code>；Windows 给的是 <code>%LOCALAPPDATA%\Ollama</code> 目录；Linux 用 <code>journalctl -u ollama</code> 查看。位置见 <a href="https://docs.ollama.com/troubleshooting" target="_blank" rel="noopener">troubleshooting</a>。</li>
+  <li>同一家的问题页写明模型保存在 <code>~/.ollama/models</code>，见 <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener">faq</a>。模型文件与日志是两类对象，保留策略分开记。</li>
+  <li>vLLM 把日志做成一组独立开关：<code>VLLM_CONFIGURE_LOGGING</code>、<code>VLLM_LOGGING_LEVEL</code>、<code>VLLM_LOG_STATS_INTERVAL</code>，见 <a href="https://docs.vllm.ai/en/latest/configuration/env_vars/" target="_blank" rel="noopener">env_vars</a>。</li>
+  <li>llama-server 的参数表列出 <code>--log-disable</code> 与 <code>--api-key</code>，见 <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener">server 参数文档</a>。请求内容是否写入日志、按什么级别写，以该页与所用版本的说明为准。</li>
+</ul></span><span data-en><p>Only the runner&#39;s own documentation answers this layer. This site reads no machine on your behalf.</p>
+<ul>
+  <li>Ollama&#39;s troubleshooting page gives log locations: macOS reads <code>~/.ollama/logs/server.log</code>; Windows points at the <code>%LOCALAPPDATA%\Ollama</code> folder; Linux is viewed with <code>journalctl -u ollama</code>. Location: <a href="https://docs.ollama.com/troubleshooting" target="_blank" rel="noopener">troubleshooting</a>.</li>
+  <li>The same vendor&#39;s FAQ page states models are stored under <code>~/.ollama/models</code>; see <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener">faq</a>. Model files and logs are different objects with different retention settings.</li>
+  <li>vLLM exposes logging as separate switches: <code>VLLM_CONFIGURE_LOGGING</code>, <code>VLLM_LOGGING_LEVEL</code>, <code>VLLM_LOG_STATS_INTERVAL</code>; see <a href="https://docs.vllm.ai/en/latest/configuration/env_vars/" target="_blank" rel="noopener">env_vars</a>.</li>
+  <li>The llama-server argument list includes <code>--log-disable</code> and <code>--api-key</code>; see the <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener">server argument documentation</a>. Whether request content is written, and at what level, follows that page and the version in use.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-4">
+      <h2><span data-zh>留在本地不等于不出去</span><span data-en>Local files do not stay local by themselves</span></h2>
+<span data-zh><p>四条通道会让「留在本地」这个说法变得不准确，每条都要单独处理。</p>
+<ul>
+  <li>备份与同步：网盘、系统备份工具会连同日志目录一起复制出去，副本不再受原路径控制。</li>
+  <li>加密与密钥去向：微软的 BitLocker 概览写明整卷加密针对的是设备丢失、被盗带来的数据窃取与暴露风险；同一页面也说明设备加密会把恢复密钥备份到 Microsoft Entra ID、AD DS 或用户的 Microsoft 账户。见 <a href="https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/" target="_blank" rel="noopener">BitLocker Overview</a>。</li>
+  <li>监听地址：Ollama 的文档写用 <code>OLLAMA_HOST</code> 改绑定地址，见 <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener">faq</a>。绑到全部网卡时，同一网络里的其他机器也能发请求。</li>
+  <li>凭据：<code>--api-key</code> 一类设置决定谁能调用本机服务，密钥与被调用的内容都可能出现在别的日志里。</li>
+</ul>
+<p>加密保护静态数据，密钥位置是另一件事。这四个通道都能关，但没有一个是「本地」两个字自动关掉的。</p></span><span data-en><p>Four channels make &quot;kept local&quot; inaccurate, and each needs handling on its own.</p>
+<ul>
+  <li>Backup and sync: cloud drives and system backup tools copy the log folder along with everything else, and the copy leaves the original path&#39;s control.</li>
+  <li>Encryption and where the key goes: Microsoft&#39;s BitLocker overview states that full-volume encryption addresses data theft or exposure from lost or stolen devices, and the same page says device encryption backs the recovery key up to Microsoft Entra ID, AD DS or the user&#39;s Microsoft account. See <a href="https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/" target="_blank" rel="noopener">BitLocker Overview</a>.</li>
+  <li>Bind address: Ollama&#39;s documentation changes the bind address with <code>OLLAMA_HOST</code>; see <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener">faq</a>. Bound to all interfaces, other machines on the same network can send requests.</li>
+  <li>Credentials: settings such as <code>--api-key</code> decide who may call the local service, and both the key and the traffic it protects can appear in other logs.</li>
+</ul>
+<p>Encryption protects data at rest; where the key lives is a separate matter. All four channels can be closed, but none closes automatically because of the word &quot;local&quot;.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-5">
+      <h2><span data-zh>日志里装的是什么</span><span data-en>What the logs actually carry</span></h2>
+<span data-zh><p>日志内容由运行器决定，本站不替任何实现假设字段。核对时按四类分开。</p>
+<ul>
+  <li>请求侧：提示文字、附件或文件路径、工具调用参数、系统提示内容。</li>
+  <li>响应侧：生成的文字、错误信息、被截断的位置。</li>
+  <li>运行侧：时间戳、耗时、并发数、请求标识与调用方地址。</li>
+  <li>派生副本：崩溃转储、调试开关打开后的响应体、按间隔记录的统计。</li>
+</ul>
+<p>vLLM 的变量页里有一项把 API 响应写进日志用于调试。它也有一项按秒记录统计。开与不开是两种事实。</p>
+<p>某项是否落盘、落在哪个文件、按什么级别落，都回到该运行器的说明去查，不靠惯例推断。</p></span><span data-en><p>Log content is decided by the runner, and this site assumes no fields on any implementation&#39;s behalf. Check the four categories separately.</p>
+<ul>
+  <li>Request side: prompt text, attachments or file paths, tool-call arguments, system prompt content.</li>
+  <li>Response side: generated text, error messages, and where output was truncated.</li>
+  <li>Runtime side: timestamps, durations, concurrency, request identifiers and caller addresses.</li>
+  <li>Derived copies: crash dumps, response bodies written while a debug switch is on, and statistics logged at an interval.</li>
+</ul>
+<p>One vLLM variable writes API-server responses to the log for debugging. Another records statistics at an interval. On and off are two different facts.</p>
+<p>Whether a field is persisted, into which file, and at what level all go back to that runner&#39;s documentation rather than to convention.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-6">
+      <h2><span data-zh>留存与删除要按顺序做</span><span data-en>Retention and deletion, in order</span></h2>
+<span data-zh><p>顺序错一步，删除就只是错觉。下面五步按顺序做，每步都要写日期。</p>
+<ul>
+  <li>先列写入点：日志、会话历史、缓存、临时文件、崩溃目录各算一条。</li>
+  <li>再定上限：按天数还是按大小轮转，两处都要写明由谁设置。</li>
+  <li>然后查副本：备份、同步盘、快照与容器卷是否另有一份。</li>
+  <li>删除之后复查：原路径与副本位置各查一次，两次都要有记录。</li>
+  <li>最后记口径：写了查了什么、哪天查、结论覆盖到哪个范围。</li>
+</ul>
+<p>第五步的记录只证明记录当天的状态。它不证明过去，也不保证以后。</p></span><span data-en><p>Skip one step in this order and deletion becomes an illusion. Do the five steps in sequence and date each one.</p>
+<ul>
+  <li>First list the write points: logs, chat history, cache, temporary files and crash folders as separate lines.</li>
+  <li>Then set the ceiling: rotation by age or by size, and who configured it.</li>
+  <li>Then look for copies: backups, sync folders, snapshots and container volumes.</li>
+  <li>After deleting, re-check: inspect the original path and the copy locations once each, with a record for both.</li>
+  <li>Finally record the scope: what was checked, on which date, and how far the conclusion reaches.</li>
+</ul>
+<p>Step five proves only the state on the day it was recorded. It proves nothing about the past and guarantees nothing about the future.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-7">
+      <h2><span data-zh>容量与成本的连带账</span><span data-en>The capacity and cost side-effect</span></h2>
+<span data-zh><p>日志吃的是磁盘，不吃容量工作台里那块内存预算，两笔账不要记在同一栏。</p>
+<ul>
+  <li>增长口径按「每天写入量 × 保留天数」自己估，本站不给任何通用数值。</li>
+  <li>任务内存的假设、字段与单位在容量工作台里逐项填：<a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">上下文与并发预算</a>。</li>
+  <li>费用构成用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a> 记录，存储与备份是其中的独立项。</li>
+  <li>工作台的 KV 算式只管各层结构相同的标准全注意力 MHA / GQA 解码器，与日志留存没有推导关系；MLA、混合与滑动窗口要另算，磁盘那笔更不在它里面。</li>
+</ul></span><span data-en><p>Logs consume disk, not the memory budget the capacity workbench calculates. Keep the two bills in separate columns.<br>- Estimate growth yourself as daily writes times retention days; this site publishes no generic figure.<br>- Task-memory assumptions, fields and units are entered in the workbench: <a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">context and concurrency budget</a>.<br>- Record cost components with the <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">cost calculator</a>; storage and backup are separate lines inside it.<br>- The workbench&#39;s KV formula covers only standard full-attention MHA/GQA decoders with identical layers and has no derivation link to log retention. MLA, hybrid and sliding-window designs need separate arithmetic, and disk is not in that formula at all.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-8">
+      <h2><span data-zh>能说什么、不能说什么</span><span data-en>What this does and does not establish</span></h2>
+<span data-zh><p>能说的一句话是：本机能列出写入点、权限与保留期，而且每次核对都带日期。</p>
+<p>不能说的一句话是：本地跑就满足了某个合规要求。加密不等于没人读得到，删了文件也不等于没有副本。</p>
+<ul>
+  <li>不写法律意见，不替代你所在辖区的义务判断。</li>
+  <li>不做「哪种部署更隐私」的排名，也不把某个运行器说成更安全。</li>
+  <li>未核到的字段一律留空，不用默认惯例把它填成事实。</li>
+</ul>
+<p>结果核对与排查入口：<a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20 项自测清单</a>、<a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom" target="_blank" rel="noopener">按症状排查</a>。</p></span><span data-en><p>What can be said: this machine can list its write points, permissions and retention periods, and each check carries a date.</p>
+<p>What cannot be said: that running locally satisfies a given compliance requirement; that encryption means nobody can read it; that deleting a file means no copy exists.</p>
+<ul>
+  <li>No legal opinion, and no substitute for obligations in your own jurisdiction.</li>
+  <li>No ranking of &quot;which deployment is more private&quot;, and no calling a particular runner safer.</li>
+  <li>Fields not checked stay blank; local convention is not used to fill them in as facts.</li>
+</ul>
+<p>Result checks and troubleshooting entry points: the <a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20-item self-test</a> and <a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom" target="_blank" rel="noopener">troubleshooting by symptom</a>.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-9">
+      <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
+<span data-zh><p>学 AI 站的 <a href="https://learn.specul.com/term/%E6%95%B0%E6%8D%AE%E9%A9%BB%E7%95%99/" target="_blank" rel="noopener">数据驻留</a>、<a href="https://learn.specul.com/term/%E9%9A%90%E7%A7%81%E4%B8%8E%E5%90%88%E8%A7%84/" target="_blank" rel="noopener">隐私与合规</a>、<a href="https://learn.specul.com/term/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener">本地部署</a> 与 <a href="https://learn.specul.com/term/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" target="_blank" rel="noopener">可观测性</a> 是给使用者的一页科普。</p>
+<p>这一篇给的是核对顺序、证据位置和说法边界。同一个概念在两处深度不同，互链不重复。</p>
+<p>七件事的总入口见「本地跑起来之前先确认的七件事」。容量算法的边界见「GPU 事实与成本数学」。</p></span><span data-en><p>The Learn site&#39;s <a href="https://learn.specul.com/term/%E6%95%B0%E6%8D%AE%E9%A9%BB%E7%95%99/" target="_blank" rel="noopener">data residency</a>, <a href="https://learn.specul.com/term/%E9%9A%90%E7%A7%81%E4%B8%8E%E5%90%88%E8%A7%84/" target="_blank" rel="noopener">privacy and compliance</a>, <a href="https://learn.specul.com/term/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener">local deployment</a> and <a href="https://learn.specul.com/term/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/" target="_blank" rel="noopener">observability</a> pages are one-page explainers for users.</p>
+<p>This guide gives the checking order, evidence locations and statement boundaries. Same concept, different depth, cross-linked without duplication.</p>
+<p>For the pre-run overview see &quot;Seven checks before a local run starts&quot;, and for formula limits see &quot;GPU facts and cost math&quot;.</p></span>
+    </section>
+
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2><span data-zh>继续做什么</span><span data-en>What to do next</span></h2>
+      <ul><li><a href="gpu-cost-math.html#capacity-workbench"><span data-zh>填写上下文与并发容量假设</span><span data-en>Budget context and concurrency</span></a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/"><span data-zh>检查输出是否有依据</span><span data-en>Verify evidence for the output</span></a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom"><span data-zh>按症状排查</span><span data-en>Troubleshoot by symptom</span></a></li></ul>
+    </nav>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li><span data-zh>Ollama 排障文档（macOS 与 Windows 的日志位置、Linux 查看命令，2026-11-06 直抓）</span><span data-en>Ollama troubleshooting documentation (log locations on macOS and Windows, and the Linux viewing command; fetched directly 2026-11-06)</span>：<a href="https://docs.ollama.com/troubleshooting" target="_blank" rel="noopener">https://docs.ollama.com/troubleshooting</a></li>
+        <li><span data-zh>Ollama 常见问题文档（模型保存目录与 OLLAMA_HOST 绑定地址，2026-11-06 直抓）</span><span data-en>Ollama FAQ documentation (model storage directory and the OLLAMA_HOST bind address; fetched directly 2026-11-06)</span>：<a href="https://docs.ollama.com/faq" target="_blank" rel="noopener">https://docs.ollama.com/faq</a></li>
+        <li><span data-zh>vLLM 环境变量文档（日志配置、级别、统计间隔与调试开关，2026-11-06 直抓）</span><span data-en>vLLM environment variable documentation (logging configuration, level, statistics interval and debug switches; fetched directly 2026-11-06)</span>：<a href="https://docs.vllm.ai/en/latest/configuration/env_vars/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/configuration/env_vars/</a></li>
+        <li><span data-zh>llama.cpp · llama-server 参数文档（--log-disable 与 --api-key 两项，2026-11-06 直抓）</span><span data-en>llama.cpp llama-server argument documentation (lists --log-disable and --api-key; fetched directly 2026-11-06)</span>：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md</a></li>
+        <li><span data-zh>Microsoft Learn · BitLocker 概览（整卷加密与设备加密的恢复密钥备份去向，2026-11-06 直抓）</span><span data-en>Microsoft Learn BitLocker overview (full-volume encryption scope and where device-encryption recovery keys are backed up; fetched directly 2026-11-06)</span>：<a href="https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-06；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-06; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

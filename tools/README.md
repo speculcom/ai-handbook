@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 225 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 250 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 225 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 250 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -47,7 +47,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 
 ## 我该怎么读
 
-这个仓有 225 份档案，但大多数人不需要全看。按你手里那个具体问题走：
+这个仓有 250 份档案，但大多数人不需要全看。按你手里那个具体问题走：
 
 | 你要解决什么 | 走哪条路 |
 |---|---|
@@ -61,6 +61,15 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 前者问「哪个好用」，后者问「底座怎么搭」。混在一起比，比出来的结论没有意义。
 
 站上的版本：<https://tools.specul.com/>
+
+### 带文件练习
+
+四个双语流程附虚构输入、设计参考答案和验收方法，下载源位于 [samples/](./samples/README.md)。参考答案不代表 OCR、ASR 或产品实测。
+
+- [PDF / 扫描页转表格](./guides/playbook-pdf-table.md)：前导零、换行单元格、缺失单价与金额复算。
+- [多表合并](./guides/playbook-table-merge.md)：主键、完全重复、冲突、歧义日期与未匹配项。
+- [文档审阅](./guides/playbook-document-review.md)：版本定位、单位变化、否定条件与内部冲突。
+- [会议录音整理](./guides/playbook-meeting-notes.md)：合成 WAV、转写核对、提议/决定与行动项状态。
 
 ---
 
@@ -546,8 +555,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 225 份 |
-| 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 |
-| 形态分布（form） | web 94 · mcp 32 · harness 30 · cli 25 · ide 19 · cloud 14 · local-app 11 |
+| 档案总数 | 250 份 |
+| 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 · safety 25 |
+| 形态分布（form） | web 97 · mcp 32 · cli 30 · harness 30 · cloud 22 · local-app 20 · ide 19 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

@@ -1148,14 +1148,14 @@ var GUIDES = [
   "span": 8,
   "lead": {
    "zh": "只列官方发布与停运日期，不做新闻、不做预测。用来回答「这个产品现在还是不是这样」：每条都带官方出处与核验日。",
-   "en": "Only official release, retirement and migration dates, with sources and a verification date — no news, no predictions."
+   "en": "Official update snapshots: distinguish dates, rollout scope and planned shutdowns, with source references."
   },
   "points": [
    "研究线：Google 在 2026-04-21 发布 Deep Research 与 Deep Research Max，基于 Gemini 3.1 Pro，支持 MCP 与自定义来源。",
    "图像线：Nano Banana 2（Gemini 3.1 Flash Image）于 2026-02-26 上线，支持生成与编辑。",
    "停运线：ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex；微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。",
-   "模型档位：Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出；Claude 的记忆与 Cowork 进入 2026-10-21 release notes。",
-   "工具线：Google Opal 官方宣布 2026-11-17 从 Labs 毕业并迁移到 Gemini skills；Vercel AI SDK 7 在 2026 changelog 发布。",
+   "模型档位：Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出；Claude Duet 于 2026-10-21 向 Pro / Max 开放研究预览。",
+   "工具线：Google Opal 计划于 2026-11-17 停用，工作流不会自动迁移；Vercel AI SDK 7 在 2026 changelog 发布。",
    "本地线：ExLlamaV3 1.6.5 于 2026-10-25 发布（PyPI）；本站 models 快照为 2026-10-30。",
    "读法：先看日期，再看适用档位；停运与迁移要看「能力去了哪」，不只看「产品没了」。"
   ],
@@ -1163,10 +1163,212 @@ var GUIDES = [
    "Research: Google shipped Deep Research and Deep Research Max on 2026-04-21, built on Gemini 3.1 Pro with MCP and custom sources.",
    "Image: Nano Banana 2 (Gemini 3.1 Flash Image) launched on 2026-02-26 with generation and editing.",
    "Retirements: the ChatGPT Atlas browser was retired on 2026-08-09 with capabilities moved into ChatGPT/Codex; Microsoft retired consumer Copilot Deep Research on 2026-08-18.",
-   "Model tiers: Gemini 4 Argon reached AI Pro/Ultra on 2026-10-13; Claude memory and Cowork entered the 2026-10-21 release notes.",
-   "Tools: Google Opal graduates Labs on 2026-11-17 and flows migrate to Gemini skills; Vercel AI SDK 7 shipped in the 2026 changelog.",
+   "Model tiers: Gemini 4 Argon rollout for AI Pro/Ultra began on 2026-10-13; Claude Duet opened a Pro/Max research preview on 2026-10-21.",
+   "Tools: Opal is scheduled to shut down on 2026-11-17 without automatic workflow migration; preserve prompts and files. Vercel AI SDK 7 appears in its 2026 changelog.",
    "Local: ExLlamaV3 1.6.5 was released on 2026-10-25 (PyPI); the models snapshot is dated 2026-10-30.",
    "How to read it: check the date first, then the tier; for retirements, follow where the capability moved."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么写一份能被复核的任务指令",
+  "zh": "怎么写一份能被复核的任务指令",
+  "en": "How to Write a Task Brief Someone Can Review",
+  "kind": "guide",
+  "station": 3,
+  "ord": 17,
+  "span": 6,
+  "lead": {
+   "zh": "把「帮我弄一下」写成别人能照着核对的指令：目标、输入、边界、验收口径四样都落到字面上。",
+   "en": "Turn \"help me with this\" into an instruction others can check: spell out the goal, the inputs, the boundaries, and what counts as passing."
+  },
+  "points": [
+   "四栏先写全：目标（交付什么）、输入（给哪些材料）、边界（不许做什么）、验收（怎么算通过）。缺任一栏，复核的人只能猜你的意图。",
+   "验收口径写成能判定的句子：不写「质量要好」，写「每条结论都能指回材料里的具体位置」。",
+   "边界要写禁止项和例外怎么处理：材料里查不到的事实，标注「未找到」，不靠常识补全。",
+   "让输出自带凭据：用到的材料编号、调用的工具、没做完的部分，复核时按这几样逐项对照。",
+   "举个例子（虚构情境）：输入是 12 页客服工单文本 → 处理是按模板产出「问题分类 + 依据段落编号」→ 结果判断是随机抽 5 条，人工核对分类与段落是否对得上 → 对不上时的下一步是补写分类定义里的边界说明再跑一轮，而不是先换模型。",
+   "指令本身要版本化：每次改动留一行「为什么改」，否则过半年没人知道哪条口径还生效。"
+  ],
+  "pointsEn": [
+   "Fill in four fields: goal (what must be delivered), inputs (which materials it gets), boundaries (what it must not do), acceptance (what counts as passing). Missing any one leaves the reviewer guessing at your intent.",
+   "Write acceptance as a decidable sentence: not \"good quality\", but \"every conclusion points back to a specific location in the source material\".",
+   "Boundaries need prohibitions and exception handling: facts not found in the material get marked \"not found\", not filled in from common sense.",
+   "Make the output carry its own evidence: material IDs used, tools called, parts left undone - the reviewer checks against exactly these.",
+   "Worked example (fictional scenario): input is 12 pages of support tickets -> processing produces \"issue category + paragraph reference\" from a template -> the check is to sample 5 items and confirm the category matches the cited paragraph -> if they do not match, the next step is to tighten the boundary wording in the category definitions and rerun, not to swap models.",
+   "Version the brief itself: log one line on \"why this changed\", or in six months nobody knows which acceptance rule still applies."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么搭一条最小评测流程",
+  "zh": "怎么搭一条最小评测流程",
+  "en": "How to Set Up a Minimal Evaluation Pipeline",
+  "kind": "guide",
+  "station": 3,
+  "ord": 18,
+  "span": 8,
+  "lead": {
+   "zh": "不必攒几十项基准。一条能用的评测流水线只要五件东西：样本、口径、判法、记录、复跑。",
+   "en": "You do not need dozens of benchmarks. A usable evaluation pipeline needs five things: samples, criteria, judgment method, records, reruns."
+  },
+  "points": [
+   "样本从自己的工作里挑 20–50 条，记下来源与场景，比抄一份公开基准更贴近你的用法；留出一部分不参与改提示，专门用来看改动前后。",
+   "口径写成人能直接判的问题：不是「这条回答好不好」，而是「它有没有把材料里没写的期限当成依据」。",
+   "判法分两层：机器能判的（字段是否齐、引用编号是否真的存在）先跑脚本；判不了的留人工，并记下人工判了多大比例。",
+   "记录要能复盘：模型版本、提示版本、样本集版本、日期、每条的对错与理由，缺哪一格，下次就没法跟这一轮比。",
+   "换掉任何一环都用同一套样本复跑；同一输入跑两三遍看波动，波动本身也是记录。",
+   "举个例子（虚构数据）：输入是 30 条「合同条款问答」样本 → 处理是脚本查引用编号是否存在、人工判断结论是否与条款一致 → 结果判断是这一批 24/30 条通过（虚构计数，不是实测结果）→ 下一步先看错的是引用缺失还是判断偏差：前者改检索与提示，后者改验收口径，别一起动。",
+   "样本会老：用户问法变了、政策文本换了，就补新样本并重标一部分旧样本，否则流程还在跑、量的是过去。"
+  ],
+  "pointsEn": [
+   "Collect 20-50 samples from your own work and note where each came from; this tracks your usage better than copying a public benchmark. Hold some samples back from prompt tuning and use them only to compare before and after.",
+   "Phrase criteria as questions a person can answer directly: not \"is this answer good\", but \"does it cite a deadline that the material never states\".",
+   "Split judgment into two tiers: run scripts over what machines can decide (fields present, citation IDs that really exist); route the rest to humans and record how much needed a human.",
+   "Keep records you can revisit: model version, prompt version, sample-set version, date, per-item outcome and reason. Skip one field and the next round is not comparable.",
+   "Rerun the same sample set whenever any single piece changes; run one input two or three times to see the spread - the variance is part of the record.",
+   "Worked example (fictional data): input is 30 contract-clause Q&A samples -> processing checks citation existence by script and conclusion correctness by hand -> result this round: 24/30 passed (a made-up count, not a measured result) -> next step: first separate missing citations from wrong judgments; fix retrieval or prompt for the former, fix the acceptance rule for the latter, not both at once.",
+   "Samples age: when user phrasing or the policy text changes, add new samples and relabel part of the old set, otherwise the pipeline keeps measuring the past."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么处理一次误发事故",
+  "zh": "怎么处理一次误发事故",
+  "en": "How to Handle a Misfire Incident",
+  "kind": "guide",
+  "station": 3,
+  "ord": 19,
+  "span": 7,
+  "lead": {
+   "zh": "AI 内容误发（错答进了客户邮件、错代码合进了主干）按事件处理：先止血、再定范围、再复盘，先不追人。",
+   "en": "Treat a misfire (a wrong answer in a customer email, wrong code merged to main) as an incident: stop the bleeding, scope it, then review - do not start with blame."
+  },
+  "points": [
+   "第一步是止血不是分析：撤回或更正已发内容、关掉触发入口、列出已扩散范围，分析放到第二步。",
+   "定影响范围要有依据：时间窗、受影响的用户或文件清单、有没有对外发布。列不出清单就写「范围未知」，不要估一个数顶上去。",
+   "留证据：原始输入、模型与提示版本、完整输出、当时的调用日志，按事件编号存档；后面所有判断都靠这几样。",
+   "分层归因：是模型输出错、检索到的材料错、指令本身有歧义，还是流程里没有复核点——同一种现象对应四种不同修法，别默认是模型的问题。",
+   "复盘要落到「改哪一条控制」：新增复核点、收紧权限、把该场景写进边界说明或样本集，每条带负责人和验证方式，而不是写「以后注意」。",
+   "举个例子（虚构情境）：输入是自动回复机器人给客户发出的含错误退款期限的邮件 → 处理是按事件流程先关闭该自动回复通道、再清点同时间窗的发送日志 → 结果判断是把模型输出与现行退款条款逐条比对，确认错误来自检索命中了一份过期政策文档 → 下一步是把政策文档版本纳入发布检查、在出口加一道期限字段核对，并记下验证方式。"
+  ],
+  "pointsEn": [
+   "Step one is containment, not analysis: retract or correct what went out, close the triggering entry point, list what has spread. Analysis comes second.",
+   "Scope must rest on evidence: time window, list of affected users or files, whether anything was published externally. If you cannot produce a list, write \"scope unknown\" instead of estimating a number.",
+   "Preserve evidence: original input, model and prompt versions, full output, the call logs of that moment, filed under an incident ID. Every later judgement depends on these.",
+   "Attribute by layer: model output wrong, retrieved material wrong, the instruction itself ambiguous, or no review step in the process - the same symptom has four different fixes, so do not assume it is the model.",
+   "The review must land on \"which control changes\": add a review point, tighten permissions, write the scenario into the boundary notes or the sample set - each with an owner and a verification method, not \"be more careful\".",
+   "Worked example (fictional scenario): input is an automated reply that sent a customer the wrong refund deadline -> processing closes the automated-reply channel first, then counts the send log for the same window -> the check compares the output against current refund terms and finds the retrieval hit an outdated policy document -> next step: put policy document versions into the release check, add a deadline-field validation at the exit, and record how you will verify it."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么给 AI 内容加来源标识",
+  "zh": "怎么给 AI 内容加来源标识",
+  "en": "How to Label AI-Generated Content",
+  "kind": "guide",
+  "station": 3,
+  "ord": 20,
+  "span": 6,
+  "lead": {
+   "zh": "来源标识分三层：看得见的提示、文件里的凭证、生成侧的水印。这篇讲三层各自加在哪、会丢在哪。",
+   "en": "Provenance has three layers: the visible notice, the credentials inside the file, and the generator-side watermark. Here is where each is added and where each gets lost."
+  },
+  "points": [
+   "先定显式标识的位置：图文在正文或图上写明，音视频在开头或画面里说明；只在页面角落留一行小字，读者与审核都可能看不见。",
+   "隐式标识写进文件元数据：C2PA 这类内容凭证记录「谁生成、用什么工具、改过哪几步」，但转码、截图、二次导出都可能把它整段丢掉。",
+   "分清生成侧水印与自己的标识：模型侧水印（如 SynthID）由生成方注入，不覆盖你后续编辑的部分，也不能替代你该加的标注。",
+   "义务按条文核对：《人工智能生成合成内容标识办法》对显式与隐式标识分别有要求，适用范围、例外情形以条文原文与你的业务定性为准。",
+   "按内容类型做一张检查表：图片、视频、音频、文本各需要什么标识、由哪个环节加、在哪一步验证，缺一格就会整批漏掉。",
+   "举个例子（虚构流程）：输入是一张 AI 生成的活动海报 → 处理是生成工具写入内容凭证、发布系统再叠加画面角标 → 结果判断是把成品下载回来，检查元数据里凭证是否还在、角标是否可见 → 若凭证在压缩后丢失，下一步是把校验挪到发布管道的末端，并要求渠道方保留原始文件，而不是只补一句口头说明。"
+  ],
+  "pointsEn": [
+   "Fix the position of the visible label first: text and images state it in the body or on the image, audio and video say it at the start or on screen. A single line in a page corner can miss both readers and reviewers.",
+   "Implicit labels live in file metadata: content credentials such as C2PA record who generated it, with which tool, and which steps changed it - but transcoding, screenshots and re-export can strip them entirely.",
+   "Separate generator watermarks from your own labeling: model-side marks (for example SynthID) are injected by the generating party, do not cover your later edits, and cannot replace the notice you owe.",
+   "Check obligations against the text of the rule: China's labeling Measures set separate requirements for explicit and implicit labels; scope and exceptions follow the article and how your service is classified.",
+   "Build one checklist per content type: what label an image, video, audio or text needs, which stage adds it, which step verifies it - a missing cell means a whole batch slips through.",
+   "Worked example (fictional flow): input is an AI-generated event poster -> processing writes content credentials at generation and overlays a visible mark at publish time -> the check downloads the finished file to confirm the credential is still in the metadata and the mark is visible -> if the credential disappears after compression, next step is to move validation to the end of the publishing pipeline and require channels to keep the original file, rather than adding a verbal note."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么审一次第三方插件",
+  "zh": "怎么审一次第三方插件",
+  "en": "How to Audit a Third-Party Plugin",
+  "kind": "guide",
+  "station": 3,
+  "ord": 21,
+  "span": 8,
+  "lead": {
+   "zh": "接一个第三方 MCP server 或插件之前，审四件事：它要什么权限、代码从哪来、数据往哪去、出事谁负责。",
+   "en": "Before connecting a third-party MCP server or plugin, audit four things: what permissions it asks for, where its code comes from, where data goes, and who owns an incident."
+  },
+  "points": [
+   "列权限清单：它能读哪些目录、能不能发网络请求、能不能执行命令。超出用途的权限要么砍掉，要么不接。",
+   "看代码来源与维护状态：仓库归属、近期提交、issue 里有没有安全回应，比 star 数更能说明问题。",
+   "数据流向问三句：日志记不记提示内容、要不要回传厂商、是否用于训练。答不清楚就按「会外传」处理。",
+   "先在隔离环境跑：独立账号、最小权限、只喂测试数据，把工具调用日志留在能查到的地方。",
+   "按注入风险测一轮：在工具描述或返回内容里放一句「忽略之前的指令」，看它是否被执行——间接提示注入常出现在工具返回里，而不是用户输入里。",
+   "定退出方案：换掉它要改哪几处、历史数据怎么清、谁批准。没有退出方案的接入，等于把依赖写进架构。",
+   "举个例子（虚构流程）：输入是一个声称「只读项目 README」的文件系统 server → 处理是在沙箱里只给它一个目录并禁止网络 → 结果判断是看它是否只访问该目录、调用日志是否只落本地 → 若它请求了目录外路径，下一步是收回接入并按 OWASP 的 LLM 风险项记一条，而不是仅降权限继续用。"
+  ],
+  "pointsEn": [
+   "List the permissions: which directories it reads, whether it can make network calls, whether it can execute commands. Permissions beyond the stated purpose get cut, or the plugin does not get connected.",
+   "Look at code provenance and maintenance: repository ownership, recent commits, whether security issues in the tracker get responses - these say more than a star count.",
+   "Ask three questions about data flow: do logs store prompt content, is anything sent back to the vendor, is it used for training. If the answers are unclear, treat it as \"data leaves\".",
+   "Run it in isolation first: separate account, minimal permissions, test data only, with tool-call logs kept somewhere you can actually query.",
+   "Test for injection: put a line saying \"ignore previous instructions\" into a tool description or a tool response and see whether it executes - indirect prompt injection usually arrives through tool output, not user input.",
+   "Define the exit plan: which places to change when replacing it, how to clear historical data, who approves. A connection without an exit plan writes the dependency into your architecture.",
+   "Worked example (fictional flow): input is a filesystem server claiming to \"only read the project README\" -> processing gives it one directory in a sandbox and disables network access -> the check looks at whether it touched only that directory and whether logs stayed local -> if it requests a path outside the directory, next step is to revoke access and file it against an OWASP LLM risk category, not merely lower permissions and keep using it."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么设计人工复核环节",
+  "zh": "怎么设计人工复核环节",
+  "en": "How to Design a Human Review Step",
+  "kind": "guide",
+  "station": 3,
+  "ord": 22,
+  "span": 7,
+  "lead": {
+   "zh": "人工复核不是「加个人点确认」，而是让人看得出错、有权拦下、责任能落到人的一个环节。",
+   "en": "Human review is not \"add a person who clicks confirm\"; it is a step where someone can see the error, can block it, and carries a named responsibility."
+  },
+  "points": [
+   "先定触发条件：涉及金额、对外发布、不可逆操作、或模型自陈不确定的那部分进复核；其余不占用人的注意力。",
+   "给复核人看比对材料而不是只看结论：原文与生成并排、引用编号、模型说明自己没把握的地方。只给一段结论文本，复核会退化成盖章。",
+   "规定复核动作：能改、能驳回、能升级。如果流程里只有「同意」一个按钮，驳回率长期为零，这个指标就没有信息量。",
+   "防自动化偏见：连续快速通过会让人不再细看。抽检复核质量（复核人之间的分歧率、事后被纠正的比例）比只抽检输出更能发现问题。",
+   "记三项指标：每类任务的复核耗时、驳回率、驳回原因分布。用它们回推是提示写得含糊，还是验收标准本身不清。",
+   "举个例子（虚构情境）：输入是模型产出的「合同违约条款摘要」→ 处理是复核人对照原文三处关键表述，按模板勾「一致 / 不一致 / 不确定」并写明依据段落 → 结果判断是不一致即驳回、不确定即升级给法务 → 若同一类任务连续两类不一致，下一步是把该类任务默认改回由人起草，再回头修提示与检索，而不是让复核人多审几遍。"
+  ],
+  "pointsEn": [
+   "Set the trigger conditions first: money, external publication, irreversible actions, or cases where the model flags its own uncertainty go to review; everything else should not consume human attention.",
+   "Show reviewers comparison material, not just conclusions: source text beside the generated text, citation IDs, and the parts the model says it is unsure about. Hand over only a conclusion and review degrades into a rubber stamp.",
+   "Define the available actions: edit, reject, escalate. If the workflow offers only an \"approve\" button, the rejection rate stays at zero and the metric carries no information.",
+   "Guard against automation bias: long streaks of quick approvals mean people stopped looking. Sampling review quality (disagreement between reviewers, items later corrected) tells you more than sampling model output alone.",
+   "Track three numbers per task type: review time, rejection rate, distribution of rejection reasons. Use them to work back to whether the prompt is vague or the acceptance standard is unclear.",
+   "Worked example (fictional scenario): input is a model-written \"summary of breach clauses in a contract\" -> processing has the reviewer check three key statements against the source and mark \"consistent / inconsistent / unsure\", citing the paragraph -> the rule is: inconsistent gets rejected with the basis paragraph noted, unsure escalates to legal -> if two categories in a row come back inconsistent, next step is to default that task type back to human drafting and then fix the prompt and retrieval, rather than asking reviewers to check harder."
   ],
   "myth": null,
   "mythEn": null,
@@ -1229,6 +1431,63 @@ var GUIDES = [
   "mythEn": "When it says \"I cannot do that\", it lacks the capability.",
   "fact": "拒答可能与产品政策、权限、输入条件或能力限制有关。先看具体原因和适用规则，不能仅凭一次拒答判断模型有没有某种能力。",
   "factEn": "A refusal may reflect policy, permissions, input conditions or capability limits. Inspect the reason and applicable rules instead of inferring capability from one refusal."
+ },
+ {
+  "id": "评测分数高就等于可靠",
+  "zh": "评测分数高就等于可靠",
+  "en": "A High Evaluation Score Means It Is Reliable",
+  "kind": "myth",
+  "station": 3,
+  "ord": 4,
+  "span": 5,
+  "lead": {
+   "zh": "分数回答的是「在那套题上得了多少」，可靠要的是「在我这反复用会不会出格」。",
+   "en": "A score answers \"how many points on that set\"; reliability asks \"what happens when I use it repeatedly\"."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": "评测分数高，系统用起来就可靠。",
+  "mythEn": "A high evaluation score means the system is reliable in use.",
+  "fact": "可靠性关心的是波动与分布：同一输入跑多次是否一致、没见过的输入表现如何、边界场景的失败长什么样。分数是某个版本在某个任务集、某个设置下的一次读数，两个口径不同。要判断可靠，就用自己的样本复跑并记下波动。（虚构示例）输入是同一条退款期限咨询 → 处理是用同一提示、同一模型版本各跑三遍 → 结果判断是三遍里有一遍把期限说错，说明这条链路的波动不为零 → 下一步不是去引用它的高分，而是把该问法加进自己的评测样本，看修复后是否还会波动。",
+  "factEn": "Reliability is about spread and distribution: whether the same input gives consistent results over repeats, how unseen inputs behave, what failures look like at the boundaries. A score is one reading of one version on one task set under one setting - a different question. Judge reliability by rerunning your own samples and recording the variance. (Fictional example) Input is one query about a refund deadline -> processing runs it three times with the same prompt and the same model version -> the check finds one of the three stating the deadline wrongly, so variance on this path is not zero -> the next step is to add that phrasing to your own sample set and recheck after a fix, not to cite the high score."
+ },
+ {
+  "id": "加了护栏就安全了",
+  "zh": "加了护栏就安全了",
+  "en": "Guardrails Make It Safe",
+  "kind": "myth",
+  "station": 3,
+  "ord": 5,
+  "span": 5,
+  "lead": {
+   "zh": "护栏改变的是默认路径，不是所有路径。",
+   "en": "Guardrails change the default path, not every path."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": "接上厂商的护栏，系统就安全了。",
+  "mythEn": "Turn on the vendor's guardrails and the system is safe.",
+  "fact": "护栏拦的主要是训练与部署阶段预期内的常见路径。绕开它的内容（改写措辞的诱导、藏在工具返回或网页正文里的指令），以及护栏自己的边界，仍要靠你的权限设计、出口校验和事件流程。判断护栏有没有生效，要做一次能复现的检查（虚构示例）：输入一段带指令的不可信文本 → 处理是按真实链路走一遍 → 结果判断看它是否执行了那条指令或读出了环境变量 → 若执行了，下一步是收紧工具权限并在出口加过滤，而不是把「护栏已开启」当成结论。",
+  "factEn": "Guardrails mainly cover common paths anticipated during training and deployment. Content routed around them - reworded inducements, instructions hidden in tool output or web page text - plus the guardrails' own boundaries still depend on your permission design, exit validation and incident process. Verifying that guardrails actually work means a reproducible check (fictional example): input an untrusted text carrying an instruction -> processing runs it through the real chain -> the check looks at whether that instruction executed or environment variables were read -> if it executed, the next step is to tighten tool permissions and add exit filtering, not to treat \"guardrails enabled\" as the conclusion."
+ },
+ {
+  "id": "通过一次评测就可以上线",
+  "zh": "通过一次评测就可以上线",
+  "en": "Passing One Evaluation Is Enough to Ship",
+  "kind": "myth",
+  "station": 3,
+  "ord": 6,
+  "span": 5,
+  "lead": {
+   "zh": "上线不是通过一场考试，而是一个需要被持续检查的状态。",
+   "en": "Shipping is not passing one exam; it is a state that needs continuous checking."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": "上线前把评测跑通一次，之后就可以不用管了。",
+  "mythEn": "Run the evaluation once before launch and you never have to look again.",
+  "fact": "那一次通过只覆盖当时的版本组合：模型版本、提示、检索到的材料、用户问法与数据分布，任何一项变动都可能让结论失效。发布后要留抽检、监控与回滚路径，改动时复跑同一套样本。（虚构示例）输入是一次「只更换检索源、模型与提示都没变」的改动 → 处理是复跑同一套样本 → 结果判断看的是「引用是否命中现行文档」这一项口径 → 若该项通过率下降，下一步是重新做上线判断并给检索源加一条变更检查，而不是沿用旧一次的「已通过」。",
+  "factEn": "That single pass covers only the version combination at the time: model version, prompt, retrieved material, user phrasing and data distribution - a change in any of them can void the result. After release keep sampling, monitoring and a rollback path, and rerun the same sample set on changes. (Fictional example) Input is a change that swaps only the retrieval source, with model and prompt untouched -> processing reruns the previous sample set -> the check looks at the single criterion \"does the citation hit the current document\" -> if that pass rate drops, the next step is to redo the go-live decision and add a retrieval-source change check, not to keep relying on last round's \"passed\"."
  },
  {
   "id": "论文卡-HELM",
@@ -1536,6 +1795,37 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "论文卡-Constitutional AI",
+  "zh": "论文卡-Constitutional AI",
+  "en": "Paper Card - Constitutional AI",
+  "kind": "paper",
+  "station": 4,
+  "ord": 8,
+  "span": 9,
+  "lead": {
+   "zh": "把「一份人写的原则清单」当成监督来源的训练方法。这张卡列清它要解决什么、摘要给了哪些结论、以及它没有主张什么。",
+   "en": "A training method that treats a human-written list of principles as the source of supervision. This card states what it set out to solve, which conclusions the abstract supports, and what it does not claim."
+  },
+  "points": [
+   "研究问题（摘要开篇原话）：\"we would like to enlist their help to supervise other AIs\"——目标是 \"training a harmless AI assistant through self-improvement\"，且 \"without any human labels identifying harmful outputs\"；人工监督只剩一份规则或原则清单（\"The only human oversight is provided through a list of rules or principles\"），作者据此命名 Constitutional AI。",
+   "方法证据位置（摘要自述两阶段）：监督阶段的做法是 \"generate self-critiques and revisions\" 再 \"finetune the original model on revised responses\"；强化学习阶段用模型比较两个样本、从 AI 偏好数据训出偏好模型并把它当奖励信号，摘要称之为 \"RL from AI Feedback\"（RLAIF）。正文里的实验数值与设置摘要一条都没给。",
+   "作者自陈的结论口径：训出的是 \"a harmless but non-evasive AI assistant that engages with harmful queries by explaining its objections to them\"；两阶段都可借思维链式推理改善人评表现与决策透明度。摘要末句 \"with far fewer human labels\" 说的是人工标签的数量与可控性，不是安全性保证。摘要没有独立的局限清单，局限要看正文——本次核验只覆盖 arXiv abs 页摘要。",
+   "它没有主张的：没有主张这套方法消除有害输出，也没有主张「用了 Constitutional AI 就等于安全」；原则清单由人来写，写哪些、漏哪些仍是人的判断，这一步在摘要层面没有被验证。",
+   "读法提示（虚构需求）：把它当「监督来源换成规则文本」的做法来读，而不是当成安全证书。输入是你的场景里有一批必须拒绝且要说明理由的请求 → 处理是逐条问「这条能否写成一条可执行原则，还是要靠运行时拦截」→ 结果判断是凡是只能靠运行时拦的条目，就判定这篇方法覆盖不到 → 下一步是把这些条目写进自己的复核与事件流程，别在文档里写「已用 Constitutional AI」当作结论依据。"
+  ],
+  "pointsEn": [
+   "Research question (abstract's opening): \"we would like to enlist their help to supervise other AIs\" - the target is \"training a harmless AI assistant through self-improvement\", achieved \"without any human labels identifying harmful outputs\"; \"The only human oversight is provided through a list of rules or principles\", which is why the authors name it Constitutional AI.",
+   "Where the method sits (two phases as the abstract describes them): the supervised phase is to \"generate self-critiques and revisions\" and then \"finetune the original model on revised responses\"; the RL phase compares two samples with a model, trains a preference model from AI preferences and uses it as the reward signal - the abstract calls this \"RL from AI Feedback\" (RLAIF). Experimental values and settings appear nowhere in the abstract.",
+   "What the abstract's own conclusion says: the result is \"a harmless but non-evasive AI assistant that engages with harmful queries by explaining its objections to them\", and both phases can use chain-of-thought style reasoning to improve human-judged performance and transparency of AI decision making. The closing phrase \"with far fewer human labels\" is about the volume of labels and controllability, not a safety guarantee. The abstract carries no separate limitations section; limitations live in the body, and this check covered only the arXiv abstract page.",
+   "What it does not claim: that the method removes harmful outputs, and that \"using Constitutional AI\" equals safety. The principle list is written by people - what it includes and what it omits is still a human judgement, unverified at the abstract level.",
+   "How to read it (fictional need): read it as \"supervision source replaced by rule text\", not as a certificate. Input is a scenario with requests that must be refused and explained -> processing asks per rule whether it can be written as an executable principle or needs runtime interception -> the judgement is that anything only stoppable at runtime falls outside this method's coverage -> next step: put those items into your own review and incident workflow instead of citing \"we use Constitutional AI\" as evidence."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "量化、蒸馏、剪枝的区别",
   "zh": "量化、蒸馏、剪枝的区别",
   "en": "Quantisation vs Distillation vs Pruning",
@@ -1624,6 +1914,39 @@ var GUIDES = [
   "mythEn": "If the API is OpenAI-compatible, switching over gives the same behaviour.",
   "fact": "兼容通常指某些请求与响应约定；支持范围、默认参数、流式、工具调用和错误处理仍需逐项核对。接口名称相同不代表产品行为或输出质量相同。",
   "factEn": "Compatibility typically concerns specified request/response conventions. Check supported scope, defaults, streaming, tools and errors individually. Shared interface names do not establish equal behavior or output quality."
+ },
+ {
+  "id": "论文卡-Distilling the Knowledge",
+  "zh": "论文卡-Distilling the Knowledge",
+  "en": "Paper Card - Distilling the Knowledge in a Neural Network",
+  "kind": "paper",
+  "station": 5,
+  "ord": 1,
+  "span": 7,
+  "lead": {
+   "zh": "把多个模型的判断压进一个更容易部署的模型——蒸馏路线的早期短文。这张卡列清它要解决什么、结论停在哪一层、以及它没有主张什么。",
+   "en": "Compressing the judgement of several models into one easier-to-deploy model - an early short paper on distillation. This card states the question, where the conclusions stop, and what it does not claim."
+  },
+  "points": [
+   "研究问题（摘要原话）：训练许多模型再平均预测能提升表现，但用整个 ensemble 做预测 \"is cumbersome and may be too computationally expensive to allow deployment to a large number of users\"；作者接着 Caruana 等人的工作，把 \"compress the knowledge in an ensemble into a single model which is much easier to deploy\"。",
+   "证据位置：摘要只给定性结论——在 MNIST 上 \"we achieve some surprising results\"，并 \"we can significantly improve the acoustic model of a heavily used commercial system by distilling the knowledge in an ensemble of models into a single model\"。具体数值、模型规模与设置都在正文实验节，摘要里没有可直接引用的数字。",
+   "它还引入的东西：一种新的 ensemble 形态——若干完整模型加许多「专家模型」，后者专门学习区分完整模型会混淆的细粒度类别；摘要把它与 mixture of experts 区分开：\"these specialist models can be trained rapidly and in parallel\"。",
+   "作者自陈的边界：摘要把「部署成本」当作被解决的问题而非遗留局限，没有独立的局限清单；这次核验覆盖的是 arXiv abs 页摘要，正文里的小规模实验范围与失败情形不在卡内复述。",
+   "它没有主张的：没有主张蒸馏出的小模型在任何任务上都接近教师，也没有主张蒸馏等于量化或剪枝——三者作用层面不同；把这篇当作「小模型一定够用」的依据，超出它的证据范围。",
+   "读法提示（虚构需求）：输入是「想把一个关键句检测换成更小的模型」→ 处理是按它的思路先做一轮：用现有模型的输出标签训练小模型 → 结果判断是在你自己的保留集上比较两者的漏检与误报分布，而不是引用论文里 MNIST 的结论 → 若你场景的漏检明显上升，下一步是回到「教师不动、只优化推理」的路线，并把这条判断的依据与日期记进评估记录。"
+  ],
+  "pointsEn": [
+   "Research question (abstract): averaging many models trained on the same data helps, but predicting with a whole ensemble \"is cumbersome and may be too computationally expensive to allow deployment to a large number of users\"; building on Caruana and collaborators, the authors \"compress the knowledge in an ensemble into a single model which is much easier to deploy\".",
+   "Where the evidence sits: the abstract gives only qualitative claims - \"we achieve some surprising results on MNIST\" and \"we can significantly improve the acoustic model of a heavily used commercial system by distilling the knowledge in an ensemble of models into a single model\". Values, model sizes and settings are in the body's experiments; nothing quotable numerically appears in the abstract.",
+   "What else it introduces: a new ensemble form - one or more full models plus many specialist models that learn to separate fine-grained classes the full models confuse; the abstract sets this apart from a mixture of experts: \"these specialist models can be trained rapidly and in parallel\".",
+   "Limits the authors state: the abstract treats deployment cost as the problem being solved rather than a leftover limitation, and lists no limitations; this check covered the arXiv abstract page, so the body's small experimental scope and failure cases are not restated here.",
+   "What it does not claim: that a distilled small model matches the teacher on every task, and that distillation equals quantization or pruning - they act on different layers. Using this paper as proof that \"small models are always enough\" goes beyond its evidence.",
+   "How to read it (fictional need): input is \"replace a key-sentence detector with a smaller model\" -> processing follows its recipe, training the small model on the existing model's output labels -> the judgement compares misses and false alarms on your own held-out set instead of quoting the paper's MNIST result -> if misses rise noticeably in your scenario, next step is to fall back to \"keep the teacher, optimise inference only\" and record the basis and date of that decision."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
  },
  {
   "id": "怎么读模型卡",
@@ -1824,6 +2147,140 @@ var GUIDES = [
   "factEn": null
  },
  {
+  "id": "怎么给团队做 AI 风险清单",
+  "zh": "怎么给团队做 AI 风险清单",
+  "en": "How to Build an AI Risk List for Your Team",
+  "kind": "guide",
+  "station": 6,
+  "ord": 7,
+  "span": 8,
+  "lead": {
+   "zh": "风险清单不是把「安全」写成口号，而是按场景列清：可能出什么事、现在挡了什么、谁负责补剩下的。",
+   "en": "A risk list is not \"safety\" written as a slogan; per use case it states what could go wrong, what already blocks it, and who closes the rest."
+  },
+  "points": [
+   "按用例拆，不按模型拆：同一个模型用来写周报和用来自动退款，风险面不一样，条目不能共用一行。",
+   "每条风险填五格：场景、触发条件、后果、现有控制、剩余缺口。只填前两格的清单没法驱动任何动作。",
+   "借现成分类打底再补自己的：NIST AI RMF 的 Govern / Map / Measure / Manage 与 OWASP 的 LLM 风险项可以当骨架，别从空白页开始想。",
+   "法规类条目单列一栏，注明依据条文与生效条件（EU AI Act 按用途分层，国内办法按服务类型定性），不要和体验问题混在同一张表里。",
+   "定更新触发线与负责人：接入新模型、接入新数据源、流程改动这三类事件要重跑一遍清单；没人认领的条目按没写处理。",
+   "举个例子（虚构情境）：输入是用例「AI 起草客户回复」→ 处理是按五格填表，触发条件写「涉及退款期限、赔付、法务口径」→ 结果判断是核对现有控制，发现出口没有期限字段核对，缺口成立 → 下一步是把该缺口列成待办，挂上负责人与验证方式（例如按周抽检回复样本，抽检数按你自己的量级定，不照抄别人的阈值）。"
+  ],
+  "pointsEn": [
+   "Break it down by use case, not by model: the same model drafting weekly reports and issuing automatic refunds carries different risks, so one row cannot cover both.",
+   "Fill five cells per entry: scenario, trigger condition, consequence, controls in place, remaining gap. A list with only the first two cells drives no action.",
+   "Borrow an existing taxonomy as the skeleton, then add yours: NIST AI RMF's Govern / Map / Measure / Manage and OWASP's LLM risk categories beat starting from a blank page.",
+   "Keep regulatory risks in their own column with the article and effective conditions noted (the EU AI Act tiers by use; China's Measures turn on service type); do not mix them with experience issues in one table.",
+   "Set update triggers and owners: connecting a new model, a new data source, or a process change should force another pass. Entries nobody owns count as not written.",
+   "Worked example (fictional scenario): input is the use case \"AI drafts customer replies\" -> processing fills the five cells with trigger conditions \"refund deadlines, compensation, legal wording\" -> the check reviews existing controls and finds no deadline-field validation at the exit, so the gap stands -> next step: turn the gap into a to-do with an owner and a verification method (for example a weekly sample audit of replies, sample size set by your own volume rather than copied from someone else's threshold)."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么读模型卡与系统卡",
+  "zh": "怎么读模型卡与系统卡",
+  "en": "How to Read Model Cards and System Cards",
+  "kind": "guide",
+  "station": 6,
+  "ord": 8,
+  "span": 8,
+  "lead": {
+   "zh": "模型卡讲「这个模型是什么、怎么用」，系统卡与部署安全页讲「上线前测过什么、还担心什么」。两份要分开读、对照读。",
+   "en": "Model cards say what a model is and how to use it; system cards and deployment safety pages say what was tested before release and what still worries the publisher. Read them separately, and side by side."
+  },
+  "points": [
+   "先分清对象：模型卡面向使用者（用途、限制、评测口径、训练数据说明），系统卡或部署安全页面向风险关注者（测了哪些风险、结果如何、什么条件下继续推进）。",
+   "看它测了什么、没测什么：只有能力评测、没有失效场景说明的文档，撑不起高风险用途；反过来只讲风险、不给可核对的口径也不行。",
+   "版本与日期一起记：同一型号在不同批次的卡片上结果可能不同，引用时把版本号与发布日期写进你的记录。",
+   "重点读「不适合做什么」那一栏：厂商写明的失败场景与拒答行为比宣传语可用；没有这一栏的卡片要打折看。",
+   "对照自己的用途找缺口：你要跑的场景如果不在它的评测覆盖里，这个缺口要自己补测，不能靠外推补齐。",
+   "举个例子（虚构需求）：输入是团队想用某个模型做医疗问答初稿 → 处理是把它的模型卡与系统卡并排读，列出「有没有医疗相关评测」「已知拒答与幻觉说明写在哪一栏」→ 结果判断是若两类文档都没覆盖该场景，结论写「卡片不足以支持此用途」→ 下一步是把该场景写进自己的评测样本，小范围试跑并留记录，再决定是否接入。"
+  ],
+  "pointsEn": [
+   "Tell the two apart by audience: model cards face users (intended use, limitations, evaluation scope, training-data notes); system cards and deployment safety pages face risk readers (which risks were measured, with what result, under what conditions the rollout continues).",
+   "Check what was measured and what was not: a document with only capability benchmarks and no failure-mode discussion cannot support a high-risk use; one that only discusses risk without checkable numbers is no better.",
+   "Record version and date together: results for the same model name can differ across card releases, so put the version and publication date in your notes when you cite it.",
+   "Read the \"not suitable for\" section closely: failure cases and refusal behaviour the publisher writes down are more usable than marketing lines; a card without that section deserves discount.",
+   "Map gaps onto your own use: if your scenario is outside its evaluation coverage, that gap is yours to test - extrapolation does not fill it.",
+   "Worked example (fictional need): input is a team wanting a model to draft medical Q&A answers -> processing reads the model card and system card side by side and lists \"is there any medical evaluation\" and \"which section states known refusals and hallucination behaviour\" -> the judgement is that if neither document covers the scenario, the conclusion reads \"cards insufficient to support this use\" -> next step: add the scenario to your own evaluation samples, run a small trial with records, then decide whether to integrate."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么估算一次上线的安全成本",
+  "zh": "怎么估算一次上线的安全成本",
+  "en": "How to Estimate the Safety Cost of a Launch",
+  "kind": "guide",
+  "station": 6,
+  "ord": 9,
+  "span": 9,
+  "lead": {
+   "zh": "把「安全成本」拆成人时、算力、复核、返工四块，每块都用你自己查得到的数字或标明假设来估。",
+   "en": "Split \"safety cost\" into labour, compute, review and rework, and estimate each with numbers you can look up - or with assumptions labelled as assumptions."
+  },
+  "points": [
+   "列支出项，不列形容词：评测样本准备、人工复核轮次、灰度期双跑、返工窗口、回滚演练，每项写清由谁做、多久做一次。",
+   "基数取自己的历史数据：同类任务的平均处理时长、驳回率、工单量。取不到就明确写「假设值」，把假设连同理由放进表里，别只留一个数字。",
+   "区分一次性与经常性：读卡片、设计权限是一次性投入；抽检、监控、日志留存是经常性支出，要按月计。",
+   "给不确定性留位置：说明哪几项区间宽、为什么宽（新场景、缺历史数据、依赖外部审批），而不是统一加一个缓冲系数。",
+   "对比「不做的代价」要能追溯：误发处理时长、合同违约条款、监管整改要求，各自标注来源；找不到来源就留空，不编。",
+   "举个例子（虚构数据）：输入是「上线 AI 客服摘要，预计每天 300 条」的量级（虚构前提）→ 处理是四项列表，其中抽检按 10%（每天 30 条，每条假设 2 分钟，假设值）计 → 结果判断是代入假设得到每天约 1 小时人工，与团队可投入工时比较，判断是否需要降范围 → 若超出可投入工时，下一步是明确写出「降抽检比例带来的风险」或「缩小首批场景」，而不是把假设值当承诺写进方案。"
+  ],
+  "pointsEn": [
+   "List spending items, not adjectives: sample preparation, review rounds, parallel running during a staged rollout, rework windows, rollback drills - each with who does it and how often.",
+   "Take the base from your own history: handling time for comparable tasks, rejection rate, ticket volume. If the data is missing, write \"assumed value\" and keep the assumption plus its reason in the sheet instead of a bare number.",
+   "Separate one-off from recurring: reading cards and designing permissions are one-off; sampling, monitoring and log retention recur monthly.",
+   "Leave room for uncertainty: state which items have wide ranges and why (new scenario, no history, external approval dependency) instead of applying one blanket buffer factor.",
+   "Make the \"cost of not doing it\" traceable: incident handling time, contractual penalty terms, regulatory remediation requirements - each with a source. Leave the cell blank rather than inventing a figure.",
+   "Worked example (fictional data): input is a launch of AI-generated support summaries at \"300 items a day\" (fictional premise) -> processing lists the four items, with sampling at 10% (30 items a day, assumed 2 minutes each) -> the check substitutes the assumptions to get roughly one hour of human work per day and compares it against capacity to decide whether to narrow scope -> if capacity is exceeded, next step is to state plainly either the risk of lowering the sampling rate or the reduced first-batch scope, rather than writing an assumption into the plan as a commitment."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
+  "id": "怎么把安全要求写进采购条款",
+  "zh": "怎么把安全要求写进采购条款",
+  "en": "How to Write Safety Requirements into a Procurement Contract",
+  "kind": "guide",
+  "station": 6,
+  "ord": 10,
+  "span": 9,
+  "lead": {
+   "zh": "采购条款的作用，是把你在意的事写成对方必须交付的东西：文档、通知、日志、退出四个交付点。",
+   "en": "Procurement clauses turn what you care about into what the supplier must deliver: documents, notices, logs and exit - four levers."
+  },
+  "points": [
+   "文档交付写具体：要求提供模型卡或系统卡、使用说明，写明版本号与发布日期；「详见官网」不算交付。",
+   "变更通知写条件与提前量：模型替换、数据保留策略调整、子处理方变更，分别写明在哪个节点、以什么方式通知你。",
+   "数据条款写流向：日志保留多久、是否用于训练、能否限定处理区域、导出与删除的时限与格式。",
+   "事件义务写清能拿到什么：安全事件的通报义务、你能导出哪些日志作为证据、责任与整改怎么归属。",
+   "退出写条件：数据与配置的导出格式、合同终止后的删除证明、历史记录的处置方式；没有退出条款的接入会把依赖写进架构。",
+   "法规相关文本交给法务定稿：AI Act 的分阶段义务、国内办法与标识义务如何落到你的业务，条款里只写「谁承担哪部分义务、由谁出证明」。",
+   "举个例子（虚构条款）：输入是对方的合同草案，只写了「提供高质量模型」→ 处理是逐条替换成四个交付点（版本化文档、约定提前量的变更通知、日志不用于训练且可导出、删除证明与时限）→ 结果判断是当场提问「出事时我能拿到哪些日志证明输入与输出」，答不出来就记为条款缺口 → 下一步是把缺口列成待议清单走法务与供应商对齐，不用口头承诺补上。"
+  ],
+  "pointsEn": [
+   "Make document delivery concrete: require model cards or system cards and usage documentation, with version numbers and publication dates. \"See our website\" is not a deliverable.",
+   "State change-notice conditions and lead time: model replacement, data-retention changes, subprocessor changes each get a point in the process and a notification method.",
+   "Write data flow into the clause: log retention period, whether data trains models, whether processing can stay in a chosen region, and the deadline and format for export and deletion.",
+   "Define incident obligations by what evidence you can obtain: notification duties, which logs you can export as evidence, how responsibility and remediation are assigned.",
+   "Give exit real teeth: export formats for data and configuration, proof of deletion after termination, disposition of historical records. A connection without exit terms writes the dependency into your architecture.",
+   "Hand regulatory wording to legal: how the AI Act's staged duties and China's Measures and labeling rules land on your business is their call; the clause only states who bears which duty and who produces the proof.",
+   "Worked example (fictional clause): input is a draft contract that only promises \"a high-quality model\" -> processing replaces it clause by clause with the four levers (versioned documents, change notice with agreed lead time, logs not used for training and exportable, deletion proof with deadlines) -> the check asks on the spot \"which logs can I obtain to prove inputs and outputs after an incident\"; no answer means a clause gap -> next step: turn the gaps into a list for legal and the vendor to work through, rather than accepting a verbal promise."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null
+ },
+ {
   "id": "预览版不能用于生产",
   "zh": "预览版不能用于生产",
   "en": "Preview Models Are Toys",
@@ -1879,5 +2336,24 @@ var GUIDES = [
   "mythEn": "Switching models is just changing a name in the config.",
   "fact": "配置可能只改一行，但提示、工具参数、输出解析、质量、成本与数据条款都可能受影响。先用代表性输入比较并保留回滚方式，再决定是否完成迁移。",
   "factEn": "Configuration may change by one line while prompts, tools, parsers, quality, cost and data terms change materially. Compare representative inputs and retain rollback before declaring migration complete."
+ },
+ {
+  "id": "本地部署就等于合规",
+  "zh": "本地部署就等于合规",
+  "en": "Local Deployment Means Compliance",
+  "kind": "myth",
+  "station": 6,
+  "ord": 4,
+  "span": 5,
+  "lead": {
+   "zh": "数据留在自己机器上，解决的是流向问题，不是义务问题。",
+   "en": "Keeping data on your own machines addresses where data flows, not what obligations apply."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": "模型部署在本地，合规就自动解决了。",
+  "mythEn": "Deploy the model locally and compliance is automatically solved.",
+  "fact": "合规关心的是用途、服务对象、数据获取的授权链条、内容标识与文件留存；这些跟着业务走，不跟着算力位置走。本地部署还要另外处理权重与许可证条款、内部数据接入范围、以及谁在用什么模型。要核对的是「服务如何定性、哪些义务仍适用」，而不是「机器是不是自己的」。（虚构示例）输入是「把同一项对外摘要服务从云端换成本地模型」这个决定 → 处理是照旧核三样：服务面向谁、对外发布的生成内容要不要标识、接入的内部数据授权到哪 → 结果判断是只要有一项仍适用，就不能写「本地部署所以没有义务」→ 下一步是把定性结论交给法务确认，并把标识做法写进发布检查。具体义务以条文原文为准。",
+  "factEn": "Compliance follows the business, not the location of the compute: intended use, who the service faces, the authorisation chain for the data, content labeling and record keeping. Local deployment adds its own items - weight and license terms, which internal data gets connected, and who is allowed to use which model. What to verify is how the service is classified and which duties still apply, not whether the machine is yours. (Fictional example) Input is the decision to move the same externally facing summarisation service from cloud to a local model -> processing still checks three things: who the service faces, whether published generated content needs labeling, and how far the internal data authorisation reaches -> if any one of them still applies, the conclusion \"local deployment, therefore no duties\" is wrong -> the next step is to have legal confirm the classification and to write the labeling practice into the release check. Final obligations follow the text of the rule."
  }
 ];

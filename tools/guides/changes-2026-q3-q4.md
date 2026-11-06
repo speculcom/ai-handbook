@@ -1,10 +1,10 @@
 ---
 id: changes-2026-q3-q4
 topic: planning
-title: 2026 Q3–Q4 变更速记：10 条带日期的官方变更
-titleEn: Q3–Q4 2026 change digest: 10 dated official changes
-summary: 把「刚上手就过时」做成可回看的季度页：10 条官方发布、停运与迁移，每条带日期、影响与来源；已宣布未生效的单独标注。
-summaryEn: A quarterly page you can revisit instead of guessing what changed: 10 official launches, retirements and migrations, each with a date, impact and source, with announced-but-not-yet-effective items marked separately.
+title: 2026 Q3–Q4 变更与迁移记录
+titleEn: Q3–Q4 2026 changes and migration notes
+summary: 十条版本、入口与迁移记录，分别标注事件日、待核日期和计划停用；说明对原有选择的影响，不以链接可达冒充功能核验。
+summaryEn: Ten version, entry-point and migration records, distinguishing event dates, unconfirmed dates and planned shutdowns, with implications for earlier choices.
 sources:
   - label: Google · Gemini release notes
     url: https://gemini.google/release-notes
@@ -18,8 +18,8 @@ sources:
   - label: Microsoft Support · Deep Research in Microsoft Copilot（C 端 2026-08-18 退役）
     url: https://support.microsoft.com/en-us/microsoft-copilot/deep-research-in-microsoft-copilot
     kind: docs
-  - label: Cursor · 官方文档（自托管 2026-09-02）
-    url: https://cursor.com/docs
+  - label: Cursor · Cloud Agents（执行位置；首发日期未核）
+    url: https://cursor.com/docs/cloud-agent
     kind: docs
   - label: Microsoft · Playwright MCP Releases（v0.0.83 2026-09-28）
     url: https://github.com/microsoft/playwright-mcp/releases
@@ -27,63 +27,53 @@ sources:
   - label: ChromeDevTools · chrome-devtools-mcp Releases（v1.12.0 2026-10-22）
     url: https://github.com/ChromeDevTools/chrome-devtools-mcp/releases
     kind: changelog
-  - label: PyPI · exllamav3（1.6.5，2026-10-25）
+  - label: PyPI · exllamav3（1.6.5：2026-10-25；1.6.6：2026-10-31）
     url: https://pypi.org/project/exllamav3/
     kind: changelog
-  - label: Google · Opal（宣布 2026-11-17 从 Labs 毕业）
-    url: https://opal.google/
+  - label: Google · Opal FAQ（2026-11-17 停用，不自动迁移）
+    url: https://developers.google.com/opal/faq
     kind: changelog
-  - label: Anthropic · OneLogin SSO setup（2026-08-07）
+  - label: Anthropic · OneLogin SSO setup（页面日期 2026-08-06）
     url: https://support.claude.com/en/articles/13917899-onelogin-sso-setup
     kind: docs
-last_verified: 2026-11-03
+last_verified: 2026-11-04
 confidence: partial
 ---
 
 ## [怎么用这页|How to use this page]
 
-每季度回看一次，只收录**有官方日期**的发布、停运与迁移。
+区分三种日期：事件发生或计划生效日、来源页面日期、本站核对日。十条记录不是所有产品的完整更新清单。
 
-- 先看日期：超过一个季度就当历史，不要当现状。
-- 再看影响：写的是读者要改什么，不是厂商的宣传语。
-- 最后看来源：每条都能点回官方页。
-- 已宣布但未生效的单独列在下一节，不当成已发生。
+- 先核对自己使用的版本、地区与订阅是否受影响。
+- 链接能打开只证明访问成功，不证明全部功能、条款或迁移已核验。
+- 发布日期未核时明确标注，不把当前文档的能力说明反推成首发新闻。
+- 对计划停用事项，先保留需要的数据，再核对目标入口的重建要求。
 
-## [10 条变更|Ten changes]
+## [10 条变更|Ten records]
 
-| 日期 | 变更 | 对读者的影响 | 来源 |
+| 日期 / 状态 | 变化 | 对原有选择的影响 | 证据 |
 |---|---|---|---|
-| 2026-08-07 | Claude 发布 OneLogin SSO/SCIM 配置指南，覆盖 Team、Enterprise 与 Console 组织 | 用 OneLogin 的团队可按官方步骤配单点登录与自动开停账号 | Claude Help Center |
-| 2026-08-09 | ChatGPT Atlas 浏览器停运，能力并入 ChatGPT/Codex | 还把 Atlas 当独立浏览入口的流程要迁移 | ChatGPT release notes |
-| 2026-08-18 | 微软 C 端 Copilot 的 Deep Research 退役，改由 M365 Copilot 的 Researcher 承接 | 个人账号的深度研究入口消失；企业线走 M365 | Microsoft Support |
-| 2026-09-02 | Cursor 官方加入自托管，代码库与密钥可留在自有基础设施 | 数据不出网从「做不到」变成「可配置」 | Cursor Docs |
-| 2026-09-28 | Playwright MCP v0.0.83 发布（v0.0.82 于 09-18，v0.0.81 于 09-14） | 工具名与参数仍会变；固定脚本要锁版本 | Playwright MCP Releases |
-| 2026-10-13 | Gemini 4 Argon 面向 AI Pro/Ultra 推出 | 订阅档位决定可用模型；不要把预览档当通用能力 | Gemini release notes |
-| 2026-10-21 | Claude release notes 记录记忆与 Cowork 更新 | 跨会话记忆与关机续跑进入主产品叙事 | Claude Help Center |
-| 2026-10-22 | chrome-devtools-mcp v1.12.0 发布，新增导航历史保留上限等开关 | 编码 Agent 的浏览器调试面继续扩张；配置文件可热加载 | chrome-devtools-mcp Releases |
-| 2026-10-25 | ExLlamaV3 1.6.5 发布（PyPI） | 本地推理版本号更新；量化与并行推理能力随版本走 | PyPI |
-| 2026-11-17 | Google 宣布 Opal 从 Labs 毕业，工作流迁移到 Gemini skills | 已宣布、未生效；11-17 前仍按 Labs 用法 | Opal |
+| 2026-08-06 | OneLogin 配置指南的页面日期；Team、Enterprise 与 Console 的可用能力有区别 | 配置前核对账号角色；Team 不直接套用 Enterprise 的 SCIM 步骤 | [页面日期已核](https://support.claude.com/en/articles/13917899-onelogin-sso-setup) |
+| 2026-08-09 | 官方给出的 Atlas 停用日期，浏览器智能体能力转向 ChatGPT / Codex | 旧浏览器资料不自动全部转移；按公告保存需保留的数据 | [官方时间表](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) |
+| 2026-08-18 | Copilot 消费应用 Deep Research 退役 | 符合条件的 Microsoft 365 Premium 订阅可用 Researcher；旧报告按订阅查找并保存 | [官方时间表](https://support.microsoft.com/en-us/microsoft-copilot/deep-research-in-microsoft-copilot) |
+| 2026-09-28 | Playwright MCP v0.0.83 发布 | 固定所用版本，并按对应版本核对工具名与参数 | [版本日期已核](https://github.com/microsoft/playwright-mcp/releases) |
+| 2026-10-13 | Gemini 4 Argon 开始面向 Google AI Pro / Ultra 推出 | 推出不等于所有账号立即可用；核对账号与地区 | [发布记录已核](https://gemini.google/release-notes/) |
+| 2026-10-21 | Claude Duet 对 Pro / Max 开放研究预览 | 预览范围需单独核对；这一天不是 Cowork 远程续跑或记忆的首发日 | [发布记录已核](https://support.claude.com/en/articles/12138966-release-notes) |
+| 2026-10-22 | chrome-devtools-mcp v1.12.0 发布 | 更新后按对应 release notes 复查配置；版本号不等于性能提升证据 | [版本日期已核](https://github.com/ChromeDevTools/chrome-devtools-mcp/releases) |
+| 2026-10-25 / 10-31 | ExLlamaV3 1.6.5 / 1.6.6 的 PyPI 发布记录 | 1.6.5 已不是所见最新记录；升级前核对依赖与 checkpoint 兼容性 | [版本日期已核](https://pypi.org/project/exllamav3/) |
+| 2026-11-17（计划） | Opal 实验服务与 Gems made by Labs 计划停用 | 现有工作流不自动迁移；保留提示与 Drive 文件，并按需求重新搭建 | [截至 11-04 未到期](https://developers.google.com/opal/faq) |
+| 首发日期待核 | Cursor 当前文档区分云端 VM 与自托管机器执行 | 自托管执行不等于模型请求、日志或全部数据不出网；另查网络与条款 | [11-04 核对当前说明](https://cursor.com/docs/cloud-agent) |
 
 ## [已宣布、未生效|Announced, not yet effective]
 
-- **Opal 2026-11-17 毕业**：官方公告写明日期，但截至 2026-11-03 尚未生效。到期后要复核入口与迁移路径。
-- 其余条目均为已发生事件，按日期从旧到新排列。
+**Opal：2026-11-17 计划停用。** 截至 2026-11-04 还未到期。官方 FAQ 明确现有工作流不会自动迁移到 skills；Drive 的 Opal 文件保留，但停用后不能继续交互运行。根据任务选择 Gemini skills 或 AI Studio，并重新验证所需输入、工具与输出，不把两者当成原工作流的等价复制。
 
-## [为什么只有 10 条|Why only ten]
+Cursor 的首发日期仍待核；这与其当前文档确认的执行方式是两项不同事实。
 
-这页不是 changelog 镜像。收录标准：
+## [为什么只有 10 条|Why ten records]
 
-1. 有官方发布日期，不是传闻或社区转述。
-2. 会改变读者的选择、迁移或权限配置，不是纯界面改版。
-3. 能在一条来源里直接核到，不靠二手总结。
+收录会影响任务入口、迁移、权限或版本选择的事项，给出官方来源。对已经确认的日期与尚未确认的日期分开表达；小版本可合并成一条历史记录，不把记录数量当成覆盖完整度。
 
-版本号连续的小版本（如 Playwright 的 0.0.81/82）合并成一条，不按发布次数灌水。
+## [核验事实|Verification scope]
 
-## [核验事实|Dated facts]
-
-1. Atlas 浏览器停运日期为 2026-08-09，能力并入 ChatGPT/Codex（ChatGPT release notes，2026-11-03 复核）。
-2. 微软 C 端 Copilot Deep Research 退役日期为 2026-08-18（Microsoft Support，2026-11-03 复核）。
-3. Cursor 自托管上线日期为 2026-09-02（Cursor Docs，2026-11-03 复核）。
-4. chrome-devtools-mcp v1.12.0 发布日为 2026-10-22（GitHub Releases，2026-11-03 直抓）。
-5. ExLlamaV3 最新版为 1.6.5，发布日 2026-10-25（PyPI，2026-11-03 直抓）。
-6. Opal 毕业日期为官方宣布的 2026-11-17，尚未生效（Opal，2026-11-03 复核）。
+2026-11-04 核对了表中所列官方页面的对应事件、页面日期或版本记录。修正了 OneLogin 的页面日期、Claude 10-21 的事件归属、ExLlamaV3 后续版本和 Opal 不自动迁移的说明；Cursor 首发日期没有确认。此页不包含实际安装、登录、运行或迁移测试，也不表示对应产品的全部档案已重核。

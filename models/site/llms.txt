@@ -31,7 +31,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   Poolside　当前代 Laguna 2.1 / XS.2（2026-08）　2 代　许可 openmdw-1.1　本站量化对比：laguna
 - [Llama](https://models.specul.com/families/llama/): 全球生态最大的开放权重家族：微调、量化、工具链覆盖最全，但许可是带归属条款（Built with Llama）与规模条款（7 亿 MAU）的社区许可，商用前读全文。
   Meta　当前代 Llama 4（2025-04）　3 代　许可 other　本站未收录其量化对比
-- [MiniCPM](https://models.specul.com/families/minicpm/): 国产端侧小杯家族：尺寸小、官方连训练数据一起开源，是「自己练一遍」路线最友好的中文家族。面壁 ChatGLM 之外的另一条国产备案线（MiniCPM 备案编号 Beijing-MiniCPM-202503180058）。
+- [MiniCPM](https://models.specul.com/families/minicpm/): 国产端侧小杯家族：尺寸小、官方连训练数据一起开源，按「自己练一遍」路线能拿到完整起点的中文家族（训练数据也一起放出）。面壁 ChatGLM 之外的另一条国产备案线（MiniCPM 备案编号 Beijing-MiniCPM-202503180058）。
   面壁智能 · OpenBMB　当前代 MiniCPM5（2026-08）　3 代　许可 apache-2.0　本站量化对比：minicpm5
 - [Mistral](https://models.specul.com/families/mistral/): 欧洲唯一全尺寸开放权重厂商。特点：开源杯（Small）与旗舰杯（Medium）许可不同——Small 4 是 Apache-2.0，Medium 3.5 是改版 MIT；下载前按档位读许可。
   Mistral AI（法国）　当前代 Small 4 / Medium 3.5（2026-03）　4 代　许可 apache-2.0, other　本站未收录其量化对比
@@ -73,14 +73,26 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   8 节 · 9 条官方出处 · 核验 2026-10-21
 - [蒸馏：小模型怎么从大模型身上学](https://models.specul.com/guides/distillation.html): logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
   7 节 · 8 条官方出处 · 核验 2026-10-20
-- [GPU 事实与成本数学：跑模型的硬件账](https://models.specul.com/guides/gpu-cost-math.html): 推理卡的关键事实（显存容量与带宽，只录官方规格页口径）；decode 为什么是带宽瓶颈；吞吐与成本怎么按构成方法估——不存任何单价、不做购卡推荐。
-  8 节 · 6 条官方出处 · 核验 2026-10-21
+- [GPU 事实与成本数学：跑模型的硬件账](https://models.specul.com/guides/gpu-cost-math.html): 从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。
+  8 节 · 8 条官方出处 · 核验 2026-10-21
+- [把日志留在本地到底意味着什么](https://models.specul.com/guides/local-log-retention.html): 把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。
+  10 节 · 5 条官方出处 · 核验 2026-11-06
+- [多模态模型的显存账怎么算](https://models.specul.com/guides/multimodal-memory.html): 把多模态的占用分成编码器、投影件与解码器缓存三笔账，写清每笔的来源、单位（GiB）与算法边界；KV 算式只管同层标准全注意力解码器，不能外推到编码器与 MLA、混合、滑动窗口。
+  9 节 · 5 条官方出处 · 核验 2026-11-06
+- [本地跑起来之前先确认的七件事](https://models.specul.com/guides/pre-flight-checks.html): 从开机到第一次出字的七个核对点：可用容量、驻留体积、文件与运行器、缓存口径、许可、结果验收、日志落点。每件写清查什么、拿什么当证据、失败后下一步。
+  9 节 · 4 条官方出处 · 核验 2026-11-06
 - [预训练：模型怎么做到「什么都知道一点」](https://models.specul.com/guides/pretraining.html): 预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。
   8 节 · 11 条官方出处 · 核验 2026-10-20
+- [量化档位与精度损失：能说什么、不能说什么](https://models.specul.com/guides/quant-tier-precision.html): 把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。
+  9 节 · 5 条官方出处 · 核验 2026-11-06
+- [怎么按官方口径读一个模型的评测说明](https://models.specul.com/guides/read-official-evals.html): 读一份官方评测说明要补齐的四件事：任务集范围、指标口径、对照与版本、声明出处。哪些话有依据、哪些话只能留空，以及自报数字与你的任务之间隔着什么。
+  9 节 · 4 条官方出处 · 核验 2026-11-06
 - [跑起来深水：KV 缓存、批处理与推理引擎](https://models.specul.com/guides/serving-deep-dive.html): 推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。
   7 节 · 8 条官方出处 · 核验 2026-10-21
 - [SFT：让续写机器学会「好好回答」](https://models.specul.com/guides/sft.html): 监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。
   7 节 · 7 条官方出处 · 核验 2026-10-20
+- [任务模型：嵌入、重排、OCR 与语音识别](https://models.specul.com/guides/task-models.html): 从输入输出、运行库和验收方法区分四类任务；逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。
+  8 节 · 6 条官方出处 · 核验 2026-11-04
 - [开源训练栈：多卡训练的工具链](https://models.specul.com/guides/training-stack.html): 一张卡装不下大模型之后，数据并行、ZeRO、张量并行、流水线并行怎么组合；DeepSpeed、Megatron-LM、torchtitan、nanotron、TRL 各站在哪一层。从业者视角的选型地图；词条版在学 AI 站，互链不重复。
   6 节 · 8 条官方出处 · 核验 2026-10-21
 
@@ -88,15 +100,15 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 
 - [DeepSeek V4](https://models.specul.com/series/deepseek-v4/): MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cpp 生态参与者）维护量化版。
   DeepSeek　发布 2026-09-10　1 个模型仓 / 5 个量化档 / 13 个 GGUF 文件　许可 mit
-- [Gemma 4](https://models.specul.com/series/gemma-4/): Google 开放权重最新一代，三种规格各自都有量化覆盖。
+- [Gemma 4](https://models.specul.com/series/gemma-4/): Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。
   Google　发布 2026-06　3 个模型仓 / 26 个量化档 / 340 个 GGUF 文件　许可 apache-2.0, apache-2.0, apache-2.0
-- [GLM 5](https://models.specul.com/series/glm-5/): 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。
+- [GLM 5](https://models.specul.com/series/glm-5/): 智谱开放权重系列；不同规格的许可分别标注，部署前核对对应版本与容量需求。
   智谱 AI　发布 2026-08-25　2 个模型仓 / 13 个量化档 / 79 个 GGUF 文件　许可 other, mit
-- [gpt-oss](https://models.specul.com/series/gpt-oss/): OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。
+- [gpt-oss](https://models.specul.com/series/gpt-oss/): OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。
   OpenAI　发布 2025-08-04　1 个模型仓 / 6 个量化档 / 57 个 GGUF 文件　许可 apache-2.0
 - [KAT Coder V2.5](https://models.specul.com/series/kat-coder/): 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。
   Kwaipilot　发布 2026-07-23　1 个模型仓 / 6 个量化档 / 57 个 GGUF 文件　许可 apache-2.0
-- [Kimi K3](https://models.specul.com/series/kimi-k3/): 月之暗面当前最新一代，41 家量化仓但整体热度中等。
+- [Kimi K3](https://models.specul.com/series/kimi-k3/): 月之暗面开放权重系列，快照收录 41 家量化仓；数量不代表模型质量或运行兼容性。
   月之暗面　发布 2026-06-13　1 个模型仓 / 10 个量化档 / 31 个 GGUF 文件　许可 other
 - [Laguna 2.1](https://models.specul.com/series/laguna/): 代码方向的开放权重系列，许可为 OpenMDW-1.1（使用前须读原文）。
   Poolside　发布 2026-06-20　1 个模型仓 / 6 个量化档 / 50 个 GGUF 文件　许可 openmdw-1.1
@@ -104,9 +116,9 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   面壁智能 · OpenBMB　发布 2026-08-27　1 个模型仓 / 10 个量化档 / 139 个 GGUF 文件　许可 apache-2.0
 - [Muse Glimmer](https://models.specul.com/series/muse-glimmer/): Meta 的开放权重系列，apache-2.0，量化覆盖横跨多家主力量化者。
   Meta　发布 2026-08-09　1 个模型仓 / 10 个量化档 / 116 个 GGUF 文件　许可 apache-2.0
-- [Ornith 1.5](https://models.specul.com/series/ornith-1-5/): MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。
+- [Ornith 1.5](https://models.specul.com/series/ornith-1-5/): 模型卡标注 MIT 许可，两个规格都有 GGUF 量化覆盖；具体文件与版本见下表。
   Ornith AI　发布 2026-08-18　2 个模型仓 / 20 个量化档 / 208 个 GGUF 文件　许可 mit, mit
-- [千问 3.8](https://models.specul.com/series/qwen3-8/): 阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。
+- [千问 3.8](https://models.specul.com/series/qwen3-8/): 阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；收录不代表性能排名。
   阿里 · 通义千问　发布 2026-08-05　2 个模型仓 / 17 个量化档 / 172 个 GGUF 文件　许可 apache-2.0, other
 
 ## 每个系列页包含六个区块
@@ -121,7 +133,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 ## 数据可信度分级
 
 - ✅ **实测字段** —— 直接从 Hugging Face 公开 API 读取：文件体积、上下文长度、架构、许可、下载量
-- ✅ **推导** —— 由实测字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存区间
+- ✅ **推导** —— 由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存区间
 - ❌ **我们不说的** —— 哪个量化质量更高、哪个更快、哪个模型更强。这些需要实测，本站不跑 benchmark，所以不装作知道
 
 ## 数据来源

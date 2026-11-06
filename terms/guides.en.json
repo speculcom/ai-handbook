@@ -588,15 +588,169 @@
     ]
   },
   "2026 下半年变化线": {
-    "lead": "Only official release, retirement and migration dates, with sources and a verification date — no news, no predictions.",
+    "lead": "Official update snapshots: distinguish dates, rollout scope and planned shutdowns, with source references.",
     "points": [
       "Research: Google shipped Deep Research and Deep Research Max on 2026-04-21, built on Gemini 3.1 Pro with MCP and custom sources.",
       "Image: Nano Banana 2 (Gemini 3.1 Flash Image) launched on 2026-02-26 with generation and editing.",
       "Retirements: the ChatGPT Atlas browser was retired on 2026-08-09 with capabilities moved into ChatGPT/Codex; Microsoft retired consumer Copilot Deep Research on 2026-08-18.",
-      "Model tiers: Gemini 4 Argon reached AI Pro/Ultra on 2026-10-13; Claude memory and Cowork entered the 2026-10-21 release notes.",
-      "Tools: Google Opal graduates Labs on 2026-11-17 and flows migrate to Gemini skills; Vercel AI SDK 7 shipped in the 2026 changelog.",
+      "Model tiers: Gemini 4 Argon rollout for AI Pro/Ultra began on 2026-10-13; Claude Duet opened a Pro/Max research preview on 2026-10-21.",
+      "Tools: Opal is scheduled to shut down on 2026-11-17 without automatic workflow migration; preserve prompts and files. Vercel AI SDK 7 appears in its 2026 changelog.",
       "Local: ExLlamaV3 1.6.5 was released on 2026-10-25 (PyPI); the models snapshot is dated 2026-10-30.",
       "How to read it: check the date first, then the tier; for retirements, follow where the capability moved."
+    ]
+  },
+  "怎么写一份能被复核的任务指令": {
+    "lead": "Turn \"help me with this\" into an instruction others can check: spell out the goal, the inputs, the boundaries, and what counts as passing.",
+    "points": [
+      "Fill in four fields: goal (what must be delivered), inputs (which materials it gets), boundaries (what it must not do), acceptance (what counts as passing). Missing any one leaves the reviewer guessing at your intent.",
+      "Write acceptance as a decidable sentence: not \"good quality\", but \"every conclusion points back to a specific location in the source material\".",
+      "Boundaries need prohibitions and exception handling: facts not found in the material get marked \"not found\", not filled in from common sense.",
+      "Make the output carry its own evidence: material IDs used, tools called, parts left undone - the reviewer checks against exactly these.",
+      "Worked example (fictional scenario): input is 12 pages of support tickets -> processing produces \"issue category + paragraph reference\" from a template -> the check is to sample 5 items and confirm the category matches the cited paragraph -> if they do not match, the next step is to tighten the boundary wording in the category definitions and rerun, not to swap models.",
+      "Version the brief itself: log one line on \"why this changed\", or in six months nobody knows which acceptance rule still applies."
+    ]
+  },
+  "怎么搭一条最小评测流程": {
+    "lead": "You do not need dozens of benchmarks. A usable evaluation pipeline needs five things: samples, criteria, judgment method, records, reruns.",
+    "points": [
+      "Collect 20-50 samples from your own work and note where each came from; this tracks your usage better than copying a public benchmark. Hold some samples back from prompt tuning and use them only to compare before and after.",
+      "Phrase criteria as questions a person can answer directly: not \"is this answer good\", but \"does it cite a deadline that the material never states\".",
+      "Split judgment into two tiers: run scripts over what machines can decide (fields present, citation IDs that really exist); route the rest to humans and record how much needed a human.",
+      "Keep records you can revisit: model version, prompt version, sample-set version, date, per-item outcome and reason. Skip one field and the next round is not comparable.",
+      "Rerun the same sample set whenever any single piece changes; run one input two or three times to see the spread - the variance is part of the record.",
+      "Worked example (fictional data): input is 30 contract-clause Q&A samples -> processing checks citation existence by script and conclusion correctness by hand -> result this round: 24/30 passed (a made-up count, not a measured result) -> next step: first separate missing citations from wrong judgments; fix retrieval or prompt for the former, fix the acceptance rule for the latter, not both at once.",
+      "Samples age: when user phrasing or the policy text changes, add new samples and relabel part of the old set, otherwise the pipeline keeps measuring the past."
+    ]
+  },
+  "怎么处理一次误发事故": {
+    "lead": "Treat a misfire (a wrong answer in a customer email, wrong code merged to main) as an incident: stop the bleeding, scope it, then review - do not start with blame.",
+    "points": [
+      "Step one is containment, not analysis: retract or correct what went out, close the triggering entry point, list what has spread. Analysis comes second.",
+      "Scope must rest on evidence: time window, list of affected users or files, whether anything was published externally. If you cannot produce a list, write \"scope unknown\" instead of estimating a number.",
+      "Preserve evidence: original input, model and prompt versions, full output, the call logs of that moment, filed under an incident ID. Every later judgement depends on these.",
+      "Attribute by layer: model output wrong, retrieved material wrong, the instruction itself ambiguous, or no review step in the process - the same symptom has four different fixes, so do not assume it is the model.",
+      "The review must land on \"which control changes\": add a review point, tighten permissions, write the scenario into the boundary notes or the sample set - each with an owner and a verification method, not \"be more careful\".",
+      "Worked example (fictional scenario): input is an automated reply that sent a customer the wrong refund deadline -> processing closes the automated-reply channel first, then counts the send log for the same window -> the check compares the output against current refund terms and finds the retrieval hit an outdated policy document -> next step: put policy document versions into the release check, add a deadline-field validation at the exit, and record how you will verify it."
+    ]
+  },
+  "怎么给 AI 内容加来源标识": {
+    "lead": "Provenance has three layers: the visible notice, the credentials inside the file, and the generator-side watermark. Here is where each is added and where each gets lost.",
+    "points": [
+      "Fix the position of the visible label first: text and images state it in the body or on the image, audio and video say it at the start or on screen. A single line in a page corner can miss both readers and reviewers.",
+      "Implicit labels live in file metadata: content credentials such as C2PA record who generated it, with which tool, and which steps changed it - but transcoding, screenshots and re-export can strip them entirely.",
+      "Separate generator watermarks from your own labeling: model-side marks (for example SynthID) are injected by the generating party, do not cover your later edits, and cannot replace the notice you owe.",
+      "Check obligations against the text of the rule: China's labeling Measures set separate requirements for explicit and implicit labels; scope and exceptions follow the article and how your service is classified.",
+      "Build one checklist per content type: what label an image, video, audio or text needs, which stage adds it, which step verifies it - a missing cell means a whole batch slips through.",
+      "Worked example (fictional flow): input is an AI-generated event poster -> processing writes content credentials at generation and overlays a visible mark at publish time -> the check downloads the finished file to confirm the credential is still in the metadata and the mark is visible -> if the credential disappears after compression, next step is to move validation to the end of the publishing pipeline and require channels to keep the original file, rather than adding a verbal note."
+    ]
+  },
+  "怎么审一次第三方插件": {
+    "lead": "Before connecting a third-party MCP server or plugin, audit four things: what permissions it asks for, where its code comes from, where data goes, and who owns an incident.",
+    "points": [
+      "List the permissions: which directories it reads, whether it can make network calls, whether it can execute commands. Permissions beyond the stated purpose get cut, or the plugin does not get connected.",
+      "Look at code provenance and maintenance: repository ownership, recent commits, whether security issues in the tracker get responses - these say more than a star count.",
+      "Ask three questions about data flow: do logs store prompt content, is anything sent back to the vendor, is it used for training. If the answers are unclear, treat it as \"data leaves\".",
+      "Run it in isolation first: separate account, minimal permissions, test data only, with tool-call logs kept somewhere you can actually query.",
+      "Test for injection: put a line saying \"ignore previous instructions\" into a tool description or a tool response and see whether it executes - indirect prompt injection usually arrives through tool output, not user input.",
+      "Define the exit plan: which places to change when replacing it, how to clear historical data, who approves. A connection without an exit plan writes the dependency into your architecture.",
+      "Worked example (fictional flow): input is a filesystem server claiming to \"only read the project README\" -> processing gives it one directory in a sandbox and disables network access -> the check looks at whether it touched only that directory and whether logs stayed local -> if it requests a path outside the directory, next step is to revoke access and file it against an OWASP LLM risk category, not merely lower permissions and keep using it."
+    ]
+  },
+  "怎么设计人工复核环节": {
+    "lead": "Human review is not \"add a person who clicks confirm\"; it is a step where someone can see the error, can block it, and carries a named responsibility.",
+    "points": [
+      "Set the trigger conditions first: money, external publication, irreversible actions, or cases where the model flags its own uncertainty go to review; everything else should not consume human attention.",
+      "Show reviewers comparison material, not just conclusions: source text beside the generated text, citation IDs, and the parts the model says it is unsure about. Hand over only a conclusion and review degrades into a rubber stamp.",
+      "Define the available actions: edit, reject, escalate. If the workflow offers only an \"approve\" button, the rejection rate stays at zero and the metric carries no information.",
+      "Guard against automation bias: long streaks of quick approvals mean people stopped looking. Sampling review quality (disagreement between reviewers, items later corrected) tells you more than sampling model output alone.",
+      "Track three numbers per task type: review time, rejection rate, distribution of rejection reasons. Use them to work back to whether the prompt is vague or the acceptance standard is unclear.",
+      "Worked example (fictional scenario): input is a model-written \"summary of breach clauses in a contract\" -> processing has the reviewer check three key statements against the source and mark \"consistent / inconsistent / unsure\", citing the paragraph -> the rule is: inconsistent gets rejected with the basis paragraph noted, unsure escalates to legal -> if two categories in a row come back inconsistent, next step is to default that task type back to human drafting and then fix the prompt and retrieval, rather than asking reviewers to check harder."
+    ]
+  },
+  "怎么给团队做 AI 风险清单": {
+    "lead": "A risk list is not \"safety\" written as a slogan; per use case it states what could go wrong, what already blocks it, and who closes the rest.",
+    "points": [
+      "Break it down by use case, not by model: the same model drafting weekly reports and issuing automatic refunds carries different risks, so one row cannot cover both.",
+      "Fill five cells per entry: scenario, trigger condition, consequence, controls in place, remaining gap. A list with only the first two cells drives no action.",
+      "Borrow an existing taxonomy as the skeleton, then add yours: NIST AI RMF's Govern / Map / Measure / Manage and OWASP's LLM risk categories beat starting from a blank page.",
+      "Keep regulatory risks in their own column with the article and effective conditions noted (the EU AI Act tiers by use; China's Measures turn on service type); do not mix them with experience issues in one table.",
+      "Set update triggers and owners: connecting a new model, a new data source, or a process change should force another pass. Entries nobody owns count as not written.",
+      "Worked example (fictional scenario): input is the use case \"AI drafts customer replies\" -> processing fills the five cells with trigger conditions \"refund deadlines, compensation, legal wording\" -> the check reviews existing controls and finds no deadline-field validation at the exit, so the gap stands -> next step: turn the gap into a to-do with an owner and a verification method (for example a weekly sample audit of replies, sample size set by your own volume rather than copied from someone else's threshold)."
+    ]
+  },
+  "怎么读模型卡与系统卡": {
+    "lead": "Model cards say what a model is and how to use it; system cards and deployment safety pages say what was tested before release and what still worries the publisher. Read them separately, and side by side.",
+    "points": [
+      "Tell the two apart by audience: model cards face users (intended use, limitations, evaluation scope, training-data notes); system cards and deployment safety pages face risk readers (which risks were measured, with what result, under what conditions the rollout continues).",
+      "Check what was measured and what was not: a document with only capability benchmarks and no failure-mode discussion cannot support a high-risk use; one that only discusses risk without checkable numbers is no better.",
+      "Record version and date together: results for the same model name can differ across card releases, so put the version and publication date in your notes when you cite it.",
+      "Read the \"not suitable for\" section closely: failure cases and refusal behaviour the publisher writes down are more usable than marketing lines; a card without that section deserves discount.",
+      "Map gaps onto your own use: if your scenario is outside its evaluation coverage, that gap is yours to test - extrapolation does not fill it.",
+      "Worked example (fictional need): input is a team wanting a model to draft medical Q&A answers -> processing reads the model card and system card side by side and lists \"is there any medical evaluation\" and \"which section states known refusals and hallucination behaviour\" -> the judgement is that if neither document covers the scenario, the conclusion reads \"cards insufficient to support this use\" -> next step: add the scenario to your own evaluation samples, run a small trial with records, then decide whether to integrate."
+    ]
+  },
+  "怎么估算一次上线的安全成本": {
+    "lead": "Split \"safety cost\" into labour, compute, review and rework, and estimate each with numbers you can look up - or with assumptions labelled as assumptions.",
+    "points": [
+      "List spending items, not adjectives: sample preparation, review rounds, parallel running during a staged rollout, rework windows, rollback drills - each with who does it and how often.",
+      "Take the base from your own history: handling time for comparable tasks, rejection rate, ticket volume. If the data is missing, write \"assumed value\" and keep the assumption plus its reason in the sheet instead of a bare number.",
+      "Separate one-off from recurring: reading cards and designing permissions are one-off; sampling, monitoring and log retention recur monthly.",
+      "Leave room for uncertainty: state which items have wide ranges and why (new scenario, no history, external approval dependency) instead of applying one blanket buffer factor.",
+      "Make the \"cost of not doing it\" traceable: incident handling time, contractual penalty terms, regulatory remediation requirements - each with a source. Leave the cell blank rather than inventing a figure.",
+      "Worked example (fictional data): input is a launch of AI-generated support summaries at \"300 items a day\" (fictional premise) -> processing lists the four items, with sampling at 10% (30 items a day, assumed 2 minutes each) -> the check substitutes the assumptions to get roughly one hour of human work per day and compares it against capacity to decide whether to narrow scope -> if capacity is exceeded, next step is to state plainly either the risk of lowering the sampling rate or the reduced first-batch scope, rather than writing an assumption into the plan as a commitment."
+    ]
+  },
+  "怎么把安全要求写进采购条款": {
+    "lead": "Procurement clauses turn what you care about into what the supplier must deliver: documents, notices, logs and exit - four levers.",
+    "points": [
+      "Make document delivery concrete: require model cards or system cards and usage documentation, with version numbers and publication dates. \"See our website\" is not a deliverable.",
+      "State change-notice conditions and lead time: model replacement, data-retention changes, subprocessor changes each get a point in the process and a notification method.",
+      "Write data flow into the clause: log retention period, whether data trains models, whether processing can stay in a chosen region, and the deadline and format for export and deletion.",
+      "Define incident obligations by what evidence you can obtain: notification duties, which logs you can export as evidence, how responsibility and remediation are assigned.",
+      "Give exit real teeth: export formats for data and configuration, proof of deletion after termination, disposition of historical records. A connection without exit terms writes the dependency into your architecture.",
+      "Hand regulatory wording to legal: how the AI Act's staged duties and China's Measures and labeling rules land on your business is their call; the clause only states who bears which duty and who produces the proof.",
+      "Worked example (fictional clause): input is a draft contract that only promises \"a high-quality model\" -> processing replaces it clause by clause with the four levers (versioned documents, change notice with agreed lead time, logs not used for training and exportable, deletion proof with deadlines) -> the check asks on the spot \"which logs can I obtain to prove inputs and outputs after an incident\"; no answer means a clause gap -> next step: turn the gaps into a list for legal and the vendor to work through, rather than accepting a verbal promise."
+    ]
+  },
+  "评测分数高就等于可靠": {
+    "lead": "A score answers \"how many points on that set\"; reliability asks \"what happens when I use it repeatedly\".",
+    "myth": "A high evaluation score means the system is reliable in use.",
+    "fact": "Reliability is about spread and distribution: whether the same input gives consistent results over repeats, how unseen inputs behave, what failures look like at the boundaries. A score is one reading of one version on one task set under one setting - a different question. Judge reliability by rerunning your own samples and recording the variance. (Fictional example) Input is one query about a refund deadline -> processing runs it three times with the same prompt and the same model version -> the check finds one of the three stating the deadline wrongly, so variance on this path is not zero -> the next step is to add that phrasing to your own sample set and recheck after a fix, not to cite the high score."
+  },
+  "加了护栏就安全了": {
+    "lead": "Guardrails change the default path, not every path.",
+    "myth": "Turn on the vendor's guardrails and the system is safe.",
+    "fact": "Guardrails mainly cover common paths anticipated during training and deployment. Content routed around them - reworded inducements, instructions hidden in tool output or web page text - plus the guardrails' own boundaries still depend on your permission design, exit validation and incident process. Verifying that guardrails actually work means a reproducible check (fictional example): input an untrusted text carrying an instruction -> processing runs it through the real chain -> the check looks at whether that instruction executed or environment variables were read -> if it executed, the next step is to tighten tool permissions and add exit filtering, not to treat \"guardrails enabled\" as the conclusion."
+  },
+  "通过一次评测就可以上线": {
+    "lead": "Shipping is not passing one exam; it is a state that needs continuous checking.",
+    "myth": "Run the evaluation once before launch and you never have to look again.",
+    "fact": "That single pass covers only the version combination at the time: model version, prompt, retrieved material, user phrasing and data distribution - a change in any of them can void the result. After release keep sampling, monitoring and a rollback path, and rerun the same sample set on changes. (Fictional example) Input is a change that swaps only the retrieval source, with model and prompt untouched -> processing reruns the previous sample set -> the check looks at the single criterion \"does the citation hit the current document\" -> if that pass rate drops, the next step is to redo the go-live decision and add a retrieval-source change check, not to keep relying on last round's \"passed\"."
+  },
+  "本地部署就等于合规": {
+    "lead": "Keeping data on your own machines addresses where data flows, not what obligations apply.",
+    "myth": "Deploy the model locally and compliance is automatically solved.",
+    "fact": "Compliance follows the business, not the location of the compute: intended use, who the service faces, the authorisation chain for the data, content labeling and record keeping. Local deployment adds its own items - weight and license terms, which internal data gets connected, and who is allowed to use which model. What to verify is how the service is classified and which duties still apply, not whether the machine is yours. (Fictional example) Input is the decision to move the same externally facing summarisation service from cloud to a local model -> processing still checks three things: who the service faces, whether published generated content needs labeling, and how far the internal data authorisation reaches -> if any one of them still applies, the conclusion \"local deployment, therefore no duties\" is wrong -> the next step is to have legal confirm the classification and to write the labeling practice into the release check. Final obligations follow the text of the rule."
+  },
+  "论文卡-Constitutional AI": {
+    "lead": "A training method that treats a human-written list of principles as the source of supervision. This card states what it set out to solve, which conclusions the abstract supports, and what it does not claim.",
+    "points": [
+      "Research question (abstract's opening): \"we would like to enlist their help to supervise other AIs\" - the target is \"training a harmless AI assistant through self-improvement\", achieved \"without any human labels identifying harmful outputs\"; \"The only human oversight is provided through a list of rules or principles\", which is why the authors name it Constitutional AI.",
+      "Where the method sits (two phases as the abstract describes them): the supervised phase is to \"generate self-critiques and revisions\" and then \"finetune the original model on revised responses\"; the RL phase compares two samples with a model, trains a preference model from AI preferences and uses it as the reward signal - the abstract calls this \"RL from AI Feedback\" (RLAIF). Experimental values and settings appear nowhere in the abstract.",
+      "What the abstract's own conclusion says: the result is \"a harmless but non-evasive AI assistant that engages with harmful queries by explaining its objections to them\", and both phases can use chain-of-thought style reasoning to improve human-judged performance and transparency of AI decision making. The closing phrase \"with far fewer human labels\" is about the volume of labels and controllability, not a safety guarantee. The abstract carries no separate limitations section; limitations live in the body, and this check covered only the arXiv abstract page.",
+      "What it does not claim: that the method removes harmful outputs, and that \"using Constitutional AI\" equals safety. The principle list is written by people - what it includes and what it omits is still a human judgement, unverified at the abstract level.",
+      "How to read it (fictional need): read it as \"supervision source replaced by rule text\", not as a certificate. Input is a scenario with requests that must be refused and explained -> processing asks per rule whether it can be written as an executable principle or needs runtime interception -> the judgement is that anything only stoppable at runtime falls outside this method's coverage -> next step: put those items into your own review and incident workflow instead of citing \"we use Constitutional AI\" as evidence."
+    ]
+  },
+  "论文卡-Distilling the Knowledge": {
+    "lead": "Compressing the judgement of several models into one easier-to-deploy model - an early short paper on distillation. This card states the question, where the conclusions stop, and what it does not claim.",
+    "points": [
+      "Research question (abstract): averaging many models trained on the same data helps, but predicting with a whole ensemble \"is cumbersome and may be too computationally expensive to allow deployment to a large number of users\"; building on Caruana and collaborators, the authors \"compress the knowledge in an ensemble into a single model which is much easier to deploy\".",
+      "Where the evidence sits: the abstract gives only qualitative claims - \"we achieve some surprising results on MNIST\" and \"we can significantly improve the acoustic model of a heavily used commercial system by distilling the knowledge in an ensemble of models into a single model\". Values, model sizes and settings are in the body's experiments; nothing quotable numerically appears in the abstract.",
+      "What else it introduces: a new ensemble form - one or more full models plus many specialist models that learn to separate fine-grained classes the full models confuse; the abstract sets this apart from a mixture of experts: \"these specialist models can be trained rapidly and in parallel\".",
+      "Limits the authors state: the abstract treats deployment cost as the problem being solved rather than a leftover limitation, and lists no limitations; this check covered the arXiv abstract page, so the body's small experimental scope and failure cases are not restated here.",
+      "What it does not claim: that a distilled small model matches the teacher on every task, and that distillation equals quantization or pruning - they act on different layers. Using this paper as proof that \"small models are always enough\" goes beyond its evidence.",
+      "How to read it (fictional need): input is \"replace a key-sentence detector with a smaller model\" -> processing follows its recipe, training the small model on the existing model's output labels -> the judgement compares misses and false alarms on your own held-out set instead of quoting the paper's MNIST result -> if misses rise noticeably in your scenario, next step is to fall back to \"keep the teacher, optimise inference only\" and record the basis and date of that decision."
     ]
   }
 }

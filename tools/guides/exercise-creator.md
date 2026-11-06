@@ -7,10 +7,10 @@ summary: 选一份官方产品页，产出短文、图像提示词与 30 秒口�
 summaryEn: Take one official product page and produce a short post, an image prompt and a 30-second script, plus a five-claim fact table and two rejected claims; the rubric checks citations, boundaries and consistency.
 sources:
   - label: 本站 · 怎么验证 AI 的输出
-    url: https://learn.specul.com/guide/怎么验证 AI 的输出/
+    url: https://learn.specul.com/guide/怎么验证%20AI%20的输出/
     kind: docs
   - label: 本站 · 怎么控制 AI 的语气和风格
-    url: https://learn.specul.com/guide/怎么控制 AI 的语气和风格/
+    url: https://learn.specul.com/guide/怎么控制%20AI%20的语气和风格/
     kind: docs
   - label: 本站 · 怎么读模型卡
     url: https://learn.specul.com/guide/怎么读模型卡/
@@ -21,7 +21,7 @@ confidence: partial
 
 ## [任务|The task]
 
-选一份**有发布日期**的官方产品页或 changelog，做一组可发布的三件套。只准用这一份来源，不补二手总结。
+选一份**有发布日期**的官方产品页或 changelog，做一组可发布的三件套。只准用这一份来源，不补二手总结。篇幅和评分线是本练习约束；口播时长需实际朗读确认。
 
 1. 短文：150–200 字，说清「变了什么、影响谁、要做什么」，标题不夸张。
 2. 图像提示词：一段可复现的英文提示词，描述一个具体场景，不生成商标或真人肖像。
@@ -59,9 +59,9 @@ confidence: partial
 事实表的合格行：
 
 ```text
-说法：chrome-devtools-mcp v1.12.0 于 2026-10-22 发布
-来源句：## [1.12.0]（2026-10-22）
-日期：2026-10-22
+说法：[来源中的具体版本] 于 [发布日期] 发布
+来源句：[复制来源中的原句，不凭记忆补写]
+日期：[来源标注的发布日期]
 ```
 
 被拒说法的合格写法：
@@ -74,9 +74,9 @@ confidence: partial
 口播稿的合格结构：
 
 ```text
-变化：官方在 10-22 发了 v1.12.0，新增配置热加载与导航历史上限。
-影响：用编码 Agent 调试页面的人，可以少重启几次。
-动作：锁版本前先看 release notes，别把预览功能写进生产流程。
+变化：[具体版本新增或移除了什么，附来源]
+影响：[哪些工作流受到影响，未确认的收益不写]
+动作：[需要检查的配置或迁移步骤]
 ```
 
 ## [常见失分|Common misses]

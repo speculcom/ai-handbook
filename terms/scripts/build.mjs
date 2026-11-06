@@ -22,6 +22,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { diagnosticHome, diagnosticGuide } from '../diagnostics.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
@@ -586,6 +587,15 @@ if (fs.existsSync(path.dirname(deployDir))) {
  * ═══════════════════════════════════════════════════════════════════════ */
 const learnDir = path.join(workspaceRoot, 'learn.specul');
 if (fs.existsSync(learnDir)) {
+  const homeFile = path.join(learnDir, 'index.html');
+  if (fs.existsSync(homeFile)) {
+    const oldHome = fs.readFileSync(homeFile, 'utf8');
+    const block = `<!-- SPECUL:DIAGNOSTICS:START -->\n<div class="container">${diagnosticHome()}</div>\n<!-- SPECUL:DIAGNOSTICS:END -->`;
+    const updated = oldHome.includes('<!-- SPECUL:DIAGNOSTICS:START -->')
+      ? oldHome.replace(/<!-- SPECUL:DIAGNOSTICS:START -->[\s\S]*?<!-- SPECUL:DIAGNOSTICS:END -->/, block)
+      : oldHome.replace(/<\/main>/, `${block}\n  </main>`);
+    if (updated !== oldHome) fs.writeFileSync(homeFile, updated, 'utf8');
+  }
   /* 展示名映射来自 meta.js（与页面同一个真相源）——**不要在这里重抄一份中文名**，
    * 那正是「两处口径并存」的老毛病。 */
   const metaCtx = { module: { exports: {} }, console };
@@ -1128,6 +1138,7 @@ ${HEADER('learn')}
         <p class="tp-p"><span data-zh>${escMd(g.lead)}</span><span data-en>${escMd(g.leadEn)}</span></p>
 ${bodySec}
         <section class="tp-sec"><h2>${bi('例子与判断', 'Example and interpretation')}</h2><p class="t-sm">${bi('以下是教学情境，不是本站运行或实测记录。', 'A teaching scenario, not a measured or executed site test.')}</p><p class="tp-p">${bi(esc(PRACTICE[slug].zh),esc(PRACTICE[slug].en))}</p></section>
+${diagnosticGuide(slug)}
 ${linked}
         <div class="tp-sec">
           <div class="tp-lab">${bi('出处', 'Sources')}</div>

@@ -342,6 +342,9 @@ h4.sub-h {
   width: 5px; height: 5px; border-radius: 50%;
   background: var(--accent, var(--brand));
 }
+.panel ol { list-style: decimal; margin: 0; padding-left: 1.7em; }
+.panel ol > li { padding-left: .25em; }
+.panel ol > li::before { content: none; }
 .panel code {
   font-size: var(--fs-xs); background: var(--bg-inset);
   padding: 1px 5px; border-radius:var(--r-xs); color: var(--ink);
@@ -652,6 +655,8 @@ dl.cn-rows { margin: 0; }
   --pa-research: #38bdf8;
   --pa-automation: #a3e635;
   --pa-runner: #9db0c6;
+  /* 2026-11-06：第 11 大类 safety（红调，深色态对暖紫底 5.60:1）。 */
+  --pa-safety: #f26d6d;
 }
 [data-theme="light"] {
   --pa-coding: #6d4fd6;
@@ -666,6 +671,8 @@ dl.cn-rows { margin: 0; }
   --pa-research: #0a66a6;
   --pa-automation: #4d7c0f;
   --pa-runner: #55657a;
+  /* 2026-11-06：safety 浅色态取同色相深档（#9c2b2b 对浅底 7.20:1）。 */
+  --pa-safety: #9c2b2b;
 }
 .part-bar a span {
   font-size: var(--fs-micro); line-height: 1.5; color: var(--ink-faint);
@@ -709,3 +716,25 @@ dl.cn-rows { margin: 0; }
 
 /* B2：无差异维度的说明（取代不产生变化的排序控件） */
 .afilter .af-note{font-size:var(--fs-xs);color:var(--ink-faint);align-self:center}
+
+/* Cost assumptions: scoped so general forms keep their existing layout. */
+#cost-workbench fieldset { min-width: 0; margin-block: var(--sp-4); padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r); }
+#cost-workbench legend { font-weight: 600; padding-inline: var(--sp-2); }
+.cost-fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,15rem),1fr)); gap: var(--sp-3); }
+.cost-field { display: grid; gap: var(--sp-1); align-content: start; }
+.cost-field input { min-width: 0; width: 100%; box-sizing: border-box; padding: var(--sp-2); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-sm); font: inherit; }
+#cost-workbench output { overflow-wrap: anywhere; }
+#cost-workbench button { padding: var(--sp-2); font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-sm); cursor: pointer; }
+
+/* 可填写工作表（worksheet-workbench）窄屏适配：
+   两张表是 3~4 列网格，320px 下不处理就会把整页撑出横向滚动。 */
+.ws-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px}
+.ws-table{min-width:520px;border-collapse:collapse;width:100%}
+.ws-table th,.ws-table td{border:1px solid var(--line,#2a3140);padding:6px;text-align:left;vertical-align:top}
+.ws-cell,.ws-note{width:100%;min-width:80px;box-sizing:border-box}
+.ws-note{display:block;margin-top:4px}
+.ws-list{padding-left:20px;margin:0 0 12px}
+.ws-item{margin:0 0 10px;overflow-wrap:anywhere}
+.ws-actions{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.ws-out{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%}
+@media (max-width:520px){.ws-table{min-width:460px;font-size:14px}}

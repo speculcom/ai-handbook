@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>量化档位与精度损失：能说什么、不能说什么 · 做模型专题</title>
+  <meta name="description" content="把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/quant-tier-precision.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="量化档位与精度损失：能说什么、不能说什么 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/quant-tier-precision.html" />
+  <meta property="og:title" content="量化档位与精度损失：能说什么、不能说什么 · 做模型专题" />
+  <meta property="og:description" content="把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="../brand.js?v=bf69a6d205ad"></script>
+  <link rel="stylesheet" href="../brand.css?v=bf69a6d205ad" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Quantisation tiers and accuracy loss: what can be said, and what cannot","description":"Split tier names, bits per weight and accuracy loss into three layers: publishing-page facts, this site's derivation from the public naming standard, and what must stay blank. It also states which line in the memory bill actually moves when a tier changes.","url":"https://models.specul.com/guides/quant-tier-precision.html","dateModified":"2026-11-06"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span></p>
+      <h1><span data-zh>量化档位与精度损失：能说什么、不能说什么</span><span data-en>Quantisation tiers and accuracy loss: what can be said, and what cannot</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。</span><span data-en>Split tier names, bits per weight and accuracy loss into three layers: publishing-page facts, this site&#39;s derivation from the public naming standard, and what must stay blank. It also states which line in the memory bill actually moves when a tier changes.</span></p>
+    </header>
+
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇划的是说法边界</span><span data-en>What this guide bounds</span></a></li><li><a href="#guide-section-2"><span data-zh>能说什么：三句有依据的话</span><span data-en>What you can say: three supported statements</span></a></li><li><a href="#guide-section-3"><span data-zh>不能说什么：四条边界</span><span data-en>What you cannot say: four boundaries</span></a></li><li><a href="#guide-section-4"><span data-zh>档位名说的是体积，不是质量</span><span data-en>A tier name describes size, not quality</span></a></li><li><a href="#guide-section-5"><span data-zh>精度损失的说法从哪来</span><span data-en>Where accuracy-loss statements come from</span></a></li><li><a href="#guide-section-6"><span data-zh>换了档位，容量账哪一笔会变</span><span data-en>Which line of the memory bill moves with a tier</span></a></li><li><a href="#guide-section-7"><span data-zh>虚构练习：同一模型两个档位</span><span data-en>A fictional exercise: two tiers of one model</span></a></li><li><a href="#guide-section-8"><span data-zh>与本站系列页、学 AI 站的关系</span><span data-en>How this fits the series pages and the Learn site</span></a></li></ul></nav>
+    <section class="fam-sec" id="guide-section-0">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec" id="guide-section-1">
+      <h2><span data-zh>这一篇划的是说法边界</span><span data-en>What this guide bounds</span></h2>
+<span data-zh><p>量化档位名说的是权重怎么存，不是模型得了多少分。</p>
+<p>这一篇只划一条线：哪些话有依据可以说，哪些话必须留空。</p>
+<p>本站不下载权重、不跑评测，也不写「某档够用」这类建议。能给的是体积、命名口径和算式边界。</p></span><span data-en><p>A quantisation tier name says how weights are stored. It does not carry a score for the model.</p>
+<p>This guide draws one line: which statements have evidence, and which must stay blank.</p>
+<p>This site downloads no weights, runs no evaluations, and issues no &quot;this tier is enough&quot; advice. What it offers is file size, naming arithmetic and the scope of the formulas.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-2">
+      <h2><span data-zh>能说什么：三句有依据的话</span><span data-en>What you can say: three supported statements</span></h2>
+<span data-zh><p>这三句的证据来自发布页文件清单与公开的命名标准。</p>
+<ul>
+  <li>体积：某个量化文件的字节数写在发布页文件清单里，可以直接核对。</li>
+  <li>每权重比特数：由档名按公开命名标准推算，本站标为推导，不冒充实测。</li>
+  <li>档位覆盖：某家量化仓提供哪些档、是否带 importance matrix，同样是清单事实。</li>
+</ul>
+<p>方法之间的差别，官方 quantize 文档只说体现在磁盘体积与推理速度上，数值绑定它自己的示例：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener">tools/quantize/README.md</a></p></span><span data-en><p>The three statements below rest on publishing-page file listings and the public naming standard.</p>
+<ul>
+  <li>Size: the byte count of a quantised file is in the publishing page&#39;s file listing and can be checked directly.</li>
+  <li>Bits per weight: derived from the tier label under the public naming standard. This site marks it as a derivation, never as a measurement.</li>
+  <li>Tier coverage: which tiers a quantiser publishes, and whether it ships an importance matrix, are also listing facts.</li>
+</ul>
+<p>On differences between methods, the official quantize documentation says only that they show up in disk size and inference speed, and its figures belong to its own example: <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener">tools/quantize/README.md</a></p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-3">
+      <h2><span data-zh>不能说什么：四条边界</span><span data-en>What you cannot say: four boundaries</span></h2>
+<span data-zh><p>同一句结论换个模型就得重新取得，所以下面四类话本站不写。</p>
+<ul>
+  <li>不写「这一档质量够用」：够不够取决于任务与判定标准，不是档名。</li>
+  <li>不写「降一档快多少」：官方文档不给跨模型可复用的比例。</li>
+  <li>不写「某家量化更稳」：各家档位与实现细节不同，没有可比的公开口径。</li>
+  <li>不做跨档位排名，也不把档位与「适合谁」画等号。</li>
+</ul>
+<p>需要速度或质量结论时，在自己的授权环境按固定任务记录；那是你的读数，不是本站的。</p></span><span data-en><p>A conclusion of this kind has to be re-established for every model, so this site does not write the four statements below.</p>
+<ul>
+  <li>Not &quot;this tier is good enough&quot;: sufficiency depends on the task and its pass criteria, not on the tier label.</li>
+  <li>Not &quot;drop a tier and gain X in speed&quot;: official documentation gives no proportion usable across models.</li>
+  <li>Not &quot;this quantiser is safer&quot;: implementations and tier selections differ, and there is no comparable published measure.</li>
+  <li>No ranking across tiers, and no equation between a tier and &quot;who it suits&quot;.</li>
+</ul>
+<p>When you need speed or quality evidence, record it in your own authorised environment against a fixed task. That reading is yours, not this site&#39;s.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-4">
+      <h2><span data-zh>档位名说的是体积，不是质量</span><span data-en>A tier name describes size, not quality</span></h2>
+<span data-zh><p>档名描述的是权重的存储方式与大致体积。它不携带任何任务层面的质量含义。</p>
+<p>同名档在不同模型上的真实比特数略有差异，这是本站把比特数标为推导的原因。</p>
+<ul>
+  <li>官方 README 列出的整数位宽覆盖 1.5、2、3、4、5、6、8 位，出处见 <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/README.md" target="_blank" rel="noopener">llama.cpp README</a>。</li>
+  <li>官方 quantize 文档给了一张示例表，按档位列出 bits/weight 与体积（GiB）。表头写明它测的是某个具体 8B 模型，换个模型不会正好是同一串数。</li>
+  <li>微调路线里的 4-bit 也是数据类型选择：论文摘要自述 NF4 是对正态分布权重信息论上最优的 4-bit 类型，出处见 <a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener">arXiv 2305.14314</a>。它说的是训练时加载精度，和推理用的 GGUF 档名不是同一层。</li>
+</ul>
+<p>本站的档位归属只按推算出的每权重比特数落档，规则写在数据规范里，任何人可以复算。</p></span><span data-en><p>A tier label describes how weights are stored and roughly how large the file is. It carries no task-level quality meaning.</p>
+<p>Real bits per weight differ slightly between models under the same label, which is why this site marks the figure as derived.</p>
+<ul>
+  <li>The official README lists integer bit widths covering 1.5, 2, 3, 4, 5, 6 and 8 bits; source: <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/README.md" target="_blank" rel="noopener">llama.cpp README</a>.</li>
+  <li>The official quantize documentation includes an example table giving bits/weight and size in GiB per tier. Its heading states the figures belong to one specific 8B model; another model will not reproduce the same numbers.</li>
+  <li>In fine-tuning, 4-bit is also a data-type choice: the paper abstract describes NF4 as information-theoretically optimal for normally distributed weights; source: <a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener">arXiv 2305.14314</a>. That is training load precision, a different layer from an inference GGUF tier label.</li>
+</ul>
+<p>This site assigns a tier only from the derived bits-per-weight value. The rule is written in the data specification and anyone can recompute it.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-5">
+      <h2><span data-zh>精度损失的说法从哪来</span><span data-en>Where accuracy-loss statements come from</span></h2>
+<span data-zh><p>官方 quantize 文档写明：量化可能引入精度损失。损失通常用困惑度（ppl）或 KL 散度（kld）衡量。官方文档说，合适的 importance matrix 数据可以减小它。</p>
+<p>这句话里有三层可用信息，也到此为止。</p>
+<ul>
+  <li>指标是语言建模口径的代理量，不等于任何具体任务的表现。</li>
+  <li>官方给出的数值绑定它自己的模型、语料与设置，换模型不能照抄。</li>
+  <li>未公布这些数字时，本站只记录缺口，不用别的模型的数字补上。</li>
+</ul>
+<p>「下降多少算能接受」取决于下游任务与验收标准。本站没有跑过评测，也不设默认阈值。</p></span><span data-en><p>The official quantize documentation states that quantisation may introduce accuracy loss. It says the loss is usually measured in perplexity (ppl) and/or Kullback-Leibler divergence (kld), and that a suitable importance matrix can reduce it.</p>
+<p>That sentence carries three usable facts, and stops there.</p>
+<ul>
+  <li>Those metrics are language-modelling proxies, not performance on any concrete task.</li>
+  <li>Published figures are bound to that document&#39;s own model, corpus and settings; they cannot be copied onto another model.</li>
+  <li>Where the numbers are not published, this site records the gap instead of borrowing figures from elsewhere.</li>
+</ul>
+<p>How much drop is acceptable depends on the downstream task and its acceptance criteria. This site ran no evaluation and sets no default threshold.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-6">
+      <h2><span data-zh>换了档位，容量账哪一笔会变</span><span data-en>Which line of the memory bill moves with a tier</span></h2>
+<span data-zh><p>档位改变的是权重那一笔。缓存不会自动跟着变小，除非运行器明确支持量化缓存。</p>
+<p>vLLM 的量化文档把「量化 KV 缓存」单独列为一项，说明权重精度与缓存精度是两条设置：<a href="https://docs.vllm.ai/en/latest/features/quantization/" target="_blank" rel="noopener">features/quantization</a>。同一站点的内存控制文档把缓存空间按 GiB 配置，见 <a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">conserving_memory</a>。</p>
+<p>填写与核对这两笔账的入口是容量工作台：<a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">上下文与并发预算</a>。</p>
+<ul>
+  <li>适用前提：各层结构相同、每层保留完整键值的标准全注意力 MHA / GQA 解码器。</li>
+  <li>不适用：MLA、混合状态空间、滑动窗口与逐层缓存不同的架构，需要另算。</li>
+  <li>单位：权重、缓存、运行时预留统一写成 GiB；十进制 GB 先换算再相加。</li>
+  <li>无法据此承诺：能否启动、是否超时、输出是否合格，都不在这条算式的范围内。</li>
+</ul></span><span data-en><p>A tier changes the weights line of the bill. The cache does not shrink automatically unless the runtime explicitly supports a quantised cache.</p>
+<p>vLLM&#39;s quantisation documentation lists &quot;Quantized KV Cache&quot; as its own item, which shows weight precision and cache precision are two separate settings: <a href="https://docs.vllm.ai/en/latest/features/quantization/" target="_blank" rel="noopener">features/quantization</a>. The memory-conservation page on the same site configures cache space in GiB: <a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">conserving_memory</a>.</p>
+<p>Fill and check both lines in the capacity workbench: <a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">context and concurrency budget</a>.</p>
+<ul>
+  <li>Scope: standard full-attention MHA/GQA decoders with identical layers and complete per-layer key/value state.</li>
+  <li>Out of scope: MLA, hybrid state-space designs, sliding windows and architectures whose caches differ per layer need separate arithmetic.</li>
+  <li>Units: write weights, cache and runtime reserve all in GiB; convert decimal GB before adding.</li>
+  <li>Not established by this: whether a run starts, whether it stays within a time limit, and whether output passes. None of that is inside the formula.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-7">
+      <h2><span data-zh>虚构练习：同一模型两个档位</span><span data-en>A fictional exercise: two tiers of one model</span></h2>
+<span data-zh><p>本节的数字全是虚构教学假设，不对应任何真实模型、发布页或本站运行结果。</p>
+<p>设某密集模型的高精度权重按 30 GiB 计，练习假设换成 5 GiB 档。上下文与并发不变，缓存按 2 GiB、运行时预留按 1 GiB 计。</p>
+<p>两种假设下的合计分别是 33 GiB 与 8 GiB。差值只说明权重那一笔的变化量。</p>
+<p>再假设任务可用内存是 10 GiB。按这些假设，5 GiB 档留有 2 GiB 余量，30 GiB 档超出预算。这是练习算式，不是运行结果。</p>
+<ul>
+  <li>查不过去时的下一步不是换档重试，而是回查驻留假设、缓存字段与架构适用范围。</li>
+  <li>体积对照请回到本站系列页 B 区：它按发布体积 × 1.15 初筛候选，不判断优劣，也不保证能跑。</li>
+</ul></span><span data-en><p>Every number in this section is a fictional teaching assumption. It matches no real model, publishing page or result produced by this site.</p>
+<p>Assume a dense model&#39;s high-precision weights occupy 30 GiB, and the exercise swaps them for a 5 GiB tier. Context and concurrency stay fixed, with cache assumed at 2 GiB and runtime reserve at 1 GiB.</p>
+<p>Under those assumptions the totals are 33 GiB and 8 GiB. The difference only measures the weights line.</p>
+<p>Now assume 10 GiB is available for the task: the 5 GiB case leaves 2 GiB headroom and the 30 GiB case exceeds the budget. This is exercise arithmetic, not a run result.</p>
+<ul>
+  <li>When a check fails, the next step is not blind tier-swapping but re-examining the residency assumption, the cache fields and the architecture scope.</li>
+  <li>For size comparisons go back to block B of the series pages: it filters candidates by published size × 1.15, judges nothing, and does not guarantee that anything runs.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-8">
+      <h2><span data-zh>与本站系列页、学 AI 站的关系</span><span data-en>How this fits the series pages and the Learn site</span></h2>
+<span data-zh><p>系列页给的是「你的体积预算下有哪些文件」。这一篇给的是「关于这些文件你能说到哪一步」。</p>
+<ul>
+  <li>容量与缓存字段用工作台分开列：<a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">上下文与并发预算</a>。</li>
+  <li>费用构成用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a> 记录，本站不保存单价。</li>
+  <li>结果判定先按 <a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20 项自测清单</a> 写清条件，再决定要不要换档。</li>
+</ul>
+<p>学 AI 站的 <a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96/" target="_blank" rel="noopener">量化</a>、<a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">量化方法</a>、<a href="https://learn.specul.com/term/bpw/" target="_blank" rel="noopener">bpw</a> 与 <a href="https://learn.specul.com/term/%E5%9B%B0%E6%83%91%E5%BA%A6/" target="_blank" rel="noopener">困惑度</a> 是给使用者的一页科普。</p>
+<p>这一篇给的是说法边界与容量口径。同一个概念在两处深度不同，互链不重复。</p></span><span data-en><p>Series pages answer &quot;which files fit my size budget&quot;; this guide answers &quot;how far can a statement about those files be taken&quot;.</p>
+<ul>
+  <li>List capacity and cache fields separately in the workbench: <a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">context and concurrency budget</a>.</li>
+  <li>Record cost components with the <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">cost calculator</a>; this site stores no unit prices.</li>
+  <li>Write the acceptance conditions first with the <a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20-item self-test</a>, then decide whether a tier change is even the question.</li>
+</ul>
+<p>The Learn site&#39;s <a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96/" target="_blank" rel="noopener">quantisation</a>, <a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">quantisation methods</a>, <a href="https://learn.specul.com/term/bpw/" target="_blank" rel="noopener">bpw</a> and <a href="https://learn.specul.com/term/%E5%9B%B0%E6%83%91%E5%BA%A6/" target="_blank" rel="noopener">perplexity</a> pages are one-page explainers for users.</p>
+<p>This guide gives the statement boundary and the capacity terms. Same concept, different depth, cross-linked without duplication.</p></span>
+    </section>
+
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2><span data-zh>继续做什么</span><span data-en>What to do next</span></h2>
+      <ul><li><a href="gpu-cost-math.html#capacity-workbench"><span data-zh>填写上下文与并发容量假设</span><span data-en>Budget context and concurrency</span></a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/"><span data-zh>检查输出是否有依据</span><span data-en>Verify evidence for the output</span></a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom"><span data-zh>按症状排查</span><span data-en>Troubleshoot by symptom</span></a></li></ul>
+    </nav>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li><span data-zh>llama.cpp · quantize 工具文档（精度损失通常以 ppl 或 KL 散度衡量、imatrix 与 requantize 说明，2026-11-06 直抓）</span><span data-en>llama.cpp quantize tool documentation (accuracy loss usually measured in ppl and/or KL divergence; importance-matrix and requantisation notes; fetched directly 2026-11-06)</span>：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md</a></li>
+        <li><span data-zh>llama.cpp 官方 README（列出的整数位宽范围，2026-11-06 直抓）</span><span data-en>llama.cpp official README (the integer bit widths it lists; fetched directly 2026-11-06)</span>：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/README.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/ggml-org/llama.cpp/master/README.md</a></li>
+        <li><span data-zh>vLLM 量化文档（量化 KV 缓存单列为一项，2026-11-06 直抓）</span><span data-en>vLLM quantization documentation (lists quantized KV cache as a separate item; fetched directly 2026-11-06)</span>：<a href="https://docs.vllm.ai/en/latest/features/quantization/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/features/quantization/</a></li>
+        <li><span data-zh>vLLM · 内存控制文档（缓存空间以 GiB 配置，2026-11-06 直抓）</span><span data-en>vLLM memory-conservation documentation (cache space configured in GiB; fetched directly 2026-11-06)</span>：<a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/configuration/conserving_memory/</a></li>
+        <li><span data-zh>QLoRA 论文摘要页（arXiv 2305.14314，自述 4-bit NormalFloat 数据类型，2026-11-06 直抓）</span><span data-en>QLoRA paper abstract page (arXiv 2305.14314; describes the 4-bit NormalFloat data type; fetched directly 2026-11-06)</span>：<a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener">https://arxiv.org/abs/2305.14314</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-06；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-06; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

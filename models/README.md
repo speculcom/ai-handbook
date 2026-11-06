@@ -42,14 +42,20 @@
 
 站上的版本：<https://models.specul.com/>
 
+### 先按任务与容量核对
+
+- [任务模型专题](./guides/task-models.md)：嵌入、重排、OCR、语音识别的输入输出、官方示例与未知项；不把文件格式当平台兼容证明。
+- [容量预算](./guides/gpu-cost-math.md)：区分 GB/GiB、驻留权重、上下文缓存、并发和运行时预留；页面附可填写与导出的假设算式。
+- 系列页的文件 × 1.15 是示意筛选，不是 KV 预算、运行内存实测或运行保证。
+
 ## 目录结构
 
 ```
 _data/handbook/models/
-├── config.js              系列名单 + 量化者档案（人工维护）
+├── config.js              系列名单 + 量化者档案（内容配置）
 ├── data/
 │   ├── series/*.json      采集产物（勿手改，由脚本生成）
-│   └── quantizers/*.md    量化者档案（人工撰写）
+│   └── quantizers/*.md    量化者档案（内容配置）
 ├── docs/
 │   ├── SCHEMA.md          数据结构定义 + 字段来源对照
 │   ├── METHODOLOGY.md     选型方法 + 能说/不能说的边界
@@ -156,16 +162,16 @@ node scripts/build.mjs
 | 系列 | 厂商 | 发布时间 | 模型仓 | 量化档 | 规模 |
 |---|---|---|---|---|---|
 | [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cp… |
-| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google 开放权重最新一代，三种规格各自都有量化覆盖。 |
-| [GLM 5](data/series/glm-5.json) | 智谱 AI | 2026-08-25 | 2 | 13 | 智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。 |
-| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。 |
+| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。 |
+| [GLM 5](data/series/glm-5.json) | 智谱 AI | 2026-08-25 | 2 | 13 | 智谱开放权重系列；不同规格的许可分别标注，部署前核对对应版本与容量需求。 |
+| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决… |
 | [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。 |
-| [Kimi K3](data/series/kimi-k3.json) | 月之暗面 | 2026-06-13 | 1 | 10 | 月之暗面当前最新一代，41 家量化仓但整体热度中等。 |
+| [Kimi K3](data/series/kimi-k3.json) | 月之暗面 | 2026-06-13 | 1 | 10 | 月之暗面开放权重系列，快照收录 41 家量化仓；数量不代表模型质量或运行兼容性。 |
 | [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | 代码方向的开放权重系列，许可为 OpenMDW-1.1（使用前须读原文）。 |
 | [MiniCPM 5](data/series/minicpm5.json) | 面壁智能 · OpenBMB | 2026-08-27 | 1 | 10 | 国产小尺寸代表，2B 规模适合低显存与端侧。 |
 | [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta 的开放权重系列，apache-2.0，量化覆盖横跨多家主力量化者。 |
-| [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。 |
-| [千问 3.8](data/series/qwen3-8.json) | 阿里 · 通义千问 | 2026-08-05 | 2 | 17 | 阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。 |
+| [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | 模型卡标注 MIT 许可，两个规格都有 GGUF 量化覆盖；具体文件与版本见下… |
+| [千问 3.8](data/series/qwen3-8.json) | 阿里 · 通义千问 | 2026-08-05 | 2 | 17 | 阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；… |
 
 <!-- INDEX:END -->
 

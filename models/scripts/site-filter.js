@@ -122,31 +122,32 @@
 
     function renderVram() {
       var gb = Number(vtIn.value);
-      if (!gb || gb <= 0 || !DATA.length) { vtOut.innerHTML = ''; return; }
+      if (!vtIn.value || !DATA.length) { vtOut.innerHTML = ''; return; }
+      if (!Number.isFinite(gb) || gb <= 0 || !vtIn.validity.valid) { vtOut.textContent = IS_EN() ? 'Enter an integer from 1 to 1024 GB for the illustrative filter.' : '示意筛选请输入 1–1024 GB 整数。'; return; }
       var fits = DATA.filter(function (x) { return x.g * MARGIN <= gb; });
       var need = function (x) { return Math.ceil(x.g * MARGIN); };
       if (!fits.length) {
         var smallest = DATA[0];
         vtOut.innerHTML = '<p class="vt-none">' + esc(IS_EN()
-          ? 'No tier fits. The smallest here is ' + (smallest.qe || smallest.q) + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB with headroom. Below that, use -ngl to keep only some layers on the GPU (see the table below).'
-          : '装不下任何档。本成员最小的档是 ' + smallest.q + '（' + smallest.g + ' GB），加余量约需 ' + need(smallest) + ' GB 显存。再少就只能用 -ngl 只把部分层放显存（见下方替代路径）。') + '</p>';
+          ? 'No candidate under this filter. The smallest file is ' + (smallest.qe || smallest.q) + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB under file-size × 1.15. This does not establish cache, runtime memory or execution support.'
+          : '此示意筛选没有候选。最小发布文件为 ' + smallest.q + '（' + smallest.g + ' GB），加余量约需 ' + need(smallest) + ' GB（文件 × 1.15）。这不包含已核对的缓存、运行时占用或兼容性。') + '</p>';
         return;
       }
       var best = fits[fits.length - 1];
       var rest = fits.slice(0, -1).reverse();
       var link = function (x) {
         return '<a href="' + esc(x.u) + '" target="_blank" rel="noopener">' + esc(IS_EN() ? (x.qe || x.q) : x.q) + '</a>'
-          + ' <span class="vt-meta">' + x.g + ' GB · ' + esc(x.t) + ' · ' + esc(x.b) + '</span>';
+          + ' <span class="vt-meta">' + x.g + ' GB · ' + esc(IS_EN() ? (x.te || x.t) : x.t) + ' · ' + esc(x.b) + '</span>';
       };
-      var h = '<p class="vt-best"><b>' + (IS_EN() ? 'Recommended: ' : '建议：') + '</b>' + link(best)
+      var h = '<p class="vt-best"><b>' + (IS_EN() ? 'File-size candidate: ' : '文件体积候选：') + '</b>' + link(best)
         + ' <span class="vt-meta">' + (IS_EN() ? 'needs about ' : '加余量约需 ') + need(best) + ' GB</span></p>';
       if (rest.length) {
-        h += '<p class="vt-rest"><span class="vt-dim">' + (IS_EN() ? 'Also fit (smaller): ' : '也装得下（更省）：') + '</span>'
+        h += '<p class="vt-rest"><span class="vt-dim">' + (IS_EN() ? 'Other candidates (smaller): ' : '其他较小候选：') + '</span>'
           + rest.map(link).join(' · ') + '</p>';
       }
       h += '<p class="vt-note">' + (IS_EN()
-        ? 'Sizes are measured from the release page file listing; the tier shown is the smallest file of that name in this member. Headroom is 15%. Each name links to its Hugging Face page — check it yourself.'
-        : '体积是发布页文件列表的实测值；档位取该名称在本成员下的最省文件。余量 15%。每个档名都链到对应的 Hugging Face 发布页，可自行核对。') + '</p>';
+        ? 'Published file sizes are not resident-memory measurements. File-size × 1.15 is a fixed illustrative filter, not a cache/runtime budget or execution guarantee. Check architecture, context, concurrency and runtime separately.'
+        : '体积来自发布文件列表，不是驻留内存实测。文件 × 1.15 只是固定示意筛选，不是缓存/运行时预算，也不保证可运行。另查架构、上下文、并发与运行器。') + '</p>';
       vtOut.innerHTML = h;
     }
 

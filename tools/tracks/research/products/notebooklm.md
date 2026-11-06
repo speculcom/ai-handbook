@@ -5,103 +5,86 @@ name: NotebookLM
 nameEn: NotebookLM
 vendor: Google
 homepage: https://notebooklm.google.com
-license: 免费+Google AI 订阅档。按 Google 服务条款与 NotebookLM 附加条款管辖
-  （notebooklm.google/terms 直抓核验 2026-10-22）；训练用途口径按官方 FAQ（「不使用 NotebookLM
-  源做训练」类承诺叙事，条款级细节未逐条核验）。
-licenseEn: Free + Google AI subscription tiers. Governed by Google ToS plus NotebookLM addenda
-  (notebooklm.google/terms, direct-fetched 2026-10-22); training practice follows the official FAQ
-  ("sources not used for training"-type narrative; terms-level details not verified line by line).
-
+license: 2026-10-22 旧快照记录免费与订阅形态；本次未复核当前收费、许可或组织合同，使用前回官方条款核对。
+licenseEn: The 2026-10-22 snapshot recorded free and subscription offerings; current charges, licences and organization contracts were not reviewed here. Check official terms.
 axes:
   model_access: >-
-    Gemini 系模型驱动（官方叙事）；用户不选模型——产品形态是「源锚定问答」，模型是内部实现。
+    官方帮助称由 Gemini 提供能力；本次未确认各账号可选的模型档位。
   runtime: >-
-    网页（notebooklm.google.com）+ 移动 App；处理在 Google 云端。
+    网页与移动端有分别的官方帮助；2026-11-04 只核对浏览器使用条件，未安装或登录验证。
   local_files: >-
-    笔记本与源存账户侧云端；源可上传（PDF/Docs/网页链接/YouTube 等，官方产品面）。
+    官方帮助列 PDF、网页、YouTube、音频、Google Docs/Slides 等来源；具体限制按当前帮助和账号范围核对。
   background: >-
-    问答即时；Audio Overview（播客式音频概览）是生成任务线；无「关机续跑」概念。
+    官方列音频概览等生成形态；本次未核对排队、后台持续时间或任务恢复。
   tools: >-
-    **源锚定是产品主轴**：回答带源引用、可追问；Studio 线生成音频概览/简报/学习指南等
-    衍生形态（官方产品面）；笔记本内源管理（添加/删除/摘要）。
+    可围绕来源问答、整理笔记，也有发现新来源的入口。源内回答与资料发现应分别核对，不能再简单写成“只读你上传的资料、不会找新源”。
   context: >-
-    以笔记本（notebook）组织——每个笔记本是一组源+对话；跨笔记本记忆未核验到官方声明。
+    以 notebook 组织来源与笔记；跨笔记本状态、记忆和具体上限本次未核对。
   permissions: >-
-    Google 账号体系；免费档与订阅档的笔记本数/源量上限差异按官方页（未逐条核验，D9：价格不采）；
-    训练用途：官方 FAQ 有「不用你的源训练」类承诺——引用前核 FAQ 原文（未逐条核验）。
+    需登录 Google 账号；组织账号可能需管理员启用，地区与年龄有条件。数据用途应按账号与反馈情形核对，不能将旧 FAQ 概括成“任何资料永不用于训练”。
   fit: >-
-    适合：给定资料集内的问答与研究整理（论文组/尽调材料/课程资料）、把长材料转成音频概览、
-    要「答案只从你的源里出」的场景。
-    不适合：开放网络检索（它不做全网搜索——源是你给的）、大陆直连（实测 000）。
-
+    用于有来源的问答、笔记与资料整理。把检索覆盖、回答证据和生成内容分别验证；不把本地连接失败推成全国不可达，也不把引用角标当正确性保证。
 pitfalls:
-  - NotebookLM 不是搜索引擎——它只在你给的源里回答；「查全网」要用 Perplexity 类产品
-  - Audio Overview 的生成质量随源质量波动——垃圾进垃圾出在源锚定产品里同样成立
-  - 「不用源做训练」是官方 FAQ 承诺——企业敏感材料仍要按条款与 Workspace 合规面核（未逐条核验）
-
-tags: [免费+订阅, 源锚定, 音频概览, Google生态, 需网络环境]
+  - 源内回答与资料发现是两个环节；不能因前者带引用就断言资料搜全或结论正确。
+  - 旧帮助地址已转到 Gemini Notebook 帮助；实际账号的名称、地区与功能范围仍需确认。
+  - 笔记导出为新的 Google Doc，后续在 Docs 的修改不会同步回原笔记；不把一次导出当双向同步。
+tags: [源锚定, 音频概览, Google生态, 需网络环境]
 related: [gemini-chat, elicit, metaso]
-
 sources:
-  - label: NotebookLM · 官网（产品与能力叙事）
+  - label: NotebookLM · 官网（原产品入口）
     url: https://notebooklm.google.com
     kind: official
-  - label: NotebookLM · Terms（官方条款，2026-10-22 直抓核验）
+  - label: NotebookLM · Terms（2026-10-22 旧快照，未在本次重审）
     url: https://notebooklm.google/terms
     kind: official
-  - label: NotebookLM · Release Notes（官方更新线，changelog，2026-10-22 直抓核验）
+  - label: NotebookLM · Release Notes（2026-10-22 旧快照）
     url: https://notebooklm.google/release-notes
     kind: changelog
-
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+  - label: Gemini Notebook · 使用条件（2026-11-04 单项核对）
+    url: https://support.google.com/gemininotebook/answer/16164461?hl=en
+    kind: docs
+  - label: Gemini Notebook · 笔记导出（2026-11-04 单项核对）
+    url: https://support.google.com/gemininotebook/answer/16262519?hl=en
+    kind: docs
+last_verified: 2026-11-04
+last_updated: 2026-11-04
 lifecycle: active
 confidence: partial
-
 cn:
   origin: foreign
   origin_note: Google（美国）。
   origin_note_en: Google (US).
-  direct: no
-  direct_note: notebooklm.google.com 大陆直连实测 000（2026-10-22，代理下 200 可达）——直连不可达，需网络环境。
-  direct_note_en: notebooklm.google.com measured 000 direct from mainland (2026-10-22; 200 via proxy) —
-    unreachable without a network path.
-  filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
-  filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
-    public, so filing does not apply.
+  direct: unknown
+  direct_note: 旧条目记录 2026-10-22 连接返回 000，不构成全国可达性证据；本次未作网络探测。
+  direct_note_en: The older entry recorded a 000 connection result on 2026-10-22; that does not establish nationwide reachability. No new network probe was run.
+  filing: unknown
+  filing_note: 原条目记录 2026-10-22 检索未见公示，本次未复核；不能据此裁定备案义务。
+  filing_note_en: The older entry recorded no listing found in a 2026-10-22 search; this was not rechecked and does not determine filing obligations.
   verified: 2026-10-22
 ---
 
 ## 一句话定位
 
-**NotebookLM 是「源锚定」的研究工作台**：你给一组源，它只在这些源里回答+生成音频概览/学习指南；
-它不是搜索引擎——是资料集上的问答引擎。
+NotebookLM 条目保留原名供识别；2026-11-04 官方帮助已使用 Gemini Notebook 名称。这里记录来源问答与笔记流程，不据帮助名称推断所有账号已迁移。
 
 ## 适合与不适合
 
-适合：给定资料集内问答（论文组/尽调/课程）、长材料转音频、源引用可追溯。
-不适合：开放网络检索、大陆直连（000）。
+适合：围绕有出处的资料问答与整理笔记。
+先核对：账号、地区、来源限制、导出与数据用途；资料发现和源内回答分开验证。
 
 ## 实测记录
 
-本档未跑检索质量评测；结论只覆盖产品能力与来源披露。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **长 PDF（500+ 页）的源覆盖完整度**（会不会静默截断）
-- **Audio Overview 对中文源的支持质量**
-- **免费档笔记本/源上限的实际值**（D9：价格不采；额度实测）
+2026-11-04 单项文档核对：官方帮助名称、浏览器账号条件、来源问答/资料发现、笔记 Export to Docs；新增两条帮助来源。没有登录、安装或运行检索/音频质量测试；未复核旧价格、全部合同或全国网络可达性。原 2026-10-22 条款与更新链接保留历史日期。
 
 ## 未知项清单
 
-- 各订阅档的笔记本/源量上限（未逐条核验）
-- 训练承诺的条款级落点（FAQ 叙事，未逐条核验）
-- 跨笔记本记忆（未核验到官方声明）
-- 当前驱动模型档位（未逐条核验）
+- 各账号的实际迁移状态、模型选择与额度
+- 移动端在指定地区/设备的可用范围
+- 组织合同、反馈情形下的数据用途与完整留存条款
+- 检索覆盖、长文处理、音频质量与后台任务恢复（未运行验证）
 
 ## 相关条目
 
-- [Gemini](../chat/products/gemini-chat.md) — 同厂不同产品：Gemini 是开放对话+检索，NotebookLM 是封闭源集问答。
-- [Elicit](./elicit.md) — 同为文献研究向：Elicit 检索学术库再锚定，NotebookLM 只锚定你上传的源。
-- [秘塔 AI 搜索](./metaso.md) — 中文向对照：秘塔学术检索+全网，NotebookLM 源集内深挖。
+- [Gemini](../chat/products/gemini-chat.md) — 同厂入口；按实际任务与账号条件核对，不以名称判断资料覆盖。
+- [Elicit](./elicit.md) — 论文任务可看学术检索流程；来源覆盖与抽取结果分别查。
+- [秘塔 AI 搜索](./metaso.md) — 查看另一种检索入口；语言、来源、地区和权限需分别核对。

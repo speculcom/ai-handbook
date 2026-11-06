@@ -47,6 +47,12 @@ It does not answer "which model is stronger".
 
 Live version: <https://models.specul.com/>
 
+### Check task contracts and capacity
+
+- [Task models](./guides/task-models.md): embedding, reranking, OCR and ASR inputs/outputs, official examples and unknowns. A file format is not platform-compatibility evidence.
+- [Capacity budget](./guides/gpu-cost-math.md): GB/GiB, resident weights, context cache, concurrency and runtime reserve, with editable assumptions and JSON export on the page.
+- Series-page file size × 1.15 is an illustrative filter, not a KV budget, resident-memory measurement or execution guarantee.
+
 ## Layout
 
 ```
@@ -169,17 +175,17 @@ or faster need benchmarks, and this site makes none.
 
 | Series | Vendor | Released | Members | Variants | Summary |
 |---|---|---|---|---|---|
-| [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT-licensed, with a lively quantizatio… |
-| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google's newest open-weight generation;… |
-| [GLM 5](data/series/glm-5.json) | Zhipu AI | 2026-08-25 | 2 | 13 | Zhipu's current generation. The MIT-lic… |
-| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI's only open-weight series. The 2… |
-| [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | A code-focused open-weight series under… |
-| [Kimi K3](data/series/kimi-k3.json) | Moonshot AI | 2026-06-13 | 1 | 10 | Moonshot AI's current generation. 41 qu… |
-| [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | A code-focused open-weight series under… |
-| [MiniCPM 5](data/series/minicpm5.json) | OpenBMB | 2026-08-27 | 1 | 10 | A leading small-footprint Chinese model… |
-| [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta's open-weight series under Apache-… |
-| [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | MIT-licensed; across its two sizes it h… |
-| [Qwen3.8](data/series/qwen3-8.json) | Alibaba Qwen | 2026-08-05 | 2 | 17 | Alibaba's current generation. The 27B d… |
+| [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT licensed with an active quantisatio… |
+| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google's open-weight series; the three … |
+| [GLM 5](data/series/glm-5.json) | Zhipu AI | 2026-08-25 | 2 | 13 | Zhipu's open-weight series. Licences ar… |
+| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI's open-weight series, with quant… |
+| [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | An open-weight series aimed at code, ap… |
+| [Kimi K3](data/series/kimi-k3.json) | Moonshot AI | 2026-06-13 | 1 | 10 | Moonshot's open-weight series, with 41 … |
+| [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | An open-weight series in the coding dir… |
+| [MiniCPM 5](data/series/minicpm5.json) | OpenBMB | 2026-08-27 | 1 | 10 | A representative Chinese small-size mod… |
+| [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta's open-weight series, apache-2.0, … |
+| [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | The model cards list MIT; both sizes ha… |
+| [Qwen3.8](data/series/qwen3-8.json) | Alibaba Qwen | 2026-08-05 | 2 | 17 | Alibaba's Qwen series, with quantisatio… |
 
 <!-- INDEX:END -->
 

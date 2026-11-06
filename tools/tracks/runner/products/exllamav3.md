@@ -13,7 +13,7 @@ axes:
     EXL3 量化格式（.exl3 checkpoint）与部分 HF safetensors；模型支持以官方仓与文档为准，
     本站未逐条清点。它是 ExLlamaV2 的接续线。
   runtime: >-
-    CUDA 推理引擎，面向本地/单机多卡；PyPI 包 exllamav3（1.6.5，2026-10-25 发布）。
+    CUDA 推理引擎，面向本地/单机多卡；PyPI 包 exllamav3（1.6.6，2026-10-31 发布；仅版本记录于 2026-11-04 复核）。
     需要 CUDA 环境，具体版本以官方仓为准。
   local_files: >-
     自托管，权重与 .exl3 checkpoint 在本地；没有官方托管云。
@@ -42,7 +42,7 @@ sources:
   - label: turboderp-org · ExLlamaV3 官方仓库（README / docs；2026-11-03 复核官方页）
     url: https://github.com/turboderp-org/exllamav3
     kind: repo
-  - label: PyPI · exllamav3（1.6.5，2026-10-25；2026-11-03 复核）
+  - label: PyPI · exllamav3（1.6.6，2026-10-31；仅版本记录于 2026-11-04 复核）
     url: https://pypi.org/project/exllamav3/
     kind: docs
   - label: ExLlamaV3 · convert 文档（EXL3 checkpoint 转换）
@@ -53,8 +53,8 @@ sources:
     url: https://github.com/turboderp-org/exllamav3/releases
     kind: changelog
 
-last_verified: 2026-11-03
-last_updated: 2026-11-03
+last_verified: 2026-11-04
+last_updated: 2026-11-04
 lifecycle: active
 confidence: partial
 
@@ -97,3 +97,7 @@ ExLlamaV3 是 ExLlamaV2 的接续线：用 EXL3 量化格式在 NVIDIA GPU 上�
 
 - [TabbyAPI](./tabbyapi.md) — ExLlama 的外层 API server，二者常一起用
 - [llama.cpp](./llama-cpp.md) — GGUF 路线，与 EXL3/CUDA 路线对照
+
+## 核验说明
+
+2026-11-04 仅复核 PyPI 版本记录：1.6.6 发布于 2026-10-31，1.6.5 为 2026-10-25 的历史版本。未安装该版本，也未重新核验全部架构、CUDA 或 TabbyAPI 兼容性。

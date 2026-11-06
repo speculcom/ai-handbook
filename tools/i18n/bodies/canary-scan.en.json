@@ -1,0 +1,35 @@
+{
+  "_comment": "safety E包 · canary-scan bodies EN（2026-11-06）。sections/sectionTitles 与源侧固定小节标题逐字对齐；sources 按索引对齐 frontmatter。命令与路径保持原文形态。",
+  "axes": {
+    "model_access": "Neither the README nor the documentation index reached today treats \"whose model\" as a configuration item: detection is described as static analysis of raw file structure, metadata, embedded objects and near-duplicate fingerprints. The documentation index states, as of the verification day, offline operation with no LLM and no API key involved. Whether any stage ever consults a model is not stated officially.",
+    "runtime": "A local command-line tool with two documented installs: `pipx install canary-scan` (the README expects you to provide system tools such as exiftool, qpdf, poppler-utils, mupdf-tools, ripgrep, unzip and p7zip) and the container image `ghcr.io/psaintelligence/canary-scan:latest`, which the README recommends because the image bundles those system tools. PyPI metadata measured today requires Python 3.10 or newer.",
+    "local_files": "Reading the file set you supply is the core action: the Docker example mounts the data source read-only (`-v /mnt/datasource:/data:ro`) and writes results to a separate output directory. The README states inspection happens without opening a file in its native viewer, deliberately avoiding remote references that documents may contain. Per-stage artefacts land in `.canary-scan/`.",
+    "background": "A batch command run per invocation, not a resident service. No daemon, task queue or incremental-watch mode is stated officially; periodic re-scans have to be scheduled by you.",
+    "tools": "The command surface listed by the documentation index for the day is `scan`, `stage`, `report` and `deps`, plus `--guide` for a cheat sheet. Reporting is JSON (the example filters `severity==\"critical\"` with jq), so it drops straight into scripts and pipelines. The seven-stage pipeline is inventory, metadata, remote-refs, embedded, stego, uniqueness and report, each writing one JSONL artefact. MCP or other extension points are not stated officially.",
+    "context": "Each scan is self-contained; there is no session memory. Cross-file linkage comes from the uniqueness stage's near-duplicate fingerprints and the stage artefacts. Historical baselines, cross-run comparison stores and retention policy are not stated officially.",
+    "permissions": "Licensed Apache-2.0, with BSD 2-Clause for bundled scripts (see the license field). On data flow: the README and documentation index captured today declare no telemetry, no reporting and no external service calls, with \"offline\" being the wording given by the documentation index; a formal network-isolation clause is not published. On the supply chain, the official text says third-party Python dependencies are pinned with `uv`'s `exclude-newer` to releases no newer than 14 days, and the bundled scripts are fixed at build time via `make vendor` with provenance recorded.",
+    "fit": "Fits a static pre-flight over externally supplied document sets (leaks, legal disclosures, investigation material) to find anything that could reveal to the external party that the data source is being examined — tracking pixels, remote templates, beacons, per-recipient fingerprints. Does not fit judgement calls about tampered natural-language instructions, nor runtime interception of model input/output: the official text positions it as pre-contact document inspection, not a model-I/O guardrail."
+  },
+  "runs": "This site has not run end-to-end tests: no `scan` was executed, no stage output structure was verified, and the failure behaviour with missing system dependencies was not observed. The page only organises the official README, the documentation-site index, the LICENSE and PyPI metadata, all fetched 2026-11-06.",
+  "unknowns": "- The official text does not list \"prompt-injection text detection\" as a channel; the link to the indirect-injection attack surface is this site's reading, not an official statement\n- The complete set of supported file formats (the documentation index only gives a \"various formats\" level statement)\n- The concrete criteria behind the severity levels (critical down to info)\n- Formal telemetry and network-isolation terms (only the \"offline\" wording was available today)\n- Whether historical baselines / cross-run comparison exist\n- Integration with agent runtimes (MCP or other extensions)\n- Mainland direct reachability and filing status (recorded as unknown in the cn block)",
+  "related": [
+    "Same line: LLM Guard (in red-teaming and injection scanning); this entry states only what its own official sources support.",
+    "Same line: Rebuff (in red-teaming and injection scanning); this entry states only what its own official sources support.",
+    "Same line: garak (in red-teaming and injection scanning); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "CanaryScan · Releases (v0.2.0, 2026-07-20; v0.1.1 to v0.1.4 all on 2026-06-26)",
+    "CanaryScan · official documentation site (command surface and seven-stage pipeline)",
+    "CanaryScan · repository README (Docker / pipx usage and supply-chain terms)",
+    "CanaryScan · official LICENSE (Apache-2.0, bundled scripts additionally BSD 2-Clause)",
+    "PyPI · canary-scan (0.2.0; requires_python 3.10 or newer)"
+  ],
+  "sectionTitles": {
+    "官方命令面与管道": "Official command surface and pipeline",
+    "维护状态": "Maintenance status"
+  },
+  "sections": {
+    "官方命令面与管道": "Usage points given by the README and docs index (2026-11-06):\n\n- Container: `docker run --rm -v /mnt/datasource:/data:ro -v $(pwd)/canary-scan-out:/output ghcr.io/psaintelligence/canary-scan:latest scan /data -o /output`\n- Host: `pipx install canary-scan`, then install `libimage-exiftool-perl qpdf poppler-utils mupdf-tools ripgrep unzip p7zip-full`, then `canary-scan scan /mnt/datasource`\n- Subcommands: `scan` / `stage` / `report` / `deps`; `--guide` prints a cheat sheet\n- Seven stages: inventory → metadata → remote-refs → embedded → stego → uniqueness → report, each writing one JSONL file into `.canary-scan/`\n- Report: `canary-scan-out/canary-scan-report.json`; the example filters `severity==\"critical\"` with jq\n\n**Supply-chain terms** (key points of the official README): third-party Python dependencies are pinned to releases no newer than 14 days via `uv`'s `exclude-newer`; the Didier Stevens scripts are fixed at build time with `make vendor`, with commit SHA, version and date recorded in `src/canary_scan/bundled/VERSIONS.txt`.",
+    "维护状态": "The repository is not archived. GitHub shows the last push and the newest release (v0.2.0) both on 2026-07-20, i.e. more than 90 days before this verification, and the whole release history sits inside the two weeks from 2026-06-26 to 2026-07-20. The entry therefore records lifecycle `maintenance` with confidence capped at `partial`: the cadence reading is a snapshot, not an official statement of discontinuation."
+  }
+}

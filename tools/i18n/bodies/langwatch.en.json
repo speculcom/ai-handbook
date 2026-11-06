@@ -1,0 +1,24 @@
+{
+  "_comment": "safety 大类自写批 · langwatch 正文英译（2026-11-06）。axes 八维、runs/unknowns 对应「官方口径与未核到项 / 未知项清单」；一句话定位与适合与不适合两节由 .md 正文渲染，related/sources 按索引对齐。",
+  "axes": {
+    "model_access": "The docs position it as an LLMOps platform that tracks \"every LLM call, tool usage, and user interaction\"; the models under test are yours to connect, the platform does not ship a model. The full compatibility list was not verified item by item on the check date.",
+    "runtime": "Two placements: the hosted product, or self-hosting the open-source core (the docs state the core is Apache-2.0 and self-hostable). Feature differences between hosted and self-hosted were not verified item by item.",
+    "local_files": "Self-hosting keeps traces in your own storage; on the hosted product trace data leaves your machine. Retention location and deletion terms were not verified for this entry.",
+    "background": "Tracing and evaluation run as a continuous service; the offline batch and scheduled-task surface was not verified item by item.",
+    "tools": "The official list of capabilities is tracing, evaluations, agent testing and prompt management; whether custom judges and external tools can be plugged in is not spelled out on the pages checked.",
+    "context": "Context length belongs to the application under test; platform-side limits on trace size, sampling and retention windows were not verified.",
+    "permissions": "The hosted product has an account and team permission model (tiering not verified); self-hosted, permissions equal whatever your deployment grants.",
+    "fit": "Fits: keeping live calls, evaluations and prompt versions in one place while retaining a self-hosting path. Does not fit: anyone wanting only a ready-made benchmark score, or anyone who cannot let trace data leave their environment and plans to use the hosted product."
+  },
+  "runs": "This entry has not completed measured runs on interception rates, evaluation consistency or performance. Capability wording comes from the official docs and changelog reachable on the check date; the site does not restate their figures as an evaluation, and draws no comparison against similar products.",
+  "unknowns": "- Feature delta between the hosted product and the self-hosted core\n- Retention location, deletion deadlines and training use on the hosted plan\n- Full list of supported models and frameworks\n- Exact boundaries of custom judges and external tool integrations\n- Trace size limits, sampling policy and retention window\n- Account and team permission tiers on the hosted product",
+  "related": [
+    "Same line: Helicone (in evaluation and observability); this entry states only what its own official sources support.",
+    "Same line: OpenAI Evals (in evaluation and observability); this entry states only what its own official sources support.",
+    "Same line: Inspect (in evaluation and observability); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "LangWatch · official docs (tracing / evaluations / agent testing / prompt management, self-hosting note; 200 direct on 2026-11-06)",
+    "LangWatch · changelog (200 direct on 2026-11-06)"
+  ]
+}

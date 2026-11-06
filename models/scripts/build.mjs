@@ -9,6 +9,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SERIES, QUANTIZER_NOTES, COMPANION, COMPANION_URL_PREFIX } from '../config.js';
+import {syncEditorial} from './sync-editorial.mjs';
+import {capacityWorkbench} from './capacity-workbench.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
@@ -115,6 +117,7 @@ function QEN(s) {
 const DOMAIN = 'https://models.specul.com/';
 
 // ── 读数据 ──────────────────────────────────────────────────────────────
+console.log(`  · 编辑文案同步：${syncEditorial()} 份快照（不改变采集字段与日期）`);
 const seriesList = fs.readdirSync(path.join(ROOT, 'data', 'series'))
   .filter((f) => f.endsWith('.json'))
   .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'series', f), 'utf8')));
@@ -274,7 +277,7 @@ function cnSection(cn) {
         <li><b>${bi('国内下载', 'Direct access')}</b>　${bi(CN_DIRECT_LABEL[cn.direct] ? CN_DIRECT_LABEL[cn.direct][0] : '?', CN_DIRECT_LABEL[cn.direct] ? CN_DIRECT_LABEL[cn.direct][1] : '?')}　${bi(esc(cn.directNote || ''), esc(cn.directNoteEn || cn.directNote || ''))}${mirrorRow}</li>
         <li><b>${bi('备案状态', 'CAC filing')}</b>　${filingRow}</li>
       </ul>
-      <p class="fam-claims-note">${bi('备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站从大陆网络直连实测的结果，不是厂商承诺。', 'Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site\'s own reachability measurement from a mainland network, not a vendor promise.')}</p>
+      <p class="fam-claims-note">${bi('备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站探测环境中的可达性记录，不是厂商承诺。', 'Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site\'s own reachability measurement from a mainland network, not a vendor promise.')}</p>
       <ul class="fam-src-list cn-srcs">${(cn.sources || []).map((s) => `<li>${bi(esc(s.label) + '：', esc(s.labelEn || s.label) + ': ')}<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}</ul>
     </section>`;
 }
@@ -308,9 +311,7 @@ const fmtB = (n) => {
 // KV ≈ 2 (K+V) × layers × kvDim × ctx × bytesPerElem；MoE 需总参，架构差异大 → 只给区间
 function vramRange(f) {
   const w = f.sizeGB;
-  if (w < 8) return `≥ ${Math.ceil((w * 1.15) / 2) * 2} GB`;
-  if (w > 60) return `多卡 / 分层加载`;
-  return bi(`≈ ${Math.ceil((w * 1.15) / 4) * 4} GB（仅权重）`, `≈ ${Math.ceil((w * 1.15) / 4) * 4} GB (weights only)`);
+  return bi(`初筛约 ${Math.ceil(w * 1.15)} GB（文件 × 1.15；缓存另算）`, `Filter: about ${Math.ceil(w * 1.15)} GB (file × 1.15; cache separate)`);
 }
 
 const TIER_ORDER = ['近似无损', '保守档', '平衡档', '长上下文优先', '极限压缩', '未识别'];
@@ -331,7 +332,7 @@ function trustBanner() {
         </div>
         <div class="trust-item t-b">
           <span class="trust-tag">✅ ${bi('推导','Derived')}</span>
-          <p>${bi('由实测字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存需求区间。推导规则在', 'Computed from the measured fields by published rules: bits per weight (per the llama.cpp naming convention), tier assignment, VRAM requirement range. The rules are fully published in')} <code>METHODOLOGY.md</code>${bi(' 完整公开，任何人可复算。',' — anyone can recompute them.')}</p>
+          <p>${bi('由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存需求区间。推导规则在', 'Computed from the collected fields by published rules: bits per weight (per the llama.cpp naming convention), tier assignment, VRAM requirement range. The rules are fully published in')} <code>METHODOLOGY.md</code>${bi(' 完整公开，任何人可复算。',' — anyone can recompute them.')}</p>
         </div>
         <div class="trust-item t-c">
           <span class="trust-tag">❌ ${bi('我们不说的','What we do not claim')}</span>
@@ -538,28 +539,15 @@ function blockB(s, m) {
   // 剩下的落系统内存（纯 CPU 运行），或跨多卡切分（张量并行）。
   // 不区分这两类会给用户错误建议：Kimi-K3 最小档 540 GB 在任何单卡上都不存在，
   // 但它并不是「不能跑」，而是「要按 CPU 卸载或多卡的方式跑」。
-  const GPU_BUDGETS = [
-    { gb: 8, label: '8 GB 显存', labelEn: '8 GB VRAM', note: '共享显卡 / 老卡，够跑小MoE 与 2B 级', noteEn: 'shared or older cards; enough for small MoE and 2B-class models' },
-    { gb: 12, label: '12 GB 显存', labelEn: '12 GB VRAM', note: 'RTX 3060 12G / 4050 12G', noteEn: 'RTX 3060 12G / 4050 12G' },
-    { gb: 16, label: '16 GB 显存', labelEn: '16 GB VRAM', note: 'RTX 4060 Ti 16G / 5060 Ti 16G', noteEn: 'RTX 4060 Ti 16G / 5060 Ti 16G' },
-    { gb: 24, label: '24 GB 显存', labelEn: '24 GB VRAM', note: 'RTX 3090 / 4090 / 5090', noteEn: 'RTX 3090 / 4090 / 5090' },
-    { gb: 48, label: '48 GB 显存', labelEn: '48 GB VRAM', note: 'RTX A6000 / L40S / A100 40G×2', noteEn: 'RTX A6000 / L40S / A100 40G×2' },
-    { gb: 80, label: '80 GB 显存', labelEn: '80 GB VRAM', note: 'A100 80G / H100 80G / Mac Studio 大统一内存', noteEn: 'A100 80G / H100 80G / Mac Studio large unified memory' },
-  ];
-  // 系统内存档：llama.cpp 纯 CPU 推理（全部权重落内存），以及多卡切分。
-  const RAM_BUDGETS = [
-    { gb: 64, label: '64 GB 系统内存', labelEn: '64 GB system RAM', kind: 'cpu', note: '纯 CPU 推理，速度慢但可跑；建议开swap 兜底', noteEn: 'CPU-only inference — slow but it runs; enable swap as a safety net' },
-    { gb: 128, label: '128 GB 系统内存', labelEn: '128 GB system RAM', kind: 'cpu', note: '工作站标准配置，纯 CPU 可跑中等规模 MoE', noteEn: 'the standard workstation config; CPU-only handles mid-size MoE' },
-    { gb: 256, label: '256 GB 统一内存 / 多卡', labelEn: '256 GB unified memory / multi-GPU', kind: 'multi', note: 'Mac Studio / 服务器内存，或 2~4 张 80G 卡张量并行', noteEn: 'Mac Studio / server memory, or 2–4 × 80G cards under tensor parallel' },
-    { gb: 640, label: '640 GB+ 内存 / 8×80G', labelEn: '640 GB+ memory / 8×80G', kind: 'multi', note: '超大 MoE 的门槛，需要多卡切分或大内存服务器', noteEn: 'the threshold for very large MoE — needs multi-GPU splitting or a big-memory server' },
-  ];
+  const GPU_BUDGETS = [{"gb": 8, "label": "8 GB 示例容量", "labelEn": "8 GB illustrative capacity", "note": "示例容量档；不是硬件型号推荐，需另算缓存与运行时。", "noteEn": "Illustrative capacity; not a hardware recommendation. Budget cache/runtime separately."}, {"gb": 12, "label": "12 GB 示例容量", "labelEn": "12 GB illustrative capacity", "note": "示例容量档；不是硬件型号推荐，需另算缓存与运行时。", "noteEn": "Illustrative capacity; not a hardware recommendation. Budget cache/runtime separately."}, {"gb": 16, "label": "16 GB 示例容量", "labelEn": "16 GB illustrative capacity", "note": "示例容量档；不是硬件型号推荐，需另算缓存与运行时。", "noteEn": "Illustrative capacity; not a hardware recommendation. Budget cache/runtime separately."}, {"gb": 24, "label": "24 GB 示例容量", "labelEn": "24 GB illustrative capacity", "note": "示例容量档；不是硬件型号推荐，需另算缓存与运行时。", "noteEn": "Illustrative capacity; not a hardware recommendation. Budget cache/runtime separately."}, {"gb": 48, "label": "48 GB 示例容量", "labelEn": "48 GB illustrative capacity", "note": "示例容量档；不是硬件型号推荐，需另算缓存与运行时。", "noteEn": "Illustrative capacity; not a hardware recommendation. Budget cache/runtime separately."}, {"gb": 80, "label": "80 GB 示例容量", "labelEn": "80 GB illustrative capacity", "note": "示例容量档；不是硬件型号推荐，需另算缓存与运行时。", "noteEn": "Illustrative capacity; not a hardware recommendation. Budget cache/runtime separately."}];
+  const RAM_BUDGETS = [{"gb": 64, "label": "64 GB 合计容量示例", "labelEn": "64 GB aggregate-capacity example", "kind": "cpu", "note": "示例合计容量；不是单进程可用量，多卡/系统内存不能直接等同一块显存。", "noteEn": "Illustrative aggregate capacity, not process-available memory. Multiple devices/RAM are not one VRAM pool."}, {"gb": 128, "label": "128 GB 合计容量示例", "labelEn": "128 GB aggregate-capacity example", "kind": "cpu", "note": "示例合计容量；不是单进程可用量，多卡/系统内存不能直接等同一块显存。", "noteEn": "Illustrative aggregate capacity, not process-available memory. Multiple devices/RAM are not one VRAM pool."}, {"gb": 256, "label": "256 GB 合计容量示例", "labelEn": "256 GB aggregate-capacity example", "kind": "cpu", "note": "示例合计容量；不是单进程可用量，多卡/系统内存不能直接等同一块显存。", "noteEn": "Illustrative aggregate capacity, not process-available memory. Multiple devices/RAM are not one VRAM pool."}, {"gb": 640, "label": "640 GB 合计容量示例", "labelEn": "640 GB aggregate-capacity example", "kind": "cpu", "note": "示例合计容量；不是单进程可用量，多卡/系统内存不能直接等同一块显存。", "noteEn": "Illustrative aggregate capacity, not process-available memory. Multiple devices/RAM are not one VRAM pool."}];
 
   const fitRows = (list, kind) => list.map((b) => {
     const fits = rows.filter((r) => r.sizeGB * 1.15 <= b.gb);
     if (fits.length === 0) {
       const why = kind === 'cpu'
-        ? bi('内存装不下最小档', 'memory cannot hold even the smallest tier')
-        : bi('显存装不下最小档', 'VRAM cannot hold even the smallest tier');
+        ? bi('此示意筛选没有候选', 'No candidate under this illustrative filter')
+        : bi('此示意筛选没有候选', 'No candidate under this illustrative filter');
       return `        <tr><th>${bi(esc(b.label), esc(b.labelEn || b.label))}</th><td class="no-fit">${why}${bi(`（最小 ${rows[0] ? rows[0].sizeGB.toFixed(1) + ' GB' : '—'}）`, ` (smallest tier ${rows[0] ? rows[0].sizeGB.toFixed(1) + ' GB' : '—'})`)}<br><span class="muted">${bi(esc(b.note), esc(b.noteEn || b.note))}</span></td></tr>`;
     }
     const best = fits.reduce((a, c) => (tierOf(c.tier) < tierOf(a.tier) ? c : a));
@@ -571,9 +559,7 @@ function blockB(s, m) {
       .filter((f) => f.quant !== best.quant && f.sizeGB < best.sizeGB)
       .sort((a, c) => c.sizeGB - a.sizeGB)
       .slice(0, 2);
-    const extra = kind === 'cpu'
-      ? bi('<br><span class="muted small">纯 CPU 会明显慢于 GPU；若显存够，优先用上面的单卡档</span>', '<br><span class="muted small">CPU-only is markedly slower than GPU — if you have the VRAM, prefer the single-card tiers above</span>')
-      : '';
+    const extra = '';
     return `        <tr>
           <th>${bi(esc(b.label), esc(b.labelEn || b.label))}</th>
           <td>
@@ -587,9 +573,7 @@ function blockB(s, m) {
   const minSize = rows.length ? rows[0].sizeGB : null;
   const maxSize = rows.length ? rows[rows.length - 1].sizeGB : null;
   // 超大 MoE 提示：最小档就超过单卡上限时，必须显式说明「不是不能跑，是要换运行方式」
-  const hugeNote = minSize && minSize > 80
-    ? `<p class="warn-note">${bi('<b>先看这一条：</b>本成员最小档','<b>Read this first:</b> the smallest tier of this member')}（${fmtGB(minSize)}）${bi('已超过任何单张消费级显卡，\n        所以', 'exceeds what any single consumer GPU can hold, so')}<span class="nowrap">${bi('不存在「买张大卡就能跑」的选项', 'there is no "buy a bigger card and it runs" option')}</span>${bi('。可选路径是\n        <b>①</b> 大内存机器纯 CPU 推理、<b>②</b> 多卡张量并行、<b>③</b> 选同系列的小规格成员。\n        下面的表按这两类运行方式给出建议。', '. The viable paths are\n        <b>①</b> CPU-only inference on a high-RAM machine, <b>②</b> multi-GPU tensor parallelism, <b>③</b> a smaller member of the same series.\n        The table below gives recommendations for these two running modes.')}</p>`
-    : '';
+  const hugeNote = minSize && minSize > 80 ? `<p class="warn-note">${bi('本成员最小发布文件已超过上面的 80 GB 示例容量。先核对可用容量、分配方式与运行器支持，不能从文件大小断言运行方式。','The smallest published file exceeds the 80 GB example. Check available capacity, allocation and runtime support; file size does not establish an execution configuration.')}</p>` : '';
 
   /* B4（2026-10-09）：显存倒推**决策工具**。
    * 静态速查表只给 8/12/16/24… 这些档位，而读者的卡常常是 11 GB、20 GB。
@@ -598,7 +582,7 @@ function blockB(s, m) {
    * 数据内嵌为 JSON（不是再渲染一张表），这样前端算的就是库里的原始数字。 */
   const vtData = [...byQuant.values()]
     .filter((r) => r.tier && r.tier !== '未识别' && r.sizeGB > 0)
-    .map((r) => ({ q: r.quant, qe: QEN(r.quant), g: +Number(r.sizeGB).toFixed(2), t: r.tier, u: r.url, b: r.by, rp: r.repo }))
+    .map((r) => ({ q: r.quant, qe: QEN(r.quant), g: +Number(r.sizeGB).toFixed(2), t: r.tier, te: EN('tier', r.tier), u: r.url, b: r.by, rp: r.repo }))
     .sort((a, b) => a.g - b.g);
   const vramTool = `      <div class="vramtool">
         <div class="vt-row">
@@ -610,21 +594,21 @@ function blockB(s, m) {
         <script type="application/json" class="vt-data">${JSON.stringify(vtData)}</script>
       </div>`;
 
-  return `      <p class="block-lead">${bi('按「你实际能腾出多少显存或内存」选档位，而不是按参数猜。下面每档的体积都是<b>实测值</b>（来自发布页文件列表），<b>加权 15% 余量</b>给运行时与 KV cache。', 'Pick a tier by how much VRAM or memory you can actually free up, not by guessing from spec sheets. Every size below is <b>measured</b> (from the release page file listing) with <b>15% headroom</b> added for runtime and the KV cache.')}</p>
+  return `      <p class="block-lead">${bi('下面按发布文件体积 × 1.15 做<b>示意筛选</b>。文件大小来自发布页列表，不是运行内存实测；15% 只是固定练习假设，<b>不能代替随上下文、架构和并发变化的缓存预算</b>。先筛候选，再用容量工具核对。', 'An <b>illustrative filter</b> uses published file size × 1.15. Sizes come from release listings, not measured resident memory. The fixed 15% teaching assumption <b>does not replace a context-, architecture- and concurrency-dependent cache budget</b>. Filter candidates, then check capacity.')}</p>
       ${hugeNote}
 ${vramTool}
-      <h3 class="budget-h">${bi('单卡全量装得下', 'Fits entirely on one card')}</h3>
+      <p><a href="../../guides/gpu-cost-math.html#capacity-workbench">${bi('填写上下文、并发与驻留容量预算','Budget context, concurrency and resident memory')}</a></p>
+      <h3 class="budget-h">${bi('按文件体积初筛候选', 'Initial candidates by file size')}</h3>
       <table class="budget">
-        <caption>${bi('显存 → 档位速查（权重全部放显存，不卸载到系统内存）','VRAM → tier cheat sheet (all weights on the GPU, no offload to system memory)')}</caption>
+        <caption>${bi('示例容量 → 文件体积候选（不证明可运行）','Illustrative capacity → file-size candidates (not execution validation)')}</caption>
         <tbody>
 ${fitRows(GPU_BUDGETS, 'gpu')}
         </tbody>
       </table>
-      <h3 class="budget-h">${bi('显存不够时的替代路径','When VRAM is not enough')}</h3>
-      <p class="muted small">${bi('llama.cpp 的',"llama.cpp’s")} <code>-ngl</code> ${bi('可以只把部分层放显存、其余落系统内存；多卡则自动切分。', 'can keep only some layers on the GPU and spill the rest to system memory; with multiple cards it splits automatically.')}
-        ${bi("代价是速度：纯 CPU 推理通常比同规模 GPU 慢数倍，但同样能出结果。", "The trade-off is speed: CPU-only inference is usually several times slower than a comparable GPU, but still produces results.")}</p>
+      <h3 class="budget-h">${bi('系统内存与多设备：单独核对','System RAM and multiple devices: check separately')}</h3>
+      <p class="muted small">${bi('分层加载、CPU 卸载和多设备分配取决于运行器、模型与后端版本。合计容量不等于单进程可用显存；不能仅凭表格保证能运行或推断速度。','Layer loading, CPU offload and multi-device allocation depend on runtime, model and backend version. Aggregate capacity is not process-available VRAM; this table establishes neither execution nor speed.')}</p>
       <table class="budget">
-        <caption>${bi('系统内存 / 多卡 → 档位速查','System memory / multi-GPU → tier cheat sheet')}</caption>
+        <caption>${bi('合计容量示例 → 文件体积候选','Aggregate-capacity examples → file-size candidates')}</caption>
         <tbody>
 ${fitRows(RAM_BUDGETS, 'cpu')}
         </tbody>
@@ -632,7 +616,7 @@ ${fitRows(RAM_BUDGETS, 'cpu')}
       ${maxSize ? `${bi(`<p class="muted small">本系列档位体积跨度 ${fmtGB(minSize)} → ${fmtGB(maxSize)}。`, `<p class="muted small">Tier sizes in this series span ${fmtGB(minSize)} → ${fmtGB(maxSize)}.`)}
         跨度过大说明同一系列的量化选择空间很宽，这正是量化选型的主要收益所在。</p>` : ''}
       <details class="all-quants">
-        <summary>${bi('展开：本系列所有档位的实测体积','Expand: measured sizes for every tier')}（${rows.length} ${bi('档','tiers')}）</summary>
+        <summary>${bi('展开：发布文件体积','Expand: published file sizes')}（${rows.length} ${bi('档','tiers')}）</summary>
         <table class="quant-list">
           <thead><tr><th>${bi('量化档','Quant')}</th><th>${bi('最小体积','Min size')}</th><th>${bi('每权重比特','bpw')}</th><th>${bi('档位','Tier')}</th><th>${bi('这档意味着什么','What this tier means')}</th><th>${bi('该档文件数 / 体积跨度', 'Files in tier / size range')}</th><th>最小体积来源</th></tr></thead>
           <tbody>
@@ -784,7 +768,7 @@ function blockD(s, m) {
     if (v.isOfficial) did.push(bi('模型作者自行量化，只有覆盖不到的档位才需要考虑第三方', 'Quantised by the model author; third parties are only worth considering for tiers this does not cover'));
     if (v.imatrix) did.push(bi(`带重要性矩阵（imatrix：<code>${esc(v.imatrixFile || 'imatrix.dat')}</code>），用激活数据统计各层重要性后再量化，通常比纯 RTN 稳`, `Ships an importance matrix (imatrix: <code>${esc(v.imatrixFile || 'imatrix.dat')}</code>) — quantises after scoring each layer by activation statistics, usually steadier than plain RTN`));
     else did.push(bi('未提供重要性矩阵（imatrix），走的是纯权重量化路线', 'No importance matrix (imatrix); this is pure weight quantisation'));
-    if (v.architecture) did.push(bi(`针对 <code>${esc(v.architecture)}</code> 架构优化`, `Optimised for the <code>${esc(v.architecture)}</code> architecture`));
+    if (v.architecture) did.push(bi(`声明架构 <code>${esc(v.architecture)}</code>，需核对运行器版本支持`, `Declares <code>${esc(v.architecture)}</code>; check support in your runtime version`));
     if (v.contextLength) did.push(bi(`声明上下文 ${Number(v.contextLength).toLocaleString('en-US')} tokens`, `Declared context ${Number(v.contextLength).toLocaleString('en-US')} tokens`));
     if (v.declaredBase) did.push(bi(`发布页声明溯源到 <code>${esc(Array.isArray(v.declaredBase) ? v.declaredBase[0] : v.declaredBase)}</code>`, `The release page traces this back to <code>${esc(Array.isArray(v.declaredBase) ? v.declaredBase[0] : v.declaredBase)}</code>`));
     if (v.totalFileSize) did.push(bi(`权重总字节 ${(v.totalFileSize / 1e9).toFixed(1)} GB（发布页 <code>gguf.total</code> 字段）`, `Total weight bytes ${(v.totalFileSize / 1e9).toFixed(1)} GB (the release page's <code>gguf.total</code> field)`));
@@ -804,35 +788,35 @@ function blockD(s, m) {
 
     // 字段 4 · 存在的意义
     const why = v.isOfficial
-      ? bi('模型作者最清楚哪几层权重对质量敏感，官方量化通常是最保守、最不会出错的选择——<b>官方出了就优先用它</b>。',
-           'The model author knows best which layers are quality-sensitive, and official quantisation is usually the most conservative, least likely to break — <b>reach for the official build first</b>.')
-      : bi(`补上官方没覆盖的档位（${rec ? esc(rec.quant) : '—'} 这类），让你能在有限显存里凑合跑起来，或者反过来用更高精度换质量。`,
-           `Fills tiers the official build does not cover (such as ${rec ? esc(QEN(rec.quant)) : '—'}), so you can get it running on limited VRAM — or trade the other way, for more precision and quality.`);
+      ? bi('由模型发布方提供，便于回查发布说明与来源。官方身份不保证每个任务的质量、速度或兼容性。',
+           'Published by the model author, allowing its release notes and provenance to be checked. Official status does not establish quality, speed or compatibility for every task.')
+      : bi(`提供 ${rec ? esc(rec.quant) : '—'} 等量化候选。请核对基座版本、量化说明、校验值与运行器支持；第三方身份本身不说明质量高低。`,
+           `Provides quantisation candidates such as ${rec ? esc(QEN(rec.quant)) : '—'}. Check base version, method, checksums and runtime support; third-party status alone does not determine quality.`);
 
     // 字段 5 · 优势
     const adv = [];
-    if (v.coverage >= 20) adv.push(bi(`档位覆盖最广的一档（${v.coverage} 档），从极限压缩到近似无损都能选`, `The widest tier coverage here (${v.coverage} tiers), from extreme compression up to near lossless`));
-    if (v.imatrix) adv.push(bi('带 imatrix，同档位下质量通常更稳', 'Ships imatrix, so quality at the same tier is usually steadier'));
-    if (v.isOfficial) adv.push(bi('官方出品，出错时责任明确', 'Made by the model author, so there is someone accountable when it goes wrong'));
-    if (v.downloads >= 1e6) adv.push(bi(`社区验证充分（${fmtNum(v.downloads)} 次下载），踩坑的人少`, `Well exercised by the community (${fmtNum(v.downloads)} downloads), so fewer people hit its rough edges`));
-    if (rec) adv.push(bi(`平衡档落在 <code>${esc(rec.quant)}</code>（${fmtGB(rec.sizeGB)}），是大多数人的起点`, `The balanced tier lands on <code>${esc(QEN(rec.quant))}</code> (${fmtGB(rec.sizeGB)}), the starting point for most people`));
-    if (adv.length === 0) adv.push(bi('体量较小，适合只想快速验证能不能跑的场景', 'Small enough for a quick check of whether it runs at all'));
+    if (v.coverage >= 20) adv.push(bi(`快照识别 ${v.coverage} 个档位，可按体积与运行器支持筛选`, `The snapshot identifies ${v.coverage} tiers; filter by size and runtime support`));
+    if (v.imatrix) adv.push(bi('元数据记录了 imatrix；质量仍需结合校准资料与任务评估', 'Metadata records an imatrix; quality still requires calibration details and task evaluation'));
+    if (v.isOfficial) adv.push(bi('发布来源为模型方，具体支持范围以发布说明为准', 'Published by the model author; consult its release notes for support scope'));
+    if (v.downloads >= 1e6) adv.push(bi(`快照下载量 ${fmtNum(v.downloads)}；不代表独立用户数、成功运行或质量验证`, `Snapshot downloads: ${fmtNum(v.downloads)}; not a count of unique users, successful runs or quality validations`));
+    if (rec) adv.push(bi(`规则候选为 <code>${esc(rec.quant)}</code>（${fmtGB(rec.sizeGB)}），不构成性能结论`, `Rule-based candidate: <code>${esc(QEN(rec.quant))}</code> (${fmtGB(rec.sizeGB)}), not a performance finding`));
+    if (adv.length === 0) adv.push(bi('按文件体积与版本信息逐项核对；本站没有该版本的运行结果', 'Check file size and version details; this site has no execution results for this build'));
 
     // 字段 6 · 为什么选它 / 目的
     const purpose = rec
-      ? bi(`如果你的瓶颈是<b>显存</b>：直接下 <code>${esc(rec.quant)}</code>（${fmtGB(rec.sizeGB)}，${esc(rec.tier)}）。<br>如果你的瓶颈是<b>速度</b>：这个仓里没有更快的档位（GGUF 的速度主要由架构与后端决定，不由量化档决定），换量化者意义不大。<br>如果你的瓶颈是<b>质量</b>：往上走一档到保守档（Q5_K_M / Q6_K）。`,
-           `If <b>VRAM</b> is your constraint: take <code>${esc(QEN(rec.quant))}</code> directly (${fmtGB(rec.sizeGB)}, ${esc(EN('tier', rec.tier))}).<br>If <b>speed</b> is your constraint: this repo has nothing faster — GGUF speed is decided by architecture and backend, not by quantisation tier — so switching quantiser will not help.<br>If <b>quality</b> is your constraint: step up one tier to conservative (Q5_K_M / Q6_K).`)
+      ? bi(`文件体积候选为 <code>${esc(rec.quant)}</code>（${fmtGB(rec.sizeGB)}，${esc(rec.tier)}）。先用<a href="../../guides/gpu-cost-math.html">容量预算</a>核对缓存、并发与系统开销，再查发布说明中的版本兼容性。`,
+           `File-size candidate: <code>${esc(QEN(rec.quant))}</code> (${fmtGB(rec.sizeGB)}, ${esc(EN('tier', rec.tier))}). Check cache, concurrency and system overhead with the <a href="../../guides/gpu-cost-math.html">capacity budget</a>, then verify version compatibility in the release notes.`)
       : bi('该仓无可用档位。', 'This repo has no usable tier.');
 
     // 字段 7 · 已知取舍
     const cost = [];
-    if (v.coverage <= 3) cost.push(bi('档位极少，没有升降空间，被显存卡住时无路可退', 'Very few tiers, so there is no room to move up or down when VRAM runs out'));
-    if (!v.imatrix && !v.isOfficial) cost.push(bi('无 imatrix，同档位下质量损失可能比带 imatrix 的版本更明显（<b>我们的口径，需实测验证</b>）', 'No imatrix, so quality loss at the same tier may be more visible than in an imatrix build (<b>our reading, to be verified by measurement</b>)'));
+    if (v.coverage <= 3) cost.push(bi(`快照仅识别 ${v.coverage} 个档位；不合预算时需再查其他发布源`, `The snapshot identifies only ${v.coverage} tiers; inspect other sources if none fits your budget`));
+    if (!v.imatrix && !v.isOfficial) cost.push(bi('未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量', 'No imatrix recorded; inspect release notes. This missing field alone does not determine quality'));
     if (v.totalGB > 200) cost.push(bi(`全仓 ${fmtGB(v.totalGB)}，硬盘紧张的话建议只下需要的 1~2 个档位`, `${fmtGB(v.totalGB)} for the whole repo — if disk is tight, download only the one or two tiers you need`));
     if (NEEDS_REVIEW.test(v.license || '')) cost.push(bi(`许可是 <code>${esc(v.license)}</code>，<b>必须自己读发布页原文</b>再决定能不能用`, `The licence is <code>${esc(v.license)}</code> — <b>read the release page yourself</b> before deciding whether you may use it`));
-    if (v.licenseInherited) cost.push(bi(`量化仓<b>自己没写许可字段</b>，这里的 <code>${esc(v.license)}</code> 是继承基座 <code>${esc(v.licenseFrom || '?')}</code> 的推断值——著作权上量化不可能脱离基座许可，但量化者的 redistribution 条款是否另有约定，需自己去读基座许可原文确认`, `The quant repo <b>declares no licence of its own</b>; the <code>${esc(v.license)}</code> shown here is inferred from the base model's <code>${esc(v.licenseFrom || '?')}</code> — under copyright, a quantisation cannot escape the base licence. Whether the quantiser adds its own redistribution terms is for you to determine by reading the base licence.`));
+    if (v.licenseInherited) cost.push(bi(`量化仓<b>未填写许可元数据字段</b>。此处 <code>${esc(v.license)}</code> 来自基座 <code>${esc(v.licenseFrom || '?')}</code> 的推断，不是量化者明确授权；请同时核对基座许可、量化仓文件与再分发条件`, `The quant repo <b>does not fill the licence metadata field</b>. The displayed <code>${esc(v.license)}</code> is inferred from base <code>${esc(v.licenseFrom || '?')}</code>, not an explicit grant by the quantiser. Check the base licence, quantisation-repo files and redistribution conditions together.`));
     if (v.lastModified && (Date.now() - new Date(v.lastModified)) / 86400000 > 180) cost.push(bi(`已 ${Math.round((Date.now() - new Date(v.lastModified)) / 86400000)} 天未更新，基础模型若有新版可能已不同步`, `Not updated for ${Math.round((Date.now() - new Date(v.lastModified)) / 86400000)} days, so it may no longer track a newer base model`));
-    if (cost.length === 0) cost.push(bi('暂未发现明显取舍（不代表没有，建议先下一档实测）', 'No obvious trade-off found (which is not the same as none — download one tier and measure before committing)'));
+    if (cost.length === 0) cost.push(bi('本站未评估该版本的质量、吞吐与全部兼容性；元数据完整不等于适合你的任务', 'This build’s quality, throughput and complete compatibility have not been evaluated here; complete metadata does not establish suitability for your task'));
 
     // data-tier 让 CSS 能按「推荐档」给卡片左侧上色 ——
     // 2026-10-03：原先只用 .vcard-off 区分官方/第三方，两类都用同一个 --vio 色，
@@ -1310,13 +1294,20 @@ ${bodyHtml}
 
     <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p>${bi('按问题阅读', 'On this page')}</p><ul>${g.sections.map((section,i)=>{const m=section.head.match(/^\[(.+)\|(.+)\]$/);return section.head?`<li><a href="#guide-section-${i}">${m?bi(esc(m[1]),esc(m[2])):esc(section.head)}</a></li>`:'';}).join('')}</ul></nav>
 ${secs}
+${g.id === 'gpu-cost-math' ? capacityWorkbench() : ''}
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2>${bi('继续做什么','What to do next')}</h2>
+      <ul><li><a href="${g.id === 'gpu-cost-math' ? 'task-models.html' : 'gpu-cost-math.html#capacity-workbench'}">${g.id === 'gpu-cost-math' ? bi('按输入输出区分任务模型','Distinguish task models by input and output') : bi('填写上下文与并发容量假设','Budget context and concurrency')}</a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/">${bi('检查输出是否有依据','Verify evidence for the output')}</a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom">${bi('按症状排查','Troubleshoot by symptom')}</a></li></ul>
+    </nav>
 
     <section class="fam-sec fam-sources">
       <h2>${bi('出处','Sources')}</h2>
       <ul class="fam-src-list">
 ${srcRows}
       </ul>
-      <p class="fam-foot">${bi(`资料核验日期：${g.lastVerified}。下列原始来源提供规格、方法与适用条件。`, `Sources checked: ${g.lastVerified}. The originals below describe specifications, methods and conditions.`)}</p>
+      <p class="fam-foot">${bi(`基础来源快照：${g.lastVerified}；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。`, `Base source snapshot: ${g.lastVerified}; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.`)}</p>
     </section>
   </div>`;
   return shell({
@@ -1505,7 +1496,7 @@ ${guideCards}
       <h2>${bi('怎么用这个站','How to use this site')}</h2>
       <ol class="steps">
         <li>${bi('<b>先看你有多少显存。</b>这是唯一的硬约束，8GB 和 24GB 能跑的档位完全不同。显存撑不下时看同一张表的「系统内存 / 多卡」两栏——纯 CPU 或多卡张量并行也是可行路线。', '<b>Start with how much VRAM you have.</b> It is the only hard constraint — the tiers that fit in 8GB and 24GB are entirely different. If VRAM is the limit, look at the "system memory / multi-GPU" columns in the same table — CPU-only or multi-GPU tensor parallel are viable routes.')}</li>
-        <li>${bi('<b>在 B 区块查速查表。</b>直接给出「这个显存 / 内存档位该用哪个量化档」，体积是实测值。', '<b>Use the cheat sheet in block B.</b> It maps a given VRAM / memory budget to the tier to use, with measured sizes.')}</li>
+        <li>${bi('<b>在 B 区块初筛文件体积候选。</b>再核对缓存、并发和运行时；表格不保证能运行。', '<b>Use block B to filter file-size candidates.</b> Then budget cache, concurrency and runtime; it is not an execution guarantee.')}</li>
         <li>${bi('<b>在 C 区块横向对比量化者。</b>看谁档位全、谁带 imatrix、谁在跟进更新。', '<b>Compare quantisers side by side in block C.</b> See who covers the most tiers, who ships imatrix, and who is keeping up with releases.')}</li>
         <li>${bi('<b>在 D 区块看单档详解。</b>七个字段说清每个变体是什么、差在哪、什么时候该选它。', '<b>Read the per-tier detail in block D.</b> Seven fields spell out what each variant is, how it differs, and when to pick it.')}</li>
         <li>${bi('<b>下载前先读许可。</b>非宽松许可的，页面会标出来；量化仓没单独声明许可的，页面会写明「继承自基座」，原文链接就在旁边。', '<b>Read the licence before downloading.</b> Non-permissive licences are flagged; where a quant repo declares none, the page says "inherited from base" with the original link right beside it.')}</li>
@@ -1931,6 +1922,7 @@ for (const f of ['brand.css', 'brand.js']) {
   if (fs.existsSync(src)) fs.copyFileSync(src, path.join(SITE, f));
   else console.log('⚠ 缺品牌文件', f);
 }
+fs.copyFileSync(path.join(HERE, 'capacity-calculator.js'), path.join(SITE, 'capacity-calculator.js'));
 /* ⚠ 2026-10-10：site.css 的**真相源改为真实文件** `css/models.css`。
  *
  * 原先 CSS 是本文件里的两个模板字符串（`const CSS = \`…\`` + `const FILTER_CSS = \`…\``），
@@ -2011,7 +2003,7 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('## 数据可信度分级');
   lines.push('');
   lines.push('- ✅ **实测字段** —— 直接从 Hugging Face 公开 API 读取：文件体积、上下文长度、架构、许可、下载量');
-  lines.push('- ✅ **推导** —— 由实测字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存区间');
+  lines.push('- ✅ **推导** —— 由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存区间');
   lines.push('- ❌ **我们不说的** —— 哪个量化质量更高、哪个更快、哪个模型更强。这些需要实测，本站不跑 benchmark，所以不装作知道');
   lines.push('');
   lines.push('## 数据来源');

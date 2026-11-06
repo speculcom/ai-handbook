@@ -1,0 +1,44 @@
+{
+  "_comment": "Safety batch A body translation · nemo-guardrails (2026-11-06). Every URL was direct-fetched on 2026-11-06.",
+  "axes": {
+    "model_access": "It guards the model your app already calls; it does not supply one. The official Supported LLMs page records NVIDIA NIM, OpenAI, Azure, Anthropic, Hugging Face, Ollama and LangChain, served either on the same machine or at a remote endpoint. Rail decisions can use the application LLM for self-checking, dedicated NemoGuard / Nemotron safety models, or third parties (the catalog records LlamaGuard, ActiveFence, Cisco AI Defense).",
+    "runtime": "An open-source Python library; the About page records two delivery forms: the PyPI package and a container image. It runs inside your own process or container. The installation page records pip install, Python 3.10-3.13, starting the server with uv, and Docker. Rail logic executes locally; model calls go wherever you configure them.",
+    "local_files": "The config folder (config.yml plus flows and actions) lives on your own filesystem and is read directly by the CLI and the server. No official statement was found about reading your project's business files; evaluation uses public datasets (chit-chat, MSMARCO, on the evaluate page). The wider local file surface was not verified item by item and is recorded as unknown.",
+    "background": "There is no hosted 'keeps running after shutdown' task surface: it comes up with your application. The CLI page records chat / server / convert / find_providers, and the evaluate page records offline batch evaluation. Queues and resumption are not part of the product framing.",
+    "tools": "Five rail types are on record: input / dialog / retrieval / execution / output, where execution rails govern tool calls and custom actions let you plug in your own checks. LangChain and LangGraph integrate through passthrough mode. The top-level config.yml keys (models / instructions / rails / prompts / knowledge_base / tracing) contain no MCP server entry, so MCP access is recorded as unknown.",
+    "context": "Conversation messages are passed in by the caller and rails judge user / assistant messages one by one; retrieval rails can read the knowledge_base. No official statement was verified on cross-session memory or rail-state persistence, recorded as unknown; effective context length is set by whichever model you choose.",
+    "permissions": "Data flow depends on the endpoint you select: local or self-hosted endpoints keep content inside your environment, while the catalog page records that third-party guardrail services send submitted content to that party. Apache-2.0 is on the PyPI and repository pages the same day. Logging and tracing have dedicated pages. Compliance certifications and training-use commitments were not verified and are recorded as unknown.",
+    "fit": "Fits: teams adding programmable rails inside their own process or container - topic control, PII, jailbreak detection, tool-call governance - while keeping the freedom to swap models and endpoints. Not a fit: anyone wanting a hosted console with review workflows, or treating rail quality as a vendor guarantee, since the judgement inherits whichever model runs it."
+  },
+  "sections": {
+    "能力边界": "The catalog families on record are content safety, jailbreak protection, topic control, PII detection, agentic security and tool calling, hallucination and self-checks, plus third-party rail APIs. What it blocks are messages and actions; human-review outsourcing and cross-vendor model scoring are absent from the official framing (this site's view, judged from the scope of the pages on record). The evaluation surface ships in the open-source package and runs dialog, fact-checking, moderation and hallucination metrics over public datasets - that measures your own rail configuration, not a cross-vendor leaderboard.",
+    "变更记录说明": "Change history lives in the GitHub releases page (there is no separate changelog page). Recorded release line on the verification day: v0.24.1 (09-16), v0.24.0 (IORails expands built-in rails, F5 integration), v0.23.0 (Polygraf PII, Hugging Face classifiers), v0.22.0 (LangChain decoupling, streaming and OpenTelemetry), v0.21.0 (IORails parallel engine, OpenAI-compatible server). The most recent official release is about 51 days before the verification date, so lifecycle is recorded as maintenance rather than active."
+  },
+  "sectionTitles": {
+    "能力边界": "Capability boundaries",
+    "变更记录说明": "Change record"
+  },
+  "runs": "This site has not completed measured runs; nothing here covers hit rates, false-block rates or latency.\n\n**Suggested measurements** (three):\n\n- How the same rail set behaves across providers (local endpoint versus third-party API)\n- The real consequences of tool messages bypassing input validation, versus the cost of adding output rails\n- What data actually leaves your environment when a third-party guardrail service is attached",
+  "unknowns": "- How MCP servers are attached as tools: no corresponding top-level key in the config.yml schema\n- Cross-session memory and rail-state persistence\n- The local file surface beyond the configuration directory\n- Compliance certifications and telemetry/log-retention commitments\n- Per-language rail accuracy (not published officially; this site does not measure it)",
+  "related": [
+    "Same line: Azure AI Content Safety (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: Amazon Bedrock Guardrails (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: LiteLLM 网关（Proxy / AI Gateway） (in guardrails and content filtering); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "NeMo Guardrails · Docs Overview (open-source Python library positioning and navigation, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · About the library (two delivery forms and what gets guarded, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · Supported LLMs (provider list and local/remote endpoint wording, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · Guardrail Types (responsibilities of the five rail types, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · Installation guide (pip / Python versions / server / Docker, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · CLI (subcommand list, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · Guardrail catalog (content safety / jailbreak / PII / tool-calling families, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · Content safety rails (local Nemotron versus third-party APIs, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · Tools integration (passthrough mode and the tool-message validation boundary, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · config.yml schema (top-level key list, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · Evaluate guardrails (the offline batch evaluation surface, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · Releases (change record; v0.24.1 and per-release highlights, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · PyPI (version 0.24.1 dated 2026-09-16 with Apache-2.0, direct-fetched 200 on 2026-11-06)",
+    "NeMo Guardrails · repository (Apache 2.0, latest release, not archived, direct-fetched 200 on 2026-11-06)"
+  ]
+}

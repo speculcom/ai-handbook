@@ -24,7 +24,7 @@ confidence: partial
 
 ## [一句话选择|One-line choice]
 
-- **本机浏览器 + 稳定 selector + 不要模型**：选 Playwright MCP。
+- **本机浏览器 + 结构化页面快照 + 不需视觉模型**：选 Playwright MCP。
 - **不想在本机起浏览器 + 要自然语言驱动网页**：选 Browserbase MCP。
 - **给编码 Agent 看页面、抓性能与 console**：选 Chrome DevTools MCP。
 
@@ -34,7 +34,7 @@ confidence: partial
 |---|---|---|---|
 | 跑在哪 | 本机 Node.js 进程 | Browserbase 云端浏览器 | 本机进程，驱动本机 Chrome |
 | 怎么连 | stdio；也提供 HTTP endpoint | 托管 `streamable-http` 端点 | stdio（`npx chrome-devtools-mcp@latest`） |
-| 要不要模型 | 不需要；用无障碍树快照 | 需要；Stagehand 驱动 act/observe/extract | 不需要；包装 CDP |
+| 服务端模型依赖 | 无需视觉模型；客户端 Agent 仍可能使用 LLM | Stagehand 驱动 act/observe/extract | 包装 CDP；客户端 Agent 仍可能使用 LLM |
 | 适合谁 | 写 E2E、表单与固定流程 | 云端跑批量网页任务、不想管浏览器 | 编码 Agent 的调试与性能分析 |
 | 工具面 | 72 个（2026-10-08 核对） | 6 个（start / end / navigate / act / observe / extract） | 导航、交互、截图、trace、网络与 console |
 
@@ -44,7 +44,7 @@ confidence: partial
 
 - 默认有头模式，`--headless` 可切；headless 默认空闲 1 小时关闭，headed 默认不自动关闭。
 - 用户 profile 默认落盘在 Playwright 缓存目录（按 workspace hash 隔离），`--isolated` 可改为仅存内存。
-- 没有本地文件访问能力；核心是浏览器控制。
+- 官方工具包括文件上传；可访问路径与客户端授权、工作区配置有关。不要据“核心是浏览器控制”推断不能读取或上传本地文件。
 - 版本仍是 `0.0.x`（v0.0.83 于 2026-09-28），工具名可能继续变。
 
 **Browserbase MCP**
@@ -82,6 +82,8 @@ Browserbase 的免费档有并发浏览器的上限，付费档按并发与浏�
 - 选 Playwright 后，如果目标是性能 trace 与 console 取证：换 Chrome DevTools。
 
 ## [核验事实|Dated facts]
+
+本页仅局部复核了 Playwright MCP 的视觉模型依赖与文件上传说明（官方 README，2026-11-04）；下列其他数据保留原核验快照，不代表当日完整复核。
 
 1. Playwright MCP 由 Microsoft 维护，本地 Node.js 18+、stdio 通信，工具数 72（2026-10-08 核对），最新记录版本 v0.0.83（2026-09-28）。
 2. Browserbase MCP 托管端点为 `https://mcp.browserbase.com/mcp`（streamable-http），工具 6 个；GitHub 仓 archived（2026-07-20 停推）。

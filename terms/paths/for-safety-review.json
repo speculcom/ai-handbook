@@ -1,0 +1,62 @@
+{
+  "id": "for-safety-review",
+  "ord": 11,
+  "zh": "安全与合规评审路线",
+  "en": "The Safety and Compliance Review Route",
+  "span": {
+    "zh": "约 45 分钟",
+    "en": "about 45 minutes"
+  },
+  "lead": {
+    "zh": "上线前把风险面、数据面与义务面分开看：先确认会被怎样滥用，再确认数据去了哪里，最后确认你必须留下什么记录。读完应能写出一份带未知项的评审结论。",
+    "en": "Split the pre-launch review into risk, data and obligation: how it can be misused, where the data goes, and what records you must keep. Finish with a written review that names unresolved items."
+  },
+  "steps": [
+    "AI 安全",
+    "提示注入",
+    "偏好对齐",
+    "拒答",
+    "输出越界与拒答",
+    "红队测试",
+    "数据不出网",
+    "数据驻留",
+    "隐私与合规",
+    "生成式 AI 合规义务",
+    "水印与内容凭证",
+    "可观测性"
+  ],
+  "checkpoint": {
+    "zh": [
+      "说出三类你会在评审会上追问的风险面，各自对应什么证据",
+      "判断一项功能是否触及需要留记录的义务，并指出依据来自哪份官方文本",
+      "写下一条你无法确认为「安全」的项，说明缺的是哪个官方说法"
+    ],
+    "en": [
+      "Name three risk areas you would press for in a review meeting and what evidence answers each",
+      "Judge whether a feature triggers a record-keeping obligation and cite which official text it comes from",
+      "Write one item you cannot confirm as safe and say which official statement is missing"
+    ]
+  },
+  "answers": [
+    {
+      "zh": "三类可分别取：输入面（提示注入、越权指令）、输出面（拒答边界、越界内容）、数据面（是否出网、驻留在哪）。输入面要看厂商是否披露拦截机制与绕过后的处理；输出面要看拒答的条件而非「是否拒绝」；数据面要看留存与删除条款原文。只拿到「已通过安全测试」这句话不算证据。",
+      "en": "Take input (prompt injection, instruction override), output (refusal boundaries, out-of-scope content) and data (leaves the network, residency). For input ask how interception works and what happens after a bypass; for output ask the conditions of refusal, not whether refusal exists; for data read the retention and deletion terms verbatim. A bare 'passed security testing' claim is not evidence.",
+      "review": "提示注入"
+    },
+    {
+      "zh": "先看功能是否把用户内容送进模型、是否生成对外发布的内容、是否留存输入。生成或传播内容的服务通常要面对标识与记录义务；具体范围以你所在辖区的现行官方文本为准，不要从同行做法推断。核到就把文件名与日期写进评审记录，核不到就标「未核到」，不要写「不适用」。",
+      "en": "Ask whether user content enters the model, whether output is published externally, and whether inputs are retained. Services that generate or spread content usually face labelling and record duties; the scope follows the official text in force for your jurisdiction, not peer practice. If verified, write the document name and date into the review record; if not, mark it unverified instead of writing 'not applicable'.",
+      "review": "生成式 AI 合规义务"
+    },
+    {
+      "zh": "写成「官方未说明 + 缺哪一条」：例如只找到宣传口径里的安全防护描述，没找到拦截机制、绕过处理与日志留存的说明，那就写无法确认拦截是否生效，并列出缺失的三项。评审结论里保留未知比补一个看起来完整的判断更有用，后者会在事故复盘时站不住。",
+      "en": "Write it as 'not stated officially' plus which specifics are absent. If you only find marketing-level claims about guardrails but no description of interception, post-bypass handling or log retention, record that effectiveness cannot be confirmed and list the three missing items. Keeping the unknown in the conclusion is more useful than a tidy judgement that collapses during incident review.",
+      "review": "红队测试"
+    }
+  ],
+  "nextTask": {
+    "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E7%BB%99%E5%9B%A2%E9%98%9F%E5%81%9A%20AI%20%E9%A3%8E%E9%99%A9%E6%B8%85%E5%8D%95/",
+    "zh": "把这十二步转成一份能开会用的风险清单",
+    "en": "Turn these twelve steps into a risk list you can bring to a meeting"
+  }
+}

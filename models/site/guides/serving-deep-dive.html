@@ -13,8 +13,8 @@
   <meta property="og:description" content="推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。（核验于 2026-10-21，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=6a580ac0420e"></script>
-  <link rel="stylesheet" href="../brand.css?v=6a580ac0420e" />
+  <script src="../brand.js?v=bf69a6d205ad"></script>
+  <link rel="stylesheet" href="../brand.css?v=bf69a6d205ad" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Serving deep dive: KV cache, batching, and inference engines","description":"Why serving throughput is bottlenecked by KV-cache memory; what PagedAttention, continuous batching and RadixAttention each solve; where vLLM and SGLang sit. Practitioner view; the one-page explainers live on the Learn site, cross-linked, not duplicated.","url":"https://models.specul.com/guides/serving-deep-dive.html","dateModified":"2026-10-21"}</script>
 </head>
@@ -49,6 +49,7 @@
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
       <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
         <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
@@ -142,6 +143,13 @@
 <p>Same concept, different depth on each side, cross-linked without duplication.<br>For hardware facts and cost math see the next guide, “GPU facts and cost math”.</p></span>
     </section>
 
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2><span data-zh>继续做什么</span><span data-en>What to do next</span></h2>
+      <ul><li><a href="gpu-cost-math.html#capacity-workbench"><span data-zh>填写上下文与并发容量假设</span><span data-en>Budget context and concurrency</span></a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/"><span data-zh>检查输出是否有依据</span><span data-en>Verify evidence for the output</span></a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom"><span data-zh>按症状排查</span><span data-en>Troubleshoot by symptom</span></a></li></ul>
+    </nav>
+
     <section class="fam-sec fam-sources">
       <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
       <ul class="fam-src-list">
@@ -154,7 +162,7 @@
         <li><span data-zh>SGLang 论文（arXiv 2312.07104，RadixAttention 与结构化输出，自报最高 6.4 倍吞吐，2026-10-21 直抓摘要页）</span><span data-en>SGLang paper (arXiv 2312.07104, RadixAttention and structured output, self-reported up to 6.4× throughput; abstract page fetched directly 2026-10-21)</span>：<a href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noopener">https://arxiv.org/abs/2312.07104</a></li>
         <li><span data-zh>llama.cpp 官方仓库（本地推理的代表实现，2026-10-21 直抓 200）</span><span data-en>llama.cpp official repository (the representative local-inference implementation; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">https://github.com/ggml-org/llama.cpp</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>资料核验日期：2026-10-21。下列原始来源提供规格、方法与适用条件。</span><span data-en>Sources checked: 2026-10-21. The originals below describe specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-21；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-21; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>
@@ -180,6 +188,8 @@
       </nav>
     </div>
     <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
       <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
     </div>
   </footer>

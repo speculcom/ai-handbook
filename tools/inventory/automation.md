@@ -37,7 +37,7 @@
 | ComfyUI | Comfy Org | https://www.comfy.org | 只进nav | | 节点画布但产物是**媒体**不是应用——生成管线主轴，归 nav |
 | Windmill | Windmill Labs | https://www.windmill.dev | 只进nav | | 脚本编排平台，LLM 只是场景之一 |
 | Composio | Composio | https://composio.dev | 只进nav | | 工具集成层（与 MCP 生态重叠），不是搭应用的运行时 |
-| Google Opal | Google Labs | https://opal.google/ | 已有 | opal | P2 · 无代码 AI mini-app；官方公告 2026-11-17 迁出 Labs，工作流迁移到 Gemini skills |
+| Google Opal | Google Labs | https://opal.google/ | 已有 | opal | P2 · 无代码 AI mini-app；官方 FAQ 说明 2026-11-17 停用，不自动迁移 |
 | UiPath | UiPath | https://www.uipath.com | 不收 | | 经典 RPA 主轴无 LLM（categories.md 不收示例点名）；AI 功能是附加不是运行时主轴 |
 | 实在智能 / 来也 RPA 类 | 各家 | https://www.laiye.com | 不收 | | 同上：RPA 主轴，LLM 非运行时核心 |
 

@@ -1,0 +1,61 @@
+{
+  "id": "for-eval-builders",
+  "ord": 12,
+  "zh": "评测与质量路线",
+  "en": "The Evaluation and Quality Route",
+  "span": {
+    "zh": "约 40 分钟",
+    "en": "about 40 minutes"
+  },
+  "lead": {
+    "zh": "从「别人报的分数」走到「你能自己复跑的判法」：先弄清评测在测什么、什么时候失效，再把它落成一套能记录、能复跑、能追责的最小流程。",
+    "en": "Move from other people's scores to judgements you can re-run: what an evaluation actually measures, where it fails, and how to land it as a minimal flow you can record, re-run and hold accountable."
+  },
+  "steps": [
+    "评估",
+    "基准测试",
+    "模型评测的局限",
+    "评测饱和",
+    "训练集与测试集",
+    "数据污染",
+    "幻觉",
+    "幻觉的成因",
+    "结构化输出",
+    "迁移评估",
+    "可观测性"
+  ],
+  "checkpoint": {
+    "zh": [
+      "说明一份公开分数在什么条件下不能用于你的任务",
+      "给自己的场景写出两条机器能判、三条只能人判的检查",
+      "指出一项评测结论要能被别人复跑，最少要固定哪几样东西"
+    ],
+    "en": [
+      "Say when a published score cannot transfer to your task",
+      "Write two checks your scenario can judge automatically and three that need a person",
+      "Name the minimum set of things to pin so others can reproduce an evaluation result"
+    ]
+  },
+  "answers": [
+    {
+      "zh": "三种常见情形：任务分布不同（公开集以英文长文问答为主，你要判的是中文工单）、判法不同（对方用自动指标，你要人判事实正确）、时间与版本不同（分数对应的模型或数据已换）。任一条命中，结论就只能写成「该分数不支持这个判断」，不要改写成对方的排名。",
+      "en": "Three common breaks: task distribution (public sets are long-form English QA, you judge Chinese tickets), method (they use automatic metrics, you need human fact checks), and version timing (the scored model or data changed). If any holds, write 'this score does not support that conclusion' instead of recycling their ranking.",
+      "review": "模型评测的局限"
+    },
+    {
+      "zh": "机器能判的通常是格式与可核对事实：字段是否齐、引用编号是否真实存在、日期与金额是否出现在给定材料里。只能人判的多是判断质量：结论是否被材料支撑、该拒答时有没有拒、语气与合规风险。把两层的比例记下来，因为「只有自动指标」的评测说明不了事实正确性。",
+      "en": "Machines judge format and checkable facts: required fields present, cited ids real, dates and figures traceable to the given material. People judge quality: whether the conclusion is supported, whether it should have refused, tone and compliance risk. Record the ratio between the two layers, because automatic metrics alone say nothing about factual correctness.",
+      "review": "结构化输出"
+    },
+    {
+      "zh": "至少固定五样：模型与版本标识、提示与系统设置的原文、样本集内容与切分、判法（脚本与人判标准）、判定人及其判断口径。少任一项，别人复跑得到的差异都无法归因，只能当成另一次评测。样本会随时间失效，所以还要记下样本采集的时间范围。",
+      "en": "Pin at least five: model and version identifier, prompt and system settings verbatim, sample set and its split, the method (script plus human rubric), and who judged under what rubric. Missing any one turns a re-run into a different evaluation whose gaps cannot be attributed. Also record when samples were collected, because they expire.",
+      "review": "训练集与测试集"
+    }
+  ],
+  "nextTask": {
+    "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E6%90%AD%E4%B8%80%E6%9D%A1%E6%9C%80%E5%B0%8F%E8%AF%84%E6%B5%8B%E6%B5%81%E7%A8%8B//",
+    "zh": "按这条路线落一份能复跑的最小评测流程",
+    "en": "Use this route to set up a minimal evaluation flow you can re-run"
+  }
+}

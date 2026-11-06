@@ -31,7 +31,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 /* v8 T7：三分区退役，TRACKS = 10 大类目录名（与 validate.mjs 的 CATS 同一口径）。
  * 目录不存在的大类（research/automation/runner 等）由 computeCompleteness 的
  * existsSync 自然跳过——建档一批、这里自动进分母，不需要再改这里。 */
-export const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
+export const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'];
 export const AXES = ['model_access', 'runtime', 'local_files', 'background', 'tools', 'context', 'permissions', 'fit'];
 export const MCP_AXES = ['transport', 'auth', 'scope'];
 

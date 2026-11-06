@@ -1,0 +1,36 @@
+{
+  "_comment": "safety E包 · llm-guard bodies EN（2026-11-06）。sections/sectionTitles 与源侧固定小节标题逐字对齐；sources 按索引对齐 frontmatter。官方英文原文（归档警告）原样保留，不再附中文「翻译」段。",
+  "axes": {
+    "model_access": "It guards the text going into the model and the text coming back, not any vendor's model itself. The README's starter example goes through ChatGPT / the OpenAI API (examples/openai_api.py), and the documentation index lists two delivery forms as of the verification day: a Python library and an API server. Which scanners need downloaded local weights and which need an external inference service was only captured at documentation-index level; not verified item by item, recorded as unknown.",
+    "runtime": "Self-hosted: `pip install llm-guard` runs in your own environment; the README requires Python 3.9 or newer, while the PyPI package metadata measured today states >=3.10 and <3.13 (the two disagree; logged in the unknowns list). The docs index also gives an API server path, i.e. hosting the scanners inside your own service as pre/post checks. No vendor-side computation is described in the official text.",
+    "local_files": "Both the README and the documentation index describe the object of processing as prompt / completion text; no capability to read workspace files or traverse directories is declared. Support for file-shaped inputs (attachments, directories) and any temp-file behaviour on disk is not stated officially.",
+    "background": "As a library it lives and dies with your process; as an API server it is a service you keep resident, with start/stop and scaling in your hands. Managed queues, continuation after shutdown and asynchronous tasks are not stated officially.",
+    "tools": "The README lists 15 Prompt scanners and 21 Output scanners, covering input channels such as PromptInjection, InvisibleText, Secrets, Anonymize, Toxicity, BanTopics, Regex and TokenLimit, and output channels such as Bias, MaliciousURLs, Sensitive, FactualConsistency, Relevance, JSON and LanguageSame. The documented configuration model is thresholds plus mask / block / answer style disposition actions. MCP integration is not stated officially.",
+    "context": "Detection operates on the single text passed in; no session memory, cross-turn context or historical attack store is described officially. Context-length limits are set by scanners like TokenLimit; the concrete defaults were not verified and are recorded as unknown.",
+    "permissions": "The licence is MIT (see the license field, judged against the official LICENSE text), so commercial use and redistribution are permitted with the copyright notice retained. Data flow is the dimension with the biggest gap here: neither the README nor the documentation index captured today states telemetry, log retention, or the scope of sending text to third parties, so it is recorded as unknown. Compliance certifications (SOC 2 class) were not mentioned on the pages reached. The repository is archived and the official text says it is no longer actively maintained.",
+    "fit": "Fits teams that want input/output checks wired into their own pipeline, can own dependencies and model downloads themselves, and accept that the ruleset stops being updated. Does not fit deployments needing continued security-rule maintenance or a hosted SLA, nor readers looking for detection or bypass rates — this site runs no end-to-end tests and quotes no vendor numbers."
+  },
+  "runs": "This site has not run end-to-end tests: no scanner was executed against samples, and no threshold or disposition action was observed in practice. Everything here is assembled from the official README, the documentation index and the LICENSE / PyPI metadata (fetched 2026-11-06). The scanner-channel section is a transcription of the README list and implies no measured hit or block behaviour.",
+  "unknowns": "- The exact model weights or external inference services each scanner needs (captured only at documentation-index level today)\n- Telemetry, log retention and the scope of sending text onward\n- Support for file-shaped inputs (attachments, directories) and temp-file behaviour\n- Default thresholds and default on-fail actions per scanner\n- Whether any hosted tier exists (the README only leaves a \"Production Support\" contact route)\n- The Python-version conflict: README says 3.9+, PyPI metadata says >=3.10 and <3.13\n- MCP or other extension points\n- Mainland direct reachability and filing status (recorded as unknown in the cn block)",
+  "related": [
+    "Same line: Rebuff (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: CanaryScan (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: NeMo Guardrails (in guardrails and content filtering); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "LLM Guard · docs-site changelog (reachability confirmed 2026-11-06)",
+    "LLM Guard · repository commit history (main branch, last push 2026-07-08)",
+    "LLM Guard · official documentation (deployment forms and scanner configuration)",
+    "LLM Guard · repository README (with the archive warning and the scanner lists)",
+    "LLM Guard · official LICENSE (MIT text)",
+    "PyPI · llm-guard (0.3.16, released 2025-05-19; requires_python constraint)"
+  ],
+  "sectionTitles": {
+    "检测通道清单（官方 README 照录）": "Declared detection channels (transcribed from the README)",
+    "归档状态与选型影响": "Archive status and what it means for selection"
+  },
+  "sections": {
+    "检测通道清单（官方 README 照录）": "Prompt scanners (15 items): Anonymize, BanCode, BanCompetitors, BanSubstrings, BanTopics, Code, Gibberish, InvisibleText, Language, PromptInjection, Regex, Secrets, Sentiment, TokenLimit, Toxicity.\n\nOutput scanners (21 items): BanCode, BanCompetitors, BanSubstrings, BanTopics, Bias, Code, Deanonymize, JSON, Language, LanguageSame, MaliciousURLs, NoRefusal, ReadingTime, FactualConsistency, Gibberish, Regex, Relevance, Sensitive, Sentiment, Toxicity, URLReachability.\n\n> This table is only the **capability surface the official text declares**. This site ran none of these items and quotes no hit-rate numbers, official or third-party.",
+    "归档状态与选型影响": "The warning block at the top of the README, original wording (fetched 2026-11-06):\n\n> THIS PROJECT HAS BEEN ARCHIVED. This project and its associated models on Hugging Face are no longer under active development or maintained.\n\nCorroborating verifiable facts: the repository's `archived` flag is true, the last push was 2026-07-08, and the newest PyPI release 0.3.16 dates to 2025-05-19. The entry therefore records lifecycle `archived` with confidence capped at `partial`.\n\nThe selection implication is **a transfer of maintenance duty**: rulesets, dependencies and security fixes all become your responsibility."
+  }
+}

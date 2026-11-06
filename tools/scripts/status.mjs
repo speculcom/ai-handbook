@@ -15,7 +15,7 @@ const totals = { objects: 0, verified: 0, partial: 0, stale: 0, unknown: 0, dims
 // 2026-10-08：['ide','cli','mcp'] 是 v3 旧赛道名，v4 改成 agents/harness/tools。
 // 旧值导致目录全不存在 → 循环 continue → 静默报告「0 对象」，看不出是脚本坏了。
 // v8 T7：三分区退役——TRACKS = 10 大类目录名（与 completeness.mjs 同一口径）。
-const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
+const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'];
 const trackDir = t => path.join(ROOT, 'tracks', t, 'products');
 
 if (!TRACKS.some(t => fs.existsSync(trackDir(t)))) {

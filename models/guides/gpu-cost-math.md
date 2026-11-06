@@ -3,8 +3,8 @@ id: gpu-cost-math
 stage: 8
 title: GPU 事实与成本数学：跑模型的硬件账
 titleEn: GPU facts and cost math: the hardware bill for running a model
-summary: 推理卡的关键事实（显存容量与带宽，只录官方规格页口径）；decode 为什么是带宽瓶颈；吞吐与成本怎么按构成方法估——不存任何单价、不做购卡推荐。
-summaryEn: Key facts for inference hardware (memory capacity and bandwidth, official spec pages only); why decode is bandwidth-bound; how to estimate throughput and cost by composition method — no unit prices stored, no purchase advice.
+summary: 从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。
+summaryEn: Separate resident weights, context cache, concurrency and runtime; distinguish idealized bandwidth arithmetic from actual throughput, with an editable budget and no stored prices or purchase advice.
 sources:
   - label: NVIDIA H100 官方规格页（SXM 80GB / NVL 94GB 与带宽口径，2026-10-21 直抓）
     url: https://www.nvidia.com/en-us/data-center/h100/
@@ -24,68 +24,45 @@ sources:
   - label: llama.cpp 官方仓库（GGUF 本地推理实现，2026-10-21 直抓 200）
     url: https://github.com/ggml-org/llama.cpp
     kind: docs
+  - label: Transformers · 缓存张量结构（2026-11-04 单项核验）
+    url: https://huggingface.co/docs/transformers/cache_explanation
+    kind: docs
+  - label: vLLM · 内存控制（2026-11-04 单项核验）
+    url: https://docs.vllm.ai/en/latest/configuration/conserving_memory/
+    kind: docs
 last_verified: 2026-10-21
 confidence: partial
 ---
 
 ## [这一篇讲什么|What this guide covers]
 
-**「我的硬件能跑多大的模型」是一道可以手算的题。**
-这一篇给出硬件侧的关键事实（只录官方规格页写明的数字），
-再给出成本数学的构成方法。
+预算先拆成驻留权重、缓存、运行时与预留，再和任务实际可用内存比较。文件能下载不等于能加载；小于预算也不等于运行器支持或输出合格。
 
-本站按纪律不收录任何卡价与租用单价，也不做购卡推荐。
-数字随厂商改版会变，复核日期见页脚。
+本站不存卡价、租用单价或购卡建议。原硬件来源日期保留为 2026-10-21；2026-11-04 仅新增缓存方法说明与本地预算算式，未重新核验旧硬件规格。
 
-## [硬件事实表：只录官方规格页口径|Hardware facts: official spec pages only]
+## [核对容量、带宽与可用量|Check capacity, bandwidth and available memory]
 
-判断「能不能跑」看两个数：显存容量决定装得下多大的模型，
-显存带宽决定 decode 阶段每秒能吐多少 token。
+硬件官方规格页可用于核对容量、带宽和型号，但不能直接给出某个任务的速度或可用内存。驱动、后端、共享内存、系统占用和模型布局都需另外核对。
 
-- NVIDIA H100 SXM：显存 80GB，带宽 3.35TB/s（官方规格页）。
-- NVIDIA H100 NVL：显存 94GB，带宽 3.9TB/s（同一页两列对照）。
-- NVIDIA A100 80GB：HBM2e，带宽 1,935 GB/s（PCIe）/ 2,039 GB/s（SXM）。
-- NVIDIA RTX 4090：24GB GDDR6X（消费卡，官方页未标带宽数值）。
-- Apple MacBook Pro（M5 系列）：统一内存 16/24/32GB 起配，
-  高配可到 128GB——CPU 与 GPU 共享同一块内存（官方规格页）。
+下列来源保留原快照日期。本文不把某张卡或某台机器的标称总容量当作当前任务可用量，也不把两张卡的容量简单视作一个连续内存池。使用预算工具时填写已核对的可用 GiB；十进制 GB 先换单位。
 
-诚实口径：AMD 消费卡规格页本次未能核验（站点不可达），
-本站就不录 AMD 数字——未知就说未知，不抄二手参数表。
-各卡功耗、互联、FP8 支持等细节以官方页为准，此处不展开。
+## [带宽算式的假设与边界|Assumptions and limits of bandwidth arithmetic]
 
-## [decode 是带宽题，prefill 是算力题|Decode is a bandwidth problem, prefill is compute]
+对简化的稠密模型单请求 decode，可用峰值内存带宽 ÷ 每步需从该层级读取的字节量做理想化估计。只有在假设每步从该内存层级完整读取权重时，才能把权重体积放进分母；MoE 激活专家、缓存复用、批处理和卸载会改变口径。
 
-生成阶段每产出一个 token，都要把模型权重完整读一遍。
-单请求 decode 的每秒 token 数上限 ≈ 显存带宽 ÷ 每 token 需读的字节数。
+例如假设每步需读 16 GB、带宽为 3.35 TB/s，忽略其他开销时约为 209 次读取/秒。这是教学算式，不是 token/s 测试结果。减小权重文件不保证速度按相同比例增加。
 
-一个 8B 模型的 FP16 权重约 16GB。在 3.35TB/s 带宽上，
-理论上限约 200 token/秒——这是「上限」，实际还要扣 KV 缓存读取与开销。
-量化到 4bit 后权重约 4GB，同一张卡上限约四倍。这就是量化的吞吐账。
-
-预填充（读入长提示）相反：一次前向处理多个 token，算力受限。
-所以「首 token 延迟」与「每 token 延迟」由两种硬件属性分别决定，
-调优方向完全不同。
+prefill 和 decode 的瓶颈会随批量、序列长度、算子实现与硬件变化，不能一概写成“一个只看算力，另一个只看带宽”。
 
 ## [成本数学：讲构成，不存单价|Cost math: composition, not unit prices]
 
-线上推理成本的构成链是：
+每 token 硬件分摊成本 = 同一统计期间内计入的硬件费用 ÷ 同期间实际产出的 tokens。写清输入/输出口径、缓存、空闲、失败重试和服务量，避免拿峰值理论吞吐当实际交付。
 
-1. 每 token 成本 = 硬件每小时成本 ÷ 该硬件每小时产出的 token 数。
-2. 每小时产出由上节的带宽账与并发批处理决定——批越大，权重读取摊薄越多。
-3. 硬件每小时价格随市场每月波动，本站按纪律不收录。
-
-能自己算的是中间项。给定模型大小与量化档，再给定并发数，
-用带宽账估吞吐，用吞吐除单价。厂商报价页与云厂商价格页是公开入口，
-本站只教这条链怎么搭，不替你抄当下的数。
-
-选型判断依据（不是推荐）：并发高、上下文长时，瓶颈在 KV 缓存显存，要看带宽与容量。
-单机个人用则相反，瓶颈在「装不装得下」，主要看容量与量化档。
+容量预算回答“按这些假设占多少内存”，不回答“每小时能产多少”。吞吐需在自己的授权环境按固定任务观察；本站没有运行模型测试或保存单价。需要记录费用构成，使用 [成本计算器](https://tools.specul.com/mcp/guides/cost-calculator.html)。
 
 ## [和本站其他资产的关系|How this fits the rest of the site]
 
-本站系列页的「显存倒推」表按实测文件体积给出「你的显存能下哪一档」，
-是使用者入口；这一篇给的是硬件侧事实与换算方法，是从业者口径。
-两边都将权重占用与 KV 缓存计入内存预算。
+系列页 B 区按发布文件体积 × 1.15 初筛候选。该固定示意比例不是 KV 缓存估算，也不保证能运行。用本文下方的工具把缓存长度、并发和运行时预留分别列出；编码器、MLA、混合或滑动窗口模型另查架构方法。
 
 ## [和学 AI 站的分工|How this differs from the Learn site]
 

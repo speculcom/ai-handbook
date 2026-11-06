@@ -15,7 +15,7 @@ sources:
   - label: Google · Gemini CLI 仓库（Apache-2.0、npx 启动、MCP；2026-10 快照）
     url: https://github.com/google-gemini/gemini-cli
     kind: repo
-  - label: Cursor · 官方文档（云端 Agent、自托管 2026-09-02）
+  - label: Cursor · 官方文档（云端 Agent 的执行位置与网络控制；2026-11-04 局部复核）
     url: https://cursor.com/docs
     kind: docs
   - label: Devin · 官方文档（云端工作区、工单到草稿 PR）
@@ -55,27 +55,27 @@ confidence: partial
 
 ## [每个候选的适用条件|When each fits]
 
-**Claude Code CLI**：适合已有仓库、想把每一步命令摊在终端里看的人；权限粒度是它最细的一面。能力边界是模型线固定在 Anthropic，要多模型得另配。**什么情况下选另一个**：要 IDE 内联补全就选 Cursor 或 Copilot；要完全开源可改的 CLI 就选 Gemini CLI。
+**Claude Code CLI**：适合已有仓库、想把每一步命令摊在终端里看的人；使用前需核对命令、文件与工具的授权范围。能力边界是模型线固定在 Anthropic，要多模型得另配。**什么情况下选另一个**：要 IDE 内联补全就选 Cursor 或 Copilot；要完全开源可改的 CLI 就选 Gemini CLI。
 
 **Codex CLI**：适合 OpenAI 生态、要线程续接与脚本化的人；Rust 实现、app server 是它的架构特征。**什么情况下选另一个**：团队已经押注 Anthropic，就选 Claude Code CLI。
 
-**Gemini CLI**：Apache-2.0、npx 免安装、支持 MCP 与非交互脚本，适合 CI 与教学。**什么情况下选另一个**：要更细的权限控制与变更记录，就选 Claude Code CLI。
+**Gemini CLI**：Apache-2.0、npx 免安装、支持 MCP 与非交互脚本，适合 CI 与教学。**什么情况下选另一个**：需要按权限控制与变更记录对照时，再查 Claude Code CLI 的具体配置。
 
-**Cursor**：适合要 IDE 体验、又要云端 Agent 续跑的人；2026-09-02 官方加入自托管，代码不出网是它的差异点。**什么情况下选另一个**：只要终端、不想装编辑器，就选三家 CLI 之一。
+**Cursor**：适合要 IDE 体验、又要云端 Agent 续跑的人；官方区分云端 VM 与自托管机器的工具执行；自托管执行不等于模型请求、日志与全部数据都不出网，仍需核对网络设置与条款。**什么情况下选另一个**：只要终端、不想装编辑器，就选三家 CLI 之一。
 
 **Devin**：适合把工单批量丢给云端、拿草稿 PR 再接管的人；Slack / Linear / Jira 可直接派单。**什么情况下选另一个**：改动必须在你本机、不能出网，就选终端或 IDE。
 
-**Antigravity**：适合要在桌面指挥中心、CLI、IDE 扩展与 Python SDK 之间共用一套 harness 的团队；官方给了三档命令执行策略。**什么情况下选另一个**：只想要一个成熟 IDE，Cursor 更直接。
+**Antigravity**：适合要在桌面指挥中心、CLI、IDE 扩展与 Python SDK 之间共用一套 harness 的团队；官方给了三档命令执行策略。**什么情况下选另一个**：只需要编辑器内工作流，可对照 Cursor 的 IDE 形态。
 
 ## [核验事实|Dated facts]
 
 1. Gemini CLI 采用 Apache-2.0，支持 `npx` 启动与 MCP（仓库 README，2026-10 快照）。
-2. Cursor 官方在 2026-09-02 发布自托管能力；云端 Agent 可在地器关闭后继续运行（官方文档）。
+2. Cursor 云端 Agent 在独立云端 VM 中运行，不依赖本机持续联网；官方另提供自托管机器执行路线。执行位置不能单独证明全链路不出网（官方 Cloud Agents 文档，2026-11-04 局部复核）。
 3. Antigravity 的命令执行策略为官方显式三档（2026-10-13 release notes 核验）。
 4. Claude Code CLI 有独立 CHANGELOG 与 Atom feed；源码可见但许可证为 All rights reserved（仓库页）。
 5. Codex CLI 为 Rust 实现，架构以 app server 与线程续接为核心（仓库与 releases）。
 
-以上日期均为本站档案的核验快照日，不是厂商发布日；发布日以各仓库 releases 为准。
+上表区分原有核验快照与第 2 项的局部复核日；版本发布日以官方 releases 为准，局部复核不代表全文重新核验。
 
 ## [常见误判|Common misreads]
 

@@ -3,66 +3,67 @@ id: compare-agent-frameworks
 topic: planning
 title: Agent 框架：LangGraph / OpenAI Agents SDK / Google ADK / Claude Agent SDK 怎么选
 titleEn: Agent frameworks: how to choose
-summary: 按状态与持久化、人在回路、模型绑定与部署形态四面选；低层编排与开箱 harness 是两类东西。
-summaryEn: Choose by state and persistence, human-in-the-loop, model binding and deployment; low-level orchestration and batteries-included harnesses are different classes.
+summary: 按流程控制、会话状态、工具执行与部署边界对照四个 SDK；区分框架提供的机制与应用仍需配置的部分。
+summaryEn: Compare workflow control, session state, tool execution and deployment boundaries; distinguish SDK mechanisms from application configuration.
 sources:
-  - label: LangChain · LangGraph 官方文档（low-level、stateful agents；2026-10 快照）
+  - label: LangGraph 官方概览（流程编排与持久化机制，2026-11-04）
     url: https://docs.langchain.com/oss/python/langgraph/
     kind: docs
-  - label: OpenAI · Agents SDK 官方文档（lightweight、provider-agnostic、100+ LLMs；2026-10 快照）
+  - label: OpenAI Agents SDK 官方概览（Sessions 与人在回路，2026-11-04）
     url: https://openai.github.io/openai-agents-python/
     kind: docs
-  - label: Google · ADK 官方文档（graph-based execution engine、routing / fan-out / loops / retry / HITL；2026-10 快照）
+  - label: Google ADK 官方文档（Agent、图工作流与 Runtime，2026-11-04）
     url: https://google.github.io/adk-docs/
     kind: docs
-  - label: Anthropic · Claude Agent SDK 官方文档（进程内工具、类型提示、MCP；2026-10 快照）
+  - label: Claude Agent SDK Python 参考（进程内 MCP 工具与 CLI 子进程边界，2026-11-04）
     url: https://platform.claude.com/docs/en/agent-sdk/python
     kind: docs
-last_verified: 2026-11-03
+last_verified: 2026-11-04
 confidence: partial
 ---
 
-## [先分清两类|Two classes]
+## [先分清两类|Choose the level you need]
 
-| 类别 | 代表 | 它替你做什么 | 不管什么 |
-|---|---|---|---|
-| 低层编排 | LangGraph | 状态、图、持久化钩子 | 文件系统、规划、记忆策略 |
-| 多 agent harness | OpenAI Agents SDK | 多 agent 原语、handoff | 不替你做规划与记忆 |
-| 图执行引擎 | Google ADK | 路由、扇出、循环、重试、状态、HITL | 不替你跑单个 agent |
-| 进程内 SDK | Claude Agent SDK | 工具调用无 IPC、类型安全 | 不绑定某个模型家族外的能力 |
+先写清需要控制的部分，再选 SDK。四个项目的抽象层不同，不宜把“低层”解释成能力少，也不能把某一种工具的执行方式推广到整个 SDK。
 
-一句话：**要自己定流程，选低层；要少写胶水，选 harness；要图执行，选 ADK。**
+| 需求 | 对应检查点 |
+|---|---|
+| 流程步骤与分支由应用明确控制 | 图、状态、节点与中断恢复 |
+| 多个 Agent 协作 | 工具、handoff、调度与职责边界 |
+| 跨轮保留上下文 | Session 后端、保留范围与恢复方法 |
+| 工具接触文件、命令或网络 | 执行进程、权限与隔离方式 |
 
 ## [四行对照|Four frameworks]
 
-| 维度 | LangGraph | OpenAI Agents SDK | Google ADK | Claude Agent SDK |
-|---|---|---|---|---|
-| 官方定位 | 低层、有状态编排 | lightweight、provider-agnostic | code-first、图执行引擎 | 进程内工具与 MCP |
-| 状态/持久化 | 显式状态与 checkpoint 钩子 | 由开发者管理 | state management 内建 | 由应用进程管理 |
-| 人在回路 | 由开发者接 | 由开发者接 | 官方列 HITL | 由应用接 |
-| 模型绑定 | 多 provider | OpenAI + 100+ LLMs | Gemini 为主 | Claude 模型线 |
-| 部署 | 自托管 Python/JS | 自托管 | 自托管 | 同进程，无子进程 |
+| 项目 | 官方文档提供的机制 | 应用仍需决定 |
+|---|---|---|
+| LangGraph | 有状态编排、持久执行、流式输出、人在回路 | 状态结构、存储配置、业务分支与工具权限 |
+| OpenAI Agents SDK | Agent 循环、工具、handoff、Sessions、人在回路 | 会话后端、工具授权、业务审批与模型适配 |
+| Google ADK | Agent、图工作流、顺序/循环/并行工作流、Runtime | 流程设计、状态数据与部署配置 |
+| Claude Agent SDK | Claude Code 能力、自定义进程内 MCP 工具、外部 MCP 连接 | CLI 进程与工具的权限、部署隔离、会话生命周期 |
+
+某机制存在不代表已为你的应用配置好；不同语言 SDK 和版本的覆盖也需分别检查。
 
 ## [逐个适用条件|When each fits]
 
-**LangGraph**：适合流程明确、要自己控制状态与中断恢复的团队；官方自述是 low-level orchestration，不替你做开箱封装。**什么情况下选另一个**：不想自己写状态机，选 OpenAI Agents SDK 或 ADK。
+**LangGraph**：当你需要明确控制图、状态与恢复过程时，对照其持久执行与中断机制。开始前先写一个失败后如何恢复的流程，不只画成功路径。
 
-**OpenAI Agents SDK**：适合要多 agent 协作、又要 provider-agnostic 的团队；官方首段写明支持 OpenAI Responses / Chat Completions 与 100+ 其他 LLM。**什么情况下选另一个**：全栈在 Gemini 或 Claude，选对应 SDK 更少摩擦。
+**OpenAI Agents SDK**：当你需要 Agent 循环、工具和 handoff 时，对照其运行机制；需要跨轮上下文时检查 Sessions，不能笼统写成“没有状态管理”。模型兼容性按实际工具调用与响应能力确认。
 
-**Google ADK**：适合要图执行引擎、路由、扇出、循环、重试与 HITL 的团队；这些是官方 README 明列的第一项特性。**什么情况下选另一个**：只要轻量多 agent 原语，选 OpenAI Agents SDK。
+**Google ADK**：当任务需要图、顺序、循环或并行工作流时，对照对应机制；官方也提供 Agent Runtime，不能把它概括为“只管图、不跑 Agent”。
 
-**Claude Agent SDK**：适合要进程内工具、类型提示、少 IPC 开销的 Python 应用；外部 MCP server 照样支持，两者可混用。**什么情况下选另一个**：要跨模型供应商，选 LangGraph 或 OpenAI Agents SDK。
+**Claude Agent SDK**：当你要将 Claude Code 能力接入应用并定义工具时，对照 Python/TypeScript 版本。`create_sdk_mcp_server()` 创建的工具服务在 Python 应用进程内；这不表示整个 SDK 没有 CLI 子进程，也不能据此承诺端到端“无 IPC 开销”。
 
-## [核验事实|Dated facts]
+## [核验事实|Verification scope]
 
-1. LangGraph 官方自述为 low-level orchestration framework for stateful agents（官方文档，2026-10 快照）。
-2. OpenAI Agents SDK 官方首段写明 provider-agnostic，支持 100+ LLMs（官方文档，2026-10 快照）。
-3. Google ADK 的图执行引擎支持 routing、fan-out/fan-in、loops、retry、state management 与 HITL（官方文档，2026-10 快照）。
-4. Claude Agent SDK 的工具与应用同进程，无子进程管理，带类型提示；外部 MCP server 可混用（官方文档，2026-10 快照）。
+2026-11-04 复核了四份官方文档中与本页机制对照有关的内容：LangGraph 概览、OpenAI Agents SDK 概览、Google ADK 文档入口与 Claude Agent SDK Python 参考。
+
+重点修正三处边界：OpenAI Agents SDK 有 Sessions 与人在回路机制；ADK 有 Agent Runtime；Claude 的进程内 MCP 工具不等于整个 SDK 单进程。这里没有运行 SDK、做吞吐测试或核验所有版本的兼容性。
 
 ## [常见误判|Common misreads]
 
-- 把「低层编排」当成「功能少」：它把决定权留给你，代价是你要写状态与持久化。
-- 把「provider-agnostic」当成「零成本换模型」：提示词、工具 schema 与评测都要重跑。
-- 把「有 HITL」当成「自动安全」：审批点设计错，照样会放过危险操作。
-- 把「SDK 同进程」当成「不用沙箱」：工具权限与文件边界仍要自己划。
+- 把框架提供持久化机制当成已经完成数据备份；需要核对后端、保留与恢复。
+- 把支持多个模型当成无成本替换；提示词、工具 schema 和评估要重新检查。
+- 把人在回路当成自动安全；审批点必须覆盖真正会产生影响的动作。
+- 把进程内工具当成不用隔离；文件、命令与网络权限仍需明确。
+- 只按功能名对照，不检查所用语言、版本与部署环境。

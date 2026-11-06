@@ -1,48 +1,420 @@
 {
   "relations": [
-    ["人工智能","机器学习","先分清范围：机器学习是 AI 中的一类方法。","Distinguish scope: machine learning is one family of AI methods."],
-    ["机器学习","深度学习","看层级关系，再理解多层神经网络。","Understand the hierarchy before studying multilayer networks."],
-    ["大模型 - 大语言模型","AI 产品 vs AI 模型","分清模型本身与把模型接入应用的产品。","Separate the model from a product built around it."],
-    ["提示词","上下文窗口","指令和资料都需要进入可处理的上下文。","Instructions and source material must fit into usable context."],
-    ["Token","词表","看文本如何对应到模型处理的单位。","See how text maps to the units the model processes."],
-    ["Token","单次调用成本","把输入、输出用量分别接到费用计算。","Connect input and output usage to separate cost terms."],
-    ["上下文窗口","上下文工程","窗口是容量；工程关心放什么、何时更新。","Capacity differs from deciding what to include and update."],
-    ["上下文窗口","上下文窗口的代价","补上长输入的处理量与内存代价。","Account for computation and memory costs of long input."],
-    ["幻觉","幻觉的成因","从现象继续看错误可能如何产生。","Move from the observed failure to possible causes."],
-    ["幻觉","联网 - 检索增强","看引入资料能解决什么，以及仍需核对什么。","See what external evidence can help and what still needs checking."],
-    ["智能体 - Agent","工作流编排","比较动态选择步骤与预先定义流程。","Compare dynamically chosen steps with predefined flows."],
-    ["工具调用","工具定义","调用前先明确参数与返回值。","Specify arguments and results before executing a call."],
-    ["工具调用","权限","能生成调用请求，不等于有权执行。","Producing a call request does not authorize execution."],
-    ["MCP","工具调用","分清接入协议与具体调用动作。","Separate the connection protocol from a tool invocation."],
-    ["提示注入","系统提示","比较可信指令与不可信材料的边界。","Distinguish trusted instructions from untrusted material."],
-    ["联网 - 检索增强","分块","先看文档被切成哪些可检索单元。","Understand the document units that retrieval can return."],
-    ["分块","向量 - 嵌入","分块决定信息单元，嵌入决定表示。","Chunking defines units; embedding defines representation."],
-    ["Transformer","注意力机制","看架构中的一项具体计算机制。","Inspect a concrete mechanism within the architecture."],
-    ["注意力机制","自回归生成","区分序列中的计算与逐步生成方式。","Separate sequence computations from stepwise generation."],
-    ["预训练","微调","比较基础训练与后续任务适配。","Compare base training with subsequent adaptation."],
-    ["量化","知识蒸馏","降低精度与训练学生模型改变的对象不同。","Lower precision and training a student change different things."],
-    ["量化","显存","把权重体积接到可用硬件约束。","Connect weight size to hardware limits."],
-    ["显存","KV 缓存","权重之外还需要为上下文留空间。","Context needs memory beyond the weights."],
-    ["GGUF","llama.cpp","分清文件格式与读取它的运行器。","Distinguish a file format from the runtime reading it."],
-    ["开源模型","开放权重","能下载权重与完整开放并非同一条件。","Downloadable weights and full openness are different conditions."],
-    ["开放权重","许可证","实际可用范围仍取决于具体许可。","Permitted uses still depend on the actual license."],
-    ["数据不出网","数据驻留","不出网与限定存储地区回答不同问题。","No network transfer and storage-region limits answer different questions."],
-    ["供应商锁定","退出成本","从依赖机制继续看迁移需要付出什么。","Connect dependencies to the work required to migrate."],
-    ["首字延迟","吞吐","开始等待时间与持续处理能力分开看。","Separate initial waiting from sustained processing capacity."],
-    ["基准测试","模型评测的局限","看数字之前补上适用范围与缺口。","Check scope and omissions before interpreting scores."]
+    [
+      "人工智能",
+      "机器学习",
+      "先分清范围：机器学习是 AI 中的一类方法。",
+      "Distinguish scope: machine learning is one family of AI methods."
+    ],
+    [
+      "机器学习",
+      "深度学习",
+      "看层级关系，再理解多层神经网络。",
+      "Understand the hierarchy before studying multilayer networks."
+    ],
+    [
+      "大模型 - 大语言模型",
+      "AI 产品 vs AI 模型",
+      "分清模型本身与把模型接入应用的产品。",
+      "Separate the model from a product built around it."
+    ],
+    [
+      "提示词",
+      "上下文窗口",
+      "指令和资料都需要进入可处理的上下文。",
+      "Instructions and source material must fit into usable context."
+    ],
+    [
+      "Token",
+      "词表",
+      "看文本如何对应到模型处理的单位。",
+      "See how text maps to the units the model processes."
+    ],
+    [
+      "Token",
+      "单次调用成本",
+      "把输入、输出用量分别接到费用计算。",
+      "Connect input and output usage to separate cost terms."
+    ],
+    [
+      "上下文窗口",
+      "上下文工程",
+      "窗口是容量；工程关心放什么、何时更新。",
+      "Capacity differs from deciding what to include and update."
+    ],
+    [
+      "上下文窗口",
+      "上下文窗口的代价",
+      "补上长输入的处理量与内存代价。",
+      "Account for computation and memory costs of long input."
+    ],
+    [
+      "幻觉",
+      "幻觉的成因",
+      "从现象继续看错误可能如何产生。",
+      "Move from the observed failure to possible causes."
+    ],
+    [
+      "幻觉",
+      "联网 - 检索增强",
+      "看引入资料能解决什么，以及仍需核对什么。",
+      "See what external evidence can help and what still needs checking."
+    ],
+    [
+      "智能体 - Agent",
+      "工作流编排",
+      "比较动态选择步骤与预先定义流程。",
+      "Compare dynamically chosen steps with predefined flows."
+    ],
+    [
+      "工具调用",
+      "工具定义",
+      "调用前先明确参数与返回值。",
+      "Specify arguments and results before executing a call."
+    ],
+    [
+      "工具调用",
+      "权限",
+      "能生成调用请求，不等于有权执行。",
+      "Producing a call request does not authorize execution."
+    ],
+    [
+      "MCP",
+      "工具调用",
+      "分清接入协议与具体调用动作。",
+      "Separate the connection protocol from a tool invocation."
+    ],
+    [
+      "提示注入",
+      "系统提示",
+      "比较可信指令与不可信材料的边界。",
+      "Distinguish trusted instructions from untrusted material."
+    ],
+    [
+      "联网 - 检索增强",
+      "分块",
+      "先看文档被切成哪些可检索单元。",
+      "Understand the document units that retrieval can return."
+    ],
+    [
+      "分块",
+      "向量 - 嵌入",
+      "分块决定信息单元，嵌入决定表示。",
+      "Chunking defines units; embedding defines representation."
+    ],
+    [
+      "Transformer",
+      "注意力机制",
+      "看架构中的一项具体计算机制。",
+      "Inspect a concrete mechanism within the architecture."
+    ],
+    [
+      "注意力机制",
+      "自回归生成",
+      "区分序列中的计算与逐步生成方式。",
+      "Separate sequence computations from stepwise generation."
+    ],
+    [
+      "预训练",
+      "微调",
+      "比较基础训练与后续任务适配。",
+      "Compare base training with subsequent adaptation."
+    ],
+    [
+      "量化",
+      "知识蒸馏",
+      "降低精度与训练学生模型改变的对象不同。",
+      "Lower precision and training a student change different things."
+    ],
+    [
+      "量化",
+      "显存",
+      "把权重体积接到可用硬件约束。",
+      "Connect weight size to hardware limits."
+    ],
+    [
+      "显存",
+      "KV 缓存",
+      "权重之外还需要为上下文留空间。",
+      "Context needs memory beyond the weights."
+    ],
+    [
+      "GGUF",
+      "llama.cpp",
+      "分清文件格式与读取它的运行器。",
+      "Distinguish a file format from the runtime reading it."
+    ],
+    [
+      "开源模型",
+      "开放权重",
+      "能下载权重与完整开放并非同一条件。",
+      "Downloadable weights and full openness are different conditions."
+    ],
+    [
+      "开放权重",
+      "许可证",
+      "实际可用范围仍取决于具体许可。",
+      "Permitted uses still depend on the actual license."
+    ],
+    [
+      "数据不出网",
+      "数据驻留",
+      "不出网与限定存储地区回答不同问题。",
+      "No network transfer and storage-region limits answer different questions."
+    ],
+    [
+      "供应商锁定",
+      "退出成本",
+      "从依赖机制继续看迁移需要付出什么。",
+      "Connect dependencies to the work required to migrate."
+    ],
+    [
+      "首字延迟",
+      "吞吐",
+      "开始等待时间与持续处理能力分开看。",
+      "Separate initial waiting from sustained processing capacity."
+    ],
+    [
+      "基准测试",
+      "模型评测的局限",
+      "看数字之前补上适用范围与缺口。",
+      "Check scope and omissions before interpreting scores."
+    ],
+    [
+      "AI 安全",
+      "提示注入",
+      "先看攻击面，再看防护手段：提示注入是 AI 安全里最常被触发的一类。",
+      "Start with the attack surface: prompt injection is the most frequently triggered risk in AI safety."
+    ],
+    [
+      "提示注入",
+      "插件与 MCP 的信任边界",
+      "注入往往不是靠聊天窗口，而是靠可执行的外部内容生效。",
+      "Injection usually lands through executable external content, not the chat box."
+    ],
+    [
+      "插件与 MCP 的信任边界",
+      "权限",
+      "工具能不能做某件事由权限决定；信任边界说的是谁替你定的。",
+      "Permissions decide what a tool may do; the trust boundary says who set them for you."
+    ],
+    [
+      "数据外带路径",
+      "日志里留下了什么",
+      "日志是最常被忽略的外带通道之一。",
+      "Logs are one of the most overlooked exfiltration paths."
+    ],
+    [
+      "日志里留下了什么",
+      "可观测性",
+      "同一份记录既是排查依据，也是泄露面，要一起设计。",
+      "The same record is both a debugging aid and an exposure surface; design them together."
+    ],
+    [
+      "数据外带路径",
+      "数据不出网",
+      "一个讲风险怎么发生，一个讲控制目标。",
+      "One describes how the risk happens, the other the control goal."
+    ],
+    [
+      "数据驻留与出境",
+      "数据驻留",
+      "驻留讲数据在哪，出境讲它被允许去哪里。",
+      "Residency is where data sits; transfer is where it is allowed to go."
+    ],
+    [
+      "多模态输入风险",
+      "提示注入",
+      "图像与音频同样能携带指令，注入不是文本专属。",
+      "Images and audio can carry instructions too; injection is not text-only."
+    ],
+    [
+      "幻觉检测信号",
+      "幻觉",
+      "先懂成因，再谈能被观测到的信号。",
+      "Understand the cause before chasing observable signals."
+    ],
+    [
+      "幻觉检测信号",
+      "引用与可追溯",
+      "能回指到材料的结论才可核对，回指不上就没有信号。",
+      "Only claims pointing back to material can be checked; without that pointer there is no signal."
+    ],
+    [
+      "评估",
+      "评测集设计",
+      "评估是目的，评测集把目的变成可执行样本。",
+      "Evaluation is the goal; a test set turns it into executable samples."
+    ],
+    [
+      "评测集设计",
+      "训练集与测试集",
+      "样本划分决定你的分数能不能被复现。",
+      "How you split data decides whether the score can be reproduced."
+    ],
+    [
+      "评测集设计",
+      "数据污染",
+      "测试样本出现在训练里，分数就不再说明问题。",
+      "When test samples leak into training, the score stops meaning anything."
+    ],
+    [
+      "离线评测与在线评测",
+      "评测饱和",
+      "离线指标跑满之后，线上差异才真正显出来。",
+      "Once offline metrics saturate, online differences are what surface."
+    ],
+    [
+      "离线评测与在线评测",
+      "模型评测的局限",
+      "两者的差别正是公开评测解释不了的部分。",
+      "The gap between them is what published evaluations cannot explain."
+    ],
+    [
+      "护栏与内容过滤",
+      "拒答",
+      "护栏是机制，拒答是它在具体输入上的表现。",
+      "Guardrails are the mechanism; refusal is how it shows on a given input."
+    ],
+    [
+      "护栏与内容过滤",
+      "输出越界与拒答",
+      "拦住什么、放行什么，只有在边界行为上才看得出。",
+      "What is blocked or passed only shows at boundary behaviour."
+    ],
+    [
+      "红队测试",
+      "护栏与内容过滤",
+      "红队的产出往往是护栏该补哪一格的清单。",
+      "Red-team output is often a list of guardrail gaps to fill."
+    ],
+    [
+      "人工复核队列",
+      "可观测性",
+      "复核队列要能被度量，否则只是把问题往后推。",
+      "A review queue must be measurable, otherwise it only defers the problem."
+    ],
+    [
+      "检索质量度量",
+      "联网 - 检索增强",
+      "先有检索链路，才谈得上检索质量的度量口径。",
+      "Retrieval exists first; then you define how to measure it."
+    ],
+    [
+      "对齐与拒答训练",
+      "偏好对齐",
+      "一个讲训练方法，一个讲训练目标所依据的偏好。",
+      "One is the training method, the other the preferences the goal rests on."
+    ],
+    [
+      "蒸馏与知识来源",
+      "模型指纹与溯源",
+      "能力可以被蒸馏转移，来路需要另外举证。",
+      "Capabilities transfer by distillation; provenance needs separate evidence."
+    ],
+    [
+      "本地部署的隔离面",
+      "推理服务的访问控制",
+      "机器在你手里不等于服务没人能碰。",
+      "Owning the machine does not mean nobody can reach the service."
+    ],
+    [
+      "密钥与凭据管理",
+      "本地部署的隔离面",
+      "凭据一旦外流，隔离就回到起点。",
+      "Once credentials leak, isolation starts over."
+    ],
+    [
+      "安全能力尽调清单",
+      "供应商安全问卷怎么读",
+      "问卷是对方写的，尽调清单是你用来对照的。",
+      "The questionnaire is theirs; your checklist is what you compare against."
+    ],
+    [
+      "合规义务映射",
+      "生成式 AI 合规义务",
+      "义务条文落到你的具体功能上才算映射。",
+      "Obligations count as mapped once they attach to your actual features."
+    ],
+    [
+      "事故响应预案",
+      "生成式 AI 合规义务",
+      "留痕与通报义务常写进预案，而不是安全文档。",
+      "Notification and record duties usually live in the response plan, not the safety doc."
+    ],
+    [
+      "上线前检查门禁",
+      "评估",
+      "门禁判据来自你已经定义并能复跑的评估。",
+      "A release gate is only as good as the evaluation you can re-run."
+    ],
+    [
+      "上线前检查门禁",
+      "事故响应预案",
+      "通过门禁不等于不会出事，出事要有下一步。",
+      "Passing the gate does not prevent incidents; the next step must still exist."
+    ]
   ],
   "actions": {
-    "Token":["https://tools.specul.com/mcp/guides/cost-calculator.html","把 Token 接到成本算式","Connect tokens to the cost worksheet"],
-    "单次调用成本":["https://tools.specul.com/mcp/guides/cost-calculator.html","按输入、输出与工具费用拆账","Break down input, output and tool costs"],
-    "上下文工程":["https://tools.specul.com/mcp/guides/toolkit-prompt-context.html","看一份上下文交接工作表","Use a context-handoff worksheet"],
-    "提示词":["https://tools.specul.com/mcp/guides/toolkit-prompt-context.html","查看填好的提示与交接示例","Read a filled prompt and handoff example"],
-    "幻觉":["https://tools.specul.com/mcp/guides/playbook-research-brief.html","用研究简报流程核对出处","Check sources in a research-brief workflow"],
-    "MCP":["https://tools.specul.com/mcp/","查看 MCP 工具的权限与接入方式","Inspect MCP permissions and connection options"],
-    "工具调用":["https://tools.specul.com/mcp/guides/toolkit-agent-ops.html","把工具调用纳入验收清单","Include tool calls in an acceptance checklist"],
-    "量化":["https://models.specul.com/guides/gpu-cost-math.html","跟着内存预算例子选择下一步","Work through a memory-budget example"],
-    "显存":["https://models.specul.com/guides/gpu-cost-math.html","区分权重、缓存与运行时余量","Budget for weights, cache and runtime headroom"],
-    "GGUF":["https://tools.specul.com/mcp/guides/playbook-local-model.html","按本地运行流程检查文件与运行器","Check files and runtime in a local-model workflow"],
-    "提示注入":["https://tools.specul.com/mcp/guides/guardrails.html","检查执行端的防线与恢复方式","Check execution controls and recovery"],
-    "评估":["https://tools.specul.com/mcp/guides/evaluation.html","从固定任务与失败记录开始","Start from fixed tasks and failure records"]
+    "Token": [
+      "https://tools.specul.com/mcp/guides/cost-calculator.html",
+      "把 Token 接到成本算式",
+      "Connect tokens to the cost worksheet"
+    ],
+    "单次调用成本": [
+      "https://tools.specul.com/mcp/guides/cost-calculator.html",
+      "按输入、输出与工具费用拆账",
+      "Break down input, output and tool costs"
+    ],
+    "上下文工程": [
+      "https://tools.specul.com/mcp/guides/toolkit-prompt-context.html",
+      "看一份上下文交接工作表",
+      "Use a context-handoff worksheet"
+    ],
+    "提示词": [
+      "https://tools.specul.com/mcp/guides/toolkit-prompt-context.html",
+      "查看填好的提示与交接示例",
+      "Read a filled prompt and handoff example"
+    ],
+    "幻觉": [
+      "https://tools.specul.com/mcp/guides/playbook-research-brief.html",
+      "用研究简报流程核对出处",
+      "Check sources in a research-brief workflow"
+    ],
+    "MCP": [
+      "https://tools.specul.com/mcp/",
+      "查看 MCP 工具的权限与接入方式",
+      "Inspect MCP permissions and connection options"
+    ],
+    "工具调用": [
+      "https://tools.specul.com/mcp/guides/toolkit-agent-ops.html",
+      "把工具调用纳入验收清单",
+      "Include tool calls in an acceptance checklist"
+    ],
+    "量化": [
+      "https://models.specul.com/guides/gpu-cost-math.html",
+      "跟着内存预算例子选择下一步",
+      "Work through a memory-budget example"
+    ],
+    "显存": [
+      "https://models.specul.com/guides/gpu-cost-math.html",
+      "区分权重、缓存与运行时余量",
+      "Budget for weights, cache and runtime headroom"
+    ],
+    "GGUF": [
+      "https://tools.specul.com/mcp/guides/playbook-local-model.html",
+      "按本地运行流程检查文件与运行器",
+      "Check files and runtime in a local-model workflow"
+    ],
+    "提示注入": [
+      "https://tools.specul.com/mcp/guides/guardrails.html",
+      "检查执行端的防线与恢复方式",
+      "Check execution controls and recovery"
+    ],
+    "评估": [
+      "https://tools.specul.com/mcp/guides/evaluation.html",
+      "从固定任务与失败记录开始",
+      "Start from fixed tasks and failure records"
+    ]
   }
 }

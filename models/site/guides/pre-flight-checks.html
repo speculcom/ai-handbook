@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>本地跑起来之前先确认的七件事 · 做模型专题</title>
+  <meta name="description" content="从开机到第一次出字的七个核对点：可用容量、驻留体积、文件与运行器、缓存口径、许可、结果验收、日志落点。每件写清查什么、拿什么当证据、失败后下一步。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/pre-flight-checks.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="本地跑起来之前先确认的七件事 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/pre-flight-checks.html" />
+  <meta property="og:title" content="本地跑起来之前先确认的七件事 · 做模型专题" />
+  <meta property="og:description" content="从开机到第一次出字的七个核对点：可用容量、驻留体积、文件与运行器、缓存口径、许可、结果验收、日志落点。每件写清查什么、拿什么当证据、失败后下一步。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="../brand.js?v=bf69a6d205ad"></script>
+  <link rel="stylesheet" href="../brand.css?v=bf69a6d205ad" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Seven checks before a local run starts","description":"Seven checkpoints between power-on and the first token: available capacity, resident size, file and runner support, cache scope, licence, output acceptance and where logs go. Each states what to check, what counts as evidence and the next step on failure.","url":"https://models.specul.com/guides/pre-flight-checks.html","dateModified":"2026-11-06"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span></p>
+      <h1><span data-zh>本地跑起来之前先确认的七件事</span><span data-en>Seven checks before a local run starts</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>从开机到第一次出字的七个核对点：可用容量、驻留体积、文件与运行器、缓存口径、许可、结果验收、日志落点。每件写清查什么、拿什么当证据、失败后下一步。</span><span data-en>Seven checkpoints between power-on and the first token: available capacity, resident size, file and runner support, cache scope, licence, output acceptance and where logs go. Each states what to check, what counts as evidence and the next step on failure.</span></p>
+    </header>
+
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>七件事是核对清单</span><span data-en>Seven checks, not an installer</span></a></li><li><a href="#guide-section-2"><span data-zh>逐条怎么查</span><span data-en>How to check each one</span></a></li><li><a href="#guide-section-3"><span data-zh>可用容量与驻留体积</span><span data-en>Available capacity and resident size</span></a></li><li><a href="#guide-section-4"><span data-zh>文件与运行器：格式存在不等于支持</span><span data-en>The file and the runner: a format is not support</span></a></li><li><a href="#guide-section-5"><span data-zh>缓存口径：公式只管同层全注意力</span><span data-en>Cache scope: same-layer full attention only</span></a></li><li><a href="#guide-section-6"><span data-zh>许可与用途：以发布页为准</span><span data-en>Licence and use: take the publishing page</span></a></li><li><a href="#guide-section-7"><span data-zh>结果验收与日志落点</span><span data-en>Output acceptance and where logs go</span></a></li><li><a href="#guide-section-8"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li></ul></nav>
+    <section class="fam-sec" id="guide-section-0">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec" id="guide-section-1">
+      <h2><span data-zh>七件事是核对清单</span><span data-en>Seven checks, not an installer</span></h2>
+<span data-zh><p>这七件事是本地跑的核对清单，不是安装教程。</p>
+<p>清单是：可用容量、驻留体积、文件与运行器、缓存口径、许可、结果验收、日志落点。</p>
+<p>顺序从「能不能装下」走到「结果算不算数」。某一条查不下去就先停，不要靠改配置碰运气。</p>
+<p>本站不下载权重、不代跑模型，也不给某台机器能不能跑的结论。</p></span><span data-en><p>These seven items are a pre-run checklist, not an installation tutorial.</p>
+<p>The list is: available capacity, resident size, file and runner support, cache scope, licence, output acceptance, and where logs go.</p>
+<p>The order runs from &quot;will it fit&quot; to &quot;does the result count&quot;. Stop at the first item you cannot verify instead of changing settings blindly.</p>
+<p>This site downloads no weights, runs no models, and draws no conclusion about whether a particular machine works.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-2">
+      <h2><span data-zh>逐条怎么查</span><span data-en>How to check each one</span></h2>
+<span data-zh><p>每条给三行内容：查什么、拿什么当证据、查不过去时下一步。证据一律回到官方页与本机读数。</p>
+<ul>
+  <li>可用容量：查当前任务真能用多少，不查设备标称总量。证据是系统占用与运行器分配。</li>
+  <li>驻留体积：查加载后实际占多少，不只看下载文件多大。证据是启动后的占用读数。</li>
+  <li>文件与运行器：查该架构、该任务、该版本有没有明确支持说明。缺说明就保留未知。</li>
+  <li>缓存口径：先确认架构是不是同层标准全注意力，再决定能不能套 KV 算式。</li>
+  <li>许可：查发布页给的许可标识与条款入口，本站不替读者判断某个用途。</li>
+  <li>结果验收：先写任务、输入、判定标准和失败处理，再跑第一次生成。</li>
+  <li>日志落点：查日志写到哪、谁有权限读、留多久，另见日志那一篇。</li>
+</ul></span><span data-en><p>Each item has three parts: what to check, what counts as evidence, and the next step when the check fails. Evidence always returns to official pages and readings taken on your own machine.</p>
+<ul>
+  <li>Available capacity: check what this task can actually use, not the device&#39;s advertised total. Evidence is system usage plus runner allocation.</li>
+  <li>Resident size: check what the loaded model occupies, not only the download file size. Evidence is the reading after startup.</li>
+  <li>File and runner: look for an explicit support statement covering this architecture, task and version. Absent a statement, keep it unknown.</li>
+  <li>Cache scope: first establish whether the decoder is standard same-layer full attention, then decide whether the KV formula applies at all.</li>
+  <li>Licence: read the licence identifier and terms link on the publishing page; this site does not judge a specific use case.</li>
+  <li>Output acceptance: write the task, inputs, pass criteria and failure handling before the first generation.</li>
+  <li>Log location: check where logs are written, who may read them and how long they stay; see the local-logs guide.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-3">
+      <h2><span data-zh>可用容量与驻留体积</span><span data-en>Available capacity and resident size</span></h2>
+<span data-zh><p>设备标称总量不等于任务可用量。驱动、系统界面、其他进程和运行器自己都在同一块内存里排队。</p>
+<p>硬件规格页给的是型号口径，不是某个任务的可用读数。本站没有核对过任何具体机器。</p>
+<p>十进制 GB 与 GiB 是两个单位。1 GiB 是 1,073,741,824 字节，同一条算式里不要混着写。</p>
+<p>驻留体积是加载后的占用，不等于仓库文件体积。转换精度、张量布局和运行器分配都会改它。</p>
+<ul>
+  <li>查不过去时：先关掉同机的其他占用，再用短输入起一次，记录读数后才加上下文长度。</li>
+</ul></span><span data-en><p>Advertised device capacity is not task-available memory. Drivers, the desktop, other processes and the runner itself all queue in the same memory.</p>
+<p>Hardware specification pages give published SKU figures, not a reading for your task. This site checked no specific machine and reports no available figure.</p>
+<p>Decimal GB and GiB are different units. One GiB is 1,073,741,824 bytes; do not mix the two inside one calculation.</p>
+<p>Resident size is loaded occupancy, not repository file size. Precision conversion, tensor layout and runtime allocation all change it.</p>
+<ul>
+  <li>If the check fails: release other local load first, start with a short input, record the reading, and only then increase context length.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-4">
+      <h2><span data-zh>文件与运行器：格式存在不等于支持</span><span data-en>The file and the runner: a format is not support</span></h2>
+<span data-zh><p>本地跑的前提是运行器认得这个模型。格式要求、后端开关和支持清单都写在运行器文档里。</p>
+<p>运行前提与下载方式见 llama.cpp 官方文档：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/models.md" target="_blank" rel="noopener">docs/models.md</a>，后端编译开关见 <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build.md" target="_blank" rel="noopener">docs/build.md</a>。</p>
+<ul>
+  <li>架构支持：查运行器有没有列出该架构，从哪个版本开始列。</li>
+  <li>任务接口：对话、嵌入、识别是不同入口，换个任务不等于换个文件。</li>
+  <li>多模态：图像与音频的接入件常是独立文件，缺它只会退回文字路径的行为。</li>
+  <li>版本差异：同一模型在不同运行器版本上的能力可能不同，未列出的保留未知。</li>
+</ul></span><span data-en><p>A local run requires the runner to recognise the model. Format requirements, backend switches and the support list are all in the runner documentation.</p>
+<p>Run prerequisites and download syntax appear in the official llama.cpp documentation: <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/models.md" target="_blank" rel="noopener">docs/models.md</a>; backend build switches appear in <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build.md" target="_blank" rel="noopener">docs/build.md</a>.</p>
+<ul>
+  <li>Architecture support: check whether the runner lists this architecture and from which release.</li>
+  <li>Task contract: chat, embedding and recognition are separate entry points; changing the task is not merely changing the file.</li>
+  <li>Multimodal: the image/audio attachment is often a separate file; without it you fall back to text-only behaviour.</li>
+  <li>Version drift: the same model can differ across runner versions; anything not listed stays unknown.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-5">
+      <h2><span data-zh>缓存口径：公式只管同层全注意力</span><span data-en>Cache scope: same-layer full attention only</span></h2>
+<span data-zh><p>KV 缓存算式是 2 × L × Hkv × D × B × C × N。字节结果除以 1,073,741,824 才是 GiB。</p>
+<p>它只在标准全注意力 MHA / GQA 解码器上成立。前提是各层结构相同，且每层都保留完整键值。</p>
+<p>MLA、混合状态空间、滑动窗口和逐层结构不同的缓存都不在这个范围内，硬套会算错。</p>
+<p>L、Hkv、D 从模型配置取，B 从运行器配置取。架构确认不了就选「未确认」，不要用参数量倒推。</p>
+<p>字段与算式在容量工作台上逐项填写：<a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">上下文与并发预算</a>。</p>
+<p>它给的是假设下的占用估计，不能据此承诺跑得起来、不超时，也不承诺输出质量。</p></span><span data-en><p>The KV cache formula is 2 × L × Hkv × D × B × C × N. Divide the byte result by 1,073,741,824 to obtain GiB.</p>
+<p>It holds only for standard full-attention MHA/GQA decoders whose layers share the same structure and keep complete key/value state per layer.</p>
+<p>MLA, hybrid state-space designs, sliding windows and per-layer differing caches are outside that range; forcing the formula onto them produces wrong numbers.</p>
+<p>Take L, Hkv and D from the model configuration and B from the runner configuration. If the architecture cannot be confirmed, select &quot;unconfirmed&quot; rather than back-solving from parameter count.</p>
+<p>Fill the fields and see the arithmetic in the capacity workbench: <a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">context and concurrency budget</a>.</p>
+<p>It estimates occupancy under your assumptions. It cannot promise that a run starts, that it stays within a time limit, or that output quality is acceptable.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-6">
+      <h2><span data-zh>许可与用途：以发布页为准</span><span data-en>Licence and use: take the publishing page</span></h2>
+<span data-zh><p>许可标识、条款入口和用途限制都写在发布页。本站逐条抄标识，不解读、不总结、不改写。</p>
+<ul>
+  <li>标识为非宽松类（<code>other</code>、<code>cc-by-*</code> 一类）时，先读条款再决定用途。</li>
+  <li>第三方量化仓通常注明继承基础模型的许可，产物本身的发布者另算。</li>
+  <li>官方未说明的用途问题保留未说明，不用社区说法补成一个答案。</li>
+</ul></span><span data-en><p>Licence identifiers, terms links and use restrictions live on the publishing page. This site copies the identifiers item by item and neither interprets, summarises nor rewrites the terms.</p>
+<ul>
+  <li>When the identifier is non-permissive (<code>other</code>, <code>cc-by-*</code> and similar), read the terms before deciding on a use.</li>
+  <li>Third-party quantisation repositories usually note inheritance from the base model; the publisher of the quantised artefact is a separate matter.</li>
+  <li>Where the official page is silent about a use case, it stays recorded as not stated; do not substitute community claims for an answer.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-7">
+      <h2><span data-zh>结果验收与日志落点</span><span data-en>Output acceptance and where logs go</span></h2>
+<span data-zh><p>第一次生成之前先写下任务、输入、判定标准和失败处理。验收看预先写好的判定，不看单次观感。</p>
+<p>结果检查从这几处进入：<a href="https://tools.specul.com/mcp/guides/playbook-local-model.html" target="_blank" rel="noopener">本地运行完整流程</a>、<a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20 项自测清单</a>、<a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom" target="_blank" rel="noopener">按症状排查</a>。</p>
+<p>费用构成用这个入口记录：<a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a>。它算的是任务口径下的成本，不预测某台机器的表现。</p>
+<p>日志落在哪、谁能读、留多久是另一件事，见「把日志留在本地到底意味着什么」。</p></span><span data-en><p>Before the first generation, write down the task, inputs, pass criteria and failure handling. Acceptance follows the criteria written in advance, not a single impression.</p>
+<p>Entry points for checking results: the <a href="https://tools.specul.com/mcp/guides/playbook-local-model.html" target="_blank" rel="noopener">local-model workflow</a>, the <a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20-item self-test</a> and <a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom" target="_blank" rel="noopener">troubleshooting by symptom</a>.</p>
+<p>Record cost components with the <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">cost calculator</a>. It works on task terms and does not predict a specific machine.</p>
+<p>Where logs land, who may read them and how long they persist is a separate question; see &quot;What keeping logs local actually means&quot;.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-8">
+      <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
+<span data-zh><p>学 AI 站的 <a href="https://learn.specul.com/term/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener">本地部署</a>、<a href="https://learn.specul.com/term/%E6%98%BE%E5%AD%98/" target="_blank" rel="noopener">显存</a> 与 <a href="https://learn.specul.com/term/GGUF/" target="_blank" rel="noopener">GGUF</a> 是使用者视角的一页科普。</p>
+<p>这一篇给的是开机前的核对顺序和每条的证据口径。同一个概念在两处深度不同，互链不重复。</p>
+<p>容量与带宽的算法见「GPU 事实与成本数学」。多模态那笔账见「多模态模型的显存账怎么算」。</p></span><span data-en><p>The Learn site&#39;s <a href="https://learn.specul.com/term/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener">local deployment</a>, <a href="https://learn.specul.com/term/%E6%98%BE%E5%AD%98/" target="_blank" rel="noopener">VRAM</a> and <a href="https://learn.specul.com/term/GGUF/" target="_blank" rel="noopener">GGUF</a> pages are user-perspective explainers.</p>
+<p>This guide gives the pre-run checking order and the evidence standard for each item. Same concept, different depth on each side, cross-linked without duplication.</p>
+<p>For capacity and bandwidth arithmetic see &quot;GPU facts and cost math&quot;; for the multimodal bill see &quot;Counting memory for a multimodal model&quot;.</p></span>
+    </section>
+
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2><span data-zh>继续做什么</span><span data-en>What to do next</span></h2>
+      <ul><li><a href="gpu-cost-math.html#capacity-workbench"><span data-zh>填写上下文与并发容量假设</span><span data-en>Budget context and concurrency</span></a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/"><span data-zh>检查输出是否有依据</span><span data-en>Verify evidence for the output</span></a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom"><span data-zh>按症状排查</span><span data-en>Troubleshoot by symptom</span></a></li></ul>
+    </nav>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li><span data-zh>llama.cpp · 支持模型与下载方式文档（GGUF 是本地运行的格式前提，2026-11-06 直抓）</span><span data-en>llama.cpp documentation on supported models and download syntax (GGUF is the format prerequisite for local runs; fetched directly 2026-11-06)</span>：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/models.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/models.md</a></li>
+        <li><span data-zh>llama.cpp · 构建文档（编译器与 CUDA / Metal / Vulkan 后端开关，2026-11-06 直抓）</span><span data-en>llama.cpp build documentation (compilers and CUDA / Metal / Vulkan backend switches; fetched directly 2026-11-06)</span>：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/build.md</a></li>
+        <li><span data-zh>NVIDIA GeForce RTX 4090 官方规格页（显存容量口径，2026-11-06 直抓）</span><span data-en>NVIDIA GeForce RTX 4090 official specification page (published memory capacity; fetched directly 2026-11-06)</span>：<a href="https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/" target="_blank" rel="noopener">https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/</a></li>
+        <li><span data-zh>vLLM · 内存控制文档（缓存空间按 GiB 配置的示例，2026-11-06 直抓）</span><span data-en>vLLM memory-conservation documentation (example of configuring cache space in GiB; fetched directly 2026-11-06)</span>：<a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/configuration/conserving_memory/</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-06；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-06; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

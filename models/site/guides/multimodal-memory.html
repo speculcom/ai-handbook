@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>多模态模型的显存账怎么算 · 做模型专题</title>
+  <meta name="description" content="把多模态的占用分成编码器、投影件与解码器缓存三笔账，写清每笔的来源、单位（GiB）与算法边界；KV 算式只管同层标准全注意力解码器，不能外推到编码器与 MLA、混合、滑动窗口。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/multimodal-memory.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="多模态模型的显存账怎么算 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/multimodal-memory.html" />
+  <meta property="og:title" content="多模态模型的显存账怎么算 · 做模型专题" />
+  <meta property="og:description" content="把多模态的占用分成编码器、投影件与解码器缓存三笔账，写清每笔的来源、单位（GiB）与算法边界；KV 算式只管同层标准全注意力解码器，不能外推到编码器与 MLA、混合、滑动窗口。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="../brand.js?v=bf69a6d205ad"></script>
+  <link rel="stylesheet" href="../brand.css?v=bf69a6d205ad" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Counting memory for a multimodal model","description":"Split multimodal occupancy into three bills — encoder, projector files and decoder cache — with the source, unit (GiB) and scope stated for each. The KV formula covers only a standard same-layer full-attention decoder; it does not extend to encoders or to MLA, hybrid and sliding-window designs.","url":"https://models.specul.com/guides/multimodal-memory.html","dateModified":"2026-11-06"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span></p>
+      <h1><span data-zh>多模态模型的显存账怎么算</span><span data-en>Counting memory for a multimodal model</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>把多模态的占用分成编码器、投影件与解码器缓存三笔账，写清每笔的来源、单位（GiB）与算法边界；KV 算式只管同层标准全注意力解码器，不能外推到编码器与 MLA、混合、滑动窗口。</span><span data-en>Split multimodal occupancy into three bills — encoder, projector files and decoder cache — with the source, unit (GiB) and scope stated for each. The KV formula covers only a standard same-layer full-attention decoder; it does not extend to encoders or to MLA, hybrid and sliding-window designs.</span></p>
+    </header>
+
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇算的是三笔账</span><span data-en>This guide counts three bills</span></a></li><li><a href="#guide-section-2"><span data-zh>先把三笔账分开列</span><span data-en>List the three bills separately</span></a></li><li><a href="#guide-section-3"><span data-zh>编码器与投影件是独立一层</span><span data-en>The encoder and projector are their own layer</span></a></li><li><a href="#guide-section-4"><span data-zh>一张图值多少 token：先问官方配置</span><span data-en>How many tokens an image costs: read the configuration</span></a></li><li><a href="#guide-section-5"><span data-zh>进解码器之后才轮到 KV 算式</span><span data-en>The KV formula only applies after tokens reach the decoder</span></a></li><li><a href="#guide-section-6"><span data-zh>虚构练习：一次图像输入的预算</span><span data-en>A fictional exercise: budgeting one image input</span></a></li><li><a href="#guide-section-7"><span data-zh>核对与排查入口</span><span data-en>Check and troubleshooting entry points</span></a></li><li><a href="#guide-section-8"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li></ul></nav>
+    <section class="fam-sec" id="guide-section-0">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec" id="guide-section-1">
+      <h2><span data-zh>这一篇算的是三笔账</span><span data-en>This guide counts three bills</span></h2>
+<span data-zh><p>多模态的显存账是三笔账的合计，不是一个数字。</p>
+<p>三笔是：视觉或音频编码器的占用、投影件与接入层的占用、解码器侧的权重与缓存。</p>
+<p>本站不跑模型、不读硬件，也不给某个多模态模型的占用结论。页面能给的只有分法、单位和边界。</p></span><span data-en><p>Memory for a multimodal model is the total of three separate bills, not one number.</p>
+<p>The three are: encoder occupancy, projector and connector files, and the decoder side&#39;s weights plus cache.</p>
+<p>This site runs no models, reads no hardware and issues no occupancy conclusion for any multimodal model. What it can give is the split, the units and the boundaries.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-2">
+      <h2><span data-zh>先把三笔账分开列</span><span data-en>List the three bills separately</span></h2>
+<span data-zh><p>只问「要多大显存」问不出答案，先按层拆开，每笔单独记来源。</p>
+<ul>
+  <li>文本权重：解码器主干驻留的体积。它是驻留估计，不等于下载文件字节数。</li>
+  <li>编码器与投影件：图像、音频通路自己的权重，运行器把它们作为单独文件加载。</li>
+  <li>运行时与临时张量：预处理、批调度、CUDA Graph 一类开销，官方未列明时留空。</li>
+  <li>解码器缓存：图像变成 token 进入上下文之后才产生的那一笔 KV。</li>
+</ul>
+<p>三笔里任何一笔用错单位，合计就没有意义。本页一律按 GiB 记账，十进制 GB 先换算。</p></span><span data-en><p>Asking &quot;how much VRAM does it need&quot; has no answer until the layers are split and each line records its own source.</p>
+<ul>
+  <li>Text weights: the resident volume of the decoder backbone. A residency estimate, not the downloaded file&#39;s byte count.</li>
+  <li>Encoder and projector: the image/audio path&#39;s own weights, which the runner loads as separate files.</li>
+  <li>Runtime and temporary tensors: preprocessing, scheduling and CUDA-graph style overhead; left blank when not documented.</li>
+  <li>Decoder cache: the KV that appears only after image tokens enter the context.</li>
+</ul>
+<p>If one line uses the wrong unit, the total is meaningless. This page books everything in GiB and converts decimal GB first.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-3">
+      <h2><span data-zh>编码器与投影件是独立一层</span><span data-en>The encoder and projector are their own layer</span></h2>
+<span data-zh><p>多模态不是一句「模型支持图片」，它有自己的文件与开关。</p>
+<ul>
+  <li>运行器侧要同时给出文本文件与投影件：官方文档写的是 <code>-m model.gguf</code> 配 <code>--mmproj file.gguf</code>，各指一端。出处见 <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/multimodal.md" target="_blank" rel="noopener">docs/multimodal.md</a>。</li>
+  <li>投影件默认卸载到 GPU，官方文档给了关掉它的开关 <code>--no-mmproj-offload</code>。这直接影响它算在显存还是内存里。</li>
+  <li>投影件不止投影：官方 quantize 文档说明这个文件里可能包含视觉或音频编码器等多个部件。</li>
+  <li>转换与量化要分别做：官方文档写明支持图像或音频输入的模型，其编码器与投影件需要单独转换和量化。</li>
+  <li>OCR 一类模型对提示与输入结构有自己要求，官方文档提醒按模型说明处理，不能只按聊天用法喂图。</li>
+</ul>
+<p>官方 quantize 文档另有一句精度口径：这些部件通常用较高精度保存。用更小的量化档，对速度与内存影响不明显，但可能影响整体质量。它是官方口径，不是本站实测。</p></span><span data-en><p>Multimodal support is not the sentence &quot;it accepts images&quot;; it has its own files and switches.</p>
+<ul>
+  <li>The runner needs the text file and the projector file at once: the official documentation describes <code>-m model.gguf</code> together with <code>--mmproj file.gguf</code>, one per side. Source: <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/multimodal.md" target="_blank" rel="noopener">docs/multimodal.md</a>.</li>
+  <li>The projector is offloaded to the GPU by default, and the same documentation gives <code>--no-mmproj-offload</code> to stop that. This decides whether the line counts as VRAM or system memory.</li>
+  <li>A projector file is more than a projection: the official quantize documentation says it may contain vision or audio encoders and other components.</li>
+  <li>Conversion and quantisation are done separately: the documentation states that models accepting image or audio input need their encoders and projectors converted and quantised as well.</li>
+  <li>OCR-style models carry their own prompt and input-structure requirements; the documentation points back to the model&#39;s instructions rather than chat-style feeding.</li>
+</ul>
+<p>The official quantize documentation adds a precision note: these components are usually kept in a high-quality format, and using a smaller quant affects speed and memory only slightly but can affect overall quality. That is the vendor&#39;s statement, not a measurement by this site.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-4">
+      <h2><span data-zh>一张图值多少 token：先问官方配置</span><span data-en>How many tokens an image costs: read the configuration</span></h2>
+<span data-zh><p>图像进入解码器时变成多少 token，由模型与它的预处理决定。这不是能从体积推出来的数。</p>
+<ul>
+  <li>该数值要从官方模型配置、预处理说明或运行器文档取。三处都取不到时，本站写官方未说明，不用张数猜测。</li>
+  <li>同一模型换分辨率、换缩放策略，token 数会变，缓存那一笔跟着变。</li>
+  <li>每次请求能带几个图像或几段视频，是可以限制的设置项。vLLM 的内存控制文档给了 <code>limit_mm_per_prompt</code> 这类参数，见 <a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">conserving_memory</a>。</li>
+  <li>官方文档也提醒某些模型需要更大的上下文窗口，例如把上下文设到 8192 的示例。上下文变大主要是缓存那一笔在涨。</li>
+</ul></span><span data-en><p>How many tokens an image becomes inside the decoder is set by the model and its preprocessing. It cannot be derived from file size.</p>
+<ul>
+  <li>Take the figure from the official model configuration, preprocessing description or runner documentation. When none of the three gives it, this site writes that it is not stated rather than guessing from patch counts.</li>
+  <li>The same model at another resolution, or with another resizing strategy, yields a different token count, and the cache line moves with it.</li>
+  <li>How many images or video clips a request may carry is a limitable setting. vLLM&#39;s memory documentation lists parameters such as <code>limit_mm_per_prompt</code>; see <a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">conserving_memory</a>.</li>
+  <li>The official documentation also warns that some models need a larger context window, with an example setting the context to 8192. A longer context mainly grows the cache line.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-5">
+      <h2><span data-zh>进解码器之后才轮到 KV 算式</span><span data-en>The KV formula only applies after tokens reach the decoder</span></h2>
+<span data-zh><p>解码器缓存的标准算法是 2 × L × Hkv × D × B × C × N。字节结果除以 1,073,741,824 才是 GiB。</p>
+<p>它成立的口径很窄。</p>
+<p>适用对象是标准全注意力 MHA / GQA 解码器。前提还有两条：每层保留完整键值，各层结构相同。</p>
+<p>MLA、混合状态空间、滑动窗口与逐层缓存不同的架构都不适用。编码器侧根本不产生这种缓存。</p>
+<ul>
+  <li>C 要按「提示 token 加图像转出的 token 再加已生成内容」计，不是只算文字长度。</li>
+  <li>N 假设各请求长度相同、缓存互不共享；分页复用与共享前缀会改变口径。</li>
+  <li>vLLM 的 PagedAttention 设计文档描述的是按块存放每头固定 token 数的缓存，见 <a href="https://docs.vllm.ai/en/latest/design/paged_attention.html" target="_blank" rel="noopener">paged_attention</a>。</li>
+  <li>缓存精度是独立设置项，官方把缓存空间以 GiB 配置的例子见同一份内存控制文档。</li>
+</ul>
+<p>字段与算式在容量工作台上逐项填写：<a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">上下文与并发预算</a>。</p></span><span data-en><p>The standard decoder cache calculation is 2 × L × Hkv × D × B × C × N; divide the byte result by 1,073,741,824 to obtain GiB.</p>
+<p>Its scope is narrow: standard full-attention MHA/GQA decoders with identical layers and complete key/value state kept at every layer.</p>
+<p>MLA, hybrid state-space designs, sliding windows and architectures whose caches differ per layer are outside it, and encoders never produce this kind of cache.</p>
+<ul>
+  <li>Count C as prompt tokens plus tokens produced from the image plus generated content, not text length alone.</li>
+  <li>N assumes equal request lengths and no cache sharing; paging reuse and shared prefixes change the basis.</li>
+  <li>vLLM&#39;s PagedAttention design document describes blocks holding a fixed number of tokens per head; see <a href="https://docs.vllm.ai/en/latest/design/paged_attention.html" target="_blank" rel="noopener">paged_attention</a>.</li>
+  <li>Cache precision is a separate setting; the same memory documentation configures cache space in GiB.</li>
+</ul>
+<p>Fill the fields and see the arithmetic in the capacity workbench: <a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">context and concurrency budget</a>.</p></span>
+    </section>
+    <section class="fam-sec" id="guide-section-6">
+      <h2><span data-zh>虚构练习：一次图像输入的预算</span><span data-en>A fictional exercise: budgeting one image input</span></h2>
+<span data-zh><p>本节数字全是虚构教学假设，不对应任何真实模型、官方页或本站运行结果。</p>
+<p>设文本权重按 5 GiB 计，编码器与投影件合计按 1.5 GiB 计。运行时与预留按 1 GiB 计。</p>
+<p>再假设每张图转 256 token，一次请求带 2 张图。提示与生成内容合计 1,500 token，因此 C 按 2,010 计。并发 N 取 1。</p>
+<p>按同层标准全注意力 MHA / GQA、L 32、Hkv 8、D 128、B 为 2 字节练习：KV 约 0.2 GiB，合计约 7.7 GiB。</p>
+<ul>
+  <li>若架构确认不了（MLA、混合或滑动窗口），这条算式作废，只能回官方方法另算。</li>
+  <li>若任务可用内存按 8 GiB 计，假设下留 0.3 GiB 余量。这个数字不承诺跑得起来，也不承诺图像理解的质量。</li>
+  <li>想缩短结果，可减图像数量、降上下文长度或改并发，每一项都会改变上面那笔缓存。</li>
+</ul></span><span data-en><p>Every number in this section is a fictional teaching assumption. It matches no real model, official page or result produced by this site.</p>
+<p>Assume text weights of 5 GiB, an encoder plus projector total of 1.5 GiB, and 1 GiB for runtime and reserve.</p>
+<p>Now assume each image becomes 256 tokens, one request carries 2 images, and prompt plus generated content totals 1,500 tokens, so C is 2,010 with N = 1.</p>
+<p>Under a standard same-layer full-attention MHA/GQA assumption with L 32, Hkv 8, D 128 and B at 2 bytes, KV is about 0.2 GiB and the total about 7.7 GiB.</p>
+<ul>
+  <li>If the architecture cannot be confirmed (MLA, hybrid or sliding window), this calculation is void and the official method for that architecture must be used instead.</li>
+  <li>Against an 8 GiB task-available budget the assumption leaves 0.3 GiB headroom. That figure promises neither a successful start nor image-understanding quality.</li>
+  <li>To shrink the result, reduce image count, context length or concurrency. Each change moves that cache line.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-7">
+      <h2><span data-zh>核对与排查入口</span><span data-en>Check and troubleshooting entry points</span></h2>
+<span data-zh><ul>
+  <li>载入失败先查运行器是否支持该架构与投影件组合，按症状进入 <a href="https://tools.specul.com/mcp/guides/failure-library.html#files" target="_blank" rel="noopener">故障库</a>。</li>
+  <li>占用超限的排查入口是 <a href="https://tools.specul.com/mcp/guides/failure-library.html#memory" target="_blank" rel="noopener">容量不足排查</a>，先确认单位与假设再改设置。</li>
+  <li>结果判定走 <a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20 项自测清单</a>，图像任务要写清可核对的字段。</li>
+  <li>任务接口层面的差别（OCR、语音、嵌入、重排）见本站「任务模型」专题，那边不给解码器 KV 公式套编码器。</li>
+  <li>要按任务记录费用构成时用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a>，本站不保存单价，也不预测某台机器的产出。</li>
+</ul></span><span data-en><ul>
+  <li>Load failures: first check whether the runner supports this architecture and projector combination; start at the <a href="https://tools.specul.com/mcp/guides/failure-library.html#files" target="_blank" rel="noopener">failure library</a>.</li>
+  <li>Over budget: the entry point is <a href="https://tools.specul.com/mcp/guides/failure-library.html#memory" target="_blank" rel="noopener">memory troubleshooting</a>. Confirm units and assumptions before changing settings.</li>
+  <li>Acceptance: use the <a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20-item self-test</a> and write checkable fields for image tasks.</li>
+  <li>For interface-level differences (OCR, speech, embedding, reranking) see the &quot;Task models&quot; guide on this site; the decoder KV formula is not applied to encoders there either.</li>
+  <li>To record cost components per task use the <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">cost calculator</a>; this site stores no unit prices and predicts no machine output.</li>
+</ul></span>
+    </section>
+    <section class="fam-sec" id="guide-section-8">
+      <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
+<span data-zh><p>学 AI 站的 <a href="https://learn.specul.com/term/%E5%A4%9A%E6%A8%A1%E6%80%81/" target="_blank" rel="noopener">多模态</a>、<a href="https://learn.specul.com/term/%E7%BC%96%E7%A0%81%E5%99%A8%E4%B8%8E%E8%A7%A3%E7%A0%81%E5%99%A8/" target="_blank" rel="noopener">编码器与解码器</a> 与 <a href="https://learn.specul.com/term/%E6%98%BE%E5%AD%98/" target="_blank" rel="noopener">显存</a> 是给使用者的一页科普。</p>
+<p>这一篇把占用拆成三笔账，并写明每笔的来源与算式适用范围。</p>
+<p>同一个概念在两处深度不同，互链不重复。带宽与成本构成见「GPU 事实与成本数学」。</p></span><span data-en><p>The Learn site&#39;s <a href="https://learn.specul.com/term/%E5%A4%9A%E6%A8%A1%E6%80%81/" target="_blank" rel="noopener">multimodal</a>, <a href="https://learn.specul.com/term/%E7%BC%96%E7%A0%81%E5%99%A8%E4%B8%8E%E8%A7%A3%E7%A0%81%E5%99%A8/" target="_blank" rel="noopener">encoder and decoder</a> and <a href="https://learn.specul.com/term/%E6%98%BE%E5%AD%98/" target="_blank" rel="noopener">VRAM</a> pages are one-page explainers for users.</p>
+<p>This guide splits occupancy into three bills and states the source and scope for each.</p>
+<p>Same concept, different depth on each side, cross-linked without duplication. For bandwidth and cost composition see &quot;GPU facts and cost math&quot;.</p></span>
+    </section>
+
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2><span data-zh>继续做什么</span><span data-en>What to do next</span></h2>
+      <ul><li><a href="gpu-cost-math.html#capacity-workbench"><span data-zh>填写上下文与并发容量假设</span><span data-en>Budget context and concurrency</span></a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/"><span data-zh>检查输出是否有依据</span><span data-en>Verify evidence for the output</span></a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom"><span data-zh>按症状排查</span><span data-en>Troubleshoot by symptom</span></a></li></ul>
+    </nav>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li><span data-zh>llama.cpp · 多模态文档（libmtmd、--mmproj 与投影件默认 GPU 卸载说明，2026-11-06 直抓）</span><span data-en>llama.cpp multimodal documentation (libmtmd, --mmproj, and the default GPU offload of the projector; fetched directly 2026-11-06)</span>：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/multimodal.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/ggml-org/llama.cpp/master/docs/multimodal.md</a></li>
+        <li><span data-zh>llama.cpp · quantize 工具文档（多模态编码器与投影件需单独转换与量化，2026-11-06 直抓）</span><span data-en>llama.cpp quantize tool documentation (multimodal encoders and projectors need separate conversion and quantisation; fetched directly 2026-11-06)</span>：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md</a></li>
+        <li><span data-zh>vLLM · 内存控制文档（limit_mm_per_prompt 与按 GiB 配置缓存空间，2026-11-06 直抓）</span><span data-en>vLLM memory-conservation documentation (limit_mm_per_prompt and cache space configured in GiB; fetched directly 2026-11-06)</span>：<a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/configuration/conserving_memory/</a></li>
+        <li><span data-zh>vLLM · PagedAttention 设计文档（按块存放每头固定 token 数的缓存，2026-11-06 直抓）</span><span data-en>vLLM PagedAttention design document (blocks store a fixed number of tokens per head; fetched directly 2026-11-06)</span>：<a href="https://docs.vllm.ai/en/latest/design/paged_attention.html" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/design/paged_attention.html</a></li>
+        <li><span data-zh>NVIDIA GeForce RTX 4090 官方规格页（显存容量口径，2026-11-06 直抓）</span><span data-en>NVIDIA GeForce RTX 4090 official specification page (published memory capacity; fetched directly 2026-11-06)</span>：<a href="https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/" target="_blank" rel="noopener">https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-06；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-06; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

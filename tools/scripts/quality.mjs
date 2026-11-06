@@ -10,7 +10,7 @@ const AXES = ['model_access','runtime','local_files','background','tools','conte
 const MCP_AXES = ['transport','auth','scope'];
 
 // v8 T7：三分区退役——TRACKS = 10 大类目录名（与 completeness.mjs 同一口径）
-const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
+const TRACKS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'];
 
 const files = [];
 for (const t of TRACKS) {

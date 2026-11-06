@@ -465,3 +465,12 @@ details.all-quants summary{cursor:pointer;font-size:var(--fs-xs);color:var(--bra
 .vt-none{font-size:.875rem;opacity:.85}
 @media(max-width:560px){.vt-in{width:100%}}
 
+.capacity-workbench { overflow-wrap: anywhere; }
+.capacity-workbench label { display: flex; flex-direction: column; gap: var(--sp-2); font-size: var(--fs-sm); }
+.capacity-fields { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(240px,100%),1fr)); gap: var(--sp-4); margin-block: var(--sp-4); }
+.capacity-workbench input,.capacity-workbench select { width: 100%; min-width: 0; padding: var(--sp-2); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-sm); font: inherit; }
+.capacity-formula { padding: var(--sp-3); background: var(--bg-inset); border-radius: var(--r-sm); }
+.capacity-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-block: var(--sp-4); }
+.capacity-actions button { font: inherit; padding: var(--sp-2) var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); cursor: pointer; }
+.capacity-workbench details { margin-block: var(--sp-4); }
+

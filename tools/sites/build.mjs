@@ -23,6 +23,8 @@ import { fileURLToPath } from 'node:url';
 import { shell as buildShell, nativeOption } from './shell.mjs';
 import { computeCompleteness } from '../scripts/completeness.mjs';
 import { parseFrontmatter, parseSources, bodyAfter } from '../scripts/yaml.mjs';
+import { costWorkbench } from './cost-workbench.mjs';
+import { worksheetWorkbench } from './worksheet-workbench.mjs';
 
 // 路径解析优先级：环境变量 > 向上查找仓库根 > 脚本位置推导
 //
@@ -264,12 +266,13 @@ const SITE = {
    * 之前都是纯中文，英文态下这两处露中文。desc 改成双节点字符串。 */
   nameEn: 'AI Tools',
   tagline: '让 AI 替你干活 —— 装在哪、连什么、边界在哪',
-  desc: bi('按任务分 10 大类，归三族：找现成的（编程 / 对话 / 图像 / 视频 / 音频 / 研究）、自己搭（自动化 / 框架）、接上与跑起来（MCP 工具 / 本地运行器）。各族坐标系不同，不做横向排名。',
-    'Ten categories grouped into three families by task: ready-made (coding / chat / image / video / audio / research), build-your-own (automation / frameworks), and plug-in-and-run (MCP tools / local runners). The families use different coordinate systems, so this site does not rank across them.'),
+  desc: bi('按任务分 11 大类，归三族：找现成的（编程 / 对话 / 图像 / 视频 / 音频 / 研究 / 安全与评测）、自己搭（自动化 / 框架）、接上与跑起来（MCP 工具 / 本地运行器）。各族坐标系不同，不做横向排名。',
+    'Eleven categories grouped into three families by task: ready-made (coding / chat / image / video / audio / research / safety & evaluation), build-your-own (automation / frameworks), and plug-in-and-run (MCP tools / local runners). The families use different coordinate systems, so this site does not rank across them.'),
   repo: 'https://github.com/speculcom/ai-handbook',
   // 站内分区导航（跨站导航在 shell.mjs 的 NAV 里，那是全站唯一定义处）
   // v8 T30：10 大类页全部上线（旧三页及旧 URL 已删除）。
-  partitions: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'],
+  // 2026-11-06：新增第 11 大类 safety（AI 安全与评测）。
+  partitions: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'],
 };
 
 /* ── 双语辅助（2026-10-04）────────────────────────────────────────
@@ -391,6 +394,17 @@ const SITES = {
     owns: ['local-app', 'cli'],
     splitBy: null,
   },
+  safety: {
+    key: 'safety', navKey: 'agent', dir: 'safety', domain: SITE.domain,
+    name: 'AI 安全与评测', nameEn: 'AI safety & evaluation', short: 'Safety', accent: '#f26d6d',
+    tagline: bi('拦得住、测得出、追得回', 'Constrain it, measure it, trace it back'),
+    desc: bi('给 AI 系统做约束、度量与追责的产品：护栏与内容过滤、评测与观测、红队与审计、机密计算与访问控制、数据合规与脱敏、内容溯源与标识。本大类只收四条形态（网页 / 云服务 / 本机应用 / CLI）。安全与护栏的模型本体不收（「模型不是产品」）；六条线在不同层，不做横向排名，档案只回答「什么约束下选谁」。',
+      'Products that constrain, measure and make AI systems accountable: guardrails and content filtering, evaluation and observability, red teaming and audit, confidential compute and access control, data compliance and de-identification, provenance and labeling. This category files four forms only (web / cloud / local app / CLI). Safety and guardrail models themselves are out — same "a model is not a product" rule as everywhere else. The six lines live at different layers, so nothing here is ranked across them; an entry only answers "under which constraint you would pick whom".'),
+    // ⚠ owns 必须覆盖本大类实际用到的全部 form，否则 loadTrack() 的 OWNED 过滤会
+    //   静默跳过档案（构建不报错、页面上没有），并连锁触发三处门禁。
+    owns: ['web', 'cloud', 'local-app', 'cli'],
+    splitBy: null,   // 六条线在不同层，硬并成一表按形态分组会误导——用单表 + 标签读
+  },
 };
 
 const args = process.argv.slice(2);
@@ -444,11 +458,11 @@ const AGENT_FILTER_JS = fs.readFileSync(path.join(HERE, 'agent-filter.js'), 'utf
 const COVERAGE_BY_TRACK = Object.fromEntries(
   Object.entries(COMPLETENESS.byTrack).map(([t, v]) => [t, { done: v.done, total: v.total }]),
 );
-/** v8 T30：10 大类固定顺序（categories.md §2.1 的编号序）。 */
-const TRACK_KEYS_10 = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
-/* v8 T7：完整度行按 10 大类（completeness.mjs 的 byTrack 键已换大类名）。
- * v8 T30：10 张大类页全部上线——每个大类页展示自己那一行。 */
-const COVERAGE_ROWS = Object.fromEntries(TRACK_KEYS_10.map((k) => [k, [k]]));
+/** v8 T30：大类固定顺序（categories.md 的编号序）；2026-11-06 起 11 个大类（+ safety）。 */
+const TRACK_KEYS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'];
+/* v8 T7：完整度行按大类（completeness.mjs 的 byTrack 键已换大类名）。
+ * v8 T30：大类页全部上线——每个大类页展示自己那一行。 */
+const COVERAGE_ROWS = Object.fromEntries(TRACK_KEYS.map((k) => [k, [k]]));
 /* 每个赛道的说明文字（那是解读，不是数字——手写但要如实反映该大类的核验现实）。 */
 const COVERAGE_NOTE = {
   coding: bi('多为闭源产品，索引策略等细节官方不公开；CLI 类官方文档相对完整', 'Mostly closed-source, so details like indexing strategy are not disclosed; CLI entries have better official docs'),
@@ -861,6 +875,7 @@ const TRACK_TO_PART = {
   /* v8 T7：当前目录名 = 10 大类（tracks/{coding,chat,image,video,audio,research,automation,framework,mcp,runner}） */
   coding: 'coding', chat: 'chat', image: 'image', video: 'video', audio: 'audio',
   research: 'research', automation: 'automation', framework: 'framework', mcp: 'mcp', runner: 'runner',
+  safety: 'safety',
   /* 旧目录名（v4 三分区时代 tracks/{agents,harness,tools} 与更早的 ide/cli）——
    * 存量正文里还有，正则必须同时认；两种写法都要能重写到正确的大类落点。
    * ⚠ T30 前只有 coding/framework/mcp 三页有产物，其余大类的档案还没有产物页——
@@ -877,7 +892,7 @@ const TRACK_TO_PART = {
 const CTX = { partKey: 'coding' };
 function rewriteInternal(href) {
   // 1. 跨大类：指向另一个大类的档案
-  let m = /^(?:\.\.\/)+(coding|chat|image|video|audio|research|automation|framework|mcp|runner|agents|harness|tools|ide|cli)\/products\/([A-Za-z0-9._-]+)\.md$/.exec(href);
+  let m = /^(?:\.\.\/)+(coding|chat|image|video|audio|research|automation|framework|mcp|runner|safety|agents|harness|tools|ide|cli)\/products\/([A-Za-z0-9._-]+)\.md$/.exec(href);
   if (m) {
     // v8 T30：10 大类全部有产物页（旧「T30 前无产物 → 原样输出」兜底退役，
     // 原样输出 .md 只会把死链漏到站上）。TRACK_TO_PART 的旧目录名键全部映射到 10 大类。
@@ -941,6 +956,7 @@ function blockMd(s) {
     let mode = null;                       // 'p' 段落 · 'ul' 清单 · 'bq' 引用块 · 'tbl' 表格 · 'code' 代码块
     let buf = [];                          // 当前块累积的行
     let items = [];                        // 清单项（每项是若干行的数组）
+    let itemNumbers = [];                 // Ordered-list numbers, preserved from the source.
     let rows = [];                         // 表格行（原始 | 行）
     const flush = () => {
       if (mode === 'p' && buf.length) out.push(`<p>${mdLinks(buf.join(' '))}</p>`);
@@ -948,10 +964,10 @@ function blockMd(s) {
       /* 2026-11-03（P1-4）：围栏代码块此前不认，整段变成带反引号的段落 ✗。
        * 现在按 ``` 开闭收集原文，输出可复制的 <pre><code>；语言标记只做 class 提示。 */
       else if (mode === 'code' && buf.length) out.push(`<pre class="code"><code>${esc(buf.join('\n'))}</code></pre>`);
-      else if (mode === 'ul' && items.length) {
+      else if ((mode === 'ul' || mode === 'ol') && items.length) {
         /* 清单项内的换行用空格接起来 —— 那是排版折行，不是新的一句。
          * 但**一行的正文折行**同理，所以段落也是 join(' ')。*/
-        out.push(`<ul>${items.map((it) => `<li>${mdLinks(it.join(' '))}</li>`).join('')}</ul>`);
+        out.push(`<${mode}>${items.map((it, i) => `<li${mode === 'ol' ? ` value="${itemNumbers[i]}"` : ''}>${mdLinks(it.join(' '))}</li>`).join('')}</${mode}>`);
       }
       else if (mode === 'tbl' && rows.length) {
         /* ⚠ **markdown 表格**（2026-10-09 加）。
@@ -975,7 +991,7 @@ function blockMd(s) {
           + bodyRows.map((r) => '<tr>' + cells(r).map((c) => `<td>${mdLinks(c)}</td>`).join('') + '</tr>').join('')
           + '</tbody></table></div>');
       }
-      mode = null; buf = []; items = []; rows = [];
+      mode = null; buf = []; items = []; itemNumbers = []; rows = [];
     };
     for (const line of String(s || '').split('\n')) {
       const t = line.trim();
@@ -988,6 +1004,7 @@ function blockMd(s) {
       }
       if (mode === 'code') { buf.push(line); continue; }
       const isLi = /^[-*]\s+/.test(t);
+      const ordered = /^(\d+)[.)]\s+/.exec(t);
       const isBq = /^>\s?/.test(t);
       /* ⚠ **小标题**（`### …` / `#### …`）必须渲染成标题（2026-10-09 加）。
        *   正文按 `## ` 切小节之后，节**内部**还能有 `###` / `####` ——
@@ -1013,13 +1030,14 @@ function blockMd(s) {
       const isTbl = /^\|/.test(t);
       /* 表格里的续行统一按「行」处理，不做续行合并 */
       if (isTbl) { if (mode !== 'tbl') flush(); mode = 'tbl'; rows.push(t); continue; }
-      const isListCont = mode === 'ul' && !isLi && !isBq && items.length > 0;
+      const isListCont = (mode === 'ul' || mode === 'ol') && !isLi && !ordered && !isBq && items.length > 0;
       if (isListCont) { items[items.length - 1].push(t); continue; }
-      const next = isLi ? 'ul' : isBq ? 'bq' : 'p';
-      if (next === 'ul') {
-        if (mode !== 'ul') flush();
-        mode = 'ul';
-        items.push([t.replace(/^[-*]\s+/, '')]);
+      const next = isLi ? 'ul' : ordered ? 'ol' : isBq ? 'bq' : 'p';
+      if (next === 'ul' || next === 'ol') {
+        if (mode !== next) flush();
+        mode = next;
+        items.push([ordered ? t.slice(ordered[0].length) : t.replace(/^[-*]\s+/, '')]);
+        itemNumbers.push(ordered ? Number(ordered[1]) : null);
       } else {
         if (mode !== next) flush();
         mode = next;
@@ -1096,8 +1114,8 @@ const GUIDE = {
 function boundarySection(partKey) {
   const LINES = [
     [
-      '<strong>本站按 10 大类收录 AI 产品。</strong>编程、对话、图像、视频、音频、研究、自动化、框架、MCP 工具、本地运行器——每类都有明确的收录标准，写在各大类的目录页里。',
-      '<strong>This site files AI products into 10 categories.</strong> Coding, chat, image, video, audio, research, automation, frameworks, MCP tools and local runners — each with explicit admission criteria, written on the category page itself.',
+      '<strong>本站按 11 大类收录 AI 产品。</strong>编程、对话、图像、视频、音频、研究、自动化、框架、MCP 工具、本地运行器、AI 安全与评测——每类都有明确的收录标准，写在各大类的目录页里。',
+      '<strong>This site files AI products into 11 categories.</strong> Coding, chat, image, video, audio, research, automation, frameworks, MCP tools, local runners and AI safety & evaluation — each with explicit admission criteria, written on the category page itself.',
     ],
     [
       '<strong>大类看目录，形态看字段。</strong>一个产品属于哪一类由收录边界决定；它怎么装进你的工作流（IDE / CLI / 厂商云 / 框架 / MCP…）是另一根独立的轴。',
@@ -1182,7 +1200,7 @@ function loadGuides() {
   for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.md')).sort()) {
     const text = fs.readFileSync(path.join(dir, f), 'utf8');
     const fm = parseFrontmatter(text);
-    if (!fm) continue; // validate.mjs 会报「缺 frontmatter」，这里不重复报错
+    if (!fm) throw new Error(`guides/${f}: invalid frontmatter (UTF-8 with LF required)`);
     const body = bodyAfter(text);
     /* 正文按 `## ` 切节：`## 标题` 行本身进 HTML（双语靠 `## [中文|English]` 写法），
      * 节正文走 blockMd（段落/清单/引用/表格/### 小标题全认）。 */
@@ -1241,7 +1259,7 @@ function deepGuidesSection(partKey, guides) {
     <section class="section">
       <div class="container">
         <h2>${bi('深水指南', 'Deep guides')}</h2>
-        <p class="section-desc">${bi('产品档案回答「这个工具是什么」；深水指南回答「这类工程问题怎么办」。六篇各管一件事：编排、记忆、规划、评测、成本、护栏——讲机制与取舍，不做框架排名。每篇的关键事实都挂官方文档或论文出处。', 'Product entries answer "what is this tool"; the deep guides answer "how do you handle this class of engineering problem". Six guides, one topic each — orchestration, memory, planning, evaluation, cost, guardrails — covering mechanisms and trade-offs, with no framework rankings. Every key fact carries an official-doc or paper source.')}</p>
+        <p class="section-desc">${bi('产品档案记录用途与能力边界；这里提供任务流程、机制说明、选型对照与练习。先按要完成的任务选一篇，再用交付物和检查方法判断结果。来源与核验范围见各页记录。', 'Product dossiers record uses and capability boundaries. These guides provide workflows, mechanisms, selection comparisons and exercises. Start with your task, then use the deliverables and checks to assess the result. Each page records its sources and verification scope.')}</p>
         <div class="grid">
 ${cards}
         </div>
@@ -1258,10 +1276,19 @@ function renderGuidePage(g, site) {
     const head = bm ? bi(esc(bm[1]), esc(bm[2])) : mdLinks(s.head);
     /* C0-10：节正文按中文节标题查译文；缺译文保持中文（诚实降级）。 */
     const zhKey = (bm ? bm[1] : s.head).trim();
+    const troubleshootingAnchors = {
+      '先按症状定位':'by-symptom', '401/403：身份与权限':'auth',
+      '429：限流与重试':'rate-limit', 'OOM：先分清容量消耗':'memory',
+      '延迟：区分排队、首字与输出':'latency', '工具失败：先验证输入':'tool-input',
+      'JSON：解析成功不等于字段正确':'json', '检索：先查片段再调生成':'retrieval',
+      '引用：逐条对应说法':'citations', '文件：核对格式与解析结果':'files',
+      '排查记录模板':'troubleshooting-record',
+    };
+    const anchor = /贯穿案例|已填示例/.test(zhKey) ? 'worked-example' : g.id === 'failure-library' ? troubleshootingAnchors[zhKey] : '';
     const secEn = g.bodyEn && (g.bodyEn.sections || {})[zhKey];
     const inner = secEn ? bi(blockMd(s.lines.join('\n')), blockMd(secEn)) : blockMd(s.lines.join('\n'));
     return `      <div class="panel is-slim" id="guide-section-${i}">
-        <h2${/贯穿案例|已填示例/.test(zhKey) ? ' id="worked-example"' : ''}>${head}</h2>
+        <h2${anchor ? ` id="${anchor}"` : ''}>${head}</h2>
         ${inner}
       </div>`;
   }).join('\n');
@@ -1269,7 +1296,8 @@ function renderGuidePage(g, site) {
     /* C0-10：出处标签按索引对齐 guides 译文；缺译文保持中文。URL 不译。 */
     const labelEn = g.bodyEn && Array.isArray(g.bodyEn.sources) ? g.bodyEn.sources[i] : '';
     const labelCell = labelEn ? bi(mdLinks(s.label), mdLinks(labelEn)) : mdLinks(s.label);
-    return `          <tr><td>${labelCell}</td><td><a href="${s.url}" target="_blank" rel="noopener">${esc(s.url)}</a></td></tr>`;
+    const encodedUrl = new URL(s.url).href;
+    return `          <tr><td>${labelCell}</td><td><a href="${esc(encodedUrl)}" target="_blank" rel="noopener">${bi(esc(s.url),esc(encodedUrl))}</a></td></tr>`;
   }).join('\n');
   /* 英文态诚实提示：任何一节缺译文 → 提示行保留（同档案 bodyEnComplete 口径）。 */
   const guideEnComplete = g.bodyEn
@@ -1285,14 +1313,17 @@ function renderGuidePage(g, site) {
       </div>
       <div class="panel-lead">${bi(blockMd(g.summary), blockMd(g.summaryEn))}</div>
 ${guideEnComplete ? '' : `      <p class="t-xs" data-en>English summaries and interface labels are available. The guide body below is currently in Chinese.</p>`}
+${g.id === 'cost-calculator' ? costWorkbench() : ''}
+${g.id === 'toolkit-worksheets' ? worksheetWorkbench() : ''}
       <nav class="panel is-slim" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p>${bi('按问题阅读', 'On this page')}</p><ul>${g.sections.map((section,i) => { const m=section.head.match(/^\[(.+)\|(.+)\]$/);return `<li><a href="#guide-section-${i}">${m?bi(esc(m[1]),esc(m[2])):esc(section.head)}</a></li>`;}).join('')}</ul></nav>
 ${secs}
+${guideNextSteps(g.id)}
       <div class="panel is-slim">
         <h2>${bi('出处', 'Sources')}</h2>
         <div class="tbl-wrap"><table><thead><tr><th>${bi('来源', 'Source')}</th><th>${bi('链接', 'URL')}</th></tr></thead><tbody>
 ${srcRows}
         </tbody></table></div>
-        <p class="guide-foot">${bi(`资料核验日期：${g.lastVerified}。产品功能与条款可能变化，使用前请核对原始来源。`, `Sources checked: ${g.lastVerified}. Features and terms may change; check the original sources before use.`)}</p>
+        <p class="guide-foot">${bi(`资料快照日期：${g.lastVerified}；单项复核范围与日期见对应正文或来源记录。产品功能与条款可能变化，使用前请核对原始来源。`, `Source snapshot: ${g.lastVerified}; item-specific rechecks and their scope are recorded in the text or source notes. Features and terms may change; check the original sources before use.`)}</p>
       </div>
     </div>`;
   return buildShell({
@@ -1315,6 +1346,35 @@ ${srcRows}
      * shell 的 depth() 只做透传，深度由调用方按页面实际层级传。 */
     assetPrefix: '../../',
   });
+}
+
+function guideNextSteps(id) {
+  const next = {
+    'compare-local-runners':['playbook-local-model','按约束规划本地部署','Plan a local deployment'],
+    'compare-coding-agents':['playbook-fix-a-bug','用一个问题练习修复流程','Work through a bug-fix workflow'],
+    'compare-browser-agents':['playbook-fix-a-bug','把浏览器排查放进修复流程','Place browser checks in a repair workflow'],
+    'compare-research-tools':['playbook-research-brief','完成带来源的研究简报','Prepare a sourced research brief'],
+    'compare-media-tools':['playbook-60s-video','规划一条视频的交付与验收','Plan a video deliverable and checks'],
+    'compare-chat-assistants':['toolkit-prompt-context','明确输入与输出条件','Specify input and output constraints'],
+    'compare-agent-frameworks':['playbook-service-agent','规划有权限边界的服务流程','Plan a service workflow with permission boundaries'],
+    'exercise-manager':['checklist-procurement-access','补齐采购与权限问题','Complete procurement and access questions'],
+    'cost-control':['cost-calculator','填写成本假设并复算','Enter and recalculate cost assumptions'],
+    'toolkit-worksheets':['exercise-builder','用一个问答任务填写记录','Use a cited-answer task to fill the records'],
+    'playbook-pdf-table':['playbook-table-merge','把抽取后的表接进合并流程','Continue from extraction to table merging'],
+    'playbook-table-merge':['toolkit-worksheets','记录合并规则和异常处理','Record merge rules and exceptions'],
+    'playbook-document-review':['playbook-research-brief','把确认后的发现写成简报','Turn confirmed findings into a brief'],
+    'playbook-meeting-notes':['toolkit-worksheets','记录行动项的确认状态','Record action confirmation status'],
+    'checklist-procurement-access':['playbook-team-90days','安排分阶段验证与退出','Plan staged validation and exit'],
+  }[id] || ['toolkit-worksheets','记录约束、验收与未确认项','Record constraints, acceptance and unknowns'];
+  const nextLink = id === 'selftest-20'
+    ? `<a href="#guide-section-4">${bi('按错题与任务选练习','Choose practice by missed topics and task')}</a>`
+    : `<a href="${next[0]}.html">${bi(next[1],next[2])}</a>`;
+  return `<nav class="panel is-slim" aria-label="接下来做什么" data-ui-aria-label-zh="接下来做什么" data-ui-aria-label-en="What to do next">
+<h2>${bi('接下来做什么','What to do next')}</h2><ul>
+<li>${nextLink}</li>
+<li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/">${bi('核对结果与来源','Verify the result and its sources')}</a></li>
+<li><a href="failure-library.html#by-symptom">${bi('按症状排查失败','Troubleshoot by symptom')}</a></li>
+</ul></nav>`;
 }
 
 // header / footer / page 骨架统一由 shell.mjs 提供（全站唯一真相源）。
@@ -1993,6 +2053,41 @@ ${crumb}
         <span class="badge">${bi('核验','Checked')} ${esc(e.lastVerified)}</span>
       </div>
 
+      <p class="t-sm">${bi('核验标记表示资料完整度，不是产品评分。下列未确认项可能影响选型；请按对应来源逐项确认。', 'The confidence mark describes evidence completeness, not a product score. Unconfirmed items below may affect your choice; check them against the relevant sources.')}</p>
+      ${e.sec.unknowns && /^\s*[-*]/m.test(e.sec.unknowns) ? `      <div class="panel is-slim">
+        <h2 id="known-unknowns">${bi('未确认的信息','Information not confirmed')}</h2>
+        ${(() => {
+          /* v8 T7：清单前的**引导段与引用块**也要渲染。
+           * 原渲染器只出 <ul>——windsurf 的「以下各项本次未核验，confidence 因此是
+           * partial 而非 verified：」与 everything 的「A6.2 已核对…升回 verified」
+           * 整段消失（_render-parity 实测 59%/37%——这是真截断，不是守卫误报）。
+           * 做法：非列表行按原顺序合成前置块走 blockMd，列表行进 <ul>。 */
+          const splitUnknowns = (txt) => {
+            const lead = [];
+            const items = [];
+            for (const raw of txt.split(/\r?\n/)) {
+              const li = /^\s*[-*]\s+(.*)$/.exec(raw);
+              if (li) { items.push(li[1]); continue; }
+              if (items.length && raw.trim()) { items[items.length - 1] += ' ' + raw.trim(); continue; }
+              lead.push(raw);
+            }
+            return { lead, items };
+          };
+          const zh = splitUnknowns(e.sec.unknowns);
+          const enTxt = e.bodyEn && e.bodyEn.unknowns ? e.bodyEn.unknowns : '';
+          const en = enTxt ? splitUnknowns(enTxt) : null;
+          const one = (z) => {
+            const leadHtml = z.lead.join('\n').trim() ? blockMd(z.lead.join('\n')) : '';
+            const ul = `<ul>\n${z.items.map((t) => `          <li>${mdLinks(t)}</li>`).join('\n')}\n        </ul>`;
+            return `${leadHtml}\n        ${ul}`;
+          };
+          /* 有 bodies.unknowns → 整块双语（引导段与列表一起进 span，避免混排错位）；
+           * 没有 → 整块保持中文（诚实降级）。 */
+          if (en) return `<span data-zh>${one(zh)}</span><span data-en>${one(en)}</span>`;
+          return one(zh);
+        })()}
+      </div>\n` : ''}
+
       ${e.sec.oneline
         /* 首段面板（2026-10-08 修槽位错放）：data-zh 必须是**中文** oneline；
          * leadEn 是它「更完整」的英文版（带官方引用），放 data-en。
@@ -2060,6 +2155,15 @@ ${body}
 ${axesHtml}
       </dl>
 
+      <nav class="panel is-slim" aria-label="使用排查" data-ui-aria-label-zh="使用排查" data-ui-aria-label-en="Troubleshooting">
+        <h2>${bi('使用时遇到问题','When something fails')}</h2>
+        <p>${(partKey === 'runner' ? [['memory','模型装不下','Model does not fit'],['latency','等待或输出慢','Slow response or output']]
+          : partKey === 'research' ? [['retrieval','检索不到资料','Missing sources'],['citations','引用不支持答案','Unsupported citations']]
+          : ['coding','framework','mcp'].includes(partKey) ? [['auth','身份与权限','Authentication and permissions'],['tool-input','工具输入错误','Invalid tool inputs'],['json','输出格式错误','Invalid output format']]
+          : [['auth','账号与权限','Account and permissions'],['rate-limit','限流与重试','Rate limits and retries'],['files','文件读取问题','File-reading issues']])
+          .map(([anchor,zh,en])=>`<a href="../mcp/guides/failure-library.html#${anchor}">${bi(zh,en)}</a>`).join(' · ')}</p>
+      </nav>
+
       ${e.pitfalls.length ? `      <div class="panel warn">
         <h2 class="warn">${bi('头号误解','Top misconception')}</h2>
         <ul>
@@ -2074,43 +2178,11 @@ ${(() => {
         </ul>
       </div>\n` : ''}
 
-      ${e.sec.unknowns && /^\s*[-*]/m.test(e.sec.unknowns) ? `      <div class="panel is-slim">
-        <h2>${bi('未知项清单','Known unknowns')}</h2>
-        ${(() => {
-          /* v8 T7：清单前的**引导段与引用块**也要渲染。
-           * 原渲染器只出 <ul>——windsurf 的「以下各项本次未核验，confidence 因此是
-           * partial 而非 verified：」与 everything 的「A6.2 已核对…升回 verified」
-           * 整段消失（_render-parity 实测 59%/37%——这是真截断，不是守卫误报）。
-           * 做法：非列表行按原顺序合成前置块走 blockMd，列表行进 <ul>。 */
-          const splitUnknowns = (txt) => {
-            const lead = [];
-            const items = [];
-            for (const raw of txt.split(/\r?\n/)) {
-              const li = /^\s*[-*]\s+(.*)$/.exec(raw);
-              if (li) { items.push(li[1]); continue; }
-              if (items.length && raw.trim()) { items[items.length - 1] += ' ' + raw.trim(); continue; }
-              lead.push(raw);
-            }
-            return { lead, items };
-          };
-          const zh = splitUnknowns(e.sec.unknowns);
-          const enTxt = e.bodyEn && e.bodyEn.unknowns ? e.bodyEn.unknowns : '';
-          const en = enTxt ? splitUnknowns(enTxt) : null;
-          const one = (z) => {
-            const leadHtml = z.lead.join('\n').trim() ? blockMd(z.lead.join('\n')) : '';
-            const ul = `<ul>\n${z.items.map((t) => `          <li>${mdLinks(t)}</li>`).join('\n')}\n        </ul>`;
-            return `${leadHtml}\n        ${ul}`;
-          };
-          /* 有 bodies.unknowns → 整块双语（引导段与列表一起进 span，避免混排错位）；
-           * 没有 → 整块保持中文（诚实降级）。 */
-          if (en) return `<span data-zh>${one(zh)}</span><span data-en>${one(en)}</span>`;
-          return one(zh);
-        })()}
-      </div>\n` : ''}
+
 
       <div class="panel">
         <h2>${bi('证据来源','Evidence sources')}</h2>
-        <p class="t-sm">${bi('判断可回到以下一手源复核。本站核验日', 'Every judgement can be rechecked against the primary sources below. Verified on')} ${esc(e.lastVerified)}，${bi('内容更新日','content updated on')} ${esc(e.lastUpdated)}。</p>
+        <p class="t-sm">${bi('最近核验记录','Latest recorded check')} ${esc(e.lastVerified)}，${bi('内容更新日','content updated on')} ${esc(e.lastUpdated)}。${bi('单项复核范围见正文或来源说明，不代表所有字段在同一天重新核验。','See the text or source notes for item-specific scope; this does not mean every field was rechecked on that date.')}</p>
         <table class="src">
           <thead><tr><th class="w-20">${bi('类型','Type')}</th><th class="w-52">${bi('名称','Name')}</th><th>${bi('链接','Link')}</th></tr></thead>
           <tbody>
@@ -2120,7 +2192,7 @@ ${srcRows}
       </div>
 
       ${e.sec.runs ? `      <div class="panel is-slim">
-        <h2>${bi('实测记录','Measured runs')}</h2>
+        <h2>${bi('官方口径与未核到项','Official record and unverified items')}</h2>
         ${e.bodyEn && e.bodyEn.runs ? `<span data-zh>${blockMd(e.sec.runs)}</span><span data-en>${blockMd(e.bodyEn.runs)}</span>` : blockMd(e.sec.runs)}
       </div>\n` : ''}
 
@@ -2178,7 +2250,7 @@ ${srcRows}
 const FAMILIES = [
   { key: 'ready', name: '找现成的', nameEn: 'Ready-made',
     ask: '「有没有能直接用的？」', askEn: '"Is there something I can use directly?"',
-    cats: ['coding', 'chat', 'image', 'video', 'audio', 'research'] },
+    cats: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'safety'] },
   { key: 'build', name: '自己搭', nameEn: 'Build your own',
     ask: '「我想自己搭一个？」', askEn: '"I want to build one myself?"',
     cats: ['automation', 'framework'] },
@@ -2187,7 +2259,7 @@ const FAMILIES = [
     cats: ['mcp', 'runner'] },
 ];
 /* 大类卡的 mark 字符（单字比两个拉丁字母辨识度高；mcp 保留协议名）。 */
-const CAT_MARK = { coding: '编', chat: '话', image: '图', video: '视', audio: '音', research: '搜', automation: '流', framework: '框', mcp: 'MCP', runner: '跑' };
+const CAT_MARK = { coding: '编', chat: '话', image: '图', video: '视', audio: '音', research: '搜', automation: '流', framework: '框', mcp: 'MCP', runner: '跑', safety: '安' };
 
 function renderHome(loaded) {
   CTX.partKey = 'coding';   // 首页正文没有 .md 链接，仅为一致性设
@@ -2250,10 +2322,23 @@ ${partitionBar('')}
 
     ${boundarySection('home')}
 
+    <section class="section" id="task-practice">
+      <div class="container">
+        <h2>${bi('带着文件练一遍','Practice with sample files')}</h2>
+        <p class="section-desc">${bi('四类任务都有虚构输入、参考结果和验收方法。先处理输入，再对照答案；参考结果不代表产品实测。','Four tasks include fictional inputs, designed references and acceptance checks. Try the inputs first; references are not measured product results.')}</p>
+        <ul class="reading-actions">
+          <li><a href="/mcp/guides/playbook-pdf-table.html">${bi('PDF / 扫描页 → 可核对的表格','PDF / scan → checkable table')}</a></li>
+          <li><a href="/mcp/guides/playbook-table-merge.html">${bi('多张表 → 干净表与异常单','Multiple tables → accepted rows and exceptions')}</a></li>
+          <li><a href="/mcp/guides/playbook-document-review.html">${bi('两版文档 → 带出处的问题矩阵','Document versions → located findings')}</a></li>
+          <li><a href="/mcp/guides/playbook-meeting-notes.html">${bi('会议录音 → 纪要与行动项','Meeting audio → notes and actions')}</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <h2>${bi('先说你在找什么','Start with what you are looking for')}</h2>
-        <p class="section-desc">${bi('三族 = 三种读者的问题。族不是目录层——目录是 10 个大类；族只是首页的摆法，让你先对上自己的那一问。', 'Three families = three reader questions. The families are not a directory layer — the directories are the 10 categories; they are just how the home page is arranged, so you can find your question first.')}</p>
+        <p class="section-desc">${bi('三族 = 三种读者的问题。族不是目录层——目录是 11 个大类；族只是首页的摆法，让你先对上自己的那一问。', 'Three families = three reader questions. The families are not a directory layer — the directories are the 11 categories; they are just how the home page is arranged, so you can find your question first.')}</p>
 ${famBlocks}
       </div>
     </section>
@@ -2393,6 +2478,10 @@ if (CHECK_ONLY) {
 }
 
 fs.mkdirSync(OUT, { recursive: true });
+fs.copyFileSync(path.join(HERE, 'cost-calculator.js'), path.join(OUT, 'cost-calculator.js'));
+fs.copyFileSync(path.join(HERE, 'worksheet-form.js'), path.join(OUT, 'worksheet-form.js'));
+// Teaching downloads ship with the generated site, including binary PDF/WAV inputs.
+fs.cpSync(path.join(DATA, 'samples'), path.join(OUT, 'samples'), { recursive: true });
 copyBrand(OUT);
 
 // CNAME：只写一次，只写根域名

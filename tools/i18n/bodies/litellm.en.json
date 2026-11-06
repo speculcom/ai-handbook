@@ -1,0 +1,40 @@
+{
+  "_comment": "Safety batch A body translation · litellm (2026-11-06). Every URL was direct-fetched on 2026-11-06.",
+  "axes": {
+    "model_access": "This is one of its two main axes: the providers page records '100+ LLMs' behind one OpenAI-format API with bring-your-own keys, and self-hosted endpoints on the same page (Ollama, vLLM, Llamafile). Release notes record providers still being added (the 2026-11 entries include Microsoft 365 Copilot and Azure PTU capacity). No guardrail judgement is built in; it comes from external rails you attach.",
+    "runtime": "Self-hosting first: the simple-proxy page records pip install then `litellm --config config.yaml`, default port 4000. The deploy page records the ghcr.io/berriai/litellm image, a docker run example, Helm / Terraform, a Postgres dependency and the /health/readiness check. The site also records a hosted cloud usage path. Production requiring a database is stated plainly on the simple-proxy page.",
+    "local_files": "It reads your own config.yaml (model list, key references, guardrail settings); keys and routing definitions stay in your environment, and spend and logs go into the Postgres you manage. It does not read your application source tree - the file surface is configuration plus where you persist data.",
+    "background": "It is a long-running gateway process: queueing, retries and routing happen service-side, and surviving a shutdown depends on how you deploy it (Helm or a VM). The batch and asynchronous job surface (videos / batches) has only appeared in release notes; dedicated pages were not verified item by item and are recorded as unknown.",
+    "tools": "The MCP page records it acting as an 'MCP Gateway' offering 'governed access to tools': servers configured through config.yaml or the UI, transports HTTP / SSE / stdio, authentication via OAuth, API keys and AWS SigV4, with access scoped by key, team and organization. A2A, Auto Router, logging and OpenTelemetry pages sit in the documentation navigation.",
+    "context": "Context passes through from the caller; the gateway itself keeps no memory and does no compression. Virtual keys, budgets and teams are access-layer boundaries, not context-layer ones, and the effective window is whatever the routed model gives you.",
+    "permissions": "Access control is its core: the virtual-keys page records keys minted through /key/generate, model, budget, rate-limit and team scoping, a master key for administration, and scheduled rotation as an Enterprise capability. The guardrails page records that most integrations run in the open-source build while dynamic parameters and per-key rail control need Enterprise. Data flow follows whichever providers you attach. SSO and audit logs sit in the Enterprise framing (simple-proxy page). Compliance certifications and third-party audits were not found on official pages and are recorded as unknown.",
+    "fit": "Fits: teams collapsing many providers into one OpenAI-compatible entry point, governing spend and access per key or team, and insisting on self-hosting. Not a fit: anyone wanting only a thin client SDK, nor anyone for whom a vendor-backed hosted guardrail with compliance attestations is a requirement - rails here are external services you plug in, not a vendor guarantee."
+  },
+  "sections": {
+    "能力边界": "What it governs is on record: model access, budgets and rate limits, team membership, which MCP tools a principal can see, and where external rails attach. What it does not claim: any training-use promise about content safety, or published numbers for how well anything blocks. Per-key rail control and dynamic parameters sit in the Enterprise framing, so the open-source / Enterprise split has to be checked line by line against the official pages.",
+    "变更记录说明": "Two official streams carry change history: the release_notes page inside the docs and the PyPI release record. Recorded on the verification day: release notes latest v1.108.0 (2026-11-04), PyPI latest 1.108.1 (2026-11-05). Recent entries also show security-relevant actions, such as the 2026-10-24 image-signing key change and trust-bundle adjustment, plus repeated spend-logging fixes - spend accuracy needs measurement, not a changelog headline."
+  },
+  "sectionTitles": {
+    "能力边界": "Capability boundaries",
+    "变更记录说明": "Change record"
+  },
+  "runs": "This site has not completed measured runs; nothing here covers routing success rates, latency, guardrail block rates or accounting error.\n\n**Suggested measurements** (three):\n\n- Whether per-key spend accounting stays accurate for failed requests, batches and Bedrock inference profiles\n- The real visibility of one MCP tool across key / team / organization layers\n- Latency and blocking behaviour of pre_call versus post_call rails",
+  "unknowns": "- Hosted details and limits of batch / asynchronous jobs (videos, batches and similar)\n- The full open-source versus Enterprise feature split (only the items the docs mention were verified)\n- Data residency and retention terms of the official hosted cloud\n- Compliance certifications and third-party audit reports\n- Minimum deployment requirements beyond Helm / Terraform (bare-metal sizing, cache needs)",
+  "related": [
+    "Same line: NeMo Guardrails (in gateway and access control); this entry states only what its own official sources support.",
+    "Same line: Azure AI Content Safety (in gateway and access control); this entry states only what its own official sources support.",
+    "Same line: Amazon Bedrock Guardrails (in gateway and access control); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "LiteLLM · docs home (open-source AI gateway positioning, 100+ models, quickstart, release-notes entry, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · Providers (100+ models through one OpenAI format, self-hosted endpoints, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · Run LiteLLM Proxy (pip install, --config, port 4000, production database, Enterprise capability boundary, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · Deploy (image, Docker / Helm / Terraform, Postgres, health check, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · Virtual keys (/key/generate, budgets / rate limits / teams, rotation as Enterprise, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · Guardrails quick start (recorded integration list, config.yaml fields, block versus mask, Enterprise boundary, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · MCP (gateway positioning, transports and authentication, key / team / org authorisation, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · Release notes (v1.108.0 entries dated 2026-11-04, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · PyPI (MIT licence, 1.108.1 dated 2026-11-05, Python range, direct-fetched 200 on 2026-11-06)",
+    "LiteLLM · official site (open-source gateway, self-host versus cloud, Enterprise feature framing, direct-fetched 200 on 2026-11-06)"
+  ]
+}

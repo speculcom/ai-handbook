@@ -10,7 +10,7 @@
  },
  "family": "gemma",
  "released": "2026-06",
- "summary": "Google 开放权重最新一代，三种规格各自都有量化覆盖。",
+ "summary": "Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。",
  "positions": [
   "通用对话",
   "MoE 稀疏",
@@ -30,10 +30,10 @@
    "params": "25.8B 总参 / 4B 激活",
    "paramsEn": "25.8B total params / 4B active",
    "role": {
-    "zh": "低延迟 MoE",
-    "en": "Low-latency MoE"
+    "zh": "稀疏激活 MoE",
+    "en": "Sparsely activated MoE"
    },
-   "note": "MoE：总参 26B 但每 token 只激活约 4B，速度接近 4B 稠密。",
+   "note": "MoE：总参约 26B，每 token 激活约 4B。激活参数不等于全部权重的内存需求，也不能单独推断延迟；还需核对硬件、量化与运行器。",
    "license": "apache-2.0",
    "licenseLink": "https://ai.google.dev/gemma/docs/gemma_4_license",
    "licenseName": null,
@@ -1752,8 +1752,8 @@
    "params": "31.3B 密集",
    "paramsEn": "31.3B dense",
    "role": {
-    "zh": "质量优先",
-    "en": "Quality first"
+    "zh": "31B 密集规格",
+    "en": "31B dense variant"
    },
    "note": "同系列里最重的规格。",
    "license": "apache-2.0",
@@ -3515,10 +3515,10 @@
    "params": "8B 总参 / 4B 激活（E4B = 激活 4B）",
    "paramsEn": "8B total params / 4B active (E4B = 4B active)",
    "role": {
-    "zh": "小显存首选",
-    "en": "Low VRAM"
+    "zh": "较小规格",
+    "en": "Smaller variant"
    },
-   "note": "小规格，量化覆盖 34 家，是入门本地部署最省资源的一档。",
+   "note": "量化覆盖 34 家；实际内存占用还包括上下文缓存与运行器开销，不能只看名称中的 4B。",
    "license": "apache-2.0",
    "licenseLink": "https://ai.google.dev/gemma/docs/gemma_4_license",
    "licenseName": null,
@@ -5472,7 +5472,7 @@
    }
   }
  ],
- "summaryEn": "Google's newest open-weight generation; all three sizes have quantization coverage.",
+ "summaryEn": "Google's open-weight series; the three sizes listed here each have quantisation coverage.",
  "cn": {
   "origin": "foreign",
   "originNote": "出品方为 Google。",

@@ -7,16 +7,16 @@ summary: 一个可独立完成的 RAG 练习：选 10 篇站内页面做语料�
 summaryEn: A self-contained RAG exercise: use 10 site pages as a corpus and produce 10 answers, a citation table, an evaluation sheet and a failure log, with a rubric and a model-answer outline.
 sources:
   - label: 本站 · RAG 全链路：从文档到答案
-    url: https://learn.specul.com/guide/RAG 全链路：从文档到答案/
+    url: https://learn.specul.com/guide/RAG%20全链路：从文档到答案/
     kind: docs
   - label: 本站 · 怎么给文档做分块
     url: https://learn.specul.com/guide/怎么给文档做分块/
     kind: docs
   - label: 本站 · 怎么评测 RAG 的效果
-    url: https://learn.specul.com/guide/怎么评测 RAG 的效果/
+    url: https://learn.specul.com/guide/怎么评测%20RAG%20的效果/
     kind: docs
   - label: 本站 · 怎么验证 AI 的输出
-    url: https://learn.specul.com/guide/怎么验证 AI 的输出/
+    url: https://learn.specul.com/guide/怎么验证%20AI%20的输出/
     kind: docs
 last_verified: 2026-11-03
 confidence: partial
@@ -24,7 +24,7 @@ confidence: partial
 
 ## [任务|The task]
 
-用 10 篇站内页面做唯一语料，搭一个能回答问题的问答流程。不允许接外部搜索，不允许凭记忆补充。
+用 10 篇站内页面做唯一语料，搭一个能回答问题的问答流程。不允许接外部搜索，不允许凭记忆补充。题数和评分线是本练习的教学约束，不是生产系统的通用标准。
 
 1. 从 learn 站任选 10 个词条页，主题集中在一个领域（如 RAG 或本地部署）。
 2. 把它们切成可检索的片段，记录切分规则（按段、按标题、固定长度）。
@@ -39,7 +39,7 @@ confidence: partial
 | `answers.md` | 10 题答案，逐题带引用 | 每条引用能点回原文并找到该句 |
 | `citations.csv` | 题目 / 引用页 / 原文句 / 是否命中 | 10 行，无空行 |
 | `eval.csv` | 题目 / 判定（对/错/拒答）/ 原因 | 判定可被第二人复核 |
-| `failures.md` | 失败记录与改法 | 至少 3 条，写清触发条件 |
+| `failures.md` | 失败记录与改法 | 按实际情况记录并写清触发条件；人为构造的失败输入须标注 |
 
 ## [评分标准|Rubric]
 
@@ -60,9 +60,9 @@ confidence: partial
 不提供逐题答案（语料由你选），提供合格答案的结构：
 
 ```text
-问题：RAG 的分块为什么要按标题切？
-答案：按标题切能保留段落主题，减少跨主题片段；固定长度切分容易把定义与例子分开。
-引用：《怎么给文档做分块》第 2 节「按结构切」；原文句：「先按标题与段落切，再对超长段做二次切分。」
+问题：分块时为什么要保留标题和页码？
+答案：它们可作为元数据，让检索时按结构信息过滤。
+引用：《怎么给文档做分块》「怎么做」第 6 项；原文句：「保留结构信息：标题、章节、页码存进元数据，检索时能过滤。」
 判定：对；原因：引用句直接支持答案。
 ```
 

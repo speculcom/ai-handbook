@@ -51,6 +51,15 @@ Projects of this kind are usually a column of links. This repository takes a dif
 
 ## How to read this
 
+### Practice with files
+
+Four bilingual workflows include fictional inputs, designed references and acceptance checks in [samples/](./samples/README.md). References are not OCR, ASR or product measurements.
+
+- [PDF/scan to table](./guides/playbook-pdf-table.md): leading zeros, wrapped cells, missing prices and arithmetic.
+- [Multi-table merging](./guides/playbook-table-merge.md): keys, duplicates, conflicts, ambiguous dates and unmatched records.
+- [Document review](./guides/playbook-document-review.md): version locations, units, negation and internal conflicts.
+- [Meeting notes](./guides/playbook-meeting-notes.md): synthetic WAV, transcription checks, proposals/decisions and action status.
+
 There are 225 profiles here. Most people need three of them. Pick the lane that matches the problem in front of you:
 
 | What you are trying to solve | Where to go |
@@ -561,8 +570,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 225 |
-| By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 |
-| By form | web 94 · mcp 32 · harness 30 · cli 25 · ide 19 · cloud 14 · local-app 11 |
+| Total profiles | 250 |
+| By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 · safety 25 |
+| By form | web 97 · mcp 32 · cli 30 · harness 30 · cloud 22 · local-app 20 · ide 19 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

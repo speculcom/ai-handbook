@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>GPU 事实与成本数学：跑模型的硬件账 · 做模型专题</title>
-  <meta name="description" content="推理卡的关键事实（显存容量与带宽，只录官方规格页口径）；decode 为什么是带宽瓶颈；吞吐与成本怎么按构成方法估——不存任何单价、不做购卡推荐。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <meta name="description" content="从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。（核验于 2026-10-21，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/gpu-cost-math.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GPU 事实与成本数学：跑模型的硬件账 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/gpu-cost-math.html" />
   <meta property="og:title" content="GPU 事实与成本数学：跑模型的硬件账 · 做模型专题" />
-  <meta property="og:description" content="推理卡的关键事实（显存容量与带宽，只录官方规格页口径）；decode 为什么是带宽瓶颈；吞吐与成本怎么按构成方法估——不存任何单价、不做购卡推荐。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <meta property="og:description" content="从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。（核验于 2026-10-21，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=6a580ac0420e"></script>
-  <link rel="stylesheet" href="../brand.css?v=6a580ac0420e" />
+  <script src="../brand.js?v=bf69a6d205ad"></script>
+  <link rel="stylesheet" href="../brand.css?v=bf69a6d205ad" />
   <link rel="stylesheet" href="../site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GPU facts and cost math: the hardware bill for running a model","description":"Key facts for inference hardware (memory capacity and bandwidth, official spec pages only); why decode is bandwidth-bound; how to estimate throughput and cost by composition method — no unit prices stored, no purchase advice.","url":"https://models.specul.com/guides/gpu-cost-math.html","dateModified":"2026-10-21"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GPU facts and cost math: the hardware bill for running a model","description":"Separate resident weights, context cache, concurrency and runtime; distinguish idealized bandwidth arithmetic from actual throughput, with an editable budget and no stored prices or purchase advice.","url":"https://models.specul.com/guides/gpu-cost-math.html","dateModified":"2026-10-21"}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -49,6 +49,7 @@
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
       <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
         <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
@@ -87,10 +88,10 @@
     <header class="page-head">
       <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span>　<span class="t-tag"><span data-zh>训练管线 · 第 8 站</span><span data-en>training pipeline · stage 8</span></span></p>
       <h1><span data-zh>GPU 事实与成本数学：跑模型的硬件账</span><span data-en>GPU facts and cost math: the hardware bill for running a model</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
-      <p class="lede"><span data-zh>推理卡的关键事实（显存容量与带宽，只录官方规格页口径）；decode 为什么是带宽瓶颈；吞吐与成本怎么按构成方法估——不存任何单价、不做购卡推荐。</span><span data-en>Key facts for inference hardware (memory capacity and bandwidth, official spec pages only); why decode is bandwidth-bound; how to estimate throughput and cost by composition method — no unit prices stored, no purchase advice.</span></p>
+      <p class="lede"><span data-zh>从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。</span><span data-en>Separate resident weights, context cache, concurrency and runtime; distinguish idealized bandwidth arithmetic from actual throughput, with an editable budget and no stored prices or purchase advice.</span></p>
     </header>
 
-    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></a></li><li><a href="#guide-section-2"><span data-zh>硬件事实表：只录官方规格页口径</span><span data-en>Hardware facts: official spec pages only</span></a></li><li><a href="#guide-section-3"><span data-zh>decode 是带宽题，prefill 是算力题</span><span data-en>Decode is a bandwidth problem, prefill is compute</span></a></li><li><a href="#guide-section-4"><span data-zh>成本数学：讲构成，不存单价</span><span data-en>Cost math: composition, not unit prices</span></a></li><li><a href="#guide-section-5"><span data-zh>和本站其他资产的关系</span><span data-en>How this fits the rest of the site</span></a></li><li><a href="#guide-section-6"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li><li><a href="#guide-section-7"><span data-zh>完整例子：10 GiB 预算如何分配</span><span data-en>Worked example: allocating a 10 GiB budget</span></a></li></ul></nav>
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></a></li><li><a href="#guide-section-2"><span data-zh>核对容量、带宽与可用量</span><span data-en>Check capacity, bandwidth and available memory</span></a></li><li><a href="#guide-section-3"><span data-zh>带宽算式的假设与边界</span><span data-en>Assumptions and limits of bandwidth arithmetic</span></a></li><li><a href="#guide-section-4"><span data-zh>成本数学：讲构成，不存单价</span><span data-en>Cost math: composition, not unit prices</span></a></li><li><a href="#guide-section-5"><span data-zh>和本站其他资产的关系</span><span data-en>How this fits the rest of the site</span></a></li><li><a href="#guide-section-6"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li><li><a href="#guide-section-7"><span data-zh>完整例子：10 GiB 预算如何分配</span><span data-en>Worked example: allocating a 10 GiB budget</span></a></li></ul></nav>
     <section class="fam-sec" id="guide-section-0">
       <h2></h2>
 <ul>
@@ -99,47 +100,33 @@
     </section>
     <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
-<span data-zh><p><b>「我的硬件能跑多大的模型」是一道可以手算的题。</b><br>这一篇给出硬件侧的关键事实（只录官方规格页写明的数字），<br>再给出成本数学的构成方法。</p>
-<p>本站按纪律不收录任何卡价与租用单价，也不做购卡推荐。<br>数字随厂商改版会变，复核日期见页脚。</p></span><span data-en><p><b>“How big a model can my hardware run” is a problem you can do by hand.</b><br>This guide gives the hardware-side key facts (only figures stated on official spec pages),<br>then the composition method for the cost math.</p>
-<p>By discipline this site stores no card prices or rental rates and gives no purchase advice.<br>Figures change when vendors revise; the re-check date is in the footer.</p></span>
+<span data-zh><p>预算先拆成驻留权重、缓存、运行时与预留，再和任务实际可用内存比较。文件能下载不等于能加载；小于预算也不等于运行器支持或输出合格。</p>
+<p>本站不存卡价、租用单价或购卡建议。原硬件来源日期保留为 2026-10-21；2026-11-04 仅新增缓存方法说明与本地预算算式，未重新核验旧硬件规格。</p></span><span data-en><p>Split memory into resident weights, cache, runtime and reserve, then compare with task-available memory. Downloading is not loading; a lower estimate does not establish runtime support or output quality.</p>
+<p>This site stores no card/rental prices or purchase recommendations. Original hardware-source dates remain 2026-10-21. The 2026-11-04 addition covers cache methodology and browser-local arithmetic, not a fresh hardware-spec check.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-2">
-      <h2><span data-zh>硬件事实表：只录官方规格页口径</span><span data-en>Hardware facts: official spec pages only</span></h2>
-<span data-zh><p>判断「能不能跑」看两个数：显存容量决定装得下多大的模型，<br>显存带宽决定 decode 阶段每秒能吐多少 token。</p>
-<p>- NVIDIA H100 SXM：显存 80GB，带宽 3.35TB/s（官方规格页）。<br>- NVIDIA H100 NVL：显存 94GB，带宽 3.9TB/s（同一页两列对照）。<br>- NVIDIA A100 80GB：HBM2e，带宽 1,935 GB/s（PCIe）/ 2,039 GB/s（SXM）。<br>- NVIDIA RTX 4090：24GB GDDR6X（消费卡，官方页未标带宽数值）。<br>- Apple MacBook Pro（M5 系列）：统一内存 16/24/32GB 起配，<br>  高配可到 128GB——CPU 与 GPU 共享同一块内存（官方规格页）。</p>
-<p>诚实口径：AMD 消费卡规格页本次未能核验（站点不可达），<br>本站就不录 AMD 数字——未知就说未知，不抄二手参数表。<br>各卡功耗、互联、FP8 支持等细节以官方页为准，此处不展开。</p></span><span data-en><p>Two numbers decide “can it run”: memory capacity decides how big a model fits,<br>and memory bandwidth decides how many tokens per second the decode phase can emit.</p>
-<p>- NVIDIA H100 SXM: 80GB memory, 3.35TB/s bandwidth (official spec page).<br>- NVIDIA H100 NVL: 94GB memory, 3.9TB/s bandwidth (both columns on the same page).<br>- NVIDIA A100 80GB: HBM2e, 1,935 GB/s (PCIe) / 2,039 GB/s (SXM) bandwidth.<br>- NVIDIA RTX 4090: 24GB GDDR6X (consumer card; the official page states no bandwidth figure).<br>- Apple MacBook Pro (M5 family): unified memory starting at 16/24/32GB,<br>  up to 128GB on higher configs — CPU and GPU share the same memory (official spec page).</p>
-<p>Honest note: AMD&#39;s consumer-card spec pages could not be verified this pass (site unreachable),<br>so this site records no AMD figures — unknown stays unknown, no copying from second-hand spec sheets.<br>Power draw, interconnect, FP8 support and other details follow the official pages and are not expanded here.</p></span>
+      <h2><span data-zh>核对容量、带宽与可用量</span><span data-en>Check capacity, bandwidth and available memory</span></h2>
+<span data-zh><p>硬件官方规格页可用于核对容量、带宽和型号，但不能直接给出某个任务的速度或可用内存。驱动、后端、共享内存、系统占用和模型布局都需另外核对。</p>
+<p>下列来源保留原快照日期。本文不把某张卡或某台机器的标称总容量当作当前任务可用量，也不把两张卡的容量简单视作一个连续内存池。使用预算工具时填写已核对的可用 GiB；十进制 GB 先换单位。</p></span><span data-en><p>Official hardware pages establish published capacity, bandwidth and SKU, not task speed or available memory. Check drivers, backend, sharing, system use and loaded model layout separately.</p>
+<p>Sources retain original snapshot dates. Nominal device capacity is not task-available memory, and two cards are not automatically one contiguous pool. Enter checked available GiB in the budget tool, converting decimal GB first.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-3">
-      <h2><span data-zh>decode 是带宽题，prefill 是算力题</span><span data-en>Decode is a bandwidth problem, prefill is compute</span></h2>
-<span data-zh><p>生成阶段每产出一个 token，都要把模型权重完整读一遍。<br>单请求 decode 的每秒 token 数上限 ≈ 显存带宽 ÷ 每 token 需读的字节数。</p>
-<p>一个 8B 模型的 FP16 权重约 16GB。在 3.35TB/s 带宽上，<br>理论上限约 200 token/秒——这是「上限」，实际还要扣 KV 缓存读取与开销。<br>量化到 4bit 后权重约 4GB，同一张卡上限约四倍。这就是量化的吞吐账。</p>
-<p>预填充（读入长提示）相反：一次前向处理多个 token，算力受限。<br>所以「首 token 延迟」与「每 token 延迟」由两种硬件属性分别决定，<br>调优方向完全不同。</p></span><span data-en><p>Every token the generation phase produces requires reading the model weights in full once more.<br>The per-second token ceiling of single-request decode ≈ memory bandwidth ÷ bytes read per token.</p>
-<p>An 8B model&#39;s FP16 weights are about 16GB. On 3.35TB/s bandwidth the<br>theoretical ceiling is roughly 200 tokens/second — that is the ceiling; real numbers also subtract KV-cache reads and overhead.<br>Quantised to 4-bit the weights are about 4GB, so the same card&#39;s ceiling is about four times higher. That is the quantisation throughput ledger.</p>
-<p>Prefill (reading a long prompt) is the opposite: one forward pass processes many tokens, compute-bound.<br>So “time to first token” and “time per token” are set by two different hardware properties,<br>and the tuning directions are completely different.</p></span>
+      <h2><span data-zh>带宽算式的假设与边界</span><span data-en>Assumptions and limits of bandwidth arithmetic</span></h2>
+<span data-zh><p>对简化的稠密模型单请求 decode，可用峰值内存带宽 ÷ 每步需从该层级读取的字节量做理想化估计。只有在假设每步从该内存层级完整读取权重时，才能把权重体积放进分母；MoE 激活专家、缓存复用、批处理和卸载会改变口径。</p>
+<p>例如假设每步需读 16 GB、带宽为 3.35 TB/s，忽略其他开销时约为 209 次读取/秒。这是教学算式，不是 token/s 测试结果。减小权重文件不保证速度按相同比例增加。</p>
+<p>prefill 和 decode 的瓶颈会随批量、序列长度、算子实现与硬件变化，不能一概写成“一个只看算力，另一个只看带宽”。</p></span><span data-en><p>For a simplified single-request dense-model decode, peak memory bandwidth divided by bytes read per step gives an idealized estimate. Weight size belongs in that denominator only if each step reads all weights from that memory level. Active MoE experts, cache reuse, batching and offload change the assumptions.</p>
+<p>For example, assumed reads of 16 GB per step at 3.35 TB/s give about 209 reads/second before other overhead. This is teaching arithmetic, not measured tokens/second. Smaller files do not guarantee proportionally higher speed.</p>
+<p>Prefill/decode bottlenecks vary with batch, sequence length, kernels and hardware; neither can universally be reduced to compute-only or bandwidth-only.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>成本数学：讲构成，不存单价</span><span data-en>Cost math: composition, not unit prices</span></h2>
-<span data-zh><p>线上推理成本的构成链是：</p>
-<ul>
-  <li>每 token 成本 = 硬件每小时成本 ÷ 该硬件每小时产出的 token 数。</li>
-  <li>每小时产出由上节的带宽账与并发批处理决定——批越大，权重读取摊薄越多。</li>
-  <li>硬件每小时价格随市场每月波动，本站按纪律不收录。</li>
-</ul>
-<p>能自己算的是中间项。给定模型大小与量化档，再给定并发数，<br>用带宽账估吞吐，用吞吐除单价。厂商报价页与云厂商价格页是公开入口，<br>本站只教这条链怎么搭，不替你抄当下的数。</p>
-<p>选型判断依据（不是推荐）：并发高、上下文长时，瓶颈在 KV 缓存显存，要看带宽与容量。<br>单机个人用则相反，瓶颈在「装不装得下」，主要看容量与量化档。</p></span><span data-en><p>The cost chain for online inference decomposes as:</p>
-<ul>
-  <li>Cost per token = hardware cost per hour ÷ tokens that hardware produces per hour.</li>
-  <li>Hourly output is set by the bandwidth math above plus concurrent batching — the bigger the batch, the more the weight read is amortised.</li>
-  <li>Hardware price per hour moves with the market monthly; this site does not store it, by discipline.</li>
-</ul>
-<p>What you can compute yourself is the middle term. Given model size and quantisation tier, plus a concurrency number,<br>estimate throughput with the bandwidth math, then divide throughput into the unit price. Vendor quote pages and cloud price pages are public entry points;<br>this site teaches how to build the chain, it does not copy today&#39;s numbers for you.</p>
-<p>Judgement basis for selection (not a recommendation): with high concurrency and long context, the bottleneck is KV-cache memory — watch bandwidth and capacity.<br>For single-machine personal use it is the opposite: the bottleneck is “does it fit” — mainly capacity and quantisation tier.</p></span>
+<span data-zh><p>每 token 硬件分摊成本 = 同一统计期间内计入的硬件费用 ÷ 同期间实际产出的 tokens。写清输入/输出口径、缓存、空闲、失败重试和服务量，避免拿峰值理论吞吐当实际交付。</p>
+<p>容量预算回答“按这些假设占多少内存”，不回答“每小时能产多少”。吞吐需在自己的授权环境按固定任务观察；本站没有运行模型测试或保存单价。需要记录费用构成，使用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a>。</p></span><span data-en><p>Allocated hardware cost per token equals included hardware cost divided by actual tokens produced in the same period. Define input/output, caching, idle time, failed retries and service volume; theoretical peak throughput is not delivered output.</p>
+<p>A capacity budget estimates memory under assumptions, not hourly production. Observe throughput only in your own authorized fixed-task environment; this site ran no model benchmark and stores no prices. Record cost components with the <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">cost calculator</a>.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>和本站其他资产的关系</span><span data-en>How this fits the rest of the site</span></h2>
-<span data-zh><p>本站系列页的「显存倒推」表按实测文件体积给出「你的显存能下哪一档」，<br>是使用者入口；这一篇给的是硬件侧事实与换算方法，是从业者口径。<br>两边都将权重占用与 KV 缓存计入内存预算。</p></span><span data-en><p>The “VRAM reverse lookup” table on this site&#39;s series pages answers “which tier your VRAM can download” from measured file sizes —<br>that is the user&#39;s entry point; this guide gives hardware-side facts and the conversion method, the practitioner&#39;s yardstick.<br>Both include weight storage and KV cache in the memory budget.</p></span>
+<span data-zh><p>系列页 B 区按发布文件体积 × 1.15 初筛候选。该固定示意比例不是 KV 缓存估算，也不保证能运行。用本文下方的工具把缓存长度、并发和运行时预留分别列出；编码器、MLA、混合或滑动窗口模型另查架构方法。</p></span><span data-en><p>Series-page block B filters candidates by published file size × 1.15. That fixed illustration neither estimates KV cache nor guarantees execution. Use the tool below to separate cached length, concurrency and runtime reserve; encoders, MLA, hybrid and sliding-window models require architecture-specific methods.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-6">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
@@ -159,6 +146,22 @@
 <p>Capacity does not predict speed or establish quality. Compare equal tasks for latency, errors and usage. This example makes no performance guarantee or purchase recommendation.</p>
 <p>Continue to the <a href="https://tools.specul.com/mcp/guides/playbook-local-model.html" target="_blank" rel="noopener">local-model workflow</a>, or revisit <a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96/" target="_blank" rel="noopener">quantization</a> to separate bit width from quality.</p></span>
     </section>
+<section class="fam-sec capacity-workbench" id="capacity-workbench"><h2><span data-zh>上下文与并发：容量预算</span><span data-en>Context and concurrency: capacity budget</span></h2><p><span data-zh>这是标准全注意力 MHA/GQA 解码器的简化预算，不读取硬件、不下载模型、不预测速度。所有输入都是待你核对的假设；驻留权重不等于下载文件体积。</span><span data-en>A simplified budget for standard full-attention MHA/GQA decoders. It does not inspect hardware, download models or predict speed. Inputs are assumptions to check; resident weights are not download-file size.</span></p>
+<label><span data-zh>架构适用范围</span><span data-en>Architecture scope</span><select id="capacity-architecture"><option value="unknown" data-ui-text-zh="未确认 / MLA、混合或滑动窗口等" data-ui-text-en="Unconfirmed / MLA, hybrid, sliding-window or other">未确认 / MLA、混合或滑动窗口等</option><option value="standard" data-ui-text-zh="已核对：标准 MHA/GQA，各层相同" data-ui-text-en="Checked: standard MHA/GQA, identical layers">已核对：标准 MHA/GQA，各层相同</option></select></label>
+<div class="capacity-fields"><label><span><span data-zh>可用于本任务的内存 / GiB</span><span data-en>Available task memory / GiB</span></span><input id="capacity-budget" name="budget" type="number" min="0" step="any" inputmode="decimal" autocomplete="off"></label><label><span><span data-zh>估计驻留权重 / GiB</span><span data-en>Estimated resident weights / GiB</span></span><input id="capacity-weights" name="weights" type="number" min="0" step="any" inputmode="decimal" autocomplete="off"></label><label><span><span data-zh>运行时、临时张量与预留 / GiB</span><span data-en>Runtime, temporary tensors and reserve / GiB</span></span><input id="capacity-overhead" name="overhead" type="number" min="0" step="any" inputmode="decimal" autocomplete="off"></label><label><span><span data-zh>缓存层数 L</span><span data-en>Cached layers L</span></span><input id="capacity-layers" name="layers" type="number" min="1" step="1" inputmode="decimal" autocomplete="off"></label><label><span><span data-zh>每层 KV 头数 Hkv（不是 Q 头数）</span><span data-en>KV heads per layer Hkv (not query heads)</span></span><input id="capacity-heads" name="heads" type="number" min="1" step="1" inputmode="decimal" autocomplete="off"></label><label><span><span data-zh>每个 KV 头的维度 D</span><span data-en>Dimension per KV head D</span></span><input id="capacity-dim" name="dim" type="number" min="1" step="1" inputmode="decimal" autocomplete="off"></label><label><span><span data-zh>每个请求的总缓存长度 C / tokens</span><span data-en>Total cached tokens per request C</span></span><input id="capacity-tokens" name="tokens" type="number" min="1" step="1" inputmode="decimal" autocomplete="off"></label><label><span><span data-zh>同时驻留的独立请求 N</span><span data-en>Independent resident requests N</span></span><input id="capacity-concurrent" name="concurrent" type="number" min="1" step="1" inputmode="decimal" autocomplete="off"></label>
+<label><span data-zh>缓存每元素字节 B（需运行器支持）</span><span data-en>Cache bytes per element B (runtime support required)</span><select id="capacity-bytes"><option value="" data-ui-text-zh="请选择" data-ui-text-en="Choose">请选择</option><option value="2" data-ui-text-zh="FP16 / BF16: 2 bytes" data-ui-text-en="FP16 / BF16: 2 bytes">FP16 / BF16: 2 bytes</option><option value="4" data-ui-text-zh="FP32: 4 bytes" data-ui-text-en="FP32: 4 bytes">FP32: 4 bytes</option><option value="1" data-ui-text-zh="8-bit: 1 byte + 另计量化元数据" data-ui-text-en="8-bit: 1 byte + separate quantization metadata">8-bit: 1 byte + 另计量化元数据</option></select></label></div>
+<p><span data-zh>C 包括提示和已生成内容；N 假设各请求长度相同、缓存互不共享。8-bit 的比例因子等开销需加进预留。架构字段取模型配置，缓存精度取运行器配置，不能用参数总量猜。</span><span data-en>C includes prompt and generated content. N assumes equal lengths and no cache sharing. Add 8-bit scaling/metadata to reserve. Read architecture from model config and cache precision from runtime config; do not infer them from parameter count.</span></p>
+<p class="capacity-formula">KV bytes = 2 × L × Hkv × D × B × C × N<br>KV GiB = KV bytes / 1,073,741,824<br><span data-zh>总预算 = 驻留权重 + KV + 运行时与预留</span><span data-en>Total = resident weights + KV + runtime/reserve</span></p>
+<p id="capacity-result" role="status" aria-live="polite"><span data-zh>填写并核对适用范围后计算。</span><span data-en>Fill inputs and confirm the scope to calculate.</span></p><div class="capacity-actions"><button type="button" id="capacity-example"><span data-zh>填入虚构练习值</span><span data-en>Load fictional example</span></button><button type="button" id="capacity-export"><span data-zh>下载假设 JSON</span><span data-en>Download assumptions JSON</span></button><button type="button" id="capacity-reset"><span data-zh>清空</span><span data-en>Clear</span></button></div>
+<details><summary><span data-zh>GB 与 GiB 换算（只换单位）</span><span data-en>GB and GiB conversion (units only)</span></summary><label><span data-zh>文件大小 / 十进制 GB</span><span data-en>File size / decimal GB</span><input type="number" min="0" step="any" id="capacity-file-gb" inputmode="decimal"></label><p id="capacity-unit-result" aria-live="polite">1 GB = 1,000,000,000 bytes; 1 GiB = 1,073,741,824 bytes.</p><p><span data-zh>换算结果不会自动填进驻留权重；加载后的布局、精度转换和运行器分配可能不同。</span><span data-en>The conversion is not copied into resident weights: loaded layout, precision conversion and runtime allocation may differ.</span></p></details>
+<noscript><p><span data-zh>脚本未开启：用上面的算式手算。虚构例：L=32、Hkv=8、D=128、B=2、C=4096、N=1 时 KV=0.5 GiB；N=4 时为 2 GiB。6 GiB 权重 + 2 GiB KV + 1 GiB 预留 = 9 GiB。10 GiB 预算剩 1 GiB；这不证明能运行。</span><span data-en>Without JavaScript, use the formula above. Fictional example: L=32, Hkv=8, D=128, B=2, C=4096, N=1 gives 0.5 GiB KV; N=4 gives 2 GiB. Weights 6 + KV 2 + reserve 1 = 9 GiB, leaving 1 GiB of a 10 GiB budget. This does not establish that it runs.</span></p></noscript>
+<p><span data-zh>未计入的项目、错误的驻留估计、多卡分配、前缀共享、缓存分页和多模态编码器都可能改变结果。此算式不适用于所有架构；MLA、混合状态空间与各层不同的缓存需另算。</span><span data-en>Missing overhead, wrong residency estimates, multi-device allocation, prefix sharing, paging and multimodal encoders can change the result. This formula is not universal: MLA, hybrid state-space models and differing per-layer caches need separate calculations.</span></p><p><a href="https://huggingface.co/docs/transformers/cache_explanation">Transformers: cache tensors</a> · <a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/">vLLM: memory controls</a> · <a href="https://tools.specul.com/mcp/guides/failure-library.html#memory"><span data-zh>容量不足排查</span><span data-en>Memory troubleshooting</span></a></p><script defer src="../capacity-calculator.js?v=4fe460bf9b9e"></script></section>
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2><span data-zh>继续做什么</span><span data-en>What to do next</span></h2>
+      <ul><li><a href="task-models.html"><span data-zh>按输入输出区分任务模型</span><span data-en>Distinguish task models by input and output</span></a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/"><span data-zh>检查输出是否有依据</span><span data-en>Verify evidence for the output</span></a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom"><span data-zh>按症状排查</span><span data-en>Troubleshoot by symptom</span></a></li></ul>
+    </nav>
 
     <section class="fam-sec fam-sources">
       <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
@@ -169,8 +172,10 @@
         <li><span data-zh>Apple MacBook Pro 官方规格页（统一内存容量口径，2026-10-21 直抓）</span><span data-en>Apple MacBook Pro official spec page (unified-memory capacity figures; fetched directly 2026-10-21)</span>：<a href="https://www.apple.com/macbook-pro/specs/" target="_blank" rel="noopener">https://www.apple.com/macbook-pro/specs/</a></li>
         <li><span data-zh>PagedAttention 论文（arXiv 2309.06180，KV 缓存显存与吞吐关系，2026-10-21 直抓摘要页）</span><span data-en>PagedAttention paper (arXiv 2309.06180, KV-cache memory versus throughput; abstract page fetched directly 2026-10-21)</span>：<a href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noopener">https://arxiv.org/abs/2309.06180</a></li>
         <li><span data-zh>llama.cpp 官方仓库（GGUF 本地推理实现，2026-10-21 直抓 200）</span><span data-en>llama.cpp official repository (the GGUF local-inference implementation; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">https://github.com/ggml-org/llama.cpp</a></li>
+        <li><span data-zh>Transformers · 缓存张量结构（2026-11-04 单项核验）</span><span data-en>Transformers: cache tensor structure (item checked 2026-11-04)</span>：<a href="https://huggingface.co/docs/transformers/cache_explanation" target="_blank" rel="noopener">https://huggingface.co/docs/transformers/cache_explanation</a></li>
+        <li><span data-zh>vLLM · 内存控制（2026-11-04 单项核验）</span><span data-en>vLLM: memory controls (item checked 2026-11-04)</span>：<a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/configuration/conserving_memory/</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>资料核验日期：2026-10-21。下列原始来源提供规格、方法与适用条件。</span><span data-en>Sources checked: 2026-10-21. The originals below describe specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-21；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-21; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>
@@ -196,6 +201,8 @@
       </nav>
     </div>
     <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
       <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
     </div>
   </footer>

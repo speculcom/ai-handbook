@@ -2,16 +2,16 @@
   "_comment": "P2-1 Opal bodies EN（2026-11-03）。sections 与源侧五个固定小节对齐；sources 按索引对齐 frontmatter。",
   "axes": {
     "model_access": "No direct model picker: the official narrative is building AI mini-apps in natural language, and the 2026 agent step chooses tools and models by goal (for example Web Search or Veo). The exact model list is not enumerated on the official page.",
-    "runtime": "A cloud web app running in Google Labs' hosted environment; workflow files live in Google Drive under My Drive > Opal (the official shutdown notice states the migration path).",
+    "runtime": "Cloud web app in Google Labs. Workflow files remain in My Drive > Opal after shutdown, according to the official FAQ.",
     "local_files": "Workflows and assets live on the Google account side; no model runs locally. Import/export and asset-retention boundaries follow the official pages.",
     "background": "Primarily interactive composition; the official agent step can trigger tools and models by goal, but there is no official statement of continuing after shutdown.",
     "tools": "Built-in generate steps plus an agent step; the agent step can call Google tools such as Web Search and Veo and chain multi-step tasks. Third-party integrations not verified item by item.",
     "context": "Per-workflow context depends on steps and models; cross-session memory and long-term state are not spelled out on the official page.",
     "permissions": "Google account system; workflow files live in Drive and sharing follows Drive permissions. Training use and commercial terms follow Google's service terms, not verified line by line here.",
-    "fit": "Fits people who do not code and want to chain generation, search and video into a small app, or prototype and share quickly. Does not fit self-hosting, model choice, or long-term production (Google has announced the 2026-11-17 exit from Labs)."
+    "fit": "Fits people who do not code and want to prototype and share apps chaining generation, search and video. Does not fit self-hosting, direct model choice or long-term production: shutdown is scheduled for 2026-11-17, without automatic workflow migration."
   },
   "runs": "This site has not completed a workflow-building test; the conclusions cover platform capability and permission boundaries only.",
-  "unknowns": "- The exact callable model list (not enumerated on the official page)\n- Third-party integration surface and quotas\n- The precise mapping rules for migrating workflows to Gemini skills",
+  "unknowns": "- Exact callable model list\n- Third-party integrations and quotas\n- Equivalence of tools and outputs after rebuilding in skills / AI Studio (not executed)",
   "related": [
     "Both are visual AI-app builders; Coze publishes into Chinese channels while Opal lives in the Google ecosystem.",
     "A self-hostable workflow platform, contrasting with Opal's cloud-hosted form."
@@ -20,6 +20,13 @@
     "Google Opal · official landing page (no-code AI mini-apps; shutdown notice captured 2026-11-03)",
     "Google blog · Build dynamic agentic workflows in Opal (agent step chooses tools/models)",
     "Google blog · Opal is now available in more than 160 countries (coverage)",
-    "Google Opal · Updates (official status and changelog)"
-  ]
+    "Google Opal · Updates (official status and changelog)",
+    "Google Developers: Opal FAQ (shutdown date, retained files and no automatic migration only; checked 2026-11-04)"
+  ],
+  "sectionTitles": {
+    "核验说明": "Verification scope"
+  },
+  "sections": {
+    "核验说明": "On 2026-11-04 only the shutdown date, retained Drive files and lack of automatic workflow migration were rechecked against the official FAQ. Other model, integration and network fields retain their previous evidence scope; no workflow was executed or migrated."
+  }
 }

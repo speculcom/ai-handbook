@@ -13,8 +13,8 @@
   <meta property="og:description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=6a580ac0420e"></script>
-  <link rel="stylesheet" href="brand.css?v=6a580ac0420e" />
+  <script src="brand.js?v=bf69a6d205ad"></script>
+  <link rel="stylesheet" href="brand.css?v=bf69a6d205ad" />
   <link rel="stylesheet" href="site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"开放权重该怎么选 · AI 模型","url":"https://models.specul.com/","description":"开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。"}</script>
 </head>
@@ -49,6 +49,7 @@
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
       <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
         <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
@@ -109,7 +110,7 @@
         </div>
         <div class="trust-item t-b">
           <span class="trust-tag">✅ <span data-zh>推导</span><span data-en>Derived</span></span>
-          <p><span data-zh>由实测字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存需求区间。推导规则在</span><span data-en>Computed from the measured fields by published rules: bits per weight (per the llama.cpp naming convention), tier assignment, VRAM requirement range. The rules are fully published in</span> <code>METHODOLOGY.md</code><span data-zh> 完整公开，任何人可复算。</span><span data-en> — anyone can recompute them.</span></p>
+          <p><span data-zh>由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存需求区间。推导规则在</span><span data-en>Computed from the collected fields by published rules: bits per weight (per the llama.cpp naming convention), tier assignment, VRAM requirement range. The rules are fully published in</span> <code>METHODOLOGY.md</code><span data-zh> 完整公开，任何人可复算。</span><span data-en> — anyone can recompute them.</span></p>
         </div>
         <div class="trust-item t-c">
           <span class="trust-tag">❌ <span data-zh>我们不说的</span><span data-en>What we do not claim</span></span>
@@ -267,7 +268,7 @@
             <span class="m-famcard-vendor"><span data-zh>面壁智能 · OpenBMB</span><span data-en>OpenBMB (ModelBest)</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>MiniCPM5</span><span data-en>MiniCPM5</span></b> · 2026-08</p>
-          <p class="m-famcard-sum"><span data-zh>国产端侧小杯家族：尺寸小、官方连训练数据一起开源，是「自己练一遍」路线最友好的中文家族。面壁 ChatGLM 之外的另一条国产备案线（MiniCPM 备案编号 Beijing-MiniCPM-202503180058）。</span><span data-en>The domestic on-device small-model family: small sizes plus fully open training data — the friendliest Chinese family for the &quot;train one yourself&quot; route. Alongside Zhipu, another filed domestic line (MiniCPM filing number Beijing-MiniCPM-202503180058).</span></p>
+          <p class="m-famcard-sum"><span data-zh>国产端侧小杯家族：尺寸小、官方连训练数据一起开源，按「自己练一遍」路线能拿到完整起点的中文家族（训练数据也一起放出）。面壁 ChatGLM 之外的另一条国产备案线（MiniCPM 备案编号 Beijing-MiniCPM-202503180058）。</span><span data-en>The domestic on-device small-model family: small sizes plus fully open training data — a Chinese family that gives you for the &quot;train one yourself&quot; route. Alongside Zhipu, another filed domestic line (MiniCPM filing number Beijing-MiniCPM-202503180058).</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -574,11 +575,95 @@
             <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
           </div>
           <p class="m-famcard-cur"><span class="t-tag"><span data-zh>训练管线 · 第 8 站</span><span data-en>pipeline · stage 8</span></span></p>
-          <p class="m-famcard-sum"><span data-zh>推理卡的关键事实（显存容量与带宽，只录官方规格页口径）；decode 为什么是带宽瓶颈；吞吐与成本怎么按构成方法估——不存任何单价、不做购卡推荐。</span><span data-en>Key facts for inference hardware (memory capacity and bandwidth, official spec pages only); why decode is bandwidth-bound; how to estimate throughput and cost by composition method — no unit prices stored, no purchase advice.</span></p>
+          <p class="m-famcard-sum"><span data-zh>从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。</span><span data-en>Separate resident weights, context cache, concurrency and runtime; distinguish idealized bandwidth arithmetic from actual throughput, with an editable budget and no stored prices or purchase advice.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>8</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>8</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-10-21</span><span data-en>verified 2026-10-21</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
+        <a class="m-famcard" href="guides/task-models.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>任务模型：嵌入、重排、OCR 与语音识别</span><span data-en>Task models: embedding, reranking, OCR and ASR</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"><span class="t-tag"><span data-zh>训练管线 · 第 9 站</span><span data-en>pipeline · stage 9</span></span></p>
+          <p class="m-famcard-sum"><span data-zh>从输入输出、运行库和验收方法区分四类任务；逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。</span><span data-en>Distinguish four task contracts by input, output, runtime and acceptance; record platform/format compatibility by layer, retain untested combinations as unknown, and follow practice and troubleshooting links.</span></p>
           <div class="m-famcard-meta">
             <span><b>8</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>6</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-21</span><span data-en>verified 2026-10-21</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-04</span><span data-en>verified 2026-11-04</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
+        <a class="m-famcard" href="guides/local-log-retention.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>把日志留在本地到底意味着什么</span><span data-en>What keeping logs on your own machine actually means</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"></p>
+          <p class="m-famcard-sum"><span data-zh>把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。</span><span data-en>Unpack &quot;logs stay local&quot; into three lines: where they are written, who can read them, and how long they persist. Each item points at the runner&#39;s own documentation, and explains why disk encryption, backup sync and bind address are not contained in those four words.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>10</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>5</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
+        <a class="m-famcard" href="guides/multimodal-memory.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>多模态模型的显存账怎么算</span><span data-en>Counting memory for a multimodal model</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"></p>
+          <p class="m-famcard-sum"><span data-zh>把多模态的占用分成编码器、投影件与解码器缓存三笔账，写清每笔的来源、单位（GiB）与算法边界；KV 算式只管同层标准全注意力解码器，不能外推到编码器与 MLA、混合、滑动窗口。</span><span data-en>Split multimodal occupancy into three bills — encoder, projector files and decoder cache — with the source, unit (GiB) and scope stated for each. The KV formula covers only a standard same-layer full-attention decoder; it does not extend to encoders or to MLA, hybrid and sliding-window designs.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>9</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>5</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
+        <a class="m-famcard" href="guides/pre-flight-checks.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>本地跑起来之前先确认的七件事</span><span data-en>Seven checks before a local run starts</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"></p>
+          <p class="m-famcard-sum"><span data-zh>从开机到第一次出字的七个核对点：可用容量、驻留体积、文件与运行器、缓存口径、许可、结果验收、日志落点。每件写清查什么、拿什么当证据、失败后下一步。</span><span data-en>Seven checkpoints between power-on and the first token: available capacity, resident size, file and runner support, cache scope, licence, output acceptance and where logs go. Each states what to check, what counts as evidence and the next step on failure.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>9</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>4</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
+        <a class="m-famcard" href="guides/quant-tier-precision.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>量化档位与精度损失：能说什么、不能说什么</span><span data-en>Quantisation tiers and accuracy loss: what can be said, and what cannot</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"></p>
+          <p class="m-famcard-sum"><span data-zh>把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。</span><span data-en>Split tier names, bits per weight and accuracy loss into three layers: publishing-page facts, this site&#39;s derivation from the public naming standard, and what must stay blank. It also states which line in the memory bill actually moves when a tier changes.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>9</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>5</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
+        <a class="m-famcard" href="guides/read-official-evals.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>怎么按官方口径读一个模型的评测说明</span><span data-en>How to read a model&#39;s evaluation write-up on its official terms</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"></p>
+          <p class="m-famcard-sum"><span data-zh>读一份官方评测说明要补齐的四件事：任务集范围、指标口径、对照与版本、声明出处。哪些话有依据、哪些话只能留空，以及自报数字与你的任务之间隔着什么。</span><span data-en>The four things to fill in when reading an official evaluation write-up: task-set scope, metric definition, comparison and version, and where the claim comes from. What can be stated, what must stay blank, and what separates a self-reported number from your task.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>9</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>4</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -589,7 +674,7 @@
       <h2><span data-zh>怎么用这个站</span><span data-en>How to use this site</span></h2>
       <ol class="steps">
         <li><span data-zh><b>先看你有多少显存。</b>这是唯一的硬约束，8GB 和 24GB 能跑的档位完全不同。显存撑不下时看同一张表的「系统内存 / 多卡」两栏——纯 CPU 或多卡张量并行也是可行路线。</span><span data-en><b>Start with how much VRAM you have.</b> It is the only hard constraint — the tiers that fit in 8GB and 24GB are entirely different. If VRAM is the limit, look at the "system memory / multi-GPU" columns in the same table — CPU-only or multi-GPU tensor parallel are viable routes.</span></li>
-        <li><span data-zh><b>在 B 区块查速查表。</b>直接给出「这个显存 / 内存档位该用哪个量化档」，体积是实测值。</span><span data-en><b>Use the cheat sheet in block B.</b> It maps a given VRAM / memory budget to the tier to use, with measured sizes.</span></li>
+        <li><span data-zh><b>在 B 区块初筛文件体积候选。</b>再核对缓存、并发和运行时；表格不保证能运行。</span><span data-en><b>Use block B to filter file-size candidates.</b> Then budget cache, concurrency and runtime; it is not an execution guarantee.</span></li>
         <li><span data-zh><b>在 C 区块横向对比量化者。</b>看谁档位全、谁带 imatrix、谁在跟进更新。</span><span data-en><b>Compare quantisers side by side in block C.</b> See who covers the most tiers, who ships imatrix, and who is keeping up with releases.</span></li>
         <li><span data-zh><b>在 D 区块看单档详解。</b>七个字段说清每个变体是什么、差在哪、什么时候该选它。</span><span data-en><b>Read the per-tier detail in block D.</b> Seven fields spell out what each variant is, how it differs, and when to pick it.</span></li>
         <li><span data-zh><b>下载前先读许可。</b>非宽松许可的，页面会标出来；量化仓没单独声明许可的，页面会写明「继承自基座」，原文链接就在旁边。</span><span data-en><b>Read the licence before downloading.</b> Non-permissive licences are flagged; where a quant repo declares none, the page says "inherited from base" with the original link right beside it.</span></li>
@@ -625,12 +710,12 @@
           <div class="scard-lic"><span class="lic lic-loose">mit</span> <span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard scard-loose" href="series/gemma-4/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="yes" data-cn-filing="not-filed" data-blob="gemma 4 gemma 4 google google google 开放权重最新一代，三种规格各自都有量化覆盖。 通用对话 moe 稀疏 小尺寸可跑">
+        <a class="scard scard-loose" href="series/gemma-4/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="yes" data-cn-filing="not-filed" data-blob="gemma 4 gemma 4 google google google 开放权重系列，本站收录的三种规格各自都有量化覆盖。 通用对话 moe 稀疏 小尺寸可跑">
           <div class="scard-h">
             <h3><span data-zh>Gemma 4</span><span data-en>Gemma 4</span></h3>
             <span class="scard-vendor"><span data-zh>Google</span><span data-en>Google</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>Google 开放权重最新一代，三种规格各自都有量化覆盖。</span><span data-en>Google&#39;s newest open-weight generation; all three sizes have quantisation coverage.</span></p>
+          <p class="scard-sum"><span data-zh>Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。</span><span data-en>Google&#39;s open-weight series; the three sizes listed here each have quantisation coverage.</span></p>
           <ul class="scard-pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>MoE 稀疏</span><span data-en>Sparse MoE</span></li><li><span data-zh>小尺寸可跑</span><span data-en>Runnable at small sizes</span></li></ul>
           <div class="scard-stats">
             <span><b>3</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -641,12 +726,12 @@
           <div class="scard-lic"><span class="lic lic-loose">apache-2.0</span> <span class="lic lic-loose">apache-2.0</span> <span class="lic lic-loose">apache-2.0</span> <span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard" href="series/glm-5/" data-lic="other mit" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="glm 5 glm 5 智谱 ai zhipu ai 智谱当前最新一代，mit 许可的 flash 版对本地部署最友好。 通用对话 工具调用 mit 许可">
+        <a class="scard" href="series/glm-5/" data-lic="other mit" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="glm 5 glm 5 智谱 ai zhipu ai 智谱开放权重系列；不同规格的许可分别标注，部署前核对对应版本与容量需求。 通用对话 工具调用 mit 许可">
           <div class="scard-h">
             <h3><span data-zh>GLM 5</span><span data-en>GLM 5</span></h3>
             <span class="scard-vendor"><span data-zh>智谱 AI</span><span data-en>Zhipu AI</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>智谱当前最新一代，MIT 许可的 Flash 版对本地部署最友好。</span><span data-en>Zhipu&#39;s newest generation; the MIT-licensed Flash variant is the friendliest for local deployment.</span></p>
+          <p class="scard-sum"><span data-zh>智谱开放权重系列；不同规格的许可分别标注，部署前核对对应版本与容量需求。</span><span data-en>Zhipu&#39;s open-weight series. Licences are listed per variant; check the specific version and capacity requirements before deployment.</span></p>
           <ul class="scard-pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>工具调用</span><span data-en>Tool use</span></li><li><span data-zh>MIT 许可</span><span data-en>MIT licence</span></li></ul>
           <div class="scard-stats">
             <span><b>2</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -657,12 +742,12 @@
           <div class="scard-lic"><span class="lic lic-tight">other</span> <span class="lic lic-loose">mit</span> <span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard scard-loose" href="series/gpt-oss/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="no" data-cn-filing="not-filed" data-blob="gpt-oss gpt-oss openai openai openai 唯一开放权重系列，20b 版是单卡本地部署的甜点。 推理 moe 稀疏 apache-2.0">
+        <a class="scard scard-loose" href="series/gpt-oss/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="no" data-cn-filing="not-filed" data-blob="gpt-oss gpt-oss openai openai openai 开放权重系列，本站索引 20b 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。 推理 moe 稀疏 apache-2.0">
           <div class="scard-h">
             <h3><span data-zh>gpt-oss</span><span data-en>gpt-oss</span></h3>
             <span class="scard-vendor"><span data-zh>OpenAI</span><span data-en>OpenAI</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。</span><span data-en>OpenAI&#39;s only open-weight series; the 20B version is the sweet spot for single-card local deployment.</span></p>
+          <p class="scard-sum"><span data-zh>OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。</span><span data-en>OpenAI&#39;s open-weight series, with quantisation information for the 20B variant. Single-GPU suitability depends on available memory, quantisation and context settings.</span></p>
           <ul class="scard-pos"><li><span data-zh>推理</span><span data-en>Reasoning</span></li><li><span data-zh>MoE 稀疏</span><span data-en>Sparse MoE</span></li><li><span data-zh>apache-2.0</span><span data-en>Apache-2.0</span></li></ul>
           <div class="scard-stats">
             <span><b>1</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -689,12 +774,12 @@
           <div class="scard-lic"><span class="lic lic-loose">apache-2.0</span> <span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard" href="series/kimi-k3/" data-lic="other" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="kimi k3 kimi k3 月之暗面 moonshot ai 月之暗面当前最新一代，41 家量化仓但整体热度中等。 通用对话 长上下文">
+        <a class="scard" href="series/kimi-k3/" data-lic="other" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="kimi k3 kimi k3 月之暗面 moonshot ai 月之暗面开放权重系列，快照收录 41 家量化仓；数量不代表模型质量或运行兼容性。 通用对话 长上下文">
           <div class="scard-h">
             <h3><span data-zh>Kimi K3</span><span data-en>Kimi K3</span></h3>
             <span class="scard-vendor"><span data-zh>月之暗面</span><span data-en>Moonshot AI</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>月之暗面当前最新一代，41 家量化仓但整体热度中等。</span><span data-en>Moonshot&#39;s newest generation; 41 quantisation repos but middling overall interest.</span></p>
+          <p class="scard-sum"><span data-zh>月之暗面开放权重系列，快照收录 41 家量化仓；数量不代表模型质量或运行兼容性。</span><span data-en>Moonshot&#39;s open-weight series, with 41 quantisation repos in the snapshot. Counts do not establish quality or runtime compatibility.</span></p>
           <ul class="scard-pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>长上下文</span><span data-en>Long context</span></li></ul>
           <div class="scard-stats">
             <span><b>1</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -753,12 +838,12 @@
           <div class="scard-lic"><span class="lic lic-loose">apache-2.0</span> <span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard scard-loose" href="series/ornith-1-5/" data-lic="mit" data-cn-origin="foreign" data-cn-direct="yes" data-cn-filing="not-filed" data-blob="ornith 1.5 ornith 1.5 ornith ai ornith ai mit 许可，两个规格的 gguf 生态总量是本次盘点里最高的。 通用对话 mit 许可 moe 稀疏">
+        <a class="scard scard-loose" href="series/ornith-1-5/" data-lic="mit" data-cn-origin="foreign" data-cn-direct="yes" data-cn-filing="not-filed" data-blob="ornith 1.5 ornith 1.5 ornith ai ornith ai 模型卡标注 mit 许可，两个规格都有 gguf 量化覆盖；具体文件与版本见下表。 通用对话 mit 许可 moe 稀疏">
           <div class="scard-h">
             <h3><span data-zh>Ornith 1.5</span><span data-en>Ornith 1.5</span></h3>
             <span class="scard-vendor"><span data-zh>Ornith AI</span><span data-en>Ornith AI</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>MIT 许可，两个规格的 GGUF 生态总量是本次盘点里最高的。</span><span data-en>MIT licensed; across its two sizes this has the largest GGUF ecosystem found in this round of stocktaking.</span></p>
+          <p class="scard-sum"><span data-zh>模型卡标注 MIT 许可，两个规格都有 GGUF 量化覆盖；具体文件与版本见下表。</span><span data-en>The model cards list MIT; both sizes have GGUF coverage. See the tables for individual files and versions.</span></p>
           <ul class="scard-pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>MIT 许可</span><span data-en>MIT licence</span></li><li><span data-zh>MoE 稀疏</span><span data-en>Sparse MoE</span></li></ul>
           <div class="scard-stats">
             <span><b>2</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -769,12 +854,12 @@
           <div class="scard-lic"><span class="lic lic-loose">mit</span> <span class="lic lic-loose">mit</span> <span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard" href="series/qwen3-8/" data-lic="apache-2.0 other" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="千问 3.8 qwen3.8 阿里 · 通义千问 alibaba qwen 阿里当前最新一代，27b 密集模型是本地部署圈热度最高的一个。 通用对话 工具调用 长上下文 中文强项">
+        <a class="scard" href="series/qwen3-8/" data-lic="apache-2.0 other" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="千问 3.8 qwen3.8 阿里 · 通义千问 alibaba qwen 阿里千问系列，本站收录 27b 密集模型与 flash-next 的量化信息；收录不代表性能排名。 通用对话 工具调用 长上下文 中文强项">
           <div class="scard-h">
             <h3><span data-zh>千问 3.8</span><span data-en>Qwen3.8</span></h3>
             <span class="scard-vendor"><span data-zh>阿里 · 通义千问</span><span data-en>Alibaba Qwen</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>阿里当前最新一代，27B 密集模型是本地部署圈热度最高的一个。</span><span data-en>Alibaba&#39;s newest generation; the dense 27B is the most sought-after in the local deployment community.</span></p>
+          <p class="scard-sum"><span data-zh>阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；收录不代表性能排名。</span><span data-en>Alibaba&#39;s Qwen series, with quantisation information for the dense 27B model and Flash-Next. Inclusion is not a performance ranking.</span></p>
           <ul class="scard-pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>工具调用</span><span data-en>Tool use</span></li><li><span data-zh>长上下文</span><span data-en>Long context</span></li><li><span data-zh>中文强项</span><span data-en>Strong Chinese</span></li></ul>
           <div class="scard-stats">
             <span><b>2</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -816,7 +901,7 @@
         <a class="qchip" href="series/qwen3-8/#e0"><code>aj9o9</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>apetersson</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>aria220</code></a>
-        <a class="qchip" href="series/qwen3-8/#e0"><code>bartowski</code><span data-zh>老牌量化者，档位命名规范、说明文档最完整</span><span data-en>Veteran quantizer, best-documented naming</span></a>
+        <a class="qchip" href="series/qwen3-8/#e0"><code>bartowski</code><span data-zh>第三方量化发布者，档位与方法以仓库说明为准</span><span data-en>Third-party quantiser; check repository notes for tiers and methods</span></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>batiai</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>byteshape</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>ddh0</code></a>
@@ -830,19 +915,19 @@
         <a class="qchip" href="series/qwen3-8/#e0"><code>lausannequants</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>lmstudio-community</code><span data-zh>LM Studio 官方社区组织，为其 GUI 客户端供包</span><span data-en>Powers the LM Studio GUI</span></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>meta-models</code></a>
-        <a class="qchip" href="series/qwen3-8/#e0"><code>mradermacher</code><span data-zh>Mirostat 作者，长期做低比特实验性量化</span><span data-en>Known for experimental low-bit quants</span></a>
+        <a class="qchip" href="series/qwen3-8/#e0"><code>mradermacher</code><span data-zh>发布低比特量化，具体方法与来源见仓库说明</span><span data-en>Publishes low-bit quants; check repository methods and provenance</span></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>mxxm-t</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>na0x2c6</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>ngquocvinh</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>oki0ki</code></a>
-        <a class="qchip" href="series/qwen3-8/#e0"><code>openbmb</code><span data-zh>模型方自己出的 GGUF（最可信的一档）</span><span data-en>Published by the model authors themselves</span></a>
+        <a class="qchip" href="series/qwen3-8/#e0"><code>openbmb</code><span data-zh>模型方发布的 GGUF，仍需核对版本与运行器支持</span><span data-en>Published by the model authors themselves</span></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>ornith-ai</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>poolside</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>prithivMLmods</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>qtum</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>robertxxiv</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>smalinin</code></a>
-        <a class="qchip" href="series/qwen3-8/#e0"><code>unsloth</code><span data-zh>量化覆盖面最广、下载量最高的第三方量化者</span><span data-en>Broadest coverage, highest downloads</span></a>
+        <a class="qchip" href="series/qwen3-8/#e0"><code>unsloth</code><span data-zh>第三方量化发布者，具体覆盖与下载量见快照</span><span data-en>Third-party quantiser; see snapshot coverage and downloads</span></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>vcruz305</code></a>
         <a class="qchip" href="series/qwen3-8/#e0"><code>vultr</code></a>
       </div>
@@ -981,31 +1066,32 @@
 
     function renderVram() {
       var gb = Number(vtIn.value);
-      if (!gb || gb <= 0 || !DATA.length) { vtOut.innerHTML = ''; return; }
+      if (!vtIn.value || !DATA.length) { vtOut.innerHTML = ''; return; }
+      if (!Number.isFinite(gb) || gb <= 0 || !vtIn.validity.valid) { vtOut.textContent = IS_EN() ? 'Enter an integer from 1 to 1024 GB for the illustrative filter.' : '示意筛选请输入 1–1024 GB 整数。'; return; }
       var fits = DATA.filter(function (x) { return x.g * MARGIN <= gb; });
       var need = function (x) { return Math.ceil(x.g * MARGIN); };
       if (!fits.length) {
         var smallest = DATA[0];
         vtOut.innerHTML = '<p class="vt-none">' + esc(IS_EN()
-          ? 'No tier fits. The smallest here is ' + (smallest.qe || smallest.q) + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB with headroom. Below that, use -ngl to keep only some layers on the GPU (see the table below).'
-          : '装不下任何档。本成员最小的档是 ' + smallest.q + '（' + smallest.g + ' GB），加余量约需 ' + need(smallest) + ' GB 显存。再少就只能用 -ngl 只把部分层放显存（见下方替代路径）。') + '</p>';
+          ? 'No candidate under this filter. The smallest file is ' + (smallest.qe || smallest.q) + ' at ' + smallest.g + ' GB, needing about ' + need(smallest) + ' GB under file-size × 1.15. This does not establish cache, runtime memory or execution support.'
+          : '此示意筛选没有候选。最小发布文件为 ' + smallest.q + '（' + smallest.g + ' GB），加余量约需 ' + need(smallest) + ' GB（文件 × 1.15）。这不包含已核对的缓存、运行时占用或兼容性。') + '</p>';
         return;
       }
       var best = fits[fits.length - 1];
       var rest = fits.slice(0, -1).reverse();
       var link = function (x) {
         return '<a href="' + esc(x.u) + '" target="_blank" rel="noopener">' + esc(IS_EN() ? (x.qe || x.q) : x.q) + '</a>'
-          + ' <span class="vt-meta">' + x.g + ' GB · ' + esc(x.t) + ' · ' + esc(x.b) + '</span>';
+          + ' <span class="vt-meta">' + x.g + ' GB · ' + esc(IS_EN() ? (x.te || x.t) : x.t) + ' · ' + esc(x.b) + '</span>';
       };
-      var h = '<p class="vt-best"><b>' + (IS_EN() ? 'Recommended: ' : '建议：') + '</b>' + link(best)
+      var h = '<p class="vt-best"><b>' + (IS_EN() ? 'File-size candidate: ' : '文件体积候选：') + '</b>' + link(best)
         + ' <span class="vt-meta">' + (IS_EN() ? 'needs about ' : '加余量约需 ') + need(best) + ' GB</span></p>';
       if (rest.length) {
-        h += '<p class="vt-rest"><span class="vt-dim">' + (IS_EN() ? 'Also fit (smaller): ' : '也装得下（更省）：') + '</span>'
+        h += '<p class="vt-rest"><span class="vt-dim">' + (IS_EN() ? 'Other candidates (smaller): ' : '其他较小候选：') + '</span>'
           + rest.map(link).join(' · ') + '</p>';
       }
       h += '<p class="vt-note">' + (IS_EN()
-        ? 'Sizes are measured from the release page file listing; the tier shown is the smallest file of that name in this member. Headroom is 15%. Each name links to its Hugging Face page — check it yourself.'
-        : '体积是发布页文件列表的实测值；档位取该名称在本成员下的最省文件。余量 15%。每个档名都链到对应的 Hugging Face 发布页，可自行核对。') + '</p>';
+        ? 'Published file sizes are not resident-memory measurements. File-size × 1.15 is a fixed illustrative filter, not a cache/runtime budget or execution guarantee. Check architecture, context, concurrency and runtime separately.'
+        : '体积来自发布文件列表，不是驻留内存实测。文件 × 1.15 只是固定示意筛选，不是缓存/运行时预算，也不保证可运行。另查架构、上下文、并发与运行器。') + '</p>';
       vtOut.innerHTML = h;
     }
 
@@ -1112,6 +1198,8 @@
       </nav>
     </div>
     <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
       <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
     </div>
   </footer>

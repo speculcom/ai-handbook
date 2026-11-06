@@ -2,7 +2,7 @@
   "_comment": "P2-8 ExLlamaV3 bodies EN（2026-11-03）。sections 与源侧固定小节对齐；sources 按索引对齐 frontmatter。",
   "axes": {
     "model_access": "Uses EXL3 quantised checkpoints (.exl3) and some HF safetensors; supported models follow the official repository and docs and are not enumerated here. It is the successor line to ExLlamaV2.",
-    "runtime": "A CUDA inference engine for local/single-machine multi-GPU use; the PyPI package is exllamav3 (1.6.5, released 2026-10-25). A CUDA environment is required; exact versions follow the official repo.",
+    "runtime": "CUDA inference engine for local/single-machine multi-GPU use. PyPI records 1.6.6 released 2026-10-31 (version record only rechecked 2026-11-04). CUDA requirements follow the official repository.",
     "local_files": "Self-hosted, with weights and .exl3 checkpoints on the local machine; there is no official hosted cloud.",
     "background": "A local inference process, not a long-running service; serving usually goes through an outer layer such as TabbyAPI.",
     "tools": "Primarily inference execution; tool calling and MCP are not core and are not verified item by item.",
@@ -18,8 +18,14 @@
   ],
   "sources": [
     "turboderp-org · ExLlamaV3 official repository (README / docs)",
-    "PyPI · exllamav3 (1.6.5, 2026-10-25; rechecked 2026-11-03)",
+    "PyPI: exllamav3 1.6.6, released 2026-10-31 (version record only checked 2026-11-04)",
     "ExLlamaV3 · convert docs (EXL3 checkpoint conversion)",
     "ExLlamaV3 · Releases (official changelog)"
-  ]
+  ],
+  "sectionTitles": {
+    "核验说明": "Verification scope"
+  },
+  "sections": {
+    "核验说明": "On 2026-11-04 only PyPI release records were rechecked: 1.6.6 on 2026-10-31, following 1.6.5 on 2026-10-25. The package was not installed; architecture, CUDA and TabbyAPI compatibility were not all rechecked."
+  }
 }

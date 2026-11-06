@@ -1,0 +1,39 @@
+{
+  "_comment": "Safety batch A body translation · azure-ai-content-safety (2026-11-06). Every URL was direct-fetched on 2026-11-06.",
+  "axes": {
+    "model_access": "It supplies guardrails, not models. The Foundry guardrails page records that the controls use Azure AI Content Safety classification models and apply to every Foundry Model sold by Azure except audio transcription, with tool call / tool response intervention points in preview for agents. It can also run completely outside Foundry, guarding models on any platform through the standalone REST API.",
+    "runtime": "Hosted cloud API plus a web studio (contentsafety.cognitive.azure.com is on record). Detection executes on Azure's side. The official container page records only Analyze text, Analyze image and Prompt Shields for your own environment, retires connected and disconnected containers on 2027-04-30, and states containers must stay connected to Azure for metering.",
+    "local_files": "It neither reads nor writes your workspace: content is submitted over REST / SDK, or uploaded as samples and datasets in the studio. The only retention item recorded on the data page is the blocklist - items live in Azure Storage, encrypted at rest with Microsoft-managed keys, in the same region as the resource, deletable through the DELETE API.",
+    "background": "Request-response is the main shape. The FAQ records asynchronous filtering: the filter runs in parallel with streaming, nothing is buffered, at the cost of 'unsafe content might be briefly exposed before filtering is complete'. That is a latency trade-off, not a task that survives your shutdown.",
+    "tools": "API surface on record: Analyze text, Analyze image, Multimodal (preview, retiring 2027-04-30), Prompt Shields, Protected material (text / code), Groundedness (preview, retiring the same date), Custom categories (standard / rapid), Task Adherence and Blocklist. SDKs cover C# / Python / Java / JavaScript, and the studio can export the calling code.",
+    "context": "It judges one request at a time; there is no long context or memory. The limits page records input ceilings: 10K characters of text, 4 MB images, 10K characters for Prompt Shields, 55K characters of grounding sources, 100K characters for task adherence. Multi-turn handling belongs to the caller.",
+    "permissions": "Three hard statements are on the data page: inputs are not stored during detection, customer data is not used to train or improve the models, and Azure OpenAI Abuse Monitoring does not apply (no human review). The region page says data stays in the region you chose. Authentication supports Microsoft Entra ID and managed identity; CMK / BYOK is supported. Tiers are F0 and S0, with a monthly free quota on F0 (numbers live on the pricing page).",
+    "fit": "Fits: teams already running workloads on Azure that need graded severity across text and images plus prompt-attack detection, and that want region residency and a no-training commitment on record. Not a fit: long-term offline filtering (the containers are being retired) or teams that want to own the rail code and the model endpoint - that is the local-library line."
+  },
+  "sections": {
+    "能力边界": "Four intervention points are recorded: user input, tool call (preview), tool response (preview) and output. On the Foundry side models get Microsoft.DefaultV2 by default; turning content harms off for inputs is available to everyone, while turning them off for outputs requires an approved customer form. An agent guardrail fully overrides the model guardrail, and the official page walks through what that means for tool calls and responses. One hard boundary sits in the Overview: the service must not be used to detect illegal child-exploitation images.",
+    "变更记录说明": "Change history lives on the official What's new page (there is no separate releases page). Recorded on the verification day: the October 2026 update to text harm classification and Prompt Shields (UPIA / XPIA), rolled out first in Spain Central in stages, explicitly not changing PII, task adherence, blocklists, protected material or image capabilities; and the announced 2027-04-30 retirement of Multimodal, Custom categories (rapid), connected / disconnected containers, the Embedded SDK and Groundedness detection. Earlier GA and preview cadence traces back to the May 2023 public preview."
+  },
+  "sectionTitles": {
+    "能力边界": "Capability boundaries",
+    "变更记录说明": "Change record"
+  },
+  "runs": "This site has not completed measured runs; nothing here covers block rates, false-positive rates or latency, and the vendor itself asks customers to test per language.\n\n**Suggested measurements** (three):\n\n- Severity distributions for Chinese versus English samples at the same blocking level\n- How long the exposure window really is under asynchronous filtering (the FAQ records the trade-off)\n- Whether tool calls and tool responses really go unscanned once an agent guardrail overrides the model guardrail",
+  "unknowns": "- Whether any operator offers this service in mainland China (the official region table and the pricing page say nothing)\n- Specific version numbers of the content-safety classification models (the FAQ states Microsoft does not version them)\n- Accuracy per language for each capability\n- Migration details for the Embedded SDK and Multimodal retirement (only the retirement date was on record)\n- The exact F0 free quota figure (this archive does not carry price or quota numbers; see the pricing page)",
+  "related": [
+    "Same line: NeMo Guardrails (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: Amazon Bedrock Guardrails (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: LiteLLM 网关（Proxy / AI Gateway） (in guardrails and content filtering); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "Azure AI Content Safety · product page (positioning and capability entries, direct-fetched 200 on 2026-11-06)",
+    "Azure AI Content Safety · Overview (capability list, Studio, rate limits, tiers, retirement notice, direct-fetched 200 on 2026-11-06)",
+    "Azure AI Content Safety · Region availability (per-region table plus input and language limits, direct-fetched 200 on 2026-11-06)",
+    "Azure AI Content Safety · FAQ (retention and training use, asynchronous filtering, severity-threshold advice, direct-fetched 200 on 2026-11-06)",
+    "Azure AI Content Safety · Data, privacy, and security (no storage, no training, region residency, blocklist storage, direct-fetched 200 on 2026-11-06)",
+    "Azure AI Content Safety · Foundry guardrails overview (intervention points, default guardrail, blocking levels, applicability, direct-fetched 200 on 2026-11-06)",
+    "Azure AI Content Safety · Containers overview (on-prem scope and the 2027-04-30 retirement, direct-fetched 200 on 2026-11-06)",
+    "Azure AI Content Safety · What's new (October 2026 model update, staged rollout, retirement list, direct-fetched 200 on 2026-11-06)",
+    "Azure AI Content Safety · Pricing (tier structure and billing unit; no price numbers in this archive, direct-fetched 200 on 2026-11-06)"
+  ]
+}

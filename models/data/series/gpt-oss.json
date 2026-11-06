@@ -10,7 +10,7 @@
  },
  "family": "gpt-oss",
  "released": "2025-08-04",
- "summary": "OpenAI 唯一开放权重系列，20B 版是单卡本地部署的甜点。",
+ "summary": "OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。",
  "positions": [
   "推理",
   "MoE 稀疏",
@@ -30,10 +30,10 @@
    "params": "20B（MoE，约 3.6B 激活）",
    "paramsEn": "20B (MoE, approx. 3.6B active)",
    "role": {
-    "zh": "单卡甜点",
-    "en": "Single-GPU sweet spot"
+    "zh": "20B MoE 规格",
+    "en": "20B MoE variant"
    },
-   "note": "apache-2.0，674 万下载。虽非最新代，但量化生态成熟且许可最干净。",
+   "note": "模型卡标注 apache-2.0。量化覆盖与许可分别核对；下载量不代表质量或适用性。",
    "license": "apache-2.0",
    "licenseLink": null,
    "licenseName": null,
@@ -1000,7 +1000,7 @@
    }
   }
  ],
- "summaryEn": "OpenAI's only open-weight series. The 20B is the sweet spot for single-GPU local runs.",
+ "summaryEn": "OpenAI's open-weight series, with quantisation information for the 20B variant. Single-GPU suitability depends on available memory, quantisation and context settings.",
  "cn": {
   "origin": "foreign",
   "originNote": "出品方为 OpenAI。",

@@ -16,7 +16,7 @@ tracks/<category>/
 
 | 规则 | 说明 |
 |---|---|
-| `<category>`（**目录名 = 大类**）| 十个之一：`coding` / `chat` / `image` / `video` / `audio` / `research` / `automation` / `framework` / `mcp` / `runner`。定义、收录标准、边界裁决见 [categories.md](./categories.md)。⚠ 这里是**大类**，不是 frontmatter 的 `form`（**形态**）——两级命名见 §2.5.1 |
+| `<category>`（**目录名 = 大类**）| 十一个之一：`coding` / `chat` / `image` / `video` / `audio` / `research` / `safety` / `automation` / `framework` / `mcp` / `runner`。定义、收录标准、边界裁决见 [categories.md](./categories.md)。⚠ 这里是**大类**，不是 frontmatter 的 `form`（**形态**）——两级命名见 §2.5.1 |
 | `<id>` | 小写字母 + 连字符，全仓库唯一。例：`claude-code`、`sequential-thinking` |
 
 `tracks/` 下出现未知一级目录 → 硬失败（防拼错目录名静默漏检）。

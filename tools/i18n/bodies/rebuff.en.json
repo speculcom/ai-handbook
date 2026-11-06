@@ -1,0 +1,37 @@
+{
+  "_comment": "safety E包 · rebuff bodies EN（2026-11-06）。sections/sectionTitles 与源侧固定小节标题逐字对齐；sources 按索引对齐 frontmatter。官方英文引文（Disclaimer）原样保留。",
+  "axes": {
+    "model_access": "One of the four layers the README declares is literally \"use a dedicated LLM to analyse incoming prompts\", so the model is an explicit configuration item: `RebuffSdk(openai_apikey, pinecone_apikey, pinecone_index, openai_model)`, where openai_model is optional and defaults to gpt-3.5-turbo. On the vector side the official text gives Pinecone, with Chroma allowed in the self-hosting section. LLM providers other than OpenAI are not stated officially.",
+    "runtime": "Both paths sit on your side: the `pip install rebuff` SDK runs inside your application process, and the self-hosted Playground/API server is a Node app — the README has you work in `server/`, run `npm install` then `npm run dev`, and it comes up at `http://localhost:3000`, after you stand up the SQL and vector databases via Supabase / Pinecone. No official text was reachable today for the hosted playground domain.",
+    "local_files": "The object of processing in the official text is always prompt text and completion text; no ability to read workspace files, directories or attachments is declared. What the self-hosted form needs is database and vector-store connectivity rather than access to your repository. File-level capability is not stated officially.",
+    "background": "The SDK form lives and dies with the host application; the self-hosted server form is a resident service backed by Supabase and a vector database. Task queues, scheduled re-checks and continuation after shutdown are not stated officially.",
+    "tools": "The four declared layers are Heuristics, LLM-based detection, VectorDB and Canary tokens; the SDK surface is three entry points — `detect_injection`, `add_canary_word`, `is_canaryword_leaked`. The official roadmap checks off the JavaScript/TypeScript SDK and leaves \"Python SDK parity\" unchecked. MCP or other extension points are not stated officially.",
+    "context": "Its \"memory\" is the vector store: the official description is embedding previous attacks in the VectorDB to recognise similar ones, and when a canary leaks, writing the embedding of that input prompt back — the roadmap calls this attack signature learning. Store capacity, retention period and cleanup policy are not stated officially.",
+    "permissions": "Licensed Apache-2.0 (see the license field). Data flow is determined by configuration: the official example requires an OpenAI key and a Pinecone key, meaning the text under inspection is handed to the external services you configure; no privacy or data-processing terms were found in the official text reached today. The self-hosting environment list also includes MASTER_API_KEY, MASTER_CREDIT_AMOUNT and BILLING_RATE_INT_10K, i.e. the server ships with a credit and per-request deduction concept (the README states an integer conversion rule for it). Compliance certifications and training use are not stated officially.",
+    "fit": "Fits research and engineering experiments that add an injection alert plus canary-leak self-check inside your own app and accumulate attack samples in a vector store. Does not fit production pipelines that need a maintenance commitment or explicit data-processing terms — the repository is archived — nor fully offline deployments: \"Local-only mode\" is still an unchecked roadmap item and the documented SDK needs OpenAI and Pinecone credentials."
+  },
+  "runs": "This site has not run end-to-end tests: the SDK was not installed, the self-hosted server was not started, and no canary-leak sample was constructed. Conclusions come only from the official README, the LICENSE, the file listing of the repository's docs directory and PyPI / GitHub metadata (all 2026-11-06). The documentation-site domain returned no response that day, so docs.rebuff.ai content is not included.",
+  "unknowns": "- No official body text obtained on the day: docs.rebuff.ai and playground.rebuff.ai both returned no response, only the filenames inside the repository's docs directory were readable\n- Whether LLM providers other than OpenAI can be used\n- The concrete heuristic rule set and how far it can be customised (\"User Defined Detection Strategies\" is still unchecked on the official roadmap)\n- Vector-store capacity, retention period and cleanup mechanism\n- Data-processing and privacy terms, and whether any telemetry exists\n- The real capability gap between the Python SDK and the TS SDK (badges show two test suites; not verified item by item)\n- Mainland direct reachability and filing status (recorded as unknown in the cn block)",
+  "related": [
+    "Same line: LLM Guard (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: CanaryScan (in guardrails and content filtering); this entry states only what its own official sources support.",
+    "Same line: NeMo Guardrails (in guardrails and content filtering); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "Rebuff · repository commit history (last commit 2024-01-25; no standalone changelog page)",
+    "PyPI · rebuff (0.1.1, released 2024-01-20; release records stand in for a changelog)",
+    "Rebuff · repository README (four detection layers, SDK usage and self-hosting configuration)",
+    "Rebuff · repository docs directory (how-it-works / quickstart / self-hosting)",
+    "Rebuff · official LICENSE (full Apache-2.0 text)"
+  ],
+  "sectionTitles": {
+    "官方声明的能力面": "Capability surface as declared officially",
+    "部署前提（官方自托管口径）": "Deployment prerequisites (official self-hosting terms)",
+    "归档状态": "Archive status"
+  },
+  "sections": {
+    "官方声明的能力面": "The README (fetched 2026-11-06) describes the four layers as: Heuristics filter suspicious input before it reaches the LLM; LLM-based detection uses a dedicated LLM to analyse prompts and identify possible attacks; VectorDB stores embeddings of previous attacks to block similar ones; Canary tokens are added to prompts to detect leakage, which lets the framework store the embedding of the incoming prompt and prevent future attacks.\n\nThe Disclaimer, original wording:\n\n> Rebuff is still a prototype and **cannot provide 100% protection** against prompt injection attacks!\n\n**This sentence is the first thing to read when choosing**: it is the vendor's own qualitative statement about its capability boundary. This site quotes no detection or bypass figures.",
+    "部署前提（官方自托管口径）": "The self-hosting section requires Supabase, OpenAI and a vector database (Pinecone, or Chroma per the docs) set up first; then a `.env.local` in `server/` carrying OPENAI_API_KEY, MASTER_API_KEY, BILLING_RATE_INT_10K, MASTER_CREDIT_AMOUNT, the Supabase anon key and URL, the Pinecone key / environment / index name, SUPABASE_SERVICE_KEY and REBUFF_API; afterwards `npm install` and `npm run dev`, which serves at `http://localhost:3000`. The README explains BILLING_RATE_INT_10K as the credit amount deducted per request and states an integer conversion rule for it; this site does not carry the figure.",
+    "归档状态": "The repository's `archived` flag is true; the last commit is 2024-01-25, the last push 2024-08-07, and PyPI stops at 0.1.1 (2024-01-20). The entry therefore records lifecycle `archived` with confidence capped at `partial`: what is described here is the capability surface as it froze, not a statement that it currently works."
+  }
+}

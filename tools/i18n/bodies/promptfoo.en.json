@@ -1,0 +1,31 @@
+{
+  "_comment": "safety 大类 · promptfoo 正文英译（2026-11-06，由中文档案逐维翻译；不新增事实、不刷新核验日，来源在册状态沿用档案内记录）。axes 八维、runs 对应「官方口径与未核到项」，unknowns 对应「未知项清单」，related/sources 按索引对齐。",
+  "axes": {
+    "model_access": "Bring-your-own keys throughout: the intro page was on record the same day as supporting OpenAI, Anthropic, Azure, Google, Hugging Face and open models such as Llama, stated as BYOK with API keys. The exact configuration surface for local models behind OpenAI-compatible endpoints was not verified item by item. The evaluator ships no vendor model; judge calls run against the account you configure.",
+    "runtime": "Terminal-first: `npx promptfoo init` to start, `eval` to run, `view` to serve a local results page (all on record the same day), with configuration in promptfooconfig.yaml and local runs stated as requiring no login. A hosted viewer at promptfoo.app also appears on that page, which states shared links are private to your organisation; hosted-side details were not verified.",
+    "local_files": "Reads and writes stay on your machine: configuration, test cases and result artefacts live in local directories and the viewer renders local files (on record); test data may come from CSV or JSON, or from custom functions. The platform does not pick up implicit context beyond what you point it at.",
+    "background": "Evaluation runs as a local batch process; caching, concurrency and hot reload are on record, as is failing the build when quality thresholds are not met in CI. Resuming after shutdown does not apply. Distributed execution and checkpointed restarts are not on record and are treated as unknown.",
+    "tools": "Its extension surface, as the called side, is provider configuration, assertion types and custom functions; the documentation index was on record the same day including CI and code-scanning (GitHub Action) integration pages, and results can be posted to PR comments. Whether promptfoo itself provides an MCP server is not stated in what was captured, so it is recorded as unknown.",
+    "context": "Evaluation context is entirely defined by the configuration file: a matrix across prompts x models x test cases (matrix views on record); expectations can come from a CSV `__expected` column or custom functions. Cross-session memory is not part of what this class of tool does.",
+    "permissions": "MIT licensed (metadata on record). Local execution plus your own keys means model spend and egress sit in your account (BYOK on record); the official CI page recommends storing keys as encrypted secrets. Retention and training terms for the promptfoo.app hosted side were not captured, so they remain unknown.",
+    "fit": "Fits teams that want evaluation in the repository, one command to compare many prompts against many models, and a CI threshold that blocks merges. Does not fit anyone needing a hosted console as a long-term metrics dashboard, or vendor-run compliance auditing. This site records the assertion types and red-teaming surface only, never scores produced by the tool, and draws no ranking."
+  },
+  "runs": "This entry has not completed measured runs: no pass rates, no attack success rates, no latency or cost figures. Everything above is organised from the official pages fetched on 2026-11-06, and the gaps are listed separately rather than filled by inference.",
+  "unknowns": "- Configuration surface for local models behind OpenAI-compatible endpoints\n- Distributed execution and checkpointed restarts\n- Whether an MCP server is provided\n- Data retention and training terms of the hosted promptfoo.app\n- Team, RBAC and audit capabilities on the hosted side\n- Behaviour of red-team plugins beyond what the official page states",
+  "related": [
+    "Same line: Arize Phoenix (in evaluation and observability); this entry states only what its own official sources support.",
+    "Same line: Content Credentials（内容凭证） (in evaluation and observability); this entry states only what its own official sources support.",
+    "Same line: OpenAI Evals (in evaluation and observability); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "promptfoo · docs intro (self-described open-source CLI and library for evaluating and red-teaming LLM apps; assertions include determinism, similarity and JSON validity and LLM-rubric; BYOK across many providers; 200 direct on 2026-11-06)",
+    "promptfoo · assertions and expectations docs (equals/contains/regex/json/sql/latency/cost; llm-rubric/factuality/similarity; CSV __expected and custom functions; 200 direct on 2026-11-06)",
+    "promptfoo · getting started (npx promptfoo init / eval / view, promptfooconfig.yaml, no login needed locally, OPENAI_API_KEY; 200 direct on 2026-11-06)",
+    "promptfoo · local viewer (viewer command and result charts; promptfoo.app shared links private to your organisation; 200 direct on 2026-11-06)",
+    "promptfoo · CI integration (keys as encrypted secrets, fail the build below thresholds, results to PR comments; 200 direct on 2026-11-06)",
+    "promptfoo · red-teaming page (generated attacks and plugin surface, jailbreak-class checks; no score conclusions adopted by this site; 200 direct on 2026-11-06)",
+    "promptfoo · documentation index (caching, red-team configuration, code scanning and GitHub Action entries on record the same day)",
+    "promptfoo/promptfoo · repository metadata (GitHub API on record 2026-11-06: MIT, last push 2026-11-06, official site promptfoo.dev)",
+    "promptfoo/promptfoo · releases (via the official GitHub API on record: 0.125.1 published 2026-10-25; the HTML releases page itself failed to fetch)"
+  ]
+}

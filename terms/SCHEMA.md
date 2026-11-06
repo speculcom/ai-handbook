@@ -4,7 +4,7 @@
 > 机器执行方是 [`scripts/validate.mjs`](./scripts/validate.mjs)（**本文与它必须一致**；
 > 改了字段或枚举，两处一起改，否则「文档说合规、校验器报错」）。
 >
-> 实测规模：**200 词 · 6 站**（一 35 · 二 35 · 三 35 · 四 35 · 五 30 · 六 30）+ **微型指南**（`guides/`，见 §八）。
+> 实测规模：**228 词 · 6 站**（一 35 · 二 42 · 三 43 · 四 39 · 五 34 · 六 35）+ **微型指南 81 篇**（`guides/`，见 §八）。
 
 ## 一、文件位置与命名
 
@@ -35,9 +35,9 @@
 
 | 字段 | 取值 | 实测分布 |
 |---|---|---|
-| `domain` | `concept` `model` `agent` `dev` `infra` `media` `data` `choice` | concept 56 · infra 34 · choice 33 · agent 25 · media 19 · model 14 · dev 10 · data 9 |
-| `purposeTag` | `learn` `apply` `judge` `guard` | learn 80 · apply 49 · guard 36 · judge 35 |
-| `layer` / `level` | `一`↔1 · `二`↔2 · `三`↔3 · `四`↔4 · `五`↔5 · `六`↔6 | 一 35 · 二 35 · 三 35 · 四 35 · 五 30 · 六 30 |
+| `domain` | `concept` `model` `agent` `dev` `infra` `media` `data` `choice` | concept 57 · infra 39 · choice 38 · agent 28 · media 20 · model 19 · data 16 · dev 11 |
+| `purposeTag` | `learn` `apply` `judge` `guard` | learn 83 · apply 54 · guard 48 · judge 43 |
+| `layer` / `level` | `一`↔1 · `二`↔2 · `三`↔3 · `四`↔4 · `五`↔5 · `六`↔6 | 一 35 · 二 42 · 三 43 · 四 39 · 五 34 · 六 35 |
 
 `layer` 的语义（写 `ord` 时按层排；站名与主题句的真相源是 `meta.js`，此表只是速记）：
 
@@ -62,7 +62,7 @@
 2. **正文层**：中文正文在 `.md` 里；**英文正文在 `terms.en.json`**，键与词条一一对应，
    值形如 `{"purpose": "…", "def": ["…"], "why": "…"}`。
 3. 校验器要求：**每个词条都有英文键**（缺 = 错误）；有键但词条已不存在 = 警告（陈旧翻译）。
-4. 中文正文的固定骨架（实测 200/200 一致，校验器检查前两项）：
+4. 中文正文的固定骨架（实测 228/228 一致，校验器检查前两项）：
 
 ```
 # 词条名（English）

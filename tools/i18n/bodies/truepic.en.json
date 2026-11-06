@@ -1,0 +1,42 @@
+{
+  "_comment": "Safety batch A body translation · truepic (2026-11-06). Every URL was direct-fetched on 2026-11-06.",
+  "axes": {
+    "model_access": "No model picking: the recorded detection surface is Truepic's own authentication and inspection pipeline. The verification-tests page lists blur, time accuracy, location, screen-recapture detection and optional AI tasks; the Lens side judges provenance through PKI-signed certificates and C2PA content credentials (Lens API page on record). Whether the underlying models are disclosed or replaceable is not stated item by item and is recorded as unknown.",
+    "runtime": "Delivered as a hosted cloud: the Vision web platform (login entry and Okta SSO are in the docs) plus a REST API. The regions page records only US and UK, and states data is stored in the region where the API request is made. No official statement of a local or offline deployment form was found.",
+    "local_files": "You upload images, video and inspection records; results come back as a JSON report, and inspections can be exported as PDFs (that page sits in the documentation navigation). Lens Web SDK captures on the browser side. Nothing is recorded about reading your local filesystem, nor where media ultimately lands in storage.",
+    "background": "Inspections move through task states: the Inspection Statuses, Alerts and Webhooks pages sit in the official documentation navigation, which is the shape of 'submit, get a conclusion asynchronously, receive callbacks'. Queue duration and retry details were not verified page by page and are recorded as unknown.",
+    "tools": "The extension surface is the API, not plugins: OAuth 2.0 authentication, the Lens API and Lens Web SDK (each with its own changelog), webhooks and webhook actions, website forms, and a webview embedded into native apps - all listed in the documentation navigation. No MCP or other tool-protocol statement was found; recorded as unknown.",
+    "context": "The unit of organisation is a single inspection: Teams, Custom Fields, Lists and Message Template Sets are on record, and the Risk Network adds cross-customer history. This is not conversational context, and no cross-request memory mechanism is described; recorded as unknown.",
+    "permissions": "The getting-started page records 'Vision does not provide self-serve signup'; access runs through demos and contracts. The API overview page records a limit of up to 20 requests per 10-second period. The privacy policy (effective 2026-01-23) records collection of identifiers, content and device data; model training on anonymised data; global sharing with sub-processors; retention per contract and 90 days after termination. Certification detail was not verified - the official trust page returned only a dynamic script shell - so it is recorded as unknown.",
+    "fit": "Fits: insurance claims, lending and collateral, equipment inspection - any workflow needing authenticated-at-capture evidence plus a defensible record - and teams wiring authentication verdicts into their own systems through the API. Not a fit: teams looking for LLM input/output filtering (not the product's main axis), anyone needing self-hosting, or anyone expecting a free self-serve quota (the pricing page records no free plan)."
+  },
+  "sections": {
+    "能力边界": "On record it can judge: whether media was captured live on a signing device, whether a screen was re-photographed, whether time and location are self-consistent, whether metadata was altered, plus optional AI analysis tasks. Not on record: it does not decide whether content is harmful, and it does not decide whether you should trust the picture. The C2PA boundary, in this site's view: credentials give provenance and processing history, not a final verdict on truthfulness (see the Content Credentials entry).",
+    "变更记录说明": "Only two SDK lines have public version records: the Lens API changelog's newest entry dated 2024-09-26 (C2PA 1.4 / 2.0, hash boxes, GPSHPositioningError, metadata assertions) and the Lens Web SDK changelog's newest dated 2025-01-22. The Vision platform itself has no public changelog. The blog and newsroom carry dated 2026 product and integration items (AI Analysis in 2026-08, a Verisk workflow in 2026-09) but without verifiable version numbers, so lifecycle is recorded as maintenance rather than active."
+  },
+  "sectionTitles": {
+    "能力边界": "Capability boundaries",
+    "变更记录说明": "Change record"
+  },
+  "runs": "This site has not completed measured runs; nothing here covers authentication accuracy, false-positive rates or latency.\n\n**Suggested measurements** (three):\n\n- Whether the individual verification tests ever contradict each other on the same re-photographed image\n- Latency differences between the US and UK regions, and whether residency behaves as documented\n- How the report distinguishes 'credential missing' from 'credential damaged'",
+  "unknowns": "- Whether the models behind authentication and AI analysis are disclosed or replaceable\n- Full storage locations and the sub-processor list for media and derived data\n- Certification detail (the official trust page returned only a dynamic script shell)\n- Inspection queue duration, retries and resumption details\n- API quotas and concurrency beyond the recorded 20 requests per 10 seconds\n- Whether mainland-China access is supported",
+  "related": [
+    "Same line: Content Credentials（内容凭证） (in provenance and labelling); this entry states only what its own official sources support.",
+    "Same line: Azure AI Content Safety (in provenance and labelling); this entry states only what its own official sources support.",
+    "Same line: Amazon Bedrock Guardrails (in provenance and labelling); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "Truepic · official site (capture-time authentication and inspection platform positioning; navigation and docs entry, direct-fetched 200 on 2026-11-06)",
+    "Truepic Vision · Getting started (no self-serve signup; content-credentials wording, direct-fetched 200 on 2026-11-06)",
+    "Truepic Vision · API overview (OAuth 2.0 and the 20-requests-per-10-seconds limit, direct-fetched 200 on 2026-11-06)",
+    "Truepic Vision · Regions (US and UK only; data stored in the request region, direct-fetched 200 on 2026-11-06)",
+    "Truepic Lens API (PKI-signed certificates with C2PA credentials; JSON authentication report, direct-fetched 200 on 2026-11-06)",
+    "Truepic Vision · Verification tests (blur / time / location / screen detection plus optional AI tasks, direct-fetched 200 on 2026-11-06)",
+    "Truepic Lens API · Changelog (C2PA 1.4/2.0 entry dated 2024-09-26, direct-fetched 200 on 2026-11-06)",
+    "Truepic Lens Web SDK · Changelog (latest recorded entry 2025-01-22, direct-fetched 200 on 2026-11-06)",
+    "Truepic · Privacy Policy (Truepic Inc., anonymised model training, sub-processors, retention, direct-fetched 200 on 2026-11-06)",
+    "Truepic · Pricing (Flex month-to-month and Standard annual structure, no free self-serve tier; no price numbers here, direct-fetched 200 on 2026-11-06)",
+    "Truepic · Blog (2026 product items on record such as AI Analysis, direct-fetched 200 on 2026-11-06)",
+    "C2PA · official site (standards body and steering-committee membership including Truepic, direct-fetched 200 on 2026-11-06)"
+  ]
+}

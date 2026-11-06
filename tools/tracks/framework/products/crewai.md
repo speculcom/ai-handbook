@@ -447,7 +447,7 @@ README 把 checkpointing 写成**按需添加**。两处原话都加了限定语
 | 持久化后端 | 有独立子包（SQLite / Postgres） | `JsonProvider` / `SqliteProvider`，Flow 用 `SQLiteFlowPersistence` |
 | 跨进程恢复 | 官方承诺 "resuming from exactly where they left off" | 从 checkpoint 恢复 / fork，CLI 可 resume |
 
-## 模型接入：三个编排框架里对本地模型最友好的一个
+## 模型接入：三者里官方在 README 首屏就点名本地模型工具的那一个
 
 **默认走 OpenAI API，本地模型走 Ollama 工具。** README「Connecting Your Crew to a Model」原文：
 

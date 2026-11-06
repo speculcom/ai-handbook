@@ -630,5 +630,121 @@ var PATHS = [
    "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI%20%E5%90%88%E8%A7%84%E4%B9%89%E5%8A%A1/",
    "/term/%E9%9A%90%E7%A7%81%E4%B8%8E%E5%90%88%E8%A7%84/"
   ]
+ },
+ {
+  "id": "for-safety-review",
+  "ord": 11,
+  "zh": "安全与合规评审路线",
+  "en": "The Safety and Compliance Review Route",
+  "span": {
+   "zh": "约 45 分钟",
+   "en": "about 45 minutes"
+  },
+  "lead": {
+   "zh": "上线前把风险面、数据面与义务面分开看：先确认会被怎样滥用，再确认数据去了哪里，最后确认你必须留下什么记录。读完应能写出一份带未知项的评审结论。",
+   "en": "Split the pre-launch review into risk, data and obligation: how it can be misused, where the data goes, and what records you must keep. Finish with a written review that names unresolved items."
+  },
+  "steps": [
+   "AI 安全",
+   "提示注入",
+   "偏好对齐",
+   "拒答",
+   "输出越界与拒答",
+   "红队测试",
+   "数据不出网",
+   "数据驻留",
+   "隐私与合规",
+   "生成式 AI 合规义务",
+   "水印与内容凭证",
+   "可观测性"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说出三类你会在评审会上追问的风险面，各自对应什么证据",
+    "判断一项功能是否触及需要留记录的义务，并指出依据来自哪份官方文本",
+    "写下一条你无法确认为「安全」的项，说明缺的是哪个官方说法"
+   ],
+   "en": [
+    "Name three risk areas you would press for in a review meeting and what evidence answers each",
+    "Judge whether a feature triggers a record-keeping obligation and cite which official text it comes from",
+    "Write one item you cannot confirm as safe and say which official statement is missing"
+   ]
+  },
+  "nextTask": {
+   "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E7%BB%99%E5%9B%A2%E9%98%9F%E5%81%9A%20AI%20%E9%A3%8E%E9%99%A9%E6%B8%85%E5%8D%95/",
+   "zh": "把这十二步转成一份能开会用的风险清单",
+   "en": "Turn these twelve steps into a risk list you can bring to a meeting"
+  },
+  "stepUrls": [
+   "/term/AI%20%E5%AE%89%E5%85%A8/",
+   "/term/%E6%8F%90%E7%A4%BA%E6%B3%A8%E5%85%A5/",
+   "/term/%E5%81%8F%E5%A5%BD%E5%AF%B9%E9%BD%90/",
+   "/term/%E6%8B%92%E7%AD%94/",
+   "/term/%E8%BE%93%E5%87%BA%E8%B6%8A%E7%95%8C%E4%B8%8E%E6%8B%92%E7%AD%94/",
+   "/term/%E7%BA%A2%E9%98%9F%E6%B5%8B%E8%AF%95/",
+   "/term/%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%87%BA%E7%BD%91/",
+   "/term/%E6%95%B0%E6%8D%AE%E9%A9%BB%E7%95%99/",
+   "/term/%E9%9A%90%E7%A7%81%E4%B8%8E%E5%90%88%E8%A7%84/",
+   "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI%20%E5%90%88%E8%A7%84%E4%B9%89%E5%8A%A1/",
+   "/term/%E6%B0%B4%E5%8D%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E5%87%AD%E8%AF%81/",
+   "/term/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/"
+  ]
+ },
+ {
+  "id": "for-eval-builders",
+  "ord": 12,
+  "zh": "评测与质量路线",
+  "en": "The Evaluation and Quality Route",
+  "span": {
+   "zh": "约 40 分钟",
+   "en": "about 40 minutes"
+  },
+  "lead": {
+   "zh": "从「别人报的分数」走到「你能自己复跑的判法」：先弄清评测在测什么、什么时候失效，再把它落成一套能记录、能复跑、能追责的最小流程。",
+   "en": "Move from other people's scores to judgements you can re-run: what an evaluation actually measures, where it fails, and how to land it as a minimal flow you can record, re-run and hold accountable."
+  },
+  "steps": [
+   "评估",
+   "基准测试",
+   "模型评测的局限",
+   "评测饱和",
+   "训练集与测试集",
+   "数据污染",
+   "幻觉",
+   "幻觉的成因",
+   "结构化输出",
+   "迁移评估",
+   "可观测性"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说明一份公开分数在什么条件下不能用于你的任务",
+    "给自己的场景写出两条机器能判、三条只能人判的检查",
+    "指出一项评测结论要能被别人复跑，最少要固定哪几样东西"
+   ],
+   "en": [
+    "Say when a published score cannot transfer to your task",
+    "Write two checks your scenario can judge automatically and three that need a person",
+    "Name the minimum set of things to pin so others can reproduce an evaluation result"
+   ]
+  },
+  "nextTask": {
+   "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E6%90%AD%E4%B8%80%E6%9D%A1%E6%9C%80%E5%B0%8F%E8%AF%84%E6%B5%8B%E6%B5%81%E7%A8%8B//",
+   "zh": "按这条路线落一份能复跑的最小评测流程",
+   "en": "Use this route to set up a minimal evaluation flow you can re-run"
+  },
+  "stepUrls": [
+   "/term/%E8%AF%84%E4%BC%B0/",
+   "/term/%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/",
+   "/term/%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E7%9A%84%E5%B1%80%E9%99%90/",
+   "/term/%E8%AF%84%E6%B5%8B%E9%A5%B1%E5%92%8C/",
+   "/term/%E8%AE%AD%E7%BB%83%E9%9B%86%E4%B8%8E%E6%B5%8B%E8%AF%95%E9%9B%86/",
+   "/term/%E6%95%B0%E6%8D%AE%E6%B1%A1%E6%9F%93/",
+   "/term/%E5%B9%BB%E8%A7%89/",
+   "/term/%E5%B9%BB%E8%A7%89%E7%9A%84%E6%88%90%E5%9B%A0/",
+   "/term/%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA/",
+   "/term/%E8%BF%81%E7%A7%BB%E8%AF%84%E4%BC%B0/",
+   "/term/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/"
+  ]
  }
 ];

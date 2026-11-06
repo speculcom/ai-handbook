@@ -1,4 +1,4 @@
-# 十大类定义（categories）
+# 十一大类定义（categories）
 
 > English one-liners are given under each category; the full English narrative lives in `README.en.md`.
 
@@ -24,9 +24,12 @@ Claude Code 同一个大类、`cli` 形态。
 
 | 族 | 大类 | 读者的问题 |
 |---|---|---|
-| 找现成的 | coding · chat · image · video · audio · research | 「有没有能直接用的？」 |
+| 找现成的 | coding · chat · image · video · audio · research · safety | 「有没有能直接用的？」 |
 | 自己搭 | automation · framework | 「我想自己搭一个？」 |
 | 接上与跑起来 | mcp · runner | 「怎么给它接工具 / 在自己机器上跑模型？」 |
+
+> `safety` 归「找现成的」：护栏、评测、脱敏、溯源这些能力都是**装上来直接用**的产品，
+> 不是让读者自己从零搭的框架（自己搭的评测/护栏代码归 `framework`，见 §11 边界裁决）。
 
 ---
 
@@ -219,6 +222,49 @@ Claude Code 同一个大类、`cli` 形态。
 
 **EN**: Tools that load and run open models on your own hardware (Ollama, LM Studio, llama.cpp, vLLM class). Training tools are out.
 
+## 11 · AI 安全与评测 `safety`
+
+**定义**：给 AI 系统做**约束、度量与追责**的产品——护栏与内容过滤、评测与观测、红队与审计、
+机密计算与访问控制、数据合规与脱敏、内容溯源与标识。它不生产内容，它回答
+「这东西会不会出错、出了错能不能看出来、能不能提前拦住、事后能不能举证」。
+
+**收录标准**（三条全满足）：
+1. 产品主轴是**安全/合规/评测能力**（护栏、红队、评测与观测、脱敏、溯源、授权边界），
+   不是「顺便有个审计日志」的通用软件；
+2. 有可访问的官方文档 + 变更记录（changelog / releases / 官方更新页），八维至少
+   `model_access`（守/评的是谁的模型、能不能换）与 `permissions`（数据流向、训练用途、
+   合规与许可条款）可答；
+3. 能力边界可核验——它拦什么、评什么、以什么形态部署（本机 / 云 / 服务端）在官方页面上说得出。
+
+**形态归属**（`form:` 取值；本大类只收四种形态，`owns` 必须与之对齐）：
+
+| 形态 | 判据 |
+|:--|:--|
+| web | 主要交互是浏览器里的控制台/验证器/平台页 |
+| cloud | 以托管 API / 云服务交付，检测与计算跑在厂商侧（含只在 SDK 里调用的服务面） |
+| local-app | 装在自己的机器或自有环境里跑（pip / Docker / 桌面应用，含本机起的 UI 与服务） |
+| cli | 主要交互是终端，能脚本化、能进 CI |
+
+**边界裁决**：
+- **模型不是产品**：Llama Guard、GPT-5.1-Cyber 这类**安全/护栏模型本体**不在本类立档
+  （与「Whisper / 权重归 models 站」同口径）；调它的那个**工具或服务**才立档；
+- 评测/护栏的**代码框架**（交付物是「你写代码接进去」的 SDK）：主轴是编排与运行时归
+  `framework`，主轴是安全/评测语义（rails、red-team probes、脱敏算子）归 `safety`；
+- 可视化搭 AI 应用的平台自带的评测页 → 归 `automation`（评测不是它的产品主轴）；
+- 传统可观测/APM 厂商的 LLM 线（Datadog、Grafana、Sentry 的 LLM 观测）→ 对象本体归 `mcp`
+  的 server 档案，本类看它**有没有独立的评测/红队产品**；
+- 通用云 DLP / 通用 SSO 只在**面向 AI 工作负载**（模型 I/O、agent 工具调用、提示词）时收；
+- 认证/审计**报告与合规标记**（SOC 2、ISO 42001 证书页）→ 写在 `permissions` 维，不另立档案。
+
+**不收示例**：安全/护栏模型权重本体（不是产品）；只做人类内容审核的外包服务页
+（无 AI 侧能力面可核验）；纯 WAF/RASP（不触及模型与提示词）；通用密码管理器。
+
+**EN**: Safety and evaluation products — guardrails and content filtering, evaluation and
+observability, red teaming and audit, confidential compute and access control, data compliance
+and de-identification, provenance and labeling. They don't generate content; they answer whether
+a system can be constrained, measured and held accountable. Safety **models** themselves stay
+out under the "a model is not a product" rule — only the tool or service around them is filed.
+
 ---
 
 ## 多栖产品裁决规则
@@ -244,7 +290,8 @@ Claude Code 同一个大类、`cli` 形态。
 | `framework` | ag2 · claude-agent-sdk · codex-sdk · crewai · deepagents · google-adk · hermes-agent · langgraph · llamaindex · mastra · microsoft-agent-framework · openai-agents-sdk · openhands · pydantic-ai · smolagents | 15 | 22 |
 | `mcp` | context7 · everything · fetch · filesystem · git · github-mcp · memory · playwright · sequential-thinking · time | 10 | 24 |
 | `runner` | — | 0 | 12 |
-| **合计** | | **66** | **166**（预估，最终由 inventory 定） |
+| `safety` | **第 11 类（2026-11-06 新增，非迁移对象）**：guidance · azure-ai-content-safety · nemo-guardrails · langsmith · braintrust · langfuse · arize-phoenix · deepeval · promptfoo · garak · giskard · apple-private-cloud-compute · openfga · microsoft-presidio · sdv · opendp · adobe-content-credentials · c2patool | 18 | 18（首批） |
+| **合计** | | **66**（迁移面）+ 18（safety 新增） | **166**（预估，最终由 inventory 定） |
 
 > 目标数是 v8 计划 §2.1 的预估；T9–T19 的 inventory 盘点后以清单实际数为准。
 > 数字面（README/GUIDE/llms/站点文案）在 T31 统一按 inventory 实数刷新（R4：数字从数据算）。

@@ -1,0 +1,23 @@
+{
+  "_comment": "safety 大类自写批 · helicone 正文英译（2026-11-06）。axes 八维、runs/unknowns 对应「官方口径与未核到项 / 未知项清单」；related/sources 按索引对齐。",
+  "axes": {
+    "model_access": "The official docs describe it as an \"AI Gateway\" covering 100+ models, with provider keys held on the platform side after you add credits to your account.",
+    "runtime": "A hosted gateway: requests pass through the platform, and the docs say entries appear in the Requests tab \"within seconds\". Whether self-hosting exists is not stated on the page captured on the check date.",
+    "local_files": "Using a hosted gateway means requests and responses traverse a third party. Whether local files are retained, and for how long, was not verified for this entry.",
+    "background": "A standing service; the official page lists automatic logging, observability and fallbacks. Persistent background queue behaviour was not verified item by item.",
+    "tools": "The stated surface is gateway routing and observation; SDK and proxy configuration details as an extension ecosystem were not verified item by item.",
+    "context": "Context length belongs to whichever model you call; the platform's logging scope, truncation and retention windows were not verified.",
+    "permissions": "Keys and usage sit inside the account model (the docs say it \"maintains the keys for you\"). Team tiers, audit logs and export permissions were not verified item by item.",
+    "fit": "Fits: one entry point for several providers, consolidated logs, usage and failures, with requests leaving your environment accepted. Does not fit: data that must not leave your environment, or a self-hosting requirement you have not yet matched against an official deployment statement."
+  },
+  "runs": "This entry has not completed measured runs on latency, availability or failover conditions. \"100+ models\" and \"within seconds\" are quoted from the official page; the site does not treat those figures as evidence for a ranking, and draws no comparison against similar products.",
+  "unknowns": "- Licence type (no official statement captured on the check date)\n- Whether self-hosting exists and what it includes\n- Where request/response logs are stored, for how long, and how they are deleted\n- Whether logged data is used for any training or product improvement\n- Team permission tiers, audit logs and export capabilities\n- Billing and quota terms (prices are not recorded in entries)",
+  "related": [
+    "Same line: LangWatch (in gateway and access control); this entry states only what its own official sources support.",
+    "Same line: LiteLLM 网关（Proxy / AI Gateway） (in gateway and access control); this entry states only what its own official sources support."
+  ],
+  "sources": [
+    "Helicone · official docs (AI Gateway · automatic logging, observability and fallbacks; 100+ models; 200 direct on 2026-11-06)",
+    "Helicone · changelog (200 direct on 2026-11-06)"
+  ]
+}

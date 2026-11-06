@@ -1,25 +1,27 @@
 {
-  "_comment": "C0-16 正文英译 · notebooklm（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（gemini-chat/elicit/metaso），related 写 3 条（frontmatter related 是 [gemini-chat, elicit, metaso]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。",
+  "_comment": "Scoped 2026-11-04 help/access/export correction; not product execution or full terms review.",
   "axes": {
-    "model_access": "Driven by Gemini-family models (official narrative); users do not pick models — the product form is \"source-anchored Q&A\", the model is an internal implementation detail.",
-    "runtime": "Web (notebooklm.google.com) + mobile App; processing on Google's cloud.",
-    "local_files": "Notebooks and sources stored on the account-side cloud; sources can be uploaded (PDF/Docs/web links/YouTube etc., official product surface).",
-    "background": "Q&A is instant; Audio Overview (podcast-style audio overview) is a generation task line; no \"keep-running-after-shutdown\" concept.",
-    "tools": "**Source anchoring is the product's main axis**: answers carry source citations and support follow-ups; the Studio line generates derived forms such as audio overviews/briefs/study guides (official product surface); in-notebook source management (add/remove/summarize).",
-    "context": "Organized by notebook — each notebook is a set of sources + conversation; cross-notebook memory not verified to an official statement.",
-    "permissions": "Google account system; the notebook/source-count limits differing between free and subscription tiers per the official page (not verified item by item, D9: pricing not collected); training use: the official FAQ carries a \"your sources are not used for training\"-type promise — check the FAQ original before quoting (not verified item by item).",
-    "fit": "Fits: Q&A and research organization inside a given material set (paper groups/due-diligence materials/course materials), turning long materials into audio overviews, scenarios wanting \"answers only from your sources\". Does not fit: open-web retrieval (it does no whole-web search — the sources are what you give it), mainland direct connection (measured 000)."
+    "model_access": "Official help describes Gemini capabilities; account-specific model choices were not checked.",
+    "runtime": "Browser and mobile help are separate. The 2026-11-04 check covers browser access conditions, without installation or sign-in.",
+    "local_files": "Official help lists PDF, web, YouTube, audio and Google Docs/Slides sources; check current limits and account scope.",
+    "background": "Official help lists generated formats including audio overviews; queuing, background duration and recovery were not checked.",
+    "tools": "Source-grounded Q&A and note organization coexist with source discovery. Check answering and discovery separately; uploaded-only claims are too broad.",
+    "context": "Notebooks organize sources and notes; cross-notebook state, memory and exact limits were not checked.",
+    "permissions": "Google sign-in is required; organization access, region and age conditions apply. Check data use by account and feedback context, rather than turning older FAQ wording into an unconditional training guarantee.",
+    "fit": "Use for sourced Q&A, notes and research organization. Check retrieval coverage, answer support and generated content separately. A failed connection is not national reachability evidence; citation markers are not accuracy guarantees."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Source coverage completeness for long PDFs (500+ pages)** (whether it silently truncates)\n- **Audio Overview's support quality for Chinese sources**\n- **Actual values of the free tier's notebook/source limits** (D9: pricing not collected; quotas measured)",
-  "unknowns": "- Notebook/source-count limits per subscription tier (not verified item by item)\n- Terms-level landing of the training promise (FAQ narrative, not verified item by item)\n- Cross-notebook memory (no official statement verified)\n- The current driving-model tier (not verified item by item)",
+  "runs": "Scoped documentation check on 2026-11-04: help naming, browser access, grounded answering/source discovery and Export to Docs. Two help sources were added. No sign-in, installation, retrieval/audio test, current-price review, full-contract review or nationwide reachability check was performed. Older terms/update links retain their 2026-10-22 scope.",
+  "unknowns": "- Actual account migration, model choices and quotas\n- Mobile availability for a specific region/device\n- Organization contracts, feedback-related data use and full retention terms\n- Retrieval coverage, long-document handling, audio quality and task recovery (not executed)",
   "related": [
-    "Same vendor, different product: Gemini is open dialogue + retrieval, NotebookLM is closed source-set Q&A.",
-    "Also literature-research oriented: Elicit searches academic libraries then anchors, NotebookLM only anchors the sources you upload.",
-    "Chinese-leaning counterpart: Metaso does academic retrieval + whole web, NotebookLM digs inside the source set."
+    "Same vendor; compare task and account scope rather than inferring coverage from branding.",
+    "For papers, inspect scholarly retrieval; check coverage separately from extraction.",
+    "Inspect another retrieval entry point; check language, sources, region and access separately."
   ],
   "sources": [
-    "NotebookLM · official site (product and capability narrative)",
-    "NotebookLM · Terms (official terms, direct-fetch verified 2026-10-22)",
-    "NotebookLM · Release Notes (official update line, changelog, direct-fetch verified 2026-10-22)"
+    "NotebookLM: original product entry",
+    "NotebookLM: terms (2026-10-22 snapshot, not re-reviewed here)",
+    "NotebookLM: release notes (2026-10-22 snapshot)",
+    "Gemini Notebook: access conditions (scoped check 2026-11-04)",
+    "Gemini Notebook: note export (scoped check 2026-11-04)"
   ]
 }

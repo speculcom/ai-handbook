@@ -31,7 +31,7 @@ const LIFECYCLE = ['active', 'maintenance', 'archived', 'unknown'];
  * D3 定案：light 层退役，全部升八维；license 进八维 frontmatter。
  * T7（2026-10-21）：旧通道退役完成——唯一通道 = tracks/<大类>/products/（form 必填、
  * license 五类硬失败、track/tasks 回灌硬失败）。 */
-const CATS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner'];
+const CATS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'];
 const FORMS = ['ide', 'cli', 'cloud', 'harness', 'mcp', 'web', 'app', 'local-app'];
 /* v8：消费级五类缺 license 硬失败（原 S47「creation 缺 license」规则的八维迁移版） */
 const LICENSE_REQUIRED_CATS = ['chat', 'image', 'video', 'audio', 'research'];

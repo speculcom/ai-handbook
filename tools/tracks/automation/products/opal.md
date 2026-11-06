@@ -14,7 +14,7 @@ axes:
     自动选择工具与模型（如 Web Search、Veo）。具体模型清单未在官方页逐条列出。
   runtime: >-
     云端 Web 应用，在 Google Labs 的托管环境运行；工作流文件保存在 Google Drive 的
-    My Drive > Opal 下（官方停运公告写明迁移方式）。
+    My Drive > Opal 下（官方 FAQ 写明停用后的文件保留方式）。
   local_files: >-
     工作流与素材存放在 Google 账号侧；本机不跑模型。导入导出与素材保留边界以官方页为准。
   background: >-
@@ -29,10 +29,10 @@ axes:
     数据训练用途与商用条款以 Google 服务条款为准，本站未逐条核验。
   fit: >-
     适合：不写代码、想把「生成 + 搜索 + 视频」串成小应用的人；需要快速做原型并分享。
-    不适合：要自托管、要模型自选、要长期稳定生产（官方已宣布 2026-11-17 迁出 Labs）。
+    不适合：要自托管、要模型自选、要长期稳定生产（官方已宣布 2026-11-17 停用实验服务）。
 
 pitfalls:
-  - 把 Opal 当成长期生产平台——官方公告写明 2026-11-17 从 Labs 毕业，工作流迁移到 Gemini skills，之后活跃工作流不再运行
+  - 把 Opal 当成长期生产平台——官方 FAQ 明确 2026-11-17 停用，现有工作流不会自动迁移；需保留提示与文件并按目标任务重新搭建
   - 以为它能自选模型——官方叙事是 agent step 自动选工具与模型，不是让用户逐模型配置
   - 把「免费实验」当成「商用授权」——商用范围以 Google 服务条款为准
 
@@ -53,8 +53,11 @@ sources:
     url: https://opal.google/updates
     kind: changelog
 
-last_verified: 2026-11-03
-last_updated: 2026-11-03
+  - label: Google Developers · Opal FAQ（仅停用日期、文件保留与不自动迁移；2026-11-04 复核）
+    url: https://developers.google.com/opal/faq
+    kind: docs
+last_verified: 2026-11-04
+last_updated: 2026-11-04
 lifecycle: maintenance
 confidence: partial
 
@@ -74,7 +77,7 @@ cn:
 ## 一句话定位
 
 Opal 是 Google Labs 的无代码 AI mini-app 搭建器：用自然语言描述，就能把生成、搜索、视频等步骤串成可分享的小应用。
-官方已宣布 2026-11-17 从 Labs 毕业，工作流迁移到 Gemini skills；之后活跃工作流不再运行。
+实验服务计划于 2026-11-17 停用，现有工作流不会自动迁移。Drive 文件保留，提示与流程需按目标任务重新搭建。
 
 跨大类对照：[LangGraph](../framework/langgraph.html)。
 
@@ -91,9 +94,13 @@ Opal 是 Google Labs 的无代码 AI mini-app 搭建器：用自然语言描述�
 
 - 具体可调用的模型清单（官方页未逐条列出）
 - 第三方工具接入面与配额
-- 工作流迁移到 Gemini skills 的具体映射规则
+- 在 skills / AI Studio 重新搭建后，原有工具与输出的等价性（未运行验证）
 
 ## 相关条目
 
 - [Coze](./coze.md) — 同为可视化搭 AI 应用；Coze 可发布到国内渠道，Opal 走 Google 生态
 - [Dify](./dify.md) — 可自托管的工作流平台，与 Opal 的云端托管形成对照
+
+## 核验说明
+
+2026-11-04 仅对照官方 FAQ 复核停用日期、Drive 文件保留及不自动迁移。模型、集成、网络等其他字段保留原有核验范围；没有运行或迁移工作流。

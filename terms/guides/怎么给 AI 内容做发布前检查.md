@@ -29,7 +29,7 @@ verified_scope: "refs"
 
 **出处**：幻觉类风险的系统梳理见 International AI Safety Report；标识义务以国家网信办办法原文为准（见下）。
 
-- [International AI Safety Report 2026](https://www.ai-safety-report.org/)
+- [International AI Safety Report 2026](https://internationalaisafetyreport.org)
 - [《人工智能生成合成内容标识办法》全文（国家网信办）](https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm)
 
 ---
