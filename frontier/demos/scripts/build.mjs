@@ -32,7 +32,7 @@ function card(e) {
     : '';
   const L = catLabels(e.category);
   const ran = e.run.status === 'ran' ? `${bi('跑过', 'ran')} ${esc(e.run.date)}（${esc(e.run.env)}）` : bi('未跑', 'not run');
-  return `      <article class="fx-card" data-cat="${esc(e.category)}">
+  return `      <article class="fx-card" id="${esc(e.id)}" data-cat="${esc(e.category)}">
         <div class="fx-top"><span class="fx-badge">${bi(esc(L.zh), esc(L.en))}</span><span class="fx-meta"><span>${bi('核验', 'Checked')} ${esc(e.verifiedAt)}</span></span></div>
         <h3><a href="${esc(e.url)}" rel="noopener">${esc(e.title.zh)}<span class="fx-sub"> / ${esc(e.title.en)}</span></a></h3>
         ${media}${embedHtml}
