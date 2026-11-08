@@ -1,0 +1,41 @@
+{
+  "id": "azure-nd-h100-v5",
+  "title": {
+    "zh": "Azure ND H100 v5",
+    "en": "Azure ND H100 v5"
+  },
+  "category": "cloud",
+  "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+      "quote": "Accelerators 8 GPUs Nvidia H100 GPU (80GB)"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+      "quote": "Processor 96 vCPUs Intel Xeon (Sapphire Rapids)"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+      "quote": "3.2 Tbps of interconnect bandwidth per VM"
+    }
+  ],
+  "notes": {
+    "zh": "回答云上 8 卡 H100 实例的 CPU、内存与互联配置，可与同类实例逐项对照。关键差异在 CPU 与内存配比：本实例 96 vCPU / 1900 GiB，同类其他厂商给到 192 vCPU / 2 TiB，数据加载型任务会先撞 CPU 与内存，而不是 GPU。不回答价格与配额。",
+    "en": "Answers the CPU, memory and interconnect configuration of an 8-GPU H100 cloud instance so it can be compared item by item with peers. The decisive difference is the CPU-to-memory ratio: this instance pairs 96 vCPUs with 1,900 GiB where a comparable offering provides 192 vCPUs and 2 TiB, so data-loading workloads hit CPU and memory limits before the GPUs. It does not answer price or quota."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "GPU": "8 x NVIDIA H100 80 GB",
+    "vCPUs": "96 (Intel Xeon Sapphire Rapids)",
+    "memory": "1,900 GiB",
+    "local storage": "1,024 GiB",
+    "networking": "8 NICs; 3.2 Tbps interconnect per VM; 400 Gbps InfiniBand per GPU",
+    "GPU interconnect": "NVLink 4.0 within the VM"
+  }
+}

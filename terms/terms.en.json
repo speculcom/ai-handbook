@@ -1885,5 +1885,77 @@
       "Invented teaching example, not a real threshold: a team puts \"pass rate at or above the agreed target on this feature's evaluation set, and zero failures on high-severity cases\" into its release flow, and records where the number came from and when it was last reviewed on the release ticket. Set your own thresholds against your own evaluation set; the example figures are not transferable."
     ],
     "why": "A gate is useful only if failing it stops the release. The column that is usually missing is \"what happens if it fails\" - and without it, business pressure walks straight through the gate on the last day, and afterwards nobody can say who let it through or on what basis."
+  },
+  "模仿学习": {
+    "purpose": "Let a machine learn actions from demonstrations instead of trial-and-error from scratch.",
+    "def": [
+      "Imitation learning learns a policy from expert demonstrations: record paired samples of what action to take in what state, then train a model to reproduce those actions.",
+      "The most direct implementation is behaviour cloning, fitting demonstrations as supervised learning; states not covered by demonstrations are error-prone, and methods such as DAgger ask experts to label states visited by the learner.",
+      "It complements reinforcement learning: one uses ready demonstrations, the other uses reward trial-and-error; demonstration data collected by robot teleoperation often takes this path."
+    ],
+    "why": "This is the most common starting point for robot action learning: teleoperated demonstrations become training data. Separating learning from demonstrations and learning from reward explains why many robot projects spend on data collection before designing reward functions."
+  },
+  "遥操作": {
+    "purpose": "Let a person control a remote robot in real time, and record the operation as training data.",
+    "def": [
+      "Teleoperation means a person controls a distant robot in real time through a joystick, leader-follower arms or video feedback.",
+      "In robot learning it is also a data-collection method: ALOHA and Mobile ALOHA use low-cost leader-follower arms for human demonstrations of bimanual and whole-body operation, recording trajectories for imitation learning.",
+      "When watching robot demos, first distinguish whether actions are produced by real-time human teleoperation or autonomous model execution — the capabilities shown are completely different."
+    ],
+    "why": "Many impressive robot videos have a human teleoperating behind them. Knowing this prevents reading human-controlled demos as autonomous capability, and explains why teleoperation datasets are raw material for embodied AI training."
+  },
+  "视觉语言动作模型": {
+    "purpose": "Let one model see images, read instructions and output actions to control a robot end to end.",
+    "def": [
+      "A vision-language-action model (VLA) connects a visual encoder, a language model and action output: camera images and natural-language instructions go in, and robot actions come out directly.",
+      "RT-2 transfers web image-text knowledge into robot control and shows such models can generalise unseen instructions into new actions; OpenVLA provides an open-source implementation of the same kind.",
+      "It contrasts with the traditional modular perception-planning-control route: one model goes from seeing to acting without hand-writing every intermediate stage."
+    ],
+    "why": "This is the most watched model form in embodied AI; robot large model in news often means it. Knowing its end-to-end nature lets you ask two boundary questions: what happens on tasks outside training coverage, and who catches action errors."
+  },
+  "物理仿真": {
+    "purpose": "Compute object motion and contact in a computer, giving robots a practice ground for repeated trial-and-error.",
+    "def": [
+      "Physics simulation numerically solves equations of motion with a physics engine: given mass, joints, friction and collisions, it computes how objects move at the next time step.",
+      "Engines such as MuJoCo are designed for robotics and biomechanics and support contact-rich manipulation; researchers train and test policies in simulation before considering real hardware.",
+      "Simulation is an approximation: step size, contact models and parameter errors make simulated behaviour diverge from reality, which is exactly the gap sim-to-real transfer must handle."
+    ],
+    "why": "Real-robot trial-and-error is expensive, slow and can break hardware; simulation lets the same practice run thousands of times in parallel. But passing in simulation does not mean passing in reality, so evaluation should ask at which layer validation was done."
+  },
+  "运动规划": {
+    "purpose": "Compute an executable action trajectory from start to goal that avoids obstacles and respects constraints.",
+    "def": [
+      "Motion planning searches the robot configuration space for a path satisfying constraints: avoid obstacles, stay within joint limits, then generate a time-parameterised action sequence from the path.",
+      "Sampling-based planners such as PRM and RRT are common, using random sampling and connection to find feasible solutions quickly in high-dimensional spaces; OMPL collects such algorithms.",
+      "MoveIt connects planning, collision checking and execution into a ready pipeline in the robot stack, and is a common entry point for arm motion planning on ROS."
+    ],
+    "why": "How a robot reaches out without hitting the cup depends on this. Knowing planning computes feasible trajectories rather than moving by feel helps distinguish pre-planned demonstrations from real-time learned policy control."
+  },
+  "仿真到实机迁移": {
+    "purpose": "Move a policy trained in simulation onto a real robot and still have it work — crossing the gap between simulation and reality.",
+    "def": [
+      "Sim-to-real transfer means deploying a control policy trained in physics simulation onto a real robot; the core obstacle is the reality gap: friction, delay and sensor noise in simulation do not match the real world.",
+      "Domain randomisation is one mainstream approach: during training, physics parameters, textures and lighting are deliberately randomised so the policy has seen variation and does not only recognise one simulated world.",
+      "Tobin et al. used domain randomisation to transfer a visual policy from simulation to a real arm; Peng et al. randomised dynamics parameters so quadruped and biped gaits could move from simulation to hardware."
+    ],
+    "why": "Robot demos often look agile but shake on real hardware, usually because of this step. Knowing the reality gap exists stops you treating simulation success rates as real capability, and prompts you to ask which randomisation or system identification was used."
+  },
+  "机器人策略": {
+    "purpose": "Name the mapping from what a robot observes to what it does — the direct source of robot behaviour.",
+    "def": [
+      "A policy is a mapping from observations to actions: given the current state or observation, it decides the next action, either as a deterministic rule or a stochastic policy outputting an action distribution.",
+      "Robot policies are usually learned: imitation learning fits them from demonstrations, reinforcement learning optimises them by reward; after training, the deployed artefact is this mapping itself.",
+      "Policy and environment form a closed loop: actions change the environment, and new observations feed back into the policy. Coherent or runaway behaviour should be traced through this loop, not blamed on one single-step command."
+    ],
+    "why": "Understanding policy gives robot news terms such as end-to-end, policy generalisation and policy failure a concrete referent: they all describe the same observation-to-action mapping under different conditions."
+  },
+  "机器人中间件": {
+    "purpose": "Connect robot drivers, algorithms and tools into a software skeleton whose parts can communicate.",
+    "def": [
+      "Robot middleware is the communication and tooling layer between the operating system and robot applications: sensors, controllers and planners exchange messages and call services in a uniform way.",
+      "ROS 2 is a representative implementation, providing communication primitives such as topics, services and actions, with launch, logging and visualisation tools; its design documents are public.",
+      "It solves how algorithms connect, not any single algorithm: replacing a planner or sensor does not require rewriting the whole system."
+    ],
+    "why": "Building a robot or working with a robotics team means dealing with this skeleton. Knowing middleware handles communication and tools, not intelligence itself, helps separate system integration failures from model capability failures."
   }
 }

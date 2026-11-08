@@ -157,10 +157,15 @@ if (!fs.existsSync(enPath)) {
  * kind=myth 是「常见误区」子类型（S25）：用 myth/fact 两段代替 points —— 不另起炉灶。
  * kind=paper 是「论文卡」子类型（C5-2，2026-10-29）：字段同 guide，内容口径不同
  * （研究问题/证据位置/作者自陈局限/它没有主张的——v9：论文卡与方法分别计数）。
- * ord 按「站 × kind」分别 1..n 连续（写误区不会挪动 guide 的序号）。 */
+ * kind=lesson 是「课堂教案」子类型：复用 guides/ 管线，五个专属必填数组
+ * （objectives/materials/steps/misconceptions/assessment），不用 points/myth/fact；
+ * 条数口径与 build.mjs / SCHEMA.md §八必须一致。
+ * ord 按「站 × kind」分别 1..n 连续（写误区不会挪动 guide 的序号，教案同理）。 */
 const GUIDES = path.join(ROOT, 'guides');
-const GUIDE_KINDS = ['guide', 'myth', 'paper'];
-const GUIDE_REQUIRED = { guide: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'points', 'refs'], myth: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'myth', 'fact', 'refs'], paper: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'points', 'refs'] };
+const GUIDE_KINDS = ['guide', 'myth', 'paper', 'lesson'];
+const GUIDE_REQUIRED = { guide: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'points', 'refs'], myth: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'myth', 'fact', 'refs'], paper: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'points', 'refs'], lesson: ['zh', 'en', 'kind', 'station', 'ord', 'span', 'lead', 'objectives', 'materials', 'steps', 'misconceptions', 'assessment', 'refs'] };
+/* lesson 五段的条数约束（max=null 表示无上限）——与 build.mjs 构建期校验同一口径 */
+const LESSON_ARRAYS = [['objectives', 3, 5], ['materials', 1, null], ['steps', 3, null], ['misconceptions', 1, null], ['assessment', 2, null]];
 const guideFiles = fs.existsSync(GUIDES) ? fs.readdirSync(GUIDES).filter((f) => f.endsWith('.md')).sort() : [];
 const guideSeen = new Set();
 const guideOrd = {};   // `${station}:${kind}` → [ord…]
@@ -184,6 +189,15 @@ if (guideFiles.length) {
     const points = (kind === 'guide' || kind === 'paper') ? g.inlineArr('points') : null;
     if ((kind === 'guide' || kind === 'paper') && (!points || points.length < 3 || points.length > 7)) {
       errors.push(`${rel} · points 必须是 3-7 条的行内数组（现有 ${points ? points.length : 0}）`);
+    }
+    // lesson 五段：行内数组 + 条数约束（缺字段时上面的必填检查已报一次，这里再报形状，与 points 同套路）
+    if (kind === 'lesson') {
+      for (const [k, min, max] of LESSON_ARRAYS) {
+        const arr = g.inlineArr(k);
+        if (!arr || arr.length < min || (max != null && arr.length > max)) {
+          errors.push(`${rel} · ${k} 必须是 ${max == null ? `≥${min}` : `${min}-${max}`} 条的行内数组（lesson 类，现有 ${arr ? arr.length : 0}）`);
+        }
+      }
     }
     if (!g.refs.length) errors.push(`${rel} · refs 不能为空（R5：每条论断都要有可核对出处）`);
     g.refs.forEach((line, i) => {

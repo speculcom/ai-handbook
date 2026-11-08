@@ -1,0 +1,41 @@
+{
+  "id": "ouster-os1",
+  "title": {
+    "zh": "Ouster OS1 激光雷达",
+    "en": "Ouster OS1 lidar"
+  },
+  "category": "sensor",
+  "url": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+      "quote": "90 m  Range @ 10%"
+    },
+    {
+      "url": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+      "quote": "10.4 Million  Points per Second"
+    },
+    {
+      "url": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+      "quote": "45°  Vertical FoV"
+    }
+  ],
+  "notes": {
+    "zh": "回答中距激光雷达的测距、垂直视场与点频档位，用来判断感知方案的量级。不回答功耗与接口：该产品页未给这两项口径，按「查不到留空」处理，选型时需查其 datasheet。「90 m」是在 10% 反射率条件下的测距，深色或远距离目标会显著缩短。",
+    "en": "Answers the range, vertical field of view and point rate of a mid-range lidar, which is what sets the order of magnitude of a perception setup. It does not answer power draw or interface: the product page gives neither, so those are left empty rather than guessed and should come from the datasheet. The 90 m figure is at 10% reflectivity, so dark or distant targets shorten it substantially."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "range at 10% reflectivity": "90 m",
+    "maximum range": "250 m",
+    "minimum range": "0.0 m",
+    "vertical FoV": "45°",
+    "points per second": "10.4 million",
+    "vertical channels": "128"
+  }
+}

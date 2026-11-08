@@ -1,0 +1,44 @@
+{
+  "id": "unitree-go2",
+  "title": {
+    "zh": "宇树 Go2 四足机器人",
+    "en": "Unitree Go2 quadruped"
+  },
+  "category": "robot-body",
+  "url": "https://www.unitree.com/go2",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.unitree.com/go2",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.unitree.com/go2",
+      "quote": "Weight (with battery)  About 15kg"
+    },
+    {
+      "url": "https://www.unitree.com/go2",
+      "quote": "Max Running Speed  Approx. 5m/s  (tested in lab)"
+    },
+    {
+      "url": "https://www.unitree.com/go2",
+      "quote": "Working maximum power  About 3000W"
+    }
+  ],
+  "notes": {
+    "zh": "回答四足本体的重量、载荷、续航与感知配置，用来判断场地与实验类型。注意三个容易误读的地方：5m/s 是实验室条件；续航 1–4 小时随机型与电池容量变化；工作最大功率约 3000W 属瞬时峰值，不能按此推算平均供电。价格不收录。",
+    "en": "Answers the weight, payload, endurance and perception setup of a quadruped body, which is what decides the floor space and experiment type it suits. Three figures are easy to misread: 5 m/s is a laboratory figure; endurance ranges from 1 to 4 hours depending on variant and battery; and the ~3000 W working maximum is a transient peak that must not be used to size average power. Price is excluded."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "standing dimensions": "70 x 31 x 40 cm",
+    "weight": "about 15 kg with battery",
+    "payload": "about 7-8 kg (max 10-12 kg depending on variant)",
+    "max speed": "about 5 m/s (lab); 2.5-3.7 m/s by variant",
+    "peak joint torque": "about 45 N·m",
+    "battery": "8000 mAh standard; 15000 mAh long-endurance (EDU)",
+    "endurance": "about 1-2 h; 2-4 h with long-endurance battery",
+    "working maximum power": "about 3000 W",
+    "perception": "4D LiDAR L2, 360° x 96°, minimum detection 0.05 m; HD wide-angle camera"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "aws-ec2-p5-48xlarge",
+  "title": {
+    "zh": "AWS EC2 p5.48xlarge",
+    "en": "AWS EC2 p5.48xlarge"
+  },
+  "category": "cloud",
+  "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://aws.amazon.com/ec2/instance-types/p5/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+      "quote": "p5.48xlarge  192  2 TiB  8 H100  640 GB   HBM3   3200 Gbps EFA"
+    },
+    {
+      "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+      "quote": "900 GB/s NVSwitch"
+    }
+  ],
+  "notes": {
+    "zh": "回答云上单实例的卡数、总显存、网络与本地盘口径，用来估算多卡训练要不要自己买机器。不回答价格与可用区库存：云报价随时变动且随区域不同，需在官方计费页现查。同页还有 P5e 与 P5en（H200 机型），选型时不要混用两代的数字。",
+    "en": "Answers the card count, aggregate memory, network and local storage of a single cloud instance, which is what a rent-versus-buy decision rests on. It does not answer price or regional availability: cloud pricing changes and differs per region, so the billing page must be checked at the time. The same page also lists P5e and P5en (H200 machines); figures from the two generations should not be mixed."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "vCPUs": "192",
+    "instance memory": "2 TiB",
+    "GPU": "8 x NVIDIA H100",
+    "GPU memory": "640 GB HBM3",
+    "network bandwidth": "3200 Gbps EFA",
+    "GPU interconnect": "900 GB/s NVSwitch",
+    "local storage": "8 x 3.84 TB NVMe SSD",
+    "EBS bandwidth": "80 Gbps"
+  }
+}

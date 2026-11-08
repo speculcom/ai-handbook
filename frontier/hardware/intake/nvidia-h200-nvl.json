@@ -1,0 +1,38 @@
+{
+  "id": "nvidia-h200-nvl",
+  "title": {
+    "zh": "NVIDIA H200 NVL",
+    "en": "NVIDIA H200 NVL"
+  },
+  "category": "accelerator",
+  "url": "https://www.nvidia.com/en-us/data-center/h200/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/data-center/h200/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/h200/",
+      "quote": "H200 NVL … Max Thermal Design Power (TDP) Up to 600W (configurable)"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/h200/",
+      "quote": "2- or 4-way NVIDIA NVLink bridge: 900GB/s per GPU"
+    }
+  ],
+  "notes": {
+    "zh": "回答 PCIe 风冷形态的 141GB 卡能怎么组：功耗上限低于 SXM 版本，适合低功耗风冷机架。关键约束是互联——NVLink 桥只支持 2 路或 4 路，凑不出 SXM 那种 8 卡全互联，多卡训练要按 PCIe 与桥接拓扑重新估算通信开销。",
+    "en": "Answers how the 141 GB card can be assembled in a PCIe air-cooled form: its power ceiling is below the SXM variant, which suits lower-power air-cooled racks. The binding constraint is interconnect — the NVLink bridge covers only 2-way or 4-way, so it cannot reproduce the 8-way fabric of SXM and multi-card training must be re-estimated against a PCIe and bridge topology."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "141 GB HBM3e",
+    "memory bandwidth": "4.8 TB/s",
+    "max TDP": "up to 600 W (configurable)",
+    "form factor": "PCIe, dual-slot air-cooled",
+    "interconnect": "2- or 4-way NVLink bridge at 900 GB/s per GPU; PCIe Gen5 128 GB/s",
+    "FP8 tensor, sparsity": "3,341 TFLOPS",
+    "MIG": "up to 7 instances at 16.5 GB each"
+  }
+}

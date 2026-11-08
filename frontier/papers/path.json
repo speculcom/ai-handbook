@@ -1,0 +1,112 @@
+{
+  "title": {
+    "zh": "方法谱系：从 Transformer 到选择性状态空间",
+    "en": "Method lineage: from Transformer to selective state spaces"
+  },
+  "lead": {
+    "zh": "按预印本发表时间排，只标引用与承接关系，不排质量高低。每一步只链本站已核过的条目；谱系里出现空白（例如没有单独收录的节点），说明本站尚未核到那篇原文，不补二手转述。",
+    "en": "Ordered by preprint date, showing citation and inheritance only, not rank. Each step links to an entry verified on this site; where the lineage has a gap — a node not separately collected here — it means the original text has not been verified yet, and no second-hand summary is substituted."
+  },
+  "steps": [
+    {
+      "zh": "2017：Transformer 把序列建模从循环结构里解耦，成为后续所有路线的共同底座。",
+      "en": "2017: Transformer decouples sequence modelling from recurrence and becomes the shared base for everything after it.",
+      "entry": "vaswani-2017-attention"
+    },
+    {
+      "zh": "2020.01：Kaplan 等报告损失随参数、数据与算力变化的幂律，并在附录写明理论理解与外推范围的限制。",
+      "en": "2020.01: Kaplan et al. report power laws for loss against parameters, data and compute, and state limits on theoretical understanding and extrapolation in the appendix.",
+      "entry": "kaplan-2020-scaling-laws"
+    },
+    {
+      "zh": "2020.05：GPT-3 把少样本提示放进评测设定，作者同时讨论数据污染与能力边界。",
+      "en": "2020.05: GPT-3 evaluates few-shot prompting, while the authors discuss data contamination and capability limits.",
+      "entry": "brown-2020-gpt3"
+    },
+    {
+      "zh": "2021.01：Prefix-tuning 冻结基座只学连续前缀；在摘要任务上仍不如全量微调。",
+      "en": "2021.01: Prefix-tuning freezes the base and learns a continuous prefix; it still underperforms full fine-tuning on summarisation.",
+      "entry": "li-2021-prefix-tuning"
+    },
+    {
+      "zh": "2021.04：RoFormer 用旋转位置编码把位置信息注入注意力，结论限定在论文自己的实验设置内。",
+      "en": "2021.04: RoFormer injects position information into attention through rotary embeddings, with conclusions bounded by the paper's own experimental setup.",
+      "entry": "su-2021-roformer"
+    },
+    {
+      "zh": "2021.06：LoRA 冻结基座并训练低秩适配矩阵，把可训练参数与存储开销降下来；本站未复现。",
+      "en": "2021.06: LoRA freezes the base and trains low-rank adaptation matrices, reducing trainable parameters and storage overhead; this site has not reproduced it.",
+      "entry": "hu-2021-lora"
+    },
+    {
+      "zh": "2022.01：思维链提示把中间推理步骤写出来，但作者自己指出这种能力只在约 100B 参数以上涌现。",
+      "en": "2022.01: chain-of-thought prompting writes out intermediate steps, with the authors noting the ability emerges only above roughly 100B parameters.",
+      "entry": "wei-2022-chain-of-thought"
+    },
+    {
+      "zh": "2022.03：InstructGPT 用人类偏好数据把「跟着意图走」变成可训练目标，并承认模型既不完全对齐也不完全安全。",
+      "en": "2022.03: InstructGPT turns following intent into a trainable objective using human preference data, and concedes the models are neither fully aligned nor fully safe.",
+      "entry": "ouyang-2022-instructgpt"
+    },
+    {
+      "zh": "2022.03：Chinchilla 修正了参数与训练量的配比，指出同预算下参数与 token 应按相同比例增长。",
+      "en": "2022.03: Chinchilla revises the parameter-to-data ratio, finding that both should scale in equal proportion at a fixed budget.",
+      "entry": "hoffmann-2022-chinchilla"
+    },
+    {
+      "zh": "2022.03：自一致性在思维链之上采样多条路径再投票，代价是计算量成倍上升。",
+      "en": "2022.03: self-consistency samples several chains and votes, at the cost of proportionally more computation.",
+      "entry": "wang-2022-self-consistency"
+    },
+    {
+      "zh": "2022.05：FlashAttention 把注意力的瓶颈从算力改判为显存读写，结果仍精确，但每种新实现都要重写 kernel。",
+      "en": "2022.05: FlashAttention reframes the attention bottleneck as memory traffic rather than arithmetic; the result stays exact, but each new implementation needs its own kernel.",
+      "entry": "dao-2022-flashattention"
+    },
+    {
+      "zh": "2022.10：ReAct 让推理与行动交替进行，可追溯性提高的同时推理自由度下降。",
+      "en": "2022.10: ReAct interleaves reasoning with acting, gaining traceability while giving up some freedom in reasoning.",
+      "entry": "yao-2022-react"
+    },
+    {
+      "zh": "2022.10：GPTQ 把训练后量化推进到 3–4 bit；作者同时说明加速来自显存搬运减少，不是计算量减少。",
+      "en": "2022.10: GPTQ pushes post-training quantisation to 3-4 bits, while its authors note the speed-up comes from less memory movement, not fewer computations.",
+      "entry": "frantar-2022-gptq"
+    },
+    {
+      "zh": "2022.11：投机解码用小模型草稿与大模型并行验证来换推理吞吐，收益取决于草稿被接受的比例。",
+      "en": "2022.11: Speculative decoding trades draft-model proposals and parallel target-model verification for inference throughput, with gains depending on acceptance rate.",
+      "entry": "leviathan-2023-speculative-decoding"
+    },
+    {
+      "zh": "2022.12：Constitutional AI 用原则驱动自我批评与 AI 反馈，但有用性标签仍来自人工监督。",
+      "en": "2022.12: Constitutional AI uses principles for self-critique and AI feedback, while helpfulness labels still come from human supervision.",
+      "entry": "bai-2022-constitutional-ai"
+    },
+    {
+      "zh": "2023.05：DPO 把偏好优化写成分类损失，跳过显式奖励模型与采样，验证规模止于 6B。",
+      "en": "2023.05: DPO writes preference optimisation as a classification loss, skipping the explicit reward model and sampling, with validation up to 6B parameters.",
+      "entry": "rafailov-2023-dpo"
+    },
+    {
+      "zh": "2023.05：QLoRA 把量化基座与低秩适配合在一起；作者没有确立 33B/65B 上追平 16-bit 全量微调。",
+      "en": "2023.05: QLoRA combines a quantised base with low-rank adapters; the authors did not establish parity with 16-bit full finetuning at 33B/65B.",
+      "entry": "dettmers-2023-qlora"
+    },
+    {
+      "zh": "2023.05：Tree of Thoughts 把推理展开成可搜索的树，代价是更多模型调用与任务特定的评估设置。",
+      "en": "2023.05: Tree of Thoughts expands reasoning into a searchable tree, at the cost of more model calls and task-specific evaluation setups.",
+      "entry": "yao-2023-tree-of-thoughts"
+    },
+    {
+      "zh": "2023.09：vLLM 用分页思路管理 KV 缓存，把服务吞吐抬到 2–4 倍，并写明这套优化不适用于所有负载。",
+      "en": "2023.09: vLLM manages the KV cache with paging and raises serving throughput 2-4 times, while stating the optimisation does not apply to every workload.",
+      "entry": "kwon-2023-vllm-pagedattention"
+    },
+    {
+      "zh": "2023.12：Mamba 用选择性状态空间去掉注意力；作者把更大规模表现与下游生态性质列为待评估。",
+      "en": "2023.12: Mamba removes attention with selective state spaces; the authors leave larger-scale behaviour and downstream ecosystem properties open.",
+      "entry": "gu-2023-mamba"
+    }
+  ]
+}

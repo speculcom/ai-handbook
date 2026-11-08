@@ -1,0 +1,42 @@
+{
+  "id": "hailo-8",
+  "title": {
+    "zh": "Hailo-8 边缘加速模块",
+    "en": "Hailo-8 edge accelerator"
+  },
+  "category": "edge",
+  "url": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+      "quote": "Unprecedented AI compute power of 26 Tera-Operations Per Second (TOPS)"
+    },
+    {
+      "url": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+      "quote": "typical power consumption of 2.5W"
+    },
+    {
+      "url": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+      "quote": "The Hailo-8 Industrial Version IC is replacing the discontinued Hailo-8 Commercial Version IC."
+    }
+  ],
+  "notes": {
+    "zh": "回答低功耗视觉推理模块的算力与功耗档位：片上自带内存、不需要外挂 DRAM 是它区别于大算力卡的关键约束。不回答它能跑哪些大语言模型：官方定位为视觉与神经网络推理，选型前要核对模型是否在支持列表内。商用版本芯片已由官方公告停产、改由工业版本替代，采购时需确认版本。",
+    "en": "Answers the compute and power tier of a low-power vision inference module, whose defining constraint is on-chip memory with no external DRAM. It does not answer which large language models it can run: the vendor positions it for vision and neural-network inference, so model support must be checked against the supported list first. The vendor has announced end-of-life for the commercial version IC, replaced by the industrial version, so the variant must be confirmed when ordering."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "AI performance": "26 TOPS",
+    "typical power": "2.5 W",
+    "memory": "integrated on-chip, no external DRAM required",
+    "host interface": "M.2 / PCIe module",
+    "grades": "commercial; industrial -40 to 85 °C; automotive -40 to 105 °C",
+    "frameworks": "TensorFlow, TensorFlow Lite, Keras, PyTorch, ONNX",
+    "host architectures": "x86, Arm"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-code-review. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output an issue list; each item cites diff lines and avoids style-preference ranking.\nInputs: Diff, review checklist, and project constraints.",
+    "提示词本体": "```text\nReview the diff. Output issues[] with category, file, lines, evidence, suggestion and severity_reason. evidence must quote the diff; judge only by {checklist} and {constraints}, not personal style. Mark unconfirmable items unclear.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "issues[] with line numbers and verbatim evidence.",
+    "检查点": "- Each evidence item appears in the diff.\n- severity_reason is checkable.\n- No subjective preferences outside the checklist.",
+    "失败分支": "- Too many false positives: narrow the checklist.\n- Misaligned lines: re-locate the diff hunk.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "Anthropic official tutorial: Separating Data and Instructions (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

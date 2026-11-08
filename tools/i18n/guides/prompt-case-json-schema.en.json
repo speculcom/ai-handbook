@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-json-schema. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output schema and validation report; valid format does not mean factual correctness.\nInputs: Field requirements, sample JSON, and factual sources.",
+    "提示词本体": "```text\nGenerate a JSON Schema and validate the sample. Output schema and validation[] with field, valid, reason and fact_check. valid judges only format/type/required; fact_check separately links to sources and marks unsupported when absent. Do not equate valid=true with correct content.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "schema and validation[].",
+    "检查点": "- Format and facts are judged separately.\n- Unsupported items are explicit.\n- Schema fields come from requirements.",
+    "失败分支": "- Sample missing fields: mark required absence.\n- No factual source: mark unsupported.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Introduction to Structured Outputs (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

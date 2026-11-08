@@ -1,0 +1,39 @@
+{
+  "id": "ouyang-2022-instructgpt",
+  "title": {
+    "zh": "Training language models to follow instructions with human feedback",
+    "en": "Training language models to follow instructions with human feedback"
+  },
+  "category": "alignment",
+  "url": "https://arxiv.org/abs/2203.02155",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2203.02155",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.02155",
+      "quote": "Making language models bigger does not inherently make them better at following a user’s intent."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.02155",
+      "quote": "Our models are neither fully aligned nor fully safe; they still generate toxic or biased outputs, make up facts, and generate sexual and violent content without explicit prompting."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.02155",
+      "quote": "In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters."
+    }
+  ],
+  "notes": {
+    "zh": "问题：让模型跟着用户意图走，而不只是把下一词预测得更准；做法是用人类偏好数据做监督微调再训奖励模型做强化学习。\n证据位置：摘要给出 1.3B 胜过 175B 的偏好结论；局限集中在第 5.3 节 Limitations，对齐对象的讨论在第 5.2 节，未解决问题在第 5.4 节。\n作者自陈局限：写了三层——标注者以英语为主、数据几乎全是英文指令，不能代表全部使用者；模型既不完全对齐也不完全安全，仍会编造事实、生成有毒或偏见内容；作者认为最大的局限是模型多数情况下会服从用户指令，即使这在现实世界可能造成伤害。他们还明确说并不主张研究者、雇来的标注者或 API 客户就是偏好的正确来源。\n它没主张的：论文没有说对齐问题已被解决，也没有给出一个能同时满足所有人偏好的方案——作者原话是不可能训练出同时对齐所有人偏好、或让所有人都认可其取舍的系统。",
+    "en": "Problem: make a model follow user intent rather than only predict the next token better, using human preference data for supervised fine-tuning followed by reward-model-driven reinforcement learning.\nWhere the evidence sits: the abstract gives the 1.3B-beats-175B preference result; the limits are concentrated in Section 5.3 (Limitations), the question of whose preferences count is in 5.2, and open questions in 5.4.\nWhat the authors say about limits: three layers — labelers are primarily English-speaking and the data is almost entirely English instructions, so they are not representative of everyone affected; the models are neither fully aligned nor fully safe and still fabricate facts or produce toxic and biased content; and the stated greatest limitation is that the models follow the user’s instruction even when that could cause real-world harm. They also state plainly that they are not claiming researchers, hired labelers or API customers are the right source of preferences.\nWhat it does not claim: the paper does not say alignment is solved, nor offer a scheme that satisfies everyone — the authors write that it is impossible to train a system aligned to everyone’s preferences at once, or where everyone would endorse the tradeoffs."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要；Section 5.3 Limitations；5.2 对齐对象；5.4 开放问题",
+    "方法 / method": "SFT → 奖励模型 → PPO",
+    "摘要口径 / headline": "1.3B 的输出被偏好于 175B GPT-3，参数量少 100 倍",
+    "复现状态 / reproduction": "未复现"
+  }
+}

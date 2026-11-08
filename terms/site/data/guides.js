@@ -1,6 +1,7 @@
 /* AI 名词地图 · 微型指南（S24）
  * **这是产物，不要手改。** 源在 guides/*.md 的 frontmatter。
  * 每篇：id（slug=文件名）/ zh / en / kind / station / ord / span / lead / points / myth / fact。
+ * lesson 类另有：objectives / materials / steps / misconceptions / assessment（各带 *En，缺译为 null）。
  */
 var GUIDES = [
  {
@@ -36,7 +37,92 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "课堂-AI 能力与边界入门",
+  "zh": "课堂-AI 能力与边界入门",
+  "en": "Lesson - AI Capabilities and Limits",
+  "kind": "lesson",
+  "station": 1,
+  "ord": 1,
+  "span": 12,
+  "lead": {
+   "zh": "第一节微课把「AI 能做什么」换成可核对的任务清单。学员分清「读起来通顺」与「有来源支持」，并写出需要人工兜底的情形。",
+   "en": "The first micro-lesson turns what AI can do into a checkable task list. Learners separate fluent output from source-supported output and write down cases that need human fallback."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": [
+   "能把一个模糊需求改写成有输入、有完成标准的任务。",
+   "能区分输出通顺与输出有来源支持，并各举一个课堂例子。",
+   "能说出三类要人工复核的内容：数字与日期、外部事实、影响他人权益的判断。",
+   "能按场景与多个指标描述一次结果，不只报一个总分。"
+  ],
+  "objectivesEn": [
+   "Rewrite a vague need into a task with inputs and completion criteria.",
+   "Distinguish fluent output from source-supported output and give one classroom example of each.",
+   "Name three kinds of content that need human review: numbers and dates, external facts, and decisions affecting people’s rights.",
+   "Describe a result by scenario and multiple metrics rather than reporting only one total score."
+  ],
+  "materials": [
+   "微软 Learn《Introduction to generative AI and agents》模块页：课前读 LLM 与提示两节。",
+   "HELM 论文摘要页（arXiv 2211.09110）：看它为什么分场景、分指标。",
+   "每组一张记录表，五列：任务、输入材料、模型输出、判断依据、待复核项。",
+   "学员自带一个对话式 AI 入口；课堂不统一采购，也不收集账号信息。"
+  ],
+  "materialsEn": [
+   "Microsoft Learn module Introduction to generative AI and agents: read the LLM and prompt sections before class.",
+   "HELM abstract page (arXiv 2211.09110): see why it evaluates by scenario and metric.",
+   "One recording sheet per group with five columns: task, input material, model output, basis for judgment, items to recheck.",
+   "Learners bring their own chat AI entry point; the class does not procure accounts or collect account information."
+  ],
+  "steps": [
+   "2 分钟导入：各组写下一个真实需求，教师把它改写成「输入＋完成标准」。",
+   "4 分钟演示：同一份材料问两次。一次只说「介绍一下」，一次给字段与限制。",
+   "4 分钟练习：各组填记录表，把断言分成「材料支持」与「需外部核对」两类。",
+   "2 分钟小结：每组报一条边界与一条兜底动作，教师按场景与指标口径归拢。"
+  ],
+  "stepsEn": [
+   "2-minute opener: each group writes a real need, and the teacher rewrites it as input plus completion criteria.",
+   "4-minute demo: ask about the same material twice, once with only introduce this and once with fields and limits.",
+   "4-minute practice: groups fill the sheet and split claims into supported by the material and needing external checks.",
+   "2-minute wrap-up: each group reports one limit and one fallback action; the teacher groups them by scenario and metric."
+  ],
+  "misconceptions": [
+   "把语气笃定、结构完整当成内容正确；流畅度不是证据。",
+   "把一个总分或榜单名次当成所有任务都能用；HELM 分场景测七个指标。",
+   "把「模型说不知道」当成能力差；缺输入或超范围时承认未知是可用的行为。"
+  ],
+  "misconceptionsEn": [
+   "Treating confident tone and complete structure as correctness; fluency is not evidence.",
+   "Treating one total score or leaderboard rank as fit for every task; HELM measures seven metrics across scenarios.",
+   "Treating the model saying it does not know as weakness; admitting unknown when input is missing or out of scope is usable behaviour."
+  ],
+  "assessment": [
+   "任务写全「输入＋完成标准」，缺一项就回到导入环节重写。",
+   "至少标出一处需外部核对的断言，并说明准备用哪个来源核对。",
+   "能说清这节课没做什么：只核对来源与条件，不做性能实测，也不给模型排名。"
+  ],
+  "assessmentEn": [
+   "The task includes input and completion criteria; if either is missing, return to the opener and rewrite.",
+   "At least one claim is marked as needing external checking, with the source to be used named.",
+   "Learners can state what this lesson did not do: only source and condition checks, no performance benchmark and no model ranking."
+  ]
  },
  {
   "id": "AI 真的读懂了你的话吗",
@@ -55,7 +141,17 @@ var GUIDES = [
   "myth": "它答得贴切、接得上话，说明它读懂了你的意思。",
   "mythEn": "It answers aptly and keeps up with the conversation, so it must have understood what you meant.",
   "fact": "语言模型依据上下文生成文本。回答贴切可以说明任务表现，但不能仅由流畅程度判断它是否理解了你的处境；还要检查指代、限制和事实是否保留。",
-  "factEn": "Language models generate text from context. A fitting response shows task behavior; fluency alone does not establish understanding of your situation. Check references, constraints and preserved facts."
+  "factEn": "Language models generate text from context. A fitting response shows task behavior; fluency alone does not establish understanding of your situation. Check references, constraints and preserved facts.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "参数越多就越聪明",
@@ -74,7 +170,17 @@ var GUIDES = [
   "myth": "参数量决定模型有多聪明，越大就一定越强。",
   "mythEn": "Parameter count decides how smart a model is — bigger is always stronger.",
   "fact": "参数量之外，训练数据、架构、训练方法和任务都会影响表现。比较模型时要保持任务与设置一致，不能把参数量直接当作质量分数。",
-  "factEn": "Data, architecture, training methods and task also affect performance. Compare models under equal task conditions rather than treating parameter count as a quality score."
+  "factEn": "Data, architecture, training methods and task also affect performance. Compare models under equal task conditions rather than treating parameter count as a quality score.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "通用人工智能快到了",
@@ -93,7 +199,17 @@ var GUIDES = [
   "myth": "各家都在说 AGI 临近，说明它有一个可核对的到达时间。",
   "mythEn": "Everyone says AGI is near, so there must be a checkable date when it arrives.",
   "fact": "AGI 的定义与评价标准并未统一。“临近”只有在能力范围、测试条件和完成标准明确时才可核对；研究目标或时间预测不能直接当作已经实现的证据。",
-  "factEn": "AGI definitions and evaluation criteria are not settled. A claim of proximity needs specified capabilities, test conditions and completion criteria; a research goal or forecast does not establish achievement."
+  "factEn": "AGI definitions and evaluation criteria are not settled. A claim of proximity needs specified capabilities, test conditions and completion criteria; a research goal or forecast does not establish achievement.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么向 AI 提问",
@@ -124,7 +240,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么保护自己的数据",
@@ -157,7 +283,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么判断 AI 新闻是不是炒作",
@@ -190,7 +326,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么排查 AI 的数据泄露路径",
@@ -223,7 +369,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么给文档做分块",
@@ -256,7 +412,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么给检索结果重排",
@@ -289,7 +455,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么做混合检索",
@@ -322,7 +498,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么挑 embedding 模型",
@@ -355,7 +541,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么评测 RAG 的效果",
@@ -388,7 +584,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "什么时候不该用 RAG",
@@ -421,7 +627,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么把提示词写结构",
@@ -454,7 +670,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "few-shot示例怎么选",
@@ -485,7 +711,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "思维链什么时候有用",
@@ -518,7 +754,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么让AI按格式输出",
@@ -551,7 +797,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "RAG 全链路：从文档到答案",
@@ -586,7 +842,92 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "课堂-结构化提问与输出验证",
+  "zh": "课堂-结构化提问与输出验证",
+  "en": "Lesson - Structured Prompting and Output Verification",
+  "kind": "lesson",
+  "station": 2,
+  "ord": 1,
+  "span": 15,
+  "lead": {
+   "zh": "学员把同一份材料先自由提问、再结构化提问，比较字段完整度与事实一致度，并记住格式合法不等于内容正确。",
+   "en": "Learners ask about the same material freely first and then with a structured prompt, compare field completeness and factual consistency, and remember that valid format does not mean correct content."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": [
+   "能写出含目标、输入、输出字段、禁止事项四部分的指令。",
+   "能用字段清单或 JSON Schema 校验结构，并说明校验只覆盖格式。",
+   "能把每个事实字段回连到原文位置，无依据的字段留空或标未知。",
+   "能说明少样本示例只进入当次上下文，不等于重新训练模型。"
+  ],
+  "objectivesEn": [
+   "Write an instruction with four parts: goal, inputs, output fields and prohibitions.",
+   "Validate structure with a field list or JSON Schema and explain that validation covers format only.",
+   "Link every factual field back to a source location; leave unsupported fields empty or marked unknown.",
+   "Explain that few-shot examples enter only the current context and do not retrain the model."
+  ],
+  "materials": [
+   "微软 Learn《Prompt engineering techniques》：系统消息、少样本示例与指令位置的官方口径。",
+   "微软 Learn《How to use structured outputs》：结构化输出遵循调用方给的 JSON Schema。",
+   "JSON Schema 官方站：查字段类型与必填项的写法。",
+   "一份虚构活动通知原文（约 200 字）＋字段清单：时间、地点、主题、报名方式。"
+  ],
+  "materialsEn": [
+   "Microsoft Learn Prompt engineering techniques: official guidance on system messages, few-shot examples and instruction placement.",
+   "Microsoft Learn How to use structured outputs: structured outputs follow the caller-provided JSON Schema.",
+   "JSON Schema official site: check how field types and required items are written.",
+   "A fictional event notice of about 200 words plus a field list: time, place, topic, registration method."
+  ],
+  "steps": [
+   "3 分钟基线：各组自由提问一次，保存原始输出，不改指令。",
+   "4 分钟改写：把指令补成四部分，禁止事项要可判定，例如不得添加原文没有的费用。",
+   "4 分钟校验：先查结构是否合法，再逐字段回连原文，标出无依据项。",
+   "4 分钟对照：比较两次的字段完整度与事实一致度，说明差异来自哪一部分指令。"
+  ],
+  "stepsEn": [
+   "3-minute baseline: each group asks freely once, saves the raw output and does not change the instruction.",
+   "4-minute rewrite: complete the four parts; prohibitions must be decidable, such as do not add fees absent from the source.",
+   "4-minute validation: first check structural validity, then link each field to the source and mark unsupported items.",
+   "4-minute comparison: compare field completeness and factual consistency across the two runs and explain which instruction part caused the difference."
+  ],
+  "misconceptions": [
+   "把「输出是合法 JSON」当成「字段值正确」；官方文档区分 JSON 模式与按 schema 的结构化输出。",
+   "把「给了示例」当成「模型学会了」；示例只影响当次推理。",
+   "以为加一句「不要编造」就能消除无依据字段；仍要逐字段回连原文。"
+  ],
+  "misconceptionsEn": [
+   "Treating valid JSON as correct field values; official documentation distinguishes JSON mode from schema-based structured outputs.",
+   "Treating given examples as the model having learned; examples affect only the current inference.",
+   "Believing one do not fabricate sentence removes unsupported fields; each field still needs a source link."
+  ],
+  "assessment": [
+   "指令四部分齐全，禁止事项可判定，不含「尽量」「适当」这类无法核对的词。",
+   "输出字段逐项标注「原文支持」或「原文未提供」，无依据项不得填猜测值。",
+   "能口头说明结构校验与事实核对各自拦住了什么，两者不能互相替代。"
+  ],
+  "assessmentEn": [
+   "The instruction has all four parts and decidable prohibitions, without uncheckable words such as try to or appropriately.",
+   "Each output field is marked source-supported or not provided by the source; unsupported fields must not contain guesses.",
+   "Learners can explain what structural validation and factual checking each catch, and that neither replaces the other."
+  ]
  },
  {
   "id": "它说得笃定，所以可信",
@@ -605,7 +946,17 @@ var GUIDES = [
   "myth": "语气肯定、结构完整，说明内容可靠。",
   "mythEn": "A confident tone and a tidy structure mean the content is trustworthy.",
   "fact": "语气是否肯定，不能单独证明事实正确。核对原始出处是否支持具体句子，尤其是数字、日期、姓名和引用；无法确认的部分保留为未知。",
-  "factEn": "Confident wording alone does not establish correctness. Check support for each claim, especially numbers, dates, names and citations; leave unverified parts unknown."
+  "factEn": "Confident wording alone does not establish correctness. Check support for each claim, especially numbers, dates, names and citations; leave unverified parts unknown.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "温度调高会更聪明",
@@ -624,7 +975,17 @@ var GUIDES = [
   "myth": "温度调高，模型就更有想法、更聪明。",
   "mythEn": "Raising temperature makes the model more imaginative, therefore smarter.",
   "fact": "温度影响支持该参数时的采样分布，不会给模型增加知识。输出多样性与任务正确性要分别检查；参数是否适用、取值范围如何，以实际接口为准。",
-  "factEn": "Where supported, temperature affects sampling rather than adding knowledge. Check output diversity and task correctness separately, and consult the actual interface for applicability and range."
+  "factEn": "Where supported, temperature affects sampling rather than adding knowledge. Check output diversity and task correctness separately, and consult the actual interface for applicability and range.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "它记得你之前说过的",
@@ -643,7 +1004,17 @@ var GUIDES = [
   "myth": "一次对话里，它始终记得前面说过的所有内容。",
   "mythEn": "Within one conversation it always remembers everything said earlier.",
   "fact": "模型生成时使用本次请求提供的上下文；产品还可能检索历史或保存偏好。是否跨会话保留、保存什么和怎样删除，要看具体产品，不能由一次接话正确推断。",
-  "factEn": "Generation uses context supplied for the request; a product may also retrieve history or store preferences. Cross-session retention and deletion depend on the product, not on one correct continuation."
+  "factEn": "Generation uses context supplied for the request; a product may also retrieve history or store preferences. Cross-session retention and deletion depend on the product, not on one correct continuation.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么验证 AI 的输出",
@@ -674,7 +1045,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "AI 常犯什么错",
@@ -705,7 +1086,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么防提示注入",
@@ -738,7 +1129,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么给 AI 工具配权限",
@@ -771,7 +1172,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么安全地用 MCP 工具",
@@ -804,7 +1215,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么给 AI 内容做发布前检查",
@@ -837,7 +1258,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么自建评测口径",
@@ -870,7 +1301,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "榜单怎么读",
@@ -903,7 +1344,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "提示词怎么版本化",
@@ -936,7 +1387,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "系统提示怎么设计",
@@ -969,7 +1430,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "数据标注与质检怎么看",
@@ -1002,7 +1473,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么读一篇AI论文",
@@ -1035,7 +1516,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "Agent 评估怎么做",
@@ -1068,7 +1559,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "上下文工程怎么做",
@@ -1101,7 +1602,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "2026 评测基准地图",
@@ -1136,7 +1647,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "2026 下半年变化线",
@@ -1171,7 +1692,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么写一份能被复核的任务指令",
@@ -1204,7 +1735,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么搭一条最小评测流程",
@@ -1239,7 +1780,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么处理一次误发事故",
@@ -1272,7 +1823,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么给 AI 内容加来源标识",
@@ -1305,7 +1866,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么审一次第三方插件",
@@ -1340,7 +1911,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么设计人工复核环节",
@@ -1373,7 +1954,94 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "课堂-RAG 来源核对",
+  "zh": "课堂-RAG 来源核对",
+  "en": "Lesson - Checking Sources in RAG Answers",
+  "kind": "lesson",
+  "station": 3,
+  "ord": 1,
+  "span": 15,
+  "lead": {
+   "zh": "学员把一次 RAG 回答拆成检索、片段、生成三段责任，用三列核对表定位问题出在哪一段，并给出可验证的改进动作。",
+   "en": "Learners split a RAG answer into retrieval, passage and generation responsibilities, use a three-column check sheet to locate the failing stage, and propose a verifiable improvement."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": [
+   "能把一次回答拆成三段责任：检索是否命中、片段是否够用、生成是否超出片段。",
+   "能为每个断言找到对应片段与位置，找不到就标为无依据。",
+   "能说明分块会切断上下文，重排只改候选顺序、不新增事实。",
+   "能提出一个改进动作，并说明用什么口径验证它有没有效。"
+  ],
+  "objectivesEn": [
+   "Split one answer into three responsibilities: whether retrieval hit, whether passages are sufficient, and whether generation goes beyond passages.",
+   "Find the passage and position for each claim; mark it unsupported if none can be found.",
+   "Explain that chunking can cut context and reranking only changes candidate order, not facts.",
+   "Propose one improvement and state how to verify whether it worked."
+  ],
+  "materials": [
+   "Anthropic 官方工程博客《Introducing Contextual Retrieval》：传统 RAG 编码时丢上下文会让检索失败。",
+   "Cohere 官方 Rerank 文档：给定查询与文档列表，按语义相关度排序。",
+   "LlamaIndex 官方 CitationQueryEngine 示例：答案带来源节点引用的写法。",
+   "三份虚构内部文档片段（其中一份条款被切断上下文）＋一张三列核对表。"
+  ],
+  "materialsEn": [
+   "Anthropic engineering post Introducing Contextual Retrieval: traditional RAG can lose context during encoding and fail retrieval.",
+   "Cohere Rerank documentation: given a query and document list, order by semantic relevance.",
+   "LlamaIndex CitationQueryEngine example: answers with source-node citations.",
+   "Three fictional internal document passages, one with a clause cut from its context, plus a three-column check sheet."
+  ],
+  "steps": [
+   "3 分钟建参考答案：各组读问题与文档，先人工标出应当命中的片段。",
+   "4 分钟查检索：对照系统给出的片段，分成命中、漏检、片段缺上下文三类。",
+   "4 分钟查生成：逐句核对答案与片段，标出超出片段的断言与引用错位。",
+   "4 分钟提改进：每组给一个动作与验证口径，全班按「改的是哪一段责任」归类。"
+  ],
+  "stepsEn": [
+   "3-minute reference answer: groups read the question and documents and manually mark passages that should be hit.",
+   "4-minute retrieval check: compare system passages and classify them as hit, missed, or missing context.",
+   "4-minute generation check: check the answer sentence by sentence against passages and mark claims beyond passages or misplaced citations.",
+   "4-minute improvement: each group gives one action and verification method; the class groups them by which responsibility stage changed."
+  ],
+  "misconceptions": [
+   "以为答案带了引用就可信；引用可能指向不支持该句的片段。",
+   "把检索不到归因为模型笨；也可能是分块切断上下文或用词不一致。",
+   "以为重排能补出缺失事实；它只调整候选顺序。",
+   "把厂商博客里的提升幅度直接搬到自己的库；那是特定数据与设置下的结果。"
+  ],
+  "misconceptionsEn": [
+   "Assuming an answer with citations is trustworthy; a citation may point to a passage that does not support the sentence.",
+   "Blaming the model for retrieval misses; chunking may cut context or wording may differ.",
+   "Assuming reranking can supply missing facts; it only adjusts candidate order.",
+   "Copying uplift figures from a vendor blog into your own corpus; those results depend on specific data and settings."
+  ],
+  "assessment": [
+   "三列核对表填完：每个断言有片段位置，或明确标为无依据。",
+   "能把本组失败归因到三段中的一段，并指出支撑该判断的证据。",
+   "改进动作带验证口径，例如同一组问题重跑后比较无依据断言的数量。"
+  ],
+  "assessmentEn": [
+   "The three-column sheet is complete: every claim has a passage position or is explicitly marked unsupported.",
+   "The group can attribute its failure to one of the three stages and point to evidence for that judgment.",
+   "The improvement has a verification method, such as rerunning the same questions and comparing the number of unsupported claims."
+  ]
  },
  {
   "id": "榜单分数高就是好用",
@@ -1392,7 +2060,17 @@ var GUIDES = [
   "myth": "评测分数高的模型，在你的任务上也一定好。",
   "mythEn": "A model that scores high on the leaderboards must also be good at your task.",
   "fact": "榜单结果受任务集、版本、设置和指标限制。它可以提供初筛证据，但不能替代你的输入、延迟、错误成本与权限条件；不同口径的分数也不能直接比较。",
-  "factEn": "Leaderboard results depend on tasks, versions, setup and metrics. They inform initial screening, not your inputs, latency, failure costs or permission constraints. Scores on different bases are not directly comparable."
+  "factEn": "Leaderboard results depend on tasks, versions, setup and metrics. They inform initial screening, not your inputs, latency, failure costs or permission constraints. Scores on different bases are not directly comparable.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "上下文窗口越大越好",
@@ -1411,7 +2089,17 @@ var GUIDES = [
   "myth": "上下文窗口越大，长文档就处理得越好。",
   "mythEn": "The larger the context window, the better long documents get handled.",
   "fact": "标称窗口说明可处理的长度，不保证每段信息都被同样有效地利用。更长输入还可能增加内存与延迟，应按任务比较资料覆盖、答案质量和成本。",
-  "factEn": "A stated context window describes capacity, not equally effective use of every passage. Longer input can add memory use and latency. Compare evidence coverage, answer quality and cost for the task."
+  "factEn": "A stated context window describes capacity, not equally effective use of every passage. Longer input can add memory use and latency. Compare evidence coverage, answer quality and cost for the task.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "它拒绝，是因为做不到",
@@ -1430,7 +2118,17 @@ var GUIDES = [
   "myth": "它说「我不能做这个」，说明它没有这个能力。",
   "mythEn": "When it says \"I cannot do that\", it lacks the capability.",
   "fact": "拒答可能与产品政策、权限、输入条件或能力限制有关。先看具体原因和适用规则，不能仅凭一次拒答判断模型有没有某种能力。",
-  "factEn": "A refusal may reflect policy, permissions, input conditions or capability limits. Inspect the reason and applicable rules instead of inferring capability from one refusal."
+  "factEn": "A refusal may reflect policy, permissions, input conditions or capability limits. Inspect the reason and applicable rules instead of inferring capability from one refusal.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "评测分数高就等于可靠",
@@ -1449,7 +2147,17 @@ var GUIDES = [
   "myth": "评测分数高，系统用起来就可靠。",
   "mythEn": "A high evaluation score means the system is reliable in use.",
   "fact": "可靠性关心的是波动与分布：同一输入跑多次是否一致、没见过的输入表现如何、边界场景的失败长什么样。分数是某个版本在某个任务集、某个设置下的一次读数，两个口径不同。要判断可靠，就用自己的样本复跑并记下波动。（虚构示例）输入是同一条退款期限咨询 → 处理是用同一提示、同一模型版本各跑三遍 → 结果判断是三遍里有一遍把期限说错，说明这条链路的波动不为零 → 下一步不是去引用它的高分，而是把该问法加进自己的评测样本，看修复后是否还会波动。",
-  "factEn": "Reliability is about spread and distribution: whether the same input gives consistent results over repeats, how unseen inputs behave, what failures look like at the boundaries. A score is one reading of one version on one task set under one setting - a different question. Judge reliability by rerunning your own samples and recording the variance. (Fictional example) Input is one query about a refund deadline -> processing runs it three times with the same prompt and the same model version -> the check finds one of the three stating the deadline wrongly, so variance on this path is not zero -> the next step is to add that phrasing to your own sample set and recheck after a fix, not to cite the high score."
+  "factEn": "Reliability is about spread and distribution: whether the same input gives consistent results over repeats, how unseen inputs behave, what failures look like at the boundaries. A score is one reading of one version on one task set under one setting - a different question. Judge reliability by rerunning your own samples and recording the variance. (Fictional example) Input is one query about a refund deadline -> processing runs it three times with the same prompt and the same model version -> the check finds one of the three stating the deadline wrongly, so variance on this path is not zero -> the next step is to add that phrasing to your own sample set and recheck after a fix, not to cite the high score.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "加了护栏就安全了",
@@ -1468,7 +2176,17 @@ var GUIDES = [
   "myth": "接上厂商的护栏，系统就安全了。",
   "mythEn": "Turn on the vendor's guardrails and the system is safe.",
   "fact": "护栏拦的主要是训练与部署阶段预期内的常见路径。绕开它的内容（改写措辞的诱导、藏在工具返回或网页正文里的指令），以及护栏自己的边界，仍要靠你的权限设计、出口校验和事件流程。判断护栏有没有生效，要做一次能复现的检查（虚构示例）：输入一段带指令的不可信文本 → 处理是按真实链路走一遍 → 结果判断看它是否执行了那条指令或读出了环境变量 → 若执行了，下一步是收紧工具权限并在出口加过滤，而不是把「护栏已开启」当成结论。",
-  "factEn": "Guardrails mainly cover common paths anticipated during training and deployment. Content routed around them - reworded inducements, instructions hidden in tool output or web page text - plus the guardrails' own boundaries still depend on your permission design, exit validation and incident process. Verifying that guardrails actually work means a reproducible check (fictional example): input an untrusted text carrying an instruction -> processing runs it through the real chain -> the check looks at whether that instruction executed or environment variables were read -> if it executed, the next step is to tighten tool permissions and add exit filtering, not to treat \"guardrails enabled\" as the conclusion."
+  "factEn": "Guardrails mainly cover common paths anticipated during training and deployment. Content routed around them - reworded inducements, instructions hidden in tool output or web page text - plus the guardrails' own boundaries still depend on your permission design, exit validation and incident process. Verifying that guardrails actually work means a reproducible check (fictional example): input an untrusted text carrying an instruction -> processing runs it through the real chain -> the check looks at whether that instruction executed or environment variables were read -> if it executed, the next step is to tighten tool permissions and add exit filtering, not to treat \"guardrails enabled\" as the conclusion.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "通过一次评测就可以上线",
@@ -1487,7 +2205,17 @@ var GUIDES = [
   "myth": "上线前把评测跑通一次，之后就可以不用管了。",
   "mythEn": "Run the evaluation once before launch and you never have to look again.",
   "fact": "那一次通过只覆盖当时的版本组合：模型版本、提示、检索到的材料、用户问法与数据分布，任何一项变动都可能让结论失效。发布后要留抽检、监控与回滚路径，改动时复跑同一套样本。（虚构示例）输入是一次「只更换检索源、模型与提示都没变」的改动 → 处理是复跑同一套样本 → 结果判断看的是「引用是否命中现行文档」这一项口径 → 若该项通过率下降，下一步是重新做上线判断并给检索源加一条变更检查，而不是沿用旧一次的「已通过」。",
-  "factEn": "That single pass covers only the version combination at the time: model version, prompt, retrieved material, user phrasing and data distribution - a change in any of them can void the result. After release keep sampling, monitoring and a rollback path, and rerun the same sample set on changes. (Fictional example) Input is a change that swaps only the retrieval source, with model and prompt untouched -> processing reruns the previous sample set -> the check looks at the single criterion \"does the citation hit the current document\" -> if that pass rate drops, the next step is to redo the go-live decision and add a retrieval-source change check, not to keep relying on last round's \"passed\"."
+  "factEn": "That single pass covers only the version combination at the time: model version, prompt, retrieved material, user phrasing and data distribution - a change in any of them can void the result. After release keep sampling, monitoring and a rollback path, and rerun the same sample set on changes. (Fictional example) Input is a change that swaps only the retrieval source, with model and prompt untouched -> processing reruns the previous sample set -> the check looks at the single criterion \"does the citation hit the current document\" -> if that pass rate drops, the next step is to redo the go-live decision and add a retrieval-source change check, not to keep relying on last round's \"passed\".",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-HELM",
@@ -1518,7 +2246,94 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "课堂-模型原理与论文证据边界",
+  "zh": "课堂-模型原理与论文证据边界",
+  "en": "Lesson - Model Mechanics and Paper Evidence Limits",
+  "kind": "lesson",
+  "station": 4,
+  "ord": 1,
+  "span": 12,
+  "lead": {
+   "zh": "学员用两篇论文摘要练「主张—证据—条件」三栏读法，再把观察连回自回归与注意力，去掉无条件的能力断言。",
+   "en": "Learners use two paper abstracts to practise a claim-evidence-conditions reading, then connect observations back to autoregression and attention and remove unconditional capability claims."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": [
+   "能从摘要分出研究问题、证据位置、实验条件三栏。",
+   "能写出至少一条作者没有主张的内容，并说明依据来自原文哪一句。",
+   "能用自回归生成与注意力解释输出为什么逐词产生，不说成查表或理解。",
+   "能区分「窗口装得下」与「窗口里的信息被用上」，并引用位置效应的结论。"
+  ],
+  "objectivesEn": [
+   "Separate an abstract into research question, evidence location and experimental conditions.",
+   "Write at least one thing the authors did not claim and point to the original sentence supporting that boundary.",
+   "Use autoregressive generation and attention to explain why output is produced token by token, without calling it lookup or understanding.",
+   "Distinguish information fitting in the window from information in the window being used, citing position-effect findings."
+  ],
+  "materials": [
+   "arXiv 1706.03762《Attention Is All You Need》摘要页：翻译任务、BLEU 与训练设置。",
+   "arXiv 2307.03172《Lost in the Middle》摘要页：多文档问答与键值检索中的位置效应。",
+   "本站《论文卡-Attention Is All You Need》作为读法示例。",
+   "三栏工作表：主张、证据位置、条件与未主张。"
+  ],
+  "materialsEn": [
+   "arXiv 1706.03762 Attention Is All You Need abstract: translation tasks, BLEU and training setup.",
+   "arXiv 2307.03172 Lost in the Middle abstract: position effects in multi-document QA and key-value retrieval.",
+   "This site’s paper card for Attention Is All You Need as a reading example.",
+   "A three-column worksheet: claim, evidence location, conditions and non-claims."
+  ],
+  "steps": [
+   "3 分钟读第一篇：圈出任务名与指标，写出它主张的范围。",
+   "3 分钟读第二篇：把结论写成条件句，说明信息位置变化时表现怎么变。",
+   "3 分钟互查：小组交换工作表，把无条件断言改写成带条件的转述。",
+   "3 分钟连回机制：用自回归与注意力解释这两篇的观察，指出哪些说法证据不足。"
+  ],
+  "stepsEn": [
+   "3-minute first paper: circle task names and metrics and write the scope of the claim.",
+   "3-minute second paper: write conclusions as conditional sentences and describe how performance changes with information position.",
+   "3-minute peer check: groups exchange worksheets and rewrite unconditional claims as conditional paraphrases.",
+   "3-minute mechanism link: use autoregression and attention to explain the observations and identify statements with insufficient evidence."
+  ],
+  "misconceptions": [
+   "把标题或摘要里的强措辞当结论；结论受任务与设置限制。",
+   "把长窗口当成「长文档都能答对」；信息在中间时表现可能下降。",
+   "把注意力当成人类式「注意到重点」；它是权重计算。",
+   "把某个指标提升当成能力全面升级；BLEU 对应特定翻译任务。"
+  ],
+  "misconceptionsEn": [
+   "Treating strong wording in a title or abstract as the conclusion; conclusions are bounded by task and setup.",
+   "Treating a long window as able to answer every long document correctly; performance can drop when information is in the middle.",
+   "Treating attention as human-like noticing the key point; it is a weight computation.",
+   "Treating one metric gain as a general capability upgrade; BLEU corresponds to a specific translation task."
+  ],
+  "assessment": [
+   "三栏工作表填完，「未主张」一栏至少一条能回连原文。",
+   "转述句含任务、设置与观察结果，不含「理解」「总是」这类无条件词。",
+   "能说明本课没有复跑实验，也不给出自测分数。"
+  ],
+  "assessmentEn": [
+   "The worksheet is complete, and at least one non-claim can be linked back to the original text.",
+   "Paraphrases include task, setup and observed result, without unconditional words such as understands or always.",
+   "Learners can state that this lesson did not rerun experiments and gives no self-test score."
+  ]
  },
  {
   "id": "它逐字读懂你的文字",
@@ -1537,7 +2352,17 @@ var GUIDES = [
   "myth": "它像你一样按字和词理解输入。",
   "mythEn": "It reads your input word by word, the way you do.",
   "fact": "文本通常先被分成 Token，一个词或字符与一个 Token 不一定一一对应。需要精确计数、拼写或标点检查时，应明确规则并使用可核对的方法，不凭聊天表现推断准确性。",
-  "factEn": "Text is typically tokenized; tokens and words/characters need not map one-to-one. For exact counting, spelling or punctuation, define rules and use checkable methods rather than inferring accuracy from conversation."
+  "factEn": "Text is typically tokenized; tokens and words/characters need not map one-to-one. For exact counting, spelling or punctuation, define rules and use checkable methods rather than inferring accuracy from conversation.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "它在一步步推理",
@@ -1556,7 +2381,17 @@ var GUIDES = [
   "myth": "它给出的推理过程，就是它实际的思考步骤。",
   "mythEn": "The reasoning it shows you is the reasoning it actually performed.",
   "fact": "生成的中间步骤可以供检查，但不一定完整反映产生答案的内部计算。应核对条件、可验证步骤和结果；解释连贯不能替代这些检查。",
-  "factEn": "Generated steps can be checked but need not fully expose the computation producing an answer. Verify conditions, observable steps and results; a coherent explanation is not a substitute."
+  "factEn": "Generated steps can be checked but need not fully expose the computation producing an answer. Verify conditions, observable steps and results; a coherent explanation is not a substitute.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "注意力就是它注意到重点",
@@ -1575,7 +2410,17 @@ var GUIDES = [
   "myth": "「注意力机制」说明它会像人一样挑重点看。",
   "mythEn": "\"Attention mechanism\" means it picks out what matters, like a person would.",
   "fact": "注意力权重是模型计算中的量，不能直接等同于人的注意或某个答案的因果解释。热力图可以帮助观察，但结论仍需要对照输入或其他验证。",
-  "factEn": "Attention weights are computational quantities, not direct equivalents of human attention or causal explanations. Visualizations aid observation; conclusions still need controlled checks or other validation."
+  "factEn": "Attention weights are computational quantities, not direct equivalents of human attention or causal explanations. Visualizations aid observation; conclusions still need controlled checks or other validation.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-Attention Is All You Need",
@@ -1606,7 +2451,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-GPT-3",
@@ -1637,7 +2492,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-InstructGPT",
@@ -1668,7 +2533,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-Chinchilla",
@@ -1699,7 +2574,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-Llama 2",
@@ -1730,7 +2615,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-LIMA",
@@ -1761,7 +2656,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-Self-Instruct",
@@ -1792,7 +2697,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-Constitutional AI",
@@ -1823,7 +2738,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "量化、蒸馏、剪枝的区别",
@@ -1856,7 +2781,94 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "课堂-本地部署与显存估算",
+  "zh": "课堂-本地部署与显存估算",
+  "en": "Lesson - Local Deployment and VRAM Estimation",
+  "kind": "lesson",
+  "station": 5,
+  "ord": 1,
+  "span": 15,
+  "lead": {
+   "zh": "学员按权重、KV 缓存、运行时开销三项列估算表，再用运行器的占用输出核对，分清能启动、跑得动、答得完三个问题。",
+   "en": "Learners build an estimate from weights, KV cache and runtime overhead, check it against runner occupancy output, and separate can start, can run and can finish answering."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": [
+   "能把显存需求拆成权重、KV 缓存与运行时开销，并说明每项随什么变化。",
+   "能用参数量与量化位宽做权重量级的算术估算，并标明这是估算。",
+   "能读懂运行器占用输出，判断是否发生 CPU 与 GPU 混合加载。",
+   "能给出装不下时的三条备选路径，并说明各自代价。"
+  ],
+  "objectivesEn": [
+   "Split VRAM demand into weights, KV cache and runtime overhead, and explain what each varies with.",
+   "Make an arithmetic weight estimate from parameter count and quantisation bit width, and label it as an estimate.",
+   "Read runner occupancy output and judge whether CPU and GPU mixed loading occurs.",
+   "Give three fallback paths when the model does not fit and state the cost of each."
+  ],
+  "materials": [
+   "llama.cpp 官方 README：1.5 到 8-bit 整数量化，以及 CPU＋GPU 混合推理。",
+   "Ollama 官方 FAQ：ollama ps 的 PROCESSOR 列与 num_ctx 上下文设置。",
+   "Hugging Face Transformers 官方 KV 缓存文档（仓库源文件）：缓存占用、卸载与量化缓存。",
+   "一张估算表：参数量、位宽、上下文长度、批量、可用显存、可用内存。"
+  ],
+  "materialsEn": [
+   "llama.cpp official README: 1.5 to 8-bit integer quantisation and CPU plus GPU hybrid inference.",
+   "Ollama official FAQ: the PROCESSOR column in ollama ps and the num_ctx context setting.",
+   "Hugging Face Transformers KV cache documentation in the repository source: cache occupancy, offloading and quantised cache.",
+   "An estimate sheet: parameter count, bit width, context length, batch size, available VRAM and available RAM."
+  ],
+  "steps": [
+   "3 分钟算权重：用参数量乘每参数字节数，写明位宽假设与算式。",
+   "4 分钟加缓存与开销：标出随上下文长度和批量变化的项，留出余量。",
+   "4 分钟核对占用：读官方文档里的示例输出，判断加载位置与是否需要卸载。",
+   "4 分钟给备选：更小规格、更低量化档、部分卸载各写一条代价与下一步实测条件。"
+  ],
+  "stepsEn": [
+   "3-minute weights: multiply parameter count by bytes per parameter and write the bit-width assumption and formula.",
+   "4-minute cache and overhead: mark items that vary with context length and batch size, and leave headroom.",
+   "4-minute occupancy check: read example output from official docs and judge loading location and whether offloading is needed.",
+   "4-minute fallbacks: smaller model, lower quantisation tier and partial offloading each get one cost and one next-step test condition."
+  ],
+  "misconceptions": [
+   "以为权重装得下就跑得快；缓存与卸载会改变速度和延迟。",
+   "以为量化只省显存；官方文档把它写成内存与速度的取舍，质量要在自己任务上核对。",
+   "以为本地部署就等于数据合规；还要看日志、权限与出网路径。",
+   "把文档示例里的占用数字当成自己机器的结果；硬件与设置不同。"
+  ],
+  "misconceptionsEn": [
+   "Assuming that if weights fit the model runs fast; cache and offloading change speed and latency.",
+   "Assuming quantisation only saves VRAM; official docs describe a memory-speed tradeoff and quality must be checked on your own task.",
+   "Assuming local deployment equals data compliance; logs, permissions and outbound paths still matter.",
+   "Treating occupancy numbers in documentation examples as results on your machine; hardware and settings differ."
+  ],
+  "assessment": [
+   "估算表三项齐全，每项写明假设与来源，算式可复核。",
+   "能区分估算与实测，并说出下一步实测要固定哪些条件。",
+   "备选路径带代价，不写「最好」，也不承诺具体速度数字。"
+  ],
+  "assessmentEn": [
+   "The estimate sheet has all three items, each with assumptions and sources, and the formula can be checked.",
+   "Learners can distinguish estimate from measurement and state which conditions must be fixed for the next measurement.",
+   "Fallback paths include costs, do not write best, and do not promise specific speed numbers."
+  ]
  },
  {
   "id": "量化会让模型变笨一半",
@@ -1875,7 +2887,17 @@ var GUIDES = [
   "myth": "量化就是把模型质量砍掉一半。",
   "mythEn": "Quantising cuts model quality in half.",
   "fact": "量化改变数值表示，质量影响取决于模型、方法、档位和任务。bpw 描述每个权重平均占多少比特，不是能力分数；需用相同任务比较质量、内存和速度。",
-  "factEn": "Quantization changes numeric representation. Effects depend on model, method, tier and task. Bits per weight describe average storage, not capability; compare quality, memory and speed on equal tasks."
+  "factEn": "Quantization changes numeric representation. Effects depend on model, method, tier and task. Bits per weight describe average storage, not capability; compare quality, memory and speed on equal tasks.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "显存不够就跑不了",
@@ -1894,7 +2916,17 @@ var GUIDES = [
   "myth": "显存装不下，就只能换显卡。",
   "mythEn": "If it does not fit in VRAM, the only option is a better graphics card.",
   "fact": "部分运行器支持把一部分工作放到系统内存或 CPU，但还受总内存、架构支持和速度要求限制。先分别计算权重、缓存与运行时占用，再评估更小规格、量化或卸载方案。",
-  "factEn": "Some runtimes support system-memory/CPU offload, subject to total memory, architecture and speed constraints. Budget weights, cache and runtime separately before assessing smaller variants, quantization or offload."
+  "factEn": "Some runtimes support system-memory/CPU offload, subject to total memory, architecture and speed constraints. Budget weights, cache and runtime separately before assessing smaller variants, quantization or offload.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "接口兼容就等于行为一致",
@@ -1913,7 +2945,17 @@ var GUIDES = [
   "myth": "只要接口兼容 OpenAI，换过去效果就一样。",
   "mythEn": "If the API is OpenAI-compatible, switching over gives the same behaviour.",
   "fact": "兼容通常指某些请求与响应约定；支持范围、默认参数、流式、工具调用和错误处理仍需逐项核对。接口名称相同不代表产品行为或输出质量相同。",
-  "factEn": "Compatibility typically concerns specified request/response conventions. Check supported scope, defaults, streaming, tools and errors individually. Shared interface names do not establish equal behavior or output quality."
+  "factEn": "Compatibility typically concerns specified request/response conventions. Check supported scope, defaults, streaming, tools and errors individually. Shared interface names do not establish equal behavior or output quality.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "论文卡-Distilling the Knowledge",
@@ -1946,7 +2988,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么读模型卡",
@@ -1979,7 +3031,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么查生成式 AI 合规义务",
@@ -2012,7 +3074,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么对照 EU AI Act 自查",
@@ -2045,7 +3117,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么查 AI 生成内容的版权风险",
@@ -2078,7 +3160,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么读开源模型的许可证",
@@ -2111,7 +3203,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "换模型前怎么迁移评估",
@@ -2144,7 +3246,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么给团队做 AI 风险清单",
@@ -2177,7 +3289,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么读模型卡与系统卡",
@@ -2210,7 +3332,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么估算一次上线的安全成本",
@@ -2243,7 +3375,17 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "怎么把安全要求写进采购条款",
@@ -2278,7 +3420,96 @@ var GUIDES = [
   "myth": null,
   "mythEn": null,
   "fact": null,
-  "factEn": null
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "课堂-选型决策与安全评审",
+  "zh": "课堂-选型决策与安全评审",
+  "en": "Lesson - Selection Decisions and Security Review",
+  "kind": "lesson",
+  "station": 6,
+  "ord": 1,
+  "span": 15,
+  "lead": {
+   "zh": "学员把前五个单元的证据汇成一页决策记录，按官方风险框架与提示注入条目做一次评审，写清未验证项与复核日。",
+   "en": "Learners consolidate evidence from the first five units into a one-page decision record, review it against an official risk framework and prompt-injection guidance, and write unverified items and a review date."
+  },
+  "points": null,
+  "pointsEn": null,
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": [
+   "能写出一页决策记录：任务、候选、证据、风险与缓解、未验证项、复核日。",
+   "能按模型卡口径核对候选的用途、限制、训练数据与评测条件，缺项写未知。",
+   "能把记录按 GOVERN、MAP、MEASURE、MANAGE 四个功能归类，指出哪一栏还空着。",
+   "能给出提示注入的缓解动作，含最小权限与高风险动作的人工批准。"
+  ],
+  "objectivesEn": [
+   "Write a one-page decision record: task, candidates, evidence, risks and mitigations, unverified items, review date.",
+   "Check candidate use, limits, training data and evaluation conditions in model-card terms, writing unknown for missing items.",
+   "Classify the record under GOVERN, MAP, MEASURE and MANAGE, and identify which column is still empty.",
+   "Give prompt-injection mitigations including least privilege and human approval for high-risk actions."
+  ],
+  "materials": [
+   "NIST AI RMF 官方页与 AI RMF 1.0 正文：Part 2 的四个功能。",
+   "OWASP GenAI《LLM01:2025 Prompt Injection》官方条目：注入成因与缓解措施。",
+   "arXiv 1810.03993《Model Cards for Model Reporting》摘要：模型卡该写什么。",
+   "本站《怎么读模型卡》《怎么防提示注入》两篇指南作为课前阅读。",
+   "一页决策记录模板，六栏同课时目标第一条。"
+  ],
+  "materialsEn": [
+   "NIST AI RMF official page and AI RMF 1.0 text: the four functions in Part 2.",
+   "OWASP GenAI LLM01:2025 Prompt Injection entry: causes and mitigations.",
+   "arXiv 1810.03993 Model Cards for Model Reporting abstract: what model cards should contain.",
+   "This site’s guides on reading model cards and preventing prompt injection as pre-class reading.",
+   "A one-page decision-record template with the six columns from the first objective."
+  ],
+  "steps": [
+   "3 分钟定任务：写成可判定条件，含输入、输出、允许出错范围与复核人角色。",
+   "4 分钟填证据：每个候选只写能回连来源的内容，缺项写未知。",
+   "4 分钟做评审：按四个功能与提示注入条目列风险、缓解动作与责任角色。",
+   "4 分钟写退出：给出退出条件与复核日，小组互评哪一栏最容易被跳过。"
+  ],
+  "stepsEn": [
+   "3-minute task definition: write decidable conditions including inputs, outputs, acceptable error range and reviewer role.",
+   "4-minute evidence: for each candidate write only content that links to a source; write unknown for missing items.",
+   "4-minute review: list risks, mitigations and responsible roles under the four functions and the prompt-injection entry.",
+   "4-minute exit: give exit conditions and a review date; groups peer-review which column is most often skipped."
+  ],
+  "misconceptions": [
+   "以为评测分数高就可以上线；评测条件与自己的任务条件可能不同。",
+   "以为加了护栏就没有风险；权限、日志与人工复核仍在护栏之外。",
+   "以为合规框架能替自己做决定；NIST AI RMF 是自愿使用的框架，给结构不给结论。",
+   "以为开源或本地部署天然更安全；许可、数据路径与访问控制仍要逐项看。"
+  ],
+  "misconceptionsEn": [
+   "Assuming a high evaluation score means ready to launch; evaluation conditions may differ from your task conditions.",
+   "Assuming guardrails remove risk; permissions, logs and human review still sit outside the guardrail.",
+   "Assuming a compliance framework decides for you; NIST AI RMF is a voluntary framework that gives structure, not conclusions.",
+   "Assuming open source or local deployment is naturally safer; licence, data path and access control still need item-by-item checks."
+  ],
+  "assessment": [
+   "决策记录六栏齐全，未验证项明确写出，复核日可执行。",
+   "每条风险都有缓解动作与验证方式，至少一条涉及权限或人工批准。",
+   "能说明这份记录的边界：课堂评审不替代法律意见，也不构成上线批准。"
+  ],
+  "assessmentEn": [
+   "The decision record has all six columns, unverified items are explicit, and the review date is actionable.",
+   "Every risk has a mitigation and verification method, with at least one involving permissions or human approval.",
+   "Learners can state the record’s boundary: classroom review does not replace legal advice and is not launch approval."
+  ]
  },
  {
   "id": "预览版不能用于生产",
@@ -2297,7 +3528,17 @@ var GUIDES = [
   "myth": "带「预览」字样的模型只是试验品，不能上生产。",
   "mythEn": "Anything labelled \"preview\" is an experiment and cannot go to production.",
   "fact": "预览名称本身不足以决定可否使用。检查目标用途是否获准、支持和可用性承诺、退役安排与迁移方式；未说明的部分记为未知。",
-  "factEn": "The preview label alone does not decide permitted use. Check intended-use permission, support/availability commitments, retirement and migration. Keep undisclosed details unknown."
+  "factEn": "The preview label alone does not decide permitted use. Check intended-use permission, support/availability commitments, retirement and migration. Keep undisclosed details unknown.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "开源模型一定更省钱",
@@ -2316,7 +3557,17 @@ var GUIDES = [
   "myth": "模型开源了，成本就一定比调用 API 低。",
   "mythEn": "Once a model is open, running it is necessarily cheaper than calling an API.",
   "fact": "自建仍需要硬件、维护、监控与复核；具体许可证也可能有条件。应在相同任务量和质量要求下比较总成本，不能把下载免费等同于使用免费。",
-  "factEn": "Self-hosting still needs hardware, maintenance, monitoring and review, and actual license conditions matter. Compare total costs at equal workload and quality rather than equating free download with free use."
+  "factEn": "Self-hosting still needs hardware, maintenance, monitoring and review, and actual license conditions matter. Compare total costs at equal workload and quality rather than equating free download with free use.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "换模型只是改个名字",
@@ -2335,7 +3586,17 @@ var GUIDES = [
   "myth": "换模型只是把配置里的名字改一下。",
   "mythEn": "Switching models is just changing a name in the config.",
   "fact": "配置可能只改一行，但提示、工具参数、输出解析、质量、成本与数据条款都可能受影响。先用代表性输入比较并保留回滚方式，再决定是否完成迁移。",
-  "factEn": "Configuration may change by one line while prompts, tools, parsers, quality, cost and data terms change materially. Compare representative inputs and retain rollback before declaring migration complete."
+  "factEn": "Configuration may change by one line while prompts, tools, parsers, quality, cost and data terms change materially. Compare representative inputs and retain rollback before declaring migration complete.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  },
  {
   "id": "本地部署就等于合规",
@@ -2354,6 +3615,16 @@ var GUIDES = [
   "myth": "模型部署在本地，合规就自动解决了。",
   "mythEn": "Deploy the model locally and compliance is automatically solved.",
   "fact": "合规关心的是用途、服务对象、数据获取的授权链条、内容标识与文件留存；这些跟着业务走，不跟着算力位置走。本地部署还要另外处理权重与许可证条款、内部数据接入范围、以及谁在用什么模型。要核对的是「服务如何定性、哪些义务仍适用」，而不是「机器是不是自己的」。（虚构示例）输入是「把同一项对外摘要服务从云端换成本地模型」这个决定 → 处理是照旧核三样：服务面向谁、对外发布的生成内容要不要标识、接入的内部数据授权到哪 → 结果判断是只要有一项仍适用，就不能写「本地部署所以没有义务」→ 下一步是把定性结论交给法务确认，并把标识做法写进发布检查。具体义务以条文原文为准。",
-  "factEn": "Compliance follows the business, not the location of the compute: intended use, who the service faces, the authorisation chain for the data, content labeling and record keeping. Local deployment adds its own items - weight and license terms, which internal data gets connected, and who is allowed to use which model. What to verify is how the service is classified and which duties still apply, not whether the machine is yours. (Fictional example) Input is the decision to move the same externally facing summarisation service from cloud to a local model -> processing still checks three things: who the service faces, whether published generated content needs labeling, and how far the internal data authorisation reaches -> if any one of them still applies, the conclusion \"local deployment, therefore no duties\" is wrong -> the next step is to have legal confirm the classification and to write the labeling practice into the release check. Final obligations follow the text of the rule."
+  "factEn": "Compliance follows the business, not the location of the compute: intended use, who the service faces, the authorisation chain for the data, content labeling and record keeping. Local deployment adds its own items - weight and license terms, which internal data gets connected, and who is allowed to use which model. What to verify is how the service is classified and which duties still apply, not whether the machine is yours. (Fictional example) Input is the decision to move the same externally facing summarisation service from cloud to a local model -> processing still checks three things: who the service faces, whether published generated content needs labeling, and how far the internal data authorisation reaches -> if any one of them still applies, the conclusion \"local deployment, therefore no duties\" is wrong -> the next step is to have legal confirm the classification and to write the labeling practice into the release check. Final obligations follow the text of the rule.",
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
  }
 ];

@@ -1,0 +1,66 @@
+{
+  "id": "ace-step-v1-5-space",
+  "title": {
+    "zh": "ACE-Step v1.5 音乐生成演示",
+    "en": "ACE-Step v1.5 Music Generation Demo"
+  },
+  "category": "模型演示",
+  "url": "https://ace-step-ace-step-v1-5.hf.space/",
+  "repo": "https://github.com/ace-step/ACE-Step-1.5",
+  "license": {
+    "spdx": "MIT",
+    "kind": "osi",
+    "evidenceUrl": "https://huggingface.co/spaces/ACE-Step/Ace-Step-v1.5",
+    "checkedAt": "2026-11-07"
+  },
+  "aiScope": ["模型能力演示"],
+  "evidence": [
+    {
+      "url": "https://huggingface.co/spaces/ACE-Step/Ace-Step-v1.5",
+      "quote": "<a href=\"https://huggingface.co/spaces/ACE-Step/Ace-Step-v1.5\">Space Demo</a>",
+      "kind": "space"
+    },
+    {
+      "url": "https://huggingface.co/spaces/ACE-Step/Ace-Step-v1.5",
+      "quote": "short_description: Music Generation Foundation Model v1.5",
+      "kind": "space"
+    },
+    {
+      "url": "https://github.com/ace-step/ACE-Step-1.5/releases/tag/v0.1.6",
+      "quote": "We introduce the **XL series** — a larger 4B-parameter DiT decoder for higher audio quality.",
+      "kind": "release"
+    }
+  ],
+  "model": {
+    "name": "ACE-Step",
+    "version": "1.5 XL（release v0.1.6）",
+    "releaseUrl": "https://github.com/ace-step/ACE-Step-1.5/releases/tag/v0.1.6",
+    "releaseDate": "2026-04-03"
+  },
+  "run": {
+    "status": "not-run",
+    "env": "",
+    "date": ""
+  },
+  "maintenance": {
+    "lastCommit": null,
+    "lastSeen": "2026-11-07",
+    "checkedAt": "2026-11-07"
+  },
+  "media": {
+    "shot": "none",
+    "embed": "none"
+  },
+  "compare": {
+    "runtime": "官方托管 Gradio Space（hf.space 直连），浏览器即用；config 显示 auth_required: false",
+    "hardware": "在线 Space 硬件未核；卡片 README 称本地部署优化至 <4GB VRAM（原文）",
+    "commercial": "Space 卡片标 MIT；模型权重与在线服务商用条款未核",
+    "reproducibility": "权重（ACE-Step/Ace-Step1.5、ACE-Step/acestep-v15-xl-turbo，卡片 models 字段）与代码公开；在线参数未核",
+    "maintenance": "官方仓库最新 release v0.1.8（published 2026-05-18）；最近提交未核"
+  },
+  "notes": {
+    "zh": "ACE-Step 官方 Space（卡片标题 ACE-Step v1.5），卡片正文明确点名 Space Demo 链接，models 字段含 v1.5 与 XL-turbo 权重。发布日取官方 release v0.1.6（ACE-Step 1.5 XL 发布，published 2026-04-03）。核验方式：huggingface.co 主站本地不可达，demo 经官方 hf.space 直连验证 200 且无需登录，卡片原文经 hf-mirror.com 镜像读取官方 raw 文件（证据 URL 为官方原址）。MIT 仅指 Space 卡片标注；本站未实测。",
+    "en": "Official ACE-Step Space (card title 'ACE-Step v1.5'); the card body explicitly links 'Space Demo' and its models field lists v1.5 and XL-turbo weights. Release date taken from official release v0.1.6 (ACE-Step 1.5 XL, published 2026-04-03). Verification: huggingface.co unreachable locally; demo returned 200 via the official hf.space domain with auth_required false; card read from the official raw file via hf-mirror.com (evidence URLs remain official). MIT refers to the Space card label only. Not run by this site."
+  },
+  "verifiedAt": "2026-11-07"
+}

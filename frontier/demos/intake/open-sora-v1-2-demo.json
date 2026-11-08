@@ -1,0 +1,56 @@
+{
+  "id": "open-sora-v1-2-demo",
+  "title": {
+    "zh": "Open-Sora v1.2 视频生成官方演示",
+    "en": "Open-Sora v1.2 Video Generation Official Demo"
+  },
+  "category": "模型演示",
+  "url": "https://hpcai-tech-open-sora.hf.space/",
+  "repo": "https://github.com/hpcaitech/Open-Sora",
+  "license": {
+    "spdx": null,
+    "kind": "link-only",
+    "evidenceUrl": "https://huggingface.co/spaces/hpcai-tech/open-sora",
+    "checkedAt": "2026-11-07"
+  },
+  "aiScope": ["模型能力演示"],
+  "evidence": [
+    {
+      "url": "https://github.com/hpcaitech/Open-Sora/releases/tag/v1.2.0",
+      "quote": "- try our [checkpoints](https://github.com/hpcaitech/Open-Sora?tab=readme-ov-file#open-sora-12-model-weights) and [gradio demo](https://huggingface.co/spaces/hpcai-tech/open-sora)",
+      "kind": "release"
+    }
+  ],
+  "model": {
+    "name": "Open-Sora",
+    "version": "v1.2.0",
+    "releaseUrl": "https://github.com/hpcaitech/Open-Sora/releases/tag/v1.2.0",
+    "releaseDate": "2024-06-18"
+  },
+  "run": {
+    "status": "not-run",
+    "env": "",
+    "date": ""
+  },
+  "maintenance": {
+    "lastCommit": null,
+    "lastSeen": "2026-11-07",
+    "checkedAt": "2026-11-07"
+  },
+  "media": {
+    "shot": "none",
+    "embed": "none"
+  },
+  "compare": {
+    "runtime": "官方托管 Gradio Space（hf.space 直连），浏览器即用；config 显示 auth_required: false",
+    "hardware": "云端推理，用户侧仅需浏览器；Space 硬件未核",
+    "commercial": "未确认（在线 Space 条款未核；仓库代码 LICENSE 原文为 Apache-2.0）",
+    "reproducibility": "权重与代码公开（release 正文给出 checkpoints 链接）；在线 demo 参数未核",
+    "maintenance": "官方仓库最新 release v1.3（published 2025-02-21）；最近提交未核"
+  },
+  "notes": {
+    "zh": "官方 GitHub release v1.2.0 正文明确点名 gradio demo（huggingface.co/spaces/hpcai-tech/open-sora），属一手发布证据。发布日取该 release 的 published 日期（2024-06-18）。核验方式：huggingface.co 主站本地不可达，demo 经官方 hf.space 直连验证 200、config 确认 space_id 为 hpcai-tech/open-sora 且 auth_required: false；Space 卡片原文经镜像读取失败（返回鉴权错误），故许可记 link-only，不声称开源。仓库代码 LICENSE 经 raw 原文核验为 Apache-2.0，仅作补充事实。本站未实测。",
+    "en": "The official GitHub release v1.2.0 body explicitly names the gradio demo (huggingface.co/spaces/hpcai-tech/open-sora) — first-party release evidence. Release date is the release's published date (2024-06-18). Verification: huggingface.co unreachable locally; the demo returned 200 via the official hf.space domain, config confirms space_id hpcai-tech/open-sora and auth_required false. The Space card could not be read via mirror (auth error), so license is recorded as link-only with no open-source claim. The repo code LICENSE was verified as Apache-2.0 from the raw file, noted only as a supplementary fact. Not run by this site."
+  },
+  "verifiedAt": "2026-11-07"
+}

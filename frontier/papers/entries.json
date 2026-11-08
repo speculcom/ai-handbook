@@ -1,0 +1,852 @@
+[
+  {
+    "id": "bai-2022-constitutional-ai",
+    "title": {
+      "zh": "Constitutional AI: Harmlessness from AI Feedback",
+      "en": "Constitutional AI: Harmlessness from AI Feedback"
+    },
+    "category": "alignment",
+    "url": "https://arxiv.org/abs/2212.08073",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2212.08073",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2212.08073",
+        "quote": "We experiment with methods for training a harmless AI assistant through self-improvement, without any human labels identifying harmful outputs."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2212.08073",
+        "quote": "We show harmlessness versus helpfulness Elo scores (higher is better, only differences are meaningful) computed from crowdworkers’ model comparisons for all 52B RL runs."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2212.08073",
+        "quote": "By removing human feedback labels for harmlessness, we have moved further away from reliance on human supervision, and closer to the possibility of a self-supervised approach to alignment. However, in this work we still relied on human supervision in the form of helpfulness labels."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2212.08073",
+        "quote": "These principles were chosen in a fairly ad hoc and iterative way for research purposes."
+      }
+    ],
+    "notes": {
+      "zh": "问题：训练无害助手通常要成千上万条人工无害性标注；能不能只给一小组自然语言原则，让模型自己批评并改写自己的回答，再用模型产生的偏好标签做强化学习。\n证据位置：流程分两阶段——监督阶段（自我批评与改写，SL-CAI）在 §3，RLAIF 阶段在 §4；主要结果是 Figure 2 的 harmlessness–helpfulness Elo 散点（52B 的各次 RL run，图注明确只有差值有意义），图注原话是「The RL-CAI models trained with AI feedback learn to be less harmful at a given level of helpfulness.」；Elo 对比与 CoT 的取舍在 §4.3，回避性与标注指令变化在 §4.4，绝对有害度分数在 §4.5；讨论与未来方向在 §6、§6.1，双用风险在 §6.2。没有独立的 Limitations 章节，§6 起就是局限与未来方向的讨论。\n作者自陈局限：§6 明说虽然去掉了无害性的人工反馈标签，本文仍然依赖人工监督形式的有用性标签，完全不用人工反馈就实现有用性与指令跟随留待未来工作；§1.1 脚注 2 承认这些原则是为研究目的以相当临时、迭代的方式挑出来的，未来应由更多利益相关方重新制定并按部署用途与地区调整；§4.3 报告 RL-CAI 会被过度训练而出现 Goodhart 行为——对有害提示反应过激，或在大多数红队提示后加套话；§4.5 提醒绝对有害度分数可能校准不好，因为不同标注者对 0–4 分有各自偏好；§6.1 把 robustness（能否让模型基本免疫红队攻击）列为仍未解决的问题；§6.2 指出降低人工反馈需求也让人更容易部署未经充分人工测试与观察的系统，而且方法本身是双用的。\n它没主张的：论文没有说实现了完全无人类监督的对齐——有用性标签仍来自人，作者也写明目标不是彻底去掉人类监督而是让它更高效、更透明、更有针对性；也没有说 CAI 模型在所有维度上优于 RLHF，§4.3 写带 CoT 的 RL-CAI 看起来有用性略低、无害性略高；Elo 是相对分且图注声明只有差值有意义，§4.4 还说明本文改了标注指令（同样无害时要求选更不回避的回答）并换了标注供应商，因此与先前工作的 Elo 不能直接对比；「免疫红队攻击」是未来方向而不是本文结果。",
+      "en": "Problem: training a harmless assistant normally needs tens of thousands of human harmlessness labels; can a small set of natural language principles be enough, with the model critiquing and revising its own responses and a preference model trained on AI-generated labels driving the RL stage.\nWhere the evidence sits: the pipeline has two stages — the supervised stage (self-critique and revision, SL-CAI) in Section 3 and the RLAIF stage in Section 4; the main result is the harmlessness-versus-helpfulness Elo scatter in Figure 2 (all 52B RL runs, with the caption stating that only differences are meaningful), whose caption reads \"The RL-CAI models trained with AI feedback learn to be less harmful at a given level of helpfulness.\"; Elo comparisons and the chain-of-thought tradeoff are in 4.3, evasiveness and the change of labeling instructions in 4.4, and absolute harmfulness scores in 4.5; discussion and future directions are in Section 6 and 6.1, and dual-use risk in 6.2. There is no separate Limitations section; Section 6 onward is the discussion of limits and future directions.\nWhat the authors say about limits: Section 6 states that although human feedback labels for harmlessness were removed, this work still relied on human supervision in the form of helpfulness labels, and achieving helpfulness and instruction-following without human feedback is left to future work; footnote 2 in 1.1 acknowledges the principles were chosen in a fairly ad hoc and iterative way for research purposes and should be redeveloped by a larger set of stakeholders and adapted to the intended usage and deployment location; 4.3 reports that RL-CAI models can be over-trained, producing Goodharting behaviour such as overly harsh responses to harmful prompts or boilerplate language after most red-team prompts; 4.5 cautions that absolute harmfulness scores may not be well calibrated because different workers have personal biases about the 0-4 scale; 6.1 lists robustness — whether models can be made essentially immune to red-team attacks — as a remaining issue; and 6.2 notes that reducing the need for human feedback also makes it easier to deploy systems that have not been thoroughly tested and observed by humans, and that the methods are dual use.\nWhat it does not claim: the paper does not claim alignment without any human supervision — helpfulness labels still come from humans, and the authors write that the goal is not to remove human supervision entirely but to make it more efficient, transparent and targeted; it does not claim CAI models are better than RLHF on every axis, and 4.3 says RL-CAI with CoT seems slightly less helpful but slightly more harmless than without CoT; Elo is a relative score whose caption says only differences are meaningful, and 4.4 explains that the labeling instructions were changed (prefer the less evasive response when both are equally harmless) and the vendor changed, so these Elo scores are not directly comparable with prior work; and immunity to red-team attacks is a future direction, not a result of this paper."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "§3（SL-CAI）、§4（RLAIF）；Figure 2 与 §4.3；§4.4、§4.5；§6、§6.1、§6.2；§1.1 脚注 2",
+      "模型规模 / scale": "Figure 2 为 52B 的各次 RL run",
+      "Elo 口径 / Elo": "图注：只有差值有意义（only differences are meaningful）",
+      "仍依赖人工 / human labels": "有用性标签仍为人工监督（§6 原文）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "brown-2020-gpt3",
+    "title": {
+      "zh": "Language Models are Few-Shot Learners",
+      "en": "Language Models are Few-Shot Learners"
+    },
+    "category": "scaling",
+    "url": "https://arxiv.org/abs/2005.14165",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2005.14165",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2005.14165",
+        "quote": "Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2005.14165",
+        "quote": "Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2005.14165",
+        "quote": "A limitation, or at least uncertainty, associated with few-shot learning in GPT-3 is ambiguity about whether few-shot learning actually learns new tasks “from scratch” at inference time, or if it simply recognizes and identifies tasks that it has learned during training."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2005.14165",
+        "quote": "Unfortunately, a bug resulted in only partial removal of all detected overlaps from the training data. Due to the cost of training, it wasn’t feasible to retrain the model."
+      }
+    ],
+    "notes": {
+      "zh": "问题：把模型放大之后，不更新任何梯度、只在输入里给几个示例，能不能把任务做到接近专门微调的水平。\n证据位置：摘要给出 175B 与「无梯度更新、无微调」的设定；九类任务的结果在 §3（LAMBADA 在 Figure 3.2 与表 3.2，开放域问答在表 3.3，SuperGLUE 在表 3.8，阅读理解在表 3.7，算术在 §3.9.1 与表 3.9）；训练集与测试集重叠的分析在 §4 与 Figure 4.2；局限有独立的 §5 Limitations，社会影响在 §6。\n作者自陈局限：§5 写了多层——长文本生成仍会语义重复、在足够长的段落上失去连贯、自相矛盾；在 WIC、ANLI 这类「比较」任务以及部分阅读理解上，单样本甚至少样本几乎只比随机好一点点；只研究自回归模型，实验不含双向架构或去噪目标，作者承认这可能在需要双向性的任务上吃亏，并猜想同规模双向模型微调会更强；预训练目标对每个 token 等权、可能撞上目标函数本身的限制，模型也不接地于视频或物理交互；预训练样本效率仍远低于人类；这个规模的模型推理昂贵且不便于实际部署；决策不易解释、在新输入上校准不好、保留训练数据中的偏见。§5 还专门写了一条不确定性：少样本究竟是在推理时从零学会新任务，还是只是识别出训练中已学过的任务，作者说不清楚，而且可能因任务而异。§4 说明去污染只完成了一部分——一个 bug 导致检测到的重叠只删掉一部分，因训练成本无法重训，只能事后用 13-gram 重叠构造 clean 子集复测，PIQA 与 Winograd 被标记为可能受污染并在 §3 加星号。\n它没主张的：摘要的原话是「有时甚至能与先前微调方法竞争」，不是在所有任务上超过微调；论文没有证明少样本等于在推理时学习新任务，§5 把这一点列为未解的歧义；也没有说训练数据与测试集完全隔离；实验只覆盖自回归语言模型，不能外推到双向架构或其他训练目标；§3 同时报告了 ANLI、RACE、QuAC 等少样本仍吃力的任务。",
+      "en": "Problem: after scaling a model up, can tasks be performed close to the level of task-specific fine-tuning with no gradient updates and only a few examples placed in the input.\nWhere the evidence sits: the abstract gives the 175B scale and the no-gradient-update, no-fine-tuning setting; results across nine task categories are in Section 3 (LAMBADA in Figure 3.2 and Table 3.2, open-domain QA in Table 3.3, SuperGLUE in Table 3.8, reading comprehension in Table 3.7, arithmetic in 3.9.1 and Table 3.9); train-test overlap analysis is in Section 4 and Figure 4.2; the limits have a dedicated Section 5 Limitations, and societal impact is in Section 6.\nWhat the authors say about limits: Section 5 lists several layers — long-form synthesis still repeats itself semantically, loses coherence over sufficiently long passages and contradicts itself; on comparison tasks such as WIC and ANLI and on a subset of reading comprehension tasks, one-shot and even few-shot performance does little better than chance; only autoregressive models were studied, so the experiments include no bidirectional architectures or denoising objectives, which the authors acknowledge may cost performance on tasks that benefit from bidirectionality, and they conjecture a large bidirectional model would fine-tune better; the pretraining objective weights every token equally and may hit the limits of the objective itself, and the model is not grounded in video or physical interaction; pretraining sample efficiency remains far below a human's; models at this scale are expensive and inconvenient to run inference on; and decisions are not easily interpretable, not necessarily well calibrated on novel inputs, and retain the biases of the training data. Section 5 also states an explicit uncertainty: whether few-shot learning actually learns new tasks from scratch at inference time or simply recognises tasks learned during training is unclear and may vary by task. Section 4 explains that decontamination was only partial — a bug meant only part of the detected overlap was removed, retraining was not feasible given the cost, so clean subsets were built afterwards using 13-gram overlap and re-evaluated, with PIQA and Winograd flagged as possibly contaminated and asterisked in Section 3.\nWhat it does not claim: the abstract says sometimes even reaching competitiveness with prior fine-tuning approaches, not beating fine-tuning on every task; the paper does not show that few-shot prompting equals learning a new task at inference time, and Section 5 leaves that as an unresolved ambiguity; it does not claim training and test data were fully separated; the experiments cover autoregressive language models only and cannot be extended to bidirectional architectures or other training objectives; and Section 3 also reports tasks where few-shot learning still struggles, including ANLI, RACE and QuAC."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要；§3 各任务表（表 3.2、3.3、3.7、3.8、3.9）；§4 与 Figure 4.2（污染）；§5 Limitations；§6",
+      "模型规模 / scale": "175B 参数，摘要称是此前非稀疏语言模型的 10 倍",
+      "评测设定 / setting": "不做梯度更新或微调，任务与示例只通过文本给出（摘要原文）",
+      "摘要口径 / headline": "少样本表现大幅提升，有时可与先前微调方法竞争",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "dao-2022-flashattention",
+    "title": {
+      "zh": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "en": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+    },
+    "category": "efficiency",
+    "url": "https://arxiv.org/abs/2205.14135",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2205.14135",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2205.14135",
+        "quote": "Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2205.14135",
+        "quote": "Our current approach to building IO-aware implementations of attention requires writing a new CUDA kernel for each new attention implementation."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2205.14135",
+        "quote": "15% end-to-end wall-clock speedup on BERT-large (seq. length 512) compared to the MLPerf 1.1 training speed record, 3× speedup on GPT-2 (seq. length 1K), and 2.4× speedup on long-range arena (seq. length 1K-4K)."
+      }
+    ],
+    "notes": {
+      "zh": "问题：自注意力的时间与显存随序列长度平方增长，瓶颈不在算力而在显存读写；能不能不把 N×N 注意力矩阵写回显存也算出精确结果。\n证据位置：摘要给出三档端到端加速与 7.6 倍注意力计算加速；局限写在第 5 节 Limitations and Future Directions。\n作者自陈局限：三点——每换一种注意力实现就要重写一个 CUDA kernel，要用比 PyTorch 低得多的语言写、工程量大；实现未必能跨 GPU 架构移植；他们的 IO 优化只在单卡上达到常数级最优，而注意力计算本身是可跨多卡并行的。\n它没主张的：论文没有说这是近似注意力——结果精确；但也没有声称解决了多卡切分问题，更没有说端到端加速比等于注意力算子加速比（摘要里 15% / 3× / 2.4× 与算子级 7.6× 是两个口径，不能混用）。",
+      "en": "Problem: self-attention time and memory grow quadratically with sequence length, and the bottleneck is memory traffic rather than arithmetic; can exact attention be computed without writing the N×N matrix back to HBM.\nWhere the evidence sits: the abstract gives three end-to-end speed-ups plus a 7.6× speed-up on the attention computation itself; the limits are in Section 5, Limitations and Future Directions.\nWhat the authors say about limits: three — each new attention implementation needs a new CUDA kernel written in a much lower-level language than PyTorch, which is significant engineering effort; implementations may not transfer across GPU architectures; and their IO-aware version is optimal within constants on a single GPU, whereas the attention computation itself may be parallelisable across multiple GPUs.\nWhat it does not claim: the paper does not present an approximation — the result is exact — but it also does not solve multi-GPU partitioning, and it does not equate end-to-end speed-up with kernel speed-up (the 15% / 3× / 2.4× figures and the 7.6× kernel figure are different measurements and must not be mixed)."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要（三档端到端）；Section 5 Limitations",
+      "BERT-large 端到端 / e2e": "15%（序列 512）",
+      "GPT-2 端到端 / e2e": "3×（序列 1K）",
+      "注意力算子 / kernel": "7.6×；显存随序列长度线性",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "dettmers-2023-qlora",
+    "title": {
+      "zh": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "en": "QLoRA: Efficient Finetuning of Quantized LLMs"
+    },
+    "category": "adaptation",
+    "url": "https://arxiv.org/abs/2305.14314",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2305.14314",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.14314",
+        "quote": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.14314",
+        "quote": "Our best model family, which we name Guanaco, outperforms all previous openly released models on the Vicuna benchmark, reaching 99.3% of the performance level of ChatGPT while only requiring 24 hours of finetuning on a single GPU."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.14314",
+        "quote": "Despite this evidence, we did not establish that QLoRA can match full 16-bit finetuning performance at 33B and 65B scales. Due to the immense resource costs, we leave this study to future work."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.14314",
+        "quote": "Furthermore, we find that current chatbot benchmarks are not trustworthy to accurately evaluate the performance levels of chatbots."
+      }
+    ],
+    "notes": {
+      "zh": "问题：§1 指出对 LLaMA 65B 做常规 16-bit 微调需要 780GB 以上显存，单卡放不下；能不能把基座量化到 4-bit、只训练低秩适配器，同时把任务表现保住。\n证据位置：方法在 §3（4-bit NormalFloat、Double Quantization、Paged Optimizers）；与全量微调的对照在 §4——表 3 是 RoBERTa 与 T5 在 125M–3B 上的 GLUE 与 Super-NaturalInstructions，表 4 是 LLaMA 7B–65B 的 5-shot MMLU；聊天机器人评测在 §5（表 5 为 MMLU，表 6 为 Vicuna 上相对 ChatGPT 得分的百分比、由 GPT-4 评判，表 7 为人工与 GPT-4 的 Elo）；局限有独立的 §8 Limitations and Discussion，评测方法的反思在 §6.2。\n作者自陈局限：§8 第一段就写明——虽然有证据表明 4-bit 基座加 LoRA 能复现 16-bit 全量微调，但他们没有确立 QLoRA 在 33B 与 65B 规模上能追平 16-bit 全量微调，因资源成本太高留待未来工作；评测只覆盖 MMLU、Vicuna、OA，没测 BigBench、RAFT、HELM，不能保证结论外推到这些基准；只做了有限的负责任 AI 评测（表 8 的 CrowS 偏见），其他类型偏见是否同样表现未知；也没试 3-bit 等其他位宽或 LoRA 之外的适配器方法。摘要自己还写了当前聊天机器人基准不足以准确评估聊天机器人水平，§6.2 给出具体原因：人工标注一致性只有 Fleiss κ=0.42，GPT-4 有明显顺序效应、给自己的输出打分偏高（Elo 1348 对人工 1176），与人工的样本级一致性 κ=0.25。\n它没主张的：99.3% 是 Vicuna 基准上相对 ChatGPT 得分的百分比、由 GPT-4 判定（表 6 口径），不是人类评测认定的等价，也不是在所有基准上追平；论文没有说 4-bit 训练在 33B/65B 上与全量微调无损等价，§8 明确否认这一点已经确立；Guanaco 只用交叉熵监督微调、没有用 RLHF（§6.2），所以这不是「4-bit 就能做出 ChatGPT 级助手」的完整配方；§4 的等价结论建立在学术基准与既有评测设置上，作者也提醒基准成绩很大程度取决于微调数据与基准数据的相似度。",
+      "en": "Problem: Section 1 notes that regular 16-bit finetuning of a LLaMA 65B model requires more than 780 GB of GPU memory, which does not fit on one card; can the base model be quantised to 4-bit and only low-rank adapters trained while keeping task performance.\nWhere the evidence sits: the method is in Section 3 (4-bit NormalFloat, Double Quantization, Paged Optimizers); the comparison against full finetuning is in Section 4 — Table 3 covers RoBERTa and T5 from 125M to 3B on GLUE and Super-NaturalInstructions, Table 4 covers LLaMA 7B to 65B on 5-shot MMLU; chatbot evaluation is in Section 5 (Table 5 MMLU, Table 6 Vicuna scores as a percentage of ChatGPT's score judged by GPT-4, Table 7 human and GPT-4 Elo); the limits have a dedicated Section 8 Limitations and Discussion, and reflection on evaluation methodology is in 6.2.\nWhat the authors say about limits: the first paragraph of Section 8 states that despite the evidence that a 4-bit base with LoRA replicates 16-bit full finetuning, they did not establish that QLoRA can match full 16-bit finetuning at the 33B and 65B scales, and leave that to future work because of the immense resource costs; evaluation covers only MMLU, the Vicuna benchmark and the OA benchmark, not BigBench, RAFT or HELM, so generalisation to those is not ensured; only a limited responsible AI evaluation was done (CrowS bias in Table 8) and other bias types are unknown; and other bit-precisions such as 3-bit, or adapter methods other than LoRA, were not evaluated. The abstract itself says current chatbot benchmarks are not trustworthy for accurately evaluating chatbot performance levels, and 6.2 gives the reasons: human annotator agreement is only Fleiss kappa 0.42, GPT-4 shows strong order effects and rates its own outputs higher (Elo 1348 versus 1176 from humans), and sample-level agreement with humans is kappa 0.25.\nWhat it does not claim: the 99.3% figure is a percentage of ChatGPT's score on the Vicuna benchmark as judged by GPT-4 (the Table 6 measure), not human-certified equivalence and not parity across all benchmarks; the paper does not claim lossless equivalence to full finetuning at 33B/65B, and Section 8 explicitly denies that this was established; Guanaco was trained with cross-entropy supervised finetuning only and no RLHF (6.2), so this is not a complete recipe for a ChatGPT-level assistant on 4-bit; and the equivalence result in Section 4 rests on academic benchmarks with established evaluation setups, with the authors cautioning that benchmark scores depend heavily on how similar the finetuning data is to the benchmark data."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "§3（方法）；表 3、表 4（§4）；表 5、表 6、表 7（§5）；§6.2；§8 Limitations and Discussion",
+      "显存 / memory": "单张 48GB GPU 微调 65B（摘要口径）",
+      "Guanaco / Vicuna": "达到 ChatGPT 表现水平的 99.3%，单 GPU 微调 24 小时（摘要口径；表 6 为 GPT-4 评判的相对得分百分比）",
+      "未确立 / not established": "33B 与 65B 上追平 16-bit 全量微调（§8 原文）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "frantar-2022-gptq",
+    "title": {
+      "zh": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+      "en": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers"
+    },
+    "category": "efficiency",
+    "url": "https://arxiv.org/abs/2210.17323",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2210.17323",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2210.17323",
+        "quote": "Specifically, GPTQ can quantize GPT models with 175 billion parameters in approximately four GPU hours, reducing the bitwidth down to 3 or 4 bits per weight, with negligible accuracy degradation relative to the uncompressed baseline."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2210.17323",
+        "quote": "In terms of limitations, our method currently does not provide speedups for the actual multiplications, due to the lack of hardware support for mixed-precision operands (e.g. FP16 x INT4) on mainstream architectures."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2210.17323",
+        "quote": "On the technical side, our method obtains speedups from reduced memory movement, and does not lead to computational reductions."
+      }
+    ],
+    "notes": {
+      "zh": "问题：几百亿参数的模型光显存就装不下，训练后量化到低比特往往掉点严重；能不能在不重训的前提下压到 3–4 bit 还基本不掉。\n证据位置：175B 模型约 4 个 GPU 小时压到 3 或 4 bit 的结论在摘要；局限同时写在引言贡献段与第 6 节 Summary and Limitations。\n作者自陈局限：两点很关键——加速来自减少显存搬运，不是减少计算量，主流硬件不支持 FP16×INT4 这类混合精度乘加，因此实际矩阵乘法并不会变快；研究只覆盖生成任务，未做激活量化（作者认为激活不是目标场景的瓶颈）。\n它没主张的：论文没有说量化后推理整体更快，也没有覆盖激活量化与更大的压缩率；「单卡跑 175B」指的是权重能装进一张卡，不等于该配置的吞吐满足线上服务。",
+      "en": "Problem: models with tens of billions of parameters do not fit in memory, and post-training quantisation to low bit-width usually costs accuracy; can 3-4 bits be reached without retraining and with almost no loss.\nWhere the evidence sits: the 175B-in-four-GPU-hours result at 3 or 4 bits is in the abstract; the limits appear both in the introduction’s contribution list and in Section 6, Summary and Limitations.\nWhat the authors say about limits: two matter — the speed-up comes from reduced memory movement, not from fewer computations, and mainstream hardware lacks support for mixed-precision operands such as FP16 by INT4, so the actual multiplications are not faster; and the study covers generative tasks only and does not quantise activations, which the authors consider not a bottleneck in their target setting.\nWhat it does not claim: the paper does not claim faster end-to-end inference, nor cover activation quantisation or higher compression; \"175B on a single GPU\" means the weights fit on one card, not that throughput meets serving requirements."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要；引言贡献段；Section 6 Summary and Limitations",
+      "位宽 / bit-width": "3 或 4 bit 每权重",
+      "量化耗时 / quantisation": "175B 模型约 4 GPU 小时",
+      "加速来源 / speed-up source": "减少显存搬运，非减少计算",
+      "未覆盖 / not covered": "激活量化",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "gu-2023-mamba",
+    "title": {
+      "zh": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "en": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2312.00752",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2312.00752",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2312.00752",
+        "quote": "Mamba enjoys fast inference (5× higher throughput than Transformers) and linear scaling in sequence length, and its performance improves on real data up to million-length sequences."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2312.00752",
+        "quote": "On language modeling, our Mamba-3B model outperforms Transformers of the same size and matches Transformers twice its size, both in pretraining and downstream evaluation."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2312.00752",
+        "quote": "Mamba achieves 4-5× higher inference throughput than a Transformer of similar size, since without the KV cache it can use much higher batch sizes."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2312.00752",
+        "quote": "It remains to assess whether Mamba still compares favorably at these larger sizes."
+      }
+    ],
+    "notes": {
+      "zh": "问题：此前的次二次方架构（线性注意力、门控卷积、结构化状态空间模型）在语言这类离散模态上不如注意力，作者判断关键弱点是不能按内容决定记住或忘掉什么；能不能让 SSM 的参数随输入变化，同时还能高效训练。\n证据位置：选择机制在 §3.2，硬件感知的并行扫描在 §3.3，去掉注意力与 MLP 块的简化架构在 §3.4；语言建模的 scaling law 在 §4.2.1 与 Figure 6（约 125M 到 1.3B，Pile 数据，按 Chinchilla 协议），零样本下游在表 1，速度与显存在 §4.5 与 Figure 12；局限写在 §5 Discussion 的 No Free Lunch、Downstream Affordances、Scaling 三段。\n作者自陈局限：§5 的 Scaling 段明说实证只到小规模，低于多数强开源 LLM 以及 RWKV、RetNet 已经验证过的 7B 及以上，更大规模是否仍然有利有待评估，而且把 SSM 放大可能还有本文没有讨论的工程难题与模型调整；No Free Lunch 段说选择机制克服了离散模态的弱点，但反过来可能损害 LTI SSM 本来擅长的连续信号，音频波形消融专门看了这个取舍；Downstream Affordances 段把微调、适配、提示、上下文学习、指令微调、RLHF、量化这些 Transformer 生态性质是否同样成立列为待研究。\n它没主张的：论文没有说在 7B 以上规模仍优于 Transformer；5× 指的是推理吞吐而不是训练速度，§4.5 说明它来自没有 KV 缓存因而能用更大 batch，举的例子还是一个未训练的 Mamba-6.9B 对比小 5 倍的 Transformer-1.3B；百万长度的外推结论来自 §4.1.2 的合成 induction heads 任务，那里作者注明所有注意力模型因显存限制只测到 16384，所以不是同长度下的对照；表 1 的比较也限定在同 tokenizer、同数据集、同 300B token 训练量的开源模型（Pythia、RWKV）上，跨 tokenizer 的困惑度不放在一起比。",
+      "en": "Problem: earlier subquadratic architectures (linear attention, gated convolution, structured state space models) did not match attention on discrete modalities such as language, and the authors identify the key weakness as an inability to select what to remember or forget based on content; can SSM parameters be made input-dependent while still training efficiently.\nWhere the evidence sits: the selection mechanism is in 3.2, the hardware-aware parallel scan in 3.3, and the simplified architecture without attention or MLP blocks in 3.4; language modelling scaling laws are in 4.2.1 and Figure 6 (roughly 125M to 1.3B parameters, the Pile, under the Chinchilla protocol), zero-shot downstream results in Table 1, and speed and memory in 4.5 and Figure 12; the limits are in Section 5 Discussion, under No Free Lunch, Downstream Affordances and Scaling.\nWhat the authors say about limits: the Scaling paragraph in Section 5 states that the empirical evaluation is limited to small model sizes, below most strong open source LLMs and below RWKV and RetNet which have been evaluated at 7B and beyond, that whether Mamba still compares favorably at larger sizes remains to be assessed, and that scaling SSMs may involve further engineering challenges and model adjustments not discussed in the paper; the No Free Lunch paragraph says selection overcomes weaknesses on discrete modalities but can conversely impede performance on the continuous signals where LTI SSMs excel, a tradeoff examined in the audio waveform ablations; the Downstream Affordances paragraph leaves open whether fine-tuning, adaptation, prompting, in-context learning, instruction tuning, RLHF and quantisation behave the same way.\nWhat it does not claim: the paper does not claim an advantage over Transformers above 7B; the 5× figure is inference throughput, not training speed, and 4.5 explains it comes from having no KV cache and therefore much larger batch sizes, with the example being an untrained Mamba-6.9B against a Transformer-1.3B five times smaller; the million-length extrapolation result comes from the synthetic induction heads task in 4.1.2, where the authors note all attention models were only tested up to 16384 because of memory limits, so it is not a like-for-like length comparison; and Table 1 restricts comparison to open models sharing the tokenizer, dataset and 300B training tokens (Pythia, RWKV), with perplexity compared only within the same tokenizer."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "§3.2–§3.4（方法）；§4.2.1 与 Figure 6、表 1（语言）；§4.5 与 Figure 12（速度）；§5 Discussion（局限）",
+      "语言模型规模 / scale": "摘要口径 Mamba-3B，称同规模优于 Transformer、追平两倍规模",
+      "推理吞吐 / throughput": "摘要 5×；§4.5 记为 4–5×，相对同规模 Transformer",
+      "序列长度 / length": "随序列长度线性；真实数据上到百万长度仍改善（摘要口径）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "hoffmann-2022-chinchilla",
+    "title": {
+      "zh": "Training Compute-Optimal Large Language Models",
+      "en": "Training Compute-Optimal Large Language Models"
+    },
+    "category": "scaling",
+    "url": "https://arxiv.org/abs/2203.15556",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2203.15556",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.15556",
+        "quote": "We investigate the optimal model size and number of tokens for training a transformer language model under a given compute budget."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.15556",
+        "quote": "Due to the cost of training large models, we only have two comparable training runs at large scale (Chinchilla and Gopher), and we do not have additional tests at intermediate scales."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.15556",
+        "quote": "we assume that the efficient computational frontier can be described by a power-law relationship between the compute budget, model size, and number of training tokens."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.15556",
+        "quote": "Some caution is needed when comparing Chinchilla with Gopher on these language modelling benchmarks as Chinchilla is trained on 4× more data than Gopher and thus train/test set leakage may artificially enhance the results."
+      }
+    ],
+    "notes": {
+      "zh": "问题：在给定算力预算下，模型参数与训练 token 该怎么分配，才能得到损失最低的模型。\n证据位置：三种拟合方法给出的指数在 Table 2（方法一 a=0.50、b=0.50；方法二 0.49/0.51；方法三 0.46/0.54），对照 Kaplan et al. 2020 的 0.73/0.27；参数拟合式在附录 D.2。\n作者自陈局限：讨论一节自己列了三条——大规模上只有 Chinchilla 与 Gopher 两次可比训练、缺中间规模验证；假设算力前沿服从幂律；在高算力区观察到 log(N_opt) 出现凹性，因此可能仍然高估了最优模型规模。此外作者提示 Chinchilla 用了四倍于 Gopher 的数据、训练集与测试集重叠可能人为抬高基准成绩。\n它没主张的：论文没有说「模型越小越好」，也没有给出适用于任何架构的常数；结论是同一算力预算下参数与 token 应按相同比例增长，且这一结论建立在语言模型与所采用拟合形式之上。",
+      "en": "Problem: under a fixed compute budget, how should parameters and training tokens be split to reach the lowest loss.\nWhere the evidence sits: the exponents from three fitting procedures are in Table 2 (method one a=0.50, b=0.50; method two 0.49/0.51; method three 0.46/0.54), against 0.73/0.27 in Kaplan et al. 2020; the parametric fit is in Appendix D.2.\nWhat the authors say about limits: the discussion lists three — only two comparable large-scale runs (Chinchilla and Gopher) with no intermediate-scale validation; an assumption that the compute-efficient frontier follows a power law; and observed concavity in log(N_opt) at high compute budgets, which suggests the optimal model size may still be overestimated. The authors also caution that Chinchilla saw four times more data than Gopher, so train/test overlap may inflate benchmark results.\nWhat it does not claim: the paper does not say smaller is better, nor produce constants valid for any architecture; the finding is that parameters and tokens should scale in equal proportion at a given budget, conditional on language models and the fitted form used."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "被测模型规模 / model": "70B 参数，1.4T token",
+      "拟合指数 a,b / exponents": "0.50 / 0.50（方法一）· 对照 Kaplan 2020: 0.73 / 0.27",
+      "MMLU 平均准确率 / MMLU": "67.5%",
+      "局限位置 / limits": "Section 5 Discussion & Conclusion",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "hu-2021-lora",
+    "title": {
+      "zh": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "en": "LoRA: Low-Rank Adaptation of Large Language Models"
+    },
+    "category": "adaptation",
+    "url": "https://arxiv.org/abs/2106.09685",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2106.09685",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2106.09685",
+        "quote": "Compared to GPT-3 175B fine-tuned with Adam, LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2106.09685",
+        "quote": "LoRA also has its limitations. For example, it is not straightforward to batch inputs to different tasks with different A and B in a single forward pass, if one chooses to absorb A and B into W to eliminate additional inference latency."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2106.09685",
+        "quote": "On GPT-3 175B, we reduce the VRAM consumption during training from 1.2TB to 350GB."
+      }
+    ],
+    "notes": {
+      "zh": "问题：全参数微调大模型要保存全部梯度与优化器状态，显存成本高；能不能只训练一组低秩增量，把主干权重冻住。\n证据位置：可训练参数减少约一万倍、显存需求降三倍的总体结论在摘要；训练显存从 1.2TB 降到 350GB、r=4 时 checkpoint 从 350GB 降到 35MB、训练提速 25% 都在 Section 4.2。\n作者自陈局限：Section 4.2 明确以「LoRA also has its limitations」开头——如果把低秩矩阵合并进原权重以消除推理延迟，就无法在单次前向里为不同任务批量喂入不同的 A 与 B；作者给出的替代是延迟不敏感场景下不合并、按样本动态选模块。\n它没主张的：论文没有说低秩适配能追上全参数微调的最终质量上限，也没有覆盖所有模型规模；被广泛转述的「省显存」是训练阶段的数字，不等于推理更快。",
+      "en": "Problem: full fine-tuning of a large model requires storing every gradient and optimiser state, which is memory-expensive; can a low-rank increment be trained while the base weights stay frozen.\nWhere the evidence sits: the headline reduction of about ten thousand times fewer trainable parameters and three times less GPU memory is in the abstract; the drop from 1.2 TB to 350 GB of training VRAM, the checkpoint going from 350 GB to 35 MB at r=4, and a 25% training speed-up are all in Section 4.2.\nWhat the authors say about limits: Section 4.2 opens with \"LoRA also has its limitations\" — if the low-rank matrices are merged into the original weights to remove inference latency, batched inputs to different tasks with different A and B in a single forward pass become awkward; the stated alternative is to skip the merge when latency is not critical and select modules per sample.\nWhat it does not claim: the paper does not claim low-rank adaptation matches the quality ceiling of full fine-tuning, nor cover every model scale; the widely repeated memory saving is a training figure and does not imply faster inference."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "可训练参数 / trainable": "减少约 10,000 倍（GPT-3 175B）",
+      "训练显存 / training VRAM": "1.2 TB → 350 GB",
+      "checkpoint 体积 / size": "350 GB → 35 MB（r=4，仅 q、v）",
+      "训练加速 / speed-up": "25%",
+      "局限位置 / limits": "Section 4.2 Practical Benefits and Limitations",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "kaplan-2020-scaling-laws",
+    "title": {
+      "zh": "Scaling Laws for Neural Language Models",
+      "en": "Scaling Laws for Neural Language Models"
+    },
+    "category": "scaling",
+    "url": "https://arxiv.org/abs/2001.08361",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2001.08361",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2001.08361",
+        "quote": "The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2001.08361",
+        "quote": "Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2001.08361",
+        "quote": "Without a theory or a systematic understanding of the corrections to our scaling laws, it’s difficult to determine in what circumstances they can be trusted."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2001.08361",
+        "quote": "In the domain of natural language, it will be important to investigate whether continued improvement on the loss translates into improvement on relevant language tasks."
+      }
+    ],
+    "notes": {
+      "zh": "问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。\n证据位置：三条基本幂律在 §1.2 与 Figure 1（α_N≈0.076、α_D≈0.095、α_Cmin≈0.050），过拟合与数据/参数比例在 §4，算力最优分配在 §6.1 与 Figure 14（N(C_min)∝C_min^0.73，数据需求约按 C^0.27 增长）；局限有专门的 Appendix C Caveats，另有 §6.3 Contradictions and a Conjecture 与 §8 Discussion。\n作者自陈局限：Appendix C 列了六条——目前对提出的任何标度律都没有扎实的理论理解，缺了理论或对修正项的系统认识就难以判断它们在什么情况下可信；对远超实验损失范围的 B_crit(L) 预测没有信心；小数据区没有仔细研究，最小 D 上 L(N,D) 拟合很差，也没试正则化与数据增强；算力用 C≈6NBS 估计、未计入与上下文长度成正比的项，因此在 n_ctx 很大时算力标度可能被混淆；可能漏调了某些影响标度的超参（如初始化尺度或动量）；学习率最优值依赖目标损失，未跑到收敛的短训练没有试过更高学习率。§6.3 还自己指出：外推到远高于实验的规模时 L(C_min) 与 L(D) 会相交而出现矛盾，说明幂律在那之前必然失效，交点是否代表性能上限只是作者的猜想。\n它没主张的：论文测的是交叉熵损失，不是下游任务成绩——§8 明确把「损失继续下降是否转化为相关语言任务的提升」列为待研究；也没有说这些关系适用于语言以外，§8 写作者尚不知道哪些结果依赖自然语言数据的结构、哪些是普适的；「大模型配相对少量数据并显著早停」是给定算力预算下的分配结论，不是「数据不重要」的普遍主张，作者同时写明趋势最终必然变平，因为自然语言的熵非零。",
+      "en": "Problem: how does language model cross-entropy loss change with parameter count, dataset size and training compute, how should a fixed compute budget be allocated, and can this be written as extrapolatable equations.\nWhere the evidence sits: the three basic power laws are in 1.2 and Figure 1 (alpha_N about 0.076, alpha_D about 0.095, alpha_Cmin about 0.050), overfitting and the data-to-parameter ratio in Section 4, and optimal compute allocation in 6.1 and Figure 14 (N(C_min) proportional to C_min^0.73, with data requirements growing roughly as C^0.27); the limits have a dedicated Appendix C Caveats, plus 6.3 Contradictions and a Conjecture and Section 8 Discussion.\nWhat the authors say about limits: Appendix C lists six — there is at present no solid theoretical understanding of any of the proposed scaling laws, and without a theory or a systematic understanding of the corrections it is difficult to determine when they can be trusted; they are not especially confident in the B_crit(L) prediction far outside the explored loss range; the small data regime was not thoroughly investigated, fits for L(N,D) were poor at the smallest D, and regularisation and data augmentation were not tried; compute was estimated as C about 6NBS without the term proportional to context length, so compute scalings may be confounded at very large n_ctx; some hyperparameter affecting scaling (such as initialisation scale or momentum) may have been left untuned; and the optimal learning rate depends on the target loss, with higher rates not tried for runs that did not reach convergence. Section 6.3 also notes that extrapolating far beyond the studied scale makes L(C_min) and L(D) intersect, an apparent contradiction implying the laws must break down before that point, and whether the intersection marks maximal performance is offered only as a conjecture.\nWhat it does not claim: the paper measures cross-entropy loss, not downstream task scores — Section 8 explicitly leaves open whether continued loss improvement translates into improvement on relevant language tasks; it does not claim the relations hold outside language, and Section 8 says the authors do not know which results depend on the structure of natural language data and which are universal; and very large models on relatively modest data with early stopping is an allocation result under a fixed compute budget, not a general claim that data does not matter — the authors also write that the trends must eventually level off because natural language has non-zero entropy."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "§1.2 与 Figure 1（三条幂律）；§4（过拟合）；§6.1 与 Figure 14（算力分配）；Appendix C Caveats；§6.3；§8",
+      "趋势跨度 / span": "摘要称部分趋势跨越七个以上数量级",
+      "测量对象 / metric": "交叉熵损失，不是下游任务分数",
+      "算力分配结论 / allocation": "很大的模型 + 相对少量数据 + 显著早停（摘要口径）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "kwon-2023-vllm-pagedattention",
+    "title": {
+      "zh": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+      "en": "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+    },
+    "category": "efficiency",
+    "url": "https://arxiv.org/abs/2309.06180",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2309.06180",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2309.06180",
+        "quote": "High throughput serving of large language models (LLMs) requires batching sufficiently many requests at a time."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2309.06180",
+        "quote": "Our evaluations show that vLLM improves the throughput of popular LLMs by 2-4× with the same level of latency compared to the state-of-the-art systems, such as FasterTransformer and Orca."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2309.06180",
+        "quote": "For another example, in serving DNNs that are not LLMs, an increase in memory efficiency may not result in any performance improvement since the performance is primarily compute-bound."
+      }
+    ],
+    "notes": {
+      "zh": "问题：服务端要靠批处理提高吞吐，但 KV 缓存占的显存既大又碎片化，批大小上不去；能不能用分页思路管理 KV 缓存。\n证据位置：摘要给出 2–4 倍吞吐结论，对比对象是 FasterTransformer 与 Orca；分场景数字在第 6 节。\n作者自陈局限：没有独立 Limitations 章节，边界写在第 8 节 Discussion——这套优化不适用于所有 GPU 负载：训练时张量形状固定、显存可提前规划；非 LLM 的推理若本身是算力瓶颈，提高显存效率不会提速，引入分页反而可能因间接寻址与非连续块访问而变慢。第 7.1 节的微基准还显示注意力 kernel 延迟比高度优化的 FasterTransformer 高 20–26%。\n它没主张的：论文没有说 2–4 倍是端到端普遍结论，也没有说分页在任何负载上都不亏；块大小存在权衡——太小用不满并行度、太大内部碎片增加且共享概率下降。",
+      "en": "Problem: serving throughput depends on batching, but KV cache memory is large and fragmented, which caps batch size; can paged memory management be applied to the KV cache.\nWhere the evidence sits: the abstract gives the 2-4× throughput result against FasterTransformer and Orca; per-scenario numbers are in Section 6.\nWhat the authors say about limits: no separate Limitations section; the boundaries are in Section 8 (Discussion) — the optimisation does not generally hold for every GPU workload. In DNN training tensor shapes are typically static so allocation can be optimised ahead of time; for non-LLM inference that is compute-bound, raising memory efficiency may not help at all, and adding paged indirection and non-contiguous blocks may instead degrade performance. The Section 7.1 microbenchmark also reports 20-26% higher attention kernel latency than the highly optimised FasterTransformer implementation.\nWhat it does not claim: the paper does not present 2-4× as a universal end-to-end result, nor claim paging is free on any workload; block size is a tradeoff — too small underuses GPU parallelism, too large increases internal fragmentation and lowers the chance of sharing."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要；Section 6 分场景；Section 8 Discussion；7.1 微基准",
+      "吞吐提升 / throughput": "2–4×（对比 FasterTransformer、Orca）",
+      "kernel 开销 / overhead": "注意力 kernel 延迟高 20–26%",
+      "不适用场景 / not applicable": "静态形状训练、算力瓶颈的非 LLM 推理",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "leviathan-2023-speculative-decoding",
+    "title": {
+      "zh": "Fast Inference from Transformers via Speculative Decoding",
+      "en": "Fast Inference from Transformers via Speculative Decoding"
+    },
+    "category": "efficiency",
+    "url": "https://arxiv.org/abs/2211.17192",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2211.17192",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2211.17192",
+        "quote": "We demonstrate it on T5-XXL and show a 2X-3X acceleration compared to the standard T5X implementation, with identical outputs."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2211.17192",
+        "quote": "We measure walltime improvements with a batch size of 1 on a single TPU-v4 for both argmax sampling (temp=0) and standard sampling (temp=1)."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2211.17192",
+        "quote": "We observe speedups of 2.6X (temp=1) and 3.4X (temp=0) on the translation task and slightly lower speedups of 2.3X (temp=1) and 3.1X (temp=0) for the summarization task."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2211.17192",
+        "quote": "One limitation of speculative execution in general, and of speculative decoding in particular, is that latency is improved through increased concurrency at the cost of an increased number of arithmetic operations. Thus, our method is not helpful for configurations where additional computation resources are not available."
+      }
+    ],
+    "notes": {
+      "zh": "问题：自回归解码是串行的——生成 K 个 token 就要串行跑 K 次大模型；能否不改架构、不重训、也不改变输出分布，就把解码加速。\n证据位置：摘要给出 T5-XXL 对比标准 T5X 实现的 2X-3X 加速且输出不变；实测数字在 Section 4.1 Table 2——单张 TPU-v4、batch size 1，目标模型 T5-XXL（11B），近似模型为 T5-small/base/large，任务是 WMT EnDe 翻译与 CNNDM 摘要；局限写在 Section 6 Discussion。\n作者自陈局限：原文写明 \"latency is improved through increased concurrency at the cost of an increased number of arithmetic operations\"，因此 \"our method is not helpful for configurations where additional computation resources are not available\"；另自陈 \"We tested speculative decoding only in the text modality\"，beam search 场景的分析 \"we leave it for future work\"（Appendix A.4）。\n它没主张的：论文没有说总算术运算量会下降——拒绝猜测时计算被浪费、总运算量可能更高，加速前提是有闲置算力（如内存带宽是瓶颈）；2X-3X 是 batch size 1、单 TPU-v4、对比 T5X 这一特定实现的口径，不能直接外推到批处理服务或其他硬件；也没有在其他模态上给出结果。",
+      "en": "Problem: autoregressive decoding is serial — decoding K tokens takes K serial runs of the large model; can it be accelerated without changing the architecture, retraining, or the output distribution.\nWhere the evidence sits: the abstract reports 2X-3X acceleration on T5-XXL vs the standard T5X implementation with identical outputs; the measurements are in Section 4.1, Table 2 — a single TPU-v4, batch size 1, T5-XXL (11B) as target with T5-small/base/large as approximation models, on WMT EnDe translation and CNNDM summarization; the limits are in Section 6, Discussion.\nWhat the authors say about limits: the paper states \"latency is improved through increased concurrency at the cost of an increased number of arithmetic operations\", hence \"our method is not helpful for configurations where additional computation resources are not available\"; it also notes \"We tested speculative decoding only in the text modality\", and the beam-search analysis is left to future work (Appendix A.4).\nWhat it does not claim: the paper does not claim fewer total arithmetic operations — rejected guesses waste computation and total operations may rise, and the speed-up presupposes spare compute (e.g. memory bandwidth as the bottleneck); the 2X-3X figure is specific to batch size 1 on one TPU-v4 against the T5X implementation and does not automatically transfer to batched serving or other hardware; no results are claimed for other modalities."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要；Section 4.1 Table 2（单 TPU-v4、batch size 1）；Section 6 Discussion",
+      "T5-XXL 加速 / speedup": "2X-3X（对比标准 T5X 实现，输出不变）",
+      "EnDe 翻译 / translation": "2.6X（temp=1）/ 3.4X（temp=0）",
+      "CNNDM 摘要 / summarization": "2.3X（temp=1）/ 3.1X（temp=0）",
+      "测量设置 / setup": "batch size 1，单张 TPU-v4",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "li-2021-prefix-tuning",
+    "title": {
+      "zh": "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+      "en": "Prefix-Tuning: Optimizing Continuous Prompts for Generation"
+    },
+    "category": "adaptation",
+    "url": "https://arxiv.org/abs/2101.00190",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2101.00190",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2101.00190",
+        "quote": "In this paper, we propose prefix-tuning, a lightweight alternative to fine-tuning for natural language generation tasks, which keeps language model parameters frozen, but optimizes a small continuous task-specific vector (called the prefix)."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2101.00190",
+        "quote": "We find that by learning only 0.1% of the parameters, prefix-tuning obtains comparable performance in the full data setting, outperforms fine-tuning in low-data settings, and extrapolates better to examples with topics unseen during training."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2101.00190",
+        "quote": "With only 0.1% parameters, prefix-tuning underperforms full fine-tuning (35.05 vs. 37.25)."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2101.00190",
+        "quote": "In concordance with this intuition, we observe that both prefix-tuning and adapter-tuning have significant performance gain in extrapolation settings (Section 6.4); however, the reason for such gain is an open question."
+      }
+    ],
+    "notes": {
+      "zh": "问题：全量微调会改动全部参数，因此每个任务都要存一份完整模型副本；能不能冻住语言模型，只学一小段连续的任务专属向量（前缀），让后续 token 像注意虚拟 token 一样注意它。\n证据位置：方法在 §4（含 §4.3 对前缀的重参数化）；主结果在 §6——表 1 是三个 table-to-text 数据集（E2E、WebNLG、DART），表 2 是 XSUM 摘要，低数据设定在 §6.3 与 Figure 3 右，外推在 §6.4；前缀长度等内在分析在 §7；开放问题在 §8 Discussion，结论在 §9。这篇没有独立的 Limitations 章节。\n作者自陈局限：局限散在结果与讨论里，作者自己写明的有——§6.2 直接承认在 XSUM 上不如全量微调（0.1% 参数时 ROUGE-L 35.05 对 37.25，2% 时 36.05 对 37.25），并列出三条可能原因：XSUM 样本量平均多 4 倍、输入文章平均长 17 倍、摘要可能比 table-to-text 更复杂，这些是作者的解释而非验证过的结论；§6.3 说低数据下的优势随数据量增大而缩小（平均高 2.9 BLEU）；§7.1 说前缀超过阈值（摘要 200、table-to-text 10）后训练损失更低但测试表现略降，提示过拟合；§8.3 说外推收益的原因仍是开放问题，而参数效率更高的解释也只是「我们认为」。\n它没主张的：论文只在 GPT-2 MEDIUM/LARGE 与 BART-LARGE 上验证（§5.3），§6.1 结尾说有潜力扩展到 GPT-3 这类更大的同架构模型，那是推测、没有实验；也没有说前缀微调在所有生成任务上都不输全量微调——摘要任务上就是输的；比较对象是 adapter 与只调顶部两层（FT-top2）等轻量基线，不涉及其他参数高效微调方法；§8.1、§8.2 关于百万用户个性化与跨用户批处理的说法是适用性讨论，没有对应的实验结果。",
+      "en": "Problem: full fine-tuning modifies every parameter, so a complete model copy has to be stored per task; can the language model be frozen and only a small continuous task-specific vector (the prefix) be learned, with subsequent tokens attending to it as if it were virtual tokens.\nWhere the evidence sits: the method is in Section 4, including the reparametrisation of the prefix in 4.3; main results are in Section 6 — Table 1 covers three table-to-text datasets (E2E, WebNLG, DART), Table 2 covers XSUM summarisation, the low-data setting is in 6.3 and Figure 3 (right), and extrapolation in 6.4; intrinsic analysis such as prefix length is in Section 7; open problems are in Section 8 Discussion and the conclusion in Section 9. There is no separate Limitations section.\nWhat the authors say about limits: the limits are spread across the results and discussion, and the ones the authors state themselves are — 6.2 plainly reports that prefix-tuning underperforms full fine-tuning on XSUM (ROUGE-L 35.05 versus 37.25 at 0.1% of parameters, and 36.05 versus 37.25 at 2%), and offers three possible reasons: XSUM has about 4x more examples on average, its input articles are about 17x longer, and summarisation may be more complex than table-to-text; these are the authors' explanations rather than verified conclusions. 6.3 says the low-data advantage narrows as the dataset grows (2.9 BLEU on average). 7.1 reports that beyond a threshold prefix length (200 for summarisation, 10 for table-to-text) training loss keeps dropping while test performance slightly degrades, suggesting overfitting. 8.3 says the reason for the extrapolation gain remains an open question, and the account of why prefix-tuning is more parameter-efficient is framed as what the authors think.\nWhat it does not claim: the experiments cover only GPT-2 MEDIUM/LARGE and BART-LARGE (5.3), and the closing remark in 6.1 that it has the potential to scale to larger models of similar architecture such as GPT-3 is a suggestion without experiments; the paper does not claim prefix-tuning matches full fine-tuning on every generation task — it loses on summarisation; the comparisons are against lightweight baselines such as adapters and tuning only the top two layers (FT-top2), not other parameter-efficient finetuning methods; and the personalisation and cross-user batching arguments in 8.1 and 8.2 are applicability discussion with no corresponding experimental results."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "§4（方法）；表 1（table-to-text）、表 2（XSUM）；§6.3、§6.4；§7.1；§8.3；§9",
+      "可训练参数 / params": "0.1%（摘要与 §6.1 口径）",
+      "XSUM ROUGE-L": "前缀 0.1% 为 35.05，全量微调 37.25（§6.2 原文）",
+      "验证架构 / models": "GPT-2 MEDIUM/LARGE、BART-LARGE（§5.3）",
+      "局限位置 / limits": "无独立 Limitations 章节；散在 §6.2、§6.3、§7.1、§8.3",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "ouyang-2022-instructgpt",
+    "title": {
+      "zh": "Training language models to follow instructions with human feedback",
+      "en": "Training language models to follow instructions with human feedback"
+    },
+    "category": "alignment",
+    "url": "https://arxiv.org/abs/2203.02155",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2203.02155",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.02155",
+        "quote": "Making language models bigger does not inherently make them better at following a user’s intent."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.02155",
+        "quote": "Our models are neither fully aligned nor fully safe; they still generate toxic or biased outputs, make up facts, and generate sexual and violent content without explicit prompting."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.02155",
+        "quote": "In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters."
+      }
+    ],
+    "notes": {
+      "zh": "问题：让模型跟着用户意图走，而不只是把下一词预测得更准；做法是用人类偏好数据做监督微调再训奖励模型做强化学习。\n证据位置：摘要给出 1.3B 胜过 175B 的偏好结论；局限集中在第 5.3 节 Limitations，对齐对象的讨论在第 5.2 节，未解决问题在第 5.4 节。\n作者自陈局限：写了三层——标注者以英语为主、数据几乎全是英文指令，不能代表全部使用者；模型既不完全对齐也不完全安全，仍会编造事实、生成有毒或偏见内容；作者认为最大的局限是模型多数情况下会服从用户指令，即使这在现实世界可能造成伤害。他们还明确说并不主张研究者、雇来的标注者或 API 客户就是偏好的正确来源。\n它没主张的：论文没有说对齐问题已被解决，也没有给出一个能同时满足所有人偏好的方案——作者原话是不可能训练出同时对齐所有人偏好、或让所有人都认可其取舍的系统。",
+      "en": "Problem: make a model follow user intent rather than only predict the next token better, using human preference data for supervised fine-tuning followed by reward-model-driven reinforcement learning.\nWhere the evidence sits: the abstract gives the 1.3B-beats-175B preference result; the limits are concentrated in Section 5.3 (Limitations), the question of whose preferences count is in 5.2, and open questions in 5.4.\nWhat the authors say about limits: three layers — labelers are primarily English-speaking and the data is almost entirely English instructions, so they are not representative of everyone affected; the models are neither fully aligned nor fully safe and still fabricate facts or produce toxic and biased content; and the stated greatest limitation is that the models follow the user’s instruction even when that could cause real-world harm. They also state plainly that they are not claiming researchers, hired labelers or API customers are the right source of preferences.\nWhat it does not claim: the paper does not say alignment is solved, nor offer a scheme that satisfies everyone — the authors write that it is impossible to train a system aligned to everyone’s preferences at once, or where everyone would endorse the tradeoffs."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要；Section 5.3 Limitations；5.2 对齐对象；5.4 开放问题",
+      "方法 / method": "SFT → 奖励模型 → PPO",
+      "摘要口径 / headline": "1.3B 的输出被偏好于 175B GPT-3，参数量少 100 倍",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "rafailov-2023-dpo",
+    "title": {
+      "zh": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "en": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+    },
+    "category": "alignment",
+    "url": "https://arxiv.org/abs/2305.18290",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2305.18290",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.18290",
+        "quote": "While large-scale unsupervised language models (LMs) learn broad world knowledge and some reasoning skills, achieving precise control of their behavior is difficult due to the completely unsupervised nature of their training."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.18290",
+        "quote": "Additionally, while we evaluate models up to 6B parameters, exploration of scaling DPO to state-of-the-art models orders of magnitude larger is an exciting direction for future work."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.18290",
+        "quote": "We note that we did not meaningfully tune DPO’s β hyperparameter, so these results may underestimate DPO’s potential."
+      }
+    ],
+    "notes": {
+      "zh": "问题：RLHF 要训多个模型、还要在训练循环里从策略采样，流程复杂且成本高；能不能把偏好优化直接写成一个分类损失，跳过显式奖励模型与采样。\n证据位置：方法推导与损失函数在正文前半；实验规模与超参说明在第 6 节。\n作者自陈局限：这篇没有独立的 Limitations 章节，局限以「未来工作」的问句形式写在讨论里——只验证到 6B 参数，向更大规模扩展尚未做；GPT-4 自动评判的胜率会受提示词影响，如何稳定地引出高质量判断仍是开放问题；作者还主动说明 β 超参没有认真调，因此结果可能低估了方法潜力。\n它没主张的：论文没有声称在更大规模上仍能追平 PPO 系方法，也没有说自动评判等同于人类判断；「更简单、更轻」是相对 RLHF 流程而言，不涉及最终模型能力上限。",
+      "en": "Problem: RLHF trains several models and samples from the policy inside the training loop, which is complex and costly; can preference optimisation be written as a classification loss that skips the explicit reward model and the sampling.\nWhere the evidence sits: the derivation and loss are in the first half of the paper; the experimental scale and hyperparameter note are in Section 6.\nWhat the authors say about limits: there is no separate Limitations section; the limits appear as future-work questions in the discussion — only models up to 6B parameters were evaluated, scaling to orders of magnitude larger is left open; GPT-4-computed win rates are affected by the prompt, so how to elicit reliable automated judgements is unresolved; and the authors volunteer that they did not meaningfully tune the β hyperparameter, so results may underestimate the method.\nWhat it does not claim: the paper does not claim parity with PPO-based methods at larger scale, nor equate automated judgement with human judgement; \"simpler and lighter\" refers to the RLHF pipeline, not to a ceiling on model capability."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "第 6 节（规模与 β 说明）；讨论部分（未来工作问句）",
+      "最大验证规模 / scale": "6B 参数",
+      "对比基线 / baseline": "PPO 系 RLHF",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "su-2021-roformer",
+    "title": {
+      "zh": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "en": "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2104.09864",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2104.09864",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2104.09864",
+        "quote": "Specifically, the proposed RoPE encodes the absolute position with a rotation matrix and meanwhile incorporates the explicit relative position dependency in self-attention formulation."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2104.09864",
+        "quote": "As can be seen, RoFormer can significantly outperform BERT in three out of six datasets, and the improvements are considerable."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2104.09864",
+        "quote": "However, when increasing the maximum input text length to 1024, RoFormer outperforms WoBERT by an absolute improvement of 1.5%."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2104.09864",
+        "quote": "Despite the fact that we mathematically format the relative position relations as rotations under 2D sub-spaces, there lacks of thorough explanations on why it converges faster than baseline models that incorporates other position encoding strategies."
+      }
+    ],
+    "notes": {
+      "zh": "问题：自注意力本身不带位置信息，已有的绝对与相对位置编码大多把位置向量加到词表示上，因此没法直接用在把注意力改写成线性形式的架构里；能不能让编码既带绝对位置、又在注意力内积中显式体现相对位置。\n证据位置：方法在 §3.2（二维旋转推广到一般形式），长程衰减等性质在 §3.3 与 §3.4.3；实验在 §4，原文说明全部跑在两台各 4 张 V100 的云服务器上——WMT14 英德 BLEU 在表 1（Transformer-base 27.3、RoFormer 27.5），GLUE 六项在表 2，Performer 加 RoPE 的预训练损失曲线在 Figure 3 右图，中文长文本 CAIL2019-SCM 在表 5；局限有独立小节 §4.5.5 Limitations of the work。\n作者自陈局限：§4.5.5 自己列了三条——把相对位置关系写成二维子空间里的旋转虽有数学形式，但没有充分解释为什么它比其他位置编码策略收敛更快；长程衰减性质已经证明、长文本上表现更好也观察到了，但作者说还没给出可信的解释；此外 RoFormer 建立在 Transformer 基础设施之上，预训练需要硬件资源。\n它没主张的：论文没有说 RoPE 在所有下游任务上都优于 BERT——表 2 里 SST-2、QNLI、MNLI 三项 RoFormer 更低，正文自己写的口径是六项中的三项；表 5 的 1024 结果也不能读成「只在 512 上训练、直接外推到 1024」的证据，因为表 4 的分阶段预训练把最大序列长度提到过 1536；「能配线性自注意力」这一点在 §4.4 只用 Performer 的预训练损失曲线验证，没有给下游任务分数。",
+      "en": "Problem: self-attention carries no position information by itself, and most existing absolute and relative encodings add a position vector to the token representation, so they cannot be used directly in architectures that rewrite attention in linear form; can an encoding carry absolute position while making relative position explicit inside the attention inner product.\nWhere the evidence sits: the method is in 3.2 (a 2D rotation generalised to the full form) and the long-term decay properties in 3.3 and 3.4.3; experiments are in Section 4, which states they all ran on two cloud servers with 4 V100 GPUs each — WMT14 English-German BLEU in Table 1 (Transformer-base 27.3, RoFormer 27.5), six GLUE tasks in Table 2, Performer-with-RoPE pre-training loss curves in Figure 3 (right), and Chinese long-text CAIL2019-SCM in Table 5; the limits have their own subsection, 4.5.5 Limitations of the work.\nWhat the authors say about limits: 4.5.5 lists three — although relative position is formulated mathematically as rotations in 2D sub-spaces, there is no thorough explanation of why it converges faster than other position encoding strategies; the long-term decay property is proved and better long-text performance is observed, but the authors say they have not come up with a faithful explanation; and RoFormer is built on Transformer-based infrastructure, so pre-training requires hardware resources.\nWhat it does not claim: the paper does not say RoPE beats BERT on every downstream task — in Table 2 RoFormer is lower on SST-2, QNLI and MNLI, and the text itself says three out of six datasets; the 1024 result in Table 5 is not evidence of train-at-512-then-extrapolate, because the staged pre-training in Table 4 raised the maximum sequence length to 1536; and compatibility with linear self-attention is supported in 4.4 only by Performer pre-training loss curves, with no downstream task scores."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "§3.2–§3.4（方法与性质）；表 1、表 2、表 5、Figure 3；§4.5.5 Limitations of the work",
+      "GLUE 对比口径 / GLUE": "正文写六项中的三项优于 BERT（表 2）",
+      "中文长文本 / long text": "CAIL2019-SCM 输入长度 1024 时较 WoBERT 绝对提升 1.5%（§4.5.4 原文口径）",
+      "局限位置 / limits": "§4.5.5 Limitations of the work（独立小节）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "vaswani-2017-attention",
+    "title": {
+      "zh": "Attention Is All You Need",
+      "en": "Attention Is All You Need"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/1706.03762",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/1706.03762",
+        "quote": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/1706.03762",
+        "quote": "In the Transformer this is reduced to a constant number of operations, albeit at the cost of reduced effective resolution due to averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as described in section 3.2."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/1706.03762",
+        "quote": "We plan to extend the Transformer to problems involving input and output modalities other than text and to investigate local, restricted attention mechanisms to efficiently handle large inputs and outputs such as images, audio and video."
+      }
+    ],
+    "notes": {
+      "zh": "问题：把序列转导模型从循环与卷积结构里解耦，只靠注意力建立输入输出之间的依赖，从而让训练可以并行。\n证据位置：自注意力与其他层类型的每层复杂度、最少顺序操作数与最大路径长度比较在 Section 4「Why Self-Attention」的 Table 1。\n作者自陈局限：结论一节没有写自身方法的局限，只给了两条未来工作——把模型扩到文本以外的模态、让生成更少串行。全文唯一接近代价的表述出现在 Section 2 Background，承认对注意力权重取平均会降低有效分辨率，并说明用多头注意力来抵消。\n它没主张的：论文没有比较不同规模下的训练成本，也没有声称在机器翻译之外的任务上同样有效；「让生成更少串行」是研究目标，不是已完成的结果。",
+      "en": "Problem: decouple sequence transduction from recurrent and convolutional structures and let attention alone carry the dependencies between input and output, so training can be parallelised.\nWhere the evidence sits: the per-layer complexity, minimum sequential operations and maximum path length comparison across layer types is Table 1 in Section 4, \"Why Self-Attention\".\nWhat the authors say about limits: the conclusion states no limitation of the method itself and offers only two future-work items — extending the model to modalities other than text, and making generation less sequential. The one place in the paper that comes close to a cost statement is Section 2 (Background), which concedes that averaging attention-weighted positions reduces effective resolution and says multi-head attention counteracts it.\nWhat it does not claim: the paper does not compare training cost across scales, nor claim effectiveness beyond machine translation; \"making generation less sequential\" is a research goal, not a delivered result."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "Section 4, Table 1（复杂度、顺序操作数、最大路径长度）",
+      "局限位置 / limits": "Section 7 结论：无局限声明，仅两条未来工作",
+      "代价表述 / cost": "Section 2 Background：注意力加权平均会降低有效分辨率",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "wang-2022-self-consistency",
+    "title": {
+      "zh": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "en": "Self-Consistency Improves Chain of Thought Reasoning in Language Models"
+    },
+    "category": "reasoning",
+    "url": "https://arxiv.org/abs/2203.11171",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2203.11171",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.11171",
+        "quote": "Chain-of-thought prompting combined with pre-trained large language models has achieved encouraging results on complex reasoning tasks."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.11171",
+        "quote": "One limitation of self-consistency is that it incurs more computation cost."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.11171",
+        "quote": "Our extensive empirical evaluation shows that self-consistency boosts the performance of chain-of-thought prompting with a striking margin on a range of popular arithmetic and commonsense reasoning benchmarks, including GSM8K (+17.9%), SVAMP (+11.0%), AQuA (+12.2%), StrategyQA (+6.4%) and ARC-challenge (+3.9%)."
+      }
+    ],
+    "notes": {
+      "zh": "问题：思维链只采样一条推理路径，这条路错了答案就错了；能不能采样多条再取一致答案。\n证据位置：五项基准的绝对提升写在摘要；方法为先采样多条推理路径再对最终答案投票，见正文方法一节。\n作者自陈局限：第 5 节只有两句——一是计算成本更高（要多次采样），这是方法自带的代价；二是观察到模型有时会生成错误甚至无意义的推理路径，如何让推理有据仍是后续工作。\n它没主张的：论文没有说多数投票能纠正系统性错误——若模型在某类题上一致地错，投票只会强化错误；也没有说提升来自「推理更好」，测量的是最终答案准确率，不是推理过程正确性。作者在附录里对多模型集成的批评不适用于本方法，不要混引。",
+      "en": "Problem: chain of thought samples a single reasoning path, so a wrong path yields a wrong answer; can several paths be sampled and the consistent answer taken.\nWhere the evidence sits: the absolute gains on five benchmarks are in the abstract; the method samples multiple reasoning paths and marginalises over final answers, described in the method section.\nWhat the authors say about limits: Section 5 gives two — it incurs more computation cost, an inherent price of multiple sampling; and models sometimes generate incorrect or nonsensical reasoning paths, with grounding rationales left to future work.\nWhat it does not claim: the paper does not claim majority voting corrects systematic error — if the model is consistently wrong on a class of problems, voting reinforces the wrong answer — nor that the gain comes from better reasoning, since what is measured is final-answer accuracy rather than the validity of the reasoning. The appendix criticism of multi-model ensembles does not apply to this method and should not be cited as its limitation."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要（五项绝对提升）；Section 5 结论与讨论",
+      "GSM8K": "+17.9% 绝对准确率",
+      "SVAMP / AQuA": "+11.0% / +12.2%",
+      "StrategyQA / ARC-c": "+6.4% / +3.9%",
+      "代价 / cost": "多次采样，计算成本上升",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "wei-2022-chain-of-thought",
+    "title": {
+      "zh": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "en": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"
+    },
+    "category": "reasoning",
+    "url": "https://arxiv.org/abs/2201.11903",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2201.11903",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+        "quote": "We explore how generating a chain of thought—a series of intermediate reasoning steps—significantly improves the ability of large language models to perform complex reasoning."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+        "quote": "As for limitations, we first qualify that although chain of thought emulates the thought processes of human reasoners, this does not answer whether the neural network is actually \"reasoning,\" which we leave as an open question."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+        "quote": "Third, there is no guarantee of correct reasoning paths, which can lead to both correct and incorrect answers; improving factual generations of language models is an open direction for future work (Rashkin et al. 2021; Ye and Durrett 2022; Wiegreffe et al. 2022, inter alia)."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+        "quote": "Finally, the emergence of chain-of-thought reasoning only at large model scales makes it costly to serve in real-world applications; further research could explore how to induce reasoning in smaller models."
+      }
+    ],
+    "notes": {
+      "zh": "问题：复杂推理任务上直接给答案效果差，能不能让模型先写出中间推理步骤再给结论。\n证据位置：规模涌现的结论在 Figure 4 与第 3.2 节，GSM8K 的具体数值在表 1、表 2（PaLM 540B 从 17.9 升到 56.9）。\n作者自陈局限：第 6 节列了四条——思维链模仿了人类的思考过程，但这不回答神经网络是否真的在「推理」，作者把它留作开放问题；少样本场景手工加推理链的标注成本很低，但换到微调就可能高得不可行；没有任何机制保证推理路径正确，错误路径也能推出看似合理的答案；这种能力只在大规模模型上涌现，导致实际服务成本高。\n它没主张的：论文没有说思维链让模型获得了可靠推理能力，也没有说小模型加提示就能复现；作者明确写了它对 10B 以下多数模型反而有害，所以「加一句 let’s think step by step 就变聪明」不是这篇的结论。",
+      "en": "Problem: on complex reasoning tasks, answering directly works poorly; can the model be made to write intermediate steps before concluding.\nWhere the evidence sits: the scale-emergence result is Figure 4 and Section 3.2; the GSM8K numbers are Tables 1 and 2 (PaLM 540B from 17.9 to 56.9).\nWhat the authors say about limits: Section 6 lists four — a chain of thought emulates human reasoning but does not answer whether the network is actually reasoning, which is left open; manually annotating chains is cheap in the few-shot setting but could be prohibitive for fine-tuning; there is no guarantee of correct reasoning paths, so wrong paths also produce plausible answers; and the ability emerges only at large scale, making real-world serving costly.\nWhat it does not claim: the paper does not say chain of thought confers reliable reasoning, nor that small models can reproduce it with a prompt — the authors state it actually hurts most models under 10B parameters, so \"just add let us think step by step\" is not the finding here."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "Figure 4 与第 3.2 节；表 1、表 2（GSM8K）",
+      "GSM8K / PaLM 540B": "17.9 → 56.9（标准提示 → 思维链）",
+      "涌现门槛 / emergence": "约 100B 参数以上；10B 以下多为负收益",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "yao-2022-react",
+    "title": {
+      "zh": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "en": "ReAct: Synergizing Reasoning and Acting in Language Models"
+    },
+    "category": "reasoning",
+    "url": "https://arxiv.org/abs/2210.03629",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2210.03629",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2210.03629",
+        "quote": "While large language models (LLMs) have demonstrated impressive performance across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting (e.g. action plan generation) have primarily been studied as separate topics."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2210.03629",
+        "quote": "While interleaving reasoning, action and observation steps improves ReAct’s groundedness and trustworthiness, such a structural constraint also reduces its flexibility in formulating reasoning steps, leading to more reasoning error rate than CoT."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2210.03629",
+        "quote": "For ReAct, successfully retrieving informative knowledge via search is critical. Non-informative search, which counts for 23% of the error cases, derails the model reasoning and gives it a hard time to recover and reformulate thoughts."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2210.03629",
+        "quote": "Despite the simplicity of our method, complex tasks with large action spaces require more demonstrations to learn well, which unfortunately can easily go beyond the input length limit of in-context learning."
+      }
+    ],
+    "notes": {
+      "zh": "问题：推理（思维链）与行动（动作规划）此前被分开研究，能不能让模型交替「想一步、做一步、看结果」再继续。\n证据位置：摘要给出 ALFWorld 与 WebShop 分别高出模仿学习与强化学习 34% 与 10% 的绝对成功率；HotpotQA 27.4、FEVER 60.9 在表 1。\n作者自陈局限：没有独立的 Limitations 章节，边界散在 §3.3 与 §6——交替结构提高了可追溯性，但也限制了推理自由度，推理错误率比纯思维链更高；检索到的信息是否有用是成败关键，无效检索占错误案例的 23%；大动作空间任务需要更多示例，很容易超出上下文长度上限；作者还指出所有提示方法都仍显著落后于领域专用的 SOTA，且离人类专家水平很远。\n它没主张的：论文没有说 ReAct 在所有任务上都优于思维链——在 HotpotQA 上它比 CoT 略低（27.4 对 29.4），只在 FEVER 上更高；也没有说它能替代微调或达到人类水平。",
+      "en": "Problem: reasoning (chain of thought) and acting (action planning) had been studied separately; can a model interleave thinking, acting and observing.\nWhere the evidence sits: the abstract gives absolute success-rate gains of 34% and 10% over imitation and reinforcement learning on ALFWorld and WebShop; HotpotQA 27.4 and FEVER 60.9 are in Table 1.\nWhat the authors say about limits: no separate Limitations section; the boundaries are in 3.3 and 6 — the interleaved structure improves groundedness and trustworthiness but constrains reasoning flexibility, raising the reasoning error rate above plain chain of thought; whether retrieval returns useful knowledge is critical, and non-informative search accounts for 23% of error cases; tasks with large action spaces need more demonstrations, which easily exceed the in-context length limit; and all prompting methods remain well behind domain-specific state of the art and far from expert humans.\nWhat it does not claim: the paper does not say ReAct beats chain of thought on every task — on HotpotQA it is slightly lower (27.4 versus 29.4) and only higher on FEVER — nor that it replaces fine-tuning or reaches human level."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要；表 1（HotpotQA / FEVER）；§3.3 与 §6",
+      "ALFWorld": "最佳 ReAct 平均成功率 71%（Act 45%、BUTLER 37%）",
+      "WebShop": "成功率绝对提升 10%",
+      "HotpotQA / FEVER": "27.4 EM / 60.9 Acc",
+      "无效检索占比 / failed retrieval": "错误案例的 23%",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "yao-2023-tree-of-thoughts",
+    "title": {
+      "zh": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+      "en": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models"
+    },
+    "category": "reasoning",
+    "url": "https://arxiv.org/abs/2305.10601",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2305.10601",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.10601",
+        "quote": "For instance, in Game of 24, while GPT-4 with chain-of-thought prompting only solved 4% of tasks, our method achieved a success rate of 74%."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.10601",
+        "quote": "ToT allows LMs to perform deliberate decision making by considering multiple different reasoning paths and self-evaluating choices to decide the next course of action, as well as looking ahead or backtracking when necessary to make global choices."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.10601",
+        "quote": "We scrape data from 4nums.com, which has 1,362 games that are sorted from easy to hard by human solving time, and use a subset of relatively hard games indexed 901-1,000 for testing. For each task, we consider the output as success if it is a valid equation that equals 24 and uses the input numbers each exactly once. We report the success rate across 100 games as the metric."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2305.10601",
+        "quote": "In general, cost and efficiency of ToT highly depend on the prompts and search algorithms used, and could require 5-100 times more generated tokens than CoT."
+      }
+    ],
+    "notes": {
+      "zh": "问题：LM 推理仍是 token 级、从左到右的决策，在需要探索、策略前瞻或初始决策起关键作用的任务上会失效；能否让 LM 在以「思维」为中间步骤的树上做 deliberate 搜索——考虑多条推理路径、自评估选择、必要时前瞻与回溯。\n证据位置：摘要给出 Game of 24 上 GPT-4 + CoT 仅解出 4% 而 ToT 达 74%；实验在 Section 4.1 Table 2——从 4nums.com 抓取的 1,362 局中取较难的第 901-1,000 局、以 100 局成功率为指标，GPT-4、温度 0.7（实验于 2023 年 5 月 5-16 日进行）；成本与局限在 Section 6 Discussion 与 Appendix B.3。\n作者自陈局限：Section 6 写明这类 deliberate search \"might not be necessary for many existing tasks that GPT-4 already excels at\"，且作为初步工作只探索了三个相对简单的任务；Appendix B.3 写明 \"could require 5-100 times more generated tokens than CoT\"；工作只用现成 LM，微调被留作未来方向。\n它没主张的：74% 是 100 局较难子集、BFS 每步保留 b=5 候选设置下的成功率，不是全部 1,362 局的成绩；论文没有证明 ToT 处处优于 CoT——Appendix B.1 在 GSM8K/StrategyQA 上只有小幅提升，B.2 中 GPT-3.5+ToT 在 Game of 24 仅 19%；作者也指出一般填字游戏可由专用 NLP 管线解决，本文并未主张取代它们，更没有任何训练层面的结论。",
+      "en": "Problem: LM inference remains token-level, left-to-right decision making, which falls short on tasks requiring exploration, strategic lookahead, or where initial decisions play a pivotal role; can an LM instead search deliberately over a tree with thoughts as intermediate steps — considering multiple reasoning paths, self-evaluating choices, and looking ahead or backtracking when necessary.\nWhere the evidence sits: the abstract reports 74% success for ToT vs 4% for GPT-4 with chain-of-thought prompting on Game of 24; the experiment is in Section 4.1, Table 2 — the relatively hard games indexed 901-1,000 out of 1,362 scraped from 4nums.com, success rate over 100 games, GPT-4 at temperature 0.7 (experiments run May 5-16, 2023); cost and limits are in Section 6, Discussion, and Appendix B.3.\nWhat the authors say about limits: Section 6 states that deliberate search \"might not be necessary for many existing tasks that GPT-4 already excels at\" and that, as an initial step, only three relatively simple tasks are explored; Appendix B.3 states ToT \"could require 5-100 times more generated tokens than CoT\"; the work uses an off-the-shelf LM, with fine-tuning left as a future direction.\nWhat it does not claim: 74% is the success rate on the 100-game hard subset with BFS keeping b=5 candidates per step, not a result on all 1,362 games; the paper does not show ToT beats CoT everywhere — Appendix B.1 reports only slight gains on GSM8K/StrategyQA and Appendix B.2 reports GPT-3.5+ToT at 19% on Game of 24; the authors note general crosswords can be solved by specialized NLP pipelines, and no training-level claim is made."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证据位置 / evidence": "摘要；Section 4.1 Table 2（Game of 24）；Appendix B.3 成本分析",
+      "Game of 24 成功率 / success": "ToT 74% vs GPT-4 CoT 4%",
+      "测试集 / test set": "4nums.com 共 1,362 局，取较难的第 901-1,000 局，以 100 局成功率为指标",
+      "额外生成开销 / cost": "生成 token 可达 CoT 的 5-100 倍",
+      "复现状态 / reproduction": "未复现"
+    }
+  }
+]

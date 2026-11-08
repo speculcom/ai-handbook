@@ -1,0 +1,38 @@
+{
+  "id": "eip-712",
+  "title": {
+    "zh": "EIP-712：类型化结构化数据哈希与签名",
+    "en": "EIP-712: Typed Structured Data Hashing and Signing"
+  },
+  "category": "protocol",
+  "url": "https://eips.ethereum.org/EIPS/eip-712",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+      "quote": "This is a standard for hashing and signing of typed structured data as opposed to just bytestrings."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+      "quote": "Hashing structured data is non-trivial and errors result in loss of the security properties of the system."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+      "quote": "status: Final"
+    }
+  ],
+  "notes": {
+    "zh": "交集：AI 生成内容凭证、模型出处与授权声明经常需要离线签署一份结构化声明；EIP-712 规定类型化数据怎样编码、哈希并进入可签名消息，避免把复杂声明只当成不透明字节串。\n适用范围：官方摘要说它是类型化结构化数据哈希与签名标准，动机节强调结构化哈希出错会丢失系统安全性质；原文还说明它不包含重放保护。它只规定签名口径，不证明声明内容为真，也不替应用定义撤销与信任策略。\n未解决：具体 AI 凭证系统仍要自己定义 schema、域分隔、重放防护与验证者信任；EIP 状态为 Final，但本站不据此推断每条链或每个钱包都已部署。",
+    "en": "The intersection: AI content credentials, model provenance and permission statements often need an offline signature over a structured claim; EIP-712 specifies how typed data is encoded, hashed and included in signable messages instead of treating complex claims as opaque byte strings.\nScope: the abstract describes a standard for hashing and signing typed structured data, and the motivation warns that errors in structured hashing lose security properties; the text also says it does not include replay protection. It standardises signing, not the truth of the claim, and does not define revocation or verifier trust for an application.\nOpen: an AI credential system still has to define its schema, domain separation, replay protection and verifier trust; the EIP status is Final, but this site does not infer deployment on every chain or wallet."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "协议状态 / status": "Final（官方 EIP 状态；具体部署范围官方未说明）",
+    "规范来源 / source": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+    "核验日 / checked": "2026-11-07"
+  }
+}

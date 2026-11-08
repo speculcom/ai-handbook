@@ -1,0 +1,44 @@
+{
+  "id": "su-2021-roformer",
+  "title": {
+    "zh": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+    "en": "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/2104.09864",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2104.09864",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2104.09864",
+      "quote": "Specifically, the proposed RoPE encodes the absolute position with a rotation matrix and meanwhile incorporates the explicit relative position dependency in self-attention formulation."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2104.09864",
+      "quote": "As can be seen, RoFormer can significantly outperform BERT in three out of six datasets, and the improvements are considerable."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2104.09864",
+      "quote": "However, when increasing the maximum input text length to 1024, RoFormer outperforms WoBERT by an absolute improvement of 1.5%."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2104.09864",
+      "quote": "Despite the fact that we mathematically format the relative position relations as rotations under 2D sub-spaces, there lacks of thorough explanations on why it converges faster than baseline models that incorporates other position encoding strategies."
+    }
+  ],
+  "notes": {
+    "zh": "问题：自注意力本身不带位置信息，已有的绝对与相对位置编码大多把位置向量加到词表示上，因此没法直接用在把注意力改写成线性形式的架构里；能不能让编码既带绝对位置、又在注意力内积中显式体现相对位置。\n证据位置：方法在 §3.2（二维旋转推广到一般形式），长程衰减等性质在 §3.3 与 §3.4.3；实验在 §4，原文说明全部跑在两台各 4 张 V100 的云服务器上——WMT14 英德 BLEU 在表 1（Transformer-base 27.3、RoFormer 27.5），GLUE 六项在表 2，Performer 加 RoPE 的预训练损失曲线在 Figure 3 右图，中文长文本 CAIL2019-SCM 在表 5；局限有独立小节 §4.5.5 Limitations of the work。\n作者自陈局限：§4.5.5 自己列了三条——把相对位置关系写成二维子空间里的旋转虽有数学形式，但没有充分解释为什么它比其他位置编码策略收敛更快；长程衰减性质已经证明、长文本上表现更好也观察到了，但作者说还没给出可信的解释；此外 RoFormer 建立在 Transformer 基础设施之上，预训练需要硬件资源。\n它没主张的：论文没有说 RoPE 在所有下游任务上都优于 BERT——表 2 里 SST-2、QNLI、MNLI 三项 RoFormer 更低，正文自己写的口径是六项中的三项；表 5 的 1024 结果也不能读成「只在 512 上训练、直接外推到 1024」的证据，因为表 4 的分阶段预训练把最大序列长度提到过 1536；「能配线性自注意力」这一点在 §4.4 只用 Performer 的预训练损失曲线验证，没有给下游任务分数。",
+    "en": "Problem: self-attention carries no position information by itself, and most existing absolute and relative encodings add a position vector to the token representation, so they cannot be used directly in architectures that rewrite attention in linear form; can an encoding carry absolute position while making relative position explicit inside the attention inner product.\nWhere the evidence sits: the method is in 3.2 (a 2D rotation generalised to the full form) and the long-term decay properties in 3.3 and 3.4.3; experiments are in Section 4, which states they all ran on two cloud servers with 4 V100 GPUs each — WMT14 English-German BLEU in Table 1 (Transformer-base 27.3, RoFormer 27.5), six GLUE tasks in Table 2, Performer-with-RoPE pre-training loss curves in Figure 3 (right), and Chinese long-text CAIL2019-SCM in Table 5; the limits have their own subsection, 4.5.5 Limitations of the work.\nWhat the authors say about limits: 4.5.5 lists three — although relative position is formulated mathematically as rotations in 2D sub-spaces, there is no thorough explanation of why it converges faster than other position encoding strategies; the long-term decay property is proved and better long-text performance is observed, but the authors say they have not come up with a faithful explanation; and RoFormer is built on Transformer-based infrastructure, so pre-training requires hardware resources.\nWhat it does not claim: the paper does not say RoPE beats BERT on every downstream task — in Table 2 RoFormer is lower on SST-2, QNLI and MNLI, and the text itself says three out of six datasets; the 1024 result in Table 5 is not evidence of train-at-512-then-extrapolate, because the staged pre-training in Table 4 raised the maximum sequence length to 1536; and compatibility with linear self-attention is supported in 4.4 only by Performer pre-training loss curves, with no downstream task scores."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "§3.2–§3.4（方法与性质）；表 1、表 2、表 5、Figure 3；§4.5.5 Limitations of the work",
+    "GLUE 对比口径 / GLUE": "正文写六项中的三项优于 BERT（表 2）",
+    "中文长文本 / long text": "CAIL2019-SCM 输入长度 1024 时较 WoBERT 绝对提升 1.5%（§4.5.4 原文口径）",
+    "局限位置 / limits": "§4.5.5 Limitations of the work（独立小节）",
+    "复现状态 / reproduction": "未复现"
+  }
+}

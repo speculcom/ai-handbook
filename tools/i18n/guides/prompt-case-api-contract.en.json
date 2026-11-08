@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-api-contract. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output request/response schemas and an error table; mark undefined items unknown.\nInputs: API description, example requests/responses, and error codes.",
+    "提示词本体": "```text\nOrganise the API contract. Output endpoint, request_schema, response_schema and errors[] with code, condition and client_action. Schema fields must come from description/examples; mark undefined fields. Do not invent error codes not provided.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "endpoint, schemas, and errors[].",
+    "检查点": "- Fields have example or description support.\n- Error codes come from input.\n- Undefined items are explicit.",
+    "失败分支": "- Insufficient examples: mark undefined, do not guess types.\n- Missing error branches: list gaps.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Introduction to Structured Outputs (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

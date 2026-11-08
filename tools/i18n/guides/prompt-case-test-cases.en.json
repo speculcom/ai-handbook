@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-test-cases. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output a test-case table covering normal, boundary and error inputs; do not claim execution.\nInputs: Requirements, input domain, and existing tests.",
+    "提示词本体": "```text\nGenerate test cases for {requirement}. Output cases[] with id, type (normal/boundary/error), input, expected and rationale. expected must follow from the requirement; mark undefined behaviour instead of guessing. List coverage_gaps[].\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "cases[] and coverage_gaps[].",
+    "检查点": "- All three types exist or gaps are explained.\n- Expected results link to requirements.\n- Undefined behaviour is not guessed.",
+    "失败分支": "- Duplicate cases: merge by input domain.\n- Vague requirement: mark undefined_behavior.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Introduction to Structured Outputs (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

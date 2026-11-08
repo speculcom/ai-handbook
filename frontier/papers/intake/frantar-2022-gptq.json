@@ -1,0 +1,41 @@
+{
+  "id": "frantar-2022-gptq",
+  "title": {
+    "zh": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+    "en": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers"
+  },
+  "category": "efficiency",
+  "url": "https://arxiv.org/abs/2210.17323",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2210.17323",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2210.17323",
+      "quote": "Specifically, GPTQ can quantize GPT models with 175 billion parameters in approximately four GPU hours, reducing the bitwidth down to 3 or 4 bits per weight, with negligible accuracy degradation relative to the uncompressed baseline."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2210.17323",
+      "quote": "In terms of limitations, our method currently does not provide speedups for the actual multiplications, due to the lack of hardware support for mixed-precision operands (e.g. FP16 x INT4) on mainstream architectures."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2210.17323",
+      "quote": "On the technical side, our method obtains speedups from reduced memory movement, and does not lead to computational reductions."
+    }
+  ],
+  "notes": {
+    "zh": "问题：几百亿参数的模型光显存就装不下，训练后量化到低比特往往掉点严重；能不能在不重训的前提下压到 3–4 bit 还基本不掉。\n证据位置：175B 模型约 4 个 GPU 小时压到 3 或 4 bit 的结论在摘要；局限同时写在引言贡献段与第 6 节 Summary and Limitations。\n作者自陈局限：两点很关键——加速来自减少显存搬运，不是减少计算量，主流硬件不支持 FP16×INT4 这类混合精度乘加，因此实际矩阵乘法并不会变快；研究只覆盖生成任务，未做激活量化（作者认为激活不是目标场景的瓶颈）。\n它没主张的：论文没有说量化后推理整体更快，也没有覆盖激活量化与更大的压缩率；「单卡跑 175B」指的是权重能装进一张卡，不等于该配置的吞吐满足线上服务。",
+    "en": "Problem: models with tens of billions of parameters do not fit in memory, and post-training quantisation to low bit-width usually costs accuracy; can 3-4 bits be reached without retraining and with almost no loss.\nWhere the evidence sits: the 175B-in-four-GPU-hours result at 3 or 4 bits is in the abstract; the limits appear both in the introduction’s contribution list and in Section 6, Summary and Limitations.\nWhat the authors say about limits: two matter — the speed-up comes from reduced memory movement, not from fewer computations, and mainstream hardware lacks support for mixed-precision operands such as FP16 by INT4, so the actual multiplications are not faster; and the study covers generative tasks only and does not quantise activations, which the authors consider not a bottleneck in their target setting.\nWhat it does not claim: the paper does not claim faster end-to-end inference, nor cover activation quantisation or higher compression; \"175B on a single GPU\" means the weights fit on one card, not that throughput meets serving requirements."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要；引言贡献段；Section 6 Summary and Limitations",
+    "位宽 / bit-width": "3 或 4 bit 每权重",
+    "量化耗时 / quantisation": "175B 模型约 4 GPU 小时",
+    "加速来源 / speed-up source": "减少显存搬运，非减少计算",
+    "未覆盖 / not covered": "激活量化",
+    "复现状态 / reproduction": "未复现"
+  }
+}

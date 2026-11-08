@@ -1,0 +1,44 @@
+{
+  "id": "hoffmann-2022-chinchilla",
+  "title": {
+    "zh": "Training Compute-Optimal Large Language Models",
+    "en": "Training Compute-Optimal Large Language Models"
+  },
+  "category": "scaling",
+  "url": "https://arxiv.org/abs/2203.15556",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2203.15556",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.15556",
+      "quote": "We investigate the optimal model size and number of tokens for training a transformer language model under a given compute budget."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.15556",
+      "quote": "Due to the cost of training large models, we only have two comparable training runs at large scale (Chinchilla and Gopher), and we do not have additional tests at intermediate scales."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.15556",
+      "quote": "we assume that the efficient computational frontier can be described by a power-law relationship between the compute budget, model size, and number of training tokens."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.15556",
+      "quote": "Some caution is needed when comparing Chinchilla with Gopher on these language modelling benchmarks as Chinchilla is trained on 4× more data than Gopher and thus train/test set leakage may artificially enhance the results."
+    }
+  ],
+  "notes": {
+    "zh": "问题：在给定算力预算下，模型参数与训练 token 该怎么分配，才能得到损失最低的模型。\n证据位置：三种拟合方法给出的指数在 Table 2（方法一 a=0.50、b=0.50；方法二 0.49/0.51；方法三 0.46/0.54），对照 Kaplan et al. 2020 的 0.73/0.27；参数拟合式在附录 D.2。\n作者自陈局限：讨论一节自己列了三条——大规模上只有 Chinchilla 与 Gopher 两次可比训练、缺中间规模验证；假设算力前沿服从幂律；在高算力区观察到 log(N_opt) 出现凹性，因此可能仍然高估了最优模型规模。此外作者提示 Chinchilla 用了四倍于 Gopher 的数据、训练集与测试集重叠可能人为抬高基准成绩。\n它没主张的：论文没有说「模型越小越好」，也没有给出适用于任何架构的常数；结论是同一算力预算下参数与 token 应按相同比例增长，且这一结论建立在语言模型与所采用拟合形式之上。",
+    "en": "Problem: under a fixed compute budget, how should parameters and training tokens be split to reach the lowest loss.\nWhere the evidence sits: the exponents from three fitting procedures are in Table 2 (method one a=0.50, b=0.50; method two 0.49/0.51; method three 0.46/0.54), against 0.73/0.27 in Kaplan et al. 2020; the parametric fit is in Appendix D.2.\nWhat the authors say about limits: the discussion lists three — only two comparable large-scale runs (Chinchilla and Gopher) with no intermediate-scale validation; an assumption that the compute-efficient frontier follows a power law; and observed concavity in log(N_opt) at high compute budgets, which suggests the optimal model size may still be overestimated. The authors also caution that Chinchilla saw four times more data than Gopher, so train/test overlap may inflate benchmark results.\nWhat it does not claim: the paper does not say smaller is better, nor produce constants valid for any architecture; the finding is that parameters and tokens should scale in equal proportion at a given budget, conditional on language models and the fitted form used."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "被测模型规模 / model": "70B 参数，1.4T token",
+    "拟合指数 a,b / exponents": "0.50 / 0.50（方法一）· 对照 Kaplan 2020: 0.73 / 0.27",
+    "MMLU 平均准确率 / MMLU": "67.5%",
+    "局限位置 / limits": "Section 5 Discussion & Conclusion",
+    "复现状态 / reproduction": "未复现"
+  }
+}

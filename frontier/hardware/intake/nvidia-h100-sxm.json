@@ -1,0 +1,38 @@
+{
+  "id": "nvidia-h100-sxm",
+  "title": {
+    "zh": "NVIDIA H100 SXM",
+    "en": "NVIDIA H100 SXM"
+  },
+  "category": "accelerator",
+  "url": "https://www.nvidia.com/en-us/data-center/h100/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/data-center/h100/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/h100/",
+      "quote": "GPU Memory 80GB  GPU Memory Bandwidth 3.35TB/s  Max Thermal Design Power (TDP) Up to 700W (configurable)"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/h100/",
+      "quote": "Interconnect NVIDIA NVLink™: 900GB/s  PCIe Gen5: 128GB/s"
+    }
+  ],
+  "notes": {
+    "zh": "回答数据中心训练与推理卡的显存容量、带宽、功耗与互联口径。不回答实际训练吞吐或单位算力价格：这里记的是官方规格表数字，且带稀疏标注，实测吞吐随框架、精度与模型结构变化。",
+    "en": "Answers the memory capacity, bandwidth, power and interconnect figures of a data-centre training and inference card. It does not answer real training throughput or price per unit of compute: these are vendor spec-sheet numbers with sparsity, and measured throughput varies with framework, precision and model shape."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "80 GB HBM3",
+    "memory bandwidth": "3.35 TB/s",
+    "max TDP": "up to 700 W (configurable)",
+    "form factor": "SXM",
+    "interconnect": "NVLink 900 GB/s; PCIe Gen5 128 GB/s",
+    "FP8 tensor, sparsity": "3,958 TFLOPS",
+    "MIG": "up to 7 instances at 10 GB each"
+  }
+}

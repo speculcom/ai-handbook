@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-report-outline. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output an outline and required evidence per section; do not fill unsupported content.\nInputs: Report goal, audience, and available material list.",
+    "提示词本体": "```text\nCreate an outline for report {goal}. Output sections[] with title, question, evidence_needed and source_candidate. evidence_needed names checkable material types; source_candidate must come from {materials}, mark gaps when missing. Do not write body conclusions.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "sections[] with questions, evidence needs and material gaps.",
+    "检查点": "- Each section has checkable evidence_needed.\n- source_candidate stays within the material list.\n- Gaps are explicitly listed.",
+    "失败分支": "- Outline becomes conclusions: replace assertions with questions.\n- Insufficient materials: mark gaps, do not invent sources.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Building resilient prompts using an evaluation flywheel (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

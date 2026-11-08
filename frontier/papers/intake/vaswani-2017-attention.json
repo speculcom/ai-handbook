@@ -1,0 +1,39 @@
+{
+  "id": "vaswani-2017-attention",
+  "title": {
+    "zh": "Attention Is All You Need",
+    "en": "Attention Is All You Need"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/1706.03762",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/1706.03762",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/1706.03762",
+      "quote": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/1706.03762",
+      "quote": "In the Transformer this is reduced to a constant number of operations, albeit at the cost of reduced effective resolution due to averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as described in section 3.2."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/1706.03762",
+      "quote": "We plan to extend the Transformer to problems involving input and output modalities other than text and to investigate local, restricted attention mechanisms to efficiently handle large inputs and outputs such as images, audio and video."
+    }
+  ],
+  "notes": {
+    "zh": "问题：把序列转导模型从循环与卷积结构里解耦，只靠注意力建立输入输出之间的依赖，从而让训练可以并行。\n证据位置：自注意力与其他层类型的每层复杂度、最少顺序操作数与最大路径长度比较在 Section 4「Why Self-Attention」的 Table 1。\n作者自陈局限：结论一节没有写自身方法的局限，只给了两条未来工作——把模型扩到文本以外的模态、让生成更少串行。全文唯一接近代价的表述出现在 Section 2 Background，承认对注意力权重取平均会降低有效分辨率，并说明用多头注意力来抵消。\n它没主张的：论文没有比较不同规模下的训练成本，也没有声称在机器翻译之外的任务上同样有效；「让生成更少串行」是研究目标，不是已完成的结果。",
+    "en": "Problem: decouple sequence transduction from recurrent and convolutional structures and let attention alone carry the dependencies between input and output, so training can be parallelised.\nWhere the evidence sits: the per-layer complexity, minimum sequential operations and maximum path length comparison across layer types is Table 1 in Section 4, \"Why Self-Attention\".\nWhat the authors say about limits: the conclusion states no limitation of the method itself and offers only two future-work items — extending the model to modalities other than text, and making generation less sequential. The one place in the paper that comes close to a cost statement is Section 2 (Background), which concedes that averaging attention-weighted positions reduces effective resolution and says multi-head attention counteracts it.\nWhat it does not claim: the paper does not compare training cost across scales, nor claim effectiveness beyond machine translation; \"making generation less sequential\" is a research goal, not a delivered result."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "Section 4, Table 1（复杂度、顺序操作数、最大路径长度）",
+    "局限位置 / limits": "Section 7 结论：无局限声明，仅两条未来工作",
+    "代价表述 / cost": "Section 2 Background：注意力加权平均会降低有效分辨率",
+    "复现状态 / reproduction": "未复现"
+  }
+}

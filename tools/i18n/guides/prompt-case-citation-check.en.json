@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-citation-check. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output a claim-citation check table; unsupported or misplaced citations are flagged.\nInputs: Text with citations and source excerpts.",
+    "提示词本体": "```text\nCheck the text sentence by sentence. Output checks[] with claim, citation, source_excerpt, verdict (supported/unsupported/misplaced), and reason. source_excerpt must come from the supplied excerpts; if no matching excerpt exists, verdict=unsupported. Do not use common knowledge as evidence.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "checks[] with verdict and reason per claim.",
+    "检查点": "- Each verdict has a source_excerpt or explicit absence.\n- Misplaced citations identify the correct source.\n- No external common knowledge is introduced.",
+    "失败分支": "- Insufficient excerpts: add excerpts and recheck.\n- Claim too broad: split into checkable subclaims.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Building resilient prompts using an evaluation flywheel (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

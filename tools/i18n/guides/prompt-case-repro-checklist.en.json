@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-repro-checklist. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output data, code, environment and metric checks; state not reproduced when applicable.\nInputs: Paper abstract, official repository, and experimental setup.",
+    "提示词本体": "```text\nGenerate a reproduction checklist. Output checks[] with item, source, status (verified/missing/unknown), and note. source points to paper/repository text; if nothing was actually run, runtime items are unknown and marked not reproduced. Reading code is not reproduction.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "checks[] with sources and status.",
+    "检查点": "- Unrun runtime items are unknown.\n- Sources can be traced.\n- A not-reproduced statement is explicit.",
+    "失败分支": "- Missing repository: mark missing.\n- Unclear metric basis: list unknown.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "Judging LLM-as-a-Judge (arXiv 2306.05685, abstract fetched on 2026-11-07)"
+  ]
+}

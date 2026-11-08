@@ -1,0 +1,41 @@
+{
+  "id": "hu-2021-lora",
+  "title": {
+    "zh": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "en": "LoRA: Low-Rank Adaptation of Large Language Models"
+  },
+  "category": "adaptation",
+  "url": "https://arxiv.org/abs/2106.09685",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2106.09685",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2106.09685",
+      "quote": "Compared to GPT-3 175B fine-tuned with Adam, LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2106.09685",
+      "quote": "LoRA also has its limitations. For example, it is not straightforward to batch inputs to different tasks with different A and B in a single forward pass, if one chooses to absorb A and B into W to eliminate additional inference latency."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2106.09685",
+      "quote": "On GPT-3 175B, we reduce the VRAM consumption during training from 1.2TB to 350GB."
+    }
+  ],
+  "notes": {
+    "zh": "问题：全参数微调大模型要保存全部梯度与优化器状态，显存成本高；能不能只训练一组低秩增量，把主干权重冻住。\n证据位置：可训练参数减少约一万倍、显存需求降三倍的总体结论在摘要；训练显存从 1.2TB 降到 350GB、r=4 时 checkpoint 从 350GB 降到 35MB、训练提速 25% 都在 Section 4.2。\n作者自陈局限：Section 4.2 明确以「LoRA also has its limitations」开头——如果把低秩矩阵合并进原权重以消除推理延迟，就无法在单次前向里为不同任务批量喂入不同的 A 与 B；作者给出的替代是延迟不敏感场景下不合并、按样本动态选模块。\n它没主张的：论文没有说低秩适配能追上全参数微调的最终质量上限，也没有覆盖所有模型规模；被广泛转述的「省显存」是训练阶段的数字，不等于推理更快。",
+    "en": "Problem: full fine-tuning of a large model requires storing every gradient and optimiser state, which is memory-expensive; can a low-rank increment be trained while the base weights stay frozen.\nWhere the evidence sits: the headline reduction of about ten thousand times fewer trainable parameters and three times less GPU memory is in the abstract; the drop from 1.2 TB to 350 GB of training VRAM, the checkpoint going from 350 GB to 35 MB at r=4, and a 25% training speed-up are all in Section 4.2.\nWhat the authors say about limits: Section 4.2 opens with \"LoRA also has its limitations\" — if the low-rank matrices are merged into the original weights to remove inference latency, batched inputs to different tasks with different A and B in a single forward pass become awkward; the stated alternative is to skip the merge when latency is not critical and select modules per sample.\nWhat it does not claim: the paper does not claim low-rank adaptation matches the quality ceiling of full fine-tuning, nor cover every model scale; the widely repeated memory saving is a training figure and does not imply faster inference."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "可训练参数 / trainable": "减少约 10,000 倍（GPT-3 175B）",
+    "训练显存 / training VRAM": "1.2 TB → 350 GB",
+    "checkpoint 体积 / size": "350 GB → 35 MB（r=4，仅 q、v）",
+    "训练加速 / speed-up": "25%",
+    "局限位置 / limits": "Section 4.2 Practical Benefits and Limitations",
+    "复现状态 / reproduction": "未复现"
+  }
+}

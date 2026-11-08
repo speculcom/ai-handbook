@@ -44,6 +44,19 @@
 | Langfuse | Langfuse (open source) | https://langfuse.com | 只进nav | | 可观测性平台，不是框架 |
 | Prompt flow | Microsoft | https://github.com/microsoft/promptflow | 只进nav | | 工作流编排工具，主轴偏 LLMOps |
 
+| ROS 2 | Open Robotics | https://docs.ros.org/ | 已有 | ros2 | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| Nav2 | ROS Navigation | https://docs.nav2.org/ | 已有 | nav2 | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| MoveIt 2 | MoveIt | https://moveit.ai/ | 已有 | moveit2 | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| Gazebo Sim | Open Robotics | https://gazebosim.org/ | 已有 | gazebo | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| Webots | Cyberbotics | https://cyberbotics.com/ | 已有 | webots | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| Isaac Sim | NVIDIA | https://docs.isaacsim.omniverse.nvidia.com/ | 已有 | isaac-sim | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| Isaac Lab | NVIDIA | https://isaac-sim.github.io/IsaacLab/ | 已有 | isaac-lab | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| MuJoCo | Google DeepMind | https://mujoco.org/ | 已有 | mujoco | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| LeRobot | Hugging Face | https://huggingface.co/lerobot | 已有 | lerobot | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| PyBullet | Bullet Physics | https://pybullet.org/ | 已有 | pybullet | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| Genesis | Genesis Embodied AI | https://genesis-world.readthedocs.io/ | 已有 | genesis | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+| Drake | Robot Locomotion Group / MIT | https://drake.mit.edu/ | 已有 | drake | P5 robotics：机器人软件栈，官方 README 2026-11-07 直抓 200 |
+
 ## 备注
 
 - nav 里 Dify / Coze / AutoGPT / Flowise / Langflow / n8n / Manus / Relevance AI / Superagent / Botpress / SmythOS / 百宝箱 **不归本大类**——低代码搭 agent 应用归 `automation`（T12 清单收编）。

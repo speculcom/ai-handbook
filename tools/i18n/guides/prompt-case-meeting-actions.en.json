@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-meeting-actions. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output an action table; items without a clear owner or deadline are marked pending confirmation.\nInputs: Raw meeting notes, attendee list, and time zone.",
+    "提示词本体": "```text\nExtract action items from the notes. Output JSON actions[] with action, owner, due and evidence. owner must be in the attendee list; use null if unassigned. due must come from an explicit date in the notes, not inference. Also list open_questions[].\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "actions[] and open_questions[], each with source evidence.",
+    "检查点": "- Owners are in the list or null.\n- Due dates match the source and time-zone convention.\n- Each action has an evidence sentence.",
+    "失败分支": "- Discussion treated as decision: mark it as an open question.\n- Vague deadline: keep the original phrase instead of converting to a date.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: GPT-4.1 Prompting Guide (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

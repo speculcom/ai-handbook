@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-email-draft. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Generate an email draft; add no facts beyond the input and control tone by parameter.\nInputs: Recipient role, factual points, tone, and prohibitions.",
+    "提示词本体": "```text\nWrite an email. Recipient: {recipient}. Facts: {facts}. Tone: {tone}. Prohibited: adding information beyond the facts, promising unauthorised items, or using exaggerated marketing language. Output subject and body; mark uncertainties with [to confirm].\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "subject and body with explicit markers for uncertainties.",
+    "检查点": "- Each factual sentence links to facts.\n- No unauthorised promises.\n- Tone matches {tone}.",
+    "失败分支": "- Over-polite and verbose: shorten while keeping facts.\n- New fact appears: remove it and mark [to confirm].",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "Anthropic official tutorial: Basic Prompt Structure (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

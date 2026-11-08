@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-literature-screen. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output a screening table with reasons; use titles/abstracts only and do not invent full-text conclusions.\nInputs: Titles/abstracts, inclusion criteria, and exclusion criteria.",
+    "提示词本体": "```text\nScreen literature by criteria. Output decisions[] with id, decision (include/exclude/uncertain), criterion and quote. quote comes from title/abstract; uncertain must state missing information. Do not conclude from full text that was not provided.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "decisions[] with criteria and verbatim basis.",
+    "检查点": "- Each decision has a criterion.\n- Quotes appear in title/abstract.\n- Uncertain items state missing information.",
+    "失败分支": "- Vague criteria: write decidable conditions first.\n- Abstract insufficient: mark uncertain pending full text.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Building resilient prompts using an evaluation flywheel (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

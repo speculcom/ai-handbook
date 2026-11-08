@@ -1,0 +1,40 @@
+{
+  "id": "w3c-did",
+  "title": {
+    "zh": "W3C 去中心化标识符 DID",
+    "en": "W3C Decentralized Identifiers (DID)"
+  },
+  "category": "credential",
+  "url": "https://www.w3.org/TR/did-core/",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://www.w3.org/TR/did-core/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.w3.org/TR/did-core/",
+      "quote": "Decentralized identifiers (DIDs) are a new type of identifier that enables verifiable, decentralized digital identity."
+    },
+    {
+      "url": "https://www.w3.org/TR/did-core/",
+      "quote": "the presence of an alsoKnownAs assertion does not prove that this assertion is true."
+    },
+    {
+      "url": "https://www.w3.org/TR/did-core/",
+      "quote": "This specification does not presuppose any particular technology or cryptography to underpin the generation, persistence, resolution, or interpretation of DIDs."
+    }
+  ],
+  "notes": {
+    "zh": "交集：给智能体、设备或数据集一个可解析的标识，解析出的 DID 文档里放公钥与服务端点，用于证明「我控制这个标识」而无需向某个机构申请。适用范围：规范只定义语法、数据模型、核心属性与解析过程，不规定底层用什么技术或密码学，也不保证文档里的断言为真——作者明确写了 alsoKnownAs 的存在并不证明该断言成立，需要请求方独立核实。未解决：撤销不由验证关系表达，各 DID 方法自行规定；不同方法之间的互操作性不保证；「不需要许可即可证明控制权」不等于「发现与解析不依赖第三方」。",
+    "en": "The intersection: a resolvable identifier for an agent, device or dataset, whose DID document carries public keys and service endpoints, so control of the identifier can be proven without asking a registry for permission. Scope: the specification defines syntax, data model, core properties and resolution only; it presupposes no particular technology or cryptography, and it does not warrant that assertions in the document are true — the authors state that an alsoKnownAs assertion does not prove itself and requires independent verification by the requesting party. Open: revocation is not expressed through verification relationships and is left to each DID method, interoperability across methods is not guaranteed, and \"control provable without permission\" does not mean discovery and resolution are independent of third parties."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "标准状态 / status": "W3C Recommendation（DID v1.0）",
+    "必需属性 / required": "仅 id",
+    "文档内容 / document": "验证方法（公钥）、验证关系、服务端点",
+    "不保证 / not guaranteed": "alsoKnownAs 不证明为真；等价性不由断言推出",
+    "撤销 / revocation": "由各 DID 方法自行定义"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "nvidia-dgx-spark",
+  "title": {
+    "zh": "NVIDIA DGX Spark",
+    "en": "NVIDIA DGX Spark"
+  },
+  "category": "system",
+  "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+      "quote": "Tensor Performance1 Up to 1 PFLOP FP4"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+      "quote": "System Memory 64 GB LPDDR5X* or 128 GB LPDDR5x, coherent unified system memory"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+      "quote": "Power Supply 240 Watts"
+    }
+  ],
+  "notes": {
+    "zh": "回答桌面级统一内存机器的内存、功耗与体积：128GB 统一内存是它和消费级显卡的根本差别，模型不必先切进显存。官方给出的「最多 200B 参数」是推理口径、且为厂商声明，不是实测；多机互联最多 4 台。不回答训练可行性：微调上限官方写作 70B 参数级。",
+    "en": "Answers the memory, power and footprint of a desktop unified-memory machine: 128 GB of coherent memory is what separates it from consumer graphics cards, since the model need not be staged into dedicated VRAM first. The stated \"up to 200B parameters\" is an inference figure and a vendor claim rather than a measurement, and at most four units can be linked. It does not answer training feasibility: the vendor puts fine-tuning at up to 70B parameters."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "architecture": "NVIDIA Grace Blackwell (GB10)",
+    "CPU": "20-core Arm: 10 Cortex-X925 + 10 Cortex-A725",
+    "memory": "128 GB LPDDR5x, coherent unified",
+    "memory bandwidth": "273 GB/s",
+    "tensor performance": "up to 1 PFLOP FP4 (with sparsity)",
+    "power supply": "240 W; GB10 TDP 140 W",
+    "dimensions": "150 x 150 x 50.5 mm; 1.2 kg",
+    "storage": "up to 4 TB NVMe M.2",
+    "networking": "ConnectX-7 at 200 Gbps; 10 GbE; WiFi 7"
+  }
+}

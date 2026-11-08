@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 250 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 262 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 250 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 262 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -140,7 +140,7 @@ tools/（ai-handbook 子树）
 │   │   └── products/           41 个对象
 │   ├── chat/                   AI 对话助手（21 个对象）
 │   ├── image/ · video/ · audio/  AI 创作三大类（15 + 14 + 17 个对象）
-│   ├── framework/              Agent 框架与运行时（30 个对象）
+│   ├── framework/              Agent 框架与运行时（42 个对象）
 │   ├── mcp/                    MCP 生态（多 3 个特有维度，32 个对象）
 │   └── research/ · automation/ · runner/  AI 搜索与研究、自动化、本地运行器（11 + 23 + 21 个对象）
 ├── protocols/                  实测协议（coding / framework / mcp 三套）
@@ -443,7 +443,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
-### Agent 框架与运行时 —— 30 份
+### Agent 框架与运行时 —— 42 份
 
 拿它拼自己的 agent：状态存哪、上下文怎么压、权限给到哪一档。
 
@@ -456,29 +456,41 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | partial | active |
 | [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
 | [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
+| [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | unknown |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS 社区（Eliza Research） | harness | partial | active |
+| [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | partial | unknown |
+| [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | partial | unknown |
 | [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | partial | active |
 | [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
+| [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | partial | unknown |
+| [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | partial | unknown |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | partial | active |
 | [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j 社区 | harness | partial | active |
 | [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
+| [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | partial | unknown |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | partial | active |
 | [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
 | [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
 | [MetaGPT](tracks/framework/products/metagpt.md) | DeepWisdom（深度赋智，国产） | harness | partial | maintenance |
 | [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
+| [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | partial | unknown |
+| [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | partial | unknown |
+| [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | partial | unknown |
 | [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter（开源社区） | harness | partial | active |
 | [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
 | [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
+| [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | partial | unknown |
 | [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
+| [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | partial | unknown |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | partial | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
 | [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | partial | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford（学术团队） | harness | partial | active |
 | [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | partial | active |
+| [Webots](tracks/framework/products/webots.md) | Cyberbotics | local-app | partial | unknown |
 
 ### 给 AI 装的工具 —— 32 份
 
@@ -555,8 +567,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 250 份 |
-| 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 · safety 25 |
-| 形态分布（form） | web 97 · mcp 32 · cli 30 · harness 30 · cloud 22 · local-app 20 · ide 19 |
+| 档案总数 | 262 份 |
+| 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 42 · mcp 32 · runner 21 · safety 25 |
+| 形态分布（form） | web 97 · harness 39 · mcp 32 · cli 30 · local-app 23 · cloud 22 · ide 19 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

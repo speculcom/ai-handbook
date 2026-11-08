@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "verified": "2026-11-06",
+  "scope": [
+    "下表逐项写明来源、用途与再分发权利。素材由 AI 起草不自动改变授权范围：本站没有因为「AI 生成」就给任何条目套 CC BY 或 MIT。例外只可能写在条目自己的许可列里，目前实测没有例外。",
+    "Each row states origin, purpose and redistribution rights. AI drafting does not change the scope of rights: nothing here is labelled CC BY or MIT merely because a model produced it. An exception could only appear in the licence column of that row; the current ledger has none."
+  ],
+  "terms": [
+    "许可口径与法律页第 1 节一致：除非另有注明，内容由 Specul 自行创作并保留所有权利，本站未对文案与设计单独授予复制、改编、再分发或商业使用许可。正常链接与单句引用欢迎，整篇转载或商业使用请先联系本站。",
+    "The licence wording follows section 1 of the legal page: unless noted otherwise the content is created by Specul and all rights are reserved — no separate licence is granted for copying, adapting, redistributing or commercial use. Links and single-sentence quotation are welcome; full republication or commercial use needs contact first."
+  ],
+  "items": [
+    {
+      "file": [
+        "game.js · 游戏逻辑与棋盘渲染",
+        "game.js (game logic and board rendering)"
+      ],
+      "origin": [
+        "本站源仓 projects/three-stars/game.js；由 AI 起草，本站按文件与实际行为逐项核对后收录",
+        "Source file projects/three-stars/game.js in this repository; drafted by AI and checked file-by-file against its actual behaviour before inclusion"
+      ],
+      "role": [
+        "棋盘渲染、键盘与触屏输入、暂停、版本化存档与导入导出；无网络请求",
+        "Board rendering, keyboard and touch input, pause, versioned saves and file import/export; no network calls"
+      ],
+      "licence": [
+        "Specul 站点条款（法律页第 1 节）",
+        "Specul site terms (legal page, section 1)"
+      ],
+      "rights": [
+        "未另行授予再分发或商业使用许可；可链接、可引用",
+        "No separate redistribution or commercial licence; linking and quotation allowed"
+      ],
+      "code": true
+    },
+    {
+      "file": [
+        "game.css · 工作台样式",
+        "game.css (workbench styles)"
+      ],
+      "origin": [
+        "本站源仓 projects/three-stars/game.css；只引用 brand.css 的 token，不写裸色值",
+        "Source file projects/three-stars/game.css in this repository; it uses only brand.css tokens and declares no raw colour values"
+      ],
+      "role": [
+        "棋盘网格、方向按钮、阶段工具条与打印样式",
+        "Board grid, direction buttons, stage toolbar and print rules"
+      ],
+      "licence": [
+        "Specul 站点条款（法律页第 1 节）",
+        "Specul site terms (legal page, section 1)"
+      ],
+      "rights": [
+        "未另行授予再分发许可",
+        "No separate redistribution licence"
+      ],
+      "code": true
+    },
+    {
+      "file": [
+        "project.json · 六阶段教学文案",
+        "project.json (the six-stage teaching copy)"
+      ],
+      "origin": [
+        "本站编写的教学文案（中英两列同批修订）",
+        "Teaching copy authored for this site (the Chinese and English fields are revised in the same pass)"
+      ],
+      "role": [
+        "六个阶段的「改什么 · 代码 · 怎么检查 · 失败时先看」文本，构建期内嵌进页面",
+        "The six stages' what / code / check / failure text, inlined into the page at build time"
+      ],
+      "licence": [
+        "Specul 站点条款（法律页第 1 节）",
+        "Specul site terms (legal page, section 1)"
+      ],
+      "rights": [
+        "未另行授予再分发许可；引用请注明来源",
+        "No separate redistribution licence; credit the source when quoting"
+      ],
+      "code": true
+    },
+    {
+      "file": [
+        "three-stars.html · 页面文案与台账",
+        "three-stars.html (page copy and ledger)"
+      ],
+      "origin": [
+        "本站编写；台账条目逐条来自本仓源文件与共享品牌资产的真相源路径",
+        "Authored for this site; each ledger row points at a source path in this repository or at a shared brand asset"
+      ],
+      "role": [
+        "承载六阶段说明、可玩游戏本体、下载说明与素材台账",
+        "Carries the stage explanations, the playable game, the download notes and the asset ledger"
+      ],
+      "licence": [
+        "Specul 站点条款（法律页第 1 节）",
+        "Specul site terms (legal page, section 1)"
+      ],
+      "rights": [
+        "未另行授予再分发许可",
+        "No separate redistribution licence"
+      ],
+      "code": false
+    },
+    {
+      "file": [
+        "brand.css · brand.js · 站群共享品牌资产",
+        "brand.css · brand.js (shared site-brand assets)"
+      ],
+      "origin": [
+        "真相源 www.specul/brand.css 与 www.specul/brand.js；本仓有 vendored 副本，构建时按同一份复制",
+        "Truth sources are www.specul/brand.css and www.specul/brand.js; this repository keeps a vendored copy and the build ships that same content"
+      ],
+      "role": [
+        "全站外壳、明暗与语言切换、字号与配色 token",
+        "Site shell, theme and language switching, the type and colour tokens"
+      ],
+      "licence": [
+        "Specul 站点条款（法律页第 1 节）；品牌标识另受第 9 节商标条款约束",
+        "Specul site terms (legal page, section 1); the marks themselves fall under section 9 on trademarks"
+      ],
+      "rights": [
+        "随包复制只为让样例离线可开；不授予再分发或商业使用许可，也不授予商标权",
+        "Copied into the package only so the sample opens offline; no redistribution, commercial or trademark licence is granted"
+      ],
+      "code": false
+    },
+    {
+      "file": [
+        "site.css · 内容层排版",
+        "site.css (content-layer typography)"
+      ],
+      "origin": [
+        "构建时由 _sites/_template/site.css 与 _data/game/css/vg.css 拼接",
+        "Assembled at build time from _sites/_template/site.css plus _data/game/css/vg.css"
+      ],
+      "role": [
+        "面板、表格、正文节奏等 vg 站内容层样式",
+        "Panels, tables and body rhythm for the vg site"
+      ],
+      "licence": [
+        "Specul 站点条款（法律页第 1 节）",
+        "Specul site terms (legal page, section 1)"
+      ],
+      "rights": [
+        "未另行授予再分发许可",
+        "No separate redistribution licence"
+      ],
+      "code": false
+    },
+    {
+      "file": [
+        "字体 · 无嵌入字体",
+        "Fonts · none embedded"
+      ],
+      "origin": [
+        "本项目不打包任何字体文件；页面用读者系统里已有的字体，★ ● · E 都是文本字符",
+        "No font file is packaged; the page uses fonts already on the reader's system, and ★ ● · E are text characters"
+      ],
+      "role": [
+        "文字与符号显示",
+        "Text and symbol rendering"
+      ],
+      "licence": [
+        "不涉及再分发",
+        "No redistribution involved"
+      ],
+      "rights": [
+        "无字体再分发义务；你自己的项目要嵌字体时按字体授权单独核对（见「字体的授权陷阱」）",
+        "No font redistribution duty; if your own project embeds a font, check that font's licence separately (see the font licensing term)"
+      ],
+      "code": false
+    },
+    {
+      "file": [
+        "图片 · 音频 · 3D · 无此类素材",
+        "Images · audio · 3D · none of these"
+      ],
+      "origin": [
+        "本项目不含图片、音频、3D 模型或生成素材",
+        "The project contains no images, audio, 3D models or generated media"
+      ],
+      "role": [
+        "—",
+        "-"
+      ],
+      "licence": [
+        "不涉及",
+        "Not applicable"
+      ],
+      "rights": [
+        "无第三方素材许可义务；也请勿把「没有素材」当成「素材随便用」的先例",
+        "No third-party asset obligations; and do not treat 'no assets here' as a precedent for using assets freely"
+      ],
+      "code": false
+    },
+    {
+      "file": [
+        "第三方运行时代码 · 无",
+        "Third-party runtime code · none"
+      ],
+      "origin": [
+        "无 npm 依赖、无 CDN、无框架；页面脚本只有 game.js 一份",
+        "No npm dependencies, no CDN, no framework; game.js is the only page script"
+      ],
+      "role": [
+        "—",
+        "-"
+      ],
+      "licence": [
+        "不涉及",
+        "Not applicable"
+      ],
+      "rights": [
+        "无第三方许可通知义务",
+        "No third-party notice obligations"
+      ],
+      "code": false
+    },
+    {
+      "file": [
+        "zip.mjs · 打包辅助（不进包）",
+        "zip.mjs (build-time packer, not shipped inside the archive)"
+      ],
+      "origin": [
+        "本站源仓 projects/three-stars/zip.mjs：自写 stored ZIP 与 CRC32，构建期使用",
+        "Source file projects/three-stars/zip.mjs: a hand-written stored-ZIP and CRC32 writer used at build time"
+      ],
+      "role": [
+        "生成 three-stars.zip 与哈希清单",
+        "Generates three-stars.zip and the hash manifest"
+      ],
+      "licence": [
+        "Specul 站点条款（法律页第 1 节）",
+        "Specul site terms (legal page, section 1)"
+      ],
+      "rights": [
+        "属于构建工具，不随下载包分发；未另行授予再分发许可",
+        "A build tool; not shipped inside the download and not separately licensed"
+      ],
+      "code": true
+    },
+    {
+      "file": [
+        "存档 JSON · 本地数据，示例均为虚构",
+        "Save JSON · local data; every sample value is fictional"
+      ],
+      "origin": [
+        "由玩家在本机导出（three-stars-save.json）；本站展示的示例内容均为虚构",
+        "Exported locally by the player (three-stars-save.json); every example value shown by this site is fictional"
+      ],
+      "role": [
+        "关卡 ID、版本号、坐标、步数、已收集星星",
+        "Level id, schema version, position, move count and collected stars"
+      ],
+      "licence": [
+        "数据归导出者本机所有",
+        "The data stays on the machine that exported it"
+      ],
+      "rights": [
+        "不上传、不含账号或标识信息；隐私口径见法律页第 8 节",
+        "Nothing is uploaded and it carries no account or identifier; privacy terms are in section 8 of the legal page"
+      ],
+      "code": false
+    }
+  ]
+}

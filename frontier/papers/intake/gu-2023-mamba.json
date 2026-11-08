@@ -1,0 +1,44 @@
+{
+  "id": "gu-2023-mamba",
+  "title": {
+    "zh": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+    "en": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/2312.00752",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2312.00752",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2312.00752",
+      "quote": "Mamba enjoys fast inference (5× higher throughput than Transformers) and linear scaling in sequence length, and its performance improves on real data up to million-length sequences."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2312.00752",
+      "quote": "On language modeling, our Mamba-3B model outperforms Transformers of the same size and matches Transformers twice its size, both in pretraining and downstream evaluation."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2312.00752",
+      "quote": "Mamba achieves 4-5× higher inference throughput than a Transformer of similar size, since without the KV cache it can use much higher batch sizes."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2312.00752",
+      "quote": "It remains to assess whether Mamba still compares favorably at these larger sizes."
+    }
+  ],
+  "notes": {
+    "zh": "问题：此前的次二次方架构（线性注意力、门控卷积、结构化状态空间模型）在语言这类离散模态上不如注意力，作者判断关键弱点是不能按内容决定记住或忘掉什么；能不能让 SSM 的参数随输入变化，同时还能高效训练。\n证据位置：选择机制在 §3.2，硬件感知的并行扫描在 §3.3，去掉注意力与 MLP 块的简化架构在 §3.4；语言建模的 scaling law 在 §4.2.1 与 Figure 6（约 125M 到 1.3B，Pile 数据，按 Chinchilla 协议），零样本下游在表 1，速度与显存在 §4.5 与 Figure 12；局限写在 §5 Discussion 的 No Free Lunch、Downstream Affordances、Scaling 三段。\n作者自陈局限：§5 的 Scaling 段明说实证只到小规模，低于多数强开源 LLM 以及 RWKV、RetNet 已经验证过的 7B 及以上，更大规模是否仍然有利有待评估，而且把 SSM 放大可能还有本文没有讨论的工程难题与模型调整；No Free Lunch 段说选择机制克服了离散模态的弱点，但反过来可能损害 LTI SSM 本来擅长的连续信号，音频波形消融专门看了这个取舍；Downstream Affordances 段把微调、适配、提示、上下文学习、指令微调、RLHF、量化这些 Transformer 生态性质是否同样成立列为待研究。\n它没主张的：论文没有说在 7B 以上规模仍优于 Transformer；5× 指的是推理吞吐而不是训练速度，§4.5 说明它来自没有 KV 缓存因而能用更大 batch，举的例子还是一个未训练的 Mamba-6.9B 对比小 5 倍的 Transformer-1.3B；百万长度的外推结论来自 §4.1.2 的合成 induction heads 任务，那里作者注明所有注意力模型因显存限制只测到 16384，所以不是同长度下的对照；表 1 的比较也限定在同 tokenizer、同数据集、同 300B token 训练量的开源模型（Pythia、RWKV）上，跨 tokenizer 的困惑度不放在一起比。",
+    "en": "Problem: earlier subquadratic architectures (linear attention, gated convolution, structured state space models) did not match attention on discrete modalities such as language, and the authors identify the key weakness as an inability to select what to remember or forget based on content; can SSM parameters be made input-dependent while still training efficiently.\nWhere the evidence sits: the selection mechanism is in 3.2, the hardware-aware parallel scan in 3.3, and the simplified architecture without attention or MLP blocks in 3.4; language modelling scaling laws are in 4.2.1 and Figure 6 (roughly 125M to 1.3B parameters, the Pile, under the Chinchilla protocol), zero-shot downstream results in Table 1, and speed and memory in 4.5 and Figure 12; the limits are in Section 5 Discussion, under No Free Lunch, Downstream Affordances and Scaling.\nWhat the authors say about limits: the Scaling paragraph in Section 5 states that the empirical evaluation is limited to small model sizes, below most strong open source LLMs and below RWKV and RetNet which have been evaluated at 7B and beyond, that whether Mamba still compares favorably at larger sizes remains to be assessed, and that scaling SSMs may involve further engineering challenges and model adjustments not discussed in the paper; the No Free Lunch paragraph says selection overcomes weaknesses on discrete modalities but can conversely impede performance on the continuous signals where LTI SSMs excel, a tradeoff examined in the audio waveform ablations; the Downstream Affordances paragraph leaves open whether fine-tuning, adaptation, prompting, in-context learning, instruction tuning, RLHF and quantisation behave the same way.\nWhat it does not claim: the paper does not claim an advantage over Transformers above 7B; the 5× figure is inference throughput, not training speed, and 4.5 explains it comes from having no KV cache and therefore much larger batch sizes, with the example being an untrained Mamba-6.9B against a Transformer-1.3B five times smaller; the million-length extrapolation result comes from the synthetic induction heads task in 4.1.2, where the authors note all attention models were only tested up to 16384 because of memory limits, so it is not a like-for-like length comparison; and Table 1 restricts comparison to open models sharing the tokenizer, dataset and 300B training tokens (Pythia, RWKV), with perplexity compared only within the same tokenizer."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "§3.2–§3.4（方法）；§4.2.1 与 Figure 6、表 1（语言）；§4.5 与 Figure 12（速度）；§5 Discussion（局限）",
+    "语言模型规模 / scale": "摘要口径 Mamba-3B，称同规模优于 Transformer、追平两倍规模",
+    "推理吞吐 / throughput": "摘要 5×；§4.5 记为 4–5×，相对同规模 Transformer",
+    "序列长度 / length": "随序列长度线性；真实数据上到百万长度仍改善（摘要口径）",
+    "复现状态 / reproduction": "未复现"
+  }
+}

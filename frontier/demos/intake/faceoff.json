@@ -1,0 +1,50 @@
+{
+  "id": "faceoff",
+  "title": { "zh": "Faceoff", "en": "Faceoff" },
+  "category": "自动化",
+  "url": "https://www.vincentgregoire.com/faceoff/",
+  "repo": "https://github.com/vgreg/faceoff",
+  "license": {
+    "spdx": "MIT",
+    "kind": "osi",
+    "evidenceUrl": "https://github.com/vgreg/faceoff/blob/main/LICENSE",
+    "checkedAt": "2026-11-07"
+  },
+  "aiScope": ["代码 (code)", "文档 (docs)"],
+  "evidence": [
+    {
+      "url": "https://github.com/vgreg/faceoff/commit/4ca19adf62d7a557978909b7b79b54f321f89742",
+      "quote": "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+      "kind": "commit-trailer"
+    },
+    {
+      "url": "https://github.com/vgreg/faceoff/commit/594ff3149dd380ba874e639ae60b65ee27806133",
+      "quote": "Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+      "kind": "commit-trailer"
+    },
+    {
+      "url": "https://github.com/vgreg/faceoff/blob/main/LICENSE",
+      "quote": "MIT License\n\nCopyright (c) 2026 Vincent Gregoire",
+      "kind": "license"
+    }
+  ],
+  "run": { "status": "not-run", "env": "", "date": "" },
+  "maintenance": {
+    "lastCommit": "2026-04-19",
+    "lastSeen": "2026-11-07",
+    "checkedAt": "2026-11-07"
+  },
+  "media": { "shot": "none", "embed": "none" },
+  "compare": {
+    "runtime": "Python 3.13 终端 TUI；uvx faceoff 或 pip install faceoff（README）",
+    "hardware": "未核",
+    "commercial": "MIT 允许商用与再分发（LICENSE 原文已读）",
+    "reproducibility": "README 含安装与测试说明；本站未实测运行",
+    "maintenance": "最近提交 2026-04-19，在 12 个月内"
+  },
+  "notes": {
+    "zh": "NHL 冰球实时比分终端应用，基于 Textual 框架与公开 NHL API 数据，声明非 NHL 官方。初始提交（Add NHL game tracker TUI application）及多条代码/文档提交带 Claude Opus 4.5/4.7 共同署名 trailer。原址 2026-11-07 实测 HTTP 200、无登录付费墙。本站只链接，未实测运行。",
+    "en": "Terminal UI for live NHL hockey scores, built on Textual and public NHL API data; the README states it is not affiliated with the NHL. The initial commit (Add NHL game tracker TUI application) and multiple code/docs commits carry Co-authored-by trailers for Claude Opus 4.5/4.7. Origin checked 2026-11-07: HTTP 200, no login or paywall. Link-only here; not run by this site."
+  },
+  "verifiedAt": "2026-11-07"
+}

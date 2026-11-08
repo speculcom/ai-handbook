@@ -119,7 +119,7 @@ function validateEntry(file, cat) {
     //  2. provider 必填 —— 「支持哪些模型」是本站第一决策点
     //  3. sources 至少 1 条 official —— 竞品研究不可作数据来源（v3 §0.2）
     //  4. 必须有 decide_how —— 「要不要自己搭」是本站存在理由
-    const FAMILIES = ['coding-base', 'general-harness', 'orchestration'];
+    const FAMILIES = ['coding-base', 'general-harness', 'orchestration', 'robotics'];
     if (!fm.family) fail('harness 条目缺 family');
     else if (!FAMILIES.includes(fm.family)) {
       fail(`harness family 非法: ${fm.family}（允许 ${FAMILIES.join(' / ')}）`);
@@ -313,7 +313,10 @@ crossCheck(entries);
  * 文件名=id · id 不与档案或轻档案撞 · 英文缺 → 警告（R2）。 */
 {
   const GUIDES_DIR = path.join(ROOT, 'guides');
-  const TOPICS = new Set(['orchestration', 'memory', 'planning', 'evaluation', 'cost', 'guardrails']);
+  const TOPICS = new Set(['orchestration', 'memory', 'planning', 'evaluation', 'cost', 'guardrails', 'prompts']);
+  /* P5（2026-11-07）：prompts 并入 guides，用 kind 区分方法论与提示词内容。
+   * kind 缺省 = methodology，存量 48 篇不写也合规；档案 frontmatter 不受影响。 */
+  const GUIDE_KINDS = new Set(['methodology', 'prompt-guide', 'prompt-case']);
   if (!fs.existsSync(GUIDES_DIR)) {
     warnings.push('缺 guides/ 目录（S48：深水指南真相源，允许先建格式后灌内容）');
   } else {
@@ -333,6 +336,15 @@ crossCheck(entries);
       seen.add(fm.id);
       if (entryIds.has(fm.id)) errors.push(`${tag} · id 与八维档案撞`);
       if (!TOPICS.has(fm.topic)) errors.push(`${tag} · topic 不在枚举: ${fm.topic}`);
+      const gKind = fm.kind || 'methodology';
+      if (!GUIDE_KINDS.has(gKind)) errors.push(`${tag} · kind 不在枚举: ${fm.kind}`);
+      if (gKind !== 'methodology' && fm.topic !== 'prompts') errors.push(`${tag} · kind=${gKind} 必须配 topic: prompts`);
+      if (fm.topic === 'prompts' && gKind === 'methodology') errors.push(`${tag} · topic: prompts 必须写明 kind: prompt-guide 或 prompt-case`);
+      if (gKind === 'prompt-case') {
+        if (!fm.task || !String(fm.task).trim()) errors.push(`${tag} · prompt-case 缺 task（一句话说明这条提示词完成什么任务）`);
+        if (!/^```/m.test(text)) errors.push(`${tag} · prompt-case 正文缺围栏代码块（提示词本体必须可复制）`);
+        if (!/未实测/.test(text)) errors.push(`${tag} · prompt-case 正文缺「未实测」声明（本站不跑实测，不许暗示已验证效果）`);
+      }
       for (const k of ['title', 'summary']) {
         if (!fm[k] || !String(fm[k]).trim()) errors.push(`${tag} · 缺 ${k}`);
       }

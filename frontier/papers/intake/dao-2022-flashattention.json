@@ -1,0 +1,40 @@
+{
+  "id": "dao-2022-flashattention",
+  "title": {
+    "zh": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "en": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+  },
+  "category": "efficiency",
+  "url": "https://arxiv.org/abs/2205.14135",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2205.14135",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2205.14135",
+      "quote": "Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2205.14135",
+      "quote": "Our current approach to building IO-aware implementations of attention requires writing a new CUDA kernel for each new attention implementation."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2205.14135",
+      "quote": "15% end-to-end wall-clock speedup on BERT-large (seq. length 512) compared to the MLPerf 1.1 training speed record, 3× speedup on GPT-2 (seq. length 1K), and 2.4× speedup on long-range arena (seq. length 1K-4K)."
+    }
+  ],
+  "notes": {
+    "zh": "问题：自注意力的时间与显存随序列长度平方增长，瓶颈不在算力而在显存读写；能不能不把 N×N 注意力矩阵写回显存也算出精确结果。\n证据位置：摘要给出三档端到端加速与 7.6 倍注意力计算加速；局限写在第 5 节 Limitations and Future Directions。\n作者自陈局限：三点——每换一种注意力实现就要重写一个 CUDA kernel，要用比 PyTorch 低得多的语言写、工程量大；实现未必能跨 GPU 架构移植；他们的 IO 优化只在单卡上达到常数级最优，而注意力计算本身是可跨多卡并行的。\n它没主张的：论文没有说这是近似注意力——结果精确；但也没有声称解决了多卡切分问题，更没有说端到端加速比等于注意力算子加速比（摘要里 15% / 3× / 2.4× 与算子级 7.6× 是两个口径，不能混用）。",
+    "en": "Problem: self-attention time and memory grow quadratically with sequence length, and the bottleneck is memory traffic rather than arithmetic; can exact attention be computed without writing the N×N matrix back to HBM.\nWhere the evidence sits: the abstract gives three end-to-end speed-ups plus a 7.6× speed-up on the attention computation itself; the limits are in Section 5, Limitations and Future Directions.\nWhat the authors say about limits: three — each new attention implementation needs a new CUDA kernel written in a much lower-level language than PyTorch, which is significant engineering effort; implementations may not transfer across GPU architectures; and their IO-aware version is optimal within constants on a single GPU, whereas the attention computation itself may be parallelisable across multiple GPUs.\nWhat it does not claim: the paper does not present an approximation — the result is exact — but it also does not solve multi-GPU partitioning, and it does not equate end-to-end speed-up with kernel speed-up (the 15% / 3× / 2.4× figures and the 7.6× kernel figure are different measurements and must not be mixed)."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要（三档端到端）；Section 5 Limitations",
+    "BERT-large 端到端 / e2e": "15%（序列 512）",
+    "GPT-2 端到端 / e2e": "3×（序列 1K）",
+    "注意力算子 / kernel": "7.6×；显存随序列长度线性",
+    "复现状态 / reproduction": "未复现"
+  }
+}

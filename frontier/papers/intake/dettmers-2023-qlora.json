@@ -1,0 +1,44 @@
+{
+  "id": "dettmers-2023-qlora",
+  "title": {
+    "zh": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "en": "QLoRA: Efficient Finetuning of Quantized LLMs"
+  },
+  "category": "adaptation",
+  "url": "https://arxiv.org/abs/2305.14314",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2305.14314",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.14314",
+      "quote": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.14314",
+      "quote": "Our best model family, which we name Guanaco, outperforms all previous openly released models on the Vicuna benchmark, reaching 99.3% of the performance level of ChatGPT while only requiring 24 hours of finetuning on a single GPU."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.14314",
+      "quote": "Despite this evidence, we did not establish that QLoRA can match full 16-bit finetuning performance at 33B and 65B scales. Due to the immense resource costs, we leave this study to future work."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.14314",
+      "quote": "Furthermore, we find that current chatbot benchmarks are not trustworthy to accurately evaluate the performance levels of chatbots."
+    }
+  ],
+  "notes": {
+    "zh": "问题：§1 指出对 LLaMA 65B 做常规 16-bit 微调需要 780GB 以上显存，单卡放不下；能不能把基座量化到 4-bit、只训练低秩适配器，同时把任务表现保住。\n证据位置：方法在 §3（4-bit NormalFloat、Double Quantization、Paged Optimizers）；与全量微调的对照在 §4——表 3 是 RoBERTa 与 T5 在 125M–3B 上的 GLUE 与 Super-NaturalInstructions，表 4 是 LLaMA 7B–65B 的 5-shot MMLU；聊天机器人评测在 §5（表 5 为 MMLU，表 6 为 Vicuna 上相对 ChatGPT 得分的百分比、由 GPT-4 评判，表 7 为人工与 GPT-4 的 Elo）；局限有独立的 §8 Limitations and Discussion，评测方法的反思在 §6.2。\n作者自陈局限：§8 第一段就写明——虽然有证据表明 4-bit 基座加 LoRA 能复现 16-bit 全量微调，但他们没有确立 QLoRA 在 33B 与 65B 规模上能追平 16-bit 全量微调，因资源成本太高留待未来工作；评测只覆盖 MMLU、Vicuna、OA，没测 BigBench、RAFT、HELM，不能保证结论外推到这些基准；只做了有限的负责任 AI 评测（表 8 的 CrowS 偏见），其他类型偏见是否同样表现未知；也没试 3-bit 等其他位宽或 LoRA 之外的适配器方法。摘要自己还写了当前聊天机器人基准不足以准确评估聊天机器人水平，§6.2 给出具体原因：人工标注一致性只有 Fleiss κ=0.42，GPT-4 有明显顺序效应、给自己的输出打分偏高（Elo 1348 对人工 1176），与人工的样本级一致性 κ=0.25。\n它没主张的：99.3% 是 Vicuna 基准上相对 ChatGPT 得分的百分比、由 GPT-4 判定（表 6 口径），不是人类评测认定的等价，也不是在所有基准上追平；论文没有说 4-bit 训练在 33B/65B 上与全量微调无损等价，§8 明确否认这一点已经确立；Guanaco 只用交叉熵监督微调、没有用 RLHF（§6.2），所以这不是「4-bit 就能做出 ChatGPT 级助手」的完整配方；§4 的等价结论建立在学术基准与既有评测设置上，作者也提醒基准成绩很大程度取决于微调数据与基准数据的相似度。",
+    "en": "Problem: Section 1 notes that regular 16-bit finetuning of a LLaMA 65B model requires more than 780 GB of GPU memory, which does not fit on one card; can the base model be quantised to 4-bit and only low-rank adapters trained while keeping task performance.\nWhere the evidence sits: the method is in Section 3 (4-bit NormalFloat, Double Quantization, Paged Optimizers); the comparison against full finetuning is in Section 4 — Table 3 covers RoBERTa and T5 from 125M to 3B on GLUE and Super-NaturalInstructions, Table 4 covers LLaMA 7B to 65B on 5-shot MMLU; chatbot evaluation is in Section 5 (Table 5 MMLU, Table 6 Vicuna scores as a percentage of ChatGPT's score judged by GPT-4, Table 7 human and GPT-4 Elo); the limits have a dedicated Section 8 Limitations and Discussion, and reflection on evaluation methodology is in 6.2.\nWhat the authors say about limits: the first paragraph of Section 8 states that despite the evidence that a 4-bit base with LoRA replicates 16-bit full finetuning, they did not establish that QLoRA can match full 16-bit finetuning at the 33B and 65B scales, and leave that to future work because of the immense resource costs; evaluation covers only MMLU, the Vicuna benchmark and the OA benchmark, not BigBench, RAFT or HELM, so generalisation to those is not ensured; only a limited responsible AI evaluation was done (CrowS bias in Table 8) and other bias types are unknown; and other bit-precisions such as 3-bit, or adapter methods other than LoRA, were not evaluated. The abstract itself says current chatbot benchmarks are not trustworthy for accurately evaluating chatbot performance levels, and 6.2 gives the reasons: human annotator agreement is only Fleiss kappa 0.42, GPT-4 shows strong order effects and rates its own outputs higher (Elo 1348 versus 1176 from humans), and sample-level agreement with humans is kappa 0.25.\nWhat it does not claim: the 99.3% figure is a percentage of ChatGPT's score on the Vicuna benchmark as judged by GPT-4 (the Table 6 measure), not human-certified equivalence and not parity across all benchmarks; the paper does not claim lossless equivalence to full finetuning at 33B/65B, and Section 8 explicitly denies that this was established; Guanaco was trained with cross-entropy supervised finetuning only and no RLHF (6.2), so this is not a complete recipe for a ChatGPT-level assistant on 4-bit; and the equivalence result in Section 4 rests on academic benchmarks with established evaluation setups, with the authors cautioning that benchmark scores depend heavily on how similar the finetuning data is to the benchmark data."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "§3（方法）；表 3、表 4（§4）；表 5、表 6、表 7（§5）；§6.2；§8 Limitations and Discussion",
+    "显存 / memory": "单张 48GB GPU 微调 65B（摘要口径）",
+    "Guanaco / Vicuna": "达到 ChatGPT 表现水平的 99.3%，单 GPU 微调 24 小时（摘要口径；表 6 为 GPT-4 评判的相对得分百分比）",
+    "未确立 / not established": "33B 与 65B 上追平 16-bit 全量微调（§8 原文）",
+    "复现状态 / reproduction": "未复现"
+  }
+}

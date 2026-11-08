@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>核验路径：一条 AI × 链内容该查什么 · 链 × AI</title>
+  <meta name="description" content="核验路径：一条 AI × 链内容该查什么：按顺序走 14 步，每步指向本站一条已核验的条目，逐项对照显存、功耗与互联，只给判断依据。" />
+  <link rel="canonical" href="https://chain.specul.com/path.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="核验路径：一条 AI × 链内容该查什么 · 链 × AI" />
+  <meta property="og:url" content="https://chain.specul.com/path.html" />
+  <meta property="og:title" content="核验路径：一条 AI × 链内容该查什么 · 链 × AI" />
+  <meta property="og:description" content="核验路径：一条 AI × 链内容该查什么：按顺序走 14 步，每步指向本站一条已核验的条目，逐项对照显存、功耗与互联，只给判断依据。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=5e907aab579b"></script>
+  <link rel="stylesheet" href="brand.css?v=5e907aab579b" />
+  <link rel="stylesheet" href="site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"核验路径：一条 AI × 链内容该查什么 · 链 × AI","description":"核验路径：一条 AI × 链内容该查什么：按顺序走 14 步，每步指向本站一条已核验的条目，逐项对照显存、功耗与互联，只给判断依据。","url":"https://chain.specul.com/path.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+        <a href="https://hardware.specul.com/"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a>
+        <a href="https://chain.specul.com/" aria-current="page"><span data-zh>链 × AI</span><span data-en>Chain × AI</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品库</span><span data-en>Demos</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/"><span><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>论文</span><span data-en>Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/" aria-current="page"><span><span data-zh>链 × AI</span><span data-en>Chain × AI</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>9 个站，各管一件事</span><span data-en>Nine sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container ms-page"><h1><span data-zh>核验路径：一条 AI × 链内容该查什么</span><span data-en>Verification path: what to check on an AI-and-chain claim</span></h1><p><span data-zh>顺序按「先分清类型、再回到规范原文、然后看权利与持有、最后看谁能验证」排。每一步只链本站已核过的条目，不给结论也不做推荐；查不到原文就停在那一步，不用二手转述补位。</span><span data-en>The order is: identify the type first, go back to the specification text, then check rights and custody, and finally who can verify. Each step links only to entries verified here; no conclusions and no recommendations, and if the original text cannot be found the process stops at that step rather than filling in with a second-hand summary.</span></p><ol class="ms-path">
+    <li><b>1.</b> <span data-zh>先分清这条内容属于哪一类：来源标识、可验证凭证，还是去中心化推理网络——三类查法完全不同。</span><span data-en>First establish which category the claim belongs to: provenance signalling, verifiable credentials, or a decentralised inference network — the three are checked differently.</span> <a href="index.html#c2pa-content-credentials"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>2.</b> <span data-zh>如果是内容凭证：查清规范版本与断言类型，并确认 AI 输出用的是哪种来源类型标记。</span><span data-en>For a content credential: establish the specification version and assertion types, and confirm which source type marks an AI output.</span> <a href="index.html#c2pa-ai-ml-guidance"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>3.</b> <span data-zh>如果声明要离线签名：按类型化结构编码与哈希，不把复杂声明只当成不透明字节串。</span><span data-en>If a claim needs an offline signature: encode and hash typed structured data instead of treating a complex claim as an opaque byte string.</span> <a href="index.html#eip-712"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>4.</b> <span data-zh>如果签名来自合约账户：查合约侧签名验证接口，而不是只按个人私钥签名的方式验证。</span><span data-en>If the signature comes from a contract account: check the contract-side signature validation interface rather than verifying only as an EOA signature.</span> <a href="index.html#eip-1271"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>5.</b> <span data-zh>如果要记录谁按什么 schema 作了证明：查 schema 注册与 attestation 合约，并记住记录不等于内容自动为真。</span><span data-en>If the claim records who attested what under a schema: check schema registration and attestation contracts, and remember recording does not make the content automatically true.</span> <a href="index.html#ethereum-attestation-service"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>6.</b> <span data-zh>如果是数据或模型文件：确认它按内容寻址，同一份字节在任何节点得到同一标识。</span><span data-en>For a dataset or model file: confirm it is content-addressed, so identical bytes yield an identical identifier on any node.</span> <a href="index.html#ipfs-cid"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>7.</b> <span data-zh>如果出处跨多个文件：查 CID 之上的数据模型与链接方式，不只核单个文件哈希。</span><span data-en>If provenance spans multiple files: check the data model and linking above CIDs, not only a single file hash.</span> <a href="index.html#ipld"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>8.</b> <span data-zh>接着问「现在还有谁持有」：持有证明是周期性的，且不等于随时能快速取回。</span><span data-en>Then ask who still holds it: the proof of custody is periodic and does not imply fast retrieval.</span> <a href="index.html#filecoin-verifiable-storage"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>9.</b> <span data-zh>如果涉及「某机构认证了它」：先分清签发者、持有者、验证者，并记住可验证不等于声明为真。</span><span data-en>If the claim is that some body attested it: separate issuer, holder and verifier, and remember that verifiable does not mean true.</span> <a href="index.html#w3c-verifiable-credentials"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>10.</b> <span data-zh>如果涉及某个标识的控制权：查 DID 文档里的验证方法与撤销方式，撤销规则由各方法自定。</span><span data-en>If control of an identifier is claimed: check verification methods and revocation in the DID document, noting that revocation rules are per method.</span> <a href="index.html#w3c-did"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>11.</b> <span data-zh>如果要把标识变成可核验材料：执行 DID 解析，取得文档与元数据，再核对目标 method 的实现。</span><span data-en>To turn an identifier into verifiable material: run DID resolution to obtain the document and metadata, then check the target method implementation.</span> <a href="index.html#did-resolution"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>12.</b> <span data-zh>如果涉及数据能不能用：区分「访问被门控」与「数据合规可用」，后者是法律判断，不是协议能回答的。</span><span data-en>If data usage is at issue: separate token-gated access from lawful usability — the latter is a legal judgement, not something a protocol answers.</span> <a href="index.html#ocean-protocol"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>13.</b> <span data-zh>如果私有数据用于训练或评测：区分出售原始数据与授权计算，核对允许算法、计算环境与结果边界。</span><span data-en>If private data is used for training or evaluation: separate selling raw data from authorised compute, and check allowed algorithms, compute environment and result boundaries.</span> <a href="index.html#ocean-compute-to-data"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>14.</b> <span data-zh>如果涉及去中心化推理：查清角色分工与打分机制，激励分配由验证者的评分决定，跨子网不可直接比较。</span><span data-en>For decentralised inference: establish the role split and the scoring mechanism, since incentive distribution follows validator scores and subnets are not directly comparable.</span> <a href="index.html#bittensor-subnet"><span data-zh>条目</span><span data-en>entry</span></a></li>
+</ol></div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链 × AI</span><span data-en>Chain × AI</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

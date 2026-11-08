@@ -1,0 +1,39 @@
+{
+  "id": "rafailov-2023-dpo",
+  "title": {
+    "zh": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+    "en": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+  },
+  "category": "alignment",
+  "url": "https://arxiv.org/abs/2305.18290",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2305.18290",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.18290",
+      "quote": "While large-scale unsupervised language models (LMs) learn broad world knowledge and some reasoning skills, achieving precise control of their behavior is difficult due to the completely unsupervised nature of their training."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.18290",
+      "quote": "Additionally, while we evaluate models up to 6B parameters, exploration of scaling DPO to state-of-the-art models orders of magnitude larger is an exciting direction for future work."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.18290",
+      "quote": "We note that we did not meaningfully tune DPO’s β hyperparameter, so these results may underestimate DPO’s potential."
+    }
+  ],
+  "notes": {
+    "zh": "问题：RLHF 要训多个模型、还要在训练循环里从策略采样，流程复杂且成本高；能不能把偏好优化直接写成一个分类损失，跳过显式奖励模型与采样。\n证据位置：方法推导与损失函数在正文前半；实验规模与超参说明在第 6 节。\n作者自陈局限：这篇没有独立的 Limitations 章节，局限以「未来工作」的问句形式写在讨论里——只验证到 6B 参数，向更大规模扩展尚未做；GPT-4 自动评判的胜率会受提示词影响，如何稳定地引出高质量判断仍是开放问题；作者还主动说明 β 超参没有认真调，因此结果可能低估了方法潜力。\n它没主张的：论文没有声称在更大规模上仍能追平 PPO 系方法，也没有说自动评判等同于人类判断；「更简单、更轻」是相对 RLHF 流程而言，不涉及最终模型能力上限。",
+    "en": "Problem: RLHF trains several models and samples from the policy inside the training loop, which is complex and costly; can preference optimisation be written as a classification loss that skips the explicit reward model and the sampling.\nWhere the evidence sits: the derivation and loss are in the first half of the paper; the experimental scale and hyperparameter note are in Section 6.\nWhat the authors say about limits: there is no separate Limitations section; the limits appear as future-work questions in the discussion — only models up to 6B parameters were evaluated, scaling to orders of magnitude larger is left open; GPT-4-computed win rates are affected by the prompt, so how to elicit reliable automated judgements is unresolved; and the authors volunteer that they did not meaningfully tune the β hyperparameter, so results may underestimate the method.\nWhat it does not claim: the paper does not claim parity with PPO-based methods at larger scale, nor equate automated judgement with human judgement; \"simpler and lighter\" refers to the RLHF pipeline, not to a ceiling on model capability."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "第 6 节（规模与 β 说明）；讨论部分（未来工作问句）",
+    "最大验证规模 / scale": "6B 参数",
+    "对比基线 / baseline": "PPO 系 RLHF",
+    "复现状态 / reproduction": "未复现"
+  }
+}

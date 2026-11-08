@@ -1,0 +1,34 @@
+{
+  "id": "did-resolution",
+  "title": {
+    "zh": "DID Resolution：把标识解析成可核验文档",
+    "en": "DID Resolution: resolving identifiers into verifiable documents"
+  },
+  "category": "protocol",
+  "url": "https://w3c.github.io/did-resolution/",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://w3c.github.io/did-resolution/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://w3c.github.io/did-resolution/",
+      "quote": "Decentralized identifier (DID) resolution is the process of obtaining a DID document and accompanying metadata for a specific DID."
+    },
+    {
+      "url": "https://w3c.github.io/did-resolution/",
+      "quote": "MUST implement the DID resolution function for at least one DID method and MUST be able to return a DID document."
+    }
+  ],
+  "notes": {
+    "zh": "交集：AI 内容凭证与模型出处声明常用 DID 标识签发者或主体；验证者不能只看标识字符串，还要解析出 DID document 与元数据，才能找验证方法和状态信息。\n适用范围：官方规范定义 DID resolution 是取得 DID document 与伴随元数据的过程，并规定 conforming resolver 至少实现一个 DID method 的解析函数且能返回 DID document。它规定解析接口与元数据，不保证 DID 背后主体身份真实。\n未解决：各 DID method 的更新、撤销与可用性不同；页面仍是 Editor’s Draft，AI 凭证系统要核对目标 method 的实现与治理，而不是把解析成功当成信任完成。",
+    "en": "The intersection: AI content credentials and model provenance statements often use DIDs for issuers or subjects; verifiers must resolve the identifier into a DID document and metadata to find verification methods and status information.\nScope: the specification defines DID resolution as obtaining a DID document and accompanying metadata, and requires conforming resolvers to implement the resolution function for at least one DID method and return a DID document. It standardises resolution and metadata, not the real-world identity behind the DID.\nOpen: DID methods differ in update, revocation and availability; the page remains an Editor’s Draft, so credential systems must check the target method implementation and governance rather than treating successful resolution as completed trust."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "协议状态 / status": "草案（W3C Editor’s Draft，页面配置 specStatus: ED）",
+    "规范来源 / source": "https://w3c.github.io/did-resolution/",
+    "核验日 / checked": "2026-11-07"
+  }
+}

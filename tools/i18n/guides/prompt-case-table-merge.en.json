@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-table-merge. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output a merged table and conflict log; conflicts are not silently overwritten.\nInputs: Multiple tables, key fields, merge rules, and priority.",
+    "提示词本体": "```text\nMerge tables on {key}. Rules: {rules}. Output merged[] and conflicts[]. When same-key fields disagree, keep all candidate values and record source table and field in conflicts; do not silently overwrite by priority unless the rules explicitly authorise it.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "merged[] and conflicts[] with sources and candidate values.",
+    "检查点": "- Keys are unique or conflicts recorded.\n- Every overwrite has rule authorisation.\n- Row count equals the union of input keys.",
+    "失败分支": "- Wrong key: check field meanings first.\n- Too many conflicts: define rules manually before rerunning.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Introduction to Structured Outputs (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

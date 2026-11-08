@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-slides-brief. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output per-slide title, points, source and checks; do not exaggerate effects.\nInputs: Topic, materials, slide limit, and audience.",
+    "提示词本体": "```text\nGenerate a brief of at most {slides} slides. Each slide outputs title, points[], source and check. points must come from {materials}; check states how the reader verifies the slide. Do not write best/strongest/percentage uplift unless the source states it with its measurement basis.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "slides[] with source and verification method per slide.",
+    "检查点": "- Each slide has a source for points.\n- No comparison words without measurement basis.\n- Slide count stays under the limit.",
+    "失败分支": "- Too dense: split slides or remove secondary items.\n- Missing source: mark a gap or remove the slide.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: GPT-4.1 Prompting Guide (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

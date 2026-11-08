@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-sql-explain. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output semantic explanation, index checks and risks; do not pretend EXPLAIN was run.\nInputs: SQL, table schema, and index definitions.",
+    "提示词本体": "```text\nExplain the SQL. Output meaning, joins[], filters[], index_checks[] and risks[]. index_checks judge possible use/absence only from given index definitions; if no EXPLAIN output exists, state that plan verification was not run. Do not invent row counts or timings.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "meaning, joins/filters, index_checks, and risks.",
+    "检查点": "- Index judgments cite definitions.\n- No invented statistics.\n- Risks include NULL/duplicate-key boundaries.",
+    "失败分支": "- Missing schema: mark missing_schema.\n- Over-explanation: keep only SQL semantics.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Introduction to Structured Outputs (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

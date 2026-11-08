@@ -644,12 +644,21 @@ runtime: >-
 | 字段 | 类型 | 必填 | 约束 |
 |---|---|:---:|---|
 | `id` | string | ✓ | 同档案规则（小写 + 连字符）；文件名 = id；不与档案/轻档案 id 撞 |
-| `topic` | enum | ✓ | `orchestration / memory / planning / evaluation / cost / guardrails`（六主题枚举） |
+| `topic` | enum | ✓ | `orchestration / memory / planning / evaluation / cost / guardrails / prompts`（七主题枚举；`prompts` 自 P5 起） |
+| `kind` | enum | | `methodology`（缺省值，存量方法论指南）/ `prompt-guide`（提示词指南）/ `prompt-case`（可复跑提示词案例）。**P5 新增**：prompts 内容并入 guides 时用 kind 区分，不动 `tracks/` 下 250 份档案的 frontmatter |
+| `task` | string | `prompt-case` ✓ | 一句话说清这条提示词完成什么任务 |
 | `title` / `titleEn` | string | ✓ / | 中文标题（plain-language：≤ 20 字、说清讲什么） |
 | `summary` / `summaryEn` | string | ✓ / | 一句话定位（plain-language 开场判据适用） |
 | `sources` | array | ✓ | ≥1 条官方 URL（R5：禁二手博客；label 如实标注取法） |
 | `last_verified` | date | ✓ | 核验快照语义同档案 |
 | `confidence` | enum | ✓ | 同档案枚举 `verified / partial / stale` |
+
+**kind 与 topic 的绑定**：`kind` 为 `prompt-guide` / `prompt-case` 时 `topic` 必须是 `prompts`；`topic: prompts` 时 `kind` 必须写明这两值之一（不许缺省成 methodology）。
+
+**prompt-case 的正文硬要求**（校验器强制）：
+- 必须有围栏代码块（` ``` `）承载提示词本体——构建器已支持，渲染成可复制的 `<pre class="code"><code>`；
+- 必须出现「未实测」声明：本站不跑实测，提示词是**可复跑的模板**，不是效果承诺；
+- 正文按固定小节写：任务与输入 → 提示词本体 → 预期输出形态 → 检查点 → 失败分支 → 出处。换模型/版本/输入会改变结果，检查点由读者自己核对。
 
 ### 10.2 正文纪律
 

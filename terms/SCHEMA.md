@@ -4,7 +4,7 @@
 > 机器执行方是 [`scripts/validate.mjs`](./scripts/validate.mjs)（**本文与它必须一致**；
 > 改了字段或枚举，两处一起改，否则「文档说合规、校验器报错」）。
 >
-> 实测规模：**228 词 · 6 站**（一 35 · 二 42 · 三 43 · 四 39 · 五 34 · 六 35）+ **微型指南 81 篇**（`guides/`，见 §八）。
+> 实测规模：**236 词 · 6 站**（一 36 · 二 44 · 三 46 · 四 40 · 五 35 · 六 35）+ **微型指南 87 篇**（含 6 篇课堂教案）（`guides/`，见 §八）。
 
 ## 一、文件位置与命名
 
@@ -105,14 +105,14 @@
 
 ## 八、微型指南（`guides/`，v7 S24 · 2026-10-19）
 
-5–10 分钟一篇的操作指南（怎么提问 / 怎么验证输出 / …），以及「常见误区」子类型。
+5–10 分钟一篇的操作指南（怎么提问 / 怎么验证输出 / …），以及「常见误区」「论文卡」「课堂教案」子类型。
 与词条同一套 frontmatter 纪律，但字段不同（指南没有 `def` / `why` / 层内全局 `ord`）。
 
 | 项 | 规则 |
 |---|---|
 | 文件 | `guides/<中文名>.md` —— 一篇一文件，**文件名即 slug**（URL 身份，与词条同一规则） |
-| 英文正文 | `guides.en.json` —— 键 = 文件名去 `.md`；值形如 `{"lead": "…", "points": ["…"]}`（myth 类为 `{"lead","myth","fact"}`） |
-| 页面 | 构建出 `learn.specul/guide/<slug>/index.html`（HowTo / Article JSON-LD） |
+| 英文正文 | `guides.en.json` —— 键 = 文件名去 `.md`；值形如 `{"lead": "…", "points": ["…"]}`（myth 类为 `{"lead","myth","fact"}`；lesson 类为 `{"lead"}` + 五段数组的英译，见下方 lesson 专属字段） |
+| 页面 | 构建出 `learn.specul/guide/<slug>/index.html`（JSON-LD：guide 用 HowTo · myth/paper 用 Article · lesson 用 LearningResource） |
 
 必填字段（缺一即校验失败）：
 

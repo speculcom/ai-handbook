@@ -1,0 +1,39 @@
+{
+  "id": "filecoin-verifiable-storage",
+  "title": {
+    "zh": "Filecoin 可验证存储",
+    "en": "Filecoin verifiable storage"
+  },
+  "category": "provenance",
+  "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+      "quote": "Every storage provider proves that they are maintaining their files in every 24-hour window."
+    },
+    {
+      "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+      "quote": "Any observer can check any storage provider’s track record and will notice if the provider has been faulty or offline in the past."
+    },
+    {
+      "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+      "quote": "Files are referred to by the data they contain, not by fragile identifiers such as URLs."
+    }
+  ],
+  "notes": {
+    "zh": "交集：训练数据与模型权重的长期留存——「谁还持有这份数据」这件事有周期性证明可查，而不是只能相信服务商的状态页。适用范围：官方说明存储方每 24 小时窗口证明一次仍在维护文件，任何观察者都能查历史记录；文件按内容而非 URL 寻址。未解决：该页未列局限，也未对检索延迟、取回速度或长期可用性给出承诺——证明的是「仍在持有」，不等于「随时能快速取回」。页面本身营销表述较多（价格优势、抗审查等），本站不收录这类评价，只引可核的机制句。",
+    "en": "The intersection: long-term retention of training data and model weights, where \"who still holds this data\" has a periodic proof anyone can inspect rather than a provider status page to be trusted. Scope: the vendor states that every storage provider proves it is maintaining its files in every 24-hour window, that any observer can check a provider’s track record, and that files are addressed by content rather than by URL. Open: the page lists no limitations and makes no commitment about retrieval latency, fetch speed or long-term availability — the proof says the data is still held, not that it can be fetched quickly. The page carries considerable marketing language (price, censorship resistance); this entry cites only the mechanism statements and does not repeat those evaluations."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证明周期 / proof window": "每 24 小时一次",
+    "可查性 / auditability": "任何观察者可查存储方历史记录",
+    "寻址方式 / addressing": "内容寻址，非 URL",
+    "未承诺 / not committed": "检索延迟、取回速度、长期可用性"
+  }
+}

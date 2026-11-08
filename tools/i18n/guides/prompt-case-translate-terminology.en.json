@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-translate-terminology. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output translation and term mapping; unlisted terms are marked for review rather than coined freely.\nInputs: Source text, target language, and glossary.",
+    "提示词本体": "```text\nTranslate the source into {language}. Terms must follow {glossary}; keep unlisted technical terms in the original with a note and list them in review_terms[]. Output translation and term_map[]. Do not change numbers or dates.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "translation, term_map[], and review_terms[].",
+    "检查点": "- Glossary terms are consistent.\n- Numbers and dates match the source.\n- Review terms have source locations.",
+    "失败分支": "- Term drift: lock the glossary and rerun.\n- Missing note: keep the original term and add explanation.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: GPT-4.1 Prompting Guide (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

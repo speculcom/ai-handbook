@@ -1,0 +1,39 @@
+{
+  "id": "amd-instinct-mi300x",
+  "title": {
+    "zh": "AMD Instinct MI300X",
+    "en": "AMD Instinct MI300X"
+  },
+  "category": "accelerator",
+  "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+      "quote": "Dedicated Memory Size 192 GB  Dedicated Memory Type HBM3  Peak Memory Bandwidth 5.3 TB/s"
+    },
+    {
+      "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+      "quote": "Typical Board Power (TBP) 750W Peak"
+    }
+  ],
+  "notes": {
+    "zh": "回答单卡显存容量与带宽的量级，供「一个模型能不能整卡装下」这类判断使用。不回答软件栈成熟度或迁移成本：该页只给硬件规格，ROCm 支持范围与框架版本需另查官方文档。",
+    "en": "Answers the order of magnitude of per-card memory and bandwidth, which is what a \"does this model fit on one card\" decision needs. It does not answer software-stack maturity or porting cost: the page carries hardware figures only, so ROCm coverage and framework versions must be checked against the vendor documentation."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "192 GB HBM3",
+    "memory bandwidth": "5.3 TB/s",
+    "board power": "750 W peak",
+    "form factor": "OAM module",
+    "bus": "PCIe 5.0 x16",
+    "FP8, sparsity": "5.22 PFLOPS",
+    "FP16, sparsity": "2.61 PFLOPS",
+    "Infinity Fabric links": "8 at 128 GB/s peak"
+  }
+}

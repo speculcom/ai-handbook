@@ -1,0 +1,44 @@
+{
+  "id": "kaplan-2020-scaling-laws",
+  "title": {
+    "zh": "Scaling Laws for Neural Language Models",
+    "en": "Scaling Laws for Neural Language Models"
+  },
+  "category": "scaling",
+  "url": "https://arxiv.org/abs/2001.08361",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2001.08361",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2001.08361",
+      "quote": "The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2001.08361",
+      "quote": "Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2001.08361",
+      "quote": "Without a theory or a systematic understanding of the corrections to our scaling laws, it’s difficult to determine in what circumstances they can be trusted."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2001.08361",
+      "quote": "In the domain of natural language, it will be important to investigate whether continued improvement on the loss translates into improvement on relevant language tasks."
+    }
+  ],
+  "notes": {
+    "zh": "问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。\n证据位置：三条基本幂律在 §1.2 与 Figure 1（α_N≈0.076、α_D≈0.095、α_Cmin≈0.050），过拟合与数据/参数比例在 §4，算力最优分配在 §6.1 与 Figure 14（N(C_min)∝C_min^0.73，数据需求约按 C^0.27 增长）；局限有专门的 Appendix C Caveats，另有 §6.3 Contradictions and a Conjecture 与 §8 Discussion。\n作者自陈局限：Appendix C 列了六条——目前对提出的任何标度律都没有扎实的理论理解，缺了理论或对修正项的系统认识就难以判断它们在什么情况下可信；对远超实验损失范围的 B_crit(L) 预测没有信心；小数据区没有仔细研究，最小 D 上 L(N,D) 拟合很差，也没试正则化与数据增强；算力用 C≈6NBS 估计、未计入与上下文长度成正比的项，因此在 n_ctx 很大时算力标度可能被混淆；可能漏调了某些影响标度的超参（如初始化尺度或动量）；学习率最优值依赖目标损失，未跑到收敛的短训练没有试过更高学习率。§6.3 还自己指出：外推到远高于实验的规模时 L(C_min) 与 L(D) 会相交而出现矛盾，说明幂律在那之前必然失效，交点是否代表性能上限只是作者的猜想。\n它没主张的：论文测的是交叉熵损失，不是下游任务成绩——§8 明确把「损失继续下降是否转化为相关语言任务的提升」列为待研究；也没有说这些关系适用于语言以外，§8 写作者尚不知道哪些结果依赖自然语言数据的结构、哪些是普适的；「大模型配相对少量数据并显著早停」是给定算力预算下的分配结论，不是「数据不重要」的普遍主张，作者同时写明趋势最终必然变平，因为自然语言的熵非零。",
+    "en": "Problem: how does language model cross-entropy loss change with parameter count, dataset size and training compute, how should a fixed compute budget be allocated, and can this be written as extrapolatable equations.\nWhere the evidence sits: the three basic power laws are in 1.2 and Figure 1 (alpha_N about 0.076, alpha_D about 0.095, alpha_Cmin about 0.050), overfitting and the data-to-parameter ratio in Section 4, and optimal compute allocation in 6.1 and Figure 14 (N(C_min) proportional to C_min^0.73, with data requirements growing roughly as C^0.27); the limits have a dedicated Appendix C Caveats, plus 6.3 Contradictions and a Conjecture and Section 8 Discussion.\nWhat the authors say about limits: Appendix C lists six — there is at present no solid theoretical understanding of any of the proposed scaling laws, and without a theory or a systematic understanding of the corrections it is difficult to determine when they can be trusted; they are not especially confident in the B_crit(L) prediction far outside the explored loss range; the small data regime was not thoroughly investigated, fits for L(N,D) were poor at the smallest D, and regularisation and data augmentation were not tried; compute was estimated as C about 6NBS without the term proportional to context length, so compute scalings may be confounded at very large n_ctx; some hyperparameter affecting scaling (such as initialisation scale or momentum) may have been left untuned; and the optimal learning rate depends on the target loss, with higher rates not tried for runs that did not reach convergence. Section 6.3 also notes that extrapolating far beyond the studied scale makes L(C_min) and L(D) intersect, an apparent contradiction implying the laws must break down before that point, and whether the intersection marks maximal performance is offered only as a conjecture.\nWhat it does not claim: the paper measures cross-entropy loss, not downstream task scores — Section 8 explicitly leaves open whether continued loss improvement translates into improvement on relevant language tasks; it does not claim the relations hold outside language, and Section 8 says the authors do not know which results depend on the structure of natural language data and which are universal; and very large models on relatively modest data with early stopping is an allocation result under a fixed compute budget, not a general claim that data does not matter — the authors also write that the trends must eventually level off because natural language has non-zero entropy."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "§1.2 与 Figure 1（三条幂律）；§4（过拟合）；§6.1 与 Figure 14（算力分配）；Appendix C Caveats；§6.3；§8",
+    "趋势跨度 / span": "摘要称部分趋势跨越七个以上数量级",
+    "测量对象 / metric": "交叉熵损失，不是下游任务分数",
+    "算力分配结论 / allocation": "很大的模型 + 相对少量数据 + 显著早停（摘要口径）",
+    "复现状态 / reproduction": "未复现"
+  }
+}

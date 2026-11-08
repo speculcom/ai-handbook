@@ -1,0 +1,224 @@
+{
+  "_meta": {
+    "title": "AI 做游戏 · 立论层三张判定表",
+    "createdAt": "2026-10-05",
+    "stage": "P1",
+    "principle": "每条判断必须能回溯到官方源，或显式标注「我们的口径」。v3 铁律第4 条。",
+    "criticalNote": "⚠ **成本下降幅度没有权威来源。** 下面 table-1 的costChange 列是**我们的判断**，不是实测数据。它基于「AI 在该环节能替代什么」的定性推理，不是测量结果。引用时请连同这句一起引用。",
+    "verifiedData": "engines-verified.json（GitHub API，2026-10-30 复测）"
+  },
+  "table1_whatChanged": {
+    "title": "表 1 · AI 改变了做游戏的哪部分",
+    "columns": [
+      "环节",
+      "成本变化",
+      "成熟度",
+      "判断依据",
+      "confidence"
+    ],
+    "rows": [
+      {
+        "stage": "引擎搭建与架构",
+        "costChange": "↓ 大幅",
+        "maturity": "成熟",
+        "basis": "场景图、状态机、ECS 都有官方文档与大量可参考实现；AI 生成的是结构清晰的样板代码，不依赖引擎私有约定。",
+        "verifiable": "各引擎的官方 API 文档（见 engines-verified.json 的 repoUrl）",
+        "confidence": "verified",
+        "basisEn": "Scene trees, state machines and ECS all have official docs and many reference implementations; what AI writes is boilerplate with clear structure, not code depending on engine-private conventions.",
+        "stageEn": "Engine setup & architecture"
+      },
+      {
+        "stage": "玩法原型（成熟品类）",
+        "costChange": "↓ 大幅",
+        "maturity": "成熟",
+        "basis": "平台跳跃、卡牌、塔防、贪吃蛇这类玩法的核心循环是确定性代码，AI 能可靠产出。",
+        "verifiable": "可由 demos 站的收录记录佐证（**该站尚未建，此项待补**）",
+        "confidence": "partial",
+        "caveat": "⚠ 「成熟品类」的范围是本站的界定，未做穷举。",
+        "basisEn": "The core loop of platformers, card games, tower defense and the like is deterministic code, which AI produces reliably.",
+        "stageEn": "Gameplay prototype (established genres)"
+      },
+      {
+        "stage": "手感与调参",
+        "costChange": "↓ 部分",
+        "maturity": "半成熟",
+        "basis": "AI 能给参数（重力、摩擦、跳跃高度），但**「好不好玩」无法自动判定** —— 没有测试能告诉你手感对不对。",
+        "verifiable": "无官方源，属方法论判断",
+        "confidence": "our-judgement",
+        "basisEn": "AI can supply parameters (gravity, friction, jump height), but whether it feels good cannot be judged automatically — no test tells you that.",
+        "stageEn": "Game feel & tuning"
+      },
+      {
+        "stage": "2D 美术资产",
+        "costChange": "↓ 少",
+        "maturity": "半成熟",
+        "basis": "单张/单组素材可用；**成套资产的风格一致性仍是生成模型的缺陷**。多轮对话不会让它更一致。",
+        "verifiable": "无官方源，属方法论判断",
+        "confidence": "our-judgement",
+        "basisEn": "Individual assets or small sets are usable; a coherent art style across a full set is still a weakness of image models. More dialogue does not make it more consistent.",
+        "stageEn": "2D art assets"
+      },
+      {
+        "stage": "3D 美术资产",
+        "costChange": "↓ 很少",
+        "maturity": "不成熟",
+        "basis": "角色/场景的一致性、拓扑可用性、贴图一致性都难以保证；且商用授权存在法律灰区。",
+        "verifiable": "无官方源，属方法论判断",
+        "confidence": "our-judgement",
+        "basisEn": "Character and scene consistency, topology usability and texture coherence all remain hard; commercial licensing is also a legal grey area.",
+        "stageEn": "3D art assets"
+      },
+      {
+        "stage": "音频（BGM / 音效）",
+        "costChange": "↓ 部分",
+        "maturity": "半成熟",
+        "basis": "单点音效与短BGM 可用；**长段配乐的风格稳定性不足**。",
+        "verifiable": "无官方源，属方法论判断",
+        "confidence": "our-judgement",
+        "basisEn": "Single sound effects and short BGM work; style stability across longer pieces does not hold up.",
+        "stageEn": "Audio (BGM / SFX)"
+      },
+      {
+        "stage": "关卡与数值设计",
+        "costChange": "↓ 少",
+        "maturity": "半成熟",
+        "basis": "AI 能提出数值方案，但**平衡需反复试玩迭代**，而试玩成本无法压缩。",
+        "verifiable": "无官方源，属方法论判断",
+        "confidence": "our-judgement",
+        "basisEn": "AI can propose numbers, but balance needs repeated playtesting — and playtesting time cannot be compressed.",
+        "stageEn": "Level & numeric design"
+      },
+      {
+        "stage": "剧情与对白",
+        "costChange": "↓ 大幅",
+        "maturity": "可用（需校对）",
+        "basis": "这是 LLM 的本职。⚠ 但**仍需人工校对**（事实错误、语气一致性、分支收敛）。",
+        "verifiable": "无官方源，属方法论判断",
+        "confidence": "our-judgement",
+        "basisEn": "This is what LLMs are for. Still needs human editing: factual errors, tone consistency, branch convergence.",
+        "stageEn": "Story & dialogue"
+      },
+      {
+        "stage": "导出与发布",
+        "costChange": "↓ 少",
+        "maturity": "成熟",
+        "basis": "引擎自带导出流水线，AI 帮助有限 —— 这块是**确定性工程**，不是生成任务。",
+        "verifiable": "各引擎官方文档的export 章节",
+        "confidence": "verified",
+        "basisEn": "Engines ship an export pipeline; AI helps little here — this is deterministic engineering, not a generation task.",
+        "stageEn": "Export & release"
+      }
+    ]
+  },
+  "table2_whatDoesNotCarryOver": {
+    "title": "表 2 · vibe coding 的哪些前提在游戏里不成立",
+    "intro": "vibe coding 的方法论不是万能的。这张表列出它依赖的四个前提，以及游戏开发中哪些不成立。",
+    "columns": [
+      "vibe coding 依赖的前提",
+      "在游戏开发中",
+      "后果"
+    ],
+    "rows": [
+      {
+        "premise": "反馈周期以秒计",
+        "inGame": "以分钟到小时计 —— 你得玩二十分钟才知道这个跳跃手感对不对",
+        "consequence": "迭代节奏慢一个数量级，「快速试错」的优势被削弱",
+        "confidence": "our-judgement",
+        "premiseEn": "Feedback in seconds",
+        "inGameEn": "Counts in minutes to hours — you have to play twenty minutes to know whether the jump feels right",
+        "consequenceEn": "Iteration is an order of magnitude slower, which eats most of the fast-try-error advantage"
+      },
+      {
+        "premise": "结果可自动验证（类型检查、测试、编译）",
+        "inGame": "**「好不好玩」无法自动判定** —— 没有一个测试能告诉你这个游戏有趣",
+        "consequence": "⚠ 最关键的一条：AI 能写出通过所有测试但不好玩的代码",
+        "confidence": "our-judgement",
+        "premiseEn": "Results are automatically verifiable (type checks, tests, compile)",
+        "inGameEn": "**Whether it is fun cannot be judged automatically** — no test can tell you this game is enjoyable",
+        "consequenceEn": "⚠ The key one: AI can produce code that passes every test and is not fun"
+      },
+      {
+        "premise": "失败会报错",
+        "inGame": "**失败常常是沉默的** —— 游戏能跑、能通关、只是不好玩",
+        "consequence": "你可能以为做完了，实际上只是没发现问题",
+        "confidence": "our-judgement",
+        "premiseEn": "Failures raise errors",
+        "inGameEn": "**Failure is often silent** — the game runs, it is completable, it is just not fun",
+        "consequenceEn": "You may think it is done when you have only failed to notice a problem"
+      },
+      {
+        "premise": "代码是唯一的产物",
+        "inGame": "代码只占产物的一部分 —— 美术、音频、关卡、平衡都是产物",
+        "consequence": "⚠ 瓶颈从「写不出来」变成「凑不齐」",
+        "confidence": "our-judgement",
+        "premiseEn": "Code is the only output",
+        "inGameEn": "Code is only part of the output — art, audio, levels and balance are outputs too",
+        "consequenceEn": "⚠ The bottleneck shifts from \"cannot write it\" to \"cannot assemble it\""
+      }
+    ],
+    "introEn": "vibe coding's method is not universal. This table lists the premises it relies on, and which of them fail for game development."
+  },
+  "table3_fit": {
+    "title": "表 3 · 什么适合、什么不适合",
+    "intro": "⚠ 这张表是**本站的判断**，不是数据。它的用途是给读者一个起点，不是标准答案。",
+    "fits": [
+      {
+        "item": "Game Jam（48 小时等短周期）",
+        "why": "时间盒强制你放弃资产 perfectionism，AI 的代码提速正好补在刀刃上",
+        "itemEn": "Game Jams and other short time-boxes",
+        "whyEn": "A time box forces you to drop asset perfectionism, and AI's speedup lands exactly where it helps"
+      },
+      {
+        "item": "成熟品类的原型验证",
+        "why": "核心循环是确定性代码，AI 可靠",
+        "itemEn": "Prototyping an established genre",
+        "whyEn": "The core loop is deterministic code, which AI handles reliably"
+      },
+      {
+        "item": "玩法驱动的独立游戏",
+        "why": "资产需求低，玩法是卖点",
+        "itemEn": "Gameplay-driven indie games",
+        "whyEn": "Low asset demands — the mechanics are the product"
+      },
+      {
+        "item": "教学、可视化、内部工具",
+        "why": "不需要美术品味，产出是功能不是体验",
+        "itemEn": "Teaching, visualisation, internal tools",
+        "whyEn": "No artistic taste required; the output is a function, not an experience"
+      }
+    ],
+    "doesNotFit": [
+      {
+        "item": "3A 级项目",
+        "why": "资产量与打磨需求远超 AI 能覆盖的范围",
+        "itemEn": "AAA-scale projects",
+        "whyEn": "Asset volume and polish demand far exceed what AI can cover"
+      },
+      {
+        "item": "依赖独特美术风格的作品",
+        "why": "风格一致性正是生成模型的弱项",
+        "itemEn": "Work that depends on a distinctive art style",
+        "whyEn": "Style consistency is precisely where image models are weakest"
+      },
+      {
+        "item": "需要大量手工调优手感的产品",
+        "why": "「好玩」无法自动验证，AI 帮不上判断这一环",
+        "itemEn": "Products needing heavy manual game-feel tuning",
+        "whyEn": "\"Fun\" cannot be verified automatically, so AI cannot help with that judgement"
+      },
+      {
+        "item": "强竞技的多人在线游戏",
+        "why": "网络同步与反作弊是确定性工程 + 安全问题，不是生成任务",
+        "itemEn": "Competitive multiplayer online games",
+        "whyEn": "Netcode and anti-cheat are deterministic engineering and security problems, not generation tasks"
+      }
+    ],
+    "confidence": "our-judgement",
+    "caveat": "⚠ 本站未做实测验证。上表是推理结果，欢迎读者拿自己的项目来检验。",
+    "introEn": "⚠ This table is **the site's judgement**, not data. It is meant as a starting point, not an answer key."
+  },
+  "enginesReference": {
+    "_note": "引擎的可核验事实（GitHub API，2026-10-30 复测），供表格 2 与词条引用。详见 engines-verified.json。",
+    "caveatImportant": "⚠ **cocos 与 love 的许可在 GitHub 上是 NOASSERTION** —— 机器无法判定，须读官方 LICENSE 与官网条款。"
+  }
+}

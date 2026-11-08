@@ -1,0 +1,45 @@
+{
+  "id": "yao-2022-react",
+  "title": {
+    "zh": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "en": "ReAct: Synergizing Reasoning and Acting in Language Models"
+  },
+  "category": "reasoning",
+  "url": "https://arxiv.org/abs/2210.03629",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2210.03629",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2210.03629",
+      "quote": "While large language models (LLMs) have demonstrated impressive performance across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting (e.g. action plan generation) have primarily been studied as separate topics."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2210.03629",
+      "quote": "While interleaving reasoning, action and observation steps improves ReAct’s groundedness and trustworthiness, such a structural constraint also reduces its flexibility in formulating reasoning steps, leading to more reasoning error rate than CoT."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2210.03629",
+      "quote": "For ReAct, successfully retrieving informative knowledge via search is critical. Non-informative search, which counts for 23% of the error cases, derails the model reasoning and gives it a hard time to recover and reformulate thoughts."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2210.03629",
+      "quote": "Despite the simplicity of our method, complex tasks with large action spaces require more demonstrations to learn well, which unfortunately can easily go beyond the input length limit of in-context learning."
+    }
+  ],
+  "notes": {
+    "zh": "问题：推理（思维链）与行动（动作规划）此前被分开研究，能不能让模型交替「想一步、做一步、看结果」再继续。\n证据位置：摘要给出 ALFWorld 与 WebShop 分别高出模仿学习与强化学习 34% 与 10% 的绝对成功率；HotpotQA 27.4、FEVER 60.9 在表 1。\n作者自陈局限：没有独立的 Limitations 章节，边界散在 §3.3 与 §6——交替结构提高了可追溯性，但也限制了推理自由度，推理错误率比纯思维链更高；检索到的信息是否有用是成败关键，无效检索占错误案例的 23%；大动作空间任务需要更多示例，很容易超出上下文长度上限；作者还指出所有提示方法都仍显著落后于领域专用的 SOTA，且离人类专家水平很远。\n它没主张的：论文没有说 ReAct 在所有任务上都优于思维链——在 HotpotQA 上它比 CoT 略低（27.4 对 29.4），只在 FEVER 上更高；也没有说它能替代微调或达到人类水平。",
+    "en": "Problem: reasoning (chain of thought) and acting (action planning) had been studied separately; can a model interleave thinking, acting and observing.\nWhere the evidence sits: the abstract gives absolute success-rate gains of 34% and 10% over imitation and reinforcement learning on ALFWorld and WebShop; HotpotQA 27.4 and FEVER 60.9 are in Table 1.\nWhat the authors say about limits: no separate Limitations section; the boundaries are in 3.3 and 6 — the interleaved structure improves groundedness and trustworthiness but constrains reasoning flexibility, raising the reasoning error rate above plain chain of thought; whether retrieval returns useful knowledge is critical, and non-informative search accounts for 23% of error cases; tasks with large action spaces need more demonstrations, which easily exceed the in-context length limit; and all prompting methods remain well behind domain-specific state of the art and far from expert humans.\nWhat it does not claim: the paper does not say ReAct beats chain of thought on every task — on HotpotQA it is slightly lower (27.4 versus 29.4) and only higher on FEVER — nor that it replaces fine-tuning or reaches human level."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要；表 1（HotpotQA / FEVER）；§3.3 与 §6",
+    "ALFWorld": "最佳 ReAct 平均成功率 71%（Act 45%、BUTLER 37%）",
+    "WebShop": "成功率绝对提升 10%",
+    "HotpotQA / FEVER": "27.4 EM / 60.9 Acc",
+    "无效检索占比 / failed retrieval": "错误案例的 23%",
+    "复现状态 / reproduction": "未复现"
+  }
+}

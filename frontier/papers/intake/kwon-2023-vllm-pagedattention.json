@@ -1,0 +1,40 @@
+{
+  "id": "kwon-2023-vllm-pagedattention",
+  "title": {
+    "zh": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+    "en": "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+  },
+  "category": "efficiency",
+  "url": "https://arxiv.org/abs/2309.06180",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2309.06180",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2309.06180",
+      "quote": "High throughput serving of large language models (LLMs) requires batching sufficiently many requests at a time."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2309.06180",
+      "quote": "Our evaluations show that vLLM improves the throughput of popular LLMs by 2-4× with the same level of latency compared to the state-of-the-art systems, such as FasterTransformer and Orca."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2309.06180",
+      "quote": "For another example, in serving DNNs that are not LLMs, an increase in memory efficiency may not result in any performance improvement since the performance is primarily compute-bound."
+    }
+  ],
+  "notes": {
+    "zh": "问题：服务端要靠批处理提高吞吐，但 KV 缓存占的显存既大又碎片化，批大小上不去；能不能用分页思路管理 KV 缓存。\n证据位置：摘要给出 2–4 倍吞吐结论，对比对象是 FasterTransformer 与 Orca；分场景数字在第 6 节。\n作者自陈局限：没有独立 Limitations 章节，边界写在第 8 节 Discussion——这套优化不适用于所有 GPU 负载：训练时张量形状固定、显存可提前规划；非 LLM 的推理若本身是算力瓶颈，提高显存效率不会提速，引入分页反而可能因间接寻址与非连续块访问而变慢。第 7.1 节的微基准还显示注意力 kernel 延迟比高度优化的 FasterTransformer 高 20–26%。\n它没主张的：论文没有说 2–4 倍是端到端普遍结论，也没有说分页在任何负载上都不亏；块大小存在权衡——太小用不满并行度、太大内部碎片增加且共享概率下降。",
+    "en": "Problem: serving throughput depends on batching, but KV cache memory is large and fragmented, which caps batch size; can paged memory management be applied to the KV cache.\nWhere the evidence sits: the abstract gives the 2-4× throughput result against FasterTransformer and Orca; per-scenario numbers are in Section 6.\nWhat the authors say about limits: no separate Limitations section; the boundaries are in Section 8 (Discussion) — the optimisation does not generally hold for every GPU workload. In DNN training tensor shapes are typically static so allocation can be optimised ahead of time; for non-LLM inference that is compute-bound, raising memory efficiency may not help at all, and adding paged indirection and non-contiguous blocks may instead degrade performance. The Section 7.1 microbenchmark also reports 20-26% higher attention kernel latency than the highly optimised FasterTransformer implementation.\nWhat it does not claim: the paper does not present 2-4× as a universal end-to-end result, nor claim paging is free on any workload; block size is a tradeoff — too small underuses GPU parallelism, too large increases internal fragmentation and lowers the chance of sharing."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要；Section 6 分场景；Section 8 Discussion；7.1 微基准",
+    "吞吐提升 / throughput": "2–4×（对比 FasterTransformer、Orca）",
+    "kernel 开销 / overhead": "注意力 kernel 延迟高 20–26%",
+    "不适用场景 / not applicable": "静态形状训练、算力瓶颈的非 LLM 推理",
+    "复现状态 / reproduction": "未复现"
+  }
+}

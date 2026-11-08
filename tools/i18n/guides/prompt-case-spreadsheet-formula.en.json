@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-spreadsheet-formula. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output formula, assumptions and a hand-check example; do not pretend the sheet was run.\nInputs: Column definitions, calculation goal, and edge cases.",
+    "提示词本体": "```text\nWrite a spreadsheet formula. Columns: {columns}. Goal: {goal}. Output formula, assumptions[], hand_check (inputs and expected result), and edge_cases[]. The formula may reference only given columns; handle blanks and division by zero. State that it was not run in an actual sheet.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "formula, assumptions, hand_check, and edge_cases.",
+    "检查点": "- The hand-check example can be verified independently.\n- Blanks and division by zero are handled.\n- Referenced columns are all defined.",
+    "失败分支": "- Formula depends on hidden columns: add definitions or rewrite.\n- Uncertain edge result: mark it for manual checking.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Introduction to Structured Outputs (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

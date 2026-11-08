@@ -1,0 +1,39 @@
+{
+  "id": "nvidia-a100-80gb-sxm",
+  "title": {
+    "zh": "NVIDIA A100 80GB SXM",
+    "en": "NVIDIA A100 80GB SXM"
+  },
+  "category": "accelerator",
+  "url": "https://www.nvidia.com/en-us/data-center/a100/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/data-center/a100/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/a100/",
+      "quote": "GPU Memory 80GB HBM2e  GPU Memory Bandwidth 2,039 GB/s  Max Thermal Design Power (TDP) 400W"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/a100/",
+      "quote": "400W TDP for standard configuration. HGX A100-80GB custom thermal solution (CTS) SKU can support TDPs up to 500W"
+    }
+  ],
+  "notes": {
+    "zh": "回答上一代数据中心卡的显存、带宽与功耗基线，常被当作对照参照。不回答它相对新一代卡的性价比：同在售的 HGX CTS 定制散热机型功耗上限不同，本页把标准 400W 与 500W 上限分开记。",
+    "en": "Answers the memory, bandwidth and power baseline of the previous data-centre generation, often used as a reference point. It does not answer value-for-money against newer cards: the HGX CTS custom-thermal SKU carries a different ceiling, so the standard 400 W and the 500 W ceiling are recorded separately."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "80 GB HBM2e",
+    "memory bandwidth": "2,039 GB/s",
+    "TDP (standard)": "400 W",
+    "TDP (HGX CTS SKU)": "up to 500 W",
+    "form factor": "SXM",
+    "interconnect": "NVLink 600 GB/s; PCIe Gen4 64 GB/s",
+    "BF16 tensor, sparsity": "624 TFLOPS",
+    "MIG": "up to 7 instances at 10 GB each"
+  }
+}

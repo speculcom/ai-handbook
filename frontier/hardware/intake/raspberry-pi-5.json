@@ -1,0 +1,39 @@
+{
+  "id": "raspberry-pi-5",
+  "title": {
+    "zh": "Raspberry Pi 5",
+    "en": "Raspberry Pi 5"
+  },
+  "category": "edge",
+  "url": "https://www.raspberrypi.com/products/raspberry-pi-5/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.raspberrypi.com/products/raspberry-pi-5/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.raspberrypi.com/products/raspberry-pi-5/",
+      "quote": "Broadcom BCM2712 2.4GHz quad-core 64-bit Arm Cortex-A76 CPU, with cryptography extensions, 512KB per-core L2 caches and a 2MB shared L3 cache"
+    },
+    {
+      "url": "https://www.raspberrypi.com/products/raspberry-pi-5/",
+      "quote": "5V/5A DC power via USB-C, with Power Delivery support"
+    }
+  ],
+  "notes": {
+    "zh": "回答边缘小主机的 CPU、内存档位、PCIe 通道与供电口径，用来判断能不能带得动一块加速模块。不回答它自身的 AI 算力：板载没有 NPU，要接 M.2 或 HAT 形态的加速器才具备推理加速能力。官方给出的量产承诺到 2036 年 1 月，做长期项目时可据此评估供货周期。",
+    "en": "Answers the CPU, memory tiers, PCIe lane and power figures of a small edge host, which is what decides whether it can carry an accelerator module. It does not answer its own AI throughput: there is no on-board NPU, so inference acceleration requires an M.2 or HAT accelerator. The vendor states production until at least January 2036, which is the figure to use when judging supply for a long-lived project."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "SoC": "Broadcom BCM2712",
+    "CPU": "4x Arm Cortex-A76 @ 2.4 GHz",
+    "RAM": "LPDDR4X-4267, 1 / 2 / 4 / 8 / 16 GB",
+    "PCIe": "2.0 x1 (needs separate M.2 HAT or adapter)",
+    "power": "5V/5A DC via USB-C; 27 W PSU recommended",
+    "network": "Gigabit Ethernet (PoE+ via separate HAT); dual-band 802.11ac",
+    "USB": "2x USB 3.0 (5 Gbps simultaneous), 2x USB 2.0",
+    "production commitment": "until at least January 2036"
+  }
+}

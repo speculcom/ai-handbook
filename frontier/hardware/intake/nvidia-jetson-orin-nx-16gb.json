@@ -1,0 +1,39 @@
+{
+  "id": "nvidia-jetson-orin-nx-16gb",
+  "title": {
+    "zh": "NVIDIA Jetson Orin NX 16GB",
+    "en": "NVIDIA Jetson Orin NX 16GB"
+  },
+  "category": "edge",
+  "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+      "quote": "Jetson Orin NX modules deliver up to 100 TOPS of AI performance in the smallest Jetson form factor, with power configurable between 10W and 25W."
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+      "quote": "16GB 128-bit LPDDR5  102.4GB/s"
+    }
+  ],
+  "notes": {
+    "zh": "回答中等算力板端模组的算力、内存与功耗三角：比 AGX Orin 64GB 少约三分之二算力和四分之三内存，功耗却从 60W 级降到 25W 级。不回答散热方案：SO-DIMM 形态要靠载板设计导热，实际能否持续跑满取决于外壳与风道。",
+    "en": "Answers the compute, memory and power triangle of a mid-tier on-board module: roughly a third of the AGX Orin 64GB compute and a quarter of its memory, but a 25 W class envelope instead of 60 W. It does not answer thermal design: a SO-DIMM module conducts heat through the carrier board, so sustained clocks depend on enclosure and airflow."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "AI performance": "100 TOPS",
+    "GPU": "1024-core Ampere, 32 Tensor Cores",
+    "CPU": "6-core Arm Cortex-A78AE",
+    "memory": "16 GB LPDDR5, 128-bit",
+    "memory bandwidth": "102.4 GB/s",
+    "power": "10 W - 25 W",
+    "module size": "69.6 mm x 45 mm, 260-pin SO-DIMM",
+    "PCIe": "1x4 + 3x1 Gen4"
+  }
+}

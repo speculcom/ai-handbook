@@ -1,0 +1,82 @@
+{
+  "title": {
+    "zh": "核验路径：一条 AI × 链内容该查什么",
+    "en": "Verification path: what to check on an AI-and-chain claim"
+  },
+  "lead": {
+    "zh": "顺序按「先分清类型、再回到规范原文、然后看权利与持有、最后看谁能验证」排。每一步只链本站已核过的条目，不给结论也不做推荐；查不到原文就停在那一步，不用二手转述补位。",
+    "en": "The order is: identify the type first, go back to the specification text, then check rights and custody, and finally who can verify. Each step links only to entries verified here; no conclusions and no recommendations, and if the original text cannot be found the process stops at that step rather than filling in with a second-hand summary."
+  },
+  "steps": [
+    {
+      "zh": "先分清这条内容属于哪一类：来源标识、可验证凭证，还是去中心化推理网络——三类查法完全不同。",
+      "en": "First establish which category the claim belongs to: provenance signalling, verifiable credentials, or a decentralised inference network — the three are checked differently.",
+      "entry": "c2pa-content-credentials"
+    },
+    {
+      "zh": "如果是内容凭证：查清规范版本与断言类型，并确认 AI 输出用的是哪种来源类型标记。",
+      "en": "For a content credential: establish the specification version and assertion types, and confirm which source type marks an AI output.",
+      "entry": "c2pa-ai-ml-guidance"
+    },
+    {
+      "zh": "如果声明要离线签名：按类型化结构编码与哈希，不把复杂声明只当成不透明字节串。",
+      "en": "If a claim needs an offline signature: encode and hash typed structured data instead of treating a complex claim as an opaque byte string.",
+      "entry": "eip-712"
+    },
+    {
+      "zh": "如果签名来自合约账户：查合约侧签名验证接口，而不是只按个人私钥签名的方式验证。",
+      "en": "If the signature comes from a contract account: check the contract-side signature validation interface rather than verifying only as an EOA signature.",
+      "entry": "eip-1271"
+    },
+    {
+      "zh": "如果要记录谁按什么 schema 作了证明：查 schema 注册与 attestation 合约，并记住记录不等于内容自动为真。",
+      "en": "If the claim records who attested what under a schema: check schema registration and attestation contracts, and remember recording does not make the content automatically true.",
+      "entry": "ethereum-attestation-service"
+    },
+    {
+      "zh": "如果是数据或模型文件：确认它按内容寻址，同一份字节在任何节点得到同一标识。",
+      "en": "For a dataset or model file: confirm it is content-addressed, so identical bytes yield an identical identifier on any node.",
+      "entry": "ipfs-cid"
+    },
+    {
+      "zh": "如果出处跨多个文件：查 CID 之上的数据模型与链接方式，不只核单个文件哈希。",
+      "en": "If provenance spans multiple files: check the data model and linking above CIDs, not only a single file hash.",
+      "entry": "ipld"
+    },
+    {
+      "zh": "接着问「现在还有谁持有」：持有证明是周期性的，且不等于随时能快速取回。",
+      "en": "Then ask who still holds it: the proof of custody is periodic and does not imply fast retrieval.",
+      "entry": "filecoin-verifiable-storage"
+    },
+    {
+      "zh": "如果涉及「某机构认证了它」：先分清签发者、持有者、验证者，并记住可验证不等于声明为真。",
+      "en": "If the claim is that some body attested it: separate issuer, holder and verifier, and remember that verifiable does not mean true.",
+      "entry": "w3c-verifiable-credentials"
+    },
+    {
+      "zh": "如果涉及某个标识的控制权：查 DID 文档里的验证方法与撤销方式，撤销规则由各方法自定。",
+      "en": "If control of an identifier is claimed: check verification methods and revocation in the DID document, noting that revocation rules are per method.",
+      "entry": "w3c-did"
+    },
+    {
+      "zh": "如果要把标识变成可核验材料：执行 DID 解析，取得文档与元数据，再核对目标 method 的实现。",
+      "en": "To turn an identifier into verifiable material: run DID resolution to obtain the document and metadata, then check the target method implementation.",
+      "entry": "did-resolution"
+    },
+    {
+      "zh": "如果涉及数据能不能用：区分「访问被门控」与「数据合规可用」，后者是法律判断，不是协议能回答的。",
+      "en": "If data usage is at issue: separate token-gated access from lawful usability — the latter is a legal judgement, not something a protocol answers.",
+      "entry": "ocean-protocol"
+    },
+    {
+      "zh": "如果私有数据用于训练或评测：区分出售原始数据与授权计算，核对允许算法、计算环境与结果边界。",
+      "en": "If private data is used for training or evaluation: separate selling raw data from authorised compute, and check allowed algorithms, compute environment and result boundaries.",
+      "entry": "ocean-compute-to-data"
+    },
+    {
+      "zh": "如果涉及去中心化推理：查清角色分工与打分机制，激励分配由验证者的评分决定，跨子网不可直接比较。",
+      "en": "For decentralised inference: establish the role split and the scoring mechanism, since incentive distribution follows validator scores and subnets are not directly comparable.",
+      "entry": "bittensor-subnet"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-log-triage. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output a triage table with evidence lines; do not assert root cause directly.\nInputs: Log excerpts, service list, and time window.",
+    "提示词本体": "```text\nTriage logs. Output groups[] with symptom, service, evidence_lines and next_check. evidence_lines must be verbatim from logs; next_check gives executable checks. Root causes may only be hypotheses, not conclusions.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "groups[] and hypotheses[].",
+    "检查点": "- Evidence lines match verbatim.\n- next_check is executable.\n- Root causes stay in hypotheses.",
+    "失败分支": "- Too many logs: narrow the time window.\n- Mixed symptoms: split by service.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: GPT-4.1 Prompting Guide (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "amd-instinct-mi210",
+  "title": {
+    "zh": "AMD Instinct MI210",
+    "en": "AMD Instinct MI210"
+  },
+  "category": "accelerator",
+  "url": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
+      "quote": "Dedicated Memory Size 64 GB  Dedicated Memory Type HBM2e"
+    },
+    {
+      "url": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
+      "quote": "Peak Memory Bandwidth 1.6 TB/s"
+    }
+  ],
+  "notes": {
+    "zh": "回答上一代 PCIe 形态加速卡的显存与带宽档位，常见于存量服务器升级场景。该页未给整板功耗，按「查不到留空」处理。注意它是被动散热、全高双槽，装机前要确认机箱风道能压住。",
+    "en": "Answers the memory and bandwidth tier of a previous-generation PCIe accelerator, typically relevant when upgrading existing servers. The page lists no board power, so that field is left empty rather than guessed. It is passively cooled in a full-height double-slot form, so chassis airflow must be confirmed before installation."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "64 GB HBM2e",
+    "memory bandwidth": "1.6 TB/s",
+    "form factor": "PCIe add-in card, full height, double slot, 267 mm",
+    "bus": "PCIe 4.0 x16",
+    "cooling": "passive",
+    "FP16 / BF16": "181 TFLOPS",
+    "FP32": "22.6 TFLOPS",
+    "Infinity Fabric links": "3 at 100 GB/s peak"
+  }
+}

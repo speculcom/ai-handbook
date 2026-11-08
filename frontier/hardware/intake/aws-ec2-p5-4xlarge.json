@@ -1,0 +1,39 @@
+{
+  "id": "aws-ec2-p5-4xlarge",
+  "title": {
+    "zh": "AWS EC2 p5.4xlarge",
+    "en": "AWS EC2 p5.4xlarge"
+  },
+  "category": "cloud",
+  "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://aws.amazon.com/ec2/instance-types/p5/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+      "quote": "p5.4xlarge  16  256 GiB  1 H100  80 GB   HBM3   100 Gbps EFA"
+    },
+    {
+      "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+      "quote": "GPUDirect RDMA is not supported in P5.4xlarge"
+    }
+  ],
+  "notes": {
+    "zh": "回答单卡云实例的规格，用于小规模微调或单模型部署。两个容易忽略的限制：单卡实例不支持 GPUDirect RDMA，也没有 NVSwitch，想靠多台单卡机拼出多卡训练会卡在通信上；要 8 卡全互联得换 p5.48xlarge。",
+    "en": "Answers the specification of a single-GPU cloud instance for small fine-tunes or single-model deployment. Two limits are easy to miss: the single-card size supports neither GPUDirect RDMA nor NVSwitch, so stitching several single-GPU hosts into a multi-card training job is communication-bound; eight-card fabric requires the p5.48xlarge size instead."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "vCPUs": "16",
+    "instance memory": "256 GiB",
+    "GPU": "1 x NVIDIA H100",
+    "GPU memory": "80 GB HBM3",
+    "network bandwidth": "100 Gbps EFA",
+    "local storage": "3.84 TB NVMe SSD",
+    "EBS bandwidth": "10 Gbps",
+    "GPUDirect RDMA": "not supported on this size"
+  }
+}

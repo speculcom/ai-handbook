@@ -1,0 +1,41 @@
+{
+  "id": "wang-2022-self-consistency",
+  "title": {
+    "zh": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+    "en": "Self-Consistency Improves Chain of Thought Reasoning in Language Models"
+  },
+  "category": "reasoning",
+  "url": "https://arxiv.org/abs/2203.11171",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2203.11171",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.11171",
+      "quote": "Chain-of-thought prompting combined with pre-trained large language models has achieved encouraging results on complex reasoning tasks."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.11171",
+      "quote": "One limitation of self-consistency is that it incurs more computation cost."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2203.11171",
+      "quote": "Our extensive empirical evaluation shows that self-consistency boosts the performance of chain-of-thought prompting with a striking margin on a range of popular arithmetic and commonsense reasoning benchmarks, including GSM8K (+17.9%), SVAMP (+11.0%), AQuA (+12.2%), StrategyQA (+6.4%) and ARC-challenge (+3.9%)."
+    }
+  ],
+  "notes": {
+    "zh": "问题：思维链只采样一条推理路径，这条路错了答案就错了；能不能采样多条再取一致答案。\n证据位置：五项基准的绝对提升写在摘要；方法为先采样多条推理路径再对最终答案投票，见正文方法一节。\n作者自陈局限：第 5 节只有两句——一是计算成本更高（要多次采样），这是方法自带的代价；二是观察到模型有时会生成错误甚至无意义的推理路径，如何让推理有据仍是后续工作。\n它没主张的：论文没有说多数投票能纠正系统性错误——若模型在某类题上一致地错，投票只会强化错误；也没有说提升来自「推理更好」，测量的是最终答案准确率，不是推理过程正确性。作者在附录里对多模型集成的批评不适用于本方法，不要混引。",
+    "en": "Problem: chain of thought samples a single reasoning path, so a wrong path yields a wrong answer; can several paths be sampled and the consistent answer taken.\nWhere the evidence sits: the absolute gains on five benchmarks are in the abstract; the method samples multiple reasoning paths and marginalises over final answers, described in the method section.\nWhat the authors say about limits: Section 5 gives two — it incurs more computation cost, an inherent price of multiple sampling; and models sometimes generate incorrect or nonsensical reasoning paths, with grounding rationales left to future work.\nWhat it does not claim: the paper does not claim majority voting corrects systematic error — if the model is consistently wrong on a class of problems, voting reinforces the wrong answer — nor that the gain comes from better reasoning, since what is measured is final-answer accuracy rather than the validity of the reasoning. The appendix criticism of multi-model ensembles does not apply to this method and should not be cited as its limitation."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要（五项绝对提升）；Section 5 结论与讨论",
+    "GSM8K": "+17.9% 绝对准确率",
+    "SVAMP / AQuA": "+11.0% / +12.2%",
+    "StrategyQA / ARC-c": "+6.4% / +3.9%",
+    "代价 / cost": "多次采样，计算成本上升",
+    "复现状态 / reproduction": "未复现"
+  }
+}

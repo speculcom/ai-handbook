@@ -752,5 +752,196 @@
       "What it does not claim: that a distilled small model matches the teacher on every task, and that distillation equals quantization or pruning - they act on different layers. Using this paper as proof that \"small models are always enough\" goes beyond its evidence.",
       "How to read it (fictional need): input is \"replace a key-sentence detector with a smaller model\" -> processing follows its recipe, training the small model on the existing model's output labels -> the judgement compares misses and false alarms on your own held-out set instead of quoting the paper's MNIST result -> if misses rise noticeably in your scenario, next step is to fall back to \"keep the teacher, optimise inference only\" and record the basis and date of that decision."
     ]
+  },
+  "课堂-AI 能力与边界入门": {
+    "lead": "The first micro-lesson turns what AI can do into a checkable task list. Learners separate fluent output from source-supported output and write down cases that need human fallback.",
+    "objectives": [
+      "Rewrite a vague need into a task with inputs and completion criteria.",
+      "Distinguish fluent output from source-supported output and give one classroom example of each.",
+      "Name three kinds of content that need human review: numbers and dates, external facts, and decisions affecting people’s rights.",
+      "Describe a result by scenario and multiple metrics rather than reporting only one total score."
+    ],
+    "materials": [
+      "Microsoft Learn module Introduction to generative AI and agents: read the LLM and prompt sections before class.",
+      "HELM abstract page (arXiv 2211.09110): see why it evaluates by scenario and metric.",
+      "One recording sheet per group with five columns: task, input material, model output, basis for judgment, items to recheck.",
+      "Learners bring their own chat AI entry point; the class does not procure accounts or collect account information."
+    ],
+    "steps": [
+      "2-minute opener: each group writes a real need, and the teacher rewrites it as input plus completion criteria.",
+      "4-minute demo: ask about the same material twice, once with only introduce this and once with fields and limits.",
+      "4-minute practice: groups fill the sheet and split claims into supported by the material and needing external checks.",
+      "2-minute wrap-up: each group reports one limit and one fallback action; the teacher groups them by scenario and metric."
+    ],
+    "misconceptions": [
+      "Treating confident tone and complete structure as correctness; fluency is not evidence.",
+      "Treating one total score or leaderboard rank as fit for every task; HELM measures seven metrics across scenarios.",
+      "Treating the model saying it does not know as weakness; admitting unknown when input is missing or out of scope is usable behaviour."
+    ],
+    "assessment": [
+      "The task includes input and completion criteria; if either is missing, return to the opener and rewrite.",
+      "At least one claim is marked as needing external checking, with the source to be used named.",
+      "Learners can state what this lesson did not do: only source and condition checks, no performance benchmark and no model ranking."
+    ]
+  },
+  "课堂-结构化提问与输出验证": {
+    "lead": "Learners ask about the same material freely first and then with a structured prompt, compare field completeness and factual consistency, and remember that valid format does not mean correct content.",
+    "objectives": [
+      "Write an instruction with four parts: goal, inputs, output fields and prohibitions.",
+      "Validate structure with a field list or JSON Schema and explain that validation covers format only.",
+      "Link every factual field back to a source location; leave unsupported fields empty or marked unknown.",
+      "Explain that few-shot examples enter only the current context and do not retrain the model."
+    ],
+    "materials": [
+      "Microsoft Learn Prompt engineering techniques: official guidance on system messages, few-shot examples and instruction placement.",
+      "Microsoft Learn How to use structured outputs: structured outputs follow the caller-provided JSON Schema.",
+      "JSON Schema official site: check how field types and required items are written.",
+      "A fictional event notice of about 200 words plus a field list: time, place, topic, registration method."
+    ],
+    "steps": [
+      "3-minute baseline: each group asks freely once, saves the raw output and does not change the instruction.",
+      "4-minute rewrite: complete the four parts; prohibitions must be decidable, such as do not add fees absent from the source.",
+      "4-minute validation: first check structural validity, then link each field to the source and mark unsupported items.",
+      "4-minute comparison: compare field completeness and factual consistency across the two runs and explain which instruction part caused the difference."
+    ],
+    "misconceptions": [
+      "Treating valid JSON as correct field values; official documentation distinguishes JSON mode from schema-based structured outputs.",
+      "Treating given examples as the model having learned; examples affect only the current inference.",
+      "Believing one do not fabricate sentence removes unsupported fields; each field still needs a source link."
+    ],
+    "assessment": [
+      "The instruction has all four parts and decidable prohibitions, without uncheckable words such as try to or appropriately.",
+      "Each output field is marked source-supported or not provided by the source; unsupported fields must not contain guesses.",
+      "Learners can explain what structural validation and factual checking each catch, and that neither replaces the other."
+    ]
+  },
+  "课堂-RAG 来源核对": {
+    "lead": "Learners split a RAG answer into retrieval, passage and generation responsibilities, use a three-column check sheet to locate the failing stage, and propose a verifiable improvement.",
+    "objectives": [
+      "Split one answer into three responsibilities: whether retrieval hit, whether passages are sufficient, and whether generation goes beyond passages.",
+      "Find the passage and position for each claim; mark it unsupported if none can be found.",
+      "Explain that chunking can cut context and reranking only changes candidate order, not facts.",
+      "Propose one improvement and state how to verify whether it worked."
+    ],
+    "materials": [
+      "Anthropic engineering post Introducing Contextual Retrieval: traditional RAG can lose context during encoding and fail retrieval.",
+      "Cohere Rerank documentation: given a query and document list, order by semantic relevance.",
+      "LlamaIndex CitationQueryEngine example: answers with source-node citations.",
+      "Three fictional internal document passages, one with a clause cut from its context, plus a three-column check sheet."
+    ],
+    "steps": [
+      "3-minute reference answer: groups read the question and documents and manually mark passages that should be hit.",
+      "4-minute retrieval check: compare system passages and classify them as hit, missed, or missing context.",
+      "4-minute generation check: check the answer sentence by sentence against passages and mark claims beyond passages or misplaced citations.",
+      "4-minute improvement: each group gives one action and verification method; the class groups them by which responsibility stage changed."
+    ],
+    "misconceptions": [
+      "Assuming an answer with citations is trustworthy; a citation may point to a passage that does not support the sentence.",
+      "Blaming the model for retrieval misses; chunking may cut context or wording may differ.",
+      "Assuming reranking can supply missing facts; it only adjusts candidate order.",
+      "Copying uplift figures from a vendor blog into your own corpus; those results depend on specific data and settings."
+    ],
+    "assessment": [
+      "The three-column sheet is complete: every claim has a passage position or is explicitly marked unsupported.",
+      "The group can attribute its failure to one of the three stages and point to evidence for that judgment.",
+      "The improvement has a verification method, such as rerunning the same questions and comparing the number of unsupported claims."
+    ]
+  },
+  "课堂-模型原理与论文证据边界": {
+    "lead": "Learners use two paper abstracts to practise a claim-evidence-conditions reading, then connect observations back to autoregression and attention and remove unconditional capability claims.",
+    "objectives": [
+      "Separate an abstract into research question, evidence location and experimental conditions.",
+      "Write at least one thing the authors did not claim and point to the original sentence supporting that boundary.",
+      "Use autoregressive generation and attention to explain why output is produced token by token, without calling it lookup or understanding.",
+      "Distinguish information fitting in the window from information in the window being used, citing position-effect findings."
+    ],
+    "materials": [
+      "arXiv 1706.03762 Attention Is All You Need abstract: translation tasks, BLEU and training setup.",
+      "arXiv 2307.03172 Lost in the Middle abstract: position effects in multi-document QA and key-value retrieval.",
+      "This site’s paper card for Attention Is All You Need as a reading example.",
+      "A three-column worksheet: claim, evidence location, conditions and non-claims."
+    ],
+    "steps": [
+      "3-minute first paper: circle task names and metrics and write the scope of the claim.",
+      "3-minute second paper: write conclusions as conditional sentences and describe how performance changes with information position.",
+      "3-minute peer check: groups exchange worksheets and rewrite unconditional claims as conditional paraphrases.",
+      "3-minute mechanism link: use autoregression and attention to explain the observations and identify statements with insufficient evidence."
+    ],
+    "misconceptions": [
+      "Treating strong wording in a title or abstract as the conclusion; conclusions are bounded by task and setup.",
+      "Treating a long window as able to answer every long document correctly; performance can drop when information is in the middle.",
+      "Treating attention as human-like noticing the key point; it is a weight computation.",
+      "Treating one metric gain as a general capability upgrade; BLEU corresponds to a specific translation task."
+    ],
+    "assessment": [
+      "The worksheet is complete, and at least one non-claim can be linked back to the original text.",
+      "Paraphrases include task, setup and observed result, without unconditional words such as understands or always.",
+      "Learners can state that this lesson did not rerun experiments and gives no self-test score."
+    ]
+  },
+  "课堂-本地部署与显存估算": {
+    "lead": "Learners build an estimate from weights, KV cache and runtime overhead, check it against runner occupancy output, and separate can start, can run and can finish answering.",
+    "objectives": [
+      "Split VRAM demand into weights, KV cache and runtime overhead, and explain what each varies with.",
+      "Make an arithmetic weight estimate from parameter count and quantisation bit width, and label it as an estimate.",
+      "Read runner occupancy output and judge whether CPU and GPU mixed loading occurs.",
+      "Give three fallback paths when the model does not fit and state the cost of each."
+    ],
+    "materials": [
+      "llama.cpp official README: 1.5 to 8-bit integer quantisation and CPU plus GPU hybrid inference.",
+      "Ollama official FAQ: the PROCESSOR column in ollama ps and the num_ctx context setting.",
+      "Hugging Face Transformers KV cache documentation in the repository source: cache occupancy, offloading and quantised cache.",
+      "An estimate sheet: parameter count, bit width, context length, batch size, available VRAM and available RAM."
+    ],
+    "steps": [
+      "3-minute weights: multiply parameter count by bytes per parameter and write the bit-width assumption and formula.",
+      "4-minute cache and overhead: mark items that vary with context length and batch size, and leave headroom.",
+      "4-minute occupancy check: read example output from official docs and judge loading location and whether offloading is needed.",
+      "4-minute fallbacks: smaller model, lower quantisation tier and partial offloading each get one cost and one next-step test condition."
+    ],
+    "misconceptions": [
+      "Assuming that if weights fit the model runs fast; cache and offloading change speed and latency.",
+      "Assuming quantisation only saves VRAM; official docs describe a memory-speed tradeoff and quality must be checked on your own task.",
+      "Assuming local deployment equals data compliance; logs, permissions and outbound paths still matter.",
+      "Treating occupancy numbers in documentation examples as results on your machine; hardware and settings differ."
+    ],
+    "assessment": [
+      "The estimate sheet has all three items, each with assumptions and sources, and the formula can be checked.",
+      "Learners can distinguish estimate from measurement and state which conditions must be fixed for the next measurement.",
+      "Fallback paths include costs, do not write best, and do not promise specific speed numbers."
+    ]
+  },
+  "课堂-选型决策与安全评审": {
+    "lead": "Learners consolidate evidence from the first five units into a one-page decision record, review it against an official risk framework and prompt-injection guidance, and write unverified items and a review date.",
+    "objectives": [
+      "Write a one-page decision record: task, candidates, evidence, risks and mitigations, unverified items, review date.",
+      "Check candidate use, limits, training data and evaluation conditions in model-card terms, writing unknown for missing items.",
+      "Classify the record under GOVERN, MAP, MEASURE and MANAGE, and identify which column is still empty.",
+      "Give prompt-injection mitigations including least privilege and human approval for high-risk actions."
+    ],
+    "materials": [
+      "NIST AI RMF official page and AI RMF 1.0 text: the four functions in Part 2.",
+      "OWASP GenAI LLM01:2025 Prompt Injection entry: causes and mitigations.",
+      "arXiv 1810.03993 Model Cards for Model Reporting abstract: what model cards should contain.",
+      "This site’s guides on reading model cards and preventing prompt injection as pre-class reading.",
+      "A one-page decision-record template with the six columns from the first objective."
+    ],
+    "steps": [
+      "3-minute task definition: write decidable conditions including inputs, outputs, acceptable error range and reviewer role.",
+      "4-minute evidence: for each candidate write only content that links to a source; write unknown for missing items.",
+      "4-minute review: list risks, mitigations and responsible roles under the four functions and the prompt-injection entry.",
+      "4-minute exit: give exit conditions and a review date; groups peer-review which column is most often skipped."
+    ],
+    "misconceptions": [
+      "Assuming a high evaluation score means ready to launch; evaluation conditions may differ from your task conditions.",
+      "Assuming guardrails remove risk; permissions, logs and human review still sit outside the guardrail.",
+      "Assuming a compliance framework decides for you; NIST AI RMF is a voluntary framework that gives structure, not conclusions.",
+      "Assuming open source or local deployment is naturally safer; licence, data path and access control still need item-by-item checks."
+    ],
+    "assessment": [
+      "The decision record has all six columns, unverified items are explicit, and the review date is actionable.",
+      "Every risk has a mitigation and verification method, with at least one involving permissions or human approval.",
+      "Learners can state the record’s boundary: classroom review does not replace legal advice and is not launch approval."
+    ]
   }
 }

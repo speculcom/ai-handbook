@@ -1,0 +1,39 @@
+{
+  "id": "nvidia-jetson-agx-orin-64gb",
+  "title": {
+    "zh": "NVIDIA Jetson AGX Orin 64GB",
+    "en": "NVIDIA Jetson AGX Orin 64GB"
+  },
+  "category": "edge",
+  "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+      "quote": "Jetson AGX Orin modules deliver up to 275 TOPS of AI performance with power configurable between 15W and 60W."
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+      "quote": "Memory 64GB 256-bit LPDDR5  204.8GB/s"
+    }
+  ],
+  "notes": {
+    "zh": "回答机器人本体上「板端能跑多大模型」的内存与算力上限。不回答实际帧率：TOPS 是官方标称口径，真实推理速度取决于量化方式、输入分辨率与散热条件，需要实测才有结论。",
+    "en": "Answers the on-board memory and compute ceiling that decides how large a model a robot body can run. It does not answer real frame rates: TOPS is a vendor rating, and actual inference speed depends on quantisation, input resolution and thermal headroom, which only measurement can settle."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "AI performance": "275 TOPS",
+    "GPU": "2048-core Ampere, 64 Tensor Cores",
+    "CPU": "12-core Arm Cortex-A78AE",
+    "memory": "64 GB LPDDR5, 256-bit",
+    "memory bandwidth": "204.8 GB/s",
+    "power": "15 W - 60 W",
+    "module size": "100 mm x 87 mm",
+    "storage": "64 GB eMMC 5.1"
+  }
+}

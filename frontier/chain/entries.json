@@ -1,0 +1,527 @@
+[
+  {
+    "id": "bittensor-subnet",
+    "title": {
+      "zh": "Bittensor 子网",
+      "en": "Bittensor subnets"
+    },
+    "category": "inference",
+    "url": "https://docs.learnbittensor.org/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.learnbittensor.org/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.learnbittensor.org/",
+        "quote": "Bittensor is an open network where independent subnets produce digital commodities — compute, inference, storage, prediction — and the chain pays participants in its token, TAO, in proportion to the value they contribute."
+      },
+      {
+        "url": "https://docs.learnbittensor.org/",
+        "quote": "Miners produce the commodity, validators score the miners, subnet creators define the incentive mechanism, and stakers back validators with TAO."
+      }
+    ],
+    "notes": {
+      "zh": "交集：把推理与算力当作子网生产的商品，用链上激励结算——这是「去中心化推理」目前最完整的一份官方机制说明。适用范围：官方文档写的是角色分工（矿工生产、验证者打分、子网创建者定义激励、质押者背书验证者），不构成对产出质量或可靠性的保证。未解决：激励如何分配取决于验证者的打分方式，而各子网机制不同，跨子网不可直接比较；本站不评价任何子网的产出效果，也不收录代币价格与收益。",
+      "en": "The intersection: treating inference and compute as commodities produced by subnets and settled through on-chain incentives — currently the most complete official account of decentralised inference. Scope: the documentation describes a division of roles (miners produce, validators score, subnet creators define the mechanism, stakers back validators) and does not warrant output quality or reliability. Open: how incentives are distributed depends on how validators score, and mechanisms differ per subnet, so subnets are not directly comparable; this entry does not judge any subnet’s output and records no token price or yield."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "网络角色 / roles": "miners、validators、subnet creators、stakers",
+      "生产物 / commodities": "compute、inference、storage、prediction",
+      "结算单位 / settlement": "TAO（本站不收录价格与收益）",
+      "质量保证 / quality warrant": "官方文档未作保证"
+    }
+  },
+  {
+    "id": "c2pa-ai-ml-guidance",
+    "title": {
+      "zh": "C2PA 面向 AI/ML 的实施指南",
+      "en": "C2PA guidance for AI and machine learning"
+    },
+    "category": "provenance",
+    "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+        "quote": "The C2PA specification can be used to add cryptographic information to detect the tampering of media files and streams."
+      },
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+        "quote": "The Content Credential for an AI-ML model provides the consumer, e.g. a system operator designing an AI-ML system, with provenance and authenticity of the model."
+      },
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+        "quote": "the model C2PA Manifest can contain a data mining assertion that asserts rights as allowed, constrained, or not allowed for generative or non-generative AI-ML models or both."
+      }
+    ],
+    "notes": {
+      "zh": "交集：把内容凭证从「媒体文件」扩到 AI 供应链的三件东西——模型凭证、训练数据凭证、输出凭证；输出用 trainedAlgorithmicMedia 或 trainedAlgorithmicData 标记来源类型，模型还可挂一条数据挖掘断言，声明是否允许被拿去训练别的模型。适用范围：规范给的是断言类型与清单结构，用于发现篡改与记录来源，不评估模型质量或输出是否正确。未解决：一切都依赖提供方如实填写，签名只覆盖签名之后的改动；凭证能否在转码与二次分发后存活取决于各平台。该文档本身以 CC BY 4.0 发布，可转载但需署名。",
+      "en": "The intersection: extending content credentials from media files to three things in the AI supply chain — a model credential, a training-data credential and an output credential. Outputs are tagged with trainedAlgorithmicMedia or trainedAlgorithmicData as the source type, and a model may carry a data mining assertion stating whether reuse for training other models is allowed, constrained or not allowed. Scope: the guidance supplies assertion types and manifest structure for detecting tampering and recording origin; it does not assess model quality or whether an output is correct. Open: everything depends on the provider recording honestly, a signature only covers changes made after signing, and whether a credential survives transcoding and redistribution depends on each platform. The document itself is published under CC BY 4.0, so reuse requires attribution."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "覆盖对象 / scope": "模型凭证 · 训练数据凭证 · 输出凭证",
+      "输出来源类型 / source type": "trainedAlgorithmicMedia（媒体）· trainedAlgorithmicData（非媒体）",
+      "权利表达 / rights": "data mining assertion：allowed / constrained / not allowed",
+      "文档许可 / licence": "CC BY 4.0"
+    }
+  },
+  {
+    "id": "c2pa-content-credentials",
+    "title": {
+      "zh": "C2PA 内容凭证",
+      "en": "C2PA Content Credentials"
+    },
+    "category": "provenance",
+    "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
+        "quote": "The Coalition for Content Provenance and Authenticity (C2PA) addresses the prevalence of misleading information online through the development of technical standards for certifying the source and history (or provenance) of media content."
+      },
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
+        "quote": "Guidance for Artificial Intelligence and Machine Learning"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 生成内容的来源标识——输出可以被签名并绑定到生成工具与后续编辑链，让「这份内容由谁、用什么产生、被谁改过」有一个可机器读的答案形态。适用范围：规范定义的是凭证结构与验证流程，不判断内容真假，也不阻止未签名内容流通；官方另有一份面向 AI 与机器学习的实施指南。未解决：签名只能证明某把密钥签过，密钥归属与工具是否如实记录仍依赖发行方；凭证能否在转发与转码后存活，取决于各平台实现。本站不评价任何厂商的落地程度。",
+      "en": "The intersection: provenance for AI-generated content — output can be signed and bound to the generating tool and the edits that follow, giving \"who made this, with what, and who changed it\" a machine-readable shape. Scope: the specification defines credential structure and verification flow; it does not judge whether content is true, and it does not stop unsigned content from circulating. A separate official guide covers AI and machine learning specifically. Open: a signature only proves that a key signed, so key ownership and whether a tool recorded honestly still rest on the issuer, and whether a credential survives forwarding or transcoding depends on each platform. This entry does not rate any vendor implementation."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "规范版本 / version": "2.1",
+      "文档类型 / documents": "技术规范 + 实施指南 + 安全与危害建模",
+      "AI 专门指南 / AI guidance": "有（Guidance for Artificial Intelligence and Machine Learning）",
+      "判断内容真伪 / truth of content": "否"
+    }
+  },
+  {
+    "id": "did-resolution",
+    "title": {
+      "zh": "DID Resolution：把标识解析成可核验文档",
+      "en": "DID Resolution: resolving identifiers into verifiable documents"
+    },
+    "category": "protocol",
+    "url": "https://w3c.github.io/did-resolution/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://w3c.github.io/did-resolution/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://w3c.github.io/did-resolution/",
+        "quote": "Decentralized identifier (DID) resolution is the process of obtaining a DID document and accompanying metadata for a specific DID."
+      },
+      {
+        "url": "https://w3c.github.io/did-resolution/",
+        "quote": "MUST implement the DID resolution function for at least one DID method and MUST be able to return a DID document."
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 内容凭证与模型出处声明常用 DID 标识签发者或主体；验证者不能只看标识字符串，还要解析出 DID document 与元数据，才能找验证方法和状态信息。\n适用范围：官方规范定义 DID resolution 是取得 DID document 与伴随元数据的过程，并规定 conforming resolver 至少实现一个 DID method 的解析函数且能返回 DID document。它规定解析接口与元数据，不保证 DID 背后主体身份真实。\n未解决：各 DID method 的更新、撤销与可用性不同；页面仍是 Editor’s Draft，AI 凭证系统要核对目标 method 的实现与治理，而不是把解析成功当成信任完成。",
+      "en": "The intersection: AI content credentials and model provenance statements often use DIDs for issuers or subjects; verifiers must resolve the identifier into a DID document and metadata to find verification methods and status information.\nScope: the specification defines DID resolution as obtaining a DID document and accompanying metadata, and requires conforming resolvers to implement the resolution function for at least one DID method and return a DID document. It standardises resolution and metadata, not the real-world identity behind the DID.\nOpen: DID methods differ in update, revocation and availability; the page remains an Editor’s Draft, so credential systems must check the target method implementation and governance rather than treating successful resolution as completed trust."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "草案（W3C Editor’s Draft，页面配置 specStatus: ED）",
+      "规范来源 / source": "https://w3c.github.io/did-resolution/",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "eip-1271",
+    "title": {
+      "zh": "ERC-1271：合约账户签名验证",
+      "en": "ERC-1271: Standard Signature Validation Method for Contracts"
+    },
+    "category": "protocol",
+    "url": "https://github.com/ethereum/ercs/blob/master/ERCS/erc-1271.md",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+        "quote": "Externally Owned Accounts (EOA) can sign messages with their associated private keys, but currently contracts cannot."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+        "quote": "We propose a standard way for any contracts to verify whether a signature on a behalf of a given contract is valid."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+        "quote": "status: Final"
+      }
+    ],
+    "notes": {
+      "zh": "交集：当 AI 内容凭证或数据授权由合约账户而不是个人私钥签署时，验证者需要问「这个合约是否认可该签名」；ERC-1271 给出合约侧统一验证入口。\n适用范围：官方摘要说 EOA 能用私钥签消息而合约不能，因此提出通过 signing contract 上的 isValidSignature(hash, signature) 验证签名。它规定验证接口，不规定合约内部怎样决策，也不保证签名背后的业务声明真实。\n未解决：合约钱包、多签与权限模块各自实现验证逻辑，跨应用仍要核对实现与升级风险；该规范已从 EIPs 仓库移到 ERCs 仓库，状态 Final，但本站不推断所有合约账户都支持。",
+      "en": "The intersection: when an AI content credential or data permission is signed by a contract account rather than a personal private key, verifiers need to ask whether the contract recognises the signature; ERC-1271 provides a common contract-side validation entry point.\nScope: the abstract says EOAs can sign messages with private keys but contracts cannot, and proposes validation through isValidSignature(hash, signature) on the signing contract. It standardises the interface, not the internal decision logic, and does not make the underlying business claim true.\nOpen: contract wallets, multisigs and permission modules implement their own validation, so applications still need to check implementation and upgrade risk; the specification moved from the EIPs repository to ERCs and is Final, but this site does not infer support by every contract account."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "Final（官方 ERC 状态；具体部署范围官方未说明）",
+      "规范来源 / source": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "eip-712",
+    "title": {
+      "zh": "EIP-712：类型化结构化数据哈希与签名",
+      "en": "EIP-712: Typed Structured Data Hashing and Signing"
+    },
+    "category": "protocol",
+    "url": "https://eips.ethereum.org/EIPS/eip-712",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+        "quote": "This is a standard for hashing and signing of typed structured data as opposed to just bytestrings."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+        "quote": "Hashing structured data is non-trivial and errors result in loss of the security properties of the system."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+        "quote": "status: Final"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 生成内容凭证、模型出处与授权声明经常需要离线签署一份结构化声明；EIP-712 规定类型化数据怎样编码、哈希并进入可签名消息，避免把复杂声明只当成不透明字节串。\n适用范围：官方摘要说它是类型化结构化数据哈希与签名标准，动机节强调结构化哈希出错会丢失系统安全性质；原文还说明它不包含重放保护。它只规定签名口径，不证明声明内容为真，也不替应用定义撤销与信任策略。\n未解决：具体 AI 凭证系统仍要自己定义 schema、域分隔、重放防护与验证者信任；EIP 状态为 Final，但本站不据此推断每条链或每个钱包都已部署。",
+      "en": "The intersection: AI content credentials, model provenance and permission statements often need an offline signature over a structured claim; EIP-712 specifies how typed data is encoded, hashed and included in signable messages instead of treating complex claims as opaque byte strings.\nScope: the abstract describes a standard for hashing and signing typed structured data, and the motivation warns that errors in structured hashing lose security properties; the text also says it does not include replay protection. It standardises signing, not the truth of the claim, and does not define revocation or verifier trust for an application.\nOpen: an AI credential system still has to define its schema, domain separation, replay protection and verifier trust; the EIP status is Final, but this site does not infer deployment on every chain or wallet."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "Final（官方 EIP 状态；具体部署范围官方未说明）",
+      "规范来源 / source": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "ethereum-attestation-service",
+    "title": {
+      "zh": "Ethereum Attestation Service（EAS）",
+      "en": "Ethereum Attestation Service (EAS)"
+    },
+    "category": "protocol",
+    "url": "https://github.com/ethereum-attestation-service/eas-contracts",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+        "quote": "The Ethereum Attestation Service is a free and open protocol for on-chain attestations on EVM compatible blockchains."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+        "quote": "It is a generalized service that allows anyone to register a schema for their particular use case, and then make attestations following their schema."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+        "quote": "Schemas can be registered using the `SchemaRegistry.sol` contract, and attestations are made using the `EAS.sol` contract."
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 生成内容标识、模型版本声明与数据授权可以把「谁按什么 schema 作了什么证明」写成链上 attestation；EAS 提供通用 schema 注册与证明合约。\n适用范围：官方 README 说它是 EVM 兼容链上的免费开放链上证明协议，任何人可注册 schema 并按 schema 作证明；schema 走 SchemaRegistry.sol，证明走 EAS.sol，另有 resolver 与 SDK。它提供记录与验证基础设施，不自动审核声明内容真假。\n未解决：AI 场景仍要定义 schema、撤销策略、隐私边界与验证者信任；README 未给统一协议状态字段，本站不推断所有 EVM 链都已部署。",
+      "en": "The intersection: AI content labelling, model version statements and data permissions can record who attested what under which schema as an on-chain attestation; EAS provides general schema registration and attestation contracts.\nScope: the official README describes a free and open protocol for on-chain attestations on EVM-compatible blockchains, where anyone registers a schema and attests against it; schemas use SchemaRegistry.sol and attestations use EAS.sol, with resolvers and an SDK. It provides recording and verification infrastructure, not automatic truth review.\nOpen: AI use cases still need schema design, revocation, privacy boundaries and verifier trust; the README gives no single protocol-status field, and this site does not infer deployment on every EVM chain."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "官方未说明（README 描述协议与合约，未给部署状态字段）",
+      "规范来源 / source": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "filecoin-verifiable-storage",
+    "title": {
+      "zh": "Filecoin 可验证存储",
+      "en": "Filecoin verifiable storage"
+    },
+    "category": "provenance",
+    "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+        "quote": "Every storage provider proves that they are maintaining their files in every 24-hour window."
+      },
+      {
+        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+        "quote": "Any observer can check any storage provider’s track record and will notice if the provider has been faulty or offline in the past."
+      },
+      {
+        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+        "quote": "Files are referred to by the data they contain, not by fragile identifiers such as URLs."
+      }
+    ],
+    "notes": {
+      "zh": "交集：训练数据与模型权重的长期留存——「谁还持有这份数据」这件事有周期性证明可查，而不是只能相信服务商的状态页。适用范围：官方说明存储方每 24 小时窗口证明一次仍在维护文件，任何观察者都能查历史记录；文件按内容而非 URL 寻址。未解决：该页未列局限，也未对检索延迟、取回速度或长期可用性给出承诺——证明的是「仍在持有」，不等于「随时能快速取回」。页面本身营销表述较多（价格优势、抗审查等），本站不收录这类评价，只引可核的机制句。",
+      "en": "The intersection: long-term retention of training data and model weights, where \"who still holds this data\" has a periodic proof anyone can inspect rather than a provider status page to be trusted. Scope: the vendor states that every storage provider proves it is maintaining its files in every 24-hour window, that any observer can check a provider’s track record, and that files are addressed by content rather than by URL. Open: the page lists no limitations and makes no commitment about retrieval latency, fetch speed or long-term availability — the proof says the data is still held, not that it can be fetched quickly. The page carries considerable marketing language (price, censorship resistance); this entry cites only the mechanism statements and does not repeat those evaluations."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证明周期 / proof window": "每 24 小时一次",
+      "可查性 / auditability": "任何观察者可查存储方历史记录",
+      "寻址方式 / addressing": "内容寻址，非 URL",
+      "未承诺 / not committed": "检索延迟、取回速度、长期可用性"
+    }
+  },
+  {
+    "id": "ipfs-cid",
+    "title": {
+      "zh": "IPFS 内容标识 CID",
+      "en": "IPFS content identifiers (CID)"
+    },
+    "category": "provenance",
+    "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.ipfs.tech/concepts/content-addressing/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+        "quote": "A content identifier, or CID, is a label used to point to material in IPFS. It doesn’t indicate where the content is stored, but it forms a kind of address based on the content itself."
+      },
+      {
+        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+        "quote": "Any difference in the content will produce a different CID."
+      },
+      {
+        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+        "quote": "The same content added to two different IPFS nodes using the same settings will produce the same CID."
+      }
+    ],
+    "notes": {
+      "zh": "交集：训练数据集与模型文件的内容寻址——同一份数据在任何节点得到同一标识，数据集出处记录里就能写清「指的是哪一份字节」，而不是一个会变的下载地址。适用范围：CID 只保证内容一致，不保证可用性或持久性；内容没有被固定就可能无人保存。未解决：内容寻址回答「是不是同一份」，不回答「谁有权使用」，许可与授权仍需另立记录；本站把这类记录放在同站的来源类条目里，不合并成一个字段。",
+      "en": "The intersection: content addressing for training datasets and model files — the same bytes yield the same identifier on any node, so a provenance record can state which exact bytes are meant instead of pointing at a download URL that changes. Scope: a CID guarantees content equality, not availability or persistence; unpinned content may be held by no one. Open: content addressing answers \"is this the same bytes\", not \"who may use it\", so licensing still needs a separate record, which this site keeps in its provenance entries rather than folding into one field."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "默认哈希 / default hash": "sha-256（通过 Multihash 支持多种算法）",
+      "同内容同标识 / same content same CID": "是（相同设置下）",
+      "保证持久可用 / persistence": "否",
+      "保证授权 / licensing": "否"
+    }
+  },
+  {
+    "id": "ipld",
+    "title": {
+      "zh": "IPLD 规范集合",
+      "en": "IPLD Specifications"
+    },
+    "category": "protocol",
+    "url": "https://github.com/ipld/specs",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+        "quote": "The goal of IPLD is to enable decentralized data-structures that are universally addressable and linkable which in turn will enable more decentralized applications."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+        "quote": "Specification documents in this repository fit into one of two categories and have one of three possible statuses:"
+      }
+    ],
+    "notes": {
+      "zh": "交集：训练数据集、模型卡与内容凭证需要跨节点可寻址、可链接的数据结构；IPLD 定义 CID 之上的数据模型与链接方式，让出处记录不只是单个文件哈希。\n适用范围：官方仓库说目标是普遍可寻址、可链接的去中心化数据结构，并明确 IPLD 不是单一规范；规范分 Prescriptive/Descriptive，状态含 Draft/Final。它规定数据怎样链接与解释，不保证链接内容仍然可用或权利清晰。\n未解决：AI 数据集要自己选择 codec、schema 与保留策略；仓库内各规范状态不同，不能把整个 IPLD 简单标成已部署或单一草案。",
+      "en": "The intersection: training datasets, model cards and content credentials need data structures that are addressable and linkable across nodes; IPLD defines data models and linking above CIDs so provenance is more than a single file hash.\nScope: the official repository says the goal is universally addressable and linkable decentralised data structures, and states IPLD is not a single specification; documents are Prescriptive or Descriptive with Draft/Final statuses. It specifies linking and interpretation, not continued availability or clear rights.\nOpen: AI datasets still need codec, schema and retention choices; statuses differ per specification, so the whole of IPLD cannot be labelled as one deployed or single draft protocol."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "草案（官方仓库规范分 Prescriptive/Descriptive 与 Draft/Final，逐份状态不同）",
+      "规范来源 / source": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "ocean-compute-to-data",
+    "title": {
+      "zh": "Ocean Compute-to-Data：数据不出域的授权计算",
+      "en": "Ocean Compute-to-Data: authorised compute without moving data"
+    },
+    "category": "protocol",
+    "url": "https://github.com/oceanprotocol/docs/blob/main/developers/compute-to-data/README.md",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+        "quote": "Instead of selling the raw data itself, you can offer compute access to the private data."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+        "quote": "This means you have control over which algorithms can be run on your dataset."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+        "quote": "It enables the data to remain on-premise while granting third parties the ability to perform specific compute tasks on it, yielding valuable results like statistical analysis or AI model development."
+      }
+    ],
+    "notes": {
+      "zh": "交集：用私有数据训练或评测 AI 时，数据持有者常不愿交出原始数据；Compute-to-Data 把授权对象从「数据副本」改成「在数据上运行指定算法」，与 AI 模型开发直接相关。\n适用范围：官方文档说不出售原始数据而出售计算访问，数据持有者控制哪些算法可跑，数据可留在本地而第三方执行特定计算任务，产出统计分析或 AI 模型开发结果。本条只写计算授权机制，与 ocean-protocol 概念条的网络与访问控制分工不同。\n未解决：算法审核、结果泄露、计算环境可信与法律合规仍要另行核对；文档未给统一部署状态字段，本站不推断隐私或合规保证。",
+      "en": "The intersection: when private data is used to train or evaluate AI, holders often do not want to hand over raw data; Compute-to-Data changes the authorised object from a data copy to running approved algorithms on the data, directly relevant to AI model development.\nScope: the official documentation says raw data is not sold; compute access is offered, the holder controls which algorithms may run, and data can remain on-premise while third parties perform specific compute tasks yielding statistical analysis or AI model development. This entry covers the compute-authorisation mechanism, distinct from the ocean-protocol concept entry on network and access control.\nOpen: algorithm review, result leakage, trusted compute environments and legal compliance still need separate checks; the document gives no single deployment-status field, and this site infers no privacy or compliance guarantee."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "官方未说明（机制文档未给协议部署状态字段）",
+      "规范来源 / source": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "ocean-protocol",
+    "title": {
+      "zh": "Ocean Protocol 数据与算力协议",
+      "en": "Ocean Protocol data and compute protocol"
+    },
+    "category": "data-rights",
+    "url": "https://docs.oceanprotocol.com/discover",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
+        "quote": "Ocean is a decentralized data & compute protocol built to scale AI."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
+        "quote": "Data NFTs & datatokens, to enable token-gated access control, data wallets, data DAOs, and more."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
+        "quote": "Compute-to-data: buy & sell private data, while preserving privacy"
+      }
+    ],
+    "notes": {
+      "zh": "交集：数据访问控制与 compute-to-data——把计算送到数据所在处，让数据不出域也能参与训练或推理，这是「数据可用不可见」在协议层的一种做法。适用范围：官方把三块列为核心组件（数据 NFT 与 datatoken 做门控访问、compute-to-data 做隐私计算、Ocean Nodes 把闲置算力组网），但这是协议定位说明，没有给出可核的合规结论或性能数字。未解决：代币化门控是否满足各地数据保护法规属于法律判断，不是协议能回答的；本站不评价任何部署效果，也不收录代币价格与收益。",
+      "en": "The intersection: data access control plus compute-to-data — sending computation to where the data sits so data can take part in training or inference without leaving its domain, one protocol-level approach to \"usable but not visible\". Scope: the vendor lists three core components (data NFTs and datatokens for token-gated access, compute-to-data for privacy-preserving computation, and Ocean Nodes to network idle compute), but this is a positioning statement without verifiable compliance conclusions or performance figures. Open: whether token-gated access satisfies data protection law in a given jurisdiction is a legal judgement, not something the protocol answers; this entry does not rate any deployment and records no token price or yield."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "核心组件 / components": "Data NFT 与 datatoken · compute-to-data · Ocean Nodes",
+      "隐私机制 / privacy": "计算下沉到数据侧，数据不出域",
+      "可核结论 / verifiable claims": "官方页面未给性能或合规结论",
+      "不收录 / excluded": "代币价格、收益、部署效果评价"
+    }
+  },
+  {
+    "id": "w3c-did",
+    "title": {
+      "zh": "W3C 去中心化标识符 DID",
+      "en": "W3C Decentralized Identifiers (DID)"
+    },
+    "category": "credential",
+    "url": "https://www.w3.org/TR/did-core/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://www.w3.org/TR/did-core/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.w3.org/TR/did-core/",
+        "quote": "Decentralized identifiers (DIDs) are a new type of identifier that enables verifiable, decentralized digital identity."
+      },
+      {
+        "url": "https://www.w3.org/TR/did-core/",
+        "quote": "the presence of an alsoKnownAs assertion does not prove that this assertion is true."
+      },
+      {
+        "url": "https://www.w3.org/TR/did-core/",
+        "quote": "This specification does not presuppose any particular technology or cryptography to underpin the generation, persistence, resolution, or interpretation of DIDs."
+      }
+    ],
+    "notes": {
+      "zh": "交集：给智能体、设备或数据集一个可解析的标识，解析出的 DID 文档里放公钥与服务端点，用于证明「我控制这个标识」而无需向某个机构申请。适用范围：规范只定义语法、数据模型、核心属性与解析过程，不规定底层用什么技术或密码学，也不保证文档里的断言为真——作者明确写了 alsoKnownAs 的存在并不证明该断言成立，需要请求方独立核实。未解决：撤销不由验证关系表达，各 DID 方法自行规定；不同方法之间的互操作性不保证；「不需要许可即可证明控制权」不等于「发现与解析不依赖第三方」。",
+      "en": "The intersection: a resolvable identifier for an agent, device or dataset, whose DID document carries public keys and service endpoints, so control of the identifier can be proven without asking a registry for permission. Scope: the specification defines syntax, data model, core properties and resolution only; it presupposes no particular technology or cryptography, and it does not warrant that assertions in the document are true — the authors state that an alsoKnownAs assertion does not prove itself and requires independent verification by the requesting party. Open: revocation is not expressed through verification relationships and is left to each DID method, interoperability across methods is not guaranteed, and \"control provable without permission\" does not mean discovery and resolution are independent of third parties."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "标准状态 / status": "W3C Recommendation（DID v1.0）",
+      "必需属性 / required": "仅 id",
+      "文档内容 / document": "验证方法（公钥）、验证关系、服务端点",
+      "不保证 / not guaranteed": "alsoKnownAs 不证明为真；等价性不由断言推出",
+      "撤销 / revocation": "由各 DID 方法自行定义"
+    }
+  },
+  {
+    "id": "w3c-verifiable-credentials",
+    "title": {
+      "zh": "W3C 可验证凭证",
+      "en": "W3C Verifiable Credentials"
+    },
+    "category": "credential",
+    "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://www.w3.org/TR/vc-data-model-2.0/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+        "quote": "A verifiable credential is a specific way to express a set of claims made by an issuer, such as a driver’s license or an education certificate."
+      },
+      {
+        "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+        "quote": "Verifiability of a credential does not imply the truth of claims encoded therein."
+      },
+      {
+        "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+        "quote": "Verification of a credential does not imply evaluation of the truth of claims encoded in the credential."
+      }
+    ],
+    "notes": {
+      "zh": "交集：把「某机构认证了某个模型、数据集或人员资质」表达成机器可验证的凭证，验证方不必回连签发方。适用范围：规范自己写了两遍——可验证不等于声明为真，验证也不评估声明真实性；采信与否由验证者按自己的业务规则另行判断（规范称 validation，且明说手段差异很大、不在规范范围内）。未解决：撤销与状态检查、信任锚的选择依赖具体实现；凭证里写什么字段、字段含义如何对齐，规范只给数据模型。",
+      "en": "The intersection: expressing \"some body attested this model, dataset or person\" as a machine-verifiable credential, so a verifier need not call back to the issuer. Scope: the specification says it twice — verifiability does not imply the truth of the claims, and verification does not evaluate that truth; whether to rely on it is a separate step the verifier performs under its own rules, which the spec calls validation and places outside its scope. Open: revocation and status checking, and the choice of trust anchor, depend on the implementation, and the specification supplies a data model rather than shared field semantics."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "标准状态 / status": "W3C Recommendation（Data Model 2.0）",
+      "角色 / roles": "issuer、holder、verifier、subject、verifiable data registry",
+      "保证声明为真 / truth of claims": "否（规范明确写了两次）",
+      "业务效力判断 / validation": "不在规范范围内"
+    }
+  }
+]

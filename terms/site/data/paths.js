@@ -746,5 +746,53 @@ var PATHS = [
    "/term/%E8%BF%81%E7%A7%BB%E8%AF%84%E4%BC%B0/",
    "/term/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/"
   ]
+ },
+ {
+  "id": "for-robotics",
+  "ord": 13,
+  "zh": "机器人软件与学习路线",
+  "en": "Robot software and learning route",
+  "span": {
+   "zh": "约 45 分钟",
+   "en": "about 45 minutes"
+  },
+  "lead": {
+   "zh": "先分清策略、示范与仿真，再看中间件、规划与迁移。目标是看懂机器人演示背后的软件与学习分层，不把遥操作或仿真成功当成实机自主能力。",
+   "en": "First separate policy, demonstration and simulation, then look at middleware, planning and transfer. The goal is to understand the software and learning layers behind robot demos, without treating teleoperation or simulation success as real autonomous capability."
+  },
+  "steps": [
+   "具身智能",
+   "机器人策略",
+   "模仿学习",
+   "遥操作",
+   "物理仿真",
+   "运动规划",
+   "机器人中间件",
+   "仿真到实机迁移",
+   "视觉语言动作模型"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说清策略、模仿学习、强化学习三者关系，并指出遥操作数据通常进入哪条训练路线。",
+    "解释为什么仿真里跑通不等于实机跑通，至少说出一种缩小现实差距的方法。",
+    "看一段机器人演示时，能列出要追问的三件事：人控还是自主、仿真还是实机、训练数据覆盖什么。"
+   ],
+   "en": [
+    "Explain how policy, imitation learning and reinforcement learning relate, and where teleoperation data usually enters training.",
+    "Explain why passing in simulation does not mean passing on hardware, and name at least one way to narrow the reality gap.",
+    "When watching a robot demo, list three questions: human-controlled or autonomous, simulation or hardware, and what the training data covers."
+   ]
+  },
+  "stepUrls": [
+   "/term/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/",
+   "/term/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%AD%96%E7%95%A5/",
+   "/term/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/",
+   "/term/%E9%81%A5%E6%93%8D%E4%BD%9C/",
+   "/term/%E7%89%A9%E7%90%86%E4%BB%BF%E7%9C%9F/",
+   "/term/%E8%BF%90%E5%8A%A8%E8%A7%84%E5%88%92/",
+   "/term/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B8%AD%E9%97%B4%E4%BB%B6/",
+   "/term/%E4%BB%BF%E7%9C%9F%E5%88%B0%E5%AE%9E%E6%9C%BA%E8%BF%81%E7%A7%BB/",
+   "/term/%E8%A7%86%E8%A7%89%E8%AF%AD%E8%A8%80%E5%8A%A8%E4%BD%9C%E6%A8%A1%E5%9E%8B/"
+  ]
  }
 ];

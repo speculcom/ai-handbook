@@ -1,0 +1,25 @@
+{
+  "_comment": "English body for genesis (robotics). Official README fetched 200 on 2026-11-07; unknowns kept explicit.",
+  "axes": {
+    "model_access": "Genesis is not a model product; the official README lists no model provider list. Policy or model integration usually goes through user code and ecosystem integrations; this site records it as model/policy-agnostic (site judgement, verification limited to README).",
+    "runtime": "Genesis is used as a library/framework in local processes, commonly via Python/C++ or the ROS ecosystem; it is not a hosted cloud service. Installation and platform support follow official README/docs and were not tested here.",
+    "local_files": "Genesis reads and writes local configuration, scenes, models or data assets; file permissions and asset licences must be checked by the user. It does not manage training-data copyright or robot workspace safety for the user.",
+    "background": "Nodes or training processes can run in the background; shutdown continuation, distribution and failure recovery are outside this verification scope and must be checked against official deployment docs.",
+    "tools": "Genesis provides command-line, plugin or ecosystem interfaces (such as ROS topics/services, simulation plugins, policy-training interfaces). MCP integration is not stated in the official README and is recorded as unknown.",
+    "context": "Not applicable: Genesis is not a chat model and has no LLM context window; state is carried by configuration, scenes, node state or training checkpoints.",
+    "permissions": "Permissions follow the operating system and runtime environment; with robot hardware, device access, network and emergency-stop boundaries also need checking. The official README gives no unified permission model, and this was not tested here.",
+    "fit": "Fit: physics simulation, control and policy prototyping. Not fit: unverified production deployment, safety certification or real-hardware guarantees."
+  },
+  "sectionTitles": {},
+  "sections": {},
+  "runs": null,
+  "unknowns": "- Mainland direct access to website/install sources and filing status were not tested in this pass.\n- Upstream push/release cadence was not verified via API; lifecycle is unknown.\n- MCP integration is not stated in the official README.",
+  "related": [
+    "Another category: local model runner. If a policy needs local inference, read llama.cpp for format and quantisation boundaries."
+  ],
+  "sources": [
+    "Genesis-Embodied-AI/Genesis official repository (README fetched 200 on 2026-11-07)",
+    "Official README (positioning and capability description, fetched 200 on 2026-11-07)",
+    "Commit history for Genesis-Embodied-AI/Genesis (change-record entry, versions not itemised on 2026-11-07)"
+  ]
+}

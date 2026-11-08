@@ -1,0 +1,34 @@
+{
+  "id": "ipld",
+  "title": {
+    "zh": "IPLD 规范集合",
+    "en": "IPLD Specifications"
+  },
+  "category": "protocol",
+  "url": "https://github.com/ipld/specs",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+      "quote": "The goal of IPLD is to enable decentralized data-structures that are universally addressable and linkable which in turn will enable more decentralized applications."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+      "quote": "Specification documents in this repository fit into one of two categories and have one of three possible statuses:"
+    }
+  ],
+  "notes": {
+    "zh": "交集：训练数据集、模型卡与内容凭证需要跨节点可寻址、可链接的数据结构；IPLD 定义 CID 之上的数据模型与链接方式，让出处记录不只是单个文件哈希。\n适用范围：官方仓库说目标是普遍可寻址、可链接的去中心化数据结构，并明确 IPLD 不是单一规范；规范分 Prescriptive/Descriptive，状态含 Draft/Final。它规定数据怎样链接与解释，不保证链接内容仍然可用或权利清晰。\n未解决：AI 数据集要自己选择 codec、schema 与保留策略；仓库内各规范状态不同，不能把整个 IPLD 简单标成已部署或单一草案。",
+    "en": "The intersection: training datasets, model cards and content credentials need data structures that are addressable and linkable across nodes; IPLD defines data models and linking above CIDs so provenance is more than a single file hash.\nScope: the official repository says the goal is universally addressable and linkable decentralised data structures, and states IPLD is not a single specification; documents are Prescriptive or Descriptive with Draft/Final statuses. It specifies linking and interpretation, not continued availability or clear rights.\nOpen: AI datasets still need codec, schema and retention choices; statuses differ per specification, so the whole of IPLD cannot be labelled as one deployed or single draft protocol."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "协议状态 / status": "草案（官方仓库规范分 Prescriptive/Descriptive 与 Draft/Final，逐份状态不同）",
+    "规范来源 / source": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+    "核验日 / checked": "2026-11-07"
+  }
+}

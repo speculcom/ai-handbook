@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-refactor-plan. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output steps, verification points and rollback conditions; do not promise performance gains.\nInputs: Code structure description, goal, and constraints.",
+    "提示词本体": "```text\nCreate a refactoring plan. Output steps[] with change, verify and rollback. Each step must be small and independently verifiable; verify gives observable criteria and rollback gives trigger conditions. Do not write percentage gains or best solution; mark uncertain impact as risk.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "steps[] with verification and rollback per step.",
+    "检查点": "- Each step has verify and rollback.\n- No unverified performance promises.\n- Risk items are explicit.",
+    "失败分支": "- Step too large: split into rollbackable steps.\n- Verification not observable: use tests or check commands.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: GPT-4.1 Prompting Guide (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

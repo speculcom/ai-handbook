@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-bug-repro. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output environment, steps, expected/actual and missing information; do not guess the root cause.\nInputs: Bug description, log excerpts, and environment information.",
+    "提示词本体": "```text\nTurn the bug into a minimal reproduction. Output environment, steps[], expected, actual and missing[]. steps must be executable and come from the description; put unprovided versions/config into missing, do not fill defaults. Do not give a root-cause conclusion.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "environment, steps[], expected, actual, and missing[].",
+    "检查点": "- Each step is supported by the description.\n- Missing items are explicit.\n- No root-cause assertion.",
+    "失败分支": "- Steps not executable: fill missing items and rerun.\n- Insufficient logs: keep only checkable excerpts.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: GPT-4.1 Prompting Guide (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "eip-1271",
+  "title": {
+    "zh": "ERC-1271：合约账户签名验证",
+    "en": "ERC-1271: Standard Signature Validation Method for Contracts"
+  },
+  "category": "protocol",
+  "url": "https://github.com/ethereum/ercs/blob/master/ERCS/erc-1271.md",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+      "quote": "Externally Owned Accounts (EOA) can sign messages with their associated private keys, but currently contracts cannot."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+      "quote": "We propose a standard way for any contracts to verify whether a signature on a behalf of a given contract is valid."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+      "quote": "status: Final"
+    }
+  ],
+  "notes": {
+    "zh": "交集：当 AI 内容凭证或数据授权由合约账户而不是个人私钥签署时，验证者需要问「这个合约是否认可该签名」；ERC-1271 给出合约侧统一验证入口。\n适用范围：官方摘要说 EOA 能用私钥签消息而合约不能，因此提出通过 signing contract 上的 isValidSignature(hash, signature) 验证签名。它规定验证接口，不规定合约内部怎样决策，也不保证签名背后的业务声明真实。\n未解决：合约钱包、多签与权限模块各自实现验证逻辑，跨应用仍要核对实现与升级风险；该规范已从 EIPs 仓库移到 ERCs 仓库，状态 Final，但本站不推断所有合约账户都支持。",
+    "en": "The intersection: when an AI content credential or data permission is signed by a contract account rather than a personal private key, verifiers need to ask whether the contract recognises the signature; ERC-1271 provides a common contract-side validation entry point.\nScope: the abstract says EOAs can sign messages with private keys but contracts cannot, and proposes validation through isValidSignature(hash, signature) on the signing contract. It standardises the interface, not the internal decision logic, and does not make the underlying business claim true.\nOpen: contract wallets, multisigs and permission modules implement their own validation, so applications still need to check implementation and upgrade risk; the specification moved from the EIPs repository to ERCs and is Final, but this site does not infer support by every contract account."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "协议状态 / status": "Final（官方 ERC 状态；具体部署范围官方未说明）",
+    "规范来源 / source": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+    "核验日 / checked": "2026-11-07"
+  }
+}

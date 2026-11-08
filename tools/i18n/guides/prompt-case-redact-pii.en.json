@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-redact-pii. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output redacted text and a field log; do not guess unlisted fields.\nInputs: Source text, sensitive-field list, and redaction format.",
+    "提示词本体": "```text\nRedact the source according to {fields}. Output redacted_text and redactions[] with field, location and replacement. Handle only listed fields; put suspected but unlisted fields in review[] without redacting them. replacement uses {format} and must not retain reversible original values.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "redacted_text, redactions[], and review[].",
+    "检查点": "- Listed fields are replaced irreversibly.\n- Review items are not handled without authorisation.\n- Locations link back to the source.",
+    "失败分支": "- Missed redaction: extend the field list and rerun.\n- Over-redaction: move unlisted items back to review.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: How to use guardrails (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

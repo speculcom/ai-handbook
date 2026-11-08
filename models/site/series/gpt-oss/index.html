@@ -13,8 +13,8 @@
   <meta property="og:description" content="gpt-oss（OpenAI）的第三方 GGUF 量化版本对比：1 个规格、6 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../../brand.js?v=bf69a6d205ad"></script>
-  <link rel="stylesheet" href="../../brand.css?v=bf69a6d205ad" />
+  <script src="../../brand.js?v=5e907aab579b"></script>
+  <link rel="stylesheet" href="../../brand.css?v=5e907aab579b" />
   <link rel="stylesheet" href="../../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"gpt-oss GGUF 量化版本索引","description":"OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。","url":"https://models.specul.com/series/gpt-oss/","isAccessibleForFree":true,"temporalCoverage":"2026-10-30"}</script>
 </head>
@@ -41,8 +41,10 @@
         <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
         <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
         <a href="https://models.specul.com/" aria-current="page"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
-        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
         <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+        <a href="https://hardware.specul.com/"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链 × AI</span><span data-en>Chain × AI</span></a>
         <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
       </nav>
       <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
@@ -75,12 +77,14 @@
       <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://demos.specul.com/"><span><span data-zh>作品库</span><span data-en>Demos</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/"><span><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>论文</span><span data-en>Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链 × AI</span><span data-en>Chain × AI</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <p><span data-zh>9 个站，各管一件事</span><span data-en>Nine sites, one job each</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
@@ -671,7 +675,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>提供 Q4_K_S 等量化候选。请核对基座版本、量化说明、校验值与运行器支持；第三方身份本身不说明质量高低。</span><span data-en>Provides quantisation candidates such as Q4_K_S. Check base version, method, checksums and runtime support; third-party status alone does not determine quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>规则候选为 <code>Q4_K_S</code>（12 GB），不构成性能结论</span><span data-en>Rule-based candidate: <code>Q4_K_S</code> (12 GB), not a performance finding</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>文件体积候选为 <code>Q4_K_S</code>（12 GB，平衡档）。先用<a href="../../guides/gpu-cost-math.html">容量预算</a>核对缓存、并发与系统开销，再查发布说明中的版本兼容性。</span><span data-en>File-size candidate: <code>Q4_K_S</code> (12 GB, Balanced). Check cache, concurrency and system overhead with the <a href="../../guides/gpu-cost-math.html">capacity budget</a>, then verify version compatibility in the release notes.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量</span><span data-en>No imatrix recorded; inspect release notes. This missing field alone does not determine quality</span><br>· <span data-zh>已 323 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 323 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量</span><span data-en>No imatrix recorded; inspect release notes. This missing field alone does not determine quality</span><br>· <span data-zh>已 324 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 324 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="ggml-org" data-lic="apache-2.0" data-tiers="平衡档" data-blob="ggml-org ggml-org/gpt-oss-20b-gguf apache-2.0">
           <header class="vcard-h">
@@ -705,7 +709,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>提供 MXFP4 等量化候选。请核对基座版本、量化说明、校验值与运行器支持；第三方身份本身不说明质量高低。</span><span data-en>Provides quantisation candidates such as MXFP4. Check base version, method, checksums and runtime support; third-party status alone does not determine quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>规则候选为 <code>MXFP4</code>（12 GB），不构成性能结论</span><span data-en>Rule-based candidate: <code>MXFP4</code> (12 GB), not a performance finding</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>文件体积候选为 <code>MXFP4</code>（12 GB，平衡档）。先用<a href="../../guides/gpu-cost-math.html">容量预算</a>核对缓存、并发与系统开销，再查发布说明中的版本兼容性。</span><span data-en>File-size candidate: <code>MXFP4</code> (12 GB, Balanced). Check cache, concurrency and system overhead with the <a href="../../guides/gpu-cost-math.html">capacity budget</a>, then verify version compatibility in the release notes.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>快照仅识别 1 个档位；不合预算时需再查其他发布源</span><span data-en>The snapshot identifies only 1 tiers; inspect other sources if none fits your budget</span><br>· <span data-zh>未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量</span><span data-en>No imatrix recorded; inspect release notes. This missing field alone does not determine quality</span><br>· <span data-zh>已 458 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 458 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>快照仅识别 1 个档位；不合预算时需再查其他发布源</span><span data-en>The snapshot identifies only 1 tiers; inspect other sources if none fits your budget</span><br>· <span data-zh>未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量</span><span data-en>No imatrix recorded; inspect release notes. This missing field alone does not determine quality</span><br>· <span data-zh>已 459 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 459 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="bartowski" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="bartowski bartowski/openai_gpt-oss-20b-gguf apache-2.0">
           <header class="vcard-h">
@@ -722,7 +726,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>提供 MXFP4 等量化候选。请核对基座版本、量化说明、校验值与运行器支持；第三方身份本身不说明质量高低。</span><span data-en>Provides quantisation candidates such as MXFP4. Check base version, method, checksums and runtime support; third-party status alone does not determine quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>快照识别 27 个档位，可按体积与运行器支持筛选</span><span data-en>The snapshot identifies 27 tiers; filter by size and runtime support</span><br>· <span data-zh>规则候选为 <code>MXFP4</code>（12 GB），不构成性能结论</span><span data-en>Rule-based candidate: <code>MXFP4</code> (12 GB), not a performance finding</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>文件体积候选为 <code>MXFP4</code>（12 GB，平衡档）。先用<a href="../../guides/gpu-cost-math.html">容量预算</a>核对缓存、并发与系统开销，再查发布说明中的版本兼容性。</span><span data-en>File-size candidate: <code>MXFP4</code> (12 GB, Balanced). Check cache, concurrency and system overhead with the <a href="../../guides/gpu-cost-math.html">capacity budget</a>, then verify version compatibility in the release notes.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量</span><span data-en>No imatrix recorded; inspect release notes. This missing field alone does not determine quality</span><br>· <span data-zh>全仓 307 GB，硬盘紧张的话建议只下需要的 1~2 个档位</span><span data-en>307 GB for the whole repo — if disk is tight, download only the one or two tiers you need</span><br>· <span data-zh>量化仓<b>未填写许可元数据字段</b>。此处 <code>apache-2.0</code> 来自基座 <code>openai/gpt-oss-20b</code> 的推断，不是量化者明确授权；请同时核对基座许可、量化仓文件与再分发条件</span><span data-en>The quant repo <b>does not fill the licence metadata field</b>. The displayed <code>apache-2.0</code> is inferred from base <code>openai/gpt-oss-20b</code>, not an explicit grant by the quantiser. Check the base licence, quantisation-repo files and redistribution conditions together.</span><br>· <span data-zh>已 452 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 452 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量</span><span data-en>No imatrix recorded; inspect release notes. This missing field alone does not determine quality</span><br>· <span data-zh>全仓 307 GB，硬盘紧张的话建议只下需要的 1~2 个档位</span><span data-en>307 GB for the whole repo — if disk is tight, download only the one or two tiers you need</span><br>· <span data-zh>量化仓<b>未填写许可元数据字段</b>。此处 <code>apache-2.0</code> 来自基座 <code>openai/gpt-oss-20b</code> 的推断，不是量化者明确授权；请同时核对基座许可、量化仓文件与再分发条件</span><span data-en>The quant repo <b>does not fill the licence metadata field</b>. The displayed <code>apache-2.0</code> is inferred from base <code>openai/gpt-oss-20b</code>, not an explicit grant by the quantiser. Check the base licence, quantisation-repo files and redistribution conditions together.</span><br>· <span data-zh>已 453 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 453 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="mradermacher" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="mradermacher mradermacher/gpt-oss-20b-gguf apache-2.0">
           <header class="vcard-h">
@@ -1216,8 +1220,10 @@
           <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
           <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
           <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
-          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
           <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链 × AI</span><span data-en>Chain × AI</span></a>
           <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
           <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
       </nav>
@@ -1228,7 +1234,7 @@
       </nav>
     </div>
     <div class="container">
-      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
       <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
       <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
     </div>

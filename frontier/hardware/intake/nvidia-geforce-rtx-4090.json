@@ -1,0 +1,39 @@
+{
+  "id": "nvidia-geforce-rtx-4090",
+  "title": {
+    "zh": "NVIDIA GeForce RTX 4090",
+    "en": "NVIDIA GeForce RTX 4090"
+  },
+  "category": "accelerator",
+  "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+      "quote": "Memory Size 24 GB Memory Type GDDR6X"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+      "quote": "System Power (W) (8) 850"
+    }
+  ],
+  "notes": {
+    "zh": "回答消费级单卡跑本地模型时的显存上限、整卡功耗与整机电源要求。不回答多卡并联能力：该型号官方标注不支持 NVLink，多卡只能走 PCIe，实际可用显存仍以单卡为界。",
+    "en": "Answers the memory ceiling, board power and system power supply requirement when running local models on a consumer card. It does not answer multi-card scaling: the vendor lists no NVLink support for this model, so cards communicate over PCIe only and usable memory stays bounded by a single card."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "24 GB GDDR6X",
+    "memory interface": "384-bit",
+    "boost clock": "2.52 GHz",
+    "total graphics power": "450 W",
+    "required system power": "850 W",
+    "CUDA cores": "16,384",
+    "dimensions": "304 mm, 3-slot",
+    "NVLink": "not supported"
+  }
+}

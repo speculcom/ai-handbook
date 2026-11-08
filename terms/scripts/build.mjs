@@ -307,12 +307,22 @@ if (fs.existsSync(guidesDir)) {
     const g = parseFmRaw(fs.readFileSync(path.join(guidesDir, f), 'utf8'), `guides/${f}`);
     const tag = `guides/${f}`;
     const kind = g.kind;
-    if (kind !== 'guide' && kind !== 'myth' && kind !== 'paper') throw new Error(`${tag}: kind 必须是 guide、myth 或 paper`);
+    if (kind !== 'guide' && kind !== 'myth' && kind !== 'paper' && kind !== 'lesson') throw new Error(`${tag}: kind 必须是 guide、myth、paper 或 lesson`);
     const station = Number(g.station);
     if (!Number.isInteger(station) || station < 1 || station > 6) throw new Error(`${tag}: station 必须是 1-6 的整数（指南挂在第几站）`);
     if (!g.lead) throw new Error(`${tag}: 缺 lead`);
     if ((kind === 'guide' || kind === 'paper') && (!Array.isArray(g.points) || g.points.length < 3)) throw new Error(`${tag}: guide/paper 类必须有 ≥3 条 points`);
     if (kind === 'myth' && (!g.myth || !g.fact)) throw new Error(`${tag}: myth 类必须有 myth 与 fact 两段`);
+    /* lesson（课堂教案）五个专属必填数组：课时目标/材料/步骤/常见误解/评分。
+     * 条数口径与 validate.mjs / SCHEMA.md §八必须一致（max=null 表示无上限）。
+     * lesson 不用 points / myth / fact（那两类各自专属），渲染层只读这五段。 */
+    if (kind === 'lesson') {
+      for (const [k, min, max] of [['objectives', 3, 5], ['materials', 1, null], ['steps', 3, null], ['misconceptions', 1, null], ['assessment', 2, null]]) {
+        if (!Array.isArray(g[k]) || g[k].length < min || (max != null && g[k].length > max)) {
+          throw new Error(`${tag}: ${k} 必须是 ${max == null ? `≥${min}` : `${min}-${max}`} 条的行内数组（lesson 类，现有 ${Array.isArray(g[k]) ? g[k].length : 0}）`);
+        }
+      }
+    }
     if (!Array.isArray(g.refs) || !g.refs.length) throw new Error(`${tag}: refs 不能为空（R5）`);
     for (const s of g.terms || []) {
       if (!slugSet.has(s)) throw new Error(`${tag}: terms 互链「${s}」不是任何词条的 slug（会链到不存在的页面）`);
@@ -325,6 +335,9 @@ if (fs.existsSync(guidesDir)) {
     g.pointsEn = en.points || null;
     g.mythEn = en.myth || null;
     g.factEn = en.fact || null;
+    /* lesson 五段的英译：缺键给 null，渲染层整块回退中文（与 pointsEn 同一诚实降级口径）。
+     * lead 缺失仍在上面硬失败；这里不新造第二套降级逻辑。非 lesson 类这五个键恒为 null。 */
+    for (const k of ['objectives', 'materials', 'steps', 'misconceptions', 'assessment']) g[k + 'En'] = en[k] || null;
     Object.defineProperty(g, '__file', { value: f, enumerable: false, writable: true });
     GUIDES.push(g);
   }
@@ -485,11 +498,14 @@ fs.writeFileSync(path.join(outDir, 'paths.js'),
   `var PATHS = ` + JSON.stringify(PATHS.map(({answers, ...route}) => route), null, 1) + ';\n', 'utf8');
 
 /* S24：指南产物（首页导览条读它；指南页本身已由 build 直接渲染成静态 HTML）。
- * 只导出渲染需要的字段，正文（body）不进产物 —— 页面从 frontmatter 渲染。 */
+ * 只导出渲染需要的字段，正文（body）不进产物 —— 页面从 frontmatter 渲染。
+ * lesson（课堂教案）另有五段：objectives / materials / steps / misconceptions / assessment，
+ * 各带 *En 英译（缺译为 null，下游按诚实降级回退中文）；非 lesson 类这十个键为 null。 */
 if (GUIDES.length) {
   fs.writeFileSync(path.join(outDir, 'guides.js'),
     `/* AI 名词地图 · 微型指南（S24）\n * **这是产物，不要手改。** 源在 guides/*.md 的 frontmatter。\n` +
-    ` * 每篇：id（slug=文件名）/ zh / en / kind / station / ord / span / lead / points / myth / fact。\n */\n` +
+    ` * 每篇：id（slug=文件名）/ zh / en / kind / station / ord / span / lead / points / myth / fact。\n` +
+    ` * lesson 类另有：objectives / materials / steps / misconceptions / assessment（各带 *En，缺译为 null）。\n */\n` +
     `var GUIDES = ` + JSON.stringify(GUIDES.map((g) => ({
       id: path.basename(g.__file).replace(/\.md$/, ''),
       zh: g.zh, en: g.en, kind: g.kind, station: Number(g.station), ord: Number(g.ord), span: Number(g.span),
@@ -497,6 +513,11 @@ if (GUIDES.length) {
       points: g.points || null, pointsEn: g.pointsEn || null,
       myth: g.myth || null, mythEn: g.mythEn || null,
       fact: g.fact || null, factEn: g.factEn || null,
+      objectives: g.objectives || null, objectivesEn: g.objectivesEn || null,
+      materials: g.materials || null, materialsEn: g.materialsEn || null,
+      steps: g.steps || null, stepsEn: g.stepsEn || null,
+      misconceptions: g.misconceptions || null, misconceptionsEn: g.misconceptionsEn || null,
+      assessment: g.assessment || null, assessmentEn: g.assessmentEn || null,
     })), null, 1) + ';\n', 'utf8');
 }
 
@@ -673,11 +694,11 @@ if (fs.existsSync(learnDir)) {
   const SITE_ACTION = {
     models: { href: 'https://models.specul.com/', zh: '去 Models 图谱：看这个模型有哪些量化版、按你的显存该下哪一档', en: 'Models atlas: which quantisations exist and which tier fits your VRAM' },
     agent: { href: 'https://tools.specul.com/', zh: '去 Agent 图谱：看有哪些装得上的客户端、运行时与工具', en: 'Agent atlas: which clients, runtimes and tools you can install' },
-    vg: { href: 'https://vg.specul.com/', zh: '去「AI 做游戏」：看这一步在真实项目里会卡在哪', en: 'AI for games: where this step breaks down in a real project' },
+    vg: { href: 'https://specul.com/topic-game.html', zh: '去「用 AI 做游戏」主题页：看这一步在真实项目里会卡在哪', en: 'AI for games topic: where this step breaks down in a real project' },
     nav: { href: 'https://nav.specul.com/', zh: '去导航：找现成的工具、平台、评测与学习资源', en: 'Directory: ready-made tools, platforms, benchmarks and courses' },
     www: { href: 'https://specul.com/', zh: '看站群怎么分工：这一站回答「是什么」，其他站回答「选哪个」', en: 'How the site family divides the work' },
   };
-  const HOST2SITE = { 'tools.specul.com': 'agent', 'models.specul.com': 'models', 'vg.specul.com': 'vg', 'nav.specul.com': 'nav', 'specul.com': 'www' };
+  const HOST2SITE = { 'tools.specul.com': 'agent', 'models.specul.com': 'models', 'nav.specul.com': 'nav', 'demos.specul.com': 'demos', 'hardware.specul.com': 'hardware', 'papers.specul.com': 'papers', 'chain.specul.com': 'chain', 'specul.com': 'www' };
   const CROSS_RULES = [
     ['models', /量化|显存|bpw|gguf|权重|参数量|推理成本|调用成本|缓存|kv ?缓存|上下文窗口|长上下文|分词|token|词表|微调|蒸馏|预训练|训练|卸载|吞吐|并发|路由|gpu|芯片|算力/i],
     ['agent', /agent|智能体|工具调用|mcp|提示词|编码助手|代码补全|仓库级|终端|ide|cli|编排|工作流|人机协作|可观测|监控|服务中断|迭代速度|退出成本|迁移/i],
@@ -1038,15 +1059,21 @@ ${TABBAR}
   const wantGuideSlugs = new Set();
   let guidePages = 0;
   /* meta description 与 pathDesc 同一套路：lead → 第一条要点/结论 → 站名，拼到够长为止。
-     myth 类拼 fact 而不是 myth：搜索摘要该说本页的结论，不该把误区原文当成本站主张。 */
+     myth 类拼 fact 而不是 myth：搜索摘要该说本页的结论，不该把误区原文当成本站主张。
+     lesson 类没有 points，拼 objectives[0]（课时目标就是这节课的结论性承诺）。 */
   const guideDesc = (g) => {
     let out = plainTxt(g.lead);
-    const first = (g.kind === 'guide' || g.kind === 'paper') ? (g.points[0] || '') : plainTxt(g.fact);
-    const parts = [first, g.kind === 'paper' ? '学 AI 论文卡' : `学 AI 第${g.station}站微型指南`];
+    const first = (g.kind === 'guide' || g.kind === 'paper') ? (g.points[0] || '')
+      : g.kind === 'lesson' ? plainTxt(g.objectives[0] || '') : plainTxt(g.fact);
+    const parts = [first, g.kind === 'paper' ? '学 AI 论文卡' : g.kind === 'lesson' ? '学 AI 课堂教案' : `学 AI 第${g.station}站微型指南`];
     for (const x of parts) { if (!x) continue; out += ' ' + x; if (esc(out).length >= 70) break; }
     if (esc(out).length > 158) out = out.slice(0, 120).replace(/[\s,，、;；:：\-—]+$/, '') + '…';
     return out;
   };
+  /* JSON-LD：guide 用 HowTo（读者照做的操作流程）；lesson 用 LearningResource
+   * （schema.org 专为「教学资源/教案」设的类型，比泛用 Article 贴合；HowTo 语义是
+   * 「读者自己照做的步骤」，而教案步骤是课堂活动，不适用）。teaches 是 LearningResource
+   * 的既有属性（接受 Text），装真实课时目标，不造虚假字段；myth/paper 沿用 Article。 */
   const guideJsonLd = (g, slug) => g.kind === 'guide' ? JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'HowTo',
@@ -1055,6 +1082,14 @@ ${TABBAR}
     url: `https://learn.specul.com/guide/${ENC(slug)}/`,
     inLanguage: 'zh-Hans',
     step: g.points.map((p, i) => ({ '@type': 'HowToStep', position: i + 1, name: plainTxt(p) })),
+  }) : g.kind === 'lesson' ? JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'LearningResource',
+    name: g.zh,
+    description: plainTxt(g.lead),
+    url: `https://learn.specul.com/guide/${ENC(slug)}/`,
+    inLanguage: 'zh-Hans',
+    teaches: g.objectives.map((o) => plainTxt(o)),
   }) : JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -1082,6 +1117,33 @@ ${liZh}
 ${liEn}
 </span>
         </div>`;
+    } else if (g.kind === 'lesson') {
+      /* lesson 五个固定块，顺序即教案结构：课时目标 → 材料 → 步骤 → 常见误解 → 评分核对。
+       * 版式全部复用既有共享件（tp-sec / tp-lab / tp-li；步骤用 <ol>，同路径页检查点的
+       * 有序列表写法，li[data-en] 已在 brand.css 双语规则里）——不新增任何 CSS（宪章 1）。
+       * 英译缺块时整块回退中文（与 pointsEn 同一诚实降级口径）。 */
+      const LESSON_SECS = [
+        ['objectives', '课时目标', 'Lesson objectives'],
+        ['materials', '材料', 'Materials'],
+        ['steps', '步骤', 'Steps'],
+        ['misconceptions', '常见误解', 'Common misconceptions'],
+        ['assessment', '评分核对', 'Assessment checks'],
+      ];
+      bodySec = LESSON_SECS.map(([k, labZh, labEn]) => {
+        const enItems = (g[k + 'En'] && g[k + 'En'].length) ? g[k + 'En'] : g[k];
+        const items = (arr, isEn) => k === 'steps'
+          ? `          <ol>\n${arr.map((s) => `            <li${isEn ? ' data-en' : ''}>${escMd(s)}</li>`).join('\n')}\n          </ol>`
+          : arr.map((s) => `      <p class="tp-li"${isEn ? ' data-en' : ''}>${escMd(s)}</p>`).join('\n');
+        return `        <div class="tp-sec">
+          <div class="tp-lab">${bi(labZh, labEn)}</div>
+<span data-zh>
+${items(g[k], false)}
+</span>
+<span data-en>
+${items(enItems, true)}
+</span>
+        </div>`;
+      }).join('\n');
     } else {
       bodySec = `        <div class="t-myth">
           <p class="t-myth-said">${bi(g.myth, g.mythEn || g.myth)}</p>
@@ -1096,8 +1158,8 @@ ${liEn}
       : '';
     const otherGuides = GUIDES.filter((q) => q !== g && (q.terms || []).some(s => (g.terms || []).includes(s))).slice(0, 4)
       .map((q) => `<a href="../${path.basename(q.__file).replace(/\.md$/, '')}/">${bi(q.zh, q.en)}</a>`).join(' · ');
-    const KIND_ZH = g.kind === 'paper' ? '论文卡' : '微型指南';
-    const KIND_EN = g.kind === 'paper' ? 'Paper card' : 'Guide';
+    const KIND_ZH = g.kind === 'paper' ? '论文卡' : g.kind === 'lesson' ? '课堂教案' : '微型指南';
+    const KIND_EN = g.kind === 'paper' ? 'Paper card' : g.kind === 'lesson' ? 'Lesson plan' : 'Guide';
     const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>

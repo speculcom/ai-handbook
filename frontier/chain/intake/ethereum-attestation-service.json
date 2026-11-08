@@ -1,0 +1,38 @@
+{
+  "id": "ethereum-attestation-service",
+  "title": {
+    "zh": "Ethereum Attestation Service（EAS）",
+    "en": "Ethereum Attestation Service (EAS)"
+  },
+  "category": "protocol",
+  "url": "https://github.com/ethereum-attestation-service/eas-contracts",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+      "quote": "The Ethereum Attestation Service is a free and open protocol for on-chain attestations on EVM compatible blockchains."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+      "quote": "It is a generalized service that allows anyone to register a schema for their particular use case, and then make attestations following their schema."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+      "quote": "Schemas can be registered using the `SchemaRegistry.sol` contract, and attestations are made using the `EAS.sol` contract."
+    }
+  ],
+  "notes": {
+    "zh": "交集：AI 生成内容标识、模型版本声明与数据授权可以把「谁按什么 schema 作了什么证明」写成链上 attestation；EAS 提供通用 schema 注册与证明合约。\n适用范围：官方 README 说它是 EVM 兼容链上的免费开放链上证明协议，任何人可注册 schema 并按 schema 作证明；schema 走 SchemaRegistry.sol，证明走 EAS.sol，另有 resolver 与 SDK。它提供记录与验证基础设施，不自动审核声明内容真假。\n未解决：AI 场景仍要定义 schema、撤销策略、隐私边界与验证者信任；README 未给统一协议状态字段，本站不推断所有 EVM 链都已部署。",
+    "en": "The intersection: AI content labelling, model version statements and data permissions can record who attested what under which schema as an on-chain attestation; EAS provides general schema registration and attestation contracts.\nScope: the official README describes a free and open protocol for on-chain attestations on EVM-compatible blockchains, where anyone registers a schema and attests against it; schemas use SchemaRegistry.sol and attestations use EAS.sol, with resolvers and an SDK. It provides recording and verification infrastructure, not automatic truth review.\nOpen: AI use cases still need schema design, revocation, privacy boundaries and verifier trust; the README gives no single protocol-status field, and this site does not infer deployment on every EVM chain."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "协议状态 / status": "官方未说明（README 描述协议与合约，未给部署状态字段）",
+    "规范来源 / source": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+    "核验日 / checked": "2026-11-07"
+  }
+}

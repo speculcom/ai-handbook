@@ -1,0 +1,29 @@
+.game-project { padding-block: var(--section-pad); }
+.game-project .lede { max-width: var(--measure); }
+.star-workbench { border: 1px solid var(--line); border-radius: var(--r); padding: var(--sp-4); margin-block: var(--sp-5); background: var(--bg-panel); }
+.star-tools { display: flex; flex-wrap: wrap; align-items: end; gap: var(--sp-3); margin-block: var(--sp-3); }
+.star-tools label { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.star-tools button,.star-tools select,.star-touch button { font: inherit; font-size: var(--fs-sm); min-height: 44px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); padding: var(--sp-2) var(--sp-3); max-width: 100%; }
+.star-grid { width: 100%; max-width: 420px; margin-block: var(--sp-4); display: grid; grid-template-rows: repeat(5,1fr); border: 2px solid var(--line-strong); border-radius: var(--r-sm); overflow: hidden; }
+.star-grid[data-width="narrow"] { max-width: 260px; }
+.star-row { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); }
+.star-cell { aspect-ratio: 1; display: grid; place-items: center; font-size: var(--fs-xl); background: var(--bg); color: var(--ink-mid); border: 1px solid var(--line); }
+.star-cell.is-wall { background: var(--ink); }
+.star-cell.is-star { color: var(--brand); font-weight: 800; }
+.star-cell.is-exit { color: var(--ink); background: var(--brand-soft); font-weight: 800; }
+.star-cell.is-player { background: var(--brand); color: var(--bg); font-weight: 800; }
+.star-grid:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+.star-touch { display: grid; grid-template-columns: repeat(3,60px); gap: var(--sp-2); width: max-content; max-width: 100%; margin-block: var(--sp-3); }
+.star-touch button { touch-action: manipulation; cursor: pointer; }
+.star-touch [data-move="up"] { grid-column: 2; }
+.star-touch [data-move="left"] { grid-row: 2; grid-column: 1; }
+.star-touch [data-move="down"] { grid-row: 2; grid-column: 2; }
+.star-touch [data-move="right"] { grid-row: 2; grid-column: 3; }
+.game-stages { counter-reset: none; }
+.game-stages > section { padding-block: var(--sp-4); border-top: 1px solid var(--line); scroll-margin-top: 90px; }
+.game-stages pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: var(--sp-3); border-radius: var(--r-sm); background: var(--bg-inset); }
+.game-project a { color: var(--brand); text-decoration: underline; text-underline-offset: .15em; }
+.game-project li { margin-block: var(--sp-2); }
+.star-publish label { display: flex; align-items: start; gap: var(--sp-2); margin-block: var(--sp-3); }
+.star-publish input { width: 20px; height: 20px; flex-shrink: 0; }
+@media print{.star-workbench,.site-header,.site-footer,.nav-tabbar{display:none}.game-stages section{break-inside:avoid}}

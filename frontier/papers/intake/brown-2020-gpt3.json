@@ -1,0 +1,44 @@
+{
+  "id": "brown-2020-gpt3",
+  "title": {
+    "zh": "Language Models are Few-Shot Learners",
+    "en": "Language Models are Few-Shot Learners"
+  },
+  "category": "scaling",
+  "url": "https://arxiv.org/abs/2005.14165",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2005.14165",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2005.14165",
+      "quote": "Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2005.14165",
+      "quote": "Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2005.14165",
+      "quote": "A limitation, or at least uncertainty, associated with few-shot learning in GPT-3 is ambiguity about whether few-shot learning actually learns new tasks “from scratch” at inference time, or if it simply recognizes and identifies tasks that it has learned during training."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2005.14165",
+      "quote": "Unfortunately, a bug resulted in only partial removal of all detected overlaps from the training data. Due to the cost of training, it wasn’t feasible to retrain the model."
+    }
+  ],
+  "notes": {
+    "zh": "问题：把模型放大之后，不更新任何梯度、只在输入里给几个示例，能不能把任务做到接近专门微调的水平。\n证据位置：摘要给出 175B 与「无梯度更新、无微调」的设定；九类任务的结果在 §3（LAMBADA 在 Figure 3.2 与表 3.2，开放域问答在表 3.3，SuperGLUE 在表 3.8，阅读理解在表 3.7，算术在 §3.9.1 与表 3.9）；训练集与测试集重叠的分析在 §4 与 Figure 4.2；局限有独立的 §5 Limitations，社会影响在 §6。\n作者自陈局限：§5 写了多层——长文本生成仍会语义重复、在足够长的段落上失去连贯、自相矛盾；在 WIC、ANLI 这类「比较」任务以及部分阅读理解上，单样本甚至少样本几乎只比随机好一点点；只研究自回归模型，实验不含双向架构或去噪目标，作者承认这可能在需要双向性的任务上吃亏，并猜想同规模双向模型微调会更强；预训练目标对每个 token 等权、可能撞上目标函数本身的限制，模型也不接地于视频或物理交互；预训练样本效率仍远低于人类；这个规模的模型推理昂贵且不便于实际部署；决策不易解释、在新输入上校准不好、保留训练数据中的偏见。§5 还专门写了一条不确定性：少样本究竟是在推理时从零学会新任务，还是只是识别出训练中已学过的任务，作者说不清楚，而且可能因任务而异。§4 说明去污染只完成了一部分——一个 bug 导致检测到的重叠只删掉一部分，因训练成本无法重训，只能事后用 13-gram 重叠构造 clean 子集复测，PIQA 与 Winograd 被标记为可能受污染并在 §3 加星号。\n它没主张的：摘要的原话是「有时甚至能与先前微调方法竞争」，不是在所有任务上超过微调；论文没有证明少样本等于在推理时学习新任务，§5 把这一点列为未解的歧义；也没有说训练数据与测试集完全隔离；实验只覆盖自回归语言模型，不能外推到双向架构或其他训练目标；§3 同时报告了 ANLI、RACE、QuAC 等少样本仍吃力的任务。",
+    "en": "Problem: after scaling a model up, can tasks be performed close to the level of task-specific fine-tuning with no gradient updates and only a few examples placed in the input.\nWhere the evidence sits: the abstract gives the 175B scale and the no-gradient-update, no-fine-tuning setting; results across nine task categories are in Section 3 (LAMBADA in Figure 3.2 and Table 3.2, open-domain QA in Table 3.3, SuperGLUE in Table 3.8, reading comprehension in Table 3.7, arithmetic in 3.9.1 and Table 3.9); train-test overlap analysis is in Section 4 and Figure 4.2; the limits have a dedicated Section 5 Limitations, and societal impact is in Section 6.\nWhat the authors say about limits: Section 5 lists several layers — long-form synthesis still repeats itself semantically, loses coherence over sufficiently long passages and contradicts itself; on comparison tasks such as WIC and ANLI and on a subset of reading comprehension tasks, one-shot and even few-shot performance does little better than chance; only autoregressive models were studied, so the experiments include no bidirectional architectures or denoising objectives, which the authors acknowledge may cost performance on tasks that benefit from bidirectionality, and they conjecture a large bidirectional model would fine-tune better; the pretraining objective weights every token equally and may hit the limits of the objective itself, and the model is not grounded in video or physical interaction; pretraining sample efficiency remains far below a human's; models at this scale are expensive and inconvenient to run inference on; and decisions are not easily interpretable, not necessarily well calibrated on novel inputs, and retain the biases of the training data. Section 5 also states an explicit uncertainty: whether few-shot learning actually learns new tasks from scratch at inference time or simply recognises tasks learned during training is unclear and may vary by task. Section 4 explains that decontamination was only partial — a bug meant only part of the detected overlap was removed, retraining was not feasible given the cost, so clean subsets were built afterwards using 13-gram overlap and re-evaluated, with PIQA and Winograd flagged as possibly contaminated and asterisked in Section 3.\nWhat it does not claim: the abstract says sometimes even reaching competitiveness with prior fine-tuning approaches, not beating fine-tuning on every task; the paper does not show that few-shot prompting equals learning a new task at inference time, and Section 5 leaves that as an unresolved ambiguity; it does not claim training and test data were fully separated; the experiments cover autoregressive language models only and cannot be extended to bidirectional architectures or other training objectives; and Section 3 also reports tasks where few-shot learning still struggles, including ANLI, RACE and QuAC."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要；§3 各任务表（表 3.2、3.3、3.7、3.8、3.9）；§4 与 Figure 4.2（污染）；§5 Limitations；§6",
+    "模型规模 / scale": "175B 参数，摘要称是此前非稀疏语言模型的 10 倍",
+    "评测设定 / setting": "不做梯度更新或微调，任务与示例只通过文本给出（摘要原文）",
+    "摘要口径 / headline": "少样本表现大幅提升，有时可与先前微调方法竞争",
+    "复现状态 / reproduction": "未复现"
+  }
+}

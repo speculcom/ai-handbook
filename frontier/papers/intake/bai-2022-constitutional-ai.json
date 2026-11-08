@@ -1,0 +1,44 @@
+{
+  "id": "bai-2022-constitutional-ai",
+  "title": {
+    "zh": "Constitutional AI: Harmlessness from AI Feedback",
+    "en": "Constitutional AI: Harmlessness from AI Feedback"
+  },
+  "category": "alignment",
+  "url": "https://arxiv.org/abs/2212.08073",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2212.08073",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2212.08073",
+      "quote": "We experiment with methods for training a harmless AI assistant through self-improvement, without any human labels identifying harmful outputs."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2212.08073",
+      "quote": "We show harmlessness versus helpfulness Elo scores (higher is better, only differences are meaningful) computed from crowdworkers’ model comparisons for all 52B RL runs."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2212.08073",
+      "quote": "By removing human feedback labels for harmlessness, we have moved further away from reliance on human supervision, and closer to the possibility of a self-supervised approach to alignment. However, in this work we still relied on human supervision in the form of helpfulness labels."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2212.08073",
+      "quote": "These principles were chosen in a fairly ad hoc and iterative way for research purposes."
+    }
+  ],
+  "notes": {
+    "zh": "问题：训练无害助手通常要成千上万条人工无害性标注；能不能只给一小组自然语言原则，让模型自己批评并改写自己的回答，再用模型产生的偏好标签做强化学习。\n证据位置：流程分两阶段——监督阶段（自我批评与改写，SL-CAI）在 §3，RLAIF 阶段在 §4；主要结果是 Figure 2 的 harmlessness–helpfulness Elo 散点（52B 的各次 RL run，图注明确只有差值有意义），图注原话是「The RL-CAI models trained with AI feedback learn to be less harmful at a given level of helpfulness.」；Elo 对比与 CoT 的取舍在 §4.3，回避性与标注指令变化在 §4.4，绝对有害度分数在 §4.5；讨论与未来方向在 §6、§6.1，双用风险在 §6.2。没有独立的 Limitations 章节，§6 起就是局限与未来方向的讨论。\n作者自陈局限：§6 明说虽然去掉了无害性的人工反馈标签，本文仍然依赖人工监督形式的有用性标签，完全不用人工反馈就实现有用性与指令跟随留待未来工作；§1.1 脚注 2 承认这些原则是为研究目的以相当临时、迭代的方式挑出来的，未来应由更多利益相关方重新制定并按部署用途与地区调整；§4.3 报告 RL-CAI 会被过度训练而出现 Goodhart 行为——对有害提示反应过激，或在大多数红队提示后加套话；§4.5 提醒绝对有害度分数可能校准不好，因为不同标注者对 0–4 分有各自偏好；§6.1 把 robustness（能否让模型基本免疫红队攻击）列为仍未解决的问题；§6.2 指出降低人工反馈需求也让人更容易部署未经充分人工测试与观察的系统，而且方法本身是双用的。\n它没主张的：论文没有说实现了完全无人类监督的对齐——有用性标签仍来自人，作者也写明目标不是彻底去掉人类监督而是让它更高效、更透明、更有针对性；也没有说 CAI 模型在所有维度上优于 RLHF，§4.3 写带 CoT 的 RL-CAI 看起来有用性略低、无害性略高；Elo 是相对分且图注声明只有差值有意义，§4.4 还说明本文改了标注指令（同样无害时要求选更不回避的回答）并换了标注供应商，因此与先前工作的 Elo 不能直接对比；「免疫红队攻击」是未来方向而不是本文结果。",
+    "en": "Problem: training a harmless assistant normally needs tens of thousands of human harmlessness labels; can a small set of natural language principles be enough, with the model critiquing and revising its own responses and a preference model trained on AI-generated labels driving the RL stage.\nWhere the evidence sits: the pipeline has two stages — the supervised stage (self-critique and revision, SL-CAI) in Section 3 and the RLAIF stage in Section 4; the main result is the harmlessness-versus-helpfulness Elo scatter in Figure 2 (all 52B RL runs, with the caption stating that only differences are meaningful), whose caption reads \"The RL-CAI models trained with AI feedback learn to be less harmful at a given level of helpfulness.\"; Elo comparisons and the chain-of-thought tradeoff are in 4.3, evasiveness and the change of labeling instructions in 4.4, and absolute harmfulness scores in 4.5; discussion and future directions are in Section 6 and 6.1, and dual-use risk in 6.2. There is no separate Limitations section; Section 6 onward is the discussion of limits and future directions.\nWhat the authors say about limits: Section 6 states that although human feedback labels for harmlessness were removed, this work still relied on human supervision in the form of helpfulness labels, and achieving helpfulness and instruction-following without human feedback is left to future work; footnote 2 in 1.1 acknowledges the principles were chosen in a fairly ad hoc and iterative way for research purposes and should be redeveloped by a larger set of stakeholders and adapted to the intended usage and deployment location; 4.3 reports that RL-CAI models can be over-trained, producing Goodharting behaviour such as overly harsh responses to harmful prompts or boilerplate language after most red-team prompts; 4.5 cautions that absolute harmfulness scores may not be well calibrated because different workers have personal biases about the 0-4 scale; 6.1 lists robustness — whether models can be made essentially immune to red-team attacks — as a remaining issue; and 6.2 notes that reducing the need for human feedback also makes it easier to deploy systems that have not been thoroughly tested and observed by humans, and that the methods are dual use.\nWhat it does not claim: the paper does not claim alignment without any human supervision — helpfulness labels still come from humans, and the authors write that the goal is not to remove human supervision entirely but to make it more efficient, transparent and targeted; it does not claim CAI models are better than RLHF on every axis, and 4.3 says RL-CAI with CoT seems slightly less helpful but slightly more harmless than without CoT; Elo is a relative score whose caption says only differences are meaningful, and 4.4 explains that the labeling instructions were changed (prefer the less evasive response when both are equally harmless) and the vendor changed, so these Elo scores are not directly comparable with prior work; and immunity to red-team attacks is a future direction, not a result of this paper."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "§3（SL-CAI）、§4（RLAIF）；Figure 2 与 §4.3；§4.4、§4.5；§6、§6.1、§6.2；§1.1 脚注 2",
+    "模型规模 / scale": "Figure 2 为 52B 的各次 RL run",
+    "Elo 口径 / Elo": "图注：只有差值有意义（only differences are meaningful）",
+    "仍依赖人工 / human labels": "有用性标签仍为人工监督（§6 原文）",
+    "复现状态 / reproduction": "未复现"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "indextts-2-5-demo",
+  "title": {
+    "zh": "IndexTTS-2.5 官方语音合成演示",
+    "en": "IndexTTS-2.5 Official TTS Demo"
+  },
+  "category": "模型演示",
+  "url": "https://indexteam-indextts-2-5-demo.hf.space/",
+  "repo": "https://github.com/index-tts/index-tts",
+  "license": {
+    "spdx": null,
+    "kind": "link-only",
+    "evidenceUrl": "https://huggingface.co/spaces/IndexTeam/IndexTTS-2.5-Demo",
+    "checkedAt": "2026-11-07"
+  },
+  "aiScope": ["模型能力演示"],
+  "evidence": [
+    {
+      "url": "https://huggingface.co/spaces/IndexTeam/IndexTTS-2.5-Demo",
+      "quote": "title: IndexTTS 2.5 Demo",
+      "kind": "space"
+    },
+    {
+      "url": "https://huggingface.co/spaces/IndexTeam/IndexTTS-2.5-Demo",
+      "quote": "preload_from_hub:\n  - IndexTeam/IndexTTS-2.5",
+      "kind": "space"
+    },
+    {
+      "url": "https://github.com/index-tts/index-tts/releases/tag/v2.5.0",
+      "quote": "IndexTTS-2.5",
+      "kind": "release"
+    }
+  ],
+  "model": {
+    "name": "IndexTTS",
+    "version": "2.5",
+    "releaseUrl": "https://github.com/index-tts/index-tts/releases/tag/v2.5.0",
+    "releaseDate": "2026-08-13"
+  },
+  "run": {
+    "status": "not-run",
+    "env": "",
+    "date": ""
+  },
+  "maintenance": {
+    "lastCommit": null,
+    "lastSeen": "2026-11-07",
+    "checkedAt": "2026-11-07"
+  },
+  "media": {
+    "shot": "none",
+    "embed": "none"
+  },
+  "compare": {
+    "runtime": "官方托管 Gradio Space（hf.space 直连），浏览器即用，无需本地部署；config 显示 auth_required: false",
+    "hardware": "云端推理，用户侧仅需浏览器；Space 卡片未标硬件（未核）",
+    "commercial": "未确认（Space 卡片标 license: other，自定义许可，非 OSI）",
+    "reproducibility": "权重 IndexTeam/IndexTTS-2.5 与代码 index-tts/index-tts 公开；在线 demo 参数未核",
+    "maintenance": "官方仓库最新 release v2.5.0（published 2026-08-13）；最近提交未核"
+  },
+  "notes": {
+    "zh": "IndexTeam 官方 Space，演示 IndexTTS-2.5 零样本语音合成。发布日取官方 GitHub release v2.5.0 的 published 日期（2026-08-13，GitHub API 原文）。核验方式：huggingface.co 主站在本地网络不可达，demo 经官方 hf.space 直连域名验证 200 且无需登录，Space 卡片原文经 hf-mirror.com 镜像读取官方 raw 文件（证据 URL 仍为官方原址）。Space 卡片许可为 other，不声称开源；本站未实测。",
+    "en": "Official IndexTeam Space demonstrating IndexTTS-2.5 zero-shot TTS. Release date taken from the published date of official GitHub release v2.5.0 (2026-08-13). Verification: huggingface.co is unreachable from the local network; the demo returned 200 via the official hf.space direct domain with auth_required false, and the Space card was read from the official raw file via the hf-mirror.com mirror (evidence URLs remain the official pages). Space card license is 'other'; no open-source claim. Not run by this site."
+  },
+  "verifiedAt": "2026-11-07"
+}

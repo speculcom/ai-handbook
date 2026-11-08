@@ -1,0 +1,39 @@
+{
+  "id": "ipfs-cid",
+  "title": {
+    "zh": "IPFS 内容标识 CID",
+    "en": "IPFS content identifiers (CID)"
+  },
+  "category": "provenance",
+  "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://docs.ipfs.tech/concepts/content-addressing/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+      "quote": "A content identifier, or CID, is a label used to point to material in IPFS. It doesn’t indicate where the content is stored, but it forms a kind of address based on the content itself."
+    },
+    {
+      "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+      "quote": "Any difference in the content will produce a different CID."
+    },
+    {
+      "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+      "quote": "The same content added to two different IPFS nodes using the same settings will produce the same CID."
+    }
+  ],
+  "notes": {
+    "zh": "交集：训练数据集与模型文件的内容寻址——同一份数据在任何节点得到同一标识，数据集出处记录里就能写清「指的是哪一份字节」，而不是一个会变的下载地址。适用范围：CID 只保证内容一致，不保证可用性或持久性；内容没有被固定就可能无人保存。未解决：内容寻址回答「是不是同一份」，不回答「谁有权使用」，许可与授权仍需另立记录；本站把这类记录放在同站的来源类条目里，不合并成一个字段。",
+    "en": "The intersection: content addressing for training datasets and model files — the same bytes yield the same identifier on any node, so a provenance record can state which exact bytes are meant instead of pointing at a download URL that changes. Scope: a CID guarantees content equality, not availability or persistence; unpinned content may be held by no one. Open: content addressing answers \"is this the same bytes\", not \"who may use it\", so licensing still needs a separate record, which this site keeps in its provenance entries rather than folding into one field."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "默认哈希 / default hash": "sha-256（通过 Multihash 支持多种算法）",
+    "同内容同标识 / same content same CID": "是（相同设置下）",
+    "保证持久可用 / persistence": "否",
+    "保证授权 / licensing": "否"
+  }
+}

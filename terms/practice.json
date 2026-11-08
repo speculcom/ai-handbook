@@ -322,5 +322,29 @@
   "论文卡-Distilling the Knowledge": {
     "zh": "看蒸馏结果时先确认教师模型与任务分布：论文演示的是特定识别任务，不能直接推到你手上的对话场景。缺教师来源时就写未知，别用参数量替代。",
     "en": "For distillation results, confirm the teacher model and task distribution first: the paper demonstrates a specific recognition task, which does not transfer to your chat workload. If the teacher is not stated, write unknown instead of substituting parameter counts."
+  },
+  "课堂-AI 能力与边界入门": {
+    "zh": "课堂练习：把「帮我介绍这份通知」改写成「提取时间、地点、报名方式；原文没有的字段留空」。输出后逐字段回连原文，通顺但无依据的字段标为待复核。",
+    "en": "Class exercise: rewrite introduce this notice into extract time, place and registration method; leave fields absent from the source empty. After output, link each field back to the source and mark fluent but unsupported fields for review."
+  },
+  "课堂-结构化提问与输出验证": {
+    "zh": "课堂练习：对同一份活动通知先自由提问，再用「目标/输入/输出字段/禁止事项」重写。合法 JSON 里若出现原文没有的费用，标为无依据并留空。",
+    "en": "Class exercise: ask about the same event notice freely, then rewrite with goal, inputs, output fields and prohibitions. If valid JSON contains a fee absent from the source, mark it unsupported and leave it empty."
+  },
+  "课堂-RAG 来源核对": {
+    "zh": "课堂练习：答案说「活动免费」，但引用片段只写了时间与地点。把该断言标为无依据，再判断问题在检索漏检还是生成超出片段。",
+    "en": "Class exercise: the answer says the event is free, but the cited passage only gives time and place. Mark the claim unsupported, then decide whether the failure is missed retrieval or generation beyond the passage."
+  },
+  "课堂-模型原理与论文证据边界": {
+    "zh": "课堂练习：把「长窗口能读懂整份文档」改写成「在该论文的多文档问答设置中，信息位置变化会影响表现」。未主张栏写明论文没有证明所有长文档任务都可靠。",
+    "en": "Class exercise: rewrite a long window understands the whole document into in the paper’s multi-document QA setup, information position affects performance. In the non-claim column, state that the paper does not prove reliability across all long-document tasks."
+  },
+  "课堂-本地部署与显存估算": {
+    "zh": "课堂练习：7B 模型按 4-bit 估算权重量级，再单独列 KV 缓存与运行时开销。若可用显存只够权重，不写「能跑」，而写需核对卸载与延迟。",
+    "en": "Class exercise: estimate the weight magnitude of a 7B model at 4-bit, then list KV cache and runtime overhead separately. If available VRAM only covers weights, do not write can run; write that offloading and latency must be checked."
+  },
+  "课堂-选型决策与安全评审": {
+    "zh": "课堂练习：候选工具评测分数很高，但模型卡缺训练数据与评测条件。决策记录写「未知」，并把最小权限与高风险动作人工批准列为缓解项。",
+    "en": "Class exercise: a candidate tool has a high evaluation score but its model card lacks training data and evaluation conditions. Write unknown in the decision record and list least privilege plus human approval for high-risk actions as mitigations."
   }
 }

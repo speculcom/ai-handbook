@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-pdf-table-extract. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Given table text and a field schema, output rows and mark cells that cannot be confirmed.\nInputs: Table text exported from the PDF, a field list, and page or table number.",
+    "提示词本体": "```text\nYou are a table extraction assistant. Use only the supplied table text and output JSON rows for {fields}. Attach source_text to each cell; use null and explain in issues when a cell is unclear or merged rows cannot be confirmed. Do not invent numbers absent from the source.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "JSON with rows[] and issues[]; each row matches the schema.",
+    "检查点": "- Every non-empty cell can be found in source_text.\n- Every null cell has an issue reason.\n- Row count is checked against headers or totals; no rows are silently dropped.",
+    "失败分支": "- Misaligned fields: fix header mapping first, then rerun.\n- Many nulls: change the PDF export method or enter manually; do not guess.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Introduction to Structured Outputs (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

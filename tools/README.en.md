@@ -146,7 +146,7 @@ tools/ (ai-handbook subtree)
 │   │   └── products/           41 objects
 │   ├── chat/                   chat assistants (21 objects)
 │   ├── image/ · video/ · audio/  three creation categories (15 + 14 + 17 objects)
-│   ├── framework/              agent frameworks & runtimes (30 objects)
+│   ├── framework/              agent frameworks & runtimes (42 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 32 objects)
 │   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 23 + 21 objects)
 ├── protocols/                  measurement protocols (coding / framework / mcp)
@@ -458,7 +458,7 @@ Visual AI-app builders and workflow automation platforms
 | [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
-### Agent frameworks & runtimes — 30
+### Agent frameworks & runtimes — 42
 
 Building blocks for your own agent
 
@@ -471,29 +471,41 @@ Building blocks for your own agent
 | [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | partial | active |
 | [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
 | [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
+| [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | unknown |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS community (Eliza Research) | harness | partial | active |
+| [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | partial | unknown |
+| [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | partial | unknown |
 | [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | partial | active |
 | [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
+| [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | partial | unknown |
+| [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | partial | unknown |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | partial | active |
 | [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j community | harness | partial | active |
 | [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
+| [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | partial | unknown |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | partial | active |
 | [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
 | [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
 | [MetaGPT](tracks/framework/products/metagpt.md) | DeepWisdom (China-origin) | harness | partial | maintenance |
 | [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
+| [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | partial | unknown |
+| [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | partial | unknown |
+| [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | partial | unknown |
 | [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter (open-source community) | harness | partial | active |
 | [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
 | [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
+| [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | partial | unknown |
 | [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
+| [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | partial | unknown |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | partial | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
 | [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | partial | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | partial | active |
 | [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | partial | active |
+| [Webots](tracks/framework/products/webots.md) | Cyberbotics | local-app | partial | unknown |
 
 ### Tools for your AI — 32
 
@@ -570,8 +582,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 250 |
-| By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 · safety 25 |
-| By form | web 97 · mcp 32 · cli 30 · harness 30 · cloud 22 · local-app 20 · ide 19 |
+| Total profiles | 262 |
+| By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 42 · mcp 32 · runner 21 · safety 25 |
+| By form | web 97 · harness 39 · mcp 32 · cli 30 · local-app 23 · cloud 22 · ide 19 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

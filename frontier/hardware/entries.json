@@ -1,0 +1,871 @@
+[
+  {
+    "id": "amd-instinct-mi210",
+    "title": {
+      "zh": "AMD Instinct MI210",
+      "en": "AMD Instinct MI210"
+    },
+    "category": "accelerator",
+    "url": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
+        "quote": "Dedicated Memory Size 64 GB  Dedicated Memory Type HBM2e"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
+        "quote": "Peak Memory Bandwidth 1.6 TB/s"
+      }
+    ],
+    "notes": {
+      "zh": "回答上一代 PCIe 形态加速卡的显存与带宽档位，常见于存量服务器升级场景。该页未给整板功耗，按「查不到留空」处理。注意它是被动散热、全高双槽，装机前要确认机箱风道能压住。",
+      "en": "Answers the memory and bandwidth tier of a previous-generation PCIe accelerator, typically relevant when upgrading existing servers. The page lists no board power, so that field is left empty rather than guessed. It is passively cooled in a full-height double-slot form, so chassis airflow must be confirmed before installation."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "64 GB HBM2e",
+      "memory bandwidth": "1.6 TB/s",
+      "form factor": "PCIe add-in card, full height, double slot, 267 mm",
+      "bus": "PCIe 4.0 x16",
+      "cooling": "passive",
+      "FP16 / BF16": "181 TFLOPS",
+      "FP32": "22.6 TFLOPS",
+      "Infinity Fabric links": "3 at 100 GB/s peak"
+    }
+  },
+  {
+    "id": "amd-instinct-mi300x",
+    "title": {
+      "zh": "AMD Instinct MI300X",
+      "en": "AMD Instinct MI300X"
+    },
+    "category": "accelerator",
+    "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+        "quote": "Dedicated Memory Size 192 GB"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+        "quote": "Dedicated Memory Type HBM3"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+        "quote": "Peak Memory Bandwidth 5.3 TB/s"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html",
+        "quote": "Typical Board Power (TBP) 750W Peak"
+      }
+    ],
+    "notes": {
+      "zh": "回答单卡显存容量与带宽的量级，供「一个模型能不能整卡装下」这类判断使用。不回答软件栈成熟度或迁移成本：该页只给硬件规格，ROCm 支持范围与框架版本需另查官方文档。",
+      "en": "Answers the order of magnitude of per-card memory and bandwidth, which is what a \"does this model fit on one card\" decision needs. It does not answer software-stack maturity or porting cost: the page carries hardware figures only, so ROCm coverage and framework versions must be checked against the vendor documentation."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "192 GB HBM3",
+      "memory bandwidth": "5.3 TB/s",
+      "board power": "750 W peak",
+      "form factor": "OAM module",
+      "bus": "PCIe 5.0 x16",
+      "FP8, sparsity": "5.22 PFLOPS",
+      "FP16, sparsity": "2.61 PFLOPS",
+      "Infinity Fabric links": "8 at 128 GB/s peak"
+    }
+  },
+  {
+    "id": "aws-ec2-p5-48xlarge",
+    "title": {
+      "zh": "AWS EC2 p5.48xlarge",
+      "en": "AWS EC2 p5.48xlarge"
+    },
+    "category": "cloud",
+    "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://aws.amazon.com/ec2/instance-types/p5/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+        "quote": "p5.48xlarge  192  2 TiB  8 H100  640 GB   HBM3   3200 Gbps EFA"
+      },
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+        "quote": "900 GB/s NVSwitch"
+      }
+    ],
+    "notes": {
+      "zh": "回答云上单实例的卡数、总显存、网络与本地盘口径，用来估算多卡训练要不要自己买机器。不回答价格与可用区库存：云报价随时变动且随区域不同，需在官方计费页现查。同页还有 P5e 与 P5en（H200 机型），选型时不要混用两代的数字。",
+      "en": "Answers the card count, aggregate memory, network and local storage of a single cloud instance, which is what a rent-versus-buy decision rests on. It does not answer price or regional availability: cloud pricing changes and differs per region, so the billing page must be checked at the time. The same page also lists P5e and P5en (H200 machines); figures from the two generations should not be mixed."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "vCPUs": "192",
+      "instance memory": "2 TiB",
+      "GPU": "8 x NVIDIA H100",
+      "GPU memory": "640 GB HBM3",
+      "network bandwidth": "3200 Gbps EFA",
+      "GPU interconnect": "900 GB/s NVSwitch",
+      "local storage": "8 x 3.84 TB NVMe SSD",
+      "EBS bandwidth": "80 Gbps"
+    }
+  },
+  {
+    "id": "aws-ec2-p5-4xlarge",
+    "title": {
+      "zh": "AWS EC2 p5.4xlarge",
+      "en": "AWS EC2 p5.4xlarge"
+    },
+    "category": "cloud",
+    "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://aws.amazon.com/ec2/instance-types/p5/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+        "quote": "p5.4xlarge  16  256 GiB  1 H100  80 GB   HBM3   100 Gbps EFA"
+      },
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p5/",
+        "quote": "GPUDirect RDMA is not supported in P5.4xlarge"
+      }
+    ],
+    "notes": {
+      "zh": "回答单卡云实例的规格，用于小规模微调或单模型部署。两个容易忽略的限制：单卡实例不支持 GPUDirect RDMA，也没有 NVSwitch，想靠多台单卡机拼出多卡训练会卡在通信上；要 8 卡全互联得换 p5.48xlarge。",
+      "en": "Answers the specification of a single-GPU cloud instance for small fine-tunes or single-model deployment. Two limits are easy to miss: the single-card size supports neither GPUDirect RDMA nor NVSwitch, so stitching several single-GPU hosts into a multi-card training job is communication-bound; eight-card fabric requires the p5.48xlarge size instead."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "vCPUs": "16",
+      "instance memory": "256 GiB",
+      "GPU": "1 x NVIDIA H100",
+      "GPU memory": "80 GB HBM3",
+      "network bandwidth": "100 Gbps EFA",
+      "local storage": "3.84 TB NVMe SSD",
+      "EBS bandwidth": "10 Gbps",
+      "GPUDirect RDMA": "not supported on this size"
+    }
+  },
+  {
+    "id": "azure-nd-h100-v5",
+    "title": {
+      "zh": "Azure ND H100 v5",
+      "en": "Azure ND H100 v5"
+    },
+    "category": "cloud",
+    "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+        "quote": "Accelerators 8 GPUs Nvidia H100 GPU (80GB)"
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+        "quote": "Processor 96 vCPUs Intel Xeon (Sapphire Rapids)"
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series",
+        "quote": "3.2 Tbps of interconnect bandwidth per VM"
+      }
+    ],
+    "notes": {
+      "zh": "回答云上 8 卡 H100 实例的 CPU、内存与互联配置，可与同类实例逐项对照。关键差异在 CPU 与内存配比：本实例 96 vCPU / 1900 GiB，同类其他厂商给到 192 vCPU / 2 TiB，数据加载型任务会先撞 CPU 与内存，而不是 GPU。不回答价格与配额。",
+      "en": "Answers the CPU, memory and interconnect configuration of an 8-GPU H100 cloud instance so it can be compared item by item with peers. The decisive difference is the CPU-to-memory ratio: this instance pairs 96 vCPUs with 1,900 GiB where a comparable offering provides 192 vCPUs and 2 TiB, so data-loading workloads hit CPU and memory limits before the GPUs. It does not answer price or quota."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "GPU": "8 x NVIDIA H100 80 GB",
+      "vCPUs": "96 (Intel Xeon Sapphire Rapids)",
+      "memory": "1,900 GiB",
+      "local storage": "1,024 GiB",
+      "networking": "8 NICs; 3.2 Tbps interconnect per VM; 400 Gbps InfiniBand per GPU",
+      "GPU interconnect": "NVLink 4.0 within the VM"
+    }
+  },
+  {
+    "id": "boston-dynamics-spot",
+    "title": {
+      "zh": "Boston Dynamics Spot",
+      "en": "Boston Dynamics Spot"
+    },
+    "category": "robot-body",
+    "url": "https://bostondynamics.com/products/spot/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://bostondynamics.com/products/spot/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://bostondynamics.com/products/spot/",
+        "quote": "Net Mass/Weight (Spot with battery) 33.8 kg (74.5 lb)"
+      },
+      {
+        "url": "https://bostondynamics.com/products/spot/",
+        "quote": "Max Speed 1.6 m/s"
+      },
+      {
+        "url": "https://bostondynamics.com/products/spot/",
+        "quote": "Ingress Protection IP54"
+      }
+    ],
+    "notes": {
+      "zh": "回答工业巡检型四足的尺寸、防护与地形能力，重点在 IP54 与 -20 至 55°C 的工况范围，这是它区别于轻量科研机型的地方。不回答自主导航能到什么程度：官方页面只给感知视场与测距，自主性取决于所配软件与载荷。",
+      "en": "Answers the dimensions, ingress protection and terrain capability of an industrial inspection quadruped, where IP54 and a -20 to 55 °C operating range are what distinguish it from lightweight research platforms. It does not answer how far autonomy goes: the page gives perception field of view and range only, and autonomy depends on the software and payload fitted."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "dimensions": "1100 mm L x 500 mm W; 610 mm default walking height",
+      "weight": "33.8 kg with battery",
+      "payload": "20.43 kg stated payload capacity",
+      "max speed": "1.6 m/s",
+      "max slope": "±30°",
+      "max step height": "300 mm",
+      "ingress protection": "IP54",
+      "operating temperature": "-20 °C to 55 °C",
+      "terrain sensing": "360° horizontal field of view, 4 m range, works above 2 lux"
+    }
+  },
+  {
+    "id": "hailo-8",
+    "title": {
+      "zh": "Hailo-8 边缘加速模块",
+      "en": "Hailo-8 edge accelerator"
+    },
+    "category": "edge",
+    "url": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+        "quote": "Unprecedented AI compute power of 26 Tera-Operations Per Second (TOPS)"
+      },
+      {
+        "url": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+        "quote": "typical power consumption of 2.5W"
+      },
+      {
+        "url": "https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/",
+        "quote": "The Hailo-8 Industrial Version IC is replacing the discontinued Hailo-8 Commercial Version IC."
+      }
+    ],
+    "notes": {
+      "zh": "回答低功耗视觉推理模块的算力与功耗档位：片上自带内存、不需要外挂 DRAM 是它区别于大算力卡的关键约束。不回答它能跑哪些大语言模型：官方定位为视觉与神经网络推理，选型前要核对模型是否在支持列表内。商用版本芯片已由官方公告停产、改由工业版本替代，采购时需确认版本。",
+      "en": "Answers the compute and power tier of a low-power vision inference module, whose defining constraint is on-chip memory with no external DRAM. It does not answer which large language models it can run: the vendor positions it for vision and neural-network inference, so model support must be checked against the supported list first. The vendor has announced end-of-life for the commercial version IC, replaced by the industrial version, so the variant must be confirmed when ordering."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "AI performance": "26 TOPS",
+      "typical power": "2.5 W",
+      "memory": "integrated on-chip, no external DRAM required",
+      "host interface": "M.2 / PCIe module",
+      "grades": "commercial; industrial -40 to 85 °C; automotive -40 to 105 °C",
+      "frameworks": "TensorFlow, TensorFlow Lite, Keras, PyTorch, ONNX",
+      "host architectures": "x86, Arm"
+    }
+  },
+  {
+    "id": "nvidia-a100-80gb-sxm",
+    "title": {
+      "zh": "NVIDIA A100 80GB SXM",
+      "en": "NVIDIA A100 80GB SXM"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/data-center/a100/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/a100/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/a100/",
+        "quote": "GPU Memory 80GB HBM2e 80GB HBM2e"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/a100/",
+        "quote": "GPU Memory Bandwidth 1,935 GB/s 2,039 GB/s"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/a100/",
+        "quote": "Max Thermal Design Power (TDP) 300W 400W"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/a100/",
+        "quote": "400W TDP for standard configuration. HGX A100-80GB custom thermal solution (CTS) SKU can support TDPs up to 500W"
+      }
+    ],
+    "notes": {
+      "zh": "回答上一代数据中心卡的显存、带宽与功耗基线，常被当作对照参照。不回答它相对新一代卡的性价比：同在售的 HGX CTS 定制散热机型功耗上限不同，本页把标准 400W 与 500W 上限分开记。",
+      "en": "Answers the memory, bandwidth and power baseline of the previous data-centre generation, often used as a reference point. It does not answer value-for-money against newer cards: the HGX CTS custom-thermal SKU carries a different ceiling, so the standard 400 W and the 500 W ceiling are recorded separately."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "80 GB HBM2e",
+      "memory bandwidth": "2,039 GB/s",
+      "TDP (standard)": "400 W",
+      "TDP (HGX CTS SKU)": "up to 500 W",
+      "form factor": "SXM",
+      "interconnect": "NVLink 600 GB/s; PCIe Gen4 64 GB/s",
+      "BF16 tensor, sparsity": "624 TFLOPS",
+      "MIG": "up to 7 instances at 10 GB each"
+    }
+  },
+  {
+    "id": "nvidia-dgx-spark",
+    "title": {
+      "zh": "NVIDIA DGX Spark",
+      "en": "NVIDIA DGX Spark"
+    },
+    "category": "system",
+    "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+        "quote": "Tensor Performance1 Up to 1 PFLOP FP4"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+        "quote": "System Memory 64 GB LPDDR5X* or 128 GB LPDDR5x, coherent unified system memory"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+        "quote": "Power Supply 240 Watts"
+      }
+    ],
+    "notes": {
+      "zh": "回答桌面级统一内存机器的内存、功耗与体积：128GB 统一内存是它和消费级显卡的根本差别，模型不必先切进显存。官方给出的「最多 200B 参数」是推理口径、且为厂商声明，不是实测；多机互联最多 4 台。不回答训练可行性：微调上限官方写作 70B 参数级。",
+      "en": "Answers the memory, power and footprint of a desktop unified-memory machine: 128 GB of coherent memory is what separates it from consumer graphics cards, since the model need not be staged into dedicated VRAM first. The stated \"up to 200B parameters\" is an inference figure and a vendor claim rather than a measurement, and at most four units can be linked. It does not answer training feasibility: the vendor puts fine-tuning at up to 70B parameters."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "architecture": "NVIDIA Grace Blackwell (GB10)",
+      "CPU": "20-core Arm: 10 Cortex-X925 + 10 Cortex-A725",
+      "memory": "128 GB LPDDR5x, coherent unified",
+      "memory bandwidth": "273 GB/s",
+      "tensor performance": "up to 1 PFLOP FP4 (with sparsity)",
+      "power supply": "240 W; GB10 TDP 140 W",
+      "dimensions": "150 x 150 x 50.5 mm; 1.2 kg",
+      "storage": "up to 4 TB NVMe M.2",
+      "networking": "ConnectX-7 at 200 Gbps; 10 GbE; WiFi 7"
+    }
+  },
+  {
+    "id": "nvidia-geforce-rtx-4090",
+    "title": {
+      "zh": "NVIDIA GeForce RTX 4090",
+      "en": "NVIDIA GeForce RTX 4090"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+        "quote": "Memory Size 24 GB Memory Type GDDR6X"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+        "quote": "System Power (W) (8) 850"
+      }
+    ],
+    "notes": {
+      "zh": "回答消费级单卡跑本地模型时的显存上限、整卡功耗与整机电源要求。不回答多卡并联能力：该型号官方标注不支持 NVLink，多卡只能走 PCIe，实际可用显存仍以单卡为界。",
+      "en": "Answers the memory ceiling, board power and system power supply requirement when running local models on a consumer card. It does not answer multi-card scaling: the vendor lists no NVLink support for this model, so cards communicate over PCIe only and usable memory stays bounded by a single card."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "24 GB GDDR6X",
+      "memory interface": "384-bit",
+      "boost clock": "2.52 GHz",
+      "total graphics power": "450 W",
+      "required system power": "850 W",
+      "CUDA cores": "16,384",
+      "dimensions": "304 mm, 3-slot",
+      "NVLink": "not supported"
+    }
+  },
+  {
+    "id": "nvidia-h100-sxm",
+    "title": {
+      "zh": "NVIDIA H100 SXM",
+      "en": "NVIDIA H100 SXM"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/data-center/h100/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/h100/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h100/",
+        "quote": "GPU Memory 80GB 94GB"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h100/",
+        "quote": "GPU Memory Bandwidth 3.35TB/s 3.9TB/s"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h100/",
+        "quote": "Max Thermal Design Power (TDP) Up to 700W (configurable) 350-400W (configurable)"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h100/",
+        "quote": "Interconnect NVIDIA NVLink™: 900GB/s PCIe Gen5: 128GB/s"
+      }
+    ],
+    "notes": {
+      "zh": "回答数据中心训练与推理卡的显存容量、带宽、功耗与互联口径。不回答实际训练吞吐或单位算力价格：这里记的是官方规格表数字，且带稀疏标注，实测吞吐随框架、精度与模型结构变化。",
+      "en": "Answers the memory capacity, bandwidth, power and interconnect figures of a data-centre training and inference card. It does not answer real training throughput or price per unit of compute: these are vendor spec-sheet numbers with sparsity, and measured throughput varies with framework, precision and model shape."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "80 GB HBM3",
+      "memory bandwidth": "3.35 TB/s",
+      "max TDP": "up to 700 W (configurable)",
+      "form factor": "SXM",
+      "interconnect": "NVLink 900 GB/s; PCIe Gen5 128 GB/s",
+      "FP8 tensor, sparsity": "3,958 TFLOPS",
+      "MIG": "up to 7 instances at 10 GB each"
+    }
+  },
+  {
+    "id": "nvidia-h200-nvl",
+    "title": {
+      "zh": "NVIDIA H200 NVL",
+      "en": "NVIDIA H200 NVL"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/data-center/h200/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/h200/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h200/",
+        "quote": "Max Thermal Design Power (TDP) Up to 700W (configurable) Up to 600W (configurable)"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h200/",
+        "quote": "2- or 4-way NVIDIA NVLink bridge: 900GB/s per GPU"
+      }
+    ],
+    "notes": {
+      "zh": "回答 PCIe 风冷形态的 141GB 卡能怎么组：功耗上限低于 SXM 版本，适合低功耗风冷机架。关键约束是互联——NVLink 桥只支持 2 路或 4 路，凑不出 SXM 那种 8 卡全互联，多卡训练要按 PCIe 与桥接拓扑重新估算通信开销。",
+      "en": "Answers how the 141 GB card can be assembled in a PCIe air-cooled form: its power ceiling is below the SXM variant, which suits lower-power air-cooled racks. The binding constraint is interconnect — the NVLink bridge covers only 2-way or 4-way, so it cannot reproduce the 8-way fabric of SXM and multi-card training must be re-estimated against a PCIe and bridge topology."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "141 GB HBM3e",
+      "memory bandwidth": "4.8 TB/s",
+      "max TDP": "up to 600 W (configurable)",
+      "form factor": "PCIe, dual-slot air-cooled",
+      "interconnect": "2- or 4-way NVLink bridge at 900 GB/s per GPU; PCIe Gen5 128 GB/s",
+      "FP8 tensor, sparsity": "3,341 TFLOPS",
+      "MIG": "up to 7 instances at 16.5 GB each"
+    }
+  },
+  {
+    "id": "nvidia-h200-sxm",
+    "title": {
+      "zh": "NVIDIA H200 SXM",
+      "en": "NVIDIA H200 SXM"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/data-center/h200/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/h200/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h200/",
+        "quote": "GPU Memory 141GB  GPU Memory Bandwidth 4.8TB/s"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h200/",
+        "quote": "Max Thermal Design Power (TDP) Up to 700W (configurable)"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h200/",
+        "quote": "Preliminary specifications. May be subject to change."
+      }
+    ],
+    "notes": {
+      "zh": "回答与 H100 同功耗档、显存翻到 141GB 的卡是什么水平，用于判断「模型能不能整卡放下」。注意官方在该页标注规格为初步数据、可能变动，采购前须回到最新 datasheet 复核。不回答实际推理吞吐：页面上的加速倍数来自厂商特定 batch 与序列长度条件。",
+      "en": "Answers what a card at the same power tier as H100 but with 141 GB of memory represents, which is what a \"does the model fit on one card\" decision needs. The vendor marks these figures as preliminary and subject to change on this page, so the current datasheet must be re-checked before procurement. It does not answer measured inference throughput: the speed-up multiples on the page come from specific vendor batch sizes and sequence lengths."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "141 GB HBM3e",
+      "memory bandwidth": "4.8 TB/s",
+      "max TDP": "up to 700 W (configurable)",
+      "form factor": "SXM",
+      "interconnect": "NVLink 900 GB/s; PCIe Gen5 128 GB/s",
+      "FP8 tensor, sparsity": "3,958 TFLOPS",
+      "MIG": "up to 7 instances at 18 GB each"
+    }
+  },
+  {
+    "id": "nvidia-jetson-agx-orin-64gb",
+    "title": {
+      "zh": "NVIDIA Jetson AGX Orin 64GB",
+      "en": "NVIDIA Jetson AGX Orin 64GB"
+    },
+    "category": "edge",
+    "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+        "quote": "Jetson AGX Orin modules deliver up to 275 TOPS of AI performance with power configurable between 15W and 60W."
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+        "quote": "Memory 64GB 256-bit LPDDR5  204.8GB/s"
+      }
+    ],
+    "notes": {
+      "zh": "回答机器人本体上「板端能跑多大模型」的内存与算力上限。不回答实际帧率：TOPS 是官方标称口径，真实推理速度取决于量化方式、输入分辨率与散热条件，需要实测才有结论。",
+      "en": "Answers the on-board memory and compute ceiling that decides how large a model a robot body can run. It does not answer real frame rates: TOPS is a vendor rating, and actual inference speed depends on quantisation, input resolution and thermal headroom, which only measurement can settle."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "AI performance": "275 TOPS",
+      "GPU": "2048-core Ampere, 64 Tensor Cores",
+      "CPU": "12-core Arm Cortex-A78AE",
+      "memory": "64 GB LPDDR5, 256-bit",
+      "memory bandwidth": "204.8 GB/s",
+      "power": "15 W - 60 W",
+      "module size": "100 mm x 87 mm",
+      "storage": "64 GB eMMC 5.1"
+    }
+  },
+  {
+    "id": "nvidia-jetson-orin-nx-16gb",
+    "title": {
+      "zh": "NVIDIA Jetson Orin NX 16GB",
+      "en": "NVIDIA Jetson Orin NX 16GB"
+    },
+    "category": "edge",
+    "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+        "quote": "Jetson Orin NX modules deliver up to 100 TOPS of AI performance in the smallest Jetson form factor, with power configurable between 10W and 25W."
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/",
+        "quote": "16GB 128-bit LPDDR5  102.4GB/s"
+      }
+    ],
+    "notes": {
+      "zh": "回答中等算力板端模组的算力、内存与功耗三角：比 AGX Orin 64GB 少约三分之二算力和四分之三内存，功耗却从 60W 级降到 25W 级。不回答散热方案：SO-DIMM 形态要靠载板设计导热，实际能否持续跑满取决于外壳与风道。",
+      "en": "Answers the compute, memory and power triangle of a mid-tier on-board module: roughly a third of the AGX Orin 64GB compute and a quarter of its memory, but a 25 W class envelope instead of 60 W. It does not answer thermal design: a SO-DIMM module conducts heat through the carrier board, so sustained clocks depend on enclosure and airflow."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "AI performance": "100 TOPS",
+      "GPU": "1024-core Ampere, 32 Tensor Cores",
+      "CPU": "6-core Arm Cortex-A78AE",
+      "memory": "16 GB LPDDR5, 128-bit",
+      "memory bandwidth": "102.4 GB/s",
+      "power": "10 W - 25 W",
+      "module size": "69.6 mm x 45 mm, 260-pin SO-DIMM",
+      "PCIe": "1x4 + 3x1 Gen4"
+    }
+  },
+  {
+    "id": "nvidia-l40s",
+    "title": {
+      "zh": "NVIDIA L40S",
+      "en": "NVIDIA L40S"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/data-center/l40s/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/l40s/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/l40s/",
+        "quote": "FP32 91.6 teraFLOPS TF32 Tensor Core 366 teraFLOPS* FP16 733 teraFLOPS* FP8 1,466 teraFLOPS* RT Core Performance 212 teraFLOPS Max Power Consumption 350W"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/l40s/",
+        "quote": "48 gigabytes (GB) of memory capacity"
+      }
+    ],
+    "notes": {
+      "zh": "回答一张兼顾图形与推理的 PCIe 卡的算力档位与功耗上限。不回答显存类型与带宽：官方该页只给容量、未给颗粒类型与带宽数值，按「查不到留空」处理，需要时查其 datasheet。",
+      "en": "Answers the compute tier and power ceiling of a PCIe card that covers both graphics and inference. It does not answer memory type or bandwidth: the vendor page states capacity only, so those fields are left empty rather than guessed, and should be read from the datasheet when needed."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "48 GB",
+      "max power": "350 W",
+      "form factor": "PCIe, dual-slot air-cooled",
+      "FP32": "91.6 TFLOPS",
+      "TF32 tensor, sparsity": "366 TFLOPS",
+      "FP8 tensor, sparsity": "1,466 TFLOPS",
+      "RT core": "212 TFLOPS"
+    }
+  },
+  {
+    "id": "nvidia-rtx-6000-ada",
+    "title": {
+      "zh": "NVIDIA RTX 6000 Ada",
+      "en": "NVIDIA RTX 6000 Ada"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/design-visualization/rtx-6000/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/design-visualization/rtx-6000/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/design-visualization/rtx-6000/",
+        "quote": "GPU Memory 48GB GDDR6 with error-correcting code (ECC)"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/design-visualization/rtx-6000/",
+        "quote": "Max Power Consumption 300 W"
+      }
+    ],
+    "notes": {
+      "zh": "回答工作站单卡的 48GB 档位：与消费卡同容量的区别在 ECC 显存与 300W 功耗上限，更适合长时间满载与多卡并排。不回答多卡训练效率：该卡同样没有 NVLink，多卡只能走 PCIe，张量并行会受带宽限制。",
+      "en": "Answers the 48 GB tier for workstation cards: what separates it from a consumer card of the same capacity is ECC memory and a 300 W ceiling, which suits sustained load and side-by-side installation. It does not answer multi-card training efficiency: this card also lacks NVLink, so cards communicate over PCIe and tensor parallelism is bandwidth-bound."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "memory": "48 GB GDDR6 with ECC",
+      "max power": "300 W",
+      "bus": "PCIe Gen4 x16",
+      "form factor": "4.4 in H x 10.5 in L, dual-slot, active cooling",
+      "FP32": "91.1 TFLOPS",
+      "RT core": "210.6 TFLOPS",
+      "tensor performance": "1,457 AI TOPS (FP8 with sparsity)",
+      "NVLink": "not listed for this model"
+    }
+  },
+  {
+    "id": "ouster-os1",
+    "title": {
+      "zh": "Ouster OS1 激光雷达",
+      "en": "Ouster OS1 lidar"
+    },
+    "category": "sensor",
+    "url": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+        "quote": "90 m  Range @ 10%"
+      },
+      {
+        "url": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+        "quote": "10.4 Million  Points per Second"
+      },
+      {
+        "url": "https://ouster.com/products/hardware/os1-lidar-sensor/",
+        "quote": "45°  Vertical FoV"
+      }
+    ],
+    "notes": {
+      "zh": "回答中距激光雷达的测距、垂直视场与点频档位，用来判断感知方案的量级。不回答功耗与接口：该产品页未给这两项口径，按「查不到留空」处理，选型时需查其 datasheet。「90 m」是在 10% 反射率条件下的测距，深色或远距离目标会显著缩短。",
+      "en": "Answers the range, vertical field of view and point rate of a mid-range lidar, which is what sets the order of magnitude of a perception setup. It does not answer power draw or interface: the product page gives neither, so those are left empty rather than guessed and should come from the datasheet. The 90 m figure is at 10% reflectivity, so dark or distant targets shorten it substantially."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "range at 10% reflectivity": "90 m",
+      "maximum range": "250 m",
+      "minimum range": "0.0 m",
+      "vertical FoV": "45°",
+      "points per second": "10.4 million",
+      "vertical channels": "128"
+    }
+  },
+  {
+    "id": "raspberry-pi-5",
+    "title": {
+      "zh": "Raspberry Pi 5",
+      "en": "Raspberry Pi 5"
+    },
+    "category": "edge",
+    "url": "https://www.raspberrypi.com/products/raspberry-pi-5/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://datasheets.raspberrypi.com/rpi5/raspberry-pi-5-product-brief.pdf",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://datasheets.raspberrypi.com/rpi5/raspberry-pi-5-product-brief.pdf",
+        "quote": "Broadcom BCM2712 2.4GHz quad-core 64-bit Arm Cortex-A76 CPU, with Cryptographic Extension, 512KB per-core L2 caches, and a 2MB shared L3 cache"
+      },
+      {
+        "url": "https://datasheets.raspberrypi.com/rpi5/raspberry-pi-5-product-brief.pdf",
+        "quote": "5V/5A DC power via USB-C, with Power Delivery support"
+      }
+    ],
+    "notes": {
+      "zh": "回答边缘小主机的 CPU、内存档位、PCIe 通道与供电口径，用来判断能不能带得动一块加速模块。不回答它自身的 AI 算力：板载没有 NPU，要接 M.2 或 HAT 形态的加速器才具备推理加速能力。官方给出的量产承诺到 2036 年 1 月，做长期项目时可据此评估供货周期。",
+      "en": "Answers the CPU, memory tiers, PCIe lane and power figures of a small edge host, which is what decides whether it can carry an accelerator module. It does not answer its own AI throughput: there is no on-board NPU, so inference acceleration requires an M.2 or HAT accelerator. The vendor states production until at least January 2036, which is the figure to use when judging supply for a long-lived project."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "SoC": "Broadcom BCM2712",
+      "CPU": "4x Arm Cortex-A76 @ 2.4 GHz",
+      "RAM": "LPDDR4X-4267, 1 / 2 / 4 / 8 / 16 GB",
+      "PCIe": "2.0 x1 (needs separate M.2 HAT or adapter)",
+      "power": "5V/5A DC via USB-C; 27 W PSU recommended",
+      "network": "Gigabit Ethernet (PoE+ via separate HAT); dual-band 802.11ac",
+      "USB": "2x USB 3.0 (5 Gbps simultaneous), 2x USB 2.0",
+      "production commitment": "until at least January 2036"
+    }
+  },
+  {
+    "id": "unitree-g1",
+    "title": {
+      "zh": "宇树 G1 人形机器人",
+      "en": "Unitree G1 humanoid"
+    },
+    "category": "robot-body",
+    "url": "https://www.unitree.com/g1",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.unitree.com/g1",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.unitree.com/g1",
+        "quote": "Weight (With Battery)  About 35kg"
+      },
+      {
+        "url": "https://www.unitree.com/g1",
+        "quote": "Total Degrees of Freedom（Joint Freedom） 23 23 - 43"
+      },
+      {
+        "url": "https://www.unitree.com/g1",
+        "quote": "Battery Life  About 2h"
+      }
+    ],
+    "notes": {
+      "zh": "回答人形本体的尺寸、重量、自由度与续航档位，用来判断它适合哪类实验与场地。不收录价格：报价属商业信息且随时变动，采购需向厂商确认。控制栈与训练框架不属本站范围，见 tools 与 learn 的机器人条目。",
+      "en": "Answers the size, weight, degrees of freedom and endurance tier of a humanoid body, which is what decides the kind of experiments and floor space it suits. Price is deliberately excluded: quotations are commercial information that changes, and must be confirmed with the vendor. Control stacks and training frameworks are out of scope here and live in the robotics entries of tools and learn."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "dimensions": "1320 x 450 x 200 mm standing; 690 x 450 x 300 mm folded",
+      "weight": "about 35 kg with battery",
+      "degrees of freedom": "23 (G1); 23-43 (G1 EDU)",
+      "knee max torque": "90 N·m (120 N·m on EDU)",
+      "arm payload": "about 2 kg (3 kg on EDU)",
+      "battery": "9000 mAh; about 2 h endurance; charger 54V 5A",
+      "sensors": "depth camera + 3D LiDAR; 4-microphone array",
+      "compute": "8-core CPU base; higher-power module optional on EDU"
+    }
+  },
+  {
+    "id": "unitree-go2",
+    "title": {
+      "zh": "宇树 Go2 四足机器人",
+      "en": "Unitree Go2 quadruped"
+    },
+    "category": "robot-body",
+    "url": "https://www.unitree.com/go2",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.unitree.com/go2",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://www.unitree.com/go2",
+        "quote": "Weight (with battery)  About 15kg"
+      },
+      {
+        "url": "https://www.unitree.com/go2",
+        "quote": "Max Running Speed  Approx. 5m/s  (tested in lab)"
+      },
+      {
+        "url": "https://www.unitree.com/go2",
+        "quote": "Working maximum power  About 3000W"
+      }
+    ],
+    "notes": {
+      "zh": "回答四足本体的重量、载荷、续航与感知配置，用来判断场地与实验类型。注意三个容易误读的地方：5m/s 是实验室条件；续航 1–4 小时随机型与电池容量变化；工作最大功率约 3000W 属瞬时峰值，不能按此推算平均供电。价格不收录。",
+      "en": "Answers the weight, payload, endurance and perception setup of a quadruped body, which is what decides the floor space and experiment type it suits. Three figures are easy to misread: 5 m/s is a laboratory figure; endurance ranges from 1 to 4 hours depending on variant and battery; and the ~3000 W working maximum is a transient peak that must not be used to size average power. Price is excluded."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "standing dimensions": "70 x 31 x 40 cm",
+      "weight": "about 15 kg with battery",
+      "payload": "about 7-8 kg (max 10-12 kg depending on variant)",
+      "max speed": "about 5 m/s (lab); 2.5-3.7 m/s by variant",
+      "peak joint torque": "about 45 N·m",
+      "battery": "8000 mAh standard; 15000 mAh long-endurance (EDU)",
+      "endurance": "about 1-2 h; 2-4 h with long-endurance battery",
+      "working maximum power": "about 3000 W",
+      "perception": "4D LiDAR L2, 360° x 96°, minimum detection 0.05 m; HD wide-angle camera"
+    }
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "id": "li-2021-prefix-tuning",
+  "title": {
+    "zh": "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+    "en": "Prefix-Tuning: Optimizing Continuous Prompts for Generation"
+  },
+  "category": "adaptation",
+  "url": "https://arxiv.org/abs/2101.00190",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2101.00190",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2101.00190",
+      "quote": "In this paper, we propose prefix-tuning, a lightweight alternative to fine-tuning for natural language generation tasks, which keeps language model parameters frozen, but optimizes a small continuous task-specific vector (called the prefix)."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2101.00190",
+      "quote": "We find that by learning only 0.1% of the parameters, prefix-tuning obtains comparable performance in the full data setting, outperforms fine-tuning in low-data settings, and extrapolates better to examples with topics unseen during training."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2101.00190",
+      "quote": "With only 0.1% parameters, prefix-tuning underperforms full fine-tuning (35.05 vs. 37.25)."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2101.00190",
+      "quote": "In concordance with this intuition, we observe that both prefix-tuning and adapter-tuning have significant performance gain in extrapolation settings (Section 6.4); however, the reason for such gain is an open question."
+    }
+  ],
+  "notes": {
+    "zh": "问题：全量微调会改动全部参数，因此每个任务都要存一份完整模型副本；能不能冻住语言模型，只学一小段连续的任务专属向量（前缀），让后续 token 像注意虚拟 token 一样注意它。\n证据位置：方法在 §4（含 §4.3 对前缀的重参数化）；主结果在 §6——表 1 是三个 table-to-text 数据集（E2E、WebNLG、DART），表 2 是 XSUM 摘要，低数据设定在 §6.3 与 Figure 3 右，外推在 §6.4；前缀长度等内在分析在 §7；开放问题在 §8 Discussion，结论在 §9。这篇没有独立的 Limitations 章节。\n作者自陈局限：局限散在结果与讨论里，作者自己写明的有——§6.2 直接承认在 XSUM 上不如全量微调（0.1% 参数时 ROUGE-L 35.05 对 37.25，2% 时 36.05 对 37.25），并列出三条可能原因：XSUM 样本量平均多 4 倍、输入文章平均长 17 倍、摘要可能比 table-to-text 更复杂，这些是作者的解释而非验证过的结论；§6.3 说低数据下的优势随数据量增大而缩小（平均高 2.9 BLEU）；§7.1 说前缀超过阈值（摘要 200、table-to-text 10）后训练损失更低但测试表现略降，提示过拟合；§8.3 说外推收益的原因仍是开放问题，而参数效率更高的解释也只是「我们认为」。\n它没主张的：论文只在 GPT-2 MEDIUM/LARGE 与 BART-LARGE 上验证（§5.3），§6.1 结尾说有潜力扩展到 GPT-3 这类更大的同架构模型，那是推测、没有实验；也没有说前缀微调在所有生成任务上都不输全量微调——摘要任务上就是输的；比较对象是 adapter 与只调顶部两层（FT-top2）等轻量基线，不涉及其他参数高效微调方法；§8.1、§8.2 关于百万用户个性化与跨用户批处理的说法是适用性讨论，没有对应的实验结果。",
+    "en": "Problem: full fine-tuning modifies every parameter, so a complete model copy has to be stored per task; can the language model be frozen and only a small continuous task-specific vector (the prefix) be learned, with subsequent tokens attending to it as if it were virtual tokens.\nWhere the evidence sits: the method is in Section 4, including the reparametrisation of the prefix in 4.3; main results are in Section 6 — Table 1 covers three table-to-text datasets (E2E, WebNLG, DART), Table 2 covers XSUM summarisation, the low-data setting is in 6.3 and Figure 3 (right), and extrapolation in 6.4; intrinsic analysis such as prefix length is in Section 7; open problems are in Section 8 Discussion and the conclusion in Section 9. There is no separate Limitations section.\nWhat the authors say about limits: the limits are spread across the results and discussion, and the ones the authors state themselves are — 6.2 plainly reports that prefix-tuning underperforms full fine-tuning on XSUM (ROUGE-L 35.05 versus 37.25 at 0.1% of parameters, and 36.05 versus 37.25 at 2%), and offers three possible reasons: XSUM has about 4x more examples on average, its input articles are about 17x longer, and summarisation may be more complex than table-to-text; these are the authors' explanations rather than verified conclusions. 6.3 says the low-data advantage narrows as the dataset grows (2.9 BLEU on average). 7.1 reports that beyond a threshold prefix length (200 for summarisation, 10 for table-to-text) training loss keeps dropping while test performance slightly degrades, suggesting overfitting. 8.3 says the reason for the extrapolation gain remains an open question, and the account of why prefix-tuning is more parameter-efficient is framed as what the authors think.\nWhat it does not claim: the experiments cover only GPT-2 MEDIUM/LARGE and BART-LARGE (5.3), and the closing remark in 6.1 that it has the potential to scale to larger models of similar architecture such as GPT-3 is a suggestion without experiments; the paper does not claim prefix-tuning matches full fine-tuning on every generation task — it loses on summarisation; the comparisons are against lightweight baselines such as adapters and tuning only the top two layers (FT-top2), not other parameter-efficient finetuning methods; and the personalisation and cross-user batching arguments in 8.1 and 8.2 are applicability discussion with no corresponding experimental results."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "§4（方法）；表 1（table-to-text）、表 2（XSUM）；§6.3、§6.4；§7.1；§8.3；§9",
+    "可训练参数 / params": "0.1%（摘要与 §6.1 口径）",
+    "XSUM ROUGE-L": "前缀 0.1% 为 35.05，全量微调 37.25（§6.2 原文）",
+    "验证架构 / models": "GPT-2 MEDIUM/LARGE、BART-LARGE（§5.3）",
+    "局限位置 / limits": "无独立 Limitations 章节；散在 §6.2、§6.3、§7.1、§8.3",
+    "复现状态 / reproduction": "未复现"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "title": { "zh": "按显存需求倒推硬件", "en": "Work back from memory requirement to hardware" },
+  "lead": {
+    "zh": "顺序按「先算需要多少显存、再看能不能装下、最后才看算力和功耗」排。每一步只给判断依据，不给推荐结论；算显存用 models 站的算式，本站只回答设备这一端。",
+    "en": "The order is: work out how much memory is needed, then whether it fits, and only then look at compute and power. Each step gives the criterion, not a recommendation; use the formulas on the models site for the memory sum, since this site only covers the device side."
+  },
+  "steps": [
+    {
+      "zh": "先确认权重、KV 缓存与框架开销加起来的显存需求，这一步不涉及任何设备。",
+      "en": "First fix the memory requirement — weights, KV cache and framework overhead together. No device enters the picture yet.",
+      "entry": "nvidia-h100-sxm"
+    },
+    {
+      "zh": "需求在 24GB 以内且只要单机：看消费级单卡的显存与整机电源要求。",
+      "en": "If the requirement is within 24 GB and a single machine is enough, read the consumer card's memory and system power requirement.",
+      "entry": "nvidia-geforce-rtx-4090"
+    },
+    {
+      "zh": "需求在 48GB 档、且要长时间满载或并排多卡：看 ECC 显存与 300W 档的工作站卡。",
+      "en": "For the 48 GB tier under sustained load or side-by-side installation, read the workstation card with ECC memory and a 300 W envelope.",
+      "entry": "nvidia-rtx-6000-ada"
+    },
+    {
+      "zh": "需求在 80GB 档：确认是 SXM 还是 PCIe，两者的互联能力差一个量级。",
+      "en": "At the 80 GB tier, establish whether it is SXM or PCIe — their interconnect capability differs by an order of magnitude.",
+      "entry": "nvidia-a100-80gb-sxm"
+    },
+    {
+      "zh": "需求超过 80GB：比显存容量与带宽，同时看功耗上限是否超出机房供电。",
+      "en": "Above 80 GB, compare capacity and bandwidth, and check whether the power ceiling exceeds what the facility can supply.",
+      "entry": "nvidia-h200-sxm"
+    },
+    {
+      "zh": "单卡装不下又要 8 卡全互联：本地整机看 NVSwitch 拓扑，租用看单实例的卡数与网络。",
+      "en": "If one card is not enough and eight-way fabric is required, check the NVSwitch topology on-premises or the card count and network per instance in the cloud.",
+      "entry": "aws-ec2-p5-48xlarge"
+    },
+    {
+      "zh": "要在机器人本体上跑：先看统一内存够不够，再看功耗是否落在电池与散热的范围内。",
+      "en": "For running on a robot body, first check whether unified memory is sufficient, then whether power fits the battery and thermal envelope.",
+      "entry": "nvidia-jetson-agx-orin-64gb"
+    },
+    {
+      "zh": "只做视觉推理、不需要大语言模型：低功耗加速模块的算力与功耗档位更贴合。",
+      "en": "For vision inference only, without a language model, a low-power accelerator module matches the compute and power tier better.",
+      "entry": "hailo-8"
+    },
+    {
+      "zh": "最后核供电与场地：整卡功耗、整机电源、机箱风道与工作温度，任何一项不满足都要回头改方案。",
+      "en": "Finally verify power and site conditions: board power, system supply, chassis airflow and operating temperature. If any one fails, the design goes back a step.",
+      "entry": "boston-dynamics-spot"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "c2pa-ai-ml-guidance",
+  "title": {
+    "zh": "C2PA 面向 AI/ML 的实施指南",
+    "en": "C2PA guidance for AI and machine learning"
+  },
+  "category": "provenance",
+  "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+      "quote": "The C2PA specification can be used to add cryptographic information to detect the tampering of media files and streams."
+    },
+    {
+      "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+      "quote": "The Content Credential for an AI-ML model provides the consumer, e.g. a system operator designing an AI-ML system, with provenance and authenticity of the model."
+    },
+    {
+      "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+      "quote": "the model C2PA Manifest can contain a data mining assertion that asserts rights as allowed, constrained, or not allowed for generative or non-generative AI-ML models or both."
+    }
+  ],
+  "notes": {
+    "zh": "交集：把内容凭证从「媒体文件」扩到 AI 供应链的三件东西——模型凭证、训练数据凭证、输出凭证；输出用 trainedAlgorithmicMedia 或 trainedAlgorithmicData 标记来源类型，模型还可挂一条数据挖掘断言，声明是否允许被拿去训练别的模型。适用范围：规范给的是断言类型与清单结构，用于发现篡改与记录来源，不评估模型质量或输出是否正确。未解决：一切都依赖提供方如实填写，签名只覆盖签名之后的改动；凭证能否在转码与二次分发后存活取决于各平台。该文档本身以 CC BY 4.0 发布，可转载但需署名。",
+    "en": "The intersection: extending content credentials from media files to three things in the AI supply chain — a model credential, a training-data credential and an output credential. Outputs are tagged with trainedAlgorithmicMedia or trainedAlgorithmicData as the source type, and a model may carry a data mining assertion stating whether reuse for training other models is allowed, constrained or not allowed. Scope: the guidance supplies assertion types and manifest structure for detecting tampering and recording origin; it does not assess model quality or whether an output is correct. Open: everything depends on the provider recording honestly, a signature only covers changes made after signing, and whether a credential survives transcoding and redistribution depends on each platform. The document itself is published under CC BY 4.0, so reuse requires attribution."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "覆盖对象 / scope": "模型凭证 · 训练数据凭证 · 输出凭证",
+    "输出来源类型 / source type": "trainedAlgorithmicMedia（媒体）· trainedAlgorithmicData（非媒体）",
+    "权利表达 / rights": "data mining assertion：allowed / constrained / not allowed",
+    "文档许可 / licence": "CC BY 4.0"
+  }
+}

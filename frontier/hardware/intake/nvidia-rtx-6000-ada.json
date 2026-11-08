@@ -1,0 +1,39 @@
+{
+  "id": "nvidia-rtx-6000-ada",
+  "title": {
+    "zh": "NVIDIA RTX 6000 Ada",
+    "en": "NVIDIA RTX 6000 Ada"
+  },
+  "category": "accelerator",
+  "url": "https://www.nvidia.com/en-us/design-visualization/rtx-6000/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/design-visualization/rtx-6000/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/design-visualization/rtx-6000/",
+      "quote": "GPU Memory 48GB GDDR6 with error-correcting code (ECC)"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/design-visualization/rtx-6000/",
+      "quote": "Max Power Consumption 300 W"
+    }
+  ],
+  "notes": {
+    "zh": "回答工作站单卡的 48GB 档位：与消费卡同容量的区别在 ECC 显存与 300W 功耗上限，更适合长时间满载与多卡并排。不回答多卡训练效率：该卡同样没有 NVLink，多卡只能走 PCIe，张量并行会受带宽限制。",
+    "en": "Answers the 48 GB tier for workstation cards: what separates it from a consumer card of the same capacity is ECC memory and a 300 W ceiling, which suits sustained load and side-by-side installation. It does not answer multi-card training efficiency: this card also lacks NVLink, so cards communicate over PCIe and tensor parallelism is bandwidth-bound."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "48 GB GDDR6 with ECC",
+    "max power": "300 W",
+    "bus": "PCIe Gen4 x16",
+    "form factor": "4.4 in H x 10.5 in L, dual-slot, active cooling",
+    "FP32": "91.1 TFLOPS",
+    "RT core": "210.6 TFLOPS",
+    "tensor performance": "1,457 AI TOPS (FP8 with sparsity)",
+    "NVLink": "not listed for this model"
+  }
+}

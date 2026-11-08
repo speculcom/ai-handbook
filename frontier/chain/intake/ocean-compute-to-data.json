@@ -1,0 +1,38 @@
+{
+  "id": "ocean-compute-to-data",
+  "title": {
+    "zh": "Ocean Compute-to-Data：数据不出域的授权计算",
+    "en": "Ocean Compute-to-Data: authorised compute without moving data"
+  },
+  "category": "protocol",
+  "url": "https://github.com/oceanprotocol/docs/blob/main/developers/compute-to-data/README.md",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+      "quote": "Instead of selling the raw data itself, you can offer compute access to the private data."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+      "quote": "This means you have control over which algorithms can be run on your dataset."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+      "quote": "It enables the data to remain on-premise while granting third parties the ability to perform specific compute tasks on it, yielding valuable results like statistical analysis or AI model development."
+    }
+  ],
+  "notes": {
+    "zh": "交集：用私有数据训练或评测 AI 时，数据持有者常不愿交出原始数据；Compute-to-Data 把授权对象从「数据副本」改成「在数据上运行指定算法」，与 AI 模型开发直接相关。\n适用范围：官方文档说不出售原始数据而出售计算访问，数据持有者控制哪些算法可跑，数据可留在本地而第三方执行特定计算任务，产出统计分析或 AI 模型开发结果。本条只写计算授权机制，与 ocean-protocol 概念条的网络与访问控制分工不同。\n未解决：算法审核、结果泄露、计算环境可信与法律合规仍要另行核对；文档未给统一部署状态字段，本站不推断隐私或合规保证。",
+    "en": "The intersection: when private data is used to train or evaluate AI, holders often do not want to hand over raw data; Compute-to-Data changes the authorised object from a data copy to running approved algorithms on the data, directly relevant to AI model development.\nScope: the official documentation says raw data is not sold; compute access is offered, the holder controls which algorithms may run, and data can remain on-premise while third parties perform specific compute tasks yielding statistical analysis or AI model development. This entry covers the compute-authorisation mechanism, distinct from the ocean-protocol concept entry on network and access control.\nOpen: algorithm review, result leakage, trusted compute environments and legal compliance still need separate checks; the document gives no single deployment-status field, and this site infers no privacy or compliance guarantee."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "协议状态 / status": "官方未说明（机制文档未给协议部署状态字段）",
+    "规范来源 / source": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+    "核验日 / checked": "2026-11-07"
+  }
+}

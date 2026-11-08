@@ -1,0 +1,45 @@
+{
+  "id": "leviathan-2023-speculative-decoding",
+  "title": {
+    "zh": "Fast Inference from Transformers via Speculative Decoding",
+    "en": "Fast Inference from Transformers via Speculative Decoding"
+  },
+  "category": "efficiency",
+  "url": "https://arxiv.org/abs/2211.17192",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2211.17192",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2211.17192",
+      "quote": "We demonstrate it on T5-XXL and show a 2X-3X acceleration compared to the standard T5X implementation, with identical outputs."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2211.17192",
+      "quote": "We measure walltime improvements with a batch size of 1 on a single TPU-v4 for both argmax sampling (temp=0) and standard sampling (temp=1)."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2211.17192",
+      "quote": "We observe speedups of 2.6X (temp=1) and 3.4X (temp=0) on the translation task and slightly lower speedups of 2.3X (temp=1) and 3.1X (temp=0) for the summarization task."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2211.17192",
+      "quote": "One limitation of speculative execution in general, and of speculative decoding in particular, is that latency is improved through increased concurrency at the cost of an increased number of arithmetic operations. Thus, our method is not helpful for configurations where additional computation resources are not available."
+    }
+  ],
+  "notes": {
+    "zh": "问题：自回归解码是串行的——生成 K 个 token 就要串行跑 K 次大模型；能否不改架构、不重训、也不改变输出分布，就把解码加速。\n证据位置：摘要给出 T5-XXL 对比标准 T5X 实现的 2X-3X 加速且输出不变；实测数字在 Section 4.1 Table 2——单张 TPU-v4、batch size 1，目标模型 T5-XXL（11B），近似模型为 T5-small/base/large，任务是 WMT EnDe 翻译与 CNNDM 摘要；局限写在 Section 6 Discussion。\n作者自陈局限：原文写明 \"latency is improved through increased concurrency at the cost of an increased number of arithmetic operations\"，因此 \"our method is not helpful for configurations where additional computation resources are not available\"；另自陈 \"We tested speculative decoding only in the text modality\"，beam search 场景的分析 \"we leave it for future work\"（Appendix A.4）。\n它没主张的：论文没有说总算术运算量会下降——拒绝猜测时计算被浪费、总运算量可能更高，加速前提是有闲置算力（如内存带宽是瓶颈）；2X-3X 是 batch size 1、单 TPU-v4、对比 T5X 这一特定实现的口径，不能直接外推到批处理服务或其他硬件；也没有在其他模态上给出结果。",
+    "en": "Problem: autoregressive decoding is serial — decoding K tokens takes K serial runs of the large model; can it be accelerated without changing the architecture, retraining, or the output distribution.\nWhere the evidence sits: the abstract reports 2X-3X acceleration on T5-XXL vs the standard T5X implementation with identical outputs; the measurements are in Section 4.1, Table 2 — a single TPU-v4, batch size 1, T5-XXL (11B) as target with T5-small/base/large as approximation models, on WMT EnDe translation and CNNDM summarization; the limits are in Section 6, Discussion.\nWhat the authors say about limits: the paper states \"latency is improved through increased concurrency at the cost of an increased number of arithmetic operations\", hence \"our method is not helpful for configurations where additional computation resources are not available\"; it also notes \"We tested speculative decoding only in the text modality\", and the beam-search analysis is left to future work (Appendix A.4).\nWhat it does not claim: the paper does not claim fewer total arithmetic operations — rejected guesses waste computation and total operations may rise, and the speed-up presupposes spare compute (e.g. memory bandwidth as the bottleneck); the 2X-3X figure is specific to batch size 1 on one TPU-v4 against the T5X implementation and does not automatically transfer to batched serving or other hardware; no results are claimed for other modalities."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要；Section 4.1 Table 2（单 TPU-v4、batch size 1）；Section 6 Discussion",
+    "T5-XXL 加速 / speedup": "2X-3X（对比标准 T5X 实现，输出不变）",
+    "EnDe 翻译 / translation": "2.6X（temp=1）/ 3.4X（temp=0）",
+    "CNNDM 摘要 / summarization": "2.3X（temp=1）/ 3.1X（temp=0）",
+    "测量设置 / setup": "batch size 1，单张 TPU-v4",
+    "复现状态 / reproduction": "未复现"
+  }
+}

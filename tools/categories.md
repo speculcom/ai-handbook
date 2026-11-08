@@ -169,22 +169,25 @@ Claude Code 同一个大类、`cli` 形态。
 
 ## 8 · Agent 框架与运行时 `framework`
 
-**定义**：给**程序**用的 agent SDK / 编排框架——交付物是库/框架，你在代码里搭 agent。
+**定义**：给**程序**用的 agent SDK / 编排框架，以及机器人中间件、仿真器与学习栈——交付物是库/框架/可脚本化的运行时，你在代码里搭 agent 或驱动仿真与策略。
 
 **收录标准**：
-1. 面向开发者，通过代码使用（SDK / 库 / 框架）；
-2. 核心能力是 agent 编排（循环、工具调用、状态、多 agent）；
+1. 面向开发者，通过代码使用（SDK / 库 / 框架 / 可脚本化的仿真运行时）；
+2. 核心能力是 agent 编排（循环、工具调用、状态、多 agent）**或机器人运行时**（中间件、物理仿真、策略训练与部署栈）；
 3. 有官方文档或仓库可核验八维。
 
 **边界裁决**：
 - 可视化编排平台 → 归 `automation`（判据：有没有「不写代码的界面」是主轴）；
 - 纯 LLM 调用库（只做 API 封装，无 agent 循环）→ 归 nav；
-- 模型训练/微调框架 → 归 models 站生态/nav，不在本类。
+- 通用模型训练/微调框架 → 归 models 站生态/nav，不在本类；机器人**策略**学习栈（LeRobot / Isaac Lab 这类）满足标准 2 的机器人运行时分支，收本类 `family: robotics`；
+- 机器人本体、边缘算力盒、传感器、执行器、供电散热 → 归 `hardware` 站（物理设备规格卡）；
+- 具身智能、仿真到实机迁移等概念词条与学习顺序 → 归 `learn` 站；「我要做一个能动的机器人」路线 → 主站 `topic-robot.html`；
+- 带图形界面的仿真器（Isaac Sim / Gazebo / Webots）用 `form: local-app`，其余机器人软件栈用 `form: harness`；本类 `owns` 覆盖这两值。
 
 **不收示例**：transformers 本体（模型库不是 agent 框架）；LangChain 的纯 LLM 封装层
-（若某库只做 API 转发无编排，不满足标准 2）。
+（若某库只做 API 转发无编排，不满足标准 2）；机器人整机与加速卡规格（归 hardware）。
 
-**EN**: Code-first agent SDKs and orchestration frameworks. Visual builders go to automation.
+**EN**: Code-first agent SDKs, orchestration frameworks, and robot middleware / simulators / learning stacks. Visual builders go to automation; robot hardware specs go to the hardware site.
 
 ## 9 · 给 AI 装的工具 `mcp`
 

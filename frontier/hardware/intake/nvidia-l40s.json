@@ -1,0 +1,38 @@
+{
+  "id": "nvidia-l40s",
+  "title": {
+    "zh": "NVIDIA L40S",
+    "en": "NVIDIA L40S"
+  },
+  "category": "accelerator",
+  "url": "https://www.nvidia.com/en-us/data-center/l40s/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/data-center/l40s/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/l40s/",
+      "quote": "FP32 91.6 teraFLOPS TF32 Tensor Core 366 teraFLOPS* FP16 733 teraFLOPS* FP8 1,466 teraFLOPS* RT Core Performance 212 teraFLOPS Max Power Consumption 350W"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/l40s/",
+      "quote": "48 gigabytes (GB) of memory capacity"
+    }
+  ],
+  "notes": {
+    "zh": "回答一张兼顾图形与推理的 PCIe 卡的算力档位与功耗上限。不回答显存类型与带宽：官方该页只给容量、未给颗粒类型与带宽数值，按「查不到留空」处理，需要时查其 datasheet。",
+    "en": "Answers the compute tier and power ceiling of a PCIe card that covers both graphics and inference. It does not answer memory type or bandwidth: the vendor page states capacity only, so those fields are left empty rather than guessed, and should be read from the datasheet when needed."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "48 GB",
+    "max power": "350 W",
+    "form factor": "PCIe, dual-slot air-cooled",
+    "FP32": "91.6 TFLOPS",
+    "TF32 tensor, sparsity": "366 TFLOPS",
+    "FP8 tensor, sparsity": "1,466 TFLOPS",
+    "RT core": "212 TFLOPS"
+  }
+}

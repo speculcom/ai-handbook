@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-evidence-table. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output a claim-evidence-conditions table; unsupported claims are marked.\nInputs: Claim list, source excerpts, and verification rules.",
+    "提示词本体": "```text\nBuild an evidence table. Output rows[] with claim, source, quote, conditions and status (supported/unsupported/unclear). quote must be verbatim; conditions state scope. If no source is found, status=unsupported; do not fill with common knowledge.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "rows[] with status and conditions.",
+    "检查点": "- Quotes match verbatim.\n- Unsupported items are explicit.\n- Conditions are not vague.",
+    "失败分支": "- Missing excerpts: add excerpts and recheck.\n- Claim too broad: split subclaims.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Building resilient prompts using an evaluation flywheel (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

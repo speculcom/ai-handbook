@@ -1201,6 +1201,45 @@ var TERMS = [
     ],
     "whyEn": "The same model scores differently on different test sets. When comparing two models, first ask whether they sat the same exam.",
     "slug": "训练集与测试集"
+   },
+   {
+    "zh": "模仿学习",
+    "en": "Imitation Learning",
+    "purpose": "让机器照着示范学动作，而不是自己从头试错。",
+    "def": [
+     "模仿学习指从专家示范中学策略：记录「什么状态下做什么动作」的成对样本，再训练模型复现这些动作。",
+     "最直接的实现是行为克隆，把示范当监督学习来拟合；示范没覆盖到的状态容易出错，DAgger 等方法让专家在学习者走过的状态上继续标注来补救。",
+     "它与强化学习互补：一个靠现成示范，一个靠奖励试错；机器人遥操作采集的演示数据常走这条路。"
+    ],
+    "why": "机器人学动作最常见的起点就是它：遥操作采来的示范直接变成训练数据。分清「从示范学」和「从奖励学」，能看懂为什么很多机器人项目先花钱采数据，而不是先设计奖励函数。",
+    "refs": [
+     [
+      "Ross 等《A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning》（DAgger）",
+      "https://arxiv.org/abs/1011.0686",
+      "Ross et al., DAgger: imitation learning as no-regret online learning"
+     ],
+     [
+      "Ho 与 Ermon《Generative Adversarial Imitation Learning》",
+      "https://arxiv.org/abs/1606.03476",
+      "Ho & Ermon, Generative Adversarial Imitation Learning"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 1,
+    "layer": "一",
+    "ord": 36,
+    "last_verified": "2026-11-07",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Let a machine learn actions from demonstrations instead of trial-and-error from scratch.",
+    "defEn": [
+     "Imitation learning learns a policy from expert demonstrations: record paired samples of what action to take in what state, then train a model to reproduce those actions.",
+     "The most direct implementation is behaviour cloning, fitting demonstrations as supervised learning; states not covered by demonstrations are error-prone, and methods such as DAgger ask experts to label states visited by the learner.",
+     "It complements reinforcement learning: one uses ready demonstrations, the other uses reward trial-and-error; demonstration data collected by robot teleoperation often takes this path."
+    ],
+    "whyEn": "This is the most common starting point for robot action learning: teleoperated demonstrations become training data. Separating learning from demonstrations and learning from reward explains why many robot projects spend on data collection before designing reward functions.",
+    "slug": "模仿学习"
    }
   ]
  },
@@ -2718,6 +2757,87 @@ var TERMS = [
     ],
     "whyEn": "The logs decide what must never enter this pipeline: customer lists, keys, unreleased code. Once you see the logging boundary you know which fields to strip yourself before anything is sent.",
     "slug": "日志里留下了什么"
+   },
+   {
+    "zh": "遥操作",
+    "en": "Teleoperation",
+    "purpose": "让人在远处实时控制机器人，也顺手把人的操作录成训练数据。",
+    "def": [
+     "遥操作指人通过操纵杆、主从臂或视频反馈，实时控制远处的机器人完成动作。",
+     "在机器人学习里它还是数据采集手段：ALOHA 与 Mobile ALOHA 用低成本主从臂让人演示双臂与全身操作，把轨迹录下来供模仿学习使用。",
+     "看机器人演示要先分清：动作是人实时遥操作出来的，还是模型自主执行的——两者展示的能力完全不同。"
+    ],
+    "why": "很多惊艳的机器人视频背后是人在遥操作。知道这一点，你就不会把「人控演示」误读成「自主能力」；也能理解遥操作数据集为什么是具身智能训练的原料。",
+    "refs": [
+     [
+      "Zhao 等《Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware》（ALOHA）",
+      "https://arxiv.org/abs/2304.13705",
+      "Zhao et al., ALOHA: low-cost bimanual teleoperation"
+     ],
+     [
+      "Fu 等《Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation》",
+      "https://arxiv.org/abs/2401.02117",
+      "Fu et al., Mobile ALOHA: whole-body teleoperation"
+     ]
+    ],
+    "domain": "media",
+    "purposeTag": "learn",
+    "level": 2,
+    "layer": "二",
+    "ord": 43,
+    "last_verified": "2026-11-07",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Let a person control a remote robot in real time, and record the operation as training data.",
+    "defEn": [
+     "Teleoperation means a person controls a distant robot in real time through a joystick, leader-follower arms or video feedback.",
+     "In robot learning it is also a data-collection method: ALOHA and Mobile ALOHA use low-cost leader-follower arms for human demonstrations of bimanual and whole-body operation, recording trajectories for imitation learning.",
+     "When watching robot demos, first distinguish whether actions are produced by real-time human teleoperation or autonomous model execution — the capabilities shown are completely different."
+    ],
+    "whyEn": "Many impressive robot videos have a human teleoperating behind them. Knowing this prevents reading human-controlled demos as autonomous capability, and explains why teleoperation datasets are raw material for embodied AI training.",
+    "slug": "遥操作"
+   },
+   {
+    "zh": "视觉语言动作模型",
+    "en": "Vision-Language-Action Model",
+    "alias": [
+     "VLA",
+     "VLA 模型"
+    ],
+    "purpose": "让一个模型同时看图、读指令、出动作，端到端控制机器人。",
+    "def": [
+     "视觉语言动作模型（VLA）把视觉编码器、语言模型与动作输出接在一起：输入相机画面和自然语言指令，直接输出机器人该执行的动作。",
+     "RT-2 把网络图文知识迁移到机器人控制，显示这类模型能把没见过的指令泛化成新动作；OpenVLA 给出了开源的同类实现。",
+     "它与「感知—规划—控制」分模块搭机器人的传统路线相对：一个模型从看到动，中间不再手写每个环节。"
+    ],
+    "why": "这是当前具身智能里最受关注的模型形态，新闻里的「机器人大模型」多指它。知道它端到端的本质，就能追问两个边界问题：训练数据覆盖不到的任务怎么办，动作出错时谁来兜底。",
+    "refs": [
+     [
+      "Brohan 等《RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control》",
+      "https://arxiv.org/abs/2307.15818",
+      "Brohan et al., RT-2: vision-language-action models"
+     ],
+     [
+      "Kim 等《OpenVLA: An Open-Source Vision-Language-Action Model》",
+      "https://arxiv.org/abs/2406.09246",
+      "Kim et al., OpenVLA: an open-source VLA model"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "learn",
+    "level": 2,
+    "layer": "二",
+    "ord": 44,
+    "last_verified": "2026-11-07",
+    "verified_scope": "refs",
+    "purposeEn": "Let one model see images, read instructions and output actions to control a robot end to end.",
+    "defEn": [
+     "A vision-language-action model (VLA) connects a visual encoder, a language model and action output: camera images and natural-language instructions go in, and robot actions come out directly.",
+     "RT-2 transfers web image-text knowledge into robot control and shows such models can generalise unseen instructions into new actions; OpenVLA provides an open-source implementation of the same kind.",
+     "It contrasts with the traditional modular perception-planning-control route: one model goes from seeing to acting without hand-writing every intermediate stage."
+    ],
+    "whyEn": "This is the most watched model form in embodied AI; robot large model in news often means it. Knowing its end-to-end nature lets you ask two boundary questions: what happens on tasks outside training coverage, and who catches action errors.",
+    "slug": "视觉语言动作模型"
    }
   ]
  },
@@ -4197,6 +4317,126 @@ var TERMS = [
     ],
     "whyEn": "Published conclusions, compliance decisions and experiments someone else must repeat all need a way back to the source. Output you can trace is output you can reuse; the rest only reads smoothly.",
     "slug": "引用与可追溯"
+   },
+   {
+    "zh": "物理仿真",
+    "en": "Physics Simulation",
+    "purpose": "在计算机里算出物体的运动与接触，给机器人一个能反复试错的练习场。",
+    "def": [
+     "物理仿真用物理引擎数值求解运动方程：给定质量、关节、摩擦与碰撞，算出下一时刻物体会怎么动。",
+     "MuJoCo 这类引擎专为机器人与生物力学设计，支持接触丰富的操作任务；研究者先在仿真里训练和测试策略，再考虑搬到实机。",
+     "仿真是近似：步长、接触模型与参数误差都会让仿真里的行为偏离现实，这正是仿真到实机迁移要处理的缺口。"
+    ],
+    "why": "真机试错又贵又慢还可能摔坏硬件，仿真让同一套练习可以并行跑成千上万次。但「仿真里跑通」不等于「现实里跑通」，评估机器人方案时要先问它的验证是在哪一层做的。",
+    "refs": [
+     [
+      "MuJoCo 官网",
+      "https://mujoco.org/",
+      "MuJoCo official website"
+     ],
+     [
+      "MuJoCo 官方文档 · Overview",
+      "https://mujoco.readthedocs.io/en/stable/overview.html",
+      "MuJoCo documentation: overview"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 44,
+    "last_verified": "2026-11-07",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Compute object motion and contact in a computer, giving robots a practice ground for repeated trial-and-error.",
+    "defEn": [
+     "Physics simulation numerically solves equations of motion with a physics engine: given mass, joints, friction and collisions, it computes how objects move at the next time step.",
+     "Engines such as MuJoCo are designed for robotics and biomechanics and support contact-rich manipulation; researchers train and test policies in simulation before considering real hardware.",
+     "Simulation is an approximation: step size, contact models and parameter errors make simulated behaviour diverge from reality, which is exactly the gap sim-to-real transfer must handle."
+    ],
+    "whyEn": "Real-robot trial-and-error is expensive, slow and can break hardware; simulation lets the same practice run thousands of times in parallel. But passing in simulation does not mean passing in reality, so evaluation should ask at which layer validation was done.",
+    "slug": "物理仿真"
+   },
+   {
+    "zh": "运动规划",
+    "en": "Motion Planning",
+    "purpose": "给机器人算出一条从起点到目标、躲开障碍又能执行的动作轨迹。",
+    "def": [
+     "运动规划在机器人的位形空间里搜索一条满足约束的路径：避开障碍、不超关节限位，再从路径生成随时间执行的动作序列。",
+     "常用做法是基于采样的规划器，如 PRM 与 RRT，靠随机采样加连接快速在高维空间找到可行解，OMPL 汇集了这类算法。",
+     "MoveIt 把规划、碰撞检查与执行串成机器人栈里的现成管线，是 ROS 上机械臂运动规划的常用入口。"
+    ],
+    "why": "机器人「怎么把手伸过去而不撞到杯子」靠的就是它。知道规划是在算可行轨迹而非凭感觉动，你就能分清一段演示是预先规划好的，还是实时学出来的策略在控制。",
+    "refs": [
+     [
+      "OMPL：The Open Motion Planning Library",
+      "https://ompl.kavrakilab.org/",
+      "OMPL: the Open Motion Planning Library"
+     ],
+     [
+      "MoveIt 官方文档 · Motion Planning",
+      "https://moveit.picknik.ai/main/doc/concepts/motion_planning.html",
+      "MoveIt documentation: motion planning"
+     ]
+    ],
+    "domain": "media",
+    "purposeTag": "learn",
+    "level": 3,
+    "layer": "三",
+    "ord": 45,
+    "last_verified": "2026-11-07",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Compute an executable action trajectory from start to goal that avoids obstacles and respects constraints.",
+    "defEn": [
+     "Motion planning searches the robot configuration space for a path satisfying constraints: avoid obstacles, stay within joint limits, then generate a time-parameterised action sequence from the path.",
+     "Sampling-based planners such as PRM and RRT are common, using random sampling and connection to find feasible solutions quickly in high-dimensional spaces; OMPL collects such algorithms.",
+     "MoveIt connects planning, collision checking and execution into a ready pipeline in the robot stack, and is a common entry point for arm motion planning on ROS."
+    ],
+    "whyEn": "How a robot reaches out without hitting the cup depends on this. Knowing planning computes feasible trajectories rather than moving by feel helps distinguish pre-planned demonstrations from real-time learned policy control.",
+    "slug": "运动规划"
+   },
+   {
+    "zh": "仿真到实机迁移",
+    "en": "Sim-to-Real Transfer",
+    "alias": [
+     "Sim-to-Real",
+     "仿真到现实迁移"
+    ],
+    "purpose": "把在仿真里练好的策略搬到真实机器人上，还能照样管用——跨越仿真与现实的差距。",
+    "def": [
+     "仿真到实机迁移指把在物理仿真中训练出的控制策略部署到真实机器人，核心障碍是「现实差距」：仿真的摩擦、延迟、传感噪声与真实世界对不上。",
+     "域随机化是主流手段之一：训练时故意把物理参数、纹理、光照随机化，让策略见过各种变化，到了实机才不至于只认得那一个仿真世界。",
+     "Tobin 等用域随机化把仿真里练的视觉策略迁到真实机械臂，Peng 等则随机化动力学参数，让四足与双足步态从仿真走到实机。"
+    ],
+    "why": "机器人 demo 看着灵，真上手就抖，多半栽在这一步。知道有「现实差距」这回事，你就不会把仿真视频里的成功率当成实机能力，也会追问对方做了哪种随机化或系统辨识。",
+    "refs": [
+     [
+      "Tobin 等《Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World》",
+      "https://arxiv.org/abs/1703.06907",
+      "Tobin et al., domain randomization for sim-to-real transfer"
+     ],
+     [
+      "Peng 等《Sim-to-Real Transfer of Robotic Control with Dynamics Randomization》",
+      "https://arxiv.org/abs/1710.06537",
+      "Peng et al., dynamics randomization for sim-to-real control"
+     ]
+    ],
+    "domain": "media",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 46,
+    "last_verified": "2026-11-07",
+    "verified_scope": "refs",
+    "purposeEn": "Move a policy trained in simulation onto a real robot and still have it work — crossing the gap between simulation and reality.",
+    "defEn": [
+     "Sim-to-real transfer means deploying a control policy trained in physics simulation onto a real robot; the core obstacle is the reality gap: friction, delay and sensor noise in simulation do not match the real world.",
+     "Domain randomisation is one mainstream approach: during training, physics parameters, textures and lighting are deliberately randomised so the policy has seen variation and does not only recognise one simulated world.",
+     "Tobin et al. used domain randomisation to transfer a visual policy from simulation to a real arm; Peng et al. randomised dynamics parameters so quadruped and biped gaits could move from simulation to hardware."
+    ],
+    "whyEn": "Robot demos often look agile but shake on real hardware, usually because of this step. Knowing the reality gap exists stops you treating simulation success rates as real capability, and prompts you to ask which randomisation or system identification was used.",
+    "slug": "仿真到实机迁移"
    }
   ]
  },
@@ -5661,6 +5901,45 @@ var TERMS = [
     ],
     "whyEn": "Verifying a vendor's claim, assigning blame after an incident, and judging whether content is authentic all ask the same question. Knowing what each method presupposes stops you from trusting absolute promises from \"AI detectors\" and from turning a probabilistic guess into a finding you put in a report.",
     "slug": "模型指纹与溯源"
+   },
+   {
+    "zh": "机器人策略",
+    "en": "Robot Policy",
+    "purpose": "说清机器人「看到什么就做什么」的那条映射，它才是机器人行为的直接来源。",
+    "def": [
+     "策略是观测到动作的映射：给定当前状态或观测，策略决定下一步执行什么动作，可以是确定性规则，也可以是输出动作分布的随机策略。",
+     "机器人策略通常由学习得到——模仿学习从示范拟合它，强化学习按奖励优化它；训练完成后，部署到机器人上的就是这个映射本身。",
+     "策略与环境构成闭环：动作改变环境，新观测又喂回策略。机器人行为的连贯或失控，都要从这个闭环里找原因，而不是归结为某一条单步指令。"
+    ],
+    "why": "看懂「策略」这个词，机器人新闻里的「端到端」「策略泛化」「策略失效」才有落点：它们说的都是同一条观测到动作的映射，在不同条件下的表现。",
+    "refs": [
+     [
+      "OpenAI Spinning Up · Key Concepts in RL（Policies 一节）",
+      "https://spinningup.openai.com/en/latest/spinningup/rl_intro.html",
+      "OpenAI Spinning Up: key concepts in RL, policies"
+     ],
+     [
+      "Sutton 与 Barto《Reinforcement Learning: An Introduction》官方书页",
+      "http://incompleteideas.net/book/the-book.html",
+      "Sutton & Barto, Reinforcement Learning: An Introduction, official book page"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 40,
+    "last_verified": "2026-11-07",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Name the mapping from what a robot observes to what it does — the direct source of robot behaviour.",
+    "defEn": [
+     "A policy is a mapping from observations to actions: given the current state or observation, it decides the next action, either as a deterministic rule or a stochastic policy outputting an action distribution.",
+     "Robot policies are usually learned: imitation learning fits them from demonstrations, reinforcement learning optimises them by reward; after training, the deployed artefact is this mapping itself.",
+     "Policy and environment form a closed loop: actions change the environment, and new observations feed back into the policy. Coherent or runaway behaviour should be traced through this loop, not blamed on one single-step command."
+    ],
+    "whyEn": "Understanding policy gives robot news terms such as end-to-end, policy generalisation and policy failure a concrete referent: they all describe the same observation-to-action mapping under different conditions.",
+    "slug": "机器人策略"
    }
   ]
  },
@@ -6851,6 +7130,48 @@ var TERMS = [
     ],
     "whyEn": "A compliance review does not ask which vendor's model you use. It asks which jurisdiction the data reaches, on what legal route, and who signed for it. A screenshot of a region selector does not answer the second question.",
     "slug": "数据驻留与出境"
+   },
+   {
+    "zh": "机器人中间件",
+    "en": "Robot Middleware",
+    "alias": [
+     "ROS",
+     "机器人操作系统"
+    ],
+    "purpose": "把机器人的驱动、算法与工具接成一套能互相通信的软件骨架。",
+    "def": [
+     "机器人中间件是介于操作系统与机器人应用之间的通信与工具层：让传感器、控制器、规划器等节点以统一方式交换消息、调用服务。",
+     "ROS 2 是代表性实现，提供话题、服务、动作等通信原语，配套启动、日志与可视化工具，设计文档公开可查。",
+     "它解决的不是某个算法，而是「算法之间怎么连」：换一个规划器或传感器，不必重写整套系统。"
+    ],
+    "why": "自己搭机器人或与机器人团队协作，绕不开这层骨架。知道中间件管通信与工具、不管智能本身，就能把「系统跑不起来」和「模型不够聪明」两类问题分开排查。",
+    "refs": [
+     [
+      "ROS 2 官方文档",
+      "https://docs.ros.org/en/rolling/index.html",
+      "ROS 2 official documentation"
+     ],
+     [
+      "ROS 2 官方设计文档",
+      "https://design.ros2.org/",
+      "ROS 2 official design documents"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "apply",
+    "level": 5,
+    "layer": "五",
+    "ord": 35,
+    "last_verified": "2026-11-07",
+    "verified_scope": "refs",
+    "purposeEn": "Connect robot drivers, algorithms and tools into a software skeleton whose parts can communicate.",
+    "defEn": [
+     "Robot middleware is the communication and tooling layer between the operating system and robot applications: sensors, controllers and planners exchange messages and call services in a uniform way.",
+     "ROS 2 is a representative implementation, providing communication primitives such as topics, services and actions, with launch, logging and visualisation tools; its design documents are public.",
+     "It solves how algorithms connect, not any single algorithm: replacing a planner or sensor does not require rewriting the whole system."
+    ],
+    "whyEn": "Building a robot or working with a robotics team means dealing with this skeleton. Knowing middleware handles communication and tools, not intelligence itself, helps separate system integration failures from model capability failures.",
+    "slug": "机器人中间件"
    }
   ]
  },

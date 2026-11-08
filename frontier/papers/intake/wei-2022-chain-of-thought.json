@@ -1,0 +1,43 @@
+{
+  "id": "wei-2022-chain-of-thought",
+  "title": {
+    "zh": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    "en": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"
+  },
+  "category": "reasoning",
+  "url": "https://arxiv.org/abs/2201.11903",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2201.11903",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+      "quote": "We explore how generating a chain of thought—a series of intermediate reasoning steps—significantly improves the ability of large language models to perform complex reasoning."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+      "quote": "As for limitations, we first qualify that although chain of thought emulates the thought processes of human reasoners, this does not answer whether the neural network is actually ‘reasoning,’ which we leave as an open question."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+      "quote": "Third, there is no guarantee of correct reasoning paths, which can lead to both correct and incorrect answers; improving factual generations of language models is an open direction for future work."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+      "quote": "Finally, the emergence of chain-of-thought reasoning only at large model scales makes it costly to serve in real-world applications; further research could explore how to induce reasoning in smaller models."
+    }
+  ],
+  "notes": {
+    "zh": "问题：复杂推理任务上直接给答案效果差，能不能让模型先写出中间推理步骤再给结论。\n证据位置：规模涌现的结论在 Figure 4 与第 3.2 节，GSM8K 的具体数值在表 1、表 2（PaLM 540B 从 17.9 升到 56.9）。\n作者自陈局限：第 6 节列了四条——思维链模仿了人类的思考过程，但这不回答神经网络是否真的在「推理」，作者把它留作开放问题；少样本场景手工加推理链的标注成本很低，但换到微调就可能高得不可行；没有任何机制保证推理路径正确，错误路径也能推出看似合理的答案；这种能力只在大规模模型上涌现，导致实际服务成本高。\n它没主张的：论文没有说思维链让模型获得了可靠推理能力，也没有说小模型加提示就能复现；作者明确写了它对 10B 以下多数模型反而有害，所以「加一句 let’s think step by step 就变聪明」不是这篇的结论。",
+    "en": "Problem: on complex reasoning tasks, answering directly works poorly; can the model be made to write intermediate steps before concluding.\nWhere the evidence sits: the scale-emergence result is Figure 4 and Section 3.2; the GSM8K numbers are Tables 1 and 2 (PaLM 540B from 17.9 to 56.9).\nWhat the authors say about limits: Section 6 lists four — a chain of thought emulates human reasoning but does not answer whether the network is actually reasoning, which is left open; manually annotating chains is cheap in the few-shot setting but could be prohibitive for fine-tuning; there is no guarantee of correct reasoning paths, so wrong paths also produce plausible answers; and the ability emerges only at large scale, making real-world serving costly.\nWhat it does not claim: the paper does not say chain of thought confers reliable reasoning, nor that small models can reproduce it with a prompt — the authors state it actually hurts most models under 10B parameters, so \"just add let us think step by step\" is not the finding here."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "Figure 4 与第 3.2 节；表 1、表 2（GSM8K）",
+    "GSM8K / PaLM 540B": "17.9 → 56.9（标准提示 → 思维链）",
+    "涌现门槛 / emergence": "约 100B 参数以上；10B 以下多为负收益",
+    "复现状态 / reproduction": "未复现"
+  }
+}

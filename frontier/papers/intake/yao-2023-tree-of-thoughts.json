@@ -1,0 +1,44 @@
+{
+  "id": "yao-2023-tree-of-thoughts",
+  "title": {
+    "zh": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+    "en": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models"
+  },
+  "category": "reasoning",
+  "url": "https://arxiv.org/abs/2305.10601",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2305.10601",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.10601",
+      "quote": "For instance, in Game of 24, while GPT-4 with chain-of-thought prompting only solved 4% of tasks, our method achieved a success rate of 74%."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.10601",
+      "quote": "ToT allows LMs to perform deliberate decision making by considering multiple different reasoning paths and self-evaluating choices to decide the next course of action, as well as looking ahead or backtracking when necessary to make global choices."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.10601",
+      "quote": "We scrape data from 4nums.com, which has 1,362 games that are sorted from easy to hard by human solving time, and use a subset of relatively hard games indexed 901-1,000 for testing. For each task, we consider the output as success if it is a valid equation that equals 24 and uses the input numbers each exactly once. We report the success rate across 100 games as the metric."
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2305.10601",
+      "quote": "In general, cost and efficiency of ToT highly depend on the prompts and search algorithms used, and could require 5-100 times more generated tokens than CoT."
+    }
+  ],
+  "notes": {
+    "zh": "问题：LM 推理仍是 token 级、从左到右的决策，在需要探索、策略前瞻或初始决策起关键作用的任务上会失效；能否让 LM 在以「思维」为中间步骤的树上做 deliberate 搜索——考虑多条推理路径、自评估选择、必要时前瞻与回溯。\n证据位置：摘要给出 Game of 24 上 GPT-4 + CoT 仅解出 4% 而 ToT 达 74%；实验在 Section 4.1 Table 2——从 4nums.com 抓取的 1,362 局中取较难的第 901-1,000 局、以 100 局成功率为指标，GPT-4、温度 0.7（实验于 2023 年 5 月 5-16 日进行）；成本与局限在 Section 6 Discussion 与 Appendix B.3。\n作者自陈局限：Section 6 写明这类 deliberate search \"might not be necessary for many existing tasks that GPT-4 already excels at\"，且作为初步工作只探索了三个相对简单的任务；Appendix B.3 写明 \"could require 5-100 times more generated tokens than CoT\"；工作只用现成 LM，微调被留作未来方向。\n它没主张的：74% 是 100 局较难子集、BFS 每步保留 b=5 候选设置下的成功率，不是全部 1,362 局的成绩；论文没有证明 ToT 处处优于 CoT——Appendix B.1 在 GSM8K/StrategyQA 上只有小幅提升，B.2 中 GPT-3.5+ToT 在 Game of 24 仅 19%；作者也指出一般填字游戏可由专用 NLP 管线解决，本文并未主张取代它们，更没有任何训练层面的结论。",
+    "en": "Problem: LM inference remains token-level, left-to-right decision making, which falls short on tasks requiring exploration, strategic lookahead, or where initial decisions play a pivotal role; can an LM instead search deliberately over a tree with thoughts as intermediate steps — considering multiple reasoning paths, self-evaluating choices, and looking ahead or backtracking when necessary.\nWhere the evidence sits: the abstract reports 74% success for ToT vs 4% for GPT-4 with chain-of-thought prompting on Game of 24; the experiment is in Section 4.1, Table 2 — the relatively hard games indexed 901-1,000 out of 1,362 scraped from 4nums.com, success rate over 100 games, GPT-4 at temperature 0.7 (experiments run May 5-16, 2023); cost and limits are in Section 6, Discussion, and Appendix B.3.\nWhat the authors say about limits: Section 6 states that deliberate search \"might not be necessary for many existing tasks that GPT-4 already excels at\" and that, as an initial step, only three relatively simple tasks are explored; Appendix B.3 states ToT \"could require 5-100 times more generated tokens than CoT\"; the work uses an off-the-shelf LM, with fine-tuning left as a future direction.\nWhat it does not claim: 74% is the success rate on the 100-game hard subset with BFS keeping b=5 candidates per step, not a result on all 1,362 games; the paper does not show ToT beats CoT everywhere — Appendix B.1 reports only slight gains on GSM8K/StrategyQA and Appendix B.2 reports GPT-3.5+ToT at 19% on Game of 24; the authors note general crosswords can be solved by specialized NLP pipelines, and no training-level claim is made."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "证据位置 / evidence": "摘要；Section 4.1 Table 2（Game of 24）；Appendix B.3 成本分析",
+    "Game of 24 成功率 / success": "ToT 74% vs GPT-4 CoT 4%",
+    "测试集 / test set": "4nums.com 共 1,362 局，取较难的第 901-1,000 局，以 100 局成功率为指标",
+    "额外生成开销 / cost": "生成 token 可达 CoT 的 5-100 倍",
+    "复现状态 / reproduction": "未复现"
+  }
+}

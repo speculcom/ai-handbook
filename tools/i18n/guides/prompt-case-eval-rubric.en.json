@@ -1,0 +1,14 @@
+{
+  "_comment": "English body for prompt-case-eval-rubric. Sections keyed by Chinese heading; sources aligned by index.",
+  "sections": {
+    "任务与输入": "Output dimensions and observable criteria; no total-score ranking.\nInputs: Evaluation goal, task samples, and constraints.",
+    "提示词本体": "```text\nDesign a rubric. Output dimensions[] with name, observable_criteria[], evidence_required and failure_examples. Criteria must be observable and checkable; do not assign weighted total scores or rankings. If model judging is used, state position-bias and human spot-check rules.\n```\n\nReplace {field} placeholders with the current inputs before running.",
+    "预期输出形态": "dimensions[] without total-score ranking.",
+    "检查点": "- Criteria are observable.\n- No weighted total score.\n- Model judging has bias rules.",
+    "失败分支": "- Vague criteria: turn into checkable actions.\n- Overlapping dimensions: merge or separate.",
+    "出处与边界": "This site has not tested the effect of this prompt. See the sources for the mechanism; changing model, version or input can change the result."
+  },
+  "sources": [
+    "OpenAI Cookbook: Building resilient prompts using an evaluation flywheel (official repository raw, fetched 200 on 2026-11-07)"
+  ]
+}

@@ -39,18 +39,18 @@
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| terms · 词条 | 228 词 |
-| terms · 分站 | 进门 35 · 上手 42 · 用深 43 · 看懂 39 · 跑起来 34 · 选得对 35 |
-| terms · 学习路径 | 12 条（精选有序路径 · 各带检查点） |
-| terms · 微型指南 | 81 篇（5-10 分钟一篇 · 英文覆盖 81/81） |
+| terms · 词条 | 236 词 |
+| terms · 分站 | 进门 36 · 上手 44 · 用深 46 · 看懂 40 · 跑起来 35 · 选得对 35 |
+| terms · 学习路径 | 13 条（精选有序路径 · 各带检查点） |
+| terms · 微型指南 | 87 篇（5-10 分钟一篇 · 英文覆盖 87/87） |
 | terms · 编年史与版图 | 18 条时间线 · 12 家公司 · 5 条术语演变 |
-| terms · 领域（domain） | concept 57 · infra 39 · choice 38 · agent 28 · media 20 · model 19 · data 16 · dev 11 |
-| terms · 用途（purposeTag） | learn 83 · apply 54 · guard 48 · judge 43 |
-| terms · 出处条目（refs） | 633 条 |
-| terms · 英文覆盖 | 228 / 228 |
-| tools · 档案总数 | 250 份 |
-| tools · 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 30 · mcp 32 · runner 21 · safety 25 |
-| tools · 形态分布（form） | web 97 · mcp 32 · cli 30 · harness 30 · cloud 22 · local-app 20 · ide 19 |
+| terms · 领域（domain） | concept 59 · infra 41 · choice 38 · agent 28 · media 23 · model 20 · data 16 · dev 11 |
+| terms · 用途（purposeTag） | learn 88 · apply 57 · guard 48 · judge 43 |
+| terms · 出处条目（refs） | 666 条 |
+| terms · 英文覆盖 | 236 / 236 |
+| tools · 档案总数 | 262 份 |
+| tools · 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 42 · mcp 32 · runner 21 · safety 25 |
+| tools · 形态分布（form） | web 97 · harness 39 · mcp 32 · cli 30 · local-app 23 · cloud 22 · ide 19 |
 | tools · 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 | models · 系列 | 11 个 |
 | models · 模型仓（members） | 16 个 |

@@ -167,7 +167,7 @@ or faster need benchmarks, and this site makes none.
 | [nav.specul.com](https://nav.specul.com/) | Directory · AI site index |
 | [tools.specul.com](https://tools.specul.com/) | Agent atlas · products / harnesses / MCP tools |
 | [learn.specul.com](https://learn.specul.com/) | Glossary · concept layer |
-| [vg.specul.com](https://vg.specul.com/) | Vibe gaming · practice layer |
+| [specul.com](https://specul.com/topic-game.html) | Vibe gaming · practice layer |
 
 <!-- INDEX:BEGIN generated, do not edit -->
 

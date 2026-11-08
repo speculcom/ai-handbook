@@ -153,7 +153,7 @@ node scripts/build.mjs
 | [nav.specul.com](https://nav.specul.com/) | 导航 · AI 站点目录 |
 | [tools.specul.com](https://tools.specul.com/) | AI 工具 · 现成的 AI 工具 / 自己搭（进阶） / 给 AI 装工具 |
 | [learn.specul.com](https://learn.specul.com/) | 术语表 · 概念层 |
-| [vg.specul.com](https://vg.specul.com/) | AI 做游戏 · 实践层 |
+| [specul.com](https://specul.com/topic-game.html) | AI 做游戏 · 实践层 |
 
 <!-- INDEX:BEGIN generated, do not edit -->
 

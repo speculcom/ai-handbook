@@ -1,0 +1,42 @@
+{
+  "id": "nvidia-h200-sxm",
+  "title": {
+    "zh": "NVIDIA H200 SXM",
+    "en": "NVIDIA H200 SXM"
+  },
+  "category": "accelerator",
+  "url": "https://www.nvidia.com/en-us/data-center/h200/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.nvidia.com/en-us/data-center/h200/",
+    "checkedAt": "2026-11-07"
+  },
+  "evidence": [
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/h200/",
+      "quote": "GPU Memory 141GB  GPU Memory Bandwidth 4.8TB/s"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/h200/",
+      "quote": "Max Thermal Design Power (TDP) Up to 700W (configurable)"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/data-center/h200/",
+      "quote": "Preliminary specifications. May be subject to change."
+    }
+  ],
+  "notes": {
+    "zh": "回答与 H100 同功耗档、显存翻到 141GB 的卡是什么水平，用于判断「模型能不能整卡放下」。注意官方在该页标注规格为初步数据、可能变动，采购前须回到最新 datasheet 复核。不回答实际推理吞吐：页面上的加速倍数来自厂商特定 batch 与序列长度条件。",
+    "en": "Answers what a card at the same power tier as H100 but with 141 GB of memory represents, which is what a \"does the model fit on one card\" decision needs. The vendor marks these figures as preliminary and subject to change on this page, so the current datasheet must be re-checked before procurement. It does not answer measured inference throughput: the speed-up multiples on the page come from specific vendor batch sizes and sequence lengths."
+  },
+  "verifiedAt": "2026-11-07",
+  "specs": {
+    "memory": "141 GB HBM3e",
+    "memory bandwidth": "4.8 TB/s",
+    "max TDP": "up to 700 W (configurable)",
+    "form factor": "SXM",
+    "interconnect": "NVLink 900 GB/s; PCIe Gen5 128 GB/s",
+    "FP8 tensor, sparsity": "3,958 TFLOPS",
+    "MIG": "up to 7 instances at 18 GB each"
+  }
+}

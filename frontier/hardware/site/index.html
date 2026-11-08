@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AI 硬件 · Specul</title>
+  <meta name="description" content="AI 硬件：收录 21 条（加速卡 / 云算力 / 机器人本体 / 边缘设备 / 整机 / 传感器）条目，逐条挂官方来源与核验日；只给事实字段，不排名、不打分。" />
+  <link rel="canonical" href="https://hardware.specul.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AI 硬件 · Specul" />
+  <meta property="og:url" content="https://hardware.specul.com/" />
+  <meta property="og:title" content="AI 硬件 · Specul" />
+  <meta property="og:description" content="AI 硬件：收录 21 条（加速卡 / 云算力 / 机器人本体 / 边缘设备 / 整机 / 传感器）条目，逐条挂官方来源与核验日；只给事实字段，不排名、不打分。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=5e907aab579b"></script>
+  <link rel="stylesheet" href="brand.css?v=5e907aab579b" />
+  <link rel="stylesheet" href="site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"AI 硬件 · Specul","description":"AI 硬件：收录 21 条（加速卡 / 云算力 / 机器人本体 / 边缘设备 / 整机 / 传感器）条目，逐条挂官方来源与核验日；只给事实字段，不排名、不打分。","url":"https://hardware.specul.com/","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+        <a href="https://hardware.specul.com/" aria-current="page"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链 × AI</span><span data-en>Chain × AI</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品库</span><span data-en>Demos</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" aria-current="page"><span><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>论文</span><span data-en>Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链 × AI</span><span data-en>Chain × AI</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>9 个站，各管一件事</span><span data-en>Nine sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container ms-page">
+  <p class="kicker"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></p>
+  <h1><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></h1>
+  <p><span data-zh>收录 21 条，逐条挂官方来源与核验日；只给事实字段，不排名、不打分。</span><span data-en>21 entries, each with an official source and a check date; fact fields only, no ranking, no scores.</span></p>
+  <form class="ms-filter"><label for="ms-cat"><span data-zh>类目</span><span data-en>Category</span><select id="ms-cat"><option value="all" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="accelerator" data-ui-text-zh="加速卡 · accelerator" data-ui-text-en="accelerator">加速卡 · accelerator</option><option value="cloud" data-ui-text-zh="云算力 · cloud" data-ui-text-en="cloud">云算力 · cloud</option><option value="robot-body" data-ui-text-zh="机器人本体 · robot-body" data-ui-text-en="robot-body">机器人本体 · robot-body</option><option value="edge" data-ui-text-zh="边缘设备 · edge" data-ui-text-en="edge">边缘设备 · edge</option><option value="system" data-ui-text-zh="整机 · system" data-ui-text-en="system">整机 · system</option><option value="sensor" data-ui-text-zh="传感器 · sensor" data-ui-text-en="sensor">传感器 · sensor</option></select></label></form>
+  <div class="ms-grid">      <article class="ms-card" id="amd-instinct-mi210" data-cat="accelerator">
+        <h3><a href="https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html" rel="noopener">AMD Instinct MI210<span class="t-sm"> / AMD Instinct MI210</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答上一代 PCIe 形态加速卡的显存与带宽档位，常见于存量服务器升级场景。该页未给整板功耗，按「查不到留空」处理。注意它是被动散热、全高双槽，装机前要确认机箱风道能压住。</span><span data-en>Answers the memory and bandwidth tier of a previous-generation PCIe accelerator, typically relevant when upgrading existing servers. The page lists no board power, so that field is left empty rather than guessed. It is passively cooled in a full-height double-slot form, so chassis airflow must be confirmed before installation.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>64 GB HBM2e</dd></div><div><dt>memory bandwidth</dt><dd>1.6 TB/s</dd></div><div><dt>form factor</dt><dd>PCIe add-in card, full height, double slot, 267 mm</dd></div><div><dt>bus</dt><dd>PCIe 4.0 x16</dd></div><div><dt>cooling</dt><dd>passive</dd></div><div><dt>FP16 / BF16</dt><dd>181 TFLOPS</dd></div><div><dt>FP32</dt><dd>22.6 TFLOPS</dd></div><div><dt>Infinity Fabric links</dt><dd>3 at 100 GB/s peak</dd></div></dl>
+      </article>
+      <article class="ms-card" id="amd-instinct-mi300x" data-cat="accelerator">
+        <h3><a href="https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html" rel="noopener">AMD Instinct MI300X<span class="t-sm"> / AMD Instinct MI300X</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答单卡显存容量与带宽的量级，供「一个模型能不能整卡装下」这类判断使用。不回答软件栈成熟度或迁移成本：该页只给硬件规格，ROCm 支持范围与框架版本需另查官方文档。</span><span data-en>Answers the order of magnitude of per-card memory and bandwidth, which is what a &quot;does this model fit on one card&quot; decision needs. It does not answer software-stack maturity or porting cost: the page carries hardware figures only, so ROCm coverage and framework versions must be checked against the vendor documentation.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>192 GB HBM3</dd></div><div><dt>memory bandwidth</dt><dd>5.3 TB/s</dd></div><div><dt>board power</dt><dd>750 W peak</dd></div><div><dt>form factor</dt><dd>OAM module</dd></div><div><dt>bus</dt><dd>PCIe 5.0 x16</dd></div><div><dt>FP8, sparsity</dt><dd>5.22 PFLOPS</dd></div><div><dt>FP16, sparsity</dt><dd>2.61 PFLOPS</dd></div><div><dt>Infinity Fabric links</dt><dd>8 at 128 GB/s peak</dd></div></dl>
+      </article>
+      <article class="ms-card" id="aws-ec2-p5-48xlarge" data-cat="cloud">
+        <h3><a href="https://aws.amazon.com/ec2/instance-types/p5/" rel="noopener">AWS EC2 p5.48xlarge<span class="t-sm"> / AWS EC2 p5.48xlarge</span></a></h3>
+        <p class="t-sm">云算力 · cloud · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答云上单实例的卡数、总显存、网络与本地盘口径，用来估算多卡训练要不要自己买机器。不回答价格与可用区库存：云报价随时变动且随区域不同，需在官方计费页现查。同页还有 P5e 与 P5en（H200 机型），选型时不要混用两代的数字。</span><span data-en>Answers the card count, aggregate memory, network and local storage of a single cloud instance, which is what a rent-versus-buy decision rests on. It does not answer price or regional availability: cloud pricing changes and differs per region, so the billing page must be checked at the time. The same page also lists P5e and P5en (H200 machines); figures from the two generations should not be mixed.</span></p>
+        <dl class="ms-specs"><div><dt>vCPUs</dt><dd>192</dd></div><div><dt>instance memory</dt><dd>2 TiB</dd></div><div><dt>GPU</dt><dd>8 x NVIDIA H100</dd></div><div><dt>GPU memory</dt><dd>640 GB HBM3</dd></div><div><dt>network bandwidth</dt><dd>3200 Gbps EFA</dd></div><div><dt>GPU interconnect</dt><dd>900 GB/s NVSwitch</dd></div><div><dt>local storage</dt><dd>8 x 3.84 TB NVMe SSD</dd></div><div><dt>EBS bandwidth</dt><dd>80 Gbps</dd></div></dl>
+      </article>
+      <article class="ms-card" id="aws-ec2-p5-4xlarge" data-cat="cloud">
+        <h3><a href="https://aws.amazon.com/ec2/instance-types/p5/" rel="noopener">AWS EC2 p5.4xlarge<span class="t-sm"> / AWS EC2 p5.4xlarge</span></a></h3>
+        <p class="t-sm">云算力 · cloud · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答单卡云实例的规格，用于小规模微调或单模型部署。两个容易忽略的限制：单卡实例不支持 GPUDirect RDMA，也没有 NVSwitch，想靠多台单卡机拼出多卡训练会卡在通信上；要 8 卡全互联得换 p5.48xlarge。</span><span data-en>Answers the specification of a single-GPU cloud instance for small fine-tunes or single-model deployment. Two limits are easy to miss: the single-card size supports neither GPUDirect RDMA nor NVSwitch, so stitching several single-GPU hosts into a multi-card training job is communication-bound; eight-card fabric requires the p5.48xlarge size instead.</span></p>
+        <dl class="ms-specs"><div><dt>vCPUs</dt><dd>16</dd></div><div><dt>instance memory</dt><dd>256 GiB</dd></div><div><dt>GPU</dt><dd>1 x NVIDIA H100</dd></div><div><dt>GPU memory</dt><dd>80 GB HBM3</dd></div><div><dt>network bandwidth</dt><dd>100 Gbps EFA</dd></div><div><dt>local storage</dt><dd>3.84 TB NVMe SSD</dd></div><div><dt>EBS bandwidth</dt><dd>10 Gbps</dd></div><div><dt>GPUDirect RDMA</dt><dd>not supported on this size</dd></div></dl>
+      </article>
+      <article class="ms-card" id="azure-nd-h100-v5" data-cat="cloud">
+        <h3><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndh100v5-series" rel="noopener">Azure ND H100 v5<span class="t-sm"> / Azure ND H100 v5</span></a></h3>
+        <p class="t-sm">云算力 · cloud · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答云上 8 卡 H100 实例的 CPU、内存与互联配置，可与同类实例逐项对照。关键差异在 CPU 与内存配比：本实例 96 vCPU / 1900 GiB，同类其他厂商给到 192 vCPU / 2 TiB，数据加载型任务会先撞 CPU 与内存，而不是 GPU。不回答价格与配额。</span><span data-en>Answers the CPU, memory and interconnect configuration of an 8-GPU H100 cloud instance so it can be compared item by item with peers. The decisive difference is the CPU-to-memory ratio: this instance pairs 96 vCPUs with 1,900 GiB where a comparable offering provides 192 vCPUs and 2 TiB, so data-loading workloads hit CPU and memory limits before the GPUs. It does not answer price or quota.</span></p>
+        <dl class="ms-specs"><div><dt>GPU</dt><dd>8 x NVIDIA H100 80 GB</dd></div><div><dt>vCPUs</dt><dd>96 (Intel Xeon Sapphire Rapids)</dd></div><div><dt>memory</dt><dd>1,900 GiB</dd></div><div><dt>local storage</dt><dd>1,024 GiB</dd></div><div><dt>networking</dt><dd>8 NICs; 3.2 Tbps interconnect per VM; 400 Gbps InfiniBand per GPU</dd></div><div><dt>GPU interconnect</dt><dd>NVLink 4.0 within the VM</dd></div></dl>
+      </article>
+      <article class="ms-card" id="boston-dynamics-spot" data-cat="robot-body">
+        <h3><a href="https://bostondynamics.com/products/spot/" rel="noopener">Boston Dynamics Spot<span class="t-sm"> / Boston Dynamics Spot</span></a></h3>
+        <p class="t-sm">机器人本体 · robot-body · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答工业巡检型四足的尺寸、防护与地形能力，重点在 IP54 与 -20 至 55°C 的工况范围，这是它区别于轻量科研机型的地方。不回答自主导航能到什么程度：官方页面只给感知视场与测距，自主性取决于所配软件与载荷。</span><span data-en>Answers the dimensions, ingress protection and terrain capability of an industrial inspection quadruped, where IP54 and a -20 to 55 °C operating range are what distinguish it from lightweight research platforms. It does not answer how far autonomy goes: the page gives perception field of view and range only, and autonomy depends on the software and payload fitted.</span></p>
+        <dl class="ms-specs"><div><dt>dimensions</dt><dd>1100 mm L x 500 mm W; 610 mm default walking height</dd></div><div><dt>weight</dt><dd>33.8 kg with battery</dd></div><div><dt>payload</dt><dd>20.43 kg stated payload capacity</dd></div><div><dt>max speed</dt><dd>1.6 m/s</dd></div><div><dt>max slope</dt><dd>±30°</dd></div><div><dt>max step height</dt><dd>300 mm</dd></div><div><dt>ingress protection</dt><dd>IP54</dd></div><div><dt>operating temperature</dt><dd>-20 °C to 55 °C</dd></div><div><dt>terrain sensing</dt><dd>360° horizontal field of view, 4 m range, works above 2 lux</dd></div></dl>
+      </article>
+      <article class="ms-card" id="hailo-8" data-cat="edge">
+        <h3><a href="https://hailo.ai/products/ai-accelerators/hailo-8-ai-accelerator/" rel="noopener">Hailo-8 边缘加速模块<span class="t-sm"> / Hailo-8 edge accelerator</span></a></h3>
+        <p class="t-sm">边缘设备 · edge · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答低功耗视觉推理模块的算力与功耗档位：片上自带内存、不需要外挂 DRAM 是它区别于大算力卡的关键约束。不回答它能跑哪些大语言模型：官方定位为视觉与神经网络推理，选型前要核对模型是否在支持列表内。商用版本芯片已由官方公告停产、改由工业版本替代，采购时需确认版本。</span><span data-en>Answers the compute and power tier of a low-power vision inference module, whose defining constraint is on-chip memory with no external DRAM. It does not answer which large language models it can run: the vendor positions it for vision and neural-network inference, so model support must be checked against the supported list first. The vendor has announced end-of-life for the commercial version IC, replaced by the industrial version, so the variant must be confirmed when ordering.</span></p>
+        <dl class="ms-specs"><div><dt>AI performance</dt><dd>26 TOPS</dd></div><div><dt>typical power</dt><dd>2.5 W</dd></div><div><dt>memory</dt><dd>integrated on-chip, no external DRAM required</dd></div><div><dt>host interface</dt><dd>M.2 / PCIe module</dd></div><div><dt>grades</dt><dd>commercial; industrial -40 to 85 °C; automotive -40 to 105 °C</dd></div><div><dt>frameworks</dt><dd>TensorFlow, TensorFlow Lite, Keras, PyTorch, ONNX</dd></div><div><dt>host architectures</dt><dd>x86, Arm</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-a100-80gb-sxm" data-cat="accelerator">
+        <h3><a href="https://www.nvidia.com/en-us/data-center/a100/" rel="noopener">NVIDIA A100 80GB SXM<span class="t-sm"> / NVIDIA A100 80GB SXM</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答上一代数据中心卡的显存、带宽与功耗基线，常被当作对照参照。不回答它相对新一代卡的性价比：同在售的 HGX CTS 定制散热机型功耗上限不同，本页把标准 400W 与 500W 上限分开记。</span><span data-en>Answers the memory, bandwidth and power baseline of the previous data-centre generation, often used as a reference point. It does not answer value-for-money against newer cards: the HGX CTS custom-thermal SKU carries a different ceiling, so the standard 400 W and the 500 W ceiling are recorded separately.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>80 GB HBM2e</dd></div><div><dt>memory bandwidth</dt><dd>2,039 GB/s</dd></div><div><dt>TDP (standard)</dt><dd>400 W</dd></div><div><dt>TDP (HGX CTS SKU)</dt><dd>up to 500 W</dd></div><div><dt>form factor</dt><dd>SXM</dd></div><div><dt>interconnect</dt><dd>NVLink 600 GB/s; PCIe Gen4 64 GB/s</dd></div><div><dt>BF16 tensor, sparsity</dt><dd>624 TFLOPS</dd></div><div><dt>MIG</dt><dd>up to 7 instances at 10 GB each</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-dgx-spark" data-cat="system">
+        <h3><a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/" rel="noopener">NVIDIA DGX Spark<span class="t-sm"> / NVIDIA DGX Spark</span></a></h3>
+        <p class="t-sm">整机 · system · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答桌面级统一内存机器的内存、功耗与体积：128GB 统一内存是它和消费级显卡的根本差别，模型不必先切进显存。官方给出的「最多 200B 参数」是推理口径、且为厂商声明，不是实测；多机互联最多 4 台。不回答训练可行性：微调上限官方写作 70B 参数级。</span><span data-en>Answers the memory, power and footprint of a desktop unified-memory machine: 128 GB of coherent memory is what separates it from consumer graphics cards, since the model need not be staged into dedicated VRAM first. The stated &quot;up to 200B parameters&quot; is an inference figure and a vendor claim rather than a measurement, and at most four units can be linked. It does not answer training feasibility: the vendor puts fine-tuning at up to 70B parameters.</span></p>
+        <dl class="ms-specs"><div><dt>architecture</dt><dd>NVIDIA Grace Blackwell (GB10)</dd></div><div><dt>CPU</dt><dd>20-core Arm: 10 Cortex-X925 + 10 Cortex-A725</dd></div><div><dt>memory</dt><dd>128 GB LPDDR5x, coherent unified</dd></div><div><dt>memory bandwidth</dt><dd>273 GB/s</dd></div><div><dt>tensor performance</dt><dd>up to 1 PFLOP FP4 (with sparsity)</dd></div><div><dt>power supply</dt><dd>240 W; GB10 TDP 140 W</dd></div><div><dt>dimensions</dt><dd>150 x 150 x 50.5 mm; 1.2 kg</dd></div><div><dt>storage</dt><dd>up to 4 TB NVMe M.2</dd></div><div><dt>networking</dt><dd>ConnectX-7 at 200 Gbps; 10 GbE; WiFi 7</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-geforce-rtx-4090" data-cat="accelerator">
+        <h3><a href="https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/" rel="noopener">NVIDIA GeForce RTX 4090<span class="t-sm"> / NVIDIA GeForce RTX 4090</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答消费级单卡跑本地模型时的显存上限、整卡功耗与整机电源要求。不回答多卡并联能力：该型号官方标注不支持 NVLink，多卡只能走 PCIe，实际可用显存仍以单卡为界。</span><span data-en>Answers the memory ceiling, board power and system power supply requirement when running local models on a consumer card. It does not answer multi-card scaling: the vendor lists no NVLink support for this model, so cards communicate over PCIe only and usable memory stays bounded by a single card.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>24 GB GDDR6X</dd></div><div><dt>memory interface</dt><dd>384-bit</dd></div><div><dt>boost clock</dt><dd>2.52 GHz</dd></div><div><dt>total graphics power</dt><dd>450 W</dd></div><div><dt>required system power</dt><dd>850 W</dd></div><div><dt>CUDA cores</dt><dd>16,384</dd></div><div><dt>dimensions</dt><dd>304 mm, 3-slot</dd></div><div><dt>NVLink</dt><dd>not supported</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-h100-sxm" data-cat="accelerator">
+        <h3><a href="https://www.nvidia.com/en-us/data-center/h100/" rel="noopener">NVIDIA H100 SXM<span class="t-sm"> / NVIDIA H100 SXM</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答数据中心训练与推理卡的显存容量、带宽、功耗与互联口径。不回答实际训练吞吐或单位算力价格：这里记的是官方规格表数字，且带稀疏标注，实测吞吐随框架、精度与模型结构变化。</span><span data-en>Answers the memory capacity, bandwidth, power and interconnect figures of a data-centre training and inference card. It does not answer real training throughput or price per unit of compute: these are vendor spec-sheet numbers with sparsity, and measured throughput varies with framework, precision and model shape.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>80 GB HBM3</dd></div><div><dt>memory bandwidth</dt><dd>3.35 TB/s</dd></div><div><dt>max TDP</dt><dd>up to 700 W (configurable)</dd></div><div><dt>form factor</dt><dd>SXM</dd></div><div><dt>interconnect</dt><dd>NVLink 900 GB/s; PCIe Gen5 128 GB/s</dd></div><div><dt>FP8 tensor, sparsity</dt><dd>3,958 TFLOPS</dd></div><div><dt>MIG</dt><dd>up to 7 instances at 10 GB each</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-h200-nvl" data-cat="accelerator">
+        <h3><a href="https://www.nvidia.com/en-us/data-center/h200/" rel="noopener">NVIDIA H200 NVL<span class="t-sm"> / NVIDIA H200 NVL</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答 PCIe 风冷形态的 141GB 卡能怎么组：功耗上限低于 SXM 版本，适合低功耗风冷机架。关键约束是互联——NVLink 桥只支持 2 路或 4 路，凑不出 SXM 那种 8 卡全互联，多卡训练要按 PCIe 与桥接拓扑重新估算通信开销。</span><span data-en>Answers how the 141 GB card can be assembled in a PCIe air-cooled form: its power ceiling is below the SXM variant, which suits lower-power air-cooled racks. The binding constraint is interconnect — the NVLink bridge covers only 2-way or 4-way, so it cannot reproduce the 8-way fabric of SXM and multi-card training must be re-estimated against a PCIe and bridge topology.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>141 GB HBM3e</dd></div><div><dt>memory bandwidth</dt><dd>4.8 TB/s</dd></div><div><dt>max TDP</dt><dd>up to 600 W (configurable)</dd></div><div><dt>form factor</dt><dd>PCIe, dual-slot air-cooled</dd></div><div><dt>interconnect</dt><dd>2- or 4-way NVLink bridge at 900 GB/s per GPU; PCIe Gen5 128 GB/s</dd></div><div><dt>FP8 tensor, sparsity</dt><dd>3,341 TFLOPS</dd></div><div><dt>MIG</dt><dd>up to 7 instances at 16.5 GB each</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-h200-sxm" data-cat="accelerator">
+        <h3><a href="https://www.nvidia.com/en-us/data-center/h200/" rel="noopener">NVIDIA H200 SXM<span class="t-sm"> / NVIDIA H200 SXM</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答与 H100 同功耗档、显存翻到 141GB 的卡是什么水平，用于判断「模型能不能整卡放下」。注意官方在该页标注规格为初步数据、可能变动，采购前须回到最新 datasheet 复核。不回答实际推理吞吐：页面上的加速倍数来自厂商特定 batch 与序列长度条件。</span><span data-en>Answers what a card at the same power tier as H100 but with 141 GB of memory represents, which is what a &quot;does the model fit on one card&quot; decision needs. The vendor marks these figures as preliminary and subject to change on this page, so the current datasheet must be re-checked before procurement. It does not answer measured inference throughput: the speed-up multiples on the page come from specific vendor batch sizes and sequence lengths.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>141 GB HBM3e</dd></div><div><dt>memory bandwidth</dt><dd>4.8 TB/s</dd></div><div><dt>max TDP</dt><dd>up to 700 W (configurable)</dd></div><div><dt>form factor</dt><dd>SXM</dd></div><div><dt>interconnect</dt><dd>NVLink 900 GB/s; PCIe Gen5 128 GB/s</dd></div><div><dt>FP8 tensor, sparsity</dt><dd>3,958 TFLOPS</dd></div><div><dt>MIG</dt><dd>up to 7 instances at 18 GB each</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-jetson-agx-orin-64gb" data-cat="edge">
+        <h3><a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/" rel="noopener">NVIDIA Jetson AGX Orin 64GB<span class="t-sm"> / NVIDIA Jetson AGX Orin 64GB</span></a></h3>
+        <p class="t-sm">边缘设备 · edge · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答机器人本体上「板端能跑多大模型」的内存与算力上限。不回答实际帧率：TOPS 是官方标称口径，真实推理速度取决于量化方式、输入分辨率与散热条件，需要实测才有结论。</span><span data-en>Answers the on-board memory and compute ceiling that decides how large a model a robot body can run. It does not answer real frame rates: TOPS is a vendor rating, and actual inference speed depends on quantisation, input resolution and thermal headroom, which only measurement can settle.</span></p>
+        <dl class="ms-specs"><div><dt>AI performance</dt><dd>275 TOPS</dd></div><div><dt>GPU</dt><dd>2048-core Ampere, 64 Tensor Cores</dd></div><div><dt>CPU</dt><dd>12-core Arm Cortex-A78AE</dd></div><div><dt>memory</dt><dd>64 GB LPDDR5, 256-bit</dd></div><div><dt>memory bandwidth</dt><dd>204.8 GB/s</dd></div><div><dt>power</dt><dd>15 W - 60 W</dd></div><div><dt>module size</dt><dd>100 mm x 87 mm</dd></div><div><dt>storage</dt><dd>64 GB eMMC 5.1</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-jetson-orin-nx-16gb" data-cat="edge">
+        <h3><a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/" rel="noopener">NVIDIA Jetson Orin NX 16GB<span class="t-sm"> / NVIDIA Jetson Orin NX 16GB</span></a></h3>
+        <p class="t-sm">边缘设备 · edge · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答中等算力板端模组的算力、内存与功耗三角：比 AGX Orin 64GB 少约三分之二算力和四分之三内存，功耗却从 60W 级降到 25W 级。不回答散热方案：SO-DIMM 形态要靠载板设计导热，实际能否持续跑满取决于外壳与风道。</span><span data-en>Answers the compute, memory and power triangle of a mid-tier on-board module: roughly a third of the AGX Orin 64GB compute and a quarter of its memory, but a 25 W class envelope instead of 60 W. It does not answer thermal design: a SO-DIMM module conducts heat through the carrier board, so sustained clocks depend on enclosure and airflow.</span></p>
+        <dl class="ms-specs"><div><dt>AI performance</dt><dd>100 TOPS</dd></div><div><dt>GPU</dt><dd>1024-core Ampere, 32 Tensor Cores</dd></div><div><dt>CPU</dt><dd>6-core Arm Cortex-A78AE</dd></div><div><dt>memory</dt><dd>16 GB LPDDR5, 128-bit</dd></div><div><dt>memory bandwidth</dt><dd>102.4 GB/s</dd></div><div><dt>power</dt><dd>10 W - 25 W</dd></div><div><dt>module size</dt><dd>69.6 mm x 45 mm, 260-pin SO-DIMM</dd></div><div><dt>PCIe</dt><dd>1x4 + 3x1 Gen4</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-l40s" data-cat="accelerator">
+        <h3><a href="https://www.nvidia.com/en-us/data-center/l40s/" rel="noopener">NVIDIA L40S<span class="t-sm"> / NVIDIA L40S</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答一张兼顾图形与推理的 PCIe 卡的算力档位与功耗上限。不回答显存类型与带宽：官方该页只给容量、未给颗粒类型与带宽数值，按「查不到留空」处理，需要时查其 datasheet。</span><span data-en>Answers the compute tier and power ceiling of a PCIe card that covers both graphics and inference. It does not answer memory type or bandwidth: the vendor page states capacity only, so those fields are left empty rather than guessed, and should be read from the datasheet when needed.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>48 GB</dd></div><div><dt>max power</dt><dd>350 W</dd></div><div><dt>form factor</dt><dd>PCIe, dual-slot air-cooled</dd></div><div><dt>FP32</dt><dd>91.6 TFLOPS</dd></div><div><dt>TF32 tensor, sparsity</dt><dd>366 TFLOPS</dd></div><div><dt>FP8 tensor, sparsity</dt><dd>1,466 TFLOPS</dd></div><div><dt>RT core</dt><dd>212 TFLOPS</dd></div></dl>
+      </article>
+      <article class="ms-card" id="nvidia-rtx-6000-ada" data-cat="accelerator">
+        <h3><a href="https://www.nvidia.com/en-us/design-visualization/rtx-6000/" rel="noopener">NVIDIA RTX 6000 Ada<span class="t-sm"> / NVIDIA RTX 6000 Ada</span></a></h3>
+        <p class="t-sm">加速卡 · accelerator · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答工作站单卡的 48GB 档位：与消费卡同容量的区别在 ECC 显存与 300W 功耗上限，更适合长时间满载与多卡并排。不回答多卡训练效率：该卡同样没有 NVLink，多卡只能走 PCIe，张量并行会受带宽限制。</span><span data-en>Answers the 48 GB tier for workstation cards: what separates it from a consumer card of the same capacity is ECC memory and a 300 W ceiling, which suits sustained load and side-by-side installation. It does not answer multi-card training efficiency: this card also lacks NVLink, so cards communicate over PCIe and tensor parallelism is bandwidth-bound.</span></p>
+        <dl class="ms-specs"><div><dt>memory</dt><dd>48 GB GDDR6 with ECC</dd></div><div><dt>max power</dt><dd>300 W</dd></div><div><dt>bus</dt><dd>PCIe Gen4 x16</dd></div><div><dt>form factor</dt><dd>4.4 in H x 10.5 in L, dual-slot, active cooling</dd></div><div><dt>FP32</dt><dd>91.1 TFLOPS</dd></div><div><dt>RT core</dt><dd>210.6 TFLOPS</dd></div><div><dt>tensor performance</dt><dd>1,457 AI TOPS (FP8 with sparsity)</dd></div><div><dt>NVLink</dt><dd>not listed for this model</dd></div></dl>
+      </article>
+      <article class="ms-card" id="ouster-os1" data-cat="sensor">
+        <h3><a href="https://ouster.com/products/hardware/os1-lidar-sensor/" rel="noopener">Ouster OS1 激光雷达<span class="t-sm"> / Ouster OS1 lidar</span></a></h3>
+        <p class="t-sm">传感器 · sensor · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答中距激光雷达的测距、垂直视场与点频档位，用来判断感知方案的量级。不回答功耗与接口：该产品页未给这两项口径，按「查不到留空」处理，选型时需查其 datasheet。「90 m」是在 10% 反射率条件下的测距，深色或远距离目标会显著缩短。</span><span data-en>Answers the range, vertical field of view and point rate of a mid-range lidar, which is what sets the order of magnitude of a perception setup. It does not answer power draw or interface: the product page gives neither, so those are left empty rather than guessed and should come from the datasheet. The 90 m figure is at 10% reflectivity, so dark or distant targets shorten it substantially.</span></p>
+        <dl class="ms-specs"><div><dt>range at 10% reflectivity</dt><dd>90 m</dd></div><div><dt>maximum range</dt><dd>250 m</dd></div><div><dt>minimum range</dt><dd>0.0 m</dd></div><div><dt>vertical FoV</dt><dd>45°</dd></div><div><dt>points per second</dt><dd>10.4 million</dd></div><div><dt>vertical channels</dt><dd>128</dd></div></dl>
+      </article>
+      <article class="ms-card" id="raspberry-pi-5" data-cat="edge">
+        <h3><a href="https://www.raspberrypi.com/products/raspberry-pi-5/" rel="noopener">Raspberry Pi 5<span class="t-sm"> / Raspberry Pi 5</span></a></h3>
+        <p class="t-sm">边缘设备 · edge · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答边缘小主机的 CPU、内存档位、PCIe 通道与供电口径，用来判断能不能带得动一块加速模块。不回答它自身的 AI 算力：板载没有 NPU，要接 M.2 或 HAT 形态的加速器才具备推理加速能力。官方给出的量产承诺到 2036 年 1 月，做长期项目时可据此评估供货周期。</span><span data-en>Answers the CPU, memory tiers, PCIe lane and power figures of a small edge host, which is what decides whether it can carry an accelerator module. It does not answer its own AI throughput: there is no on-board NPU, so inference acceleration requires an M.2 or HAT accelerator. The vendor states production until at least January 2036, which is the figure to use when judging supply for a long-lived project.</span></p>
+        <dl class="ms-specs"><div><dt>SoC</dt><dd>Broadcom BCM2712</dd></div><div><dt>CPU</dt><dd>4x Arm Cortex-A76 @ 2.4 GHz</dd></div><div><dt>RAM</dt><dd>LPDDR4X-4267, 1 / 2 / 4 / 8 / 16 GB</dd></div><div><dt>PCIe</dt><dd>2.0 x1 (needs separate M.2 HAT or adapter)</dd></div><div><dt>power</dt><dd>5V/5A DC via USB-C; 27 W PSU recommended</dd></div><div><dt>network</dt><dd>Gigabit Ethernet (PoE+ via separate HAT); dual-band 802.11ac</dd></div><div><dt>USB</dt><dd>2x USB 3.0 (5 Gbps simultaneous), 2x USB 2.0</dd></div><div><dt>production commitment</dt><dd>until at least January 2036</dd></div></dl>
+      </article>
+      <article class="ms-card" id="unitree-g1" data-cat="robot-body">
+        <h3><a href="https://www.unitree.com/g1" rel="noopener">宇树 G1 人形机器人<span class="t-sm"> / Unitree G1 humanoid</span></a></h3>
+        <p class="t-sm">机器人本体 · robot-body · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答人形本体的尺寸、重量、自由度与续航档位，用来判断它适合哪类实验与场地。不收录价格：报价属商业信息且随时变动，采购需向厂商确认。控制栈与训练框架不属本站范围，见 tools 与 learn 的机器人条目。</span><span data-en>Answers the size, weight, degrees of freedom and endurance tier of a humanoid body, which is what decides the kind of experiments and floor space it suits. Price is deliberately excluded: quotations are commercial information that changes, and must be confirmed with the vendor. Control stacks and training frameworks are out of scope here and live in the robotics entries of tools and learn.</span></p>
+        <dl class="ms-specs"><div><dt>dimensions</dt><dd>1320 x 450 x 200 mm standing; 690 x 450 x 300 mm folded</dd></div><div><dt>weight</dt><dd>about 35 kg with battery</dd></div><div><dt>degrees of freedom</dt><dd>23 (G1); 23-43 (G1 EDU)</dd></div><div><dt>knee max torque</dt><dd>90 N·m (120 N·m on EDU)</dd></div><div><dt>arm payload</dt><dd>about 2 kg (3 kg on EDU)</dd></div><div><dt>battery</dt><dd>9000 mAh; about 2 h endurance; charger 54V 5A</dd></div><div><dt>sensors</dt><dd>depth camera + 3D LiDAR; 4-microphone array</dd></div><div><dt>compute</dt><dd>8-core CPU base; higher-power module optional on EDU</dd></div></dl>
+      </article>
+      <article class="ms-card" id="unitree-go2" data-cat="robot-body">
+        <h3><a href="https://www.unitree.com/go2" rel="noopener">宇树 Go2 四足机器人<span class="t-sm"> / Unitree Go2 quadruped</span></a></h3>
+        <p class="t-sm">机器人本体 · robot-body · <span data-zh>许可</span><span data-en>Licence</span>: official-spec-page · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+        <p><span data-zh>回答四足本体的重量、载荷、续航与感知配置，用来判断场地与实验类型。注意三个容易误读的地方：5m/s 是实验室条件；续航 1–4 小时随机型与电池容量变化；工作最大功率约 3000W 属瞬时峰值，不能按此推算平均供电。价格不收录。</span><span data-en>Answers the weight, payload, endurance and perception setup of a quadruped body, which is what decides the floor space and experiment type it suits. Three figures are easy to misread: 5 m/s is a laboratory figure; endurance ranges from 1 to 4 hours depending on variant and battery; and the ~3000 W working maximum is a transient peak that must not be used to size average power. Price is excluded.</span></p>
+        <dl class="ms-specs"><div><dt>standing dimensions</dt><dd>70 x 31 x 40 cm</dd></div><div><dt>weight</dt><dd>about 15 kg with battery</dd></div><div><dt>payload</dt><dd>about 7-8 kg (max 10-12 kg depending on variant)</dd></div><div><dt>max speed</dt><dd>about 5 m/s (lab); 2.5-3.7 m/s by variant</dd></div><div><dt>peak joint torque</dt><dd>about 45 N·m</dd></div><div><dt>battery</dt><dd>8000 mAh standard; 15000 mAh long-endurance (EDU)</dd></div><div><dt>endurance</dt><dd>about 1-2 h; 2-4 h with long-endurance battery</dd></div><div><dt>working maximum power</dt><dd>about 3000 W</dd></div><div><dt>perception</dt><dd>4D LiDAR L2, 360° x 96°, minimum detection 0.05 m; HD wide-angle camera</dd></div></dl>
+      </article></div>
+  <noscript><p class="t-sm"><span data-zh>未开启脚本：筛选不可用，全部条目已列出。</span><span data-en>Without JavaScript the filter is unavailable; all entries are listed.</span></p></noscript>
+  <p><a href="about.html"><span data-zh>收录口径与边界</span><span data-en>Scope and boundaries</span></a></p>
+</div>
+<script>(function(){var s=document.getElementById('ms-cat');if(!s)return;s.addEventListener('change',function(){var v=s.value;document.querySelectorAll('.ms-card').forEach(function(c){c.hidden=(v!=='all'&&c.getAttribute('data-cat')!==v);});});})();</script>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链 × AI</span><span data-en>Chain × AI</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

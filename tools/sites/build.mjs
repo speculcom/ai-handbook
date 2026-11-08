@@ -369,10 +369,10 @@ const SITES = {
   framework: {
     key: 'framework', navKey: 'agent', dir: 'framework', domain: SITE.domain,
     name: '框架与运行时', nameEn: 'Frameworks & runtimes', short: 'Frameworks', accent: '#3b82f6',
-    tagline: bi('运行时、编排框架、SDK', 'Runtimes, orchestration frameworks, SDKs'),
-    desc: bi('Agent 运行时 / 编排框架 / SDK 的责任边界、状态持久化能力与权限模型。收录标准：提供 Agent 运行时或编排层、有官方文档可回溯、近 30 天有实质更新。',
-      'The responsibility boundaries of agent runtimes, orchestration frameworks and SDKs, plus state persistence and permission models. Admission criteria: provides an agent runtime or orchestration layer, has official documentation that can be traced back, and has substantive updates within the last 30 days.'),
-    owns: ['harness'],
+    tagline: bi('运行时、编排框架、SDK、机器人软件栈', 'Runtimes, orchestration frameworks, SDKs, robotics stacks'),
+    desc: bi('Agent 运行时 / 编排框架 / SDK 的责任边界、状态持久化能力与权限模型，以及机器人中间件、仿真器与学习栈。收录标准：提供 Agent 运行时或编排层、或提供机器人仿真与策略运行时，有官方文档可回溯，近 30 天有实质更新。机器人本体、传感器与算力规格不在本站，在硬件站。',
+      'The responsibility boundaries of agent runtimes, orchestration frameworks and SDKs, plus state persistence and permission models — and robot middleware, simulators and learning stacks. Admission criteria: provides an agent runtime or orchestration layer, or a robot simulation and policy runtime, has official documentation that can be traced back, and has substantive updates within the last 30 days. Robot bodies, sensors and compute specs are not here; they live on the hardware site.'),
+    owns: ['harness', 'local-app'],
     splitBy: 'family',   // 按抽象层分组：原语型 / 编排型 / 开箱型
   },
   mcp: {
@@ -1191,6 +1191,15 @@ const TOPIC_LABEL = {
   evaluation:    ['评测', 'Evaluation'],
   cost:          ['成本控制', 'Cost control'],
   guardrails:    ['护栏与安全', 'Guardrails & safety'],
+  prompts:       ['提示词与工作流', 'Prompts & workflows'],
+};
+
+/* P5（2026-11-07）：guides 的 kind 判别符。缺省 methodology = 存量方法论指南；
+ * prompt-guide / prompt-case 是并入的提示词内容，落 topic: prompts。 */
+const GUIDE_KIND_LABEL = {
+  methodology:   ['方法论', 'Methodology'],
+  'prompt-guide': ['提示词指南', 'Prompt guide'],
+  'prompt-case':  ['提示词案例', 'Prompt case'],
 };
 
 function loadGuides() {
@@ -1231,6 +1240,7 @@ function loadGuides() {
     }
     guides.push({
       id: fm.id, topic: fm.topic,
+      kind: fm.kind || 'methodology', task: fm.task || '',
       title: fm.title || '', titleEn: fm.titleEn || fm.title || '',
       summary: fm.summary || '', summaryEn: fm.summaryEn || fm.summary || '',
       /* sources 走 yaml.mjs 的 parseSources（与档案/validate 同一正则口径：
@@ -1247,22 +1257,34 @@ function loadGuides() {
 
 function deepGuidesSection(partKey, guides) {
   if (partKey !== 'mcp' || !guides.length) return '';   // v8 T7：guides 落 mcp 大类（产物仍 /tools/guides/，T30 换）
-  const cards = guides.map((g) => {
+  const cardFor = (g) => {
     const t = TOPIC_LABEL[g.topic] || [g.topic, g.topic];
+    const k = GUIDE_KIND_LABEL[g.kind] || GUIDE_KIND_LABEL.methodology;
+    const span = g.kind === 'methodology' ? bi(t[0], t[1]) : `${bi(t[0], t[1])} · ${bi(k[0], k[1])}`;
     return `          <a class="t-guidecard" href="guides/${g.id}.html">
-            <span class="t-guidespan">${bi(t[0], t[1])}</span>
+            <span class="t-guidespan">${span}</span>
             <h3>${bi(esc(g.title), esc(g.titleEn))}</h3>
             <p class="t-guidelead">${bi(esc(g.summary), esc(g.summaryEn))}</p>
           </a>`;
+  };
+  /* 按 kind 分组：方法论在前（存量口径不变），提示词指南与案例各自成组。
+   * 空组不渲染，不造空壳。 */
+  const groups = ['methodology', 'prompt-guide', 'prompt-case']
+    .map((kind) => ({ kind, items: guides.filter((g) => g.kind === kind) }))
+    .filter((g) => g.items.length);
+  const blocks = groups.map(({ kind, items }) => {
+    const k = GUIDE_KIND_LABEL[kind];
+    const head = kind === 'methodology' ? '' : `        <h3>${bi(k[0], k[1])} <span class="fam-n">${items.length}</span></h3>\n`;
+    return `${head}        <div class="grid">
+${items.map(cardFor).join('\n')}
+        </div>`;
   }).join('\n');
   return `
     <section class="section">
       <div class="container">
         <h2>${bi('深水指南', 'Deep guides')}</h2>
         <p class="section-desc">${bi('产品档案记录用途与能力边界；这里提供任务流程、机制说明、选型对照与练习。先按要完成的任务选一篇，再用交付物和检查方法判断结果。来源与核验范围见各页记录。', 'Product dossiers record uses and capability boundaries. These guides provide workflows, mechanisms, selection comparisons and exercises. Start with your task, then use the deliverables and checks to assess the result. Each page records its sources and verification scope.')}</p>
-        <div class="grid">
-${cards}
-        </div>
+${blocks}
       </div>
     </section>`;
 }
@@ -1308,10 +1330,14 @@ function renderGuidePage(g, site) {
       <div class="detail-head">
         <div>
           <h1>${bi(esc(g.title), esc(g.titleEn))}</h1>
-          <div class="vendor is-caps">${bi(t[0], t[1])}</div>
+          <div class="vendor is-caps">${g.kind === 'methodology' ? bi(t[0], t[1]) : `${bi(t[0], t[1])} · ${bi((GUIDE_KIND_LABEL[g.kind] || [g.kind, g.kind])[0], (GUIDE_KIND_LABEL[g.kind] || [g.kind, g.kind])[1])}`}</div>
         </div>
       </div>
       <div class="panel-lead">${bi(blockMd(g.summary), blockMd(g.summaryEn))}</div>
+${g.kind === 'methodology' ? '' : `      <div class="panel is-slim">
+        <p>${bi('提示词效果未实测。', 'Prompt effect has not been tested.')}</p>
+        <p class="t-xs">${bi('提示词是可复跑的模板，不是效果承诺。换模型、换版本、换输入都可能改变结果；用本页的检查点自己核对，并把官方出处当作机制依据而不是效果保证。', 'A prompt is a re-runnable template, not a promise of results. Changing the model, version or input can change the outcome. Use the checkpoints on this page to verify it yourself, and treat the official sources as evidence of mechanism rather than a guarantee of effect.')}</p>
+      </div>`}
 ${guideEnComplete ? '' : `      <p class="t-xs" data-en>English summaries and interface labels are available. The guide body below is currently in Chinese.</p>`}
 ${g.id === 'cost-calculator' ? costWorkbench() : ''}
 ${g.id === 'toolkit-worksheets' ? worksheetWorkbench() : ''}
@@ -1330,7 +1356,7 @@ ${srcRows}
     current: site.navKey,
     repo: SITE.repo,
     title: `${g.titleEn || g.title} — 深水指南 | 投机取巧`,
-    desc: metaDesc(plain(`${g.title}：${g.summary}`)),
+    desc: metaDesc(plain(`${g.title}：${g.summary}${g.kind === 'prompt-case' ? ' 可复跑提示词模板，含检查点、失败分支与官方出处边界。' : ''}`)),
     body,
     jsonLd: {
       '@context': 'https://schema.org',
@@ -1432,6 +1458,7 @@ const FAMILY_SHORT = {
   'coding-base':     ['编程底座', 'Coding base'],
   orchestration:    ['编排框架', 'Orchestration'],
   'general-harness': ['通用 Harness', 'General harness'],
+  robotics:         ['机器人软件栈', 'Robotics stack'],
 };
 
 function renderIndex(site, partKey, entries) {
@@ -1532,6 +1559,13 @@ function renderIndex(site, partKey, entries) {
         nameEn: 'General harness',
         desc: '预置了规划、文件系统、记忆等一整套，面向通用长任务。开箱程度最高，可改性最低。',
         descEn: 'Presets planning, filesystem, memory and the rest, aimed at general long-running tasks. Most ready out of the box, least modifiable.',
+      },
+      {
+        key: 'robotics',
+        name: '机器人软件栈',
+        nameEn: 'Robotics stack',
+        desc: '机器人中间件、仿真器与学习栈：你在代码里驱动它，交付物是能跑的策略或仿真流程。这层的差别在<strong>仿真与真机之间隔了多少</strong> —— 物理引擎、传感器建模与接真机的路径各不相同。本体、传感器与算力规格不在本站，在硬件站。',
+        descEn: 'Robot middleware, simulators and learning stacks: you drive them from code, and the deliverable is a running policy or simulation flow. The difference here is <strong>how much sits between simulation and the real machine</strong> — physics engines, sensor modelling and the path to real hardware all differ. Robot bodies, sensors and compute specs are not here; they live on the hardware site.',
       },
     ],
   };
