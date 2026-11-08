@@ -4,12 +4,12 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { shell, esc, nativeOption } from '../../../../../_sites/_template/shell.mjs';
+import { shell, esc } from '../../../../../_sites/_template/shell.mjs';
+import { bi, catLabels, filterBar, filterScript } from '../../../../../_sites/_template/mini-site-build.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..');
 const SRC = path.join(ROOT, '_data/handbook/frontier/demos');
 const OUT = path.join(SRC, 'site');
-const bi = (zh, en) => `<span data-zh>${zh}</span><span data-en>${en}</span>`;
 
 const entries = JSON.parse(fs.readFileSync(path.join(SRC, 'entries.json'), 'utf8'));
 const ledger = JSON.parse(fs.readFileSync(path.join(SRC, 'ledger.json'), 'utf8'));
@@ -17,7 +17,9 @@ const shotBy = Object.fromEntries((ledger.shots || []).map((s) => [s.entry, s]))
 const embedBy = Object.fromEntries((ledger.embeds || []).map((s) => [s.entry, s]));
 
 const CATS = [...new Set(entries.map((e) => e.category))];
-const catEn = { 游戏: 'Games', 'Web 应用': 'Web apps', 数据可视化: 'Data viz', 内容与媒体: 'Media', 自动化: 'Automation', 模型演示: 'Model demos' };
+const catInfo = CATS.map((v) => ({ v, ...catLabels(v), n: entries.filter((e) => e.category === v).length }));
+const checkedDates = entries.map((e) => e.verifiedAt).filter(Boolean).sort();
+const lastChecked = checkedDates.length ? checkedDates[checkedDates.length - 1] : '—';
 
 function card(e) {
   const shot = shotBy[e.id];
@@ -28,29 +30,43 @@ function card(e) {
   const embedHtml = embed
     ? `<div class="dm-embed"><iframe src="${esc(embed.url)}" sandbox="allow-scripts" loading="lazy" title="${esc(e.title.en)}"></iframe><p class="t-sm"><a href="${esc(e.url)}">${bi('嵌入加载失败？打开原址', 'Embed failed? Open the original')}</a></p></div>`
     : '';
-  return `      <article class="dm-card" data-cat="${esc(e.category)}">
-        <h3><a href="${esc(e.url)}" rel="noopener">${esc(e.title.zh)}<span class="t-sm"> / ${esc(e.title.en)}</span></a></h3>
-        <p class="t-sm">${bi(esc(e.category), esc(catEn[e.category] || e.category))} · ${bi('许可', 'Licence')}: ${esc(e.license.spdx || e.license.kind)} · ${bi('核验', 'Checked')} ${esc(e.verifiedAt)}</p>
+  const L = catLabels(e.category);
+  const ran = e.run.status === 'ran' ? `${bi('跑过', 'ran')} ${esc(e.run.date)}（${esc(e.run.env)}）` : bi('未跑', 'not run');
+  return `      <article class="fx-card" data-cat="${esc(e.category)}">
+        <div class="fx-top"><span class="fx-badge">${bi(esc(L.zh), esc(L.en))}</span><span class="fx-meta"><span>${bi('核验', 'Checked')} ${esc(e.verifiedAt)}</span></span></div>
+        <h3><a href="${esc(e.url)}" rel="noopener">${esc(e.title.zh)}<span class="fx-sub"> / ${esc(e.title.en)}</span></a></h3>
         ${media}${embedHtml}
         <p>${bi(esc(e.notes.zh), esc(e.notes.en))}</p>
-        <p class="t-sm">${bi('AI 用在哪', 'AI scope')}: ${esc(e.aiScope.join(' / '))} · ${bi('本站运行', 'Site run')}: ${e.run.status === 'ran' ? `${bi('跑过', 'ran')} ${esc(e.run.date)}（${esc(e.run.env)}）` : bi('未跑', 'not run')}</p>
+        <div class="fx-meta">
+          <span><span class="fx-key">${bi('许可', 'Licence')}</span> ${esc(e.license.spdx || e.license.kind)}</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key">${bi('AI 用在哪', 'AI scope')}</span> ${esc(e.aiScope.join(' / '))}</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key">${bi('本站运行', 'Site run')}</span> ${ran}</span>
+        </div>
+        <a class="fx-source" href="${esc(e.url)}" rel="noopener">${bi('打开原作品', 'Open the work')} &rarr;</a>
       </article>`;
 }
+
+const stats = `<div class="fx-stats">
+    <div><strong>${entries.length}</strong>${bi('条已核作品', 'verified works')}</div>
+    <div><strong>${CATS.length}</strong>${bi('个类目', 'categories')}</div>
+    <div><strong class="fx-date">${esc(lastChecked)}</strong>${bi('最近核验日', 'latest check')}</div>
+  </div>`;
 
 const indexBody = `<div class="container demos-page">
   <p class="kicker">${bi('别人做的公开作品，逐条核验', 'Other people’s public work, checked entry by entry')}</p>
   <h1>${bi('作品库', 'Demos')}</h1>
   <p>${bi(`收录 ${entries.length} 条有可核验 AI 参与痕迹的公开作品与模型演示。只给事实字段与维度对照，不排名、不打分；截图与嵌入逐条登记许可依据。`, `${entries.length} public works and model demos with verifiable AI involvement. Fact fields and dimension comparisons only — no ranking, no scores; screenshots and embeds carry a per-entry licence basis.`)}</p>
-  <form class="dm-filter"><label for="dm-cat">${bi('类目', 'Category')}<select id="dm-cat">${nativeOption('all', '全部', 'All')}${CATS.map((c) => nativeOption(c, c, catEn[c] || c)).join('')}</select></label></form>
-  <div class="dm-grid" id="dm-grid">
+  ${stats}
+  ${filterBar('dm-filter', catInfo, entries.length)}
+  <div class="fx-grid" id="dm-grid">
 ${entries.map(card).join('\n')}
   </div>
   <noscript><p class="t-sm">${bi('未开启脚本：类目筛选不可用，全部条目已在上方列出。', 'Without JavaScript the category filter is unavailable; all entries are listed above.')}</p></noscript>
   <p><a href="compare.html">${bi('看维度对照（不排名）', 'See the dimension comparison (no ranking)')}</a> · <a href="releases.html">${bi('看模型发布轨', 'See the model-release track')}</a></p>
 </div>
-<script>
-(function(){var s=document.getElementById('dm-cat');if(!s)return;s.addEventListener('change',function(){var v=s.value;document.querySelectorAll('.dm-card').forEach(function(c){c.hidden=(v!=='all'&&c.getAttribute('data-cat')!==v);});});})();
-</script>`;
+${filterScript('dm-filter', '.fx-card')}`;
 
 const compareRows = entries.map((e) => `      <tr><th scope="row"><a href="${esc(e.url)}">${esc(e.title.zh)}</a></th><td>${esc(e.compare.runtime)}</td><td>${esc(e.compare.hardware)}</td><td>${esc(e.license.spdx || e.license.kind)}</td><td>${esc(e.compare.reproducibility)}</td><td>${esc(e.compare.maintenance)}</td><td>${e.model ? esc(`${e.model.name} ${e.model.version || ''}`) : '—'}</td><td>${e.run.status === 'ran' ? esc(e.run.date) : bi('未跑', 'not run')}</td></tr>`).join('\n');
 const compareBody = `<div class="container demos-page">

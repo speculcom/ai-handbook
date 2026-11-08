@@ -13,9 +13,10 @@
   <meta property="og:description" content="别人做的公开作品与模型演示的策展目录：按运行方式、硬件门槛、许可、可复现性与维护状态逐条登记事实维度，不排名、不打分，截图与嵌入另有逐条许可台账。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=5e907aab579b"></script>
-  <link rel="stylesheet" href="brand.css?v=5e907aab579b" />
+  <script src="brand.js?v=ab9707c3586a"></script>
+  <link rel="stylesheet" href="brand.css?v=ab9707c3586a" />
   <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="demos.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"作品库 · Specul","url":"https://demos.specul.com/","description":"别人做的公开作品与模型演示的策展目录：按运行方式、硬件门槛、许可、可复现性与维护状态逐条登记事实维度，不排名、不打分，截图与嵌入另有逐条许可台账。","isPartOf":{"@type":"WebSite","url":"https://demos.specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
@@ -93,162 +94,318 @@
   <p class="kicker"><span data-zh>别人做的公开作品，逐条核验</span><span data-en>Other people’s public work, checked entry by entry</span></p>
   <h1><span data-zh>作品库</span><span data-en>Demos</span></h1>
   <p><span data-zh>收录 21 条有可核验 AI 参与痕迹的公开作品与模型演示。只给事实字段与维度对照，不排名、不打分；截图与嵌入逐条登记许可依据。</span><span data-en>21 public works and model demos with verifiable AI involvement. Fact fields and dimension comparisons only — no ranking, no scores; screenshots and embeds carry a per-entry licence basis.</span></p>
-  <form class="dm-filter"><label for="dm-cat"><span data-zh>类目</span><span data-en>Category</span><select id="dm-cat"><option value="all" data-ui-text-zh="全部" data-ui-text-en="All">全部</option><option value="游戏" data-ui-text-zh="游戏" data-ui-text-en="Games">游戏</option><option value="Web 应用" data-ui-text-zh="Web 应用" data-ui-text-en="Web apps">Web 应用</option><option value="数据可视化" data-ui-text-zh="数据可视化" data-ui-text-en="Data viz">数据可视化</option><option value="内容与媒体" data-ui-text-zh="内容与媒体" data-ui-text-en="Media">内容与媒体</option><option value="自动化" data-ui-text-zh="自动化" data-ui-text-en="Automation">自动化</option><option value="模型演示" data-ui-text-zh="模型演示" data-ui-text-en="Model demos">模型演示</option></select></label></form>
-  <div class="dm-grid" id="dm-grid">
-      <article class="dm-card" data-cat="游戏">
-        <h3><a href="https://fly.pieter.com/" rel="noopener">Fly<span class="t-sm"> / Fly</span></a></h3>
-        <p class="t-sm"><span data-zh>游戏</span><span data-en>Games</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+  <div class="fx-stats">
+    <div><strong>21</strong><span data-zh>条已核作品</span><span data-en>verified works</span></div>
+    <div><strong>6</strong><span data-zh>个类目</span><span data-en>categories</span></div>
+    <div><strong class="fx-date">2026-11-07</strong><span data-zh>最近核验日</span><span data-en>latest check</span></div>
+  </div>
+  <section class="fx-bar" id="dm-filter" aria-labelledby="dm-filter-title">
+    <div class="fx-head">
+      <span class="fx-title" id="dm-filter-title"><span data-zh>按类目浏览</span><span data-en>Browse by category</span></span>
+      <span class="fx-count" aria-live="polite"><b id="dm-filter-count">21</b> <span data-zh>条可见</span><span data-en>shown</span></span>
+    </div>
+    <div class="fx-chips" role="group"><button type="button" class="fx-chip" data-filter-cat="all" aria-pressed="true"><span class="fx-dot"></span><span data-zh>全部</span><span data-en>All</span><em class="fx-n">21</em></button><button type="button" class="fx-chip" data-filter-cat="游戏" data-cat="游戏" aria-pressed="false"><span class="fx-dot"></span><span data-zh>游戏</span><span data-en>Games</span><em class="fx-n">4</em></button><button type="button" class="fx-chip" data-filter-cat="Web 应用" data-cat="Web 应用" aria-pressed="false"><span class="fx-dot"></span><span data-zh>Web 应用</span><span data-en>Web apps</span><em class="fx-n">3</em></button><button type="button" class="fx-chip" data-filter-cat="数据可视化" data-cat="数据可视化" aria-pressed="false"><span class="fx-dot"></span><span data-zh>数据可视化</span><span data-en>Data viz</span><em class="fx-n">4</em></button><button type="button" class="fx-chip" data-filter-cat="内容与媒体" data-cat="内容与媒体" aria-pressed="false"><span class="fx-dot"></span><span data-zh>内容与媒体</span><span data-en>Media</span><em class="fx-n">3</em></button><button type="button" class="fx-chip" data-filter-cat="自动化" data-cat="自动化" aria-pressed="false"><span class="fx-dot"></span><span data-zh>自动化</span><span data-en>Automation</span><em class="fx-n">3</em></button><button type="button" class="fx-chip" data-filter-cat="模型演示" data-cat="模型演示" aria-pressed="false"><span class="fx-dot"></span><span data-zh>模型演示</span><span data-en>Model demos</span><em class="fx-n">4</em></button></div>
+  </section>
+  <div class="fx-grid" id="dm-grid">
+      <article class="fx-card" data-cat="游戏">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>游戏</span><span data-en>Games</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://fly.pieter.com/" rel="noopener">Fly<span class="fx-sub"> / Fly</span></a></h3>
         
         <p><span data-zh>首页原文：&quot;by @levelsio + Cursor + ThreeJS&quot;；免费可玩，无需账号。</span><span data-en>Project page: &quot;by @levelsio + Cursor + ThreeJS&quot;; free to play, no account.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 / 资产 / 设计 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码 / 资产 / 设计</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://fly.pieter.com/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="游戏">
-        <h3><a href="https://cowboy.raymelon.com/" rel="noopener">Cowboy Shooter<span class="t-sm"> / Cowboy Shooter</span></a></h3>
-        <p class="t-sm"><span data-zh>游戏</span><span data-en>Games</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+      <article class="fx-card" data-cat="游戏">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>游戏</span><span data-en>Games</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+        <h3><a href="https://cowboy.raymelon.com/" rel="noopener">Cowboy Shooter<span class="fx-sub"> / Cowboy Shooter</span></a></h3>
         
         <p><span data-zh>首页原文：&quot;vibe coded by @pseudokid, Cursor AI, Anthropic&#39;s Claude 3.7 Sonnet&quot;；填昵称即可开始。</span><span data-en>Project page: &quot;vibe coded by @pseudokid, Cursor AI, Anthropic&#39;s Claude 3.7 Sonnet&quot;; enter a nickname to play.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 / 资产 / 音频 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码 / 资产 / 音频</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://cowboy.raymelon.com/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="游戏">
-        <h3><a href="https://github.com/maciej-trebacz/tower-of-time-game" rel="noopener">Tower of Time<span class="t-sm"> / Tower of Time</span></a></h3>
-        <p class="t-sm"><span data-zh>游戏</span><span data-en>Games</span> · <span data-zh>许可</span><span data-en>Licence</span>: MIT · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="游戏">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>游戏</span><span data-en>Games</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://github.com/maciej-trebacz/tower-of-time-game" rel="noopener">Tower of Time<span class="fx-sub"> / Tower of Time</span></a></h3>
         
         <p><span data-zh>README：&quot;Claude Sonnet 4 - My LLM of choice for this project...&quot;；约 95% 代码由 AI；最近提交 2025-07（约 16 个月未更新，线上仍可玩）。</span><span data-en>README: &quot;Claude Sonnet 4 - My LLM of choice for this project...&quot;; ~95% of code by AI; last commit 2025-07 (~16 months, still playable).</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> MIT</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://github.com/maciej-trebacz/tower-of-time-game" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="游戏">
-        <h3><a href="https://acatovic.github.io/gothicvania-codex-demo/" rel="noopener">Gothicvania Codex Demo<span class="t-sm"> / Gothicvania Codex Demo</span></a></h3>
-        <p class="t-sm"><span data-zh>游戏</span><span data-en>Games</span> · <span data-zh>许可</span><span data-en>Licence</span>: MIT · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="游戏">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>游戏</span><span data-en>Games</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://acatovic.github.io/gothicvania-codex-demo/" rel="noopener">Gothicvania Codex Demo<span class="fx-sub"> / Gothicvania Codex Demo</span></a></h3>
         <figure class="dm-shot"><img src="shots/gothicvania-codex-demo.png" alt="Gothicvania Codex Demo 截图" loading="lazy" /><figcaption><span data-zh>截图依据见许可台账</span><span data-en>Screenshot basis in the licence ledger</span> · 2026-11-07</figcaption></figure><div class="dm-embed"><iframe src="https://acatovic.github.io/gothicvania-codex-demo/" sandbox="allow-scripts" loading="lazy" title="Gothicvania Codex Demo"></iframe><p class="t-sm"><a href="https://acatovic.github.io/gothicvania-codex-demo/"><span data-zh>嵌入加载失败？打开原址</span><span data-en>Embed failed? Open the original</span></a></p></div>
         <p><span data-zh>Show HN：&quot;zero-code approach... built the whole thing using OpenAI Codex CLI&quot;；素材非 AI（ansimuz / Pascal Belisle 署名）。</span><span data-en>Show HN: &quot;zero-code approach... built the whole thing using OpenAI Codex CLI&quot;; art is not AI (ansimuz / Pascal Belisle).</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> MIT</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://acatovic.github.io/gothicvania-codex-demo/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="Web 应用">
-        <h3><a href="https://tikz.dev/editor/" rel="noopener">TikZ Editor<span class="t-sm"> / TikZ Editor</span></a></h3>
-        <p class="t-sm"><span data-zh>Web 应用</span><span data-en>Web apps</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="Web 应用">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>Web 应用</span><span data-en>Web apps</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://tikz.dev/editor/" rel="noopener">TikZ Editor<span class="fx-sub"> / TikZ Editor</span></a></h3>
         
         <p><span data-zh>页面原文：&quot;The initial code base was written by Codex using gpt-5-3-codex...&quot;；仓库 pushed 2026-10-28。 2026-11-07 复核：旧表曾标 MIT，但当日找不到 LICENSE 原文与仓库链接，降级为 link-only，撤下截图与嵌入。</span><span data-en>Project page: &quot;The initial code base was written by Codex using gpt-5-3-codex...&quot;; repo pushed 2026-10-28. Re-checked 2026-11-07: the old table said MIT, but no LICENSE text or repo link could be located that day; downgraded to link-only and the screenshot/embed were removed.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://tikz.dev/editor/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="Web 应用">
-        <h3><a href="https://asciitree.reorx.com/" rel="noopener">ASCII Tree Editor<span class="t-sm"> / ASCII Tree Editor</span></a></h3>
-        <p class="t-sm"><span data-zh>Web 应用</span><span data-en>Web apps</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="Web 应用">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>Web 应用</span><span data-en>Web apps</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://asciitree.reorx.com/" rel="noopener">ASCII Tree Editor<span class="fx-sub"> / ASCII Tree Editor</span></a></h3>
         
         <p><span data-zh>Show HN：&quot;I used Claude Code to &quot;vibe-code&quot; this project...&quot;；源仓无 LICENSE。</span><span data-en>Show HN: &quot;I used Claude Code to &quot;vibe-code&quot; this project...&quot;; source repo has no LICENSE.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://asciitree.reorx.com/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="数据可视化">
-        <h3><a href="https://isometric.nyc/" rel="noopener">Isometric NYC<span class="t-sm"> / Isometric NYC</span></a></h3>
-        <p class="t-sm"><span data-zh>数据可视化</span><span data-en>Data viz</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+      <article class="fx-card" data-cat="数据可视化">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>数据可视化</span><span data-en>Data viz</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+        <h3><a href="https://isometric.nyc/" rel="noopener">Isometric NYC<span class="fx-sub"> / Isometric NYC</span></a></h3>
         
         <p><span data-zh>作者博客：&quot;I switched back and forth a lot between Claude Code, Gemini CLI, and Cursor...&quot;；瓦片由 nano banana 生成。</span><span data-en>Author blog: &quot;I switched back and forth a lot between Claude Code, Gemini CLI, and Cursor...&quot;; tiles generated with nano banana.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 / 资产 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码 / 资产</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://isometric.nyc/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="数据可视化">
-        <h3><a href="https://spikelog.com/" rel="noopener">Spikelog<span class="t-sm"> / Spikelog</span></a></h3>
-        <p class="t-sm"><span data-zh>数据可视化</span><span data-en>Data viz</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="数据可视化">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>数据可视化</span><span data-en>Data viz</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://spikelog.com/" rel="noopener">Spikelog<span class="fx-sub"> / Spikelog</span></a></h3>
         
         <p><span data-zh>Show HN：&quot;I built it in about a day using Cursor.&quot;；免费 10 图。</span><span data-en>Show HN: &quot;I built it in about a day using Cursor.&quot;; free for 10 charts.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://spikelog.com/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="数据可视化">
-        <h3><a href="https://contrariansignals.com/" rel="noopener">Contrarian Signals<span class="t-sm"> / Contrarian Signals</span></a></h3>
-        <p class="t-sm"><span data-zh>数据可视化</span><span data-en>Data viz</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="数据可视化">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>数据可视化</span><span data-en>Data viz</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://contrariansignals.com/" rel="noopener">Contrarian Signals<span class="fx-sub"> / Contrarian Signals</span></a></h3>
         
         <p><span data-zh>Show HN：&quot;this was ~70% vibe coded using Cursor / Claude Code&quot;；仪表盘免费。</span><span data-en>Show HN: &quot;this was ~70% vibe coded using Cursor / Claude Code&quot;; the dashboard is free.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 / 设计 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码 / 设计</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://contrariansignals.com/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="数据可视化">
-        <h3><a href="https://www.techcities.app/" rel="noopener">Tech Cities Index<span class="t-sm"> / Tech Cities Index</span></a></h3>
-        <p class="t-sm"><span data-zh>数据可视化</span><span data-en>Data viz</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="数据可视化">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>数据可视化</span><span data-en>Data viz</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://www.techcities.app/" rel="noopener">Tech Cities Index<span class="fx-sub"> / Tech Cities Index</span></a></h3>
         
         <p><span data-zh>Show HN：&quot;Built with Cursor and Next.js&quot;；数据源 levels.fyi / Numbeo，未给数据许可（风险项）。</span><span data-en>Show HN: &quot;Built with Cursor and Next.js&quot;; data sources levels.fyi / Numbeo, no data licence stated (risk note).</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://www.techcities.app/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="内容与媒体">
-        <h3><a href="https://fersab.github.io/pixelforge/" rel="noopener">Pixelforge<span class="t-sm"> / Pixelforge</span></a></h3>
-        <p class="t-sm"><span data-zh>内容与媒体</span><span data-en>Media</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="内容与媒体">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>内容与媒体</span><span data-en>Media</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://fersab.github.io/pixelforge/" rel="noopener">Pixelforge<span class="fx-sub"> / Pixelforge</span></a></h3>
         
         <p><span data-zh>页面原文：&quot;A 3D Rendering Engine Built with Claude Code in Pure ES6+, Just Math and a Canvas&quot;；无授权条款。</span><span data-en>Project page: &quot;A 3D Rendering Engine Built with Claude Code in Pure ES6+, Just Math and a Canvas&quot;; no licence page.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://fersab.github.io/pixelforge/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="内容与媒体">
-        <h3><a href="https://mynextbook.ai" rel="noopener">MyNextBook<span class="t-sm"> / MyNextBook</span></a></h3>
-        <p class="t-sm"><span data-zh>内容与媒体</span><span data-en>Media</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="内容与媒体">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>内容与媒体</span><span data-en>Media</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://mynextbook.ai" rel="noopener">MyNextBook<span class="fx-sub"> / MyNextBook</span></a></h3>
         
         <p><span data-zh>Show HN：&quot;Built with Cursor + Claude Code, &amp; AntiGravity&quot;；无需注册可浏览。</span><span data-en>Show HN: &quot;Built with Cursor + Claude Code, &amp; AntiGravity&quot;; browsable without an account.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://mynextbook.ai" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="内容与媒体">
-        <h3><a href="https://github.com/danielrosehill/Nano-Banana-Desktop" rel="noopener">Nano-Banana-Desktop<span class="t-sm"> / Nano-Banana-Desktop</span></a></h3>
-        <p class="t-sm"><span data-zh>内容与媒体</span><span data-en>Media</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="内容与媒体">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>内容与媒体</span><span data-en>Media</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://github.com/danielrosehill/Nano-Banana-Desktop" rel="noopener">Nano-Banana-Desktop<span class="fx-sub"> / Nano-Banana-Desktop</span></a></h3>
         
         <p><span data-zh>README：&quot;developed using AI-assisted coding (Claude Code)...&quot;；无 LICENSE（授权列记 link-only，LICENSE: TBD），最近提交 2025-11（约 12 个月）。</span><span data-en>README: &quot;developed using AI-assisted coding (Claude Code)...&quot;; no LICENSE (licence column: link-only, LICENSE: TBD), last commit 2025-11 (~12 months).</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://github.com/danielrosehill/Nano-Banana-Desktop" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="自动化">
-        <h3><a href="https://github.com/micasa-dev/micasa" rel="noopener">micasa<span class="t-sm"> / micasa</span></a></h3>
-        <p class="t-sm"><span data-zh>自动化</span><span data-en>Automation</span> · <span data-zh>许可</span><span data-en>Licence</span>: Apache-2.0 · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="自动化">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>自动化</span><span data-en>Automation</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://github.com/micasa-dev/micasa" rel="noopener">micasa<span class="fx-sub"> / micasa</span></a></h3>
         
         <p><span data-zh>README：&quot;Developed with AI coding agents (Claude, Claude Code).&quot;；pushed 2026-11-02。</span><span data-en>README: &quot;Developed with AI coding agents (Claude, Claude Code).&quot;; pushed 2026-11-02.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> Apache-2.0</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://github.com/micasa-dev/micasa" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="自动化">
-        <h3><a href="https://github.com/indragiek/Context" rel="noopener">Context<span class="t-sm"> / Context</span></a></h3>
-        <p class="t-sm"><span data-zh>自动化</span><span data-en>Automation</span> · <span data-zh>许可</span><span data-en>Licence</span>: MIT · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</p>
+      <article class="fx-card" data-cat="自动化">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>自动化</span><span data-en>Automation</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-03</span></span></div>
+        <h3><a href="https://github.com/indragiek/Context" rel="noopener">Context<span class="fx-sub"> / Context</span></a></h3>
         
         <p><span data-zh>作者博客：&quot;Context was almost 100% built by Claude Code&quot;；2 万行中手写不足 1000 行。</span><span data-en>Author blog: &quot;Context was almost 100% built by Claude Code&quot;; fewer than 1,000 of 20,000 lines written by hand.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 / 设计 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> MIT</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码 / 设计</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://github.com/indragiek/Context" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="Web 应用">
-        <h3><a href="https://dummyforms.com/" rel="noopener">DummyForms<span class="t-sm"> / DummyForms</span></a></h3>
-        <p class="t-sm"><span data-zh>Web 应用</span><span data-en>Web apps</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+      <article class="fx-card" data-cat="Web 应用">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>Web 应用</span><span data-en>Web apps</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+        <h3><a href="https://dummyforms.com/" rel="noopener">DummyForms<span class="fx-sub"> / DummyForms</span></a></h3>
         
         <p><span data-zh>构建者 Tomas Henkenhaf 在 Lovable 官方博客访谈（2025-01-22）中点名用 Lovable.dev 创建 DummyForms，并称获 Lovable 黑客松第三名（目录仅称 won hackathon，名次以访谈为准）。原址公开 200、无付费墙；表单服务为账号制，含 Free 档与 Craft $12/月付费档，数据去向未核。站点 meta 作者署名 Vyomesh Tala，与访谈构建者不一致，归属细节未核。许可不明，仅外链、不镜像。</span><span data-en>Builder Tomas Henkenhaf names Lovable.dev as the tool used to create DummyForms in a Lovable blog interview (2025-01-22), where he says it won third place in a Lovable hackathon (the directory only said &#39;won&#39;; the interview gives the placing). Origin checked 2026-11-07: HTTP 200, no paywall; the form service is account-based with a free tier and a US$12/month Craft plan, data handling unverified. The site&#39;s meta author credits Vyomesh Tala, differing from the interview&#39;s builder; ownership details unverified. Licence unclear; link-only, no mirroring.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 (code) · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码 (code)</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://dummyforms.com/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="自动化">
-        <h3><a href="https://www.vincentgregoire.com/faceoff/" rel="noopener">Faceoff<span class="t-sm"> / Faceoff</span></a></h3>
-        <p class="t-sm"><span data-zh>自动化</span><span data-en>Automation</span> · <span data-zh>许可</span><span data-en>Licence</span>: MIT · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+      <article class="fx-card" data-cat="自动化">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>自动化</span><span data-en>Automation</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+        <h3><a href="https://www.vincentgregoire.com/faceoff/" rel="noopener">Faceoff<span class="fx-sub"> / Faceoff</span></a></h3>
         <figure class="dm-shot"><img src="shots/faceoff.png" alt="Faceoff 截图" loading="lazy" /><figcaption><span data-zh>截图依据见许可台账</span><span data-en>Screenshot basis in the licence ledger</span> · 2026-11-07</figcaption></figure><div class="dm-embed"><iframe src="https://www.vincentgregoire.com/faceoff/" sandbox="allow-scripts" loading="lazy" title="Faceoff"></iframe><p class="t-sm"><a href="https://www.vincentgregoire.com/faceoff/"><span data-zh>嵌入加载失败？打开原址</span><span data-en>Embed failed? Open the original</span></a></p></div>
         <p><span data-zh>NHL 冰球实时比分终端应用，基于 Textual 框架与公开 NHL API 数据，声明非 NHL 官方。初始提交（Add NHL game tracker TUI application）及多条代码/文档提交带 Claude Opus 4.5/4.7 共同署名 trailer。原址 2026-11-07 实测 HTTP 200、无登录付费墙。本站只链接，未实测运行。</span><span data-en>Terminal UI for live NHL hockey scores, built on Textual and public NHL API data; the README states it is not affiliated with the NHL. The initial commit (Add NHL game tracker TUI application) and multiple code/docs commits carry Co-authored-by trailers for Claude Opus 4.5/4.7. Origin checked 2026-11-07: HTTP 200, no login or paywall. Link-only here; not run by this site.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 代码 (code) / 文档 (docs) · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> MIT</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 代码 (code) / 文档 (docs)</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://www.vincentgregoire.com/faceoff/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="模型演示">
-        <h3><a href="https://ace-step-ace-step-v1-5.hf.space/" rel="noopener">ACE-Step v1.5 音乐生成演示<span class="t-sm"> / ACE-Step v1.5 Music Generation Demo</span></a></h3>
-        <p class="t-sm"><span data-zh>模型演示</span><span data-en>Model demos</span> · <span data-zh>许可</span><span data-en>Licence</span>: MIT · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+      <article class="fx-card" data-cat="模型演示">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>模型演示</span><span data-en>Model demos</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+        <h3><a href="https://ace-step-ace-step-v1-5.hf.space/" rel="noopener">ACE-Step v1.5 音乐生成演示<span class="fx-sub"> / ACE-Step v1.5 Music Generation Demo</span></a></h3>
         <figure class="dm-shot"><img src="shots/ace-step-v1-5-space.png" alt="ACE-Step v1.5 音乐生成演示 截图" loading="lazy" /><figcaption><span data-zh>截图依据见许可台账</span><span data-en>Screenshot basis in the licence ledger</span> · 2026-11-07</figcaption></figure><div class="dm-embed"><iframe src="https://ace-step-ace-step-v1-5.hf.space/" sandbox="allow-scripts" loading="lazy" title="ACE-Step v1.5 Music Generation Demo"></iframe><p class="t-sm"><a href="https://ace-step-ace-step-v1-5.hf.space/"><span data-zh>嵌入加载失败？打开原址</span><span data-en>Embed failed? Open the original</span></a></p></div>
         <p><span data-zh>ACE-Step 官方 Space（卡片标题 ACE-Step v1.5），卡片正文明确点名 Space Demo 链接，models 字段含 v1.5 与 XL-turbo 权重。发布日取官方 release v0.1.6（ACE-Step 1.5 XL 发布，published 2026-04-03）。核验方式：huggingface.co 主站本地不可达，demo 经官方 hf.space 直连验证 200 且无需登录，卡片原文经 hf-mirror.com 镜像读取官方 raw 文件（证据 URL 为官方原址）。MIT 仅指 Space 卡片标注；本站未做运行验证。</span><span data-en>Official ACE-Step Space (card title &#39;ACE-Step v1.5&#39;); the card body explicitly links &#39;Space Demo&#39; and its models field lists v1.5 and XL-turbo weights. Release date taken from official release v0.1.6 (ACE-Step 1.5 XL, published 2026-04-03). Verification: huggingface.co unreachable locally; demo returned 200 via the official hf.space domain with auth_required false; card read from the official raw file via hf-mirror.com (evidence URLs remain official). MIT refers to the Space card label only. Not run by this site.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 模型能力演示 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> MIT</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 模型能力演示</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://ace-step-ace-step-v1-5.hf.space/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="模型演示">
-        <h3><a href="https://zai-org-cogvideox-5b-space.hf.space/" rel="noopener">CogVideoX-5B 文生视频官方演示<span class="t-sm"> / CogVideoX-5B Text-to-Video Official Demo</span></a></h3>
-        <p class="t-sm"><span data-zh>模型演示</span><span data-en>Model demos</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+      <article class="fx-card" data-cat="模型演示">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>模型演示</span><span data-en>Model demos</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+        <h3><a href="https://zai-org-cogvideox-5b-space.hf.space/" rel="noopener">CogVideoX-5B 文生视频官方演示<span class="fx-sub"> / CogVideoX-5B Text-to-Video Official Demo</span></a></h3>
         
         <p><span data-zh>zai-org（原 THUDM）官方 Space，卡片正文明确说明集成 CogVideoX-5B 做浏览器内视频推理，models 字段指向 THUDM/CogVideoX-5b。发布日取官方 GitHub release v1.0（CogVideoX-1.0，published 2024-11-08，正文点名 CogVideoX-5B）。核验方式：huggingface.co 主站本地不可达，demo 经官方 hf.space 直连验证 200 且无需登录，卡片原文经 hf-mirror.com 镜像读取官方 raw 文件（证据 URL 为官方原址）。Space 卡片未标许可，模型为自定义 CogVideoX LICENSE，不声称开源；本站未做运行验证。</span><span data-en>Official zai-org (formerly THUDM) Space; the card states it integrates CogVideoX-5B for in-browser video inference, with models pointing to THUDM/CogVideoX-5b. Release date taken from official GitHub release v1.0 (CogVideoX-1.0, published 2024-11-08, body names CogVideoX-5B). Verification: huggingface.co unreachable locally; demo returned 200 via the official hf.space domain with auth_required false; card read from the official raw file via hf-mirror.com (evidence URLs remain official). The Space card carries no license and the model uses a custom CogVideoX LICENSE; no open-source claim. Not run by this site.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 模型能力演示 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 模型能力演示</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://zai-org-cogvideox-5b-space.hf.space/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="模型演示">
-        <h3><a href="https://indexteam-indextts-2-5-demo.hf.space/" rel="noopener">IndexTTS-2.5 官方语音合成演示<span class="t-sm"> / IndexTTS-2.5 Official TTS Demo</span></a></h3>
-        <p class="t-sm"><span data-zh>模型演示</span><span data-en>Model demos</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+      <article class="fx-card" data-cat="模型演示">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>模型演示</span><span data-en>Model demos</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+        <h3><a href="https://indexteam-indextts-2-5-demo.hf.space/" rel="noopener">IndexTTS-2.5 官方语音合成演示<span class="fx-sub"> / IndexTTS-2.5 Official TTS Demo</span></a></h3>
         
         <p><span data-zh>IndexTeam 官方 Space，演示 IndexTTS-2.5 零样本语音合成。发布日取官方 GitHub release v2.5.0 的 published 日期（2026-08-13，GitHub API 原文）。核验方式：huggingface.co 主站在本地网络不可达，demo 经官方 hf.space 直连域名验证 200 且无需登录，Space 卡片原文经 hf-mirror.com 镜像读取官方 raw 文件（证据 URL 仍为官方原址）。Space 卡片许可为 other，不声称开源；本站未做运行验证。</span><span data-en>Official IndexTeam Space demonstrating IndexTTS-2.5 zero-shot TTS. Release date taken from the published date of official GitHub release v2.5.0 (2026-08-13). Verification: huggingface.co is unreachable from the local network; the demo returned 200 via the official hf.space direct domain with auth_required false, and the Space card was read from the official raw file via the hf-mirror.com mirror (evidence URLs remain the official pages). Space card license is &#39;other&#39;; no open-source claim. Not run by this site.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 模型能力演示 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 模型能力演示</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://indexteam-indextts-2-5-demo.hf.space/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
-      <article class="dm-card" data-cat="模型演示">
-        <h3><a href="https://hpcai-tech-open-sora.hf.space/" rel="noopener">Open-Sora v1.2 视频生成官方演示<span class="t-sm"> / Open-Sora v1.2 Video Generation Official Demo</span></a></h3>
-        <p class="t-sm"><span data-zh>模型演示</span><span data-en>Model demos</span> · <span data-zh>许可</span><span data-en>Licence</span>: link-only · <span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</p>
+      <article class="fx-card" data-cat="模型演示">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>模型演示</span><span data-en>Model demos</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+        <h3><a href="https://hpcai-tech-open-sora.hf.space/" rel="noopener">Open-Sora v1.2 视频生成官方演示<span class="fx-sub"> / Open-Sora v1.2 Video Generation Official Demo</span></a></h3>
         
         <p><span data-zh>官方 GitHub release v1.2.0 正文明确点名 gradio demo（huggingface.co/spaces/hpcai-tech/open-sora），属一手发布证据。发布日取该 release 的 published 日期（2024-06-18）。核验方式：huggingface.co 主站本地不可达，demo 经官方 hf.space 直连验证 200、config 确认 space_id 为 hpcai-tech/open-sora 且 auth_required: false；Space 卡片原文经镜像读取失败（返回鉴权错误），故许可记 link-only，不声称开源。仓库代码 LICENSE 经 raw 原文核验为 Apache-2.0，仅作补充事实。本站未做运行验证。</span><span data-en>The official GitHub release v1.2.0 body explicitly names the gradio demo (huggingface.co/spaces/hpcai-tech/open-sora) — first-party release evidence. Release date is the release&#39;s published date (2024-06-18). Verification: huggingface.co unreachable locally; the demo returned 200 via the official hf.space domain, config confirms space_id hpcai-tech/open-sora and auth_required false. The Space card could not be read via mirror (auth error), so license is recorded as link-only with no open-source claim. The repo code LICENSE was verified as Apache-2.0 from the raw file, noted only as a supplementary fact. Not run by this site.</span></p>
-        <p class="t-sm"><span data-zh>AI 用在哪</span><span data-en>AI scope</span>: 模型能力演示 · <span data-zh>本站运行</span><span data-en>Site run</span>: <span data-zh>未跑</span><span data-en>not run</span></p>
+        <div class="fx-meta">
+          <span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> link-only</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>AI 用在哪</span><span data-en>AI scope</span></span> 模型能力演示</span>
+          <span class="fx-sep"></span>
+          <span><span class="fx-key"><span data-zh>本站运行</span><span data-en>Site run</span></span> <span data-zh>未跑</span><span data-en>not run</span></span>
+        </div>
+        <a class="fx-source" href="https://hpcai-tech-open-sora.hf.space/" rel="noopener"><span data-zh>打开原作品</span><span data-en>Open the work</span> &rarr;</a>
       </article>
   </div>
   <noscript><p class="t-sm"><span data-zh>未开启脚本：类目筛选不可用，全部条目已在上方列出。</span><span data-en>Without JavaScript the category filter is unavailable; all entries are listed above.</span></p></noscript>
   <p><a href="compare.html"><span data-zh>看维度对照（不排名）</span><span data-en>See the dimension comparison (no ranking)</span></a> · <a href="releases.html"><span data-zh>看模型发布轨</span><span data-en>See the model-release track</span></a></p>
 </div>
-<script>
-(function(){var s=document.getElementById('dm-cat');if(!s)return;s.addEventListener('change',function(){var v=s.value;document.querySelectorAll('.dm-card').forEach(function(c){c.hidden=(v!=='all'&&c.getAttribute('data-cat')!==v);});});})();
-</script>
+<script>(function(){var bar=document.getElementById('dm-filter');if(!bar)return;var chips=bar.querySelectorAll('[data-filter-cat]');var cards=document.querySelectorAll('.fx-card');var count=document.getElementById('dm-filter-count');function apply(v){var n=0;for(var i=0;i<cards.length;i++){var c=cards[i];var show=(v==='all'||c.getAttribute('data-cat')===v);c.hidden=!show;if(show)n++;}for(var j=0;j<chips.length;j++){var b=chips[j];b.setAttribute('aria-pressed',b.getAttribute('data-filter-cat')===v?'true':'false');}if(count)count.textContent=String(n);}for(var k=0;k<chips.length;k++){chips[k].addEventListener('click',function(){apply(this.getAttribute('data-filter-cat'));});}})();</script>
   </main>
   <footer class="site-footer">
     <div class="container foot-row">

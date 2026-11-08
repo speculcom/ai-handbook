@@ -429,13 +429,13 @@ details.all-quants summary{cursor:pointer;font-size:var(--fs-xs);color:var(--bra
 .vfilter{display:flex;flex-wrap:wrap;gap:.7rem;align-items:flex-end;margin:1.2rem 0 1.6rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:var(--r-sm,10px)}
 .vfilter .vf-f{display:flex;flex-direction:column;gap:.25rem;min-width:9rem}
 .vfilter .vh{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
-.vfilter input,.vfilter select{font:inherit;font-size:.875rem;padding:.34rem .5rem;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+.vfilter input,.vfilter select{font:inherit;font-size:var(--fs-sm);padding:.34rem calc(var(--sp-5) + var(--sp-1)) .34rem var(--sp-3);border:1px solid var(--line-mid);border-radius:var(--r-sm);background-color:var(--bg-panel);color:var(--ink)}
 .vfilter .vf-f:first-child{min-width:13rem;flex:1 1 13rem}
 .vcount{margin-left:auto;font-size:.8125rem;opacity:.7;white-space:nowrap}
 .sfilter{display:flex;flex-wrap:wrap;gap:.7rem;align-items:flex-end;margin:1.2rem 0 1.4rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:var(--r-sm,10px)}
 .sfilter .vf-f{display:flex;flex-direction:column;gap:.25rem;min-width:9rem}
 .sfilter .vh{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
-.sfilter input,.sfilter select{font:inherit;font-size:.875rem;padding:.34rem .5rem;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+.sfilter input,.sfilter select{font:inherit;font-size:var(--fs-sm);padding:.34rem calc(var(--sp-5) + var(--sp-1)) .34rem var(--sp-3);border:1px solid var(--line-mid);border-radius:var(--r-sm);background-color:var(--bg-panel);color:var(--ink)}
 .sfilter .vf-f:first-child{min-width:13rem;flex:1 1 13rem}
 @media(max-width:560px){.vfilter,.sfilter{flex-direction:column;align-items:stretch}.vcount{margin-left:0}}
 /* B3：companion 块（下好之后用什么跑）。字号一律整数 px —— 见上方 FILTER_CSS 的说明。 */
