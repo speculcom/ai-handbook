@@ -13,6 +13,8 @@ purposeTag: "learn"
 level: 4
 layer: "四"
 ord: 5
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # KV 缓存（KV Cache）

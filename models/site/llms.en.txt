@@ -1,0 +1,70 @@
+# Choosing open-weight models · local deployment map
+> Two steps: read the family lineage card (vendor / generation / sizes / licence / official claims), then pick a quantisation on the series page.
+> No benchmarks, no verdicts on quality or speed, and no model weights are hosted here.
+
+## Scope
+
+Open-weight models that can be deployed locally: public weight files on Hugging Face plus third-party GGUF quantisations.
+Closed / API-only models are not part of the quantisation catalogue — "which quantisation should I download" does not apply to them.
+They get a separate lineage card that records official spec facts and a review cycle only: no prices, no ranking.
+
+## Series
+
+- [DeepSeek V4](https://models.specul.com/series/deepseek-v4/): MIT licensed with an active quantisation ecosystem — the quantisations are maintained by antirez (author of Redis, a participant in the llama.cpp ecosystem) himself.
+  DeepSeek · released 2026-09-10 · 1 repos / 5 quantisations / 13 GGUF files · licences mit
+- [Gemma 4](https://models.specul.com/series/gemma-4/): Google's open-weight series; the three sizes listed here each have quantisation coverage.
+  Google · released 2026-06 · 3 repos / 26 quantisations / 340 GGUF files · licences apache-2.0, apache-2.0, apache-2.0
+- [GLM 5](https://models.specul.com/series/glm-5/): Zhipu's open-weight series. Licences are listed per variant; check the specific version and capacity requirements before deployment.
+  Zhipu AI · released 2026-08-25 · 2 repos / 13 quantisations / 79 GGUF files · licences other, mit
+- [gpt-oss](https://models.specul.com/series/gpt-oss/): OpenAI's open-weight series, with quantisation information for the 20B variant. Single-GPU suitability depends on available memory, quantisation and context settings.
+  OpenAI · released 2025-08-04 · 1 repos / 6 quantisations / 57 GGUF files · licences apache-2.0
+- [KAT Coder V2.5](https://models.specul.com/series/kat-coder/): An open-weight series aimed at code, apache-2.0, with 34 third-party quantisation repos.
+  Kwaipilot · released 2026-07-23 · 1 repos / 6 quantisations / 57 GGUF files · licences apache-2.0
+- [Kimi K3](https://models.specul.com/series/kimi-k3/): Moonshot's open-weight series, with 41 quantisation repos in the snapshot. Counts do not establish quality or runtime compatibility.
+  Moonshot AI · released 2026-06-13 · 1 repos / 10 quantisations / 31 GGUF files · licences other
+- [Laguna 2.1](https://models.specul.com/series/laguna/): An open-weight series in the coding direction; licensed OpenMDW-1.1 (read the original terms before use).
+  Poolside · released 2026-06-20 · 1 repos / 6 quantisations / 50 GGUF files · licences openmdw-1.1
+- [MiniCPM 5](https://models.specul.com/series/minicpm5/): A representative Chinese small-size model; the 2B scale suits low VRAM and on-device use.
+  OpenBMB · released 2026-08-27 · 1 repos / 10 quantisations / 139 GGUF files · licences apache-2.0
+- [Muse Glimmer](https://models.specul.com/series/muse-glimmer/): Meta's open-weight series, apache-2.0, with quantisation coverage across several major quantisers.
+  Meta · released 2026-08-09 · 1 repos / 10 quantisations / 116 GGUF files · licences apache-2.0
+- [Ornith 1.5](https://models.specul.com/series/ornith-1-5/): The model cards list MIT; both sizes have GGUF coverage. See the tables for individual files and versions.
+  Ornith AI · released 2026-08-18 · 2 repos / 20 quantisations / 208 GGUF files · licences mit, mit
+- [Qwen3.8](https://models.specul.com/series/qwen3-8/): Alibaba's Qwen series, with quantisation information for the dense 27B model and Flash-Next. Inclusion is not a performance ranking.
+  Alibaba Qwen · released 2026-08-05 · 2 repos / 17 quantisations / 172 GGUF files · licences apache-2.0, other
+
+## Closed-model cards
+
+- [Claude (closed API)](https://models.specul.com/closed/claude/): official spec snapshot, 4 sourced facts, reviewed 2026-10-30, review cycle 30 days
+- [Doubao (closed API)](https://models.specul.com/closed/doubao/): official spec snapshot, 4 sourced facts, reviewed 2026-10-30, review cycle 30 days
+- [Gemini (closed API)](https://models.specul.com/closed/gemini/): official spec snapshot, 4 sourced facts, reviewed 2026-10-30, review cycle 30 days
+- [GPT (closed API)](https://models.specul.com/closed/gpt/): official spec snapshot, 4 sourced facts, reviewed 2026-10-30, review cycle 30 days
+- [Grok (closed API)](https://models.specul.com/closed/grok/): official spec snapshot, 4 sourced facts, reviewed 2026-10-30, review cycle 30 days
+- [Kimi (closed API)](https://models.specul.com/closed/kimi/): official spec snapshot, 3 sourced facts, reviewed 2026-10-30, review cycle 30 days
+
+## Page types
+
+- `/` — entry and selection method
+- `/families/<code>/` — lineage card: vendor, generations, sizes, licences
+- `/series/<code>/` — six blocks: base model card, which size fits which VRAM, quantisation table, per-variant notes, quantiser profiles, update log
+- `/guides/<id>.html` — methodology notes for practitioners
+
+## Provenance
+
+- Collection API: `hf-mirror.com/api/models` and `hf-mirror.com/api/models/{id}/tree/main`
+- Upstream: <https://huggingface.co>
+- Snapshot: 2026-10-30 (not live)
+- Method: <https://github.com/speculcom/ai-handbook/blob/main/docs/METHODOLOGY.md>
+
+## Legal stance
+
+Index and quote only. No hosting, no licence interpretation, no legal advice. Licence fields are quoted from each release page;
+derived licences for quantisation repos are marked as inherited from the base model.
+
+## Site group
+
+- Home <https://specul.com/> · Learn <https://learn.specul.com/> · Tools <https://tools.specul.com/>
+- Models <https://models.specul.com/> · Demos <https://demos.specul.com/> · Hardware <https://hardware.specul.com/>
+- Papers <https://papers.specul.com/> · Chain <https://chain.specul.com/> · Directory <https://nav.specul.com/>
+
+--- Last updated: 2026-10-30

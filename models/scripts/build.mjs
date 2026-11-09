@@ -15,6 +15,17 @@ import {capacityWorkbench} from './capacity-workbench.mjs';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 const SITE = path.join(ROOT, 'site');
+/* 主题回链（2026-11-09）：topics.json 由 _audit/gen-topic-links.mjs 生成在本仓根（R3）。 */
+const TOPIC_LINKS = (() => {
+  try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'topics.json'), 'utf8')); } catch (_) { return {}; }
+})();
+const topicsLine = (url) => {
+  const list = TOPIC_LINKS[url];
+  if (!list || !list.length) return '';
+  return `    <p class="t-sm dim">${bi('这页出现在主题：', 'This page appears in: ')}${list
+    .map((x) => `<a href="https://specul.com/topic-${x.id}.html">${bi(x.zh, x.en)}</a>`)
+    .join(' · ')}</p>\n`;
+};
 /* 品牌 shell 来源（铁律 R3）。
  * 原来无条件读 <工作区>/_sites/_template/shell.mjs —— 那是**主仓**的路径，
  * 克隆 ai-quantized-llm 的人根本没有它，于是构建第一步就 ERR_MODULE_NOT_FOUND。
@@ -1309,7 +1320,7 @@ ${srcRows}
       </ul>
       <p class="fam-foot">${bi(`基础来源快照：${g.lastVerified}；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。`, `Base source snapshot: ${g.lastVerified}; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.`)}</p>
     </section>
-  </div>`;
+${topicsLine(`https://models.specul.com/guides/${g.id}.html`)}  </div>`;
   return shell({
     current: 'models',
     /* /guides/<id>.html 是一级深（与 /families/<code>/ 不同构）→ assetPrefix '../'。
@@ -2032,13 +2043,73 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('');
   lines.push('## 站点群');
   lines.push('');
-  lines.push('- 首页 <https://specul.com/>　导航 <https://nav.specul.com/>　术语 <https://learn.specul.com/>');
-  lines.push('- Agent <https://tools.specul.com/>　AI 做游戏 <https://vg.specul.com/>');
-  lines.push('- （v3 时代的 ide / cli / mcp / harness 四个独立子域已于 2026-10-04 并入 tools.specul.com，不再存在）');
+  lines.push('- 首页 <https://specul.com/>　学 AI <https://learn.specul.com/>　工具 <https://tools.specul.com/>');
+  lines.push('- 模型 <https://models.specul.com/>　作品库 <https://demos.specul.com/>　硬件算力 <https://hardware.specul.com/>');
+  lines.push('- AI 论文 <https://papers.specul.com/>　链 <https://chain.specul.com/>　外部站点 <https://nav.specul.com/>');
+  lines.push('- （v3 时代的 ide / cli / mcp / harness 四个独立子域已于 2026-10-04 并入 tools.specul.com；');
+  lines.push('  做游戏子域 vg.specul.com 已于 2026-11-07 撤站，游戏内容并入主站主题页，不再存在）');
   lines.push('');
   lines.push(`--- 最后更新：${(seriesList[0]?.collectedAt || '').slice(0, 10)}`);
   lines.push('');
   fs.writeFileSync(path.join(SITE, 'llms.txt'), lines.join('\n'));
+
+  /* 英文版（2026-11-09 新增）：此前只写中文，线上 /llms.en.txt 缺失，
+     而其余 8 个站都有中英两份。英文版按同一批字段生成，不另写口径。 */
+  const en = [
+    '# Choosing open-weight models · local deployment map',
+    '> Two steps: read the family lineage card (vendor / generation / sizes / licence / official claims), then pick a quantisation on the series page.',
+    '> No benchmarks, no verdicts on quality or speed, and no model weights are hosted here.',
+    '',
+    '## Scope',
+    '',
+    'Open-weight models that can be deployed locally: public weight files on Hugging Face plus third-party GGUF quantisations.',
+    'Closed / API-only models are not part of the quantisation catalogue — "which quantisation should I download" does not apply to them.',
+    'They get a separate lineage card that records official spec facts and a review cycle only: no prices, no ranking.',
+    '',
+    '## Series',
+    '',
+  ];
+  for (const s of seriesList) {
+    const vTotal = s.members.reduce((n, m) => n + m.variantCount, 0);
+    const fTotal = s.members.reduce((n, m) => n + m.variants.reduce((k, v) => k + v.coverage, 0), 0);
+    en.push(`- [${s.name.en || s.name.zh}](${DOMAIN}series/${s.code}/): ${s.summaryEn || s.summary}`);
+    en.push(`  ${s.vendor.en || s.vendor.zh} · released ${s.released} · ${s.members.length} repos / ${vTotal} quantisations / ${fTotal} GGUF files · licences ${s.members.map((m) => m.license).filter(Boolean).join(', ')}`);
+  }
+  en.push('');
+  en.push('## Closed-model cards');
+  en.push('');
+  for (const c of closedList) {
+    en.push(`- [${c.name.en || c.name.zh}](${DOMAIN}closed/${c.code}/): official spec snapshot, ${c.facts.length} sourced facts, reviewed ${c.last_verified}, review cycle ${c.review_interval_days} days`);
+  }
+  en.push('');
+  en.push('## Page types');
+  en.push('');
+  en.push('- `/` — entry and selection method');
+  en.push('- `/families/<code>/` — lineage card: vendor, generations, sizes, licences');
+  en.push('- `/series/<code>/` — six blocks: base model card, which size fits which VRAM, quantisation table, per-variant notes, quantiser profiles, update log');
+  en.push('- `/guides/<id>.html` — methodology notes for practitioners');
+  en.push('');
+  en.push('## Provenance');
+  en.push('');
+  en.push('- Collection API: `hf-mirror.com/api/models` and `hf-mirror.com/api/models/{id}/tree/main`');
+  en.push('- Upstream: <https://huggingface.co>');
+  en.push(`- Snapshot: ${(seriesList[0]?.collectedAt || '').slice(0, 10)} (not live)`);
+  en.push('- Method: <https://github.com/speculcom/ai-handbook/blob/main/docs/METHODOLOGY.md>');
+  en.push('');
+  en.push('## Legal stance');
+  en.push('');
+  en.push('Index and quote only. No hosting, no licence interpretation, no legal advice. Licence fields are quoted from each release page;');
+  en.push('derived licences for quantisation repos are marked as inherited from the base model.');
+  en.push('');
+  en.push('## Site group');
+  en.push('');
+  en.push('- Home <https://specul.com/> · Learn <https://learn.specul.com/> · Tools <https://tools.specul.com/>');
+  en.push('- Models <https://models.specul.com/> · Demos <https://demos.specul.com/> · Hardware <https://hardware.specul.com/>');
+  en.push('- Papers <https://papers.specul.com/> · Chain <https://chain.specul.com/> · Directory <https://nav.specul.com/>');
+  en.push('');
+  en.push(`--- Last updated: ${(seriesList[0]?.collectedAt || '').slice(0, 10)}`);
+  en.push('');
+  fs.writeFileSync(path.join(SITE, 'llms.en.txt'), en.join('\n'));
 }
 
 fs.writeFileSync(path.join(SITE, 'sitemap.xml'),

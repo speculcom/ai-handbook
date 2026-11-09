@@ -11,6 +11,8 @@ purposeTag: "judge"
 level: 6
 layer: "六"
 ord: 4
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # API / 接口调用（API）

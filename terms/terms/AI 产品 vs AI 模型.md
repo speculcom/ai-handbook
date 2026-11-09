@@ -11,6 +11,8 @@ purposeTag: "learn"
 level: 1
 layer: "一"
 ord: 13
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # AI 产品 vs AI 模型（Product vs Model）

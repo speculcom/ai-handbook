@@ -11,6 +11,8 @@ purposeTag: "guard"
 level: 5
 layer: "五"
 ord: 22
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # safetensors（safetensors）

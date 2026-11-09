@@ -11,6 +11,8 @@ purposeTag: "apply"
 level: 2
 layer: "二"
 ord: 28
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # LoRA（低秩适配）

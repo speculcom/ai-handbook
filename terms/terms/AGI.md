@@ -12,6 +12,8 @@ purposeTag: "learn"
 level: 1
 layer: "一"
 ord: 19
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # AGI（通用人工智能）（AGI）

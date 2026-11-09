@@ -36,6 +36,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 1,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Let machines do what used to need human intelligence — see images, understand speech, write, and decide.",
     "defEn": [
      "A broad field: making machines behave in ways we recognise as intelligent. It is not one technology but many, and today's chatbots are only a branch of it."
@@ -103,6 +105,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 3,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Stack many layers so the network learns its own features instead of being told them.",
     "defEn": [
@@ -137,6 +141,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 4,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A network of simple units whose combined output can approximate very complex functions.",
     "defEn": [
@@ -176,6 +182,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 5,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "After training, the learned parameters that let a system generalise to inputs it has never seen.",
     "defEn": [
      "The trained artefact: parameters plus the architecture that produced them. \"Loading a model\" means loading these, not running a program."
@@ -204,6 +212,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 6,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The numbers the training process adjusts; everything the model knows lives in them.",
     "defEn": [
@@ -238,6 +248,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 7,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Let the system learn its parameters from data by repeated exposure.",
     "defEn": [
@@ -267,6 +279,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 8,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The model you trained is now answering real queries — a different phase with different costs.",
     "defEn": [
@@ -304,6 +318,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 9,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "The instructions you give the model, and often the main lever you actually control.",
     "defEn": [
      "The input text shaping the model's behaviour. In a chat interface it is what you type; in an API it is part of the request."
@@ -335,6 +351,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 10,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "The smallest unit a model processes text in. Both billing and length limits are measured in it.",
     "defEn": [
      "The pieces a model splits text into. One token is roughly a quarter of an English word, or one to two Chinese characters.",
@@ -373,6 +391,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 11,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "How much the model can see at once — the page of text it can keep in mind while answering.",
     "defEn": [
      "The token budget for one request: system prompt, documents, conversation history and the reply all draw from it."
@@ -436,6 +456,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 13,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Separate the model itself from the piece of software you actually use.",
     "defEn": [
@@ -498,6 +520,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 15,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A chatbot's job ends with an answer; an agent's ends with the work being done.",
     "defEn": [
@@ -526,6 +550,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 16,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Models, tools, data and documentation all maintained by the community, freely combinable.",
     "defEn": [
@@ -559,6 +585,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 17,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Knowing precisely what a model cannot do prevents more mistakes than knowing what it can.",
     "defEn": [
@@ -637,6 +665,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 19,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The hypothetical 'capable of anything a human can' AI: a word labs use to state their goal — it does not exist yet.",
     "defEn": [
@@ -670,6 +700,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 20,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Learning by trial and error against rewards: one of the three training paradigms alongside supervised and unsupervised learning.",
     "defEn": [
@@ -702,6 +734,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 21,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The academic name for 'large models': pre-trained on massive data, adaptable to a wide range of tasks.",
     "defEn": [
@@ -745,6 +779,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 22,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The massive text compilation a model has 'read': its sources and flaws shape everything the model does.",
     "defEn": [
@@ -784,6 +820,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 23,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Weights you can download, but a license that may not qualify as 'open source' — a third form between open and closed.",
     "defEn": [
@@ -817,6 +855,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 24,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The 1B–8B parameter class: cheap, fast, runnable locally — and not necessarily weak.",
     "defEn": [
@@ -850,6 +890,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 25,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A model's 'spec sheet': intended use, measured performance, known shortcomings — issued with the model.",
     "defEn": [
@@ -884,6 +926,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 26,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Data generated by programs or models to train on: saves labeling money, but has its own problems.",
     "defEn": [
@@ -1026,6 +1070,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 30,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Turing's 1950 classic: if conversation can't tell machine from human, does that count as machine thinking?",
     "defEn": [
@@ -1058,6 +1104,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 31,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Give the machine practice questions with answers, so it learns to derive answers from inputs.",
     "defEn": [
@@ -1088,6 +1136,8 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 32,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "No answers given — the machine finds structure in the data by itself.",
     "defEn": [
@@ -1278,6 +1328,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 1,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "The model states something plausible and confident that is simply not true.",
     "defEn": [
      "Output that is fluent and confident but factually wrong. It comes from producing likely-sounding text rather than retrieving verified facts."
@@ -1352,6 +1404,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 3,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Works through a chain of internal steps before answering, which markedly improves accuracy on hard problems.",
     "defEn": [
      "A model that produces intermediate reasoning before its conclusion — typically one with a thinking or reasoning mode.",
@@ -1453,6 +1507,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 6,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The role and rules set for a model, which determine the tone of the whole conversation.",
     "defEn": [
@@ -1487,6 +1543,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 7,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Teach an existing model a specific task or style, rather than describing the task in the prompt.",
     "defEn": [
@@ -1520,6 +1578,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 8,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Makes a model's output match human preference, rather than merely continuing text.",
     "defEn": [
@@ -1553,6 +1613,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 9,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The date boundary of a model's training data. Anything after it, the model does not know.",
     "defEn": [
@@ -1626,6 +1688,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 11,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Represent text as coordinates, so meaning can be compared by geometry rather than by string match.",
     "defEn": [
@@ -1659,6 +1723,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 12,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A database built to store and search those numeric arrays, so RAG can find the relevant passages among millions of documents in an instant.",
     "defEn": [
@@ -1687,6 +1753,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 13,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Cut a long document into pieces before feeding it to the model. How you chunk decides how accurate the answer is.",
     "defEn": [
@@ -1716,6 +1784,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 14,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The dominant method for image generation: \"wipe\" an image out of noise step by step.",
     "defEn": [
@@ -1745,6 +1815,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 15,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The key mechanism in image generation — the model works in a compressed space, not on raw pixels.",
     "defEn": [
@@ -1773,6 +1845,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 16,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Lets a model relate text descriptions to image content — the foundation of text-to-image generation.",
     "defEn": [
@@ -1801,6 +1875,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 17,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Gives precise control over the result using line art, depth maps or pose skeletons.",
     "defEn": [
@@ -1910,6 +1986,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 20,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A virtual person with an appearance and a voice, used for customer service, virtual presenters and similar.",
     "defEn": [
@@ -2001,6 +2079,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 23,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Giving AI a body so it can sense its surroundings and act — the robotics side of things.",
     "defEn": [
@@ -2098,6 +2178,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 26,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Chips built specifically for AI computation — more efficient than general GPUs, but with a more closed ecosystem.",
     "defEn": [
      "Processors optimised for matrix computation, usually referring to AI-specific accelerator hardware of various kinds."
@@ -2128,6 +2210,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 27,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A model's stated confidence often exceeds its actual accuracy: confident is not the same as correct.",
     "defEn": [
@@ -2162,6 +2246,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 28,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Budget fine-tuning: freeze the original weights, train only a small 'patch'.",
     "defEn": [
@@ -2201,6 +2287,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 29,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Answers stream out as they are generated: you read word by word instead of waiting for the full text.",
     "defEn": [
@@ -2235,6 +2323,8 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 30,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The model flatly declines certain requests: a direct product of safety alignment.",
     "defEn": [
@@ -2876,6 +2966,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 1,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Stop answering and start acting: let the model take multi-step actions on its own.",
     "defEn": [
      "A system where a model plans, calls tools, reads results and repeats until the task is done, rather than replying once."
@@ -2909,6 +3001,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 2,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Let the model actually do things — search, run code, edit files — rather than only describe them.",
     "defEn": [
@@ -2951,6 +3045,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 3,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "A standard interface for connecting AI to external tools and data in one uniform way, without a bespoke integration per service.",
     "defEn": [
      "An open protocol proposed by Anthropic describing, in one specification, which tools an AI may call and which resources it may read.",
@@ -2985,6 +3081,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 4,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Split a complex job across several roles, each strong at something different.",
     "defEn": [
@@ -3019,6 +3117,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 5,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Fix a repeated pattern: the AI does a step, a human confirms, the next step runs.",
     "defEn": [
@@ -3048,6 +3148,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 6,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Let an agent remember things across conversations instead of restating the background every time.",
     "defEn": [
@@ -3082,6 +3184,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 7,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Work running for hours or days across many contexts.",
     "defEn": [
@@ -3110,6 +3214,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 8,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A human confirms the key steps instead of the system running on unattended.",
     "defEn": [
@@ -3173,6 +3279,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 10,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Confine what the AI does to a controlled environment so a mistake stays contained.",
     "defEn": [
@@ -3242,6 +3350,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 12,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "See what the model actually did this run, what it cost, and which step went wrong.",
     "defEn": [
@@ -3270,6 +3380,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 13,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Complete the following code automatically in the editor, based on context.",
     "defEn": [
@@ -3298,6 +3410,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 14,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Let the AI read the whole project, not just the file that happens to be open.",
     "defEn": [
@@ -3326,6 +3440,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 15,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Run tasks autonomously in the command line: edit files, run tests, commit code.",
     "defEn": [
@@ -3354,6 +3470,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 16,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "See exactly what the AI changed — the most important step when accepting AI-written code.",
     "defEn": [
@@ -3387,6 +3505,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 17,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Let one AI session hand off between terminal, editor and web.",
     "defEn": [
@@ -3415,6 +3535,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 18,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Let AI coding tools from different vendors plug into the same editor.",
     "defEn": [
@@ -3443,6 +3565,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 19,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "AI as a programming partner taking part in development in real time.",
     "defEn": [
@@ -3476,6 +3600,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 20,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Let the AI click pages, fill forms and take screenshots to gather information.",
     "defEn": [
@@ -3509,6 +3635,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 21,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Official \"reference\" implementations showing how the protocol should be written.",
     "defEn": [
@@ -3540,6 +3668,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 22,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Record every change and roll back at will — the safety foundation of AI-assisted coding.",
     "defEn": [
      "A mechanism tracking the history of file changes, supporting collaboration and rollback."
@@ -3572,6 +3702,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 23,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Tests and checks run automatically as soon as code is committed.",
     "defEn": [
@@ -3631,6 +3763,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 25,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A cloud agent runs tasks on your machine, so closing the laptop does not stop it.",
     "defEn": [
@@ -3664,6 +3798,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 26,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Package a repetitive workflow into a reusable capability.",
     "defEn": [
@@ -3797,6 +3933,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 30,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Split a job into fixed steps, feeding each output into the next.",
     "defEn": [
      "Anthropic's definition: decompose a task into a sequence of steps, passing each output to the next.",
@@ -3830,6 +3968,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 31,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "First decide whether the job should be agentic at all.",
     "defEn": [
      "Anthropic's distinction: workflows orchestrate models and tools through predefined code paths.",
@@ -3866,6 +4006,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 32,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "A few officially named collaboration structures you can reuse.",
     "defEn": [
      "Parallelization: run divided subtasks simultaneously and aggregate outputs.",
@@ -3900,6 +4042,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 33,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "The instructions you write for the model about what a tool does and how to fill it.",
     "defEn": [
      "Anthropic notes that tool descriptions and specs are themselves prompt engineering.",
@@ -3933,6 +4077,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 34,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "The quota on how many requests you may send in a time window.",
     "defEn": [
      "HTTP 429 means \"Too Many Requests\"; MDN states it is commonly used for rate limiting.",
@@ -3965,6 +4111,8 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 35,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Let sub-agents do the searching so the main conversation keeps only the conclusions.",
     "defEn": [
      "Anthropic's pattern: detailed search context stays isolated inside sub-agents.",
@@ -4506,6 +4654,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 2,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "When processing one word, the model automatically looks at the most relevant other words in the sentence.",
     "defEn": [
@@ -4540,6 +4690,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 3,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Lets the model know the order of words in a sentence.",
     "defEn": [
@@ -4568,6 +4720,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 4,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The first step of turning words into numeric vectors — models only work in numbers internally.",
     "defEn": [
@@ -4607,6 +4761,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 5,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Stops the model recomputing the whole passage on every token it generates — this is what makes generation speed usable.",
     "defEn": [
@@ -4636,6 +4792,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 6,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A larger context window is slower and more expensive — it is not free capacity.",
     "defEn": [
@@ -4707,6 +4865,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 8,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Both training and inference burn compute. This is AI's hardest resource threshold.",
     "defEn": [
@@ -4773,6 +4933,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 10,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Lets a model look at a sentence from several angles at once, instead of tracking only one kind of relation.",
     "defEn": [
@@ -4804,6 +4966,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 11,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The digestion step inside every Transformer layer: attention looks around, then this part processes.",
     "defEn": [
@@ -4841,6 +5005,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 12,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Gives the network a \"pass-through lane\" so the signal survives passing through many layers.",
     "defEn": [
@@ -4877,6 +5043,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 13,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Levels out each layer's output so deep training doesn't spiral out of control.",
     "defEn": [
@@ -4918,6 +5086,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 14,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The two halves of a Transformer: one reads, one generates.",
     "defEn": [
@@ -4995,6 +5165,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 16,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "How chat models are trained: first they learn to continue text, then they learn to answer well.",
     "defEn": [
@@ -5071,6 +5243,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 18,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A model architecture: each layer holds many \"experts,\" but each word uses only a few of them.",
     "defEn": [
@@ -5104,6 +5278,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 19,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Learning on the spot inside a conversation: give a few examples and the model does a new task, no retraining.",
     "defEn": [
@@ -5175,6 +5351,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 21,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "How large models emit text one token at a time — the root of many downstream issues.",
     "defEn": [
@@ -5245,6 +5423,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 23,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Decoding that always picks the most likely token — and why it instead produces hollow, repetitive text.",
     "defEn": [
@@ -5284,6 +5464,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 24,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Why models fabricate with a straight face: not deception, but the training objective.",
     "defEn": [
@@ -5362,6 +5544,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 26,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The empirical power-law by which loss falls with parameters, data, and compute — the theory behind the scaling arms race.",
     "defEn": [
@@ -5401,6 +5585,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 27,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Abilities small models lack that large models suddenly have — and the dispute that they may be a metric artifact.",
     "defEn": [
@@ -5435,6 +5621,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 28,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Prompting the model to lay out reasoning steps before answering — and its dependence on model scale.",
     "defEn": [
@@ -5474,6 +5662,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 29,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Eval questions leaking into training data — models have 'seen the exam', so scores become distorted.",
     "defEn": [
@@ -5513,6 +5703,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 30,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Benchmarks approach perfect scores and lose discriminating power — why leaderboards need constant renewal.",
     "defEn": [
@@ -5553,6 +5745,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 31,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "What the mainstream image-generation method looks like at the principle level: add noise, remove noise, predict noise.",
     "defEn": [
@@ -5593,6 +5787,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 32,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Video generation is not simply 'generate one frame at a time': temporal consistency is the hard part.",
     "defEn": [
@@ -5638,6 +5834,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 33,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A few seconds of recording is enough to synthesise someone's voice: the principle is training 'voiceprint vector' and 'reading text' separately.",
     "defEn": [
@@ -5673,6 +5871,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 34,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The mainstream way to turn speech into text: large-scale weak supervision, one model for many accents.",
     "defEn": [
@@ -5713,6 +5913,8 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 35,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "How modern TTS works end to end: one model outputs the waveform, and rhythm is a distribution it samples rather than an average.",
     "defEn": [
@@ -5977,6 +6179,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 1,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "The chip that actually does the matrix arithmetic. Large models run on it; a CPU is far too slow.",
     "defEn": [
      "A processor built for large-scale parallel computation, originally designed for graphics rendering and now the workhorse of model training and inference."
@@ -6010,6 +6214,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 2,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Memory on the graphics card. If the model does not fit, it simply does not run — nothing else matters.",
     "defEn": [
@@ -6077,6 +6283,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 4,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The numeric form of a quantisation level: how many bits each weight averages.",
     "defEn": [
@@ -6107,6 +6315,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 5,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The de facto standard file format for running models locally. The llama.cpp ecosystem accepts little else.",
     "defEn": [
@@ -6137,6 +6347,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 6,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The mainstream open-source engine for running large models on an ordinary computer, CPU included.",
     "defEn": [
@@ -6171,6 +6383,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 7,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A serving engine for running models at high concurrency on a server.",
     "defEn": [
@@ -6200,6 +6414,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 8,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Give part of the model to the GPU and keep the rest on the CPU — the compromise when VRAM falls short.",
     "defEn": [
@@ -6242,6 +6458,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 9,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Split one model across several GPUs when it does not fit on a single card.",
     "defEn": [
      "Partitioning model weights across multiple GPUs by dimension, each computing part, with inter-card communication required."
@@ -6269,6 +6487,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 10,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "For sparse models with many experts where only a few activate per token, keep the rarely-used experts in memory.",
     "defEn": [
@@ -6302,6 +6522,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 11,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "How long from sending a question to seeing the first word. This number decides whether it feels fast.",
     "defEn": [
@@ -6339,6 +6561,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 12,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "How many tokens per second come out. It determines how long you wait for a long generation.",
     "defEn": [
      "Tokens produced per second. Higher throughput means faster long-form generation."
@@ -6371,6 +6595,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 13,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The step where your whole input is read through before generation begins.",
     "defEn": [
@@ -6408,6 +6634,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 14,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Cache repeated system prompts and documents, saving time and money when asking about the same context again.",
     "defEn": [
      "Reusing processing already done for an identical prefix so it is not computed twice."
@@ -6441,6 +6669,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 15,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The server batches requests that arrived at different moments instead of queueing them.",
     "defEn": [
@@ -6471,6 +6701,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 16,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Process a long input in smaller chunks, mixing it with requests that are generating.",
     "defEn": [
@@ -6506,6 +6738,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 17,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Cut the model into layer ranges and run them on different GPUs in relay.",
     "defEn": [
@@ -6541,6 +6775,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 18,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Split a very long context across several cards for processing.",
     "defEn": [
@@ -6585,6 +6821,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 19,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Guess several tokens cheaply, then have the big model verify them in one pass.",
     "defEn": [
      "Leviathan et al.'s definition: an algorithm to sample from autoregressive models faster, computing several tokens in parallel with no changes to the outputs.",
@@ -6615,6 +6853,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 20,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A more memory-efficient, faster attention algorithm; the base of long contexts.",
     "defEn": [
@@ -6650,6 +6890,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 21,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Manage the KV cache with OS paging ideas so memory is barely wasted.",
     "defEn": [
@@ -6680,6 +6922,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 22,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A safer file format for model weights.",
     "defEn": [
@@ -6710,6 +6954,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 23,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A machine learning framework for Apple silicon, open-sourced by Apple's research team.",
     "defEn": [
@@ -6748,6 +6994,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 24,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Serve a local model so existing OpenAI clients can connect unchanged.",
     "defEn": [
      "vLLM provides an HTTP server compatible with OpenAI's Completions, Chat Completions and Embeddings APIs.",
@@ -6777,6 +7025,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 25,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "You can run models without a GPU; the cost is speed.",
     "defEn": [
@@ -6807,6 +7057,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 26,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A tool that runs an open model on your own computer with a single command.",
     "defEn": [
@@ -6837,6 +7089,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 27,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A local-model desktop app with a graphical interface — no command line needed.",
     "defEn": [
@@ -6876,6 +7130,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 28,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Shrinking a model has more than one method, and the methods differ in results.",
     "defEn": [
      "GPTQ and AWQ are the two most common families of post-training quantisation.",
@@ -6937,6 +7193,8 @@ var TERMS = [
     "level": 5,
     "layer": "五",
     "ord": 30,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Quantise the model to 4-bit first, then fine-tune — one consumer GPU is enough.",
     "defEn": [
@@ -7203,6 +7461,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 1,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "The weights are public: you can download them, run them on your own machine, and pay nobody.",
     "defEn": [
      "Models whose parameter weights are published. Note that open code and open weights are different things — only open weights mean you can self-host."
@@ -7235,6 +7495,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 2,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "You do not get the weights; you can only call it through the official interface.",
     "defEn": [
@@ -7264,6 +7526,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 3,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "What you may do with it: use, modify, or commercialise. The constraint most often overlooked during selection.",
     "defEn": [
@@ -7293,6 +7557,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 4,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Do not run a model yourself — pay per use for someone else's.",
     "defEn": [
@@ -7326,6 +7592,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 5,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Download the model and run it on your own machine, so data never leaves.",
     "defEn": [
@@ -7359,6 +7627,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 6,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Your material never passes through a third party. This is a hard requirement in many situations.",
     "defEn": [
@@ -7439,6 +7709,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 8,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Collapse several benchmark scores into one number for quick comparison.",
     "defEn": [
@@ -7472,6 +7744,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 9,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The deeper you go, the harder it is to switch models or providers.",
     "defEn": [
@@ -7505,6 +7779,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 10,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A leaderboard score is not the same as your actual result — this matters.",
     "defEn": [
@@ -7598,6 +7874,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 13,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Do not recompute repeated content; reuse it directly. The first lever for cutting cost.",
     "defEn": [
@@ -7631,6 +7909,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 14,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Send easy questions to a cheap fast model and hard ones to a strong model.",
     "defEn": [
@@ -7694,6 +7974,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 16,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "Depending on someone else's service means it may raise prices, shut down, or rate-limit you.",
     "defEn": [
@@ -7727,6 +8009,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 17,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "How much has to change if you swap models or providers.",
     "defEn": [
@@ -7755,6 +8039,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 18,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "When something breaks, can you find someone to ask, and is the API properly documented.",
     "defEn": [
@@ -7788,6 +8074,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 19,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "How fast the project moves and how stable its versions are.",
     "defEn": [
@@ -7821,6 +8109,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 20,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "What it costs to migrate away when you stop using it.",
     "defEn": [
@@ -7892,6 +8182,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 22,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "How your data actually reaches the model or tool: staying on your machine, or going to a third party.",
     "defEn": [
@@ -7927,6 +8219,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 23,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Cloud models get retired; treat it as a selection risk.",
     "defEn": [
      "Microsoft distinguishes two stages: once deprecated, new customers cannot deploy while existing deployments keep working.",
@@ -7962,6 +8256,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 24,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Two maturity levels of a model API, deciding whether it belongs in production.",
     "defEn": [
      "Microsoft defines Preview as experimental: weights, runtime and API schema might change, with no guarantee of reaching GA.",
@@ -7996,6 +8292,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 25,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "The date and the mini/nano suffix in a model name mean different things.",
     "defEn": [
      "Microsoft's definition: a model family is a generation; a version is a dated release within it.",
@@ -8025,6 +8323,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 26,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "A model may simply not exist in the region you are in.",
     "defEn": [
@@ -8063,6 +8363,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 27,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "purposeEn": "Which region your data sits in, and who decides.",
     "defEn": [
      "AWS states that the customer chooses the AWS Region(s) where customer content is stored.",
@@ -8093,6 +8395,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 28,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "The EU requires general-purpose model providers to publish a summary of training content.",
     "defEn": [
@@ -8161,6 +8465,8 @@ var TERMS = [
     "level": 6,
     "layer": "六",
     "ord": 30,
+    "last_verified": "2026-11-09",
+    "verified_scope": "refs",
     "alias": [],
     "purposeEn": "How to decide on a new model instead of waiting for the vendor's recommendation.",
     "defEn": [

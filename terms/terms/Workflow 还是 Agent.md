@@ -12,6 +12,8 @@ purposeTag: "judge"
 level: 3
 layer: "三"
 ord: 31
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # Workflow 还是 Agent（Workflow vs Agent）

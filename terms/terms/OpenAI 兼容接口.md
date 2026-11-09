@@ -13,6 +13,8 @@ purposeTag: "apply"
 level: 5
 layer: "五"
 ord: 24
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # OpenAI 兼容接口（OpenAI-compatible API）

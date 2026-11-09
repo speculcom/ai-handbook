@@ -12,6 +12,8 @@ purposeTag: "learn"
 level: 5
 layer: "五"
 ord: 7
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # vLLM（vLLM）

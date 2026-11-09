@@ -339,6 +339,7 @@ if (fs.existsSync(guidesDir)) {
      * lead 缺失仍在上面硬失败；这里不新造第二套降级逻辑。非 lesson 类这五个键恒为 null。 */
     for (const k of ['objectives', 'materials', 'steps', 'misconceptions', 'assessment']) g[k + 'En'] = en[k] || null;
     Object.defineProperty(g, '__file', { value: f, enumerable: false, writable: true });
+    g.slug = slug;   // 2026-11-09：词条页要回链指南，slug 不能在渲染层再推一次
     GUIDES.push(g);
   }
   GUIDES.sort((a, b) => Number(a.station) - Number(b.station) || a.kind.localeCompare(b.kind) || Number(a.ord) - Number(b.ord));
@@ -813,6 +814,25 @@ const TABBAR = SHELL.tabbar('learn');
     }
     const related = connections.length ? `<div class="tp-sec tp-related"><div class="tp-lab">${bi('接着读什么，为什么', 'What to read next, and why')}</div><ul>${connections.slice(0,3).map(c => `<li><a href="../${ENC(c.slug)}/">${bi(c.t.zh,c.t.en)}</a><p class="t-sm">${bi(esc(c.zh),esc(c.en))}</p></li>`).join('')}</ul></div>` : '';
 
+    /* 2026-11-09：词条 → 指南此前是 0 条边（87 篇指南只能从索引进）。
+     * 指南 frontmatter 的 terms 存的是词条 slug，直接反查即可。 */
+    const termGuides = GUIDES.filter(g => (g.terms || []).includes(currentSlug)).slice(0, 3);
+    const guidesBlock = termGuides.length
+      ? `<div class="tp-sec"><div class="tp-lab">${bi('相关指南', 'Related guides')}</div><ul class="tp-refs">${termGuides.map(g => `<li><a href="../../guide/${ENC(g.slug)}/">${bi(g.zh, g.en)}</a></li>`).join('')}</ul></div>`
+      : '';
+
+    /* 既没有推荐词条、也没有相关指南的词条仍是死胡同（只有上下篇）。
+     * 给它们一条「同域词条」出口：同域内按 ord 距离取最近的 5 个。 */
+    const sameDomainBlock = (!connections.length && !termGuides.length)
+      ? (() => {
+          const sib = flat.filter(x => x.t.domain === t.domain && slugOf(x.t) !== currentSlug)
+            .sort((a, b) => Math.abs(Number(a.t.ord) - Number(t.ord)) - Math.abs(Number(b.t.ord) - Number(t.ord)))
+            .slice(0, 5);
+          if (!sib.length) return '';
+          return `<div class="tp-sec"><div class="tp-lab">${bi('同域词条', 'Terms in the same area')}</div><ul class="tp-refs">${sib.map(x => `<li><a href="../${ENC(slugOf(x.t))}/">${bi(x.t.zh, x.t.en)}</a></li>`).join('')}</ul></div>`;
+        })()
+      : '';
+
     const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -876,6 +896,8 @@ ${defListEn}
         </div>
 ${aliasZh}
 ${related}
+${guidesBlock}
+${sameDomainBlock}
 ${crossLink}
         <div class="tp-sec">
           <div class="tp-lab">${bi('出处', 'Sources')}</div>
@@ -923,6 +945,18 @@ ${TABBAR}
    * ⚠ 孤儿清理与词条页同理：paths/ 删了一条，产物页必须一起删，
    *   否则 sitemap 与门禁都会继续看见一条已退役的路径。 */
   const DEPLOY_PATH = path.join(learnDir, 'path');
+  /* 主题回链（2026-11-09）：topics.json 由 _audit/gen-topic-links.mjs 生成在本仓根，
+   * 保证 clone 本仓即可构建（R3）。 */
+  const TOPIC_LINKS = (() => {
+    try { return JSON.parse(fs.readFileSync(path.join(repoRoot, 'topics.json'), 'utf8')); } catch (_) { return {}; }
+  })();
+  const topicsLine = (url) => {
+    const list = TOPIC_LINKS[url];
+    if (!list || !list.length) return '';
+    return `        <p class="tp-p t-sm">${bi('这页出现在主题：', 'This page appears in: ')}${list
+      .map((x) => `<a href="https://specul.com/topic-${x.id}.html">${bi(x.zh, x.en)}</a>`)
+      .join(' · ')}</p>\n`;
+  };
   const wantPathIds = new Set();
   let pathPages = 0;
   /* 路径页的 meta description：与词条页的 metaDesc 同一套路 ——
@@ -1028,7 +1062,7 @@ ${answersHtml}
           <div class="tp-lab">${bi('其他路径', 'Other paths')}</div>
           <p class="tp-p">${otherPaths}</p>
         </div>
-      </article>
+${topicsLine(`https://learn.specul.com/path/${p.id}/`)}      </article>
     </div>
   </main>
 ${FOOTER}
@@ -1419,4 +1453,17 @@ ${urls.map((u, i) => `  <url><loc>${u}</loc><changefreq>weekly</changefreq><prio
   const smOld = fs.existsSync(smFile) ? fs.readFileSync(smFile, 'utf8') : null;
   if (smOld !== sm) { fs.writeFileSync(smFile, sm, 'utf8'); }
   console.log(`词条页：${pageTotal} 个（写入 ${pageChanged} · 清理孤儿 ${removed}）· 路径页：${PATHS.length} 个（写入 ${pathPages} · 清理孤儿 ${pathRemoved}）· 指南页：${GUIDES.length} 个（写入 ${guidePages} · 清理孤儿 ${guideRemoved}）· 版图页：${ATLAS ? 1 : 0} 个（写入 ${atlasWritten}）· sitemap ${urls.length} 条${smOld === sm ? '（未变）' : '（已更新）'}`);
+
+  /* llms.txt / llms.en.txt：给 AI 抓取用的仓与站点说明。
+   * 2026-11-09：这两个文件一直只存在于数据仓根，从未复制进产物 ——
+   * 线上 https://learn.specul.com/llms.txt 长期 404，而 www / models 等站正常。
+   * 内容由 `_audit/gen-repo-docs.mjs --write` 生成，这里只负责同步，不重写。 */
+  for (const name of ['llms.txt', 'llms.en.txt']) {
+    const src = path.join(repoRoot, name);
+    const dst = path.join(learnDir, name);
+    if (!fs.existsSync(src)) { console.warn(`⚠ 缺少 ${name}，跳过同步（先跑 gen-repo-docs --write）`); continue; }
+    const body = fs.readFileSync(src, 'utf8');
+    const old = fs.existsSync(dst) ? fs.readFileSync(dst, 'utf8') : null;
+    if (old !== body) fs.writeFileSync(dst, body, 'utf8');
+  }
 }

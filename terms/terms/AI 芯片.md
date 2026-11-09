@@ -13,6 +13,8 @@ purposeTag: "learn"
 level: 2
 layer: "二"
 ord: 26
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # AI 芯片（AI Accelerator）

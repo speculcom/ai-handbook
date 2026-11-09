@@ -12,6 +12,8 @@ purposeTag: "apply"
 level: 1
 layer: "一"
 ord: 10
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # Token（Token）

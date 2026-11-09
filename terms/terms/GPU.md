@@ -13,6 +13,8 @@ purposeTag: "learn"
 level: 5
 layer: "五"
 ord: 1
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # GPU（Graphics Processing Unit）

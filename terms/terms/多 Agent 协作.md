@@ -12,6 +12,8 @@ purposeTag: "apply"
 level: 3
 layer: "三"
 ord: 4
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # 多 Agent 协作（Multi-Agent）

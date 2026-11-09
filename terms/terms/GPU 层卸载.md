@@ -11,6 +11,8 @@ purposeTag: "apply"
 level: 5
 layer: "五"
 ord: 8
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # GPU 层卸载（-ngl / Offload）

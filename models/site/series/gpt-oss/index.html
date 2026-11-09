@@ -13,8 +13,8 @@
   <meta property="og:description" content="gpt-oss（OpenAI）的第三方 GGUF 量化版本对比：1 个规格、6 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../../brand.js?v=2cf1b9037c48"></script>
-  <link rel="stylesheet" href="../../brand.css?v=2cf1b9037c48" />
+  <script src="../../brand.js?v=2b96a18d1fa6"></script>
+  <link rel="stylesheet" href="../../brand.css?v=2b96a18d1fa6" />
   <link rel="stylesheet" href="../../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"gpt-oss GGUF 量化版本索引","description":"OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。","url":"https://models.specul.com/series/gpt-oss/","isAccessibleForFree":true,"temporalCoverage":"2026-10-30"}</script>
 </head>
@@ -675,7 +675,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>提供 Q4_K_S 等量化候选。请核对基座版本、量化说明、校验值与运行器支持；第三方身份本身不说明质量高低。</span><span data-en>Provides quantisation candidates such as Q4_K_S. Check base version, method, checksums and runtime support; third-party status alone does not determine quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>规则候选为 <code>Q4_K_S</code>（12 GB），不构成性能结论</span><span data-en>Rule-based candidate: <code>Q4_K_S</code> (12 GB), not a performance finding</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>文件体积候选为 <code>Q4_K_S</code>（12 GB，平衡档）。先用<a href="../../guides/gpu-cost-math.html">容量预算</a>核对缓存、并发与系统开销，再查发布说明中的版本兼容性。</span><span data-en>File-size candidate: <code>Q4_K_S</code> (12 GB, Balanced). Check cache, concurrency and system overhead with the <a href="../../guides/gpu-cost-math.html">capacity budget</a>, then verify version compatibility in the release notes.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量</span><span data-en>No imatrix recorded; inspect release notes. This missing field alone does not determine quality</span><br>· <span data-zh>已 324 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 324 days, so it may no longer track a newer base model</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>未记录 imatrix，需另查发布说明；该字段缺失不能单独判定质量</span><span data-en>No imatrix recorded; inspect release notes. This missing field alone does not determine quality</span><br>· <span data-zh>已 325 天未更新，基础模型若有新版可能已不同步</span><span data-en>Not updated for 325 days, so it may no longer track a newer base model</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="ggml-org" data-lic="apache-2.0" data-tiers="平衡档" data-blob="ggml-org ggml-org/gpt-oss-20b-gguf apache-2.0">
           <header class="vcard-h">

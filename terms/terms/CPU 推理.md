@@ -11,6 +11,8 @@ purposeTag: "judge"
 level: 5
 layer: "五"
 ord: 25
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # CPU 推理（CPU Inference）

@@ -12,6 +12,8 @@ purposeTag: "learn"
 level: 4
 layer: "四"
 ord: 18
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # MoE（混合专家）（Mixture of Experts）

@@ -715,6 +715,10 @@ function loadTrack(partKey) {
       tags: fm.tags || [], related: fm.related || [],
       /* D9（2026-10-20）：pricing / pricing_pitfalls 字段族已退役，不再读取 */
       axes, mcp: mcpBlock, sources, extraSections,
+      /* 许可（2026-11-09）：消费五类必填的 license / licenseEn 此前**从未进入条目对象**，
+       * 页面与搜索都不显示 —— 78 份档案里逐条核过的商用条款只能用来过校验。
+       * 现在读进来并渲染成「输出物归属与商用许可」面板。 */
+      license: fm.license || '', licenseEn: fm.licenseEn || '',
       pitfalls: fm.pitfalls || [],
       /* C0 正文英译（2026-10-24）：null = 该档案还没有正文译文（保持中文，诚实降级）。 */
       bodyEn: loadBodyEn(id),
@@ -1289,6 +1293,20 @@ ${blocks}
     </section>`;
 }
 
+/* 主题回链（2026-11-09）：topics.json 由 _audit/gen-topic-links.mjs 从 www 的主题页反查生成，
+ * 放在本仓内是为了 R3（clone 本仓即可构建，不读主仓代码）。 */
+const TOPIC_LINKS = (() => {
+  const f = path.join(DATA, 'topics.json');
+  try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (_) { return {}; }
+})();
+function topicsLine(url) {
+  const list = TOPIC_LINKS[url];
+  if (!list || !list.length) return '';
+  return `      <p class="t-sm topics-line">${bi('这页出现在主题：', 'This page appears in: ')}${list
+    .map((x) => `<a href="https://specul.com/topic-${x.id}.html">${bi(x.zh, x.en)}</a>`)
+    .join(' · ')}</p>\n`;
+}
+
 function renderGuidePage(g, site) {
   CTX.partKey = site.key;   // v8 T30：正文里的 .md 链接按当前大类解析
   const t = TOPIC_LABEL[g.topic] || [g.topic, g.topic];
@@ -1351,7 +1369,7 @@ ${srcRows}
         </tbody></table></div>
         <p class="guide-foot">${bi(`资料快照日期：${g.lastVerified}；单项复核范围与日期见对应正文或来源记录。产品功能与条款可能变化，使用前请核对原始来源。`, `Source snapshot: ${g.lastVerified}; item-specific rechecks and their scope are recorded in the text or source notes. Features and terms may change; check the original sources before use.`)}</p>
       </div>
-    </div>`;
+${topicsLine(`https://tools.specul.com/mcp/guides/${g.id}.html`)}    </div>`;
   return buildShell({
     current: site.navKey,
     repo: SITE.repo,
@@ -1856,7 +1874,7 @@ ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/$
         </div>
       </div>
     </section>
-    <!-- B2：索引页筛选与排序（脚本读独立文件 agent-filter.js，作用域 .afilter） -->
+${topicsLine(`https://tools.specul.com/${base}`)}    <!-- B2：索引页筛选与排序（脚本读独立文件 agent-filter.js，作用域 .afilter） -->
     <script>${AGENT_FILTER_JS}</script>`;
 
   const jsonLd = {
@@ -2188,6 +2206,11 @@ ${body}
       <dl class="axes">
 ${axesHtml}
       </dl>
+
+      ${e.license ? `      <div class="panel is-slim" id="license">
+        <h2>${bi('许可与使用条款', 'Licence and terms of use')}</h2>
+        <p>${bi(mdLinks(e.license), mdLinks(e.licenseEn || e.license))}</p>
+      </div>\n` : ''}
 
       <nav class="panel is-slim" aria-label="使用排查" data-ui-aria-label-zh="使用排查" data-ui-aria-label-en="Troubleshooting">
         <h2>${bi('使用时遇到问题','When something fails')}</h2>
@@ -2662,6 +2685,15 @@ Allow: /
 
 Sitemap: https://${SITE.domain}/sitemap.xml
 `, 'utf8');
+
+// llms.txt / llms.en.txt：2026-11-09 之前只存在于数据仓根，产物里没有，
+// 导致 https://tools.specul.com/llms.txt 一直 404（learn 同病）。
+// 文件由 _audit/gen-repo-docs.mjs --write 生成，这里只做同步。
+for (const name of ['llms.txt', 'llms.en.txt']) {
+  const src = path.join(DATA, name);
+  if (!fs.existsSync(src)) { console.warn(`⚠ 缺少 ${name}，跳过同步（先跑 gen-repo-docs --write）`); continue; }
+  fs.copyFileSync(src, path.join(OUT, name));
+}
 
 // 站点根 README：介绍整站 10 大类
 fs.writeFileSync(path.join(OUT, 'README.md'),

@@ -11,6 +11,8 @@ purposeTag: "judge"
 level: 1
 layer: "一"
 ord: 15
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # AI Agent 与聊天机器人的区别（Agent vs Chatbot）

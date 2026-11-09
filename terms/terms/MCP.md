@@ -14,6 +14,8 @@ purposeTag: "apply"
 level: 3
 layer: "三"
 ord: 3
+last_verified: "2026-11-09"
+verified_scope: "refs"
 ---
 
 # MCP（Model Context Protocol）
