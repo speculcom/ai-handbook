@@ -13,8 +13,8 @@
   <meta property="og:description" content="回答单卡云实例的规格，用于小规模微调或单模型部署。两个容易忽略的限制：单卡实例不支持 GPUDirect RDMA，也没有 NVSwitch，想靠多台单卡机拼出多卡训练会卡在通信上；要 8 卡全互联得换 p5.48xlarge。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=9a0ee97a971f"></script>
-  <link rel="stylesheet" href="brand.css?v=9a0ee97a971f" />
+  <script src="brand.js?v=6a0ff60a12cc"></script>
+  <link rel="stylesheet" href="brand.css?v=6a0ff60a12cc" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="hardware.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"AWS EC2 p5.4xlarge · 硬件算力","description":"回答单卡云实例的规格，用于小规模微调或单模型部署。两个容易忽略的限制：单卡实例不支持 GPUDirect RDMA，也没有 NVSwitch，想靠多台单卡机拼出多卡训练会卡在通信上；要 8 卡全互联得换 p5.48xlarge。","url":"https://hardware.specul.com/aws-ec2-p5-4xlarge.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
@@ -26,7 +26,7 @@
      现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
      ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
      （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
-<body class="brand-ambient has-tabbar">
+<body class="brand-ambient has-tabbar has-tabbar-1row">
   <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
   <header class="site-header">
     <div class="container site-bar">
@@ -146,20 +146,16 @@
       <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
     </div>
   </footer>
-<nav class="nav-tabbar nav-tabbar-2row" aria-label="快捷导航">
-  <div class="tb-row tb-row-main">
+<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
     <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
     <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
     <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>作品演示</span><span data-en>Playground</span></a>
-  </div>
-  <div class="tb-row tb-row-deep">
-    <a href="https://hardware.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▣</span><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://hardware.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>AI论文</span><span data-en>Papers</span></a>
     <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
-  </div>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>AI导航</span><span data-en>AI Nav</span></a>
 </nav>
 </body>
 </html>
