@@ -73,10 +73,16 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   8 节 · 9 条官方出处 · 核验 2026-10-21
 - [蒸馏：小模型怎么从大模型身上学](https://models.specul.com/guides/distillation.html): logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
   7 节 · 8 条官方出处 · 核验 2026-10-20
+- [端侧部署：带宽、量化与功耗的三重约束](https://models.specul.com/guides/edge-deployment.html): 端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。
+  6 节 · 3 条官方出处 · 核验 2026-11-17
 - [GPU 事实与成本数学：跑模型的硬件账](https://models.specul.com/guides/gpu-cost-math.html): 从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。
   8 节 · 8 条官方出处 · 核验 2026-10-21
 - [把日志留在本地到底意味着什么](https://models.specul.com/guides/local-log-retention.html): 把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。
   10 节 · 5 条官方出处 · 核验 2026-11-06
+- [长上下文：窗口、有效利用与成本](https://models.specul.com/guides/long-context.html): 「支持 128K」只是上限，不等于能在中间找到信息。长上下文选型要同时看位置鲁棒性、注意力成本、KV cache 显存和任务验收。
+  7 节 · 3 条官方出处 · 核验 2026-11-17
+- [MoE 选型：总参数、激活参数与真实成本](https://models.specul.com/guides/moe-selection.html): MoE 把「参数量」拆成总参数与激活参数两个数字。选型时要同时算显存、带宽、通信和批量，而不是只看总参数或榜单。
+  6 节 · 3 条官方出处 · 核验 2026-11-17
 - [多模态模型的显存账怎么算](https://models.specul.com/guides/multimodal-memory.html): 把多模态的占用分成编码器、投影件与解码器缓存三笔账，写清每笔的来源、单位（GiB）与算法边界；KV 算式只管同层标准全注意力解码器，不能外推到编码器与 MLA、混合、滑动窗口。
   9 节 · 5 条官方出处 · 核验 2026-11-06
 - [本地跑起来之前先确认的七件事](https://models.specul.com/guides/pre-flight-checks.html): 从开机到第一次出字的七个核对点：可用容量、驻留体积、文件与运行器、缓存口径、许可、结果验收、日志落点。每件写清查什么、拿什么当证据、失败后下一步。
@@ -95,6 +101,8 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   8 节 · 6 条官方出处 · 核验 2026-11-04
 - [开源训练栈：多卡训练的工具链](https://models.specul.com/guides/training-stack.html): 一张卡装不下大模型之后，数据并行、ZeRO、张量并行、流水线并行怎么组合；DeepSpeed、Megatron-LM、torchtitan、nanotron、TRL 各站在哪一层。从业者视角的选型地图；词条版在学 AI 站，互链不重复。
   6 节 · 8 条官方出处 · 核验 2026-10-21
+- [视觉语言模型选型：分辨率、定位与读字](https://models.specul.com/guides/vision-language-selection.html): VLM 的能力被三类任务拉开差距：描述、定位、读字。选型要按任务拆开测，并把图像 token 的成本算进去。
+  6 节 · 3 条官方出处 · 核验 2026-11-17
 
 ## 已收录系列
 

@@ -20,7 +20,7 @@
 | `mcp` | 给 AI 装的工具——MCP 服务器 |
 | `runner` | 本地模型运行器 |
 
-**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 262 个对象定位的地图。
+**为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 265 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
 research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
@@ -38,7 +38,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 按 star / 流行度排序 | **不给总分排名** |
 | 抄官网宣传语 | 只记官方源可核验的能力边界 |
 | 没查到就留空 | **「未知」是合法答案**，并说明为什么 |
-| 一份名单 | **固定 8 维度 × 262 个对象**，可横向对比 |
+| 一份名单 | **固定 8 维度 × 265 个对象**，可横向对比 |
 | 链接失效无人知 | 每条判断挂官方源，附核验日期 |
 
 **核验快照，不冒充实时实测。**
@@ -300,7 +300,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
 | [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
 
-### AI 对话助手 —— 21 份
+### AI 对话助手 —— 23 份
 
 通用聊天助手——网页 / 应用形态，含国产。
 
@@ -322,9 +322,11 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | partial | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | partial | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | partial | active |
+| [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
 | [Manus](tracks/chat/products/manus.md) | Manus AI（Monica 团队） | web | partial | active |
 | [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | partial | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | partial | active |
+| [Open WebUI](tracks/chat/products/open-webui.md) | Open WebUI 社区 | web | verified | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
 | [Reka Chat（Reka Playground / Edge Chat）](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | partial | active |
 
@@ -413,7 +415,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
-### AI 自动化与工作流 —— 23 份
+### AI 自动化与工作流 —— 24 份
 
 可视化搭 AI 应用 / 跑自动化工作流的平台。
 
@@ -434,6 +436,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Make](tracks/automation/products/make.md) | Make（原 Integromat） | web | partial | active |
 | [MaxKB](tracks/automation/products/maxkb.md) | 飞致云（国产） | web | partial | active |
 | [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | partial | active |
+| [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | partial | active |
 | [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
 | [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
 | [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI（悉尼） | web | partial | active |
@@ -567,8 +570,8 @@ MCP 服务器与工具生态。
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| 档案总数 | 262 份 |
-| 大类分布 | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 42 · mcp 32 · runner 21 · safety 25 |
-| 形态分布（form） | web 97 · harness 39 · mcp 32 · cli 30 · local-app 23 · cloud 22 · ide 19 |
+| 档案总数 | 265 份 |
+| 大类分布 | coding 41 · chat 23 · image 15 · video 14 · audio 17 · research 11 · automation 24 · framework 42 · mcp 32 · runner 21 · safety 25 |
+| 形态分布（form） | web 100 · harness 39 · mcp 32 · cli 30 · local-app 23 · cloud 22 · ide 19 |
 | 对比维度 | 8 维（mcp 大类另加传输 / 认证 / 范围 3 维） |
 <!-- STATS:END -->

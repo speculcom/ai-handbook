@@ -3,7 +3,7 @@
 > 去向枚举：`已有` / `待建`（P1>P2>P3）/ `只进nav` / `不收`（必须带理由）。
 > 收录标准见 [categories.md §2](../categories.md)：**通用**对话产品（网页/应用/API），官方定位「什么都能问」；垂直问答、角色扮演陪伴类不收。
 > 候选来源交叉（≥2）：nav cat=llm 44 条（对话向约 20 条）+ 计划候选名单 + 2026-10-21 官方核验补漏（18 个 URL 直抓：全部 200 或 Cloudflare 403 拦截，无死链）。
-> 本类现有档案 21 份（T6 升八维批 6 + T25 建档批 8 + C6-1 建档批 6 + C6-10 建档批 1）。
+> 本类现有档案 23 份（T6 升八维批 6 + T25 建档批 8 + C6-1 建档批 6 + C6-10 建档批 1 + 2026-11-17 补录 2）。
 
 | 工具 | 厂商 | 官方 URL | 去向 | 档案 id | 理由/备注 |
 |---|---|---|---|---|---|
@@ -28,6 +28,8 @@
 | Poe | Quora | https://poe.com | 已有 | poe | C6-1 落地 · 307→login 403=登录墙非死链（terms/privacy/changelog 200）· 多模型聚合对话 |
 | HuggingChat | Hugging Face | https://huggingface.co/chat | 已有 | huggingchat | C6-1 落地 · 308→200 · 前端 chat-ui Apache-2.0（GitHub API 当日核验）· Models 137/Omni 当日在册 |
 | Reka | Reka AI | https://www.reka.ai | 已有 | reka-chat | C6-10 落地 · reka.ai 直连 200（www 308→裸域）· 公司主线已整体转向 physical AI（omni 模型/Reka Cloud/视频与数据基础设施），对话入口 app.reka.ai「Edge Chat」面薄——档案主轴=API 池（OpenAI 兼容，自家 Edge/Flash+精选开源档）与 Reka Edge 开放权重本机路线 |
+| Open WebUI | Open WebUI 社区 | https://openwebui.com | 已有 | open-webui | 2026-11-17 补录 · 自托管多模型聊天/知识库/RBAC；BSD-3+品牌条款（v0.6.6 起） |
+| LibreChat | LibreChat AI | https://www.librechat.ai | 已有 | librechat | 2026-11-17 补录 · 自托管多 provider + Agents/MCP/Code Interpreter；MIT |
 | DeepSeek 平台 | 深度求索 | https://platform.deepseek.com | 只进nav | | API 控制台，不是对话产品——档案 deepseek-chat 覆盖该厂商 |
 | Google AI Studio | Google | https://aistudio.google.com | 只进nav | | 开发者模型试验台（API 向），非 C 端对话 |
 | Anthropic Console | Anthropic | https://console.anthropic.com | 只进nav | | API 控制台 |

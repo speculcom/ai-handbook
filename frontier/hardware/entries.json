@@ -867,5 +867,337 @@
       "working maximum power": "about 3000 W",
       "perception": "4D LiDAR L2, 360° x 96°, minimum detection 0.05 m; HD wide-angle camera"
     }
+  },
+  {
+    "id": "nvidia-dgx-b200",
+    "title": {
+      "zh": "NVIDIA DGX B200",
+      "en": "NVIDIA DGX B200"
+    },
+    "category": "system",
+    "url": "https://www.nvidia.com/en-us/data-center/dgx-b200/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/dgx-b200/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/dgx-b200/",
+        "quote": "GPU Memory | 1,440 GB total, 64 TB/s HBM3e bandwidth"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/dgx-b200/",
+        "quote": "Performance | FP4 Tensor Core: 144 PFLOPS"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/dgx-b200/",
+        "quote": "System Power Usage | ~14.3 kW max"
+      }
+    ],
+    "notes": {
+      "zh": "八卡 Blackwell 整机，回答「一台机器能装多少 HBM、能给出多少 FP4 算力」。1,440 GB 是整机合计，不是单卡；FP4 数字不能与 FP16/BF16 直接横比。约 14.3 kW 的整机功耗意味着供电、散热与机房条件要先落实，再谈采购。",
+      "en": "An eight-GPU Blackwell system that answers how much HBM one machine holds and how much FP4 compute it delivers. The 1,440 GB figure is the whole system, not one GPU, and FP4 numbers are not directly comparable with FP16/BF16. At roughly 14.3 kW, power, cooling and facility constraints must be settled before purchase."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "GPU / GPU": "8x NVIDIA Blackwell GPUs",
+      "GPU 内存 / GPU memory": "1,440 GB total HBM3e",
+      "内存带宽 / HBM bandwidth": "64 TB/s",
+      "FP4 算力 / FP4 Tensor Core": "144 PFLOPS",
+      "NVLink 带宽 / NVLink": "14.4 TB/s aggregate",
+      "CPU": "2x Intel Xeon Platinum 8570, 112 cores total",
+      "系统内存 / system memory": "2 TB, configurable to 4 TB",
+      "整机功耗 / system power": "~14.3 kW max"
+    }
+  },
+  {
+    "id": "nvidia-gb200-nvl72",
+    "title": {
+      "zh": "NVIDIA GB200 NVL72",
+      "en": "NVIDIA GB200 NVL72"
+    },
+    "category": "system",
+    "url": "https://www.nvidia.com/en-us/data-center/gb200-nvl72/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/gb200-nvl72/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/gb200-nvl72/",
+        "quote": "Configuration | 36 Grace CPU | 72 Blackwell GPUs"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/gb200-nvl72/",
+        "quote": "GPU Memory | Bandwidth | 13.4 TB HBM3E"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/gb200-nvl72/",
+        "quote": "NVLink Bandwidth | 130 TB/s"
+      }
+    ],
+    "notes": {
+      "zh": "机架级系统：36 颗 Grace CPU 加 72 颗 Blackwell GPU，组成一个 72 卡 NVLink 域。它回答的是「一个机架能否当一台大机器用」，不是单卡规格。采购要连液冷、供电与整架网络一起算；另注意 NVIDIA 页面写 13.4 TB HBM3E，Azure 同代整架写 13.5 TB，引用时必须注明来源口径。",
+      "en": "A rack-scale system: 36 Grace CPUs and 72 Blackwell GPUs form one 72-GPU NVLink domain. It answers whether a rack can act as one large machine, not what one card looks like. Purchase includes liquid cooling, power and fabric. Note that NVIDIA lists 13.4 TB HBM3E while Azure lists 13.5 TB for the same rack generation; always state the source."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "配置 / configuration": "36 Grace CPUs + 72 Blackwell GPUs",
+      "GPU 内存 / GPU memory": "13.4 TB HBM3E",
+      "NVLink 带宽 / NVLink": "130 TB/s",
+      "NVFP4 算力 / NVFP4": "1,440 PFLOPS",
+      "FP8 算力 / FP8": "720 PFLOPS",
+      "CPU 核心 / CPU cores": "2,592 Arm Neoverse V2 cores",
+      "CPU 内存 / CPU memory": "17 TB LPDDR5X",
+      "散热 / cooling": "liquid-cooled rack"
+    }
+  },
+  {
+    "id": "nvidia-geforce-rtx-5090",
+    "title": {
+      "zh": "NVIDIA GeForce RTX 5090",
+      "en": "NVIDIA GeForce RTX 5090"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+        "quote": "Memory Configuration | 32 GB GDDR7"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+        "quote": "Memory Bandwidth | 1792 GB/sec"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+        "quote": "Total Graphics Power (W) | 575"
+      }
+    ],
+    "notes": {
+      "zh": "消费级 Blackwell 卡，32 GB GDDR7 与 1,792 GB/s 让它成为单机跑 4-bit 30B 级模型的常见选择。575 W 卡功耗与 1,000 W 系统电源是装机门槛；没有 NVLink，多卡并行只能走 PCIe，扩展性不如专业卡。",
+      "en": "A consumer Blackwell card. Its 32 GB GDDR7 and 1,792 GB/s make it a common choice for running 4-bit 30B-class models on one machine. The 575 W board and 1,000 W system power are installation constraints, and without NVLink multi-GPU scaling goes over PCIe."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "显存 / memory": "32 GB GDDR7, 512-bit",
+      "带宽 / bandwidth": "1,792 GB/s",
+      "CUDA 核心 / CUDA cores": "21,760",
+      "AI TOPS": "3,352 AI TOPS (5th-gen Tensor Cores)",
+      "卡功耗 / board power": "575 W",
+      "系统电源 / required PSU": "1,000 W",
+      "互联 / interconnect": "PCIe 5.0; no NVLink"
+    }
+  },
+  {
+    "id": "nvidia-jetson-agx-thor",
+    "title": {
+      "zh": "NVIDIA Jetson AGX Thor",
+      "en": "NVIDIA Jetson AGX Thor"
+    },
+    "category": "edge",
+    "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/",
+        "quote": "Jetson Thor series modules deliver up to 2070 FP4 TFLOPS of AI compute and 128 GB of memory"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/",
+        "quote": "Memory | 128 GB 256-bit LPDDR5X | 273 GB/s"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/",
+        "quote": "Power | 40 W–130 W"
+      }
+    ],
+    "notes": {
+      "zh": "机器人/边缘平台：128 GB 统一内存但只有 273 GB/s 带宽，容量大、带宽窄，适合 7B–30B 级模型 4-bit 常驻。40–130 W 的功耗窗口意味着持续推理会降频；2070 TFLOPS 是 FP4 稀疏口径，不能与数据中心卡的 FP16 数字直接比。",
+      "en": "A robotics and edge platform: 128 GB unified memory but only 273 GB/s bandwidth, so capacity is large while bandwidth is narrow. It suits persistent 4-bit 7B–30B models. The 40–130 W window means sustained inference throttles, and 2070 TFLOPS is FP4 sparse, not comparable with data-centre FP16 figures."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "AI 算力 / AI performance": "2070 TFLOPS FP4 (sparse)",
+      "内存 / memory": "128 GB 256-bit LPDDR5X",
+      "带宽 / bandwidth": "273 GB/s",
+      "CPU": "14-core Arm Neoverse-V3AE",
+      "功耗 / power": "40–130 W",
+      "网络 / networking": "1x 5GbE RJ45 + 1x QSFP28 (4x 25GbE)",
+      "存储 / storage": "1 TB NVMe (developer kit)"
+    }
+  },
+  {
+    "id": "aws-ec2-p6e-gb200",
+    "title": {
+      "zh": "AWS EC2 P6e-GB200 UltraServer",
+      "en": "AWS EC2 P6e-GB200 UltraServer"
+    },
+    "category": "cloud",
+    "url": "https://aws.amazon.com/ec2/instance-types/p6/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://aws.amazon.com/ec2/instance-types/p6/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p6/",
+        "quote": "customers can access up to 72 Blackwell GPUs within one NVLink domain"
+      },
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p6/",
+        "quote": "360 petaflops of FP8 compute (without sparsity) and 13.4 TB of total high- bandwidth memory (HBM3e)"
+      },
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p6/",
+        "quote": "130 terabytes per second of low-latency NVLink connectivity between GPUs"
+      }
+    ],
+    "notes": {
+      "zh": "云上租一整个 72 卡 NVLink 域，不是租单卡；360 PFLOPS 是 FP8 无稀疏口径，13.4 TB 是域内 HBM 合计。适合万亿参数级训练与推理；本站不采价格，预算要按 AWS 官方定价页另算。与 P5en 相比，AWS 声称算力 20 倍、显存 11 倍、NVLink 聚合带宽 15 倍。",
+      "en": "Rents a whole 72-GPU NVLink domain rather than a single card. 360 PFLOPS is FP8 without sparsity and 13.4 TB is aggregate HBM in the domain. It targets trillion-parameter training and inference; this site does not collect prices, so budget from the official AWS pricing page. AWS claims 20x compute, 11x memory and 15x aggregate NVLink bandwidth versus P5en."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "GPU 数 / GPUs": "up to 72 Blackwell GPUs per UltraServer",
+      "显存 / HBM": "13.4 TB HBM3e total",
+      "FP8 算力 / FP8": "360 PFLOPS (without sparsity)",
+      "NVLink": "130 TB/s",
+      "对外网络 / scale-out": "28.8 Tb/s EFAv4",
+      "售卖单位 / unit": "UltraServer"
+    }
+  },
+  {
+    "id": "aws-ec2-p6-b200",
+    "title": {
+      "zh": "AWS EC2 P6-B200",
+      "en": "AWS EC2 P6-B200"
+    },
+    "category": "cloud",
+    "url": "https://aws.amazon.com/ec2/instance-types/p6/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://aws.amazon.com/ec2/instance-types/p6/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p6/",
+        "quote": "P6-B200 instances provide 8x NVIDIA Blackwell GPUs with 1440 GB of high-bandwidth GPU memory"
+      },
+      {
+        "url": "https://aws.amazon.com/ec2/instance-types/p6/",
+        "quote": "p6-b200.48xlarge | 8 | 1,432 HBM3e | 192 | 2,048 | 8 x 3.84 | 3.2 | 100"
+      }
+    ],
+    "notes": {
+      "zh": "单机 8 卡 Blackwell 的云实例，比 P6e 小一档；1,432 GB 是实例内 8 卡 HBM 合计。3.2 Tb/s 是节点网络上限，跨节点训练仍要看集群网络。页面同时给出 1,440 GB 与表格里的 1,432 GB 两种口径，本站按表格逐实例数字记录并注明差异。",
+      "en": "An eight-GPU Blackwell cloud instance, one tier below P6e; 1,432 GB is aggregate HBM across the eight GPUs. 3.2 Tb/s is the node network ceiling and cross-node training still depends on cluster fabric. The page gives both 1,440 GB and 1,432 GB in its table; this card records the per-instance table figure and notes the discrepancy."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "GPU 数 / GPUs": "8x NVIDIA Blackwell",
+      "显存 / HBM": "1,432 GB HBM3e (instance table)",
+      "vCPU": "192",
+      "系统内存 / system memory": "2,048 GiB",
+      "本地存储 / local NVMe": "8 x 3.84 TB",
+      "网络 / network": "3.2 Tb/s",
+      "EBS 带宽 / EBS": "100 Gbps"
+    }
+  },
+  {
+    "id": "aws-trainium2",
+    "title": {
+      "zh": "AWS Trainium2（Trn2）",
+      "en": "AWS Trainium2 (Trn2)"
+    },
+    "category": "cloud",
+    "url": "https://aws.amazon.com/machine-learning/trainium/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://aws.amazon.com/machine-learning/trainium/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://aws.amazon.com/machine-learning/trainium/",
+        "quote": "AWS Trainium2 芯片的性能是第一代 Trainium 的 4 倍。"
+      },
+      {
+        "url": "https://aws.amazon.com/machine-learning/trainium/",
+        "quote": "Trn2 实例采用多达 16 个 Trainium2 芯片，Trn2 UltraServer 采用多达 64 个 Trainium2 芯片，这些芯片使用我们专有的芯片间互连技术 NeuronLink 进行互连。"
+      },
+      {
+        "url": "https://aws.amazon.com/machine-learning/trainium/",
+        "quote": "与基于 GPU 的 EC2 P5e 和 P5en 实例相比，它们的性价比提高了 30% 到 40%。"
+      }
+    ],
+    "notes": {
+      "zh": "AWS 自研训练加速器，第二代；单实例最多 16 颗，UltraServer 最多 64 颗，用 NeuronLink 互联。软件栈是 AWS Neuron，不是 CUDA，迁移成本要单列。页面没有给 Trainium2 单芯片 HBM 容量，本站留空不猜；同页的 Trainium3 是下一代（144 GB HBM3e、4.9 TB/s），不要把两代数字混在一张卡里。",
+      "en": "AWS’s second-generation in-house training accelerator: up to 16 chips per instance and 64 per UltraServer, linked by NeuronLink. The software stack is AWS Neuron, not CUDA, so migration cost is a separate line item. The page does not list per-chip HBM for Trainium2, so this card leaves it blank rather than guessing; Trainium3 on the same page is a different generation (144 GB HBM3e, 4.9 TB/s)."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "芯片数 / chips": "up to 16 per Trn2 instance; up to 64 per Trn2 UltraServer",
+      "互联 / interconnect": "NeuronLink",
+      "相对性能 / vs Trainium1": "4x",
+      "性价比 / price-performance": "30–40% better than P5e/P5en (AWS claim)",
+      "软件栈 / software": "AWS Neuron SDK",
+      "单芯片 HBM / HBM per chip": "not stated on page"
+    }
+  },
+  {
+    "id": "azure-nd-gb200-v6",
+    "title": {
+      "zh": "Azure ND GB200 v6",
+      "en": "Azure ND GB200 v6"
+    },
+    "category": "cloud",
+    "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series",
+        "quote": "Each ND-GB200-v6 VM is powered by two NVIDIA Grace CPUs and four NVIDIA Blackwell GPUs."
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series",
+        "quote": "The GPUs are interconnected via fifth-generation NVLink, providing a total of 4× 1.8 TB/s NVLink bandwidth per VM."
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series",
+        "quote": "Accelerators | 4 GPUs | Nvidia Blackwell GPU (192 GiB)"
+      }
+    ],
+    "notes": {
+      "zh": "Azure 以 4 卡 VM 为售卖单位；18 台 VM 组成一个 72 卡的 GB200 NVL72 域。192 GiB 是每卡显存，不要乘成 VM 总量。选型要同时看单 VM 的 4×1.8 TB/s NVLink 与整域的 130 TB/s 横截面带宽；跨 VM 仍走 InfiniBand。",
+      "en": "Azure sells this as a four-GPU VM; 18 VMs form a 72-GPU GB200 NVL72 domain. 192 GiB is per GPU, not per VM. Selection must look at both the VM’s 4x 1.8 TB/s NVLink and the domain’s 130 TB/s cross-section, with cross-VM traffic over InfiniBand."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "GPU 数 / GPUs": "4x NVIDIA Blackwell, 192 GiB each",
+      "vCPU": "128 (NVIDIA Grace)",
+      "系统内存 / memory": "900 GiB LPDDR5X",
+      "本地存储 / local NVMe": "16 TiB",
+      "NVLink（VM 内）": "4x 1.8 TB/s",
+      "InfiniBand": "4x 400 Gb/s",
+      "整域 / NVL72 domain": "72 GPUs, 13.5 TB HBM, 130 TB/s"
+    }
   }
 ]

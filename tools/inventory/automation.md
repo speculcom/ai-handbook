@@ -3,7 +3,7 @@
 > 去向枚举：`已有` / `待建`（P1>P2>P3）/ `只进nav` / `不收`（必须带理由）。
 > 收录标准见 [categories.md §7](../categories.md)：可视化/低代码搭 AI 工作流与 agent；平台自带运行时；官方文档可核验。**代码优先的 SDK 归 framework；无 LLM 主轴的传统 RPA 归 nav。**
 > 候选来源交叉（≥2）：nav（cat=coding 里的 Dify/Coze/Manus/Relevance/Superagent/Botpress/SmythOS/百宝箱 + cat=tools/app 相关）+ v8 计划候选名单 + 2026-10-21 官方核验补漏。
-> 本类现有档案 22 份（T20 建档批 2026-10-21 落地 14 + C6-2 建档批 1 + C6-4 建档批 7）。
+> 本类现有档案 24 份（T20 建档批 2026-10-21 落地 14 + C6-2 建档批 1 + C6-4 建档批 7 + 2026-11-17 补录 1 + 既有 Opal 1）。
 
 | 工具 | 厂商 | 官方 URL | 去向 | 档案 id | 理由/备注 |
 |---|---|---|---|---|---|
@@ -11,6 +11,7 @@
 | Dify | Dify（LangGenius） | https://dify.ai | 已有 | dify | P1 · 国产出海（L5 只转述官方） |
 | Coze / 扣子 | 字节跳动 | https://www.coze.com | 已有 | coze | P1 · 国内版 coze.cn 同产品两入口，一档案写清 |
 | Zapier（AI 功能/Canvas） | Zapier | https://zapier.com | 已有 | zapier | P1 · 传统自动化转 AI 主轴 |
+| Microsoft Power Automate | Microsoft | https://www.microsoft.com/en-us/power-platform/products/power-automate | 已有 | power-automate | 2026-11-17 补录 · 云 flow + 桌面 RPA + Copilot/AI Builder；与 Zapier/Make 同属低代码自动化，RPA 是其中一种形态（非纯经典 RPA） |
 | Make | Make（原 Integromat） | https://www.make.com | 已有 | make | P2 |
 | Activepieces | Activepieces | https://www.activepieces.com | 已有 | activepieces | P2 · 开源低代码 |
 | Flowise | FlowiseAI | https://flowiseai.com | 已有 | flowise | P2 · 画布搭 LLM 应用 |

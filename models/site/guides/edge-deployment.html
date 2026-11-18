@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>端侧部署：带宽、量化与功耗的三重约束 · 做模型专题</title>
+  <meta name="description" content="端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。（核验于 2026-11-17，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/edge-deployment.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="端侧部署：带宽、量化与功耗的三重约束 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/edge-deployment.html" />
+  <meta property="og:title" content="端侧部署：带宽、量化与功耗的三重约束 · 做模型专题" />
+  <meta property="og:description" content="端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。（核验于 2026-11-17，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="../brand.js?v=2b96a18d1fa6"></script>
+  <link rel="stylesheet" href="../brand.css?v=2b96a18d1fa6" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Edge deployment: bandwidth, quantisation and power","description":"An edge device is not a small server: memory bandwidth, power and cooling become the ceiling before compute does. Accept on tokens per second, peak memory and sustained power.","url":"https://models.specul.com/guides/edge-deployment.html","dateModified":"2026-11-17"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>外部站点</span><span data-en>External</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>外部站点</span><span data-en>External</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加一个去别处的出口</span><span data-en>Eight content sites, plus one gateway to other sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span>　<span class="t-tag"><span data-zh>训练管线 · 第 8 站</span><span data-en>training pipeline · stage 8</span></span></p>
+      <h1><span data-zh>端侧部署：带宽、量化与功耗的三重约束</span><span data-en>Edge deployment: bandwidth, quantisation and power</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。</span><span data-en>An edge device is not a small server: memory bandwidth, power and cooling become the ceiling before compute does. Accept on tokens per second, peak memory and sustained power.</span></p>
+    </header>
+
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>带宽先撞墙</span><span data-en>Bandwidth hits first</span></a></li><li><a href="#guide-section-2"><span data-zh>量化档位决定能不能装</span><span data-en>Quantisation decides fit</span></a></li><li><a href="#guide-section-3"><span data-zh>统一内存 vs 独立显存</span><span data-en>Unified vs discrete memory</span></a></li><li><a href="#guide-section-4"><span data-zh>功耗与散热</span><span data-en>Power and cooling</span></a></li><li><a href="#guide-section-5"><span data-zh>验收清单</span><span data-en>Acceptance checklist</span></a></li></ul></nav>
+    <section class="fam-sec" id="guide-section-0">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec" id="guide-section-1">
+      <h2><span data-zh>带宽先撞墙</span><span data-en>Bandwidth hits first</span></h2>
+<p>解码每生成一个 token 都要把激活的权重读一遍，端侧常见的瓶颈是内存带宽，而不是峰值算力。<br>以 Jetson AGX Thor 为例：128GB LPDDR5X、273 GB/s、40–130W。<br>粗算：7B 模型 4-bit 约 3.5GB 权重，理想情况下每 token 至少读一遍，273 GB/s 给出一个很粗的上界；<br>实际还要加上 KV cache、采样与框架开销，达不到纸面上限。</p>
+    </section>
+    <section class="fam-sec" id="guide-section-2">
+      <h2><span data-zh>量化档位决定能不能装</span><span data-en>Quantisation decides fit</span></h2>
+<p>端侧优先看 4-bit 与混合精度：Q4 通常比 FP16 小 3–4 倍，质量损失要在自己的任务上测。<br>低于 4-bit 时，质量下降与算子支持问题都会变多；不是所有推理框架都支持同一套量化格式。<br>先确认框架支持的格式（GGUF、ONNX、MLX 等），再谈模型。</p>
+    </section>
+    <section class="fam-sec" id="guide-section-3">
+      <h2><span data-zh>统一内存 vs 独立显存</span><span data-en>Unified vs discrete memory</span></h2>
+<p>统一内存（CPU/GPU 共享）能把更大的模型装进同一池，但带宽通常低于独立显存；<br>独立显存快，但容量固定，装不下就要卸载到内存或闪存。<br>LLM in a Flash 的思路是把权重放在闪存、按需换入 DRAM，能跑约两倍于 DRAM 的模型，但速度取决于闪存带宽与读取连续性。</p>
+    </section>
+    <section class="fam-sec" id="guide-section-4">
+      <h2><span data-zh>功耗与散热</span><span data-en>Power and cooling</span></h2>
+<p>端侧设备常有 40–130W 的功耗窗口，持续推理会触发降频。<br>验收要测「连续跑 30 分钟后的 token/s」，而不是开机第一分钟。<br>风扇与外壳设计会改变可持续功耗，进而改变真实吞吐。</p>
+    </section>
+    <section class="fam-sec" id="guide-section-5">
+      <h2><span data-zh>验收清单</span><span data-en>Acceptance checklist</span></h2>
+<ul>
+  <li>目标模型 + 目标量化格式，能否在设备上加载并跑满上下文。</li>
+  <li>batch=1 的首字延迟与 decode token/s；连续 30 分钟后的衰减。</li>
+  <li>内存峰值与是否触发交换/卸载。</li>
+  <li>断电重启后的冷启动时间。</li>
+  <li>真实任务的答案质量，不只看困惑度。</li>
+</ul>
+<p><b>边界</b>：端侧数字高度依赖具体设备、量化格式与推理框架；本文只给估算方法，不给跨设备排名。</p>
+<p><b>先补概念</b>：<a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96/" target="_blank" rel="noopener">量化</a> 是学 AI 站的相关科普。</p>
+    </section>
+
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2><span data-zh>继续做什么</span><span data-en>What to do next</span></h2>
+      <ul><li><a href="gpu-cost-math.html#capacity-workbench"><span data-zh>填写上下文与并发容量假设</span><span data-en>Budget context and concurrency</span></a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/"><span data-zh>检查输出是否有依据</span><span data-en>Verify evidence for the output</span></a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom"><span data-zh>按症状排查</span><span data-en>Troubleshoot by symptom</span></a></li></ul>
+    </nav>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li>NVIDIA Jetson Thor（128GB LPDDR5X、273 GB/s、40–130W、2070 FP4 TFLOPS，2026-11-17 直抓官方规格页）：<a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/" target="_blank" rel="noopener">https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/</a></li>
+        <li>ONNX Runtime 文档（跨平台推理引擎与执行提供器，2026-11-17 直抓官方文档）：<a href="https://onnxruntime.ai/docs/" target="_blank" rel="noopener">https://onnxruntime.ai/docs/</a></li>
+        <li>LLM in a Flash（arXiv 2312.11514，有限 DRAM 下从闪存按需加载权重，2026-11-17 直抓摘要页）：<a href="https://arxiv.org/abs/2312.11514" target="_blank" rel="noopener">https://arxiv.org/abs/2312.11514</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-17；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-17; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>外部站点</span><span data-en>External</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

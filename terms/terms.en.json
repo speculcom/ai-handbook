@@ -1957,5 +1957,165 @@
       "It solves how algorithms connect, not any single algorithm: replacing a planner or sensor does not require rewriting the whole system."
     ],
     "why": "Building a robot or working with a robotics team means dealing with this skeleton. Knowing middleware handles communication and tools, not intelligence itself, helps separate system integration failures from model capability failures."
+  },
+  "RAG（检索增强生成）": {
+    "purpose": "Let the model retrieve external material first, put the found passages into context, and answer from them.",
+    "def": [
+      "RAG combines parametric memory (model weights) with non-parametric memory (an external document index): a retriever finds relevant passages, then a generator answers from them.",
+      "Its value is not only more facts: answers can carry sources, and the corpus can be updated without retraining the model."
+    ],
+    "why": "For private or time-sensitive knowledge, fine-tuning is not the only option. RAG is often faster and traceable, but retrieval and chunking errors propagate straight into the answer."
+  },
+  "重排（Reranking）": {
+    "purpose": "Reorder a small candidate set with a more precise model so the genuinely relevant passages reach the top.",
+    "def": [
+      "Retrieval systems usually recall first (vector or keyword search), then score query-passage pairs with a cross-encoder.",
+      "A reranker reads both the query and the passage; it is slower but more accurate, so it runs only on tens to a couple of hundred candidates."
+    ],
+    "why": "Vector similarity alone often produces a mediocre order. A reranking layer usually improves citation quality, at the cost of latency and compute."
+  },
+  "零样本与少样本": {
+    "purpose": "Get a model to perform a new task without training, or with only a few examples.",
+    "def": [
+      "Zero-shot prompts with a task description only; few-shot puts a few input-output examples into the prompt.",
+      "The GPT-3 paper tested this route with no gradient updates and text-only interaction."
+    ],
+    "why": "It is the basic way to judge whether a model can be tried quickly. Example choice and order matter a lot, and few-shot is not the same as stable."
+  },
+  "SFT（监督微调）": {
+    "purpose": "Continue training on human-written demonstrations so the model learns to answer instructions.",
+    "def": [
+      "SFT is supervised learning on top of a pretrained model, with instruction-answer pairs.",
+      "InstructGPT first used labeler demonstrations for SFT, then human preference rankings for reinforcement learning."
+    ],
+    "why": "It is the first step that turns a base model into a usable assistant. Data quality matters more than volume, and the annotators’ style enters the model."
+  },
+  "DPO（直接偏好优化）": {
+    "purpose": "Fine-tune directly on paired better and worse answers, without a reward model or reinforcement learning.",
+    "def": [
+      "DPO rewrites the RLHF objective as a classification loss: raise the probability of the preferred answer and lower the rejected one.",
+      "It needs neither sampling from the model during training nor a separately trained reward model."
+    ],
+    "why": "When you want preference alignment without the PPO machinery, DPO is the lighter option. The coverage of preference data still caps the result."
+  },
+  "LLM-as-a-Judge（模型评审）": {
+    "purpose": "Have a strong model score or compare another model’s answers against a rubric.",
+    "def": [
+      "A common setup gives the judge the question, a reference answer and scoring dimensions, and asks for a score or choice.",
+      "The MT-Bench and Chatbot Arena paper systematically examined position, verbosity and self-enhancement biases."
+    ],
+    "why": "Human evaluation is expensive and slow; model judging scales it up. But biases must be calibrated and sampled for human review — scores are not ground truth."
+  },
+  "A2A（Agent2Agent 协议）": {
+    "purpose": "Let agents from different vendors and frameworks discover each other’s capabilities, delegate tasks and return results.",
+    "def": [
+      "A2A is an open protocol built around an Agent Card (a capability description) and task-lifecycle messages.",
+      "It adds the agent-to-agent collaboration layer; it does not replace agent-to-tool protocols such as MCP."
+    ],
+    "why": "In multi-agent deployment the friction is often interoperability, not the model. A2A tries to standardise discovery, authorization and long-running task state."
+  },
+  "编码 Agent": {
+    "purpose": "An AI tool that reads a codebase, edits multiple files, runs tests and keeps fixing from failures.",
+    "def": [
+      "Unlike code completion, a coding agent takes a task goal and autonomously plans edits, commands and verification.",
+      "SWE-bench tests such systems on real GitHub issues: can they produce a patch that passes the tests?"
+    ],
+    "why": "It changes the engineering workflow, not just typing speed. Review, permissions and tests remain necessary; a pass rate is not delivery quality."
+  },
+  "OCR（光学字符识别）": {
+    "purpose": "Turn text in images and scans into editable, searchable text.",
+    "def": [
+      "OCR usually includes layout analysis, text detection, character recognition and post-processing.",
+      "Modern systems also handle tables, multiple columns, handwriting and rotation; results often need confidence scores and human review."
+    ],
+    "why": "When RAG ingests paper archives, OCR is step one. Recognition errors become retrieval errors and then answer errors."
+  },
+  "视觉语言模型": {
+    "purpose": "A model that understands images and text together, answering questions about images or acting on text instructions.",
+    "def": [
+      "A VLM usually uses a vision encoder to turn an image into vectors, then feeds them with text tokens into a language model.",
+      "CLIP trained on 400 million image-text pairs with contrastive learning, showing natural language can serve as an interface to visual concepts."
+    ],
+    "why": "Receipts, screenshots, charts and inspection all rely on it. But describing an image is not precise measurement; fine detail and text may still need dedicated models."
+  },
+  "近似最近邻检索": {
+    "purpose": "Find the nearest vectors to a query quickly among billions, accepting a small amount of missed recall.",
+    "def": [
+      "Exact nearest-neighbor search is too slow at scale; ANN approximates with graph indexes, quantization or hashing.",
+      "HNSW uses a multi-layer navigable graph and brings query cost close to logarithmic."
+    ],
+    "why": "ANN is the core of a vector database. Recall, memory and latency must be tuned together; changing index parameters changes retrieval quality."
+  },
+  "ONNX": {
+    "purpose": "Let models trained in different frameworks be exchanged and deployed in one file format.",
+    "def": [
+      "ONNX is an open standard for computation graphs, operators and data types; inference engines can load it directly.",
+      "It does not handle training. It solves the format barrier between one framework’s training and another environment’s inference."
+    ],
+    "why": "Cross-platform deployment, edge devices and vendor swaps all meet it. Incomplete operator coverage still forces fallbacks or custom ops."
+  },
+  "CUDA": {
+    "purpose": "NVIDIA’s parallel computing platform and the default execution layer for most training frameworks.",
+    "def": [
+      "CUDA provides a programming model, compiler and libraries so work can be spread across thousands of GPU cores.",
+      "PyTorch’s GPU acceleration builds on CUDA and libraries such as cuBLAS and cuDNN."
+    ],
+    "why": "It explains why having a GPU is not the same as being able to run: driver, runtime and framework versions must match. It is also the starting point of the CUDA lock-in debate."
+  },
+  "HBM（高带宽显存）": {
+    "purpose": "High-bandwidth memory stacked next to the GPU; it decides whether a large model fits and how fast it decodes.",
+    "def": [
+      "HBM stacks DRAM layers with through-silicon vias and connects them to the GPU through a wide interface.",
+      "NVIDIA DGX B200 example: eight GPUs share 1,440 GB HBM3e and 64 TB/s aggregate bandwidth, about 180 GB and 8 TB/s per GPU."
+    ],
+    "why": "Capacity sets how many parameters and KV cache fit; bandwidth sets decoding speed. Either can bind before raw compute does."
+  },
+  "反向传播": {
+    "purpose": "Work backward from the loss to find how each layer’s parameters should change. It is the core algorithm of neural-network training.",
+    "def": [
+      "The forward pass computes predictions and loss; the backward pass applies the chain rule layer by layer to get gradients.",
+      "PyTorch’s autograd records the computation graph and performs this step automatically."
+    ],
+    "why": "Without it, a training failure looks like magic. Vanishing gradients, exploding gradients and accumulation all live here."
+  },
+  "梯度下降": {
+    "purpose": "Update parameters in the direction opposite the gradient, in small steps, so the loss goes down.",
+    "def": [
+      "Each step computes a gradient on a batch and scales it by the learning rate before updating weights.",
+      "SGD, Adam and AdamW are variants that differ in how they use gradient history."
+    ],
+    "why": "Learning rate, batch size and optimizer interact. The same hyperparameters often stop working when the model or data changes."
+  },
+  "损失函数": {
+    "purpose": "Turn “how wrong the prediction is” into a differentiable number; training minimises it.",
+    "def": [
+      "Different tasks use different losses: cross-entropy for classification, mean squared error for regression, next-token cross-entropy for language models.",
+      "Loss design changes what the model prefers. It is not merely an optimisation trick."
+    ],
+    "why": "Metrics and losses are not the same thing. A falling loss with a flat business metric is common."
+  },
+  "交叉熵": {
+    "purpose": "Measure how far the predicted distribution is from the true one; the default loss for classification and language models.",
+    "def": [
+      "Cross-entropy is the negative log-likelihood of the true distribution: the lower the probability given to the right answer, the larger the penalty.",
+      "PyTorch’s CrossEntropyLoss combines log-softmax and negative log-likelihood."
+    ],
+    "why": "Perplexity is the exponential of cross-entropy. Before comparing loss numbers, check the unit and the vocabulary denominator."
+  },
+  "学习率": {
+    "purpose": "Set the step size of each parameter update; one of the most sensitive hyperparameters in training.",
+    "def": [
+      "Too large causes oscillation or divergence; too small converges slowly or stalls on a plateau.",
+      "Common schedules include warmup, cosine decay and reducing on validation performance."
+    ],
+    "why": "Changing batch size, optimizer or fine-tuning regime means reconsidering the learning rate. Fine-tuning usually uses rates orders of magnitude smaller than pretraining."
+  },
+  "批大小与轮次": {
+    "purpose": "Batch size is how many examples one update sees; an epoch is one full pass over the data.",
+    "def": [
+      "Batch size affects gradient noise, memory use and throughput; epochs affect how often the model sees the data.",
+      "Both couple with the learning rate: change the batch size and the suitable learning rate usually changes too."
+    ],
+    "why": "“Train for three epochs” is not a universal recipe. Data volume, task difficulty and overfitting signals decide how many passes are right."
   }
 }

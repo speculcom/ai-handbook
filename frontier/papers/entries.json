@@ -848,5 +848,365 @@
       "额外生成开销 / cost": "生成 token 可达 CoT 的 5-100 倍",
       "复现状态 / reproduction": "未复现"
     }
+  },
+  {
+    "id": "devlin-2019-bert",
+    "title": {
+      "zh": "BERT：面向语言理解的深度双向 Transformer 预训练",
+      "en": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/1810.04805",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/1810.04805",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/1810.04805",
+        "quote": "It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement)"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/1810.04805",
+        "quote": "removing NSP hurts performance significantly on QNLI, MNLI, and SQuAD 1.1."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/1810.04805",
+        "quote": "The LTR model performs worse than the MLM model on all tasks, with large drops on MRPC and SQuAD."
+      }
+    ],
+    "notes": {
+      "zh": "问题：此前的语言模型要么是单向的（GPT 式从左到右），要么是两个单向模型拼接（ELMo 式），能不能在一个 Transformer 里同时看左右上下文做预训练？\n证据位置：预训练目标在 §3.1（MLM 与 NSP），微调在 §3.2；主结果在 §4 与 Table 1–4；消融在 §5，其中 §5.1 的 Table 5 比较「No NSP」与「LTR & No NSP」，§5.2 的 Table 8 比较不同掩码比例；结论在 §6。\n作者自陈：论文没有独立的 Limitations 章节，也没有系统列出局限。§5.1 的消融显示去掉 NSP 会显著伤 QNLI、MNLI 与 SQuAD 1.1；把模型改成从左到右会全面变差，MRPC 与 SQuAD 掉得最多。§5.2 说明微调对掩码策略相当稳健，但纯 [MASK] 策略在特征式 NER 上会出问题。\n它没主张的：没有说双向一定优于所有双向变体（只比较了少数消融）；没有说 NSP 本身不可替代（只是去掉会掉分）；也没有给出多语言或长文档的通用结论——实验集中在英文 GLUE、MultiNLI 与 SQuAD。",
+      "en": "Problem: earlier language models were either unidirectional (GPT-style left-to-right) or a concatenation of two unidirectional models (ELMo-style); can one Transformer pretrain on both left and right context at once?\nWhere the evidence sits: pretraining objectives in 3.1 (MLM and NSP), fine-tuning in 3.2; main results in Section 4 and Tables 1-4; ablations in Section 5, with Table 5 in 5.1 comparing “No NSP” and “LTR & No NSP”, and Table 8 in 5.2 comparing masking rates; conclusion in Section 6.\nWhat the authors say: there is no separate Limitations section and no systematic list. The 5.1 ablation shows removing NSP significantly hurts QNLI, MNLI and SQuAD 1.1, and switching to left-to-right degrades every task, with the largest drops on MRPC and SQuAD. Section 5.2 finds fine-tuning robust to masking strategies, while a pure [MASK] strategy is problematic for feature-based NER.\nWhat it does not claim: it does not claim bidirectionality beats every bidirectional variant (only a few ablations were run), does not claim NSP is irreplaceable (only that removing it loses points), and gives no general multilingual or long-document conclusion — experiments centre on English GLUE, MultiNLI and SQuAD."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§3.1–3.2；§4 Table 1–4；§5.1 Table 5；§5.2 Table 8；§6",
+      "规模 / scale": "BERT-Base 与 BERT-Large 两档（论文 §3）",
+      "关键数字 / key numbers": "GLUE 80.5%（+7.7）、MultiNLI 86.7%（+4.6）、SQuAD v1.1 F1 93.2（+1.5）、SQuAD v2.0 F1 83.1（+5.1）",
+      "自陈局限 / stated limits": "无独立 Limitations 章节；消融见 §5.1、§5.2",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "dosovitskiy-2021-vit",
+    "title": {
+      "zh": "ViT：一张图等于 16×16 个词",
+      "en": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2010.11929",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2010.11929",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2010.11929",
+        "quote": "the best model reaches the accuracy of 88.55% on ImageNet, 90.72% on ImageNet-ReaL, 94.55% on CIFAR-100, and 77.63% on the VTAB suite of 19 tasks"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2010.11929",
+        "quote": "One is to apply ViT to other computer vision tasks, such as detection and segmentation."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2010.11929",
+        "quote": "Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale supervised pre-training."
+      }
+    ],
+    "notes": {
+      "zh": "问题：Transformer 在 NLP 已经成为标准，但在视觉里通常还要和 CNN 绑定；能不能把图像切成 patch、当成词序列，直接用纯 Transformer 做分类？\n证据位置：方法在 §3（patch 切分、线性投影、位置编码）；实验在 §4，包含不同预训练数据规模（ImageNet、ImageNet-21k、JFT-300M）与 ResNet/hybrid 对比；结论在 §5。\n作者自陈局限：§5 明确列出三项——还没把 ViT 用到检测与分割；自监督预训练有提升，但与大规模监督预训练仍有很大差距；继续扩大规模可能还会更好，但未验证。§4 也承认在小数据集上 ViT 比同算力 ResNet 更容易过拟合，卷积的归纳偏置在数据少时仍然有用。\n它没主张的：没有说 ViT 在所有视觉任务上取代 CNN——结论把检测/分割列为未来工作；没有说自监督已经追平监督；也没有说 patch 16×16 是最优切法（做了 patch size 与位置编码消融，但结论是「规模优先于归纳偏置」这一范围内）。",
+      "en": "Problem: Transformers were already standard in NLP but usually tied to CNNs in vision; can an image be split into patches, treated as a token sequence, and classified by a pure Transformer?\nWhere the evidence sits: method in Section 3 (patch extraction, linear projection, positional encoding); experiments in Section 4 across pretraining data scales (ImageNet, ImageNet-21k, JFT-300M) and against ResNets and hybrids; conclusion in Section 5.\nStated limits: Section 5 lists three — ViT has not yet been applied to detection and segmentation; self-supervised pretraining helps but still lags large-scale supervised pretraining by a large gap; further scaling would likely help but was not verified. Section 4 also concedes that on small datasets ViT overfits more than a ResNet of comparable compute, so convolutional inductive bias still matters when data is scarce.\nWhat it does not claim: it does not claim ViT replaces CNNs across all vision tasks — detection and segmentation are left to future work; it does not claim self-supervision has caught up with supervision; and it does not claim 16x16 is the optimal patch size beyond the ablations it ran."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§3 方法；§4 实验与数据规模消融；§5 结论与局限",
+      "规模 / scale": "ViT-Base / Large / Huge，patch 16 与 32 等变体",
+      "关键数字 / key numbers": "ImageNet 88.55%、ReaL 90.72%、CIFAR-100 94.55%、VTAB 19 任务 77.63%",
+      "自陈局限 / stated limits": "检测/分割未验证；自监督仍落后；小数据易过拟合（§4、§5）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "radford-2021-clip",
+    "title": {
+      "zh": "CLIP：用自然语言监督学习可迁移的视觉模型",
+      "en": "Learning Transferable Visual Models From Natural Language Supervision"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2103.00020",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2103.00020",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2103.00020",
+        "quote": "we match the accuracy of the original ResNet-50 on ImageNet zero-shot without needing to use any of the 1.28 million training examples it was trained on"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2103.00020",
+        "quote": "we estimate around a 1000x increase in compute is required for zero-shot CLIP to reach overall state-of-the-art performance. This is infeasible to train with current hardware."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2103.00020",
+        "quote": "CLIP only achieves 88% accuracy on the handwritten digits of MNIST. An embarrassingly simple baseline of logistic regression on raw pixels outperforms zero-shot CLIP."
+      }
+    ],
+    "notes": {
+      "zh": "问题：视觉模型通常预测固定类别，换一个概念就要重新标数据；能不能直接用互联网图文对做对比学习，让自然语言成为分类器？\n证据位置：方法在 §2（对比学习、zero-shot 分类器构造）；分析在 §3（细粒度、计数、OCR、分布偏移等）；局限集中在 §6，作者把散落在各节的问题汇总成一份清单。\n作者自陈局限：§6 写得非常直白——zero-shot CLIP 平均只是接近「ResNet-50 特征 + 线性分类器」这一简单基线，要达到整体 SOTA 估计还需要约 1000 倍算力，当前硬件不可行；在细粒度分类（车型、花种、飞机型号）、计数、以及训练分布外的新任务上很弱，MNIST 手写数字只有 88%，不如原始像素上的逻辑回归；只能从给定分类器里的概念中选，不能像 caption 模型那样生成新描述；没有解决数据效率问题；开发过程中反复在完整验证集上调参，不符合真正 zero-shot 的设定；评测集是「有点随意拼出来的 27 个数据集」，与 CLIP 能力共同演化；训练数据未筛选，会学到社会偏见。\n它没主张的：没有说 zero-shot 已经全面超过监督模型——原文说「often competitive」；没有说 CLIP 能处理所有视觉概念——§6 明确说很多任务接近随机；也没有说 4 亿图文对是数据效率的解法——作者反而说它只是用规模换监督。",
+      "en": "Problem: vision models usually predict a fixed label set and need new labels for every new concept; can internet image-text pairs be used for contrastive pretraining so natural language itself becomes the classifier?\nWhere the evidence sits: approach in Section 2 (contrastive pretraining and zero-shot classifier construction); analysis in Section 3 (fine-grained, counting, OCR, distribution shift); limitations are collected in Section 6.\nStated limits: Section 6 is unusually direct — zero-shot CLIP is on average only competitive with a linear classifier on ResNet-50 features; reaching overall state of the art is estimated to need about 1000x more compute, infeasible on current hardware; it is weak on fine-grained classification (car models, flower species, aircraft variants), counting, and novel out-of-distribution tasks, scoring only 88% on MNIST handwritten digits, below logistic regression on raw pixels; it can only choose among concepts in a given classifier, unlike a caption model that can generate novel descriptions; it does not solve data efficiency; development repeatedly queried full validation sets, which is unrealistic for true zero-shot; the 27-dataset evaluation collection was somewhat haphazardly assembled and co-adapted with CLIP; and unfiltered training pairs teach social biases.\nWhat it does not claim: it does not claim zero-shot beats supervised models across the board — the paper says “often competitive”; it does not claim CLIP handles all visual concepts — Section 6 says many tasks are near chance; and it does not claim 400M pairs solve data efficiency, arguing instead that CLIP trades scale for supervision."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§2 方法；§3 分析；§6 Limitations（汇总清单）",
+      "规模 / scale": "4 亿（image, text）对；30+ 个视觉数据集",
+      "关键数字 / key numbers": "ImageNet zero-shot 追平原始 ResNet-50（未用其 128 万训练样本）；MNIST 88%",
+      "自陈局限 / stated limits": "需约 1000× 算力才到整体 SOTA；细粒度/计数/新任务弱；数据效率未解决；评测集共适应；社会偏见",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "ho-2020-ddpm",
+    "title": {
+      "zh": "DDPM：去噪扩散概率模型",
+      "en": "Denoising Diffusion Probabilistic Models"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2006.11239",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2006.11239",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2006.11239",
+        "quote": "On the unconditional CIFAR10 dataset, we obtain an Inception score of 9.46 and a state-of-the-art FID score of 3.17."
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2006.11239",
+        "quote": "our models do not have competitive log likelihoods compared to other likelihood-based models"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2006.11239",
+        "quote": "Sample generation techniques can be employed to produce fake images and videos of high profile figures for political purposes."
+      }
+    ],
+    "notes": {
+      "zh": "问题：GAN 能出高质量样本但训练不稳定，VAE 有似然但样本偏模糊；能不能用「逐步加噪、再逐步去噪」的扩散过程，同时拿到质量和可训练性？\n证据位置：前向/反向过程在 §2–§3，训练目标（简化噪声预测损失）在 §3，采样在 Algorithm 2；实验在 §4，CIFAR10 的 IS/FID 在 Table 1，LSUN 256×256 在 §4.4 左右；结论在 §6，影响讨论在 Broader Impact。\n作者自陈局限：论文没有独立 Limitations 章节。摘要与 §1 明确说「样本质量好，但似然不如其他似然模型有竞争力」，并解释大部分无损码长花在不可感知的细节上（§4.3）；Broader Impact 主动写了两类风险——可被用于伪造公众人物图像与视频，以及训练数据偏见会被生成模型放大。\n它没主张的：没有说扩散模型在似然上优于 ARM/VAE；没有说采样已经够快——扩散需要多步迭代，这一点是后续工作（DDIM、蒸馏等）才改善；也没有说 FID 3.17 可以跨数据集比较——FID 依赖特征提取器与样本量，论文只报了自己的设置。",
+      "en": "Problem: GANs produce sharp samples but train unstably, while VAEs have likelihoods but blurrier samples; can a process that gradually adds noise and then denoises it deliver both quality and trainability?\nWhere the evidence sits: forward and reverse processes in Sections 2-3, the simplified noise-prediction objective in Section 3, sampling in Algorithm 2; experiments in Section 4, with CIFAR10 IS/FID in Table 1 and 256x256 LSUN around 4.4; conclusion in Section 6 and societal impact in the Broader Impact section.\nStated limits: there is no separate Limitations section. The abstract and Section 1 state plainly that sample quality is high but likelihoods are not competitive with other likelihood-based models, explaining that most lossless code length goes to imperceptible detail (Section 4.3); the Broader Impact section volunteers two risks — use for fake images and videos of public figures, and amplification of dataset biases.\nWhat it does not claim: it does not claim diffusion beats autoregressive models or VAEs on likelihood; it does not claim sampling is fast — diffusion needs many iterative steps, which later work (DDIM, distillation) addressed; and it does not claim FID 3.17 is comparable across datasets, since FID depends on the feature extractor and sample size."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§2–3 扩散过程；§4 实验（Table 1）；§4.3 码长分析；§6 结论；Broader Impact",
+      "规模 / scale": "CIFAR10 无条件生成；256×256 LSUN",
+      "关键数字 / key numbers": "CIFAR10 IS 9.46、FID 3.17；LSUN 样本质量接近 ProgressiveGAN",
+      "自陈局限 / stated limits": "似然不具竞争力；伪造图像/视频与偏见放大风险；无独立 Limitations 章节",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "rombach-2022-ldm",
+    "title": {
+      "zh": "LDM：在潜空间里做高分辨率图像合成",
+      "en": "High-Resolution Image Synthesis with Latent Diffusion Models"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2112.10752",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2112.10752",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2112.10752",
+        "quote": "we apply them in the latent space of powerful pretrained autoencoders"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2112.10752",
+        "quote": "Our latent diffusion models (LDMs) achieve new state-of-the-art scores for image inpainting and class-conditional image synthesis"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2112.10752",
+        "quote": "their sequential sampling process is still slower than that of GANs"
+      }
+    ],
+    "notes": {
+      "zh": "问题：像素空间扩散效果好人尽皆知，但训练要几百 GPU 天、推理要反复过全分辨率网络；能不能先把图像压到潜空间，再在潜空间扩散，以此换效率？\n证据位置：方法在 §3，包含感知压缩与语义压缩的拆分（§3.1）、潜空间扩散（§3.2）、cross-attention 条件机制（§3.3）；实验在 §4（无条件、布局/类别/文本条件、超分、inpainting）；局限在 §5 Limitations，结论在 §6。\n作者自陈局限：§5 列了两条——第一，潜空间扩散仍是顺序采样，比 GAN 慢；第二，f=4 自编码器虽然画质损失很小，但重建能力会成为「像素级精细精度」任务的瓶颈，作者点名超分模型已受此限制。\n它没主张的：没有说潜空间压缩无损——§5 明确说高精度场景可能不够；没有说 LDM 在所有任务上都超过像素扩散——摘要用「competitive」描述文本到图像、无条件生成与超分；也没有说 cross-attention 能理解任意条件——实验覆盖类别、文本、布局，但未证明开放域任意控制。",
+      "en": "Problem: pixel-space diffusion is high quality but costs hundreds of GPU days to train and repeatedly runs a full-resolution network at inference; can images be compressed into a latent space and diffused there to buy efficiency?\nWhere the evidence sits: method in Section 3, splitting perceptual from semantic compression (3.1), latent diffusion (3.2), and cross-attention conditioning (3.3); experiments in Section 4 (unconditional, layout/class/text conditioning, super-resolution, inpainting); limitations in Section 5 and conclusion in Section 6.\nStated limits: Section 5 lists two — latent diffusion still samples sequentially and is slower than GANs; and although the f=4 autoencoder loses very little quality, its reconstruction can bottleneck tasks needing fine-grained pixel accuracy, with super-resolution called out as already limited.\nWhat it does not claim: it does not claim latent compression is lossless — Section 5 says high-precision settings may not suffice; it does not claim LDMs beat pixel diffusion on every task — the abstract calls text-to-image, unconditional generation and super-resolution “competitive”; and it does not claim cross-attention understands arbitrary conditions, since experiments cover class, text and layout but not open-ended control."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§3 方法（3.1–3.3）；§4 实验；§5 Limitations；§6 结论",
+      "规模 / scale": "公开的 latent diffusion 与 autoencoder 权重；最高约 1024² 像素",
+      "关键数字 / key numbers": "inpainting 与 class-conditional 达新 SOTA；文本到图像、无条件、超分为有竞争力",
+      "自陈局限 / stated limits": "顺序采样慢于 GAN；f=4 自编码器重建限制像素级精细任务（§5）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "fedus-2022-switch",
+    "title": {
+      "zh": "Switch Transformer：用简单稀疏路由扩到万亿参数",
+      "en": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity"
+    },
+    "category": "scaling",
+    "url": "https://arxiv.org/abs/2101.03961",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2101.03961",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2101.03961",
+        "quote": "we show large sparse models may be trained, for the first time, with lower precision (bfloat16) formats"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2101.03961",
+        "quote": "obtain up to 7x increases in pre-training speed with the same computational resources"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2101.03961",
+        "quote": "do not always translate their upstream perplexity well to downstream fine-tuning on the SuperGLUE task"
+      }
+    ],
+    "notes": {
+      "zh": "问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？\n证据位置：Switch 层与 top-1 路由在 §2；容量因子与负载均衡损失在 §2.2；训练与稳定性技巧（选择性精度、初始化、正则）在 §3；结果在 §4–§5，包含 T5-Base/Large 同算力 7× 预训练加速、101 种语言的 mT5 增益、万亿参数 Switch-C 对 T5-XXL 的 4× 加速；结论在 §9。\n作者自陈局限：论文没有独立 Limitations 章节。Appendix E 明确提醒：上游困惑度不一定转化为下游任务——在最大模型区间（T5-11B/T5-XXL），Switch 模型并不总能把预训练优势带到 SuperGLUE 微调；作者说这需要未来研究，并指出专家模型的微调动态很复杂，依赖正则、负载均衡与超参。\n它没主张的：没有说 Switch 在所有下游任务上都优于 dense——Appendix E 反而说小中模型区间两者相似，最大模型在 SuperGLUE 上不一定更好；没有说 top-1 路由普适最优——只与 GShard 等少数路由做了比较；也没有说 7× 加速能直接换算成 7× 成本优势——通信与专家并行开销未计入这句口号。",
+      "en": "Problem: MoE has many parameters at constant compute, but complex routing, expensive communication and unstable training kept it niche; can routing be simplified to one expert per token and paired with training tricks to make it stable?\nWhere the evidence sits: the Switch layer and top-1 routing in Section 2, capacity factor and load-balancing loss in 2.2, training and stability techniques (selective precision, initialization, regularization) in Section 3; results in Sections 4-5, including 7x pretraining speedup at equal compute for T5-Base/Large, gains across 101 languages for mT5, and a 4x speedup of trillion-parameter Switch-C over T5-XXL; conclusion in Section 9.\nStated limits: no separate Limitations section. Appendix E warns that upstream perplexity does not necessarily transfer downstream — in the largest regime (T5-11B/T5-XXL) Switch models do not always carry their pretraining advantage into SuperGLUE fine-tuning, which the authors leave to future work and attribute to complex fine-tuning dynamics depending on regularization, load balancing and hyperparameters.\nWhat it does not claim: it does not claim Switch beats dense models on every downstream task — Appendix E says the two are similar in small-to-medium regimes and the largest Switch model is not always better on SuperGLUE; it does not claim top-1 routing is universally optimal, comparing only a few alternatives such as GShard; and it does not claim the 7x speedup translates directly into 7x cost savings, since communication and expert-parallel overhead are outside that headline."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§2 路由与负载均衡；§3 训练技巧；§4–5 结果；§9 结论；Appendix E 下游迁移",
+      "规模 / scale": "T5-Base/Large 至 1.6T 参数、2048 专家的 Switch-C",
+      "关键数字 / key numbers": "同算力最高 7× 预训练加速；101 语言优于 mT5-Base；相对 T5-XXL 4× 加速",
+      "自陈局限 / stated limits": "最大模型的上游困惑度不总能迁移到 SuperGLUE（Appendix E）；无独立 Limitations 章节",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "radford-2022-whisper",
+    "title": {
+      "zh": "Whisper：用大规模弱监督做稳健语音识别",
+      "en": "Robust Speech Recognition via Large-Scale Weak Supervision"
+    },
+    "category": "scaling",
+    "url": "https://arxiv.org/abs/2212.04356",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2212.04356",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2212.04356",
+        "quote": "When scaled to 680,000 hours of multilingual and multitask supervision, the resulting models generalize well to standard benchmarks"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2212.04356",
+        "quote": "we suspect fine-tuning Whisper models on a high-quality supervised dataset and/or using reinforcement learning to more directly optimize for decoding performance could help further reduce these errors"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2212.04356",
+        "quote": "most languages have less than 1000 hours of training data"
+      }
+    ],
+    "notes": {
+      "zh": "问题：语音识别通常依赖大量高质量人工转写与领域内微调，换数据集就掉点；能不能用互联网上带噪的转写做弱监督，训练一个不微调也能跨数据集工作的模型？\n证据位置：数据与任务设计在 §2，模型与训练在 §3，零样本评测在 §3.x；长音频解码启发式在 §4.5（Table 7）；局限集中在 §6 Limitations and Future Work，结论在 §7。\n作者自陈局限：§6 列了五类——解码仍会重复循环、漏掉首尾词、甚至整段幻觉，§4.5 的启发式只是权宜；低资源语言数据少，很多语言不足 1,000 小时，性能差且提升路径是加数据；本文只研究了零样本，没有系统研究微调；Whisper 的稳健性有多少来自编码器、多少来自语言模型解码器仍不清楚；没有用无监督预训练或自训练等辅助目标。\n它没主张的：没有说 Whisper 在所有语言上都接近人类——§6 明说很多语言仍很差；没有说零样本一定优于领域内微调——作者反而说高质量监督数据上微调可能更好；也没有说时间戳启发式解决了长音频问题——原文称其为 workaround，仍需更多研究。",
+      "en": "Problem: speech recognition usually depends on large high-quality human transcripts and in-domain fine-tuning, and degrades when the dataset changes; can noisy internet transcripts provide weak supervision for a model that works across datasets without fine-tuning?\nWhere the evidence sits: data and task design in Section 2, model and training in Section 3, zero-shot evaluation in 3.x; long-form decoding heuristics in 4.5 (Table 7); limitations in Section 6 and conclusion in Section 7.\nStated limits: Section 6 lists five — decoding can loop, drop the first or last words, or hallucinate an entire transcript, with the 4.5 heuristics merely a workaround; low-resource languages have little data, many under 1,000 hours, and perform poorly; only zero-shot transfer was studied, not fine-tuning; how much robustness comes from the encoder versus the language-model decoder is unclear; and no unsupervised pretraining or auxiliary objectives were used.\nWhat it does not claim: it does not claim Whisper approaches human accuracy in all languages — Section 6 says many remain poor; it does not claim zero-shot always beats in-domain fine-tuning, suggesting the opposite where high-quality supervised data exists; and it does not claim the timestamp heuristics solve long-form audio, calling them a workaround that needs more research."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§2 数据；§3 模型与零样本评测；§4.5 长音频解码（Table 7）；§6 局限；§7 结论",
+      "规模 / scale": "680,000 小时多语言、多任务弱监督",
+      "关键数字 / key numbers": "零样本跨标准基准；多语言覆盖，低资源语言多不足 1,000 小时",
+      "自陈局限 / stated limits": "重复/漏词/幻觉；低资源语言差；只研究零样本；编码器与解码器贡献不明（§6）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "touvron-2023-llama2",
+    "title": {
+      "zh": "Llama 2：开放基础模型与对话微调模型",
+      "en": "Llama 2: Open Foundation and Fine-Tuned Chat Models"
+    },
+    "category": "scaling",
+    "url": "https://arxiv.org/abs/2307.09288",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2307.09288",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2307.09288",
+        "quote": "ranging in scale from 7 billion to 70 billion parameters"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2307.09288",
+        "quote": "We also increased the size of the pretraining corpus by 40%, doubled the context length of the model, and adopted grouped-query attention"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2307.09288",
+        "quote": "Llama 2-Chat is subject to the same well-recognized limitations of other LLMs, including a cessation of knowledge updates post-pretraining, potential for non-factual generation such as unqualified advice, and a propensity towards hallucinations."
+      }
+    ],
+    "notes": {
+      "zh": "问题：开放权重模型能不能在有用性与安全性上接近闭源模型，同时把训练、微调与安全对齐的做法公开到可复用的程度？\n证据位置：预训练在 §2（数据、40% 增量、双倍上下文、GQA）；微调在 §3（SFT、拒绝采样、PPO）；安全在 §4；观察与洞察在 §5，其中 §5.2 是 Limitations and Ethical Considerations；结论在 §7。\n作者自陈局限：§5.2 列得很全——知识在预训练后停止更新；可能生成不实内容，例如不合格建议；有幻觉倾向；训练以英文为主，其他语言能力脆弱；可能生成有害、冒犯或偏见内容；安全微调有时过度保守，会出现过多拒答或堆砌安全说明；安全基准本身有局限，未必覆盖对抗输入、毒性内容与所有人群。摘要还说明 34B 模型因「没有足够时间做红队测试」而暂不发布。\n它没主张的：没有说 Llama 2-Chat 在所有基准上超过闭源模型——原文是「may be a suitable substitute」，且基于自家人类评估；没有说安全对齐已经解决——§5.2 明说部分问题仍可能存在；也没有说多语言可用——原文说英文以外「fragile and should be used with caution」。",
+      "en": "Problem: can an open-weight model approach closed models on helpfulness and safety while publishing pretraining, fine-tuning and safety alignment in a reusable way?\nWhere the evidence sits: pretraining in Section 2 (data, 40% more tokens, doubled context, GQA); fine-tuning in Section 3 (SFT, rejection sampling, PPO); safety in Section 4; observations in Section 5, with 5.2 covering limitations and ethical considerations; conclusion in Section 7.\nStated limits: 5.2 is thorough — knowledge stops updating after pretraining; the model can generate non-factual content such as unqualified advice; it is prone to hallucination; training is predominantly English and other languages are fragile; it may produce harmful, offensive or biased content; safety tuning sometimes over-corrects into excessive refusal or too much safety boilerplate; and safety benchmarks themselves may miss adversarial inputs, toxic content and some demographic groups. The abstract also says the 34B model was withheld for lack of time to red-team it sufficiently.\nWhat it does not claim: it does not claim Llama 2-Chat beats closed models on all benchmarks — the paper says it “may be a suitable substitute” based on its own human evaluations; it does not claim safety alignment is solved — 5.2 says some issues may remain; and it does not claim multilingual readiness, calling non-English performance fragile and to be used with caution."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§2 预训练；§3 微调；§4 安全；§5.2 局限与伦理；§7 结论",
+      "规模 / scale": "7B、13B、70B 发布；34B 训练但未发布（红队时间不足）",
+      "关键数字 / key numbers": "预训练语料 +40%；上下文长度翻倍；GQA",
+      "自陈局限 / stated limits": "知识不更新、幻觉、英文为主、有害/偏见内容、安全过度保守（§5.2）",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "kirillov-2023-sam",
+    "title": {
+      "zh": "SAM：可提示的分割一切模型",
+      "en": "Segment Anything"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2304.02643",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2304.02643",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+        "quote": "over 1 billion masks on 11M licensed and privacy respecting images"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+        "quote": "It can miss fine structures, hallucinates small disconnected components at times, and does not produce boundaries as crisply as more computationally intensive methods"
+      },
+      {
+        "url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+        "quote": "SAM’s overall performance is not real-time when using a heavy image encoder."
+      }
+    ],
+    "notes": {
+      "zh": "问题：分割任务通常按语义/实例/全景分开训练，换任务就要换模型；能不能定义一个「给提示就出掩码」的通用任务，用一个模型加提示工程覆盖多种分割？\n证据位置：任务、模型与数据分别在 §3–§5；数据引擎与 SA-1B 在 §4；零样本评测在 §6–§7（23 个分割数据集、边缘检测、候选框、实例分割、文本到掩码）；局限集中在 §8，结论紧随其后。\n作者自陈局限：§8 列了六条——会漏细结构，偶尔幻觉出小的不连通部件，边界不如「放大再算」的方法锐利；给很多点时，专用交互式分割方法会更好；重编码器使整体并非实时（虽然提示解码是实时的）；文本到掩码只是探索性尝试，不够稳健；如何用简单提示实现语义与全景分割仍不清楚；在特定领域，专用工具会优于 SAM。\n它没主张的：没有说 SAM 在所有分割任务上超过专用模型——§8 明确说专用交互式方法与领域工具会更好；没有说文本到掩码可用——原文称 exploratory and not entirely robust；也没有说「分割一切」字面成立——论文自己把任务限定为可提示分割，并承认语义/全景分割的提示设计未解决。",
+      "en": "Problem: segmentation is usually split into semantic, instance and panoptic tasks with separate models; can a single “give a prompt, get a mask” task plus prompt engineering cover many segmentation settings?\nWhere the evidence sits: task, model and data in Sections 3-5; data engine and SA-1B in Section 4; zero-shot evaluation in Sections 6-7 (23 segmentation datasets, edge detection, object proposals, instance segmentation, text-to-mask); limitations in Section 8, immediately before the conclusion.\nStated limits: Section 8 lists six — SAM misses fine structures, occasionally hallucinates small disconnected components, and produces less crisp boundaries than methods that zoom in; dedicated interactive segmentation methods outperform it when many points are given; the heavy image encoder means overall performance is not real-time even though prompt decoding is; text-to-mask is exploratory and not robust; simple prompts for semantic and panoptic segmentation remain unclear; and domain-specific tools will beat SAM in their domains.\nWhat it does not claim: it does not claim SAM beats specialised models on every segmentation task — Section 8 says dedicated interactive methods and domain tools do better; it does not claim text-to-mask is usable, calling it exploratory and not entirely robust; and it does not claim “segment anything” literally, framing the task as promptable segmentation and leaving semantic/panoptic prompting unresolved."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "证据位置 / evidence": "§3–5 任务/模型/数据；§6–7 零样本评测；§8 局限；结论",
+      "规模 / scale": "SA-1B：1B+ 掩码、1,100 万张授权与隐私合规图像",
+      "关键数字 / key numbers": "23 个分割数据集零样本评测；单前景点即可产出高质量掩码",
+      "自陈局限 / stated limits": "漏细结构、幻觉小部件、边界不锐利、整体非实时、文本到掩码不稳（§8）",
+      "复现状态 / reproduction": "未复现"
+    }
   }
 ]

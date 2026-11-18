@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Prefix-Tuning: Optimizing Continuous Prompts for Generation · AI 论文</title>
+  <meta name="description" content="问题：全量微调会改动全部参数，因此每个任务都要存一份完整模型副本；能不能冻住语言模型，只学一小段连续的任务专属向量（前缀），让后续 token 像注意虚拟 token 一样注意它。 证据位置：方法在 §4（含 §4.3 对前缀的重参数化）；主结果在 §6——表 1 是三个 table-to-text" />
+  <link rel="canonical" href="https://papers.specul.com/li-2021-prefix-tuning.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Prefix-Tuning: Optimizing Continuous Prompts for Generation · AI 论文" />
+  <meta property="og:url" content="https://papers.specul.com/li-2021-prefix-tuning.html" />
+  <meta property="og:title" content="Prefix-Tuning: Optimizing Continuous Prompts for Generation · AI 论文" />
+  <meta property="og:description" content="问题：全量微调会改动全部参数，因此每个任务都要存一份完整模型副本；能不能冻住语言模型，只学一小段连续的任务专属向量（前缀），让后续 token 像注意虚拟 token 一样注意它。 证据位置：方法在 §4（含 §4.3 对前缀的重参数化）；主结果在 §6——表 1 是三个 table-to-text" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=2b96a18d1fa6"></script>
+  <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="papers.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"Prefix-Tuning: Optimizing Continuous Prompts for Generation · AI 论文","description":"问题：全量微调会改动全部参数，因此每个任务都要存一份完整模型副本；能不能冻住语言模型，只学一小段连续的任务专属向量（前缀），让后续 token 像注意虚拟 token 一样注意它。 证据位置：方法在 §4（含 §4.3 对前缀的重参数化）；主结果在 §6——表 1 是三个 table-to-text","url":"https://papers.specul.com/li-2021-prefix-tuning.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/" aria-current="page"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>外部站点</span><span data-en>External</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/" aria-current="page"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>外部站点</span><span data-en>External</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加一个去别处的出口</span><span data-en>Eight content sites, plus one gateway to other sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container ms-page fx-entry">
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>适配</span><span data-en>Adaptation</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <h1><span data-zh>Prefix-Tuning: Optimizing Continuous Prompts for Generation</span><span data-en>Prefix-Tuning: Optimizing Continuous Prompts for Generation</span></h1>
+  <p class="fx-entry-lead"><span data-zh>问题：全量微调会改动全部参数，因此每个任务都要存一份完整模型副本；能不能冻住语言模型，只学一小段连续的任务专属向量（前缀），让后续 token 像注意虚拟 token 一样注意它。<br>证据位置：方法在 §4（含 §4.3 对前缀的重参数化）；主结果在 §6——表 1 是三个 table-to-text 数据集（E2E、WebNLG、DART），表 2 是 XSUM 摘要，低数据设定在 §6.3 与 Figure 3 右，外推在 §6.4；前缀长度等内在分析在 §7；开放问题在 §8 Discussion，结论在 §9。这篇没有独立的 Limitations 章节。<br>作者自陈局限：局限散在结果与讨论里，作者自己写明的有——§6.2 直接承认在 XSUM 上不如全量微调（0.1% 参数时 ROUGE-L 35.05 对 37.25，2% 时 36.05 对 37.25），并列出三条可能原因：XSUM 样本量平均多 4 倍、输入文章平均长 17 倍、摘要可能比 table-to-text 更复杂，这些是作者的解释而非验证过的结论；§6.3 说低数据下的优势随数据量增大而缩小（平均高 2.9 BLEU）；§7.1 说前缀超过阈值（摘要 200、table-to-text 10）后训练损失更低但测试表现略降，提示过拟合；§8.3 说外推收益的原因仍是开放问题，而参数效率更高的解释也只是「我们认为」。<br>它没主张的：论文只在 GPT-2 MEDIUM/LARGE 与 BART-LARGE 上验证（§5.3），§6.1 结尾说有潜力扩展到 GPT-3 这类更大的同架构模型，那是推测、没有实验；也没有说前缀微调在所有生成任务上都不输全量微调——摘要任务上就是输的；比较对象是 adapter 与只调顶部两层（FT-top2）等轻量基线，不涉及其他参数高效微调方法；§8.1、§8.2 关于百万用户个性化与跨用户批处理的说法是适用性讨论，没有对应的实验结果。</span><span data-en>Problem: full fine-tuning modifies every parameter, so a complete model copy has to be stored per task; can the language model be frozen and only a small continuous task-specific vector (the prefix) be learned, with subsequent tokens attending to it as if it were virtual tokens.<br>Where the evidence sits: the method is in Section 4, including the reparametrisation of the prefix in 4.3; main results are in Section 6 — Table 1 covers three table-to-text datasets (E2E, WebNLG, DART), Table 2 covers XSUM summarisation, the low-data setting is in 6.3 and Figure 3 (right), and extrapolation in 6.4; intrinsic analysis such as prefix length is in Section 7; open problems are in Section 8 Discussion and the conclusion in Section 9. There is no separate Limitations section.<br>What the authors say about limits: the limits are spread across the results and discussion, and the ones the authors state themselves are — 6.2 plainly reports that prefix-tuning underperforms full fine-tuning on XSUM (ROUGE-L 35.05 versus 37.25 at 0.1% of parameters, and 36.05 versus 37.25 at 2%), and offers three possible reasons: XSUM has about 4x more examples on average, its input articles are about 17x longer, and summarisation may be more complex than table-to-text; these are the authors&#39; explanations rather than verified conclusions. 6.3 says the low-data advantage narrows as the dataset grows (2.9 BLEU on average). 7.1 reports that beyond a threshold prefix length (200 for summarisation, 10 for table-to-text) training loss keeps dropping while test performance slightly degrades, suggesting overfitting. 8.3 says the reason for the extrapolation gain remains an open question, and the account of why prefix-tuning is more parameter-efficient is framed as what the authors think.<br>What it does not claim: the experiments cover only GPT-2 MEDIUM/LARGE and BART-LARGE (5.3), and the closing remark in 6.1 that it has the potential to scale to larger models of similar architecture such as GPT-3 is a suggestion without experiments; the paper does not claim prefix-tuning matches full fine-tuning on every generation task — it loses on summarisation; the comparisons are against lightweight baselines such as adapters and tuning only the top two layers (FT-top2), not other parameter-efficient finetuning methods; and the personalisation and cross-user batching arguments in 8.1 and 8.2 are applicability discussion with no corresponding experimental results.</span></p>
+  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§4（方法）；表 1（table-to-text）、表 2（XSUM）；§6.3、§6.4；§7.1；§8.3；§9</dd></div><div><dt>可训练参数 / params</dt><dd>0.1%（摘要与 §6.1 口径）</dd></div><div><dt>XSUM ROUGE-L</dt><dd>前缀 0.1% 为 35.05，全量微调 37.25（§6.2 原文）</dd></div><div><dt>验证架构 / models</dt><dd>GPT-2 MEDIUM/LARGE、BART-LARGE（§5.3）</dd></div><div><dt>局限位置 / limits</dt><dd>无独立 Limitations 章节；散在 §6.2、§6.3、§7.1、§8.3</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+        <blockquote>In this paper, we propose prefix-tuning, a lightweight alternative to fine-tuning for natural language generation tasks, which keeps language model parameters frozen, but optimizes a small continuous task-specific vector (called the prefix).</blockquote>
+        <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.00190" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.00190</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>We find that by learning only 0.1% of the parameters, prefix-tuning obtains comparable performance in the full data setting, outperforms fine-tuning in low-data settings, and extrapolates better to examples with topics unseen during training.</blockquote>
+        <figcaption><span class="fx-ev-n">2</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.00190" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.00190</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>With only 0.1% parameters, prefix-tuning underperforms full fine-tuning (35.05 vs. 37.25).</blockquote>
+        <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.00190" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.00190</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>In concordance with this intuition, we observe that both prefix-tuning and adapter-tuning have significant performance gain in extrapolation settings (Section 6.4); however, the reason for such gain is an open question.</blockquote>
+        <figcaption><span class="fx-ev-n">4</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.00190" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.00190</a></figcaption>
+      </figure></section>
+  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+    <dl class="fx-specs">
+      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
+      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2101.00190" rel="noopener">https://arxiv.org/abs/2101.00190</a></dd></div>
+      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>适配</span><span data-en>Adaptation</span></dd></div>
+    </dl>
+  </section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2101.00190" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+</div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>外部站点</span><span data-en>External</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

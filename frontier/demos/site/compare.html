@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>维度对照 · Specul</title>
-  <meta name="description" content="作品库的事实维度对照表：把运行方式、硬件门槛、许可与商用范围、可复现性、维护状态、对应模型版本并列展示，只给可核验字段，不给总分或推荐排名。" />
+  <title>双模型对照 · Specul</title>
+  <meta name="description" content="把两套模型合集里的任意两个 HTML 作品并排打开；同题按 prompt 哈希判定，不同题明确标注为风格对照，不冒充模型能力结论。" />
   <link rel="canonical" href="https://demos.specul.com/compare.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="维度对照 · Specul" />
+  <meta property="og:site_name" content="双模型对照 · Specul" />
   <meta property="og:url" content="https://demos.specul.com/compare.html" />
-  <meta property="og:title" content="维度对照 · Specul" />
-  <meta property="og:description" content="作品库的事实维度对照表：把运行方式、硬件门槛、许可与商用范围、可复现性、维护状态、对应模型版本并列展示，只给可核验字段，不给总分或推荐排名。" />
+  <meta property="og:title" content="双模型对照 · Specul" />
+  <meta property="og:description" content="把两套模型合集里的任意两个 HTML 作品并排打开；同题按 prompt 哈希判定，不同题明确标注为风格对照，不冒充模型能力结论。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=2b96a18d1fa6"></script>
   <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="demos.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"维度对照 · Specul","url":"https://demos.specul.com/compare.html","description":"作品库的事实维度对照表：把运行方式、硬件门槛、许可与商用范围、可复现性、维护状态、对应模型版本并列展示，只给可核验字段，不给总分或推荐排名。","isPartOf":{"@type":"WebSite","url":"https://demos.specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"双模型对照 · Specul","description":"把两套模型合集里的任意两个 HTML 作品并排打开；同题按 prompt 哈希判定，不同题明确标注为风格对照，不冒充模型能力结论。","url":"https://demos.specul.com/compare.html","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -42,7 +42,7 @@
         <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
         <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
         <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/" aria-current="page"><span data-zh>作品库</span><span data-en>Demos</span></a>
+        <a href="https://demos.specul.com/" aria-current="page"><span data-zh>作品演示</span><span data-en>Playground</span></a>
         <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -78,7 +78,7 @@
       <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/" aria-current="page"><span><span data-zh>作品库</span><span data-en>Demos</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/" aria-current="page"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
@@ -91,35 +91,19 @@
   </aside>
   <main id="main">
 <div class="container demos-page">
-  <h1><span data-zh>维度对照</span><span data-en>Dimension comparison</span></h1>
-  <p><span data-zh>同一行里只放事实：怎么跑、要什么硬件、许可能不能商用、能不能复现、还维护吗、对应哪个模型、本站跑过没有。不给总分，不排先后。</span><span data-en>Each row carries facts only: how it runs, hardware needed, commercial licence, reproducibility, maintenance, which model it pairs with, and whether this site ran it. No total score, no ordering.</span></p>
-  <div class="dm-table-wrap"><table class="dm-table">
-    <thead><tr><th><span data-zh>作品</span><span data-en>Work</span></th><th><span data-zh>运行方式</span><span data-en>Runtime</span></th><th><span data-zh>硬件门槛</span><span data-en>Hardware</span></th><th><span data-zh>许可</span><span data-en>Licence</span></th><th><span data-zh>可复现性</span><span data-en>Reproducibility</span></th><th><span data-zh>维护状态</span><span data-en>Maintenance</span></th><th><span data-zh>对应模型</span><span data-en>Model</span></th><th><span data-zh>本站运行</span><span data-en>Site run</span></th></tr></thead>
-    <tbody>
-      <tr><th scope="row"><a href="https://fly.pieter.com/">Fly</a></th><td>原址免费可玩、无需账号（表格原文）；本站未运行验证</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://cowboy.raymelon.com/">Cowboy Shooter</a></th><td>填昵称即可开始（表格原文）；本站未运行验证</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://github.com/maciej-trebacz/tower-of-time-game">Tower of Time</a></th><td>线上仍可玩（核验日见 verifiedAt）；本站未在本地构建</td><td>未核</td><td>MIT</td><td>仓库型只核验 README / 在线 demo / 最近提交，未在本地 clone 构建（原页收录规则）</td><td>最近提交 2025-07，线上仍可玩（核验日见 verifiedAt）</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://acatovic.github.io/gothicvania-codex-demo/">Gothicvania Codex Demo</a></th><td>未核</td><td>未核</td><td>MIT</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://tikz.dev/editor/">TikZ Editor</a></th><td>未核</td><td>未核</td><td>link-only</td><td>未核</td><td>仓库 pushed 2026-10-28（核验日见 verifiedAt）</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://asciitree.reorx.com/">ASCII Tree Editor</a></th><td>未核</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://isometric.nyc/">Isometric NYC</a></th><td>未核</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://spikelog.com/">Spikelog</a></th><td>免费 10 图（表格原文）；本站未运行验证</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://contrariansignals.com/">Contrarian Signals</a></th><td>仪表盘免费（表格原文）；本站未运行验证</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://www.techcities.app/">Tech Cities Index</a></th><td>未核</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://fersab.github.io/pixelforge/">Pixelforge</a></th><td>未核</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://mynextbook.ai">MyNextBook</a></th><td>无需注册可浏览（表格原文）；本站未运行验证</td><td>未核</td><td>link-only</td><td>未核</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://github.com/danielrosehill/Nano-Banana-Desktop">Nano-Banana-Desktop</a></th><td>未核</td><td>未核</td><td>link-only</td><td>仓库型只核验 README / 在线 demo / 最近提交，未在本地 clone 构建（原页收录规则）</td><td>最近提交 2025-11（表格记约 12 个月，核验日见 verifiedAt）</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://github.com/micasa-dev/micasa">micasa</a></th><td>未核</td><td>未核</td><td>Apache-2.0</td><td>仓库型只核验 README / 在线 demo / 最近提交，未在本地 clone 构建（原页收录规则）</td><td>仓库 pushed 2026-11-02（核验日见 verifiedAt）</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://github.com/indragiek/Context">Context</a></th><td>未核</td><td>未核</td><td>MIT</td><td>仓库型只核验 README / 在线 demo / 最近提交，未在本地 clone 构建（原页收录规则）</td><td>未核</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://dummyforms.com/">DummyForms</a></th><td>在线 SaaS；原址公开访问（2026-11-07 实测 HTTP 200）</td><td>未核</td><td>link-only</td><td>无公开源码仓；本站未做运行验证</td><td>2026-11-07 原址在线；无公开仓库可查提交</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://www.vincentgregoire.com/faceoff/">Faceoff</a></th><td>Python 3.13 终端 TUI；uvx faceoff 或 pip install faceoff（README）</td><td>未核</td><td>MIT</td><td>README 含安装与测试说明；本站未做运行验证运行</td><td>最近提交 2026-04-19，在 12 个月内</td><td>—</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://ace-step-ace-step-v1-5.hf.space/">ACE-Step v1.5 音乐生成演示</a></th><td>官方托管 Gradio Space（hf.space 直连），浏览器即用；config 显示 auth_required: false</td><td>在线 Space 硬件未核；卡片 README 称本地部署优化至 &lt;4GB VRAM（原文）</td><td>MIT</td><td>权重（ACE-Step/Ace-Step1.5、ACE-Step/acestep-v15-xl-turbo，卡片 models 字段）与代码公开；在线参数未核</td><td>官方仓库最新 release v0.1.8（published 2026-05-18）；最近提交未核</td><td>ACE-Step 1.5 XL（release v0.1.6）</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://zai-org-cogvideox-5b-space.hf.space/">CogVideoX-5B 文生视频官方演示</a></th><td>官方托管 Gradio Space（hf.space 直连），浏览器即用；config 显示 auth_required: false</td><td>Space 卡片 suggested_hardware: l40sx1（L40S ×1）；用户侧仅需浏览器</td><td>link-only</td><td>权重 THUDM/CogVideoX-5b 与 SAT 代码公开（release v1.0 点名）；在线 demo 参数未核</td><td>官方仓库 release v1.0（published 2024-11-08）；最近提交未核</td><td>CogVideoX 5B（CogVideoX-1.0）</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://indexteam-indextts-2-5-demo.hf.space/">IndexTTS-2.5 官方语音合成演示</a></th><td>官方托管 Gradio Space（hf.space 直连），浏览器即用，无需本地部署；config 显示 auth_required: false</td><td>云端推理，用户侧仅需浏览器；Space 卡片未标硬件（未核）</td><td>link-only</td><td>权重 IndexTeam/IndexTTS-2.5 与代码 index-tts/index-tts 公开；在线 demo 参数未核</td><td>官方仓库最新 release v2.5.0（published 2026-08-13）；最近提交未核</td><td>IndexTTS 2.5</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-      <tr><th scope="row"><a href="https://hpcai-tech-open-sora.hf.space/">Open-Sora v1.2 视频生成官方演示</a></th><td>官方托管 Gradio Space（hf.space 直连），浏览器即用；config 显示 auth_required: false</td><td>云端推理，用户侧仅需浏览器；Space 硬件未核</td><td>link-only</td><td>权重与代码公开（release 正文给出 checkpoints 链接）；在线 demo 参数未核</td><td>官方仓库最新 release v1.3（published 2025-02-21）；最近提交未核</td><td>Open-Sora v1.2.0</td><td><span data-zh>未跑</span><span data-en>not run</span></td></tr>
-    </tbody>
-  </table></div>
+  <p class="kicker"><a href="index.html"><span data-zh>← 返回作品演示</span><span data-en>← Back to Playground</span></a> <span class="dm-sep">/</span> <span><span data-zh>双模型对照</span><span data-en>two-model comparison</span></span></p>
+  <h1><span data-zh>并排看两个模型</span><span data-en>Two models, side by side</span></h1>
+  <p class="dm-lead"><span data-zh>两套合集一共 176 个作品；严格同题只有 0 组。选任意两个作品并排，下面会说明它们是“同题”还是“不同题、只作风格对照”。</span><span data-en>176 pieces across two collections; only 0 strict same-prompt pairs. Pick any two pieces; the line below says whether they share a prompt or are a style comparison only.</span></p>
+  <div class="dm-compare-controls"><label><span data-zh>左边</span><span data-en>Left</span><select id="dm-left"></select></label><button id="dm-swap" class="dm-btn dm-btn-ghost" type="button"><span data-zh>交换</span><span data-en>Swap</span></button><label><span data-zh>右边</span><span data-en>Right</span><select id="dm-right"></select></label><span id="dm-same" class="dm-same"></span></div>
+  <div class="dm-compare"><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-l-title"></b><small id="dm-l-sub"></small></div><a id="dm-l-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-l-frame" title="Left piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-l-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-l-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-r-title"></b><small id="dm-r-sub"></small></div><a id="dm-r-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-r-frame" title="Right piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-r-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-r-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section></div>
+  <p class="dm-note-line"><span data-zh>“同题”按 prompt 文本哈希判断；不同题并排时，差异可能来自题目本身，不能当作模型能力结论。</span><span data-en>“Same prompt” is determined by the prompt-text hash. When prompts differ, the difference may come from the brief itself and cannot be read as a model-capability conclusion.</span></p>
 </div>
+<script>(function(){
+var left=document.getElementById('dm-left'),right=document.getElementById('dm-right');var state={left:null,right:null,data:null};
+function opt(e){return '<option value="'+e.id+'">'+e.model.name+' · '+e.num+' · '+e.title.zh.replace(/</g,'&lt;')+'</option>';}
+function pane(side,e){var cap=side==='left'?'l':'r';document.getElementById('dm-'+cap+'-title').textContent=e.title.zh;document.getElementById('dm-'+cap+'-sub').textContent=e.title.en+' · '+e.model.name+' · '+e.category;document.getElementById('dm-'+cap+'-frame').src=e.demoUrl;document.getElementById('dm-'+cap+'-open').href=e.demoUrl;document.getElementById('dm-'+cap+'-source').href=e.sourceUrl;document.getElementById('dm-'+cap+'-prompt').href=e.promptUrl;state[side]=e;var a=state.left,b=state.right;var box=document.getElementById('dm-same');if(a&&b){box.textContent=a.promptHash===b.promptHash?'同题 · 可作受控对照':'不同题 · 仅作风格对照';box.className='dm-same '+(a.promptHash===b.promptHash?'is-same':'is-diff');}}
+fetch('demos-data.json').then(function(r){return r.json();}).then(function(data){state.data=data;left.innerHTML=data.map(opt).join('');right.innerHTML=data.map(opt).join('');var qs=new URLSearchParams(location.search);var l=qs.get('left')||data[0].id;var r=qs.get('right')||data.find(function(x){return x.collection!==data[0].collection;}).id;left.value=l;right.value=r;left.onchange=function(){pane('left',data.find(function(x){return x.id===left.value;}));};right.onchange=function(){pane('right',data.find(function(x){return x.id===right.value;}));};document.getElementById('dm-swap').onclick=function(){var a=left.value,b=right.value;left.value=b;right.value=a;pane('left',data.find(function(x){return x.id===b;}));pane('right',data.find(function(x){return x.id===a;}));};pane('left',data.find(function(x){return x.id===l;}));pane('right',data.find(function(x){return x.id===r;}));}).catch(function(){document.getElementById('dm-same').textContent='载入失败：请通过本地静态服务器打开本页。';});
+})();</script>
   </main>
   <footer class="site-footer">
     <div class="container foot-row">
@@ -132,7 +116,7 @@
           <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
           <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
           <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-          <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>

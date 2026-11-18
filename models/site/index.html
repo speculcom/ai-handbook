@@ -41,7 +41,7 @@
         <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
         <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
         <a href="https://models.specul.com/" aria-current="page"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
         <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -77,7 +77,7 @@
       <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品库</span><span data-en>Demos</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
@@ -547,6 +547,34 @@
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
+        <a class="m-famcard" href="guides/long-context.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>长上下文：窗口、有效利用与成本</span><span data-en>Long context: window size, effective use and cost</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"><span class="t-tag"><span data-zh>训练管线 · 第 6 站</span><span data-en>pipeline · stage 6</span></span></p>
+          <p class="m-famcard-sum"><span data-zh>「支持 128K」只是上限，不等于能在中间找到信息。长上下文选型要同时看位置鲁棒性、注意力成本、KV cache 显存和任务验收。</span><span data-en>“Supports 128K” is an upper bound, not a guarantee that information in the middle will be found. Long-context selection must consider position robustness, attention cost, KV-cache memory and task-level acceptance.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>7</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>3</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-17</span><span data-en>verified 2026-11-17</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
+        <a class="m-famcard" href="guides/moe-selection.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>MoE 选型：总参数、激活参数与真实成本</span><span data-en>Choosing an MoE model: total parameters, active parameters and real cost</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"><span class="t-tag"><span data-zh>训练管线 · 第 6 站</span><span data-en>pipeline · stage 6</span></span></p>
+          <p class="m-famcard-sum"><span data-zh>MoE 把「参数量」拆成总参数与激活参数两个数字。选型时要同时算显存、带宽、通信和批量，而不是只看总参数或榜单。</span><span data-en>An MoE splits “parameter count” into total and active parameters. Selection must budget memory, bandwidth, communication and batch size together, not just total parameters or leaderboard scores.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>6</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>3</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-17</span><span data-en>verified 2026-11-17</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
         <a class="m-famcard" href="guides/training-stack.html">
           <div class="m-famcard-h">
             <h3><span data-zh>开源训练栈：多卡训练的工具链</span><span data-en>The open training stack: the toolchain behind multi-GPU training</span></h3>
@@ -575,6 +603,20 @@
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
+        <a class="m-famcard" href="guides/edge-deployment.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>端侧部署：带宽、量化与功耗的三重约束</span><span data-en>Edge deployment: bandwidth, quantisation and power</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"><span class="t-tag"><span data-zh>训练管线 · 第 8 站</span><span data-en>pipeline · stage 8</span></span></p>
+          <p class="m-famcard-sum"><span data-zh>端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。</span><span data-en>An edge device is not a small server: memory bandwidth, power and cooling become the ceiling before compute does. Accept on tokens per second, peak memory and sustained power.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>6</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>3</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-17</span><span data-en>verified 2026-11-17</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
         <a class="m-famcard" href="guides/gpu-cost-math.html">
           <div class="m-famcard-h">
             <h3><span data-zh>GPU 事实与成本数学：跑模型的硬件账</span><span data-en>GPU facts and cost math: the hardware bill for running a model</span></h3>
@@ -600,6 +642,20 @@
             <span><b>8</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>6</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
             <span class="t-state is-ok"><span data-zh>核验 2026-11-04</span><span data-en>verified 2026-11-04</span></span>
+          </div>
+          <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
+        </a>
+        <a class="m-famcard" href="guides/vision-language-selection.html">
+          <div class="m-famcard-h">
+            <h3><span data-zh>视觉语言模型选型：分辨率、定位与读字</span><span data-en>Choosing a vision-language model: resolution, grounding and text reading</span></h3>
+            <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
+          </div>
+          <p class="m-famcard-cur"><span class="t-tag"><span data-zh>训练管线 · 第 9 站</span><span data-en>pipeline · stage 9</span></span></p>
+          <p class="m-famcard-sum"><span data-zh>VLM 的能力被三类任务拉开差距：描述、定位、读字。选型要按任务拆开测，并把图像 token 的成本算进去。</span><span data-en>VLMs differ most across three task families: description, grounding and text reading. Selection should test them separately and include the cost of image tokens.</span></p>
+          <div class="m-famcard-meta">
+            <span><b>6</b> <span data-zh>节</span><span data-en>sections</span></span>
+            <span><b>3</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
+            <span class="t-state is-ok"><span data-zh>核验 2026-11-17</span><span data-en>verified 2026-11-17</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -1193,7 +1249,7 @@
           <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
           <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
           <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-          <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>

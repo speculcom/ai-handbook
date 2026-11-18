@@ -2,7 +2,37 @@
 
 > A fact directory with official sources and check dates; no ranking.
 
-20 entries.
+29 entries.
 
 - [Directory](https://papers.specul.com/index.html)
 - [Scope](https://papers.specul.com/about.html)
+
+- [Constitutional AI: Harmlessness from AI Feedback](https://papers.specul.com/bai-2022-constitutional-ai.html) — Problem: training a harmless assistant normally needs tens of thousands of human
+- [Language Models are Few-Shot Learners](https://papers.specul.com/brown-2020-gpt3.html) — Problem: after scaling a model up, can tasks be performed close to the level of 
+- [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://papers.specul.com/dao-2022-flashattention.html) — Problem: self-attention time and memory grow quadratically with sequence length,
+- [QLoRA: Efficient Finetuning of Quantized LLMs](https://papers.specul.com/dettmers-2023-qlora.html) — Problem: Section 1 notes that regular 16-bit finetuning of a LLaMA 65B model req
+- [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://papers.specul.com/frantar-2022-gptq.html) — Problem: models with tens of billions of parameters do not fit in memory, and po
+- [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://papers.specul.com/gu-2023-mamba.html) — Problem: earlier subquadratic architectures (linear attention, gated convolution
+- [Training Compute-Optimal Large Language Models](https://papers.specul.com/hoffmann-2022-chinchilla.html) — Problem: under a fixed compute budget, how should parameters and training tokens
+- [LoRA: Low-Rank Adaptation of Large Language Models](https://papers.specul.com/hu-2021-lora.html) — Problem: full fine-tuning of a large model requires storing every gradient and o
+- [Scaling Laws for Neural Language Models](https://papers.specul.com/kaplan-2020-scaling-laws.html) — Problem: how does language model cross-entropy loss change with parameter count,
+- [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://papers.specul.com/kwon-2023-vllm-pagedattention.html) — Problem: serving throughput depends on batching, but KV cache memory is large an
+- [Fast Inference from Transformers via Speculative Decoding](https://papers.specul.com/leviathan-2023-speculative-decoding.html) — Problem: autoregressive decoding is serial — decoding K tokens takes K serial ru
+- [Prefix-Tuning: Optimizing Continuous Prompts for Generation](https://papers.specul.com/li-2021-prefix-tuning.html) — Problem: full fine-tuning modifies every parameter, so a complete model copy has
+- [Training language models to follow instructions with human feedback](https://papers.specul.com/ouyang-2022-instructgpt.html) — Problem: make a model follow user intent rather than only predict the next token
+- [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://papers.specul.com/rafailov-2023-dpo.html) — Problem: RLHF trains several models and samples from the policy inside the train
+- [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://papers.specul.com/su-2021-roformer.html) — Problem: self-attention carries no position information by itself, and most exis
+- [Attention Is All You Need](https://papers.specul.com/vaswani-2017-attention.html) — Problem: decouple sequence transduction from recurrent and convolutional structu
+- [Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://papers.specul.com/wang-2022-self-consistency.html) — Problem: chain of thought samples a single reasoning path, so a wrong path yield
+- [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://papers.specul.com/wei-2022-chain-of-thought.html) — Problem: on complex reasoning tasks, answering directly works poorly; can the mo
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://papers.specul.com/yao-2022-react.html) — Problem: reasoning (chain of thought) and acting (action planning) had been stud
+- [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://papers.specul.com/yao-2023-tree-of-thoughts.html) — Problem: LM inference remains token-level, left-to-right decision making, which 
+- [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://papers.specul.com/devlin-2019-bert.html) — Problem: earlier language models were either unidirectional (GPT-style left-to-r
+- [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://papers.specul.com/dosovitskiy-2021-vit.html) — Problem: Transformers were already standard in NLP but usually tied to CNNs in v
+- [Learning Transferable Visual Models From Natural Language Supervision](https://papers.specul.com/radford-2021-clip.html) — Problem: vision models usually predict a fixed label set and need new labels for
+- [Denoising Diffusion Probabilistic Models](https://papers.specul.com/ho-2020-ddpm.html) — Problem: GANs produce sharp samples but train unstably, while VAEs have likeliho
+- [High-Resolution Image Synthesis with Latent Diffusion Models](https://papers.specul.com/rombach-2022-ldm.html) — Problem: pixel-space diffusion is high quality but costs hundreds of GPU days to
+- [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://papers.specul.com/fedus-2022-switch.html) — Problem: MoE has many parameters at constant compute, but complex routing, expen
+- [Robust Speech Recognition via Large-Scale Weak Supervision](https://papers.specul.com/radford-2022-whisper.html) — Problem: speech recognition usually depends on large high-quality human transcri
+- [Llama 2: Open Foundation and Fine-Tuned Chat Models](https://papers.specul.com/touvron-2023-llama2.html) — Problem: can an open-weight model approach closed models on helpfulness and safe
+- [Segment Anything](https://papers.specul.com/kirillov-2023-sam.html) — Problem: segmentation is usually split into semantic, instance and panoptic task

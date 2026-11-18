@@ -943,5 +943,77 @@
       "Every risk has a mitigation and verification method, with at least one involving permissions or human approval.",
       "Learners can state the record’s boundary: classroom review does not replace legal advice and is not launch approval."
     ]
+  },
+  "怎么用 OCR 把纸质文档变成可检索文本": {
+    "lead": "A scan is not text. OCR is only the first step; layout recovery, proofreading and chunking decide whether retrieval works.",
+    "points": [
+      "Check the source first: a born-digital PDF already has a text layer; only scans and photos need OCR.",
+      "Preprocess: deskew, denoise and crop; correct perspective on phone photos.",
+      "Analyse layout: separate columns, tables, headers and footers; never read two columns as one line or flatten a table.",
+      "Keep per-page confidence: flag low-confidence regions for human review instead of trusting the whole book.",
+      "Proofread key fields: amounts, dates, identifiers and proper nouns — these errors cost the most.",
+      "Chunk and index by heading hierarchy, keeping page numbers and source metadata, then feed RAG.",
+      "Acceptance: sample 30 pages, measure character error rate, table-structure accuracy and key-field accuracy before launch."
+    ]
+  },
+  "怎么选视觉语言模型": {
+    "lead": "A VLM does not read every image. Separate description, extraction, counting, grounding and small-text reading before choosing.",
+    "points": [
+      "Split the task into five types: description, information extraction, counting, coordinate grounding and small-text reading; VLMs are strong on the first two and weak on the rest.",
+      "For receipts, screenshots and forms, prefer OCR plus a text model rather than a VLM alone.",
+      "If you need boxes or coordinates, confirm the model supports grounding; ordinary VLMs only return text.",
+      "Check input resolution: can small print and table lines survive downscaling? This is often the hard limit.",
+      "Test hallucination: show an image without a named object and see whether the model admits it cannot see it.",
+      "Blind-test 30–50 real business images and score correct, partially correct and fabricated; do not judge from a demo.",
+      "Estimate per-image cost first: image tokens vastly outnumber text tokens, and batch jobs are easy to underprice."
+    ]
+  },
+  "怎么判断一张图是不是 AI 生成的": {
+    "lead": "Looking at pixels is no longer enough. Defensible judgments rest on four evidence chains: source, original file, credentials and timeline.",
+    "points": [
+      "Check source and credentials: C2PA / Content Credentials can record capture and edits; no credential does not prove fake, and a credential still needs signature verification.",
+      "Run a reverse image search and check publication dates; AI images often have no earlier origin.",
+      "Look at visual cues: text, fingers, repeated textures, mirrored reflections and shadow direction — but model progress keeps invalidating them.",
+      "Check noise and compression consistency: composites often show mismatched noise, repeated blocks or edge discontinuities.",
+      "Use detectors only as aids: they are fragile under compression, re-editing and out-of-distribution images; a probability is not a verdict.",
+      "The strongest evidence is the original file, capture chain and witnesses. Platforms should retain the uploaded original and processing logs.",
+      "Conclude in three grades: proven fake, highly suspicious, cannot determine. Do not force a binary answer."
+    ]
+  },
+  "怎么设计 Agent 的工具权限边界": {
+    "lead": "The risk of an agent is not a wrong sentence; it is pressing an irreversible button on your behalf. Classify permissions first, then narrow them.",
+    "points": [
+      "List every tool and classify it into five levels: read-only, write, external send, spend and delete.",
+      "Default to least privilege: one directory, not the whole disk; query access, not write access.",
+      "Require confirmation for writes: show the parameters and blast radius, then execute only after a human approves.",
+      "Treat external send and payment separately: these are irreversible and need a human in the loop.",
+      "Use allowlists, not blocklists: enumerate permitted URLs, commands and paths.",
+      "Log every call: who, which parameters, result and latency; logs must replay to a specific task.",
+      "Treat tool output as untrusted input, never execute instructions inside it, and run periodic privilege-escalation drills."
+    ]
+  },
+  "怎么把 AI 接入现有办公流程": {
+    "lead": "The biggest office-AI failure is full automation. Start with one high-frequency, well-ruled and reversible step, and let AI draft only.",
+    "points": [
+      "Pick the step: high frequency, clear rules, reversible errors; do not start with a cross-department process.",
+      "Draw the current flow along four lines — input, approval, output and exception — and replace only one segment.",
+      "Draft, not final: AI produces a review copy and a human keeps signing authority.",
+      "Narrow permissions to read-only or a single-table write; never run automation on a personal account.",
+      "Define failure paths: timeout, missing fields or refusal returns to a human; never skip silently.",
+      "Log every run’s input, output and human edits; review the edit rate after three months.",
+      "Use existing tools such as Power Automate, n8n or a multi-dimensional table before building a platform, and track time saved, rework and error rate together."
+    ]
+  },
+  "怎么做跨模型的一致性回归测试": {
+    "lead": "A model upgrade is not just “a stronger model”. The same regression set must run before and after to separate capability changes from style changes.",
+    "points": [
+      "Fix a 50–100 case regression set covering common tasks, edge inputs and must-refuse scenarios.",
+      "Write expected bullet points rather than one gold answer, and score coverage of those points.",
+      "Run the same set before and after, recording pass rate, citation accuracy, refusal rate and average length.",
+      "Report capability change and style change separately: longer or more polite is not better.",
+      "Use model judging only for triage, with 20 percent human review to counter position and verbosity bias.",
+      "Set a rollback threshold and use it; do not ship on “it feels better overall”.",
+      "Keep every raw output, and count system-prompt, tool-description and retrieval-index changes as changes too."
+    ]
   }
 }

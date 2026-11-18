@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>MoE 选型：总参数、激活参数与真实成本 · 做模型专题</title>
+  <meta name="description" content="MoE 把「参数量」拆成总参数与激活参数两个数字。选型时要同时算显存、带宽、通信和批量，而不是只看总参数或榜单。（核验于 2026-11-17，关键事实挂官方出处）" />
+  <link rel="canonical" href="https://models.specul.com/guides/moe-selection.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MoE 选型：总参数、激活参数与真实成本 · 做模型专题" />
+  <meta property="og:url" content="https://models.specul.com/guides/moe-selection.html" />
+  <meta property="og:title" content="MoE 选型：总参数、激活参数与真实成本 · 做模型专题" />
+  <meta property="og:description" content="MoE 把「参数量」拆成总参数与激活参数两个数字。选型时要同时算显存、带宽、通信和批量，而不是只看总参数或榜单。（核验于 2026-11-17，关键事实挂官方出处）" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="../brand.js?v=2b96a18d1fa6"></script>
+  <link rel="stylesheet" href="../brand.css?v=2b96a18d1fa6" />
+  <link rel="stylesheet" href="../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Choosing an MoE model: total parameters, active parameters and real cost","description":"An MoE splits “parameter count” into total and active parameters. Selection must budget memory, bandwidth, communication and batch size together, not just total parameters or leaderboard scores.","url":"https://models.specul.com/guides/moe-selection.html","dateModified":"2026-11-17"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>外部站点</span><span data-en>External</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>外部站点</span><span data-en>External</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加一个去别处的出口</span><span data-en>Eight content sites, plus one gateway to other sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container guide-body">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span>　<span class="t-tag"><span data-zh>训练管线 · 第 6 站</span><span data-en>training pipeline · stage 6</span></span></p>
+      <h1><span data-zh>MoE 选型：总参数、激活参数与真实成本</span><span data-en>Choosing an MoE model: total parameters, active parameters and real cost</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
+      <p class="lede"><span data-zh>MoE 把「参数量」拆成总参数与激活参数两个数字。选型时要同时算显存、带宽、通信和批量，而不是只看总参数或榜单。</span><span data-en>An MoE splits “parameter count” into total and active parameters. Selection must budget memory, bandwidth, communication and batch size together, not just total parameters or leaderboard scores.</span></p>
+    </header>
+
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>先分清两个数字</span><span data-en>Two numbers first</span></a></li><li><a href="#guide-section-2"><span data-zh>省的是算力，不是显存</span><span data-en>You save compute, not memory</span></a></li><li><a href="#guide-section-3"><span data-zh>路由与负载均衡</span><span data-en>Routing and load balance</span></a></li><li><a href="#guide-section-4"><span data-zh>并行与通信</span><span data-en>Parallelism and communication</span></a></li><li><a href="#guide-section-5"><span data-zh>选型清单</span><span data-en>Selection checklist</span></a></li></ul></nav>
+    <section class="fam-sec" id="guide-section-0">
+      <h2></h2>
+<ul>
+
+</ul>
+    </section>
+    <section class="fam-sec" id="guide-section-1">
+      <h2><span data-zh>先分清两个数字</span><span data-en>Two numbers first</span></h2>
+<p>MoE 的「参数量」几乎总要拆成两栏：<b>总参数</b>与<b>每 token 激活参数</b>。<br>Mixtral 8×7B 每层 8 个专家、每 token 选 2 个，总参数 47B，推理时只激活 13B；<br>DeepSeek-V3 总参数 671B，每 token 激活 37B。<br>两个数字回答的是不同问题：总参数决定要装下多少权重，激活参数决定每 token 大约要做多少计算。</p>
+    </section>
+    <section class="fam-sec" id="guide-section-2">
+      <h2><span data-zh>省的是算力，不是显存</span><span data-en>You save compute, not memory</span></h2>
+<p>稀疏激活降低的是每 token 的 FLOPs，不是权重占用的显存。<br>所有专家通常都要常驻显存，或者从内存/闪存按需换入；后者的瓶颈会从算力变成带宽。<br>粗算显存：<code>总参数 × 每参数字节 + KV cache + 运行时开销</code>。<br>4-bit 量化的 47B 模型仍需约 24 GB 权重，再叠加 KV cache；13B 激活并不意味着 13B 的显存。<br>先按总参数选卡，再按激活参数估速度，顺序不能反。</p>
+    </section>
+    <section class="fam-sec" id="guide-section-3">
+      <h2><span data-zh>路由与负载均衡</span><span data-en>Routing and load balance</span></h2>
+<p>MoE 的路由器只给每个 token 选少数专家，训练时容易出现「少数专家吃掉大部分 token」的坍塌。<br>Switch Transformer 用辅助负载均衡损失约束专家利用率；<br>DeepSeek-V3 报告了无辅助损失的负载均衡策略，并在 14.8T token 预训练中保持稳定。<br>选型时不要只看「专家数」；要问：推理框架是否支持这套路由、是否有容量因子、超长尾批次会不会把某些专家打爆。</p>
+    </section>
+    <section class="fam-sec" id="guide-section-4">
+      <h2><span data-zh>并行与通信</span><span data-en>Parallelism and communication</span></h2>
+<p>专家并行会把不同专家放到不同卡上，token 需要 all-to-all 发送到对应专家再收回。<br>这会引入通信开销，也会让小批量推理更难摊薄。<br>单卡能放下时，优先单卡或张量并行；跨机专家并行适合高吞吐服务，不适合低并发交互。<br>批量越大，路由越容易均衡、吞吐越高；批量小且任务杂时，尾延迟更明显。</p>
+    </section>
+    <section class="fam-sec" id="guide-section-5">
+      <h2><span data-zh>选型清单</span><span data-en>Selection checklist</span></h2>
+<ul>
+  <li>用<b>总参数 + 量化档位</b>算权重显存，用<b>激活参数</b>估单 token 算力。</li>
+  <li>确认推理框架支持该模型的路由与专家并行；不支持时，纸面参数没有意义。</li>
+  <li>测 batch=1 的首字延迟与 batch=32 的吞吐，两者常常差一个数量级。</li>
+  <li>在你的任务集上比较 MoE 与同激活量的 dense 模型，不要用榜单总分代替。</li>
+  <li>问清容量因子与丢弃策略：被丢弃的 token 会直接影响答案质量。</li>
+</ul>
+<p><b>边界</b>：以上参数来自各自论文摘要；不同版本的量化、并行配置和上下文长度都会改变实际占用，部署前必须实测。</p>
+<p><b>先补概念</b>：<a href="https://learn.specul.com/term/MoE%20-%20%E6%B7%B7%E5%90%88%E4%B8%93%E5%AE%B6/" target="_blank" rel="noopener">MoE - 混合专家</a> 与 <a href="https://learn.specul.com/term/%E4%B8%93%E5%AE%B6%E5%8D%B8%E8%BD%BD/" target="_blank" rel="noopener">专家卸载</a> 是学 AI 站的相关科普。</p>
+    </section>
+
+    <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">
+      <h2><span data-zh>继续做什么</span><span data-en>What to do next</span></h2>
+      <ul><li><a href="gpu-cost-math.html#capacity-workbench"><span data-zh>填写上下文与并发容量假设</span><span data-en>Budget context and concurrency</span></a></li>
+      <li><a href="https://learn.specul.com/guide/怎么验证%20AI%20的输出/"><span data-zh>检查输出是否有依据</span><span data-en>Verify evidence for the output</span></a></li>
+      <li><a href="https://tools.specul.com/mcp/guides/failure-library.html#by-symptom"><span data-zh>按症状排查</span><span data-en>Troubleshoot by symptom</span></a></li></ul>
+    </nav>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list">
+        <li>Switch Transformer（arXiv 2101.03961，稀疏激活与负载均衡的原始工作，2026-11-17 直抓摘要页）：<a href="https://arxiv.org/abs/2101.03961" target="_blank" rel="noopener">https://arxiv.org/abs/2101.03961</a></li>
+        <li>Mixtral of Experts（arXiv 2401.04088，8 专家 top-2、47B 总参数 / 13B 激活，2026-11-17 直抓摘要页）：<a href="https://arxiv.org/abs/2401.04088" target="_blank" rel="noopener">https://arxiv.org/abs/2401.04088</a></li>
+        <li>DeepSeek-V3 技术报告（arXiv 2412.19437，671B 总参数 / 37B 激活、无辅助损失负载均衡，2026-11-17 直抓摘要页）：<a href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noopener">https://arxiv.org/abs/2412.19437</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-17；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-17; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>外部站点</span><span data-en>External</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

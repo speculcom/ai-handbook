@@ -346,5 +346,29 @@
   "课堂-选型决策与安全评审": {
     "zh": "课堂练习：候选工具评测分数很高，但模型卡缺训练数据与评测条件。决策记录写「未知」，并把最小权限与高风险动作人工批准列为缓解项。",
     "en": "Class exercise: a candidate tool has a high evaluation score but its model card lacks training data and evaluation conditions. Write unknown in the decision record and list least privilege plus human approval for high-risk actions as mitigations."
+  },
+  "怎么用 OCR 把纸质文档变成可检索文本": {
+    "zh": "先拿 30 页真实样本跑一遍：记录字符错误率、表格行列还原率和关键字段准确率。三项达标之前，不要把这批 OCR 结果接进检索库。",
+    "en": "Run 30 real pages first and record character error rate, table structure accuracy and key-field accuracy. Do not connect the OCR output to a retrieval index until all three pass."
+  },
+  "怎么选视觉语言模型": {
+    "zh": "挑 30 张真实图，五类任务各 6 张，让候选模型盲测；把「编造」单列一栏，因为这类错误在业务里最贵。",
+    "en": "Pick 30 real images, six per task type, and blind-test the candidates. Keep a separate column for fabricated answers — those errors are the most expensive in production."
+  },
+  "怎么判断一张图是不是 AI 生成的": {
+    "zh": "拿到一张图，先记录「来源、原件、凭证、时间线」四项；四项都缺时，结论只能写「无法判断」，不能写「AI 生成」。",
+    "en": "For any image, record four things first: source, original file, credentials and timeline. If all four are missing, the conclusion is “cannot determine”, not “AI-generated”."
+  },
+  "怎么设计 Agent 的工具权限边界": {
+    "zh": "画一张权限矩阵：每个工具 × 读 / 写 / 发送 / 付费四种动作，标出「允许 / 需确认 / 禁止」。这张表就是上线前的审查清单。",
+    "en": "Draw a permission matrix: every tool against read, write, send and pay actions, marked allow, confirm or deny. That table is the pre-launch review checklist."
+  },
+  "怎么把 AI 接入现有办公流程": {
+    "zh": "拿一个真实流程，写出三句话：「AI 只做哪一步、谁签发、失败回到谁」。写不清就不要上线。",
+    "en": "Take one real workflow and write three sentences: which step AI does, who signs off, and who receives failures. If you cannot write them, do not launch."
+  },
+  "怎么做跨模型的一致性回归测试": {
+    "zh": "建一个 60 条的回归集，其中 20 条是「必须拒答或必须说不知道」；模型升级时，这 20 条的通过率比总分更重要。",
+    "en": "Build a 60-case regression set, 20 of which must be refused or answered with “I don’t know”. On a model upgrade, the pass rate on those 20 matters more than the total score."
   }
 }

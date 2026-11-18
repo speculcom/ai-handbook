@@ -2,7 +2,29 @@
 
 > 逐条挂官方来源与核验日的事实目录；不排名。
 
-收录 14 条。
+收录 21 条。
 
 - [目录](https://chain.specul.com/index.html)
 - [口径](https://chain.specul.com/about.html)
+
+- [Bittensor 子网](https://chain.specul.com/bittensor-subnet.html) — 交集：把推理与算力当作子网生产的商品，用链上激励结算——这是「去中心化推理」目前最完整的一份官方机制说明。适用范围：官方文档写的是角色分工（矿工生产、验证者打分
+- [C2PA 面向 AI/ML 的实施指南](https://chain.specul.com/c2pa-ai-ml-guidance.html) — 交集：把内容凭证从「媒体文件」扩到 AI 供应链的三件东西——模型凭证、训练数据凭证、输出凭证；输出用 trainedAlgorithmicMedia 或 tr
+- [C2PA 内容凭证](https://chain.specul.com/c2pa-content-credentials.html) — 交集：AI 生成内容的来源标识——输出可以被签名并绑定到生成工具与后续编辑链，让「这份内容由谁、用什么产生、被谁改过」有一个可机器读的答案形态。适用范围：规范定
+- [DID Resolution：把标识解析成可核验文档](https://chain.specul.com/did-resolution.html) — 交集：AI 内容凭证与模型出处声明常用 DID 标识签发者或主体；验证者不能只看标识字符串，还要解析出 DID document 与元数据，才能找验证方法和状态
+- [ERC-1271：合约账户签名验证](https://chain.specul.com/eip-1271.html) — 交集：当 AI 内容凭证或数据授权由合约账户而不是个人私钥签署时，验证者需要问「这个合约是否认可该签名」；ERC-1271 给出合约侧统一验证入口。 适用范围：
+- [EIP-712：类型化结构化数据哈希与签名](https://chain.specul.com/eip-712.html) — 交集：AI 生成内容凭证、模型出处与授权声明经常需要离线签署一份结构化声明；EIP-712 规定类型化数据怎样编码、哈希并进入可签名消息，避免把复杂声明只当成不
+- [Ethereum Attestation Service（EAS）](https://chain.specul.com/ethereum-attestation-service.html) — 交集：AI 生成内容标识、模型版本声明与数据授权可以把「谁按什么 schema 作了什么证明」写成链上 attestation；EAS 提供通用 schema 
+- [Filecoin 可验证存储](https://chain.specul.com/filecoin-verifiable-storage.html) — 交集：训练数据与模型权重的长期留存——「谁还持有这份数据」这件事有周期性证明可查，而不是只能相信服务商的状态页。适用范围：官方说明存储方每 24 小时窗口证明一
+- [IPFS 内容标识 CID](https://chain.specul.com/ipfs-cid.html) — 交集：训练数据集与模型文件的内容寻址——同一份数据在任何节点得到同一标识，数据集出处记录里就能写清「指的是哪一份字节」，而不是一个会变的下载地址。适用范围：CI
+- [IPLD 规范集合](https://chain.specul.com/ipld.html) — 交集：训练数据集、模型卡与内容凭证需要跨节点可寻址、可链接的数据结构；IPLD 定义 CID 之上的数据模型与链接方式，让出处记录不只是单个文件哈希。 适用范围
+- [Ocean Compute-to-Data：数据不出域的授权计算](https://chain.specul.com/ocean-compute-to-data.html) — 交集：用私有数据训练或评测 AI 时，数据持有者常不愿交出原始数据；Compute-to-Data 把授权对象从「数据副本」改成「在数据上运行指定算法」，与 A
+- [Ocean Protocol 数据与算力协议](https://chain.specul.com/ocean-protocol.html) — 交集：数据访问控制与 compute-to-data——把计算送到数据所在处，让数据不出域也能参与训练或推理，这是「数据可用不可见」在协议层的一种做法。适用范围
+- [W3C 去中心化标识符 DID](https://chain.specul.com/w3c-did.html) — 交集：给智能体、设备或数据集一个可解析的标识，解析出的 DID 文档里放公钥与服务端点，用于证明「我控制这个标识」而无需向某个机构申请。适用范围：规范只定义语法
+- [W3C 可验证凭证](https://chain.specul.com/w3c-verifiable-credentials.html) — 交集：把「某机构认证了某个模型、数据集或人员资质」表达成机器可验证的凭证，验证方不必回连签发方。适用范围：规范自己写了两遍——可验证不等于声明为真，验证也不评估
+- [x402：用 HTTP 402 直接为 API 付费](https://chain.specul.com/x402-http-payments.html) — 交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具
+- [Akash Network：反向竞价的去中心化算力市场](https://chain.specul.com/akash-network.html) — 交集：把 GPU 与容器算力做成公开订单簿——用户用 YAML（SDL）声明 CPU、内存、存储与 GPU 需求，全球独立供应商竞价，用户按价格、位置与信誉选单
+- [Chainlink Data Feeds：把链下价格聚合成链上读数](https://chain.specul.com/chainlink-data-feeds.html) — 交集：智能合约不能自己发 HTTP 请求，价格、储备证明、净值与利率要靠预言机网络从多个源聚合后写链上；合约一次调用就能读到最新值。 适用范围：官方文档列出价格
+- [Arbitrum Nitro：乐观汇总与交互式欺诈证明](https://chain.specul.com/arbitrum-nitro.html) — 交集：L2 把执行搬到链下、把数据与结果提交回 L1；Nitro 的四个设计点是「先排序、再确定性执行」「以 Geth 为核心」「执行与证明分离」「乐观汇总 +
+- [Safe 智能账户：多签、阈值与账户抽象](https://chain.specul.com/safe-smart-account.html) — 交集：把「账户」从一对私钥变成一个合约——Safe 以多签为核心，定义一组 owner 与一个阈值，达到阈值的 owner 确认后交易才执行；owner 可以是
+- [ERC-20：同质化代币的最小接口](https://chain.specul.com/erc20-token-standard.html) — 交集：同质化代币的最小公共接口——每个单位等价、可拆分，适合计价、投票、质押与结算；OpenZeppelin 的实现把 name/symbol/decimals
+- [ERC-721：每个 token 都唯一的 ownership 标准](https://chain.specul.com/erc721-token-standard.html) — 交集：为「唯一物品」提供所有权记录——每个 tokenId 唯一、不可拆分，标准用 ownerOf 与 tokenURI 记录归属与元数据；适合数字藏品、门票、

@@ -833,6 +833,10 @@ const TABBAR = SHELL.tabbar('learn');
         })()
       : '';
 
+    const figureBlock = t.figure
+      ? `<div class="tp-sec"><figure class="tp-figure"><img src="../../assets/figures/${esc(String(t.figure))}" alt="${esc(String(t.figure_caption_en || t.figure_caption || t.zh))}" loading="lazy" width="1200" height="600" /><figcaption>${bi(esc(String(t.figure_caption || '')), esc(String(t.figure_caption_en || t.figure_caption || '')))}</figcaption></figure></div>`
+      : '';
+
     const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -889,6 +893,8 @@ ${defList}
 ${defListEn}
 </span>
         </div>
+
+${figureBlock}
 
         <div class="tp-sec">
           <div class="tp-lab">${bi('为什么需要知道', 'Why it matters')}</div>

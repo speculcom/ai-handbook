@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Scaling Laws for Neural Language Models · AI 论文</title>
+  <meta name="description" content="问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。 证据位置：三条基本幂律在 §1.2 与 Figure 1（α_N≈0.076、α_D≈0.095、α_Cmin≈0.050），过拟合与数据/参数比例在 §4，算力最优分配在 §6.1 与 " />
+  <link rel="canonical" href="https://papers.specul.com/kaplan-2020-scaling-laws.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Scaling Laws for Neural Language Models · AI 论文" />
+  <meta property="og:url" content="https://papers.specul.com/kaplan-2020-scaling-laws.html" />
+  <meta property="og:title" content="Scaling Laws for Neural Language Models · AI 论文" />
+  <meta property="og:description" content="问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。 证据位置：三条基本幂律在 §1.2 与 Figure 1（α_N≈0.076、α_D≈0.095、α_Cmin≈0.050），过拟合与数据/参数比例在 §4，算力最优分配在 §6.1 与 " />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=2b96a18d1fa6"></script>
+  <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="papers.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"Scaling Laws for Neural Language Models · AI 论文","description":"问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。 证据位置：三条基本幂律在 §1.2 与 Figure 1（α_N≈0.076、α_D≈0.095、α_Cmin≈0.050），过拟合与数据/参数比例在 §4，算力最优分配在 §6.1 与 ","url":"https://papers.specul.com/kaplan-2020-scaling-laws.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/" aria-current="page"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>外部站点</span><span data-en>External</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/" aria-current="page"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>外部站点</span><span data-en>External</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加一个去别处的出口</span><span data-en>Eight content sites, plus one gateway to other sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container ms-page fx-entry">
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <h1><span data-zh>Scaling Laws for Neural Language Models</span><span data-en>Scaling Laws for Neural Language Models</span></h1>
+  <p class="fx-entry-lead"><span data-zh>问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。<br>证据位置：三条基本幂律在 §1.2 与 Figure 1（α_N≈0.076、α_D≈0.095、α_Cmin≈0.050），过拟合与数据/参数比例在 §4，算力最优分配在 §6.1 与 Figure 14（N(C_min)∝C_min^0.73，数据需求约按 C^0.27 增长）；局限有专门的 Appendix C Caveats，另有 §6.3 Contradictions and a Conjecture 与 §8 Discussion。<br>作者自陈局限：Appendix C 列了六条——目前对提出的任何标度律都没有扎实的理论理解，缺了理论或对修正项的系统认识就难以判断它们在什么情况下可信；对远超实验损失范围的 B_crit(L) 预测没有信心；小数据区没有仔细研究，最小 D 上 L(N,D) 拟合很差，也没试正则化与数据增强；算力用 C≈6NBS 估计、未计入与上下文长度成正比的项，因此在 n_ctx 很大时算力标度可能被混淆；可能漏调了某些影响标度的超参（如初始化尺度或动量）；学习率最优值依赖目标损失，未跑到收敛的短训练没有试过更高学习率。§6.3 还自己指出：外推到远高于实验的规模时 L(C_min) 与 L(D) 会相交而出现矛盾，说明幂律在那之前必然失效，交点是否代表性能上限只是作者的猜想。<br>它没主张的：论文测的是交叉熵损失，不是下游任务成绩——§8 明确把「损失继续下降是否转化为相关语言任务的提升」列为待研究；也没有说这些关系适用于语言以外，§8 写作者尚不知道哪些结果依赖自然语言数据的结构、哪些是普适的；「大模型配相对少量数据并显著早停」是给定算力预算下的分配结论，不是「数据不重要」的普遍主张，作者同时写明趋势最终必然变平，因为自然语言的熵非零。</span><span data-en>Problem: how does language model cross-entropy loss change with parameter count, dataset size and training compute, how should a fixed compute budget be allocated, and can this be written as extrapolatable equations.<br>Where the evidence sits: the three basic power laws are in 1.2 and Figure 1 (alpha_N about 0.076, alpha_D about 0.095, alpha_Cmin about 0.050), overfitting and the data-to-parameter ratio in Section 4, and optimal compute allocation in 6.1 and Figure 14 (N(C_min) proportional to C_min^0.73, with data requirements growing roughly as C^0.27); the limits have a dedicated Appendix C Caveats, plus 6.3 Contradictions and a Conjecture and Section 8 Discussion.<br>What the authors say about limits: Appendix C lists six — there is at present no solid theoretical understanding of any of the proposed scaling laws, and without a theory or a systematic understanding of the corrections it is difficult to determine when they can be trusted; they are not especially confident in the B_crit(L) prediction far outside the explored loss range; the small data regime was not thoroughly investigated, fits for L(N,D) were poor at the smallest D, and regularisation and data augmentation were not tried; compute was estimated as C about 6NBS without the term proportional to context length, so compute scalings may be confounded at very large n_ctx; some hyperparameter affecting scaling (such as initialisation scale or momentum) may have been left untuned; and the optimal learning rate depends on the target loss, with higher rates not tried for runs that did not reach convergence. Section 6.3 also notes that extrapolating far beyond the studied scale makes L(C_min) and L(D) intersect, an apparent contradiction implying the laws must break down before that point, and whether the intersection marks maximal performance is offered only as a conjecture.<br>What it does not claim: the paper measures cross-entropy loss, not downstream task scores — Section 8 explicitly leaves open whether continued loss improvement translates into improvement on relevant language tasks; it does not claim the relations hold outside language, and Section 8 says the authors do not know which results depend on the structure of natural language data and which are universal; and very large models on relatively modest data with early stopping is an allocation result under a fixed compute budget, not a general claim that data does not matter — the authors also write that the trends must eventually level off because natural language has non-zero entropy.</span></p>
+  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§1.2 与 Figure 1（三条幂律）；§4（过拟合）；§6.1 与 Figure 14（算力分配）；Appendix C Caveats；§6.3；§8</dd></div><div><dt>趋势跨度 / span</dt><dd>摘要称部分趋势跨越七个以上数量级</dd></div><div><dt>测量对象 / metric</dt><dd>交叉熵损失，不是下游任务分数</dd></div><div><dt>算力分配结论 / allocation</dt><dd>很大的模型 + 相对少量数据 + 显著早停（摘要口径）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+        <blockquote>The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude.</blockquote>
+        <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2001.08361" rel="noopener">https://ar5iv.labs.arxiv.org/html/2001.08361</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence.</blockquote>
+        <figcaption><span class="fx-ev-n">2</span> <a href="https://ar5iv.labs.arxiv.org/html/2001.08361" rel="noopener">https://ar5iv.labs.arxiv.org/html/2001.08361</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>Without a theory or a systematic understanding of the corrections to our scaling laws, it’s difficult to determine in what circumstances they can be trusted.</blockquote>
+        <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2001.08361" rel="noopener">https://ar5iv.labs.arxiv.org/html/2001.08361</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>In the domain of natural language, it will be important to investigate whether continued improvement on the loss translates into improvement on relevant language tasks.</blockquote>
+        <figcaption><span class="fx-ev-n">4</span> <a href="https://ar5iv.labs.arxiv.org/html/2001.08361" rel="noopener">https://ar5iv.labs.arxiv.org/html/2001.08361</a></figcaption>
+      </figure></section>
+  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+    <dl class="fx-specs">
+      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
+      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2001.08361" rel="noopener">https://arxiv.org/abs/2001.08361</a></dd></div>
+      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+    </dl>
+  </section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2001.08361" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+</div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>外部站点</span><span data-en>External</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

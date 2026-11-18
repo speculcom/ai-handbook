@@ -2,7 +2,37 @@
 
 > 逐条挂官方来源与核验日的事实目录；不排名。
 
-收录 20 条。
+收录 29 条。
 
 - [目录](https://papers.specul.com/index.html)
 - [口径](https://papers.specul.com/about.html)
+
+- [Constitutional AI: Harmlessness from AI Feedback](https://papers.specul.com/bai-2022-constitutional-ai.html) — 问题：训练无害助手通常要成千上万条人工无害性标注；能不能只给一小组自然语言原则，让模型自己批评并改写自己的回答，再用模型产生的偏好标签做强化学习。 证据位置：流
+- [Language Models are Few-Shot Learners](https://papers.specul.com/brown-2020-gpt3.html) — 问题：把模型放大之后，不更新任何梯度、只在输入里给几个示例，能不能把任务做到接近专门微调的水平。 证据位置：摘要给出 175B 与「无梯度更新、无微调」的设定；
+- [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://papers.specul.com/dao-2022-flashattention.html) — 问题：自注意力的时间与显存随序列长度平方增长，瓶颈不在算力而在显存读写；能不能不把 N×N 注意力矩阵写回显存也算出精确结果。 证据位置：摘要给出三档端到端加速
+- [QLoRA: Efficient Finetuning of Quantized LLMs](https://papers.specul.com/dettmers-2023-qlora.html) — 问题：§1 指出对 LLaMA 65B 做常规 16-bit 微调需要 780GB 以上显存，单卡放不下；能不能把基座量化到 4-bit、只训练低秩适配器，同时
+- [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://papers.specul.com/frantar-2022-gptq.html) — 问题：几百亿参数的模型光显存就装不下，训练后量化到低比特往往掉点严重；能不能在不重训的前提下压到 3–4 bit 还基本不掉。 证据位置：175B 模型约 4 
+- [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://papers.specul.com/gu-2023-mamba.html) — 问题：此前的次二次方架构（线性注意力、门控卷积、结构化状态空间模型）在语言这类离散模态上不如注意力，作者判断关键弱点是不能按内容决定记住或忘掉什么；能不能让 S
+- [Training Compute-Optimal Large Language Models](https://papers.specul.com/hoffmann-2022-chinchilla.html) — 问题：在给定算力预算下，模型参数与训练 token 该怎么分配，才能得到损失最低的模型。 证据位置：三种拟合方法给出的指数在 Table 2（方法一 a=0.5
+- [LoRA: Low-Rank Adaptation of Large Language Models](https://papers.specul.com/hu-2021-lora.html) — 问题：全参数微调大模型要保存全部梯度与优化器状态，显存成本高；能不能只训练一组低秩增量，把主干权重冻住。 证据位置：可训练参数减少约一万倍、显存需求降三倍的总体
+- [Scaling Laws for Neural Language Models](https://papers.specul.com/kaplan-2020-scaling-laws.html) — 问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。 证据位置：三条基本幂律在 §1.2 与 Figu
+- [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://papers.specul.com/kwon-2023-vllm-pagedattention.html) — 问题：服务端要靠批处理提高吞吐，但 KV 缓存占的显存既大又碎片化，批大小上不去；能不能用分页思路管理 KV 缓存。 证据位置：摘要给出 2–4 倍吞吐结论，对
+- [Fast Inference from Transformers via Speculative Decoding](https://papers.specul.com/leviathan-2023-speculative-decoding.html) — 问题：自回归解码是串行的——生成 K 个 token 就要串行跑 K 次大模型；能否不改架构、不重训、也不改变输出分布，就把解码加速。 证据位置：摘要给出 T5
+- [Prefix-Tuning: Optimizing Continuous Prompts for Generation](https://papers.specul.com/li-2021-prefix-tuning.html) — 问题：全量微调会改动全部参数，因此每个任务都要存一份完整模型副本；能不能冻住语言模型，只学一小段连续的任务专属向量（前缀），让后续 token 像注意虚拟 to
+- [Training language models to follow instructions with human feedback](https://papers.specul.com/ouyang-2022-instructgpt.html) — 问题：让模型跟着用户意图走，而不只是把下一词预测得更准；做法是用人类偏好数据做监督微调再训奖励模型做强化学习。 证据位置：摘要给出 1.3B 胜过 175B 的
+- [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://papers.specul.com/rafailov-2023-dpo.html) — 问题：RLHF 要训多个模型、还要在训练循环里从策略采样，流程复杂且成本高；能不能把偏好优化直接写成一个分类损失，跳过显式奖励模型与采样。 证据位置：方法推导与
+- [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://papers.specul.com/su-2021-roformer.html) — 问题：自注意力本身不带位置信息，已有的绝对与相对位置编码大多把位置向量加到词表示上，因此没法直接用在把注意力改写成线性形式的架构里；能不能让编码既带绝对位置、又
+- [Attention Is All You Need](https://papers.specul.com/vaswani-2017-attention.html) — 问题：把序列转导模型从循环与卷积结构里解耦，只靠注意力建立输入输出之间的依赖，从而让训练可以并行。 证据位置：自注意力与其他层类型的每层复杂度、最少顺序操作数与
+- [Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://papers.specul.com/wang-2022-self-consistency.html) — 问题：思维链只采样一条推理路径，这条路错了答案就错了；能不能采样多条再取一致答案。 证据位置：五项基准的绝对提升写在摘要；方法为先采样多条推理路径再对最终答案投
+- [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://papers.specul.com/wei-2022-chain-of-thought.html) — 问题：复杂推理任务上直接给答案效果差，能不能让模型先写出中间推理步骤再给结论。 证据位置：规模涌现的结论在 Figure 4 与第 3.2 节，GSM8K 的具
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://papers.specul.com/yao-2022-react.html) — 问题：推理（思维链）与行动（动作规划）此前被分开研究，能不能让模型交替「想一步、做一步、看结果」再继续。 证据位置：摘要给出 ALFWorld 与 WebSho
+- [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://papers.specul.com/yao-2023-tree-of-thoughts.html) — 问题：LM 推理仍是 token 级、从左到右的决策，在需要探索、策略前瞻或初始决策起关键作用的任务上会失效；能否让 LM 在以「思维」为中间步骤的树上做 de
+- [BERT：面向语言理解的深度双向 Transformer 预训练](https://papers.specul.com/devlin-2019-bert.html) — 问题：此前的语言模型要么是单向的（GPT 式从左到右），要么是两个单向模型拼接（ELMo 式），能不能在一个 Transformer 里同时看左右上下文做预训练
+- [ViT：一张图等于 16×16 个词](https://papers.specul.com/dosovitskiy-2021-vit.html) — 问题：Transformer 在 NLP 已经成为标准，但在视觉里通常还要和 CNN 绑定；能不能把图像切成 patch、当成词序列，直接用纯 Transfor
+- [CLIP：用自然语言监督学习可迁移的视觉模型](https://papers.specul.com/radford-2021-clip.html) — 问题：视觉模型通常预测固定类别，换一个概念就要重新标数据；能不能直接用互联网图文对做对比学习，让自然语言成为分类器？ 证据位置：方法在 §2（对比学习、zero
+- [DDPM：去噪扩散概率模型](https://papers.specul.com/ho-2020-ddpm.html) — 问题：GAN 能出高质量样本但训练不稳定，VAE 有似然但样本偏模糊；能不能用「逐步加噪、再逐步去噪」的扩散过程，同时拿到质量和可训练性？ 证据位置：前向/反向
+- [LDM：在潜空间里做高分辨率图像合成](https://papers.specul.com/rombach-2022-ldm.html) — 问题：像素空间扩散效果好人尽皆知，但训练要几百 GPU 天、推理要反复过全分辨率网络；能不能先把图像压到潜空间，再在潜空间扩散，以此换效率？ 证据位置：方法在 
+- [Switch Transformer：用简单稀疏路由扩到万亿参数](https://papers.specul.com/fedus-2022-switch.html) — 问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？ 
+- [Whisper：用大规模弱监督做稳健语音识别](https://papers.specul.com/radford-2022-whisper.html) — 问题：语音识别通常依赖大量高质量人工转写与领域内微调，换数据集就掉点；能不能用互联网上带噪的转写做弱监督，训练一个不微调也能跨数据集工作的模型？ 证据位置：数据
+- [Llama 2：开放基础模型与对话微调模型](https://papers.specul.com/touvron-2023-llama2.html) — 问题：开放权重模型能不能在有用性与安全性上接近闭源模型，同时把训练、微调与安全对齐的做法公开到可复用的程度？ 证据位置：预训练在 §2（数据、40% 增量、双倍
+- [SAM：可提示的分割一切模型](https://papers.specul.com/kirillov-2023-sam.html) — 问题：分割任务通常按语义/实例/全景分开训练，换任务就要换模型；能不能定义一个「给提示就出掩码」的通用任务，用一个模型加提示工程覆盖多种分割？ 证据位置：任务、

@@ -1220,5 +1220,20 @@
   "drake": [
     "Assuming Drake provides model intelligence itself — it provides model-based design toolbox infrastructure; policies or models come from user code and ecosystems.",
     "Assuming results transfer to real hardware without checks — reality gap, permissions and safety boundaries need separate verification."
+  ],
+  "open-webui": [
+    "Treating Open WebUI as the model itself — it is only the front end; connect Ollama or an API",
+    "Assuming BSD-3 allows white-labelling — from v0.6.6 the branding cannot be removed, and over 50 users needs an enterprise licence",
+    "Calling self-hosting zero-ops — upgrades, backups, keys and the vector store are yours"
+  ],
+  "librechat": [
+    "Treating provider parity as behaviour parity — model capabilities and tool support still differ",
+    "Assuming the MIT licence covers every bundled service — MongoDB, MeiliSearch and the RAG API carry their own terms",
+    "Expecting zero ops — upgrades, backups, keys and database migrations are yours"
+  ],
+  "power-automate": [
+    "Assuming the M365 licence includes premium connectors or hosted RPA — it usually does not",
+    "Treating desktop flows as cloud flows — they need a Windows machine and a licensed attended or unattended runtime",
+    "Believing Copilot/AI Builder model choices are fully disclosed — the underlying models are not itemised"
   ]
 }

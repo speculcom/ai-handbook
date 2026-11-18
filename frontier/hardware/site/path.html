@@ -42,7 +42,7 @@
         <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
         <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
         <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
         <a href="https://hardware.specul.com/" aria-current="page" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -78,7 +78,7 @@
       <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品库</span><span data-en>Demos</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://hardware.specul.com/" aria-current="page" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
@@ -91,15 +91,15 @@
   </aside>
   <main id="main">
 <div class="container ms-page"><h1><span data-zh>按显存需求倒推硬件</span><span data-en>Work back from memory requirement to hardware</span></h1><p><span data-zh>顺序按「先算需要多少显存、再看能不能装下、最后才看算力和功耗」排。每一步只给判断依据，不给推荐结论；算显存用 models 站的算式，本站只回答设备这一端。</span><span data-en>The order is: work out how much memory is needed, then whether it fits, and only then look at compute and power. Each step gives the criterion, not a recommendation; use the formulas on the models site for the memory sum, since this site only covers the device side.</span></p><ol class="fx-path">
-    <li><b>1.</b> <span data-zh>先确认权重、KV 缓存与框架开销加起来的显存需求，这一步不涉及任何设备。</span><span data-en>First fix the memory requirement — weights, KV cache and framework overhead together. No device enters the picture yet.</span> <a href="index.html#nvidia-h100-sxm"><span data-zh>条目</span><span data-en>entry</span></a></li>
-    <li><b>2.</b> <span data-zh>需求在 24GB 以内且只要单机：看消费级单卡的显存与整机电源要求。</span><span data-en>If the requirement is within 24 GB and a single machine is enough, read the consumer card&#39;s memory and system power requirement.</span> <a href="index.html#nvidia-geforce-rtx-4090"><span data-zh>条目</span><span data-en>entry</span></a></li>
-    <li><b>3.</b> <span data-zh>需求在 48GB 档、且要长时间满载或并排多卡：看 ECC 显存与 300W 档的工作站卡。</span><span data-en>For the 48 GB tier under sustained load or side-by-side installation, read the workstation card with ECC memory and a 300 W envelope.</span> <a href="index.html#nvidia-rtx-6000-ada"><span data-zh>条目</span><span data-en>entry</span></a></li>
-    <li><b>4.</b> <span data-zh>需求在 80GB 档：确认是 SXM 还是 PCIe，两者的互联能力差一个量级。</span><span data-en>At the 80 GB tier, establish whether it is SXM or PCIe — their interconnect capability differs by an order of magnitude.</span> <a href="index.html#nvidia-a100-80gb-sxm"><span data-zh>条目</span><span data-en>entry</span></a></li>
-    <li><b>5.</b> <span data-zh>需求超过 80GB：比显存容量与带宽，同时看功耗上限是否超出机房供电。</span><span data-en>Above 80 GB, compare capacity and bandwidth, and check whether the power ceiling exceeds what the facility can supply.</span> <a href="index.html#nvidia-h200-sxm"><span data-zh>条目</span><span data-en>entry</span></a></li>
-    <li><b>6.</b> <span data-zh>单卡装不下又要 8 卡全互联：本地整机看 NVSwitch 拓扑，租用看单实例的卡数与网络。</span><span data-en>If one card is not enough and eight-way fabric is required, check the NVSwitch topology on-premises or the card count and network per instance in the cloud.</span> <a href="index.html#aws-ec2-p5-48xlarge"><span data-zh>条目</span><span data-en>entry</span></a></li>
-    <li><b>7.</b> <span data-zh>要在机器人本体上跑：先看统一内存够不够，再看功耗是否落在电池与散热的范围内。</span><span data-en>For running on a robot body, first check whether unified memory is sufficient, then whether power fits the battery and thermal envelope.</span> <a href="index.html#nvidia-jetson-agx-orin-64gb"><span data-zh>条目</span><span data-en>entry</span></a></li>
-    <li><b>8.</b> <span data-zh>只做视觉推理、不需要大语言模型：低功耗加速模块的算力与功耗档位更贴合。</span><span data-en>For vision inference only, without a language model, a low-power accelerator module matches the compute and power tier better.</span> <a href="index.html#hailo-8"><span data-zh>条目</span><span data-en>entry</span></a></li>
-    <li><b>9.</b> <span data-zh>最后核供电与场地：整卡功耗、整机电源、机箱风道与工作温度，任何一项不满足都要回头改方案。</span><span data-en>Finally verify power and site conditions: board power, system supply, chassis airflow and operating temperature. If any one fails, the design goes back a step.</span> <a href="index.html#boston-dynamics-spot"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>1.</b> <span data-zh>先确认权重、KV 缓存与框架开销加起来的显存需求，这一步不涉及任何设备。</span><span data-en>First fix the memory requirement — weights, KV cache and framework overhead together. No device enters the picture yet.</span> <a href="nvidia-h100-sxm.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>2.</b> <span data-zh>需求在 24GB 以内且只要单机：看消费级单卡的显存与整机电源要求。</span><span data-en>If the requirement is within 24 GB and a single machine is enough, read the consumer card&#39;s memory and system power requirement.</span> <a href="nvidia-geforce-rtx-4090.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>3.</b> <span data-zh>需求在 48GB 档、且要长时间满载或并排多卡：看 ECC 显存与 300W 档的工作站卡。</span><span data-en>For the 48 GB tier under sustained load or side-by-side installation, read the workstation card with ECC memory and a 300 W envelope.</span> <a href="nvidia-rtx-6000-ada.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>4.</b> <span data-zh>需求在 80GB 档：确认是 SXM 还是 PCIe，两者的互联能力差一个量级。</span><span data-en>At the 80 GB tier, establish whether it is SXM or PCIe — their interconnect capability differs by an order of magnitude.</span> <a href="nvidia-a100-80gb-sxm.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>5.</b> <span data-zh>需求超过 80GB：比显存容量与带宽，同时看功耗上限是否超出机房供电。</span><span data-en>Above 80 GB, compare capacity and bandwidth, and check whether the power ceiling exceeds what the facility can supply.</span> <a href="nvidia-h200-sxm.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>6.</b> <span data-zh>单卡装不下又要 8 卡全互联：本地整机看 NVSwitch 拓扑，租用看单实例的卡数与网络。</span><span data-en>If one card is not enough and eight-way fabric is required, check the NVSwitch topology on-premises or the card count and network per instance in the cloud.</span> <a href="aws-ec2-p5-48xlarge.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>7.</b> <span data-zh>要在机器人本体上跑：先看统一内存够不够，再看功耗是否落在电池与散热的范围内。</span><span data-en>For running on a robot body, first check whether unified memory is sufficient, then whether power fits the battery and thermal envelope.</span> <a href="nvidia-jetson-agx-orin-64gb.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>8.</b> <span data-zh>只做视觉推理、不需要大语言模型：低功耗加速模块的算力与功耗档位更贴合。</span><span data-en>For vision inference only, without a language model, a low-power accelerator module matches the compute and power tier better.</span> <a href="hailo-8.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
+    <li><b>9.</b> <span data-zh>最后核供电与场地：整卡功耗、整机电源、机箱风道与工作温度，任何一项不满足都要回头改方案。</span><span data-en>Finally verify power and site conditions: board power, system supply, chassis airflow and operating temperature. If any one fails, the design goes back a step.</span> <a href="boston-dynamics-spot.html"><span data-zh>条目</span><span data-en>entry</span></a></li>
 </ol><p class="t-sm"><span data-zh>这页出现在主题：</span><span data-en>This page appears in: </span><a href="https://specul.com/topic-robot.html"><span data-zh>做机器人</span><span data-en>Build a robot</span></a></p></div>
   </main>
   <footer class="site-footer">
@@ -113,7 +113,7 @@
           <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
           <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
           <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-          <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>

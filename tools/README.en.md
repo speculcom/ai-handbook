@@ -315,7 +315,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
 | [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
 
-### Chat assistants — 21
+### Chat assistants — 23
 
 General-purpose chat assistants, web/app, including Chinese products
 
@@ -337,9 +337,11 @@ General-purpose chat assistants, web/app, including Chinese products
 | [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | partial | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | Moonshot AI | web | partial | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | partial | active |
+| [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
 | [Manus](tracks/chat/products/manus.md) | Manus AI (Monica team) | web | partial | active |
 | [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | partial | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | Microsoft | web | partial | active |
+| [Open WebUI](tracks/chat/products/open-webui.md) | Open WebUI Community | web | verified | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
 | [Reka Chat (Reka Playground / Edge Chat)](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | partial | active |
 
@@ -428,7 +430,7 @@ Citation-first search and research products
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
-### Automation & workflows — 23
+### Automation & workflows — 24
 
 Visual AI-app builders and workflow automation platforms
 
@@ -449,6 +451,7 @@ Visual AI-app builders and workflow automation platforms
 | [Make](tracks/automation/products/make.md) | Make (formerly Integromat) | web | partial | active |
 | [MaxKB](tracks/automation/products/maxkb.md) | Fit2Cloud (China-origin) | web | partial | active |
 | [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | partial | active |
+| [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | partial | active |
 | [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
 | [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
 | [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI (Sydney) | web | partial | active |
@@ -582,8 +585,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 262 |
-| By category | coding 41 · chat 21 · image 15 · video 14 · audio 17 · research 11 · automation 23 · framework 42 · mcp 32 · runner 21 · safety 25 |
-| By form | web 97 · harness 39 · mcp 32 · cli 30 · local-app 23 · cloud 22 · ide 19 |
+| Total profiles | 265 |
+| By category | coding 41 · chat 23 · image 15 · video 14 · audio 17 · research 11 · automation 24 · framework 42 · mcp 32 · runner 21 · safety 25 |
+| By form | web 100 · harness 39 · mcp 32 · cli 30 · local-app 23 · cloud 22 · ide 19 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

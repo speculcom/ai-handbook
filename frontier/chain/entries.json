@@ -523,5 +523,285 @@
       "保证声明为真 / truth of claims": "否（规范明确写了两次）",
       "业务效力判断 / validation": "不在规范范围内"
     }
+  },
+  {
+    "id": "x402-http-payments",
+    "title": {
+      "zh": "x402：用 HTTP 402 直接为 API 付费",
+      "en": "x402: paying for APIs over HTTP 402"
+    },
+    "category": "protocol",
+    "url": "https://docs.x402.org/",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.x402.org/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.x402.org/",
+        "quote": "x402 is the open payment standard that enables services to charge for access to their APIs and content directly over HTTP."
+      },
+      {
+        "url": "https://docs.x402.org/",
+        "quote": "It is built around the HTTP `402 Payment Required` status code and allows clients to programmatically pay for resources without accounts, sessions, or credential management."
+      },
+      {
+        "url": "https://docs.x402.org/",
+        "quote": "Native support for machine-to-machine payments, enabling seamless use by AI agents"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具调用可以自带预算：Agent 调一个付费 API，付款与取数在同一个请求链路里完成。\n适用范围：官方文档把流程写成五步（请求、402 指令、付款载荷、服务端或 facilitator 验证结算、返回资源），并说明标准本身 0 费用、支持 EVM 批量结算。\n未解决：付款的最终性、退款、争议与合规责任落在具体服务方与链上资产，不在协议层；本站不评价任何 x402 服务的定价或可靠性。",
+      "en": "The intersection: putting pay-per-call back into HTTP semantics — the server returns 402 plus payment instructions, the client pays, then receives the resource, with no accounts, sessions or credential management. For AI agents this means tool calls can carry their own budget: a paid API call and its payment settle in the same request path.\nScope: the official docs describe a five-step flow (request, 402 instructions, payment payload, verification and settlement by the server or a facilitator, resource) and state that the standard itself has zero fees and supports batched EVM settlement.\nOpen: finality, refunds, disputes and compliance sit with the specific service and on-chain asset, not the protocol layer; this entry does not judge any x402 service’s pricing or reliability."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "协议基础 / basis": "HTTP 402 Payment Required",
+      "费用 / protocol fee": "0（标准本身，官方文档）",
+      "结算 / settlement": "EVM 批量结算（batch settlement）",
+      "适用对象 / users": "服务方、买家、AI Agent",
+      "许可 / license": "Apache-2.0（官方文档声明）"
+    }
+  },
+  {
+    "id": "akash-network",
+    "title": {
+      "zh": "Akash Network：反向竞价的去中心化算力市场",
+      "en": "Akash Network: a reverse-auction marketplace for compute"
+    },
+    "category": "inference",
+    "url": "https://akash.network/docs/getting-started/what-is-akash/",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://akash.network/docs/getting-started/what-is-akash/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://akash.network/docs/getting-started/what-is-akash/",
+        "quote": "Akash Network is the world’s first decentralized cloud computing marketplace."
+      },
+      {
+        "url": "https://akash.network/docs/getting-started/what-is-akash/",
+        "quote": "Independent cloud providers around the world compete to host your application by submitting bids."
+      },
+      {
+        "url": "https://akash.network/docs/getting-started/what-is-akash/",
+        "quote": "Save up to 85% compared to traditional cloud providers"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把 GPU 与容器算力做成公开订单簿——用户用 YAML（SDL）声明 CPU、内存、存储与 GPU 需求，全球独立供应商竞价，用户按价格、位置与信誉选单，按块计费、可随时关闭。\n适用范围：官方文档明确它跑 Docker 容器，可用于模型训练、推理服务、Jupyter 与 LLM/扩散模型；支付用与美元挂钩的 ACT 或 AKT。\n未解决：「最高省 85%」是官方营销口径，不是本站审计过的价格；供应商的 SLA、数据驻留、网络带宽与故障恢复没有统一保证，生产部署要自行做尽调与压测。",
+      "en": "The intersection: turning GPU and container compute into a public order book — users declare CPU, memory, storage and GPU needs in YAML (SDL), independent providers worldwide bid, users choose on price, location and reputation, and pay per block with the ability to close at any time.\nScope: the official docs state it runs Docker containers, including model training, inference servers, Jupyter and LLMs/diffusion models; payment uses the USD-pegged ACT credit or AKT.\nOpen: “up to 85% cheaper” is vendor marketing, not a price this site audited; provider SLA, data residency, network bandwidth and failure recovery are not uniformly guaranteed, so production use needs its own due diligence and load testing."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "市场机制 / mechanism": "providers bid; tenant chooses; per-block payment",
+      "部署描述 / manifest": "SDL（YAML，类似 Docker Compose）",
+      "工作负载 / workload": "Docker 容器；训练、推理、Jupyter、LLM/扩散模型",
+      "支付 / payment": "ACT（USD 挂钩积分）或 AKT",
+      "成本口径 / cost claim": "官方称最高省 85%（未审计）"
+    }
+  },
+  {
+    "id": "chainlink-data-feeds",
+    "title": {
+      "zh": "Chainlink Data Feeds：把链下价格聚合成链上读数",
+      "en": "Chainlink Data Feeds: aggregating off-chain prices into on-chain reads"
+    },
+    "category": "protocol",
+    "url": "https://docs.chain.link/data-feeds",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.chain.link/data-feeds",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.chain.link/data-feeds",
+        "quote": "Asset prices, proof of reserves, NAV, and interest rates, aggregated from many sources by decentralized oracle networks and published onchain on dozens of networks."
+      },
+      {
+        "url": "https://docs.chain.link/data-feeds",
+        "quote": "your contract can read the latest value in a single call"
+      },
+      {
+        "url": "https://docs.chain.link/data-feeds",
+        "quote": "L2 Sequencer Uptime Feeds"
+      }
+    ],
+    "notes": {
+      "zh": "交集：智能合约不能自己发 HTTP 请求，价格、储备证明、净值与利率要靠预言机网络从多个源聚合后写链上；合约一次调用就能读到最新值。\n适用范围：官方文档列出价格源、储备/NAV 类 SmartData、利率与波动率、L2 Sequencer Uptime 等类型；借贷、稳定币与代币化基金用它们给抵押品估值与结算。\n未解决：读数的新鲜度、偏差阈值与心跳由具体 feed 配置决定，不是「上链即真实」；聚合器、预言机节点与 L2 sequencer 各自有故障模式，集成方要读官方风险文档并设置熔断。",
+      "en": "The intersection: smart contracts cannot make HTTP requests, so prices, proof of reserves, NAV and rates are aggregated from many sources by decentralised oracle networks and published on-chain; a contract reads the latest value in one call.\nScope: the docs list price feeds, reserve/NAV SmartData, rate and volatility feeds, and L2 sequencer uptime feeds; lending markets, stablecoins and tokenised funds use them to value collateral and settle positions.\nOpen: freshness, deviation thresholds and heartbeats are per-feed configuration, not “on-chain therefore true”; aggregators, oracle nodes and L2 sequencers each have failure modes, so integrators must read the risk docs and add circuit breakers."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "数据类型 / data": "价格、储备证明、NAV、利率、波动率、L2 sequencer 状态",
+      "读取方式 / read": "AggregatorV3Interface，一次调用取最新值",
+      "覆盖 / networks": "官方称数十条网络",
+      "风险配置 / risk": "每 feed 的心跳与偏差阈值不同",
+      "本站口径 / scope": "只记录机制，不评价任何 feed 的准确性"
+    }
+  },
+  {
+    "id": "arbitrum-nitro",
+    "title": {
+      "zh": "Arbitrum Nitro：乐观汇总与交互式欺诈证明",
+      "en": "Arbitrum Nitro: optimistic rollup with interactive fraud proofs"
+    },
+    "category": "protocol",
+    "url": "https://docs.arbitrum.io/how-arbitrum-works/inside-arbitrum-nitro",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.arbitrum.io/how-arbitrum-works/inside-arbitrum-nitro",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.arbitrum.io/how-arbitrum-works/inside-arbitrum-nitro",
+        "quote": "Sequencing, followed by deterministic execution"
+      },
+      {
+        "url": "https://docs.arbitrum.io/how-arbitrum-works/inside-arbitrum-nitro",
+        "quote": "Optimistic Rollup with interactive fraud proofs"
+      },
+      {
+        "url": "https://docs.arbitrum.io/how-arbitrum-works/inside-arbitrum-nitro",
+        "quote": "The Sequencer is a specially designated full node granted limited power to control transaction ordering."
+      }
+    ],
+    "notes": {
+      "zh": "交集：L2 把执行搬到链下、把数据与结果提交回 L1；Nitro 的四个设计点是「先排序、再确定性执行」「以 Geth 为核心」「执行与证明分离」「乐观汇总 + 交互式欺诈证明」。\n适用范围：官方文档说明 Sequencer 负责排序并立即给出结果，batch poster 把压缩批次以 EIP-4844 blob 或 calldata 发回 Ethereum，L1 data fee 补偿这笔成本；AnyTrust 变体用数据可用性委员会降低费用，并保留「委员会失效则回退到 rollup」的路径。\n未解决：Sequencer 是中心化排序点，官方明确它拥有「有限的排序权力」；提现挑战期、排序器宕机与 MEV 风险要按具体链的配置读文档，本站不评价任何 L2 的安全等级。",
+      "en": "The intersection: an L2 moves execution off-chain and posts data and results back to L1; Nitro rests on four ideas — sequencing then deterministic execution, Geth at the core, separating execution from proving, and an optimistic rollup with interactive fraud proofs.\nScope: the docs describe the sequencer ordering transactions and giving immediate results, a batch poster sending compressed batches to Ethereum as EIP-4844 blobs or calldata, and an L1 data fee covering that cost; AnyTrust trades a weaker trust assumption (a data availability committee) for lower fees and falls back to rollup if the committee fails.\nOpen: the sequencer is a centralised ordering point with, in the docs’ words, limited power over ordering; withdrawal challenge periods, sequencer downtime and MEV depend on each chain’s configuration, and this site does not rank L2 safety."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "类型 / type": "Optimistic Rollup",
+      "执行核心 / execution": "Geth（编译进 Nitro 节点）",
+      "证明 / proving": "同一源码编译为 native 与 WASM；交互式欺诈证明（BoLD）",
+      "数据可用 / DA": "EIP-4844 blobs 或 calldata；AnyTrust 用 DAC",
+      "排序 / sequencing": "单一 Sequencer 排序，延迟远低于 L1"
+    }
+  },
+  {
+    "id": "safe-smart-account",
+    "title": {
+      "zh": "Safe 智能账户：多签、阈值与账户抽象",
+      "en": "Safe smart account: multisig, threshold and account abstraction"
+    },
+    "category": "credential",
+    "url": "https://docs.safe.global/advanced/smart-account-overview",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.safe.global/advanced/smart-account-overview",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.safe.global/advanced/smart-account-overview",
+        "quote": "Safe Smart Account is a Smart Account with multi-signature functionality at its core."
+      },
+      {
+        "url": "https://docs.safe.global/advanced/smart-account-overview",
+        "quote": "Uses a multi-signature logic where a threshold of owners must confirm a transaction before execution"
+      },
+      {
+        "url": "https://docs.safe.global/advanced/smart-account-overview",
+        "quote": "no single private key is used to verify transactions"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把「账户」从一对私钥变成一个合约——Safe 以多签为核心，定义一组 owner 与一个阈值，达到阈值的 owner 确认后交易才执行；owner 可以是 EOA、其他合约账户甚至 passkey。\n适用范围：官方文档还列了模块（限额、恢复、4337、passkey）、Guard、批量交易与 Singleton/Proxy 架构；这使「给 Agent 一个有限额度、可回收的账户」在工程上可行。\n未解决：模块与 Guard 是安全关键组件，官方明确恶意 Guard 可以阻止交易、锁死资金；阈值多签降低单点风险但不消除私钥管理、社会工程与模块漏洞，机构使用要单独审计。",
+      "en": "The intersection: turning an account from a key pair into a contract — Safe is multisig at its core, defining a set of owners and a threshold that must confirm a transaction before execution; owners can be EOAs, other smart accounts or even passkeys.\nScope: the docs also cover modules (allowance, recovery, 4337, passkey), guards, batched transactions and the singleton/proxy architecture, which makes “give an agent a capped, revocable account” engineering-feasible.\nOpen: modules and guards are security-critical, and the docs state a malicious guard can block transactions and lock funds; multisig reduces single-key risk but does not remove key management, social engineering or module bugs, so institutional use needs its own audit."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "账户类型 / account": "Smart Contract Account（合约账户）",
+      "核心机制 / core": "owners + threshold 多签",
+      "owner 类型 / owners": "EOA、合约账户、passkey",
+      "扩展 / extensions": "Modules、Guards、批量交易、4337、Passkey、Recovery",
+      "部署 / deployment": "Singleton + Proxy（降低部署成本）"
+    }
+  },
+  {
+    "id": "erc20-token-standard",
+    "title": {
+      "zh": "ERC-20：同质化代币的最小接口",
+      "en": "ERC-20: the minimal interface for fungible tokens"
+    },
+    "category": "protocol",
+    "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+        "quote": "any one token is exactly equal to any other token; no tokens have special rights or behavior associated with them"
+      },
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+        "quote": "All arithmetic inside the contract is still performed on integers"
+      },
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+        "quote": "ERC20 uses a value of 18 for decimals"
+      }
+    ],
+    "notes": {
+      "zh": "交集：同质化代币的最小公共接口——每个单位等价、可拆分，适合计价、投票、质押与结算；OpenZeppelin 的实现把 name/symbol/decimals 与转账、授权等逻辑封装成可继承合约。\n适用范围：官方文档强调 decimals 只是显示约定，链上仍是整数运算；默认 18 位，可按需覆盖。这与「AI Agent 收付款、按 token 计费」的账本层直接相关。\n未解决：标准本身不规定发行上限、增发、冻结或合规白名单，这些都由具体合约自行实现；approve/allowance 的授权模型有已知的授权残留风险，集成方要读安全指南，不能把「ERC-20」当作信任保证。",
+      "en": "The intersection: the minimal shared interface for fungible tokens — every unit is equivalent and divisible, suiting pricing, voting, staking and settlement; OpenZeppelin’s implementation packages name/symbol/decimals with transfer and allowance logic into an inheritable contract.\nScope: the docs stress that decimals is a display convention only and arithmetic on-chain stays integer; the default is 18 and can be overridden. This is directly relevant to agent payments and per-token billing.\nOpen: the standard itself does not define supply caps, minting, freezing or compliance allowlists — each contract does; the approve/allowance model carries known residual-approval risk, so integrators need the security guidance and must not treat “ERC-20” as a trust guarantee."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "标准 / standard": "ERC-20（同质化代币）",
+      "精度 / decimals": "默认 18，仅显示用；链上整数运算",
+      "实现 / implementation": "OpenZeppelin Contracts 5.x ERC20",
+      "常见用途 / uses": "计价、投票、质押、结算",
+      "本站口径 / scope": "只记录标准与实现，不评价任何代币"
+    }
+  },
+  {
+    "id": "erc721-token-standard",
+    "title": {
+      "zh": "ERC-721：每个 token 都唯一的 ownership 标准",
+      "en": "ERC-721: a standard where every token is unique"
+    },
+    "category": "provenance",
+    "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+        "quote": "ERC-721 is a standard for representing ownership of *non-fungible* tokens, that is, where each token is unique."
+      },
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+        "quote": "ERC-721 lacks a `decimals` field, since each token is distinct and cannot be partitioned."
+      },
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+        "quote": "the item’s information is included in the metadata, but that information isn’t on-chain! So a game developer could change the underlying metadata"
+      }
+    ],
+    "notes": {
+      "zh": "交集：为「唯一物品」提供所有权记录——每个 tokenId 唯一、不可拆分，标准用 ownerOf 与 tokenURI 记录归属与元数据；适合数字藏品、门票、身份凭证与资产凭证。\n适用范围：OpenZeppelin 文档说明 ERC-721 比 ERC-20 复杂，带多个可选扩展；tokenURI 通常指向链下 JSON，图片与属性可以放在 IPFS 或普通 HTTPS。\n未解决：元数据不在链上，发行方可以改 tokenURI 指向的内容，链上「所有权」不等于「内容不可变」；标准也不验证资产真实性、版权或赎回权，买之前要单独核验发行方与元数据托管方式。",
+      "en": "The intersection: an ownership record for unique items — each tokenId is unique and indivisible, with ownerOf and tokenURI recording ownership and metadata; suited to collectibles, tickets, credentials and asset receipts.\nScope: the OpenZeppelin docs note ERC-721 is more complex than ERC-20 with several optional extensions; tokenURI usually points to off-chain JSON, with images and attributes on IPFS or ordinary HTTPS.\nOpen: metadata is not on-chain, so an issuer can change what tokenURI resolves to — on-chain ownership is not content immutability; the standard also does not verify authenticity, copyright or redemption rights, which must be checked separately."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "标准 / standard": "ERC-721（非同质化代币）",
+      "唯一性 / uniqueness": "每个 tokenId 唯一，不可拆分，无 decimals",
+      "归属 / ownership": "ownerOf(tokenId)",
+      "元数据 / metadata": "tokenURI 指向链下 JSON（可被发行方更改）",
+      "本站口径 / scope": "只记录标准与实现，不评价任何藏品"
+    }
   }
 ]

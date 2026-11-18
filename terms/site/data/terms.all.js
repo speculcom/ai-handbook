@@ -1545,6 +1545,9 @@ var TERMS = [
     "ord": 7,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-finetune.svg",
+    "figure_caption": "预训练权重加任务数据得到更新后的模型；全量微调与 LoRA 是两条成本不同的路线。",
+    "figure_caption_en": "Pretrained weights plus task data yield an updated model; full fine-tuning and LoRA are two cost profiles.",
     "alias": [],
     "purposeEn": "Teach an existing model a specific task or style, rather than describing the task in the prompt.",
     "defEn": [
@@ -1580,6 +1583,9 @@ var TERMS = [
     "ord": 8,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-alignment.svg",
+    "figure_caption": "同一提示的两个回答经偏好判断后，用 RLHF/PPO 或 DPO 更新策略。",
+    "figure_caption_en": "Two answers to one prompt are compared, then the policy is updated with RLHF/PPO or DPO.",
     "alias": [],
     "purposeEn": "Makes a model's output match human preference, rather than merely continuing text.",
     "defEn": [
@@ -2968,6 +2974,9 @@ var TERMS = [
     "ord": 1,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-agent-loop.svg",
+    "figure_caption": "目标 → 计划 → 工具调用 → 观察 → 修正的循环；权限与预算决定循环边界。",
+    "figure_caption_en": "A goal → plan → tool call → observation → revise loop; permissions and budget bound it.",
     "purposeEn": "Stop answering and start acting: let the model take multi-step actions on its own.",
     "defEn": [
      "A system where a model plans, calls tools, reads results and repeats until the task is done, rather than replying once."
@@ -4585,6 +4594,402 @@ var TERMS = [
     ],
     "whyEn": "Robot demos often look agile but shake on real hardware, usually because of this step. Knowing the reality gap exists stops you treating simulation success rates as real capability, and prompts you to ask which randomisation or system identification was used.",
     "slug": "仿真到实机迁移"
+   },
+   {
+    "zh": "RAG（检索增强生成）",
+    "en": "RAG (Retrieval-Augmented Generation)",
+    "alias": [
+     "检索增强生成",
+     "检索增强",
+     "RAG 检索"
+    ],
+    "purpose": "让模型在回答前先检索外部资料，把找到的原文片段放进上下文，再据此作答。",
+    "def": [
+     "RAG 把参数化记忆（模型权重）与非参数化记忆（外部文档索引）组合起来：先用检索器找相关片段，再让生成模型基于片段写答案。",
+     "它的价值不只是多知道一些事实，还在于答案可以附出处、资料可以更新而不用重训模型。"
+    ],
+    "why": "遇到私有资料、时效性强的问题，微调不是唯一答案；RAG 往往更快、更可追溯，但检索错、分块错会直接传导到答案。",
+    "refs": [
+     [
+      "Lewis 等 · RAG 原始论文（arXiv 2005.11401）",
+      "https://arxiv.org/abs/2005.11401",
+      "Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+     ],
+     [
+      "Gao 等 · RAG 综述（arXiv 2312.10997）",
+      "https://arxiv.org/abs/2312.10997",
+      "Gao et al., Retrieval-Augmented Generation for Large Language Models: A Survey"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 47,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-rag.svg",
+    "figure_caption": "一条 RAG 链路：文档先被切块并转成向量，检索召回候选，重排收窄，生成阶段带上引用。",
+    "figure_caption_en": "A RAG pipeline: documents are chunked and embedded, candidates are retrieved and reranked, then the generator answers with citations.",
+    "purposeEn": "Let the model retrieve external material first, put the found passages into context, and answer from them.",
+    "defEn": [
+     "RAG combines parametric memory (model weights) with non-parametric memory (an external document index): a retriever finds relevant passages, then a generator answers from them.",
+     "Its value is not only more facts: answers can carry sources, and the corpus can be updated without retraining the model."
+    ],
+    "whyEn": "For private or time-sensitive knowledge, fine-tuning is not the only option. RAG is often faster and traceable, but retrieval and chunking errors propagate straight into the answer.",
+    "slug": "RAG（检索增强生成）"
+   },
+   {
+    "zh": "重排（Reranking）",
+    "en": "Reranking",
+    "alias": [
+     "重排序",
+     "rerank",
+     "交叉编码器重排"
+    ],
+    "purpose": "在初步召回的一批候选里，用更精细的模型重新排序，把真正相关的几条排到最前面。",
+    "def": [
+     "检索系统通常先做召回（向量或关键词），再用交叉编码器逐对打分。",
+     "重排模型同时读查询和候选文本，算得慢但更准，所以一般只用在几十到两百条候选的小集合上。"
+    ],
+    "why": "只靠向量相似度，顺序常常不理想；加一层重排通常能明显提升引用质量，代价是延迟和算力。",
+    "refs": [
+     [
+      "Nogueira 与 Cho · Passage Re-ranking with BERT（arXiv 1901.04085）",
+      "https://arxiv.org/abs/1901.04085",
+      "Nogueira and Cho, Passage Re-ranking with BERT"
+     ],
+     [
+      "Sentence Transformers · 官方仓库",
+      "https://github.com/huggingface/sentence-transformers",
+      "Sentence Transformers repository"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 48,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-rerank.svg",
+    "figure_caption": "两阶段检索：召回先取一批候选，重排再逐对精读，把最相关的排到顶部。",
+    "figure_caption_en": "Two-stage retrieval: recall collects candidates, reranking reads each pair and moves the most relevant to the top.",
+    "purposeEn": "Reorder a small candidate set with a more precise model so the genuinely relevant passages reach the top.",
+    "defEn": [
+     "Retrieval systems usually recall first (vector or keyword search), then score query-passage pairs with a cross-encoder.",
+     "A reranker reads both the query and the passage; it is slower but more accurate, so it runs only on tens to a couple of hundred candidates."
+    ],
+    "whyEn": "Vector similarity alone often produces a mediocre order. A reranking layer usually improves citation quality, at the cost of latency and compute.",
+    "slug": "重排（Reranking）"
+   },
+   {
+    "zh": "零样本与少样本",
+    "en": "Zero-shot and Few-shot",
+    "alias": [
+     "zero-shot",
+     "few-shot",
+     "零样本",
+     "少样本"
+    ],
+    "purpose": "不训练或只给几个例子，让模型直接完成新任务。",
+    "def": [
+     "零样本是只用任务说明提问；少样本是在提示里放几组输入输出示例。",
+     "GPT-3 论文用「不做梯度更新、只靠文本交互」的方式验证了这条路线。"
+    ],
+    "why": "这是判断一个模型能不能快速试用的基本方法；示例的选择与顺序会明显影响结果，少样本不等于稳定。",
+    "refs": [
+     [
+      "Brown 等 · Language Models are Few-Shot Learners（arXiv 2005.14165）",
+      "https://arxiv.org/abs/2005.14165",
+      "Brown et al., Language Models are Few-Shot Learners"
+     ],
+     [
+      "Ouyang 等 · InstructGPT（arXiv 2203.02155）",
+      "https://arxiv.org/abs/2203.02155",
+      "Ouyang et al., Training language models to follow instructions with human feedback"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "learn",
+    "level": 3,
+    "layer": "三",
+    "ord": 49,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-fewshot.svg",
+    "figure_caption": "零样本只给任务说明；少样本在提示里加几组示例。示例不是训练数据，不会改动权重。",
+    "figure_caption_en": "Zero-shot gives only an instruction; few-shot adds a handful of examples in the prompt. The examples do not change the weights.",
+    "purposeEn": "Get a model to perform a new task without training, or with only a few examples.",
+    "defEn": [
+     "Zero-shot prompts with a task description only; few-shot puts a few input-output examples into the prompt.",
+     "The GPT-3 paper tested this route with no gradient updates and text-only interaction."
+    ],
+    "whyEn": "It is the basic way to judge whether a model can be tried quickly. Example choice and order matter a lot, and few-shot is not the same as stable.",
+    "slug": "零样本与少样本"
+   },
+   {
+    "zh": "SFT（监督微调）",
+    "en": "SFT (Supervised Fine-Tuning)",
+    "alias": [
+     "监督微调",
+     "指令微调",
+     "supervised fine-tuning"
+    ],
+    "purpose": "用人工写好的示范答案继续训练模型，让它学会按指令回答。",
+    "def": [
+     "SFT 在预训练模型上做有监督学习，数据是「指令 + 期望回答」。",
+     "InstructGPT 先用标注员示范做 SFT，再用人类偏好排序做强化学习。"
+    ],
+    "why": "它是把基座模型变成可用助手的第一步；SFT 数据质量比数量更重要，也会把标注者的风格带进模型。",
+    "refs": [
+     [
+      "Ouyang 等 · InstructGPT（arXiv 2203.02155）",
+      "https://arxiv.org/abs/2203.02155",
+      "Ouyang et al., Training language models to follow instructions with human feedback"
+     ],
+     [
+      "Rafailov 等 · DPO（arXiv 2305.18290）",
+      "https://arxiv.org/abs/2305.18290",
+      "Rafailov et al., Direct Preference Optimization"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 50,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-training-stages.svg",
+    "figure_caption": "常见的三步：预训练学语言与知识，SFT 学按指令作答，偏好优化让回答更符合人类选择。",
+    "figure_caption_en": "A common three-stage path: pretraining learns language and knowledge, SFT learns instruction following, preference optimization aligns answers with human choices.",
+    "purposeEn": "Continue training on human-written demonstrations so the model learns to answer instructions.",
+    "defEn": [
+     "SFT is supervised learning on top of a pretrained model, with instruction-answer pairs.",
+     "InstructGPT first used labeler demonstrations for SFT, then human preference rankings for reinforcement learning."
+    ],
+    "whyEn": "It is the first step that turns a base model into a usable assistant. Data quality matters more than volume, and the annotators’ style enters the model.",
+    "slug": "SFT（监督微调）"
+   },
+   {
+    "zh": "DPO（直接偏好优化）",
+    "en": "DPO (Direct Preference Optimization)",
+    "alias": [
+     "直接偏好优化",
+     "direct preference optimization"
+    ],
+    "purpose": "用成对的「更好 / 更差」回答直接微调模型，省掉奖励模型和强化学习。",
+    "def": [
+     "DPO 把 RLHF 的目标改写成分类损失：提高优选回答的概率、降低劣选回答的概率。",
+     "它不需要在训练中从模型采样，也不需要单独训练奖励模型。"
+    ],
+    "why": "想让模型更符合偏好但不想搭 PPO 那一套时，DPO 是更轻的选择；偏好数据的覆盖面仍然决定效果上限。",
+    "refs": [
+     [
+      "Rafailov 等 · DPO（arXiv 2305.18290）",
+      "https://arxiv.org/abs/2305.18290",
+      "Rafailov et al., Direct Preference Optimization"
+     ],
+     [
+      "Ouyang 等 · InstructGPT（arXiv 2203.02155）",
+      "https://arxiv.org/abs/2203.02155",
+      "Ouyang et al., Training language models to follow instructions with human feedback"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 51,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-dpo.svg",
+    "figure_caption": "DPO 跳过奖励模型：直接拿「优选 / 劣选」成对数据，用一个分类损失把两者的概率拉开。",
+    "figure_caption_en": "DPO skips the reward model: paired preferred and rejected answers are used directly in a classification-style loss.",
+    "purposeEn": "Fine-tune directly on paired better and worse answers, without a reward model or reinforcement learning.",
+    "defEn": [
+     "DPO rewrites the RLHF objective as a classification loss: raise the probability of the preferred answer and lower the rejected one.",
+     "It needs neither sampling from the model during training nor a separately trained reward model."
+    ],
+    "whyEn": "When you want preference alignment without the PPO machinery, DPO is the lighter option. The coverage of preference data still caps the result.",
+    "slug": "DPO（直接偏好优化）"
+   },
+   {
+    "zh": "LLM-as-a-Judge（模型评审）",
+    "en": "LLM-as-a-Judge",
+    "alias": [
+     "模型评审",
+     "LLM judge",
+     "AI 评审"
+    ],
+    "purpose": "让一个强模型按评分标准给另一个模型的回答打分或比较。",
+    "def": [
+     "常见做法是给评审模型题目、参考答案和评分维度，让它输出分数或选择。",
+     "MT-Bench 与 Chatbot Arena 的论文系统检验了位置偏差、冗长偏差和自我偏好等问题。"
+    ],
+    "why": "人工评测贵且慢；模型评审能扩大规模，但必须校准偏差、抽样人工复核，不能把分数当 ground truth。",
+    "refs": [
+     [
+      "Zheng 等 · Judging LLM-as-a-Judge（arXiv 2306.05685）",
+      "https://arxiv.org/abs/2306.05685",
+      "Zheng et al., Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena"
+     ],
+     [
+      "FastChat · 官方仓库",
+      "https://github.com/lm-sys/FastChat",
+      "FastChat repository"
+     ]
+    ],
+    "domain": "choice",
+    "purposeTag": "judge",
+    "level": 3,
+    "layer": "三",
+    "ord": 52,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-judge.svg",
+    "figure_caption": "评审模型读题目、参考答案和评分标准，输出分数或偏好；它的偏差需要抽样人工复核。",
+    "figure_caption_en": "A judge reads the question, reference answer and rubric, then outputs a score or preference; its biases need human spot checks.",
+    "purposeEn": "Have a strong model score or compare another model’s answers against a rubric.",
+    "defEn": [
+     "A common setup gives the judge the question, a reference answer and scoring dimensions, and asks for a score or choice.",
+     "The MT-Bench and Chatbot Arena paper systematically examined position, verbosity and self-enhancement biases."
+    ],
+    "whyEn": "Human evaluation is expensive and slow; model judging scales it up. But biases must be calibrated and sampled for human review — scores are not ground truth.",
+    "slug": "LLM-as-a-Judge（模型评审）"
+   },
+   {
+    "zh": "A2A（Agent2Agent 协议）",
+    "en": "A2A (Agent2Agent Protocol)",
+    "alias": [
+     "Agent2Agent",
+     "智能体互操作协议",
+     "A2A 协议"
+    ],
+    "purpose": "让不同厂商、不同框架的智能体互相发现能力、委派任务并回传结果。",
+    "def": [
+     "A2A 是开放协议，核心是 Agent Card（能力描述）与任务生命周期消息。",
+     "它补的是 agent 之间的协作层，不替代 MCP 这类「agent 接工具」的协议。"
+    ],
+    "why": "多智能体落地时，最大的摩擦往往不是模型而是互通；A2A 试图把发现、鉴权、长任务状态统一。",
+    "refs": [
+     [
+      "A2A · 官方仓库与规范",
+      "https://github.com/a2aproject/A2A",
+      "A2A official repository and specification"
+     ],
+     [
+      "MCP · 官方文档",
+      "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro",
+      "Model Context Protocol documentation"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 53,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-a2a.svg",
+    "figure_caption": "A2A 管「智能体之间」：先读 Agent Card 发现能力，再委派任务并跟踪状态；MCP 管「智能体接工具」。",
+    "figure_caption_en": "A2A covers agent-to-agent work: discover capabilities via an Agent Card, delegate a task and track its state. MCP covers agent-to-tool access.",
+    "purposeEn": "Let agents from different vendors and frameworks discover each other’s capabilities, delegate tasks and return results.",
+    "defEn": [
+     "A2A is an open protocol built around an Agent Card (a capability description) and task-lifecycle messages.",
+     "It adds the agent-to-agent collaboration layer; it does not replace agent-to-tool protocols such as MCP."
+    ],
+    "whyEn": "In multi-agent deployment the friction is often interoperability, not the model. A2A tries to standardise discovery, authorization and long-running task state.",
+    "slug": "A2A（Agent2Agent 协议）"
+   },
+   {
+    "zh": "编码 Agent",
+    "en": "Coding Agent",
+    "alias": [
+     "coding agent",
+     "编码智能体",
+     "代码智能体"
+    ],
+    "purpose": "能读代码库、改多个文件、跑测试并根据报错继续修的 AI 工具。",
+    "def": [
+     "与代码补全不同，编码 Agent 接受一个任务目标，自主规划并执行编辑、命令和验证。",
+     "SWE-bench 用真实 GitHub issue 检验这类系统能否产出通过测试的补丁。"
+    ],
+    "why": "它改变的是工程流程而不是单行输入速度；审查、权限和测试仍是必需，不能把「通过率」当成交付质量。",
+    "refs": [
+     [
+      "Jimenez 等 · SWE-bench（arXiv 2310.06770）",
+      "https://arxiv.org/abs/2310.06770",
+      "Jimenez et al., SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"
+     ],
+     [
+      "SWE-bench · 官方榜单",
+      "https://www.swebench.com/",
+      "SWE-bench leaderboard"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 54,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-coding-agent.svg",
+    "figure_caption": "编码 Agent 的循环：读 issue 与代码库，定位并修改多个文件，跑测试，读报错再修。",
+    "figure_caption_en": "The coding-agent loop: read the issue and repository, edit across files, run tests, read failures and iterate.",
+    "purposeEn": "An AI tool that reads a codebase, edits multiple files, runs tests and keeps fixing from failures.",
+    "defEn": [
+     "Unlike code completion, a coding agent takes a task goal and autonomously plans edits, commands and verification.",
+     "SWE-bench tests such systems on real GitHub issues: can they produce a patch that passes the tests?"
+    ],
+    "whyEn": "It changes the engineering workflow, not just typing speed. Review, permissions and tests remain necessary; a pass rate is not delivery quality.",
+    "slug": "编码 Agent"
+   },
+   {
+    "zh": "OCR（光学字符识别）",
+    "en": "OCR (Optical Character Recognition)",
+    "alias": [
+     "光学字符识别",
+     "文字识别",
+     "OCR 识别"
+    ],
+    "purpose": "把图片或扫描件里的文字识别成可编辑、可检索的文本。",
+    "def": [
+     "OCR 通常包括版面分析、文字检测、字符识别和后处理。",
+     "现代系统还要处理表格、多栏、手写体和旋转，识别结果常需置信度与人工复核。"
+    ],
+    "why": "RAG 处理纸质档案时，OCR 是第一步；识别错会直接变成检索错和答案错。",
+    "refs": [
+     [
+      "Tesseract · 官方文档",
+      "https://tesseract-ocr.github.io/tessdoc/",
+      "Tesseract documentation"
+     ],
+     [
+      "Tesseract · 官方仓库",
+      "https://github.com/tesseract-ocr/tesseract",
+      "Tesseract repository"
+     ]
+    ],
+    "domain": "media",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 55,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-ocr.svg",
+    "figure_caption": "OCR 不是一步：版面分析定位区域，检测框出文字，识别成字符，后处理修正常见错误。",
+    "figure_caption_en": "OCR is a pipeline: layout analysis finds regions, detection locates text, recognition reads characters, post-processing fixes common errors.",
+    "purposeEn": "Turn text in images and scans into editable, searchable text.",
+    "defEn": [
+     "OCR usually includes layout analysis, text detection, character recognition and post-processing.",
+     "Modern systems also handle tables, multiple columns, handwriting and rotation; results often need confidence scores and human review."
+    ],
+    "whyEn": "When RAG ingests paper archives, OCR is step one. Recognition errors become retrieval errors and then answer errors.",
+    "slug": "OCR（光学字符识别）"
    }
   ]
  },
@@ -4656,6 +5061,9 @@ var TERMS = [
     "ord": 2,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-attention.svg",
+    "figure_caption": "一个查询如何给候选分配权重：Q 与 K 打分，softmax 归一，再对 V 加权求和。",
+    "figure_caption_en": "How a query weights candidates: Q–K scores, softmax normalisation, then a weighted sum over V.",
     "alias": [],
     "purposeEn": "When processing one word, the model automatically looks at the most relevant other words in the sentence.",
     "defEn": [
@@ -4722,6 +5130,9 @@ var TERMS = [
     "ord": 4,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-embedding.svg",
+    "figure_caption": "嵌入表把 token ID 查成稠密向量，语义相近的向量在空间中更靠近（二维仅为示意）。",
+    "figure_caption_en": "An embedding table maps token IDs to dense vectors; semantically similar vectors sit closer (2D is illustrative).",
     "alias": [],
     "purposeEn": "The first step of turning words into numeric vectors — models only work in numbers internally.",
     "defEn": [
@@ -5124,6 +5535,9 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 15,
+    "figure": "fig-tokenizer.svg",
+    "figure_caption": "文本先被切成子词，再映射成整数 ID；词表外的词会被拆成已知片段。",
+    "figure_caption_en": "Text is split into subword pieces and mapped to integer IDs; unseen words are broken into known pieces.",
     "alias": [],
     "purposeEn": "Cuts words into smaller fragments so a model can still assemble words it has never seen.",
     "defEn": [
@@ -6142,6 +6556,315 @@ var TERMS = [
     ],
     "whyEn": "Understanding policy gives robot news terms such as end-to-end, policy generalisation and policy failure a concrete referent: they all describe the same observation-to-action mapping under different conditions.",
     "slug": "机器人策略"
+   },
+   {
+    "zh": "视觉语言模型（VLM）",
+    "en": "Vision-Language Model (VLM)",
+    "alias": [
+     "VLM",
+     "多模态模型",
+     "视觉语言模型"
+    ],
+    "purpose": "同时理解图像和文字，能看图回答问题或按文字描述处理图片的模型。",
+    "def": [
+     "VLM 通常由视觉编码器把图片变成向量，再与文本 token 一起送入语言模型。",
+     "CLIP 用 4 亿图文对做对比学习，证明了自然语言可以作为视觉概念的接口。"
+    ],
+    "why": "票据、截图、图表、质检都靠它；但「看图说话」不等于精确测量，细节与文字仍需专门模型。",
+    "refs": [
+     [
+      "Radford 等 · CLIP（arXiv 2103.00020）",
+      "https://arxiv.org/abs/2103.00020",
+      "Radford et al., Learning Transferable Visual Models From Natural Language Supervision"
+     ],
+     [
+      "Liu 等 · LLaVA（arXiv 2304.08485）",
+      "https://arxiv.org/abs/2304.08485",
+      "Liu et al., Visual Instruction Tuning"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 41,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-vlm.svg",
+    "figure_caption": "VLM 的两段式结构：视觉编码器把图片变成 token，语言模型把图像 token 与文字 token 一起读。",
+    "figure_caption_en": "A two-part VLM: a vision encoder turns the image into tokens, and the language model reads image and text tokens together.",
+    "purposeEn": "A model that understands images and text together, answering questions about images or acting on text instructions.",
+    "defEn": [
+     "A VLM usually uses a vision encoder to turn an image into vectors, then feeds them with text tokens into a language model.",
+     "CLIP trained on 400 million image-text pairs with contrastive learning, showing natural language can serve as an interface to visual concepts."
+    ],
+    "whyEn": "Receipts, screenshots, charts and inspection all rely on it. But describing an image is not precise measurement; fine detail and text may still need dedicated models.",
+    "slug": "视觉语言模型"
+   },
+   {
+    "zh": "反向传播",
+    "en": "Backpropagation",
+    "alias": [
+     "BP",
+     "backprop",
+     "误差反向传播"
+    ],
+    "purpose": "从损失往回算每一层参数该往哪个方向调整，是训练神经网络的核心算法。",
+    "def": [
+     "前向算出预测与损失，反向用链式法则逐层求梯度。",
+     "PyTorch 的 autograd 自动记录运算图并执行这一步。"
+    ],
+    "why": "不懂它就容易把「训练不收敛」归因于玄学；梯度消失、爆炸、累积都是这里的问题。",
+    "refs": [
+     [
+      "Goodfellow 等 · Deep Learning 第 6 章",
+      "https://www.deeplearningbook.org/contents/mlp.html",
+      "Goodfellow et al., Deep Learning, Chapter 6"
+     ],
+     [
+      "PyTorch · Autograd 机制",
+      "https://docs.pytorch.org/docs/stable/autograd.html",
+      "PyTorch autograd mechanics"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 42,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-backprop.svg",
+    "figure_caption": "前向逐层算输出与损失，反向按链式法则把误差一层层传回，得到每个参数的梯度。",
+    "figure_caption_en": "The forward pass computes outputs and loss; the backward pass applies the chain rule layer by layer to produce gradients for every parameter.",
+    "purposeEn": "Work backward from the loss to find how each layer’s parameters should change. It is the core algorithm of neural-network training.",
+    "defEn": [
+     "The forward pass computes predictions and loss; the backward pass applies the chain rule layer by layer to get gradients.",
+     "PyTorch’s autograd records the computation graph and performs this step automatically."
+    ],
+    "whyEn": "Without it, a training failure looks like magic. Vanishing gradients, exploding gradients and accumulation all live here.",
+    "slug": "反向传播"
+   },
+   {
+    "zh": "梯度下降",
+    "en": "Gradient Descent",
+    "alias": [
+     "GD",
+     "SGD",
+     "最速下降"
+    ],
+    "purpose": "沿着梯度的反方向小步更新参数，让损失逐步下降。",
+    "def": [
+     "每次用一批数据算梯度，再按学习率缩放后更新权重。",
+     "SGD、Adam、AdamW 都是它的变体，差别在如何利用历史梯度。"
+    ],
+    "why": "学习率、批大小、优化器三者互相影响；同一套超参换模型或换数据常常失效。",
+    "refs": [
+     [
+      "PyTorch · 优化循环教程",
+      "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+      "PyTorch optimization loop tutorial"
+     ],
+     [
+      "Goodfellow 等 · Deep Learning 第 8 章",
+      "https://www.deeplearningbook.org/contents/optimization.html",
+      "Goodfellow et al., Deep Learning, Chapter 8"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 43,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-gd.svg",
+    "figure_caption": "梯度下降在损失曲面上反复迈小步：方向由梯度给，步长由学习率给。",
+    "figure_caption_en": "Gradient descent takes repeated small steps on the loss surface: the gradient gives the direction and the learning rate gives the step size.",
+    "purposeEn": "Update parameters in the direction opposite the gradient, in small steps, so the loss goes down.",
+    "defEn": [
+     "Each step computes a gradient on a batch and scales it by the learning rate before updating weights.",
+     "SGD, Adam and AdamW are variants that differ in how they use gradient history."
+    ],
+    "whyEn": "Learning rate, batch size and optimizer interact. The same hyperparameters often stop working when the model or data changes.",
+    "slug": "梯度下降"
+   },
+   {
+    "zh": "损失函数",
+    "en": "Loss Function",
+    "alias": [
+     "loss",
+     "目标函数",
+     "代价函数"
+    ],
+    "purpose": "把「预测得有多错」变成一个可求导的数值，训练就是把它压小。",
+    "def": [
+     "不同任务用不同损失：分类常用交叉熵，回归常用均方误差，语言模型用下一 token 的交叉熵。",
+     "损失设计会改变模型学到的偏好，不只是优化技巧。"
+    ],
+    "why": "指标和损失不是一回事；损失降了但业务指标不升很常见。",
+    "refs": [
+     [
+      "PyTorch · 损失函数文档",
+      "https://docs.pytorch.org/docs/stable/nn.html",
+      "PyTorch loss functions"
+     ],
+     [
+      "Goodfellow 等 · Deep Learning 第 6 章",
+      "https://www.deeplearningbook.org/contents/mlp.html",
+      "Goodfellow et al., Deep Learning, Chapter 6"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 44,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-loss.svg",
+    "figure_caption": "损失函数把预测与真值之间的差压成一个标量；训练器再用它的梯度更新参数。",
+    "figure_caption_en": "A loss turns the gap between prediction and target into a scalar; the optimizer uses its gradient to update parameters.",
+    "purposeEn": "Turn “how wrong the prediction is” into a differentiable number; training minimises it.",
+    "defEn": [
+     "Different tasks use different losses: cross-entropy for classification, mean squared error for regression, next-token cross-entropy for language models.",
+     "Loss design changes what the model prefers. It is not merely an optimisation trick."
+    ],
+    "whyEn": "Metrics and losses are not the same thing. A falling loss with a flat business metric is common.",
+    "slug": "损失函数"
+   },
+   {
+    "zh": "交叉熵",
+    "en": "Cross-Entropy",
+    "alias": [
+     "CE",
+     "cross entropy",
+     "负对数似然"
+    ],
+    "purpose": "衡量预测分布与真实分布差多远，是分类与语言模型最常用的损失。",
+    "def": [
+     "交叉熵等于真实分布的负对数似然：给正确答案的概率越低，惩罚越大。",
+     "PyTorch 的 CrossEntropyLoss 把 log-softmax 与负对数似然合在一起。"
+    ],
+    "why": "语言模型的困惑度就是交叉熵的指数形式；看到 loss 数值要先确认单位与词表口径。",
+    "refs": [
+     [
+      "PyTorch · CrossEntropyLoss",
+      "https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html",
+      "PyTorch CrossEntropyLoss"
+     ],
+     [
+      "Goodfellow 等 · Deep Learning 第 6 章",
+      "https://www.deeplearningbook.org/contents/mlp.html",
+      "Goodfellow et al., Deep Learning, Chapter 6"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 45,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-ce.svg",
+    "figure_caption": "交叉熵只看正确答案那一项的概率：概率越接近 1，损失越接近 0；越接近 0，惩罚越大。",
+    "figure_caption_en": "Cross-entropy looks at the probability assigned to the correct class: near 1 gives near-zero loss, near 0 gives a large penalty.",
+    "purposeEn": "Measure how far the predicted distribution is from the true one; the default loss for classification and language models.",
+    "defEn": [
+     "Cross-entropy is the negative log-likelihood of the true distribution: the lower the probability given to the right answer, the larger the penalty.",
+     "PyTorch’s CrossEntropyLoss combines log-softmax and negative log-likelihood."
+    ],
+    "whyEn": "Perplexity is the exponential of cross-entropy. Before comparing loss numbers, check the unit and the vocabulary denominator.",
+    "slug": "交叉熵"
+   },
+   {
+    "zh": "学习率",
+    "en": "Learning Rate",
+    "alias": [
+     "lr",
+     "步长",
+     "learning rate"
+    ],
+    "purpose": "控制每次参数更新的步长，是训练中最敏感的超参数之一。",
+    "def": [
+     "太大容易震荡或发散，太小收敛慢甚至卡在平台。",
+     "常见策略包括 warmup、余弦退火、按验证集表现衰减。"
+    ],
+    "why": "换批大小、换优化器、做微调都要重新考虑学习率；微调通常比预训练小几个数量级。",
+    "refs": [
+     [
+      "PyTorch · torch.optim 文档",
+      "https://docs.pytorch.org/docs/stable/optim.html",
+      "PyTorch torch.optim documentation"
+     ],
+     [
+      "PyTorch · SGD 文档",
+      "https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html",
+      "PyTorch SGD documentation"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 46,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-lr.svg",
+    "figure_caption": "同一个损失曲面：步长太小走不到谷底，步长太大来回震荡甚至跨过谷底。",
+    "figure_caption_en": "On the same loss surface: too small a step never reaches the minimum; too large a step oscillates or jumps past it.",
+    "purposeEn": "Set the step size of each parameter update; one of the most sensitive hyperparameters in training.",
+    "defEn": [
+     "Too large causes oscillation or divergence; too small converges slowly or stalls on a plateau.",
+     "Common schedules include warmup, cosine decay and reducing on validation performance."
+    ],
+    "whyEn": "Changing batch size, optimizer or fine-tuning regime means reconsidering the learning rate. Fine-tuning usually uses rates orders of magnitude smaller than pretraining.",
+    "slug": "学习率"
+   },
+   {
+    "zh": "批大小与轮次",
+    "en": "Batch Size and Epochs",
+    "alias": [
+     "batch size",
+     "epoch",
+     "批次大小",
+     "训练轮次"
+    ],
+    "purpose": "批大小是一次更新看多少样本，轮次是整套数据过几遍。",
+    "def": [
+     "批大小影响梯度噪声、显存占用和吞吐；轮次影响模型见过数据多少次。",
+     "两者与学习率耦合：批大小变了，合适的学习率通常也要变。"
+    ],
+    "why": "「训练 3 轮」不是通用配方；数据量、任务难度和过拟合信号决定该看多少遍。",
+    "refs": [
+     [
+      "PyTorch · 数据集与 DataLoader 教程",
+      "https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html",
+      "PyTorch datasets and DataLoader tutorial"
+     ],
+     [
+      "PyTorch · 优化循环教程",
+      "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+      "PyTorch optimization loop tutorial"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 47,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-batch.svg",
+    "figure_caption": "一个轮次把整套数据过一遍；批大小决定每次更新看多少条，二者共同决定参数更新次数。",
+    "figure_caption_en": "An epoch is one pass over the dataset; batch size sets how many examples each update sees. Together they set the number of updates.",
+    "purposeEn": "Batch size is how many examples one update sees; an epoch is one full pass over the data.",
+    "defEn": [
+     "Batch size affects gradient noise, memory use and throughput; epochs affect how often the model sees the data.",
+     "Both couple with the learning rate: change the batch size and the suitable learning rate usually changes too."
+    ],
+    "whyEn": "“Train for three epochs” is not a universal recipe. Data volume, task difficulty and overfitting signals decide how many passes are right.",
+    "slug": "批大小与轮次"
    }
   ]
  },
@@ -7430,6 +8153,182 @@ var TERMS = [
     ],
     "whyEn": "Building a robot or working with a robotics team means dealing with this skeleton. Knowing middleware handles communication and tools, not intelligence itself, helps separate system integration failures from model capability failures.",
     "slug": "机器人中间件"
+   },
+   {
+    "zh": "近似最近邻检索（ANN）",
+    "en": "Approximate Nearest Neighbor Search (ANN)",
+    "alias": [
+     "ANN",
+     "近似最近邻",
+     "向量检索",
+     "ANN 检索"
+    ],
+    "purpose": "在海量向量里快速找出与查询最相近的一小批，允许少量漏检。",
+    "def": [
+     "精确最近邻在大规模下太慢，ANN 用图索引、量化或哈希做近似。",
+     "HNSW 用多层可导航图，把查询复杂度降到近似对数级。"
+    ],
+    "why": "向量库的核心就是 ANN；召回率、内存和延迟要一起调，换索引参数会改变检索质量。",
+    "refs": [
+     [
+      "Malkov 与 Yashunin · HNSW（arXiv 1603.09320）",
+      "https://arxiv.org/abs/1603.09320",
+      "Malkov and Yashunin, Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs"
+     ],
+     [
+      "FAISS · 官方仓库",
+      "https://github.com/facebookresearch/faiss",
+      "FAISS repository"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "learn",
+    "level": 5,
+    "layer": "五",
+    "ord": 36,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-ann.svg",
+    "figure_caption": "HNSW 的多层图：上层长跳快速接近，下层短跳精确定位；用少量召回损失换数量级的加速。",
+    "figure_caption_en": "An HNSW multi-layer graph: long links on upper layers approach quickly, short links below refine. A small recall loss buys orders-of-magnitude speed.",
+    "purposeEn": "Find the nearest vectors to a query quickly among billions, accepting a small amount of missed recall.",
+    "defEn": [
+     "Exact nearest-neighbor search is too slow at scale; ANN approximates with graph indexes, quantization or hashing.",
+     "HNSW uses a multi-layer navigable graph and brings query cost close to logarithmic."
+    ],
+    "whyEn": "ANN is the core of a vector database. Recall, memory and latency must be tuned together; changing index parameters changes retrieval quality.",
+    "slug": "近似最近邻检索"
+   },
+   {
+    "zh": "ONNX（开放神经网络交换格式）",
+    "en": "ONNX (Open Neural Network Exchange)",
+    "alias": [
+     "开放神经网络交换格式",
+     "ONNX 格式",
+     "onnx"
+    ],
+    "purpose": "让不同框架训练出的模型用同一种文件格式交换和部署。",
+    "def": [
+     "ONNX 定义计算图、算子与数据类型的开放标准，推理引擎可以直接加载。",
+     "它不负责训练，解决的是「一个框架训练、另一个环境推理」的格式壁垒。"
+    ],
+    "why": "跨平台部署、边缘设备、供应商替换都会碰到它；算子覆盖不全时仍需回退或自定义。",
+    "refs": [
+     [
+      "ONNX · 官方网站",
+      "https://onnx.ai/",
+      "ONNX official site"
+     ],
+     [
+      "ONNX · 官方仓库",
+      "https://github.com/onnx/onnx",
+      "ONNX repository"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "apply",
+    "level": 5,
+    "layer": "五",
+    "ord": 37,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-onnx.svg",
+    "figure_caption": "ONNX 位于训练与部署之间：不同框架导出同一个计算图格式，不同推理引擎再各自加载。",
+    "figure_caption_en": "ONNX sits between training and deployment: frameworks export one graph format, and different inference engines load it.",
+    "purposeEn": "Let models trained in different frameworks be exchanged and deployed in one file format.",
+    "defEn": [
+     "ONNX is an open standard for computation graphs, operators and data types; inference engines can load it directly.",
+     "It does not handle training. It solves the format barrier between one framework’s training and another environment’s inference."
+    ],
+    "whyEn": "Cross-platform deployment, edge devices and vendor swaps all meet it. Incomplete operator coverage still forces fallbacks or custom ops.",
+    "slug": "ONNX"
+   },
+   {
+    "zh": "CUDA",
+    "en": "CUDA",
+    "alias": [
+     "统一计算架构",
+     "NVIDIA CUDA"
+    ],
+    "purpose": "NVIDIA GPU 的并行计算平台，也是多数训练框架默认的底层执行环境。",
+    "def": [
+     "CUDA 提供编程模型、编译器与库，让开发者把计算任务交给 GPU 的数千个核心。",
+     "PyTorch 等框架的 GPU 加速建立在 CUDA 及其库（如 cuBLAS、cuDNN）之上。"
+    ],
+    "why": "它解释了为什么「有 GPU」不等于「能跑」：驱动、运行时、框架版本要匹配；也是 CUDA 生态锁定讨论的起点。",
+    "refs": [
+     [
+      "NVIDIA · CUDA Toolkit",
+      "https://developer.nvidia.com/cuda/toolkit",
+      "NVIDIA CUDA Toolkit"
+     ],
+     [
+      "PyTorch · CUDA 语义说明",
+      "https://docs.pytorch.org/docs/stable/notes/cuda.html",
+      "PyTorch CUDA semantics"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "learn",
+    "level": 5,
+    "layer": "五",
+    "ord": 38,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-cuda.svg",
+    "figure_caption": "CUDA 是 GPU 上的并行执行层：框架把算子交给 CUDA 运行时，再由驱动调度到数千个核心。",
+    "figure_caption_en": "CUDA is the parallel execution layer on NVIDIA GPUs: frameworks hand operators to the CUDA runtime, and the driver schedules them across thousands of cores.",
+    "purposeEn": "NVIDIA’s parallel computing platform and the default execution layer for most training frameworks.",
+    "defEn": [
+     "CUDA provides a programming model, compiler and libraries so work can be spread across thousands of GPU cores.",
+     "PyTorch’s GPU acceleration builds on CUDA and libraries such as cuBLAS and cuDNN."
+    ],
+    "whyEn": "It explains why having a GPU is not the same as being able to run: driver, runtime and framework versions must match. It is also the starting point of the CUDA lock-in debate.",
+    "slug": "CUDA"
+   },
+   {
+    "zh": "HBM（高带宽显存）",
+    "en": "HBM (High Bandwidth Memory)",
+    "alias": [
+     "高带宽显存",
+     "HBM3e",
+     "HBM 显存"
+    ],
+    "purpose": "堆叠在 GPU 旁边的高带宽显存，决定大模型能不能装下、跑多快。",
+    "def": [
+     "HBM 用硅通孔把多层 DRAM 垂直堆叠，再通过宽接口与 GPU 相连。",
+     "以 NVIDIA DGX B200 为例：8 张 GPU 共 1,440 GB HBM3e、合计 64 TB/s 带宽，折合单卡约 180 GB 与 8 TB/s。"
+    ],
+    "why": "显存容量决定能装多少参数和 KV cache，带宽决定解码速度；两者常是比算力更紧的瓶颈。",
+    "refs": [
+     [
+      "NVIDIA · DGX B200 规格",
+      "https://www.nvidia.com/en-us/data-center/dgx-b200/",
+      "NVIDIA DGX B200 specifications"
+     ],
+     [
+      "NVIDIA · H100 规格",
+      "https://www.nvidia.com/en-us/data-center/h100/",
+      "NVIDIA H100 specifications"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "learn",
+    "level": 5,
+    "layer": "五",
+    "ord": 39,
+    "last_verified": "2026-11-17",
+    "verified_scope": "refs",
+    "figure": "fig-hbm.svg",
+    "figure_caption": "HBM 与 GPU 同封装：多层 DRAM 堆叠、超宽接口，换来远高于 GDDR 的带宽，但容量受封装限制。",
+    "figure_caption_en": "HBM sits in the GPU package: stacked DRAM layers and a very wide interface deliver far more bandwidth than GDDR, but capacity is capped by the package.",
+    "purposeEn": "High-bandwidth memory stacked next to the GPU; it decides whether a large model fits and how fast it decodes.",
+    "defEn": [
+     "HBM stacks DRAM layers with through-silicon vias and connects them to the GPU through a wide interface.",
+     "NVIDIA DGX B200 example: eight GPUs share 1,440 GB HBM3e and 64 TB/s aggregate bandwidth, about 180 GB and 8 TB/s per GPU."
+    ],
+    "whyEn": "Capacity sets how many parameters and KV cache fit; bandwidth sets decoding speed. Either can bind before raw compute does.",
+    "slug": "HBM（高带宽显存）"
    }
   ]
  },

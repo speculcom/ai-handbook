@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Switch Transformer：用简单稀疏路由扩到万亿参数 · AI 论文</title>
+  <meta name="description" content="问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？ 证据位置：Switch 层与 top-1 路由在 §2；容量因子与负载均衡损失在 §2.2；训练与稳定性技巧（选择性精度、初始化、正则）在 " />
+  <link rel="canonical" href="https://papers.specul.com/fedus-2022-switch.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Switch Transformer：用简单稀疏路由扩到万亿参数 · AI 论文" />
+  <meta property="og:url" content="https://papers.specul.com/fedus-2022-switch.html" />
+  <meta property="og:title" content="Switch Transformer：用简单稀疏路由扩到万亿参数 · AI 论文" />
+  <meta property="og:description" content="问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？ 证据位置：Switch 层与 top-1 路由在 §2；容量因子与负载均衡损失在 §2.2；训练与稳定性技巧（选择性精度、初始化、正则）在 " />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=2b96a18d1fa6"></script>
+  <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="papers.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"Switch Transformer：用简单稀疏路由扩到万亿参数 · AI 论文","description":"问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？ 证据位置：Switch 层与 top-1 路由在 §2；容量因子与负载均衡损失在 §2.2；训练与稳定性技巧（选择性精度、初始化、正则）在 ","url":"https://papers.specul.com/fedus-2022-switch.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/" aria-current="page"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>外部站点</span><span data-en>External</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/" aria-current="page"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>外部站点</span><span data-en>External</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加一个去别处的出口</span><span data-en>Eight content sites, plus one gateway to other sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container ms-page fx-entry">
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-17</span></span></div>
+  <h1><span data-zh>Switch Transformer：用简单稀疏路由扩到万亿参数</span><span data-en>Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</span></h1>
+  <p class="fx-entry-lead"><span data-zh>问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？<br>证据位置：Switch 层与 top-1 路由在 §2；容量因子与负载均衡损失在 §2.2；训练与稳定性技巧（选择性精度、初始化、正则）在 §3；结果在 §4–§5，包含 T5-Base/Large 同算力 7× 预训练加速、101 种语言的 mT5 增益、万亿参数 Switch-C 对 T5-XXL 的 4× 加速；结论在 §9。<br>作者自陈局限：论文没有独立 Limitations 章节。Appendix E 明确提醒：上游困惑度不一定转化为下游任务——在最大模型区间（T5-11B/T5-XXL），Switch 模型并不总能把预训练优势带到 SuperGLUE 微调；作者说这需要未来研究，并指出专家模型的微调动态很复杂，依赖正则、负载均衡与超参。<br>它没主张的：没有说 Switch 在所有下游任务上都优于 dense——Appendix E 反而说小中模型区间两者相似，最大模型在 SuperGLUE 上不一定更好；没有说 top-1 路由普适最优——只与 GShard 等少数路由做了比较；也没有说 7× 加速能直接换算成 7× 成本优势——通信与专家并行开销未计入这句口号。</span><span data-en>Problem: MoE has many parameters at constant compute, but complex routing, expensive communication and unstable training kept it niche; can routing be simplified to one expert per token and paired with training tricks to make it stable?<br>Where the evidence sits: the Switch layer and top-1 routing in Section 2, capacity factor and load-balancing loss in 2.2, training and stability techniques (selective precision, initialization, regularization) in Section 3; results in Sections 4-5, including 7x pretraining speedup at equal compute for T5-Base/Large, gains across 101 languages for mT5, and a 4x speedup of trillion-parameter Switch-C over T5-XXL; conclusion in Section 9.<br>Stated limits: no separate Limitations section. Appendix E warns that upstream perplexity does not necessarily transfer downstream — in the largest regime (T5-11B/T5-XXL) Switch models do not always carry their pretraining advantage into SuperGLUE fine-tuning, which the authors leave to future work and attribute to complex fine-tuning dynamics depending on regularization, load balancing and hyperparameters.<br>What it does not claim: it does not claim Switch beats dense models on every downstream task — Appendix E says the two are similar in small-to-medium regimes and the largest Switch model is not always better on SuperGLUE; it does not claim top-1 routing is universally optimal, comparing only a few alternatives such as GShard; and it does not claim the 7x speedup translates directly into 7x cost savings, since communication and expert-parallel overhead are outside that headline.</span></p>
+  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 路由与负载均衡；§3 训练技巧；§4–5 结果；§9 结论；Appendix E 下游迁移</dd></div><div><dt>规模 / scale</dt><dd>T5-Base/Large 至 1.6T 参数、2048 专家的 Switch-C</dd></div><div><dt>关键数字 / key numbers</dt><dd>同算力最高 7× 预训练加速；101 语言优于 mT5-Base；相对 T5-XXL 4× 加速</dd></div><div><dt>自陈局限 / stated limits</dt><dd>最大模型的上游困惑度不总能迁移到 SuperGLUE（Appendix E）；无独立 Limitations 章节</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+        <blockquote>we show large sparse models may be trained, for the first time, with lower precision (bfloat16) formats</blockquote>
+        <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.03961" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.03961</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>obtain up to 7x increases in pre-training speed with the same computational resources</blockquote>
+        <figcaption><span class="fx-ev-n">2</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.03961" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.03961</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>do not always translate their upstream perplexity well to downstream fine-tuning on the SuperGLUE task</blockquote>
+        <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.03961" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.03961</a></figcaption>
+      </figure></section>
+  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+    <dl class="fx-specs">
+      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-17</dd></div>
+      <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
+      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2101.03961" rel="noopener">https://arxiv.org/abs/2101.03961</a></dd></div>
+      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+    </dl>
+  </section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2101.03961" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+</div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>外部站点</span><span data-en>External</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

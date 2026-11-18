@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>模型发布轨 · Specul</title>
-  <meta name="description" content="随官方模型发布收录的演示清单：每条挂官方 model card、Spaces 或 releases 的发布日期与本站核验日，新模型发布触发一轮收录，季度复核链接存活。" />
-  <link rel="canonical" href="https://demos.specul.com/releases.html" />
+  <title>NVIDIA DGX Spark · 硬件算力</title>
+  <meta name="description" content="回答桌面级统一内存机器的内存、功耗与体积：128GB 统一内存是它和消费级显卡的根本差别，模型不必先切进显存。官方给出的「最多 200B 参数」是推理口径、且为厂商声明，不是实测；多机互联最多 4 台。不回答训练可行性：微调上限官方写作 70B 参数级。" />
+  <link rel="canonical" href="https://hardware.specul.com/nvidia-dgx-spark.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="模型发布轨 · Specul" />
-  <meta property="og:url" content="https://demos.specul.com/releases.html" />
-  <meta property="og:title" content="模型发布轨 · Specul" />
-  <meta property="og:description" content="随官方模型发布收录的演示清单：每条挂官方 model card、Spaces 或 releases 的发布日期与本站核验日，新模型发布触发一轮收录，季度复核链接存活。" />
+  <meta property="og:site_name" content="NVIDIA DGX Spark · 硬件算力" />
+  <meta property="og:url" content="https://hardware.specul.com/nvidia-dgx-spark.html" />
+  <meta property="og:title" content="NVIDIA DGX Spark · 硬件算力" />
+  <meta property="og:description" content="回答桌面级统一内存机器的内存、功耗与体积：128GB 统一内存是它和消费级显卡的根本差别，模型不必先切进显存。官方给出的「最多 200B 参数」是推理口径、且为厂商声明，不是实测；多机互联最多 4 台。不回答训练可行性：微调上限官方写作 70B 参数级。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=2b96a18d1fa6"></script>
   <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
   <link rel="stylesheet" href="site.css" />
-  <link rel="stylesheet" href="demos.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"模型发布轨 · Specul","url":"https://demos.specul.com/releases.html","description":"随官方模型发布收录的演示清单：每条挂官方 model card、Spaces 或 releases 的发布日期与本站核验日，新模型发布触发一轮收录，季度复核链接存活。","isPartOf":{"@type":"WebSite","url":"https://demos.specul.com/"}}</script>
+  <link rel="stylesheet" href="hardware.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"NVIDIA DGX Spark · 硬件算力","description":"回答桌面级统一内存机器的内存、功耗与体积：128GB 统一内存是它和消费级显卡的根本差别，模型不必先切进显存。官方给出的「最多 200B 参数」是推理口径、且为厂商声明，不是实测；多机互联最多 4 台。不回答训练可行性：微调上限官方写作 70B 参数级。","url":"https://hardware.specul.com/nvidia-dgx-spark.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -42,8 +42,8 @@
         <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
         <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
         <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/" aria-current="page"><span data-zh>作品库</span><span data-en>Demos</span></a>
-        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" aria-current="page" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
         <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>外部站点</span><span data-en>External</span></a>
@@ -78,8 +78,8 @@
       <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/" aria-current="page"><span><span data-zh>作品库</span><span data-en>Demos</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" aria-current="page" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>外部站点</span><span data-en>External</span></span><span class="ar" aria-hidden="true">↗</span></a>
@@ -90,15 +90,34 @@
     </div>
   </aside>
   <main id="main">
-<div class="container demos-page">
-  <h1><span data-zh>模型发布轨</span><span data-en>Model-release track</span></h1>
-  <p><span data-zh>只收官方 model card、Hugging Face Spaces 或仓库 releases 里点名的演示；挂官方发布日与本站核验日。新模型发布触发一轮收录，季度复核存活。</span><span data-en>Only demos named by an official model card, Hugging Face Space or repository release; each carries the official release date and our check date. A new model release triggers an intake round; liveness is re-checked quarterly.</span></p>
-  <ul class="dm-rel">
-    <li><b>ACE-Step 1.5 XL（release v0.1.6）</b> · <span data-zh>官方发布</span><span data-en>official release</span> 2026-04-03 · <a href="https://github.com/ace-step/ACE-Step-1.5/releases/tag/v0.1.6"><span data-zh>发布来源</span><span data-en>release source</span></a> → <a href="https://ace-step-ace-step-v1-5.hf.space/">ACE-Step v1.5 音乐生成演示</a>（<span data-zh>核验</span><span data-en>checked</span> 2026-11-07）</li>
-    <li><b>CogVideoX 5B（CogVideoX-1.0）</b> · <span data-zh>官方发布</span><span data-en>official release</span> 2024-11-08 · <a href="https://github.com/zai-org/CogVideo/releases/tag/v1.0"><span data-zh>发布来源</span><span data-en>release source</span></a> → <a href="https://zai-org-cogvideox-5b-space.hf.space/">CogVideoX-5B 文生视频官方演示</a>（<span data-zh>核验</span><span data-en>checked</span> 2026-11-07）</li>
-    <li><b>IndexTTS 2.5</b> · <span data-zh>官方发布</span><span data-en>official release</span> 2026-08-13 · <a href="https://github.com/index-tts/index-tts/releases/tag/v2.5.0"><span data-zh>发布来源</span><span data-en>release source</span></a> → <a href="https://indexteam-indextts-2-5-demo.hf.space/">IndexTTS-2.5 官方语音合成演示</a>（<span data-zh>核验</span><span data-en>checked</span> 2026-11-07）</li>
-    <li><b>Open-Sora v1.2.0</b> · <span data-zh>官方发布</span><span data-en>official release</span> 2024-06-18 · <a href="https://github.com/hpcaitech/Open-Sora/releases/tag/v1.2.0"><span data-zh>发布来源</span><span data-en>release source</span></a> → <a href="https://hpcai-tech-open-sora.hf.space/">Open-Sora v1.2 视频生成官方演示</a>（<span data-zh>核验</span><span data-en>checked</span> 2026-11-07）</li>
-  </ul>
+<div class="container ms-page fx-entry">
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>整机</span><span data-en>Systems</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <h1><span data-zh>NVIDIA DGX Spark</span><span data-en>NVIDIA DGX Spark</span></h1>
+  <p class="fx-entry-lead"><span data-zh>回答桌面级统一内存机器的内存、功耗与体积：128GB 统一内存是它和消费级显卡的根本差别，模型不必先切进显存。官方给出的「最多 200B 参数」是推理口径、且为厂商声明，不是实测；多机互联最多 4 台。不回答训练可行性：微调上限官方写作 70B 参数级。</span><span data-en>Answers the memory, power and footprint of a desktop unified-memory machine: 128 GB of coherent memory is what separates it from consumer graphics cards, since the model need not be staged into dedicated VRAM first. The stated &quot;up to 200B parameters&quot; is an inference figure and a vendor claim rather than a measurement, and at most four units can be linked. It does not answer training feasibility: the vendor puts fine-tuning at up to 70B parameters.</span></p>
+  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>architecture</dt><dd>NVIDIA Grace Blackwell (GB10)</dd></div><div><dt>CPU</dt><dd>20-core Arm: 10 Cortex-X925 + 10 Cortex-A725</dd></div><div><dt>memory</dt><dd>128 GB LPDDR5x, coherent unified</dd></div><div><dt>memory bandwidth</dt><dd>273 GB/s</dd></div><div><dt>tensor performance</dt><dd>up to 1 PFLOP FP4 (with sparsity)</dd></div><div><dt>power supply</dt><dd>240 W; GB10 TDP 140 W</dd></div><div><dt>dimensions</dt><dd>150 x 150 x 50.5 mm; 1.2 kg</dd></div><div><dt>storage</dt><dd>up to 4 TB NVMe M.2</dd></div><div><dt>networking</dt><dd>ConnectX-7 at 200 Gbps; 10 GbE; WiFi 7</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+        <blockquote>Tensor Performance1 Up to 1 PFLOP FP4</blockquote>
+        <figcaption><span class="fx-ev-n">1</span> <a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/" rel="noopener">https://www.nvidia.com/en-us/products/workstations/dgx-spark/</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>System Memory 64 GB LPDDR5X* or 128 GB LPDDR5x, coherent unified system memory</blockquote>
+        <figcaption><span class="fx-ev-n">2</span> <a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/" rel="noopener">https://www.nvidia.com/en-us/products/workstations/dgx-spark/</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>Power Supply 240 Watts</blockquote>
+        <figcaption><span class="fx-ev-n">3</span> <a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/" rel="noopener">https://www.nvidia.com/en-us/products/workstations/dgx-spark/</a></figcaption>
+      </figure></section>
+  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+    <dl class="fx-specs">
+      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-spec-page</dd></div>
+      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/" rel="noopener">https://www.nvidia.com/en-us/products/workstations/dgx-spark/</a></dd></div>
+      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>整机</span><span data-en>Systems</span></dd></div>
+    </dl>
+  </section>
+  <p><a class="fx-source" href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力目录</span><span data-en>← Back to the Compute directory</span></a></p>
 </div>
   </main>
   <footer class="site-footer">
@@ -112,7 +131,7 @@
           <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
           <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
           <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-          <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>

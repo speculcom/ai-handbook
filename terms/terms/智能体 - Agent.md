@@ -15,6 +15,9 @@ layer: "三"
 ord: 1
 last_verified: "2026-11-09"
 verified_scope: "refs"
+figure: "fig-agent-loop.svg"
+figure_caption: "目标 → 计划 → 工具调用 → 观察 → 修正的循环；权限与预算决定循环边界。"
+figure_caption_en: "A goal → plan → tool call → observation → revise loop; permissions and budget bound it."
 ---
 
 # 智能体 / Agent（Agent）
