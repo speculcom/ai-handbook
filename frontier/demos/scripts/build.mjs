@@ -3,7 +3,8 @@
  * 结构：
  *   index.html                 全部作品（用途 / 模型筛选）
  *   <collection>-<count>-html.html  一组同源作品的 HTML 视觉研究
- *   play.html?id=<demo>        站内播放器（原始 GitHub Pages iframe，不复制源文件）
+ *   works/<id>.html            每件作品的独立页（站内播放 + 源码/prompt/仓库）
+ *   play.html?id=<demo>        旧通用播放器，保留为兼容入口
  *   compare.html               任意两件作品并排（同题时明确标注，不同题只作风格对照）
  *   prompts.html               提示词索引（只链原始 prompt，不复制全文）
  *
@@ -30,6 +31,7 @@ const collectionHref = (c) => `${c.id}-${modelCount(c.id)}-html.html`;
 const samePrompt = [...new Set(entries.map((e) => e.promptHash))].filter((h) => entries.filter((e) => e.promptHash === h).length > 1).length;
 
 const playHref = (e) => `play.html?id=${encodeURIComponent(e.id)}`;
+const workHref = (e) => `works/${encodeURIComponent(e.id)}.html`;
 const repoOf = (c) => (String(c.repo || '').startsWith('http') ? c.repo : `https://github.com/${c.repo}`);
 const short = (s, n = 120) => (String(s || '').length > n ? `${String(s).slice(0, n - 1)}…` : String(s || ''));
 const cat = (e) => catLabels(e.category || '');
@@ -39,12 +41,12 @@ function card(e) {
   const c = modelOf(e);
   const L = cat(e);
   return `<article class="fx-card dm-card" id="${esc(e.id)}" data-cat="${esc(e.category)}" data-model="${esc(e.collection)}" data-summary-zh="${esc(short(e.notes.zh, 160))}" data-summary-en="${esc(short(e.notes.en, 160))}" data-search="${esc(`${e.title.zh} ${e.title.en} ${(e.tags || []).join(' ')} ${short(e.notes.zh, 80)} ${short(e.notes.en, 80)}`.toLowerCase())}">
-    <a class="dm-thumb" href="${esc(playHref(e))}" aria-label="Run ${esc(e.title.en || e.title.zh)}"><img src="${esc(e.thumbUrl)}" alt="${esc(e.title.zh)}" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <a class="dm-thumb" href="${esc(workHref(e))}" aria-label="Open ${esc(e.title.en || e.title.zh)}"><img src="${esc(e.thumbUrl)}" alt="${esc(e.title.zh)}" loading="lazy" referrerpolicy="no-referrer" /></a>
     <div class="dm-card-body">
       <div class="dm-card-meta"><span class="dm-card-cat">${bi(esc(L.zh), esc(L.en))}</span><span class="dm-card-num">${esc(e.num)}</span></div>
-      <h3><a href="${esc(playHref(e))}">${esc(e.title.zh)}</a></h3>
+      <h3><a href="${esc(workHref(e))}">${esc(e.title.zh)}</a></h3>
       <p class="dm-card-source">${bi('来自', 'From')} ${esc(c.name)}</p>
-      <div class="dm-card-actions"><a class="dm-card-open" href="${esc(playHref(e))}">${bi('打开', 'Open')} <span aria-hidden="true">&rarr;</span></a><a href="${esc(e.sourceUrl)}" rel="noopener">${bi('源码', 'Source')} &nearr;</a><a href="${esc(e.promptUrl)}" rel="noopener">${bi('prompt', 'Prompt')} &nearr;</a></div>
+      <div class="dm-card-actions"><a class="dm-card-open" href="${esc(workHref(e))}">${bi('打开', 'Open')} <span aria-hidden="true">&rarr;</span></a><a href="${esc(e.sourceUrl)}" rel="noopener">${bi('源码', 'Source')} &nearr;</a><a href="${esc(e.promptUrl)}" rel="noopener">${bi('prompt', 'Prompt')} &nearr;</a></div>
     </div>
   </article>`;
 }
@@ -128,22 +130,48 @@ document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-pl
 document.getElementById('dm-open').href=e.demoUrl;document.getElementById('dm-source').href=e.sourceUrl;document.getElementById('dm-prompt').href=e.promptUrl;document.getElementById('dm-repo').href=e.repoUrl;
 document.getElementById('dm-desc').textContent=e.notes.zh;document.getElementById('dm-licence').textContent='许可：仓库未声明 LICENSE；作品只在原作者发布页运行，本站不复制文件。';
 document.getElementById('dm-tags').innerHTML=(e.tags||[]).map(function(t){return '<span class="dm-tag">'+t+'</span>';}).join('');
-document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Math.random()*data.length)];location.href='play.html?id='+encodeURIComponent(n.id);};
+document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Math.random()*data.length)];location.href='works/'+encodeURIComponent(n.id)+'.html';};
 }).catch(function(){document.getElementById('dm-play-sub').textContent='载入失败：请通过本地静态服务器打开本页。';});
 })();</script>`;
+
+const workBody = (e) => {
+  const c = modelOf(e);
+  const L = cat(e);
+  const total = modelCount(e.collection);
+  return `<div class="container demos-page dm-play dm-work">
+  <p class="kicker"><a href="../index.html">${bi('← 全部作品', '← All pieces')}</a> <span class="dm-sep">/</span> <a href="../${esc(collectionHref(c))}">${bi(esc(collectionTitle(c)), esc(collectionTitleEn(c)))}</a> <span class="dm-sep">/</span> <span>${esc(e.num)}</span></p>
+  <div class="dm-play-head">
+    <div>
+      <div class="dm-card-meta"><span class="dm-card-cat">${bi(esc(L.zh), esc(L.en))}</span><span class="dm-card-num">${esc(e.num)} / ${total}</span></div>
+      <h1>${bi(esc(e.title.zh), esc(e.title.en))}</h1>
+      <p class="dm-lead">${bi(`收录于「${esc(collectionTitle(c))}」。`, `From ${esc(c.name)}’s ${total} HTML visual studies.`)}</p>
+    </div>
+    <div class="dm-play-actions">
+      <a class="dm-btn" href="${esc(e.demoUrl)}" rel="noopener">${bi('全屏打开原页', 'Open original')} &nearr;</a>
+      <a class="dm-btn dm-btn-ghost" href="../compare.html?left=${encodeURIComponent(e.id)}">${bi('并排看', 'Compare')} &rarr;</a>
+    </div>
+  </div>
+  <div class="dm-player"><iframe title="${esc(e.title.en || e.title.zh)}" src="${esc(e.demoUrl)}" sandbox="allow-scripts" referrerpolicy="no-referrer" loading="eager"></iframe></div>
+  <p class="dm-note-line">${bi('作品在原作者的页面运行。如果画面空白，通常是对方禁止嵌入，点“全屏打开原页”。', 'The piece runs on the original author’s page. If it appears blank, embedding is likely blocked; use “Open original”.')}</p>
+  <div class="dm-play-info">
+    <div><h2>${bi('这件作品', 'About this piece')}</h2><p>${bi(esc(e.notes.zh), esc(e.notes.en))}</p></div>
+    <div><h2>${bi('源码与 prompt', 'Source & prompt')}</h2><p class="t-sm">${bi('仓库未声明 LICENSE；作品只在原作者发布页运行，本站不复制文件。', 'The repository declares no licence; the work runs on the publisher’s page and is not copied here.')}</p><ul class="dm-links"><li><a href="${esc(e.sourceUrl)}" rel="noopener">${bi('原始 HTML', 'Original HTML')} &nearr;</a></li><li><a href="${esc(e.promptUrl)}" rel="noopener">${bi('原始 prompt', 'Original prompt')} &nearr;</a></li><li><a href="${esc(e.repoUrl)}" rel="noopener">${bi('原仓库', 'Source repository')} &nearr;</a></li></ul></div>
+  </div>
+</div>`;
+};
 
 const compareBody = `<div class="container demos-page">
   <p class="kicker"><a href="index.html">${bi('← 全部作品', '← All pieces')}</a> <span class="dm-sep">/</span> <span>${bi('并排对照', 'side by side')}</span></p>
   <h1>${bi('并排看两个作品', 'Two pieces, side by side')}</h1>
   <p class="dm-lead">${bi('左右各选一件。题目一样，就是同题对照；题目不一样，就只看两种处理方式。', 'Pick one piece on each side. Same brief means a controlled pair; different briefs mean a style comparison only.')}</p>
   <div class="dm-compare-controls"><label>${bi('左边', 'Left')}<select id="dm-left"></select></label><button id="dm-swap" class="dm-btn dm-btn-ghost" type="button">${bi('交换', 'Swap')}</button><label>${bi('右边', 'Right')}<select id="dm-right"></select></label><span id="dm-same" class="dm-same"></span></div>
-  <div class="dm-compare"><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-l-title"></b><small id="dm-l-sub"></small></div><a id="dm-l-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-l-frame" title="Left piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-l-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-l-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-r-title"></b><small id="dm-r-sub"></small></div><a id="dm-r-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-r-frame" title="Right piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-r-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-r-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section></div>
+  <div class="dm-compare"><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-l-title"></b><small id="dm-l-sub"></small></div><a id="dm-l-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-l-frame" title="Left piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-l-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-l-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-l-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-r-title"></b><small id="dm-r-sub"></small></div><a id="dm-r-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-r-frame" title="Right piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-r-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-r-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-r-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section></div>
   <p class="dm-note-line">${bi('“同题”按 prompt 文本哈希判断；不同题并排时，差异可能来自题目本身，不能当作模型能力结论。', '“Same brief” is determined by the prompt-text hash. When briefs differ, the difference may come from the brief itself and is not a model-capability conclusion.')}</p>
 </div>
 <script>(function(){
 var left=document.getElementById('dm-left'),right=document.getElementById('dm-right');var state={left:null,right:null,data:null};
 function opt(e){return '<option value="'+e.id+'">'+e.num+' · '+e.title.zh.replace(/</g,'&lt;')+' · '+e.model.name+'</option>';}
-function pane(side,e){var cap=side==='left'?'l':'r';document.getElementById('dm-'+cap+'-title').textContent=e.title.zh;document.getElementById('dm-'+cap+'-sub').textContent=e.title.en+' · '+e.model.name+' · '+e.category;document.getElementById('dm-'+cap+'-frame').src=e.demoUrl;document.getElementById('dm-'+cap+'-open').href=e.demoUrl;document.getElementById('dm-'+cap+'-source').href=e.sourceUrl;document.getElementById('dm-'+cap+'-prompt').href=e.promptUrl;state[side]=e;var a=state.left,b=state.right;var box=document.getElementById('dm-same');if(a&&b){box.textContent=a.promptHash===b.promptHash?'同题 · 可作受控对照':'不同题 · 仅作风格对照';box.className='dm-same '+(a.promptHash===b.promptHash?'is-same':'is-diff');}}
+function pane(side,e){var cap=side==='left'?'l':'r';document.getElementById('dm-'+cap+'-title').textContent=e.title.zh;document.getElementById('dm-'+cap+'-sub').textContent=e.title.en+' · '+e.model.name+' · '+e.category;document.getElementById('dm-'+cap+'-frame').src=e.demoUrl;document.getElementById('dm-'+cap+'-open').href=e.demoUrl;document.getElementById('dm-'+cap+'-work').href='works/'+encodeURIComponent(e.id)+'.html';document.getElementById('dm-'+cap+'-source').href=e.sourceUrl;document.getElementById('dm-'+cap+'-prompt').href=e.promptUrl;state[side]=e;var a=state.left,b=state.right;var box=document.getElementById('dm-same');if(a&&b){box.textContent=a.promptHash===b.promptHash?'同题 · 可作受控对照':'不同题 · 仅作风格对照';box.className='dm-same '+(a.promptHash===b.promptHash?'is-same':'is-diff');}}
 fetch('demos-data.json').then(function(r){return r.json();}).then(function(data){state.data=data;left.innerHTML=data.map(opt).join('');right.innerHTML=data.map(opt).join('');var qs=new URLSearchParams(location.search);var l=qs.get('left')||data[0].id;var r=qs.get('right')||data.find(function(x){return x.collection!==data[0].collection;}).id;left.value=l;right.value=r;left.onchange=function(){pane('left',data.find(function(x){return x.id===left.value;}));};right.onchange=function(){pane('right',data.find(function(x){return x.id===right.value;}));};document.getElementById('dm-swap').onclick=function(){var a=left.value,b=right.value;left.value=b;right.value=a;pane('left',data.find(function(x){return x.id===b;}));pane('right',data.find(function(x){return x.id===a;}));};pane('left',data.find(function(x){return x.id===l;}));pane('right',data.find(function(x){return x.id===r;}));}).catch(function(){document.getElementById('dm-same').textContent='载入失败：请通过本地静态服务器打开本页。';});
 })();</script>`;
 
@@ -152,7 +180,7 @@ const promptsBody = `<div class="container demos-page">
   <h1>${bi('提示词索引', 'Prompt index')}</h1>
   <p class="dm-lead">${bi(`${entries.length} 条题目的标题、用途和原始 prompt 链接。想复跑，打开原仓库的 txt。`, `${entries.length} briefs with title, use and a link to the original prompt. To reproduce, open the txt in the source repo.`)}</p>
   ${filterUI('dm-prompt', entries, false)}
-  <div class="dm-prompt-list" id="dm-prompt-grid">${entries.map((e) => `<article class="dm-prompt-card fx-card" data-cat="${esc(e.category)}" data-model="${esc(e.collection)}" data-search="${esc(`${e.title.zh} ${e.title.en} ${(e.tags || []).join(' ')} ${short(e.notes.zh, 90)} ${short(e.notes.en, 90)}`.toLowerCase())}"><div class="fx-top"><span class="fx-badge dm-model-badge">${esc(e.model.name)}</span><span class="fx-badge">${bi(esc(cat(e).zh), esc(cat(e).en))}</span><span class="fx-meta">${esc(e.num)}</span></div><h3>${esc(e.title.zh)}</h3><div class="fx-card-links"><a class="fx-source" href="${esc(e.promptUrl)}" rel="noopener">${bi('原始 prompt', 'Original prompt')} &nearr;</a><a class="fx-source" href="${esc(playHref(e))}">${bi('打开', 'Open')} &rarr;</a><a class="fx-source" href="${esc(e.sourceUrl)}" rel="noopener">${bi('源码', 'Source')} &nearr;</a></div></article>`).join('')}</div>
+  <div class="dm-prompt-list" id="dm-prompt-grid">${entries.map((e) => `<article class="dm-prompt-card fx-card" data-cat="${esc(e.category)}" data-model="${esc(e.collection)}" data-search="${esc(`${e.title.zh} ${e.title.en} ${(e.tags || []).join(' ')} ${short(e.notes.zh, 90)} ${short(e.notes.en, 90)}`.toLowerCase())}"><div class="fx-top"><span class="fx-badge dm-model-badge">${esc(e.model.name)}</span><span class="fx-badge">${bi(esc(cat(e).zh), esc(cat(e).en))}</span><span class="fx-meta">${esc(e.num)}</span></div><h3>${esc(e.title.zh)}</h3><div class="fx-card-links"><a class="fx-source" href="${esc(e.promptUrl)}" rel="noopener">${bi('原始 prompt', 'Original prompt')} &nearr;</a><a class="fx-source" href="${esc(workHref(e))}">${bi('打开', 'Open')} &rarr;</a><a class="fx-source" href="${esc(e.sourceUrl)}" rel="noopener">${bi('源码', 'Source')} &nearr;</a></div></article>`).join('')}</div>
   <p class="dm-footnote">${bi('这里只放题目索引和外链，不复制 prompt 全文。', 'This is an index and link list; full prompts are not copied here.')}</p>
 </div>
 ${filterScript('dm-prompt', '#dm-prompt-grid', false)}`;
@@ -171,6 +199,40 @@ for (const [file, title, desc, body] of pages) {
   const jsonLd = { '@context': 'https://schema.org', '@type': file === 'play.html' ? 'WebPage' : 'CollectionPage', name: title, description: desc, url: canonical, isPartOf: { '@type': 'WebSite', name: 'Specul', url: 'https://specul.com/' } };
   fs.writeFileSync(path.join(OUT, file), shell({ current: 'demos', title, desc, canonical, body, repo: 'https://github.com/speculcom/ai-handbook', jsonLd, headExtra: '  <link rel="stylesheet" href="demos.css" />' }), 'utf8');
 }
+const workDir = path.join(OUT, 'works');
+fs.rmSync(workDir, { recursive: true, force: true });
+fs.mkdirSync(workDir, { recursive: true });
+for (const e of entries) {
+  const c = modelOf(e);
+  const file = workHref(e);
+  const canonical = `https://demos.specul.com/${file}`;
+  const title = `${short(e.title.zh, 56)} · Specul`;
+  const desc = short(`${e.title.zh}：${e.notes.zh}`, 150);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: e.title.zh,
+    alternateName: e.title.en,
+    description: e.notes.zh,
+    url: canonical,
+    image: e.thumbUrl,
+    genre: e.category,
+    creator: { '@type': 'Organization', name: c.name },
+    isPartOf: { '@type': 'CollectionPage', name: collectionTitle(c), url: `https://demos.specul.com/${collectionHref(c)}` },
+    isAccessibleForFree: true,
+  };
+  fs.writeFileSync(path.join(OUT, file), shell({
+    current: 'demos',
+    title,
+    desc,
+    canonical,
+    body: workBody(e),
+    repo: 'https://github.com/speculcom/ai-handbook',
+    jsonLd,
+    headExtra: '  <link rel="stylesheet" href="../demos.css" />',
+    assetPrefix: '../',
+  }), 'utf8');
+}
 for (const f of ['releases.html', 'model-gpt-6-2-sol.html', 'model-claude-fable-5-2.html']) {
   const old = path.join(OUT, f);
   if (fs.existsSync(old)) fs.unlinkSync(old);
@@ -179,13 +241,14 @@ const compactEntries = entries.map((e) => ({
   id: e.id, collection: e.collection, num: e.num, slug: e.slug, title: e.title, notes: e.notes,
   category: e.category, tags: e.tags, promptHash: e.promptHash, promptUrl: e.promptUrl,
   sourceUrl: e.sourceUrl, demoUrl: e.demoUrl, thumbUrl: e.thumbUrl, repoUrl: e.repoUrl, model: e.model,
+  workPath: workHref(e), workUrl: `https://demos.specul.com/${workHref(e)}`,
 }));
 fs.writeFileSync(path.join(OUT, 'demos-data.json'), JSON.stringify(compactEntries, null, 2), 'utf8');
 fs.copyFileSync(path.join(SRC, 'css/demos.css'), path.join(OUT, 'demos.css'));
 fs.copyFileSync(path.join(ROOT, '_sites/_template/site.css'), path.join(OUT, 'site.css'));
 fs.writeFileSync(path.join(OUT, 'CNAME'), 'demos.specul.com\n');
 fs.writeFileSync(path.join(OUT, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: https://demos.specul.com/sitemap.xml\n');
-fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(([f]) => `  <url><loc>https://demos.specul.com/${f === 'index.html' ? '' : f}</loc></url>`).join('\n')}\n</urlset>\n`);
+fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(([f]) => `  <url><loc>https://demos.specul.com/${f === 'index.html' ? '' : f}</loc></url>`).join('\n')}\n${entries.map((e) => `  <url><loc>https://demos.specul.com/${workHref(e)}</loc></url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync(path.join(OUT, 'llms.txt'), `# Specul 作品演示\n\n> ${entries.length} 个可运行的 HTML 视觉研究，分属 ${collections.length} 组来源；站内只嵌入原发布页，不复制未声明许可的文件。\n\n- [作品演示](https://demos.specul.com/)\n- [并排对照](https://demos.specul.com/compare.html)\n- [提示词索引](https://demos.specul.com/prompts.html)\n${collections.map((c) => `- [${collectionTitle(c)}](https://demos.specul.com/${collectionHref(c)}) — ${modelCount(c.id)} 个作品`).join('\n')}\n`);
 fs.writeFileSync(path.join(OUT, 'llms.en.txt'), `# Specul Playground\n\n> ${entries.length} runnable HTML visual studies from ${collections.length} source sets; the site embeds the original publication pages and does not copy unlicensed files.\n\n- [Playground](https://demos.specul.com/)\n- [Compare](https://demos.specul.com/compare.html)\n- [Prompt index](https://demos.specul.com/prompts.html)\n${collections.map((c) => `- [${collectionTitle(c)}](https://demos.specul.com/${collectionHref(c)}) — ${modelCount(c.id)} pieces`).join('\n')}\n`);
-console.log(`demos 构建：${entries.length} 条 · ${collections.length} 套来源 · ${pages.length} 页 · 同题 ${samePrompt} 组`);
+console.log(`demos 构建：${entries.length} 条 · ${collections.length} 套来源 · ${pages.length} 个站页 + ${entries.length} 个作品页 · 同题 ${samePrompt} 组`);

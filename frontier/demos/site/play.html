@@ -108,7 +108,7 @@ document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-pl
 document.getElementById('dm-open').href=e.demoUrl;document.getElementById('dm-source').href=e.sourceUrl;document.getElementById('dm-prompt').href=e.promptUrl;document.getElementById('dm-repo').href=e.repoUrl;
 document.getElementById('dm-desc').textContent=e.notes.zh;document.getElementById('dm-licence').textContent='许可：仓库未声明 LICENSE；作品只在原作者发布页运行，本站不复制文件。';
 document.getElementById('dm-tags').innerHTML=(e.tags||[]).map(function(t){return '<span class="dm-tag">'+t+'</span>';}).join('');
-document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Math.random()*data.length)];location.href='play.html?id='+encodeURIComponent(n.id);};
+document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Math.random()*data.length)];location.href='works/'+encodeURIComponent(n.id)+'.html';};
 }).catch(function(){document.getElementById('dm-play-sub').textContent='载入失败：请通过本地静态服务器打开本页。';});
 })();</script>
   </main>
