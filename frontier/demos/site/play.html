@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>运行演示 · Specul</title>
+  <title>打开作品 · Specul</title>
   <meta name="description" content="站内播放器：用受限 iframe 打开原始 GitHub Pages 上的 HTML 作品，并列出源码、prompt、仓库与许可状态。" />
   <link rel="canonical" href="https://demos.specul.com/play.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="运行演示 · Specul" />
+  <meta property="og:site_name" content="打开作品 · Specul" />
   <meta property="og:url" content="https://demos.specul.com/play.html" />
-  <meta property="og:title" content="运行演示 · Specul" />
+  <meta property="og:title" content="打开作品 · Specul" />
   <meta property="og:description" content="站内播放器：用受限 iframe 打开原始 GitHub Pages 上的 HTML 作品，并列出源码、prompt、仓库与许可状态。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="demos.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"运行演示 · Specul","description":"站内播放器：用受限 iframe 打开原始 GitHub Pages 上的 HTML 作品，并列出源码、prompt、仓库与许可状态。","url":"https://demos.specul.com/play.html","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"打开作品 · Specul","description":"站内播放器：用受限 iframe 打开原始 GitHub Pages 上的 HTML 作品，并列出源码、prompt、仓库与许可状态。","url":"https://demos.specul.com/play.html","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -91,22 +91,22 @@
   </aside>
   <main id="main">
 <div class="container demos-page dm-play">
-  <p class="kicker"><a href="index.html"><span data-zh>← 返回作品演示</span><span data-en>← Back to Playground</span></a> <span class="dm-sep">/</span> <span><span data-zh>外部运行</span><span data-en>external run</span></span></p>
-  <div class="dm-play-head"><div><h1 id="dm-play-title"><span data-zh>运行演示</span><span data-en>Run a piece</span></h1><p id="dm-play-sub" class="dm-lead"><span data-zh>正在载入作品信息…</span><span data-en>Loading piece information…</span></p></div><div class="dm-play-actions"><a id="dm-open" class="dm-btn" href="#" rel="noopener"><span data-zh>全屏打开原页</span><span data-en>Open original</span> &nearr;</a><button id="dm-random" class="dm-btn dm-btn-ghost" type="button"><span data-zh>随便看一个</span><span data-en>Random piece</span></button></div></div>
+  <p class="kicker"><a href="index.html"><span data-zh>← 全部作品</span><span data-en>← All pieces</span></a> <span class="dm-sep">/</span> <span><span data-zh>原页面运行</span><span data-en>runs on the original page</span></span></p>
+  <div class="dm-play-head"><div><h1 id="dm-play-title"><span data-zh>打开作品</span><span data-en>Open a piece</span></h1><p id="dm-play-sub" class="dm-lead"><span data-zh>正在载入作品信息…</span><span data-en>Loading piece information…</span></p></div><div class="dm-play-actions"><a id="dm-open" class="dm-btn" href="#" rel="noopener"><span data-zh>全屏打开原页</span><span data-en>Open original</span> &nearr;</a><button id="dm-random" class="dm-btn dm-btn-ghost" type="button"><span data-zh>随便看一个</span><span data-en>Random piece</span></button></div></div>
   <div class="dm-player"><iframe id="dm-frame" title="Run the piece" sandbox="allow-scripts" referrerpolicy="no-referrer" loading="eager"></iframe></div>
   <div class="dm-play-info">
-    <div><h2><span data-zh>这是什么</span><span data-en>What this is</span></h2><p id="dm-desc"></p><div id="dm-tags" class="dm-tags"></div></div>
-    <div><h2><span data-zh>来源与权利</span><span data-en>Source & rights</span></h2><p id="dm-licence" class="t-sm"></p><ul class="dm-links"><li><a id="dm-source" href="#" rel="noopener"><span data-zh>原始 HTML</span><span data-en>Original HTML</span> &nearr;</a></li><li><a id="dm-prompt" href="#" rel="noopener"><span data-zh>原始 prompt</span><span data-en>Original prompt</span> &nearr;</a></li><li><a id="dm-repo" href="#" rel="noopener"><span data-zh>原仓库</span><span data-en>Source repository</span> &nearr;</a></li></ul></div>
+    <div><h2><span data-zh>这件作品</span><span data-en>About this piece</span></h2><p id="dm-desc"></p><div id="dm-tags" class="dm-tags"></div></div>
+    <div><h2><span data-zh>源码与 prompt</span><span data-en>Source & prompt</span></h2><p id="dm-licence" class="t-sm"></p><ul class="dm-links"><li><a id="dm-source" href="#" rel="noopener"><span data-zh>原始 HTML</span><span data-en>Original HTML</span> &nearr;</a></li><li><a id="dm-prompt" href="#" rel="noopener"><span data-zh>原始 prompt</span><span data-en>Original prompt</span> &nearr;</a></li><li><a id="dm-repo" href="#" rel="noopener"><span data-zh>原仓库</span><span data-en>Source repository</span> &nearr;</a></li></ul></div>
   </div>
-  <p class="dm-note-line"><span data-zh>iframe 只允许 allow-scripts，不允许 same-origin、顶层跳转或读取本站 Cookie。页面若空白，通常是原作者页面禁止嵌入，请用“全屏打开原页”。</span><span data-en>The iframe allows only allow-scripts: no same-origin, no top navigation, no access to this site’s cookies. If the page is blank, the original may block embedding; use “Open original”.</span></p>
+  <p class="dm-note-line"><span data-zh>作品在原作者的页面运行。如果画面空白，通常是对方禁止嵌入，点“全屏打开原页”。</span><span data-en>The piece runs on the original author’s page. If it appears blank, embedding is likely blocked; use “Open original”.</span></p>
 </div>
 <script>(function(){
 var qs=new URLSearchParams(location.search);var id=qs.get('id');
 fetch('demos-data.json').then(function(r){if(!r.ok)throw new Error('data');return r.json();}).then(function(data){
 var map={};data.forEach(function(x){map[x.id]=x;});var e=map[id]||data[Math.floor(Math.random()*data.length)];
-document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-play-title').textContent=e.title.zh;document.getElementById('dm-play-sub').textContent=e.title.en+' · '+e.model.name;document.title=e.title.zh+' · 运行演示 · Specul';
+document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-play-title').textContent=e.title.zh;document.getElementById('dm-play-sub').textContent=e.title.en+' · '+e.model.name;document.title=e.title.zh+' · 打开作品 · Specul';
 document.getElementById('dm-open').href=e.demoUrl;document.getElementById('dm-source').href=e.sourceUrl;document.getElementById('dm-prompt').href=e.promptUrl;document.getElementById('dm-repo').href=e.repoUrl;
-document.getElementById('dm-desc').textContent=e.notes.zh;document.getElementById('dm-licence').textContent='许可：仓库未声明 LICENSE；页面仅在原始发布页运行，本站不复制文件。';
+document.getElementById('dm-desc').textContent=e.notes.zh;document.getElementById('dm-licence').textContent='许可：仓库未声明 LICENSE；作品只在原作者发布页运行，本站不复制文件。';
 document.getElementById('dm-tags').innerHTML=(e.tags||[]).map(function(t){return '<span class="dm-tag">'+t+'</span>';}).join('');
 document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Math.random()*data.length)];location.href='play.html?id='+encodeURIComponent(n.id);};
 }).catch(function(){document.getElementById('dm-play-sub').textContent='载入失败：请通过本地静态服务器打开本页。';});

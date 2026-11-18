@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>双模型对照 · Specul</title>
-  <meta name="description" content="把两套模型合集里的任意两个 HTML 作品并排打开；同题按 prompt 哈希判定，不同题明确标注为风格对照，不冒充模型能力结论。" />
+  <title>并排看两个作品 · Specul</title>
+  <meta name="description" content="把两件 HTML 作品并排打开，左右各选一件；同题按 prompt 哈希判定，不同题明确标注为风格对照，不当作模型能力结论。" />
   <link rel="canonical" href="https://demos.specul.com/compare.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="双模型对照 · Specul" />
+  <meta property="og:site_name" content="并排看两个作品 · Specul" />
   <meta property="og:url" content="https://demos.specul.com/compare.html" />
-  <meta property="og:title" content="双模型对照 · Specul" />
-  <meta property="og:description" content="把两套模型合集里的任意两个 HTML 作品并排打开；同题按 prompt 哈希判定，不同题明确标注为风格对照，不冒充模型能力结论。" />
+  <meta property="og:title" content="并排看两个作品 · Specul" />
+  <meta property="og:description" content="把两件 HTML 作品并排打开，左右各选一件；同题按 prompt 哈希判定，不同题明确标注为风格对照，不当作模型能力结论。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=2b96a18d1fa6"></script>
   <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="demos.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"双模型对照 · Specul","description":"把两套模型合集里的任意两个 HTML 作品并排打开；同题按 prompt 哈希判定，不同题明确标注为风格对照，不冒充模型能力结论。","url":"https://demos.specul.com/compare.html","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"并排看两个作品 · Specul","description":"把两件 HTML 作品并排打开，左右各选一件；同题按 prompt 哈希判定，不同题明确标注为风格对照，不当作模型能力结论。","url":"https://demos.specul.com/compare.html","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -91,16 +91,16 @@
   </aside>
   <main id="main">
 <div class="container demos-page">
-  <p class="kicker"><a href="index.html"><span data-zh>← 返回作品演示</span><span data-en>← Back to Playground</span></a> <span class="dm-sep">/</span> <span><span data-zh>双模型对照</span><span data-en>two-model comparison</span></span></p>
-  <h1><span data-zh>并排看两个模型</span><span data-en>Two models, side by side</span></h1>
-  <p class="dm-lead"><span data-zh>两套合集一共 176 个作品；严格同题只有 0 组。选任意两个作品并排，下面会说明它们是“同题”还是“不同题、只作风格对照”。</span><span data-en>176 pieces across two collections; only 0 strict same-prompt pairs. Pick any two pieces; the line below says whether they share a prompt or are a style comparison only.</span></p>
+  <p class="kicker"><a href="index.html"><span data-zh>← 全部作品</span><span data-en>← All pieces</span></a> <span class="dm-sep">/</span> <span><span data-zh>并排对照</span><span data-en>side by side</span></span></p>
+  <h1><span data-zh>并排看两个作品</span><span data-en>Two pieces, side by side</span></h1>
+  <p class="dm-lead"><span data-zh>左右各选一件。题目一样，就是同题对照；题目不一样，就只看两种处理方式。</span><span data-en>Pick one piece on each side. Same brief means a controlled pair; different briefs mean a style comparison only.</span></p>
   <div class="dm-compare-controls"><label><span data-zh>左边</span><span data-en>Left</span><select id="dm-left"></select></label><button id="dm-swap" class="dm-btn dm-btn-ghost" type="button"><span data-zh>交换</span><span data-en>Swap</span></button><label><span data-zh>右边</span><span data-en>Right</span><select id="dm-right"></select></label><span id="dm-same" class="dm-same"></span></div>
   <div class="dm-compare"><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-l-title"></b><small id="dm-l-sub"></small></div><a id="dm-l-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-l-frame" title="Left piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-l-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-l-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-r-title"></b><small id="dm-r-sub"></small></div><a id="dm-r-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-r-frame" title="Right piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-r-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-r-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section></div>
-  <p class="dm-note-line"><span data-zh>“同题”按 prompt 文本哈希判断；不同题并排时，差异可能来自题目本身，不能当作模型能力结论。</span><span data-en>“Same prompt” is determined by the prompt-text hash. When prompts differ, the difference may come from the brief itself and cannot be read as a model-capability conclusion.</span></p>
+  <p class="dm-note-line"><span data-zh>“同题”按 prompt 文本哈希判断；不同题并排时，差异可能来自题目本身，不能当作模型能力结论。</span><span data-en>“Same brief” is determined by the prompt-text hash. When briefs differ, the difference may come from the brief itself and is not a model-capability conclusion.</span></p>
 </div>
 <script>(function(){
 var left=document.getElementById('dm-left'),right=document.getElementById('dm-right');var state={left:null,right:null,data:null};
-function opt(e){return '<option value="'+e.id+'">'+e.model.name+' · '+e.num+' · '+e.title.zh.replace(/</g,'&lt;')+'</option>';}
+function opt(e){return '<option value="'+e.id+'">'+e.num+' · '+e.title.zh.replace(/</g,'&lt;')+' · '+e.model.name+'</option>';}
 function pane(side,e){var cap=side==='left'?'l':'r';document.getElementById('dm-'+cap+'-title').textContent=e.title.zh;document.getElementById('dm-'+cap+'-sub').textContent=e.title.en+' · '+e.model.name+' · '+e.category;document.getElementById('dm-'+cap+'-frame').src=e.demoUrl;document.getElementById('dm-'+cap+'-open').href=e.demoUrl;document.getElementById('dm-'+cap+'-source').href=e.sourceUrl;document.getElementById('dm-'+cap+'-prompt').href=e.promptUrl;state[side]=e;var a=state.left,b=state.right;var box=document.getElementById('dm-same');if(a&&b){box.textContent=a.promptHash===b.promptHash?'同题 · 可作受控对照':'不同题 · 仅作风格对照';box.className='dm-same '+(a.promptHash===b.promptHash?'is-same':'is-diff');}}
 fetch('demos-data.json').then(function(r){return r.json();}).then(function(data){state.data=data;left.innerHTML=data.map(opt).join('');right.innerHTML=data.map(opt).join('');var qs=new URLSearchParams(location.search);var l=qs.get('left')||data[0].id;var r=qs.get('right')||data.find(function(x){return x.collection!==data[0].collection;}).id;left.value=l;right.value=r;left.onchange=function(){pane('left',data.find(function(x){return x.id===left.value;}));};right.onchange=function(){pane('right',data.find(function(x){return x.id===right.value;}));};document.getElementById('dm-swap').onclick=function(){var a=left.value,b=right.value;left.value=b;right.value=a;pane('left',data.find(function(x){return x.id===b;}));pane('right',data.find(function(x){return x.id===a;}));};pane('left',data.find(function(x){return x.id===l;}));pane('right',data.find(function(x){return x.id===r;}));}).catch(function(){document.getElementById('dm-same').textContent='载入失败：请通过本地静态服务器打开本页。';});
 })();</script>
