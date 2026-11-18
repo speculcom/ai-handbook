@@ -861,7 +861,7 @@ const TABBAR = SHELL.tabbar('learn');
   <!-- B5：词条页的结构性数据（DefinedTerm） -->
   <script type="application/ld+json">${termJsonLd(t, slug, layer.name)}</script>
 </head>
-<body class="brand-ambient has-tabbar" style="--accent:var(--cyan)">
+<body class="brand-ambient has-tabbar has-tabbar-1row" style="--accent:var(--cyan)">
 ${HEADER('learn')}
   <main id="main">
     <div class="container">
@@ -1026,7 +1026,7 @@ ${TABBAR}
     })),
   })}</script>
 </head>
-<body class="brand-ambient has-tabbar" style="--accent:var(--cyan)">
+<body class="brand-ambient has-tabbar has-tabbar-1row" style="--accent:var(--cyan)">
 ${HEADER('learn')}
   <main id="main">
     <div class="container">
@@ -1223,7 +1223,7 @@ ${items(enItems, true)}
   <style>:root { --accent: var(--gold); }</style>
   <script type="application/ld+json">${guideJsonLd(g, slug)}</script>
 </head>
-<body class="brand-ambient has-tabbar" style="--accent:var(--gold)">
+<body class="brand-ambient has-tabbar has-tabbar-1row" style="--accent:var(--gold)">
 ${HEADER('learn')}
   <main id="main">
     <div class="container">
@@ -1330,7 +1330,7 @@ ${TABBAR}
     inLanguage: 'zh-Hans',
   })}</script>
 </head>
-<body class="brand-ambient has-tabbar">
+<body class="brand-ambient has-tabbar has-tabbar-1row">
 ${HEADER('learn')}
   <main id="main">
     <div class="container">
@@ -1409,7 +1409,7 @@ ${TABBAR}
   <link rel="stylesheet" href="../learn.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"名词对照 · 学 AI","description":"204 个词条的中文名、英文名与常见别名对照表","url":"https://learn.specul.com/aliases/","inLanguage":"zh-Hans","isPartOf":{"@type":"WebSite","name":"学 AI","url":"https://learn.specul.com/"}}</script>
 </head>
-<body class="brand-ambient has-tabbar" style="--accent:var(--cyan)">
+<body class="brand-ambient has-tabbar has-tabbar-1row" style="--accent:var(--cyan)">
 ${HEADER('learn')}
   <main id="main">
     <div class="container">
