@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Opus 5.5 的 1 个 HTML 代码动画 · Specul</title>
+  <meta name="description" content="Opus 5.5 的 1 个 HTML 代码动画：同一模型、同一批题目的 1 个网页实验，站内打开，源码与 prompt 外链。" />
+  <link rel="canonical" href="https://demos.specul.com/opus-5-5-1-html.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Opus 5.5 的 1 个 HTML 代码动画 · Specul" />
+  <meta property="og:url" content="https://demos.specul.com/opus-5-5-1-html.html" />
+  <meta property="og:title" content="Opus 5.5 的 1 个 HTML 代码动画 · Specul" />
+  <meta property="og:description" content="Opus 5.5 的 1 个 HTML 代码动画：同一模型、同一批题目的 1 个网页实验，站内打开，源码与 prompt 外链。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=6f1b421422f0"></script>
+  <link rel="stylesheet" href="brand.css?v=6f1b421422f0" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="demos.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Opus 5.5 的 1 个 HTML 代码动画 · Specul","description":"Opus 5.5 的 1 个 HTML 代码动画：同一模型、同一批题目的 1 个网页实验，站内打开，源码与 prompt 外链。","url":"https://demos.specul.com/opus-5-5-1-html.html","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/" aria-current="page"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/" aria-current="page"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container demos-page dm-collection">
+  <p class="kicker"><a href="index.html"><span data-zh>← 全部作品</span><span data-en>← All pieces</span></a></p>
+  <header class="dm-hero">
+    <h1><span data-zh>Opus 5.5 的 1 个 HTML 代码动画</span><span data-en>Opus 5.5: 1 HTML code animation</span></h1>
+    <p class="dm-lead"><span data-zh>同一份 B6 提示词的 Opus 5.5 版本。和 DeepSeek 版并排看实现差异；原仓库说明这不是受控模型对比。</span><span data-en>The Opus 5.5 take on the same B6 prompt. Compare it with the DeepSeek version; the source repository says this is not a controlled model comparison.</span></p>
+    <div class="dm-collection-meta"><span>1 <span data-zh>件</span><span data-en>pieces</span></span><span>1 <span data-zh>类</span><span data-en>types</span></span><span>0 <span data-zh>件许可未声明</span><span data-en>pieces with no declared licence</span></span><a href="https://github.com/XiaoyeCodes/code-animation-prompts" rel="noopener"><span data-zh>原仓库</span><span data-en>Source repo</span> &nearr;</a></div>
+  </header>
+  <section class="dm-explore" aria-label="按用途筛选" data-ui-aria-label-zh="按用途筛选" data-ui-aria-label-en="Filter by use">
+    <div class="dm-explore-top">
+      <label class="dm-search"><input id="dm-c-q" type="search" aria-label="搜索作品" data-ui-aria-label-zh="搜索作品" data-ui-aria-label-en="Search pieces" placeholder="搜索标题、标签或描述" data-ui-placeholder-zh="搜索标题、标签或描述" data-ui-placeholder-en="Search title, tags or description" autocomplete="off" /></label>
+      <span class="dm-visible"><b id="dm-c-count">1</b><span data-zh> 件</span><span data-en> items</span></span>
+    </div>
+    <div class="dm-filter-row"><span class="dm-filter-label"><span data-zh>用途</span><span data-en>Use</span></span><div class="dm-chips" id="dm-c-cats" role="group" aria-label="按用途筛选" data-ui-aria-label-zh="按用途筛选" data-ui-aria-label-en="Filter by use"><button type="button" class="dm-chip" data-v="all" aria-pressed="true"><span data-zh>全部</span><span data-en>All</span><em>1</em></button><button type="button" class="dm-chip" data-v="内容与视觉" aria-pressed="false"><span data-zh>内容与视觉</span><span data-en>Editorial &amp; visual</span><em>1</em></button></div></div>
+    
+  </section>
+  <div class="fx-grid dm-grid" id="dm-grid"><article class="fx-card dm-card" id="code-animation-opus-5-5-b6-light-speed" data-cat="内容与视觉" data-model="opus-5-5" data-summary-zh="同一份完整提示词生成的 12 秒光速隧道：穿梭、爆炸、重聚。文件名中的模型标注来自原素材包，不是受控评测。" data-summary-en="A 12-second light-speed tunnel from the same full prompt: travel, explosion, reassembly. The model label comes from the source package and is not a controlled …" data-search="光速穿梭 · 爆炸 · 重聚（opus 5.5） light-speed tunnel, explosion, reassembly (opus 5.5) 单文件 html canvas 2d 同一提示词 12 秒动画 同一份完整提示词生成的 12 秒光速隧道：穿梭、爆炸、重聚。文件名中的模型标注来自原素材包，不是受控评测。 a 12-second light-speed tunnel from the same full prompt: travel, explosion, re…">
+    <a class="dm-thumb" href="works/code-animation-opus-5-5-b6-light-speed.html" aria-label="Open Light-speed Tunnel, Explosion, Reassembly (Opus 5.5)"><img src="/thumbs/code-animation-b6-opus.png" alt="光速穿梭 · 爆炸 · 重聚（Opus 5.5）" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>内容与视觉</span><span data-en>Editorial &amp; visual</span></span><span class="dm-card-num">001</span></div>
+      <h3><a href="works/code-animation-opus-5-5-b6-light-speed.html">光速穿梭 · 爆炸 · 重聚（Opus 5.5）</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Opus 5.5</span><span data-en>From Opus 5.5</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/code-animation-opus-5-5-b6-light-speed.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://raw.githubusercontent.com/XiaoyeCodes/code-animation-prompts/main/skills/code-animation-prompts/assets/library/%E7%A4%BA%E4%BE%8B/B6_%E5%85%89%E9%80%9F%E7%A9%BF%E6%A2%AD%C2%B7%E7%88%86%E7%82%B8%C2%B7%E9%87%8D%E8%81%9A_%E5%90%8C%E4%B8%80%E4%BB%BD%E6%8F%90%E7%A4%BA%E8%AF%8D/Opus5.5_High.html" rel="noopener"><span data-zh>原始 HTML</span><span data-en>Original HTML</span> &nearr;</a><a href="https://raw.githubusercontent.com/XiaoyeCodes/code-animation-prompts/main/skills/code-animation-prompts/assets/library/%E7%A4%BA%E4%BE%8B/B6_%E5%85%89%E9%80%9F%E7%A9%BF%E6%A2%AD%C2%B7%E7%88%86%E7%82%B8%C2%B7%E9%87%8D%E8%81%9A_%E5%90%8C%E4%B8%80%E4%BB%BD%E6%8F%90%E7%A4%BA%E8%AF%8D/%E6%8F%90%E7%A4%BA%E8%AF%8D.md" rel="noopener"><span data-zh>原始 prompt</span><span data-en>Original prompt</span> &nearr;</a></div>
+    </div>
+  </article></div>
+  <p class="dm-footnote"><span data-zh>能在站内打开的就在站内看；不能嵌入的，链回原作者页面。未声明许可的作品不复制文件。</span><span data-en>Playable pieces run here; pieces that cannot be embedded link back to the author. Unlicensed files are never copied.</span></p>
+</div>
+<script>(function(){
+var q=document.getElementById('dm-c-q');var grid=document.querySelector('#dm-grid');if(!grid)return;
+var cards=grid.querySelectorAll('.fx-card');var count=document.getElementById('dm-c-count');
+var catBox=document.getElementById('dm-c-cats');var modelBox=document.getElementById('dm-c-models');
+var st={cat:'all',model:'all',q:''};
+function setGroup(box,val){if(!box)return;var bs=box.querySelectorAll('.dm-chip');for(var i=0;i<bs.length;i++){bs[i].setAttribute('aria-pressed',bs[i].getAttribute('data-v')===val?'true':'false');}}
+function apply(){var n=0;for(var i=0;i<cards.length;i++){var c=cards[i];var ok=(st.cat==='all'||c.getAttribute('data-cat')===st.cat)&&(st.model==='all'||c.getAttribute('data-model')===st.model)&&(!st.q||c.getAttribute('data-search').indexOf(st.q)>=0);c.hidden=!ok;if(ok)n++;}if(count)count.textContent=String(n);}
+if(q){q.addEventListener('input',function(){st.q=this.value.toLowerCase().trim();apply();});}
+function bind(box,key){if(!box)return;box.addEventListener('click',function(ev){var t=ev.target.closest?ev.target.closest('.dm-chip'):null;if(!t)return;st[key]=t.getAttribute('data-v');setGroup(box,st[key]);apply();});}
+bind(catBox,'cat');if(false)bind(modelBox,'model');apply();
+})();</script>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar nav-tabbar-2row" aria-label="快捷导航">
+  <div class="tb-row tb-row-main">
+    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+    <a href="https://demos.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▷</span><span data-zh>作品演示</span><span data-en>Playground</span></a>
+  </div>
+  <div class="tb-row tb-row-deep">
+    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+  </div>
+</nav>
+</body>
+</html>

@@ -25,8 +25,8 @@ const CAT_ORDER = ['互动体验', '数据可视化', '内容与视觉', '工具
 const allCats = [...new Set(entries.map((e) => e.category))];
 const cats = [...CAT_ORDER.filter((k) => allCats.includes(k)), ...allCats.filter((k) => !CAT_ORDER.includes(k))];
 const modelCount = (id) => entries.filter((e) => e.collection === id).length;
-const collectionTitle = (c) => `${c.name} 的 ${modelCount(c.id)} 个 HTML 视觉研究`;
-const collectionTitleEn = (c) => `${modelCount(c.id)} HTML visual studies by ${c.name}`;
+const collectionTitle = (c) => c.titleZh || `${c.name} 的 ${modelCount(c.id)} 个 HTML 视觉研究`;
+const collectionTitleEn = (c) => c.titleEn || `${modelCount(c.id)} HTML visual studies by ${c.name}`;
 const collectionHref = (c) => `${c.id}-${modelCount(c.id)}-html.html`;
 const samePrompt = [...new Set(entries.map((e) => e.promptHash))].filter((h) => entries.filter((e) => e.promptHash === h).length > 1).length;
 
@@ -36,6 +36,16 @@ const repoOf = (c) => (String(c.repo || '').startsWith('http') ? c.repo : `https
 const short = (s, n = 120) => (String(s || '').length > n ? `${String(s).slice(0, n - 1)}…` : String(s || ''));
 const cat = (e) => catLabels(e.category || '');
 const modelOf = (e) => collections.find((c) => c.id === e.collection) || { name: e.model?.name || '—', short: e.model?.name || '—' };
+const absUrl = (u) => (/^https?:\/\//i.test(String(u || '')) ? String(u) : `https://demos.specul.com/${String(u || '').replace(/^\/+/, '')}`);
+const licenseSummary = (e) => {
+  const text = e.license?.text || {};
+  if (text.zh || text.en) return bi(esc(text.zh || ''), esc(text.en || ''));
+  if (e.license?.kind === 'free-share') return bi('原素材免费使用、免费转发；禁止包装成付费课程或付费产品出售。', 'Free to use and share; selling it as a paid course or product is prohibited.');
+  if (e.license?.kind === 'unknown-external-link') return bi('未逐件确认可再分发许可；本站只链回原作者页面，不复制文件。', 'Reuse permission has not been confirmed piece by piece; this site only links to the author’s page and does not copy files.');
+  return bi('仓库未声明 LICENSE；作品只在原作者发布页运行，本站不复制文件。', 'The repository declares no licence; the work runs on the publisher’s page and is not copied here.');
+};
+const sourceLabel = (e) => ({ zh: e.sourceLabel?.zh || '原始 HTML', en: e.sourceLabel?.en || 'Original HTML' });
+const promptLabel = (e) => ({ zh: e.promptLabel?.zh || '原始 prompt', en: e.promptLabel?.en || 'Original prompt' });
 
 function card(e) {
   const c = modelOf(e);
@@ -45,14 +55,14 @@ function card(e) {
     <div class="dm-card-body">
       <div class="dm-card-meta"><span class="dm-card-cat">${bi(esc(L.zh), esc(L.en))}</span><span class="dm-card-num">${esc(e.num)}</span></div>
       <h3><a href="${esc(workHref(e))}">${esc(e.title.zh)}</a></h3>
-      <p class="dm-card-source">${bi('来自', 'From')} ${esc(c.name)}</p>
-      <div class="dm-card-actions"><a class="dm-card-open" href="${esc(workHref(e))}">${bi('打开', 'Open')} <span aria-hidden="true">&rarr;</span></a><a href="${esc(e.sourceUrl)}" rel="noopener">${bi('源码', 'Source')} &nearr;</a><a href="${esc(e.promptUrl)}" rel="noopener">${bi('prompt', 'Prompt')} &nearr;</a></div>
+      <p class="dm-card-source">${bi(`来自 ${c.nameZh || c.name}`, `From ${c.nameEn || c.name}`)}</p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="${esc(workHref(e))}">${bi('打开', 'Open')} <span aria-hidden="true">&rarr;</span></a><a href="${esc(e.sourceUrl)}" rel="noopener">${bi(esc(sourceLabel(e).zh), esc(sourceLabel(e).en))} &nearr;</a><a href="${esc(e.promptUrl)}" rel="noopener">${bi(esc(promptLabel(e).zh), esc(promptLabel(e).en))} &nearr;</a></div>
     </div>
   </article>`;
 }
 
 function collectionLink(c) {
-  return `<a class="dm-collection-link" href="${esc(collectionHref(c))}"><span class="dm-collection-name">${esc(c.name)}</span><span class="dm-collection-note">${bi(` · ${modelCount(c.id)} 个 HTML 研究`, ` · ${modelCount(c.id)} HTML studies`)}</span> <span aria-hidden="true">&rarr;</span></a>`;
+  return `<a class="dm-collection-link" href="${esc(collectionHref(c))}"><span class="dm-collection-name">${bi(esc(c.nameZh || c.name), esc(c.nameEn || c.name))}</span><span class="dm-collection-note">${bi(` · ${modelCount(c.id)} 个 HTML 研究`, ` · ${modelCount(c.id)} HTML studies`)}</span> <span aria-hidden="true">&rarr;</span></a>`;
 }
 
 function filterUI(prefix, list, showModels = true) {
@@ -66,7 +76,7 @@ function filterUI(prefix, list, showModels = true) {
       <span class="dm-visible"><b id="${prefix}-count">${total}</b>${bi(' 件', ' items')}</span>
     </div>
     <div class="dm-filter-row"><span class="dm-filter-label">${bi('用途', 'Use')}</span><div class="dm-chips" id="${prefix}-cats" role="group" aria-label="按用途筛选" data-ui-aria-label-zh="按用途筛选" data-ui-aria-label-en="Filter by use"><button type="button" class="dm-chip" data-v="all" aria-pressed="true">${bi('全部', 'All')}<em>${total}</em></button>${listCats.map((k) => `<button type="button" class="dm-chip" data-v="${esc(k)}" aria-pressed="false">${bi(esc(catLabels(k).zh), esc(catLabels(k).en))}<em>${list.filter((e) => e.category === k).length}</em></button>`).join('')}</div></div>
-    ${showModels ? `<div class="dm-filter-row"><span class="dm-filter-label">${bi('模型', 'Model')}</span><div class="dm-chips" id="${prefix}-models" role="group" aria-label="按模型筛选" data-ui-aria-label-zh="按模型筛选" data-ui-aria-label-en="Filter by model"><button type="button" class="dm-chip" data-v="all" aria-pressed="true">${bi('全部', 'All')}<em>${total}</em></button>${collections.map((c) => `<button type="button" class="dm-chip" data-v="${esc(c.id)}" aria-pressed="false">${esc(c.name)}<em>${modelCount(c.id)}</em></button>`).join('')}</div></div>` : ''}
+    ${showModels ? `<div class="dm-filter-row"><span class="dm-filter-label">${bi('模型', 'Model')}</span><div class="dm-chips" id="${prefix}-models" role="group" aria-label="按模型筛选" data-ui-aria-label-zh="按模型筛选" data-ui-aria-label-en="Filter by model"><button type="button" class="dm-chip" data-v="all" aria-pressed="true">${bi('全部', 'All')}<em>${total}</em></button>${collections.map((c) => `<button type="button" class="dm-chip" data-v="${esc(c.id)}" aria-pressed="false">${bi(esc(c.nameZh || c.name), esc(c.nameEn || c.name))}<em>${modelCount(c.id)}</em></button>`).join('')}</div></div>` : ''}
   </section>`;
 }
 
@@ -85,29 +95,32 @@ bind(catBox,'cat');if(${withModel ? 'true' : 'false'})bind(modelBox,'model');app
 const indexBody = `<div class="container demos-page">
   <header class="dm-hero">
     <h1>${bi('作品演示', 'Playground')}</h1>
-    <p class="dm-lead">${bi(`${entries.length} 个 HTML 视觉研究。点开就能看，源码和原始 prompt 都留着。`, `${entries.length} HTML visual studies. Open any piece here; the source and original prompt are one click away.`)}</p>
+    <p class="dm-lead">${bi(`${entries.length} 个网页作品。能站内打开的直接看；来源、作者和原帖都留在作品页上。`, `${entries.length} web pieces. Play them here; the source, author and original post stay on each piece page.`)}</p>
     <div class="dm-collection-links"><span class="dm-collection-label">${bi('整组看', 'Study sets')}</span>${collections.map(collectionLink).join('')}<a class="dm-collection-link" href="compare.html">${bi('并排对照', 'Compare')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link" href="prompts.html">${bi('提示词索引', 'Prompts')} <span aria-hidden="true">&rarr;</span></a></div>
   </header>
   ${filterUI('dm', entries)}
   <div class="fx-grid dm-grid" id="dm-grid">${entries.map((e) => card(e)).join('\n')}</div>
-  <p class="dm-footnote">${bi('作品在原作者页面运行；未声明许可的作品只外链，不复制文件。', 'Pieces run on the original authors’ pages; unlicensed files are linked, never copied.')}</p>
+  <p class="dm-footnote">${bi('能在站内打开的就在站内看；不能嵌入的，链回原作者页面。未声明许可的作品不复制文件。', 'Playable pieces run here; pieces that cannot be embedded link back to the author. Unlicensed files are never copied.')}</p>
 </div>
 ${filterScript('dm', '#dm-grid')}`;
 
 const collectionBody = (c) => {
   const es = c.entries || [];
   const typeCount = new Set(es.map((e) => e.category)).size;
-  const noLicense = es.filter((e) => !e.license?.spdx).length;
+  const noLicense = es.filter((e) => !e.license?.spdx && !['free-share'].includes(e.license?.kind)).length;
+  const lead = c.lead?.zh || c.lead?.en
+    ? bi(esc(c.lead.zh || ''), esc(c.lead.en || ''))
+    : bi(`同一模型、同一批题目生成的 ${es.length} 个网页实验。点开就能看，源码和原始 prompt 都在原仓库。`, `Same model, same set of briefs: ${es.length} web experiments. Open any piece here; source and original prompts stay in the source repo.`);
   return `<div class="container demos-page dm-collection">
   <p class="kicker"><a href="index.html">${bi('← 全部作品', '← All pieces')}</a></p>
   <header class="dm-hero">
     <h1>${bi(esc(collectionTitle(c)), esc(collectionTitleEn(c)))}</h1>
-    <p class="dm-lead">${bi(`同一模型、同一批题目生成的 ${es.length} 个网页实验。点开就能看，源码和原始 prompt 都在原仓库。`, `Same model, same set of briefs: ${es.length} web experiments. Open any piece here; source and original prompts stay in the source repo.`)}</p>
+    <p class="dm-lead">${lead}</p>
     <div class="dm-collection-meta"><span>${es.length} ${bi('件', 'pieces')}</span><span>${typeCount} ${bi('类', 'types')}</span><span>${noLicense} ${bi('件许可未声明', 'pieces with no declared licence')}</span><a href="${esc(repoOf(c))}" rel="noopener">${bi('原仓库', 'Source repo')} &nearr;</a></div>
   </header>
   ${filterUI('dm-c', es, false)}
   <div class="fx-grid dm-grid" id="dm-grid">${es.map((e) => card(e)).join('\n')}</div>
-  <p class="dm-footnote">${bi('作品在原作者页面运行；未声明许可的作品只外链，不复制文件。', 'Pieces run on the original authors’ pages; unlicensed files are linked, never copied.')}</p>
+  <p class="dm-footnote">${bi('能在站内打开的就在站内看；不能嵌入的，链回原作者页面。未声明许可的作品不复制文件。', 'Playable pieces run here; pieces that cannot be embedded link back to the author. Unlicensed files are never copied.')}</p>
 </div>
 ${filterScript('dm-c', '#dm-grid', false)}`;
 };
@@ -128,7 +141,7 @@ fetch('demos-data.json').then(function(r){if(!r.ok)throw new Error('data');retur
 var map={};data.forEach(function(x){map[x.id]=x;});var e=map[id]||data[Math.floor(Math.random()*data.length)];
 document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-play-title').textContent=e.title.zh;document.getElementById('dm-play-sub').textContent=e.title.en+' · '+e.model.name;document.title=e.title.zh+' · 打开作品 · Specul';
 document.getElementById('dm-open').href=e.demoUrl;document.getElementById('dm-source').href=e.sourceUrl;document.getElementById('dm-prompt').href=e.promptUrl;document.getElementById('dm-repo').href=e.repoUrl;
-document.getElementById('dm-desc').textContent=e.notes.zh;document.getElementById('dm-licence').textContent='许可：仓库未声明 LICENSE；作品只在原作者发布页运行，本站不复制文件。';
+document.getElementById('dm-desc').textContent=e.notes.zh;document.getElementById('dm-licence').textContent=e.license&&e.license.text&&e.license.text.zh?e.license.text.zh:'许可信息见作品页。';
 document.getElementById('dm-tags').innerHTML=(e.tags||[]).map(function(t){return '<span class="dm-tag">'+t+'</span>';}).join('');
 document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Math.random()*data.length)];location.href='works/'+encodeURIComponent(n.id)+'.html';};
 }).catch(function(){document.getElementById('dm-play-sub').textContent='载入失败：请通过本地静态服务器打开本页。';});
@@ -138,24 +151,29 @@ const workBody = (e) => {
   const c = modelOf(e);
   const L = cat(e);
   const total = modelCount(e.collection);
+  const openLabel = e.run?.status === 'embedded'
+    ? bi('全屏打开作品', 'Open full screen')
+    : bi('全屏打开原页', 'Open original');
   return `<div class="container demos-page dm-play dm-work">
   <p class="kicker"><a href="../index.html">${bi('← 全部作品', '← All pieces')}</a> <span class="dm-sep">/</span> <a href="../${esc(collectionHref(c))}">${bi(esc(collectionTitle(c)), esc(collectionTitleEn(c)))}</a> <span class="dm-sep">/</span> <span>${esc(e.num)}</span></p>
   <div class="dm-play-head">
     <div>
       <div class="dm-card-meta"><span class="dm-card-cat">${bi(esc(L.zh), esc(L.en))}</span><span class="dm-card-num">${esc(e.num)} / ${total}</span></div>
       <h1>${bi(esc(e.title.zh), esc(e.title.en))}</h1>
-      <p class="dm-lead">${bi(`收录于「${esc(collectionTitle(c))}」。`, `From ${esc(c.name)}’s ${total} HTML visual studies.`)}</p>
+      <p class="dm-lead">${bi(`收录于「${esc(collectionTitle(c))}」。`, `From ${esc(collectionTitleEn(c))}.`)}</p>
     </div>
     <div class="dm-play-actions">
-      <a class="dm-btn" href="${esc(e.demoUrl)}" rel="noopener">${bi('全屏打开原页', 'Open original')} &nearr;</a>
+      <a class="dm-btn" href="${esc(e.demoUrl)}" rel="noopener">${openLabel} &nearr;</a>
       <a class="dm-btn dm-btn-ghost" href="../compare.html?left=${encodeURIComponent(e.id)}">${bi('并排看', 'Compare')} &rarr;</a>
     </div>
   </div>
   <div class="dm-player"><iframe title="${esc(e.title.en || e.title.zh)}" src="${esc(e.demoUrl)}" sandbox="allow-scripts" referrerpolicy="no-referrer" loading="eager"></iframe></div>
-  <p class="dm-note-line">${bi('作品在原作者的页面运行。如果画面空白，通常是对方禁止嵌入，点“全屏打开原页”。', 'The piece runs on the original author’s page. If it appears blank, embedding is likely blocked; use “Open original”.')}</p>
+  <p class="dm-note-line">${e.run?.status === 'embedded'
+    ? bi('作品按原仓库许可由本站托管，在受限 iframe 中运行。', 'Hosted here under the source repository’s licence and running in a restricted iframe.')
+    : bi('作品在原作者的页面运行。如果画面空白，通常是对方禁止嵌入，点“全屏打开原页”。', 'The piece runs on the original author’s page. If it appears blank, embedding is likely blocked; use “Open original”.')}</p>
   <div class="dm-play-info">
     <div><h2>${bi('这件作品', 'About this piece')}</h2><p>${bi(esc(e.notes.zh), esc(e.notes.en))}</p></div>
-    <div><h2>${bi('源码与 prompt', 'Source & prompt')}</h2><p class="t-sm">${bi('仓库未声明 LICENSE；作品只在原作者发布页运行，本站不复制文件。', 'The repository declares no licence; the work runs on the publisher’s page and is not copied here.')}</p><ul class="dm-links"><li><a href="${esc(e.sourceUrl)}" rel="noopener">${bi('原始 HTML', 'Original HTML')} &nearr;</a></li><li><a href="${esc(e.promptUrl)}" rel="noopener">${bi('原始 prompt', 'Original prompt')} &nearr;</a></li><li><a href="${esc(e.repoUrl)}" rel="noopener">${bi('原仓库', 'Source repository')} &nearr;</a></li></ul></div>
+    <div><h2>${bi('来源与 prompt', 'Source & prompt')}</h2><p class="t-sm">${licenseSummary(e)}</p><ul class="dm-links"><li><a href="${esc(e.sourceUrl)}" rel="noopener">${bi(esc(sourceLabel(e).zh), esc(sourceLabel(e).en))} &nearr;</a></li><li><a href="${esc(e.promptUrl)}" rel="noopener">${bi(esc(promptLabel(e).zh), esc(promptLabel(e).en))} &nearr;</a></li><li><a href="${esc(e.repoUrl)}" rel="noopener">${bi('原仓库', 'Source repository')} &nearr;</a></li></ul></div>
   </div>
 </div>`;
 };
@@ -215,7 +233,7 @@ for (const e of entries) {
     alternateName: e.title.en,
     description: e.notes.zh,
     url: canonical,
-    image: e.thumbUrl,
+    image: absUrl(e.thumbUrl),
     genre: e.category,
     creator: { '@type': 'Organization', name: c.name },
     isPartOf: { '@type': 'CollectionPage', name: collectionTitle(c), url: `https://demos.specul.com/${collectionHref(c)}` },
@@ -241,6 +259,7 @@ const compactEntries = entries.map((e) => ({
   id: e.id, collection: e.collection, num: e.num, slug: e.slug, title: e.title, notes: e.notes,
   category: e.category, tags: e.tags, promptHash: e.promptHash, promptUrl: e.promptUrl,
   sourceUrl: e.sourceUrl, demoUrl: e.demoUrl, thumbUrl: e.thumbUrl, repoUrl: e.repoUrl, model: e.model,
+  sourceLabel: e.sourceLabel, promptLabel: e.promptLabel, license: e.license, run: e.run,
   workPath: workHref(e), workUrl: `https://demos.specul.com/${workHref(e)}`,
 }));
 fs.writeFileSync(path.join(OUT, 'demos-data.json'), JSON.stringify(compactEntries, null, 2), 'utf8');
@@ -249,6 +268,6 @@ fs.copyFileSync(path.join(ROOT, '_sites/_template/site.css'), path.join(OUT, 'si
 fs.writeFileSync(path.join(OUT, 'CNAME'), 'demos.specul.com\n');
 fs.writeFileSync(path.join(OUT, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: https://demos.specul.com/sitemap.xml\n');
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(([f]) => `  <url><loc>https://demos.specul.com/${f === 'index.html' ? '' : f}</loc></url>`).join('\n')}\n${entries.map((e) => `  <url><loc>https://demos.specul.com/${workHref(e)}</loc></url>`).join('\n')}\n</urlset>\n`);
-fs.writeFileSync(path.join(OUT, 'llms.txt'), `# Specul 作品演示\n\n> ${entries.length} 个可运行的 HTML 视觉研究，分属 ${collections.length} 组来源；站内只嵌入原发布页，不复制未声明许可的文件。\n\n- [作品演示](https://demos.specul.com/)\n- [并排对照](https://demos.specul.com/compare.html)\n- [提示词索引](https://demos.specul.com/prompts.html)\n${collections.map((c) => `- [${collectionTitle(c)}](https://demos.specul.com/${collectionHref(c)}) — ${modelCount(c.id)} 个作品`).join('\n')}\n`);
-fs.writeFileSync(path.join(OUT, 'llms.en.txt'), `# Specul Playground\n\n> ${entries.length} runnable HTML visual studies from ${collections.length} source sets; the site embeds the original publication pages and does not copy unlicensed files.\n\n- [Playground](https://demos.specul.com/)\n- [Compare](https://demos.specul.com/compare.html)\n- [Prompt index](https://demos.specul.com/prompts.html)\n${collections.map((c) => `- [${collectionTitle(c)}](https://demos.specul.com/${collectionHref(c)}) — ${modelCount(c.id)} pieces`).join('\n')}\n`);
+fs.writeFileSync(path.join(OUT, 'llms.txt'), `# Specul 作品演示\n\n> ${entries.length} 个可打开的网页作品，分属 ${collections.length} 组来源；按原许可可托管的在站内运行，其余嵌入原发布页，未获许可的完整作品不复制。\n\n- [作品演示](https://demos.specul.com/)\n- [并排对照](https://demos.specul.com/compare.html)\n- [提示词索引](https://demos.specul.com/prompts.html)\n${collections.map((c) => `- [${collectionTitle(c)}](https://demos.specul.com/${collectionHref(c)}) — ${modelCount(c.id)} 个作品`).join('\n')}\n`);
+fs.writeFileSync(path.join(OUT, 'llms.en.txt'), `# Specul Playground\n\n> ${entries.length} openable web pieces from ${collections.length} source sets. Pieces that can be hosted under their licence run here; the rest are iframed from the original page. Unlicensed full works are not copied.\n\n- [Playground](https://demos.specul.com/)\n- [Compare](https://demos.specul.com/compare.html)\n- [Prompt index](https://demos.specul.com/prompts.html)\n${collections.map((c) => `- [${collectionTitle(c)}](https://demos.specul.com/${collectionHref(c)}) — ${modelCount(c.id)} pieces`).join('\n')}\n`);
 console.log(`demos 构建：${entries.length} 条 · ${collections.length} 套来源 · ${pages.length} 个站页 + ${entries.length} 个作品页 · 同题 ${samePrompt} 组`);

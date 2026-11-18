@@ -2044,8 +2044,8 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('## 站点群');
   lines.push('');
   lines.push('- 首页 <https://specul.com/>　学 AI <https://learn.specul.com/>　工具 <https://tools.specul.com/>');
-  lines.push('- 模型 <https://models.specul.com/>　作品库 <https://demos.specul.com/>　硬件算力 <https://hardware.specul.com/>');
-  lines.push('- AI 论文 <https://papers.specul.com/>　链 <https://chain.specul.com/>　外部站点 <https://nav.specul.com/>');
+  lines.push('- 模型 <https://models.specul.com/>　作品演示 <https://demos.specul.com/>　硬件算力 <https://hardware.specul.com/>');
+  lines.push('- AI 论文 <https://papers.specul.com/>　链 <https://chain.specul.com/>　AI导航 <https://nav.specul.com/>');
   lines.push('- （v3 时代的 ide / cli / mcp / harness 四个独立子域已于 2026-10-04 并入 tools.specul.com；');
   lines.push('  做游戏子域 vg.specul.com 已于 2026-11-07 撤站，游戏内容并入主站主题页，不再存在）');
   lines.push('');
@@ -2104,8 +2104,8 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   en.push('## Site group');
   en.push('');
   en.push('- Home <https://specul.com/> · Learn <https://learn.specul.com/> · Tools <https://tools.specul.com/>');
-  en.push('- Models <https://models.specul.com/> · Demos <https://demos.specul.com/> · Hardware <https://hardware.specul.com/>');
-  en.push('- Papers <https://papers.specul.com/> · Chain <https://chain.specul.com/> · Directory <https://nav.specul.com/>');
+  en.push('- Models <https://models.specul.com/> · Playground <https://demos.specul.com/> · Hardware <https://hardware.specul.com/>');
+  en.push('- Papers <https://papers.specul.com/> · Chain <https://chain.specul.com/> · AI Directory <https://nav.specul.com/>');
   en.push('');
   en.push(`--- Last updated: ${(seriesList[0]?.collectedAt || '').slice(0, 10)}`);
   en.push('');

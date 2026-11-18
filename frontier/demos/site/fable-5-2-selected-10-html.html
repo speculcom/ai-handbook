@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Claude Fable 5.2 精选：10 个 HTML 视觉研究 · Specul</title>
+  <meta name="description" content="Claude Fable 5.2 精选：10 个 HTML 视觉研究：同一模型、同一批题目的 10 个网页实验，站内打开，源码与 prompt 外链。" />
+  <link rel="canonical" href="https://demos.specul.com/fable-5-2-selected-10-html.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Claude Fable 5.2 精选：10 个 HTML 视觉研究 · Specul" />
+  <meta property="og:url" content="https://demos.specul.com/fable-5-2-selected-10-html.html" />
+  <meta property="og:title" content="Claude Fable 5.2 精选：10 个 HTML 视觉研究 · Specul" />
+  <meta property="og:description" content="Claude Fable 5.2 精选：10 个 HTML 视觉研究：同一模型、同一批题目的 10 个网页实验，站内打开，源码与 prompt 外链。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=6f1b421422f0"></script>
+  <link rel="stylesheet" href="brand.css?v=6f1b421422f0" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="demos.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Claude Fable 5.2 精选：10 个 HTML 视觉研究 · Specul","description":"Claude Fable 5.2 精选：10 个 HTML 视觉研究：同一模型、同一批题目的 10 个网页实验，站内打开，源码与 prompt 外链。","url":"https://demos.specul.com/fable-5-2-selected-10-html.html","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/" aria-current="page"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/" aria-current="page"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container demos-page dm-collection">
+  <p class="kicker"><a href="index.html"><span data-zh>← 全部作品</span><span data-en>← All pieces</span></a></p>
+  <header class="dm-hero">
+    <h1><span data-zh>Claude Fable 5.2 精选：10 个 HTML 视觉研究</span><span data-en>Claude Fable 5.2 selection: 10 HTML visual studies</span></h1>
+    <p class="dm-lead"><span data-zh>从公开作品索引里筛出的 10 件 Fable 5.2 作品：优先高赞、能打开、近期，并且原作者、原帖或源码可核。不是排行榜，也不把点赞当能力结论。</span><span data-en>Ten Fable 5.2 pieces selected from a public index: high-signal, openable, recent, and traceable to the author, post or source. This is not a leaderboard; likes are not a capability verdict.</span></p>
+    <div class="dm-collection-meta"><span>10 <span data-zh>件</span><span data-en>pieces</span></span><span>3 <span data-zh>类</span><span data-en>types</span></span><span>10 <span data-zh>件许可未声明</span><span data-en>pieces with no declared licence</span></span><a href="https://github.com/fengyiqicoder/awesome-fable-5.2" rel="noopener"><span data-zh>原仓库</span><span data-en>Source repo</span> &nearr;</a></div>
+  </header>
+  <section class="dm-explore" aria-label="按用途筛选" data-ui-aria-label-zh="按用途筛选" data-ui-aria-label-en="Filter by use">
+    <div class="dm-explore-top">
+      <label class="dm-search"><input id="dm-c-q" type="search" aria-label="搜索作品" data-ui-aria-label-zh="搜索作品" data-ui-aria-label-en="Search pieces" placeholder="搜索标题、标签或描述" data-ui-placeholder-zh="搜索标题、标签或描述" data-ui-placeholder-en="Search title, tags or description" autocomplete="off" /></label>
+      <span class="dm-visible"><b id="dm-c-count">10</b><span data-zh> 件</span><span data-en> items</span></span>
+    </div>
+    <div class="dm-filter-row"><span class="dm-filter-label"><span data-zh>用途</span><span data-en>Use</span></span><div class="dm-chips" id="dm-c-cats" role="group" aria-label="按用途筛选" data-ui-aria-label-zh="按用途筛选" data-ui-aria-label-en="Filter by use"><button type="button" class="dm-chip" data-v="all" aria-pressed="true"><span data-zh>全部</span><span data-en>All</span><em>10</em></button><button type="button" class="dm-chip" data-v="互动体验" aria-pressed="false"><span data-zh>互动体验</span><span data-en>Interactive pieces</span><em>6</em></button><button type="button" class="dm-chip" data-v="内容与视觉" aria-pressed="false"><span data-zh>内容与视觉</span><span data-en>Editorial &amp; visual</span><em>1</em></button><button type="button" class="dm-chip" data-v="工具与界面" aria-pressed="false"><span data-zh>工具与界面</span><span data-en>Tools &amp; interfaces</span><em>3</em></button></div></div>
+    
+  </section>
+  <div class="fx-grid dm-grid" id="dm-grid"><article class="fx-card dm-card" id="fable-5-2-oil-paint" data-cat="互动体验" data-model="fable-5-2-selected" data-summary-zh="不到一小时做成；每帧约 150 万笔笔触，浏览器里跑 200 帧；开源" data-summary-en="Made in under an hour. Every frame is about 1.5 million brush strokes, running at 200 fps in a browser tab. Open source." data-search="oil paint 手绘油画风游戏 oil paint — hand-painted game 游戏 @blendibyl 8000 likes 不到一小时做成；每帧约 150 万笔笔触，浏览器里跑 200 帧；开源 made in under an hour. every frame is about 1.5 million brush strokes, running …">
+    <a class="dm-thumb" href="works/fable-5-2-oil-paint.html" aria-label="Open Oil Paint — hand-painted game"><img src="/thumbs/fable-124.gif" alt="Oil Paint 手绘油画风游戏" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span><span class="dm-card-num">001</span></div>
+      <h3><a href="works/fable-5-2-oil-paint.html">Oil Paint 手绘油画风游戏</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-oil-paint.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://patch.gg/blendi/oil-paint" rel="noopener"><span data-zh>原页</span><span data-en>Original page</span> &nearr;</a><a href="https://x.com/BlendiByl/status/2120341251178594532" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-crosstown" data-cat="互动体验" data-model="fable-5-2-selected" data-summary-zh="「Rockstar 花了 8 年，Fable 5.2 要 7 天做完」；目前只开放一部分城市，按 B 可以提反馈" data-summary-en="&quot;Rockstar took 8 years. Fable 5.2 is gonna do it in 7 days.&quot; Only part of the city is in so far; press B to send feedback." data-search="crosstown 纽约开放世界（早期试玩） crosstown — open-world new york (early preview) 游戏 @mattshumer_ 7519 likes 「rockstar 花了 8 年，fable 5.2 要 7 天做完」；目前只开放一部分城市，按 b 可以提反馈 &quot;rockstar took 8 years. fable 5.2 is gonna do it in 7 days.&quot; only part of the c…">
+    <a class="dm-thumb" href="works/fable-5-2-crosstown.html" aria-label="Open CROSSTOWN — open-world New York (early preview)"><img src="/thumbs/fable-125.gif" alt="CROSSTOWN 纽约开放世界（早期试玩）" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span><span class="dm-card-num">002</span></div>
+      <h3><a href="works/fable-5-2-crosstown.html">CROSSTOWN 纽约开放世界（早期试玩）</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-crosstown.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://nyc.somethingbig.ai/" rel="noopener"><span data-zh>原页</span><span data-en>Original page</span> &nearr;</a><a href="https://x.com/mattshumer_/status/2120282133503820150" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-claudia-gallery" data-cat="工具与界面" data-model="fable-5-2-selected" data-summary-zh="让它做「梦想中的视频」，9 小时两轮；生成式视频画廊，点开可看作者原页，原帖与来源都在作品页。" data-summary-en="A dream-video experiment: two rounds over nine hours. Open the live gallery; the original page, author post and source are on this page." data-search="claudia gallery claudia gallery 网页与工具 @anabology 5432 likes 让它做「梦想中的视频」，9 小时两轮；生成式视频画廊，点开可看作者原页，原帖与来源都在作品页。 a dream-video experiment: two rounds over nine hours. open the live gallery; th…">
+    <a class="dm-thumb" href="works/fable-5-2-claudia-gallery.html" aria-label="Open Claudia Gallery"><img src="/thumbs/fable-038.gif" alt="Claudia Gallery" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>工具与界面</span><span data-en>Tools &amp; interfaces</span></span><span class="dm-card-num">003</span></div>
+      <h3><a href="works/fable-5-2-claudia-gallery.html">Claudia Gallery</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-claudia-gallery.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://claudia.gallery" rel="noopener"><span data-zh>原页</span><span data-en>Original page</span> &nearr;</a><a href="https://x.com/anabology/status/2120010995309457643" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-omw" data-cat="互动体验" data-model="fable-5-2-selected" data-summary-zh="把 @de5imulate 那张「omw」像素画做成浏览器里能玩的 three.js 游戏，整个画面像油画笔触" data-summary-en="The &quot;omw&quot; pixel-art post by @de5imulate rebuilt as a playable three.js game in the browser, rendered like an oil painting." data-search="omw 油画笔触的城堡山谷 omw: a castle valley in oil brush strokes 游戏 @__morse 4461 likes 把 @de5imulate 那张「omw」像素画做成浏览器里能玩的 three.js 游戏，整个画面像油画笔触 the &quot;omw&quot; pixel-art post by @de5imulate rebuilt as a playable three.js game in …">
+    <a class="dm-thumb" href="works/fable-5-2-omw.html" aria-label="Open omw: a castle valley in oil brush strokes"><img src="/thumbs/fable-308.gif" alt="omw 油画笔触的城堡山谷" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span><span class="dm-card-num">004</span></div>
+      <h3><a href="works/fable-5-2-omw.html">omw 油画笔触的城堡山谷</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-omw.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://github.com/remorses/castle-valley" rel="noopener"><span data-zh>源码</span><span data-en>Source</span> &nearr;</a><a href="https://x.com/__morse/status/2122013410309153042" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-what-the-water-keeps" data-cat="互动体验" data-model="fable-5-2-selected" data-summary-zh="穿过 8 个梦境世界的划船游戏；原帖没放链接，链接来自转发者 @Bhavani_00007 / @meta_pavy" data-summary-en="A boat ride through 8 dreamlike worlds, playable in the browser." data-search="what the water keeps 梦境划船 what the water keeps 游戏 @kevin_t_ngo 4277 likes 穿过 8 个梦境世界的划船游戏；原帖没放链接，链接来自转发者 @bhavani_00007 / @meta_pavy a boat ride through 8 dreamlike worlds, playable in the browser.">
+    <a class="dm-thumb" href="works/fable-5-2-what-the-water-keeps.html" aria-label="Open What the Water Keeps"><img src="/thumbs/fable-008.gif" alt="What the Water Keeps 梦境划船" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span><span class="dm-card-num">005</span></div>
+      <h3><a href="works/fable-5-2-what-the-water-keeps.html">What the Water Keeps 梦境划船</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-what-the-water-keeps.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://what-the-water-keeps.vercel.app/" rel="noopener"><span data-zh>原页</span><span data-en>Original page</span> &nearr;</a><a href="https://x.com/kevin_t_ngo/status/2119868968307695818" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-crimson-loong" data-cat="内容与视觉" data-model="fable-5-2-selected" data-summary-zh="three.js 纯代码的 90 秒巨龙短片，没有任何外部素材" data-summary-en="A 90-second dragon film in three.js, pure code with no external assets." data-search="crimson loong 赤龙：90 秒巨龙短片 crimson loong 视频与动画（附源码） @chetaslua 3733 likes three.js 纯代码的 90 秒巨龙短片，没有任何外部素材 a 90-second dragon film in three.js, pure code with no external assets.">
+    <a class="dm-thumb" href="works/fable-5-2-crimson-loong.html" aria-label="Open Crimson Loong"><img src="/thumbs/fable-246.gif" alt="Crimson Loong 赤龙：90 秒巨龙短片" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>内容与视觉</span><span data-en>Editorial &amp; visual</span></span><span class="dm-card-num">006</span></div>
+      <h3><a href="works/fable-5-2-crimson-loong.html">Crimson Loong 赤龙：90 秒巨龙短片</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-crimson-loong.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://github.com/ChetasLua/crimson-loong" rel="noopener"><span data-zh>源码</span><span data-en>Source</span> &nearr;</a><a href="https://x.com/chetaslua/status/2121176151234330707" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-portals" data-cat="互动体验" data-model="fable-5-2-selected" data-summary-zh="2.5 万个 Agent 做出 450 多个代码 3D 世界，传送门相连自动漫游" data-summary-en="25,000 agents built 450+ code-only 3D worlds inspired by books, art and places, linked by portals you drift through." data-search="portals 无尽传送门世界 portals: endless worlds 游戏 @emollick 1934 likes 2.5 万个 agent 做出 450 多个代码 3d 世界，传送门相连自动漫游 25,000 agents built 450+ code-only 3d worlds inspired by books, art and places,…">
+    <a class="dm-thumb" href="works/fable-5-2-portals.html" aria-label="Open Portals: Endless Worlds"><img src="/thumbs/fable-006.gif" alt="Portals 无尽传送门世界" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span><span class="dm-card-num">007</span></div>
+      <h3><a href="works/fable-5-2-portals.html">Portals 无尽传送门世界</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-portals.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://github.com/emollick/ai-portals" rel="noopener"><span data-zh>源码</span><span data-en>Source</span> &nearr;</a><a href="https://x.com/emollick/status/2119918307457577163" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-keep" data-cat="工具与界面" data-model="fable-5-2-selected" data-summary-zh="把密码强度条做成一个活的像素世界；输入密码时，像素景观会跟着强度变化，源码和作者原帖都可核。" data-summary-en="A password-strength meter rendered as a living pixel world; the landscape changes with the password strength, with source and author post linked." data-search="keep 像素世界密码强度条 keep — password strength meter 网页与工具 @crtvteknologist 1573 likes 把密码强度条做成一个活的像素世界；输入密码时，像素景观会跟着强度变化，源码和作者原帖都可核。 a password-strength meter rendered as a living pixel world; the landscape chang…">
+    <a class="dm-thumb" href="works/fable-5-2-keep.html" aria-label="Open Keep — password strength meter"><img src="/thumbs/fable-144.gif" alt="Keep 像素世界密码强度条" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>工具与界面</span><span data-en>Tools &amp; interfaces</span></span><span class="dm-card-num">008</span></div>
+      <h3><a href="works/fable-5-2-keep.html">Keep 像素世界密码强度条</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-keep.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://github.com/finktheartist/pixel-worlds" rel="noopener"><span data-zh>源码</span><span data-en>Source</span> &nearr;</a><a href="https://x.com/crtvTeknologist/status/2119894073024606617" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-papertrails" data-cat="互动体验" data-model="fable-5-2-selected" data-summary-zh="小纸人往前走，树、房子、山丘像翻立体书一样从地面立起来，沙漠、雪地、森林和昼夜无限延伸；Fable 5.2 和 Opus 5.5 配 three.js 做的" data-summary-en="A paper figure walks on while trees, houses and hills fold up from the ground like a pop-up book, through desert, snow, forest and day and night. Built with Fa…" data-search="papertrails 走到哪立到哪的立体书世界 papertrails: an endless pop-up paper world 3d 场景 @xikhar 1531 likes 小纸人往前走，树、房子、山丘像翻立体书一样从地面立起来，沙漠、雪地、森林和昼夜无限延伸；fable 5.2 和 opus 5.5 配 three.js 做的 a paper figure walks on while trees, houses and hills fold up from the ground l…">
+    <a class="dm-thumb" href="works/fable-5-2-papertrails.html" aria-label="Open Papertrails: an endless pop-up paper world"><img src="/thumbs/fable-330.gif" alt="Papertrails 走到哪立到哪的立体书世界" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span><span class="dm-card-num">009</span></div>
+      <h3><a href="works/fable-5-2-papertrails.html">Papertrails 走到哪立到哪的立体书世界</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-papertrails.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://github.com/xikhar/papertrails" rel="noopener"><span data-zh>源码</span><span data-en>Source</span> &nearr;</a><a href="https://x.com/xikhar/status/2122682962647122403" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article>
+<article class="fx-card dm-card" id="fable-5-2-xray-mirror" data-cat="工具与界面" data-model="fable-5-2-selected" data-summary-zh="摄像头对着脸，实时看到头骨、大脑和肌肉；张嘴下巴跟着动，举起手能看到手骨，画面不出本机" data-summary-en="Point a webcam at your face and see the skull, brain and muscles, tracked live. Open your mouth and the jaw opens; the video never leaves your computer." data-search="x-ray mirror x 光镜子 x-ray mirror 网页与工具 @hashemghaili 1381 likes 摄像头对着脸，实时看到头骨、大脑和肌肉；张嘴下巴跟着动，举起手能看到手骨，画面不出本机 point a webcam at your face and see the skull, brain and muscles, tracked live.…">
+    <a class="dm-thumb" href="works/fable-5-2-xray-mirror.html" aria-label="Open X-Ray Mirror"><img src="/thumbs/fable-205.gif" alt="X-Ray Mirror X 光镜子" loading="lazy" referrerpolicy="no-referrer" /></a>
+    <div class="dm-card-body">
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>工具与界面</span><span data-en>Tools &amp; interfaces</span></span><span class="dm-card-num">010</span></div>
+      <h3><a href="works/fable-5-2-xray-mirror.html">X-Ray Mirror X 光镜子</a></h3>
+      <p class="dm-card-source"><span data-zh>来自 Claude Fable 5.2 精选</span><span data-en>From Claude Fable 5.2 Selection</span></p>
+      <div class="dm-card-actions"><a class="dm-card-open" href="works/fable-5-2-xray-mirror.html"><span data-zh>打开</span><span data-en>Open</span> <span aria-hidden="true">&rarr;</span></a><a href="https://github.com/MasterOfVFX2070/xray-mirror" rel="noopener"><span data-zh>源码</span><span data-en>Source</span> &nearr;</a><a href="https://x.com/HashemGhaili/status/2120202746121085321" rel="noopener"><span data-zh>作者原帖</span><span data-en>Author post</span> &nearr;</a></div>
+    </div>
+  </article></div>
+  <p class="dm-footnote"><span data-zh>能在站内打开的就在站内看；不能嵌入的，链回原作者页面。未声明许可的作品不复制文件。</span><span data-en>Playable pieces run here; pieces that cannot be embedded link back to the author. Unlicensed files are never copied.</span></p>
+</div>
+<script>(function(){
+var q=document.getElementById('dm-c-q');var grid=document.querySelector('#dm-grid');if(!grid)return;
+var cards=grid.querySelectorAll('.fx-card');var count=document.getElementById('dm-c-count');
+var catBox=document.getElementById('dm-c-cats');var modelBox=document.getElementById('dm-c-models');
+var st={cat:'all',model:'all',q:''};
+function setGroup(box,val){if(!box)return;var bs=box.querySelectorAll('.dm-chip');for(var i=0;i<bs.length;i++){bs[i].setAttribute('aria-pressed',bs[i].getAttribute('data-v')===val?'true':'false');}}
+function apply(){var n=0;for(var i=0;i<cards.length;i++){var c=cards[i];var ok=(st.cat==='all'||c.getAttribute('data-cat')===st.cat)&&(st.model==='all'||c.getAttribute('data-model')===st.model)&&(!st.q||c.getAttribute('data-search').indexOf(st.q)>=0);c.hidden=!ok;if(ok)n++;}if(count)count.textContent=String(n);}
+if(q){q.addEventListener('input',function(){st.q=this.value.toLowerCase().trim();apply();});}
+function bind(box,key){if(!box)return;box.addEventListener('click',function(ev){var t=ev.target.closest?ev.target.closest('.dm-chip'):null;if(!t)return;st[key]=t.getAttribute('data-v');setGroup(box,st[key]);apply();});}
+bind(catBox,'cat');if(false)bind(modelBox,'model');apply();
+})();</script>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar nav-tabbar-2row" aria-label="快捷导航">
+  <div class="tb-row tb-row-main">
+    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+    <a href="https://demos.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▷</span><span data-zh>作品演示</span><span data-en>Playground</span></a>
+  </div>
+  <div class="tb-row tb-row-deep">
+    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+  </div>
+</nav>
+</body>
+</html>
