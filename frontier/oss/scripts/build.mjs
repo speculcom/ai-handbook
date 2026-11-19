@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { shell } from '../../../../../_sites/_template/shell.mjs';
 
@@ -7,6 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
 const site = path.join(root, 'site');
 const ep = path.resolve(here, '../../../../../www.specul');
+const cssVersion = createHash('sha1').update(fs.readFileSync(path.join(root, 'oss.css'))).digest('hex').slice(0, 8);
 
 fs.mkdirSync(path.join(site, 'scenes'), { recursive: true });
 fs.mkdirSync(path.join(site, 'repos'), { recursive: true });
@@ -75,7 +77,7 @@ function page({ title, desc, canonical, body, depth = 0 }) {
     desc,
     canonical,
     assetPrefix: prefix,
-    headExtra: `<link rel="stylesheet" href="${prefix}oss.css" />`,
+    headExtra: `<link rel="stylesheet" href="${prefix}oss.css?v=${cssVersion}" />`,
     body
   });
 }

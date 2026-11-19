@@ -13,8 +13,8 @@
   <meta property="og:description" content="榜单不是模型排行榜。先看它测什么、题集什么时候发布、评委是谁、分数怎么算，再决定这个分数对你的选型有没有意义。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../../brand.js?v=11bc9d7dba82"></script>
-  <link rel="stylesheet" href="../../brand.css?v=11bc9d7dba82" />
+  <script src="../../brand.js?v=c81d6c81488e"></script>
+  <link rel="stylesheet" href="../../brand.css?v=c81d6c81488e" />
   <link rel="stylesheet" href="../../site.css" />
   <link rel="stylesheet" href="../../sections.css" />
 </head>
@@ -27,6 +27,7 @@
      （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
 <body class="brand-ambient has-tabbar has-tabbar-1row">
   <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <!-- SPECUL:HEADER:START -->
   <header class="site-header">
     <div class="container site-bar">
       <a class="brand" href="https://specul.com/" title="投机取巧">
@@ -43,10 +44,10 @@
         <a href="https://models.specul.com/" aria-current="page"><span data-zh>模型</span><span data-en>Models</span></a>
         <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
         <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
-        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
       </nav>
       <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
@@ -90,6 +91,8 @@
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
+<!-- SPECUL:HEADER:END -->
+  
   <main id="main">
 <div class="container">
 <header class="sec-detail">
@@ -107,6 +110,7 @@
 <div class="sec-sources">参考：<a href="https://crfm.stanford.edu/helm/" target="_blank" rel="noopener">HELM</a> · <a href="https://livebench.ai/" target="_blank" rel="noopener">LiveBench</a> · <a href="https://lmarena.ai/" target="_blank" rel="noopener">Chatbot Arena</a> · <a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a></div>
 </div>
   </main>
+  <!-- SPECUL:FOOTER:START -->
   <footer class="site-footer">
     <div class="container foot-row">
       <div class="foot-brand">
@@ -138,6 +142,8 @@
       <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
     </div>
   </footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
 <nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
     <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
     <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
@@ -150,5 +156,6 @@
     <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
     <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
 </nav>
+<!-- SPECUL:TABBAR:END -->
 </body>
 </html>
