@@ -1,5 +1,285 @@
 [
   {
+    "id": "google-tpu7x",
+    "title": {
+      "zh": "Google TPU7x（Ironwood）",
+      "en": "Google TPU7x (Ironwood)"
+    },
+    "category": "accelerator",
+    "url": "https://docs.cloud.google.cn/tpu/docs/tpu7x",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://docs.cloud.google.cn/tpu/docs/tpu7x",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.cloud.google.cn/tpu/docs/tpu7x",
+        "quote": "TPU7x is the first release within the Ironwood family, Google Cloud's seventh generation TPU."
+      },
+      {
+        "url": "https://docs.cloud.google.cn/tpu/docs/tpu7x",
+        "quote": "HBM capacity per chip (GiB) 95 32 192"
+      },
+      {
+        "url": "https://docs.cloud.google.cn/tpu/docs/tpu7x",
+        "quote": "Peak compute per chip (FP8) (TFLOPs) 459 918 4614"
+      },
+      {
+        "url": "https://docs.cloud.google.cn/tpu/docs/tpu7x",
+        "quote": "With a 9,216-chip footprint per Pod"
+      },
+      {
+        "url": "https://docs.cloud.google.cn/tpu/docs/tpu7x",
+        "quote": "Bidirectional inter-chip interconnect (ICI) bandwidth per chip (GBps) 1200 800 1200"
+      }
+    ],
+    "notes": {
+      "zh": "回答「第七代 TPU 单芯片给多少 HBM、FP8/BF16 算力，以及一个 Pod 有多大」。192GiB HBM3E、7.38TB/s、4614 TF FP8 是单芯片；9216 chips per pod 是 Pod 规模。它不是 GPU，不能按 CUDA 生态的选型逻辑直接套。\n不主张：TPU 的 Pod 规模不是单卡可比的吞吐；4614 TF 是 FP8 峰值；不是所有框架都支持（官方写明 TensorFlow 不支持，JAX/PyTorch 支持）；不是「比 GPU 更强」的结论。",
+      "en": "Answers per-chip HBM, FP8/BF16 compute and Pod size for the seventh-generation TPU. 192GiB HBM3E, 7.38TB/s and 4614 TF FP8 are per chip; 9,216 chips per Pod is the Pod footprint. It is not a GPU and cannot be slotted into CUDA-ecosystem selection logic.\nIt does not claim: Pod scale is not per-card throughput; 4614 TF is FP8 peak; not every framework is supported (the docs say TensorFlow is not supported, JAX/PyTorch are); it is not a claim that TPUs are stronger than GPUs."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "HBM / chip": "192 GiB HBM3E",
+      "带宽 / bandwidth": "约 7.37 TB/s（7380 GBps）",
+      "FP8": "4614 TFLOPS / chip",
+      "BF16": "2307 TFLOPS / chip",
+      "Pod 规模 / pod": "9,216 chips",
+      "ICI": "1.2 TB/s 双向 / chip",
+      "框架 / frameworks": "JAX、PyTorch（TensorFlow 不支持）"
+    }
+  },
+  {
+    "id": "amd-instinct-mi455x",
+    "title": {
+      "zh": "AMD Instinct MI455X",
+      "en": "AMD Instinct MI455X"
+    },
+    "category": "accelerator",
+    "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html",
+        "quote": "Launch Date 7/23/2026"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html",
+        "quote": "432 GB integrated HBM4 Memory with up to 23.3 TB/s Peak Theoretical Memory Bandwidth"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html",
+        "quote": "Peak OCP MXFP4 Performance 40.3 PFLOPs"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html",
+        "quote": "Transistor Count 320 Billion"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html",
+        "quote": "Scale-up (Peak) UALoE Bi-directional Bandwidth 3.6 TB/s"
+      }
+    ],
+    "notes": {
+      "zh": "回答「单卡 432GB HBM4 这一档的容量、带宽与 MXFP4 算力」。432GB 是目前公开单卡里最大的一档，12 个 HBM4 stack；对需要把超大模型或长 KV 缓存留在单卡上的场景，容量比峰值算力更先决定能不能跑。\n不主张：40.3 PF 是 OCP MXFP4 峰值，不是实测；不能与 NVIDIA NVFP4 直接横比；不是 Helios 整机架的 2.9 EF FP4；DLC 意味着风冷机房不能直接上。",
+      "en": "Answers capacity, bandwidth and MXFP4 compute at the 432GB HBM4 tier. 432GB is the largest publicly documented per-GPU figure here, with 12 HBM4 stacks; for keeping very large models or long KV caches on one card, capacity decides feasibility before peak compute.\nIt does not claim: 40.3 PF is OCP MXFP4 peak, not measured; it is not directly comparable with NVIDIA NVFP4; it is not Helios’ 2.9 EF FP4 rack figure; DLC means an air-cooled facility cannot simply take it."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "显存 / HBM": "432 GB HBM4（12 stacks）",
+      "带宽 / bandwidth": "23.3 TB/s",
+      "MXFP4": "40.3 PFLOPS",
+      "FP8 / MXFP8": "20.1 PFLOPS",
+      "晶体管 / transistors": "320B",
+      "互联 / scale-up": "UALoE 3.6 TB/s；UALink 600 GB/s",
+      "冷却 / cooling": "直接液冷（DLC）",
+      "上市 / launch": "2026-07-23"
+    }
+  },
+  {
+    "id": "nvidia-rubin",
+    "title": {
+      "zh": "NVIDIA Rubin",
+      "en": "NVIDIA Rubin"
+    },
+    "category": "accelerator",
+    "url": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai",
+        "quote": "Rubin integrates up to 288 GB of HBM4 memory, driven by dedicated HBM controllers and 12-Hi stacks, to deliver up to 22 TB/s of peak bandwidth."
+      },
+      {
+        "url": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai",
+        "quote": "Its 336 billion transistors, 224 streaming multiprocessors (SMs), and 896 Tensor Cores"
+      },
+      {
+        "url": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai",
+        "quote": "up to 50 petaflops of NVFP4 inference performance"
+      },
+      {
+        "url": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai",
+        "quote": "NVLink 6 provides 3,600 GB/s scale-up bandwidth"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到 22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。\n不主张：50 PF 是 NVFP4 推理性能，不是所有精度；不能与 AMD MXFP4 数字直接横比；不是整机 Vera Rubin NVL72 的合计；不是实测吞吐。",
+      "en": "Answers Rubin’s per-GPU HBM4 capacity and bandwidth, and its NVFP4 inference figure. 288GB matches B300, but HBM4 lifts bandwidth from 8 TB/s to 22 TB/s and NVLink 6 from 1.8 TB/s to 3.6 TB/s; those three set the practical ceiling for long context and concurrency.\nIt does not claim: 50 PF is NVFP4 inference performance, not every precision; it is not directly comparable with AMD MXFP4 figures; it is not the Vera Rubin NVL72 rack total; it is not measured throughput."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "显存 / HBM": "288 GB HBM4（12-Hi stacks）",
+      "带宽 / bandwidth": "22 TB/s",
+      "NVFP4 推理 / inference": "up to 50 PFLOPS",
+      "晶体管 / transistors": "336B",
+      "SM / Tensor Cores": "224 SM / 896 Tensor Cores",
+      "NVLink 6": "3.6 TB/s",
+      "形态 / form": "GPU；Vera Rubin NVL72 机架"
+    }
+  },
+  {
+    "id": "nvidia-b300",
+    "title": {
+      "zh": "NVIDIA B300（Blackwell Ultra）",
+      "en": "NVIDIA B300 (Blackwell Ultra)"
+    },
+    "category": "accelerator",
+    "url": "https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era",
+        "quote": "delivers 15 petaFLOPS of dense NVFP4 compute through 640 fifth-generation Tensor Cores across 160 Streaming Multiprocessors"
+      },
+      {
+        "url": "https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era",
+        "quote": "HBM3E memory capacity reaches 288 GB with 8 TB/s bandwidth"
+      },
+      {
+        "url": "https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era",
+        "quote": "Max power (TGP) Up to 700W Up to 1,200W Up to 1,400W"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Blackwell Ultra 单卡在 288GB 档给多少 dense NVFP4 与带宽」。15 PF 是 dense NVFP4，不是稀疏数字；8 TB/s 与 B200 同级，容量也一样是 288GB，差别在 NVFP4 算力与能效。\n不主张：15 PF 不能与 Rubin 的 50 PF NVFP4 推理数字直接横比；不是整机 GB300 NVL72 的算力；1400W 是最高 TGP，实际功耗随负载与配置变化。",
+      "en": "Answers what Blackwell Ultra offers at the 288GB tier in dense NVFP4 and bandwidth. 15 PF is dense NVFP4, not sparse; 8 TB/s matches B200, and capacity is also 288GB — the difference is NVFP4 compute and efficiency.\nIt does not claim: 15 PF is not directly comparable with Rubin’s 50 PF NVFP4 inference figure; it is not the GB300 NVL72 rack number; 1,400W is max TGP, and real power varies with workload and configuration."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "显存 / HBM": "288 GB HBM3e",
+      "带宽 / bandwidth": "8 TB/s",
+      "NVFP4 dense": "15 PFLOPS",
+      "SM / Tensor Cores": "160 SM / 640 Tensor Cores",
+      "晶体管 / transistors": "208B",
+      "NVLink": "1.8 TB/s（NVLink 5）",
+      "最高功耗 / max TGP": "1,400W"
+    }
+  },
+  {
+    "id": "amd-instinct-mi450x",
+    "title": {
+      "zh": "AMD Instinct MI450X",
+      "en": "AMD Instinct MI450X"
+    },
+    "category": "accelerator",
+    "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html",
+        "quote": "Launch Date 11/12/2026"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html",
+        "quote": "Dedicated Memory Size 288 GB"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html",
+        "quote": "Peak Memory Bandwidth 23.3 TB/s"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html",
+        "quote": "Peak OCP MXFP4 Performance 40.3 PFLOPs"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html",
+        "quote": "Transistor Count 320 Billion"
+      }
+    ],
+    "notes": {
+      "zh": "回答「288GB HBM4 这一档，AMD 的带宽与 MXFP4 算力给到多少」。与 MI455X 同为 CDNA5、同为 23.3 TB/s，但 MI455X 是 432GB / 12 stack，MI450X 是 288GB / 8 stack；型号差在容量，不在架构代际。\n不主张：MXFP4 的 40.3 PF 不能与 NVIDIA 的 NVFP4 数字直接横比；不是实际训练吞吐；不是「比 MI455X 更强或更弱」的结论。",
+      "en": "Answers what AMD offers at the 288GB HBM4 tier in bandwidth and MXFP4 compute. It shares CDNA5 and 23.3 TB/s with MI455X, but MI455X is 432GB / 12 stacks while MI450X is 288GB / 8 stacks; the difference is capacity, not architecture generation.\nIt does not claim: MXFP4 40.3 PF is not directly comparable with NVIDIA NVFP4 figures; it is not measured training throughput; it is not a claim that MI450X is stronger or weaker than MI455X."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "显存 / HBM": "288 GB HBM4（8 stacks）",
+      "带宽 / bandwidth": "23.3 TB/s",
+      "MXFP4": "40.3 PFLOPS",
+      "FP8 / MXFP8": "20.1 PFLOPS",
+      "晶体管 / transistors": "320B",
+      "互联 / scale-up": "UALoE 3.6 TB/s；UALink 600 GB/s",
+      "上市 / launch": "2026-11-12"
+    }
+  },
+  {
+    "id": "amd-helios",
+    "title": {
+      "zh": "AMD Helios 机架",
+      "en": "AMD Helios rack"
+    },
+    "category": "system",
+    "url": "https://www.amd.com/en/products/accelerators/instinct/mi400.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.amd.com/en/products/accelerators/instinct/mi400.html",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400.html",
+        "quote": "The portfolio spans the AMD Helios™ rackscale solution powered by 72 AMD Instinct MI455X or MI450X GPUs"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400.html",
+        "quote": "A full AMD Helios rackscale solution delivers up to 1.4 exaFLOPS of FP8 compute, 2.9 exaFLOPS of FP4 compute and 31 TB of HBM4 memory"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi400.html",
+        "quote": "Each AMD Instinct MI455X GPU uses next-gen AMD CDNA™ architecture, with 432 GB HBM4 of memory and up to 23.3 TB/s bandwidth"
+      }
+    ],
+    "notes": {
+      "zh": "回答「一个机架能装多少 HBM、给多少 FP8/FP4 算力」，不是单卡规格。官方写的 31 TB 是 72 张 MI455X 的合计；1.4 EF FP8 与 2.9 EF FP4 也是整机架数字。采购时先确认是 72 张 MI455X 还是 MI450X 配置，两者单卡显存不同。\n不主张：不是单芯片性能比较；不是「买到就能跑满」的保证；整机功耗、冷却与机房条件另算。",
+      "en": "Answers how much HBM and FP8/FP4 compute one rack holds, not a single card. The official 31 TB is the sum of 72 MI455X GPUs; 1.4 EF FP8 and 2.9 EF FP4 are rack-level figures too. Confirm whether the configuration is 72 MI455X or MI450X — their per-card memory differs.\nIt does not claim: a single-chip comparison; a guarantee that buying the rack means running at peak; power, cooling and facility constraints are separate."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "GPU 数量 / GPUs": "72× AMD Instinct MI455X 或 MI450X",
+      "HBM 合计 / total HBM": "31 TB HBM4（MI455X 配置）",
+      "FP8 算力 / FP8": "1.4 EFLOPS（整机架）",
+      "FP4 算力 / FP4": "2.9 EFLOPS（整机架）",
+      "互联 / interconnect": "AMD Infinity Fabric；UALoE / UALink",
+      "形态 / form": "机架级（rackscale）"
+    }
+  },
+  {
     "id": "amd-instinct-mi210",
     "title": {
       "zh": "AMD Instinct MI210",

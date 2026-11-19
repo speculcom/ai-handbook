@@ -1,10 +1,11 @@
 /* demos 站级样式：作品演示 / 研究集 / 播放器 / 并排对照 / prompt 索引。
    2026-11-18 重整：首页以作品为主，模型只做筛选与来源；卡片不再堆长摘要。 */
 .demos-page{padding-top:clamp(24px,5vw,56px);padding-bottom:64px}
+.demos-results{padding-top:0}
 .demos-page h1{max-width:none}
 .dm-hero{max-width:78ch;margin:0 0 26px}
-.dm-hero h1{font-size:clamp(42px,6.4vw,74px);line-height:.98;letter-spacing:-.045em;margin:0 0 14px;max-width:16ch}
-.dm-collection .dm-hero h1{font-size:clamp(32px,4.7vw,56px);line-height:1.04;letter-spacing:-.035em;max-width:26ch}
+.dm-hero h1{font-size:var(--display-sub);line-height:var(--lh-tight);letter-spacing:-.028em;margin:0 0 14px;max-width:16ch}
+.dm-collection .dm-hero h1{font-size:52px;line-height:1.1;letter-spacing:-.03em;max-width:26ch}
 .dm-lead{color:var(--ink-mid);font-size:var(--lede);line-height:var(--lede-lh);max-width:66ch;margin:0 0 18px}
 .dm-lead a{color:var(--ink)}
 .dm-collection-links{display:flex;align-items:baseline;flex-wrap:wrap;gap:7px 18px;font-size:var(--fs-sm);color:var(--ink-mid)}
@@ -31,6 +32,7 @@
 .dm-chip{border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink-mid);padding:6px 10px;font:inherit;font-size:var(--fs-xs);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .dm-chip em{font-style:normal;color:var(--ink-faint);font-size:.9em}
 .dm-chip[aria-pressed="true"]{border-color:var(--brand);color:var(--ink);background:var(--bg-inset)}
+.dm-filter-note{margin:8px 0 0;font-size:var(--fs-xs);line-height:1.6;color:var(--ink-faint)}
 
 /* 作品卡：缩略图 + 标题 + 来源 + 三个动作；长摘要移到详情页 */
 .dm-grid{grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:14px}
@@ -56,7 +58,7 @@
 
 /* 播放器 */
 .dm-play-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px}
-.dm-play-head h1{font-size:clamp(24px,3.2vw,42px);margin:0 0 8px;max-width:none}
+.dm-play-head h1{font-size:52px;line-height:1.1;letter-spacing:-.03em;margin:0 0 8px;max-width:none}
 .dm-play-actions{display:flex;gap:8px;flex-wrap:wrap}
 .dm-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-strong);border-radius:999px;padding:10px 18px;font-size:var(--fs-sm);font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap;background:var(--bg-panel);cursor:pointer}
 .dm-btn:hover{border-color:var(--brand);color:var(--brand)}
@@ -101,13 +103,22 @@
 .dm-prompt-card .fx-card-links a:hover{color:var(--brand)}
 
 @media(max-width:760px){
-  .dm-hero h1{font-size:clamp(36px,10vw,52px)}
-  .dm-collection .dm-hero h1{font-size:clamp(28px,7.5vw,40px)}
+  .dm-hero h1{font-size:var(--display-sub);line-height:var(--lh-tight);letter-spacing:-.028em;max-width:none}
+  .dm-collection .dm-hero h1{font-size:30px;line-height:1.1;letter-spacing:-.03em}
+  .dm-play-head{display:block}
+  .dm-play .dm-card-meta{justify-content:flex-start;gap:12px}
+  .dm-play .kicker{flex-wrap:wrap;row-gap:2px;font-size:var(--fs-xs);letter-spacing:.1em}
+  .dm-collection-links{display:block}
+  .dm-collection-label{display:block;margin-bottom:2px}
+  .dm-collection-link{display:flex;width:100%;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+  .dm-collection-tool{display:inline-flex;width:auto;margin:4px 14px 0 0;padding:6px 0;justify-content:flex-start}
+  .dm-collection-name,.dm-collection-note{white-space:nowrap}
+  .dm-collection-note{font-size:var(--fs-xs);text-align:right}
   .dm-filter-row{align-items:flex-start;flex-direction:column;gap:6px}
   .dm-filter-label{min-width:0}
   .dm-visible{margin-left:0}
   .dm-play-info,.dm-compare{grid-template-columns:1fr}
   .dm-player{height:68vh;min-height:420px}
   .dm-pane iframe{height:48vh;min-height:320px}
-  .dm-play-head h1{font-size:clamp(22px,5vw,30px)}
+  .dm-play-head h1{font-size:30px;line-height:1.1;letter-spacing:-.03em}
 }

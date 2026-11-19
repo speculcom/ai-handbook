@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>2026 模型增补 | 模型站</title>
+  <meta name="description" content="2026 模型增补：Mistral Large 4、Muse Spark、MiMo-V2.6、DeepSeek V4.1 Flash、GLM-5.3、Kimi K3 日期校正。" />
+  <link rel="canonical" href="https://models.specul.com/2026.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="2026 模型增补 | 模型站" />
+  <meta property="og:url" content="https://models.specul.com/2026.html" />
+  <meta property="og:title" content="2026 模型增补 | 模型站" />
+  <meta property="og:description" content="2026 模型增补：Mistral Large 4、Muse Spark、MiMo-V2.6、DeepSeek V4.1 Flash、GLM-5.3、Kimi K3 日期校正。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=8e209a2fd1c9"></script>
+  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
+  <link rel="stylesheet" href="site.css" />
+  <style>
+.u26-hero{padding:clamp(28px,5vw,52px) 0 18px}
+.u26-kicker{margin:0 0 10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:650}
+.u26-h1{margin:0;max-width:20ch;font-size:clamp(30px,4.3vw,52px);line-height:1.1;letter-spacing:-.03em;color:var(--ink)}
+.u26-lede{margin:16px 0 0;max-width:70ch;font-size:15px;line-height:1.8;color:var(--ink-mid)}
+.u26-note{margin:16px 0 0;max-width:72ch;padding:12px 14px;border-left:2px solid var(--cyan);background:var(--brand-soft);font-size:13px;line-height:1.7;color:var(--ink-mid)}
+.u26-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.u26-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--ink-mid);background:var(--bg-panel)}
+.u26-chip b{color:var(--cyan);font-variant-numeric:tabular-nums}
+.u26-section{padding:clamp(24px,4vw,44px) 0;border-top:1px solid var(--line)}
+.u26-h2{margin:0 0 6px;font-size:clamp(22px,2.8vw,32px);line-height:1.2;color:var(--ink)}
+.u26-sub{margin:0 0 18px;font-size:13px;line-height:1.7;color:var(--ink-faint);max-width:68ch}
+.u26-figure{margin:0 0 20px;padding:14px 14px 10px;border:1px solid var(--line);border-radius:14px;background:var(--bg-panel)}
+.u26-figure figcaption{margin-top:8px;font-size:11px;line-height:1.6;color:var(--ink-faint)}
+.u26-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
+.u26-card{grid-column:span 6;min-width:0;padding:16px 16px 14px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--bg-panel),var(--bg-inset))}
+.u26-card.wide{grid-column:span 12}
+.u26-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}
+.u26-badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:6px;border:1px solid var(--brand-line);background:var(--brand-soft);color:var(--cyan);font-size:11px;font-variant-numeric:tabular-nums}
+.u26-tag{font-size:11px;color:var(--ink-faint)}
+.u26-card h2{margin:0 0 7px;font-size:17px;line-height:1.3;color:var(--ink)}
+.u26-card .u26-p{margin:0;font-size:13px;line-height:1.7;color:var(--ink-mid)}
+.u26-dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:12px 0 0;padding:10px 0 2px;border-top:1px dashed var(--line);font-size:12px;line-height:1.55}
+.u26-dl dt{color:var(--ink-faint)}
+.u26-dl dd{margin:0;color:var(--ink)}
+.u26-block{margin-top:11px;padding-top:9px;border-top:1px dashed var(--line)}
+.u26-block b{display:block;margin-bottom:3px;font-size:11px;letter-spacing:.04em;color:var(--cyan)}
+.u26-block p{margin:0;font-size:12px;line-height:1.65;color:var(--ink-mid)}
+.u26-boundary{border-left:2px solid var(--warn);padding-left:9px}
+.u26-src{margin:10px 0 0;font-size:11px;line-height:1.6;color:var(--ink-faint);overflow-wrap:anywhere}
+.u26-src a{color:var(--ink-mid);text-decoration:none;border-bottom:1px solid var(--line)}
+.u26-brief{display:grid;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-panel)}
+.u26-row{display:grid;grid-template-columns:82px 1fr auto;gap:12px;align-items:start;padding:13px 14px;border-bottom:1px solid var(--line)}
+.u26-row:last-child{border-bottom:0}
+.u26-row time{font-size:11px;color:var(--cyan);font-variant-numeric:tabular-nums;padding-top:2px}
+.u26-row b{display:block;font-size:14px;line-height:1.4;color:var(--ink)}
+.u26-row p{margin:3px 0 0;font-size:12px;line-height:1.6;color:var(--ink-mid)}
+.u26-row a{font-size:11px;color:var(--ink-faint);text-decoration:none;white-space:nowrap}
+.u26-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.u26-two .u26-card{grid-column:auto}
+.u26-quote{margin:12px 0 0;padding:11px 12px;border-left:2px solid var(--brand-line);background:var(--bg-inset);font-size:12px;line-height:1.7;color:var(--ink-mid);overflow-wrap:anywhere}
+.u26-list{display:grid;gap:8px;margin:12px 0 0}
+.u26-list div{display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:12px;line-height:1.6;color:var(--ink-mid)}
+.u26-list b{color:var(--cyan);font-variant-numeric:tabular-nums}
+.u26-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:4px 0 18px}
+.u26-lane{padding:14px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--bg-panel),var(--bg-inset))}
+.u26-lane>b{display:block;font-size:12px;letter-spacing:.06em;color:var(--cyan)}
+.u26-lane>span{display:block;margin:3px 0 11px;font-size:11px;line-height:1.5;color:var(--ink-faint)}
+.u26-lane a{display:grid;grid-template-columns:48px 1fr;gap:8px;padding:7px 0;border-top:1px dashed var(--line);font-size:11px;line-height:1.5;color:var(--ink-mid)}
+.u26-lane a time{color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.u26-lane a:hover{color:var(--ink)}
+.u26-chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 18px;counter-reset:step}
+.u26-chain div{position:relative;padding:13px 12px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg-panel)}
+.u26-chain div:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--ink-faint)}
+.u26-chain b{display:block;font-size:11px;letter-spacing:.05em;color:var(--cyan)}
+.u26-chain span{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:var(--ink)}
+.nf-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:clamp(24px,5vw,56px);align-items:center}
+.nf-art{opacity:.95}
+.nf-art svg{display:block;width:100%;height:auto}
+@media(max-width:900px){.u26-card{grid-column:span 12}.u26-two{grid-template-columns:1fr}.u26-row{grid-template-columns:70px 1fr}.u26-row a{display:none}.u26-map{grid-template-columns:1fr}.u26-chain{grid-template-columns:1fr 1fr}.u26-chain div:nth-child(2)::after{content:none}.nf-grid{grid-template-columns:1fr}.nf-art{max-width:200px;margin:8px auto 0}}
+</style>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+
+      <section class="u26-hero"><div class="container">
+    <p class="u26-kicker">模型 · 2026 增补 · 2026-11-18</p>
+    <h1 class="u26-h1"><span data-zh>六个开放权重节点，改写了 2026 的选型表</span><span data-en>Six open-weight nodes rewrote the 2026 selection table</span></h1>
+    <p class="u26-lede"><span data-zh>这一页只补「2026 年新出现、且能改变选型」的模型：Mistral Large 4、Muse Spark、MiMo-V2.6、DeepSeek V4.1 Flash、GLM-5.3，以及 Kimi K3 的日期校正。每条都写清规格、许可与它没主张什么。</span><span data-en>Only 2026 models that change selection: Mistral Large 4, Muse Spark, MiMo-V2.6, DeepSeek V4.1 Flash, GLM-5.3, plus the Kimi K3 date correction. Each states specs, licence and what it does not claim.</span></p>
+    <p class="u26-note"><span data-zh>参数、上下文与许可取官方模型卡；能力分数只用第三方公开指数并标注。本站不做模型排名，也不把厂商自评当实测。</span><span data-en>Parameters, context and licence come from official model cards; capability scores are third-party indices and labelled. This site does not rank models or treat vendor claims as measurement.</span></p>
+    <div class="u26-chips"><span class="u26-chip"><span data-zh>家族</span><span data-en>Families</span> <b>16</b></span><span class="u26-chip"><span data-zh>新增 / 校正</span><span data-en>Added / corrected</span> <b>6</b></span><span class="u26-chip"><span data-zh>模型仓</span><span data-en>Model repos</span> <b>16</b></span><span class="u26-chip"><span data-zh>量化仓</span><span data-en>Quant repos</span> <b>129</b></span></div>
+  </div></section>
+      <section class="u26-section"><div class="container">
+        <figure class="u26-figure"><svg class="vz-svg" viewBox="0 0 760 306" role="img" aria-label="时间线" xmlns="http://www.w3.org/2000/svg">
+      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-10-29</text>
+      <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
+      <circle cx="120" cy="22" r="6" style="fill:var(--cat-violet)"/>
+      <text x="140" y="27" class="vz-t-strong">Mistral Large 4</text>
+      <text x="140" y="47" class="vz-t-dim">开放权重</text>
+      <text x="104" y="75" class="vz-t-dim" text-anchor="end">2026-10-15</text>
+      <line x1="120" y1="58" x2="120" y2="102" class="vz-axis"/>
+      <circle cx="120" cy="70" r="6" style="fill:var(--cat-violet)"/>
+      <text x="140" y="75" class="vz-t-strong">Meta Muse Spark Open</text>
+      <text x="140" y="95" class="vz-t-dim">开放权重</text>
+      <text x="104" y="123" class="vz-t-dim" text-anchor="end">2026-09-22</text>
+      <line x1="120" y1="106" x2="120" y2="150" class="vz-axis"/>
+      <circle cx="120" cy="118" r="6" style="fill:var(--cat-violet)"/>
+      <text x="140" y="123" class="vz-t-strong">小米 MiMo-V2.6</text>
+      <text x="140" y="143" class="vz-t-dim">开源</text>
+      <text x="104" y="171" class="vz-t-dim" text-anchor="end">2026-09-10</text>
+      <line x1="120" y1="154" x2="120" y2="198" class="vz-axis"/>
+      <circle cx="120" cy="166" r="6" style="fill:var(--cat-violet)"/>
+      <text x="140" y="171" class="vz-t-strong">DeepSeek V4.1 Flash</text>
+      <text x="140" y="191" class="vz-t-dim">开放权重</text>
+      <text x="104" y="219" class="vz-t-dim" text-anchor="end">2026-08-14</text>
+      <line x1="120" y1="202" x2="120" y2="246" class="vz-axis"/>
+      <circle cx="120" cy="214" r="6" style="fill:var(--cat-violet)"/>
+      <text x="140" y="219" class="vz-t-strong">GLM-5.3</text>
+      <text x="140" y="239" class="vz-t-dim">开放权重</text>
+      <text x="104" y="267" class="vz-t-dim" text-anchor="end">2026-07-27</text>
+      <line x1="120" y1="250" x2="120" y2="294" class="vz-axis"/>
+      <circle cx="120" cy="262" r="6" style="fill:var(--cat-violet)"/>
+      <text x="140" y="267" class="vz-t-strong">Kimi K3</text>
+      <text x="140" y="287" class="vz-t-dim">开放权重 / 校正</text></svg><figcaption><span data-zh>按官方发布 / 开放日排序；Kimi K3 为日期校正，不是新发布。</span><span data-en>Sorted by official release / open-weights date; Kimi K3 is a date correction, not a new release.</span></figcaption></figure>
+        <div class="u26-grid"><article class="u26-card" id="mistral-large-4">
+    <div class="u26-meta"><span class="u26-badge">2026-10-29</span><span class="u26-tag"><span data-zh>开放权重</span><span data-en>Open weights</span></span></div>
+    <h2><span data-zh>Mistral Large 4：1.05T / 49B 激活</span><span data-en>Mistral Large 4: 1.05T total / 49B active</span></h2>
+    <p class="u26-p"><span data-zh>欧洲开放权重旗舰。1T 级原生多模态 MoE，1M 上下文，128 路由专家（每 token 激活 4 个 + 1 共享），160+ 语言；官方称 3,800 张 Grace Blackwell 训练。</span><span data-en>A European open-weight flagship: 1T-class natively multimodal MoE, 1M context, 128 routed experts (4 active per token plus 1 shared), 160+ languages; trained on 3,800 Grace Blackwell GPUs per the model card.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>总参 / 激活</span><span data-en>Total / active</span></dt><dd>1.05T / 49B（含嵌入输出 52B）</dd><dt><span data-zh>专家 / experts</span><span data-en>Experts</span></dt><dd>128 routed + 1 shared；4 active</dd><dt><span data-zh>上下文 / context</span><span data-en>Context</span></dt><dd>1M tokens</dd><dt><span data-zh>输入 / input</span><span data-en>Input</span></dt><dd>文本 + 图像</dd><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd>Mistral Ecosystem Open-Weight License（修改版 MIT；MaaS 需单独授权）</dd><dt><span data-zh>公开指数 / index</span><span data-en>Public index</span></dt><dd>AA Coding Agent 48%；AA Intelligence v5 26（第三方，非本站实测）</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它把「1T 级 MoE」与「1M 上下文」放进开放权重，同时保留欧洲许可叙事与多语言覆盖。对需要在本地或私有云部署旗舰模型、又不想完全依赖闭源 API 的团队，这是 2026 年最重要的新增选项之一。</span><span data-en>It puts a 1T-class MoE and 1M context into open weights while keeping a European licensing story and multilingual coverage. For teams that need a flagship on-prem or in a private cloud without a fully closed API, this is one of the most important 2026 additions.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>49B 是每 token 激活，不是总计算量；1T 总参意味着权重加载本身就很重，官方给了 NVFP4 档与 DSpark 草稿头，但本地运行仍需多卡。许可是修改版 MIT，不是 OSI 标准；MaaS 商用要单独谈。AA 分数是第三方指数，不能替代你自己的任务评测。</span><span data-en>49B is active per token, not total compute; 1T total means loading the weights is itself heavy. The release includes an NVFP4 checkpoint and a DSpark draft head, but local hosting still needs multiple GPUs. The licence is modified MIT, not OSI-approved; MaaS use needs a separate grant. AA scores are third-party indices and cannot replace your own task evaluation.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B" target="_blank" rel="noopener"><span data-zh>Hugging Face 模型卡</span><span data-en>Hugging Face model card</span></a></p>
+  </article><article class="u26-card" id="muse-spark-open">
+    <div class="u26-meta"><span class="u26-badge">2026-10-15</span><span class="u26-tag"><span data-zh>开放权重</span><span data-en>Open weights</span></span></div>
+    <h2><span data-zh>Meta Muse Spark Open：816B / 42B 激活</span><span data-en>Meta Muse Spark Open: 816B / 42B active</span></h2>
+    <p class="u26-p"><span data-zh>Meta 在 Muse 线上的新旗舰，面向多文件重构与长程调试的编程 Agent；816B 总参、42B 激活、1M 上下文、原生多模态，Muse Model License。</span><span data-en>A new flagship on Meta’s Muse line, aimed at coding agents doing multi-file refactoring and long debugging; 816B total, 42B active, 1M context, natively multimodal, under the Muse Model License.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>总参 / 激活</span><span data-en>Total / active</span></dt><dd>816B / 42B</dd><dt><span data-zh>上下文 / context</span><span data-en>Context</span></dt><dd>1M</dd><dt><span data-zh>模态 / modality</span><span data-en>Modality</span></dt><dd>原生多模态</dd><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd>Muse Model License（厂商许可，非 OSI）</dd><dt><span data-zh>本地演示 / local demo</span><span data-en>Local demo</span></dt><dd>可在两台 M5 Ultra Mac Studio 运行（AMD 技术文章口径）</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它把「开放权重」推到 800B 级，并明确以编程 Agent 为主场景；对需要长上下文代码库理解、又希望保留权重控制权的团队，是一个新的上限选项。</span><span data-en>It pushes open weights into the 800B class and explicitly targets coding agents; for teams that need long-context repository understanding while retaining weight control, it is a new upper bound.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>站点尚未收录它的量化系列，家族卡只记代次与规格；「两台 M5 Ultra 可跑」是厂商演示，不等于通用生产吞吐。Muse Model License 有使用范围限制，商用前读原文。816B 总参的显存门槛极高。</span><span data-en>This site does not yet cover its quantisations; the family card records only the generation and specs. “Runs on two M5 Ultra Mac Studios” is a vendor demo, not general production throughput. The Muse Model License has scope limits; read it before commercial use. 816B total is an extremely high memory barrier.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.amd.com/en/developer/resources/technical-articles/2026/day-0-support-for-meta-muse-spark-open-on-amd.html" target="_blank" rel="noopener"><span data-zh>AMD 技术文章</span><span data-en>AMD technical article</span></a></p>
+  </article><article class="u26-card" id="mimo-v2-6">
+    <div class="u26-meta"><span class="u26-badge">2026-09-22</span><span class="u26-tag"><span data-zh>开源</span><span data-en>Open source</span></span></div>
+    <h2><span data-zh>小米 MiMo-V2.6：Pro / Flash 双线</span><span data-en>Xiaomi MiMo-V2.6: Pro / Flash line</span></h2>
+    <p class="u26-p"><span data-zh>Pro / Flash 两条线同时发布并开源；Pro 在 AA Intelligence Index 46.32，1M 上下文，原生全模态（文本 / 图像 / 视频 / 音频），权重与技术报告开放。</span><span data-en>Pro and Flash launched together with open weights; Pro scores 46.32 on the AA Intelligence Index, with 1M context and native omni-modality (text / image / video / audio); weights and a technical report are open.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>版本 / variants</span><span data-en>Variants</span></dt><dd>MiMo-V2.6-Pro / Flash</dd><dt><span data-zh>上下文 / context</span><span data-en>Context</span></dt><dd>1M</dd><dt><span data-zh>模态 / modality</span><span data-en>Modality</span></dt><dd>文本 / 图像 / 视频 / 音频</dd><dt><span data-zh>公开指数 / index</span><span data-en>Public index</span></dt><dd>AA Intelligence 46.32（第三方）</dd><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd>以官方模型卡为准</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它是 2026 年少数把「原生全模态」与「1M 上下文」同时放进开源权重的中文模型线；对多模态 Agent、视频理解与中文场景，值得单独做一次任务评测。</span><span data-en>One of the few 2026 Chinese open-weight lines to combine native omni-modality with 1M context; worth a task-specific evaluation for multimodal agents, video understanding and Chinese workloads.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>AA 分数是第三方指数，不覆盖你的领域；「全模态」指输入模态，不代表每一种模态都达到同等质量。Flash 与 Pro 的能力/成本差要分开测。</span><span data-en>AA is a third-party index and does not cover your domain; “omni-modal” refers to input modalities, not equal quality on each. Test Flash and Pro separately for capability and cost.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://mimo.xiaomi.com/mimo-v2-6" target="_blank" rel="noopener"><span data-zh>小米 MiMo 官方页</span><span data-en>Xiaomi MiMo official page</span></a> · <a href="https://huggingface.co/collections/XiaomiMiMo/mimo-v26" target="_blank" rel="noopener"><span data-zh>Hugging Face collection</span><span data-en>Hugging Face collection</span></a></p>
+  </article><article class="u26-card" id="deepseek-v4-1-flash">
+    <div class="u26-meta"><span class="u26-badge">2026-09-10</span><span class="u26-tag"><span data-zh>开放权重</span><span data-en>Open weights</span></span></div>
+    <h2><span data-zh>DeepSeek V4.1 Flash：552B MoE，KV 缓存大幅压缩</span><span data-en>DeepSeek V4.1 Flash: 552B MoE, much smaller KV cache</span></h2>
+    <p class="u26-p"><span data-zh>552B MoE，Causal-Encoder-Decoder 架构；输入侧 8B 激活、输出侧 16B 激活；原生多模态；官方称 KV 缓存 HBM 占用降至 1/4、SSD 降至 1/8；权重 MIT。</span><span data-en>552B MoE with a causal encoder–decoder architecture; 8B active on the input side and 16B on the output side; native multimodality; the official post says KV-cache HBM use drops to one quarter and SSD to one eighth; MIT weights.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>总参 / total</span><span data-en>Total</span></dt><dd>552B MoE</dd><dt><span data-zh>激活 / active</span><span data-en>Active</span></dt><dd>输入 8B / 输出 16B</dd><dt><span data-zh>上下文 / context</span><span data-en>Context</span></dt><dd>1M（官方 API 口径）</dd><dt><span data-zh>KV 缓存 / KV cache</span><span data-en>KV cache</span></dt><dd>HBM 1/4、SSD 1/8（官方口径）</dd><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd>MIT</dd><dt><span data-zh>API</span><span data-en>API</span></dt><dd>deepseek-flash；1017 版本 2026-10-17</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它把「长上下文」的成本从「堆显存」转向「压缓存」，并用 MIT 许可开放权重；对做长文档、代码库与多轮 Agent 的团队，V4.1 Flash 是一个成本敏感型基线。</span><span data-en>It shifts long-context cost from “more HBM” to “smaller cache” and releases weights under MIT; for long documents, repositories and multi-turn agents, V4.1 Flash is a cost-sensitive baseline.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>1/4、1/8 是官方对缓存占用的口径，不是端到端吞吐提升；实际速度取决于框架、batch 与 SSD。原生多模态的能力边界要按任务测，不能从参数表推断。1017 是小版本更新，接口与行为可能与此前版本有差异。</span><span data-en>The 1/4 and 1/8 figures are the official cache-footprint claims, not end-to-end throughput gains; real speed depends on the stack, batch and SSD. Native multimodality must be tested per task, not inferred from a spec table. 1017 is a point release; interfaces and behaviour may differ from earlier versions.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://api-docs.deepseek.com/zh-cn/news/news260910/" target="_blank" rel="noopener"><span data-zh>DeepSeek 官方发布（2026-09-10）</span><span data-en>DeepSeek release (2026-09-10)</span></a> · <a href="https://api-docs.deepseek.com/zh-cn/news/news261017/" target="_blank" rel="noopener"><span data-zh>DeepSeek 1017 更新</span><span data-en>DeepSeek 1017 update</span></a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" target="_blank" rel="noopener"><span data-zh>Hugging Face 权重</span><span data-en>Hugging Face weights</span></a></p>
+  </article><article class="u26-card" id="glm-5-3">
+    <div class="u26-meta"><span class="u26-badge">2026-08-14</span><span class="u26-tag"><span data-zh>开放权重</span><span data-en>Open weights</span></span></div>
+    <h2><span data-zh>GLM-5.3：同基座后训练 Scaling</span><span data-en>GLM-5.3: post-training scaling on the same base</span></h2>
+    <p class="u26-p"><span data-zh>基于 GLM-5.2 同一基座做后训练 Scaling，1M 上下文，官方定位编程与网络安全；权重在发布两周后开放。GLM-5.3-Flash 320B-A18B 于 2026-08-26 上线并以 MIT 开源。</span><span data-en>Post-training scaling on the same GLM-5.2 base, 1M context, officially positioned for coding and cybersecurity; weights opened two weeks later. GLM-5.3-Flash 320B-A18B launched on 2026-08-26 under MIT.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>基座 / base</span><span data-en>Base</span></dt><dd>GLM-5.2 同基座</dd><dt><span data-zh>上下文 / context</span><span data-en>Context</span></dt><dd>1M</dd><dt><span data-zh>定位 / positioning</span><span data-en>Positioning</span></dt><dd>编程、网络安全（官方口径）</dd><dt><span data-zh>Flash / 开源</span><span data-en>Flash / open</span></dt><dd>320B-A18B；MIT；2026-08-26</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它说明「不换基座、只做后训练」也能把能力推上去，这对算力有限、但已有基座的团队很有参考价值；Flash 档把 320B-A18B 拉到可部署区间。</span><span data-en>It shows that post-training alone, without a new base, can move capability — useful for teams with a fixed base and limited compute; the Flash tier brings 320B-A18B into a deployable range.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>「编程 / 网络安全」是官方定位，不是第三方基准结论；后训练 Scaling 的收益依赖数据与奖励，不可无条件复制。Flash 是另一套规模，不能把 Pro 的分数直接套到 Flash。</span><span data-en>“Coding / cybersecurity” is official positioning, not a third-party benchmark result; post-training gains depend on data and rewards and cannot be copied unconditionally. Flash is a different scale; do not transfer Pro scores to it.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.zhipuai.cn/zh/research/162" target="_blank" rel="noopener"><span data-zh>智谱研究页</span><span data-en>Zhipu research page</span></a> · <a href="https://docs.bigmodel.cn/cn/update/new-releases" target="_blank" rel="noopener"><span data-zh>BigModel 更新日志</span><span data-en>BigModel release notes</span></a></p>
+  </article><article class="u26-card" id="kimi-k3-date">
+    <div class="u26-meta"><span class="u26-badge">2026-07-27</span><span class="u26-tag"><span data-zh>开放权重 / 校正</span><span data-en>Open weights / correction</span></span></div>
+    <h2><span data-zh>Kimi K3：开放日校正为 2026-07-27</span><span data-en>Kimi K3: open-weights date corrected to 2026-07-27</span></h2>
+    <p class="u26-p"><span data-zh>本站旧卡把 Kimi K3 的开放日写成 2026-06，官方页为 2026-07-27；2026-11 更新把家族卡与图表一起校正。规格不变：2.8T 总参 / 104B 激活，16/896 专家，1M 上下文，原生视觉。</span><span data-en>The older card dated Kimi K3 to June 2026; the official page says 2026-07-27. This round corrects the family card and the charts. Specs unchanged: 2.8T total / 104B active, 16 of 896 experts, 1M context, native vision.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>总参 / 激活</span><span data-en>Total / active</span></dt><dd>2.8T / 104B</dd><dt><span data-zh>专家 / experts</span><span data-en>Experts</span></dt><dd>896，激活 16</dd><dt><span data-zh>上下文 / context</span><span data-en>Context</span></dt><dd>1M</dd><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd>Kimi K3 License</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>日期错一个月，会让「谁先发布」的判断整体错位；这类时间线错误比参数错误更隐蔽。校正后，2026 年 7 月的开放权重节点才完整。</span><span data-en>A one-month date error shifts the “who shipped first” judgement; timeline errors are more hidden than parameter errors. With the correction, the July 2026 open-weight record is complete.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>Kimi K3 License 不是 OSI 标准许可；「world’s first open 3T-class model」是厂商自评口径。日期校正只改时间，不改能力结论。</span><span data-en>The Kimi K3 License is not OSI-approved; “world’s first open 3T-class model” is vendor wording. The correction changes the date, not the capability conclusion.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.kimi.com/news/kimi-k3-open-source" target="_blank" rel="noopener"><span data-zh>Kimi 官方发布</span><span data-en>Kimi official release</span></a> · <a href="https://arxiv.org/pdf/2607.24653" target="_blank" rel="noopener"><span data-zh>技术报告</span><span data-en>Technical report</span></a></p>
+  </article></div>
+      </div></section>
+    
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
+    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
+    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+    <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
+    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
+    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</nav>
+</body>
+</html>

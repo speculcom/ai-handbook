@@ -13,10 +13,11 @@
   <meta property="og:description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=6a0ff60a12cc"></script>
-  <link rel="stylesheet" href="brand.css?v=6a0ff60a12cc" />
+  <script src="brand.js?v=8e209a2fd1c9"></script>
+  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
   <link rel="stylesheet" href="site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"开放权重该怎么选 · AI 模型","url":"https://models.specul.com/","description":"开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。"}</script>
+  <link rel="stylesheet" href="sections.css" />
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -42,6 +43,7 @@
         <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
         <a href="https://models.specul.com/" aria-current="page"><span data-zh>模型</span><span data-en>Models</span></a>
         <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
         <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -78,6 +80,7 @@
       <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
@@ -106,6 +109,107 @@
 <div><b>6</b><span><span data-zh>张闭源谱系卡</span><span data-en>closed cards</span></span></div>
       </div>
     </header>
+
+<!-- sec-doors:start -->
+<div class="container">
+<div class="sec-doors">
+  <a class="sec-door" href="data/index.html">
+    <span class="k">Models · Data</span>
+    <h2>数据与训练语料</h2>
+    <p>24 张数据集卡，按 8 类整理。先看许可与商用边界，再看规模、语言与任务适配。</p>
+    <span class="more">看数据卡 →</span>
+  </a>
+  <a class="sec-door" href="evals/index.html">
+    <span class="k">Models · Evals</span>
+    <h2>评测与榜单</h2>
+    <p>20 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
+    <span class="more">看基准卡 →</span>
+  </a>
+</div>
+</div>
+<!-- sec-doors:end -->
+<section class="vz-section" id="lineage">
+  <div class="container">
+    <div class="vz-head">
+      <p class="vz-kicker">模型 · 数据视觉</p>
+      <h2 class="vz-title">16 个家族，14 个已经走到 2026 <span class="vz-title-sub">lineage</span></h2>
+      <p class="vz-dek"><span data-zh>模型站不排名，只回答「现在哪一代、多大、什么许可」。下面三张图分别看代次节奏、仓库体量与 2026 的六个新节点。</span><span data-en>The models site does not rank; it answers which generation is current, how big it is and under what licence. Three views: cadence, repo volume, and six 2026 nodes.</span></p>
+    </div>
+    <div class="vz-grid"><figure class="vz-card vz-span-6">
+    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>家族当前代次的时间分布</b><small><span data-zh>按 currentGenDate 月份计数</span><span data-en>count by currentGenDate month</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 620 260" role="img" aria-label="纵向柱状图" xmlns="http://www.w3.org/2000/svg"><line x1="42" y1="202" x2="602" y2="202" class="vz-gridline"/><text x="32" y="207" class="vz-t-dim" text-anchor="end">0</text><line x1="42" y1="116" x2="602" y2="116" class="vz-gridline"/><text x="32" y="121" class="vz-t-dim" text-anchor="end">4</text><line x1="42" y1="30" x2="602" y2="30" class="vz-gridline"/><text x="32" y="35" class="vz-t-dim" text-anchor="end">8</text>
+      <text x="77" y="171.5" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="57.4" y="180.5" width="39.2" height="21.5" rx="8" class="vz-bar" style="fill:var(--ink-faint)"/>
+      <text x="77" y="232" class="vz-t-dim" text-anchor="middle">25-04</text>
+      <text x="147" y="171.5" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="127.4" y="180.5" width="39.2" height="21.5" rx="8" class="vz-bar" style="fill:var(--ink-faint)"/>
+      <text x="147" y="232" class="vz-t-dim" text-anchor="middle">25-08</text>
+      <text x="217" y="171.5" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="197.4" y="180.5" width="39.2" height="21.5" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="217" y="232" class="vz-t-dim" text-anchor="middle">26-03</text>
+      <text x="287" y="171.5" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="267.4" y="180.5" width="39.2" height="21.5" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="287" y="232" class="vz-t-dim" text-anchor="middle">26-05</text>
+      <text x="357" y="150" class="vz-t-strong" text-anchor="middle">2</text>
+      <rect x="337.4" y="159" width="39.2" height="43" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="357" y="232" class="vz-t-dim" text-anchor="middle">26-07</text>
+      <text x="427" y="21" class="vz-t-strong" text-anchor="middle">8</text>
+      <rect x="407.4" y="30" width="39.2" height="172" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="427" y="232" class="vz-t-dim" text-anchor="middle">26-08</text>
+      <text x="497" y="171.5" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="477.4" y="180.5" width="39.2" height="21.5" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="497" y="232" class="vz-t-dim" text-anchor="middle">26-09</text>
+      <text x="567" y="171.5" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="547.4" y="180.5" width="39.2" height="21.5" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="567" y="232" class="vz-t-dim" text-anchor="middle">26-10</text></svg></div>
+    <p class="vz-foot"><span data-zh>2026-08 是明显的发布密集月（8 个家族换代）；2025 仍有两个家族停留在旧代。</span><span data-en>August 2026 is the dense month (eight families moved); two families still sit on 2025 generations.</span></p>
+  </figure><figure class="vz-card vz-span-3">
+    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b>模型仓 vs 量化仓</b><small><span data-zh>16 vs 129</span><span data-en>16 vs 129</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 460 240" role="img" aria-label="环图" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-violet)" stroke-width="23" stroke-dasharray="58.23862795068527 469.5489378524" stroke-dashoffset="0" transform="rotate(-90 110 118)"/><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-teal)" stroke-width="23" stroke-dasharray="469.5489378524 58.23862795068527" stroke-dashoffset="-58.23862795068527" transform="rotate(-90 110 118)"/><text x="110" y="120" class="vz-t-big" text-anchor="middle">145</text><text x="110" y="142" class="vz-t-dim" text-anchor="middle">repos</text><circle cx="236" cy="39" r="5" fill="var(--cat-violet)"/><text x="252" y="44" class="vz-t">模型仓</text><text x="448" y="44" class="vz-t-strong" text-anchor="end">16</text><circle cx="236" cy="70" r="5" fill="var(--cat-teal)"/><text x="252" y="75" class="vz-t">量化仓</text><text x="448" y="75" class="vz-t-strong" text-anchor="end">129</text></svg></div>
+    <p class="vz-foot"><span data-zh>一个模型仓平均对应 8 个量化仓；这是「下载哪一个」比「选哪个模型」更费时的原因。</span><span data-en>One model repo maps to roughly eight quant repos; that is why “which file” takes longer than “which model”.</span></p>
+  </figure><figure class="vz-card vz-span-3">
+    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b>量化档 vs GGUF 文件</b><small><span data-zh>1262 vs 1337</span><span data-en>1262 vs 1337</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 460 240" role="img" aria-label="环图" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-amber)" stroke-width="23" stroke-dasharray="256.2785332987663 271.50903250431895" stroke-dashoffset="0" transform="rotate(-90 110 118)"/><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-blue)" stroke-width="23" stroke-dasharray="271.50903250431895 256.2785332987663" stroke-dashoffset="-256.2785332987663" transform="rotate(-90 110 118)"/><text x="110" y="120" class="vz-t-big" text-anchor="middle">1.06×</text><text x="110" y="142" class="vz-t-dim" text-anchor="middle">files/tier</text><circle cx="236" cy="39" r="5" fill="var(--cat-amber)"/><text x="252" y="44" class="vz-t">量化档</text><text x="448" y="44" class="vz-t-strong" text-anchor="end">1,262</text><circle cx="236" cy="70" r="5" fill="var(--cat-blue)"/><text x="252" y="75" class="vz-t">GGUF 文件</text><text x="448" y="75" class="vz-t-strong" text-anchor="end">1,337</text></svg></div>
+    <p class="vz-foot"><span data-zh>分片让文件数略高于档数；下载时按档选，不要按文件数猜体积。</span><span data-en>Sharding makes files slightly outnumber tiers; choose by tier, not by file count.</span></p>
+  </figure><figure class="vz-card vz-span-12">
+    <figcaption class="vz-cap"><span class="vz-no">04</span><span><b>2026 六个新节点</b><small><span data-zh>只列开放权重</span><span data-en>open weights only</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 700 288" role="img" aria-label="时间线" xmlns="http://www.w3.org/2000/svg">
+      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-07</text>
+      <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
+      <circle cx="120" cy="22" r="6" style="fill:var(--cat-violet)"/>
+      <text x="140" y="27" class="vz-t-strong">Kimi K3 开放权重</text>
+      <text x="140" y="47" class="vz-t-dim">2.8T 总参 / 104B 激活，16/896 专家，1M 上下文</text>
+      <text x="104" y="72" class="vz-t-dim" text-anchor="end">2026-08</text>
+      <line x1="120" y1="55" x2="120" y2="99" class="vz-axis"/>
+      <circle cx="120" cy="67" r="6" style="fill:var(--cat-blue)"/>
+      <text x="140" y="72" class="vz-t-strong">GLM-5.3 与 GLM-5.3-Flash</text>
+      <text x="140" y="92" class="vz-t-dim">同基座后训练 Scaling；Flash 320B-A18B 随后 MIT 开源</text>
+      <text x="104" y="117" class="vz-t-dim" text-anchor="end">2026-09</text>
+      <line x1="120" y1="100" x2="120" y2="144" class="vz-axis"/>
+      <circle cx="120" cy="112" r="6" style="fill:var(--cat-teal)"/>
+      <text x="140" y="117" class="vz-t-strong">DeepSeek V4.1 Flash</text>
+      <text x="140" y="137" class="vz-t-dim">552B MoE / 8B prefill / 16B decode，KV 缓存大幅压缩</text>
+      <text x="104" y="162" class="vz-t-dim" text-anchor="end">2026-09</text>
+      <line x1="120" y1="145" x2="120" y2="189" class="vz-axis"/>
+      <circle cx="120" cy="157" r="6" style="fill:var(--cat-amber)"/>
+      <text x="140" y="162" class="vz-t-strong">小米 MiMo-V2.6</text>
+      <text x="140" y="182" class="vz-t-dim">Pro / Flash 双线，原生全模态，AA Intelligence 46.32</text>
+      <text x="104" y="207" class="vz-t-dim" text-anchor="end">2026-10</text>
+      <line x1="120" y1="190" x2="120" y2="234" class="vz-axis"/>
+      <circle cx="120" cy="202" r="6" style="fill:var(--cat-rose)"/>
+      <text x="140" y="207" class="vz-t-strong">Meta Muse Spark Open</text>
+      <text x="140" y="227" class="vz-t-dim">816B / 42B 激活，1M 上下文，Muse Model License</text>
+      <text x="104" y="252" class="vz-t-dim" text-anchor="end">2026-10</text>
+      <line x1="120" y1="235" x2="120" y2="279" class="vz-axis"/>
+      <circle cx="120" cy="247" r="6" style="fill:var(--cat-lime)"/>
+      <text x="140" y="252" class="vz-t-strong">Mistral Large 4</text>
+      <text x="140" y="272" class="vz-t-dim">1.05T / 49B 激活，128 路由专家，1M 上下文</text></svg></div>
+    <p class="vz-foot"><span data-zh>Mistral Large 4 与 Muse Spark 的许可是「修改版 MIT / 厂商许可」，不是 OSI 标准；商用前读原文。</span><span data-en>Mistral Large 4 and Muse Spark use modified MIT / vendor licences, not OSI-approved terms; read the text before commercial use.</span></p>
+  </figure></div>
+    <p class="vz-foot vz-foot-wide"><span data-zh>口径：家族数 16、系列 11、模型仓 16、量化仓 129、量化档 1262、GGUF 1337、闭源卡 6；全部取 2026-11-18 构建结果。</span><span data-en>Basis: 16 families, 11 series, 16 model repos, 129 quant repos, 1262 tiers, 1337 GGUF files, 6 closed cards; all from the 2026-11-18 build.</span></p>
+    <p class="vz-more"><a href="2026.html"><span data-zh>读 2026 模型增补：Mistral Large 4、Muse Spark、MiMo、Kimi K3、DeepSeek V4.1、GLM-5.3</span><span data-en>Read the 2026 model patch: Mistral Large 4, Muse Spark, MiMo, Kimi K3, DeepSeek V4.1, GLM-5.3</span> →</a></p>
+  </div>
+</section>
 
     <section class="trust">
       <h2><span data-zh>先说清楚：这个站的数据怎么来的</span><span data-en>First, where this site's data comes from</span></h2>
@@ -228,7 +332,7 @@
             <h3><span data-zh>Kimi</span><span data-en>Kimi</span></h3>
             <span class="m-famcard-vendor"><span data-zh>月之暗面（Moonshot AI）</span><span data-en>Moonshot AI</span></span>
           </div>
-          <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Kimi K3</span><span data-en>Kimi K3</span></b> · 2026-06</p>
+          <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Kimi K3</span><span data-en>Kimi K3</span></b> · 2026-07</p>
           <p class="m-famcard-sum"><span data-zh>国产开放权重旗舰：K3 是官方口径的首个开放 3T 级模型，许可是自定义 Kimi K3 License。对话产品「Kimi 智能助手」在网信办首批备案（Beijing-MoonShot-20231016）；模型权重本身与备案是两回事，卡上分开写。</span><span data-en>The domestic open-weight flagship: K3 is, per the vendor, the first open 3T-class model, under a custom Kimi K3 License. The consumer chat product was filed in the CAC&#39;s first batch (Beijing-MoonShot-20231016); model weights and service filing are different things — the card keeps them apart.</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
@@ -283,17 +387,17 @@
           <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="m-famcard-go"><span data-zh>看量化对比（MiniCPM 5）→</span><span data-en>Quantisation coverage (MiniCPM 5) →</span></p>
         </a>
-        <a class="m-famcard" href="families/mistral/" data-lic="apache-2.0 other" data-cn-origin="foreign" data-cn-direct="unknown" data-cn-filing="not-filed">
+        <a class="m-famcard" href="families/mistral/" data-lic="mistral-ecosystem-open-weight apache-2.0 other" data-cn-origin="foreign" data-cn-direct="unknown" data-cn-filing="not-filed">
           <div class="m-famcard-h">
             <h3><span data-zh>Mistral</span><span data-en>Mistral</span></h3>
             <span class="m-famcard-vendor"><span data-zh>Mistral AI（法国）</span><span data-en>Mistral AI (France)</span></span>
           </div>
-          <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Small 4 / Medium 3.5</span><span data-en>Small 4 / Medium 3.5</span></b> · 2026-03</p>
-          <p class="m-famcard-sum"><span data-zh>欧洲唯一全尺寸开放权重厂商。特点：开源杯（Small）与旗舰杯（Medium）许可不同——Small 4 是 Apache-2.0，Medium 3.5 是改版 MIT；下载前按档位读许可。</span><span data-en>Europe&#39;s only full-spectrum open-weight vendor. The open tier (Small) and flagship tier (Medium) carry different licences — Small 4 is Apache-2.0, Medium 3.5 is Modified MIT. Read the licence per tier before downloading.</span></p>
+          <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Mistral Large 4</span><span data-en>Mistral Large 4</span></b> · 2026-10</p>
+          <p class="m-famcard-sum"><span data-zh>欧洲开放权重旗舰：1T 级 MoE + 1M 上下文 + 视觉输入，许可为修改版 MIT（MaaS 需单独授权）。适合需要「开放权重 + 欧洲合规叙事 + 多语言」的部署者；本地运行门槛极高，官方提供 NVFP4 量化档与 DSpark 投机解码草稿头。</span><span data-en>A European open-weight flagship: 1T-class MoE, 1M context and vision input, under a modified MIT licence (separate MaaS grant needed). For deployers who need open weights, a European compliance story and multilingual coverage; local hosting is extremely demanding, and the official release includes an NVFP4 checkpoint and a DSpark speculative-decoding draft head.</span></p>
           <div class="m-famcard-meta">
-            <span><b>4</b> <span data-zh>代</span><span data-en>generations</span></span>
-            <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
-            <span><span class="lic lic-loose">apache-2.0</span> <span class="lic lic-tight">other</span></span>
+            <span><b>5</b> <span data-zh>代</span><span data-en>generations</span></span>
+            <span><b>3</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
+            <span><span class="lic lic-tight">mistral-ecosystem-open-weight</span> <span class="lic lic-loose">apache-2.0</span> <span class="lic lic-tight">other</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连未核验</span><span data-en>direct unknown</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="m-famcard-go"><span data-zh>未收量化对比，卡内说明原因 →</span><span data-en>No quantisation coverage — see the card →</span></p>
@@ -306,7 +410,7 @@
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Muse Glimmer</span><span data-en>Muse Glimmer</span></b> · 2026-08</p>
           <p class="m-famcard-sum"><span data-zh>Meta 在 Llama 之外的新开放权重线（meta-models org）。发布走门控：要先在 HF 登录同意才能下载，这是选型时的硬约束，卡上如实写。本站收录 Muse Glimmer 30B 的量化对比。</span><span data-en>Meta&#39;s newer open-weight line beside Llama (the meta-models org). Publication is gated: sign in and consent on HF before download — a hard constraint when choosing, stated plainly on the card. This site covers Muse Glimmer 30B quantisations.</span></p>
           <div class="m-famcard-meta">
-            <span><b>1</b> <span data-zh>代</span><span data-en>generations</span></span>
+            <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>1</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
             <span><span class="lic lic-loose">apache-2.0</span></span>
           </div>
@@ -1250,6 +1354,7 @@
           <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
           <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
           <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -1274,10 +1379,11 @@
     <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
     <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
     <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
     <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>AI论文</span><span data-en>Papers</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
     <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>AI导航</span><span data-en>AI Nav</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
 </nav>
 </body>
 </html>

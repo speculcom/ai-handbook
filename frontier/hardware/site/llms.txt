@@ -2,11 +2,17 @@
 
 > 逐条挂官方来源与核验日的事实目录；不排名。
 
-收录 29 条。
+收录 35 条。
 
 - [目录](https://hardware.specul.com/index.html)
 - [口径](https://hardware.specul.com/about.html)
 
+- [Google TPU7x（Ironwood）](https://hardware.specul.com/google-tpu7x.html) — 回答「第七代 TPU 单芯片给多少 HBM、FP8/BF16 算力，以及一个 Pod 有多大」。192GiB HBM3E、7.38TB/s、4614 TF FP
+- [AMD Instinct MI455X](https://hardware.specul.com/amd-instinct-mi455x.html) — 回答「单卡 432GB HBM4 这一档的容量、带宽与 MXFP4 算力」。432GB 是目前公开单卡里最大的一档，12 个 HBM4 stack；对需要把超大
+- [NVIDIA Rubin](https://hardware.specul.com/nvidia-rubin.html) — 回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到 
+- [NVIDIA B300（Blackwell Ultra）](https://hardware.specul.com/nvidia-b300.html) — 回答「Blackwell Ultra 单卡在 288GB 档给多少 dense NVFP4 与带宽」。15 PF 是 dense NVFP4，不是稀疏数字；8 
+- [AMD Instinct MI450X](https://hardware.specul.com/amd-instinct-mi450x.html) — 回答「288GB HBM4 这一档，AMD 的带宽与 MXFP4 算力给到多少」。与 MI455X 同为 CDNA5、同为 23.3 TB/s，但 MI455X
+- [AMD Helios 机架](https://hardware.specul.com/amd-helios.html) — 回答「一个机架能装多少 HBM、给多少 FP8/FP4 算力」，不是单卡规格。官方写的 31 TB 是 72 张 MI455X 的合计；1.4 EF FP8 与
 - [AMD Instinct MI210](https://hardware.specul.com/amd-instinct-mi210.html) — 回答上一代 PCIe 形态加速卡的显存与带宽档位，常见于存量服务器升级场景。该页未给整板功耗，按「查不到留空」处理。注意它是被动散热、全高双槽，装机前要确认机箱
 - [AMD Instinct MI300X](https://hardware.specul.com/amd-instinct-mi300x.html) — 回答单卡显存容量与带宽的量级，供「一个模型能不能整卡装下」这类判断使用。不回答软件栈成熟度或迁移成本：该页只给硬件规格，ROCm 支持范围与框架版本需另查官方文
 - [AWS EC2 p5.48xlarge](https://hardware.specul.com/aws-ec2-p5-48xlarge.html) — 回答云上单实例的卡数、总显存、网络与本地盘口径，用来估算多卡训练要不要自己买机器。不回答价格与可用区库存：云报价随时变动且随区域不同，需在官方计费页现查。同页还
@@ -36,3 +42,7 @@
 - [AWS EC2 P6-B200](https://hardware.specul.com/aws-ec2-p6-b200.html) — 单机 8 卡 Blackwell 的云实例，比 P6e 小一档；1,432 GB 是实例内 8 卡 HBM 合计。3.2 Tb/s 是节点网络上限，跨节点训练仍
 - [AWS Trainium2（Trn2）](https://hardware.specul.com/aws-trainium2.html) — AWS 自研训练加速器，第二代；单实例最多 16 颗，UltraServer 最多 64 颗，用 NeuronLink 互联。软件栈是 AWS Neuron，不
 - [Azure ND GB200 v6](https://hardware.specul.com/azure-nd-gb200-v6.html) — Azure 以 4 卡 VM 为售卖单位；18 台 VM 组成一个 72 卡的 GB200 NVL72 域。192 GiB 是每卡显存，不要乘成 VM 总量。选
+
+
+## 云算力
+- [云算力](https://hardware.specul.com/cloud/) — 18 家云 GPU 服务商，四类；计费、区域、存储出网、合规与核验入口。

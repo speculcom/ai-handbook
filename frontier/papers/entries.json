@@ -1,5 +1,161 @@
 [
   {
+    "id": "abstain-r1-2026",
+    "title": {
+      "zh": "Abstain-R1: Calibrated Abstention and Post-Refusal Clarification via Verifiable RL",
+      "en": "Abstain-R1: Calibrated Abstention and Post-Refusal Clarification via Verifiable RL"
+    },
+    "category": "alignment",
+    "url": "https://arxiv.org/abs/2604.17073",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2604.17073",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2604.17073",
+        "quote": "a 3B model that improves abstention and clarification on unanswerable queries while preserving strong performance on answerable ones"
+      },
+      {
+        "url": "https://arxiv.org/abs/2604.17073",
+        "quote": "clarification-aware RLVR reward"
+      }
+    ],
+    "notes": {
+      "zh": "问题：模型要么硬答、要么一句「无法回答」结束；缺的是「该弃答时弃答，弃答后还能问清缺什么」的可校准行为。\n证据位置：摘要报告一个 3B 模型，用 clarification-aware RLVR 奖励，在不可答查询上同时改善弃答与澄清，并保持可答查询上的表现；方法属于可验证奖励的强化学习，不是提示词模板。\n作者自陈局限：3B 规模，不能直接外推到 70B+；训练/评测任务以不可答查询为主，开放域闲聊与多轮澄清覆盖有限；奖励设计依赖可验证的答案/澄清标签，标签本身有噪声；没有生产部署验证。\n它没主张的：不是通用助手模型；不是解决所有幻觉；不是「弃答越多越好」；不是不需要人工评估的自动对齐方案。",
+      "en": "Problem: models either answer anyway or stop with “cannot answer”; what is missing is calibratable behaviour that abstains when appropriate and then asks for the missing information.\nWhere the evidence sits: the abstract reports a 3B model trained with a clarification-aware RLVR reward that improves abstention and clarification on unanswerable queries while preserving strong performance on answerable ones; it is verifiable-reward RL, not a prompt template.\nWhat the authors say about limits: 3B scale, not directly extrapolable to 70B+; training and evaluation centre on unanswerable queries, with limited coverage of open-domain chat and multi-turn clarification; the reward depends on verifiable answer/clarification labels, which carry noise; no production deployment is reported.\nWhat it does not claim: a general assistant model; a solution to all hallucinations; that more abstention is always better; an auto-alignment method that needs no human evaluation."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "发表 / venue": "arXiv 2604.17073；ACL 2026",
+      "模型规模 / scale": "3B",
+      "方法 / method": "clarification-aware RLVR",
+      "目标 / target": "可校准弃答 + 拒答后澄清",
+      "证据位置 / evidence": "摘要；方法段；实验段",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "emnlp-2026-recognition-refusal",
+    "title": {
+      "zh": "Recognition–Refusal Misalignment in LLMs",
+      "en": "Recognition–Refusal Misalignment in LLMs"
+    },
+    "category": "reasoning",
+    "url": "https://aclanthology.org/2026.emnlp-main.1078/",
+    "license": {
+      "kind": "conference-paper",
+      "evidenceUrl": "https://aclanthology.org/2026.emnlp-main.1078/",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.emnlp-main.1078/",
+        "quote": "a single linear direction in the hidden state separates answerable from structurally impossible math and code prompts"
+      },
+      {
+        "url": "https://aclanthology.org/2026.emnlp-main.1078/",
+        "quote": "better explained as a routing failure than as an encoding failure"
+      }
+    ],
+    "notes": {
+      "zh": "问题：模型明明「知道」一个问题不可答，为什么还是会编一个答案？是表征没编码「不可答」，还是编码了却没接到拒答行为上？\n证据位置：论文在隐藏状态里找到一条线性方向，能把可答与「结构上不可能」的数学/代码题分开；识别方向与安全拒答方向接近正交，因此作者把问题解释为路由失败，而不是编码失败。\n作者自陈局限：实验集中在数学与代码的结构性不可答题，不是所有「不知道」；线性探针能分开，不等于模型在生成时一定使用这条方向；拒答还受提示、语言与安全策略影响；论文没有给出通用修复方案。\n它没主张的：不是所有幻觉都来自路由；不是「加一个拒答头」就能解决；不是对安全对齐的全面评估；不是跨语言、跨领域的普适结论。",
+      "en": "Problem: if a model represents that a question is unanswerable, why does it still invent an answer? Is the representation missing, or is it encoded but not routed to refusal?\nWhere the evidence sits: the paper finds a single linear direction in hidden states that separates answerable from structurally impossible math and code prompts; the recognition direction is close to orthogonal to the safety-refusal direction, so the authors explain the failure as routing rather than encoding.\nWhat the authors say about limits: experiments focus on structurally unanswerable math and code, not every kind of “don’t know”; a linear probe separating the directions does not prove the model uses that direction when generating; refusal also depends on prompts, language and safety policy; the paper offers no general fix.\nWhat it does not claim: that every hallucination is a routing failure; that adding a refusal head solves it; a comprehensive evaluation of safety alignment; a universal cross-language, cross-domain conclusion."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "发表 / venue": "EMNLP 2026 Main",
+      "ACL 编号 / anthology": "2026.emnlp-main.1078",
+      "任务 / tasks": "数学与代码的结构性不可答题",
+      "关键发现 / finding": "单一线性方向可分；识别与拒答近正交",
+      "解释 / explanation": "routing failure，而非 encoding failure",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "balestriero-2026-jepa-prh",
+    "title": {
+      "zh": "Proving and Improving the Platonic Representation Hypothesis with JEPAs",
+      "en": "Proving and Improving the Platonic Representation Hypothesis with JEPAs"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2610.39302",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2610.39302",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2610.39302",
+        "quote": "a 109M-parameter text JEPA aligns with DINOv2 and CLIP's image encoders better than every language model we evaluated, up to 72B parameters"
+      },
+      {
+        "url": "https://arxiv.org/abs/2610.39302",
+        "quote": "Good views need 42 times fewer training samples than next-token prediction"
+      }
+    ],
+    "notes": {
+      "zh": "问题：不同模态的模型是否在收敛到同一个「柏拉图式」的表征空间？如果会，小模型能否用更好的训练视角追上大模型？\n证据位置：摘要报告一个 109M 参数的文本 JEPA，在跨模态对齐上优于作者评测过的所有语言模型（最大到 72B）；同段给出「好视角比 next-token 少 42 倍样本」的结论。正文用 JEPA 作为可证明/可改进的实例，而不是只做相关性观察。\n作者自陈局限：这是预印本；文本 JEPA 只有 109M，规模远小于被比较的 LLM；对齐指标衡量的是表征相似度，不是生成质量；42× 是特定视角与数据条件下的样本效率，不是通用常数；没有证明所有模态都收敛到同一空间。\n它没主张的：不是新的 SOTA 语言模型；不是 next-token prediction 的替代品；不是「小模型全面超过大模型」；不是对 PRH 的最终证明。",
+      "en": "Problem: are models across modalities converging on a shared “Platonic” representation space? If so, can a small model catch up with a large one by using better training views?\nWhere the evidence sits: the abstract reports a 109M-parameter text JEPA that aligns with DINOv2 and CLIP image encoders better than every language model the authors evaluated, up to 72B; the same abstract states that good views need 42 times fewer training samples than next-token prediction. The body uses JEPA as a provable/improveable instance rather than a correlation-only observation.\nWhat the authors say about limits: it is a preprint; the text JEPA is 109M, far smaller than the LLMs it is compared with; the alignment metric measures representation similarity, not generation quality; 42× is sample efficiency under specific views and data, not a universal constant; it does not prove every modality converges to one space.\nWhat it does not claim: a new state-of-the-art language model; a replacement for next-token prediction; that small models beat large models across the board; a final proof of the Platonic Representation Hypothesis."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "发表 / venue": "arXiv 2610.39302，2026-10-29",
+      "作者 / authors": "Balestriero & LeCun",
+      "模型 / model": "109M 参数文本 JEPA",
+      "关键数字 / key": "42× 更少样本；对齐优于最大 72B 的 LLM",
+      "证据位置 / evidence": "摘要；JEPA 实验段",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "minixhofer-2026-byteification",
+    "title": {
+      "zh": "Retrofitting language models to operate over bytes（Byteification）",
+      "en": "Retrofitting language models to operate over bytes (Byteification)"
+    },
+    "category": "architecture",
+    "url": "https://doi.org/10.1038/s41586-026-11111-4",
+    "license": {
+      "kind": "journal-article",
+      "evidenceUrl": "https://doi.org/10.1038/s41586-026-11111-4",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://doi.org/10.1038/s41586-026-11111-4",
+        "quote": "we introduce a general method for creating byte-level large language models through byteification that approach the capabilities of subword-based systems"
+      },
+      {
+        "url": "https://doi.org/10.1038/s41586-026-11111-4",
+        "quote": "retrofitted an existing subword-level LLM to the byte level using less than 1% of a typical pretraining budget (49.1B tokens in total"
+      },
+      {
+        "url": "https://doi.org/10.1038/s41586-026-11111-4",
+        "quote": "The resulting models outperform earlier byte-level approaches and excel on character-level reasoning tasks"
+      },
+      {
+        "url": "https://doi.org/10.1038/s41586-026-11111-4",
+        "quote": "We use a two-stage conversion procedure to retrofit existing subword-based models into byte-level models with minimal extra training."
+      }
+    ],
+    "notes": {
+      "zh": "问题：主流 LLM 先把文本切成子词，字符级信息被遮住；代码、生物序列这类「单个字符/字节有意义」的数据尤其吃亏。字节级模型能避开分词，但此前性能一直落后。\n证据位置：摘要给出方法与 49.1B token（不到典型预训练预算 1%）的转换成本；正文「Tokenizer transfer and retrofitting」说明两阶段流程；结果段报告 Bolmo 7B/1B、Bwen 8B、Blama 8B 等转换模型在字符级推理上超过早期字节级方法，并给出实际推理速度。\n作者自陈局限：49.1B token 虽不到 1%，绝对量仍大；方法依赖一个已有子词模型作为教师，换源模型要重做；字节级推理需要专门内核，通用框架的支持并不自动成立；论文没有覆盖所有任务类型。\n它没主张的：不是从零训练字节级模型；不是说字节级在所有任务上超过子词模型；不是宣布 tokenizer 无用；不是给出任意模型都能低成本转换的保证。",
+      "en": "Problem: mainstream LLMs split text into subwords first, hiding character-level information; code and biological sequences, where individual characters or bytes matter, suffer most. Byte-level models avoid tokenisation but had lagged in performance.\nWhere the evidence sits: the abstract gives the method and the 49.1B-token conversion cost (less than 1% of a typical pretraining budget); the “Tokenizer transfer and retrofitting” section describes the two-stage procedure; the results report Bolmo 7B/1B, Bwen 8B and Blama 8B and character-level reasoning gains over earlier byte-level approaches, plus practical inference speed.\nWhat the authors say about limits: 49.1B tokens is under 1% but still large in absolute terms; the method needs an existing subword model as teacher, so changing the source means redoing it; byte-level inference needs dedicated kernels, and generic framework support is not automatic; the paper does not cover every task type.\nWhat it does not claim: training a byte-level model from scratch; that byte-level models beat subword models on every task; that tokenisers are obsolete; or that any model can be converted cheaply."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "发表 / venue": "Nature，2026-10-07",
+      "DOI": "10.1038/s41586-026-11111-4",
+      "转换成本 / budget": "49.1B tokens（<1% 典型预训练预算）",
+      "报告模型 / models": "Bolmo 7B/1B、Bwen 8B、Blama 8B",
+      "证据位置 / evidence": "摘要；Tokenizer transfer and retrofitting；结果段",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
     "id": "bai-2022-constitutional-ai",
     "title": {
       "zh": "Constitutional AI: Harmlessness from AI Feedback",

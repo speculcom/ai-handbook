@@ -13,8 +13,8 @@
   <meta property="og:description" content="问题：RLHF 要训多个模型、还要在训练循环里从策略采样，流程复杂且成本高；能不能把偏好优化直接写成一个分类损失，跳过显式奖励模型与采样。 证据位置：方法推导与损失函数在正文前半；实验规模与超参说明在第 6 节。 作者自陈局限：这篇没有独立的 Limitations 章节，局限以「未来工作」的问句形" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=6a0ff60a12cc"></script>
-  <link rel="stylesheet" href="brand.css?v=6a0ff60a12cc" />
+  <script src="brand.js?v=8e209a2fd1c9"></script>
+  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="papers.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"Direct Preference Optimization: Your Language Model is… · AI 论文","description":"问题：RLHF 要训多个模型、还要在训练循环里从策略采样，流程复杂且成本高；能不能把偏好优化直接写成一个分类损失，跳过显式奖励模型与采样。 证据位置：方法推导与损失函数在正文前半；实验规模与超参说明在第 6 节。 作者自陈局限：这篇没有独立的 Limitations 章节，局限以「未来工作」的问句形","url":"https://papers.specul.com/rafailov-2023-dpo.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
@@ -43,6 +43,7 @@
         <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
         <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
         <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
         <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/" aria-current="page"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -79,6 +80,7 @@
       <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/" aria-current="page"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
@@ -116,6 +118,7 @@
       <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>对齐</span><span data-en>Alignment</span></dd></div>
     </dl>
   </section>
+  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
   <p><a class="fx-source" href="https://arxiv.org/abs/2305.18290" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
 </div>
@@ -132,6 +135,7 @@
           <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
           <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
           <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -156,10 +160,11 @@
     <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
     <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
     <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
     <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▥</span><span data-zh>AI论文</span><span data-en>Papers</span></a>
+    <a href="https://papers.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
     <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>AI导航</span><span data-en>AI Nav</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
 </nav>
 </body>
 </html>

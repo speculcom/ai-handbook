@@ -13,11 +13,11 @@
   <meta property="og:description" content="Minute Tile：作者自述：Local time made into a tiled floor. Every row is an hour and each column is the same minute across all 24 hours." />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=6f1b421422f0"></script>
-  <link rel="stylesheet" href="../brand.css?v=6f1b421422f0" />
+  <script src="../brand.js?v=8e209a2fd1c9"></script>
+  <link rel="stylesheet" href="../brand.css?v=8e209a2fd1c9" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../demos.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Minute Tile","alternateName":"Minute Tile","description":"作者自述：Local time made into a tiled floor. Every row is an hour and each column is the same minute across all 24 hours.","url":"https://demos.specul.com/works/gpt-6-2-sol-008-minute-tile.html","image":"https://raw.githubusercontent.com/MiaAI-Lab/GPT-6.2-Sol-100-HTML-Files/main/thumbs/008-minute-tile.jpg","genre":"互动体验","creator":{"@type":"Organization","name":"GPT-6.2 Sol"},"isPartOf":{"@type":"CollectionPage","name":"GPT-6.2 Sol 的 100 个 HTML 视觉研究","url":"https://demos.specul.com/gpt-6-2-sol-100-html.html"},"isAccessibleForFree":true}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Minute Tile","alternateName":"Minute Tile","description":"作者自述：Local time made into a tiled floor. Every row is an hour and each column is the same minute across all 24 hours.","url":"https://demos.specul.com/works/gpt-6-2-sol-008-minute-tile.html","image":"https://raw.githubusercontent.com/MiaAI-Lab/GPT-6.2-Sol-100-HTML-Files/main/thumbs/008-minute-tile.jpg","genre":"互动体验","creator":{"@type":"Organization","name":"GPT-6.2 Sol"},"isPartOf":{"@type":"WebSite","name":"Specul Playground","url":"https://demos.specul.com/"},"isAccessibleForFree":true}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -26,7 +26,7 @@
      现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
      ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
      （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
-<body class="brand-ambient has-tabbar">
+<body class="brand-ambient has-tabbar has-tabbar-1row">
   <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
   <header class="site-header">
     <div class="container site-bar">
@@ -43,6 +43,7 @@
         <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
         <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
         <a href="https://demos.specul.com/" aria-current="page"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
         <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -79,6 +80,7 @@
       <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://demos.specul.com/" aria-current="page"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
@@ -91,12 +93,12 @@
   </aside>
   <main id="main">
 <div class="container demos-page dm-play dm-work">
-  <p class="kicker"><a href="../index.html"><span data-zh>← 全部作品</span><span data-en>← All pieces</span></a> <span class="dm-sep">/</span> <a href="../gpt-6-2-sol-100-html.html"><span data-zh>GPT-6.2 Sol 的 100 个 HTML 视觉研究</span><span data-en>100 HTML visual studies by GPT-6.2 Sol</span></a> <span class="dm-sep">/</span> <span>008</span></p>
+  <p class="kicker"><a href="../index.html"><span data-zh>← 全部作品</span><span data-en>← All pieces</span></a> <span class="dm-sep">/</span> <span><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span> <span class="dm-sep">/</span> <span>008</span></p>
   <div class="dm-play-head">
     <div>
-      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span><span class="dm-card-num">008 / 100</span></div>
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>互动体验</span><span data-en>Interactive pieces</span></span><span class="dm-card-num">008 / 189</span></div>
       <h1><span data-zh>Minute Tile</span><span data-en>Minute Tile</span></h1>
-      <p class="dm-lead"><span data-zh>收录于「GPT-6.2 Sol 的 100 个 HTML 视觉研究」。</span><span data-en>From 100 HTML visual studies by GPT-6.2 Sol.</span></p>
+      <p class="dm-lead"><span data-zh>模型：GPT-6.2 Sol。原始发布页、源码、prompt 与许可都在下方。</span><span data-en>Model: GPT-6.2 Sol. Original publisher page, source, prompt and licence are below.</span></p>
     </div>
     <div class="dm-play-actions">
       <a class="dm-btn" href="https://miaai-lab.github.io/GPT-6.2-Sol-100-HTML-Files/008-minute-tile.html" rel="noopener"><span data-zh>全屏打开原页</span><span data-en>Open original</span> &nearr;</a>
@@ -123,6 +125,7 @@
           <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
           <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
           <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
@@ -141,20 +144,17 @@
       <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
     </div>
   </footer>
-<nav class="nav-tabbar nav-tabbar-2row" aria-label="快捷导航">
-  <div class="tb-row tb-row-main">
+<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
     <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
     <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
     <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▷</span><span data-zh>作品演示</span><span data-en>Playground</span></a>
-  </div>
-  <div class="tb-row tb-row-deep">
-    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+    <a href="https://demos.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
+    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
     <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
-  </div>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
 </nav>
 </body>
 </html>

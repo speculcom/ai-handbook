@@ -1,1 +1,183 @@
-{"schemaVersion":1,"code":"mistral","name":{"zh":"Mistral","en":"Mistral"},"vendor":{"zh":"Mistral AI（法国）","en":"Mistral AI (France)"},"currentGen":{"zh":"Small 4 / Medium 3.5","en":"Small 4 / Medium 3.5"},"currentGenDate":"2026-03","generations":[{"gen":"Mistral-Small-4-119B-2603","date":"2026-01","zh":"当前代开源杯：119B MoE（每 token 激活 6.5B）、256k 上下文、多模态输入、Apache-2.0。","en":"Current open tier: 119B MoE (6.5B activated per token), 256k context, multimodal input, Apache-2.0.","url":"https://huggingface.co/mistralai/Mistral-Small-4-119B-2603"},{"gen":"Mistral-Medium-3.5-128B","date":"2026-03","zh":"当前代旗舰（非开源杯）：官方定位「first flagship merged model」，密集 128B、256k 上下文，Modified MIT 许可。","en":"Current flagship tier: officially positioned as the \"first flagship merged model\", dense 128B with 256k context, under a Modified MIT licence.","url":"https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"},{"gen":"Mistral-Small-3.2-24B","date":"2025-06","zh":"上一代开源杯 24B，官方口径延迟比 3.1 降 40%。","en":"Previous open tier at 24B; officially 40% lower latency than 3.1.","url":"https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"},{"gen":"Magistral","date":"2025-06","zh":"推理线（ Magistral Small/Medium ），Medium 3.5 官方文档说它在 Le Chat 里被 3.5 取代。","en":"The reasoning line (Magistral Small/Medium); per the official Medium 3.5 documentation, it is superseded by 3.5 in Le Chat.","url":"https://huggingface.co/mistralai/Magistral-Small-2506"}],"sizeTiers":[{"zh":"Small 24B–119B（MoE）：本地可跑的开源杯","en":"Small 24B-119B (MoE): the locally runnable open tier"},{"zh":"Medium 128B：旗舰密集杯","en":"Medium 128B: flagship dense tier"}],"licenses":[{"id":"apache-2.0","zh":"Apache-2.0（Small 4 开源杯）","en":"Apache-2.0 (Small 4 open tier)","url":"https://huggingface.co/mistralai/Mistral-Small-4-119B-2603"},{"id":"other","zh":"Modified MIT（Medium 3.5；对高营收公司有例外条款，LICENSE 原文在模型仓）","en":"Modified MIT (Medium 3.5; exceptions for large-revenue companies, full LICENSE text in the repo)","url":"https://huggingface.co/mistralai/Mistral-Medium-3.5-128B/blob/main/LICENSE"}],"claims":[{"zh":"官方 README（Small 4）：「119B parameters, with 6.5B activated per token」+「256k context length」+ 128 experts / 4 active 的 MoE 结构。","en":"Official README (Small 4): \"119B parameters, with 6.5B activated per token\", \"256k context length\", MoE with 128 experts and 4 active.","url":"https://huggingface.co/mistralai/Mistral-Small-4-119B-2603"},{"zh":"官方 README（Medium 3.5）：「a dense 128B model with a 256k context window」，指令遵循、推理、编码合一；取代 Medium 3.1 与 Magistral。","en":"Official README (Medium 3.5): \"a dense 128B model with a 256k context window\", unifying instruction-following, reasoning and coding; supersedes Medium 3.1 and Magistral.","url":"https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"}],"positioning":{"zh":"欧洲唯一全尺寸开放权重厂商。特点：开源杯（Small）与旗舰杯（Medium）许可不同——Small 4 是 Apache-2.0，Medium 3.5 是改版 MIT；下载前按档位读许可。","en":"Europe's only full-spectrum open-weight vendor. The open tier (Small) and flagship tier (Medium) carry different licences — Small 4 is Apache-2.0, Medium 3.5 is Modified MIT. Read the licence per tier before downloading."},"onSite":{"series":[],"zh":"本站未收录 Mistral 系列的量化对比：Mistral-Small-4-119B 的第三方 GGUF 下载量约 8.4 万（2026-10-30 复测），未过 METHODOLOGY 的量化生态门槛（约 30 万）。","en":"This site does not cover Mistral quantisations: Mistral-Small-4-119B's third-party GGUF downloads (~84k, re-measured 2026-10-30) fall below the METHODOLOGY ecosystem threshold (~300k)."},"sources":[{"label":"Mistral-Small-4-119B-2603 模型页与 README（2026-10-20 直抓 200）","url":"https://huggingface.co/mistralai/Mistral-Small-4-119B-2603","kind":"docs","labelEn":"Mistral-Small-4-119B-2603 model page & README (direct fetch 200 on 2026-10-20)"},{"label":"Mistral-Medium-3.5-128B 模型页与 README（2026-10-20 直抓 200）","url":"https://huggingface.co/mistralai/Mistral-Medium-3.5-128B","kind":"docs","labelEn":"Mistral-Medium-3.5-128B model page & README (direct fetch 200 on 2026-10-20)"},{"label":"Mistral-Small-3.2-24B-Instruct-2506 模型页（代次核验，2026-10-20 直抓 200）","url":"https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506","kind":"docs","labelEn":"Mistral-Small-3.2-24B-Instruct-2506 model page (generation check, direct fetch 200 on 2026-10-20)"},{"label":"Magistral-Small-2506 模型页（代次核验，2026-10-20 直抓 200）","url":"https://huggingface.co/mistralai/Magistral-Small-2506","kind":"docs","labelEn":"Magistral-Small-2506 model page (generation check, direct fetch 200 on 2026-10-20)"}],"last_verified":"2026-10-30","confidence":"verified","cn":{"origin":"foreign","originNote":"出品方为 Mistral AI（法国）。","originNoteEn":"Made by Mistral AI (France).","direct":"unknown","directNote":"ModelScope 站内检索 Mistral 未命中官方镜像（2026-10-20）；Hugging Face 直连不可达——同 llama 口径记 unknown。","directNoteEn":"No official Mistral mirror found on ModelScope (searched 2026-10-20); Hugging Face direct unreachable — unknown for the same reason as Llama.","filing":{"status":"not-filed","name":"","no":"","date":"","note":"公示名单未检索到 Mistral 相关条目（2026-10-20）。","noteEn":"No Mistral entry found in the public registry (searched 2026-10-20)."},"mirror":null,"last_verified":"2026-10-20","sources":[{"label":"网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）","url":"https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm","labelEn":"CAC · filed generative-AI service information (rolling announcement page, 13 batch attachment PDFs, full download & search on 2026-10-20)"}]}}
+{
+  "schemaVersion": 1,
+  "code": "mistral",
+  "name": {
+    "zh": "Mistral",
+    "en": "Mistral"
+  },
+  "vendor": {
+    "zh": "Mistral AI（法国）",
+    "en": "Mistral AI (France)"
+  },
+  "currentGen": {
+    "zh": "Mistral Large 4",
+    "en": "Mistral Large 4"
+  },
+  "currentGenDate": "2026-10",
+  "generations": [
+    {
+      "gen": "Mistral Large 4",
+      "date": "2026-10",
+      "zh": "当前代旗舰。官方模型卡：1T 总参、49B 激活（含嵌入输出 52B），128 路由专家 + 1 共享专家，1M 上下文，文本 + 图像输入；3,800 张 Grace Blackwell 训练。许可为 Mistral Ecosystem Open-Weight License（修改版 MIT，MaaS 需单独商业许可）。",
+      "en": "Current flagship. Official model card: 1T total, 49B active (52B including embeddings and output), 128 routed experts plus 1 shared, 1M context, text + image input; trained on 3,800 Grace Blackwell GPUs. Licensed under the Mistral Ecosystem Open-Weight License (modified MIT; MaaS requires a separate commercial licence).",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B"
+    },
+    {
+      "gen": "Mistral-Small-4-119B-2603",
+      "date": "2026-01",
+      "zh": "当前代开源杯：119B MoE（每 token 激活 6.5B）、256k 上下文、多模态输入、Apache-2.0。",
+      "en": "Current open tier: 119B MoE (6.5B activated per token), 256k context, multimodal input, Apache-2.0.",
+      "url": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603"
+    },
+    {
+      "gen": "Mistral-Medium-3.5-128B",
+      "date": "2026-03",
+      "zh": "当前代旗舰（非开源杯）：官方定位「first flagship merged model」，密集 128B、256k 上下文，Modified MIT 许可。",
+      "en": "Current flagship tier: officially positioned as the \"first flagship merged model\", dense 128B with 256k context, under a Modified MIT licence.",
+      "url": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"
+    },
+    {
+      "gen": "Mistral-Small-3.2-24B",
+      "date": "2025-06",
+      "zh": "上一代开源杯 24B，官方口径延迟比 3.1 降 40%。",
+      "en": "Previous open tier at 24B; officially 40% lower latency than 3.1.",
+      "url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "gen": "Magistral",
+      "date": "2025-06",
+      "zh": "推理线（ Magistral Small/Medium ），Medium 3.5 官方文档说它在 Le Chat 里被 3.5 取代。",
+      "en": "The reasoning line (Magistral Small/Medium); per the official Medium 3.5 documentation, it is superseded by 3.5 in Le Chat.",
+      "url": "https://huggingface.co/mistralai/Magistral-Small-2506"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "旗舰档：1.05T 总参 / 49B 激活（含嵌入输出 52B）",
+      "en": "Flagship tier: 1.05T total / 49B active (52B including embeddings and output)"
+    },
+    {
+      "zh": "Small 24B–119B（MoE）：本地可跑的开源杯",
+      "en": "Small 24B-119B (MoE): the locally runnable open tier"
+    },
+    {
+      "zh": "Medium 128B：旗舰密集杯",
+      "en": "Medium 128B: flagship dense tier"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "mistral-ecosystem-open-weight",
+      "zh": "Mistral Ecosystem Open-Weight License（修改版 MIT；MaaS 需单独商业许可）",
+      "en": "Mistral Ecosystem Open-Weight License (modified MIT; separate commercial licence for MaaS)",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B"
+    },
+    {
+      "id": "apache-2.0",
+      "zh": "Apache-2.0（Small 4 开源杯）",
+      "en": "Apache-2.0 (Small 4 open tier)",
+      "url": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603"
+    },
+    {
+      "id": "other",
+      "zh": "Modified MIT（Medium 3.5；对高营收公司有例外条款，LICENSE 原文在模型仓）",
+      "en": "Modified MIT (Medium 3.5; exceptions for large-revenue companies, full LICENSE text in the repo)",
+      "url": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B/blob/main/LICENSE"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "官方模型卡：「a 1 trillion-parameter natively multimodal Mixture-of-Experts model with 49 billion active parameters per token (52 billion including embeddings and output layers)」——1T 总参、49B 激活、原生多模态 MoE；3,800 张 Grace Blackwell 训练。",
+      "en": "Official model card: \"a 1 trillion-parameter natively multimodal Mixture-of-Experts model with 49 billion active parameters per token (52 billion including embeddings and output layers)\" — 1T total, 49B active, natively multimodal MoE; trained on 3,800 Grace Blackwell GPUs.",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B"
+    },
+    {
+      "zh": "官方模型卡：128 路由专家、每 token 激活 4 个 + 1 共享专家；1M 上下文；160+ 语言；文本 + 图像输入。",
+      "en": "Official model card: 128 routed experts, 4 active per token plus 1 shared; 1M context; 160+ languages; text + image input.",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B"
+    },
+    {
+      "zh": "官方模型卡：Artificial Analysis Coding Agent Index 48%，与 GLM-5.3 基本持平，每任务少 47% token；AA Intelligence Index v5 得分 26。第三方指数，不是本站实测。",
+      "en": "Official model card: 48% on the Artificial Analysis Coding Agent Index, effectively tied with GLM-5.3 while using 47% fewer tokens per task; AA Intelligence Index v5 score 26. Third-party indices, not measured here.",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B"
+    },
+    {
+      "zh": "官方 README（Small 4）：「119B parameters, with 6.5B activated per token」+「256k context length」+ 128 experts / 4 active 的 MoE 结构。",
+      "en": "Official README (Small 4): \"119B parameters, with 6.5B activated per token\", \"256k context length\", MoE with 128 experts and 4 active.",
+      "url": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603"
+    },
+    {
+      "zh": "官方 README（Medium 3.5）：「a dense 128B model with a 256k context window」，指令遵循、推理、编码合一；取代 Medium 3.1 与 Magistral。",
+      "en": "Official README (Medium 3.5): \"a dense 128B model with a 256k context window\", unifying instruction-following, reasoning and coding; supersedes Medium 3.1 and Magistral.",
+      "url": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"
+    }
+  ],
+  "positioning": {
+    "zh": "欧洲开放权重旗舰：1T 级 MoE + 1M 上下文 + 视觉输入，许可为修改版 MIT（MaaS 需单独授权）。适合需要「开放权重 + 欧洲合规叙事 + 多语言」的部署者；本地运行门槛极高，官方提供 NVFP4 量化档与 DSpark 投机解码草稿头。",
+    "en": "A European open-weight flagship: 1T-class MoE, 1M context and vision input, under a modified MIT licence (separate MaaS grant needed). For deployers who need open weights, a European compliance story and multilingual coverage; local hosting is extremely demanding, and the official release includes an NVFP4 checkpoint and a DSpark speculative-decoding draft head."
+  },
+  "onSite": {
+    "series": [],
+    "zh": "本站未收录 Mistral 系列的量化对比：Mistral-Small-4-119B 的第三方 GGUF 下载量约 8.4 万（2026-10-30 复测），未过 METHODOLOGY 的量化生态门槛（约 30 万）。",
+    "en": "This site does not cover Mistral quantisations: Mistral-Small-4-119B's third-party GGUF downloads (~84k, re-measured 2026-10-30) fall below the METHODOLOGY ecosystem threshold (~300k)."
+  },
+  "sources": [
+    {
+      "label": "Mistral-Large-4-1T-A52B 模型卡（2026-11-18 直抓 200）",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+      "kind": "docs",
+      "labelEn": "Mistral-Large-4-1T-A52B model card (direct fetch 200 on 2026-11-18)"
+    },
+    {
+      "label": "Mistral-Small-4-119B-2603 模型页与 README（2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",
+      "kind": "docs",
+      "labelEn": "Mistral-Small-4-119B-2603 model page & README (direct fetch 200 on 2026-10-20)"
+    },
+    {
+      "label": "Mistral-Medium-3.5-128B 模型页与 README（2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B",
+      "kind": "docs",
+      "labelEn": "Mistral-Medium-3.5-128B model page & README (direct fetch 200 on 2026-10-20)"
+    },
+    {
+      "label": "Mistral-Small-3.2-24B-Instruct-2506 模型页（代次核验，2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "kind": "docs",
+      "labelEn": "Mistral-Small-3.2-24B-Instruct-2506 model page (generation check, direct fetch 200 on 2026-10-20)"
+    },
+    {
+      "label": "Magistral-Small-2506 模型页（代次核验，2026-10-20 直抓 200）",
+      "url": "https://huggingface.co/mistralai/Magistral-Small-2506",
+      "kind": "docs",
+      "labelEn": "Magistral-Small-2506 model page (generation check, direct fetch 200 on 2026-10-20)"
+    }
+  ],
+  "last_verified": "2026-11-18",
+  "confidence": "verified",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 Mistral AI（法国）。",
+    "originNoteEn": "Made by Mistral AI (France).",
+    "direct": "unknown",
+    "directNote": "ModelScope 站内检索 Mistral 未命中官方镜像（2026-10-20）；Hugging Face 直连不可达——同 llama 口径记 unknown。",
+    "directNoteEn": "No official Mistral mirror found on ModelScope (searched 2026-10-20); Hugging Face direct unreachable — unknown for the same reason as Llama.",
+    "filing": {
+      "status": "not-filed",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "公示名单未检索到 Mistral 相关条目（2026-10-20）。",
+      "noteEn": "No Mistral entry found in the public registry (searched 2026-10-20)."
+    },
+    "mirror": null,
+    "last_verified": "2026-10-20",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm",
+        "labelEn": "CAC · filed generative-AI service information (rolling announcement page, 13 batch attachment PDFs, full download & search on 2026-10-20)"
+      }
+    ]
+  }
+}

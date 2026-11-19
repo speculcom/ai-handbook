@@ -1,0 +1,82 @@
+/* OSS 分站基础布局：容器与重置由 brand.css 提供，这里只做页头与正文 */
+main { padding: 34px 0 56px; }
+.page-head { padding: 18px 0 10px; }
+.page-head .eyebrow,
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--accent, #22c55e);
+  text-transform: uppercase;
+}
+.page-head .eyebrow::before,
+.kicker::before {
+  content: "";
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent, #22c55e);
+}
+.page-head h1 {
+  margin: 0 0 10px;
+  font-size: clamp(32px, 4.8vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.page-head .lede {
+  margin: 0;
+  max-width: 860px;
+  color: var(--ink-mid, rgba(235, 235, 245, 0.72));
+  font-size: 16px;
+  line-height: 1.7;
+}
+.page-head .lede b { color: var(--ink, #ebebf5); }
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin: 22px 0 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+  border-bottom: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+}
+.stats div {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--ink-dim, rgba(235, 235, 245, 0.62));
+  font-size: 12px;
+}
+.stats b {
+  font-size: 22px;
+  color: var(--ink, #ebebf5);
+  font-variant-numeric: tabular-nums;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 34px 0 14px;
+}
+.section-head h2 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+.section-head a {
+  color: var(--accent, #22c55e);
+  font-size: 13px;
+  text-decoration: none;
+}
+.section-head .sub {
+  color: var(--ink-dim, rgba(235, 235, 245, 0.6));
+  font-size: 13px;
+}
+@media (max-width: 640px) {
+  main { padding-top: 22px; }
+}

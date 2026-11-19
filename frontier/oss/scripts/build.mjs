@@ -1,0 +1,446 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { shell } from '../../../../../_sites/_template/shell.mjs';
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, '..');
+const site = path.join(root, 'site');
+const ep = path.resolve(here, '../../../../../www.specul');
+
+fs.mkdirSync(path.join(site, 'scenes'), { recursive: true });
+fs.mkdirSync(path.join(site, 'repos'), { recursive: true });
+
+const repoDoc = JSON.parse(fs.readFileSync(path.join(root, 'repos.json'), 'utf8'));
+const scenes = JSON.parse(fs.readFileSync(path.join(root, 'scenes.json'), 'utf8')).sort((a, b) => a.order - b.order);
+const snapshots = JSON.parse(fs.readFileSync(path.join(root, 'snapshots', '2026-11-19.json'), 'utf8'));
+
+const TIER = {
+  start: { zh: '先试这个', en: 'Start here' },
+  prod: { zh: '生产可用', en: 'Production' },
+  local: { zh: '本地优先', en: 'Local-first' },
+  scale: { zh: '规模 / 性能', en: 'Scale / performance' },
+  niche: { zh: '特定场景', en: 'Niche' },
+  light: { zh: '轻量', en: 'Lightweight' }
+};
+
+const sceneById = Object.fromEntries(scenes.map((s) => [s.id, s]));
+
+function inferLicense(tags = []) {
+  const list = ['MIT', 'Apache-2.0', 'BSD-2-Clause', 'BSD-3-Clause', 'GPL-3.0', 'AGPL-3.0', 'LGPL-3.0', 'MPL-2.0', 'ISC', 'CC-BY-4.0', 'CC-BY-SA-4.0', 'ODC-By', 'ODbL'];
+  for (const x of list) if (tags.includes(x)) return x;
+  return '见仓库';
+}
+function licenseClass(license) {
+  const l = String(license || '').toLowerCase();
+  if (l.includes('agpl') || l.includes('gpl-3') || l.includes('gpl3')) return 'strong';
+  if (l.includes('lgpl') || l.includes('mpl') || l.includes('cc-by-sa') || l.includes('odbl')) return 'weak';
+  if (l.includes('mit') || l.includes('apache') || l.includes('bsd') || l.includes('isc') || l.includes('cc-by') || l.includes('odc-by')) return 'permissive';
+  return 'other';
+}
+function fmtStars(n) {
+  if (n == null) return '—';
+  if (n >= 10000) return `${(n / 1000).toFixed(1)}k`;
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return String(n);
+}
+function dateOnly(d) { return d ? String(d).slice(0, 10) : '—'; }
+
+const repos = repoDoc.repos.map((r) => {
+  const meta = snapshots[`${r.owner}/${r.repo}`] || {};
+  const license = meta.license || inferLicense(r.tags) || '见仓库';
+  return {
+    ...r,
+    stars: meta.stars ?? null,
+    forks: meta.forks ?? null,
+    language: meta.language || '—',
+    license,
+    pushed: dateOnly(meta.pushed_at),
+    archived: meta.archived === true,
+    sceneTitle: sceneById[r.scene]?.title || r.scene,
+    tierLabel: TIER[r.tier]?.zh || r.tier
+  };
+});
+const byId = Object.fromEntries(repos.map((r) => [r.id, r]));
+
+const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+const url = (p) => `https://oss.specul.com/${p}`;
+const prefixFor = (depth) => '../'.repeat(depth);
+
+function page({ title, desc, canonical, body, depth = 0 }) {
+  const prefix = prefixFor(depth);
+  return shell({
+    current: 'oss',
+    title,
+    desc,
+    canonical,
+    assetPrefix: prefix,
+    headExtra: `<link rel="stylesheet" href="${prefix}oss.css" />`,
+    body
+  });
+}
+
+function tierBadge(r) {
+  return `<span class="badge tier-${esc(r.tier)}">${esc(r.tierLabel)}</span>`;
+}
+function sceneBadge(r) {
+  return `<span class="badge">${esc(r.sceneTitle)}</span>`;
+}
+
+function repoCard(r, prefix = '') {
+  return `<article class="repo-card" data-id="${esc(r.id)}" data-scene="${esc(r.scene)}" data-lang="${esc(r.language)}" data-license="${esc(licenseClass(r.license))}" data-tier="${esc(r.tier)}" data-search="${esc((r.name + ' ' + r.summary + ' ' + r.tags.join(' ')).toLowerCase())}">
+  <div class="repo-top">${sceneBadge(r)}${tierBadge(r)}</div>
+  <h3 class="repo-name"><a href="${prefix}repos/${esc(r.id)}.html">${esc(r.name)}</a></h3>
+  <p class="repo-owner">${esc(r.owner)} / ${esc(r.repo)}</p>
+  <p>${esc(r.summary)}</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>${esc(r.language)}</dd></div>
+    <div><dt>许可</dt><dd>${esc(r.license)}</dd></div>
+    <div><dt>Stars</dt><dd>${esc(fmtStars(r.stars))}</dd></div>
+    <div><dt>最近推送</dt><dd>${esc(r.pushed)}</dd></div>
+  </dl>
+  <a class="repo-link" href="${prefix}repos/${esc(r.id)}.html">看仓库卡 →</a>
+</article>`;
+}
+
+function sceneCard(s) {
+  const n = repos.filter((r) => r.scene === s.id && !r.catalogOnly).length;
+  return `<a class="scene-card" href="scenes/${esc(s.id)}.html">
+  <span class="no">0${s.order} · ${n} 个场景精选</span>
+  <h3>${esc(s.title)}</h3>
+  <p>${esc(s.lead)}</p>
+  <span class="more">进入场景 →</span>
+</a>`;
+}
+
+// 首页
+{
+  const featuredIds = ['crewai', 'ragflow', 'ollama', 'comfyui', 'whisper', 'langfuse'];
+  const featured = featuredIds.map((id) => byId[id]).filter(Boolean);
+  const body = `<div class="container">
+<header class="page-head">
+  <p class="eyebrow">OSS · Open source AI</p>
+  <h1>开源 AI 工具库</h1>
+  <p class="lede">别人帮你跑的服务，去 <a href="https://tools.specul.com/">工具站</a>；自己拿下来读、改、部署的仓库，在这里。按 6 个场景选，先看许可、活跃度、依赖和上手成本，再看 star。</p>
+</header>
+<form class="oss-search" action="all.html" method="get">
+  <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" aria-label="搜索开源仓库" />
+  <button type="submit">搜索</button>
+</form>
+<div class="hero-actions">
+  <a class="btn primary" href="all.html">全部 50 个仓库 →</a>
+  <a class="btn" href="compare.html">并排对比</a>
+  <a class="btn" href="about.html">收录方法</a>
+</div>
+<div class="stats">
+  <div><b>${repos.length}</b><span>个仓库</span></div>
+  <div><b>${scenes.length}</b><span>个场景</span></div>
+  <div><b>${repos.filter((r) => !r.catalogOnly).length}</b><span>个场景精选</span></div>
+  <div><b>${repos.filter((r) => r.catalogOnly).length}</b><span>个目录补充</span></div>
+  <div><b>2026-11-19</b><span>GitHub 快照</span></div>
+</div>
+<div class="section-head"><h2>按场景找</h2><span class="sub">每个场景 6 个精选；目录补充条目在全部页</span></div>
+<div class="scene-grid">${scenes.map(sceneCard).join('')}</div>
+<div class="section-head"><h2>先试这几个</h2><a href="all.html">看全部 →</a></div>
+<div class="repo-grid">${featured.map((r) => repoCard(r)).join('')}</div>
+<div class="section-head"><h2>怎么用这个站</h2></div>
+<div class="note"><b>1. 先看“不适合”：</b>每张卡都写它不做什么。比“为什么选”更能帮你排除。<br><b>2. 再看许可与依赖：</b>开源不等于可商用；GPL / AGPL 有传染性，模型与代码的许可要分开看。<br><b>3. 最后看活跃度：</b>star 是快照，不是质量保证；看最近推送、issue、release 与维护者。</div>
+<div class="note"><b>口径：</b>GitHub 事实字段来自 2026-11-19 的 API 快照；许可以仓库 LICENSE 为准。本站不排名、不背书安全，也不替你做法律判断。</div>
+</div>`;
+  fs.writeFileSync(path.join(site, 'index.html'), page({
+    title: '开源 AI 工具库 — 自己拿下来跑 · Specul',
+    desc: '50 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。',
+    canonical: url(''),
+    body
+  }));
+}
+
+// 全部
+{
+  const data = repos.map((r) => ({
+    id: r.id, name: r.name, owner: r.owner, repo: r.repo, summary: r.summary,
+    scene: r.scene, sceneTitle: r.sceneTitle, tier: r.tier, tierLabel: r.tierLabel,
+    language: r.language, license: r.license, stars: r.stars, pushed: r.pushed,
+    catalogOnly: r.catalogOnly, tags: r.tags
+  }));
+  const json = JSON.stringify(data).replace(/</g, '\\u003c');
+  const langs = [...new Set(repos.map((r) => r.language).filter((x) => x && x !== '—'))].sort();
+  const body = `<div class="container">
+<header class="page-head">
+  <p class="eyebrow">OSS · All repos</p>
+  <h1>全部仓库</h1>
+  <p class="lede">50 个仓库，按场景、语言、许可与上手层筛。默认按场景顺序排，不按 star 排；star 只是快照。</p>
+</header>
+<div class="filters">
+  <input id="q" type="search" placeholder="搜名称、用途、标签" aria-label="搜索" />
+  <select id="scene" aria-label="场景"><option value="">全部场景</option>${scenes.map((s) => `<option value="${esc(s.id)}">${esc(s.title)}</option>`).join('')}</select>
+  <select id="lang" aria-label="语言"><option value="">全部语言</option>${langs.map((l) => `<option value="${esc(l)}">${esc(l)}</option>`).join('')}</select>
+  <select id="license" aria-label="许可"><option value="">全部许可</option><option value="permissive">宽松（MIT / Apache / BSD）</option><option value="weak">弱 copyleft（LGPL / MPL / CC-BY-SA）</option><option value="strong">强 copyleft（GPL / AGPL）</option><option value="other">其他 / 见仓库</option></select>
+  <select id="tier" aria-label="上手层"><option value="">全部上手层</option>${Object.entries(TIER).map(([k, v]) => `<option value="${esc(k)}">${esc(v.zh)}</option>`).join('')}</select>
+  <span class="count" id="count">${repos.length} 个</span>
+</div>
+<div class="repo-grid" id="grid">${repos.map((r) => repoCard(r)).join('')}</div>
+<div class="empty" id="empty" hidden>没有匹配的仓库。换个关键词，或清掉筛选。</div>
+</div>
+<script>window.OSS_DATA=${json};</script>
+<script>
+(function(){
+  const data=window.OSS_DATA;
+  const q=document.getElementById('q'), scene=document.getElementById('scene'), lang=document.getElementById('lang'), license=document.getElementById('license'), tier=document.getElementById('tier');
+  const count=document.getElementById('count'), grid=document.getElementById('grid'), empty=document.getElementById('empty');
+  const params=new URLSearchParams(location.search);
+  q.value=params.get('q')||''; scene.value=params.get('scene')||'';
+  function apply(){
+    const term=q.value.trim().toLowerCase(); let n=0;
+    for(const el of grid.children){
+      const ok=(!term||el.dataset.search.includes(term))&&(!scene.value||el.dataset.scene===scene.value)&&(!lang.value||el.dataset.lang===lang.value)&&(!license.value||el.dataset.license===license.value)&&(!tier.value||el.dataset.tier===tier.value);
+      el.hidden=!ok; if(ok)n++;
+    }
+    count.textContent=n+' 个'; empty.hidden=n>0;
+  }
+  [q,scene,lang,license,tier].forEach(x=>x.addEventListener('input',apply));
+  apply();
+})();
+</script>`;
+  fs.writeFileSync(path.join(site, 'all.html'), page({
+    title: '全部开源仓库 · 开源 AI 工具库',
+    desc: '50 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。',
+    canonical: url('all.html'),
+    body
+  }));
+}
+
+// 场景页
+for (const s of scenes) {
+  const list = repos.filter((r) => r.scene === s.id && !r.catalogOnly).sort((a, b) => a.order - b.order);
+  const body = `<div class="container">
+<header class="page-head">
+  <p class="eyebrow">OSS · Scene 0${s.order}</p>
+  <h1>${esc(s.title)}</h1>
+  <p class="lede">${esc(s.lead)}</p>
+</header>
+<div class="hero-actions">
+  <a class="btn primary" href="../all.html?scene=${esc(s.id)}">看这个场景的全部 →</a>
+  <a class="btn" href="../compare.html?ids=${esc(list.slice(0, 3).map((r) => r.id).join(','))}">并排对比前 3 个</a>
+  <a class="btn" href="../index.html">回首页</a>
+</div>
+<div class="stats"><div><b>${list.length}</b><span>个场景精选</span></div><div><b>${esc(s.who)}</b><span>适合谁</span></div></div>
+<div class="section-head"><h2>怎么选</h2></div>
+<div class="note">${s.choose.map((x) => `• ${esc(x)}`).join('<br>')}<br><b>不适合：</b>${esc(s.notFor)}</div>
+<div class="section-head"><h2>${list.length} 个仓库</h2><span class="sub">按上手顺序，不是按 star</span></div>
+<div class="repo-grid">${list.map((r) => repoCard(r, '../')).join('')}</div>
+<div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
+<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th>${list.map((r) => `<th><a href="../repos/${esc(r.id)}.html">${esc(r.name)}</a></th>`).join('')}</tr></thead><tbody>
+<tr><td>上手层</td>${list.map((r) => `<td>${esc(r.tierLabel)}</td>`).join('')}</tr>
+<tr><td>语言</td>${list.map((r) => `<td>${esc(r.language)}</td>`).join('')}</tr>
+<tr><td>许可</td>${list.map((r) => `<td>${esc(r.license)}</td>`).join('')}</tr>
+<tr><td>Stars</td>${list.map((r) => `<td>${esc(fmtStars(r.stars))}</td>`).join('')}</tr>
+<tr><td>最近推送</td>${list.map((r) => `<td>${esc(r.pushed)}</td>`).join('')}</tr>
+<tr><td>适合</td>${list.map((r) => `<td>${esc(r.why[0] || '')}</td>`).join('')}</tr>
+<tr><td>不适合</td>${list.map((r) => `<td>${esc(r.notFor[0] || '')}</td>`).join('')}</tr>
+</tbody></table></div>
+</div>`;
+  fs.writeFileSync(path.join(site, 'scenes', `${s.id}.html`), page({
+    title: `${s.title} · 开源 AI 工具库`,
+    desc: `${s.title}：${s.lead} 收录 ${list.length} 个开源仓库，写清许可、活跃度、适合与不适合。`,
+    canonical: url(`scenes/${s.id}.html`),
+    depth: 1,
+    body
+  }));
+}
+
+// 仓库详情
+for (const r of repos) {
+  const alt = (r.alternatives || []).map((id) => byId[id]).filter(Boolean);
+  const body = `<div class="container">
+<header class="detail-hero">
+  <div class="top">${sceneBadge(r)}${tierBadge(r)}${r.catalogOnly ? '<span class="badge">目录补充</span>' : ''}${r.archived ? '<span class="badge">已归档</span>' : ''}</div>
+  <h1>${esc(r.name)}</h1>
+  <p class="owner">${esc(r.owner)} / ${esc(r.repo)}</p>
+  <p class="sub">${esc(r.summary)}</p>
+</header>
+<div class="factbar">
+  <span><b>${esc(fmtStars(r.stars))}</b> stars</span>
+  <span><b>${esc(r.forks == null ? '—' : r.forks)}</b> forks</span>
+  <span><b>${esc(r.language)}</b> 语言</span>
+  <span><b>${esc(r.license)}</b> 许可</span>
+  <span>最近推送 <b>${esc(r.pushed)}</b></span>
+</div>
+<div class="detail-body">
+  <h2>为什么选</h2>
+  <ul>${r.why.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+  <h2>不适合</h2>
+  <p class="warn">${r.notFor.map((x) => esc(x)).join('<br>')}</p>
+  <h2>许可与使用边界</h2>
+  <p>GitHub 快照显示许可为 <b>${esc(r.license)}</b>。开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
+  <h2>替代与相邻</h2>
+  ${alt.length ? `<ul>${alt.map((a) => `<li><a href="../repos/${esc(a.id)}.html">${esc(a.name)}</a> — ${esc(a.tierLabel)}，${esc(a.summary)}</li>`).join('')}</ul>` : '<p>暂无同场景替代卡。</p>'}
+  <h2>下一步</h2>
+  <ul>
+    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
+    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
+    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+  </ul>
+  <p><a class="btn" href="${esc(r.url)}" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="${esc(r.docs)}" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=${esc(r.id)}">加入对比</a></p>
+</div>
+<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-19 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
+<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+</div>`;
+  fs.writeFileSync(path.join(site, 'repos', `${r.id}.html`), page({
+    title: `${r.name} · 开源 AI 工具库`,
+    desc: `${r.name}：${r.summary} 许可 ${r.license}，${r.language}，${fmtStars(r.stars)} stars（2026-11-19 快照）。`,
+    canonical: url(`repos/${r.id}.html`),
+    depth: 1,
+    body
+  }));
+}
+
+// 对比页
+{
+  const defaultIds = ['langgraph', 'ragflow', 'ollama'];
+  const defaultRepos = defaultIds.map((id) => byId[id]);
+  const table = (list) => `<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th>${list.map((r) => `<th><a href="repos/${esc(r.id)}.html">${esc(r.name)}</a></th>`).join('')}</tr></thead><tbody>
+<tr><td>场景</td>${list.map((r) => `<td>${esc(r.sceneTitle)}</td>`).join('')}</tr>
+<tr><td>上手层</td>${list.map((r) => `<td>${esc(r.tierLabel)}</td>`).join('')}</tr>
+<tr><td>语言</td>${list.map((r) => `<td>${esc(r.language)}</td>`).join('')}</tr>
+<tr><td>许可</td>${list.map((r) => `<td>${esc(r.license)}</td>`).join('')}</tr>
+<tr><td>Stars</td>${list.map((r) => `<td>${esc(fmtStars(r.stars))}</td>`).join('')}</tr>
+<tr><td>最近推送</td>${list.map((r) => `<td>${esc(r.pushed)}</td>`).join('')}</tr>
+<tr><td>适合</td>${list.map((r) => `<td>${esc(r.why[0] || '')}</td>`).join('')}</tr>
+<tr><td>不适合</td>${list.map((r) => `<td>${esc(r.notFor[0] || '')}</td>`).join('')}</tr>
+</tbody></table></div>`;
+  const body = `<div class="container">
+<header class="page-head">
+  <p class="eyebrow">OSS · Compare</p>
+  <h1>并排对比</h1>
+  <p class="lede">选 2–7 个仓库，并排看场景、上手层、语言、许可、活跃度、适合与不适合。对比不生成总分，也不推荐“最佳”。</p>
+</header>
+<div class="compare-controls" id="controls">
+${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="${i}"><option value="">不选</option>${repos.map((r) => `<option value="${esc(r.id)}"${defaultIds[i] === r.id ? ' selected' : ''}>${esc(r.name)} · ${esc(r.sceneTitle)}</option>`).join('')}</select></label>`).join('')}
+</div>
+<div id="compare-table">${table(defaultRepos)}</div>
+<div class="empty" id="compare-empty" hidden>至少选 2 个仓库，最多 7 个。</div>
+<div class="note"><b>怎么读：</b>先排除“不适合”与许可不合适的；再比上手层与依赖；最后看最近推送。star 只是快照，不是质量保证。</div>
+</div>
+<script>
+(function(){
+  const REPOS=${JSON.stringify(repos.map((r) => ({ id: r.id, name: r.name, sceneTitle: r.sceneTitle, tierLabel: r.tierLabel, language: r.language, license: r.license, stars: r.stars == null ? null : r.stars, pushed: r.pushed, why: r.why[0] || '', notFor: r.notFor[0] || '' }))).replace(/</g, '\\u003c')};
+  const selects=[...document.querySelectorAll('#controls select')];
+  const table=document.getElementById('compare-table'), empty=document.getElementById('compare-empty');
+  const params=new URLSearchParams(location.search); const ids=(params.get('ids')||'').split(',').filter(Boolean).slice(0,7);
+  ids.forEach((id,i)=>{ if(selects[i]) selects[i].value=id; });
+  function fmt(n){ if(n==null) return '—'; return n>=1000?(n/1000).toFixed(1)+'k':String(n); }
+  function render(){
+    const list=selects.map(s=>REPOS.find(r=>r.id===s.value)).filter(Boolean);
+    empty.hidden=list.length>=2;
+    if(list.length<2){ table.innerHTML=''; return; }
+    const rows=[['场景',r=>r.sceneTitle],['上手层',r=>r.tierLabel],['语言',r=>r.language],['许可',r=>r.license],['Stars',r=>fmt(r.stars)],['最近推送',r=>r.pushed],['适合',r=>r.why],['不适合',r=>r.notFor]];
+    table.innerHTML='<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th>'+list.map(r=>'<th><a href="repos/'+r.id+'.html">'+r.name+'</a></th>').join('')+'</tr></thead><tbody>'+rows.map(([label,fn])=>'<tr><td>'+label+'</td>'+list.map(r=>'<td>'+String(fn(r)).replace(/</g,'&lt;')+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+  }
+  selects.forEach(s=>s.addEventListener('change',render));
+  render();
+})();
+</script>`;
+  fs.writeFileSync(path.join(site, 'compare.html'), page({
+    title: '并排对比 · 开源 AI 工具库',
+    desc: '选 2–7 个开源仓库并排对比：场景、上手层、语言、许可、活跃度、适合与不适合；不生成总分。',
+    canonical: url('compare.html'),
+    body
+  }));
+}
+
+// About
+{
+  const body = `<div class="container">
+<header class="page-head">
+  <p class="eyebrow">OSS · About</p>
+  <h1>收录方法</h1>
+  <p class="lede">这个站回答一个问题：这个仓库能不能拿下来、读得懂、跑得动、改得动。它不回答“哪个最强”。</p>
+</header>
+<div class="detail-body">
+  <h2>收什么</h2>
+  <p>公开 GitHub 仓库，AI 相关，有明确用途，能读、能改、能自建。优先收有文档、有许可、最近一年有维护的仓库。首批 50 个：6 个场景各 6 个精选，另 14 个目录补充。</p>
+  <h2>不收什么</h2>
+  <p>不收只有宣传页没有代码的；不收无许可或许可不清的；不收长期归档且没有替代价值的（除非作为历史对照）；不收纯模型权重（权重在 <a href="https://models.specul.com/">模型站</a>）；不收商业 SaaS（服务在 <a href="https://tools.specul.com/">工具站</a>）。</p>
+  <h2>字段与口径</h2>
+  <p>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-19 快照；之后的变化没有回写。许可以仓库 LICENSE 为准；标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</p>
+  <h2>不排名、不背书</h2>
+  <p>不按 star 排序，不生成总分，不写“最强 / 最安全”。开源仓库的代码、脚本、模型权重都可能带来安全与许可风险；本站只做索引与风险提示，不审计代码，也不替你做法律判断。</p>
+  <h2>和工具站怎么分</h2>
+  <p>工具站写“别人帮你跑的服务怎么用”：价格、权限、能力、限制。OSS 写“你自己拿下来跑”：许可、活跃度、依赖、上手成本、能不能改。同一个项目可以两站各一张卡，但正文不复制，互相链一次。</p>
+  <h2>纠错</h2>
+  <p>发现许可、链接、快照字段有误，走 <a href="https://specul.com/correct.html">纠错页</a>；写清仓库、字段、证据链接与核验日。</p>
+</div>
+<div class="note"><b>English index:</b> see <a href="llms.en.txt">llms.en.txt</a> for a short English map of this site.</div>
+</div>`;
+  fs.writeFileSync(path.join(site, 'about.html'), page({
+    title: '收录方法 · 开源 AI 工具库',
+    desc: 'OSS 站收什么、不收什么、字段口径、为什么不排名不背书，以及和工具站的分工。',
+    canonical: url('about.html'),
+    body
+  }));
+}
+
+// 404
+{
+  const body = `<div class="container"><header class="page-head"><p class="eyebrow">404</p><h1>这个仓库页不存在</h1><p class="lede">可能是链接旧了，或这个仓库还没收。回 <a href="index.html">首页</a>，或去 <a href="all.html">全部仓库</a> 搜。</p></header></div>`;
+  fs.writeFileSync(path.join(site, '404.html'), page({
+    title: '404 · 开源 AI 工具库',
+    desc: '页面不存在。回首页或全部仓库。',
+    canonical: url('404.html'),
+    body
+  }));
+}
+
+// sitemap / llms / robots / CNAME / README
+{
+  const urls = [url(''), url('all.html'), url('compare.html'), url('about.html'), ...scenes.map((s) => url(`scenes/${s.id}.html`)), ...repos.map((r) => url(`repos/${r.id}.html`))];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc><lastmod>2026-11-19</lastmod></url>`).join('\n')}\n</urlset>\n`;
+  fs.writeFileSync(path.join(site, 'sitemap.xml'), sitemap);
+  fs.writeFileSync(path.join(site, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${url('sitemap.xml')}\n`);
+
+  const lines = [
+    '# 开源 AI 工具库',
+    '',
+    '> 50 个 AI 开源仓库，按 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。不排名、不背书安全。',
+    '',
+    `- [首页](${url('')})`,
+    `- [全部仓库](${url('all.html')})`,
+    `- [并排对比](${url('compare.html')})`,
+    `- [收录方法](${url('about.html')})`,
+    '',
+    '## 场景'
+  ];
+  for (const s of scenes) lines.push(`- [${s.title}](${url(`scenes/${s.id}.html`)}) — ${s.lead}`);
+  lines.push('', '## 仓库');
+  for (const r of repos) lines.push(`- [${r.name}](${url(`repos/${r.id}.html`)}) — ${r.summary} 许可 ${r.license}。`);
+  fs.writeFileSync(path.join(site, 'llms.txt'), lines.join('\n') + '\n');
+
+  const en = [
+    '# Specul OSS — Open-source AI tool library',
+    '',
+    '> 50 AI open-source repositories in 6 scenes: agent frameworks, RAG, local inference, multimodal, speech, evaluation. Licence, activity, dependencies, onboarding cost and "not for" are stated. No ranking, no security endorsement.',
+    '',
+    `- [Home](${url('')})`,
+    `- [All repositories](${url('all.html')})`,
+    `- [Compare](${url('compare.html')})`,
+    `- [Method](${url('about.html')})`,
+    ''
+  ];
+  for (const s of scenes) en.push(`- [${s.titleEn}](${url(`scenes/${s.id}.html`)})`);
+  en.push('', '## Repositories');
+  for (const r of repos) en.push(`- [${r.name}](${url(`repos/${r.id}.html`)}) — ${r.summary} Licence: ${r.license}.`);
+  fs.writeFileSync(path.join(site, 'llms.en.txt'), en.join('\n') + '\n');
+
+  fs.writeFileSync(path.join(site, 'CNAME'), 'oss.specul.com\n');
+  fs.writeFileSync(path.join(site, '.nojekyll'), '');
+  fs.writeFileSync(path.join(site, 'README.md'), `# oss.specul.com\n\n内容源：\`_data/handbook/frontier/oss/repos.json\`、\`scenes.json\`、\`snapshots/2026-11-19.json\`。\n\n构建：\`node _data/handbook/frontier/oss/scripts/build.mjs\`\n\n发布：\`speculcom/oss\`（CNAME=oss.specul.com）。内容仓仍是 \`speculcom/ai-handbook\`。\n`);
+}
+
+// 静态资源
+fs.copyFileSync(path.join(ep, 'brand.css'), path.join(site, 'brand.css'));
+fs.copyFileSync(path.join(ep, 'brand.js'), path.join(site, 'brand.js'));
+fs.copyFileSync(path.join(root, 'site.css'), path.join(site, 'site.css'));
+fs.copyFileSync(path.join(root, 'oss.css'), path.join(site, 'oss.css'));
+
+console.log(`oss built: ${repos.length} repos, ${scenes.length} scenes`);

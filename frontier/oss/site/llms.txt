@@ -1,0 +1,68 @@
+# 开源 AI 工具库
+
+> 50 个 AI 开源仓库，按 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。不排名、不背书安全。
+
+- [首页](https://oss.specul.com/)
+- [全部仓库](https://oss.specul.com/all.html)
+- [并排对比](https://oss.specul.com/compare.html)
+- [收录方法](https://oss.specul.com/about.html)
+
+## 场景
+- [Agent 框架与编排](https://oss.specul.com/scenes/agent-frameworks.html) — 把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。
+- [RAG 与知识库](https://oss.specul.com/scenes/rag-knowledge.html) — 从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。
+- [本地推理与部署](https://oss.specul.com/scenes/local-inference.html) — 从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。
+- [多模态与图像视频](https://oss.specul.com/scenes/multimodal-visual.html) — 图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。
+- [语音与音频](https://oss.specul.com/scenes/speech-audio.html) — 语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。
+- [评测与可观测](https://oss.specul.com/scenes/eval-observability.html) — 上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。
+
+## 仓库
+- [LangGraph](https://oss.specul.com/repos/langgraph.html) — 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 许可 MIT。
+- [CrewAI](https://oss.specul.com/repos/crewai.html) — 用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。 许可 MIT。
+- [AutoGen](https://oss.specul.com/repos/autogen.html) — 微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。 许可 CC-BY-4.0。
+- [OpenAI Agents SDK](https://oss.specul.com/repos/openai-agents.html) — 轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。 许可 MIT。
+- [Pydantic AI](https://oss.specul.com/repos/pydantic-ai.html) — 用 Pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。 许可 MIT。
+- [smolagents](https://oss.specul.com/repos/smolagents.html) — Hugging Face 的极简 agent 库，主打“让模型写代码来调用工具”。 许可 Apache-2.0。
+- [RAGFlow](https://oss.specul.com/repos/ragflow.html) — 带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。 许可 Apache-2.0。
+- [Dify](https://oss.specul.com/repos/dify.html) — 把 prompt、RAG、agent、工作流和模型接入做成可视化平台。 许可 NOASSERTION。
+- [LlamaIndex](https://oss.specul.com/repos/llama-index.html) — 面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。 许可 MIT。
+- [Haystack](https://oss.specul.com/repos/haystack.html) — 用 pipeline 把检索、生成、评测、路由串起来，偏工程化与可测试。 许可 Apache-2.0。
+- [Qdrant](https://oss.specul.com/repos/qdrant.html) — Rust 写的向量数据库，带过滤、混合检索、分布式与量化。 许可 Apache-2.0。
+- [Chroma](https://oss.specul.com/repos/chroma.html) — 轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。 许可 Apache-2.0。
+- [Ollama](https://oss.specul.com/repos/ollama.html) — 一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。 许可 MIT。
+- [llama.cpp](https://oss.specul.com/repos/llama-cpp.html) — C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。 许可 MIT。
+- [vLLM](https://oss.specul.com/repos/vllm.html) — 高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。 许可 Apache-2.0。
+- [SGLang](https://oss.specul.com/repos/sglang.html) — 高性能推理运行时，擅长结构化生成、前缀缓存与多卡服务。 许可 Apache-2.0。
+- [LocalAI](https://oss.specul.com/repos/localai.html) — 本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。 许可 MIT。
+- [Text Generation Inference](https://oss.specul.com/repos/tgi.html) — Hugging Face 的生产级文本生成服务，支持张量并行、量化与流式输出。 许可 Apache-2.0。
+- [ComfyUI](https://oss.specul.com/repos/comfyui.html) — 节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。 许可 GPL-3.0。
+- [Stable Diffusion WebUI](https://oss.specul.com/repos/sd-webui.html) — 最经典的 SD 图形界面，文生图、图生图、LoRA、ControlNet 都在一个页面。 许可 AGPL-3.0。
+- [Diffusers](https://oss.specul.com/repos/diffusers.html) — 扩散模型的 Python 库：pipeline、调度器、训练与量化，适合写代码而不是点界面。 许可 Apache-2.0。
+- [Fooocus](https://oss.specul.com/repos/fooocus.html) — 把 SDXL 的常用参数收起来，主打“少调参也能出好图”。 许可 GPL-3.0。
+- [InvokeAI](https://oss.specul.com/repos/invokeai.html) — 面向创作者的图像生成工作台，统一画布、图层、模型管理与批量生成。 许可 Apache-2.0。
+- [Wan2.1](https://oss.specul.com/repos/wan21.html) — 开源视频生成模型与推理代码，支持文生视频、图生视频与多尺寸。 许可 Apache-2.0。
+- [Whisper](https://oss.specul.com/repos/whisper.html) — OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。 许可 MIT。
+- [faster-whisper](https://oss.specul.com/repos/faster-whisper.html) — 用 CTranslate2 重写 Whisper 推理，速度更快、显存更省。 许可 MIT。
+- [FunASR](https://oss.specul.com/repos/funasr.html) — 阿里达摩院的语音识别工具链，中文 ASR、标点、热词、说话人分离齐全。 许可 MIT。
+- [CosyVoice](https://oss.specul.com/repos/cosyvoice.html) — 零样本语音合成与音色克隆，支持多语言与情感控制。 许可 Apache-2.0。
+- [ChatTTS](https://oss.specul.com/repos/chattts.html) — 面向对话场景的 TTS，韵律自然，支持中英文与笑声等副语言。 许可 AGPL-3.0。
+- [Fish Speech](https://oss.specul.com/repos/fish-speech.html) — 多语言 TTS 与音色克隆，强调少样本、跨语言与情感表达。 许可 NOASSERTION。
+- [Langfuse](https://oss.specul.com/repos/langfuse.html) — LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。 许可 NOASSERTION。
+- [Ragas](https://oss.specul.com/repos/ragas.html) — RAG 评测库：检索相关性、答案忠实度、上下文召回等指标。 许可 Apache-2.0。
+- [DeepEval](https://oss.specul.com/repos/deepeval.html) — 像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。 许可 Apache-2.0。
+- [promptfoo](https://oss.specul.com/repos/promptfoo.html) — prompt / 模型 / agent 的对比评测工具，配置化跑多模型多 prompt。 许可 MIT。
+- [Arize Phoenix](https://oss.specul.com/repos/phoenix.html) — 开源 LLM 追踪与评测平台，基于 OpenTelemetry，带可视化与数据集管理。 许可 NOASSERTION。
+- [Inspect AI](https://oss.specul.com/repos/inspect-ai.html) — 英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。 许可 MIT。
+- [AutoGPT](https://oss.specul.com/repos/autogpt.html) — 早期自主 agent 的代表项目，提供平台、构建器与 agent 运行环境。 许可 NOASSERTION。
+- [OpenHands](https://oss.specul.com/repos/openhands.html) — 能读代码、改代码、跑命令的软件工程 agent，带沙箱与任务界面。 许可 MIT。
+- [Weaviate](https://oss.specul.com/repos/weaviate.html) — 带混合检索与模块化向量化的向量数据库，支持多租户与 GraphQL。 许可 NOASSERTION。
+- [Milvus](https://oss.specul.com/repos/milvus.html) — 面向大规模向量检索的分布式数据库，支持多种索引与标量过滤。 许可 Apache-2.0。
+- [TensorRT-LLM](https://oss.specul.com/repos/tensorrt-llm.html) — NVIDIA 的 LLM 推理优化库，自定义 kernel、量化与运行时。 许可 Apache-2.0。
+- [Text Generation WebUI](https://oss.specul.com/repos/textgen-webui.html) — 本地 LLM 的 Web 界面，支持多种后端、模型加载与扩展。 许可 AGPL-3.0。
+- [ComfyUI Manager](https://oss.specul.com/repos/comfyui-manager.html) — ComfyUI 的节点/模型管理器，安装、更新、缺失依赖修复。 许可 GPL-3.0。
+- [SD.Next](https://oss.specul.com/repos/sdnext.html) — Stable Diffusion WebUI 的现代分支，支持更多模型、后端与优化。 许可 Apache-2.0。
+- [Real-ESRGAN](https://oss.specul.com/repos/real-esrgan.html) — 真实场景图像超分与修复，适合把低清图放大、降噪、去压缩伪影。 许可 BSD-3-Clause。
+- [WhisperX](https://oss.specul.com/repos/whisperx.html) — Whisper + 对齐 + 说话人分离，输出词级时间戳与说话人标签。 许可 BSD-2-Clause。
+- [GPT-SoVITS](https://oss.specul.com/repos/gpt-sovits.html) — 少样本语音克隆与 TTS，1 分钟数据即可微调，带 WebUI。 许可 MIT。
+- [TruLens](https://oss.specul.com/repos/trulens.html) — LLM 实验与 agent 的评测、追踪，基于 OpenTelemetry，强调可解释评分。 许可 MIT。
+- [Evidently](https://oss.specul.com/repos/evidently.html) — ML / LLM 的评测、测试与监控框架，100+ 指标，支持报表与线上监控。 许可 Apache-2.0。
+- [Giskard](https://oss.specul.com/repos/giskard.html) — agent 的评测、红队与测试生成，含 RAG 质量与提示注入扫描。 许可 Apache-2.0。

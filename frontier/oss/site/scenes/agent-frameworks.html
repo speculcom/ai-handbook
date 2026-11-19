@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Agent 框架与编排 · 开源 AI 工具库</title>
+  <meta name="description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 6 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <link rel="canonical" href="https://oss.specul.com/scenes/agent-frameworks.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Agent 框架与编排 · 开源 AI 工具库" />
+  <meta property="og:url" content="https://oss.specul.com/scenes/agent-frameworks.html" />
+  <meta property="og:title" content="Agent 框架与编排 · 开源 AI 工具库" />
+  <meta property="og:description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 6 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="../brand.js?v=8e209a2fd1c9"></script>
+  <link rel="stylesheet" href="../brand.css?v=8e209a2fd1c9" />
+  <link rel="stylesheet" href="../site.css" />
+  <link rel="stylesheet" href="../oss.css" />
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/" aria-current="page"><span data-zh>开源库</span><span data-en>OSS</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/" aria-current="page"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container">
+<header class="page-head">
+  <p class="eyebrow">OSS · Scene 01</p>
+  <h1>Agent 框架与编排</h1>
+  <p class="lede">把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</p>
+</header>
+<div class="hero-actions">
+  <a class="btn primary" href="../all.html?scene=agent-frameworks">看这个场景的全部 →</a>
+  <a class="btn" href="../compare.html?ids=langgraph,crewai,autogen">并排对比前 3 个</a>
+  <a class="btn" href="../index.html">回首页</a>
+</div>
+<div class="stats"><div><b>6</b><span>个场景精选</span></div><div><b>适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。</b><span>适合谁</span></div></div>
+<div class="section-head"><h2>怎么选</h2></div>
+<div class="note">• 流程有分支、重试、人工确认：先看 LangGraph。<br>• 第一次搭多 agent、想快速跑分工：CrewAI 更直观。<br>• 想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。<br><b>不适合：</b>不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。</div>
+<div class="section-head"><h2>6 个仓库</h2><span class="sub">按上手顺序，不是按 star</span></div>
+<div class="repo-grid"><article class="repo-card" data-id="langgraph" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="langgraph 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 python mit 有状态图">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-prod">生产可用</span></div>
+  <h3 class="repo-name"><a href="../repos/langgraph.html">LangGraph</a></h3>
+  <p class="repo-owner">langchain-ai / langgraph</p>
+  <p>把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>45.1k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/langgraph.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="crewai" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="crewai 用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。 python mit 多 agent">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-start">先试这个</span></div>
+  <h3 class="repo-name"><a href="../repos/crewai.html">CrewAI</a></h3>
+  <p class="repo-owner">crewAIInc / crewAI</p>
+  <p>用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>61.1k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/crewai.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="autogen" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="autogen 微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。 python mit 多 agent">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-prod">生产可用</span></div>
+  <h3 class="repo-name"><a href="../repos/autogen.html">AutoGen</a></h3>
+  <p class="repo-owner">microsoft / autogen</p>
+  <p>微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>CC-BY-4.0</dd></div>
+    <div><dt>Stars</dt><dd>61.9k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-12</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/autogen.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="openai-agents" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="openai agents sdk 轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。 python mit 轻量">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-start">先试这个</span></div>
+  <h3 class="repo-name"><a href="../repos/openai-agents.html">OpenAI Agents SDK</a></h3>
+  <p class="repo-owner">openai / openai-agents-python</p>
+  <p>轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>30.8k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/openai-agents.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="pydantic-ai" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="light" data-search="pydantic ai 用 pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。 python mit 类型安全">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-light">轻量</span></div>
+  <h3 class="repo-name"><a href="../repos/pydantic-ai.html">Pydantic AI</a></h3>
+  <p class="repo-owner">pydantic / pydantic-ai</p>
+  <p>用 Pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>21.3k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/pydantic-ai.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="smolagents" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="light" data-search="smolagents hugging face 的极简 agent 库，主打“让模型写代码来调用工具”。 python apache-2.0 代码执行">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-light">轻量</span></div>
+  <h3 class="repo-name"><a href="../repos/smolagents.html">smolagents</a></h3>
+  <p class="repo-owner">huggingface / smolagents</p>
+  <p>Hugging Face 的极简 agent 库，主打“让模型写代码来调用工具”。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>30.4k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/smolagents.html">看仓库卡 →</a>
+</article></div>
+<div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
+<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/langgraph.html">LangGraph</a></th><th><a href="../repos/crewai.html">CrewAI</a></th><th><a href="../repos/autogen.html">AutoGen</a></th><th><a href="../repos/openai-agents.html">OpenAI Agents SDK</a></th><th><a href="../repos/pydantic-ai.html">Pydantic AI</a></th><th><a href="../repos/smolagents.html">smolagents</a></th></tr></thead><tbody>
+<tr><td>上手层</td><td>生产可用</td><td>先试这个</td><td>生产可用</td><td>先试这个</td><td>轻量</td><td>轻量</td></tr>
+<tr><td>语言</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td></tr>
+<tr><td>许可</td><td>MIT</td><td>MIT</td><td>CC-BY-4.0</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td></tr>
+<tr><td>Stars</td><td>45.1k</td><td>61.1k</td><td>61.9k</td><td>30.8k</td><td>21.3k</td><td>30.4k</td></tr>
+<tr><td>最近推送</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-12</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-18</td></tr>
+<tr><td>适合</td><td>状态机结构清楚，适合需要分支、重试与人工确认的长流程。</td><td>角色、任务、流程三个概念直观，第一次搭多 agent 容易理解。</td><td>多 agent 对话与协作抽象成熟，适合研究型与复杂任务。</td><td>概念少，代码结构清楚，适合从零写一个可维护的 agent。</td><td>类型安全，结构化输出与工具参数不容易写错。</td><td>代码即动作，工具组合灵活，适合实验。</td></tr>
+<tr><td>不适合</td><td>只做单轮问答或简单 prompt 链，没必要上图。</td><td>需要极细粒度状态控制或复杂回滚，图结构更合适。</td><td>版本迭代快，接口变化需要跟。</td><td>需要复杂图状态与持久化，LangGraph 更合适。</td><td>想要大量现成多 agent 角色模板，CrewAI 更直接。</td><td>生产级权限与沙箱要自己补。</td></tr>
+</tbody></table></div>
+</div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
+    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
+    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
+    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
+    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</nav>
+</body>
+</html>

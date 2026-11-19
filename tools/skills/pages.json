@@ -1,0 +1,168 @@
+{
+  "pages": [
+    {
+      "id": "what-is",
+      "slug": "",
+      "title": "Skills 是什么：能力包，不是提示词",
+      "lede": "Skill 是把一套可复用的工作流、脚本和资源打成一个包。它和 prompt、MCP、agent 不是同一层东西；先分清边界，再决定要不要装。",
+      "sections": [
+        {
+          "h": "和 prompt 的分界",
+          "p": [
+            "Prompt 是这一次对话里的指令；Skill 是跨会话可复用的能力包。Prompt 可以只有几句话；Skill 一般包含 SKILL.md、脚本、模板、参考资料和触发条件。",
+            "Skill 里的 SKILL.md 可以包含提示词，但它的重点不是“怎么说”，而是“按什么步骤做、用哪个脚本、产出什么、怎么验收”。"
+          ]
+        },
+        {
+          "h": "和 MCP 的分界",
+          "p": [
+            "MCP 是工具接口：把外部服务暴露成模型能调用的工具，重点是协议、参数与权限。Skill 是能力包：告诉模型在什么场景、按什么顺序、调用哪些工具与脚本，最后怎么检查。",
+            "一个 Skill 可以调用 MCP 工具；一个 MCP server 也可以被多个 Skill 复用。两者不是替代关系。"
+          ]
+        },
+        {
+          "h": "和 agent 的分界",
+          "p": [
+            "Agent 是一个会自己规划、调用工具、循环执行的主体；Skill 是它可加载的一份“操作手册”。Agent 可以选择加载哪个 Skill，但 Skill 本身不负责长期运行与调度。",
+            "把 Skill 当成“给 agent 的 SOP + 工具箱”，比当成“更长的提示词”更准确。"
+          ]
+        },
+        {
+          "h": "什么时候值得做成 Skill",
+          "p": [
+            "同一套步骤每周重复、步骤里有固定脚本或模板、产出有明确验收标准、需要别人也能复现——这四种情况适合做成 Skill。",
+            "只写一次、没有固定步骤、不需要脚本的任务，写成 prompt 或清单就够了；不要为了“看起来高级”把一句话包成 Skill。"
+          ]
+        }
+      ],
+      "sources": [
+        ["Anthropic Skills 仓库", "https://github.com/anthropics/skills"],
+        ["Anthropic Agent Skills 文档", "https://docs.anthropic.com/en/docs/agents-and-tools/agent-skills"],
+        ["MCP 官方文档", "https://modelcontextprotocol.io/"]
+      ]
+    },
+    {
+      "id": "structure",
+      "slug": "structure",
+      "title": "一个 Skill 的结构：SKILL.md、脚本、资源、触发条件",
+      "lede": "一个能用的 Skill 不是一段 Markdown。它要能被找到、能被执行、能被检查，还要说清权限边界。",
+      "sections": [
+        {
+          "h": "SKILL.md：先写触发条件，再写步骤",
+          "p": [
+            "开头写清楚：这个 Skill 解决什么问题、什么时候该用、什么时候不该用。然后写步骤：输入、动作、输出、失败分支、验收标准。",
+            "步骤要能被别人照着做。不要写“分析一下”，要写“读哪几个文件、跑哪条命令、检查哪几个字段”。"
+          ]
+        },
+        {
+          "h": "scripts：能跑，但要有边界",
+          "p": [
+            "脚本要写清依赖、输入、输出、退出码、临时文件位置。涉及网络、密钥、写文件、删文件的步骤，要单独标注。",
+            "不要在没有说明的情况下执行远程脚本；不要把密钥写进 SKILL.md；不要把“删除/覆盖”做成默认动作。"
+          ]
+        },
+        {
+          "h": "resources：模板、示例、参考资料",
+          "p": [
+            "模板要版本化；示例要标来源与许可；参考资料要写更新日期。图片、字体、表格模板都有版权，不能默认可商用。",
+            "资源不要塞得太多。Skill 的价值在“可执行”，不是“资料堆得全”。"
+          ]
+        },
+        {
+          "h": "触发条件与兼容性",
+          "p": [
+            "写清适用客户端、需要哪些工具、需要什么权限、在什么目录下运行。兼容性不写，别人装了也可能跑不起来。",
+            "如果 Skill 只能在某个客户端用，直接写出来；不要用“通用”掩盖限制。"
+          ]
+        }
+      ],
+      "sources": [
+        ["Anthropic skill-creator", "https://github.com/anthropics/skills/tree/main/skill-creator"],
+        ["Agent Skills 规范", "https://agentskills.io/"],
+        ["Anthropic Skills 仓库", "https://github.com/anthropics/skills"]
+      ]
+    },
+    {
+      "id": "build-test",
+      "slug": "build-test",
+      "title": "怎么写、怎么测：先做最小可运行版本",
+      "lede": "不要一上来写一个大而全的 Skill。先做一个能跑通的最小版本，再用真实任务测失败分支。",
+      "sections": [
+        {
+          "h": "第一步：选一个真实、重复、可验收的任务",
+          "p": [
+            "任务要有明确输入与输出。比如“把一份 PDF 发票抽成 JSON”“按固定模板生成周报”“对一个 PR 做检查清单”。不要选“帮我分析一下”这种没有验收标准的任务。",
+            "先手工做一遍，记录步骤、工具、判断点与返工点；这些就是 SKILL.md 的骨架。"
+          ]
+        },
+        {
+          "h": "第二步：写最小版本",
+          "p": [
+            "只写一个主流程，不写分支；只放一个脚本，不放一堆模板。先让 Skill 在 3 个真实样本上跑通，再扩。",
+            "最小版本要包含：触发条件、输入、步骤、输出、一个失败提示、一个验收检查。"
+          ]
+        },
+        {
+          "h": "第三步：测失败分支",
+          "p": [
+            "至少测：输入缺失、格式不对、文件太大、网络失败、权限不足、输出为空。每个分支都要有可读的报错与下一步建议。",
+            "不要只测 happy path。Skill 在生产里出问题，八成是输入不干净或权限不够。"
+          ]
+        },
+        {
+          "h": "第四步：版本化与回归",
+          "p": [
+            "每次改 SKILL.md 或脚本，记版本、改了什么、为什么改。保留一组固定样本做回归，改完重跑。",
+            "如果 Skill 会修改仓库或发消息，先在 dry-run 模式跑；确认输出后再开写权限。"
+          ]
+        }
+      ],
+      "sources": [
+        ["Anthropic skill-creator", "https://github.com/anthropics/skills/tree/main/skill-creator"],
+        ["Claude Code 文档", "https://docs.anthropic.com/en/docs/claude-code"],
+        ["Agent Skills 规范", "https://agentskills.io/"]
+      ]
+    },
+    {
+      "id": "review",
+      "slug": "review",
+      "title": "怎么审第三方 Skill：先看它碰什么",
+      "lede": "第三方 Skill 是可执行代码，不是一段无害的文本。装之前先看权限、脚本、网络、密钥与供应链。",
+      "sections": [
+        {
+          "h": "先看来源与许可",
+          "p": [
+            "来源要是可核的仓库或官方市场；要有 LICENSE；要有最近提交与 issue 记录。没有来源、没有许可、长期不维护的，不装。",
+            "不要因为 star 多就信任。star 可以买，代码不会因此变安全。"
+          ]
+        },
+        {
+          "h": "再看它碰什么",
+          "p": [
+            "读 SKILL.md 与脚本，找这几类动作：读写哪些目录、删不删文件、跑不跑 shell、访不访问网络、要不要密钥、启不启动本地服务。",
+            "任何“下载后直接执行”“curl | bash”“把密钥写到文件”“关闭安全设置”的步骤，都按高风险处理。"
+          ]
+        },
+        {
+          "h": "然后看依赖与供应链",
+          "p": [
+            "脚本依赖的包是否锁版本？有没有从不可信源安装？有没有 postinstall 脚本？有没有把环境变量整体传出？",
+            "把 Skill 放在隔离目录或容器里跑；先给最小权限，确认输出后再扩权。"
+          ]
+        },
+        {
+          "h": "最后做一次小样本试跑",
+          "p": [
+            "用脱敏样本跑，观察它实际读写哪些文件、发出哪些网络请求。不要拿生产密钥或客户数据做第一次测试。",
+            "试跑后看日志与临时文件；确认没有残留、没有把数据写到奇怪的位置。"
+          ]
+        }
+      ],
+      "sources": [
+        ["Anthropic Skills 仓库", "https://github.com/anthropics/skills"],
+        ["Agent Skills 规范", "https://agentskills.io/"],
+        ["OpenSSF 供应链安全指南", "https://openssf.org/resources/"]
+      ]
+    }
+  ]
+}

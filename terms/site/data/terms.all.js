@@ -8329,6 +8329,84 @@ var TERMS = [
     ],
     "whyEn": "Capacity sets how many parameters and KV cache fit; bandwidth sets decoding speed. Either can bind before raw compute does.",
     "slug": "HBM（高带宽显存）"
+   },
+   {
+    "zh": "GRPO",
+    "en": "Group Relative Policy Optimization",
+    "purpose": "用同一道题的一组回答互相比较，代替一个单独训练的价值网络来估优势。",
+    "def": [
+     "对同一个问题采样一组回答，用组内平均分作为基线，算每个回答的相对优势。",
+     "它属于强化学习，但省掉了 PPO 里与策略同规模的价值网络（critic）。",
+     "DeepSeekMath 提出，DeepSeek-R1 等推理模型把它带进了大规模后训练。"
+    ],
+    "why": "大模型后训练最贵的是「判断一个回答比平均好多少」。GRPO 用组内比较把这件事变成可计算的相对值，显存和工程复杂度都降了一档；理解它，才能看懂「推理能力是训出来的」这句话到底在训什么。",
+    "refs": [
+     [
+      "DeepSeekMath（论文 §4）",
+      "https://arxiv.org/abs/2402.03300",
+      "DeepSeekMath §4 (paper)"
+     ],
+     [
+      "DeepSeek-R1（技术报告）",
+      "https://arxiv.org/abs/2501.12948",
+      "DeepSeek-R1 technical report (paper)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 5,
+    "layer": "五",
+    "ord": 40,
+    "last_verified": "2026-11-18",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Compare a group of answers to the same question instead of training a separate value network to estimate the baseline.",
+    "defEn": [
+     "Sample a group of answers per question, use the group mean as the baseline, and compute each answer’s relative advantage.",
+     "It is reinforcement learning without the PPO critic, a value network as large as the policy.",
+     "Proposed in DeepSeekMath; DeepSeek-R1 brought it into large-scale reasoning post-training."
+    ],
+    "whyEn": "The expensive part of post-training is judging how much better one answer is than average. GRPO turns that into a within-group relative value, cutting memory and engineering complexity; it is how “reasoning is trained” actually works.",
+    "slug": "GRPO"
+   },
+   {
+    "zh": "MLA",
+    "en": "Multi-head Latent Attention",
+    "purpose": "把长上下文里最占显存的 KV 缓存压成低秩潜向量，再在推理时展开。",
+    "def": [
+     "每个头的 Key / Value 先投影到一个低秩潜空间，缓存只存这个潜向量。",
+     "推理时再把潜向量投影回各头的 Key / Value，省的是显存，不是计算。",
+     "DeepSeek-V2 提出，后续 V3 / V4 系列沿用并继续调整。"
+    ],
+    "why": "长上下文的第一道墙不是算力，是 KV 缓存。MLA 让「1M 上下文」在单卡或多卡上变得可行，也改变了推理框架的缓存布局；不理解它，就看不懂为什么同样参数量的模型，长上下文成本会差一个数量级。",
+    "refs": [
+     [
+      "DeepSeek-V2（论文 §2）",
+      "https://arxiv.org/abs/2405.04434",
+      "DeepSeek-V2 §2 (paper)"
+     ],
+     [
+      "DeepSeek-V3（技术报告）",
+      "https://arxiv.org/abs/2412.19437",
+      "DeepSeek-V3 technical report (paper)"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "learn",
+    "level": 5,
+    "layer": "五",
+    "ord": 41,
+    "last_verified": "2026-11-18",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Compress the KV cache that dominates long-context memory into a low-rank latent vector, then expand it at inference.",
+    "defEn": [
+     "Each head’s Key/Value is first projected into a low-rank latent space; only that latent is cached.",
+     "At inference it is projected back to per-head Key/Value; the saving is memory, not compute.",
+     "Proposed in DeepSeek-V2 and carried forward in V3/V4 with further tuning."
+    ],
+    "whyEn": "The first wall in long context is not compute but KV cache. MLA makes 1M context feasible on one or a few GPUs and changes the cache layout in inference stacks; without it, the cost gap between similar-size models is hard to explain.",
+    "slug": "MLA"
    }
   ]
  },
@@ -9617,6 +9695,84 @@ var TERMS = [
     ],
     "whyEn": "A gate is useful only if failing it stops the release. The column that is usually missing is \"what happens if it fails\" - and without it, business pressure walks straight through the gate on the last day, and afterwards nobody can say who let it through or on what basis.",
     "slug": "上线前检查门禁"
+   },
+   {
+    "zh": "JEPA",
+    "en": "Joint-Embedding Predictive Architecture",
+    "purpose": "让模型在表示空间里预测「被遮住的部分」，而不是在像素或 token 上逐字重建。",
+    "def": [
+     "输入和目标都先编码成表示，预测器在表示空间里预测目标表示。",
+     "它不要求重建原始像素 / 原始 token，因此可以把注意力放在可预测的语义结构上。",
+     "LeCun 2022 提出；2026 年的 JEPA-PRH 论文用它检验「跨模态表征收敛」假说。"
+    ],
+    "why": "生成模型的主流是「重建下一个 token / 下一个像素」，JEPA 提供另一条路：先学世界如何变化，再决定要不要生成。理解它，才能读懂 2026 年关于「表征对齐」与「世界模型」的讨论，不会把「预测表示」误当成「生成质量」。",
+    "refs": [
+     [
+      "A Path Towards Autonomous Machine Intelligence（LeCun 2022）",
+      "https://openreview.net/forum?id=BZ5a1r-kVsf",
+      "A Path Towards Autonomous Machine Intelligence (2022)"
+     ],
+     [
+      "JEPA-PRH（2026）",
+      "https://arxiv.org/abs/2610.39302",
+      "Proving and Improving the Platonic Representation Hypothesis with JEPAs (2026)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 6,
+    "layer": "六",
+    "ord": 36,
+    "last_verified": "2026-11-18",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Predict masked parts in representation space rather than reconstructing pixels or tokens.",
+    "defEn": [
+     "Both input and target are encoded into representations; a predictor predicts the target representation.",
+     "It does not reconstruct raw pixels or tokens, so compute can focus on predictable semantic structure.",
+     "Proposed by LeCun in 2022; the 2026 JEPA-PRH paper uses it to test cross-modal representational convergence."
+    ],
+    "whyEn": "Generative models mostly reconstruct the next token or pixel. JEPA offers another path: learn how the world changes first, then decide whether to generate. It is the context needed to read 2026 discussions of representation alignment and world models without mistaking “predicting representations” for “generation quality”.",
+    "slug": "JEPA"
+   },
+   {
+    "zh": "Flow Matching",
+    "en": "Flow Matching",
+    "purpose": "学一个从噪声到数据的连续速度场，用常微分方程把噪声推成样本。",
+    "def": [
+     "训练时让模型回归「从噪声点指向数据点」的速度，而不是直接预测噪声或像素。",
+     "推理时从噪声出发，沿速度场积分若干步，得到样本。",
+     "它是扩散模型之外的连续生成框架；Stable Diffusion 3、Flux 等图像模型采用了 rectified flow 变体。"
+    ],
+    "why": "扩散模型要很多步采样，Flow Matching 把「走哪条路」学得更直，步数可以更少；理解它，才能看懂 2025–2026 图像 / 视频生成模型为什么普遍从「扩散」转向「流」。",
+    "refs": [
+     [
+      "Flow Matching（Lipman 2022）",
+      "https://arxiv.org/abs/2210.02747",
+      "Flow Matching for Generative Modeling (2022)"
+     ],
+     [
+      "Rectified Flow（2022）",
+      "https://arxiv.org/abs/2209.03003",
+      "Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow (2022)"
+     ]
+    ],
+    "domain": "media",
+    "purposeTag": "learn",
+    "level": 6,
+    "layer": "六",
+    "ord": 37,
+    "last_verified": "2026-11-18",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Learn a continuous velocity field from noise to data and push noise into samples with an ODE.",
+    "defEn": [
+     "Training regresses the velocity from a noise point toward a data point, rather than predicting noise or pixels directly.",
+     "Inference starts from noise and integrates the velocity field for a number of steps.",
+     "A continuous generative framework beside diffusion; Stable Diffusion 3 and Flux use rectified-flow variants."
+    ],
+    "whyEn": "Diffusion needs many sampling steps; Flow Matching learns a straighter path, so fewer steps can suffice. It explains why image and video generators moved from “diffusion” to “flow” in 2025–2026.",
+    "slug": "Flow Matching"
    }
   ]
  }

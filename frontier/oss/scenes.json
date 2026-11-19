@@ -1,0 +1,62 @@
+[
+  {
+    "id": "agent-frameworks",
+    "order": 1,
+    "title": "Agent 框架与编排",
+    "titleEn": "Agent Frameworks & Orchestration",
+    "lead": "把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。",
+    "who": "适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。",
+    "choose": ["流程有分支、重试、人工确认：先看 LangGraph。", "第一次搭多 agent、想快速跑分工：CrewAI 更直观。", "想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。"],
+    "notFor": "不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。"
+  },
+  {
+    "id": "rag-knowledge",
+    "order": 2,
+    "title": "RAG 与知识库",
+    "titleEn": "RAG & Knowledge Bases",
+    "lead": "从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。",
+    "who": "适合有私有文档、需要引用来源的回答场景；公开知识问答不一定要自建 RAG。",
+    "choose": ["想快速把一套知识库跑起来：RAGFlow 或 Dify。", "要自己控检索与生成链路：LlamaIndex / Haystack。", "只缺向量检索：Qdrant 生产、Chroma 原型。"],
+    "notFor": "RAG 不是把文档丢进模型。文档质量、权限与更新机制比 chunk size 更重要。"
+  },
+  {
+    "id": "local-inference",
+    "order": 3,
+    "title": "本地推理与部署",
+    "titleEn": "Local Inference & Serving",
+    "lead": "从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。",
+    "who": "适合想把模型跑在自己机器、内网或自有 GPU 上的人；只用 API 的不需要这一节。",
+    "choose": ["第一次本地跑：Ollama。", "Mac / CPU / 边缘：llama.cpp。", "生产高吞吐：vLLM 或 SGLang；HF 生态：TGI。"],
+    "notFor": "本地跑不等于免费。显存、电费、运维和模型更新都要算。"
+  },
+  {
+    "id": "multimodal-visual",
+    "order": 4,
+    "title": "多模态与图像视频",
+    "titleEn": "Multimodal, Image & Video",
+    "lead": "图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。",
+    "who": "适合做视觉内容、产品图、视频素材与多模态应用的人；只要文字生成的不需要。",
+    "choose": ["复杂工作流、可复用节点：ComfyUI。", "新手少调参：Fooocus；经典界面：SD WebUI。", "要把生成嵌进应用：Diffusers；视频生成：Wan2.1。"],
+    "notFor": "模型与工作流都有版权和肖像权问题；商用前逐项核对，不能默认可商用。"
+  },
+  {
+    "id": "speech-audio",
+    "order": 5,
+    "title": "语音与音频",
+    "titleEn": "Speech & Audio",
+    "lead": "语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。",
+    "who": "适合会议转写、字幕、配音、语音助手与音频内容生产的人。",
+    "choose": ["多语言转写基线：Whisper；更快更省：faster-whisper。", "中文会议与标点：FunASR；词级时间戳：WhisperX。", "中文 TTS：CosyVoice；少样本克隆：GPT-SoVITS（必须授权）。"],
+    "notFor": "声音克隆不是玩具。没有本人授权，不要克隆、不要冒充、不要商用。"
+  },
+  {
+    "id": "eval-observability",
+    "order": 6,
+    "title": "评测与可观测",
+    "titleEn": "Evaluation & Observability",
+    "lead": "上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。",
+    "who": "适合要把 LLM 应用从 demo 推到生产的人；一次性脚本不需要整套平台。",
+    "choose": ["RAG 回归：Ragas；像单测一样测：DeepEval。", "多模型 / 多 prompt 对比：promptfoo。", "追踪与成本：Langfuse / Phoenix；上线前红队：Giskard。"],
+    "notFor": "榜单一分不代表你的场景可用。先建自己的 50–100 条评测集，再谈平台。"
+  }
+]

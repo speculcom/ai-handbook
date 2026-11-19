@@ -1,5 +1,140 @@
 [
   {
+    "id": "erc-4337-account-abstraction",
+    "title": {
+      "zh": "ERC-4337：账户抽象（alt mempool）",
+      "en": "ERC-4337: account abstraction (alt mempool)"
+    },
+    "category": "protocol",
+    "url": "https://eips-wg.github.io/EIPs/4337/",
+    "license": {
+      "kind": "eip-spec",
+      "evidenceUrl": "https://eips-wg.github.io/EIPs/4337/",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://eips-wg.github.io/EIPs/4337/",
+        "quote": "An account abstraction proposal which completely avoids the need for consensus-layer protocol changes."
+      },
+      {
+        "url": "https://eips-wg.github.io/EIPs/4337/",
+        "quote": "Users send UserOperation objects into a separate mempool."
+      },
+      {
+        "url": "https://eips-wg.github.io/EIPs/4337/",
+        "quote": "A special class of actor called bundlers package up a set of these objects into a transaction making a handleOps call to a special contract"
+      },
+      {
+        "url": "https://docs.erc4337.io/core-standards/erc-4337",
+        "quote": "ERC-4337 is the foundational standard for Account Abstraction (AA) on Ethereum."
+      }
+    ],
+    "notes": {
+      "zh": "问题：普通 EOA 的验证规则写死在协议里，智能合约钱包想自定义签名、批量操作、代付 gas，就得改共识层。ERC-4337 用 alt mempool + EntryPoint 绕开共识层，把「用户意图」变成 UserOperation。\n证据位置：EIP 摘要给出 UserOperation、独立 mempool、bundler 打包与 handleOps 调用；官方文档把角色拆成 EntryPoint、Bundler、Paymaster，并说明 Paymaster 可代付 gas / 用 ERC-20 付费。\n局限：alt mempool 带来 bundler 的中心化与审查风险；Paymaster 赞助可被滥用，需要声誉/限额策略；它不改共识层，也意味着底层账户模型仍是 EOA + 合约；不同 EntryPoint 版本（v0.6/0.7/0.8）兼容性要单独确认。\n它没主张的：不是 EIP-7702 的替代；不保证 gasless（只是把付费方换成 Paymaster）；不是唯一的账户抽象路线；不是「所有钱包都已支持」。",
+      "en": "Problem: an EOA’s validation rules are fixed by the protocol; a smart-contract wallet that wants custom signatures, batching or sponsored gas would need consensus changes. ERC-4337 avoids that with an alt mempool and an EntryPoint, turning user intent into a UserOperation.\nWhere the evidence sits: the EIP abstract defines UserOperation, a separate mempool, bundler packaging and the handleOps call; the official docs split roles into EntryPoint, Bundler and Paymaster, and note that a Paymaster can sponsor gas or accept ERC-20.\nLimits: the alt mempool brings bundler centralisation and censorship risk; Paymaster sponsorship can be abused without reputation/limits; avoiding consensus changes leaves the base account model as EOA plus contract; EntryPoint versions (v0.6/0.7/0.8) need separate compatibility checks.\nWhat it does not claim: a replacement for EIP-7702; a guarantee of gasless transactions (it moves who pays); the only account-abstraction route; that every wallet supports it."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "提出 / created": "2021-09-29",
+      "核心对象 / object": "UserOperation",
+      "角色 / roles": "EntryPoint、Bundler、Paymaster",
+      "共识层 / consensus": "不需要改（alt mempool）",
+      "标准状态 / status": "ERC Review / Standards Track",
+      "许可 / license": "CC0（EIP 文本，以官方页为准）"
+    }
+  },
+  {
+    "id": "ap2-agent-payments",
+    "title": {
+      "zh": "AP2：Agent Payments Protocol",
+      "en": "AP2: Agent Payments Protocol"
+    },
+    "category": "protocol",
+    "url": "https://ap2-protocol.org/faq/",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://ap2-protocol.org/faq/",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/",
+        "quote": "we’re also releasing AP2 v.0.2, which introduces critical updates for autonomous transactions, including “Human Not Present” payments"
+      },
+      {
+        "url": "https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/",
+        "quote": "donating the Agent Payments Protocol (AP2) to the FIDO Alliance"
+      },
+      {
+        "url": "https://ap2-protocol.org/faq/",
+        "quote": "AP2 is a payment-agnostic protocol"
+      },
+      {
+        "url": "https://protofire.io/guides/agentic-payment-protocols/",
+        "quote": "we found no public, confirmed production AP2 transaction as of 18 October 2026"
+      }
+    ],
+    "notes": {
+      "zh": "问题：Agent 代用户付款时，商家怎么知道「这真的是用户授权的」？出争议时拿什么作证据？AP2 用可签名、可选披露的 mandate 把授权范围写下来，而不只是传一张卡号。\n证据位置：Google 2026-04-28 博客宣布把 AP2 捐给 FIDO Alliance，同时发布 v0.2，新增 Human Not Present；官方 FAQ 说明 AP2 是 payment-agnostic，Checkout / Payment 两类 mandate 各有 open / closed 两种；第三方 Protofire 2026-10 的对比明确写「未找到公开确认的生产 AP2 交易」。\n局限：截至 2026-10 没有公开确认的生产交易；v0.2 只经历两个版本，mandate 模型在 v0.2 有替换；AP2 本身不做 checkout、目录或结算，要嵌在 UCP 等商业协议里；仓库仍在 Google 组织下，FIDO 接管刚开始。\n它没主张的：不是已经大规模落地的支付网络；不是加密货币专用；不是替代卡组织或收单行；不是「Agent 可以无条件自动扣款」——Human Not Present 仍依赖用户预授权。",
+      "en": "Problem: when an agent pays on a user’s behalf, how does the merchant know the user really authorised it, and what evidence exists if disputed? AP2 records the scope of authorisation in signable, selectively disclosable mandates rather than passing a card number.\nWhere the evidence sits: Google’s 2026-04-28 post donates AP2 to the FIDO Alliance and releases v0.2 with Human Not Present; the official FAQ says AP2 is payment-agnostic and defines Checkout / Payment mandates, each open or closed; Protofire’s October 2026 comparison states no public, confirmed production AP2 transaction was found.\nLimits: no publicly confirmed production transaction as of October 2026; v0.2 is only the second release and replaced the earlier mandate model; AP2 does no checkout, catalogue or settlement and must sit inside UCP or another commerce protocol; the repo is still under Google’s org while FIDO stewardship begins.\nWhat it does not claim: a payment network already at scale; a crypto-only protocol; a replacement for card networks or acquirers; unconditional agent charging — Human Not Present still depends on pre-authorisation."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "提出 / introduced": "2025-09（Google）",
+      "v0.2 / release": "2026-04-28",
+      "治理 / governance": "FIDO Alliance（2026-04-28 捐赠）",
+      "mandate": "Checkout / Payment；open / closed；SD-JWT",
+      "生产状态 / production": "截至 2026-10 未确认",
+      "许可 / license": "Apache-2.0（官方 FAQ）"
+    }
+  },
+  {
+    "id": "erc-8004-trustless-agents",
+    "title": {
+      "zh": "ERC-8004：Trustless Agents",
+      "en": "ERC-8004: Trustless Agents"
+    },
+    "category": "protocol",
+    "url": "https://www.8004.org/blog/welcome-to-8004",
+    "license": {
+      "kind": "official-blog",
+      "evidenceUrl": "https://www.8004.org/blog/welcome-to-8004",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://www.8004.org/blog/welcome-to-8004",
+        "quote": "Today, ERC-8004, the standard for Trustless Agents, is officially live on Ethereum mainnet."
+      },
+      {
+        "url": "https://www.8004.org/blog/welcome-to-8004",
+        "quote": "Three on-chain registries give agents portable identity, verifiable reputation, and cryptographic validation"
+      },
+      {
+        "url": "https://www.8004.org/blog/welcome-to-8004",
+        "quote": "The standard integrates with x402 for programmable payments"
+      },
+      {
+        "url": "https://taiko.xyz/guides/erc-8004-trustless-agent-standard",
+        "quote": "The standard is still in Draft status with a v2 specification in active development."
+      }
+    ],
+    "notes": {
+      "zh": "问题：一个陌生 Agent 凭什么被信任？没有共享身份，也没有可携带的历史记录，每次交互都是盲跳。ERC-8004 把身份、声誉、验证拆成三套 singleton registry，让 Agent 可以先查再交易。\n证据位置：8004 官方博客给出 2026-01-29 主网上线与三套注册表；Identity 是 ERC-721 + agent card JSON（含 A2A / MCP 端点），Reputation 存客户反馈，Validation 接 TEE / zkML / staking 重执行；官方说明与 x402 支付集成。Taiko 指南与官方 FAQ 确认仍是 Draft、v2 在开发。\n局限：Draft 状态意味着接口可能变；声誉可被女巫/刷分，验证是可插拔的而不是默认开启；注册只证明「有这个条目」，不证明能力或合法性；跨链注册是自声明，未自动验证。\n它没主张的：不是「上链即可信」；不是支付协议；不是所有 Agent 都必须注册；不是已经取代 A2A / MCP。",
+      "en": "Problem: why should an unknown agent be trusted? With no shared identity and no portable track record, every interaction is a blind leap. ERC-8004 separates identity, reputation and validation into three singleton registries so an agent can be checked before transacting.\nWhere the evidence sits: the official 8004 blog dates mainnet to 2026-01-29 and describes the three registries; Identity is ERC-721 plus an agent-card JSON (including A2A / MCP endpoints), Reputation stores client feedback, Validation plugs in TEE / zkML / staking re-execution; the blog states x402 payment integration. Taiko’s guide and the official FAQ confirm Draft status and a v2 in development.\nLimits: Draft means interfaces may change; reputation can be sybil-attacked or farmed, and validation is pluggable rather than on by default; registration proves an entry exists, not capability or legality; cross-chain registrations are self-declared, not automatically verified.\nWhat it does not claim: that on-chain equals trustworthy; a payment protocol; that every agent must register; a replacement for A2A or MCP."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "上线 / mainnet": "2026-01-29（Ethereum）",
+      "注册表 / registries": "Identity、Reputation、Validation",
+      "身份标准 / identity": "ERC-721 + agent card JSON",
+      "支付集成 / payments": "x402",
+      "状态 / status": "Draft；v2 开发中",
+      "许可 / license": "以官方仓库为准"
+    }
+  },
+  {
     "id": "bittensor-subnet",
     "title": {
       "zh": "Bittensor 子网",

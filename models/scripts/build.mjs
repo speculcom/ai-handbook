@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { SERIES, QUANTIZER_NOTES, COMPANION, COMPANION_URL_PREFIX } from '../config.js';
 import {syncEditorial} from './sync-editorial.mjs';
 import {capacityWorkbench} from './capacity-workbench.mjs';
+import { vizFor } from '../../../../_audit/viz.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
@@ -1476,6 +1477,8 @@ function indexPage() {
 <div><b>${closedList.length}</b><span>${bi('张闭源谱系卡','closed cards')}</span></div>
       </div>
     </header>
+
+${vizFor('models')}
 
 ${trustBanner()}
 

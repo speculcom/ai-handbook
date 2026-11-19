@@ -1711,19 +1711,19 @@ var GUIDES = [
   "kind": "guide",
   "station": 3,
   "ord": 16,
-  "span": 8,
+  "span": 10,
   "lead": {
    "zh": "只列官方发布与停运日期，不做新闻、不做预测。用来回答「这个产品现在还是不是这样」：每条都带官方出处与核验日。",
    "en": "Official update snapshots: distinguish dates, rollout scope and planned shutdowns, with source references."
   },
   "points": [
    "研究线：Google 在 2026-04-21 发布 Deep Research 与 Deep Research Max，基于 Gemini 3.1 Pro，支持 MCP 与自定义来源。",
-   "图像线：Nano Banana 2（Gemini 3.1 Flash Image）于 2026-02-26 上线，支持生成与编辑。",
-   "停运线：ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex；微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。",
+   "图像与停运：Nano Banana 2（Gemini 3.1 Flash Image）于 2026-02-26 上线；ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex；微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。",
    "模型档位：Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出；Claude Duet 于 2026-10-21 向 Pro / Max 开放研究预览。",
    "工具线：Google Opal 计划于 2026-11-17 停用，工作流不会自动迁移；Vercel AI SDK 7 在 2026 changelog 发布。",
-   "本地线：ExLlamaV3 1.6.5 于 2026-10-25 发布（PyPI）；本站 models 快照为 2026-10-30。",
-   "读法：先看日期，再看适用档位；停运与迁移要看「能力去了哪」，不只看「产品没了」。"
+   "研究线 2：Byteification 于 2026-10-07 登上 Nature，49.1B token 把子词模型改成字节级；同月 29 日 JEPA-PRH 预印本给出 109M 文本 JEPA 的跨模态对齐结果。",
+   "模型线：Meta Muse Spark Open（2026-10-15，816B / 42B 激活）、Mistral Large 4（2026-10-29，1.05T / 49B 激活）、小米 MiMo-V2.6（2026-09-22）相继开放权重或开源。",
+   "协议线：Agent Skills 于 2026-10-22 捐给 AAIF；AMD MI450X 于 2026-11-12 上市；本地线 ExLlamaV3 1.6.5 于 2026-10-25 发布。"
   ],
   "pointsEn": [
    "Research: Google shipped Deep Research and Deep Research Max on 2026-04-21, built on Gemini 3.1 Pro with MCP and custom sources.",

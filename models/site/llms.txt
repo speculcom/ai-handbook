@@ -26,17 +26,17 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 - [KAT Coder](https://models.specul.com/families/kat/): 快手 Kwaipilot 的代码家族：API 版闭源、Dev 版开放权重。它是本站收录的「派生模型」代表——官方自己声明基座是 Qwen3.6-35B-A3B，选它等于选 Qwen 谱系 + 快手代码后训练。
   Kwaipilot（快手）　当前代 KAT-Coder-V2.5（2026-07）　2 代　许可 apache-2.0　本站量化对比：kat-coder
 - [Kimi](https://models.specul.com/families/kimi/): 国产开放权重旗舰：K3 是官方口径的首个开放 3T 级模型，许可是自定义 Kimi K3 License。对话产品「Kimi 智能助手」在网信办首批备案（Beijing-MoonShot-20231016）；模型权重本身与备案是两回事，卡上分开写。
-  月之暗面（Moonshot AI）　当前代 Kimi K3（2026-06）　3 代　许可 other　本站量化对比：kimi-k3
+  月之暗面（Moonshot AI）　当前代 Kimi K3（2026-07）　3 代　许可 other　本站量化对比：kimi-k3
 - [Laguna](https://models.specul.com/families/laguna/): 代码专用家族里许可最宽的一族（OpenMDW-1.1 完全宽松）；主打「本地机器跑 agentic coding」，激活 3B 是它的本地性来源。本站收录 Laguna XS-2.1 的量化对比。
   Poolside　当前代 Laguna 2.1 / XS.2（2026-08）　2 代　许可 openmdw-1.1　本站量化对比：laguna
 - [Llama](https://models.specul.com/families/llama/): 全球生态最大的开放权重家族：微调、量化、工具链覆盖最全，但许可是带归属条款（Built with Llama）与规模条款（7 亿 MAU）的社区许可，商用前读全文。
   Meta　当前代 Llama 4（2025-04）　3 代　许可 other　本站未收录其量化对比
 - [MiniCPM](https://models.specul.com/families/minicpm/): 国产端侧小杯家族：尺寸小、官方连训练数据一起开源，按「自己练一遍」路线能拿到完整起点的中文家族（训练数据也一起放出）。面壁 ChatGLM 之外的另一条国产备案线（MiniCPM 备案编号 Beijing-MiniCPM-202503180058）。
   面壁智能 · OpenBMB　当前代 MiniCPM5（2026-08）　3 代　许可 apache-2.0　本站量化对比：minicpm5
-- [Mistral](https://models.specul.com/families/mistral/): 欧洲唯一全尺寸开放权重厂商。特点：开源杯（Small）与旗舰杯（Medium）许可不同——Small 4 是 Apache-2.0，Medium 3.5 是改版 MIT；下载前按档位读许可。
-  Mistral AI（法国）　当前代 Small 4 / Medium 3.5（2026-03）　4 代　许可 apache-2.0, other　本站未收录其量化对比
+- [Mistral](https://models.specul.com/families/mistral/): 欧洲开放权重旗舰：1T 级 MoE + 1M 上下文 + 视觉输入，许可为修改版 MIT（MaaS 需单独授权）。适合需要「开放权重 + 欧洲合规叙事 + 多语言」的部署者；本地运行门槛极高，官方提供 NVFP4 量化档与 DSpark 投机解码草稿头。
+  Mistral AI（法国）　当前代 Mistral Large 4（2026-10）　5 代　许可 mistral-ecosystem-open-weight, apache-2.0, other　本站未收录其量化对比
 - [Muse](https://models.specul.com/families/muse/): Meta 在 Llama 之外的新开放权重线（meta-models org）。发布走门控：要先在 HF 登录同意才能下载，这是选型时的硬约束，卡上如实写。本站收录 Muse Glimmer 30B 的量化对比。
-  Meta　当前代 Muse Glimmer（2026-08）　1 代　许可 apache-2.0　本站量化对比：muse-glimmer
+  Meta　当前代 Muse Glimmer（2026-08）　2 代　许可 apache-2.0　本站量化对比：muse-glimmer
 - [Ornith](https://models.specul.com/families/ornith/): 新晋家族（2026 年才出现两代）：MIT 许可 + 三档尺寸覆盖单卡到旗舰。出品主体 DeepReinforce 的注册辖区官方未声明，本站按「国外出品」处理并在属地依据里写明（S52 口径）。
   Ornith AI（DeepReinforce）　当前代 Ornith 1.5（2026-08）　2 代　许可 mit　本站量化对比：ornith-1-5
 - [Phi](https://models.specul.com/families/phi/): 微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。本站未收其量化对比——当前代 GGUF 生态太薄（见下）。
@@ -177,3 +177,8 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   做游戏子域 vg.specul.com 已于 2026-11-07 撤站，游戏内容并入主站主题页，不再存在）
 
 --- 最后更新：2026-10-30
+
+
+## 数据与评测
+- [数据与训练语料](https://models.specul.com/data/) — 24 张数据集卡，8 类；许可、规模、获取方式与使用边界。
+- [评测与榜单](https://models.specul.com/evals/) — 20 个基准，只写测什么与怎么读，不做总分排名。

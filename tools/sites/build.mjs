@@ -23,6 +23,7 @@ import { fileURLToPath } from 'node:url';
 import { shell as buildShell, nativeOption } from './shell.mjs';
 import { computeCompleteness } from '../scripts/completeness.mjs';
 import { parseFrontmatter, parseSources, bodyAfter } from '../scripts/yaml.mjs';
+import { vizFor } from '../../../../_audit/viz.mjs';
 import { costWorkbench } from './cost-workbench.mjs';
 import { worksheetWorkbench } from './worksheet-workbench.mjs';
 
@@ -2375,6 +2376,8 @@ ${f.cats.map(catCard).join('\n')}
         </div>
       </div>
     </section>
+
+${vizFor('tools')}
 
 ${partitionBar('')}
 
