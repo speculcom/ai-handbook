@@ -27,7 +27,7 @@ confidence: partial
 
 评测说明是一份条件句：谁在什么任务集上、用什么指标、和哪个版本比。四个成分齐全才算读到位。
 
-本站不跑评测、不复现分数，也不在任何档位之间做优劣排名。家族卡上的能力声明一律逐条挂出处，出处之外留空。
+这里不跑评测、不复现分数，也不在任何档位之间做优劣排名。家族卡上的能力声明一律逐条挂出处，出处之外留空。
 
 ## [先定位四件事|Locate the four parts first]
 
@@ -68,9 +68,9 @@ confidence: partial
 - 自报：作者自己跑并公布，通常最完整，也最需要看它公开的脚本与设置。
 - 复现：第三方按公布方法重跑。差异要同时核对版本、设置与判分实现。
 - 榜单：聚合口径常常统一了提示模板，也就统一不了你的任务。
-- 厂商自评基准：本站在家族卡上会点名它是厂商自评，不当作横向裁决。
+- 厂商自评基准：这里在家族卡上会点名它是厂商自评，不当作横向裁决。
 
-一句话口径：本站只说这句话有没有出处、出处覆盖了什么，不说它证明了模型有多好。
+一句话口径：这里只说这句话有没有出处、出处覆盖了什么，不说它证明了模型有多好。
 
 ## [硬件与规模声明也是条件句|Hardware and scale claims are conditional too]
 
@@ -83,7 +83,7 @@ confidence: partial
 
 ## [虚构例子：一段评测说明怎么读|A fictional example: reading one write-up]
 
-下面的文字与数字都是虚构教学假设，不对应任何真实模型、官方页或本站运行结果。
+下面的文字与数字都是虚构教学假设，不对应任何真实模型、官方页或这里运行结果。
 
 假设某官方页写了一行数字：任务 A 得分 61.2，任务 B 得分 47.5。同一行还写着比上一版高 6.1。
 
@@ -101,7 +101,7 @@ confidence: partial
 - 先按自己的任务定判定标准，再决定要看哪些分数；判定标准可参考 [怎么搭评测](https://tools.specul.com/mcp/guides/evaluation.html)。
 - 用固定输入跑一次结果检查，入口是 [20 项自测清单](https://tools.specul.com/mcp/guides/selftest-20.html)。
 - 需要记录假设与容量时，用 [上下文与并发预算](https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench)；它的算式只适用于同层标准全注意力 MHA / GQA，MLA、混合与滑动窗口要另算。
-- 涉及费用构成时用 [成本计算器](https://tools.specul.com/mcp/guides/cost-calculator.html)，本站不保存任何单价。
+- 涉及费用构成时用 [成本计算器](https://tools.specul.com/mcp/guides/cost-calculator.html)，这里不保存任何单价。
 
 学 AI 站的 [模型评测的局限](https://learn.specul.com/term/%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E7%9A%84%E5%B1%80%E9%99%90/)、[基准测试](https://learn.specul.com/term/%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95/) 与 [模型卡](https://learn.specul.com/term/%E6%A8%A1%E5%9E%8B%E5%8D%A1/) 是给使用者的一页科普。
 

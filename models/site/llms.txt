@@ -8,111 +8,111 @@
 GGUF 量化的模型（MoE 与 dense 都在内）。
 
 闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，「该下载哪个量化版」这个问题对它们不成立。
-本站另设「闭源谱系卡」做对照：只记官方规格快照与复核周期，不采价格、不排名（见下节）。
-本站也不做模型能力横评（那属于另一个问题，且需要实测）。
+闭源谱系卡只记官方规格和资料时间，不采价格（见下节）。
+模型能力横评需要实测，这里不做。
 
 ## 家族谱系卡
 
-- [Command A](https://models.specul.com/families/command/): Cohere 的企业向 agentic 家族：A+ 放开了 Apache-2.0（上一代还是门控），主打企业场景与多语言。尺寸在 218B 级，本地部署门槛高。本站未收其量化对比（GGUF 生态太薄，见下）。
-  Cohere　当前代 Command A+（2026-05）　3 代　许可 apache-2.0　本站未收录其量化对比
-- [DeepSeek](https://models.specul.com/families/deepseek/): MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。
-  深度求索 DeepSeek　当前代 V4.1-Flash（2026-09）　3 代　许可 mit　本站量化对比：deepseek-v4
-- [Gemma](https://models.specul.com/families/gemma/): 尺寸档最全的家族（E2B 到 31B），端侧到服务器一条线；许可是 Apache-2.0 + 使用政策组合，下载前读政策原文。本站收录的 gemma-4 系列覆盖其中三档。
-  Google DeepMind　当前代 Gemma 4（2026-03）　2 代　许可 apache-2.0　本站量化对比：gemma-4
-- [GLM 智谱](https://models.specul.com/families/glm/): 中文 agent 与代码强项、迭代节奏极快（半年四代）。大杯与 Flash 杯许可不同——本地部署优先 MIT 的 Flash 杯。本站收录的 glm-5 系列在 GLM-5.3 上。
-  智谱 AI · Z.ai　当前代 GLM-5.3（2026-08）　4 代　许可 mit, other　本站量化对比：glm-5
-- [gpt-oss](https://models.specul.com/families/gpt-oss/): OpenAI 首次放出的开放权重 MoE：Apache-2.0、官方就按「量化后交付」设计（MXFP4），单卡可跑是它的主打场景。本站收录 gpt-oss 系列的量化对比。
-  OpenAI　当前代 gpt-oss（2025-08）　1 代　许可 apache-2.0　本站量化对比：gpt-oss
-- [KAT Coder](https://models.specul.com/families/kat/): 快手 Kwaipilot 的代码家族：API 版闭源、Dev 版开放权重。它是本站收录的「派生模型」代表——官方自己声明基座是 Qwen3.6-35B-A3B，选它等于选 Qwen 谱系 + 快手代码后训练。
-  Kwaipilot（快手）　当前代 KAT-Coder-V2.5（2026-07）　2 代　许可 apache-2.0　本站量化对比：kat-coder
+- [Command A](https://models.specul.com/families/command/): Cohere 的企业向 agentic 家族：A+ 放开了 Apache-2.0（上一代还是门控），主打企业场景与多语言。尺寸在 218B 级，本地部署门槛高。这里没有它的量化对比（GGUF 生态太薄，见下）。
+  Cohere　当前代 Command A+（2026-05）　3 代　许可 apache-2.0　没有它的量化对比
+- [DeepSeek](https://models.specul.com/families/deepseek/): MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，这里系列页有记录）。适合追新、能接受大模型的部署者。
+  深度求索 DeepSeek　当前代 V4.1-Flash（2026-09）　3 代　许可 mit　量化对比：deepseek-v4
+- [Gemma](https://models.specul.com/families/gemma/): 尺寸档最全的家族（E2B 到 31B），端侧到服务器一条线；许可是 Apache-2.0 + 使用政策组合，下载前读政策原文。这里的 gemma-4 系列覆盖其中三档。
+  Google DeepMind　当前代 Gemma 4（2026-03）　2 代　许可 apache-2.0　量化对比：gemma-4
+- [GLM 智谱](https://models.specul.com/families/glm/): 中文 agent 与代码强项、迭代节奏极快（半年四代）。大杯与 Flash 杯许可不同——本地部署优先 MIT 的 Flash 杯。这里的 glm-5 系列在 GLM-5.3 上。
+  智谱 AI · Z.ai　当前代 GLM-5.3（2026-08）　4 代　许可 mit, other　量化对比：glm-5
+- [gpt-oss](https://models.specul.com/families/gpt-oss/): OpenAI 首次放出的开放权重 MoE：Apache-2.0、官方就按「量化后交付」设计（MXFP4），单卡可跑是它的主打场景。这里有 gpt-oss 系列的量化对比。
+  OpenAI　当前代 gpt-oss（2025-08）　1 代　许可 apache-2.0　量化对比：gpt-oss
+- [KAT Coder](https://models.specul.com/families/kat/): 快手 Kwaipilot 的代码家族：API 版闭源、Dev 版开放权重。它是这里的「派生模型」代表——官方自己声明基座是 Qwen3.6-35B-A3B，选它等于选 Qwen 谱系 + 快手代码后训练。
+  Kwaipilot（快手）　当前代 KAT-Coder-V2.5（2026-07）　2 代　许可 apache-2.0　量化对比：kat-coder
 - [Kimi](https://models.specul.com/families/kimi/): 国产开放权重旗舰：K3 是官方口径的首个开放 3T 级模型，许可是自定义 Kimi K3 License。对话产品「Kimi 智能助手」在网信办首批备案（Beijing-MoonShot-20231016）；模型权重本身与备案是两回事，卡上分开写。
-  月之暗面（Moonshot AI）　当前代 Kimi K3（2026-07）　3 代　许可 other　本站量化对比：kimi-k3
-- [Laguna](https://models.specul.com/families/laguna/): 代码专用家族里许可最宽的一族（OpenMDW-1.1 完全宽松）；主打「本地机器跑 agentic coding」，激活 3B 是它的本地性来源。本站收录 Laguna XS-2.1 的量化对比。
-  Poolside　当前代 Laguna 2.1 / XS.2（2026-08）　2 代　许可 openmdw-1.1　本站量化对比：laguna
+  月之暗面（Moonshot AI）　当前代 Kimi K3（2026-07）　3 代　许可 other　量化对比：kimi-k3
+- [Laguna](https://models.specul.com/families/laguna/): 代码专用家族里许可最宽的一族（OpenMDW-1.1 完全宽松）；主打「本地机器跑 agentic coding」，激活 3B 是它的本地性来源。这里有 Laguna XS-2.1 的量化对比。
+  Poolside　当前代 Laguna 2.1 / XS.2（2026-08）　2 代　许可 openmdw-1.1　量化对比：laguna
 - [Llama](https://models.specul.com/families/llama/): 全球生态最大的开放权重家族：微调、量化、工具链覆盖最全，但许可是带归属条款（Built with Llama）与规模条款（7 亿 MAU）的社区许可，商用前读全文。
-  Meta　当前代 Llama 4（2025-04）　3 代　许可 other　本站未收录其量化对比
+  Meta　当前代 Llama 4（2025-04）　3 代　许可 other　没有它的量化对比
 - [MiniCPM](https://models.specul.com/families/minicpm/): 国产端侧小杯家族：尺寸小、官方连训练数据一起开源，按「自己练一遍」路线能拿到完整起点的中文家族（训练数据也一起放出）。面壁 ChatGLM 之外的另一条国产备案线（MiniCPM 备案编号 Beijing-MiniCPM-202503180058）。
-  面壁智能 · OpenBMB　当前代 MiniCPM5（2026-08）　3 代　许可 apache-2.0　本站量化对比：minicpm5
+  面壁智能 · OpenBMB　当前代 MiniCPM5（2026-08）　3 代　许可 apache-2.0　量化对比：minicpm5
 - [Mistral](https://models.specul.com/families/mistral/): 欧洲开放权重旗舰：1T 级 MoE + 1M 上下文 + 视觉输入，许可为修改版 MIT（MaaS 需单独授权）。适合需要「开放权重 + 欧洲合规叙事 + 多语言」的部署者；本地运行门槛极高，官方提供 NVFP4 量化档与 DSpark 投机解码草稿头。
-  Mistral AI（法国）　当前代 Mistral Large 4（2026-10）　5 代　许可 mistral-ecosystem-open-weight, apache-2.0, other　本站未收录其量化对比
-- [Muse](https://models.specul.com/families/muse/): Meta 在 Llama 之外的新开放权重线（meta-models org）。发布走门控：要先在 HF 登录同意才能下载，这是选型时的硬约束，卡上如实写。本站收录 Muse Glimmer 30B 的量化对比。
-  Meta　当前代 Muse Glimmer（2026-08）　2 代　许可 apache-2.0　本站量化对比：muse-glimmer
-- [Ornith](https://models.specul.com/families/ornith/): 新晋家族（2026 年才出现两代）：MIT 许可 + 三档尺寸覆盖单卡到旗舰。出品主体 DeepReinforce 的注册辖区官方未声明，本站按「国外出品」处理并在属地依据里写明（S52 口径）。
-  Ornith AI（DeepReinforce）　当前代 Ornith 1.5（2026-08）　2 代　许可 mit　本站量化对比：ornith-1-5
-- [Phi](https://models.specul.com/families/phi/): 微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。本站未收其量化对比——当前代 GGUF 生态太薄（见下）。
-  微软（Microsoft）　当前代 Phi-4-reasoning 系（2026-08）　3 代　许可 mit　本站未收录其量化对比
-- [千问 Qwen](https://models.specul.com/families/qwen/): 中文与代码口碑最强的开放权重家族之一；Apache-2.0 主力规格许可干净。本站量化对比的基准系列（qwen3-8）就在这一代。
-  阿里巴巴 · 通义千问　当前代 Qwen3.8（2026-08）　3 代　许可 apache-2.0, other　本站量化对比：qwen3-8
-- [腾讯混元](https://models.specul.com/families/tencent/): 中文开放权重家族里少有的「大总参 + 高激活」路线；Hy4 把上下文拉到 1M+，对长程 agent 与工程代码有明确指向。本站暂无 GGUF 量化收录，选型前先看官方许可与硬件门槛。
-  腾讯　当前代 Hy4 preview（2026-08）　2 代　许可 other　本站未收录其量化对比
+  Mistral AI（法国）　当前代 Mistral Large 4（2026-10）　5 代　许可 mistral-ecosystem-open-weight, apache-2.0, other　没有它的量化对比
+- [Muse](https://models.specul.com/families/muse/): Meta 在 Llama 之外的新开放权重线（meta-models org）。发布走门控：要先在 HF 登录同意才能下载，这是选型时的硬约束，卡上如实写。这里有 Muse Glimmer 30B 的量化对比。
+  Meta　当前代 Muse Glimmer（2026-08）　2 代　许可 apache-2.0　量化对比：muse-glimmer
+- [Ornith](https://models.specul.com/families/ornith/): 新晋家族（2026 年才出现两代）：MIT 许可 + 三档尺寸覆盖单卡到旗舰。出品主体 DeepReinforce 的注册辖区官方未声明，这里按「国外出品」处理并在属地依据里写明（S52 口径）。
+  Ornith AI（DeepReinforce）　当前代 Ornith 1.5（2026-08）　2 代　许可 mit　量化对比：ornith-1-5
+- [Phi](https://models.specul.com/families/phi/): 微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。这里没有它的量化对比——当前代 GGUF 生态太薄（见下）。
+  微软（Microsoft）　当前代 Phi-4-reasoning 系（2026-08）　3 代　许可 mit　没有它的量化对比
+- [千问 Qwen](https://models.specul.com/families/qwen/): 中文与代码口碑最强的开放权重家族之一；Apache-2.0 主力规格许可干净。这里的量化对比，基准系列（qwen3-8）就在这一代。
+  阿里巴巴 · 通义千问　当前代 Qwen3.8（2026-08）　3 代　许可 apache-2.0, other　量化对比：qwen3-8
+- [腾讯混元](https://models.specul.com/families/tencent/): 中文开放权重家族里少有的「大总参 + 高激活」路线；Hy4 把上下文拉到 1M+，对长程 agent 与工程代码有明确指向。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。
+  腾讯　当前代 Hy4 preview（2026-08）　2 代　许可 other　没有它的量化对比
 
 ## 闭源谱系卡
 
-对照面：只记当前代、官方规格事实（每条挂官方出处）、核验快照与复核周期。不采价格数字，不排名。复核到期的卡页顶有横幅。
+对照面：只记当前代、官方规格事实（每条挂官方出处）、资料时间和复核周期。不采价格数字，不排名。复核到期的卡页顶有横幅。
 
 - [Claude（闭源 API）](https://models.specul.com/closed/claude/): 闭源旗舰线（agentic 编码与企业向）：官方模型总览是规格真相源；官方文档将模型 ID 定义为固定版本，而非持续更新的别名；选型时应核对具体 ID。
-  Anthropic　当前代 Claude 5.5 代（Fable 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5）（2026-09）　4 条官方事实　核验 2026-10-30　复核周期 30 天
-- [豆包（闭源 API）](https://models.specul.com/closed/doubao/): 国产闭源主力：对话产品「豆包」与 API「Doubao-Seed」同族两条线；服务在网信办备案（Beijing-YunQue-20230821，豆包大模型=云雀更名，官方备案公示页确认）。代次更替快，本站卡带核验日与复核周期。
-  字节跳动 · 火山引擎　当前代 Doubao-Seed 2.1 系（+ Seed-Evolving）（2026-06）　4 条官方事实　核验 2026-10-30　复核周期 30 天
-- [Gemini（闭源 API）](https://models.specul.com/closed/gemini/): Google 的闭源旗舰线；与开放权重的 Gemma 是两条线，别混。选型注意官方「预览版」标注——预览意味着规格与价格都可能变，本站只抄快照。
-  Google DeepMind　当前代 Gemini 3 系（最新 3.8 Flash；3.1 Pro / 3.7 / 3.6 / 3.5 Flash 在册）（2026-09）　4 条官方事实　核验 2026-10-30　复核周期 30 天
-- [GPT（闭源 API）](https://models.specul.com/closed/gpt/): 闭源旗舰线：能力声明以官方发布页为准，本站只抄规格不背书横评。注意 OpenAI 另有一条开放权重线（gpt-oss），与这条 API 线是两回事——本站两边都有卡。
-  OpenAI　当前代 GPT-6 系（Astra / 6.1 Sol / 6 Luna）（2026-10）　4 条官方事实　核验 2026-10-30　复核周期 30 天
-- [Grok（闭源 API）](https://models.specul.com/closed/grok/): 闭源旗舰线（代码与 agentic 向）：官方文档规格直抄。诚实标注：2026-10-20 快照里官方文档页自称 SpaceXSI（Memphis 数据中心口径），品牌归属变化本站不推测、只记录页面原文。
-  xAI（官方文档页 2026-10 自称 SpaceXSI）　当前代 Grok 4.7（2026-08）　4 条官方事实　核验 2026-10-30　复核周期 30 天
-- [Kimi（闭源 API）](https://models.specul.com/closed/kimi/): 国产闭源旗舰，但它是本站唯一「API 与开放权重双轨」的家族：K3 权重在 Hugging Face / ModelScope 开放（自定义 Kimi K3 License），API 走 platform.kimi.com。选型时两条路径的许可与数据条款不同，分开读。
-  月之暗面（Moonshot AI）　当前代 Kimi K3（API）（2026-06）　3 条官方事实　核验 2026-10-30　复核周期 30 天
+  Anthropic　当前代 Claude 5.5 代（Fable 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5）（2026-09）　4 条官方事实　资料 2026-10-30　复核周期 30 天
+- [豆包（闭源 API）](https://models.specul.com/closed/doubao/): 国产闭源主力：对话产品「豆包」与 API「Doubao-Seed」同族两条线；服务在网信办备案（Beijing-YunQue-20230821，豆包大模型=云雀更名，官方备案公示页确认）。代次更替快，卡片上标了资料时间和复核周期。
+  字节跳动 · 火山引擎　当前代 Doubao-Seed 2.1 系（+ Seed-Evolving）（2026-06）　4 条官方事实　资料 2026-10-30　复核周期 30 天
+- [Gemini（闭源 API）](https://models.specul.com/closed/gemini/): Google 的闭源旗舰线；与开放权重的 Gemma 是两条线，别混。选型注意官方「预览版」标注——预览意味着规格与价格都可能变，这里只抄快照。
+  Google DeepMind　当前代 Gemini 3 系（最新 3.8 Flash；3.1 Pro / 3.7 / 3.6 / 3.5 Flash 在册）（2026-09）　4 条官方事实　资料 2026-10-30　复核周期 30 天
+- [GPT（闭源 API）](https://models.specul.com/closed/gpt/): 闭源旗舰线：能力声明以官方发布页为准，这里只抄规格不背书横评。注意 OpenAI 另有一条开放权重线（gpt-oss），与这条 API 线是两回事——这里两边都有卡。
+  OpenAI　当前代 GPT-6 系（Astra / 6.1 Sol / 6 Luna）（2026-10）　4 条官方事实　资料 2026-10-30　复核周期 30 天
+- [Grok（闭源 API）](https://models.specul.com/closed/grok/): 闭源旗舰线（代码与 agentic 向）：官方文档规格直抄。诚实标注：2026-10-20 快照里官方文档页自称 SpaceXSI（Memphis 数据中心口径），品牌归属变化这里不推测、只记录页面原文。
+  xAI（官方文档页 2026-10 自称 SpaceXSI）　当前代 Grok 4.7（2026-08）　4 条官方事实　资料 2026-10-30　复核周期 30 天
+- [Kimi（闭源 API）](https://models.specul.com/closed/kimi/): 国产闭源旗舰，但它是这里唯一「API 与开放权重双轨」的家族：K3 权重在 Hugging Face / ModelScope 开放（自定义 Kimi K3 License），API 走 platform.kimi.com。选型时两条路径的许可与数据条款不同，分开读。
+  月之暗面（Moonshot AI）　当前代 Kimi K3（API）（2026-06）　3 条官方事实　资料 2026-10-30　复核周期 30 天
 
 ## 做模型专题
 
 从业者视角的方法论文章（与学 AI 站互链不重复）。关键事实挂论文/官方模型卡出处；不实测、不排名、不裁决路线之争。
 
 - [偏好对齐：RLHF 与 DPO 在解决什么问题](https://models.specul.com/guides/alignment.html): 奖励模型怎么从人排序里炼出来、PPO 那一步贵在哪、DPO 为什么能免掉强化学习、以及「对齐税」与谄媚这些代价。从业者视角深版；一页科普在学 AI 站。
-  8 节 · 6 条官方出处 · 核验 2026-10-20
+  8 节 · 6 条官方出处 · 资料 2026-10-20
 - [数据与算力：做模型的两大开销](https://models.specul.com/guides/data-compute.html): 语料从哪来、怎么洗到万亿 token；算力怎么用 GPU-hours 与 MFU 记账；成本量级怎么估——只讲构成方法，不存任何单价。从业者视角；词条版在学 AI 站，互链不重复。
-  8 节 · 9 条官方出处 · 核验 2026-10-21
+  8 节 · 9 条官方出处 · 资料 2026-10-21
 - [蒸馏：小模型怎么从大模型身上学](https://models.specul.com/guides/distillation.html): logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
-  7 节 · 8 条官方出处 · 核验 2026-10-20
+  7 节 · 8 条官方出处 · 资料 2026-10-20
 - [端侧部署：带宽、量化与功耗的三重约束](https://models.specul.com/guides/edge-deployment.html): 端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。
-  6 节 · 3 条官方出处 · 核验 2026-11-17
+  6 节 · 3 条官方出处 · 资料 2026-11-17
 - [GPU 事实与成本数学：跑模型的硬件账](https://models.specul.com/guides/gpu-cost-math.html): 从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。
-  8 节 · 8 条官方出处 · 核验 2026-10-21
+  8 节 · 8 条官方出处 · 资料 2026-10-21
 - [把日志留在本地到底意味着什么](https://models.specul.com/guides/local-log-retention.html): 把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。
-  10 节 · 5 条官方出处 · 核验 2026-11-06
+  10 节 · 5 条官方出处 · 资料 2026-11-06
 - [长上下文：窗口、有效利用与成本](https://models.specul.com/guides/long-context.html): 「支持 128K」只是上限，不等于能在中间找到信息。长上下文选型要同时看位置鲁棒性、注意力成本、KV cache 显存和任务验收。
-  7 节 · 3 条官方出处 · 核验 2026-11-17
+  7 节 · 3 条官方出处 · 资料 2026-11-17
 - [MoE 选型：总参数、激活参数与真实成本](https://models.specul.com/guides/moe-selection.html): MoE 把「参数量」拆成总参数与激活参数两个数字。选型时要同时算显存、带宽、通信和批量，而不是只看总参数或榜单。
-  6 节 · 3 条官方出处 · 核验 2026-11-17
+  6 节 · 3 条官方出处 · 资料 2026-11-17
 - [多模态模型的显存账怎么算](https://models.specul.com/guides/multimodal-memory.html): 把多模态的占用分成编码器、投影件与解码器缓存三笔账，写清每笔的来源、单位（GiB）与算法边界；KV 算式只管同层标准全注意力解码器，不能外推到编码器与 MLA、混合、滑动窗口。
-  9 节 · 5 条官方出处 · 核验 2026-11-06
+  9 节 · 5 条官方出处 · 资料 2026-11-06
 - [本地跑起来之前先确认的七件事](https://models.specul.com/guides/pre-flight-checks.html): 从开机到第一次出字的七个核对点：可用容量、驻留体积、文件与运行器、缓存口径、许可、结果验收、日志落点。每件写清查什么、拿什么当证据、失败后下一步。
-  9 节 · 4 条官方出处 · 核验 2026-11-06
+  9 节 · 4 条官方出处 · 资料 2026-11-06
 - [预训练：模型怎么做到「什么都知道一点」](https://models.specul.com/guides/pretraining.html): 预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。
-  8 节 · 11 条官方出处 · 核验 2026-10-20
-- [量化档位与精度损失：能说什么、不能说什么](https://models.specul.com/guides/quant-tier-precision.html): 把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。
-  9 节 · 5 条官方出处 · 核验 2026-11-06
+  8 节 · 11 条官方出处 · 资料 2026-10-20
+- [量化档位与精度损失：能说什么、不能说什么](https://models.specul.com/guides/quant-tier-precision.html): 把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是这里按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。
+  9 节 · 5 条官方出处 · 资料 2026-11-06
 - [怎么按官方口径读一个模型的评测说明](https://models.specul.com/guides/read-official-evals.html): 读一份官方评测说明要补齐的四件事：任务集范围、指标口径、对照与版本、声明出处。哪些话有依据、哪些话只能留空，以及自报数字与你的任务之间隔着什么。
-  9 节 · 4 条官方出处 · 核验 2026-11-06
+  9 节 · 4 条官方出处 · 资料 2026-11-06
 - [跑起来深水：KV 缓存、批处理与推理引擎](https://models.specul.com/guides/serving-deep-dive.html): 推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。
-  7 节 · 8 条官方出处 · 核验 2026-10-21
+  7 节 · 8 条官方出处 · 资料 2026-10-21
 - [SFT：让续写机器学会「好好回答」](https://models.specul.com/guides/sft.html): 监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。
-  7 节 · 7 条官方出处 · 核验 2026-10-20
+  7 节 · 7 条官方出处 · 资料 2026-10-20
 - [任务模型：嵌入、重排、OCR 与语音识别](https://models.specul.com/guides/task-models.html): 从输入输出、运行库和验收方法区分四类任务；逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。
-  8 节 · 6 条官方出处 · 核验 2026-11-04
+  8 节 · 6 条官方出处 · 资料 2026-11-04
 - [开源训练栈：多卡训练的工具链](https://models.specul.com/guides/training-stack.html): 一张卡装不下大模型之后，数据并行、ZeRO、张量并行、流水线并行怎么组合；DeepSpeed、Megatron-LM、torchtitan、nanotron、TRL 各站在哪一层。从业者视角的选型地图；词条版在学 AI 站，互链不重复。
-  6 节 · 8 条官方出处 · 核验 2026-10-21
+  6 节 · 8 条官方出处 · 资料 2026-10-21
 - [视觉语言模型选型：分辨率、定位与读字](https://models.specul.com/guides/vision-language-selection.html): VLM 的能力被三类任务拉开差距：描述、定位、读字。选型要按任务拆开测，并把图像 token 的成本算进去。
-  6 节 · 3 条官方出处 · 核验 2026-11-17
+  6 节 · 3 条官方出处 · 资料 2026-11-17
 
 ## 已收录系列
 
 - [DeepSeek V4](https://models.specul.com/series/deepseek-v4/): MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cpp 生态参与者）维护量化版。
   DeepSeek　发布 2026-09-10　1 个模型仓 / 5 个量化档 / 13 个 GGUF 文件　许可 mit
-- [Gemma 4](https://models.specul.com/series/gemma-4/): Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。
+- [Gemma 4](https://models.specul.com/series/gemma-4/): Google 开放权重系列，三种规格各自都有量化覆盖。
   Google　发布 2026-06　3 个模型仓 / 26 个量化档 / 340 个 GGUF 文件　许可 apache-2.0, apache-2.0, apache-2.0
 - [GLM 5](https://models.specul.com/series/glm-5/): 智谱开放权重系列；不同规格的许可分别标注，部署前核对对应版本与容量需求。
   智谱 AI　发布 2026-08-25　2 个模型仓 / 13 个量化档 / 79 个 GGUF 文件　许可 other, mit
-- [gpt-oss](https://models.specul.com/series/gpt-oss/): OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。
+- [gpt-oss](https://models.specul.com/series/gpt-oss/): OpenAI 开放权重系列，这里有 20B 规格的量化信息；能不能单卡跑，取决于可用内存、量化和上下文配置。
   OpenAI　发布 2025-08-04　1 个模型仓 / 6 个量化档 / 57 个 GGUF 文件　许可 apache-2.0
 - [KAT Coder V2.5](https://models.specul.com/series/kat-coder/): 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。
   Kwaipilot　发布 2026-07-23　1 个模型仓 / 6 个量化档 / 57 个 GGUF 文件　许可 apache-2.0
@@ -126,7 +126,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   Meta　发布 2026-08-09　1 个模型仓 / 10 个量化档 / 116 个 GGUF 文件　许可 apache-2.0
 - [Ornith 1.5](https://models.specul.com/series/ornith-1-5/): 模型卡标注 MIT 许可，两个规格都有 GGUF 量化覆盖；具体文件与版本见下表。
   Ornith AI　发布 2026-08-18　2 个模型仓 / 20 个量化档 / 208 个 GGUF 文件　许可 mit, mit
-- [千问 3.8](https://models.specul.com/series/qwen3-8/): 阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；收录不代表性能排名。
+- [千问 3.8](https://models.specul.com/series/qwen3-8/): 阿里千问系列，这里有 27B 密集模型与 Flash-Next 的量化信息；有覆盖不代表性能排名。
   阿里 · 通义千问　发布 2026-08-05　2 个模型仓 / 17 个量化档 / 172 个 GGUF 文件　许可 apache-2.0, other
 
 ## 每个系列页包含六个区块
@@ -142,7 +142,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 
 - ✅ **实测字段** —— 直接从 Hugging Face 公开 API 读取：文件体积、上下文长度、架构、许可、下载量
 - ✅ **推导** —— 由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存区间
-- ❌ **我们不说的** —— 哪个量化质量更高、哪个更快、哪个模型更强。这些需要实测，本站不跑 benchmark，所以不装作知道
+- ❌ **我们不说的** —— 哪个量化质量更高、哪个更快、哪个模型更强。这些需要实测，这里不跑 benchmark，所以不装作知道
 
 ## 数据来源
 
@@ -158,7 +158,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 
 ### 关于「继承自基座」的许可
 
-部分量化仓没有在自己的 HF 页面写 license 字段。此时本站填入基座模型的许可，并标注
+部分量化仓没有在自己的 HF 页面写 license 字段。此时这里填入基座模型的许可，并标注
 「继承自基座，量化仓未单独声明」。依据是：量化是对权重的数学变换（舍入 / 缩放 / imatrix 加权），
 不新增也不删除原始表达，派生物的著作权与原作同一，许可不可能脱离基座。
 
@@ -177,3 +177,8 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   做游戏子域 vg.specul.com 已于 2026-11-07 撤站，游戏内容并入主站主题页，不再存在）
 
 --- 最后更新：2026-10-30
+
+
+## 数据与评测
+- [数据与训练语料](https://models.specul.com/data/) — 40 张数据集卡，8 类；许可、规模、获取方式与使用边界。
+- [评测与榜单](https://models.specul.com/evals/) — 36 个基准，只写测什么与怎么读，不做总分排名。

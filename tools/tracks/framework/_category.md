@@ -1,7 +1,7 @@
 # framework 大类收录声明
 
 **主题**：框架与运行时——给**程序**用的 agent SDK / 编排框架，以及机器人中间件、仿真器与学习栈。你在代码里搭 agent，或驱动仿真与策略。
-定义与边界裁决见 [../../categories.md](../../categories.md) §8。
+定义与边界裁决见 [../../categories.md](../../categories.md) §9。
 
 ## 收录标准（三条全满足）
 

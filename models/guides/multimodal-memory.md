@@ -30,7 +30,7 @@ confidence: partial
 
 三笔是：视觉或音频编码器的占用、投影件与接入层的占用、解码器侧的权重与缓存。
 
-本站不跑模型、不读硬件，也不给某个多模态模型的占用结论。页面能给的只有分法、单位和边界。
+这里不跑模型、不读硬件，也不给某个多模态模型的占用结论。页面能给的只有分法、单位和边界。
 
 ## [先把三笔账分开列|List the three bills separately]
 
@@ -53,13 +53,13 @@ confidence: partial
 - 转换与量化要分别做：官方文档写明支持图像或音频输入的模型，其编码器与投影件需要单独转换和量化。
 - OCR 一类模型对提示与输入结构有自己要求，官方文档提醒按模型说明处理，不能只按聊天用法喂图。
 
-官方 quantize 文档另有一句精度口径：这些部件通常用较高精度保存。用更小的量化档，对速度与内存影响不明显，但可能影响整体质量。它是官方口径，不是本站实测。
+官方 quantize 文档另有一句精度口径：这些部件通常用较高精度保存。用更小的量化档，对速度与内存影响不明显，但可能影响整体质量。它是官方口径，不是这里实测。
 
 ## [一张图值多少 token：先问官方配置|How many tokens an image costs: read the configuration]
 
 图像进入解码器时变成多少 token，由模型与它的预处理决定。这不是能从体积推出来的数。
 
-- 该数值要从官方模型配置、预处理说明或运行器文档取。三处都取不到时，本站写官方未说明，不用张数猜测。
+- 该数值要从官方模型配置、预处理说明或运行器文档取。三处都取不到时，这里写官方未说明，不用张数猜测。
 - 同一模型换分辨率、换缩放策略，token 数会变，缓存那一笔跟着变。
 - 每次请求能带几个图像或几段视频，是可以限制的设置项。vLLM 的内存控制文档给了 `limit_mm_per_prompt` 这类参数，见 [conserving_memory](https://docs.vllm.ai/en/latest/configuration/conserving_memory/)。
 - 官方文档也提醒某些模型需要更大的上下文窗口，例如把上下文设到 8192 的示例。上下文变大主要是缓存那一笔在涨。
@@ -83,7 +83,7 @@ MLA、混合状态空间、滑动窗口与逐层缓存不同的架构都不适�
 
 ## [虚构练习：一次图像输入的预算|A fictional exercise: budgeting one image input]
 
-本节数字全是虚构教学假设，不对应任何真实模型、官方页或本站运行结果。
+本节数字全是虚构教学假设，不对应任何真实模型、官方页或这里运行结果。
 
 设文本权重按 5 GiB 计，编码器与投影件合计按 1.5 GiB 计。运行时与预留按 1 GiB 计。
 
@@ -100,8 +100,8 @@ MLA、混合状态空间、滑动窗口与逐层缓存不同的架构都不适�
 - 载入失败先查运行器是否支持该架构与投影件组合，按症状进入 [故障库](https://tools.specul.com/mcp/guides/failure-library.html#files)。
 - 占用超限的排查入口是 [容量不足排查](https://tools.specul.com/mcp/guides/failure-library.html#memory)，先确认单位与假设再改设置。
 - 结果判定走 [20 项自测清单](https://tools.specul.com/mcp/guides/selftest-20.html)，图像任务要写清可核对的字段。
-- 任务接口层面的差别（OCR、语音、嵌入、重排）见本站「任务模型」专题，那边不给解码器 KV 公式套编码器。
-- 要按任务记录费用构成时用 [成本计算器](https://tools.specul.com/mcp/guides/cost-calculator.html)，本站不保存单价，也不预测某台机器的产出。
+- 任务接口层面的差别（OCR、语音、嵌入、重排）见这里「任务模型」专题，那边不给解码器 KV 公式套编码器。
+- 要按任务记录费用构成时用 [成本计算器](https://tools.specul.com/mcp/guides/cost-calculator.html)，这里不保存单价，也不预测某台机器的产出。
 
 ## [和学 AI 站的分工|How this differs from the Learn site]
 

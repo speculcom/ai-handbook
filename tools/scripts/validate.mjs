@@ -31,7 +31,7 @@ const LIFECYCLE = ['active', 'maintenance', 'archived', 'unknown'];
  * D3 定案：light 层退役，全部升八维；license 进八维 frontmatter。
  * T7（2026-10-21）：旧通道退役完成——唯一通道 = tracks/<大类>/products/（form 必填、
  * license 五类硬失败、track/tasks 回灌硬失败）。 */
-const CATS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'];
+const CATS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'office', 'automation', 'framework', 'mcp', 'runner', 'safety'];
 const FORMS = ['ide', 'cli', 'cloud', 'harness', 'mcp', 'web', 'app', 'local-app'];
 /* v8：消费级五类缺 license 硬失败（原 S47「creation 缺 license」规则的八维迁移版） */
 const LICENSE_REQUIRED_CATS = ['chat', 'image', 'video', 'audio', 'research'];
@@ -313,7 +313,7 @@ crossCheck(entries);
  * 文件名=id · id 不与档案或轻档案撞 · 英文缺 → 警告（R2）。 */
 {
   const GUIDES_DIR = path.join(ROOT, 'guides');
-  const TOPICS = new Set(['orchestration', 'memory', 'planning', 'evaluation', 'cost', 'guardrails', 'prompts']);
+  const TOPICS = new Set(['orchestration', 'memory', 'planning', 'evaluation', 'cost', 'guardrails', 'prompts', 'office']);
   /* P5（2026-11-07）：prompts 并入 guides，用 kind 区分方法论与提示词内容。
    * kind 缺省 = methodology，存量 48 篇不写也合规；档案 frontmatter 不受影响。 */
   const GUIDE_KINDS = new Set(['methodology', 'prompt-guide', 'prompt-case']);

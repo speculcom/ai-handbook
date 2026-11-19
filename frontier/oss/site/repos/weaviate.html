@@ -13,8 +13,8 @@
   <meta property="og:description" content="Weaviate：带混合检索与模块化向量化的向量数据库，支持多租户与 GraphQL。 许可 NOASSERTION，Go，17.0k stars（2026-11-19 快照）。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="../brand.css?v=8e209a2fd1c9" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../oss.css" />
 </head>
@@ -110,8 +110,13 @@
   <ul><li>混合检索（向量 + 关键词）成熟。</li><li>模块化 embedding / reranker 集成方便。</li><li>适合中大型知识库。</li></ul>
   <h2>不适合</h2>
   <p class="warn">轻量原型，Chroma 更简单。<br>运维复杂度高于单机库。</p>
+  <h2>最小上手</h2>
+  <ol><li>读 README / quickstart，确认 运行时 版本与系统依赖。</li><li>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</li><li>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</li></ol>
+  <h2>依赖与成本</h2>
+  <p>Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。</p>
   <h2>许可与使用边界</h2>
-  <p>GitHub 快照显示许可为 <b>NOASSERTION</b>。开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
+  <p>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</p>
+  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
   <h2>替代与相邻</h2>
   <ul><li><a href="../repos/qdrant.html">Qdrant</a> — 生产可用，Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</li><li><a href="../repos/milvus.html">Milvus</a> — 规模 / 性能，面向大规模向量检索的分布式数据库，支持多种索引与标量过滤。</li></ul>
   <h2>下一步</h2>

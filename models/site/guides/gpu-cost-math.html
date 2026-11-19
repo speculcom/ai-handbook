@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>GPU 事实与成本数学：跑模型的硬件账 · 做模型专题</title>
-  <meta name="description" content="从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <meta name="description" content="从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。（资料更新到 2026-10-21，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/gpu-cost-math.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GPU 事实与成本数学：跑模型的硬件账 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/gpu-cost-math.html" />
   <meta property="og:title" content="GPU 事实与成本数学：跑模型的硬件账 · 做模型专题" />
-  <meta property="og:description" content="从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <meta property="og:description" content="从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。（资料更新到 2026-10-21，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GPU facts and cost math: the hardware bill for running a model","description":"Separate resident weights, context cache, concurrency and runtime; distinguish idealized bandwidth arithmetic from actual throughput, with an editable budget and no stored prices or purchase advice.","url":"https://models.specul.com/guides/gpu-cost-math.html","dateModified":"2026-10-21"}</script>
 </head>
@@ -99,7 +99,7 @@
       <p class="lede"><span data-zh>从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。</span><span data-en>Separate resident weights, context cache, concurrency and runtime; distinguish idealized bandwidth arithmetic from actual throughput, with an editable budget and no stored prices or purchase advice.</span></p>
     </header>
 
-    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></a></li><li><a href="#guide-section-2"><span data-zh>核对容量、带宽与可用量</span><span data-en>Check capacity, bandwidth and available memory</span></a></li><li><a href="#guide-section-3"><span data-zh>带宽算式的假设与边界</span><span data-en>Assumptions and limits of bandwidth arithmetic</span></a></li><li><a href="#guide-section-4"><span data-zh>成本数学：讲构成，不存单价</span><span data-en>Cost math: composition, not unit prices</span></a></li><li><a href="#guide-section-5"><span data-zh>和本站其他资产的关系</span><span data-en>How this fits the rest of the site</span></a></li><li><a href="#guide-section-6"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li><li><a href="#guide-section-7"><span data-zh>完整例子：10 GiB 预算如何分配</span><span data-en>Worked example: allocating a 10 GiB budget</span></a></li></ul></nav>
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></a></li><li><a href="#guide-section-2"><span data-zh>核对容量、带宽与可用量</span><span data-en>Check capacity, bandwidth and available memory</span></a></li><li><a href="#guide-section-3"><span data-zh>带宽算式的假设与边界</span><span data-en>Assumptions and limits of bandwidth arithmetic</span></a></li><li><a href="#guide-section-4"><span data-zh>成本数学：讲构成，不存单价</span><span data-en>Cost math: composition, not unit prices</span></a></li><li><a href="#guide-section-5"><span data-zh>和这里其他资产的关系</span><span data-en>How this fits the rest of the site</span></a></li><li><a href="#guide-section-6"><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></a></li><li><a href="#guide-section-7"><span data-zh>完整例子：10 GiB 预算如何分配</span><span data-en>Worked example: allocating a 10 GiB budget</span></a></li></ul></nav>
     <section class="fam-sec" id="guide-section-0">
       <h2></h2>
 <ul>
@@ -109,7 +109,7 @@
     <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
 <span data-zh><p>预算先拆成驻留权重、缓存、运行时与预留，再和任务实际可用内存比较。文件能下载不等于能加载；小于预算也不等于运行器支持或输出合格。</p>
-<p>本站不存卡价、租用单价或购卡建议。原硬件来源日期保留为 2026-10-21；2026-11-04 仅新增缓存方法说明与本地预算算式，未重新核验旧硬件规格。</p></span><span data-en><p>Split memory into resident weights, cache, runtime and reserve, then compare with task-available memory. Downloading is not loading; a lower estimate does not establish runtime support or output quality.</p>
+<p>这里不存卡价、租用单价或购卡建议。原硬件来源日期保留为 2026-10-21；2026-11-04 仅新增缓存方法说明与本地预算算式，未重新核验旧硬件规格。</p></span><span data-en><p>Split memory into resident weights, cache, runtime and reserve, then compare with task-available memory. Downloading is not loading; a lower estimate does not establish runtime support or output quality.</p>
 <p>This site stores no card/rental prices or purchase recommendations. Original hardware-source dates remain 2026-10-21. The 2026-11-04 addition covers cache methodology and browser-local arithmetic, not a fresh hardware-spec check.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-2">
@@ -129,11 +129,11 @@
     <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>成本数学：讲构成，不存单价</span><span data-en>Cost math: composition, not unit prices</span></h2>
 <span data-zh><p>每 token 硬件分摊成本 = 同一统计期间内计入的硬件费用 ÷ 同期间实际产出的 tokens。写清输入/输出口径、缓存、空闲、失败重试和服务量，避免拿峰值理论吞吐当实际交付。</p>
-<p>容量预算回答“按这些假设占多少内存”，不回答“每小时能产多少”。吞吐需在自己的授权环境按固定任务观察；本站没有运行模型测试或保存单价。需要记录费用构成，使用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a>。</p></span><span data-en><p>Allocated hardware cost per token equals included hardware cost divided by actual tokens produced in the same period. Define input/output, caching, idle time, failed retries and service volume; theoretical peak throughput is not delivered output.</p>
+<p>容量预算回答“按这些假设占多少内存”，不回答“每小时能产多少”。吞吐需在自己的授权环境按固定任务观察；这里没有运行模型测试或保存单价。需要记录费用构成，使用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a>。</p></span><span data-en><p>Allocated hardware cost per token equals included hardware cost divided by actual tokens produced in the same period. Define input/output, caching, idle time, failed retries and service volume; theoretical peak throughput is not delivered output.</p>
 <p>A capacity budget estimates memory under assumptions, not hourly production. Observe throughput only in your own authorized fixed-task environment; this site ran no model benchmark and stores no prices. Record cost components with the <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">cost calculator</a>.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-5">
-      <h2><span data-zh>和本站其他资产的关系</span><span data-en>How this fits the rest of the site</span></h2>
+      <h2><span data-zh>和这里其他资产的关系</span><span data-en>How this fits the rest of the site</span></h2>
 <span data-zh><p>系列页 B 区按发布文件体积 × 1.15 初筛候选。该固定示意比例不是 KV 缓存估算，也不保证能运行。用本文下方的工具把缓存长度、并发和运行时预留分别列出；编码器、MLA、混合或滑动窗口模型另查架构方法。</p></span><span data-en><p>Series-page block B filters candidates by published file size × 1.15. That fixed illustration neither estimates KV cache nor guarantees execution. Use the tool below to separate cached length, concurrency and runtime reserve; encoders, MLA, hybrid and sliding-window models require architecture-specific methods.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-6">
@@ -144,7 +144,7 @@
     </section>
     <section class="fam-sec" id="guide-section-7">
       <h2><span data-zh>完整例子：10 GiB 预算如何分配</span><span data-en>Worked example: allocating a 10 GiB budget</span></h2>
-<span data-zh><p>下面是假设的容量练习，不对应具体模型，也不是本站运行结果。GiB 按 2 的 30 次方字节计算；不要把十进制 GB 直接当成相同数值的 GiB。</p>
+<span data-zh><p>下面是假设的容量练习，不对应具体模型，也不是这里运行结果。GiB 按 2 的 30 次方字节计算；不要把十进制 GB 直接当成相同数值的 GiB。</p>
 <p>设可用于任务的预算为 10 GiB，候选权重占 6 GiB。先按 2 GiB 缓存、1 GiB 运行时占用估算，合计 9 GiB，另留 1 GiB 余量。这些缓存与运行时数字只是练习假设；真实数值随模型、精度、上下文和并发变化。</p>
 <p>接着核对文件体积、运行器支持和实际可用内存。用短输入启动后记录占用，再增加上下文。若缓存超过预算，可以缩短输入、调整并发或评估其他档位；卸载能力需查运行器文档。</p>
 <p>容量预算不能预测生成速度，也不能证明质量足够。对比方案时，再用相同任务记录耗时、错误和用量；本例不给出性能承诺或硬件购买建议。</p>
@@ -183,7 +183,7 @@
         <li><span data-zh>Transformers · 缓存张量结构（2026-11-04 单项核验）</span><span data-en>Transformers: cache tensor structure (item checked 2026-11-04)</span>：<a href="https://huggingface.co/docs/transformers/cache_explanation" target="_blank" rel="noopener">https://huggingface.co/docs/transformers/cache_explanation</a></li>
         <li><span data-zh>vLLM · 内存控制（2026-11-04 单项核验）</span><span data-en>vLLM: memory controls (item checked 2026-11-04)</span>：<a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/configuration/conserving_memory/</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-21；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-21; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-21；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-21; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
     <p class="t-sm dim"><span data-zh>这页出现在主题：</span><span data-en>This page appears in: </span><a href="https://specul.com/topic-game.html"><span data-zh>用 AI 做游戏</span><span data-en>Make games with AI</span></a></p>
   </div>

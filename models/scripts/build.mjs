@@ -114,7 +114,7 @@ function ENWords(s) {
   return out;
 }
 
-/* 量化档名的词级英文（C0-19，2026-10-26）。档名里混着本站起的中文描述
+/* 量化档名的词级英文（C0-19，2026-10-26）。档名里混着这里起的中文描述
  * （「作者标注 3.49bpw」= 量化者没写 bpw、按文件名推导口径；「其他」= 未识别档），
  * 与 params 的 EN_WORDS 同型：数据层不动（中文态原样），渲染层英文槽替换。 */
 const QEN_WORDS = { '作者标注': 'author-stated', '其他': 'other' };
@@ -141,9 +141,9 @@ const familyList = (fs.existsSync(path.join(ROOT, 'data', 'families'))
   : []
 ).map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'families', f), 'utf8')));
 
-/* v7 S54：闭源谱系卡（data/closed/*.json）。本站主体仍是开放权重选型，
+/* v7 S54：闭源谱系卡（data/closed/*.json）。这里主体仍是开放权重选型，
  * 闭源卡回答的是对照面的问题：这家 API 现在哪一代、官方规格声明是什么、
- * 我们上次核验是什么时候——每条事实挂官方出处，每张卡带复核到期日。
+ * 我们上次资料是什么时候——每条事实挂官方出处，每张卡带复核到期日。
  * ⚠ D9：卡内不采价格数字，只放官方定价页链接。 */
 const closedList = (fs.existsSync(path.join(ROOT, 'data', 'closed'))
   ? fs.readdirSync(path.join(ROOT, 'data', 'closed')).filter((f) => f.endsWith('.json'))
@@ -220,7 +220,7 @@ if (fs.existsSync(qDir)) {
 
 /* 量化者说明的英文版（2026-10-04）—— i18n/_quantizers.en.md（本仓内，铁律 R3）。
  * 这批文档含**判断与立场标记**（「这是我们的口径，不是实测结论」「不适合谁」），
- * 翻译时必须保留这些标记 —— 它们是本站的诚实边界。
+ * 翻译时必须保留这些标记 —— 它们是这里的诚实边界。
  * 缺文档时回退中文（可接受降级），构建时 warn 报缺了几份。 */
 const quantizerDocsEn = {};
 try {
@@ -257,8 +257,8 @@ const NEEDS_REVIEW = /^(other|unknown|cc-by|gpl|agpl|openrail|bigscience|noasser
 // 版式复用 brand.css 的 .t-tag / .t-state（宪章 1：不新造组件）。
 // 数据纪律见 validate.mjs 第 6 节：枚举封闭、filed 必带编号、not-filed 必带检索口径 note。
 const CN_ORIGIN_LABEL = { domestic: ['国产', 'domestic'], foreign: ['国外出品', 'foreign-made'] };
-const CN_DIRECT_LABEL = { yes: ['国内可直连', 'direct OK'], no: ['直连不可达', 'direct blocked'], unknown: ['直连未核验', 'direct unknown'] };
-const CN_FILING_LABEL = { filed: ['已备案', 'filed'], 'not-filed': ['未见于备案名单', 'not in filing list'], unknown: ['备案未核验', 'filing unknown'] };
+const CN_DIRECT_LABEL = { yes: ['国内可直连', 'direct OK'], no: ['直连不可达', 'direct blocked'], unknown: ['直连未资料', 'direct unknown'] };
+const CN_FILING_LABEL = { filed: ['已备案', 'filed'], 'not-filed': ['未见于备案名单', 'not in filing list'], unknown: ['备案未资料', 'filing unknown'] };
 function cnChips(cn) {
   if (!cn) return '';
   const out = [];
@@ -277,7 +277,7 @@ function cnSection(cn) {
   const f = cn.filing || {};
   const filingRow = f.status === 'filed'
     ? `${bi('已备案', 'Filed')}：<code>${esc(f.no || '')}</code>　${bi('公示名称', 'listed as')}<span lang="zh-CN" data-source-name>「${esc(f.name || '')}」</span>　·　${bi('备案时间', 'filed')} ${esc(f.date || '')}${f.note ? `　·　${bi(esc(f.note), esc(f.noteEn || f.note))}` : ''}`
-    : `${bi(CN_FILING_LABEL[f.status] ? CN_FILING_LABEL[f.status][0] : '备案未核验', CN_FILING_LABEL[f.status] ? CN_FILING_LABEL[f.status][1] : 'filing unknown')}${f.note ? `：${bi(esc(f.note), esc(f.noteEn || f.note))}` : ''}`;
+    : `${bi(CN_FILING_LABEL[f.status] ? CN_FILING_LABEL[f.status][0] : '备案未资料', CN_FILING_LABEL[f.status] ? CN_FILING_LABEL[f.status][1] : 'filing unknown')}${f.note ? `：${bi(esc(f.note), esc(f.noteEn || f.note))}` : ''}`;
   const mirrorRow = cn.mirror
     ? `　·　<a href="${esc(cn.mirror)}" target="_blank" rel="noopener">${bi('国内镜像入口', 'domestic mirror')}</a>`
     : '';
@@ -289,7 +289,7 @@ function cnSection(cn) {
         <li><b>${bi('国内下载', 'Direct access')}</b>　${bi(CN_DIRECT_LABEL[cn.direct] ? CN_DIRECT_LABEL[cn.direct][0] : '?', CN_DIRECT_LABEL[cn.direct] ? CN_DIRECT_LABEL[cn.direct][1] : '?')}　${bi(esc(cn.directNote || ''), esc(cn.directNoteEn || cn.directNote || ''))}${mirrorRow}</li>
         <li><b>${bi('备案状态', 'CAC filing')}</b>　${filingRow}</li>
       </ul>
-      <p class="fam-claims-note">${bi('备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站探测环境中的可达性记录，不是厂商承诺。', 'Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site\'s own reachability measurement from a mainland network, not a vendor promise.')}</p>
+      <p class="fam-claims-note">${bi('备案信息按网信办《生成式人工智能服务已备案信息》公示名单抄编号；「国内可直连」是在本地网络实际打开过一次的记录，不是厂商承诺。', 'Filing status is quoted from the CAC public registry by number. "Direct access" means the page opened once from a mainland network — not a vendor promise.')}</p>
       <ul class="fam-src-list cn-srcs">${(cn.sources || []).map((s) => `<li>${bi(esc(s.label) + '：', esc(s.labelEn || s.label) + ': ')}<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}</ul>
     </section>`;
 }
@@ -333,7 +333,7 @@ function tierOf(t) { return TIER_ORDER.indexOf(t); }
 // 组件
 // ═════════════════════════════════════════════════════════════════════════
 
-/** 顶部：可信度分级说明（每页都带，这是本站的差异化） */
+/** 顶部：可信度分级说明（每页都带，这是这里的差异化） */
 function trustBanner() {
   return `    <section class="trust">
       <h2>${bi('先说清楚：这个站的数据怎么来的', "First, where this site's data comes from")}</h2>
@@ -348,11 +348,11 @@ function trustBanner() {
         </div>
         <div class="trust-item t-c">
           <span class="trust-tag">❌ ${bi('我们不说的','What we do not claim')}</span>
-          <p>${bi('<b>哪个量化质量更高、哪个更快、哪个模型更强</b>——这些需要实测，本站不跑 benchmark，所以不装作知道。凡我们给出的主观判断，一律显式标注「我们的口径」。', '<b>Which quantisation is higher quality, which is faster, which model is stronger</b> — these need measurement. This site does not run benchmarks, so it does not pretend to know. Every subjective judgement we do offer is explicitly marked as our own reading.')}</p>
+          <p>${bi('<b>哪个量化质量更高、哪个更快、哪个模型更强</b>——这些需要实测，这里不跑 benchmark，所以不装作知道。凡我们给出的主观判断，一律显式标注「我们的口径」。', '<b>Which quantisation is higher quality, which is faster, which model is stronger</b> — these need measurement. This site does not run benchmarks, so it does not pretend to know. Every subjective judgement we do offer is explicitly marked as our own reading.')}</p>
         </div>
       </div>
       <p class="trust-foot">
-        ${bi('本站','This site does')} <b>${bi('不下载、不托管任何模型权重文件','not download or host any model weight files')}</b>${bi('。所有数字都来自公开元数据，点击即可回到发布页核对。','. Every figure comes from public metadata, and clicking it takes you back to the release page to verify.')}
+        ${bi('这里','This site does')} <b>${bi('不下载、不托管任何模型权重文件','not download or host any model weight files')}</b>${bi('。所有数字都来自公开元数据，点击即可回到发布页核对。','. Every figure comes from public metadata, and clicking it takes you back to the release page to verify.')}
         ${bi('采集时间','Collected')}: <code>${esc(seriesList[0]?.collectedAt?.slice(0, 10) || '')}</code>${bi('（数据快照，非实时）',' (a snapshot, not live)')}
       </p>
     </section>`;
@@ -391,7 +391,7 @@ function blockA(s, m) {
   const paramRows = [
     [bi('官网标注', 'Vendor states'), `<b>${bi(esc(m.params || '—'), esc(m.paramsEn || ENWords(m.params || '—')))}</b>`],
     [bi('官方 API 申报', 'Official API'), dp ? `${fmtB(dp)} ${bi('<span class="muted small">（按 safetensors 张量逐个计数）</span>', '<span class="muted small"> (counted per safetensors tensor)</span>')}` : '<span class="muted">—</span>'],
-    [bi('本站实测反推', 'This site, measured'), dv ? `${fmtB(dv)} ${bi('<span class="muted small">（GGUF 字节 ÷ 该档 bpw，取最密集簇中位）</span>', '<span class="muted small"> (GGUF bytes ÷ tier bpw, median of the densest cluster)</span>')}` : '<span class="muted">—</span>'],
+    [bi('从文件体积反推', 'This site, measured'), dv ? `${fmtB(dv)} ${bi('<span class="muted small">（GGUF 字节 ÷ 该档 bpw，取最密集簇中位）</span>', '<span class="muted small"> (GGUF bytes ÷ tier bpw, median of the densest cluster)</span>')}` : '<span class="muted">—</span>'],
   ];
   // 两来源偏差 > 4% 时明确提示：反推受 bpw 表误差与未训练张量影响，官方申报为准。
   const dvDelta = dp && dv ? ((dv - dp) / dp) * 100 : null;
@@ -470,7 +470,7 @@ ${paramRows.map(([k, v]) => `          <tr><th>${k}</th><td>${v}</td></tr>`).joi
   };
   const rows = [
     [bi('官方发布页', 'Official release page'), `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.repo)} ↗</a><br><span class="muted small">${esc(m.modelType ? 'HF model_type：' + m.modelType : '')}${m.hfArch?.length ? '　·　' + esc(m.hfArch.join(' / ')) : ''}</span>`],
-    [bi('许可', 'Licence'), `${licBadge(m.license)}${m.licenseName ? ` <code>${esc(m.licenseName)}</code>` : ''}${m.licenseLink ? ` <a class="lic-src" href="${esc(m.licenseLink)}" target="_blank" rel="noopener">${bi('许可原文 ↗', 'licence text ↗')}</a>` : ''}${NEEDS_REVIEW.test(m.license || '') ? bi('<p class="warn-inline">⚠ 非宽松许可，<b>以发布页原文为准</b>。本站不解读许可条款，也不给法律意见。</p>', '<p class="warn-inline">⚠ Non-permissive licence — <b>the release page is authoritative</b>. This site does not interpret licence terms or give legal advice.</p>') : ''}`],
+    [bi('许可', 'Licence'), `${licBadge(m.license)}${m.licenseName ? ` <code>${esc(m.licenseName)}</code>` : ''}${m.licenseLink ? ` <a class="lic-src" href="${esc(m.licenseLink)}" target="_blank" rel="noopener">${bi('许可原文 ↗', 'licence text ↗')}</a>` : ''}${NEEDS_REVIEW.test(m.license || '') ? bi('<p class="warn-inline">⚠ 非宽松许可，<b>以发布页原文为准</b>。许可条款以原文为准，这里不给法律意见。</p>', '<p class="warn-inline">⚠ Non-permissive licence — <b>the release page is authoritative</b>. This site does not interpret licence terms or give legal advice.</p>') : ''}`],
     [bi('访问门槛', 'Access'), accessCell],
     [bi('规模', 'Scale'), paramCell],
     [bi('权重精度构成', 'Precision breakdown'), bdCell],
@@ -692,7 +692,7 @@ ${trs}
         <span class="tier-legend-i tier-3">${bi('长上下文','Long context')}</span>
         <span class="tier-legend-i tier-4">${bi('极限压缩','Extreme compression')}</span>
       </p>
-      <p class="muted small">${bi('「建议档」是本站按<b>体积最小且落在平衡档</b>的规则自动选出的，不是质量排名。官方量化排在最前；带 <span class="badge badge-im">imatrix</span> 标记的仓库带重要性矩阵数据。', 'The recommended tier is picked by rule — smallest size that still lands in the balanced tier — not by a quality ranking. Official quantisations are listed first; repos marked <span class="badge badge-im">imatrix</span> ship an importance matrix.')}</p>`;
+      <p class="muted small">${bi('「建议档」是按<b>体积最小、又落在平衡档</b>的规则选出来的，不是质量排名。官方量化排在最前；带 <span class="badge badge-im">imatrix</span> 标记的仓库带重要性矩阵数据。', 'The recommended tier is picked by rule — smallest size that still lands in the balanced tier — not by a quality ranking. Official quantisations are listed first; repos marked <span class="badge badge-im">imatrix</span> ship an importance matrix.')}</p>`;
 }
 
 /* B2（2026-10-09）：筛选脚本与样式。脚本读**独立文件**，不写进模板字符串 ——
@@ -751,14 +751,14 @@ const FILTER_CSS = `
 function companionBlock() {
   return `    <section class="companion">
       <h2>${bi('下好之后用什么跑', 'What runs it')}</h2>
-      <p class="block-lead">${bi('本站只负责「该下哪一档」。跑起来是另一件事 —— 下面这几个工具<b>自己的文档里写明了支持本地模型</b>（Ollama / vLLM / llama.cpp / LM Studio），点进去看具体怎么接。', 'This site only answers which tier to download. Running it is a different problem — the tools below <b>document local-model support in their own docs</b> (Ollama / vLLM / llama.cpp / LM Studio). Follow the link to see how.')}</p>
+      <p class="block-lead">${bi('这里只回答「该下哪一档」。跑起来是另一件事 —— 下面这几个工具<b>自己的文档里写明了支持本地模型</b>（Ollama / vLLM / llama.cpp / LM Studio），点进去看具体怎么接。', 'This site only answers which tier to download. Running it is a different problem — the tools below <b>document local-model support in their own docs</b> (Ollama / vLLM / llama.cpp / LM Studio). Follow the link to see how.')}</p>
       <div class="comp-grid">
 ${COMPANION.map((c) => `        <a class="comp-card" href="https://tools.specul.com/${esc(COMPANION_URL_PREFIX[c.part] ?? '')}${esc(c.id)}.html">
           <b>${bi(esc(c.label.zh), esc(c.label.en))}</b>
           <span>${bi(esc(c.why.zh), esc(c.why.en))}</span>
         </a>`).join('\n')}
       </div>
-      <p class="muted small">${bi('这些条目的本地模型支持情况由它们自己的官方文档佐证；本站不实测。', 'Local-model support for each entry is evidenced by that project official documentation. This site runs no measurements.')}</p>
+      <p class="muted small">${bi('这些条目的本地模型支持，都能在它们自己的官方文档里找到；这里没有跑过实测。', 'Local-model support for each entry is evidenced by that project official documentation. This site runs no measurements.')}</p>
     </section>
 
 `;
@@ -812,7 +812,7 @@ function blockD(s, m) {
     if (v.isOfficial) adv.push(bi('发布来源为模型方，具体支持范围以发布说明为准', 'Published by the model author; consult its release notes for support scope'));
     if (v.downloads >= 1e6) adv.push(bi(`快照下载量 ${fmtNum(v.downloads)}；不代表独立用户数、成功运行或质量验证`, `Snapshot downloads: ${fmtNum(v.downloads)}; not a count of unique users, successful runs or quality validations`));
     if (rec) adv.push(bi(`规则候选为 <code>${esc(rec.quant)}</code>（${fmtGB(rec.sizeGB)}），不构成性能结论`, `Rule-based candidate: <code>${esc(QEN(rec.quant))}</code> (${fmtGB(rec.sizeGB)}), not a performance finding`));
-    if (adv.length === 0) adv.push(bi('按文件体积与版本信息逐项核对；本站没有该版本的运行结果', 'Check file size and version details; this site has no execution results for this build'));
+    if (adv.length === 0) adv.push(bi('按文件体积与版本信息逐项核对；这里没有该版本的运行结果', 'Check file size and version details; no execution results for this build are available here'));
 
     // 字段 6 · 为什么选它 / 目的
     const purpose = rec
@@ -828,7 +828,7 @@ function blockD(s, m) {
     if (NEEDS_REVIEW.test(v.license || '')) cost.push(bi(`许可是 <code>${esc(v.license)}</code>，<b>必须自己读发布页原文</b>再决定能不能用`, `The licence is <code>${esc(v.license)}</code> — <b>read the release page yourself</b> before deciding whether you may use it`));
     if (v.licenseInherited) cost.push(bi(`量化仓<b>未填写许可元数据字段</b>。此处 <code>${esc(v.license)}</code> 来自基座 <code>${esc(v.licenseFrom || '?')}</code> 的推断，不是量化者明确授权；请同时核对基座许可、量化仓文件与再分发条件`, `The quant repo <b>does not fill the licence metadata field</b>. The displayed <code>${esc(v.license)}</code> is inferred from base <code>${esc(v.licenseFrom || '?')}</code>, not an explicit grant by the quantiser. Check the base licence, quantisation-repo files and redistribution conditions together.`));
     if (v.lastModified && (Date.now() - new Date(v.lastModified)) / 86400000 > 180) cost.push(bi(`已 ${Math.round((Date.now() - new Date(v.lastModified)) / 86400000)} 天未更新，基础模型若有新版可能已不同步`, `Not updated for ${Math.round((Date.now() - new Date(v.lastModified)) / 86400000)} days, so it may no longer track a newer base model`));
-    if (cost.length === 0) cost.push(bi('本站未评估该版本的质量、吞吐与全部兼容性；元数据完整不等于适合你的任务', 'This build’s quality, throughput and complete compatibility have not been evaluated here; complete metadata does not establish suitability for your task'));
+    if (cost.length === 0) cost.push(bi('这里没有评估该版本的质量、吞吐和全部兼容性；元数据完整，不等于适合你的任务', 'This build’s quality, throughput and complete compatibility have not been evaluated here; complete metadata does not establish suitability for your task'));
 
     // data-tier 让 CSS 能按「推荐档」给卡片左侧上色 ——
     // 2026-10-03：原先只用 .vcard-off 区分官方/第三方，两类都用同一个 --vio 色，
@@ -892,7 +892,7 @@ ${f(bi('已知取舍', 'Known trade-offs'), cost.map((c) => '· ' + c).join('<br
         <span class="vcount" aria-live="polite"></span>
       </div>`;
 
-  return `      <p class="block-lead">${bi('每个变体按七个字段展开：它是什么 → 量化者做了什么 → 与同系列其他变体的区别 → 存在的意义 → 优势 → 为什么选它 → 已知取舍。<b>最后一项是本站唯一会写主观判断的地方，且都标注了「我们的口径」。</b>', 'Each variant expands along seven fields: what it is → what the quantiser did → how it differs from other variants in this series → why it exists → strengths → why you would pick it → known trade-offs.<b>The last field is the only place this site offers a subjective judgement, and every item is marked as our own reading.</b>')}</p>
+  return `      <p class="block-lead">${bi('每个变体按七个字段展开：它是什么 → 量化者做了什么 → 与同系列其他变体的区别 → 存在的意义 → 优势 → 为什么选它 → 已知取舍。<b>最后一项写的是取舍判断：经验之谈，不是实测结论。</b>', 'Each variant expands along seven fields: what it is → what the quantiser did → how it differs from other variants in this series → why it exists → strengths → why you would pick it → known trade-offs.<b>The last field is the only place this site offers a subjective judgement, and every item is marked as our own reading.</b>')}</p>
       <div class="vwrap">
 ${filterBar}
 ${cards}
@@ -923,7 +923,7 @@ function blockE(s, m) {
     /* ⚠ 不要在这里再套 bi()：外层 <div class="qcard-body"> 已经用 bi(zh, en) 包了一层。
      * 嵌套 bi 会让英文态仍然渲染出中文节点 —— _i18n-render-audit 抓到过这个
      * （models 详情页 7 处 .P 中文残留）。所以中英各自写成纯文本。 */
-    const NO_DOC_ZH = '<p class="muted">该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。</p>';
+    const NO_DOC_ZH = '<p class="muted">该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。</p>';
     const NO_DOC_EN = '<p class="muted">This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.</p>';
     const bodyZh = doc ? stripTitle(doc) : (note?.oneLine?.zh ? `<p>${esc(note.oneLine.zh)}</p>${NO_DOC_ZH}` : NO_DOC_ZH);
     const bodyEn = docEn ? stripTitle(docEn) : (note?.oneLine?.en ? `<p>${esc(note.oneLine.en)}</p>${NO_DOC_EN}` : NO_DOC_EN);
@@ -952,7 +952,7 @@ function blockF(s, m) {
       <ul class="log">
 ${items}
       </ul>
-      <p class="muted small">${bi('基础模型','Base model')} <code>${esc(m.repo)}</code> ${bi('最近更新：','last updated:')} ${fmtDate(m.lastModified)}　·　${bi('本站采集时间：','collected:')} ${esc((s.collectedAt || '').slice(0, 10))}</p>`;
+      <p class="muted small">${bi('基础模型','Base model')} <code>${esc(m.repo)}</code> ${bi('最近更新：','last updated:')} ${fmtDate(m.lastModified)}　·　${bi('资料时间：','data as of:')} ${esc((s.collectedAt || '').slice(0, 10))}</p>`;
 }
 
 /** 极简 Markdown → HTML（只处理粗体/代码/列表/段落） */
@@ -1021,15 +1021,14 @@ ${blockF(s, m)}
       <ul class="pos">${s.positions.map((p) => `<li>${bi(esc(p), esc(EN('positions', p)))}</li>`).join('')}</ul>
       <nav class="member-nav">${memberNav}</nav>
     </header>
-${trustBanner()}
 ${cnSection(s.cn)}
 ${sections}
 ${companionBlock()}
     <section class="legal-note">
       <h3>${bi('关于数据与许可', 'Data and licensing')}</h3>
-      <p>${bi('本站数据全部来自','All data here comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开 API，采集时间','public API, collected')} <code>${esc((s.collectedAt || '').slice(0, 10))}</code>${bi("，为快照数据。", "; this is a snapshot.")}</p>
-      <p>${bi('本站','This site does')} <b>${bi('不下载、不托管任何模型权重文件','not download or host any model weight files')}</b>${bi('，只提供发布页链接。许可字段原样引自发布页，',' — it only links to release pages. Licence fields are quoted verbatim from them,')} <b>${bi('本站不解读许可条款、不构成法律意见','this site does not interpret licence terms or give legal advice')}</b>${bi('，一切以',' and everything is governed by')}<a href="https://specul.com/legal.html" target="_blank" rel="noopener">${bi('发布页原文', 'the legal page')}</a>${bi('为准。', '.')}</p>
-      <p>${bi('模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。', 'Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.')}</p>
+      <p>${bi('这里的资料来自','All data here comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开页面，更新到','public pages, updated')} <code>${esc((s.collectedAt || '').slice(0, 10))}</code>${bi("。", ".")}</p>
+      <p>${bi('模型权重不在这里托管，只提供发布页链接。许可字段原样引自发布页，','Model weights are not hosted here — only links to release pages. Licence fields are quoted verbatim,')} <b>${bi('条款以原文为准，这里不给法律意见','the licence text is authoritative, and no legal advice is given here')}</b>${bi('，一切以',' and everything is governed by')}<a href="https://specul.com/legal.html" target="_blank" rel="noopener">${bi('发布页原文', 'the legal page')}</a>${bi('为准。', '.')}</p>
+      <p>${bi('模型名称均为各自权利人的商标，此处仅作描述性使用。这里与上述厂商没有隶属或合作关系。', 'Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.')}</p>
     </section>
   </div>
   <!-- B2：量化仓筛选（脚本在 site-filter.js，读 .vwrap 作用域） -->
@@ -1080,9 +1079,9 @@ function familyPage(f) {
   const claims = f.claims.map((c) => `
         <li>${bi(esc(c.zh), esc(c.en || c.zh))}<a class="fam-src" href="${esc(c.url)}" target="_blank" rel="noopener">${bi('出处 ↗','source ↗')}</a></li>`).join('');
 
-  /* onSite：已收录 → 链到本站系列页（量化对比）；未收录 → 诚实说明（不造空壳链接）。 */
+  /* onSite：已收录 → 链到这里系列页（量化对比）；未收录 → 诚实说明（不造空壳链接）。 */
   const onSiteHtml = (f.onSite?.series || []).length
-    ? `<p class="fam-onsite">${bi('本站已收录该家族的量化对比：', 'This site covers this family\'s quantisations: ')}${(f.onSite.series || []).map((sc) => {
+    ? `<p class="fam-onsite">${bi('这里也有这个家族的量化对比：', 'This site covers this family\'s quantisations: ')}${(f.onSite.series || []).map((sc) => {
         const s = seriesList.find((x) => x.code === sc);
         return s ? `<a href="../series/${sc}/">${bi(esc(s.name.zh), esc(s.name.en || s.name.zh))}</a>` : '';
       }).join(' ')}</p>`
@@ -1104,7 +1103,6 @@ function familyPage(f) {
       <p class="lede">${bi(esc(f.positioning.zh), esc(f.positioning.en))}</p>
       ${onSiteHtml}
     </header>
-${trustBanner()}
 ${cnSection(f.cn)}
 
     <section class="fam-sec">
@@ -1128,14 +1126,14 @@ ${derivedHtml}
       <h2>${bi('官方能力声明（带出处）','Official capability claims (with sources)')}</h2>
       <ul class="fam-claims">${claims}
       </ul>
-      <p class="fam-claims-note">${bi('以上均为厂商官方页面原文或官方自评基准的转述；涉及横评结论的，本站不背书——本站不跑 benchmark。', 'The above are quotations of official pages or transcriptions of vendor-run benchmarks; this site does not endorse cross-model conclusions — it runs no benchmarks.')}</p>
+      <p class="fam-claims-note">${bi('以上都来自厂商官方页面或官方自评基准的原文；厂商自己的横评，这里照原文转述，不当结论。', 'The above are quotations of official pages or transcriptions of vendor-run benchmarks; this site does not endorse cross-model conclusions.')}</p>
     </section>
 
     <section class="fam-sec fam-sources">
       <h2>${bi('出处','Sources')}</h2>
       <ul class="fam-src-list">${f.sources.map((s) => `<li>${bi(esc(s.label) + '：', esc(s.labelEn || s.label) + ': ')}<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}
       </ul>
-      <p class="fam-foot">${bi(`核验快照：${f.last_verified} · 本站不实测、不排名，未知就写未知。`, `Verification snapshot: ${f.last_verified} · no benchmarks, no rankings — unknown stays unknown.`)}</p>
+      <p class="fam-foot">${bi(`资料时间：${f.last_verified} · 没实测的字段就留空，不猜。`, `Data as of ${f.last_verified} — fields we did not measure are left blank.`)}</p>
     </section>
   </div>`;
 
@@ -1145,7 +1143,7 @@ ${derivedHtml}
      * 深度算错的表现是子页静默丢样式（本地服务 404 但不报错，最容易漏）。 */
     assetPrefix: '../../',
     title: `${f.name.zh} 家族 · 开放权重谱系`,
-    desc: `${f.name.zh}（${f.vendor.zh}）的家族谱系卡：当前代 ${f.currentGen.zh}、代次沿革、尺寸档、许可与官方能力声明，全部带官方出处。核验于 ${f.last_verified}。`,
+    desc: `${f.name.zh}（${f.vendor.zh}）的家族谱系卡：当前代 ${f.currentGen.zh}、代次沿革、尺寸档、许可与官方能力声明，全部带官方出处。资料更新到 ${f.last_verified}。`,
     canonical: `${DOMAIN}families/${f.code}/`,
     accent: ACCENT,
     body,
@@ -1177,7 +1175,7 @@ function closedPage(c) {
   const st = staleState(c);
   const staleBanner = st.overdue
     ? `    <section class="stale-banner" role="alert">
-      <b>${bi('复核已到期', 'Review overdue')}</b>　${bi(`这张卡上次核验是 ${esc(c.last_verified)}，按 ${c.review_interval_days} 天复核周期应在 ${esc(st.due)} 前复核。闭源厂商改规格不通知任何人——下面的内容截至核验日可信，之后可能已变，请以官方页为准。`, `Last verified ${esc(c.last_verified)}; per the ${c.review_interval_days}-day review cycle it should have been re-checked by ${esc(st.due)}. Closed vendors change specs without notice — everything below was true as of the verification date and may have changed since. Check the official pages.`)}
+      <b>${bi('该再看一遍了', 'Time for a refresh')}</b>　${bi(`这张卡上次更新是 ${esc(c.last_verified)}，按 ${c.review_interval_days} 天复核周期应在 ${esc(st.due)} 前复核。闭源厂商改规格不通知任何人——下面的内容截至资料时间可信，之后可能已变，请以官方页为准。`, `Last data as of ${esc(c.last_verified)}; per the ${c.review_interval_days}-day review cycle it should have been re-checked by ${esc(st.due)}. Closed vendors change specs without notice — everything below reflects the data date and may have changed since. Check the official pages.`)}
     </section>`
     : '';
 
@@ -1214,17 +1212,17 @@ ${cnSection(c.cn)}
     </section>
 
     <section class="fam-sec">
-      <h2>${bi('官方规格事实（每条挂出处）','Official spec facts (each with a source)')} <small>${bi('截至核验日', 'as of the verification date')}</small></h2>
+      <h2>${bi('官方怎么说（每条带出处）','Official spec facts (each with a source)')} <small>${bi('资料时间', 'as of')}</small></h2>
       <ul class="fam-claims cn-rows">${factRows}
       </ul>
-      <p class="fam-claims-note">${bi('以上均为官方文档/发布页原文的转述，核验日之后厂商可能已改规格；本站不实测、不排名、不背书厂商自评，也不收录价格数字——定价请直接看官方定价页（出处节有链接）。', 'The above transcribe official docs/release pages as of the verification date; vendors may have changed specs since. This site runs no benchmarks, ranks nothing, endorses no vendor self-assessments, and records no price figures — for pricing go to the official pricing page (linked in Sources).')}</p>
+      <p class="fam-claims-note">${bi('以上转述官方文档和发布页；资料时间之后厂商可能改规格。价格看官方定价页，链接在下面。', 'The above transcribe official docs and release pages; vendors may have changed specs since. For pricing, use the official pricing page linked below.')}</p>
     </section>
 
     <section class="fam-sec fam-sources">
       <h2>${bi('出处','Sources')}</h2>
       <ul class="fam-src-list">${c.sources.map((s) => `<li>${bi(esc(s.label) + '：', esc(s.labelEn || s.label) + ': ')}<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join('')}
       </ul>
-      <p class="fam-foot">${bi(`核验快照：${c.last_verified} · 复核周期 ${c.review_interval_days} 天，下次应在 ${esc(st.due)} 前复核${st.overdue ? '（已到期——见页顶横幅）' : ''}。本站不实测、不排名，未知就写未知。`, `Verification snapshot: ${c.last_verified} · ${c.review_interval_days}-day review cycle, next re-check due by ${esc(st.due)}${st.overdue ? ' (overdue — see the banner above)' : ''}. No benchmarks, no rankings — unknown stays unknown.`)}</p>
+      <p class="fam-foot">${bi(`资料时间：${c.last_verified} · 复核周期 ${c.review_interval_days} 天 · 下次再看一遍：${esc(st.due)} 前${st.overdue ? '（已到期，见页顶提示）' : ''}。`, `Data as of ${c.last_verified} · ${c.review_interval_days}-day review cycle · next look by ${esc(st.due)}${st.overdue ? ' (overdue — see the note above)' : ''}.`)}</p>
     </section>
   </div>`;
 
@@ -1233,7 +1231,7 @@ ${cnSection(c.cn)}
     /* /closed/<code>/ 也是两级深 → 品牌资源 ../../（S50 教训：深度错=子页静默丢样式） */
     assetPrefix: '../../',
     title: `${c.name.zh} · 闭源谱系卡`,
-    desc: `${c.name.zh}（${c.vendor.zh}）的闭源谱系卡：当前代 ${c.currentGen.zh}、官方规格事实全部挂出处、${c.review_interval_days} 天复核周期。核验于 ${c.last_verified}。`,
+    desc: `${c.name.zh}（${c.vendor.zh}）的闭源谱系卡：当前代 ${c.currentGen.zh}、官方规格事实全部挂出处、${c.review_interval_days} 天复核周期。资料更新到 ${c.last_verified}。`,
     canonical: `${DOMAIN}closed/${c.code}/`,
     accent: ACCENT,
     body,
@@ -1319,7 +1317,7 @@ ${g.id === 'gpu-cost-math' ? capacityWorkbench() : ''}
       <ul class="fam-src-list">
 ${srcRows}
       </ul>
-      <p class="fam-foot">${bi(`基础来源快照：${g.lastVerified}；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。`, `Base source snapshot: ${g.lastVerified}; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.`)}</p>
+      <p class="fam-foot">${bi(`基础来源快照：${g.lastVerified}；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。`, `Base source snapshot: ${g.lastVerified}; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.`)}</p>
     </section>
 ${topicsLine(`https://models.specul.com/guides/${g.id}.html`)}  </div>`;
   return shell({
@@ -1328,7 +1326,7 @@ ${topicsLine(`https://models.specul.com/guides/${g.id}.html`)}  </div>`;
      * ⚠ 深度按页面实际层级传（S50 教训：错一级 = 子页静默丢样式）。 */
     assetPrefix: '../',
     title: `${g.title} · 做模型专题`,
-    desc: `${g.summary}（核验于 ${g.lastVerified}，关键事实挂官方出处）`,
+    desc: `${g.summary}（资料更新到 ${g.lastVerified}，关键事实挂官方出处）`,
     canonical: `${DOMAIN}guides/${g.id}.html`,
     accent: ACCENT,
     body,
@@ -1345,7 +1343,7 @@ ${topicsLine(`https://models.specul.com/guides/${g.id}.html`)}  </div>`;
 
 function indexPage() {
   /* v7 S51：家族卡网格。卡面信息：家族名 + 厂商 · 当前代（日期）+ 定位一句话
-   * + 尺寸档数 / 代次数 + 许可徽标 + 本站收录入口（或诚实说明未收录原因）。 */
+   * + 尺寸档数 / 代次数 + 许可徽标 + 这里收录入口（或诚实说明未收录原因）。 */
   const familyCards = familyList.map((f) => {
     const onSite = (f.onSite?.series || []).map((sc) => seriesList.find((x) => x.code === sc)).filter(Boolean);
     const cn = f.cn || {};
@@ -1383,7 +1381,7 @@ function indexPage() {
           <div class="m-famcard-meta">
             <span><b>${c.generations.length}</b> ${bi('代','generations')}</span>
             <span><b>${c.facts.length}</b> ${bi('条官方事实','official facts')}</span>
-            <span class="t-state${st.overdue ? ' is-warn' : ' is-ok'}">${st.overdue ? bi(`复核已到期（${esc(st.due)}）`, `review overdue (${esc(st.due)})`) : bi(`核验 ${esc(c.last_verified)}`, `verified ${esc(c.last_verified)}`)}</span>
+            <span class="t-state${st.overdue ? ' is-warn' : ' is-ok'}">${st.overdue ? bi(`该再看一遍了（${esc(st.due)}）`, `review overdue (${esc(st.due)})`) : bi(`资料 ${esc(c.last_verified)}`, `data as of ${esc(c.last_verified)}`)}</span>
           </div>
           <div class="m-famcard-cn">${cnChips(cn)}</div>
           <p class="m-famcard-go">${bi('看官方规格快照 →', 'Official spec snapshot →')}</p>
@@ -1403,7 +1401,7 @@ function indexPage() {
           <div class="m-famcard-meta">
             <span><b>${g.sections.length}</b> ${bi('节','sections')}</span>
             <span><b>${g.sources.length}</b> ${bi('条官方出处','official sources')}</span>
-            <span class="t-state is-ok">${bi(`核验 ${esc(g.lastVerified)}`, `verified ${esc(g.lastVerified)}`)}</span>
+            <span class="t-state is-ok">${bi(`资料 ${esc(g.lastVerified)}`, `data as of ${esc(g.lastVerified)}`)}</span>
           </div>
           <p class="m-famcard-go">${bi('读这一篇 →', 'Read this guide →')}</p>
         </a>`).join('\n');
@@ -1533,11 +1531,9 @@ ${allOwners.map((o) => `        <a class="qchip" href="series/qwen3-8/#e0"><code
     </section>
 
     <section class="legal-note">
-      <h3>${bi('数据来源与法律立场','Sources and legal position')}</h3>
-      <p>${bi('数据来自','Data comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开 API（模型元数据 + 文件体积），采集','public API (model metadata + file sizes), collected')}${bi('时间', 'at')} <code>${esc((seriesList[0]?.collectedAt || '').slice(0, 10))}</code>${bi("，为快照数据而非实时。", "; this is a snapshot, not live data.")}</p>
-      <p>${bi('<b>本站不跑 benchmark，不给质量与速度结论。</b>凡涉及主观判断处均标注「我们的口径」。', '<b>This site does not run benchmarks and does not draw quality or speed conclusions.</b> Every place we offer a judgement is marked as our own reading.')}</p>
-      <p><b>${bi('不下载、不托管任何权重文件','No weight files are downloaded or hosted here')}</b>${bi('；许可原样引自发布页，本站不解读许可、不构成法律意见，一切以','; licences are quoted verbatim from release pages, this site does not interpret them or give legal advice, and everything is governed by')}<a href="https://specul.com/legal.html" target="_blank" rel="noopener">${bi('发布页原文', 'the legal page')}</a>${bi('为准。', '.')}</p>
-      <p>${bi('系列选择依据四维打分（量化热度 40 / 量化广度 25 / 规模可及性 20 / 新鲜度 15），方法与落选名单见 ', 'Series selection uses a four-factor score (quantisation heat 40 / coverage 25 / size reachability 20 / freshness 15); the method and the rejected candidates are documented in ')}<a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener">${bi('数据仓 METHODOLOGY.md ↗', 'the data repo\'s METHODOLOGY.md ↗')}</a>${bi('。', '.')}</p>
+      <h3>${bi('资料与许可','Sources and licences')}</h3>
+      <p>${bi('资料来自','Data comes from the')} <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> ${bi('公开页面，更新到','public pages, updated')} <code>${esc((seriesList[0]?.collectedAt || '').slice(0, 10))}</code>${bi('。许可和文件大小以发布页为准。', '. Licences and file sizes follow the release pages.')}</p>
+      <p>${bi('模型权重不在这里托管，下载请回发布页。', 'Model weights are not hosted here — download from the release pages.')}</p>
     </section>
   </div>
   <!-- B2：系列筛选（脚本在 site-filter.js，读 .sfilter 作用域） -->
@@ -1546,7 +1542,7 @@ ${allOwners.map((o) => `        <a class="qchip" href="series/qwen3-8/#e0"><code
   return shell({
     current: 'models',
     title: '开放权重该怎么选 · AI 模型',
-    desc: `想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（${seriesList.length} 个系列、${totalRepo} 个模型仓、${totalQuantRepo} 个量化仓、${totalTier} 个量化档、${allOwners.length} 位量化者、${totalFile} 个 GGUF 文件）。不跑 benchmark，不托管权重。`,
+    desc: `想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（${seriesList.length} 个系列、${totalRepo} 个模型仓、${totalQuantRepo} 个量化仓、${totalTier} 个量化档、${allOwners.length} 位量化者、${totalFile} 个 GGUF 文件）。不托管权重。`,
     canonical: DOMAIN,
     accent: ACCENT,
     body,
@@ -1606,7 +1602,7 @@ for (const f of familyList) {
 for (const c of closedList) {
   const h = fs.statSync(path.join(SITE, 'closed', c.code, 'index.html')).size;
   const st = staleState(c);
-  console.log(`closed/${c.code}/`.padEnd(24), (h / 1024).toFixed(0) + ' KB  ', c.name.zh, '—', c.currentGen.zh, st.overdue ? '⚠ 复核已到期' : `（复核应在 ${st.due} 前）`);
+  console.log(`closed/${c.code}/`.padEnd(24), (h / 1024).toFixed(0) + ' KB  ', c.name.zh, '—', c.currentGen.zh, st.overdue ? '⚠ 该再看一遍了' : `（复核应在 ${st.due} 前）`);
 }
 for (const s of seriesList) {
   const h = fs.statSync(path.join(SITE, 'series', s.code, 'index.html')).size;
@@ -1954,24 +1950,24 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
     'GGUF 量化的模型（MoE 与 dense 都在内）。',
     '',
     '闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，「该下载哪个量化版」这个问题对它们不成立。',
-    '本站另设「闭源谱系卡」做对照：只记官方规格快照与复核周期，不采价格、不排名（见下节）。',
-    '本站也不做模型能力横评（那属于另一个问题，且需要实测）。',
+    '闭源谱系卡只记官方规格和资料时间，不采价格（见下节）。',
+    '模型能力横评需要实测，这里不做。',
     '',
     '## 家族谱系卡',
     '',
   ];
   for (const f of familyList) {
     lines.push(`- [${f.name.zh}](${DOMAIN}families/${f.code}/): ${f.positioning.zh}`);
-    lines.push(`  ${f.vendor.zh}　当前代 ${f.currentGen.zh}（${f.currentGenDate}）　${f.generations.length} 代　许可 ${f.licenses.map((L2) => L2.id).join(', ')}${(f.onSite?.series || []).length ? `　本站量化对比：${(f.onSite.series || []).join(', ')}` : '　本站未收录其量化对比'}`);
+    lines.push(`  ${f.vendor.zh}　当前代 ${f.currentGen.zh}（${f.currentGenDate}）　${f.generations.length} 代　许可 ${f.licenses.map((L2) => L2.id).join(', ')}${(f.onSite?.series || []).length ? `　量化对比：${(f.onSite.series || []).join(', ')}` : '　没有它的量化对比'}`);
   }
   lines.push('');
   lines.push('## 闭源谱系卡');
   lines.push('');
-  lines.push('对照面：只记当前代、官方规格事实（每条挂官方出处）、核验快照与复核周期。不采价格数字，不排名。复核到期的卡页顶有横幅。');
+  lines.push('对照面：只记当前代、官方规格事实（每条挂官方出处）、资料时间和复核周期。不采价格数字，不排名。复核到期的卡页顶有横幅。');
   lines.push('');
   for (const c of closedList) {
     lines.push(`- [${c.name.zh}](${DOMAIN}closed/${c.code}/): ${c.positioning.zh}`);
-    lines.push(`  ${c.vendor.zh}　当前代 ${c.currentGen.zh}（${c.currentGenDate}）　${c.facts.length} 条官方事实　核验 ${c.last_verified}　复核周期 ${c.review_interval_days} 天`);
+    lines.push(`  ${c.vendor.zh}　当前代 ${c.currentGen.zh}（${c.currentGenDate}）　${c.facts.length} 条官方事实　资料 ${c.last_verified}　复核周期 ${c.review_interval_days} 天`);
   }
   lines.push('');
   lines.push('## 做模型专题');
@@ -1980,7 +1976,7 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('');
   for (const g of guideList) {
     lines.push(`- [${g.title}](${DOMAIN}guides/${g.id}.html): ${g.summary}`);
-    lines.push(`  ${g.sections.length} 节 · ${g.sources.length} 条官方出处 · 核验 ${g.last_verified || g.lastVerified}`);
+    lines.push(`  ${g.sections.length} 节 · ${g.sources.length} 条官方出处 · 资料 ${g.last_verified || g.lastVerified}`);
   }
   lines.push('');
   lines.push('## 已收录系列');
@@ -2005,7 +2001,7 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('');
   lines.push('- ✅ **实测字段** —— 直接从 Hugging Face 公开 API 读取：文件体积、上下文长度、架构、许可、下载量');
   lines.push('- ✅ **推导** —— 由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存区间');
-  lines.push('- ❌ **我们不说的** —— 哪个量化质量更高、哪个更快、哪个模型更强。这些需要实测，本站不跑 benchmark，所以不装作知道');
+  lines.push('- ❌ **我们不说的** —— 哪个量化质量更高、哪个更快、哪个模型更强。这些需要实测，这里不跑 benchmark，所以不装作知道');
   lines.push('');
   lines.push('## 数据来源');
   lines.push('');
@@ -2021,7 +2017,7 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('');
   lines.push('### 关于「继承自基座」的许可');
   lines.push('');
-  lines.push('部分量化仓没有在自己的 HF 页面写 license 字段。此时本站填入基座模型的许可，并标注');
+  lines.push('部分量化仓没有在自己的 HF 页面写 license 字段。此时这里填入基座模型的许可，并标注');
   lines.push('「继承自基座，量化仓未单独声明」。依据是：量化是对权重的数学变换（舍入 / 缩放 / imatrix 加权），');
   lines.push('不新增也不删除原始表达，派生物的著作权与原作同一，许可不可能脱离基座。');
   lines.push('');

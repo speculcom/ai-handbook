@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>偏好对齐：RLHF 与 DPO 在解决什么问题 · 做模型专题</title>
-  <meta name="description" content="奖励模型怎么从人排序里炼出来、PPO 那一步贵在哪、DPO 为什么能免掉强化学习、以及「对齐税」与谄媚这些代价。从业者视角深版；一页科普在学 AI 站。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta name="description" content="奖励模型怎么从人排序里炼出来、PPO 那一步贵在哪、DPO 为什么能免掉强化学习、以及「对齐税」与谄媚这些代价。从业者视角深版；一页科普在学 AI 站。（资料更新到 2026-10-20，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/alignment.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="偏好对齐：RLHF 与 DPO 在解决什么问题 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/alignment.html" />
   <meta property="og:title" content="偏好对齐：RLHF 与 DPO 在解决什么问题 · 做模型专题" />
-  <meta property="og:description" content="奖励模型怎么从人排序里炼出来、PPO 那一步贵在哪、DPO 为什么能免掉强化学习、以及「对齐税」与谄媚这些代价。从业者视角深版；一页科普在学 AI 站。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta property="og:description" content="奖励模型怎么从人排序里炼出来、PPO 那一步贵在哪、DPO 为什么能免掉强化学习、以及「对齐税」与谄媚这些代价。从业者视角深版；一页科普在学 AI 站。（资料更新到 2026-10-20，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Preference alignment: what RLHF and DPO actually solve","description":"How reward models are distilled from human rankings, why the PPO step is expensive, why DPO skips reinforcement learning, and the costs — alignment tax and sycophancy. Practitioner depth; the one-page explainer lives on the Learn site.","url":"https://models.specul.com/guides/alignment.html","dateModified":"2026-10-20"}</script>
 </head>
@@ -121,14 +121,14 @@
     <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>PPO 那一步：贵在哪</span><span data-en>The PPO step: why it costs so much</span></h2>
 <span data-zh><p>InstructGPT 的 RL 阶段要同时驻留四个模型：<br>被训的策略模型、防跑偏的参考模型（KL 约束）、奖励模型、critic。<br>显存与算力开销约是 SFT 的数倍，调参敏感（KL 系数一歪就崩）。</p>
-<p>LLaMA 2（arXiv 2307.09288）同时给了两条路线对照：<br>SFT 循环自举，对比拒绝采样加 PPO，各自在不同评测上互有胜负。<br>官方自己也没宣布一边完胜，本站照实转述。</p></span><span data-en><p>InstructGPT&#39;s RL stage keeps four models resident at once:<br>the policy being trained, the reference model that keeps it on the rails (KL constraint), the reward model, and the critic.<br>Memory and compute cost several times SFT, and tuning is touchy (a skewed KL coefficient collapses the run).</p>
+<p>LLaMA 2（arXiv 2307.09288）同时给了两条路线对照：<br>SFT 循环自举，对比拒绝采样加 PPO，各自在不同评测上互有胜负。<br>官方自己也没宣布一边完胜，这里照实转述。</p></span><span data-en><p>InstructGPT&#39;s RL stage keeps four models resident at once:<br>the policy being trained, the reference model that keeps it on the rails (KL constraint), the reward model, and the critic.<br>Memory and compute cost several times SFT, and tuning is touchy (a skewed KL coefficient collapses the run).</p>
 <p>LLaMA 2 (arXiv 2307.09288) published both routes side by side:<br>iterative SFT bootstrapping versus rejection sampling plus PPO, each winning on different evaluations.<br>The authors themselves declared no outright winner; this site reports it as stated.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>DPO：把两步并成一步</span><span data-en>DPO: collapsing two steps into one</span></h2>
 <span data-zh><p>DPO（arXiv 2305.18290）的推导说明：最优策略有闭式解，<br>可以直接拿偏好对做分类式损失，不用训奖励模型、不用跑 RL。<br>显存回到 SFT 量级，代码几十行。</p>
 <p>Zephyr（arXiv 2310.16944）用公开数据把 7B 做到当时同规模前列，<br>证明这条路线社区可复现。</p>
-<p>代价也要说：DPO 对偏好对的分布敏感，离线数据训容易「过拟合排序风格」；<br>在线 RLHF 能持续采样新回答，信号更新鲜。<br>两条路线的公开对照结论不稳定，因数据而异。<br>本站不裁决哪条更好，只记录各自的机制与已发表的边界。</p></span><span data-en><p>DPO&#39;s (arXiv 2305.18290) derivation shows the optimal policy has a closed form,<br>so preference pairs can feed a classification-style loss directly — no reward model to train, no RL to run.<br>Memory drops back to SFT scale, the code is dozens of lines.</p>
+<p>代价也要说：DPO 对偏好对的分布敏感，离线数据训容易「过拟合排序风格」；<br>在线 RLHF 能持续采样新回答，信号更新鲜。<br>两条路线的公开对照结论不稳定，因数据而异。<br>这里不裁决哪条更好，只记录各自的机制与已发表的边界。</p></span><span data-en><p>DPO&#39;s (arXiv 2305.18290) derivation shows the optimal policy has a closed form,<br>so preference pairs can feed a classification-style loss directly — no reward model to train, no RL to run.<br>Memory drops back to SFT scale, the code is dozens of lines.</p>
 <p>Zephyr (arXiv 2310.16944) took a 7B model to the front of its size class at the time using public data,<br>proving the route is community-reproducible.</p>
 <p>The cost too: DPO is sensitive to the distribution of preference pairs, and offline training easily “overfits the ranking style”;<br>online RLHF keeps sampling fresh answers, so the signal stays fresher.<br>Published head-to-head conclusions between the two routes are unstable and data-dependent.<br>This site adjudicates neither — it records each mechanism and its published limits.</p></span>
     </section>
@@ -170,7 +170,7 @@
         <li><span data-zh>Anthropic HH 偏好数据论文（arXiv 2204.05862，helpful/harmless 双维排序数据，2026-10-20 直抓摘要页）</span><span data-en>Anthropic HH preference-data paper (arXiv 2204.05862, rankings on the helpful/harmless axes; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2204.05862" target="_blank" rel="noopener">https://arxiv.org/abs/2204.05862</a></li>
         <li><span data-zh>Constitutional AI 论文（arXiv 2212.08073，用原则替代部分人工排序（RLAIF），2026-10-20 直抓摘要页）</span><span data-en>Constitutional AI paper (arXiv 2212.08073, principles replacing part of the human ranking (RLAIF); abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener">https://arxiv.org/abs/2212.08073</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-20；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-20; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-20；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-20; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

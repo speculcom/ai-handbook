@@ -1,11 +1,11 @@
-# 十一大类定义（categories）
+# 十二大类定义（categories）
 
 > English one-liners are given under each category; the full English narrative lives in `README.en.md`.
 
 **这份文件回答一个问题：一个对象该进哪个大类。**
 
 v8 起（2026-10-21 用户定案 D1），**目录 = 大类 = 读者面**。旧的三分区
-`agents / harness / tools` 退役，目录按下面十个大类重排。大类回答「**它是什么**」；
+`agents / harness / tools` 退役，目录按下面十二大类重排。大类回答「**它是什么**」；
 frontmatter 的 `form:` 字段回答「**它以什么形态使用**」（ide / cli / cloud / harness /
 mcp / web / app / local-app）。两个维度正交：Cursor 是 `coding` 大类、`ide` 形态；
 Claude Code 同一个大类、`cli` 形态。
@@ -24,7 +24,7 @@ Claude Code 同一个大类、`cli` 形态。
 
 | 族 | 大类 | 读者的问题 |
 |---|---|---|
-| 找现成的 | coding · chat · image · video · audio · research · safety | 「有没有能直接用的？」 |
+| 找现成的 | coding · chat · image · video · audio · research · office · safety | 「有没有能直接用的？」 |
 | 自己搭 | automation · framework | 「我想自己搭一个？」 |
 | 接上与跑起来 | mcp · runner | 「怎么给它接工具 / 在自己机器上跑模型？」 |
 
@@ -148,7 +148,28 @@ Claude Code 同一个大类、`cli` 形态。
 
 **EN**: AI search engines, academic discovery, and AI-native research/notebook workbenches.
 
-## 7 · AI 自动化与工作流 `automation`
+## 7 · 办公与写作 `office`
+
+**定义**：面向普通办公场景的 AI 产品——文档写作、表格分析、演示生成、会议记录、翻译与邮件日程。
+交付物是「能交出去的文档/表格/演示/会议纪要/译文」，不是通用对话答案。
+
+**收录标准**：
+1. 产品主轴是**办公交付物**（文档、表格、演示、会议记录、邮件、翻译），不是通用闲聊；
+2. 官方说明了输入、输出与数据路径，八维至少 `runtime` / `permissions` 可答；
+3. 有官方产品页与更新/帮助入口可核验。
+
+**边界裁决**：
+- ChatGPT / Gemini 的写作能力 → 对象本体归 `chat`，不因能写文档就搬进 `office`；
+- Notion / 飞书 / 钉钉这类通用协作平台 → 只收其**办公 AI 主轴**的档案；平台本身与连接器归 nav 或 `mcp`；
+- 会议转写硬件 → 归 `hardware`；纯录音转写产品 → 归 `audio`；
+- 企业知识库 / RAG 平台 → 归 `framework` 或 `automation`，不按「能写文档」收进本类；
+- 通用设计工具里的 AI 滤镜 → 不单独收；设计主轴在 `image` 的归 `image`。
+
+**不收示例**：纯模板下载站；不含生成式能力的传统 Office 插件；只做 PDF 压缩的工具。
+
+**EN**: AI products for everyday office work — document writing, spreadsheet analysis, slide generation, meeting notes, translation and email/calendar. General assistants that can write stay in chat; collaboration platforms are covered only through their office-AI axis.
+
+## 8 · AI 自动化与工作流 `automation`
 
 **定义**：可视化/低代码搭 AI 工作流与 agent 的产品——n8n、Dify、Coze 这类。
 交付物是「搭出来的应用/流程」，运行在平台的运行时上。
@@ -167,7 +188,7 @@ Claude Code 同一个大类、`cli` 形态。
 
 **EN**: Visual/low-code platforms for building AI workflows and agents (n8n, Dify, Coze class). Code-first SDKs go to framework.
 
-## 8 · Agent 框架与运行时 `framework`
+## 9 · Agent 框架与运行时 `framework`
 
 **定义**：给**程序**用的 agent SDK / 编排框架，以及机器人中间件、仿真器与学习栈——交付物是库/框架/可脚本化的运行时，你在代码里搭 agent 或驱动仿真与策略。
 
@@ -189,7 +210,7 @@ Claude Code 同一个大类、`cli` 形态。
 
 **EN**: Code-first agent SDKs, orchestration frameworks, and robot middleware / simulators / learning stacks. Visual builders go to automation; robot hardware specs go to the hardware site.
 
-## 9 · 给 AI 装的工具 `mcp`
+## 10 · 给 AI 装的工具 `mcp`
 
 **定义**：MCP server 与工具接口——给 agent 接上文件、浏览器、GitHub 这些能力的服务端。
 
@@ -207,7 +228,7 @@ Claude Code 同一个大类、`cli` 形态。
 
 **EN**: MCP servers and tool endpoints that plug capabilities into agents. Client SDKs and index lists are out.
 
-## 10 · 本地模型运行器 `runner`
+## 11 · 本地模型运行器 `runner`
 
 **定义**：在自己机器上跑开源模型的工具——Ollama、LM Studio、llama.cpp、vLLM 这类。
 
@@ -225,7 +246,7 @@ Claude Code 同一个大类、`cli` 形态。
 
 **EN**: Tools that load and run open models on your own hardware (Ollama, LM Studio, llama.cpp, vLLM class). Training tools are out.
 
-## 11 · AI 安全与评测 `safety`
+## 12 · AI 安全与评测 `safety`
 
 **定义**：给 AI 系统做**约束、度量与追责**的产品——护栏与内容过滤、评测与观测、红队与审计、
 机密计算与访问控制、数据合规与脱敏、内容溯源与标识。它不生产内容，它回答

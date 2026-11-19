@@ -12,6 +12,7 @@ purposeTag: "apply"
 level: 2
 layer: "二"
 ord: 21
+last_verified: "2026-11-19"
 ---
 
 # AI 搜索（AI Search）

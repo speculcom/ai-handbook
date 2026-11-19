@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>任务模型：嵌入、重排、OCR 与语音识别 · 做模型专题</title>
-  <meta name="description" content="从输入输出、运行库和验收方法区分四类任务；逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。（核验于 2026-11-04，关键事实挂官方出处）" />
+  <meta name="description" content="从输入输出、运行库和验收方法区分四类任务；逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。（资料更新到 2026-11-04，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/task-models.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="任务模型：嵌入、重排、OCR 与语音识别 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/task-models.html" />
   <meta property="og:title" content="任务模型：嵌入、重排、OCR 与语音识别 · 做模型专题" />
-  <meta property="og:description" content="从输入输出、运行库和验收方法区分四类任务；逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。（核验于 2026-11-04，关键事实挂官方出处）" />
+  <meta property="og:description" content="从输入输出、运行库和验收方法区分四类任务；逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。（资料更新到 2026-11-04，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Task models: embedding, reranking, OCR and ASR","description":"Distinguish four task contracts by input, output, runtime and acceptance; record platform/format compatibility by layer, retain untested combinations as unknown, and follow practice and troubleshooting links.","url":"https://models.specul.com/guides/task-models.html","dateModified":"2026-11-04"}</script>
 </head>
@@ -108,7 +108,7 @@
     </section>
     <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>先看输入和输出</span><span data-en>Start with input and output</span></h2>
-<span data-zh><p>聊天生成、嵌入、重排、文档识别、语音识别是不同接口。先写输入类型、输出结构和验收方法，再查模型。下列四个模型卡只是接口例子，不是排名、全量名单或部署推荐；没有在本站下载或运行权重。核对范围为 2026-11-04 的官方模型卡示例与限制。</p>
+<span data-zh><p>聊天生成、嵌入、重排、文档识别、语音识别是不同接口。先写输入类型、输出结构和验收方法，再查模型。下列四个模型卡只是接口例子，不是排名、全量名单或部署推荐；没有在这里下载或运行权重。核对范围为 2026-11-04 的官方模型卡示例与限制。</p>
 <p>不熟悉输入输出概念时先读 <a href="https://learn.specul.com/term/语音识别/" target="_blank" rel="noopener">语音识别</a>，区分音频转写和文字生成，再回这里选任务接口。</p>
 <p>平台支持按模型版本、库版本、硬件后端和任务一起核对。提供 Python 示例不等于已经确认 Windows、macOS 或所有 Linux GPU 可用；本文没有安装这些环境，未确认的平台明确保留未知。</p></span><span data-en><p>Chat generation, embedding, reranking, document recognition and speech recognition expose different interfaces. Define input, output and acceptance checks before choosing a model. The four cards below illustrate contracts; they are not a ranking, exhaustive catalogue or deployment recommendation. No weights were downloaded or executed here. The 2026-11-04 check covers official model-card examples and limitations.</p>
 <p>Check platform support by model version, library version, hardware backend and task together. A Python example does not establish Windows, macOS or every Linux GPU combination. Those environments were not installed here; unverified platforms remain unknown.</p>
@@ -246,7 +246,7 @@
         <li><span data-zh>Hugging Face · Safetensors 格式说明</span><span data-en>Hugging Face: Safetensors format documentation</span>：<a href="https://huggingface.co/docs/safetensors/index" target="_blank" rel="noopener">https://huggingface.co/docs/safetensors/index</a></li>
         <li><span data-zh>GGML · GGUF 格式规范</span><span data-en>GGML: GGUF format specification</span>：<a href="https://github.com/ggml-org/ggml/blob/master/docs/gguf.md" target="_blank" rel="noopener">https://github.com/ggml-org/ggml/blob/master/docs/gguf.md</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-04；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-04; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-04；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-04; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
     <p class="t-sm dim"><span data-zh>这页出现在主题：</span><span data-en>This page appears in: </span><a href="https://specul.com/topic-music.html"><span data-zh>用 AI 做音乐</span><span data-en>Make music with AI</span></a></p>
   </div>

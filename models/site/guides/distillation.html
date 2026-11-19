@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>蒸馏：小模型怎么从大模型身上学 · 做模型专题</title>
-  <meta name="description" content="logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta name="description" content="logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。（资料更新到 2026-10-20，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/distillation.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="蒸馏：小模型怎么从大模型身上学 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/distillation.html" />
   <meta property="og:title" content="蒸馏：小模型怎么从大模型身上学 · 做模型专题" />
-  <meta property="og:description" content="logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta property="og:description" content="logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。（资料更新到 2026-10-20，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Distillation: how small models learn from big ones","description":"Logit distillation versus data distillation, why nearly every open-weight family distils, and what the \"distilled\" label means when choosing a model. Practitioner depth; the one-page explainer lives on the Learn site.","url":"https://models.specul.com/guides/distillation.html","dateModified":"2026-10-20"}</script>
 </head>
@@ -138,7 +138,7 @@
   <li><b>快</b>：小模型推理便宜，跑在端侧与显卡农场里都划算（与预训练篇的「过训练」同一张账）。</li>
 </ul>
 <ul>
-  <li><b>许可</b>：多数家族许可允许用其输出再训模型（以各许可文本为准，本站不解读条款）。</li>
+  <li><b>许可</b>：多数家族许可允许用其输出再训模型（以各许可文本为准，这里不解读条款）。</li>
 </ul></span><span data-en><p>Three reasons, each with a checkable official source:</p>
 <ul>
   <li><b>Cheap</b>: data distillation needs no teacher resident in memory — the cost structure equals ordinary SFT.</li>
@@ -152,7 +152,7 @@
     </section>
     <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>选型时「蒸馏来的」意味着什么</span><span data-en>What &quot;distilled&quot; means when choosing</span></h2>
-<span data-zh><p>本站口径与 S53 派生标记同一套纪律：<br><b>只有官方自己声明的谱系才标「蒸馏/派生」</b>。<br>依据是模型卡的 <code>base_model</code> 字段，或论文、技术报告的明文。<br>不猜，也不根据「像」来推断。</p>
+<span data-zh><p>这里口径与 S53 派生标记同一套纪律：<br><b>只有官方自己声明的谱系才标「蒸馏/派生」</b>。<br>依据是模型卡的 <code>base_model</code> 字段，或论文、技术报告的明文。<br>不猜，也不根据「像」来推断。</p>
 <p>事实层面的含义：蒸馏模型的能力上限受教师约束。<br>教师不会的，它大概率不会。</p>
 <p>但小模型在窄任务上可以超过教师。<br>R1 蒸馏出的 7B 在数学评测上超过不少更大的通用模型（官方论文口径）。</p>
 <p>「蒸馏来的」不是贬义标签。它告诉你权重谱系从哪来。<br>选型时把它当出处信息读，不当质量结论读。</p></span><span data-en><p>This site follows the same discipline as the S53 derived-marker:<br><b>only lineages the vendor itself declares get marked “distilled/derived”</b>.<br>The basis is the model card&#39;s <code>base_model</code> field, or explicit text in papers and technical reports.<br>No guessing, no inference from “looks similar”.</p>
@@ -163,13 +163,13 @@
     <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>许可与合规：蒸馏不豁免原模型条款</span><span data-en>Licences: distilling does not escape the base terms</span></h2>
 <span data-zh><p>用某模型的输出去训新模型，是否受原模型许可约束？<br>各许可写法不同，Llama 与 Gemma 的条款各有附加约定（条款文本见文末清单）。</p>
-<p>本站的立场与全站法律页一致：<br>只索引、只引述、不解读许可、不给法律意见。</p></span><span data-en><p>Does training a new model on some model&#39;s outputs fall under the original model&#39;s licence?<br>Each licence is worded differently; Llama&#39;s and Gemma&#39;s terms each carry extra conditions (licence texts in the list at the end).</p>
+<p>这里的立场与全站法律页一致：<br>只索引、只引述、不解读许可、不给法律意见。</p></span><span data-en><p>Does training a new model on some model&#39;s outputs fall under the original model&#39;s licence?<br>Each licence is worded differently; Llama&#39;s and Gemma&#39;s terms each carry extra conditions (licence texts in the list at the end).</p>
 <p>This site&#39;s stance matches the site-wide legal page:<br>index only, quote only, no licence interpretation, no legal advice.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-6">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
 <span data-zh><p>一页科普版在学 AI 站：<a href="https://learn.specul.com/term/知识蒸馏/" target="_blank" rel="noopener">知识蒸馏</a><br>与 <a href="https://learn.specul.com/term/剪枝/" target="_blank" rel="noopener">剪枝</a>（压缩的另一条路）。</p>
-<p>本篇讲两支蒸馏的成本结构、官方范例、选型读法与许可边界。<br>本站家族卡上的「派生自 X」标记（S53）用的就是本篇的谱系口径。</p></span><span data-en><p>The one-page explainers live on the Learn site: <a href="https://learn.specul.com/term/知识蒸馏/" target="_blank" rel="noopener">knowledge distillation</a><br>and <a href="https://learn.specul.com/term/剪枝/" target="_blank" rel="noopener">pruning</a> (the other compression route).</p>
+<p>本篇讲两支蒸馏的成本结构、官方范例、选型读法与许可边界。<br>这里家族卡上的「派生自 X」标记（S53）用的就是本篇的谱系口径。</p></span><span data-en><p>The one-page explainers live on the Learn site: <a href="https://learn.specul.com/term/知识蒸馏/" target="_blank" rel="noopener">knowledge distillation</a><br>and <a href="https://learn.specul.com/term/剪枝/" target="_blank" rel="noopener">pruning</a> (the other compression route).</p>
 <p>This guide covers the cost structure of the two distillation branches, the official examples, how to read the label when choosing, and the licence boundary.<br>The “derived from X” marker on this site&#39;s family cards (S53) uses exactly this guide&#39;s lineage yardstick.</p></span>
     </section>
 
@@ -192,7 +192,7 @@
         <li><span data-zh>Llama Community License 原文页（官方许可文本入口，2026-10-20 直抓 200）</span><span data-en>Llama Community License text page (entry to the official licence text; fetched directly, HTTP 200, 2026-10-20)</span>：<a href="https://www.llama.com/llama-license/" target="_blank" rel="noopener">https://www.llama.com/llama-license/</a></li>
         <li><span data-zh>Gemma Terms of Use 原文页（官方许可文本入口，2026-10-20 直抓 200）</span><span data-en>Gemma Terms of Use text page (entry to the official licence text; fetched directly, HTTP 200, 2026-10-20)</span>：<a href="https://ai.google.dev/gemma/terms" target="_blank" rel="noopener">https://ai.google.dev/gemma/terms</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-20；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-20; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-20；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-20; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

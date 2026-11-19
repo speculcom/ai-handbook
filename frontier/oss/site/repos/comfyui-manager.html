@@ -13,8 +13,8 @@
   <meta property="og:description" content="ComfyUI Manager：ComfyUI 的节点/模型管理器，安装、更新、缺失依赖修复。 许可 GPL-3.0，Python，16.9k stars（2026-11-19 快照）。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="../brand.css?v=8e209a2fd1c9" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../oss.css" />
 </head>
@@ -110,8 +110,13 @@
   <ul><li>装节点与模型不用手动找。</li><li>能检查缺失依赖与版本冲突。</li><li>ComfyUI 重度用户的必备工具。</li></ul>
   <h2>不适合</h2>
   <p class="warn">会从网络装第三方节点，需审来源。<br>不是工作流本身，别把它当内容库。</p>
+  <h2>最小上手</h2>
+  <ol><li>读 README / quickstart，确认 运行时 版本与系统依赖。</li><li>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</li><li>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</li></ol>
+  <h2>依赖与成本</h2>
+  <p>通常需要 GPU（10–24GB+ 视模型而定）与模型权重；视频任务还要解码、存储与更长生成时间。</p>
   <h2>许可与使用边界</h2>
-  <p>GitHub 快照显示许可为 <b>GPL-3.0</b>。开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
+  <p>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</p>
+  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
   <h2>替代与相邻</h2>
   <ul><li><a href="../repos/comfyui.html">ComfyUI</a> — 先试这个，节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。</li></ul>
   <h2>下一步</h2>

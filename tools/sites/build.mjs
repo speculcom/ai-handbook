@@ -274,7 +274,7 @@ const SITE = {
   // 站内分区导航（跨站导航在 shell.mjs 的 NAV 里，那是全站唯一定义处）
   // v8 T30：10 大类页全部上线（旧三页及旧 URL 已删除）。
   // 2026-11-06：新增第 11 大类 safety（AI 安全与评测）。
-  partitions: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'],
+  partitions: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'office', 'automation', 'framework', 'mcp', 'runner', 'safety'],
 };
 
 /* ── 双语辅助（2026-10-04）────────────────────────────────────────
@@ -357,6 +357,15 @@ const SITES = {
     desc: bi('联网搜索问答、学术检索、AI 笔记/研究工作台——「帮你找答案、读文献、整理笔记」的产品。各家「深度研究」模式不单独立档（对象归 chat 档案的 capabilities 维）；纯检索 API 基础设施归 nav。',
       'Web-search Q&A, academic retrieval, and AI-native research/notebook workbenches — products that "find answers, read papers, organize notes". Each vendor\'s "deep research" mode is not filed separately (it lives in the chat entry\'s capability axes); pure retrieval-API infrastructure goes to the nav site.'),
     owns: ['web'],
+    splitBy: null,
+  },
+  office: {
+    key: 'office', navKey: 'agent', dir: 'office', domain: SITE.domain,
+    name: '办公与写作', nameEn: 'Office & writing', short: 'Office', accent: '#e0a33a',
+    tagline: bi('文档、表格、演示、会议、翻译与邮件', 'Docs, sheets, slides, meetings, translation and email'),
+    desc: bi('普通办公场景的 AI 产品：文档写作、表格分析、演示生成、会议记录、翻译与邮件日程。八维按「交付物是什么、数据会去哪、能否商用」读；同一功能可能藏在通用助手或办公套件里，档案只收以办公为主轴的产品，并与 chat / research / automation 互链。',
+      'AI products for everyday office work: document writing, spreadsheet analysis, slide generation, meeting notes, translation and email/calendar. The eight axes are read through "what is the deliverable, where does the data go, can it be used commercially"; a feature may live inside a general assistant or an office suite, so entries only cover products whose main axis is office work and cross-link to chat / research / automation.'),
+    owns: ['web', 'cloud', 'app'],
     splitBy: null,
   },
   automation: {
@@ -460,8 +469,8 @@ const AGENT_FILTER_JS = fs.readFileSync(path.join(HERE, 'agent-filter.js'), 'utf
 const COVERAGE_BY_TRACK = Object.fromEntries(
   Object.entries(COMPLETENESS.byTrack).map(([t, v]) => [t, { done: v.done, total: v.total }]),
 );
-/** v8 T30：大类固定顺序（categories.md 的编号序）；2026-11-06 起 11 个大类（+ safety）。 */
-const TRACK_KEYS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'automation', 'framework', 'mcp', 'runner', 'safety'];
+/** v8 T30：大类固定顺序（categories.md 的编号序）；2026-11-19 起 12 个大类（+ office）。 */
+const TRACK_KEYS = ['coding', 'chat', 'image', 'video', 'audio', 'research', 'office', 'automation', 'framework', 'mcp', 'runner', 'safety'];
 /* v8 T7：完整度行按大类（completeness.mjs 的 byTrack 键已换大类名）。
  * v8 T30：大类页全部上线——每个大类页展示自己那一行。 */
 const COVERAGE_ROWS = Object.fromEntries(TRACK_KEYS.map((k) => [k, [k]]));
@@ -475,6 +484,7 @@ const COVERAGE_NOTE = {
   video: bi('同上，另加国产阵营的备案编号口径——逐家挂公示批次', 'Same as above, plus CAC filing numbers for Chinese products — quoted batch by batch from the public registry'),
   audio: bi('声音克隆的授权条款必须逐家读原文；开源模型（Whisper 等）文档反而最全', 'Voice-clone consent terms have to be read one by one; open-source models (Whisper and friends) actually have the fullest docs'),
   research: bi('检索与排序机制大多不公开；备案号、官方公告与条款页是最可核验的部分', 'Retrieval and ranking internals are mostly undisclosed; filing numbers, official announcements and terms pages are the verifiable parts'),
+  office: bi('办公套件的 AI 能力常与订阅档位、企业管理策略和地区绑定；价格数字不采，只核对能力边界与数据条款', 'Office AI features are often tied to subscription tiers, admin policy and region; no price figures are collected, only capability boundaries and data terms'),
   automation: bi('平台产品的功能文档充分，运行时内部与额度计费细节变动频繁', 'Platform feature docs are solid; runtime internals and quota mechanics change often'),
   runner: bi('开源项目文档最完整，但版本演进快 —— 核验快照最容易过期', 'Open-source projects document the most, but they release fast — these snapshots go stale first'),
 };
@@ -486,6 +496,7 @@ const CAT_LABEL = {
   video: ['视频生成', 'Video generation'],
   audio: ['音频生成', 'Audio generation'],
   research: ['深度研究', 'Deep research'],
+  office: ['办公与写作', 'Office & writing'],
   automation: ['自动化编排', 'Automation'],
   framework: ['框架与运行时', 'Frameworks & runtimes'],
   mcp: ['MCP 工具', 'MCP tools'],
@@ -880,7 +891,7 @@ function mdInline(s) {
 const TRACK_TO_PART = {
   /* v8 T7：当前目录名 = 10 大类（tracks/{coding,chat,image,video,audio,research,automation,framework,mcp,runner}） */
   coding: 'coding', chat: 'chat', image: 'image', video: 'video', audio: 'audio',
-  research: 'research', automation: 'automation', framework: 'framework', mcp: 'mcp', runner: 'runner',
+  research: 'research', office: 'office', automation: 'automation', framework: 'framework', mcp: 'mcp', runner: 'runner',
   safety: 'safety',
   /* 旧目录名（v4 三分区时代 tracks/{agents,harness,tools} 与更早的 ide/cli）——
    * 存量正文里还有，正则必须同时认；两种写法都要能重写到正确的大类落点。
@@ -1120,8 +1131,8 @@ const GUIDE = {
 function boundarySection(partKey) {
   const LINES = [
     [
-      '<strong>本站按 11 大类收录 AI 产品。</strong>编程、对话、图像、视频、音频、研究、自动化、框架、MCP 工具、本地运行器、AI 安全与评测——每类都有明确的收录标准，写在各大类的目录页里。',
-      '<strong>This site files AI products into 11 categories.</strong> Coding, chat, image, video, audio, research, automation, frameworks, MCP tools, local runners and AI safety & evaluation — each with explicit admission criteria, written on the category page itself.',
+      '<strong>本站按 12 大类收录 AI 产品。</strong>编程、对话、图像、视频、音频、研究、办公与写作、自动化、框架、MCP 工具、本地运行器、AI 安全与评测——每类都有明确的收录标准，写在各大类的目录页里。',
+      '<strong>This site files AI products into 12 categories.</strong> Coding, chat, image, video, audio, research, office & writing, automation, frameworks, MCP tools, local runners and AI safety & evaluation — each with explicit admission criteria, written on the category page itself.',
     ],
     [
       '<strong>大类看目录，形态看字段。</strong>一个产品属于哪一类由收录边界决定；它怎么装进你的工作流（IDE / CLI / 厂商云 / 框架 / MCP…）是另一根独立的轴。',
@@ -1198,6 +1209,7 @@ const TOPIC_LABEL = {
   cost:          ['成本控制', 'Cost control'],
   guardrails:    ['护栏与安全', 'Guardrails & safety'],
   prompts:       ['提示词与工作流', 'Prompts & workflows'],
+  office:        ['办公与写作', 'Office & writing'],
 };
 
 /* P5（2026-11-07）：guides 的 kind 判别符。缺省 methodology = 存量方法论指南；
@@ -1683,11 +1695,13 @@ ${orphan.map(cardFor).join('\n')}
       if (c) parts.push(`          <label class="af-f"><span class="af-h">${c.label}</span>
             <select class="asel-${c.key}" data-attr="${c.attr}">${opt(c.opts)}</select></label>`);
     }
+    const doneSum = entries.reduce((a, e) => a + ((PRODUCT_COMPLETENESS[e.id] || {}).done || 0), 0);
+    const totalSum = entries.reduce((a, e) => a + ((PRODUCT_COMPLETENESS[e.id] || {}).total || 0), 0);
     if (ratiosVary) {
       parts.push(`          <label class="af-f"><span class="af-h">${bi('排序', 'Sort')}</span>
             <select class="asel-sort">${nativeOption('', '默认', 'Default')}${nativeOption('done-desc', '完整度 高 → 低', 'Completeness high–low')}${nativeOption('done-asc', '完整度 低 → 高', 'Completeness low–high')}</select></label>`);
     } else {
-      parts.push(`          <span class="af-note">${bi(`完整度：全部 ${entries.length} 份均 100%（无差异，故不提供排序）`, `Completeness: all ${entries.length} entries are at 100% (no variation, so no sort)`)}</span>`);
+      parts.push(`          <span class="af-note">${bi(`完整度：<strong>${doneSum}/${totalSum}</strong> 个字段已填（没有缺项，因此不排序）`, `Completeness: <strong>${doneSum}/${totalSum}</strong> fields filled (no gaps, so no sort)`)}</span>`);
     }
     parts.push(`          <span class="acount" aria-live="polite"></span>`);
     return `        <div class="afilter" role="search">
@@ -2355,7 +2369,7 @@ ${partitionBar('')}
     <section class="section">
       <div class="container">
         <h2>${bi('先说你在找什么','Start with what you are looking for')}</h2>
-        <p class="section-desc">${bi('三族 = 三种读者的问题。族不是目录层——目录是 11 个大类；族只是首页的摆法，让你先对上自己的那一问。', 'Three families = three reader questions. The families are not a directory layer — the directories are the 11 categories; they are just how the home page is arranged, so you can find your question first.')}</p>
+        <p class="section-desc">${bi('三族 = 三种读者的问题。族不是目录层——目录是 12 个大类；族只是首页的摆法，让你先对上自己的那一问。', 'Three families = three reader questions. The families are not a directory layer — the directories are the 12 categories; they are just how the home page is arranged, so you can find your question first.')}</p>
 ${famBlocks}
       </div>
     </section>
@@ -2652,7 +2666,7 @@ fs.writeFileSync(path.join(OUT, 'README.md'),
 
 ${plainTagline(SITE.desc)}
 
-## 10 个大类，归三族
+## 12 个大类，归三族
 
 | 大类 | 主题 | 对象数 | 主要坐标系 |
 |---|---|---|---|

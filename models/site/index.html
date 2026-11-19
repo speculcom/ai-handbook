@@ -4,19 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>开放权重该怎么选 · AI 模型</title>
-  <meta name="description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
+  <meta name="description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不托管权重。" />
   <link rel="canonical" href="https://models.specul.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="开放权重该怎么选 · AI 模型" />
   <meta property="og:url" content="https://models.specul.com/" />
   <meta property="og:title" content="开放权重该怎么选 · AI 模型" />
-  <meta property="og:description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
+  <meta property="og:description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不托管权重。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="brand.css?v=afb8bddd659c" />
+  <script src="brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"开放权重该怎么选 · AI 模型","url":"https://models.specul.com/","description":"开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。"}</script>
+  <link rel="stylesheet" href="sections.css" />
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -98,6 +99,24 @@
       <p class="lede"><span data-zh>每个模型都给出官方规格、许可和下载体积，方便直接做决定。</span><span data-en>Every model lists official specs, licence and download size so you can decide.</span></p>
     </header>
 
+<!-- sec-doors:start -->
+<div class="container">
+<div class="sec-doors">
+  <a class="sec-door" href="data/index.html">
+    <span class="k">Models · Data</span>
+    <h2>数据与训练语料</h2>
+    <p>40 张数据集卡，按 8 类整理。先看许可与商用边界，再看规模、语言与任务适配。</p>
+    <span class="more">看数据卡 →</span>
+  </a>
+  <a class="sec-door" href="evals/index.html">
+    <span class="k">Models · Evals</span>
+    <h2>评测与榜单</h2>
+    <p>36 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
+    <span class="more">看基准卡 →</span>
+  </a>
+</div>
+</div>
+<!-- sec-doors:end -->
 <section class="vz-section" id="lineage">
   <div class="container">
     <div class="vz-head">
@@ -191,7 +210,7 @@
             <span class="m-famcard-vendor"><span data-zh>Cohere</span><span data-en>Cohere</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Command A+</span><span data-en>Command A+</span></b> · 2026-05</p>
-          <p class="m-famcard-sum"><span data-zh>Cohere 的企业向 agentic 家族：A+ 放开了 Apache-2.0（上一代还是门控），主打企业场景与多语言。尺寸在 218B 级，本地部署门槛高。本站未收其量化对比（GGUF 生态太薄，见下）。</span><span data-en>Cohere&#39;s enterprise agentic line: A+ opened up under Apache-2.0 (the previous generation was gated), pitched at enterprise and multilingual work. At 218B scale the local-deployment bar is high. This site carries no quantisation comparison (GGUF ecosystem too thin — see below).</span></p>
+          <p class="m-famcard-sum"><span data-zh>Cohere 的企业向 agentic 家族：A+ 放开了 Apache-2.0（上一代还是门控），主打企业场景与多语言。尺寸在 218B 级，本地部署门槛高。这里没有它的量化对比（GGUF 生态太薄，见下）。</span><span data-en>Cohere&#39;s enterprise agentic line: A+ opened up under Apache-2.0 (the previous generation was gated), pitched at enterprise and multilingual work. At 218B scale the local-deployment bar is high. This site carries no quantisation comparison (GGUF ecosystem too thin — see below).</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -206,7 +225,7 @@
             <span class="m-famcard-vendor"><span data-zh>深度求索 DeepSeek</span><span data-en>DeepSeek</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>V4.1-Flash</span><span data-en>V4.1-Flash</span></b> · 2026-09</p>
-          <p class="m-famcard-sum"><span data-zh>MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，本站系列页有记录）。适合追新、能接受大模型的部署者。</span><span data-en>MIT-licensed with a distinctive KV-cache-compression roadmap; an active quantisation ecosystem (antirez, author of Redis and a llama.cpp ecosystem participant, maintains a quantised build; recorded on the series page). For deployers who track the frontier and can host large models.</span></p>
+          <p class="m-famcard-sum"><span data-zh>MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，这里系列页有记录）。适合追新、能接受大模型的部署者。</span><span data-en>MIT-licensed with a distinctive KV-cache-compression roadmap; an active quantisation ecosystem (antirez, author of Redis and a llama.cpp ecosystem participant, maintains a quantised build; recorded on the series page). For deployers who track the frontier and can host large models.</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>1</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -221,7 +240,7 @@
             <span class="m-famcard-vendor"><span data-zh>Google DeepMind</span><span data-en>Google DeepMind</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Gemma 4</span><span data-en>Gemma 4</span></b> · 2026-03</p>
-          <p class="m-famcard-sum"><span data-zh>尺寸档最全的家族（E2B 到 31B），端侧到服务器一条线；许可是 Apache-2.0 + 使用政策组合，下载前读政策原文。本站收录的 gemma-4 系列覆盖其中三档。</span><span data-en>The family with the widest size spread (E2B to 31B), one line from edge to server. Licensing is Apache-2.0 plus a use policy — read the policy text before download. This site&#39;s gemma-4 series covers three of the tiers.</span></p>
+          <p class="m-famcard-sum"><span data-zh>尺寸档最全的家族（E2B 到 31B），端侧到服务器一条线；许可是 Apache-2.0 + 使用政策组合，下载前读政策原文。这里的 gemma-4 系列覆盖其中三档。</span><span data-en>The family with the widest size spread (E2B to 31B), one line from edge to server. Licensing is Apache-2.0 plus a use policy — read the policy text before download. This site&#39;s gemma-4 series covers three of the tiers.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>3</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -236,7 +255,7 @@
             <span class="m-famcard-vendor"><span data-zh>智谱 AI · Z.ai</span><span data-en>Z.ai (Zhipu AI)</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>GLM-5.3</span><span data-en>GLM-5.3</span></b> · 2026-08</p>
-          <p class="m-famcard-sum"><span data-zh>中文 agent 与代码强项、迭代节奏极快（半年四代）。大杯与 Flash 杯许可不同——本地部署优先 MIT 的 Flash 杯。本站收录的 glm-5 系列在 GLM-5.3 上。</span><span data-en>Strong at Chinese agentic work and code, with a very fast iteration cadence. Flagship and Flash tiers carry different licences — for local deployment, prefer the MIT Flash tier. This site&#39;s glm-5 series tracks GLM-5.3.</span></p>
+          <p class="m-famcard-sum"><span data-zh>中文 agent 与代码强项、迭代节奏极快（半年四代）。大杯与 Flash 杯许可不同——本地部署优先 MIT 的 Flash 杯。这里的 glm-5 系列在 GLM-5.3 上。</span><span data-en>Strong at Chinese agentic work and code, with a very fast iteration cadence. Flagship and Flash tiers carry different licences — for local deployment, prefer the MIT Flash tier. This site&#39;s glm-5 series tracks GLM-5.3.</span></p>
           <div class="m-famcard-meta">
             <span><b>4</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -251,7 +270,7 @@
             <span class="m-famcard-vendor"><span data-zh>OpenAI</span><span data-en>OpenAI</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>gpt-oss</span><span data-en>gpt-oss</span></b> · 2025-08</p>
-          <p class="m-famcard-sum"><span data-zh>OpenAI 首次放出的开放权重 MoE：Apache-2.0、官方就按「量化后交付」设计（MXFP4），单卡可跑是它的主打场景。本站收录 gpt-oss 系列的量化对比。</span><span data-en>OpenAI&#39;s first open-weight MoE line: Apache-2.0, designed to ship quantized (MXFP4) from the start, single-GPU operation is its headline scenario. This site covers the gpt-oss quantisation comparison.</span></p>
+          <p class="m-famcard-sum"><span data-zh>OpenAI 首次放出的开放权重 MoE：Apache-2.0、官方就按「量化后交付」设计（MXFP4），单卡可跑是它的主打场景。这里有 gpt-oss 系列的量化对比。</span><span data-en>OpenAI&#39;s first open-weight MoE line: Apache-2.0, designed to ship quantized (MXFP4) from the start, single-GPU operation is its headline scenario. This site covers the gpt-oss quantisation comparison.</span></p>
           <div class="m-famcard-meta">
             <span><b>1</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -266,7 +285,7 @@
             <span class="m-famcard-vendor"><span data-zh>Kwaipilot（快手）</span><span data-en>Kwaipilot (Kuaishou)</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>KAT-Coder-V2.5</span><span data-en>KAT-Coder-V2.5</span></b> · 2026-07　<span class="t-tag"><span data-zh>派生自 Qwen3.6-35B-A3B</span><span data-en>derived from Qwen3.6-35B-A3B</span></span></p>
-          <p class="m-famcard-sum"><span data-zh>快手 Kwaipilot 的代码家族：API 版闭源、Dev 版开放权重。它是本站收录的「派生模型」代表——官方自己声明基座是 Qwen3.6-35B-A3B，选它等于选 Qwen 谱系 + 快手代码后训练。</span><span data-en>Kuaishou Kwaipilot&#39;s coding line: the API build stays closed, the Dev build is open-weight. It is this site&#39;s representative &quot;derived model&quot; — the vendor itself declares Qwen3.6-35B-A3B as its base, so choosing it means choosing the Qwen lineage plus Kuaishou&#39;s code post-training.</span></p>
+          <p class="m-famcard-sum"><span data-zh>快手 Kwaipilot 的代码家族：API 版闭源、Dev 版开放权重。它是这里的「派生模型」代表——官方自己声明基座是 Qwen3.6-35B-A3B，选它等于选 Qwen 谱系 + 快手代码后训练。</span><span data-en>Kuaishou Kwaipilot&#39;s coding line: the API build stays closed, the Dev build is open-weight. It is this site&#39;s representative &quot;derived model&quot; — the vendor itself declares Qwen3.6-35B-A3B as its base, so choosing it means choosing the Qwen lineage plus Kuaishou&#39;s code post-training.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>1</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -296,7 +315,7 @@
             <span class="m-famcard-vendor"><span data-zh>Poolside</span><span data-en>Poolside</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Laguna 2.1 / XS.2</span><span data-en>Laguna 2.1 / XS.2</span></b> · 2026-08</p>
-          <p class="m-famcard-sum"><span data-zh>代码专用家族里许可最宽的一族（OpenMDW-1.1 完全宽松）；主打「本地机器跑 agentic coding」，激活 3B 是它的本地性来源。本站收录 Laguna XS-2.1 的量化对比。</span><span data-en>The most permissively licensed coding line (OpenMDW-1.1, fully permissive); its pitch is agentic coding on a local machine, with 3B active parameters as the source of that locality. This site covers Laguna XS-2.1 quantisations.</span></p>
+          <p class="m-famcard-sum"><span data-zh>代码专用家族里许可最宽的一族（OpenMDW-1.1 完全宽松）；主打「本地机器跑 agentic coding」，激活 3B 是它的本地性来源。这里有 Laguna XS-2.1 的量化对比。</span><span data-en>The most permissively licensed coding line (OpenMDW-1.1, fully permissive); its pitch is agentic coding on a local machine, with 3B active parameters as the source of that locality. This site covers Laguna XS-2.1 quantisations.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -317,7 +336,7 @@
             <span><b>3</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
             <span><span class="lic lic-tight">other</span></span>
           </div>
-          <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连未核验</span><span data-en>direct unknown</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
+          <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连未资料</span><span data-en>direct unknown</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="m-famcard-go"><span data-zh>未收量化对比，卡内说明原因 →</span><span data-en>No quantisation coverage — see the card →</span></p>
         </a>
         <a class="m-famcard" href="families/minicpm/" data-lic="apache-2.0" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed">
@@ -347,7 +366,7 @@
             <span><b>3</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
             <span><span class="lic lic-tight">mistral-ecosystem-open-weight</span> <span class="lic lic-loose">apache-2.0</span> <span class="lic lic-tight">other</span></span>
           </div>
-          <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连未核验</span><span data-en>direct unknown</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
+          <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连未资料</span><span data-en>direct unknown</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="m-famcard-go"><span data-zh>未收量化对比，卡内说明原因 →</span><span data-en>No quantisation coverage — see the card →</span></p>
         </a>
         <a class="m-famcard" href="families/muse/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="yes" data-cn-filing="not-filed">
@@ -356,7 +375,7 @@
             <span class="m-famcard-vendor"><span data-zh>Meta</span><span data-en>Meta</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Muse Glimmer</span><span data-en>Muse Glimmer</span></b> · 2026-08</p>
-          <p class="m-famcard-sum"><span data-zh>Meta 在 Llama 之外的新开放权重线（meta-models org）。发布走门控：要先在 HF 登录同意才能下载，这是选型时的硬约束，卡上如实写。本站收录 Muse Glimmer 30B 的量化对比。</span><span data-en>Meta&#39;s newer open-weight line beside Llama (the meta-models org). Publication is gated: sign in and consent on HF before download — a hard constraint when choosing, stated plainly on the card. This site covers Muse Glimmer 30B quantisations.</span></p>
+          <p class="m-famcard-sum"><span data-zh>Meta 在 Llama 之外的新开放权重线（meta-models org）。发布走门控：要先在 HF 登录同意才能下载，这是选型时的硬约束，卡上如实写。这里有 Muse Glimmer 30B 的量化对比。</span><span data-en>Meta&#39;s newer open-weight line beside Llama (the meta-models org). Publication is gated: sign in and consent on HF before download — a hard constraint when choosing, stated plainly on the card. This site covers Muse Glimmer 30B quantisations.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>1</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -371,7 +390,7 @@
             <span class="m-famcard-vendor"><span data-zh>Ornith AI（DeepReinforce）</span><span data-en>Ornith AI (DeepReinforce)</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Ornith 1.5</span><span data-en>Ornith 1.5</span></b> · 2026-08</p>
-          <p class="m-famcard-sum"><span data-zh>新晋家族（2026 年才出现两代）：MIT 许可 + 三档尺寸覆盖单卡到旗舰。出品主体 DeepReinforce 的注册辖区官方未声明，本站按「国外出品」处理并在属地依据里写明（S52 口径）。</span><span data-en>A newcomer (only two generations so far, both 2026): MIT licence plus three tiers from single-card to flagship. The publisher DeepReinforce&#39;s jurisdiction of registration is not officially stated; this site treats it as foreign-made and says so in the origin note (S52 convention).</span></p>
+          <p class="m-famcard-sum"><span data-zh>新晋家族（2026 年才出现两代）：MIT 许可 + 三档尺寸覆盖单卡到旗舰。出品主体 DeepReinforce 的注册辖区官方未声明，这里按「国外出品」处理并在属地依据里写明（S52 口径）。</span><span data-en>A newcomer (only two generations so far, both 2026): MIT licence plus three tiers from single-card to flagship. The publisher DeepReinforce&#39;s jurisdiction of registration is not officially stated; this site treats it as foreign-made and says so in the origin note (S52 convention).</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>3</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -386,7 +405,7 @@
             <span class="m-famcard-vendor"><span data-zh>微软（Microsoft）</span><span data-en>Microsoft</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Phi-4-reasoning 系</span><span data-en>Phi-4-reasoning line</span></b> · 2026-08　<span class="t-tag"><span data-zh>派生自 microsoft/Phi-4-reasoning</span><span data-en>derived from microsoft/Phi-4-reasoning</span></span></p>
-          <p class="m-famcard-sum"><span data-zh>微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。本站未收其量化对比——当前代 GGUF 生态太薄（见下）。</span><span data-en>Microsoft&#39;s small-but-high-quality line: MIT, sizes concentrated at 4B–15B, and the vendor&#39;s pitch is &quot;teach small models with synthetic data&quot;. The current line is reasoning-vision (still a phi-4 post-train on the weight lineage). This site carries no quantisation comparison — the current generation&#39;s GGUF ecosystem is too thin (see below).</span></p>
+          <p class="m-famcard-sum"><span data-zh>微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。这里没有它的量化对比——当前代 GGUF 生态太薄（见下）。</span><span data-en>Microsoft&#39;s small-but-high-quality line: MIT, sizes concentrated at 4B–15B, and the vendor&#39;s pitch is &quot;teach small models with synthetic data&quot;. The current line is reasoning-vision (still a phi-4 post-train on the weight lineage). This site carries no quantisation comparison — the current generation&#39;s GGUF ecosystem is too thin (see below).</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -401,7 +420,7 @@
             <span class="m-famcard-vendor"><span data-zh>阿里巴巴 · 通义千问</span><span data-en>Alibaba · Qwen</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Qwen3.8</span><span data-en>Qwen3.8</span></b> · 2026-08</p>
-          <p class="m-famcard-sum"><span data-zh>中文与代码口碑最强的开放权重家族之一；Apache-2.0 主力规格许可干净。本站量化对比的基准系列（qwen3-8）就在这一代。</span><span data-en>One of the strongest open-weight families for Chinese and code, with clean Apache-2.0 licensing on mainline builds. This site&#39;s benchmark quantisation series (qwen3-8) sits in this generation.</span></p>
+          <p class="m-famcard-sum"><span data-zh>中文与代码口碑最强的开放权重家族之一；Apache-2.0 主力规格许可干净。这里的量化对比，基准系列（qwen3-8）就在这一代。</span><span data-en>One of the strongest open-weight families for Chinese and code, with clean Apache-2.0 licensing on mainline builds. This site&#39;s benchmark quantisation series (qwen3-8) sits in this generation.</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>3</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -416,13 +435,13 @@
             <span class="m-famcard-vendor"><span data-zh>腾讯</span><span data-en>Tencent</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Hy4 preview</span><span data-en>Hy4 preview</span></b> · 2026-08</p>
-          <p class="m-famcard-sum"><span data-zh>中文开放权重家族里少有的「大总参 + 高激活」路线；Hy4 把上下文拉到 1M+，对长程 agent 与工程代码有明确指向。本站暂无 GGUF 量化收录，选型前先看官方许可与硬件门槛。</span><span data-en>An uncommon large-total/high-active open-weight Chinese family; Hy4 pushes context past 1M and targets long-horizon agents and engineering code. This site has no GGUF coverage yet — read the official licence and hardware floor before choosing.</span></p>
+          <p class="m-famcard-sum"><span data-zh>中文开放权重家族里少有的「大总参 + 高激活」路线；Hy4 把上下文拉到 1M+，对长程 agent 与工程代码有明确指向。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。</span><span data-en>An uncommon large-total/high-active open-weight Chinese family; Hy4 pushes context past 1M and targets long-horizon agents and engineering code. This site has no GGUF coverage yet — read the official licence and hardware floor before choosing.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>2</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
             <span><span class="lic lic-tight">other</span></span>
           </div>
-          <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-warn"><span data-zh>备案未核验</span><span data-en>filing unknown</span></span></div>
+          <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-warn"><span data-zh>备案未资料</span><span data-en>filing unknown</span></span></div>
           <p class="m-famcard-go"><span data-zh>未收量化对比，卡内说明原因 →</span><span data-en>No quantisation coverage — see the card →</span></p>
         </a>
       </div>
@@ -442,7 +461,7 @@
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>4</b> <span data-zh>条官方事实</span><span data-en>official facts</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-30</span><span data-en>verified 2026-10-30</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-30</span><span data-en>data as of 2026-10-30</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连不可达</span><span data-en>direct blocked</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="m-famcard-go"><span data-zh>看官方规格快照 →</span><span data-en>Official spec snapshot →</span></p>
@@ -453,11 +472,11 @@
             <span class="m-famcard-vendor"><span data-zh>字节跳动 · 火山引擎</span><span data-en>ByteDance · Volcengine</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Doubao-Seed 2.1 系（+ Seed-Evolving）</span><span data-en>Doubao-Seed 2.1 line (+ Seed-Evolving)</span></b> · 2026-06</p>
-          <p class="m-famcard-sum"><span data-zh>国产闭源主力：对话产品「豆包」与 API「Doubao-Seed」同族两条线；服务在网信办备案（Beijing-YunQue-20230821，豆包大模型=云雀更名，官方备案公示页确认）。代次更替快，本站卡带核验日与复核周期。</span><span data-en>The domestic closed flagship: the Doubao consumer app and the Doubao-Seed API are two lines of one family; the service is CAC-filed (Beijing-YunQue-20230821 — Doubao LLM is the renamed YunQue, confirmed on the official filing-disclosure page). Generations churn fast, so the card carries a check date and review interval.</span></p>
+          <p class="m-famcard-sum"><span data-zh>国产闭源主力：对话产品「豆包」与 API「Doubao-Seed」同族两条线；服务在网信办备案（Beijing-YunQue-20230821，豆包大模型=云雀更名，官方备案公示页确认）。代次更替快，卡片上标了资料时间和复核周期。</span><span data-en>The domestic closed flagship: the Doubao consumer app and the Doubao-Seed API are two lines of one family; the service is CAC-filed (Beijing-YunQue-20230821 — Doubao LLM is the renamed YunQue, confirmed on the official filing-disclosure page). Generations churn fast, so the card carries a check date and review interval.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>4</b> <span data-zh>条官方事实</span><span data-en>official facts</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-30</span><span data-en>verified 2026-10-30</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-30</span><span data-en>data as of 2026-10-30</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="m-famcard-go"><span data-zh>看官方规格快照 →</span><span data-en>Official spec snapshot →</span></p>
@@ -468,11 +487,11 @@
             <span class="m-famcard-vendor"><span data-zh>Google DeepMind</span><span data-en>Google DeepMind</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Gemini 3 系（最新 3.8 Flash；3.1 Pro / 3.7 / 3.6 / 3.5 Flash 在册）</span><span data-en>Gemini 3 line (latest 3.8 Flash; 3.1 Pro / 3.7 / 3.6 / 3.5 Flash listed)</span></b> · 2026-09</p>
-          <p class="m-famcard-sum"><span data-zh>Google 的闭源旗舰线；与开放权重的 Gemma 是两条线，别混。选型注意官方「预览版」标注——预览意味着规格与价格都可能变，本站只抄快照。</span><span data-en>Google&#39;s closed flagship line; distinct from the open-weight Gemma line — do not conflate them. Note the official &quot;preview&quot; labels: preview means specs and prices may change; this site only snapshots.</span></p>
+          <p class="m-famcard-sum"><span data-zh>Google 的闭源旗舰线；与开放权重的 Gemma 是两条线，别混。选型注意官方「预览版」标注——预览意味着规格与价格都可能变，这里只抄快照。</span><span data-en>Google&#39;s closed flagship line; distinct from the open-weight Gemma line — do not conflate them. Note the official &quot;preview&quot; labels: preview means specs and prices may change; this site only snapshots.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>4</b> <span data-zh>条官方事实</span><span data-en>official facts</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-30</span><span data-en>verified 2026-10-30</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-30</span><span data-en>data as of 2026-10-30</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连不可达</span><span data-en>direct blocked</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="m-famcard-go"><span data-zh>看官方规格快照 →</span><span data-en>Official spec snapshot →</span></p>
@@ -483,11 +502,11 @@
             <span class="m-famcard-vendor"><span data-zh>OpenAI</span><span data-en>OpenAI</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>GPT-6 系（Astra / 6.1 Sol / 6 Luna）</span><span data-en>GPT-6 line (Astra / 6.1 Sol / 6 Luna)</span></b> · 2026-10</p>
-          <p class="m-famcard-sum"><span data-zh>闭源旗舰线：能力声明以官方发布页为准，本站只抄规格不背书横评。注意 OpenAI 另有一条开放权重线（gpt-oss），与这条 API 线是两回事——本站两边都有卡。</span><span data-en>The closed flagship line: capability claims follow the official release pages; this site copies specs without endorsing comparisons. Note OpenAI also runs an open-weight line (gpt-oss) — a different thing from this API line; this site cards both.</span></p>
+          <p class="m-famcard-sum"><span data-zh>闭源旗舰线：能力声明以官方发布页为准，这里只抄规格不背书横评。注意 OpenAI 另有一条开放权重线（gpt-oss），与这条 API 线是两回事——这里两边都有卡。</span><span data-en>The closed flagship line: capability claims follow the official release pages; this site copies specs without endorsing comparisons. Note OpenAI also runs an open-weight line (gpt-oss) — a different thing from this API line; this site cards both.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>4</b> <span data-zh>条官方事实</span><span data-en>official facts</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-30</span><span data-en>verified 2026-10-30</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-30</span><span data-en>data as of 2026-10-30</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连不可达</span><span data-en>direct blocked</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="m-famcard-go"><span data-zh>看官方规格快照 →</span><span data-en>Official spec snapshot →</span></p>
@@ -498,11 +517,11 @@
             <span class="m-famcard-vendor"><span data-zh>xAI（官方文档页 2026-10 自称 SpaceXSI）</span><span data-en>xAI (official docs self-brand as SpaceXSI, Oct 2026)</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Grok 4.7</span><span data-en>Grok 4.7</span></b> · 2026-08</p>
-          <p class="m-famcard-sum"><span data-zh>闭源旗舰线（代码与 agentic 向）：官方文档规格直抄。诚实标注：2026-10-20 快照里官方文档页自称 SpaceXSI（Memphis 数据中心口径），品牌归属变化本站不推测、只记录页面原文。</span><span data-en>A closed flagship line (code and agentic focus): specs copied from official docs. Honest note: in the 2026-10-20 snapshot the official docs self-brand as SpaceXSI (Memphis data-center wording); this site records the page text without speculating on brand changes.</span></p>
+          <p class="m-famcard-sum"><span data-zh>闭源旗舰线（代码与 agentic 向）：官方文档规格直抄。诚实标注：2026-10-20 快照里官方文档页自称 SpaceXSI（Memphis 数据中心口径），品牌归属变化这里不推测、只记录页面原文。</span><span data-en>A closed flagship line (code and agentic focus): specs copied from official docs. Honest note: in the 2026-10-20 snapshot the official docs self-brand as SpaceXSI (Memphis data-center wording); this site records the page text without speculating on brand changes.</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>4</b> <span data-zh>条官方事实</span><span data-en>official facts</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-30</span><span data-en>verified 2026-10-30</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-30</span><span data-en>data as of 2026-10-30</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag"><span data-zh>直连不可达</span><span data-en>direct blocked</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="m-famcard-go"><span data-zh>看官方规格快照 →</span><span data-en>Official spec snapshot →</span></p>
@@ -513,11 +532,11 @@
             <span class="m-famcard-vendor"><span data-zh>月之暗面（Moonshot AI）</span><span data-en>Moonshot AI</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Kimi K3（API）</span><span data-en>Kimi K3 (API)</span></b> · 2026-06</p>
-          <p class="m-famcard-sum"><span data-zh>国产闭源旗舰，但它是本站唯一「API 与开放权重双轨」的家族：K3 权重在 Hugging Face / ModelScope 开放（自定义 Kimi K3 License），API 走 platform.kimi.com。选型时两条路径的许可与数据条款不同，分开读。</span><span data-en>The domestic closed flagship — yet the only family here with dual tracks: K3 weights are open on Hugging Face / ModelScope (custom Kimi K3 License) while the API runs on platform.kimi.com. Licences and data terms differ between the two paths — read them separately.</span></p>
+          <p class="m-famcard-sum"><span data-zh>国产闭源旗舰，但它是这里唯一「API 与开放权重双轨」的家族：K3 权重在 Hugging Face / ModelScope 开放（自定义 Kimi K3 License），API 走 platform.kimi.com。选型时两条路径的许可与数据条款不同，分开读。</span><span data-en>The domestic closed flagship — yet the only family here with dual tracks: K3 weights are open on Hugging Face / ModelScope (custom Kimi K3 License) while the API runs on platform.kimi.com. Licences and data terms differ between the two paths — read them separately.</span></p>
           <div class="m-famcard-meta">
             <span><b>2</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>3</b> <span data-zh>条官方事实</span><span data-en>official facts</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-30</span><span data-en>verified 2026-10-30</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-30</span><span data-en>data as of 2026-10-30</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="m-famcard-go"><span data-zh>看官方规格快照 →</span><span data-en>Official spec snapshot →</span></p>
@@ -539,7 +558,7 @@
           <div class="m-famcard-meta">
             <span><b>8</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>11</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-20</span><span data-en>verified 2026-10-20</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-20</span><span data-en>data as of 2026-10-20</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -553,7 +572,7 @@
           <div class="m-famcard-meta">
             <span><b>7</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>7</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-20</span><span data-en>verified 2026-10-20</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-20</span><span data-en>data as of 2026-10-20</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -567,7 +586,7 @@
           <div class="m-famcard-meta">
             <span><b>8</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>6</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-20</span><span data-en>verified 2026-10-20</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-20</span><span data-en>data as of 2026-10-20</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -581,7 +600,7 @@
           <div class="m-famcard-meta">
             <span><b>7</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>8</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-20</span><span data-en>verified 2026-10-20</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-20</span><span data-en>data as of 2026-10-20</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -595,7 +614,7 @@
           <div class="m-famcard-meta">
             <span><b>8</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>9</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-21</span><span data-en>verified 2026-10-21</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-21</span><span data-en>data as of 2026-10-21</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -609,7 +628,7 @@
           <div class="m-famcard-meta">
             <span><b>7</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>3</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-17</span><span data-en>verified 2026-11-17</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-17</span><span data-en>data as of 2026-11-17</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -623,7 +642,7 @@
           <div class="m-famcard-meta">
             <span><b>6</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>3</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-17</span><span data-en>verified 2026-11-17</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-17</span><span data-en>data as of 2026-11-17</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -637,7 +656,7 @@
           <div class="m-famcard-meta">
             <span><b>6</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>8</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-21</span><span data-en>verified 2026-10-21</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-21</span><span data-en>data as of 2026-10-21</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -651,7 +670,7 @@
           <div class="m-famcard-meta">
             <span><b>7</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>8</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-21</span><span data-en>verified 2026-10-21</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-21</span><span data-en>data as of 2026-10-21</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -665,7 +684,7 @@
           <div class="m-famcard-meta">
             <span><b>6</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>3</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-17</span><span data-en>verified 2026-11-17</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-17</span><span data-en>data as of 2026-11-17</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -679,7 +698,7 @@
           <div class="m-famcard-meta">
             <span><b>8</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>8</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-10-21</span><span data-en>verified 2026-10-21</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-10-21</span><span data-en>data as of 2026-10-21</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -693,7 +712,7 @@
           <div class="m-famcard-meta">
             <span><b>8</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>6</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-04</span><span data-en>verified 2026-11-04</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-04</span><span data-en>data as of 2026-11-04</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -707,7 +726,7 @@
           <div class="m-famcard-meta">
             <span><b>6</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>3</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-17</span><span data-en>verified 2026-11-17</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-17</span><span data-en>data as of 2026-11-17</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -721,7 +740,7 @@
           <div class="m-famcard-meta">
             <span><b>10</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>5</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-06</span><span data-en>data as of 2026-11-06</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -735,7 +754,7 @@
           <div class="m-famcard-meta">
             <span><b>9</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>5</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-06</span><span data-en>data as of 2026-11-06</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -749,7 +768,7 @@
           <div class="m-famcard-meta">
             <span><b>9</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>4</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-06</span><span data-en>data as of 2026-11-06</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -759,11 +778,11 @@
             <span class="m-famcard-vendor"><span data-zh>做模型专题</span><span data-en>how models are made</span></span>
           </div>
           <p class="m-famcard-cur"></p>
-          <p class="m-famcard-sum"><span data-zh>把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。</span><span data-en>Split tier names, bits per weight and accuracy loss into three layers: publishing-page facts, this site&#39;s derivation from the public naming standard, and what must stay blank. It also states which line in the memory bill actually moves when a tier changes.</span></p>
+          <p class="m-famcard-sum"><span data-zh>把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是这里按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。</span><span data-en>Split tier names, bits per weight and accuracy loss into three layers: publishing-page facts, this site&#39;s derivation from the public naming standard, and what must stay blank. It also states which line in the memory bill actually moves when a tier changes.</span></p>
           <div class="m-famcard-meta">
             <span><b>9</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>5</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-06</span><span data-en>data as of 2026-11-06</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -777,7 +796,7 @@
           <div class="m-famcard-meta">
             <span><b>9</b> <span data-zh>节</span><span data-en>sections</span></span>
             <span><b>4</b> <span data-zh>条官方出处</span><span data-en>official sources</span></span>
-            <span class="t-state is-ok"><span data-zh>核验 2026-11-06</span><span data-en>verified 2026-11-06</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-06</span><span data-en>data as of 2026-11-06</span></span>
           </div>
           <p class="m-famcard-go"><span data-zh>读这一篇 →</span><span data-en>Read this guide →</span></p>
         </a>
@@ -824,12 +843,12 @@
           <div class="scard-lic"><span class="lic lic-loose">mit</span> <span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard scard-loose" href="series/gemma-4/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="yes" data-cn-filing="not-filed" data-blob="gemma 4 gemma 4 google google google 开放权重系列，本站收录的三种规格各自都有量化覆盖。 通用对话 moe 稀疏 小尺寸可跑">
+        <a class="scard scard-loose" href="series/gemma-4/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="yes" data-cn-filing="not-filed" data-blob="gemma 4 gemma 4 google google google 开放权重系列，三种规格各自都有量化覆盖。 通用对话 moe 稀疏 小尺寸可跑">
           <div class="scard-h">
             <h3><span data-zh>Gemma 4</span><span data-en>Gemma 4</span></h3>
             <span class="scard-vendor"><span data-zh>Google</span><span data-en>Google</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。</span><span data-en>Google&#39;s open-weight series; the three sizes listed here each have quantisation coverage.</span></p>
+          <p class="scard-sum"><span data-zh>Google 开放权重系列，三种规格各自都有量化覆盖。</span><span data-en>Google&#39;s open-weight series; the three sizes listed here each have quantisation coverage.</span></p>
           <ul class="scard-pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>MoE 稀疏</span><span data-en>Sparse MoE</span></li><li><span data-zh>小尺寸可跑</span><span data-en>Runnable at small sizes</span></li></ul>
           <div class="scard-stats">
             <span><b>3</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -856,12 +875,12 @@
           <div class="scard-lic"><span class="lic lic-tight">other</span> <span class="lic lic-loose">mit</span> <span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard scard-loose" href="series/gpt-oss/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="no" data-cn-filing="not-filed" data-blob="gpt-oss gpt-oss openai openai openai 开放权重系列，本站索引 20b 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。 推理 moe 稀疏 apache-2.0">
+        <a class="scard scard-loose" href="series/gpt-oss/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="no" data-cn-filing="not-filed" data-blob="gpt-oss gpt-oss openai openai openai 开放权重系列，这里有 20b 规格的量化信息；能不能单卡跑，取决于可用内存、量化和上下文配置。 推理 moe 稀疏 apache-2.0">
           <div class="scard-h">
             <h3><span data-zh>gpt-oss</span><span data-en>gpt-oss</span></h3>
             <span class="scard-vendor"><span data-zh>OpenAI</span><span data-en>OpenAI</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。</span><span data-en>OpenAI&#39;s open-weight series, with quantisation information for the 20B variant. Single-GPU suitability depends on available memory, quantisation and context settings.</span></p>
+          <p class="scard-sum"><span data-zh>OpenAI 开放权重系列，这里有 20B 规格的量化信息；能不能单卡跑，取决于可用内存、量化和上下文配置。</span><span data-en>OpenAI&#39;s open-weight series, with quantisation information for the 20B variant. Single-GPU suitability depends on available memory, quantisation and context settings.</span></p>
           <ul class="scard-pos"><li><span data-zh>推理</span><span data-en>Reasoning</span></li><li><span data-zh>MoE 稀疏</span><span data-en>Sparse MoE</span></li><li><span data-zh>apache-2.0</span><span data-en>Apache-2.0</span></li></ul>
           <div class="scard-stats">
             <span><b>1</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -968,12 +987,12 @@
           <div class="scard-lic"><span class="lic lic-loose">mit</span> <span class="lic lic-loose">mit</span> <span class="t-tag is-cyan"><span data-zh>国外出品</span><span data-en>foreign-made</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state"><span data-zh>未见于备案名单</span><span data-en>not in filing list</span></span></div>
           <p class="scard-go"><span data-zh>看该选哪一档 →</span><span data-en>Which tier to pick →</span></p>
         </a>
-        <a class="scard" href="series/qwen3-8/" data-lic="apache-2.0 other" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="千问 3.8 qwen3.8 阿里 · 通义千问 alibaba qwen 阿里千问系列，本站收录 27b 密集模型与 flash-next 的量化信息；收录不代表性能排名。 通用对话 工具调用 长上下文 中文强项">
+        <a class="scard" href="series/qwen3-8/" data-lic="apache-2.0 other" data-cn-origin="domestic" data-cn-direct="yes" data-cn-filing="filed" data-blob="千问 3.8 qwen3.8 阿里 · 通义千问 alibaba qwen 阿里千问系列，这里有 27b 密集模型与 flash-next 的量化信息；有覆盖不代表性能排名。 通用对话 工具调用 长上下文 中文强项">
           <div class="scard-h">
             <h3><span data-zh>千问 3.8</span><span data-en>Qwen3.8</span></h3>
             <span class="scard-vendor"><span data-zh>阿里 · 通义千问</span><span data-en>Alibaba Qwen</span></span>
           </div>
-          <p class="scard-sum"><span data-zh>阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；收录不代表性能排名。</span><span data-en>Alibaba&#39;s Qwen series, with quantisation information for the dense 27B model and Flash-Next. Inclusion is not a performance ranking.</span></p>
+          <p class="scard-sum"><span data-zh>阿里千问系列，这里有 27B 密集模型与 Flash-Next 的量化信息；有覆盖不代表性能排名。</span><span data-en>Alibaba&#39;s Qwen series, with quantisation information for the dense 27B model and Flash-Next. Inclusion is not a performance ranking.</span></p>
           <ul class="scard-pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>工具调用</span><span data-en>Tool use</span></li><li><span data-zh>长上下文</span><span data-en>Long context</span></li><li><span data-zh>中文强项</span><span data-en>Strong Chinese</span></li></ul>
           <div class="scard-stats">
             <span><b>2</b> <span data-zh>规格</span><span data-en>sizes</span></span>
@@ -1048,11 +1067,9 @@
     </section>
 
     <section class="legal-note">
-      <h3><span data-zh>数据来源与法律立场</span><span data-en>Sources and legal position</span></h3>
-      <p><span data-zh>数据来自</span><span data-en>Data comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API（模型元数据 + 文件体积），采集</span><span data-en>public API (model metadata + file sizes), collected</span><span data-zh>时间</span><span data-en>at</span> <code>2026-10-30</code><span data-zh>，为快照数据而非实时。</span><span data-en>; this is a snapshot, not live data.</span></p>
-      <p><span data-zh><b>本站不跑 benchmark，不给质量与速度结论。</b>凡涉及主观判断处均标注「我们的口径」。</span><span data-en><b>This site does not run benchmarks and does not draw quality or speed conclusions.</b> Every place we offer a judgement is marked as our own reading.</span></p>
-      <p><b><span data-zh>不下载、不托管任何权重文件</span><span data-en>No weight files are downloaded or hosted here</span></b><span data-zh>；许可原样引自发布页，本站不解读许可、不构成法律意见，一切以</span><span data-en>; licences are quoted verbatim from release pages, this site does not interpret them or give legal advice, and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
-      <p><span data-zh>系列选择依据四维打分（量化热度 40 / 量化广度 25 / 规模可及性 20 / 新鲜度 15），方法与落选名单见 </span><span data-en>Series selection uses a four-factor score (quantisation heat 40 / coverage 25 / size reachability 20 / freshness 15); the method and the rejected candidates are documented in </span><a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>数据仓 METHODOLOGY.md ↗</span><span data-en>the data repo's METHODOLOGY.md ↗</span></a><span data-zh>。</span><span data-en>.</span></p>
+      <h3><span data-zh>资料与许可</span><span data-en>Sources and licences</span></h3>
+      <p><span data-zh>资料来自</span><span data-en>Data comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开页面，更新到</span><span data-en>public pages, updated</span> <code>2026-10-30</code><span data-zh>。许可和文件大小以发布页为准。</span><span data-en>. Licences and file sizes follow the release pages.</span></p>
+      <p><span data-zh>模型权重不在这里托管，下载请回发布页。</span><span data-en>Model weights are not hosted here — download from the release pages.</span></p>
     </section>
   </div>
   <!-- B2：系列筛选（脚本在 site-filter.js，读 .sfilter 作用域） -->

@@ -13,8 +13,8 @@
   <meta property="og:description" content="MiniCPM 5（面壁智能 · OpenBMB）的第三方 GGUF 量化版本对比：1 个规格、10 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../../brand.css?v=afb8bddd659c" />
+  <script src="../../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"MiniCPM 5 GGUF 量化版本索引","description":"国产小尺寸代表，2B 规模适合低显存与端侧。","url":"https://models.specul.com/series/minicpm5/","isAccessibleForFree":true,"temporalCoverage":"2026-10-30"}</script>
 </head>
@@ -100,27 +100,6 @@
       <ul class="pos"><li><span data-zh>端侧</span><span data-en>On-device</span></li><li><span data-zh>小尺寸</span><span data-en>Small sizes</span></li><li><span data-zh>中文强项</span><span data-en>Strong Chinese</span></li></ul>
       <nav class="member-nav"><a href="#m0"><span data-zh>MiniCPM5 2B</span><span data-en>MiniCPM5 2B</span></a></nav>
     </header>
-    <section class="trust">
-      <h2><span data-zh>先说清楚：这个站的数据怎么来的</span><span data-en>First, where this site's data comes from</span></h2>
-      <div class="trust-grid">
-        <div class="trust-item t-a">
-          <span class="trust-tag">✅ <span data-zh>实测字段</span><span data-en>Measured fields</span></span>
-          <p><span data-zh>直接从 Hugging Face 公开 API 读取的客观数据：文件体积（字节）、上下文长度、架构、许可、下载量、更新时间。</span><span data-en>Objective data read straight from the Hugging Face public API: file sizes in bytes, context length, architecture, licence, downloads, last updated.</span></p>
-        </div>
-        <div class="trust-item t-b">
-          <span class="trust-tag">✅ <span data-zh>推导</span><span data-en>Derived</span></span>
-          <p><span data-zh>由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存需求区间。推导规则在</span><span data-en>Computed from the collected fields by published rules: bits per weight (per the llama.cpp naming convention), tier assignment, VRAM requirement range. The rules are fully published in</span> <code>METHODOLOGY.md</code><span data-zh> 完整公开，任何人可复算。</span><span data-en> — anyone can recompute them.</span></p>
-        </div>
-        <div class="trust-item t-c">
-          <span class="trust-tag">❌ <span data-zh>我们不说的</span><span data-en>What we do not claim</span></span>
-          <p><span data-zh><b>哪个量化质量更高、哪个更快、哪个模型更强</b>——这些需要实测，本站不跑 benchmark，所以不装作知道。凡我们给出的主观判断，一律显式标注「我们的口径」。</span><span data-en><b>Which quantisation is higher quality, which is faster, which model is stronger</b> — these need measurement. This site does not run benchmarks, so it does not pretend to know. Every subjective judgement we do offer is explicitly marked as our own reading.</span></p>
-        </div>
-      </div>
-      <p class="trust-foot">
-        <span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>。所有数字都来自公开元数据，点击即可回到发布页核对。</span><span data-en>. Every figure comes from public metadata, and clicking it takes you back to the release page to verify.</span>
-        <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-30</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
-      </p>
-    </section>
 
     <section class="fam-sec cn-sec">
       <h2><span data-zh>中文生态</span><span data-en>China availability</span> <small><span data-zh>国产 / 国内可直接用 / 备案状态 · 快照</span><span data-en>domestic / direct access / CAC filing · snapshot</span> 2026-10-20</small></h2>
@@ -129,7 +108,7 @@
         <li><b><span data-zh>国内下载</span><span data-en>Direct access</span></b>　<span data-zh>国内可直连</span><span data-en>direct OK</span>　<span data-zh>ModelScope 官方镜像直连可达（2026-10-20 实测 200）；Hugging Face 直连不可达。</span><span data-en>Official ModelScope mirror reachable (measured 200); Hugging Face direct unreachable.</span>　·　<a href="https://www.modelscope.cn/models/OpenBMB/MiniCPM5-2B" target="_blank" rel="noopener"><span data-zh>国内镜像入口</span><span data-en>domestic mirror</span></a></li>
         <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>已备案</span><span data-en>Filed</span>：<code>Beijing-MiniCPM-202503180058</code>　<span data-zh>公示名称</span><span data-en>listed as</span><span lang="zh-CN" data-source-name>「MiniCPM」</span>　·　<span data-zh>备案时间</span><span data-en>filed</span> 2025-04-10　·　<span data-zh>2025-06 批次附件第 351 行；此前「面壁露卡 LUCA」也在首批（Beijing-LuKa-20231016）。</span><span data-en>Row 351 of the 2025-06 batch attachment; ModelBest’s “LuCa” was also in the first batch (Beijing-LuKa-20231016).</span></li>
       </ul>
-      <p class="fam-claims-note"><span data-zh>备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站探测环境中的可达性记录，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site's own reachability measurement from a mainland network, not a vendor promise.</span></p>
+      <p class="fam-claims-note"><span data-zh>备案信息按网信办《生成式人工智能服务已备案信息》公示名单抄编号；「国内可直连」是在本地网络实际打开过一次的记录，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry by number. "Direct access" means the page opened once from a mainland network — not a vendor promise.</span></p>
       <ul class="fam-src-list cn-srcs"><li><span data-zh>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：</span><span data-en>CAC · filed generative-AI service information (rolling announcement page, 13 batch attachment PDFs, full download &amp; search on 2026-10-20): </span><a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li><span data-zh>ModelScope 官方镜像 OpenBMB/MiniCPM5-2B（2026-10-20 实测 200）：</span><span data-en>ModelScope official mirror OpenBMB/MiniCPM5-2B (200 verified on 2026-10-20): </span><a href="https://www.modelscope.cn/models/OpenBMB/MiniCPM5-2B" target="_blank" rel="noopener">https://www.modelscope.cn/models/OpenBMB/MiniCPM5-2B</a></li></ul>
     </section>
       <section class="member" id="m0">
@@ -145,7 +124,7 @@
         <tbody>
           <tr><th><span data-zh>官网标注</span><span data-en>Vendor states</span></th><td><b><span data-zh>2.5B 密集</span><span data-en>2.5B dense</span></b></td></tr>
           <tr><th><span data-zh>官方 API 申报</span><span data-en>Official API</span></th><td><span class="muted">—</span></td></tr>
-          <tr><th><span data-zh>本站实测反推</span><span data-en>This site, measured</span></th><td><span class="muted">—</span></td></tr>
+          <tr><th><span data-zh>从文件体积反推</span><span data-en>This site, measured</span></th><td><span class="muted">—</span></td></tr>
         </tbody>
       </table></td></tr>
         <tr><th><span data-zh>权重精度构成</span><span data-en>Precision breakdown</span></th><td><span class="muted">—</span></td></tr>
@@ -790,11 +769,11 @@
         <span class="tier-legend-i tier-3"><span data-zh>长上下文</span><span data-en>Long context</span></span>
         <span class="tier-legend-i tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span>
       </p>
-      <p class="muted small"><span data-zh>「建议档」是本站按<b>体积最小且落在平衡档</b>的规则自动选出的，不是质量排名。官方量化排在最前；带 <span class="badge badge-im">imatrix</span> 标记的仓库带重要性矩阵数据。</span><span data-en>The recommended tier is picked by rule — smallest size that still lands in the balanced tier — not by a quality ranking. Official quantisations are listed first; repos marked <span class="badge badge-im">imatrix</span> ship an importance matrix.</span></p>
+      <p class="muted small"><span data-zh>「建议档」是按<b>体积最小、又落在平衡档</b>的规则选出来的，不是质量排名。官方量化排在最前；带 <span class="badge badge-im">imatrix</span> 标记的仓库带重要性矩阵数据。</span><span data-en>The recommended tier is picked by rule — smallest size that still lands in the balanced tier — not by a quality ranking. Official quantisations are listed first; repos marked <span class="badge badge-im">imatrix</span> ship an importance matrix.</span></p>
         </div>
         <div class="block" id="d0">
           <h4><span class="blk">D</span><span data-zh>每个变体详解</span><span data-en>Every variant in detail</span> <small><span data-zh>七字段</span><span data-en>seven fields</span></small></h4>
-      <p class="block-lead"><span data-zh>每个变体按七个字段展开：它是什么 → 量化者做了什么 → 与同系列其他变体的区别 → 存在的意义 → 优势 → 为什么选它 → 已知取舍。<b>最后一项是本站唯一会写主观判断的地方，且都标注了「我们的口径」。</b></span><span data-en>Each variant expands along seven fields: what it is → what the quantiser did → how it differs from other variants in this series → why it exists → strengths → why you would pick it → known trade-offs.<b>The last field is the only place this site offers a subjective judgement, and every item is marked as our own reading.</b></span></p>
+      <p class="block-lead"><span data-zh>每个变体按七个字段展开：它是什么 → 量化者做了什么 → 与同系列其他变体的区别 → 存在的意义 → 优势 → 为什么选它 → 已知取舍。<b>最后一项写的是取舍判断：经验之谈，不是实测结论。</b></span><span data-en>Each variant expands along seven fields: what it is → what the quantiser did → how it differs from other variants in this series → why it exists → strengths → why you would pick it → known trade-offs.<b>The last field is the only place this site offers a subjective judgement, and every item is marked as our own reading.</b></span></p>
       <div class="vwrap">
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
@@ -904,7 +883,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>提供 Q4_K_M 等量化候选。请核对基座版本、量化说明、校验值与运行器支持；第三方身份本身不说明质量高低。</span><span data-en>Provides quantisation candidates such as Q4_K_M. Check base version, method, checksums and runtime support; third-party status alone does not determine quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>元数据记录了 imatrix；质量仍需结合校准资料与任务评估</span><span data-en>Metadata records an imatrix; quality still requires calibration details and task evaluation</span><br>· <span data-zh>规则候选为 <code>Q4_K_M</code>（1.6 GB），不构成性能结论</span><span data-en>Rule-based candidate: <code>Q4_K_M</code> (1.6 GB), not a performance finding</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>文件体积候选为 <code>Q4_K_M</code>（1.6 GB，平衡档）。先用<a href="../../guides/gpu-cost-math.html">容量预算</a>核对缓存、并发与系统开销，再查发布说明中的版本兼容性。</span><span data-en>File-size candidate: <code>Q4_K_M</code> (1.6 GB, Balanced). Check cache, concurrency and system overhead with the <a href="../../guides/gpu-cost-math.html">capacity budget</a>, then verify version compatibility in the release notes.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>本站未评估该版本的质量、吞吐与全部兼容性；元数据完整不等于适合你的任务</span><span data-en>This build’s quality, throughput and complete compatibility have not been evaluated here; complete metadata does not establish suitability for your task</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>这里没有评估该版本的质量、吞吐和全部兼容性；元数据完整，不等于适合你的任务</span><span data-en>This build’s quality, throughput and complete compatibility have not been evaluated here; complete metadata does not establish suitability for your task</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="abenzerps" data-lic="apache-2.0" data-tiers="极限压缩 长上下文优先 平衡档 保守档 近似无损" data-blob="abenzerps abenzerps/minicpm5-2b-gguf apache-2.0">
           <header class="vcard-h">
@@ -921,7 +900,7 @@
         <div class="vf"><span class="vf-k"><span data-zh>存在的意义</span><span data-en>Why it exists</span></span><span class="vf-v"><span data-zh>提供 Q4_K_M 等量化候选。请核对基座版本、量化说明、校验值与运行器支持；第三方身份本身不说明质量高低。</span><span data-en>Provides quantisation candidates such as Q4_K_M. Check base version, method, checksums and runtime support; third-party status alone does not determine quality.</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>优势</span><span data-en>Strengths</span></span><span class="vf-v">· <span data-zh>元数据记录了 imatrix；质量仍需结合校准资料与任务评估</span><span data-en>Metadata records an imatrix; quality still requires calibration details and task evaluation</span><br>· <span data-zh>规则候选为 <code>Q4_K_M</code>（1.6 GB），不构成性能结论</span><span data-en>Rule-based candidate: <code>Q4_K_M</code> (1.6 GB), not a performance finding</span></span></div>
         <div class="vf"><span class="vf-k"><span data-zh>为什么选它 / 目的</span><span data-en>Why you would pick it / its purpose</span></span><span class="vf-v"><span data-zh>文件体积候选为 <code>Q4_K_M</code>（1.6 GB，平衡档）。先用<a href="../../guides/gpu-cost-math.html">容量预算</a>核对缓存、并发与系统开销，再查发布说明中的版本兼容性。</span><span data-en>File-size candidate: <code>Q4_K_M</code> (1.6 GB, Balanced). Check cache, concurrency and system overhead with the <a href="../../guides/gpu-cost-math.html">capacity budget</a>, then verify version compatibility in the release notes.</span></span></div>
-        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>本站未评估该版本的质量、吞吐与全部兼容性；元数据完整不等于适合你的任务</span><span data-en>This build’s quality, throughput and complete compatibility have not been evaluated here; complete metadata does not establish suitability for your task</span></span></div>
+        <div class="vf"><span class="vf-k"><span data-zh>已知取舍</span><span data-en>Known trade-offs</span></span><span class="vf-v">· <span data-zh>这里没有评估该版本的质量、吞吐和全部兼容性；元数据完整，不等于适合你的任务</span><span data-en>This build’s quality, throughput and complete compatibility have not been evaluated here; complete metadata does not establish suitability for your task</span></span></div>
         </article>
         <article class="vcard" data-tier="2" data-q="WhiskyAKM" data-lic="apache-2.0" data-tiers="平衡档 保守档 近似无损" data-blob="whiskyakm whiskyakm/minicpm5-2b-gguf apache-2.0">
           <header class="vcard-h">
@@ -982,7 +961,7 @@
         <article class="qcard">
           <h4><code>openbmb</code> <span class="muted small"><span data-zh>模型方发布的 GGUF，仍需核对版本与运行器支持</span><span data-en>Published by the model authors themselves</span></span></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 277k 下载</span><span data-en>In this series: 1 repos · 277k downloads</span><span data-zh> · <b>含官方仓</b></span><span data-en> · <b>includes the official repo</b></span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p&gt;模型方发布的 GGUF，仍需核对版本与运行器支持&lt;/p&gt;&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p&gt;Published by the model authors themselves&lt;/p&gt;&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p&gt;模型方发布的 GGUF，仍需核对版本与运行器支持&lt;/p&gt;&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p&gt;Published by the model authors themselves&lt;/p&gt;&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/openbmb" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
@@ -1012,43 +991,43 @@
         <article class="qcard">
           <h4><code>Mungert</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 2k 下载</span><span data-en>In this series: 1 repos · 2k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/Mungert" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>NANI-Nithin</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 1k 下载</span><span data-en>In this series: 1 repos · 1k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/NANI-Nithin" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>eaddario</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 1k 下载</span><span data-en>In this series: 1 repos · 1k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/eaddario" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>ngquocvinh</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 1k 下载</span><span data-en>In this series: 1 repos · 1k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/ngquocvinh" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>abenzerps</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 929 下载</span><span data-en>In this series: 1 repos · 929 downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/abenzerps" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>WhiskyAKM</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 849 下载</span><span data-en>In this series: 1 repos · 849 downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/WhiskyAKM" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>Abiray</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 816 下载</span><span data-en>In this series: 1 repos · 816 downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/Abiray" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
@@ -1131,12 +1110,12 @@
           <span class="muted"><span data-zh>更新了 30 个档位</span><span data-en>updated 30 tiers</span></span>
         </li>
       </ul>
-      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>openbmb/MiniCPM5-2B</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-09-29　·　<span data-zh>本站采集时间：</span><span data-en>collected:</span> 2026-10-30</p>
+      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>openbmb/MiniCPM5-2B</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-09-29　·　<span data-zh>资料时间：</span><span data-en>data as of:</span> 2026-10-30</p>
         </div>
       </section>
     <section class="companion">
       <h2><span data-zh>下好之后用什么跑</span><span data-en>What runs it</span></h2>
-      <p class="block-lead"><span data-zh>本站只负责「该下哪一档」。跑起来是另一件事 —— 下面这几个工具<b>自己的文档里写明了支持本地模型</b>（Ollama / vLLM / llama.cpp / LM Studio），点进去看具体怎么接。</span><span data-en>This site only answers which tier to download. Running it is a different problem — the tools below <b>document local-model support in their own docs</b> (Ollama / vLLM / llama.cpp / LM Studio). Follow the link to see how.</span></p>
+      <p class="block-lead"><span data-zh>这里只回答「该下哪一档」。跑起来是另一件事 —— 下面这几个工具<b>自己的文档里写明了支持本地模型</b>（Ollama / vLLM / llama.cpp / LM Studio），点进去看具体怎么接。</span><span data-en>This site only answers which tier to download. Running it is a different problem — the tools below <b>document local-model support in their own docs</b> (Ollama / vLLM / llama.cpp / LM Studio). Follow the link to see how.</span></p>
       <div class="comp-grid">
         <a class="comp-card" href="https://tools.specul.com/coding/crush.html">
           <b><span data-zh>Crush</span><span data-en>Crush</span></b>
@@ -1163,15 +1142,15 @@
           <span><span data-zh>命令行里可切本地 LLM，不绑厂商</span><span data-en>Switches to a local LLM from the terminal, no vendor lock-in</span></span>
         </a>
       </div>
-      <p class="muted small"><span data-zh>这些条目的本地模型支持情况由它们自己的官方文档佐证；本站不实测。</span><span data-en>Local-model support for each entry is evidenced by that project official documentation. This site runs no measurements.</span></p>
+      <p class="muted small"><span data-zh>这些条目的本地模型支持，都能在它们自己的官方文档里找到；这里没有跑过实测。</span><span data-en>Local-model support for each entry is evidenced by that project official documentation. This site runs no measurements.</span></p>
     </section>
 
 
     <section class="legal-note">
       <h3><span data-zh>关于数据与许可</span><span data-en>Data and licensing</span></h3>
-      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-30</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
-      <p><span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>，只提供发布页链接。许可字段原样引自发布页，</span><span data-en> — it only links to release pages. Licence fields are quoted verbatim from them,</span> <b><span data-zh>本站不解读许可条款、不构成法律意见</span><span data-en>this site does not interpret licence terms or give legal advice</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
-      <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
+      <p><span data-zh>这里的资料来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开页面，更新到</span><span data-en>public pages, updated</span> <code>2026-10-30</code><span data-zh>。</span><span data-en>.</span></p>
+      <p><span data-zh>模型权重不在这里托管，只提供发布页链接。许可字段原样引自发布页，</span><span data-en>Model weights are not hosted here — only links to release pages. Licence fields are quoted verbatim,</span> <b><span data-zh>条款以原文为准，这里不给法律意见</span><span data-en>the licence text is authoritative, and no legal advice is given here</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
+      <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。这里与上述厂商没有隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
     </section>
   </div>
   <!-- B2：量化仓筛选（脚本在 site-filter.js，读 .vwrap 作用域） -->

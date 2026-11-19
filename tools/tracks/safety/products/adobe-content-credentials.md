@@ -80,7 +80,7 @@ link:
 
 last_verified: 2026-11-06
 last_updated: 2026-11-06
-lifecycle: unknown
+lifecycle: active
 confidence: partial
 
 cn:

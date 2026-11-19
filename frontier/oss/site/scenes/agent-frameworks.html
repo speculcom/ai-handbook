@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Agent 框架与编排 · 开源 AI 工具库</title>
-  <meta name="description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 6 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta name="description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 10 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <link rel="canonical" href="https://oss.specul.com/scenes/agent-frameworks.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Agent 框架与编排 · 开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/scenes/agent-frameworks.html" />
   <meta property="og:title" content="Agent 框架与编排 · 开源 AI 工具库" />
-  <meta property="og:description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 6 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta property="og:description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 10 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="../brand.css?v=8e209a2fd1c9" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../oss.css" />
 </head>
@@ -102,10 +102,10 @@
   <a class="btn" href="../compare.html?ids=langgraph,crewai,autogen">并排对比前 3 个</a>
   <a class="btn" href="../index.html">回首页</a>
 </div>
-<div class="stats"><div><b>6</b><span>个场景精选</span></div><div><b>适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。</b><span>适合谁</span></div></div>
+<div class="stats"><div><b>10</b><span>个场景精选</span></div><div><b>适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。</b><span>适合谁</span></div></div>
 <div class="section-head"><h2>怎么选</h2></div>
 <div class="note">• 流程有分支、重试、人工确认：先看 LangGraph。<br>• 第一次搭多 agent、想快速跑分工：CrewAI 更直观。<br>• 想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。<br><b>不适合：</b>不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。</div>
-<div class="section-head"><h2>6 个仓库</h2><span class="sub">按上手顺序，不是按 star</span></div>
+<div class="section-head"><h2>10 个仓库</h2><span class="sub">按上手顺序，不是按 star</span></div>
 <div class="repo-grid"><article class="repo-card" data-id="langgraph" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="langgraph 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 python mit 有状态图">
   <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-prod">生产可用</span></div>
   <h3 class="repo-name"><a href="../repos/langgraph.html">LangGraph</a></h3>
@@ -178,16 +178,64 @@
     <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
   </dl>
   <a class="repo-link" href="../repos/smolagents.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="mem0" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="mem0 给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。 python apache-2.0 记忆层">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-prod">生产可用</span></div>
+  <h3 class="repo-name"><a href="../repos/mem0.html">Mem0</a></h3>
+  <p class="repo-owner">mem0ai / mem0</p>
+  <p>给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>69.2k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/mem0.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="zep" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="zep 面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。 python apache-2.0 记忆服务">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-prod">生产可用</span></div>
+  <h3 class="repo-name"><a href="../repos/zep.html">Zep</a></h3>
+  <p class="repo-owner">getzep / zep</p>
+  <p>面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>5.0k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-17</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/zep.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="browser-use" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="browser use 让 llm 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。 python mit 浏览器 agent">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-start">先试这个</span></div>
+  <h3 class="repo-name"><a href="../repos/browser-use.html">Browser Use</a></h3>
+  <p class="repo-owner">browser-use / browser-use</p>
+  <p>让 LLM 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>121.5k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/browser-use.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="stagehand" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="niche" data-search="stagehand typescript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。 typescript mit 浏览器自动化">
+  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-niche">特定场景</span></div>
+  <h3 class="repo-name"><a href="../repos/stagehand.html">Stagehand</a></h3>
+  <p class="repo-owner">browserbase / stagehand</p>
+  <p>TypeScript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>TypeScript</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>26.1k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/stagehand.html">看仓库卡 →</a>
 </article></div>
 <div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
-<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/langgraph.html">LangGraph</a></th><th><a href="../repos/crewai.html">CrewAI</a></th><th><a href="../repos/autogen.html">AutoGen</a></th><th><a href="../repos/openai-agents.html">OpenAI Agents SDK</a></th><th><a href="../repos/pydantic-ai.html">Pydantic AI</a></th><th><a href="../repos/smolagents.html">smolagents</a></th></tr></thead><tbody>
-<tr><td>上手层</td><td>生产可用</td><td>先试这个</td><td>生产可用</td><td>先试这个</td><td>轻量</td><td>轻量</td></tr>
-<tr><td>语言</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td></tr>
-<tr><td>许可</td><td>MIT</td><td>MIT</td><td>CC-BY-4.0</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td></tr>
-<tr><td>Stars</td><td>45.1k</td><td>61.1k</td><td>61.9k</td><td>30.8k</td><td>21.3k</td><td>30.4k</td></tr>
-<tr><td>最近推送</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-12</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-18</td></tr>
-<tr><td>适合</td><td>状态机结构清楚，适合需要分支、重试与人工确认的长流程。</td><td>角色、任务、流程三个概念直观，第一次搭多 agent 容易理解。</td><td>多 agent 对话与协作抽象成熟，适合研究型与复杂任务。</td><td>概念少，代码结构清楚，适合从零写一个可维护的 agent。</td><td>类型安全，结构化输出与工具参数不容易写错。</td><td>代码即动作，工具组合灵活，适合实验。</td></tr>
-<tr><td>不适合</td><td>只做单轮问答或简单 prompt 链，没必要上图。</td><td>需要极细粒度状态控制或复杂回滚，图结构更合适。</td><td>版本迭代快，接口变化需要跟。</td><td>需要复杂图状态与持久化，LangGraph 更合适。</td><td>想要大量现成多 agent 角色模板，CrewAI 更直接。</td><td>生产级权限与沙箱要自己补。</td></tr>
+<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/langgraph.html">LangGraph</a></th><th><a href="../repos/crewai.html">CrewAI</a></th><th><a href="../repos/autogen.html">AutoGen</a></th><th><a href="../repos/openai-agents.html">OpenAI Agents SDK</a></th><th><a href="../repos/pydantic-ai.html">Pydantic AI</a></th><th><a href="../repos/smolagents.html">smolagents</a></th><th><a href="../repos/mem0.html">Mem0</a></th><th><a href="../repos/zep.html">Zep</a></th><th><a href="../repos/browser-use.html">Browser Use</a></th><th><a href="../repos/stagehand.html">Stagehand</a></th></tr></thead><tbody>
+<tr><td>上手层</td><td>生产可用</td><td>先试这个</td><td>生产可用</td><td>先试这个</td><td>轻量</td><td>轻量</td><td>生产可用</td><td>生产可用</td><td>先试这个</td><td>特定场景</td></tr>
+<tr><td>语言</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>TypeScript</td></tr>
+<tr><td>许可</td><td>MIT</td><td>MIT</td><td>CC-BY-4.0</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>MIT</td><td>MIT</td></tr>
+<tr><td>Stars</td><td>45.1k</td><td>61.1k</td><td>61.9k</td><td>30.8k</td><td>21.3k</td><td>30.4k</td><td>69.2k</td><td>5.0k</td><td>121.5k</td><td>26.1k</td></tr>
+<tr><td>最近推送</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-12</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-17</td><td>2026-11-18</td><td>2026-11-19</td></tr>
+<tr><td>适合</td><td>状态机结构清楚，适合需要分支、重试与人工确认的长流程。</td><td>角色、任务、流程三个概念直观，第一次搭多 agent 容易理解。</td><td>多 agent 对话与协作抽象成熟，适合研究型与复杂任务。</td><td>概念少，代码结构清楚，适合从零写一个可维护的 agent。</td><td>类型安全，结构化输出与工具参数不容易写错。</td><td>代码即动作，工具组合灵活，适合实验。</td><td>把“记住什么”和“怎么检索”拆成独立层，不用在每个 agent 里重写。</td><td>把会话历史压缩成摘要 + 事实 + 图关系，减少上下文膨胀。</td><td>把浏览器操作封装成 agent 工具，适合网页型任务。</td><td>TypeScript 生态友好，适合前端/Node 团队。</td></tr>
+<tr><td>不适合</td><td>只做单轮问答或简单 prompt 链，没必要上图。</td><td>需要极细粒度状态控制或复杂回滚，图结构更合适。</td><td>版本迭代快，接口变化需要跟。</td><td>需要复杂图状态与持久化，LangGraph 更合适。</td><td>想要大量现成多 agent 角色模板，CrewAI 更直接。</td><td>生产级权限与沙箱要自己补。</td><td>只是单轮问答、没有跨会话记忆需求，不必加一层。</td><td>只需要短期对话缓存，用普通上下文窗口就够。</td><td>不需要登录、只读 API 就能完成的任务，优先用 API。</td><td>纯 Python 团队先用 Browser Use 更顺。</td></tr>
 </tbody></table></div>
 </div>
   </main>

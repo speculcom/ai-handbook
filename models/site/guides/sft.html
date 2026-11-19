@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>SFT：让续写机器学会「好好回答」 · 做模型专题</title>
-  <meta name="description" content="监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta name="description" content="监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。（资料更新到 2026-10-20，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/sft.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="SFT：让续写机器学会「好好回答」 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/sft.html" />
   <meta property="og:title" content="SFT：让续写机器学会「好好回答」 · 做模型专题" />
-  <meta property="og:description" content="监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta property="og:description" content="监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。（资料更新到 2026-10-20，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"SFT: teaching a completion machine to answer well","description":"What supervised fine-tuning adds after pre-training — where instruction data comes from, why quality beats quantity, and the limits of memory-savers like LoRA. Practitioner depth; the one-page explainer lives on the Learn site.","url":"https://models.specul.com/guides/sft.html","dateModified":"2026-10-20"}</script>
 </head>
@@ -117,7 +117,7 @@
 <span data-zh><p>InstructGPT（arXiv 2203.02155）的路线是外包标注员写示范回答，<br>成本高、规模小（SFT 阶段约一万多条）。</p>
 <p>FLAN（arXiv 2109.01652）走另一路：<br>把上百个传统 NLP 数据集改写成指令模板，让模型见遍任务形态。</p>
 <p>LLaMA 2（arXiv 2307.09288）混合两者，并加入自举：<br>用自家模型生成候选、人工筛，扩大数据量。</p>
-<p>现在开放权重家族的 SFT 配方多数只公开数量不公开来源明细，<br>本站按官方写明的部分转述；没写明的不猜。</p></span><span data-en><p>InstructGPT (arXiv 2203.02155) went with outsourced annotators writing the demonstration answers —<br>expensive and small-scale (a little over ten thousand examples in the SFT stage).</p>
+<p>现在开放权重家族的 SFT 配方多数只公开数量不公开来源明细，<br>这里按官方写明的部分转述；没写明的不猜。</p></span><span data-en><p>InstructGPT (arXiv 2203.02155) went with outsourced annotators writing the demonstration answers —<br>expensive and small-scale (a little over ten thousand examples in the SFT stage).</p>
 <p>FLAN (arXiv 2109.01652) took another route:<br>rewriting hundreds of classic NLP datasets into instruction templates so the model sees every task shape.</p>
 <p>LLaMA 2 (arXiv 2307.09288) mixes both and adds bootstrapping:<br>its own models generate candidates, humans filter them, scaling the data volume up.</p>
 <p>Today most open-weight families publish only the quantity of their SFT recipe, not the source breakdown;<br>this site transcribes what the official statements say and does not guess at what they leave out.</p></span>
@@ -134,7 +134,7 @@
       <h2><span data-zh>省显存微调：LoRA 与 QLoRA</span><span data-en>Memory-savers: LoRA and QLoRA</span></h2>
 <span data-zh><p>全参数微调要存全部梯度和优化器状态，显存翻倍不止。</p>
 <p>LoRA（arXiv 2106.09685）冻结基座权重，只训注入的低秩小矩阵。<br>可训参数降到千分之几，产物只有几十 MB，可以热插拔换装。</p>
-<p>QLoRA（arXiv 2305.14314）把基座压到 4-bit 再挂 LoRA，<br>单卡微调 30B/65B 成为可能——本站收录的不少社区微调模型走的就是这条路。</p>
+<p>QLoRA（arXiv 2305.14314）把基座压到 4-bit 再挂 LoRA，<br>单卡微调 30B/65B 成为可能——这里的不少社区微调模型走的就是这条路。</p>
 <p>边界要如实说：LoRA 改「表达与风格」效率高，往模型里灌新知识的效果弱于全参训练。<br>低秩增量装不下多少新事实。「用 LoRA 把私有知识库训进模型」通常是错的工具，<br>检索（RAG）才是常规解。</p></span><span data-en><p>Full-parameter fine-tuning has to store every gradient and optimiser state — memory more than doubles.</p>
 <p>LoRA (arXiv 2106.09685) freezes the base weights and trains only injected low-rank matrices.<br>Trainable parameters drop to a fraction of a percent, the artefact is tens of MB, and adapters can be hot-swapped.</p>
 <p>QLoRA (arXiv 2305.14314) squeezes the base to 4-bit before attaching LoRA,<br>making single-GPU fine-tuning of 30B/65B models possible — quite a few community fine-tunes listed on this site follow exactly this route.</p>
@@ -171,7 +171,7 @@
         <li><span data-zh>QLoRA 论文（arXiv 2305.14314，4-bit 基座 + LoRA 的微调路线，2026-10-20 直抓摘要页）</span><span data-en>QLoRA paper (arXiv 2305.14314, fine-tuning route with a 4-bit base + LoRA; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener">https://arxiv.org/abs/2305.14314</a></li>
         <li><span data-zh>OpenAI Cookbook · Finetuning 指南（官方微调教程与数据格式，2026-10-20 直抓 200）</span><span data-en>OpenAI Cookbook · Finetuning guide (official fine-tuning tutorial and data formats; fetched directly, HTTP 200, 2026-10-20)</span>：<a href="https://cookbook.openai.com/examples/openai_llm_cookbook" target="_blank" rel="noopener">https://cookbook.openai.com/examples/openai_llm_cookbook</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-20；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-20; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-20；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-20; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

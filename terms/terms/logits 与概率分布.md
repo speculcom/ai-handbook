@@ -12,6 +12,7 @@ purposeTag: "learn"
 level: 4
 layer: "四"
 ord: 22
+last_verified: "2026-11-19"
 ---
 
 # logits 与概率分布（Logits and Probability Distribution）

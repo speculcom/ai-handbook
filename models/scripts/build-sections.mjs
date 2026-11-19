@@ -14,7 +14,9 @@ fs.mkdirSync(path.join(site, 'evals', 'guides'), { recursive: true });
 
 const datasets = JSON.parse(fs.readFileSync(path.join(dataDir, 'datasets.json'), 'utf8'));
 const evals = JSON.parse(fs.readFileSync(path.join(dataDir, 'evals.json'), 'utf8'));
-const guides = JSON.parse(fs.readFileSync(path.join(dataDir, 'guides.json'), 'utf8')).dataGuides || JSON.parse(fs.readFileSync(path.join(dataDir, 'guides.json'), 'utf8'))['data-guides'];
+const guideData = JSON.parse(fs.readFileSync(path.join(dataDir, 'guides.json'), 'utf8'));
+const guides = guideData['data-guides'] || guideData.dataGuides || [];
+const evalGuides = guideData['eval-guides'] || [];
 
 const CATS = {
   pretrain: { zh: '预训练语料', en: 'Pretraining corpora', desc: '从网页、书籍、代码里洗出来的底座语料；先看许可、去重与语言分布。' },
@@ -87,7 +89,7 @@ function datasetHref(id) { return `${id}.html`; }
 <header class="sec-head">
   <p class="eyebrow">Models · Data</p>
   <h1>数据与训练语料</h1>
-  <p class="lede">数据集不是越大越好。先看许可与商用边界，再看规模口径、语言、质量与任务适配；这里收 24 张数据卡，按 8 类放，每张都写清“能做什么、不能做什么”。</p>
+  <p class="lede">数据集不是越大越好。先看许可与商用边界，再看规模口径、语言、质量与任务适配；这里收 ${datasets.length} 张数据卡，按 ${CAT_ORDER.length} 类放，每张都写清“能做什么、不能做什么”。</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 回模型站</a><a href="../evals/index.html">评测与榜单 →</a></div>
 <div class="home-stats">
@@ -108,7 +110,7 @@ ${allCards}
 </div>`;
   fs.writeFileSync(path.join(site, 'data', 'index.html'), page({
     title: '数据与训练语料 · AI 模型',
-    desc: '24 张数据集卡，按预训练、SFT、偏好、评测、RAG、多模态、代码领域、合成数据八类整理；每张写清许可、规模、获取方式与使用边界。',
+    desc: `${datasets.length} 张数据集卡，按预训练、SFT、偏好、评测、RAG、多模态、代码领域、合成数据八类整理；每张写清许可、规模、获取方式与使用边界。`,
     canonical: url('data/'),
     body
   }));
@@ -170,6 +172,12 @@ for (const d of datasets) {
   <p>${esc(d.quality)}</p>
   <h2>使用边界</h2>
   <p class="sec-caveat">${esc(d.caveat)}</p>
+${d.firstUse ? `<h2>第一次使用</h2>\n  <p>${esc(d.firstUse)}</p>` : ''}
+${d.pitfalls ? `<h2>常见坑</h2>\n  <p>${esc(d.pitfalls)}</p>` : ''}
+${d.cost ? `<h2>成本</h2>\n  <p>${esc(d.cost)}</p>` : ''}
+${d.notFor ? `<h2>不适合</h2>\n  <p>${esc(d.notFor)}</p>` : ''}
+${d.compare ? `<h2>对比与替代</h2>\n  <p>${esc(d.compare)}</p>` : ''}
+${d.verify ? `<h2>怎么验证</h2>\n  <p>${esc(d.verify)}</p>` : ''}
   <h2>下一步</h2>
   <ul>
     <li>打开来源页，下载数据集卡与许可原文，确认版本与获取条件。</li>
@@ -216,12 +224,12 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
 <header class="sec-head">
   <p class="eyebrow">Models · Evals</p>
   <h1>评测与榜单</h1>
-  <p class="lede">榜单不是模型排行榜。先看它测什么、题集什么时候发布、评委是谁、分数怎么算，再决定这个分数对你的选型有没有意义。这里收 20 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
+  <p class="lede">榜单不是模型排行榜。先看它测什么、题集什么时候发布、评委是谁、分数怎么算，再决定这个分数对你的选型有没有意义。这里收 ${evals.length} 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 回模型站</a><a href="../data/index.html">数据与语料 →</a></div>
 <div class="home-stats">
   <div><b>${evals.length}</b><span>个基准卡</span></div>
-  <div><b>1</b><span>篇读榜指南</span></div>
+  <div><b>${evalGuides.length}</b><span>篇读榜 / 评测指南</span></div>
   <div><b>0</b><span>个总分排名</span></div>
 </div>
 <div class="sec-note"><b>读榜四问：</b>测的是知识、推理还是任务完成？题目有没有被训练集见过？评委是谁、分数怎么算？能不能复现、成本多少？四问缺一，分数只能当参考。</div>
@@ -234,17 +242,17 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
     caveat: e.contamination,
     more: '看基准卡 →'
   })).join('')}</div>
-<div class="sec-grid">${card({
-    href: 'guides/read-leaderboard.html',
+<div class="sec-grid">${evalGuides.map((g) => card({
+    href: `guides/${g.id}.html`,
     tag: '指南',
-    title: '怎么读榜单',
-    desc: '先看测什么，再看谁在测；把“分数”翻译成“在什么条件下有意义”。',
+    title: g.title,
+    desc: g.lede,
     more: '读指南 →'
-  })}</div>
+  })).join('')}</div>
 </div>`;
   fs.writeFileSync(path.join(site, 'evals', 'index.html'), page({
     title: '评测与榜单 · AI 模型',
-    desc: '20 个常用 AI 评测基准：MMLU、GPQA、SWE-bench、LiveCodeBench、Chatbot Arena 等；写清测什么、污染风险、复现条件与成本，不做总分排名。',
+    desc: `${evals.length} 个常用 AI 评测基准：MMLU、GPQA、SWE-bench、LiveCodeBench、Chatbot Arena 等；写清测什么、污染风险、复现条件与成本，不做总分排名。`,
     canonical: url('evals/'),
     body
   }));
@@ -272,6 +280,11 @@ for (const e of evals) {
 <div class="sec-body">
   <h2>怎么读</h2>
   <p>${esc(e.note)}</p>
+${e.firstUse ? `<h2>第一次使用</h2>\n  <p>${esc(e.firstUse)}</p>` : ''}
+${e.pitfalls ? `<h2>常见坑</h2>\n  <p>${esc(e.pitfalls)}</p>` : ''}
+${e.notFor ? `<h2>不适合</h2>\n  <p>${esc(e.notFor)}</p>` : ''}
+${e.compare ? `<h2>对比与替代</h2>\n  <p>${esc(e.compare)}</p>` : ''}
+${e.verify ? `<h2>怎么验证</h2>\n  <p>${esc(e.verify)}</p>` : ''}
   <h2>下一步</h2>
   <ul>
     <li>打开榜单或论文页，确认题集版本、评分脚本与提交日期。</li>
@@ -290,8 +303,7 @@ for (const e of evals) {
 }
 
 // 评测指南
-{
-  const g = guides.find((x) => x.id === 'read-leaderboard') || guides[guides.length - 1];
+for (const g of evalGuides) {
   const body = `<div class="container">
 <header class="sec-detail">
   <p class="eyebrow">Models · Evals · 指南</p>
@@ -323,13 +335,13 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
   <a class="sec-door" href="data/index.html">
     <span class="k">Models · Data</span>
     <h2>数据与训练语料</h2>
-    <p>24 张数据集卡，按 8 类整理。先看许可与商用边界，再看规模、语言与任务适配。</p>
+    <p>${datasets.length} 张数据集卡，按 ${CAT_ORDER.length} 类整理。先看许可与商用边界，再看规模、语言与任务适配。</p>
     <span class="more">看数据卡 →</span>
   </a>
   <a class="sec-door" href="evals/index.html">
     <span class="k">Models · Evals</span>
     <h2>评测与榜单</h2>
-    <p>20 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
+    <p>${evals.length} 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
     <span class="more">看基准卡 →</span>
   </a>
 </div>
@@ -356,7 +368,7 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
   for (const d of datasets) urls.push(url(`data/${datasetHref(d.id)}`));
   for (const g of guides) urls.push(url(`data/guides/${g.id}.html`));
   for (const e of evals) urls.push(url(`evals/${e.id}.html`));
-  urls.push(url('evals/guides/read-leaderboard.html'));
+  for (const g of evalGuides) urls.push(url(`evals/guides/${g.id}.html`));
 
   const sitemapFile = path.join(site, 'sitemap.xml');
   let sitemap = fs.readFileSync(sitemapFile, 'utf8');
@@ -369,13 +381,13 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
   const llmsFile = path.join(site, 'llms.txt');
   let llms = fs.readFileSync(llmsFile, 'utf8');
   if (!llms.includes('## 数据与评测')) {
-    llms += `\n\n## 数据与评测\n- [数据与训练语料](${url('data/')}) — 24 张数据集卡，8 类；许可、规模、获取方式与使用边界。\n- [评测与榜单](${url('evals/')}) — 20 个基准，只写测什么与怎么读，不做总分排名。\n`;
+    llms += `\n\n## 数据与评测\n- [数据与训练语料](${url('data/')}) — ${datasets.length} 张数据集卡，${CAT_ORDER.length} 类；许可、规模、获取方式与使用边界。\n- [评测与榜单](${url('evals/')}) — ${evals.length} 个基准，只写测什么与怎么读，不做总分排名。\n`;
     fs.writeFileSync(llmsFile, llms);
   }
   const llmsEnFile = path.join(site, 'llms.en.txt');
   let llmsEn = fs.readFileSync(llmsEnFile, 'utf8');
   if (!llmsEn.includes('## Data and evals')) {
-    llmsEn += `\n\n## Data and evals\n- [Data and training corpora](${url('data/')}) — 24 dataset cards in 8 categories; licence, size, access and boundaries.\n- [Evals and leaderboards](${url('evals/')}) — 20 benchmarks; what they measure and how to read them, no composite ranking.\n`;
+    llmsEn += `\n\n## Data and evals\n- [Data and training corpora](${url('data/')}) — ${datasets.length} dataset cards in ${CAT_ORDER.length} categories; licence, size, access and boundaries.\n- [Evals and leaderboards](${url('evals/')}) — ${evals.length} benchmarks; what they measure and how to read them, no composite ranking.\n`;
     fs.writeFileSync(llmsEnFile, llmsEn);
   }
 }

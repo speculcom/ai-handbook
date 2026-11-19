@@ -52,7 +52,7 @@ link:
 
 last_verified: 2026-11-07
 last_updated: 2026-11-07
-lifecycle: unknown
+lifecycle: active
 confidence: partial
 cn:
   origin: foreign

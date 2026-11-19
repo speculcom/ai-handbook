@@ -1,7 +1,7 @@
 # automation 大类收录声明
 
 **主题**：AI 自动化与工作流——可视化/低代码搭 AI 工作流与 agent 的平台，自带运行时。
-定义与边界裁决见 [../../categories.md](../../categories.md) §7。
+定义与边界裁决见 [../../categories.md](../../categories.md) §8。
 
 ## 收录标准（三条全满足）
 

@@ -162,16 +162,16 @@ node scripts/build.mjs
 | 系列 | 厂商 | 发布时间 | 模型仓 | 量化档 | 规模 |
 |---|---|---|---|---|---|
 | [DeepSeek V4](data/series/deepseek-v4.json) | DeepSeek | 2026-09-10 | 1 | 5 | MIT 许可，量化生态活跃，antirez（Redis 作者、llama.cp… |
-| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。 |
+| [Gemma 4](data/series/gemma-4.json) | Google | 2026-06 | 3 | 26 | Google 开放权重系列，三种规格各自都有量化覆盖。 |
 | [GLM 5](data/series/glm-5.json) | 智谱 AI | 2026-08-25 | 2 | 13 | 智谱开放权重系列；不同规格的许可分别标注，部署前核对对应版本与容量需求。 |
-| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决… |
+| [gpt-oss](data/series/gpt-oss.json) | OpenAI | 2025-08-04 | 1 | 6 | OpenAI 开放权重系列，这里有 20B 规格的量化信息；能不能单卡跑，取决… |
 | [KAT Coder V2.5](data/series/kat-coder.json) | Kwaipilot | 2026-07-23 | 1 | 6 | 面向代码的开放权重系列，apache-2.0，34 个第三方量化仓。 |
 | [Kimi K3](data/series/kimi-k3.json) | 月之暗面 | 2026-06-13 | 1 | 10 | 月之暗面开放权重系列，快照收录 41 家量化仓；数量不代表模型质量或运行兼容性。 |
 | [Laguna 2.1](data/series/laguna.json) | Poolside | 2026-06-20 | 1 | 6 | 代码方向的开放权重系列，许可为 OpenMDW-1.1（使用前须读原文）。 |
 | [MiniCPM 5](data/series/minicpm5.json) | 面壁智能 · OpenBMB | 2026-08-27 | 1 | 10 | 国产小尺寸代表，2B 规模适合低显存与端侧。 |
 | [Muse Glimmer](data/series/muse-glimmer.json) | Meta | 2026-08-09 | 1 | 10 | Meta 的开放权重系列，apache-2.0，量化覆盖横跨多家主力量化者。 |
 | [Ornith 1.5](data/series/ornith-1-5.json) | Ornith AI | 2026-08-18 | 2 | 20 | 模型卡标注 MIT 许可，两个规格都有 GGUF 量化覆盖；具体文件与版本见下… |
-| [千问 3.8](data/series/qwen3-8.json) | 阿里 · 通义千问 | 2026-08-05 | 2 | 17 | 阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；… |
+| [千问 3.8](data/series/qwen3-8.json) | 阿里 · 通义千问 | 2026-08-05 | 2 | 17 | 阿里千问系列，这里有 27B 密集模型与 Flash-Next 的量化信息；有… |
 
 <!-- INDEX:END -->
 

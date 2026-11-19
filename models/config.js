@@ -19,7 +19,7 @@ export const SERIES = [
     vendor: { zh: '阿里 · 通义千问', en: 'Alibaba Qwen' },
     family: 'qwen',
     released: '2026-08-05',
-    summary: '阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；收录不代表性能排名。',
+    summary: '阿里千问系列，这里有 27B 密集模型与 Flash-Next 的量化信息；有覆盖不代表性能排名。',
     positions: ['通用对话', '工具调用', '长上下文', '中文强项'],
     // 一个系列可有多个规格（各规格独立一节）
     members: [
@@ -28,7 +28,7 @@ export const SERIES = [
         label: { zh: 'Qwen3.8 27B（密集）', en: 'Qwen3.8 27B (Dense)' },
         params: '27.8B 密集',
         role: { zh: '主力通用', en: 'Flagship general' },
-        note: 'apache-2.0，702 万下载。本站量化对比的基准型号。',
+        note: 'apache-2.0，702 万下载。这里量化对比的基准型号。',
       },
       {
         repo: 'Qwen/Qwen3.8-Flash-Next',
@@ -47,7 +47,7 @@ export const SERIES = [
     vendor: { zh: 'Google', en: 'Google' },
     family: 'gemma',
     released: '2026-06',
-    summary: 'Google 开放权重系列，本站收录的三种规格各自都有量化覆盖。',
+    summary: 'Google 开放权重系列，三种规格各自都有量化覆盖。',
     positions: ['通用对话', 'MoE 稀疏', '小尺寸可跑'],
     members: [
       {
@@ -131,7 +131,7 @@ export const SERIES = [
     vendor: { zh: 'OpenAI', en: 'OpenAI' },
     family: 'gpt-oss',
     released: '2025-08-04',
-    summary: 'OpenAI 开放权重系列，本站索引 20B 规格的量化信息；是否适合单卡取决于可用内存、量化和上下文配置。',
+    summary: 'OpenAI 开放权重系列，这里有 20B 规格的量化信息；能不能单卡跑，取决于可用内存、量化和上下文配置。',
     positions: ['推理', 'MoE 稀疏', 'apache-2.0'],
     members: [
       {

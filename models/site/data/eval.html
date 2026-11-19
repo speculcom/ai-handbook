@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>评测集 · 数据 · AI 模型</title>
-  <meta name="description" content="评测集数据集索引：MMLU、GSM8K、HumanEval。每张卡写清许可、规模、获取方式与使用边界。" />
+  <meta name="description" content="评测集数据集索引：MMLU、GSM8K、HumanEval、MATH-500、AIME 2024。每张卡写清许可、规模、获取方式与使用边界。" />
   <link rel="canonical" href="https://models.specul.com/data/eval.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="评测集 · 数据 · AI 模型" />
   <meta property="og:url" content="https://models.specul.com/data/eval.html" />
   <meta property="og:title" content="评测集 · 数据 · AI 模型" />
-  <meta property="og:description" content="评测集数据集索引：MMLU、GSM8K、HumanEval。每张卡写清许可、规模、获取方式与使用边界。" />
+  <meta property="og:description" content="评测集数据集索引：MMLU、GSM8K、HumanEval、MATH-500、AIME 2024。每张卡写清许可、规模、获取方式与使用边界。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="../brand.css?v=8e209a2fd1c9" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
 </head>
@@ -86,7 +86,7 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
@@ -95,7 +95,7 @@
 <header class="sec-head">
   <p class="eyebrow">Models · Data · Evaluation sets</p>
   <h1>评测集</h1>
-  <p class="lede">用来量分数的题集；注意污染与版本，不要混进训练。 这一页收 3 张卡；点进单卡看许可、规模、任务适配与使用边界。</p>
+  <p class="lede">用来量分数的题集；注意污染与版本，不要混进训练。 这一页收 5 张卡；点进单卡看许可、规模、任务适配与使用边界。</p>
 </header>
 <div class="sec-nav"><a href="index.html">← 全部数据</a><a href="../index.html">模型站</a></div>
 <nav class="sec-nav" aria-label="数据分类"><a href="pretrain.html">预训练语料</a><a href="sft.html">指令与 SFT</a><a href="preference.html">偏好与 RLHF</a><a href="eval.html" aria-current="page">评测集</a><a href="rag.html">RAG 文档</a><a href="multimodal.html">多模态</a><a href="code-domain.html">代码与领域</a><a href="synthetic.html">合成数据</a></nav>
@@ -120,6 +120,20 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>164 道 Python 函数题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">题量小，单一语言；分数波动大，不能单独代表代码能力。</p>
   <a class="sec-link" href="humaneval.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
+  <h3><a href="math-500.html">MATH-500</a></h3>
+  <p>从 MATH 测试集抽出的 500 题子集，题面与答案结构清楚，常用于快速比较数学推理。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>500 题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">题目公开已久，污染风险高；答案抽取与等价判断会显著影响分数。</p>
+  <a class="sec-link" href="math-500.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
+  <h3><a href="aime-2024.html">AIME 2024</a></h3>
+  <p>竞赛级数学题，答案唯一，适合压力测试长链推理与自我校验。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>30 题（2024 AIME I/II）</dd></div><div><dt>许可</dt><dd>题目版权归 MAA；使用需核对</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方题面</dd></div></dl>
+  <p class="sec-caveat">题量小，单题波动会放大分数差；题面公开后污染风险高。</p>
+  <a class="sec-link" href="aime-2024.html">看数据卡 →</a>
 </article></div>
 </div>
   </main>

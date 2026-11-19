@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>多模态 · 数据 · AI 模型</title>
-  <meta name="description" content="多模态数据集索引：LAION-5B、DataComp-1B、COCO Captions。每张卡写清许可、规模、获取方式与使用边界。" />
+  <meta name="description" content="多模态数据集索引：LAION-5B、DataComp-1B、COCO Captions、LLaVA-Instruct-150K、Video-MME。每张卡写清许可、规模、获取方式与使用边界。" />
   <link rel="canonical" href="https://models.specul.com/data/multimodal.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="多模态 · 数据 · AI 模型" />
   <meta property="og:url" content="https://models.specul.com/data/multimodal.html" />
   <meta property="og:title" content="多模态 · 数据 · AI 模型" />
-  <meta property="og:description" content="多模态数据集索引：LAION-5B、DataComp-1B、COCO Captions。每张卡写清许可、规模、获取方式与使用边界。" />
+  <meta property="og:description" content="多模态数据集索引：LAION-5B、DataComp-1B、COCO Captions、LLaVA-Instruct-150K、Video-MME。每张卡写清许可、规模、获取方式与使用边界。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="../brand.css?v=8e209a2fd1c9" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
 </head>
@@ -86,7 +86,7 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
@@ -95,7 +95,7 @@
 <header class="sec-head">
   <p class="eyebrow">Models · Data · Multimodal</p>
   <h1>多模态</h1>
-  <p class="lede">图文、视频与音频对；图像版权随源站，不能默认可商用。 这一页收 3 张卡；点进单卡看许可、规模、任务适配与使用边界。</p>
+  <p class="lede">图文、视频与音频对；图像版权随源站，不能默认可商用。 这一页收 5 张卡；点进单卡看许可、规模、任务适配与使用边界。</p>
 </header>
 <div class="sec-nav"><a href="index.html">← 全部数据</a><a href="../index.html">模型站</a></div>
 <nav class="sec-nav" aria-label="数据分类"><a href="pretrain.html">预训练语料</a><a href="sft.html">指令与 SFT</a><a href="preference.html">偏好与 RLHF</a><a href="eval.html">评测集</a><a href="rag.html">RAG 文档</a><a href="multimodal.html" aria-current="page">多模态</a><a href="code-domain.html">代码与领域</a><a href="synthetic.html">合成数据</a></nav>
@@ -120,6 +120,20 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>约 33 万张图 / 每图 5 条描述</dd></div><div><dt>许可</dt><dd>标注 CC-BY-4.0；图像随 Flickr 源站</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">图像来自 Flickr，许可不统一；不能把整个数据集默认成商用可分发。</p>
   <a class="sec-link" href="coco-captions.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
+  <h3><a href="llava-instruct-150k.html">LLaVA-Instruct-150K</a></h3>
+  <p>用 GPT 生成图文指令，覆盖描述、推理与对话，是早期多模态 SFT 的常用基线。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>15 万条图文指令</dd></div><div><dt>许可</dt><dd>LLaVA 数据条款；图像随 COCO</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">指令由模型生成，存在幻觉与风格偏差；图像来自 COCO，版权随源数据集。</p>
+  <a class="sec-link" href="llava-instruct-150k.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
+  <h3><a href="video-mme.html">Video-MME</a></h3>
+  <p>覆盖不同时长与领域的视频问答，适合测长视频理解与时间定位。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>900 段视频 / 2,700 题</dd></div><div><dt>许可</dt><dd>CC-BY-4.0（以数据卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方页</dd></div></dl>
+  <p class="sec-caveat">视频来源与版权需逐条核对；题集公开后污染风险上升。</p>
+  <a class="sec-link" href="video-mme.html">看数据卡 →</a>
 </article></div>
 </div>
   </main>

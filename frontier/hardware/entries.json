@@ -1479,5 +1479,391 @@
       "InfiniBand": "4x 400 Gb/s",
       "整域 / NVL72 domain": "72 GPUs, 13.5 TB HBM, 130 TB/s"
     }
+  },
+  {
+    "id": "cerebras-wse3t",
+    "title": {
+      "zh": "Cerebras WSE-3T（晶圆级）",
+      "en": "Cerebras WSE-3T (wafer-scale)"
+    },
+    "category": "accelerator",
+    "url": "https://www.cerebras.ai/product-chip/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.cerebras.ai/product-chip/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.cerebras.ai/product-chip/",
+        "quote": "Four trillion transistors. 250 petaflops. One silicon wafer."
+      },
+      {
+        "url": "https://www.cerebras.ai/product-chip/",
+        "quote": "46,225 mm² and containing 4 trillion transistors"
+      },
+      {
+        "url": "https://www.cerebras.ai/product-chip/",
+        "quote": "900,000 AI-optimized cores"
+      },
+      {
+        "url": "https://www.cerebras.ai/product-chip/",
+        "quote": "The Cerebras CS-4 rack-scale AI system is powered by three WSE-3T processors"
+      }
+    ],
+    "notes": {
+      "zh": "回答「晶圆级芯片单片的晶体管、面积、核心数与官方 AI 算力口径」。250 PF 是官方“AI compute”表述，未注明是 dense FP16 还是特定精度，不能直接和 GPU 的 FP16/FP8 数字横比。\n不主张：不是单卡 PCIe 加速器；不是 CS-4 整机算力；未公开对外售价与功耗口径。",
+      "en": "Answers the transistor count, die area, core count and the vendor's \"AI compute\" figure for one wafer-scale chip. 250 PF is the vendor's AI-compute wording, not labelled as dense FP16 or a specific precision, so it is not directly comparable with GPU FP16/FP8 numbers.\nIt does not claim: this is not a PCIe add-in card; it is not the CS-4 system figure; price and power are not stated here."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "晶体管": "4 万亿",
+      "芯片面积": "46,225 mm²",
+      "AI 核心": "900,000",
+      "官方 AI 算力": "250 petaflops（口径见原文）",
+      "系统形态": "CS-4 机架系统（3 颗 WSE-3T）"
+    }
+  },
+  {
+    "id": "aws-inferentia2",
+    "title": {
+      "zh": "AWS Inferentia2",
+      "en": "AWS Inferentia2"
+    },
+    "category": "accelerator",
+    "url": "https://aws.amazon.com/machine-learning/inferentia/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://aws.amazon.com/machine-learning/inferentia/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://aws.amazon.com/machine-learning/inferentia/",
+        "quote": "Each Inferentia2 accelerator supports up to 190 tera floating operations per second (TFLOPS) of FP16 performance."
+      },
+      {
+        "url": "https://aws.amazon.com/machine-learning/inferentia/",
+        "quote": "Inferentia2 offers 32 GB of HBM per accelerator"
+      },
+      {
+        "url": "https://aws.amazon.com/machine-learning/inferentia/",
+        "quote": "Each Inferentia2 accelerator has two second-generation NeuronCores"
+      },
+      {
+        "url": "https://aws.amazon.com/machine-learning/inferentia/",
+        "quote": "with up to 12 Inferentia2 accelerators per EC2 Inf2 instance"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Inferentia2 单加速器的 FP16 算力、HBM 容量与 Inf2 实例上限」。190 TFLOPS 是 FP16；32GB HBM 是单卡容量；12 卡是 Inf2 实例上限，不是单机默认配置。\n不主张：不是训练芯片（训练看 Trainium）；不是通用 GPU；实际吞吐取决于 Neuron 编译、批处理与模型结构。",
+      "en": "Answers the per-accelerator FP16 compute, HBM capacity and the Inf2 instance ceiling. 190 TFLOPS is FP16; 32GB HBM is per accelerator; 12 accelerators is the Inf2 instance maximum, not a default configuration.\nIt does not claim: this is not a training chip (see Trainium); it is not a general-purpose GPU; real throughput depends on Neuron compilation, batching and model shape."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "FP16 算力": "190 TFLOPS / 加速器",
+      "HBM": "32 GB / 加速器",
+      "NeuronCore": "2 个 / 加速器",
+      "实例上限": "12 个加速器 / Inf2",
+      "内存类型": "HBM"
+    }
+  },
+  {
+    "id": "intel-gaudi3",
+    "title": {
+      "zh": "Intel Gaudi 3",
+      "en": "Intel Gaudi 3"
+    },
+    "category": "accelerator",
+    "url": "https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html",
+        "quote": "Up to 2x AI compute (FP8) vs. Intel Gaudi 2 AI Accelerators"
+      },
+      {
+        "url": "https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html",
+        "quote": "Up to 4x AI compute (BF16) vs. Intel Gaudi 2 AI Accelerators"
+      },
+      {
+        "url": "https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html",
+        "quote": "Intel® Gaudi® 3 accelerator (1200 GB/s open standard RoCE)"
+      },
+      {
+        "url": "https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html",
+        "quote": "Intel Gaudi® 3 PCIe card (HL-338) delivers AI acceleration in a standard PCIe Gen5 form factor"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Gaudi 3 相对上一代的算力代际、I/O 与形态」。官方产品页只给相对倍数（FP8 2×、BF16 4×）与 1200 GB/s RoCE；绝对 HBM/TOPS 未在这页给出，本站不补推测数字。\n不主张：不是 GPU；不是只有 PCIe 卡（还有 OAM/UBB 形态）；相对倍数不能跨代直接换算成绝对算力。",
+      "en": "Answers the generational compute step, I/O and form factor. The product page gives relative figures only (FP8 2x, BF16 4x) and 1200 GB/s RoCE; absolute HBM/TOPS are not stated here and are not guessed.\nIt does not claim: this is not a GPU; it is not PCIe-only (OAM/UBB variants exist); relative multiples cannot be converted into absolute compute across generations."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "FP8 相对算力": "2× Gaudi 2（官方口径）",
+      "BF16 相对算力": "4× Gaudi 2（官方口径）",
+      "I/O": "1200 GB/s RoCE",
+      "形态": "PCIe Gen5 / OAM / UBB"
+    }
+  },
+  {
+    "id": "google-tpu-v5e",
+    "title": {
+      "zh": "Google TPU v5e",
+      "en": "Google TPU v5e"
+    },
+    "category": "accelerator",
+    "url": "https://cloud.google.com/tpu/docs/v5e",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://cloud.google.com/tpu/docs/v5e",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://cloud.google.com/tpu/docs/v5e",
+        "quote": "每个芯片的峰值计算能力 (bf16) | 197 TFLOPs"
+      },
+      {
+        "url": "https://cloud.google.com/tpu/docs/v5e",
+        "quote": "HBM2 容量和带宽 | 16 GB，819 GBps"
+      },
+      {
+        "url": "https://cloud.google.com/tpu/docs/v5e",
+        "quote": "双向芯片间互连 (ICI) 带宽（每芯片） | 400 GBps"
+      },
+      {
+        "url": "https://cloud.google.com/tpu/docs/v5e",
+        "quote": "TPU Pod 大小 | 256 个芯片"
+      }
+    ],
+    "notes": {
+      "zh": "回答「v5e 单芯片的 BF16 算力、HBM、ICI 与 Pod 规模」。197 TFLOPS 是 BF16 峰值；16GB HBM2 / 819 GB/s 是单芯片；256 芯片是 Pod 上限。\n不主张：不是 v5p 或 v6e；不是单卡零售产品；实际训练/推理吞吐取决于拓扑、批量与框架。",
+      "en": "Answers per-chip BF16 compute, HBM, ICI and Pod size. 197 TFLOPS is BF16 peak; 16GB HBM2 / 819 GB/s is per chip; 256 chips is the Pod ceiling.\nIt does not claim: this is not v5p or v6e; it is not a retail add-in card; real throughput depends on topology, batching and framework."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "BF16 算力": "197 TFLOPS / 芯片",
+      "HBM2": "16 GB / 芯片",
+      "HBM 带宽": "819 GB/s / 芯片",
+      "ICI": "400 GB/s / 芯片",
+      "Pod": "256 芯片"
+    }
+  },
+  {
+    "id": "google-tpu-v6e",
+    "title": {
+      "zh": "Google TPU v6e（Trillium）",
+      "en": "Google TPU v6e (Trillium)"
+    },
+    "category": "accelerator",
+    "url": "https://cloud.google.com/tpu/docs/v6e",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://cloud.google.com/tpu/docs/v6e",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://cloud.google.com/tpu/docs/v6e",
+        "quote": "每个芯片的峰值计算能力 (bf16) | 197 TFLOPs | 918 TFLOPs"
+      },
+      {
+        "url": "https://cloud.google.com/tpu/docs/v6e",
+        "quote": "每个芯片的 HBM 容量 | 16 GB | 32 GB"
+      },
+      {
+        "url": "https://cloud.google.com/tpu/docs/v6e",
+        "quote": "每个芯片的 HBM 带宽 | 800 GBps | 1600 GBps"
+      },
+      {
+        "url": "https://cloud.google.com/tpu/docs/v6e",
+        "quote": "每个 Pod 的 BF16 峰值计算能力 | 50.63 PFLOPs | 234.9 PFLOPs"
+      }
+    ],
+    "notes": {
+      "zh": "回答「v6e 相对 v5e 的单芯片 BF16、HBM、带宽与 Pod 算力」。918 TFLOPS 是 BF16 峰值；32GB HBM / 1600 GB/s 是单芯片；234.9 PFLOPS 是 256 芯片 Pod 的 BF16 峰值。\n不主张：不是 v7/Ironwood；不是单卡；Pod 数字不是单机数字。",
+      "en": "Answers v6e versus v5e per-chip BF16, HBM, bandwidth and Pod compute. 918 TFLOPS is BF16 peak; 32GB HBM / 1600 GB/s is per chip; 234.9 PFLOPS is the BF16 peak of a 256-chip Pod.\nIt does not claim: this is not v7/Ironwood; it is not a single add-in card; the Pod figure is not a single-host figure."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "BF16 算力": "918 TFLOPS / 芯片",
+      "HBM": "32 GB / 芯片",
+      "HBM 带宽": "1600 GB/s / 芯片",
+      "ICI": "800 GB/s / 芯片",
+      "Pod BF16": "234.9 PFLOPS（256 芯片）"
+    }
+  },
+  {
+    "id": "amd-instinct-mi325x",
+    "title": {
+      "zh": "AMD Instinct MI325X",
+      "en": "AMD Instinct MI325X"
+    },
+    "category": "accelerator",
+    "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi325x.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi325x.html",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi325x.html",
+        "quote": "Dedicated Memory Size 256 GB"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi325x.html",
+        "quote": "Peak Memory Bandwidth 6 TB/s"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi325x.html",
+        "quote": "Peak Eight-bit Precision (FP8) Performance (E5M2, E4M3) 2.61 PFLOPs"
+      },
+      {
+        "url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi325x.html",
+        "quote": "1000W Peak"
+      }
+    ],
+    "notes": {
+      "zh": "回答「MI325X 的 256GB HBM3E、6TB/s 带宽、FP8 2.61 PF 与 1000W 峰值功耗」。FP8 2.61 PF 是 dense；5.22 PF 是结构化稀疏，不能混读。\n不主张：不是 MI300X（容量与带宽不同）；不是 MI355X；实际功耗与集群配置相关。",
+      "en": "Answers MI325X's 256GB HBM3E, 6TB/s bandwidth, 2.61 PF FP8 and 1000W peak power. 2.61 PF FP8 is dense; 5.22 PF is structured sparsity and must not be mixed.\nIt does not claim: this is not MI300X (different capacity/bandwidth); it is not MI355X; real power depends on the system."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "HBM3E": "256 GB",
+      "带宽": "6 TB/s",
+      "FP8 dense": "2.61 PFLOPS",
+      "FP16 dense": "1.3 PFLOPS",
+      "峰值功耗": "1000 W"
+    }
+  },
+  {
+    "id": "nvidia-h100-nvl",
+    "title": {
+      "zh": "NVIDIA H100 NVL",
+      "en": "NVIDIA H100 NVL"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/data-center/h100/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/h100/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h100/",
+        "quote": "GPU Memory | 80GB | 94GB"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h100/",
+        "quote": "GPU Memory Bandwidth | 3.35TB/s | 3.9TB/s"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h100/",
+        "quote": "FP16 Tensor Core | 1,979 teraFLOPS | 1,671 teraFLOPS"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/h100/",
+        "quote": "350-400W (configurable)"
+      }
+    ],
+    "notes": {
+      "zh": "回答「H100 NVL 的 94GB HBM3、3.9TB/s、FP16 1,671 TF 与 350–400W」。1,671 TF 是带稀疏的 FP16 Tensor Core 数字；dense 需按官方脚注折算。\n不主张：不是 H100 SXM（80GB / 3.35TB/s / 700W）；不是 H200；不是整机 8 卡数字。",
+      "en": "Answers H100 NVL's 94GB HBM3, 3.9TB/s, 1,671 TF FP16 and 350–400W. 1,671 TF is the sparse FP16 Tensor Core figure; dense needs the official footnote conversion.\nIt does not claim: this is not H100 SXM (80GB / 3.35TB/s / 700W); it is not H200; it is not an 8-GPU system figure."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "HBM3": "94 GB",
+      "带宽": "3.9 TB/s",
+      "FP16 Tensor（稀疏）": "1,671 TFLOPS",
+      "FP8 Tensor（稀疏）": "3,341 TFLOPS",
+      "功耗": "350–400 W",
+      "形态": "PCIe 双槽"
+    }
+  },
+  {
+    "id": "nvidia-rtx-pro-6000-blackwell",
+    "title": {
+      "zh": "NVIDIA RTX PRO 6000 Blackwell（工作站）",
+      "en": "NVIDIA RTX PRO 6000 Blackwell (Workstation)"
+    },
+    "category": "accelerator",
+    "url": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/",
+        "quote": "96 GB of ultra-fast GDDR7 memory"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/",
+        "quote": "Memory Bandwidth | 1792 GB/sec"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/",
+        "quote": "AI TOPS | 4000"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000/",
+        "quote": "Max Power Consumption | 600 W"
+      }
+    ],
+    "notes": {
+      "zh": "回答「工作站版 RTX PRO 6000 的 96GB GDDR7 ECC、1792 GB/s、4000 AI TOPS 与 600W」。4000 TOPS 是 FP4 稀疏口径，不是 FP16 dense。\n不主张：不是数据中心 B200/GB200；不是 Max-Q 或服务器版；不是多卡整机数字。",
+      "en": "Answers the workstation RTX PRO 6000's 96GB GDDR7 ECC, 1792 GB/s, 4000 AI TOPS and 600W. 4000 TOPS is FP4 sparse, not FP16 dense.\nIt does not claim: this is not a data-center B200/GB200; it is not the Max-Q or server variant; it is not a multi-GPU system figure."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "显存": "96 GB GDDR7 ECC",
+      "带宽": "1792 GB/s",
+      "AI TOPS": "4000（FP4 稀疏）",
+      "功耗": "600 W",
+      "形态": "双槽工作站卡"
+    }
+  },
+  {
+    "id": "groq-lpu",
+    "title": {
+      "zh": "Groq LPU / LPX",
+      "en": "Groq LPU / LPX"
+    },
+    "category": "accelerator",
+    "url": "https://groq.com/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://groq.com/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://groq.com/",
+        "quote": "We pioneered the LPU. Now, with LPX, it works alongside NVIDIA’s next-generation GPUs to deliver unparalleled inference capability"
+      },
+      {
+        "url": "https://groq.com/",
+        "quote": "Groq was built for this."
+      }
+    ],
+    "notes": {
+      "zh": "回答「Groq 的 LPU/LPX 是什么定位：面向推理的专用处理器与推理云」。官方首页没有给出单芯片 SRAM、带宽、TFLOPS 等完整规格，本站不填未核数字；需要精确规格时查官方产品页/技术文档。\n不主张：不是通用 GPU；不是训练芯片；不是单卡零售产品；LPX 与 NVIDIA GPU 的搭配关系不代表性能等价。",
+      "en": "Answers what Groq's LPU/LPX is positioned as: an inference-specific processor and inference cloud. The homepage does not publish complete per-chip SRAM, bandwidth or TFLOPS figures, so no unverified numbers are filled in; check the official product/technical docs for exact specs.\nIt does not claim: this is not a general-purpose GPU; not a training chip; not a retail add-in card; the LPX + NVIDIA pairing does not imply performance equivalence."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "定位": "推理专用 LPU / 推理云",
+      "公开规格": "首页未给单芯片完整规格",
+      "形态": "云服务 / 系统"
+    }
   }
 ]

@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>数据与训练语料 · AI 模型</title>
-  <meta name="description" content="24 张数据集卡，按预训练、SFT、偏好、评测、RAG、多模态、代码领域、合成数据八类整理；每张写清许可、规模、获取方式与使用边界。" />
+  <meta name="description" content="40 张数据集卡，按预训练、SFT、偏好、评测、RAG、多模态、代码领域、合成数据八类整理；每张写清许可、规模、获取方式与使用边界。" />
   <link rel="canonical" href="https://models.specul.com/data/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="数据与训练语料 · AI 模型" />
   <meta property="og:url" content="https://models.specul.com/data/" />
   <meta property="og:title" content="数据与训练语料 · AI 模型" />
-  <meta property="og:description" content="24 张数据集卡，按预训练、SFT、偏好、评测、RAG、多模态、代码领域、合成数据八类整理；每张写清许可、规模、获取方式与使用边界。" />
+  <meta property="og:description" content="40 张数据集卡，按预训练、SFT、偏好、评测、RAG、多模态、代码领域、合成数据八类整理；每张写清许可、规模、获取方式与使用边界。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="../brand.css?v=8e209a2fd1c9" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
 </head>
@@ -86,7 +86,7 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
@@ -95,16 +95,16 @@
 <header class="sec-head">
   <p class="eyebrow">Models · Data</p>
   <h1>数据与训练语料</h1>
-  <p class="lede">数据集不是越大越好。先看许可与商用边界，再看规模口径、语言、质量与任务适配；这里收 24 张数据卡，按 8 类放，每张都写清“能做什么、不能做什么”。</p>
+  <p class="lede">数据集不是越大越好。先看许可与商用边界，再看规模口径、语言、质量与任务适配；这里收 40 张数据卡，按 8 类放，每张都写清“能做什么、不能做什么”。</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 回模型站</a><a href="../evals/index.html">评测与榜单 →</a></div>
 <div class="home-stats">
-  <div><b>24</b><span>张数据卡</span></div>
+  <div><b>40</b><span>张数据卡</span></div>
   <div><b>8</b><span>个类别</span></div>
-  <div><b>5</b><span>篇选数据指南</span></div>
+  <div><b>4</b><span>篇选数据指南</span></div>
 </div>
 <div class="sec-note"><b>使用前先做三件事：</b>核对许可与商用边界；确认规模口径（token / 样本 / 原始网页）；把评测集从训练集里剔除。数据卡只做索引与风险提示，不代替法务意见。</div>
-<h2>预训练语料 <span class="sec-tag">3</span></h2>
+<h2>预训练语料 <span class="sec-tag">5</span></h2>
 <p>从网页、书籍、代码里洗出来的底座语料；先看许可、去重与语言分布。</p>
 <div class="sec-grid"><article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
@@ -127,8 +127,22 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>30T tokens（原始）</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">30T 是原始规模，清洗后可用量取决于质量筛选；不同语言覆盖不均。</p>
   <a class="sec-link" href="redpajama-v2.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
+  <h3><a href="dclm-baseline.html">DCLM-Baseline</a></h3>
+  <p>从 Common Crawl 清洗，附 DCLM 过滤模型与消融报告；强调质量过滤，不是单纯扩量。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>4T tokens（1.0 基线）</dd></div><div><dt>许可</dt><dd>CC-BY-4.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">网页语料仍有版权、噪声与重复；过滤模型会带入自身偏差，不能把过滤分当质量真值。</p>
+  <a class="sec-link" href="dclm-baseline.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
+  <h3><a href="pile.html">The Pile</a></h3>
+  <p>22 个子集的经典混合，适合做小模型消融和研究复现。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>约 825 GiB / 22 个子集</dd></div><div><dt>许可</dt><dd>MIT（代码）；各子集逐源条款</dd></div><div><dt>获取</dt><dd>Hugging Face / EleutherAI</dd></div></dl>
+  <p class="sec-caveat">构建于 2020 年，网页与代码数据已过时；部分子集许可与来源需要逐项复核。</p>
+  <a class="sec-link" href="pile.html">看数据卡 →</a>
 </article></div>
-<h2>指令与 SFT <span class="sec-tag">3</span></h2>
+<h2>指令与 SFT <span class="sec-tag">5</span></h2>
 <p>把任务写成指令-回答对，用来教模型按格式做事。</p>
 <div class="sec-grid"><article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
@@ -151,8 +165,22 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>约 1,836 个任务 / 1,500 万级样本</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">任务模板高度统一，直接拿去训对话模型会显得机械；需要重采样与模板多样化。</p>
   <a class="sec-link" href="flan-collection.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
+  <h3><a href="tulu-3-sft.html">Tülu 3 SFT Mixture</a></h3>
+  <p>把多个公开 SFT 集按配方混合，附 Tülu 3 训练报告与消融，适合做可复现的后训练基线。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>约 100 万+ 指令样本</dd></div><div><dt>许可</dt><dd>ODC-BY 1.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">混合配方会带入各源集的风格与偏差；部分子集许可不同，不能只看总卡。</p>
+  <a class="sec-link" href="tulu-3-sft.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
+  <h3><a href="smoltalk.html">SmolTalk</a></h3>
+  <p>面向小模型对话能力整理的混合集，覆盖日常问答、指令与多轮对话。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>约 200 万条对话样本</dd></div><div><dt>许可</dt><dd>Apache-2.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">以英文日常对话为主，专业领域与中文覆盖有限；合成/改写样本可能放大模型风格。</p>
+  <a class="sec-link" href="smoltalk.html">看数据卡 →</a>
 </article></div>
-<h2>偏好与 RLHF <span class="sec-tag">3</span></h2>
+<h2>偏好与 RLHF <span class="sec-tag">5</span></h2>
 <p>人类或模型对回答排序，用来做偏好对齐与 DPO。</p>
 <div class="sec-grid"><article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">偏好与 RLHF</span></div>
@@ -175,8 +203,22 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>约 18.3 万条 prompt，每组 7 个回答</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">排序由单一模型完成，存在位置偏差与风格偏好；不要当作人类真值。</p>
   <a class="sec-link" href="nectar.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">偏好与 RLHF</span></div>
+  <h3><a href="helpsteer2.html">HelpSteer2</a></h3>
+  <p>多维度人工标注（帮助性、正确性、连贯性、复杂度、冗长度），适合训练可解释的奖励模型。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>约 2.1 万条偏好样本</dd></div><div><dt>许可</dt><dd>CC-BY-4.0</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">标注者与提示分布偏英文、偏通用助手；不能直接代表中文或行业偏好。</p>
+  <a class="sec-link" href="helpsteer2.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">偏好与 RLHF</span></div>
+  <h3><a href="reward-bench.html">RewardBench</a></h3>
+  <p>覆盖聊天、推理、安全等子集的偏好对，专门用来测奖励模型而不是生成模型。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>数千条偏好对</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">题集规模不大，子集间难度差异明显；分数高不等于下游 DPO 一定好。</p>
+  <a class="sec-link" href="reward-bench.html">看数据卡 →</a>
 </article></div>
-<h2>评测集 <span class="sec-tag">3</span></h2>
+<h2>评测集 <span class="sec-tag">5</span></h2>
 <p>用来量分数的题集；注意污染与版本，不要混进训练。</p>
 <div class="sec-grid"><article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
@@ -199,8 +241,22 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>164 道 Python 函数题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">题量小，单一语言；分数波动大，不能单独代表代码能力。</p>
   <a class="sec-link" href="humaneval.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
+  <h3><a href="math-500.html">MATH-500</a></h3>
+  <p>从 MATH 测试集抽出的 500 题子集，题面与答案结构清楚，常用于快速比较数学推理。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>500 题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">题目公开已久，污染风险高；答案抽取与等价判断会显著影响分数。</p>
+  <a class="sec-link" href="math-500.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
+  <h3><a href="aime-2024.html">AIME 2024</a></h3>
+  <p>竞赛级数学题，答案唯一，适合压力测试长链推理与自我校验。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>30 题（2024 AIME I/II）</dd></div><div><dt>许可</dt><dd>题目版权归 MAA；使用需核对</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方题面</dd></div></dl>
+  <p class="sec-caveat">题量小，单题波动会放大分数差；题面公开后污染风险高。</p>
+  <a class="sec-link" href="aime-2024.html">看数据卡 →</a>
 </article></div>
-<h2>RAG 文档 <span class="sec-tag">3</span></h2>
+<h2>RAG 文档 <span class="sec-tag">5</span></h2>
 <p>检索问答的证据库；质量、更新与权限比 chunk size 更重要。</p>
 <div class="sec-grid"><article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">RAG 文档</span></div>
@@ -223,8 +279,22 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>18 个检索数据集</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">各子集许可与领域不同；不要把 18 个分数平均成一个总分。</p>
   <a class="sec-link" href="beir.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">RAG 文档</span></div>
+  <h3><a href="ms-marco.html">MS MARCO</a></h3>
+  <p>大规模真实搜索查询与段落，适合训练/评测检索器与重排器。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>约 880 万段落 / 100 万+ 查询</dd></div><div><dt>许可</dt><dd>MS MARCO 数据使用协议</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方下载</dd></div></dl>
+  <p class="sec-caveat">查询与段落偏英文网页；答案不一定完整，不能直接当生成训练真值。</p>
+  <a class="sec-link" href="ms-marco.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">RAG 文档</span></div>
+  <h3><a href="triviaqa.html">TriviaQA</a></h3>
+  <p>问题来自 trivia 爱好者，附证据文档与多答案别名，适合测检索+阅读。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>约 95K 问答对</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">题目与证据偏英文维基/网页；部分答案有别名与时间敏感信息。</p>
+  <a class="sec-link" href="triviaqa.html">看数据卡 →</a>
 </article></div>
-<h2>多模态 <span class="sec-tag">3</span></h2>
+<h2>多模态 <span class="sec-tag">5</span></h2>
 <p>图文、视频与音频对；图像版权随源站，不能默认可商用。</p>
 <div class="sec-grid"><article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
@@ -247,8 +317,22 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>约 33 万张图 / 每图 5 条描述</dd></div><div><dt>许可</dt><dd>标注 CC-BY-4.0；图像随 Flickr 源站</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">图像来自 Flickr，许可不统一；不能把整个数据集默认成商用可分发。</p>
   <a class="sec-link" href="coco-captions.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
+  <h3><a href="llava-instruct-150k.html">LLaVA-Instruct-150K</a></h3>
+  <p>用 GPT 生成图文指令，覆盖描述、推理与对话，是早期多模态 SFT 的常用基线。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>15 万条图文指令</dd></div><div><dt>许可</dt><dd>LLaVA 数据条款；图像随 COCO</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">指令由模型生成，存在幻觉与风格偏差；图像来自 COCO，版权随源数据集。</p>
+  <a class="sec-link" href="llava-instruct-150k.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
+  <h3><a href="video-mme.html">Video-MME</a></h3>
+  <p>覆盖不同时长与领域的视频问答，适合测长视频理解与时间定位。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>900 段视频 / 2,700 题</dd></div><div><dt>许可</dt><dd>CC-BY-4.0（以数据卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方页</dd></div></dl>
+  <p class="sec-caveat">视频来源与版权需逐条核对；题集公开后污染风险上升。</p>
+  <a class="sec-link" href="video-mme.html">看数据卡 →</a>
 </article></div>
-<h2>代码与领域 <span class="sec-tag">3</span></h2>
+<h2>代码与领域 <span class="sec-tag">5</span></h2>
 <p>代码、医学、法律等专业语料；逐仓/逐篇核对许可。</p>
 <div class="sec-grid"><article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
@@ -271,8 +355,22 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>约 27.3 万条生物医学问答</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">不是临床指南，不能用于诊断建议；专业用途要另行核对最新文献与监管要求。</p>
   <a class="sec-link" href="pubmedqa.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
+  <h3><a href="commitpackft.html">CommitPackFT</a></h3>
+  <p>从真实 Git 提交中筛出的指令-代码对，覆盖多语言与真实修改场景。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>约 200 万条提交</dd></div><div><dt>许可</dt><dd>BigCode 数据集协议</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">提交质量参差，含调试残留与许可证不明的代码；需按仓库过滤。</p>
+  <a class="sec-link" href="commitpackft.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
+  <h3><a href="apps.html">APPS</a></h3>
+  <p>包含题面、样例与隐藏测试，适合测“写完能不能过测试”而不是只看相似度。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>10,000 题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">题面与测试公开已久，污染风险高；部分题测试不完整。</p>
+  <a class="sec-link" href="apps.html">看数据卡 →</a>
 </article></div>
-<h2>合成数据 <span class="sec-tag">3</span></h2>
+<h2>合成数据 <span class="sec-tag">5</span></h2>
 <p>模型生成或改写的样本；补长尾，但会放大模型风格与错误。</p>
 <div class="sec-grid"><article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">合成数据</span></div>
@@ -295,6 +393,20 @@
   <dl class="sec-facts"><div><dt>规模</dt><dd>约 100 万条对话样本</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
   <p class="sec-caveat">来源混合，重复与低质样本多；需按来源分层抽样并做去重。</p>
   <a class="sec-link" href="openhermes-25.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">合成数据</span></div>
+  <h3><a href="magicoder-oss-instruct.html">Magicoder-OSS-Instruct</a></h3>
+  <p>从开源代码片段反向生成指令-代码对，强调多样性与真实代码语境。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>7.5 万条</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">合成指令可能带模型风格与错误；代码片段许可需逐仓核对。</p>
+  <a class="sec-link" href="magicoder-oss-instruct.html">看数据卡 →</a>
+</article><article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">合成数据</span></div>
+  <h3><a href="cosmopedia.html">Cosmopedia</a></h3>
+  <p>用生成模型合成的教科书、故事与问答文本，结构清楚，适合小模型预训练实验。</p>
+  <dl class="sec-facts"><div><dt>规模</dt><dd>约 3,000 万篇 / 25B tokens</dd></div><div><dt>许可</dt><dd>Apache-2.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
+  <p class="sec-caveat">合成文本会放大生成模型的偏见与事实错误；不能替代真实网页语料。</p>
+  <a class="sec-link" href="cosmopedia.html">看数据卡 →</a>
 </article></div>
 <h2>怎么选数据</h2>
 <div class="sec-grid"><article class="sec-card">
@@ -325,13 +437,6 @@
   
   
   <a class="sec-link" href="guides/sft-data-mix.html">读指南 →</a>
-</article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指南</span></div>
-  <h3><a href="guides/read-leaderboard.html">怎么读榜单：先看测什么，再看谁在测</a></h3>
-  <p>榜单不是模型排行榜。先看它测什么、题集什么时候发布、评委是谁、分数怎么算，再决定这个分数对你的选型有没有意义。</p>
-  
-  
-  <a class="sec-link" href="guides/read-leaderboard.html">读指南 →</a>
 </article></div>
 </div>
   </main>

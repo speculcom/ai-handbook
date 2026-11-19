@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>预训练：模型怎么做到「什么都知道一点」 · 做模型专题</title>
-  <meta name="description" content="预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta name="description" content="预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。（资料更新到 2026-10-20，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/pretraining.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="预训练：模型怎么做到「什么都知道一点」 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/pretraining.html" />
   <meta property="og:title" content="预训练：模型怎么做到「什么都知道一点」 · 做模型专题" />
-  <meta property="og:description" content="预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。（核验于 2026-10-20，关键事实挂官方出处）" />
+  <meta property="og:description" content="预训练在优化什么、数据怎么攒到几万亿 token、算力与数据怎么配比、缩放律改过几次口径。从业者视角的深版；使用者视角的一页科普在学 AI 站，两站互链不重复。（资料更新到 2026-10-20，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Pre-training: how a model comes to know a bit of everything","description":"What pre-training optimises, how corpora reach trillions of tokens, how compute and data are budgeted, and how the scaling-law story changed. The practitioner-depth version; the one-page explainer lives on the Learn site — cross-linked, not duplicated.","url":"https://models.specul.com/guides/pretraining.html","dateModified":"2026-10-20"}</script>
 </head>
@@ -109,7 +109,7 @@
     <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
 <span data-zh><p><b>预训练就是让模型在海量文本上学会续写。</b><br>学 AI 站有一页科普讲「它是什么」；这一篇讲从业者要做的决定：<br>语料怎么攒、算力怎么配、训练量怎么定、词表怎么切。</p>
-<p>关键事实都有公开的论文或官方模型卡做出处，<br>出处列在文末；本站只转述与对照，不实测。</p></span><span data-en><p><b>Pre-training is making a model learn to continue text on massive amounts of it.</b><br>The Learn site has an explainer page on “what it is”; this guide is about the decisions practitioners make:<br>how corpora are assembled, how compute is budgeted, how training volume is set, how vocabularies are cut.</p>
+<p>关键事实都有公开的论文或官方模型卡做出处，<br>出处列在文末；这里只转述与对照，不实测。</p></span><span data-en><p><b>Pre-training is making a model learn to continue text on massive amounts of it.</b><br>The Learn site has an explainer page on “what it is”; this guide is about the decisions practitioners make:<br>how corpora are assembled, how compute is budgeted, how training volume is set, how vocabularies are cut.</p>
 <p>Every key fact has a public paper or official model card as its source,<br>listed at the end of the page; this site only transcribes and cross-checks — it runs no benchmarks.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-2">
@@ -144,7 +144,7 @@
     </section>
     <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>训练过程：学习率与长上下文扩展</span><span data-en>The run: learning rate and context extension</span></h2>
-<span data-zh><p>一次预训练不是一根直线。学习率先升后降（常用余弦退火），<br>末期常在高质量数据上「退火」收尾。各家具体配方多数不公开，<br>本站只写官方公开过的部分，没公开的就不写。</p>
+<span data-zh><p>一次预训练不是一根直线。学习率先升后降（常用余弦退火），<br>末期常在高质量数据上「退火」收尾。各家具体配方多数不公开，<br>这里只写官方公开过的部分，没公开的就不写。</p>
 <p>上下文长度是训练后再拉长的，这是常见做法。<br>LLaMA 2 论文写明用位置插值把 4K 扩到 32K；Llama 3.1 官方模型卡标 128K。<br>拉长靠改 RoPE 位置编码的频率基数等手法。</p>
 <p>代价要如实说：「训练时见过的长度」和「标称长度」能力不等。<br>标 128K 不等于 128K 处还能准确找针，评测要自己按长度分档看。</p></span><span data-en><p>A pre-training run is not one straight line. The learning rate ramps up then down (cosine annealing is common),<br>and the final phase often “anneals” on high-quality data. Most families keep their exact recipe private;<br>this site writes only what has been officially published and leaves the rest unwritten.</p>
 <p>Context length is usually stretched after training — standard practice.<br>The LLaMA 2 paper states it extended 4K to 32K with position interpolation; the Llama 3.1 model card lists 128K.<br>Stretching relies on techniques such as changing the frequency base of RoPE positional encoding.</p>
@@ -161,7 +161,7 @@
     <section class="fam-sec" id="guide-section-7">
       <h2><span data-zh>和学 AI 站的分工</span><span data-en>How this differs from the Learn site</span></h2>
 <span data-zh><p>学 AI 站的 <a href="https://learn.specul.com/term/预训练/" target="_blank" rel="noopener">预训练</a> 与<br><a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">训练三阶段</a> 是使用者视角的一页科普；<br>这一篇是从业者视角的深版：讲决定、讲代价、讲口径变化。</p>
-<p>同一个词在两处深度不同，互链不重复。<br>数据与算力的成本量级见本站[数据与算力篇](data-compute.html)，<br>开源训练栈见[开源训练栈篇](training-stack.html)。</p></span><span data-en><p>The Learn site&#39;s <a href="https://learn.specul.com/term/预训练/" target="_blank" rel="noopener">pre-training</a> and<br><a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">three-stage training</a> pages are user-perspective explainers;<br>this guide is the practitioner deep version: decisions, costs, and how the consensus changed.</p>
+<p>同一个词在两处深度不同，互链不重复。<br>数据与算力的成本量级见这里[数据与算力篇](data-compute.html)，<br>开源训练栈见[开源训练栈篇](training-stack.html)。</p></span><span data-en><p>The Learn site&#39;s <a href="https://learn.specul.com/term/预训练/" target="_blank" rel="noopener">pre-training</a> and<br><a href="https://learn.specul.com/term/训练三阶段/" target="_blank" rel="noopener">three-stage training</a> pages are user-perspective explainers;<br>this guide is the practitioner deep version: decisions, costs, and how the consensus changed.</p>
 <p>Same term, different depth on each side, cross-linked without duplication.<br>For the cost magnitude of data and compute see this site&#39;s [Data and compute guide](data-compute.html);<br>for the open training stack see [The open training stack](training-stack.html).</p></span>
     </section>
 
@@ -187,7 +187,7 @@
         <li><span data-zh>BPE 分词论文（arXiv 1508.07909，子词切分的原始方法，2026-10-20 直抓摘要页）</span><span data-en>BPE tokenisation paper (arXiv 1508.07909, the original subword segmentation method; abstract page fetched directly 2026-10-20)</span>：<a href="https://arxiv.org/abs/1508.07909" target="_blank" rel="noopener">https://arxiv.org/abs/1508.07909</a></li>
         <li><span data-zh>OpenAI tiktoken 官方仓库（o200k_base 词表的官方实现与说明，2026-10-20 直抓 200）</span><span data-en>OpenAI tiktoken official repository (the official implementation and docs of the o200k_base vocabulary; fetched directly, HTTP 200, 2026-10-20)</span>：<a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">https://github.com/openai/tiktoken</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-20；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-20; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-20；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-20; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

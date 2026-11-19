@@ -13,10 +13,10 @@
   <meta property="og:description" content="千问 3.8（阿里 · 通义千问）的第三方 GGUF 量化版本对比：2 个规格、17 个量化来源，含实测文件体积、许可、上下文长度与选档建议。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../../brand.css?v=afb8bddd659c" />
+  <script src="../../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../../site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"千问 3.8 GGUF 量化版本索引","description":"阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；收录不代表性能排名。","url":"https://models.specul.com/series/qwen3-8/","isAccessibleForFree":true,"temporalCoverage":"2026-10-30"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"千问 3.8 GGUF 量化版本索引","description":"阿里千问系列，这里有 27B 密集模型与 Flash-Next 的量化信息；有覆盖不代表性能排名。","url":"https://models.specul.com/series/qwen3-8/","isAccessibleForFree":true,"temporalCoverage":"2026-10-30"}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -96,31 +96,10 @@
     <header class="page-head">
       <p class="eyebrow"><span data-zh>阿里 · 通义千问</span><span data-en>Alibaba Qwen</span>　·　<span data-zh>发布于</span><span data-en>released</span> 2026-08-05</p>
       <h1><span data-zh>千问 3.8</span><span data-en>Qwen3.8</span></h1>
-      <p class="lede"><span data-zh>阿里千问系列，本站收录 27B 密集模型与 Flash-Next 的量化信息；收录不代表性能排名。</span><span data-en>Alibaba&#39;s Qwen series, with quantisation information for the dense 27B model and Flash-Next. Inclusion is not a performance ranking.</span></p>
+      <p class="lede"><span data-zh>阿里千问系列，这里有 27B 密集模型与 Flash-Next 的量化信息；有覆盖不代表性能排名。</span><span data-en>Alibaba&#39;s Qwen series, with quantisation information for the dense 27B model and Flash-Next. Inclusion is not a performance ranking.</span></p>
       <ul class="pos"><li><span data-zh>通用对话</span><span data-en>General chat</span></li><li><span data-zh>工具调用</span><span data-en>Tool use</span></li><li><span data-zh>长上下文</span><span data-en>Long context</span></li><li><span data-zh>中文强项</span><span data-en>Strong Chinese</span></li></ul>
       <nav class="member-nav"><a href="#m0"><span data-zh>Qwen3.8 27B（密集）</span><span data-en>Qwen3.8 27B (Dense)</span></a><a href="#m1"><span data-zh>Qwen3.8 Flash-Next</span><span data-en>Qwen3.8 Flash-Next</span></a></nav>
     </header>
-    <section class="trust">
-      <h2><span data-zh>先说清楚：这个站的数据怎么来的</span><span data-en>First, where this site's data comes from</span></h2>
-      <div class="trust-grid">
-        <div class="trust-item t-a">
-          <span class="trust-tag">✅ <span data-zh>实测字段</span><span data-en>Measured fields</span></span>
-          <p><span data-zh>直接从 Hugging Face 公开 API 读取的客观数据：文件体积（字节）、上下文长度、架构、许可、下载量、更新时间。</span><span data-en>Objective data read straight from the Hugging Face public API: file sizes in bytes, context length, architecture, licence, downloads, last updated.</span></p>
-        </div>
-        <div class="trust-item t-b">
-          <span class="trust-tag">✅ <span data-zh>推导</span><span data-en>Derived</span></span>
-          <p><span data-zh>由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存需求区间。推导规则在</span><span data-en>Computed from the collected fields by published rules: bits per weight (per the llama.cpp naming convention), tier assignment, VRAM requirement range. The rules are fully published in</span> <code>METHODOLOGY.md</code><span data-zh> 完整公开，任何人可复算。</span><span data-en> — anyone can recompute them.</span></p>
-        </div>
-        <div class="trust-item t-c">
-          <span class="trust-tag">❌ <span data-zh>我们不说的</span><span data-en>What we do not claim</span></span>
-          <p><span data-zh><b>哪个量化质量更高、哪个更快、哪个模型更强</b>——这些需要实测，本站不跑 benchmark，所以不装作知道。凡我们给出的主观判断，一律显式标注「我们的口径」。</span><span data-en><b>Which quantisation is higher quality, which is faster, which model is stronger</b> — these need measurement. This site does not run benchmarks, so it does not pretend to know. Every subjective judgement we do offer is explicitly marked as our own reading.</span></p>
-        </div>
-      </div>
-      <p class="trust-foot">
-        <span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>。所有数字都来自公开元数据，点击即可回到发布页核对。</span><span data-en>. Every figure comes from public metadata, and clicking it takes you back to the release page to verify.</span>
-        <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-30</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
-      </p>
-    </section>
 
     <section class="fam-sec cn-sec">
       <h2><span data-zh>中文生态</span><span data-en>China availability</span> <small><span data-zh>国产 / 国内可直接用 / 备案状态 · 快照</span><span data-en>domestic / direct access / CAC filing · snapshot</span> 2026-10-20</small></h2>
@@ -129,7 +108,7 @@
         <li><b><span data-zh>国内下载</span><span data-en>Direct access</span></b>　<span data-zh>国内可直连</span><span data-en>direct OK</span>　<span data-zh>ModelScope 官方镜像直连可达（2026-10-20 实测 200）；Hugging Face 直连不可达。</span><span data-en>Official ModelScope mirror reachable without proxy (measured 200 on 2026-10-20); Hugging Face direct unreachable.</span>　·　<a href="https://www.modelscope.cn/models/Qwen/Qwen3.8-27B" target="_blank" rel="noopener"><span data-zh>国内镜像入口</span><span data-en>domestic mirror</span></a></li>
         <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>已备案</span><span data-en>Filed</span>：<code>ZheJiang-TongYiQianWen-20230901</code>　<span data-zh>公示名称</span><span data-en>listed as</span><span lang="zh-CN" data-source-name>「通义千问大模型」</span>　·　<span data-zh>备案时间</span><span data-en>filed</span> 2023-09-12　·　<span data-zh>首批（2024-04 公告附件）第 11 行；2025-05 起另有「通义」登记 Shanghai-TongYi-20250512S0081。</span><span data-en>Row 11 of the first batch (2024-04 announcement attachment); since 2025-05 there is also a “TongYi” filing, Shanghai-TongYi-20250512S0081.</span></li>
       </ul>
-      <p class="fam-claims-note"><span data-zh>备案信息以网信办《生成式人工智能服务已备案信息》公示名单为准（按批次滚动更新，本站只抄编号不解读）；「国内可直连」是本站探测环境中的可达性记录，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry (updated batch by batch; this site copies the number and does not interpret it). "Direct access" is this site's own reachability measurement from a mainland network, not a vendor promise.</span></p>
+      <p class="fam-claims-note"><span data-zh>备案信息按网信办《生成式人工智能服务已备案信息》公示名单抄编号；「国内可直连」是在本地网络实际打开过一次的记录，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry by number. "Direct access" means the page opened once from a mainland network — not a vendor promise.</span></p>
       <ul class="fam-src-list cn-srcs"><li><span data-zh>网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）：</span><span data-en>CAC · filed generative-AI service information (rolling announcement page, 13 batch attachment PDFs, full download &amp; search on 2026-10-20): </span><a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li><li><span data-zh>ModelScope 官方镜像 Qwen/Qwen3.8-27B（2026-10-20 实测 200）：</span><span data-en>ModelScope official mirror Qwen/Qwen3.8-27B (200 verified on 2026-10-20): </span><a href="https://www.modelscope.cn/models/Qwen/Qwen3.8-27B" target="_blank" rel="noopener">https://www.modelscope.cn/models/Qwen/Qwen3.8-27B</a></li></ul>
     </section>
       <section class="member" id="m0">
@@ -145,7 +124,7 @@
         <tbody>
           <tr><th><span data-zh>官网标注</span><span data-en>Vendor states</span></th><td><b><span data-zh>27.8B 密集</span><span data-en>27.8B dense</span></b></td></tr>
           <tr><th><span data-zh>官方 API 申报</span><span data-en>Official API</span></th><td><span class="muted">—</span></td></tr>
-          <tr><th><span data-zh>本站实测反推</span><span data-en>This site, measured</span></th><td><span class="muted">—</span></td></tr>
+          <tr><th><span data-zh>从文件体积反推</span><span data-en>This site, measured</span></th><td><span class="muted">—</span></td></tr>
         </tbody>
       </table></td></tr>
         <tr><th><span data-zh>权重精度构成</span><span data-en>Precision breakdown</span></th><td><span class="muted">—</span></td></tr>
@@ -162,7 +141,7 @@
         <tr><th><span data-zh>最近更新</span><span data-en>Last updated</span></th><td>2026-08-14</td></tr>
         <tr><th><span data-zh>发布页体积</span><span data-en>Release-page size</span></th><td><span class="muted">—</span></td></tr>
       </table>
-            <p class="member-note"><span data-zh>apache-2.0，702 万下载。本站量化对比的基准型号。</span><span data-en>apache-2.0, 7.02M downloads. The baseline model this site&#39;s quantisation comparison uses.</span></p>
+            <p class="member-note"><span data-zh>apache-2.0，702 万下载。这里量化对比的基准型号。</span><span data-en>apache-2.0, 7.02M downloads. The baseline model this site&#39;s quantisation comparison uses.</span></p>
         </div>
         <div class="block" id="b0">
           <h4><span class="blk">B</span><span data-zh>该选哪个</span><span data-en>Which one to pick</span> <small><span data-zh>按你的显存倒推</span><span data-en>work backwards from your VRAM</span></small></h4>
@@ -826,11 +805,11 @@
         <span class="tier-legend-i tier-3"><span data-zh>长上下文</span><span data-en>Long context</span></span>
         <span class="tier-legend-i tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span>
       </p>
-      <p class="muted small"><span data-zh>「建议档」是本站按<b>体积最小且落在平衡档</b>的规则自动选出的，不是质量排名。官方量化排在最前；带 <span class="badge badge-im">imatrix</span> 标记的仓库带重要性矩阵数据。</span><span data-en>The recommended tier is picked by rule — smallest size that still lands in the balanced tier — not by a quality ranking. Official quantisations are listed first; repos marked <span class="badge badge-im">imatrix</span> ship an importance matrix.</span></p>
+      <p class="muted small"><span data-zh>「建议档」是按<b>体积最小、又落在平衡档</b>的规则选出来的，不是质量排名。官方量化排在最前；带 <span class="badge badge-im">imatrix</span> 标记的仓库带重要性矩阵数据。</span><span data-en>The recommended tier is picked by rule — smallest size that still lands in the balanced tier — not by a quality ranking. Official quantisations are listed first; repos marked <span class="badge badge-im">imatrix</span> ship an importance matrix.</span></p>
         </div>
         <div class="block" id="d0">
           <h4><span class="blk">D</span><span data-zh>每个变体详解</span><span data-en>Every variant in detail</span> <small><span data-zh>七字段</span><span data-en>seven fields</span></small></h4>
-      <p class="block-lead"><span data-zh>每个变体按七个字段展开：它是什么 → 量化者做了什么 → 与同系列其他变体的区别 → 存在的意义 → 优势 → 为什么选它 → 已知取舍。<b>最后一项是本站唯一会写主观判断的地方，且都标注了「我们的口径」。</b></span><span data-en>Each variant expands along seven fields: what it is → what the quantiser did → how it differs from other variants in this series → why it exists → strengths → why you would pick it → known trade-offs.<b>The last field is the only place this site offers a subjective judgement, and every item is marked as our own reading.</b></span></p>
+      <p class="block-lead"><span data-zh>每个变体按七个字段展开：它是什么 → 量化者做了什么 → 与同系列其他变体的区别 → 存在的意义 → 优势 → 为什么选它 → 已知取舍。<b>最后一项写的是取舍判断：经验之谈，不是实测结论。</b></span><span data-en>Each variant expands along seven fields: what it is → what the quantiser did → how it differs from other variants in this series → why it exists → strengths → why you would pick it → known trade-offs.<b>The last field is the only place this site offers a subjective judgement, and every item is marked as our own reading.</b></span></p>
       <div class="vwrap">
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
@@ -1068,7 +1047,7 @@
         <article class="qcard">
           <h4><code>byteshape</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 2.0M 下载</span><span data-en>In this series: 1 repos · 2.0M downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/byteshape" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
@@ -1122,13 +1101,13 @@
         <article class="qcard">
           <h4><code>AtomicChat</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 74k 下载</span><span data-en>In this series: 1 repos · 74k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/AtomicChat" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>6block</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 13k 下载</span><span data-en>In this series: 1 repos · 13k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/6block" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
@@ -1158,13 +1137,13 @@
         <article class="qcard">
           <h4><code>DhruvalLabs</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 11k 下载</span><span data-en>In this series: 1 repos · 11k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/DhruvalLabs" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>KikoCis</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 11k 下载</span><span data-en>In this series: 1 repos · 11k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/KikoCis" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         </div>
@@ -1223,7 +1202,7 @@
           <span class="muted"><span data-zh>更新了 3 个档位</span><span data-en>updated 3 tiers</span></span>
         </li>
       </ul>
-      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>Qwen/Qwen3.8-27B</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-08-14　·　<span data-zh>本站采集时间：</span><span data-en>collected:</span> 2026-10-30</p>
+      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>Qwen/Qwen3.8-27B</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-08-14　·　<span data-zh>资料时间：</span><span data-en>data as of:</span> 2026-10-30</p>
         </div>
       </section>
       <section class="member" id="m1">
@@ -1233,13 +1212,13 @@
           <h4><span class="blk">A</span><span data-zh>基础模型卡</span><span data-en>Base model card</span> <small><span data-zh>规格 · 许可 · 访问门槛 · 参数量三来源交叉核对</span><span data-en>specs · licence · access · parameter count cross-checked across three sources</span></small></h4>
       <table class="kv">
         <tr><th><span data-zh>官方发布页</span><span data-en>Official release page</span></th><td><a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" target="_blank" rel="noopener">Qwen/Qwen3.8-Flash-Next ↗</a><br><span class="muted small"></span></td></tr>
-        <tr><th><span data-zh>许可</span><span data-en>Licence</span></th><td><a class="lic lic-tight" href="https://huggingface.co/search?license=other" target="_blank" rel="noopener">other</a> <code>qwen-community-1.0</code> <a class="lic-src" href="LICENSE" target="_blank" rel="noopener"><span data-zh>许可原文 ↗</span><span data-en>licence text ↗</span></a><span data-zh><p class="warn-inline">⚠ 非宽松许可，<b>以发布页原文为准</b>。本站不解读许可条款，也不给法律意见。</p></span><span data-en><p class="warn-inline">⚠ Non-permissive licence — <b>the release page is authoritative</b>. This site does not interpret licence terms or give legal advice.</p></span></td></tr>
+        <tr><th><span data-zh>许可</span><span data-en>Licence</span></th><td><a class="lic lic-tight" href="https://huggingface.co/search?license=other" target="_blank" rel="noopener">other</a> <code>qwen-community-1.0</code> <a class="lic-src" href="LICENSE" target="_blank" rel="noopener"><span data-zh>许可原文 ↗</span><span data-en>licence text ↗</span></a><span data-zh><p class="warn-inline">⚠ 非宽松许可，<b>以发布页原文为准</b>。许可条款以原文为准，这里不给法律意见。</p></span><span data-en><p class="warn-inline">⚠ Non-permissive licence — <b>the release page is authoritative</b>. This site does not interpret licence terms or give legal advice.</p></span></td></tr>
         <tr><th><span data-zh>访问门槛</span><span data-en>Access</span></th><td><span data-zh>✅ 公开下载　<span class="muted">无需申请</span></span><span data-en>✅ Public download　<span class="muted">no application needed</span></span></td></tr>
         <tr><th><span data-zh>规模</span><span data-en>Scale</span></th><td><table class="kv kv-nested">
         <tbody>
           <tr><th><span data-zh>官网标注</span><span data-en>Vendor states</span></th><td><b><span data-zh>180B 总参（MoE，激活数未公开）</span><span data-en>180B total params (MoE, activation count not disclosed)</span></b></td></tr>
           <tr><th><span data-zh>官方 API 申报</span><span data-en>Official API</span></th><td><span class="muted">—</span></td></tr>
-          <tr><th><span data-zh>本站实测反推</span><span data-en>This site, measured</span></th><td><span class="muted">—</span></td></tr>
+          <tr><th><span data-zh>从文件体积反推</span><span data-en>This site, measured</span></th><td><span class="muted">—</span></td></tr>
         </tbody>
       </table></td></tr>
         <tr><th><span data-zh>权重精度构成</span><span data-en>Precision breakdown</span></th><td><span class="muted">—</span></td></tr>
@@ -1827,11 +1806,11 @@
         <span class="tier-legend-i tier-3"><span data-zh>长上下文</span><span data-en>Long context</span></span>
         <span class="tier-legend-i tier-4"><span data-zh>极限压缩</span><span data-en>Extreme compression</span></span>
       </p>
-      <p class="muted small"><span data-zh>「建议档」是本站按<b>体积最小且落在平衡档</b>的规则自动选出的，不是质量排名。官方量化排在最前；带 <span class="badge badge-im">imatrix</span> 标记的仓库带重要性矩阵数据。</span><span data-en>The recommended tier is picked by rule — smallest size that still lands in the balanced tier — not by a quality ranking. Official quantisations are listed first; repos marked <span class="badge badge-im">imatrix</span> ship an importance matrix.</span></p>
+      <p class="muted small"><span data-zh>「建议档」是按<b>体积最小、又落在平衡档</b>的规则选出来的，不是质量排名。官方量化排在最前；带 <span class="badge badge-im">imatrix</span> 标记的仓库带重要性矩阵数据。</span><span data-en>The recommended tier is picked by rule — smallest size that still lands in the balanced tier — not by a quality ranking. Official quantisations are listed first; repos marked <span class="badge badge-im">imatrix</span> ship an importance matrix.</span></p>
         </div>
         <div class="block" id="d1">
           <h4><span class="blk">D</span><span data-zh>每个变体详解</span><span data-en>Every variant in detail</span> <small><span data-zh>七字段</span><span data-en>seven fields</span></small></h4>
-      <p class="block-lead"><span data-zh>每个变体按七个字段展开：它是什么 → 量化者做了什么 → 与同系列其他变体的区别 → 存在的意义 → 优势 → 为什么选它 → 已知取舍。<b>最后一项是本站唯一会写主观判断的地方，且都标注了「我们的口径」。</b></span><span data-en>Each variant expands along seven fields: what it is → what the quantiser did → how it differs from other variants in this series → why it exists → strengths → why you would pick it → known trade-offs.<b>The last field is the only place this site offers a subjective judgement, and every item is marked as our own reading.</b></span></p>
+      <p class="block-lead"><span data-zh>每个变体按七个字段展开：它是什么 → 量化者做了什么 → 与同系列其他变体的区别 → 存在的意义 → 优势 → 为什么选它 → 已知取舍。<b>最后一项写的是取舍判断：经验之谈，不是实测结论。</b></span><span data-en>Each variant expands along seven fields: what it is → what the quantiser did → how it differs from other variants in this series → why it exists → strengths → why you would pick it → known trade-offs.<b>The last field is the only place this site offers a subjective judgement, and every item is marked as our own reading.</b></span></p>
       <div class="vwrap">
       <div class="vfilter" role="search">
         <label class="vf-f"><span class="vh"><span data-zh>筛选量化仓</span><span data-en>Filter quant repos</span></span>
@@ -1994,7 +1973,7 @@
         <article class="qcard">
           <h4><code>AtomicChat</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 516k 下载</span><span data-en>In this series: 1 repos · 516k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/AtomicChat" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
@@ -2072,13 +2051,13 @@
         <article class="qcard">
           <h4><code>AesSedai</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 6k 下载</span><span data-en>In this series: 1 repos · 6k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/AesSedai" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         <article class="qcard">
           <h4><code>apetersson</code></h4>
           <p class="qcard-scope"><span data-zh>在本系列：1 个仓 · 3k 下载</span><span data-en>In this series: 1 repos · 3k downloads</span></p>
-          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含本站的主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
+          <div class="qcard-body"><span data-zh><p>&lt;p class=&quot;muted&quot;&gt;该发布者未提供说明。以下为该仓库的客观元数据（规格、许可、文件体积、更新时间），不含主观解读。&lt;/p&gt;</p></span><span data-en><p>&lt;p class=&quot;muted&quot;&gt;This publisher ships no description. What follows is the repo’s own metadata (size, licence, file size, last updated) — no editorialising from us.&lt;/p&gt;</p></span></div>
           <a class="qcard-link" href="https://huggingface.co/apetersson" target="_blank" rel="noopener"><span data-zh>发布页 ↗</span><span data-en>release page ↗</span></a>
         </article>
         </div>
@@ -2122,12 +2101,12 @@
           <span class="muted"><span data-zh>更新了 3 个档位</span><span data-en>updated 3 tiers</span></span>
         </li>
       </ul>
-      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>Qwen/Qwen3.8-Flash-Next</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-08-27　·　<span data-zh>本站采集时间：</span><span data-en>collected:</span> 2026-10-30</p>
+      <p class="muted small"><span data-zh>基础模型</span><span data-en>Base model</span> <code>Qwen/Qwen3.8-Flash-Next</code> <span data-zh>最近更新：</span><span data-en>last updated:</span> 2026-08-27　·　<span data-zh>资料时间：</span><span data-en>data as of:</span> 2026-10-30</p>
         </div>
       </section>
     <section class="companion">
       <h2><span data-zh>下好之后用什么跑</span><span data-en>What runs it</span></h2>
-      <p class="block-lead"><span data-zh>本站只负责「该下哪一档」。跑起来是另一件事 —— 下面这几个工具<b>自己的文档里写明了支持本地模型</b>（Ollama / vLLM / llama.cpp / LM Studio），点进去看具体怎么接。</span><span data-en>This site only answers which tier to download. Running it is a different problem — the tools below <b>document local-model support in their own docs</b> (Ollama / vLLM / llama.cpp / LM Studio). Follow the link to see how.</span></p>
+      <p class="block-lead"><span data-zh>这里只回答「该下哪一档」。跑起来是另一件事 —— 下面这几个工具<b>自己的文档里写明了支持本地模型</b>（Ollama / vLLM / llama.cpp / LM Studio），点进去看具体怎么接。</span><span data-en>This site only answers which tier to download. Running it is a different problem — the tools below <b>document local-model support in their own docs</b> (Ollama / vLLM / llama.cpp / LM Studio). Follow the link to see how.</span></p>
       <div class="comp-grid">
         <a class="comp-card" href="https://tools.specul.com/coding/crush.html">
           <b><span data-zh>Crush</span><span data-en>Crush</span></b>
@@ -2154,15 +2133,15 @@
           <span><span data-zh>命令行里可切本地 LLM，不绑厂商</span><span data-en>Switches to a local LLM from the terminal, no vendor lock-in</span></span>
         </a>
       </div>
-      <p class="muted small"><span data-zh>这些条目的本地模型支持情况由它们自己的官方文档佐证；本站不实测。</span><span data-en>Local-model support for each entry is evidenced by that project official documentation. This site runs no measurements.</span></p>
+      <p class="muted small"><span data-zh>这些条目的本地模型支持，都能在它们自己的官方文档里找到；这里没有跑过实测。</span><span data-en>Local-model support for each entry is evidenced by that project official documentation. This site runs no measurements.</span></p>
     </section>
 
 
     <section class="legal-note">
       <h3><span data-zh>关于数据与许可</span><span data-en>Data and licensing</span></h3>
-      <p><span data-zh>本站数据全部来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开 API，采集时间</span><span data-en>public API, collected</span> <code>2026-10-30</code><span data-zh>，为快照数据。</span><span data-en>; this is a snapshot.</span></p>
-      <p><span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>，只提供发布页链接。许可字段原样引自发布页，</span><span data-en> — it only links to release pages. Licence fields are quoted verbatim from them,</span> <b><span data-zh>本站不解读许可条款、不构成法律意见</span><span data-en>this site does not interpret licence terms or give legal advice</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
-      <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。本站与上述厂商无隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
+      <p><span data-zh>这里的资料来自</span><span data-en>All data here comes from the</span> <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> <span data-zh>公开页面，更新到</span><span data-en>public pages, updated</span> <code>2026-10-30</code><span data-zh>。</span><span data-en>.</span></p>
+      <p><span data-zh>模型权重不在这里托管，只提供发布页链接。许可字段原样引自发布页，</span><span data-en>Model weights are not hosted here — only links to release pages. Licence fields are quoted verbatim,</span> <b><span data-zh>条款以原文为准，这里不给法律意见</span><span data-en>the licence text is authoritative, and no legal advice is given here</span></b><span data-zh>，一切以</span><span data-en> and everything is governed by</span><a href="https://specul.com/legal.html" target="_blank" rel="noopener"><span data-zh>发布页原文</span><span data-en>the legal page</span></a><span data-zh>为准。</span><span data-en>.</span></p>
+      <p><span data-zh>模型名称均为各自权利人的商标，此处仅作描述性使用。这里与上述厂商没有隶属或合作关系。</span><span data-en>Model names are trademarks of their respective owners and are used here only descriptively. This site is not affiliated with or endorsed by any of the vendors above.</span></p>
     </section>
   </div>
   <!-- B2：量化仓筛选（脚本在 site-filter.js，读 .vwrap 作用域） -->

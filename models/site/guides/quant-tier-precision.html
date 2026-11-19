@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>量化档位与精度损失：能说什么、不能说什么 · 做模型专题</title>
-  <meta name="description" content="把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <meta name="description" content="把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是这里按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。（资料更新到 2026-11-06，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/quant-tier-precision.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="量化档位与精度损失：能说什么、不能说什么 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/quant-tier-precision.html" />
   <meta property="og:title" content="量化档位与精度损失：能说什么、不能说什么 · 做模型专题" />
-  <meta property="og:description" content="把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <meta property="og:description" content="把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是这里按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。（资料更新到 2026-11-06，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Quantisation tiers and accuracy loss: what can be said, and what cannot","description":"Split tier names, bits per weight and accuracy loss into three layers: publishing-page facts, this site's derivation from the public naming standard, and what must stay blank. It also states which line in the memory bill actually moves when a tier changes.","url":"https://models.specul.com/guides/quant-tier-precision.html","dateModified":"2026-11-06"}</script>
 </head>
@@ -96,10 +96,10 @@
     <header class="page-head">
       <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span></p>
       <h1><span data-zh>量化档位与精度损失：能说什么、不能说什么</span><span data-en>Quantisation tiers and accuracy loss: what can be said, and what cannot</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
-      <p class="lede"><span data-zh>把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是本站按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。</span><span data-en>Split tier names, bits per weight and accuracy loss into three layers: publishing-page facts, this site&#39;s derivation from the public naming standard, and what must stay blank. It also states which line in the memory bill actually moves when a tier changes.</span></p>
+      <p class="lede"><span data-zh>把档位名、每权重比特数与精度损失分成三层：哪些是发布页事实、哪些是这里按命名标准的推导、哪些必须留空；顺带写清换档后容量账里哪一笔会变。</span><span data-en>Split tier names, bits per weight and accuracy loss into three layers: publishing-page facts, this site&#39;s derivation from the public naming standard, and what must stay blank. It also states which line in the memory bill actually moves when a tier changes.</span></p>
     </header>
 
-    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇划的是说法边界</span><span data-en>What this guide bounds</span></a></li><li><a href="#guide-section-2"><span data-zh>能说什么：三句有依据的话</span><span data-en>What you can say: three supported statements</span></a></li><li><a href="#guide-section-3"><span data-zh>不能说什么：四条边界</span><span data-en>What you cannot say: four boundaries</span></a></li><li><a href="#guide-section-4"><span data-zh>档位名说的是体积，不是质量</span><span data-en>A tier name describes size, not quality</span></a></li><li><a href="#guide-section-5"><span data-zh>精度损失的说法从哪来</span><span data-en>Where accuracy-loss statements come from</span></a></li><li><a href="#guide-section-6"><span data-zh>换了档位，容量账哪一笔会变</span><span data-en>Which line of the memory bill moves with a tier</span></a></li><li><a href="#guide-section-7"><span data-zh>虚构练习：同一模型两个档位</span><span data-en>A fictional exercise: two tiers of one model</span></a></li><li><a href="#guide-section-8"><span data-zh>与本站系列页、学 AI 站的关系</span><span data-en>How this fits the series pages and the Learn site</span></a></li></ul></nav>
+    <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>这一篇划的是说法边界</span><span data-en>What this guide bounds</span></a></li><li><a href="#guide-section-2"><span data-zh>能说什么：三句有依据的话</span><span data-en>What you can say: three supported statements</span></a></li><li><a href="#guide-section-3"><span data-zh>不能说什么：四条边界</span><span data-en>What you cannot say: four boundaries</span></a></li><li><a href="#guide-section-4"><span data-zh>档位名说的是体积，不是质量</span><span data-en>A tier name describes size, not quality</span></a></li><li><a href="#guide-section-5"><span data-zh>精度损失的说法从哪来</span><span data-en>Where accuracy-loss statements come from</span></a></li><li><a href="#guide-section-6"><span data-zh>换了档位，容量账哪一笔会变</span><span data-en>Which line of the memory bill moves with a tier</span></a></li><li><a href="#guide-section-7"><span data-zh>虚构练习：同一模型两个档位</span><span data-en>A fictional exercise: two tiers of one model</span></a></li><li><a href="#guide-section-8"><span data-zh>与这里系列页、学 AI 站的关系</span><span data-en>How this fits the series pages and the Learn site</span></a></li></ul></nav>
     <section class="fam-sec" id="guide-section-0">
       <h2></h2>
 <ul>
@@ -110,7 +110,7 @@
       <h2><span data-zh>这一篇划的是说法边界</span><span data-en>What this guide bounds</span></h2>
 <span data-zh><p>量化档位名说的是权重怎么存，不是模型得了多少分。</p>
 <p>这一篇只划一条线：哪些话有依据可以说，哪些话必须留空。</p>
-<p>本站不下载权重、不跑评测，也不写「某档够用」这类建议。能给的是体积、命名口径和算式边界。</p></span><span data-en><p>A quantisation tier name says how weights are stored. It does not carry a score for the model.</p>
+<p>这里不下载权重、不跑评测，也不写「某档够用」这类建议。能给的是体积、命名口径和算式边界。</p></span><span data-en><p>A quantisation tier name says how weights are stored. It does not carry a score for the model.</p>
 <p>This guide draws one line: which statements have evidence, and which must stay blank.</p>
 <p>This site downloads no weights, runs no evaluations, and issues no &quot;this tier is enough&quot; advice. What it offers is file size, naming arithmetic and the scope of the formulas.</p></span>
     </section>
@@ -119,7 +119,7 @@
 <span data-zh><p>这三句的证据来自发布页文件清单与公开的命名标准。</p>
 <ul>
   <li>体积：某个量化文件的字节数写在发布页文件清单里，可以直接核对。</li>
-  <li>每权重比特数：由档名按公开命名标准推算，本站标为推导，不冒充实测。</li>
+  <li>每权重比特数：由档名按公开命名标准推算，这里标为推导，不冒充实测。</li>
   <li>档位覆盖：某家量化仓提供哪些档、是否带 importance matrix，同样是清单事实。</li>
 </ul>
 <p>方法之间的差别，官方 quantize 文档只说体现在磁盘体积与推理速度上，数值绑定它自己的示例：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/quantize/README.md" target="_blank" rel="noopener">tools/quantize/README.md</a></p></span><span data-en><p>The three statements below rest on publishing-page file listings and the public naming standard.</p>
@@ -132,14 +132,14 @@
     </section>
     <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>不能说什么：四条边界</span><span data-en>What you cannot say: four boundaries</span></h2>
-<span data-zh><p>同一句结论换个模型就得重新取得，所以下面四类话本站不写。</p>
+<span data-zh><p>同一句结论换个模型就得重新取得，所以下面四类话这里不写。</p>
 <ul>
   <li>不写「这一档质量够用」：够不够取决于任务与判定标准，不是档名。</li>
   <li>不写「降一档快多少」：官方文档不给跨模型可复用的比例。</li>
   <li>不写「某家量化更稳」：各家档位与实现细节不同，没有可比的公开口径。</li>
   <li>不做跨档位排名，也不把档位与「适合谁」画等号。</li>
 </ul>
-<p>需要速度或质量结论时，在自己的授权环境按固定任务记录；那是你的读数，不是本站的。</p></span><span data-en><p>A conclusion of this kind has to be re-established for every model, so this site does not write the four statements below.</p>
+<p>需要速度或质量结论时，在自己的授权环境按固定任务记录；那是你的读数，不是这里的。</p></span><span data-en><p>A conclusion of this kind has to be re-established for every model, so this site does not write the four statements below.</p>
 <ul>
   <li>Not &quot;this tier is good enough&quot;: sufficiency depends on the task and its pass criteria, not on the tier label.</li>
   <li>Not &quot;drop a tier and gain X in speed&quot;: official documentation gives no proportion usable across models.</li>
@@ -151,13 +151,13 @@
     <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>档位名说的是体积，不是质量</span><span data-en>A tier name describes size, not quality</span></h2>
 <span data-zh><p>档名描述的是权重的存储方式与大致体积。它不携带任何任务层面的质量含义。</p>
-<p>同名档在不同模型上的真实比特数略有差异，这是本站把比特数标为推导的原因。</p>
+<p>同名档在不同模型上的真实比特数略有差异，这是这里把比特数标为推导的原因。</p>
 <ul>
   <li>官方 README 列出的整数位宽覆盖 1.5、2、3、4、5、6、8 位，出处见 <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/README.md" target="_blank" rel="noopener">llama.cpp README</a>。</li>
   <li>官方 quantize 文档给了一张示例表，按档位列出 bits/weight 与体积（GiB）。表头写明它测的是某个具体 8B 模型，换个模型不会正好是同一串数。</li>
   <li>微调路线里的 4-bit 也是数据类型选择：论文摘要自述 NF4 是对正态分布权重信息论上最优的 4-bit 类型，出处见 <a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener">arXiv 2305.14314</a>。它说的是训练时加载精度，和推理用的 GGUF 档名不是同一层。</li>
 </ul>
-<p>本站的档位归属只按推算出的每权重比特数落档，规则写在数据规范里，任何人可以复算。</p></span><span data-en><p>A tier label describes how weights are stored and roughly how large the file is. It carries no task-level quality meaning.</p>
+<p>这里的档位归属只按推算出的每权重比特数落档，规则写在数据规范里，任何人可以复算。</p></span><span data-en><p>A tier label describes how weights are stored and roughly how large the file is. It carries no task-level quality meaning.</p>
 <p>Real bits per weight differ slightly between models under the same label, which is why this site marks the figure as derived.</p>
 <ul>
   <li>The official README lists integer bit widths covering 1.5, 2, 3, 4, 5, 6 and 8 bits; source: <a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/README.md" target="_blank" rel="noopener">llama.cpp README</a>.</li>
@@ -173,9 +173,9 @@
 <ul>
   <li>指标是语言建模口径的代理量，不等于任何具体任务的表现。</li>
   <li>官方给出的数值绑定它自己的模型、语料与设置，换模型不能照抄。</li>
-  <li>未公布这些数字时，本站只记录缺口，不用别的模型的数字补上。</li>
+  <li>未公布这些数字时，这里只记录缺口，不用别的模型的数字补上。</li>
 </ul>
-<p>「下降多少算能接受」取决于下游任务与验收标准。本站没有跑过评测，也不设默认阈值。</p></span><span data-en><p>The official quantize documentation states that quantisation may introduce accuracy loss. It says the loss is usually measured in perplexity (ppl) and/or Kullback-Leibler divergence (kld), and that a suitable importance matrix can reduce it.</p>
+<p>「下降多少算能接受」取决于下游任务与验收标准。这里没有跑过评测，也不设默认阈值。</p></span><span data-en><p>The official quantize documentation states that quantisation may introduce accuracy loss. It says the loss is usually measured in perplexity (ppl) and/or Kullback-Leibler divergence (kld), and that a suitable importance matrix can reduce it.</p>
 <p>That sentence carries three usable facts, and stops there.</p>
 <ul>
   <li>Those metrics are language-modelling proxies, not performance on any concrete task.</li>
@@ -206,13 +206,13 @@
     </section>
     <section class="fam-sec" id="guide-section-7">
       <h2><span data-zh>虚构练习：同一模型两个档位</span><span data-en>A fictional exercise: two tiers of one model</span></h2>
-<span data-zh><p>本节的数字全是虚构教学假设，不对应任何真实模型、发布页或本站运行结果。</p>
+<span data-zh><p>本节的数字全是虚构教学假设，不对应任何真实模型、发布页或这里运行结果。</p>
 <p>设某密集模型的高精度权重按 30 GiB 计，练习假设换成 5 GiB 档。上下文与并发不变，缓存按 2 GiB、运行时预留按 1 GiB 计。</p>
 <p>两种假设下的合计分别是 33 GiB 与 8 GiB。差值只说明权重那一笔的变化量。</p>
 <p>再假设任务可用内存是 10 GiB。按这些假设，5 GiB 档留有 2 GiB 余量，30 GiB 档超出预算。这是练习算式，不是运行结果。</p>
 <ul>
   <li>查不过去时的下一步不是换档重试，而是回查驻留假设、缓存字段与架构适用范围。</li>
-  <li>体积对照请回到本站系列页 B 区：它按发布体积 × 1.15 初筛候选，不判断优劣，也不保证能跑。</li>
+  <li>体积对照请回到这里系列页 B 区：它按发布体积 × 1.15 初筛候选，不判断优劣，也不保证能跑。</li>
 </ul></span><span data-en><p>Every number in this section is a fictional teaching assumption. It matches no real model, publishing page or result produced by this site.</p>
 <p>Assume a dense model&#39;s high-precision weights occupy 30 GiB, and the exercise swaps them for a 5 GiB tier. Context and concurrency stay fixed, with cache assumed at 2 GiB and runtime reserve at 1 GiB.</p>
 <p>Under those assumptions the totals are 33 GiB and 8 GiB. The difference only measures the weights line.</p>
@@ -223,11 +223,11 @@
 </ul></span>
     </section>
     <section class="fam-sec" id="guide-section-8">
-      <h2><span data-zh>与本站系列页、学 AI 站的关系</span><span data-en>How this fits the series pages and the Learn site</span></h2>
+      <h2><span data-zh>与这里系列页、学 AI 站的关系</span><span data-en>How this fits the series pages and the Learn site</span></h2>
 <span data-zh><p>系列页给的是「你的体积预算下有哪些文件」。这一篇给的是「关于这些文件你能说到哪一步」。</p>
 <ul>
   <li>容量与缓存字段用工作台分开列：<a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">上下文与并发预算</a>。</li>
-  <li>费用构成用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a> 记录，本站不保存单价。</li>
+  <li>费用构成用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a> 记录，这里不保存单价。</li>
   <li>结果判定先按 <a href="https://tools.specul.com/mcp/guides/selftest-20.html" target="_blank" rel="noopener">20 项自测清单</a> 写清条件，再决定要不要换档。</li>
 </ul>
 <p>学 AI 站的 <a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96/" target="_blank" rel="noopener">量化</a>、<a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">量化方法</a>、<a href="https://learn.specul.com/term/bpw/" target="_blank" rel="noopener">bpw</a> 与 <a href="https://learn.specul.com/term/%E5%9B%B0%E6%83%91%E5%BA%A6/" target="_blank" rel="noopener">困惑度</a> 是给使用者的一页科普。</p>
@@ -257,7 +257,7 @@
         <li><span data-zh>vLLM · 内存控制文档（缓存空间以 GiB 配置，2026-11-06 直抓）</span><span data-en>vLLM memory-conservation documentation (cache space configured in GiB; fetched directly 2026-11-06)</span>：<a href="https://docs.vllm.ai/en/latest/configuration/conserving_memory/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/configuration/conserving_memory/</a></li>
         <li><span data-zh>QLoRA 论文摘要页（arXiv 2305.14314，自述 4-bit NormalFloat 数据类型，2026-11-06 直抓）</span><span data-en>QLoRA paper abstract page (arXiv 2305.14314; describes the 4-bit NormalFloat data type; fetched directly 2026-11-06)</span>：<a href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener">https://arxiv.org/abs/2305.14314</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-06；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-06; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-06；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-06; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

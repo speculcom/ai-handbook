@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>把日志留在本地到底意味着什么 · 做模型专题</title>
-  <meta name="description" content="把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <meta name="description" content="把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。（资料更新到 2026-11-06，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/local-log-retention.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="把日志留在本地到底意味着什么 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/local-log-retention.html" />
   <meta property="og:title" content="把日志留在本地到底意味着什么 · 做模型专题" />
-  <meta property="og:description" content="把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。（核验于 2026-11-06，关键事实挂官方出处）" />
+  <meta property="og:description" content="把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。（资料更新到 2026-11-06，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What keeping logs on your own machine actually means","description":"Unpack \"logs stay local\" into three lines: where they are written, who can read them, and how long they persist. Each item points at the runner's own documentation, and explains why disk encryption, backup sync and bind address are not contained in those four words.","url":"https://models.specul.com/guides/local-log-retention.html","dateModified":"2026-11-06"}</script>
 </head>
@@ -110,7 +110,7 @@
       <h2><span data-zh>这是存储位置陈述，不是保密承诺</span><span data-en>A storage-location statement, not a confidentiality promise</span></h2>
 <span data-zh><p>「把日志留在本地」是一句关于文件写入位置的陈述，不是保密承诺。</p>
 <p>它只说明目标路径在同一台机器上，不说明谁能读、别处有没有副本，也不说明留多久。</p>
-<p>本站不替你判断任何合规义务，也不把「本地」写成「安全」。这一篇给的是核对顺序与证据位置。</p></span><span data-en><p>&quot;Keeping logs local&quot; is a statement about where files are written. It is not a confidentiality promise.</p>
+<p>这里不替你判断任何合规义务，也不把「本地」写成「安全」。这一篇给的是核对顺序与证据位置。</p></span><span data-en><p>&quot;Keeping logs local&quot; is a statement about where files are written. It is not a confidentiality promise.</p>
 <p>It says the target path is on this machine. It does not say who can read them, whether copies exist elsewhere, or how long they persist.</p>
 <p>This site does not judge any compliance obligation for you and never writes &quot;local&quot; as &quot;safe&quot;. This guide gives the checking order and where the evidence lives.</p></span>
     </section>
@@ -132,7 +132,7 @@
     </section>
     <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>默认落在哪里</span><span data-en>Where the files land by default</span></h2>
-<span data-zh><p>这一层只有运行器自己的文档能回答，本站不代读任何机器。</p>
+<span data-zh><p>这一层只有运行器自己的文档能回答，这里不代读任何机器。</p>
 <ul>
   <li>Ollama 的排障文档给了日志位置：macOS 看 <code>~/.ollama/logs/server.log</code>；Windows 给的是 <code>%LOCALAPPDATA%\Ollama</code> 目录；Linux 用 <code>journalctl -u ollama</code> 查看。位置见 <a href="https://docs.ollama.com/troubleshooting" target="_blank" rel="noopener">troubleshooting</a>。</li>
   <li>同一家的问题页写明模型保存在 <code>~/.ollama/models</code>，见 <a href="https://docs.ollama.com/faq" target="_blank" rel="noopener">faq</a>。模型文件与日志是两类对象，保留策略分开记。</li>
@@ -166,7 +166,7 @@
     </section>
     <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>日志里装的是什么</span><span data-en>What the logs actually carry</span></h2>
-<span data-zh><p>日志内容由运行器决定，本站不替任何实现假设字段。核对时按四类分开。</p>
+<span data-zh><p>日志内容由运行器决定，这里不替任何实现假设字段。核对时按四类分开。</p>
 <ul>
   <li>请求侧：提示文字、附件或文件路径、工具调用参数、系统提示内容。</li>
   <li>响应侧：生成的文字、错误信息、被截断的位置。</li>
@@ -208,7 +208,7 @@
       <h2><span data-zh>容量与成本的连带账</span><span data-en>The capacity and cost side-effect</span></h2>
 <span data-zh><p>日志吃的是磁盘，不吃容量工作台里那块内存预算，两笔账不要记在同一栏。</p>
 <ul>
-  <li>增长口径按「每天写入量 × 保留天数」自己估，本站不给任何通用数值。</li>
+  <li>增长口径按「每天写入量 × 保留天数」自己估，这里不给任何通用数值。</li>
   <li>任务内存的假设、字段与单位在容量工作台里逐项填：<a href="https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench" target="_blank" rel="noopener">上下文与并发预算</a>。</li>
   <li>费用构成用 <a href="https://tools.specul.com/mcp/guides/cost-calculator.html" target="_blank" rel="noopener">成本计算器</a> 记录，存储与备份是其中的独立项。</li>
   <li>工作台的 KV 算式只管各层结构相同的标准全注意力 MHA / GQA 解码器，与日志留存没有推导关系；MLA、混合与滑动窗口要另算，磁盘那笔更不在它里面。</li>
@@ -257,7 +257,7 @@
         <li><span data-zh>llama.cpp · llama-server 参数文档（--log-disable 与 --api-key 两项，2026-11-06 直抓）</span><span data-en>llama.cpp llama-server argument documentation (lists --log-disable and --api-key; fetched directly 2026-11-06)</span>：<a href="https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/ggml-org/llama.cpp/master/tools/server/README.md</a></li>
         <li><span data-zh>Microsoft Learn · BitLocker 概览（整卷加密与设备加密的恢复密钥备份去向，2026-11-06 直抓）</span><span data-en>Microsoft Learn BitLocker overview (full-volume encryption scope and where device-encryption recovery keys are backed up; fetched directly 2026-11-06)</span>：<a href="https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-06；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-06; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-11-06；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-11-06; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

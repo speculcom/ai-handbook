@@ -1,7 +1,7 @@
 # mcp 大类收录声明
 
 **主题**：给 AI 装的工具——MCP server 与工具接口，给 agent 接上文件、浏览器、GitHub 这些能力。
-定义与边界裁决见 [../../categories.md](../../categories.md) §9。
+定义与边界裁决见 [../../categories.md](../../categories.md) §10。
 
 ## 收录标准（三条全满足）
 

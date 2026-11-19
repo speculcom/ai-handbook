@@ -30,7 +30,7 @@ confidence: partial
 
 它只说明目标路径在同一台机器上，不说明谁能读、别处有没有副本，也不说明留多久。
 
-本站不替你判断任何合规义务，也不把「本地」写成「安全」。这一篇给的是核对顺序与证据位置。
+这里不替你判断任何合规义务，也不把「本地」写成「安全」。这一篇给的是核对顺序与证据位置。
 
 ## [先分清三条线|Separate the three lines first]
 
@@ -44,7 +44,7 @@ confidence: partial
 
 ## [默认落在哪里|Where the files land by default]
 
-这一层只有运行器自己的文档能回答，本站不代读任何机器。
+这一层只有运行器自己的文档能回答，这里不代读任何机器。
 
 - Ollama 的排障文档给了日志位置：macOS 看 `~/.ollama/logs/server.log`；Windows 给的是 `%LOCALAPPDATA%\Ollama` 目录；Linux 用 `journalctl -u ollama` 查看。位置见 [troubleshooting](https://docs.ollama.com/troubleshooting)。
 - 同一家的问题页写明模型保存在 `~/.ollama/models`，见 [faq](https://docs.ollama.com/faq)。模型文件与日志是两类对象，保留策略分开记。
@@ -64,7 +64,7 @@ confidence: partial
 
 ## [日志里装的是什么|What the logs actually carry]
 
-日志内容由运行器决定，本站不替任何实现假设字段。核对时按四类分开。
+日志内容由运行器决定，这里不替任何实现假设字段。核对时按四类分开。
 
 - 请求侧：提示文字、附件或文件路径、工具调用参数、系统提示内容。
 - 响应侧：生成的文字、错误信息、被截断的位置。
@@ -91,7 +91,7 @@ vLLM 的变量页里有一项把 API 响应写进日志用于调试。它也有�
 
 日志吃的是磁盘，不吃容量工作台里那块内存预算，两笔账不要记在同一栏。
 
-- 增长口径按「每天写入量 × 保留天数」自己估，本站不给任何通用数值。
+- 增长口径按「每天写入量 × 保留天数」自己估，这里不给任何通用数值。
 - 任务内存的假设、字段与单位在容量工作台里逐项填：[上下文与并发预算](https://models.specul.com/guides/gpu-cost-math.html#capacity-workbench)。
 - 费用构成用 [成本计算器](https://tools.specul.com/mcp/guides/cost-calculator.html) 记录，存储与备份是其中的独立项。
 - 工作台的 KV 算式只管各层结构相同的标准全注意力 MHA / GQA 解码器，与日志留存没有推导关系；MLA、混合与滑动窗口要另算，磁盘那笔更不在它里面。

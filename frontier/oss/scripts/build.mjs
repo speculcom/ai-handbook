@@ -142,7 +142,7 @@ function sceneCard(s) {
 </div>`;
   fs.writeFileSync(path.join(site, 'index.html'), page({
     title: '开源 AI 工具库 — 自己拿下来跑 · Specul',
-    desc: '50 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。',
+    desc: `${repos.length} 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。`,
     canonical: url(''),
     body
   }));
@@ -162,7 +162,7 @@ function sceneCard(s) {
 <header class="page-head">
   <p class="eyebrow">OSS · All repos</p>
   <h1>全部仓库</h1>
-  <p class="lede">50 个仓库，按场景、语言、许可与上手层筛。默认按场景顺序排，不按 star 排；star 只是快照。</p>
+  <p class="lede">${repos.length} 个仓库，按场景、语言、许可与上手层筛。默认按场景顺序排，不按 star 排；star 只是快照。</p>
 </header>
 <div class="filters">
   <input id="q" type="search" placeholder="搜名称、用途、标签" aria-label="搜索" />
@@ -197,7 +197,7 @@ function sceneCard(s) {
 </script>`;
   fs.writeFileSync(path.join(site, 'all.html'), page({
     title: '全部开源仓库 · 开源 AI 工具库',
-    desc: '50 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。',
+    desc: `${repos.length} 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。`,
     canonical: url('all.html'),
     body
   }));
@@ -264,8 +264,13 @@ for (const r of repos) {
   <ul>${r.why.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
   <h2>不适合</h2>
   <p class="warn">${r.notFor.map((x) => esc(x)).join('<br>')}</p>
+  <h2>最小上手</h2>
+  <ol>${(r.firstRun || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
+  <h2>依赖与成本</h2>
+  <p>${esc(r.deps || '按 README 核对运行时、模型权重与外部服务依赖。')}</p>
   <h2>许可与使用边界</h2>
-  <p>GitHub 快照显示许可为 <b>${esc(r.license)}</b>。开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
+  <p>${esc(r.licenseNote || `代码许可为 ${r.license}；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。`)}</p>
+  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
   <h2>替代与相邻</h2>
   ${alt.length ? `<ul>${alt.map((a) => `<li><a href="../repos/${esc(a.id)}.html">${esc(a.name)}</a> — ${esc(a.tierLabel)}，${esc(a.summary)}</li>`).join('')}</ul>` : '<p>暂无同场景替代卡。</p>'}
   <h2>下一步</h2>
@@ -393,7 +398,7 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
   const lines = [
     '# 开源 AI 工具库',
     '',
-    '> 50 个 AI 开源仓库，按 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。不排名、不背书安全。',
+    `> ${repos.length} 个 AI 开源仓库，按 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。不排名、不背书安全。`,
     '',
     `- [首页](${url('')})`,
     `- [全部仓库](${url('all.html')})`,
@@ -410,7 +415,7 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
   const en = [
     '# Specul OSS — Open-source AI tool library',
     '',
-    '> 50 AI open-source repositories in 6 scenes: agent frameworks, RAG, local inference, multimodal, speech, evaluation. Licence, activity, dependencies, onboarding cost and "not for" are stated. No ranking, no security endorsement.',
+    `> ${repos.length} AI open-source repositories in 6 scenes: agent frameworks, RAG, local inference, multimodal, speech, evaluation. Licence, activity, dependencies, onboarding cost and "not for" are stated. No ranking, no security endorsement.`,
     '',
     `- [Home](${url('')})`,
     `- [All repositories](${url('all.html')})`,

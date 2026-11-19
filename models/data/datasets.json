@@ -11,7 +11,9 @@
     "license": "ODC-By 1.0",
     "commercial": "允许，需按许可署名",
     "access": "直接下载",
-    "tasks": ["预训练"],
+    "tasks": [
+      "预训练"
+    ],
     "quality": "从 96 批 Common Crawl 清洗，附教育向子集 FineWeb-Edu；清洗步骤有公开报告。",
     "caveat": "网页语料仍有噪声、重复与低质页；训练前要做语言筛选、去重和许可复核。",
     "verifiedAt": "2026-11-19"
@@ -28,7 +30,10 @@
     "license": "ODC-BY 1.0",
     "commercial": "允许，需署名",
     "access": "直接下载",
-    "tasks": ["预训练", "研究对照"],
+    "tasks": [
+      "预训练",
+      "研究对照"
+    ],
     "quality": "AI2 公开的研究语料，定位是给科研提供可复现的对照底座。",
     "caveat": "3T 是清洗后的口径；网页来源仍可能含敏感或侵权内容，使用前按用途复核。",
     "verifiedAt": "2026-11-19"
@@ -45,7 +50,10 @@
     "license": "Apache-2.0",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["预训练", "多语言"],
+    "tasks": [
+      "预训练",
+      "多语言"
+    ],
     "quality": "多语言网页语料，带质量信号与去重标记，适合做多语言预训练基线。",
     "caveat": "30T 是原始规模，清洗后可用量取决于质量筛选；不同语言覆盖不均。",
     "verifiedAt": "2026-11-19"
@@ -62,7 +70,10 @@
     "license": "Apache-2.0",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["SFT", "对话"],
+    "tasks": [
+      "SFT",
+      "对话"
+    ],
     "quality": "人工编写的多轮对话树，带审核与语言标签，适合做对话 SFT 的起点。",
     "caveat": "社区众包，质量参差；不同语言样本量差异大，直接混合会偏英文。",
     "verifiedAt": "2026-11-19"
@@ -79,7 +90,10 @@
     "license": "CC-BY-SA-4.0",
     "commercial": "允许，衍生作品需同样开放",
     "access": "直接下载",
-    "tasks": ["SFT", "指令跟随"],
+    "tasks": [
+      "SFT",
+      "指令跟随"
+    ],
     "quality": "Databricks 员工人工编写，覆盖问答、生成、摘要、信息抽取等类别。",
     "caveat": "CC-BY-SA 有传染性；如果你把数据混进训练集，衍生数据的分发方式要先看许可。",
     "verifiedAt": "2026-11-19"
@@ -96,7 +110,10 @@
     "license": "Apache-2.0",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["SFT", "多任务"],
+    "tasks": [
+      "SFT",
+      "多任务"
+    ],
     "quality": "把大量 NLP 任务改写成指令格式，任务覆盖面广，适合做指令微调的对照基线。",
     "caveat": "任务模板高度统一，直接拿去训对话模型会显得机械；需要重采样与模板多样化。",
     "verifiedAt": "2026-11-19"
@@ -113,7 +130,10 @@
     "license": "MIT",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["RLHF", "偏好建模"],
+    "tasks": [
+      "RLHF",
+      "偏好建模"
+    ],
     "quality": "有帮助性与无害性两组人类偏好数据，是 RLHF 早期常用的公开基线。",
     "caveat": "对话风格与现在的助手产品差异较大；直接拿旧偏好训新模型，可能学到过时的表达。",
     "verifiedAt": "2026-11-19"
@@ -130,7 +150,11 @@
     "license": "MIT",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["RLHF", "偏好建模", "DPO"],
+    "tasks": [
+      "RLHF",
+      "偏好建模",
+      "DPO"
+    ],
     "quality": "用多个模型生成回答再做细粒度评分，适合做偏好对齐与 DPO 训练。",
     "caveat": "评分由模型产生，会带入评分模型的偏好；用于生产前要抽检偏差。",
     "verifiedAt": "2026-11-19"
@@ -147,7 +171,10 @@
     "license": "MIT",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["RLHF", "偏好排序"],
+    "tasks": [
+      "RLHF",
+      "偏好排序"
+    ],
     "quality": "GPT-4 对多个模型回答做 7 档排序，适合研究排序式偏好学习。",
     "caveat": "排序由单一模型完成，存在位置偏差与风格偏好；不要当作人类真值。",
     "verifiedAt": "2026-11-19"
@@ -164,7 +191,9 @@
     "license": "MIT",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["知识评测"],
+    "tasks": [
+      "知识评测"
+    ],
     "quality": "覆盖 57 个学科的多选题，是模型知识广度的常用基线。",
     "caveat": "题目公开已久，污染风险高；分数高不等于会做实际任务。",
     "verifiedAt": "2026-11-19"
@@ -181,7 +210,9 @@
     "license": "MIT",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["数学推理"],
+    "tasks": [
+      "数学推理"
+    ],
     "quality": "题目短、答案唯一，适合观察多步算术与推理链是否稳定。",
     "caveat": "难度集中在小学范围；高分不代表能处理真实业务里的表格与多约束问题。",
     "verifiedAt": "2026-11-19"
@@ -198,7 +229,9 @@
     "license": "MIT",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["代码生成"],
+    "tasks": [
+      "代码生成"
+    ],
     "quality": "函数级代码生成基准，用单元测试判分，口径清楚。",
     "caveat": "题量小，单一语言；分数波动大，不能单独代表代码能力。",
     "verifiedAt": "2026-11-19"
@@ -215,7 +248,10 @@
     "license": "CC-BY-SA-3.0",
     "commercial": "允许，衍生需同样开放",
     "access": "直接下载",
-    "tasks": ["RAG", "开放域问答"],
+    "tasks": [
+      "RAG",
+      "开放域问答"
+    ],
     "quality": "来自真实搜索查询，附 Wikipedia 段落标注，适合做检索与阅读理解的联合评测。",
     "caveat": "维基页面会变，旧标注可能对不上；做 RAG 评测要固定快照。",
     "verifiedAt": "2026-11-19"
@@ -232,7 +268,10 @@
     "license": "CC-BY-4.0",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["RAG", "多跳推理"],
+    "tasks": [
+      "RAG",
+      "多跳推理"
+    ],
     "quality": "需要跨两段以上证据才能回答，适合测检索召回与证据拼接。",
     "caveat": "部分问题依赖维基结构；真实文档库的噪声与权限问题它不覆盖。",
     "verifiedAt": "2026-11-19"
@@ -249,7 +288,10 @@
     "license": "Apache-2.0",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["RAG", "检索评测"],
+    "tasks": [
+      "RAG",
+      "检索评测"
+    ],
     "quality": "跨领域检索基准集合，适合比较 embedding 与检索策略的泛化。",
     "caveat": "各子集许可与领域不同；不要把 18 个分数平均成一个总分。",
     "verifiedAt": "2026-11-19"
@@ -266,7 +308,10 @@
     "license": "元数据 CC-BY-4.0；图像版权随源站",
     "commercial": "元数据可用；图像需逐源核对",
     "access": "元数据下载 / 图像需回源",
-    "tasks": ["多模态预训练", "检索"],
+    "tasks": [
+      "多模态预训练",
+      "检索"
+    ],
     "quality": "大规模图文对，适合研究对比学习与图文检索。",
     "caveat": "不托管图像；URL 会失效，图像许可与肖像权要逐条核对，不能默认可商用。",
     "verifiedAt": "2026-11-19"
@@ -283,7 +328,10 @@
     "license": "CC-BY-4.0（元数据）；图像随源站",
     "commercial": "元数据可用；图像需逐源核对",
     "access": "直接下载元数据",
-    "tasks": ["多模态预训练", "数据筛选研究"],
+    "tasks": [
+      "多模态预训练",
+      "数据筛选研究"
+    ],
     "quality": "固定训练预算下比较数据筛选方法，适合做可复现的缩放实验。",
     "caveat": "图像不随数据集重新分发；商用前要核对源站许可与肖像权。",
     "verifiedAt": "2026-11-19"
@@ -300,7 +348,10 @@
     "license": "标注 CC-BY-4.0；图像随 Flickr 源站",
     "commercial": "标注可用；图像需逐张核对",
     "access": "直接下载",
-    "tasks": ["图文生成", "图像描述评测"],
+    "tasks": [
+      "图文生成",
+      "图像描述评测"
+    ],
     "quality": "图像描述的标准基线，标注格式稳定，适合做小规模对照。",
     "caveat": "图像来自 Flickr，许可不统一；不能把整个数据集默认成商用可分发。",
     "verifiedAt": "2026-11-19"
@@ -317,7 +368,10 @@
     "license": "MIT（数据集打包）；代码随原仓库",
     "commercial": "需逐仓核对代码许可",
     "access": "需接受条件后下载",
-    "tasks": ["代码预训练", "代码检索"],
+    "tasks": [
+      "代码预训练",
+      "代码检索"
+    ],
     "quality": "从公开 GitHub 仓库抽取并去重，附许可与仓库元数据。",
     "caveat": "代码许可混杂，含 copyleft 与无许可仓库；训练与分发前必须过滤。",
     "verifiedAt": "2026-11-19"
@@ -334,7 +388,10 @@
     "license": "Apache-2.0（数据集打包）；代码随原仓库",
     "commercial": "需逐仓核对代码许可",
     "access": "直接下载",
-    "tasks": ["代码预训练", "代码补全"],
+    "tasks": [
+      "代码预训练",
+      "代码补全"
+    ],
     "quality": "StarCoder 系列所用代码语料，语言覆盖广，附去重与许可过滤记录。",
     "caveat": "数据集打包许可不等于代码许可；生成代码的许可证继承问题要单独评估。",
     "verifiedAt": "2026-11-19"
@@ -351,7 +408,10 @@
     "license": "MIT",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["领域问答", "RAG"],
+    "tasks": [
+      "领域问答",
+      "RAG"
+    ],
     "quality": "从 PubMed 摘要构造的是/否/不确定问答，适合做医学文献检索问答的基线。",
     "caveat": "不是临床指南，不能用于诊断建议；专业用途要另行核对最新文献与监管要求。",
     "verifiedAt": "2026-11-19"
@@ -368,7 +428,10 @@
     "license": "MIT",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["SFT", "对话"],
+    "tasks": [
+      "SFT",
+      "对话"
+    ],
     "quality": "由模型生成的多轮对话， topic 覆盖广，适合做对话 SFT 的合成基线。",
     "caveat": "合成数据会放大生成模型的风格与错误；要混入人工数据并做去重与质量过滤。",
     "verifiedAt": "2026-11-19"
@@ -385,7 +448,10 @@
     "license": "Apache-2.0",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["SFT", "指令跟随"],
+    "tasks": [
+      "SFT",
+      "指令跟随"
+    ],
     "quality": "用 Evol-Instruct 把简单指令改写成更深、更复杂版本，适合做指令难度爬坡。",
     "caveat": "合成指令可能不自然或不可执行；训练前要抽检并去掉重复模板。",
     "verifiedAt": "2026-11-19"
@@ -402,9 +468,434 @@
     "license": "Apache-2.0",
     "commercial": "允许",
     "access": "直接下载",
-    "tasks": ["SFT", "对话"],
+    "tasks": [
+      "SFT",
+      "对话"
+    ],
     "quality": "混合合成与公开指令数据，覆盖广，是社区常用的 SFT 基线。",
     "caveat": "来源混合，重复与低质样本多；需按来源分层抽样并做去重。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "dclm-baseline",
+    "category": "pretrain",
+    "name": "DCLM-Baseline",
+    "source": "DataComp-LM / ML Foundations",
+    "url": "https://huggingface.co/datasets/mlfoundations/dclm-baseline-1.0",
+    "size": "4T tokens（1.0 基线）",
+    "languages": "英文",
+    "format": "Parquet / JSONL",
+    "license": "CC-BY-4.0（以数据集卡为准）",
+    "commercial": "允许，需按许可署名",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "预训练",
+      "数据过滤消融"
+    ],
+    "quality": "从 Common Crawl 清洗，附 DCLM 过滤模型与消融报告；强调质量过滤，不是单纯扩量。",
+    "caveat": "网页语料仍有版权、噪声与重复；过滤模型会带入自身偏差，不能把过滤分当质量真值。",
+    "firstUse": "先拉 1–5 GB 抽样，跑语言识别、去重、毒性抽检，再决定是否进训练管线。",
+    "pitfalls": "把 DCLM 分数当通用质量真值；忽略 Common Crawl 的 robots 与来源条款。",
+    "cost": "全量下载与训练成本高；抽样验证成本低。",
+    "notFor": "不适合需要逐条授权证明的闭源商用语料。",
+    "compare": "与 FineWeb 同属网页预训练语料；DCLM 更强调过滤消融，FineWeb 提供教育向子集。",
+    "verify": "在数据集卡核对 1.0 版本、token 数与许可；抽 100 条看语言与正文质量。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "pile",
+    "category": "pretrain",
+    "name": "The Pile",
+    "source": "EleutherAI",
+    "url": "https://huggingface.co/datasets/EleutherAI/pile",
+    "size": "约 825 GiB / 22 个子集",
+    "languages": "英文为主",
+    "format": "JSONL",
+    "license": "MIT（代码）；各子集逐源条款",
+    "commercial": "逐子集核对",
+    "access": "Hugging Face / EleutherAI",
+    "tasks": [
+      "预训练",
+      "研究基线"
+    ],
+    "quality": "22 个子集的经典混合，适合做小模型消融和研究复现。",
+    "caveat": "构建于 2020 年，网页与代码数据已过时；部分子集许可与来源需要逐项复核。",
+    "firstUse": "先选 3–5 个子集做小规模消融，不要直接全量混入新模型。",
+    "pitfalls": "把“开源”当“全部可商用”；忽略子集之间的时间与领域偏差。",
+    "cost": "全量约 800 GB；子集抽样成本低。",
+    "notFor": "不适合作为 2026 年新模型的唯一预训练语料。",
+    "compare": "与 RedPajama-v2 / DCLM 相比，Pile 更老、更小，但子集结构清楚，适合复现实验。",
+    "verify": "逐个核对子集的数据卡与许可；抽 50 条看正文与元数据。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "tulu-3-sft",
+    "category": "sft",
+    "name": "Tülu 3 SFT Mixture",
+    "source": "Allen Institute for AI",
+    "url": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
+    "size": "约 100 万+ 指令样本",
+    "languages": "英文为主",
+    "format": "JSONL / Parquet",
+    "license": "ODC-BY 1.0（以数据集卡为准）",
+    "commercial": "允许，需署名",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "SFT",
+      "指令跟随",
+      "多任务混合"
+    ],
+    "quality": "把多个公开 SFT 集按配方混合，附 Tülu 3 训练报告与消融，适合做可复现的后训练基线。",
+    "caveat": "混合配方会带入各源集的风格与偏差；部分子集许可不同，不能只看总卡。",
+    "firstUse": "先用官方配方跑一个小模型，记录模板、packing 与评估口径。",
+    "pitfalls": "把混合集当“万能 SFT”；忽略各子集的许可与去重。",
+    "cost": "中等；全量 SFT 需要多卡。",
+    "notFor": "不适合需要特定行业术语或中文母语风格的任务，需另配领域数据。",
+    "compare": "与 OpenHermes / SmolTalk 相比，Tülu 3 的配方与评估报告更完整。",
+    "verify": "核对配方版本、各子集许可与样本数；抽 100 条看模板一致性。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "smoltalk",
+    "category": "sft",
+    "name": "SmolTalk",
+    "source": "Hugging Face",
+    "url": "https://huggingface.co/datasets/HuggingFaceTB/smoltalk",
+    "size": "约 200 万条对话样本",
+    "languages": "英文为主",
+    "format": "JSONL / Parquet",
+    "license": "Apache-2.0（以数据集卡为准）",
+    "commercial": "允许，需保留许可声明",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "SFT",
+      "对话",
+      "小模型后训练"
+    ],
+    "quality": "面向小模型对话能力整理的混合集，覆盖日常问答、指令与多轮对话。",
+    "caveat": "以英文日常对话为主，专业领域与中文覆盖有限；合成/改写样本可能放大模型风格。",
+    "firstUse": "先抽 1 万条看轮次长度、系统提示与拒答样本比例。",
+    "pitfalls": "把对话流畅度当事实正确；忽略多轮上下文的截断。",
+    "cost": "低到中等；小模型单机可跑。",
+    "notFor": "不适合直接做法律、医疗等高危领域 SFT。",
+    "compare": "与 Tülu 3 SFT 相比更轻、更偏对话；复杂指令覆盖不如 Tülu 3。",
+    "verify": "核对数据集版本与许可；抽 100 条检查多轮结构与拒答。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "helpsteer2",
+    "category": "preference",
+    "name": "HelpSteer2",
+    "source": "NVIDIA",
+    "url": "https://huggingface.co/datasets/nvidia/HelpSteer2",
+    "size": "约 2.1 万条偏好样本",
+    "languages": "英文",
+    "format": "JSONL",
+    "license": "CC-BY-4.0",
+    "commercial": "允许，需署名",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "奖励模型",
+      "偏好对齐",
+      "DPO"
+    ],
+    "quality": "多维度人工标注（帮助性、正确性、连贯性、复杂度、冗长度），适合训练可解释的奖励模型。",
+    "caveat": "标注者与提示分布偏英文、偏通用助手；不能直接代表中文或行业偏好。",
+    "firstUse": "先做标注一致性检查，再切训练/验证集，避免同一提示泄漏。",
+    "pitfalls": "把冗长当高质量；忽略多维度标签之间的冲突。",
+    "cost": "低；单卡可跑奖励模型。",
+    "notFor": "不适合直接替代目标用户的偏好数据。",
+    "compare": "与 UltraFeedback 相比规模小，但维度标签更细。",
+    "verify": "核对标签字段与许可；抽 50 条看多维评分是否一致。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "reward-bench",
+    "category": "preference",
+    "name": "RewardBench",
+    "source": "Allen Institute for AI",
+    "url": "https://huggingface.co/datasets/allenai/reward-bench",
+    "size": "数千条偏好对",
+    "languages": "英文",
+    "format": "JSONL",
+    "license": "MIT",
+    "commercial": "允许，需保留声明",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "奖励模型评测",
+      "偏好对齐诊断"
+    ],
+    "quality": "覆盖聊天、推理、安全等子集的偏好对，专门用来测奖励模型而不是生成模型。",
+    "caveat": "题集规模不大，子集间难度差异明显；分数高不等于下游 DPO 一定好。",
+    "firstUse": "先确认你的奖励模型输入格式与模板，再跑官方评分脚本。",
+    "pitfalls": "把 RewardBench 分数当生成质量；忽略训练集污染。",
+    "cost": "低；单卡可跑。",
+    "notFor": "不适合单独决定 DPO 配方。",
+    "compare": "与 HelpSteer2 互补：一个用于训练，一个用于评测奖励模型。",
+    "verify": "核对子集划分与评分脚本；抽 20 条看 chosen/rejected 是否合理。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "math-500",
+    "category": "eval",
+    "name": "MATH-500",
+    "source": "Hugging Face H4",
+    "url": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+    "size": "500 题",
+    "languages": "英文",
+    "format": "JSONL",
+    "license": "MIT",
+    "commercial": "允许，需保留声明",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "数学推理评测",
+      "答案抽取"
+    ],
+    "quality": "从 MATH 测试集抽出的 500 题子集，题面与答案结构清楚，常用于快速比较数学推理。",
+    "caveat": "题目公开已久，污染风险高；答案抽取与等价判断会显著影响分数。",
+    "firstUse": "固定 prompt、答案抽取与评分脚本，再与其它模型同口径对比。",
+    "pitfalls": "只看最终答案不看过程；不同抽取器导致分数不可比。",
+    "cost": "低；单卡可跑。",
+    "notFor": "不适合代表竞赛级数学或中文数学能力。",
+    "compare": "与 GSM8K 相比更难、更偏竞赛；与 AIME 相比更易复现。",
+    "verify": "核对 500 题版本与答案字段；抽 10 题手算验证评分。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "aime-2024",
+    "category": "eval",
+    "name": "AIME 2024",
+    "source": "MAA / AI-MO",
+    "url": "https://huggingface.co/datasets/AI-MO/aimo-validation-aime",
+    "size": "30 题（2024 AIME I/II）",
+    "languages": "英文",
+    "format": "JSONL",
+    "license": "题目版权归 MAA；使用需核对",
+    "commercial": "需逐条核对",
+    "access": "Hugging Face / 官方题面",
+    "tasks": [
+      "竞赛数学评测",
+      "长链推理"
+    ],
+    "quality": "竞赛级数学题，答案唯一，适合压力测试长链推理与自我校验。",
+    "caveat": "题量小，单题波动会放大分数差；题面公开后污染风险高。",
+    "firstUse": "用固定模板跑多次，记录方差与答案抽取失败率。",
+    "pitfalls": "把 30 题分数当稳定能力；忽略模型见过题目的可能。",
+    "cost": "低；但需要较多采样。",
+    "notFor": "不适合作为唯一数学评测。",
+    "compare": "与 MATH-500 相比题少但更难；适合做补充而非主榜。",
+    "verify": "核对年份与题号；抽 5 题人工验证答案。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "ms-marco",
+    "category": "rag",
+    "name": "MS MARCO",
+    "source": "Microsoft",
+    "url": "https://huggingface.co/datasets/microsoft/ms_marco",
+    "size": "约 880 万段落 / 100 万+ 查询",
+    "languages": "英文",
+    "format": "JSONL / TSV",
+    "license": "MS MARCO 数据使用协议",
+    "commercial": "需按协议核对",
+    "access": "Hugging Face / 官方下载",
+    "tasks": [
+      "检索",
+      "RAG",
+      "重排"
+    ],
+    "quality": "大规模真实搜索查询与段落，适合训练/评测检索器与重排器。",
+    "caveat": "查询与段落偏英文网页；答案不一定完整，不能直接当生成训练真值。",
+    "firstUse": "先做 BM25 基线，再加向量检索，记录 recall@k 与 MRR。",
+    "pitfalls": "把检索命中当答案正确；忽略段落版本与索引更新。",
+    "cost": "中等；全量索引需要磁盘与内存。",
+    "notFor": "不适合中文或垂直领域检索，需另配语料。",
+    "compare": "与 Natural Questions / HotpotQA 相比更偏真实搜索查询与段落检索。",
+    "verify": "核对协议与 split；抽 50 条看查询/段落/答案字段。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "triviaqa",
+    "category": "rag",
+    "name": "TriviaQA",
+    "source": "University of Washington",
+    "url": "https://huggingface.co/datasets/mandarjoshi/trivia_qa",
+    "size": "约 95K 问答对",
+    "languages": "英文",
+    "format": "JSONL",
+    "license": "Apache-2.0",
+    "commercial": "允许，需保留声明",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "开放域问答",
+      "RAG 评测"
+    ],
+    "quality": "问题来自 trivia 爱好者，附证据文档与多答案别名，适合测检索+阅读。",
+    "caveat": "题目与证据偏英文维基/网页；部分答案有别名与时间敏感信息。",
+    "firstUse": "先跑闭卷基线，再跑检索增强，分开看检索与阅读贡献。",
+    "pitfalls": "把别名匹配当唯一正确；忽略证据文档版本。",
+    "cost": "低；单卡可跑。",
+    "notFor": "不适合中文开放域问答。",
+    "compare": "与 Natural Questions 相比更偏 trivia，答案别名更多。",
+    "verify": "核对 split 与答案别名；抽 20 条看证据文档。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "llava-instruct-150k",
+    "category": "multimodal",
+    "name": "LLaVA-Instruct-150K",
+    "source": "LLaVA / University of Wisconsin-Madison",
+    "url": "https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K",
+    "size": "15 万条图文指令",
+    "languages": "英文",
+    "format": "JSON",
+    "license": "LLaVA 数据条款；图像随 COCO",
+    "commercial": "需逐项核对图像与文本条款",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "多模态 SFT",
+      "图文问答"
+    ],
+    "quality": "用 GPT 生成图文指令，覆盖描述、推理与对话，是早期多模态 SFT 的常用基线。",
+    "caveat": "指令由模型生成，存在幻觉与风格偏差；图像来自 COCO，版权随源数据集。",
+    "firstUse": "先抽 1,000 条检查图文对齐与指令多样性，再决定是否全量。",
+    "pitfalls": "把生成指令当人工标注；忽略图像许可。",
+    "cost": "中等；多模态训练需要 GPU 显存。",
+    "notFor": "不适合直接做中文多模态或医疗影像。",
+    "compare": "与 DataComp / LAION 相比更偏指令数据，不是预训练图文对。",
+    "verify": "核对图像 ID 与指令字段；抽 50 条看图文是否一致。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "video-mme",
+    "category": "multimodal",
+    "name": "Video-MME",
+    "source": "Video-MME 团队",
+    "url": "https://huggingface.co/datasets/lmms-lab/Video-MME",
+    "size": "900 段视频 / 2,700 题",
+    "languages": "英文为主",
+    "format": "视频 + JSON",
+    "license": "CC-BY-4.0（以数据卡为准）",
+    "commercial": "需按数据卡核对",
+    "access": "Hugging Face / 官方页",
+    "tasks": [
+      "视频理解评测",
+      "多模态问答"
+    ],
+    "quality": "覆盖不同时长与领域的视频问答，适合测长视频理解与时间定位。",
+    "caveat": "视频来源与版权需逐条核对；题集公开后污染风险上升。",
+    "firstUse": "先跑短视频子集，确认抽帧与时间戳口径，再跑全长视频。",
+    "pitfalls": "抽帧数不同导致分数不可比；把字幕当视觉理解。",
+    "cost": "高；视频解码与长上下文需要大显存。",
+    "notFor": "不适合直接代表中文视频或专业影视理解。",
+    "compare": "与 MVBench / LongVideoBench 相比，Video-MME 更强调多时长与多领域覆盖。",
+    "verify": "核对视频清单、题目与许可；抽 10 段看时间戳。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "commitpackft",
+    "category": "code-domain",
+    "name": "CommitPackFT",
+    "source": "BigCode",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft",
+    "size": "约 200 万条提交",
+    "languages": "多语言代码",
+    "format": "JSONL / Parquet",
+    "license": "BigCode 数据集协议",
+    "commercial": "需按协议核对",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "代码 SFT",
+      "提交信息生成",
+      "代码编辑"
+    ],
+    "quality": "从真实 Git 提交中筛出的指令-代码对，覆盖多语言与真实修改场景。",
+    "caveat": "提交质量参差，含调试残留与许可证不明的代码；需按仓库过滤。",
+    "firstUse": "先按语言与许可证过滤，再抽 1,000 条看 diff 与指令是否匹配。",
+    "pitfalls": "把提交当正确修改；忽略仓库许可证与敏感信息。",
+    "cost": "中等；代码模型训练成本高。",
+    "notFor": "不适合直接生成专利或闭源代码。",
+    "compare": "与 The Stack / StarCoderData 相比更偏“修改指令”，不是纯代码语料。",
+    "verify": "核对协议、语言分布与仓库过滤规则；抽 50 条看 diff。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "apps",
+    "category": "code-domain",
+    "name": "APPS",
+    "source": "UC Berkeley",
+    "url": "https://huggingface.co/datasets/codeparrot/apps",
+    "size": "10,000 题",
+    "languages": "英文题面 / Python 代码",
+    "format": "JSON",
+    "license": "MIT",
+    "commercial": "允许，需保留声明",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "代码生成",
+      "单元测试评测"
+    ],
+    "quality": "包含题面、样例与隐藏测试，适合测“写完能不能过测试”而不是只看相似度。",
+    "caveat": "题面与测试公开已久，污染风险高；部分题测试不完整。",
+    "firstUse": "固定执行环境与超时，先跑通样例再跑隐藏测试。",
+    "pitfalls": "把 pass@1 当真实工程能力；忽略执行环境差异。",
+    "cost": "低到中等；需要沙箱执行。",
+    "notFor": "不适合评估大型仓库级修改。",
+    "compare": "与 HumanEval / MBPP 相比题更多、测试更完整。",
+    "verify": "核对 split 与测试用例；抽 10 题本地跑通。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "magicoder-oss-instruct",
+    "category": "synthetic",
+    "name": "Magicoder-OSS-Instruct",
+    "source": "UIUC / Magicoder",
+    "url": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
+    "size": "7.5 万条",
+    "languages": "英文",
+    "format": "JSONL",
+    "license": "MIT",
+    "commercial": "允许，需保留声明",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "代码 SFT",
+      "合成指令"
+    ],
+    "quality": "从开源代码片段反向生成指令-代码对，强调多样性与真实代码语境。",
+    "caveat": "合成指令可能带模型风格与错误；代码片段许可需逐仓核对。",
+    "firstUse": "先按语言过滤，再抽 500 条看指令与代码是否可执行。",
+    "pitfalls": "把合成数据当人工标注；忽略代码许可证。",
+    "cost": "低；适合做小模型代码 SFT。",
+    "notFor": "不适合直接替代真实提交数据。",
+    "compare": "与 CommitPackFT 相比更便宜、更可控，但真实修改场景覆盖少。",
+    "verify": "核对数据集版本与许可；抽 20 条实际执行代码。",
+    "verifiedAt": "2026-11-19"
+  },
+  {
+    "id": "cosmopedia",
+    "category": "synthetic",
+    "name": "Cosmopedia",
+    "source": "Hugging Face",
+    "url": "https://huggingface.co/datasets/HuggingFaceTB/cosmopedia",
+    "size": "约 3,000 万篇 / 25B tokens",
+    "languages": "英文",
+    "format": "Parquet / JSONL",
+    "license": "Apache-2.0（以数据集卡为准）",
+    "commercial": "允许，需保留声明",
+    "access": "Hugging Face 直接下载",
+    "tasks": [
+      "合成预训练",
+      "小模型训练",
+      "教育内容"
+    ],
+    "quality": "用生成模型合成的教科书、故事与问答文本，结构清楚，适合小模型预训练实验。",
+    "caveat": "合成文本会放大生成模型的偏见与事实错误；不能替代真实网页语料。",
+    "firstUse": "先抽 1,000 篇做事实与重复检查，再小比例混入真实语料。",
+    "pitfalls": "把合成数据当真实世界知识；忽略生成模型的许可与风格。",
+    "cost": "低到中等；文本训练成本可控。",
+    "notFor": "不适合需要最新事实或长尾真实知识的预训练。",
+    "compare": "与 UltraChat / OpenHermes 相比更偏预训练长文，不是对话 SFT。",
+    "verify": "核对版本、token 数与生成模型；抽 50 篇看事实与重复。",
     "verifiedAt": "2026-11-19"
   }
 ]

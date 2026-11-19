@@ -12,6 +12,7 @@ purposeTag: "learn"
 level: 4
 layer: "四"
 ord: 1
+last_verified: "2026-11-19"
 ---
 
 # Transformer（Transformer）

@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>跑起来深水：KV 缓存、批处理与推理引擎 · 做模型专题</title>
-  <meta name="description" content="推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <meta name="description" content="推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。（资料更新到 2026-10-21，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/serving-deep-dive.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="跑起来深水：KV 缓存、批处理与推理引擎 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/serving-deep-dive.html" />
   <meta property="og:title" content="跑起来深水：KV 缓存、批处理与推理引擎 · 做模型专题" />
-  <meta property="og:description" content="推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。（核验于 2026-10-21，关键事实挂官方出处）" />
+  <meta property="og:description" content="推理吞吐的瓶颈为什么在 KV 缓存显存；PagedAttention、连续批处理、RadixAttention 各解决什么；vLLM 与 SGLang 站在哪。从业者视角；一页科普在学 AI 站，互链不重复。（资料更新到 2026-10-21，关键事实挂官方出处）" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=afb8bddd659c"></script>
-  <link rel="stylesheet" href="../brand.css?v=afb8bddd659c" />
+  <script src="../brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="../brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="../site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Serving deep dive: KV cache, batching, and inference engines","description":"Why serving throughput is bottlenecked by KV-cache memory; what PagedAttention, continuous batching and RadixAttention each solve; where vLLM and SGLang sit. Practitioner view; the one-page explainers live on the Learn site, cross-linked, not duplicated.","url":"https://models.specul.com/guides/serving-deep-dive.html","dateModified":"2026-10-21"}</script>
 </head>
@@ -109,7 +109,7 @@
     <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>这一篇讲什么</span><span data-en>What this guide covers</span></h2>
 <span data-zh><p><b>模型跑起来之后，吞吐的瓶颈多半不在算力，在显存里的 KV 缓存。</b><br>这一篇讲推理引擎围绕这块显存做的三件事：怎么存、怎么批、怎么复用。</p>
-<p>本站不实测。所有倍数都是论文自报口径，出处列在文末；<br>引擎能力一律以官方文档为准。</p></span><span data-en><p><b>Once a model is running, the throughput bottleneck is usually not compute but the KV cache in memory.</b><br>This guide covers the three things inference engines do around that memory: how to store, how to batch, how to reuse.</p>
+<p>这里不实测。所有倍数都是论文自报口径，出处列在文末；<br>引擎能力一律以官方文档为准。</p></span><span data-en><p><b>Once a model is running, the throughput bottleneck is usually not compute but the KV cache in memory.</b><br>This guide covers the three things inference engines do around that memory: how to store, how to batch, how to reuse.</p>
 <p>This site runs no benchmarks. Every multiplier is a paper&#39;s self-reported figure, sourced at the end;<br>engine capabilities always follow the official docs.</p></span>
     </section>
     <section class="fam-sec" id="guide-section-2">
@@ -132,7 +132,7 @@
       <h2><span data-zh>vLLM 与 SGLang：各站在哪</span><span data-en>Where vLLM and SGLang sit</span></h2>
 <span data-zh><p><b>vLLM</b>：通用 LLM 服务引擎，PagedAttention 的官方落地，<br>文档覆盖量化、并行、多机部署。开放权重部署讨论里的默认名字。</p>
 <p><b>SGLang</b>：面向「多调用程序」的服务框架——代理循环、推理链、结构化输出这类负载。<br>论文自报两项机制：RadixAttention 复用跨调用共享前缀的 KV 缓存；<br>压缩有限状态机加速结构化输出解码。论文自报此类任务上最高 6.4 倍吞吐。</p>
-<p>两者不是排名关系，负载画像不同：<br>单轮问答、批量离线生成，vLLM 路线成熟；<br>多轮代理、共享长前缀、严格格式输出，SGLang 的复用机制对症。<br>本站不裁决，论文口径都在文末。</p>
+<p>两者不是排名关系，负载画像不同：<br>单轮问答、批量离线生成，vLLM 路线成熟；<br>多轮代理、共享长前缀、严格格式输出，SGLang 的复用机制对症。<br>这里不裁决，论文口径都在文末。</p>
 <p>本地单机跑 GGUF 是另一条线：llama.cpp 一类实现不追求并发吞吐，<br>追求在有限显存里把模型装下。选型先问「几个并发」，再问引擎。</p></span><span data-en><p><b>vLLM</b>: the general-purpose LLM serving engine, the official landing of PagedAttention,<br>with docs covering quantisation, parallelism and multi-node deployment. The default name in open-weight deployment discussions.</p>
 <p><b>SGLang</b>: a serving framework aimed at “multi-call programs” — agent loops, reasoning chains, structured-output workloads.<br>The paper self-reports two mechanisms: RadixAttention reuses KV cache across shared prefixes between calls;<br>compressed finite-state machines speed up structured-output decoding. The paper self-reports up to 6.4× throughput on such tasks.</p>
 <p>The two are not a ranking — their workload profiles differ:<br>for single-turn Q&amp;A and batch offline generation, the vLLM route is mature;<br>for multi-turn agents, shared long prefixes and strict-format output, SGLang&#39;s reuse mechanisms fit.<br>This site adjudicates neither; the paper figures are all at the end.</p>
@@ -170,7 +170,7 @@
         <li><span data-zh>SGLang 论文（arXiv 2312.07104，RadixAttention 与结构化输出，自报最高 6.4 倍吞吐，2026-10-21 直抓摘要页）</span><span data-en>SGLang paper (arXiv 2312.07104, RadixAttention and structured output, self-reported up to 6.4× throughput; abstract page fetched directly 2026-10-21)</span>：<a href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noopener">https://arxiv.org/abs/2312.07104</a></li>
         <li><span data-zh>llama.cpp 官方仓库（本地推理的代表实现，2026-10-21 直抓 200）</span><span data-en>llama.cpp official repository (the representative local-inference implementation; fetched directly, HTTP 200, 2026-10-21)</span>：<a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">https://github.com/ggml-org/llama.cpp</a></li>
       </ul>
-      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-21；单项补充与核验范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-21; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
+      <p class="fam-foot"><span data-zh>基础来源快照：2026-10-21；单项补充与补充范围见正文和来源标签。请回原始说明核对规格、方法与适用条件。</span><span data-en>Base source snapshot: 2026-10-21; item-specific additions and check scope appear in the text and source labels. Check original specifications, methods and conditions.</span></p>
     </section>
   </div>
   </main>

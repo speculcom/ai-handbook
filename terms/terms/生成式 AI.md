@@ -12,6 +12,7 @@ purposeTag: "learn"
 level: 1
 layer: "一"
 ord: 14
+last_verified: "2026-11-19"
 ---
 
 # 生成式 AI（Generative AI）
