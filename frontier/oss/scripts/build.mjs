@@ -105,7 +105,7 @@ function repoCard(r, prefix = '') {
 
 function sceneCard(s) {
   const n = repos.filter((r) => r.scene === s.id && !r.catalogOnly).length;
-  return `<a class="scene-card" href="scenes/${esc(s.id)}.html">
+  return `<a class="scene-card scene-${s.order}" href="scenes/${esc(s.id)}.html">
   <span class="no">0${s.order} · ${n} 个仓库</span>
   <h3>${esc(s.title)}</h3>
   <p>${esc(s.lead)}</p>

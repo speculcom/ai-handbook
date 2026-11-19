@@ -20,9 +20,9 @@
   font-size: 14px;
 }
 .btn.primary {
-  border-color: rgba(34, 197, 94, 0.55);
-  background: rgba(34, 197, 94, 0.12);
-  color: #86efac;
+  border-color: color-mix(in srgb, var(--ok) 50%, transparent);
+  background: var(--ok-soft);
+  color: var(--ok-ink);
 }
 .btn:hover { border-color: var(--accent, #22c55e); }
 
@@ -62,28 +62,56 @@
   gap: 12px;
 }
 .scene-card {
+  --scene: var(--cat-violet);
+  --scene-ink: var(--cat-violet-ink);
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 18px;
-  border: 1px solid var(--line, rgba(35, 32, 48, 0.14));
-  border-radius: 16px;
-  background: linear-gradient(160deg, color-mix(in srgb, var(--ok) 6%, var(--bg-panel)), var(--bg-panel) 55%);
+  border: 1px solid var(--line-mid);
+  border-top: 2px solid var(--scene);
+  border-radius: 14px;
+  background: var(--bg-panel);
   color: var(--ink);
   text-decoration: none;
+  box-shadow: 0 10px 26px -22px rgba(38, 22, 64, 0.45);
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
 }
+.scene-card.scene-1 { --scene: var(--cat-violet); --scene-ink: var(--cat-violet-ink); }
+.scene-card.scene-2 { --scene: var(--cat-teal); --scene-ink: var(--cat-teal-ink); }
+.scene-card.scene-3 { --scene: var(--cat-lime); --scene-ink: var(--cat-lime-ink); }
+.scene-card.scene-4 { --scene: var(--cat-amber); --scene-ink: var(--cat-amber-ink); }
+.scene-card.scene-5 { --scene: var(--cat-rose); --scene-ink: var(--cat-rose-ink); }
+.scene-card.scene-6 { --scene: var(--cat-blue); --scene-ink: var(--cat-blue-ink); }
+[data-theme="light"] .scene-card.scene-3 { --scene-ink: #3f7300; }
+[data-theme="light"] .scene-card.scene-4 { --scene-ink: #8a5700; }
 .scene-card:hover {
-  border-color: color-mix(in srgb, var(--ok) 55%, var(--line));
-  transform: translateY(-1px);
+  border-color: var(--scene);
+  border-top-color: var(--scene);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -22px rgba(38, 22, 64, 0.55);
 }
+.scene-card:focus-visible { outline: 2px solid var(--scene); outline-offset: 2px; }
 .scene-card .no {
+  display: inline-flex;
+  align-items: center;
+  gap: .42rem;
   font-size: 11px;
   letter-spacing: 0.12em;
   color: var(--ink-faint);
 }
+.scene-card .no::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--scene);
+}
 .scene-card h3 {
   margin: 0;
   font-size: 19px;
+  letter-spacing: -0.01em;
 }
 .scene-card p {
   margin: 0;
@@ -94,8 +122,9 @@
 .scene-card .more {
   margin-top: auto;
   padding-top: 8px;
-  color: var(--ok);
+  color: var(--scene-ink);
   font-size: 13px;
+  font-weight: 650;
 }
 
 .repo-grid {
@@ -159,8 +188,9 @@
 }
 .repo-card .repo-link {
   margin-top: auto;
-  color: #86efac;
+  color: var(--ok-ink);
   font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
 }
 .badge {
@@ -170,16 +200,36 @@
   border-radius: 999px;
   font-size: 11px;
   line-height: 1.5;
-  color: #86efac;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.22);
+  color: var(--badge-ink, var(--ok-ink));
+  background: var(--badge-bg, var(--ok-soft));
+  border: 1px solid var(--badge-bd, color-mix(in srgb, var(--ok) 35%, transparent));
   white-space: nowrap;
 }
-.badge.tier-prod { color: #93c5fd; background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.24); }
-.badge.tier-scale { color: #fbbf24; background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.24); }
-.badge.tier-niche { color: #f0abfc; background: rgba(217, 70, 239, 0.12); border-color: rgba(217, 70, 239, 0.24); }
-.badge.tier-local { color: #67e8f9; background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.24); }
-.badge.tier-light { color: #d1fae5; background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.24); }
+.badge.tier-prod {
+  --badge-ink: var(--cat-blue-ink);
+  --badge-bg: var(--cat-blue-soft);
+  --badge-bd: color-mix(in srgb, var(--cat-blue) 40%, transparent);
+}
+.badge.tier-scale {
+  --badge-ink: var(--cat-amber-ink);
+  --badge-bg: var(--cat-amber-soft);
+  --badge-bd: color-mix(in srgb, var(--cat-amber) 40%, transparent);
+}
+.badge.tier-niche {
+  --badge-ink: var(--cat-rose-ink);
+  --badge-bg: var(--cat-rose-soft);
+  --badge-bd: color-mix(in srgb, var(--cat-rose) 40%, transparent);
+}
+.badge.tier-local {
+  --badge-ink: var(--cat-teal-ink);
+  --badge-bg: var(--cat-teal-soft);
+  --badge-bd: color-mix(in srgb, var(--cat-teal) 40%, transparent);
+}
+.badge.tier-light {
+  --badge-ink: var(--cat-lime-ink);
+  --badge-bg: var(--cat-lime-soft);
+  --badge-bd: color-mix(in srgb, var(--cat-lime) 40%, transparent);
+}
 
 .filters {
   display: flex;
