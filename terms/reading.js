@@ -73,19 +73,55 @@
   function renderStart() {
     const anchor = document.querySelector('#reading-start'); if (!anchor) return;
     const fallback = anchor.querySelector(':scope > p'); if (fallback) fallback.hidden = true;
-    host = el('div', '', 'reading-panel'); host.append(el('h2', tr('先选一个你想做的事', 'Start with what you want to do')));
-    const choices = [['quick-start','第一次了解 AI','New to AI'],['for-consumers','日常使用','Everyday use'],['for-builders','写代码或做应用','Build software'],['for-creators','做图像、视频、音频','Create media'],['for-writers','写作与研究资料','Write and gather sources'],['for-managers','为团队选工具','Choose tools for a team'],['for-researchers','理解原理和论文','Study methods and papers'],['for-operators','部署与运维','Deploy and operate']];
-    const label = el('label', tr('我的目标：', 'My goal: ')); const select = el('select'); select.id = 'reading-goal';
-    const chosen = anchor.dataset.choice || 'quick-start';
-    choices.forEach(([id,zh,english]) => { const o = el('option', tr(zh,english)); o.value = id; select.append(o); }); select.value = chosen;
-    label.append(select); host.append(label);
-    const result = el('div');
+    host = el('div', '', 'reading-panel start-panel');
+    host.append(el('p', tr('先不用管名词，挑一个最像你的情况', 'Skip the glossary for a second — pick what sounds like you'), 'start-kicker'));
+    host.append(el('h2', tr('你现在最想解决哪件事？', 'What do you want to solve right now?')));
+    host.append(el('p', tr('选一张卡，下面会告诉你这条路大概花多久、学完能做什么。不用按顺序从头读到尾。', 'Pick a card and you will see how long it takes and what you can do afterwards. No need to read everything in order.'), 'start-deck'));
+    const choices = [
+      ['quick-start', '第一次了解 AI', 'New to AI', '先弄懂 10 个常用词，分清 AI 能做什么、不能做什么。', 'Ten common terms to see what AI can and cannot do.'],
+      ['for-consumers', '日常用 AI 少踩坑', 'Everyday AI without the traps', '提问、隐私、假消息，先把日常使用最容易踩的坑避开。', 'Questions, privacy and fake news: avoid the everyday traps first.'],
+      ['for-builders', '写代码 / 做应用', 'Code and build apps', '从提示词到 Agent，边看边改，能跑起来。', 'From prompts to agents, with enough to build and run something.'],
+      ['for-creators', '做图 / 视频 / 音频', 'Images, video and audio', '知道工具怎么选，效果怎么调，哪里会翻车。', 'Choose tools, tune results and see where generation fails.'],
+      ['for-writers', '写作 / 查资料', 'Writing and research', '把 AI 当研究助理，查资料、写初稿、核对来源。', 'Use AI as a research assistant, not a ghostwriter.'],
+      ['for-managers', '给团队选工具', 'Choose tools for a team', '看成本、权限、供应商，把选型做成能签字的决定。', 'Cost, permissions and vendors: turn a shortlist into a decision.'],
+      ['for-researchers', '看懂原理 / 论文', 'Methods and papers', '从 Transformer 到评测，知道它为什么这样表现。', 'From Transformers to evaluation, understand why models behave this way.'],
+      ['for-operators', '部署 / 运维', 'Deploy and operate', '显存、吞吐、上线，把模型跑稳。', 'VRAM, throughput and launch: keep it running.'],
+    ];
+    let chosen = anchor.dataset.choice || 'quick-start';
+    if (!choices.some(([id]) => id === chosen)) chosen = 'quick-start';
+    const grid = el('div', '', 'goal-grid');
+    choices.forEach(([id, zh, english, blurbZh, blurbEn]) => {
+      const p = routes.find(x => x.id === id);
+      if (!p) return;
+      const card = el('button', '', 'goal-card');
+      card.type = 'button';
+      card.dataset.goal = id;
+      card.setAttribute('aria-pressed', id === chosen ? 'true' : 'false');
+      const top = el('span', '', 'gc-top');
+      top.append(el('b', tr(zh, english), 'gc-title'), el('span', p.span[en() ? 'en' : 'zh'], 'gc-time'));
+      card.append(top, el('span', tr(blurbZh, blurbEn), 'gc-blurb'), el('span', p.steps.length + tr(' 步', ' steps'), 'gc-meta'));
+      grid.append(card);
+    });
+    host.append(grid);
+    const result = el('div', '', 'goal-result');
     const recommend = () => {
-      anchor.dataset.choice = select.value;
-      const p = routes.find(x => x.id === select.value); if (!p) return;
-      result.replaceChildren(el('p', (en() ? p.lead.en : p.lead.zh) + ' · ' + (en() ? p.span.en : p.span.zh)), link(tr('打开路线 →', 'Open route →'), routeHref(p)));
+      anchor.dataset.choice = chosen;
+      Array.from(grid.querySelectorAll('.goal-card')).forEach((card) => {
+        card.setAttribute('aria-pressed', card.dataset.goal === chosen ? 'true' : 'false');
+      });
+      const p = routes.find(x => x.id === chosen); if (!p) return;
+      result.replaceChildren(
+        el('p', tr('这条路：', 'This route: ') + (en() ? p.lead.en : p.lead.zh), 'goal-result-lead'),
+        link(tr('开始这条路 →', 'Open this route →'), routeHref(p))
+      );
     };
-    select.addEventListener('change', recommend); recommend(); host.append(result);
+    grid.addEventListener('click', (event) => {
+      const card = event.target.closest('.goal-card');
+      if (!card) return;
+      chosen = card.dataset.goal;
+      recommend();
+    });
+    recommend(); host.append(result);
     const latest = routes.filter(p => memory[p.id]?.last).sort((a,b) => (memory[b.id].updated || 0) - (memory[a.id].updated || 0))[0];
     if (latest) { const s = state(latest); host.append(el('p', tr('上次读到：', 'Last visited: ')), link((en() ? latest.en : latest.zh) + tr(' · 继续阅读', ' · Resume'), stepHref(latest, latest.steps.indexOf(s.last)))); }
     anchor.append(host);
