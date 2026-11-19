@@ -282,6 +282,9 @@ var TERMS = [
     "ord": 8,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-inference.svg",
+    "figure_caption": "训练要做前向 + 反向 + 更新；推理只做前向，所以显存和算力需求小得多，但仍是逐 token 生成。",
+    "figure_caption_en": "Training runs forward, backward and update; inference only runs forward, so it needs far less memory and compute, but still generates token by token.",
     "alias": [],
     "purposeEn": "The model you trained is now answering real queries — a different phase with different costs.",
     "defEn": [
@@ -321,6 +324,9 @@ var TERMS = [
     "ord": 9,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-prompt.svg",
+    "figure_caption": "角色、任务、上下文、约束和输出格式，五件事缺一件，模型就会用默认假设补空。",
+    "figure_caption_en": "Role, task, context, constraints and output format: miss one and the model fills the gap with a default assumption.",
     "purposeEn": "The instructions you give the model, and often the main lever you actually control.",
     "defEn": [
      "The input text shaping the model's behaviour. In a chat interface it is what you type; in an API it is part of the request."
@@ -354,6 +360,9 @@ var TERMS = [
     "ord": 10,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-token.svg",
+    "figure_caption": "文本先被切成子词，再映射成词表里的整数 ID；模型只处理这些 ID，不直接读汉字或字母。",
+    "figure_caption_en": "Text is split into subwords, then mapped to integer IDs in a vocabulary; the model only sees IDs.",
     "purposeEn": "The smallest unit a model processes text in. Both billing and length limits are measured in it.",
     "defEn": [
      "The pieces a model splits text into. One token is roughly a quarter of an English word, or one to two Chinese characters.",
@@ -394,6 +403,9 @@ var TERMS = [
     "ord": 11,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-context-window.svg",
+    "figure_caption": "窗口是模型一次能看到的 token 上限；超出部分要么被截断，要么被压缩，不会自动记住。",
+    "figure_caption_en": "The window is the maximum tokens the model can see at once; overflow is truncated or compressed, not remembered.",
     "purposeEn": "How much the model can see at once — the page of text it can keep in mind while answering.",
     "defEn": [
      "The token budget for one request: system prompt, documents, conversation history and the reply all draw from it."
@@ -967,6 +979,9 @@ var TERMS = [
     "ord": 27,
     "last_verified": "2026-11-03",
     "verified_scope": "refs",
+    "figure": "fig-text-to-image.svg",
+    "figure_caption": "文本编码器把提示变成条件向量，扩散过程在潜空间里去噪，最后由解码器还原成像素图像。",
+    "figure_caption_en": "A text encoder turns the prompt into conditioning vectors; diffusion denoises in latent space; a decoder renders pixels.",
     "alias": [],
     "purposeEn": "Typing turns into pictures: diffusion's most visible application — practical only after moving from pixel space to latent space.",
     "defEn": [
@@ -1180,6 +1195,9 @@ var TERMS = [
     "layer": "一",
     "ord": 33,
     "last_verified": "2026-11-19",
+    "figure": "fig-generalisation.svg",
+    "figure_caption": "泛化是模型在没见过的数据上仍然表现好；分布偏移、对抗样本和长尾场景会暴露它的边界。",
+    "figure_caption_en": "Generalisation is good performance on unseen data; distribution shift, adversarial examples and long-tail cases expose its limits.",
     "purposeEn": "A model has truly learned only when it performs well on data it has never seen.",
     "defEn": [
      "Doing well on training data proves nothing; doing well on new data is what counts.",
@@ -1210,6 +1228,9 @@ var TERMS = [
     "layer": "一",
     "ord": 34,
     "last_verified": "2026-11-19",
+    "figure": "fig-overfitting.svg",
+    "figure_caption": "训练集准确率继续上升，验证集却下降；模型记住的是样本细节和噪声，而不是可迁移的规律。",
+    "figure_caption_en": "Training accuracy keeps rising while validation falls; the model memorises sample details and noise instead of transferable patterns.",
     "alias": [],
     "purposeEn": "Memorized the practice questions, then fails a different set of questions.",
     "defEn": [
@@ -1250,6 +1271,9 @@ var TERMS = [
     "layer": "一",
     "ord": 35,
     "last_verified": "2026-11-19",
+    "figure": "fig-splits.svg",
+    "figure_caption": "训练集学参数，验证集调超参和早停，测试集只在最后用一次；测试集反复调参就会变成另一种训练集。",
+    "figure_caption_en": "Train learns weights, validation tunes hyperparameters and early stopping, test is used once at the end; repeated test tuning turns it into another training set.",
     "purposeEn": "Split the data into two piles: one to practice with, one kept for the exam.",
     "defEn": [
      "The training set is what the model learns from; the test set never takes part in training and is used only for evaluation.",
@@ -1336,6 +1360,9 @@ var TERMS = [
     "ord": 1,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-hallucination.svg",
+    "figure_caption": "有出处的回答可以核对到原文；没有出处的回答即使语句通顺，也可能是模型编出来的。",
+    "figure_caption_en": "A grounded answer can be checked against a source; an ungrounded answer can be fluent and still invented.",
     "purposeEn": "The model states something plausible and confident that is simply not true.",
     "defEn": [
      "Output that is fluent and confident but factually wrong. It comes from producing likely-sounding text rather than retrieving verified facts."
@@ -1446,6 +1473,9 @@ var TERMS = [
     "layer": "二",
     "ord": 4,
     "last_verified": "2026-11-19",
+    "figure": "fig-temperature.svg",
+    "figure_caption": "低温让概率分布更尖，输出更确定；高温把分布拉平，输出更多样但也更容易跑偏。",
+    "figure_caption_en": "Low temperature sharpens the distribution for deterministic output; high temperature flattens it for diversity and more drift.",
     "alias": [],
     "purposeEn": "Controls how random the output is. Lower is steadier; higher is more creative.",
     "defEn": [
@@ -1481,6 +1511,9 @@ var TERMS = [
     "layer": "二",
     "ord": 5,
     "last_verified": "2026-11-19",
+    "figure": "fig-sampling.svg",
+    "figure_caption": "logits 先经温度缩放，再用 top-k / top-p 截断长尾，最后按剩余概率抽样；参数决定多样性与稳定性。",
+    "figure_caption_en": "Logits are scaled by temperature, truncated by top-k/top-p, then sampled from the remaining probabilities.",
     "alias": [],
     "purposeEn": "How the model picks among candidate tokens — this determines how far the output diverges.",
     "defEn": [
@@ -1800,6 +1833,9 @@ var TERMS = [
     "ord": 14,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-diffusion.svg",
+    "figure_caption": "从纯噪声开始，模型逐步预测并去掉噪声；每一步条件于当前噪声水平和提示，最后得到清晰样本。",
+    "figure_caption_en": "Start from pure noise; the model predicts and removes noise step by step, conditioned on the noise level and prompt, until a clean sample emerges.",
     "alias": [],
     "purposeEn": "The dominant method for image generation: \"wipe\" an image out of noise step by step.",
     "defEn": [
@@ -1930,6 +1966,9 @@ var TERMS = [
     "ord": 18,
     "last_verified": "2026-11-03",
     "verified_scope": "refs",
+    "figure": "fig-asr.svg",
+    "figure_caption": "音频先转成频谱特征，编码器压缩时间维，解码器再输出文字；口音、噪声和专业词是主要误差源。",
+    "figure_caption_en": "Audio becomes spectrogram features, an encoder compresses time, and a decoder emits text; accents, noise and jargon dominate errors.",
     "purposeEn": "Turn what was said into text.",
     "defEn": [
      "Technology converting an audio signal into text, also called speech-to-text."
@@ -1968,6 +2007,9 @@ var TERMS = [
     "ord": 19,
     "last_verified": "2026-11-03",
     "verified_scope": "refs",
+    "figure": "fig-tts.svg",
+    "figure_caption": "文本先转音素，声学模型预测声学特征，声码器再生成波形；韵律和音色由模型与参考音频决定。",
+    "figure_caption_en": "Text becomes phonemes, an acoustic model predicts features, and a vocoder renders the waveform; prosody and timbre come from the model and reference audio.",
     "purposeEn": "Read text out loud.",
     "defEn": [
      "Technology converting text into natural-sounding speech."
@@ -2066,6 +2108,9 @@ var TERMS = [
     "ord": 22,
     "last_verified": "2026-11-03",
     "verified_scope": "refs",
+    "figure": "fig-video-generation.svg",
+    "figure_caption": "视频把多帧潜变量放在一起，除空间注意力外还要做时间注意力，保证相邻帧连贯；成本随帧数上升。",
+    "figure_caption_en": "Video stacks latent frames and adds temporal attention alongside spatial attention to keep neighbouring frames coherent; cost grows with frames.",
     "alias": [],
     "purposeEn": "Generating short video clips from text or images.",
     "defEn": [
@@ -2265,6 +2310,9 @@ var TERMS = [
     "ord": 28,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-lora.svg",
+    "figure_caption": "冻结原权重 W，只训练低秩矩阵 A/B；推理时把 ΔW = BA 加回 W，显存和存储都小得多。",
+    "figure_caption_en": "Freeze the original weight W and train low-rank A/B; at inference add ΔW = BA back to W, using far less memory and storage.",
     "alias": [],
     "purposeEn": "Budget fine-tuning: freeze the original weights, train only a small 'patch'.",
     "defEn": [
@@ -3023,6 +3071,9 @@ var TERMS = [
     "ord": 2,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-tool-call.svg",
+    "figure_caption": "模型输出一个结构化调用请求，运行时执行工具并把结果写回上下文；模型自己不碰数据库或浏览器。",
+    "figure_caption_en": "The model emits a structured call, the runtime executes the tool and writes the result back; the model never touches the database or browser itself.",
     "alias": [],
     "purposeEn": "Let the model actually do things — search, run code, edit files — rather than only describe them.",
     "defEn": [
@@ -3067,6 +3118,9 @@ var TERMS = [
     "ord": 3,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-mcp.svg",
+    "figure_caption": "宿主应用通过 MCP 客户端连接不同服务器，服务器再暴露工具、资源和提示；模型看到的是统一接口。",
+    "figure_caption_en": "A host app connects through an MCP client to different servers, which expose tools, resources and prompts through one interface.",
     "purposeEn": "A standard interface for connecting AI to external tools and data in one uniform way, without a bespoke integration per service.",
     "defEn": [
      "An open protocol proposed by Anthropic describing, in one specification, which tools an AI may call and which resources it may read.",
@@ -3103,6 +3157,9 @@ var TERMS = [
     "ord": 4,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-multi-agent.svg",
+    "figure_caption": "规划者拆任务，执行者分别研究/写代码/审阅，最后汇总；角色越多，通信和冲突成本越高。",
+    "figure_caption_en": "A planner splits the task, workers research/code/review, and an aggregator reconciles; more roles mean more communication and conflict cost.",
     "alias": [],
     "purposeEn": "Split a complex job across several roles, each strong at something different.",
     "defEn": [
@@ -3170,6 +3227,9 @@ var TERMS = [
     "ord": 6,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-memory.svg",
+    "figure_caption": "工作上下文、情景记忆、语义记忆分层存放；每次用哪条，要靠检索和打分，而不是全部塞回窗口。",
+    "figure_caption_en": "Working context, episodic and semantic memory are stored in layers; each turn retrieves and scores what to bring back.",
     "alias": [],
     "purposeEn": "Let an agent remember things across conversations instead of restating the background every time.",
     "defEn": [
@@ -5433,6 +5493,9 @@ var TERMS = [
     "layer": "四",
     "ord": 1,
     "last_verified": "2026-11-19",
+    "figure": "fig-transformer.svg",
+    "figure_caption": "每个 token 通过注意力读取整段上下文；前馈网络再逐位置变换，最后输出下一个 token 的概率。",
+    "figure_caption_en": "Each token reads the whole context through attention; a feed-forward network transforms each position, then the model emits next-token probabilities.",
     "alias": [],
     "purposeEn": "The architecture underneath every mainstream large model today.",
     "defEn": [
@@ -5509,6 +5572,9 @@ var TERMS = [
     "ord": 3,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-position.svg",
+    "figure_caption": "注意力本身对顺序不敏感；位置编码把「第几个 token」加进表示，模型才能区分「猫追狗」和「狗追猫」。",
+    "figure_caption_en": "Attention alone is order-agnostic; position encoding injects “which token” so the model can distinguish “cat chases dog” from “dog chases cat”.",
     "alias": [],
     "purposeEn": "Lets the model know the order of words in a sentence.",
     "defEn": [
@@ -5583,6 +5649,9 @@ var TERMS = [
     "ord": 5,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-kv-cache.svg",
+    "figure_caption": "预填充阶段算好每层的 K/V 并缓存；解码每生成一个 token 只算新 token 的 K/V，不再重算整段。",
+    "figure_caption_en": "Prefill computes and caches K/V per layer; each decode step computes only the new token’s K/V instead of the whole prefix.",
     "alias": [],
     "purposeEn": "Stops the model recomputing the whole passage on every token it generates — this is what makes generation speed usable.",
     "defEn": [
@@ -6031,6 +6100,9 @@ var TERMS = [
     "ord": 17,
     "last_verified": "2026-11-03",
     "verified_scope": "refs",
+    "figure": "fig-distillation.svg",
+    "figure_caption": "教师模型输出软标签（概率分布），学生模型同时学硬标签和软标签，学到类别之间的相似结构。",
+    "figure_caption_en": "The teacher outputs soft labels (a distribution); the student learns from both hard labels and soft labels, capturing similarity between classes.",
     "alias": [],
     "purposeEn": "Train a small model on a big model's soft outputs: keep most of the capability, deploy far more easily.",
     "defEn": [
@@ -6144,6 +6216,9 @@ var TERMS = [
     "ord": 20,
     "last_verified": "2026-11-03",
     "verified_scope": "refs",
+    "figure": "fig-long-context.svg",
+    "figure_caption": "窗口从 4K 扩到 1M，注意力计算、KV 缓存和首字延迟都上升；「能放进去」不等于「能用好」。",
+    "figure_caption_en": "Going from 4K to 1M raises attention compute, KV cache and time-to-first-token; fitting is not the same as using well.",
     "alias": [],
     "purposeEn": "The technology behind reading hundreds of thousands of words at once — and why it is expensive.",
     "defEn": [
@@ -6450,6 +6525,9 @@ var TERMS = [
     "ord": 28,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-cot.svg",
+    "figure_caption": "把推理拆成中间步骤，模型能把多步计算分摊到多个 token，而不是一步猜答案。",
+    "figure_caption_en": "Breaking reasoning into intermediate steps lets the model spend tokens on each stage instead of guessing the answer at once.",
     "alias": [],
     "purposeEn": "Prompting the model to lay out reasoning steps before answering — and its dependence on model scale.",
     "defEn": [
@@ -7653,6 +7731,9 @@ var TERMS = [
     "ord": 3,
     "last_verified": "2026-11-03",
     "verified_scope": "refs",
+    "figure": "fig-quantisation.svg",
+    "figure_caption": "FP32/FP16/INT8/INT4 每权重占的位数越来越少；显存和带宽下降，但精度损失和校准成本上升。",
+    "figure_caption_en": "FP32/FP16/INT8/INT4 use fewer bits per weight; memory and bandwidth drop, while accuracy loss and calibration cost rise.",
     "alias": [],
     "purposeEn": "Compress model weights from high to low precision, saving VRAM and speeding things up at the cost of quality.",
     "defEn": [
@@ -8292,6 +8373,9 @@ var TERMS = [
     "ord": 21,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-paged-attention.svg",
+    "figure_caption": "把 KV 缓存切成固定大小的块，用块表映射到不连续的显存；按需分配，减少碎片和预留浪费。",
+    "figure_caption_en": "Split the KV cache into fixed-size blocks and map them through a block table to non-contiguous GPU memory, allocating on demand.",
     "alias": [],
     "purposeEn": "Manage the KV cache with OS paging ideas so memory is barely wasted.",
     "defEn": [
@@ -8595,6 +8679,9 @@ var TERMS = [
     "ord": 30,
     "last_verified": "2026-11-09",
     "verified_scope": "refs",
+    "figure": "fig-qlora.svg",
+    "figure_caption": "基座用 4-bit 量化存放，前向时临时反量化；LoRA 适配器保持较高精度训练，显存大幅下降。",
+    "figure_caption_en": "Store the base in 4-bit, dequantise on the fly for forward passes, and train LoRA adapters at higher precision; memory drops sharply.",
     "alias": [],
     "purposeEn": "Quantise the model to 4-bit first, then fine-tune — one consumer GPU is enough.",
     "defEn": [
@@ -9461,6 +9548,9 @@ var TERMS = [
     "ord": 7,
     "last_verified": "2026-11-03",
     "verified_scope": "refs",
+    "figure": "fig-benchmark.svg",
+    "figure_caption": "基准分数只说明模型在那组题上的表现；题目分布、污染和评分方式都会改变结论。",
+    "figure_caption_en": "A benchmark score describes performance on that item set; item distribution, contamination and scoring all change the conclusion.",
     "alias": [],
     "purposeEn": "Compare models on a common question set.",
     "defEn": [

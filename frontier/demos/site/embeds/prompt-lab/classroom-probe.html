@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>课堂追问脚本 · Specul 提示词实验室</title>
+<style>
+:root{--bg:#0a0e13;--panel:#121821;--ink:#e8eef5;--muted:#8b98a8;--line:#243040;--green:#58d6a8;--gold:#e0b45a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}
+.brand a{color:var(--green);text-decoration:none;font-weight:700;letter-spacing:.04em}
+h1{font-size:28px;margin:0 0 8px} .lead{color:var(--muted);margin:0 0 24px;max-width:760px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:8px}.field span{font-size:13px;color:var(--gold);font-weight:650}
+textarea{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:12px;font:14px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;resize:vertical}
+textarea:focus{outline:2px solid rgba(88,214,168,.35);border-color:var(--green)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+button{background:var(--green);color:#062018;border:0;border-radius:999px;padding:10px 18px;font-weight:750;cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+pre{white-space:pre-wrap;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;min-height:220px;font:13.5px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;color:#d9e4ef}
+.hint{color:var(--muted);font-size:13px}
+.foot{margin-top:34px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="https://demos.specul.com/">Specul · 作品演示</a><a href="https://learn.specul.com/">学 AI →</a></div>
+<h1>课堂追问脚本</h1>
+<p class="lead">让 AI 只追问「你为什么这么想」，不直接判对错。</p>
+<div class="grid"><label class="field"><span>讨论主题</span><textarea id="topic" rows="3" placeholder="例如：为什么天空是蓝色"></textarea></label>
+<label class="field"><span>常见误解</span><textarea id="misconception" rows="3" placeholder="例如：因为海水反射"></textarea></label>
+<label class="field"><span>活动时长</span><textarea id="duration" rows="3" placeholder="例如：15 分钟"></textarea></label></div>
+<div class="actions"><button onclick="build()">生成提示词</button><button class="ghost" onclick="copyOut()">复制</button><button class="ghost" onclick="demo()">填入示例</button></div>
+<pre id="out">点击「生成提示词」或先填入示例。</pre>
+<p class="hint">这是一个离线提示词生成器：不调用模型、不保存输入。生成后复制到任意 AI 对话里使用。</p>
+<div class="foot">Specul · 提示词实验室 · CC BY 4.0 · 2026-11-19</div>
+</div>
+<script>
+const TEMPLATE = "你是课堂追问助手。主题：{{topic}}；常见误解：{{misconception}}；时长：{{duration}}。\n\n输出一个 15 分钟脚本：\n1. 开场问题（不直接给答案）\n2. 三个追问（每次只问一个问题）\n3. 学生说出误解时，如何用反例引导\n4. 教师何时介入、如何总结\n5. 无 AI 的纸质备用方案\n\n规则：不要直接纠正；不要一次问多个问题；不要替学生总结。";
+const FIELDS = ["topic","misconception","duration"];
+const SAMPLE = {"topic":"topic 示例","misconception":"misconception 示例","duration":"duration 示例"};
+function build(){
+  let out = TEMPLATE;
+  for (const f of FIELDS) { const el = document.getElementById(f); out = out.split('{{' + f + '}}').join(el.value.trim() || '（待填：' + f + '）'); }
+  document.getElementById('out').textContent = out;
+}
+function copyOut(){ const t = document.getElementById('out').textContent; navigator.clipboard?.writeText(t).then(()=>{ document.querySelector('button.ghost').textContent='已复制'; setTimeout(()=>document.querySelector('button.ghost').textContent='复制',1200); }); }
+function demo(){ for (const f of FIELDS) { const el = document.getElementById(f); el.value = SAMPLE[f] || ''; } build(); }
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>数据集卡生成器 · Specul 提示词实验室</title>
+<style>
+:root{--bg:#0a0e13;--panel:#121821;--ink:#e8eef5;--muted:#8b98a8;--line:#243040;--green:#58d6a8;--gold:#e0b45a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}
+.brand a{color:var(--green);text-decoration:none;font-weight:700;letter-spacing:.04em}
+h1{font-size:28px;margin:0 0 8px} .lead{color:var(--muted);margin:0 0 24px;max-width:760px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:8px}.field span{font-size:13px;color:var(--gold);font-weight:650}
+textarea{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:12px;font:14px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;resize:vertical}
+textarea:focus{outline:2px solid rgba(88,214,168,.35);border-color:var(--green)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+button{background:var(--green);color:#062018;border:0;border-radius:999px;padding:10px 18px;font-weight:750;cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+pre{white-space:pre-wrap;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;min-height:220px;font:13.5px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;color:#d9e4ef}
+.hint{color:var(--muted);font-size:13px}
+.foot{margin-top:34px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="https://demos.specul.com/">Specul · 作品演示</a><a href="https://learn.specul.com/">学 AI →</a></div>
+<h1>数据集卡生成器</h1>
+<p class="lead">补来源、授权、构造、偏差与用途边界五节，每节至少一条出处。</p>
+<div class="grid"><label class="field"><span>数据集名称</span><textarea id="name" rows="3" placeholder="例如：客服对话 10k"></textarea></label>
+<label class="field"><span>来源与采集</span><textarea id="source" rows="3" placeholder="原始 URL、时间范围、采集方式。"></textarea></label>
+<label class="field"><span>许可证</span><textarea id="license" rows="3" placeholder="例如：CC BY 4.0；商用限制。"></textarea></label>
+<label class="field"><span>已知问题</span><textarea id="known" rows="3" placeholder="例如：方言覆盖少、含个人数据。"></textarea></label></div>
+<div class="actions"><button onclick="build()">生成提示词</button><button class="ghost" onclick="copyOut()">复制</button><button class="ghost" onclick="demo()">填入示例</button></div>
+<pre id="out">点击「生成提示词」或先填入示例。</pre>
+<p class="hint">这是一个离线提示词生成器：不调用模型、不保存输入。生成后复制到任意 AI 对话里使用。</p>
+<div class="foot">Specul · 提示词实验室 · CC BY 4.0 · 2026-11-19</div>
+</div>
+<script>
+const TEMPLATE = "你是数据集文档助手。名称：{{name}}；来源：{{source}}；许可证：{{license}}；已知问题：{{known}}。\n\n输出五节，每节都要有可点击出处或「待补」：\n1. 来源与采集\n2. 许可证与使用限制\n3. 构造与标注（清洗、去重、标注指南、质检）\n4. 偏差与覆盖（语言、地域、人群、时间）\n5. 用途边界与已知失败案例\n\n最后给版本、哈希、更新记录、联系人。\n规则：不要把「公开可下载」写成「可商用」。";
+const FIELDS = ["name","source","license","known"];
+const SAMPLE = {"name":"name 示例","source":"source 示例","license":"license 示例","known":"known 示例"};
+function build(){
+  let out = TEMPLATE;
+  for (const f of FIELDS) { const el = document.getElementById(f); out = out.split('{{' + f + '}}').join(el.value.trim() || '（待填：' + f + '）'); }
+  document.getElementById('out').textContent = out;
+}
+function copyOut(){ const t = document.getElementById('out').textContent; navigator.clipboard?.writeText(t).then(()=>{ document.querySelector('button.ghost').textContent='已复制'; setTimeout(()=>document.querySelector('button.ghost').textContent='复制',1200); }); }
+function demo(){ for (const f of FIELDS) { const el = document.getElementById(f); el.value = SAMPLE[f] || ''; } build(); }
+</script>
+</body>
+</html>

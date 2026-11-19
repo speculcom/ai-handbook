@@ -1,4 +1,4 @@
-# 学 AI · 词条索引（256 词）
+# 学 AI · 词条索引（284 词）
 
 本目录是学 AI 站（`learn.specul.com`）的内容源，一词一文件。
 改完跑 `node scripts/build.mjs` 重新构建，再跑 `node scripts/validate.mjs` 校验。
@@ -89,7 +89,7 @@
 - [日志里留下了什么](日志里留下了什么.md)- [遥操作](遥操作.md)
 - [视觉语言动作模型](视觉语言动作模型.md)
 
-## 第三站 · 用深（55 词）
+## 第三站 · 用深（67 词）
 
 决定 AI 好不好用的那些具体做法。看完这层，你能判断一个方案靠不靠谱。
 - [智能体 / Agent](智能体 - Agent.md)
@@ -146,8 +146,20 @@
 - [A2A / Agent2Agent 协议](A2A（Agent2Agent 协议）.md)
 - [编码 Agent](编码 Agent.md)
 - [OCR / 光学字符识别](OCR（光学字符识别）.md)
+- [Self-Consistency（自一致性）](Self-Consistency（自一致性）.md)
+- [Tree of Thoughts（思维树）](Tree of Thoughts（思维树）.md)
+- [ReAct](ReAct.md)
+- [Reflexion（反思）](Reflexion（反思）.md)
+- [Plan-and-Solve](Plan-and-Solve.md)
+- [FrugalGPT（级联推理）](FrugalGPT（级联推理）.md)
+- [GraphRAG](GraphRAG.md)
+- [混合检索](混合检索.md)
+- [语义缓存](语义缓存.md)
+- [RLHF（人类反馈强化学习）](RLHF（人类反馈强化学习）.md)
+- [RLAIF（AI 反馈强化学习）](RLAIF（AI 反馈强化学习）.md)
+- [奖励模型](奖励模型.md)
 
-## 第四站 · 看懂（47 词）
+## 第四站 · 看懂（55 词）
 
 理解为什么会有这些表现。看不懂这层，前面的词你都只能背。
 - [Transformer](Transformer.md)
@@ -196,8 +208,16 @@
 - [交叉熵](交叉熵.md)
 - [学习率](学习率.md)
 - [批大小与轮次](批大小与轮次.md)
+- [过程监督](过程监督.md)
+- [机械可解释性](机械可解释性.md)
+- [稀疏自编码器](稀疏自编码器.md)
+- [模型编辑](模型编辑.md)
+- [机器遗忘](机器遗忘.md)
+- [差分隐私](差分隐私.md)
+- [联邦学习](联邦学习.md)
+- [对抗样本](对抗样本.md)
 
-## 第五站 · 跑起来（39 词）
+## 第五站 · 跑起来（45 词）
 
 让模型跑在自己机器上。你会关心显存够不够、跑得多快。
 - [GPU](GPU.md)
@@ -238,8 +258,14 @@
 - [ONNX](ONNX.md)
 - [CUDA](CUDA.md)
 - [HBM / 高带宽显存](HBM（高带宽显存）.md)
+- [GRPO](GRPO.md)
+- [MLA](MLA.md)
+- [机密计算](机密计算.md)
+- [模型供应链](模型供应链.md)
+- [数据授权](数据授权.md)
+- [训练数据溯源](训练数据溯源.md)
 
-## 第六站 · 选得对（35 词）
+## 第六站 · 选得对（37 词）
 
 把前面学到的东西变成一个决定。这是这一页的终点，也是下一站。
 - [开源模型](开源模型.md)
@@ -277,3 +303,5 @@
 - [供应商安全问卷怎么读](供应商安全问卷怎么读.md)
 - [事故响应预案](事故响应预案.md)
 - [上线前检查门禁](上线前检查门禁.md)
+- [JEPA](JEPA.md)
+- [Flow Matching](Flow Matching.md)

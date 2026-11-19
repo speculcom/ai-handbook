@@ -8500,5 +8500,701 @@
     },
     "workPath": "works/code-animation-deepseek-v4-1-x7-ink-and-thunder.html",
     "workUrl": "https://demos.specul.com/works/code-animation-deepseek-v4-1-x7-ink-and-thunder.html"
+  },
+  {
+    "id": "office-prompt-lab-001-meeting-minutes",
+    "seq": "190",
+    "collection": "office-prompt-lab",
+    "num": "001",
+    "slug": "meeting-minutes",
+    "title": {
+      "zh": "会议纪要生成器",
+      "en": "Meeting minutes builder"
+    },
+    "notes": {
+      "zh": "把转写变成决议、待办、争议点和下次议题；每条待办必须能回到原句。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Turn a transcript into decisions, actions, disagreements and the next agenda; every action must trace to a quoted line. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "办公",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "办公"
+    ],
+    "promptHash": "13e5e21a8edefe25b5ab9837113394a47bec5acf",
+    "promptUrl": "/embeds/prompt-lab/meeting-minutes.html",
+    "sourceUrl": "/embeds/prompt-lab/meeting-minutes.html",
+    "demoUrl": "embeds/prompt-lab/meeting-minutes.html",
+    "thumbUrl": "thumbs/pl-meeting-minutes.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/office-prompt-lab-001-meeting-minutes.html",
+    "workUrl": "https://demos.specul.com/works/office-prompt-lab-001-meeting-minutes.html"
+  },
+  {
+    "id": "office-prompt-lab-002-deck-outline",
+    "seq": "191",
+    "collection": "office-prompt-lab",
+    "num": "002",
+    "slug": "deck-outline",
+    "title": {
+      "zh": "PPT 大纲生成器",
+      "en": "Deck outline builder"
+    },
+    "notes": {
+      "zh": "先出「每页一句结论 + 证据」的大纲，再扩正文，避免套模板空话。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Draft a one-conclusion-per-page outline with evidence before expanding into slides, avoiding template filler. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "办公",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "办公"
+    ],
+    "promptHash": "14b15d489615dc153f2fbf273edcd05bb04a4eb7",
+    "promptUrl": "/embeds/prompt-lab/deck-outline.html",
+    "sourceUrl": "/embeds/prompt-lab/deck-outline.html",
+    "demoUrl": "embeds/prompt-lab/deck-outline.html",
+    "thumbUrl": "thumbs/pl-deck-outline.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/office-prompt-lab-002-deck-outline.html",
+    "workUrl": "https://demos.specul.com/works/office-prompt-lab-002-deck-outline.html"
+  },
+  {
+    "id": "office-prompt-lab-003-sheet-audit",
+    "seq": "192",
+    "collection": "office-prompt-lab",
+    "num": "003",
+    "slug": "sheet-audit",
+    "title": {
+      "zh": "表格口径检查器",
+      "en": "Spreadsheet definition checker"
+    },
+    "notes": {
+      "zh": "先写清口径，再让 AI 写公式/SQL，最后用第二条路径复算。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Define the metric first, then let AI write a formula or SQL, then reconcile with a second path. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "办公",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "办公"
+    ],
+    "promptHash": "14b4ab3992ea6c099a3dbc0a61e4a0c4b2df880e",
+    "promptUrl": "/embeds/prompt-lab/sheet-audit.html",
+    "sourceUrl": "/embeds/prompt-lab/sheet-audit.html",
+    "demoUrl": "embeds/prompt-lab/sheet-audit.html",
+    "thumbUrl": "thumbs/pl-sheet-audit.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/office-prompt-lab-003-sheet-audit.html",
+    "workUrl": "https://demos.specul.com/works/office-prompt-lab-003-sheet-audit.html"
+  },
+  {
+    "id": "office-prompt-lab-004-email-schedule",
+    "seq": "193",
+    "collection": "office-prompt-lab",
+    "num": "004",
+    "slug": "email-schedule",
+    "title": {
+      "zh": "邮件与日程生成器",
+      "en": "Email & schedule builder"
+    },
+    "notes": {
+      "zh": "把目的、动作、截止和备选时段写清，生成直接/委婉/升级三版。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "State purpose, action, deadline and alternatives; generate direct, diplomatic and escalation versions. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "办公",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "办公"
+    ],
+    "promptHash": "3882e4cd7435e8a5a39e0f0da554f4e935266983",
+    "promptUrl": "/embeds/prompt-lab/email-schedule.html",
+    "sourceUrl": "/embeds/prompt-lab/email-schedule.html",
+    "demoUrl": "embeds/prompt-lab/email-schedule.html",
+    "thumbUrl": "thumbs/pl-email-schedule.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/office-prompt-lab-004-email-schedule.html",
+    "workUrl": "https://demos.specul.com/works/office-prompt-lab-004-email-schedule.html"
+  },
+  {
+    "id": "office-prompt-lab-005-translation-glossary",
+    "seq": "194",
+    "collection": "office-prompt-lab",
+    "num": "005",
+    "slug": "translation-glossary",
+    "title": {
+      "zh": "翻译与术语检查器",
+      "en": "Translation & glossary checker"
+    },
+    "notes": {
+      "zh": "按段落编号翻译，标出「直译别扭」和「意译可能偏离」的句子。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Translate numbered paragraphs and flag literal-but-awkward versus free-but-risky sentences. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "办公",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "办公"
+    ],
+    "promptHash": "981da7fe2b8517f018e5839d72441d897d2260bd",
+    "promptUrl": "/embeds/prompt-lab/translation-glossary.html",
+    "sourceUrl": "/embeds/prompt-lab/translation-glossary.html",
+    "demoUrl": "embeds/prompt-lab/translation-glossary.html",
+    "thumbUrl": "thumbs/pl-translation-glossary.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/office-prompt-lab-005-translation-glossary.html",
+    "workUrl": "https://demos.specul.com/works/office-prompt-lab-005-translation-glossary.html"
+  },
+  {
+    "id": "office-prompt-lab-006-contract-checklist",
+    "seq": "195",
+    "collection": "office-prompt-lab",
+    "num": "006",
+    "slug": "contract-checklist",
+    "title": {
+      "zh": "合同风险清单",
+      "en": "Contract risk checklist"
+    },
+    "notes": {
+      "zh": "按付款、违约、终止、责任上限、IP、数据、管辖法逐条找风险。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Walk payment, breach, termination, liability cap, IP, data and governing law clause by clause. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "办公",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "办公"
+    ],
+    "promptHash": "3d7c587a6ffbeb0e5afcd6e751e9b7f287e53832",
+    "promptUrl": "/embeds/prompt-lab/contract-checklist.html",
+    "sourceUrl": "/embeds/prompt-lab/contract-checklist.html",
+    "demoUrl": "embeds/prompt-lab/contract-checklist.html",
+    "thumbUrl": "thumbs/pl-contract-checklist.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/office-prompt-lab-006-contract-checklist.html",
+    "workUrl": "https://demos.specul.com/works/office-prompt-lab-006-contract-checklist.html"
+  },
+  {
+    "id": "data-teacher-lab-001-lesson-plan",
+    "seq": "196",
+    "collection": "data-teacher-lab",
+    "num": "001",
+    "slug": "lesson-plan",
+    "title": {
+      "zh": "备课四段设计器",
+      "en": "Lesson plan builder"
+    },
+    "notes": {
+      "zh": "按「导入—讲解—练习—总结」四段设计，标出 AI 参与点与教师复核点。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Design hook, explanation, practice and summary with AI participation and teacher checkpoints marked. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "教育",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "教育"
+    ],
+    "promptHash": "959f9086ea79a72a78fca6d97e165fd2f2ed57ff",
+    "promptUrl": "/embeds/prompt-lab/lesson-plan.html",
+    "sourceUrl": "/embeds/prompt-lab/lesson-plan.html",
+    "demoUrl": "embeds/prompt-lab/lesson-plan.html",
+    "thumbUrl": "thumbs/pl-lesson-plan.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/data-teacher-lab-001-lesson-plan.html",
+    "workUrl": "https://demos.specul.com/works/data-teacher-lab-001-lesson-plan.html"
+  },
+  {
+    "id": "data-teacher-lab-002-question-rubric",
+    "seq": "197",
+    "collection": "data-teacher-lab",
+    "num": "002",
+    "slug": "question-rubric",
+    "title": {
+      "zh": "出题与评分点生成器",
+      "en": "Question & rubric builder"
+    },
+    "notes": {
+      "zh": "出「能诊断理解」的题，每题带答案、评分点、干扰项解释。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Generate items that diagnose understanding, each with answer, rubric and distractor misconceptions. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "教育",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "教育"
+    ],
+    "promptHash": "36ac1e38ec446f22cd6a898959c7b2682aa25374",
+    "promptUrl": "/embeds/prompt-lab/question-rubric.html",
+    "sourceUrl": "/embeds/prompt-lab/question-rubric.html",
+    "demoUrl": "embeds/prompt-lab/question-rubric.html",
+    "thumbUrl": "thumbs/pl-question-rubric.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/data-teacher-lab-002-question-rubric.html",
+    "workUrl": "https://demos.specul.com/works/data-teacher-lab-002-question-rubric.html"
+  },
+  {
+    "id": "data-teacher-lab-003-classroom-probe",
+    "seq": "198",
+    "collection": "data-teacher-lab",
+    "num": "003",
+    "slug": "classroom-probe",
+    "title": {
+      "zh": "课堂追问脚本",
+      "en": "Classroom probing script"
+    },
+    "notes": {
+      "zh": "让 AI 只追问「你为什么这么想」，不直接判对错。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Make AI ask “why do you think so” instead of grading, with a paper fallback. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "教育",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "教育"
+    ],
+    "promptHash": "42577ab7b3a85175909dc1ea437a11724fd2701a",
+    "promptUrl": "/embeds/prompt-lab/classroom-probe.html",
+    "sourceUrl": "/embeds/prompt-lab/classroom-probe.html",
+    "demoUrl": "embeds/prompt-lab/classroom-probe.html",
+    "thumbUrl": "thumbs/pl-classroom-probe.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/data-teacher-lab-003-classroom-probe.html",
+    "workUrl": "https://demos.specul.com/works/data-teacher-lab-003-classroom-probe.html"
+  },
+  {
+    "id": "data-teacher-lab-004-data-cleaning",
+    "seq": "199",
+    "collection": "data-teacher-lab",
+    "num": "004",
+    "slug": "data-cleaning",
+    "title": {
+      "zh": "数据清洗计划器",
+      "en": "Data cleaning planner"
+    },
+    "notes": {
+      "zh": "先做数据剖面，再写可回放的 pandas 脚本和 before/after 记录。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Profile the table first, then write replayable pandas steps with before/after records. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "数据",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "数据"
+    ],
+    "promptHash": "aceb72709f10f263c639c36b0d2892f41075c9b7",
+    "promptUrl": "/embeds/prompt-lab/data-cleaning.html",
+    "sourceUrl": "/embeds/prompt-lab/data-cleaning.html",
+    "demoUrl": "embeds/prompt-lab/data-cleaning.html",
+    "thumbUrl": "thumbs/pl-data-cleaning.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/data-teacher-lab-004-data-cleaning.html",
+    "workUrl": "https://demos.specul.com/works/data-teacher-lab-004-data-cleaning.html"
+  },
+  {
+    "id": "data-teacher-lab-005-dataset-card",
+    "seq": "200",
+    "collection": "data-teacher-lab",
+    "num": "005",
+    "slug": "dataset-card",
+    "title": {
+      "zh": "数据集卡生成器",
+      "en": "Dataset card builder"
+    },
+    "notes": {
+      "zh": "补来源、授权、构造、偏差与用途边界五节，每节至少一条出处。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Fill source, licence, construction, bias and scope, each with a clickable source. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "数据",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "数据"
+    ],
+    "promptHash": "eae1e63864ef7e2903ef355c2021950144e26a7a",
+    "promptUrl": "/embeds/prompt-lab/dataset-card.html",
+    "sourceUrl": "/embeds/prompt-lab/dataset-card.html",
+    "demoUrl": "embeds/prompt-lab/dataset-card.html",
+    "thumbUrl": "thumbs/pl-dataset-card.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/data-teacher-lab-005-dataset-card.html",
+    "workUrl": "https://demos.specul.com/works/data-teacher-lab-005-dataset-card.html"
+  },
+  {
+    "id": "data-teacher-lab-006-rag-corpus",
+    "seq": "201",
+    "collection": "data-teacher-lab",
+    "num": "006",
+    "slug": "rag-corpus",
+    "title": {
+      "zh": "RAG 语料检查器",
+      "en": "RAG corpus checker"
+    },
+    "notes": {
+      "zh": "先定问题域和拒答边界，再设计切块、检索与 10 题评测。 这是站内离线工具，不调用模型；生成的是提示词，复制到任意 AI 使用。",
+      "en": "Set the question domain and refusal boundary before chunking, retrieval and a 10-question eval. This is an offline in-site tool: no model call; it generates a prompt to copy into any AI."
+    },
+    "category": "数据",
+    "tags": [
+      "站内可运行",
+      "结构化提示",
+      "数据"
+    ],
+    "promptHash": "401d14e02adfff16f16d48ca57a8259959f71a6e",
+    "promptUrl": "/embeds/prompt-lab/rag-corpus.html",
+    "sourceUrl": "/embeds/prompt-lab/rag-corpus.html",
+    "demoUrl": "embeds/prompt-lab/rag-corpus.html",
+    "thumbUrl": "thumbs/pl-rag-corpus.svg",
+    "repoUrl": "https://github.com/speculcom/demos",
+    "model": {
+      "name": "Prompt-only",
+      "version": "No API",
+      "releaseDate": "",
+      "releaseUrl": "https://github.com/speculcom/demos"
+    },
+    "sourceLabel": {
+      "zh": "站内源码",
+      "en": "In-site source"
+    },
+    "promptLabel": {
+      "zh": "生成器",
+      "en": "Builder"
+    },
+    "license": {
+      "spdx": "CC-BY-4.0",
+      "kind": "cc-by-4.0",
+      "evidenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "本站原创提示词生成器，按 CC BY 4.0 授权；可复制、修改、再分发，保留署名。",
+        "en": "Original in-site prompt builder, licensed CC BY 4.0; copy, modify and redistribute with attribution."
+      }
+    },
+    "run": {
+      "status": "embedded",
+      "env": "Specul hosted static page",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/data-teacher-lab-006-rag-corpus.html",
+    "workUrl": "https://demos.specul.com/works/data-teacher-lab-006-rag-corpus.html"
   }
 ]
