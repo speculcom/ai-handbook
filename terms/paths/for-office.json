@@ -1,0 +1,60 @@
+{
+  "id": "for-office",
+  "ord": 14,
+  "zh": "办公与写作路线",
+  "en": "The Office Route",
+  "span": { "zh": "约 45 分钟", "en": "about 45 minutes" },
+  "lead": {
+    "zh": "从「把 AI 当搜索框」走到「把 AI 接进文档、表格、会议与邮件」。先认清能力边界，再按场景练一遍完整流程。",
+    "en": "Move from using AI as a search box to wiring it into documents, spreadsheets, meetings and email. Learn the limits first, then rehearse one complete workflow per scenario."
+  },
+  "steps": [
+    "AI Agent 与聊天机器人的区别",
+    "提示词",
+    "结构化输出",
+    "上下文窗口",
+    "幻觉",
+    "人工复核队列",
+    "护栏",
+    "许可证",
+    "数据驻留",
+    "怎么用 AI 做会议纪要",
+    "怎么用 AI 做 PPT",
+    "怎么用 AI 分析表格",
+    "怎么用 AI 写邮件与排日程"
+  ],
+  "checkpoint": {
+    "zh": [
+      "拿到一份会议转写，能标出哪些句子必须回原文核对、哪些可以直接进纪要",
+      "说清一次 PPT/表格任务里，AI 负责哪几步、人负责哪几步",
+      "判断一条办公数据能否贴进云端模型，依据是数据驻留与授权而不是「大家都这么用」"
+    ],
+    "en": [
+      "Given a meeting transcript, mark which sentences must be checked against the transcript and which can go straight into minutes",
+      "Explain which steps AI owns and which a human owns in a deck or spreadsheet task",
+      "Decide whether office data can go into a cloud model based on residency and licensing, not on “everyone does it”"
+    ]
+  },
+  "answers": [
+    {
+      "zh": "数字、承诺、姓名、日期和「谁负责」必须回原文；总结性描述可以基于转写生成，但也要能指回原句。",
+      "en": "Numbers, commitments, names, dates and ownership must trace to the transcript; summaries can be generated but must still point back to a line.",
+      "review": "怎么用 AI 做会议纪要"
+    },
+    {
+      "zh": "AI 负责结构、初稿、变体和检查清单；人负责目标、取舍、事实核对和对外发送。",
+      "en": "AI owns structure, first drafts, variants and checklists; the human owns goals, trade-offs, fact-checking and sending.",
+      "review": "怎么用 AI 做 PPT"
+    },
+    {
+      "zh": "先看数据分类、合同/合规要求、模型是否留存与跨境；不能确认时改用本地模型、脱敏或不上传。",
+      "en": "Check data class, contract/compliance rules, retention and cross-border transfer. If unclear, use a local model, mask the data or do not upload.",
+      "review": "数据驻留"
+    }
+  ],
+  "nextTask": {
+    "href": "https://tools.specul.com/office/",
+    "zh": "挑一个办公工具，按「输入—步骤—验收」跑一遍真实任务",
+    "en": "Pick one office tool and run a real task through input, steps and acceptance"
+  }
+}

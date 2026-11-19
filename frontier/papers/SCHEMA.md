@@ -19,7 +19,7 @@
 |---|---|---|
 | `id` | 字符串 | 建议 arXiv 编号或作者年份短名，全站唯一 |
 | `title` | `{zh, en}` | 双语标题，英文用论文原题；中文栏同样放原题（本站不译论文标题） |
-| `category` | 字符串 | 方法谱系归属，取值集中在六类：`architecture` / `scaling` / `adaptation` / `alignment` / `efficiency` / `reasoning`。新增类目要同时更新谱系页口径 |
+| `category` | 字符串 | 方法谱系归属，取值集中在八类：`architecture` / `scaling` / `adaptation` / `alignment` / `efficiency` / `reasoning` / `agents` / `multimodal`。新增类目要同时更新谱系页口径 |
 | `url` | URL | arXiv 摘要页、官方 PDF 或会议论文集页面 |
 | `license` | 对象 | `kind` / `spdx`、`evidenceUrl`、`checkedAt`；arXiv 预印本用 `kind: arxiv-preprint` |
 | `evidence` | 数组 | 每条含 `url` 与 `quote`，引原文而非二手转述；至少一条支撑核心主张、至少一条来自作者自陈局限或讨论 |

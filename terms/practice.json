@@ -370,5 +370,53 @@
   "怎么做跨模型的一致性回归测试": {
     "zh": "建一个 60 条的回归集，其中 20 条是「必须拒答或必须说不知道」；模型升级时，这 20 条的通过率比总分更重要。",
     "en": "Build a 60-case regression set, 20 of which must be refused or answered with “I don’t know”. On a model upgrade, the pass rate on those 20 matters more than the total score."
+  },
+  "怎么用 AI 做会议纪要": {
+    "zh": "把一段 20 分钟的转写交给模型，要求输出四条决议、三条待办和两个争议点；逐条回到转写标出原句，删掉找不到出处的待办。",
+    "en": "Give a 20-minute transcript to the model and ask for four decisions, three actions and two disagreements; trace each item back to a quoted line and delete actions without a source."
+  },
+  "怎么用 AI 做 PPT": {
+    "zh": "先让模型给 10 页大纲，每页一句结论；你删掉两页、改三页结论，再让它扩成正文和讲稿，最后核对所有数字。",
+    "en": "Ask for a 10-page outline with one conclusion per page; delete two pages, rewrite three conclusions, then expand into body copy and speaker notes, and verify every number."
+  },
+  "怎么用 AI 分析表格": {
+    "zh": "拿一张 500 行的销售表，先写清「含税、去重、按自然月」三个口径，再让模型写透视公式；用第二个公式复算总额，差异超过 0.5% 就回原始表查。",
+    "en": "Take a 500-row sales sheet, define tax-inclusive, deduplicated and calendar-month rules, then have the model write the pivot formula; recompute totals with a second formula and investigate any gap above 0.5%."
+  },
+  "怎么用 AI 写邮件与排日程": {
+    "zh": "写一封「推迟交付 + 给两个新时间 + 说明补偿」的邮件，让模型出直接/委婉两版；你确认承诺句后，把两个时段写进日历邀请并检查时区。",
+    "en": "Draft an email that delays delivery, offers two new dates and states compensation; ask for direct and diplomatic versions, confirm every commitment, then put both slots in a calendar invite and check time zones."
+  },
+  "怎么用 AI 做翻译与本地化": {
+    "zh": "把一篇 800 字产品介绍按段落编号，给术语表和品牌名，让模型翻译并标出「直译别扭」的三句；请母语者只复核标题、按钮和法务句。",
+    "en": "Number the paragraphs of an 800-word product page, provide a glossary and brand names, translate and flag three “literal but awkward” sentences; have a native speaker check only titles, buttons and legal lines."
+  },
+  "怎么用 AI 审阅合同与长文档": {
+    "zh": "选一份 12 页服务合同，按付款/违约/终止/责任上限四项让模型逐条标风险；每条必须带条款号，找不到原文的标「待人工确认」，最后交法务复核。",
+    "en": "Take a 12-page service contract, have the model flag risks under payment, breach, termination and liability cap; every flag needs a clause number, unsourced ones become “human review”, then route to counsel."
+  },
+  "怎么用 AI 备课": {
+    "zh": "选一个 45 分钟的知识点，写一条「学生能解释并举例」的目标，让模型出四段活动；你删掉超时环节，补三层练习，并核对每道例题的答案。",
+    "en": "Pick one 45-minute topic, write an objective (“students can explain and give an example”), have the model draft four phases; cut overtime, add three tiers of practice and verify every worked answer."
+  },
+  "怎么用 AI 出题与批改": {
+    "zh": "让模型出 5 道选择题，每题带答案、评分点、干扰项解释；你挑出 1 道条件矛盾的题，改成可判断的版本，再用 rubric 批 3 份学生答案。",
+    "en": "Ask for five multiple-choice items with answers, scoring points and distractor explanations; find one contradictory item, rewrite it, then grade three student answers against the rubric."
+  },
+  "怎么设计课堂 AI 互动": {
+    "zh": "设计一个 15 分钟活动：AI 只追问「你为什么这么想」，学生分组提交，AI 汇总三类误解，教师挑两类讲评；准备无网络时用的纸质替代。",
+    "en": "Design a 15-minute activity where AI only asks “why do you think so”; groups submit, AI clusters three misconceptions, the teacher reviews two; prepare a paper fallback for no network."
+  },
+  "怎么用 AI 清洗数据": {
+    "zh": "拿一张有重复、缺失日期和异常金额的表，先做剖面，再让模型写 pandas 脚本；保留 before/after 行数与删除样例，最后重跑总额确认没删掉真实大单。",
+    "en": "Take a sheet with duplicates, missing dates and outlier amounts; profile it, have the model write pandas code, keep before/after counts and deletion samples, then rerun totals to confirm real large orders were not removed."
+  },
+  "怎么给数据集写数据卡": {
+    "zh": "选一个 1 万条的评价数据集，补来源、许可证、清洗与标注、偏差与用途边界五节；每节至少一条可点击出处，最后写一条已知失败案例。",
+    "en": "Take a 10k-row review dataset and fill source, licence, cleaning/annotation, bias and scope sections; each needs a clickable source, plus one known failure case."
+  },
+  "怎么用 AI 搭 RAG 语料": {
+    "zh": "选 20 篇产品文档，去页眉页脚、按章节切块、每块带标题和 URL；用 10 个真实问题测命中与引用，记录哪类问题必须拒答。",
+    "en": "Take 20 product docs, strip headers/footers, chunk by section with title and URL, then test 10 real questions for hit rate and citation, recording which question types must be refused."
   }
 }

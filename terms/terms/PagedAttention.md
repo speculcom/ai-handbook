@@ -14,6 +14,9 @@ layer: "五"
 ord: 21
 last_verified: "2026-11-09"
 verified_scope: "refs"
+figure: "fig-paged-attention.svg"
+figure_caption: "把 KV 缓存切成固定大小的块，用块表映射到不连续的显存；按需分配，减少碎片和预留浪费。"
+figure_caption_en: "Split the KV cache into fixed-size blocks and map them through a block table to non-contiguous GPU memory, allocating on demand."
 ---
 
 # PagedAttention（PagedAttention）

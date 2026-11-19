@@ -16,6 +16,9 @@ layer: "三"
 ord: 3
 last_verified: "2026-11-09"
 verified_scope: "refs"
+figure: "fig-mcp.svg"
+figure_caption: "宿主应用通过 MCP 客户端连接不同服务器，服务器再暴露工具、资源和提示；模型看到的是统一接口。"
+figure_caption_en: "A host app connects through an MCP client to different servers, which expose tools, resources and prompts through one interface."
 ---
 
 # MCP（Model Context Protocol）

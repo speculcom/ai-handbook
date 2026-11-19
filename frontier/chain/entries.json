@@ -938,5 +938,313 @@
       "元数据 / metadata": "tokenURI 指向链下 JSON（可被发行方更改）",
       "本站口径 / scope": "只记录标准与实现，不评价任何藏品"
     }
+  },
+  {
+    "id": "tee-attestation",
+    "title": {
+      "zh": "TEE 远程证明（以 Phala 为例）",
+      "en": "TEE remote attestation (Phala example)"
+    },
+    "category": "provenance",
+    "url": "https://phala.com/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://phala.com/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://phala.com/",
+        "quote": "TEE is a secure area inside a processor that protects code and data from the operating system, hypervisor, and other applications."
+      },
+      {
+        "url": "https://phala.com/",
+        "quote": "Instead of asking users to trust a cloud claim, Phala emits runtime measurements that software can verify."
+      },
+      {
+        "url": "https://phala.com/",
+        "quote": "runtime measurement"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 推理跑在第三方云上时，用户怎么相信「模型与代码确实按声明运行」。TEE 远程证明把运行时度量、签名与验证报告交给软件核验。\n适用范围：这里以 Phala 的 CPU/GPU TEE 与 attestation 示例说明流程；它不保证模型本身正确，也不保证所有云都支持同样的证明格式。\n未解决：不同 TEE 厂商（Intel TDX / NVIDIA CC / AMD SEV）证明链与信任根不统一；侧信道、供应链与运维方仍可能破坏假设；跨云验证缺少统一标准。",
+      "en": "Intersection: when AI inference runs on a third-party cloud, how does the user know the model and code ran as claimed? TEE remote attestation exposes runtime measurements, signatures and verifier reports to software.\nScope: this uses Phala's CPU/GPU TEE and attestation example to show the flow; it does not guarantee the model is correct, nor that every cloud supports the same attestation format.\nOpen: trust roots and attestation chains differ across Intel TDX / NVIDIA CC / AMD SEV; side channels, supply chain and operators can still break the assumption; cross-cloud verification lacks a common standard."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署（产品化示例）",
+      "证明对象 / attested": "运行时度量 + 镜像摘要",
+      "验证方式 / verify": "签名与 attestation 报告",
+      "来源 / source": "Phala 官方页"
+    }
+  },
+  {
+    "id": "phala-network",
+    "title": {
+      "zh": "Phala Network：机密 AI 云",
+      "en": "Phala Network: confidential AI cloud"
+    },
+    "category": "inference",
+    "url": "https://phala.com/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://phala.com/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://phala.com/",
+        "quote": "Run agents, private LLM models, and GPU jobs inside hardware-backed TEEs."
+      },
+      {
+        "url": "https://phala.com/",
+        "quote": "Move existing Docker Compose workloads into CPU or GPU confidential machines."
+      },
+      {
+        "url": "https://phala.com/",
+        "quote": "Phala emits runtime measurements that software can verify."
+      }
+    ],
+    "notes": {
+      "zh": "交集：把私有模型、agent 与 GPU 任务放进硬件 TEE 里跑，并用证明报告替代「相信云厂商」。\n适用范围：官方称支持 CPU TEE（Intel TDX）与 GPU TEE（NVIDIA CC），可把 Docker Compose 工作负载迁入 confidential VM；证明可被软件验证。\n未解决：性能开销、GPU 型号覆盖、跨区域可用性与合规审计细节需逐项核对；TEE 不是模型正确性或输出质量的保证。",
+      "en": "Intersection: run private models, agents and GPU jobs inside hardware TEEs, and use attestation reports instead of trusting the cloud vendor.\nScope: the official page says it supports CPU TEE (Intel TDX) and GPU TEE (NVIDIA CC), can move Docker Compose workloads into confidential VMs, and exposes software-verifiable measurements.\nOpen: performance overhead, GPU model coverage, regional availability and audit details need case-by-case checks; TEE is not a guarantee of model correctness or output quality."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "TEE / hardware": "Intel TDX / NVIDIA CC",
+      "部署形态 / deploy": "Confidential VM + Docker Compose",
+      "证明 / attestation": "运行时度量与签名报告"
+    }
+  },
+  {
+    "id": "eigenlayer",
+    "title": {
+      "zh": "EigenLayer：再质押与共享安全",
+      "en": "EigenLayer: restaking and shared security"
+    },
+    "category": "protocol",
+    "url": "https://docs.eigenlayer.xyz/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.eigenlayer.xyz/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.eigenlayer.xyz/",
+        "quote": "Stake ETH & EIGEN. Secure the cloud powering verifiable apps, agents, and services."
+      },
+      {
+        "url": "https://docs.eigenlayer.xyz/",
+        "quote": "EigenCloud"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI agent、可验证服务与链下计算需要经济安全保证；EigenLayer 让 ETH/EIGEN 质押者为 AVS（主动验证服务）提供共享安全。\n适用范围：官方文档把 ETH 与 EIGEN 再质押、委托与罚没作为安全来源；具体 AVS 的罚没条件、运营商与奖励规则由各 AVS 定义，不是协议统一保证。\n未解决：再质押的级联风险、罚没事件中的实际赔付、运营商集中度与治理攻击面仍需逐个 AVS 评估。",
+      "en": "Intersection: AI agents, verifiable services and off-chain compute need economic security; EigenLayer lets ETH/EIGEN stakers provide shared security to AVSs (actively validated services).\nScope: the official docs describe ETH and EIGEN restaking, delegation and slashing as the security source; each AVS defines its own slashing conditions, operators and rewards, which the protocol does not uniformly guarantee.\nOpen: cascading restaking risk, actual payouts in slashing events, operator concentration and governance attack surface still need per-AVS assessment."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "安全来源 / security": "ETH + EIGEN 再质押",
+      "服务对象 / AVS": "可验证应用、agent、服务",
+      "罚没 / slashing": "由各 AVS 定义"
+    }
+  },
+  {
+    "id": "gensyn",
+    "title": {
+      "zh": "Gensyn：可审计的去中心化训练",
+      "en": "Gensyn: auditable decentralised training"
+    },
+    "category": "inference",
+    "url": "https://www.gensyn.ai/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://www.gensyn.ai/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.gensyn.ai/",
+        "quote": "open-1b: the first model you don’t have to trust"
+      },
+      {
+        "url": "https://www.gensyn.ai/",
+        "quote": "Introducing REE: Reproducible Execution Environment"
+      },
+      {
+        "url": "https://www.gensyn.ai/",
+        "quote": "open-8b: an auditable model, in training"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把训练过程做成可复现、可审计的执行环境，让外部能验证模型是怎么训出来的，而不是只看最终权重。\n适用范围：官方发布 open-1b/REE/open-8b 等可审计训练与可复现执行环境；它是研究/生产平台，不是通用 GPU 租用市场。\n未解决：可审计性覆盖到哪一层（数据、代码、随机性、硬件）、大规模任务成本、以及验证者与训练者串谋风险，官方材料未给出完整答案。",
+      "en": "Intersection: make training reproducible and auditable so outsiders can verify how a model was trained, not just inspect final weights.\nScope: the official site announces open-1b/REE/open-8b and a reproducible execution environment; it is a research/production platform, not a generic GPU rental marketplace.\nOpen: how deep auditability covers data, code, randomness and hardware; the cost of large runs; and collusion between trainers and verifiers are not fully answered in the public material."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "可审计对象 / audit": "训练过程 + 执行环境",
+      "公开模型 / models": "open-1b / open-8b",
+      "执行环境 / REE": "Reproducible Execution Environment"
+    }
+  },
+  {
+    "id": "prime-intellect",
+    "title": {
+      "zh": "Prime Intellect：算力 + 训练 + 推理栈",
+      "en": "Prime Intellect: compute + training + inference stack"
+    },
+    "category": "inference",
+    "url": "https://www.primeintellect.ai/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://www.primeintellect.ai/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.primeintellect.ai/",
+        "quote": "Train and deploy custom AI models on an integrated compute, training, and inference stack."
+      },
+      {
+        "url": "https://www.primeintellect.ai/",
+        "quote": "A framework for asynchronous reinforcement learning (RL) at scale."
+      },
+      {
+        "url": "https://www.primeintellect.ai/",
+        "quote": "~11 hours of GRPO training on 128 GB200 GPUs"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把按需 GPU、托管训练（SFT/RL）与推理放在同一平台，适合需要自定义模型与 RL 环境的团队。\n适用范围：官方给出 PrimeCompute 按需/专用集群、Prime-RL 异步 RL、托管训练与推理；案例含 2,500 条企业任务与 128 张 GB200 上约 11 小时 GRPO。\n未解决：跨区域网络与数据驻留、长期集群价格、故障恢复与多租户隔离需要看合同；案例数字是特定任务与硬件配置。",
+      "en": "Intersection: put on-demand GPUs, hosted training (SFT/RL) and inference on one platform, for teams training custom models and RL environments.\nScope: the official site lists PrimeCompute on-demand/dedicated clusters, Prime-RL asynchronous RL, hosted training and inference; a case cites 2,500 enterprise tasks and ~11 hours of GRPO on 128 GB200 GPUs.\nOpen: cross-region networking and data residency, long-term cluster pricing, failure recovery and multi-tenant isolation need contract-level checks; case numbers are task- and hardware-specific."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "算力 / compute": "按需 GPU + 专用集群",
+      "训练 / training": "SFT + Prime-RL",
+      "案例 / case": "128 GB200 / ~11h GRPO"
+    }
+  },
+  {
+    "id": "io-net",
+    "title": {
+      "zh": "io.net：分布式 GPU 聚合",
+      "en": "io.net: aggregated distributed GPUs"
+    },
+    "category": "inference",
+    "url": "https://io.net/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://io.net/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://io.net/",
+        "quote": "H100s, A100s, and full clusters on demand."
+      },
+      {
+        "url": "https://io.net/",
+        "quote": "Securely connect to GPUs from independent data centers, mining operations, and private clusters worldwide."
+      },
+      {
+        "url": "https://io.net/",
+        "quote": "globally distributed network, and available confidential compute"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把独立数据中心、矿业与私有集群的 GPU 聚合起来，按需供给训练/推理；价格与可用性随供给波动。\n适用范围：官方称可按需提供 H100/A100 与整簇、分钟级部署、全球分布式网络与可选机密计算；不承诺固定库存或单一区域。\n未解决：跨供给方的网络带宽与延迟、数据安全与合规、任务迁移与故障恢复、以及「70% cheaper」这类对比的基准条件需自行核验。",
+      "en": "Intersection: aggregate GPUs from independent data centers, mining operations and private clusters, then supply them on demand for training/inference; price and availability vary with supply.\nScope: the official site advertises on-demand H100/A100 and full clusters, minute-level deployment, a globally distributed network and optional confidential compute; it does not promise fixed inventory or a single region.\nOpen: cross-provider bandwidth and latency, data security/compliance, job migration and failure recovery, and the basis of \"70% cheaper\" comparisons need independent verification."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "供给 / supply": "独立数据中心 + 矿业 + 私有集群",
+      "卡型 / GPUs": "H100 / A100 / 多类",
+      "机密计算 / confidential": "可选"
+    }
+  },
+  {
+    "id": "story-protocol",
+    "title": {
+      "zh": "Story Protocol：可编程 IP",
+      "en": "Story Protocol: programmable IP"
+    },
+    "category": "data-rights",
+    "url": "https://docs.story.foundation/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.story.foundation/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.story.foundation/",
+        "quote": "Story is a purpose-built layer 1 blockchain designed specifically for intellectual property."
+      },
+      {
+        "url": "https://docs.story.foundation/",
+        "quote": "You can register your IP on-chain and add usage terms to it in seconds"
+      },
+      {
+        "url": "https://docs.story.foundation/",
+        "quote": "Although on-chain, an IP’s usage terms and minted licenses are enforced by an off-chain legal contract called the Programmable IP License"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 训练数据、模型权重、生成内容都需要可追溯的授权与分成；Story 把 IP 登记、许可与版税写成链上资产 + 链下法律合同。\n适用范围：官方文档定义 IP Asset（ERC721）、License/Royalty/Dispute 模块与 Programmable IP License（PIL）；链上条款最终要靠 PIL 映射到现实法律。\n未解决：链上登记不等于版权确权；跨司法辖区执行、AI 训练数据的多源授权、以及侵权判定仍是法律问题，不是协议自动解决。",
+      "en": "Intersection: AI training data, model weights and generated content need traceable licensing and revenue sharing; Story registers IP as on-chain assets plus an off-chain legal contract.\nScope: the docs define IP Assets (ERC721), Licensing/Royalty/Dispute modules and the Programmable IP License (PIL); on-chain terms are ultimately mapped to real-world law through the PIL.\nOpen: on-chain registration is not copyright registration; cross-jurisdiction enforcement, multi-source AI training-data licensing and infringement adjudication remain legal problems, not automatic protocol outcomes."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "IP 资产 / IP asset": "ERC721",
+      "许可 / license": "Programmable IP License",
+      "模块 / modules": "Licensing / Royalty / Dispute"
+    }
+  },
+  {
+    "id": "openid4vc",
+    "title": {
+      "zh": "OpenID for Verifiable Credential Issuance 1.0",
+      "en": "OpenID for Verifiable Credential Issuance 1.0"
+    },
+    "category": "credential",
+    "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+        "quote": "This specification defines an API for the issuance of Verifiable Credentials."
+      },
+      {
+        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+        "quote": "openid4vci-proof+jwt"
+      },
+      {
+        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+        "quote": "The Credential Issuer MUST validate that the JWT used as a proof is actually signed by a key identified in the JOSE Header"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI agent 或用户需要把「身份、资质、授权」以可验证凭证形式出示给模型/服务；OpenID4VCI 定义签发 API 与密钥证明格式。\n适用范围：规范定义凭证签发、proof JWT、nonce 与 issuer 校验；它不规定凭证内容模型（那是 VC data model）也不规定具体信任框架。\n未解决：钱包/发行方互操作、撤销与隐私、以及 AI agent 持有凭证时的委托与最小披露，仍需上层 profile 与合规规则。",
+      "en": "Intersection: AI agents or users need to present identity, qualifications or authorisations as verifiable credentials; OpenID4VCI defines the issuance API and key-proof format.\nScope: the spec defines credential issuance, proof JWTs, nonces and issuer validation; it does not define the credential content model (that is the VC data model) or a specific trust framework.\nOpen: wallet/issuer interoperability, revocation and privacy, and delegation/minimal disclosure when an AI agent holds credentials still need profiles and compliance rules."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "版本 / version": "1.0",
+      "证明类型 / proof": "openid4vci-proof+jwt",
+      "签发 / issuance": "Credential Issuer API"
+    }
   }
 ]

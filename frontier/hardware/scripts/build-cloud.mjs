@@ -62,7 +62,7 @@ function card(p) {
 <header class="sec-head">
   <p class="eyebrow">Compute · Cloud</p>
   <h1>云算力</h1>
-  <p class="lede">租 GPU 不是只看“每卡每小时”。整机起租、存储、出网、冷启动、可用性与合同期，都会改变真实单价。这里收 18 家服务商，按通用云、GPU 专营、Serverless、国内云四类放；价格只写口径与核验入口，不写死数字。</p>
+  <p class="lede">租 GPU 不是只看“每卡每小时”。整机起租、存储、出网、冷启动、可用性与合同期，都会改变真实单价。这里收 ${providers.length} 家服务商，按通用云、GPU 专营、Serverless、国内云四类放；价格只写口径与核验入口，不写死数字。</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 回硬件站</a><a href="../path.html">硬件选型路径 →</a></div>
 <div class="home-stats">
@@ -77,7 +77,7 @@ ${CAT_ORDER.map((cat) => `<h2>${esc(CATS[cat].zh)}</h2><p>${esc(CATS[cat].desc)}
 </div>`;
   fs.writeFileSync(path.join(site, 'cloud', 'index.html'), page({
     title: '云算力 · 硬件算力',
-    desc: '18 家云 GPU 服务商：AWS、GCP、Azure、CoreWeave、Lambda、RunPod、Vast.ai、Modal、阿里云、腾讯云、华为云、火山引擎等；按四类整理，写清计费、区域、存储出网与合规。',
+    desc: `${providers.length} 家云 GPU 服务商：AWS、GCP、Azure、CoreWeave、Lambda、RunPod、Vast.ai、Modal、阿里云、腾讯云、华为云、火山引擎等；按四类整理，写清计费、区域、存储出网与合规。`,
     canonical: url('cloud/'),
     body
   }));
@@ -175,7 +175,7 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((x) => `<p>${x}</p>`).joi
   <a class="sec-door" href="cloud/index.html">
     <span class="k">Compute · Cloud</span>
     <h2>云算力：租 GPU 还是买卡</h2>
-    <p>18 家服务商，按通用云、GPU 专营、Serverless、国内云四类。先算总成本，再选按需、包月或预留。</p>
+    <p>${providers.length} 家服务商，按通用云、GPU 专营、Serverless、国内云四类。先算总成本，再选按需、包月或预留。</p>
     <span class="more">看云算力 →</span>
   </a>
   <a class="sec-door" href="path.html">
@@ -218,13 +218,13 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((x) => `<p>${x}</p>`).joi
   const llmsFile = path.join(site, 'llms.txt');
   let llms = fs.readFileSync(llmsFile, 'utf8');
   if (!llms.includes('## 云算力')) {
-    llms += `\n\n## 云算力\n- [云算力](${url('cloud/')}) — 18 家云 GPU 服务商，四类；计费、区域、存储出网、合规与核验入口。\n`;
+    llms += `\n\n## 云算力\n- [云算力](${url('cloud/')}) — ${providers.length} 家云 GPU 服务商，四类；计费、区域、存储出网、合规与核验入口。\n`;
     fs.writeFileSync(llmsFile, llms);
   }
   const llmsEnFile = path.join(site, 'llms.en.txt');
   let llmsEn = fs.readFileSync(llmsEnFile, 'utf8');
   if (!llmsEn.includes('## Cloud compute')) {
-    llmsEn += `\n\n## Cloud compute\n- [Cloud compute](${url('cloud/')}) — 18 cloud GPU providers in four categories; billing, regions, storage/egress, compliance and check date.\n`;
+    llmsEn += `\n\n## Cloud compute\n- [Cloud compute](${url('cloud/')}) — ${providers.length} cloud GPU providers in four categories; billing, regions, storage/egress, compliance and check date.\n`;
     fs.writeFileSync(llmsEnFile, llmsEn);
   }
 }

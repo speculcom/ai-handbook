@@ -2,7 +2,7 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-33 条。
+45 条。
 
 - [目录](https://papers.specul.com/index.html)
 - [怎么用](https://papers.specul.com/about.html)
@@ -40,3 +40,15 @@
 - [Whisper：用大规模弱监督做稳健语音识别](https://papers.specul.com/radford-2022-whisper.html) — 问题：语音识别通常依赖大量高质量人工转写与领域内微调，换数据集就掉点；能不能用互联网上带噪的转写做弱监督，训练一个不微调也能跨数据集工作的模型？ 证据位置：数据
 - [Llama 2：开放基础模型与对话微调模型](https://papers.specul.com/touvron-2023-llama2.html) — 问题：开放权重模型能不能在有用性与安全性上接近闭源模型，同时把训练、微调与安全对齐的做法公开到可复用的程度？ 证据位置：预训练在 §2（数据、40% 增量、双倍
 - [SAM：可提示的分割一切模型](https://papers.specul.com/kirillov-2023-sam.html) — 问题：分割任务通常按语义/实例/全景分开训练，换任务就要换模型；能不能定义一个「给提示就出掩码」的通用任务，用一个模型加提示工程覆盖多种分割？ 证据位置：任务、
+- [AgentBench: Evaluating LLMs as Agents](https://papers.specul.com/agentbench-2023.html) — 问题：LLM 作为 agent 在不同交互环境里的能力，缺一个统一、可比较的量尺。 证据位置：摘要写明 8 个环境，测推理与决策；商业模型与 ≤70B 开源模型
+- [Toolformer: Language Models Can Teach Themselves to Use Tools](https://papers.specul.com/toolformer-2023.html) — 问题：语言模型会写会读，却在算术、事实查询这类基础功能上不如小工具；能不能让模型自己学会调 API。 证据位置：摘要给出自监督训练目标：选哪个 API、何时调、
+- [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://papers.specul.com/voyager-2023.html) — 问题：在开放世界 Minecraft 里，agent 能不能无人干预地持续探索、积累技能并完成新任务。 证据位置：摘要给出三组件：自动课程、可执行代码技能库、带
+- [Generative Agents: Interactive Simulacra of Human Behavior](https://papers.specul.com/generative-agents-2023.html) — 问题：如何用 LLM 构建可信的人类行为代理，让多个 agent 在沙盒里自主社交与计划。 证据位置：摘要给出记忆流、反思、动态检索与计划架构；沙盒 25 个 
+- [Visual Instruction Tuning](https://papers.specul.com/llava-2023.html) — 问题：多模态指令跟随数据稀缺，能否用纯语言 GPT-4 生成图文指令数据，再训练端到端多模态模型。 证据位置：摘要称首次用 language-only GPT-
+- [Flamingo: a Visual Language Model for Few-Shot Learning](https://papers.specul.com/flamingo-2022.html) — 问题：多模态模型如何用少量标注示例快速适配新任务，并处理任意交错的图文序列。 证据位置：摘要给出三条架构创新：桥接预训练视觉/语言模型、处理交错图文、摄入图像或
+- [BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models](https://papers.specul.com/blip2-2023.html) — 问题：视觉语言预训练成本高，能否冻结图像编码器与大语言模型，只训练轻量桥接模块。 证据位置：摘要给出冻结图像编码器与冻结 LLM，用轻量 Querying Tr
+- [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://papers.specul.com/rope-2021.html) — 问题：Transformer 的位置编码如何同时表达绝对位置与相对位置依赖。 证据位置：摘要给出用旋转矩阵编码绝对位置，并在 self-attention 中显
+- [YaRN: Efficient Context Window Extension of Large Language Models](https://papers.specul.com/yarn-2023.html) — 问题：RoPE 模型超出训练长度后失效，如何用更少 token 与训练步数扩展上下文窗口。 证据位置：摘要称比此前方法少 10× token、少 2.5× 训练
+- [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://papers.specul.com/grpo-2024.html) — 问题：用 PPO 做数学推理强化学习时，显存与计算成本高；能否在不引入 critic 的情况下稳定优化。 证据位置：摘要提出 GRPO，作为 PPO 的变体，提
+- [AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration](https://papers.specul.com/awq-2023.html) — 问题：LLM 低比特权重量化如何保精度、又保持硬件友好，能落到端侧。 证据位置：摘要称只保护 1% 显著权重即可大幅降低量化误差；显著通道要按激活分布而非权重判
+- [Scalable Diffusion Models with Transformers](https://papers.specul.com/dit-2022.html) — 问题：扩散模型能否用 Transformer 替代 U-Net 作为骨干，并像 Gflops 一样可扩展。 证据位置：摘要在潜空间扩散中用 Transforme

@@ -1015,5 +1015,134 @@
       "Set a rollback threshold and use it; do not ship on “it feels better overall”.",
       "Keep every raw output, and count system-prompt, tool-description and retrieval-index changes as changes too."
     ]
+  },
+  "怎么用 AI 做会议纪要": {
+    "lead": "Turn a recording or live transcript into decisions, action items and open disagreements — not a transcript nobody rereads.",
+    "points": [
+      "Decide the output shape before the meeting: decisions, actions (owner/task/due), disagreements, next agenda.",
+      "Use speaker-separated transcription; if missing, label speakers manually or actions get assigned to the wrong person.",
+      "Tell the model to use only the transcript; every action must trace to a quoted line.",
+      "Write actions back into the task system with owner and due date agreed in the room.",
+      "Check transcription and cloud-storage compliance before choosing a local or hosted tool."
+    ]
+  },
+  "怎么用 AI 做 PPT": {
+    "lead": "Let AI do structure first, copy second and visuals last — not a stack of template slides with generic claims.",
+    "points": [
+      "Give audience, setting, duration and the decision to be made; those four set page count and density.",
+      "Ask for a one-sentence conclusion plus evidence per page; approve the outline before expanding.",
+      "One conclusion per page; charts serve the conclusion, not a report chopped into 30 bullets.",
+      "Verify every number, citation and competitor name against the original source; AI-generated figures are untrusted by default.",
+      "Use brand colours and two type sizes; check Chinese fonts, line breaks and clipped chart labels.",
+      "Have the model review: delete pages without a conclusion, merge duplicates, write one speaker line per page."
+    ]
+  },
+  "怎么用 AI 分析表格": {
+    "lead": "Have AI understand fields and definitions first, then write formulas or queries, then reconcile key numbers against the source sheet.",
+    "points": [
+      "Show headers and five sample rows; state each column, unit and null rule. Do not let the model guess fields.",
+      "Split the question into definition → calculation → presentation: YoY or MoM, tax in or out, deduplicated or not.",
+      "Prefer a checkable formula or SQL over a direct number.",
+      "Recompute key numbers by a second path (pivot vs formula); if they disagree, the source sheet wins.",
+      "Keep only dimensions that support the conclusion; AI easily turns correlation into causation."
+    ]
+  },
+  "怎么用 AI 写邮件与排日程": {
+    "lead": "Turn “write an email” into purpose, options and an exit path; AI smooths tone and structure.",
+    "points": [
+      "State recipient, relationship, purpose, expected action and deadline; miss one and AI writes a polite but useless email.",
+      "Ask for three versions: direct, diplomatic, escalation. Pick one and edit.",
+      "Meeting requests need time zone, duration, alternatives and agenda — not “whenever works”.",
+      "Confirm every commitment, price or legal sentence by hand; do not let the model improvise.",
+      "Before sending, check attachments, recipients, cc/bcc and sensitive information."
+    ]
+  },
+  "怎么用 AI 做翻译与本地化": {
+    "lead": "Translation is not sentence-by-sentence substitution; the target reader should feel the sentence was written there.",
+    "points": [
+      "Define the register first: customer marketing, engineering spec or regulatory filing. Each needs different wording.",
+      "Provide glossary, brand names, do-not-translate terms and example sentences; without a glossary the model drifts.",
+      "Translate long text in numbered segments for alignment and backfill; do not drop a whole book in one prompt.",
+      "Ask the model to flag “literal but awkward” and “free but possibly off” sentences for a human decision.",
+      "Localisation also checks dates, currency, addresses, honorifics, colours and cultural/religious taboos.",
+      "Have a native speaker spot-check titles, buttons and legal sentences before publishing."
+    ]
+  },
+  "怎么用 AI 审阅合同与长文档": {
+    "lead": "Let AI find clauses, flag risks and compare versions; do not let it issue a legal conclusion.",
+    "points": [
+      "Set a review checklist first: payment, breach, termination, liability cap, IP, data and confidentiality, governing law.",
+      "Split by clause number; ask for “location + risk + suggested redline” per clause, not a summary.",
+      "Use a two-version diff to surface additions, deletions and wording changes; list formatting changes separately.",
+      "Every risk flag must point to a page or clause; anything without a source becomes “human review required”.",
+      "Route output to counsel; do not send externally. AI is not legal advice.",
+      "Pull out personal-data, cross-border data and AI-training-rights clauses for a separate compliance pass."
+    ]
+  },
+  "怎么用 AI 备课": {
+    "lead": "Turn “find materials” into a full workflow: align learning goals, design activities and prepare tiered materials.",
+    "points": [
+      "Write the learning objective (what students can do afterwards) and prerequisites before generating content; vague goals produce vague material.",
+      "Ask for four phases — hook, explanation, practice, summary — each with time, teacher/student actions and a checkpoint.",
+      "Prepare three tiers: must-do, optional, challenge. AI defaults to the middle tier only.",
+      "Check every fact, worked example and chart against the textbook or standard, especially dates, formulas and data.",
+      "Tell students which parts are AI-generated and which a teacher verified; do not use model output as a handout.",
+      "Use student errors to infer which segment failed, rather than blaming effort alone."
+    ]
+  },
+  "怎么用 AI 出题与批改": {
+    "lead": "Generate questions that diagnose understanding, not recall; grade with feedback, not just a score.",
+    "points": [
+      "Specify knowledge points, cognitive level (recall/understanding/application/analysis) and item mix before generating.",
+      "Every item needs an answer, scoring points, common errors and mapped knowledge point. Skip items without a rubric.",
+      "Ask for distractor explanations: which misconception each wrong option represents.",
+      "For open responses, give the rubric first; have the model score by point and quote the student’s sentence; a human checks borderline cases.",
+      "Treat AI grading as a first pass, especially essays, open questions and values-related items.",
+      "Audit generated items regularly; models invent plausible questions with contradictory conditions."
+    ]
+  },
+  "怎么设计课堂 AI 互动": {
+    "lead": "Let AI ask, probe, simulate and give immediate feedback — not hand students the answer.",
+    "points": [
+      "Define the interaction goal: activate prior knowledge, expose misconceptions or practise expression. Each needs a different AI role.",
+      "Make AI a “question-only tutor”: after an answer, ask “why do you think so” instead of grading immediately.",
+      "Use anonymous or group submissions to lower embarrassment; AI summarises common issues and the teacher picks examples.",
+      "Build an “AI can be wrong” segment where students find the model’s flaws, training critical judgement.",
+      "Confirm network, accounts, data and parental consent; never paste real student names or grades into a public model.",
+      "Prepare a no-AI fallback; the lesson must survive a network or tool failure."
+    ]
+  },
+  "怎么用 AI 清洗数据": {
+    "lead": "Let AI find dirty data and propose cleaning rules, but every change must be replayable and auditable.",
+    "points": [
+      "Profile first: row count, column types, null rate, duplicate rate, outlier distribution. Do not just say “clean it”.",
+      "Write the rules as a checklist: dedupe key, missing-value policy, date format, unit normalisation, outlier handling.",
+      "Have AI produce executable pandas/SQL, not hand-edited result tables; keep scripts in version control.",
+      "Keep before/after row counts and samples for every step; answer “what was deleted and why”.",
+      "Mask sensitive fields before sending to a model; never paste a full customer table into chat.",
+      "Rerun the original statistics after cleaning to confirm signal was not deleted as noise."
+    ]
+  },
+  "怎么给数据集写数据卡": {
+    "lead": "A dataset card is not a blurb; it is a checkable record of source, licence, construction, bias and scope.",
+    "points": [
+      "Write source and collection method: origin, time range, device/crawl rules, whether personal data is included.",
+      "Write licence and limits: commercial use, redistribution, derivatives, territory and term.",
+      "Write construction: cleaning, dedupe, annotation guide, annotators and QA, enough for reproduction.",
+      "Write bias and coverage: language, geography, population, time; state what is missing.",
+      "Write scope: which training/eval/retrieval use it fits, what it does not, plus known failure cases.",
+      "Include version, hash, changelog and contact; a dataset card is not write-once."
+    ]
+  },
+  "怎么用 AI 搭 RAG 语料": {
+    "lead": "RAG quality is mostly corpus quality, not model quality. Decide what to collect, how to chunk and how to test first.",
+    "points": [
+      "Define the question domain and refusal boundary: what must be answered, what must be “I don’t know”; only collect content that supports those.",
+      "Denoise documents (headers, footers, ads, navigation), keep heading hierarchy and source URL; OCR scans first.",
+      "Chunk by semantic structure, not fixed length; attach document title, section path and source link to each chunk.",
+      "Generate searchable questions/summaries per chunk but keep the original text: retrieve with questions, answer with originals.",
+      "Build a small eval set: real questions, gold answers, must-cite documents; rerun on every chunker or model change.",
+      "Retire stale documents with version and deletion records; never let old and new policies be retrieved together."
+    ]
   }
 }

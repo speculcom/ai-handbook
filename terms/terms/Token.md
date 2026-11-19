@@ -14,6 +14,9 @@ layer: "一"
 ord: 10
 last_verified: "2026-11-09"
 verified_scope: "refs"
+figure: "fig-token.svg"
+figure_caption: "文本先被切成子词，再映射成词表里的整数 ID；模型只处理这些 ID，不直接读汉字或字母。"
+figure_caption_en: "Text is split into subwords, then mapped to integer IDs in a vocabulary; the model only sees IDs."
 ---
 
 # Token（Token）

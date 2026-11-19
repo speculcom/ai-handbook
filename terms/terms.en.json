@@ -2153,5 +2153,221 @@
       "A continuous generative framework beside diffusion; Stable Diffusion 3 and Flux use rectified-flow variants."
     ],
     "why": "Diffusion needs many sampling steps; Flow Matching learns a straighter path, so fewer steps can suffice. It explains why image and video generators moved from “diffusion” to “flow” in 2025–2026."
+  },
+  "Self-Consistency（自一致性）": {
+    "purpose": "Sample several reasoning paths for the same question and take a majority vote, trading extra compute for accuracy.",
+    "def": [
+      "Generate multiple chain-of-thought paths instead of one greedy decode.",
+      "Take a majority vote over final answers; agreement across different paths is a stronger signal.",
+      "No new model and no weight change — only extra sampling at inference."
+    ],
+    "why": "When a single chain of thought occasionally slips, self-consistency turns “right once by luck” into “right in most samples”. It is the cheapest form of test-time compute."
+  },
+  "Tree of Thoughts（思维树）": {
+    "purpose": "Turn a single chain of thought into a searchable tree of branches that can be scored and rolled back.",
+    "def": [
+      "Each node is an intermediate thought; the model can expand several candidate branches.",
+      "An evaluator scores branches and prunes the clearly bad ones.",
+      "The search can backtrack to an earlier node instead of committing to one wrong path."
+    ],
+    "why": "Complex planning, maths and multi-step writing often fail one step at a time. Tree of Thoughts makes generation searchable."
+  },
+  "ReAct": {
+    "purpose": "Make the model alternate between thinking, acting and observing, folding tool use into a reasoning loop.",
+    "def": [
+      "The model writes a Thought, then chooses an Action such as search or an API call.",
+      "The result comes back as an Observation and is appended to context before the next step.",
+      "The loop ends with a final answer; reasoning is revised by tool results, not written once."
+    ],
+    "why": "It is the default skeleton of most agent frameworks. Understand ReAct and you can see why tool calls, trajectory evals and long tasks drift."
+  },
+  "Reflexion（反思）": {
+    "purpose": "Let an agent write a post-mortem after failure, store the lesson in memory and avoid the same mistake next time.",
+    "def": [
+      "After a failed attempt, the model writes a reflection over the trajectory and feedback.",
+      "The reflection is stored in long-term memory and read back on the next attempt.",
+      "No weights change; only the next prompt and strategy change."
+    ],
+    "why": "Agents often repeat the same error. Reflection turns one failure into reusable experience instead of starting from zero."
+  },
+  "Plan-and-Solve": {
+    "purpose": "Write a full plan first, then execute it step by step, so multi-step tasks do not miss conditions.",
+    "def": [
+      "Phase one only decomposes the task into ordered sub-steps, without solving yet.",
+      "Phase two executes each sub-task in order.",
+      "Unlike ReAct, it plans once up front rather than rethinking every step."
+    ],
+    "why": "Multi-step tasks lose conditions easily. An explicit plan surfaces hidden steps and lets humans or programs inspect them."
+  },
+  "FrugalGPT（级联推理）": {
+    "purpose": "Try a cheap small model first and escalate to a stronger, costlier model only when confidence is low.",
+    "def": [
+      "A request enters the first model, which also returns a confidence score.",
+      "A high score returns immediately; a low score sends the same request to the next, larger model.",
+      "A chain of levels trades average cost for quality close to the largest model."
+    ],
+    "why": "Most requests do not need the most expensive model. Cascades cut cost but add latency and router errors."
+  },
+  "GraphRAG": {
+    "purpose": "Extract entities and relations into a graph so the system can answer cross-document and global questions.",
+    "def": [
+      "Indexing extracts entities, relations and community summaries into a knowledge graph.",
+      "Querying locates relevant entities/communities and expands along edges.",
+      "It covers multi-hop relations and corpus-level themes that vector RAG misses."
+    ],
+    "why": "When the question is “how are these documents related” rather than “find this passage”, pure vector search falls short."
+  },
+  "混合检索": {
+    "purpose": "Fuse keyword retrieval (BM25) with vector retrieval so exact terms and paraphrases both work.",
+    "def": [
+      "The same query runs through sparse and dense retrieval, producing two candidate sets.",
+      "RRF or weighted scores merge, deduplicate and rerank the two sets.",
+      "IDs and proper nouns rely on keywords; paraphrases rely on vectors."
+    ],
+    "why": "Vector-only retrieval misses product models, error codes and contract numbers that must match literally."
+  },
+  "语义缓存": {
+    "purpose": "Answer semantically similar questions from a cache and skip another model call.",
+    "def": [
+      "Encode the request and compare its vector with cached historical requests.",
+      "Above a similarity threshold, return the cached answer; below it, call the model.",
+      "The threshold trades cost savings against wrong-answer risk."
+    ],
+    "why": "FAQ and support traffic repeats heavily. Semantic caching cuts cost, but a loose threshold merges different questions."
+  },
+  "RLHF（人类反馈强化学习）": {
+    "purpose": "Learn a reward model from human preferences, then optimise the language model against that reward.",
+    "def": [
+      "Collect human rankings over multiple answers and train a reward model.",
+      "Optimise the policy with PPO or similar so the reward model scores it higher.",
+      "Add a KL penalty so the model does not drift too far from its starting point."
+    ],
+    "why": "It is the step from “can talk” to “follows instructions”. Understand RLHF and preference alignment, reward hacking and refusals become clearer."
+  },
+  "RLAIF（AI 反馈强化学习）": {
+    "purpose": "Replace human preference labels with another AI model to cut the cost of RLHF.",
+    "def": [
+      "A judge model ranks or scores candidate answers.",
+      "Its preferences become the reward signal for training the policy.",
+      "Human calibration is usually needed so the judge’s own biases are not amplified."
+    ],
+    "why": "RLHF is expensive in human ranking. RLAIF scales labelling through model calls but imports the judge’s blind spots."
+  },
+  "奖励模型": {
+    "purpose": "Turn “which answer is better” into a scalar score that can drive reinforcement learning.",
+    "def": [
+      "Input is a question plus an answer; output is one scalar score.",
+      "Training data is usually human or AI rankings over multiple answers.",
+      "It is not the product model — it is the judge used while training the policy."
+    ],
+    "why": "The reward model defines what the model learns to chase. A biased judge teaches the model to please the bias."
+  },
+  "过程监督": {
+    "purpose": "Check each reasoning step, not only the final answer.",
+    "def": [
+      "Label every step of a reasoning chain, rather than only right/wrong at the end.",
+      "Train a process reward model (PRM) that scores each step.",
+      "Use the PRM during search to prefer promising paths, not just lucky final answers."
+    ],
+    "why": "Outcome-only supervision treats a lucky guess as correct. Process supervision locates the first bad step."
+  },
+  "机械可解释性": {
+    "purpose": "Decompose a neural network into nameable features and circuits and explain what it computes internally.",
+    "def": [
+      "The goal is to identify what specific neurons or directions represent, not just input-output correlation.",
+      "Common tools include probes, activation patching, sparse autoencoders and circuit analysis.",
+      "It asks why the model produced an output, not only what the output is."
+    ],
+    "why": "Safety audits, model editing and failure attribution need internal mechanisms; input-output views rarely find root causes."
+  },
+  "稀疏自编码器": {
+    "purpose": "Split dense model activations into a sparse set of nameable feature directions.",
+    "def": [
+      "Train a much wider autoencoder on activations from one layer.",
+      "Add a sparsity penalty so each input activates only a few hidden units.",
+      "Those units become candidate monosemantic features that are easier to interpret."
+    ],
+    "why": "Raw neurons are often polysemantic. Sparse autoencoders are a mainstream interpretability tool."
+  },
+  "模型编辑": {
+    "purpose": "Change one fact or behaviour in a model without retraining all weights.",
+    "def": [
+      "Locate the layer and module that stores the fact, such as a few MLP key-value slots.",
+      "Apply a local weight update so the model answers with the new fact.",
+      "The ideal edit changes only the target fact and leaves other knowledge intact."
+    ],
+    "why": "Retraining for stale knowledge is expensive. Editing offers a hot fix, but can damage neighbouring knowledge."
+  },
+  "机器遗忘": {
+    "purpose": "Make a model forget specified training data or knowledge without retraining from scratch.",
+    "def": [
+      "The target is behaviour close to “never saw that data point”.",
+      "Common methods include gradient ascent, influence-function localisation and teacher distillation.",
+      "Check both forgetting completeness and collateral damage to general ability."
+    ],
+    "why": "Deletion rights, withdrawn licences and leaked sensitive data all need verifiable forgetting."
+  },
+  "差分隐私": {
+    "purpose": "Add controlled noise to statistics or training so one sample’s presence cannot be inferred.",
+    "def": [
+      "Privacy budget ε measures how much one record can change the output.",
+      "Common mechanisms add Gaussian or Laplacian noise.",
+      "Smaller ε means more privacy but usually worse utility."
+    ],
+    "why": "Training data may contain medical or chat records. Differential privacy gives a quantifiable guarantee, unlike name removal."
+  },
+  "联邦学习": {
+    "purpose": "Keep data local and upload only model updates, aggregating a global model centrally.",
+    "def": [
+      "Each participant trains on local data and produces a gradient or model update.",
+      "A server aggregates updates (for example FedAvg) and sends the new model back.",
+      "Raw data stays local, but updates can still leak; pair with differential privacy or secure aggregation."
+    ],
+    "why": "Medical, financial and keyboard data cannot be centralised. Federated learning offers a collaborative path."
+  },
+  "对抗样本": {
+    "purpose": "Add a perturbation humans barely notice and make the model answer wrong with high confidence.",
+    "def": [
+      "The perturbation is small and often semantically invisible.",
+      "It can flip a classifier or model output while confidence stays high.",
+      "Adversarial training is a common defence, but it hurts clean accuracy and does not stop new attacks."
+    ],
+    "why": "Vision, driving and content moderation all fear inputs that look normal but are misclassified."
+  },
+  "机密计算": {
+    "purpose": "Keep data encrypted and isolated while it is being used, so the cloud and operators cannot see plaintext.",
+    "def": [
+      "Hardware TEEs place computation in isolated memory on CPU/GPU.",
+      "Remote attestation lets users verify the declared code is what runs.",
+      "It protects runtime, not storage or transit, which need separate encryption."
+    ],
+    "why": "When private models and sensitive data go to a third-party cloud, “not visible while running” is the last boundary."
+  },
+  "模型供应链": {
+    "purpose": "Track who changed what from base model through fine-tune, quantisation, packaging and deployment.",
+    "def": [
+      "A shipped model usually passes through base, fine-tune, merge, quantise and convert steps.",
+      "Each step can introduce new weights, dependencies or backdoors.",
+      "Model cards, hashes, signatures, licences and eval records tie the provenance together."
+    ],
+    "why": "The “model” you download may not be the official original. Without supply-chain records you cannot tell what changed."
+  },
+  "数据授权": {
+    "purpose": "Confirm who may use training or evaluation data, for what purpose and within what scope.",
+    "def": [
+      "Check licence type, purpose limits, territory, term and redistribution terms.",
+      "“Publicly downloadable” does not mean “allowed to train a commercial model”.",
+      "The licence chain must trace back to the original rightsholder, not just a second-hand dataset page."
+    ],
+    "why": "Unclear data licensing creates takedown, claim and retraining risk after launch."
+  },
+  "训练数据溯源": {
+    "purpose": "Record where a training sample came from, what cleaning or transformation it went through and which dataset it entered.",
+    "def": [
+      "Provenance needs at least the original URL, crawl time, licence, processing script and version.",
+      "After blending sources, the system must still answer “where did this sample come from”.",
+      "It underpins licensing, deletion requests and contamination investigation."
+    ],
+    "why": "When a model leaks or misbehaves, the first step is retracing what it may have seen. Without provenance you can only guess."
   }
 }

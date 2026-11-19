@@ -13,6 +13,9 @@ layer: "二"
 ord: 28
 last_verified: "2026-11-09"
 verified_scope: "refs"
+figure: "fig-lora.svg"
+figure_caption: "冻结原权重 W，只训练低秩矩阵 A/B；推理时把 ΔW = BA 加回 W，显存和存储都小得多。"
+figure_caption_en: "Freeze the original weight W and train low-rank A/B; at inference add ΔW = BA back to W, using far less memory and storage."
 ---
 
 # LoRA（低秩适配）

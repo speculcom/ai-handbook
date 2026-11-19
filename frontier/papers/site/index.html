@@ -13,8 +13,8 @@
   <meta property="og:description" content="按主题和年份找 AI 论文，先看问题、证据和作者自限，再读原文。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
+  <script src="brand.js?v=11bc9d7dba82"></script>
+  <link rel="stylesheet" href="brand.css?v=11bc9d7dba82" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="papers.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"AI 论文 · Specul","description":"按主题和年份找 AI 论文，先看问题、证据和作者自限，再读原文。","url":"https://papers.specul.com/","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
@@ -105,56 +105,67 @@
     </div>
     <div class="vz-grid"><figure class="vz-card vz-span-6">
     <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>主题分布</b><small><span data-zh>一篇论文只记一个主主题</span><span data-en>one primary topic per paper</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 234" role="img" aria-label="横向条形图" xmlns="http://www.w3.org/2000/svg">
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 302" role="img" aria-label="横向条形图" xmlns="http://www.w3.org/2000/svg">
       <line x1="150" y1="41" x2="710" y2="41" class="vz-gridline"/>
       <text x="0" y="40" class="vz-t">architecture</text>
       <rect x="150" y="25" width="484" height="18" rx="7" class="vz-bar" style="fill:var(--cat-violet)"/>
-      <text x="716" y="40" class="vz-t-strong" text-anchor="end">11</text>
+      <text x="716" y="40" class="vz-t-strong" text-anchor="end">13</text>
       <line x1="150" y1="75" x2="710" y2="75" class="vz-gridline"/>
       <text x="0" y="74" class="vz-t">scaling</text>
-      <rect x="150" y="59" width="264" height="18" rx="7" class="vz-bar" style="fill:var(--cat-blue)"/>
+      <rect x="150" y="59" width="223.3846153846154" height="18" rx="7" class="vz-bar" style="fill:var(--cat-blue)"/>
       <text x="716" y="74" class="vz-t-strong" text-anchor="end">6</text>
       <line x1="150" y1="109" x2="710" y2="109" class="vz-gridline"/>
-      <text x="0" y="108" class="vz-t">reasoning</text>
-      <rect x="150" y="93" width="220" height="18" rx="7" class="vz-bar" style="fill:var(--cat-teal)"/>
-      <text x="716" y="108" class="vz-t-strong" text-anchor="end">5</text>
+      <text x="0" y="108" class="vz-t">efficiency</text>
+      <rect x="150" y="93" width="223.3846153846154" height="18" rx="7" class="vz-bar" style="fill:var(--cat-teal)"/>
+      <text x="716" y="108" class="vz-t-strong" text-anchor="end">6</text>
       <line x1="150" y1="143" x2="710" y2="143" class="vz-gridline"/>
       <text x="0" y="142" class="vz-t">alignment</text>
-      <rect x="150" y="127" width="176" height="18" rx="7" class="vz-bar" style="fill:var(--cat-amber)"/>
-      <text x="716" y="142" class="vz-t-strong" text-anchor="end">4</text>
+      <rect x="150" y="127" width="186.15384615384616" height="18" rx="7" class="vz-bar" style="fill:var(--cat-amber)"/>
+      <text x="716" y="142" class="vz-t-strong" text-anchor="end">5</text>
       <line x1="150" y1="177" x2="710" y2="177" class="vz-gridline"/>
-      <text x="0" y="176" class="vz-t">efficiency</text>
-      <rect x="150" y="161" width="176" height="18" rx="7" class="vz-bar" style="fill:var(--cat-rose)"/>
-      <text x="716" y="176" class="vz-t-strong" text-anchor="end">4</text>
+      <text x="0" y="176" class="vz-t">reasoning</text>
+      <rect x="150" y="161" width="186.15384615384616" height="18" rx="7" class="vz-bar" style="fill:var(--cat-rose)"/>
+      <text x="716" y="176" class="vz-t-strong" text-anchor="end">5</text>
       <line x1="150" y1="211" x2="710" y2="211" class="vz-gridline"/>
-      <text x="0" y="210" class="vz-t">adaptation</text>
-      <rect x="150" y="195" width="132" height="18" rx="7" class="vz-bar" style="fill:var(--cat-lime)"/>
-      <text x="716" y="210" class="vz-t-strong" text-anchor="end">3</text></svg></div>
+      <text x="0" y="210" class="vz-t">agents</text>
+      <rect x="150" y="195" width="148.92307692307693" height="18" rx="7" class="vz-bar" style="fill:var(--cat-lime)"/>
+      <text x="716" y="210" class="vz-t-strong" text-anchor="end">4</text>
+      <line x1="150" y1="245" x2="710" y2="245" class="vz-gridline"/>
+      <text x="0" y="244" class="vz-t">adaptation</text>
+      <rect x="150" y="229" width="111.6923076923077" height="18" rx="7" class="vz-bar" style="fill:var(--cat-violet)"/>
+      <text x="716" y="244" class="vz-t-strong" text-anchor="end">3</text>
+      <line x1="150" y1="279" x2="710" y2="279" class="vz-gridline"/>
+      <text x="0" y="278" class="vz-t">multimodal</text>
+      <rect x="150" y="263" width="111.6923076923077" height="18" rx="7" class="vz-bar" style="fill:var(--cat-blue)"/>
+      <text x="716" y="278" class="vz-t-strong" text-anchor="end">3</text></svg></div>
     <p class="vz-foot"><span data-zh>主题表示「这篇主要在回答哪类问题」，不是质量分级；一篇论文可以同时属于两类，这里只记主类。</span><span data-en>Topic shows the main question, not quality; a paper can fit two topics, only the primary one is counted.</span></p>
   </figure><figure class="vz-card vz-span-6">
     <figcaption class="vz-cap"><span class="vz-no">02</span><span><b>年份分布</b><small><span data-zh>按 arXiv 编号推断</span><span data-en>inferred from arXiv ID</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 620 260" role="img" aria-label="纵向柱状图" xmlns="http://www.w3.org/2000/svg"><line x1="42" y1="202" x2="602" y2="202" class="vz-gridline"/><text x="32" y="207" class="vz-t-dim" text-anchor="end">0</text><line x1="42" y1="116" x2="602" y2="116" class="vz-gridline"/><text x="32" y="121" class="vz-t-dim" text-anchor="end">5</text><line x1="42" y1="30" x2="602" y2="30" class="vz-gridline"/><text x="32" y="35" class="vz-t-dim" text-anchor="end">10</text>
-      <text x="82" y="175.8" class="vz-t-strong" text-anchor="middle">1</text>
-      <rect x="59.599999999999994" y="184.8" width="44.800000000000004" height="17.2" rx="8" class="vz-bar" style="fill:var(--brand)"/>
-      <text x="82" y="232" class="vz-t-dim" text-anchor="middle">2017</text>
-      <text x="162" y="175.8" class="vz-t-strong" text-anchor="middle">1</text>
-      <rect x="139.6" y="184.8" width="44.800000000000004" height="17.2" rx="8" class="vz-bar" style="fill:var(--brand)"/>
-      <text x="162" y="232" class="vz-t-dim" text-anchor="middle">2018</text>
-      <text x="242" y="124.19999999999999" class="vz-t-strong" text-anchor="middle">4</text>
-      <rect x="219.6" y="133.2" width="44.800000000000004" height="68.8" rx="8" class="vz-bar" style="fill:var(--brand)"/>
-      <text x="242" y="232" class="vz-t-dim" text-anchor="middle">2020</text>
-      <text x="322" y="89.8" class="vz-t-strong" text-anchor="middle">6</text>
-      <rect x="299.6" y="98.8" width="44.800000000000004" height="103.2" rx="8" class="vz-bar" style="fill:var(--brand)"/>
-      <text x="322" y="232" class="vz-t-dim" text-anchor="middle">2021</text>
-      <text x="402" y="21" class="vz-t-strong" text-anchor="middle">10</text>
-      <rect x="379.6" y="30" width="44.800000000000004" height="172" rx="8" class="vz-bar" style="fill:var(--brand)"/>
-      <text x="402" y="232" class="vz-t-dim" text-anchor="middle">2022</text>
-      <text x="482" y="72.60000000000001" class="vz-t-strong" text-anchor="middle">7</text>
-      <rect x="459.6" y="81.60000000000001" width="44.800000000000004" height="120.39999999999999" rx="8" class="vz-bar" style="fill:var(--brand)"/>
-      <text x="482" y="232" class="vz-t-dim" text-anchor="middle">2023</text>
-      <text x="562" y="124.19999999999999" class="vz-t-strong" text-anchor="middle">4</text>
-      <rect x="539.6" y="133.2" width="44.800000000000004" height="68.8" rx="8" class="vz-bar" style="fill:var(--cat-rose)"/>
-      <text x="562" y="232" class="vz-t-dim" text-anchor="middle">2026</text></svg></div>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 620 260" role="img" aria-label="纵向柱状图" xmlns="http://www.w3.org/2000/svg"><line x1="42" y1="202" x2="602" y2="202" class="vz-gridline"/><text x="32" y="207" class="vz-t-dim" text-anchor="end">0</text><line x1="42" y1="116" x2="602" y2="116" class="vz-gridline"/><text x="32" y="121" class="vz-t-dim" text-anchor="end">8</text><line x1="42" y1="30" x2="602" y2="30" class="vz-gridline"/><text x="32" y="35" class="vz-t-dim" text-anchor="end">15</text>
+      <text x="77" y="181.53333333333333" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="57.4" y="190.53333333333333" width="39.2" height="11.466666666666667" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="77" y="232" class="vz-t-dim" text-anchor="middle">2017</text>
+      <text x="147" y="181.53333333333333" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="127.4" y="190.53333333333333" width="39.2" height="11.466666666666667" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="147" y="232" class="vz-t-dim" text-anchor="middle">2018</text>
+      <text x="217" y="147.13333333333333" class="vz-t-strong" text-anchor="middle">4</text>
+      <rect x="197.4" y="156.13333333333333" width="39.2" height="45.86666666666667" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="217" y="232" class="vz-t-dim" text-anchor="middle">2020</text>
+      <text x="287" y="112.73333333333333" class="vz-t-strong" text-anchor="middle">7</text>
+      <rect x="267.4" y="121.73333333333333" width="39.2" height="80.26666666666667" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="287" y="232" class="vz-t-dim" text-anchor="middle">2021</text>
+      <text x="357" y="55.400000000000006" class="vz-t-strong" text-anchor="middle">12</text>
+      <rect x="337.4" y="64.4" width="39.2" height="137.6" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="357" y="232" class="vz-t-dim" text-anchor="middle">2022</text>
+      <text x="427" y="21" class="vz-t-strong" text-anchor="middle">15</text>
+      <rect x="407.4" y="30" width="39.2" height="172" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="427" y="232" class="vz-t-dim" text-anchor="middle">2023</text>
+      <text x="497" y="181.53333333333333" class="vz-t-strong" text-anchor="middle">1</text>
+      <rect x="477.4" y="190.53333333333333" width="39.2" height="11.466666666666667" rx="8" class="vz-bar" style="fill:var(--brand)"/>
+      <text x="497" y="232" class="vz-t-dim" text-anchor="middle">2024</text>
+      <text x="567" y="147.13333333333333" class="vz-t-strong" text-anchor="middle">4</text>
+      <rect x="547.4" y="156.13333333333333" width="39.2" height="45.86666666666667" rx="8" class="vz-bar" style="fill:var(--cat-rose)"/>
+      <text x="567" y="232" class="vz-t-dim" text-anchor="middle">2026</text></svg></div>
     <p class="vz-foot"><span data-zh>2026 的柱子会随 2026 增补变高；年份推断只用于看分布，具体日期以论文页为准。</span><span data-en>The 2026 bar grows with the 2026 patch; the inferred year is for distribution only. The paper page has the actual date.</span></p>
   </figure><figure class="vz-card vz-span-12">
     <figcaption class="vz-cap"><span class="vz-no">03</span><span><b>2026 四个新节点</b><small><span data-zh>研究线，不是产品线</span><span data-en>research, not product</span></small></span></figcaption>
@@ -188,9 +199,9 @@
   <section class="fx-bar" id="ms-filter" aria-labelledby="ms-filter-title">
     <div class="fx-head">
       <span class="fx-title" id="ms-filter-title"><span data-zh>想看哪一类？</span><span data-en>What are you looking for?</span></span>
-      <span class="fx-count" aria-live="polite"><b id="ms-filter-count">33</b> <span data-zh>条</span><span data-en>shown</span></span>
+      <span class="fx-count" aria-live="polite"><b id="ms-filter-count">45</b> <span data-zh>条</span><span data-en>shown</span></span>
     </div>
-    <div class="fx-chips" role="group"><button type="button" class="fx-chip" data-filter-cat="all" aria-pressed="true"><span class="fx-dot"></span><span data-zh>全部</span><span data-en>All</span><em class="fx-n">33</em></button><button type="button" class="fx-chip" data-filter-cat="alignment" data-cat="alignment" aria-pressed="false"><span class="fx-dot"></span><span data-zh>对齐</span><span data-en>Alignment</span><em class="fx-n">4</em></button><button type="button" class="fx-chip" data-filter-cat="reasoning" data-cat="reasoning" aria-pressed="false"><span class="fx-dot"></span><span data-zh>推理</span><span data-en>Reasoning</span><em class="fx-n">5</em></button><button type="button" class="fx-chip" data-filter-cat="architecture" data-cat="architecture" aria-pressed="false"><span class="fx-dot"></span><span data-zh>架构</span><span data-en>Architecture</span><em class="fx-n">11</em></button><button type="button" class="fx-chip" data-filter-cat="scaling" data-cat="scaling" aria-pressed="false"><span class="fx-dot"></span><span data-zh>规模律</span><span data-en>Scaling laws</span><em class="fx-n">6</em></button><button type="button" class="fx-chip" data-filter-cat="efficiency" data-cat="efficiency" aria-pressed="false"><span class="fx-dot"></span><span data-zh>效率</span><span data-en>Efficiency</span><em class="fx-n">4</em></button><button type="button" class="fx-chip" data-filter-cat="adaptation" data-cat="adaptation" aria-pressed="false"><span class="fx-dot"></span><span data-zh>适配</span><span data-en>Adaptation</span><em class="fx-n">3</em></button></div>
+    <div class="fx-chips" role="group"><button type="button" class="fx-chip" data-filter-cat="all" aria-pressed="true"><span class="fx-dot"></span><span data-zh>全部</span><span data-en>All</span><em class="fx-n">45</em></button><button type="button" class="fx-chip" data-filter-cat="alignment" data-cat="alignment" aria-pressed="false"><span class="fx-dot"></span><span data-zh>对齐</span><span data-en>Alignment</span><em class="fx-n">5</em></button><button type="button" class="fx-chip" data-filter-cat="reasoning" data-cat="reasoning" aria-pressed="false"><span class="fx-dot"></span><span data-zh>推理</span><span data-en>Reasoning</span><em class="fx-n">5</em></button><button type="button" class="fx-chip" data-filter-cat="architecture" data-cat="architecture" aria-pressed="false"><span class="fx-dot"></span><span data-zh>架构</span><span data-en>Architecture</span><em class="fx-n">13</em></button><button type="button" class="fx-chip" data-filter-cat="scaling" data-cat="scaling" aria-pressed="false"><span class="fx-dot"></span><span data-zh>规模律</span><span data-en>Scaling laws</span><em class="fx-n">6</em></button><button type="button" class="fx-chip" data-filter-cat="efficiency" data-cat="efficiency" aria-pressed="false"><span class="fx-dot"></span><span data-zh>效率</span><span data-en>Efficiency</span><em class="fx-n">6</em></button><button type="button" class="fx-chip" data-filter-cat="adaptation" data-cat="adaptation" aria-pressed="false"><span class="fx-dot"></span><span data-zh>适配</span><span data-en>Adaptation</span><em class="fx-n">3</em></button><button type="button" class="fx-chip" data-filter-cat="agents" data-cat="agents" aria-pressed="false"><span class="fx-dot"></span><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span><em class="fx-n">4</em></button><button type="button" class="fx-chip" data-filter-cat="multimodal" data-cat="multimodal" aria-pressed="false"><span class="fx-dot"></span><span data-zh>多模态</span><span data-en>Multimodal</span><em class="fx-n">3</em></button></div>
   </section>
   <div class="fx-grid">      <article class="fx-card" id="abstain-r1-2026" data-cat="alignment">
         <div class="fx-top"><span class="fx-badge"><span data-zh>对齐</span><span data-en>Alignment</span></span></div>
@@ -455,6 +466,102 @@
         <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§3–5 任务/模型/数据；§6–7 零样本评测；§8 局限；结论</dd></div><div><dt>规模 / scale</dt><dd>SA-1B：1B+ 掩码、1,100 万张授权与隐私合规图像</dd></div><div><dt>关键数字 / key numbers</dt><dd>23 个分割数据集零样本评测；单前景点即可产出高质量掩码</dd></div><div><dt>自陈局限 / stated limits</dt><dd>漏细结构、幻觉小部件、边界不锐利、整体非实时、文本到掩码不稳（§8）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl>
         <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>架构</span><span data-en>Architecture</span></span></div>
         <div class="fx-card-links"><a class="fx-source" href="kirillov-2023-sam.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2304.02643" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="agentbench-2023" data-cat="agents">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
+        <h3><a href="agentbench-2023.html" rel="noopener">AgentBench: Evaluating LLMs as Agents</a></h3>
+        <p><span data-zh>问题：LLM 作为 agent 在不同交互环境里的能力，缺一个统一、可比较的量尺。<br>证据位置：摘要写明 8 个环境，测推理与决策；商业模型与 ≤70B 开源模型差距明显；失败主因是长程推理、决策与指令跟随。<br>作者自陈局限：环境与任务是固定的文本交互，不是真实业务；商业 API 与开源模型的推理预算未统一；代码训练对不同 agent 任务影响矛盾，作者未给出统一因果。<br>它没主张的：不是真实业务代理排行榜；不是单一能力总分；不证明某个模型在所有环境都更强。</span><span data-en>Problem: there was no common yardstick for LLM-as-agent ability across interactive environments.<br>Where the evidence sits: the abstract states 8 distinct environments measuring reasoning and decision-making; it reports a significant gap between commercial models and OSS models up to 70B; the main failures are long-horizon reasoning, decision-making and instruction following.<br>What the authors say about limits: environments are fixed text interactions, not real business; inference budgets are not equalised between commercial APIs and OSS models; the effect of code training is ambivalent across agent tasks and no unified causal explanation is given.<br>What it does not claim: not a real-business agent leaderboard; not a single ability score; not proof that one model wins in every environment.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：8 个环境、≤70B 对比、失败原因</dd></div><div><dt>环境数 / environments</dt><dd>8</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要与原文关键段）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="agentbench-2023.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2308.03688" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="toolformer-2023" data-cat="agents">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
+        <h3><a href="toolformer-2023.html" rel="noopener">Toolformer: Language Models Can Teach Themselves to Use Tools</a></h3>
+        <p><span data-zh>问题：语言模型会写会读，却在算术、事实查询这类基础功能上不如小工具；能不能让模型自己学会调 API。<br>证据位置：摘要给出自监督训练目标：选哪个 API、何时调、传什么参数、如何把结果并入后续 token 预测；每个 API 只要少量示例；工具含计算器、问答、两个搜索引擎、翻译与日历。<br>作者自陈局限：工具集固定且少；自监督过滤依赖工具输出质量；实验模型与规模有限；没有讨论开放工具生态下的权限、安全与错误传播。<br>它没主张的：不是通用工具使用框架；不是不需要人工审核；不是所有 API 都能自学。</span><span data-en>Problem: language models write and read well but underperform small tools on arithmetic and factual lookup; can they learn to call APIs themselves?<br>Where the evidence sits: the abstract describes a self-supervised objective that decides which API to call, when, with what arguments, and how to incorporate the result into future token prediction; a handful of demonstrations per API; tools include calculator, QA, two search engines, translation and calendar.<br>What the authors say about limits: the tool set is fixed and small; self-supervised filtering depends on tool output quality; model scale is limited; permissions, safety and error propagation in an open tool ecosystem are not discussed.<br>What it does not claim: not a general tool-use framework; not human-review-free; not every API can be self-taught.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：自监督 API 调用与少量示例</dd></div><div><dt>工具数 / tools</dt><dd>6 类</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="toolformer-2023.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2302.04761" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="voyager-2023" data-cat="agents">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
+        <h3><a href="voyager-2023.html" rel="noopener">Voyager: An Open-Ended Embodied Agent with Large Language Models</a></h3>
+        <p><span data-zh>问题：在开放世界 Minecraft 里，agent 能不能无人干预地持续探索、积累技能并完成新任务。<br>证据位置：摘要给出三组件：自动课程、可执行代码技能库、带环境反馈/执行错误/自验证的迭代提示；通过 GPT-4 黑盒调用，不微调模型；报告 3.3× 独特物品、2.3× 移动距离、15.3× 更快科技树里程碑。<br>作者自陈局限：单一 Minecraft 环境；依赖 GPT-4 API；技能库是可执行代码，权限与安全未讨论；开放世界长期泛化仍有限。<br>它没主张的：不是通用机器人 agent；不是真实世界部署；不是无需模型调用。</span><span data-en>Problem: in open-world Minecraft, can an agent explore, accumulate skills and solve new tasks without human intervention?<br>Where the evidence sits: the abstract lists three components — automatic curriculum, an ever-growing skill library of executable code, and iterative prompting with environment feedback, execution errors and self-verification; it calls GPT-4 as a black box without fine-tuning; it reports 3.3x more unique items, 2.3x longer travel and up to 15.3x faster tech-tree milestones.<br>What the authors say about limits: single Minecraft environment; depends on GPT-4 API; the skill library is executable code with no discussion of permissions or safety; long-term open-world generalisation remains limited.<br>What it does not claim: not a general robot agent; not a real-world deployment; not free of model calls.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：三组件与 3.3×/2.3×/15.3×</dd></div><div><dt>环境 / environment</dt><dd>Minecraft</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="voyager-2023.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2305.16291" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="generative-agents-2023" data-cat="agents">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
+        <h3><a href="generative-agents-2023.html" rel="noopener">Generative Agents: Interactive Simulacra of Human Behavior</a></h3>
+        <p><span data-zh>问题：如何用 LLM 构建可信的人类行为代理，让多个 agent 在沙盒里自主社交与计划。<br>证据位置：摘要给出记忆流、反思、动态检索与计划架构；沙盒 25 个 agent；情人节派对案例显示邀请、约会与到场是自发涌现；消融显示观察、计划、反思各自贡献可信度。<br>作者自陈局限：沙盒小城与 25 个 agent；可信度由作者评估，不是真实人类行为验证；记忆与反思有成本；未覆盖大规模社会系统。<br>它没主张的：不是社会预测工具；不是真实人类复制；不是生产级多 agent 架构。</span><span data-en>Problem: how to build believable human-behaviour proxies with LLMs, so multiple agents can socialise and plan in a sandbox.<br>Where the evidence sits: the abstract describes a memory stream, reflection and dynamic retrieval/planning architecture; a sandbox of 25 agents; the Valentine&#39;s party case shows invitations, dates and attendance emerging autonomously; ablation shows observation, planning and reflection each contribute to believability.<br>What the authors say about limits: a small-town sandbox with 25 agents; believability is author-evaluated, not validated against real humans; memory and reflection cost compute; large-scale social systems are not covered.<br>What it does not claim: not a social forecasting tool; not a copy of real humans; not a production multi-agent architecture.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：25 agents、记忆/反思/计划、派对案例</dd></div><div><dt>沙盒规模 / sandbox</dt><dd>25 agents</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="generative-agents-2023.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2304.03442" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="llava-2023" data-cat="multimodal">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+        <h3><a href="llava-2023.html" rel="noopener">Visual Instruction Tuning</a></h3>
+        <p><span data-zh>问题：多模态指令跟随数据稀缺，能否用纯语言 GPT-4 生成图文指令数据，再训练端到端多模态模型。<br>证据位置：摘要称首次用 language-only GPT-4 生成多模态指令数据；LLaVA 连接视觉编码器与 LLM；在合成多模态指令集上相对 GPT-4 得 85.1%；ScienceQA 微调后 92.53%。<br>作者自陈局限：数据由 GPT-4 生成，继承其偏差；视觉编码器与 LLM 组合固定；评测以合成指令集与 ScienceQA 为主；真实场景鲁棒性未证明。<br>它没主张的：不是通用多模态助手；不是视觉理解全能；85.1% 不是全面超过 GPT-4。</span><span data-en>Problem: multimodal instruction-following data is scarce; can language-only GPT-4 generate image-text instruction data to train an end-to-end multimodal model?<br>Where the evidence sits: the abstract claims the first attempt to use language-only GPT-4 for multimodal instruction data; LLaVA connects a vision encoder and an LLM; it reports 85.1% relative score versus GPT-4 on a synthetic multimodal instruction set and 92.53% on ScienceQA after fine-tuning.<br>What the authors say about limits: data is GPT-4-generated and inherits its biases; the vision encoder and LLM pairing is fixed; evaluation centres on a synthetic instruction set and ScienceQA; real-world robustness is not established.<br>What it does not claim: not a general multimodal assistant; not all of visual understanding; 85.1% is not beating GPT-4 across the board.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：GPT-4 生成数据、85.1%、ScienceQA 92.53%</dd></div><div><dt>相对分数 / relative</dt><dd>85.1% vs GPT-4</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="llava-2023.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2304.08485" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="flamingo-2022" data-cat="multimodal">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+        <h3><a href="flamingo-2022.html" rel="noopener">Flamingo: a Visual Language Model for Few-Shot Learning</a></h3>
+        <p><span data-zh>问题：多模态模型如何用少量标注示例快速适配新任务，并处理任意交错的图文序列。<br>证据位置：摘要给出三条架构创新：桥接预训练视觉/语言模型、处理交错图文、摄入图像或视频；在大量图像与视频任务上 few-shot SOTA；声称在多个基准上超过用数千倍任务数据微调的模型。<br>作者自陈局限：模型与数据规模大且未开源；评测集中在图像/视频任务；few-shot 仍需任务示例；开放域安全与偏见未讨论。<br>它没主张的：不是零样本通用助手；不是小模型方案；不是无需任务示例。</span><span data-en>Problem: how can a multimodal model adapt to new tasks from a handful of examples and handle arbitrarily interleaved image-text sequences?<br>Where the evidence sits: the abstract lists three architectural innovations — bridging pretrained vision-only and language-only models, handling interleaved image-text, and ingesting images or videos; it reports few-shot SOTA across image and video tasks and claims to outperform models fine-tuned on thousands of times more task data on several benchmarks.<br>What the authors say about limits: large model and data scale, not open-sourced; evaluation centres on image/video tasks; few-shot still needs task examples; open-domain safety and bias are not discussed.<br>What it does not claim: not a zero-shot general assistant; not a small-model recipe; not free of task examples.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：三条架构创新与 few-shot SOTA</dd></div><div><dt>模态 / modalities</dt><dd>图像、视频、交错图文</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="flamingo-2022.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2204.14198" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="blip2-2023" data-cat="multimodal">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+        <h3><a href="blip2-2023.html" rel="noopener">BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models</a></h3>
+        <p><span data-zh>问题：视觉语言预训练成本高，能否冻结图像编码器与大语言模型，只训练轻量桥接模块。<br>证据位置：摘要给出冻结图像编码器与冻结 LLM，用轻量 Querying Transformer 两阶段预训练；在 zero-shot VQAv2 上比 Flamingo80B 高 8.7%，可训练参数少 54×；支持零样本图生文指令。<br>作者自陈局限：冻结组件限制领域适配；两阶段训练仍有数据依赖；评测以 VQA/生成任务为主；未证明所有模态与语言。<br>它没主张的：不是无训练；不是取代全量微调；不是所有任务都优于大模型。</span><span data-en>Problem: vision-language pretraining is expensive; can we freeze the image encoder and the LLM and train only a lightweight bridge?<br>Where the evidence sits: the abstract uses frozen pretrained image encoders and frozen LLMs with a lightweight Querying Transformer trained in two stages; it reports +8.7% on zero-shot VQAv2 over Flamingo80B with 54x fewer trainable parameters and supports zero-shot image-to-text instructions.<br>What the authors say about limits: frozen components limit domain adaptation; two-stage training still depends on data; evaluation centres on VQA/generation; not all modalities or languages are covered.<br>What it does not claim: not training-free; not a replacement for full fine-tuning; not better than large models on every task.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：冻结编码器/LLM、54× 参数、+8.7%</dd></div><div><dt>可训练参数 / trainable</dt><dd>54× fewer than Flamingo80B</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="blip2-2023.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2301.12597" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="rope-2021" data-cat="architecture">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
+        <h3><a href="rope-2021.html" rel="noopener">RoFormer: Enhanced Transformer with Rotary Position Embedding</a></h3>
+        <p><span data-zh>问题：Transformer 的位置编码如何同时表达绝对位置与相对位置依赖。<br>证据位置：摘要给出用旋转矩阵编码绝对位置，并在 self-attention 中显式引入相对位置依赖；具备序列长度灵活性、随相对距离衰减的 token 依赖；在长文本分类基准上稳定优于替代方法。<br>作者自陈局限：实验以长文本分类为主；理论分析有限；超出训练长度仍需调参；不同实现的数值稳定性有差异。<br>它没主张的：不是长度外推的完整解法；不是所有模型都必须用 RoPE；不是训练越长越好。</span><span data-en>Problem: how can Transformer positional encoding express both absolute position and relative-position dependency?<br>Where the evidence sits: the abstract encodes absolute position with a rotation matrix and injects explicit relative-position dependency into self-attention; it lists flexibility of sequence length and decaying inter-token dependency with distance; it reports consistent gains over alternatives on long-text classification benchmarks.<br>What the authors say about limits: experiments centre on long-text classification; theoretical analysis is limited; extending beyond training length still needs tuning; numerical stability varies across implementations.<br>What it does not claim: not a complete solution to length extrapolation; not mandatory for every model; not &quot;longer training is always better&quot;.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：旋转矩阵、相对依赖、长文本分类</dd></div><div><dt>位置编码 / encoding</dt><dd>Rotary Position Embedding</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>架构</span><span data-en>Architecture</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="rope-2021.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2104.09864" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="yarn-2023" data-cat="efficiency">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span></div>
+        <h3><a href="yarn-2023.html" rel="noopener">YaRN: Efficient Context Window Extension of Large Language Models</a></h3>
+        <p><span data-zh>问题：RoPE 模型超出训练长度后失效，如何用更少 token 与训练步数扩展上下文窗口。<br>证据位置：摘要称比此前方法少 10× token、少 2.5× 训练步；LLaMA 可外推到远长于预训练的长度；在上下文扩展上超过此前 SOTA；可外推超过微调数据集的上下文。<br>作者自陈局限：以 LLaMA 系列为主；需要少量微调；超长上下文仍受注意力成本限制；未证明所有任务保真。<br>它没主张的：不是零成本无限上下文；不是不需要微调；不是所有模型通用。</span><span data-en>Problem: RoPE models fail beyond their training length; how to extend the context window with fewer tokens and training steps?<br>Where the evidence sits: the abstract claims 10x fewer tokens and 2.5x fewer training steps than prior methods; LLaMA models extrapolate far beyond their original pretraining length; it surpasses prior SOTA on context extension and can extrapolate beyond the fine-tuning dataset context.<br>What the authors say about limits: mainly LLaMA-family experiments; requires light fine-tuning; long contexts still pay attention cost; fidelity on all tasks is not proven.<br>What it does not claim: not zero-cost infinite context; not fine-tuning-free; not universal across models.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：10× token、2.5× 步数、LLaMA 外推</dd></div><div><dt>训练成本 / training</dt><dd>10× fewer tokens; 2.5× fewer steps</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>效率</span><span data-en>Efficiency</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="yarn-2023.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2309.00071" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="grpo-2024" data-cat="alignment">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>对齐</span><span data-en>Alignment</span></span></div>
+        <h3><a href="grpo-2024.html" rel="noopener">DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models</a></h3>
+        <p><span data-zh>问题：用 PPO 做数学推理强化学习时，显存与计算成本高；能否在不引入 critic 的情况下稳定优化。<br>证据位置：摘要提出 GRPO，作为 PPO 的变体，提升数学推理同时优化 PPO 的显存占用；DeepSeekMath 7B 在 MATH 得 51.7%（无工具、无投票）；64 样本自一致性 60.9%。<br>作者自陈局限：数学域为主；7B 规模；依赖数据选择管线与奖励设计；通用对话/开放域未验证。<br>它没主张的：不是 PPO 的通用替代；不是所有任务都省显存；51.7% 不等于 GPT-4 水平。</span><span data-en>Problem: PPO for mathematical-reasoning RL is memory- and compute-heavy; can optimisation be stable without a critic?<br>Where the evidence sits: the abstract introduces GRPO as a PPO variant that improves mathematical reasoning while optimising PPO memory; DeepSeekMath 7B scores 51.7% on MATH without tools or voting, and 60.9% with 64-sample self-consistency.<br>What the authors say about limits: mainly the maths domain; 7B scale; depends on the data-selection pipeline and reward design; general chat/open domain is not validated.<br>What it does not claim: not a general replacement for PPO; not memory-saving on every task; 51.7% is not GPT-4 parity.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：GRPO、MATH 51.7%、64 样本 60.9%</dd></div><div><dt>MATH / score</dt><dd>51.7%（7B，无工具/投票）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>对齐</span><span data-en>Alignment</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="grpo-2024.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2402.03300" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="awq-2023" data-cat="efficiency">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span></div>
+        <h3><a href="awq-2023.html" rel="noopener">AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</a></h3>
+        <p><span data-zh>问题：LLM 低比特权重量化如何保精度、又保持硬件友好，能落到端侧。<br>证据位置：摘要称只保护 1% 显著权重即可大幅降低量化误差；显著通道要按激活分布而非权重判断；用等价缩放保护显著通道；不依赖反向传播或重建；TinyChat 在桌面/移动 GPU 上相对 HF FP16 有 3× 以上加速；可在移动 GPU 跑 70B Llama-2。<br>作者自陈局限：权重量化，激活仍较高精度；校准集有偏；3× 是特定实现/硬件；未覆盖所有模型结构。<br>它没主张的：不是训练方法；不是 4-bit 无损；不是所有设备都能跑 70B。</span><span data-en>Problem: how to quantise LLM weights to low bits while keeping accuracy and hardware-friendly deployment on edge devices?<br>Where the evidence sits: the abstract says protecting only 1% salient weights greatly reduces quantisation error; saliency should be judged from activations, not weights; an equivalent scaling protects salient channels; no backprop or reconstruction is used; TinyChat reports &gt;3x speedup over HF FP16 on desktop and mobile GPUs and runs 70B Llama-2 on mobile GPUs.<br>What the authors say about limits: weight-only quantisation, activations stay higher precision; calibration set bias; 3x is implementation/hardware-specific; not every model architecture is covered.<br>What it does not claim: not a training method; not lossless 4-bit; not every device can run 70B.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：1% 显著权重、激活分布、3× 加速</dd></div><div><dt>权重量化 / weight bits</dt><dd>4-bit</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>效率</span><span data-en>Efficiency</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="awq-2023.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2306.00978" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
+      </article>
+      <article class="fx-card" id="dit-2022" data-cat="architecture">
+        <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
+        <h3><a href="dit-2022.html" rel="noopener">Scalable Diffusion Models with Transformers</a></h3>
+        <p><span data-zh>问题：扩散模型能否用 Transformer 替代 U-Net 作为骨干，并像 Gflops 一样可扩展。<br>证据位置：摘要在潜空间扩散中用 Transformer 处理 latent patches；Gflops 更高的 DiT（更深/更宽或更多 token）FID 更低；DiT-XL/2 在 ImageNet 256 上 FID 2.27。<br>作者自陈局限：ImageNet 类条件生成；FID 单一指标；训练成本高；文本/视频等通用生成未验证。<br>它没主张的：不是通用生成模型；不是 FID 唯一标准；不是替代所有 U-Net。</span><span data-en>Problem: can diffusion models use a Transformer instead of a U-Net backbone and scale like Gflops?<br>Where the evidence sits: the abstract replaces the U-Net with a transformer over latent patches in latent diffusion; higher-Gflops DiTs (deeper/wider or more tokens) consistently have lower FID; DiT-XL/2 reaches FID 2.27 on ImageNet 256.<br>What the authors say about limits: class-conditional ImageNet generation; FID is a single metric; training is expensive; text/video and other general generation are not validated.<br>What it does not claim: not a general generative model; not FID as the only criterion; not a replacement for every U-Net.</span></p>
+        <dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：latent patches、Gflops、FID 2.27</dd></div><div><dt>FID / ImageNet 256</dt><dd>2.27（DiT-XL/2）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl>
+        <div class="fx-meta"><span><span class="fx-key"><span data-zh>许可</span><span data-en>Licence</span></span> arxiv-preprint</span><span class="fx-sep"></span><span><span class="fx-key"><span data-zh>类目</span><span data-en>Category</span></span> <span data-zh>架构</span><span data-en>Architecture</span></span></div>
+        <div class="fx-card-links"><a class="fx-source" href="dit-2022.html"><span data-zh>看详情</span><span data-en>Open entry</span> &rarr;</a><a class="fx-source" href="https://arxiv.org/abs/2212.09748" rel="noopener"><span data-zh>去官网</span><span data-en>Official page</span> &rarr;</a></div>
       </article></div>
   <noscript><p class="t-sm"><span data-zh>未开启脚本：筛选不可用，全部条目已列出。</span><span data-en>Without JavaScript the filter is unavailable; all entries are listed.</span></p></noscript>
   <p><a href="about.html"><span data-zh>怎么用这个站</span><span data-en>How to use this site</span></a></p>

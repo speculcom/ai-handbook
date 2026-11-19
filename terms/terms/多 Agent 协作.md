@@ -14,6 +14,9 @@ layer: "三"
 ord: 4
 last_verified: "2026-11-09"
 verified_scope: "refs"
+figure: "fig-multi-agent.svg"
+figure_caption: "规划者拆任务，执行者分别研究/写代码/审阅，最后汇总；角色越多，通信和冲突成本越高。"
+figure_caption_en: "A planner splits the task, workers research/code/review, and an aggregator reconciles; more roles mean more communication and conflict cost."
 ---
 
 # 多 Agent 协作（Multi-Agent）

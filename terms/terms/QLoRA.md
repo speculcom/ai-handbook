@@ -13,6 +13,9 @@ layer: "五"
 ord: 30
 last_verified: "2026-11-09"
 verified_scope: "refs"
+figure: "fig-qlora.svg"
+figure_caption: "基座用 4-bit 量化存放，前向时临时反量化；LoRA 适配器保持较高精度训练，显存大幅下降。"
+figure_caption_en: "Store the base in 4-bit, dequantise on the fly for forward passes, and train LoRA adapters at higher precision; memory drops sharply."
 ---
 
 # QLoRA（QLoRA）

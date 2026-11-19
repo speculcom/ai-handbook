@@ -2,7 +2,7 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-24 条。
+32 条。
 
 - [目录](https://chain.specul.com/index.html)
 - [怎么用](https://chain.specul.com/about.html)
@@ -31,3 +31,11 @@
 - [Safe 智能账户：多签、阈值与账户抽象](https://chain.specul.com/safe-smart-account.html) — 交集：把「账户」从一对私钥变成一个合约——Safe 以多签为核心，定义一组 owner 与一个阈值，达到阈值的 owner 确认后交易才执行；owner 可以是
 - [ERC-20：同质化代币的最小接口](https://chain.specul.com/erc20-token-standard.html) — 交集：同质化代币的最小公共接口——每个单位等价、可拆分，适合计价、投票、质押与结算；OpenZeppelin 的实现把 name/symbol/decimals
 - [ERC-721：每个 token 都唯一的 ownership 标准](https://chain.specul.com/erc721-token-standard.html) — 交集：为「唯一物品」提供所有权记录——每个 tokenId 唯一、不可拆分，标准用 ownerOf 与 tokenURI 记录归属与元数据；适合数字藏品、门票、
+- [TEE 远程证明（以 Phala 为例）](https://chain.specul.com/tee-attestation.html) — 交集：AI 推理跑在第三方云上时，用户怎么相信「模型与代码确实按声明运行」。TEE 远程证明把运行时度量、签名与验证报告交给软件核验。 适用范围：这里以 Pha
+- [Phala Network：机密 AI 云](https://chain.specul.com/phala-network.html) — 交集：把私有模型、agent 与 GPU 任务放进硬件 TEE 里跑，并用证明报告替代「相信云厂商」。 适用范围：官方称支持 CPU TEE（Intel TDX
+- [EigenLayer：再质押与共享安全](https://chain.specul.com/eigenlayer.html) — 交集：AI agent、可验证服务与链下计算需要经济安全保证；EigenLayer 让 ETH/EIGEN 质押者为 AVS（主动验证服务）提供共享安全。 适用
+- [Gensyn：可审计的去中心化训练](https://chain.specul.com/gensyn.html) — 交集：把训练过程做成可复现、可审计的执行环境，让外部能验证模型是怎么训出来的，而不是只看最终权重。 适用范围：官方发布 open-1b/REE/open-8b 
+- [Prime Intellect：算力 + 训练 + 推理栈](https://chain.specul.com/prime-intellect.html) — 交集：把按需 GPU、托管训练（SFT/RL）与推理放在同一平台，适合需要自定义模型与 RL 环境的团队。 适用范围：官方给出 PrimeCompute 按需/
+- [io.net：分布式 GPU 聚合](https://chain.specul.com/io-net.html) — 交集：把独立数据中心、矿业与私有集群的 GPU 聚合起来，按需供给训练/推理；价格与可用性随供给波动。 适用范围：官方称可按需提供 H100/A100 与整簇、
+- [Story Protocol：可编程 IP](https://chain.specul.com/story-protocol.html) — 交集：AI 训练数据、模型权重、生成内容都需要可追溯的授权与分成；Story 把 IP 登记、许可与版税写成链上资产 + 链下法律合同。 适用范围：官方文档定义
+- [OpenID for Verifiable Credential Issuance 1.0](https://chain.specul.com/openid4vc.html) — 交集：AI agent 或用户需要把「身份、资质、授权」以可验证凭证形式出示给模型/服务；OpenID4VCI 定义签发 API 与密钥证明格式。 适用范围：规

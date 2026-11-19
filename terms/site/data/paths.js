@@ -794,5 +794,176 @@ var PATHS = [
    "/term/%E4%BB%BF%E7%9C%9F%E5%88%B0%E5%AE%9E%E6%9C%BA%E8%BF%81%E7%A7%BB/",
    "/term/%E8%A7%86%E8%A7%89%E8%AF%AD%E8%A8%80%E5%8A%A8%E4%BD%9C%E6%A8%A1%E5%9E%8B/"
   ]
+ },
+ {
+  "id": "for-office",
+  "ord": 14,
+  "zh": "办公与写作路线",
+  "en": "The Office Route",
+  "span": {
+   "zh": "约 45 分钟",
+   "en": "about 45 minutes"
+  },
+  "lead": {
+   "zh": "从「把 AI 当搜索框」走到「把 AI 接进文档、表格、会议与邮件」。先认清能力边界，再按场景练一遍完整流程。",
+   "en": "Move from using AI as a search box to wiring it into documents, spreadsheets, meetings and email. Learn the limits first, then rehearse one complete workflow per scenario."
+  },
+  "steps": [
+   "AI Agent 与聊天机器人的区别",
+   "提示词",
+   "结构化输出",
+   "上下文窗口",
+   "幻觉",
+   "人工复核队列",
+   "护栏",
+   "许可证",
+   "数据驻留",
+   "怎么用 AI 做会议纪要",
+   "怎么用 AI 做 PPT",
+   "怎么用 AI 分析表格",
+   "怎么用 AI 写邮件与排日程"
+  ],
+  "checkpoint": {
+   "zh": [
+    "拿到一份会议转写，能标出哪些句子必须回原文核对、哪些可以直接进纪要",
+    "说清一次 PPT/表格任务里，AI 负责哪几步、人负责哪几步",
+    "判断一条办公数据能否贴进云端模型，依据是数据驻留与授权而不是「大家都这么用」"
+   ],
+   "en": [
+    "Given a meeting transcript, mark which sentences must be checked against the transcript and which can go straight into minutes",
+    "Explain which steps AI owns and which a human owns in a deck or spreadsheet task",
+    "Decide whether office data can go into a cloud model based on residency and licensing, not on “everyone does it”"
+   ]
+  },
+  "nextTask": {
+   "href": "https://tools.specul.com/office/",
+   "zh": "挑一个办公工具，按「输入—步骤—验收」跑一遍真实任务",
+   "en": "Pick one office tool and run a real task through input, steps and acceptance"
+  },
+  "stepUrls": [
+   "/term/AI%20Agent%20%E4%B8%8E%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E5%8C%BA%E5%88%AB/",
+   "/term/%E6%8F%90%E7%A4%BA%E8%AF%8D/",
+   "/term/%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA/",
+   "/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3/",
+   "/term/%E5%B9%BB%E8%A7%89/",
+   "/term/%E4%BA%BA%E5%B7%A5%E5%A4%8D%E6%A0%B8%E9%98%9F%E5%88%97/",
+   "/term/%E6%8A%A4%E6%A0%8F/",
+   "/term/%E8%AE%B8%E5%8F%AF%E8%AF%81/",
+   "/term/%E6%95%B0%E6%8D%AE%E9%A9%BB%E7%95%99/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E5%81%9A%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E5%81%9A%20PPT/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E5%88%86%E6%9E%90%E8%A1%A8%E6%A0%BC/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E5%86%99%E9%82%AE%E4%BB%B6%E4%B8%8E%E6%8E%92%E6%97%A5%E7%A8%8B/"
+  ]
+ },
+ {
+  "id": "for-data",
+  "ord": 15,
+  "zh": "数据与 RAG 路线",
+  "en": "The Data & RAG Route",
+  "span": {
+   "zh": "约 50 分钟",
+   "en": "about 50 minutes"
+  },
+  "lead": {
+   "zh": "数据从哪来、能不能用、怎么切、怎么测。读完能搭一条最小可评测的 RAG 语料，而不是把文档一股脑丢进向量库。",
+   "en": "Where data comes from, whether it is usable, how to chunk it and how to test it. Finish with a minimum evaluable RAG corpus, not a pile of PDFs in a vector store."
+  },
+  "steps": [
+   "数据授权",
+   "训练数据溯源",
+   "训练集与测试集",
+   "数据污染",
+   "分块",
+   "混合检索",
+   "检索质量度量",
+   "怎么用 AI 清洗数据",
+   "怎么给数据集写数据卡",
+   "怎么用 AI 搭 RAG 语料"
+  ],
+  "checkpoint": {
+   "zh": [
+    "拿到一份数据集，能列出至少三项必须核对的授权信息",
+    "说清「按固定字数切」和「按语义结构切」各自会在什么问题上失效",
+    "用 10 个真实问题跑一次检索，记录命中率、引用准确率和拒答率"
+   ],
+   "en": [
+    "Given a dataset, list at least three licence facts that must be checked",
+    "Explain when fixed-length chunking and semantic chunking each fail",
+    "Run 10 real questions through retrieval and record hit rate, citation accuracy and refusal rate"
+   ]
+  },
+  "nextTask": {
+   "href": "https://models.specul.com/data/",
+   "zh": "挑一个数据集，按数据卡模板补全来源、授权与偏差三节",
+   "en": "Pick a dataset and fill source, licence and bias sections using the dataset-card template"
+  },
+  "stepUrls": [
+   "/term/%E6%95%B0%E6%8D%AE%E6%8E%88%E6%9D%83/",
+   "/term/%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E6%BA%AF%E6%BA%90/",
+   "/term/%E8%AE%AD%E7%BB%83%E9%9B%86%E4%B8%8E%E6%B5%8B%E8%AF%95%E9%9B%86/",
+   "/term/%E6%95%B0%E6%8D%AE%E6%B1%A1%E6%9F%93/",
+   "/term/%E5%88%86%E5%9D%97/",
+   "/term/%E6%B7%B7%E5%90%88%E6%A3%80%E7%B4%A2/",
+   "/term/%E6%A3%80%E7%B4%A2%E8%B4%A8%E9%87%8F%E5%BA%A6%E9%87%8F/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E6%B8%85%E6%B4%97%E6%95%B0%E6%8D%AE/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%BB%99%E6%95%B0%E6%8D%AE%E9%9B%86%E5%86%99%E6%95%B0%E6%8D%AE%E5%8D%A1/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E6%90%AD%20RAG%20%E8%AF%AD%E6%96%99/"
+  ]
+ },
+ {
+  "id": "for-teachers",
+  "ord": 16,
+  "zh": "教师与课堂路线",
+  "en": "The Teacher Route",
+  "span": {
+   "zh": "约 40 分钟",
+   "en": "about 40 minutes"
+  },
+  "lead": {
+   "zh": "从「AI 能不能进课堂」到「怎么用它备课、出题、批改和互动」。每一步都留一个教师复核点，避免把模型输出直接交给学生。",
+   "en": "From “can AI enter the classroom” to lesson prep, question generation, grading and interaction. Every step keeps a teacher checkpoint so model output never goes straight to students."
+  },
+  "steps": [
+   "生成式 AI",
+   "幻觉",
+   "提示词",
+   "结构化输出",
+   "护栏",
+   "模型评测的局限",
+   "人工复核队列",
+   "怎么用 AI 备课",
+   "怎么用 AI 出题与批改",
+   "怎么设计课堂 AI 互动"
+  ],
+  "checkpoint": {
+   "zh": [
+    "说清 AI 生成的内容在课堂上哪些可以直接用、哪些必须教师先核",
+    "用一条学习目标写出「导入—讲解—练习—总结」四段活动，并标出 AI 参与点",
+    "给学生一条 AI 可能出错的题目，让他们找出错误并说明理由"
+   ],
+   "en": [
+    "Explain which AI-generated classroom content can be used directly and which a teacher must verify first",
+    "Turn one learning objective into hook, explanation, practice and summary, marking where AI participates",
+    "Give students an AI-generated question that may be wrong and have them find and explain the error"
+   ]
+  },
+  "nextTask": {
+   "href": "https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E5%A4%87%E8%AF%BE/",
+   "zh": "把一条课堂活动改写成「教师—AI—学生」三角色脚本",
+   "en": "Rewrite one classroom activity as a teacher–AI–student script"
+  },
+  "stepUrls": [
+   "/term/%E7%94%9F%E6%88%90%E5%BC%8F%20AI/",
+   "/term/%E5%B9%BB%E8%A7%89/",
+   "/term/%E6%8F%90%E7%A4%BA%E8%AF%8D/",
+   "/term/%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA/",
+   "/term/%E6%8A%A4%E6%A0%8F/",
+   "/term/%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E7%9A%84%E5%B1%80%E9%99%90/",
+   "/term/%E4%BA%BA%E5%B7%A5%E5%A4%8D%E6%A0%B8%E9%98%9F%E5%88%97/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E5%A4%87%E8%AF%BE/",
+   "/guide/%E6%80%8E%E4%B9%88%E7%94%A8%20AI%20%E5%87%BA%E9%A2%98%E4%B8%8E%E6%89%B9%E6%94%B9/",
+   "/guide/%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1%E8%AF%BE%E5%A0%82%20AI%20%E4%BA%92%E5%8A%A8/"
+  ]
  }
 ];

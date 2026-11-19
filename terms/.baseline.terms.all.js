@@ -71,6 +71,7 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 2,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "Instead of writing rules by hand, let the machine find patterns in data.",
     "defEn": [
@@ -426,6 +427,7 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 12,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "The full set of characters a model knows. Its size decides whether it handles Chinese or code well.",
     "defEn": [
@@ -492,6 +494,7 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 14,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "AI that produces new content from nothing — text, images, audio, video all count.",
     "defEn": [
@@ -1176,6 +1179,7 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 33,
+    "last_verified": "2026-11-19",
     "purposeEn": "A model has truly learned only when it performs well on data it has never seen.",
     "defEn": [
      "Doing well on training data proves nothing; doing well on new data is what counts.",
@@ -1205,6 +1209,7 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 34,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "Memorized the practice questions, then fails a different set of questions.",
     "defEn": [
@@ -1244,6 +1249,7 @@ var TERMS = [
     "level": 1,
     "layer": "一",
     "ord": 35,
+    "last_verified": "2026-11-19",
     "purposeEn": "Split the data into two piles: one to practice with, one kept for the exam.",
     "defEn": [
      "The training set is what the model learns from; the test set never takes part in training and is used only for evaluation.",
@@ -1439,6 +1445,7 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 4,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "Controls how random the output is. Lower is steadier; higher is more creative.",
     "defEn": [
@@ -1473,6 +1480,7 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 5,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "How the model picks among candidate tokens — this determines how far the output diverges.",
     "defEn": [
@@ -2027,6 +2035,7 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 21,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "Describe what you want in a sentence instead of keywords, and get an answer directly.",
     "defEn": [
@@ -2120,6 +2129,7 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 24,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "Lets a camera \"see\" — recognise people, objects, text and actions.",
     "defEn": [
@@ -2148,6 +2158,7 @@ var TERMS = [
     "level": 2,
     "layer": "二",
     "ord": 25,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "The vehicle senses its surroundings, plans a route and controls the steering itself.",
     "defEn": [
@@ -3842,6 +3853,7 @@ var TERMS = [
     "level": 3,
     "layer": "三",
     "ord": 27,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "Make the model's answer a strict format (JSON and the like) rather than a paragraph of prose.",
     "defEn": [
@@ -4990,6 +5002,402 @@ var TERMS = [
     ],
     "whyEn": "When RAG ingests paper archives, OCR is step one. Recognition errors become retrieval errors and then answer errors.",
     "slug": "OCR（光学字符识别）"
+   },
+   {
+    "zh": "Self-Consistency（自一致性）",
+    "en": "Self-Consistency",
+    "purpose": "让模型对同一道题采样多条推理路径，再按多数答案投票，用冗余换准确率。",
+    "def": [
+     "先让模型用思维链生成多条不同的推理路径，而不是只取一条贪心解码结果。",
+     "再对最终答案做多数投票；路径不同但答案一致，说明这条答案更稳。",
+     "它不训练新模型，也不改权重，只在推理阶段多做几次采样。"
+    ],
+    "why": "当单次思维链偶尔算错时，自一致性能把「偶然对一次」变成「稳定对多数」。它是测试时计算里最便宜的一种。",
+    "refs": [
+     [
+      "Self-Consistency 论文（arXiv）",
+      "https://arxiv.org/abs/2203.11171",
+      "Self-Consistency Improves Chain of Thought Reasoning (arXiv 2203.11171)"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 56,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Sample several reasoning paths for the same question and take a majority vote, trading extra compute for accuracy.",
+    "defEn": [
+     "Generate multiple chain-of-thought paths instead of one greedy decode.",
+     "Take a majority vote over final answers; agreement across different paths is a stronger signal.",
+     "No new model and no weight change — only extra sampling at inference."
+    ],
+    "whyEn": "When a single chain of thought occasionally slips, self-consistency turns “right once by luck” into “right in most samples”. It is the cheapest form of test-time compute.",
+    "slug": "Self-Consistency（自一致性）"
+   },
+   {
+    "zh": "Tree of Thoughts（思维树）",
+    "en": "Tree of Thoughts",
+    "purpose": "把一条思维链拆成可分支、可回退的搜索树，让模型在解题时试错。",
+    "def": [
+     "每个节点是一段中间思路，模型可以生成多个候选分支。",
+     "用评估函数给分支打分，保留有希望的、剪掉明显走不通的。",
+     "允许回退到上层节点重新展开，而不是沿着一条错路走到黑。"
+    ],
+    "why": "复杂规划、数学题和多步写作经常「一步错、步步错」。思维树把一次性生成变成可搜索的过程。",
+    "refs": [
+     [
+      "Tree of Thoughts 论文（arXiv）",
+      "https://arxiv.org/abs/2305.10601",
+      "Tree of Thoughts: Deliberate Problem Solving with Large Language Models (arXiv 2305.10601)"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 57,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Turn a single chain of thought into a searchable tree of branches that can be scored and rolled back.",
+    "defEn": [
+     "Each node is an intermediate thought; the model can expand several candidate branches.",
+     "An evaluator scores branches and prunes the clearly bad ones.",
+     "The search can backtrack to an earlier node instead of committing to one wrong path."
+    ],
+    "whyEn": "Complex planning, maths and multi-step writing often fail one step at a time. Tree of Thoughts makes generation searchable.",
+    "slug": "Tree of Thoughts（思维树）"
+   },
+   {
+    "zh": "ReAct",
+    "en": "ReAct",
+    "purpose": "让模型交替「想一步、做一步、看结果」，把推理和工具调用编成循环。",
+    "def": [
+     "模型先输出一段推理（Thought），再选择一个动作（Action），例如搜索或调用 API。",
+     "执行动作后观察结果（Observation），把结果写回上下文，再决定下一步。",
+     "循环直到给出最终答案；推理不是一次性写完，而是被工具结果不断修正。"
+    ],
+    "why": "它是大多数 agent 框架的默认骨架。理解 ReAct，才能看懂工具调用、轨迹评测和长时任务为什么容易跑偏。",
+    "refs": [
+     [
+      "ReAct 论文（arXiv）",
+      "https://arxiv.org/abs/2210.03629",
+      "ReAct: Synergizing Reasoning and Acting in Language Models (arXiv 2210.03629)"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 58,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Make the model alternate between thinking, acting and observing, folding tool use into a reasoning loop.",
+    "defEn": [
+     "The model writes a Thought, then chooses an Action such as search or an API call.",
+     "The result comes back as an Observation and is appended to context before the next step.",
+     "The loop ends with a final answer; reasoning is revised by tool results, not written once."
+    ],
+    "whyEn": "It is the default skeleton of most agent frameworks. Understand ReAct and you can see why tool calls, trajectory evals and long tasks drift.",
+    "slug": "ReAct"
+   },
+   {
+    "zh": "Reflexion（反思）",
+    "en": "Reflexion",
+    "purpose": "让 agent 在失败后写一份「复盘」，把教训存进记忆，下一轮避免同样的错。",
+    "def": [
+     "一次任务失败后，模型根据轨迹和反馈生成一段自我反思。",
+     "反思被写入长期记忆，下一次尝试时作为额外上下文读回来。",
+     "它不改模型参数，只改下一轮的提示与策略。"
+    ],
+    "why": "agent 最常见的问题是重复犯错。反思把一次失败变成可复用的经验，而不是重新从零试。",
+    "refs": [
+     [
+      "Reflexion 论文（arXiv）",
+      "https://arxiv.org/abs/2303.11366",
+      "Reflexion: Language Agents with Verbal Reinforcement Learning (arXiv 2303.11366)"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 59,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Let an agent write a post-mortem after failure, store the lesson in memory and avoid the same mistake next time.",
+    "defEn": [
+     "After a failed attempt, the model writes a reflection over the trajectory and feedback.",
+     "The reflection is stored in long-term memory and read back on the next attempt.",
+     "No weights change; only the next prompt and strategy change."
+    ],
+    "whyEn": "Agents often repeat the same error. Reflection turns one failure into reusable experience instead of starting from zero.",
+    "slug": "Reflexion（反思）"
+   },
+   {
+    "zh": "Plan-and-Solve",
+    "en": "Plan-and-Solve",
+    "purpose": "先让模型写出完整计划，再按计划逐步执行，避免边想边做漏步骤。",
+    "def": [
+     "第一阶段只做分解：把任务拆成有序的子步骤，先不急着算答案。",
+     "第二阶段按计划逐项执行，每一步只处理当前子任务。",
+     "它和 ReAct 的区别是「先规划后执行」，不是每步都重新想。"
+    ],
+    "why": "多步任务最容易漏条件。先写计划能把隐含步骤显式化，也方便人和程序检查。",
+    "refs": [
+     [
+      "Plan-and-Solve 论文（arXiv）",
+      "https://arxiv.org/abs/2305.04091",
+      "Plan-and-Solve Prompting (arXiv 2305.04091)"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 60,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Write a full plan first, then execute it step by step, so multi-step tasks do not miss conditions.",
+    "defEn": [
+     "Phase one only decomposes the task into ordered sub-steps, without solving yet.",
+     "Phase two executes each sub-task in order.",
+     "Unlike ReAct, it plans once up front rather than rethinking every step."
+    ],
+    "whyEn": "Multi-step tasks lose conditions easily. An explicit plan surfaces hidden steps and lets humans or programs inspect them.",
+    "slug": "Plan-and-Solve"
+   },
+   {
+    "zh": "FrugalGPT（级联推理）",
+    "en": "FrugalGPT (LLM cascade)",
+    "purpose": "先用便宜的小模型试，置信度不够再升级到更强更贵的模型。",
+    "def": [
+     "请求先进入第一级模型，同时给出一个置信度或评分。",
+     "分数够高就直接返回；不够高才把同一请求转给下一级更大模型。",
+     "多级串起来形成级联，用平均成本换接近大模型的质量。"
+    ],
+    "why": "大多数请求其实不需要最贵的模型。级联能把成本压下来，但会引入延迟和路由判断错误。",
+    "refs": [
+     [
+      "FrugalGPT 论文（arXiv）",
+      "https://arxiv.org/abs/2305.05176",
+      "FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance (arXiv 2305.05176)"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 61,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Try a cheap small model first and escalate to a stronger, costlier model only when confidence is low.",
+    "defEn": [
+     "A request enters the first model, which also returns a confidence score.",
+     "A high score returns immediately; a low score sends the same request to the next, larger model.",
+     "A chain of levels trades average cost for quality close to the largest model."
+    ],
+    "whyEn": "Most requests do not need the most expensive model. Cascades cut cost but add latency and router errors.",
+    "slug": "FrugalGPT（级联推理）"
+   },
+   {
+    "zh": "GraphRAG",
+    "en": "GraphRAG",
+    "purpose": "从文档里抽实体和关系，建成图，再用图结构回答「跨文档、全局性」的问题。",
+    "def": [
+     "索引阶段用模型抽取实体、关系与社区摘要，形成知识图谱。",
+     "查询阶段先定位相关实体/社区，再沿边扩展上下文。",
+     "它补的是向量 RAG 不擅长的「多跳关系」和「整个语料在讲什么」。"
+    ],
+    "why": "当问题不是找某一段原文，而是「这些文档之间谁和谁有关」时，纯向量检索会漏。",
+    "refs": [
+     [
+      "GraphRAG 论文（arXiv）",
+      "https://arxiv.org/abs/2404.16130",
+      "From Local to Global: A Graph RAG Approach to Query-Focused Summarization (arXiv 2404.16130)"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 62,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Extract entities and relations into a graph so the system can answer cross-document and global questions.",
+    "defEn": [
+     "Indexing extracts entities, relations and community summaries into a knowledge graph.",
+     "Querying locates relevant entities/communities and expands along edges.",
+     "It covers multi-hop relations and corpus-level themes that vector RAG misses."
+    ],
+    "whyEn": "When the question is “how are these documents related” rather than “find this passage”, pure vector search falls short.",
+    "slug": "GraphRAG"
+   },
+   {
+    "zh": "混合检索",
+    "en": "Hybrid retrieval",
+    "purpose": "把关键词检索（BM25）和向量检索的结果融合，兼顾精确词与语义近义。",
+    "def": [
+     "同一查询分别走稀疏检索和稠密检索，各拿一组候选。",
+     "用 RRF 或加权分数把两组结果合并、去重、重排。",
+     "精确编号、专有名词靠关键词；改写、同义表达靠向量。"
+    ],
+    "why": "只做向量检索会漏掉产品型号、错误码、合同编号这类「必须字面命中」的内容。",
+    "refs": [
+     [
+      "Elastic 混合检索文档",
+      "https://www.elastic.co/docs/solutions/search/hybrid-search",
+      "Elasticsearch hybrid search documentation"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 63,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Fuse keyword retrieval (BM25) with vector retrieval so exact terms and paraphrases both work.",
+    "defEn": [
+     "The same query runs through sparse and dense retrieval, producing two candidate sets.",
+     "RRF or weighted scores merge, deduplicate and rerank the two sets.",
+     "IDs and proper nouns rely on keywords; paraphrases rely on vectors."
+    ],
+    "whyEn": "Vector-only retrieval misses product models, error codes and contract numbers that must match literally.",
+    "slug": "混合检索"
+   },
+   {
+    "zh": "语义缓存",
+    "en": "Semantic cache",
+    "purpose": "把语义相近的历史问题直接命中缓存答案，少调一次模型。",
+    "def": [
+     "把请求编码成向量，和缓存里的历史请求算相似度。",
+     "超过阈值就返回缓存答案；低于阈值才真正调用模型。",
+     "阈值决定「省多少钱」和「答错多少」之间的取舍。"
+    ],
+    "why": "客服、FAQ 类流量里重复问题很多。语义缓存能显著降成本，但阈值太松会把不同问题当成同一个。",
+    "refs": [
+     [
+      "GPTCache 仓库",
+      "https://github.com/zilliztech/GPTCache",
+      "GPTCache: semantic cache for LLM applications (GitHub)"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 64,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Answer semantically similar questions from a cache and skip another model call.",
+    "defEn": [
+     "Encode the request and compare its vector with cached historical requests.",
+     "Above a similarity threshold, return the cached answer; below it, call the model.",
+     "The threshold trades cost savings against wrong-answer risk."
+    ],
+    "whyEn": "FAQ and support traffic repeats heavily. Semantic caching cuts cost, but a loose threshold merges different questions.",
+    "slug": "语义缓存"
+   },
+   {
+    "zh": "RLHF（人类反馈强化学习）",
+    "en": "RLHF",
+    "purpose": "先训练一个奖励模型学人类偏好，再用强化学习把语言模型往高分方向推。",
+    "def": [
+     "收集人类对多个回答的排序，训练奖励模型。",
+     "用 PPO 等算法优化策略模型，让奖励模型给高分。",
+     "同时加 KL 惩罚，防止模型为了高分偏离原模型太远。"
+    ],
+    "why": "它是「会说话」到「听话」的关键一步。理解 RLHF，才能理解偏好对齐、奖励黑客和拒答行为。",
+    "refs": [
+     [
+      "InstructGPT 论文（arXiv）",
+      "https://arxiv.org/abs/2203.02155",
+      "Training language models to follow instructions with human feedback (arXiv 2203.02155)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 3,
+    "layer": "三",
+    "ord": 65,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Learn a reward model from human preferences, then optimise the language model against that reward.",
+    "defEn": [
+     "Collect human rankings over multiple answers and train a reward model.",
+     "Optimise the policy with PPO or similar so the reward model scores it higher.",
+     "Add a KL penalty so the model does not drift too far from its starting point."
+    ],
+    "whyEn": "It is the step from “can talk” to “follows instructions”. Understand RLHF and preference alignment, reward hacking and refusals become clearer.",
+    "slug": "RLHF（人类反馈强化学习）"
+   },
+   {
+    "zh": "RLAIF（AI 反馈强化学习）",
+    "en": "RLAIF",
+    "purpose": "用另一个 AI 模型代替人类标注偏好，降低 RLHF 的标注成本。",
+    "def": [
+     "让评审模型对多个候选回答做排序或打分。",
+     "把 AI 偏好当作奖励信号，训练策略模型。",
+     "通常要配合人类偏好校准，避免评审模型把自己的偏见传下去。"
+    ],
+    "why": "RLHF 贵在人工排序。RLAIF 把标注变成可扩展的模型调用，但会引入评审模型的盲区。",
+    "refs": [
+     [
+      "RLAIF 论文（arXiv）",
+      "https://arxiv.org/abs/2309.00267",
+      "RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback (arXiv 2309.00267)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 3,
+    "layer": "三",
+    "ord": 66,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Replace human preference labels with another AI model to cut the cost of RLHF.",
+    "defEn": [
+     "A judge model ranks or scores candidate answers.",
+     "Its preferences become the reward signal for training the policy.",
+     "Human calibration is usually needed so the judge’s own biases are not amplified."
+    ],
+    "whyEn": "RLHF is expensive in human ranking. RLAIF scales labelling through model calls but imports the judge’s blind spots.",
+    "slug": "RLAIF（AI 反馈强化学习）"
+   },
+   {
+    "zh": "奖励模型",
+    "en": "Reward model",
+    "purpose": "把「哪个回答更好」变成一个可打分的模型，为强化学习提供信号。",
+    "def": [
+     "输入是一个问题加一个回答，输出是一个标量分数。",
+     "训练数据通常是人类或 AI 对多个回答的排序。",
+     "奖励模型不是最终产品，它是训练策略模型时的「裁判」。"
+    ],
+    "why": "奖励模型打分会直接决定模型学什么。裁判有偏见，模型就会学会讨好偏见。",
+    "refs": [
+     [
+      "Learning to summarize from human feedback（arXiv）",
+      "https://arxiv.org/abs/2009.01325",
+      "Learning to summarize from human feedback (arXiv 2009.01325)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "judge",
+    "level": 3,
+    "layer": "三",
+    "ord": 67,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Turn “which answer is better” into a scalar score that can drive reinforcement learning.",
+    "defEn": [
+     "Input is a question plus an answer; output is one scalar score.",
+     "Training data is usually human or AI rankings over multiple answers.",
+     "It is not the product model — it is the judge used while training the policy."
+    ],
+    "whyEn": "The reward model defines what the model learns to chase. A biased judge teaches the model to please the bias.",
+    "slug": "奖励模型"
    }
   ]
  },
@@ -5024,6 +5432,7 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 1,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "The architecture underneath every mainstream large model today.",
     "defEn": [
@@ -5243,6 +5652,7 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 7,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "Predicting the next token over vast text — the stage where a model absorbs world knowledge.",
     "defEn": [
@@ -5538,6 +5948,7 @@ var TERMS = [
     "figure": "fig-tokenizer.svg",
     "figure_caption": "文本先被切成子词，再映射成整数 ID；词表外的词会被拆成已知片段。",
     "figure_caption_en": "Text is split into subword pieces and mapped to integer IDs; unseen words are broken into known pieces.",
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "Cuts words into smaller fragments so a model can still assemble words it has never seen.",
     "defEn": [
@@ -5804,6 +6215,7 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 22,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "What the model outputs at each step is not a word but a score table over the whole vocabulary. All sampling parameters act on it.",
     "defEn": [
@@ -5919,6 +6331,7 @@ var TERMS = [
     "level": 4,
     "layer": "四",
     "ord": 25,
+    "last_verified": "2026-11-19",
     "alias": [],
     "purposeEn": "The most common intrinsic metric for language models: how surprised the model is by test text.",
     "defEn": [
@@ -6865,6 +7278,270 @@ var TERMS = [
     ],
     "whyEn": "“Train for three epochs” is not a universal recipe. Data volume, task difficulty and overfitting signals decide how many passes are right.",
     "slug": "批大小与轮次"
+   },
+   {
+    "zh": "过程监督",
+    "en": "Process supervision",
+    "purpose": "不只检查最终答案，而是逐步检查推理过程每一步对不对。",
+    "def": [
+     "对推理链的每个步骤给标签，而不是只给最后答案对错。",
+     "训练一个过程奖励模型（PRM），给每一步打分。",
+     "搜索时用 PRM 选更有希望的路径，而不是只看最终结果。"
+    ],
+    "why": "只看结果会把「碰巧算对」也当成正确。过程监督能定位具体哪一步开始错。",
+    "refs": [
+     [
+      "Let’s Verify Step by Step（arXiv）",
+      "https://arxiv.org/abs/2305.20050",
+      "Let’s Verify Step by Step (arXiv 2305.20050)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "judge",
+    "level": 4,
+    "layer": "四",
+    "ord": 48,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Check each reasoning step, not only the final answer.",
+    "defEn": [
+     "Label every step of a reasoning chain, rather than only right/wrong at the end.",
+     "Train a process reward model (PRM) that scores each step.",
+     "Use the PRM during search to prefer promising paths, not just lucky final answers."
+    ],
+    "whyEn": "Outcome-only supervision treats a lucky guess as correct. Process supervision locates the first bad step.",
+    "slug": "过程监督"
+   },
+   {
+    "zh": "机械可解释性",
+    "en": "Mechanistic interpretability",
+    "purpose": "把神经网络拆成可命名的特征与电路，解释它内部到底算了什么。",
+    "def": [
+     "目标不是看输入输出相关性，而是找到具体神经元/方向代表什么。",
+     "常用方法包括探针、激活 patching、稀疏自编码器和电路分析。",
+     "它试图回答「模型为什么给出这个输出」，而不只是「输出是什么」。"
+    ],
+    "why": "安全审计、模型编辑和失败归因都需要知道内部机制；只看输入输出很难定位根因。",
+    "refs": [
+     [
+      "Towards Monosemanticity（Anthropic）",
+      "https://transformer-circuits.pub/2023/monosemantic-features",
+      "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning (Anthropic)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 49,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Decompose a neural network into nameable features and circuits and explain what it computes internally.",
+    "defEn": [
+     "The goal is to identify what specific neurons or directions represent, not just input-output correlation.",
+     "Common tools include probes, activation patching, sparse autoencoders and circuit analysis.",
+     "It asks why the model produced an output, not only what the output is."
+    ],
+    "whyEn": "Safety audits, model editing and failure attribution need internal mechanisms; input-output views rarely find root causes.",
+    "slug": "机械可解释性"
+   },
+   {
+    "zh": "稀疏自编码器",
+    "en": "Sparse autoencoder",
+    "purpose": "把模型内部密密麻麻的激活拆成一组稀疏、可命名的特征方向。",
+    "def": [
+     "在模型某层的激活上训练一个宽得多的自编码器。",
+     "加稀疏惩罚，让每个输入只激活少量隐藏单元。",
+     "这些隐藏单元就是候选的「单义特征」，比原始神经元更容易解释。"
+    ],
+    "why": "原始神经元经常一个神经元管多个概念（多义性）。稀疏自编码器是可解释性研究的主流工具。",
+    "refs": [
+     [
+      "Towards Monosemanticity（Anthropic）",
+      "https://transformer-circuits.pub/2023/monosemantic-features",
+      "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning (Anthropic)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 50,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Split dense model activations into a sparse set of nameable feature directions.",
+    "defEn": [
+     "Train a much wider autoencoder on activations from one layer.",
+     "Add a sparsity penalty so each input activates only a few hidden units.",
+     "Those units become candidate monosemantic features that are easier to interpret."
+    ],
+    "whyEn": "Raw neurons are often polysemantic. Sparse autoencoders are a mainstream interpretability tool.",
+    "slug": "稀疏自编码器"
+   },
+   {
+    "zh": "模型编辑",
+    "en": "Model editing",
+    "purpose": "不改全量权重，只精准改掉模型里某条事实或某个行为。",
+    "def": [
+     "先定位存储该事实的层与模块（例如 MLP 的某几个键值）。",
+     "再对该位置的权重做局部更新，让模型回答新事实。",
+     "理想情况是只改目标事实，不影响其他知识。"
+    ],
+    "why": "模型知识过期时，全量重训太贵。模型编辑提供「热修复」的可能，但容易连带改坏相邻知识。",
+    "refs": [
+     [
+      "Locating and Editing Factual Associations in GPT（arXiv）",
+      "https://arxiv.org/abs/2202.05262",
+      "Locating and Editing Factual Associations in GPT (arXiv 2202.05262)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "judge",
+    "level": 4,
+    "layer": "四",
+    "ord": 51,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Change one fact or behaviour in a model without retraining all weights.",
+    "defEn": [
+     "Locate the layer and module that stores the fact, such as a few MLP key-value slots.",
+     "Apply a local weight update so the model answers with the new fact.",
+     "The ideal edit changes only the target fact and leaves other knowledge intact."
+    ],
+    "whyEn": "Retraining for stale knowledge is expensive. Editing offers a hot fix, but can damage neighbouring knowledge.",
+    "slug": "模型编辑"
+   },
+   {
+    "zh": "机器遗忘",
+    "en": "Machine unlearning",
+    "purpose": "让模型「忘掉」指定训练数据或知识，而不必从零重训。",
+    "def": [
+     "目标是在删除某个数据点后，模型行为接近「从未见过它」。",
+     "常见做法包括梯度上升、影响函数定位、教师蒸馏替代。",
+     "要同时检查遗忘是否彻底，以及模型整体能力是否被破坏。"
+    ],
+    "why": "用户行使删除权、版权方撤回授权、敏感数据误入训练集，都需要可验证的遗忘。",
+    "refs": [
+     [
+      "Machine Unlearning: A Survey（arXiv）",
+      "https://arxiv.org/abs/2303.04211",
+      "Machine Unlearning: A Survey (arXiv 2303.04211)"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "guard",
+    "level": 4,
+    "layer": "四",
+    "ord": 52,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Make a model forget specified training data or knowledge without retraining from scratch.",
+    "defEn": [
+     "The target is behaviour close to “never saw that data point”.",
+     "Common methods include gradient ascent, influence-function localisation and teacher distillation.",
+     "Check both forgetting completeness and collateral damage to general ability."
+    ],
+    "whyEn": "Deletion rights, withdrawn licences and leaked sensitive data all need verifiable forgetting.",
+    "slug": "机器遗忘"
+   },
+   {
+    "zh": "差分隐私",
+    "en": "Differential privacy",
+    "purpose": "在统计/训练结果里加可控噪声，让单个样本的存在与否无法被反推。",
+    "def": [
+     "用隐私预算 ε 衡量「加入一条数据会改变输出多少」。",
+     "常用机制是加高斯噪声或拉普拉斯噪声。",
+     "ε 越小越隐私，但模型效用通常越差。"
+    ],
+    "why": "训练数据里可能有病历、聊天记录。差分隐私提供可量化的隐私保证，而不是「删掉姓名」这种伪匿名。",
+    "refs": [
+     [
+      "Deep Learning with Differential Privacy（arXiv）",
+      "https://arxiv.org/abs/1607.00133",
+      "Deep Learning with Differential Privacy (arXiv 1607.00133)"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "guard",
+    "level": 4,
+    "layer": "四",
+    "ord": 53,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Add controlled noise to statistics or training so one sample’s presence cannot be inferred.",
+    "defEn": [
+     "Privacy budget ε measures how much one record can change the output.",
+     "Common mechanisms add Gaussian or Laplacian noise.",
+     "Smaller ε means more privacy but usually worse utility."
+    ],
+    "whyEn": "Training data may contain medical or chat records. Differential privacy gives a quantifiable guarantee, unlike name removal.",
+    "slug": "差分隐私"
+   },
+   {
+    "zh": "联邦学习",
+    "en": "Federated learning",
+    "purpose": "数据留在本地，只上传模型更新，在中心聚合出全局模型。",
+    "def": [
+     "各参与方在本地数据上训练，得到梯度或模型更新。",
+     "服务器聚合这些更新（例如 FedAvg），再把新模型发回。",
+     "原始数据不出本地，但更新仍可能泄露信息，需要配合差分隐私/安全聚合。"
+    ],
+    "why": "医疗、金融、手机输入法这类数据不能集中，联邦学习提供一种协作训练路径。",
+    "refs": [
+     [
+      "Communication-Efficient Learning of Deep Networks from Decentralized Data（arXiv）",
+      "https://arxiv.org/abs/1602.05629",
+      "Communication-Efficient Learning of Deep Networks from Decentralized Data (arXiv 1602.05629)"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 54,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Keep data local and upload only model updates, aggregating a global model centrally.",
+    "defEn": [
+     "Each participant trains on local data and produces a gradient or model update.",
+     "A server aggregates updates (for example FedAvg) and sends the new model back.",
+     "Raw data stays local, but updates can still leak; pair with differential privacy or secure aggregation."
+    ],
+    "whyEn": "Medical, financial and keyboard data cannot be centralised. Federated learning offers a collaborative path.",
+    "slug": "联邦学习"
+   },
+   {
+    "zh": "对抗样本",
+    "en": "Adversarial example",
+    "purpose": "在输入上加人几乎看不出的扰动，让模型高置信度地答错。",
+    "def": [
+     "扰动通常很小，肉眼或语义上几乎不变。",
+     "但它能让分类器/模型输出完全不同的结果，且置信度很高。",
+     "对抗训练是常见防御，但会降低干净样本上的精度，也挡不住新攻击。"
+    ],
+    "why": "图像识别、自动驾驶、内容审核都怕这种「看起来正常、模型却判错」的输入。",
+    "refs": [
+     [
+      "Intriguing properties of neural networks（arXiv）",
+      "https://arxiv.org/abs/1312.6199",
+      "Intriguing properties of neural networks (arXiv 1312.6199)"
+     ]
+    ],
+    "domain": "concept",
+    "purposeTag": "guard",
+    "level": 4,
+    "layer": "四",
+    "ord": 55,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Add a perturbation humans barely notice and make the model answer wrong with high confidence.",
+    "defEn": [
+     "The perturbation is small and often semantically invisible.",
+     "It can flip a classifier or model output while confidence stays high.",
+     "Adversarial training is a common defence, but it hurts clean accuracy and does not stop new attacks."
+    ],
+    "whyEn": "Vision, driving and content moderation all fear inputs that look normal but are misclassified.",
+    "slug": "对抗样本"
    }
   ]
  },
@@ -8407,6 +9084,138 @@ var TERMS = [
     ],
     "whyEn": "The first wall in long context is not compute but KV cache. MLA makes 1M context feasible on one or a few GPUs and changes the cache layout in inference stacks; without it, the cost gap between similar-size models is hard to explain.",
     "slug": "MLA"
+   },
+   {
+    "zh": "机密计算",
+    "en": "Confidential computing",
+    "purpose": "让数据在「使用中」也保持加密隔离，云厂商和运维也看不到明文。",
+    "def": [
+     "用 CPU/GPU 的硬件 TEE 把计算放进隔离内存。",
+     "远程证明（attestation）让用户验证跑的是不是声明的代码。",
+     "它保护的是运行时，不是存储和传输；那两段另有加密方案。"
+    ],
+    "why": "把私有模型和敏感数据交给第三方云时，「运行中不被看见」是最后一道边界。",
+    "refs": [
+     [
+      "Confidential Computing Consortium",
+      "https://confidentialcomputing.io/",
+      "Confidential Computing Consortium"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "guard",
+    "level": 5,
+    "layer": "五",
+    "ord": 42,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Keep data encrypted and isolated while it is being used, so the cloud and operators cannot see plaintext.",
+    "defEn": [
+     "Hardware TEEs place computation in isolated memory on CPU/GPU.",
+     "Remote attestation lets users verify the declared code is what runs.",
+     "It protects runtime, not storage or transit, which need separate encryption."
+    ],
+    "whyEn": "When private models and sensitive data go to a third-party cloud, “not visible while running” is the last boundary.",
+    "slug": "机密计算"
+   },
+   {
+    "zh": "模型供应链",
+    "en": "Model supply chain",
+    "purpose": "从基座模型、微调、量化、打包到部署，追踪每一环是谁改了什么。",
+    "def": [
+     "一个上线模型通常经过基座、微调、合并、量化、转换多个环节。",
+     "每一环都可能引入新权重、新依赖或新后门。",
+     "需要模型卡、哈希、签名、许可证与评测记录来串起来源。"
+    ],
+    "why": "你下载的「某个模型」可能不是官方原版。没有供应链记录，就无法判断它被改过什么。",
+    "refs": [
+     [
+      "NIST AI Risk Management Framework",
+      "https://www.nist.gov/itl/ai-risk-management-framework",
+      "NIST AI Risk Management Framework"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "guard",
+    "level": 5,
+    "layer": "五",
+    "ord": 43,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Track who changed what from base model through fine-tune, quantisation, packaging and deployment.",
+    "defEn": [
+     "A shipped model usually passes through base, fine-tune, merge, quantise and convert steps.",
+     "Each step can introduce new weights, dependencies or backdoors.",
+     "Model cards, hashes, signatures, licences and eval records tie the provenance together."
+    ],
+    "whyEn": "The “model” you download may not be the official original. Without supply-chain records you cannot tell what changed.",
+    "slug": "模型供应链"
+   },
+   {
+    "zh": "数据授权",
+    "en": "Data licensing",
+    "purpose": "确认训练/评测数据允许被谁、以什么目的、在什么范围使用。",
+    "def": [
+     "要看许可证类型、用途限制、地域、期限与再分发条款。",
+     "「公开可下载」不等于「允许训练商用模型」。",
+     "授权链要能追溯到原始权利人，而不是只看二手数据集页面。"
+    ],
+    "why": "训练数据授权不清，会让模型上线后面对下架、索赔与重训风险。",
+    "refs": [
+     [
+      "Open Data Commons ODbL 1.0",
+      "https://opendatacommons.org/licenses/odbl/1-0/",
+      "Open Data Commons Open Database License (ODbL) 1.0"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "guard",
+    "level": 5,
+    "layer": "五",
+    "ord": 44,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Confirm who may use training or evaluation data, for what purpose and within what scope.",
+    "defEn": [
+     "Check licence type, purpose limits, territory, term and redistribution terms.",
+     "“Publicly downloadable” does not mean “allowed to train a commercial model”.",
+     "The licence chain must trace back to the original rightsholder, not just a second-hand dataset page."
+    ],
+    "whyEn": "Unclear data licensing creates takedown, claim and retraining risk after launch.",
+    "slug": "数据授权"
+   },
+   {
+    "zh": "训练数据溯源",
+    "en": "Training data provenance",
+    "purpose": "记录一条训练样本从哪来、经过哪些清洗/变换、进了哪个训练集。",
+    "def": [
+     "溯源至少要有原始 URL、抓取时间、许可证、处理脚本与版本。",
+     "多源混合后仍要能回答「这条样本来自哪里」。",
+     "它是数据授权、删除请求与污染排查的基础。"
+    ],
+    "why": "模型答错或泄露时，第一步就是回溯它可能见过什么数据。没有溯源就只能猜。",
+    "refs": [
+     [
+      "Data Provenance Initiative",
+      "https://dataprovenance.org/",
+      "Data Provenance Initiative"
+     ]
+    ],
+    "domain": "data",
+    "purposeTag": "guard",
+    "level": 5,
+    "layer": "五",
+    "ord": 45,
+    "last_verified": "2026-11-19",
+    "alias": [],
+    "purposeEn": "Record where a training sample came from, what cleaning or transformation it went through and which dataset it entered.",
+    "defEn": [
+     "Provenance needs at least the original URL, crawl time, licence, processing script and version.",
+     "After blending sources, the system must still answer “where did this sample come from”.",
+     "It underpins licensing, deletion requests and contamination investigation."
+    ],
+    "whyEn": "When a model leaks or misbehaves, the first step is retracing what it may have seen. Without provenance you can only guess.",
+    "slug": "训练数据溯源"
    }
   ]
  },

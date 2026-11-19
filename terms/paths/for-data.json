@@ -1,0 +1,57 @@
+{
+  "id": "for-data",
+  "ord": 15,
+  "zh": "数据与 RAG 路线",
+  "en": "The Data & RAG Route",
+  "span": { "zh": "约 50 分钟", "en": "about 50 minutes" },
+  "lead": {
+    "zh": "数据从哪来、能不能用、怎么切、怎么测。读完能搭一条最小可评测的 RAG 语料，而不是把文档一股脑丢进向量库。",
+    "en": "Where data comes from, whether it is usable, how to chunk it and how to test it. Finish with a minimum evaluable RAG corpus, not a pile of PDFs in a vector store."
+  },
+  "steps": [
+    "数据授权",
+    "训练数据溯源",
+    "训练集与测试集",
+    "数据污染",
+    "分块",
+    "混合检索",
+    "检索质量度量",
+    "怎么用 AI 清洗数据",
+    "怎么给数据集写数据卡",
+    "怎么用 AI 搭 RAG 语料"
+  ],
+  "checkpoint": {
+    "zh": [
+      "拿到一份数据集，能列出至少三项必须核对的授权信息",
+      "说清「按固定字数切」和「按语义结构切」各自会在什么问题上失效",
+      "用 10 个真实问题跑一次检索，记录命中率、引用准确率和拒答率"
+    ],
+    "en": [
+      "Given a dataset, list at least three licence facts that must be checked",
+      "Explain when fixed-length chunking and semantic chunking each fail",
+      "Run 10 real questions through retrieval and record hit rate, citation accuracy and refusal rate"
+    ]
+  },
+  "answers": [
+    {
+      "zh": "许可证类型、商用/再分发/衍生作品条款、地域与期限、是否含个人数据、原始来源能否追溯。",
+      "en": "Licence type, commercial/redistribution/derivative terms, territory and term, whether personal data is included, and whether the original source is traceable.",
+      "review": "数据授权"
+    },
+    {
+      "zh": "固定字数会把一个条件切成两半，答案缺上下文；语义切分遇到格式混乱、无标题的文档会切得太碎或太大。",
+      "en": "Fixed length splits a condition in half and removes context; semantic chunking over-splits or over-merges messy documents without headings.",
+      "review": "分块"
+    },
+    {
+      "zh": "命中率看正确文档是否进前 k；引用准确率看答案是否引对原文；拒答率看无依据时是否说不知道。",
+      "en": "Hit rate: does the right document enter top-k; citation accuracy: does the answer cite the right passage; refusal rate: does it say “I don’t know” without evidence.",
+      "review": "检索质量度量"
+    }
+  ],
+  "nextTask": {
+    "href": "https://models.specul.com/data/",
+    "zh": "挑一个数据集，按数据卡模板补全来源、授权与偏差三节",
+    "en": "Pick a dataset and fill source, licence and bias sections using the dataset-card template"
+  }
+}

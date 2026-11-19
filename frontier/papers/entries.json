@@ -1364,5 +1364,461 @@
       "自陈局限 / stated limits": "漏细结构、幻觉小部件、边界不锐利、整体非实时、文本到掩码不稳（§8）",
       "复现状态 / reproduction": "未复现"
     }
+  },
+  {
+    "id": "agentbench-2023",
+    "title": {
+      "zh": "AgentBench: Evaluating LLMs as Agents",
+      "en": "AgentBench: Evaluating LLMs as Agents"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2308.03688",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2308.03688",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2308.03688",
+        "quote": "a multi-dimensional benchmark that consists of 8 distinct environments to assess LLM-as-Agent's reasoning and decision-making abilities"
+      },
+      {
+        "url": "https://arxiv.org/abs/2308.03688",
+        "quote": "there is a significant disparity in performance between them and many OSS competitors that are no larger than 70B"
+      },
+      {
+        "url": "https://arxiv.org/abs/2308.03688",
+        "quote": "poor long-term reasoning, decision-making, and instruction following abilities are the main obstacles"
+      }
+    ],
+    "notes": {
+      "zh": "问题：LLM 作为 agent 在不同交互环境里的能力，缺一个统一、可比较的量尺。\n证据位置：摘要写明 8 个环境，测推理与决策；商业模型与 ≤70B 开源模型差距明显；失败主因是长程推理、决策与指令跟随。\n作者自陈局限：环境与任务是固定的文本交互，不是真实业务；商业 API 与开源模型的推理预算未统一；代码训练对不同 agent 任务影响矛盾，作者未给出统一因果。\n它没主张的：不是真实业务代理排行榜；不是单一能力总分；不证明某个模型在所有环境都更强。",
+      "en": "Problem: there was no common yardstick for LLM-as-agent ability across interactive environments.\nWhere the evidence sits: the abstract states 8 distinct environments measuring reasoning and decision-making; it reports a significant gap between commercial models and OSS models up to 70B; the main failures are long-horizon reasoning, decision-making and instruction following.\nWhat the authors say about limits: environments are fixed text interactions, not real business; inference budgets are not equalised between commercial APIs and OSS models; the effect of code training is ambivalent across agent tasks and no unified causal explanation is given.\nWhat it does not claim: not a real-business agent leaderboard; not a single ability score; not proof that one model wins in every environment."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：8 个环境、≤70B 对比、失败原因",
+      "环境数 / environments": "8",
+      "复现状态 / reproduction": "未复现（只读摘要与原文关键段）"
+    }
+  },
+  {
+    "id": "toolformer-2023",
+    "title": {
+      "zh": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "en": "Toolformer: Language Models Can Teach Themselves to Use Tools"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2302.04761",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2302.04761",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2302.04761",
+        "quote": "LMs can teach themselves to use external tools via simple APIs"
+      },
+      {
+        "url": "https://arxiv.org/abs/2302.04761",
+        "quote": "decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results"
+      },
+      {
+        "url": "https://arxiv.org/abs/2302.04761",
+        "quote": "requiring nothing more than a handful of demonstrations for each API"
+      }
+    ],
+    "notes": {
+      "zh": "问题：语言模型会写会读，却在算术、事实查询这类基础功能上不如小工具；能不能让模型自己学会调 API。\n证据位置：摘要给出自监督训练目标：选哪个 API、何时调、传什么参数、如何把结果并入后续 token 预测；每个 API 只要少量示例；工具含计算器、问答、两个搜索引擎、翻译与日历。\n作者自陈局限：工具集固定且少；自监督过滤依赖工具输出质量；实验模型与规模有限；没有讨论开放工具生态下的权限、安全与错误传播。\n它没主张的：不是通用工具使用框架；不是不需要人工审核；不是所有 API 都能自学。",
+      "en": "Problem: language models write and read well but underperform small tools on arithmetic and factual lookup; can they learn to call APIs themselves?\nWhere the evidence sits: the abstract describes a self-supervised objective that decides which API to call, when, with what arguments, and how to incorporate the result into future token prediction; a handful of demonstrations per API; tools include calculator, QA, two search engines, translation and calendar.\nWhat the authors say about limits: the tool set is fixed and small; self-supervised filtering depends on tool output quality; model scale is limited; permissions, safety and error propagation in an open tool ecosystem are not discussed.\nWhat it does not claim: not a general tool-use framework; not human-review-free; not every API can be self-taught."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：自监督 API 调用与少量示例",
+      "工具数 / tools": "6 类",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "voyager-2023",
+    "title": {
+      "zh": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+      "en": "Voyager: An Open-Ended Embodied Agent with Large Language Models"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2305.16291",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2305.16291",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2305.16291",
+        "quote": "the first LLM-powered embodied lifelong learning agent in Minecraft"
+      },
+      {
+        "url": "https://arxiv.org/abs/2305.16291",
+        "quote": "an automatic curriculum, an ever-growing skill library of executable code, and a new iterative prompting mechanism"
+      },
+      {
+        "url": "https://arxiv.org/abs/2305.16291",
+        "quote": "It obtains 3.3x more unique items, travels 2.3x longer distances, and unlocks key tech tree milestones up to 15.3x faster"
+      }
+    ],
+    "notes": {
+      "zh": "问题：在开放世界 Minecraft 里，agent 能不能无人干预地持续探索、积累技能并完成新任务。\n证据位置：摘要给出三组件：自动课程、可执行代码技能库、带环境反馈/执行错误/自验证的迭代提示；通过 GPT-4 黑盒调用，不微调模型；报告 3.3× 独特物品、2.3× 移动距离、15.3× 更快科技树里程碑。\n作者自陈局限：单一 Minecraft 环境；依赖 GPT-4 API；技能库是可执行代码，权限与安全未讨论；开放世界长期泛化仍有限。\n它没主张的：不是通用机器人 agent；不是真实世界部署；不是无需模型调用。",
+      "en": "Problem: in open-world Minecraft, can an agent explore, accumulate skills and solve new tasks without human intervention?\nWhere the evidence sits: the abstract lists three components — automatic curriculum, an ever-growing skill library of executable code, and iterative prompting with environment feedback, execution errors and self-verification; it calls GPT-4 as a black box without fine-tuning; it reports 3.3x more unique items, 2.3x longer travel and up to 15.3x faster tech-tree milestones.\nWhat the authors say about limits: single Minecraft environment; depends on GPT-4 API; the skill library is executable code with no discussion of permissions or safety; long-term open-world generalisation remains limited.\nWhat it does not claim: not a general robot agent; not a real-world deployment; not free of model calls."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：三组件与 3.3×/2.3×/15.3×",
+      "环境 / environment": "Minecraft",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "generative-agents-2023",
+    "title": {
+      "zh": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "en": "Generative Agents: Interactive Simulacra of Human Behavior"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2304.03442",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2304.03442",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2304.03442",
+        "quote": "computational software agents that simulate believable human behavior"
+      },
+      {
+        "url": "https://arxiv.org/abs/2304.03442",
+        "quote": "store a complete record of the agent's experiences using natural language, synthesize those memories over time into higher-level reflections, and retrieve them dynamically"
+      },
+      {
+        "url": "https://arxiv.org/abs/2304.03442",
+        "quote": "a small town of twenty five agents"
+      }
+    ],
+    "notes": {
+      "zh": "问题：如何用 LLM 构建可信的人类行为代理，让多个 agent 在沙盒里自主社交与计划。\n证据位置：摘要给出记忆流、反思、动态检索与计划架构；沙盒 25 个 agent；情人节派对案例显示邀请、约会与到场是自发涌现；消融显示观察、计划、反思各自贡献可信度。\n作者自陈局限：沙盒小城与 25 个 agent；可信度由作者评估，不是真实人类行为验证；记忆与反思有成本；未覆盖大规模社会系统。\n它没主张的：不是社会预测工具；不是真实人类复制；不是生产级多 agent 架构。",
+      "en": "Problem: how to build believable human-behaviour proxies with LLMs, so multiple agents can socialise and plan in a sandbox.\nWhere the evidence sits: the abstract describes a memory stream, reflection and dynamic retrieval/planning architecture; a sandbox of 25 agents; the Valentine's party case shows invitations, dates and attendance emerging autonomously; ablation shows observation, planning and reflection each contribute to believability.\nWhat the authors say about limits: a small-town sandbox with 25 agents; believability is author-evaluated, not validated against real humans; memory and reflection cost compute; large-scale social systems are not covered.\nWhat it does not claim: not a social forecasting tool; not a copy of real humans; not a production multi-agent architecture."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：25 agents、记忆/反思/计划、派对案例",
+      "沙盒规模 / sandbox": "25 agents",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "llava-2023",
+    "title": {
+      "zh": "Visual Instruction Tuning",
+      "en": "Visual Instruction Tuning"
+    },
+    "category": "multimodal",
+    "url": "https://arxiv.org/abs/2304.08485",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2304.08485",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2304.08485",
+        "quote": "the first attempt to use language-only GPT-4 to generate multimodal language-image instruction-following data"
+      },
+      {
+        "url": "https://arxiv.org/abs/2304.08485",
+        "quote": "connects a vision encoder and LLM for general-purpose visual and language understanding"
+      },
+      {
+        "url": "https://arxiv.org/abs/2304.08485",
+        "quote": "yields a 85.1% relative score compared with GPT-4 on a synthetic multimodal instruction-following dataset"
+      }
+    ],
+    "notes": {
+      "zh": "问题：多模态指令跟随数据稀缺，能否用纯语言 GPT-4 生成图文指令数据，再训练端到端多模态模型。\n证据位置：摘要称首次用 language-only GPT-4 生成多模态指令数据；LLaVA 连接视觉编码器与 LLM；在合成多模态指令集上相对 GPT-4 得 85.1%；ScienceQA 微调后 92.53%。\n作者自陈局限：数据由 GPT-4 生成，继承其偏差；视觉编码器与 LLM 组合固定；评测以合成指令集与 ScienceQA 为主；真实场景鲁棒性未证明。\n它没主张的：不是通用多模态助手；不是视觉理解全能；85.1% 不是全面超过 GPT-4。",
+      "en": "Problem: multimodal instruction-following data is scarce; can language-only GPT-4 generate image-text instruction data to train an end-to-end multimodal model?\nWhere the evidence sits: the abstract claims the first attempt to use language-only GPT-4 for multimodal instruction data; LLaVA connects a vision encoder and an LLM; it reports 85.1% relative score versus GPT-4 on a synthetic multimodal instruction set and 92.53% on ScienceQA after fine-tuning.\nWhat the authors say about limits: data is GPT-4-generated and inherits its biases; the vision encoder and LLM pairing is fixed; evaluation centres on a synthetic instruction set and ScienceQA; real-world robustness is not established.\nWhat it does not claim: not a general multimodal assistant; not all of visual understanding; 85.1% is not beating GPT-4 across the board."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：GPT-4 生成数据、85.1%、ScienceQA 92.53%",
+      "相对分数 / relative": "85.1% vs GPT-4",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "flamingo-2022",
+    "title": {
+      "zh": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "en": "Flamingo: a Visual Language Model for Few-Shot Learning"
+    },
+    "category": "multimodal",
+    "url": "https://arxiv.org/abs/2204.14198",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2204.14198",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2204.14198",
+        "quote": "bridge powerful pretrained vision-only and language-only models"
+      },
+      {
+        "url": "https://arxiv.org/abs/2204.14198",
+        "quote": "handle sequences of arbitrarily interleaved visual and textual data"
+      },
+      {
+        "url": "https://arxiv.org/abs/2204.14198",
+        "quote": "a single Flamingo model can achieve a new state of the art with few-shot learning"
+      }
+    ],
+    "notes": {
+      "zh": "问题：多模态模型如何用少量标注示例快速适配新任务，并处理任意交错的图文序列。\n证据位置：摘要给出三条架构创新：桥接预训练视觉/语言模型、处理交错图文、摄入图像或视频；在大量图像与视频任务上 few-shot SOTA；声称在多个基准上超过用数千倍任务数据微调的模型。\n作者自陈局限：模型与数据规模大且未开源；评测集中在图像/视频任务；few-shot 仍需任务示例；开放域安全与偏见未讨论。\n它没主张的：不是零样本通用助手；不是小模型方案；不是无需任务示例。",
+      "en": "Problem: how can a multimodal model adapt to new tasks from a handful of examples and handle arbitrarily interleaved image-text sequences?\nWhere the evidence sits: the abstract lists three architectural innovations — bridging pretrained vision-only and language-only models, handling interleaved image-text, and ingesting images or videos; it reports few-shot SOTA across image and video tasks and claims to outperform models fine-tuned on thousands of times more task data on several benchmarks.\nWhat the authors say about limits: large model and data scale, not open-sourced; evaluation centres on image/video tasks; few-shot still needs task examples; open-domain safety and bias are not discussed.\nWhat it does not claim: not a zero-shot general assistant; not a small-model recipe; not free of task examples."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：三条架构创新与 few-shot SOTA",
+      "模态 / modalities": "图像、视频、交错图文",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "blip2-2023",
+    "title": {
+      "zh": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "en": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models"
+    },
+    "category": "multimodal",
+    "url": "https://arxiv.org/abs/2301.12597",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2301.12597",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2301.12597",
+        "quote": "bootstraps vision-language pre-training from off-the-shelf frozen pre-trained image encoders and frozen large language models"
+      },
+      {
+        "url": "https://arxiv.org/abs/2301.12597",
+        "quote": "bridges the modality gap with a lightweight Querying Transformer"
+      },
+      {
+        "url": "https://arxiv.org/abs/2301.12597",
+        "quote": "outperforms Flamingo80B by 8.7% on zero-shot VQAv2 with 54x fewer trainable parameters"
+      }
+    ],
+    "notes": {
+      "zh": "问题：视觉语言预训练成本高，能否冻结图像编码器与大语言模型，只训练轻量桥接模块。\n证据位置：摘要给出冻结图像编码器与冻结 LLM，用轻量 Querying Transformer 两阶段预训练；在 zero-shot VQAv2 上比 Flamingo80B 高 8.7%，可训练参数少 54×；支持零样本图生文指令。\n作者自陈局限：冻结组件限制领域适配；两阶段训练仍有数据依赖；评测以 VQA/生成任务为主；未证明所有模态与语言。\n它没主张的：不是无训练；不是取代全量微调；不是所有任务都优于大模型。",
+      "en": "Problem: vision-language pretraining is expensive; can we freeze the image encoder and the LLM and train only a lightweight bridge?\nWhere the evidence sits: the abstract uses frozen pretrained image encoders and frozen LLMs with a lightweight Querying Transformer trained in two stages; it reports +8.7% on zero-shot VQAv2 over Flamingo80B with 54x fewer trainable parameters and supports zero-shot image-to-text instructions.\nWhat the authors say about limits: frozen components limit domain adaptation; two-stage training still depends on data; evaluation centres on VQA/generation; not all modalities or languages are covered.\nWhat it does not claim: not training-free; not a replacement for full fine-tuning; not better than large models on every task."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：冻结编码器/LLM、54× 参数、+8.7%",
+      "可训练参数 / trainable": "54× fewer than Flamingo80B",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "rope-2021",
+    "title": {
+      "zh": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "en": "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2104.09864",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2104.09864",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2104.09864",
+        "quote": "encodes the absolute position with a rotation matrix and meanwhile incorporates the explicit relative position dependency in self-attention"
+      },
+      {
+        "url": "https://arxiv.org/abs/2104.09864",
+        "quote": "flexibility of sequence length, decaying inter-token dependency with increasing relative distances"
+      },
+      {
+        "url": "https://arxiv.org/abs/2104.09864",
+        "quote": "consistently overcomes its alternatives"
+      }
+    ],
+    "notes": {
+      "zh": "问题：Transformer 的位置编码如何同时表达绝对位置与相对位置依赖。\n证据位置：摘要给出用旋转矩阵编码绝对位置，并在 self-attention 中显式引入相对位置依赖；具备序列长度灵活性、随相对距离衰减的 token 依赖；在长文本分类基准上稳定优于替代方法。\n作者自陈局限：实验以长文本分类为主；理论分析有限；超出训练长度仍需调参；不同实现的数值稳定性有差异。\n它没主张的：不是长度外推的完整解法；不是所有模型都必须用 RoPE；不是训练越长越好。",
+      "en": "Problem: how can Transformer positional encoding express both absolute position and relative-position dependency?\nWhere the evidence sits: the abstract encodes absolute position with a rotation matrix and injects explicit relative-position dependency into self-attention; it lists flexibility of sequence length and decaying inter-token dependency with distance; it reports consistent gains over alternatives on long-text classification benchmarks.\nWhat the authors say about limits: experiments centre on long-text classification; theoretical analysis is limited; extending beyond training length still needs tuning; numerical stability varies across implementations.\nWhat it does not claim: not a complete solution to length extrapolation; not mandatory for every model; not \"longer training is always better\"."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：旋转矩阵、相对依赖、长文本分类",
+      "位置编码 / encoding": "Rotary Position Embedding",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "yarn-2023",
+    "title": {
+      "zh": "YaRN: Efficient Context Window Extension of Large Language Models",
+      "en": "YaRN: Efficient Context Window Extension of Large Language Models"
+    },
+    "category": "efficiency",
+    "url": "https://arxiv.org/abs/2309.00071",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2309.00071",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2309.00071",
+        "quote": "requiring 10x less tokens and 2.5x less training steps than previous methods"
+      },
+      {
+        "url": "https://arxiv.org/abs/2309.00071",
+        "quote": "LLaMA models can effectively utilize and extrapolate to context lengths much longer than their original pre-training would allow"
+      },
+      {
+        "url": "https://arxiv.org/abs/2309.00071",
+        "quote": "extrapolate beyond the limited context of a fine-tuning dataset"
+      }
+    ],
+    "notes": {
+      "zh": "问题：RoPE 模型超出训练长度后失效，如何用更少 token 与训练步数扩展上下文窗口。\n证据位置：摘要称比此前方法少 10× token、少 2.5× 训练步；LLaMA 可外推到远长于预训练的长度；在上下文扩展上超过此前 SOTA；可外推超过微调数据集的上下文。\n作者自陈局限：以 LLaMA 系列为主；需要少量微调；超长上下文仍受注意力成本限制；未证明所有任务保真。\n它没主张的：不是零成本无限上下文；不是不需要微调；不是所有模型通用。",
+      "en": "Problem: RoPE models fail beyond their training length; how to extend the context window with fewer tokens and training steps?\nWhere the evidence sits: the abstract claims 10x fewer tokens and 2.5x fewer training steps than prior methods; LLaMA models extrapolate far beyond their original pretraining length; it surpasses prior SOTA on context extension and can extrapolate beyond the fine-tuning dataset context.\nWhat the authors say about limits: mainly LLaMA-family experiments; requires light fine-tuning; long contexts still pay attention cost; fidelity on all tasks is not proven.\nWhat it does not claim: not zero-cost infinite context; not fine-tuning-free; not universal across models."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：10× token、2.5× 步数、LLaMA 外推",
+      "训练成本 / training": "10× fewer tokens; 2.5× fewer steps",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "grpo-2024",
+    "title": {
+      "zh": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+      "en": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models"
+    },
+    "category": "alignment",
+    "url": "https://arxiv.org/abs/2402.03300",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2402.03300",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2402.03300",
+        "quote": "we introduce Group Relative Policy Optimization (GRPO), a variant of Proximal Policy Optimization (PPO)"
+      },
+      {
+        "url": "https://arxiv.org/abs/2402.03300",
+        "quote": "enhances mathematical reasoning abilities while concurrently optimizing the memory usage of PPO"
+      },
+      {
+        "url": "https://arxiv.org/abs/2402.03300",
+        "quote": "51.7% on the competition-level MATH benchmark without relying on external toolkits and voting techniques"
+      }
+    ],
+    "notes": {
+      "zh": "问题：用 PPO 做数学推理强化学习时，显存与计算成本高；能否在不引入 critic 的情况下稳定优化。\n证据位置：摘要提出 GRPO，作为 PPO 的变体，提升数学推理同时优化 PPO 的显存占用；DeepSeekMath 7B 在 MATH 得 51.7%（无工具、无投票）；64 样本自一致性 60.9%。\n作者自陈局限：数学域为主；7B 规模；依赖数据选择管线与奖励设计；通用对话/开放域未验证。\n它没主张的：不是 PPO 的通用替代；不是所有任务都省显存；51.7% 不等于 GPT-4 水平。",
+      "en": "Problem: PPO for mathematical-reasoning RL is memory- and compute-heavy; can optimisation be stable without a critic?\nWhere the evidence sits: the abstract introduces GRPO as a PPO variant that improves mathematical reasoning while optimising PPO memory; DeepSeekMath 7B scores 51.7% on MATH without tools or voting, and 60.9% with 64-sample self-consistency.\nWhat the authors say about limits: mainly the maths domain; 7B scale; depends on the data-selection pipeline and reward design; general chat/open domain is not validated.\nWhat it does not claim: not a general replacement for PPO; not memory-saving on every task; 51.7% is not GPT-4 parity."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：GRPO、MATH 51.7%、64 样本 60.9%",
+      "MATH / score": "51.7%（7B，无工具/投票）",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "awq-2023",
+    "title": {
+      "zh": "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration",
+      "en": "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration"
+    },
+    "category": "efficiency",
+    "url": "https://arxiv.org/abs/2306.00978",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2306.00978",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.00978",
+        "quote": "Protecting only 1% salient weights can greatly reduce quantization error"
+      },
+      {
+        "url": "https://arxiv.org/abs/2306.00978",
+        "quote": "we should refer to the activation distribution, not weights"
+      },
+      {
+        "url": "https://arxiv.org/abs/2306.00978",
+        "quote": "more than 3x speedup over the Huggingface FP16 implementation"
+      }
+    ],
+    "notes": {
+      "zh": "问题：LLM 低比特权重量化如何保精度、又保持硬件友好，能落到端侧。\n证据位置：摘要称只保护 1% 显著权重即可大幅降低量化误差；显著通道要按激活分布而非权重判断；用等价缩放保护显著通道；不依赖反向传播或重建；TinyChat 在桌面/移动 GPU 上相对 HF FP16 有 3× 以上加速；可在移动 GPU 跑 70B Llama-2。\n作者自陈局限：权重量化，激活仍较高精度；校准集有偏；3× 是特定实现/硬件；未覆盖所有模型结构。\n它没主张的：不是训练方法；不是 4-bit 无损；不是所有设备都能跑 70B。",
+      "en": "Problem: how to quantise LLM weights to low bits while keeping accuracy and hardware-friendly deployment on edge devices?\nWhere the evidence sits: the abstract says protecting only 1% salient weights greatly reduces quantisation error; saliency should be judged from activations, not weights; an equivalent scaling protects salient channels; no backprop or reconstruction is used; TinyChat reports >3x speedup over HF FP16 on desktop and mobile GPUs and runs 70B Llama-2 on mobile GPUs.\nWhat the authors say about limits: weight-only quantisation, activations stay higher precision; calibration set bias; 3x is implementation/hardware-specific; not every model architecture is covered.\nWhat it does not claim: not a training method; not lossless 4-bit; not every device can run 70B."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：1% 显著权重、激活分布、3× 加速",
+      "权重量化 / weight bits": "4-bit",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "dit-2022",
+    "title": {
+      "zh": "Scalable Diffusion Models with Transformers",
+      "en": "Scalable Diffusion Models with Transformers"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2212.09748",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2212.09748",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2212.09748",
+        "quote": "replacing the commonly-used U-Net backbone with a transformer that operates on latent patches"
+      },
+      {
+        "url": "https://arxiv.org/abs/2212.09748",
+        "quote": "DiTs with higher Gflops ... consistently have lower FID"
+      },
+      {
+        "url": "https://arxiv.org/abs/2212.09748",
+        "quote": "achieving a state-of-the-art FID of 2.27 on the latter"
+      }
+    ],
+    "notes": {
+      "zh": "问题：扩散模型能否用 Transformer 替代 U-Net 作为骨干，并像 Gflops 一样可扩展。\n证据位置：摘要在潜空间扩散中用 Transformer 处理 latent patches；Gflops 更高的 DiT（更深/更宽或更多 token）FID 更低；DiT-XL/2 在 ImageNet 256 上 FID 2.27。\n作者自陈局限：ImageNet 类条件生成；FID 单一指标；训练成本高；文本/视频等通用生成未验证。\n它没主张的：不是通用生成模型；不是 FID 唯一标准；不是替代所有 U-Net。",
+      "en": "Problem: can diffusion models use a Transformer instead of a U-Net backbone and scale like Gflops?\nWhere the evidence sits: the abstract replaces the U-Net with a transformer over latent patches in latent diffusion; higher-Gflops DiTs (deeper/wider or more tokens) consistently have lower FID; DiT-XL/2 reaches FID 2.27 on ImageNet 256.\nWhat the authors say about limits: class-conditional ImageNet generation; FID is a single metric; training is expensive; text/video and other general generation are not validated.\nWhat it does not claim: not a general generative model; not FID as the only criterion; not a replacement for every U-Net."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "证据位置 / evidence": "摘要：latent patches、Gflops、FID 2.27",
+      "FID / ImageNet 256": "2.27（DiT-XL/2）",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
   }
 ]

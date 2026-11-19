@@ -13,6 +13,9 @@ level: 4
 layer: "四"
 ord: 1
 last_verified: "2026-11-19"
+figure: "fig-transformer.svg"
+figure_caption: "每个 token 通过注意力读取整段上下文；前馈网络再逐位置变换，最后输出下一个 token 的概率。"
+figure_caption_en: "Each token reads the whole context through attention; a feed-forward network transforms each position, then the model emits next-token probabilities."
 ---
 
 # Transformer（Transformer）

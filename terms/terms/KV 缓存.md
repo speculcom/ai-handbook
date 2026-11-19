@@ -15,6 +15,9 @@ layer: "四"
 ord: 5
 last_verified: "2026-11-09"
 verified_scope: "refs"
+figure: "fig-kv-cache.svg"
+figure_caption: "预填充阶段算好每层的 K/V 并缓存；解码每生成一个 token 只算新 token 的 K/V，不再重算整段。"
+figure_caption_en: "Prefill computes and caches K/V per layer; each decode step computes only the new token’s K/V instead of the whole prefix."
 ---
 
 # KV 缓存（KV Cache）

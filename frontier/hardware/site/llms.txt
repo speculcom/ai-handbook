@@ -2,7 +2,7 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-35 条。
+44 条。
 
 - [目录](https://hardware.specul.com/index.html)
 - [怎么用](https://hardware.specul.com/about.html)
@@ -42,6 +42,15 @@
 - [AWS EC2 P6-B200](https://hardware.specul.com/aws-ec2-p6-b200.html) — 单机 8 卡 Blackwell 的云实例，比 P6e 小一档；1,432 GB 是实例内 8 卡 HBM 合计。3.2 Tb/s 是节点网络上限，跨节点训练仍
 - [AWS Trainium2（Trn2）](https://hardware.specul.com/aws-trainium2.html) — AWS 自研训练加速器，第二代；单实例最多 16 颗，UltraServer 最多 64 颗，用 NeuronLink 互联。软件栈是 AWS Neuron，不
 - [Azure ND GB200 v6](https://hardware.specul.com/azure-nd-gb200-v6.html) — Azure 以 4 卡 VM 为售卖单位；18 台 VM 组成一个 72 卡的 GB200 NVL72 域。192 GiB 是每卡显存，不要乘成 VM 总量。选
+- [Cerebras WSE-3T（晶圆级）](https://hardware.specul.com/cerebras-wse3t.html) — 回答「晶圆级芯片单片的晶体管、面积、核心数与官方 AI 算力口径」。250 PF 是官方“AI compute”表述，未注明是 dense FP16 还是特定精
+- [AWS Inferentia2](https://hardware.specul.com/aws-inferentia2.html) — 回答「Inferentia2 单加速器的 FP16 算力、HBM 容量与 Inf2 实例上限」。190 TFLOPS 是 FP16；32GB HBM 是单卡容量
+- [Intel Gaudi 3](https://hardware.specul.com/intel-gaudi3.html) — 回答「Gaudi 3 相对上一代的算力代际、I/O 与形态」。官方产品页只给相对倍数（FP8 2×、BF16 4×）与 1200 GB/s RoCE；绝对 HB
+- [Google TPU v5e](https://hardware.specul.com/google-tpu-v5e.html) — 回答「v5e 单芯片的 BF16 算力、HBM、ICI 与 Pod 规模」。197 TFLOPS 是 BF16 峰值；16GB HBM2 / 819 GB/s 
+- [Google TPU v6e（Trillium）](https://hardware.specul.com/google-tpu-v6e.html) — 回答「v6e 相对 v5e 的单芯片 BF16、HBM、带宽与 Pod 算力」。918 TFLOPS 是 BF16 峰值；32GB HBM / 1600 GB/
+- [AMD Instinct MI325X](https://hardware.specul.com/amd-instinct-mi325x.html) — 回答「MI325X 的 256GB HBM3E、6TB/s 带宽、FP8 2.61 PF 与 1000W 峰值功耗」。FP8 2.61 PF 是 dense；5
+- [NVIDIA H100 NVL](https://hardware.specul.com/nvidia-h100-nvl.html) — 回答「H100 NVL 的 94GB HBM3、3.9TB/s、FP16 1,671 TF 与 350–400W」。1,671 TF 是带稀疏的 FP16 Te
+- [NVIDIA RTX PRO 6000 Blackwell（工作站）](https://hardware.specul.com/nvidia-rtx-pro-6000-blackwell.html) — 回答「工作站版 RTX PRO 6000 的 96GB GDDR7 ECC、1792 GB/s、4000 AI TOPS 与 600W」。4000 TOPS 是
+- [Groq LPU / LPX](https://hardware.specul.com/groq-lpu.html) — 回答「Groq 的 LPU/LPX 是什么定位：面向推理的专用处理器与推理云」。官方首页没有给出单芯片 SRAM、带宽、TFLOPS 等完整规格，本站不填未核数
 
 
 ## 云算力
