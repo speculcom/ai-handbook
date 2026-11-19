@@ -83,7 +83,7 @@
       ['for-builders', '写代码 / 做应用', 'Code and build apps', '从提示词到 Agent，边看边改，能跑起来。', 'From prompts to agents, with enough to build and run something.'],
       ['for-creators', '做图 / 视频 / 音频', 'Images, video and audio', '知道工具怎么选，效果怎么调，哪里会翻车。', 'Choose tools, tune results and see where generation fails.'],
       ['for-writers', '写作 / 查资料', 'Writing and research', '把 AI 当研究助理，查资料、写初稿、核对来源。', 'Use AI as a research assistant, not a ghostwriter.'],
-      ['for-managers', '给团队选工具', 'Choose tools for a team', '看成本、权限、供应商，把选型做成能签字的决定。', 'Cost, permissions and vendors: turn a shortlist into a decision.'],
+      ['for-managers', '给团队选工具', 'Choose tools for a team', '看成本、权限、供应商，选完能跟团队讲清楚为什么。', 'Cost, permissions and vendors: pick one and explain the choice to your team.'],
       ['for-researchers', '看懂原理 / 论文', 'Methods and papers', '从 Transformer 到评测，知道它为什么这样表现。', 'From Transformers to evaluation, understand why models behave this way.'],
       ['for-operators', '部署 / 运维', 'Deploy and operate', '显存、吞吐、上线，把模型跑稳。', 'VRAM, throughput and launch: keep it running.'],
     ];
