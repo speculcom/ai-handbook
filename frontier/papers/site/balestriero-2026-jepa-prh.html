@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-18</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
   <h1><span data-zh>Proving and Improving the Platonic Representation Hypothesis with JEPAs</span><span data-en>Proving and Improving the Platonic Representation Hypothesis with JEPAs</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：不同模态的模型是否在收敛到同一个「柏拉图式」的表征空间？如果会，小模型能否用更好的训练视角追上大模型？<br>证据位置：摘要报告一个 109M 参数的文本 JEPA，在跨模态对齐上优于作者评测过的所有语言模型（最大到 72B）；同段给出「好视角比 next-token 少 42 倍样本」的结论。正文用 JEPA 作为可证明/可改进的实例，而不是只做相关性观察。<br>作者自陈局限：这是预印本；文本 JEPA 只有 109M，规模远小于被比较的 LLM；对齐指标衡量的是表征相似度，不是生成质量；42× 是特定视角与数据条件下的样本效率，不是通用常数；没有证明所有模态都收敛到同一空间。<br>它没主张的：不是新的 SOTA 语言模型；不是 next-token prediction 的替代品；不是「小模型全面超过大模型」；不是对 PRH 的最终证明。</span><span data-en>Problem: are models across modalities converging on a shared “Platonic” representation space? If so, can a small model catch up with a large one by using better training views?<br>Where the evidence sits: the abstract reports a 109M-parameter text JEPA that aligns with DINOv2 and CLIP image encoders better than every language model the authors evaluated, up to 72B; the same abstract states that good views need 42 times fewer training samples than next-token prediction. The body uses JEPA as a provable/improveable instance rather than a correlation-only observation.<br>What the authors say about limits: it is a preprint; the text JEPA is 109M, far smaller than the LLMs it is compared with; the alignment metric measures representation similarity, not generation quality; 42× is sample efficiency under specific views and data, not a universal constant; it does not prove every modality converges to one space.<br>What it does not claim: a new state-of-the-art language model; a replacement for next-token prediction; that small models beat large models across the board; a final proof of the Platonic Representation Hypothesis.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>发表 / venue</dt><dd>arXiv 2610.39302，2026-10-29</dd></div><div><dt>作者 / authors</dt><dd>Balestriero &amp; LeCun</dd></div><div><dt>模型 / model</dt><dd>109M 参数文本 JEPA</dd></div><div><dt>关键数字 / key</dt><dd>42× 更少样本；对齐优于最大 72B 的 LLM</dd></div><div><dt>证据位置 / evidence</dt><dd>摘要；JEPA 实验段</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发表 / venue</dt><dd>arXiv 2610.39302，2026-10-29</dd></div><div><dt>作者 / authors</dt><dd>Balestriero &amp; LeCun</dd></div><div><dt>模型 / model</dt><dd>109M 参数文本 JEPA</dd></div><div><dt>关键数字 / key</dt><dd>42× 更少样本；对齐优于最大 72B 的 LLM</dd></div><div><dt>证据位置 / evidence</dt><dd>摘要；JEPA 实验段</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>a 109M-parameter text JEPA aligns with DINOv2 and CLIP&#39;s image encoders better than every language model we evaluated, up to 72B parameters</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://arxiv.org/abs/2610.39302" rel="noopener">https://arxiv.org/abs/2610.39302</a></figcaption>
       </figure>
@@ -106,17 +106,17 @@
         <blockquote>Good views need 42 times fewer training samples than next-token prediction</blockquote>
         <figcaption><span class="fx-ev-n">2</span> <a href="https://arxiv.org/abs/2610.39302" rel="noopener">https://arxiv.org/abs/2610.39302</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-18</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-18</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2610.39302" rel="noopener">https://arxiv.org/abs/2610.39302</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2610.39302" rel="noopener">https://arxiv.org/abs/2610.39302</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2610.39302" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2610.39302" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

@@ -1463,44 +1463,31 @@ function indexPage() {
   const body = `  <div class="container">
     <header class="page-head home-head">
       <p class="eyebrow">${bi('开放权重 · 怎么选','Open weights · how to choose')}</p>
-      <h1><span class="grad-title">${bi('开放权重，该怎么选','How to choose open-weight models')}</span><span class="sub">${bi('先选家族与规格，再选量化版——两步都有出处','Pick the family and size first, the quantisation second — both steps carry sources')}</span></h1>
-      <p class="lede">${bi('你想在<b>自己电脑上</b>跑一个大模型。问题分两层：<b>第一层</b>，开放权重的家族、代次、尺寸档、许可各不相同，该选哪个；<b>第二层</b>，同一个模型有几十个量化版，该下哪一个。本站把两层分开答：<b>家族谱系卡</b>讲第一层（出品方 / 代次 / 尺寸 / 许可 / 官方声明），<b>系列页</b>讲第二层（你的显存能跑哪档、该下多大体积）。不评模型强弱，也不排名。', 'You want to run a large model <b>on your own machine</b>. The question has two layers: <b>first</b>, which family, generation, size tier and licence; <b>second</b>, which of dozens of quantisations to download. This site answers them separately: <b>family lineage cards</b> cover layer one (vendor / generations / sizes / licences / official claims), and <b>series pages</b> cover layer two (which tier fits your VRAM, how big the download is). It does not rank models against each other.')}</p>
-      <p class="lede lede-sub">${bi('<b>收录范围：开放权重（含蒸馏）——可本地部署的模型都收</b>，无论它是原生训练还是从别家模型蒸馏而来（HF 上有公开权重的 MoE 与 dense 模型）。闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，下载和选型的问题不存在。本站另设<b>闭源谱系卡</b>做对照：只记官方规格快照与复核周期，不采价格、不排名。', '<b>Scope: open weights (distillation included) — any model you can run locally</b>, whether trained from scratch or distilled from another model (MoE and dense models with public weights on HF). Closed-source / API-only models are out of the quantisation scope — they have no quantisations, so the download and selection questions do not arise. The site keeps a separate set of <b>closed-model lineage cards</b> for contrast: official spec snapshots with a review cycle, no prices, no rankings.')}</p>
-      <div class="home-stats">
-<div><b>${familyList.length}</b><span>${bi('个家族','families')}</span></div>
-<div><b>${seriesList.length}</b><span>${bi('个系列','series')}</span></div>
-<div><b>${totalRepo}</b><span>${bi('个模型仓','model repos')}</span></div>
-<div><b>${totalQuantRepo}</b><span>${bi('个量化仓','quant repos')}</span></div>
-<div><b>${totalTier}</b><span>${bi('个量化档','quantised builds')}</span></div>
-<div><b>${allOwners.length}</b><span>${bi('位量化者','quantisers')}</span></div>
-<div><b>${totalFile}</b><span>${bi('个 GGUF 文件','GGUF files')}</span></div>
-<div><b>${closedList.length}</b><span>${bi('张闭源谱系卡','closed cards')}</span></div>
-      </div>
+      <h1><span class="grad-title">${bi('想在自己电脑上跑模型？先选家族，再挑量化版','Run a model on your own machine? Pick a family, then a quantisation')}</span><span class="sub">${bi('先看家族和尺寸，再看显存能跑哪一档','Start with the family and size, then the tier your VRAM can hold')}</span></h1>
+      <p class="lede">${bi('每个模型都给出官方规格、许可和下载体积，方便直接做决定。', 'Every model lists official specs, licence and download size so you can decide.')}</p>
     </header>
 
 ${vizFor('models')}
 
-${trustBanner()}
-
     <section class="family-list">
-      <h2>${bi('家族谱系','Model families')} <small>${bi('第一层：出品方 · 代次 · 尺寸档 · 许可 · 官方声明','layer one: vendor · generations · size tiers · licences · official claims')}</small></h2>
-      <p class="sec-desc">${bi('每个开放权重家族一张卡：它是什么来头、现在哪一代、有哪些尺寸档、许可能不能商用、官方声明过什么能力（声明全部挂官方出处）。家族内哪一代有本站量化对比，卡上直接给出入口。', 'One card per open-weight family: where it comes from, which generation is current, what size tiers exist, whether the licence allows commercial use, and what the vendor officially claims (every claim links to its official source). Where a generation has quantisation coverage on this site, the card links straight to it.')}</p>
+      <h2>${bi('家族谱系','Model families')} <small>${bi('先选家族和尺寸','family and size first')}</small></h2>
+      <p class="sec-desc">${bi('每个开放权重家族一张卡：它是什么来头、现在哪一代、有哪些尺寸档、许可能不能商用、官方说过什么能力。家族内哪一代有量化对比，卡上直接给入口。', 'One card per open-weight family: where it comes from, which generation is current, what size tiers exist, whether the licence allows commercial use, and what the vendor officially claims. Where a generation has quantisation coverage, the card links straight to it.')}</p>
       <div class="famcards">
 ${familyCards}
       </div>
     </section>
 
     <section class="closed-list">
-      <h2>${bi('闭源谱系卡','Closed-model cards')} <small>${bi('对照面：官方规格快照 · 每条挂出处 · 带复核到期日', 'the contrast set: official spec snapshots · every fact sourced · with review due dates')}</small></h2>
-      <p class="sec-desc">${bi('本站主体是开放权重选型，但选型绕不开闭源 API 对照。每张闭源卡只记三件事：现在哪一代、官方声明过什么规格（每条挂官方出处）、我们上次核验是什么时候。闭源厂商改规格不通知任何人——所以每张卡带复核周期，到期会在页顶挂横幅，不装作永远最新。不采价格数字（D9），定价看官方定价页链接。', 'This site is about open-weight selection, but that choice always sits next to the closed API alternative. Each closed card records exactly three things: which generation is current, what specs the vendor officially claims (every fact linked to its official source), and when we last verified it. Closed vendors change specs without notice — so every card carries a review cycle, and an overdue card shows a banner at the top instead of pretending to be current. No price figures (rule D9); pricing lives at the linked official pricing page.')}</p>
+      <h2>${bi('闭源模型，拿来对照','Closed models, for comparison')} <small>${bi('官方规格与许可，够你做取舍','official specs and licences, enough for a decision')}</small></h2>
+      <p class="sec-desc">${bi('选开放权重时，闭源 API 往往是另一条路。每张卡只记三件事：现在哪一代、官方说过什么规格、资料最后更新在什么时候。厂商改规格不会通知，所以卡上会标下次该看的时间；不写价格数字，定价直接看官方页。', 'When choosing open weights, a closed API is often the other path. Each card records three things: which generation is current, what the vendor officially claims, and when the card was last updated. Vendors change specs without notice, so the card says when to look again. No price figures; pricing lives on the official page.')}</p>
       <div class="famcards">
 ${closedCards}
       </div>
     </section>
 
     <section class="guide-list">
-      <h2>${bi('做模型专题','How models are made')} <small>${bi('从业者视角：训练四阶段 · 数据与算力 · 跑起来','practitioner view: the four training stages · data & compute · serving')}</small></h2>
-      <p class="sec-desc">${bi('这一栏回答「模型是怎么被造出来、又是怎么跑起来的」。它与学 AI 站互链不重复：学 AI 教使用者视角的一页科普，这里是从业者视角的深版——讲决定、讲代价、讲口径变化。关键事实全部挂论文或官方模型卡出处；本站不实测、不裁决路线之争。', 'This section answers "how models are built and how they run". It cross-links with the Learn site without duplicating it: Learn gives user-perspective one-page explainers; this is the practitioner-depth version — decisions, costs, and how the consensus changed. Key facts carry paper or official model-card sources; the site runs no benchmarks and adjudicates no route disputes.')}</p>
+      <h2>${bi('模型是怎么做出来的','How models are made')} <small>${bi('从训练到部署','from training to serving')}</small></h2>
+      <p class="sec-desc">${bi('这一栏回答「模型是怎么被造出来、又是怎么跑起来的」。学 AI 站讲使用者视角的基础，这里讲从业者的决定和代价。关键事实都挂论文或官方模型卡，拿不准的地方会写出来。', 'This section answers how models are built and how they run. Learn covers the user-facing basics; here we go into the decisions and costs practitioners face. Key facts link to papers or official model cards, and open questions are stated as such.')}</p>
       <div class="famcards">
 ${guideCards}
       </div>

@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>云算力</span><span data-en>Cloud compute</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>云算力</span><span data-en>Cloud compute</span></span></div>
   <h1><span data-zh>AWS EC2 p5.4xlarge</span><span data-en>AWS EC2 p5.4xlarge</span></h1>
   <p class="fx-entry-lead"><span data-zh>回答单卡云实例的规格，用于小规模微调或单模型部署。两个容易忽略的限制：单卡实例不支持 GPUDirect RDMA，也没有 NVSwitch，想靠多台单卡机拼出多卡训练会卡在通信上；要 8 卡全互联得换 p5.48xlarge。</span><span data-en>Answers the specification of a single-GPU cloud instance for small fine-tunes or single-model deployment. Two limits are easy to miss: the single-card size supports neither GPUDirect RDMA nor NVSwitch, so stitching several single-GPU hosts into a multi-card training job is communication-bound; eight-card fabric requires the p5.48xlarge size instead.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>vCPUs</dt><dd>16</dd></div><div><dt>instance memory</dt><dd>256 GiB</dd></div><div><dt>GPU</dt><dd>1 x NVIDIA H100</dd></div><div><dt>GPU memory</dt><dd>80 GB HBM3</dd></div><div><dt>network bandwidth</dt><dd>100 Gbps EFA</dd></div><div><dt>local storage</dt><dd>3.84 TB NVMe SSD</dd></div><div><dt>EBS bandwidth</dt><dd>10 Gbps</dd></div><div><dt>GPUDirect RDMA</dt><dd>not supported on this size</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>vCPUs</dt><dd>16</dd></div><div><dt>instance memory</dt><dd>256 GiB</dd></div><div><dt>GPU</dt><dd>1 x NVIDIA H100</dd></div><div><dt>GPU memory</dt><dd>80 GB HBM3</dd></div><div><dt>network bandwidth</dt><dd>100 Gbps EFA</dd></div><div><dt>local storage</dt><dd>3.84 TB NVMe SSD</dd></div><div><dt>EBS bandwidth</dt><dd>10 Gbps</dd></div><div><dt>GPUDirect RDMA</dt><dd>not supported on this size</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>p5.4xlarge  16  256 GiB  1 H100  80 GB   HBM3   100 Gbps EFA</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://aws.amazon.com/ec2/instance-types/p5/" rel="noopener">https://aws.amazon.com/ec2/instance-types/p5/</a></figcaption>
       </figure>
@@ -106,17 +106,17 @@
         <blockquote>GPUDirect RDMA is not supported in P5.4xlarge</blockquote>
         <figcaption><span class="fx-ev-n">2</span> <a href="https://aws.amazon.com/ec2/instance-types/p5/" rel="noopener">https://aws.amazon.com/ec2/instance-types/p5/</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-spec-page</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://aws.amazon.com/ec2/instance-types/p5/" rel="noopener">https://aws.amazon.com/ec2/instance-types/p5/</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>云算力</span><span data-en>Cloud compute</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://aws.amazon.com/ec2/instance-types/p5/" rel="noopener">https://aws.amazon.com/ec2/instance-types/p5/</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>云算力</span><span data-en>Cloud compute</span></dd></div>
     </dl>
   </section>
   
-  <p><a class="fx-source" href="https://aws.amazon.com/ec2/instance-types/p5/" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力目录</span><span data-en>← Back to the Compute directory</span></a></p>
+  <p><a class="fx-source" href="https://aws.amazon.com/ec2/instance-types/p5/" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

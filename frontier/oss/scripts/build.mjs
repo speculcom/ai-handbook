@@ -106,7 +106,7 @@ function repoCard(r, prefix = '') {
 function sceneCard(s) {
   const n = repos.filter((r) => r.scene === s.id && !r.catalogOnly).length;
   return `<a class="scene-card" href="scenes/${esc(s.id)}.html">
-  <span class="no">0${s.order} · ${n} 个场景精选</span>
+  <span class="no">0${s.order} · ${n} 个仓库</span>
   <h3>${esc(s.title)}</h3>
   <p>${esc(s.lead)}</p>
   <span class="more">进入场景 →</span>
@@ -120,32 +120,25 @@ function sceneCard(s) {
   const body = `<div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · Open source AI</p>
-  <h1>开源 AI 工具库</h1>
-  <p class="lede">别人帮你跑的服务，去 <a href="https://tools.specul.com/">工具站</a>；自己拿下来读、改、部署的仓库，在这里。按 6 个场景选，先看许可、活跃度、依赖和上手成本，再看 star。</p>
+  <h1>开源 AI 工具，挑能自己跑的</h1>
+  <p class="lede">别人帮你跑的服务，去 <a href="https://tools.specul.com/">工具站</a>；能拿下来读、改、部署的仓库，在这里。按场景挑，先看它不做什么、许可和依赖，再看 star。</p>
 </header>
 <form class="oss-search" action="all.html" method="get">
   <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" aria-label="搜索开源仓库" />
   <button type="submit">搜索</button>
 </form>
 <div class="hero-actions">
-  <a class="btn primary" href="all.html">全部 50 个仓库 →</a>
+  <a class="btn primary" href="all.html">看全部仓库 →</a>
   <a class="btn" href="compare.html">并排对比</a>
-  <a class="btn" href="about.html">收录方法</a>
+  <a class="btn" href="about.html">怎么挑仓库</a>
 </div>
-<div class="stats">
-  <div><b>${repos.length}</b><span>个仓库</span></div>
-  <div><b>${scenes.length}</b><span>个场景</span></div>
-  <div><b>${repos.filter((r) => !r.catalogOnly).length}</b><span>个场景精选</span></div>
-  <div><b>${repos.filter((r) => r.catalogOnly).length}</b><span>个目录补充</span></div>
-  <div><b>2026-11-19</b><span>GitHub 快照</span></div>
-</div>
-<div class="section-head"><h2>按场景找</h2><span class="sub">每个场景 6 个精选；目录补充条目在全部页</span></div>
+<div class="section-head"><h2>按场景找</h2><span class="sub">六个场景，挑一个你手上的活</span></div>
 <div class="scene-grid">${scenes.map(sceneCard).join('')}</div>
 <div class="section-head"><h2>先试这几个</h2><a href="all.html">看全部 →</a></div>
 <div class="repo-grid">${featured.map((r) => repoCard(r)).join('')}</div>
 <div class="section-head"><h2>怎么用这个站</h2></div>
 <div class="note"><b>1. 先看“不适合”：</b>每张卡都写它不做什么。比“为什么选”更能帮你排除。<br><b>2. 再看许可与依赖：</b>开源不等于可商用；GPL / AGPL 有传染性，模型与代码的许可要分开看。<br><b>3. 最后看活跃度：</b>star 是快照，不是质量保证；看最近推送、issue、release 与维护者。</div>
-<div class="note"><b>口径：</b>GitHub 事实字段来自 2026-11-19 的 API 快照；许可以仓库 LICENSE 为准。本站不排名、不背书安全，也不替你做法律判断。</div>
+<div class="note"><b>说明：</b>GitHub 信息更新到 2026-11-19；许可以仓库 LICENSE 为准，商用前自己再读一遍。</div>
 </div>`;
   fs.writeFileSync(path.join(site, 'index.html'), page({
     title: '开源 AI 工具库 — 自己拿下来跑 · Specul',
@@ -354,28 +347,26 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
   const body = `<div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · About</p>
-  <h1>收录方法</h1>
-  <p class="lede">这个站回答一个问题：这个仓库能不能拿下来、读得懂、跑得动、改得动。它不回答“哪个最强”。</p>
+  <h1>怎么挑这里面的仓库</h1>
+  <p class="lede">这个站帮你判断一个仓库能不能拿下来、读得懂、跑得动、改得动。至于“哪个最强”，这里不回答，也回答不了。</p>
 </header>
 <div class="detail-body">
-  <h2>收什么</h2>
-  <p>公开 GitHub 仓库，AI 相关，有明确用途，能读、能改、能自建。优先收有文档、有许可、最近一年有维护的仓库。首批 50 个：6 个场景各 6 个精选，另 14 个目录补充。</p>
-  <h2>不收什么</h2>
-  <p>不收只有宣传页没有代码的；不收无许可或许可不清的；不收长期归档且没有替代价值的（除非作为历史对照）；不收纯模型权重（权重在 <a href="https://models.specul.com/">模型站</a>）；不收商业 SaaS（服务在 <a href="https://tools.specul.com/">工具站</a>）。</p>
-  <h2>字段与口径</h2>
-  <p>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-19 快照；之后的变化没有回写。许可以仓库 LICENSE 为准；标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</p>
-  <h2>不排名、不背书</h2>
-  <p>不按 star 排序，不生成总分，不写“最强 / 最安全”。开源仓库的代码、脚本、模型权重都可能带来安全与许可风险；本站只做索引与风险提示，不审计代码，也不替你做法律判断。</p>
+  <h2>这里都是什么仓库</h2>
+  <p>公开 GitHub、AI 相关、有明确用途，拿下来能读、能改、能部署。优先收文档齐全、许可清楚、最近一年有维护的。只有宣传页没有代码的、许可不清的、纯模型权重的、商业 SaaS 的，不在这里。</p>
+  <h2>卡片上的字段怎么看</h2>
+  <p>star / fork / 语言 / 许可 / 最近推送来自 GitHub。star 是快照，能说明关注度，不能说明质量；许可以仓库 LICENSE 为准；“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</p>
+  <h2>开源不等于随便用</h2>
+  <p>GPL / AGPL 有传染性，模型权重和代码可能用不同许可；商用、再分发前请自己读许可原文。代码、脚本、权重也有安全风险，本站只做索引和提示，不审计代码。</p>
   <h2>和工具站怎么分</h2>
   <p>工具站写“别人帮你跑的服务怎么用”：价格、权限、能力、限制。OSS 写“你自己拿下来跑”：许可、活跃度、依赖、上手成本、能不能改。同一个项目可以两站各一张卡，但正文不复制，互相链一次。</p>
-  <h2>纠错</h2>
-  <p>发现许可、链接、快照字段有误，走 <a href="https://specul.com/correct.html">纠错页</a>；写清仓库、字段、证据链接与核验日。</p>
+  <h2>发现错误</h2>
+  <p>写清哪个仓库、哪个字段、证据链接，发到 <a href="https://specul.com/correct.html">纠错页</a>。</p>
 </div>
 <div class="note"><b>English index:</b> see <a href="llms.en.txt">llms.en.txt</a> for a short English map of this site.</div>
 </div>`;
   fs.writeFileSync(path.join(site, 'about.html'), page({
-    title: '收录方法 · 开源 AI 工具库',
-    desc: 'OSS 站收什么、不收什么、字段口径、为什么不排名不背书，以及和工具站的分工。',
+    title: '怎么挑仓库 · 开源 AI 工具库',
+    desc: 'OSS 站里都是什么仓库、卡片字段怎么看、开源许可与安全边界，以及和工具站的分工。',
     canonical: url('about.html'),
     body
   }));

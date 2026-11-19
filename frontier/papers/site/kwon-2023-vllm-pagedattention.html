@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span></div>
   <h1><span data-zh>Efficient Memory Management for Large Language Model Serving with PagedAttention</span><span data-en>Efficient Memory Management for Large Language Model Serving with PagedAttention</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：服务端要靠批处理提高吞吐，但 KV 缓存占的显存既大又碎片化，批大小上不去；能不能用分页思路管理 KV 缓存。<br>证据位置：摘要给出 2–4 倍吞吐结论，对比对象是 FasterTransformer 与 Orca；分场景数字在第 6 节。<br>作者自陈局限：没有独立 Limitations 章节，边界写在第 8 节 Discussion——这套优化不适用于所有 GPU 负载：训练时张量形状固定、显存可提前规划；非 LLM 的推理若本身是算力瓶颈，提高显存效率不会提速，引入分页反而可能因间接寻址与非连续块访问而变慢。第 7.1 节的微基准还显示注意力 kernel 延迟比高度优化的 FasterTransformer 高 20–26%。<br>它没主张的：论文没有说 2–4 倍是端到端普遍结论，也没有说分页在任何负载上都不亏；块大小存在权衡——太小用不满并行度、太大内部碎片增加且共享概率下降。</span><span data-en>Problem: serving throughput depends on batching, but KV cache memory is large and fragmented, which caps batch size; can paged memory management be applied to the KV cache.<br>Where the evidence sits: the abstract gives the 2-4× throughput result against FasterTransformer and Orca; per-scenario numbers are in Section 6.<br>What the authors say about limits: no separate Limitations section; the boundaries are in Section 8 (Discussion) — the optimisation does not generally hold for every GPU workload. In DNN training tensor shapes are typically static so allocation can be optimised ahead of time; for non-LLM inference that is compute-bound, raising memory efficiency may not help at all, and adding paged indirection and non-contiguous blocks may instead degrade performance. The Section 7.1 microbenchmark also reports 20-26% higher attention kernel latency than the highly optimised FasterTransformer implementation.<br>What it does not claim: the paper does not present 2-4× as a universal end-to-end result, nor claim paging is free on any workload; block size is a tradeoff — too small underuses GPU parallelism, too large increases internal fragmentation and lowers the chance of sharing.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；Section 6 分场景；Section 8 Discussion；7.1 微基准</dd></div><div><dt>吞吐提升 / throughput</dt><dd>2–4×（对比 FasterTransformer、Orca）</dd></div><div><dt>kernel 开销 / overhead</dt><dd>注意力 kernel 延迟高 20–26%</dd></div><div><dt>不适用场景 / not applicable</dt><dd>静态形状训练、算力瓶颈的非 LLM 推理</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；Section 6 分场景；Section 8 Discussion；7.1 微基准</dd></div><div><dt>吞吐提升 / throughput</dt><dd>2–4×（对比 FasterTransformer、Orca）</dd></div><div><dt>kernel 开销 / overhead</dt><dd>注意力 kernel 延迟高 20–26%</dd></div><div><dt>不适用场景 / not applicable</dt><dd>静态形状训练、算力瓶颈的非 LLM 推理</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>High throughput serving of large language models (LLMs) requires batching sufficiently many requests at a time.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2309.06180" rel="noopener">https://ar5iv.labs.arxiv.org/html/2309.06180</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>For another example, in serving DNNs that are not LLMs, an increase in memory efficiency may not result in any performance improvement since the performance is primarily compute-bound.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2309.06180" rel="noopener">https://ar5iv.labs.arxiv.org/html/2309.06180</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2309.06180" rel="noopener">https://arxiv.org/abs/2309.06180</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2309.06180" rel="noopener">https://arxiv.org/abs/2309.06180</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2309.06180" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2309.06180" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

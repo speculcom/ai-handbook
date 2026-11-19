@@ -179,7 +179,12 @@ for (const p of pages.filter((x) => x.id !== 'what-is')) {
 <!-- sec-tools:end -->
 `;
   if (html.includes('<!-- sec-tools:start -->')) {
-    html = html.replace(/<!-- sec-tools:start -->[\s\S]*?<!-- sec-tools:end -->\n?/, block);
+    html = html.replace(/<!-- sec-tools:start -->[\s\S]*?<!-- sec-tools:end -->\n?/, '');
+  }
+  /* 2026-11-19：两张入口卡原本插在 <main> 最前面，把首页 H1 顶到了第二屏。
+     现在放到 hero 之后：先看「先看你手里的活，再挑工具」，再决定走 Skills / 提示词。 */
+  if (/<section class="hero">/.test(html)) {
+    html = html.replace(/(<section class="hero">[\s\S]*?<\/section>\n?)/, `$1\n${block}`);
   } else {
     html = html.replace('<main id="main">', `<main id="main">\n${block}`);
   }

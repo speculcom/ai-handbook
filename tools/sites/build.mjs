@@ -268,8 +268,8 @@ const SITE = {
    * 之前都是纯中文，英文态下这两处露中文。desc 改成双节点字符串。 */
   nameEn: 'AI Tools',
   tagline: '让 AI 替你干活 —— 装在哪、连什么、边界在哪',
-  desc: bi('按任务分 11 大类，归三族：找现成的（编程 / 对话 / 图像 / 视频 / 音频 / 研究 / 安全与评测）、自己搭（自动化 / 框架）、接上与跑起来（MCP 工具 / 本地运行器）。各族坐标系不同，不做横向排名。',
-    'Eleven categories grouped into three families by task: ready-made (coding / chat / image / video / audio / research / safety & evaluation), build-your-own (automation / frameworks), and plug-in-and-run (MCP tools / local runners). The families use different coordinate systems, so this site does not rank across them.'),
+  desc: bi('想找能直接用的 AI 产品，还是自己搭一套？按任务挑：编程、对话、图像视频、音频、研究、安全与评测，再到自动化、框架和 MCP。每个条目写清能做什么、怎么接、限制在哪。',
+    'Looking for a ready-to-use AI product, or building your own? Pick by task: coding, chat, image/video, audio, research, safety & evaluation, then automation, frameworks and MCP. Every entry says what it does, how it plugs in and where it stops.'),
   repo: 'https://github.com/speculcom/ai-handbook',
   // 站内分区导航（跨站导航在 shell.mjs 的 NAV 里，那是全站唯一定义处）
   // v8 T30：10 大类页全部上线（旧三页及旧 URL 已删除）。
@@ -400,8 +400,8 @@ const SITES = {
     key: 'safety', navKey: 'agent', dir: 'safety', domain: SITE.domain,
     name: 'AI 安全与评测', nameEn: 'AI safety & evaluation', short: 'Safety', accent: '#f26d6d',
     tagline: bi('拦得住、测得出、追得回', 'Constrain it, measure it, trace it back'),
-    desc: bi('给 AI 系统做约束、度量与追责的产品：护栏与内容过滤、评测与观测、红队与审计、机密计算与访问控制、数据合规与脱敏、内容溯源与标识。本大类只收四条形态（网页 / 云服务 / 本机应用 / CLI）。安全与护栏的模型本体不收（「模型不是产品」）；六条线在不同层，不做横向排名，档案只回答「什么约束下选谁」。',
-      'Products that constrain, measure and make AI systems accountable: guardrails and content filtering, evaluation and observability, red teaming and audit, confidential compute and access control, data compliance and de-identification, provenance and labeling. This category files four forms only (web / cloud / local app / CLI). Safety and guardrail models themselves are out — same "a model is not a product" rule as everywhere else. The six lines live at different layers, so nothing here is ranked across them; an entry only answers "under which constraint you would pick whom".'),
+    desc: bi('给 AI 系统做约束、度量与追责的产品：护栏与内容过滤、评测与观测、红队与审计、机密计算与访问控制、数据合规与脱敏、内容溯源与标识。本大类只收四条形态（网页 / 云服务 / 本机应用 / CLI）。安全与护栏的模型本体不收（「模型不是产品」）；六条线在不同层，按你的约束挑一个就好。',
+      'Products that constrain, measure and make AI systems accountable: guardrails and content filtering, evaluation and observability, red teaming and audit, confidential compute and access control, data compliance and de-identification, provenance and labeling. This category files four forms only (web / cloud / local app / CLI). Safety and guardrail models themselves are out — same "a model is not a product" rule as everywhere else. The six lines live at different layers; pick one by the constraint you are under.'),
     // ⚠ owns 必须覆盖本大类实际用到的全部 form，否则 loadTrack() 的 OWNED 过滤会
     //   静默跳过档案（构建不报错、页面上没有），并连锁触发三处门禁。
     owns: ['web', 'cloud', 'local-app', 'cli'],
@@ -1527,7 +1527,7 @@ function renderIndex(site, partKey, entries) {
           </div>
           <p class="tagline">${line}</p>
           <div class="card-foot">
-            <span class="t-state ${e.confidence === 'verified' ? 'is-ok' : e.confidence === 'stale' ? 'is-stop' : 'is-warn'}">${bi(e.confidence === 'verified' ? '已核验' : e.confidence === 'stale' ? '待复核' : '部分核验', e.confidence === 'verified' ? 'Verified' : e.confidence === 'stale' ? 'Needs review' : 'Partly verified')}</span>
+            <span class="t-state ${e.confidence === 'verified' ? 'is-ok' : e.confidence === 'stale' ? 'is-stop' : 'is-warn'}">${bi(e.confidence === 'verified' ? '资料齐全' : e.confidence === 'stale' ? '需要复核' : '资料不全', e.confidence === 'verified' ? 'Complete' : e.confidence === 'stale' ? 'Needs review' : 'Partly missing')}</span>
             <a class="more" href="./${esc(e.id)}.html" aria-label="${esc(e.name)} 详情" data-ui-aria-label-zh="${esc(e.name)} 详情" data-ui-aria-label-en="${esc(e.nameEn || e.name)} details">${bi('详情 →', 'Details →')}</a>
           </div>
         </article>`;
@@ -1656,7 +1656,7 @@ ${orphan.map(cardFor).join('\n')}
     const ratiosVary = ratios.size > 1;
 
     const opt = (arr) => nativeOption('', '全部', 'All') + arr.map((o) => nativeOption(o.key, o.zh || o.label || o.key, o.en || o.label || o.key)).join('');
-    const CONF_LABEL = { verified: ['已核验', 'Verified'], partial: ['部分核验', 'Partly verified'], stale: ['待复核', 'Needs review'] };
+    const CONF_LABEL = { verified: ['资料齐全', 'Complete'], partial: ['资料不全', 'Partly missing'], stale: ['需要复核', 'Needs review'] };
 
     const parts = [`          <label class="af-f"><span class="af-h">${bi('筛选档案', 'Filter entries')}</span>
             <input type="search" class="aq" autocomplete="off" placeholder="Cursor · Claude · Aider"></label>`];
@@ -1667,7 +1667,7 @@ ${orphan.map(cardFor).join('\n')}
             <select class="asel-form" data-attr="${splitAttr}">${opt(opts)}</select></label>`);
     }
     if (confVals.size > 1) {
-      parts.push(`          <label class="af-f"><span class="af-h">${bi('核验状态', 'Verification')}</span>
+      parts.push(`          <label class="af-f"><span class="af-h">${bi('资料状态', 'Info status')}</span>
             <select class="asel-conf">${opt([...confVals].map((k) => ({ key: k, zh: (CONF_LABEL[k] || [k,k])[0], en: (CONF_LABEL[k] || [k,k])[1] })))}</select></label>`);
     }
     /* v8 T7：任务筛选（S43）退役——tasks.json 已删、tasks: 字段回灌即硬失败。 */
@@ -1719,21 +1719,13 @@ ${covRows.map(t => {
 
   const body = `    <section class="hero">
       <div class="container">
-        <p class="kicker">${bi(esc(SITE.name), esc(SITE.nameEn || SITE.name))} · ${esc(site.short)}</p>
+        <p class="kicker">${bi(esc(SITE.name), esc(SITE.nameEn || SITE.name))}</p>
         <h1 class="t-hero">${bi(esc(site.name), esc(site.nameEn || site.name))}</h1>
         <p class="lede">${site.desc}</p>
-        <div class="hero-meta">
-          <span><b>${entries.length}</b> ${bi('个对象','objects')}</span>
-          <span><b>${axisNames.length}</b> ${bi('个固定维度','fixed dimensions')}</span>
-          <span><b>${verified}</b> ${bi('个已完整核验','fully verified')}</span>
-          <span>${bi('最后核验','Last checked')} <b>${latestVerified}</b></span>
-        </div>
       </div>
     </section>
 
 ${partitionBar(partKey)}
-
-    ${boundarySection(partKey)}
 
     ${deepGuidesSection(partKey, GUIDES)}
 
@@ -1748,40 +1740,12 @@ ${groupBlocks()}
       </div>
     </section>
 
-    <section class="section status-band">
-      <div class="container">
-        <div class="status-inner">
-          <div class="status-mark" aria-hidden="true">!</div>
-          <div>
-            <h2>${bi('本站目前是「核验快照」，还没有实测数据', 'This site is currently a verification snapshot — no measured runs yet')}</h2>
-            <p>
-              ${isTools
-                ? bi('下面每个 server 的权限范围、传输方式与工具清单都能回到官方 README 核对，但<strong>我们还没有在真实客户端里跑过它们</strong>。',
-      'Every server\'s permission scope, transport and tool list below can be traced back to its official README, but <strong>we have not yet run them inside a real client</strong>.')
-                : bi('下面每一个字段都能回到官方原文核对，但<strong>我们还没有在同一批任务上跑过这些工具</strong>。',
-      'Every field below can be traced back to the official source, but <strong>we have not yet run these tools on the same batch of tasks</strong>.')}
-              ${bi('实测协议已经写好（统一任务、统一验收、记录人工介入与返工次数），任务清单也已就绪，', 'The measurement protocol is written (shared tasks, shared acceptance criteria, recording human interventions and rework counts) and the task list is ready, but it is ')}
-              ${bi('<strong>尚未执行</strong>。', '<strong>not yet run</strong>.')}
-            </p>
-            <p class="t-sm">
-              ${isTools
-                ? bi('MCP server 的风险不在「能不能干活」，而在<strong>权限边界是否清楚、越界是否被拒</strong>。',
-      'The risk in an MCP server is not whether it works, but whether <strong>the permission boundary is clear and overreach is refused</strong>.')
-                : bi('所以本站给的是<strong>能力边界与证据</strong>，不是「哪个更好用」的结论。',
-      'So what this site gives you is <strong>capability boundaries and evidence</strong>, not a verdict on which is better to use.')}
-              ${bi('真正的选型请用你自己的输入、预算与验收标准跑一遍。', 'For an actual choice, run them yourself against your own inputs, budget and acceptance criteria.')}
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <div class="container">
-        <h2>${bi(`${axisNames.length} 个维度，每格都能回溯`, `${axisNames.length} dimensions, every cell traceable`)}</h2>
+        <h2>${bi('挑工具时，可以看这几件事', 'What to look at when choosing')}</h2>
         <p class="section-desc">
-          ${bi('所有对象在同一坐标系下被描述'+(isTools ? '（MCP 服务器另有 3 个特有维度）' : '')+'。','All objects are described on the same coordinate system'+(isTools ? ' (MCP servers have 3 additional dimensions)' : '')+'.')}
-          ${bi('点开任一对象，每一格下面都有官方源链接与核验日期——不认同可以自己回去查。','Open any object and every cell carries an official source link and a checked date — disagree and verify it yourself.')}
+          ${bi('每个工具都按同一组问题拆开，方便你横向比较。','Every tool is broken down by the same questions, so you can compare them side by side.')}
+          ${bi('点开任一条，能看到官网原话和链接；不认同可以自己回去查。','Open any entry to see the official wording and link; disagree and check it yourself.')}
         </p>
         <div class="t-mesh axis-mesh">
 ${axisKeys.map(([k, label], i) => `          <div class="axis-cell">
@@ -1802,7 +1766,7 @@ ${axisKeys.map(([k, label], i) => `          <div class="axis-cell">
           <table class="cmp">
             <thead>
               <tr>
-                <th>${bi('对象','Object')}</th><th>${bi('形态','Form')}</th><th>${bi('厂商','Vendor')}</th><th>${bi('适合','Best for')}</th><th>${bi('核验日','Checked')}</th><th>${bi('状态','Status')}</th>
+                <th>${bi('对象','Object')}</th><th>${bi('形态','Form')}</th><th>${bi('厂商','Vendor')}</th><th>${bi('适合','Best for')}</th><th>${bi('资料时间','Info dated')}</th><th>${bi('状态','Status')}</th>
               </tr>
             </thead>
             <tbody>
@@ -1832,8 +1796,8 @@ ${entries.map(e => `              <tr>
           <ul>
             <li>${bi('<strong>缺统一实测，就不给分。</strong>跨工具的跑分口径不同——题目、预算、执行环境都不一样，A 的 90 分和 B 的 88 分不可比。', '<strong>No shared measurement, no score.</strong> Benchmarks across tools use different rules — different questions, budgets and environments. A 90 and a B 88 are not comparable.')}</li>
             <li>${bi('<strong>「未知」是合法答案。</strong>查不到就写「未知」并说明为什么，不用推测填充。缺信息本身也是信息。', '<strong>"Unknown" is a legitimate answer.</strong> If it cannot be found, we write "unknown" and explain why, instead of filling the gap with guesses. Missing information is itself information.')}</li>
-            <li>${bi('来源链接、类型与核验日都在详情页里，可以逐条回去复核。', 'The source link, its kind and the checked date are all on the detail page, so you can walk any of them back and re-check.')}</li>
-            <li>${bi('<strong>lifecycle 单独标注。</strong>核验日新不等于数据有效——上游归档后数据会失效，所以单独标 <code>active</code> / <code>maintenance</code> / <code>archived</code>。', '<strong>lifecycle is marked separately.</strong> A recent check date does not mean the data is still valid — it goes stale when upstream archives the repo, so <code>active</code> / <code>maintenance</code> / <code>archived</code> are tracked separately.')}</li>
+            <li>${bi('每个字段旁边都有来源链接，可以点回去看原文。', 'Every field carries a source link, so you can go back to the original.')}</li>
+            <li>${bi('<strong>刚查过，不代表一直有效。</strong>上游归档或改版后，这里会标成 <code>active</code> / <code>maintenance</code> / <code>archived</code>。', '<strong>A recent check does not mean it stays valid.</strong> When upstream archives or changes, the entry is marked <code>active</code> / <code>maintenance</code> / <code>archived</code>.')}</li>
             <li>${bi('<strong>不同族不混排。</strong>找现成的、自己搭的、接上与跑起来的是三种角色，坐标系不同；硬合成一张总表只会制造假的可比性。', '<strong>Families are not mixed.</strong> Ready-made tools, things you build yourself, and plug-in-and-run components are three different roles with different coordinate systems; forcing them into one master table would manufacture false comparability.')}</li>
           </ul>
         </div>
@@ -1842,9 +1806,9 @@ ${entries.map(e => `              <tr>
           <p class="t-sm mb-3">${bi('详情页与上表都带','Both the detail pages and the table above carry')} <code>confidence</code>${bi('，它反映',', which reflects')} <strong>${bi('本站数据的完整度',"how complete this site's data is")}</strong>${bi('，不是对产品的评价。',', not a judgement of the product.')}</p>
           <table class="src is-flush">
             <tbody>
-              <tr><th class="w-24"><span class="td-conf verified">verified</span></th><td>${bi(`${axisNames.length} 个维度均有官方源支撑，且核验日在 90 天内`, `all ${axisNames.length} dimensions have official sources and were checked within 90 days`)}</td></tr>
-              <tr><th><span class="td-conf partial">partial</span></th><td>${bi('部分维度标为未知，或官方文档不可访问，或核验日超过 90 天', 'some dimensions are marked unknown, or the official docs were unreachable, or checked over 90 days ago')}</td></tr>
-              <tr><th><span class="td-conf stale">stale</span></th><td>${bi('官方已发布重大变化，本站尚未核验', 'the vendor has shipped a significant change that this site has not re-checked')}</td></tr>
+              <tr><th class="w-24"><span class="td-conf verified">verified</span></th><td>${bi(`${axisNames.length} 个维度都有官方来源，资料时间在 90 天内`, `all ${axisNames.length} dimensions have official sources and were updated within 90 days`)}</td></tr>
+              <tr><th><span class="td-conf partial">partial</span></th><td>${bi('部分维度写着未知，或官方文档打不开，或资料超过 90 天', 'some dimensions are marked unknown, the official docs were unreachable, or the info is over 90 days old')}</td></tr>
+              <tr><th><span class="td-conf stale">stale</span></th><td>${bi('厂商已经发了大改动，这里还没来得及更新', 'the vendor has shipped a significant change that this site has not updated yet')}</td></tr>
             </tbody>
           </table>
         </div>
@@ -1852,7 +1816,7 @@ ${entries.map(e => `              <tr>
           <h2>${bi('本站当前的完整度','Current completeness on this site')}</h2>
           <p class="t-sm mb-2">
             ${bi("数据层用", "Recheck this figure with")} <code>node scripts/audit-gaps.mjs</code>${bi(" 可随时复核这个数字。", ".")}
-            ${bi(`下表实时计算（本页档案最后核验日 ${latestVerified}）：`, `Computed from current data; profiles last checked ${latestVerified}:`)}
+            ${bi(`下表按当前档案算（资料时间 ${latestVerified}）：`, `Computed from current data; info dated ${latestVerified}:`)}
           </p>
 ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/${COVERAGE.total} 维度已补齐`, `Site-wide ${COVERAGE.done}/${COVERAGE.total} dimensions filled`)}（${Math.round(COVERAGE.done / COVERAGE.total * 100)}%）</strong></p>
           <p class="t-sm">
@@ -1865,7 +1829,7 @@ ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/$
         <div class="panel">
           <h2>${bi('数据来源与复核方式','Sources and how to re-check them')}</h2>
           <p>${bi('全部数据来自开源仓库', 'All data comes from the open-source repository')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">speculcom/ai-handbook</a>${bi('（CC BY 4.0）。', ' (CC BY 4.0).')}</p>
-          <p>${bi('每个条目都是纯 Markdown + frontmatter，含维度记录、证据链接、核验日与可信度标记。仓库内含：', 'Every entry is plain Markdown plus frontmatter, carrying dimension records and an evidence chain with links, checked dates and confidence marks. The repository contains:')}</p>
+          <p>${bi('每个条目都是纯 Markdown + frontmatter，含维度记录、证据链接、资料时间与完整度标记。仓库内含：', 'Every entry is plain Markdown plus frontmatter, carrying dimension records and an evidence chain with links, checked dates and confidence marks. The repository contains:')}</p>
           <ul>
             <li><code>tools/METHODOLOGY.md</code> —— ${bi('方法论总纲与核心规则', 'the methodology charter and core rules')}</li>
             <li><code>tools/axes/</code> —— ${bi('每个维度的定义与判定标准（含正反例）', 'the definition and decision criteria for each dimension (with positive and negative examples)')}</li>
@@ -2102,12 +2066,12 @@ ${crumb}
       <nav class="panel is-slim" aria-label="档案目录" data-ui-aria-label-zh="档案目录" data-ui-aria-label-en="Profile contents"><p>${bi('先看你关心的部分', 'Jump to what matters to you')}</p><p>${axisKeys.map(({k,label,labelEn})=>`<a href="#dimension-${esc(k)}">${bi(label,labelEn || AXES_EN[k]?.name || label)}</a>`).join(' · ')}</p></nav>
       <div class="badges">
         ${(e.tags || []).map(t => `<span class="tag on">${bi(esc(t), esc(UI_EN.tags[t] || t))}</span>`).join('\n        ')}
-        <span class="badge accent">${esc(e.confidence)}</span>
-        <span class="badge">lifecycle: ${esc(e.lifecycle)}</span>
-        <span class="badge">${bi('核验','Checked')} ${esc(e.lastVerified)}</span>
+        <span class="badge accent">${bi(e.confidence === 'verified' ? '资料齐全' : e.confidence === 'stale' ? '需要复核' : '资料不全', e.confidence === 'verified' ? 'Complete' : e.confidence === 'stale' ? 'Needs review' : 'Partly missing')}</span>
+        <span class="badge">${bi(`状态：${e.lifecycle === 'active' ? '活跃' : e.lifecycle === 'maintenance' ? '维护中' : e.lifecycle === 'archived' ? '已归档' : e.lifecycle}`, `Status: ${esc(e.lifecycle)}`)}</span>
+        <span class="badge">${bi('资料时间','Info dated')} ${esc(e.lastVerified)}</span>
       </div>
 
-      <p class="t-sm">${bi('核验标记表示资料完整度，不是产品评分。下列未确认项可能影响选型；请按对应来源逐项确认。', 'The confidence mark describes evidence completeness, not a product score. Unconfirmed items below may affect your choice; check them against the relevant sources.')}</p>
+      <p class="t-sm">${bi('带「资料不全」的字段，说明官网没写清或链接失效；买前最好问厂商，或翻一眼它的更新日志。', 'A “partly missing” field means the official docs were unclear or a link was dead; ask the vendor or check its changelog before buying.')}</p>
       ${e.sec.unknowns && /^\s*[-*]/m.test(e.sec.unknowns) ? `      <div class="panel is-slim">
         <h2 id="known-unknowns">${bi('未确认的信息','Information not confirmed')}</h2>
         ${(() => {
@@ -2241,7 +2205,7 @@ ${(() => {
 
       <div class="panel">
         <h2>${bi('证据来源','Evidence sources')}</h2>
-        <p class="t-sm">${bi('最近核验记录','Latest recorded check')} ${esc(e.lastVerified)}，${bi('内容更新日','content updated on')} ${esc(e.lastUpdated)}。${bi('单项复核范围见正文或来源说明，不代表所有字段在同一天重新核验。','See the text or source notes for item-specific scope; this does not mean every field was rechecked on that date.')}</p>
+        <p class="t-sm">${bi('资料时间','Info dated')} ${esc(e.lastVerified)}，${bi('内容更新日','content updated on')} ${esc(e.lastUpdated)}。${bi('只说明这条资料的时间，不代表每个字段都在同一天重新查过。','This is the date of the entry, not a claim that every field was rechecked that day.')}</p>
         <table class="src">
           <thead><tr><th class="w-20">${bi('类型','Type')}</th><th class="w-52">${bi('名称','Name')}</th><th>${bi('链接','Link')}</th></tr></thead>
           <tbody>
@@ -2342,9 +2306,9 @@ function renderHome(loaded) {
                 <div class="vendor">${s.tagline}</div>
               </div>
             </div>
-            <p class="tagline">${bi(`${entries.length} 份档案 · ${v} 份已完整核验`, `${entries.length} entries · ${v} fully verified`)}</p>
+            <p class="tagline">${bi('按能力、接入方式和限制整理', 'Organised by capability, setup and limits')}</p>
             <div class="card-foot">
-              <span class="t-state ${v === entries.length ? 'is-ok' : 'is-warn'}">${bi('核验快照', 'Snapshot')}</span>
+              <span class="t-state">${bi('持续更新', 'Updated')}</span>
               <a class="more" href="/${s.dir}/" aria-label="${esc(s.name)}" data-ui-aria-label-zh="${esc(s.name)}" data-ui-aria-label-en="${esc(s.nameEn)}">${bi('进入 →', 'Browse →')}</a>
             </div>
           </article>`;
@@ -2365,23 +2329,15 @@ ${f.cats.map(catCard).join('\n')}
 
   const body = `    <section class="hero">
       <div class="container">
-        <p class="kicker">${bi(esc(SITE.name), esc(SITE.nameEn))}</p>
-        <h1 class="t-hero">${bi(esc(SITE.name), esc(SITE.nameEn))}</h1>
+        <p class="kicker">${bi('AI 工具 · 按任务挑', 'AI Tools · pick by task')}</p>
+        <h1 class="t-hero">${bi('先看你手里的活，再挑工具', 'Start with the job, then the tool')}</h1>
         <p class="lede">${SITE.desc}</p>
-        <div class="hero-meta">
-          <span><b>${total}</b> ${bi('个对象','objects')}</span>
-          <span><b>${SITE.partitions.length}</b> ${bi('个大类','categories')}</span>
-          <span><b>${verified}</b> ${bi('个已完整核验','fully verified')}</span>
-          <span>${bi('最后核验','Last checked')} <b>${latestVerified}</b></span>
-        </div>
       </div>
     </section>
 
 ${vizFor('tools')}
 
 ${partitionBar('')}
-
-    ${boundarySection('home')}
 
     <section class="section" id="task-practice">
       <div class="container">
@@ -2404,23 +2360,10 @@ ${famBlocks}
       </div>
     </section>
 
-    <section class="section status-band">
-      <div class="container">
-        <div class="status-inner">
-          <div class="status-mark" aria-hidden="true">!</div>
-          <div>
-            <h2>${bi('本站是「核验快照」，不是实测榜单', 'This site is a verification snapshot, not a benchmark chart')}</h2>
-            <p>${bi('每份档案的每个字段都能回到官方一手源核对，附来源类型与核验日期。但<strong>我们还没有在同一批任务上实测过这些工具</strong>——所以本站给的是<strong>能力边界与证据</strong>，不给总分排名。', 'Every field of every entry traces back to an official first-hand source, with source kind and checked date. But <strong>we have not yet run these tools on the same batch of tasks</strong> — so this site gives <strong>capability boundaries and evidence</strong>, not an overall ranking.')}</p>
-            <p class="t-sm">${bi('「未知」是合法答案——查不到就写未知并说明原因，不用推测填充。', '"Unknown" is a legitimate answer — if it cannot be found, we say so and explain why, instead of filling the gap with guesses.')}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <div class="container">
-        <h2>${bi('八个维度，每格都能回溯', 'Eight dimensions, every cell traceable')}</h2>
-        <p class="section-desc">${bi('档案都在同一坐标系下被描述（MCP 大类另有 3 个特有维度）。点开任一对象，每一格下面都有官方源链接与核验日期——不认同可以自己回去查。', 'Entries are described on one coordinate system (MCP servers carry 3 additional dimensions). Open any object and every cell carries an official source link and a checked date — disagree and verify it yourself.')}</p>
+        <h2>${bi('挑工具时，可以看这几件事', 'What to look at when choosing')}</h2>
+        <p class="section-desc">${bi('每份档案都按同一组问题拆开。点开任一工具，能看到官网原话和链接；不认同可以自己回去查。', 'Every entry is broken down by the same questions. Open any tool to see the official wording and link; disagree and check it yourself.')}</p>
         <div class="t-mesh axis-mesh">
 ${AXES.map(([k, label], i) => `          <div class="axis-cell">
             <span class="t-index">${String(i + 1).padStart(2, '0')}</span>

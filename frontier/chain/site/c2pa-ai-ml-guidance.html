@@ -13,8 +13,8 @@
   <meta property="og:description" content="交集：把内容凭证从「媒体文件」扩到 AI 供应链的三件东西——模型凭证、训练数据凭证、输出凭证；输出用 trainedAlgorithmicMedia 或 trainedAlgorithmicData 标记来源类型，模型还可挂一条数据挖掘断言，声明是否允许被拿去训练别的模型。适用范围：规范给的是断言" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
+  <script src="brand.js?v=afb8bddd659c"></script>
+  <link rel="stylesheet" href="brand.css?v=afb8bddd659c" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="chain.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"C2PA 面向 AI/ML 的实施指南 · 链","description":"交集：把内容凭证从「媒体文件」扩到 AI 供应链的三件东西——模型凭证、训练数据凭证、输出凭证；输出用 trainedAlgorithmicMedia 或 trainedAlgorithmicData 标记来源类型，模型还可挂一条数据挖掘断言，声明是否允许被拿去训练别的模型。适用范围：规范给的是断言","url":"https://chain.specul.com/c2pa-ai-ml-guidance.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>来源标识</span><span data-en>Provenance</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>来源标识</span><span data-en>Provenance</span></span></div>
   <h1><span data-zh>C2PA 面向 AI/ML 的实施指南</span><span data-en>C2PA guidance for AI and machine learning</span></h1>
   <p class="fx-entry-lead"><span data-zh>交集：把内容凭证从「媒体文件」扩到 AI 供应链的三件东西——模型凭证、训练数据凭证、输出凭证；输出用 trainedAlgorithmicMedia 或 trainedAlgorithmicData 标记来源类型，模型还可挂一条数据挖掘断言，声明是否允许被拿去训练别的模型。适用范围：规范给的是断言类型与清单结构，用于发现篡改与记录来源，不评估模型质量或输出是否正确。未解决：一切都依赖提供方如实填写，签名只覆盖签名之后的改动；凭证能否在转码与二次分发后存活取决于各平台。该文档本身以 CC BY 4.0 发布，可转载但需署名。</span><span data-en>The intersection: extending content credentials from media files to three things in the AI supply chain — a model credential, a training-data credential and an output credential. Outputs are tagged with trainedAlgorithmicMedia or trainedAlgorithmicData as the source type, and a model may carry a data mining assertion stating whether reuse for training other models is allowed, constrained or not allowed. Scope: the guidance supplies assertion types and manifest structure for detecting tampering and recording origin; it does not assess model quality or whether an output is correct. Open: everything depends on the provider recording honestly, a signature only covers changes made after signing, and whether a credential survives transcoding and redistribution depends on each platform. The document itself is published under CC BY 4.0, so reuse requires attribution.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>覆盖对象 / scope</dt><dd>模型凭证 · 训练数据凭证 · 输出凭证</dd></div><div><dt>输出来源类型 / source type</dt><dd>trainedAlgorithmicMedia（媒体）· trainedAlgorithmicData（非媒体）</dd></div><div><dt>权利表达 / rights</dt><dd>data mining assertion：allowed / constrained / not allowed</dd></div><div><dt>文档许可 / licence</dt><dd>CC BY 4.0</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>覆盖对象 / scope</dt><dd>模型凭证 · 训练数据凭证 · 输出凭证</dd></div><div><dt>输出来源类型 / source type</dt><dd>trainedAlgorithmicMedia（媒体）· trainedAlgorithmicData（非媒体）</dd></div><div><dt>权利表达 / rights</dt><dd>data mining assertion：allowed / constrained / not allowed</dd></div><div><dt>文档许可 / licence</dt><dd>CC BY 4.0</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>The C2PA specification can be used to add cryptographic information to detect the tampering of media files and streams.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html" rel="noopener">https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>the model C2PA Manifest can contain a data mining assertion that asserts rights as allowed, constrained, or not allowed for generative or non-generative AI-ML models or both.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html" rel="noopener">https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-specification</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html" rel="noopener">https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>来源标识</span><span data-en>Provenance</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html" rel="noopener">https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>来源标识</span><span data-en>Provenance</span></dd></div>
     </dl>
   </section>
   
-  <p><a class="fx-source" href="https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链目录</span><span data-en>← Back to the Chain directory</span></a></p>
+  <p><a class="fx-source" href="https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

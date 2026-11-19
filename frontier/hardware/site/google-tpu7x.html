@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>加速卡</span><span data-en>Accelerators</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-18</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>加速卡</span><span data-en>Accelerators</span></span></div>
   <h1><span data-zh>Google TPU7x（Ironwood）</span><span data-en>Google TPU7x (Ironwood)</span></h1>
   <p class="fx-entry-lead"><span data-zh>回答「第七代 TPU 单芯片给多少 HBM、FP8/BF16 算力，以及一个 Pod 有多大」。192GiB HBM3E、7.38TB/s、4614 TF FP8 是单芯片；9216 chips per pod 是 Pod 规模。它不是 GPU，不能按 CUDA 生态的选型逻辑直接套。<br>不主张：TPU 的 Pod 规模不是单卡可比的吞吐；4614 TF 是 FP8 峰值；不是所有框架都支持（官方写明 TensorFlow 不支持，JAX/PyTorch 支持）；不是「比 GPU 更强」的结论。</span><span data-en>Answers per-chip HBM, FP8/BF16 compute and Pod size for the seventh-generation TPU. 192GiB HBM3E, 7.38TB/s and 4614 TF FP8 are per chip; 9,216 chips per Pod is the Pod footprint. It is not a GPU and cannot be slotted into CUDA-ecosystem selection logic.<br>It does not claim: Pod scale is not per-card throughput; 4614 TF is FP8 peak; not every framework is supported (the docs say TensorFlow is not supported, JAX/PyTorch are); it is not a claim that TPUs are stronger than GPUs.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>HBM / chip</dt><dd>192 GiB HBM3E</dd></div><div><dt>带宽 / bandwidth</dt><dd>约 7.37 TB/s（7380 GBps）</dd></div><div><dt>FP8</dt><dd>4614 TFLOPS / chip</dd></div><div><dt>BF16</dt><dd>2307 TFLOPS / chip</dd></div><div><dt>Pod 规模 / pod</dt><dd>9,216 chips</dd></div><div><dt>ICI</dt><dd>1.2 TB/s 双向 / chip</dd></div><div><dt>框架 / frameworks</dt><dd>JAX、PyTorch（TensorFlow 不支持）</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>HBM / chip</dt><dd>192 GiB HBM3E</dd></div><div><dt>带宽 / bandwidth</dt><dd>约 7.37 TB/s（7380 GBps）</dd></div><div><dt>FP8</dt><dd>4614 TFLOPS / chip</dd></div><div><dt>BF16</dt><dd>2307 TFLOPS / chip</dd></div><div><dt>Pod 规模 / pod</dt><dd>9,216 chips</dd></div><div><dt>ICI</dt><dd>1.2 TB/s 双向 / chip</dd></div><div><dt>框架 / frameworks</dt><dd>JAX、PyTorch（TensorFlow 不支持）</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>TPU7x is the first release within the Ironwood family, Google Cloud&#39;s seventh generation TPU.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://docs.cloud.google.cn/tpu/docs/tpu7x" rel="noopener">https://docs.cloud.google.cn/tpu/docs/tpu7x</a></figcaption>
       </figure>
@@ -118,17 +118,17 @@
         <blockquote>Bidirectional inter-chip interconnect (ICI) bandwidth per chip (GBps) 1200 800 1200</blockquote>
         <figcaption><span class="fx-ev-n">5</span> <a href="https://docs.cloud.google.cn/tpu/docs/tpu7x" rel="noopener">https://docs.cloud.google.cn/tpu/docs/tpu7x</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-18</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-18</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-spec-page</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://docs.cloud.google.cn/tpu/docs/tpu7x" rel="noopener">https://docs.cloud.google.cn/tpu/docs/tpu7x</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>加速卡</span><span data-en>Accelerators</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://docs.cloud.google.cn/tpu/docs/tpu7x" rel="noopener">https://docs.cloud.google.cn/tpu/docs/tpu7x</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>加速卡</span><span data-en>Accelerators</span></dd></div>
     </dl>
   </section>
   
-  <p><a class="fx-source" href="https://docs.cloud.google.cn/tpu/docs/tpu7x" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力目录</span><span data-en>← Back to the Compute directory</span></a></p>
+  <p><a class="fx-source" href="https://docs.cloud.google.cn/tpu/docs/tpu7x" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

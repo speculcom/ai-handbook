@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-17</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
   <h1><span data-zh>DDPM：去噪扩散概率模型</span><span data-en>Denoising Diffusion Probabilistic Models</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：GAN 能出高质量样本但训练不稳定，VAE 有似然但样本偏模糊；能不能用「逐步加噪、再逐步去噪」的扩散过程，同时拿到质量和可训练性？<br>证据位置：前向/反向过程在 §2–§3，训练目标（简化噪声预测损失）在 §3，采样在 Algorithm 2；实验在 §4，CIFAR10 的 IS/FID 在 Table 1，LSUN 256×256 在 §4.4 左右；结论在 §6，影响讨论在 Broader Impact。<br>作者自陈局限：论文没有独立 Limitations 章节。摘要与 §1 明确说「样本质量好，但似然不如其他似然模型有竞争力」，并解释大部分无损码长花在不可感知的细节上（§4.3）；Broader Impact 主动写了两类风险——可被用于伪造公众人物图像与视频，以及训练数据偏见会被生成模型放大。<br>它没主张的：没有说扩散模型在似然上优于 ARM/VAE；没有说采样已经够快——扩散需要多步迭代，这一点是后续工作（DDIM、蒸馏等）才改善；也没有说 FID 3.17 可以跨数据集比较——FID 依赖特征提取器与样本量，论文只报了自己的设置。</span><span data-en>Problem: GANs produce sharp samples but train unstably, while VAEs have likelihoods but blurrier samples; can a process that gradually adds noise and then denoises it deliver both quality and trainability?<br>Where the evidence sits: forward and reverse processes in Sections 2-3, the simplified noise-prediction objective in Section 3, sampling in Algorithm 2; experiments in Section 4, with CIFAR10 IS/FID in Table 1 and 256x256 LSUN around 4.4; conclusion in Section 6 and societal impact in the Broader Impact section.<br>Stated limits: there is no separate Limitations section. The abstract and Section 1 state plainly that sample quality is high but likelihoods are not competitive with other likelihood-based models, explaining that most lossless code length goes to imperceptible detail (Section 4.3); the Broader Impact section volunteers two risks — use for fake images and videos of public figures, and amplification of dataset biases.<br>What it does not claim: it does not claim diffusion beats autoregressive models or VAEs on likelihood; it does not claim sampling is fast — diffusion needs many iterative steps, which later work (DDIM, distillation) addressed; and it does not claim FID 3.17 is comparable across datasets, since FID depends on the feature extractor and sample size.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2–3 扩散过程；§4 实验（Table 1）；§4.3 码长分析；§6 结论；Broader Impact</dd></div><div><dt>规模 / scale</dt><dd>CIFAR10 无条件生成；256×256 LSUN</dd></div><div><dt>关键数字 / key numbers</dt><dd>CIFAR10 IS 9.46、FID 3.17；LSUN 样本质量接近 ProgressiveGAN</dd></div><div><dt>自陈局限 / stated limits</dt><dd>似然不具竞争力；伪造图像/视频与偏见放大风险；无独立 Limitations 章节</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2–3 扩散过程；§4 实验（Table 1）；§4.3 码长分析；§6 结论；Broader Impact</dd></div><div><dt>规模 / scale</dt><dd>CIFAR10 无条件生成；256×256 LSUN</dd></div><div><dt>关键数字 / key numbers</dt><dd>CIFAR10 IS 9.46、FID 3.17；LSUN 样本质量接近 ProgressiveGAN</dd></div><div><dt>自陈局限 / stated limits</dt><dd>似然不具竞争力；伪造图像/视频与偏见放大风险；无独立 Limitations 章节</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>On the unconditional CIFAR10 dataset, we obtain an Inception score of 9.46 and a state-of-the-art FID score of 3.17.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2006.11239" rel="noopener">https://ar5iv.labs.arxiv.org/html/2006.11239</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>Sample generation techniques can be employed to produce fake images and videos of high profile figures for political purposes.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2006.11239" rel="noopener">https://ar5iv.labs.arxiv.org/html/2006.11239</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-17</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-17</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2006.11239" rel="noopener">https://arxiv.org/abs/2006.11239</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2006.11239" rel="noopener">https://arxiv.org/abs/2006.11239</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2006.11239" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2006.11239" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

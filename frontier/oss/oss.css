@@ -66,20 +66,20 @@
   flex-direction: column;
   gap: 8px;
   padding: 18px;
-  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+  border: 1px solid var(--line, rgba(35, 32, 48, 0.14));
   border-radius: 16px;
-  background: linear-gradient(160deg, rgba(34, 197, 94, 0.07), rgba(20, 16, 29, 0.6) 45%);
-  color: inherit;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--ok) 6%, var(--bg-panel)), var(--bg-panel) 55%);
+  color: var(--ink);
   text-decoration: none;
 }
 .scene-card:hover {
-  border-color: rgba(34, 197, 94, 0.55);
+  border-color: color-mix(in srgb, var(--ok) 55%, var(--line));
   transform: translateY(-1px);
 }
 .scene-card .no {
   font-size: 11px;
   letter-spacing: 0.12em;
-  color: var(--ink-faint, rgba(235, 235, 245, 0.45));
+  color: var(--ink-faint);
 }
 .scene-card h3 {
   margin: 0;
@@ -87,14 +87,14 @@
 }
 .scene-card p {
   margin: 0;
-  color: var(--ink-dim, rgba(235, 235, 245, 0.68));
+  color: var(--ink-dim);
   font-size: 14px;
   line-height: 1.6;
 }
 .scene-card .more {
   margin-top: auto;
   padding-top: 8px;
-  color: #86efac;
+  color: var(--ok);
   font-size: 13px;
 }
 

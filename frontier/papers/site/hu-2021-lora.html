@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>适配</span><span data-en>Adaptation</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>适配</span><span data-en>Adaptation</span></span></div>
   <h1><span data-zh>LoRA: Low-Rank Adaptation of Large Language Models</span><span data-en>LoRA: Low-Rank Adaptation of Large Language Models</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：全参数微调大模型要保存全部梯度与优化器状态，显存成本高；能不能只训练一组低秩增量，把主干权重冻住。<br>证据位置：可训练参数减少约一万倍、显存需求降三倍的总体结论在摘要；训练显存从 1.2TB 降到 350GB、r=4 时 checkpoint 从 350GB 降到 35MB、训练提速 25% 都在 Section 4.2。<br>作者自陈局限：Section 4.2 明确以「LoRA also has its limitations」开头——如果把低秩矩阵合并进原权重以消除推理延迟，就无法在单次前向里为不同任务批量喂入不同的 A 与 B；作者给出的替代是延迟不敏感场景下不合并、按样本动态选模块。<br>它没主张的：论文没有说低秩适配能追上全参数微调的最终质量上限，也没有覆盖所有模型规模；被广泛转述的「省显存」是训练阶段的数字，不等于推理更快。</span><span data-en>Problem: full fine-tuning of a large model requires storing every gradient and optimiser state, which is memory-expensive; can a low-rank increment be trained while the base weights stay frozen.<br>Where the evidence sits: the headline reduction of about ten thousand times fewer trainable parameters and three times less GPU memory is in the abstract; the drop from 1.2 TB to 350 GB of training VRAM, the checkpoint going from 350 GB to 35 MB at r=4, and a 25% training speed-up are all in Section 4.2.<br>What the authors say about limits: Section 4.2 opens with &quot;LoRA also has its limitations&quot; — if the low-rank matrices are merged into the original weights to remove inference latency, batched inputs to different tasks with different A and B in a single forward pass become awkward; the stated alternative is to skip the merge when latency is not critical and select modules per sample.<br>What it does not claim: the paper does not claim low-rank adaptation matches the quality ceiling of full fine-tuning, nor cover every model scale; the widely repeated memory saving is a training figure and does not imply faster inference.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>可训练参数 / trainable</dt><dd>减少约 10,000 倍（GPT-3 175B）</dd></div><div><dt>训练显存 / training VRAM</dt><dd>1.2 TB → 350 GB</dd></div><div><dt>checkpoint 体积 / size</dt><dd>350 GB → 35 MB（r=4，仅 q、v）</dd></div><div><dt>训练加速 / speed-up</dt><dd>25%</dd></div><div><dt>局限位置 / limits</dt><dd>Section 4.2 Practical Benefits and Limitations</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>可训练参数 / trainable</dt><dd>减少约 10,000 倍（GPT-3 175B）</dd></div><div><dt>训练显存 / training VRAM</dt><dd>1.2 TB → 350 GB</dd></div><div><dt>checkpoint 体积 / size</dt><dd>350 GB → 35 MB（r=4，仅 q、v）</dd></div><div><dt>训练加速 / speed-up</dt><dd>25%</dd></div><div><dt>局限位置 / limits</dt><dd>Section 4.2 Practical Benefits and Limitations</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Compared to GPT-3 175B fine-tuned with Adam, LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2106.09685" rel="noopener">https://ar5iv.labs.arxiv.org/html/2106.09685</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>On GPT-3 175B, we reduce the VRAM consumption during training from 1.2TB to 350GB.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2106.09685" rel="noopener">https://ar5iv.labs.arxiv.org/html/2106.09685</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2106.09685" rel="noopener">https://arxiv.org/abs/2106.09685</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>适配</span><span data-en>Adaptation</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2106.09685" rel="noopener">https://arxiv.org/abs/2106.09685</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>适配</span><span data-en>Adaptation</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2106.09685" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2106.09685" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

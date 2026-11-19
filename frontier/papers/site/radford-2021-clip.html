@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-17</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
   <h1><span data-zh>CLIP：用自然语言监督学习可迁移的视觉模型</span><span data-en>Learning Transferable Visual Models From Natural Language Supervision</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：视觉模型通常预测固定类别，换一个概念就要重新标数据；能不能直接用互联网图文对做对比学习，让自然语言成为分类器？<br>证据位置：方法在 §2（对比学习、zero-shot 分类器构造）；分析在 §3（细粒度、计数、OCR、分布偏移等）；局限集中在 §6，作者把散落在各节的问题汇总成一份清单。<br>作者自陈局限：§6 写得非常直白——zero-shot CLIP 平均只是接近「ResNet-50 特征 + 线性分类器」这一简单基线，要达到整体 SOTA 估计还需要约 1000 倍算力，当前硬件不可行；在细粒度分类（车型、花种、飞机型号）、计数、以及训练分布外的新任务上很弱，MNIST 手写数字只有 88%，不如原始像素上的逻辑回归；只能从给定分类器里的概念中选，不能像 caption 模型那样生成新描述；没有解决数据效率问题；开发过程中反复在完整验证集上调参，不符合真正 zero-shot 的设定；评测集是「有点随意拼出来的 27 个数据集」，与 CLIP 能力共同演化；训练数据未筛选，会学到社会偏见。<br>它没主张的：没有说 zero-shot 已经全面超过监督模型——原文说「often competitive」；没有说 CLIP 能处理所有视觉概念——§6 明确说很多任务接近随机；也没有说 4 亿图文对是数据效率的解法——作者反而说它只是用规模换监督。</span><span data-en>Problem: vision models usually predict a fixed label set and need new labels for every new concept; can internet image-text pairs be used for contrastive pretraining so natural language itself becomes the classifier?<br>Where the evidence sits: approach in Section 2 (contrastive pretraining and zero-shot classifier construction); analysis in Section 3 (fine-grained, counting, OCR, distribution shift); limitations are collected in Section 6.<br>Stated limits: Section 6 is unusually direct — zero-shot CLIP is on average only competitive with a linear classifier on ResNet-50 features; reaching overall state of the art is estimated to need about 1000x more compute, infeasible on current hardware; it is weak on fine-grained classification (car models, flower species, aircraft variants), counting, and novel out-of-distribution tasks, scoring only 88% on MNIST handwritten digits, below logistic regression on raw pixels; it can only choose among concepts in a given classifier, unlike a caption model that can generate novel descriptions; it does not solve data efficiency; development repeatedly queried full validation sets, which is unrealistic for true zero-shot; the 27-dataset evaluation collection was somewhat haphazardly assembled and co-adapted with CLIP; and unfiltered training pairs teach social biases.<br>What it does not claim: it does not claim zero-shot beats supervised models across the board — the paper says “often competitive”; it does not claim CLIP handles all visual concepts — Section 6 says many tasks are near chance; and it does not claim 400M pairs solve data efficiency, arguing instead that CLIP trades scale for supervision.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 方法；§3 分析；§6 Limitations（汇总清单）</dd></div><div><dt>规模 / scale</dt><dd>4 亿（image, text）对；30+ 个视觉数据集</dd></div><div><dt>关键数字 / key numbers</dt><dd>ImageNet zero-shot 追平原始 ResNet-50（未用其 128 万训练样本）；MNIST 88%</dd></div><div><dt>自陈局限 / stated limits</dt><dd>需约 1000× 算力才到整体 SOTA；细粒度/计数/新任务弱；数据效率未解决；评测集共适应；社会偏见</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 方法；§3 分析；§6 Limitations（汇总清单）</dd></div><div><dt>规模 / scale</dt><dd>4 亿（image, text）对；30+ 个视觉数据集</dd></div><div><dt>关键数字 / key numbers</dt><dd>ImageNet zero-shot 追平原始 ResNet-50（未用其 128 万训练样本）；MNIST 88%</dd></div><div><dt>自陈局限 / stated limits</dt><dd>需约 1000× 算力才到整体 SOTA；细粒度/计数/新任务弱；数据效率未解决；评测集共适应；社会偏见</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>we match the accuracy of the original ResNet-50 on ImageNet zero-shot without needing to use any of the 1.28 million training examples it was trained on</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2103.00020" rel="noopener">https://ar5iv.labs.arxiv.org/html/2103.00020</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>CLIP only achieves 88% accuracy on the handwritten digits of MNIST. An embarrassingly simple baseline of logistic regression on raw pixels outperforms zero-shot CLIP.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2103.00020" rel="noopener">https://ar5iv.labs.arxiv.org/html/2103.00020</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-17</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-17</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2103.00020" rel="noopener">https://arxiv.org/abs/2103.00020</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2103.00020" rel="noopener">https://arxiv.org/abs/2103.00020</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2103.00020" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2103.00020" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

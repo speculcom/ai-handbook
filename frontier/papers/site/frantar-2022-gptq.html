@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span></div>
   <h1><span data-zh>GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers</span><span data-en>GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：几百亿参数的模型光显存就装不下，训练后量化到低比特往往掉点严重；能不能在不重训的前提下压到 3–4 bit 还基本不掉。<br>证据位置：175B 模型约 4 个 GPU 小时压到 3 或 4 bit 的结论在摘要；局限同时写在引言贡献段与第 6 节 Summary and Limitations。<br>作者自陈局限：两点很关键——加速来自减少显存搬运，不是减少计算量，主流硬件不支持 FP16×INT4 这类混合精度乘加，因此实际矩阵乘法并不会变快；研究只覆盖生成任务，未做激活量化（作者认为激活不是目标场景的瓶颈）。<br>它没主张的：论文没有说量化后推理整体更快，也没有覆盖激活量化与更大的压缩率；「单卡跑 175B」指的是权重能装进一张卡，不等于该配置的吞吐满足线上服务。</span><span data-en>Problem: models with tens of billions of parameters do not fit in memory, and post-training quantisation to low bit-width usually costs accuracy; can 3-4 bits be reached without retraining and with almost no loss.<br>Where the evidence sits: the 175B-in-four-GPU-hours result at 3 or 4 bits is in the abstract; the limits appear both in the introduction’s contribution list and in Section 6, Summary and Limitations.<br>What the authors say about limits: two matter — the speed-up comes from reduced memory movement, not from fewer computations, and mainstream hardware lacks support for mixed-precision operands such as FP16 by INT4, so the actual multiplications are not faster; and the study covers generative tasks only and does not quantise activations, which the authors consider not a bottleneck in their target setting.<br>What it does not claim: the paper does not claim faster end-to-end inference, nor cover activation quantisation or higher compression; &quot;175B on a single GPU&quot; means the weights fit on one card, not that throughput meets serving requirements.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；引言贡献段；Section 6 Summary and Limitations</dd></div><div><dt>位宽 / bit-width</dt><dd>3 或 4 bit 每权重</dd></div><div><dt>量化耗时 / quantisation</dt><dd>175B 模型约 4 GPU 小时</dd></div><div><dt>加速来源 / speed-up source</dt><dd>减少显存搬运，非减少计算</dd></div><div><dt>未覆盖 / not covered</dt><dd>激活量化</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；引言贡献段；Section 6 Summary and Limitations</dd></div><div><dt>位宽 / bit-width</dt><dd>3 或 4 bit 每权重</dd></div><div><dt>量化耗时 / quantisation</dt><dd>175B 模型约 4 GPU 小时</dd></div><div><dt>加速来源 / speed-up source</dt><dd>减少显存搬运，非减少计算</dd></div><div><dt>未覆盖 / not covered</dt><dd>激活量化</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Specifically, GPTQ can quantize GPT models with 175 billion parameters in approximately four GPU hours, reducing the bitwidth down to 3 or 4 bits per weight, with negligible accuracy degradation relative to the uncompressed baseline.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2210.17323" rel="noopener">https://ar5iv.labs.arxiv.org/html/2210.17323</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>On the technical side, our method obtains speedups from reduced memory movement, and does not lead to computational reductions.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2210.17323" rel="noopener">https://ar5iv.labs.arxiv.org/html/2210.17323</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2210.17323" rel="noopener">https://arxiv.org/abs/2210.17323</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2210.17323" rel="noopener">https://arxiv.org/abs/2210.17323</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2210.17323" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2210.17323" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

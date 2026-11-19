@@ -13,8 +13,8 @@
   <meta property="og:description" content="交集：当 AI 内容凭证或数据授权由合约账户而不是个人私钥签署时，验证者需要问「这个合约是否认可该签名」；ERC-1271 给出合约侧统一验证入口。 适用范围：官方摘要说 EOA 能用私钥签消息而合约不能，因此提出通过 signing contract 上的 isValidSignature(has" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
+  <script src="brand.js?v=afb8bddd659c"></script>
+  <link rel="stylesheet" href="brand.css?v=afb8bddd659c" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="chain.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"ERC-1271：合约账户签名验证 · 链","description":"交集：当 AI 内容凭证或数据授权由合约账户而不是个人私钥签署时，验证者需要问「这个合约是否认可该签名」；ERC-1271 给出合约侧统一验证入口。 适用范围：官方摘要说 EOA 能用私钥签消息而合约不能，因此提出通过 signing contract 上的 isValidSignature(has","url":"https://chain.specul.com/eip-1271.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span></div>
   <h1><span data-zh>ERC-1271：合约账户签名验证</span><span data-en>ERC-1271: Standard Signature Validation Method for Contracts</span></h1>
   <p class="fx-entry-lead"><span data-zh>交集：当 AI 内容凭证或数据授权由合约账户而不是个人私钥签署时，验证者需要问「这个合约是否认可该签名」；ERC-1271 给出合约侧统一验证入口。<br>适用范围：官方摘要说 EOA 能用私钥签消息而合约不能，因此提出通过 signing contract 上的 isValidSignature(hash, signature) 验证签名。它规定验证接口，不规定合约内部怎样决策，也不保证签名背后的业务声明真实。<br>未解决：合约钱包、多签与权限模块各自实现验证逻辑，跨应用仍要核对实现与升级风险；该规范已从 EIPs 仓库移到 ERCs 仓库，状态 Final，但本站不推断所有合约账户都支持。</span><span data-en>The intersection: when an AI content credential or data permission is signed by a contract account rather than a personal private key, verifiers need to ask whether the contract recognises the signature; ERC-1271 provides a common contract-side validation entry point.<br>Scope: the abstract says EOAs can sign messages with private keys but contracts cannot, and proposes validation through isValidSignature(hash, signature) on the signing contract. It standardises the interface, not the internal decision logic, and does not make the underlying business claim true.<br>Open: contract wallets, multisigs and permission modules implement their own validation, so applications still need to check implementation and upgrade risk; the specification moved from the EIPs repository to ERCs and is Final, but this site does not infer support by every contract account.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>协议状态 / status</dt><dd>Final（官方 ERC 状态；具体部署范围官方未说明）</dd></div><div><dt>规范来源 / source</dt><dd>https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md</dd></div><div><dt>核验日 / checked</dt><dd>2026-11-07</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>协议状态 / status</dt><dd>Final（官方 ERC 状态；具体部署范围官方未说明）</dd></div><div><dt>规范来源 / source</dt><dd>https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md</dd></div><div><dt>核验日 / checked</dt><dd>2026-11-07</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Externally Owned Accounts (EOA) can sign messages with their associated private keys, but currently contracts cannot.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md" rel="noopener">https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>status: Final</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md" rel="noopener">https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-specification</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md" rel="noopener">https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md" rel="noopener">https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
     </dl>
   </section>
   
-  <p><a class="fx-source" href="https://github.com/ethereum/ercs/blob/master/ERCS/erc-1271.md" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链目录</span><span data-en>← Back to the Chain directory</span></a></p>
+  <p><a class="fx-source" href="https://github.com/ethereum/ercs/blob/master/ERCS/erc-1271.md" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

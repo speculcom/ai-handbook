@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-17</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
   <h1><span data-zh>Llama 2：开放基础模型与对话微调模型</span><span data-en>Llama 2: Open Foundation and Fine-Tuned Chat Models</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：开放权重模型能不能在有用性与安全性上接近闭源模型，同时把训练、微调与安全对齐的做法公开到可复用的程度？<br>证据位置：预训练在 §2（数据、40% 增量、双倍上下文、GQA）；微调在 §3（SFT、拒绝采样、PPO）；安全在 §4；观察与洞察在 §5，其中 §5.2 是 Limitations and Ethical Considerations；结论在 §7。<br>作者自陈局限：§5.2 列得很全——知识在预训练后停止更新；可能生成不实内容，例如不合格建议；有幻觉倾向；训练以英文为主，其他语言能力脆弱；可能生成有害、冒犯或偏见内容；安全微调有时过度保守，会出现过多拒答或堆砌安全说明；安全基准本身有局限，未必覆盖对抗输入、毒性内容与所有人群。摘要还说明 34B 模型因「没有足够时间做红队测试」而暂不发布。<br>它没主张的：没有说 Llama 2-Chat 在所有基准上超过闭源模型——原文是「may be a suitable substitute」，且基于自家人类评估；没有说安全对齐已经解决——§5.2 明说部分问题仍可能存在；也没有说多语言可用——原文说英文以外「fragile and should be used with caution」。</span><span data-en>Problem: can an open-weight model approach closed models on helpfulness and safety while publishing pretraining, fine-tuning and safety alignment in a reusable way?<br>Where the evidence sits: pretraining in Section 2 (data, 40% more tokens, doubled context, GQA); fine-tuning in Section 3 (SFT, rejection sampling, PPO); safety in Section 4; observations in Section 5, with 5.2 covering limitations and ethical considerations; conclusion in Section 7.<br>Stated limits: 5.2 is thorough — knowledge stops updating after pretraining; the model can generate non-factual content such as unqualified advice; it is prone to hallucination; training is predominantly English and other languages are fragile; it may produce harmful, offensive or biased content; safety tuning sometimes over-corrects into excessive refusal or too much safety boilerplate; and safety benchmarks themselves may miss adversarial inputs, toxic content and some demographic groups. The abstract also says the 34B model was withheld for lack of time to red-team it sufficiently.<br>What it does not claim: it does not claim Llama 2-Chat beats closed models on all benchmarks — the paper says it “may be a suitable substitute” based on its own human evaluations; it does not claim safety alignment is solved — 5.2 says some issues may remain; and it does not claim multilingual readiness, calling non-English performance fragile and to be used with caution.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 预训练；§3 微调；§4 安全；§5.2 局限与伦理；§7 结论</dd></div><div><dt>规模 / scale</dt><dd>7B、13B、70B 发布；34B 训练但未发布（红队时间不足）</dd></div><div><dt>关键数字 / key numbers</dt><dd>预训练语料 +40%；上下文长度翻倍；GQA</dd></div><div><dt>自陈局限 / stated limits</dt><dd>知识不更新、幻觉、英文为主、有害/偏见内容、安全过度保守（§5.2）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 预训练；§3 微调；§4 安全；§5.2 局限与伦理；§7 结论</dd></div><div><dt>规模 / scale</dt><dd>7B、13B、70B 发布；34B 训练但未发布（红队时间不足）</dd></div><div><dt>关键数字 / key numbers</dt><dd>预训练语料 +40%；上下文长度翻倍；GQA</dd></div><div><dt>自陈局限 / stated limits</dt><dd>知识不更新、幻觉、英文为主、有害/偏见内容、安全过度保守（§5.2）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>ranging in scale from 7 billion to 70 billion parameters</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2307.09288" rel="noopener">https://ar5iv.labs.arxiv.org/html/2307.09288</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>Llama 2-Chat is subject to the same well-recognized limitations of other LLMs, including a cessation of knowledge updates post-pretraining, potential for non-factual generation such as unqualified advice, and a propensity towards hallucinations.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2307.09288" rel="noopener">https://ar5iv.labs.arxiv.org/html/2307.09288</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-17</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-17</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2307.09288" rel="noopener">https://arxiv.org/abs/2307.09288</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2307.09288" rel="noopener">https://arxiv.org/abs/2307.09288</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2307.09288" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2307.09288" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

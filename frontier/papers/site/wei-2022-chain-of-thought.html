@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>推理</span><span data-en>Reasoning</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>推理</span><span data-en>Reasoning</span></span></div>
   <h1><span data-zh>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</span><span data-en>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：复杂推理任务上直接给答案效果差，能不能让模型先写出中间推理步骤再给结论。<br>证据位置：规模涌现的结论在 Figure 4 与第 3.2 节，GSM8K 的具体数值在表 1、表 2（PaLM 540B 从 17.9 升到 56.9）。<br>作者自陈局限：第 6 节列了四条——思维链模仿了人类的思考过程，但这不回答神经网络是否真的在「推理」，作者把它留作开放问题；少样本场景手工加推理链的标注成本很低，但换到微调就可能高得不可行；没有任何机制保证推理路径正确，错误路径也能推出看似合理的答案；这种能力只在大规模模型上涌现，导致实际服务成本高。<br>它没主张的：论文没有说思维链让模型获得了可靠推理能力，也没有说小模型加提示就能复现；作者明确写了它对 10B 以下多数模型反而有害，所以「加一句 let’s think step by step 就变聪明」不是这篇的结论。</span><span data-en>Problem: on complex reasoning tasks, answering directly works poorly; can the model be made to write intermediate steps before concluding.<br>Where the evidence sits: the scale-emergence result is Figure 4 and Section 3.2; the GSM8K numbers are Tables 1 and 2 (PaLM 540B from 17.9 to 56.9).<br>What the authors say about limits: Section 6 lists four — a chain of thought emulates human reasoning but does not answer whether the network is actually reasoning, which is left open; manually annotating chains is cheap in the few-shot setting but could be prohibitive for fine-tuning; there is no guarantee of correct reasoning paths, so wrong paths also produce plausible answers; and the ability emerges only at large scale, making real-world serving costly.<br>What it does not claim: the paper does not say chain of thought confers reliable reasoning, nor that small models can reproduce it with a prompt — the authors state it actually hurts most models under 10B parameters, so &quot;just add let us think step by step&quot; is not the finding here.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>Figure 4 与第 3.2 节；表 1、表 2（GSM8K）</dd></div><div><dt>GSM8K / PaLM 540B</dt><dd>17.9 → 56.9（标准提示 → 思维链）</dd></div><div><dt>涌现门槛 / emergence</dt><dd>约 100B 参数以上；10B 以下多为负收益</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>Figure 4 与第 3.2 节；表 1、表 2（GSM8K）</dd></div><div><dt>GSM8K / PaLM 540B</dt><dd>17.9 → 56.9（标准提示 → 思维链）</dd></div><div><dt>涌现门槛 / emergence</dt><dd>约 100B 参数以上；10B 以下多为负收益</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>We explore how generating a chain of thought—a series of intermediate reasoning steps—significantly improves the ability of large language models to perform complex reasoning.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2201.11903" rel="noopener">https://ar5iv.labs.arxiv.org/html/2201.11903</a></figcaption>
       </figure>
@@ -114,17 +114,17 @@
         <blockquote>Finally, the emergence of chain-of-thought reasoning only at large model scales makes it costly to serve in real-world applications; further research could explore how to induce reasoning in smaller models.</blockquote>
         <figcaption><span class="fx-ev-n">4</span> <a href="https://ar5iv.labs.arxiv.org/html/2201.11903" rel="noopener">https://ar5iv.labs.arxiv.org/html/2201.11903</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2201.11903" rel="noopener">https://arxiv.org/abs/2201.11903</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>推理</span><span data-en>Reasoning</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2201.11903" rel="noopener">https://arxiv.org/abs/2201.11903</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>推理</span><span data-en>Reasoning</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2201.11903" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2201.11903" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

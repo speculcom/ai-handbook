@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>云算力</span><span data-en>Cloud compute</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-17</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>云算力</span><span data-en>Cloud compute</span></span></div>
   <h1><span data-zh>Azure ND GB200 v6</span><span data-en>Azure ND GB200 v6</span></h1>
   <p class="fx-entry-lead"><span data-zh>Azure 以 4 卡 VM 为售卖单位；18 台 VM 组成一个 72 卡的 GB200 NVL72 域。192 GiB 是每卡显存，不要乘成 VM 总量。选型要同时看单 VM 的 4×1.8 TB/s NVLink 与整域的 130 TB/s 横截面带宽；跨 VM 仍走 InfiniBand。</span><span data-en>Azure sells this as a four-GPU VM; 18 VMs form a 72-GPU GB200 NVL72 domain. 192 GiB is per GPU, not per VM. Selection must look at both the VM’s 4x 1.8 TB/s NVLink and the domain’s 130 TB/s cross-section, with cross-VM traffic over InfiniBand.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>GPU 数 / GPUs</dt><dd>4x NVIDIA Blackwell, 192 GiB each</dd></div><div><dt>vCPU</dt><dd>128 (NVIDIA Grace)</dd></div><div><dt>系统内存 / memory</dt><dd>900 GiB LPDDR5X</dd></div><div><dt>本地存储 / local NVMe</dt><dd>16 TiB</dd></div><div><dt>NVLink（VM 内）</dt><dd>4x 1.8 TB/s</dd></div><div><dt>InfiniBand</dt><dd>4x 400 Gb/s</dd></div><div><dt>整域 / NVL72 domain</dt><dd>72 GPUs, 13.5 TB HBM, 130 TB/s</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>GPU 数 / GPUs</dt><dd>4x NVIDIA Blackwell, 192 GiB each</dd></div><div><dt>vCPU</dt><dd>128 (NVIDIA Grace)</dd></div><div><dt>系统内存 / memory</dt><dd>900 GiB LPDDR5X</dd></div><div><dt>本地存储 / local NVMe</dt><dd>16 TiB</dd></div><div><dt>NVLink（VM 内）</dt><dd>4x 1.8 TB/s</dd></div><div><dt>InfiniBand</dt><dd>4x 400 Gb/s</dd></div><div><dt>整域 / NVL72 domain</dt><dd>72 GPUs, 13.5 TB HBM, 130 TB/s</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Each ND-GB200-v6 VM is powered by two NVIDIA Grace CPUs and four NVIDIA Blackwell GPUs.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series" rel="noopener">https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>Accelerators | 4 GPUs | Nvidia Blackwell GPU (192 GiB)</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series" rel="noopener">https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-17</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-17</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-spec-page</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series" rel="noopener">https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>云算力</span><span data-en>Cloud compute</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series" rel="noopener">https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>云算力</span><span data-en>Cloud compute</span></dd></div>
     </dl>
   </section>
   
-  <p><a class="fx-source" href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力目录</span><span data-en>← Back to the Compute directory</span></a></p>
+  <p><a class="fx-source" href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

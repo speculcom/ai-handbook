@@ -13,8 +13,8 @@
   <meta property="og:description" content="交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具调用可以自带预算：Agent 调一个付费 API，付款与取数在同一个请求链路里完成。 适用范围：官方文档把流程写成五步（请求、402 指令、" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
+  <script src="brand.js?v=afb8bddd659c"></script>
+  <link rel="stylesheet" href="brand.css?v=afb8bddd659c" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="chain.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"x402：用 HTTP 402 直接为 API 付费 · 链","description":"交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具调用可以自带预算：Agent 调一个付费 API，付款与取数在同一个请求链路里完成。 适用范围：官方文档把流程写成五步（请求、402 指令、","url":"https://chain.specul.com/x402-http-payments.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-17</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span></div>
   <h1><span data-zh>x402：用 HTTP 402 直接为 API 付费</span><span data-en>x402: paying for APIs over HTTP 402</span></h1>
   <p class="fx-entry-lead"><span data-zh>交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具调用可以自带预算：Agent 调一个付费 API，付款与取数在同一个请求链路里完成。<br>适用范围：官方文档把流程写成五步（请求、402 指令、付款载荷、服务端或 facilitator 验证结算、返回资源），并说明标准本身 0 费用、支持 EVM 批量结算。<br>未解决：付款的最终性、退款、争议与合规责任落在具体服务方与链上资产，不在协议层；本站不评价任何 x402 服务的定价或可靠性。</span><span data-en>The intersection: putting pay-per-call back into HTTP semantics — the server returns 402 plus payment instructions, the client pays, then receives the resource, with no accounts, sessions or credential management. For AI agents this means tool calls can carry their own budget: a paid API call and its payment settle in the same request path.<br>Scope: the official docs describe a five-step flow (request, 402 instructions, payment payload, verification and settlement by the server or a facilitator, resource) and state that the standard itself has zero fees and supports batched EVM settlement.<br>Open: finality, refunds, disputes and compliance sit with the specific service and on-chain asset, not the protocol layer; this entry does not judge any x402 service’s pricing or reliability.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>协议基础 / basis</dt><dd>HTTP 402 Payment Required</dd></div><div><dt>费用 / protocol fee</dt><dd>0（标准本身，官方文档）</dd></div><div><dt>结算 / settlement</dt><dd>EVM 批量结算（batch settlement）</dd></div><div><dt>适用对象 / users</dt><dd>服务方、买家、AI Agent</dd></div><div><dt>许可 / license</dt><dd>Apache-2.0（官方文档声明）</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>协议基础 / basis</dt><dd>HTTP 402 Payment Required</dd></div><div><dt>费用 / protocol fee</dt><dd>0（标准本身，官方文档）</dd></div><div><dt>结算 / settlement</dt><dd>EVM 批量结算（batch settlement）</dd></div><div><dt>适用对象 / users</dt><dd>服务方、买家、AI Agent</dd></div><div><dt>许可 / license</dt><dd>Apache-2.0（官方文档声明）</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>x402 is the open payment standard that enables services to charge for access to their APIs and content directly over HTTP.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://docs.x402.org/" rel="noopener">https://docs.x402.org/</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>Native support for machine-to-machine payments, enabling seamless use by AI agents</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://docs.x402.org/" rel="noopener">https://docs.x402.org/</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-17</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-17</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-documentation</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://docs.x402.org/" rel="noopener">https://docs.x402.org/</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://docs.x402.org/" rel="noopener">https://docs.x402.org/</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
     </dl>
   </section>
   
-  <p><a class="fx-source" href="https://docs.x402.org/" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链目录</span><span data-en>← Back to the Chain directory</span></a></p>
+  <p><a class="fx-source" href="https://docs.x402.org/" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

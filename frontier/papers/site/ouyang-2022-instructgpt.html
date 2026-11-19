@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>对齐</span><span data-en>Alignment</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>对齐</span><span data-en>Alignment</span></span></div>
   <h1><span data-zh>Training language models to follow instructions with human feedback</span><span data-en>Training language models to follow instructions with human feedback</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：让模型跟着用户意图走，而不只是把下一词预测得更准；做法是用人类偏好数据做监督微调再训奖励模型做强化学习。<br>证据位置：摘要给出 1.3B 胜过 175B 的偏好结论；局限集中在第 5.3 节 Limitations，对齐对象的讨论在第 5.2 节，未解决问题在第 5.4 节。<br>作者自陈局限：写了三层——标注者以英语为主、数据几乎全是英文指令，不能代表全部使用者；模型既不完全对齐也不完全安全，仍会编造事实、生成有毒或偏见内容；作者认为最大的局限是模型多数情况下会服从用户指令，即使这在现实世界可能造成伤害。他们还明确说并不主张研究者、雇来的标注者或 API 客户就是偏好的正确来源。<br>它没主张的：论文没有说对齐问题已被解决，也没有给出一个能同时满足所有人偏好的方案——作者原话是不可能训练出同时对齐所有人偏好、或让所有人都认可其取舍的系统。</span><span data-en>Problem: make a model follow user intent rather than only predict the next token better, using human preference data for supervised fine-tuning followed by reward-model-driven reinforcement learning.<br>Where the evidence sits: the abstract gives the 1.3B-beats-175B preference result; the limits are concentrated in Section 5.3 (Limitations), the question of whose preferences count is in 5.2, and open questions in 5.4.<br>What the authors say about limits: three layers — labelers are primarily English-speaking and the data is almost entirely English instructions, so they are not representative of everyone affected; the models are neither fully aligned nor fully safe and still fabricate facts or produce toxic and biased content; and the stated greatest limitation is that the models follow the user’s instruction even when that could cause real-world harm. They also state plainly that they are not claiming researchers, hired labelers or API customers are the right source of preferences.<br>What it does not claim: the paper does not say alignment is solved, nor offer a scheme that satisfies everyone — the authors write that it is impossible to train a system aligned to everyone’s preferences at once, or where everyone would endorse the tradeoffs.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；Section 5.3 Limitations；5.2 对齐对象；5.4 开放问题</dd></div><div><dt>方法 / method</dt><dd>SFT → 奖励模型 → PPO</dd></div><div><dt>摘要口径 / headline</dt><dd>1.3B 的输出被偏好于 175B GPT-3，参数量少 100 倍</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；Section 5.3 Limitations；5.2 对齐对象；5.4 开放问题</dd></div><div><dt>方法 / method</dt><dd>SFT → 奖励模型 → PPO</dd></div><div><dt>摘要口径 / headline</dt><dd>1.3B 的输出被偏好于 175B GPT-3，参数量少 100 倍</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Making language models bigger does not inherently make them better at following a user’s intent.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2203.02155" rel="noopener">https://ar5iv.labs.arxiv.org/html/2203.02155</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2203.02155" rel="noopener">https://ar5iv.labs.arxiv.org/html/2203.02155</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2203.02155" rel="noopener">https://arxiv.org/abs/2203.02155</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>对齐</span><span data-en>Alignment</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2203.02155" rel="noopener">https://arxiv.org/abs/2203.02155</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>对齐</span><span data-en>Alignment</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2203.02155" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2203.02155" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

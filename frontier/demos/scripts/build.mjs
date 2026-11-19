@@ -102,9 +102,9 @@ bind(catBox,'cat');if(${withModel ? 'true' : 'false'})bind(modelBox,'model');app
 
 const indexBody = `<div class="container demos-page">
   <header class="dm-hero">
-    <p class="kicker">${bi(`演示 · ${entries.length} 件作品 · ${modelGroups.length} 个模型 · ${cats.length} 类用途`, `Playground · ${entries.length} pieces · ${modelGroups.length} models · ${cats.length} uses`)}</p>
-    <h1>${bi('作品演示', 'Playground')}</h1>
-    <p class="dm-lead">${bi(`${entries.length} 个网页作品。能站内打开的直接看；每件作品的模型、作者、原帖与源码都标在作品页上。`, `${entries.length} web pieces. Play them here; each piece’s model, author, original post and source are noted on its own page.`)}</p>
+    <p class="kicker">${bi('演示 · 网页作品', 'Playground · web pieces')}</p>
+    <h1>${bi('这些网页作品，点开就能玩', 'Web pieces you can open and play')}</h1>
+    <p class="dm-lead">${bi('能站内打开的直接看，不能嵌入的链回原作者。每件作品的模型、作者、原帖与源码都写在作品页上。', 'Play the ones that run here; the rest link back to the author. Each piece’s model, author, original post and source are noted on its own page.')}</p>
     <div class="dm-collection-links dm-hero-tools"><a class="dm-collection-link dm-collection-tool" href="compare.html">${bi('并排对照', 'Compare')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="prompts.html">${bi('提示词索引', 'Prompts')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="2026.html">${bi('2026 增补', '2026 patch')} <span aria-hidden="true">&rarr;</span></a></div>
   </header>
 </div>

@@ -13,8 +13,8 @@
   <meta property="og:description" content="问题：Agent 代用户付款时，商家怎么知道「这真的是用户授权的」？出争议时拿什么作证据？AP2 用可签名、可选披露的 mandate 把授权范围写下来，而不只是传一张卡号。 证据位置：Google 2026-04-28 博客宣布把 AP2 捐给 FIDO Alliance，同时发布 v0.2，新增" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
+  <script src="brand.js?v=afb8bddd659c"></script>
+  <link rel="stylesheet" href="brand.css?v=afb8bddd659c" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="chain.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"AP2：Agent Payments Protocol · 链","description":"问题：Agent 代用户付款时，商家怎么知道「这真的是用户授权的」？出争议时拿什么作证据？AP2 用可签名、可选披露的 mandate 把授权范围写下来，而不只是传一张卡号。 证据位置：Google 2026-04-28 博客宣布把 AP2 捐给 FIDO Alliance，同时发布 v0.2，新增","url":"https://chain.specul.com/ap2-agent-payments.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-18</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span></div>
   <h1><span data-zh>AP2：Agent Payments Protocol</span><span data-en>AP2: Agent Payments Protocol</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：Agent 代用户付款时，商家怎么知道「这真的是用户授权的」？出争议时拿什么作证据？AP2 用可签名、可选披露的 mandate 把授权范围写下来，而不只是传一张卡号。<br>证据位置：Google 2026-04-28 博客宣布把 AP2 捐给 FIDO Alliance，同时发布 v0.2，新增 Human Not Present；官方 FAQ 说明 AP2 是 payment-agnostic，Checkout / Payment 两类 mandate 各有 open / closed 两种；第三方 Protofire 2026-10 的对比明确写「未找到公开确认的生产 AP2 交易」。<br>局限：截至 2026-10 没有公开确认的生产交易；v0.2 只经历两个版本，mandate 模型在 v0.2 有替换；AP2 本身不做 checkout、目录或结算，要嵌在 UCP 等商业协议里；仓库仍在 Google 组织下，FIDO 接管刚开始。<br>它没主张的：不是已经大规模落地的支付网络；不是加密货币专用；不是替代卡组织或收单行；不是「Agent 可以无条件自动扣款」——Human Not Present 仍依赖用户预授权。</span><span data-en>Problem: when an agent pays on a user’s behalf, how does the merchant know the user really authorised it, and what evidence exists if disputed? AP2 records the scope of authorisation in signable, selectively disclosable mandates rather than passing a card number.<br>Where the evidence sits: Google’s 2026-04-28 post donates AP2 to the FIDO Alliance and releases v0.2 with Human Not Present; the official FAQ says AP2 is payment-agnostic and defines Checkout / Payment mandates, each open or closed; Protofire’s October 2026 comparison states no public, confirmed production AP2 transaction was found.<br>Limits: no publicly confirmed production transaction as of October 2026; v0.2 is only the second release and replaced the earlier mandate model; AP2 does no checkout, catalogue or settlement and must sit inside UCP or another commerce protocol; the repo is still under Google’s org while FIDO stewardship begins.<br>What it does not claim: a payment network already at scale; a crypto-only protocol; a replacement for card networks or acquirers; unconditional agent charging — Human Not Present still depends on pre-authorisation.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>提出 / introduced</dt><dd>2025-09（Google）</dd></div><div><dt>v0.2 / release</dt><dd>2026-04-28</dd></div><div><dt>治理 / governance</dt><dd>FIDO Alliance（2026-04-28 捐赠）</dd></div><div><dt>mandate</dt><dd>Checkout / Payment；open / closed；SD-JWT</dd></div><div><dt>生产状态 / production</dt><dd>截至 2026-10 未确认</dd></div><div><dt>许可 / license</dt><dd>Apache-2.0（官方 FAQ）</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>提出 / introduced</dt><dd>2025-09（Google）</dd></div><div><dt>v0.2 / release</dt><dd>2026-04-28</dd></div><div><dt>治理 / governance</dt><dd>FIDO Alliance（2026-04-28 捐赠）</dd></div><div><dt>mandate</dt><dd>Checkout / Payment；open / closed；SD-JWT</dd></div><div><dt>生产状态 / production</dt><dd>截至 2026-10 未确认</dd></div><div><dt>许可 / license</dt><dd>Apache-2.0（官方 FAQ）</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>we’re also releasing AP2 v.0.2, which introduces critical updates for autonomous transactions, including “Human Not Present” payments</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/" rel="noopener">https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/</a></figcaption>
       </figure>
@@ -114,17 +114,17 @@
         <blockquote>we found no public, confirmed production AP2 transaction as of 18 October 2026</blockquote>
         <figcaption><span class="fx-ev-n">4</span> <a href="https://protofire.io/guides/agentic-payment-protocols/" rel="noopener">https://protofire.io/guides/agentic-payment-protocols/</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-18</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-18</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-documentation</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://ap2-protocol.org/faq/" rel="noopener">https://ap2-protocol.org/faq/</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://ap2-protocol.org/faq/" rel="noopener">https://ap2-protocol.org/faq/</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
     </dl>
   </section>
   
-  <p><a class="fx-source" href="https://ap2-protocol.org/faq/" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链目录</span><span data-en>← Back to the Chain directory</span></a></p>
+  <p><a class="fx-source" href="https://ap2-protocol.org/faq/" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

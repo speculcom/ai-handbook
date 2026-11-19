@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-17</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
   <h1><span data-zh>Switch Transformer：用简单稀疏路由扩到万亿参数</span><span data-en>Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？<br>证据位置：Switch 层与 top-1 路由在 §2；容量因子与负载均衡损失在 §2.2；训练与稳定性技巧（选择性精度、初始化、正则）在 §3；结果在 §4–§5，包含 T5-Base/Large 同算力 7× 预训练加速、101 种语言的 mT5 增益、万亿参数 Switch-C 对 T5-XXL 的 4× 加速；结论在 §9。<br>作者自陈局限：论文没有独立 Limitations 章节。Appendix E 明确提醒：上游困惑度不一定转化为下游任务——在最大模型区间（T5-11B/T5-XXL），Switch 模型并不总能把预训练优势带到 SuperGLUE 微调；作者说这需要未来研究，并指出专家模型的微调动态很复杂，依赖正则、负载均衡与超参。<br>它没主张的：没有说 Switch 在所有下游任务上都优于 dense——Appendix E 反而说小中模型区间两者相似，最大模型在 SuperGLUE 上不一定更好；没有说 top-1 路由普适最优——只与 GShard 等少数路由做了比较；也没有说 7× 加速能直接换算成 7× 成本优势——通信与专家并行开销未计入这句口号。</span><span data-en>Problem: MoE has many parameters at constant compute, but complex routing, expensive communication and unstable training kept it niche; can routing be simplified to one expert per token and paired with training tricks to make it stable?<br>Where the evidence sits: the Switch layer and top-1 routing in Section 2, capacity factor and load-balancing loss in 2.2, training and stability techniques (selective precision, initialization, regularization) in Section 3; results in Sections 4-5, including 7x pretraining speedup at equal compute for T5-Base/Large, gains across 101 languages for mT5, and a 4x speedup of trillion-parameter Switch-C over T5-XXL; conclusion in Section 9.<br>Stated limits: no separate Limitations section. Appendix E warns that upstream perplexity does not necessarily transfer downstream — in the largest regime (T5-11B/T5-XXL) Switch models do not always carry their pretraining advantage into SuperGLUE fine-tuning, which the authors leave to future work and attribute to complex fine-tuning dynamics depending on regularization, load balancing and hyperparameters.<br>What it does not claim: it does not claim Switch beats dense models on every downstream task — Appendix E says the two are similar in small-to-medium regimes and the largest Switch model is not always better on SuperGLUE; it does not claim top-1 routing is universally optimal, comparing only a few alternatives such as GShard; and it does not claim the 7x speedup translates directly into 7x cost savings, since communication and expert-parallel overhead are outside that headline.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 路由与负载均衡；§3 训练技巧；§4–5 结果；§9 结论；Appendix E 下游迁移</dd></div><div><dt>规模 / scale</dt><dd>T5-Base/Large 至 1.6T 参数、2048 专家的 Switch-C</dd></div><div><dt>关键数字 / key numbers</dt><dd>同算力最高 7× 预训练加速；101 语言优于 mT5-Base；相对 T5-XXL 4× 加速</dd></div><div><dt>自陈局限 / stated limits</dt><dd>最大模型的上游困惑度不总能迁移到 SuperGLUE（Appendix E）；无独立 Limitations 章节</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 路由与负载均衡；§3 训练技巧；§4–5 结果；§9 结论；Appendix E 下游迁移</dd></div><div><dt>规模 / scale</dt><dd>T5-Base/Large 至 1.6T 参数、2048 专家的 Switch-C</dd></div><div><dt>关键数字 / key numbers</dt><dd>同算力最高 7× 预训练加速；101 语言优于 mT5-Base；相对 T5-XXL 4× 加速</dd></div><div><dt>自陈局限 / stated limits</dt><dd>最大模型的上游困惑度不总能迁移到 SuperGLUE（Appendix E）；无独立 Limitations 章节</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>we show large sparse models may be trained, for the first time, with lower precision (bfloat16) formats</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.03961" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.03961</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>do not always translate their upstream perplexity well to downstream fine-tuning on the SuperGLUE task</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2101.03961" rel="noopener">https://ar5iv.labs.arxiv.org/html/2101.03961</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-17</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-17</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2101.03961" rel="noopener">https://arxiv.org/abs/2101.03961</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2101.03961" rel="noopener">https://arxiv.org/abs/2101.03961</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2101.03961" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2101.03961" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

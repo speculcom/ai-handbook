@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
   <h1><span data-zh>Training Compute-Optimal Large Language Models</span><span data-en>Training Compute-Optimal Large Language Models</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：在给定算力预算下，模型参数与训练 token 该怎么分配，才能得到损失最低的模型。<br>证据位置：三种拟合方法给出的指数在 Table 2（方法一 a=0.50、b=0.50；方法二 0.49/0.51；方法三 0.46/0.54），对照 Kaplan et al. 2020 的 0.73/0.27；参数拟合式在附录 D.2。<br>作者自陈局限：讨论一节自己列了三条——大规模上只有 Chinchilla 与 Gopher 两次可比训练、缺中间规模验证；假设算力前沿服从幂律；在高算力区观察到 log(N_opt) 出现凹性，因此可能仍然高估了最优模型规模。此外作者提示 Chinchilla 用了四倍于 Gopher 的数据、训练集与测试集重叠可能人为抬高基准成绩。<br>它没主张的：论文没有说「模型越小越好」，也没有给出适用于任何架构的常数；结论是同一算力预算下参数与 token 应按相同比例增长，且这一结论建立在语言模型与所采用拟合形式之上。</span><span data-en>Problem: under a fixed compute budget, how should parameters and training tokens be split to reach the lowest loss.<br>Where the evidence sits: the exponents from three fitting procedures are in Table 2 (method one a=0.50, b=0.50; method two 0.49/0.51; method three 0.46/0.54), against 0.73/0.27 in Kaplan et al. 2020; the parametric fit is in Appendix D.2.<br>What the authors say about limits: the discussion lists three — only two comparable large-scale runs (Chinchilla and Gopher) with no intermediate-scale validation; an assumption that the compute-efficient frontier follows a power law; and observed concavity in log(N_opt) at high compute budgets, which suggests the optimal model size may still be overestimated. The authors also caution that Chinchilla saw four times more data than Gopher, so train/test overlap may inflate benchmark results.<br>What it does not claim: the paper does not say smaller is better, nor produce constants valid for any architecture; the finding is that parameters and tokens should scale in equal proportion at a given budget, conditional on language models and the fitted form used.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>被测模型规模 / model</dt><dd>70B 参数，1.4T token</dd></div><div><dt>拟合指数 a,b / exponents</dt><dd>0.50 / 0.50（方法一）· 对照 Kaplan 2020: 0.73 / 0.27</dd></div><div><dt>MMLU 平均准确率 / MMLU</dt><dd>67.5%</dd></div><div><dt>局限位置 / limits</dt><dd>Section 5 Discussion &amp; Conclusion</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>被测模型规模 / model</dt><dd>70B 参数，1.4T token</dd></div><div><dt>拟合指数 a,b / exponents</dt><dd>0.50 / 0.50（方法一）· 对照 Kaplan 2020: 0.73 / 0.27</dd></div><div><dt>MMLU 平均准确率 / MMLU</dt><dd>67.5%</dd></div><div><dt>局限位置 / limits</dt><dd>Section 5 Discussion &amp; Conclusion</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>We investigate the optimal model size and number of tokens for training a transformer language model under a given compute budget.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2203.15556" rel="noopener">https://ar5iv.labs.arxiv.org/html/2203.15556</a></figcaption>
       </figure>
@@ -114,17 +114,17 @@
         <blockquote>Some caution is needed when comparing Chinchilla with Gopher on these language modelling benchmarks as Chinchilla is trained on 4× more data than Gopher and thus train/test set leakage may artificially enhance the results.</blockquote>
         <figcaption><span class="fx-ev-n">4</span> <a href="https://ar5iv.labs.arxiv.org/html/2203.15556" rel="noopener">https://ar5iv.labs.arxiv.org/html/2203.15556</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2203.15556" rel="noopener">https://arxiv.org/abs/2203.15556</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2203.15556" rel="noopener">https://arxiv.org/abs/2203.15556</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2203.15556" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2203.15556" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

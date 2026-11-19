@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-07</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span></div>
   <h1><span data-zh>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</span><span data-en>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：自注意力的时间与显存随序列长度平方增长，瓶颈不在算力而在显存读写；能不能不把 N×N 注意力矩阵写回显存也算出精确结果。<br>证据位置：摘要给出三档端到端加速与 7.6 倍注意力计算加速；局限写在第 5 节 Limitations and Future Directions。<br>作者自陈局限：三点——每换一种注意力实现就要重写一个 CUDA kernel，要用比 PyTorch 低得多的语言写、工程量大；实现未必能跨 GPU 架构移植；他们的 IO 优化只在单卡上达到常数级最优，而注意力计算本身是可跨多卡并行的。<br>它没主张的：论文没有说这是近似注意力——结果精确；但也没有声称解决了多卡切分问题，更没有说端到端加速比等于注意力算子加速比（摘要里 15% / 3× / 2.4× 与算子级 7.6× 是两个口径，不能混用）。</span><span data-en>Problem: self-attention time and memory grow quadratically with sequence length, and the bottleneck is memory traffic rather than arithmetic; can exact attention be computed without writing the N×N matrix back to HBM.<br>Where the evidence sits: the abstract gives three end-to-end speed-ups plus a 7.6× speed-up on the attention computation itself; the limits are in Section 5, Limitations and Future Directions.<br>What the authors say about limits: three — each new attention implementation needs a new CUDA kernel written in a much lower-level language than PyTorch, which is significant engineering effort; implementations may not transfer across GPU architectures; and their IO-aware version is optimal within constants on a single GPU, whereas the attention computation itself may be parallelisable across multiple GPUs.<br>What it does not claim: the paper does not present an approximation — the result is exact — but it also does not solve multi-GPU partitioning, and it does not equate end-to-end speed-up with kernel speed-up (the 15% / 3× / 2.4× figures and the 7.6× kernel figure are different measurements and must not be mixed).</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要（三档端到端）；Section 5 Limitations</dd></div><div><dt>BERT-large 端到端 / e2e</dt><dd>15%（序列 512）</dd></div><div><dt>GPT-2 端到端 / e2e</dt><dd>3×（序列 1K）</dd></div><div><dt>注意力算子 / kernel</dt><dd>7.6×；显存随序列长度线性</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要（三档端到端）；Section 5 Limitations</dd></div><div><dt>BERT-large 端到端 / e2e</dt><dd>15%（序列 512）</dd></div><div><dt>GPT-2 端到端 / e2e</dt><dd>3×（序列 1K）</dd></div><div><dt>注意力算子 / kernel</dt><dd>7.6×；显存随序列长度线性</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/2205.14135" rel="noopener">https://ar5iv.labs.arxiv.org/html/2205.14135</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>15% end-to-end wall-clock speedup on BERT-large (seq. length 512) compared to the MLPerf 1.1 training speed record, 3× speedup on GPT-2 (seq. length 1K), and 2.4× speedup on long-range arena (seq. length 1K-4K).</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/2205.14135" rel="noopener">https://ar5iv.labs.arxiv.org/html/2205.14135</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-07</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-07</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2205.14135" rel="noopener">https://arxiv.org/abs/2205.14135</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2205.14135" rel="noopener">https://arxiv.org/abs/2205.14135</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/2205.14135" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/2205.14135" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">

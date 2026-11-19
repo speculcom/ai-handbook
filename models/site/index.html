@@ -13,11 +13,10 @@
   <meta property="og:description" content="想在本地跑大模型？两步都有出处：先看家族谱系卡选家族/代次/尺寸/许可，再看系列页选量化版（11 个系列、16 个模型仓、129 个量化仓、1262 个量化档、54 位量化者、1337 个 GGUF 文件）。不跑 benchmark，不托管权重。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=8e209a2fd1c9"></script>
-  <link rel="stylesheet" href="brand.css?v=8e209a2fd1c9" />
+  <script src="brand.js?v=afb8bddd659c"></script>
+  <link rel="stylesheet" href="brand.css?v=afb8bddd659c" />
   <link rel="stylesheet" href="site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"开放权重该怎么选 · AI 模型","url":"https://models.specul.com/","description":"开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。"}</script>
-  <link rel="stylesheet" href="sections.css" />
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -87,7 +86,7 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
@@ -95,48 +94,19 @@
   <div class="container">
     <header class="page-head home-head">
       <p class="eyebrow"><span data-zh>开放权重 · 怎么选</span><span data-en>Open weights · how to choose</span></p>
-      <h1><span class="grad-title"><span data-zh>开放权重，该怎么选</span><span data-en>How to choose open-weight models</span></span><span class="sub"><span data-zh>先选家族与规格，再选量化版——两步都有出处</span><span data-en>Pick the family and size first, the quantisation second — both steps carry sources</span></span></h1>
-      <p class="lede"><span data-zh>你想在<b>自己电脑上</b>跑一个大模型。问题分两层：<b>第一层</b>，开放权重的家族、代次、尺寸档、许可各不相同，该选哪个；<b>第二层</b>，同一个模型有几十个量化版，该下哪一个。本站把两层分开答：<b>家族谱系卡</b>讲第一层（出品方 / 代次 / 尺寸 / 许可 / 官方声明），<b>系列页</b>讲第二层（你的显存能跑哪档、该下多大体积）。不评模型强弱，也不排名。</span><span data-en>You want to run a large model <b>on your own machine</b>. The question has two layers: <b>first</b>, which family, generation, size tier and licence; <b>second</b>, which of dozens of quantisations to download. This site answers them separately: <b>family lineage cards</b> cover layer one (vendor / generations / sizes / licences / official claims), and <b>series pages</b> cover layer two (which tier fits your VRAM, how big the download is). It does not rank models against each other.</span></p>
-      <p class="lede lede-sub"><span data-zh><b>收录范围：开放权重（含蒸馏）——可本地部署的模型都收</b>，无论它是原生训练还是从别家模型蒸馏而来（HF 上有公开权重的 MoE 与 dense 模型）。闭源 / API-only 模型不在量化收录范围内——它们没有量化产物，下载和选型的问题不存在。本站另设<b>闭源谱系卡</b>做对照：只记官方规格快照与复核周期，不采价格、不排名。</span><span data-en><b>Scope: open weights (distillation included) — any model you can run locally</b>, whether trained from scratch or distilled from another model (MoE and dense models with public weights on HF). Closed-source / API-only models are out of the quantisation scope — they have no quantisations, so the download and selection questions do not arise. The site keeps a separate set of <b>closed-model lineage cards</b> for contrast: official spec snapshots with a review cycle, no prices, no rankings.</span></p>
-      <div class="home-stats">
-<div><b>16</b><span><span data-zh>个家族</span><span data-en>families</span></span></div>
-<div><b>11</b><span><span data-zh>个系列</span><span data-en>series</span></span></div>
-<div><b>16</b><span><span data-zh>个模型仓</span><span data-en>model repos</span></span></div>
-<div><b>129</b><span><span data-zh>个量化仓</span><span data-en>quant repos</span></span></div>
-<div><b>1262</b><span><span data-zh>个量化档</span><span data-en>quantised builds</span></span></div>
-<div><b>54</b><span><span data-zh>位量化者</span><span data-en>quantisers</span></span></div>
-<div><b>1337</b><span><span data-zh>个 GGUF 文件</span><span data-en>GGUF files</span></span></div>
-<div><b>6</b><span><span data-zh>张闭源谱系卡</span><span data-en>closed cards</span></span></div>
-      </div>
+      <h1><span class="grad-title"><span data-zh>想在自己电脑上跑模型？先选家族，再挑量化版</span><span data-en>Run a model on your own machine? Pick a family, then a quantisation</span></span><span class="sub"><span data-zh>先看家族和尺寸，再看显存能跑哪一档</span><span data-en>Start with the family and size, then the tier your VRAM can hold</span></span></h1>
+      <p class="lede"><span data-zh>每个模型都给出官方规格、许可和下载体积，方便直接做决定。</span><span data-en>Every model lists official specs, licence and download size so you can decide.</span></p>
     </header>
 
-<!-- sec-doors:start -->
-<div class="container">
-<div class="sec-doors">
-  <a class="sec-door" href="data/index.html">
-    <span class="k">Models · Data</span>
-    <h2>数据与训练语料</h2>
-    <p>24 张数据集卡，按 8 类整理。先看许可与商用边界，再看规模、语言与任务适配。</p>
-    <span class="more">看数据卡 →</span>
-  </a>
-  <a class="sec-door" href="evals/index.html">
-    <span class="k">Models · Evals</span>
-    <h2>评测与榜单</h2>
-    <p>20 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
-    <span class="more">看基准卡 →</span>
-  </a>
-</div>
-</div>
-<!-- sec-doors:end -->
 <section class="vz-section" id="lineage">
   <div class="container">
     <div class="vz-head">
-      <p class="vz-kicker">模型 · 数据视觉</p>
-      <h2 class="vz-title">16 个家族，14 个已经走到 2026 <span class="vz-title-sub">lineage</span></h2>
-      <p class="vz-dek"><span data-zh>模型站不排名，只回答「现在哪一代、多大、什么许可」。下面三张图分别看代次节奏、仓库体量与 2026 的六个新节点。</span><span data-en>The models site does not rank; it answers which generation is current, how big it is and under what licence. Three views: cadence, repo volume, and six 2026 nodes.</span></p>
+      <p class="vz-kicker">模型 · 一张图看全貌</p>
+      <h2 class="vz-title">开放权重模型，现在走到哪一代 <span class="vz-title-sub">lineage</span></h2>
+      <p class="vz-dek"><span data-zh>看家族换代的节奏、模型仓和量化仓的体量，以及 2026 年新发布的几个模型。先选家族和尺寸，再挑量化版。</span><span data-en>See the generation cadence, the number of model and quant repos, and the models released in 2026. Pick a family and size first, then a quantisation.</span></p>
     </div>
     <div class="vz-grid"><figure class="vz-card vz-span-6">
-    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>家族当前代次的时间分布</b><small><span data-zh>按 currentGenDate 月份计数</span><span data-en>count by currentGenDate month</span></small></span></figcaption>
+    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>家族当前代次的时间分布</b><small><span data-zh>按当前代发布日期</span><span data-en>by current generation date</span></small></span></figcaption>
     <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 620 260" role="img" aria-label="纵向柱状图" xmlns="http://www.w3.org/2000/svg"><line x1="42" y1="202" x2="602" y2="202" class="vz-gridline"/><text x="32" y="207" class="vz-t-dim" text-anchor="end">0</text><line x1="42" y1="116" x2="602" y2="116" class="vz-gridline"/><text x="32" y="121" class="vz-t-dim" text-anchor="end">4</text><line x1="42" y1="30" x2="602" y2="30" class="vz-gridline"/><text x="32" y="35" class="vz-t-dim" text-anchor="end">8</text>
       <text x="77" y="171.5" class="vz-t-strong" text-anchor="middle">1</text>
       <rect x="57.4" y="180.5" width="39.2" height="21.5" rx="8" class="vz-bar" style="fill:var(--ink-faint)"/>
@@ -162,11 +132,11 @@
       <text x="567" y="171.5" class="vz-t-strong" text-anchor="middle">1</text>
       <rect x="547.4" y="180.5" width="39.2" height="21.5" rx="8" class="vz-bar" style="fill:var(--brand)"/>
       <text x="567" y="232" class="vz-t-dim" text-anchor="middle">26-10</text></svg></div>
-    <p class="vz-foot"><span data-zh>2026-08 是明显的发布密集月（8 个家族换代）；2025 仍有两个家族停留在旧代。</span><span data-en>August 2026 is the dense month (eight families moved); two families still sit on 2025 generations.</span></p>
+    <p class="vz-foot"><span data-zh>2026-08 是发布密集月，8 个家族在那个月换代；2025 仍有两个家族停留在旧代。</span><span data-en>August 2026 was busy: eight families moved generation that month. Two families still sit on 2025 generations.</span></p>
   </figure><figure class="vz-card vz-span-3">
     <figcaption class="vz-cap"><span class="vz-no">02</span><span><b>模型仓 vs 量化仓</b><small><span data-zh>16 vs 129</span><span data-en>16 vs 129</span></small></span></figcaption>
     <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 460 240" role="img" aria-label="环图" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-violet)" stroke-width="23" stroke-dasharray="58.23862795068527 469.5489378524" stroke-dashoffset="0" transform="rotate(-90 110 118)"/><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-teal)" stroke-width="23" stroke-dasharray="469.5489378524 58.23862795068527" stroke-dashoffset="-58.23862795068527" transform="rotate(-90 110 118)"/><text x="110" y="120" class="vz-t-big" text-anchor="middle">145</text><text x="110" y="142" class="vz-t-dim" text-anchor="middle">repos</text><circle cx="236" cy="39" r="5" fill="var(--cat-violet)"/><text x="252" y="44" class="vz-t">模型仓</text><text x="448" y="44" class="vz-t-strong" text-anchor="end">16</text><circle cx="236" cy="70" r="5" fill="var(--cat-teal)"/><text x="252" y="75" class="vz-t">量化仓</text><text x="448" y="75" class="vz-t-strong" text-anchor="end">129</text></svg></div>
-    <p class="vz-foot"><span data-zh>一个模型仓平均对应 8 个量化仓；这是「下载哪一个」比「选哪个模型」更费时的原因。</span><span data-en>One model repo maps to roughly eight quant repos; that is why “which file” takes longer than “which model”.</span></p>
+    <p class="vz-foot"><span data-zh>一个模型仓平均对应 8 个量化仓；所以「下哪一个文件」通常比「选哪个模型」更费时间。</span><span data-en>One model repo maps to roughly eight quant repos; that is why “which file” takes longer than “which model”.</span></p>
   </figure><figure class="vz-card vz-span-3">
     <figcaption class="vz-cap"><span class="vz-no">03</span><span><b>量化档 vs GGUF 文件</b><small><span data-zh>1262 vs 1337</span><span data-en>1262 vs 1337</span></small></span></figcaption>
     <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 460 240" role="img" aria-label="环图" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-amber)" stroke-width="23" stroke-dasharray="256.2785332987663 271.50903250431895" stroke-dashoffset="0" transform="rotate(-90 110 118)"/><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-blue)" stroke-width="23" stroke-dasharray="271.50903250431895 256.2785332987663" stroke-dashoffset="-256.2785332987663" transform="rotate(-90 110 118)"/><text x="110" y="120" class="vz-t-big" text-anchor="middle">1.06×</text><text x="110" y="142" class="vz-t-dim" text-anchor="middle">files/tier</text><circle cx="236" cy="39" r="5" fill="var(--cat-amber)"/><text x="252" y="44" class="vz-t">量化档</text><text x="448" y="44" class="vz-t-strong" text-anchor="end">1,262</text><circle cx="236" cy="70" r="5" fill="var(--cat-blue)"/><text x="252" y="75" class="vz-t">GGUF 文件</text><text x="448" y="75" class="vz-t-strong" text-anchor="end">1,337</text></svg></div>
@@ -206,36 +176,14 @@
       <text x="140" y="272" class="vz-t-dim">1.05T / 49B 激活，128 路由专家，1M 上下文</text></svg></div>
     <p class="vz-foot"><span data-zh>Mistral Large 4 与 Muse Spark 的许可是「修改版 MIT / 厂商许可」，不是 OSI 标准；商用前读原文。</span><span data-en>Mistral Large 4 and Muse Spark use modified MIT / vendor licences, not OSI-approved terms; read the text before commercial use.</span></p>
   </figure></div>
-    <p class="vz-foot vz-foot-wide"><span data-zh>口径：家族数 16、系列 11、模型仓 16、量化仓 129、量化档 1262、GGUF 1337、闭源卡 6；全部取 2026-11-18 构建结果。</span><span data-en>Basis: 16 families, 11 series, 16 model repos, 129 quant repos, 1262 tiers, 1337 GGUF files, 6 closed cards; all from the 2026-11-18 build.</span></p>
-    <p class="vz-more"><a href="2026.html"><span data-zh>读 2026 模型增补：Mistral Large 4、Muse Spark、MiMo、Kimi K3、DeepSeek V4.1、GLM-5.3</span><span data-en>Read the 2026 model patch: Mistral Large 4, Muse Spark, MiMo, Kimi K3, DeepSeek V4.1, GLM-5.3</span> →</a></p>
+    <p class="vz-foot vz-foot-wide"><span data-zh>说明：家族、系列、模型仓、量化仓、量化档和 GGUF 文件数都来自当前数据；数字用于看体量，不用于给模型排高低。</span><span data-en>Note: family, series, model-repo, quant-repo, tier and GGUF counts come from the current data; they show scale, not a model ranking.</span></p>
+    <p class="vz-more"><a href="2026.html"><span data-zh>看 2026 模型增补：Mistral Large 4、Muse Spark、MiMo、Kimi K3、DeepSeek V4.1、GLM-5.3</span><span data-en>See the 2026 model patch: Mistral Large 4, Muse Spark, MiMo, Kimi K3, DeepSeek V4.1, GLM-5.3</span> →</a></p>
   </div>
 </section>
 
-    <section class="trust">
-      <h2><span data-zh>先说清楚：这个站的数据怎么来的</span><span data-en>First, where this site's data comes from</span></h2>
-      <div class="trust-grid">
-        <div class="trust-item t-a">
-          <span class="trust-tag">✅ <span data-zh>实测字段</span><span data-en>Measured fields</span></span>
-          <p><span data-zh>直接从 Hugging Face 公开 API 读取的客观数据：文件体积（字节）、上下文长度、架构、许可、下载量、更新时间。</span><span data-en>Objective data read straight from the Hugging Face public API: file sizes in bytes, context length, architecture, licence, downloads, last updated.</span></p>
-        </div>
-        <div class="trust-item t-b">
-          <span class="trust-tag">✅ <span data-zh>推导</span><span data-en>Derived</span></span>
-          <p><span data-zh>由采集字段按公开规则算出：每权重比特数（依 llama.cpp 命名标准）、档位归属、显存需求区间。推导规则在</span><span data-en>Computed from the collected fields by published rules: bits per weight (per the llama.cpp naming convention), tier assignment, VRAM requirement range. The rules are fully published in</span> <code>METHODOLOGY.md</code><span data-zh> 完整公开，任何人可复算。</span><span data-en> — anyone can recompute them.</span></p>
-        </div>
-        <div class="trust-item t-c">
-          <span class="trust-tag">❌ <span data-zh>我们不说的</span><span data-en>What we do not claim</span></span>
-          <p><span data-zh><b>哪个量化质量更高、哪个更快、哪个模型更强</b>——这些需要实测，本站不跑 benchmark，所以不装作知道。凡我们给出的主观判断，一律显式标注「我们的口径」。</span><span data-en><b>Which quantisation is higher quality, which is faster, which model is stronger</b> — these need measurement. This site does not run benchmarks, so it does not pretend to know. Every subjective judgement we do offer is explicitly marked as our own reading.</span></p>
-        </div>
-      </div>
-      <p class="trust-foot">
-        <span data-zh>本站</span><span data-en>This site does</span> <b><span data-zh>不下载、不托管任何模型权重文件</span><span data-en>not download or host any model weight files</span></b><span data-zh>。所有数字都来自公开元数据，点击即可回到发布页核对。</span><span data-en>. Every figure comes from public metadata, and clicking it takes you back to the release page to verify.</span>
-        <span data-zh>采集时间</span><span data-en>Collected</span>: <code>2026-10-30</code><span data-zh>（数据快照，非实时）</span><span data-en> (a snapshot, not live)</span>
-      </p>
-    </section>
-
     <section class="family-list">
-      <h2><span data-zh>家族谱系</span><span data-en>Model families</span> <small><span data-zh>第一层：出品方 · 代次 · 尺寸档 · 许可 · 官方声明</span><span data-en>layer one: vendor · generations · size tiers · licences · official claims</span></small></h2>
-      <p class="sec-desc"><span data-zh>每个开放权重家族一张卡：它是什么来头、现在哪一代、有哪些尺寸档、许可能不能商用、官方声明过什么能力（声明全部挂官方出处）。家族内哪一代有本站量化对比，卡上直接给出入口。</span><span data-en>One card per open-weight family: where it comes from, which generation is current, what size tiers exist, whether the licence allows commercial use, and what the vendor officially claims (every claim links to its official source). Where a generation has quantisation coverage on this site, the card links straight to it.</span></p>
+      <h2><span data-zh>家族谱系</span><span data-en>Model families</span> <small><span data-zh>先选家族和尺寸</span><span data-en>family and size first</span></small></h2>
+      <p class="sec-desc"><span data-zh>每个开放权重家族一张卡：它是什么来头、现在哪一代、有哪些尺寸档、许可能不能商用、官方说过什么能力。家族内哪一代有量化对比，卡上直接给入口。</span><span data-en>One card per open-weight family: where it comes from, which generation is current, what size tiers exist, whether the licence allows commercial use, and what the vendor officially claims. Where a generation has quantisation coverage, the card links straight to it.</span></p>
       <div class="famcards">
         <a class="m-famcard" href="families/command/" data-lic="apache-2.0" data-cn-origin="foreign" data-cn-direct="yes" data-cn-filing="not-filed">
           <div class="m-famcard-h">
@@ -481,8 +429,8 @@
     </section>
 
     <section class="closed-list">
-      <h2><span data-zh>闭源谱系卡</span><span data-en>Closed-model cards</span> <small><span data-zh>对照面：官方规格快照 · 每条挂出处 · 带复核到期日</span><span data-en>the contrast set: official spec snapshots · every fact sourced · with review due dates</span></small></h2>
-      <p class="sec-desc"><span data-zh>本站主体是开放权重选型，但选型绕不开闭源 API 对照。每张闭源卡只记三件事：现在哪一代、官方声明过什么规格（每条挂官方出处）、我们上次核验是什么时候。闭源厂商改规格不通知任何人——所以每张卡带复核周期，到期会在页顶挂横幅，不装作永远最新。不采价格数字（D9），定价看官方定价页链接。</span><span data-en>This site is about open-weight selection, but that choice always sits next to the closed API alternative. Each closed card records exactly three things: which generation is current, what specs the vendor officially claims (every fact linked to its official source), and when we last verified it. Closed vendors change specs without notice — so every card carries a review cycle, and an overdue card shows a banner at the top instead of pretending to be current. No price figures (rule D9); pricing lives at the linked official pricing page.</span></p>
+      <h2><span data-zh>闭源模型，拿来对照</span><span data-en>Closed models, for comparison</span> <small><span data-zh>官方规格与许可，够你做取舍</span><span data-en>official specs and licences, enough for a decision</span></small></h2>
+      <p class="sec-desc"><span data-zh>选开放权重时，闭源 API 往往是另一条路。每张卡只记三件事：现在哪一代、官方说过什么规格、资料最后更新在什么时候。厂商改规格不会通知，所以卡上会标下次该看的时间；不写价格数字，定价直接看官方页。</span><span data-en>When choosing open weights, a closed API is often the other path. Each card records three things: which generation is current, what the vendor officially claims, and when the card was last updated. Vendors change specs without notice, so the card says when to look again. No price figures; pricing lives on the official page.</span></p>
       <div class="famcards">
         <a class="m-famcard" href="closed/claude/" data-cn-origin="foreign" data-cn-direct="no" data-cn-filing="not-filed">
           <div class="m-famcard-h">
@@ -578,8 +526,8 @@
     </section>
 
     <section class="guide-list">
-      <h2><span data-zh>做模型专题</span><span data-en>How models are made</span> <small><span data-zh>从业者视角：训练四阶段 · 数据与算力 · 跑起来</span><span data-en>practitioner view: the four training stages · data & compute · serving</span></small></h2>
-      <p class="sec-desc"><span data-zh>这一栏回答「模型是怎么被造出来、又是怎么跑起来的」。它与学 AI 站互链不重复：学 AI 教使用者视角的一页科普，这里是从业者视角的深版——讲决定、讲代价、讲口径变化。关键事实全部挂论文或官方模型卡出处；本站不实测、不裁决路线之争。</span><span data-en>This section answers "how models are built and how they run". It cross-links with the Learn site without duplicating it: Learn gives user-perspective one-page explainers; this is the practitioner-depth version — decisions, costs, and how the consensus changed. Key facts carry paper or official model-card sources; the site runs no benchmarks and adjudicates no route disputes.</span></p>
+      <h2><span data-zh>模型是怎么做出来的</span><span data-en>How models are made</span> <small><span data-zh>从训练到部署</span><span data-en>from training to serving</span></small></h2>
+      <p class="sec-desc"><span data-zh>这一栏回答「模型是怎么被造出来、又是怎么跑起来的」。学 AI 站讲使用者视角的基础，这里讲从业者的决定和代价。关键事实都挂论文或官方模型卡，拿不准的地方会写出来。</span><span data-en>This section answers how models are built and how they run. Learn covers the user-facing basics; here we go into the decisions and costs practitioners face. Key facts link to papers or official model cards, and open questions are stated as such.</span></p>
       <div class="famcards">
         <a class="m-famcard" href="guides/pretraining.html">
           <div class="m-famcard-h">

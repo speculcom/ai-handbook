@@ -87,18 +87,18 @@
       <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>8 个内容站，外加 AI导航（595 个站外 AI 网站）</span><span data-en>Eight content sites, plus AI Directory of 595 off-site AI sites</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span><span class="fx-meta"><span><span data-zh>核验</span><span data-en>Checked</span> 2026-11-17</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
   <h1><span data-zh>BERT：面向语言理解的深度双向 Transformer 预训练</span><span data-en>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</span></h1>
   <p class="fx-entry-lead"><span data-zh>问题：此前的语言模型要么是单向的（GPT 式从左到右），要么是两个单向模型拼接（ELMo 式），能不能在一个 Transformer 里同时看左右上下文做预训练？<br>证据位置：预训练目标在 §3.1（MLM 与 NSP），微调在 §3.2；主结果在 §4 与 Table 1–4；消融在 §5，其中 §5.1 的 Table 5 比较「No NSP」与「LTR &amp; No NSP」，§5.2 的 Table 8 比较不同掩码比例；结论在 §6。<br>作者自陈：论文没有独立的 Limitations 章节，也没有系统列出局限。§5.1 的消融显示去掉 NSP 会显著伤 QNLI、MNLI 与 SQuAD 1.1；把模型改成从左到右会全面变差，MRPC 与 SQuAD 掉得最多。§5.2 说明微调对掩码策略相当稳健，但纯 [MASK] 策略在特征式 NER 上会出问题。<br>它没主张的：没有说双向一定优于所有双向变体（只比较了少数消融）；没有说 NSP 本身不可替代（只是去掉会掉分）；也没有给出多语言或长文档的通用结论——实验集中在英文 GLUE、MultiNLI 与 SQuAD。</span><span data-en>Problem: earlier language models were either unidirectional (GPT-style left-to-right) or a concatenation of two unidirectional models (ELMo-style); can one Transformer pretrain on both left and right context at once?<br>Where the evidence sits: pretraining objectives in 3.1 (MLM and NSP), fine-tuning in 3.2; main results in Section 4 and Tables 1-4; ablations in Section 5, with Table 5 in 5.1 comparing “No NSP” and “LTR &amp; No NSP”, and Table 8 in 5.2 comparing masking rates; conclusion in Section 6.<br>What the authors say: there is no separate Limitations section and no systematic list. The 5.1 ablation shows removing NSP significantly hurts QNLI, MNLI and SQuAD 1.1, and switching to left-to-right degrades every task, with the largest drops on MRPC and SQuAD. Section 5.2 finds fine-tuning robust to masking strategies, while a pure [MASK] strategy is problematic for feature-based NER.<br>What it does not claim: it does not claim bidirectionality beats every bidirectional variant (only a few ablations were run), does not claim NSP is irreplaceable (only that removing it loses points), and gives no general multilingual or long-document conclusion — experiments centre on English GLUE, MultiNLI and SQuAD.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>规格字段</span><span data-en>Specification fields</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§3.1–3.2；§4 Table 1–4；§5.1 Table 5；§5.2 Table 8；§6</dd></div><div><dt>规模 / scale</dt><dd>BERT-Base 与 BERT-Large 两档（论文 §3）</dd></div><div><dt>关键数字 / key numbers</dt><dd>GLUE 80.5%（+7.7）、MultiNLI 86.7%（+4.6）、SQuAD v1.1 F1 93.2（+1.5）、SQuAD v2.0 F1 83.1（+5.1）</dd></div><div><dt>自陈局限 / stated limits</dt><dd>无独立 Limitations 章节；消融见 §5.1、§5.2</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
-  <section class="fx-entry-sec"><h2><span data-zh>原文证据</span><span data-en>Evidence from the source</span></h2><figure class="fx-evidence">
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§3.1–3.2；§4 Table 1–4；§5.1 Table 5；§5.2 Table 8；§6</dd></div><div><dt>规模 / scale</dt><dd>BERT-Base 与 BERT-Large 两档（论文 §3）</dd></div><div><dt>关键数字 / key numbers</dt><dd>GLUE 80.5%（+7.7）、MultiNLI 86.7%（+4.6）、SQuAD v1.1 F1 93.2（+1.5）、SQuAD v2.0 F1 83.1（+5.1）</dd></div><div><dt>自陈局限 / stated limits</dt><dd>无独立 Limitations 章节；消融见 §5.1、§5.2</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
+  <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement)</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://ar5iv.labs.arxiv.org/html/1810.04805" rel="noopener">https://ar5iv.labs.arxiv.org/html/1810.04805</a></figcaption>
       </figure>
@@ -110,17 +110,17 @@
         <blockquote>The LTR model performs worse than the MLM model on all tasks, with large drops on MRPC and SQuAD.</blockquote>
         <figcaption><span class="fx-ev-n">3</span> <a href="https://ar5iv.labs.arxiv.org/html/1810.04805" rel="noopener">https://ar5iv.labs.arxiv.org/html/1810.04805</a></figcaption>
       </figure></section>
-  <section class="fx-entry-sec"><h2><span data-zh>核验与许可</span><span data-en>Check and licence</span></h2>
+  <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>核验日</span><span data-en>Checked</span></dt><dd>2026-11-17</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-17</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
-      <div><dt><span data-zh>许可依据</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/1810.04805" rel="noopener">https://arxiv.org/abs/1810.04805</a></dd></div>
-      <div><dt><span data-zh>条目类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/1810.04805" rel="noopener">https://arxiv.org/abs/1810.04805</a></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
     </dl>
   </section>
-  <section class="fx-entry-sec"><h2><span data-zh>卡片里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>论文里的 benchmark 分数，先分清测什么、怎么算、和谁比、有没有污染；本站不替论文补排名。</span><span data-en>Before citing a benchmark score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. This site does not add rankings.</span> <a href="https://models.specul.com/evals/"><span data-zh>20 个评测基准</span><span data-en>20 benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>数据集卡</span><span data-en>Dataset cards</span></a></p></section>
-  <p><a class="fx-source" href="https://arxiv.org/abs/1810.04805" rel="noopener"><span data-zh>打开官方来源</span><span data-en>Open official source</span> &rarr;</a></p>
-  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文目录</span><span data-en>← Back to the AI Papers directory</span></a></p>
+  <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
+  <p><a class="fx-source" href="https://arxiv.org/abs/1810.04805" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
 </div>
   </main>
   <footer class="site-footer">
