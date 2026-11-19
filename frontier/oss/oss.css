@@ -205,6 +205,19 @@
   border: 1px solid var(--badge-bd, color-mix(in srgb, var(--ok) 35%, transparent));
   white-space: nowrap;
 }
+.repo-card[data-scene="agent-frameworks"] { --repo-scene: var(--cat-violet); --repo-scene-ink: var(--cat-violet-ink); --repo-scene-soft: var(--cat-violet-soft); }
+.repo-card[data-scene="rag-knowledge"] { --repo-scene: var(--cat-teal); --repo-scene-ink: var(--cat-teal-ink); --repo-scene-soft: var(--cat-teal-soft); }
+.repo-card[data-scene="local-inference"] { --repo-scene: var(--cat-lime); --repo-scene-ink: var(--cat-lime-ink); --repo-scene-soft: var(--cat-lime-soft); }
+.repo-card[data-scene="multimodal-visual"] { --repo-scene: var(--cat-amber); --repo-scene-ink: var(--cat-amber-ink); --repo-scene-soft: var(--cat-amber-soft); }
+.repo-card[data-scene="speech-audio"] { --repo-scene: var(--cat-rose); --repo-scene-ink: var(--cat-rose-ink); --repo-scene-soft: var(--cat-rose-soft); }
+.repo-card[data-scene="eval-observability"] { --repo-scene: var(--cat-blue); --repo-scene-ink: var(--cat-blue-ink); --repo-scene-soft: var(--cat-blue-soft); }
+.repo-card .repo-top .badge:first-child {
+  color: var(--repo-scene-ink, var(--ok-ink));
+  background: var(--repo-scene-soft, var(--ok-soft));
+  border-color: color-mix(in srgb, var(--repo-scene, var(--ok)) 40%, transparent);
+}
+[data-theme="light"] .repo-card[data-scene="local-inference"] { --repo-scene-ink: #3f7300; }
+[data-theme="light"] .repo-card[data-scene="multimodal-visual"] { --repo-scene-ink: #8a5700; }
 .badge.tier-prod {
   --badge-ink: var(--cat-blue-ink);
   --badge-bg: var(--cat-blue-soft);
