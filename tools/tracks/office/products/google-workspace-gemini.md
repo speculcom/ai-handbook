@@ -86,5 +86,5 @@ Google Workspace Gemini 是面向办公与写作场景的 AI 产品，核心是�
 ## 相关条目
 
 - [gemini-chat](../chat/products/gemini-chat.md) — 相邻场景，按任务与权限边界对照。
-- [notebooklm](../office/products/notebooklm.md) — 相邻场景，按任务与权限边界对照。
+- [notebooklm](../research/products/notebooklm.md) — 相邻场景，按任务与权限边界对照。
 - [chatgpt](../chat/products/chatgpt.md) — 相邻场景，按任务与权限边界对照。

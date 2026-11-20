@@ -10,8 +10,9 @@ licenseEn: Official Gemini API Additional Terms, 'Use of Generated Content': Goo
 
 axes:
   model_access: >-
-    模型家族官方 release notes 披露并按订阅档位分流：2026-10-13 条目写明 Gemini 4 Argon
-    面向 Google AI Pro & Ultra 订阅用户在全球推出；免费档与付费档可用模型不同，以 release notes 为准。
+    模型家族官方 release notes 披露并按订阅档位分流：2026-10-13 Gemini 4 Argon 面向
+    Google AI Pro & Ultra 全球推出；2026-10-28/11-10 Gemini 4 Carbon 面向 Ultra 与付费开发者；
+    2026-11-18 Gemini 4 Neon 进入 Gemini app 与 API。免费档与付费档可用模型不同，以 release notes 为准。
   runtime: >-
     网页为主入口；桌面端有官方应用——Windows 应用（release notes 2026-09-10，Alt+Space 唤起）
     与 macOS 应用（2026-07-29 语音创作条目、2026-10-13 Antigravity 编码条目）；生成在 Google 云端处理。
@@ -49,7 +50,7 @@ tags: [云端, 多模态, 生态联动, 记忆, 商业]
 related: [gemini-cli, google-adk]
 
 sources:
-  - label: Google · Gemini release notes（官方更新日志，2026-10-21 经代理直抓核验 4 Argon 档位分流/Skills/Windows 应用/Antigravity 条目）
+  - label: Google · Gemini release notes（官方更新日志，2026-10-21 经代理直抓核验、2026-11-19 复核 4 Argon 档位分流/Skills/Windows 应用/Antigravity 条目）
     url: https://gemini.google/release-notes
     kind: changelog
   - label: Google · Gemini Apps Privacy Notice（官方声明，2026-10-20 经搜索快照取到正文；直连超时为网络受限）
@@ -70,9 +71,15 @@ sources:
   - label: Google AI plans（定价页指针，D9：本站不采价格数字）
     url: https://one.google.com/about/google-ai-plans
     kind: pricing
+  - label: Google blog · Gemini 4 Carbon now available（2026-11-10）
+    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/
+    kind: docs
+  - label: Google blog · Introducing Gemini 4 Neon（2026-11-18）
+    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/
+    kind: docs
 
-last_verified: 2026-10-21
-last_updated: 2026-11-03
+last_verified: 2026-11-19
+last_updated: 2026-11-19
 lifecycle: active
 confidence: partial
 

@@ -9196,5 +9196,539 @@
     },
     "workPath": "works/data-teacher-lab-006-rag-corpus.html",
     "workUrl": "https://demos.specul.com/works/data-teacher-lab-006-rag-corpus.html"
+  },
+  {
+    "id": "gemini-4-showcase-001-chromium",
+    "seq": "202",
+    "collection": "gemini-4-showcase",
+    "num": "001",
+    "slug": "chromium-codebase-maintenance",
+    "title": {
+      "zh": "Gemini 4 重构 Chromium 大型代码库",
+      "en": "Applying Gemini 4 for large-scale codebase maintenance in Chromium"
+    },
+    "notes": {
+      "zh": "演示什么：Chromium 的代码库有数百万行、积累了几十年；Google 工程师 Erik Chen 用 Gemini 4 Argon 让多个 agent 并行拆解架构、改代码，再由 Chromium 的测试套件与人工代码评审把关。\n官方怎么说：视频把重点放在「多个 agent 独立工作、测试与评审兜底」，不是一次生成整库。\n边界：这是 Google 内部案例，不是受控基准；视频没有给出提交量、失败率、回滚率或与其他模型的同题对比，不能当作「Argon 能独立维护任意代码库」的证明。",
+      "en": "What it shows: Chromium’s codebase is millions of lines and decades old; Google engineer Erik Chen uses Gemini 4 Argon to let multiple agents untangle the architecture and change code, with Chromium’s test suites and human code review as gates.\nWhat the official video says: the emphasis is on multiple agents working independently with tests and review as backstops, not one-shot generation of the whole repository.\nBoundary: this is an internal Google case study, not a controlled benchmark; the video does not give commit volume, failure rate, rollback rate or a same-task comparison with other models, so it is not proof that Argon can maintain any codebase alone."
+    },
+    "category": "模型演示",
+    "tags": [
+      "Chromium",
+      "codebase refactor",
+      "multi-agent",
+      "Gemini 4 Argon"
+    ],
+    "promptHash": "b21e44041c7f7bc0657f18bbfdaf1cce7d4e4b15",
+    "promptUrl": "https://www.youtube.com/watch?v=LVEfFyijQ2c",
+    "sourceUrl": "https://www.youtube.com/watch?v=LVEfFyijQ2c",
+    "demoUrl": "https://www.youtube.com/watch?v=LVEfFyijQ2c",
+    "thumbUrl": "https://i.ytimg.com/vi/LVEfFyijQ2c/maxresdefault.jpg",
+    "repoUrl": "https://deepmind.google/models/gemini/",
+    "model": {
+      "name": "Gemini 4 Argon",
+      "version": "official case study",
+      "releaseDate": "2026-10-13",
+      "releaseUrl": "https://deepmind.google/models/gemini/"
+    },
+    "sourceLabel": {
+      "zh": "官方原文",
+      "en": "Official article"
+    },
+    "promptLabel": {
+      "zh": "官方说明",
+      "en": "Official notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://www.youtube.com/watch?v=LVEfFyijQ2c",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "Google 官方发布内容；本站只链回官方视频或原文，不复制素材。引用与转载以 Google 的条款为准。",
+        "en": "Official Google release; this site only links to the official video or article and does not copy the media. Quotation and redistribution follow Google’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/gemini-4-showcase-001-chromium.html",
+    "workUrl": "https://demos.specul.com/works/gemini-4-showcase-001-chromium.html"
+  },
+  {
+    "id": "gemini-4-showcase-002-cornhole",
+    "seq": "203",
+    "collection": "gemini-4-showcase",
+    "num": "002",
+    "slug": "humanoid-cornhole",
+    "title": {
+      "zh": "Gemini 4 教人形机器人投沙包",
+      "en": "Teaching a humanoid robot to play cornhole with Gemini 4 Argon"
+    },
+    "notes": {
+      "zh": "演示什么：Google DeepMind 的机器人团队让 Gemini 4 Argon 看一段人投沙包的视频，模型在 MuJoCo 里搭出虚拟仿真，算出物理与全身控制参数，再交给 Apptronik 的 Apollo 2 人形机器人执行；官方称它在真实世界连续投进 7 球。\n官方怎么说：这条 Video-to-Sim-to-Real 流水线把「几周的手工建模」压到「几小时」，目标是让普通视频变成物理 AI 的训练场。\n边界：这是内部测试的单个任务，不是跨任务成功率；视频没有给出尝试次数、失败分布、 sim-to-real 偏差或安全边界，不能外推成「人形机器人已通用」。",
+      "en": "What it shows: Google DeepMind robotics researchers had Gemini 4 Argon watch a video of a person playing cornhole; the model built a MuJoCo simulation, calculated the physics and whole-body control, and handed them to Apptronik’s Apollo 2 humanoid, which the official video says sank seven consecutive shots in the real world.\nWhat the official video says: this Video-to-Sim-to-Real pipeline compresses weeks of manual modelling into hours, turning ordinary videos into a training ground for physical AI.\nBoundary: this is a single internal test task, not a cross-task success rate; the video gives no attempt count, failure distribution, sim-to-real gap or safety envelope, so it does not generalise to “humanoids are solved”."
+    },
+    "category": "模型演示",
+    "tags": [
+      "robotics",
+      "MuJoCo",
+      "sim-to-real",
+      "Gemini 4 Argon"
+    ],
+    "promptHash": "a9d44b9c08e70d7e95d58e7e889861cf3ffe26e6",
+    "promptUrl": "https://www.youtube.com/watch?v=9PICEmtfpWU",
+    "sourceUrl": "https://www.youtube.com/watch?v=9PICEmtfpWU",
+    "demoUrl": "https://www.youtube.com/watch?v=9PICEmtfpWU",
+    "thumbUrl": "https://i.ytimg.com/vi/9PICEmtfpWU/maxresdefault.jpg",
+    "repoUrl": "https://deepmind.google/models/gemini/",
+    "model": {
+      "name": "Gemini 4 Argon",
+      "version": "official robotics demo",
+      "releaseDate": "2026-10-13",
+      "releaseUrl": "https://deepmind.google/models/gemini/"
+    },
+    "sourceLabel": {
+      "zh": "官方原文",
+      "en": "Official article"
+    },
+    "promptLabel": {
+      "zh": "官方说明",
+      "en": "Official notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://www.youtube.com/watch?v=9PICEmtfpWU",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "Google 官方发布内容；本站只链回官方视频或原文，不复制素材。引用与转载以 Google 的条款为准。",
+        "en": "Official Google release; this site only links to the official video or article and does not copy the media. Quotation and redistribution follow Google’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/gemini-4-showcase-002-cornhole.html",
+    "workUrl": "https://demos.specul.com/works/gemini-4-showcase-002-cornhole.html"
+  },
+  {
+    "id": "gemini-4-showcase-003-ten-demos",
+    "seq": "204",
+    "collection": "gemini-4-showcase",
+    "num": "003",
+    "slug": "ten-official-demos",
+    "title": {
+      "zh": "Gemini 4 Argon：10 个官方演示，100 万 token 输出",
+      "en": "Gemini 4 Argon: 10 official demos, 1M-token output"
+    },
+    "notes": {
+      "zh": "演示什么：Google Cloud Tech 用 40 分钟串起 10 个官方演示，覆盖 1960 年代 Fortran 迁移到 Rust/C++、Android UI 自动构建、WebGPU 实时毛发、3D 数据可视化、NASA Artemis II 轨迹、从餐巾纸草图到 3D 打印硬件等。\n官方怎么说：团队称投入 1,000 多小时实测，核心卖点是 Argon 的 100 万 token 输出上限与长程推理，能一次交付大体量、可验证的结果。\n边界：这是精选演示合集，不是同题横评；成功案例被选出展示，失败与成本没有逐项披露，不能把「10 个都能跑」当成平均能力。",
+      "en": "What it shows: Google Cloud Tech spends forty minutes on ten official demos, spanning 1960s Fortran migration to Rust/C++, autonomous Android UI construction, real-time WebGPU fur, 3D data visualisation, NASA Artemis II trajectories and a napkin sketch turned into 3D-printed hardware.\nWhat the official video says: the team reports 1,000+ hours of hands-on testing and frames Argon’s 1M-token output ceiling plus long-horizon reasoning as the ability to deliver large, verifiable results in one run.\nBoundary: this is a curated showcase, not a same-task comparison; successful cases were selected for display and failures/costs are not disclosed item by item, so “all ten ran” is not an average-capability claim."
+    },
+    "category": "模型演示",
+    "tags": [
+      "1M token output",
+      "Fortran migration",
+      "WebGPU",
+      "Gemini 4 Argon"
+    ],
+    "promptHash": "effe9d74789ac49d8a03a5f67cfa15cb8b258316",
+    "promptUrl": "https://www.youtube.com/watch?v=gRhM1h10T3U",
+    "sourceUrl": "https://www.youtube.com/watch?v=gRhM1h10T3U",
+    "demoUrl": "https://www.youtube.com/watch?v=gRhM1h10T3U",
+    "thumbUrl": "https://i.ytimg.com/vi/gRhM1h10T3U/maxresdefault.jpg",
+    "repoUrl": "https://deepmind.google/models/gemini/",
+    "model": {
+      "name": "Gemini 4 Argon",
+      "version": "10 official demos",
+      "releaseDate": "2026-10-13",
+      "releaseUrl": "https://deepmind.google/models/gemini/"
+    },
+    "sourceLabel": {
+      "zh": "官方原文",
+      "en": "Official article"
+    },
+    "promptLabel": {
+      "zh": "官方说明",
+      "en": "Official notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://www.youtube.com/watch?v=gRhM1h10T3U",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "Google 官方发布内容；本站只链回官方视频或原文，不复制素材。引用与转载以 Google 的条款为准。",
+        "en": "Official Google release; this site only links to the official video or article and does not copy the media. Quotation and redistribution follow Google’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/gemini-4-showcase-003-ten-demos.html",
+    "workUrl": "https://demos.specul.com/works/gemini-4-showcase-003-ten-demos.html"
+  },
+  {
+    "id": "gemini-4-showcase-004-antigravity-build",
+    "seq": "205",
+    "collection": "gemini-4-showcase",
+    "num": "004",
+    "slug": "building-in-antigravity",
+    "title": {
+      "zh": "用 Gemini 在 Google Antigravity 里构建",
+      "en": "Building with Gemini in Google Antigravity"
+    },
+    "notes": {
+      "zh": "演示什么：Google for Developers 展示 Antigravity 里的几类产出：浏览器内动画、多模态原型、自主代码库现代化。官方口号是「从一句 prompt 直接交付复杂架构」。\n官方怎么说：视频把 Antigravity 定位为 agent-first 的开发环境，Gemini 模型负责规划、写码与验证，开发者保留方向与验收。\n边界：这是能力蒙太奇，不是可复现教程；没有给出每个项目的 prompt、依赖、失败次数或人工介入时长，也没有说明哪些步骤由人完成。",
+      "en": "What it shows: Google for Developers demonstrates several outputs in Antigravity: in-browser animation, multimodal prototyping and autonomous codebase modernisation. The official line is shipping complex architectures straight from a prompt.\nWhat the official video says: Antigravity is positioned as an agent-first development environment where Gemini models plan, write and verify while the developer keeps direction and acceptance.\nBoundary: this is a capability montage, not a reproducible tutorial; it does not give each project’s prompt, dependencies, failure count or human-intervention time, nor which steps were done by people."
+    },
+    "category": "模型演示",
+    "tags": [
+      "Antigravity",
+      "agentic coding",
+      "in-browser animation",
+      "Gemini 4"
+    ],
+    "promptHash": "6f821aedce5a044dbcee1f57a12d3292bf78310a",
+    "promptUrl": "https://www.youtube.com/watch?v=vLAegkGGWrM",
+    "sourceUrl": "https://www.youtube.com/watch?v=vLAegkGGWrM",
+    "demoUrl": "https://www.youtube.com/watch?v=vLAegkGGWrM",
+    "thumbUrl": "https://i.ytimg.com/vi/vLAegkGGWrM/maxresdefault.jpg",
+    "repoUrl": "https://deepmind.google/models/gemini/",
+    "model": {
+      "name": "Gemini 4 series",
+      "version": "Antigravity showcase",
+      "releaseDate": "2026-11-12",
+      "releaseUrl": "https://antigravity.google/"
+    },
+    "sourceLabel": {
+      "zh": "官方原文",
+      "en": "Official article"
+    },
+    "promptLabel": {
+      "zh": "官方说明",
+      "en": "Official notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://www.youtube.com/watch?v=vLAegkGGWrM",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "Google 官方发布内容；本站只链回官方视频或原文，不复制素材。引用与转载以 Google 的条款为准。",
+        "en": "Official Google release; this site only links to the official video or article and does not copy the media. Quotation and redistribution follow Google’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/gemini-4-showcase-004-antigravity-build.html",
+    "workUrl": "https://demos.specul.com/works/gemini-4-showcase-004-antigravity-build.html"
+  },
+  {
+    "id": "gemini-4-showcase-005-eight-ways",
+    "seq": "206",
+    "collection": "gemini-4-showcase",
+    "num": "005",
+    "slug": "eight-ways-argon",
+    "title": {
+      "zh": "Gemini 4 Argon 处理复杂任务的 8 种方式",
+      "en": "8 ways Gemini 4 Argon handles complex tasks"
+    },
+    "notes": {
+      "zh": "演示什么：Google 官方博客列出 8 类用法：交互工具与可玩 3D 游戏、逼真材质、实时 3D 渲染、物理仿真、音乐可视化等。其中一个例子是用 Argon 在 Antigravity 里编排 subagents、Blender MCP 与 Nano Banana，把一张真实桌子的照片变成可玩的 3D 赛道。\n官方怎么说：文章强调 Argon 对实时 3D、光照、着色与交互物理的理解，以及把多工具串成一条 agent 流水线的能力。\n边界：这是官方用法展示，不是独立评测；文章没有给出每个例子的 prompt、工程文件与失败率，部分素材由 Nano Banana 等其他模型参与，不能全部记在 Argon 头上。",
+      "en": "What it shows: Google’s official article lists eight use cases: interactive tools and playable 3D games, lifelike textures, real-time 3D rendering, physics simulation and music visualisation. One example has Argon in Antigravity orchestrate subagents, Blender MCP and Nano Banana to turn photos of a real desk into a playable 3D track.\nWhat the official article says: it stresses Argon’s grasp of real-time 3D, lighting, shading and interactive physics, plus the ability to chain tools into one agent pipeline.\nBoundary: this is an official use-case gallery, not an independent evaluation; it does not give each example’s prompt, project files or failure rate, and some assets involve other models such as Nano Banana, so not every result belongs to Argon alone."
+    },
+    "category": "模型演示",
+    "tags": [
+      "3D rendering",
+      "Blender MCP",
+      "Nano Banana",
+      "Gemini 4 Argon"
+    ],
+    "promptHash": "80d984ea9e4bce5ccca755ea7467a9e1ec174aef",
+    "promptUrl": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-in-action/",
+    "sourceUrl": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-in-action/",
+    "demoUrl": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-in-action/",
+    "thumbUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/ExamplesofArgon_Hero.width-1300.png",
+    "repoUrl": "https://deepmind.google/models/gemini/",
+    "model": {
+      "name": "Gemini 4 Argon",
+      "version": "8 official use cases",
+      "releaseDate": "2026-10-27",
+      "releaseUrl": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-in-action/"
+    },
+    "sourceLabel": {
+      "zh": "官方原文",
+      "en": "Official article"
+    },
+    "promptLabel": {
+      "zh": "官方说明",
+      "en": "Official notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-in-action/",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "Google 官方发布内容；本站只链回官方视频或原文，不复制素材。引用与转载以 Google 的条款为准。",
+        "en": "Official Google release; this site only links to the official video or article and does not copy the media. Quotation and redistribution follow Google’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/gemini-4-showcase-005-eight-ways.html",
+    "workUrl": "https://demos.specul.com/works/gemini-4-showcase-005-eight-ways.html"
+  },
+  {
+    "id": "gemini-4-showcase-006-swarm",
+    "seq": "207",
+    "collection": "gemini-4-showcase",
+    "num": "006",
+    "slug": "carbon-antigravity-swarm",
+    "title": {
+      "zh": "Gemini 4 Carbon 与 Antigravity /swarm",
+      "en": "Gemini 4 Carbon and Antigravity /swarm"
+    },
+    "notes": {
+      "zh": "演示什么：Google Antigravity 把 Gemini 4 Carbon 与 /swarm 一起上线。一个 prompt 可以拉起一支分工 agent 团队：规划、构建、验证并行推进，共享一块实时消息板，每个角色还能用不同模型。\n官方怎么说：Carbon 负责长程软件工程、知识工作、科学发现与网络安全；/swarm 负责多 agent 编排，解决「单协调者上下文成为瓶颈」的问题。\n边界：/swarm 仍是 preview，只有 Google AI Ultra 订阅者可先用；官方没有给出并行 agent 的 token 成本、冲突率、回滚率与独立基准，不能当作「多 agent 一定比单 agent 强」的结论。",
+      "en": "What it shows: Google Antigravity ships Gemini 4 Carbon alongside /swarm. One prompt can launch a team of specialised agents that plan, build and verify in parallel on a shared live message board, with different models allowed per role.\nWhat the official article says: Carbon covers long-horizon software engineering, knowledge work, scientific discovery and cybersecurity; /swarm handles multi-agent orchestration and removes the single-coordinator context bottleneck.\nBoundary: /swarm is still in preview and limited to Google AI Ultra subscribers; the article gives no token cost, conflict rate, rollback rate or independent benchmark for parallel agents, so it is not a conclusion that multi-agent always beats a single agent."
+    },
+    "category": "模型演示",
+    "tags": [
+      "multi-agent",
+      "/swarm",
+      "Antigravity",
+      "Gemini 4 Carbon"
+    ],
+    "promptHash": "17213763e2ae0a14fc598b0aafcee11e505c34d1",
+    "promptUrl": "https://antigravity.google/blog/gemini-4-carbon-in-google-antigravity",
+    "sourceUrl": "https://antigravity.google/blog/gemini-4-carbon-in-google-antigravity",
+    "demoUrl": "https://antigravity.google/blog/gemini-4-carbon-in-google-antigravity",
+    "thumbUrl": "https://antigravity.google/og/blog/gemini-4-carbon-in-google-antigravity.png",
+    "repoUrl": "https://deepmind.google/models/gemini/",
+    "model": {
+      "name": "Gemini 4 Carbon",
+      "version": "/swarm preview",
+      "releaseDate": "2026-11-10",
+      "releaseUrl": "https://antigravity.google/blog/gemini-4-carbon-in-google-antigravity"
+    },
+    "sourceLabel": {
+      "zh": "官方原文",
+      "en": "Official article"
+    },
+    "promptLabel": {
+      "zh": "官方说明",
+      "en": "Official notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://antigravity.google/blog/gemini-4-carbon-in-google-antigravity",
+      "checkedAt": "2026-11-19",
+      "text": {
+        "zh": "Google 官方发布内容；本站只链回官方视频或原文，不复制素材。引用与转载以 Google 的条款为准。",
+        "en": "Official Google release; this site only links to the official video or article and does not copy the media. Quotation and redistribution follow Google’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页",
+      "date": "2026-11-19"
+    },
+    "workPath": "works/gemini-4-showcase-006-swarm.html",
+    "workUrl": "https://demos.specul.com/works/gemini-4-showcase-006-swarm.html"
+  },
+  {
+    "id": "2026-11-kimi-k3-1-pro-3d",
+    "seq": "208",
+    "collection": "2026-11-model-demos",
+    "num": "001",
+    "slug": "kimi-k3-1-pro-3d",
+    "title": {
+      "zh": "Kimi K3.1 Pro：3D 创作与长程代码",
+      "en": "Kimi K3.1 Pro: 3D creation and long-horizon code"
+    },
+    "notes": {
+      "zh": "演示什么：官方页把 K3.1 Pro 的 1M 上下文、3D 创作与长程 coding 放在一起——给文字/草图/参考图生成 3D 模型，直接写并运行 Blender、CAD 脚本；还展示了一个 296 骨骼 / 402 肌肉的人体行走仿真器，模型自己定位并修正肩部力臂的 36 处错误。\\n官方怎么说：这些案例由 K3.1 Pro 端到端完成，Kimi App 同步上线 3D Make，可在线预览和编辑 3D 模型；完整权重于 11 月 4 日前发布。\\n边界：官方自述案例，不是受控基准；没有给完整 prompt、种子和工程文件；Terminal-Bench / Kimi Code Bench 分数是厂商口径，不能当作独立复现结论。",
+      "en": "What it shows: the official page combines K3.1 Pro’s 1M context, 3D creation and long-horizon coding — text/sketch/reference image to 3D, writing and running Blender/CAD scripts, plus a 296-bone / 402-muscle human walking simulator where the model locates and fixes 36 shoulder moment-arm errors.\\nWhat the official page says: these cases were completed end-to-end by K3.1 Pro; Kimi App also shipped 3D Make with online preview and editing; full weights were due by 4 November.\\nBoundary: vendor case studies, not a controlled benchmark; full prompts, seeds and project files are not provided; Terminal-Bench / Kimi Code Bench scores are vendor figures, not independently reproduced conclusions."
+    },
+    "category": "模型演示",
+    "tags": [
+      "3D 创作",
+      "Blender",
+      "长程代码",
+      "1M 上下文",
+      "官方演示"
+    ],
+    "promptHash": "73c129799806452419ccf89db1ba761fc49e49eb",
+    "promptUrl": "https://www.kimi.com/news/kimi-k3-1-pro",
+    "sourceUrl": "https://www.kimi.com/news/kimi-k3-1-pro",
+    "demoUrl": "https://www.kimi.com/news/kimi-k3-1-pro",
+    "thumbUrl": "https://statics.kimi.ai/kimi-blogs/kimi-k3-1/20261022/k3-1-pro-cover.webp",
+    "repoUrl": "https://www.kimi.com/news/kimi-k3-1-pro",
+    "model": {
+      "name": "Kimi K3.1 Pro",
+      "version": "official showcase",
+      "releaseDate": "2026-10-24",
+      "releaseUrl": "https://www.kimi.com/news/kimi-k3-1-pro"
+    },
+    "sourceLabel": {
+      "zh": "官方发布页",
+      "en": "Official release page"
+    },
+    "promptLabel": {
+      "zh": "官方演示说明",
+      "en": "Official demo notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://www.kimi.com/news/kimi-k3-1-pro",
+      "checkedAt": "2026-11-20",
+      "text": {
+        "zh": "官方发布内容；本站只链回官方页面，不复制图片、视频或素材。引用与转载以原厂条款为准。",
+        "en": "Official release; this site only links to the original page and does not copy images, video or media. Quotation and redistribution follow the vendor’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页 / 产品内演示",
+      "date": "2026-11-20"
+    },
+    "workPath": "works/2026-11-kimi-k3-1-pro-3d.html",
+    "workUrl": "https://demos.specul.com/works/2026-11-kimi-k3-1-pro-3d.html"
+  },
+  {
+    "id": "2026-11-gemini-omni-1-2-flash",
+    "seq": "209",
+    "collection": "2026-11-model-demos",
+    "num": "002",
+    "slug": "gemini-omni-1-2-flash",
+    "title": {
+      "zh": "Gemini Omni 1.2 Flash：15 秒视频与多轮编辑",
+      "en": "Gemini Omni 1.2 Flash: 15-second video and multi-turn editing"
+    },
+    "notes": {
+      "zh": "演示什么：官方页展示原生 15 秒视频、更强的参考一致性、多轮对话式编辑、自然语音与更稳的运镜；可以先用 360p/720p 快速草拟，再对细节做一次 follow-up edit，最后升到 1080p/4K，而不是整段重生成。\\n官方怎么说：15 秒、720p 下每美元成本比 1.1 低 30%，已在 Gemini API 与 Google Cloud 正式可用；输出带 SynthID 水印。\\n边界：官方精选案例，不是同题横评；没有给完整 prompt、参考图与种子；运动、快速剧本变化和复杂物理仍是官方承认的待改进项。",
+      "en": "What it shows: the official page demonstrates native 15-second video, stronger reference adherence, multi-turn conversational editing, natural speech and steadier camera moves; you can draft at 360p/720p, fix a detail with a follow-up edit, then upscale to 1080p/4K instead of regenerating the whole clip.\\nWhat the official page says: 15 seconds at 720p costs 30% less than 1.1, is generally available on the Gemini API and Google Cloud, and outputs carry a SynthID watermark.\\nBoundary: curated vendor examples, not a same-prompt head-to-head; full prompts, references and seeds are not provided; fast sports action, rapid script changes and complex physics remain acknowledged gaps."
+    },
+    "category": "模型演示",
+    "tags": [
+      "视频生成",
+      "多轮编辑",
+      "15 秒",
+      "SynthID",
+      "官方演示"
+    ],
+    "promptHash": "d442e171d69ace0c7b64e6964f1f5a83d485bfb0",
+    "promptUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+    "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+    "demoUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+    "thumbUrl": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.width-1300.png",
+    "repoUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+    "model": {
+      "name": "Gemini Omni 1.2 Flash",
+      "version": "official showcase",
+      "releaseDate": "2026-11-05",
+      "releaseUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/"
+    },
+    "sourceLabel": {
+      "zh": "官方发布页",
+      "en": "Official release page"
+    },
+    "promptLabel": {
+      "zh": "官方演示说明",
+      "en": "Official demo notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "checkedAt": "2026-11-20",
+      "text": {
+        "zh": "官方发布内容；本站只链回官方页面，不复制图片、视频或素材。引用与转载以原厂条款为准。",
+        "en": "Official release; this site only links to the original page and does not copy images, video or media. Quotation and redistribution follow the vendor’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页 / 产品内演示",
+      "date": "2026-11-20"
+    },
+    "workPath": "works/2026-11-gemini-omni-1-2-flash.html",
+    "workUrl": "https://demos.specul.com/works/2026-11-gemini-omni-1-2-flash.html"
+  },
+  {
+    "id": "2026-11-hy4-flash-workbuddy",
+    "seq": "210",
+    "collection": "2026-11-model-demos",
+    "num": "003",
+    "slug": "hy4-flash-workbuddy",
+    "title": {
+      "zh": "Hy4 flash：150+ tok/s 的办公任务",
+      "en": "Hy4 flash: 150+ tok/s for everyday work"
+    },
+    "notes": {
+      "zh": "演示什么：官方页用 WorkBuddy 的日常任务展示 Hy4 flash——PPT 制作与编辑、文档编辑、表格修复、音视频处理、视觉理解；模型 224B 总参（含 64B Engram）、12B 激活、1M 上下文，解码超过 150 tokens/s。\\n官方怎么说：Hy4 flash 在内部 WorkIndex 上略优于 770B/49B 的 Hy4 Preview，单任务成本约为 Hy4 Preview 的 1/13；11 月 30 日前 WorkBuddy 免费，腾讯云 TokenHub 五折。\\n边界：WorkIndex 是腾讯内部基准，不是公开横评；85 人 / 259 任务的盲测是厂商自述；Hy4 flash 的开源是计划，不是已发布；没有给完整 prompt 与任务集。",
+      "en": "What it shows: the official page uses WorkBuddy tasks to demonstrate Hy4 flash — slide creation/editing, document editing, spreadsheet repair, audio/video processing and visual understanding; the model has 224B total parameters (including 64B Engram), 12B active, 1M context and over 150 decoded tokens/s.\\nWhat the official page says: on the internal WorkIndex, Hy4 flash slightly outperforms the 770B/49B Hy4 Preview at about 1/13 the per-task cost; WorkBuddy is free until 30 November and TokenHub is 50% off.\\nBoundary: WorkIndex is Tencent’s internal benchmark, not a public head-to-head; the 85-user / 259-task blind test is vendor-reported; open-sourcing Hy4 flash is a plan, not a shipped release; full prompts and task sets are not provided."
+    },
+    "category": "模型演示",
+    "tags": [
+      "办公任务",
+      "150+ tok/s",
+      "1M 上下文",
+      "WorkBuddy",
+      "官方演示"
+    ],
+    "promptHash": "83a680d5c36d1a8a88d53b4db3262d584689e477",
+    "promptUrl": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+    "sourceUrl": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+    "demoUrl": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+    "thumbUrl": "https://www.tencent.com/wp-content/uploads/2026/11/2026111517490716_6d0b8dd02dcfff6174ba34e437a09247-scaled.png",
+    "repoUrl": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+    "model": {
+      "name": "Hy4 flash",
+      "version": "official showcase",
+      "releaseDate": "2026-11-16",
+      "releaseUrl": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/"
+    },
+    "sourceLabel": {
+      "zh": "官方发布页",
+      "en": "Official release page"
+    },
+    "promptLabel": {
+      "zh": "官方演示说明",
+      "en": "Official demo notes"
+    },
+    "license": {
+      "spdx": null,
+      "kind": "official-media",
+      "evidenceUrl": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+      "checkedAt": "2026-11-20",
+      "text": {
+        "zh": "官方发布内容；本站只链回官方页面，不复制图片、视频或素材。引用与转载以原厂条款为准。",
+        "en": "Official release; this site only links to the original page and does not copy images, video or media. Quotation and redistribution follow the vendor’s terms."
+      }
+    },
+    "run": {
+      "status": "external",
+      "env": "官方发布页 / 产品内演示",
+      "date": "2026-11-20"
+    },
+    "workPath": "works/2026-11-hy4-flash-workbuddy.html",
+    "workUrl": "https://demos.specul.com/works/2026-11-hy4-flash-workbuddy.html"
   }
 ]

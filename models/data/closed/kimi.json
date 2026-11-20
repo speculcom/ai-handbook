@@ -14,12 +14,19 @@
     "en": "platform.kimi.com API and the Kimi app; K3 weights are also open (see the kimi family card on the open-weight side) — API and open weights are two usage paths to the same model."
   },
   "currentGen": {
-    "zh": "Kimi K3（API）",
-    "en": "Kimi K3 (API)"
+    "zh": "Kimi K3.1 Pro（3T 级，1M 上下文）",
+    "en": "Kimi K3.1 Pro (3T-class, 1M context)"
   },
-  "currentGenDate": "2026-06",
+  "currentGenDate": "2026-10",
   "review_interval_days": 30,
   "generations": [
+    {
+      "gen": "Kimi K3.1 Pro / Highspeed",
+      "date": "2026-10",
+      "zh": "K3.1 Pro / Highspeed 2026-10-24 上线：3T 级参数、1M 上下文、仅思考模式；Highspeed 为低延迟档（官方发布页）。",
+      "en": "K3.1 Pro / Highspeed launched on 2026-10-24: 3T-class parameters, 1M context, thinking mode only; Highspeed is the low-latency tier (official announcement).",
+      "url": "https://www.kimi.com/news/kimi-k3-1-pro"
+    },
     {
       "gen": "Kimi K3",
       "date": "2026-06",
@@ -38,36 +45,58 @@
   "facts": [
     {
       "k": {
-        "zh": "上下文窗口",
-        "en": "Context window"
+        "zh": "参数与上下文",
+        "en": "Scale and context"
       },
       "v": {
-        "zh": "1M token（官方 API 文档：max_completion_tokens 最大可设 1048576）",
-        "en": "1M tokens (official API docs: max_completion_tokens can reach 1048576)"
+        "zh": "3 万亿级参数；1,048,576 tokens 上下文；仅支持思考模式（Kimi 官方发布页与 Kimi Code 文档）",
+        "en": "3T-class parameters; 1,048,576-token context; thinking mode only (official Kimi announcement and Kimi Code docs)"
       },
-      "url": "https://platform.kimi.com/docs/api/chat"
+      "url": "https://www.kimi.com/news/kimi-k3-1-pro"
     },
     {
       "k": {
-        "zh": "思考模式",
-        "en": "Thinking mode"
+        "zh": "思考强度",
+        "en": "Thinking effort"
       },
       "v": {
-        "zh": "K3 始终启用思考 + Preserved Thinking；推理强度 low/high/max，默认 max（官方 API 文档）",
-        "en": "K3 always thinks, with Preserved Thinking; reasoning effort low/high/max, default max (official API docs)"
+        "zh": "reasoning_effort 支持 low / high / max，默认 high；关闭思考返回 400（Kimi Code 文档）",
+        "en": "reasoning_effort supports low / high / max, default high; disabling thinking returns 400 (Kimi Code docs)"
       },
-      "url": "https://platform.kimi.com/docs/api/chat"
+      "url": "https://www.kimi.com/code/docs/kimi-code/models.html"
     },
     {
       "k": {
-        "zh": "输入模态",
-        "en": "Input modalities"
+        "zh": "权重开放",
+        "en": "Weight release"
       },
       "v": {
-        "zh": "多模态理解与 Tool Calling（官方平台文档口径）",
-        "en": "Multimodal understanding and Tool Calling (official platform docs)"
+        "zh": "完整模型权重最迟 2026-11-04 发布（官方发布页；10-24 发布时点为“最迟 11-04”）",
+        "en": "Full model weights to be released by 2026-11-04 (official announcement; at launch on 10-24 the date was stated as “by Nov 4”)"
       },
-      "url": "https://platform.kimi.com/docs/api/chat"
+      "url": "https://www.kimi.com/news/kimi-k3-1-pro"
+    },
+    {
+      "k": {
+        "zh": "官方评测",
+        "en": "Official benchmarks"
+      },
+      "v": {
+        "zh": "Terminal-Bench 4.0 65.7%，高于 GPT-6 Astra 的 58.2%，略低于 Claude Opus 5.5 的 66.4%；Kimi Code Bench 3.0 Long-horizon 61.2%（官方技术博客，厂商口径）",
+        "en": "Terminal-Bench 4.0 65.7%, above GPT-6 Astra at 58.2% and slightly below Claude Opus 5.5 at 66.4%; Kimi Code Bench 3.0 Long-horizon 61.2% (official tech blog, vendor-reported)"
+      },
+      "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+    },
+    {
+      "k": {
+        "zh": "高速版",
+        "en": "Highspeed variant"
+      },
+      "v": {
+        "zh": "K3.1 Pro Highspeed 同等智能，输出速度约 2–3 倍，消耗约为普速版两倍（官方发布页）",
+        "en": "K3.1 Pro Highspeed keeps the same intelligence at roughly 2–3x output speed and about 2x the token consumption (official announcement)"
+      },
+      "url": "https://www.kimi.com/news/kimi-k3-1-pro"
     }
   ],
   "positioning": {
@@ -80,13 +109,31 @@
   },
   "sources": [
     {
+      "label": "Kimi 官方发布页：Kimi K3.1 Pro（2026-10-24）",
+      "labelEn": "Kimi official announcement: Kimi K3.1 Pro (2026-10-24)",
+      "url": "https://www.kimi.com/news/kimi-k3-1-pro",
+      "kind": "docs"
+    },
+    {
+      "label": "Kimi 技术博客：Kimi K3.1 Pro（英文，含 Terminal-Bench 4.0 数据）",
+      "labelEn": "Kimi tech blog: Kimi K3.1 Pro (English, with Terminal-Bench 4.0 figures)",
+      "url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+      "kind": "docs"
+    },
+    {
+      "label": "Kimi Code 文档：K3.1 Pro 模型配置（1M 上下文 / 思考强度）",
+      "labelEn": "Kimi Code docs: K3.1 Pro model configuration (1M context / thinking effort)",
+      "url": "https://www.kimi.com/code/docs/kimi-code/models.html",
+      "kind": "docs"
+    },
+    {
       "label": "Kimi 开放平台 API 文档（2026-10-30 直抓 200：K3 上下文/思考/推理强度参数）",
       "url": "https://platform.kimi.com/docs/api/chat",
       "kind": "docs",
       "labelEn": "Kimi open-platform API docs (direct fetch 200 on 2026-10-30: K3 context/thinking/reasoning-effort parameters)"
     }
   ],
-  "last_verified": "2026-10-30",
+  "last_verified": "2026-11-19",
   "confidence": "verified",
   "cn": {
     "origin": "domestic",

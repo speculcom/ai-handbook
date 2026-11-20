@@ -2,7 +2,7 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-45 条。
+55 条。
 
 - [目录](https://papers.specul.com/index.html)
 - [怎么用](https://papers.specul.com/about.html)
@@ -52,3 +52,13 @@
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://papers.specul.com/grpo-2024.html) — 问题：用 PPO 做数学推理强化学习时，显存与计算成本高；能否在不引入 critic 的情况下稳定优化。 证据位置：摘要提出 GRPO，作为 PPO 的变体，提
 - [AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration](https://papers.specul.com/awq-2023.html) — 问题：LLM 低比特权重量化如何保精度、又保持硬件友好，能落到端侧。 证据位置：摘要称只保护 1% 显著权重即可大幅降低量化误差；显著通道要按激活分布而非权重判
 - [Scalable Diffusion Models with Transformers](https://papers.specul.com/dit-2022.html) — 问题：扩散模型能否用 Transformer 替代 U-Net 作为骨干，并像 Gflops 一样可扩展。 证据位置：摘要在潜空间扩散中用 Transforme
+- [GPT-6.2 Astra and GPT-6.2 Sol](https://papers.specul.com/gpt-6-2-2026.html) — 问题：6.2 代的两档到底怎么分工，官方给的规格与边界是什么。 证据位置：2026-11-17 官方发布说明写明 Astra 面向复杂专业工作，Sol 面向多步
+- [Introducing Claude Fable 5.2 and Claude Mythos 5.2](https://papers.specul.com/claude-5-2-2026.html) — 问题：Fable 5.2 与 Mythos 5.2 同底座，为什么分成两档，安全边界怎么划。 证据位置：官方发布页写明 Fable 带网络安全与生物安全分类器，
+- [Gemini 4 Carbon Model Card](https://papers.specul.com/gemini-4-carbon-2026.html) — 问题：Carbon 相对 Argon 强在哪里，官方模型卡承认哪些限制。 证据位置：Google DeepMind 模型卡写明 Carbon 面向长程 Agen
+- [Kimi K3.1 Pro：智能前沿，更进一步](https://papers.specul.com/kimi-k3-1-pro-2026.html) — 问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3
+- [Qwen4-Max：阿里巴巴新一代旗舰模型](https://papers.specul.com/qwen4-max-2026.html) — 问题：Qwen4-Max 的规模、上下文、模态与开放权重路线是什么。 证据位置：阿里巴巴集团新闻稿写明 2.4 万亿总参、每 token 激活 710 亿（较 
+- [腾讯 Hy4：正式版与开源路线](https://papers.specul.com/tencent-hy4-2026.html) — 问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入
+- [Hibana：统一内存设备上的快速 agent 推理](https://papers.specul.com/hibana-2026.html) — 问题：统一内存设备（如 DGX Spark）显存容量大但带宽低，vLLM / SGLang 这类数据中心引擎不适配，本地多 agent 长会话又要求并发与状态恢
+- [用超时级联降低 coding agent 推理成本](https://papers.specul.com/timeout-cascades-2026.html) — 问题：coding agent 很吃 GPU 小时，小模型便宜但怕不稳；能不能先用小模型、失败再升级大模型，在不掉解决率的前提下省钱？ 证据位置：论文在 SWE
+- [DroidPrefill：用手机 NPU 跑完全本地的 GUI agent](https://papers.specul.com/droidprefill-2026.html) — 问题：手机 GUI agent 多靠云端模型，延迟、隐私、网络都受限；直接把常规 agent 搬到手机 NPU 又低效——NPU 强在 prefill、弱在逐 
+- [Strategist：让 agent 自己进化推理策略](https://papers.specul.com/strategist-2026.html) — 问题：agent 的推理流程（prompt、工具顺序、验证步骤）大多手工写，做完一个任务经验不沉淀，下个任务从零再来；模型冻结时，系统另一半能否自己变好？ 证据

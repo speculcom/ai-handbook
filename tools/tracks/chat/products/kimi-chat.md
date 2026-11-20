@@ -10,8 +10,8 @@ licenseEn: Official User Agreement v2 §5.2: users own the IP rights in their in
 
 axes:
   model_access: >-
-    模型家族官方产品线披露：官网导航列 Kimi K3 / K2.7 Code / K2.6 / K2.5（2026-10-21 直抓核验），
-    首页标题「K3 上线，专为智能体编程与知识工作打造」；开放平台 API 另线提供模型接口。
+    模型家族官方产品线披露：2026-10-24 上线 Kimi K3.1 Pro / Highspeed（3T 级、1M 上下文、
+    仅思考模式）；K3 / K2.7 Code / K2.6 / K2.5 仍在列；开放平台 API 另线提供模型接口。
   runtime: >-
     网页为主入口，另有桌面端与移动应用；生成在云端处理，数据存储于中国境内服务器（官方数据使用与共享说明）。
   local_files: >-
@@ -44,7 +44,7 @@ tags: [中文, 长文档, Agent任务, 境内存储]
 related: [grok-bot]
 
 sources:
-  - label: Kimi · 数据使用与共享说明（官方帮助页，2026-10-20 直抓核验：训练前提、退出流程、境内存储、Business 不训练）
+  - label: Kimi · 数据使用与共享说明（官方帮助页，2026-10-20 直抓核验、2026-11-19 复核：训练前提、退出流程、境内存储、Business 不训练）
     url: https://www.kimi.com/en/help/others/data-usage
     kind: docs
   - label: Kimi · 隐私政策（NOVASCENT PRIVATE LIMITED / Moonshot AI，2026-08-13 更新）
@@ -56,9 +56,12 @@ sources:
   - label: Kimi · 会员页（定价页指针，D9：本站不采价格数字）
     url: https://www.kimi.com/membership
     kind: pricing
+  - label: Kimi 官方发布页 · Kimi K3.1 Pro（2026-10-24）
+    url: https://www.kimi.com/news/kimi-k3-1-pro
+    kind: changelog
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-19
+last_updated: 2026-11-19
 lifecycle: active
 confidence: partial
 

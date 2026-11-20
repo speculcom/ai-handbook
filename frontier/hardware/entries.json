@@ -129,16 +129,24 @@
       {
         "url": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai",
         "quote": "NVLink 6 provides 3,600 GB/s scale-up bandwidth"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+        "quote": "20.7 TB HBM4"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+        "quote": "1,400 TB/s"
       }
     ],
     "notes": {
-      "zh": "回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到 22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。\n不主张：50 PF 是 NVFP4 推理性能，不是所有精度；不能与 AMD MXFP4 数字直接横比；不是整机 Vera Rubin NVL72 的合计；不是实测吞吐。",
-      "en": "Answers Rubin’s per-GPU HBM4 capacity and bandwidth, and its NVFP4 inference figure. 288GB matches B300, but HBM4 lifts bandwidth from 8 TB/s to 22 TB/s and NVLink 6 from 1.8 TB/s to 3.6 TB/s; those three set the practical ceiling for long context and concurrency.\nIt does not claim: 50 PF is NVFP4 inference performance, not every precision; it is not directly comparable with AMD MXFP4 figures; it is not the Vera Rubin NVL72 rack total; it is not measured throughput."
+      "zh": "回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到约 19–22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。\n不主张：50 PF 是 NVFP4 推理性能，不是所有精度；不能与 AMD MXFP4 数字直接横比；不是整机 Vera Rubin NVL72 的合计；不是实测吞吐。带宽有两个官方口径：开发者博客写「up to 22 TB/s」，NVL72 产品页给 20.7 TB / 1,400 TB/s，折算单卡约 19.2 TB/s；本站并列标注，不取单一值。",
+      "en": "Answers Rubin’s per-GPU HBM4 capacity and bandwidth, and its NVFP4 inference figure. 288GB matches B300, but HBM4 lifts bandwidth from 8 TB/s to roughly 19–22 TB/s and NVLink 6 from 1.8 TB/s to 3.6 TB/s; those three set the practical ceiling for long context and concurrency.\nIt does not claim: 50 PF is NVFP4 inference performance, not every precision; it is not directly comparable with AMD MXFP4 figures; it is not the Vera Rubin NVL72 rack total; it is not measured throughput. Two official bandwidth figures exist: the developer blog says \"up to 22 TB/s\", while the NVL72 product page lists 20.7 TB / 1,400 TB/s, which works out to about 19.2 TB/s per GPU; this site shows both rather than picking one."
     },
-    "verifiedAt": "2026-11-18",
+    "verifiedAt": "2026-11-20",
     "specs": {
       "显存 / HBM": "288 GB HBM4（12-Hi stacks）",
-      "带宽 / bandwidth": "22 TB/s",
+      "带宽 / bandwidth": "19.2 TB/s（NVL72 规格表折算）/ 最高 22 TB/s（开发者博客）",
       "NVFP4 推理 / inference": "up to 50 PFLOPS",
       "晶体管 / transistors": "336B",
       "SM / Tensor Cores": "224 SM / 896 Tensor Cores",
@@ -1864,6 +1872,853 @@
       "定位": "推理专用 LPU / 推理云",
       "公开规格": "首页未给单芯片完整规格",
       "形态": "云服务 / 系统"
+    }
+  },
+  {
+    "id": "nvidia-rtx-spark",
+    "title": {
+      "zh": "NVIDIA RTX Spark 紧凑桌面",
+      "en": "NVIDIA RTX Spark compact desktop"
+    },
+    "category": "system",
+    "url": "https://www.nvidia.com/en-us/products/rtx-spark/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-us/products/rtx-spark/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://blogs.nvidia.com/blog/rtx-spark-desktop-local-ai-available-now/",
+        "quote": "RTX Spark desktops are equipped with a 20-core NVIDIA Grace CPU, an NVIDIA Blackwell RTX GPU with 6,144 CUDA cores and up to 128GB of unified memory, delivering up to 1 petaflop of AI performance."
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/products/rtx-spark/",
+        "quote": "Up to 128 GB Unified Memory"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/products/rtx-spark/",
+        "quote": "Power (TDP) 140 W"
+      }
+    ],
+    "notes": {
+      "zh": "回答「一台能长期跑本地智能体的 Windows 小主机是什么形态」。RTX Spark 把 20 核 Grace CPU、6144 核 Blackwell RTX GPU 与最高 128GB 统一内存做进紧凑桌面，FP4 峰值 1 PFLOP，官方口径可本地跑 120B 参数级模型；140W TDP，适合 24 小时挂智能体与定时任务。它不是数据中心 GPU，也不能把 128GB 当成 HBM：带宽和可靠性等级都不同。",
+      "en": "Answers what a Windows compact desktop built to run local agents around the clock looks like. RTX Spark combines a 20-core Grace CPU, a 6,144-core Blackwell RTX GPU and up to 128GB of unified memory in a small desktop, with up to 1 petaflop of FP4 AI performance; NVIDIA says it can run 120B-parameter-class models locally at a 140W TDP, which suits always-on agents and scheduled jobs. It is not a data-centre GPU, and the 128GB is not HBM: bandwidth and reliability classes differ."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "GPU": "6144-core NVIDIA Blackwell RTX GPU",
+      "CPU": "20-core NVIDIA Grace CPU",
+      "memory": "up to 128 GB LPDDR5X unified",
+      "AI performance": "up to 1 PFLOP FP4",
+      "TDP": "140 W",
+      "OS": "Windows 11",
+      "network": "10 GbE, Wi-Fi 7",
+      "form": "compact desktop (partner systems roughly 1.1–1.3 L)"
+    }
+  },
+  {
+    "id": "nvidia-dgx-spark-hpc-kit",
+    "title": {
+      "zh": "NVIDIA DGX Spark HPC Developer Kit",
+      "en": "NVIDIA DGX Spark HPC Developer Kit"
+    },
+    "category": "system",
+    "url": "https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/",
+        "quote": "The kit is a four-node cluster of NVIDIA DGX Spark systems, each connected directly to its two neighbors in a ring"
+      },
+      {
+        "url": "https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/",
+        "quote": "At four nodes, it provides 512GB of combined memory and 16TB of NVMe storage"
+      },
+      {
+        "url": "https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/",
+        "quote": "With NVFP4, researchers can deploy models with up to 700B parameters locally across the four DGX Spark clusters"
+      }
+    ],
+    "notes": {
+      "zh": "回答「桌面级四机集群能做什么」。四台 DGX Spark 用 ConnectX-7 直接成环，不经过交换机；合计 512GB 统一内存、16TB NVMe，官方口径可在 FP4 下跑最多 700B 参数模型（示例点名 DeepSeek V4.1）。适合在桌面上调试多机科学计算与 Agent 工作流，再上大集群；不是替代共享 GPU 集群的生产设施。",
+      "en": "Answers what a four-node desktop cluster can do. Four DGX Spark units link directly in a ring over ConnectX-7 without a switch, pooling 512GB of unified memory and 16TB of NVMe; NVIDIA says up to 700B-parameter models fit at NVFP4 (it names DeepSeek V4.1 as an example). It is built for debugging multi-node scientific and agent workloads at a desk before moving to a larger cluster, not as a production replacement for a shared GPU cluster."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "nodes": "4 × DGX Spark (GB10 Grace Blackwell)",
+      "combined memory": "512 GB unified",
+      "storage": "16 TB NVMe",
+      "interconnect": "ConnectX-7 direct ring, no switch",
+      "model size": "up to 700B parameters at NVFP4 (vendor claim)",
+      "software": "NVIDIA HPC SDK playbook (announced, coming soon)"
+    }
+  },
+  {
+    "id": "nvidia-rubin-cpx",
+    "title": {
+      "zh": "NVIDIA Rubin CPX",
+      "en": "NVIDIA Rubin CPX"
+    },
+    "category": "accelerator",
+    "url": "https://nvidianews.nvidia.com/news/nvidia-unveils-rubin-cpx-a-new-class-of-gpu-designed-for-massive-context-inference",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://nvidianews.nvidia.com/news/nvidia-unveils-rubin-cpx-a-new-class-of-gpu-designed-for-massive-context-inference",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://nvidianews.nvidia.com/news/nvidia-unveils-rubin-cpx-a-new-class-of-gpu-designed-for-massive-context-inference",
+        "quote": "Rubin CPX delivers up to 30 petaflops of compute with NVFP4 precision"
+      },
+      {
+        "url": "https://nvidianews.nvidia.com/news/nvidia-unveils-rubin-cpx-a-new-class-of-gpu-designed-for-massive-context-inference",
+        "quote": "It features 128GB of cost-efficient GDDR7 memory"
+      },
+      {
+        "url": "https://nvidianews.nvidia.com/news/nvidia-unveils-rubin-cpx-a-new-class-of-gpu-designed-for-massive-context-inference",
+        "quote": "packs 8 exaflops of AI performance and 100TB of fast memory in a single rack"
+      }
+    ],
+    "notes": {
+      "zh": "回答「百万 token 上下文推理该看哪类卡」。Rubin CPX 是专为长上下文推理切的单 die GPU：30 PF NVFP4、128GB GDDR7，注意力能力官方称是 GB300 NVL72 的 3 倍；整机柜 Vera Rubin NVL144 CPX 给 8 EF AI 算力、100TB 快存、1.7PB/s 带宽。它不等于训练卡：GDDR7 容量大但带宽低于 HBM4，官方定位是推理与视频编解码。可用时点是 2026 年底。",
+      "en": "Answers which class of GPU to look at for million-token context inference. Rubin CPX is a monolithic GPU cut for long-context inference: 30 PF at NVFP4 and 128GB of GDDR7, with NVIDIA claiming 3x the attention capability of GB300 NVL72; a full Vera Rubin NVL144 CPX rack delivers 8 exaflops, 100TB of fast memory and 1.7PB/s. It is not a training card: GDDR7 gives capacity, not HBM4-class bandwidth, and NVIDIA positions it for inference plus video encode/decode. Availability is the end of 2026."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "architecture": "NVIDIA Rubin",
+      "NVFP4 compute": "up to 30 PFLOPS",
+      "memory": "128 GB GDDR7",
+      "attention": "3× GB300 NVL72 (vendor claim)",
+      "rack platform": "Vera Rubin NVL144 CPX",
+      "rack AI compute": "8 exaflops",
+      "rack fast memory": "100 TB",
+      "rack bandwidth": "1.7 PB/s",
+      "availability": "end of 2026"
+    }
+  },
+  {
+    "id": "nvidia-gb300-nvl72",
+    "title": {
+      "zh": "NVIDIA GB300 NVL72",
+      "en": "NVIDIA GB300 NVL72"
+    },
+    "category": "system",
+    "url": "https://www.nvidia.com/en-eu/data-center/gb300-nvl72/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.nvidia.com/en-eu/data-center/gb300-nvl72/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-eu/data-center/gb300-nvl72/",
+        "quote": "72 NVIDIA Blackwell Ultra GPUs, 36 NVIDIA Grace CPUs"
+      },
+      {
+        "url": "https://www.nvidia.com/en-eu/data-center/gb300-nvl72/",
+        "quote": "GPU Memory | Bandwidth 20 TB | Up to 576 TB/s"
+      },
+      {
+        "url": "https://www.nvidia.com/en-eu/data-center/gb300-nvl72/",
+        "quote": "FP4 Tensor Core 1440 | 1080 PFLOPS"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Blackwell Ultra 的机柜级形态给多少显存、带宽和 FP4」。GB300 NVL72 把 72 颗 B300 与 36 颗 Grace CPU 做进一个液冷机柜：20TB HBM3e、576TB/s 聚合带宽、NVLink 5 域内 130TB/s，官方 FP4 表列 1440 / 1080 PFLOPS 两档。定位是 test-time scaling 与推理，不是单卡；买整柜和买 8 卡服务器的账要分开算。",
+      "en": "Answers what the rack-scale Blackwell Ultra form delivers in memory, bandwidth and FP4. GB300 NVL72 puts 72 B300 GPUs and 36 Grace CPUs into one liquid-cooled rack: 20TB of HBM3e, up to 576TB/s of aggregate bandwidth and 130TB/s of NVLink 5 domain bandwidth, with the official FP4 table listing 1,440 / 1,080 PFLOPS. It is positioned for test-time scaling and inference, not as a single GPU; the economics of a full rack and an 8-GPU server are different purchases."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "configuration": "72 × Blackwell Ultra B300 + 36 × Grace CPU",
+      "NVLink bandwidth": "130 TB/s",
+      "fast memory": "37 TB",
+      "GPU memory": "20 TB HBM3e",
+      "GPU bandwidth": "up to 576 TB/s",
+      "CPU memory": "17 TB LPDDR5X / 14 TB/s",
+      "CPU cores": "2,592 Arm Neoverse V2",
+      "FP4 Tensor Core": "1,440 / 1,080 PFLOPS (official table)",
+      "FP8/FP6": "720 PFLOPS",
+      "FP16/BF16": "360 PFLOPS",
+      "cooling": "fully liquid-cooled"
+    }
+  },
+  {
+    "id": "amd-instinct-mi440x",
+    "title": {
+      "zh": "AMD Instinct MI440X",
+      "en": "AMD Instinct MI440X"
+    },
+    "category": "accelerator",
+    "url": "https://www.amd.com/en/products/specifications/accelerators.html",
+    "license": {
+      "kind": "vendor-claim",
+      "evidenceUrl": "https://www.amd.com/content/dam/amd/en/documents/corporate/events/amd-ces-2026-distribution-deck.pdf",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.amd.com/content/dam/amd/en/documents/corporate/events/amd-ces-2026-distribution-deck.pdf",
+        "quote": "8 GPU Drop-In Ready “Venice” + MI440X"
+      },
+      {
+        "url": "https://www.aiwiki.ai/wiki/amd_mi400",
+        "quote": "It carries the same 432 GB of HBM4 and 19.6 TB/s memory bandwidth as the MI455X"
+      }
+    ],
+    "notes": {
+      "zh": "回答「MI400 家族里给标准 8 卡服务器的是哪一档」。MI440X 是 AMD 的 8 卡服务器 drop-in 型号，配 EPYC Venice；显存与带宽沿用 MI400 系列的 432GB HBM4 / 19.6TB/s，FP4/FP8 分别约 40 / 20 PFLOPS。注意：AMD 尚未单独发布 MI440X 规格页，以上算力与显存数字来自 MI400 系列同代资料与第三方汇总，卡片按「厂商口径」标记，不当作已复核的独立规格。",
+      "en": "Answers which MI400 family member targets standard 8-GPU servers. MI440X is AMD’s drop-in 8-GPU server part paired with EPYC Venice; it carries the MI400 platform’s 432GB of HBM4 and 19.6TB/s of bandwidth, with roughly 40 / 20 PFLOPS at FP4 / FP8. Caveat: AMD has not published a standalone MI440X spec sheet, so those compute and memory figures come from same-generation MI400 material and third-party summaries; this card marks them as vendor claims, not independently verified specs."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "architecture": "CDNA 5",
+      "form": "standard 8-GPU OAM server, drop-in with EPYC Venice",
+      "memory": "432 GB HBM4 (MI400 platform)",
+      "memory bandwidth": "19.6 TB/s (MI400 platform)",
+      "FP4": "~40 PFLOPS (platform figure)",
+      "FP8": "~20 PFLOPS (platform figure)",
+      "scale-up": "Infinity Fabric; UALink scale-out"
+    }
+  },
+  {
+    "id": "apple-m5-ultra",
+    "title": {
+      "zh": "Apple M5 Ultra",
+      "en": "Apple M5 Ultra"
+    },
+    "category": "edge",
+    "url": "https://www.apple.com.cn/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.apple.com.cn/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.apple.com.cn/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/",
+        "quote": "M5 Ultra 还配备了大容量高带宽统一内存，最高可达 512GB，统一内存带宽高可达 1.2TB/s"
+      },
+      {
+        "url": "https://www.apple.com.cn/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/",
+        "quote": "M5 Ultra 配备最多 80 核新一代图形处理器"
+      },
+      {
+        "url": "https://www.apple.com.cn/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/",
+        "quote": "M5 Ultra 使用 UltraFusion 封装技术将两枚双晶粒 M5 Max 芯片相连，形成四晶粒架构"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Mac Studio 这代能把多大的模型放进内存」。M5 Ultra 是 Apple 首款四晶粒芯片：最多 36 核 CPU、80 核 GPU（每核带神经网络加速器）、32 核神经引擎，最高 512GB 统一内存、1.2TB/s 带宽，官方称可完全在端侧跑数千亿参数模型。它不是 CUDA 生态，训练与推理框架支持取决于 MLX / Metal / Core ML；适合本地大内存推理与创作，不适合替代多卡 HBM 服务器。",
+      "en": "Answers how large a model the current Mac Studio can hold in memory. M5 Ultra is Apple’s first four-die chip: up to a 36-core CPU, an 80-core GPU with a neural accelerator in each core, a 32-core Neural Engine, up to 512GB of unified memory and 1.2TB/s of bandwidth; Apple says it can run hundreds-of-billions-parameter models entirely on-device. It is not a CUDA platform, so training and inference support depends on MLX / Metal / Core ML; it fits large-memory local inference and creation, not a multi-GPU HBM server."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "CPU": "up to 36 cores (12 super + 24 performance)",
+      "GPU": "up to 80 cores, neural accelerator per core",
+      "Neural Engine": "32 cores",
+      "memory": "up to 512 GB unified",
+      "memory bandwidth": "up to 1.2 TB/s",
+      "die": "four-die UltraFusion, >4.4 TB/s die-to-die",
+      "product": "Mac Studio"
+    }
+  },
+  {
+    "id": "amd-ryzen-ai-max-plus-395",
+    "title": {
+      "zh": "AMD Ryzen AI Max+ 395（Ryzen AI Halo）",
+      "en": "AMD Ryzen AI Max+ 395 (Ryzen AI Halo)"
+    },
+    "category": "edge",
+    "url": "https://www.amd.com/en/products/processors/desktops/ryzen/ryzen-ai-halo/ryzen-ai-max-plus-395.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.amd.com/en/products/processors/desktops/ryzen/ryzen-ai-halo/ryzen-ai-max-plus-395.html",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.amd.com/en/products/processors/desktops/ryzen/ryzen-ai-halo/ryzen-ai-max-plus-395.html",
+        "quote": "16 cores, 32 threads, “Zen 5” Architecture"
+      },
+      {
+        "url": "https://www.amd.com/en/products/processors/desktops/ryzen/ryzen-ai-halo/ryzen-ai-max-plus-395.html",
+        "quote": "128GB"
+      },
+      {
+        "url": "https://www.amd.com/en/products/processors/desktops/ryzen/ryzen-ai-halo/ryzen-ai-max-plus-395.html",
+        "quote": "Memory Bandwidth 256GB/s"
+      },
+      {
+        "url": "https://www.amd.com/en/products/processors/desktops/ryzen/ryzen-ai-halo/ryzen-ai-max-plus-395.html",
+        "quote": "FP16 AI Compute Up to 60 TFLOPS"
+      }
+    ],
+    "notes": {
+      "zh": "回答「128GB 统一内存的 x86 小主机是什么规格」。Ryzen AI Max+ 395 给 16 核 Zen 5、40 CU RDNA 3.5、XDNA 2 NPU，128GB LPDDR5x、256GB/s，FP16 60 TFLOPS，整机 120W、1.2kg 以内；官方定位是本地 AI 开发平台，支持 Linux/Windows 11 与 ROCm。它比 RTX Spark 的 AI 峰值低，但 x86 + ROCm 的软件栈更接近服务器；不要拿 256GB/s 和 HBM 比带宽。",
+      "en": "Answers what the 128GB-unified-memory x86 mini PC offers. Ryzen AI Max+ 395 pairs 16 Zen 5 cores, a 40-CU RDNA 3.5 GPU and an XDNA 2 NPU with 128GB of LPDDR5x at 256GB/s and 60 TFLOPS at FP16, in a 120W system under 1.2kg; AMD positions it as a local AI developer platform with Linux/Windows 11 and ROCm. Its AI peak is lower than RTX Spark, but the x86 + ROCm stack is closer to servers; do not compare its 256GB/s with HBM bandwidth."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "CPU": "16 cores / 32 threads, Zen 5",
+      "GPU": "Radeon 8060S, 40 CUs, RDNA 3.5",
+      "NPU": "XDNA 2",
+      "memory": "128 GB LPDDR5x, 8000 MT/s",
+      "memory bandwidth": "256 GB/s",
+      "FP16 AI compute": "up to 60 TFLOPS",
+      "TDP": "120 W",
+      "size": "150 × 150 × 45.4 mm",
+      "weight": "under 1.2 kg",
+      "OS": "Linux or Windows 11"
+    }
+  },
+  {
+    "id": "aws-trainium3",
+    "title": {
+      "zh": "AWS Trainium3",
+      "en": "AWS Trainium3"
+    },
+    "category": "cloud",
+    "url": "https://aws.amazon.com/ai/machine-learning/trainium/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://aws.amazon.com/ai/machine-learning/trainium/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://aws.amazon.com/ai/machine-learning/trainium/",
+        "quote": "144 GB HBM3e per chip, 4.9 TB/s bandwidth - 1.7x higher than Trainium2"
+      },
+      {
+        "url": "https://aws.amazon.com/ai/machine-learning/trainium/",
+        "quote": "Up to 2x MXFP8 compute throughput compared to Trainium2"
+      },
+      {
+        "url": "https://aws.amazon.com/ai/machine-learning/trainium/",
+        "quote": "Trn3 UltraServers scale up to 144 Trainium chips, delivering up to 362 MXFP8 PFLOPs, 20.7 TB of HBM3e, and 706 TB/s of aggregate memory bandwidth"
+      }
+    ],
+    "notes": {
+      "zh": "回答「AWS 自研训练芯片最新一代给什么」。Trainium3 是 AWS 首颗 3nm AI 芯片，单颗 2.52 PF FP8、144GB HBM3e、4.9TB/s；Trn3 UltraServer 可扩到 144 颗，合计 362 PF、20.7TB HBM3e、706TB/s，官方称比 Trn2 UltraServer 最多 4.4 倍性能、4 倍每瓦性能。只能通过 EC2 / Neuron SDK 使用，不是通用 GPU；选型时要连实例价格与网络一起算。",
+      "en": "Answers what AWS’s latest in-house training chip offers. Trainium3 is AWS’s first 3nm AI chip: 2.52 PF at FP8, 144GB of HBM3e and 4.9TB/s per chip; a Trn3 UltraServer scales to 144 chips for 362 PF, 20.7TB of HBM3e and 706TB/s, and AWS claims up to 4.4x the performance and 4x the performance-per-watt of Trn2 UltraServers. It is reachable only through EC2 and the Neuron SDK, not as a general-purpose GPU; compare instance pricing and networking together with the specs."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "process": "3 nm",
+      "FP8 compute": "2.52 PFLOPS per chip",
+      "memory": "144 GB HBM3e per chip",
+      "memory bandwidth": "4.9 TB/s per chip",
+      "interconnect": "NeuronSwitch-v1 / NeuronLink-v4, 2 TB/s per chip",
+      "UltraServer": "up to 144 chips, 362 PFLOPS MXFP8, 20.7 TB HBM3e, 706 TB/s",
+      "availability": "Amazon EC2 Trn3 UltraServers",
+      "software": "AWS Neuron SDK"
+    }
+  },
+  {
+    "id": "google-tpu-8tx",
+    "title": {
+      "zh": "Google TPU 8tx（机密推理）",
+      "en": "Google TPU 8tx (confidential inference)"
+    },
+    "category": "accelerator",
+    "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+    "license": {
+      "kind": "vendor-claim",
+      "evidenceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "quote": "TPU 8tx provides hardware-level security for sensitive data, while TPU 8i Max handles massive context windows."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "quote": "Built on the same silicon as TPU 8t and paired with 5th Generation AMD EPYC CPU hosts, TPU 8tx builds security directly into the hardware layer, keeping sensitive data and model weights protected and isolated even while in active use."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "quote": "delivering up to 2x lower latency compared to TPU 8t with a near-zero performance penalty."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "quote": "TPU 8tx enables teams to fine-tune models using their private data, distill large models into smaller ones, and train their agents through reinforcement learning"
+      }
+    ],
+    "notes": {
+      "zh": "回答「需要在云上处理敏感数据、又不想把数据搬到另一个集群，该看什么加速器」。8tx 复用 8t 硅片，配第五代 AMD EPYC 主机，把机密计算做进加速器硬件层：数据与模型权重在使用中也被隔离保护；同一系统还能做私有数据微调、蒸馏和 RL。\n不主张：2× 延迟改善是相对 TPU 8t 的厂商口径，不是独立实测；「near-zero performance penalty」也是 Google 的说法；机密计算不等于合规结论，法律与合同问题仍需单独确认；没有公开价格与第三方吞吐数据。",
+      "en": "Answers which accelerator to look at when sensitive data must be processed in the cloud without moving it to another cluster. 8tx reuses 8t silicon with 5th-gen AMD EPYC hosts and puts confidential computing into the accelerator hardware layer: data and model weights stay isolated even in use; the same system can also do private-data fine-tuning, distillation and RL.\nIt does not claim: the 2x latency improvement is a vendor figure versus TPU 8t, not an independent measurement; \"near-zero performance penalty\" is also Google’s wording; confidential compute is not a compliance conclusion — legal and contractual questions remain separate; no public pricing or third-party throughput data."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "定位 / role": "机密推理 + 小规模训练、微调、蒸馏、RL",
+      "主机 / host": "第五代 AMD EPYC",
+      "延迟 / latency": "较 TPU 8t 最多低 2×（Google 口径）",
+      "安全 / security": "硬件级机密计算（使用中保护数据与权重）",
+      "网络 / network": "Boardfly 低延迟网络",
+      "同代 / family": "TPU 8t、TPU 8i、TPU 8tx、TPU 8i Max",
+      "状态 / status": "2026-11-09 发布"
+    }
+  },
+  {
+    "id": "google-tpu-8i-max",
+    "title": {
+      "zh": "Google TPU 8i Max（超大上下文）",
+      "en": "Google TPU 8i Max (massive context)"
+    },
+    "category": "accelerator",
+    "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+    "license": {
+      "kind": "vendor-claim",
+      "evidenceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "quote": "TPU 8i Max for massive context windows and the highest compute density per rack"
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "quote": "we took two low-latency TPU 8i chips and combined them onto a single package."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "quote": "delivering double the compute, double the SRAM and double the HBM bandwidth of TPU 8i"
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "quote": "because TPU 8i Max fits twice the silicon within the existing rack footprint, data centers can deploy significantly more computing power per square foot and per watt."
+      }
+    ],
+    "notes": {
+      "zh": "回答「长上下文 agent 把 KV cache 和状态撑爆时，TPU 侧有什么解法」。8i Max 不是一颗新芯片，而是把两颗低延迟 8i 封进同一封装：算力、SRAM、HBM 带宽相对 8i 都翻倍，同时在原机架 footprint 内塞进两倍硅片，提高每机架算力密度。\n不主张：翻倍是相对 TPU 8i 的厂商口径；不是单芯片，软件与并行策略要按双芯片封装处理；没有公开价格、功耗或第三方长上下文实测；不能直接推导「比 GPU 更适合长上下文」。",
+      "en": "Answers what TPU offers when long-context agents blow past KV-cache and state budgets. 8i Max is not a new chip: it combines two low-latency 8i dies in one package, doubling compute, SRAM and HBM bandwidth versus 8i while fitting twice the silicon into the existing rack footprint for higher compute density per rack.\nIt does not claim: the doubling is a vendor figure versus TPU 8i; it is not a single chip, so software and parallelism must treat it as a dual-die package; no public pricing, power or third-party long-context measurement; it does not directly prove TPUs are better than GPUs for long context."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "定位 / role": "超大上下文 + 最高单机架算力密度",
+      "结构 / package": "两颗 TPU 8i 封在同一封装",
+      "算力 / compute": "2× TPU 8i（Google 口径）",
+      "SRAM": "2× TPU 8i（Google 口径）",
+      "HBM 带宽 / bandwidth": "2× TPU 8i（Google 口径）",
+      "机架密度 / rack": "相同 footprint 内容纳 2× 硅片",
+      "同代 / family": "TPU 8t、TPU 8i、TPU 8tx、TPU 8i Max",
+      "状态 / status": "2026-11-09 发布"
+    }
+  },
+  {
+    "id": "nvidia-vera-rubin-nvl72",
+    "title": {
+      "zh": "NVIDIA Vera Rubin NVL72（整机柜）",
+      "en": "NVIDIA Vera Rubin NVL72 (rack)"
+    },
+    "category": "system",
+    "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+    "license": {
+      "kind": "vendor-claim",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+        "quote": "72 Rubin GPUs, 36 Vera CPUs"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+        "quote": "3,600 PFLOPS"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+        "quote": "20.7 TB HBM4"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+        "quote": "1,400 TB/s"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
+        "quote": "Available Now"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Rubin 代整机柜到底给多少算力、多少 HBM、什么时候能买到」。NVL72 把 72 颗 Rubin GPU、36 颗 Vera CPU 装进一个 MGX 机柜：NVFP4 推理 3,600 PFLOPS、训练 2,520 PFLOPS，GPU 侧合计 20.7 TB HBM4 / 1,400 TB/s；官方页面标「Available Now」，并称相对 GB200 NVL72 每百万 token 成本降至十分之一、每兆瓦 token 吞吐提升最多 10×。\n不主张：算力与成本都是厂商口径，页面自己写「projected performance subject to change」，没有第三方实测；3,600 PF 是 NVFP4 稀疏口径，不能和 FP16 数字直接横比；20.7 TB 是 72 卡合计，不是单卡；「可用」不等于大规模现货。",
+      "en": "Answers what a Rubin-generation rack delivers in compute, HBM and availability. NVL72 packs 72 Rubin GPUs and 36 Vera CPUs into one MGX rack: 3,600 PFLOPS NVFP4 inference, 2,520 PFLOPS training, and 20.7 TB HBM4 / 1,400 TB/s aggregate on the GPU side. The official page marks it \"Available Now\" and claims one-tenth the cost per million tokens and up to 10x more tokens per megawatt than GB200 NVL72.\nIt does not claim: compute and cost are vendor figures; the page itself says \"projected performance subject to change\", with no third-party measurement; 3,600 PF is NVFP4 sparse, not directly comparable with FP16; 20.7 TB is 72-GPU aggregate, not per GPU; \"available\" does not mean broad volume shipping."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "配置 / configuration": "72× Rubin GPU + 36× Vera CPU",
+      "NVFP4 推理 / inference": "3,600 PFLOPS（稀疏口径）",
+      "NVFP4 训练 / training": "2,520 PFLOPS",
+      "GPU 显存 / HBM": "20.7 TB HBM4（合计）",
+      "GPU 带宽 / bandwidth": "1,400 TB/s（合计）",
+      "CPU 核心 / cores": "3,168 颗 NVIDIA Olympus 核心",
+      "网络 / networking": "32.4 TB/s",
+      "状态 / status": "官方页标 Available Now（2026-11）"
+    }
+  },
+  {
+    "id": "nvidia-rubin-hpc",
+    "title": {
+      "zh": "NVIDIA Rubin HPC（科学计算 GPU）",
+      "en": "NVIDIA Rubin HPC (science GPU)"
+    },
+    "category": "accelerator",
+    "url": "https://blogs.nvidia.com/blog/rubin-hpc/",
+    "license": {
+      "kind": "vendor-claim",
+      "evidenceUrl": "https://blogs.nvidia.com/blog/rubin-hpc/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://blogs.nvidia.com/blog/rubin-hpc/",
+        "quote": "NVIDIA Rubin HPC is a new GPU in the NVIDIA Vera Rubin platform designed to accelerate simulation and data processing for science, engineering and analytics workflows."
+      },
+      {
+        "url": "https://blogs.nvidia.com/blog/rubin-hpc/",
+        "quote": "The Rubin HPC GPU features a record number of CUDA cores — more than 50,000 on a single GPU — as well as a sparse data acceleration capability"
+      },
+      {
+        "url": "https://blogs.nvidia.com/blog/rubin-hpc/",
+        "quote": "accelerates GPU-to-GPU connectivity with seventh-generation NVIDIA NVLink interconnect technology."
+      },
+      {
+        "url": "https://blogs.nvidia.com/blog/rubin-hpc/",
+        "quote": "Rubin HPC is expected to be available in 2028."
+      }
+    ],
+    "notes": {
+      "zh": "回答「Rubin 家族里有没有专门给科学计算 / 数据分析的版本」。Rubin HPC 是 Vera Rubin 平台的新 GPU 变体：单卡 5 万+ CUDA 核心（官方称 record number）、带稀疏数据加速，GPU 间用第七代 NVLink；目标负载是科学模拟、工程仿真、数据分析与 agent 调用的仿真。官方明确 expected available in 2028。\n不主张：没有公开 HBM 容量 / 带宽、功耗、价格与完整规格；5 万+ CUDA 核心不等于通用 AI 吞吐；2028 是预计窗口，不是发货承诺；不能拿它和已上市的 Rubin / B300 直接排座次。",
+      "en": "Answers whether the Rubin family has a version purpose-built for science and data analytics. Rubin HPC is a new GPU variant in the Vera Rubin platform: more than 50,000 CUDA cores on one GPU (the vendor calls it a record), sparse-data acceleration, and seventh-generation NVLink for GPU-to-GPU connectivity. It targets scientific simulation, engineering, data analytics and agent-invoked simulation. NVIDIA explicitly says it is expected to be available in 2028.\nIt does not claim: HBM capacity / bandwidth, power, price and full specs are not public; 50,000+ CUDA cores do not equal general AI throughput; 2028 is an expected window, not a shipping commitment; it cannot be ranked directly against shipping Rubin or B300 parts."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "定位 / role": "科学模拟、工程仿真、数据分析、agent 调用仿真",
+      "CUDA 核心 / cores": ">50,000 / GPU（官方口径）",
+      "GPU 互联 / interconnect": "第七代 NVLink",
+      "特殊能力 / feature": "稀疏数据加速（sparse data acceleration）",
+      "平台 / platform": "NVIDIA Vera Rubin",
+      "上市 / availability": "预计 2028（官方口径）"
+    }
+  },
+  {
+    "id": "google-tpu-8t",
+    "title": {
+      "zh": "Google TPU 8t（训练）",
+      "en": "Google TPU 8t (training)"
+    },
+    "category": "accelerator",
+    "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "Today at Google Cloud Next, we are introducing the eighth generation of Google's custom Tensor Processor Unit (TPU), coming soon with two distinct, purpose-built architectures for training and inference: TPU 8t and TPU 8i."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "A single TPU 8t superpod now scales to 9,600 chips and two petabytes of shared high bandwidth memory, with double the interchip bandwidth of the previous generation. This architecture delivers 121 ExaFlops of compute and allows the most complex models to leverage a single, massive pool of memory."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "TPU 8t is built to reduce the frontier model development cycle from months to weeks."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "delivers nearly 3x the compute performance per pod over the previous generation"
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "Scale-out networking bandwidth (Gb/s per chip) 400"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Google 第八代 TPU 里负责训练的是哪颗、一个 pod 能到什么规模」。8t 与 8i 同代分叉：8t 走 3D Torus + Virgo，单 pod 9,600 颗、2PB 共享 HBM、121 EFLOPS FP4，官方称每 pod 算力接近前代 3 倍，目标把前沿模型开发周期从月压到周。\n不主张：官方发布页只给 pod 级数字，没有给单颗 HBM 容量与单颗 FP4 算力；行业转述的 216GB / 128MB SRAM / 12.6 PF 是第三方口径，本卡不写。121 EFLOPS 是 FP4 pod 合计，不是单颗；9,600 颗是 8t pod 上限，不是单集群上限（官方另称 Virgo 可扩到百万颗逻辑集群）。没有公开价格与独立实测。",
+      "en": "Answers which chip handles training in Google's eighth-generation TPU line, and how large a pod gets. TPU 8t and 8i split the generation: 8t uses 3D Torus plus Virgo, scales to 9,600 chips and 2 PB of shared HBM per pod, and delivers 121 FP4 exaflops; Google says that is nearly 3x the compute per pod over the previous generation and aims to cut frontier-model development from months to weeks.\nIt does not claim: the launch page publishes pod-level figures only, not per-chip HBM capacity or per-chip FP4 throughput; the widely repeated 216GB / 128MB SRAM / 12.6 PF figures are third-party reporting and are not written here. 121 EFLOPS is an FP4 pod total, not a single chip; 9,600 chips is the 8t pod size, not a single-cluster ceiling (Google separately says Virgo can scale to a million chips in one logical cluster). No public pricing or independent measurement."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "定位 / role": "大规模预训练",
+      "Pod 规模 / pod size": "9,600 chips",
+      "共享显存 / shared HBM": "2 PB per pod",
+      "Pod 算力 / pod compute": "121 EFLOPS FP4",
+      "Scale-up 带宽 / scale-up": "19.2 Tb/s per chip",
+      "Scale-out 带宽 / scale-out": "400 Gb/s per chip",
+      "主机 / host": "Google Axion（Arm）",
+      "网络 / network": "3D Torus + Virgo",
+      "状态 / status": "2026-04-22 发布；官方称 2026 年内 GA"
+    }
+  },
+  {
+    "id": "google-tpu-8i",
+    "title": {
+      "zh": "Google TPU 8i（推理）",
+      "en": "Google TPU 8i (inference)"
+    },
+    "category": "accelerator",
+    "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "Today at Google Cloud Next, we are introducing the eighth generation of Google's custom Tensor Processor Unit (TPU), coming soon with two distinct, purpose-built architectures for training and inference: TPU 8t and TPU 8i."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "TPU 8i pairs 288 GB of high-bandwidth memory with 384 MB of on-chip SRAM — 3x more than the previous generation — keeping a model's active working set entirely on-chip."
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "we doubled the Interconnect (ICI) bandwidth to 19.2 Tb/s. Our new Boardfly architecture reduces the maximum network diameter by more than 50%"
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "Our new on-chip Collectives Acceleration Engine (CAE) offloads global operations, reducing on-chip latency by up to 5x"
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "These innovations deliver 80% better performance-per-dollar compared to the previous generation"
+      },
+      {
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+        "quote": "Total HBM capacity per pod (TB) 331.8"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Google 第八代 TPU 里负责推理的是哪颗、为什么它更适合 agent 的低延迟场景」。8i 把单颗 HBM 提到 288GB、片上 SRAM 提到 384MB（前代 3 倍），配 19.2 Tb/s ICI 与 Boardfly 拓扑，把最大网络直径砍半；CAE 卸载全局通信，官方称片上延迟最多降 5 倍。单 pod 1,152 颗、FP8 11.6 EFLOPS、HBM 合计 331.8TB；官方称每美元性能提升 80%。\n不主张：官方发布页没有给单颗 FP4 算力（行业转述为 10.1 PF，本卡不写）；11.6 EFLOPS 是 FP8 pod 合计，不是单颗；80% 与 5× 都是 Google 口径，不是独立实测；没有公开价格。",
+      "en": "Answers which chip handles inference in Google's eighth-generation TPU line, and why it suits low-latency agent workloads. TPU 8i raises per-chip HBM to 288 GB and on-chip SRAM to 384 MB (3x the previous generation), pairs 19.2 Tb/s ICI with the Boardfly topology and more than halves the maximum network diameter, while the CAE offloads collective operations; Google says on-chip latency falls by up to 5x. A pod holds 1,152 chips, 11.6 FP8 exaflops and 331.8 TB of HBM; Google claims 80% better performance per dollar.\nIt does not claim: the launch page gives no per-chip FP4 figure (third-party reporting says 10.1 PF and is not written here); 11.6 EFLOPS is an FP8 pod total, not a single chip; the 80% and 5x figures are Google's, not independent measurements; no public pricing."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "定位 / role": "低延迟推理、采样与 agent 服务",
+      "单颗 HBM / HBM per chip": "288 GB",
+      "单颗 SRAM / SRAM per chip": "384 MB（前代 3×）",
+      "Pod 规模 / pod size": "1,152 chips",
+      "Pod 算力 / pod compute": "11.6 EFLOPS FP8",
+      "Pod HBM 合计 / HBM per pod": "331.8 TB",
+      "Scale-up 带宽 / scale-up": "19.2 Tb/s per chip",
+      "主机 / host": "Google Axion（Arm）",
+      "网络 / network": "Boardfly",
+      "状态 / status": "2026-04-22 发布；官方称 2026 年内 GA"
+    }
+  },
+  {
+    "id": "intel-gpu-d270",
+    "title": {
+      "zh": "Intel GPU D270（Crescent Island）",
+      "en": "Intel GPU D270 (Crescent Island)"
+    },
+    "category": "accelerator",
+    "url": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
+        "quote": "Silicon & Precision: Xe 3P architecture, 32 Xe cores, 256 XMX engines; native FP4 to FP64 with full-rate double precision."
+      },
+      {
+        "url": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
+        "quote": "Memory & Platform: 160 GB LPDDR5X (1.5 TB/s bandwidth, scalable up to 480 GB); 350W PCIe 5.0 air-cooled form factor."
+      },
+      {
+        "url": "https://www.intel.cn/content/www/us/en/newsroom/news/artificial-intelligence/intel-accelerates-open-infrastructure-agentic-ai-era.html",
+        "quote": "The GPU combines up to 480 GB of LPDDR5X memory, 1.5TB/s of memory bandwidth and 1.3 petaflops of FP8 compute to help improve the economics of sustained, memory-intensive AI inference."
+      },
+      {
+        "url": "https://www.intel.cn/content/www/us/en/newsroom/news/artificial-intelligence/intel-accelerates-open-infrastructure-agentic-ai-era.html",
+        "quote": "supports models with up to 300 billion parameters on a single card and more than one trillion parameters in an eight-GPU system."
+      }
+    ],
+    "notes": {
+      "zh": "回答「不想上机柜级液冷、又要在标准 PCIe 服务器里跑大显存推理，Intel 现在有什么卡」。D270 是 Intel 当前的数据中心推理 GPU：Xe3P、32 个 Xe core / 256 个 XMX、160GB LPDDR5X、1.5TB/s、350W、PCIe 5.0 风冷，原生 FP4 到 FP64；单卡可跑 300B 参数，8 卡可跑 1T+。它的差异点不是峰值算力，而是「大显存 + 低功耗 + 标准形态」。\n不主张：480GB 是合作方配置，不是 Intel 品牌卡默认容量；1.3 PFLOPS 是 FP8，不是 FP4；单卡 300B / 8 卡 1T+ 是官方容量口径，不等于这些模型能以理想吞吐运行；官方给的性能对比基于 pre-production 芯片，属于厂商测试，不是独立实测；没有公开价格与正式上市日期。",
+      "en": "Answers what Intel offers when a standard PCIe server must run large-memory inference without rack-level liquid cooling. D270 is Intel's current data-center inference GPU: Xe3P, 32 Xe cores / 256 XMX engines, 160 GB LPDDR5X at 1.5 TB/s, 350 W, PCIe 5.0 air-cooled, native FP4 through FP64; one card holds up to 300B parameters and eight cards more than 1T. Its differentiator is large memory plus low power in a standard form factor, not peak compute.\nIt does not claim: 480 GB is a partner configuration, not the default Intel-branded card; 1.3 PFLOPS is FP8, not FP4; the 300B / 1T+ figures are capacity statements, not a promise of ideal throughput; Intel's comparisons use pre-production silicon and are vendor tests, not independent measurements; no public price or general-availability date."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "架构 / architecture": "Intel Xe3P",
+      "Xe cores / XMX": "32 Xe cores / 256 XMX engines",
+      "显存 / memory": "160 GB LPDDR5X（合作方配置可至 480 GB）",
+      "带宽 / bandwidth": "1.5 TB/s",
+      "FP8 算力 / FP8 compute": "1.3 PFLOPS",
+      "精度 / precision": "原生 FP4–FP64，FP64 全速",
+      "功耗 / power": "350 W",
+      "形态 / form factor": "PCIe 5.0 插卡，风冷",
+      "模型容量 / model capacity": "单卡 300B；8 卡 1T+",
+      "状态 / status": "2026-11-16 官方 HPC 文章；OCP 2026 公布 D 系列"
+    }
+  },
+  {
+    "id": "microsoft-maia-200",
+    "title": {
+      "zh": "Microsoft Maia 200（推理）",
+      "en": "Microsoft Maia 200 (inference)"
+    },
+    "category": "accelerator",
+    "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+        "quote": "an accelerator built on TSMC’s 3nm process with native FP8/FP4 tensor cores, a redesigned memory system with 216GB HBM3e at 7 TB/s and 272MB of on-chip SRAM"
+      },
+      {
+        "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+        "quote": "each Maia 200 chip delivering over 10 petaFLOPS in 4-bit precision (FP4) and over 5 petaFLOPS of 8-bit (FP8) performance, all within a 750W SoC TDP envelope."
+      },
+      {
+        "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+        "quote": "2.8 TB/s of bidirectional, dedicated scaleup bandwidth"
+      },
+      {
+        "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+        "quote": "Predictable, high-performance collective operations across clusters of up to 6,144 accelerators"
+      },
+      {
+        "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+        "quote": "30% better performance per dollar than the latest generation hardware in our fleet today"
+      }
+    ],
+    "notes": {
+      "zh": "回答「Microsoft 自研推理芯片到哪一代、规格和部署状态如何」。Maia 200 是微软第二代自研 AI 加速器，TSMC 3nm、216GB HBM3e / 7TB/s、272MB 片上 SRAM、原生 FP8/FP4，单芯片 FP4 超过 10 PFLOPS、FP8 超过 5 PFLOPS，750W SoC；2.8TB/s 双向 scale-up，官方称可连 6,144 颗。已部署在 US Central，US West 3 随后。\n不主张：Maia 200 不对外以 Azure VM 形式出租，Azure 客户是通过 Microsoft 365 Copilot、Foundry 等服务间接用到；30% 每美元性能是微软对自家 fleet 的口径，不是跨厂商横评；没有公开价格；10 PF 是 FP4，不是所有精度；6,144 是 scale-up 集群上限，不是单机架。",
+      "en": "Answers which generation Microsoft's in-house inference chip has reached, its specs and deployment state. Maia 200 is Microsoft's second-generation custom AI accelerator: TSMC 3nm, 216 GB HBM3e at 7 TB/s, 272 MB on-chip SRAM, native FP8/FP4, over 10 PFLOPS FP4 and over 5 PFLOPS FP8 within a 750 W SoC, plus 2.8 TB/s bidirectional scale-up and clusters of up to 6,144 accelerators. It is deployed in US Central, with US West 3 next.\nIt does not claim: Maia 200 is not rented as an Azure VM; Azure customers reach it through services such as Microsoft 365 Copilot and Foundry. The 30% performance-per-dollar figure is Microsoft's comparison against its own fleet, not a cross-vendor benchmark; no public price; 10 PF is FP4, not every precision; 6,144 is a scale-up cluster ceiling, not a single rack."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "定位 / role": "大模型推理",
+      "制程 / process": "TSMC 3nm",
+      "晶体管 / transistors": "超过 1400 亿",
+      "显存 / memory": "216 GB HBM3e",
+      "带宽 / bandwidth": "7 TB/s",
+      "片上 SRAM / SRAM": "272 MB",
+      "FP4 / FP8": ">10 PFLOPS / >5 PFLOPS",
+      "功耗 / TDP": "750 W SoC",
+      "Scale-up": "2.8 TB/s 双向；最多 6,144 颗",
+      "部署 / deployment": "US Central 已部署；US West 3 随后",
+      "状态 / status": "2026-01-26 发布"
+    }
+  },
+  {
+    "id": "meta-mtia-300-500",
+    "title": {
+      "zh": "Meta MTIA 300–500（路线）",
+      "en": "Meta MTIA 300–500 (roadmap)"
+    },
+    "category": "accelerator",
+    "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+    "license": {
+      "kind": "official-release",
+      "evidenceUrl": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+        "quote": "We’re developing and deploying four new generations of chips within the next two years — a much faster pace than typical chip cycles — to support ranking, recommendations, and GenAI workloads."
+      },
+      {
+        "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+        "quote": "MTIA 300 will be used for ranking and recommendations training, and is already in production. MTIA 400, 450 and 500 will be capable of handling all workloads, but we will primarily use these chips to support GenAI inference production in the near future and into 2027."
+      },
+      {
+        "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+        "quote": "MTIA 450 and 500 are optimized first for GenAI inference"
+      },
+      {
+        "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+        "quote": "we’ve developed the capacity to release ours every six months or less"
+      },
+      {
+        "url": "https://engineering.fb.com/2026/08/24/networking-traffic/mtia-300-meta-training-chip-built-in-nics/",
+        "quote": "MTIA 300 is the first of Meta’s family of in-house training and inference accelerators optimized for training ranking and recommendation models."
+      }
+    ],
+    "notes": {
+      "zh": "回答「Meta 自研芯片现在到哪一代、各代分别干什么」。官方路线是两年四代：MTIA 300 已量产，做排序/推荐训练，也是 MTIA 首颗训练芯片，内置 NIC 与通信卸载；MTIA 400 / 450 / 500 覆盖通用工作负载，但主要用于 GenAI 推理，2026–2027 部署；450 / 500 明确先为 GenAI 推理优化。节奏是每 6 个月或更短一代，模块化设计可插入现有机架，软件栈走 PyTorch / vLLM / Triton / OCP。\n不主张：这是路线卡，不是单卡规格卡；官方没有披露 300/400/450/500 的 HBM 容量、算力、功耗与价格，本卡不填。行业转述的「300→500 HBM 带宽 4.5×、算力 25×」未在本次抓取的官方页找到，不写。MTIA 不对外出租，只服务 Meta 内部负载。",
+      "en": "Answers which generation Meta's in-house silicon has reached and what each generation is for. The official roadmap is four generations in two years: MTIA 300 is already in production for ranking and recommendation training, Meta's first training chip, with built-in NICs and communication offloading; MTIA 400 / 450 / 500 cover all workloads but are primarily for GenAI inference in 2026–2027; 450 and 500 are explicitly optimized first for GenAI inference. The cadence is one generation every six months or less, with modular designs that drop into existing racks and a PyTorch / vLLM / Triton / OCP software stack.\nIt does not claim: this is a roadmap card, not a per-chip spec sheet; Meta has not disclosed HBM capacity, compute, power or price for 300/400/450/500, so those fields are left empty. The widely repeated \"4.5x HBM bandwidth and 25x compute from 300 to 500\" figures were not found on the official pages fetched here and are not written. MTIA is not rented out; it serves Meta's internal workloads."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "代次 / generations": "MTIA 300 / 400 / 450 / 500",
+      "节奏 / cadence": "每 6 个月或更短一代",
+      "MTIA 300": "排序/推荐训练；已量产；内置 NIC 与 HCCL 通信卸载",
+      "MTIA 400/450/500": "GenAI 推理为主；2026–2027 部署",
+      "MTIA 450/500": "先为 GenAI 推理优化",
+      "系统 / system": "模块化，可插入现有机架；OCP 标准",
+      "软件 / software": "PyTorch / vLLM / Triton",
+      "单卡规格 / per-chip specs": "官方未披露 HBM / 算力 / 功耗",
+      "状态 / status": "2026-03-11 路线公布；300 已量产"
+    }
+  },
+  {
+    "id": "openai-jalapeno",
+    "title": {
+      "zh": "OpenAI Jalapeño（首款自研推理芯片）",
+      "en": "OpenAI Jalapeño (first in-house inference chip)"
+    },
+    "category": "accelerator",
+    "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+    "license": {
+      "kind": "official-release",
+      "evidenceUrl": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+        "quote": "OpenAI 與 Broadcom（NASDAQ: AVGO）今日發佈 Jalapeño，這是 OpenAI 首款 Intelligence Processor（智能處理器）：一款按 OpenAI 對 LLM 推理未來願景而設計的加速器。"
+      },
+      {
+        "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+        "quote": "Jalapeño 晶片的工程樣本已在實驗室以量產目標頻率與功耗運行機器學習（ML）工作負載，包括 GPT‑5.3‑Codex‑Spark。"
+      },
+      {
+        "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+        "quote": "Jalapeño 從初步設計到製造流片僅用九個月便共同開發完成"
+      },
+      {
+        "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+        "quote": "該平台計劃於 2026 年底前初步部署，並在其後數年擴展"
+      }
+    ],
+    "notes": {
+      "zh": "回答「OpenAI 有没有自研芯片、现在到哪一步」。Jalapeño 是 OpenAI 首款 Intelligence Processor，专为 LLM 推理设计，由 OpenAI 设计、Broadcom 做硅实现与网络、Celestica 做板卡/机架；工程样片已在实验室以量产目标频率与功耗跑 GPT-5.3-Codex-Spark，设计到流片 9 个月，计划 2026 年底初步部署，后续扩到吉瓦级。\n不主张：官方没有公开 HBM 容量、算力、功耗、制程与单价；「每瓦性能大幅超越现有最先进水平」是 OpenAI 基于早期测试的口径，详细技术报告尚未发布；2026 年底是初步部署计划，不是已量产；Jalapeño 不对外销售或出租，先服务 OpenAI 自家模型与产品。",
+      "en": "Answers whether OpenAI has its own silicon and how far it has gone. Jalapeño is OpenAI's first Intelligence Processor, designed for LLM inference: OpenAI designs it, Broadcom handles silicon implementation and networking, and Celestica builds boards and racks. Engineering samples already run GPT-5.3-Codex-Spark in the lab at production target frequency and power; design-to-tape-out took nine months; initial deployment is planned for the end of 2026, expanding over following years.\nIt does not claim: OpenAI has not published HBM capacity, compute, power, process node or unit price; \"substantially better performance per watt than today's state of the art\" is OpenAI's early-test claim and the detailed technical report is still to come; end-2026 is an initial deployment plan, not volume production; Jalapeño is not sold or rented externally and first serves OpenAI's own models and products."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "定位 / role": "LLM 推理",
+      "设计 / design": "OpenAI",
+      "硅实现与网络 / silicon & network": "Broadcom（含 Tomahawk 网络芯片）",
+      "板卡与机架 / boards & racks": "Celestica",
+      "进度 / progress": "工程样片以量产目标频率/功耗运行 GPT-5.3-Codex-Spark",
+      "开发周期 / cycle": "设计到流片 9 个月",
+      "部署 / deployment": "2026 年底初步部署，后续扩至吉瓦级",
+      "公开规格 / public specs": "官方未披露 HBM / 算力 / 功耗 / 制程",
+      "状态 / status": "2026-06-24 发布"
     }
   }
 ]

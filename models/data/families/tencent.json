@@ -1,11 +1,34 @@
 {
   "schemaVersion": 1,
   "code": "tencent",
-  "name": { "zh": "腾讯混元", "en": "Tencent Hunyuan" },
-  "vendor": { "zh": "腾讯", "en": "Tencent" },
-  "currentGen": { "zh": "Hy4 preview", "en": "Hy4 preview" },
-  "currentGenDate": "2026-08",
+  "name": {
+    "zh": "腾讯混元",
+    "en": "Tencent Hunyuan"
+  },
+  "vendor": {
+    "zh": "腾讯",
+    "en": "Tencent"
+  },
+  "currentGen": {
+    "zh": "Hy4 / Hy4 flash",
+    "en": "Hy4 / Hy4 flash"
+  },
+  "currentGenDate": "2026-11",
   "generations": [
+    {
+      "gen": "Hy4 flash",
+      "date": "2026-11",
+      "zh": "2026-11-16 发布、2026-11-18 开源：224B 总参（含 64B Engram）、12B 激活、多模态输入、1M 上下文；官方主打高速度与低成本，开源版本含 Hy4 flash / FP8 / Base。",
+      "en": "Released 2026-11-16 and open-sourced 2026-11-18: 224B total parameters (including 64B Engram), 12B active, multimodal input and 1M context; pitched at high speed and low cost, with Hy4 flash / FP8 / Base in the open release.",
+      "url": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/"
+    },
+    {
+      "gen": "Hy4",
+      "date": "2026-11",
+      "zh": "2026-11-04 正式发布：官方发布页主打首次视觉理解、指令跟随、长上下文与长程 agent，并称将发布权重与 system card；同一页未披露总参 / 激活数。Hy4 flash 发布页把 Hy4 Preview 标为 770B 总参 / 49B 激活，正式版规格以官方模型卡为准。",
+      "en": "Officially released 2026-11-04: the announcement highlights first-time visual understanding, instruction following, long-context comprehension and long-horizon agents, and says weights and system cards will follow; the same page does not disclose total / active parameters. The Hy4 flash page labels Hy4 Preview as 770B total / 49B active; treat the production model card as authoritative for final specs.",
+      "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+    },
     {
       "gen": "Hy4 preview",
       "date": "2026-08",
@@ -23,8 +46,16 @@
   ],
   "sizeTiers": [
     {
-      "zh": "Hy4 preview：770B 总参（MoE，49B 激活），1M+ 上下文",
-      "en": "Hy4 preview: 770B total (MoE, 49B active), 1M+ context"
+      "zh": "Hy4：官方发布页未披露总参 / 激活；视觉理解、长上下文与长程 agent 是重点（以模型卡为准）",
+      "en": "Hy4: total / active parameters not disclosed on the release page; visual understanding, long context and long-horizon agents are the focus (model card is authoritative)"
+    },
+    {
+      "zh": "Hy4 flash：224B 总参（含 64B Engram，12B 激活），1M 上下文",
+      "en": "Hy4 flash: 224B total (64B Engram included, 12B active), 1M context"
+    },
+    {
+      "zh": "Hy4 Preview：770B 总参 / 49B 激活（Hy4 flash 发布页的对照口径）",
+      "en": "Hy4 Preview: 770B total / 49B active (comparison figure in the Hy4 flash release)"
     },
     {
       "zh": "Hy3：295B 总参（MoE，21B 激活），256K 上下文",
@@ -41,6 +72,16 @@
   ],
   "claims": [
     {
+      "zh": "腾讯官方：Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有明显提升；官方称将随后发布模型权重与 system card。",
+      "en": "Tencent official: Hy4 launched on 2026-11-04, adding visual understanding for the first time and claiming clear gains in instruction following, long-context comprehension and long-horizon agentic tasks; weights and system cards were said to follow.",
+      "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+    },
+    {
+      "zh": "腾讯官方：Hy4 flash 为 224B 总参（含 64B Engram）、12B 激活、多模态输入、1M 上下文；官方称其为迄今最具成本效益的 Hy 模型，并计划开源、持续迭代。",
+      "en": "Tencent official: Hy4 flash has 224B total parameters (including 64B Engram), 12B active, multimodal input and 1M context; the vendor calls it the most cost-effective Hy model to date and plans to open-source it with frequent iterations.",
+      "url": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/"
+    },
+    {
       "zh": "腾讯官方：Hy4 preview 为 770B 总参、49B 激活、上下文超过 100 万 token，主打长程 agent、编码与办公。",
       "en": "Tencent official: Hy4 preview has 770B total parameters, 49B active and a context beyond 1M tokens, pitched at long-horizon agents, coding and office work.",
       "url": "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/"
@@ -52,8 +93,8 @@
     }
   ],
   "positioning": {
-    "zh": "中文开放权重家族里少有的「大总参 + 高激活」路线；Hy4 把上下文拉到 1M+，对长程 agent 与工程代码有明确指向。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。",
-    "en": "An uncommon large-total/high-active open-weight Chinese family; Hy4 pushes context past 1M and targets long-horizon agents and engineering code. This site has no GGUF coverage yet — read the official licence and hardware floor before choosing."
+    "zh": "中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版主打视觉理解、长上下文与长程 agent，Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。正式版参数量官方未在同一页披露，站内不把 preview 的 770B/49B 直接套到正式版。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。",
+    "en": "An uncommon large-total/high-active Chinese open-weight family: production Hy4 targets visual understanding, long context and long-horizon agents, while Hy4 flash trades 224B total / 12B active for speed and cost. The production parameter count is not disclosed on the release page, so this site does not copy the preview’s 770B/49B onto it. There is no GGUF coverage yet — read the official licence and hardware floor before choosing."
   },
   "onSite": {
     "series": [],
@@ -78,10 +119,22 @@
       "url": "https://hunyuan.tencent.com/model/hy-model",
       "kind": "docs",
       "labelEn": "Tencent Hunyuan · official model page (Hy series specs)"
+    },
+    {
+      "label": "Tencent · Tencent Launches Hy4, Joining the Ranks of the World’s Leading Open-Source AI Models（2026-11-04）",
+      "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+      "kind": "docs",
+      "labelEn": "Tencent · Tencent Launches Hy4 (2026-11-04)"
+    },
+    {
+      "label": "Tencent · Tencent Launches Hy4 flash（2026-11-16）",
+      "url": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+      "kind": "docs",
+      "labelEn": "Tencent · Tencent Launches Hy4 flash (2026-11-16)"
     }
   ],
-  "last_verified": "2026-11-03",
-  "confidence": "partial",
+  "last_verified": "2026-11-20",
+  "confidence": "verified",
   "cn": {
     "origin": "domestic",
     "originNote": "出品方为腾讯（深圳）。",

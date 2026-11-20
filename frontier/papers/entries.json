@@ -1820,5 +1820,437 @@
       "FID / ImageNet 256": "2.27（DiT-XL/2）",
       "复现状态 / reproduction": "未复现（只读摘要）"
     }
+  },
+  {
+    "id": "gpt-6-2-2026",
+    "title": {
+      "zh": "GPT-6.2 Astra and GPT-6.2 Sol",
+      "en": "GPT-6.2 Astra and GPT-6.2 Sol"
+    },
+    "category": "scaling",
+    "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+    "license": {
+      "kind": "official-release",
+      "evidenceUrl": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+        "quote": "Astra is our frontier model for applications that need advanced reasoning, coding, and the ability to handle complex professional work."
+      },
+      {
+        "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+        "quote": "Sol combines speed and lower cost with the ability to work through tasks that take several steps."
+      },
+      {
+        "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+        "quote": "Both improve on their predecessors’ results on demanding tasks while generating fewer output tokens."
+      }
+    ],
+    "notes": {
+      "zh": "问题：6.2 代的两档到底怎么分工，官方给的规格与边界是什么。\n证据位置：2026-11-17 官方发布说明写明 Astra 面向复杂专业工作，Sol 面向多步任务的速度与成本平衡；两档都改进前代难题表现，同时生成更少输出 token；均支持文本与图像输入、文本输出。\n作者自陈局限：这是发布说明，不是独立复现；没有给出延迟、长上下文上限、失败率与完整系统卡数据。系统卡细节需另读，本站不把发布口径当成实测结论。\n它没主张的：不是「全面超越前代」的第三方结论；不是所有任务都更快；不是权重开放模型。",
+      "en": "Problem: how do the two 6.2 tiers divide the work, and what specs and boundaries does the official release state?\nWhere the evidence sits: the 2026-11-17 release notes say Astra targets advanced reasoning, coding and complex professional work, while Sol combines speed and lower cost for multistep tasks; both improve on their predecessors on demanding tasks while generating fewer output tokens; both accept text and images and return text.\nWhat the authors say about limits: this is a release note, not an independent reproduction; it does not provide latency, long-context ceilings, failure rates or the full system-card data. Read the system card separately; this site does not treat launch claims as measured results.\nWhat it does not claim: a third-party conclusion that it beats every predecessor; that it is faster on every task; an open-weight model."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "发布 / release": "2026-11-17（官方发布说明）",
+      "档位 / tiers": "Astra（复杂专业工作）/ Sol（多步任务速度与成本）",
+      "输入输出 / I/O": "文本 + 图像输入；文本输出",
+      "证据位置 / evidence": "发布说明「GPT-6.2 Astra and GPT-6.2 Sol in the OpenAI API」段",
+      "复现状态 / reproduction": "未复现（只读官方发布说明）"
+    }
+  },
+  {
+    "id": "claude-5-2-2026",
+    "title": {
+      "zh": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+      "en": "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
+    },
+    "category": "alignment",
+    "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "license": {
+      "kind": "official-release",
+      "evidenceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "quote": "We believe high-stakes risks from misalignment remain low, and the model performed as well as, or better than, our recent models on most alignment measures."
+      },
+      {
+        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "quote": "Fable 5.2’s cyber and biology safeguards are as robust as those of Fable 5.1 but produce fewer unnecessary blocks"
+      },
+      {
+        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "quote": "Fable 5.2’s safeguards will block most cybersecurity-related tasks"
+      }
+    ],
+    "notes": {
+      "zh": "问题：Fable 5.2 与 Mythos 5.2 同底座，为什么分成两档，安全边界怎么划。\n证据位置：官方发布页写明 Fable 带网络安全与生物安全分类器，会拦下多数高风险网络任务；Mythos 仅向经过验证的机构开放，主打网络安全工程；两者共用同一底座，系统卡另附。\n作者自陈局限：安全结论来自 Anthropic 自己的预发布测试与内部评测；没有独立第三方复现；部分能力（如 AI 研发加速）在训练时被刻意限制，相关任务只到 Opus 5.5 水平。\n它没主张的：不是「无护栏的更强模型」；不是所有机构都能用 Mythos；不是对全部网络攻防任务都开放。",
+      "en": "Problem: Fable 5.2 and Mythos 5.2 share one underlying model — why split them, and where is the safety boundary?\nWhere the evidence sits: the official announcement says Fable carries cyber and biology classifiers that block most high-risk cyber tasks; Mythos is limited to vetted organizations and focuses on cybersecurity engineering; both share one underlying model, with a separate system card.\nWhat the authors say about limits: safety conclusions come from Anthropic’s own prerelease testing and internal evaluations, with no independent third-party reproduction; some capabilities, such as accelerating AI research, were deliberately limited during training and perform only at Opus 5.5 level.\nWhat it does not claim: an unguarded “stronger model”; that every organization can use Mythos; that it is open for all cyber offence and defence tasks."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "发布 / release": "2026-11-09（官方发布页）",
+      "档位 / tiers": "Fable 5.2（带网络安全/生物安全护栏）/ Mythos 5.2（仅验证机构）",
+      "安全评测 / safety evals": "预发布测试 + 内部评测（官方口径）",
+      "证据位置 / evidence": "发布页 Safety and alignment / Safeguards 段",
+      "复现状态 / reproduction": "未复现（只读官方发布页）"
+    }
+  },
+  {
+    "id": "gemini-4-carbon-2026",
+    "title": {
+      "zh": "Gemini 4 Carbon Model Card",
+      "en": "Gemini 4 Carbon Model Card"
+    },
+    "category": "agents",
+    "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+    "license": {
+      "kind": "official-model-card",
+      "evidenceUrl": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+        "quote": "Gemini 4 Carbon is our model with frontier performance in long-horizon agentic workflows across complex knowledge work, engineering, cybersecurity and scientific reasoning."
+      },
+      {
+        "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+        "quote": "a combined input-output token context window of up to 1M"
+      },
+      {
+        "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+        "quote": "Model Cards are intended to provide essential information on Gemini models, including known limitations, mitigation approaches, and safety performance."
+      }
+    ],
+    "notes": {
+      "zh": "问题：Carbon 相对 Argon 强在哪里，官方模型卡承认哪些限制。\n证据位置：Google DeepMind 模型卡写明 Carbon 面向长程 Agent、复杂知识工作、工程、网络安全与科学推理；输入输出合计上下文最高 1M；模型卡同时声明会列出已知局限、缓解措施与安全表现。\n作者自陈局限：模型卡由厂商发布，评测口径与内部基准未全部公开；Carbon 基于 Argon，不是全新架构；网络安全能力只向 Fairwind 等验证通道开放。\n它没主张的：不是「所有任务都比 Argon 强」；不是独立第三方榜单结论；不是无条件向所有开发者开放全部能力。",
+      "en": "Problem: where is Carbon stronger than Argon, and what limits does the official model card acknowledge?\nWhere the evidence sits: the Google DeepMind model card says Carbon targets long-horizon agentic workflows across complex knowledge work, engineering, cybersecurity and scientific reasoning; the combined input-output context window is up to 1M; the card also states it covers known limitations, mitigations and safety performance.\nWhat the authors say about limits: the model card is vendor-published and does not disclose every evaluation protocol or internal benchmark; Carbon is based on Argon rather than a new architecture; cyber capabilities are gated through verified channels such as Fairwind.\nWhat it does not claim: better than Argon on every task; an independent third-party leaderboard conclusion; unconditional access to every capability for every developer."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "发布 / release": "2026-11（模型卡）/ 2026-11-10 开放（官方博客）",
+      "上下文 / context": "最高 1M（输入 + 输出合计）",
+      "定位 / positioning": "长程 Agent、复杂知识工作、工程、网络安全、科学推理",
+      "证据位置 / evidence": "模型卡 Description / Inputs / Evaluation 段",
+      "复现状态 / reproduction": "未复现（只读官方模型卡）"
+    }
+  },
+  {
+    "id": "kimi-k3-1-pro-2026",
+    "title": {
+      "zh": "Kimi K3.1 Pro：智能前沿，更进一步",
+      "en": "Kimi K3.1 Pro: A Step Further at the Intelligence Frontier"
+    },
+    "category": "scaling",
+    "url": "https://www.kimi.com/news/kimi-k3-1-pro",
+    "license": {
+      "kind": "official-release",
+      "evidenceUrl": "https://www.kimi.com/news/kimi-k3-1-pro",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.kimi.com/news/kimi-k3-1-pro",
+        "quote": "Kimi K3.1 Pro 在代码、3D 创作、金融研究和其他长程 Agent 能力上的提升尤为显著。"
+      },
+      {
+        "url": "https://www.kimi.com/news/kimi-k3-1-pro",
+        "quote": "我们同步推出高速版模型 Kimi K3.1 Pro Highspeed，同等智能，输出速度约 2~3 倍。"
+      },
+      {
+        "url": "https://www.kimi.com/news/kimi-k3-1-pro",
+        "quote": "完整模型权重将于 11 月 4 日前发布。"
+      }
+    ],
+    "notes": {
+      "zh": "问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。\n证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍；完整权重承诺在 11 月 4 日前发布。\n作者自陈局限：发布页没有给训练数据、算力、完整评测口径与失败案例；权重发布是承诺时点，是否兑现需另行核验；评测图表为厂商自述。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 3T 规模；不是权重已经开放。",
+      "en": "Problem: what are K3.1 Pro’s scale, context and product split, and which verifiable facts does the official release promise?\nWhere the evidence sits: the official announcement says K3.1 Pro is the first model in the K3.1 line, with 3T-class parameters and 1M context; a Highspeed variant is launched with roughly 2–3x output speed; full weights are promised by November 4.\nWhat the authors say about limits: the page does not disclose training data, compute, full evaluation protocols or failure cases; the weight release is a promised date and must be verified separately; benchmark charts are vendor-reported.\nWhat it does not claim: a first place in independent third-party evaluations; that every task benefits from 3T scale; that weights are already open."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "发布 / release": "2026-10-24（官方发布页）",
+      "规模 / scale": "3 万亿级参数",
+      "上下文 / context": "100 万 tokens",
+      "产品分工 / variants": "K3.1 Pro / K3.1 Pro Highspeed（输出约 2–3 倍）",
+      "证据位置 / evidence": "发布页首段与权重承诺段",
+      "复现状态 / reproduction": "未复现（只读官方发布页）"
+    }
+  },
+  {
+    "id": "qwen4-max-2026",
+    "title": {
+      "zh": "Qwen4-Max：阿里巴巴新一代旗舰模型",
+      "en": "Qwen4-Max: Alibaba’s New Flagship Model"
+    },
+    "category": "scaling",
+    "url": "https://www.alibabagroup.com/document-2060139246777270272",
+    "license": {
+      "kind": "official-release",
+      "evidenceUrl": "https://www.alibabagroup.com/document-2060139246777270272",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://www.alibabagroup.com/document-2060139246777270272",
+        "quote": "阿里巴巴集团正式发布 Qwen4-Max"
+      },
+      {
+        "url": "https://www.alibabagroup.com/document-2060139246777270272",
+        "quote": "新模型总参数达 2.4 万亿，具备原生视觉能力，支持长达 100 万个 token 的上下文窗口"
+      },
+      {
+        "url": "https://www.alibabagroup.com/document-2060139246777270272",
+        "quote": "每个 token 仅激活 710 亿个参数，较 Qwen3.8-Max 少25%"
+      },
+      {
+        "url": "https://www.alibabagroup.com/document-2060139246777270272",
+        "quote": "Qwen4 系列中规模较小的开放权重模型亦将于短期内向全球开发者发布。"
+      }
+    ],
+    "notes": {
+      "zh": "问题：Qwen4-Max 的规模、上下文、模态与开放权重路线是什么。\n证据位置：阿里巴巴集团新闻稿写明 2.4 万亿总参、每 token 激活 710 亿（较 Qwen3.8-Max 少 25%）、原生视觉、100 万 token 上下文；同页确认 QwenCloud / API / QwenWork / QwenStudio 可用，并称 Qwen4 系列较小模型将陆续开放权重。\n作者自陈局限：新闻稿没有给训练数据、算力、完整评测协议与失败案例；Code Arena、Work360 等结果均为厂商口径，未独立复现；「较小模型开放权重」是计划，不是已发布。\n它没主张的：不做独立第三方评测的位次结论；不是所有任务都适合 2.4T 规模；不是 Qwen4 全系已开源。",
+      "en": "Problem: what are Qwen4-Max’s scale, context, modalities and open-weight path?\nWhere the evidence sits: the Alibaba Group release states 2.4T total parameters, 71B active per token (25% fewer than Qwen3.8-Max), native vision and a 1M-token context; the same page confirms availability on QwenCloud / API / QwenWork / QwenStudio and says smaller Qwen4 models will be released as open weights.\nWhat the authors say about limits: the release does not disclose training data, compute, full evaluation protocols or failure cases; Code Arena and Work360 results are vendor figures, not independently reproduced; \"smaller open-weight models\" is a plan, not a shipped release.\nWhat it does not claim: a position in independent third-party evaluation; that every task benefits from 2.4T scale; that the entire Qwen4 line is already open-source."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "发布 / release": "2026-11-16（阿里巴巴集团新闻稿）",
+      "规模 / scale": "2.4T 总参；71B 激活 / token",
+      "上下文 / context": "1,000,000 tokens",
+      "模态 / modality": "原生视觉 + 文本",
+      "入口 / access": "QwenCloud、API、QwenWork、QwenStudio",
+      "开放权重 / open weights": "较小 Qwen4 模型将陆续发布（计划）",
+      "复现状态 / reproduction": "未复现（只读官方新闻稿）"
+    }
+  },
+  {
+    "id": "tencent-hy4-2026",
+    "title": {
+      "zh": "腾讯 Hy4：正式版与开源路线",
+      "en": "Tencent Hy4: Production Release and Open-Source Path"
+    },
+    "category": "scaling",
+    "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+    "license": {
+      "kind": "official-release",
+      "evidenceUrl": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+        "quote": "Tencent today announced the release of Tencent Hy4, its latest-generation large language model, marking a significant leap in performance and capabilities that now ranks it among the world’s leading open-source AI models."
+      },
+      {
+        "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+        "quote": "The new model also introduces visual understanding capabilities for the first time, alongside major improvements in instruction following, long-context comprehension and long-horizon agentic tasks"
+      },
+      {
+        "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+        "quote": "Tencent Hy plans to release model weights and system cards in the coming days"
+      }
+    ],
+    "notes": {
+      "zh": "问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。\n证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升；同页称将随后发布模型权重与 system card。\n作者自陈局限：发布页没有披露 Hy4 正式版的总参 / 激活数；「770B 总参 / 49B 激活」只出现在 Hy4 flash 发布页对 Hy4 Preview 的对照段，不能直接套到正式版；benchmark 图表与排名为厂商口径；权重与 system card 是承诺，需按后续发布核验。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 Hy4 正式版；不是发布当天已开放全部权重。",
+      "en": "Problem: how is production Hy4 positioned, which verifiable facts does the official release promise, and can its parameter count be quoted directly?\nWhere the evidence sits: Tencent’s release says Hy4 launched on 2026-11-04, adds visual understanding for the first time and improves instruction following, long-context comprehension and long-horizon agentic tasks; it also says model weights and system cards will follow.\nWhat the authors say about limits: the release does not disclose production Hy4’s total / active parameter count; \"770B total / 49B active\" appears only as the Hy4 Preview comparison in the Hy4 flash release and must not be copied onto production Hy4; benchmark charts and rankings are vendor-reported; weights and system cards are promises to verify later.\nWhat it does not claim: first place in independent third-party evaluation; that every task suits production Hy4; that all weights were open on launch day."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "发布 / release": "2026-11-04（腾讯官方发布页）",
+      "规模 / scale": "正式版参数量未在该页披露",
+      "视觉 / vision": "首次引入视觉理解",
+      "能力重点 / focus": "指令跟随、长上下文、长程 agent",
+      "权重 / weights": "官方称随后发布权重与 system card",
+      "复现状态 / reproduction": "未复现（只读官方发布页）"
+    }
+  },
+  {
+    "id": "hibana-2026",
+    "title": {
+      "zh": "Hibana：统一内存设备上的快速 agent 推理",
+      "en": "Hibana: Fast Agentic Inference on Unified-Memory Devices"
+    },
+    "category": "efficiency",
+    "url": "https://arxiv.org/abs/2611.10469",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2611.10469",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2611.10469",
+        "quote": "We present Hibana, an inference engine for unified-memory devices that co-optimizes model representation, memory management, and decoding strategy."
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.10469",
+        "quote": "On a single DGX Spark serving Qwen and Nemotron models of up to 125B parameters, Hibana completes up to 3.4× more agentic tasks per hour and delivers up to 3.9× higher decoding throughput than other established frameworks such as vLLM, NVIDIA Flare, this http URL, and TensorFold."
+      },
+      {
+        "url": "https://arxiv.org/html/2611.10469",
+        "quote": "it does not predict task accuracy, so we read them as no clear loss rather than as a gain."
+      }
+    ],
+    "notes": {
+      "zh": "问题：统一内存设备（如 DGX Spark）显存容量大但带宽低，vLLM / SGLang 这类数据中心引擎不适配，本地多 agent 长会话又要求并发与状态恢复，现有本地引擎吞吐上不去。\n证据位置：摘要给出 Hibana 的三个协同点——模型手术（专家共享、2-bit draft head + FP8 rescoring、3-bit codebook 权重）、统一内存管理（SSD session cache、INT8 recurrent state、Engram offload）、自适应推测解码；实验在单台 DGX Spark（128GB 统一内存、273GB/s）上跑 Qwen3.8-27B / Qwen3.8-Flash-Next / Nemotron-3.5-Bolt / Nemotron-3.5-Super，最多 125B 参数；相对对比基线，每小时完成 agentic 任务最多 3.4×，解码吞吐最多 3.9×。\n作者自陈局限： relaxed verification 的阈值只是概率增幅上界，「不预测任务准确率」，所以他们把结果读作「没有明显损失」而不是「有提升」；实验集中在单台 DGX Spark 与四种模型，换硬件、换模型、换并发模式未必同样；没有独立复现。\n它没主张的：不是数据中心 GPU 的通用替代；不是所有 125B 模型都能跑；3.4× / 3.9× 是相对对比基线的厂商基准，不是跨平台绝对性能；不是「本地一定比云便宜」。",
+      "en": "Problem: unified-memory devices such as DGX Spark have large capacity but low bandwidth; datacenter engines like vLLM / SGLang are not tuned for them, while local multi-agent sessions need concurrency and state restore, so existing local engines leave throughput on the table.\nWhere the evidence sits: the abstract lists Hibana's three co-designs — model surgery (expert sharing, a 2-bit draft head with FP8 rescoring, 3-bit codebook weights), unified-memory management (SSD session cache, INT8 recurrent state, Engram offload) and adaptive speculation. Experiments run on one DGX Spark (128 GB unified memory, 273 GB/s) with Qwen3.8-27B / Qwen3.8-Flash-Next / Nemotron-3.5-Bolt / Nemotron-3.5-Super up to 125B parameters; against the strongest baseline it completes up to 3.4× more agentic tasks per hour and delivers up to 3.9× higher decoding throughput.\nWhat the authors say about limits: the relaxed-verification threshold is only an upper bound on probability amplification and \"does not predict task accuracy\", so they read the result as no clear loss rather than a gain; experiments centre on one DGX Spark and four models, and may not transfer to other hardware, models or concurrency patterns; no independent reproduction.\nWhat it does not claim: a general replacement for datacenter GPUs; that every 125B model fits; that 3.4× / 3.9× are absolute cross-platform numbers rather than vendor benchmarks against the strongest baseline; that local is always cheaper than cloud."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "发表 / venue": "arXiv 2611.10469（2026-11-07）",
+      "硬件 / hardware": "单台 NVIDIA DGX Spark：128GB 统一内存，273GB/s",
+      "模型 / models": "Qwen3.8-27B、Qwen3.8-Flash-Next、Nemotron-3.5-Bolt、Nemotron-3.5-Super，最大 125B",
+      "任务 / workload": "AgentPerf-Local、SPEED-Bench、SWE-bench 等 agentic 会话",
+      "相对收益 / relative gains": "最多 3.4× agentic tasks/hour；最多 3.9× decoding throughput",
+      "方法 / method": "model surgery + SSD session cache + adaptive speculation",
+      "证据位置 / evidence": "摘要；第 1–5 节；附录 D",
+      "复现状态 / reproduction": "未复现（只读论文与 HTML 全文）"
+    }
+  },
+  {
+    "id": "timeout-cascades-2026",
+    "title": {
+      "zh": "用超时级联降低 coding agent 推理成本",
+      "en": "Reducing Inference Cost of Coding Agents with Timeout Cascades"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2611.24324",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2611.24324",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2611.24324",
+        "quote": "We evaluate 36 popular large and small open-weight models released since 2024 on a software engineering benchmark, and find that recent small models are closing the accuracy gap compared to their large counterparts."
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.24324",
+        "quote": "by utilizing a hybrid inference strategy that tries a small model first and escalates to a large one only when needed, we can achieve up to 33% reduction in total GPU-hour costs and 16.4% on all tasks from SWE-bench Verified, without sacrificing accuracy."
+      },
+      {
+        "url": "https://arxiv.org/html/2611.24324",
+        "quote": "Our conclusions are constrained by single-run evaluations, one primary model pair, and one benchmark."
+      },
+      {
+        "url": "https://arxiv.org/html/2611.24324",
+        "quote": "The cascade reduces GPU-hour cost and preserves resolve rate, but it does so by spending additional sequential time on tasks that eventually fall back."
+      }
+    ],
+    "notes": {
+      "zh": "问题：coding agent 很吃 GPU 小时，小模型便宜但怕不稳；能不能先用小模型、失败再升级大模型，在不掉解决率的前提下省钱？\n证据位置：论文在 SWE-bench Verified 上评 36 个 2024 年后开放权重模型，发现小模型在 easy/medium 上已接近大模型，差距集中在 hard；用 GLM-4.7-Flash 先跑、超时后升级 GLM-4.7，按 120 分钟超时，easy 任务 GPU 小时从 821 降到 546（-33.5%），全部任务从 2,585 降到 2,160（-16.4%），解决率不掉；简单级联接近 oracle 路由。\n作者自陈局限：单次运行、只测一对主模型、只测一个 benchmark；工作负载必须 easy/medium 占多数（SWE-bench Verified 91%），hard 为主时级联会退化；升级是冷重启，不继承小模型的中间状态；墙钟时间反而增加（41.6 分钟/任务 → 65.5 或 84.5 分钟），不适合交互式等结果。\n它没主张的：不是所有 coding agent 都能省 33%；不是小模型可以替代大模型；不是级联一定优于学习型路由；不是延迟也会下降。",
+      "en": "Problem: coding agents burn GPU-hours; small models are cheaper but riskier. Can a small-model-first cascade cut cost without losing resolve rate?\nWhere the evidence sits: the paper evaluates 36 open-weight models released since 2024 on SWE-bench Verified and finds recent small models close the gap on easy/medium tasks, with the gap concentrated on hard tasks. Using GLM-4.7-Flash first and escalating to GLM-4.7 after a timeout, at a 120-minute timeout, GPU-hours fall from 821 to 546 on easy tasks (-33.5%) and from 2,585 to 2,160 on all tasks (-16.4%) without sacrificing resolve rate; the simple cascade nearly matches an oracle-style router.\nWhat the authors say about limits: single-run evaluations, one primary model pair and one benchmark; the workload must be dominated by easy/medium tasks (91% of SWE-bench Verified), and the cascade degrades when hard tasks dominate; escalation is a cold restart and does not inherit the small model's intermediate state; wall-clock time rises (41.6 min/task to 65.5 or 84.5 min), so it is unsuitable for interactive waiting.\nWhat it does not claim: that every coding agent saves 33%; that small models replace large ones; that a cascade always beats a learned router; that latency also falls."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "发表 / venue": "arXiv 2611.24324（2026-11-18）",
+      "评测 / benchmark": "SWE-bench Verified（500 题；混合策略用 466 题完整轨迹）",
+      "模型 / models": "36 个 2024 年后开放权重模型；主对 GLM-4.7-Flash → GLM-4.7",
+      "成本 / cost": "easy 任务 -33.5%；全部任务 -16.4% GPU-hours",
+      "解决率 / resolve": "不牺牲整体解决率；简单级联接近 oracle 路由",
+      "代价 / trade-off": "墙钟 41.6 → 65.5 / 84.5 分钟；适合异步任务",
+      "证据位置 / evidence": "摘要；第 V–VI 节；结论",
+      "复现状态 / reproduction": "未复现（只读论文与 HTML 全文）"
+    }
+  },
+  {
+    "id": "droidprefill-2026",
+    "title": {
+      "zh": "DroidPrefill：用手机 NPU 跑完全本地的 GUI agent",
+      "en": "Building Fully On-Device GUI Agents with Mobile NPUs"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2611.20772",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2611.20772",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2611.20772",
+        "quote": "We present DroidPrefill, a prefill-centric inference architecture that reshapes the GUI-agent workload around mobile-NPU execution."
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.20772",
+        "quote": "Experiments on commercial smartphones show that, in controlled comparisons with the autoregressive T3A+ baseline, DroidPrefill reduces per-step inference latency by up to 85.0%, while improving task success rate by up to 24.6%."
+      },
+      {
+        "url": "https://arxiv.org/html/2611.20772",
+        "quote": "DroidPrefill has several limitations. First, fully on-device deployment currently relies on compact and quantized models with bounded context, which limits semantic reasoning and long-horizon planning on difficult GUI tasks."
+      },
+      {
+        "url": "https://arxiv.org/html/2611.20772",
+        "quote": "our evaluation focuses on Qualcomm smartphone NPUs and uses representative rather than benchmark-scale real-device validation."
+      }
+    ],
+    "notes": {
+      "zh": "问题：手机 GUI agent 多靠云端模型，延迟、隐私、网络都受限；直接把常规 agent 搬到手机 NPU 又低效——NPU 强在 prefill、弱在逐 token decode，且编译期上下文固定。\n证据位置：DroidPrefill 把常见动作选择移到 prefill 边界，只把需要推理的部分留给 decode；用候选约束的 UI 压缩、bounded state ledger 和结构化决策精炼控制上下文。商业手机上对比自回归 T3A+：每步延迟最多 -85.0%，任务成功率最多 +24.6%；A11y-only QAIRT 下输入 4,023→1,830 tokens、输出 318.6→26.7 tokens，延迟 24.2s→4.6s。\n作者自陈局限：完全本地只能用小的量化模型 + 有界上下文，难任务的长程规划仍受模型能力上限；主要依赖 accessibility 信息，视觉丰富/自绘界面可能缺失；SPAD 阈值手工校准；只测 Qualcomm NPU，真实设备验证是代表性而非 benchmark 规模；加视觉输入不一定更好，512×512 下细粒度 grounding 与延迟有冲突。\n它没主张的：不是所有手机 GUI 任务都能 +24.6%；不是不需要云；不是视觉一定有用；不是已经跨 NPU 平台验证。",
+      "en": "Problem: mobile GUI agents mostly rely on cloud models, paying latency, privacy and connectivity costs; moving a conventional agent onto a phone NPU is inefficient because NPUs excel at prefill and struggle with token-by-token decode, while compiled context profiles are fixed.\nWhere the evidence sits: DroidPrefill moves common-case action selection to the prefill boundary and reserves decoding for cases that truly need reasoning, using candidate-grounded UI compression, a bounded state ledger and structured decision refinement to control context. On commercial phones against the autoregressive T3A+ baseline, per-step latency falls by up to 85.0% and task success rises by up to 24.6%; under A11y-only QAIRT, input drops from 4,023 to 1,830 tokens, output from 318.6 to 26.7 tokens, and latency from 24.2 s to 4.6 s.\nWhat the authors say about limits: fully on-device deployment relies on compact, quantized models with bounded context, so difficult long-horizon tasks remain limited by model capability; it relies mainly on accessibility representations, which may miss visually rich or custom-rendered interfaces; SPAD thresholds are manually calibrated; evaluation covers Qualcomm NPUs only and uses representative rather than benchmark-scale real-device validation; adding vision does not consistently help, and 512×512 downsampling trades grounding against latency.\nWhat it does not claim: that every mobile GUI task gains 24.6%; that cloud is unnecessary; that vision always helps; that the results generalize across NPU platforms."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "发表 / venue": "arXiv 2611.20772（2026-11-16）",
+      "硬件 / hardware": "商用 Qualcomm 手机 NPU",
+      "模型 / model": "Qwen3-4B-Instruct-2507 等小模型（QAIRT W4A16 / llama.cpp Q4_0）",
+      "评测 / benchmark": "AndroidWorld；代表性 RealMobile 任务",
+      "延迟 / latency": "每步最多 -85.0%；A11y QAIRT 24.2s → 4.6s",
+      "成功率 / success": "最多 +24.6%",
+      "证据位置 / evidence": "摘要；第 2–5 节；Limitations",
+      "复现状态 / reproduction": "未复现（只读论文与 HTML 全文）"
+    }
+  },
+  {
+    "id": "strategist-2026",
+    "title": {
+      "zh": "Strategist：让 agent 自己进化推理策略",
+      "en": "Strategist: Evolving Reasoning with Agents"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2611.03618",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2611.03618",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2611.03618",
+        "quote": "We introduce Strategist, a meta-agent that evolves inference strategies across tasks."
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.03618",
+        "quote": "On 30 benchmarks, Strategist beats the strongest baseline on 24 and matches its average accuracy (74.7% vs. 74.0%) at 39% lower inference cost."
+      },
+      {
+        "url": "https://arxiv.org/html/2611.03618",
+        "quote": "Strategist is not Pareto-improving everywhere: on MedQA and AIME 2024 it is cheaper (0.44×, 0.77×) but 4–5 points less accurate"
+      },
+      {
+        "url": "https://arxiv.org/html/2611.03618",
+        "quote": "The test split, on which nothing is chosen, is the only unbiased estimate, and it is what every table reports."
+      }
+    ],
+    "notes": {
+      "zh": "问题：agent 的推理流程（prompt、工具顺序、验证步骤）大多手工写，做完一个任务经验不沉淀，下个任务从零再来；模型冻结时，系统另一半能否自己变好？\n证据位置：Strategist 把策略写成可执行 blueprint，候选策略在真实样本上跑、按结果改，所有策略连同测量卡进共享库；30 个 benchmark 上 24 胜、平均准确率 74.7% vs 对比基线 74.0%，推理成本低 39%；10 个 held-out 上不搜索也能接近基线，策略可迁移到 GPT-5 / Gemini-2.5。\n作者自陈局限：不是处处 Pareto——MedQA / AIME 2024 更便宜但低 4–5 分；最终策略在 hidden split 上选，hidden 比 test 高 4.3 分而 test 只高 0.7，选择含运气；只测 30 个 benchmark 与 18 个基线；成本按 USD/token 计，换 provider 会变；没有独立复现。\n它没主张的：不是所有任务都更便宜或更准；不是替代模型训练；不是自动发现就一定优于人写策略；不是跨所有模型/工具无成本迁移。",
+      "en": "Problem: an agent's inference procedure — prompts, tool order, verification steps — is mostly hand-written, and experience from one task does not carry to the next; with the model frozen, can the other half of the system improve itself?\nWhere the evidence sits: Strategist writes strategies as executable blueprints, runs candidates on real samples and revises them from results, storing every strategy plus a measurement card in a shared library. On 30 benchmarks it wins 24, matches the strongest baseline's average accuracy (74.7% vs 74.0%) at 39% lower inference cost; on 10 held-out benchmarks retrieval without search stays close to the baseline, and strategies transfer to GPT-5 / Gemini-2.5.\nWhat the authors say about limits: it is not Pareto-improving everywhere — on MedQA and AIME 2024 it is cheaper (0.44×, 0.77×) but 4–5 points less accurate; the final strategy is chosen on a hidden split, which is 4.3 points above baseline versus 0.7 on test, so selection includes luck; only 30 benchmarks and 18 baselines are tested; cost is measured in USD/tokens and changes with provider; no independent reproduction.\nWhat it does not claim: that every task is cheaper or more accurate; a replacement for model training; that automated search always beats human-written strategies; cost-free transfer across all models and tools."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "发表 / venue": "arXiv 2611.03618；NeurIPS 2026",
+      "规模 / scale": "30 个 benchmark；18 个基线",
+      "结果 / result": "24/30 胜；74.7% vs 74.0%；成本 -39%",
+      "迁移 / transfer": "10 个 held-out；GPT-5 / Gemini-2.5 可迁移",
+      "机制 / mechanism": "Strategy Blueprint + 共享库 + measurement card",
+      "代价 / trade-off": "MedQA / AIME 更便宜但低 4–5 分；hidden/test 选择有运气",
+      "证据位置 / evidence": "摘要；第 5–7 节；结论",
+      "复现状态 / reproduction": "未复现（只读论文与 HTML 全文）"
+    }
   }
 ]

@@ -2369,5 +2369,85 @@
       "It underpins licensing, deletion requests and contamination investigation."
     ],
     "why": "When a model leaks or misbehaves, the first step is retracing what it may have seen. Without provenance you can only guess."
+  },
+  "智能体强化学习": {
+    "purpose": "Train models to learn multi-step work by trial and error in real tool environments, rather than only answering single-turn questions.",
+    "def": [
+      "Put the task in an executable environment (search, terminal, browser, codebase); the model receives a reward or penalty at each step.",
+      "Unlike RLHF, which optimises whether an answer is liked, agentic RL optimises whether the task is completed and whether tools are used correctly.",
+      "The hard parts are sparse rewards and credit assignment: attributing final success to one of dozens of steps requires process rewards, trajectory filtering or verifiers.",
+      "It usually needs reproducible environments and many rollouts, costing far more than single-turn alignment and making reward hacking easier."
+    ],
+    "why": "Coding and office agents in 2026 are moving this way; understanding it separates a real self-improvement mechanism from marketing."
+  },
+  "扩散强制": {
+    "purpose": "Let video or action sequences be generated all at once or extended segment by segment without drift.",
+    "def": [
+      "During training each token gets a randomly different noise level, so the model learns both denoising and continuation from an already-generated prefix.",
+      "At inference it can generate frame by frame or segment by segment, and can also generate in parallel; it is not the same as diffusing the whole sequence in one pass.",
+      "It is not a product name but a training objective common in video world models and real-time generation, addressing long-sequence consistency and latency.",
+      "The cost is a more complex training schedule: how noise levels are sampled and how prefixes are supplied both affect long-range stability."
+    ],
+    "why": "Video generation is moving from five-second clips to 30-second, multi-round extensions; this kind of temporal-consistency mechanism is one of the key enablers."
+  },
+  "多模态推理": {
+    "purpose": "Let a model reason over several steps after seeing an image or video, not just describe it once.",
+    "def": [
+      "Inputs include images, charts and video frames, not only text; the model must decompose, compare, calculate and cite visual evidence.",
+      "Unlike visual understanding, which asks what is visible, reasoning asks what follows from it and where the evidence sits.",
+      "Evaluation must check both the answer and whether the evidence chain lands on the image, or language priors can fake it.",
+      "Long images, multiple images and video significantly raise visual-token cost; more reasoning steps mean a higher price."
+    ],
+    "why": "Models in 2026 compete on seeing and acting; without acceptance tests for multimodal reasoning, real capability is hard to separate from polished talk."
+  },
+  "音视频联合生成": {
+    "purpose": "Align picture with dialogue and sound effects in one generation pass instead of generating video and dubbing it afterwards.",
+    "def": [
+      "The model jointly models visual frames and audio tokens in one generation process, aligning lip movement, action sounds and ambience on a timeline.",
+      "Unlike video generation plus TTS, joint generation can synchronise a speaker’s lips with ambience; post-dubbing usually does not match.",
+      "The price is more expensive training data and compute, and evaluation must check picture, audio and sync together rather than one pretty frame.",
+      "It is not automatic scoring: music copyright, voice licensing and content labelling remain separate issues."
+    ],
+    "why": "Video models in 2026 treat sound as a first-class citizen; judging only the picture overestimates the model."
+  },
+  "模型合并": {
+    "purpose": "Combine the weights of two or more fine-tuned models into a new capability mix without retraining.",
+    "def": [
+      "Common methods include linear weighting, TIES, DARE and task vectors; the core problem is parameter conflict and redundancy.",
+      "Unlike an ensemble, merging produces one model; an ensemble runs several models at once.",
+      "Check that the source models share a base and tokenizer; merging different bases or tokenizers breaks the result.",
+      "Read every licence: merged weights remain bound by each source model’s terms and are not a brand-new model just because you merged them."
+    ],
+    "why": "Open-source communities merge models at scale to chase leaderboards; without understanding merging, repackaging looks like new training and licences get misjudged."
+  },
+  "参考生视频": {
+    "purpose": "Use several images, a video or an audio clip as references to generate a new video with consistent subject, style and camera.",
+    "def": [
+      "The model reads not only a text prompt but identity, clothing, composition, camera movement and timbre from reference material.",
+      "Unlike image-to-video, which usually supplies only a first frame, reference-to-video supplies constraints on what must be preserved.",
+      "More references give stronger control but also more conflicts; when references disagree, the model makes its own trade-offs.",
+      "Acceptance should check reference fidelity and editability, not only whether the output looks good."
+    ],
+    "why": "Seedance 2.5, Veo and others are moving toward multimodal references; this is the step from generating a clip to finishing a piece."
+  },
+  "长时记忆": {
+    "purpose": "Let an agent remember user preferences, task state and key facts across sessions instead of starting from zero each time.",
+    "def": [
+      "It usually has three layers: working memory (current context), episodic memory (past events) and semantic memory (distilled facts and preferences).",
+      "Writes need policy: what is worth remembering, when to distil, how to expire and delete; otherwise memory becomes noise.",
+      "Unlike a context window, long-term memory is external storage and retrieval, not limited by a single context length.",
+      "Recall also needs a threshold: similarity is not relevance, and a wrong memory is harder to debug than no memory."
+    ],
+    "why": "Agents in 2026 sell remembering you; without understanding how memory is written and recalled, you cannot tell real memory from a temporary stitch-up."
+  },
+  "量化感知训练": {
+    "purpose": "Simulate low-precision error during training so the quantised model loses less accuracy.",
+    "def": [
+      "The forward pass uses fake-quant to simulate INT4 or INT8 rounding and clipping, while the backward pass still updates with high-precision gradients.",
+      "Unlike post-training quantisation, which leaves weights untouched, QAT lets the model adapt to quantisation error in advance.",
+      "The cost is training compute and tuning complexity; the benefit is better accuracy at low bit-width.",
+      "Not every model is worth QAT: when a base is open and quantisation tools are mature, running PTQ first is often cheaper."
+    ],
+    "why": "Local deployment increasingly relies on 4-bit; the gap between QAT and PTQ decides whether a quantised model is still usable."
   }
 }

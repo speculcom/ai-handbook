@@ -1,0 +1,57 @@
+{
+  "id": "google-tpu-8i",
+  "title": {
+    "zh": "Google TPU 8i（推理）",
+    "en": "Google TPU 8i (inference)"
+  },
+  "category": "accelerator",
+  "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "Today at Google Cloud Next, we are introducing the eighth generation of Google's custom Tensor Processor Unit (TPU), coming soon with two distinct, purpose-built architectures for training and inference: TPU 8t and TPU 8i."
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "TPU 8i pairs 288 GB of high-bandwidth memory with 384 MB of on-chip SRAM — 3x more than the previous generation — keeping a model's active working set entirely on-chip."
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "we doubled the Interconnect (ICI) bandwidth to 19.2 Tb/s. Our new Boardfly architecture reduces the maximum network diameter by more than 50%"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "Our new on-chip Collectives Acceleration Engine (CAE) offloads global operations, reducing on-chip latency by up to 5x"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "These innovations deliver 80% better performance-per-dollar compared to the previous generation"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "Total HBM capacity per pod (TB) 331.8"
+    }
+  ],
+  "notes": {
+    "zh": "回答「Google 第八代 TPU 里负责推理的是哪颗、为什么它更适合 agent 的低延迟场景」。8i 把单颗 HBM 提到 288GB、片上 SRAM 提到 384MB（前代 3 倍），配 19.2 Tb/s ICI 与 Boardfly 拓扑，把最大网络直径砍半；CAE 卸载全局通信，官方称片上延迟最多降 5 倍。单 pod 1,152 颗、FP8 11.6 EFLOPS、HBM 合计 331.8TB；官方称每美元性能提升 80%。\n不主张：官方发布页没有给单颗 FP4 算力（行业转述为 10.1 PF，本卡不写）；11.6 EFLOPS 是 FP8 pod 合计，不是单颗；80% 与 5× 都是 Google 口径，不是独立实测；没有公开价格。",
+    "en": "Answers which chip handles inference in Google's eighth-generation TPU line, and why it suits low-latency agent workloads. TPU 8i raises per-chip HBM to 288 GB and on-chip SRAM to 384 MB (3x the previous generation), pairs 19.2 Tb/s ICI with the Boardfly topology and more than halves the maximum network diameter, while the CAE offloads collective operations; Google says on-chip latency falls by up to 5x. A pod holds 1,152 chips, 11.6 FP8 exaflops and 331.8 TB of HBM; Google claims 80% better performance per dollar.\nIt does not claim: the launch page gives no per-chip FP4 figure (third-party reporting says 10.1 PF and is not written here); 11.6 EFLOPS is an FP8 pod total, not a single chip; the 80% and 5x figures are Google's, not independent measurements; no public pricing."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "定位 / role": "低延迟推理、采样与 agent 服务",
+    "单颗 HBM / HBM per chip": "288 GB",
+    "单颗 SRAM / SRAM per chip": "384 MB（前代 3×）",
+    "Pod 规模 / pod size": "1,152 chips",
+    "Pod 算力 / pod compute": "11.6 EFLOPS FP8",
+    "Pod HBM 合计 / HBM per pod": "331.8 TB",
+    "Scale-up 带宽 / scale-up": "19.2 Tb/s per chip",
+    "主机 / host": "Google Axion（Arm）",
+    "网络 / network": "Boardfly",
+    "状态 / status": "2026-04-22 发布；官方称 2026 年内 GA"
+  }
+}

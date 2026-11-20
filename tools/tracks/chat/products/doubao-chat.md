@@ -10,8 +10,9 @@ licenseEn: Per the official Doubao User Service Agreement §9.1, the company doe
 
 axes:
   model_access: >-
-    豆包系列模型由字节跳动官方发布线披露（官网新闻页有模型迭代记录）；消费应用内具体模型
-    档位分流未逐条核验；企业级模型接口经火山引擎「火山方舟」另线提供。
+    豆包系列模型由字节跳动官方发布线披露：2026-09-15 上线 Doubao-Seed 2.1 Pro / Lite 0915
+    （1024k 上下文、多模态）；2026-11 Seed-Evolving 版本更新。消费应用内档位分流未逐条核验；
+    企业级模型接口经火山引擎「火山方舟」另线提供。
   runtime: >-
     网页（doubao.com）、移动端 App、PC 客户端三线覆盖；生成在字节云端处理，
     本机不跑模型。三线功能基本对齐，语音对话在移动端最顺手。
@@ -53,9 +54,12 @@ sources:
   - label: 豆包 · 官网新闻页（产品与模型迭代记录入口）
     url: https://www.doubao.com/news
     kind: changelog
+  - label: 火山方舟 · 模型发布公告（2026-11-19 更新：Seed 2.1 Pro/Lite 0915、Seed-Evolving 更新）
+    url: https://console.volcengine.com/ark/region:cn-beijing/docs/model-release-announcement
+    kind: changelog
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-19
+last_updated: 2026-11-19
 lifecycle: active
 confidence: partial
 

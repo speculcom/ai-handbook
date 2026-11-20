@@ -11,11 +11,18 @@
     "en": "Moonshot AI"
   },
   "currentGen": {
-    "zh": "Kimi K3",
-    "en": "Kimi K3"
+    "zh": "Kimi K3.1 Pro",
+    "en": "Kimi K3.1 Pro"
   },
-  "currentGenDate": "2026-07",
+  "currentGenDate": "2026-10",
   "generations": [
+    {
+      "gen": "Kimi K3.1 Pro",
+      "date": "2026-10",
+      "zh": "K3 的后训练版本（2026-10-23 发布，2026-11-04 开放权重）：2.8T 总参 MoE、104B 激活、1M token 上下文、原生多模态；官方称在代码、3D 创作、金融研究与长程 Agent 上提升明显，并同步提供 Highspeed 版。",
+      "en": "Post-trained from K3 (launched 2026-10-23, weights opened 2026-11-04): a 2.8T-parameter MoE with 104B active, 1M-token context and native multimodality; the vendor reports clear gains in coding, 3D creation, financial research and long-horizon agents, with a Highspeed variant.",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+    },
     {
       "gen": "Kimi K3",
       "date": "2026-07",
@@ -41,6 +48,10 @@
   ],
   "sizeTiers": [
     {
+      "zh": "旗舰 2.8T MoE（K3.1 Pro，104B 激活，1M 上下文）",
+      "en": "Flagship 2.8T MoE (K3.1 Pro, 104B active, 1M context)"
+    },
+    {
       "zh": "旗舰 2.8T MoE（K3，激活数官方未逐条公开）",
       "en": "Flagship 2.8T MoE (K3; active count not itemised officially)"
     },
@@ -55,9 +66,20 @@
       "zh": "Kimi K3 License（模型卡 license_name: \"kimi-k3\"，非 OSI 标准许可，下载前读原文）",
       "en": "Kimi K3 License (model-card license_name \"kimi-k3\"; not an OSI-standard licence — read the text before download)",
       "url": "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE"
+    },
+    {
+      "id": "other",
+      "zh": "Kimi K3.1 Pro License（模型卡 license: kimi-k3.1-pro，自定义许可，非 OSI 标准；商用前读原文）",
+      "en": "Kimi K3.1 Pro License (model-card license: kimi-k3.1-pro; custom, not OSI-standard — read the text before commercial use)",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE"
     }
   ],
   "claims": [
+    {
+      "zh": "官方模型卡：Kimi K3.1 Pro 是「open-weight, natively multimodal agentic model」，2.8T 总参、104B 激活、1,048,576 token 上下文；K3.1 系列首个模型，由 K3 后训练而来。",
+      "en": "Official model card: Kimi K3.1 Pro is an \"open-weight, natively multimodal agentic model\" with 2.8T total parameters, 104B active and a 1,048,576-token context; the first K3.1 model, post-trained from K3.",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+    },
     {
       "zh": "官方 README：「a 2.8T-parameter model built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes), with native vision capabilities and a 1-million-token context window」「activates 16 out of 896 experts — yielding an approximate 2.5× improvement in overall scaling efficiency over Kimi K2」（2.5× 为厂商自评口径）。",
       "en": "Official README: \"a 2.8T-parameter model built on Kimi Delta Attention (KDA) and Attention Residuals (AttnRes), with native vision capabilities and a 1-million-token context window\"; \"activates 16 out of 896 experts — yielding an approximate 2.5× improvement in overall scaling efficiency over Kimi K2\" (the 2.5× figure is vendor-run wording).",
@@ -65,15 +87,15 @@
     }
   ],
   "positioning": {
-    "zh": "国产开放权重旗舰：K3 是官方口径的首个开放 3T 级模型，许可是自定义 Kimi K3 License。对话产品「Kimi 智能助手」在网信办首批备案（Beijing-MoonShot-20231016）；模型权重本身与备案是两回事，卡上分开写。",
-    "en": "The domestic open-weight flagship: K3 is, per the vendor, the first open 3T-class model, under a custom Kimi K3 License. The consumer chat product was filed in the CAC's first batch (Beijing-MoonShot-20231016); model weights and service filing are different things — the card keeps them apart."
+    "zh": "国产开放权重旗舰：K3.1 Pro 把 K3 的后训练推到新一档，2.8T 总参 / 104B 激活、1M 上下文，权重于 2026-11-04 开放，许可为自定义 Kimi K3.1 Pro License。对话产品「Kimi 智能助手」在网信办首批备案；模型权重与备案是两回事。",
+    "en": "The domestic open-weight flagship: K3.1 Pro pushes K3 post-training to a new tier — 2.8T total / 104B active, 1M context — with weights opened on 2026-11-04 under a custom Kimi K3.1 Pro License. The Kimi chat product sits in the CAC first batch; weights and service filing are separate."
   },
   "onSite": {
     "series": [
       "kimi-k3"
     ],
-    "zh": "这里有 Kimi K3 的量化对比",
-    "en": "This site covers Kimi K3 quantisations"
+    "zh": "这里的量化对比目前只覆盖 Kimi K3；K3.1 Pro 权重虽已开放，但尚未进入本站量化系列。",
+    "en": "The quantisation comparison here still covers Kimi K3 only; K3.1 Pro weights are open but not yet in this site’s quantisation series."
   },
   "sources": [
     {
@@ -87,9 +109,21 @@
       "url": "https://huggingface.co/moonshotai",
       "kind": "docs",
       "labelEn": "moonshotai official org model list (HF API 2026-10-20, 19 repos listed)"
+    },
+    {
+      "label": "moonshotai/Kimi-K3.1-Pro 模型卡（2026-11-20 直抓 200）",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "kind": "docs",
+      "labelEn": "moonshotai/Kimi-K3.1-Pro model card (direct fetch 200 on 2026-11-20)"
+    },
+    {
+      "label": "Kimi 官方发布页 · Kimi K3.1 Pro：智能前沿，更进一步（2026-10-24 更新）",
+      "url": "https://www.kimi.com/news/kimi-k3-1-pro",
+      "kind": "blog",
+      "labelEn": "Kimi official release · Kimi K3.1 Pro (updated 2026-10-24)"
     }
   ],
-  "last_verified": "2026-11-18",
+  "last_verified": "2026-11-20",
   "confidence": "verified",
   "cn": {
     "origin": "domestic",

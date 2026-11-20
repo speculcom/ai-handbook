@@ -1,6 +1,6 @@
 # 开源 AI 工具库
 
-> 60 个 AI 开源仓库，按 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。不排名、不背书安全。
+> 80 个 AI 开源仓库，按 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。不排名、不背书安全。
 
 - [首页](https://oss.specul.com/)
 - [全部仓库](https://oss.specul.com/all.html)
@@ -14,6 +14,7 @@
 - [多模态与图像视频](https://oss.specul.com/scenes/multimodal-visual.html) — 图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。
 - [语音与音频](https://oss.specul.com/scenes/speech-audio.html) — 语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。
 - [评测与可观测](https://oss.specul.com/scenes/eval-observability.html) — 上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。
+- [训练与微调](https://oss.specul.com/scenes/training-finetune.html) — 把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。
 
 ## 仓库
 - [LangGraph](https://oss.specul.com/repos/langgraph.html) — 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 许可 MIT。
@@ -76,3 +77,23 @@
 - [HunyuanVideo](https://oss.specul.com/repos/hunyuanvideo.html) — 腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。 许可 NOASSERTION。
 - [CogVideo](https://oss.specul.com/repos/cogvideo.html) — 智谱 CogVideoX 系列视频生成模型与推理代码，支持文本/图像到视频。 许可 Apache-2.0。
 - [LTX-Video](https://oss.specul.com/repos/ltx-video.html) — Lightricks 的实时视频生成模型与代码，基于 DiT，强调速度与较低显存。 许可 Apache-2.0。
+- [Unsloth](https://oss.specul.com/repos/unsloth.html) — QLoRA/LoRA 微调加速：用 Triton 内核把 7B–70B 模型的显存占用和训练时间压下来。 许可 Apache-2.0。
+- [Axolotl](https://oss.specul.com/repos/axolotl.html) — 一份 YAML 配置跑通微调：支持 LoRA、QLoRA、全参、DPO、GRPO 与多机训练。 许可 Apache-2.0。
+- [TRL](https://oss.specul.com/repos/trl.html) — Hugging Face 的强化学习与对齐训练库：SFT、DPO、PPO、GRPO、奖励模型都能接。 许可 Apache-2.0。
+- [DeepSpeed](https://oss.specul.com/repos/deepspeed.html) — 微软的大模型训练优化库：ZeRO、Offload、混合精度与 MoE 训练，把显存与吞吐压到可用。 许可 Apache-2.0。
+- [TorchTitan](https://oss.specul.com/repos/torchtitan.html) — PyTorch 官方的大模型训练配方：张量并行、流水并行、FSDP 与分布式检查点，按 Llama 3 路线给参考实现。 许可 BSD-3-Clause。
+- [verl](https://oss.specul.com/repos/verl.html) — 字节跳动的 RL 训练框架：面向 LLM Agent 与推理任务，支持 PPO/GRPO 与多轮工具调用。 许可 Apache-2.0。
+- [OpenRLHF](https://oss.specul.com/repos/openrlhf.html) — 基于 Ray + vLLM 的 RLHF 训练框架：PPO、GRPO、DPO、KTO 与多机多卡编排。 许可 Apache-2.0。
+- [KTransformers](https://oss.specul.com/repos/ktransformers.html) — 面向异构硬件的推理/微调框架：把 MoE 专家卸载到 CPU/内存，用少量 GPU 跑大模型。 许可 Apache-2.0。
+- [LightRAG](https://oss.specul.com/repos/lightrag.html) — 轻量 GraphRAG 实现：把文档抽成实体关系图，再做向量+图检索，成本比全文 GraphRAG 低。 许可 MIT。
+- [FLUX.1](https://oss.specul.com/repos/flux1.html) — Black Forest Labs 的图像生成模型与推理代码：FLUX.1 [schnell] / [dev] / [pro] 三条线。 许可 Apache-2.0。
+- [OpenClaw](https://oss.specul.com/repos/openclaw.html) — 把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。 许可 MIT。
+- [DeepSeek Harness](https://oss.specul.com/repos/deepseek-harness.html) — DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。 许可 MIT。
+- [Hermes Agent](https://oss.specul.com/repos/hermes-agent.html) — Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。 许可 MIT。
+- [OpenCode](https://oss.specul.com/repos/opencode.html) — 终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。 许可 MIT。
+- [Orca](https://oss.specul.com/repos/orca.html) — 把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。 许可 MIT。
+- [Codex CLI](https://oss.specul.com/repos/codex-cli.html) — OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。 许可 Apache-2.0。
+- [Firecrawl](https://oss.specul.com/repos/firecrawl.html) — 把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。 许可 AGPL-3.0。
+- [Graphify](https://oss.specul.com/repos/graphify.html) — 把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。 许可 Apache-2.0。
+- [VibeVoice](https://oss.specul.com/repos/vibevoice.html) — 微软开源语音模型家族：60 分钟长音频转写（谁在何时说了什么）、50+ 语言与流式 ASR；TTS 代码已因滥用下架。 许可 MIT。
+- [Open WebUI](https://oss.specul.com/repos/open-webui.html) — 自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。 许可 NOASSERTION。

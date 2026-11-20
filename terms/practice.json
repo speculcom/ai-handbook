@@ -418,5 +418,29 @@
   "怎么用 AI 搭 RAG 语料": {
     "zh": "选 20 篇产品文档，去页眉页脚、按章节切块、每块带标题和 URL；用 10 个真实问题测命中与引用，记录哪类问题必须拒答。",
     "en": "Take 20 product docs, strip headers/footers, chunk by section with title and URL, then test 10 real questions for hit rate and citation, recording which question types must be refused."
+  },
+  "怎么判断一次模型发布值不值得跟": {
+    "zh": "拿一条新模型发布，先写「它宣称解决了什么旧失败」，再从你自己的 30 条任务里抽 10 条做盲测；如果官方只给榜单不给模型卡，就把结论标成「未证实」，不要直接换生产。",
+    "en": "Take one launch, write down which old failure it claims to fix, then blind-test 10 of your own 30 tasks. If the vendor offers only a leaderboard and no model card, mark the conclusion \"unverified\" and do not switch production."
+  },
+  "多模态模型怎么验收": {
+    "zh": "找一张带小字与图例的财务报表截图，要求模型读出三个数字并给出坐标区域；再把图旋转 15 度、局部遮挡，看它是否承认读不清。两次都过，才算具备可用的图表理解。",
+    "en": "Give the model a financial table screenshot with small text and a legend, ask for three numbers plus their bounding regions. Rotate the image 15 degrees and occlude part of it; a usable chart reader must say what it cannot see. Pass both to qualify."
+  },
+  "长任务 Agent 怎么做检查点": {
+    "zh": "把「整理 20 封客户邮件并起草回复」拆成读取、分类、起草、审批四段；每段结束写一行状态（已处理几封、哪些待确认、花了多少 token）。中途杀掉进程，恢复后先读状态再继续，不重发已批准的邮件。",
+    "en": "Split \"triage 20 customer emails and draft replies\" into read, classify, draft and approve. After each stage write one state line: how many processed, what needs confirmation, tokens spent. Kill the process midway; on resume read the state first and never resend approved mail."
+  },
+  "视频生成怎么验收": {
+    "zh": "做一条 8 秒产品短片：先定 1080p、24fps、9:16、无水印；再逐项检查瓶身 Logo 是否变形、镜头推进是否按提示、跨镜头标签是否一致、旁白口型是否同步。任何一项失败就记参数并重跑。",
+    "en": "Produce an 8-second product clip: fix 1080p, 24fps, 9:16 and no watermark first. Then check logo distortion, whether the push-in follows the prompt, label consistency across shots, and lip-sync against the voiceover. Log the settings for any failure and rerun."
+  },
+  "多卡互联值不值": {
+    "zh": "同一台机器先跑单卡 70B 4bit 的 tokens/s 与首字延迟，再跑双卡张量并行；如果双卡只提升 20% 而功耗翻倍，就先别买第二张卡，改用更小模型或量化。",
+    "en": "Benchmark a 70B 4-bit model on one GPU for tokens/s and time-to-first-token, then on two GPUs with tensor parallelism. If two cards add only 20% throughput while doubling power, do not buy the second card; use a smaller model or stronger quantization."
+  },
+  "模型 API 怎么谈 SLA 与退出条款": {
+    "zh": "把合同里的「99.9% 可用」换算成每月允许 43 分钟停机，再问清超限是排队还是报错、赔付怎么算；同时写一条「供应商换底座需提前 30 天通知并允许 30 天回归测试」。",
+    "en": "Translate \"99.9% uptime\" into 43 minutes of allowed downtime per month, then ask whether throttling queues or errors and how credits are calculated. Add a clause requiring 30 days' notice before a base-model change plus a 30-day regression window."
   }
 }

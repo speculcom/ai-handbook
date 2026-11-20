@@ -1,0 +1,47 @@
+{
+  "id": "droidprefill-2026",
+  "title": {
+    "zh": "DroidPrefill：用手机 NPU 跑完全本地的 GUI agent",
+    "en": "Building Fully On-Device GUI Agents with Mobile NPUs"
+  },
+  "category": "agents",
+  "url": "https://arxiv.org/abs/2611.20772",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2611.20772",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2611.20772",
+      "quote": "We present DroidPrefill, a prefill-centric inference architecture that reshapes the GUI-agent workload around mobile-NPU execution."
+    },
+    {
+      "url": "https://arxiv.org/abs/2611.20772",
+      "quote": "Experiments on commercial smartphones show that, in controlled comparisons with the autoregressive T3A+ baseline, DroidPrefill reduces per-step inference latency by up to 85.0%, while improving task success rate by up to 24.6%."
+    },
+    {
+      "url": "https://arxiv.org/html/2611.20772",
+      "quote": "DroidPrefill has several limitations. First, fully on-device deployment currently relies on compact and quantized models with bounded context, which limits semantic reasoning and long-horizon planning on difficult GUI tasks."
+    },
+    {
+      "url": "https://arxiv.org/html/2611.20772",
+      "quote": "our evaluation focuses on Qualcomm smartphone NPUs and uses representative rather than benchmark-scale real-device validation."
+    }
+  ],
+  "notes": {
+    "zh": "问题：手机 GUI agent 多靠云端模型，延迟、隐私、网络都受限；直接把常规 agent 搬到手机 NPU 又低效——NPU 强在 prefill、弱在逐 token decode，且编译期上下文固定。\n证据位置：DroidPrefill 把常见动作选择移到 prefill 边界，只把需要推理的部分留给 decode；用候选约束的 UI 压缩、bounded state ledger 和结构化决策精炼控制上下文。商业手机上对比自回归 T3A+：每步延迟最多 -85.0%，任务成功率最多 +24.6%；A11y-only QAIRT 下输入 4,023→1,830 tokens、输出 318.6→26.7 tokens，延迟 24.2s→4.6s。\n作者自陈局限：完全本地只能用小的量化模型 + 有界上下文，难任务的长程规划仍受模型能力上限；主要依赖 accessibility 信息，视觉丰富/自绘界面可能缺失；SPAD 阈值手工校准；只测 Qualcomm NPU，真实设备验证是代表性而非 benchmark 规模；加视觉输入不一定更好，512×512 下细粒度 grounding 与延迟有冲突。\n它没主张的：不是所有手机 GUI 任务都能 +24.6%；不是不需要云；不是视觉一定有用；不是已经跨 NPU 平台验证。",
+    "en": "Problem: mobile GUI agents mostly rely on cloud models, paying latency, privacy and connectivity costs; moving a conventional agent onto a phone NPU is inefficient because NPUs excel at prefill and struggle with token-by-token decode, while compiled context profiles are fixed.\nWhere the evidence sits: DroidPrefill moves common-case action selection to the prefill boundary and reserves decoding for cases that truly need reasoning, using candidate-grounded UI compression, a bounded state ledger and structured decision refinement to control context. On commercial phones against the autoregressive T3A+ baseline, per-step latency falls by up to 85.0% and task success rises by up to 24.6%; under A11y-only QAIRT, input drops from 4,023 to 1,830 tokens, output from 318.6 to 26.7 tokens, and latency from 24.2 s to 4.6 s.\nWhat the authors say about limits: fully on-device deployment relies on compact, quantized models with bounded context, so difficult long-horizon tasks remain limited by model capability; it relies mainly on accessibility representations, which may miss visually rich or custom-rendered interfaces; SPAD thresholds are manually calibrated; evaluation covers Qualcomm NPUs only and uses representative rather than benchmark-scale real-device validation; adding vision does not consistently help, and 512×512 downsampling trades grounding against latency.\nWhat it does not claim: that every mobile GUI task gains 24.6%; that cloud is unnecessary; that vision always helps; that the results generalize across NPU platforms."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "发表 / venue": "arXiv 2611.20772（2026-11-16）",
+    "硬件 / hardware": "商用 Qualcomm 手机 NPU",
+    "模型 / model": "Qwen3-4B-Instruct-2507 等小模型（QAIRT W4A16 / llama.cpp Q4_0）",
+    "评测 / benchmark": "AndroidWorld；代表性 RealMobile 任务",
+    "延迟 / latency": "每步最多 -85.0%；A11y QAIRT 24.2s → 4.6s",
+    "成功率 / success": "最多 +24.6%",
+    "证据位置 / evidence": "摘要；第 2–5 节；Limitations",
+    "复现状态 / reproduction": "未复现（只读论文与 HTML 全文）"
+  }
+}

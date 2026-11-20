@@ -1,0 +1,40 @@
+{
+  "id": "claude-5-2-2026",
+  "title": {
+    "zh": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+    "en": "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
+  },
+  "category": "alignment",
+  "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+  "license": {
+    "kind": "official-release",
+    "evidenceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "checkedAt": "2026-11-19"
+  },
+  "evidence": [
+    {
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "quote": "We believe high-stakes risks from misalignment remain low, and the model performed as well as, or better than, our recent models on most alignment measures."
+    },
+    {
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "quote": "Fable 5.2’s cyber and biology safeguards are as robust as those of Fable 5.1 but produce fewer unnecessary blocks"
+    },
+    {
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "quote": "Fable 5.2’s safeguards will block most cybersecurity-related tasks"
+    }
+  ],
+  "notes": {
+    "zh": "问题：Fable 5.2 与 Mythos 5.2 同底座，为什么分成两档，安全边界怎么划。\n证据位置：官方发布页写明 Fable 带网络安全与生物安全分类器，会拦下多数高风险网络任务；Mythos 仅向经过验证的机构开放，主打网络安全工程；两者共用同一底座，系统卡另附。\n作者自陈局限：安全结论来自 Anthropic 自己的预发布测试与内部评测；没有独立第三方复现；部分能力（如 AI 研发加速）在训练时被刻意限制，相关任务只到 Opus 5.5 水平。\n它没主张的：不是「无护栏的更强模型」；不是所有机构都能用 Mythos；不是对全部网络攻防任务都开放。",
+    "en": "Problem: Fable 5.2 and Mythos 5.2 share one underlying model — why split them, and where is the safety boundary?\nWhere the evidence sits: the official announcement says Fable carries cyber and biology classifiers that block most high-risk cyber tasks; Mythos is limited to vetted organizations and focuses on cybersecurity engineering; both share one underlying model, with a separate system card.\nWhat the authors say about limits: safety conclusions come from Anthropic’s own prerelease testing and internal evaluations, with no independent third-party reproduction; some capabilities, such as accelerating AI research, were deliberately limited during training and perform only at Opus 5.5 level.\nWhat it does not claim: an unguarded “stronger model”; that every organization can use Mythos; that it is open for all cyber offence and defence tasks."
+  },
+  "verifiedAt": "2026-11-19",
+  "specs": {
+    "发布 / release": "2026-11-09（官方发布页）",
+    "档位 / tiers": "Fable 5.2（带网络安全/生物安全护栏）/ Mythos 5.2（仅验证机构）",
+    "安全评测 / safety evals": "预发布测试 + 内部评测（官方口径）",
+    "证据位置 / evidence": "发布页 Safety and alignment / Safeguards 段",
+    "复现状态 / reproduction": "未复现（只读官方发布页）"
+  }
+}

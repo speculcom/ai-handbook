@@ -1246,5 +1246,165 @@
       "证明类型 / proof": "openid4vci-proof+jwt",
       "签发 / issuance": "Credential Issuer API"
     }
+  },
+  {
+    "id": "eip-7702-set-code-eoa",
+    "title": {
+      "zh": "EIP-7702：给 EOA 设置代码",
+      "en": "EIP-7702: Set Code for EOAs"
+    },
+    "category": "protocol",
+    "url": "https://eips.ethereum.org/EIPS/eip-7702",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-7702",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "quote": "Add a new EIP-2718 transaction type that allows Externally Owned Accounts (EOAs) to set the code in their account."
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "quote": "This EIP does not provide developers the opportunity to run initcode and set storage slots during delegation."
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "quote": "clients do not accept more than one pending transaction for any EOA with a non-zero delegation indicator"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI Agent 需要一个可编程账户来收付款、限额、批量调用和恢复权限；EIP-7702 让 EOA 在单笔交易里委托一段代码，给「代理执行」提供了账户层入口。\n适用范围：官方规范只定义「EOA 设置代码」的交易格式、授权元组与委托指示符；它不替开发者初始化存储，也不保证钱包界面能正确展示委托状态。客户端被建议对已有委托的 EOA 只接受一笔待处理交易，以降低交易失效风险。\n未解决：委托代码的升级与撤销、会话密钥的生命周期、被委托合约的安全审计，以及不同钱包对 7702 的展示与风控口径，都还在演进。",
+      "en": "Intersection: AI agents need a programmable account for payments, spending limits, batching and permission recovery; EIP-7702 lets an EOA delegate to code within a transaction, giving agent execution an account-level entry point.\nScope: the official spec only defines the transaction format, authorization tuples and delegation indicator for an EOA setting code; it does not initialise storage for developers or guarantee that wallets display delegation correctly. Clients are advised to accept only one pending transaction for an EOA with a non-zero delegation indicator to reduce invalidation risk.\nOpen: delegation upgrades and revocation, session-key lifecycles, security audits of delegated contracts, and wallet display/risk policy for 7702 are still evolving."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "提出 / created": "2024-05-07",
+      "核心对象 / object": "authorization tuple + delegation indicator",
+      "作用 / effect": "EOA 可在交易中委托代码执行",
+      "协议状态 / status": "已部署（Final；随 Pectra 升级上线）",
+      "许可 / license": "CC0（EIP 文本，以官方页为准）"
+    }
+  },
+  {
+    "id": "eip-4844-blob-transactions",
+    "title": {
+      "zh": "EIP-4844：Shard Blob Transactions",
+      "en": "EIP-4844: Shard Blob Transactions"
+    },
+    "category": "protocol",
+    "url": "https://eips.ethereum.org/EIPS/eip-4844",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-4844",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-4844",
+        "quote": "Introduce a new transaction format for “blob-carrying transactions” which contain a large amount of data that cannot be accessed by EVM execution, but whose commitment can be accessed."
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-4844",
+        "quote": "This EIP provides a stop-gap solution until that point by implementing the transaction format that would be used in sharding, but not actually sharding those transactions."
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-4844",
+        "quote": "target of ~0.375 MB per block and a limit of ~0.75 MB"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 训练数据、模型卡与内容凭证需要低成本的数据可用性层；blob 把大批数据放到共识层侧车，执行层只读承诺，适合做「可验证但不进 EVM」的存证。\n适用范围：官方规范明确这是分片的过渡方案，不是完整分片；blob 数据会被共识节点下载并短期保存，执行层不能直接读取内容；每个区块有目标与上限，费用由独立市场调节。\n未解决：长期保存与检索、数据可用性采样、跨链读取证明、以及把 blob 用于训练数据授权时的隐私与许可边界，规范都没有替应用层回答。",
+      "en": "Intersection: AI training data, model cards and content credentials need a low-cost data-availability layer; blobs put bulk data into consensus-layer sidecars while the execution layer sees only commitments — useful for verifiable records that should not enter the EVM.\nScope: the official spec frames this as a stop-gap before full sharding; blob data is downloaded and briefly retained by consensus nodes, cannot be read directly by EVM execution, and is capped per block with a separate fee market.\nOpen: long-term retention and retrieval, data-availability sampling, cross-chain proofs, and the privacy/licensing boundary when blobs carry training data are left to the application layer."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "提出 / created": "2022-02-25",
+      "核心对象 / object": "blob-carrying transaction",
+      "数据位置 / data": "共识层 sidecar（执行层只读承诺）",
+      "协议状态 / status": "已部署（Final；随 Dencun 升级上线）",
+      "许可 / license": "CC0（EIP 文本，以官方页为准）"
+    }
+  },
+  {
+    "id": "erc-7579-minimal-modular-accounts",
+    "title": {
+      "zh": "ERC-7579：最小模块化智能账户",
+      "en": "ERC-7579: Minimal Modular Smart Accounts"
+    },
+    "category": "protocol",
+    "url": "https://eips.ethereum.org/EIPS/eip-7579",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-7579",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7579",
+        "quote": "This proposal outlines the minimally required interfaces and behavior for modular smart accounts and modules to ensure interoperability across implementations."
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7579",
+        "quote": "This standard separates modules into the following different types that each has a unique and incremental identifier"
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7579",
+        "quote": "Smart accounts that have already been deployed will most likely be able to implement this standard."
+      }
+    ],
+    "notes": {
+      "zh": "交集：Agent 钱包要把验证器、执行器、Hook 与恢复模块拆开组合；ERC-7579 给了一套最小接口，让不同实现能互相插模块。\n适用范围：官方规范只规定账户与模块的最小接口、模块类型与安装/卸载行为；它不规定具体安全策略，也不保证每个模块经过审计。已有账户可能通过代理升级或 fallback adapter 兼容，但不是自动兼容。\n未解决：模块组合后的权限冲突、升级路径、模块注册表与供应链安全，仍要由账户实现方与审计方各自处理。",
+      "en": "Intersection: agent wallets need to compose validators, executors, hooks and recovery modules; ERC-7579 provides a minimal interface set so different implementations can plug modules into each other.\nScope: the official spec only defines minimal account/module interfaces, module types and install/uninstall behaviour; it does not prescribe security policy or guarantee that every module is audited. Existing accounts may become compatible via proxy upgrades or fallback adapters, but not automatically.\nOpen: permission conflicts after module composition, upgrade paths, module registries and supply-chain security remain the responsibility of account implementers and auditors."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "提出 / created": "2023-12-14",
+      "核心对象 / object": "modular smart account + module types",
+      "模块类型 / module types": "Validation / Execution / Fallback / Hooks",
+      "协议状态 / status": "草案（官方状态 Draft）",
+      "许可 / license": "CC0（ERC 文本，以官方页为准）"
+    }
+  },
+  {
+    "id": "erc-6900-modular-accounts",
+    "title": {
+      "zh": "ERC-6900：模块化智能合约账户",
+      "en": "ERC-6900: Modular Smart Contract Accounts"
+    },
+    "category": "protocol",
+    "url": "https://eips.ethereum.org/EIPS/eip-6900",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-6900",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-6900",
+        "quote": "Modules MAY implement any of the following module types"
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-6900",
+        "quote": "Account implementers MAY choose to design a semi-modular account"
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-6900",
+        "quote": "This standard has largely been the result of collaboration among the coauthors"
+      }
+    ],
+    "notes": {
+      "zh": "交集：当 Agent 账户需要更细的验证钩子、执行钩子与模块清单时，ERC-6900 给出了比 7579 更重的模块化框架，适合做权限分层与策略插件。\n适用范围：官方规范定义账户、验证模块、执行模块与 Hook 模块的接口，并允许「半模块化」账户；它不规定模块市场、审计标准或具体风控参数，模块是否可用仍取决于实现方。\n未解决：与 ERC-7579 的互操作、模块升级与卸载的原子性、Hook 组合的冲突检测，以及账户抽象标准的最终收敛，都还没有定论。",
+      "en": "Intersection: when an agent account needs finer validation hooks, execution hooks and module manifests, ERC-6900 offers a heavier modular framework than 7579, suited to permission layers and policy plugins.\nScope: the official spec defines account, validation-module, execution-module and hook-module interfaces and allows semi-modular accounts; it does not prescribe a module marketplace, audit standard or specific risk parameters — usability still depends on the implementer.\nOpen: interoperability with ERC-7579, atomicity of module upgrade/uninstall, conflict detection across hooks, and the eventual convergence of account-abstraction standards remain unsettled."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "提出 / created": "2023-04-18",
+      "核心对象 / object": "modular account + validation/execution hooks",
+      "账户形态 / account form": "全模块化或半模块化",
+      "协议状态 / status": "草案（官方状态 Draft）",
+      "许可 / license": "CC0（ERC 文本，以官方页为准）"
+    }
   }
 ]

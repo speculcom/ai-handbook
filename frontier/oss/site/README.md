@@ -1,6 +1,6 @@
 # oss.specul.com
 
-内容源：`_data/handbook/frontier/oss/repos.json`、`scenes.json`、`snapshots/2026-11-19.json`。
+内容源：`_data/handbook/frontier/oss/repos.json`、`scenes.json`、`snapshots/2026-11-20.json`。
 
 构建：`node _data/handbook/frontier/oss/scripts/build.mjs`
 

@@ -1,0 +1,40 @@
+{
+  "id": "gpt-6-2-2026",
+  "title": {
+    "zh": "GPT-6.2 Astra and GPT-6.2 Sol",
+    "en": "GPT-6.2 Astra and GPT-6.2 Sol"
+  },
+  "category": "scaling",
+  "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+  "license": {
+    "kind": "official-release",
+    "evidenceUrl": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+    "checkedAt": "2026-11-19"
+  },
+  "evidence": [
+    {
+      "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+      "quote": "Astra is our frontier model for applications that need advanced reasoning, coding, and the ability to handle complex professional work."
+    },
+    {
+      "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+      "quote": "Sol combines speed and lower cost with the ability to work through tasks that take several steps."
+    },
+    {
+      "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+      "quote": "Both improve on their predecessors’ results on demanding tasks while generating fewer output tokens."
+    }
+  ],
+  "notes": {
+    "zh": "问题：6.2 代的两档到底怎么分工，官方给的规格与边界是什么。\n证据位置：2026-11-17 官方发布说明写明 Astra 面向复杂专业工作，Sol 面向多步任务的速度与成本平衡；两档都改进前代难题表现，同时生成更少输出 token；均支持文本与图像输入、文本输出。\n作者自陈局限：这是发布说明，不是独立复现；没有给出延迟、长上下文上限、失败率与完整系统卡数据。系统卡细节需另读，本站不把发布口径当成实测结论。\n它没主张的：不是「全面超越前代」的第三方结论；不是所有任务都更快；不是权重开放模型。",
+    "en": "Problem: how do the two 6.2 tiers divide the work, and what specs and boundaries does the official release state?\nWhere the evidence sits: the 2026-11-17 release notes say Astra targets advanced reasoning, coding and complex professional work, while Sol combines speed and lower cost for multistep tasks; both improve on their predecessors on demanding tasks while generating fewer output tokens; both accept text and images and return text.\nWhat the authors say about limits: this is a release note, not an independent reproduction; it does not provide latency, long-context ceilings, failure rates or the full system-card data. Read the system card separately; this site does not treat launch claims as measured results.\nWhat it does not claim: a third-party conclusion that it beats every predecessor; that it is faster on every task; an open-weight model."
+  },
+  "verifiedAt": "2026-11-19",
+  "specs": {
+    "发布 / release": "2026-11-17（官方发布说明）",
+    "档位 / tiers": "Astra（复杂专业工作）/ Sol（多步任务速度与成本）",
+    "输入输出 / I/O": "文本 + 图像输入；文本输出",
+    "证据位置 / evidence": "发布说明「GPT-6.2 Astra and GPT-6.2 Sol in the OpenAI API」段",
+    "复现状态 / reproduction": "未复现（只读官方发布说明）"
+  }
+}

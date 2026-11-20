@@ -1,0 +1,40 @@
+{
+  "id": "erc-6900-modular-accounts",
+  "title": {
+    "zh": "ERC-6900：模块化智能合约账户",
+    "en": "ERC-6900: Modular Smart Contract Accounts"
+  },
+  "category": "protocol",
+  "url": "https://eips.ethereum.org/EIPS/eip-6900",
+  "license": {
+    "kind": "official-specification",
+    "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-6900",
+    "checkedAt": "2026-11-19"
+  },
+  "evidence": [
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-6900",
+      "quote": "Modules MAY implement any of the following module types"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-6900",
+      "quote": "Account implementers MAY choose to design a semi-modular account"
+    },
+    {
+      "url": "https://eips.ethereum.org/EIPS/eip-6900",
+      "quote": "This standard has largely been the result of collaboration among the coauthors"
+    }
+  ],
+  "notes": {
+    "zh": "交集：当 Agent 账户需要更细的验证钩子、执行钩子与模块清单时，ERC-6900 给出了比 7579 更重的模块化框架，适合做权限分层与策略插件。\n适用范围：官方规范定义账户、验证模块、执行模块与 Hook 模块的接口，并允许「半模块化」账户；它不规定模块市场、审计标准或具体风控参数，模块是否可用仍取决于实现方。\n未解决：与 ERC-7579 的互操作、模块升级与卸载的原子性、Hook 组合的冲突检测，以及账户抽象标准的最终收敛，都还没有定论。",
+    "en": "Intersection: when an agent account needs finer validation hooks, execution hooks and module manifests, ERC-6900 offers a heavier modular framework than 7579, suited to permission layers and policy plugins.\nScope: the official spec defines account, validation-module, execution-module and hook-module interfaces and allows semi-modular accounts; it does not prescribe a module marketplace, audit standard or specific risk parameters — usability still depends on the implementer.\nOpen: interoperability with ERC-7579, atomicity of module upgrade/uninstall, conflict detection across hooks, and the eventual convergence of account-abstraction standards remain unsettled."
+  },
+  "verifiedAt": "2026-11-19",
+  "specs": {
+    "提出 / created": "2023-04-18",
+    "核心对象 / object": "modular account + validation/execution hooks",
+    "账户形态 / account form": "全模块化或半模块化",
+    "协议状态 / status": "草案（官方状态 Draft）",
+    "许可 / license": "CC0（ERC 文本，以官方页为准）"
+  }
+}

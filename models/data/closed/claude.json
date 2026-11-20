@@ -14,12 +14,19 @@
     "en": "API and Claude subscription; weights are not open."
   },
   "currentGen": {
-    "zh": "Claude 5.5 代（Fable 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5）",
-    "en": "Claude 5.5 generation (Fable 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5)"
+    "zh": "Claude 5.2 代（Fable 5.2 / Mythos 5.2）",
+    "en": "Claude 5.2 generation (Fable 5.2 / Mythos 5.2)"
   },
-  "currentGenDate": "2026-09",
+  "currentGenDate": "2026-11",
   "review_interval_days": 30,
   "generations": [
+    {
+      "gen": "Claude 5.2 代（Fable 5.2 / Mythos 5.2）",
+      "date": "2026-11",
+      "zh": "5.2 两档：Fable 5.2 带网络安全/生物安全护栏，Mythos 5.2 仅限验证机构；同底座，官方模型页列 1M 上下文 / 128K 输出。",
+      "en": "Two 5.2 tiers: Fable 5.2 carries cyber/bio safeguards; Mythos 5.2 is limited to verified organizations. Same underlying model; official model pages list 1M context / 128K output.",
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview"
+    },
     {
       "gen": "Claude 5.5 代",
       "date": "2026-09",
@@ -43,10 +50,10 @@
         "en": "Context window"
       },
       "v": {
-        "zh": "1M tokens（5.5 代全线，官方模型总览）",
-        "en": "1M tokens (across the 5.5 line, official model overview)"
+        "zh": "1M tokens（Fable 5.2 / Mythos 5.2 官方模型页）",
+        "en": "1M tokens (official model pages for Fable 5.2 / Mythos 5.2)"
       },
-      "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview"
     },
     {
       "k": {
@@ -57,7 +64,18 @@
         "zh": "128K tokens（同上）",
         "en": "128K tokens (same page)"
       },
-      "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview"
+    },
+    {
+      "k": {
+        "zh": "定价入口",
+        "en": "Pricing pointer"
+      },
+      "v": {
+        "zh": "按档位与用量计费，本站不抄具体数字；以官方模型页或发布页的定价表为准。",
+        "en": "Billed by tier and usage; this site does not copy numbers — see the official pricing table."
+      },
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview"
     },
     {
       "k": {
@@ -68,18 +86,18 @@
         "zh": "2026-06（reliable cutoff，同上）",
         "en": "Jun 2026 (reliable cutoff, same page)"
       },
-      "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview"
     },
     {
       "k": {
-        "zh": "输入模态",
-        "en": "Input modalities"
+        "zh": "换代要点",
+        "en": "What changed"
       },
       "v": {
-        "zh": "文本 + 图像输入、文本输出；全线支持视觉与工具调用（同上）",
-        "en": "Text + image input, text output; vision and tool use across the line (same page)"
+        "zh": "5.2 比 5.1 输出更快（官方称最多 30%），并下调了定价；Fable 与 Mythos 同底座，Fable 带网络安全/生物安全护栏，Mythos 仅限验证机构（官方发布页）。",
+        "en": "5.2 generates up to 30% faster than 5.1 and lowers pricing; Fable and Mythos share one underlying model, with Fable carrying cyber/bio safeguards and Mythos limited to verified organizations (official announcement)."
       },
-      "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
     }
   ],
   "positioning": {
@@ -91,6 +109,18 @@
     "en": "No open weights, so no quantisation coverage here; the Claude Code / Claude product forms are carded on the tools site."
   },
   "sources": [
+    {
+      "label": "Anthropic 发布页：Claude Fable 5.2 / Mythos 5.2（2026-11-09）",
+      "labelEn": "Anthropic announcement: Claude Fable 5.2 / Mythos 5.2 (2026-11-09)",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "kind": "docs"
+    },
+    {
+      "label": "Claude Fable 5.2 官方模型页（1M 上下文 / 128K 输出；定价见官方表）",
+      "labelEn": "Claude Fable 5.2 official model page (1M context / 128K output; pricing table on the official page)",
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview",
+      "kind": "docs"
+    },
     {
       "label": "Claude 模型总览（platform.claude.com，2026-10-30 直抓 200 但正文为动态渲染，规格经检索快照取回并标注）",
       "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
@@ -104,7 +134,7 @@
       "labelEn": "Claude Sonnet product page (search snapshot 2026-10-30: Sonnet 5.5 released 2026-09-28)"
     }
   ],
-  "last_verified": "2026-10-30",
+  "last_verified": "2026-11-19",
   "confidence": "verified",
   "cn": {
     "origin": "foreign",

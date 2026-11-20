@@ -31,6 +31,7 @@ const CATS = {
 const CAT_ORDER = Object.keys(CATS);
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+const bi = (zh, en) => `<span data-zh>${esc(zh)}</span><span data-en>${esc(en)}</span>`;
 const url = (p) => `https://models.specul.com/${p.replace(/^/, '')}`;
 const prefixFor = (depth) => '../'.repeat(depth);
 
@@ -58,6 +59,21 @@ function card({ href, tag, title, desc, facts = [], caveat = '', more = '看详�
   ${factHtml}
   ${caveat ? `<p class="sec-caveat">${esc(caveat)}</p>` : ''}
   <a class="sec-link" href="${esc(href)}">${esc(more)}</a>
+</article>`;
+}
+
+function evalCardBi(e) {
+  return `<article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">${bi('基准', 'Benchmark')}</span></div>
+  <h3><a href="${esc(e.id)}.html">${bi(e.name, e.nameEn)}</a></h3>
+  <p>${bi(e.measures, e.measuresEn)}</p>
+  <dl class="sec-facts">
+    <div><dt>${bi('指标', 'Metric')}</dt><dd>${bi(e.metric, e.metricEn)}</dd></div>
+    <div><dt>${bi('成本', 'Cost')}</dt><dd>${bi(e.cost, e.costEn)}</dd></div>
+    <div><dt>${bi('快照', 'Snapshot')}</dt><dd>${esc(e.snapshot)}</dd></div>
+  </dl>
+  <p class="sec-caveat">${bi(e.contamination, e.contaminationEn)}</p>
+  <a class="sec-link" href="${esc(e.id)}.html">${bi('看基准卡 →', 'Open benchmark card →')}</a>
 </article>`;
 }
 
@@ -233,7 +249,7 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
   <div><b>0</b><span>个总分排名</span></div>
 </div>
 <div class="sec-note"><b>读榜四问：</b>测的是知识、推理还是任务完成？题目有没有被训练集见过？评委是谁、分数怎么算？能不能复现、成本多少？四问缺一，分数只能当参考。</div>
-<div class="sec-grid">${evals.map((e) => card({
+<div class="sec-grid">${evals.map((e) => e.nameEn ? evalCardBi(e) : card({
     href: `${e.id}.html`,
     tag: '基准',
     title: e.name,
@@ -260,6 +276,44 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
 
 // 评测单卡
 for (const e of evals) {
+  if (e.nameEn) {
+    const body = `<div class="container">
+<header class="sec-detail">
+  <p class="eyebrow">Models · Evals</p>
+  <h1>${bi(e.name, e.nameEn)}</h1>
+  <p class="sub">${bi(e.measures, e.measuresEn)}</p>
+</header>
+<div class="sec-nav"><a href="index.html">${bi('← 全部评测', '← All evals')}</a><a href="../index.html">${bi('模型站', 'Models')}</a></div>
+<table class="sec-table">
+  <tr><th>${bi('测什么', 'What it measures')}</th><td>${bi(e.measures, e.measuresEn)}</td></tr>
+  <tr><th>${bi('任务与数据', 'Tasks and data')}</th><td>${bi(e.tasks, e.tasksEn)}</td></tr>
+  <tr><th>${bi('指标', 'Metric')}</th><td>${bi(e.metric, e.metricEn)}</td></tr>
+  <tr><th>${bi('污染风险', 'Contamination risk')}</th><td>${bi(e.contamination, e.contaminationEn)}</td></tr>
+  <tr><th>${bi('复现', 'Reproduction')}</th><td>${bi(e.reproduction, e.reproductionEn)}</td></tr>
+  <tr><th>${bi('成本', 'Cost')}</th><td>${bi(e.cost, e.costEn)}</td></tr>
+  <tr><th>${bi('快照日', 'Snapshot')}</th><td>${esc(e.snapshot)}</td></tr>
+  <tr><th>${bi('核验日', 'Verified')}</th><td>${esc(e.verifiedAt)}</td></tr>
+</table>
+<div class="sec-body">
+  <h2>${bi('怎么读', 'How to read it')}</h2>
+  <p>${bi(e.note, e.noteEn)}</p>
+  <h2>${bi('下一步', 'Next steps')}</h2>
+  <ul>
+    <li>${bi('打开榜单或论文页，确认题集版本、评分脚本与提交日期。', 'Open the leaderboard or paper and confirm the task-set version, scoring script and submission date.')}</li>
+    <li>${bi('把它和你关心的业务任务做对照；找不到对应任务，就自己建 50–100 条内部评测。', 'Compare it with the business task you care about; if there is no match, build 50–100 internal cases.')}</li>
+    <li>${bi('读《怎么读榜单》，把“分数”写成“条件 + 参考价值”。', 'Read “How to read a leaderboard” and write scores as “conditions plus reference value”.')}</li>
+  </ul>
+</div>
+<div class="sec-sources">${bi('榜单 / 来源', 'Leaderboard / source')}：<a href="${esc(e.leaderboard)}" target="_blank" rel="noopener">${esc(e.leaderboard)}</a> · ${bi('快照', 'Snapshot')} ${esc(e.snapshot)}</div>
+</div>`;
+    fs.writeFileSync(path.join(site, 'evals', `${e.id}.html`), page({
+      title: `${e.name} / ${e.nameEn} · 评测基准 · AI 模型`,
+      desc: `${e.name} / ${e.nameEn}：${e.measures}；指标 ${e.metric}；含污染与复现说明。`,
+      canonical: url(`evals/${e.id}.html`),
+      body
+    }));
+    continue;
+  }
   const body = `<div class="container">
 <header class="sec-detail">
   <p class="eyebrow">Models · Evals</p>

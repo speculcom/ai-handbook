@@ -1,0 +1,40 @@
+{
+  "id": "gemini-4-carbon-2026",
+  "title": {
+    "zh": "Gemini 4 Carbon Model Card",
+    "en": "Gemini 4 Carbon Model Card"
+  },
+  "category": "agents",
+  "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+  "license": {
+    "kind": "official-model-card",
+    "evidenceUrl": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+    "checkedAt": "2026-11-19"
+  },
+  "evidence": [
+    {
+      "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+      "quote": "Gemini 4 Carbon is our model with frontier performance in long-horizon agentic workflows across complex knowledge work, engineering, cybersecurity and scientific reasoning."
+    },
+    {
+      "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+      "quote": "a combined input-output token context window of up to 1M"
+    },
+    {
+      "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+      "quote": "Model Cards are intended to provide essential information on Gemini models, including known limitations, mitigation approaches, and safety performance."
+    }
+  ],
+  "notes": {
+    "zh": "问题：Carbon 相对 Argon 强在哪里，官方模型卡承认哪些限制。\n证据位置：Google DeepMind 模型卡写明 Carbon 面向长程 Agent、复杂知识工作、工程、网络安全与科学推理；输入输出合计上下文最高 1M；模型卡同时声明会列出已知局限、缓解措施与安全表现。\n作者自陈局限：模型卡由厂商发布，评测口径与内部基准未全部公开；Carbon 基于 Argon，不是全新架构；网络安全能力只向 Fairwind 等验证通道开放。\n它没主张的：不是「所有任务都比 Argon 强」；不是独立第三方榜单结论；不是无条件向所有开发者开放全部能力。",
+    "en": "Problem: where is Carbon stronger than Argon, and what limits does the official model card acknowledge?\nWhere the evidence sits: the Google DeepMind model card says Carbon targets long-horizon agentic workflows across complex knowledge work, engineering, cybersecurity and scientific reasoning; the combined input-output context window is up to 1M; the card also states it covers known limitations, mitigations and safety performance.\nWhat the authors say about limits: the model card is vendor-published and does not disclose every evaluation protocol or internal benchmark; Carbon is based on Argon rather than a new architecture; cyber capabilities are gated through verified channels such as Fairwind.\nWhat it does not claim: better than Argon on every task; an independent third-party leaderboard conclusion; unconditional access to every capability for every developer."
+  },
+  "verifiedAt": "2026-11-19",
+  "specs": {
+    "发布 / release": "2026-11（模型卡）/ 2026-11-10 开放（官方博客）",
+    "上下文 / context": "最高 1M（输入 + 输出合计）",
+    "定位 / positioning": "长程 Agent、复杂知识工作、工程、网络安全、科学推理",
+    "证据位置 / evidence": "模型卡 Description / Inputs / Evaluation 段",
+    "复现状态 / reproduction": "未复现（只读官方模型卡）"
+  }
+}

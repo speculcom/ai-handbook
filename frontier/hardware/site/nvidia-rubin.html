@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>NVIDIA Rubin · 硬件算力</title>
-  <meta name="description" content="回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到 22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。 不主张：50 PF " />
+  <meta name="description" content="回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到约 19–22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。 不主张：50" />
   <link rel="canonical" href="https://hardware.specul.com/nvidia-rubin.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NVIDIA Rubin · 硬件算力" />
   <meta property="og:url" content="https://hardware.specul.com/nvidia-rubin.html" />
   <meta property="og:title" content="NVIDIA Rubin · 硬件算力" />
-  <meta property="og:description" content="回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到 22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。 不主张：50 PF " />
+  <meta property="og:description" content="回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到约 19–22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。 不主张：50" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=c81d6c81488e"></script>
   <link rel="stylesheet" href="brand.css?v=c81d6c81488e" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="hardware.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"NVIDIA Rubin · 硬件算力","description":"回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到 22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。 不主张：50 PF ","url":"https://hardware.specul.com/nvidia-rubin.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"NVIDIA Rubin · 硬件算力","description":"回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到约 19–22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。 不主张：50","url":"https://hardware.specul.com/nvidia-rubin.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -47,7 +47,7 @@
         <a href="https://hardware.specul.com/" aria-current="page"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
       </nav>
       <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
@@ -96,8 +96,8 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>加速卡</span><span data-en>Accelerators</span></span></div>
   <h1><span data-zh>NVIDIA Rubin</span><span data-en>NVIDIA Rubin</span></h1>
-  <p class="fx-entry-lead"><span data-zh>回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到 22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。<br>不主张：50 PF 是 NVFP4 推理性能，不是所有精度；不能与 AMD MXFP4 数字直接横比；不是整机 Vera Rubin NVL72 的合计；不是实测吞吐。</span><span data-en>Answers Rubin’s per-GPU HBM4 capacity and bandwidth, and its NVFP4 inference figure. 288GB matches B300, but HBM4 lifts bandwidth from 8 TB/s to 22 TB/s and NVLink 6 from 1.8 TB/s to 3.6 TB/s; those three set the practical ceiling for long context and concurrency.<br>It does not claim: 50 PF is NVFP4 inference performance, not every precision; it is not directly comparable with AMD MXFP4 figures; it is not the Vera Rubin NVL72 rack total; it is not measured throughput.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>显存 / HBM</dt><dd>288 GB HBM4（12-Hi stacks）</dd></div><div><dt>带宽 / bandwidth</dt><dd>22 TB/s</dd></div><div><dt>NVFP4 推理 / inference</dt><dd>up to 50 PFLOPS</dd></div><div><dt>晶体管 / transistors</dt><dd>336B</dd></div><div><dt>SM / Tensor Cores</dt><dd>224 SM / 896 Tensor Cores</dd></div><div><dt>NVLink 6</dt><dd>3.6 TB/s</dd></div><div><dt>形态 / form</dt><dd>GPU；Vera Rubin NVL72 机架</dd></div></dl></section>
+  <p class="fx-entry-lead"><span data-zh>回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到约 19–22 TB/s，NVLink 6 从 1.8 TB/s 拉到 3.6 TB/s；这三项决定长上下文与高并发的实际上限。<br>不主张：50 PF 是 NVFP4 推理性能，不是所有精度；不能与 AMD MXFP4 数字直接横比；不是整机 Vera Rubin NVL72 的合计；不是实测吞吐。带宽有两个官方口径：开发者博客写「up to 22 TB/s」，NVL72 产品页给 20.7 TB / 1,400 TB/s，折算单卡约 19.2 TB/s；本站并列标注，不取单一值。</span><span data-en>Answers Rubin’s per-GPU HBM4 capacity and bandwidth, and its NVFP4 inference figure. 288GB matches B300, but HBM4 lifts bandwidth from 8 TB/s to roughly 19–22 TB/s and NVLink 6 from 1.8 TB/s to 3.6 TB/s; those three set the practical ceiling for long context and concurrency.<br>It does not claim: 50 PF is NVFP4 inference performance, not every precision; it is not directly comparable with AMD MXFP4 figures; it is not the Vera Rubin NVL72 rack total; it is not measured throughput. Two official bandwidth figures exist: the developer blog says &quot;up to 22 TB/s&quot;, while the NVL72 product page lists 20.7 TB / 1,400 TB/s, which works out to about 19.2 TB/s per GPU; this site shows both rather than picking one.</span></p>
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>显存 / HBM</dt><dd>288 GB HBM4（12-Hi stacks）</dd></div><div><dt>带宽 / bandwidth</dt><dd>19.2 TB/s（NVL72 规格表折算）/ 最高 22 TB/s（开发者博客）</dd></div><div><dt>NVFP4 推理 / inference</dt><dd>up to 50 PFLOPS</dd></div><div><dt>晶体管 / transistors</dt><dd>336B</dd></div><div><dt>SM / Tensor Cores</dt><dd>224 SM / 896 Tensor Cores</dd></div><div><dt>NVLink 6</dt><dd>3.6 TB/s</dd></div><div><dt>形态 / form</dt><dd>GPU；Vera Rubin NVL72 机架</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Rubin integrates up to 288 GB of HBM4 memory, driven by dedicated HBM controllers and 12-Hi stacks, to deliver up to 22 TB/s of peak bandwidth.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" rel="noopener">https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai</a></figcaption>
@@ -113,10 +113,18 @@
 <figure class="fx-evidence">
         <blockquote>NVLink 6 provides 3,600 GB/s scale-up bandwidth</blockquote>
         <figcaption><span class="fx-ev-n">4</span> <a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" rel="noopener">https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>20.7 TB HBM4</blockquote>
+        <figcaption><span class="fx-ev-n">5</span> <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener">https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>1,400 TB/s</blockquote>
+        <figcaption><span class="fx-ev-n">6</span> <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener">https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/</a></figcaption>
       </figure></section>
   <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-18</dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-20</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-spec-page</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai" rel="noopener">https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>加速卡</span><span data-en>Accelerators</span></dd></div>

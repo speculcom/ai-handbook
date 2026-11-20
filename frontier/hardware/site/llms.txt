@@ -2,14 +2,14 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-44 条。
+62 条。
 
 - [目录](https://hardware.specul.com/index.html)
 - [怎么用](https://hardware.specul.com/about.html)
 
 - [Google TPU7x（Ironwood）](https://hardware.specul.com/google-tpu7x.html) — 回答「第七代 TPU 单芯片给多少 HBM、FP8/BF16 算力，以及一个 Pod 有多大」。192GiB HBM3E、7.38TB/s、4614 TF FP
 - [AMD Instinct MI455X](https://hardware.specul.com/amd-instinct-mi455x.html) — 回答「单卡 432GB HBM4 这一档的容量、带宽与 MXFP4 算力」。432GB 是目前公开单卡里最大的一档，12 个 HBM4 stack；对需要把超大
-- [NVIDIA Rubin](https://hardware.specul.com/nvidia-rubin.html) — 回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到 
+- [NVIDIA Rubin](https://hardware.specul.com/nvidia-rubin.html) — 回答「Rubin 单卡把 HBM4 做到多少容量与带宽、NVFP4 推理给到多少」。288GB 与 B300 相同，但 HBM4 把带宽从 8 TB/s 拉到约
 - [NVIDIA B300（Blackwell Ultra）](https://hardware.specul.com/nvidia-b300.html) — 回答「Blackwell Ultra 单卡在 288GB 档给多少 dense NVFP4 与带宽」。15 PF 是 dense NVFP4，不是稀疏数字；8 
 - [AMD Instinct MI450X](https://hardware.specul.com/amd-instinct-mi450x.html) — 回答「288GB HBM4 这一档，AMD 的带宽与 MXFP4 算力给到多少」。与 MI455X 同为 CDNA5、同为 23.3 TB/s，但 MI455X
 - [AMD Helios 机架](https://hardware.specul.com/amd-helios.html) — 回答「一个机架能装多少 HBM、给多少 FP8/FP4 算力」，不是单卡规格。官方写的 31 TB 是 72 张 MI455X 的合计；1.4 EF FP8 与
@@ -51,7 +51,21 @@
 - [NVIDIA H100 NVL](https://hardware.specul.com/nvidia-h100-nvl.html) — 回答「H100 NVL 的 94GB HBM3、3.9TB/s、FP16 1,671 TF 与 350–400W」。1,671 TF 是带稀疏的 FP16 Te
 - [NVIDIA RTX PRO 6000 Blackwell（工作站）](https://hardware.specul.com/nvidia-rtx-pro-6000-blackwell.html) — 回答「工作站版 RTX PRO 6000 的 96GB GDDR7 ECC、1792 GB/s、4000 AI TOPS 与 600W」。4000 TOPS 是
 - [Groq LPU / LPX](https://hardware.specul.com/groq-lpu.html) — 回答「Groq 的 LPU/LPX 是什么定位：面向推理的专用处理器与推理云」。官方首页没有给出单芯片 SRAM、带宽、TFLOPS 等完整规格，本站不填未核数
-
-
-## 云算力
-- [云算力](https://hardware.specul.com/cloud/) — 26 家云 GPU 服务商，四类；计费、区域、存储出网、合规与核验入口。
+- [NVIDIA RTX Spark 紧凑桌面](https://hardware.specul.com/nvidia-rtx-spark.html) — 回答「一台能长期跑本地智能体的 Windows 小主机是什么形态」。RTX Spark 把 20 核 Grace CPU、6144 核 Blackwell RT
+- [NVIDIA DGX Spark HPC Developer Kit](https://hardware.specul.com/nvidia-dgx-spark-hpc-kit.html) — 回答「桌面级四机集群能做什么」。四台 DGX Spark 用 ConnectX-7 直接成环，不经过交换机；合计 512GB 统一内存、16TB NVMe，官方
+- [NVIDIA Rubin CPX](https://hardware.specul.com/nvidia-rubin-cpx.html) — 回答「百万 token 上下文推理该看哪类卡」。Rubin CPX 是专为长上下文推理切的单 die GPU：30 PF NVFP4、128GB GDDR7，注
+- [NVIDIA GB300 NVL72](https://hardware.specul.com/nvidia-gb300-nvl72.html) — 回答「Blackwell Ultra 的机柜级形态给多少显存、带宽和 FP4」。GB300 NVL72 把 72 颗 B300 与 36 颗 Grace CPU
+- [AMD Instinct MI440X](https://hardware.specul.com/amd-instinct-mi440x.html) — 回答「MI400 家族里给标准 8 卡服务器的是哪一档」。MI440X 是 AMD 的 8 卡服务器 drop-in 型号，配 EPYC Venice；显存与带
+- [Apple M5 Ultra](https://hardware.specul.com/apple-m5-ultra.html) — 回答「Mac Studio 这代能把多大的模型放进内存」。M5 Ultra 是 Apple 首款四晶粒芯片：最多 36 核 CPU、80 核 GPU（每核带神经
+- [AMD Ryzen AI Max+ 395（Ryzen AI Halo）](https://hardware.specul.com/amd-ryzen-ai-max-plus-395.html) — 回答「128GB 统一内存的 x86 小主机是什么规格」。Ryzen AI Max+ 395 给 16 核 Zen 5、40 CU RDNA 3.5、XDNA 
+- [AWS Trainium3](https://hardware.specul.com/aws-trainium3.html) — 回答「AWS 自研训练芯片最新一代给什么」。Trainium3 是 AWS 首颗 3nm AI 芯片，单颗 2.52 PF FP8、144GB HBM3e、4.
+- [Google TPU 8tx（机密推理）](https://hardware.specul.com/google-tpu-8tx.html) — 回答「需要在云上处理敏感数据、又不想把数据搬到另一个集群，该看什么加速器」。8tx 复用 8t 硅片，配第五代 AMD EPYC 主机，把机密计算做进加速器硬件
+- [Google TPU 8i Max（超大上下文）](https://hardware.specul.com/google-tpu-8i-max.html) — 回答「长上下文 agent 把 KV cache 和状态撑爆时，TPU 侧有什么解法」。8i Max 不是一颗新芯片，而是把两颗低延迟 8i 封进同一封装：算力
+- [NVIDIA Vera Rubin NVL72（整机柜）](https://hardware.specul.com/nvidia-vera-rubin-nvl72.html) — 回答「Rubin 代整机柜到底给多少算力、多少 HBM、什么时候能买到」。NVL72 把 72 颗 Rubin GPU、36 颗 Vera CPU 装进一个 M
+- [NVIDIA Rubin HPC（科学计算 GPU）](https://hardware.specul.com/nvidia-rubin-hpc.html) — 回答「Rubin 家族里有没有专门给科学计算 / 数据分析的版本」。Rubin HPC 是 Vera Rubin 平台的新 GPU 变体：单卡 5 万+ CUD
+- [Google TPU 8t（训练）](https://hardware.specul.com/google-tpu-8t.html) — 回答「Google 第八代 TPU 里负责训练的是哪颗、一个 pod 能到什么规模」。8t 与 8i 同代分叉：8t 走 3D Torus + Virgo，单 
+- [Google TPU 8i（推理）](https://hardware.specul.com/google-tpu-8i.html) — 回答「Google 第八代 TPU 里负责推理的是哪颗、为什么它更适合 agent 的低延迟场景」。8i 把单颗 HBM 提到 288GB、片上 SRAM 提到
+- [Intel GPU D270（Crescent Island）](https://hardware.specul.com/intel-gpu-d270.html) — 回答「不想上机柜级液冷、又要在标准 PCIe 服务器里跑大显存推理，Intel 现在有什么卡」。D270 是 Intel 当前的数据中心推理 GPU：Xe3P、
+- [Microsoft Maia 200（推理）](https://hardware.specul.com/microsoft-maia-200.html) — 回答「Microsoft 自研推理芯片到哪一代、规格和部署状态如何」。Maia 200 是微软第二代自研 AI 加速器，TSMC 3nm、216GB HBM3e
+- [Meta MTIA 300–500（路线）](https://hardware.specul.com/meta-mtia-300-500.html) — 回答「Meta 自研芯片现在到哪一代、各代分别干什么」。官方路线是两年四代：MTIA 300 已量产，做排序/推荐训练，也是 MTIA 首颗训练芯片，内置 NI
+- [OpenAI Jalapeño（首款自研推理芯片）](https://hardware.specul.com/openai-jalapeno.html) — 回答「OpenAI 有没有自研芯片、现在到哪一步」。Jalapeño 是 OpenAI 首款 Intelligence Processor，专为 LLM 推理设

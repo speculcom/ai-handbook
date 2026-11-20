@@ -2,7 +2,7 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-32 条。
+36 条。
 
 - [目录](https://chain.specul.com/index.html)
 - [怎么用](https://chain.specul.com/about.html)
@@ -39,3 +39,7 @@
 - [io.net：分布式 GPU 聚合](https://chain.specul.com/io-net.html) — 交集：把独立数据中心、矿业与私有集群的 GPU 聚合起来，按需供给训练/推理；价格与可用性随供给波动。 适用范围：官方称可按需提供 H100/A100 与整簇、
 - [Story Protocol：可编程 IP](https://chain.specul.com/story-protocol.html) — 交集：AI 训练数据、模型权重、生成内容都需要可追溯的授权与分成；Story 把 IP 登记、许可与版税写成链上资产 + 链下法律合同。 适用范围：官方文档定义
 - [OpenID for Verifiable Credential Issuance 1.0](https://chain.specul.com/openid4vc.html) — 交集：AI agent 或用户需要把「身份、资质、授权」以可验证凭证形式出示给模型/服务；OpenID4VCI 定义签发 API 与密钥证明格式。 适用范围：规
+- [EIP-7702：给 EOA 设置代码](https://chain.specul.com/eip-7702-set-code-eoa.html) — 交集：AI Agent 需要一个可编程账户来收付款、限额、批量调用和恢复权限；EIP-7702 让 EOA 在单笔交易里委托一段代码，给「代理执行」提供了账户层
+- [EIP-4844：Shard Blob Transactions](https://chain.specul.com/eip-4844-blob-transactions.html) — 交集：AI 训练数据、模型卡与内容凭证需要低成本的数据可用性层；blob 把大批数据放到共识层侧车，执行层只读承诺，适合做「可验证但不进 EVM」的存证。 适用
+- [ERC-7579：最小模块化智能账户](https://chain.specul.com/erc-7579-minimal-modular-accounts.html) — 交集：Agent 钱包要把验证器、执行器、Hook 与恢复模块拆开组合；ERC-7579 给了一套最小接口，让不同实现能互相插模块。 适用范围：官方规范只规定账
+- [ERC-6900：模块化智能合约账户](https://chain.specul.com/erc-6900-modular-accounts.html) — 交集：当 Agent 账户需要更细的验证钩子、执行钩子与模块清单时，ERC-6900 给出了比 7579 更重的模块化框架，适合做权限分层与策略插件。 适用范围

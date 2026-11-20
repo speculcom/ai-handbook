@@ -187,6 +187,6 @@ node scripts/build.mjs
 | GGUF 文件（files） | 1337 个 |
 | 量化者 | 54 位 |
 | 家族谱系卡（families） | 16 张 |
-| 闭源谱系卡（closed） | 6 张 |
+| 闭源谱系卡（closed） | 7 张 |
 | 基座许可分布 | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->

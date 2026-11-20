@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>开源 AI 工具库 — 自己拿下来跑 · Specul</title>
-  <meta name="description" content="60 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
+  <meta name="description" content="80 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
   <link rel="canonical" href="https://oss.specul.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/" />
   <meta property="og:title" content="开源 AI 工具库 — 自己拿下来跑 · Specul" />
-  <meta property="og:description" content="60 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
+  <meta property="og:description" content="80 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=c81d6c81488e"></script>
@@ -46,7 +46,7 @@
         <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
       </nav>
       <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
@@ -106,29 +106,29 @@
   <a class="btn" href="compare.html">并排对比</a>
   <a class="btn" href="about.html">怎么挑仓库</a>
 </div>
-<div class="section-head"><h2>按场景找</h2><span class="sub">六个场景，挑一个你手上的活</span></div>
+<div class="section-head"><h2>按场景找</h2><span class="sub">七个场景，挑一个你手上的活</span></div>
 <div class="scene-grid"><a class="scene-card scene-1" href="scenes/agent-frameworks.html">
-  <span class="no">01 · 10 个仓库</span>
+  <span class="no">01 · 16 个仓库</span>
   <h3>Agent 框架与编排</h3>
   <p>把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</p>
   <span class="more">进入场景 →</span>
 </a><a class="scene-card scene-2" href="scenes/rag-knowledge.html">
-  <span class="no">02 · 9 个仓库</span>
+  <span class="no">02 · 12 个仓库</span>
   <h3>RAG 与知识库</h3>
   <p>从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。</p>
   <span class="more">进入场景 →</span>
 </a><a class="scene-card scene-3" href="scenes/local-inference.html">
-  <span class="no">03 · 6 个仓库</span>
+  <span class="no">03 · 7 个仓库</span>
   <h3>本地推理与部署</h3>
   <p>从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。</p>
   <span class="more">进入场景 →</span>
 </a><a class="scene-card scene-4" href="scenes/multimodal-visual.html">
-  <span class="no">04 · 9 个仓库</span>
+  <span class="no">04 · 10 个仓库</span>
   <h3>多模态与图像视频</h3>
   <p>图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。</p>
   <span class="more">进入场景 →</span>
 </a><a class="scene-card scene-5" href="scenes/speech-audio.html">
-  <span class="no">05 · 6 个仓库</span>
+  <span class="no">05 · 7 个仓库</span>
   <h3>语音与音频</h3>
   <p>语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。</p>
   <span class="more">进入场景 →</span>
@@ -137,10 +137,15 @@
   <h3>评测与可观测</h3>
   <p>上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。</p>
   <span class="more">进入场景 →</span>
+</a><a class="scene-card scene-7" href="scenes/training-finetune.html">
+  <span class="no">07 · 8 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <h3><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></h3>
+  <p><span data-zh>把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。</span><span data-en>Turn a base model into your own: from single-GPU QLoRA to multi-node RLHF, start with VRAM, parallelism and reproducibility.</span></p>
+  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a></div>
 <div class="section-head"><h2>先试这几个</h2><a href="all.html">看全部 →</a></div>
 <div class="repo-grid"><article class="repo-card" data-id="crewai" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="crewai 用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。 python mit 多 agent">
-  <div class="repo-top"><span class="badge">Agent 框架与编排</span><span class="badge tier-start">先试这个</span></div>
+  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/crewai.html">CrewAI</a></h3>
   <p class="repo-owner">crewAIInc / crewAI</p>
   <p>用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</p>
@@ -152,7 +157,7 @@
   </dl>
   <a class="repo-link" href="repos/crewai.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="ragflow" data-scene="rag-knowledge" data-lang="Go" data-license="permissive" data-tier="start" data-search="ragflow 带文档解析、切分、检索与引用的 rag 平台，适合把一套知识库跑起来。 python apache-2.0 rag 平台">
-  <div class="repo-top"><span class="badge">RAG 与知识库</span><span class="badge tier-start">先试这个</span></div>
+  <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/ragflow.html">RAGFlow</a></h3>
   <p class="repo-owner">infiniflow / ragflow</p>
   <p>带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</p>
@@ -164,7 +169,7 @@
   </dl>
   <a class="repo-link" href="repos/ragflow.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="ollama" data-scene="local-inference" data-lang="Go" data-license="permissive" data-tier="start" data-search="ollama 一条命令拉模型、跑本地推理，自带模型库与 openai 兼容 api。 go mit 本地推理">
-  <div class="repo-top"><span class="badge">本地推理与部署</span><span class="badge tier-start">先试这个</span></div>
+  <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/ollama.html">Ollama</a></h3>
   <p class="repo-owner">ollama / ollama</p>
   <p>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</p>
@@ -176,7 +181,7 @@
   </dl>
   <a class="repo-link" href="repos/ollama.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="comfyui" data-scene="multimodal-visual" data-lang="Python" data-license="strong" data-tier="start" data-search="comfyui 节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。 python gpl-3.0 节点工作流">
-  <div class="repo-top"><span class="badge">多模态与图像视频</span><span class="badge tier-start">先试这个</span></div>
+  <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/comfyui.html">ComfyUI</a></h3>
   <p class="repo-owner">comfyanonymous / ComfyUI</p>
   <p>节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。</p>
@@ -188,7 +193,7 @@
   </dl>
   <a class="repo-link" href="repos/comfyui.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="whisper" data-scene="speech-audio" data-lang="Python" data-license="permissive" data-tier="start" data-search="whisper openai 的语音识别模型与推理代码，多语言、带时间戳，安装简单。 python mit asr">
-  <div class="repo-top"><span class="badge">语音与音频</span><span class="badge tier-start">先试这个</span></div>
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/whisper.html">Whisper</a></h3>
   <p class="repo-owner">openai / whisper</p>
   <p>OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</p>
@@ -200,7 +205,7 @@
   </dl>
   <a class="repo-link" href="repos/whisper.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="langfuse" data-scene="eval-observability" data-lang="TypeScript" data-license="other" data-tier="prod" data-search="langfuse llm 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。 typescript/python mit 可观测">
-  <div class="repo-top"><span class="badge">评测与可观测</span><span class="badge tier-prod">生产可用</span></div>
+  <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/langfuse.html">Langfuse</a></h3>
   <p class="repo-owner">langfuse / langfuse</p>
   <p>LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。</p>
@@ -212,9 +217,59 @@
   </dl>
   <a class="repo-link" href="repos/langfuse.html">看仓库卡 →</a>
 </article></div>
+<div class="section-head"><h2>2026 新上架</h2><span class="sub">star 多不等于适合你，先看权限与许可</span></div>
+<div class="repo-grid"><article class="repo-card" data-id="openclaw" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="start" data-search="openclaw 把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 gateway 管理会话、技能、定时任务和沙箱执行。 typescript mit 2026 新项目 个人助理 20+ 渠道">
+  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
+  <h3 class="repo-name"><a href="repos/openclaw.html">OpenClaw</a></h3>
+  <p class="repo-owner">openclaw / openclaw</p>
+  <p>把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>TypeScript</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>394.8k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+  </dl>
+  <a class="repo-link" href="repos/openclaw.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="deepseek-harness" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="start" data-search="deepseek harness deepseek 的插件化 agent harness（dsh）：一切皆插件，本地 web ui 一条命令起，面向多模型、多工具的长期任务。 typescript mit 2026 新项目 插件化 dsh">
+  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
+  <h3 class="repo-name"><a href="repos/deepseek-harness.html">DeepSeek Harness</a></h3>
+  <p class="repo-owner">deepseek-ai / deepseek-harness</p>
+  <p>DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>TypeScript</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>284.2k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+  </dl>
+  <a class="repo-link" href="repos/deepseek-harness.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="codex-cli" data-scene="agent-frameworks" data-lang="Rust" data-license="permissive" data-tier="prod" data-search="codex cli openai 的本地 coding agent：rust 实现、os 级沙箱、mcp 与云任务交接，适合终端里改代码。 rust apache-2.0 coding agent 沙箱 mcp">
+  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="repos/codex-cli.html">Codex CLI</a></h3>
+  <p class="repo-owner">openai / codex</p>
+  <p>OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Rust</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>135.9k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+  </dl>
+  <a class="repo-link" href="repos/codex-cli.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="firecrawl" data-scene="rag-knowledge" data-lang="TypeScript" data-license="strong" data-tier="prod" data-search="firecrawl 把网站抓成干净 markdown / 结构化数据，供 rag 与 agent 使用；可本地单二进制、mcp server 或自托管 api。 typescript agpl-3.0 网页抓取 markdown mcp">
+  <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="repos/firecrawl.html">Firecrawl</a></h3>
+  <p class="repo-owner">firecrawl / firecrawl</p>
+  <p>把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>TypeScript</dd></div>
+    <div><dt>许可</dt><dd>AGPL-3.0</dd></div>
+    <div><dt>Stars</dt><dd>204.2k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+  </dl>
+  <a class="repo-link" href="repos/firecrawl.html">看仓库卡 →</a>
+</article></div>
 <div class="section-head"><h2>怎么用这个站</h2></div>
 <div class="note"><b>1. 先看“不适合”：</b>每张卡都写它不做什么。比“为什么选”更能帮你排除。<br><b>2. 再看许可与依赖：</b>开源不等于可商用；GPL / AGPL 有传染性，模型与代码的许可要分开看。<br><b>3. 最后看活跃度：</b>star 是快照，不是质量保证；看最近推送、issue、release 与维护者。</div>
-<div class="note"><b>说明：</b>GitHub 信息更新到 2026-11-19；许可以仓库 LICENSE 为准，商用前自己再读一遍。</div>
+<div class="note"><b>说明：</b>GitHub 信息更新到 2026-11-20；许可以仓库 LICENSE 为准，商用前自己再读一遍。</div>
 </div>
   </main>
   <footer class="site-footer">

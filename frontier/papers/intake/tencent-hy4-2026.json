@@ -1,0 +1,41 @@
+{
+  "id": "tencent-hy4-2026",
+  "title": {
+    "zh": "腾讯 Hy4：正式版与开源路线",
+    "en": "Tencent Hy4: Production Release and Open-Source Path"
+  },
+  "category": "scaling",
+  "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+  "license": {
+    "kind": "official-release",
+    "evidenceUrl": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+      "quote": "Tencent today announced the release of Tencent Hy4, its latest-generation large language model, marking a significant leap in performance and capabilities that now ranks it among the world’s leading open-source AI models."
+    },
+    {
+      "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+      "quote": "The new model also introduces visual understanding capabilities for the first time, alongside major improvements in instruction following, long-context comprehension and long-horizon agentic tasks"
+    },
+    {
+      "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+      "quote": "Tencent Hy plans to release model weights and system cards in the coming days"
+    }
+  ],
+  "notes": {
+    "zh": "问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。\n证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升；同页称将随后发布模型权重与 system card。\n作者自陈局限：发布页没有披露 Hy4 正式版的总参 / 激活数；「770B 总参 / 49B 激活」只出现在 Hy4 flash 发布页对 Hy4 Preview 的对照段，不能直接套到正式版；benchmark 图表与排名为厂商口径；权重与 system card 是承诺，需按后续发布核验。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 Hy4 正式版；不是发布当天已开放全部权重。",
+    "en": "Problem: how is production Hy4 positioned, which verifiable facts does the official release promise, and can its parameter count be quoted directly?\nWhere the evidence sits: Tencent’s release says Hy4 launched on 2026-11-04, adds visual understanding for the first time and improves instruction following, long-context comprehension and long-horizon agentic tasks; it also says model weights and system cards will follow.\nWhat the authors say about limits: the release does not disclose production Hy4’s total / active parameter count; \"770B total / 49B active\" appears only as the Hy4 Preview comparison in the Hy4 flash release and must not be copied onto production Hy4; benchmark charts and rankings are vendor-reported; weights and system cards are promises to verify later.\nWhat it does not claim: first place in independent third-party evaluation; that every task suits production Hy4; that all weights were open on launch day."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "发布 / release": "2026-11-04（腾讯官方发布页）",
+    "规模 / scale": "正式版参数量未在该页披露",
+    "视觉 / vision": "首次引入视觉理解",
+    "能力重点 / focus": "指令跟随、长上下文、长程 agent",
+    "权重 / weights": "官方称随后发布权重与 system card",
+    "复现状态 / reproduction": "未复现（只读官方发布页）"
+  }
+}

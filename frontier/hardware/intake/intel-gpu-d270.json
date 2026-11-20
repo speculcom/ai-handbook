@@ -1,0 +1,49 @@
+{
+  "id": "intel-gpu-d270",
+  "title": {
+    "zh": "Intel GPU D270（Crescent Island）",
+    "en": "Intel GPU D270 (Crescent Island)"
+  },
+  "category": "accelerator",
+  "url": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
+      "quote": "Silicon & Precision: Xe 3P architecture, 32 Xe cores, 256 XMX engines; native FP4 to FP64 with full-rate double precision."
+    },
+    {
+      "url": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
+      "quote": "Memory & Platform: 160 GB LPDDR5X (1.5 TB/s bandwidth, scalable up to 480 GB); 350W PCIe 5.0 air-cooled form factor."
+    },
+    {
+      "url": "https://www.intel.cn/content/www/us/en/newsroom/news/artificial-intelligence/intel-accelerates-open-infrastructure-agentic-ai-era.html",
+      "quote": "The GPU combines up to 480 GB of LPDDR5X memory, 1.5TB/s of memory bandwidth and 1.3 petaflops of FP8 compute to help improve the economics of sustained, memory-intensive AI inference."
+    },
+    {
+      "url": "https://www.intel.cn/content/www/us/en/newsroom/news/artificial-intelligence/intel-accelerates-open-infrastructure-agentic-ai-era.html",
+      "quote": "supports models with up to 300 billion parameters on a single card and more than one trillion parameters in an eight-GPU system."
+    }
+  ],
+  "notes": {
+    "zh": "回答「不想上机柜级液冷、又要在标准 PCIe 服务器里跑大显存推理，Intel 现在有什么卡」。D270 是 Intel 当前的数据中心推理 GPU：Xe3P、32 个 Xe core / 256 个 XMX、160GB LPDDR5X、1.5TB/s、350W、PCIe 5.0 风冷，原生 FP4 到 FP64；单卡可跑 300B 参数，8 卡可跑 1T+。它的差异点不是峰值算力，而是「大显存 + 低功耗 + 标准形态」。\n不主张：480GB 是合作方配置，不是 Intel 品牌卡默认容量；1.3 PFLOPS 是 FP8，不是 FP4；单卡 300B / 8 卡 1T+ 是官方容量口径，不等于这些模型能以理想吞吐运行；官方给的性能对比基于 pre-production 芯片，属于厂商测试，不是独立实测；没有公开价格与正式上市日期。",
+    "en": "Answers what Intel offers when a standard PCIe server must run large-memory inference without rack-level liquid cooling. D270 is Intel's current data-center inference GPU: Xe3P, 32 Xe cores / 256 XMX engines, 160 GB LPDDR5X at 1.5 TB/s, 350 W, PCIe 5.0 air-cooled, native FP4 through FP64; one card holds up to 300B parameters and eight cards more than 1T. Its differentiator is large memory plus low power in a standard form factor, not peak compute.\nIt does not claim: 480 GB is a partner configuration, not the default Intel-branded card; 1.3 PFLOPS is FP8, not FP4; the 300B / 1T+ figures are capacity statements, not a promise of ideal throughput; Intel's comparisons use pre-production silicon and are vendor tests, not independent measurements; no public price or general-availability date."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "架构 / architecture": "Intel Xe3P",
+    "Xe cores / XMX": "32 Xe cores / 256 XMX engines",
+    "显存 / memory": "160 GB LPDDR5X（合作方配置可至 480 GB）",
+    "带宽 / bandwidth": "1.5 TB/s",
+    "FP8 算力 / FP8 compute": "1.3 PFLOPS",
+    "精度 / precision": "原生 FP4–FP64，FP64 全速",
+    "功耗 / power": "350 W",
+    "形态 / form factor": "PCIe 5.0 插卡，风冷",
+    "模型容量 / model capacity": "单卡 300B；8 卡 1T+",
+    "状态 / status": "2026-11-16 官方 HPC 文章；OCP 2026 公布 D 系列"
+  }
+}

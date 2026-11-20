@@ -1,0 +1,48 @@
+{
+  "id": "openai-jalapeno",
+  "title": {
+    "zh": "OpenAI Jalapeño（首款自研推理芯片）",
+    "en": "OpenAI Jalapeño (first in-house inference chip)"
+  },
+  "category": "accelerator",
+  "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+  "license": {
+    "kind": "official-release",
+    "evidenceUrl": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+      "quote": "OpenAI 與 Broadcom（NASDAQ: AVGO）今日發佈 Jalapeño，這是 OpenAI 首款 Intelligence Processor（智能處理器）：一款按 OpenAI 對 LLM 推理未來願景而設計的加速器。"
+    },
+    {
+      "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+      "quote": "Jalapeño 晶片的工程樣本已在實驗室以量產目標頻率與功耗運行機器學習（ML）工作負載，包括 GPT‑5.3‑Codex‑Spark。"
+    },
+    {
+      "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+      "quote": "Jalapeño 從初步設計到製造流片僅用九個月便共同開發完成"
+    },
+    {
+      "url": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
+      "quote": "該平台計劃於 2026 年底前初步部署，並在其後數年擴展"
+    }
+  ],
+  "notes": {
+    "zh": "回答「OpenAI 有没有自研芯片、现在到哪一步」。Jalapeño 是 OpenAI 首款 Intelligence Processor，专为 LLM 推理设计，由 OpenAI 设计、Broadcom 做硅实现与网络、Celestica 做板卡/机架；工程样片已在实验室以量产目标频率与功耗跑 GPT-5.3-Codex-Spark，设计到流片 9 个月，计划 2026 年底初步部署，后续扩到吉瓦级。\n不主张：官方没有公开 HBM 容量、算力、功耗、制程与单价；「每瓦性能大幅超越现有最先进水平」是 OpenAI 基于早期测试的口径，详细技术报告尚未发布；2026 年底是初步部署计划，不是已量产；Jalapeño 不对外销售或出租，先服务 OpenAI 自家模型与产品。",
+    "en": "Answers whether OpenAI has its own silicon and how far it has gone. Jalapeño is OpenAI's first Intelligence Processor, designed for LLM inference: OpenAI designs it, Broadcom handles silicon implementation and networking, and Celestica builds boards and racks. Engineering samples already run GPT-5.3-Codex-Spark in the lab at production target frequency and power; design-to-tape-out took nine months; initial deployment is planned for the end of 2026, expanding over following years.\nIt does not claim: OpenAI has not published HBM capacity, compute, power, process node or unit price; \"substantially better performance per watt than today's state of the art\" is OpenAI's early-test claim and the detailed technical report is still to come; end-2026 is an initial deployment plan, not volume production; Jalapeño is not sold or rented externally and first serves OpenAI's own models and products."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "定位 / role": "LLM 推理",
+    "设计 / design": "OpenAI",
+    "硅实现与网络 / silicon & network": "Broadcom（含 Tomahawk 网络芯片）",
+    "板卡与机架 / boards & racks": "Celestica",
+    "进度 / progress": "工程样片以量产目标频率/功耗运行 GPT-5.3-Codex-Spark",
+    "开发周期 / cycle": "设计到流片 9 个月",
+    "部署 / deployment": "2026 年底初步部署，后续扩至吉瓦级",
+    "公开规格 / public specs": "官方未披露 HBM / 算力 / 功耗 / 制程",
+    "状态 / status": "2026-06-24 发布"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "meta-mtia-300-500",
+  "title": {
+    "zh": "Meta MTIA 300–500（路线）",
+    "en": "Meta MTIA 300–500 (roadmap)"
+  },
+  "category": "accelerator",
+  "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+  "license": {
+    "kind": "official-release",
+    "evidenceUrl": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+      "quote": "We’re developing and deploying four new generations of chips within the next two years — a much faster pace than typical chip cycles — to support ranking, recommendations, and GenAI workloads."
+    },
+    {
+      "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+      "quote": "MTIA 300 will be used for ranking and recommendations training, and is already in production. MTIA 400, 450 and 500 will be capable of handling all workloads, but we will primarily use these chips to support GenAI inference production in the near future and into 2027."
+    },
+    {
+      "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+      "quote": "MTIA 450 and 500 are optimized first for GenAI inference"
+    },
+    {
+      "url": "https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/",
+      "quote": "we’ve developed the capacity to release ours every six months or less"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/08/24/networking-traffic/mtia-300-meta-training-chip-built-in-nics/",
+      "quote": "MTIA 300 is the first of Meta’s family of in-house training and inference accelerators optimized for training ranking and recommendation models."
+    }
+  ],
+  "notes": {
+    "zh": "回答「Meta 自研芯片现在到哪一代、各代分别干什么」。官方路线是两年四代：MTIA 300 已量产，做排序/推荐训练，也是 MTIA 首颗训练芯片，内置 NIC 与通信卸载；MTIA 400 / 450 / 500 覆盖通用工作负载，但主要用于 GenAI 推理，2026–2027 部署；450 / 500 明确先为 GenAI 推理优化。节奏是每 6 个月或更短一代，模块化设计可插入现有机架，软件栈走 PyTorch / vLLM / Triton / OCP。\n不主张：这是路线卡，不是单卡规格卡；官方没有披露 300/400/450/500 的 HBM 容量、算力、功耗与价格，本卡不填。行业转述的「300→500 HBM 带宽 4.5×、算力 25×」未在本次抓取的官方页找到，不写。MTIA 不对外出租，只服务 Meta 内部负载。",
+    "en": "Answers which generation Meta's in-house silicon has reached and what each generation is for. The official roadmap is four generations in two years: MTIA 300 is already in production for ranking and recommendation training, Meta's first training chip, with built-in NICs and communication offloading; MTIA 400 / 450 / 500 cover all workloads but are primarily for GenAI inference in 2026–2027; 450 and 500 are explicitly optimized first for GenAI inference. The cadence is one generation every six months or less, with modular designs that drop into existing racks and a PyTorch / vLLM / Triton / OCP software stack.\nIt does not claim: this is a roadmap card, not a per-chip spec sheet; Meta has not disclosed HBM capacity, compute, power or price for 300/400/450/500, so those fields are left empty. The widely repeated \"4.5x HBM bandwidth and 25x compute from 300 to 500\" figures were not found on the official pages fetched here and are not written. MTIA is not rented out; it serves Meta's internal workloads."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "代次 / generations": "MTIA 300 / 400 / 450 / 500",
+    "节奏 / cadence": "每 6 个月或更短一代",
+    "MTIA 300": "排序/推荐训练；已量产；内置 NIC 与 HCCL 通信卸载",
+    "MTIA 400/450/500": "GenAI 推理为主；2026–2027 部署",
+    "MTIA 450/500": "先为 GenAI 推理优化",
+    "系统 / system": "模块化，可插入现有机架；OCP 标准",
+    "软件 / software": "PyTorch / vLLM / Triton",
+    "单卡规格 / per-chip specs": "官方未披露 HBM / 算力 / 功耗",
+    "状态 / status": "2026-03-11 路线公布；300 已量产"
+  }
+}

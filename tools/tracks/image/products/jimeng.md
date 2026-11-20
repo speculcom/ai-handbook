@@ -13,8 +13,9 @@ licenseEn: Free + credits + membership tiers. Governed by the official agreement
 
 axes:
   model_access: >-
-    图片线主力是字节 Seedream 系列（站内版本叙事可见「图片 4.0」等档位），视频线是 Seedance 系列——
-    即梦是这两族模型的 C 端产品入口。模型由字节侧上架，用户选档位不选裸模型；
+    图片线主力是字节 Seedream 系列，视频线是 Seedance 系列——即梦是这两族模型的 C 端产品入口。
+    2026-11-18 官方上架 Seedream 5.5 图像模型与 Seedance 2.5 Flash 视频模型；后者支持最长 30s、
+    480P/720P、最多 10 图 + 5 视频 + 5 音频参考。模型由字节侧上架，用户选档位不选裸模型；
     具体当前清单以登录后界面为准。
   runtime: >-
     网页（jimeng.jianying.com）+ iOS/Android App；生成在字节云端处理，本机不跑模型。
@@ -46,7 +47,7 @@ tags: [国产, 免费+积分+会员, 中文语义, 图视频一体, 抖音生态
 related: [doubao-chat, kling, tongyi-wanxiang]
 
 sources:
-  - label: 即梦 · 官网（产品与档位叙事）
+  - label: 即梦 · 官网（产品与档位叙事；2026-11-19 复核）
     url: https://jimeng.jianying.com
     kind: official
   - label: 即梦 · 协议页（官方页，2026-10-22 直抓核验）
@@ -55,9 +56,12 @@ sources:
   - label: 即梦 · 官网更新叙事（产品与模型迭代入口，changelog）
     url: https://jimeng.jianying.com/ai-tool/home
     kind: changelog
+  - label: 火山方舟 · 模型发布公告（2026-11-18：Seedream 5.5 / Seedance 2.5 Flash 上架）
+    url: https://console.volcengine.com/ark/region:cn-beijing/docs/model-release-announcement
+    kind: changelog
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-19
+last_updated: 2026-11-19
 lifecycle: active
 confidence: partial
 

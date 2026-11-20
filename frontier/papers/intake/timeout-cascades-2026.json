@@ -1,0 +1,47 @@
+{
+  "id": "timeout-cascades-2026",
+  "title": {
+    "zh": "用超时级联降低 coding agent 推理成本",
+    "en": "Reducing Inference Cost of Coding Agents with Timeout Cascades"
+  },
+  "category": "agents",
+  "url": "https://arxiv.org/abs/2611.24324",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2611.24324",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2611.24324",
+      "quote": "We evaluate 36 popular large and small open-weight models released since 2024 on a software engineering benchmark, and find that recent small models are closing the accuracy gap compared to their large counterparts."
+    },
+    {
+      "url": "https://arxiv.org/abs/2611.24324",
+      "quote": "by utilizing a hybrid inference strategy that tries a small model first and escalates to a large one only when needed, we can achieve up to 33% reduction in total GPU-hour costs and 16.4% on all tasks from SWE-bench Verified, without sacrificing accuracy."
+    },
+    {
+      "url": "https://arxiv.org/html/2611.24324",
+      "quote": "Our conclusions are constrained by single-run evaluations, one primary model pair, and one benchmark."
+    },
+    {
+      "url": "https://arxiv.org/html/2611.24324",
+      "quote": "The cascade reduces GPU-hour cost and preserves resolve rate, but it does so by spending additional sequential time on tasks that eventually fall back."
+    }
+  ],
+  "notes": {
+    "zh": "问题：coding agent 很吃 GPU 小时，小模型便宜但怕不稳；能不能先用小模型、失败再升级大模型，在不掉解决率的前提下省钱？\n证据位置：论文在 SWE-bench Verified 上评 36 个 2024 年后开放权重模型，发现小模型在 easy/medium 上已接近大模型，差距集中在 hard；用 GLM-4.7-Flash 先跑、超时后升级 GLM-4.7，按 120 分钟超时，easy 任务 GPU 小时从 821 降到 546（-33.5%），全部任务从 2,585 降到 2,160（-16.4%），解决率不掉；简单级联接近 oracle 路由。\n作者自陈局限：单次运行、只测一对主模型、只测一个 benchmark；工作负载必须 easy/medium 占多数（SWE-bench Verified 91%），hard 为主时级联会退化；升级是冷重启，不继承小模型的中间状态；墙钟时间反而增加（41.6 分钟/任务 → 65.5 或 84.5 分钟），不适合交互式等结果。\n它没主张的：不是所有 coding agent 都能省 33%；不是小模型可以替代大模型；不是级联一定优于学习型路由；不是延迟也会下降。",
+    "en": "Problem: coding agents burn GPU-hours; small models are cheaper but riskier. Can a small-model-first cascade cut cost without losing resolve rate?\nWhere the evidence sits: the paper evaluates 36 open-weight models released since 2024 on SWE-bench Verified and finds recent small models close the gap on easy/medium tasks, with the gap concentrated on hard tasks. Using GLM-4.7-Flash first and escalating to GLM-4.7 after a timeout, at a 120-minute timeout, GPU-hours fall from 821 to 546 on easy tasks (-33.5%) and from 2,585 to 2,160 on all tasks (-16.4%) without sacrificing resolve rate; the simple cascade nearly matches an oracle-style router.\nWhat the authors say about limits: single-run evaluations, one primary model pair and one benchmark; the workload must be dominated by easy/medium tasks (91% of SWE-bench Verified), and the cascade degrades when hard tasks dominate; escalation is a cold restart and does not inherit the small model's intermediate state; wall-clock time rises (41.6 min/task to 65.5 or 84.5 min), so it is unsuitable for interactive waiting.\nWhat it does not claim: that every coding agent saves 33%; that small models replace large ones; that a cascade always beats a learned router; that latency also falls."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "发表 / venue": "arXiv 2611.24324（2026-11-18）",
+    "评测 / benchmark": "SWE-bench Verified（500 题；混合策略用 466 题完整轨迹）",
+    "模型 / models": "36 个 2024 年后开放权重模型；主对 GLM-4.7-Flash → GLM-4.7",
+    "成本 / cost": "easy 任务 -33.5%；全部任务 -16.4% GPU-hours",
+    "解决率 / resolve": "不牺牲整体解决率；简单级联接近 oracle 路由",
+    "代价 / trade-off": "墙钟 41.6 → 65.5 / 84.5 分钟；适合异步任务",
+    "证据位置 / evidence": "摘要；第 V–VI 节；结论",
+    "复现状态 / reproduction": "未复现（只读论文与 HTML 全文）"
+  }
+}

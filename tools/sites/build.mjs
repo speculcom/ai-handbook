@@ -909,7 +909,7 @@ const TRACK_TO_PART = {
 const CTX = { partKey: 'coding' };
 function rewriteInternal(href) {
   // 1. 跨大类：指向另一个大类的档案
-  let m = /^(?:\.\.\/)+(coding|chat|image|video|audio|research|automation|framework|mcp|runner|safety|agents|harness|tools|ide|cli)\/products\/([A-Za-z0-9._-]+)\.md$/.exec(href);
+  let m = /^(?:\.\.\/)+(coding|chat|image|video|audio|research|office|automation|framework|mcp|runner|safety|agents|harness|tools|ide|cli)\/products\/([A-Za-z0-9._-]+)\.md$/.exec(href);
   if (m) {
     // v8 T30：10 大类全部有产物页（旧「T30 前无产物 → 原样输出」兜底退役，
     // 原样输出 .md 只会把死链漏到站上）。TRACK_TO_PART 的旧目录名键全部映射到 10 大类。

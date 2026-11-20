@@ -1,0 +1,52 @@
+{
+  "id": "google-tpu-8t",
+  "title": {
+    "zh": "Google TPU 8t（训练）",
+    "en": "Google TPU 8t (training)"
+  },
+  "category": "accelerator",
+  "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "Today at Google Cloud Next, we are introducing the eighth generation of Google's custom Tensor Processor Unit (TPU), coming soon with two distinct, purpose-built architectures for training and inference: TPU 8t and TPU 8i."
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "A single TPU 8t superpod now scales to 9,600 chips and two petabytes of shared high bandwidth memory, with double the interchip bandwidth of the previous generation. This architecture delivers 121 ExaFlops of compute and allows the most complex models to leverage a single, massive pool of memory."
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "TPU 8t is built to reduce the frontier model development cycle from months to weeks."
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "delivers nearly 3x the compute performance per pod over the previous generation"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/",
+      "quote": "Scale-out networking bandwidth (Gb/s per chip) 400"
+    }
+  ],
+  "notes": {
+    "zh": "回答「Google 第八代 TPU 里负责训练的是哪颗、一个 pod 能到什么规模」。8t 与 8i 同代分叉：8t 走 3D Torus + Virgo，单 pod 9,600 颗、2PB 共享 HBM、121 EFLOPS FP4，官方称每 pod 算力接近前代 3 倍，目标把前沿模型开发周期从月压到周。\n不主张：官方发布页只给 pod 级数字，没有给单颗 HBM 容量与单颗 FP4 算力；行业转述的 216GB / 128MB SRAM / 12.6 PF 是第三方口径，本卡不写。121 EFLOPS 是 FP4 pod 合计，不是单颗；9,600 颗是 8t pod 上限，不是单集群上限（官方另称 Virgo 可扩到百万颗逻辑集群）。没有公开价格与独立实测。",
+    "en": "Answers which chip handles training in Google's eighth-generation TPU line, and how large a pod gets. TPU 8t and 8i split the generation: 8t uses 3D Torus plus Virgo, scales to 9,600 chips and 2 PB of shared HBM per pod, and delivers 121 FP4 exaflops; Google says that is nearly 3x the compute per pod over the previous generation and aims to cut frontier-model development from months to weeks.\nIt does not claim: the launch page publishes pod-level figures only, not per-chip HBM capacity or per-chip FP4 throughput; the widely repeated 216GB / 128MB SRAM / 12.6 PF figures are third-party reporting and are not written here. 121 EFLOPS is an FP4 pod total, not a single chip; 9,600 chips is the 8t pod size, not a single-cluster ceiling (Google separately says Virgo can scale to a million chips in one logical cluster). No public pricing or independent measurement."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "定位 / role": "大规模预训练",
+    "Pod 规模 / pod size": "9,600 chips",
+    "共享显存 / shared HBM": "2 PB per pod",
+    "Pod 算力 / pod compute": "121 EFLOPS FP4",
+    "Scale-up 带宽 / scale-up": "19.2 Tb/s per chip",
+    "Scale-out 带宽 / scale-out": "400 Gb/s per chip",
+    "主机 / host": "Google Axion（Arm）",
+    "网络 / network": "3D Torus + Virgo",
+    "状态 / status": "2026-04-22 发布；官方称 2026 年内 GA"
+  }
+}

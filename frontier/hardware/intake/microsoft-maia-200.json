@@ -1,0 +1,54 @@
+{
+  "id": "microsoft-maia-200",
+  "title": {
+    "zh": "Microsoft Maia 200（推理）",
+    "en": "Microsoft Maia 200 (inference)"
+  },
+  "category": "accelerator",
+  "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+  "license": {
+    "kind": "official-spec-page",
+    "evidenceUrl": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+      "quote": "an accelerator built on TSMC’s 3nm process with native FP8/FP4 tensor cores, a redesigned memory system with 216GB HBM3e at 7 TB/s and 272MB of on-chip SRAM"
+    },
+    {
+      "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+      "quote": "each Maia 200 chip delivering over 10 petaFLOPS in 4-bit precision (FP4) and over 5 petaFLOPS of 8-bit (FP8) performance, all within a 750W SoC TDP envelope."
+    },
+    {
+      "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+      "quote": "2.8 TB/s of bidirectional, dedicated scaleup bandwidth"
+    },
+    {
+      "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+      "quote": "Predictable, high-performance collective operations across clusters of up to 6,144 accelerators"
+    },
+    {
+      "url": "https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/",
+      "quote": "30% better performance per dollar than the latest generation hardware in our fleet today"
+    }
+  ],
+  "notes": {
+    "zh": "回答「Microsoft 自研推理芯片到哪一代、规格和部署状态如何」。Maia 200 是微软第二代自研 AI 加速器，TSMC 3nm、216GB HBM3e / 7TB/s、272MB 片上 SRAM、原生 FP8/FP4，单芯片 FP4 超过 10 PFLOPS、FP8 超过 5 PFLOPS，750W SoC；2.8TB/s 双向 scale-up，官方称可连 6,144 颗。已部署在 US Central，US West 3 随后。\n不主张：Maia 200 不对外以 Azure VM 形式出租，Azure 客户是通过 Microsoft 365 Copilot、Foundry 等服务间接用到；30% 每美元性能是微软对自家 fleet 的口径，不是跨厂商横评；没有公开价格；10 PF 是 FP4，不是所有精度；6,144 是 scale-up 集群上限，不是单机架。",
+    "en": "Answers which generation Microsoft's in-house inference chip has reached, its specs and deployment state. Maia 200 is Microsoft's second-generation custom AI accelerator: TSMC 3nm, 216 GB HBM3e at 7 TB/s, 272 MB on-chip SRAM, native FP8/FP4, over 10 PFLOPS FP4 and over 5 PFLOPS FP8 within a 750 W SoC, plus 2.8 TB/s bidirectional scale-up and clusters of up to 6,144 accelerators. It is deployed in US Central, with US West 3 next.\nIt does not claim: Maia 200 is not rented as an Azure VM; Azure customers reach it through services such as Microsoft 365 Copilot and Foundry. The 30% performance-per-dollar figure is Microsoft's comparison against its own fleet, not a cross-vendor benchmark; no public price; 10 PF is FP4, not every precision; 6,144 is a scale-up cluster ceiling, not a single rack."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "定位 / role": "大模型推理",
+    "制程 / process": "TSMC 3nm",
+    "晶体管 / transistors": "超过 1400 亿",
+    "显存 / memory": "216 GB HBM3e",
+    "带宽 / bandwidth": "7 TB/s",
+    "片上 SRAM / SRAM": "272 MB",
+    "FP4 / FP8": ">10 PFLOPS / >5 PFLOPS",
+    "功耗 / TDP": "750 W SoC",
+    "Scale-up": "2.8 TB/s 双向；最多 6,144 颗",
+    "部署 / deployment": "US Central 已部署；US West 3 随后",
+    "状态 / status": "2026-01-26 发布"
+  }
+}

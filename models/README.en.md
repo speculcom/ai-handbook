@@ -201,6 +201,6 @@ or faster need benchmarks, and this site makes none.
 | GGUF files | 1337 |
 | Quantizers | 54 |
 | Family lineage cards (families) | 16 |
-| Closed-model cards (closed) | 6 |
+| Closed-model cards (closed) | 7 |
 | Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->

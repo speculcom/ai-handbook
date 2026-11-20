@@ -900,6 +900,51 @@ var GUIDES = [
   "assessmentEn": null
  },
  {
+  "id": "怎么判断一次模型发布值不值得跟",
+  "zh": "怎么判断一次模型发布值不值得跟",
+  "en": "How to Judge Whether a Model Launch Is Worth Following",
+  "kind": "guide",
+  "station": 2,
+  "ord": 17,
+  "span": 7,
+  "lead": {
+   "zh": "发布会说「最强」，你的任务只关心「对我这摊事有没有用」；用四步把宣传拆成可验证的结论。",
+   "en": "发布会说「最强」，你的任务只关心「对我这摊事有没有用」；用四步把宣传拆成可验证的结论。"
+  },
+  "points": [
+   "先看发布的是「新模型」还是「新档位、新价格、新包装」；只有权重或架构变化才算能力线。",
+   "找官方技术报告或模型卡：参数、上下文、训练数据、评测口径；没有就降级为「未证实」。",
+   "把官方榜单换到你的任务集：同一提示词、同一工具、同一预算，跑 20–50 条真实样本。",
+   "分开记「能力上限」与「稳定下限」：一次惊艳不算，重复 5 次都可用才算。",
+   "看成本与延迟：单位任务成本、首字延迟、吞吐；能力提升 10% 但成本翻倍要重新算。",
+   "看许可与可获得性：权重是否开放、API 是否在常用地区可用、是否绑定生态。",
+   "结论写成「适合谁、不适合谁、在什么条件下」；不要写成「最强」。"
+  ],
+  "pointsEn": [
+   "先看发布的是「新模型」还是「新档位、新价格、新包装」；只有权重或架构变化才算能力线。",
+   "找官方技术报告或模型卡：参数、上下文、训练数据、评测口径；没有就降级为「未证实」。",
+   "把官方榜单换到你的任务集：同一提示词、同一工具、同一预算，跑 20–50 条真实样本。",
+   "分开记「能力上限」与「稳定下限」：一次惊艳不算，重复 5 次都可用才算。",
+   "看成本与延迟：单位任务成本、首字延迟、吞吐；能力提升 10% 但成本翻倍要重新算。",
+   "看许可与可获得性：权重是否开放、API 是否在常用地区可用、是否绑定生态。",
+   "结论写成「适合谁、不适合谁、在什么条件下」；不要写成「最强」。"
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
   "id": "课堂-结构化提问与输出验证",
   "zh": "课堂-结构化提问与输出验证",
   "en": "Lesson - Structured Prompting and Output Verification",
@@ -2528,6 +2573,137 @@ var GUIDES = [
   "assessmentEn": null
  },
  {
+  "id": "多模态模型怎么验收",
+  "zh": "多模态模型怎么验收",
+  "en": "How to Acceptance-Test a Multimodal Model",
+  "kind": "guide",
+  "station": 3,
+  "ord": 35,
+  "span": 8,
+  "lead": {
+   "zh": "看图答得漂亮不等于能用；验收要把「看见」「看懂」「据此做事」分开测。",
+   "en": "看图答得漂亮不等于能用；验收要把「看见」「看懂」「据此做事」分开测。"
+  },
+  "points": [
+   "建三组题：纯识别（OCR、物体、图表读数）、关系推理（比较、因果、空间）、任务执行（按图改代码、填表、导航）。",
+   "每题保留原图与标准答案，要求模型引用图上坐标或区域；不能引用就判「蒙对」。",
+   "加入对抗样本：模糊、旋转、遮挡、错别字、图表误导；看它是否承认看不见。",
+   "分开测「描述」与「决策」：描述对但行动错，说明视觉到动作的链路没打通。",
+   "记录 token 成本：图像 token 化很贵，长图与多图会显著推高单价。",
+   "用同一组题对比至少一个基线模型；没有基线就没有「好」。"
+  ],
+  "pointsEn": [
+   "建三组题：纯识别（OCR、物体、图表读数）、关系推理（比较、因果、空间）、任务执行（按图改代码、填表、导航）。",
+   "每题保留原图与标准答案，要求模型引用图上坐标或区域；不能引用就判「蒙对」。",
+   "加入对抗样本：模糊、旋转、遮挡、错别字、图表误导；看它是否承认看不见。",
+   "分开测「描述」与「决策」：描述对但行动错，说明视觉到动作的链路没打通。",
+   "记录 token 成本：图像 token 化很贵，长图与多图会显著推高单价。",
+   "用同一组题对比至少一个基线模型；没有基线就没有「好」。"
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "长任务 Agent 怎么做检查点",
+  "zh": "长任务 Agent 怎么做检查点",
+  "en": "How to Add Checkpoints to Long-Running Agents",
+  "kind": "guide",
+  "station": 3,
+  "ord": 36,
+  "span": 8,
+  "lead": {
+   "zh": "长任务不怕慢，怕的是一步错、全盘重来；检查点是把「可恢复」设计进流程。",
+   "en": "长任务不怕慢，怕的是一步错、全盘重来；检查点是把「可恢复」设计进流程。"
+  },
+  "points": [
+   "把任务切成可验证的阶段，每阶段有明确产物与成功条件；不要用「继续做」当阶段。",
+   "每阶段结束写结构化状态：目标、已完成、未完成、关键决策、外部 ID、花费。",
+   "副作用操作（发消息、下单、改文件）前先落检查点；失败时知道做过什么、没做什么。",
+   "恢复时先读状态再行动；不要凭对话历史猜进度。",
+   "设最大步数、预算与时限，超限暂停并请求人工；不要无限重试。",
+   "记录「不可逆操作」清单；恢复时默认不重放，先核对外部状态。"
+  ],
+  "pointsEn": [
+   "把任务切成可验证的阶段，每阶段有明确产物与成功条件；不要用「继续做」当阶段。",
+   "每阶段结束写结构化状态：目标、已完成、未完成、关键决策、外部 ID、花费。",
+   "副作用操作（发消息、下单、改文件）前先落检查点；失败时知道做过什么、没做什么。",
+   "恢复时先读状态再行动；不要凭对话历史猜进度。",
+   "设最大步数、预算与时限，超限暂停并请求人工；不要无限重试。",
+   "记录「不可逆操作」清单；恢复时默认不重放，先核对外部状态。"
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "视频生成怎么验收",
+  "zh": "视频生成怎么验收",
+  "en": "How to Acceptance-Test AI Video Generation",
+  "kind": "guide",
+  "station": 3,
+  "ord": 37,
+  "span": 9,
+  "lead": {
+   "zh": "视频验收不是「看着像」，而是画面、运动、时序、音画同步四项分开打分。",
+   "en": "视频验收不是「看着像」，而是画面、运动、时序、音画同步四项分开打分。"
+  },
+  "points": [
+   "先定交付标准：时长、分辨率、帧率、比例、是否有水印；不达标直接拒。",
+   "画面：主体一致性、文字与 Logo 正确性、手部与人脸等高风险区域。",
+   "运动：镜头运动是否按提示、物理是否合理、有没有跳变或闪烁。",
+   "时序：跨镜头角色、服装、场景是否一致；长视频要看接缝。",
+   "音画：有对白或音效时检查口型、声画同步与环境声。",
+   "可编辑性：能否局部重生成、延长、换参考；不能改的片子返工成本高。",
+   "记录每条失败样本与参数，建回归集；不要只存「最好的一条」。"
+  ],
+  "pointsEn": [
+   "先定交付标准：时长、分辨率、帧率、比例、是否有水印；不达标直接拒。",
+   "画面：主体一致性、文字与 Logo 正确性、手部与人脸等高风险区域。",
+   "运动：镜头运动是否按提示、物理是否合理、有没有跳变或闪烁。",
+   "时序：跨镜头角色、服装、场景是否一致；长视频要看接缝。",
+   "音画：有对白或音效时检查口型、声画同步与环境声。",
+   "可编辑性：能否局部重生成、延长、换参考；不能改的片子返工成本高。",
+   "记录每条失败样本与参数，建回归集；不要只存「最好的一条」。"
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
   "id": "课堂-RAG 来源核对",
   "zh": "课堂-RAG 来源核对",
   "en": "Lesson - Checking Sources in RAG Answers",
@@ -3338,6 +3514,49 @@ var GUIDES = [
    "Costs differ: quantisation is easiest but may lose quality; distillation needs data and compute; pruning needs retraining and may damage capability.",
    "Order: distil to a smaller model, then quantise for deployment; after pruning, fine-tune, then quantise.",
    "Acceptance: compare quality, VRAM, latency and cost on the same task set; do not compare size alone."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "多卡互联值不值",
+  "zh": "多卡互联值不值",
+  "en": "Is Multi-GPU Interconnect Worth It?",
+  "kind": "guide",
+  "station": 5,
+  "ord": 2,
+  "span": 8,
+  "lead": {
+   "zh": "多卡不是「显存加法」；先算通信、并行方式与真实吞吐，再决定掏不掏钱。",
+   "en": "多卡不是「显存加法」；先算通信、并行方式与真实吞吐，再决定掏不掏钱。"
+  },
+  "points": [
+   "先判断瓶颈：单卡显存不够、单卡算力不够、还是要更大并发；三种问题解法不同。",
+   "张量并行吃互联带宽，流水并行吃显存与气泡；NVLink、PCIe、雷电的差距先查清。",
+   "算有效吞吐：不是峰值 FLOPS 相加，而是端到端 tokens/s 与首字延迟。",
+   "算总拥有成本：卡、主板、电源、散热、机房、电费、运维；别只算卡价。",
+   "小模型与低并发通常单卡更划算；多卡适合大模型、长上下文、高并发。",
+   "先租后买：用云上同规格多卡跑一周真实负载，再决定。"
+  ],
+  "pointsEn": [
+   "先判断瓶颈：单卡显存不够、单卡算力不够、还是要更大并发；三种问题解法不同。",
+   "张量并行吃互联带宽，流水并行吃显存与气泡；NVLink、PCIe、雷电的差距先查清。",
+   "算有效吞吐：不是峰值 FLOPS 相加，而是端到端 tokens/s 与首字延迟。",
+   "算总拥有成本：卡、主板、电源、散热、机房、电费、运维；别只算卡价。",
+   "小模型与低并发通常单卡更划算；多卡适合大模型、长上下文、高并发。",
+   "先租后买：用云上同规格多卡跑一周真实负载，再决定。"
   ],
   "myth": null,
   "mythEn": null,
@@ -4196,6 +4415,51 @@ var GUIDES = [
    "Build an “AI can be wrong” segment where students find the model’s flaws, training critical judgement.",
    "Confirm network, accounts, data and parental consent; never paste real student names or grades into a public model.",
    "Prepare a no-AI fallback; the lesson must survive a network or tool failure."
+  ],
+  "myth": null,
+  "mythEn": null,
+  "fact": null,
+  "factEn": null,
+  "objectives": null,
+  "objectivesEn": null,
+  "materials": null,
+  "materialsEn": null,
+  "steps": null,
+  "stepsEn": null,
+  "misconceptions": null,
+  "misconceptionsEn": null,
+  "assessment": null,
+  "assessmentEn": null
+ },
+ {
+  "id": "模型 API 怎么谈 SLA 与退出条款",
+  "zh": "模型 API 怎么谈 SLA 与退出条款",
+  "en": "How to Negotiate Model API SLAs and Exit Terms",
+  "kind": "guide",
+  "station": 6,
+  "ord": 16,
+  "span": 9,
+  "lead": {
+   "zh": "模型 API 的坑不在价格，在可用性、限流、数据权利和「想走时走不掉」。",
+   "en": "模型 API 的坑不在价格，在可用性、限流、数据权利和「想走时走不掉」。"
+  },
+  "points": [
+   "可用性：写清月度可用率、故障响应与赔付；不要接受「尽力而为」。",
+   "限流与配额：RPM、TPM、并发、突发；超限是排队还是报错，要写进合同。",
+   "数据权利：输入输出归谁、是否训练、留存多久、能否删除；与隐私政策对齐。",
+   "模型变更：供应商换底座或改版本要提前通知；你有权做回归测试与终止。",
+   "退出：数据导出格式、迁移协助、缓存与备份清理、最后计费日。",
+   "价格：单价、阶梯、最低消费、涨价上限；不要只看首月折扣。",
+   "责任：内容侵权、数据泄露、服务中断的责任边界与保险。"
+  ],
+  "pointsEn": [
+   "可用性：写清月度可用率、故障响应与赔付；不要接受「尽力而为」。",
+   "限流与配额：RPM、TPM、并发、突发；超限是排队还是报错，要写进合同。",
+   "数据权利：输入输出归谁、是否训练、留存多久、能否删除；与隐私政策对齐。",
+   "模型变更：供应商换底座或改版本要提前通知；你有权做回归测试与终止。",
+   "退出：数据导出格式、迁移协助、缓存与备份清理、最后计费日。",
+   "价格：单价、阶梯、最低消费、涨价上限；不要只看首月折扣。",
+   "责任：内容侵权、数据泄露、服务中断的责任边界与保险。"
   ],
   "myth": null,
   "mythEn": null,

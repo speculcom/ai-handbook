@@ -1,0 +1,46 @@
+{
+  "id": "qwen4-max-2026",
+  "title": {
+    "zh": "Qwen4-Max：阿里巴巴新一代旗舰模型",
+    "en": "Qwen4-Max: Alibaba’s New Flagship Model"
+  },
+  "category": "scaling",
+  "url": "https://www.alibabagroup.com/document-2060139246777270272",
+  "license": {
+    "kind": "official-release",
+    "evidenceUrl": "https://www.alibabagroup.com/document-2060139246777270272",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://www.alibabagroup.com/document-2060139246777270272",
+      "quote": "阿里巴巴集团正式发布 Qwen4-Max"
+    },
+    {
+      "url": "https://www.alibabagroup.com/document-2060139246777270272",
+      "quote": "新模型总参数达 2.4 万亿，具备原生视觉能力，支持长达 100 万个 token 的上下文窗口"
+    },
+    {
+      "url": "https://www.alibabagroup.com/document-2060139246777270272",
+      "quote": "每个 token 仅激活 710 亿个参数，较 Qwen3.8-Max 少25%"
+    },
+    {
+      "url": "https://www.alibabagroup.com/document-2060139246777270272",
+      "quote": "Qwen4 系列中规模较小的开放权重模型亦将于短期内向全球开发者发布。"
+    }
+  ],
+  "notes": {
+    "zh": "问题：Qwen4-Max 的规模、上下文、模态与开放权重路线是什么。\n证据位置：阿里巴巴集团新闻稿写明 2.4 万亿总参、每 token 激活 710 亿（较 Qwen3.8-Max 少 25%）、原生视觉、100 万 token 上下文；同页确认 QwenCloud / API / QwenWork / QwenStudio 可用，并称 Qwen4 系列较小模型将陆续开放权重。\n作者自陈局限：新闻稿没有给训练数据、算力、完整评测协议与失败案例；Code Arena、Work360 等结果均为厂商口径，未独立复现；「较小模型开放权重」是计划，不是已发布。\n它没主张的：不做独立第三方评测的位次结论；不是所有任务都适合 2.4T 规模；不是 Qwen4 全系已开源。",
+    "en": "Problem: what are Qwen4-Max’s scale, context, modalities and open-weight path?\nWhere the evidence sits: the Alibaba Group release states 2.4T total parameters, 71B active per token (25% fewer than Qwen3.8-Max), native vision and a 1M-token context; the same page confirms availability on QwenCloud / API / QwenWork / QwenStudio and says smaller Qwen4 models will be released as open weights.\nWhat the authors say about limits: the release does not disclose training data, compute, full evaluation protocols or failure cases; Code Arena and Work360 results are vendor figures, not independently reproduced; \"smaller open-weight models\" is a plan, not a shipped release.\nWhat it does not claim: a position in independent third-party evaluation; that every task benefits from 2.4T scale; that the entire Qwen4 line is already open-source."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "发布 / release": "2026-11-16（阿里巴巴集团新闻稿）",
+    "规模 / scale": "2.4T 总参；71B 激活 / token",
+    "上下文 / context": "1,000,000 tokens",
+    "模态 / modality": "原生视觉 + 文本",
+    "入口 / access": "QwenCloud、API、QwenWork、QwenStudio",
+    "开放权重 / open weights": "较小 Qwen4 模型将陆续发布（计划）",
+    "复现状态 / reproduction": "未复现（只读官方新闻稿）"
+  }
+}

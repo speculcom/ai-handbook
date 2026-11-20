@@ -14,12 +14,19 @@
     "en": "API and ChatGPT subscription; weights are not open."
   },
   "currentGen": {
-    "zh": "GPT-6 系（Astra / 6.1 Sol / 6 Luna）",
-    "en": "GPT-6 line (Astra / 6.1 Sol / 6 Luna)"
+    "zh": "GPT-6.2 代（Astra / Sol）",
+    "en": "GPT-6.2 generation (Astra / Sol)"
   },
-  "currentGenDate": "2026-10",
+  "currentGenDate": "2026-11",
   "review_interval_days": 30,
   "generations": [
+    {
+      "gen": "GPT-6.2 Astra / Sol",
+      "date": "2026-11",
+      "zh": "6.2 两档：Astra 面向复杂专业工作，Sol 面向多步任务的速度与成本平衡；两档均于 2026-11-17 上线（官方发布说明）。",
+      "en": "Two 6.2 tiers: Astra targets complex professional work; Sol balances speed and cost on multistep tasks. Both launched on 2026-11-17 (official release notes).",
+      "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes"
+    },
     {
       "gen": "GPT-6 Astra",
       "date": "2026-10",
@@ -43,10 +50,10 @@
         "en": "Context window"
       },
       "v": {
-        "zh": "1,050,000 tokens（GPT-6 Astra 官方模型页）",
-        "en": "1,050,000 tokens (official GPT-6 Astra model page)"
+        "zh": "1,050,000 tokens（GPT-6.2 Astra，Microsoft Foundry 模型目录）",
+        "en": "1,050,000 tokens (GPT-6.2 Astra, Microsoft Foundry model catalog)"
       },
-      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+      "url": "https://ai.azure.com/catalog/models/gpt-6.2-astra"
     },
     {
       "k": {
@@ -57,18 +64,18 @@
         "zh": "128,000 tokens（同上）",
         "en": "128,000 tokens (same page)"
       },
-      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+      "url": "https://ai.azure.com/catalog/models/gpt-6.2-astra"
     },
     {
       "k": {
-        "zh": "知识截点",
-        "en": "Knowledge cutoff"
+        "zh": "定价入口",
+        "en": "Pricing pointer"
       },
       "v": {
-        "zh": "2026-04-30（同上）",
-        "en": "Apr 30, 2026 (same page)"
+        "zh": "按档位与用量计费，本站不抄具体数字；以官方模型页或发布页的定价表为准。",
+        "en": "Billed by tier and usage; this site does not copy numbers — see the official pricing table."
       },
-      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+      "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes"
     },
     {
       "k": {
@@ -76,10 +83,21 @@
         "en": "Input modalities"
       },
       "v": {
-        "zh": "文本 + 图像输入、文本输出（官方模型页 Modalities 行）",
-        "en": "Text + image input, text output (Modalities row on the official page)"
+        "zh": "文本 + 图像输入、文本输出；两档均可走 Responses / Chat Completions API（同上）",
+        "en": "Text + image input, text output; both models work with the Responses and Chat Completions APIs (same page)"
       },
-      "url": "https://platform.openai.com/docs/models/gpt-6-astra"
+      "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes"
+    },
+    {
+      "k": {
+        "zh": "换代要点",
+        "en": "What changed"
+      },
+      "v": {
+        "zh": "6.2 两档在难题上优于前代，同时生成更少输出 token；Astra 面向复杂专业工作，Sol 面向多步任务的速度与成本平衡（同上）",
+        "en": "Both 6.2 tiers improve on their predecessors on demanding tasks while generating fewer output tokens; Astra targets complex professional work, Sol balances speed and cost on multistep tasks (same page)"
+      },
+      "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes"
     }
   ],
   "positioning": {
@@ -91,6 +109,18 @@
     "en": "On the open-weight side this site covers the gpt-oss line (family card + quantisation comparison); the GPT-6 line ships no weights, so quantisation does not apply."
   },
   "sources": [
+    {
+      "label": "OpenAI 模型发布说明（2026-11-17：GPT-6.2 Astra / Sol 上线）",
+      "labelEn": "OpenAI model release notes (2026-11-17: GPT-6.2 Astra / Sol live)",
+      "url": "https://help.openai.com/zh-hant/articles/9624314-model-release-notes",
+      "kind": "docs"
+    },
+    {
+      "label": "Microsoft Foundry 模型目录 · GPT-6.2 Astra（上下文 1050k / 输出 128k）",
+      "labelEn": "Microsoft Foundry model catalog · GPT-6.2 Astra (1050k context / 128k output)",
+      "url": "https://ai.azure.com/catalog/models/gpt-6.2-astra",
+      "kind": "docs"
+    },
     {
       "label": "GPT-6 Astra 官方模型页（2026-10-30 经代理直抓 200）",
       "url": "https://platform.openai.com/docs/models/gpt-6-astra",
@@ -104,7 +134,7 @@
       "labelEn": "OpenAI API platform homepage frontier-model specs (search snapshot 2026-10-30, same basis as the model page)"
     }
   ],
-  "last_verified": "2026-10-30",
+  "last_verified": "2026-11-19",
   "confidence": "verified",
   "cn": {
     "origin": "foreign",

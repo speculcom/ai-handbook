@@ -1,6 +1,6 @@
 # Specul OSS — Open-source AI tool library
 
-> 60 AI open-source repositories in 6 scenes: agent frameworks, RAG, local inference, multimodal, speech, evaluation. Licence, activity, dependencies, onboarding cost and "not for" are stated. No ranking, no security endorsement.
+> 80 AI open-source repositories in 7 scenes: agent frameworks, RAG, local inference, multimodal, speech, evaluation, training and fine-tuning. Licence, activity, dependencies, onboarding cost and "not for" are stated. No ranking, no security endorsement.
 
 - [Home](https://oss.specul.com/)
 - [All repositories](https://oss.specul.com/all.html)
@@ -13,6 +13,7 @@
 - [Multimodal, Image & Video](https://oss.specul.com/scenes/multimodal-visual.html)
 - [Speech & Audio](https://oss.specul.com/scenes/speech-audio.html)
 - [Evaluation & Observability](https://oss.specul.com/scenes/eval-observability.html)
+- [Training & Fine-tuning](https://oss.specul.com/scenes/training-finetune.html)
 
 ## Repositories
 - [LangGraph](https://oss.specul.com/repos/langgraph.html) — 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 Licence: MIT.
@@ -75,3 +76,23 @@
 - [HunyuanVideo](https://oss.specul.com/repos/hunyuanvideo.html) — 腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。 Licence: NOASSERTION.
 - [CogVideo](https://oss.specul.com/repos/cogvideo.html) — 智谱 CogVideoX 系列视频生成模型与推理代码，支持文本/图像到视频。 Licence: Apache-2.0.
 - [LTX-Video](https://oss.specul.com/repos/ltx-video.html) — Lightricks 的实时视频生成模型与代码，基于 DiT，强调速度与较低显存。 Licence: Apache-2.0.
+- [Unsloth](https://oss.specul.com/repos/unsloth.html) — QLoRA/LoRA 微调加速：用 Triton 内核把 7B–70B 模型的显存占用和训练时间压下来。 Licence: Apache-2.0.
+- [Axolotl](https://oss.specul.com/repos/axolotl.html) — 一份 YAML 配置跑通微调：支持 LoRA、QLoRA、全参、DPO、GRPO 与多机训练。 Licence: Apache-2.0.
+- [TRL](https://oss.specul.com/repos/trl.html) — Hugging Face 的强化学习与对齐训练库：SFT、DPO、PPO、GRPO、奖励模型都能接。 Licence: Apache-2.0.
+- [DeepSpeed](https://oss.specul.com/repos/deepspeed.html) — 微软的大模型训练优化库：ZeRO、Offload、混合精度与 MoE 训练，把显存与吞吐压到可用。 Licence: Apache-2.0.
+- [TorchTitan](https://oss.specul.com/repos/torchtitan.html) — PyTorch 官方的大模型训练配方：张量并行、流水并行、FSDP 与分布式检查点，按 Llama 3 路线给参考实现。 Licence: BSD-3-Clause.
+- [verl](https://oss.specul.com/repos/verl.html) — 字节跳动的 RL 训练框架：面向 LLM Agent 与推理任务，支持 PPO/GRPO 与多轮工具调用。 Licence: Apache-2.0.
+- [OpenRLHF](https://oss.specul.com/repos/openrlhf.html) — 基于 Ray + vLLM 的 RLHF 训练框架：PPO、GRPO、DPO、KTO 与多机多卡编排。 Licence: Apache-2.0.
+- [KTransformers](https://oss.specul.com/repos/ktransformers.html) — 面向异构硬件的推理/微调框架：把 MoE 专家卸载到 CPU/内存，用少量 GPU 跑大模型。 Licence: Apache-2.0.
+- [LightRAG](https://oss.specul.com/repos/lightrag.html) — 轻量 GraphRAG 实现：把文档抽成实体关系图，再做向量+图检索，成本比全文 GraphRAG 低。 Licence: MIT.
+- [FLUX.1](https://oss.specul.com/repos/flux1.html) — Black Forest Labs 的图像生成模型与推理代码：FLUX.1 [schnell] / [dev] / [pro] 三条线。 Licence: Apache-2.0.
+- [OpenClaw](https://oss.specul.com/repos/openclaw.html) — 把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。 Licence: MIT.
+- [DeepSeek Harness](https://oss.specul.com/repos/deepseek-harness.html) — DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。 Licence: MIT.
+- [Hermes Agent](https://oss.specul.com/repos/hermes-agent.html) — Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。 Licence: MIT.
+- [OpenCode](https://oss.specul.com/repos/opencode.html) — 终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。 Licence: MIT.
+- [Orca](https://oss.specul.com/repos/orca.html) — 把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。 Licence: MIT.
+- [Codex CLI](https://oss.specul.com/repos/codex-cli.html) — OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。 Licence: Apache-2.0.
+- [Firecrawl](https://oss.specul.com/repos/firecrawl.html) — 把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。 Licence: AGPL-3.0.
+- [Graphify](https://oss.specul.com/repos/graphify.html) — 把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。 Licence: Apache-2.0.
+- [VibeVoice](https://oss.specul.com/repos/vibevoice.html) — 微软开源语音模型家族：60 分钟长音频转写（谁在何时说了什么）、50+ 语言与流式 ASR；TTS 代码已因滥用下架。 Licence: MIT.
+- [Open WebUI](https://oss.specul.com/repos/open-webui.html) — 自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。 Licence: NOASSERTION.

@@ -2385,6 +2385,996 @@
       "deps": "Python + PyTorch + CUDA；建议 12GB+ 显存，速度取决于分辨率和帧数。",
       "licenseNote": "代码 Apache-2.0；模型权重与生成内容商用条款另读模型卡。",
       "verifiedAt": "2026-11-19"
+    },
+    {
+      "id": "unsloth",
+      "name": "Unsloth",
+      "owner": "unslothai",
+      "repo": "unsloth",
+      "url": "https://github.com/unslothai/unsloth",
+      "docs": "https://docs.unsloth.ai/",
+      "summary": "QLoRA/LoRA 微调加速：用 Triton 内核把 7B–70B 模型的显存占用和训练时间压下来。",
+      "summaryEn": "Accelerated QLoRA/LoRA fine-tuning: Triton kernels cut VRAM use and training time for 7B–70B models.",
+      "why": [
+        "单卡 24GB 就能微调 7B 级模型，适合个人与小团队。",
+        "现成 notebook 与配方多，第一次微调不用从零写训练循环。",
+        "与 Hugging Face 生态兼容，导出后可直接接 vLLM / Ollama。"
+      ],
+      "whyEn": [
+        "Fine-tune a 7B-class model on a single 24 GB GPU, suitable for individuals and small teams.",
+        "Many ready-made notebooks and recipes; your first fine-tune does not require writing a training loop from scratch.",
+        "Compatible with the Hugging Face ecosystem; export feeds directly into vLLM / Ollama."
+      ],
+      "notFor": [
+        "要做大规模预训练或多机多卡，仍应看 DeepSpeed / TorchTitan。",
+        "需要官方支持的新架构，可能要等内核适配。"
+      ],
+      "notForEn": [
+        "For large-scale pretraining or multi-node training, look at DeepSpeed / TorchTitan instead.",
+        "New architectures may need to wait for kernel support."
+      ],
+      "scene": "training-finetune",
+      "tier": "start",
+      "order": 1,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "QLoRA",
+        "单卡"
+      ],
+      "alternatives": [
+        "axolotl",
+        "trl"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "确认 GPU 显存与 CUDA 版本，按官方 notebook 选 7B 4bit 配方。",
+        "准备 100–500 条领域样本，先跑 1 个 epoch 看 loss 与显存峰值。",
+        "导出 LoRA 适配器，用同一组评测题对比基座，确认不是只学会了口头禅。"
+      ],
+      "firstRunEn": [
+        "Check GPU VRAM and CUDA version; pick the official 7B 4-bit recipe.",
+        "Prepare 100–500 domain samples and run one epoch to watch loss and peak VRAM.",
+        "Export the LoRA adapter and compare against the base model on the same eval set; make sure it learned more than a catchphrase."
+      ],
+      "deps": "Python + PyTorch/CUDA；显存取决于模型与序列长度；需要 Hugging Face 权重访问。",
+      "depsEn": "Python + PyTorch/CUDA; VRAM depends on model and sequence length; needs Hugging Face weight access.",
+      "licenseNote": "代码 Apache-2.0；模型权重与数据集另有许可，商用前逐项核对。",
+      "licenseNoteEn": "Code is Apache-2.0; model weights and datasets carry their own licenses — check each before commercial use."
+    },
+    {
+      "id": "axolotl",
+      "name": "Axolotl",
+      "owner": "axolotl-ai-cloud",
+      "repo": "axolotl",
+      "url": "https://github.com/axolotl-ai-cloud/axolotl",
+      "docs": "https://docs.axolotl.ai/",
+      "summary": "一份 YAML 配置跑通微调：支持 LoRA、QLoRA、全参、DPO、GRPO 与多机训练。",
+      "summaryEn": "One YAML config for fine-tuning: LoRA, QLoRA, full-parameter, DPO, GRPO and multi-node training.",
+      "why": [
+        "配置驱动，实验可复现，适合把微调流程固化。",
+        "支持多种训练目标与数据格式，社区配方多。",
+        "与 DeepSpeed、FSDP 集成，能从单卡扩到多机。"
+      ],
+      "whyEn": [
+        "Config-driven and reproducible — good for turning fine-tuning into a fixed pipeline.",
+        "Supports multiple training objectives and data formats, with many community recipes.",
+        "Integrates with DeepSpeed and FSDP, scaling from one GPU to many nodes."
+      ],
+      "notFor": [
+        "不想读 YAML、只想点按钮的人，应先看托管平台。",
+        "极端自定义训练循环可能需要改源码。"
+      ],
+      "notForEn": [
+        "If you do not want to read YAML and just want buttons, start with a hosted platform.",
+        "Highly custom training loops may require source changes."
+      ],
+      "scene": "training-finetune",
+      "tier": "prod",
+      "order": 2,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "YAML",
+        "多机"
+      ],
+      "alternatives": [
+        "unsloth",
+        "trl"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "从 examples 里挑一个与你的模型规模最接近的 YAML。",
+        "把数据集换成自己的 JSONL，先跑 50 步确认字段映射正确。",
+        "记录显存、吞吐与评测分数，再决定是否加长训练或换并行配置。"
+      ],
+      "firstRunEn": [
+        "Pick the YAML under examples closest to your model size.",
+        "Swap in your JSONL dataset and run 50 steps to confirm field mapping.",
+        "Record VRAM, throughput and eval scores before extending training or changing parallelism."
+      ],
+      "deps": "Python + PyTorch/CUDA；多机要配 DeepSpeed/FSDP 与共享存储；数据需转成约定格式。",
+      "depsEn": "Python + PyTorch/CUDA; multi-node needs DeepSpeed/FSDP and shared storage; data must follow the expected format.",
+      "licenseNote": "代码 Apache-2.0；模型权重与数据集另有许可。",
+      "licenseNoteEn": "Code is Apache-2.0; model weights and datasets carry their own licenses."
+    },
+    {
+      "id": "trl",
+      "name": "TRL",
+      "owner": "huggingface",
+      "repo": "trl",
+      "url": "https://github.com/huggingface/trl",
+      "docs": "https://huggingface.co/docs/trl/",
+      "summary": "Hugging Face 的强化学习与对齐训练库：SFT、DPO、PPO、GRPO、奖励模型都能接。",
+      "summaryEn": "Hugging Face's RL and alignment training library: SFT, DPO, PPO, GRPO and reward models.",
+      "why": [
+        "与 transformers 生态无缝，模型、分词器、数据集直接复用。",
+        "对齐算法覆盖全，适合做 RLHF/DPO 实验。",
+        "文档与示例多，适合作为对齐训练的基线。"
+      ],
+      "whyEn": [
+        "Seamless with the transformers ecosystem; reuse models, tokenizers and datasets directly.",
+        "Broad alignment coverage, suitable for RLHF/DPO experiments.",
+        "Good docs and examples; a solid baseline for alignment training."
+      ],
+      "notFor": [
+        "只做推理或简单微调，直接用 transformers Trainer 更轻。",
+        "超大模型多机训练要另配 DeepSpeed/FSDP。"
+      ],
+      "notForEn": [
+        "For inference or simple fine-tuning, transformers Trainer is lighter.",
+        "Very large multi-node training still needs DeepSpeed/FSDP."
+      ],
+      "scene": "training-finetune",
+      "tier": "prod",
+      "order": 3,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "RLHF",
+        "DPO"
+      ],
+      "alternatives": [
+        "openrlhf",
+        "verl"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "从官方示例跑一个小的 SFT 或 DPO 任务，确认依赖版本。",
+        "用 1–2 个模型与固定评测集建立基线，再改奖励或数据。",
+        "记录显存与吞吐；对齐训练对超参敏感，一次只改一个变量。"
+      ],
+      "firstRunEn": [
+        "Run a small SFT or DPO example from the official docs and pin dependency versions.",
+        "Build a baseline with 1–2 models and a fixed eval set before changing rewards or data.",
+        "Record VRAM and throughput; alignment is hyperparameter-sensitive, so change one variable at a time."
+      ],
+      "deps": "Python + PyTorch；对齐训练通常需要奖励模型或偏好数据；大模型要配 DeepSpeed/FSDP。",
+      "depsEn": "Python + PyTorch; alignment usually needs a reward model or preference data; large models need DeepSpeed/FSDP.",
+      "licenseNote": "代码 Apache-2.0；模型、数据集与偏好数据各有许可。",
+      "licenseNoteEn": "Code is Apache-2.0; models, datasets and preference data carry their own licenses."
+    },
+    {
+      "id": "deepspeed",
+      "name": "DeepSpeed",
+      "owner": "deepspeedai",
+      "repo": "DeepSpeed",
+      "url": "https://github.com/deepspeedai/DeepSpeed",
+      "docs": "https://www.deepspeed.ai/",
+      "summary": "微软的大模型训练优化库：ZeRO、Offload、混合精度与 MoE 训练，把显存与吞吐压到可用。",
+      "summaryEn": "Microsoft's large-model training library: ZeRO, offload, mixed precision and MoE training to make VRAM and throughput usable.",
+      "why": [
+        "ZeRO 分片让单机多卡能训更大模型。",
+        "与 Hugging Face Trainer 集成，改几行配置就能用。",
+        "支持 CPU/NVMe offload，显存不够时有退路。"
+      ],
+      "whyEn": [
+        "ZeRO sharding lets one multi-GPU node train larger models.",
+        "Integrates with Hugging Face Trainer; a few config lines are enough.",
+        "CPU/NVMe offload provides a fallback when VRAM is short."
+      ],
+      "notFor": [
+        "小模型单卡微调，用不到这么重的分布式栈。",
+        "配置复杂，调错会变慢而不是变快。"
+      ],
+      "notForEn": [
+        "Small single-GPU fine-tuning does not need this heavy distributed stack.",
+        "Configuration is complex; a wrong setting makes it slower, not faster."
+      ],
+      "scene": "training-finetune",
+      "tier": "scale",
+      "order": 4,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "ZeRO",
+        "多机"
+      ],
+      "alternatives": [
+        "torchtitan",
+        "axolotl"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "先用单机多卡跑 ZeRO-2，记录每卡显存与吞吐。",
+        "显存仍不够再开 ZeRO-3 或 offload，比较吞吐损失。",
+        "把配置固定成 JSON，和 Axolotl/TRL 的启动命令一起版本化。"
+      ],
+      "firstRunEn": [
+        "Start with ZeRO-2 on one multi-GPU node; record per-GPU VRAM and throughput.",
+        "If VRAM is still short, enable ZeRO-3 or offload and compare the throughput loss.",
+        "Freeze the config as JSON and version it alongside Axolotl/TRL launch commands."
+      ],
+      "deps": "Python + PyTorch/CUDA；多机要 InfiniBand/高速网络；offload 需要足够内存或 NVMe。",
+      "depsEn": "Python + PyTorch/CUDA; multi-node needs InfiniBand/high-speed network; offload needs enough RAM or NVMe.",
+      "licenseNote": "代码 Apache-2.0；模型权重与数据集另有许可。",
+      "licenseNoteEn": "Code is Apache-2.0; model weights and datasets carry their own licenses."
+    },
+    {
+      "id": "torchtitan",
+      "name": "TorchTitan",
+      "owner": "pytorch",
+      "repo": "torchtitan",
+      "url": "https://github.com/pytorch/torchtitan",
+      "docs": "https://github.com/pytorch/torchtitan",
+      "summary": "PyTorch 官方的大模型训练配方：张量并行、流水并行、FSDP 与分布式检查点，按 Llama 3 路线给参考实现。",
+      "summaryEn": "PyTorch's official large-model training recipe: tensor parallelism, pipeline parallelism, FSDP and distributed checkpoints, following the Llama 3 path.",
+      "why": [
+        "官方维护，和 PyTorch 新特性同步快。",
+        "并行组合与检查点写法清楚，适合做规模化基线。",
+        "代码结构干净，方便改成自己的模型。"
+      ],
+      "whyEn": [
+        "Officially maintained and quick to adopt new PyTorch features.",
+        "Clear parallelism combinations and checkpoint patterns — a good scaling baseline.",
+        "Clean code structure, easy to adapt to your own model."
+      ],
+      "notFor": [
+        "只想微调一个小模型，直接用 Hugging Face Trainer。",
+        "不是开箱即用的产品，需要读代码与调参。"
+      ],
+      "notForEn": [
+        "For small-model fine-tuning, use Hugging Face Trainer.",
+        "It is not a turnkey product; expect to read code and tune."
+      ],
+      "scene": "training-finetune",
+      "tier": "scale",
+      "order": 5,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "BSD-3-Clause",
+        "FSDP",
+        "并行"
+      ],
+      "alternatives": [
+        "deepspeed",
+        "axolotl"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "按官方 README 拉起一个单机多卡 Llama 3 配置。",
+        "确认张量并行度与 GPU 数匹配，记录 tokens/s。",
+        "用分布式检查点保存再恢复一次，验证断点续训。"
+      ],
+      "firstRunEn": [
+        "Launch an official single-node multi-GPU Llama 3 config.",
+        "Match tensor-parallel degree to GPU count and record tokens/s.",
+        "Save and restore a distributed checkpoint once to verify resume."
+      ],
+      "deps": "Python + PyTorch nightly/CUDA；多机需要高速互联；大规模训练要配专用存储。",
+      "depsEn": "Python + PyTorch nightly/CUDA; multi-node needs high-speed interconnect; large runs need dedicated storage.",
+      "licenseNote": "代码 BSD-3-Clause；模型权重与数据集另有许可。",
+      "licenseNoteEn": "Code is BSD-3-Clause; model weights and datasets carry their own licenses."
+    },
+    {
+      "id": "verl",
+      "name": "verl",
+      "owner": "volcengine",
+      "repo": "verl",
+      "url": "https://github.com/volcengine/verl",
+      "docs": "https://verl.readthedocs.io/",
+      "summary": "字节跳动的 RL 训练框架：面向 LLM Agent 与推理任务，支持 PPO/GRPO 与多轮工具调用。",
+      "summaryEn": "ByteDance's RL training framework for LLM agents and reasoning tasks, with PPO/GRPO and multi-turn tool use.",
+      "why": [
+        "为 Agentic RL 设计，能把工具调用轨迹纳入训练。",
+        "与 vLLM/SGLang 推理后端配合，rollout 吞吐高。",
+        "支持多机多卡与异步训练。"
+      ],
+      "whyEn": [
+        "Designed for Agentic RL; tool-use trajectories can enter training.",
+        "Works with vLLM/SGLang inference backends for high rollout throughput.",
+        "Supports multi-node, multi-GPU and asynchronous training."
+      ],
+      "notFor": [
+        "只做 SFT，不需要这么重的 RL 栈。",
+        "环境与奖励设计仍要自己做，框架不替你定义任务。"
+      ],
+      "notForEn": [
+        "SFT-only work does not need this heavy RL stack.",
+        "You still design the environment and reward; the framework does not define your task."
+      ],
+      "scene": "training-finetune",
+      "tier": "scale",
+      "order": 6,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "Agentic RL",
+        "GRPO"
+      ],
+      "alternatives": [
+        "openrlhf",
+        "trl"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "从示例环境跑一个单步任务，确认 rollout 与 reward 能通。",
+        "加一个多轮工具调用任务，记录轨迹长度与失败类型。",
+        "先在 1 个节点跑通再扩多机，避免一上来调分布式。"
+      ],
+      "firstRunEn": [
+        "Run a single-step task from the example environment to verify rollout and reward.",
+        "Add a multi-turn tool-use task and record trajectory length and failure types.",
+        "Get one node working before scaling multi-node; do not debug distributed first."
+      ],
+      "deps": "Python + PyTorch/CUDA；rollout 需要 vLLM/SGLang；多机要 Ray 或 Slurm。",
+      "depsEn": "Python + PyTorch/CUDA; rollout needs vLLM/SGLang; multi-node needs Ray or Slurm.",
+      "licenseNote": "代码 Apache-2.0；模型、环境与数据各有许可。",
+      "licenseNoteEn": "Code is Apache-2.0; models, environments and data carry their own licenses."
+    },
+    {
+      "id": "openrlhf",
+      "name": "OpenRLHF",
+      "owner": "OpenRLHF",
+      "repo": "OpenRLHF",
+      "url": "https://github.com/OpenRLHF/OpenRLHF",
+      "docs": "https://openrlhf.readthedocs.io/",
+      "summary": "基于 Ray + vLLM 的 RLHF 训练框架：PPO、GRPO、DPO、KTO 与多机多卡编排。",
+      "summaryEn": "A Ray + vLLM RLHF framework: PPO, GRPO, DPO, KTO and multi-node orchestration.",
+      "why": [
+        "把推理、奖励、训练分成可扩展的 Ray actor。",
+        "支持 vLLM 加速 rollout，适合大规模对齐。",
+        "配置化程度高，社区案例多。"
+      ],
+      "whyEn": [
+        "Splits inference, reward and training into scalable Ray actors.",
+        "vLLM-accelerated rollout for large-scale alignment.",
+        "Highly configurable with many community examples."
+      ],
+      "notFor": [
+        "单卡小实验，直接用 TRL 更简单。",
+        "需要 Ray 集群经验，调试门槛不低。"
+      ],
+      "notForEn": [
+        "For small single-GPU experiments, TRL is simpler.",
+        "Requires Ray cluster experience; debugging is not trivial."
+      ],
+      "scene": "training-finetune",
+      "tier": "scale",
+      "order": 7,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "Ray",
+        "PPO"
+      ],
+      "alternatives": [
+        "trl",
+        "verl"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "按官方脚本跑一个单机 PPO 小实验，确认 Ray 与 vLLM 版本。",
+        "记录 rollout 与训练的 GPU 分配，避免两边抢显存。",
+        "用固定偏好数据对比 DPO 与 PPO 的评测差异。"
+      ],
+      "firstRunEn": [
+        "Run the official single-node PPO example and pin Ray and vLLM versions.",
+        "Record GPU allocation between rollout and training so they do not fight for VRAM.",
+        "Compare DPO and PPO on fixed preference data with the same eval set."
+      ],
+      "deps": "Python + PyTorch/CUDA + Ray；rollout 需要 vLLM；多机要共享存储与高速网络。",
+      "depsEn": "Python + PyTorch/CUDA + Ray; rollout needs vLLM; multi-node needs shared storage and high-speed network.",
+      "licenseNote": "代码 Apache-2.0；模型、偏好数据与奖励模型各有许可。",
+      "licenseNoteEn": "Code is Apache-2.0; models, preference data and reward models carry their own licenses."
+    },
+    {
+      "id": "ktransformers",
+      "name": "KTransformers",
+      "owner": "kvcache-ai",
+      "repo": "ktransformers",
+      "url": "https://github.com/kvcache-ai/ktransformers",
+      "docs": "https://github.com/kvcache-ai/ktransformers",
+      "summary": "面向异构硬件的推理/微调框架：把 MoE 专家卸载到 CPU/内存，用少量 GPU 跑大模型。",
+      "summaryEn": "Heterogeneous-hardware inference and fine-tuning: offload MoE experts to CPU/RAM so a small GPU can run large models.",
+      "why": [
+        "MoE 模型不必全部塞进显存，适合本地大模型。",
+        "支持 Intel/AMD CPU 与特定 GPU 组合。",
+        "提供微调与推理两条线。"
+      ],
+      "whyEn": [
+        "MoE models do not need to fit entirely in VRAM — useful for local large models.",
+        "Supports Intel/AMD CPUs with selected GPU combinations.",
+        "Covers both fine-tuning and inference."
+      ],
+      "notFor": [
+        "追求通用、稳定的生产推理，优先 vLLM/SGLang。",
+        "硬件组合有限制，不是所有模型都支持。"
+      ],
+      "notForEn": [
+        "For general, stable production inference, prefer vLLM/SGLang.",
+        "Hardware combinations are constrained; not every model is supported."
+      ],
+      "scene": "training-finetune",
+      "tier": "local",
+      "order": 8,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "MoE",
+        "专家卸载"
+      ],
+      "alternatives": [
+        "ollama",
+        "llama-cpp"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "确认 CPU 指令集、内存容量与 GPU 型号在支持列表里。",
+        "先用官方脚本跑一个小 MoE 模型，记录显存与内存占用。",
+        "再换目标模型，观察专家命中率与 tokens/s 是否符合预期。"
+      ],
+      "firstRunEn": [
+        "Confirm CPU instruction set, RAM size and GPU model are on the supported list.",
+        "Run a small MoE model with the official script; record VRAM and RAM use.",
+        "Switch to the target model and check expert hit rate and tokens/s."
+      ],
+      "deps": "Python + PyTorch；需要足够系统内存；部分内核依赖特定 CPU/GPU。",
+      "depsEn": "Python + PyTorch; needs enough system RAM; some kernels require specific CPUs/GPUs.",
+      "licenseNote": "代码 Apache-2.0；模型权重与数据集另有许可。",
+      "licenseNoteEn": "Code is Apache-2.0; model weights and datasets carry their own licenses."
+    },
+    {
+      "id": "lightrag",
+      "name": "LightRAG",
+      "owner": "HKUDS",
+      "repo": "LightRAG",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "docs": "https://github.com/HKUDS/LightRAG",
+      "summary": "轻量 GraphRAG 实现：把文档抽成实体关系图，再做向量+图检索，成本比全文 GraphRAG 低。",
+      "summaryEn": "A lightweight GraphRAG implementation: extract entities and relations, then combine vector and graph retrieval at lower cost than full GraphRAG.",
+      "why": [
+        "构图与检索链路完整，代码量小，容易改。",
+        "支持增量更新，不用每次重建全图。",
+        "提供多种检索模式与 Web UI。"
+      ],
+      "whyEn": [
+        "Complete graph construction and retrieval pipeline in a small codebase, easy to modify.",
+        "Supports incremental updates without rebuilding the whole graph.",
+        "Multiple retrieval modes and a web UI."
+      ],
+      "notFor": [
+        "只需要朴素向量检索，直接用向量库更简单。",
+        "实体抽取质量依赖 LLM，噪声多时要人工清洗。"
+      ],
+      "notForEn": [
+        "If plain vector search is enough, a vector database is simpler.",
+        "Entity extraction depends on the LLM; noisy graphs need human cleanup."
+      ],
+      "scene": "rag-knowledge",
+      "tier": "light",
+      "order": 12,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "MIT",
+        "GraphRAG",
+        "增量更新"
+      ],
+      "alternatives": [
+        "ragflow",
+        "llama-index"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "用 20–50 篇文档跑一次构图，检查实体与关系是否合理。",
+        "对比纯向量检索与图检索在同一组问题上的召回。",
+        "把抽取模型与存储后端固定下来，再扩文档量。"
+      ],
+      "firstRunEn": [
+        "Build a graph from 20–50 documents and inspect entities and relations.",
+        "Compare plain vector retrieval with graph retrieval on the same question set.",
+        "Freeze the extraction model and storage backend before scaling document volume."
+      ],
+      "deps": "Python + LLM API/本地模型；需要向量库与图存储；构图成本随文档量上升。",
+      "depsEn": "Python + LLM API/local model; needs a vector store and graph storage; graph construction cost grows with documents.",
+      "licenseNote": "代码 MIT；模型与数据另有许可。",
+      "licenseNoteEn": "Code is MIT; models and data carry their own licenses."
+    },
+    {
+      "id": "flux1",
+      "name": "FLUX.1",
+      "owner": "black-forest-labs",
+      "repo": "flux",
+      "url": "https://github.com/black-forest-labs/flux",
+      "docs": "https://github.com/black-forest-labs/flux",
+      "summary": "Black Forest Labs 的图像生成模型与推理代码：FLUX.1 [schnell] / [dev] / [pro] 三条线。",
+      "summaryEn": "Black Forest Labs image-generation models and inference code: FLUX.1 [schnell] / [dev] / [pro].",
+      "why": [
+        "开源权重与代码，能本地跑、能微调。",
+        "文字渲染与构图能力强，社区 LoRA 生态大。",
+        "提供 ComfyUI / diffusers 接入示例。"
+      ],
+      "whyEn": [
+        "Open weights and code; runs locally and can be fine-tuned.",
+        "Strong text rendering and composition, with a large community LoRA ecosystem.",
+        "ComfyUI / diffusers integration examples."
+      ],
+      "notFor": [
+        "要免费商用，必须看清权重许可；[dev] 通常是非商用。",
+        "低显存设备需要量化或 offload，速度会下降。"
+      ],
+      "notForEn": [
+        "For free commercial use, read the weight license; [dev] is typically non-commercial.",
+        "Low-VRAM devices need quantization or offload, which slows generation."
+      ],
+      "scene": "multimodal-visual",
+      "tier": "prod",
+      "order": 13,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "图像生成",
+        "FLUX"
+      ],
+      "alternatives": [
+        "comfyui",
+        "diffusers"
+      ],
+      "verifiedAt": "2026-11-19",
+      "firstRun": [
+        "按官方 README 选 [schnell] 或 [dev]，确认权重许可。",
+        "用 1024×1024、固定 seed 跑 4 张，记录显存与步数。",
+        "接 ComfyUI 或 diffusers，把采样器与 CFG 固定成可复现配方。"
+      ],
+      "firstRunEn": [
+        "Follow the official README to pick [schnell] or [dev], and check the weight license.",
+        "Generate four 1024×1024 images with a fixed seed; record VRAM and steps.",
+        "Wire it into ComfyUI or diffusers and freeze sampler and CFG into a reproducible recipe."
+      ],
+      "deps": "Python + PyTorch/CUDA；显存取决于分辨率与精度；权重需单独下载。",
+      "depsEn": "Python + PyTorch/CUDA; VRAM depends on resolution and precision; weights are downloaded separately.",
+      "licenseNote": "代码 Apache-2.0；权重许可按 [schnell]/[dev]/[pro] 区分，[dev] 非商用，商用前读 BFL 许可原文。",
+      "licenseNoteEn": "Code is Apache-2.0; weight licenses differ across [schnell]/[dev]/[pro]. [dev] is non-commercial — read the BFL license before commercial use."
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "owner": "openclaw",
+      "repo": "openclaw",
+      "url": "https://github.com/openclaw/openclaw",
+      "docs": "https://docs.openclaw.ai",
+      "summary": "把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。",
+      "why": [
+        "同一个 Gateway 可跑在笔记本上，也可跑成多人共享实例；Discord、iMessage、Slack、Teams、Telegram、WhatsApp 等 20+ 渠道都能接。",
+        "技能走 SKILL.md / ClawHub，自带 cron、heartbeat、语音与 Canvas；模型可用云端 API，也可接本地 Ollama。",
+        "MIT、自托管、没有企业版；对“想让 agent 真正动自己的电脑和聊天工具”的人，这是目前最直接的起点。"
+      ],
+      "notFor": [
+        "不要不加沙箱、allowlist 和凭据隔离就给它整机 shell / 文件权限；它能做的事很多，误操作也能很大。",
+        "不是多租户企业产品；团队用要自己补权限、审计、网络策略与隔离。"
+      ],
+      "scene": "agent-frameworks",
+      "tier": "start",
+      "order": 13,
+      "catalogOnly": false,
+      "tags": [
+        "TypeScript",
+        "MIT",
+        "2026 新项目",
+        "个人助理",
+        "20+ 渠道"
+      ],
+      "alternatives": [
+        "openhands",
+        "hermes-agent",
+        "browser-use"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "先读 docs 的安装与安全页，决定用 Docker 还是本机；把可访问目录、shell 与消息渠道收紧到最小。",
+        "接一个模型（云端 key 或本地 Ollama），只开一个聊天渠道跑通“查资料 + 记一件事”。",
+        "再加一个只读任务（读日历 / 读文件），观察日志、权限提示与失败恢复，再决定要不要开写操作。"
+      ],
+      "deps": "Node.js + 模型 API key 或本地 Ollama；消息渠道凭据；建议 Docker / 沙箱；长期运行要守护进程与日志。",
+      "licenseNote": "代码 MIT；技能、模型与渠道 SDK 可能各有许可，商用前逐项核对。"
+    },
+    {
+      "id": "deepseek-harness",
+      "name": "DeepSeek Harness",
+      "owner": "deepseek-ai",
+      "repo": "deepseek-harness",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "docs": "https://deepseek-harness.github.io/deepseek-harness/",
+      "summary": "DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。",
+      "why": [
+        "“everything-is-a-plugin”架构，模型、工具、界面都能拆成插件替换，适合想看 harness 内部怎么组装的人。",
+        "`npx @deepseek-ai/dsh web` 就能在 127.0.0.1:3080 起 Web UI；也支持从源码构建和桌面端。",
+        "DeepSeek 官方维护，2026 年新项目里 star 增长最快的一档；适合做 coding / 通用 agent 的二次开发底座。"
+      ],
+      "notFor": [
+        "目前是 developer preview，README 明确说会有 breaking changes；不要直接当生产稳定版。",
+        "不是零配置聊天工具；插件、权限与模型路由要自己读文档配。"
+      ],
+      "scene": "agent-frameworks",
+      "tier": "start",
+      "order": 14,
+      "catalogOnly": false,
+      "tags": [
+        "TypeScript",
+        "MIT",
+        "2026 新项目",
+        "插件化",
+        "dsh"
+      ],
+      "alternatives": [
+        "opencode",
+        "codex-cli",
+        "openhands"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "先读 SAFETY.md 与插件模型文档，确认它会拿哪些权限、把状态写到哪里。",
+        "用 `npx @deepseek-ai/dsh web` 起本地 UI，接一个模型跑最小任务，观察插件加载与日志。",
+        "再装一个工具插件，换成自己的仓库/文档做一次长任务，记录断点与恢复行为。"
+      ],
+      "deps": "Node.js；模型 API key 或本地 endpoint；插件依赖；长期运行要守护进程与磁盘空间。",
+      "licenseNote": "代码 MIT；第三方插件与模型权重可能另有许可，插件市场里的仓库要单独看。"
+    },
+    {
+      "id": "hermes-agent",
+      "name": "Hermes Agent",
+      "owner": "NousResearch",
+      "repo": "hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "docs": "https://hermes-agent.nousresearch.com/docs/",
+      "summary": "Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。",
+      "why": [
+        "内置学习闭环：复杂任务后自动创建技能，技能在使用中继续改；还有 FTS5 会话搜索与用户建模。",
+        "一个网关同时接 Telegram、Discord、Slack、WhatsApp、Signal 与 CLI；可跑在 5 美元 VPS 或 GPU 集群。",
+        "模型不锁定：Nous Portal、OpenRouter、OpenAI、自建 endpoint 都能切；Windows 原生也能跑。"
+      ],
+      "notFor": [
+        "自动生成的技能不等于可靠技能；上生产前要人工审一遍，不然错误会沉淀成“经验”。",
+        "不是确定性工作流引擎；需要严格分支、回滚和审计的长流程，图结构或传统编排更合适。"
+      ],
+      "scene": "agent-frameworks",
+      "tier": "start",
+      "order": 15,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "MIT",
+        "2026 新项目",
+        "自改进",
+        "技能记忆"
+      ],
+      "alternatives": [
+        "openclaw",
+        "mem0",
+        "openhands"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "先用安装脚本起 CLI，接一个模型，跑一个会调用 2–3 个工具的复杂任务。",
+        "检查它自动写出的技能文件与记忆，确认没有把临时偏好写成长期规则。",
+        "再开一个消息渠道（Telegram 最轻），观察跨会话续接与子 agent 并行的资源占用。"
+      ],
+      "deps": "Python / uv；模型 API key；消息渠道凭据；长期记忆与技能目录；VPS 或本地机器。",
+      "licenseNote": "代码 MIT；技能内容、模型与渠道 SDK 的许可要分开看。"
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode",
+      "owner": "anomalyco",
+      "repo": "opencode",
+      "url": "https://github.com/anomalyco/opencode",
+      "docs": "https://opencode.ai/docs",
+      "summary": "终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。",
+      "why": [
+        "build 与 plan 两个内置 agent 用 Tab 切换：plan 默认只读、改文件要许可，适合先读仓库再动手。",
+        "75+ provider，不锁模型；TUI 之外还有 macOS / Windows / Linux 桌面 beta。",
+        "2026 年 star 最高的开源 coding agent 之一，MIT，社区迭代快，适合当日常终端 coding harness。"
+      ],
+      "notFor": [
+        "GUI 优先的人会更喜欢 IDE 插件或桌面 agent；TUI 需要一点终端习惯。",
+        "不同 provider 的工具调用质量不一致；换模型后要重跑自己的评测，不要假设行为相同。"
+      ],
+      "scene": "agent-frameworks",
+      "tier": "prod",
+      "order": 16,
+      "catalogOnly": false,
+      "tags": [
+        "TypeScript",
+        "MIT",
+        "2026 新项目",
+        "Coding agent",
+        "TUI"
+      ],
+      "alternatives": [
+        "codex-cli",
+        "openhands",
+        "deepseek-harness"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "用 npm / brew / 安装脚本装好，先 `opencode` 打开一个测试仓库，切到 plan 模式读代码。",
+        "接一个 provider，跑一个只改一个文件的小任务，检查 diff 与权限提示。",
+        "再开 build 模式跑测试与修复，观察 LSP 报错、工具调用与回滚。"
+      ],
+      "deps": "Node.js / npm 或 brew；模型 provider key；git 仓库；可选桌面端。",
+      "licenseNote": "代码 MIT；模型 provider 与可选付费网关另有条款。"
+    },
+    {
+      "id": "orca",
+      "name": "Orca",
+      "owner": "stablyai",
+      "repo": "orca",
+      "url": "https://github.com/stablyai/orca",
+      "docs": "https://orca.dev/docs",
+      "summary": "把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。",
+      "why": [
+        "一个 prompt 可分给多个 agent，每个 agent 一个独立 worktree；diff 并排看，合适再合并。",
+        "支持 chat 与 terminal 两种交互，能接本机、SSH 主机或云端 VM；笔记本睡眠时任务还能继续。",
+        "适合“同一问题让几个 agent 分别做，再挑最好结果”的并行工作流，不用自己写 worktree 调度。"
+      ],
+      "notFor": [
+        "它不自带模型额度；底层还是 Claude Code、Codex、OpenCode 等 agent 的订阅/额度。",
+        "不是多人协作平台；团队共享、权限与审计要另外配。"
+      ],
+      "scene": "agent-frameworks",
+      "tier": "start",
+      "order": 17,
+      "catalogOnly": false,
+      "tags": [
+        "TypeScript",
+        "MIT",
+        "2026 新项目",
+        "并行 agent",
+        "worktree"
+      ],
+      "alternatives": [
+        "opencode",
+        "codex-cli",
+        "openhands"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "装桌面端，接一个已有的 coding agent（Claude Code / Codex / OpenCode），确认订阅与登录可用。",
+        "在一个干净仓库里开两个 worktree，跑同一小任务，比较 diff 与耗时。",
+        "再试 coordinator + worker 模式，观察并行资源占用、合并冲突与失败回收。"
+      ],
+      "deps": "桌面端（macOS / Windows / Linux）；git；已有 coding agent 的订阅或 API key；可选 SSH / 云 VM。",
+      "licenseNote": "代码 MIT；底层 agent 与模型服务另有条款，注意不要重复计费。"
+    },
+    {
+      "id": "codex-cli",
+      "name": "Codex CLI",
+      "owner": "openai",
+      "repo": "codex",
+      "url": "https://github.com/openai/codex",
+      "docs": "https://developers.openai.com/codex/cli",
+      "summary": "OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。",
+      "why": [
+        "本地跑，默认在 OS 沙箱里执行命令；比“把 shell 全开给 agent”更适合日常开发。",
+        "MCP、skills、IDE 与云端 Codex 能接起来；同一套任务可在本地或云端继续。",
+        "Apache-2.0、Rust 单二进制，安装和升级都轻；适合把 coding agent 当日常工具而不是玩具。"
+      ],
+      "notFor": [
+        "对 OpenAI 模型与账号体系最顺；换其他 provider 的能力与体验不保证对齐。",
+        "不是通用个人助理；文件、日程、聊天渠道这些事它不做。"
+      ],
+      "scene": "agent-frameworks",
+      "tier": "prod",
+      "order": 18,
+      "catalogOnly": false,
+      "tags": [
+        "Rust",
+        "Apache-2.0",
+        "Coding agent",
+        "沙箱",
+        "MCP"
+      ],
+      "alternatives": [
+        "opencode",
+        "openhands",
+        "openai-agents"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "用 npm / brew 装 Codex CLI，登录或配 API key，先在一个测试仓库跑只读任务。",
+        "检查沙箱与审批设置，确认它能写哪些目录、能不能执行网络命令。",
+        "跑一个“改代码 + 跑测试”的小任务，观察 diff、测试输出与云任务交接。"
+      ],
+      "deps": "Node.js / npm 或 brew；OpenAI 账号或 API key；git；可选 MCP server。",
+      "licenseNote": "代码 Apache-2.0；模型服务与云任务按 OpenAI 条款计费。"
+    },
+    {
+      "id": "firecrawl",
+      "name": "Firecrawl",
+      "owner": "firecrawl",
+      "repo": "firecrawl",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "docs": "https://docs.firecrawl.dev",
+      "summary": "把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。",
+      "why": [
+        "不只是 curl：处理 JS 渲染、反爬、分页与正文抽取，输出干净 markdown，省掉一大段清洗。",
+        "三种用法：本地单二进制、接进 agent 的 MCP server、或自托管 API；云服务只是可选。",
+        "crawl / scrape / map / search / extract 这一套接口，正好补 RAG 管线最脏的“网页进数据”环节。"
+      ],
+      "notFor": [
+        "AGPL-3.0：把它当网络服务对外提供时，要履行源码开放义务；商用前先读许可。",
+        "反爬与网站条款是你的责任；不要用它绕过付费墙、登录墙或访问控制。"
+      ],
+      "scene": "rag-knowledge",
+      "tier": "prod",
+      "order": 13,
+      "catalogOnly": false,
+      "tags": [
+        "TypeScript",
+        "AGPL-3.0",
+        "网页抓取",
+        "Markdown",
+        "MCP"
+      ],
+      "alternatives": [
+        "docling",
+        "marker",
+        "browser-use"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "先用本地单二进制抓一个公开文档站，检查 markdown 结构、图片与链接是否保留。",
+        "接 MCP server 到一个 agent，跑“抓页面 → 总结 → 引用来源”的最小链路。",
+        "再试 crawl 一个 10 页以内的小站，观察限速、去重、失败重试与 robots 行为。"
+      ],
+      "deps": "Docker / Node 或本地二进制；Playwright / 浏览器依赖；可选云 API key；向量库另配。",
+      "licenseNote": "代码 AGPL-3.0；云服务与商用条款另计，网络服务部署前先读 AGPL 义务。"
+    },
+    {
+      "id": "graphify",
+      "name": "Graphify",
+      "owner": "Graphify-Labs",
+      "repo": "graphify",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "docs": "https://docs.graphify.com",
+      "summary": "把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。",
+      "why": [
+        "把代码、docs、SQL schema、配置、PDF 甚至图片/视频收进一个图，按关系查询而不是反复 grep。",
+        "在 coding assistant 里用 `/graphify` 触发，适合大仓库、跨文档与“这个东西在哪被引用”的问题。",
+        "Apache-2.0，Python 包；本地跑，云服务是可选项，适合先在自己的仓库试。"
+      ],
+      "notFor": [
+        "图不是编译器也不是测试；它给的是检索与关系线索，不能替代类型检查、测试和运行验证。",
+        "“省 80% token”是厂商口径；实际收益取决于仓库规模、查询质量与索引新鲜度，需自己测。"
+      ],
+      "scene": "rag-knowledge",
+      "tier": "start",
+      "order": 14,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "2026 新项目",
+        "知识图谱",
+        "代码检索"
+      ],
+      "alternatives": [
+        "lightrag",
+        "docling",
+        "marker"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "先在一个中等仓库建图，检查索引耗时、磁盘占用与忽略规则（node_modules / 构建产物）。",
+        "问 5 个“某函数在哪被调用 / 某配置从哪来”的问题，对照 grep 结果看漏报与误报。",
+        "再接进 coding assistant，观察查询延迟、上下文长度与增量更新是否正常。"
+      ],
+      "deps": "Python / pipx；模型 API key（用于抽取/摘要）；仓库读写；大仓库要磁盘与内存。",
+      "licenseNote": "代码 Apache-2.0；云服务与第三方模型另计。"
+    },
+    {
+      "id": "vibevoice",
+      "name": "VibeVoice",
+      "owner": "microsoft",
+      "repo": "VibeVoice",
+      "url": "https://github.com/microsoft/VibeVoice",
+      "docs": "https://microsoft.github.io/VibeVoice",
+      "summary": "微软开源语音模型家族：60 分钟长音频转写（谁在何时说了什么）、50+ 语言与流式 ASR；TTS 代码已因滥用下架。",
+      "why": [
+        "VibeVoice-ASR 一次处理 60 分钟音频，输出带 speaker、timestamp、content 的结构化转写，不是只有一行文本。",
+        "50+ 语言，支持热词与自定义上下文；2026-09 又出了流式 ASR，边说边转。",
+        "有 BitNet 边缘 CPU 版（4.62GB → 1.58GB，3+ 线程 RTF<1），没有 GPU 也能跑；代码 MIT。"
+      ],
+      "notFor": [
+        "TTS 代码已在 2025-09 从仓库移除；现在主仓库是 ASR / Realtime，不要把它当“开箱即用 TTS”。",
+        "长音频转写的说话人分离与时间戳仍有误差；合规场景要人工复核，并遵守微软的使用政策。"
+      ],
+      "scene": "speech-audio",
+      "tier": "start",
+      "order": 9,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "MIT",
+        "语音识别",
+        "长音频",
+        "50+ 语言"
+      ],
+      "alternatives": [
+        "whisper",
+        "faster-whisper",
+        "funasr"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "先用 Hugging Face 上的 ASR 权重跑一段 10 分钟公开音频，检查 speaker、时间戳与标点。",
+        "换成带口音/背景音乐的真实录音，记录漏字、串话与时间漂移。",
+        "再试流式或 BitNet 边缘版，比较 RTF、内存与准确率，决定要不要上生产。"
+      ],
+      "deps": "Python / PyTorch；Hugging Face 权重；GPU 更快，CPU 可用 BitNet；长音频要内存/磁盘。",
+      "licenseNote": "代码 MIT；模型权重与微软使用政策另计，商用与再分发前逐项核对。"
+    },
+    {
+      "id": "open-webui",
+      "name": "Open WebUI",
+      "owner": "open-webui",
+      "repo": "open-webui",
+      "url": "https://github.com/open-webui/open-webui",
+      "docs": "https://docs.openwebui.com",
+      "summary": "自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。",
+      "why": [
+        "一个界面接 Ollama、OpenAI 兼容 API 和多种模型后端；本地/内网部署，数据不离开自己的机器。",
+        "内置 RAG、网页搜索、文档上传、多用户与 RBAC、工具/函数调用，适合团队内部知识库与模型网关。",
+        "159k star、迭代快，Docker 一条命令起；比自己写聊天前端 + 权限 + RAG 省很多。"
+      ],
+      "notFor": [
+        "自定义许可：BSD-3 基础 + Open WebUI 品牌条款；去掉品牌有用户数/商业授权条件，商用前读 LICENSE。",
+        "它不是推理引擎；吞吐、量化、GPU 调度还是交给 Ollama / vLLM / SGLang。"
+      ],
+      "scene": "local-inference",
+      "tier": "prod",
+      "order": 9,
+      "catalogOnly": false,
+      "tags": [
+        "Svelte",
+        "自定义许可",
+        "自托管",
+        "RAG",
+        "多用户"
+      ],
+      "alternatives": [
+        "textgen-webui",
+        "localai",
+        "ollama"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "用 Docker 起服务，先接一个 Ollama 或 OpenAI 兼容 endpoint，确认流式输出与模型列表。",
+        "开一个普通用户账号，上传一份 PDF 试 RAG，检查引用、权限与数据落盘位置。",
+        "再配联网搜索/工具与 RBAC，观察并发、日志、反向代理与备份。"
+      ],
+      "deps": "Docker / Python；Ollama 或 OpenAI 兼容 API；向量库/嵌入模型；生产要反向代理、持久卷与备份。",
+      "licenseNote": "自定义许可（BSD-3 基础 + 品牌条款）：移除/替换 Open WebUI 品牌受用户数与商业授权限制，商用前读 LICENSE。"
     }
   ]
 }

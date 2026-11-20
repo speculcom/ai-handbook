@@ -15,7 +15,7 @@ fs.mkdirSync(path.join(site, 'repos'), { recursive: true });
 
 const repoDoc = JSON.parse(fs.readFileSync(path.join(root, 'repos.json'), 'utf8'));
 const scenes = JSON.parse(fs.readFileSync(path.join(root, 'scenes.json'), 'utf8')).sort((a, b) => a.order - b.order);
-const snapshots = JSON.parse(fs.readFileSync(path.join(root, 'snapshots', '2026-11-19.json'), 'utf8'));
+const snapshots = JSON.parse(fs.readFileSync(path.join(root, 'snapshots', '2026-11-20.json'), 'utf8'));
 
 const TIER = {
   start: { zh: '先试这个', en: 'Start here' },
@@ -60,12 +60,15 @@ const repos = repoDoc.repos.map((r) => {
     pushed: dateOnly(meta.pushed_at),
     archived: meta.archived === true,
     sceneTitle: sceneById[r.scene]?.title || r.scene,
-    tierLabel: TIER[r.tier]?.zh || r.tier
+    sceneTitleEn: sceneById[r.scene]?.titleEn || r.scene,
+    tierLabel: TIER[r.tier]?.zh || r.tier,
+    tierLabelEn: TIER[r.tier]?.en || r.tier
   };
 });
 const byId = Object.fromEntries(repos.map((r) => [r.id, r]));
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+const bi = (zh, en) => `<span data-zh>${esc(zh)}</span><span data-en>${esc(en || zh)}</span>`;
 const url = (p) => `https://oss.specul.com/${p}`;
 const prefixFor = (depth) => '../'.repeat(depth);
 
@@ -83,10 +86,10 @@ function page({ title, desc, canonical, body, depth = 0 }) {
 }
 
 function tierBadge(r) {
-  return `<span class="badge tier-${esc(r.tier)}">${esc(r.tierLabel)}</span>`;
+  return `<span class="badge tier-${esc(r.tier)}">${r.tierLabelEn ? bi(r.tierLabel, r.tierLabelEn) : esc(r.tierLabel)}</span>`;
 }
 function sceneBadge(r) {
-  return `<span class="badge">${esc(r.sceneTitle)}</span>`;
+  return `<span class="badge">${r.sceneTitleEn ? bi(r.sceneTitle, r.sceneTitleEn) : esc(r.sceneTitle)}</span>`;
 }
 
 function repoCard(r, prefix = '') {
@@ -94,7 +97,7 @@ function repoCard(r, prefix = '') {
   <div class="repo-top">${sceneBadge(r)}${tierBadge(r)}</div>
   <h3 class="repo-name"><a href="${prefix}repos/${esc(r.id)}.html">${esc(r.name)}</a></h3>
   <p class="repo-owner">${esc(r.owner)} / ${esc(r.repo)}</p>
-  <p>${esc(r.summary)}</p>
+  <p>${r.summaryEn ? bi(r.summary, r.summaryEn) : esc(r.summary)}</p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>${esc(r.language)}</dd></div>
     <div><dt>许可</dt><dd>${esc(r.license)}</dd></div>
@@ -108,10 +111,10 @@ function repoCard(r, prefix = '') {
 function sceneCard(s) {
   const n = repos.filter((r) => r.scene === s.id && !r.catalogOnly).length;
   return `<a class="scene-card scene-${s.order}" href="scenes/${esc(s.id)}.html">
-  <span class="no">0${s.order} · ${n} 个仓库</span>
-  <h3>${esc(s.title)}</h3>
-  <p>${esc(s.lead)}</p>
-  <span class="more">进入场景 →</span>
+  <span class="no">0${s.order} · ${n} ${s.leadEn ? bi('个仓库', 'repos') : '个仓库'}</span>
+  <h3>${s.leadEn ? bi(s.title, s.titleEn) : esc(s.title)}</h3>
+  <p>${s.leadEn ? bi(s.lead, s.leadEn) : esc(s.lead)}</p>
+  <span class="more">${s.leadEn ? bi('进入场景 →', 'Open scene →') : '进入场景 →'}</span>
 </a>`;
 }
 
@@ -119,6 +122,8 @@ function sceneCard(s) {
 {
   const featuredIds = ['crewai', 'ragflow', 'ollama', 'comfyui', 'whisper', 'langfuse'];
   const featured = featuredIds.map((id) => byId[id]).filter(Boolean);
+  const freshIds = ['openclaw', 'deepseek-harness', 'codex-cli', 'firecrawl'];
+  const fresh = freshIds.map((id) => byId[id]).filter(Boolean);
   const body = `<div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · Open source AI</p>
@@ -134,17 +139,19 @@ function sceneCard(s) {
   <a class="btn" href="compare.html">并排对比</a>
   <a class="btn" href="about.html">怎么挑仓库</a>
 </div>
-<div class="section-head"><h2>按场景找</h2><span class="sub">六个场景，挑一个你手上的活</span></div>
+<div class="section-head"><h2>按场景找</h2><span class="sub">七个场景，挑一个你手上的活</span></div>
 <div class="scene-grid">${scenes.map(sceneCard).join('')}</div>
 <div class="section-head"><h2>先试这几个</h2><a href="all.html">看全部 →</a></div>
 <div class="repo-grid">${featured.map((r) => repoCard(r)).join('')}</div>
+<div class="section-head"><h2>2026 新上架</h2><span class="sub">star 多不等于适合你，先看权限与许可</span></div>
+<div class="repo-grid">${fresh.map((r) => repoCard(r)).join('')}</div>
 <div class="section-head"><h2>怎么用这个站</h2></div>
 <div class="note"><b>1. 先看“不适合”：</b>每张卡都写它不做什么。比“为什么选”更能帮你排除。<br><b>2. 再看许可与依赖：</b>开源不等于可商用；GPL / AGPL 有传染性，模型与代码的许可要分开看。<br><b>3. 最后看活跃度：</b>star 是快照，不是质量保证；看最近推送、issue、release 与维护者。</div>
-<div class="note"><b>说明：</b>GitHub 信息更新到 2026-11-19；许可以仓库 LICENSE 为准，商用前自己再读一遍。</div>
+<div class="note"><b>说明：</b>GitHub 信息更新到 2026-11-20；许可以仓库 LICENSE 为准，商用前自己再读一遍。</div>
 </div>`;
   fs.writeFileSync(path.join(site, 'index.html'), page({
     title: '开源 AI 工具库 — 自己拿下来跑 · Specul',
-    desc: `${repos.length} 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。`,
+    desc: `${repos.length} 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。`,
     canonical: url(''),
     body
   }));
@@ -208,21 +215,22 @@ function sceneCard(s) {
 // 场景页
 for (const s of scenes) {
   const list = repos.filter((r) => r.scene === s.id && !r.catalogOnly).sort((a, b) => a.order - b.order);
+  const isBi = !!s.leadEn;
   const body = `<div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · Scene 0${s.order}</p>
-  <h1>${esc(s.title)}</h1>
-  <p class="lede">${esc(s.lead)}</p>
+  <h1>${isBi ? bi(s.title, s.titleEn) : esc(s.title)}</h1>
+  <p class="lede">${isBi ? bi(s.lead, s.leadEn) : esc(s.lead)}</p>
 </header>
 <div class="hero-actions">
-  <a class="btn primary" href="../all.html?scene=${esc(s.id)}">看这个场景的全部 →</a>
-  <a class="btn" href="../compare.html?ids=${esc(list.slice(0, 3).map((r) => r.id).join(','))}">并排对比前 3 个</a>
-  <a class="btn" href="../index.html">回首页</a>
+  <a class="btn primary" href="../all.html?scene=${esc(s.id)}">${isBi ? bi('看这个场景的全部 →', 'See all in this scene →') : '看这个场景的全部 →'}</a>
+  <a class="btn" href="../compare.html?ids=${esc(list.slice(0, 3).map((r) => r.id).join(','))}">${isBi ? bi('并排对比前 3 个', 'Compare first 3') : '并排对比前 3 个'}</a>
+  <a class="btn" href="../index.html">${isBi ? bi('回首页', 'Home') : '回首页'}</a>
 </div>
-<div class="stats"><div><b>${list.length}</b><span>个场景精选</span></div><div><b>${esc(s.who)}</b><span>适合谁</span></div></div>
-<div class="section-head"><h2>怎么选</h2></div>
-<div class="note">${s.choose.map((x) => `• ${esc(x)}`).join('<br>')}<br><b>不适合：</b>${esc(s.notFor)}</div>
-<div class="section-head"><h2>${list.length} 个仓库</h2><span class="sub">按上手顺序，不是按 star</span></div>
+<div class="stats"><div><b>${list.length}</b><span>${isBi ? bi('个场景精选', 'selected repos') : '个场景精选'}</span></div><div><b>${isBi ? bi(s.who, s.whoEn) : esc(s.who)}</b><span>${isBi ? bi('适合谁', 'Who it is for') : '适合谁'}</span></div></div>
+<div class="section-head"><h2>${isBi ? bi('怎么选', 'How to choose') : '怎么选'}</h2></div>
+<div class="note">${s.choose.map((x, i) => `• ${isBi ? bi(x, s.chooseEn?.[i]) : esc(x)}`).join('<br>')}<br><b>${isBi ? bi('不适合：', 'Not for: ') : '不适合：'}</b>${isBi ? bi(s.notFor, s.notForEn) : esc(s.notFor)}</div>
+<div class="section-head"><h2>${list.length} ${isBi ? bi('个仓库', 'repos') : '个仓库'}</h2><span class="sub">${isBi ? bi('按上手顺序，不是按 star', 'Ordered by onboarding, not stars') : '按上手顺序，不是按 star'}</span></div>
 <div class="repo-grid">${list.map((r) => repoCard(r, '../')).join('')}</div>
 <div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
 <div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th>${list.map((r) => `<th><a href="../repos/${esc(r.id)}.html">${esc(r.name)}</a></th>`).join('')}</tr></thead><tbody>
@@ -247,6 +255,55 @@ for (const s of scenes) {
 // 仓库详情
 for (const r of repos) {
   const alt = (r.alternatives || []).map((id) => byId[id]).filter(Boolean);
+  if (r.summaryEn) {
+    const body = `<div class="container">
+<header class="detail-hero">
+  <div class="top">${sceneBadge(r)}${tierBadge(r)}</div>
+  <h1>${esc(r.name)}</h1>
+  <p class="owner">${esc(r.owner)} / ${esc(r.repo)}</p>
+  <p class="sub">${bi(r.summary, r.summaryEn)}</p>
+</header>
+<div class="factbar">
+  <span><b>${esc(fmtStars(r.stars))}</b> stars</span>
+  <span><b>${esc(r.forks == null ? '—' : r.forks)}</b> forks</span>
+  <span><b>${esc(r.language)}</b> ${bi('语言', 'Language')}</span>
+  <span><b>${esc(r.license)}</b> ${bi('许可', 'License')}</span>
+  <span>${bi('最近推送', 'Last push')} <b>${esc(r.pushed)}</b></span>
+</div>
+<div class="detail-body">
+  <h2>${bi('为什么选', 'Why choose it')}</h2>
+  <ul>${r.why.map((x, i) => `<li>${bi(x, r.whyEn?.[i])}</li>`).join('')}</ul>
+  <h2>${bi('不适合', 'Not for')}</h2>
+  <p class="warn">${r.notFor.map((x, i) => bi(x, r.notForEn?.[i])).join('<br>')}</p>
+  <h2>${bi('最小上手', 'Minimum setup')}</h2>
+  <ol>${(r.firstRun || []).map((x, i) => `<li>${bi(x, r.firstRunEn?.[i])}</li>`).join('')}</ol>
+  <h2>${bi('依赖与成本', 'Dependencies and cost')}</h2>
+  <p>${bi(r.deps || '按 README 核对运行时、模型权重与外部服务依赖。', r.depsEn || 'Check runtime, model weights and external service dependencies in the README.')}</p>
+  <h2>${bi('许可与使用边界', 'License and usage boundaries')}</h2>
+  <p>${bi(r.licenseNote || `代码许可为 ${r.license}；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。`, r.licenseNoteEn || `Code is ${r.license}; model weights, training data and generated content may have separate terms — check each before commercial use.`)}</p>
+  <p>${bi('开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。', 'Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.')}</p>
+  <h2>${bi('替代与相邻', 'Alternatives and neighbors')}</h2>
+  ${alt.length ? `<ul>${alt.map((a) => `<li><a href="../repos/${esc(a.id)}.html">${esc(a.name)}</a> — ${a.tierLabelEn ? bi(a.tierLabel, a.tierLabelEn) : esc(a.tierLabel)}，${a.summaryEn ? bi(a.summary, a.summaryEn) : esc(a.summary)}</li>`).join('')}</ul>` : `<p>${bi('暂无同场景替代卡。', 'No alternative cards in this scene yet.')}</p>`}
+  <h2>${bi('下一步', 'Next steps')}</h2>
+  <ul>
+    <li>${bi('打开 GitHub，先读 README、LICENSE、最近 release 与 issue。', 'Open GitHub and read the README, LICENSE, latest release and issues first.')}</li>
+    <li>${bi('按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。', 'Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.')}</li>
+    <li>${bi('用一个小样本跑通，再决定是否进生产；不要直接上生产数据。', 'Run a small sample first, then decide on production; never start with production data.')}</li>
+  </ul>
+  <p><a class="btn" href="${esc(r.url)}" target="_blank" rel="noopener">${bi('GitHub 仓库 ↗', 'GitHub repository ↗')}</a> <a class="btn" href="${esc(r.docs)}" target="_blank" rel="noopener">${bi('文档 ↗', 'Docs ↗')}</a> <a class="btn" href="../compare.html?ids=${esc(r.id)}">${bi('加入对比', 'Add to compare')}</a></p>
+</div>
+<div class="note">${bi('快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。', 'Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.')}</div>
+<div class="note">${bi('不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。', 'No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.')}</div>
+</div>`;
+    fs.writeFileSync(path.join(site, 'repos', `${r.id}.html`), page({
+      title: `${r.name} · 开源 AI 工具库`,
+      desc: `${r.name}：${r.summary} 许可 ${r.license}，${r.language}，${fmtStars(r.stars)} stars（2026-11-20 快照）。`,
+      canonical: url(`repos/${r.id}.html`),
+      depth: 1,
+      body
+    }));
+    continue;
+  }
   const body = `<div class="container">
 <header class="detail-hero">
   <div class="top">${sceneBadge(r)}${tierBadge(r)}${r.catalogOnly ? '<span class="badge">目录补充</span>' : ''}${r.archived ? '<span class="badge">已归档</span>' : ''}</div>
@@ -283,12 +340,12 @@ for (const r of repos) {
   </ul>
   <p><a class="btn" href="${esc(r.url)}" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="${esc(r.docs)}" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=${esc(r.id)}">加入对比</a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-19 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
+<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
 <div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
 </div>`;
   fs.writeFileSync(path.join(site, 'repos', `${r.id}.html`), page({
     title: `${r.name} · 开源 AI 工具库`,
-    desc: `${r.name}：${r.summary} 许可 ${r.license}，${r.language}，${fmtStars(r.stars)} stars（2026-11-19 快照）。`,
+    desc: `${r.name}：${r.summary} 许可 ${r.license}，${r.language}，${fmtStars(r.stars)} stars（2026-11-20 快照）。`,
     canonical: url(`repos/${r.id}.html`),
     depth: 1,
     body
@@ -393,14 +450,14 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
 // sitemap / llms / robots / CNAME / README
 {
   const urls = [url(''), url('all.html'), url('compare.html'), url('about.html'), ...scenes.map((s) => url(`scenes/${s.id}.html`)), ...repos.map((r) => url(`repos/${r.id}.html`))];
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc><lastmod>2026-11-19</lastmod></url>`).join('\n')}\n</urlset>\n`;
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc><lastmod>2026-11-20</lastmod></url>`).join('\n')}\n</urlset>\n`;
   fs.writeFileSync(path.join(site, 'sitemap.xml'), sitemap);
   fs.writeFileSync(path.join(site, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${url('sitemap.xml')}\n`);
 
   const lines = [
     '# 开源 AI 工具库',
     '',
-    `> ${repos.length} 个 AI 开源仓库，按 6 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。不排名、不背书安全。`,
+    `> ${repos.length} 个 AI 开源仓库，按 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。不排名、不背书安全。`,
     '',
     `- [首页](${url('')})`,
     `- [全部仓库](${url('all.html')})`,
@@ -417,7 +474,7 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
   const en = [
     '# Specul OSS — Open-source AI tool library',
     '',
-    `> ${repos.length} AI open-source repositories in 6 scenes: agent frameworks, RAG, local inference, multimodal, speech, evaluation. Licence, activity, dependencies, onboarding cost and "not for" are stated. No ranking, no security endorsement.`,
+    `> ${repos.length} AI open-source repositories in 7 scenes: agent frameworks, RAG, local inference, multimodal, speech, evaluation, training and fine-tuning. Licence, activity, dependencies, onboarding cost and "not for" are stated. No ranking, no security endorsement.`,
     '',
     `- [Home](${url('')})`,
     `- [All repositories](${url('all.html')})`,
@@ -432,7 +489,7 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
 
   fs.writeFileSync(path.join(site, 'CNAME'), 'oss.specul.com\n');
   fs.writeFileSync(path.join(site, '.nojekyll'), '');
-  fs.writeFileSync(path.join(site, 'README.md'), `# oss.specul.com\n\n内容源：\`_data/handbook/frontier/oss/repos.json\`、\`scenes.json\`、\`snapshots/2026-11-19.json\`。\n\n构建：\`node _data/handbook/frontier/oss/scripts/build.mjs\`\n\n发布：\`speculcom/oss\`（CNAME=oss.specul.com）。内容仓仍是 \`speculcom/ai-handbook\`。\n`);
+  fs.writeFileSync(path.join(site, 'README.md'), `# oss.specul.com\n\n内容源：\`_data/handbook/frontier/oss/repos.json\`、\`scenes.json\`、\`snapshots/2026-11-20.json\`。\n\n构建：\`node _data/handbook/frontier/oss/scripts/build.mjs\`\n\n发布：\`speculcom/oss\`（CNAME=oss.specul.com）。内容仓仍是 \`speculcom/ai-handbook\`。\n`);
 }
 
 // 静态资源

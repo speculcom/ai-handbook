@@ -1,0 +1,43 @@
+{
+  "id": "hibana-2026",
+  "title": {
+    "zh": "Hibana：统一内存设备上的快速 agent 推理",
+    "en": "Hibana: Fast Agentic Inference on Unified-Memory Devices"
+  },
+  "category": "efficiency",
+  "url": "https://arxiv.org/abs/2611.10469",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2611.10469",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2611.10469",
+      "quote": "We present Hibana, an inference engine for unified-memory devices that co-optimizes model representation, memory management, and decoding strategy."
+    },
+    {
+      "url": "https://arxiv.org/abs/2611.10469",
+      "quote": "On a single DGX Spark serving Qwen and Nemotron models of up to 125B parameters, Hibana completes up to 3.4× more agentic tasks per hour and delivers up to 3.9× higher decoding throughput than other established frameworks such as vLLM, NVIDIA Flare, this http URL, and TensorFold."
+    },
+    {
+      "url": "https://arxiv.org/html/2611.10469",
+      "quote": "it does not predict task accuracy, so we read them as no clear loss rather than as a gain."
+    }
+  ],
+  "notes": {
+    "zh": "问题：统一内存设备（如 DGX Spark）显存容量大但带宽低，vLLM / SGLang 这类数据中心引擎不适配，本地多 agent 长会话又要求并发与状态恢复，现有本地引擎吞吐上不去。\n证据位置：摘要给出 Hibana 的三个协同点——模型手术（专家共享、2-bit draft head + FP8 rescoring、3-bit codebook 权重）、统一内存管理（SSD session cache、INT8 recurrent state、Engram offload）、自适应推测解码；实验在单台 DGX Spark（128GB 统一内存、273GB/s）上跑 Qwen3.8-27B / Qwen3.8-Flash-Next / Nemotron-3.5-Bolt / Nemotron-3.5-Super，最多 125B 参数；相对对比基线，每小时完成 agentic 任务最多 3.4×，解码吞吐最多 3.9×。\n作者自陈局限： relaxed verification 的阈值只是概率增幅上界，「不预测任务准确率」，所以他们把结果读作「没有明显损失」而不是「有提升」；实验集中在单台 DGX Spark 与四种模型，换硬件、换模型、换并发模式未必同样；没有独立复现。\n它没主张的：不是数据中心 GPU 的通用替代；不是所有 125B 模型都能跑；3.4× / 3.9× 是相对对比基线的厂商基准，不是跨平台绝对性能；不是「本地一定比云便宜」。",
+    "en": "Problem: unified-memory devices such as DGX Spark have large capacity but low bandwidth; datacenter engines like vLLM / SGLang are not tuned for them, while local multi-agent sessions need concurrency and state restore, so existing local engines leave throughput on the table.\nWhere the evidence sits: the abstract lists Hibana's three co-designs — model surgery (expert sharing, a 2-bit draft head with FP8 rescoring, 3-bit codebook weights), unified-memory management (SSD session cache, INT8 recurrent state, Engram offload) and adaptive speculation. Experiments run on one DGX Spark (128 GB unified memory, 273 GB/s) with Qwen3.8-27B / Qwen3.8-Flash-Next / Nemotron-3.5-Bolt / Nemotron-3.5-Super up to 125B parameters; against the strongest baseline it completes up to 3.4× more agentic tasks per hour and delivers up to 3.9× higher decoding throughput.\nWhat the authors say about limits: the relaxed-verification threshold is only an upper bound on probability amplification and \"does not predict task accuracy\", so they read the result as no clear loss rather than a gain; experiments centre on one DGX Spark and four models, and may not transfer to other hardware, models or concurrency patterns; no independent reproduction.\nWhat it does not claim: a general replacement for datacenter GPUs; that every 125B model fits; that 3.4× / 3.9× are absolute cross-platform numbers rather than vendor benchmarks against the strongest baseline; that local is always cheaper than cloud."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "发表 / venue": "arXiv 2611.10469（2026-11-07）",
+    "硬件 / hardware": "单台 NVIDIA DGX Spark：128GB 统一内存，273GB/s",
+    "模型 / models": "Qwen3.8-27B、Qwen3.8-Flash-Next、Nemotron-3.5-Bolt、Nemotron-3.5-Super，最大 125B",
+    "任务 / workload": "AgentPerf-Local、SPEED-Bench、SWE-bench 等 agentic 会话",
+    "相对收益 / relative gains": "最多 3.4× agentic tasks/hour；最多 3.9× decoding throughput",
+    "方法 / method": "model surgery + SSD session cache + adaptive speculation",
+    "证据位置 / evidence": "摘要；第 1–5 节；附录 D",
+    "复现状态 / reproduction": "未复现（只读论文与 HTML 全文）"
+  }
+}

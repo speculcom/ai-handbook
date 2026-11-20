@@ -5458,6 +5458,101 @@ var TERMS = [
     ],
     "whyEn": "The reward model defines what the model learns to chase. A biased judge teaches the model to please the bias.",
     "slug": "奖励模型"
+   },
+   {
+    "zh": "参考生视频",
+    "en": "Reference-to-Video",
+    "purpose": "用几张图、一段视频或一段音频当参考，生成主体、风格、镜头一致的新视频。",
+    "def": [
+     "模型不只读文字提示，还读参考素材里的身份、服装、构图、运镜与音色。",
+     "与图生视频的区别：图生视频通常只给首帧；参考生视频给的是「要保留什么」的约束。",
+     "参考给得越多，控制越强，但冲突也越多；素材之间不一致时，模型会自行取舍。",
+     "验收要看参考保持度与可编辑性，不只看画面漂亮。"
+    ],
+    "why": "Seedance 2.5、Veo 等都在往多模态参考走；这是「生成一段」到「完成一支片子」的分水岭。",
+    "refs": [
+     [
+      "字节 Seed · Seedance 2.5",
+      "https://seed.bytedance.com/seedance2_5",
+      "ByteDance Seed · Seedance 2.5"
+     ],
+     [
+      "Google DeepMind · Veo",
+      "https://deepmind.google/models/veo/",
+      "Google DeepMind · Veo"
+     ],
+     [
+      "学 AI · 视频生成",
+      "https://learn.specul.com/",
+      "Learn AI · Video generation"
+     ]
+    ],
+    "domain": "media",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 68,
+    "last_verified": "2026-11-19",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Use several images, a video or an audio clip as references to generate a new video with consistent subject, style and camera.",
+    "defEn": [
+     "The model reads not only a text prompt but identity, clothing, composition, camera movement and timbre from reference material.",
+     "Unlike image-to-video, which usually supplies only a first frame, reference-to-video supplies constraints on what must be preserved.",
+     "More references give stronger control but also more conflicts; when references disagree, the model makes its own trade-offs.",
+     "Acceptance should check reference fidelity and editability, not only whether the output looks good."
+    ],
+    "whyEn": "Seedance 2.5, Veo and others are moving toward multimodal references; this is the step from generating a clip to finishing a piece.",
+    "slug": "参考生视频"
+   },
+   {
+    "zh": "长时记忆",
+    "en": "Long-term Memory (Agent Memory)",
+    "alias": [
+     "Agent Memory",
+     "智能体记忆"
+    ],
+    "purpose": "让 Agent 跨会话记住用户偏好、任务状态与关键事实，而不是每次从零开始。",
+    "def": [
+     "通常分三层：工作记忆（当前上下文）、情节记忆（历史事件）、语义记忆（提炼后的事实与偏好）。",
+     "写入要有策略：什么值得记、何时提炼、如何过期与删除；否则记忆会变成噪声。",
+     "与「上下文窗口」不同：长时记忆是外部存储与检索，不受单次上下文长度限制。",
+     "召回也要有门槛：相似度不等于相关，错误记忆比没有记忆更难排查。"
+    ],
+    "why": "2026 年的 Agent 都在卖「记得你」；不懂记忆的写入与召回，就无法判断它是真记得还是临时拼接。",
+    "refs": [
+     [
+      "Anthropic · Building effective agents",
+      "https://www.anthropic.com/engineering/building-effective-agents",
+      "Anthropic · Building effective agents"
+     ],
+     [
+      "LangGraph · Memory concepts",
+      "https://langchain-ai.github.io/langgraph/concepts/memory/",
+      "LangGraph · Memory concepts"
+     ],
+     [
+      "学 AI · 记忆",
+      "https://learn.specul.com/",
+      "Learn AI · Memory"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 69,
+    "last_verified": "2026-11-19",
+    "verified_scope": "refs",
+    "purposeEn": "Let an agent remember user preferences, task state and key facts across sessions instead of starting from zero each time.",
+    "defEn": [
+     "It usually has three layers: working memory (current context), episodic memory (past events) and semantic memory (distilled facts and preferences).",
+     "Writes need policy: what is worth remembering, when to distil, how to expire and delete; otherwise memory becomes noise.",
+     "Unlike a context window, long-term memory is external storage and retrieval, not limited by a single context length.",
+     "Recall also needs a threshold: similarity is not relevance, and a wrong memory is harder to debug than no memory."
+    ],
+    "whyEn": "Agents in 2026 sell remembering you; without understanding how memory is written and recalled, you cannot tell real memory from a temporary stitch-up.",
+    "slug": "长时记忆"
    }
   ]
  },
@@ -7620,6 +7715,239 @@ var TERMS = [
     ],
     "whyEn": "Vision, driving and content moderation all fear inputs that look normal but are misclassified.",
     "slug": "对抗样本"
+   },
+   {
+    "zh": "智能体强化学习",
+    "en": "Agentic Reinforcement Learning",
+    "alias": [
+     "Agentic RL",
+     "智能体 RL"
+    ],
+    "purpose": "让模型在真实工具环境里通过试错学会「多步做事」，而不是只会单轮答题。",
+    "def": [
+     "把任务放进可执行环境（搜索、终端、浏览器、代码库），模型每走一步得到一个奖励或惩罚信号。",
+     "与 RLHF 的区别：RLHF 优化的是「回答讨不讨人喜欢」，Agentic RL 优化的是「任务有没有做完、工具用得对不对」。",
+     "难点在奖励稀疏与信用分配：最终成功要归因到几十步里的哪一步，靠过程奖励、轨迹筛选或 verifier。",
+     "它通常需要可重复的环境与大量 rollout，成本比单轮对齐高得多，也更容易被环境漏洞「刷分」。"
+    ],
+    "why": "2026 年的编码与办公 Agent 都在往这条线走；看懂它，才能判断「Agent 会自己变强」是宣传还是真机制。",
+    "refs": [
+     [
+      "DeepSeek-R1 论文（arXiv 2501.12948）",
+      "https://arxiv.org/abs/2501.12948",
+      "DeepSeek-R1 paper (arXiv 2501.12948)"
+     ],
+     [
+      "Anthropic · Building effective agents",
+      "https://www.anthropic.com/engineering/building-effective-agents",
+      "Anthropic · Building effective agents"
+     ],
+     [
+      "学 AI · 强化学习",
+      "https://learn.specul.com/",
+      "Learn AI · Reinforcement Learning"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 56,
+    "last_verified": "2026-11-19",
+    "verified_scope": "refs",
+    "purposeEn": "Train models to learn multi-step work by trial and error in real tool environments, rather than only answering single-turn questions.",
+    "defEn": [
+     "Put the task in an executable environment (search, terminal, browser, codebase); the model receives a reward or penalty at each step.",
+     "Unlike RLHF, which optimises whether an answer is liked, agentic RL optimises whether the task is completed and whether tools are used correctly.",
+     "The hard parts are sparse rewards and credit assignment: attributing final success to one of dozens of steps requires process rewards, trajectory filtering or verifiers.",
+     "It usually needs reproducible environments and many rollouts, costing far more than single-turn alignment and making reward hacking easier."
+    ],
+    "whyEn": "Coding and office agents in 2026 are moving this way; understanding it separates a real self-improvement mechanism from marketing.",
+    "slug": "智能体强化学习"
+   },
+   {
+    "zh": "扩散强制",
+    "en": "Diffusion Forcing",
+    "purpose": "让视频或动作序列在生成时既能一次出全片，也能逐段续写，而且不漂移。",
+    "def": [
+     "训练时给每个 token 随机不同的噪声水平，模型同时学会「去噪」和「按已生成前缀续写」。",
+     "推理时可以逐帧或逐段生成，也可以并行生成；它和「一次性对整段序列做扩散」不是一回事。",
+     "它不是产品名，而是视频世界模型与实时生成常用的一类训练目标，解决长序列的一致性与延迟。",
+     "代价是训练调度更复杂：噪声水平怎么采样、前缀怎么给，都会影响长程稳定性。"
+    ],
+    "why": "视频生成从「一段 5 秒」走向「30 秒、多轮延长」，这类时序一致性机制是背后的关键技术之一。",
+    "refs": [
+     [
+      "Diffusion Forcing 论文（arXiv 2407.01392）",
+      "https://arxiv.org/abs/2407.01392",
+      "Diffusion Forcing paper (arXiv 2407.01392)"
+     ],
+     [
+      "字节 Seed · Seedance 2.5",
+      "https://seed.bytedance.com/seedance2_5",
+      "ByteDance Seed · Seedance 2.5"
+     ],
+     [
+      "学 AI · 扩散模型怎么生成",
+      "https://learn.specul.com/",
+      "Learn AI · How diffusion generates"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 57,
+    "last_verified": "2026-11-19",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Let video or action sequences be generated all at once or extended segment by segment without drift.",
+    "defEn": [
+     "During training each token gets a randomly different noise level, so the model learns both denoising and continuation from an already-generated prefix.",
+     "At inference it can generate frame by frame or segment by segment, and can also generate in parallel; it is not the same as diffusing the whole sequence in one pass.",
+     "It is not a product name but a training objective common in video world models and real-time generation, addressing long-sequence consistency and latency.",
+     "The cost is a more complex training schedule: how noise levels are sampled and how prefixes are supplied both affect long-range stability."
+    ],
+    "whyEn": "Video generation is moving from five-second clips to 30-second, multi-round extensions; this kind of temporal-consistency mechanism is one of the key enablers.",
+    "slug": "扩散强制"
+   },
+   {
+    "zh": "多模态推理",
+    "en": "Multimodal Reasoning",
+    "purpose": "让模型在看图或看视频之后还能多步推理，而不是只做一次描述。",
+    "def": [
+     "输入不只是文本，还包括图像、图表、视频帧；模型需要在视觉证据上做分解、比较、计算和引用。",
+     "与「视觉理解」不同：理解是「看到了什么」，推理是「据此推出什么、证据在哪」。",
+     "评测要同时看答案对不对和证据链是否落在图上，否则容易被语言先验蒙混。",
+     "长图、多图与视频会显著增加视觉 token 成本，推理步数越多，单价越高。"
+    ],
+    "why": "2026 年模型都在拼「看图做事」；不会验收多模态推理，就分不清真能力和漂亮话。",
+    "refs": [
+     [
+      "OpenAI · Vision guide",
+      "https://platform.openai.com/docs/guides/vision",
+      "OpenAI · Vision guide"
+     ],
+     [
+      "Google · Gemini image understanding",
+      "https://ai.google.dev/gemini-api/docs/image-understanding",
+      "Google · Gemini image understanding"
+     ],
+     [
+      "学 AI · 视觉语言模型",
+      "https://learn.specul.com/",
+      "Learn AI · Vision-language models"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "judge",
+    "level": 4,
+    "layer": "四",
+    "ord": 58,
+    "last_verified": "2026-11-19",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Let a model reason over several steps after seeing an image or video, not just describe it once.",
+    "defEn": [
+     "Inputs include images, charts and video frames, not only text; the model must decompose, compare, calculate and cite visual evidence.",
+     "Unlike visual understanding, which asks what is visible, reasoning asks what follows from it and where the evidence sits.",
+     "Evaluation must check both the answer and whether the evidence chain lands on the image, or language priors can fake it.",
+     "Long images, multiple images and video significantly raise visual-token cost; more reasoning steps mean a higher price."
+    ],
+    "whyEn": "Models in 2026 compete on seeing and acting; without acceptance tests for multimodal reasoning, real capability is hard to separate from polished talk.",
+    "slug": "多模态推理"
+   },
+   {
+    "zh": "音视频联合生成",
+    "en": "Joint Audio-Video Generation",
+    "purpose": "让画面和对白、音效在同一次生成里对齐，而不是先出视频再配音。",
+    "def": [
+     "模型在同一个生成过程里同时建模视觉帧与音频 token，口型、动作声、环境声按时间轴对齐。",
+     "与「视频生成 + TTS 后配」的区别：联合生成能让人物说话口型与环境声同步，后配通常对不上。",
+     "代价是训练数据与算力更贵，评测也要同时看画质、音质与同步，不能只挑一帧好看。",
+     "它不等于「自动配乐」：音乐版权、音色授权与内容标识仍是单独的问题。"
+    ],
+    "why": "2026 年的视频模型已经把声音当成一等公民；只看画面不看音画同步，会高估模型。",
+    "refs": [
+     [
+      "字节 Seed · Seedance 2.5",
+      "https://seed.bytedance.com/seedance2_5",
+      "ByteDance Seed · Seedance 2.5"
+     ],
+     [
+      "Google DeepMind · Veo",
+      "https://deepmind.google/models/veo/",
+      "Google DeepMind · Veo"
+     ],
+     [
+      "学 AI · 视频生成是怎么做的",
+      "https://learn.specul.com/",
+      "Learn AI · How video generation works"
+     ]
+    ],
+    "domain": "media",
+    "purposeTag": "learn",
+    "level": 4,
+    "layer": "四",
+    "ord": 59,
+    "last_verified": "2026-11-19",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Align picture with dialogue and sound effects in one generation pass instead of generating video and dubbing it afterwards.",
+    "defEn": [
+     "The model jointly models visual frames and audio tokens in one generation process, aligning lip movement, action sounds and ambience on a timeline.",
+     "Unlike video generation plus TTS, joint generation can synchronise a speaker’s lips with ambience; post-dubbing usually does not match.",
+     "The price is more expensive training data and compute, and evaluation must check picture, audio and sync together rather than one pretty frame.",
+     "It is not automatic scoring: music copyright, voice licensing and content labelling remain separate issues."
+    ],
+    "whyEn": "Video models in 2026 treat sound as a first-class citizen; judging only the picture overestimates the model.",
+    "slug": "音视频联合生成"
+   },
+   {
+    "zh": "模型合并",
+    "en": "Model Merging",
+    "purpose": "把两个或多个微调模型的权重合在一起，不重新训练就得到一个新的能力组合。",
+    "def": [
+     "常见做法包括线性加权、TIES、DARE 与任务向量；核心是处理参数冲突与冗余。",
+     "与集成（ensemble）的区别：合并产出一个模型，集成要同时跑多个模型。",
+     "合并前要确认同源底座与相同词表；不同底座或不同分词的模型直接合会坏。",
+     "许可证要逐个看：合并后的权重仍受各来源模型条款约束，不能因为「自己合的」就当成全新模型。"
+    ],
+    "why": "开源社区大量「合并模型」刷榜；不懂合并，容易把拼装当成新训练，也会误判许可证。",
+    "refs": [
+     [
+      "MergeKit 官方仓库",
+      "https://github.com/arcee-ai/mergekit",
+      "MergeKit official repository"
+     ],
+     [
+      "Hugging Face · Merge models 指南",
+      "https://huggingface.co/blog/mlabonne/merge-models",
+      "Hugging Face · Merge models guide"
+     ],
+     [
+      "学 AI · 微调",
+      "https://learn.specul.com/",
+      "Learn AI · Fine-tuning"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "apply",
+    "level": 4,
+    "layer": "四",
+    "ord": 60,
+    "last_verified": "2026-11-19",
+    "verified_scope": "refs",
+    "alias": [],
+    "purposeEn": "Combine the weights of two or more fine-tuned models into a new capability mix without retraining.",
+    "defEn": [
+     "Common methods include linear weighting, TIES, DARE and task vectors; the core problem is parameter conflict and redundancy.",
+     "Unlike an ensemble, merging produces one model; an ensemble runs several models at once.",
+     "Check that the source models share a base and tokenizer; merging different bases or tokenizers breaks the result.",
+     "Read every licence: merged weights remain bound by each source model’s terms and are not a brand-new model just because you merged them."
+    ],
+    "whyEn": "Open-source communities merge models at scale to chase leaderboards; without understanding merging, repackaging looks like new training and licences get misjudged.",
+    "slug": "模型合并"
    }
   ]
  },
@@ -9303,6 +9631,54 @@ var TERMS = [
     ],
     "whyEn": "When a model leaks or misbehaves, the first step is retracing what it may have seen. Without provenance you can only guess.",
     "slug": "训练数据溯源"
+   },
+   {
+    "zh": "量化感知训练",
+    "en": "Quantization-Aware Training",
+    "alias": [
+     "QAT"
+    ],
+    "purpose": "在训练时就模拟低精度误差，让模型量化后掉点更少。",
+    "def": [
+     "前向用 fake-quant 模拟 INT4 或 INT8 的取整与截断，反向仍用高精度梯度更新。",
+     "与训练后量化（PTQ）的区别：PTQ 不动权重，QAT 让模型提前适应量化误差。",
+     "代价是训练成本与调参复杂度；收益是低比特下更好的精度保持。",
+     "不是所有模型都值得做 QAT：基座已开源、量化工具成熟时，先跑 PTQ 对比更划算。"
+    ],
+    "why": "本地部署越来越依赖 4bit；QAT 与 PTQ 的差别直接决定「量化后还能不能用」。",
+    "refs": [
+     [
+      "TensorFlow Model Optimization · QAT 指南",
+      "https://www.tensorflow.org/model_optimization/guide/quantization/training",
+      "TensorFlow Model Optimization · QAT guide"
+     ],
+     [
+      "PyTorch · Quantization 文档",
+      "https://pytorch.org/docs/stable/quantization.html",
+      "PyTorch · Quantization docs"
+     ],
+     [
+      "学 AI · 量化方法",
+      "https://learn.specul.com/",
+      "Learn AI · Quantization methods"
+     ]
+    ],
+    "domain": "infra",
+    "purposeTag": "learn",
+    "level": 5,
+    "layer": "五",
+    "ord": 46,
+    "last_verified": "2026-11-19",
+    "verified_scope": "refs",
+    "purposeEn": "Simulate low-precision error during training so the quantised model loses less accuracy.",
+    "defEn": [
+     "The forward pass uses fake-quant to simulate INT4 or INT8 rounding and clipping, while the backward pass still updates with high-precision gradients.",
+     "Unlike post-training quantisation, which leaves weights untouched, QAT lets the model adapt to quantisation error in advance.",
+     "The cost is training compute and tuning complexity; the benefit is better accuracy at low bit-width.",
+     "Not every model is worth QAT: when a base is open and quantisation tools are mature, running PTQ first is often cheaper."
+    ],
+    "whyEn": "Local deployment increasingly relies on 4-bit; the gap between QAT and PTQ decides whether a quantised model is still usable.",
+    "slug": "量化感知训练"
    }
   ]
  },

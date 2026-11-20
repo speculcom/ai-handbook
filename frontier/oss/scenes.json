@@ -6,7 +6,11 @@
     "titleEn": "Agent Frameworks & Orchestration",
     "lead": "把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。",
     "who": "适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。",
-    "choose": ["流程有分支、重试、人工确认：先看 LangGraph。", "第一次搭多 agent、想快速跑分工：CrewAI 更直观。", "想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。"],
+    "choose": [
+      "流程有分支、重试、人工确认：先看 LangGraph。",
+      "第一次搭多 agent、想快速跑分工：CrewAI 更直观。",
+      "想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。"
+    ],
     "notFor": "不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。"
   },
   {
@@ -16,7 +20,11 @@
     "titleEn": "RAG & Knowledge Bases",
     "lead": "从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。",
     "who": "适合有私有文档、需要引用来源的回答场景；公开知识问答不一定要自建 RAG。",
-    "choose": ["想快速把一套知识库跑起来：RAGFlow 或 Dify。", "要自己控检索与生成链路：LlamaIndex / Haystack。", "只缺向量检索：Qdrant 生产、Chroma 原型。"],
+    "choose": [
+      "想快速把一套知识库跑起来：RAGFlow 或 Dify。",
+      "要自己控检索与生成链路：LlamaIndex / Haystack。",
+      "只缺向量检索：Qdrant 生产、Chroma 原型。"
+    ],
     "notFor": "RAG 不是把文档丢进模型。文档质量、权限与更新机制比 chunk size 更重要。"
   },
   {
@@ -26,7 +34,11 @@
     "titleEn": "Local Inference & Serving",
     "lead": "从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。",
     "who": "适合想把模型跑在自己机器、内网或自有 GPU 上的人；只用 API 的不需要这一节。",
-    "choose": ["第一次本地跑：Ollama。", "Mac / CPU / 边缘：llama.cpp。", "生产高吞吐：vLLM 或 SGLang；HF 生态：TGI。"],
+    "choose": [
+      "第一次本地跑：Ollama。",
+      "Mac / CPU / 边缘：llama.cpp。",
+      "生产高吞吐：vLLM 或 SGLang；HF 生态：TGI。"
+    ],
     "notFor": "本地跑不等于免费。显存、电费、运维和模型更新都要算。"
   },
   {
@@ -36,7 +48,11 @@
     "titleEn": "Multimodal, Image & Video",
     "lead": "图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。",
     "who": "适合做视觉内容、产品图、视频素材与多模态应用的人；只要文字生成的不需要。",
-    "choose": ["复杂工作流、可复用节点：ComfyUI。", "新手少调参：Fooocus；经典界面：SD WebUI。", "要把生成嵌进应用：Diffusers；视频生成：Wan2.1。"],
+    "choose": [
+      "复杂工作流、可复用节点：ComfyUI。",
+      "新手少调参：Fooocus；经典界面：SD WebUI。",
+      "要把生成嵌进应用：Diffusers；视频生成：Wan2.1。"
+    ],
     "notFor": "模型与工作流都有版权和肖像权问题；商用前逐项核对，不能默认可商用。"
   },
   {
@@ -46,7 +62,11 @@
     "titleEn": "Speech & Audio",
     "lead": "语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。",
     "who": "适合会议转写、字幕、配音、语音助手与音频内容生产的人。",
-    "choose": ["多语言转写基线：Whisper；更快更省：faster-whisper。", "中文会议与标点：FunASR；词级时间戳：WhisperX。", "中文 TTS：CosyVoice；少样本克隆：GPT-SoVITS（必须授权）。"],
+    "choose": [
+      "多语言转写基线：Whisper；更快更省：faster-whisper。",
+      "中文会议与标点：FunASR；词级时间戳：WhisperX。",
+      "中文 TTS：CosyVoice；少样本克隆：GPT-SoVITS（必须授权）。"
+    ],
     "notFor": "声音克隆不是玩具。没有本人授权，不要克隆、不要冒充、不要商用。"
   },
   {
@@ -56,7 +76,37 @@
     "titleEn": "Evaluation & Observability",
     "lead": "上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。",
     "who": "适合要把 LLM 应用从 demo 推到生产的人；一次性脚本不需要整套平台。",
-    "choose": ["RAG 回归：Ragas；像单测一样测：DeepEval。", "多模型 / 多 prompt 对比：promptfoo。", "追踪与成本：Langfuse / Phoenix；上线前红队：Giskard。"],
+    "choose": [
+      "RAG 回归：Ragas；像单测一样测：DeepEval。",
+      "多模型 / 多 prompt 对比：promptfoo。",
+      "追踪与成本：Langfuse / Phoenix；上线前红队：Giskard。"
+    ],
     "notFor": "榜单一分不代表你的场景可用。先建自己的 50–100 条评测集，再谈平台。"
+  },
+  {
+    "id": "training-finetune",
+    "order": 7,
+    "title": "训练与微调",
+    "titleEn": "Training & Fine-tuning",
+    "lead": "把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。",
+    "leadEn": "Turn a base model into your own: from single-GPU QLoRA to multi-node RLHF, start with VRAM, parallelism and reproducibility.",
+    "who": "适合要改模型行为、做领域适配或对齐训练的人；只做推理不用进这个场景。",
+    "whoEn": "For people who need to change model behavior, adapt to a domain or run alignment training; inference-only work does not need this scene.",
+    "choose": [
+      "单卡 24GB 想微调 7B：先看 Unsloth。",
+      "想把微调流程固化成配置：Axolotl。",
+      "做 DPO/PPO/GRPO 对齐：TRL 起步，规模化再看 verl / OpenRLHF。",
+      "要训大模型或多机：DeepSpeed、TorchTitan。",
+      "MoE 本地跑不动：KTransformers 的专家卸载。"
+    ],
+    "chooseEn": [
+      "24 GB single GPU, 7B model: start with Unsloth.",
+      "Turn fine-tuning into a reproducible config: Axolotl.",
+      "DPO/PPO/GRPO alignment: start with TRL, scale with verl / OpenRLHF.",
+      "Large-model or multi-node training: DeepSpeed, TorchTitan.",
+      "MoE does not fit locally: KTransformers expert offload."
+    ],
+    "notFor": "不要为了“全参训练”而全参；多数领域适配 LoRA/QLoRA 就够，先算数据量与评测收益。",
+    "notForEn": "Do not choose full-parameter training by default; most domain adaptation is served by LoRA/QLoRA. Estimate data volume and eval gain first."
   }
 ]

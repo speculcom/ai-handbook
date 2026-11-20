@@ -54,6 +54,7 @@ const licenseSummary = (e) => {
 };
 const sourceLabel = (e) => ({ zh: e.sourceLabel?.zh || '原始 HTML', en: e.sourceLabel?.en || 'Original HTML' });
 const promptLabel = (e) => ({ zh: e.promptLabel?.zh || '原始 prompt', en: e.promptLabel?.en || 'Original prompt' });
+const repoLabel = (e) => ({ zh: e.repoLabel?.zh || '原仓库', en: e.repoLabel?.en || 'Source repository' });
 
 function card(e) {
   const m = modelOf(e);
@@ -165,7 +166,7 @@ const workBody = (e) => {
     : bi('作品在原作者的页面运行。如果画面空白，通常是对方禁止嵌入，点“全屏打开原页”。', 'The piece runs on the original author’s page. If it appears blank, embedding is likely blocked; use “Open original”.')}</p>
   <div class="dm-play-info">
     <div><h2>${bi('这件作品', 'About this piece')}</h2><p>${bi(esc(e.notes.zh), esc(e.notes.en))}</p></div>
-    <div><h2>${bi('来源与 prompt', 'Source & prompt')}</h2><p class="t-sm">${licenseSummary(e)}</p><ul class="dm-links"><li><a href="${esc(e.sourceUrl)}" rel="noopener">${bi(esc(sourceLabel(e).zh), esc(sourceLabel(e).en))} &nearr;</a></li><li><a href="${esc(e.promptUrl)}" rel="noopener">${bi(esc(promptLabel(e).zh), esc(promptLabel(e).en))} &nearr;</a></li><li><a href="${esc(e.repoUrl)}" rel="noopener">${bi('原仓库', 'Source repository')} &nearr;</a></li></ul></div>
+    <div><h2>${bi('来源与 prompt', 'Source & prompt')}</h2><p class="t-sm">${licenseSummary(e)}</p><ul class="dm-links"><li><a href="${esc(e.sourceUrl)}" rel="noopener">${bi(esc(sourceLabel(e).zh), esc(sourceLabel(e).en))} &nearr;</a></li><li><a href="${esc(e.promptUrl)}" rel="noopener">${bi(esc(promptLabel(e).zh), esc(promptLabel(e).en))} &nearr;</a></li><li><a href="${esc(e.repoUrl)}" rel="noopener">${bi(esc(repoLabel(e).zh), esc(repoLabel(e).en))} &nearr;</a></li></ul></div>
   </div>
 </div>`;
 };

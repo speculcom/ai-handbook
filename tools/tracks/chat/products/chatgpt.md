@@ -10,8 +10,9 @@ licenseEn: Official Terms of Use, 'Ownership of content': as between you and Ope
 
 axes:
   model_access: >-
-    模型家族官方披露并按档位分流：release notes（2026-10-07）写明 Plus/Pro/Business/Enterprise
-    用 GPT-6 Sol、Free/Go 用 GPT-6 Luna，Pro 推理选项用 GPT-6 Astra；聊天内可选模型。
+    模型家族官方发布说明按档位分流：2026-11-17 上线 GPT-6.2 Astra（复杂专业工作）与
+    GPT-6.2 Sol（多步任务的速度/成本平衡）；GPT-6 Astra、GPT-6.1 Sol/Terra 仍在列。
+    聊天内可选模型与档位以官方 release notes 为准。
   runtime: >-
     网页、iOS/Android、macOS/Windows 桌面端；全部生成与检索在 OpenAI 云端处理，本机不跑模型。
     桌面端内置浏览器，浏览器智能体能力并入 ChatGPT 与 Codex（官方版本说明：Atlas 浏览器于 2026-08-09 停运）。
@@ -51,7 +52,7 @@ tags: [云端, 多模态, 记忆, 商业]
 related: [openai-dot, codex-cli]
 
 sources:
-  - label: OpenAI Help · ChatGPT release notes（官方更新日志；2026-11-03 取到正文，含 Atlas 停运、ChatGPT 工作、DALL·E GPT 停用）
+  - label: OpenAI Help · ChatGPT release notes（官方更新日志；2026-11-03 取到正文、2026-11-19 复核，含 Atlas 停运、ChatGPT 工作、DALL·E GPT 停用）
     url: https://help.openai.com/zh-hans-cn/articles/6825453-chatgpt-%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
     kind: changelog
   - label: OpenAI Help · ChatGPT Atlas release notes（Atlas 版本记录，2026-03-10 最后一条）
@@ -75,9 +76,12 @@ sources:
   - label: OpenAI · ChatGPT Pricing（定价页指针，D9：本站不采价格数字）
     url: https://openai.com/chatgpt/pricing/
     kind: pricing
+  - label: OpenAI Help · Model release notes（2026-11-17：GPT-6.2 Astra / Sol 上线）
+    url: https://help.openai.com/zh-hant/articles/9624314-model-release-notes
+    kind: changelog
 
-last_verified: 2026-11-03
-last_updated: 2026-11-03
+last_verified: 2026-11-19
+last_updated: 2026-11-19
 lifecycle: active
 confidence: partial
 

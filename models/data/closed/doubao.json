@@ -14,12 +14,33 @@
     "en": "Volcengine Ark API and the Doubao app; weights are not open."
   },
   "currentGen": {
-    "zh": "Doubao-Seed 2.1 系（+ Seed-Evolving）",
-    "en": "Doubao-Seed 2.1 line (+ Seed-Evolving)"
+    "zh": "Doubao-Seed 2.1 系（Pro / Lite / Seed-Evolving）+ SeedRealtime 1.0",
+    "en": "Doubao-Seed 2.1 line (Pro / Lite / Seed-Evolving) + SeedRealtime 1.0"
   },
-  "currentGenDate": "2026-06",
+  "currentGenDate": "2026-11",
   "review_interval_days": 30,
   "generations": [
+    {
+      "gen": "Doubao-Seed-Realtime 1.0",
+      "date": "2026-11",
+      "zh": "2026-11-19 上线 API：全双工、端到端实时音视频交互模型，原生融合音频、视频与文本；在 Seeduplex 基础上新增视频帧 / 图片输入（≤2 FPS）与火山搜图能力，可结合画面主动交互。",
+      "en": "API live on 2026-11-19: a full-duplex, end-to-end realtime audio-video interaction model that natively fuses audio, video and text; on top of Seeduplex it adds video-frame / image input (≤2 FPS) and Volcengine image search, enabling proactive on-screen interaction.",
+      "url": "https://docs.volcengine.com/docs/doubao-voice/product-overview-13?lang=zh"
+    },
+    {
+      "gen": "Doubao-Seed 2.1 Pro / Lite 0915",
+      "date": "2026-09",
+      "zh": "2026-09-15 上线 Pro / Lite 0915：1024k 输入，Pro 256k 输出与 256k 思维链；Lite 原生统一文本、视觉与音频理解（火山方舟发布公告）。",
+      "en": "Pro / Lite 0915 launched on 2026-09-15: 1024k input; Pro supports 256k output and 256k thinking; Lite natively unifies text, vision and audio understanding (Volcengine Ark announcement).",
+      "url": "https://ark.volcengine.com/region:cn-beijing/model/detail?name=doubao-seed-2-1-pro"
+    },
+    {
+      "gen": "Seed-Evolving 版本更新",
+      "date": "2026-11",
+      "zh": "2026-11 Seed-Evolving 版本更新：官方定位为 Coding & Agent 持续升级模型，1024k 上下文 / 256k 输出（火山方舟模型广场）。",
+      "en": "November 2026 Seed-Evolving update: officially positioned as a continuously upgraded Coding & Agent model, 1024k context / 256k output (Volcengine Ark model marketplace).",
+      "url": "https://ai.volcengine.com/model"
+    },
     {
       "gen": "Doubao-Seed 2.1",
       "date": "2026-06",
@@ -42,21 +63,21 @@
         "en": "Context window"
       },
       "v": {
-        "zh": "2.1-pro / 2.1-turbo：256k；Seed-Evolving：1024k（火山模型广场）",
-        "en": "2.1-pro / 2.1-turbo: 256k; Seed-Evolving: 1024k (Volcengine model marketplace)"
+        "zh": "2.1-pro-260915 / 2.1-lite-260915：1024k 输入；2.1-pro 最大输出 256k、最大思维链 256k（火山方舟模型详情）",
+        "en": "2.1-pro-260915 / 2.1-lite-260915: 1024k input; 2.1-pro supports 256k max output and 256k max thinking (Volcengine Ark model detail)"
       },
-      "url": "https://ai.volcengine.com/model"
+      "url": "https://ark.volcengine.com/region:cn-beijing/model/detail?name=doubao-seed-2-1-pro"
     },
     {
       "k": {
-        "zh": "最大输出",
-        "en": "Max output"
+        "zh": "定价入口",
+        "en": "Pricing pointer"
       },
       "v": {
-        "zh": "2.1 系 256k；2.0 系 128k（同上）",
-        "en": "256k on the 2.1 line; 128k on 2.0 (same page)"
+        "zh": "按档位与用量计费，本站不抄具体数字；以官方模型页或发布页的定价表为准。",
+        "en": "Billed by tier and usage; this site does not copy numbers — see the official pricing table."
       },
-      "url": "https://ai.volcengine.com/model"
+      "url": "https://ark.volcengine.com/region:cn-beijing/model/detail?name=doubao-seed-2-1-pro"
     },
     {
       "k": {
@@ -64,21 +85,43 @@
         "en": "Input modalities"
       },
       "v": {
-        "zh": "2.0-lite 起官方标注多模态理解（音视图文）；GUI 任务处理与工具调用在列（同上）",
-        "en": "From 2.0-lite the marketplace marks multimodal understanding (audio/video/image/text); GUI task handling and tool calling listed (same page)"
+        "zh": "文本、图片、视频输入；2.1-lite 原生支持文本 / 视觉 / 音频统一理解（火山发布公告）",
+        "en": "Text, image and video input; 2.1-lite natively unifies text, vision and audio understanding (Volcengine release announcement)"
       },
-      "url": "https://ai.volcengine.com/model"
+      "url": "https://console.volcengine.com/ark/region:cn-beijing/docs/model-release-announcement"
     },
     {
       "k": {
-        "zh": "代次更替",
-        "en": "Generation churn"
+        "zh": "换代要点",
+        "en": "What changed"
       },
       "v": {
-        "zh": "模型广场现役 2.1-pro / 2.1-turbo 已是 260628 快照；10-20 快照里标「即将下线」的 260215 档已不在广场在册——闭源谱系按月更代的现场样本，这里按快照记录",
-        "en": "The marketplace now runs 2.1-pro / 2.1-turbo at the 260628 snapshot; the 260215 snapshot marked \"soon to be retired\" in the 10-20 snapshot is no longer listed — a live sample of monthly closed-line churn; recorded as a snapshot"
+        "zh": "0915 版本强化 Agent 长程执行、多模态 Coding 与多模态理解；Seed-Evolving 2026-11 更新集中在多步任务规划、结果验收、工具调用与事实一致性，时延与单次成本下降（火山公告）",
+        "en": "The 0915 release strengthens long-horizon agent execution, multimodal coding and multimodal understanding; the November Seed-Evolving update focuses on multi-step planning, result acceptance, tool use and factual consistency, with lower latency and cost per call (Volcengine announcement)"
       },
-      "url": "https://ai.volcengine.com/model"
+      "url": "https://console.volcengine.com/ark/region:cn-beijing/docs/model-release-announcement"
+    },
+    {
+      "k": {
+        "zh": "同厂生成线",
+        "en": "Sibling generation lines"
+      },
+      "v": {
+        "zh": "Seedream 5.5 图像模型与 Seedance 2.5 Flash 视频模型于 2026-11-18 上线；Seedance 2.5 Flash 支持最长 30s、480P/720P、最多 10 图 + 5 视频 + 5 音频参考（火山模型广场）",
+        "en": "Seedream 5.5 (image) and Seedance 2.5 Flash (video) went live on 2026-11-18; Seedance 2.5 Flash supports up to 30s, 480P/720P, and up to 10 images + 5 videos + 5 audio references (Volcengine model marketplace)"
+      },
+      "url": "https://ark.volcengine.com/region:cn-beijing/model/detail?name=doubao-seed-2-1-pro"
+    },
+    {
+      "k": {
+        "zh": "实时音视频线",
+        "en": "Realtime audio-video line"
+      },
+      "v": {
+        "zh": "豆包实时音视频模型 1.0（Doubao-Seed-Realtime 1.0）于 2026-11-19 上线 API：全双工、端到端，原生融合音频、视频与文本；支持把摄像头 / 屏幕画面以不超过 2 FPS 推给服务端，结合画面理解指代与场景变化（火山引擎豆包语音产品页 / Android SDK 文档）。",
+        "en": "Doubao-Seed-Realtime 1.0 went live in the API on 2026-11-19: full-duplex, end-to-end, natively fusing audio, video and text; clients can push camera / screen frames at up to 2 FPS so the model can resolve references and track scene changes (Volcengine Doubao Voice product page / Android SDK docs)."
+      },
+      "url": "https://docs.volcengine.com/docs/doubao-voice/product-overview-13?lang=zh"
     }
   ],
   "positioning": {
@@ -91,6 +134,24 @@
   },
   "sources": [
     {
+      "label": "火山方舟 · Doubao-Seed-2.1-pro 模型详情（1024k / 256k / 定价）",
+      "labelEn": "Volcengine Ark · Doubao-Seed-2.1-pro model detail (1024k / 256k / pricing)",
+      "url": "https://ark.volcengine.com/region:cn-beijing/model/detail?name=doubao-seed-2-1-pro",
+      "kind": "docs"
+    },
+    {
+      "label": "火山方舟模型发布公告（2026-11-19 更新：2.1 Pro/Lite 0915、Seed-Evolving 更新）",
+      "labelEn": "Volcengine Ark model release announcements (updated 2026-11-19: 2.1 Pro/Lite 0915, Seed-Evolving update)",
+      "url": "https://console.volcengine.com/ark/region:cn-beijing/docs/model-release-announcement",
+      "kind": "docs"
+    },
+    {
+      "label": "字节跳动 Seed · Seed2.1 官方页",
+      "labelEn": "ByteDance Seed · Seed2.1 official page",
+      "url": "https://research.doubao.com/zh/seed2_1",
+      "kind": "docs"
+    },
+    {
       "label": "火山引擎模型广场（2026-10-30 直抓 200，规格与下线标注取自该页）",
       "url": "https://ai.volcengine.com/model",
       "kind": "docs",
@@ -101,9 +162,21 @@
       "url": "https://console.volcengine.com/ark/region:cn-beijing/docs/model-list",
       "kind": "docs",
       "labelEn": "Volcano Ark model list (console docs page, search snapshot 2026-10-30, same basis)"
+    },
+    {
+      "label": "火山引擎 · 豆包语音产品简介（实时音视频通话，2026-11-19 更新）",
+      "url": "https://docs.volcengine.com/docs/doubao-voice/product-overview-13?lang=zh",
+      "kind": "docs",
+      "labelEn": "Volcengine · Doubao Voice product overview (realtime audio-video, updated 2026-11-19)"
+    },
+    {
+      "label": "火山引擎 · 实时音视频通话 Android SDK 文档（Doubao-Seed-Realtime-1.0，≤2 FPS 视频帧输入）",
+      "url": "https://docs.volcengine.com/docs/doubao-voice/end-to-end-full-duplex-android-sdk-documentation?lang=en",
+      "kind": "docs",
+      "labelEn": "Volcengine · realtime audio-video Android SDK docs (Doubao-Seed-Realtime-1.0, ≤2 FPS frame input)"
     }
   ],
-  "last_verified": "2026-10-30",
+  "last_verified": "2026-11-20",
   "confidence": "verified",
   "cn": {
     "origin": "domestic",

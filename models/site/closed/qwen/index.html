@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Qwen（闭源 API） · 闭源谱系卡</title>
+  <meta name="description" content="Qwen（闭源 API）（阿里云 / 阿里巴巴）的闭源谱系卡：当前代 Qwen4-Max（2.4T，1M 上下文，原生视觉）、官方规格事实全部挂出处、30 天复核周期。资料更新到 2026-11-20。" />
+  <link rel="canonical" href="https://models.specul.com/closed/qwen/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Qwen（闭源 API） · 闭源谱系卡" />
+  <meta property="og:url" content="https://models.specul.com/closed/qwen/" />
+  <meta property="og:title" content="Qwen（闭源 API） · 闭源谱系卡" />
+  <meta property="og:description" content="Qwen（闭源 API）（阿里云 / 阿里巴巴）的闭源谱系卡：当前代 Qwen4-Max（2.4T，1M 上下文，原生视觉）、官方规格事实全部挂出处、30 天复核周期。资料更新到 2026-11-20。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="../../brand.js?v=c81d6c81488e"></script>
+  <link rel="stylesheet" href="../../brand.css?v=c81d6c81488e" />
+  <link rel="stylesheet" href="../../site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Qwen（闭源 API） 闭源谱系卡","description":"国产闭源旗舰里参数规模最大的一档，且与开放权重线并行：Max 走 API，Qwen4 小模型后续开源。选型时把「API 条款」与「后续开放权重许可」分开读，不要把两者混成一个模型。","url":"https://models.specul.com/closed/qwen/","dateModified":"2026-11-20"}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/" aria-current="page"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/" aria-current="page"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+  <div class="container">
+    <nav class="crumbs"><a href="https://models.specul.com/">← <span data-zh>回开放权重图谱</span><span data-en>Back to the open-weight map</span></a></nav>
+    <header class="page-head">
+      <p class="eyebrow"><span data-zh>阿里云 / 阿里巴巴</span><span data-en>Alibaba Cloud / Alibaba</span>　·　<span data-zh>闭源谱系卡</span><span data-en>closed model lineage card</span>　·　<span data-zh>当前代</span><span data-en>current generation</span> <span data-zh>Qwen4-Max（2.4T，1M 上下文，原生视觉）</span><span data-en>Qwen4-Max (2.4T, 1M context, native vision)</span>（2026-11）</p>
+      <h1><span data-zh>Qwen（闭源 API）</span><span data-en>Qwen (closed API)</span><span class="sub"><span data-zh>闭源模型 · 官方规格快照 · 带复核周期</span><span data-en>closed model · official spec snapshot · with review cycle</span></span></h1>
+      <p class="lede"><span data-zh>国产闭源旗舰里参数规模最大的一档，且与开放权重线并行：Max 走 API，Qwen4 小模型后续开源。选型时把「API 条款」与「后续开放权重许可」分开读，不要把两者混成一个模型。</span><span data-en>The largest domestic closed flagship by parameter count, running in parallel with an open-weight line: Max stays on the API while smaller Qwen4 models are promised for open source. Read API terms and the future open-weight licence separately; they are not one model.</span></p>
+      <p class="closed-access"><b><span data-zh>怎么用得到</span><span data-en>How you can use it</span>：</b><span data-zh>QwenCloud 与阿里云百炼 API；Qwen4-Max、Qwen3.8-Max 走闭源 API，Qwen4 家族的小模型后续开源（官方博客）。</span><span data-en>QwenCloud and Alibaba Cloud Model Studio API; Qwen4-Max and Qwen3.8-Max run through the closed API, while smaller Qwen4 family models are promised for open source (official blog).</span></p>
+      <p class="fam-onsite"><span data-zh>开放权重侧这里收 qwen3-8 系列（谱系卡与量化对比）；Qwen4-Max 目前只有闭源 API，没有本地量化话题。</span><span data-en>On the open-weight side this site covers the qwen3-8 series (family card and quantisation comparison); Qwen4-Max is API-only today, so local quantisation does not apply.</span></p>
+    </header>
+
+
+    <section class="fam-sec cn-sec">
+      <h2><span data-zh>中文生态</span><span data-en>China availability</span> <small><span data-zh>国产 / 国内可直接用 / 备案状态 · 快照</span><span data-en>domestic / direct access / CAC filing · snapshot</span> 2026-11-19</small></h2>
+      <ul class="fam-claims cn-rows">
+        <li><b><span data-zh>出品属地</span><span data-en>Origin</span></b>　<span data-zh>国产</span><span data-en>domestic</span>　<span data-zh>出品方为阿里巴巴（杭州）。</span><span data-en>Made by Alibaba (Hangzhou).</span></li>
+        <li><b><span data-zh>国内下载</span><span data-en>Direct access</span></b>　<span data-zh>国内可直连</span><span data-en>direct OK</span>　<span data-zh>QwenCloud 与阿里云百炼大陆直连可达（2026-11-19 复核 200）。</span><span data-en>QwenCloud and Alibaba Cloud Model Studio are reachable direct from the mainland (200 on recheck, 2026-11-19).</span></li>
+        <li><b><span data-zh>备案状态</span><span data-en>CAC filing</span></b>　<span data-zh>备案未资料</span><span data-en>filing unknown</span>：<span data-zh>Qwen4-Max 专名的备案编号未在公开名单中逐条定位；母体阿里云已备案。不臆造编号。</span><span data-en>The filing number for the Qwen4-Max product name was not located item by item in the public list; the parent Alibaba Cloud is filed. No number is invented.</span></li>
+      </ul>
+      <p class="fam-claims-note"><span data-zh>备案信息按网信办《生成式人工智能服务已备案信息》公示名单抄编号；「国内可直连」是在本地网络实际打开过一次的记录，不是厂商承诺。</span><span data-en>Filing status is quoted from the CAC public registry by number. "Direct access" means the page opened once from a mainland network — not a vendor promise.</span></p>
+      <ul class="fam-src-list cn-srcs"><li><span data-zh>网信办《生成式人工智能服务已备案信息》滚动公告页：</span><span data-en>CAC · filed generative-AI service information (rolling announcement page): </span><a href="https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm" target="_blank" rel="noopener">https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm</a></li></ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2><span data-zh>代次</span><span data-en>Generations</span> <small><span data-zh>按官方发布/文档页记录</span><span data-en>as recorded by official releases and docs</span></small></h2>
+      <ul class="fam-gens">
+        <li class="fam-gen">
+          <div class="fam-gen-head"><b><span data-zh>Qwen4-Max</span><span data-en>Qwen4-Max</span></b><span class="fam-gen-date">2026-11</span><span class="fam-gen-cur"><span data-zh>当前代</span><span data-en>current</span></span></div>
+          <p><span data-zh>2026-11-16 发布：2.4 万亿总参数、单 token 激活 710 亿（较 Qwen3.8-Max 少 25%）、原生视觉、100 万 token 上下文；官方称在编程、智能体任务与视觉推理上表现突出（阿里巴巴集团新闻稿）。</span><span data-en>Released on 2026-11-16: 2.4T total parameters, 71B active per token (25% fewer than Qwen3.8-Max), native vision and a 1M-token context; the official release says it stands out on coding, agentic tasks and visual reasoning (Alibaba Group newsroom).</span></p>
+          <a class="fam-src" href="https://www.alibabagroup.com/en-US/document-2060139246777270272" target="_blank" rel="noopener"><span data-zh>官方页面 ↗</span><span data-en>official page ↗</span></a>
+        </li>
+        <li class="fam-gen">
+          <div class="fam-gen-head"><b><span data-zh>Qwen3.8-Max / 0902</span><span data-en>Qwen3.8-Max / 0902</span></b><span class="fam-gen-date">2026-09</span></div>
+          <p><span data-zh>上一代旗舰：2.4 万亿参数 MoE，快照 qwen3.8-max-0902；官方同时宣布将开放 Qwen-Max 级权重（阿里云博客）。</span><span data-en>Previous flagship: 2.4T-parameter MoE with snapshot qwen3.8-max-0902; the official blog also announced that Qwen-Max-class weights would be opened.</span></p>
+          <a class="fam-src" href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank" rel="noopener"><span data-zh>官方页面 ↗</span><span data-en>official page ↗</span></a>
+        </li>
+        <li class="fam-gen">
+          <div class="fam-gen-head"><b><span data-zh>Qwen3.7-Max</span><span data-en>Qwen3.7-Max</span></b><span class="fam-gen-date">2026-05</span></div>
+          <p><span data-zh>更早一代 Max：官方价格页仍在册，作为历史档位保留（QwenCloud 价格页）。</span><span data-en>Earlier Max generation: still listed in the official pricing page as a historical tier (QwenCloud pricing page).</span></p>
+          <a class="fam-src" href="https://docs.qwencloud.com/developer-guides/getting-started/model-prices" target="_blank" rel="noopener"><span data-zh>官方页面 ↗</span><span data-en>official page ↗</span></a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="fam-sec">
+      <h2><span data-zh>官方怎么说（每条带出处）</span><span data-en>Official spec facts (each with a source)</span> <small><span data-zh>资料时间</span><span data-en>as of</span></small></h2>
+      <ul class="fam-claims cn-rows">
+        <li><b><span data-zh>参数规模</span><span data-en>Parameter scale</span></b>　<span data-zh>2.4 万亿总参数（Qwen4-Max，官方新闻稿）；每个 token 激活 710 亿参数，较 Qwen3.8-Max 少 25%。</span><span data-en>2.4 trillion total parameters (Qwen4-Max, official release); 71B active per token, 25% fewer than Qwen3.8-Max.</span><a class="fam-src" href="https://www.alibabagroup.com/en-US/document-2060139246777270272" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+        <li><b><span data-zh>上下文窗口</span><span data-en>Context window</span></b>　<span data-zh>1,000,000 tokens（Qwen4-Max，官方新闻稿）</span><span data-en>1,000,000 tokens (Qwen4-Max, official release)</span><a class="fam-src" href="https://www.alibabagroup.com/en-US/document-2060139246777270272" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+        <li><b><span data-zh>输入模态</span><span data-en>Input modalities</span></b>　<span data-zh>原生视觉 + 文本；官方称支持图像与视频理解（官方模型文档）</span><span data-en>Native vision plus text; the official model docs say it handles image and video understanding (official model docs)</span><a class="fam-src" href="https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+        <li><b><span data-zh>定价入口</span><span data-en>Pricing pointer</span></b>　<span data-zh>按 Token Plan 或 API 用量计费，本站不抄具体数字；以 QwenCloud 价格页为准。</span><span data-en>Billed through Token Plan or API usage; this site does not copy numbers — see the QwenCloud pricing page.</span><a class="fam-src" href="https://docs.qwencloud.com/developer-guides/getting-started/model-prices" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+        <li><b><span data-zh>官方评测</span><span data-en>Official benchmarks</span></b>　<span data-zh>官方称 Code Arena 第 6，并在 Agents’ Last Exam、Vals Index、JobBench、Chartography 等专项测试中取得佳绩；均为厂商口径，未独立复现。</span><span data-en>The official release claims 6th on Code Arena and strong results on Agents’ Last Exam, Vals Index, JobBench and Chartography; all vendor-reported, not independently reproduced.</span><a class="fam-src" href="https://www.alibabagroup.com/en-US/document-2060139246777270272" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+        <li><b><span data-zh>产品入口</span><span data-en>Product entry</span></b>　<span data-zh>QwenCloud、QwenWork、Qoder、QwenStudio；企业走阿里云百炼（官方博客与云文档）。</span><span data-en>QwenCloud, QwenWork, Qoder and QwenStudio; enterprises use Alibaba Cloud Model Studio (official blog and cloud docs).</span><a class="fam-src" href="https://qwen.ai/blog?id=qwen4-max" target="_blank" rel="noopener"><span data-zh>出处 ↗</span><span data-en>source ↗</span></a></li>
+      </ul>
+      <p class="fam-claims-note"><span data-zh>以上转述官方文档和发布页；资料时间之后厂商可能改规格。价格看官方定价页，链接在下面。</span><span data-en>The above transcribe official docs and release pages; vendors may have changed specs since. For pricing, use the official pricing page linked below.</span></p>
+    </section>
+
+    <section class="fam-sec fam-sources">
+      <h2><span data-zh>出处</span><span data-en>Sources</span></h2>
+      <ul class="fam-src-list"><li><span data-zh>阿里巴巴集团新闻稿：Qwen4-Max（2026-11-16）：</span><span data-en>Alibaba Group newsroom: Qwen4-Max (2026-11-16): </span><a href="https://www.alibabagroup.com/en-US/document-2060139246777270272" target="_blank" rel="noopener">https://www.alibabagroup.com/en-US/document-2060139246777270272</a></li><li><span data-zh>Qwen 官方博客：Qwen4-Max（2026-11-16）：</span><span data-en>Qwen official blog: Qwen4-Max (2026-11-16): </span><a href="https://qwen.ai/blog?id=qwen4-max" target="_blank" rel="noopener">https://qwen.ai/blog?id=qwen4-max</a></li><li><span data-zh>阿里云百炼文档：qwen4-max-preview（2026-11-11 更新）：</span><span data-en>Alibaba Cloud Model Studio docs: qwen4-max-preview (updated 2026-11-11): </span><a href="https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview" target="_blank" rel="noopener">https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview</a></li><li><span data-zh>阿里云博客：Qwen3.8-Max（2026-08-03，含开放权重计划）：</span><span data-en>Alibaba Cloud blog: Qwen3.8-Max (2026-08-03, with open-weight plan): </span><a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank" rel="noopener">https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421</a></li><li><span data-zh>QwenCloud 价格页（定价入口，D9：本站不抄数字）：</span><span data-en>QwenCloud pricing page (pricing pointer; this site copies no numbers): </span><a href="https://docs.qwencloud.com/developer-guides/getting-started/model-prices" target="_blank" rel="noopener">https://docs.qwencloud.com/developer-guides/getting-started/model-prices</a></li>
+      </ul>
+      <p class="fam-foot"><span data-zh>资料时间：2026-11-20 · 复核周期 30 天 · 下次再看一遍：2026-12-20 前。</span><span data-en>Data as of 2026-11-20 · 30-day review cycle · next look by 2026-12-20.</span></p>
+    </section>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
+    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
+    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+    <a href="https://models.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
+    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
+    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</nav>
+</body>
+</html>

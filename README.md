@@ -39,15 +39,15 @@
 <!-- STATS:BEGIN generated, do not edit -->
 | 项 | 实测值 |
 |---|---|
-| terms · 词条 | 284 词 |
-| terms · 分站 | 进门 36 · 上手 44 · 用深 67 · 看懂 55 · 跑起来 45 · 选得对 37 |
+| terms · 词条 | 292 词 |
+| terms · 分站 | 进门 36 · 上手 44 · 用深 69 · 看懂 60 · 跑起来 46 · 选得对 37 |
 | terms · 学习路径 | 16 条（精选有序路径 · 各带检查点） |
-| terms · 微型指南 | 105 篇（5-10 分钟一篇 · 英文覆盖 105/105） |
+| terms · 微型指南 | 111 篇（5-10 分钟一篇 · 英文覆盖 111/111） |
 | terms · 编年史与版图 | 18 条时间线 · 12 家公司 · 5 条术语演变 |
-| terms · 领域（domain） | concept 75 · infra 49 · choice 39 · agent 36 · data 25 · media 25 · model 24 · dev 11 |
-| terms · 用途（purposeTag） | learn 108 · apply 74 · guard 55 · judge 47 |
-| terms · 出处条目（refs） | 780 条 |
-| terms · 英文覆盖 | 284 / 284 |
+| terms · 领域（domain） | concept 75 · infra 50 · choice 39 · agent 38 · model 27 · media 27 · data 25 · dev 11 |
+| terms · 用途（purposeTag） | learn 112 · apply 77 · guard 55 · judge 48 |
+| terms · 出处条目（refs） | 822 条 |
+| terms · 英文覆盖 | 292 / 292 |
 | tools · 档案总数 | 280 份 |
 | tools · 大类分布 | coding 41 · chat 23 · image 15 · video 14 · audio 17 · research 11 · office 15 · automation 24 · framework 42 · mcp 32 · runner 21 · safety 25 |
 | tools · 形态分布（form） | web 108 · harness 39 · mcp 32 · cli 30 · cloud 28 · local-app 23 · ide 19 · app 1 |
@@ -59,7 +59,7 @@
 | models · GGUF 文件（files） | 1337 个 |
 | models · 量化者 | 54 位 |
 | models · 家族谱系卡（families） | 16 张 |
-| models · 闭源谱系卡（closed） | 6 张 |
+| models · 闭源谱系卡（closed） | 7 张 |
 | models · 基座许可分布 | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->
 
