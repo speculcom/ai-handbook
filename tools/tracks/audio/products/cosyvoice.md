@@ -7,6 +7,7 @@ vendor: 阿里 FunAudioLLM（开源）
 homepage: https://github.com/FunAudioLLM/CosyVoice
 license: Apache-2.0（官方仓 GitHub API 当日核验 license=Apache-2.0）；权重经 ModelScope/Hugging Face 分发，
   各代权重页许可未逐张核验。
+licenseEn: Apache-2.0, verified against the official repository's GitHub API on the audit date (license=Apache-2.0). Weights ship via ModelScope/Hugging Face; per-generation weight-page licences were not checked one by one.
 
 axes:
   model_access: >-

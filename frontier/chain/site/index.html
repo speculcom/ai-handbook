@@ -99,13 +99,13 @@
   <section class="vz-section" id="trust">
   <div class="container">
     <div class="vz-head">
-      <p class="vz-kicker">链 · 一张图看全貌</p>
+      <p class="vz-kicker"><span data-zh>链 · 一张图看全貌</span><span data-en>Chain · the whole map</span></p>
       <h2 class="vz-title">AI 自己办事，<br class="br-sm" />先解决「凭什么信它」 <span class="vz-title-sub">trust stack</span></h2>
       <p class="vz-dek"><span data-zh>身份、声誉、验证、结算四层分开看；「上链」不等于「可信」。想找某个协议或标准，按下面的类目进去。</span><span data-en>Identity, reputation, validation and settlement are kept separate; “on-chain” is not “trustworthy”. Pick a category below to find a protocol or standard.</span></p>
     </div>
     <div class="vz-grid"><figure class="vz-card vz-span-7">
-    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>四层信任栈</b><small><span data-zh>从「谁」到「钱」</span><span data-en>from who to money</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 328" role="img" aria-label="信任栈分层图" xmlns="http://www.w3.org/2000/svg">
+    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b><span data-zh>四层信任栈</span><span data-en>Four-layer trust stack</span></b><small><span data-zh>从「谁」到「钱」</span><span data-en>from who to money</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 328" role="img" aria-label="信任栈分层图" data-ui-aria-label-zh="信任栈分层图" data-ui-aria-label-en="Trust-stack layers" xmlns="http://www.w3.org/2000/svg">
       <rect x="150" y="10" width="550" height="58" rx="12" class="vz-stack" style="stroke:var(--cat-violet);fill:var(--cat-violet);fill-opacity:.10"/>
       <text x="0" y="34" class="vz-t-strong">身份</text>
       <text x="0" y="55" class="vz-t-dim">谁在操作</text>
@@ -128,8 +128,8 @@
       </svg></div>
     <p class="vz-foot"><span data-zh>四层可以分开采用：只做身份发现、不做链上声誉，也是一种合法用法。ERC-8004 的 supportedTrust 允许为空。</span><span data-en>Layers can be adopted separately: identity discovery without on-chain reputation is legitimate. ERC-8004’s supportedTrust may be empty.</span></p>
   </figure><figure class="vz-card vz-span-5">
-    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b>类目分布</b><small><span data-zh>按主类目看条目</span><span data-en>entries by primary category</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 200" role="img" aria-label="横向条形图" xmlns="http://www.w3.org/2000/svg">
+    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b><span data-zh>类目分布</span><span data-en>Category distribution</span></b><small><span data-zh>按主类目看条目</span><span data-en>entries by primary category</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 200" role="img" aria-label="横向条形图" data-ui-aria-label-zh="横向条形图" data-ui-aria-label-en="Horizontal bar chart" xmlns="http://www.w3.org/2000/svg">
       <line x1="140" y1="41" x2="710" y2="41" class="vz-gridline"/>
       <text x="0" y="40" class="vz-t">protocol</text>
       <rect x="140" y="25" width="494" height="18" rx="7" class="vz-bar" style="fill:var(--cat-violet)"/>
@@ -152,28 +152,28 @@
       <text x="716" y="176" class="vz-t-strong" text-anchor="end">2</text></svg></div>
     <p class="vz-foot"><span data-zh>protocol 条目最多，因为标准比产品更容易留下可引原文；这不代表协议比产品更重要。</span><span data-en>Protocol has the most entries because standards leave citable text more often than products; that is not a claim that protocols matter more.</span></p>
   </figure><figure class="vz-card vz-span-12">
-    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b>2026 三个新节点</b><small><span data-zh>两个已上线，一个已发布但生产未确认</span><span data-en>two live, one published but not confirmed in production</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 700 210" role="img" aria-label="时间线" xmlns="http://www.w3.org/2000/svg">
+    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b><span data-zh>2026 三个新节点</span><span data-en>Three new nodes in 2026</span></b><small><span data-zh>两个已上线，一个已发布但生产未确认</span><span data-en>two live, one published but not confirmed in production</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 700 210" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
       <text x="104" y="27" class="vz-t-dim" text-anchor="end">2021-09</text>
       <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
       <circle cx="120" cy="22" r="6" style="fill:var(--cat-blue)"/>
-      <text x="140" y="27" class="vz-t-strong">ERC-4337 草案</text>
-      <text x="140" y="47" class="vz-t-dim">UserOperation + Bundler + Paymaster，不改共识层</text>
+      <text data-zh x="140" y="27" class="vz-t-strong">ERC-4337 草案</text><text data-en x="140" y="27" class="vz-t-strong">ERC-4337 draft</text>
+      <text data-zh x="140" y="47" class="vz-t-dim">UserOperation + Bundler + Paymaster，不改共识层</text><text data-en x="140" y="47" class="vz-t-dim">UserOperation + Bundler + Paymaster, no consensus change</text>
       <text x="104" y="75" class="vz-t-dim" text-anchor="end">2026-01-29</text>
       <line x1="120" y1="58" x2="120" y2="102" class="vz-axis"/>
       <circle cx="120" cy="70" r="6" style="fill:var(--cat-violet)"/>
-      <text x="140" y="75" class="vz-t-strong">ERC-8004 主网上线</text>
-      <text x="140" y="95" class="vz-t-dim">身份 / 声誉 / 验证三套 singleton registry</text>
+      <text data-zh x="140" y="75" class="vz-t-strong">ERC-8004 主网上线</text><text data-en x="140" y="75" class="vz-t-strong">ERC-8004 mainnet launch</text>
+      <text data-zh x="140" y="95" class="vz-t-dim">身份 / 声誉 / 验证三套 singleton registry</text><text data-en x="140" y="95" class="vz-t-dim">Three singleton registries: identity, reputation, validation</text>
       <text x="104" y="123" class="vz-t-dim" text-anchor="end">2026-04-28</text>
       <line x1="120" y1="106" x2="120" y2="150" class="vz-axis"/>
       <circle cx="120" cy="118" r="6" style="fill:var(--cat-teal)"/>
-      <text x="140" y="123" class="vz-t-strong">AP2 v0.2 + 捐给 FIDO</text>
+      <text data-zh x="140" y="123" class="vz-t-strong">AP2 v0.2 + 捐给 FIDO</text><text data-en x="140" y="123" class="vz-t-strong">AP2 v0.2 donated to FIDO</text>
       <text x="140" y="143" class="vz-t-dim">Human Not Present；SD-JWT mandate</text>
       <text x="104" y="171" class="vz-t-dim" text-anchor="end">2026-10</text>
       <line x1="120" y1="154" x2="120" y2="198" class="vz-axis"/>
       <circle cx="120" cy="166" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="171" class="vz-t-strong">生产落地仍未确认</text>
-      <text x="140" y="191" class="vz-t-dim">AP2 有规范、有 SDK，没有公开确认的生产交易</text></svg></div>
+      <text data-zh x="140" y="171" class="vz-t-strong">生产落地仍未确认</text><text data-en x="140" y="171" class="vz-t-strong">Production use still unconfirmed</text>
+      <text data-zh x="140" y="191" class="vz-t-dim">AP2 有规范、有 SDK，没有公开确认的生产交易</text><text data-en x="140" y="191" class="vz-t-dim">AP2 has a spec and SDK, but no publicly confirmed production transaction</text></svg></div>
     <p class="vz-foot"><span data-zh>ERC-8004 仍是 Draft，v2 在开发；AP2 已捐给 FIDO，截至 2026-10 没有公开确认的生产交易。把「已发布」写成「已普及」是这一类内容最常见的错。</span><span data-en>ERC-8004 is still Draft with v2 in development; AP2 is now under FIDO, with no publicly confirmed production transaction as of October 2026. Writing “published” as “widely used” is the most common error here.</span></p>
   </figure></div>
     <p class="vz-foot vz-foot-wide"><span data-zh>说明：已上线、Draft、生产未确认分开标；不合并成「可用」。</span><span data-en>Note: live, Draft and unconfirmed-production are labelled separately, never collapsed into “available”.</span></p>

@@ -99,13 +99,13 @@
   <section class="vz-section" id="evidence">
   <div class="container">
     <div class="vz-head">
-      <p class="vz-kicker">AI 论文 · 一张图看全貌</p>
-      <h2 class="vz-title">这些论文，分别在回答什么问题 <span class="vz-title-sub">evidence map</span></h2>
+      <p class="vz-kicker"><span data-zh>AI 论文 · 一张图看全貌</span><span data-en>AI papers · the whole map</span></p>
+      <h2 class="vz-title"><span data-zh>这些论文，分别在回答什么问题</span><span data-en>What question is each paper answering?</span> <span class="vz-title-sub">evidence map</span></h2>
       <p class="vz-dek"><span data-zh>按主题和年份看分布，想深读就点原文。每篇笔记都写清它研究的问题、证据放在哪、作者自己承认哪些局限。</span><span data-en>Browse by topic and year, then open the original. Each note states the question, where the evidence sits and which limits the authors admit.</span></p>
     </div>
     <div class="vz-grid"><figure class="vz-card vz-span-6">
-    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>主题分布</b><small><span data-zh>一篇论文只记一个主主题</span><span data-en>one primary topic per paper</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 302" role="img" aria-label="横向条形图" xmlns="http://www.w3.org/2000/svg">
+    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b><span data-zh>主题分布</span><span data-en>Topic distribution</span></b><small><span data-zh>一篇论文只记一个主主题</span><span data-en>one primary topic per paper</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 302" role="img" aria-label="横向条形图" data-ui-aria-label-zh="横向条形图" data-ui-aria-label-en="Horizontal bar chart" xmlns="http://www.w3.org/2000/svg">
       <line x1="150" y1="41" x2="710" y2="41" class="vz-gridline"/>
       <text x="0" y="40" class="vz-t">architecture</text>
       <rect x="150" y="25" width="484" height="18" rx="7" class="vz-bar" style="fill:var(--cat-violet)"/>
@@ -140,8 +140,8 @@
       <text x="716" y="278" class="vz-t-strong" text-anchor="end">5</text></svg></div>
     <p class="vz-foot"><span data-zh>主题表示「这篇主要在回答哪类问题」，不是质量分级；一篇论文可以同时属于两类，这里只记主类。</span><span data-en>Topic shows the main question, not quality; a paper can fit two topics, only the primary one is counted.</span></p>
   </figure><figure class="vz-card vz-span-6">
-    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b>年份分布</b><small><span data-zh>按 arXiv 编号推断</span><span data-en>inferred from arXiv ID</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 620 260" role="img" aria-label="纵向柱状图" xmlns="http://www.w3.org/2000/svg"><line x1="42" y1="202" x2="602" y2="202" class="vz-gridline"/><text x="32" y="207" class="vz-t-dim" text-anchor="end">0</text><line x1="42" y1="116" x2="602" y2="116" class="vz-gridline"/><text x="32" y="121" class="vz-t-dim" text-anchor="end">10</text><line x1="42" y1="30" x2="602" y2="30" class="vz-gridline"/><text x="32" y="35" class="vz-t-dim" text-anchor="end">19</text>
+    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b><span data-zh>年份分布</span><span data-en>Year distribution</span></b><small><span data-zh>按 arXiv 编号推断</span><span data-en>inferred from arXiv ID</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 620 260" role="img" aria-label="纵向柱状图" data-ui-aria-label-zh="纵向柱状图" data-ui-aria-label-en="Vertical bar chart" xmlns="http://www.w3.org/2000/svg"><line x1="42" y1="202" x2="602" y2="202" class="vz-gridline"/><text x="32" y="207" class="vz-t-dim" text-anchor="end">0</text><line x1="42" y1="116" x2="602" y2="116" class="vz-gridline"/><text x="32" y="121" class="vz-t-dim" text-anchor="end">10</text><line x1="42" y1="30" x2="602" y2="30" class="vz-gridline"/><text x="32" y="35" class="vz-t-dim" text-anchor="end">19</text>
       <text x="73.11111111111111" y="183.94736842105263" class="vz-t-strong" text-anchor="middle">1</text>
       <rect x="55.68888888888888" y="192.94736842105263" width="34.84444444444445" height="9.052631578947368" rx="8" class="vz-bar" style="fill:var(--brand)"/>
       <text x="73.11111111111111" y="232" class="vz-t-dim" text-anchor="middle">2017</text>
@@ -171,28 +171,28 @@
       <text x="570.8888888888889" y="232" class="vz-t-dim" text-anchor="middle">2026</text></svg></div>
     <p class="vz-foot"><span data-zh>2026 的柱子会随 2026 增补变高；年份推断只用于看分布，具体日期以论文页为准。</span><span data-en>The 2026 bar grows with the 2026 patch; the inferred year is for distribution only. The paper page has the actual date.</span></p>
   </figure><figure class="vz-card vz-span-12">
-    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b>2026 四个新节点</b><small><span data-zh>研究线，不是产品线</span><span data-en>research, not product</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 700 202" role="img" aria-label="时间线" xmlns="http://www.w3.org/2000/svg">
+    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b><span data-zh>2026 四个新节点</span><span data-en>Four new nodes in 2026</span></b><small><span data-zh>研究线，不是产品线</span><span data-en>research, not product</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 700 202" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
       <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-10-07</text>
       <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
       <circle cx="120" cy="22" r="6" style="fill:var(--cat-rose)"/>
       <text x="140" y="27" class="vz-t-strong">Byteification · Nature</text>
-      <text x="140" y="47" class="vz-t-dim">49.1B token 把子词模型改成字节级</text>
+      <text data-zh x="140" y="47" class="vz-t-dim">49.1B token 把子词模型改成字节级</text><text data-en x="140" y="47" class="vz-t-dim">49.1B tokens turn subword models byte-level</text>
       <text x="104" y="73" class="vz-t-dim" text-anchor="end">2026-10-29</text>
       <line x1="120" y1="56" x2="120" y2="100" class="vz-axis"/>
       <circle cx="120" cy="68" r="6" style="fill:var(--cat-violet)"/>
       <text x="140" y="73" class="vz-t-strong">JEPA-PRH · arXiv</text>
-      <text x="140" y="93" class="vz-t-dim">109M 文本 JEPA 的表征对齐超过 72B LLM</text>
+      <text data-zh x="140" y="93" class="vz-t-dim">109M 文本 JEPA 的表征对齐超过 72B LLM</text><text data-en x="140" y="93" class="vz-t-dim">A 109M text JEPA beats a 72B LLM on representation alignment</text>
       <text x="104" y="119" class="vz-t-dim" text-anchor="end">2026</text>
       <line x1="120" y1="102" x2="120" y2="146" class="vz-axis"/>
       <circle cx="120" cy="114" r="6" style="fill:var(--cat-amber)"/>
       <text x="140" y="119" class="vz-t-strong">Recognition–Refusal · EMNLP</text>
-      <text x="140" y="139" class="vz-t-dim">「识别不可答」与「安全拒答」不是同一个方向</text>
+      <text data-zh x="140" y="139" class="vz-t-dim">「识别不可答」与「安全拒答」不是同一个方向</text><text data-en x="140" y="139" class="vz-t-dim">“Recognising unanswerable” and “safe refusal” are not the same axis</text>
       <text x="104" y="165" class="vz-t-dim" text-anchor="end">2026</text>
       <line x1="120" y1="148" x2="120" y2="192" class="vz-axis"/>
       <circle cx="120" cy="160" r="6" style="fill:var(--cat-teal)"/>
       <text x="140" y="165" class="vz-t-strong">Abstain-R1 · ACL</text>
-      <text x="140" y="185" class="vz-t-dim">3B 模型的可校准弃答与拒答后澄清</text></svg></div>
+      <text data-zh x="140" y="185" class="vz-t-dim">3B 模型的可校准弃答与拒答后澄清</text><text data-en x="140" y="185" class="vz-t-dim">Calibrated abstention and post-refusal clarification in a 3B model</text></svg></div>
     <p class="vz-foot"><span data-zh>四篇都写了「它没主张什么」：Byteification 没说所有任务都更好；JEPA-PRH 是表征对齐，不是生成质量；识别—拒答是路由问题，不是通用安全；Abstain-R1 是 3B 规模。</span><span data-en>All four carry “what it does not claim”: Byteification does not claim all tasks improve; JEPA-PRH is representation alignment, not generation quality; recognition–refusal is routing, not general safety; Abstain-R1 is 3B-scale.</span></p>
   </figure></div>
     <p class="vz-foot vz-foot-wide"><span data-zh>说明：年份按 arXiv 编号推断；所有条目都有原文链接，引用前先看实验设置。</span><span data-en>Note: years are inferred from arXiv IDs; every entry links the original, and you should read the experiment setup before citing.</span></p>

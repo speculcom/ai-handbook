@@ -6,6 +6,7 @@ station: 3
 ord: 36
 span: 8
 lead: "长任务不怕慢，怕的是一步错、全盘重来；检查点是把「可恢复」设计进流程。"
+leadEn: "Long jobs are not afraid of being slow; they are afraid of one bad step forcing a full restart. Checkpoints design recoverability into the flow."
 points: ["把任务切成可验证的阶段，每阶段有明确产物与成功条件；不要用「继续做」当阶段。", "每阶段结束写结构化状态：目标、已完成、未完成、关键决策、外部 ID、花费。", "副作用操作（发消息、下单、改文件）前先落检查点；失败时知道做过什么、没做什么。", "恢复时先读状态再行动；不要凭对话历史猜进度。", "设最大步数、预算与时限，超限暂停并请求人工；不要无限重试。", "记录「不可逆操作」清单；恢复时默认不重放，先核对外部状态。"]
 terms: ["长时任务", "子代理隔离", "人工复核队列"]
 refs:

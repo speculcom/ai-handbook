@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="brand.css?v=c81d6c81488e" />
   <link rel="stylesheet" href="site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"开放权重该怎么选 · AI 模型","url":"https://models.specul.com/","description":"开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。"}</script>
+  <link rel="stylesheet" href="sections.css" />
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -98,16 +99,34 @@
       <p class="lede"><span data-zh>每个模型都给出官方规格、许可和下载体积，方便直接做决定。</span><span data-en>Every model lists official specs, licence and download size so you can decide.</span></p>
     </header>
 
+<!-- sec-doors:start -->
+<div class="container">
+<div class="sec-doors">
+  <a class="sec-door" href="data/index.html">
+    <span class="k">Models · Data</span>
+    <h2>数据与训练语料</h2>
+    <p>40 张数据集卡，按 8 类整理。先看许可与商用边界，再看规模、语言与任务适配。</p>
+    <span class="more">看数据卡 →</span>
+  </a>
+  <a class="sec-door" href="evals/index.html">
+    <span class="k">Models · Evals</span>
+    <h2>评测与榜单</h2>
+    <p>40 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
+    <span class="more">看基准卡 →</span>
+  </a>
+</div>
+</div>
+<!-- sec-doors:end -->
 <section class="vz-section" id="lineage">
   <div class="container">
     <div class="vz-head">
-      <p class="vz-kicker">模型 · 一张图看全貌</p>
-      <h2 class="vz-title">开放权重模型，现在走到哪一代 <span class="vz-title-sub">lineage</span></h2>
+      <p class="vz-kicker"><span data-zh>模型 · 一张图看全貌</span><span data-en>Models · the whole map</span></p>
+      <h2 class="vz-title"><span data-zh>开放权重模型，现在走到哪一代</span><span data-en>Open-weight models: which generation are we on?</span> <span class="vz-title-sub">lineage</span></h2>
       <p class="vz-dek"><span data-zh>看家族换代的节奏、模型仓和量化仓的体量，以及 2026 年新发布的几个模型。先选家族和尺寸，再挑量化版。</span><span data-en>See the generation cadence, the number of model and quant repos, and the models released in 2026. Pick a family and size first, then a quantisation.</span></p>
     </div>
     <div class="vz-grid"><figure class="vz-card vz-span-6">
-    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>家族当前代次的时间分布</b><small><span data-zh>按当前代发布日期</span><span data-en>by current generation date</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 620 260" role="img" aria-label="纵向柱状图" xmlns="http://www.w3.org/2000/svg"><line x1="42" y1="202" x2="602" y2="202" class="vz-gridline"/><text x="32" y="207" class="vz-t-dim" text-anchor="end">0</text><line x1="42" y1="116" x2="602" y2="116" class="vz-gridline"/><text x="32" y="121" class="vz-t-dim" text-anchor="end">3</text><line x1="42" y1="30" x2="602" y2="30" class="vz-gridline"/><text x="32" y="35" class="vz-t-dim" text-anchor="end">6</text>
+    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b><span data-zh>家族当前代次的时间分布</span><span data-en>When each family's current generation landed</span></b><small><span data-zh>按当前代发布日期</span><span data-en>by current generation date</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 620 260" role="img" aria-label="纵向柱状图" data-ui-aria-label-zh="纵向柱状图" data-ui-aria-label-en="Vertical bar chart" xmlns="http://www.w3.org/2000/svg"><line x1="42" y1="202" x2="602" y2="202" class="vz-gridline"/><text x="32" y="207" class="vz-t-dim" text-anchor="end">0</text><line x1="42" y1="116" x2="602" y2="116" class="vz-gridline"/><text x="32" y="121" class="vz-t-dim" text-anchor="end">3</text><line x1="42" y1="30" x2="602" y2="30" class="vz-gridline"/><text x="32" y="35" class="vz-t-dim" text-anchor="end">6</text>
       <text x="73.11111111111111" y="164.33333333333334" class="vz-t-strong" text-anchor="middle">1</text>
       <rect x="55.68888888888888" y="173.33333333333334" width="34.84444444444445" height="28.666666666666664" rx="8" class="vz-bar" style="fill:var(--ink-faint)"/>
       <text x="73.11111111111111" y="232" class="vz-t-dim" text-anchor="middle">25-04</text>
@@ -137,46 +156,46 @@
       <text x="570.8888888888889" y="232" class="vz-t-dim" text-anchor="middle">26-11</text></svg></div>
     <p class="vz-foot"><span data-zh>2026-08 是发布密集月，8 个家族在那个月换代；2025 仍有两个家族停留在旧代。</span><span data-en>August 2026 was busy: eight families moved generation that month. Two families still sit on 2025 generations.</span></p>
   </figure><figure class="vz-card vz-span-3">
-    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b>模型仓 vs 量化仓</b><small><span data-zh>16 vs 129</span><span data-en>16 vs 129</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 460 240" role="img" aria-label="环图" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-violet)" stroke-width="23" stroke-dasharray="58.23862795068527 469.5489378524" stroke-dashoffset="0" transform="rotate(-90 110 118)"/><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-teal)" stroke-width="23" stroke-dasharray="469.5489378524 58.23862795068527" stroke-dashoffset="-58.23862795068527" transform="rotate(-90 110 118)"/><text x="110" y="120" class="vz-t-big" text-anchor="middle">145</text><text x="110" y="142" class="vz-t-dim" text-anchor="middle">repos</text><circle cx="236" cy="39" r="5" fill="var(--cat-violet)"/><text x="252" y="44" class="vz-t">模型仓</text><text x="448" y="44" class="vz-t-strong" text-anchor="end">16</text><circle cx="236" cy="70" r="5" fill="var(--cat-teal)"/><text x="252" y="75" class="vz-t">量化仓</text><text x="448" y="75" class="vz-t-strong" text-anchor="end">129</text></svg></div>
+    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b><span data-zh>模型仓 vs 量化仓</span><span data-en>Model repos vs quant repos</span></b><small><span data-zh>16 vs 129</span><span data-en>16 vs 129</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 460 240" role="img" aria-label="环图" data-ui-aria-label-zh="环图" data-ui-aria-label-en="Donut chart" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-violet)" stroke-width="23" stroke-dasharray="58.23862795068527 469.5489378524" stroke-dashoffset="0" transform="rotate(-90 110 118)"/><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-teal)" stroke-width="23" stroke-dasharray="469.5489378524 58.23862795068527" stroke-dashoffset="-58.23862795068527" transform="rotate(-90 110 118)"/><text x="110" y="120" class="vz-t-big" text-anchor="middle">145</text><text x="110" y="142" class="vz-t-dim" text-anchor="middle">repos</text><circle cx="236" cy="39" r="5" fill="var(--cat-violet)"/><text data-zh x="252" y="44" class="vz-t">模型仓</text><text data-en x="252" y="44" class="vz-t">Model repos</text><text x="448" y="44" class="vz-t-strong" text-anchor="end">16</text><circle cx="236" cy="70" r="5" fill="var(--cat-teal)"/><text data-zh x="252" y="75" class="vz-t">量化仓</text><text data-en x="252" y="75" class="vz-t">Quant repos</text><text x="448" y="75" class="vz-t-strong" text-anchor="end">129</text></svg></div>
     <p class="vz-foot"><span data-zh>一个模型仓平均对应 8 个量化仓；所以「下哪一个文件」通常比「选哪个模型」更费时间。</span><span data-en>One model repo maps to roughly eight quant repos; that is why “which file” takes longer than “which model”.</span></p>
   </figure><figure class="vz-card vz-span-3">
-    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b>量化档 vs GGUF 文件</b><small><span data-zh>1262 vs 1337</span><span data-en>1262 vs 1337</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 460 240" role="img" aria-label="环图" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-amber)" stroke-width="23" stroke-dasharray="256.2785332987663 271.50903250431895" stroke-dashoffset="0" transform="rotate(-90 110 118)"/><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-blue)" stroke-width="23" stroke-dasharray="271.50903250431895 256.2785332987663" stroke-dashoffset="-256.2785332987663" transform="rotate(-90 110 118)"/><text x="110" y="120" class="vz-t-big" text-anchor="middle">1.06×</text><text x="110" y="142" class="vz-t-dim" text-anchor="middle">files/tier</text><circle cx="236" cy="39" r="5" fill="var(--cat-amber)"/><text x="252" y="44" class="vz-t">量化档</text><text x="448" y="44" class="vz-t-strong" text-anchor="end">1,262</text><circle cx="236" cy="70" r="5" fill="var(--cat-blue)"/><text x="252" y="75" class="vz-t">GGUF 文件</text><text x="448" y="75" class="vz-t-strong" text-anchor="end">1,337</text></svg></div>
+    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b><span data-zh>量化档 vs GGUF 文件</span><span data-en>Quant tiers vs GGUF files</span></b><small><span data-zh>1262 vs 1337</span><span data-en>1262 vs 1337</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 460 240" role="img" aria-label="环图" data-ui-aria-label-zh="环图" data-ui-aria-label-en="Donut chart" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-amber)" stroke-width="23" stroke-dasharray="256.2785332987663 271.50903250431895" stroke-dashoffset="0" transform="rotate(-90 110 118)"/><circle cx="110" cy="118" r="84" fill="none" stroke="var(--cat-blue)" stroke-width="23" stroke-dasharray="271.50903250431895 256.2785332987663" stroke-dashoffset="-256.2785332987663" transform="rotate(-90 110 118)"/><text x="110" y="120" class="vz-t-big" text-anchor="middle">1.06×</text><text x="110" y="142" class="vz-t-dim" text-anchor="middle">files/tier</text><circle cx="236" cy="39" r="5" fill="var(--cat-amber)"/><text data-zh x="252" y="44" class="vz-t">量化档</text><text data-en x="252" y="44" class="vz-t">Quant tiers</text><text x="448" y="44" class="vz-t-strong" text-anchor="end">1,262</text><circle cx="236" cy="70" r="5" fill="var(--cat-blue)"/><text data-zh x="252" y="75" class="vz-t">GGUF 文件</text><text data-en x="252" y="75" class="vz-t">GGUF files</text><text x="448" y="75" class="vz-t-strong" text-anchor="end">1,337</text></svg></div>
     <p class="vz-foot"><span data-zh>分片让文件数略高于档数；下载时按档选，不要按文件数猜体积。</span><span data-en>Sharding makes files slightly outnumber tiers; choose by tier, not by file count.</span></p>
   </figure><figure class="vz-card vz-span-12">
-    <figcaption class="vz-cap"><span class="vz-no">04</span><span><b>2026 六个新节点</b><small><span data-zh>只列开放权重</span><span data-en>open weights only</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 700 288" role="img" aria-label="时间线" xmlns="http://www.w3.org/2000/svg">
+    <figcaption class="vz-cap"><span class="vz-no">04</span><span><b><span data-zh>2026 六个新节点</span><span data-en>Six new nodes in 2026</span></b><small><span data-zh>只列开放权重</span><span data-en>open weights only</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 700 288" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
       <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-07</text>
       <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
       <circle cx="120" cy="22" r="6" style="fill:var(--cat-violet)"/>
-      <text x="140" y="27" class="vz-t-strong">Kimi K3 开放权重</text>
-      <text x="140" y="47" class="vz-t-dim">2.8T 总参 / 104B 激活，16/896 专家，1M 上下文</text>
+      <text data-zh x="140" y="27" class="vz-t-strong">Kimi K3 开放权重</text><text data-en x="140" y="27" class="vz-t-strong">Kimi K3 open weights</text>
+      <text data-zh x="140" y="47" class="vz-t-dim">2.8T 总参 / 104B 激活，16/896 专家，1M 上下文</text><text data-en x="140" y="47" class="vz-t-dim">2.8T total / 104B active, 16 of 896 experts, 1M context</text>
       <text x="104" y="72" class="vz-t-dim" text-anchor="end">2026-08</text>
       <line x1="120" y1="55" x2="120" y2="99" class="vz-axis"/>
       <circle cx="120" cy="67" r="6" style="fill:var(--cat-blue)"/>
-      <text x="140" y="72" class="vz-t-strong">GLM-5.3 与 GLM-5.3-Flash</text>
-      <text x="140" y="92" class="vz-t-dim">同基座后训练 Scaling；Flash 320B-A18B 随后 MIT 开源</text>
+      <text data-zh x="140" y="72" class="vz-t-strong">GLM-5.3 与 GLM-5.3-Flash</text><text data-en x="140" y="72" class="vz-t-strong">GLM-5.3 and GLM-5.3-Flash</text>
+      <text data-zh x="140" y="92" class="vz-t-dim">同基座后训练 Scaling；Flash 320B-A18B 随后 MIT 开源</text><text data-en x="140" y="92" class="vz-t-dim">Post-training scaling on one base; Flash 320B-A18B later open-sourced under MIT</text>
       <text x="104" y="117" class="vz-t-dim" text-anchor="end">2026-09</text>
       <line x1="120" y1="100" x2="120" y2="144" class="vz-axis"/>
       <circle cx="120" cy="112" r="6" style="fill:var(--cat-teal)"/>
       <text x="140" y="117" class="vz-t-strong">DeepSeek V4.1 Flash</text>
-      <text x="140" y="137" class="vz-t-dim">552B MoE / 8B prefill / 16B decode，KV 缓存大幅压缩</text>
+      <text data-zh x="140" y="137" class="vz-t-dim">552B MoE / 8B prefill / 16B decode，KV 缓存大幅压缩</text><text data-en x="140" y="137" class="vz-t-dim">552B MoE / 8B prefill / 16B decode, heavily compressed KV cache</text>
       <text x="104" y="162" class="vz-t-dim" text-anchor="end">2026-09</text>
       <line x1="120" y1="145" x2="120" y2="189" class="vz-axis"/>
       <circle cx="120" cy="157" r="6" style="fill:var(--cat-amber)"/>
-      <text x="140" y="162" class="vz-t-strong">小米 MiMo-V2.6</text>
-      <text x="140" y="182" class="vz-t-dim">Pro / Flash 双线，原生全模态，AA Intelligence 46.32</text>
+      <text data-zh x="140" y="162" class="vz-t-strong">小米 MiMo-V2.6</text><text data-en x="140" y="162" class="vz-t-strong">Xiaomi MiMo-V2.6</text>
+      <text data-zh x="140" y="182" class="vz-t-dim">Pro / Flash 双线，原生全模态，AA Intelligence 46.32</text><text data-en x="140" y="182" class="vz-t-dim">Pro and Flash lines, native omni-modal, AA Intelligence 46.32</text>
       <text x="104" y="207" class="vz-t-dim" text-anchor="end">2026-10</text>
       <line x1="120" y1="190" x2="120" y2="234" class="vz-axis"/>
       <circle cx="120" cy="202" r="6" style="fill:var(--cat-rose)"/>
       <text x="140" y="207" class="vz-t-strong">Meta Muse Spark Open</text>
-      <text x="140" y="227" class="vz-t-dim">816B / 42B 激活，1M 上下文，Muse Model License</text>
+      <text data-zh x="140" y="227" class="vz-t-dim">816B / 42B 激活，1M 上下文，Muse Model License</text><text data-en x="140" y="227" class="vz-t-dim">816B / 42B active, 1M context, Muse Model License</text>
       <text x="104" y="252" class="vz-t-dim" text-anchor="end">2026-10</text>
       <line x1="120" y1="235" x2="120" y2="279" class="vz-axis"/>
       <circle cx="120" cy="247" r="6" style="fill:var(--cat-lime)"/>
       <text x="140" y="252" class="vz-t-strong">Mistral Large 4</text>
-      <text x="140" y="272" class="vz-t-dim">1.05T / 49B 激活，128 路由专家，1M 上下文</text></svg></div>
+      <text data-zh x="140" y="272" class="vz-t-dim">1.05T / 49B 激活，128 路由专家，1M 上下文</text><text data-en x="140" y="272" class="vz-t-dim">1.05T / 49B active, 128 routed experts, 1M context</text></svg></div>
     <p class="vz-foot"><span data-zh>Mistral Large 4 与 Muse Spark 的许可是「修改版 MIT / 厂商许可」，不是 OSI 标准；商用前读原文。</span><span data-en>Mistral Large 4 and Muse Spark use modified MIT / vendor licences, not OSI-approved terms; read the text before commercial use.</span></p>
   </figure></div>
     <p class="vz-foot vz-foot-wide"><span data-zh>说明：家族、系列、模型仓、量化仓、量化档和 GGUF 文件数都来自当前数据；数字用于看体量，不用于给模型排高低。</span><span data-en>Note: family, series, model-repo, quant-repo, tier and GGUF counts come from the current data; they show scale, not a model ranking.</span></p>

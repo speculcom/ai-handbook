@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="hardware.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"硬件算力 · Specul","description":"买卡还是租云？按显存、带宽、功耗和总价挑加速卡、整机与云服务；每条写清适用场景、数字口径与核验来源。","url":"https://hardware.specul.com/","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+  <link rel="stylesheet" href="sections.css" />
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -96,20 +97,38 @@
   <h1><span data-zh>硬件算力</span><span data-en>Compute</span></h1>
   <p><span data-zh>买卡，还是租云？先看显存装不装得下、带宽喂不喂得饱，再算功耗和总价。下面把常见加速卡、整机和云服务放在一起，按预算和模型大小挑。</span><span data-en>Buy a card or rent cloud? Start with whether the memory fits your model and whether the bandwidth keeps it fed, then add power and total cost. Accelerators, systems and cloud options sit side by side so you can choose by budget and model size.</span></p>
   
-  <section class="vz-section" id="silicon">
+  <!-- sec-cloud:start -->
+<div class="container">
+<div class="sec-doors">
+  <a class="sec-door" href="cloud/index.html">
+    <span class="k">Compute · Cloud</span>
+    <h2>云算力：租 GPU 还是买卡</h2>
+    <p>26 家服务商，按通用云、GPU 专营、Serverless、国内云四类。先算总成本，再选按需、包月或预留。</p>
+    <span class="more">看云算力 →</span>
+  </a>
+  <a class="sec-door" href="path.html">
+    <span class="k">Compute · Path</span>
+    <h2>硬件选型路径：先定预算与模型</h2>
+    <p>从模型大小、上下文、并发与预算倒推整机或云实例；按步骤核对显存、带宽、功耗与总拥有成本。</p>
+    <span class="more">走选型路径 →</span>
+  </a>
+</div>
+</div>
+<!-- sec-cloud:end -->
+<section class="vz-section" id="silicon">
   <div class="container">
     <div class="vz-head">
-      <p class="vz-kicker">硬件算力 · 一张图看全貌</p>
-      <h2 class="vz-title">显存和带宽，决定你能跑多大模型 <span class="vz-title-sub">silicon</span></h2>
+      <p class="vz-kicker"><span data-zh>硬件算力 · 一张图看全貌</span><span data-en>Compute · the whole map</span></p>
+      <h2 class="vz-title"><span data-zh>显存和带宽，决定你能跑多大模型</span><span data-en>VRAM and bandwidth decide how big a model you can run</span> <span class="vz-title-sub">silicon</span></h2>
       <p class="vz-dek"><span data-zh>把「能装多大」和「喂得多快」放在一张图上：越靠右上，越适合长上下文和高并发。下面还标了 2026 年值得留意的几个硬件节点。</span><span data-en>Capacity and bandwidth on one chart: the further up and to the right, the better suited to long context and high concurrency. The 2026 hardware releases are marked below too.</span></p>
     </div>
     <div class="vz-grid"><figure class="vz-card vz-span-7">
-    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>HBM 容量 × 带宽</b><small><span data-zh>9 个代表型号，对数横轴</span><span data-en>9 representative parts, log x-axis</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 420" role="img" aria-label="显存与带宽散点图" xmlns="http://www.w3.org/2000/svg"><line x1="123.41143185920262" y1="26" x2="123.41143185920262" y2="368" class="vz-gridline"/><text x="123.41143185920262" y="390" class="vz-t-dim" text-anchor="middle">32</text><line x1="266.558573894402" y1="26" x2="266.558573894402" y2="368" class="vz-gridline"/><text x="266.558573894402" y="390" class="vz-t-dim" text-anchor="middle">64</text><line x1="409.7057159296013" y1="26" x2="409.7057159296013" y2="368" class="vz-gridline"/><text x="409.7057159296013" y="390" class="vz-t-dim" text-anchor="middle">128</text><line x1="552.8528579648007" y1="26" x2="552.8528579648007" y2="368" class="vz-gridline"/><text x="552.8528579648007" y="390" class="vz-t-dim" text-anchor="middle">256</text><line x1="696" y1="26" x2="696" y2="368" class="vz-gridline"/><text x="696" y="390" class="vz-t-dim" text-anchor="middle">512</text><line x1="64" y1="368" x2="696" y2="368" class="vz-gridline"/><text x="54" y="373" class="vz-t-dim" text-anchor="end">0</text><line x1="64" y1="254" x2="696" y2="254" class="vz-gridline"/><text x="54" y="259" class="vz-t-dim" text-anchor="end">8</text><line x1="64" y1="140" x2="696" y2="140" class="vz-gridline"/><text x="54" y="145" class="vz-t-dim" text-anchor="end">16</text><line x1="64" y1="26" x2="696" y2="26" class="vz-gridline"/><text x="54" y="31" class="vz-t-dim" text-anchor="end">24</text><circle cx="123.41143185920262" cy="342.4925" r="7" style="fill:var(--ink-faint)"/><text x="133.41143185920262" y="332.4925" class="vz-t">RTX 5090</text><circle cx="312.64166061836437" cy="320.2625" r="7" style="fill:var(--cat-blue)"/><text x="322.64166061836437" y="310.2625" class="vz-t">H100</text><circle cx="429.6820931926356" cy="299.6" r="7" style="fill:var(--cat-blue)"/><text x="439.6820931926356" y="289.6" class="vz-t">H200</text><circle cx="493.44142610559805" cy="254" r="7" style="fill:var(--cat-violet)"/><text x="503.44142610559805" y="242" class="vz-t">B200</text><circle cx="577.1771362815948" cy="254" r="7" style="fill:var(--cat-violet)"/><text x="587.1771362815948" y="244" class="vz-t">B300</text><circle cx="577.1771362815948" cy="54.5" r="7" style="fill:var(--cat-rose)"/><text x="511.1771362815948" y="46.5" class="vz-t">Rubin</text><circle cx="493.44142610559805" cy="262.83500000000004" r="7" style="fill:var(--cat-lime)"/><text x="503.44142610559805" y="284.83500000000004" class="vz-t">TPU7x</text><circle cx="660.9128464575915" cy="35.97500000000002" r="7" style="fill:var(--cat-amber)"/><text x="650.9128464575915" y="15.975000000000023" class="vz-t">MI455X</text><circle cx="577.1771362815948" cy="35.97500000000002" r="7" style="fill:var(--cat-amber)"/><text x="587.1771362815948" y="57.97500000000002" class="vz-t">MI450X</text><text x="696" y="408" class="vz-t-dim" text-anchor="end">HBM 容量（GB，对数轴）→</text><text x="58" y="16" class="vz-t-dim">↑ 带宽（TB/s）</text></svg></div>
+    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b><span data-zh>HBM 容量 × 带宽</span><span data-en>HBM capacity × bandwidth</span></b><small><span data-zh>9 个代表型号，对数横轴</span><span data-en>9 representative parts, log x-axis</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 420" role="img" aria-label="显存与带宽散点图" data-ui-aria-label-zh="显存与带宽散点图" data-ui-aria-label-en="Memory capacity vs bandwidth scatter plot" xmlns="http://www.w3.org/2000/svg"><line x1="123.41143185920262" y1="26" x2="123.41143185920262" y2="368" class="vz-gridline"/><text x="123.41143185920262" y="390" class="vz-t-dim" text-anchor="middle">32</text><line x1="266.558573894402" y1="26" x2="266.558573894402" y2="368" class="vz-gridline"/><text x="266.558573894402" y="390" class="vz-t-dim" text-anchor="middle">64</text><line x1="409.7057159296013" y1="26" x2="409.7057159296013" y2="368" class="vz-gridline"/><text x="409.7057159296013" y="390" class="vz-t-dim" text-anchor="middle">128</text><line x1="552.8528579648007" y1="26" x2="552.8528579648007" y2="368" class="vz-gridline"/><text x="552.8528579648007" y="390" class="vz-t-dim" text-anchor="middle">256</text><line x1="696" y1="26" x2="696" y2="368" class="vz-gridline"/><text x="696" y="390" class="vz-t-dim" text-anchor="middle">512</text><line x1="64" y1="368" x2="696" y2="368" class="vz-gridline"/><text x="54" y="373" class="vz-t-dim" text-anchor="end">0</text><line x1="64" y1="254" x2="696" y2="254" class="vz-gridline"/><text x="54" y="259" class="vz-t-dim" text-anchor="end">8</text><line x1="64" y1="140" x2="696" y2="140" class="vz-gridline"/><text x="54" y="145" class="vz-t-dim" text-anchor="end">16</text><line x1="64" y1="26" x2="696" y2="26" class="vz-gridline"/><text x="54" y="31" class="vz-t-dim" text-anchor="end">24</text><circle cx="123.41143185920262" cy="342.4925" r="7" style="fill:var(--ink-faint)"/><text x="133.41143185920262" y="332.4925" class="vz-t">RTX 5090</text><circle cx="312.64166061836437" cy="320.2625" r="7" style="fill:var(--cat-blue)"/><text x="322.64166061836437" y="310.2625" class="vz-t">H100</text><circle cx="429.6820931926356" cy="299.6" r="7" style="fill:var(--cat-blue)"/><text x="439.6820931926356" y="289.6" class="vz-t">H200</text><circle cx="493.44142610559805" cy="254" r="7" style="fill:var(--cat-violet)"/><text x="503.44142610559805" y="242" class="vz-t">B200</text><circle cx="577.1771362815948" cy="254" r="7" style="fill:var(--cat-violet)"/><text x="587.1771362815948" y="244" class="vz-t">B300</text><circle cx="577.1771362815948" cy="54.5" r="7" style="fill:var(--cat-rose)"/><text x="511.1771362815948" y="46.5" class="vz-t">Rubin</text><circle cx="493.44142610559805" cy="262.83500000000004" r="7" style="fill:var(--cat-lime)"/><text x="503.44142610559805" y="284.83500000000004" class="vz-t">TPU7x</text><circle cx="660.9128464575915" cy="35.97500000000002" r="7" style="fill:var(--cat-amber)"/><text x="650.9128464575915" y="15.975000000000023" class="vz-t">MI455X</text><circle cx="577.1771362815948" cy="35.97500000000002" r="7" style="fill:var(--cat-amber)"/><text x="587.1771362815948" y="57.97500000000002" class="vz-t">MI450X</text><text x="696" y="408" class="vz-t-dim" text-anchor="end">HBM 容量（GB，对数轴）→</text><text x="58" y="16" class="vz-t-dim">↑ 带宽（TB/s）</text></svg></div>
     <p class="vz-foot"><span data-zh>不同厂商的 FP4 口径不同：NVIDIA 写 NVFP4，AMD 写 OCP MXFP4；点的高度只表示官方带宽，不表示算力排名。</span><span data-en>FP4 formats differ: NVIDIA says NVFP4, AMD says OCP MXFP4. Height encodes official bandwidth only, not a compute ranking.</span></p>
   </figure><figure class="vz-card vz-span-5">
-    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b>2026 六个硬件节点</b><small><span data-zh>发布 / 上市日期</span><span data-en>release / launch dates</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 560 318" role="img" aria-label="时间线" xmlns="http://www.w3.org/2000/svg">
+    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b><span data-zh>2026 六个硬件节点</span><span data-en>Six hardware nodes in 2026</span></b><small><span data-zh>发布 / 上市日期</span><span data-en>release / launch dates</span></small></span></figcaption>
+    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 560 318" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
       <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-04-22</text>
       <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
       <circle cx="120" cy="22" r="6" style="fill:var(--cat-lime)"/>
@@ -118,17 +137,17 @@
       <text x="104" y="77" class="vz-t-dim" text-anchor="end">2026-07-23</text>
       <line x1="120" y1="60" x2="120" y2="104" class="vz-axis"/>
       <circle cx="120" cy="72" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="77" class="vz-t-strong">AMD MI455X 上市</text>
+      <text data-zh x="140" y="77" class="vz-t-strong">AMD MI455X 上市</text><text data-en x="140" y="77" class="vz-t-strong">AMD MI455X launches</text>
       <text x="140" y="97" class="vz-t-dim">432GB HBM4 / 23.3TB/s / 40.3 PF MXFP4</text>
       <text x="104" y="127" class="vz-t-dim" text-anchor="end">2026-07-23</text>
       <line x1="120" y1="110" x2="120" y2="154" class="vz-axis"/>
       <circle cx="120" cy="122" r="6" style="fill:var(--cat-amber)"/>
-      <text x="140" y="127" class="vz-t-strong">AMD Helios 机架</text>
+      <text data-zh x="140" y="127" class="vz-t-strong">AMD Helios 机架</text><text data-en x="140" y="127" class="vz-t-strong">AMD Helios rack</text>
       <text x="140" y="147" class="vz-t-dim">72× MI455X / 31TB HBM4 / 2.9 EF FP4</text>
       <text x="104" y="177" class="vz-t-dim" text-anchor="end">2026-11-12</text>
       <line x1="120" y1="160" x2="120" y2="204" class="vz-axis"/>
       <circle cx="120" cy="172" r="6" style="fill:var(--cat-amber)"/>
-      <text x="140" y="177" class="vz-t-strong">AMD MI450X 上市</text>
+      <text data-zh x="140" y="177" class="vz-t-strong">AMD MI450X 上市</text><text data-en x="140" y="177" class="vz-t-strong">AMD MI450X launches</text>
       <text x="140" y="197" class="vz-t-dim">288GB HBM4 / 23.3TB/s / 40.3 PF MXFP4</text>
       <text x="104" y="227" class="vz-t-dim" text-anchor="end">2026-11</text>
       <line x1="120" y1="210" x2="120" y2="254" class="vz-axis"/>
@@ -142,7 +161,7 @@
       <text x="140" y="297" class="vz-t-dim">288GB HBM3e / 8TB/s / 15 PF dense NVFP4</text></svg></div>
     <p class="vz-foot"><span data-zh>B300 的 15 PF 是 dense NVFP4；Rubin 的 50 PF 是 NVFP4 推理性能。两者不能直接横比。</span><span data-en>B300’s 15 PF is dense NVFP4; Rubin’s 50 PF is NVFP4 inference performance. They are not directly comparable.</span></p>
   </figure><figure class="vz-card vz-span-12">
-    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b>同样 288GB，为什么不是同一张卡</b><small><span data-zh>容量相同，带宽与互联差一个代际</span><span data-en>same capacity, different generation</span></small></span></figcaption>
+    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b><span data-zh>同样 288GB，为什么不是同一张卡</span><span data-en>Same 288GB, but not the same card</span></b><small><span data-zh>容量相同，带宽与互联差一个代际</span><span data-en>same capacity, different generation</span></small></span></figcaption>
     <div class="vz-plot"><div class="vz-compare">
         <div><b>B300</b><span>288GB HBM3e</span><span>8TB/s</span><span>NVLink 5 1.8TB/s</span><small><span data-zh>Blackwell Ultra；15 PF dense NVFP4；最高 1400W。</span><span data-en>Blackwell Ultra; 15 PF dense NVFP4; up to 1,400W.</span></small></div>
         <div><b>Rubin</b><span>288GB HBM4</span><span>22TB/s</span><span>NVLink 6 3.6TB/s</span><small><span data-zh>Vera Rubin；50 PF NVFP4 推理；336B 晶体管。</span><span data-en>Vera Rubin; 50 PF NVFP4 inference; 336B transistors.</span></small></div>

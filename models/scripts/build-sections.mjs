@@ -19,14 +19,14 @@ const guides = guideData['data-guides'] || guideData.dataGuides || [];
 const evalGuides = guideData['eval-guides'] || [];
 
 const CATS = {
-  pretrain: { zh: '预训练语料', en: 'Pretraining corpora', desc: '从网页、书籍、代码里洗出来的底座语料；先看许可、去重与语言分布。' },
-  sft: { zh: '指令与 SFT', en: 'Instruction & SFT', desc: '把任务写成指令-回答对，用来教模型按格式做事。' },
-  preference: { zh: '偏好与 RLHF', en: 'Preference & RLHF', desc: '人类或模型对回答排序，用来做偏好对齐与 DPO。' },
-  eval: { zh: '评测集', en: 'Evaluation sets', desc: '用来量分数的题集；注意污染与版本，不要混进训练。' },
-  rag: { zh: 'RAG 文档', en: 'RAG corpora', desc: '检索问答的证据库；质量、更新与权限比 chunk size 更重要。' },
-  multimodal: { zh: '多模态', en: 'Multimodal', desc: '图文、视频与音频对；图像版权随源站，不能默认可商用。' },
-  'code-domain': { zh: '代码与领域', en: 'Code & domain', desc: '代码、医学、法律等专业语料；逐仓/逐篇核对许可。' },
-  synthetic: { zh: '合成数据', en: 'Synthetic data', desc: '模型生成或改写的样本；补长尾，但会放大模型风格与错误。' }
+  pretrain: { zh: '预训练语料', en: 'Pretraining corpora', desc: '从网页、书籍、代码里洗出来的底座语料；先看许可、去重与语言分布。', descEn: 'Base corpora washed from web pages, books and code; check licence, deduplication and language mix first.' },
+  sft: { zh: '指令与 SFT', en: 'Instruction & SFT', desc: '把任务写成指令-回答对，用来教模型按格式做事。', descEn: 'Task demonstrations written as instruction–answer pairs, teaching the model to follow a format.' },
+  preference: { zh: '偏好与 RLHF', en: 'Preference & RLHF', desc: '人类或模型对回答排序，用来做偏好对齐与 DPO。', descEn: 'Humans or models rank answers; used for preference alignment and DPO.' },
+  eval: { zh: '评测集', en: 'Evaluation sets', desc: '用来量分数的题集；注意污染与版本，不要混进训练。', descEn: 'Question sets used to measure scores; watch contamination and versions, and keep them out of training.' },
+  rag: { zh: 'RAG 文档', en: 'RAG corpora', desc: '检索问答的证据库；质量、更新与权限比 chunk size 更重要。', descEn: 'Evidence libraries for retrieval QA; quality, freshness and permissions matter more than chunk size.' },
+  multimodal: { zh: '多模态', en: 'Multimodal', desc: '图文、视频与音频对；图像版权随源站，不能默认可商用。', descEn: 'Image–text, video and audio pairs; image copyright follows the source site and is not automatically commercial-use.' },
+  'code-domain': { zh: '代码与领域', en: 'Code & domain', desc: '代码、医学、法律等专业语料；逐仓/逐篇核对许可。', descEn: 'Code, medical, legal and other specialist corpora; verify the licence repo by repo, paper by paper.' },
+  synthetic: { zh: '合成数据', en: 'Synthetic data', desc: '模型生成或改写的样本；补长尾，但会放大模型风格与错误。', descEn: 'Model-generated or rewritten samples; they fill long tails but amplify model style and errors.' }
 };
 const CAT_ORDER = Object.keys(CATS);
 
@@ -77,8 +77,18 @@ function evalCardBi(e) {
 </article>`;
 }
 
+const TITLE_EN = {
+  'license-commercial': 'Dataset licences and commercial use: separate three layers of rights',
+  'rag-corpus': 'Choosing a RAG corpus: define the question before the documents',
+  'read-dataset-card': 'How to read a dataset card',
+  'read-leaderboard': 'How to read a leaderboard: what it measures, then who runs it',
+  'sft-data-mix': 'Mixing SFT data: define behaviour before volume',
+  'agent-eval': 'Evaluating agents and tool calls: environment, tools, steps, scoring',
+  'eval-contamination': 'Checking benchmark contamination: dataset dates, then retrieval',
+  'multimodal-eval': 'Reading multimodal evals: images, video and documents are three different things',
+};
 function chips(items, current = '') {
-  return `<nav class="sec-nav" aria-label="数据分类">${items.map(([href, label]) => `<a href="${esc(href)}"${label === current ? ' aria-current="page"' : ''}>${esc(label)}</a>`).join('')}</nav>`;
+  return `<nav class="sec-nav" aria-label="数据分类" data-ui-aria-label-zh="数据分类" data-ui-aria-label-en="Dataset categories">${items.map(([href, label, labelEn]) => `<a href="${esc(href)}"${label === current ? ' aria-current="page"' : ''}>${bi(label, labelEn || label)}</a>`).join('')}</nav>`;
 }
 
 function categoryHref(id) { return `${id}.html`; }
@@ -104,7 +114,7 @@ function datasetHref(id) { return `${id}.html`; }
   const body = `<div class="container">
 <header class="sec-head">
   <p class="eyebrow">Models · Data</p>
-  <h1>数据与训练语料</h1>
+  <h1>${bi('数据与训练语料', 'Data and training corpora')}</h1>
   <p class="lede">数据集不是越大越好。先看许可与商用边界，再看规模口径、语言、质量与任务适配；这里收 ${datasets.length} 张数据卡，按 ${CAT_ORDER.length} 类放，每张都写清“能做什么、不能做什么”。</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 回模型站</a><a href="../evals/index.html">评测与榜单 →</a></div>
@@ -135,12 +145,12 @@ ${allCards}
 // 数据分类页
 for (const cat of CAT_ORDER) {
   const list = datasets.filter((d) => d.category === cat);
-  const nav = chips(CAT_ORDER.map((c) => [categoryHref(c), CATS[c].zh]), CATS[cat].zh);
+  const nav = chips(CAT_ORDER.map((c) => [categoryHref(c), CATS[c].zh, CATS[c].en]), CATS[cat].zh);
   const body = `<div class="container">
 <header class="sec-head">
-  <p class="eyebrow">Models · Data · ${esc(CATS[cat].en)}</p>
-  <h1>${esc(CATS[cat].zh)}</h1>
-  <p class="lede">${esc(CATS[cat].desc)} 这一页收 ${list.length} 张卡；点进单卡看许可、规模、任务适配与使用边界。</p>
+  <p class="eyebrow">Models · Data · ${bi(CATS[cat].zh, CATS[cat].en)}</p>
+  <h1>${bi(CATS[cat].zh, CATS[cat].en)}</h1>
+  <p class="lede">${bi(`${CATS[cat].desc} 这一页收 ${list.length} 张卡；点进单卡看许可、规模、任务适配与使用边界。`, `${CATS[cat].descEn} This page lists ${list.length} dataset cards; open a card for licence, size, task fit and use boundaries.`)}</p>
 </header>
 <div class="sec-nav"><a href="index.html">← 全部数据</a><a href="../index.html">模型站</a></div>
 ${nav}
@@ -167,11 +177,11 @@ for (const d of datasets) {
   const cat = CATS[d.category];
   const body = `<div class="container">
 <header class="sec-detail">
-  <p class="eyebrow">Models · Data · ${esc(cat.zh)}</p>
+  <p class="eyebrow">Models · Data · ${bi(cat.zh, cat.en)}</p>
   <h1>${esc(d.name)}</h1>
   <p class="sub">${esc(d.quality)}</p>
 </header>
-<div class="sec-nav"><a href="index.html">← 全部数据</a><a href="${esc(datasetHref(d.category))}">${esc(cat.zh)}</a><a href="../index.html">模型站</a></div>
+<div class="sec-nav"><a href="index.html">${bi('← 全部数据', '← All data')}</a><a href="${esc(datasetHref(d.category))}">${bi(cat.zh, cat.en)}</a><a href="../index.html">${bi('模型站', 'Models')}</a></div>
 <table class="sec-table">
   <tr><th>来源</th><td>${esc(d.source)}</td></tr>
   <tr><th>规模</th><td>${esc(d.size)}</td></tr>
@@ -215,8 +225,8 @@ ${d.verify ? `<h2>怎么验证</h2>\n  <p>${esc(d.verify)}</p>` : ''}
 for (const g of guides) {
   const body = `<div class="container">
 <header class="sec-detail">
-  <p class="eyebrow">Models · Data · 指南</p>
-  <h1>${esc(g.title)}</h1>
+  <p class="eyebrow">Models · Data · ${bi('指南', 'Guide')}</p>
+  <h1>${bi(g.title, TITLE_EN[g.id] || g.title)}</h1>
   <p class="sub">${esc(g.lede)}</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 全部数据</a><a href="../../index.html">模型站</a></div>
@@ -239,7 +249,7 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
   const body = `<div class="container">
 <header class="sec-head">
   <p class="eyebrow">Models · Evals</p>
-  <h1>评测与榜单</h1>
+  <h1>${bi('评测与榜单', 'Benchmarks and evaluations')}</h1>
   <p class="lede">榜单不是模型排行榜。先看它测什么、题集什么时候发布、评委是谁、分数怎么算，再决定这个分数对你的选型有没有意义。这里收 ${evals.length} 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 回模型站</a><a href="../data/index.html">数据与语料 →</a></div>
@@ -360,8 +370,8 @@ ${e.verify ? `<h2>怎么验证</h2>\n  <p>${esc(e.verify)}</p>` : ''}
 for (const g of evalGuides) {
   const body = `<div class="container">
 <header class="sec-detail">
-  <p class="eyebrow">Models · Evals · 指南</p>
-  <h1>${esc(g.title)}</h1>
+  <p class="eyebrow">Models · Evals · ${bi('指南', 'Guide')}</p>
+  <h1>${bi(g.title, TITLE_EN[g.id] || g.title)}</h1>
   <p class="sub">${esc(g.lede)}</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 全部评测</a><a href="../../index.html">模型站</a></div>

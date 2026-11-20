@@ -8,6 +8,14 @@ const root = path.resolve(here, '..');
 const site = path.join(root, 'site');
 const cloudDir = path.join(root, 'cloud');
 const sectionsCss = path.resolve(here, '../../../../../_sites/_template/sections.css');
+const PROVIDER_EN = { aliyun: 'Alibaba Cloud', 'tencent-cloud': 'Tencent Cloud', 'huawei-cloud': 'Huawei Cloud', volcengine: 'Volcano Engine' };
+const GUIDE_EN = {
+  'billing-modes': 'Per-second, monthly, reserved: choosing a billing model',
+  'compare-gpu-price': 'Comparing cloud GPUs: align the units first',
+  'compliance-residency': 'Compliance and data residency: decide where data may go',
+  'storage-egress': 'Storage and egress: the two costs people forget',
+};
+const bi = (zh, en) => `<span data-zh>${zh}</span><span data-en>${en}</span>`;
 
 fs.mkdirSync(path.join(site, 'cloud', 'guides'), { recursive: true });
 
@@ -61,7 +69,7 @@ function card(p) {
   const body = `<div class="container">
 <header class="sec-head">
   <p class="eyebrow">Compute · Cloud</p>
-  <h1>云算力</h1>
+  <h1>${bi('云算力', 'Cloud compute')}</h1>
   <p class="lede">租 GPU 不是只看“每卡每小时”。整机起租、存储、出网、冷启动、可用性与合同期，都会改变真实单价。这里收 ${providers.length} 家服务商，按通用云、GPU 专营、Serverless、国内云四类放；价格只写口径与核验入口，不写死数字。</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 回硬件站</a><a href="../path.html">硬件选型路径 →</a></div>
@@ -89,7 +97,7 @@ for (const cat of CAT_ORDER) {
   const body = `<div class="container">
 <header class="sec-head">
   <p class="eyebrow">Compute · Cloud · ${esc(CATS[cat].en)}</p>
-  <h1>${esc(CATS[cat].zh)}</h1>
+  <h1>${bi(CATS[cat].zh, CATS[cat].en)}</h1>
   <p class="lede">${esc(CATS[cat].desc)} 这一页收 ${list.length} 家；点进单卡看计费、区域、存储出网、合规与核验入口。</p>
 </header>
 <div class="sec-nav"><a href="index.html">← 全部云算力</a><a href="../index.html">硬件站</a></div>
@@ -107,11 +115,11 @@ for (const cat of CAT_ORDER) {
 for (const p of providers) {
   const body = `<div class="container">
 <header class="sec-detail">
-  <p class="eyebrow">Compute · Cloud · ${esc(CATS[p.category].zh)}</p>
-  <h1>${esc(p.provider)}</h1>
+  <p class="eyebrow">Compute · Cloud · ${bi(CATS[p.category].zh, CATS[p.category].en)}</p>
+  <h1>${bi(p.provider, PROVIDER_EN[p.id] || p.provider)}</h1>
   <p class="sub">${esc(p.gpuTypes)}</p>
 </header>
-<div class="sec-nav"><a href="index.html">← 全部云算力</a><a href="${esc(p.category)}.html">${esc(CATS[p.category].zh)}</a><a href="../index.html">硬件站</a></div>
+<div class="sec-nav"><a href="index.html">${bi('← 全部云算力', '← All cloud compute')}</a><a href="${esc(p.category)}.html">${bi(CATS[p.category].zh, CATS[p.category].en)}</a><a href="../index.html">${bi('硬件站', 'Compute')}</a></div>
 <table class="sec-table">
   <tr><th>卡型</th><td>${esc(p.gpuTypes)}</td></tr>
   <tr><th>计费</th><td>${esc(p.billing)}</td></tr>
@@ -146,8 +154,8 @@ for (const p of providers) {
 for (const g of guides) {
   const body = `<div class="container">
 <header class="sec-detail">
-  <p class="eyebrow">Compute · Cloud · 指南</p>
-  <h1>${esc(g.title)}</h1>
+  <p class="eyebrow">Compute · Cloud · ${bi('指南', 'Guide')}</p>
+  <h1>${bi(g.title, GUIDE_EN[g.id] || g.title)}</h1>
   <p class="sub">${esc(g.lede)}</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 全部云算力</a><a href="../../index.html">硬件站</a></div>

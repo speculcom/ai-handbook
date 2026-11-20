@@ -12,6 +12,7 @@ refs:
   - ["参数越多就越聪明（本站指南）", "https://learn.specul.com/guide/参数越多就越聪明/", "More parameters is not automatically smarter"]
   - ["上下文窗口越大越好（本站指南）", "https://learn.specul.com/guide/上下文窗口越大越好/", "Bigger context is not always better"]
   - ["榜单分数高就是好用（本站指南）", "https://learn.specul.com/guide/榜单分数高就是好用/", "A high leaderboard score is not the same as fitness for your task"]
+  - ["评测分数高就等于可靠（本站指南）", "https://learn.specul.com/guide/评测分数高就等于可靠/", "A high evaluation score does not guarantee reliability (site guide)"]
 last_verified: "2026-11-03"
 verified_scope: "refs"
 ---
@@ -37,6 +38,7 @@ verified_scope: "refs"
 - [参数越多就越聪明](https://learn.specul.com/guide/参数越多就越聪明/)
 - [上下文窗口越大越好](https://learn.specul.com/guide/上下文窗口越大越好/)
 - [榜单分数高就是好用](https://learn.specul.com/guide/榜单分数高就是好用/)
+- [评测分数高就等于可靠](https://learn.specul.com/guide/评测分数高就等于可靠/)
 
 ---
 <!-- 微型指南 · 第一站（入门） · 约 6 分钟 -->

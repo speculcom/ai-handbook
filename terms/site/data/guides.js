@@ -909,7 +909,7 @@ var GUIDES = [
   "span": 7,
   "lead": {
    "zh": "发布会说「最强」，你的任务只关心「对我这摊事有没有用」；用四步把宣传拆成可验证的结论。",
-   "en": "发布会说「最强」，你的任务只关心「对我这摊事有没有用」；用四步把宣传拆成可验证的结论。"
+   "en": "A launch says “best ever”; your job only cares whether it helps this task. Four steps turn the claim into a testable verdict."
   },
   "points": [
    "先看发布的是「新模型」还是「新档位、新价格、新包装」；只有权重或架构变化才算能力线。",
@@ -921,13 +921,13 @@ var GUIDES = [
    "结论写成「适合谁、不适合谁、在什么条件下」；不要写成「最强」。"
   ],
   "pointsEn": [
-   "先看发布的是「新模型」还是「新档位、新价格、新包装」；只有权重或架构变化才算能力线。",
-   "找官方技术报告或模型卡：参数、上下文、训练数据、评测口径；没有就降级为「未证实」。",
-   "把官方榜单换到你的任务集：同一提示词、同一工具、同一预算，跑 20–50 条真实样本。",
-   "分开记「能力上限」与「稳定下限」：一次惊艳不算，重复 5 次都可用才算。",
-   "看成本与延迟：单位任务成本、首字延迟、吞吐；能力提升 10% 但成本翻倍要重新算。",
-   "看许可与可获得性：权重是否开放、API 是否在常用地区可用、是否绑定生态。",
-   "结论写成「适合谁、不适合谁、在什么条件下」；不要写成「最强」。"
+   "First separate a new model from a new tier, price or package; only weight or architecture changes mark a capability step.",
+   "Find the official technical report or model card: parameters, context, training data, eval setup. Without it, mark the claim unverified.",
+   "Move the vendor benchmark to your own task set: same prompt, tools and budget, 20–50 real samples.",
+   "Record the capability ceiling and the reliable floor separately: one impressive run is not enough; five repeats are.",
+   "Check cost and latency: cost per task, time to first token, throughput. A 10% gain at double the cost needs a new calculation.",
+   "Check licence and availability: are weights open, is the API available in your region, does it lock you into an ecosystem?",
+   "Write the conclusion as who it suits, who it does not, and under what conditions; never as “the best”."
   ],
   "myth": null,
   "mythEn": null,
@@ -2582,7 +2582,7 @@ var GUIDES = [
   "span": 8,
   "lead": {
    "zh": "看图答得漂亮不等于能用；验收要把「看见」「看懂」「据此做事」分开测。",
-   "en": "看图答得漂亮不等于能用；验收要把「看见」「看懂」「据此做事」分开测。"
+   "en": "A pretty answer about an image does not mean it works. Acceptance testing separates seeing, understanding and acting on it."
   },
   "points": [
    "建三组题：纯识别（OCR、物体、图表读数）、关系推理（比较、因果、空间）、任务执行（按图改代码、填表、导航）。",
@@ -2593,12 +2593,12 @@ var GUIDES = [
    "用同一组题对比至少一个基线模型；没有基线就没有「好」。"
   ],
   "pointsEn": [
-   "建三组题：纯识别（OCR、物体、图表读数）、关系推理（比较、因果、空间）、任务执行（按图改代码、填表、导航）。",
-   "每题保留原图与标准答案，要求模型引用图上坐标或区域；不能引用就判「蒙对」。",
-   "加入对抗样本：模糊、旋转、遮挡、错别字、图表误导；看它是否承认看不见。",
-   "分开测「描述」与「决策」：描述对但行动错，说明视觉到动作的链路没打通。",
-   "记录 token 成本：图像 token 化很贵，长图与多图会显著推高单价。",
-   "用同一组题对比至少一个基线模型；没有基线就没有「好」。"
+   "Build three sets: pure recognition (OCR, objects, chart reading), relational reasoning (comparison, cause, space), and task execution (edit code from an image, fill a form, navigate).",
+   "Keep the original image and the reference answer for every item; require the model to cite coordinates or regions. If it cannot, count it as a lucky guess.",
+   "Add adversarial samples: blur, rotation, occlusion, typos, misleading charts; see whether it admits it cannot see.",
+   "Test description and decision separately: a correct description with a wrong action means the vision-to-action path is not connected.",
+   "Record token cost: image tokenisation is expensive, and long or multiple images raise the unit price sharply.",
+   "Compare against at least one baseline on the same set; without a baseline there is no “good”."
   ],
   "myth": null,
   "mythEn": null,
@@ -2625,7 +2625,7 @@ var GUIDES = [
   "span": 8,
   "lead": {
    "zh": "长任务不怕慢，怕的是一步错、全盘重来；检查点是把「可恢复」设计进流程。",
-   "en": "长任务不怕慢，怕的是一步错、全盘重来；检查点是把「可恢复」设计进流程。"
+   "en": "Long jobs are not afraid of being slow; they are afraid of one bad step forcing a full restart. Checkpoints design recoverability into the flow."
   },
   "points": [
    "把任务切成可验证的阶段，每阶段有明确产物与成功条件；不要用「继续做」当阶段。",
@@ -2636,12 +2636,12 @@ var GUIDES = [
    "记录「不可逆操作」清单；恢复时默认不重放，先核对外部状态。"
   ],
   "pointsEn": [
-   "把任务切成可验证的阶段，每阶段有明确产物与成功条件；不要用「继续做」当阶段。",
-   "每阶段结束写结构化状态：目标、已完成、未完成、关键决策、外部 ID、花费。",
-   "副作用操作（发消息、下单、改文件）前先落检查点；失败时知道做过什么、没做什么。",
-   "恢复时先读状态再行动；不要凭对话历史猜进度。",
-   "设最大步数、预算与时限，超限暂停并请求人工；不要无限重试。",
-   "记录「不可逆操作」清单；恢复时默认不重放，先核对外部状态。"
+   "Cut the job into verifiable stages, each with a clear artefact and success condition; “keep going” is not a stage.",
+   "At the end of each stage write structured state: goal, done, not done, key decisions, external IDs, spend.",
+   "Checkpoint before side effects (send, order, edit a file), so a failure knows what was and was not done.",
+   "On resume, read the state before acting; never guess progress from chat history.",
+   "Set maximum steps, budget and time; stop and ask a human when exceeded. Do not retry forever.",
+   "Keep a list of irreversible actions; on resume, do not replay by default — verify external state first."
   ],
   "myth": null,
   "mythEn": null,
@@ -2668,7 +2668,7 @@ var GUIDES = [
   "span": 9,
   "lead": {
    "zh": "视频验收不是「看着像」，而是画面、运动、时序、音画同步四项分开打分。",
-   "en": "视频验收不是「看着像」，而是画面、运动、时序、音画同步四项分开打分。"
+   "en": "Video acceptance is not “it looks right”. Score picture, motion, temporal order and audio-visual sync separately."
   },
   "points": [
    "先定交付标准：时长、分辨率、帧率、比例、是否有水印；不达标直接拒。",
@@ -2680,13 +2680,13 @@ var GUIDES = [
    "记录每条失败样本与参数，建回归集；不要只存「最好的一条」。"
   ],
   "pointsEn": [
-   "先定交付标准：时长、分辨率、帧率、比例、是否有水印；不达标直接拒。",
-   "画面：主体一致性、文字与 Logo 正确性、手部与人脸等高风险区域。",
-   "运动：镜头运动是否按提示、物理是否合理、有没有跳变或闪烁。",
-   "时序：跨镜头角色、服装、场景是否一致；长视频要看接缝。",
-   "音画：有对白或音效时检查口型、声画同步与环境声。",
-   "可编辑性：能否局部重生成、延长、换参考；不能改的片子返工成本高。",
-   "记录每条失败样本与参数，建回归集；不要只存「最好的一条」。"
+   "Set delivery criteria first: duration, resolution, frame rate, aspect ratio, watermark; reject anything that misses.",
+   "Picture: subject consistency, correct text and logos, high-risk areas such as hands and faces.",
+   "Motion: does the camera move as prompted, is the physics plausible, are there jumps or flicker?",
+   "Temporal: do character, costume and scene stay consistent across cuts? Check the seams in long videos.",
+   "Audio-visual: with dialogue or effects, check lip sync, sound-picture sync and room tone.",
+   "Editability: can it be partially regenerated, extended or re-referenced? A piece you cannot edit is expensive to redo.",
+   "Log every failed sample and its parameters into a regression set; do not keep only the best take."
   ],
   "myth": null,
   "mythEn": null,
@@ -3540,7 +3540,7 @@ var GUIDES = [
   "span": 8,
   "lead": {
    "zh": "多卡不是「显存加法」；先算通信、并行方式与真实吞吐，再决定掏不掏钱。",
-   "en": "多卡不是「显存加法」；先算通信、并行方式与真实吞吐，再决定掏不掏钱。"
+   "en": "More GPUs is not additive VRAM. Calculate communication, parallelism and real throughput before spending."
   },
   "points": [
    "先判断瓶颈：单卡显存不够、单卡算力不够、还是要更大并发；三种问题解法不同。",
@@ -3551,12 +3551,12 @@ var GUIDES = [
    "先租后买：用云上同规格多卡跑一周真实负载，再决定。"
   ],
   "pointsEn": [
-   "先判断瓶颈：单卡显存不够、单卡算力不够、还是要更大并发；三种问题解法不同。",
-   "张量并行吃互联带宽，流水并行吃显存与气泡；NVLink、PCIe、雷电的差距先查清。",
-   "算有效吞吐：不是峰值 FLOPS 相加，而是端到端 tokens/s 与首字延迟。",
-   "算总拥有成本：卡、主板、电源、散热、机房、电费、运维；别只算卡价。",
-   "小模型与低并发通常单卡更划算；多卡适合大模型、长上下文、高并发。",
-   "先租后买：用云上同规格多卡跑一周真实负载，再决定。"
+   "Find the bottleneck first: not enough VRAM, not enough compute, or need more concurrency. Each has a different fix.",
+   "Tensor parallelism eats interconnect bandwidth; pipeline parallelism eats VRAM and bubbles. Check NVLink, PCIe and Thunderbolt gaps first.",
+   "Calculate effective throughput: not summed peak FLOPS, but end-to-end tokens/s and time to first token.",
+   "Calculate total cost of ownership: cards, board, PSU, cooling, room, power, operations; not just card price.",
+   "Small models at low concurrency are usually cheaper on one card; multi-GPU suits large models, long context and high concurrency.",
+   "Rent before buying: run the real workload for a week on the same cloud configuration, then decide."
   ],
   "myth": null,
   "mythEn": null,
@@ -4441,7 +4441,7 @@ var GUIDES = [
   "span": 9,
   "lead": {
    "zh": "模型 API 的坑不在价格，在可用性、限流、数据权利和「想走时走不掉」。",
-   "en": "模型 API 的坑不在价格，在可用性、限流、数据权利和「想走时走不掉」。"
+   "en": "The trap in a model API is not price; it is availability, rate limits, data rights, and not being able to leave."
   },
   "points": [
    "可用性：写清月度可用率、故障响应与赔付；不要接受「尽力而为」。",
@@ -4453,13 +4453,13 @@ var GUIDES = [
    "责任：内容侵权、数据泄露、服务中断的责任边界与保险。"
   ],
   "pointsEn": [
-   "可用性：写清月度可用率、故障响应与赔付；不要接受「尽力而为」。",
-   "限流与配额：RPM、TPM、并发、突发；超限是排队还是报错，要写进合同。",
-   "数据权利：输入输出归谁、是否训练、留存多久、能否删除；与隐私政策对齐。",
-   "模型变更：供应商换底座或改版本要提前通知；你有权做回归测试与终止。",
-   "退出：数据导出格式、迁移协助、缓存与备份清理、最后计费日。",
-   "价格：单价、阶梯、最低消费、涨价上限；不要只看首月折扣。",
-   "责任：内容侵权、数据泄露、服务中断的责任边界与保险。"
+   "Availability: write monthly uptime, incident response and credits; do not accept “best efforts”.",
+   "Rate limits and quota: RPM, TPM, concurrency, bursts; say whether overage queues or errors, and put it in the contract.",
+   "Data rights: who owns input and output, is it used for training, how long is it kept, can it be deleted; align with the privacy policy.",
+   "Model changes: the vendor must give notice before changing the base or version; you keep the right to regression-test and terminate.",
+   "Exit: export format, migration help, cache and backup deletion, final billing date.",
+   "Price: unit price, tiers, minimum spend, cap on increases; do not look only at the first-month discount.",
+   "Liability: boundaries and insurance for IP infringement, data breach and service interruption."
   ],
   "myth": null,
   "mythEn": null,

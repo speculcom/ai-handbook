@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-/* 仓内副本：源文件是 _audit/viz.mjs。改源文件后请重新复制，保证单仓克隆可构建。
- * ============================================================================
+/* ============================================================================
  * viz.mjs — 全站共享的数据视觉层（唯一生成处）
  * ----------------------------------------------------------------------------
  * 设计约束：
@@ -33,11 +32,160 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const fmt = (n) => Number(n).toLocaleString('en-US');
 
 /* ---------- SVG 基座 ---------- */
+const ARIA_EN = {
+  '横向条形图': 'Horizontal bar chart',
+  '纵向柱状图': 'Vertical bar chart',
+  '累计词条折线图': 'Cumulative term line chart',
+  '环图': 'Donut chart',
+  '时间线': 'Timeline',
+  '显存与带宽散点图': 'Memory capacity vs bandwidth scatter plot',
+  '信任栈分层图': 'Trust-stack layers',
+  '全站生态节点图': 'Site ecosystem node map',
+};
 const svg = (w, h, label, body) =>
-  `<svg class="vz-svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
+  `<svg class="vz-svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}" data-ui-aria-label-zh="${esc(label)}" data-ui-aria-label-en="${esc(ARIA_EN[label] || label)}" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
 
-const text = (x, y, s, cls = 'vz-t', anchor = 'start') =>
-  `<text x="${x}" y="${y}" class="${cls}"${anchor !== 'start' ? ` text-anchor="${anchor}"` : ''}>${esc(s)}</text>`;
+/* 图表里的短标签也必须有英文。此前只翻译了 aria-label，视觉上的 `<text>` 仍是中文，
+   英文态会直接看到「编程 / 模型仓 / 一 · 进门」。这里给出唯一一份标签词典，
+   所有图表文本都走 text()，中英文各出一份节点，由 brand.css 的 data-zh/data-en 规则切换。 */
+const EN_SECTION = {
+  '全站一张图 · 2026-11-19': 'One map of the whole site · 2026-11-19',
+  '学 AI · 一张图看全貌': 'Learn · the whole map',
+  '工具 · 一张图看全貌': 'Tools · the whole map',
+  '模型 · 一张图看全貌': 'Models · the whole map',
+  '硬件算力 · 一张图看全貌': 'Compute · the whole map',
+  'AI 论文 · 一张图看全貌': 'AI papers · the whole map',
+  '链 · 一张图看全貌': 'Chain · the whole map',
+  'AI导航 · 一张图看全貌': 'AI Directory · the whole map',
+  '演示 · 一张图看全貌': 'Demos · the whole map',
+};
+const EN_TITLE = {
+  '十个入口，一张生态图': 'Ten doors, one ecosystem map',
+  '先看清全貌，再挑一条路走': 'See the whole map, then pick a path',
+  '工具越来越多，先按任务找': 'More tools than ever; start from the job',
+  '开放权重模型，现在走到哪一代': 'Open-weight models: which generation are we on?',
+  '显存和带宽，决定你能跑多大模型': 'VRAM and bandwidth decide how big a model you can run',
+  '这些论文，分别在回答什么问题': 'What question is each paper answering?',
+  'AI 自己办事，<br class="br-sm" />先解决「凭什么信它」': 'AI acting on its own:<br class="br-sm" />first, why should you trust it?',
+  '找 AI 网站，不用一个个翻': 'Find AI sites without opening them one by one',
+  '这些作品，先看大家在做什么': 'See what people are actually making',
+  '站点生态图': 'Site ecosystem map',
+  '2026 关键更新': 'Key 2026 updates',
+  '内容条目分布': 'Content volume by site',
+  '这一轮补了什么': 'What this round added',
+  '六层，词都落在哪': 'Where the six levels sit',
+  '最近补的四个词': 'Four terms added recently',
+  '从词条到路径': 'From terms to paths',
+  '六站累计：知识是一层层叠上去的': 'Six stations, cumulative: knowledge stacks up',
+  '各任务的选择数量': 'Options per task',
+  '协议时间线': 'Protocol timeline',
+  '三层接线': 'Three layers of wiring',
+  '家族当前代次的时间分布': "When each family's current generation landed",
+  '模型仓 vs 量化仓': 'Model repos vs quant repos',
+  '量化档 vs GGUF 文件': 'Quant tiers vs GGUF files',
+  '2026 六个新节点': 'Six new nodes in 2026',
+  'HBM 容量 × 带宽': 'HBM capacity × bandwidth',
+  '2026 六个硬件节点': 'Six hardware nodes in 2026',
+  '同样 288GB，为什么不是同一张卡': 'Same 288GB, but not the same card',
+  '主题分布': 'Topic distribution',
+  '年份分布': 'Year distribution',
+  '2026 四个新节点': 'Four new nodes in 2026',
+  '四层信任栈': 'Four-layer trust stack',
+  '类目分布': 'Category distribution',
+  '2026 三个新节点': 'Three new nodes in 2026',
+  '大家常找的几类': 'What people search for',
+  '链接还能打开吗': 'Do the links still open?',
+  '这里只是入口': 'This is an exit, not a destination',
+  '作品都在做什么': 'What the demos actually do',
+  '运行方式与许可边界': 'How they run, and the licence boundary',
+};
+const EN_TEXT = {
+  '开放权重': 'Open weights', '小米 MiMo-V2.6': 'Xiaomi MiMo-V2.6',
+  '一 · 进门': '1 · Enter', '二 · 会用': '2 · Use', '三 · 用深': '3 · Use deeply',
+  '四 · 看懂': '4 · Understand', '五 · 选型': '5 · Choose', '六 · 前沿': '6 · Frontier',
+  '进门': 'Enter', '会用': 'Use', '用深': 'Use deeply', '看懂': 'Understand',
+  '选型': 'Choose', '前沿': 'Frontier', '累计词条': 'Cumulative terms',
+  '30–45 分钟': '30–45 min', '50–75 分钟': '50–75 min',
+  '一个下午': 'One afternoon', '一周': 'One week',
+  '编程': 'Coding', '框架': 'Frameworks', '安全与评测': 'Safety & evals',
+  '自动化': 'Automation', '对话': 'Chat', '本地运行器': 'Local runners',
+  '音频': 'Audio', '图像': 'Images', '视频': 'Video', '研究': 'Research',
+  '协议 / MCP': 'Protocols / MCP', '标准 / 技能': 'Standards / Skills',
+  '协议 / 前端': 'Protocols / front end', 'MCP 下一版': 'Next MCP',
+  '协议 / MCP 下一版': 'Protocols / next MCP',
+  '开源': 'Open source', '开放权重 / 校正': 'Open weights / corrections',
+  '模型仓': 'Model repos', '量化仓': 'Quant repos', '量化档': 'Quant tiers',
+  'GGUF 文件': 'GGUF files',
+  'Agent Skills 作为开放标准发布': 'Agent Skills released as an open standard',
+  '一个文件夹 + SKILL.md，跨平台可移植': 'One folder + SKILL.md, portable across platforms',
+  'MCP Apps 定稿': 'MCP Apps finalised',
+  'ui:// 资源 + 沙箱 iframe + JSON-RPC 回传': 'ui:// resource + sandboxed iframe + JSON-RPC return',
+  'MCP 下一版规范候选': 'Next MCP specification candidate',
+  '无状态核心、Extensions、Tasks 扩展': 'Stateless core, Extensions, Tasks',
+  'Agent Skills 捐给 AAIF': 'Agent Skills donated to AAIF',
+  '70+ 平台接入，标准交给 Linux 基金会下的 AAIF': '70+ platforms; the standard moves to AAIF under the Linux Foundation',
+  'AG-UI 1.0 规范': 'AG-UI 1.0 specification',
+  'Agent ↔ 用户的事件流，HTTP + SSE': 'Agent ↔ user event stream, HTTP + SSE',
+  'Kimi K3 开放权重': 'Kimi K3 open weights',
+  '2.8T 总参 / 104B 激活，16/896 专家，1M 上下文': '2.8T total / 104B active, 16 of 896 experts, 1M context',
+  'GLM-5.3 与 GLM-5.3-Flash': 'GLM-5.3 and GLM-5.3-Flash',
+  '同基座后训练 Scaling；Flash 320B-A18B 随后 MIT 开源': 'Post-training scaling on one base; Flash 320B-A18B later open-sourced under MIT',
+  'DeepSeek V4.1 Flash': 'DeepSeek V4.1 Flash',
+  '552B MoE / 8B prefill / 16B decode，KV 缓存大幅压缩': '552B MoE / 8B prefill / 16B decode, heavily compressed KV cache',
+  'Pro / Flash 双线，原生全模态，AA Intelligence 46.32': 'Pro and Flash lines, native omni-modal, AA Intelligence 46.32',
+  'Meta Muse Spark Open': 'Meta Muse Spark Open',
+  '816B / 42B 激活，1M 上下文，Muse Model License': '816B / 42B active, 1M context, Muse Model License',
+  'Mistral Large 4': 'Mistral Large 4',
+  '1.05T / 49B 激活，128 路由专家，1M 上下文': '1.05T / 49B active, 128 routed experts, 1M context',
+  'MCP Apps 成为正式扩展': 'MCP Apps becomes a formal extension',
+  'SEP-1865 定稿；工具可以返回可交互 UI': 'SEP-1865 finalised; tools can return interactive UI',
+  'ERC-8004 上以太坊主网': 'ERC-8004 goes live on Ethereum mainnet',
+  '身份 / 声誉 / 验证三套注册表': 'Three registries: identity, reputation, validation',
+  '小米 MiMo-V2.6 开源': 'Xiaomi MiMo-V2.6 open-sourced',
+  'Pro / Flash 双线，原生全模态': 'Pro and Flash lines, native omni-modal',
+  'Byteification 登上 Nature': 'Byteification in Nature',
+  '把子词模型改成字节级，训 49.1B token': 'Subword models become byte-level, trained on 49.1B tokens',
+  'Meta Muse Spark Open 开放': 'Meta Muse Spark Open released',
+  '70+ 平台接入；技能成为跨平台标准': '70+ platforms; skills become a cross-platform standard',
+  'Mistral Large 4 开放权重': 'Mistral Large 4 open weights',
+  '1.05T 总参 / 49B 激活，128 路由专家': '1.05T total / 49B active, 128 routed experts',
+  'AMD MI450X 上市': 'AMD MI450X launches',
+  '演示站并入统一外壳': 'Demos move into the shared shell',
+  '189 件作品；底栏单排 10 项、2026 与 404 补齐': '189 works; one-row 10-item footer, 2026 and 404 pages added',
+  'TPU7x（Ironwood）GA': 'TPU7x (Ironwood) GA',
+  'AMD MI455X 上市': 'AMD MI455X launches',
+  'AMD Helios 机架': 'AMD Helios rack',
+  'Vera Rubin NVL72': 'Vera Rubin NVL72',
+  'Blackwell Ultra B300': 'Blackwell Ultra B300',
+  'Byteification · Nature': 'Byteification · Nature',
+  '49.1B token 把子词模型改成字节级': '49.1B tokens turn subword models byte-level',
+  'JEPA-PRH · arXiv': 'JEPA-PRH · arXiv',
+  '109M 文本 JEPA 的表征对齐超过 72B LLM': 'A 109M text JEPA beats a 72B LLM on representation alignment',
+  'Recognition–Refusal · EMNLP': 'Recognition–Refusal · EMNLP',
+  '「识别不可答」与「安全拒答」不是同一个方向': '“Recognising unanswerable” and “safe refusal” are not the same axis',
+  'Abstain-R1 · ACL': 'Abstain-R1 · ACL',
+  '3B 模型的可校准弃答与拒答后澄清': 'Calibrated abstention and post-refusal clarification in a 3B model',
+  'ERC-4337 草案': 'ERC-4337 draft',
+  'UserOperation + Bundler + Paymaster，不改共识层': 'UserOperation + Bundler + Paymaster, no consensus change',
+  'ERC-8004 主网上线': 'ERC-8004 mainnet launch',
+  '身份 / 声誉 / 验证三套 singleton registry': 'Three singleton registries: identity, reputation, validation',
+  'AP2 v0.2 + 捐给 FIDO': 'AP2 v0.2 donated to FIDO',
+  'Human Not Present；SD-JWT mandate': 'Human Not Present; SD-JWT mandate',
+  '生产落地仍未确认': 'Production use still unconfirmed',
+  'AP2 有规范、有 SDK，没有公开确认的生产交易': 'AP2 has a spec and SDK, but no publicly confirmed production transaction',
+};
+const hasBi = (s) => /data-(zh|en)|<br|<span/.test(String(s));
+const zhText = (s) => /[一-鿿]/.test(String(s));
+const biText = (s, map) => (zhText(s) && !hasBi(s) && map[s] ? bi(s, map[s]) : s);
+
+const text = (x, y, s, cls = 'vz-t', anchor = 'start') => {
+  const raw = String(s);
+  const one = (value) => `<text x="${x}" y="${y}" class="${cls}"${anchor !== 'start' ? ` text-anchor="${anchor}"` : ''}>${esc(value)}</text>`;
+  if (zhText(raw) && EN_TEXT[raw]) {
+    return one(raw).replace('<text ', '<text data-zh ') + one(EN_TEXT[raw]).replace('<text ', '<text data-en ');
+  }
+  return one(raw);
+};
 
 /* 横向条形图：标签在左、值在右。rows: [{label,value,color?,note?}] */
 function barChart(rows, { w = 720, labelW = 210, unit = '', max: maxIn } = {}) {
@@ -184,7 +332,7 @@ function nodeMap(nodes, { w = 480, h = 330 } = {}) {
 /* ---------- 卡片外壳 ---------- */
 function card({ span = 4, no, title, sub, svg: chart, foot }) {
   return `<figure class="vz-card vz-span-${span}">
-    <figcaption class="vz-cap"><span class="vz-no">${no}</span><span><b>${title}</b><small>${sub}</small></span></figcaption>
+    <figcaption class="vz-cap"><span class="vz-no">${no}</span><span><b>${biText(title, EN_TITLE)}</b><small>${sub}</small></span></figcaption>
     <div class="vz-plot">${chart}</div>
     ${foot ? `<p class="vz-foot">${foot}</p>` : ''}
   </figure>`;
@@ -194,8 +342,8 @@ function section({ id, kicker, title, sub, dek, cards, foot, link }) {
   return `<section class="vz-section" id="${id}">
   <div class="container">
     <div class="vz-head">
-      <p class="vz-kicker">${kicker}</p>
-      <h2 class="vz-title">${title} <span class="vz-title-sub">${sub}</span></h2>
+      <p class="vz-kicker">${biText(kicker, EN_SECTION)}</p>
+      <h2 class="vz-title">${biText(title, EN_TITLE)} <span class="vz-title-sub">${sub}</span></h2>
       <p class="vz-dek">${dek}</p>
     </div>
     <div class="vz-grid">${cards.join('')}</div>
@@ -314,16 +462,16 @@ function vizLearn() {
     cards: [
       card({ span: 7, no: '01', title: '六层，词都落在哪', sub: bi('当前词库', 'current glossary'), svg: barChart(layers, { labelW: 170 }), foot: bi('「用深」和「看懂」的词最多，因为这两块最容易被术语绕晕；先挑你卡住的那一层，不用从头背。', '“Use deeply” and “understand” carry the most terms because those are where jargon gets densest. Start with the layer you are stuck on; no need to memorise them all.') }),
       card({ span: 5, no: '02', title: '最近补的四个词', sub: bi('训练、推理、表征、生成各一个', 'one each for training, inference, representation, generation'), svg: `<div class="vz-map">
-        <div class="vz-map-row"><span class="vz-tag">训练</span><b>GRPO</b><small>${bi('组内相对优势，省掉 critic', 'group-relative advantage, no critic')}</small></div>
-        <div class="vz-map-row"><span class="vz-tag">推理</span><b>MLA</b><small>${bi('低秩压缩 KV，长上下文更省显存', 'low-rank KV compression for long context')}</small></div>
-        <div class="vz-map-row"><span class="vz-tag">表征</span><b>JEPA</b><small>${bi('预测表示而不是像素', 'predict representations, not pixels')}</small></div>
-        <div class="vz-map-row"><span class="vz-tag">生成</span><b>Flow Matching</b><small>${bi('连续流，替代部分扩散步', 'continuous flow, fewer steps than diffusion')}</small></div>
+        <div class="vz-map-row"><span class="vz-tag">${bi('训练', 'Training')}</span><b>GRPO</b><small>${bi('组内相对优势，省掉 critic', 'group-relative advantage, no critic')}</small></div>
+        <div class="vz-map-row"><span class="vz-tag">${bi('推理', 'Inference')}</span><b>MLA</b><small>${bi('低秩压缩 KV，长上下文更省显存', 'low-rank KV compression for long context')}</small></div>
+        <div class="vz-map-row"><span class="vz-tag">${bi('表征', 'Representation')}</span><b>JEPA</b><small>${bi('预测表示而不是像素', 'predict representations, not pixels')}</small></div>
+        <div class="vz-map-row"><span class="vz-tag">${bi('生成', 'Generation')}</span><b>Flow Matching</b><small>${bi('连续流，替代部分扩散步', 'continuous flow, fewer steps than diffusion')}</small></div>
       </div>`, foot: bi('这四个词经常被提到，但之前站内没有独立解释；现在各有一页，写清它是什么、用在哪、哪里不适用。', 'These four come up often but had no standalone explanation here; each now has a page covering what it is, where it is used and where it is not.') }),
       card({ span: 12, no: '03', title: '从词条到路径', sub: bi('六层不是六个文件夹，是一条可走的路线', 'six levels, one walkable route'), svg: `<div class="vz-path">
         <span>${bi('进门', 'Enter')}</span><i>→</i><span>${bi('会用', 'Use')}</span><i>→</i><span>${bi('用深', 'Use deeply')}</span><i>→</i><span>${bi('看懂', 'Understand')}</span><i>→</i><span>${bi('选型', 'Choose')}</span><i>→</i><span>${bi('前沿', 'Frontier')}</span>
       </div>`, foot: bi('每个词条都标了所属层和难度；路径页把「先读什么」排成顺序，不按字母表。', 'Every term carries its level and difficulty; the path page orders what to read first, not alphabetically.') }),
       card({ span: 7, no: '04', title: '六站累计：知识是一层层叠上去的', sub: bi('累计词条数 · 当前词库', 'cumulative terms · current glossary'), svg: lineChart(cumulative), foot: bi('前两站先打 80 个词的地基，第三站「用深」一次加 67 个。别从最难的开始，先有底再往上叠。', 'The first two stations lay an 80-term foundation; station three adds 67 more at once. Do not start with the hardest layer — build a base first.') }),
-      card({ span: 5, no: '05', title: `${routePaths.length} 条路线，大半不到 45 分钟`, sub: bi('按建议投入时间分组', 'routes grouped by suggested time'), svg: donut(routeBuckets, { total: routePaths.length, center: String(routePaths.length), w: 460, h: 240 }), foot: bi(`${routeBuckets[0].value} 条路线 45 分钟内能走完，适合今天先动一下；一个下午、一周各 ${routeBuckets[2].value} 条，适合系统学。`, `${routeBuckets[0].value} routes finish within 45 minutes — enough to start today; ${routeBuckets[2].value} afternoon-length and ${routeBuckets[3].value} week-length route are for deeper study.`) }),
+      card({ span: 5, no: '05', title: bi(`${routePaths.length} 条路线，大半不到 45 分钟`, `${routePaths.length} paths, most under 45 minutes`), sub: bi('按建议投入时间分组', 'routes grouped by suggested time'), svg: donut(routeBuckets, { total: routePaths.length, center: String(routePaths.length), w: 460, h: 240 }), foot: bi(`${routeBuckets[0].value} 条路线 45 分钟内能走完，适合今天先动一下；一个下午、一周各 ${routeBuckets[2].value} 条，适合系统学。`, `${routeBuckets[0].value} routes finish within 45 minutes — enough to start today; ${routeBuckets[2].value} afternoon-length and ${routeBuckets[3].value} week-length route are for deeper study.`) }),
     ],
     foot: bi('说明：词条按所属层计数，不含指南和路径页。', 'Note: terms count by their level; guides and path pages are excluded.'),
     link: `<a href="2026.html">${bi('读 2026 学 AI 补丁包：四个新概念 + 一篇指南更新', 'Read the 2026 learn patch: four concepts + one guide update')} →</a>`,
