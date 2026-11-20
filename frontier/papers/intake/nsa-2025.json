@@ -1,0 +1,40 @@
+{
+  "id": "nsa-2025",
+  "title": {
+    "zh": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention",
+    "en": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention"
+  },
+  "category": "efficiency",
+  "url": "https://arxiv.org/abs/2502.11089",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2502.11089",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2502.11089",
+      "quote": "dynamic hierarchical sparse strategy, combining coarse-grained token compression with fine-grained token selection"
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.11089",
+      "quote": "enable end-to-end training, reducing pretraining computation without sacrificing model performance"
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.11089",
+      "quote": "NSA achieves substantial speedups over Full Attention on 64k-length sequences across decoding, forward propagation, and backward propagation"
+    }
+  ],
+  "notes": {
+    "zh": "问题：长上下文的标准注意力成本随长度平方增长；稀疏注意力往往只在推理阶段可用，或速度提升被内存访问拖掉，能不能做成可端到端预训练的硬件友好稀疏注意力。\n证据位置：摘要提出 NSA，用粗粒度 token 压缩加细粒度 token 选择的分层稀疏策略；算法与硬件对齐，支持端到端训练；在 64k 长度上，解码、前向、反向都相对 Full Attention 有明显加速；预训练模型在通用、长上下文与指令推理基准上保持或超过 Full Attention。\n作者自陈局限：主要证据在 64k 长度；加速依赖具体硬件与 kernel 实现；评测以预训练模型为主，未覆盖所有下游与部署场景；没有独立复现。\n它没主张的：不是无限长度都线性；不是所有 GPU 上都能拿到同样加速；不是稀疏化一定无损。",
+    "en": "Problem: standard attention scales quadratically with context; sparse attention is often inference-only or loses its speedup to memory access, so can it be made hardware-aligned and natively trainable end to end.\nWhere the evidence sits: the abstract introduces NSA with a dynamic hierarchical sparse strategy combining coarse token compression and fine token selection; it is hardware-aligned and end-to-end trainable; at 64k length it substantially speeds up decoding, forward and backward passes versus full attention; pretrained models maintain or exceed full attention on general, long-context and instruction-reasoning benchmarks.\nWhat the authors say about limits: main evidence is at 64k; speedups depend on specific hardware and kernel implementations; evaluation centres on pretrained models, not every downstream or deployment case; there is no independent reproduction.\nWhat it does not claim: not linear for unlimited length; not the same speedup on every GPU; not that sparsification is always lossless."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要；Figure 1",
+    "方法 / method": "粗粒度压缩 + 细粒度选择，端到端可训练",
+    "长度 / length": "64k 序列",
+    "加速 / speed": "解码、前向、反向均明显快于 Full Attention",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

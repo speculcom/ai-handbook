@@ -1,0 +1,40 @@
+{
+  "id": "deepseek-v3-2024",
+  "title": {
+    "zh": "DeepSeek-V3 Technical Report",
+    "en": "DeepSeek-V3 Technical Report"
+  },
+  "category": "scaling",
+  "url": "https://arxiv.org/abs/2412.19437",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2412.19437",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2412.19437",
+      "quote": "a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token"
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.19437",
+      "quote": "requires only 2.788M H800 GPU hours for its full training"
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.19437",
+      "quote": "the recommended deployment unit for DeepSeek-V3 is relatively large, which might pose a burden for small-sized teams"
+    }
+  ],
+  "notes": {
+    "zh": "问题：把 MoE 语言模型做大以后，怎样同时控制训练成本、推理成本和负载均衡，而不是只堆参数。\n证据位置：摘要给出 671B 总参数、每 token 激活 37B，采用 MLA 与 DeepSeekMoE，预训练 14.8T tokens；完整训练 2.788M H800 GPU 小时；第 6 节写部署单元偏大、生成速度仍有提升空间。\n作者自陈局限：推荐部署单元较大，小团队落地有负担；生成速度相对前代翻倍以上，但作者认为还不够；这些结论来自自建训练与评测，不等同于第三方独立复现。\n它没主张的：不是所有团队都能本地部署；不是每个基准都全面超过闭源模型；2.788M GPU 小时不是普遍成本公式。",
+    "en": "Problem: once an MoE language model is scaled up, how do you control training cost, inference cost and load balance instead of only adding parameters.\nWhere the evidence sits: the abstract reports 671B total parameters with 37B activated per token, MLA and DeepSeekMoE, and pre-training on 14.8T tokens; full training takes 2.788M H800 GPU hours; Section 6 notes that the recommended deployment unit is large and generation speed still has room to improve.\nWhat the authors say about limits: the recommended deployment unit is large enough to burden small teams; generation speed is more than twice DeepSeek-V2 but the authors still see room; the results come from their own training and evaluation, not an independent reproduction.\nWhat it does not claim: not deployable by every team on local hardware; not a blanket win over closed models on every benchmark; 2.788M GPU hours is not a universal cost formula."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要；第 6 节 Conclusion, Limitations, and Future Directions",
+    "参数 / parameters": "671B 总参数，37B 每 token 激活",
+    "训练 / training": "14.8T tokens；2.788M H800 GPU 小时",
+    "部署边界 / deployment": "推荐部署单元较大，小团队有负担",
+    "复现状态 / reproduction": "未复现（只读摘要与第 6 节）"
+  }
+}

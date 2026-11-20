@@ -1,0 +1,40 @@
+{
+  "id": "dapo-2025",
+  "title": {
+    "zh": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale",
+    "en": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale"
+  },
+  "category": "alignment",
+  "url": "https://arxiv.org/abs/2503.14476",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2503.14476",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2503.14476",
+      "quote": "Decoupled Clip and Dynamic sAmpling Policy Optimization (DAPO)"
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.14476",
+      "quote": "achieves 50 points on AIME 2024 using Qwen2.5-32B base model"
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.14476",
+      "quote": "we open-source our training code, which is built on the verl framework, along with a carefully curated and processed dataset"
+    }
+  ],
+  "notes": {
+    "zh": "问题：o1、R1 这类推理模型的 RL 训练细节大多不公开，社区难以复现；能不能把大规模 LLM 强化学习的关键技巧拆开讲清，并开放代码与数据。\n证据位置：摘要提出 DAPO（Decoupled Clip and Dynamic sAmpling Policy Optimization），总结四项关键技术；在 Qwen2.5-32B 基座上于 AIME 2024 达到 50 分；训练代码基于 verl，数据与处理流程一并开源。\n作者自陈局限：结果主要是单一基座、单一竞赛数学基准；四项技巧在不同模型/数据上的普适性未展开；开源系统不等于所有实验室都能承担同等算力；没有独立复现。\n它没主张的：不是所有任务都能靠这套 RL 提升；不是 50 分等于通用推理；不是开源就消除了算力门槛。",
+    "en": "Problem: RL training details for reasoning models such as o1 and R1 are largely closed, making reproduction hard; can the key techniques for large-scale LLM RL be separated out and released with code and data.\nWhere the evidence sits: the abstract proposes DAPO (Decoupled Clip and Dynamic sAmpling Policy Optimization) with four key techniques; it reaches 50 points on AIME 2024 with a Qwen2.5-32B base model; training code is open-sourced on verl along with a curated dataset.\nWhat the authors say about limits: results centre on one base model and one competition-maths benchmark; generality of the four techniques across models and data is not detailed; an open system does not remove the compute barrier for every lab; there is no independent reproduction.\nWhat it does not claim: not that this RL recipe improves every task; not that 50 points equals general reasoning; not that open-sourcing removes the compute requirement."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "算法 / algorithm": "DAPO，四项关键技术",
+    "基座与分数 / base and score": "Qwen2.5-32B；AIME 2024 50 分",
+    "开源 / open source": "verl 训练代码 + 数据集",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

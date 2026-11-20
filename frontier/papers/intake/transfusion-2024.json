@@ -1,0 +1,39 @@
+{
+  "id": "transfusion-2024",
+  "title": {
+    "zh": "Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model",
+    "en": "Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model"
+  },
+  "category": "multimodal",
+  "url": "https://arxiv.org/abs/2408.11039",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2408.11039",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2408.11039",
+      "quote": "Transfusion combines the language modeling loss function (next token prediction) with diffusion to train a single transformer over mixed-modality sequences"
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.11039",
+      "quote": "We pretrain multiple Transfusion models up to 7B parameters from scratch on a mixture of text and image data"
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.11039",
+      "quote": "scaling our Transfusion recipe to 7B parameters and 2T multi-modal tokens produces a model that can generate images and text on a par with similar scale diffusion models and language models"
+    }
+  ],
+  "notes": {
+    "zh": "问题：文本模型用下一 token 预测，图像生成用扩散；能不能用一个 Transformer、一套混合模态序列，同时做两件事，而不是把图像离散成 token 再硬套语言模型。\n证据位置：摘要把下一 token 预测损失与扩散结合，在文本和图像混合序列上训练单个 Transformer；从零训练到 7B，使用 2T 多模态 token，并通过模态专用编解码层把每张图压到 16 个 patch；作者称生成质量与同规模扩散模型、语言模型相当。\n作者自陈局限：验证到 7B 参数、2T token；不是生产级多模态助手；图像生成只与同规模模型比较，不是与更大模型或所有任务比较；训练数据与配方未完全开放。\n它没主张的：不是统一所有模态；不是图像生成全面超过专用扩散模型；不是 7B 就能替代更大规模系统。",
+    "en": "Problem: text models predict the next token, image generation uses diffusion; can one transformer over mixed-modality sequences do both, instead of discretizing images and forcing them into a language model.\nWhere the evidence sits: the abstract combines next-token prediction with diffusion to train a single transformer over text and image sequences; models are trained from scratch up to 7B on 2T multimodal tokens, with modality-specific encoding/decoding layers compressing each image to 16 patches; the authors say generation is on par with similar-scale diffusion and language models.\nWhat the authors say about limits: validation goes to 7B parameters and 2T tokens; it is not a production multimodal assistant; image generation is compared with similar-scale models, not larger systems or every task; the training data and full recipe are not fully open.\nWhat it does not claim: not a unification of every modality; not a blanket win over dedicated diffusion models; not a replacement for larger systems at 7B."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "规模 / scale": "最高 7B 参数；2T 多模态 token",
+    "图像压缩 / image tokens": "每张图 16 个 patch",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

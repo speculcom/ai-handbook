@@ -1,0 +1,44 @@
+{
+  "id": "kimi-k2-2025",
+  "title": {
+    "zh": "Kimi K2: Open Agentic Intelligence",
+    "en": "Kimi K2: Open Agentic Intelligence"
+  },
+  "category": "agents",
+  "url": "https://arxiv.org/abs/2507.20534",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2507.20534",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2507.20534",
+      "quote": "a Mixture-of-Experts (MoE) large language model with 32 billion activated parameters and 1 trillion total parameters"
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.20534",
+      "quote": "pre-trained on 15.5 trillion tokens with zero loss spike"
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.20534",
+      "quote": "K2 obtains 66.1 on Tau2-Bench, 76.5 on ACEBench (En), 65.8 on SWE-Bench Verified, and 47.3 on SWE-Bench Multilingual"
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.20534",
+      "quote": "all without extended thinking"
+    }
+  ],
+  "notes": {
+    "zh": "问题：开源模型在智能体任务上常落后于闭源模型；能不能用超大规模 MoE、稳定的优化器和智能体数据管线，把工具调用、软件工程与多语言能力做上去。\n证据位置：摘要给出 1T 总参数、32B 激活的 MoE；提出 MuonClip 优化器，预训练 15.5T token 无 loss spike；后训练包含大规模智能体数据合成与联合 RL；在 Tau2-Bench 66.1、ACEBench 76.5、SWE-Bench Verified 65.8、SWE-Bench Multilingual 47.3，均为非 extended thinking 设置。\n作者自陈局限：分数集中在非 thinking 设置与智能体/软件基准；没有展开通用对话、长程自主与安全评估；1T 总参数带来部署门槛；训练配方与数据只部分开放。\n它没主张的：不是所有任务都超过闭源模型；不是 extended thinking 下同样领先；不是 32B 激活就等于消费级硬件可跑。",
+    "en": "Problem: open models often trail closed models on agentic tasks; can a very large MoE, a stable optimizer and an agentic data pipeline improve tool use, software engineering and multilingual work.\nWhere the evidence sits: the abstract reports a 1T-total, 32B-activated MoE; the MuonClip optimizer enables 15.5T-token pre-training with zero loss spike; post-training includes large-scale agentic data synthesis and joint RL; scores are 66.1 on Tau2-Bench, 76.5 on ACEBench (En), 65.8 on SWE-Bench Verified and 47.3 on SWE-Bench Multilingual, all without extended thinking.\nWhat the authors say about limits: scores focus on non-thinking agentic and software benchmarks; general chat, long-horizon autonomy and safety evaluation are not detailed; 1T total parameters create deployment barriers; training recipe and data are only partly open.\nWhat it does not claim: not a win over closed models on every task; not the same lead under extended thinking; not consumer-hardware deployability because only 32B are active."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "参数 / parameters": "1T 总参数，32B 激活",
+    "预训练 / pre-training": "15.5T tokens，零 loss spike",
+    "基准 / benchmarks": "Tau2 66.1；ACEBench 76.5；SWE-bench Verified 65.8；SWE-bench Multilingual 47.3",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

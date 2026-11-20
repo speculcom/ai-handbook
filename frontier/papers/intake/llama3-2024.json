@@ -1,0 +1,40 @@
+{
+  "id": "llama3-2024",
+  "title": {
+    "zh": "The Llama 3 Herd of Models",
+    "en": "The Llama 3 Herd of Models"
+  },
+  "category": "scaling",
+  "url": "https://arxiv.org/abs/2407.21783",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2407.21783",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2407.21783",
+      "quote": "Our largest model is a dense Transformer with 405B parameters and a context window of up to 128K tokens"
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.21783",
+      "quote": "delivers comparable quality to leading language models such as GPT-4 on a plethora of tasks"
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.21783",
+      "quote": "The resulting models are not yet being broadly released as they are still under development"
+    }
+  ],
+  "notes": {
+    "zh": "问题：一个开放权重的 405B 稠密模型，能不能在多语言、代码、推理和工具使用上接近头部闭源模型，同时把训练与安全评测过程讲清楚。\n证据位置：摘要给出 405B 稠密 Transformer、128K 上下文，称在大量任务上与 GPT-4 质量相当；多模态实验只做到图像、视频、语音接入，结果尚未广泛发布。\n作者自陈局限：安全测试不可能穷尽风险，非英语与对抗提示下仍可能生成有害内容；多模态模型仍在开发中，未广泛发布；论文的「可比」来自其评测集，不是独立第三方横评。\n它没主张的：不是所有任务都超过 GPT-4；405B 不是可普遍复现的算力门槛；多模态能力不是已发布产品能力。",
+    "en": "Problem: can an open-weight 405B dense model approach leading closed models on multilingual, coding, reasoning and tool use, while documenting training and safety evaluation.\nWhere the evidence sits: the abstract reports a 405B dense Transformer with a 128K context window and says it delivers comparable quality to models such as GPT-4 on many tasks; multimodal experiments add image, video and speech capabilities, but those models are not broadly released.\nWhat the authors say about limits: safety testing cannot be exhaustive, and harmful content remains possible in non-English languages and under adversarial prompts; the multimodal models are still under development and not broadly released; “comparable” comes from their evaluation suite, not an independent head-to-head.\nWhat it does not claim: not a win over GPT-4 on every task; 405B is not a reproducible compute baseline for most teams; the multimodal results are not shipped product capability."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要；§5.4.8 Limitations",
+    "模型 / model": "405B 稠密 Transformer",
+    "上下文 / context": "最高 128K tokens",
+    "安全边界 / safety": "测试无法穷尽，非英语与对抗提示仍有风险",
+    "复现状态 / reproduction": "未复现（只读摘要与局限节）"
+  }
+}

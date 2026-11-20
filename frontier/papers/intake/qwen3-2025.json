@@ -1,0 +1,45 @@
+{
+  "id": "qwen3-2025",
+  "title": {
+    "zh": "Qwen3 Technical Report",
+    "en": "Qwen3 Technical Report"
+  },
+  "category": "scaling",
+  "url": "https://arxiv.org/abs/2505.09388",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2505.09388",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2505.09388",
+      "quote": "parameter scales ranging from 0.6 to 235 billion"
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.09388",
+      "quote": "integration of thinking mode (for complex, multi-step reasoning) and non-thinking mode (for rapid, context-driven responses) into a unified framework"
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.09388",
+      "quote": "expands multilingual support from 29 to 119 languages and dialects"
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.09388",
+      "quote": "all Qwen3 models are publicly accessible under Apache 2.0"
+    }
+  ],
+  "notes": {
+    "zh": "问题：推理模型与聊天模型通常是两套权重，用户要在「想得深」和「答得快」之间切换；能不能用一套模型、一个框架同时提供两种模式，并给推理预算。\n证据位置：摘要给出 0.6B–235B 的稠密与 MoE 系列；把 thinking / non-thinking 两种模式统一，支持按查询或模板动态切换，并引入 thinking budget；多语言从 29 种扩到 119 种；全部模型以 Apache 2.0 开放。\n作者自陈局限：摘要的 SOTA 说法来自自建评测；最大 235B，部署成本未展开；thinking budget 的收益依赖任务与提示；没有独立复现与完整安全评估。\n它没主张的：不是所有任务都该开 thinking；不是小模型在每项基准都追平大模型；不是 Apache 2.0 就等于无使用限制。",
+    "en": "Problem: reasoning models and chat models are usually separate weights, forcing a trade-off between deep thinking and fast replies; can one model family provide both modes with a reasoning budget.\nWhere the evidence sits: the abstract covers dense and MoE models from 0.6B to 235B; it unifies thinking and non-thinking modes with dynamic switching by query or template and adds a thinking budget; multilingual support grows from 29 to 119 languages and dialects; all models are released under Apache 2.0.\nWhat the authors say about limits: the SOTA claim comes from their own evaluation; the largest model is 235B and deployment cost is not detailed; thinking-budget gains depend on task and prompt; there is no independent reproduction or full safety evaluation.\nWhat it does not claim: not that every task should enable thinking; not that small models match large ones on every benchmark; not that Apache 2.0 means no usage constraints."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "规模 / scale": "0.6B–235B，稠密与 MoE",
+    "模式 / modes": "thinking / non-thinking 统一框架 + thinking budget",
+    "语言 / languages": "29 → 119 种语言和方言",
+    "许可 / licence": "Apache 2.0",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

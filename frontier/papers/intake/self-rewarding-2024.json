@@ -1,0 +1,39 @@
+{
+  "id": "self-rewarding-2024",
+  "title": {
+    "zh": "Self-Rewarding Language Models",
+    "en": "Self-Rewarding Language Models"
+  },
+  "category": "alignment",
+  "url": "https://arxiv.org/abs/2401.10020",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2401.10020",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2401.10020",
+      "quote": "the language model itself is used via LLM-as-a-Judge prompting to provide its own rewards during training"
+    },
+    {
+      "url": "https://arxiv.org/abs/2401.10020",
+      "quote": "Fine-tuning Llama 2 70B on three iterations of our approach yields a model that outperforms many existing systems on the AlpacaEval 2.0 leaderboard"
+    },
+    {
+      "url": "https://arxiv.org/abs/2401.10020",
+      "quote": "While there is much left still to explore"
+    }
+  ],
+  "notes": {
+    "zh": "问题：奖励模型常由人类偏好训练，能力受人类上限约束，且冻结后不能在训练中继续变强；能不能让语言模型自己当评审，在迭代 DPO 中同时提升指令遵循与自评质量。\n证据位置：摘要说明用 LLM-as-a-Judge 给自身生成奖励，进行迭代 DPO；Llama 2 70B 迭代三次后在 AlpacaEval 2.0 上超过 Claude 2、Gemini Pro 与 GPT-4 0613。\n作者自陈局限：作者明确说还有很多没探索；自评奖励可能继承评审偏差，迭代也可能放大偏差；只报 AlpacaEval 2.0 等有限评测，未覆盖全部任务与安全边界。\n它没主张的：不是不需要人类反馈；不是所有模型都能自我无限提升；排行榜胜出不等同于真实用户偏好或安全对齐。",
+    "en": "Problem: reward models are usually trained from human preferences, capped by human performance and frozen during LLM training; can a language model act as its own judge and improve both instruction following and self-judging through iterative DPO.\nWhere the evidence sits: the abstract uses LLM-as-a-Judge prompting to provide its own rewards during iterative DPO; Llama 2 70B trained for three iterations outperforms Claude 2, Gemini Pro and GPT-4 0613 on the AlpacaEval 2.0 leaderboard.\nWhat the authors say about limits: they explicitly say much is left to explore; self-judging can inherit judge bias and iteration may amplify it; evaluation is limited to AlpacaEval 2.0 and related suites, not every task or safety boundary.\nWhat it does not claim: not a replacement for human feedback; not unlimited self-improvement for every model; a leaderboard win is not the same as real user preference or safety alignment."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要；ICML 2024",
+    "训练 / training": "Llama 2 70B，三次迭代 DPO",
+    "评测 / eval": "AlpacaEval 2.0 超过 Claude 2、Gemini Pro、GPT-4 0613",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

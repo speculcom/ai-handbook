@@ -1,0 +1,39 @@
+{
+  "id": "mamba2-2024",
+  "title": {
+    "zh": "Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality",
+    "en": "Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/2405.21060",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2405.21060",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2405.21060",
+      "quote": "Our state space duality (SSD) framework allows us to design a new architecture (Mamba-2)"
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.21060",
+      "quote": "whose core layer is an a refinement of Mamba's selective SSM that is 2-8X faster"
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.21060",
+      "quote": "while continuing to be competitive with Transformers on language modeling"
+    }
+  ],
+  "notes": {
+    "zh": "问题：Transformer 与 SSM 长期被当成两条路线，能不能用结构化半可分矩阵把二者写成同一个理论框架，并据此做出更快的层。\n证据位置：摘要提出 state space duality（SSD），把 SSM 与注意力变体通过矩阵分解连起来；由此设计 Mamba-2，其核心层是 Mamba 选择性 SSM 的细化版，速度提升 2–8 倍，语言建模仍与 Transformer 竞争力相当。\n作者自陈局限：摘要只给「相对 Mamba 快 2–8 倍、与 Transformer 竞争」的结论，没有给完整任务表、最大规模或训练成本；没有独立复现；ICML 2024 版本与预印本可能不同。\n它没主张的：不是「Transformer 已死」；不是所有序列任务都更快；2–8 倍是核心层速度，不是端到端训练或推理全面加速。",
+    "en": "Problem: Transformers and SSMs have been treated as separate routes; can structured semiseparable matrices put both in one theoretical framework and yield a faster layer.\nWhere the evidence sits: the abstract introduces state space duality (SSD), connecting SSMs and attention variants through matrix decompositions; it then designs Mamba-2, whose core layer refines Mamba’s selective SSM, is 2–8X faster and remains competitive with Transformers on language modeling.\nWhat the authors say about limits: the abstract gives the 2–8X layer speedup and competitive language-modeling result, but no full task table, maximum scale or training cost; there is no independent reproduction; the ICML 2024 version may differ from the preprint.\nWhat it does not claim: not “Transformers are dead”; not faster on every sequence task; the 2–8X figure is a core-layer speedup, not end-to-end training or inference acceleration."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要；ICML 2024",
+    "核心层速度 / layer speed": "相对 Mamba 选择性 SSM 快 2–8 倍",
+    "语言建模 / language": "与 Transformer 竞争力相当（摘要口径）",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

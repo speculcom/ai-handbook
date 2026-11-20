@@ -1,0 +1,39 @@
+{
+  "id": "swe-agent-2024",
+  "title": {
+    "zh": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
+    "en": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering"
+  },
+  "category": "agents",
+  "url": "https://arxiv.org/abs/2405.15793",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2405.15793",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2405.15793",
+      "quote": "SWE-agent's custom agent-computer interface (ACI) significantly enhances an agent's ability to create and edit code files, navigate entire repositories, and execute tests and other programs"
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.15793",
+      "quote": "achieving state-of-the-art performance on both with a pass@1 rate of 12.5% and 87.7%, respectively"
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.15793",
+      "quote": "we provide insight on how the design of the ACI can impact agents' behavior and performance"
+    }
+  ],
+  "notes": {
+    "zh": "问题：语言模型智能体做软件工程时，通用聊天界面并不适合读仓库、改多文件、跑测试；界面设计本身会不会决定成败。\n证据位置：摘要提出 agent-computer interface（ACI），让智能体创建/编辑代码、浏览整个仓库、执行测试；在 SWE-bench 与 HumanEvalFix 上 pass@1 分别为 12.5% 和 87.7%，作者称超过此前非交互式 LM 的公开结果。\n作者自陈局限：SWE-bench 的 12.5% 意味着大多数真实仓库问题仍未解决；评测集中在两个基准，不等于通用软件工程能力；ACI 依赖具体工具与仓库环境，换栈需要重新设计。\n它没主张的：不是全自动替代工程师；不是在所有仓库/语言上都达到 87.7%；不是模型能力本身提升，界面与工具同样贡献结果。",
+    "en": "Problem: when LM agents do software engineering, a chat interface is poorly suited to reading repositories, editing multiple files and running tests; does interface design itself determine success.\nWhere the evidence sits: the abstract introduces an agent-computer interface (ACI) that lets the agent create and edit code, navigate whole repositories and execute tests; pass@1 is 12.5% on SWE-bench and 87.7% on HumanEvalFix, which the authors call state of the art over prior non-interactive LMs.\nWhat the authors say about limits: 12.5% on SWE-bench means most real repository issues remain unsolved; evaluation covers two benchmarks, not general software engineering; the ACI depends on specific tools and repository environments and must be redesigned for other stacks.\nWhat it does not claim: not a replacement for engineers; not 87.7% on every repository or language; the gain is not model capability alone—interface and tools contribute."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "SWE-bench / pass@1": "12.5%",
+    "HumanEvalFix / pass@1": "87.7%",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

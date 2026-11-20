@@ -1,0 +1,45 @@
+{
+  "id": "s1-2025",
+  "title": {
+    "zh": "s1: Simple test-time scaling",
+    "en": "s1: Simple test-time scaling"
+  },
+  "category": "reasoning",
+  "url": "https://arxiv.org/abs/2501.19393",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2501.19393",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2501.19393",
+      "quote": "curate a small dataset s1K of 1,000 questions paired with reasoning traces"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.19393",
+      "quote": "budget forcing to control test-time compute by forcefully terminating the model's thinking process or lengthening it by appending \"Wait\" multiple times"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.19393",
+      "quote": "exceeds o1-preview on competition math questions by up to 27% (MATH and AIME24)"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.19393",
+      "quote": "from 50% to 57% on AIME24"
+    }
+  ],
+  "notes": {
+    "zh": "问题：测试时扩展被 o1 证明有效，但方法不公开；能不能用很小的数据、很简单的预算控制，复现出强推理并解释哪些因素起作用。\n证据位置：摘要用难度、多样性、质量三条标准筛出 1,000 题的 s1K；提出 budget forcing，通过在模型想结束时强停或追加「Wait」来缩短/延长思考；Qwen2.5-32B-Instruct 微调后在 MATH 与 AIME24 上最多超 o1-preview 27%，继续扩展从 50% 到 57%。\n作者自陈局限：评测集中在竞赛数学；s1K 只有 1,000 题，覆盖有限；budget forcing 依赖模型愿意继续生成，不是通用推理控制；32B 规模，未验证更大模型。\n它没主张的：不是所有任务都能靠测试时算力提升；不是「Wait」提示万能；不是 27% 代表全面超过 o1-preview。",
+    "en": "Problem: test-time scaling was demonstrated by o1 but its method was not public; can a tiny dataset and a simple budget control reproduce strong reasoning and show which factors matter.\nWhere the evidence sits: the abstract curates s1K, 1,000 questions selected for difficulty, diversity and quality; budget forcing either terminates the model’s thinking or appends “Wait” to lengthen it; Qwen2.5-32B-Instruct fine-tuned on s1K exceeds o1-preview by up to 27% on MATH and AIME24, and further scaling moves AIME24 from 50% to 57%.\nWhat the authors say about limits: evaluation focuses on competition mathematics; s1K has only 1,000 questions; budget forcing depends on the model continuing to generate and is not general reasoning control; the model is 32B, with larger scales untested.\nWhat it does not claim: not that every task improves with more test-time compute; not that appending “Wait” always works; not that 27% is an all-round win over o1-preview."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "数据 / data": "s1K，1,000 题",
+    "方法 / method": "budget forcing（强停 / 追加 Wait）",
+    "数学 / maths": "MATH、AIME24；最多超 o1-preview 27%",
+    "扩展 / scaling": "AIME24 50% → 57%",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

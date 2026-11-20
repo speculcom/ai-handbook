@@ -1,0 +1,44 @@
+{
+  "id": "qwen25-vl-2025",
+  "title": {
+    "zh": "Qwen2.5-VL Technical Report",
+    "en": "Qwen2.5-VL Technical Report"
+  },
+  "category": "multimodal",
+  "url": "https://arxiv.org/abs/2502.13923",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2502.13923",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2502.13923",
+      "quote": "dynamic resolution processing and absolute time encoding"
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.13923",
+      "quote": "videos of extended durations (up to hours) with second-level event localization"
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.13923",
+      "quote": "Qwen2.5-VL is available in three sizes"
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.13923",
+      "quote": "flagship Qwen2.5-VL-72B model matches state-of-the-art models like GPT-4o and Claude 3.5 Sonnet"
+    }
+  ],
+  "notes": {
+    "zh": "问题：视觉语言模型常把图片缩放到固定分辨率、视频按固定帧率采样，导致小字、表格、长视频事件定位失真；能不能原生长分辨率、原生长时序。\n证据位置：摘要提出动态分辨率处理与绝对时间编码，支持不同尺寸图像与长达数小时视频，并做到秒级事件定位；从零训练原生动态分辨率 ViT 并加 Window Attention；提供三个尺寸，旗舰 72B 在文档/图表理解上对标 GPT-4o 与 Claude 3.5 Sonnet。\n作者自陈局限：对标结论集中在文档与图表；72B 是旗舰，未说明小尺寸差距；视频评测与真实部署仍有距离；没有独立复现与完整安全评估。\n它没主张的：不是所有视觉任务都超过 GPT-4o；不是小时级视频都能精准定位；不是三个尺寸性能相同。",
+    "en": "Problem: vision-language models often resize images to a fixed resolution and sample video at a fixed rate, hurting small text, tables and event localisation; can resolution and time be native.\nWhere the evidence sits: the abstract introduces dynamic-resolution processing and absolute time encoding, supporting varied image sizes and videos up to hours with second-level event localisation; a native dynamic-resolution ViT is trained from scratch with Window Attention; three sizes are offered, and the 72B flagship matches GPT-4o and Claude 3.5 Sonnet on document and diagram understanding.\nWhat the authors say about limits: the comparison focuses on documents and diagrams; 72B is the flagship and the gap at smaller sizes is not detailed; video evaluation is not the same as production deployment; no independent reproduction or full safety evaluation.\nWhat it does not claim: not a win over GPT-4o on every vision task; not second-level localisation in every hour-long video; not identical performance across the three sizes."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "尺寸 / sizes": "三个尺寸；旗舰 72B",
+    "视觉 / vision": "原生动态分辨率 ViT + Window Attention",
+    "视频 / video": "最长数小时，秒级事件定位",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

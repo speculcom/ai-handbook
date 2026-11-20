@@ -1,0 +1,39 @@
+{
+  "id": "deepseek-r1-2025",
+  "title": {
+    "zh": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+    "en": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+  },
+  "category": "reasoning",
+  "url": "https://arxiv.org/abs/2501.12948",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2501.12948",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2501.12948",
+      "quote": "reasoning abilities of LLMs can be incentivized through pure reinforcement learning (RL), obviating the need for human-labeled reasoning trajectories"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.12948",
+      "quote": "emergent development of advanced reasoning patterns, such as self-reflection, verification, and dynamic strategy adaptation"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.12948",
+      "quote": "superior performance on verifiable tasks such as mathematics, coding competitions, and STEM fields"
+    }
+  ],
+  "notes": {
+    "zh": "问题：复杂推理长期依赖大量人工标注的思维链示范；能不能只用可验证奖励的强化学习，让模型自己长出反思、验证和策略切换。\n证据位置：摘要报告纯 RL 训练，不使用人类标注推理轨迹；模型在数学、编程竞赛、STEM 等可验证任务上超过用人工示范训练的对照；大模型的推理模式还能迁移去指导小模型。\n作者自陈局限：摘要只强调可验证任务；开放域写作、主观判断、长程规划没有同等证据；纯 RL 可能带来可读性与语言混杂问题，且需要可靠的自动判分器；训练细节与数据未完全开放。\n它没主张的：不是所有任务都能用纯 RL 解决；不是不需要任何监督数据；不是通用智能已达成。",
+    "en": "Problem: complex reasoning has relied on large human-labelled chain-of-thought demonstrations; can reinforcement learning with verifiable rewards alone produce self-reflection, verification and strategy switching.\nWhere the evidence sits: the abstract reports pure RL without human-labelled reasoning trajectories; the model beats supervised-demonstration baselines on verifiable tasks in mathematics, coding competitions and STEM; the reasoning patterns from larger models can be used to guide smaller models.\nWhat the authors say about limits: the abstract emphasises verifiable tasks; open-ended writing, subjective judgement and long-horizon planning do not have equivalent evidence; pure RL can bring readability and language-mixing issues and needs a reliable automatic grader; training details and data are not fully open.\nWhat it does not claim: not that pure RL solves every task; not that no supervision is needed anywhere; not that general intelligence has been reached."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "训练 / training": "纯 RL；不使用人工标注推理轨迹",
+    "任务范围 / scope": "数学、编程竞赛、STEM 等可验证任务",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

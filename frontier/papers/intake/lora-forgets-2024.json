@@ -1,0 +1,40 @@
+{
+  "id": "lora-forgets-2024",
+  "title": {
+    "zh": "LoRA Learns Less and Forgets Less",
+    "en": "LoRA Learns Less and Forgets Less"
+  },
+  "category": "adaptation",
+  "url": "https://arxiv.org/abs/2405.09673",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2405.09673",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2405.09673",
+      "quote": "in the standard low-rank settings, LoRA substantially underperforms full finetuning"
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.09673",
+      "quote": "LoRA better maintains the base model's performance on tasks outside the target domain"
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.09673",
+      "quote": "full finetuning learns perturbations with a rank that is 10-100X greater than typical LoRA configurations"
+    }
+  ],
+  "notes": {
+    "zh": "问题：LoRA 省显存是共识，但它相对全参数微调到底少学了多少、又少忘了多少，缺少同条件下的系统对照。\n证据位置：摘要在编程与数学两个目标域、约 10 万条指令微调与 20B token 持续预训练两种数据机制下比较；标准低秩设置里 LoRA 明显不如全参数微调，但域外保持更好，且全参数微调学到的扰动秩比典型 LoRA 高 10–100 倍。\n作者自陈局限：只覆盖编程与数学两个域、两种数据机制；结论针对标准低秩配置，不覆盖所有 rank/目标模块组合；没有给出所有任务的统一最优配方。\n它没主张的：不是 LoRA 一无是处；不是全参数微调一定更好；不是提高 rank 就能完全抹平差距。",
+    "en": "Problem: LoRA saves memory, but how much less it learns and how much less it forgets than full fine-tuning lacked a controlled comparison.\nWhere the evidence sits: the abstract compares programming and mathematics, in instruction fine-tuning (about 100K prompt-response pairs) and continued pre-training (20B tokens); in standard low-rank settings LoRA substantially underperforms full fine-tuning, but better preserves out-of-domain performance, and full fine-tuning learns perturbations with 10–100× higher rank than typical LoRA.\nWhat the authors say about limits: only two target domains and two data regimes; conclusions apply to standard low-rank configurations, not every rank or target-module combination; no universal best recipe across all tasks.\nWhat it does not claim: not that LoRA is useless; not that full fine-tuning always wins; not that raising rank closes the gap entirely."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要；TMLR 2024",
+    "目标域 / domains": "编程、数学",
+    "数据机制 / regimes": "约 10 万条指令微调；20B token 持续预训练",
+    "秩差距 / rank gap": "全参数微调扰动秩高 10–100 倍",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

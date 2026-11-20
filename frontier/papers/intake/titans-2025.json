@@ -1,0 +1,40 @@
+{
+  "id": "titans-2025",
+  "title": {
+    "zh": "Titans: Learning to Memorize at Test Time",
+    "en": "Titans: Learning to Memorize at Test Time"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/2501.00663",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2501.00663",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2501.00663",
+      "quote": "a new neural long-term memory module that learns to memorize historical context"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.00663",
+      "quote": "fast parallelizable training while maintaining a fast inference"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.00663",
+      "quote": "scale to larger than 2M context window size with higher accuracy in needle-in-haystack tasks"
+    }
+  ],
+  "notes": {
+    "zh": "问题：循环模型把历史压进固定大小隐状态，注意力则保留完整上下文但成本平方增长；能不能加一个在测试时持续学习的长时记忆模块，让注意力专注当前上下文。\n证据位置：摘要提出神经长时记忆模块，学习记住历史上下文，同时保持可并行训练与快速推理；把注意力视为短期记忆、神经记忆视为长期记忆，给出 Titans 三种变体；在语言建模、常识推理、基因组与时间序列上优于 Transformer 与近期线性循环模型，并扩展到 2M 以上上下文。\n作者自陈局限：证据集中在若干基准与 2M 上下文；记忆模块会引入额外训练/推理开销，摘要未展开；没有生产部署与独立复现；长上下文「更好」不等于所有任务更好。\n它没主张的：不是无限上下文免费；不是替代注意力；不是所有长程任务都优于 Transformer。",
+    "en": "Problem: recurrent models compress history into a fixed hidden state, while attention keeps the full context at quadratic cost; can a long-term memory module that learns at test time let attention focus on the current context.\nWhere the evidence sits: the abstract introduces a neural long-term memory module that learns to memorise historical context while keeping parallelisable training and fast inference; attention acts as short-term memory and the neural memory as long-term memory, with three Titans variants; experiments on language modelling, common-sense reasoning, genomics and time series beat Transformers and recent linear recurrent models, and scale beyond a 2M context window.\nWhat the authors say about limits: evidence covers selected benchmarks and 2M context; the memory module adds training and inference overhead not detailed in the abstract; there is no production deployment or independent reproduction; “better at long context” is not “better on every task”.\nWhat it does not claim: not free unlimited context; not a replacement for attention; not a win over Transformers on every long-range task."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "记忆 / memory": "神经长时记忆模块 + 注意力短期记忆",
+    "上下文 / context": "大于 2M tokens",
+    "任务 / tasks": "语言建模、常识推理、基因组、时间序列",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "bitnet158-2024",
+  "title": {
+    "zh": "The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits",
+    "en": "The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits"
+  },
+  "category": "efficiency",
+  "url": "https://arxiv.org/abs/2402.17764",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2402.17764",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2402.17764",
+      "quote": "every single parameter (or weight) of the LLM is ternary {-1, 0, 1}"
+    },
+    {
+      "url": "https://arxiv.org/abs/2402.17764",
+      "quote": "It matches the full-precision (i.e., FP16 or BF16) Transformer LLM with the same model size and training tokens"
+    },
+    {
+      "url": "https://arxiv.org/abs/2402.17764",
+      "quote": "BitNet b1.58 starts to match full precision LLaMA LLM at 3B model size in terms of perplexity, while being 2.71 times faster and using 3.55 times less GPU memory"
+    }
+  ],
+  "notes": {
+    "zh": "问题：大模型权重能否从 16 位压到接近 1 位，同时不靠训练后量化补救，而是在预训练阶段就学会三值权重。\n证据位置：摘要定义每个权重取 {-1, 0, 1}，称在同模型规模与同训练 token 下匹配 FP16/BF16 Transformer 的困惑度与任务表现；正文表 1 给 3B 规模下相对 LLaMA 快 2.71 倍、显存少 3.55 倍；3.9B 版本快 2.4 倍、显存少 3.32 倍且任务更好。\n作者自陈局限：论文标注为 work in progress；主要验证在 3B 量级；4 位以下激活压缩留作未来工作；没有覆盖完整推理生态与所有下游任务。\n它没主张的：不是所有模型都能无损三值化；不是训练后量化替代品；不是已经能在通用 GPU 上直接获得同等端到端加速。",
+    "en": "Problem: can LLM weights go from 16 bits to near 1 bit without relying on post-training quantization, by learning ternary weights during pre-training.\nWhere the evidence sits: the abstract defines every weight as {-1, 0, 1} and says it matches an FP16/BF16 Transformer of the same size and training tokens on perplexity and end-task performance; Table 1 reports a 3B model 2.71× faster and 3.55× less GPU memory than LLaMA; a 3.9B version is 2.4× faster, uses 3.32× less memory and performs better.\nWhat the authors say about limits: the paper is marked work in progress; validation is mainly around 3B; compression of activations below 4 bits is left as future work; it does not cover the full inference ecosystem or every downstream task.\nWhat it does not claim: not every model can be losslessly ternarized; not a replacement for post-training quantization; not an end-to-end speedup already available on every GPU stack."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要；表 1（3B / 3.9B 对比）",
+    "权重 / weights": "三值 {-1, 0, 1}",
+    "3B 对比 / 3B": "2.71× 更快，3.55× 更少显存",
+    "3.9B 对比 / 3.9B": "2.4× 更快，3.32× 更少显存",
+    "复现状态 / reproduction": "未复现（只读摘要与表 1 引用）"
+  }
+}
