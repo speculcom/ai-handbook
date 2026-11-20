@@ -14,7 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { shell, esc } from '../../../../../_sites/_template/shell.mjs';
 import { bi, catLabels } from '../../../../../_sites/_template/mini-site-build.mjs';
-import { vizFor } from '../../../../../_audit/viz.mjs';
+import { vizFor } from '../../../shared/viz.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..', '..', '..', '..');
 const SRC = path.join(ROOT, '_data/handbook/frontier/demos');
@@ -38,6 +38,18 @@ const modelGroups = (() => {
   return [...seen.values()];
 })();
 const modelOf = (e) => modelGroups.find((m) => m.key === modelKey(e.model?.name)) || { key: modelKey(e.model?.name), name: e.model?.name || '—', nameZh: e.model?.nameZh || e.model?.name || '—', nameEn: e.model?.nameEn || e.model?.name || '—' };
+/* 首页默认按模型轮换展示：每轮每个模型各取一件，避免单一来源的 100 件连续占满前几屏。
+   编号与数据顺序不变，筛选、对比和作品页也不受影响。 */
+const displayEntries = (() => {
+  const buckets = modelGroups.map((m) => entries.filter((e) => modelKey(e.model?.name) === m.key));
+  const out = [];
+  let more = true;
+  while (more) {
+    more = false;
+    for (const b of buckets) if (b.length) { out.push(b.shift()); more = true; }
+  }
+  return out;
+})();
 const samePrompt = [...new Set(entries.map((e) => e.promptHash))].filter((h) => entries.filter((e) => e.promptHash === h).length > 1).length;
 
 const playHref = (e) => `play.html?id=${encodeURIComponent(e.id)}`;
@@ -112,8 +124,8 @@ const indexBody = `<div class="container demos-page">
 ${vizFor('demos')}
 <div class="container demos-page demos-results">
   ${filterUI('dm', entries)}
-  <div class="fx-grid dm-grid" id="dm-grid">${entries.map((e) => card(e)).join('\n')}</div>
-  <p class="dm-footnote">${bi('能在站内打开的就在站内看；不能嵌入的，链回原作者页面。未声明许可的作品不复制文件。', 'Playable pieces run here; pieces that cannot be embedded link back to the author. Unlicensed files are never copied.')}</p>
+  <div class="fx-grid dm-grid" id="dm-grid">${displayEntries.map((e) => card(e)).join('\n')}</div>
+  <p class="dm-footnote">${bi('默认顺序按模型轮换，让每个模型都出现在前面；编号仍是原始数据顺序。能在站内打开的就在站内看，不能嵌入的，链回原作者页面。未声明许可的作品不复制文件。', 'The default order rotates across models so every model appears near the front; the numbering still follows the source data. Playable pieces run here; pieces that cannot be embedded link back to the author. Unlicensed files are never copied.')}</p>
 </div>
 ${filterScript('dm', '#dm-grid')}`;
 

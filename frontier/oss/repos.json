@@ -2444,6 +2444,234 @@
       "licenseNoteEn": "Code is Apache-2.0; model weights and datasets carry their own licenses — check each before commercial use."
     },
     {
+      "id": "llamafactory",
+      "name": "LLaMA-Factory",
+      "owner": "hiyouga",
+      "repo": "LLaMA-Factory",
+      "url": "https://github.com/hiyouga/LLaMA-Factory",
+      "docs": "https://llamafactory.readthedocs.io/",
+      "summary": "一套配置跑通微调：LoRA、QLoRA、全参与 DPO，带 WebUI 和模型导出。",
+      "summaryEn": "One setup for fine-tuning: LoRA, QLoRA, full-parameter and DPO, with a WebUI and model export.",
+      "why": [
+        "把数据、训练与导出收在同一套配置里，第一次微调不用拼多个库。",
+        "支持大量开源模型结构，换模型时不用重写训练循环。",
+        "有 WebUI 与现成配方，适合先跑通再改成脚本。"
+      ],
+      "whyEn": [
+        "Data, training and export live in one configuration, so a first fine-tune does not require stitching several libraries together.",
+        "Supports many open model architectures; switching models does not mean rewriting the training loop.",
+        "Ships a WebUI and ready-made recipes, suitable for getting a run working before moving to scripts."
+      ],
+      "notFor": [
+        "要做超大规模预训练或多机极限吞吐，应看 Megatron 系与 TorchTitan。",
+        "需要非主流自定义结构时，仍要改数据模板与模型适配层。"
+      ],
+      "notForEn": [
+        "For very large pretraining or maximum multi-node throughput, look at Megatron-style stacks and TorchTitan.",
+        "Non-standard custom architectures still require changes to data templates and model adapters."
+      ],
+      "scene": "training-finetune",
+      "tier": "start",
+      "order": 2,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "LoRA",
+        "WebUI"
+      ],
+      "alternatives": [
+        "axolotl",
+        "unsloth"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "选一个与目标模型同族的官方 example，先确认数据格式与 chat template。",
+        "用 100–500 条样本跑 LoRA，记录显存峰值与 loss，不要一上来全参。",
+        "导出合并权重或适配器，用同一组题对比基座，再决定是否扩数据。"
+      ],
+      "firstRunEn": [
+        "Pick an official example in the same model family and confirm the data format and chat template.",
+        "Run LoRA on 100–500 samples while recording peak VRAM and loss; do not start with full-parameter training.",
+        "Export merged weights or an adapter, compare against the base model on the same eval set, then decide whether to add data."
+      ],
+      "deps": "Python + PyTorch/CUDA；显存取决于模型、序列长度与是否量化；需要权重下载权限。",
+      "depsEn": "Python + PyTorch/CUDA; VRAM depends on the model, sequence length and quantisation; needs weight download access.",
+      "licenseNote": "代码 Apache-2.0；模型权重、数据集与生成内容另有条款，商用前逐项核对。",
+      "licenseNoteEn": "Code is Apache-2.0; model weights, datasets and generated content carry their own terms — check each before commercial use."
+    },
+    {
+      "id": "peft",
+      "name": "PEFT",
+      "owner": "huggingface",
+      "repo": "peft",
+      "url": "https://github.com/huggingface/peft",
+      "docs": "https://huggingface.co/docs/peft/index",
+      "summary": "参数高效微调的标准库：LoRA、IA3、Prefix Tuning 等适配器，接 Transformers 与 Accelerate。",
+      "summaryEn": "The standard parameter-efficient fine-tuning library: LoRA, IA3, prefix tuning and other adapters, wired into Transformers and Accelerate.",
+      "why": [
+        "只训练少量参数，显存与存储成本远低于全参微调。",
+        "适配器可以按任务切换，同一基座服务多个场景。",
+        "与 Transformers、Accelerate、bitsandbytes 兼容，生态成熟。"
+      ],
+      "whyEn": [
+        "Trains only a small number of parameters, far below full fine-tuning in memory and storage cost.",
+        "Adapters can be swapped per task, so one base model serves several use cases.",
+        "Compatible with Transformers, Accelerate and bitsandbytes, with a mature ecosystem."
+      ],
+      "notFor": [
+        "需要改变模型知识边界或做大规模继续预训练，单靠适配器不够。",
+        "只想要端到端训练脚本与数据配方，应搭配 TRL 或 LLaMA-Factory。"
+      ],
+      "notForEn": [
+        "Changing the model’s knowledge boundary or doing large-scale continued pretraining is not enough with adapters alone.",
+        "If you want end-to-end training scripts and data recipes, pair it with TRL or LLaMA-Factory."
+      ],
+      "scene": "training-finetune",
+      "tier": "prod",
+      "order": 4,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "LoRA",
+        "Adapter"
+      ],
+      "alternatives": [
+        "trl",
+        "torchtune"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "先确认基座结构与目标模块，选 LoRA 的 rank、alpha 与 dropout。",
+        "用 PEFT 的官方示例接上 Transformers Trainer，跑通一次小样本训练。",
+        "保存 adapter 而不是整模型；上线时确认推理端能加载同一适配器。"
+      ],
+      "firstRunEn": [
+        "Confirm the base architecture and target modules; choose LoRA rank, alpha and dropout.",
+        "Use the official PEFT example with the Transformers Trainer to complete a small-sample run.",
+        "Save the adapter rather than the full model; confirm the inference stack can load the same adapter."
+      ],
+      "deps": "Python + PyTorch；显存取决于基座、序列长度与是否 4bit 量化；推理端需支持 PEFT 适配器。",
+      "depsEn": "Python + PyTorch; VRAM depends on the base model, sequence length and 4-bit quantisation; the inference stack must support PEFT adapters.",
+      "licenseNote": "代码 Apache-2.0；基座模型与数据集许可各自独立。",
+      "licenseNoteEn": "Code is Apache-2.0; base models and datasets carry separate licences."
+    },
+    {
+      "id": "ms-swift",
+      "name": "ms-swift",
+      "owner": "modelscope",
+      "repo": "ms-swift",
+      "url": "https://github.com/modelscope/ms-swift",
+      "docs": "https://swift.readthedocs.io/",
+      "summary": "ModelScope 的微调与部署工具链：LLM、多模态模型的 LoRA/全参、DPO/GRPO、推理与评测。",
+      "summaryEn": "ModelScope’s fine-tuning and deployment stack: LoRA and full-parameter training for LLMs and multimodal models, DPO/GRPO, inference and evaluation.",
+      "why": [
+        "训练、推理、评测与部署在同一套命令里，少写胶水代码。",
+        "对多模态模型与中文数据配方覆盖较多。",
+        "支持 LoRA、全参、DPO、GRPO 等常见路线，适合从实验走到服务。"
+      ],
+      "whyEn": [
+        "Training, inference, evaluation and deployment share one command surface, reducing glue code.",
+        "Broad coverage of multimodal models and Chinese data recipes.",
+        "Supports LoRA, full-parameter training, DPO and GRPO, useful from experiment through serving."
+      ],
+      "notFor": [
+        "只在 Hugging Face 生态内工作、且不需要 ModelScope 模型时，依赖会更重。",
+        "极端自定义的分布式训练仍要回到 DeepSpeed / Megatron 层。"
+      ],
+      "notForEn": [
+        "If you work only inside the Hugging Face ecosystem and do not need ModelScope models, the dependency footprint is heavier than necessary.",
+        "Highly custom distributed training still belongs in DeepSpeed or Megatron layers."
+      ],
+      "scene": "training-finetune",
+      "tier": "prod",
+      "order": 5,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "ModelScope",
+        "多模态"
+      ],
+      "alternatives": [
+        "llamafactory",
+        "axolotl"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "确认目标模型是否在支持列表内，先跑官方最小示例验证环境。",
+        "用 LoRA 在小样本上跑通训练与推理，记录数据格式与 chat template。",
+        "需要对齐训练时先做 SFT，再加 DPO/GRPO，并保留同一套评测题。"
+      ],
+      "firstRunEn": [
+        "Confirm the target model is supported and run the official minimal example to validate the environment.",
+        "Run LoRA training and inference on a small sample, recording the data format and chat template.",
+        "For alignment, start with SFT, then add DPO/GRPO, keeping the same evaluation set."
+      ],
+      "deps": "Python + PyTorch/CUDA；多模态训练显存更高；部分模型与数据需 ModelScope 访问。",
+      "depsEn": "Python + PyTorch/CUDA; multimodal training needs more VRAM; some models and datasets require ModelScope access.",
+      "licenseNote": "代码 Apache-2.0；模型、数据集与 ModelScope 上的分发条款各自独立。",
+      "licenseNoteEn": "Code is Apache-2.0; models, datasets and distribution terms on ModelScope are separate."
+    },
+    {
+      "id": "torchtune",
+      "name": "torchtune",
+      "owner": "meta-pytorch",
+      "repo": "torchtune",
+      "url": "https://github.com/meta-pytorch/torchtune",
+      "docs": "https://meta-pytorch.org/torchtune/stable/",
+      "summary": "PyTorch 原生的微调配方库：可读的训练循环、FSDP、激活检查点与常用后训练配方。",
+      "summaryEn": "A PyTorch-native fine-tuning recipe library: readable training loops, FSDP, activation checkpointing and common post-training recipes.",
+      "why": [
+        "训练循环写得薄，便于读源码和改数据、损失与采样。",
+        "原生支持 FSDP 与激活检查点，能从单卡扩到多卡。",
+        "配方覆盖 SFT、DPO 与量化感知训练，不依赖第三方训练框架。"
+      ],
+      "whyEn": [
+        "Thin training loops make it easy to read the source and change data, loss or sampling.",
+        "Native FSDP and activation checkpointing scale from one GPU to many.",
+        "Recipes cover SFT, DPO and quantisation-aware training without a third-party training framework."
+      ],
+      "notFor": [
+        "想要开箱 WebUI 与大量现成模型模板，LLaMA-Factory 更省事。",
+        "非 PyTorch 技术栈或需要 TensorFlow 的团队不适用。"
+      ],
+      "notForEn": [
+        "For an out-of-the-box WebUI and many ready model templates, LLaMA-Factory is less work.",
+        "Not for non-PyTorch stacks or teams that require TensorFlow."
+      ],
+      "scene": "training-finetune",
+      "tier": "scale",
+      "order": 7,
+      "catalogOnly": false,
+      "tags": [
+        "Python",
+        "BSD-3-Clause",
+        "PyTorch",
+        "FSDP"
+      ],
+      "alternatives": [
+        "torchtitan",
+        "deepspeed"
+      ],
+      "verifiedAt": "2026-11-20",
+      "firstRun": [
+        "按官方 recipe 选一个与显存匹配的模型规模，先跑单卡 SFT。",
+        "确认 tokenizer、chat template 与数据格式一致，再开激活检查点。",
+        "扩到多卡前先测单卡吞吐与显存峰值，避免把通信瓶颈当成模型问题。"
+      ],
+      "firstRunEn": [
+        "Pick an official recipe whose model size fits your VRAM and run single-GPU SFT first.",
+        "Confirm tokenizer, chat template and data format line up before enabling activation checkpointing.",
+        "Measure single-GPU throughput and peak VRAM before scaling out, so communication bottlenecks are not mistaken for model issues."
+      ],
+      "deps": "Python + PyTorch/CUDA；多卡需 FSDP 环境；显存取决于模型、序列长度与检查点策略。",
+      "depsEn": "Python + PyTorch/CUDA; multi-GPU needs an FSDP environment; VRAM depends on model, sequence length and checkpointing strategy.",
+      "licenseNote": "代码 BSD-3-Clause；模型权重与数据集另有许可。",
+      "licenseNoteEn": "Code is BSD-3-Clause; model weights and datasets carry their own licences."
+    },
+    {
       "id": "axolotl",
       "name": "Axolotl",
       "owner": "axolotl-ai-cloud",
@@ -2472,7 +2700,7 @@
       ],
       "scene": "training-finetune",
       "tier": "prod",
-      "order": 2,
+      "order": 3,
       "catalogOnly": false,
       "tags": [
         "Python",
@@ -2529,7 +2757,7 @@
       ],
       "scene": "training-finetune",
       "tier": "prod",
-      "order": 3,
+      "order": 6,
       "catalogOnly": false,
       "tags": [
         "Python",
@@ -2586,7 +2814,7 @@
       ],
       "scene": "training-finetune",
       "tier": "scale",
-      "order": 4,
+      "order": 8,
       "catalogOnly": false,
       "tags": [
         "Python",
@@ -2643,7 +2871,7 @@
       ],
       "scene": "training-finetune",
       "tier": "scale",
-      "order": 5,
+      "order": 9,
       "catalogOnly": false,
       "tags": [
         "Python",
@@ -2700,7 +2928,7 @@
       ],
       "scene": "training-finetune",
       "tier": "scale",
-      "order": 6,
+      "order": 10,
       "catalogOnly": false,
       "tags": [
         "Python",
@@ -2757,7 +2985,7 @@
       ],
       "scene": "training-finetune",
       "tier": "scale",
-      "order": 7,
+      "order": 11,
       "catalogOnly": false,
       "tags": [
         "Python",
@@ -2814,7 +3042,7 @@
       ],
       "scene": "training-finetune",
       "tier": "local",
-      "order": 8,
+      "order": 12,
       "catalogOnly": false,
       "tags": [
         "Python",

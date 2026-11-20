@@ -2,7 +2,7 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-55 条。
+61 条。
 
 - [目录](https://papers.specul.com/index.html)
 - [怎么用](https://papers.specul.com/about.html)
@@ -62,3 +62,9 @@
 - [用超时级联降低 coding agent 推理成本](https://papers.specul.com/timeout-cascades-2026.html) — 问题：coding agent 很吃 GPU 小时，小模型便宜但怕不稳；能不能先用小模型、失败再升级大模型，在不掉解决率的前提下省钱？ 证据位置：论文在 SWE
 - [DroidPrefill：用手机 NPU 跑完全本地的 GUI agent](https://papers.specul.com/droidprefill-2026.html) — 问题：手机 GUI agent 多靠云端模型，延迟、隐私、网络都受限；直接把常规 agent 搬到手机 NPU 又低效——NPU 强在 prefill、弱在逐 
 - [Strategist：让 agent 自己进化推理策略](https://papers.specul.com/strategist-2026.html) — 问题：agent 的推理流程（prompt、工具顺序、验证步骤）大多手工写，做完一个任务经验不沉淀，下个任务从零再来；模型冻结时，系统另一半能否自己变好？ 证据
+- [ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning](https://papers.specul.com/chain-dora-2026.html) — 问题：LoRA 用两个低秩矩阵；DoRA 把权重拆成幅度与方向，但方向分支仍是稠密的 LoRA 式分解，参数成本没有真正降下来。 证据位置：摘要给出受控设置（1
+- [GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning](https://papers.specul.com/gpart-2026.html) — 问题：LoRA 的双线性参数化让「可训练参数 → 权重更新」不保距；把低维向量投到 LoRA 参数空间的做法，又会被后续双线性映射破坏端到端等距。 证据位置：摘
+- [Parameter-Efficient Subspace Optimization for LLM Fine-Tuning](https://papers.specul.com/peso-lora-2026.html) — 问题：LoRA 式分析通常只跟踪低维因子，缺少全参数空间里的收敛保证；子空间方法为何有效、何时该探索新子空间，也缺统一解释。 证据位置：摘要提出 PESO 框架
+- [Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion](https://papers.specul.com/omni-diffusion-2026.html) — 问题：多模态大模型几乎都押在自回归骨架上，离散扩散作为统一理解与生成的替代路线仍缺一个完整的任意模态系统。 证据位置：摘要称 Omni-Diffusion 是首
+- [UniM: A Unified Any-to-Any Interleaved Multimodal Benchmark](https://papers.specul.com/unim-2026.html) — 问题：真实多模态应用要读任意组合、交错排列的输入，还要输出交错的多媒体内容；已有基准多停在单轮、双模态，测不到这种能力。 证据位置：摘要给出 UniM：31K 
+- [SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture](https://papers.specul.com/sensenova-u1-2026.html) — 问题：多数视觉语言模型把理解与生成当两件事，导致架构分裂、级联管线、表示空间对不齐，难以形成原生多模态能力。 证据位置：摘要提出 NEO-unify 原生统一范

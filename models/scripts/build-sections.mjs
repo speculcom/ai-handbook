@@ -308,7 +308,7 @@ for (const e of evals) {
 </div>`;
     fs.writeFileSync(path.join(site, 'evals', `${e.id}.html`), page({
       title: `${e.name} / ${e.nameEn} · 评测基准 · AI 模型`,
-      desc: `${e.name} / ${e.nameEn}：${e.measures}；指标 ${e.metric}；含污染与复现说明。`,
+      desc: `${e.name} / ${e.nameEn}：${e.measures}；指标 ${e.metric}；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。`,
       canonical: url(`evals/${e.id}.html`),
       body
     }));
@@ -350,7 +350,7 @@ ${e.verify ? `<h2>怎么验证</h2>\n  <p>${esc(e.verify)}</p>` : ''}
 </div>`;
   fs.writeFileSync(path.join(site, 'evals', `${e.id}.html`), page({
     title: `${e.name} · 评测基准 · AI 模型`,
-    desc: `${e.name}：${e.measures}；指标 ${e.metric}；污染风险：${e.contamination}`,
+    desc: `${e.name}：${e.measures}；指标 ${e.metric}；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。`,
     canonical: url(`evals/${e.id}.html`),
     body
   }));
@@ -372,7 +372,7 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
 </div>`;
   fs.writeFileSync(path.join(site, 'evals', 'guides', `${g.id}.html`), page({
     title: `${g.title} · 评测指南 · AI 模型`,
-    desc: g.lede,
+    desc: `${g.lede} 页内给出可复现的检查步骤与适用边界。`,
     canonical: url(`evals/guides/${g.id}.html`),
     depth: 2,
     body

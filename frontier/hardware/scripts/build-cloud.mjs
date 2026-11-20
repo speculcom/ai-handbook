@@ -97,7 +97,7 @@ for (const cat of CAT_ORDER) {
 </div>`;
   fs.writeFileSync(path.join(site, 'cloud', `${cat}.html`), page({
     title: `${CATS[cat].zh} · 云算力 · 硬件算力`,
-    desc: `${CATS[cat].zh}云 GPU 服务商：${list.map((p) => p.provider).join('、')}。写清计费、区域、存储出网与合规。`,
+    desc: `${CATS[cat].zh} GPU 服务商，共 ${list.length} 家：${list.slice(0, 4).map((p) => p.provider).join('、')}${list.length > 4 ? ' 等' : ''}。写清计费、区域、存储出网与合规；按需、包月与整机起租的差别写在单卡页。`,
     canonical: url(`cloud/${cat}.html`),
     body
   }));
@@ -158,7 +158,7 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((x) => `<p>${x}</p>`).joi
 </div>`;
   fs.writeFileSync(path.join(site, 'cloud', 'guides', `${g.id}.html`), page({
     title: `${g.title} · 云算力指南 · 硬件算力`,
-    desc: g.lede,
+    desc: `${g.lede} 页内给出核对清单、常见误区与适用边界。`,
     canonical: url(`cloud/guides/${g.id}.html`),
     depth: 2,
     body

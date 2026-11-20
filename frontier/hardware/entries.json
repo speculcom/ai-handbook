@@ -2720,5 +2720,104 @@
       "公开规格 / public specs": "官方未披露 HBM / 算力 / 功耗 / 制程",
       "状态 / status": "2026-06-24 发布"
     }
+  },
+  {
+    "id": "realsense-d455",
+    "title": {
+      "zh": "Intel RealSense D455 深度相机",
+      "en": "Intel RealSense D455 depth camera"
+    },
+    "category": "sensor",
+    "url": "https://www.intelrealsense.com/depth-camera-d455/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.intelrealsense.com/depth-camera-d455/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://www.intelrealsense.com/depth-camera-d455/",
+        "quote": "Ideal Range: .6 m to 6 m"
+      },
+      {
+        "url": "https://www.intelrealsense.com/depth-camera-d455/",
+        "quote": "Depth Field of View (FOV): 87° × 58°"
+      },
+      {
+        "url": "https://www.intelrealsense.com/depth-camera-d455/",
+        "quote": "Depth Output Resolution: Up to 1280 × 720"
+      },
+      {
+        "url": "https://www.intelrealsense.com/depth-camera-d455/",
+        "quote": "Depth Accuracy: <2% at 4 m"
+      }
+    ],
+    "notes": {
+      "zh": "回答中距双目深度相机的测距、视场、分辨率与精度口径，用来判断室内机器人、扫描与手势方案的量级。0.6–6 m 是「理想范围」，不是保证精度范围；最大分辨率下最近深度约 52 cm，4 m 处误差约 2%。页面未给功耗，按「查不到留空」处理，选型时需查 datasheet。它不是激光雷达，强日光与远距离场景要单独验证。",
+      "en": "Answers range, field of view, resolution and accuracy for a mid-range stereo depth camera, enough to size indoor robotics, scanning and gesture setups. The 0.6–6 m figure is an ideal range, not a guaranteed accuracy range; minimum depth is about 52 cm at maximum resolution, and error is about 2% at 4 m. The page gives no power draw, so it is left empty rather than guessed and should come from the datasheet. This is not lidar; bright sunlight and long range need separate validation."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "ideal range": "0.6–6 m",
+      "minimum depth at max resolution": "~52 cm",
+      "depth accuracy": "<2% at 4 m",
+      "depth FOV": "87° × 58°",
+      "depth resolution": "up to 1280 × 720",
+      "depth frame rate": "up to 90 fps",
+      "RGB FOV": "90° × 65°",
+      "IMU": "Bosch BMI055"
+    }
+  },
+  {
+    "id": "orbbec-gemini-335",
+    "title": {
+      "zh": "Orbbec Gemini 335 深度相机",
+      "en": "Orbbec Gemini 335 depth camera"
+    },
+    "category": "sensor",
+    "url": "https://www.orbbec.com/products/gemini-335/",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://www.orbbec.com/products/gemini-335/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://www.orbbec.com/products/gemini-335/",
+        "quote": "Depth Range *0.10 - 20m+ (Optimal Range: 0.26 - 3m)"
+      },
+      {
+        "url": "https://www.orbbec.com/products/gemini-335/",
+        "quote": "Depth FOV H90° V65°"
+      },
+      {
+        "url": "https://www.orbbec.com/products/gemini-335/",
+        "quote": "Depth Resolution/FPS Up to 1280X800@30fps"
+      },
+      {
+        "url": "https://www.orbbec.com/products/gemini-335/",
+        "quote": "Spatial Precision: ≤ 1.5% (1280 x 800 @ 2m & 90% x 90% ROI)"
+      },
+      {
+        "url": "https://www.orbbec.com/products/gemini-335/",
+        "quote": "Power Consumption Average < 3.0W"
+      }
+    ],
+    "notes": {
+      "zh": "回答宽视场双目深度相机的测距、分辨率、精度与功耗口径，适合移动机器人、避障与室内外感知。0.10–20 m+ 是标称范围，最佳工作区间是 0.26–3 m；理论最远可到 65 m，但不能按标称上限做精度承诺。精度 1.5% 是在 2 m、90%×90% ROI 条件下的 RMSE。它是主动/被动双目，不是激光雷达；强日光、黑色低反射目标与多机同步都要实测。",
+      "en": "Answers range, resolution, accuracy and power for a wide-field stereo depth camera, relevant to mobile robots, obstacle avoidance and indoor/outdoor perception. The 0.10–20 m+ figure is a nominal range with an optimal working range of 0.26–3 m; the theoretical maximum reaches 65 m, but the nominal limit is not an accuracy promise. The 1.5% figure is RMSE at 2 m over a 90%×90% ROI. This is active/passive stereo, not lidar; bright sunlight, dark low-reflectivity targets and multi-camera sync need measurement."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "depth range": "0.10–20 m+ nominal; optimal 0.26–3 m",
+      "theoretical maximum": "up to 65 m",
+      "spatial precision": "≤1.5% RMSE at 2 m, 90%×90% ROI",
+      "depth FOV": "H90° V65°",
+      "depth resolution": "up to 1280 × 800 @ 30 fps",
+      "RGB resolution": "up to 1920 × 1080 @ 30 fps",
+      "power consumption": "average <3.0 W",
+      "IMU": "supported",
+      "ingress protection": "IP5X"
+    }
   }
 ]

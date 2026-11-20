@@ -2252,5 +2252,227 @@
       "证据位置 / evidence": "摘要；第 5–7 节；结论",
       "复现状态 / reproduction": "未复现（只读论文与 HTML 全文）"
     }
+  },
+  {
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2609.25058",
+      "checkedAt": "2026-11-20"
+    },
+    "verifiedAt": "2026-11-20",
+    "id": "chain-dora-2026",
+    "title": {
+      "zh": "ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning",
+      "en": "ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning"
+    },
+    "category": "adaptation",
+    "url": "https://arxiv.org/abs/2609.25058",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2609.25058",
+        "quote": "ChainDoRA with TT rank 16 achieves a seven-task average accuracy of 72.30%, compared with 69.88% for LoRA and 69.39% for DoRA, while requiring only 5.35M trainable parameters versus 56.10M for LoRA and 56.98M for DoRA"
+      },
+      {
+        "url": "https://arxiv.org/abs/2609.25058",
+        "quote": "a controlled 15,119-example response-only adaptation setting with LLaMA-7B"
+      }
+    ],
+    "notes": {
+      "zh": "问题：LoRA 用两个低秩矩阵；DoRA 把权重拆成幅度与方向，但方向分支仍是稠密的 LoRA 式分解，参数成本没有真正降下来。\n证据位置：摘要给出受控设置（15,119 条 response-only 数据、LLaMA-7B、7 个常识推理基准）：TT rank 16 的七任务平均 72.30%，LoRA 69.88%、DoRA 69.39%；可训练参数 5.35M，对比 LoRA 56.10M、DoRA 56.98M，较 DoRA 少 90.62%。\n作者自陈局限：只测一个 7B 模型和一组 15,119 条适配数据；任务是常识推理，未覆盖指令跟随、多语言、长上下文；消融只动 TT rank 与适配位置；未报告生产部署。\n它没主张的：不是所有 PEFT 场景的 SOTA；不是全面替代 DoRA；不是训练吞吐或显存的完整评测；不是跨模型规模可直接外推的结论。",
+      "en": "Problem: LoRA uses two low-rank matrices; DoRA separates weight magnitude and direction, but its directional branch keeps a dense LoRA-style factorization, so the parameter cost does not really come down.\nWhere the evidence sits: the abstract reports a controlled setting (15,119 response-only examples, LLaMA-7B, seven commonsense-reasoning benchmarks): TT rank 16 reaches a seven-task average of 72.30% versus 69.88% for LoRA and 69.39% for DoRA, with 5.35M trainable parameters versus 56.10M and 56.98M, a 90.62% reduction against DoRA.\nWhat the authors say about limits: one 7B model and one 15,119-example adaptation set; the tasks are commonsense reasoning, with no instruction following, multilingual or long-context coverage; ablations only vary TT rank and adapter placement; no production deployment is reported.\nWhat it does not claim: state of the art for every PEFT setting; a wholesale replacement for DoRA; a full training-throughput or memory evaluation; a result that extrapolates across model scales."
+    },
+    "specs": {
+      "发表 / venue": "arXiv 2609.25058",
+      "模型规模 / scale": "LLaMA-7B；15,119 条 response-only 适配数据",
+      "方法 / method": "Tensor-Train 链式分解 + 幅度/方向分解",
+      "目标 / target": "在更低参数预算下保持或提升下游推理",
+      "证据位置 / evidence": "摘要；7 个常识推理基准；TT rank 与适配位置消融",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2605.14841",
+      "checkedAt": "2026-11-20"
+    },
+    "verifiedAt": "2026-11-20",
+    "id": "gpart-2026",
+    "title": {
+      "zh": "GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning",
+      "en": "GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning"
+    },
+    "category": "adaptation",
+    "url": "https://arxiv.org/abs/2605.14841",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2605.14841",
+        "quote": "maps a d-dimensional trainable vector directly into the full weight space through a sparse, isometric partition matrix"
+      },
+      {
+        "url": "https://arxiv.org/abs/2605.14841",
+        "quote": "Across natural language understanding, computer vision, and mathematical reasoning benchmarks, GPart matches or improves over existing PEFT methods at ultra-low parameter budgets."
+      }
+    ],
+    "notes": {
+      "zh": "问题：LoRA 的双线性参数化让「可训练参数 → 权重更新」不保距；把低维向量投到 LoRA 参数空间的做法，又会被后续双线性映射破坏端到端等距。\n证据位置：摘要称 GPart 用稀疏、等距的分区矩阵把 d 维可训练向量直接映到全权重空间；只有一个主超参 d，checkpoint 只存该向量与随机种子；在自然语言理解、计算机视觉、数学推理基准上，以极低参数预算达到与现有 PEFT 相当或更好的结果。\n作者自陈局限：仍是预印本（v3）；摘要只给「match or improve」，没有绝对值与逐任务表；主超参 d 的选择仍需实验；未报告大规模分布式训练与生产服务。\n它没主张的：不是 LoRA 的通用替代；不是在万亿参数上已验证；不是训练速度或吞吐的结论；不是无需调参。",
+      "en": "Problem: LoRA’s bilinear parameterization does not preserve distance between trainable parameters and weight updates; projecting a low-dimensional vector into LoRA’s parameter space still breaks end-to-end isometry through the subsequent bilinear map.\nWhere the evidence sits: the abstract says GPart maps a d-dimensional trainable vector directly into the full weight space through a sparse, isometric partition matrix; it has one main hyperparameter d, and the checkpoint is just that vector plus a random seed; on natural-language-understanding, computer-vision and mathematical-reasoning benchmarks it matches or improves existing PEFT methods at ultra-low parameter budgets.\nWhat the authors say about limits: still a preprint (v3); the abstract only says “match or improve”, without absolute numbers or a per-task table; choosing d still needs experiments; large-scale distributed training and production serving are not reported.\nWhat it does not claim: a general replacement for LoRA; validation at trillion-parameter scale; a training-speed or throughput result; no tuning required."
+    },
+    "specs": {
+      "发表 / venue": "arXiv 2605.14841（v3，2026-10-02）",
+      "模型规模 / scale": "摘要未给统一规模；覆盖 NLU / CV / 数学推理基准",
+      "方法 / method": "全局参数分区 + 稀疏等距矩阵，直接线性参数化",
+      "目标 / target": "端到端等距、极低参数预算的 PEFT",
+      "证据位置 / evidence": "摘要；三类基准；代码链接",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2512.02216",
+      "checkedAt": "2026-11-20"
+    },
+    "verifiedAt": "2026-11-20",
+    "id": "peso-lora-2026",
+    "title": {
+      "zh": "Parameter-Efficient Subspace Optimization for LLM Fine-Tuning",
+      "en": "Parameter-Efficient Subspace Optimization for LLM Fine-Tuning"
+    },
+    "category": "adaptation",
+    "url": "https://arxiv.org/abs/2512.02216",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2512.02216",
+        "quote": "we provide convergence guarantees stated in the full-parameter space for the induced update, addressing a key limitation of LoRA-style analyses that only track low-dimensional factors"
+      },
+      {
+        "url": "https://arxiv.org/abs/2512.02216",
+        "quote": "Empirically, PESO-LoRA improves over strong PEFT baselines on standard fine-tuning benchmarks."
+      }
+    ],
+    "notes": {
+      "zh": "问题：LoRA 式分析通常只跟踪低维因子，缺少全参数空间里的收敛保证；子空间方法为何有效、何时该探索新子空间，也缺统一解释。\n证据位置：摘要提出 PESO 框架，把 LoRA 等现有方法纳入子空间优化的「探索—利用」视角；实例化出的 PESO-LoRA 对诱导更新给出全参数空间收敛保证，并在标准微调基准上优于强 PEFT 基线。\n作者自陈局限：属优化理论论文（math.OC），摘要未给模型规模、绝对分数或逐任务表；实验是标准微调基准；收敛结论依赖其假设；未报告生产部署。\n它没主张的：不是新的模型架构；不是对所有任务都更快；不是完整的大规模基准横扫；不是无需调参。",
+      "en": "Problem: LoRA-style analyses usually track only low-dimensional factors and lack convergence guarantees in the full parameter space; there is also no unified account of why subspace methods work or when to explore a new subspace.\nWhere the evidence sits: the abstract introduces PESO, which places methods such as LoRA in an exploration–exploitation view of subspace optimization; the instantiated PESO-LoRA gives convergence guarantees in the full-parameter space for the induced update and improves over strong PEFT baselines on standard fine-tuning benchmarks.\nWhat the authors say about limits: this is an optimization paper (math.OC); the abstract gives no model scale, absolute scores or per-task table; experiments are standard fine-tuning benchmarks; the convergence result depends on its assumptions; no production deployment is reported.\nWhat it does not claim: a new model architecture; faster results on every task; a complete large-scale benchmark sweep; no tuning required."
+    },
+    "specs": {
+      "发表 / venue": "arXiv 2512.02216（v2，2026-02-10）",
+      "模型规模 / scale": "摘要未给具体规模",
+      "方法 / method": "子空间优化框架；PESO-LoRA",
+      "目标 / target": "全参数空间收敛保证 + 内存效率",
+      "证据位置 / evidence": "摘要；收敛性与标准微调基准",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2603.06577",
+      "checkedAt": "2026-11-20"
+    },
+    "verifiedAt": "2026-11-20",
+    "id": "omni-diffusion-2026",
+    "title": {
+      "zh": "Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion",
+      "en": "Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion"
+    },
+    "category": "multimodal",
+    "url": "https://arxiv.org/abs/2603.06577",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2603.06577",
+        "quote": "the first any-to-any multimodal language model built entirely on mask-based discrete diffusion models, which unifies understanding and generation across text, speech, and images"
+      },
+      {
+        "url": "https://arxiv.org/abs/2603.06577",
+        "quote": "our method outperforms or performs on par with existing multimodal systems that process two or more modalities"
+      }
+    ],
+    "notes": {
+      "zh": "问题：多模态大模型几乎都押在自回归骨架上，离散扩散作为统一理解与生成的替代路线仍缺一个完整的任意模态系统。\n证据位置：摘要称 Omni-Diffusion 是首个完全基于掩码离散扩散的任意到任意多模态语言模型，统一文本、语音、图像的输入与输出；在多项基准上优于或持平已有多模态系统（含处理两种以上模态的系统）；论文被 ICML 2026 接收。\n作者自陈局限：覆盖模态只有文本、语音、图像，没有视频、3D、动作；「首个」是作者主张，未见独立复核；基准持平不等于全场景更强；未报告生产部署与推理成本。\n它没主张的：不是自回归的全面替代；不是视频/3D 模型；不是已证明更省算力；不是所有任务都更好。",
+      "en": "Problem: multimodal LLMs overwhelmingly rely on an autoregressive backbone; discrete diffusion remains an alternative route for unified understanding and generation but lacks a complete any-to-any system.\nWhere the evidence sits: the abstract describes Omni-Diffusion as the first any-to-any multimodal language model built entirely on mask-based discrete diffusion, unifying text, speech and image inputs and outputs; it outperforms or matches existing multimodal systems, including systems that handle two or more modalities, on a set of benchmarks; the paper is accepted to ICML 2026.\nWhat the authors say about limits: coverage is text, speech and images only, with no video, 3D or action; “first” is the authors’ claim and has not been independently checked; benchmark parity is not across-the-board superiority; production deployment and inference cost are not reported.\nWhat it does not claim: a wholesale replacement for autoregression; a video or 3D model; proof of lower compute; better results on every task."
+    },
+    "specs": {
+      "发表 / venue": "arXiv 2603.06577；ICML 2026",
+      "模型规模 / scale": "摘要未给参数规模",
+      "方法 / method": "掩码离散扩散；统一多模态 token 联合分布",
+      "目标 / target": "文本 / 语音 / 图像的任意到任意理解与生成",
+      "证据位置 / evidence": "摘要；多模态基准；ICML 2026 接收说明",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2603.05075",
+      "checkedAt": "2026-11-20"
+    },
+    "verifiedAt": "2026-11-20",
+    "id": "unim-2026",
+    "title": {
+      "zh": "UniM: A Unified Any-to-Any Interleaved Multimodal Benchmark",
+      "en": "UniM: A Unified Any-to-Any Interleaved Multimodal Benchmark"
+    },
+    "category": "multimodal",
+    "url": "https://arxiv.org/abs/2603.05075",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2603.05075",
+        "quote": "UniM contains 31K high-quality instances across 30 domains and 7 representative modalities: text, image, audio, video, document, code, and 3D"
+      },
+      {
+        "url": "https://arxiv.org/abs/2603.05075",
+        "quote": "assesses models along three dimensions: Semantic Correctness & Generation Quality, Response Structure Integrity, and Interleaved Coherence"
+      }
+    ],
+    "notes": {
+      "zh": "问题：真实多模态应用要读任意组合、交错排列的输入，还要输出交错的多媒体内容；已有基准多停在单轮、双模态，测不到这种能力。\n证据位置：摘要给出 UniM：31K 条高质量实例、30 个领域、7 种模态（文本、图像、音频、视频、文档、代码、3D）；评测分三维：语义正确性与生成质量、响应结构完整性、交错连贯性；另给出带可追踪推理的 UniMA 基线。\n作者自陈局限：31K 是构建的数据集，不是持续更新的真实流量；7 模态仍缺触觉、动作等；三维评分如何自动判定、人工一致性如何，摘要未展开；UniMA 只是基线，不是能力上限。\n它没主张的：不是新模型；不是排行榜；不是证明现有模型已解决任意到任意；不是评测全部多模态任务。",
+      "en": "Problem: real multimodal applications must read arbitrarily combined, interleaved inputs and produce interleaved multimedia outputs; existing benchmarks mostly stop at single-turn, bimodal settings and cannot measure this.\nWhere the evidence sits: the abstract presents UniM with 31K high-quality instances across 30 domains and seven modalities (text, image, audio, video, document, code and 3D); it scores models on semantic correctness and generation quality, response-structure integrity, and interleaved coherence; it also provides UniMA, an agentic baseline with traceable reasoning.\nWhat the authors say about limits: 31K is a constructed dataset, not continuously refreshed real traffic; seven modalities still omit touch, action and others; how the three dimensions are scored automatically and how consistent human judgements are is not detailed in the abstract; UniMA is a baseline, not a capability ceiling.\nWhat it does not claim: a new model; a leaderboard; proof that current models have solved any-to-any; coverage of every multimodal task."
+    },
+    "specs": {
+      "发表 / venue": "arXiv 2603.05075；CVPR",
+      "模型规模 / scale": "31K 实例 / 30 领域 / 7 模态",
+      "方法 / method": "统一任意到任意交错多模态基准 + UniMA 基线",
+      "目标 / target": "测理解与生成交错的综合能力",
+      "证据位置 / evidence": "摘要；数据集构成；三维评测",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2605.12500",
+      "checkedAt": "2026-11-20"
+    },
+    "verifiedAt": "2026-11-20",
+    "id": "sensenova-u1-2026",
+    "title": {
+      "zh": "SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture",
+      "en": "SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture"
+    },
+    "category": "multimodal",
+    "url": "https://arxiv.org/abs/2605.12500",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2605.12500",
+        "quote": "We launch two native unified variants, SenseNova-U1-8B-MoT and SenseNova-U1-A3B-MoT, built on dense (8B) and mixture-of-experts (30B-A3B) understanding baselines"
+      },
+      {
+        "url": "https://arxiv.org/abs/2605.12500",
+        "quote": "preliminary evidence demonstrates that our models extend beyond perception and generation, performing strongly in vision-language-action (VLA) and world model (WM) scenarios"
+      }
+    ],
+    "notes": {
+      "zh": "问题：多数视觉语言模型把理解与生成当两件事，导致架构分裂、级联管线、表示空间对不齐，难以形成原生多模态能力。\n证据位置：摘要提出 NEO-unify 原生统一范式，并发布两个变体：8B 稠密与 30B-A3B 混合专家；作者称在文本理解、视觉语言感知、知识推理、智能体决策、空间智能上对标顶级纯理解 VLM，在文生图、复杂文字信息图、交错图文生成上保持语义与视觉一致性；另有 VLA 与世界模型的初步证据。\n作者自陈局限：多为作者自评，未见独立复现；VLA 与世界模型只是 preliminary evidence；未给完整逐项分数与失败案例；未报告生产部署、许可与推理成本。\n它没主张的：不是在所有专项模型之上；不是完整世界模型；不是开源发布（摘要未声明）；不是已解决多模态幻觉。",
+      "en": "Problem: most vision-language models treat understanding and generation as separate problems, producing fragmented architectures, cascaded pipelines and misaligned representation spaces, which blocks native multimodal capability.\nWhere the evidence sits: the abstract proposes the NEO-unify native unified paradigm and releases two variants, an 8B dense model and a 30B-A3B mixture-of-experts model; the authors say they rival top-tier understanding-only VLMs on text understanding, vision-language perception, knowledge reasoning, agentic decision-making and spatial intelligence, while keeping semantic and visual consistency on text-to-image, text-rich infographics and interleaved vision-language generation; there is also preliminary evidence for VLA and world-model scenarios.\nWhat the authors say about limits: most results are self-reported without independent reproduction; VLA and world-model evidence is explicitly preliminary; full per-task scores and failure cases are not given; production deployment, licence and inference cost are not reported.\nWhat it does not claim: superiority over every specialist model; a complete world model; an open-source release (not stated in the abstract); a solution to multimodal hallucination."
+    },
+    "specs": {
+      "发表 / venue": "arXiv 2605.12500",
+      "模型规模 / scale": "8B 稠密；30B-A3B 混合专家",
+      "方法 / method": "NEO-unify 原生统一架构",
+      "目标 / target": "统一多模态理解与生成，并延伸到 VLA / 世界模型",
+      "证据位置 / evidence": "摘要；两个变体；自评基准与初步 VLA/WM 证据",
+      "复现状态 / reproduction": "未复现"
+    }
   }
 ]

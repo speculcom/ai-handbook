@@ -72,7 +72,7 @@ const bi = (zh, en) => `<span data-zh>${esc(zh)}</span><span data-en>${esc(en ||
 const url = (p) => `https://oss.specul.com/${p}`;
 const prefixFor = (depth) => '../'.repeat(depth);
 
-function page({ title, desc, canonical, body, depth = 0 }) {
+function page({ title, desc, canonical, body, depth = 0, noindex = false }) {
   const prefix = prefixFor(depth);
   return shell({
     current: 'oss',
@@ -80,7 +80,7 @@ function page({ title, desc, canonical, body, depth = 0 }) {
     desc,
     canonical,
     assetPrefix: prefix,
-    headExtra: `<link rel="stylesheet" href="${prefix}oss.css?v=${cssVersion}" />`,
+    headExtra: `<link rel="stylesheet" href="${prefix}oss.css?v=${cssVersion}" />${noindex ? '<meta name="robots" content="noindex" />' : ''}`,
     body
   });
 }
@@ -400,7 +400,7 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
 </script>`;
   fs.writeFileSync(path.join(site, 'compare.html'), page({
     title: '并排对比 · 开源 AI 工具库',
-    desc: '选 2–7 个开源仓库并排对比：场景、上手层、语言、许可、活跃度、适合与不适合；不生成总分。',
+    desc: '选 2–7 个开源仓库并排对比：场景、上手层、语言、许可、活跃度、适合与不适合；不生成总分，每个字段都标来源与核验日。',
     canonical: url('compare.html'),
     body
   }));
@@ -430,7 +430,7 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
 </div>`;
   fs.writeFileSync(path.join(site, 'about.html'), page({
     title: '怎么挑仓库 · 开源 AI 工具库',
-    desc: 'OSS 站里都是什么仓库、卡片字段怎么看、开源许可与安全边界，以及和工具站的分工。',
+    desc: 'OSS 站里都是什么仓库、卡片字段怎么看、开源许可与安全边界，以及和工具站的分工；读完能判断一个仓库值不值得拿下来跑。',
     canonical: url('about.html'),
     body
   }));
@@ -443,7 +443,8 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
     title: '404 · 开源 AI 工具库',
     desc: '页面不存在。回首页或全部仓库。',
     canonical: url('404.html'),
-    body
+    body,
+    noindex: true
   }));
 }
 

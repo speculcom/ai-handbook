@@ -4,19 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>训练与微调 · 开源 AI 工具库</title>
-  <meta name="description" content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 8 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta name="description" content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 12 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <link rel="canonical" href="https://oss.specul.com/scenes/training-finetune.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="训练与微调 · 开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/scenes/training-finetune.html" />
   <meta property="og:title" content="训练与微调 · 开源 AI 工具库" />
-  <meta property="og:description" content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 8 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta property="og:description" content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 12 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=c81d6c81488e"></script>
   <link rel="stylesheet" href="../brand.css?v=c81d6c81488e" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../oss.css?v=95e7d935" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"训练与微调 · 开源 AI 工具库","description":"训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 12 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/training-finetune.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -99,13 +100,13 @@
 </header>
 <div class="hero-actions">
   <a class="btn primary" href="../all.html?scene=training-finetune"><span data-zh>看这个场景的全部 →</span><span data-en>See all in this scene →</span></a>
-  <a class="btn" href="../compare.html?ids=unsloth,axolotl,trl"><span data-zh>并排对比前 3 个</span><span data-en>Compare first 3</span></a>
+  <a class="btn" href="../compare.html?ids=unsloth,llamafactory,axolotl"><span data-zh>并排对比前 3 个</span><span data-en>Compare first 3</span></a>
   <a class="btn" href="../index.html"><span data-zh>回首页</span><span data-en>Home</span></a>
 </div>
-<div class="stats"><div><b>8</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合要改模型行为、做领域适配或对齐训练的人；只做推理不用进这个场景。</span><span data-en>For people who need to change model behavior, adapt to a domain or run alignment training; inference-only work does not need this scene.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
+<div class="stats"><div><b>12</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合要改模型行为、做领域适配或对齐训练的人；只做推理不用进这个场景。</span><span data-en>For people who need to change model behavior, adapt to a domain or run alignment training; inference-only work does not need this scene.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
 <div class="section-head"><h2><span data-zh>怎么选</span><span data-en>How to choose</span></h2></div>
 <div class="note">• <span data-zh>单卡 24GB 想微调 7B：先看 Unsloth。</span><span data-en>24 GB single GPU, 7B model: start with Unsloth.</span><br>• <span data-zh>想把微调流程固化成配置：Axolotl。</span><span data-en>Turn fine-tuning into a reproducible config: Axolotl.</span><br>• <span data-zh>做 DPO/PPO/GRPO 对齐：TRL 起步，规模化再看 verl / OpenRLHF。</span><span data-en>DPO/PPO/GRPO alignment: start with TRL, scale with verl / OpenRLHF.</span><br>• <span data-zh>要训大模型或多机：DeepSpeed、TorchTitan。</span><span data-en>Large-model or multi-node training: DeepSpeed, TorchTitan.</span><br>• <span data-zh>MoE 本地跑不动：KTransformers 的专家卸载。</span><span data-en>MoE does not fit locally: KTransformers expert offload.</span><br><b><span data-zh>不适合：</span><span data-en>Not for: </span></b><span data-zh>不要为了“全参训练”而全参；多数领域适配 LoRA/QLoRA 就够，先算数据量与评测收益。</span><span data-en>Do not choose full-parameter training by default; most domain adaptation is served by LoRA/QLoRA. Estimate data volume and eval gain first.</span></div>
-<div class="section-head"><h2>8 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
+<div class="section-head"><h2>12 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
 <div class="repo-grid"><article class="repo-card" data-id="unsloth" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="start" data-search="unsloth qlora/lora 微调加速：用 triton 内核把 7b–70b 模型的显存占用和训练时间压下来。 python apache-2.0 qlora 单卡">
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="../repos/unsloth.html">Unsloth</a></h3>
@@ -118,6 +119,18 @@
     <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
   </dl>
   <a class="repo-link" href="../repos/unsloth.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="llamafactory" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="start" data-search="llama-factory 一套配置跑通微调：lora、qlora、全参与 dpo，带 webui 和模型导出。 python apache-2.0 lora webui">
+  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
+  <h3 class="repo-name"><a href="../repos/llamafactory.html">LLaMA-Factory</a></h3>
+  <p class="repo-owner">hiyouga / LLaMA-Factory</p>
+  <p><span data-zh>一套配置跑通微调：LoRA、QLoRA、全参与 DPO，带 WebUI 和模型导出。</span><span data-en>One setup for fine-tuning: LoRA, QLoRA, full-parameter and DPO, with a WebUI and model export.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>76.1k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/llamafactory.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="axolotl" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="axolotl 一份 yaml 配置跑通微调：支持 lora、qlora、全参、dpo、grpo 与多机训练。 python apache-2.0 yaml 多机">
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/axolotl.html">Axolotl</a></h3>
@@ -130,6 +143,30 @@
     <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
   </dl>
   <a class="repo-link" href="../repos/axolotl.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="peft" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="peft 参数高效微调的标准库：lora、ia3、prefix tuning 等适配器，接 transformers 与 accelerate。 python apache-2.0 lora adapter">
+  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/peft.html">PEFT</a></h3>
+  <p class="repo-owner">huggingface / peft</p>
+  <p><span data-zh>参数高效微调的标准库：LoRA、IA3、Prefix Tuning 等适配器，接 Transformers 与 Accelerate。</span><span data-en>The standard parameter-efficient fine-tuning library: LoRA, IA3, prefix tuning and other adapters, wired into Transformers and Accelerate.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>21.9k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/peft.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="ms-swift" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="ms-swift modelscope 的微调与部署工具链：llm、多模态模型的 lora/全参、dpo/grpo、推理与评测。 python apache-2.0 modelscope 多模态">
+  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/ms-swift.html">ms-swift</a></h3>
+  <p class="repo-owner">modelscope / ms-swift</p>
+  <p><span data-zh>ModelScope 的微调与部署工具链：LLM、多模态模型的 LoRA/全参、DPO/GRPO、推理与评测。</span><span data-en>ModelScope’s fine-tuning and deployment stack: LoRA and full-parameter training for LLMs and multimodal models, DPO/GRPO, inference and evaluation.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>16.1k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/ms-swift.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="trl" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="trl hugging face 的强化学习与对齐训练库：sft、dpo、ppo、grpo、奖励模型都能接。 python apache-2.0 rlhf dpo">
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/trl.html">TRL</a></h3>
@@ -142,6 +179,18 @@
     <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
   </dl>
   <a class="repo-link" href="../repos/trl.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="torchtune" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="scale" data-search="torchtune pytorch 原生的微调配方库：可读的训练循环、fsdp、激活检查点与常用后训练配方。 python bsd-3-clause pytorch fsdp">
+  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
+  <h3 class="repo-name"><a href="../repos/torchtune.html">torchtune</a></h3>
+  <p class="repo-owner">meta-pytorch / torchtune</p>
+  <p><span data-zh>PyTorch 原生的微调配方库：可读的训练循环、FSDP、激活检查点与常用后训练配方。</span><span data-en>A PyTorch-native fine-tuning recipe library: readable training loops, FSDP, activation checkpointing and common post-training recipes.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>BSD-3-Clause</dd></div>
+    <div><dt>Stars</dt><dd>5.8k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/torchtune.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="deepspeed" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="scale" data-search="deepspeed 微软的大模型训练优化库：zero、offload、混合精度与 moe 训练，把显存与吞吐压到可用。 python apache-2.0 zero 多机">
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="../repos/deepspeed.html">DeepSpeed</a></h3>
@@ -204,14 +253,14 @@
   <a class="repo-link" href="../repos/ktransformers.html">看仓库卡 →</a>
 </article></div>
 <div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
-<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/unsloth.html">Unsloth</a></th><th><a href="../repos/axolotl.html">Axolotl</a></th><th><a href="../repos/trl.html">TRL</a></th><th><a href="../repos/deepspeed.html">DeepSpeed</a></th><th><a href="../repos/torchtitan.html">TorchTitan</a></th><th><a href="../repos/verl.html">verl</a></th><th><a href="../repos/openrlhf.html">OpenRLHF</a></th><th><a href="../repos/ktransformers.html">KTransformers</a></th></tr></thead><tbody>
-<tr><td>上手层</td><td>先试这个</td><td>生产可用</td><td>生产可用</td><td>规模 / 性能</td><td>规模 / 性能</td><td>规模 / 性能</td><td>规模 / 性能</td><td>本地优先</td></tr>
-<tr><td>语言</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td></tr>
-<tr><td>许可</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>BSD-3-Clause</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td></tr>
-<tr><td>Stars</td><td>79.8k</td><td>12.7k</td><td>19.8k</td><td>43.3k</td><td>5.9k</td><td>24.3k</td><td>10.2k</td><td>19.7k</td></tr>
-<tr><td>最近推送</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-03</td><td>2026-11-13</td></tr>
-<tr><td>适合</td><td>单卡 24GB 就能微调 7B 级模型，适合个人与小团队。</td><td>配置驱动，实验可复现，适合把微调流程固化。</td><td>与 transformers 生态无缝，模型、分词器、数据集直接复用。</td><td>ZeRO 分片让单机多卡能训更大模型。</td><td>官方维护，和 PyTorch 新特性同步快。</td><td>为 Agentic RL 设计，能把工具调用轨迹纳入训练。</td><td>把推理、奖励、训练分成可扩展的 Ray actor。</td><td>MoE 模型不必全部塞进显存，适合本地大模型。</td></tr>
-<tr><td>不适合</td><td>要做大规模预训练或多机多卡，仍应看 DeepSpeed / TorchTitan。</td><td>不想读 YAML、只想点按钮的人，应先看托管平台。</td><td>只做推理或简单微调，直接用 transformers Trainer 更轻。</td><td>小模型单卡微调，用不到这么重的分布式栈。</td><td>只想微调一个小模型，直接用 Hugging Face Trainer。</td><td>只做 SFT，不需要这么重的 RL 栈。</td><td>单卡小实验，直接用 TRL 更简单。</td><td>追求通用、稳定的生产推理，优先 vLLM/SGLang。</td></tr>
+<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/unsloth.html">Unsloth</a></th><th><a href="../repos/llamafactory.html">LLaMA-Factory</a></th><th><a href="../repos/axolotl.html">Axolotl</a></th><th><a href="../repos/peft.html">PEFT</a></th><th><a href="../repos/ms-swift.html">ms-swift</a></th><th><a href="../repos/trl.html">TRL</a></th><th><a href="../repos/torchtune.html">torchtune</a></th><th><a href="../repos/deepspeed.html">DeepSpeed</a></th><th><a href="../repos/torchtitan.html">TorchTitan</a></th><th><a href="../repos/verl.html">verl</a></th><th><a href="../repos/openrlhf.html">OpenRLHF</a></th><th><a href="../repos/ktransformers.html">KTransformers</a></th></tr></thead><tbody>
+<tr><td>上手层</td><td>先试这个</td><td>先试这个</td><td>生产可用</td><td>生产可用</td><td>生产可用</td><td>生产可用</td><td>规模 / 性能</td><td>规模 / 性能</td><td>规模 / 性能</td><td>规模 / 性能</td><td>规模 / 性能</td><td>本地优先</td></tr>
+<tr><td>语言</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td></tr>
+<tr><td>许可</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>BSD-3-Clause</td><td>Apache-2.0</td><td>BSD-3-Clause</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td></tr>
+<tr><td>Stars</td><td>79.8k</td><td>76.1k</td><td>12.7k</td><td>21.9k</td><td>16.1k</td><td>19.8k</td><td>5.8k</td><td>43.3k</td><td>5.9k</td><td>24.3k</td><td>10.2k</td><td>19.7k</td></tr>
+<tr><td>最近推送</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-20</td><td>2026-11-20</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-19</td><td>2026-11-03</td><td>2026-11-13</td></tr>
+<tr><td>适合</td><td>单卡 24GB 就能微调 7B 级模型，适合个人与小团队。</td><td>把数据、训练与导出收在同一套配置里，第一次微调不用拼多个库。</td><td>配置驱动，实验可复现，适合把微调流程固化。</td><td>只训练少量参数，显存与存储成本远低于全参微调。</td><td>训练、推理、评测与部署在同一套命令里，少写胶水代码。</td><td>与 transformers 生态无缝，模型、分词器、数据集直接复用。</td><td>训练循环写得薄，便于读源码和改数据、损失与采样。</td><td>ZeRO 分片让单机多卡能训更大模型。</td><td>官方维护，和 PyTorch 新特性同步快。</td><td>为 Agentic RL 设计，能把工具调用轨迹纳入训练。</td><td>把推理、奖励、训练分成可扩展的 Ray actor。</td><td>MoE 模型不必全部塞进显存，适合本地大模型。</td></tr>
+<tr><td>不适合</td><td>要做大规模预训练或多机多卡，仍应看 DeepSpeed / TorchTitan。</td><td>要做超大规模预训练或多机极限吞吐，应看 Megatron 系与 TorchTitan。</td><td>不想读 YAML、只想点按钮的人，应先看托管平台。</td><td>需要改变模型知识边界或做大规模继续预训练，单靠适配器不够。</td><td>只在 Hugging Face 生态内工作、且不需要 ModelScope 模型时，依赖会更重。</td><td>只做推理或简单微调，直接用 transformers Trainer 更轻。</td><td>想要开箱 WebUI 与大量现成模型模板，LLaMA-Factory 更省事。</td><td>小模型单卡微调，用不到这么重的分布式栈。</td><td>只想微调一个小模型，直接用 Hugging Face Trainer。</td><td>只做 SFT，不需要这么重的 RL 栈。</td><td>单卡小实验，直接用 TRL 更简单。</td><td>追求通用、稳定的生产推理，优先 vLLM/SGLang。</td></tr>
 </tbody></table></div>
 </div>
   </main>
