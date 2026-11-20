@@ -13,8 +13,8 @@
   <meta property="og:description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 16 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=c81d6c81488e"></script>
-  <link rel="stylesheet" href="../brand.css?v=c81d6c81488e" />
+  <script src="../brand.js?v=0e72a386c5db"></script>
+  <link rel="stylesheet" href="../brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../oss.css?v=95e7d935" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agent 框架与编排 · 开源 AI 工具库","description":"Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 16 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/agent-frameworks.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
@@ -47,7 +47,7 @@
         <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
       </nav>
       <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
@@ -84,10 +84,10 @@
       <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
@@ -95,18 +95,18 @@
 <div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · Scene 01</p>
-  <h1>Agent 框架与编排</h1>
-  <p class="lede">把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</p>
+  <h1><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></h1>
+  <p class="lede"><span data-zh>把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</span><span data-en>Wire models, tools, state and human approval into a workflow that can run, retry and resume. Decide whether you need a state machine before choosing an abstraction.</span></p>
 </header>
 <div class="hero-actions">
-  <a class="btn primary" href="../all.html?scene=agent-frameworks">看这个场景的全部 →</a>
-  <a class="btn" href="../compare.html?ids=langgraph,crewai,autogen">并排对比前 3 个</a>
-  <a class="btn" href="../index.html">回首页</a>
+  <a class="btn primary" href="../all.html?scene=agent-frameworks"><span data-zh>看这个场景的全部 →</span><span data-en>See all in this scene →</span></a>
+  <a class="btn" href="../compare.html?ids=langgraph,crewai,autogen"><span data-zh>并排对比前 3 个</span><span data-en>Compare first 3</span></a>
+  <a class="btn" href="../index.html"><span data-zh>回首页</span><span data-en>Home</span></a>
 </div>
-<div class="stats"><div><b>16</b><span>个场景精选</span></div><div><b>适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。</b><span>适合谁</span></div></div>
-<div class="section-head"><h2>怎么选</h2></div>
-<div class="note">• 流程有分支、重试、人工确认：先看 LangGraph。<br>• 第一次搭多 agent、想快速跑分工：CrewAI 更直观。<br>• 想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。<br><b>不适合：</b>不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。</div>
-<div class="section-head"><h2>16 个仓库</h2><span class="sub">按上手顺序，不是按 star</span></div>
+<div class="stats"><div><b>16</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。</span><span data-en>For people turning multi-step tasks into reliable workflows; single-turn Q&amp;A does not need a framework.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
+<div class="section-head"><h2><span data-zh>怎么选</span><span data-en>How to choose</span></h2></div>
+<div class="note">• <span data-zh>流程有分支、重试、人工确认：先看 LangGraph。</span><span data-en>Branches, retries and human approval: start with LangGraph.</span><br>• <span data-zh>第一次搭多 agent、想快速跑分工：CrewAI 更直观。</span><span data-en>First multi-agent setup with quick role division: CrewAI is easier to grasp.</span><br>• <span data-zh>想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。</span><span data-en>Type safety and long maintenance: Pydantic AI; minimal code execution: smolagents.</span><br><b><span data-zh>不适合：</span><span data-en>Not for: </span></b><span data-zh>不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。</span><span data-en>Do not add multiple agents just for the label. Many tasks need one model and two tools.</span></div>
+<div class="section-head"><h2>16 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
 <div class="repo-grid"><article class="repo-card" data-id="langgraph" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="langgraph 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 python mit 有状态图">
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/langgraph.html">LangGraph</a></h3>
@@ -328,7 +328,7 @@
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-          <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
           <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
       </nav>
       <nav class="foot-legal-links" aria-label="法律">

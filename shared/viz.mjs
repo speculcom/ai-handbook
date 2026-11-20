@@ -56,7 +56,7 @@ const EN_SECTION = {
   '硬件算力 · 一张图看全貌': 'Compute · the whole map',
   'AI 论文 · 一张图看全貌': 'AI papers · the whole map',
   '链 · 一张图看全貌': 'Chain · the whole map',
-  'AI导航 · 一张图看全貌': 'AI Directory · the whole map',
+  'AI 导航 · 一张图看全貌': 'AI Directory · the whole map',
   '演示 · 一张图看全貌': 'Demos · the whole map',
 };
 const EN_TITLE = {
@@ -356,7 +356,7 @@ function section({ id, kicker, title, sub, dek, cards, foot, link }) {
 /* ---------- 各站数据 ---------- */
 const WWW_NODES = [
   { label: '模型', value: '1337', color: 'var(--cat-violet)' },
-  { label: 'AI导航', value: '625', color: 'var(--cat-blue)' },
+  { label: 'AI 导航', value: '625', color: 'var(--cat-blue)' },
   { label: '学AI', value: '260', color: 'var(--cat-teal)' },
   { label: '工具', value: '280', color: 'var(--cat-amber)' },
   { label: '论文', value: '33', color: 'var(--cat-rose)' },
@@ -369,7 +369,7 @@ const WWW_NODES = [
 function vizWww() {
   const bars = [
     { label: 'GGUF 文件', value: 1337, color: 'var(--cat-violet)' },
-    { label: 'AI导航条目', value: 625, color: 'var(--cat-blue)' },
+    { label: 'AI 导航条目', value: 625, color: 'var(--cat-blue)' },
     { label: '学AI词条', value: 260, color: 'var(--cat-teal)' },
     { label: '工具对象', value: 280, color: 'var(--cat-amber)' },
     { label: '演示作品', value: 189, color: 'var(--cat-rose)' },
@@ -682,7 +682,7 @@ function vizNav() {
   const top = counts.filter((x) => x.value > 0).sort((a, b) => b.value - a.value).slice(0, 8);
   return section({
     id: 'health',
-    kicker: 'AI导航 · 一张图看全貌',
+    kicker: 'AI 导航 · 一张图看全貌',
     title: '找 AI 网站，不用一个个翻',
     sub: 'directory health',
     dek: bi('下面看大家最常找的几类网站，以及链接检查的结果。点名字直接去官网；打不开的会标出来。', 'See which kinds of sites people look for most, and how the link check went. Click a name to go straight to the official site; dead links are marked.'),

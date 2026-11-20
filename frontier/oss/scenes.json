@@ -11,7 +11,15 @@
       "第一次搭多 agent、想快速跑分工：CrewAI 更直观。",
       "想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。"
     ],
-    "notFor": "不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。"
+    "notFor": "不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。",
+    "leadEn": "Wire models, tools, state and human approval into a workflow that can run, retry and resume. Decide whether you need a state machine before choosing an abstraction.",
+    "whoEn": "For people turning multi-step tasks into reliable workflows; single-turn Q&A does not need a framework.",
+    "chooseEn": [
+      "Branches, retries and human approval: start with LangGraph.",
+      "First multi-agent setup with quick role division: CrewAI is easier to grasp.",
+      "Type safety and long maintenance: Pydantic AI; minimal code execution: smolagents."
+    ],
+    "notForEn": "Do not add multiple agents just for the label. Many tasks need one model and two tools."
   },
   {
     "id": "rag-knowledge",
@@ -25,7 +33,15 @@
       "要自己控检索与生成链路：LlamaIndex / Haystack。",
       "只缺向量检索：Qdrant 生产、Chroma 原型。"
     ],
-    "notFor": "RAG 不是把文档丢进模型。文档质量、权限与更新机制比 chunk size 更重要。"
+    "notFor": "RAG 不是把文档丢进模型。文档质量、权限与更新机制比 chunk size 更重要。",
+    "leadEn": "Retrieval quality depends on chunking, recall, permissions and evaluation; choose a stack whose sources you can inspect.",
+    "whoEn": "For teams grounding answers in private documents and needing citations.",
+    "chooseEn": [
+      "Mixed formats and permissions: check parsing, chunking and ACL support first.",
+      "Need a ready UI and citations: RAGFlow; code-first pipelines: LlamaIndex.",
+      "Measure retrieval separately from generation; keep the source path."
+    ],
+    "notForEn": "Do not use RAG to patch missing source data or unclear permissions."
   },
   {
     "id": "local-inference",
@@ -39,7 +55,15 @@
       "Mac / CPU / 边缘：llama.cpp。",
       "生产高吞吐：vLLM 或 SGLang；HF 生态：TGI。"
     ],
-    "notFor": "本地跑不等于免费。显存、电费、运维和模型更新都要算。"
+    "notFor": "本地跑不等于免费。显存、电费、运维和模型更新都要算。",
+    "leadEn": "Run models on hardware you control: check quantisation, memory fit, concurrency and serving API before choosing.",
+    "whoEn": "For privacy-sensitive work, offline use or predictable long-running cost.",
+    "chooseEn": [
+      "First local run: Ollama; production serving: vLLM or SGLang.",
+      "Mac or small VRAM: check quantised formats and unified memory.",
+      "Measure tokens/s and time-to-first-token on your own workload."
+    ],
+    "notForEn": "Do not assume a 7B model replaces a frontier model on hard reasoning."
   },
   {
     "id": "multimodal-visual",
@@ -53,7 +77,15 @@
       "新手少调参：Fooocus；经典界面：SD WebUI。",
       "要把生成嵌进应用：Diffusers；视频生成：Wan2.1。"
     ],
-    "notFor": "模型与工作流都有版权和肖像权问题；商用前逐项核对，不能默认可商用。"
+    "notFor": "模型与工作流都有版权和肖像权问题；商用前逐项核对，不能默认可商用。",
+    "leadEn": "Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms.",
+    "whoEn": "For visual content teams that need repeatable pipelines, not one-off prompts.",
+    "chooseEn": [
+      "Image editing with masks: ComfyUI; video generation: check duration and resolution limits.",
+      "Review output rights and training-data claims before shipping.",
+      "Keep a human review step for faces, text and brand assets."
+    ],
+    "notForEn": "Do not treat a demo output as a production licence."
   },
   {
     "id": "speech-audio",
@@ -67,7 +99,15 @@
       "中文会议与标点：FunASR；词级时间戳：WhisperX。",
       "中文 TTS：CosyVoice；少样本克隆：GPT-SoVITS（必须授权）。"
     ],
-    "notFor": "声音克隆不是玩具。没有本人授权，不要克隆、不要冒充、不要商用。"
+    "notFor": "声音克隆不是玩具。没有本人授权，不要克隆、不要冒充、不要商用。",
+    "leadEn": "Transcribe, synthesise and separate speakers: check language coverage, latency, streaming and data handling.",
+    "whoEn": "For meeting notes, voice interfaces and audio archives.",
+    "chooseEn": [
+      "Fast local transcription: Whisper variants; streaming: check chunking and VAD.",
+      "Speaker labels and timestamps: test on your own recordings.",
+      "Voice cloning needs explicit consent and an abuse-review path."
+    ],
+    "notForEn": "Do not upload confidential audio to a service you have not reviewed."
   },
   {
     "id": "eval-observability",
@@ -81,7 +121,15 @@
       "多模型 / 多 prompt 对比：promptfoo。",
       "追踪与成本：Langfuse / Phoenix；上线前红队：Giskard。"
     ],
-    "notFor": "榜单一分不代表你的场景可用。先建自己的 50–100 条评测集，再谈平台。"
+    "notFor": "榜单一分不代表你的场景可用。先建自己的 50–100 条评测集，再谈平台。",
+    "leadEn": "Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost.",
+    "whoEn": "For teams shipping agents or RAG and needing regression tests.",
+    "chooseEn": [
+      "Start with a small labelled set and a failure taxonomy.",
+      "Trace every step: Langfuse and similar tools; offline scoring: promptfoo.",
+      "Track cost and latency beside quality; a score alone is not a release gate."
+    ],
+    "notForEn": "Do not optimise a dashboard before defining what a failure looks like."
   },
   {
     "id": "training-finetune",

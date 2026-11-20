@@ -127,12 +127,12 @@ function sceneCard(s) {
   const body = `<div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · Open source AI</p>
-  <h1>开源 AI 工具，挑能自己跑的</h1>
+  <h1>${bi('开源 AI 工具，挑能自己跑的', 'Open-source AI tools you can run yourself')}</h1>
   <p class="lede">别人帮你跑的服务，去 <a href="https://tools.specul.com/">工具站</a>；能拿下来读、改、部署的仓库，在这里。按场景挑，先看它不做什么、许可和依赖，再看 star。</p>
 </header>
 <form class="oss-search" action="all.html" method="get">
-  <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" aria-label="搜索开源仓库" />
-  <button type="submit">搜索</button>
+  <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-zh="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-en="Search repos: RAG, video, speech, evals…" aria-label="搜索开源仓库" data-ui-aria-label-zh="搜索开源仓库" data-ui-aria-label-en="Search open-source repositories" />
+  <button type="submit">${bi('搜索', 'Search')}</button>
 </form>
 <div class="hero-actions">
   <a class="btn primary" href="all.html">看全部仓库 →</a>
@@ -170,19 +170,19 @@ function sceneCard(s) {
   const body = `<div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · All repos</p>
-  <h1>全部仓库</h1>
-  <p class="lede">${repos.length} 个仓库，按场景、语言、许可与上手层筛。默认按场景顺序排，不按 star 排；star 只是快照。</p>
+  <h1>${bi('全部仓库', 'All repositories')}</h1>
+  <p class="lede">${bi(`${repos.length} 个仓库，按场景、语言、许可与上手层筛。默认按场景顺序排，不按 star 排；star 只是快照。`, `${repos.length} repositories, filtered by scene, language, licence and onboarding level. Sorted by scene, not by stars; stars are only a snapshot.`)}</p>
 </header>
 <div class="filters">
-  <input id="q" type="search" placeholder="搜名称、用途、标签" aria-label="搜索" />
-  <select id="scene" aria-label="场景"><option value="">全部场景</option>${scenes.map((s) => `<option value="${esc(s.id)}">${esc(s.title)}</option>`).join('')}</select>
-  <select id="lang" aria-label="语言"><option value="">全部语言</option>${langs.map((l) => `<option value="${esc(l)}">${esc(l)}</option>`).join('')}</select>
-  <select id="license" aria-label="许可"><option value="">全部许可</option><option value="permissive">宽松（MIT / Apache / BSD）</option><option value="weak">弱 copyleft（LGPL / MPL / CC-BY-SA）</option><option value="strong">强 copyleft（GPL / AGPL）</option><option value="other">其他 / 见仓库</option></select>
-  <select id="tier" aria-label="上手层"><option value="">全部上手层</option>${Object.entries(TIER).map(([k, v]) => `<option value="${esc(k)}">${esc(v.zh)}</option>`).join('')}</select>
-  <span class="count" id="count">${repos.length} 个</span>
+  <input id="q" type="search" placeholder="搜名称、用途、标签" data-ui-placeholder-zh="搜名称、用途、标签" data-ui-placeholder-en="Search name, use or tag" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" />
+  <select id="scene" aria-label="场景" data-ui-aria-label-zh="场景" data-ui-aria-label-en="Scene"><option value="" data-ui-text-zh="全部场景" data-ui-text-en="All scenes">全部场景</option>${scenes.map((s) => `<option value="${esc(s.id)}" data-ui-text-zh="${esc(s.title)}" data-ui-text-en="${esc(s.titleEn)}">${esc(s.title)}</option>`).join('')}</select>
+  <select id="lang" aria-label="语言" data-ui-aria-label-zh="语言" data-ui-aria-label-en="Language"><option value="" data-ui-text-zh="全部语言" data-ui-text-en="All languages">全部语言</option>${langs.map((l) => `<option value="${esc(l)}">${esc(l)}</option>`).join('')}</select>
+  <select id="license" aria-label="许可" data-ui-aria-label-zh="许可" data-ui-aria-label-en="Licence"><option value="" data-ui-text-zh="全部许可" data-ui-text-en="All licences">全部许可</option><option value="permissive" data-ui-text-zh="宽松（MIT / Apache / BSD）" data-ui-text-en="Permissive (MIT / Apache / BSD)">宽松（MIT / Apache / BSD）</option><option value="weak" data-ui-text-zh="弱 copyleft（LGPL / MPL / CC-BY-SA）" data-ui-text-en="Weak copyleft (LGPL / MPL / CC-BY-SA)">弱 copyleft（LGPL / MPL / CC-BY-SA）</option><option value="strong" data-ui-text-zh="强 copyleft（GPL / AGPL）" data-ui-text-en="Strong copyleft (GPL / AGPL)">强 copyleft（GPL / AGPL）</option><option value="other" data-ui-text-zh="其他 / 见仓库" data-ui-text-en="Other / see repository">其他 / 见仓库</option></select>
+  <select id="tier" aria-label="上手层" data-ui-aria-label-zh="上手层" data-ui-aria-label-en="Onboarding level"><option value="" data-ui-text-zh="全部上手层" data-ui-text-en="All onboarding levels">全部上手层</option>${Object.entries(TIER).map(([k, v]) => `<option value="${esc(k)}" data-ui-text-zh="${esc(v.zh)}" data-ui-text-en="${esc(v.en)}">${esc(v.zh)}</option>`).join('')}</select>
+  <span class="count" id="count">${bi(`${repos.length} 个`, `${repos.length} repos`)}</span>
 </div>
 <div class="repo-grid" id="grid">${repos.map((r) => repoCard(r)).join('')}</div>
-<div class="empty" id="empty" hidden>没有匹配的仓库。换个关键词，或清掉筛选。</div>
+<div class="empty" id="empty" hidden>${bi('没有匹配的仓库。换个关键词，或清掉筛选。', 'No matching repositories. Try another keyword or clear the filters.')}</div>
 </div>
 <script>window.OSS_DATA=${json};</script>
 <script>
@@ -369,15 +369,15 @@ for (const r of repos) {
   const body = `<div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · Compare</p>
-  <h1>并排对比</h1>
-  <p class="lede">选 2–7 个仓库，并排看场景、上手层、语言、许可、活跃度、适合与不适合。对比不生成总分，也不推荐“最佳”。</p>
+  <h1>${bi('并排对比', 'Compare side by side')}</h1>
+  <p class="lede">${bi('选 2–7 个仓库，并排看场景、上手层、语言、许可、活跃度、适合与不适合。对比不生成总分，也不推荐“最佳”。', 'Choose 2–7 repositories and compare scene, onboarding level, language, licence, activity, fit and non-fit. No total score and no “best” recommendation.')}</p>
 </header>
 <div class="compare-controls" id="controls">
-${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="${i}"><option value="">不选</option>${repos.map((r) => `<option value="${esc(r.id)}"${defaultIds[i] === r.id ? ' selected' : ''}>${esc(r.name)} · ${esc(r.sceneTitle)}</option>`).join('')}</select></label>`).join('')}
+${Array.from({ length: 7 }, (_, i) => `<label>${bi(`位置 ${i + 1}`, `Slot ${i + 1}`)}<select data-slot="${i}"><option value="" data-ui-text-zh="不选" data-ui-text-en="None">不选</option>${repos.map((r) => `<option value="${esc(r.id)}"${defaultIds[i] === r.id ? ' selected' : ''} data-ui-text-zh="${esc(r.name)} · ${esc(r.sceneTitle)}" data-ui-text-en="${esc(r.name)} · ${esc(sceneById[r.scene]?.titleEn || r.sceneTitle)}">${esc(r.name)} · ${esc(r.sceneTitle)}</option>`).join('')}</select></label>`).join('')}
 </div>
 <div id="compare-table">${table(defaultRepos)}</div>
-<div class="empty" id="compare-empty" hidden>至少选 2 个仓库，最多 7 个。</div>
-<div class="note"><b>怎么读：</b>先排除“不适合”与许可不合适的；再比上手层与依赖；最后看最近推送。star 只是快照，不是质量保证。</div>
+<div class="empty" id="compare-empty" hidden>${bi('至少选 2 个仓库，最多 7 个。', 'Choose at least 2 and at most 7 repositories.')}</div>
+<div class="note"><b>${bi('怎么读：', 'How to read: ')}</b>${bi('先排除“不适合”与许可不合适的；再比上手层与依赖；最后看最近推送。star 只是快照，不是质量保证。', 'First exclude options whose “not for” or licence does not fit; then compare onboarding level and dependencies; finally check recent pushes. Stars are a snapshot, not a quality guarantee.')}</div>
 </div>
 <script>
 (function(){
@@ -411,7 +411,7 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
   const body = `<div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · About</p>
-  <h1>怎么挑这里面的仓库</h1>
+  <h1>${bi('怎么挑这里面的仓库', 'How to choose a repository here')}</h1>
   <p class="lede">这个站帮你判断一个仓库能不能拿下来、读得懂、跑得动、改得动。至于“哪个最强”，这里不回答，也回答不了。</p>
 </header>
 <div class="detail-body">
@@ -438,7 +438,7 @@ ${Array.from({ length: 7 }, (_, i) => `<label>位置 ${i + 1}<select data-slot="
 
 // 404
 {
-  const body = `<div class="container"><header class="page-head"><p class="eyebrow">404</p><h1>这个仓库页不存在</h1><p class="lede">可能是链接旧了，或这个仓库还没收。回 <a href="index.html">首页</a>，或去 <a href="all.html">全部仓库</a> 搜。</p></header></div>`;
+  const body = `<div class="container"><header class="page-head"><p class="eyebrow">404</p><h1>${bi('这个仓库页不存在', 'This repository page does not exist')}</h1><p class="lede"><span data-zh>可能是链接旧了，或这个仓库还没收。回 <a href="index.html">首页</a>，或去 <a href="all.html">全部仓库</a> 搜。</span><span data-en>The link may be old, or this repository is not listed yet. Go back to the <a href="index.html">home page</a>, or search <a href="all.html">all repositories</a>.</span></p></header></div>`;
   fs.writeFileSync(path.join(site, '404.html'), page({
     title: '404 · 开源 AI 工具库',
     desc: '页面不存在。回首页或全部仓库。',

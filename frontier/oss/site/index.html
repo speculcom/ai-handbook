@@ -13,8 +13,8 @@
   <meta property="og:description" content="84 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=c81d6c81488e"></script>
-  <link rel="stylesheet" href="brand.css?v=c81d6c81488e" />
+  <script src="brand.js?v=0e72a386c5db"></script>
+  <link rel="stylesheet" href="brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="oss.css?v=95e7d935" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"开源 AI 工具库 — 自己拿下来跑 · Specul","description":"84 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。","url":"https://oss.specul.com/","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
@@ -47,7 +47,7 @@
         <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
       </nav>
       <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
@@ -84,10 +84,10 @@
       <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
@@ -95,12 +95,12 @@
 <div class="container">
 <header class="page-head">
   <p class="eyebrow">OSS · Open source AI</p>
-  <h1>开源 AI 工具，挑能自己跑的</h1>
+  <h1><span data-zh>开源 AI 工具，挑能自己跑的</span><span data-en>Open-source AI tools you can run yourself</span></h1>
   <p class="lede">别人帮你跑的服务，去 <a href="https://tools.specul.com/">工具站</a>；能拿下来读、改、部署的仓库，在这里。按场景挑，先看它不做什么、许可和依赖，再看 star。</p>
 </header>
 <form class="oss-search" action="all.html" method="get">
-  <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" aria-label="搜索开源仓库" />
-  <button type="submit">搜索</button>
+  <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-zh="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-en="Search repos: RAG, video, speech, evals…" aria-label="搜索开源仓库" data-ui-aria-label-zh="搜索开源仓库" data-ui-aria-label-en="Search open-source repositories" />
+  <button type="submit"><span data-zh>搜索</span><span data-en>Search</span></button>
 </form>
 <div class="hero-actions">
   <a class="btn primary" href="all.html">看全部仓库 →</a>
@@ -109,35 +109,35 @@
 </div>
 <div class="section-head"><h2>按场景找</h2><span class="sub">七个场景，挑一个你手上的活</span></div>
 <div class="scene-grid"><a class="scene-card scene-1" href="scenes/agent-frameworks.html">
-  <span class="no">01 · 16 个仓库</span>
-  <h3>Agent 框架与编排</h3>
-  <p>把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</p>
-  <span class="more">进入场景 →</span>
+  <span class="no">01 · 16 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <h3><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></h3>
+  <p><span data-zh>把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</span><span data-en>Wire models, tools, state and human approval into a workflow that can run, retry and resume. Decide whether you need a state machine before choosing an abstraction.</span></p>
+  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a><a class="scene-card scene-2" href="scenes/rag-knowledge.html">
-  <span class="no">02 · 12 个仓库</span>
-  <h3>RAG 与知识库</h3>
-  <p>从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。</p>
-  <span class="more">进入场景 →</span>
+  <span class="no">02 · 12 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <h3><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></h3>
+  <p><span data-zh>从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。</span><span data-en>Retrieval quality depends on chunking, recall, permissions and evaluation; choose a stack whose sources you can inspect.</span></p>
+  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a><a class="scene-card scene-3" href="scenes/local-inference.html">
-  <span class="no">03 · 7 个仓库</span>
-  <h3>本地推理与部署</h3>
-  <p>从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。</p>
-  <span class="more">进入场景 →</span>
+  <span class="no">03 · 7 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <h3><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></h3>
+  <p><span data-zh>从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。</span><span data-en>Run models on hardware you control: check quantisation, memory fit, concurrency and serving API before choosing.</span></p>
+  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a><a class="scene-card scene-4" href="scenes/multimodal-visual.html">
-  <span class="no">04 · 10 个仓库</span>
-  <h3>多模态与图像视频</h3>
-  <p>图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。</p>
-  <span class="more">进入场景 →</span>
+  <span class="no">04 · 10 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <h3><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></h3>
+  <p><span data-zh>图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。</span><span data-en>Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms.</span></p>
+  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a><a class="scene-card scene-5" href="scenes/speech-audio.html">
-  <span class="no">05 · 7 个仓库</span>
-  <h3>语音与音频</h3>
-  <p>语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。</p>
-  <span class="more">进入场景 →</span>
+  <span class="no">05 · 7 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <h3><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></h3>
+  <p><span data-zh>语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。</span><span data-en>Transcribe, synthesise and separate speakers: check language coverage, latency, streaming and data handling.</span></p>
+  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a><a class="scene-card scene-6" href="scenes/eval-observability.html">
-  <span class="no">06 · 6 个仓库</span>
-  <h3>评测与可观测</h3>
-  <p>上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。</p>
-  <span class="more">进入场景 →</span>
+  <span class="no">06 · 6 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <h3><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></h3>
+  <p><span data-zh>上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。</span><span data-en>Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost.</span></p>
+  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a><a class="scene-card scene-7" href="scenes/training-finetune.html">
   <span class="no">07 · 12 <span data-zh>个仓库</span><span data-en>repos</span></span>
   <h3><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></h3>
@@ -289,7 +289,7 @@
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-          <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
           <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
       </nav>
       <nav class="foot-legal-links" aria-label="法律">

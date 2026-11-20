@@ -2031,7 +2031,7 @@ fs.writeFileSync(path.join(SITE, 'robots.txt'), 'User-agent: *\nAllow: /\nSitema
   lines.push('');
   lines.push('- 首页 <https://specul.com/>　学 AI <https://learn.specul.com/>　工具 <https://tools.specul.com/>');
   lines.push('- 模型 <https://models.specul.com/>　作品演示 <https://demos.specul.com/>　硬件算力 <https://hardware.specul.com/>');
-  lines.push('- AI 论文 <https://papers.specul.com/>　链 <https://chain.specul.com/>　AI导航 <https://nav.specul.com/>');
+  lines.push('- AI 论文 <https://papers.specul.com/>　链 <https://chain.specul.com/>　AI 导航 <https://nav.specul.com/>');
   lines.push('- （v3 时代的 ide / cli / mcp / harness 四个独立子域已于 2026-10-04 并入 tools.specul.com；');
   lines.push('  做游戏子域 vg.specul.com 已于 2026-11-07 撤站，游戏内容并入主站主题页，不再存在）');
   lines.push('');

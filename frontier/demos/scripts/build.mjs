@@ -140,15 +140,15 @@ const playBody = `<div class="container demos-page dm-play">
   <p class="dm-note-line">${bi('作品在原作者的页面运行。如果画面空白，通常是对方禁止嵌入，点“全屏打开原页”。', 'The piece runs on the original author’s page. If it appears blank, embedding is likely blocked; use “Open original”.')}</p>
 </div>
 <script>(function(){
-var qs=new URLSearchParams(location.search);var id=qs.get('id');
+var qs=new URLSearchParams(location.search);var id=qs.get('id');var en=document.documentElement.dataset.lang==='en';
 fetch('demos-data.json').then(function(r){if(!r.ok)throw new Error('data');return r.json();}).then(function(data){
 var map={};data.forEach(function(x){map[x.id]=x;});var e=map[id]||data[Math.floor(Math.random()*data.length)];
-document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-play-title').textContent=e.title.zh;document.getElementById('dm-play-sub').textContent=e.title.en+' · '+e.model.name;document.title=e.title.zh+' · 打开作品 · Specul';
+document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-play-title').textContent=en?(e.title.en||e.title.zh):e.title.zh;document.getElementById('dm-play-sub').textContent=(en?(e.title.en||e.title.zh):e.title.zh)+' · '+e.model.name;document.title=(en?(e.title.en||e.title.zh):e.title.zh)+' · '+(en?'Open a piece':'打开作品')+' · Specul';
 document.getElementById('dm-open').href=e.demoUrl;document.getElementById('dm-source').href=e.sourceUrl;document.getElementById('dm-prompt').href=e.promptUrl;document.getElementById('dm-repo').href=e.repoUrl;
-document.getElementById('dm-desc').textContent=e.notes.zh;document.getElementById('dm-licence').textContent=e.license&&e.license.text&&e.license.text.zh?e.license.text.zh:'许可信息见作品页。';
+document.getElementById('dm-desc').textContent=en?(e.notes.en||e.notes.zh):e.notes.zh;document.getElementById('dm-licence').textContent=en?(e.license&&e.license.text&&e.license.text.en?e.license.text.en:'Licence details on the piece page.'):(e.license&&e.license.text&&e.license.text.zh?e.license.text.zh:'许可信息见作品页。');
 document.getElementById('dm-tags').innerHTML=(e.tags||[]).map(function(t){return '<span class="dm-tag">'+t+'</span>';}).join('');
 document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Math.random()*data.length)];location.href='works/'+encodeURIComponent(n.id)+'.html';};
-}).catch(function(){document.getElementById('dm-play-sub').textContent='载入失败：请通过本地静态服务器打开本页。';});
+}).catch(function(){document.getElementById('dm-play-sub').textContent=document.documentElement.dataset.lang==='en'?'Failed to load: open this page through a local static server.':'载入失败：请通过本地静态服务器打开本页。';});
 })();</script>`;
 
 const workBody = (e) => {

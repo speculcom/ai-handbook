@@ -13,8 +13,8 @@
   <meta property="og:description" content="站内播放器：用受限 iframe 打开原始 GitHub Pages 上的 HTML 作品，并列出源码、prompt、仓库与许可状态。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=c81d6c81488e"></script>
-  <link rel="stylesheet" href="brand.css?v=c81d6c81488e" />
+  <script src="brand.js?v=0e72a386c5db"></script>
+  <link rel="stylesheet" href="brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="demos.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"打开作品 · Specul","description":"站内播放器：用受限 iframe 打开原始 GitHub Pages 上的 HTML 作品，并列出源码、prompt、仓库与许可状态。","url":"https://demos.specul.com/play.html","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
@@ -47,7 +47,7 @@
         <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
       </nav>
       <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
@@ -84,10 +84,10 @@
       <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
@@ -103,15 +103,15 @@
   <p class="dm-note-line"><span data-zh>作品在原作者的页面运行。如果画面空白，通常是对方禁止嵌入，点“全屏打开原页”。</span><span data-en>The piece runs on the original author’s page. If it appears blank, embedding is likely blocked; use “Open original”.</span></p>
 </div>
 <script>(function(){
-var qs=new URLSearchParams(location.search);var id=qs.get('id');
+var qs=new URLSearchParams(location.search);var id=qs.get('id');var en=document.documentElement.dataset.lang==='en';
 fetch('demos-data.json').then(function(r){if(!r.ok)throw new Error('data');return r.json();}).then(function(data){
 var map={};data.forEach(function(x){map[x.id]=x;});var e=map[id]||data[Math.floor(Math.random()*data.length)];
-document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-play-title').textContent=e.title.zh;document.getElementById('dm-play-sub').textContent=e.title.en+' · '+e.model.name;document.title=e.title.zh+' · 打开作品 · Specul';
+document.getElementById('dm-frame').src=e.demoUrl;document.getElementById('dm-play-title').textContent=en?(e.title.en||e.title.zh):e.title.zh;document.getElementById('dm-play-sub').textContent=(en?(e.title.en||e.title.zh):e.title.zh)+' · '+e.model.name;document.title=(en?(e.title.en||e.title.zh):e.title.zh)+' · '+(en?'Open a piece':'打开作品')+' · Specul';
 document.getElementById('dm-open').href=e.demoUrl;document.getElementById('dm-source').href=e.sourceUrl;document.getElementById('dm-prompt').href=e.promptUrl;document.getElementById('dm-repo').href=e.repoUrl;
-document.getElementById('dm-desc').textContent=e.notes.zh;document.getElementById('dm-licence').textContent=e.license&&e.license.text&&e.license.text.zh?e.license.text.zh:'许可信息见作品页。';
+document.getElementById('dm-desc').textContent=en?(e.notes.en||e.notes.zh):e.notes.zh;document.getElementById('dm-licence').textContent=en?(e.license&&e.license.text&&e.license.text.en?e.license.text.en:'Licence details on the piece page.'):(e.license&&e.license.text&&e.license.text.zh?e.license.text.zh:'许可信息见作品页。');
 document.getElementById('dm-tags').innerHTML=(e.tags||[]).map(function(t){return '<span class="dm-tag">'+t+'</span>';}).join('');
 document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Math.random()*data.length)];location.href='works/'+encodeURIComponent(n.id)+'.html';};
-}).catch(function(){document.getElementById('dm-play-sub').textContent='载入失败：请通过本地静态服务器打开本页。';});
+}).catch(function(){document.getElementById('dm-play-sub').textContent=document.documentElement.dataset.lang==='en'?'Failed to load: open this page through a local static server.':'载入失败：请通过本地静态服务器打开本页。';});
 })();</script>
   </main>
   <footer class="site-footer">
@@ -130,7 +130,7 @@ document.getElementById('dm-random').onclick=function(){var n=data[Math.floor(Ma
           <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
           <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
           <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-          <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
           <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
       </nav>
       <nav class="foot-legal-links" aria-label="法律">
