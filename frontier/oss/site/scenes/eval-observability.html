@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>评测与可观测 · 开源 AI 工具库</title>
-  <meta name="description" content="评测与可观测：上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。 收录 6 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta name="description" content="评测与可观测：上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。 收录 12 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <link rel="canonical" href="https://oss.specul.com/scenes/eval-observability.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="评测与可观测 · 开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/scenes/eval-observability.html" />
   <meta property="og:title" content="评测与可观测 · 开源 AI 工具库" />
-  <meta property="og:description" content="评测与可观测：上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。 收录 6 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta property="og:description" content="评测与可观测：上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。 收录 12 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
   <link rel="stylesheet" href="../brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="../site.css" />
-  <link rel="stylesheet" href="../oss.css?v=95e7d935" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"评测与可观测 · 开源 AI 工具库","description":"评测与可观测：上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。 收录 6 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/eval-observability.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <link rel="stylesheet" href="../oss.css?v=493aa226" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"评测与可观测 · 开源 AI 工具库","description":"评测与可观测：上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。 收录 12 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/eval-observability.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -103,10 +103,10 @@
   <a class="btn" href="../compare.html?ids=langfuse,ragas,deepeval"><span data-zh>并排对比前 3 个</span><span data-en>Compare first 3</span></a>
   <a class="btn" href="../index.html"><span data-zh>回首页</span><span data-en>Home</span></a>
 </div>
-<div class="stats"><div><b>6</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合要把 LLM 应用从 demo 推到生产的人；一次性脚本不需要整套平台。</span><span data-en>For teams shipping agents or RAG and needing regression tests.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
+<div class="stats"><div><b>12</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合要把 LLM 应用从 demo 推到生产的人；一次性脚本不需要整套平台。</span><span data-en>For teams shipping agents or RAG and needing regression tests.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
 <div class="section-head"><h2><span data-zh>怎么选</span><span data-en>How to choose</span></h2></div>
 <div class="note">• <span data-zh>RAG 回归：Ragas；像单测一样测：DeepEval。</span><span data-en>Start with a small labelled set and a failure taxonomy.</span><br>• <span data-zh>多模型 / 多 prompt 对比：promptfoo。</span><span data-en>Trace every step: Langfuse and similar tools; offline scoring: promptfoo.</span><br>• <span data-zh>追踪与成本：Langfuse / Phoenix；上线前红队：Giskard。</span><span data-en>Track cost and latency beside quality; a score alone is not a release gate.</span><br><b><span data-zh>不适合：</span><span data-en>Not for: </span></b><span data-zh>榜单一分不代表你的场景可用。先建自己的 50–100 条评测集，再谈平台。</span><span data-en>Do not optimise a dashboard before defining what a failure looks like.</span></div>
-<div class="section-head"><h2>6 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
+<div class="section-head"><h2>12 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
 <div class="repo-grid"><article class="repo-card" data-id="langfuse" data-scene="eval-observability" data-lang="TypeScript" data-license="other" data-tier="prod" data-search="langfuse llm 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。 typescript/python mit 可观测">
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/langfuse.html">Langfuse</a></h3>
@@ -179,16 +179,88 @@
     <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
   </dl>
   <a class="repo-link" href="../repos/inspect-ai.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="trulens" data-scene="eval-observability" data-lang="Python" data-license="permissive" data-tier="prod" data-search="trulens llm 应用与 agent 的评测、追踪工具，基于 opentelemetry，把检索、生成与评分串成可解释的 trace。 python mit 可解释评分">
+  <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/trulens.html">TruLens</a></h3>
+  <p class="repo-owner">truera / trulens</p>
+  <p>LLM 应用与 agent 的评测、追踪工具，基于 OpenTelemetry，把检索、生成与评分串成可解释的 trace。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>3.7k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/trulens.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="evidently" data-scene="eval-observability" data-lang="Jupyter Notebook" data-license="permissive" data-tier="prod" data-search="evidently 数据与模型监控框架：数据漂移、质量、llm 输出评测都能出报表、测试与带告警的看板。 python apache-2.0 监控">
+  <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/evidently.html">Evidently</a></h3>
+  <p class="repo-owner">evidentlyai / evidently</p>
+  <p>数据与模型监控框架：数据漂移、质量、LLM 输出评测都能出报表、测试与带告警的看板。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Jupyter Notebook</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>8.1k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-09-29</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/evidently.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="giskard" data-scene="eval-observability" data-lang="Python" data-license="permissive" data-tier="niche" data-search="giskard 开源 ml/llm 测试与红队工具：扫描提示注入、越权、幻觉与 rag 质量问题，并生成可复现测试。 python apache-2.0 红队">
+  <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
+  <h3 class="repo-name"><a href="../repos/giskard.html">Giskard</a></h3>
+  <p class="repo-owner">Giskard-AI / giskard-oss</p>
+  <p>开源 ML/LLM 测试与红队工具：扫描提示注入、越权、幻觉与 RAG 质量问题，并生成可复现测试。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>6.0k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/giskard.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="lm-evaluation-harness" data-scene="eval-observability" data-lang="Python" data-license="permissive" data-tier="prod" data-search="lm evaluation harness 标准 llm 评测框架，覆盖数百任务、few-shot、loglikelihood 与生成式指标，支持 hf、vllm 和 api 后端。 python mit 评测 benchmark 复现">
+  <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/lm-evaluation-harness.html">LM Evaluation Harness</a></h3>
+  <p class="repo-owner">EleutherAI / lm-evaluation-harness</p>
+  <p>标准 LLM 评测框架，覆盖数百任务、few-shot、loglikelihood 与生成式指标，支持 HF、vLLM 和 API 后端。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>14.5k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-04</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/lm-evaluation-harness.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="swe-bench" data-scene="eval-observability" data-lang="Python" data-license="permissive" data-tier="prod" data-search="swe-bench 软件工程 agent 的基准与评测 harness：从真实 github issue 与对应 pr 构造任务，测模型能否生成通过测试的 patch。 python mit agent 评测 swe-bench">
+  <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/swe-bench.html">SWE-bench</a></h3>
+  <p class="repo-owner">SWE-bench / SWE-bench</p>
+  <p>软件工程 agent 的基准与评测 harness：从真实 GitHub issue 与对应 PR 构造任务，测模型能否生成通过测试的 patch。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>6.2k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-09-18</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/swe-bench.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="mlflow" data-scene="eval-observability" data-lang="Python" data-license="permissive" data-tier="prod" data-search="mlflow 实验跟踪、模型注册、打包与部署的开源平台：记录参数、指标与产物，比较 run，注册模型版本并部署 rest/grpc 服务。 python apache-2.0 实验跟踪 模型注册">
+  <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/mlflow.html">MLflow</a></h3>
+  <p class="repo-owner">mlflow / mlflow</p>
+  <p><span data-zh>实验跟踪、模型注册、打包与部署的开源平台：记录参数、指标与产物，比较 run，注册模型版本并部署 REST/gRPC 服务。</span><span data-en>An open-source platform for experiment tracking, model registry, packaging and deployment: log params, metrics and artifacts, compare runs, register model versions and serve over REST/gRPC.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>28.9k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/mlflow.html">看仓库卡 →</a>
 </article></div>
 <div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
-<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/langfuse.html">Langfuse</a></th><th><a href="../repos/ragas.html">Ragas</a></th><th><a href="../repos/deepeval.html">DeepEval</a></th><th><a href="../repos/promptfoo.html">promptfoo</a></th><th><a href="../repos/phoenix.html">Arize Phoenix</a></th><th><a href="../repos/inspect-ai.html">Inspect AI</a></th></tr></thead><tbody>
-<tr><td>上手层</td><td>生产可用</td><td>先试这个</td><td>先试这个</td><td>先试这个</td><td>生产可用</td><td>特定场景</td></tr>
-<tr><td>语言</td><td>TypeScript</td><td>Python</td><td>Python</td><td>TypeScript</td><td>Python</td><td>Python</td></tr>
-<tr><td>许可</td><td>NOASSERTION</td><td>Apache-2.0</td><td>Apache-2.0</td><td>MIT</td><td>NOASSERTION</td><td>MIT</td></tr>
-<tr><td>Stars</td><td>37.6k</td><td>16.4k</td><td>19.5k</td><td>27.4k</td><td>12.3k</td><td>3.3k</td></tr>
-<tr><td>最近推送</td><td>2026-11-19</td><td>2026-11-14</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-18</td></tr>
-<tr><td>适合</td><td>trace、session、评分、数据集一体化。</td><td>指标定义清楚，适合做 RAG 回归。</td><td>pytest 风格，工程团队容易上手。</td><td>YAML 配置，跑对比矩阵快。</td><td>OTel 原生，trace 可导出到其他后端。</td><td>评测任务、模型、评分器结构清楚。</td></tr>
-<tr><td>不适合</td><td>只做单次脚本调试，日志就够。</td><td>不是固定题集，跨项目分数不可直接比。</td><td>模型评委指标需要自己校准。</td><td>复杂 agent 轨迹评测要自己补。</td><td>极简日志需求，Langfuse 或普通日志就够。</td><td>偏研究/评测，不适合做产品观测。</td></tr>
+<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/langfuse.html">Langfuse</a></th><th><a href="../repos/ragas.html">Ragas</a></th><th><a href="../repos/deepeval.html">DeepEval</a></th><th><a href="../repos/promptfoo.html">promptfoo</a></th><th><a href="../repos/phoenix.html">Arize Phoenix</a></th><th><a href="../repos/inspect-ai.html">Inspect AI</a></th><th><a href="../repos/trulens.html">TruLens</a></th><th><a href="../repos/evidently.html">Evidently</a></th><th><a href="../repos/giskard.html">Giskard</a></th><th><a href="../repos/lm-evaluation-harness.html">LM Evaluation Harness</a></th><th><a href="../repos/swe-bench.html">SWE-bench</a></th><th><a href="../repos/mlflow.html">MLflow</a></th></tr></thead><tbody>
+<tr><td>上手层</td><td>生产可用</td><td>先试这个</td><td>先试这个</td><td>先试这个</td><td>生产可用</td><td>特定场景</td><td>生产可用</td><td>生产可用</td><td>特定场景</td><td>生产可用</td><td>生产可用</td><td>生产可用</td></tr>
+<tr><td>语言</td><td>TypeScript</td><td>Python</td><td>Python</td><td>TypeScript</td><td>Python</td><td>Python</td><td>Python</td><td>Jupyter Notebook</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td></tr>
+<tr><td>许可</td><td>NOASSERTION</td><td>Apache-2.0</td><td>Apache-2.0</td><td>MIT</td><td>NOASSERTION</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td><td>Apache-2.0</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td></tr>
+<tr><td>Stars</td><td>37.6k</td><td>16.4k</td><td>19.5k</td><td>27.4k</td><td>12.3k</td><td>3.3k</td><td>3.7k</td><td>8.1k</td><td>6.0k</td><td>14.5k</td><td>6.2k</td><td>28.9k</td></tr>
+<tr><td>最近推送</td><td>2026-11-19</td><td>2026-11-14</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-20</td><td>2026-09-29</td><td>2026-11-20</td><td>2026-11-04</td><td>2026-09-18</td><td>2026-11-20</td></tr>
+<tr><td>适合</td><td>trace、session、评分、数据集一体化。</td><td>指标定义清楚，适合做 RAG 回归。</td><td>pytest 风格，工程团队容易上手。</td><td>YAML 配置，跑对比矩阵快。</td><td>OTel 原生，trace 可导出到其他后端。</td><td>评测任务、模型、评分器结构清楚。</td><td>反馈函数会给出评分理由，定位是检索错还是生成错。</td><td>传统 ML 的数据漂移与 LLM 文本指标在同一套报告里。</td><td>把安全扫描与质量评测放在同一套 API，适合上线前门禁。</td><td>论文里的 MMLU、HellaSwag、GSM8K 数字大多能用它复现，统一 prompt 与 metric 减少口径漂移。</td><td>任务来自真实仓库与测试，比合成题更接近工程。</td><td>把“哪次实验、什么参数、什么指标”固定成可查询记录。</td></tr>
+<tr><td>不适合</td><td>只做单次脚本调试，日志就够。</td><td>不是固定题集，跨项目分数不可直接比。</td><td>模型评委指标需要自己校准。</td><td>复杂 agent 轨迹评测要自己补。</td><td>极简日志需求，Langfuse 或普通日志就够。</td><td>偏研究/评测，不适合做产品观测。</td><td>偏评测与追踪，不是完整日志/告警/成本平台。</td><td>不是 agent 轨迹级评测平台，复杂多步任务要看 TruLens/Langfuse。</td><td>扫描通过不等于安全，不能替代人工红队与权限设计。</td><td>需要 agent 多轮交互、工具调用或私有业务打分；harness 更偏静态基准。</td><td>不是产品榜单；分数受 scaffold、重试预算与模型版本影响。</td><td>不是专门的 LLM 可观测平台；prompt/trace 要接 Langfuse 或 Phoenix。</td></tr>
 </tbody></table></div>
 </div>
   </main>

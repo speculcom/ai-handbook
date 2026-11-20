@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>OpenHands · 开源 AI 工具库</title>
-  <meta name="description" content="OpenHands：能读代码、改代码、跑命令的软件工程 agent，带沙箱与任务界面。 许可 MIT，TypeScript，93.8k stars（2026-11-20 快照）。" />
+  <meta name="description" content="OpenHands：能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。 许可 MIT，TypeScript，93.9k stars（2026-11-20 快照）。" />
   <link rel="canonical" href="https://oss.specul.com/repos/openhands.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OpenHands · 开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/repos/openhands.html" />
   <meta property="og:title" content="OpenHands · 开源 AI 工具库" />
-  <meta property="og:description" content="OpenHands：能读代码、改代码、跑命令的软件工程 agent，带沙箱与任务界面。 许可 MIT，TypeScript，93.8k stars（2026-11-20 快照）。" />
+  <meta property="og:description" content="OpenHands：能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。 许可 MIT，TypeScript，93.9k stars（2026-11-20 快照）。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
   <link rel="stylesheet" href="../brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="../site.css" />
-  <link rel="stylesheet" href="../oss.css?v=95e7d935" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"OpenHands · 开源 AI 工具库","description":"OpenHands：能读代码、改代码、跑命令的软件工程 agent，带沙箱与任务界面。 许可 MIT，TypeScript，93.8k stars（2026-11-20 快照）。","url":"https://oss.specul.com/repos/openhands.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <link rel="stylesheet" href="../oss.css?v=493aa226" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"OpenHands · 开源 AI 工具库","description":"OpenHands：能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。 许可 MIT，TypeScript，93.9k stars（2026-11-20 快照）。","url":"https://oss.specul.com/repos/openhands.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -94,39 +94,39 @@
   <main id="main">
 <div class="container">
 <header class="detail-hero">
-  <div class="top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span><span class="badge">目录补充</span></div>
+  <div class="top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h1>OpenHands</h1>
   <p class="owner">All-Hands-AI / OpenHands</p>
-  <p class="sub">能读代码、改代码、跑命令的软件工程 agent，带沙箱与任务界面。</p>
+  <p class="sub">能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。</p>
 </header>
 <div class="factbar">
-  <span><b>93.8k</b> stars</span>
-  <span><b>12558</b> forks</span>
+  <span><b>93.9k</b> stars</span>
+  <span><b>12573</b> forks</span>
   <span><b>TypeScript</b> 语言</span>
   <span><b>MIT</b> 许可</span>
-  <span>最近推送 <b>2026-11-19</b></span>
+  <span>最近推送 <b>2026-11-20</b></span>
 </div>
 <div class="detail-body">
   <h2>为什么选</h2>
-  <ul><li>端到端做开发任务，不只是给建议。</li><li>沙箱与工具链完整，适合做工程 agent 基线。</li><li>开源，能自托管与改。</li></ul>
+  <ul><li>任务闭环到代码修改与命令执行，适合做工程 agent 的基线。</li><li>沙箱运行时把 agent 与宿主机隔开，权限边界比裸跑脚本清楚。</li><li>开源可自托管，能换模型、改工具与接自己的仓库。</li></ul>
   <h2>不适合</h2>
-  <p class="warn">需要强权限隔离与代码审查流程。<br>复杂仓库任务仍有失败率。</p>
+  <p class="warn">复杂仓库仍会失败，不能替代代码审查与 CI。<br>要给 agent 仓库写权限时，先想清楚密钥、网络与逃逸风险。</p>
   <h2>最小上手</h2>
-  <ol><li>读 README / quickstart，确认 运行时 版本与系统依赖。</li><li>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</li><li>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</li></ol>
+  <ol><li>用官方 Docker 镜像或 CLI 起一个 sandbox，先接只读仓库跑一个修 bug 任务。</li><li>记录它读了哪些文件、跑了哪些命令、在哪一步卡住。</li><li>再逐步放开写权限与测试命令，别一上来接生产仓库。</li></ol>
   <h2>依赖与成本</h2>
-  <p>Python / Node 运行时 + LLM API 密钥；浏览器类还要 Playwright/Chromium；生产要并发、日志与重试。</p>
+  <p>Docker（沙箱运行时）+ LLM API 或本地模型；Web/CLI 客户端。生产还要鉴权、网络出口与审计日志。</p>
   <h2>许可与使用边界</h2>
-  <p>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</p>
+  <p>代码 MIT；模型与第三方工具各自许可，接入前核对。</p>
   <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
   <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/autogpt.html">AutoGPT</a> — 特定场景，早期自主 agent 的代表项目，提供平台、构建器与 agent 运行环境。</li><li><a href="../repos/langgraph.html">LangGraph</a> — 生产可用，把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。</li></ul>
+  <ul><li><a href="../repos/autogpt.html">AutoGPT</a> — 特定场景，从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 AutoGPT 循环也留在仓库里。</li><li><a href="../repos/langgraph.html">LangGraph</a> — 生产可用，把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。</li></ul>
   <h2>下一步</h2>
   <ul>
     <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
     <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
     <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
   </ul>
-  <p><a class="btn" href="https://github.com/All-Hands-AI/OpenHands" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://docs.all-hands.dev/" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=openhands">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/All-Hands-AI/OpenHands" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://docs.openhands.dev/overview/introduction" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=openhands">加入对比</a></p>
 </div>
 <div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
 <div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>

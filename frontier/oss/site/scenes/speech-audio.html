@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>语音与音频 · 开源 AI 工具库</title>
-  <meta name="description" content="语音与音频：语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。 收录 7 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta name="description" content="语音与音频：语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。 收录 14 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <link rel="canonical" href="https://oss.specul.com/scenes/speech-audio.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="语音与音频 · 开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/scenes/speech-audio.html" />
   <meta property="og:title" content="语音与音频 · 开源 AI 工具库" />
-  <meta property="og:description" content="语音与音频：语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。 收录 7 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta property="og:description" content="语音与音频：语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。 收录 14 个开源仓库，写清许可、活跃度、适合与不适合。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
   <link rel="stylesheet" href="../brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="../site.css" />
-  <link rel="stylesheet" href="../oss.css?v=95e7d935" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"语音与音频 · 开源 AI 工具库","description":"语音与音频：语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。 收录 7 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/speech-audio.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <link rel="stylesheet" href="../oss.css?v=493aa226" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"语音与音频 · 开源 AI 工具库","description":"语音与音频：语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。 收录 14 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/speech-audio.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -103,10 +103,10 @@
   <a class="btn" href="../compare.html?ids=whisper,faster-whisper,funasr"><span data-zh>并排对比前 3 个</span><span data-en>Compare first 3</span></a>
   <a class="btn" href="../index.html"><span data-zh>回首页</span><span data-en>Home</span></a>
 </div>
-<div class="stats"><div><b>7</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合会议转写、字幕、配音、语音助手与音频内容生产的人。</span><span data-en>For meeting notes, voice interfaces and audio archives.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
+<div class="stats"><div><b>14</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合会议转写、字幕、配音、语音助手与音频内容生产的人。</span><span data-en>For meeting notes, voice interfaces and audio archives.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
 <div class="section-head"><h2><span data-zh>怎么选</span><span data-en>How to choose</span></h2></div>
 <div class="note">• <span data-zh>多语言转写基线：Whisper；更快更省：faster-whisper。</span><span data-en>Fast local transcription: Whisper variants; streaming: check chunking and VAD.</span><br>• <span data-zh>中文会议与标点：FunASR；词级时间戳：WhisperX。</span><span data-en>Speaker labels and timestamps: test on your own recordings.</span><br>• <span data-zh>中文 TTS：CosyVoice；少样本克隆：GPT-SoVITS（必须授权）。</span><span data-en>Voice cloning needs explicit consent and an abuse-review path.</span><br><b><span data-zh>不适合：</span><span data-en>Not for: </span></b><span data-zh>声音克隆不是玩具。没有本人授权，不要克隆、不要冒充、不要商用。</span><span data-en>Do not upload confidential audio to a service you have not reviewed.</span></div>
-<div class="section-head"><h2>7 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
+<div class="section-head"><h2>14 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
 <div class="repo-grid"><article class="repo-card" data-id="whisper" data-scene="speech-audio" data-lang="Python" data-license="permissive" data-tier="start" data-search="whisper openai 的语音识别模型与推理代码，多语言、带时间戳，安装简单。 python mit asr">
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="../repos/whisper.html">Whisper</a></h3>
@@ -179,6 +179,30 @@
     <div><dt>最近推送</dt><dd>2026-11-14</dd></div>
   </dl>
   <a class="repo-link" href="../repos/fish-speech.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="whisperx" data-scene="speech-audio" data-lang="Python" data-license="permissive" data-tier="light" data-search="whisperx whisper 的批处理加速版：vad 切分、词级对齐与说话人分离，输出带时间戳的转写与字幕。 python bsd-2-clause 词级时间戳">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
+  <h3 class="repo-name"><a href="../repos/whisperx.html">WhisperX</a></h3>
+  <p class="repo-owner">m-bain / whisperX</p>
+  <p>Whisper 的批处理加速版：VAD 切分、词级对齐与说话人分离，输出带时间戳的转写与字幕。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>BSD-2-Clause</dd></div>
+    <div><dt>Stars</dt><dd>25.5k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-12</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/whisperx.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="gpt-sovits" data-scene="speech-audio" data-lang="Python" data-license="permissive" data-tier="niche" data-search="gpt-sovits 少样本语音克隆与 tts：约 1 分钟干净语音就能微调，支持中英日跨语言，带训练与推理 webui。 python mit 语音克隆">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
+  <h3 class="repo-name"><a href="../repos/gpt-sovits.html">GPT-SoVITS</a></h3>
+  <p class="repo-owner">RVC-Boss / GPT-SoVITS</p>
+  <p>少样本语音克隆与 TTS：约 1 分钟干净语音就能微调，支持中英日跨语言，带训练与推理 WebUI。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>64.1k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-11</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/gpt-sovits.html">看仓库卡 →</a>
 </article><article class="repo-card" data-id="vibevoice" data-scene="speech-audio" data-lang="Python" data-license="permissive" data-tier="start" data-search="vibevoice 微软开源语音模型家族：60 分钟长音频转写（谁在何时说了什么）、50+ 语言与流式 asr；tts 代码已因滥用下架。 python mit 语音识别 长音频 50+ 语言">
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="../repos/vibevoice.html">VibeVoice</a></h3>
@@ -191,16 +215,76 @@
     <div><dt>最近推送</dt><dd>2026-10-08</dd></div>
   </dl>
   <a class="repo-link" href="../repos/vibevoice.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="sensevoice" data-scene="speech-audio" data-lang="C" data-license="permissive" data-tier="prod" data-search="sensevoice 多语言语音理解模型，做 asr、语种识别、情感识别和音频事件检测，非自回归，推理延迟低。 python mit asr 多语言 情感识别">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/sensevoice.html">SenseVoice</a></h3>
+  <p class="repo-owner">FunAudioLLM / SenseVoice</p>
+  <p>多语言语音理解模型，做 ASR、语种识别、情感识别和音频事件检测，非自回归，推理延迟低。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>C</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>9.8k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-09-30</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/sensevoice.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="index-tts" data-scene="speech-audio" data-lang="Python" data-license="other" data-tier="prod" data-search="indextts b 站开源的工业级 tts，支持零样本音色克隆、情感与语速控制，中文/英文，非自回归。 python tts 音色克隆 中文 情感控制">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/index-tts.html">IndexTTS</a></h3>
+  <p class="repo-owner">index-tts / index-tts</p>
+  <p>B 站开源的工业级 TTS，支持零样本音色克隆、情感与语速控制，中文/英文，非自回归。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>NOASSERTION</dd></div>
+    <div><dt>Stars</dt><dd>25.2k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-09-29</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/index-tts.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="pyannote-audio" data-scene="speech-audio" data-lang="Jupyter Notebook" data-license="permissive" data-tier="prod" data-search="pyannote.audio 说话人日志工具包，覆盖 vad、speaker embedding、聚类和端到端 diarization pipeline。 python mit 说话人分离 diarization 会议">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/pyannote-audio.html">pyannote.audio</a></h3>
+  <p class="repo-owner">pyannote / pyannote-audio</p>
+  <p>说话人日志工具包，覆盖 VAD、speaker embedding、聚类和端到端 diarization pipeline。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Jupyter Notebook</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>10.8k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/pyannote-audio.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="kokoro" data-scene="speech-audio" data-lang="Python" data-license="permissive" data-tier="light" data-search="kokoro 82m 参数的开源 tts 推理库：轻量、快，apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。 python apache-2.0 tts 82m">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
+  <h3 class="repo-name"><a href="../repos/kokoro.html">Kokoro</a></h3>
+  <p class="repo-owner">hexgrad / kokoro</p>
+  <p>82M 参数的开源 TTS 推理库：轻量、快，Apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>10.3k</dd></div>
+    <div><dt>最近推送</dt><dd>2025-08-06</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/kokoro.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="f5-tts" data-scene="speech-audio" data-lang="Python" data-license="permissive" data-tier="prod" data-search="f5-tts 基于 flow matching 与 diffusion transformer 的 tts：用短参考音频做零样本声音克隆，支持中英与速度控制，提供训练与推理代码。 python mit tts 声音克隆">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="../repos/f5-tts.html">F5-TTS</a></h3>
+  <p class="repo-owner">SWivid / F5-TTS</p>
+  <p>基于 Flow Matching 与 Diffusion Transformer 的 TTS：用短参考音频做零样本声音克隆，支持中英与速度控制，提供训练与推理代码。</p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>Python</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>15.6k</dd></div>
+    <div><dt>最近推送</dt><dd>2026-11-03</dd></div>
+  </dl>
+  <a class="repo-link" href="../repos/f5-tts.html">看仓库卡 →</a>
 </article></div>
 <div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
-<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/whisper.html">Whisper</a></th><th><a href="../repos/faster-whisper.html">faster-whisper</a></th><th><a href="../repos/funasr.html">FunASR</a></th><th><a href="../repos/cosyvoice.html">CosyVoice</a></th><th><a href="../repos/chattts.html">ChatTTS</a></th><th><a href="../repos/fish-speech.html">Fish Speech</a></th><th><a href="../repos/vibevoice.html">VibeVoice</a></th></tr></thead><tbody>
-<tr><td>上手层</td><td>先试这个</td><td>轻量</td><td>生产可用</td><td>特定场景</td><td>轻量</td><td>特定场景</td><td>先试这个</td></tr>
-<tr><td>语言</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td></tr>
-<tr><td>许可</td><td>MIT</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td><td>AGPL-3.0</td><td>NOASSERTION</td><td>MIT</td></tr>
-<tr><td>Stars</td><td>113.0k</td><td>26.9k</td><td>21.1k</td><td>24.4k</td><td>40.0k</td><td>33.8k</td><td>57.3k</td></tr>
-<tr><td>最近推送</td><td>2026-08-31</td><td>2026-11-12</td><td>2026-11-18</td><td>2026-05-25</td><td>2026-04-10</td><td>2026-11-14</td><td>2026-10-08</td></tr>
-<tr><td>适合</td><td>多语言识别稳，适合做转写基线。</td><td>比原版 Whisper 快数倍，显存占用低。</td><td>中文识别与标点恢复成熟。</td><td>中文 TTS 自然度与音色相似度表现好。</td><td>对话语气自然，不像传统 TTS 念稿。</td><td>少样本克隆效果好，支持多语言。</td><td>VibeVoice-ASR 一次处理 60 分钟音频，输出带 speaker、timestamp、content 的结构化转写，不是只有一行文本。</td></tr>
-<tr><td>不适合</td><td>实时低延迟流式识别要额外工程。</td><td>需要原版 Whisper 的全部研究接口，直接用原版。</td><td>非中文场景不一定比 Whisper 好。</td><td>声音克隆有授权与滥用风险，必须取得同意。</td><td>音色克隆与细粒度控制有限。</td><td>克隆他人声音必须得到授权。</td><td>TTS 代码已在 2025-09 从仓库移除；现在主仓库是 ASR / Realtime，不要把它当“开箱即用 TTS”。</td></tr>
+<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/whisper.html">Whisper</a></th><th><a href="../repos/faster-whisper.html">faster-whisper</a></th><th><a href="../repos/funasr.html">FunASR</a></th><th><a href="../repos/cosyvoice.html">CosyVoice</a></th><th><a href="../repos/chattts.html">ChatTTS</a></th><th><a href="../repos/fish-speech.html">Fish Speech</a></th><th><a href="../repos/whisperx.html">WhisperX</a></th><th><a href="../repos/gpt-sovits.html">GPT-SoVITS</a></th><th><a href="../repos/vibevoice.html">VibeVoice</a></th><th><a href="../repos/sensevoice.html">SenseVoice</a></th><th><a href="../repos/index-tts.html">IndexTTS</a></th><th><a href="../repos/pyannote-audio.html">pyannote.audio</a></th><th><a href="../repos/kokoro.html">Kokoro</a></th><th><a href="../repos/f5-tts.html">F5-TTS</a></th></tr></thead><tbody>
+<tr><td>上手层</td><td>先试这个</td><td>轻量</td><td>生产可用</td><td>特定场景</td><td>轻量</td><td>特定场景</td><td>轻量</td><td>特定场景</td><td>先试这个</td><td>生产可用</td><td>生产可用</td><td>生产可用</td><td>轻量</td><td>生产可用</td></tr>
+<tr><td>语言</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>C</td><td>Python</td><td>Jupyter Notebook</td><td>Python</td><td>Python</td></tr>
+<tr><td>许可</td><td>MIT</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td><td>AGPL-3.0</td><td>NOASSERTION</td><td>BSD-2-Clause</td><td>MIT</td><td>MIT</td><td>MIT</td><td>NOASSERTION</td><td>MIT</td><td>Apache-2.0</td><td>MIT</td></tr>
+<tr><td>Stars</td><td>113.0k</td><td>26.9k</td><td>21.1k</td><td>24.4k</td><td>40.0k</td><td>33.8k</td><td>25.5k</td><td>64.1k</td><td>57.3k</td><td>9.8k</td><td>25.2k</td><td>10.8k</td><td>10.3k</td><td>15.6k</td></tr>
+<tr><td>最近推送</td><td>2026-08-31</td><td>2026-11-12</td><td>2026-11-18</td><td>2026-05-25</td><td>2026-04-10</td><td>2026-11-14</td><td>2026-11-12</td><td>2026-11-11</td><td>2026-10-08</td><td>2026-09-30</td><td>2026-09-29</td><td>2026-11-19</td><td>2025-08-06</td><td>2026-11-03</td></tr>
+<tr><td>适合</td><td>多语言识别稳，适合做转写基线。</td><td>比原版 Whisper 快数倍，显存占用低。</td><td>中文识别与标点恢复成熟。</td><td>中文 TTS 自然度与音色相似度表现好。</td><td>对话语气自然，不像传统 TTS 念稿。</td><td>少样本克隆效果好，支持多语言。</td><td>词级时间戳比原版 Whisper 细，做字幕与剪辑对齐省事。</td><td>少样本克隆效果突出，中文韵律自然。</td><td>VibeVoice-ASR 一次处理 60 分钟音频，输出带 speaker、timestamp、content 的结构化转写，不是只有一行文本。</td><td>中文/粤语/日韩语音转写想低延迟本地跑，SenseVoice-Small 比 Whisper 更快。</td><td>中文 TTS 里音色克隆和韵律自然度兼顾，适合短视频配音、有声书。</td><td>会议转写、播客切片必须知道谁在说；它的 diarization pipeline 仍是开源常用基线。</td><td>模型小，CPU 也能跑，成本远低于大 TTS。</td><td>克隆相似度与自然度在开源 TTS 里靠前，推理代码完整。</td></tr>
+<tr><td>不适合</td><td>实时低延迟流式识别要额外工程。</td><td>需要原版 Whisper 的全部研究接口，直接用原版。</td><td>非中文场景不一定比 Whisper 好。</td><td>声音克隆有授权与滥用风险，必须取得同意。</td><td>音色克隆与细粒度控制有限。</td><td>克隆他人声音必须得到授权。</td><td>偏离线批处理，不是实时流式 ASR。</td><td>声音克隆必须取得本人明确授权，禁止冒充与诈骗。</td><td>TTS 代码已在 2025-09 从仓库移除；现在主仓库是 ASR / Realtime，不要把它当“开箱即用 TTS”。</td><td>需要逐字时间戳或说话人分离；要另配 forced alignment 与 diarization。</td><td>需要多说话人对话式 TTS 或极低延迟流式；要另做流式改造。</td><td>超低延迟实时单通道；pipeline 有窗口和聚类延迟。</td><td>不是声音克隆或情感控制平台；音色与语言受 voicepack 限制。</td><td>声音克隆涉及声音权与诈骗风险，必须取得授权并披露。</td></tr>
 </tbody></table></div>
 </div>
   </main>

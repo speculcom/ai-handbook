@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>2026 链增补 | 链</title>
-  <meta name="description" content="2026 链增补：ERC-4337、ERC-8004、AP2 的规格、状态与边界；每条标已上线、Draft 或生产未确认。" />
+  <meta name="description" content="2026 链增补：ERC-4337、ERC-8004、AP2、Visa TAP 与 Mastercard Agent Pay 的规格、状态与边界；每条标已上线、Draft、生产未确认或卡网络 live。" />
   <link rel="canonical" href="https://chain.specul.com/2026.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="2026 链增补 | 链" />
   <meta property="og:url" content="https://chain.specul.com/2026.html" />
   <meta property="og:title" content="2026 链增补 | 链" />
-  <meta property="og:description" content="2026 链增补：ERC-4337、ERC-8004、AP2 的规格、状态与边界；每条标已上线、Draft 或生产未确认。" />
+  <meta property="og:description" content="2026 链增补：ERC-4337、ERC-8004、AP2、Visa TAP 与 Mastercard Agent Pay 的规格、状态与边界；每条标已上线、Draft、生产未确认或卡网络 live。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -77,7 +77,7 @@
 .nf-art svg{display:block;width:100%;height:auto}
 @media(max-width:900px){.u26-card{grid-column:span 12}.u26-two{grid-template-columns:1fr}.u26-row{grid-template-columns:70px 1fr}.u26-row a{display:none}.u26-map{grid-template-columns:1fr}.u26-chain{grid-template-columns:1fr 1fr}.u26-chain div:nth-child(2)::after{content:none}.nf-grid{grid-template-columns:1fr}.nf-art{max-width:200px;margin:8px auto 0}}
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"2026 链增补 | 链","description":"2026 链增补：ERC-4337、ERC-8004、AP2 的规格、状态与边界；每条标已上线、Draft 或生产未确认。","url":"https://chain.specul.com/2026.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"2026 链增补 | 链","description":"2026 链增补：ERC-4337、ERC-8004、AP2、Visa TAP 与 Mastercard Agent Pay 的规格、状态与边界；每条标已上线、Draft、生产未确认或卡网络 live。","url":"https://chain.specul.com/2026.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -154,29 +154,34 @@
   <main id="main">
 
       <section class="u26-hero"><div class="container">
-    <p class="u26-kicker"><span data-zh>链 · 2026 增补 · 2026-11-18</span><span data-en>Chain · 2026 additions · 2026-11-18</span></p>
-    <h1 class="u26-h1"><span data-zh>Agent 经济的三层底座：账户、身份、支付</span><span data-en>Three layers under the agent economy: accounts, identity, payments</span></h1>
-    <p class="u26-lede"><span data-zh>ERC-4337 解决「不改共识层也能自定义账户」；ERC-8004 解决「陌生 Agent 凭什么被信任」；AP2 解决「Agent 代付的授权证据」。三条都在 2026 被重新讨论，但状态完全不同：一个成熟标准、一个 Draft、一个生产未确认。</span><span data-en>ERC-4337 handles custom accounts without consensus changes; ERC-8004 handles why an unknown agent is trusted; AP2 handles authorisation evidence for agent payments. All three were revisited in 2026, with very different status: a mature standard, a Draft, and unconfirmed production.</span></p>
-    <p class="u26-note"><span data-zh>把「已上线 / Draft / 生产未确认」分开写，是本页最重要的口径。不要把「有规范」写成「已普及」。</span><span data-en>Separating live / Draft / unconfirmed-production is the point of this page. Do not write “has a spec” as “widely used”.</span></p>
+    <p class="u26-kicker"><span data-zh>链 · 2026 增补 · 2026-11-20</span><span data-en>Chain · 2026 additions · 2026-11-20</span></p>
+    <h1 class="u26-h1"><span data-zh>Agent 经济的四层：<br>账户、身份、支付、卡网络</span><span data-en>Four layers under the agent economy:<br>accounts, identity, payments, card networks</span></h1>
+    <p class="u26-lede"><span data-zh>ERC-4337 解决「不改共识层也能自定义账户」；ERC-8004 解决「陌生 Agent 凭什么被信任」；AP2 解决「Agent 代付的授权证据」；Visa TAP 与 Mastercard Agent Pay 则把卡组织的真实交易跑通。前三条状态完全不同：成熟标准、Draft、生产未确认；卡网络已 live，但不能替代 AP2 的 mandate 层。</span><span data-en>ERC-4337 handles custom accounts without consensus changes; ERC-8004 handles why an unknown agent is trusted; AP2 handles authorisation evidence for agent payments; Visa TAP and Mastercard Agent Pay run real card-network transactions. The first three have very different status — a mature standard, a Draft and unconfirmed production — while card networks are live but do not replace AP2’s mandate layer.</span></p>
+    <p class="u26-note"><span data-zh>把「已上线 / Draft / 生产未确认 / 卡网络 live」分开写，是本页最重要的口径。不要把「有规范」写成「已普及」，也不要把「卡网络已跑通」写成「AP2 已落地」。</span><span data-en>Separating live / Draft / unconfirmed-production / card-network-live is the point of this page. Do not write “has a spec” as “widely used”, or “card networks are live” as “AP2 is deployed”.</span></p>
     
   </div></section>
       <section class="u26-section"><div class="container">
-        <figure class="u26-figure"><svg class="vz-svg" viewBox="0 0 760 162" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
-      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-01-29</text>
+        <figure class="u26-figure"><svg class="vz-svg" viewBox="0 0 760 210" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
+      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2021-09</text>
       <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
       <circle cx="120" cy="22" r="6" style="fill:var(--cat-teal)"/>
-      <text x="140" y="27" class="vz-t-strong">ERC-8004</text>
-      <text x="140" y="47" class="vz-t-dim">协议 / 身份</text>
-      <text x="104" y="75" class="vz-t-dim" text-anchor="end">2026-04-28</text>
+      <text x="140" y="27" class="vz-t-strong">ERC-4337</text>
+      <text x="140" y="47" class="vz-t-dim">协议 / 账户抽象</text>
+      <text x="104" y="75" class="vz-t-dim" text-anchor="end">2025-10</text>
       <line x1="120" y1="58" x2="120" y2="102" class="vz-axis"/>
       <circle cx="120" cy="70" r="6" style="fill:var(--cat-teal)"/>
-      <text x="140" y="75" class="vz-t-strong">AP2</text>
-      <text x="140" y="95" class="vz-t-dim">协议 / 支付</text>
-      <text x="104" y="123" class="vz-t-dim" text-anchor="end">2021-09</text>
+      <text x="140" y="75" class="vz-t-strong">Visa TAP + Mastercard Agent Pay</text>
+      <text x="140" y="95" class="vz-t-dim">协议 / 卡组织</text>
+      <text x="104" y="123" class="vz-t-dim" text-anchor="end">2026-01-29</text>
       <line x1="120" y1="106" x2="120" y2="150" class="vz-axis"/>
       <circle cx="120" cy="118" r="6" style="fill:var(--cat-teal)"/>
-      <text x="140" y="123" class="vz-t-strong">ERC-4337</text>
-      <text x="140" y="143" class="vz-t-dim">协议 / 账户抽象</text></svg><figcaption><span data-zh>ERC-4337 为 2021 年标准，2026 年仍是底座；ERC-8004 与 AP2 为 2026 节点。</span><span data-en>ERC-4337 is a 2021 standard still foundational in 2026; ERC-8004 and AP2 are 2026 nodes.</span></figcaption></figure>
+      <text x="140" y="123" class="vz-t-strong">ERC-8004</text>
+      <text x="140" y="143" class="vz-t-dim">协议 / 身份</text>
+      <text x="104" y="171" class="vz-t-dim" text-anchor="end">2026-04-28</text>
+      <line x1="120" y1="154" x2="120" y2="198" class="vz-axis"/>
+      <circle cx="120" cy="166" r="6" style="fill:var(--cat-teal)"/>
+      <text x="140" y="171" class="vz-t-strong">AP2</text>
+      <text x="140" y="191" class="vz-t-dim">协议 / 支付</text></svg><figcaption><span data-zh>ERC-4337 为 2021 年标准，2026 年仍是底座；TAP、Agent Pay、ERC-8004、AP2 与真实交易节点并列。</span><span data-en>ERC-4337 is a 2021 standard still foundational in 2026; TAP, Agent Pay, ERC-8004, AP2 and live-transaction milestones sit alongside it.</span></figcaption></figure>
         <div class="u26-grid"><article class="u26-card" id="erc-8004">
     <div class="u26-meta"><span class="u26-badge">2026-01-29</span><span class="u26-tag"><span data-zh>协议 / 身份</span><span data-en>Protocol / identity</span></span></div>
     <h2><span data-zh>ERC-8004：Trustless Agents 上主网</span><span data-en>ERC-8004: Trustless Agents goes mainnet</span></h2>
@@ -195,6 +200,15 @@
     
     <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>截至 2026-10 没有公开确认的生产交易；v0.2 只经历两个版本；AP2 不做 checkout / 目录 / 结算，要嵌在 UCP 等商业协议里；FIDO 接管刚开始。它没主张「已大规模落地」或「Agent 可无条件扣款」。</span><span data-en>No publicly confirmed production transaction as of October 2026; v0.2 is only the second release; AP2 does no checkout, catalogue or settlement and must sit inside UCP or another commerce protocol; FIDO stewardship just began. It does not claim scale, or unconditional agent charging.</span></p></div>
     <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/" target="_blank" rel="noopener"><span data-zh>Google 博客</span><span data-en>Google blog</span></a> · <a href="https://ap2-protocol.org/faq/" target="_blank" rel="noopener"><span data-zh>AP2 FAQ</span><span data-en>AP2 FAQ</span></a></p>
+  </article><article class="u26-card" id="visa-mastercard-agent-payments">
+    <div class="u26-meta"><span class="u26-badge">2025-10</span><span class="u26-tag"><span data-zh>协议 / 卡组织</span><span data-en>Protocol / card networks</span></span></div>
+    <h2><span data-zh>Visa TAP + Mastercard Agent Pay：卡组织把 Agent 支付跑进真实商户</span><span data-en>Visa TAP + Mastercard Agent Pay: card networks put agent payments into live merchants</span></h2>
+    <p class="u26-p"><span data-zh>Visa 2025-10-14 发布 TAP，用 Web Bot Auth 的 HTTP 签名让商户区分「浏览」与「支付」，2026-07 在欧洲 30+ 发卡行与 lastminute.com 等商户跑通；2026-10 BILL + Billtrust 用 TAP 完成 B2B 发票支付 pilot。Mastercard Agent Pay 用 KYA 注册、每个 agent 独立 Agentic Token、Payment Passkeys 与 Verifiable Intent，2025 美国上线，2026 在新加坡、亚太与拉美多市场 live。</span><span data-en>Visa released TAP on 14 October 2025: Web Bot Auth HTTP signatures let merchants distinguish browsing from paying, with live European purchases across 30+ issuers and merchants such as lastminute.com in July 2026, and a BILL + Billtrust B2B invoice-payment pilot in October 2026. Mastercard Agent Pay combines KYA registration, a unique Agentic Token per agent, Payment Passkeys and Verifiable Intent; it launched in the US in 2025 and went live across Singapore, Asia-Pacific and Latin America in 2026.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>发布</span><span data-en>launch</span></dt><dd>TAP 2025-10-14；Agent Pay 2025</dd><dt><span data-zh>身份</span><span data-en>identity</span></dt><dd>TAP HTTP 签名 + Agentic Directory；Mastercard KYA</dd><dt><span data-zh>授权</span><span data-en>auth</span></dt><dd>Visa token + 用户限额；Mastercard Passkeys + 预授权</dd><dt><span data-zh>状态</span><span data-en>status</span></dt><dd>2026 真实交易 / live pilots</dd><dt><span data-zh>结算</span><span data-en>settlement</span></dt><dd>卡网络，不是链上结算</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>补上链站缺的一层：Agent 支付不只在链上，卡组织已经用签名、token 与生物识别把真实交易跑通。对照 AP2 的 mandate 层，能看清谁在做授权、谁在做结算、谁只是规范。</span><span data-en>It fills a missing layer: agent payments are not only on-chain. Card networks already run real transactions with signatures, tokens and biometrics. Compared with AP2’s mandate layer, it shows who authorises, who settles and who only has a spec.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>TAP 与 Agent Pay 不是同一标准，也不能互相替代；它们依赖卡网络与发卡行，退款、争议与拒付仍在既有卡规则里。AP2 截至 2026-10 仍没有公开确认的生产交易；把「卡网络已 live」写成「AP2 已普及」是混层。</span><span data-en>TAP and Agent Pay are different standards and cannot substitute for each other; they depend on card networks and issuers, and refunds, disputes and chargebacks stay under existing card rules. AP2 still has no publicly confirmed production transaction as of October 2026; writing “card networks are live” as “AP2 is everywhere” conflates layers.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21716.html?categoryid=2826687" target="_blank" rel="noopener"><span data-zh>Visa TAP 发布</span><span data-en>Visa TAP launch</span></a> · <a href="https://www.visa.co.uk/about-visa/newsroom/press-releases.3457328.html" target="_blank" rel="noopener"><span data-zh>Visa 欧洲 live</span><span data-en>Visa Europe live</span></a> · <a href="https://investor.visa.com/news/news-details/2026/Visa-BILL-and-Billtrust-Launch-First-Live-Pilot-for-Trusted-AI-Agent-Payments-Between-Buyer-and-Supplier-Platforms/default.aspx" target="_blank" rel="noopener"><span data-zh>BILL + Billtrust pilot</span><span data-en>BILL + Billtrust pilot</span></a> · <a href="https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-delivers-its-first-live-agentic-transaction-in-singapore-with-dbs-and-uob" target="_blank" rel="noopener"><span data-zh>Mastercard Agent Pay</span><span data-en>Mastercard Agent Pay</span></a> · <a href="https://www.mastercard.com/europe/en/news-and-trends/stories/2026/agentic-commerce-identity-know-your-agent.html" target="_blank" rel="noopener"><span data-zh>Mastercard Trust Framework</span><span data-en>Mastercard Trust Framework</span></a></p>
   </article><article class="u26-card" id="erc-4337">
     <div class="u26-meta"><span class="u26-badge">2021-09</span><span class="u26-tag"><span data-zh>协议 / 账户抽象</span><span data-en>Protocol / account abstraction</span></span></div>
     <h2><span data-zh>ERC-4337：不改共识层的账户抽象</span><span data-en>ERC-4337: account abstraction without consensus changes</span></h2>

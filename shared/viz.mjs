@@ -650,13 +650,16 @@ function vizChain() {
     { name: '身份', sub: '谁在操作', examples: 'ERC-8004 Identity / ERC-721 / DID', color: 'var(--cat-violet)' },
     { name: '声誉', sub: '过去做得怎样', examples: 'ERC-8004 Reputation / EAS', color: 'var(--cat-blue)' },
     { name: '验证', sub: '这一次做得对不对', examples: 'ERC-8004 Validation / zkML / TEE', color: 'var(--cat-teal)' },
-    { name: '结算', sub: '钱怎么付、怎么退', examples: 'x402 / AP2 / ERC-4337', color: 'var(--cat-amber)' },
+    { name: '结算', sub: '钱怎么付、怎么退', examples: 'x402 / AP2 / Visa TAP / Agent Pay', color: 'var(--cat-amber)' },
   ];
   const tl = [
     { date: '2021-09', title: 'ERC-4337 草案', desc: 'UserOperation + Bundler + Paymaster，不改共识层', color: 'var(--cat-blue)' },
+    { date: '2025-10', title: 'Visa TAP 发布', desc: 'Visa + Cloudflare；HTTP 签名识别可信购物 agent', color: 'var(--cat-amber)' },
     { date: '2026-01-29', title: 'ERC-8004 主网上线', desc: '身份 / 声誉 / 验证三套 singleton registry', color: 'var(--cat-violet)' },
+    { date: '2026-03', title: 'Mastercard Agent Pay 多市场 live', desc: 'Agentic Token + Payment Passkeys；新加坡/亚太/拉美', color: 'var(--cat-rose)' },
     { date: '2026-04-28', title: 'AP2 v0.2 + 捐给 FIDO', desc: 'Human Not Present；SD-JWT mandate', color: 'var(--cat-teal)' },
-    { date: '2026-10', title: '生产落地仍未确认', desc: 'AP2 有规范、有 SDK，没有公开确认的生产交易', color: 'var(--cat-rose)' },
+    { date: '2026-07', title: 'Visa 欧洲真实交易', desc: '30+ 发卡行与 lastminute.com 等商户', color: 'var(--cat-amber)' },
+    { date: '2026-10', title: 'BILL + Billtrust B2B pilot', desc: 'TAP 完成供应商发票支付，端到端 live', color: 'var(--cat-rose)' },
   ];
   return section({
     id: 'trust',
@@ -667,10 +670,10 @@ function vizChain() {
     cards: [
       card({ span: 7, no: '01', title: '四层信任栈', sub: bi('从「谁」到「钱」', 'from who to money'), svg: stack(layers), foot: bi('四层可以分开采用：只做身份发现、不做链上声誉，也是一种合法用法。ERC-8004 的 supportedTrust 允许为空。', 'Layers can be adopted separately: identity discovery without on-chain reputation is legitimate. ERC-8004’s supportedTrust may be empty.') }),
       card({ span: 5, no: '02', title: '类目分布', sub: bi('按主类目看条目', 'entries by primary category'), svg: barChart(catRows, { labelW: 140 }), foot: bi('protocol 条目最多，因为标准比产品更容易留下可引原文；这不代表协议比产品更重要。', 'Protocol has the most entries because standards leave citable text more often than products; that is not a claim that protocols matter more.') }),
-      card({ span: 12, no: '03', title: '2026 三个新节点', sub: bi('两个已上线，一个已发布但生产未确认', 'two live, one published but not confirmed in production'), svg: timeline(tl, { w: 700, rowH: 48 }), foot: bi('ERC-8004 仍是 Draft，v2 在开发；AP2 已捐给 FIDO，截至 2026-10 没有公开确认的生产交易。把「已发布」写成「已普及」是这一类内容最常见的错。', 'ERC-8004 is still Draft with v2 in development; AP2 is now under FIDO, with no publicly confirmed production transaction as of October 2026. Writing “published” as “widely used” is the most common error here.') }),
+      card({ span: 12, no: '03', title: '2021 → 2026 七个节点', sub: bi('规范、上线与真实交易分开看', 'specs, launches and live transactions kept separate'), svg: timeline(tl, { w: 700, rowH: 42 }), foot: bi('ERC-8004 仍是 Draft，v2 在开发；AP2 已捐给 FIDO，截至 2026-10 仍没有公开确认的生产交易。Visa TAP 与 Mastercard Agent Pay 则已有真实商户/发票支付：前者 2026-07 在欧洲 30+ 发卡行跑通，后者 2026 在新加坡、亚太与拉美多市场 live。把「支付网络已跑通」写成「AP2 已普及」是两回事。', 'ERC-8004 is still Draft with v2 in development; AP2 is under FIDO and still has no publicly confirmed production transaction as of October 2026. Visa TAP and Mastercard Agent Pay, by contrast, have live merchant/invoice payments: TAP went live in Europe with 30+ issuers in July 2026, and Agent Pay completed live transactions across Singapore, Asia-Pacific and Latin America in 2026. “Card networks are live” is not “AP2 is everywhere”.') }),
     ],
     foot: bi('说明：已上线、Draft、生产未确认分开标；不合并成「可用」。', 'Note: live, Draft and unconfirmed-production are labelled separately, never collapsed into “available”.'),
-    link: `<a href="2026.html">${bi('看 2026 链增补：ERC-4337、ERC-8004、AP2 与信任栈', 'See the 2026 chain patch: ERC-4337, ERC-8004, AP2 and the trust stack')} →</a>`,
+    link: `<a href="2026.html">${bi('看 2026 链增补：ERC-4337、ERC-8004、AP2、Visa TAP 与信任栈', 'See the 2026 chain patch: ERC-4337, ERC-8004, AP2, Visa TAP and the trust stack')} →</a>`,
   });
 }
 
@@ -714,17 +717,30 @@ function vizDemos() {
     ['内容与视觉', 'var(--cat-amber)'],
     ['工具与界面', 'var(--cat-violet)'],
     ['模型演示', 'var(--cat-rose)'],
+    ['办公', 'var(--cat-lime)'],
+    ['教育', 'var(--cat-blue)'],
+    ['数据', 'var(--cat-teal)'],
   ].map(([label, color]) => ({ label, value: catCount[label] || 0, color }));
   const modelMap = new Map();
   entries.forEach((e) => {
     const name = e.model?.name || '—';
     modelMap.set(name, (modelMap.get(name) || 0) + 1);
   });
-  const modelRows = [...modelMap].map(([label, value], i) => ({
+  const modelSorted = [...modelMap].sort((a, b) => b[1] - a[1]);
+  const modelTop = modelSorted.slice(0, 7);
+  const modelRest = modelSorted.slice(7);
+  const modelRows = modelTop.map(([label, value], i) => ({
     label,
     value,
     color: ['var(--cat-violet)', 'var(--cat-blue)', 'var(--cat-amber)', 'var(--cat-rose)'][i % 4],
   }));
+  if (modelRest.length) {
+    modelRows.push({
+      label: `其他 ${modelRest.length} 组`,
+      value: modelRest.reduce((n, [, v]) => n + v, 0),
+      color: 'var(--ink-faint)',
+    });
+  }
   const embedded = entries.filter((e) => e.run?.status === 'embedded').length;
   const external = entries.length - embedded;
   const noLicence = entries.filter((e) => e.license?.kind === 'no-license-external-link').length;
@@ -738,27 +754,27 @@ function vizDemos() {
     dek: bi('先按用途和模型看整体，再挑感兴趣的打开。每件作品都标了模型和来源；单件作品不代表模型整体能力。', 'Start with the overall picture by use and model, then open the pieces that catch your eye. Each piece lists its model and source; one piece is not a verdict on the model.'),
     cards: [
       card({
-        span: 7, no: '01', title: '作品都在做什么', sub: bi('五类用途的真实计数', 'five uses, live counts'),
+        span: 7, no: '01', title: '作品都在做什么', sub: bi('八类用途的真实计数', 'eight uses, live counts'),
         svg: barChart(catRows, { labelW: 150 }),
-        foot: bi(`互动体验 ${catCount['互动体验'] || 0} 件、数据可视化 ${catCount['数据可视化'] || 0} 件、内容与视觉 ${catCount['内容与视觉'] || 0} 件、工具与界面 ${catCount['工具与界面'] || 0} 件、模型演示 ${catCount['模型演示'] || 0} 件。`, `Interaction ${catCount['互动体验'] || 0}, data visualisation ${catCount['数据可视化'] || 0}, content & visual ${catCount['内容与视觉'] || 0}, tools & UI ${catCount['工具与界面'] || 0}, model demos ${catCount['模型演示'] || 0}.`),
+        foot: bi(`互动体验 ${catCount['互动体验'] || 0} 件、数据可视化 ${catCount['数据可视化'] || 0} 件、内容与视觉 ${catCount['内容与视觉'] || 0} 件、工具与界面 ${catCount['工具与界面'] || 0} 件、模型演示 ${catCount['模型演示'] || 0} 件、办公 ${catCount['办公'] || 0} 件、教育 ${catCount['教育'] || 0} 件、数据 ${catCount['数据'] || 0} 件。`, `Interaction ${catCount['互动体验'] || 0}, data visualisation ${catCount['数据可视化'] || 0}, content & visual ${catCount['内容与视觉'] || 0}, tools & UI ${catCount['工具与界面'] || 0}, model demos ${catCount['模型演示'] || 0}, office ${catCount['办公'] || 0}, education ${catCount['教育'] || 0}, data ${catCount['数据'] || 0}.`),
       }),
       card({
-        span: 5, no: '02', title: `${modelRows.length} 个模型`, sub: bi('按完整模型名归并', 'grouped by full model name'),
-        svg: donut(modelRows, { total: entries.length, center: String(entries.length), note: 'pieces' }),
-        foot: bi(`${modelRows.map((r) => `${r.label} ${r.value}`).join(' · ')}；模型名用完整厂商 + 型号，不是能力排名。`, `${modelRows.map((r) => `${r.label} ${r.value}`).join(' · ')}; names use vendor + model, and this is not a capability rank.`),
+        span: 5, no: '02', title: `${modelSorted.length} 组模型 / 实验`, sub: bi('按完整模型名归并；前七组单列，其余合并', 'grouped by full model name; top seven listed, the rest merged'),
+        svg: donut(modelRows, { total: entries.length, center: String(entries.length), note: 'pieces', h: 286 }),
+        foot: bi(`${modelSorted.map(([label, value]) => `${label} ${value}`).join(' · ')}；模型名用完整厂商 + 型号，不是能力排名。`, `${modelSorted.map(([label, value]) => `${label} ${value}`).join(' · ')}; names use vendor + model, and this is not a capability rank.`),
       }),
       card({
-        span: 12, no: '03', title: '运行方式与许可边界', sub: bi('三件站内托管，其余链回原页', 'three hosted here, the rest link out'),
+        span: 12, no: '03', title: '运行方式与许可边界', sub: bi('十五件站内运行，其余链回原页', 'fifteen run here, the rest link out'),
         svg: `<div class="vz-wire">
-          <div><b>${embedded}</b><span>${bi('件站内运行', 'run here')}</span><small>${bi('3 件 free-share 作品按原许可托管，在受限 iframe 中运行，不使用 allow-same-origin。', 'Three free-share pieces are hosted under their licence in a restricted iframe without allow-same-origin.')}</small></div>
+          <div><b>${embedded}</b><span>${bi('件站内运行', 'run here')}</span><small>${bi('3 件 free-share 作品按原许可托管，12 件 CC BY 4.0 作品嵌入；均使用受限 iframe，不使用 allow-same-origin。', 'Three free-share pieces are hosted under their licence and twelve CC BY 4.0 pieces are embedded; all use a restricted iframe without allow-same-origin.')}</small></div>
           <div><b>${external}</b><span>${bi('件外链运行', 'link out')}</span><small>${bi('其余作品链回原作者页面；画面空白通常是对方禁止嵌入，不是本站的播放器坏了。', 'The rest link back to the author; a blank frame usually means embedding is blocked, not that the player is broken.')}</small></div>
           <div><b>${noLicence}</b><span>${bi('件许可未声明', 'no declared licence')}</span><small>${bi(`${unknown} 件许可未确认，${freeShare} 件 free-share；未声明许可的完整文件不复制。`, `${unknown} unconfirmed, ${freeShare} free-share; unlicensed full files are never copied.`)}</small></div>
         </div>`,
-        foot: bi(`说明：当前共 ${entries.length} 条作品、${modelRows.length} 个模型、5 类用途；这里的「件」是作品，不是模型数量。`, `Note: ${entries.length} pieces, ${modelRows.length} models and five uses; “pieces” counts works, not models.`),
+        foot: bi(`说明：当前共 ${entries.length} 条作品、${modelRows.length} 组模型/实验、8 类用途；这里的「件」是作品，不是模型数量。`, `Note: ${entries.length} pieces, ${modelRows.length} model/experiment groups and eight uses; “pieces” counts works, not models.`),
       }),
     ],
     foot: bi('所有数字来自演示站当前数据；按用途与模型筛选，单件作品不写成模型能力结论。', 'All numbers come from the current Playground data. Pieces are filtered by use and model; one piece is never treated as a model-capability verdict.'),
-    link: `<a href="2026.html">${bi('看 2026 演示增补：四个模型和许可边界', 'See the 2026 Playground patch: four models and licence boundaries')} →</a>`,
+    link: `<a href="2026.html">${bi('看 2026 演示增补：七十余件新作品和许可边界', 'See the 2026 Playground patch: seventy-plus new pieces and licence boundaries')} →</a>`,
   });
 }
 

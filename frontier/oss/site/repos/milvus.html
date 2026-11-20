@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Milvus · 开源 AI 工具库</title>
-  <meta name="description" content="Milvus：面向大规模向量检索的分布式数据库，支持多种索引与标量过滤。 许可 Apache-2.0，Go，46.7k stars（2026-11-20 快照）。" />
+  <meta name="description" content="Milvus：面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。 许可 Apache-2.0，Go，46.7k stars（2026-11-20 快照）。" />
   <link rel="canonical" href="https://oss.specul.com/repos/milvus.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Milvus · 开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/repos/milvus.html" />
   <meta property="og:title" content="Milvus · 开源 AI 工具库" />
-  <meta property="og:description" content="Milvus：面向大规模向量检索的分布式数据库，支持多种索引与标量过滤。 许可 Apache-2.0，Go，46.7k stars（2026-11-20 快照）。" />
+  <meta property="og:description" content="Milvus：面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。 许可 Apache-2.0，Go，46.7k stars（2026-11-20 快照）。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
   <link rel="stylesheet" href="../brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="../site.css" />
-  <link rel="stylesheet" href="../oss.css?v=95e7d935" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Milvus · 开源 AI 工具库","description":"Milvus：面向大规模向量检索的分布式数据库，支持多种索引与标量过滤。 许可 Apache-2.0，Go，46.7k stars（2026-11-20 快照）。","url":"https://oss.specul.com/repos/milvus.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <link rel="stylesheet" href="../oss.css?v=493aa226" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Milvus · 开源 AI 工具库","description":"Milvus：面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。 许可 Apache-2.0，Go，46.7k stars（2026-11-20 快照）。","url":"https://oss.specul.com/repos/milvus.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -94,32 +94,32 @@
   <main id="main">
 <div class="container">
 <header class="detail-hero">
-  <div class="top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span><span class="badge">目录补充</span></div>
+  <div class="top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h1>Milvus</h1>
   <p class="owner">milvus-io / milvus</p>
-  <p class="sub">面向大规模向量检索的分布式数据库，支持多种索引与标量过滤。</p>
+  <p class="sub">面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。</p>
 </header>
 <div class="factbar">
   <span><b>46.7k</b> stars</span>
-  <span><b>4335</b> forks</span>
+  <span><b>4342</b> forks</span>
   <span><b>Go</b> 语言</span>
   <span><b>Apache-2.0</b> 许可</span>
-  <span>最近推送 <b>2026-11-18</b></span>
+  <span>最近推送 <b>2026-11-20</b></span>
 </div>
 <div class="detail-body">
   <h2>为什么选</h2>
-  <ul><li>十亿级向量场景成熟。</li><li>索引类型与部署模式多。</li><li>国内资料与社区多。</li></ul>
+  <ul><li>十亿级向量与高并发场景成熟，计算与存储可分离。</li><li>索引类型多，能按召回、内存与延迟权衡。</li><li>支持 GPU 索引与稀疏向量，生态覆盖广。</li></ul>
   <h2>不适合</h2>
-  <p class="warn">小项目运维成本高。<br>需要对象存储/消息队列等依赖。</p>
+  <p class="warn">小项目用 Milvus Lite 或 Chroma 更轻。<br>分布式部署依赖 etcd、对象存储与消息队列，运维成本高。</p>
   <h2>最小上手</h2>
-  <ol><li>读 README / quickstart，确认 运行时 版本与系统依赖。</li><li>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</li><li>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</li></ol>
+  <ol><li>先用 Milvus Lite 或 Docker standalone 跑通 collection + insert + search。</li><li>换 10 万级数据，对比 HNSW 与 IVF 的召回/延迟/内存。</li><li>要上集群再规划 etcd、MinIO、消息队列与监控。</li></ol>
   <h2>依赖与成本</h2>
-  <p>Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。</p>
+  <p>Docker（standalone）或 Kubernetes（集群）+ etcd/对象存储/消息队列；Python/Go/Java SDK。</p>
   <h2>许可与使用边界</h2>
-  <p>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</p>
+  <p>代码 Apache-2.0；托管服务与第三方组件另算。</p>
   <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
   <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/qdrant.html">Qdrant</a> — 生产可用，Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</li><li><a href="../repos/weaviate.html">Weaviate</a> — 生产可用，带混合检索与模块化向量化的向量数据库，支持多租户与 GraphQL。</li></ul>
+  <ul><li><a href="../repos/qdrant.html">Qdrant</a> — 生产可用，Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</li><li><a href="../repos/weaviate.html">Weaviate</a> — 生产可用，带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。</li></ul>
   <h2>下一步</h2>
   <ul>
     <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>

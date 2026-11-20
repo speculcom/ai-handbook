@@ -1,583 +1,122 @@
 [
   {
-    "id": "erc-4337-account-abstraction",
+    "id": "erc-6551-token-bound-accounts",
     "title": {
-      "zh": "ERC-4337：账户抽象（alt mempool）",
-      "en": "ERC-4337: account abstraction (alt mempool)"
+      "zh": "ERC-6551：给每个 NFT 一个链上账户",
+      "en": "ERC-6551: token-bound accounts"
     },
-    "category": "protocol",
-    "url": "https://eips-wg.github.io/EIPs/4337/",
-    "license": {
-      "kind": "eip-spec",
-      "evidenceUrl": "https://eips-wg.github.io/EIPs/4337/",
-      "checkedAt": "2026-11-18"
-    },
-    "evidence": [
-      {
-        "url": "https://eips-wg.github.io/EIPs/4337/",
-        "quote": "An account abstraction proposal which completely avoids the need for consensus-layer protocol changes."
-      },
-      {
-        "url": "https://eips-wg.github.io/EIPs/4337/",
-        "quote": "Users send UserOperation objects into a separate mempool."
-      },
-      {
-        "url": "https://eips-wg.github.io/EIPs/4337/",
-        "quote": "A special class of actor called bundlers package up a set of these objects into a transaction making a handleOps call to a special contract"
-      },
-      {
-        "url": "https://docs.erc4337.io/core-standards/erc-4337",
-        "quote": "ERC-4337 is the foundational standard for Account Abstraction (AA) on Ethereum."
-      }
-    ],
-    "notes": {
-      "zh": "问题：普通 EOA 的验证规则写死在协议里，智能合约钱包想自定义签名、批量操作、代付 gas，就得改共识层。ERC-4337 用 alt mempool + EntryPoint 绕开共识层，把「用户意图」变成 UserOperation。\n证据位置：EIP 摘要给出 UserOperation、独立 mempool、bundler 打包与 handleOps 调用；官方文档把角色拆成 EntryPoint、Bundler、Paymaster，并说明 Paymaster 可代付 gas / 用 ERC-20 付费。\n局限：alt mempool 带来 bundler 的中心化与审查风险；Paymaster 赞助可被滥用，需要声誉/限额策略；它不改共识层，也意味着底层账户模型仍是 EOA + 合约；不同 EntryPoint 版本（v0.6/0.7/0.8）兼容性要单独确认。\n它没主张的：不是 EIP-7702 的替代；不保证 gasless（只是把付费方换成 Paymaster）；不是唯一的账户抽象路线；不是「所有钱包都已支持」。",
-      "en": "Problem: an EOA’s validation rules are fixed by the protocol; a smart-contract wallet that wants custom signatures, batching or sponsored gas would need consensus changes. ERC-4337 avoids that with an alt mempool and an EntryPoint, turning user intent into a UserOperation.\nWhere the evidence sits: the EIP abstract defines UserOperation, a separate mempool, bundler packaging and the handleOps call; the official docs split roles into EntryPoint, Bundler and Paymaster, and note that a Paymaster can sponsor gas or accept ERC-20.\nLimits: the alt mempool brings bundler centralisation and censorship risk; Paymaster sponsorship can be abused without reputation/limits; avoiding consensus changes leaves the base account model as EOA plus contract; EntryPoint versions (v0.6/0.7/0.8) need separate compatibility checks.\nWhat it does not claim: a replacement for EIP-7702; a guarantee of gasless transactions (it moves who pays); the only account-abstraction route; that every wallet supports it."
-    },
-    "verifiedAt": "2026-11-18",
-    "specs": {
-      "提出 / created": "2021-09-29",
-      "核心对象 / object": "UserOperation",
-      "角色 / roles": "EntryPoint、Bundler、Paymaster",
-      "共识层 / consensus": "不需要改（alt mempool）",
-      "标准状态 / status": "ERC Review / Standards Track",
-      "许可 / license": "CC0（EIP 文本，以官方页为准）"
-    }
-  },
-  {
-    "id": "ap2-agent-payments",
-    "title": {
-      "zh": "AP2：Agent Payments Protocol",
-      "en": "AP2: Agent Payments Protocol"
-    },
-    "category": "protocol",
-    "url": "https://ap2-protocol.org/faq/",
+    "category": "credential",
+    "url": "https://eips.ethereum.org/EIPS/eip-6551",
     "license": {
       "kind": "official-documentation",
-      "evidenceUrl": "https://ap2-protocol.org/faq/",
-      "checkedAt": "2026-11-18"
+      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-6551",
+      "checkedAt": "2026-11-20"
     },
     "evidence": [
       {
-        "url": "https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/",
-        "quote": "we’re also releasing AP2 v.0.2, which introduces critical updates for autonomous transactions, including “Human Not Present” payments"
+        "url": "https://eips.ethereum.org/EIPS/eip-6551",
+        "quote": "This proposal defines a system which assigns Ethereum accounts to all non-fungible tokens."
       },
       {
-        "url": "https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/",
-        "quote": "donating the Agent Payments Protocol (AP2) to the FIDO Alliance"
+        "url": "https://eips.ethereum.org/EIPS/eip-6551",
+        "quote": "These token bound accounts allow NFTs to own assets and interact with applications, without requiring changes to existing smart contracts or infrastructure."
       },
       {
-        "url": "https://ap2-protocol.org/faq/",
-        "quote": "AP2 is a payment-agnostic protocol"
-      },
-      {
-        "url": "https://protofire.io/guides/agentic-payment-protocols/",
-        "quote": "we found no public, confirmed production AP2 transaction as of 18 October 2026"
+        "url": "https://eips.ethereum.org/EIPS/eip-6551",
+        "quote": "The registry MUST deploy all token bound accounts using the create2 opcode so that each account address is deterministic."
       }
     ],
     "notes": {
-      "zh": "问题：Agent 代用户付款时，商家怎么知道「这真的是用户授权的」？出争议时拿什么作证据？AP2 用可签名、可选披露的 mandate 把授权范围写下来，而不只是传一张卡号。\n证据位置：Google 2026-04-28 博客宣布把 AP2 捐给 FIDO Alliance，同时发布 v0.2，新增 Human Not Present；官方 FAQ 说明 AP2 是 payment-agnostic，Checkout / Payment 两类 mandate 各有 open / closed 两种；第三方 Protofire 2026-10 的对比明确写「未找到公开确认的生产 AP2 交易」。\n局限：截至 2026-10 没有公开确认的生产交易；v0.2 只经历两个版本，mandate 模型在 v0.2 有替换；AP2 本身不做 checkout、目录或结算，要嵌在 UCP 等商业协议里；仓库仍在 Google 组织下，FIDO 接管刚开始。\n它没主张的：不是已经大规模落地的支付网络；不是加密货币专用；不是替代卡组织或收单行；不是「Agent 可以无条件自动扣款」——Human Not Present 仍依赖用户预授权。",
-      "en": "Problem: when an agent pays on a user’s behalf, how does the merchant know the user really authorised it, and what evidence exists if disputed? AP2 records the scope of authorisation in signable, selectively disclosable mandates rather than passing a card number.\nWhere the evidence sits: Google’s 2026-04-28 post donates AP2 to the FIDO Alliance and releases v0.2 with Human Not Present; the official FAQ says AP2 is payment-agnostic and defines Checkout / Payment mandates, each open or closed; Protofire’s October 2026 comparison states no public, confirmed production AP2 transaction was found.\nLimits: no publicly confirmed production transaction as of October 2026; v0.2 is only the second release and replaced the earlier mandate model; AP2 does no checkout, catalogue or settlement and must sit inside UCP or another commerce protocol; the repo is still under Google’s org while FIDO stewardship begins.\nWhat it does not claim: a payment network already at scale; a crypto-only protocol; a replacement for card networks or acquirers; unconditional agent charging — Human Not Present still depends on pre-authorisation."
+      "zh": "交集：ERC-6551 给每个 NFT 派生一个确定性的智能合约账户，NFT 可以自己持有资产、调用应用，不需要改现有 NFT 合约。对 Agent 的意义是“身份即账户”：一个代表 agent/角色的 NFT 可以绑定自己的钱包、权限和资产，持有者转移 NFT 就转移控制权。\n适用范围：注册表用 create2 保证地址可预测，账户是实现合约的 ERC-1167 最小代理；执行接口允许有效签名者代账户调用 CALL/DELEGATECALL/CREATE/CREATE2。\n未解决：账户安全取决于实现合约与签名者策略，不解决私钥管理、社会恢复或权限撤销；它不是通用 agent 身份标准，跨链和账户抽象组合仍有碎片化。",
+      "en": "The intersection: ERC-6551 derives a deterministic smart-contract account for every NFT, so the NFT can hold assets and call applications without changing the existing NFT contract. For agents this means identity-as-account: an NFT representing an agent or character can own a wallet, permissions and assets, and transferring the NFT transfers control.\nScope: the registry uses create2 for predictable addresses, accounts are ERC-1167 minimal proxies to an implementation, and the execution interface lets valid signers call CALL/DELEGATECALL/CREATE/CREATE2 on the account’s behalf.\nOpen: account security depends on the implementation and signer policy; it does not solve key management, social recovery or permission revocation; it is not a general agent-identity standard, and cross-chain/account-abstraction combinations remain fragmented."
     },
-    "verifiedAt": "2026-11-18",
+    "verifiedAt": "2026-11-20",
     "specs": {
-      "提出 / introduced": "2025-09（Google）",
-      "v0.2 / release": "2026-04-28",
-      "治理 / governance": "FIDO Alliance（2026-04-28 捐赠）",
-      "mandate": "Checkout / Payment；open / closed；SD-JWT",
-      "生产状态 / production": "截至 2026-10 未确认",
-      "许可 / license": "Apache-2.0（官方 FAQ）"
+      "标准 / standard": "ERC-6551（EIP）",
+      "账户 / account": "每个 NFT 一个确定性合约账户",
+      "部署 / deployment": "ERC-1167 最小代理 + create2",
+      "执行 / execution": "CALL / DELEGATECALL / CREATE / CREATE2",
+      "注册表 / registry": "0x000000006551c19487814612e58FE06813775758",
+      "适用 / fit": "NFT 持有资产、Agent 身份与权限绑定"
     }
   },
   {
-    "id": "erc-8004-trustless-agents",
+    "id": "openid4vc",
     "title": {
-      "zh": "ERC-8004：Trustless Agents",
-      "en": "ERC-8004: Trustless Agents"
+      "zh": "OpenID for Verifiable Credential Issuance 1.0",
+      "en": "OpenID for Verifiable Credential Issuance 1.0"
     },
-    "category": "protocol",
-    "url": "https://www.8004.org/blog/welcome-to-8004",
-    "license": {
-      "kind": "official-blog",
-      "evidenceUrl": "https://www.8004.org/blog/welcome-to-8004",
-      "checkedAt": "2026-11-18"
-    },
-    "evidence": [
-      {
-        "url": "https://www.8004.org/blog/welcome-to-8004",
-        "quote": "Today, ERC-8004, the standard for Trustless Agents, is officially live on Ethereum mainnet."
-      },
-      {
-        "url": "https://www.8004.org/blog/welcome-to-8004",
-        "quote": "Three on-chain registries give agents portable identity, verifiable reputation, and cryptographic validation"
-      },
-      {
-        "url": "https://www.8004.org/blog/welcome-to-8004",
-        "quote": "The standard integrates with x402 for programmable payments"
-      },
-      {
-        "url": "https://taiko.xyz/guides/erc-8004-trustless-agent-standard",
-        "quote": "The standard is still in Draft status with a v2 specification in active development."
-      }
-    ],
-    "notes": {
-      "zh": "问题：一个陌生 Agent 凭什么被信任？没有共享身份，也没有可携带的历史记录，每次交互都是盲跳。ERC-8004 把身份、声誉、验证拆成三套 singleton registry，让 Agent 可以先查再交易。\n证据位置：8004 官方博客给出 2026-01-29 主网上线与三套注册表；Identity 是 ERC-721 + agent card JSON（含 A2A / MCP 端点），Reputation 存客户反馈，Validation 接 TEE / zkML / staking 重执行；官方说明与 x402 支付集成。Taiko 指南与官方 FAQ 确认仍是 Draft、v2 在开发。\n局限：Draft 状态意味着接口可能变；声誉可被女巫/刷分，验证是可插拔的而不是默认开启；注册只证明「有这个条目」，不证明能力或合法性；跨链注册是自声明，未自动验证。\n它没主张的：不是「上链即可信」；不是支付协议；不是所有 Agent 都必须注册；不是已经取代 A2A / MCP。",
-      "en": "Problem: why should an unknown agent be trusted? With no shared identity and no portable track record, every interaction is a blind leap. ERC-8004 separates identity, reputation and validation into three singleton registries so an agent can be checked before transacting.\nWhere the evidence sits: the official 8004 blog dates mainnet to 2026-01-29 and describes the three registries; Identity is ERC-721 plus an agent-card JSON (including A2A / MCP endpoints), Reputation stores client feedback, Validation plugs in TEE / zkML / staking re-execution; the blog states x402 payment integration. Taiko’s guide and the official FAQ confirm Draft status and a v2 in development.\nLimits: Draft means interfaces may change; reputation can be sybil-attacked or farmed, and validation is pluggable rather than on by default; registration proves an entry exists, not capability or legality; cross-chain registrations are self-declared, not automatically verified.\nWhat it does not claim: that on-chain equals trustworthy; a payment protocol; that every agent must register; a replacement for A2A or MCP."
-    },
-    "verifiedAt": "2026-11-18",
-    "specs": {
-      "上线 / mainnet": "2026-01-29（Ethereum）",
-      "注册表 / registries": "Identity、Reputation、Validation",
-      "身份标准 / identity": "ERC-721 + agent card JSON",
-      "支付集成 / payments": "x402",
-      "状态 / status": "Draft；v2 开发中",
-      "许可 / license": "以官方仓库为准"
-    }
-  },
-  {
-    "id": "bittensor-subnet",
-    "title": {
-      "zh": "Bittensor 子网",
-      "en": "Bittensor subnets"
-    },
-    "category": "inference",
-    "url": "https://docs.learnbittensor.org/",
+    "category": "credential",
+    "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
     "license": {
       "kind": "official-specification",
-      "evidenceUrl": "https://docs.learnbittensor.org/",
-      "checkedAt": "2026-11-07"
+      "evidenceUrl": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+      "checkedAt": "2026-11-19"
     },
     "evidence": [
       {
-        "url": "https://docs.learnbittensor.org/",
-        "quote": "Bittensor is an open network where independent subnets produce digital commodities — compute, inference, storage, prediction — and the chain pays participants in its token, TAO, in proportion to the value they contribute."
+        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+        "quote": "This specification defines an API for the issuance of Verifiable Credentials."
       },
       {
-        "url": "https://docs.learnbittensor.org/",
-        "quote": "Miners produce the commodity, validators score the miners, subnet creators define the incentive mechanism, and stakers back validators with TAO."
+        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+        "quote": "openid4vci-proof+jwt"
+      },
+      {
+        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+        "quote": "The Credential Issuer MUST validate that the JWT used as a proof is actually signed by a key identified in the JOSE Header"
       }
     ],
     "notes": {
-      "zh": "交集：把推理与算力当作子网生产的商品，用链上激励结算——这是「去中心化推理」目前最完整的一份官方机制说明。适用范围：官方文档写的是角色分工（矿工生产、验证者打分、子网创建者定义激励、质押者背书验证者），不构成对产出质量或可靠性的保证。未解决：激励如何分配取决于验证者的打分方式，而各子网机制不同，跨子网不可直接比较；本站不评价任何子网的产出效果，也不收录代币价格与收益。",
-      "en": "The intersection: treating inference and compute as commodities produced by subnets and settled through on-chain incentives — currently the most complete official account of decentralised inference. Scope: the documentation describes a division of roles (miners produce, validators score, subnet creators define the mechanism, stakers back validators) and does not warrant output quality or reliability. Open: how incentives are distributed depends on how validators score, and mechanisms differ per subnet, so subnets are not directly comparable; this entry does not judge any subnet’s output and records no token price or yield."
+      "zh": "交集：AI agent 或用户需要把「身份、资质、授权」以可验证凭证形式出示给模型/服务；OpenID4VCI 定义签发 API 与密钥证明格式。\n适用范围：规范定义凭证签发、proof JWT、nonce 与 issuer 校验；它不规定凭证内容模型（那是 VC data model）也不规定具体信任框架。\n未解决：钱包/发行方互操作、撤销与隐私、以及 AI agent 持有凭证时的委托与最小披露，仍需上层 profile 与合规规则。",
+      "en": "Intersection: AI agents or users need to present identity, qualifications or authorisations as verifiable credentials; OpenID4VCI defines the issuance API and key-proof format.\nScope: the spec defines credential issuance, proof JWTs, nonces and issuer validation; it does not define the credential content model (that is the VC data model) or a specific trust framework.\nOpen: wallet/issuer interoperability, revocation and privacy, and delegation/minimal disclosure when an AI agent holds credentials still need profiles and compliance rules."
     },
-    "verifiedAt": "2026-11-07",
+    "verifiedAt": "2026-11-19",
     "specs": {
-      "网络角色 / roles": "miners、validators、subnet creators、stakers",
-      "生产物 / commodities": "compute、inference、storage、prediction",
-      "结算单位 / settlement": "TAO（本站不收录价格与收益）",
-      "质量保证 / quality warrant": "官方文档未作保证"
+      "协议状态 / status": "已部署",
+      "版本 / version": "1.0",
+      "证明类型 / proof": "openid4vci-proof+jwt",
+      "签发 / issuance": "Credential Issuer API"
     }
   },
   {
-    "id": "c2pa-ai-ml-guidance",
+    "id": "safe-smart-account",
     "title": {
-      "zh": "C2PA 面向 AI/ML 的实施指南",
-      "en": "C2PA guidance for AI and machine learning"
+      "zh": "Safe 智能账户：多签、阈值与账户抽象",
+      "en": "Safe smart account: multisig, threshold and account abstraction"
     },
-    "category": "provenance",
-    "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+    "category": "credential",
+    "url": "https://docs.safe.global/advanced/smart-account-overview",
     "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
-      "checkedAt": "2026-11-07"
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.safe.global/advanced/smart-account-overview",
+      "checkedAt": "2026-11-17"
     },
     "evidence": [
       {
-        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
-        "quote": "The C2PA specification can be used to add cryptographic information to detect the tampering of media files and streams."
+        "url": "https://docs.safe.global/advanced/smart-account-overview",
+        "quote": "Safe Smart Account is a Smart Account with multi-signature functionality at its core."
       },
       {
-        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
-        "quote": "The Content Credential for an AI-ML model provides the consumer, e.g. a system operator designing an AI-ML system, with provenance and authenticity of the model."
+        "url": "https://docs.safe.global/advanced/smart-account-overview",
+        "quote": "Uses a multi-signature logic where a threshold of owners must confirm a transaction before execution"
       },
       {
-        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
-        "quote": "the model C2PA Manifest can contain a data mining assertion that asserts rights as allowed, constrained, or not allowed for generative or non-generative AI-ML models or both."
+        "url": "https://docs.safe.global/advanced/smart-account-overview",
+        "quote": "no single private key is used to verify transactions"
       }
     ],
     "notes": {
-      "zh": "交集：把内容凭证从「媒体文件」扩到 AI 供应链的三件东西——模型凭证、训练数据凭证、输出凭证；输出用 trainedAlgorithmicMedia 或 trainedAlgorithmicData 标记来源类型，模型还可挂一条数据挖掘断言，声明是否允许被拿去训练别的模型。适用范围：规范给的是断言类型与清单结构，用于发现篡改与记录来源，不评估模型质量或输出是否正确。未解决：一切都依赖提供方如实填写，签名只覆盖签名之后的改动；凭证能否在转码与二次分发后存活取决于各平台。该文档本身以 CC BY 4.0 发布，可转载但需署名。",
-      "en": "The intersection: extending content credentials from media files to three things in the AI supply chain — a model credential, a training-data credential and an output credential. Outputs are tagged with trainedAlgorithmicMedia or trainedAlgorithmicData as the source type, and a model may carry a data mining assertion stating whether reuse for training other models is allowed, constrained or not allowed. Scope: the guidance supplies assertion types and manifest structure for detecting tampering and recording origin; it does not assess model quality or whether an output is correct. Open: everything depends on the provider recording honestly, a signature only covers changes made after signing, and whether a credential survives transcoding and redistribution depends on each platform. The document itself is published under CC BY 4.0, so reuse requires attribution."
+      "zh": "交集：把「账户」从一对私钥变成一个合约——Safe 以多签为核心，定义一组 owner 与一个阈值，达到阈值的 owner 确认后交易才执行；owner 可以是 EOA、其他合约账户甚至 passkey。\n适用范围：官方文档还列了模块（限额、恢复、4337、passkey）、Guard、批量交易与 Singleton/Proxy 架构；这使「给 Agent 一个有限额度、可回收的账户」在工程上可行。\n未解决：模块与 Guard 是安全关键组件，官方明确恶意 Guard 可以阻止交易、锁死资金；阈值多签降低单点风险但不消除私钥管理、社会工程与模块漏洞，机构使用要单独审计。",
+      "en": "The intersection: turning an account from a key pair into a contract — Safe is multisig at its core, defining a set of owners and a threshold that must confirm a transaction before execution; owners can be EOAs, other smart accounts or even passkeys.\nScope: the docs also cover modules (allowance, recovery, 4337, passkey), guards, batched transactions and the singleton/proxy architecture, which makes “give an agent a capped, revocable account” engineering-feasible.\nOpen: modules and guards are security-critical, and the docs state a malicious guard can block transactions and lock funds; multisig reduces single-key risk but does not remove key management, social engineering or module bugs, so institutional use needs its own audit."
     },
-    "verifiedAt": "2026-11-07",
+    "verifiedAt": "2026-11-17",
     "specs": {
-      "覆盖对象 / scope": "模型凭证 · 训练数据凭证 · 输出凭证",
-      "输出来源类型 / source type": "trainedAlgorithmicMedia（媒体）· trainedAlgorithmicData（非媒体）",
-      "权利表达 / rights": "data mining assertion：allowed / constrained / not allowed",
-      "文档许可 / licence": "CC BY 4.0"
-    }
-  },
-  {
-    "id": "c2pa-content-credentials",
-    "title": {
-      "zh": "C2PA 内容凭证",
-      "en": "C2PA Content Credentials"
-    },
-    "category": "provenance",
-    "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
-        "quote": "The Coalition for Content Provenance and Authenticity (C2PA) addresses the prevalence of misleading information online through the development of technical standards for certifying the source and history (or provenance) of media content."
-      },
-      {
-        "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
-        "quote": "Guidance for Artificial Intelligence and Machine Learning"
-      }
-    ],
-    "notes": {
-      "zh": "交集：AI 生成内容的来源标识——输出可以被签名并绑定到生成工具与后续编辑链，让「这份内容由谁、用什么产生、被谁改过」有一个可机器读的答案形态。适用范围：规范定义的是凭证结构与验证流程，不判断内容真假，也不阻止未签名内容流通；官方另有一份面向 AI 与机器学习的实施指南。未解决：签名只能证明某把密钥签过，密钥归属与工具是否如实记录仍依赖发行方；凭证能否在转发与转码后存活，取决于各平台实现。本站不评价任何厂商的落地程度。",
-      "en": "The intersection: provenance for AI-generated content — output can be signed and bound to the generating tool and the edits that follow, giving \"who made this, with what, and who changed it\" a machine-readable shape. Scope: the specification defines credential structure and verification flow; it does not judge whether content is true, and it does not stop unsigned content from circulating. A separate official guide covers AI and machine learning specifically. Open: a signature only proves that a key signed, so key ownership and whether a tool recorded honestly still rest on the issuer, and whether a credential survives forwarding or transcoding depends on each platform. This entry does not rate any vendor implementation."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "规范版本 / version": "2.1",
-      "文档类型 / documents": "技术规范 + 实施指南 + 安全与危害建模",
-      "AI 专门指南 / AI guidance": "有（Guidance for Artificial Intelligence and Machine Learning）",
-      "判断内容真伪 / truth of content": "否"
-    }
-  },
-  {
-    "id": "did-resolution",
-    "title": {
-      "zh": "DID Resolution：把标识解析成可核验文档",
-      "en": "DID Resolution: resolving identifiers into verifiable documents"
-    },
-    "category": "protocol",
-    "url": "https://w3c.github.io/did-resolution/",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://w3c.github.io/did-resolution/",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://w3c.github.io/did-resolution/",
-        "quote": "Decentralized identifier (DID) resolution is the process of obtaining a DID document and accompanying metadata for a specific DID."
-      },
-      {
-        "url": "https://w3c.github.io/did-resolution/",
-        "quote": "MUST implement the DID resolution function for at least one DID method and MUST be able to return a DID document."
-      }
-    ],
-    "notes": {
-      "zh": "交集：AI 内容凭证与模型出处声明常用 DID 标识签发者或主体；验证者不能只看标识字符串，还要解析出 DID document 与元数据，才能找验证方法和状态信息。\n适用范围：官方规范定义 DID resolution 是取得 DID document 与伴随元数据的过程，并规定 conforming resolver 至少实现一个 DID method 的解析函数且能返回 DID document。它规定解析接口与元数据，不保证 DID 背后主体身份真实。\n未解决：各 DID method 的更新、撤销与可用性不同；页面仍是 Editor’s Draft，AI 凭证系统要核对目标 method 的实现与治理，而不是把解析成功当成信任完成。",
-      "en": "The intersection: AI content credentials and model provenance statements often use DIDs for issuers or subjects; verifiers must resolve the identifier into a DID document and metadata to find verification methods and status information.\nScope: the specification defines DID resolution as obtaining a DID document and accompanying metadata, and requires conforming resolvers to implement the resolution function for at least one DID method and return a DID document. It standardises resolution and metadata, not the real-world identity behind the DID.\nOpen: DID methods differ in update, revocation and availability; the page remains an Editor’s Draft, so credential systems must check the target method implementation and governance rather than treating successful resolution as completed trust."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "协议状态 / status": "草案（W3C Editor’s Draft，页面配置 specStatus: ED）",
-      "规范来源 / source": "https://w3c.github.io/did-resolution/",
-      "核验日 / checked": "2026-11-07"
-    }
-  },
-  {
-    "id": "eip-1271",
-    "title": {
-      "zh": "ERC-1271：合约账户签名验证",
-      "en": "ERC-1271: Standard Signature Validation Method for Contracts"
-    },
-    "category": "protocol",
-    "url": "https://github.com/ethereum/ercs/blob/master/ERCS/erc-1271.md",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
-        "quote": "Externally Owned Accounts (EOA) can sign messages with their associated private keys, but currently contracts cannot."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
-        "quote": "We propose a standard way for any contracts to verify whether a signature on a behalf of a given contract is valid."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
-        "quote": "status: Final"
-      }
-    ],
-    "notes": {
-      "zh": "交集：当 AI 内容凭证或数据授权由合约账户而不是个人私钥签署时，验证者需要问「这个合约是否认可该签名」；ERC-1271 给出合约侧统一验证入口。\n适用范围：官方摘要说 EOA 能用私钥签消息而合约不能，因此提出通过 signing contract 上的 isValidSignature(hash, signature) 验证签名。它规定验证接口，不规定合约内部怎样决策，也不保证签名背后的业务声明真实。\n未解决：合约钱包、多签与权限模块各自实现验证逻辑，跨应用仍要核对实现与升级风险；该规范已从 EIPs 仓库移到 ERCs 仓库，状态 Final，但本站不推断所有合约账户都支持。",
-      "en": "The intersection: when an AI content credential or data permission is signed by a contract account rather than a personal private key, verifiers need to ask whether the contract recognises the signature; ERC-1271 provides a common contract-side validation entry point.\nScope: the abstract says EOAs can sign messages with private keys but contracts cannot, and proposes validation through isValidSignature(hash, signature) on the signing contract. It standardises the interface, not the internal decision logic, and does not make the underlying business claim true.\nOpen: contract wallets, multisigs and permission modules implement their own validation, so applications still need to check implementation and upgrade risk; the specification moved from the EIPs repository to ERCs and is Final, but this site does not infer support by every contract account."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "协议状态 / status": "Final（官方 ERC 状态；具体部署范围官方未说明）",
-      "规范来源 / source": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
-      "核验日 / checked": "2026-11-07"
-    }
-  },
-  {
-    "id": "eip-712",
-    "title": {
-      "zh": "EIP-712：类型化结构化数据哈希与签名",
-      "en": "EIP-712: Typed Structured Data Hashing and Signing"
-    },
-    "category": "protocol",
-    "url": "https://eips.ethereum.org/EIPS/eip-712",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
-        "quote": "This is a standard for hashing and signing of typed structured data as opposed to just bytestrings."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
-        "quote": "Hashing structured data is non-trivial and errors result in loss of the security properties of the system."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
-        "quote": "status: Final"
-      }
-    ],
-    "notes": {
-      "zh": "交集：AI 生成内容凭证、模型出处与授权声明经常需要离线签署一份结构化声明；EIP-712 规定类型化数据怎样编码、哈希并进入可签名消息，避免把复杂声明只当成不透明字节串。\n适用范围：官方摘要说它是类型化结构化数据哈希与签名标准，动机节强调结构化哈希出错会丢失系统安全性质；原文还说明它不包含重放保护。它只规定签名口径，不证明声明内容为真，也不替应用定义撤销与信任策略。\n未解决：具体 AI 凭证系统仍要自己定义 schema、域分隔、重放防护与验证者信任；EIP 状态为 Final，但本站不据此推断每条链或每个钱包都已部署。",
-      "en": "The intersection: AI content credentials, model provenance and permission statements often need an offline signature over a structured claim; EIP-712 specifies how typed data is encoded, hashed and included in signable messages instead of treating complex claims as opaque byte strings.\nScope: the abstract describes a standard for hashing and signing typed structured data, and the motivation warns that errors in structured hashing lose security properties; the text also says it does not include replay protection. It standardises signing, not the truth of the claim, and does not define revocation or verifier trust for an application.\nOpen: an AI credential system still has to define its schema, domain separation, replay protection and verifier trust; the EIP status is Final, but this site does not infer deployment on every chain or wallet."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "协议状态 / status": "Final（官方 EIP 状态；具体部署范围官方未说明）",
-      "规范来源 / source": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
-      "核验日 / checked": "2026-11-07"
-    }
-  },
-  {
-    "id": "ethereum-attestation-service",
-    "title": {
-      "zh": "Ethereum Attestation Service（EAS）",
-      "en": "Ethereum Attestation Service (EAS)"
-    },
-    "category": "protocol",
-    "url": "https://github.com/ethereum-attestation-service/eas-contracts",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
-        "quote": "The Ethereum Attestation Service is a free and open protocol for on-chain attestations on EVM compatible blockchains."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
-        "quote": "It is a generalized service that allows anyone to register a schema for their particular use case, and then make attestations following their schema."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
-        "quote": "Schemas can be registered using the `SchemaRegistry.sol` contract, and attestations are made using the `EAS.sol` contract."
-      }
-    ],
-    "notes": {
-      "zh": "交集：AI 生成内容标识、模型版本声明与数据授权可以把「谁按什么 schema 作了什么证明」写成链上 attestation；EAS 提供通用 schema 注册与证明合约。\n适用范围：官方 README 说它是 EVM 兼容链上的免费开放链上证明协议，任何人可注册 schema 并按 schema 作证明；schema 走 SchemaRegistry.sol，证明走 EAS.sol，另有 resolver 与 SDK。它提供记录与验证基础设施，不自动审核声明内容真假。\n未解决：AI 场景仍要定义 schema、撤销策略、隐私边界与验证者信任；README 未给统一协议状态字段，本站不推断所有 EVM 链都已部署。",
-      "en": "The intersection: AI content labelling, model version statements and data permissions can record who attested what under which schema as an on-chain attestation; EAS provides general schema registration and attestation contracts.\nScope: the official README describes a free and open protocol for on-chain attestations on EVM-compatible blockchains, where anyone registers a schema and attests against it; schemas use SchemaRegistry.sol and attestations use EAS.sol, with resolvers and an SDK. It provides recording and verification infrastructure, not automatic truth review.\nOpen: AI use cases still need schema design, revocation, privacy boundaries and verifier trust; the README gives no single protocol-status field, and this site does not infer deployment on every EVM chain."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "协议状态 / status": "官方未说明（README 描述协议与合约，未给部署状态字段）",
-      "规范来源 / source": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
-      "核验日 / checked": "2026-11-07"
-    }
-  },
-  {
-    "id": "filecoin-verifiable-storage",
-    "title": {
-      "zh": "Filecoin 可验证存储",
-      "en": "Filecoin verifiable storage"
-    },
-    "category": "provenance",
-    "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
-        "quote": "Every storage provider proves that they are maintaining their files in every 24-hour window."
-      },
-      {
-        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
-        "quote": "Any observer can check any storage provider’s track record and will notice if the provider has been faulty or offline in the past."
-      },
-      {
-        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
-        "quote": "Files are referred to by the data they contain, not by fragile identifiers such as URLs."
-      }
-    ],
-    "notes": {
-      "zh": "交集：训练数据与模型权重的长期留存——「谁还持有这份数据」这件事有周期性证明可查，而不是只能相信服务商的状态页。适用范围：官方说明存储方每 24 小时窗口证明一次仍在维护文件，任何观察者都能查历史记录；文件按内容而非 URL 寻址。未解决：该页未列局限，也未对检索延迟、取回速度或长期可用性给出承诺——证明的是「仍在持有」，不等于「随时能快速取回」。页面本身营销表述较多（价格优势、抗审查等），本站不收录这类评价，只引可核的机制句。",
-      "en": "The intersection: long-term retention of training data and model weights, where \"who still holds this data\" has a periodic proof anyone can inspect rather than a provider status page to be trusted. Scope: the vendor states that every storage provider proves it is maintaining its files in every 24-hour window, that any observer can check a provider’s track record, and that files are addressed by content rather than by URL. Open: the page lists no limitations and makes no commitment about retrieval latency, fetch speed or long-term availability — the proof says the data is still held, not that it can be fetched quickly. The page carries considerable marketing language (price, censorship resistance); this entry cites only the mechanism statements and does not repeat those evaluations."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "证明周期 / proof window": "每 24 小时一次",
-      "可查性 / auditability": "任何观察者可查存储方历史记录",
-      "寻址方式 / addressing": "内容寻址，非 URL",
-      "未承诺 / not committed": "检索延迟、取回速度、长期可用性"
-    }
-  },
-  {
-    "id": "ipfs-cid",
-    "title": {
-      "zh": "IPFS 内容标识 CID",
-      "en": "IPFS content identifiers (CID)"
-    },
-    "category": "provenance",
-    "url": "https://docs.ipfs.tech/concepts/content-addressing/",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://docs.ipfs.tech/concepts/content-addressing/",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
-        "quote": "A content identifier, or CID, is a label used to point to material in IPFS. It doesn’t indicate where the content is stored, but it forms a kind of address based on the content itself."
-      },
-      {
-        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
-        "quote": "Any difference in the content will produce a different CID."
-      },
-      {
-        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
-        "quote": "The same content added to two different IPFS nodes using the same settings will produce the same CID."
-      }
-    ],
-    "notes": {
-      "zh": "交集：训练数据集与模型文件的内容寻址——同一份数据在任何节点得到同一标识，数据集出处记录里就能写清「指的是哪一份字节」，而不是一个会变的下载地址。适用范围：CID 只保证内容一致，不保证可用性或持久性；内容没有被固定就可能无人保存。未解决：内容寻址回答「是不是同一份」，不回答「谁有权使用」，许可与授权仍需另立记录；本站把这类记录放在同站的来源类条目里，不合并成一个字段。",
-      "en": "The intersection: content addressing for training datasets and model files — the same bytes yield the same identifier on any node, so a provenance record can state which exact bytes are meant instead of pointing at a download URL that changes. Scope: a CID guarantees content equality, not availability or persistence; unpinned content may be held by no one. Open: content addressing answers \"is this the same bytes\", not \"who may use it\", so licensing still needs a separate record, which this site keeps in its provenance entries rather than folding into one field."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "默认哈希 / default hash": "sha-256（通过 Multihash 支持多种算法）",
-      "同内容同标识 / same content same CID": "是（相同设置下）",
-      "保证持久可用 / persistence": "否",
-      "保证授权 / licensing": "否"
-    }
-  },
-  {
-    "id": "ipld",
-    "title": {
-      "zh": "IPLD 规范集合",
-      "en": "IPLD Specifications"
-    },
-    "category": "protocol",
-    "url": "https://github.com/ipld/specs",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
-        "quote": "The goal of IPLD is to enable decentralized data-structures that are universally addressable and linkable which in turn will enable more decentralized applications."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
-        "quote": "Specification documents in this repository fit into one of two categories and have one of three possible statuses:"
-      }
-    ],
-    "notes": {
-      "zh": "交集：训练数据集、模型卡与内容凭证需要跨节点可寻址、可链接的数据结构；IPLD 定义 CID 之上的数据模型与链接方式，让出处记录不只是单个文件哈希。\n适用范围：官方仓库说目标是普遍可寻址、可链接的去中心化数据结构，并明确 IPLD 不是单一规范；规范分 Prescriptive/Descriptive，状态含 Draft/Final。它规定数据怎样链接与解释，不保证链接内容仍然可用或权利清晰。\n未解决：AI 数据集要自己选择 codec、schema 与保留策略；仓库内各规范状态不同，不能把整个 IPLD 简单标成已部署或单一草案。",
-      "en": "The intersection: training datasets, model cards and content credentials need data structures that are addressable and linkable across nodes; IPLD defines data models and linking above CIDs so provenance is more than a single file hash.\nScope: the official repository says the goal is universally addressable and linkable decentralised data structures, and states IPLD is not a single specification; documents are Prescriptive or Descriptive with Draft/Final statuses. It specifies linking and interpretation, not continued availability or clear rights.\nOpen: AI datasets still need codec, schema and retention choices; statuses differ per specification, so the whole of IPLD cannot be labelled as one deployed or single draft protocol."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "协议状态 / status": "草案（官方仓库规范分 Prescriptive/Descriptive 与 Draft/Final，逐份状态不同）",
-      "规范来源 / source": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
-      "核验日 / checked": "2026-11-07"
-    }
-  },
-  {
-    "id": "ocean-compute-to-data",
-    "title": {
-      "zh": "Ocean Compute-to-Data：数据不出域的授权计算",
-      "en": "Ocean Compute-to-Data: authorised compute without moving data"
-    },
-    "category": "protocol",
-    "url": "https://github.com/oceanprotocol/docs/blob/main/developers/compute-to-data/README.md",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
-        "quote": "Instead of selling the raw data itself, you can offer compute access to the private data."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
-        "quote": "This means you have control over which algorithms can be run on your dataset."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
-        "quote": "It enables the data to remain on-premise while granting third parties the ability to perform specific compute tasks on it, yielding valuable results like statistical analysis or AI model development."
-      }
-    ],
-    "notes": {
-      "zh": "交集：用私有数据训练或评测 AI 时，数据持有者常不愿交出原始数据；Compute-to-Data 把授权对象从「数据副本」改成「在数据上运行指定算法」，与 AI 模型开发直接相关。\n适用范围：官方文档说不出售原始数据而出售计算访问，数据持有者控制哪些算法可跑，数据可留在本地而第三方执行特定计算任务，产出统计分析或 AI 模型开发结果。本条只写计算授权机制，与 ocean-protocol 概念条的网络与访问控制分工不同。\n未解决：算法审核、结果泄露、计算环境可信与法律合规仍要另行核对；文档未给统一部署状态字段，本站不推断隐私或合规保证。",
-      "en": "The intersection: when private data is used to train or evaluate AI, holders often do not want to hand over raw data; Compute-to-Data changes the authorised object from a data copy to running approved algorithms on the data, directly relevant to AI model development.\nScope: the official documentation says raw data is not sold; compute access is offered, the holder controls which algorithms may run, and data can remain on-premise while third parties perform specific compute tasks yielding statistical analysis or AI model development. This entry covers the compute-authorisation mechanism, distinct from the ocean-protocol concept entry on network and access control.\nOpen: algorithm review, result leakage, trusted compute environments and legal compliance still need separate checks; the document gives no single deployment-status field, and this site infers no privacy or compliance guarantee."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "协议状态 / status": "官方未说明（机制文档未给协议部署状态字段）",
-      "规范来源 / source": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
-      "核验日 / checked": "2026-11-07"
-    }
-  },
-  {
-    "id": "ocean-protocol",
-    "title": {
-      "zh": "Ocean Protocol 数据与算力协议",
-      "en": "Ocean Protocol data and compute protocol"
-    },
-    "category": "data-rights",
-    "url": "https://docs.oceanprotocol.com/discover",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
-      "checkedAt": "2026-11-07"
-    },
-    "evidence": [
-      {
-        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
-        "quote": "Ocean is a decentralized data & compute protocol built to scale AI."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
-        "quote": "Data NFTs & datatokens, to enable token-gated access control, data wallets, data DAOs, and more."
-      },
-      {
-        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
-        "quote": "Compute-to-data: buy & sell private data, while preserving privacy"
-      }
-    ],
-    "notes": {
-      "zh": "交集：数据访问控制与 compute-to-data——把计算送到数据所在处，让数据不出域也能参与训练或推理，这是「数据可用不可见」在协议层的一种做法。适用范围：官方把三块列为核心组件（数据 NFT 与 datatoken 做门控访问、compute-to-data 做隐私计算、Ocean Nodes 把闲置算力组网），但这是协议定位说明，没有给出可核的合规结论或性能数字。未解决：代币化门控是否满足各地数据保护法规属于法律判断，不是协议能回答的；本站不评价任何部署效果，也不收录代币价格与收益。",
-      "en": "The intersection: data access control plus compute-to-data — sending computation to where the data sits so data can take part in training or inference without leaving its domain, one protocol-level approach to \"usable but not visible\". Scope: the vendor lists three core components (data NFTs and datatokens for token-gated access, compute-to-data for privacy-preserving computation, and Ocean Nodes to network idle compute), but this is a positioning statement without verifiable compliance conclusions or performance figures. Open: whether token-gated access satisfies data protection law in a given jurisdiction is a legal judgement, not something the protocol answers; this entry does not rate any deployment and records no token price or yield."
-    },
-    "verifiedAt": "2026-11-07",
-    "specs": {
-      "核心组件 / components": "Data NFT 与 datatoken · compute-to-data · Ocean Nodes",
-      "隐私机制 / privacy": "计算下沉到数据侧，数据不出域",
-      "可核结论 / verifiable claims": "官方页面未给性能或合规结论",
-      "不收录 / excluded": "代币价格、收益、部署效果评价"
+      "账户类型 / account": "Smart Contract Account（合约账户）",
+      "核心机制 / core": "owners + threshold 多签",
+      "owner 类型 / owners": "EOA、合约账户、passkey",
+      "扩展 / extensions": "Modules、Guards、批量交易、4337、Passkey、Recovery",
+      "部署 / deployment": "Singleton + Proxy（降低部署成本）"
     }
   },
   {
@@ -660,43 +199,81 @@
     }
   },
   {
-    "id": "x402-http-payments",
+    "id": "ocean-protocol",
     "title": {
-      "zh": "x402：用 HTTP 402 直接为 API 付费",
-      "en": "x402: paying for APIs over HTTP 402"
+      "zh": "Ocean Protocol 数据与算力协议",
+      "en": "Ocean Protocol data and compute protocol"
     },
-    "category": "protocol",
-    "url": "https://docs.x402.org/",
+    "category": "data-rights",
+    "url": "https://docs.oceanprotocol.com/discover",
     "license": {
-      "kind": "official-documentation",
-      "evidenceUrl": "https://docs.x402.org/",
-      "checkedAt": "2026-11-17"
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
+      "checkedAt": "2026-11-07"
     },
     "evidence": [
       {
-        "url": "https://docs.x402.org/",
-        "quote": "x402 is the open payment standard that enables services to charge for access to their APIs and content directly over HTTP."
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
+        "quote": "Ocean is a decentralized data & compute protocol built to scale AI."
       },
       {
-        "url": "https://docs.x402.org/",
-        "quote": "It is built around the HTTP `402 Payment Required` status code and allows clients to programmatically pay for resources without accounts, sessions, or credential management."
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
+        "quote": "Data NFTs & datatokens, to enable token-gated access control, data wallets, data DAOs, and more."
       },
       {
-        "url": "https://docs.x402.org/",
-        "quote": "Native support for machine-to-machine payments, enabling seamless use by AI agents"
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/discover/README.md",
+        "quote": "Compute-to-data: buy & sell private data, while preserving privacy"
       }
     ],
     "notes": {
-      "zh": "交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具调用可以自带预算：Agent 调一个付费 API，付款与取数在同一个请求链路里完成。\n适用范围：官方文档把流程写成五步（请求、402 指令、付款载荷、服务端或 facilitator 验证结算、返回资源），并说明标准本身 0 费用、支持 EVM 批量结算。\n未解决：付款的最终性、退款、争议与合规责任落在具体服务方与链上资产，不在协议层；本站不评价任何 x402 服务的定价或可靠性。",
-      "en": "The intersection: putting pay-per-call back into HTTP semantics — the server returns 402 plus payment instructions, the client pays, then receives the resource, with no accounts, sessions or credential management. For AI agents this means tool calls can carry their own budget: a paid API call and its payment settle in the same request path.\nScope: the official docs describe a five-step flow (request, 402 instructions, payment payload, verification and settlement by the server or a facilitator, resource) and state that the standard itself has zero fees and supports batched EVM settlement.\nOpen: finality, refunds, disputes and compliance sit with the specific service and on-chain asset, not the protocol layer; this entry does not judge any x402 service’s pricing or reliability."
+      "zh": "交集：数据访问控制与 compute-to-data——把计算送到数据所在处，让数据不出域也能参与训练或推理，这是「数据可用不可见」在协议层的一种做法。适用范围：官方把三块列为核心组件（数据 NFT 与 datatoken 做门控访问、compute-to-data 做隐私计算、Ocean Nodes 把闲置算力组网），但这是协议定位说明，没有给出可核的合规结论或性能数字。未解决：代币化门控是否满足各地数据保护法规属于法律判断，不是协议能回答的；本站不评价任何部署效果，也不收录代币价格与收益。",
+      "en": "The intersection: data access control plus compute-to-data — sending computation to where the data sits so data can take part in training or inference without leaving its domain, one protocol-level approach to \"usable but not visible\". Scope: the vendor lists three core components (data NFTs and datatokens for token-gated access, compute-to-data for privacy-preserving computation, and Ocean Nodes to network idle compute), but this is a positioning statement without verifiable compliance conclusions or performance figures. Open: whether token-gated access satisfies data protection law in a given jurisdiction is a legal judgement, not something the protocol answers; this entry does not rate any deployment and records no token price or yield."
     },
-    "verifiedAt": "2026-11-17",
+    "verifiedAt": "2026-11-07",
     "specs": {
-      "协议基础 / basis": "HTTP 402 Payment Required",
-      "费用 / protocol fee": "0（标准本身，官方文档）",
-      "结算 / settlement": "EVM 批量结算（batch settlement）",
-      "适用对象 / users": "服务方、买家、AI Agent",
-      "许可 / license": "Apache-2.0（官方文档声明）"
+      "核心组件 / components": "Data NFT 与 datatoken · compute-to-data · Ocean Nodes",
+      "隐私机制 / privacy": "计算下沉到数据侧，数据不出域",
+      "可核结论 / verifiable claims": "官方页面未给性能或合规结论",
+      "不收录 / excluded": "代币价格、收益、部署效果评价"
+    }
+  },
+  {
+    "id": "story-protocol",
+    "title": {
+      "zh": "Story Protocol：可编程 IP",
+      "en": "Story Protocol: programmable IP"
+    },
+    "category": "data-rights",
+    "url": "https://docs.story.foundation/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.story.foundation/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.story.foundation/",
+        "quote": "Story is a purpose-built layer 1 blockchain designed specifically for intellectual property."
+      },
+      {
+        "url": "https://docs.story.foundation/",
+        "quote": "You can register your IP on-chain and add usage terms to it in seconds"
+      },
+      {
+        "url": "https://docs.story.foundation/",
+        "quote": "Although on-chain, an IP’s usage terms and minted licenses are enforced by an off-chain legal contract called the Programmable IP License"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 训练数据、模型权重、生成内容都需要可追溯的授权与分成；Story 把 IP 登记、许可与版税写成链上资产 + 链下法律合同。\n适用范围：官方文档定义 IP Asset（ERC721）、License/Royalty/Dispute 模块与 Programmable IP License（PIL）；链上条款最终要靠 PIL 映射到现实法律。\n未解决：链上登记不等于版权确权；跨司法辖区执行、AI 训练数据的多源授权、以及侵权判定仍是法律问题，不是协议自动解决。",
+      "en": "Intersection: AI training data, model weights and generated content need traceable licensing and revenue sharing; Story registers IP as on-chain assets plus an off-chain legal contract.\nScope: the docs define IP Assets (ERC721), Licensing/Royalty/Dispute modules and the Programmable IP License (PIL); on-chain terms are ultimately mapped to real-world law through the PIL.\nOpen: on-chain registration is not copyright registration; cross-jurisdiction enforcement, multi-source AI training-data licensing and infringement adjudication remain legal problems, not automatic protocol outcomes."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "IP 资产 / IP asset": "ERC721",
+      "许可 / license": "Programmable IP License",
+      "模块 / modules": "Licensing / Royalty / Dispute"
     }
   },
   {
@@ -740,43 +317,284 @@
     }
   },
   {
-    "id": "chainlink-data-feeds",
+    "id": "bittensor-subnet",
     "title": {
-      "zh": "Chainlink Data Feeds：把链下价格聚合成链上读数",
-      "en": "Chainlink Data Feeds: aggregating off-chain prices into on-chain reads"
+      "zh": "Bittensor 子网",
+      "en": "Bittensor subnets"
     },
-    "category": "protocol",
-    "url": "https://docs.chain.link/data-feeds",
+    "category": "inference",
+    "url": "https://docs.learnbittensor.org/",
     "license": {
-      "kind": "official-documentation",
-      "evidenceUrl": "https://docs.chain.link/data-feeds",
-      "checkedAt": "2026-11-17"
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.learnbittensor.org/",
+      "checkedAt": "2026-11-07"
     },
     "evidence": [
       {
-        "url": "https://docs.chain.link/data-feeds",
-        "quote": "Asset prices, proof of reserves, NAV, and interest rates, aggregated from many sources by decentralized oracle networks and published onchain on dozens of networks."
+        "url": "https://docs.learnbittensor.org/",
+        "quote": "Bittensor is an open network where independent subnets produce digital commodities — compute, inference, storage, prediction — and the chain pays participants in its token, TAO, in proportion to the value they contribute."
       },
       {
-        "url": "https://docs.chain.link/data-feeds",
-        "quote": "your contract can read the latest value in a single call"
-      },
-      {
-        "url": "https://docs.chain.link/data-feeds",
-        "quote": "L2 Sequencer Uptime Feeds"
+        "url": "https://docs.learnbittensor.org/",
+        "quote": "Miners produce the commodity, validators score the miners, subnet creators define the incentive mechanism, and stakers back validators with TAO."
       }
     ],
     "notes": {
-      "zh": "交集：智能合约不能自己发 HTTP 请求，价格、储备证明、净值与利率要靠预言机网络从多个源聚合后写链上；合约一次调用就能读到最新值。\n适用范围：官方文档列出价格源、储备/NAV 类 SmartData、利率与波动率、L2 Sequencer Uptime 等类型；借贷、稳定币与代币化基金用它们给抵押品估值与结算。\n未解决：读数的新鲜度、偏差阈值与心跳由具体 feed 配置决定，不是「上链即真实」；聚合器、预言机节点与 L2 sequencer 各自有故障模式，集成方要读官方风险文档并设置熔断。",
-      "en": "The intersection: smart contracts cannot make HTTP requests, so prices, proof of reserves, NAV and rates are aggregated from many sources by decentralised oracle networks and published on-chain; a contract reads the latest value in one call.\nScope: the docs list price feeds, reserve/NAV SmartData, rate and volatility feeds, and L2 sequencer uptime feeds; lending markets, stablecoins and tokenised funds use them to value collateral and settle positions.\nOpen: freshness, deviation thresholds and heartbeats are per-feed configuration, not “on-chain therefore true”; aggregators, oracle nodes and L2 sequencers each have failure modes, so integrators must read the risk docs and add circuit breakers."
+      "zh": "交集：把推理与算力当作子网生产的商品，用链上激励结算——这是「去中心化推理」目前最完整的一份官方机制说明。适用范围：官方文档写的是角色分工（矿工生产、验证者打分、子网创建者定义激励、质押者背书验证者），不构成对产出质量或可靠性的保证。未解决：激励如何分配取决于验证者的打分方式，而各子网机制不同，跨子网不可直接比较；本站不评价任何子网的产出效果，也不收录代币价格与收益。",
+      "en": "The intersection: treating inference and compute as commodities produced by subnets and settled through on-chain incentives — currently the most complete official account of decentralised inference. Scope: the documentation describes a division of roles (miners produce, validators score, subnet creators define the mechanism, stakers back validators) and does not warrant output quality or reliability. Open: how incentives are distributed depends on how validators score, and mechanisms differ per subnet, so subnets are not directly comparable; this entry does not judge any subnet’s output and records no token price or yield."
     },
-    "verifiedAt": "2026-11-17",
+    "verifiedAt": "2026-11-07",
     "specs": {
-      "数据类型 / data": "价格、储备证明、NAV、利率、波动率、L2 sequencer 状态",
-      "读取方式 / read": "AggregatorV3Interface，一次调用取最新值",
-      "覆盖 / networks": "官方称数十条网络",
-      "风险配置 / risk": "每 feed 的心跳与偏差阈值不同",
-      "本站口径 / scope": "只记录机制，不评价任何 feed 的准确性"
+      "网络角色 / roles": "miners、validators、subnet creators、stakers",
+      "生产物 / commodities": "compute、inference、storage、prediction",
+      "结算单位 / settlement": "TAO（本站不收录价格与收益）",
+      "质量保证 / quality warrant": "官方文档未作保证"
+    }
+  },
+  {
+    "id": "gensyn",
+    "title": {
+      "zh": "Gensyn：可审计的去中心化训练",
+      "en": "Gensyn: auditable decentralised training"
+    },
+    "category": "inference",
+    "url": "https://www.gensyn.ai/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://www.gensyn.ai/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.gensyn.ai/",
+        "quote": "open-1b: the first model you don’t have to trust"
+      },
+      {
+        "url": "https://www.gensyn.ai/",
+        "quote": "Introducing REE: Reproducible Execution Environment"
+      },
+      {
+        "url": "https://www.gensyn.ai/",
+        "quote": "open-8b: an auditable model, in training"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把训练过程做成可复现、可审计的执行环境，让外部能验证模型是怎么训出来的，而不是只看最终权重。\n适用范围：官方发布 open-1b/REE/open-8b 等可审计训练与可复现执行环境；它是研究/生产平台，不是通用 GPU 租用市场。\n未解决：可审计性覆盖到哪一层（数据、代码、随机性、硬件）、大规模任务成本、以及验证者与训练者串谋风险，官方材料未给出完整答案。",
+      "en": "Intersection: make training reproducible and auditable so outsiders can verify how a model was trained, not just inspect final weights.\nScope: the official site announces open-1b/REE/open-8b and a reproducible execution environment; it is a research/production platform, not a generic GPU rental marketplace.\nOpen: how deep auditability covers data, code, randomness and hardware; the cost of large runs; and collusion between trainers and verifiers are not fully answered in the public material."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "可审计对象 / audit": "训练过程 + 执行环境",
+      "公开模型 / models": "open-1b / open-8b",
+      "执行环境 / REE": "Reproducible Execution Environment"
+    }
+  },
+  {
+    "id": "io-net",
+    "title": {
+      "zh": "io.net：分布式 GPU 聚合",
+      "en": "io.net: aggregated distributed GPUs"
+    },
+    "category": "inference",
+    "url": "https://io.net/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://io.net/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://io.net/",
+        "quote": "H100s, A100s, and full clusters on demand."
+      },
+      {
+        "url": "https://io.net/",
+        "quote": "Securely connect to GPUs from independent data centers, mining operations, and private clusters worldwide."
+      },
+      {
+        "url": "https://io.net/",
+        "quote": "globally distributed network, and available confidential compute"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把独立数据中心、矿业与私有集群的 GPU 聚合起来，按需供给训练/推理；价格与可用性随供给波动。\n适用范围：官方称可按需提供 H100/A100 与整簇、分钟级部署、全球分布式网络与可选机密计算；不承诺固定库存或单一区域。\n未解决：跨供给方的网络带宽与延迟、数据安全与合规、任务迁移与故障恢复、以及「70% cheaper」这类对比的基准条件需自行核验。",
+      "en": "Intersection: aggregate GPUs from independent data centers, mining operations and private clusters, then supply them on demand for training/inference; price and availability vary with supply.\nScope: the official site advertises on-demand H100/A100 and full clusters, minute-level deployment, a globally distributed network and optional confidential compute; it does not promise fixed inventory or a single region.\nOpen: cross-provider bandwidth and latency, data security/compliance, job migration and failure recovery, and the basis of \"70% cheaper\" comparisons need independent verification."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "供给 / supply": "独立数据中心 + 矿业 + 私有集群",
+      "卡型 / GPUs": "H100 / A100 / 多类",
+      "机密计算 / confidential": "可选"
+    }
+  },
+  {
+    "id": "phala-network",
+    "title": {
+      "zh": "Phala Network：机密 AI 云",
+      "en": "Phala Network: confidential AI cloud"
+    },
+    "category": "inference",
+    "url": "https://phala.com/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://phala.com/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://phala.com/",
+        "quote": "Run agents, private LLM models, and GPU jobs inside hardware-backed TEEs."
+      },
+      {
+        "url": "https://phala.com/",
+        "quote": "Move existing Docker Compose workloads into CPU or GPU confidential machines."
+      },
+      {
+        "url": "https://phala.com/",
+        "quote": "Phala emits runtime measurements that software can verify."
+      }
+    ],
+    "notes": {
+      "zh": "交集：把私有模型、agent 与 GPU 任务放进硬件 TEE 里跑，并用证明报告替代「相信云厂商」。\n适用范围：官方称支持 CPU TEE（Intel TDX）与 GPU TEE（NVIDIA CC），可把 Docker Compose 工作负载迁入 confidential VM；证明可被软件验证。\n未解决：性能开销、GPU 型号覆盖、跨区域可用性与合规审计细节需逐项核对；TEE 不是模型正确性或输出质量的保证。",
+      "en": "Intersection: run private models, agents and GPU jobs inside hardware TEEs, and use attestation reports instead of trusting the cloud vendor.\nScope: the official page says it supports CPU TEE (Intel TDX) and GPU TEE (NVIDIA CC), can move Docker Compose workloads into confidential VMs, and exposes software-verifiable measurements.\nOpen: performance overhead, GPU model coverage, regional availability and audit details need case-by-case checks; TEE is not a guarantee of model correctness or output quality."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "TEE / hardware": "Intel TDX / NVIDIA CC",
+      "部署形态 / deploy": "Confidential VM + Docker Compose",
+      "证明 / attestation": "运行时度量与签名报告"
+    }
+  },
+  {
+    "id": "prime-intellect",
+    "title": {
+      "zh": "Prime Intellect：算力 + 训练 + 推理栈",
+      "en": "Prime Intellect: compute + training + inference stack"
+    },
+    "category": "inference",
+    "url": "https://www.primeintellect.ai/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://www.primeintellect.ai/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://www.primeintellect.ai/",
+        "quote": "Train and deploy custom AI models on an integrated compute, training, and inference stack."
+      },
+      {
+        "url": "https://www.primeintellect.ai/",
+        "quote": "A framework for asynchronous reinforcement learning (RL) at scale."
+      },
+      {
+        "url": "https://www.primeintellect.ai/",
+        "quote": "~11 hours of GRPO training on 128 GB200 GPUs"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把按需 GPU、托管训练（SFT/RL）与推理放在同一平台，适合需要自定义模型与 RL 环境的团队。\n适用范围：官方给出 PrimeCompute 按需/专用集群、Prime-RL 异步 RL、托管训练与推理；案例含 2,500 条企业任务与 128 张 GB200 上约 11 小时 GRPO。\n未解决：跨区域网络与数据驻留、长期集群价格、故障恢复与多租户隔离需要看合同；案例数字是特定任务与硬件配置。",
+      "en": "Intersection: put on-demand GPUs, hosted training (SFT/RL) and inference on one platform, for teams training custom models and RL environments.\nScope: the official site lists PrimeCompute on-demand/dedicated clusters, Prime-RL asynchronous RL, hosted training and inference; a case cites 2,500 enterprise tasks and ~11 hours of GRPO on 128 GB200 GPUs.\nOpen: cross-region networking and data residency, long-term cluster pricing, failure recovery and multi-tenant isolation need contract-level checks; case numbers are task- and hardware-specific."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署",
+      "算力 / compute": "按需 GPU + 专用集群",
+      "训练 / training": "SFT + Prime-RL",
+      "案例 / case": "128 GB200 / ~11h GRPO"
+    }
+  },
+  {
+    "id": "acp-agentic-commerce",
+    "title": {
+      "zh": "ACP：让 AI Agent 走完商家结账",
+      "en": "ACP: agent-ready merchant checkout"
+    },
+    "category": "protocol",
+    "url": "https://www.agenticcommerce.dev/",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://www.agenticcommerce.dev/",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://www.agenticcommerce.dev/",
+        "quote": "An open standard for programmatic commerce flows between buyers, AI agents, and businesses."
+      },
+      {
+        "url": "https://www.agenticcommerce.dev/",
+        "quote": "ACP is open source and community-designed under the Apache 2.0 license."
+      },
+      {
+        "url": "https://www.agenticcommerce.dev/",
+        "quote": "REST and MCP compatible"
+      },
+      {
+        "url": "https://www.agenticcommerce.dev/",
+        "quote": "Securely pass payment credentials from your buyers to AI agents, without exposing underlying payment credentials."
+      }
+    ],
+    "notes": {
+      "zh": "交集：ACP 不解决“模型怎么想”，而是把 Agent 购物拆成商家可实现的结账接口：商品 feed、购物车、结账会话、履约选项、委托支付、委托认证、订单与 webhook。商家仍是 merchant of record，可以按 agent/交易决定接不接单；支付凭据通过 payment handler 传递，不直接暴露卡号。\n适用范围：官方定位为开放标准，Apache-2.0，REST 与 MCP 都可接；Stripe 的 Shared Payment Token 是首个兼容的委托支付实现，OpenAI 的 ChatGPT Instant Checkout 是首个落地场景。\n未解决：规范仍是 beta，商家覆盖和地区有限；退款、争议、欺诈与合规责任仍在商家/PSP 侧；它不是 x402 那种按次 API 付费协议，两者解决不同层。",
+      "en": "The intersection: ACP does not decide how a model thinks; it turns agent shopping into merchant-implementable checkout interfaces — product feed, cart, checkout session, fulfillment options, delegated payment, delegated authentication, orders and webhooks. The merchant remains merchant of record and can accept or decline per agent or per transaction; payment credentials move through a payment handler without exposing the underlying card.\nScope: positioned as an open standard under Apache-2.0, with REST and MCP integration; Stripe’s Shared Payment Token is the first compatible delegated-payment implementation, and OpenAI’s ChatGPT Instant Checkout is the first live surface.\nOpen: the spec is beta with limited merchant and geographic coverage; refunds, disputes, fraud and compliance remain with merchants and PSPs; it is not x402-style per-call API billing — the two solve different layers."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "协议定位 / role": "Agent 结账与商家订单协议",
+      "许可 / license": "Apache-2.0",
+      "接入方式 / transport": "REST + MCP",
+      "核心模块 / modules": "Checkout、Cart/Feed、Delegate Payment、Delegate Auth、Orders/Webhooks",
+      "支付 / payment": "Payment handler；Stripe Shared Payment Token 首个实现",
+      "状态 / status": "Beta（官方仓库）"
+    }
+  },
+  {
+    "id": "ap2-agent-payments",
+    "title": {
+      "zh": "AP2：Agent Payments Protocol",
+      "en": "AP2: Agent Payments Protocol"
+    },
+    "category": "protocol",
+    "url": "https://ap2-protocol.org/faq/",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://ap2-protocol.org/faq/",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/",
+        "quote": "we’re also releasing AP2 v.0.2, which introduces critical updates for autonomous transactions, including “Human Not Present” payments"
+      },
+      {
+        "url": "https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/",
+        "quote": "donating the Agent Payments Protocol (AP2) to the FIDO Alliance"
+      },
+      {
+        "url": "https://ap2-protocol.org/faq/",
+        "quote": "AP2 is a payment-agnostic protocol"
+      },
+      {
+        "url": "https://protofire.io/guides/agentic-payment-protocols/",
+        "quote": "we found no public, confirmed production AP2 transaction as of 18 October 2026"
+      }
+    ],
+    "notes": {
+      "zh": "问题：Agent 代用户付款时，商家怎么知道「这真的是用户授权的」？出争议时拿什么作证据？AP2 用可签名、可选披露的 mandate 把授权范围写下来，而不只是传一张卡号。\n证据位置：Google 2026-04-28 博客宣布把 AP2 捐给 FIDO Alliance，同时发布 v0.2，新增 Human Not Present；官方 FAQ 说明 AP2 是 payment-agnostic，Checkout / Payment 两类 mandate 各有 open / closed 两种；第三方 Protofire 2026-10 的对比明确写「未找到公开确认的生产 AP2 交易」。\n局限：截至 2026-10 没有公开确认的生产交易；v0.2 只经历两个版本，mandate 模型在 v0.2 有替换；AP2 本身不做 checkout、目录或结算，要嵌在 UCP 等商业协议里；仓库仍在 Google 组织下，FIDO 接管刚开始。\n它没主张的：不是已经大规模落地的支付网络；不是加密货币专用；不是替代卡组织或收单行；不是「Agent 可以无条件自动扣款」——Human Not Present 仍依赖用户预授权。",
+      "en": "Problem: when an agent pays on a user’s behalf, how does the merchant know the user really authorised it, and what evidence exists if disputed? AP2 records the scope of authorisation in signable, selectively disclosable mandates rather than passing a card number.\nWhere the evidence sits: Google’s 2026-04-28 post donates AP2 to the FIDO Alliance and releases v0.2 with Human Not Present; the official FAQ says AP2 is payment-agnostic and defines Checkout / Payment mandates, each open or closed; Protofire’s October 2026 comparison states no public, confirmed production AP2 transaction was found.\nLimits: no publicly confirmed production transaction as of October 2026; v0.2 is only the second release and replaced the earlier mandate model; AP2 does no checkout, catalogue or settlement and must sit inside UCP or another commerce protocol; the repo is still under Google’s org while FIDO stewardship begins.\nWhat it does not claim: a payment network already at scale; a crypto-only protocol; a replacement for card networks or acquirers; unconditional agent charging — Human Not Present still depends on pre-authorisation."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "提出 / introduced": "2025-09（Google）",
+      "v0.2 / release": "2026-04-28",
+      "治理 / governance": "FIDO Alliance（2026-04-28 捐赠）",
+      "mandate": "Checkout / Payment；open / closed；SD-JWT",
+      "生产状态 / production": "截至 2026-10 未确认",
+      "许可 / license": "Apache-2.0（官方 FAQ）"
     }
   },
   {
@@ -820,201 +638,77 @@
     }
   },
   {
-    "id": "safe-smart-account",
+    "id": "chainlink-data-feeds",
     "title": {
-      "zh": "Safe 智能账户：多签、阈值与账户抽象",
-      "en": "Safe smart account: multisig, threshold and account abstraction"
-    },
-    "category": "credential",
-    "url": "https://docs.safe.global/advanced/smart-account-overview",
-    "license": {
-      "kind": "official-documentation",
-      "evidenceUrl": "https://docs.safe.global/advanced/smart-account-overview",
-      "checkedAt": "2026-11-17"
-    },
-    "evidence": [
-      {
-        "url": "https://docs.safe.global/advanced/smart-account-overview",
-        "quote": "Safe Smart Account is a Smart Account with multi-signature functionality at its core."
-      },
-      {
-        "url": "https://docs.safe.global/advanced/smart-account-overview",
-        "quote": "Uses a multi-signature logic where a threshold of owners must confirm a transaction before execution"
-      },
-      {
-        "url": "https://docs.safe.global/advanced/smart-account-overview",
-        "quote": "no single private key is used to verify transactions"
-      }
-    ],
-    "notes": {
-      "zh": "交集：把「账户」从一对私钥变成一个合约——Safe 以多签为核心，定义一组 owner 与一个阈值，达到阈值的 owner 确认后交易才执行；owner 可以是 EOA、其他合约账户甚至 passkey。\n适用范围：官方文档还列了模块（限额、恢复、4337、passkey）、Guard、批量交易与 Singleton/Proxy 架构；这使「给 Agent 一个有限额度、可回收的账户」在工程上可行。\n未解决：模块与 Guard 是安全关键组件，官方明确恶意 Guard 可以阻止交易、锁死资金；阈值多签降低单点风险但不消除私钥管理、社会工程与模块漏洞，机构使用要单独审计。",
-      "en": "The intersection: turning an account from a key pair into a contract — Safe is multisig at its core, defining a set of owners and a threshold that must confirm a transaction before execution; owners can be EOAs, other smart accounts or even passkeys.\nScope: the docs also cover modules (allowance, recovery, 4337, passkey), guards, batched transactions and the singleton/proxy architecture, which makes “give an agent a capped, revocable account” engineering-feasible.\nOpen: modules and guards are security-critical, and the docs state a malicious guard can block transactions and lock funds; multisig reduces single-key risk but does not remove key management, social engineering or module bugs, so institutional use needs its own audit."
-    },
-    "verifiedAt": "2026-11-17",
-    "specs": {
-      "账户类型 / account": "Smart Contract Account（合约账户）",
-      "核心机制 / core": "owners + threshold 多签",
-      "owner 类型 / owners": "EOA、合约账户、passkey",
-      "扩展 / extensions": "Modules、Guards、批量交易、4337、Passkey、Recovery",
-      "部署 / deployment": "Singleton + Proxy（降低部署成本）"
-    }
-  },
-  {
-    "id": "erc20-token-standard",
-    "title": {
-      "zh": "ERC-20：同质化代币的最小接口",
-      "en": "ERC-20: the minimal interface for fungible tokens"
+      "zh": "Chainlink Data Feeds：把链下价格聚合成链上读数",
+      "en": "Chainlink Data Feeds: aggregating off-chain prices into on-chain reads"
     },
     "category": "protocol",
-    "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+    "url": "https://docs.chain.link/data-feeds",
     "license": {
       "kind": "official-documentation",
-      "evidenceUrl": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+      "evidenceUrl": "https://docs.chain.link/data-feeds",
       "checkedAt": "2026-11-17"
     },
     "evidence": [
       {
-        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
-        "quote": "any one token is exactly equal to any other token; no tokens have special rights or behavior associated with them"
+        "url": "https://docs.chain.link/data-feeds",
+        "quote": "Asset prices, proof of reserves, NAV, and interest rates, aggregated from many sources by decentralized oracle networks and published onchain on dozens of networks."
       },
       {
-        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
-        "quote": "All arithmetic inside the contract is still performed on integers"
+        "url": "https://docs.chain.link/data-feeds",
+        "quote": "your contract can read the latest value in a single call"
       },
       {
-        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
-        "quote": "ERC20 uses a value of 18 for decimals"
+        "url": "https://docs.chain.link/data-feeds",
+        "quote": "L2 Sequencer Uptime Feeds"
       }
     ],
     "notes": {
-      "zh": "交集：同质化代币的最小公共接口——每个单位等价、可拆分，适合计价、投票、质押与结算；OpenZeppelin 的实现把 name/symbol/decimals 与转账、授权等逻辑封装成可继承合约。\n适用范围：官方文档强调 decimals 只是显示约定，链上仍是整数运算；默认 18 位，可按需覆盖。这与「AI Agent 收付款、按 token 计费」的账本层直接相关。\n未解决：标准本身不规定发行上限、增发、冻结或合规白名单，这些都由具体合约自行实现；approve/allowance 的授权模型有已知的授权残留风险，集成方要读安全指南，不能把「ERC-20」当作信任保证。",
-      "en": "The intersection: the minimal shared interface for fungible tokens — every unit is equivalent and divisible, suiting pricing, voting, staking and settlement; OpenZeppelin’s implementation packages name/symbol/decimals with transfer and allowance logic into an inheritable contract.\nScope: the docs stress that decimals is a display convention only and arithmetic on-chain stays integer; the default is 18 and can be overridden. This is directly relevant to agent payments and per-token billing.\nOpen: the standard itself does not define supply caps, minting, freezing or compliance allowlists — each contract does; the approve/allowance model carries known residual-approval risk, so integrators need the security guidance and must not treat “ERC-20” as a trust guarantee."
+      "zh": "交集：智能合约不能自己发 HTTP 请求，价格、储备证明、净值与利率要靠预言机网络从多个源聚合后写链上；合约一次调用就能读到最新值。\n适用范围：官方文档列出价格源、储备/NAV 类 SmartData、利率与波动率、L2 Sequencer Uptime 等类型；借贷、稳定币与代币化基金用它们给抵押品估值与结算。\n未解决：读数的新鲜度、偏差阈值与心跳由具体 feed 配置决定，不是「上链即真实」；聚合器、预言机节点与 L2 sequencer 各自有故障模式，集成方要读官方风险文档并设置熔断。",
+      "en": "The intersection: smart contracts cannot make HTTP requests, so prices, proof of reserves, NAV and rates are aggregated from many sources by decentralised oracle networks and published on-chain; a contract reads the latest value in one call.\nScope: the docs list price feeds, reserve/NAV SmartData, rate and volatility feeds, and L2 sequencer uptime feeds; lending markets, stablecoins and tokenised funds use them to value collateral and settle positions.\nOpen: freshness, deviation thresholds and heartbeats are per-feed configuration, not “on-chain therefore true”; aggregators, oracle nodes and L2 sequencers each have failure modes, so integrators must read the risk docs and add circuit breakers."
     },
     "verifiedAt": "2026-11-17",
     "specs": {
-      "标准 / standard": "ERC-20（同质化代币）",
-      "精度 / decimals": "默认 18，仅显示用；链上整数运算",
-      "实现 / implementation": "OpenZeppelin Contracts 5.x ERC20",
-      "常见用途 / uses": "计价、投票、质押、结算",
-      "本站口径 / scope": "只记录标准与实现，不评价任何代币"
+      "数据类型 / data": "价格、储备证明、NAV、利率、波动率、L2 sequencer 状态",
+      "读取方式 / read": "AggregatorV3Interface，一次调用取最新值",
+      "覆盖 / networks": "官方称数十条网络",
+      "风险配置 / risk": "每 feed 的心跳与偏差阈值不同",
+      "本站口径 / scope": "只记录机制，不评价任何 feed 的准确性"
     }
   },
   {
-    "id": "erc721-token-standard",
+    "id": "did-resolution",
     "title": {
-      "zh": "ERC-721：每个 token 都唯一的 ownership 标准",
-      "en": "ERC-721: a standard where every token is unique"
+      "zh": "DID Resolution：把标识解析成可核验文档",
+      "en": "DID Resolution: resolving identifiers into verifiable documents"
     },
-    "category": "provenance",
-    "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
-    "license": {
-      "kind": "official-documentation",
-      "evidenceUrl": "https://docs.openzeppelin.com/contracts/5.x/erc721",
-      "checkedAt": "2026-11-17"
-    },
-    "evidence": [
-      {
-        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
-        "quote": "ERC-721 is a standard for representing ownership of *non-fungible* tokens, that is, where each token is unique."
-      },
-      {
-        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
-        "quote": "ERC-721 lacks a `decimals` field, since each token is distinct and cannot be partitioned."
-      },
-      {
-        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
-        "quote": "the item’s information is included in the metadata, but that information isn’t on-chain! So a game developer could change the underlying metadata"
-      }
-    ],
-    "notes": {
-      "zh": "交集：为「唯一物品」提供所有权记录——每个 tokenId 唯一、不可拆分，标准用 ownerOf 与 tokenURI 记录归属与元数据；适合数字藏品、门票、身份凭证与资产凭证。\n适用范围：OpenZeppelin 文档说明 ERC-721 比 ERC-20 复杂，带多个可选扩展；tokenURI 通常指向链下 JSON，图片与属性可以放在 IPFS 或普通 HTTPS。\n未解决：元数据不在链上，发行方可以改 tokenURI 指向的内容，链上「所有权」不等于「内容不可变」；标准也不验证资产真实性、版权或赎回权，买之前要单独核验发行方与元数据托管方式。",
-      "en": "The intersection: an ownership record for unique items — each tokenId is unique and indivisible, with ownerOf and tokenURI recording ownership and metadata; suited to collectibles, tickets, credentials and asset receipts.\nScope: the OpenZeppelin docs note ERC-721 is more complex than ERC-20 with several optional extensions; tokenURI usually points to off-chain JSON, with images and attributes on IPFS or ordinary HTTPS.\nOpen: metadata is not on-chain, so an issuer can change what tokenURI resolves to — on-chain ownership is not content immutability; the standard also does not verify authenticity, copyright or redemption rights, which must be checked separately."
-    },
-    "verifiedAt": "2026-11-17",
-    "specs": {
-      "标准 / standard": "ERC-721（非同质化代币）",
-      "唯一性 / uniqueness": "每个 tokenId 唯一，不可拆分，无 decimals",
-      "归属 / ownership": "ownerOf(tokenId)",
-      "元数据 / metadata": "tokenURI 指向链下 JSON（可被发行方更改）",
-      "本站口径 / scope": "只记录标准与实现，不评价任何藏品"
-    }
-  },
-  {
-    "id": "tee-attestation",
-    "title": {
-      "zh": "TEE 远程证明（以 Phala 为例）",
-      "en": "TEE remote attestation (Phala example)"
-    },
-    "category": "provenance",
-    "url": "https://phala.com/",
+    "category": "protocol",
+    "url": "https://w3c.github.io/did-resolution/",
     "license": {
       "kind": "official-specification",
-      "evidenceUrl": "https://phala.com/",
-      "checkedAt": "2026-11-19"
+      "evidenceUrl": "https://w3c.github.io/did-resolution/",
+      "checkedAt": "2026-11-07"
     },
     "evidence": [
       {
-        "url": "https://phala.com/",
-        "quote": "TEE is a secure area inside a processor that protects code and data from the operating system, hypervisor, and other applications."
+        "url": "https://w3c.github.io/did-resolution/",
+        "quote": "Decentralized identifier (DID) resolution is the process of obtaining a DID document and accompanying metadata for a specific DID."
       },
       {
-        "url": "https://phala.com/",
-        "quote": "Instead of asking users to trust a cloud claim, Phala emits runtime measurements that software can verify."
-      },
-      {
-        "url": "https://phala.com/",
-        "quote": "runtime measurement"
+        "url": "https://w3c.github.io/did-resolution/",
+        "quote": "MUST implement the DID resolution function for at least one DID method and MUST be able to return a DID document."
       }
     ],
     "notes": {
-      "zh": "交集：AI 推理跑在第三方云上时，用户怎么相信「模型与代码确实按声明运行」。TEE 远程证明把运行时度量、签名与验证报告交给软件核验。\n适用范围：这里以 Phala 的 CPU/GPU TEE 与 attestation 示例说明流程；它不保证模型本身正确，也不保证所有云都支持同样的证明格式。\n未解决：不同 TEE 厂商（Intel TDX / NVIDIA CC / AMD SEV）证明链与信任根不统一；侧信道、供应链与运维方仍可能破坏假设；跨云验证缺少统一标准。",
-      "en": "Intersection: when AI inference runs on a third-party cloud, how does the user know the model and code ran as claimed? TEE remote attestation exposes runtime measurements, signatures and verifier reports to software.\nScope: this uses Phala's CPU/GPU TEE and attestation example to show the flow; it does not guarantee the model is correct, nor that every cloud supports the same attestation format.\nOpen: trust roots and attestation chains differ across Intel TDX / NVIDIA CC / AMD SEV; side channels, supply chain and operators can still break the assumption; cross-cloud verification lacks a common standard."
+      "zh": "交集：AI 内容凭证与模型出处声明常用 DID 标识签发者或主体；验证者不能只看标识字符串，还要解析出 DID document 与元数据，才能找验证方法和状态信息。\n适用范围：官方规范定义 DID resolution 是取得 DID document 与伴随元数据的过程，并规定 conforming resolver 至少实现一个 DID method 的解析函数且能返回 DID document。它规定解析接口与元数据，不保证 DID 背后主体身份真实。\n未解决：各 DID method 的更新、撤销与可用性不同；页面仍是 Editor’s Draft，AI 凭证系统要核对目标 method 的实现与治理，而不是把解析成功当成信任完成。",
+      "en": "The intersection: AI content credentials and model provenance statements often use DIDs for issuers or subjects; verifiers must resolve the identifier into a DID document and metadata to find verification methods and status information.\nScope: the specification defines DID resolution as obtaining a DID document and accompanying metadata, and requires conforming resolvers to implement the resolution function for at least one DID method and return a DID document. It standardises resolution and metadata, not the real-world identity behind the DID.\nOpen: DID methods differ in update, revocation and availability; the page remains an Editor’s Draft, so credential systems must check the target method implementation and governance rather than treating successful resolution as completed trust."
     },
-    "verifiedAt": "2026-11-19",
+    "verifiedAt": "2026-11-07",
     "specs": {
-      "协议状态 / status": "已部署（产品化示例）",
-      "证明对象 / attested": "运行时度量 + 镜像摘要",
-      "验证方式 / verify": "签名与 attestation 报告",
-      "来源 / source": "Phala 官方页"
-    }
-  },
-  {
-    "id": "phala-network",
-    "title": {
-      "zh": "Phala Network：机密 AI 云",
-      "en": "Phala Network: confidential AI cloud"
-    },
-    "category": "inference",
-    "url": "https://phala.com/",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://phala.com/",
-      "checkedAt": "2026-11-19"
-    },
-    "evidence": [
-      {
-        "url": "https://phala.com/",
-        "quote": "Run agents, private LLM models, and GPU jobs inside hardware-backed TEEs."
-      },
-      {
-        "url": "https://phala.com/",
-        "quote": "Move existing Docker Compose workloads into CPU or GPU confidential machines."
-      },
-      {
-        "url": "https://phala.com/",
-        "quote": "Phala emits runtime measurements that software can verify."
-      }
-    ],
-    "notes": {
-      "zh": "交集：把私有模型、agent 与 GPU 任务放进硬件 TEE 里跑，并用证明报告替代「相信云厂商」。\n适用范围：官方称支持 CPU TEE（Intel TDX）与 GPU TEE（NVIDIA CC），可把 Docker Compose 工作负载迁入 confidential VM；证明可被软件验证。\n未解决：性能开销、GPU 型号覆盖、跨区域可用性与合规审计细节需逐项核对；TEE 不是模型正确性或输出质量的保证。",
-      "en": "Intersection: run private models, agents and GPU jobs inside hardware TEEs, and use attestation reports instead of trusting the cloud vendor.\nScope: the official page says it supports CPU TEE (Intel TDX) and GPU TEE (NVIDIA CC), can move Docker Compose workloads into confidential VMs, and exposes software-verifiable measurements.\nOpen: performance overhead, GPU model coverage, regional availability and audit details need case-by-case checks; TEE is not a guarantee of model correctness or output quality."
-    },
-    "verifiedAt": "2026-11-19",
-    "specs": {
-      "协议状态 / status": "已部署",
-      "TEE / hardware": "Intel TDX / NVIDIA CC",
-      "部署形态 / deploy": "Confidential VM + Docker Compose",
-      "证明 / attestation": "运行时度量与签名报告"
+      "协议状态 / status": "草案（W3C Editor’s Draft，页面配置 specStatus: ED）",
+      "规范来源 / source": "https://w3c.github.io/did-resolution/",
+      "核验日 / checked": "2026-11-07"
     }
   },
   {
@@ -1053,238 +747,41 @@
     }
   },
   {
-    "id": "gensyn",
+    "id": "eip-1271",
     "title": {
-      "zh": "Gensyn：可审计的去中心化训练",
-      "en": "Gensyn: auditable decentralised training"
-    },
-    "category": "inference",
-    "url": "https://www.gensyn.ai/",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://www.gensyn.ai/",
-      "checkedAt": "2026-11-19"
-    },
-    "evidence": [
-      {
-        "url": "https://www.gensyn.ai/",
-        "quote": "open-1b: the first model you don’t have to trust"
-      },
-      {
-        "url": "https://www.gensyn.ai/",
-        "quote": "Introducing REE: Reproducible Execution Environment"
-      },
-      {
-        "url": "https://www.gensyn.ai/",
-        "quote": "open-8b: an auditable model, in training"
-      }
-    ],
-    "notes": {
-      "zh": "交集：把训练过程做成可复现、可审计的执行环境，让外部能验证模型是怎么训出来的，而不是只看最终权重。\n适用范围：官方发布 open-1b/REE/open-8b 等可审计训练与可复现执行环境；它是研究/生产平台，不是通用 GPU 租用市场。\n未解决：可审计性覆盖到哪一层（数据、代码、随机性、硬件）、大规模任务成本、以及验证者与训练者串谋风险，官方材料未给出完整答案。",
-      "en": "Intersection: make training reproducible and auditable so outsiders can verify how a model was trained, not just inspect final weights.\nScope: the official site announces open-1b/REE/open-8b and a reproducible execution environment; it is a research/production platform, not a generic GPU rental marketplace.\nOpen: how deep auditability covers data, code, randomness and hardware; the cost of large runs; and collusion between trainers and verifiers are not fully answered in the public material."
-    },
-    "verifiedAt": "2026-11-19",
-    "specs": {
-      "协议状态 / status": "已部署",
-      "可审计对象 / audit": "训练过程 + 执行环境",
-      "公开模型 / models": "open-1b / open-8b",
-      "执行环境 / REE": "Reproducible Execution Environment"
-    }
-  },
-  {
-    "id": "prime-intellect",
-    "title": {
-      "zh": "Prime Intellect：算力 + 训练 + 推理栈",
-      "en": "Prime Intellect: compute + training + inference stack"
-    },
-    "category": "inference",
-    "url": "https://www.primeintellect.ai/",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://www.primeintellect.ai/",
-      "checkedAt": "2026-11-19"
-    },
-    "evidence": [
-      {
-        "url": "https://www.primeintellect.ai/",
-        "quote": "Train and deploy custom AI models on an integrated compute, training, and inference stack."
-      },
-      {
-        "url": "https://www.primeintellect.ai/",
-        "quote": "A framework for asynchronous reinforcement learning (RL) at scale."
-      },
-      {
-        "url": "https://www.primeintellect.ai/",
-        "quote": "~11 hours of GRPO training on 128 GB200 GPUs"
-      }
-    ],
-    "notes": {
-      "zh": "交集：把按需 GPU、托管训练（SFT/RL）与推理放在同一平台，适合需要自定义模型与 RL 环境的团队。\n适用范围：官方给出 PrimeCompute 按需/专用集群、Prime-RL 异步 RL、托管训练与推理；案例含 2,500 条企业任务与 128 张 GB200 上约 11 小时 GRPO。\n未解决：跨区域网络与数据驻留、长期集群价格、故障恢复与多租户隔离需要看合同；案例数字是特定任务与硬件配置。",
-      "en": "Intersection: put on-demand GPUs, hosted training (SFT/RL) and inference on one platform, for teams training custom models and RL environments.\nScope: the official site lists PrimeCompute on-demand/dedicated clusters, Prime-RL asynchronous RL, hosted training and inference; a case cites 2,500 enterprise tasks and ~11 hours of GRPO on 128 GB200 GPUs.\nOpen: cross-region networking and data residency, long-term cluster pricing, failure recovery and multi-tenant isolation need contract-level checks; case numbers are task- and hardware-specific."
-    },
-    "verifiedAt": "2026-11-19",
-    "specs": {
-      "协议状态 / status": "已部署",
-      "算力 / compute": "按需 GPU + 专用集群",
-      "训练 / training": "SFT + Prime-RL",
-      "案例 / case": "128 GB200 / ~11h GRPO"
-    }
-  },
-  {
-    "id": "io-net",
-    "title": {
-      "zh": "io.net：分布式 GPU 聚合",
-      "en": "io.net: aggregated distributed GPUs"
-    },
-    "category": "inference",
-    "url": "https://io.net/",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://io.net/",
-      "checkedAt": "2026-11-19"
-    },
-    "evidence": [
-      {
-        "url": "https://io.net/",
-        "quote": "H100s, A100s, and full clusters on demand."
-      },
-      {
-        "url": "https://io.net/",
-        "quote": "Securely connect to GPUs from independent data centers, mining operations, and private clusters worldwide."
-      },
-      {
-        "url": "https://io.net/",
-        "quote": "globally distributed network, and available confidential compute"
-      }
-    ],
-    "notes": {
-      "zh": "交集：把独立数据中心、矿业与私有集群的 GPU 聚合起来，按需供给训练/推理；价格与可用性随供给波动。\n适用范围：官方称可按需提供 H100/A100 与整簇、分钟级部署、全球分布式网络与可选机密计算；不承诺固定库存或单一区域。\n未解决：跨供给方的网络带宽与延迟、数据安全与合规、任务迁移与故障恢复、以及「70% cheaper」这类对比的基准条件需自行核验。",
-      "en": "Intersection: aggregate GPUs from independent data centers, mining operations and private clusters, then supply them on demand for training/inference; price and availability vary with supply.\nScope: the official site advertises on-demand H100/A100 and full clusters, minute-level deployment, a globally distributed network and optional confidential compute; it does not promise fixed inventory or a single region.\nOpen: cross-provider bandwidth and latency, data security/compliance, job migration and failure recovery, and the basis of \"70% cheaper\" comparisons need independent verification."
-    },
-    "verifiedAt": "2026-11-19",
-    "specs": {
-      "协议状态 / status": "已部署",
-      "供给 / supply": "独立数据中心 + 矿业 + 私有集群",
-      "卡型 / GPUs": "H100 / A100 / 多类",
-      "机密计算 / confidential": "可选"
-    }
-  },
-  {
-    "id": "story-protocol",
-    "title": {
-      "zh": "Story Protocol：可编程 IP",
-      "en": "Story Protocol: programmable IP"
-    },
-    "category": "data-rights",
-    "url": "https://docs.story.foundation/",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://docs.story.foundation/",
-      "checkedAt": "2026-11-19"
-    },
-    "evidence": [
-      {
-        "url": "https://docs.story.foundation/",
-        "quote": "Story is a purpose-built layer 1 blockchain designed specifically for intellectual property."
-      },
-      {
-        "url": "https://docs.story.foundation/",
-        "quote": "You can register your IP on-chain and add usage terms to it in seconds"
-      },
-      {
-        "url": "https://docs.story.foundation/",
-        "quote": "Although on-chain, an IP’s usage terms and minted licenses are enforced by an off-chain legal contract called the Programmable IP License"
-      }
-    ],
-    "notes": {
-      "zh": "交集：AI 训练数据、模型权重、生成内容都需要可追溯的授权与分成；Story 把 IP 登记、许可与版税写成链上资产 + 链下法律合同。\n适用范围：官方文档定义 IP Asset（ERC721）、License/Royalty/Dispute 模块与 Programmable IP License（PIL）；链上条款最终要靠 PIL 映射到现实法律。\n未解决：链上登记不等于版权确权；跨司法辖区执行、AI 训练数据的多源授权、以及侵权判定仍是法律问题，不是协议自动解决。",
-      "en": "Intersection: AI training data, model weights and generated content need traceable licensing and revenue sharing; Story registers IP as on-chain assets plus an off-chain legal contract.\nScope: the docs define IP Assets (ERC721), Licensing/Royalty/Dispute modules and the Programmable IP License (PIL); on-chain terms are ultimately mapped to real-world law through the PIL.\nOpen: on-chain registration is not copyright registration; cross-jurisdiction enforcement, multi-source AI training-data licensing and infringement adjudication remain legal problems, not automatic protocol outcomes."
-    },
-    "verifiedAt": "2026-11-19",
-    "specs": {
-      "协议状态 / status": "已部署",
-      "IP 资产 / IP asset": "ERC721",
-      "许可 / license": "Programmable IP License",
-      "模块 / modules": "Licensing / Royalty / Dispute"
-    }
-  },
-  {
-    "id": "openid4vc",
-    "title": {
-      "zh": "OpenID for Verifiable Credential Issuance 1.0",
-      "en": "OpenID for Verifiable Credential Issuance 1.0"
-    },
-    "category": "credential",
-    "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
-    "license": {
-      "kind": "official-specification",
-      "evidenceUrl": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
-      "checkedAt": "2026-11-19"
-    },
-    "evidence": [
-      {
-        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
-        "quote": "This specification defines an API for the issuance of Verifiable Credentials."
-      },
-      {
-        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
-        "quote": "openid4vci-proof+jwt"
-      },
-      {
-        "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
-        "quote": "The Credential Issuer MUST validate that the JWT used as a proof is actually signed by a key identified in the JOSE Header"
-      }
-    ],
-    "notes": {
-      "zh": "交集：AI agent 或用户需要把「身份、资质、授权」以可验证凭证形式出示给模型/服务；OpenID4VCI 定义签发 API 与密钥证明格式。\n适用范围：规范定义凭证签发、proof JWT、nonce 与 issuer 校验；它不规定凭证内容模型（那是 VC data model）也不规定具体信任框架。\n未解决：钱包/发行方互操作、撤销与隐私、以及 AI agent 持有凭证时的委托与最小披露，仍需上层 profile 与合规规则。",
-      "en": "Intersection: AI agents or users need to present identity, qualifications or authorisations as verifiable credentials; OpenID4VCI defines the issuance API and key-proof format.\nScope: the spec defines credential issuance, proof JWTs, nonces and issuer validation; it does not define the credential content model (that is the VC data model) or a specific trust framework.\nOpen: wallet/issuer interoperability, revocation and privacy, and delegation/minimal disclosure when an AI agent holds credentials still need profiles and compliance rules."
-    },
-    "verifiedAt": "2026-11-19",
-    "specs": {
-      "协议状态 / status": "已部署",
-      "版本 / version": "1.0",
-      "证明类型 / proof": "openid4vci-proof+jwt",
-      "签发 / issuance": "Credential Issuer API"
-    }
-  },
-  {
-    "id": "eip-7702-set-code-eoa",
-    "title": {
-      "zh": "EIP-7702：给 EOA 设置代码",
-      "en": "EIP-7702: Set Code for EOAs"
+      "zh": "ERC-1271：合约账户签名验证",
+      "en": "ERC-1271: Standard Signature Validation Method for Contracts"
     },
     "category": "protocol",
-    "url": "https://eips.ethereum.org/EIPS/eip-7702",
+    "url": "https://github.com/ethereum/ercs/blob/master/ERCS/erc-1271.md",
     "license": {
       "kind": "official-specification",
-      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-7702",
-      "checkedAt": "2026-11-19"
+      "evidenceUrl": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+      "checkedAt": "2026-11-07"
     },
     "evidence": [
       {
-        "url": "https://eips.ethereum.org/EIPS/eip-7702",
-        "quote": "Add a new EIP-2718 transaction type that allows Externally Owned Accounts (EOAs) to set the code in their account."
+        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+        "quote": "Externally Owned Accounts (EOA) can sign messages with their associated private keys, but currently contracts cannot."
       },
       {
-        "url": "https://eips.ethereum.org/EIPS/eip-7702",
-        "quote": "This EIP does not provide developers the opportunity to run initcode and set storage slots during delegation."
+        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+        "quote": "We propose a standard way for any contracts to verify whether a signature on a behalf of a given contract is valid."
       },
       {
-        "url": "https://eips.ethereum.org/EIPS/eip-7702",
-        "quote": "clients do not accept more than one pending transaction for any EOA with a non-zero delegation indicator"
+        "url": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+        "quote": "status: Final"
       }
     ],
     "notes": {
-      "zh": "交集：AI Agent 需要一个可编程账户来收付款、限额、批量调用和恢复权限；EIP-7702 让 EOA 在单笔交易里委托一段代码，给「代理执行」提供了账户层入口。\n适用范围：官方规范只定义「EOA 设置代码」的交易格式、授权元组与委托指示符；它不替开发者初始化存储，也不保证钱包界面能正确展示委托状态。客户端被建议对已有委托的 EOA 只接受一笔待处理交易，以降低交易失效风险。\n未解决：委托代码的升级与撤销、会话密钥的生命周期、被委托合约的安全审计，以及不同钱包对 7702 的展示与风控口径，都还在演进。",
-      "en": "Intersection: AI agents need a programmable account for payments, spending limits, batching and permission recovery; EIP-7702 lets an EOA delegate to code within a transaction, giving agent execution an account-level entry point.\nScope: the official spec only defines the transaction format, authorization tuples and delegation indicator for an EOA setting code; it does not initialise storage for developers or guarantee that wallets display delegation correctly. Clients are advised to accept only one pending transaction for an EOA with a non-zero delegation indicator to reduce invalidation risk.\nOpen: delegation upgrades and revocation, session-key lifecycles, security audits of delegated contracts, and wallet display/risk policy for 7702 are still evolving."
+      "zh": "交集：当 AI 内容凭证或数据授权由合约账户而不是个人私钥签署时，验证者需要问「这个合约是否认可该签名」；ERC-1271 给出合约侧统一验证入口。\n适用范围：官方摘要说 EOA 能用私钥签消息而合约不能，因此提出通过 signing contract 上的 isValidSignature(hash, signature) 验证签名。它规定验证接口，不规定合约内部怎样决策，也不保证签名背后的业务声明真实。\n未解决：合约钱包、多签与权限模块各自实现验证逻辑，跨应用仍要核对实现与升级风险；该规范已从 EIPs 仓库移到 ERCs 仓库，状态 Final，但本站不推断所有合约账户都支持。",
+      "en": "The intersection: when an AI content credential or data permission is signed by a contract account rather than a personal private key, verifiers need to ask whether the contract recognises the signature; ERC-1271 provides a common contract-side validation entry point.\nScope: the abstract says EOAs can sign messages with private keys but contracts cannot, and proposes validation through isValidSignature(hash, signature) on the signing contract. It standardises the interface, not the internal decision logic, and does not make the underlying business claim true.\nOpen: contract wallets, multisigs and permission modules implement their own validation, so applications still need to check implementation and upgrade risk; the specification moved from the EIPs repository to ERCs and is Final, but this site does not infer support by every contract account."
     },
-    "verifiedAt": "2026-11-19",
+    "verifiedAt": "2026-11-07",
     "specs": {
-      "提出 / created": "2024-05-07",
-      "核心对象 / object": "authorization tuple + delegation indicator",
-      "作用 / effect": "EOA 可在交易中委托代码执行",
-      "协议状态 / status": "已部署（Final；随 Pectra 升级上线）",
-      "许可 / license": "CC0（EIP 文本，以官方页为准）"
+      "协议状态 / status": "Final（官方 ERC 状态；具体部署范围官方未说明）",
+      "规范来源 / source": "https://raw.githubusercontent.com/ethereum/ercs/master/ERCS/erc-1271.md",
+      "核验日 / checked": "2026-11-07"
     }
   },
   {
@@ -1328,43 +825,126 @@
     }
   },
   {
-    "id": "erc-7579-minimal-modular-accounts",
+    "id": "eip-712",
     "title": {
-      "zh": "ERC-7579：最小模块化智能账户",
-      "en": "ERC-7579: Minimal Modular Smart Accounts"
+      "zh": "EIP-712：类型化结构化数据哈希与签名",
+      "en": "EIP-712: Typed Structured Data Hashing and Signing"
     },
     "category": "protocol",
-    "url": "https://eips.ethereum.org/EIPS/eip-7579",
+    "url": "https://eips.ethereum.org/EIPS/eip-712",
     "license": {
       "kind": "official-specification",
-      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-7579",
+      "evidenceUrl": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+        "quote": "This is a standard for hashing and signing of typed structured data as opposed to just bytestrings."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+        "quote": "Hashing structured data is non-trivial and errors result in loss of the security properties of the system."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+        "quote": "status: Final"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 生成内容凭证、模型出处与授权声明经常需要离线签署一份结构化声明；EIP-712 规定类型化数据怎样编码、哈希并进入可签名消息，避免把复杂声明只当成不透明字节串。\n适用范围：官方摘要说它是类型化结构化数据哈希与签名标准，动机节强调结构化哈希出错会丢失系统安全性质；原文还说明它不包含重放保护。它只规定签名口径，不证明声明内容为真，也不替应用定义撤销与信任策略。\n未解决：具体 AI 凭证系统仍要自己定义 schema、域分隔、重放防护与验证者信任；EIP 状态为 Final，但本站不据此推断每条链或每个钱包都已部署。",
+      "en": "The intersection: AI content credentials, model provenance and permission statements often need an offline signature over a structured claim; EIP-712 specifies how typed data is encoded, hashed and included in signable messages instead of treating complex claims as opaque byte strings.\nScope: the abstract describes a standard for hashing and signing typed structured data, and the motivation warns that errors in structured hashing lose security properties; the text also says it does not include replay protection. It standardises signing, not the truth of the claim, and does not define revocation or verifier trust for an application.\nOpen: an AI credential system still has to define its schema, domain separation, replay protection and verifier trust; the EIP status is Final, but this site does not infer deployment on every chain or wallet."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "Final（官方 EIP 状态；具体部署范围官方未说明）",
+      "规范来源 / source": "https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-712.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "eip-7702-set-code-eoa",
+    "title": {
+      "zh": "EIP-7702：给 EOA 设置代码",
+      "en": "EIP-7702: Set Code for EOAs"
+    },
+    "category": "protocol",
+    "url": "https://eips.ethereum.org/EIPS/eip-7702",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-7702",
       "checkedAt": "2026-11-19"
     },
     "evidence": [
       {
-        "url": "https://eips.ethereum.org/EIPS/eip-7579",
-        "quote": "This proposal outlines the minimally required interfaces and behavior for modular smart accounts and modules to ensure interoperability across implementations."
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "quote": "Add a new EIP-2718 transaction type that allows Externally Owned Accounts (EOAs) to set the code in their account."
       },
       {
-        "url": "https://eips.ethereum.org/EIPS/eip-7579",
-        "quote": "This standard separates modules into the following different types that each has a unique and incremental identifier"
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "quote": "This EIP does not provide developers the opportunity to run initcode and set storage slots during delegation."
       },
       {
-        "url": "https://eips.ethereum.org/EIPS/eip-7579",
-        "quote": "Smart accounts that have already been deployed will most likely be able to implement this standard."
+        "url": "https://eips.ethereum.org/EIPS/eip-7702",
+        "quote": "clients do not accept more than one pending transaction for any EOA with a non-zero delegation indicator"
       }
     ],
     "notes": {
-      "zh": "交集：Agent 钱包要把验证器、执行器、Hook 与恢复模块拆开组合；ERC-7579 给了一套最小接口，让不同实现能互相插模块。\n适用范围：官方规范只规定账户与模块的最小接口、模块类型与安装/卸载行为；它不规定具体安全策略，也不保证每个模块经过审计。已有账户可能通过代理升级或 fallback adapter 兼容，但不是自动兼容。\n未解决：模块组合后的权限冲突、升级路径、模块注册表与供应链安全，仍要由账户实现方与审计方各自处理。",
-      "en": "Intersection: agent wallets need to compose validators, executors, hooks and recovery modules; ERC-7579 provides a minimal interface set so different implementations can plug modules into each other.\nScope: the official spec only defines minimal account/module interfaces, module types and install/uninstall behaviour; it does not prescribe security policy or guarantee that every module is audited. Existing accounts may become compatible via proxy upgrades or fallback adapters, but not automatically.\nOpen: permission conflicts after module composition, upgrade paths, module registries and supply-chain security remain the responsibility of account implementers and auditors."
+      "zh": "交集：AI Agent 需要一个可编程账户来收付款、限额、批量调用和恢复权限；EIP-7702 让 EOA 在单笔交易里委托一段代码，给「代理执行」提供了账户层入口。\n适用范围：官方规范只定义「EOA 设置代码」的交易格式、授权元组与委托指示符；它不替开发者初始化存储，也不保证钱包界面能正确展示委托状态。客户端被建议对已有委托的 EOA 只接受一笔待处理交易，以降低交易失效风险。\n未解决：委托代码的升级与撤销、会话密钥的生命周期、被委托合约的安全审计，以及不同钱包对 7702 的展示与风控口径，都还在演进。",
+      "en": "Intersection: AI agents need a programmable account for payments, spending limits, batching and permission recovery; EIP-7702 lets an EOA delegate to code within a transaction, giving agent execution an account-level entry point.\nScope: the official spec only defines the transaction format, authorization tuples and delegation indicator for an EOA setting code; it does not initialise storage for developers or guarantee that wallets display delegation correctly. Clients are advised to accept only one pending transaction for an EOA with a non-zero delegation indicator to reduce invalidation risk.\nOpen: delegation upgrades and revocation, session-key lifecycles, security audits of delegated contracts, and wallet display/risk policy for 7702 are still evolving."
     },
     "verifiedAt": "2026-11-19",
     "specs": {
-      "提出 / created": "2023-12-14",
-      "核心对象 / object": "modular smart account + module types",
-      "模块类型 / module types": "Validation / Execution / Fallback / Hooks",
-      "协议状态 / status": "草案（官方状态 Draft）",
-      "许可 / license": "CC0（ERC 文本，以官方页为准）"
+      "提出 / created": "2024-05-07",
+      "核心对象 / object": "authorization tuple + delegation indicator",
+      "作用 / effect": "EOA 可在交易中委托代码执行",
+      "协议状态 / status": "已部署（Final；随 Pectra 升级上线）",
+      "许可 / license": "CC0（EIP 文本，以官方页为准）"
+    }
+  },
+  {
+    "id": "erc-4337-account-abstraction",
+    "title": {
+      "zh": "ERC-4337：账户抽象（alt mempool）",
+      "en": "ERC-4337: account abstraction (alt mempool)"
+    },
+    "category": "protocol",
+    "url": "https://eips-wg.github.io/EIPs/4337/",
+    "license": {
+      "kind": "eip-spec",
+      "evidenceUrl": "https://eips-wg.github.io/EIPs/4337/",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://eips-wg.github.io/EIPs/4337/",
+        "quote": "An account abstraction proposal which completely avoids the need for consensus-layer protocol changes."
+      },
+      {
+        "url": "https://eips-wg.github.io/EIPs/4337/",
+        "quote": "Users send UserOperation objects into a separate mempool."
+      },
+      {
+        "url": "https://eips-wg.github.io/EIPs/4337/",
+        "quote": "A special class of actor called bundlers package up a set of these objects into a transaction making a handleOps call to a special contract"
+      },
+      {
+        "url": "https://docs.erc4337.io/core-standards/erc-4337",
+        "quote": "ERC-4337 is the foundational standard for Account Abstraction (AA) on Ethereum."
+      }
+    ],
+    "notes": {
+      "zh": "问题：普通 EOA 的验证规则写死在协议里，智能合约钱包想自定义签名、批量操作、代付 gas，就得改共识层。ERC-4337 用 alt mempool + EntryPoint 绕开共识层，把「用户意图」变成 UserOperation。\n证据位置：EIP 摘要给出 UserOperation、独立 mempool、bundler 打包与 handleOps 调用；官方文档把角色拆成 EntryPoint、Bundler、Paymaster，并说明 Paymaster 可代付 gas / 用 ERC-20 付费。\n局限：alt mempool 带来 bundler 的中心化与审查风险；Paymaster 赞助可被滥用，需要声誉/限额策略；它不改共识层，也意味着底层账户模型仍是 EOA + 合约；不同 EntryPoint 版本（v0.6/0.7/0.8）兼容性要单独确认。\n它没主张的：不是 EIP-7702 的替代；不保证 gasless（只是把付费方换成 Paymaster）；不是唯一的账户抽象路线；不是「所有钱包都已支持」。",
+      "en": "Problem: an EOA’s validation rules are fixed by the protocol; a smart-contract wallet that wants custom signatures, batching or sponsored gas would need consensus changes. ERC-4337 avoids that with an alt mempool and an EntryPoint, turning user intent into a UserOperation.\nWhere the evidence sits: the EIP abstract defines UserOperation, a separate mempool, bundler packaging and the handleOps call; the official docs split roles into EntryPoint, Bundler and Paymaster, and note that a Paymaster can sponsor gas or accept ERC-20.\nLimits: the alt mempool brings bundler centralisation and censorship risk; Paymaster sponsorship can be abused without reputation/limits; avoiding consensus changes leaves the base account model as EOA plus contract; EntryPoint versions (v0.6/0.7/0.8) need separate compatibility checks.\nWhat it does not claim: a replacement for EIP-7702; a guarantee of gasless transactions (it moves who pays); the only account-abstraction route; that every wallet supports it."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "提出 / created": "2021-09-29",
+      "核心对象 / object": "UserOperation",
+      "角色 / roles": "EntryPoint、Bundler、Paymaster",
+      "共识层 / consensus": "不需要改（alt mempool）",
+      "标准状态 / status": "ERC Review / Standards Track",
+      "许可 / license": "CC0（EIP 文本，以官方页为准）"
     }
   },
   {
@@ -1405,6 +985,607 @@
       "账户形态 / account form": "全模块化或半模块化",
       "协议状态 / status": "草案（官方状态 Draft）",
       "许可 / license": "CC0（ERC 文本，以官方页为准）"
+    }
+  },
+  {
+    "id": "erc-7579-minimal-modular-accounts",
+    "title": {
+      "zh": "ERC-7579：最小模块化智能账户",
+      "en": "ERC-7579: Minimal Modular Smart Accounts"
+    },
+    "category": "protocol",
+    "url": "https://eips.ethereum.org/EIPS/eip-7579",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://eips.ethereum.org/EIPS/eip-7579",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7579",
+        "quote": "This proposal outlines the minimally required interfaces and behavior for modular smart accounts and modules to ensure interoperability across implementations."
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7579",
+        "quote": "This standard separates modules into the following different types that each has a unique and incremental identifier"
+      },
+      {
+        "url": "https://eips.ethereum.org/EIPS/eip-7579",
+        "quote": "Smart accounts that have already been deployed will most likely be able to implement this standard."
+      }
+    ],
+    "notes": {
+      "zh": "交集：Agent 钱包要把验证器、执行器、Hook 与恢复模块拆开组合；ERC-7579 给了一套最小接口，让不同实现能互相插模块。\n适用范围：官方规范只规定账户与模块的最小接口、模块类型与安装/卸载行为；它不规定具体安全策略，也不保证每个模块经过审计。已有账户可能通过代理升级或 fallback adapter 兼容，但不是自动兼容。\n未解决：模块组合后的权限冲突、升级路径、模块注册表与供应链安全，仍要由账户实现方与审计方各自处理。",
+      "en": "Intersection: agent wallets need to compose validators, executors, hooks and recovery modules; ERC-7579 provides a minimal interface set so different implementations can plug modules into each other.\nScope: the official spec only defines minimal account/module interfaces, module types and install/uninstall behaviour; it does not prescribe security policy or guarantee that every module is audited. Existing accounts may become compatible via proxy upgrades or fallback adapters, but not automatically.\nOpen: permission conflicts after module composition, upgrade paths, module registries and supply-chain security remain the responsibility of account implementers and auditors."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "提出 / created": "2023-12-14",
+      "核心对象 / object": "modular smart account + module types",
+      "模块类型 / module types": "Validation / Execution / Fallback / Hooks",
+      "协议状态 / status": "草案（官方状态 Draft）",
+      "许可 / license": "CC0（ERC 文本，以官方页为准）"
+    }
+  },
+  {
+    "id": "erc-8004-trustless-agents",
+    "title": {
+      "zh": "ERC-8004：Trustless Agents",
+      "en": "ERC-8004: Trustless Agents"
+    },
+    "category": "protocol",
+    "url": "https://www.8004.org/blog/welcome-to-8004",
+    "license": {
+      "kind": "official-blog",
+      "evidenceUrl": "https://www.8004.org/blog/welcome-to-8004",
+      "checkedAt": "2026-11-18"
+    },
+    "evidence": [
+      {
+        "url": "https://www.8004.org/blog/welcome-to-8004",
+        "quote": "Today, ERC-8004, the standard for Trustless Agents, is officially live on Ethereum mainnet."
+      },
+      {
+        "url": "https://www.8004.org/blog/welcome-to-8004",
+        "quote": "Three on-chain registries give agents portable identity, verifiable reputation, and cryptographic validation"
+      },
+      {
+        "url": "https://www.8004.org/blog/welcome-to-8004",
+        "quote": "The standard integrates with x402 for programmable payments"
+      },
+      {
+        "url": "https://taiko.xyz/guides/erc-8004-trustless-agent-standard",
+        "quote": "The standard is still in Draft status with a v2 specification in active development."
+      }
+    ],
+    "notes": {
+      "zh": "问题：一个陌生 Agent 凭什么被信任？没有共享身份，也没有可携带的历史记录，每次交互都是盲跳。ERC-8004 把身份、声誉、验证拆成三套 singleton registry，让 Agent 可以先查再交易。\n证据位置：8004 官方博客给出 2026-01-29 主网上线与三套注册表；Identity 是 ERC-721 + agent card JSON（含 A2A / MCP 端点），Reputation 存客户反馈，Validation 接 TEE / zkML / staking 重执行；官方说明与 x402 支付集成。Taiko 指南与官方 FAQ 确认仍是 Draft、v2 在开发。\n局限：Draft 状态意味着接口可能变；声誉可被女巫/刷分，验证是可插拔的而不是默认开启；注册只证明「有这个条目」，不证明能力或合法性；跨链注册是自声明，未自动验证。\n它没主张的：不是「上链即可信」；不是支付协议；不是所有 Agent 都必须注册；不是已经取代 A2A / MCP。",
+      "en": "Problem: why should an unknown agent be trusted? With no shared identity and no portable track record, every interaction is a blind leap. ERC-8004 separates identity, reputation and validation into three singleton registries so an agent can be checked before transacting.\nWhere the evidence sits: the official 8004 blog dates mainnet to 2026-01-29 and describes the three registries; Identity is ERC-721 plus an agent-card JSON (including A2A / MCP endpoints), Reputation stores client feedback, Validation plugs in TEE / zkML / staking re-execution; the blog states x402 payment integration. Taiko’s guide and the official FAQ confirm Draft status and a v2 in development.\nLimits: Draft means interfaces may change; reputation can be sybil-attacked or farmed, and validation is pluggable rather than on by default; registration proves an entry exists, not capability or legality; cross-chain registrations are self-declared, not automatically verified.\nWhat it does not claim: that on-chain equals trustworthy; a payment protocol; that every agent must register; a replacement for A2A or MCP."
+    },
+    "verifiedAt": "2026-11-18",
+    "specs": {
+      "上线 / mainnet": "2026-01-29（Ethereum）",
+      "注册表 / registries": "Identity、Reputation、Validation",
+      "身份标准 / identity": "ERC-721 + agent card JSON",
+      "支付集成 / payments": "x402",
+      "状态 / status": "Draft；v2 开发中",
+      "许可 / license": "以官方仓库为准"
+    }
+  },
+  {
+    "id": "erc20-token-standard",
+    "title": {
+      "zh": "ERC-20：同质化代币的最小接口",
+      "en": "ERC-20: the minimal interface for fungible tokens"
+    },
+    "category": "protocol",
+    "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+        "quote": "any one token is exactly equal to any other token; no tokens have special rights or behavior associated with them"
+      },
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+        "quote": "All arithmetic inside the contract is still performed on integers"
+      },
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc20",
+        "quote": "ERC20 uses a value of 18 for decimals"
+      }
+    ],
+    "notes": {
+      "zh": "交集：同质化代币的最小公共接口——每个单位等价、可拆分，适合计价、投票、质押与结算；OpenZeppelin 的实现把 name/symbol/decimals 与转账、授权等逻辑封装成可继承合约。\n适用范围：官方文档强调 decimals 只是显示约定，链上仍是整数运算；默认 18 位，可按需覆盖。这与「AI Agent 收付款、按 token 计费」的账本层直接相关。\n未解决：标准本身不规定发行上限、增发、冻结或合规白名单，这些都由具体合约自行实现；approve/allowance 的授权模型有已知的授权残留风险，集成方要读安全指南，不能把「ERC-20」当作信任保证。",
+      "en": "The intersection: the minimal shared interface for fungible tokens — every unit is equivalent and divisible, suiting pricing, voting, staking and settlement; OpenZeppelin’s implementation packages name/symbol/decimals with transfer and allowance logic into an inheritable contract.\nScope: the docs stress that decimals is a display convention only and arithmetic on-chain stays integer; the default is 18 and can be overridden. This is directly relevant to agent payments and per-token billing.\nOpen: the standard itself does not define supply caps, minting, freezing or compliance allowlists — each contract does; the approve/allowance model carries known residual-approval risk, so integrators need the security guidance and must not treat “ERC-20” as a trust guarantee."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "标准 / standard": "ERC-20（同质化代币）",
+      "精度 / decimals": "默认 18，仅显示用；链上整数运算",
+      "实现 / implementation": "OpenZeppelin Contracts 5.x ERC20",
+      "常见用途 / uses": "计价、投票、质押、结算",
+      "本站口径 / scope": "只记录标准与实现，不评价任何代币"
+    }
+  },
+  {
+    "id": "ethereum-attestation-service",
+    "title": {
+      "zh": "Ethereum Attestation Service（EAS）",
+      "en": "Ethereum Attestation Service (EAS)"
+    },
+    "category": "protocol",
+    "url": "https://github.com/ethereum-attestation-service/eas-contracts",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+        "quote": "The Ethereum Attestation Service is a free and open protocol for on-chain attestations on EVM compatible blockchains."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+        "quote": "It is a generalized service that allows anyone to register a schema for their particular use case, and then make attestations following their schema."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+        "quote": "Schemas can be registered using the `SchemaRegistry.sol` contract, and attestations are made using the `EAS.sol` contract."
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 生成内容标识、模型版本声明与数据授权可以把「谁按什么 schema 作了什么证明」写成链上 attestation；EAS 提供通用 schema 注册与证明合约。\n适用范围：官方 README 说它是 EVM 兼容链上的免费开放链上证明协议，任何人可注册 schema 并按 schema 作证明；schema 走 SchemaRegistry.sol，证明走 EAS.sol，另有 resolver 与 SDK。它提供记录与验证基础设施，不自动审核声明内容真假。\n未解决：AI 场景仍要定义 schema、撤销策略、隐私边界与验证者信任；README 未给统一协议状态字段，本站不推断所有 EVM 链都已部署。",
+      "en": "The intersection: AI content labelling, model version statements and data permissions can record who attested what under which schema as an on-chain attestation; EAS provides general schema registration and attestation contracts.\nScope: the official README describes a free and open protocol for on-chain attestations on EVM-compatible blockchains, where anyone registers a schema and attests against it; schemas use SchemaRegistry.sol and attestations use EAS.sol, with resolvers and an SDK. It provides recording and verification infrastructure, not automatic truth review.\nOpen: AI use cases still need schema design, revocation, privacy boundaries and verifier trust; the README gives no single protocol-status field, and this site does not infer deployment on every EVM chain."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "官方未说明（README 描述协议与合约，未给部署状态字段）",
+      "规范来源 / source": "https://raw.githubusercontent.com/ethereum-attestation-service/eas-contracts/master/README.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "ipld",
+    "title": {
+      "zh": "IPLD 规范集合",
+      "en": "IPLD Specifications"
+    },
+    "category": "protocol",
+    "url": "https://github.com/ipld/specs",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+        "quote": "The goal of IPLD is to enable decentralized data-structures that are universally addressable and linkable which in turn will enable more decentralized applications."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+        "quote": "Specification documents in this repository fit into one of two categories and have one of three possible statuses:"
+      }
+    ],
+    "notes": {
+      "zh": "交集：训练数据集、模型卡与内容凭证需要跨节点可寻址、可链接的数据结构；IPLD 定义 CID 之上的数据模型与链接方式，让出处记录不只是单个文件哈希。\n适用范围：官方仓库说目标是普遍可寻址、可链接的去中心化数据结构，并明确 IPLD 不是单一规范；规范分 Prescriptive/Descriptive，状态含 Draft/Final。它规定数据怎样链接与解释，不保证链接内容仍然可用或权利清晰。\n未解决：AI 数据集要自己选择 codec、schema 与保留策略；仓库内各规范状态不同，不能把整个 IPLD 简单标成已部署或单一草案。",
+      "en": "The intersection: training datasets, model cards and content credentials need data structures that are addressable and linkable across nodes; IPLD defines data models and linking above CIDs so provenance is more than a single file hash.\nScope: the official repository says the goal is universally addressable and linkable decentralised data structures, and states IPLD is not a single specification; documents are Prescriptive or Descriptive with Draft/Final statuses. It specifies linking and interpretation, not continued availability or clear rights.\nOpen: AI datasets still need codec, schema and retention choices; statuses differ per specification, so the whole of IPLD cannot be labelled as one deployed or single draft protocol."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "草案（官方仓库规范分 Prescriptive/Descriptive 与 Draft/Final，逐份状态不同）",
+      "规范来源 / source": "https://raw.githubusercontent.com/ipld/specs/master/README.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "mastercard-agent-pay",
+    "title": {
+      "zh": "Mastercard Agent Pay：卡组织的 Agent 支付框架",
+      "en": "Mastercard Agent Pay: a card-network framework for agents"
+    },
+    "category": "protocol",
+    "url": "https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-delivers-its-first-live-agentic-transaction-in-singapore-with-dbs-and-uob",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-delivers-its-first-live-agentic-transaction-in-singapore-with-dbs-and-uob",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-delivers-its-first-live-agentic-transaction-in-singapore-with-dbs-and-uob",
+        "quote": "Each transaction uses a Mastercard Agentic Token, uniquely issued to each agent for enhanced security."
+      },
+      {
+        "url": "https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-delivers-its-first-live-agentic-transaction-in-singapore-with-dbs-and-uob",
+        "quote": "Consumer consent is explicitly captured and purchase confirmation is secured via Mastercard Payment Passkeys."
+      },
+      {
+        "url": "https://www.mastercard.com/europe/en/news-and-trends/stories/2026/agentic-commerce-identity-know-your-agent.html",
+        "quote": "mandatory \"Know Your Agent\" (KYA) registration process and unique cryptographic tokenisation"
+      },
+      {
+        "url": "https://www.mastercard.com/europe/en/news-and-trends/stories/2026/agentic-commerce-identity-know-your-agent.html",
+        "quote": "Mastercard Verifiable Intent framework creates a cryptographic, tamper-resistant record"
+      }
+    ],
+    "notes": {
+      "zh": "交集：Agent Pay 不是单一 API，而是把卡组织的四件事拼起来：Know Your Agent 注册、每个 agent 独立签发的 Agentic Token、Payment Passkeys 的生物识别授权，以及 Verifiable Intent 把消费者原始指令和最终交易绑定。Token 可限定额度、商户类别、时间窗与用途，消费者可随时撤销。\n适用范围：2025 美国上线；2026 在澳洲、新西兰、新加坡、马来西亚、印度、韩国、台湾与拉美完成 live 交易，DBS/UOB、hoppa、Santander 等参与。Cloudflare 的 Web Bot Auth 是 agent 流量认证层，Mastercard 把它接进 Agent Pay；Agent Pay Trust Framework 再加入身份、欺诈与行为洞察，并给发卡行一个 agent 概率分。\n未解决：它不是链上结算，也不等于统一标准；KYA 与风险评分仍由网络/发卡行掌握，跨网络（Visa TAP / Amex ACE）互操作还在演进；商户改造与地区覆盖不均衡。",
+      "en": "The intersection: Agent Pay is not one API but four card-network pieces — Know Your Agent registration, an Agentic Token uniquely issued per agent, biometric authorisation through Mastercard Payment Passkeys, and Verifiable Intent binding the consumer’s original instruction to the final transaction. Tokens can be scoped by amount, merchant category, time window and purpose, and revoked at any time.\nScope: launched in the US in 2025 and completed live transactions in 2026 across Australia, New Zealand, Singapore, Malaysia, India, Korea, Taiwan and Latin America, with DBS/UOB, hoppa and Santander among participants. Cloudflare’s Web Bot Auth authenticates agent traffic and feeds Agent Pay; the Agent Pay Trust Framework adds identity, fraud and behavioural insight plus an agent probability score for issuers.\nOpen: it is not on-chain settlement and not a single universal standard; KYA and risk scoring remain with the network/issuer, cross-network interoperability with Visa TAP and Amex ACE is still evolving, and merchant upgrades and geographic coverage are uneven."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "协议定位 / role": "卡组织的 agentic 支付与信任框架",
+      "身份 / identity": "Know Your Agent（KYA）注册 + 唯一 Agentic Token",
+      "授权 / authorization": "Mastercard Payment Passkeys + 消费者预授权范围",
+      "意图 / intent": "Verifiable Intent（2026-03 公布）",
+      "范围 / scope": "额度、商户类别、时间窗、用途，可随时撤销",
+      "状态 / status": "美国 2025 上线；2026 亚太/拉美多市场 live",
+      "互操作 / interop": "Web Bot Auth + Agent Pay Acceptance Framework"
+    }
+  },
+  {
+    "id": "ocean-compute-to-data",
+    "title": {
+      "zh": "Ocean Compute-to-Data：数据不出域的授权计算",
+      "en": "Ocean Compute-to-Data: authorised compute without moving data"
+    },
+    "category": "protocol",
+    "url": "https://github.com/oceanprotocol/docs/blob/main/developers/compute-to-data/README.md",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+        "quote": "Instead of selling the raw data itself, you can offer compute access to the private data."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+        "quote": "This means you have control over which algorithms can be run on your dataset."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+        "quote": "It enables the data to remain on-premise while granting third parties the ability to perform specific compute tasks on it, yielding valuable results like statistical analysis or AI model development."
+      }
+    ],
+    "notes": {
+      "zh": "交集：用私有数据训练或评测 AI 时，数据持有者常不愿交出原始数据；Compute-to-Data 把授权对象从「数据副本」改成「在数据上运行指定算法」，与 AI 模型开发直接相关。\n适用范围：官方文档说不出售原始数据而出售计算访问，数据持有者控制哪些算法可跑，数据可留在本地而第三方执行特定计算任务，产出统计分析或 AI 模型开发结果。本条只写计算授权机制，与 ocean-protocol 概念条的网络与访问控制分工不同。\n未解决：算法审核、结果泄露、计算环境可信与法律合规仍要另行核对；文档未给统一部署状态字段，本站不推断隐私或合规保证。",
+      "en": "The intersection: when private data is used to train or evaluate AI, holders often do not want to hand over raw data; Compute-to-Data changes the authorised object from a data copy to running approved algorithms on the data, directly relevant to AI model development.\nScope: the official documentation says raw data is not sold; compute access is offered, the holder controls which algorithms may run, and data can remain on-premise while third parties perform specific compute tasks yielding statistical analysis or AI model development. This entry covers the compute-authorisation mechanism, distinct from the ocean-protocol concept entry on network and access control.\nOpen: algorithm review, result leakage, trusted compute environments and legal compliance still need separate checks; the document gives no single deployment-status field, and this site infers no privacy or compliance guarantee."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "协议状态 / status": "官方未说明（机制文档未给协议部署状态字段）",
+      "规范来源 / source": "https://raw.githubusercontent.com/oceanprotocol/docs/main/developers/compute-to-data/README.md",
+      "核验日 / checked": "2026-11-07"
+    }
+  },
+  {
+    "id": "visa-trusted-agent-protocol",
+    "title": {
+      "zh": "Visa TAP：让商家认出可信的购物 Agent",
+      "en": "Visa TAP: letting merchants recognise trusted shopping agents"
+    },
+    "category": "protocol",
+    "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21716.html?categoryid=2826687",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21716.html?categoryid=2826687",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21716.html?categoryid=2826687",
+        "quote": "Visa Introduces Trusted Agent Protocol: An Ecosystem-Led Framework for AI Commerce"
+      },
+      {
+        "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21716.html?categoryid=2826687",
+        "quote": "developed in collaboration with Cloudflare"
+      },
+      {
+        "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21716.html?categoryid=2826687",
+        "quote": "Trusted Agent Protocol is available today in the Visa Developer Center and GitHub"
+      },
+      {
+        "url": "https://investor.visa.com/news/news-details/2026/Visa-BILL-and-Billtrust-Launch-First-Live-Pilot-for-Trusted-AI-Agent-Payments-Between-Buyer-and-Supplier-Platforms/default.aspx",
+        "quote": "first live pilot to enable trusted AI agents to initiate and complete approved buyer invoice payments end-to-end through supplier portals"
+      },
+      {
+        "url": "https://www.visa.co.uk/about-visa/newsroom/press-releases.3457328.html",
+        "quote": "AI agents are now completing purchases with participating merchants, enabled by Visa’s infrastructure"
+      }
+    ],
+    "notes": {
+      "zh": "交集：TAP 解决“商家怎么确认这个 agent 真是消费者授权的，而不是恶意 bot”。它在 Web Bot Auth 的 HTTP Message Signatures 上加支付语义：签名请求能区分 browse 与 pay、绑定背后的消费者账户、声明期望的支付方式（网络 token、guest checkout 或 micropayment）。\n适用范围：Visa 与 Cloudflare 共创，2025-10-14 在 Visa Developer Center 与 GitHub 开放；Adyen、Ant International、Checkout.com、Coinbase、CyberSource、Elavon、Fiserv、Microsoft、Nuvei、Shopify、Stripe、Worldpay 参与反馈。2026 已进入真实交易：Visa Intelligent Commerce 在欧洲 30+ 发卡行与 lastminute.com 等商户跑通；BILL 与 Billtrust 用 TAP 完成 B2B 发票支付的 live pilot。\n未解决：TAP 不是链上协议，也不定义退款/争议责任；商户要接签名验证与目录，agent 要注册并被发卡/网络认可；跨网络互操作靠 Web Bot Auth，覆盖仍在扩张。",
+      "en": "The intersection: TAP answers “how does a merchant know this agent is really consumer-authorised, not a malicious bot?” It adds payment semantics on top of Web Bot Auth HTTP Message Signatures: a signed request can distinguish browse from pay, bind the consumer behind the agent, and declare the expected payment method (network token, guest checkout or micropayment).\nScope: co-created by Visa and Cloudflare, released on 14 October 2025 in the Visa Developer Center and GitHub, with feedback from Adyen, Ant International, Checkout.com, Coinbase, CyberSource, Elavon, Fiserv, Microsoft, Nuvei, Shopify, Stripe and Worldpay. By 2026 it is in live transactions: Visa Intelligent Commerce went live in Europe with 30+ issuers and merchants such as lastminute.com, and BILL with Billtrust ran a live B2B invoice-payment pilot using TAP.\nOpen: TAP is not an on-chain protocol and does not define refund or dispute liability; merchants must add signature verification and a directory, while agents must register and be recognised by issuers/networks; cross-network interoperability still leans on Web Bot Auth and coverage is expanding."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "协议定位 / role": "商家识别与授权 AI agent 的支付信任层",
+      "基础 / foundation": "HTTP Message Signatures + Web Bot Auth",
+      "提供 / provides": "agent 身份、browse/pay 意图、消费者绑定、支付方式声明",
+      "发布 / launched": "2025-10-14，Visa + Cloudflare",
+      "落地 / live": "Visa Intelligent Commerce；欧洲 2026-07；BILL/Billtrust B2B pilot 2026-10",
+      "状态 / status": "Live pilots / production transactions（覆盖扩张中）"
+    }
+  },
+  {
+    "id": "x402-http-payments",
+    "title": {
+      "zh": "x402：用 HTTP 402 直接为 API 付费",
+      "en": "x402: paying for APIs over HTTP 402"
+    },
+    "category": "protocol",
+    "url": "https://docs.x402.org/",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.x402.org/",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.x402.org/",
+        "quote": "x402 is the open payment standard that enables services to charge for access to their APIs and content directly over HTTP."
+      },
+      {
+        "url": "https://docs.x402.org/",
+        "quote": "It is built around the HTTP `402 Payment Required` status code and allows clients to programmatically pay for resources without accounts, sessions, or credential management."
+      },
+      {
+        "url": "https://docs.x402.org/",
+        "quote": "Native support for machine-to-machine payments, enabling seamless use by AI agents"
+      }
+    ],
+    "notes": {
+      "zh": "交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具调用可以自带预算：Agent 调一个付费 API，付款与取数在同一个请求链路里完成。\n适用范围：官方文档把流程写成五步（请求、402 指令、付款载荷、服务端或 facilitator 验证结算、返回资源），并说明标准本身 0 费用、支持 EVM 批量结算。\n未解决：付款的最终性、退款、争议与合规责任落在具体服务方与链上资产，不在协议层；本站不评价任何 x402 服务的定价或可靠性。",
+      "en": "The intersection: putting pay-per-call back into HTTP semantics — the server returns 402 plus payment instructions, the client pays, then receives the resource, with no accounts, sessions or credential management. For AI agents this means tool calls can carry their own budget: a paid API call and its payment settle in the same request path.\nScope: the official docs describe a five-step flow (request, 402 instructions, payment payload, verification and settlement by the server or a facilitator, resource) and state that the standard itself has zero fees and supports batched EVM settlement.\nOpen: finality, refunds, disputes and compliance sit with the specific service and on-chain asset, not the protocol layer; this entry does not judge any x402 service’s pricing or reliability."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "协议基础 / basis": "HTTP 402 Payment Required",
+      "费用 / protocol fee": "0（标准本身，官方文档）",
+      "结算 / settlement": "EVM 批量结算（batch settlement）",
+      "适用对象 / users": "服务方、买家、AI Agent",
+      "许可 / license": "Apache-2.0（官方文档声明）"
+    }
+  },
+  {
+    "id": "c2pa-ai-ml-guidance",
+    "title": {
+      "zh": "C2PA 面向 AI/ML 的实施指南",
+      "en": "C2PA guidance for AI and machine learning"
+    },
+    "category": "provenance",
+    "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+        "quote": "The C2PA specification can be used to add cryptographic information to detect the tampering of media files and streams."
+      },
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+        "quote": "The Content Credential for an AI-ML model provides the consumer, e.g. a system operator designing an AI-ML system, with provenance and authenticity of the model."
+      },
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/1.4/ai-ml/ai_ml.html",
+        "quote": "the model C2PA Manifest can contain a data mining assertion that asserts rights as allowed, constrained, or not allowed for generative or non-generative AI-ML models or both."
+      }
+    ],
+    "notes": {
+      "zh": "交集：把内容凭证从「媒体文件」扩到 AI 供应链的三件东西——模型凭证、训练数据凭证、输出凭证；输出用 trainedAlgorithmicMedia 或 trainedAlgorithmicData 标记来源类型，模型还可挂一条数据挖掘断言，声明是否允许被拿去训练别的模型。适用范围：规范给的是断言类型与清单结构，用于发现篡改与记录来源，不评估模型质量或输出是否正确。未解决：一切都依赖提供方如实填写，签名只覆盖签名之后的改动；凭证能否在转码与二次分发后存活取决于各平台。该文档本身以 CC BY 4.0 发布，可转载但需署名。",
+      "en": "The intersection: extending content credentials from media files to three things in the AI supply chain — a model credential, a training-data credential and an output credential. Outputs are tagged with trainedAlgorithmicMedia or trainedAlgorithmicData as the source type, and a model may carry a data mining assertion stating whether reuse for training other models is allowed, constrained or not allowed. Scope: the guidance supplies assertion types and manifest structure for detecting tampering and recording origin; it does not assess model quality or whether an output is correct. Open: everything depends on the provider recording honestly, a signature only covers changes made after signing, and whether a credential survives transcoding and redistribution depends on each platform. The document itself is published under CC BY 4.0, so reuse requires attribution."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "覆盖对象 / scope": "模型凭证 · 训练数据凭证 · 输出凭证",
+      "输出来源类型 / source type": "trainedAlgorithmicMedia（媒体）· trainedAlgorithmicData（非媒体）",
+      "权利表达 / rights": "data mining assertion：allowed / constrained / not allowed",
+      "文档许可 / licence": "CC BY 4.0"
+    }
+  },
+  {
+    "id": "c2pa-content-credentials",
+    "title": {
+      "zh": "C2PA 内容凭证",
+      "en": "C2PA Content Credentials"
+    },
+    "category": "provenance",
+    "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
+        "quote": "The Coalition for Content Provenance and Authenticity (C2PA) addresses the prevalence of misleading information online through the development of technical standards for certifying the source and history (or provenance) of media content."
+      },
+      {
+        "url": "https://spec.c2pa.org/specifications/specifications/2.1/index.html",
+        "quote": "Guidance for Artificial Intelligence and Machine Learning"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 生成内容的来源标识——输出可以被签名并绑定到生成工具与后续编辑链，让「这份内容由谁、用什么产生、被谁改过」有一个可机器读的答案形态。适用范围：规范定义的是凭证结构与验证流程，不判断内容真假，也不阻止未签名内容流通；官方另有一份面向 AI 与机器学习的实施指南。未解决：签名只能证明某把密钥签过，密钥归属与工具是否如实记录仍依赖发行方；凭证能否在转发与转码后存活，取决于各平台实现。本站不评价任何厂商的落地程度。",
+      "en": "The intersection: provenance for AI-generated content — output can be signed and bound to the generating tool and the edits that follow, giving \"who made this, with what, and who changed it\" a machine-readable shape. Scope: the specification defines credential structure and verification flow; it does not judge whether content is true, and it does not stop unsigned content from circulating. A separate official guide covers AI and machine learning specifically. Open: a signature only proves that a key signed, so key ownership and whether a tool recorded honestly still rest on the issuer, and whether a credential survives forwarding or transcoding depends on each platform. This entry does not rate any vendor implementation."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "规范版本 / version": "2.1",
+      "文档类型 / documents": "技术规范 + 实施指南 + 安全与危害建模",
+      "AI 专门指南 / AI guidance": "有（Guidance for Artificial Intelligence and Machine Learning）",
+      "判断内容真伪 / truth of content": "否"
+    }
+  },
+  {
+    "id": "erc721-token-standard",
+    "title": {
+      "zh": "ERC-721：每个 token 都唯一的 ownership 标准",
+      "en": "ERC-721: a standard where every token is unique"
+    },
+    "category": "provenance",
+    "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+    "license": {
+      "kind": "official-documentation",
+      "evidenceUrl": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+      "checkedAt": "2026-11-17"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+        "quote": "ERC-721 is a standard for representing ownership of *non-fungible* tokens, that is, where each token is unique."
+      },
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+        "quote": "ERC-721 lacks a `decimals` field, since each token is distinct and cannot be partitioned."
+      },
+      {
+        "url": "https://docs.openzeppelin.com/contracts/5.x/erc721",
+        "quote": "the item’s information is included in the metadata, but that information isn’t on-chain! So a game developer could change the underlying metadata"
+      }
+    ],
+    "notes": {
+      "zh": "交集：为「唯一物品」提供所有权记录——每个 tokenId 唯一、不可拆分，标准用 ownerOf 与 tokenURI 记录归属与元数据；适合数字藏品、门票、身份凭证与资产凭证。\n适用范围：OpenZeppelin 文档说明 ERC-721 比 ERC-20 复杂，带多个可选扩展；tokenURI 通常指向链下 JSON，图片与属性可以放在 IPFS 或普通 HTTPS。\n未解决：元数据不在链上，发行方可以改 tokenURI 指向的内容，链上「所有权」不等于「内容不可变」；标准也不验证资产真实性、版权或赎回权，买之前要单独核验发行方与元数据托管方式。",
+      "en": "The intersection: an ownership record for unique items — each tokenId is unique and indivisible, with ownerOf and tokenURI recording ownership and metadata; suited to collectibles, tickets, credentials and asset receipts.\nScope: the OpenZeppelin docs note ERC-721 is more complex than ERC-20 with several optional extensions; tokenURI usually points to off-chain JSON, with images and attributes on IPFS or ordinary HTTPS.\nOpen: metadata is not on-chain, so an issuer can change what tokenURI resolves to — on-chain ownership is not content immutability; the standard also does not verify authenticity, copyright or redemption rights, which must be checked separately."
+    },
+    "verifiedAt": "2026-11-17",
+    "specs": {
+      "标准 / standard": "ERC-721（非同质化代币）",
+      "唯一性 / uniqueness": "每个 tokenId 唯一，不可拆分，无 decimals",
+      "归属 / ownership": "ownerOf(tokenId)",
+      "元数据 / metadata": "tokenURI 指向链下 JSON（可被发行方更改）",
+      "本站口径 / scope": "只记录标准与实现，不评价任何藏品"
+    }
+  },
+  {
+    "id": "filecoin-verifiable-storage",
+    "title": {
+      "zh": "Filecoin 可验证存储",
+      "en": "Filecoin verifiable storage"
+    },
+    "category": "provenance",
+    "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+        "quote": "Every storage provider proves that they are maintaining their files in every 24-hour window."
+      },
+      {
+        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+        "quote": "Any observer can check any storage provider’s track record and will notice if the provider has been faulty or offline in the past."
+      },
+      {
+        "url": "https://docs.filecoin.io/getting-started/how-storage-works/filecoin-and-ipfs",
+        "quote": "Files are referred to by the data they contain, not by fragile identifiers such as URLs."
+      }
+    ],
+    "notes": {
+      "zh": "交集：训练数据与模型权重的长期留存——「谁还持有这份数据」这件事有周期性证明可查，而不是只能相信服务商的状态页。适用范围：官方说明存储方每 24 小时窗口证明一次仍在维护文件，任何观察者都能查历史记录；文件按内容而非 URL 寻址。未解决：该页未列局限，也未对检索延迟、取回速度或长期可用性给出承诺——证明的是「仍在持有」，不等于「随时能快速取回」。页面本身营销表述较多（价格优势、抗审查等），本站不收录这类评价，只引可核的机制句。",
+      "en": "The intersection: long-term retention of training data and model weights, where \"who still holds this data\" has a periodic proof anyone can inspect rather than a provider status page to be trusted. Scope: the vendor states that every storage provider proves it is maintaining its files in every 24-hour window, that any observer can check a provider’s track record, and that files are addressed by content rather than by URL. Open: the page lists no limitations and makes no commitment about retrieval latency, fetch speed or long-term availability — the proof says the data is still held, not that it can be fetched quickly. The page carries considerable marketing language (price, censorship resistance); this entry cites only the mechanism statements and does not repeat those evaluations."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "证明周期 / proof window": "每 24 小时一次",
+      "可查性 / auditability": "任何观察者可查存储方历史记录",
+      "寻址方式 / addressing": "内容寻址，非 URL",
+      "未承诺 / not committed": "检索延迟、取回速度、长期可用性"
+    }
+  },
+  {
+    "id": "ipfs-cid",
+    "title": {
+      "zh": "IPFS 内容标识 CID",
+      "en": "IPFS content identifiers (CID)"
+    },
+    "category": "provenance",
+    "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://docs.ipfs.tech/concepts/content-addressing/",
+      "checkedAt": "2026-11-07"
+    },
+    "evidence": [
+      {
+        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+        "quote": "A content identifier, or CID, is a label used to point to material in IPFS. It doesn’t indicate where the content is stored, but it forms a kind of address based on the content itself."
+      },
+      {
+        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+        "quote": "Any difference in the content will produce a different CID."
+      },
+      {
+        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+        "quote": "The same content added to two different IPFS nodes using the same settings will produce the same CID."
+      }
+    ],
+    "notes": {
+      "zh": "交集：训练数据集与模型文件的内容寻址——同一份数据在任何节点得到同一标识，数据集出处记录里就能写清「指的是哪一份字节」，而不是一个会变的下载地址。适用范围：CID 只保证内容一致，不保证可用性或持久性；内容没有被固定就可能无人保存。未解决：内容寻址回答「是不是同一份」，不回答「谁有权使用」，许可与授权仍需另立记录；本站把这类记录放在同站的来源类条目里，不合并成一个字段。",
+      "en": "The intersection: content addressing for training datasets and model files — the same bytes yield the same identifier on any node, so a provenance record can state which exact bytes are meant instead of pointing at a download URL that changes. Scope: a CID guarantees content equality, not availability or persistence; unpinned content may be held by no one. Open: content addressing answers \"is this the same bytes\", not \"who may use it\", so licensing still needs a separate record, which this site keeps in its provenance entries rather than folding into one field."
+    },
+    "verifiedAt": "2026-11-07",
+    "specs": {
+      "默认哈希 / default hash": "sha-256（通过 Multihash 支持多种算法）",
+      "同内容同标识 / same content same CID": "是（相同设置下）",
+      "保证持久可用 / persistence": "否",
+      "保证授权 / licensing": "否"
+    }
+  },
+  {
+    "id": "tee-attestation",
+    "title": {
+      "zh": "TEE 远程证明（以 Phala 为例）",
+      "en": "TEE remote attestation (Phala example)"
+    },
+    "category": "provenance",
+    "url": "https://phala.com/",
+    "license": {
+      "kind": "official-specification",
+      "evidenceUrl": "https://phala.com/",
+      "checkedAt": "2026-11-19"
+    },
+    "evidence": [
+      {
+        "url": "https://phala.com/",
+        "quote": "TEE is a secure area inside a processor that protects code and data from the operating system, hypervisor, and other applications."
+      },
+      {
+        "url": "https://phala.com/",
+        "quote": "Instead of asking users to trust a cloud claim, Phala emits runtime measurements that software can verify."
+      },
+      {
+        "url": "https://phala.com/",
+        "quote": "runtime measurement"
+      }
+    ],
+    "notes": {
+      "zh": "交集：AI 推理跑在第三方云上时，用户怎么相信「模型与代码确实按声明运行」。TEE 远程证明把运行时度量、签名与验证报告交给软件核验。\n适用范围：这里以 Phala 的 CPU/GPU TEE 与 attestation 示例说明流程；它不保证模型本身正确，也不保证所有云都支持同样的证明格式。\n未解决：不同 TEE 厂商（Intel TDX / NVIDIA CC / AMD SEV）证明链与信任根不统一；侧信道、供应链与运维方仍可能破坏假设；跨云验证缺少统一标准。",
+      "en": "Intersection: when AI inference runs on a third-party cloud, how does the user know the model and code ran as claimed? TEE remote attestation exposes runtime measurements, signatures and verifier reports to software.\nScope: this uses Phala's CPU/GPU TEE and attestation example to show the flow; it does not guarantee the model is correct, nor that every cloud supports the same attestation format.\nOpen: trust roots and attestation chains differ across Intel TDX / NVIDIA CC / AMD SEV; side channels, supply chain and operators can still break the assumption; cross-cloud verification lacks a common standard."
+    },
+    "verifiedAt": "2026-11-19",
+    "specs": {
+      "协议状态 / status": "已部署（产品化示例）",
+      "证明对象 / attested": "运行时度量 + 镜像摘要",
+      "验证方式 / verify": "签名与 attestation 报告",
+      "来源 / source": "Phala 官方页"
     }
   }
 ]
