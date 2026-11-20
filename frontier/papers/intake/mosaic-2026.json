@@ -1,0 +1,45 @@
+{
+  "id": "mosaic-2026",
+  "title": {
+    "zh": "Accurate and Efficient Long-Term Memory for LLM Agents",
+    "en": "Accurate and Efficient Long-Term Memory for LLM Agents"
+  },
+  "category": "agents",
+  "url": "https://arxiv.org/abs/2607.16211",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2607.16211",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2607.16211",
+      "quote": "entity-typed graph storage with semantic classification preserving relational structure across events, personas, and relationships"
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.16211",
+      "quote": "hash-accelerated dual-path retrieval replacing LLM-based classification with locality-sensitive hashing"
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.16211",
+      "quote": "achieves 89.35% accuracy on LoCoMo (+27.21 pp over the best baseline)"
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.16211",
+      "quote": "detects 66% of injected factual conflicts"
+    }
+  ],
+  "notes": {
+    "zh": "问题：智能体的长期记忆常用扁平向量库，丢掉事件、人物、关系之间的结构；用 LLM 做记忆分类又太慢，还会在无校验时积累矛盾。\n证据位置：摘要提出 MOSAIC，用实体类型图存事件/人物/关系，保留多跳与时序结构；用局部敏感哈希替代 LLM 分类做双路检索；保存时主动比对邻居并处理冲突；LoCoMo 89.35%（比公开基线高 27.21 个百分点），HaluMem 抽取 F1 86.77/85.84，冲突检出 66%，平均检索延迟 0.58 秒/题。\n作者自陈局限：评测集中在 LoCoMo、HaluMem 与一个临床指南冲突测试；图结构依赖实体/关系抽取质量；没有生产级并发、权限与隐私验证；不是端到端训练。\n它没主张的：不是所有记忆都该图结构化；不是 89.35% 代表开放域对话；不是 0.58 秒就是所有部署的延迟。",
+    "en": "Problem: agent long-term memory often uses flat vector stores that lose event, persona and relationship structure; LLM-based classification is slow, and without validation contradictions accumulate.\nWhere the evidence sits: MOSAIC stores typed entity graphs for events, personas and relationships, preserving multi-hop and temporal structure; locality-sensitive hashing replaces LLM classification for dual-path retrieval; save-time conflict detection compares neighbours and updates or deletes contradictions; it reaches 89.35% on LoCoMo (+27.21 pp over the best baseline), HaluMem extraction F1 86.77/85.84, detects 66% of injected conflicts and keeps average retrieval latency at 0.58 s per question.\nWhat the authors say about limits: evaluation centres on LoCoMo, HaluMem and a clinical-guideline conflict test; graph quality depends on entity/relation extraction; production concurrency, permissions and privacy are not validated; it is not end-to-end trained.\nWhat it does not claim: not that every memory should be graph-structured; not that 89.35% represents open-domain dialogue; not that 0.58 s is every deployment’s latency."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "记忆 / memory": "实体类型图 + 语义分类",
+    "检索 / retrieval": "局部敏感哈希双路检索",
+    "LoCoMo": "89.35%（+27.21 pp）",
+    "冲突检出 / conflict": "66%",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

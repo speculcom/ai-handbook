@@ -1,0 +1,40 @@
+{
+  "id": "flashattention3-2024",
+  "title": {
+    "zh": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision",
+    "en": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision"
+  },
+  "category": "efficiency",
+  "url": "https://arxiv.org/abs/2407.08608",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2407.08608",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2407.08608",
+      "quote": "FlashAttention-2 achieving only 35% utilization on the H100 GPU"
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.08608",
+      "quote": "achieves speedup on H100 GPUs by 1.5-2.0× with FP16 reaching up to 740 TFLOPs/s (75% utilization)"
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.08608",
+      "quote": "with FP8 reaching close to 1.2 PFLOPs/s"
+    }
+  ],
+  "notes": {
+    "zh": "问题：注意力是长上下文模型的核心瓶颈；FlashAttention 系列已减少显存读写，但在 Hopper 上仍未吃满 Tensor Core、TMA 与 FP8 的硬件能力。\n证据位置：摘要指出 FlashAttention-2 在 H100 上只有 35% 利用率；FlashAttention-3 用 warp-specialization、块级 matmul/softmax 交叠与 FP8 块量化，把 FP16 推到最高 740 TFLOPs/s（75% 利用率），FP8 接近 1.2 PFLOPs/s，速度提升 1.5–2.0 倍，且 FP8 数值误差比基线低 2.6 倍。\n作者自陈局限：优化针对 Hopper（H100）与特定 kernel；不是所有 GPU 架构都能获得同样收益；测的是注意力算子，不是端到端模型吞吐；FP8 精度收益依赖具体模型与任务。\n它没主张的：不是所有注意力实现都需要重写；不是 FP8 在所有模型上都无损；不是 75% 利用率等于端到端推理快 2 倍。",
+    "en": "Problem: attention is the core bottleneck for long-context models; FlashAttention reduced memory traffic but still left Hopper Tensor Cores, TMA and FP8 underused.\nWhere the evidence sits: the abstract notes FlashAttention-2 reaches only 35% utilization on H100; FlashAttention-3 uses warp specialization, interleaved block-wise matmul/softmax and FP8 block quantization to reach up to 740 TFLOPs/s in FP16 (75% utilization) and close to 1.2 PFLOPs/s in FP8, with a 1.5–2.0× speedup and 2.6× lower FP8 numerical error than a baseline.\nWhat the authors say about limits: the optimisation targets Hopper (H100) and specific kernels; other GPU architectures do not automatically get the same gain; it measures the attention operator, not end-to-end model throughput; FP8 accuracy depends on model and task.\nWhat it does not claim: not that every attention implementation must be rewritten; not that FP8 is lossless for every model; not that 75% utilization means 2× end-to-end inference."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "硬件 / hardware": "NVIDIA H100（Hopper）",
+    "FP16 速度 / FP16": "最高 740 TFLOPs/s，75% 利用率",
+    "FP8 速度 / FP8": "接近 1.2 PFLOPs/s",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

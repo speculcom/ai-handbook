@@ -1,0 +1,40 @@
+{
+  "id": "deepseek-v2-2024",
+  "title": {
+    "zh": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model",
+    "en": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/2405.04434",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2405.04434",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2405.04434",
+      "quote": "236B total parameters, of which 21B are activated for each token"
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.04434",
+      "quote": "MLA guarantees efficient inference through significantly compressing the Key-Value (KV) cache into a latent vector"
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.04434",
+      "quote": "saves 42.5% of training costs, reduces the KV cache by 93.3%, and boosts the maximum generation throughput to 5.76 times"
+    }
+  ],
+  "notes": {
+    "zh": "问题：MoE 模型参数多、KV cache 大，推理成本高；能不能在不牺牲能力的情况下，把注意力与专家路由都做得更省。\n证据位置：摘要给出 236B 总参数、每 token 激活 21B、128K 上下文；MLA 把 KV cache 压成 latent vector，DeepSeekMoE 用稀疏计算降训练成本；相对 DeepSeek 67B，训练成本省 42.5%、KV cache 减 93.3%、最大生成吞吐提升 5.76 倍。\n作者自陈局限：技术报告的自评为主，未给第三方独立复现；128K 上下文的实际任务覆盖有限；MLA/MoE 的收益依赖具体硬件与并行实现，不是所有栈都能直接拿到同等数字。\n它没主张的：不是所有 MoE 都必须用 MLA；不是 21B 激活就等于 21B 稠密模型能力；不是训练成本对任何团队都按同比例下降。",
+    "en": "Problem: MoE models carry many parameters and a large KV cache, making inference expensive; can attention and expert routing be made cheaper without giving up capability.\nWhere the evidence sits: the abstract reports 236B total parameters, 21B activated per token and a 128K context; MLA compresses the KV cache into a latent vector and DeepSeekMoE uses sparse computation to cut training cost; versus DeepSeek 67B it saves 42.5% of training cost, reduces KV cache by 93.3% and raises maximum generation throughput by 5.76×.\nWhat the authors say about limits: this is a technical report with self-evaluation, not an independent reproduction; the 128K context has limited task coverage; MLA/MoE gains depend on specific hardware and parallel implementations, not every stack gets the same numbers.\nWhat it does not claim: not that every MoE must use MLA; not that 21B activated equals a 21B dense model; not that every team sees the same training-cost reduction."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "参数 / parameters": "236B 总参数，21B 每 token 激活",
+    "KV cache": "相对 DeepSeek 67B 减少 93.3%",
+    "吞吐 / throughput": "最高 5.76×",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

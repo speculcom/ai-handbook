@@ -2,7 +2,7 @@
 
 > A fact directory organised by category, with an official source on every entry. Built for quick lookups.
 
-77 entries.
+92 entries.
 
 - [Directory](https://papers.specul.com/index.html)
 - [How to use](https://papers.specul.com/about.html)
@@ -17,9 +17,11 @@
 - [Language Models are Few-Shot Learners](https://papers.specul.com/brown-2020-gpt3.html) — Problem: after scaling a model up, can tasks be performed close to the level of 
 - [ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning](https://papers.specul.com/chain-dora-2026.html) — Problem: LoRA uses two low-rank matrices; DoRA separates weight magnitude and di
 - [Introducing Claude Fable 5.2 and Claude Mythos 5.2](https://papers.specul.com/claude-5-2-2026.html) — Problem: Fable 5.2 and Mythos 5.2 share one underlying model — why split them, a
+- [ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents](https://papers.specul.com/contextweaver-2026.html) — Problem: coding agents accumulate long context, and sliding windows or prompt co
 - [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://papers.specul.com/dao-2022-flashattention.html) — Problem: self-attention time and memory grow quadratically with sequence length,
 - [DAPO: An Open-Source LLM Reinforcement Learning System at Scale](https://papers.specul.com/dapo-2025.html) — Problem: RL training details for reasoning models such as o1 and R1 are largely 
 - [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://papers.specul.com/deepseek-r1-2025.html) — Problem: complex reasoning has relied on large human-labelled chain-of-thought d
+- [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://papers.specul.com/deepseek-v2-2024.html) — Problem: MoE models carry many parameters and a large KV cache, making inference
 - [DeepSeek-V3 Technical Report](https://papers.specul.com/deepseek-v3-2024.html) — Problem: once an MoE language model is scaled up, how do you control training co
 - [QLoRA: Efficient Finetuning of Quantized LLMs](https://papers.specul.com/dettmers-2023-qlora.html) — Problem: Section 1 notes that regular 16-bit finetuning of a LLaMA 65B model req
 - [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://papers.specul.com/devlin-2019-bert.html) — Problem: earlier language models were either unidirectional (GPT-style left-to-r
@@ -29,17 +31,22 @@
 - [Recognition–Refusal Misalignment in LLMs](https://papers.specul.com/emnlp-2026-recognition-refusal.html) — Problem: if a model represents that a question is unanswerable, why does it stil
 - [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://papers.specul.com/fedus-2022-switch.html) — Problem: MoE has many parameters at constant compute, but complex routing, expen
 - [Flamingo: a Visual Language Model for Few-Shot Learning](https://papers.specul.com/flamingo-2022.html) — Problem: how can a multimodal model adapt to new tasks from a handful of example
+- [FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision](https://papers.specul.com/flashattention3-2024.html) — Problem: attention is the core bottleneck for long-context models; FlashAttentio
 - [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://papers.specul.com/frantar-2022-gptq.html) — Problem: models with tens of billions of parameters do not fit in memory, and po
 - [Gemini 4 Carbon Model Card](https://papers.specul.com/gemini-4-carbon-2026.html) — Problem: where is Carbon stronger than Argon, and what limits does the official 
+- [Gemma 3 Technical Report](https://papers.specul.com/gemma3-2025.html) — Problem: lightweight open models need vision, multilingual coverage and long con
 - [Generative Agents: Interactive Simulacra of Human Behavior](https://papers.specul.com/generative-agents-2023.html) — Problem: how to build believable human-behaviour proxies with LLMs, so multiple 
 - [GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning](https://papers.specul.com/gpart-2026.html) — Problem: LoRA’s bilinear parameterization does not preserve distance between tra
 - [GPT-6.2 Astra and GPT-6.2 Sol](https://papers.specul.com/gpt-6-2-2026.html) — Problem: how do the two 6.2 tiers divide the work, and what specs and boundaries
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://papers.specul.com/grpo-2024.html) — Problem: PPO for mathematical-reasoning RL is memory- and compute-heavy; can opt
 - [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://papers.specul.com/gu-2023-mamba.html) — Problem: earlier subquadratic architectures (linear attention, gated convolution
 - [Hibana: Fast Agentic Inference on Unified-Memory Devices](https://papers.specul.com/hibana-2026.html) — Problem: unified-memory devices such as DGX Spark have large capacity but low ba
+- [Humanity's Last Exam](https://papers.specul.com/hle-2025.html) — Problem: popular benchmarks such as MMLU are now above 90% for frontier models, 
 - [Denoising Diffusion Probabilistic Models](https://papers.specul.com/ho-2020-ddpm.html) — Problem: GANs produce sharp samples but train unstably, while VAEs have likeliho
 - [Training Compute-Optimal Large Language Models](https://papers.specul.com/hoffmann-2022-chinchilla.html) — Problem: under a fixed compute budget, how should parameters and training tokens
 - [LoRA: Low-Rank Adaptation of Large Language Models](https://papers.specul.com/hu-2021-lora.html) — Problem: full fine-tuning of a large model requires storing every gradient and o
+- [Hybrid Reasoning Agents](https://papers.specul.com/hybrid-agents-2026.html) — Problem: text reasoning is inspectable and can call tools but costs tokens; late
+- [Jamba: A Hybrid Transformer-Mamba Language Model](https://papers.specul.com/jamba-2024.html) — Problem: pure Transformers pay a large KV-cache and long-context cost, while pur
 - [Scaling Laws for Neural Language Models](https://papers.specul.com/kaplan-2020-scaling-laws.html) — Problem: how does language model cross-entropy loss change with parameter count,
 - [Kimi K2: Open Agentic Intelligence](https://papers.specul.com/kimi-k2-2025.html) — Problem: open models often trail closed models on agentic tasks; can a very larg
 - [Kimi K3.1 Pro: A Step Further at the Intelligence Frontier](https://papers.specul.com/kimi-k3-1-pro-2026.html) — Problem: what are K3.1 Pro’s scale, context and product split, and which verifia
@@ -47,13 +54,19 @@
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://papers.specul.com/kwon-2023-vllm-pagedattention.html) — Problem: serving throughput depends on batching, but KV cache memory is large an
 - [Fast Inference from Transformers via Speculative Decoding](https://papers.specul.com/leviathan-2023-speculative-decoding.html) — Problem: autoregressive decoding is serial — decoding K tokens takes K serial ru
 - [Prefix-Tuning: Optimizing Continuous Prompts for Generation](https://papers.specul.com/li-2021-prefix-tuning.html) — Problem: full fine-tuning modifies every parameter, so a complete model copy has
+- [Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale](https://papers.specul.com/ling-ring-26-2026.html) — Problem: trillion-scale agentic models need low latency, deep reasoning and stab
 - [The Llama 3 Herd of Models](https://papers.specul.com/llama3-2024.html) — Problem: can an open-weight 405B dense model approach leading closed models on m
 - [Visual Instruction Tuning](https://papers.specul.com/llava-2023.html) — Problem: multimodal instruction-following data is scarce; can language-only GPT-
 - [LoRA Learns Less and Forgets Less](https://papers.specul.com/lora-forgets-2024.html) — Problem: LoRA saves memory, but how much less it learns and how much less it for
 - [Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality](https://papers.specul.com/mamba2-2024.html) — Problem: Transformers and SSMs have been treated as separate routes; can structu
+- [MiniMax-01: Scaling Foundation Models with Lightning Attention](https://papers.specul.com/minimax01-2025.html) — Problem: standard attention is too expensive at million-token context, while lin
 - [Retrofitting language models to operate over bytes (Byteification)](https://papers.specul.com/minixhofer-2026-byteification.html) — Problem: mainstream LLMs split text into subwords first, hiding character-level 
+- [Accurate and Efficient Long-Term Memory for LLM Agents](https://papers.specul.com/mosaic-2026.html) — Problem: agent long-term memory often uses flat vector stores that lose event, p
+- [Muon is Scalable for LLM Training](https://papers.specul.com/muon-2025.html) — Problem: Muon works well at small scale but lacked evidence of large-scale scala
 - [Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention](https://papers.specul.com/nsa-2025.html) — Problem: standard attention scales quadratically with context; sparse attention 
 - [Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion](https://papers.specul.com/omni-diffusion-2026.html) — Problem: multimodal LLMs overwhelmingly rely on an autoregressive backbone; disc
+- [ORPO: Monolithic Preference Optimization without Reference Model](https://papers.specul.com/orpo-2024.html) — Problem: conventional preference alignment separates SFT and preference optimisa
+- [OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments](https://papers.specul.com/osworld-2024.html) — Problem: computer-use agents lacked a unified, executable real-environment bench
 - [Training language models to follow instructions with human feedback](https://papers.specul.com/ouyang-2022-instructgpt.html) — Problem: make a model follow user intent rather than only predict the next token
 - [Parameter-Efficient Subspace Optimization for LLM Fine-Tuning](https://papers.specul.com/peso-lora-2026.html) — Problem: LoRA-style analyses usually track only low-dimensional factors and lack
 - [Qwen2.5-VL Technical Report](https://papers.specul.com/qwen25-vl-2025.html) — Problem: vision-language models often resize images to a fixed resolution and sa
@@ -64,7 +77,9 @@
 - [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://papers.specul.com/rafailov-2023-dpo.html) — Problem: RLHF trains several models and samples from the policy inside the train
 - [High-Resolution Image Synthesis with Latent Diffusion Models](https://papers.specul.com/rombach-2022-ldm.html) — Problem: pixel-space diffusion is high quality but costs hundreds of GPU days to
 - [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://papers.specul.com/rope-2021.html) — Problem: how can Transformer positional encoding express both absolute position 
+- [Stop When Memory Suffices: Evidence-Conditioned Progressive Execution for LLM Agents](https://papers.specul.com/router-mem-2026.html) — Problem: long-term memory systems either compress history and lose temporal/caus
 - [s1: Simple test-time scaling](https://papers.specul.com/s1-2025.html) — Problem: test-time scaling was demonstrated by o1 but its method was not public;
+- [Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning](https://papers.specul.com/search-r1-2025.html) — Problem: RAG usually injects retrieved results into a prompt once, leaving the m
 - [Self-Rewarding Language Models](https://papers.specul.com/self-rewarding-2024.html) — Problem: reward models are usually trained from human preferences, capped by hum
 - [SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture](https://papers.specul.com/sensenova-u1-2026.html) — Problem: most vision-language models treat understanding and generation as separ
 - [Strategist: Evolving Reasoning with Agents](https://papers.specul.com/strategist-2026.html) — Problem: an agent's inference procedure — prompts, tool order, verification step

@@ -1,0 +1,40 @@
+{
+  "id": "osworld-2024",
+  "title": {
+    "zh": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+    "en": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments"
+  },
+  "category": "agents",
+  "url": "https://arxiv.org/abs/2404.07972",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2404.07972",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2404.07972",
+      "quote": "a benchmark of 369 computer tasks involving real web and desktop apps in open domains, OS file I/O, and workflows spanning multiple applications"
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.07972",
+      "quote": "humans can accomplish over 72.36% of the tasks, the best model achieves only 12.24% success"
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.07972",
+      "quote": "primarily struggling with GUI grounding and operational knowledge"
+    }
+  ],
+  "notes": {
+    "zh": "问题：电脑操作智能体缺少统一、可执行评估的真实环境；已有基准要么不交互，要么只覆盖单一应用，测不出跨应用与开放域任务。\n证据位置：摘要提出 OSWorld，支持 Ubuntu/Windows/macOS 的任务设置、执行评估与交互学习；369 个真实网页/桌面应用任务，覆盖文件 I/O 与跨应用工作流；人类完成率 72.36%，参评模型中最高只有 12.24%，主要卡在 GUI grounding 与操作知识。\n作者自陈局限：这是基准与环境，不是智能体方案；任务集合与评分脚本固定，不能覆盖所有真实软件；模型分数受截图分辨率、工具接口与提示影响；没有报告长期自主学习。\n它没主张的：不是模型已经能替代人操作电脑；不是 12.24% 就是所有电脑任务的上限；不是 369 个任务能代表全部软件生态。",
+    "en": "Problem: computer-use agents lacked a unified, executable real-environment benchmark; existing suites either do not interact or cover a single app, missing cross-application and open-domain work.\nWhere the evidence sits: OSWorld supports task setup, execution-based evaluation and interactive learning on Ubuntu, Windows and macOS; it has 369 real web/desktop tasks covering file I/O and multi-app workflows; humans complete 72.36% while the best model reaches only 12.24%, mainly failing at GUI grounding and operational knowledge.\nWhat the authors say about limits: this is a benchmark and environment, not an agent recipe; the task set and evaluation scripts are fixed and cannot cover every real application; scores depend on screenshot resolution, tool interface and prompting; long-term autonomous learning is not reported.\nWhat it does not claim: not that models can replace humans at computer work; not that 12.24% is the ceiling for all computer tasks; not that 369 tasks represent the whole software ecosystem."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "任务 / tasks": "369 个真实电脑任务",
+    "系统 / OS": "Ubuntu、Windows、macOS",
+    "人 vs 模型 / human vs model": "72.36% vs 12.24%",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

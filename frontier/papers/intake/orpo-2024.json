@@ -1,0 +1,40 @@
+{
+  "id": "orpo-2024",
+  "title": {
+    "zh": "ORPO: Monolithic Preference Optimization without Reference Model",
+    "en": "ORPO: Monolithic Preference Optimization without Reference Model"
+  },
+  "category": "alignment",
+  "url": "https://arxiv.org/abs/2403.07691",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2403.07691",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2403.07691",
+      "quote": "a straightforward and innovative reference model-free monolithic odds ratio preference optimization algorithm, ORPO"
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.07691",
+      "quote": "eliminating the necessity for an additional preference alignment phase"
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.07691",
+      "quote": "fine-tuning Phi-2 (2.7B), Llama-2 (7B), and Mistral (7B) with ORPO on the UltraFeedback alone"
+    }
+  ],
+  "notes": {
+    "zh": "问题：常规偏好对齐要先把 SFT 与偏好优化分成两阶段，还要一个参考模型；能不能在 SFT 里直接加一个 odds ratio 惩罚，把对齐合并成一步。\n证据位置：摘要提出无参考模型的 ORPO，把偏好对齐并入 SFT，不需要额外的对齐阶段；在 125M–7B 上验证，Phi-2 2.7B、Llama-2 7B、Mistral 7B 仅用 UltraFeedback 微调，AlpacaEval 2.0 最高 12.20%、IFEval 66.19%、MT-Bench 7.32，并公开 Mistral-ORPO 检查点。\n作者自陈局限：验证规模到 7B；偏好数据只有 UltraFeedback；评测集中在 AlpacaEval/IFEval/MT-Bench；没有覆盖更大模型、长对话与安全对齐。\n它没主张的：不是所有模型都能省掉参考模型；不是 ORPO 一定优于 DPO/PPO；不是 7B 的胜率能外推到 70B。",
+    "en": "Problem: conventional preference alignment separates SFT and preference optimisation and needs a reference model; can an odds-ratio penalty be folded into SFT and collapse alignment into one stage.\nWhere the evidence sits: the abstract proposes reference-model-free ORPO, merging preference alignment into SFT without an extra phase; it validates from 125M to 7B, and Phi-2 2.7B, Llama-2 7B and Mistral 7B fine-tuned on UltraFeedback alone reach up to 12.20% on AlpacaEval 2.0, 66.19% on IFEval and 7.32 on MT-Bench, with Mistral-ORPO checkpoints released.\nWhat the authors say about limits: validation stops at 7B; preference data is UltraFeedback only; evaluation centres on AlpacaEval, IFEval and MT-Bench; larger models, long dialogue and safety alignment are not covered.\nWhat it does not claim: not that every model can drop the reference model; not that ORPO always beats DPO/PPO; not that 7B win rates extrapolate to 70B."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要；Figure 1、Table 6、Figure 12",
+    "规模 / scale": "125M–7B",
+    "数据 / data": "UltraFeedback",
+    "评测 / evals": "AlpacaEval 2.0 12.20%；IFEval 66.19%；MT-Bench 7.32",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

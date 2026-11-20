@@ -1,0 +1,40 @@
+{
+  "id": "hybrid-agents-2026",
+  "title": {
+    "zh": "Hybrid Reasoning Agents",
+    "en": "Hybrid Reasoning Agents"
+  },
+  "category": "reasoning",
+  "url": "https://arxiv.org/abs/2610.18861",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2610.18861",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2610.18861",
+      "quote": "dynamically navigate between latent reasoning and text-based interaction throughout a unified generation process"
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.18861",
+      "quote": "a lightweight HybridLink enables seamless transitions between text and latent modes"
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.18861",
+      "quote": "improves performance by 10.4%, while delivering 35.5%-54.7% token reduction, 1.8x-2.6x faster inference, and 2.7x-3.7x cost savings"
+    }
+  ],
+  "notes": {
+    "zh": "问题：文本推理可解释、能调工具，但 token 成本高；latent reasoning 省 token，却缺少原生工具访问与可读性；能不能在同一生成过程里在两种模式间动态切换。\n证据位置：摘要提出 HybridAgents，用轻量 HybridLink 在文本与 latent 模式间切换，并用连续工作记忆跨多轮保留无损混合上下文；配套 HybridSFT 与 HybridRL 后训练；在 3 个模型规模、11 个基准（数学、科学、医学、搜索、智能体推理）上平均提升 10.4%，token 减 35.5–54.7%，推理快 1.8–2.6 倍，成本省 2.7–3.7 倍。\n作者自陈局限：3 个模型规模、11 个基准；latent 模式可解释性仍有限；工具调用与多轮工作记忆依赖架构改造；没有生产部署与安全评估。\n它没主张的：不是所有推理都该转 latent；不是 10.4% 是跨所有任务的统一增益；不是 token 减少必然保持同等可解释性。",
+    "en": "Problem: text reasoning is inspectable and can call tools but costs tokens; latent reasoning saves tokens but lacks native tool access and readability; can a single generation process switch between the two.\nWhere the evidence sits: HybridAgents uses a lightweight HybridLink to switch between text and latent modes and keeps a continuous working memory across turns for lossless hybrid context; HybridSFT and HybridRL post-training coordinate the modes; across three model scales and 11 benchmarks in mathematics, science, medicine, search and agentic reasoning it improves performance by 10.4%, cuts tokens by 35.5–54.7%, speeds inference by 1.8–2.6× and saves 2.7–3.7× cost.\nWhat the authors say about limits: three model scales and 11 benchmarks; latent-mode interpretability remains limited; tool use and multi-turn working memory require architectural changes; production deployment and safety evaluation are not covered.\nWhat it does not claim: not that every reasoning task should move to latent space; not that 10.4% is a uniform gain across all tasks; not that token savings preserve the same interpretability."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "方法 / method": "HybridLink + 连续工作记忆 + HybridSFT/HybridRL",
+    "规模 / scale": "3 个模型规模，11 个基准",
+    "提升 / gain": "平均 +10.4%；token -35.5–54.7%；推理 1.8–2.6×；成本 2.7–3.7×",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

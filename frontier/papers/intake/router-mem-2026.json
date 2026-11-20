@@ -1,0 +1,41 @@
+{
+  "id": "router-mem-2026",
+  "title": {
+    "zh": "Stop When Memory Suffices: Evidence-Conditioned Progressive Execution for LLM Agents",
+    "en": "Stop When Memory Suffices: Evidence-Conditioned Progressive Execution for LLM Agents"
+  },
+  "category": "agents",
+  "url": "https://arxiv.org/abs/2608.01285",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2608.01285",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2608.01285",
+      "quote": "A lightweight sufficiency router then predicts whether the context supports early termination"
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.01285",
+      "quote": "Router-Mem achieves 55.17\\% and 38.77\\% score"
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.01285",
+      "quote": "reducing average inference time by 27.3\\% and 25.5\\%"
+    }
+  ],
+  "notes": {
+    "zh": "问题：长期记忆系统要么压缩历史导致漏掉时序/因果依赖，要么每次都做深度研究导致延迟高；能不能先低成本检索，再判断证据够不够，够了就停。\n证据位置：摘要提出 Router-Mem，先做共享低成本检索前缀，再用轻量 sufficiency router 预测当前证据是否足以提前终止，一次 token 决策；证据不足时复用检索命中扩展记忆块并深入分析；在 AMA-Bench、BEAM 上得 55.17%、38.77%，相对完整记忆执行平均推理时间降 27.3%、25.5%。\n作者自陈局限：只验证两个记忆基准；router 训练依赖证据级监督与蒸馏；没有覆盖多轮工具调用、权限与生产并发；提前终止可能漏掉长尾证据。\n它没主张的：不是所有问题都能早停；不是 27% 延迟下降等于同等准确率；不是两个基准代表全部长期记忆任务。",
+    "en": "Problem: long-term memory systems either compress history and lose temporal/causal dependencies, or run deep research every time and pay high latency; can a cheap retrieval pass decide whether evidence is already sufficient.\nWhere the evidence sits: Router-Mem first runs a shared low-cost retrieval prefix, then a lightweight sufficiency router predicts whether the context supports early termination in a single-token decision; when evidence is insufficient it reuses retrieval hits to expand memory blocks and analyse deeper; it scores 55.17% and 38.77% on AMA-Bench and BEAM while cutting average inference time by 27.3% and 25.5% versus full memory execution.\nWhat the authors say about limits: only two memory benchmarks; router training depends on evidence-level supervision and distillation; multi-turn tool use, permissions and production concurrency are not covered; early termination can miss long-tail evidence.\nWhat it does not claim: not that every question can terminate early; not that 27% lower latency means equal accuracy; not that two benchmarks represent all long-term memory tasks."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "方法 / method": "低成本检索前缀 + sufficiency router 早停",
+    "AMA-Bench": "55.17%",
+    "BEAM": "38.77%",
+    "延迟 / latency": "平均降 27.3% / 25.5%",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

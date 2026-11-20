@@ -1,0 +1,40 @@
+{
+  "id": "gemma3-2025",
+  "title": {
+    "zh": "Gemma 3 Technical Report",
+    "en": "Gemma 3 Technical Report"
+  },
+  "category": "multimodal",
+  "url": "https://arxiv.org/abs/2503.19786",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2503.19786",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2503.19786",
+      "quote": "ranging in scale from 1 to 27 billion parameters"
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.19786",
+      "quote": "vision understanding abilities, a wider coverage of languages and longer context - at least 128K tokens"
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.19786",
+      "quote": "increasing the ratio of local to global attention layers, and keeping the span on local attention short"
+    }
+  ],
+  "notes": {
+    "zh": "问题：轻量开源模型要同时具备视觉、多语言与长上下文，但长上下文会让 KV cache 膨胀；能不能靠局部/全局注意力配比，在 1B–27B 上把能力与显存同时守住。\n证据位置：摘要给出 1B–27B 的轻量多模态系列，增加视觉理解、语言覆盖与至少 128K 上下文；通过提高局部注意力层比例、缩短局部分窗来压 KV cache；用蒸馏训练，Gemma3-4B-IT 对标 Gemma2-27B-IT，Gemma3-27B-IT 对标 Gemini-1.5-Pro，全部模型开放。\n作者自陈局限：最大只到 27B；对标来自自建评测；视觉能力与长上下文的组合任务覆盖有限；没有完整安全评估与生产部署数据。\n它没主张的：不是 27B 全面超过更大闭源模型；不是 128K 对所有任务都有效；不是开源权重就等于无许可限制。",
+    "en": "Problem: lightweight open models need vision, multilingual coverage and long context, but long context inflates the KV cache; can the local/global attention ratio keep capability and memory within reach at 1B–27B.\nWhere the evidence sits: the abstract covers a 1B–27B lightweight multimodal family with vision understanding, wider language coverage and at least 128K context; it raises the ratio of local to global attention layers and shortens the local span to reduce KV-cache memory; distillation training makes Gemma3-4B-IT competitive with Gemma2-27B-IT and Gemma3-27B-IT comparable to Gemini-1.5-Pro, with all models released.\nWhat the authors say about limits: the largest model is 27B; comparisons come from their own evaluation; combined vision and long-context tasks have limited coverage; there is no full safety evaluation or production deployment data.\nWhat it does not claim: not that 27B beats larger closed models everywhere; not that 128K works for every task; not that open weights mean no licence constraints."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "规模 / scale": "1B–27B",
+    "上下文 / context": "至少 128K tokens",
+    "架构 / architecture": "提高局部注意力层比例，压 KV cache",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "search-r1-2025",
+  "title": {
+    "zh": "Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning",
+    "en": "Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning"
+  },
+  "category": "agents",
+  "url": "https://arxiv.org/abs/2503.09516",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2503.09516",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2503.09516",
+      "quote": "the LLM learns to autonomously generate (multiple) search queries during step-by-step reasoning with real-time retrieval"
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.09516",
+      "quote": "improves performance by 41% (Qwen2.5-7B) and 20% (Qwen2.5-3B) over various RAG baselines under the same setting"
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.09516",
+      "quote": "leveraging retrieved token masking for stable RL training and a simple outcome-based reward function"
+    }
+  ],
+  "notes": {
+    "zh": "问题：RAG 通常把检索结果一次性塞进提示，模型不会自己决定何时搜、搜什么、搜几次；能不能用 RL 让模型在逐步推理中自主发查询。\n证据位置：摘要提出 Search-R1，在推理过程中自主生成多次搜索查询并实时检索；用 retrieved token masking 稳定 RL、只用结果奖励；七个问答数据集上相对多种 RAG 基线，Qwen2.5-7B 提升 41%、3B 提升 20%；代码与检查点开放。\n作者自陈局限：只验证 3B/7B；任务集中在七组问答；检索环境与搜索工具固定；没有覆盖开放域研究、多跳网页浏览与生产延迟。\n它没主张的：不是所有 RAG 都该改成 RL；不是 41% 是跨所有任务的统一增益；不是搜索次数越多越好。",
+    "en": "Problem: RAG usually injects retrieved results into a prompt once, leaving the model unable to decide when to search, what to search and how often; can RL teach it to issue queries during step-by-step reasoning.\nWhere the evidence sits: Search-R1 autonomously generates multiple search queries with real-time retrieval during reasoning; retrieved-token masking stabilises RL and a simple outcome reward is used; across seven QA datasets it improves over several RAG baselines by 41% for Qwen2.5-7B and 20% for Qwen2.5-3B; code and checkpoints are open.\nWhat the authors say about limits: only 3B/7B models; tasks are seven QA datasets; the retrieval environment and search tool are fixed; open-domain research, multi-hop browsing and production latency are not covered.\nWhat it does not claim: not that every RAG system should switch to RL; not that 41% is a uniform gain across tasks; not that more searches are always better."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "方法 / method": "多轮搜索 + RL，retrieved token masking",
+    "提升 / gains": "Qwen2.5-7B +41%；3B +20%",
+    "数据 / data": "七个问答数据集",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

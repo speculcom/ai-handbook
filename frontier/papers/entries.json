@@ -393,6 +393,46 @@
     }
   },
   {
+    "id": "contextweaver-2026",
+    "title": {
+      "zh": "ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents",
+      "en": "ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2604.23069",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2604.23069",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2604.23069",
+        "quote": "dependency-based construction and traversal that link each step to the earlier steps it relies on"
+      },
+      {
+        "url": "https://arxiv.org/abs/2604.23069",
+        "quote": "On SWE-Bench Pro, ContextWeaver raises the resolve rate from 66.5% to 72.6%"
+      },
+      {
+        "url": "https://arxiv.org/abs/2604.23069",
+        "quote": "using 13-18% fewer agent steps"
+      }
+    ],
+    "notes": {
+      "zh": "问题：编码智能体的上下文越滚越长，滑窗与提示压缩会丢掉后续步骤依赖的早期信息；普通检索只看相似度，看不到推理步骤之间的因果依赖。\n证据位置：摘要提出 ContextWeaver，把交互轨迹组织成推理步骤依赖图，链接每步依赖的前序步骤，生成紧凑依赖摘要，并用执行反馈做轻量校验；在五个软件工程/终端基准上全胜滑窗基线，步数少 13–18%；SWE-Bench Pro 解率从 66.5% 升到 72.6%，三个模型骨干都成立。\n作者自陈局限：评测是五个 SWE/终端基准、固定任务预算；依赖图构建依赖步骤切分与工具反馈；没有覆盖开放式研究、多人协作与生产环境；不是端到端训练。\n它没主张的：不是所有上下文都该图化；不是 72.6% 代表所有仓库任务；不是步数减少一定代表成本同比下降。",
+      "en": "Problem: coding agents accumulate long context, and sliding windows or prompt compression drop earlier information that later steps depend on; ordinary retrieval sees similarity but not causal dependencies between reasoning steps.\nWhere the evidence sits: ContextWeaver turns an interaction trace into a dependency graph of reasoning steps, links each step to earlier steps it relies on, builds compact dependency summaries and adds a lightweight validation layer using execution feedback; it beats a sliding-window baseline on all five software-engineering and terminal benchmarks, uses 13–18% fewer agent steps and raises SWE-Bench Pro resolve rate from 66.5% to 72.6% across three model backbones.\nWhat the authors say about limits: evaluation covers five SWE/terminal benchmarks under a fixed task budget; graph construction depends on step segmentation and tool feedback; open-ended research, multi-user collaboration and production environments are not covered; it is not end-to-end trained.\nWhat it does not claim: not that every context should be graph-structured; not that 72.6% represents every repository task; not that fewer steps necessarily means proportionally lower cost."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "方法 / method": "推理步骤依赖图 + 依赖摘要 + 执行反馈校验",
+      "SWE-Bench Pro": "66.5% → 72.6%",
+      "步数 / steps": "少 13–18%",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
     "id": "dao-2022-flashattention",
     "title": {
       "zh": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
@@ -508,6 +548,46 @@
       "证据位置 / evidence": "摘要",
       "训练 / training": "纯 RL；不使用人工标注推理轨迹",
       "任务范围 / scope": "数学、编程竞赛、STEM 等可验证任务",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "deepseek-v2-2024",
+    "title": {
+      "zh": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model",
+      "en": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2405.04434",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2405.04434",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2405.04434",
+        "quote": "236B total parameters, of which 21B are activated for each token"
+      },
+      {
+        "url": "https://arxiv.org/abs/2405.04434",
+        "quote": "MLA guarantees efficient inference through significantly compressing the Key-Value (KV) cache into a latent vector"
+      },
+      {
+        "url": "https://arxiv.org/abs/2405.04434",
+        "quote": "saves 42.5% of training costs, reduces the KV cache by 93.3%, and boosts the maximum generation throughput to 5.76 times"
+      }
+    ],
+    "notes": {
+      "zh": "问题：MoE 模型参数多、KV cache 大，推理成本高；能不能在不牺牲能力的情况下，把注意力与专家路由都做得更省。\n证据位置：摘要给出 236B 总参数、每 token 激活 21B、128K 上下文；MLA 把 KV cache 压成 latent vector，DeepSeekMoE 用稀疏计算降训练成本；相对 DeepSeek 67B，训练成本省 42.5%、KV cache 减 93.3%、最大生成吞吐提升 5.76 倍。\n作者自陈局限：技术报告的自评为主，未给第三方独立复现；128K 上下文的实际任务覆盖有限；MLA/MoE 的收益依赖具体硬件与并行实现，不是所有栈都能直接拿到同等数字。\n它没主张的：不是所有 MoE 都必须用 MLA；不是 21B 激活就等于 21B 稠密模型能力；不是训练成本对任何团队都按同比例下降。",
+      "en": "Problem: MoE models carry many parameters and a large KV cache, making inference expensive; can attention and expert routing be made cheaper without giving up capability.\nWhere the evidence sits: the abstract reports 236B total parameters, 21B activated per token and a 128K context; MLA compresses the KV cache into a latent vector and DeepSeekMoE uses sparse computation to cut training cost; versus DeepSeek 67B it saves 42.5% of training cost, reduces KV cache by 93.3% and raises maximum generation throughput by 5.76×.\nWhat the authors say about limits: this is a technical report with self-evaluation, not an independent reproduction; the 128K context has limited task coverage; MLA/MoE gains depend on specific hardware and parallel implementations, not every stack gets the same numbers.\nWhat it does not claim: not that every MoE must use MLA; not that 21B activated equals a 21B dense model; not that every team sees the same training-cost reduction."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "参数 / parameters": "236B 总参数，21B 每 token 激活",
+      "KV cache": "相对 DeepSeek 67B 减少 93.3%",
+      "吞吐 / throughput": "最高 5.76×",
       "复现状态 / reproduction": "未复现（只读摘要）"
     }
   },
@@ -876,6 +956,46 @@
     }
   },
   {
+    "id": "flashattention3-2024",
+    "title": {
+      "zh": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision",
+      "en": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision"
+    },
+    "category": "efficiency",
+    "url": "https://arxiv.org/abs/2407.08608",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2407.08608",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2407.08608",
+        "quote": "FlashAttention-2 achieving only 35% utilization on the H100 GPU"
+      },
+      {
+        "url": "https://arxiv.org/abs/2407.08608",
+        "quote": "achieves speedup on H100 GPUs by 1.5-2.0× with FP16 reaching up to 740 TFLOPs/s (75% utilization)"
+      },
+      {
+        "url": "https://arxiv.org/abs/2407.08608",
+        "quote": "with FP8 reaching close to 1.2 PFLOPs/s"
+      }
+    ],
+    "notes": {
+      "zh": "问题：注意力是长上下文模型的核心瓶颈；FlashAttention 系列已减少显存读写，但在 Hopper 上仍未吃满 Tensor Core、TMA 与 FP8 的硬件能力。\n证据位置：摘要指出 FlashAttention-2 在 H100 上只有 35% 利用率；FlashAttention-3 用 warp-specialization、块级 matmul/softmax 交叠与 FP8 块量化，把 FP16 推到最高 740 TFLOPs/s（75% 利用率），FP8 接近 1.2 PFLOPs/s，速度提升 1.5–2.0 倍，且 FP8 数值误差比基线低 2.6 倍。\n作者自陈局限：优化针对 Hopper（H100）与特定 kernel；不是所有 GPU 架构都能获得同样收益；测的是注意力算子，不是端到端模型吞吐；FP8 精度收益依赖具体模型与任务。\n它没主张的：不是所有注意力实现都需要重写；不是 FP8 在所有模型上都无损；不是 75% 利用率等于端到端推理快 2 倍。",
+      "en": "Problem: attention is the core bottleneck for long-context models; FlashAttention reduced memory traffic but still left Hopper Tensor Cores, TMA and FP8 underused.\nWhere the evidence sits: the abstract notes FlashAttention-2 reaches only 35% utilization on H100; FlashAttention-3 uses warp specialization, interleaved block-wise matmul/softmax and FP8 block quantization to reach up to 740 TFLOPs/s in FP16 (75% utilization) and close to 1.2 PFLOPs/s in FP8, with a 1.5–2.0× speedup and 2.6× lower FP8 numerical error than a baseline.\nWhat the authors say about limits: the optimisation targets Hopper (H100) and specific kernels; other GPU architectures do not automatically get the same gain; it measures the attention operator, not end-to-end model throughput; FP8 accuracy depends on model and task.\nWhat it does not claim: not that every attention implementation must be rewritten; not that FP8 is lossless for every model; not that 75% utilization means 2× end-to-end inference."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "硬件 / hardware": "NVIDIA H100（Hopper）",
+      "FP16 速度 / FP16": "最高 740 TFLOPs/s，75% 利用率",
+      "FP8 速度 / FP8": "接近 1.2 PFLOPs/s",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
     "id": "frantar-2022-gptq",
     "title": {
       "zh": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
@@ -954,6 +1074,46 @@
       "定位 / positioning": "长程 Agent、复杂知识工作、工程、网络安全、科学推理",
       "证据位置 / evidence": "模型卡 Description / Inputs / Evaluation 段",
       "复现状态 / reproduction": "未复现（只读官方模型卡）"
+    }
+  },
+  {
+    "id": "gemma3-2025",
+    "title": {
+      "zh": "Gemma 3 Technical Report",
+      "en": "Gemma 3 Technical Report"
+    },
+    "category": "multimodal",
+    "url": "https://arxiv.org/abs/2503.19786",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2503.19786",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2503.19786",
+        "quote": "ranging in scale from 1 to 27 billion parameters"
+      },
+      {
+        "url": "https://arxiv.org/abs/2503.19786",
+        "quote": "vision understanding abilities, a wider coverage of languages and longer context - at least 128K tokens"
+      },
+      {
+        "url": "https://arxiv.org/abs/2503.19786",
+        "quote": "increasing the ratio of local to global attention layers, and keeping the span on local attention short"
+      }
+    ],
+    "notes": {
+      "zh": "问题：轻量开源模型要同时具备视觉、多语言与长上下文，但长上下文会让 KV cache 膨胀；能不能靠局部/全局注意力配比，在 1B–27B 上把能力与显存同时守住。\n证据位置：摘要给出 1B–27B 的轻量多模态系列，增加视觉理解、语言覆盖与至少 128K 上下文；通过提高局部注意力层比例、缩短局部分窗来压 KV cache；用蒸馏训练，Gemma3-4B-IT 对标 Gemma2-27B-IT，Gemma3-27B-IT 对标 Gemini-1.5-Pro，全部模型开放。\n作者自陈局限：最大只到 27B；对标来自自建评测；视觉能力与长上下文的组合任务覆盖有限；没有完整安全评估与生产部署数据。\n它没主张的：不是 27B 全面超过更大闭源模型；不是 128K 对所有任务都有效；不是开源权重就等于无许可限制。",
+      "en": "Problem: lightweight open models need vision, multilingual coverage and long context, but long context inflates the KV cache; can the local/global attention ratio keep capability and memory within reach at 1B–27B.\nWhere the evidence sits: the abstract covers a 1B–27B lightweight multimodal family with vision understanding, wider language coverage and at least 128K context; it raises the ratio of local to global attention layers and shortens the local span to reduce KV-cache memory; distillation training makes Gemma3-4B-IT competitive with Gemma2-27B-IT and Gemma3-27B-IT comparable to Gemini-1.5-Pro, with all models released.\nWhat the authors say about limits: the largest model is 27B; comparisons come from their own evaluation; combined vision and long-context tasks have limited coverage; there is no full safety evaluation or production deployment data.\nWhat it does not claim: not that 27B beats larger closed models everywhere; not that 128K works for every task; not that open weights mean no licence constraints."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "规模 / scale": "1B–27B",
+      "上下文 / context": "至少 128K tokens",
+      "架构 / architecture": "提高局部注意力层比例，压 KV cache",
+      "复现状态 / reproduction": "未复现（只读摘要）"
     }
   },
   {
@@ -1197,6 +1357,46 @@
     }
   },
   {
+    "id": "hle-2025",
+    "title": {
+      "zh": "Humanity's Last Exam",
+      "en": "Humanity's Last Exam"
+    },
+    "category": "reasoning",
+    "url": "https://arxiv.org/abs/2501.14249",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2501.14249",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2501.14249",
+        "quote": "HLE consists of 2,500 questions across dozens of subjects, including mathematics, humanities, and the natural sciences"
+      },
+      {
+        "url": "https://arxiv.org/abs/2501.14249",
+        "quote": "State-of-the-art LLMs demonstrate low accuracy and calibration on HLE"
+      },
+      {
+        "url": "https://arxiv.org/abs/2501.14249",
+        "quote": "cannot be quickly answered via internet retrieval"
+      }
+    ],
+    "notes": {
+      "zh": "问题：MMLU 等常用基准已被头部模型刷到 90% 以上，难以区分前沿能力；需要一个覆盖广、答案唯一、不能靠快速检索作弊的专家级闭卷基准。\n证据位置：摘要给出 HLE，2,500 道题、几十个学科，含数学、人文与自然科学；多选题与短答案，可自动评分；每题有明确唯一答案，且不能靠互联网快速检索；作者称当前 SOTA 模型准确率与校准都低。\n作者自陈局限：这是闭卷学术题基准，不覆盖开放式研究、工具使用与真实工作流；题目由专家编写，仍可能有争议或污染；分数低不代表模型在所有实际任务都弱。\n它没主张的：不是 AGI 考试；不是所有能力都能用 2,500 题代表；不是低分模型没有实用价值。",
+      "en": "Problem: popular benchmarks such as MMLU are now above 90% for frontier models, making them poor discriminators; what is needed is a broad, expert-level closed-book benchmark with unambiguous answers that cannot be solved by quick web lookup.\nWhere the evidence sits: HLE has 2,500 questions across dozens of subjects in mathematics, humanities and natural sciences; they are multiple-choice or short-answer and automatically gradable; each has a known unambiguous answer and cannot be quickly answered via internet retrieval; the authors report low accuracy and calibration for state-of-the-art LLMs.\nWhat the authors say about limits: this is a closed-book academic benchmark, not open-ended research, tool use or real workflows; expert-written questions can still be disputed or contaminated; low scores do not mean models are weak on every practical task.\nWhat it does not claim: not an AGI exam; not that 2,500 questions represent every capability; not that a low-scoring model has no practical value."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "题量 / questions": "2,500 题，几十个学科",
+      "形式 / format": "多选 + 短答案，自动评分",
+      "限制 / constraint": "不能靠互联网快速检索",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
     "id": "ho-2020-ddpm",
     "title": {
       "zh": "DDPM：去噪扩散概率模型",
@@ -1319,6 +1519,86 @@
       "训练加速 / speed-up": "25%",
       "局限位置 / limits": "Section 4.2 Practical Benefits and Limitations",
       "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "hybrid-agents-2026",
+    "title": {
+      "zh": "Hybrid Reasoning Agents",
+      "en": "Hybrid Reasoning Agents"
+    },
+    "category": "reasoning",
+    "url": "https://arxiv.org/abs/2610.18861",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2610.18861",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2610.18861",
+        "quote": "dynamically navigate between latent reasoning and text-based interaction throughout a unified generation process"
+      },
+      {
+        "url": "https://arxiv.org/abs/2610.18861",
+        "quote": "a lightweight HybridLink enables seamless transitions between text and latent modes"
+      },
+      {
+        "url": "https://arxiv.org/abs/2610.18861",
+        "quote": "improves performance by 10.4%, while delivering 35.5%-54.7% token reduction, 1.8x-2.6x faster inference, and 2.7x-3.7x cost savings"
+      }
+    ],
+    "notes": {
+      "zh": "问题：文本推理可解释、能调工具，但 token 成本高；latent reasoning 省 token，却缺少原生工具访问与可读性；能不能在同一生成过程里在两种模式间动态切换。\n证据位置：摘要提出 HybridAgents，用轻量 HybridLink 在文本与 latent 模式间切换，并用连续工作记忆跨多轮保留无损混合上下文；配套 HybridSFT 与 HybridRL 后训练；在 3 个模型规模、11 个基准（数学、科学、医学、搜索、智能体推理）上平均提升 10.4%，token 减 35.5–54.7%，推理快 1.8–2.6 倍，成本省 2.7–3.7 倍。\n作者自陈局限：3 个模型规模、11 个基准；latent 模式可解释性仍有限；工具调用与多轮工作记忆依赖架构改造；没有生产部署与安全评估。\n它没主张的：不是所有推理都该转 latent；不是 10.4% 是跨所有任务的统一增益；不是 token 减少必然保持同等可解释性。",
+      "en": "Problem: text reasoning is inspectable and can call tools but costs tokens; latent reasoning saves tokens but lacks native tool access and readability; can a single generation process switch between the two.\nWhere the evidence sits: HybridAgents uses a lightweight HybridLink to switch between text and latent modes and keeps a continuous working memory across turns for lossless hybrid context; HybridSFT and HybridRL post-training coordinate the modes; across three model scales and 11 benchmarks in mathematics, science, medicine, search and agentic reasoning it improves performance by 10.4%, cuts tokens by 35.5–54.7%, speeds inference by 1.8–2.6× and saves 2.7–3.7× cost.\nWhat the authors say about limits: three model scales and 11 benchmarks; latent-mode interpretability remains limited; tool use and multi-turn working memory require architectural changes; production deployment and safety evaluation are not covered.\nWhat it does not claim: not that every reasoning task should move to latent space; not that 10.4% is a uniform gain across all tasks; not that token savings preserve the same interpretability."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "方法 / method": "HybridLink + 连续工作记忆 + HybridSFT/HybridRL",
+      "规模 / scale": "3 个模型规模，11 个基准",
+      "提升 / gain": "平均 +10.4%；token -35.5–54.7%；推理 1.8–2.6×；成本 2.7–3.7×",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "jamba-2024",
+    "title": {
+      "zh": "Jamba: A Hybrid Transformer-Mamba Language Model",
+      "en": "Jamba: A Hybrid Transformer-Mamba Language Model"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2403.19887",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2403.19887",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2403.19887",
+        "quote": "a new base large language model based on a novel hybrid Transformer-Mamba mixture-of-experts (MoE) architecture"
+      },
+      {
+        "url": "https://arxiv.org/abs/2403.19887",
+        "quote": "a powerful model that fits in a single 80GB GPU"
+      },
+      {
+        "url": "https://arxiv.org/abs/2403.19887",
+        "quote": "strong results for up to 256K tokens context length"
+      }
+    ],
+    "notes": {
+      "zh": "问题：纯 Transformer 的 KV cache 与长上下文成本高，纯 Mamba 又在部分离散任务上弱；能不能把 Transformer 与 Mamba 交错，再叠 MoE，同时保住吞吐与显存。\n证据位置：摘要提出 Transformer 层与 Mamba 层交错的混合 MoE 架构，部分层加 MoE 提升容量；某个配置可放进单张 80GB GPU，在标准语言与长上下文评测上有竞争力，并给出 256K token 的结果；权重以宽松许可公开。\n作者自陈局限：论文只实现并验证有限配置，层交错与专家混合方式依赖大量消融；256K 是特定评测，不是所有长上下文任务；没有独立复现与生产服务数据。\n它没主张的：不是 Transformer 与 Mamba 的最优配比已定；不是单卡 80GB 就能训练同等模型；不是所有长上下文都优于纯 Transformer。",
+      "en": "Problem: pure Transformers pay a large KV-cache and long-context cost, while pure Mamba can be weaker on some discrete tasks; can Transformer and Mamba layers be interleaved with MoE to keep throughput and memory.\nWhere the evidence sits: the abstract proposes a hybrid Transformer-Mamba MoE architecture with interleaved blocks and MoE in some layers; one configuration fits in a single 80GB GPU, is competitive on standard language and long-context evaluations and reports results up to 256K tokens; weights are released under a permissive licence.\nWhat the authors say about limits: only a limited set of configurations is built and evaluated; interleaving and expert mixing depend on extensive ablations; 256K is a specific evaluation, not every long-context task; there is no independent reproduction or production serving data.\nWhat it does not claim: not that the optimal Transformer/Mamba ratio is settled; not that one 80GB GPU can train an equivalent model; not that it beats pure Transformers on every long-context task."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "架构 / architecture": "Transformer + Mamba + MoE 交错",
+      "显存 / memory": "单张 80GB GPU 可承载",
+      "上下文 / context": "最高 256K tokens",
+      "复现状态 / reproduction": "未复现（只读摘要）"
     }
   },
   {
@@ -1621,6 +1901,50 @@
     }
   },
   {
+    "id": "ling-ring-26-2026",
+    "title": {
+      "zh": "Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale",
+      "en": "Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2606.15079",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2606.15079",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2606.15079",
+        "quote": "a hybrid linear attention design that integrates Lightning Attention with MLA"
+      },
+      {
+        "url": "https://arxiv.org/abs/2606.15079",
+        "quote": "this model family scales from 104B to 1T parameters"
+      },
+      {
+        "url": "https://arxiv.org/abs/2606.15079",
+        "quote": "KPop, a reinforcement learning framework designed to support stable training of Ring-2.6-1T on large-scale environment-grounded data"
+      },
+      {
+        "url": "https://arxiv.org/abs/2606.15079",
+        "quote": "We open-source all checkpoints in the 2.6 family"
+      }
+    ],
+    "notes": {
+      "zh": "问题：万亿级智能体模型既要低延迟，又要深推理，还要能稳定训练与部署；从零训练成本过高，能不能在已有基座上做架构迁移与后训练。\n证据位置：摘要把 Ling-2.6（即时响应、高 token 效率）与 Ring-2.6（深推理、复杂智能体工作流）放在一个 104B–1T 家族；用 Lightning Attention + MLA 的混合线性注意力降长上下文训练/解码成本；KPop 用异步调度组织 coding、搜索、工具与工作流执行；2.6 家族检查点全部开源。\n作者自陈局限：技术报告以自评为主，没有独立复现；1T 规模部署门槛高；KPop 依赖大规模环境数据；低延迟/深推理的分配策略仍要按场景调。\n它没主张的：不是 1T 模型能在普通硬件跑；不是 Ling 与 Ring 两个模式对所有任务都最优；不是开源权重就等于训练配方全开放。",
+      "en": "Problem: trillion-scale agentic models need low latency, deep reasoning and stable training/serving; training from scratch is too costly, so can an existing base be upgraded through architectural migration and post-training.\nWhere the evidence sits: the abstract puts Ling-2.6 (instant responses, high token efficiency) and Ring-2.6 (deeper reasoning, complex agent workflows) in one 104B–1T family; a hybrid linear attention design integrates Lightning Attention with MLA to cut long-context training and decoding cost; KPop asynchronously schedules coding, search, tool use and workflow execution; all 2.6 checkpoints are open-sourced.\nWhat the authors say about limits: the technical report is self-evaluated, with no independent reproduction; 1T deployment has a high barrier; KPop depends on large-scale environment data; the latency/reasoning split still needs per-scenario tuning.\nWhat it does not claim: not that a 1T model runs on ordinary hardware; not that Ling and Ring modes are optimal for every task; not that open weights mean the full training recipe is open."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "规模 / scale": "104B–1T",
+      "架构 / architecture": "Lightning Attention + MLA 混合线性注意力",
+      "训练 / training": "KPop 异步环境 RL",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
     "id": "llama3-2024",
     "title": {
       "zh": "The Llama 3 Herd of Models",
@@ -1778,6 +2102,46 @@
     }
   },
   {
+    "id": "minimax01-2025",
+    "title": {
+      "zh": "MiniMax-01: Scaling Foundation Models with Lightning Attention",
+      "en": "MiniMax-01: Scaling Foundation Models with Lightning Attention"
+    },
+    "category": "architecture",
+    "url": "https://arxiv.org/abs/2501.08313",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2501.08313",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2501.08313",
+        "quote": "32 experts and 456 billion total parameters, of which 45.9 billion are activated for each token"
+      },
+      {
+        "url": "https://arxiv.org/abs/2501.08313",
+        "quote": "context window of MiniMax-Text-01 can reach up to 1 million tokens during training and extrapolate to 4 million tokens during inference"
+      },
+      {
+        "url": "https://arxiv.org/abs/2501.08313",
+        "quote": "20-32 times longer context window"
+      }
+    ],
+    "notes": {
+      "zh": "问题：标准注意力在百万级上下文上成本过高；线性注意力常在能力或工程效率上掉队，能不能把 lightning attention 与 MoE、并行策略结合，真正做到长上下文可训练、可推理。\n证据位置：摘要给出 32 专家、456B 总参数、每 token 45.9B 激活；用 lightning attention + MoE，并配合作者优化的并行与计算通信重叠；训练上下文 1M token，推理外推到 4M；相对 GPT-4o/Claude 3.5 Sonnet 的上下文窗口长 20–32 倍，标准与自建基准表现相当。\n作者自陈局限：技术报告的自评为主；4M 是外推，不是所有任务都在 4M 上验证；长上下文能力与具体并行/kernel 实现强绑定；没有独立复现与完整安全评估。\n它没主张的：不是线性注意力全面替代标准注意力；不是 4M 上下文在所有任务都无损；不是 456B 总参数就能消费级部署。",
+      "en": "Problem: standard attention is too expensive at million-token context, while linear attention often loses capability or engineering efficiency; can lightning attention be combined with MoE and parallel strategies to make long context trainable and servable.\nWhere the evidence sits: the abstract reports 32 experts, 456B total parameters and 45.9B activated per token; it combines lightning attention with MoE and optimised parallelism plus compute-communication overlap; training reaches 1M tokens and inference extrapolates to 4M; the context window is 20–32× longer than GPT-4o/Claude 3.5 Sonnet, with comparable standard and in-house benchmark results.\nWhat the authors say about limits: the technical report is self-evaluated; 4M is extrapolation, not validated on every task; long-context ability is tied to specific parallelism and kernels; there is no independent reproduction or full safety evaluation.\nWhat it does not claim: not that linear attention fully replaces standard attention; not that 4M context is lossless on every task; not that 456B total parameters are consumer-deployable."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "参数 / parameters": "456B 总参数，45.9B 激活，32 专家",
+      "上下文 / context": "训练 1M；推理外推 4M",
+      "对比 / comparison": "比 GPT-4o / Claude 3.5 Sonnet 长 20–32 倍",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
     "id": "minixhofer-2026-byteification",
     "title": {
       "zh": "Retrofitting language models to operate over bytes（Byteification）",
@@ -1820,6 +2184,90 @@
       "报告模型 / models": "Bolmo 7B/1B、Bwen 8B、Blama 8B",
       "证据位置 / evidence": "摘要；Tokenizer transfer and retrofitting；结果段",
       "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "mosaic-2026",
+    "title": {
+      "zh": "Accurate and Efficient Long-Term Memory for LLM Agents",
+      "en": "Accurate and Efficient Long-Term Memory for LLM Agents"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2607.16211",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2607.16211",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2607.16211",
+        "quote": "entity-typed graph storage with semantic classification preserving relational structure across events, personas, and relationships"
+      },
+      {
+        "url": "https://arxiv.org/abs/2607.16211",
+        "quote": "hash-accelerated dual-path retrieval replacing LLM-based classification with locality-sensitive hashing"
+      },
+      {
+        "url": "https://arxiv.org/abs/2607.16211",
+        "quote": "achieves 89.35% accuracy on LoCoMo (+27.21 pp over the best baseline)"
+      },
+      {
+        "url": "https://arxiv.org/abs/2607.16211",
+        "quote": "detects 66% of injected factual conflicts"
+      }
+    ],
+    "notes": {
+      "zh": "问题：智能体的长期记忆常用扁平向量库，丢掉事件、人物、关系之间的结构；用 LLM 做记忆分类又太慢，还会在无校验时积累矛盾。\n证据位置：摘要提出 MOSAIC，用实体类型图存事件/人物/关系，保留多跳与时序结构；用局部敏感哈希替代 LLM 分类做双路检索；保存时主动比对邻居并处理冲突；LoCoMo 89.35%（比公开基线高 27.21 个百分点），HaluMem 抽取 F1 86.77/85.84，冲突检出 66%，平均检索延迟 0.58 秒/题。\n作者自陈局限：评测集中在 LoCoMo、HaluMem 与一个临床指南冲突测试；图结构依赖实体/关系抽取质量；没有生产级并发、权限与隐私验证；不是端到端训练。\n它没主张的：不是所有记忆都该图结构化；不是 89.35% 代表开放域对话；不是 0.58 秒就是所有部署的延迟。",
+      "en": "Problem: agent long-term memory often uses flat vector stores that lose event, persona and relationship structure; LLM-based classification is slow, and without validation contradictions accumulate.\nWhere the evidence sits: MOSAIC stores typed entity graphs for events, personas and relationships, preserving multi-hop and temporal structure; locality-sensitive hashing replaces LLM classification for dual-path retrieval; save-time conflict detection compares neighbours and updates or deletes contradictions; it reaches 89.35% on LoCoMo (+27.21 pp over the best baseline), HaluMem extraction F1 86.77/85.84, detects 66% of injected conflicts and keeps average retrieval latency at 0.58 s per question.\nWhat the authors say about limits: evaluation centres on LoCoMo, HaluMem and a clinical-guideline conflict test; graph quality depends on entity/relation extraction; production concurrency, permissions and privacy are not validated; it is not end-to-end trained.\nWhat it does not claim: not that every memory should be graph-structured; not that 89.35% represents open-domain dialogue; not that 0.58 s is every deployment’s latency."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "记忆 / memory": "实体类型图 + 语义分类",
+      "检索 / retrieval": "局部敏感哈希双路检索",
+      "LoCoMo": "89.35%（+27.21 pp）",
+      "冲突检出 / conflict": "66%",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "muon-2025",
+    "title": {
+      "zh": "Muon is Scalable for LLM Training",
+      "en": "Muon is Scalable for LLM Training"
+    },
+    "category": "scaling",
+    "url": "https://arxiv.org/abs/2502.16982",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2502.16982",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2502.16982",
+        "quote": "Muon achieves \\sim\\!2\\times computational efficiency compared to AdamW with compute optimal training"
+      },
+      {
+        "url": "https://arxiv.org/abs/2502.16982",
+        "quote": "Moonlight, a 3B/16B-parameter Mixture-of-Expert (MoE) model trained with 5.7T tokens using Muon"
+      },
+      {
+        "url": "https://arxiv.org/abs/2502.16982",
+        "quote": "open-source our distributed Muon implementation that is memory optimal and communication efficient"
+      }
+    ],
+    "notes": {
+      "zh": "问题：Muon 在小模型上表现好，但缺少大规模训练的可扩展性证据；直接放大时，权重衰减与逐参数更新尺度会让训练不稳。\n证据位置：摘要给两个关键修正——加 weight decay、调整每参数更新尺度，使 Muon 在大规模训练上开箱可用；scaling law 实验显示相对 AdamW 约 2 倍计算效率；用 Muon 训练 3B/16B MoE Moonlight，5.7T token，推进 Pareto 前沿；开源分布式实现与检查点。\n作者自陈局限：最大验证到 16B MoE；计算效率是比较 compute-optimal 训练，不是所有训练预算；优化器收益依赖模型形状与并行实现；没有覆盖所有架构与任务。\n它没主张的：不是 Muon 无条件替代 AdamW；不是 2 倍效率等于所有训练都减半；不是 16B 的结论自动适用于万亿模型。",
+      "en": "Problem: Muon works well at small scale but lacked evidence of large-scale scalability; naive scaling is unstable because of weight decay and per-parameter update scale.\nWhere the evidence sits: the abstract adds weight decay and adjusts the per-parameter update scale so Muon works out of the box at large scale; scaling-law experiments show about 2× computational efficiency versus AdamW; Moonlight, a 3B/16B MoE, is trained with Muon on 5.7T tokens and improves the Pareto frontier; the distributed implementation and checkpoints are open-sourced.\nWhat the authors say about limits: validation goes to a 16B MoE; the efficiency comparison is compute-optimal training, not every budget; optimizer gains depend on model shape and parallelism; not every architecture or task is covered.\nWhat it does not claim: not that Muon unconditionally replaces AdamW; not that 2× efficiency halves every training run; not that 16B results automatically hold at trillion scale."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "效率 / efficiency": "相对 AdamW 约 2×（compute-optimal）",
+      "模型 / model": "Moonlight 3B/16B MoE，5.7T tokens",
+      "复现状态 / reproduction": "未复现（只读摘要）"
     }
   },
   {
@@ -1897,6 +2345,86 @@
       "目标 / target": "文本 / 语音 / 图像的任意到任意理解与生成",
       "证据位置 / evidence": "摘要；多模态基准；ICML 2026 接收说明",
       "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "orpo-2024",
+    "title": {
+      "zh": "ORPO: Monolithic Preference Optimization without Reference Model",
+      "en": "ORPO: Monolithic Preference Optimization without Reference Model"
+    },
+    "category": "alignment",
+    "url": "https://arxiv.org/abs/2403.07691",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2403.07691",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2403.07691",
+        "quote": "a straightforward and innovative reference model-free monolithic odds ratio preference optimization algorithm, ORPO"
+      },
+      {
+        "url": "https://arxiv.org/abs/2403.07691",
+        "quote": "eliminating the necessity for an additional preference alignment phase"
+      },
+      {
+        "url": "https://arxiv.org/abs/2403.07691",
+        "quote": "fine-tuning Phi-2 (2.7B), Llama-2 (7B), and Mistral (7B) with ORPO on the UltraFeedback alone"
+      }
+    ],
+    "notes": {
+      "zh": "问题：常规偏好对齐要先把 SFT 与偏好优化分成两阶段，还要一个参考模型；能不能在 SFT 里直接加一个 odds ratio 惩罚，把对齐合并成一步。\n证据位置：摘要提出无参考模型的 ORPO，把偏好对齐并入 SFT，不需要额外的对齐阶段；在 125M–7B 上验证，Phi-2 2.7B、Llama-2 7B、Mistral 7B 仅用 UltraFeedback 微调，AlpacaEval 2.0 最高 12.20%、IFEval 66.19%、MT-Bench 7.32，并公开 Mistral-ORPO 检查点。\n作者自陈局限：验证规模到 7B；偏好数据只有 UltraFeedback；评测集中在 AlpacaEval/IFEval/MT-Bench；没有覆盖更大模型、长对话与安全对齐。\n它没主张的：不是所有模型都能省掉参考模型；不是 ORPO 一定优于 DPO/PPO；不是 7B 的胜率能外推到 70B。",
+      "en": "Problem: conventional preference alignment separates SFT and preference optimisation and needs a reference model; can an odds-ratio penalty be folded into SFT and collapse alignment into one stage.\nWhere the evidence sits: the abstract proposes reference-model-free ORPO, merging preference alignment into SFT without an extra phase; it validates from 125M to 7B, and Phi-2 2.7B, Llama-2 7B and Mistral 7B fine-tuned on UltraFeedback alone reach up to 12.20% on AlpacaEval 2.0, 66.19% on IFEval and 7.32 on MT-Bench, with Mistral-ORPO checkpoints released.\nWhat the authors say about limits: validation stops at 7B; preference data is UltraFeedback only; evaluation centres on AlpacaEval, IFEval and MT-Bench; larger models, long dialogue and safety alignment are not covered.\nWhat it does not claim: not that every model can drop the reference model; not that ORPO always beats DPO/PPO; not that 7B win rates extrapolate to 70B."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要；Figure 1、Table 6、Figure 12",
+      "规模 / scale": "125M–7B",
+      "数据 / data": "UltraFeedback",
+      "评测 / evals": "AlpacaEval 2.0 12.20%；IFEval 66.19%；MT-Bench 7.32",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "osworld-2024",
+    "title": {
+      "zh": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+      "en": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2404.07972",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2404.07972",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2404.07972",
+        "quote": "a benchmark of 369 computer tasks involving real web and desktop apps in open domains, OS file I/O, and workflows spanning multiple applications"
+      },
+      {
+        "url": "https://arxiv.org/abs/2404.07972",
+        "quote": "humans can accomplish over 72.36% of the tasks, the best model achieves only 12.24% success"
+      },
+      {
+        "url": "https://arxiv.org/abs/2404.07972",
+        "quote": "primarily struggling with GUI grounding and operational knowledge"
+      }
+    ],
+    "notes": {
+      "zh": "问题：电脑操作智能体缺少统一、可执行评估的真实环境；已有基准要么不交互，要么只覆盖单一应用，测不出跨应用与开放域任务。\n证据位置：摘要提出 OSWorld，支持 Ubuntu/Windows/macOS 的任务设置、执行评估与交互学习；369 个真实网页/桌面应用任务，覆盖文件 I/O 与跨应用工作流；人类完成率 72.36%，参评模型中最高只有 12.24%，主要卡在 GUI grounding 与操作知识。\n作者自陈局限：这是基准与环境，不是智能体方案；任务集合与评分脚本固定，不能覆盖所有真实软件；模型分数受截图分辨率、工具接口与提示影响；没有报告长期自主学习。\n它没主张的：不是模型已经能替代人操作电脑；不是 12.24% 就是所有电脑任务的上限；不是 369 个任务能代表全部软件生态。",
+      "en": "Problem: computer-use agents lacked a unified, executable real-environment benchmark; existing suites either do not interact or cover a single app, missing cross-application and open-domain work.\nWhere the evidence sits: OSWorld supports task setup, execution-based evaluation and interactive learning on Ubuntu, Windows and macOS; it has 369 real web/desktop tasks covering file I/O and multi-app workflows; humans complete 72.36% while the best model reaches only 12.24%, mainly failing at GUI grounding and operational knowledge.\nWhat the authors say about limits: this is a benchmark and environment, not an agent recipe; the task set and evaluation scripts are fixed and cannot cover every real application; scores depend on screenshot resolution, tool interface and prompting; long-term autonomous learning is not reported.\nWhat it does not claim: not that models can replace humans at computer work; not that 12.24% is the ceiling for all computer tasks; not that 369 tasks represent the whole software ecosystem."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "任务 / tasks": "369 个真实电脑任务",
+      "系统 / OS": "Ubuntu、Windows、macOS",
+      "人 vs 模型 / human vs model": "72.36% vs 12.24%",
+      "复现状态 / reproduction": "未复现（只读摘要）"
     }
   },
   {
@@ -2308,6 +2836,47 @@
     }
   },
   {
+    "id": "router-mem-2026",
+    "title": {
+      "zh": "Stop When Memory Suffices: Evidence-Conditioned Progressive Execution for LLM Agents",
+      "en": "Stop When Memory Suffices: Evidence-Conditioned Progressive Execution for LLM Agents"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2608.01285",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2608.01285",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2608.01285",
+        "quote": "A lightweight sufficiency router then predicts whether the context supports early termination"
+      },
+      {
+        "url": "https://arxiv.org/abs/2608.01285",
+        "quote": "Router-Mem achieves 55.17\\% and 38.77\\% score"
+      },
+      {
+        "url": "https://arxiv.org/abs/2608.01285",
+        "quote": "reducing average inference time by 27.3\\% and 25.5\\%"
+      }
+    ],
+    "notes": {
+      "zh": "问题：长期记忆系统要么压缩历史导致漏掉时序/因果依赖，要么每次都做深度研究导致延迟高；能不能先低成本检索，再判断证据够不够，够了就停。\n证据位置：摘要提出 Router-Mem，先做共享低成本检索前缀，再用轻量 sufficiency router 预测当前证据是否足以提前终止，一次 token 决策；证据不足时复用检索命中扩展记忆块并深入分析；在 AMA-Bench、BEAM 上得 55.17%、38.77%，相对完整记忆执行平均推理时间降 27.3%、25.5%。\n作者自陈局限：只验证两个记忆基准；router 训练依赖证据级监督与蒸馏；没有覆盖多轮工具调用、权限与生产并发；提前终止可能漏掉长尾证据。\n它没主张的：不是所有问题都能早停；不是 27% 延迟下降等于同等准确率；不是两个基准代表全部长期记忆任务。",
+      "en": "Problem: long-term memory systems either compress history and lose temporal/causal dependencies, or run deep research every time and pay high latency; can a cheap retrieval pass decide whether evidence is already sufficient.\nWhere the evidence sits: Router-Mem first runs a shared low-cost retrieval prefix, then a lightweight sufficiency router predicts whether the context supports early termination in a single-token decision; when evidence is insufficient it reuses retrieval hits to expand memory blocks and analyse deeper; it scores 55.17% and 38.77% on AMA-Bench and BEAM while cutting average inference time by 27.3% and 25.5% versus full memory execution.\nWhat the authors say about limits: only two memory benchmarks; router training depends on evidence-level supervision and distillation; multi-turn tool use, permissions and production concurrency are not covered; early termination can miss long-tail evidence.\nWhat it does not claim: not that every question can terminate early; not that 27% lower latency means equal accuracy; not that two benchmarks represent all long-term memory tasks."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "方法 / method": "低成本检索前缀 + sufficiency router 早停",
+      "AMA-Bench": "55.17%",
+      "BEAM": "38.77%",
+      "延迟 / latency": "平均降 27.3% / 25.5%",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
     "id": "s1-2025",
     "title": {
       "zh": "s1: Simple test-time scaling",
@@ -2349,6 +2918,46 @@
       "方法 / method": "budget forcing（强停 / 追加 Wait）",
       "数学 / maths": "MATH、AIME24；最多超 o1-preview 27%",
       "扩展 / scaling": "AIME24 50% → 57%",
+      "复现状态 / reproduction": "未复现（只读摘要）"
+    }
+  },
+  {
+    "id": "search-r1-2025",
+    "title": {
+      "zh": "Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning",
+      "en": "Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning"
+    },
+    "category": "agents",
+    "url": "https://arxiv.org/abs/2503.09516",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2503.09516",
+      "checkedAt": "2026-11-20"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2503.09516",
+        "quote": "the LLM learns to autonomously generate (multiple) search queries during step-by-step reasoning with real-time retrieval"
+      },
+      {
+        "url": "https://arxiv.org/abs/2503.09516",
+        "quote": "improves performance by 41% (Qwen2.5-7B) and 20% (Qwen2.5-3B) over various RAG baselines under the same setting"
+      },
+      {
+        "url": "https://arxiv.org/abs/2503.09516",
+        "quote": "leveraging retrieved token masking for stable RL training and a simple outcome-based reward function"
+      }
+    ],
+    "notes": {
+      "zh": "问题：RAG 通常把检索结果一次性塞进提示，模型不会自己决定何时搜、搜什么、搜几次；能不能用 RL 让模型在逐步推理中自主发查询。\n证据位置：摘要提出 Search-R1，在推理过程中自主生成多次搜索查询并实时检索；用 retrieved token masking 稳定 RL、只用结果奖励；七个问答数据集上相对多种 RAG 基线，Qwen2.5-7B 提升 41%、3B 提升 20%；代码与检查点开放。\n作者自陈局限：只验证 3B/7B；任务集中在七组问答；检索环境与搜索工具固定；没有覆盖开放域研究、多跳网页浏览与生产延迟。\n它没主张的：不是所有 RAG 都该改成 RL；不是 41% 是跨所有任务的统一增益；不是搜索次数越多越好。",
+      "en": "Problem: RAG usually injects retrieved results into a prompt once, leaving the model unable to decide when to search, what to search and how often; can RL teach it to issue queries during step-by-step reasoning.\nWhere the evidence sits: Search-R1 autonomously generates multiple search queries with real-time retrieval during reasoning; retrieved-token masking stabilises RL and a simple outcome reward is used; across seven QA datasets it improves over several RAG baselines by 41% for Qwen2.5-7B and 20% for Qwen2.5-3B; code and checkpoints are open.\nWhat the authors say about limits: only 3B/7B models; tasks are seven QA datasets; the retrieval environment and search tool are fixed; open-domain research, multi-hop browsing and production latency are not covered.\nWhat it does not claim: not that every RAG system should switch to RL; not that 41% is a uniform gain across tasks; not that more searches are always better."
+    },
+    "verifiedAt": "2026-11-20",
+    "specs": {
+      "证据位置 / evidence": "摘要",
+      "方法 / method": "多轮搜索 + RL，retrieved token masking",
+      "提升 / gains": "Qwen2.5-7B +41%；3B +20%",
+      "数据 / data": "七个问答数据集",
       "复现状态 / reproduction": "未复现（只读摘要）"
     }
   },

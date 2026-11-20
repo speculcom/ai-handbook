@@ -1,0 +1,40 @@
+{
+  "id": "jamba-2024",
+  "title": {
+    "zh": "Jamba: A Hybrid Transformer-Mamba Language Model",
+    "en": "Jamba: A Hybrid Transformer-Mamba Language Model"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/2403.19887",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2403.19887",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2403.19887",
+      "quote": "a new base large language model based on a novel hybrid Transformer-Mamba mixture-of-experts (MoE) architecture"
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.19887",
+      "quote": "a powerful model that fits in a single 80GB GPU"
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.19887",
+      "quote": "strong results for up to 256K tokens context length"
+    }
+  ],
+  "notes": {
+    "zh": "问题：纯 Transformer 的 KV cache 与长上下文成本高，纯 Mamba 又在部分离散任务上弱；能不能把 Transformer 与 Mamba 交错，再叠 MoE，同时保住吞吐与显存。\n证据位置：摘要提出 Transformer 层与 Mamba 层交错的混合 MoE 架构，部分层加 MoE 提升容量；某个配置可放进单张 80GB GPU，在标准语言与长上下文评测上有竞争力，并给出 256K token 的结果；权重以宽松许可公开。\n作者自陈局限：论文只实现并验证有限配置，层交错与专家混合方式依赖大量消融；256K 是特定评测，不是所有长上下文任务；没有独立复现与生产服务数据。\n它没主张的：不是 Transformer 与 Mamba 的最优配比已定；不是单卡 80GB 就能训练同等模型；不是所有长上下文都优于纯 Transformer。",
+    "en": "Problem: pure Transformers pay a large KV-cache and long-context cost, while pure Mamba can be weaker on some discrete tasks; can Transformer and Mamba layers be interleaved with MoE to keep throughput and memory.\nWhere the evidence sits: the abstract proposes a hybrid Transformer-Mamba MoE architecture with interleaved blocks and MoE in some layers; one configuration fits in a single 80GB GPU, is competitive on standard language and long-context evaluations and reports results up to 256K tokens; weights are released under a permissive licence.\nWhat the authors say about limits: only a limited set of configurations is built and evaluated; interleaving and expert mixing depend on extensive ablations; 256K is a specific evaluation, not every long-context task; there is no independent reproduction or production serving data.\nWhat it does not claim: not that the optimal Transformer/Mamba ratio is settled; not that one 80GB GPU can train an equivalent model; not that it beats pure Transformers on every long-context task."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "架构 / architecture": "Transformer + Mamba + MoE 交错",
+    "显存 / memory": "单张 80GB GPU 可承载",
+    "上下文 / context": "最高 256K tokens",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "minimax01-2025",
+  "title": {
+    "zh": "MiniMax-01: Scaling Foundation Models with Lightning Attention",
+    "en": "MiniMax-01: Scaling Foundation Models with Lightning Attention"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/2501.08313",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2501.08313",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2501.08313",
+      "quote": "32 experts and 456 billion total parameters, of which 45.9 billion are activated for each token"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.08313",
+      "quote": "context window of MiniMax-Text-01 can reach up to 1 million tokens during training and extrapolate to 4 million tokens during inference"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.08313",
+      "quote": "20-32 times longer context window"
+    }
+  ],
+  "notes": {
+    "zh": "问题：标准注意力在百万级上下文上成本过高；线性注意力常在能力或工程效率上掉队，能不能把 lightning attention 与 MoE、并行策略结合，真正做到长上下文可训练、可推理。\n证据位置：摘要给出 32 专家、456B 总参数、每 token 45.9B 激活；用 lightning attention + MoE，并配合作者优化的并行与计算通信重叠；训练上下文 1M token，推理外推到 4M；相对 GPT-4o/Claude 3.5 Sonnet 的上下文窗口长 20–32 倍，标准与自建基准表现相当。\n作者自陈局限：技术报告的自评为主；4M 是外推，不是所有任务都在 4M 上验证；长上下文能力与具体并行/kernel 实现强绑定；没有独立复现与完整安全评估。\n它没主张的：不是线性注意力全面替代标准注意力；不是 4M 上下文在所有任务都无损；不是 456B 总参数就能消费级部署。",
+    "en": "Problem: standard attention is too expensive at million-token context, while linear attention often loses capability or engineering efficiency; can lightning attention be combined with MoE and parallel strategies to make long context trainable and servable.\nWhere the evidence sits: the abstract reports 32 experts, 456B total parameters and 45.9B activated per token; it combines lightning attention with MoE and optimised parallelism plus compute-communication overlap; training reaches 1M tokens and inference extrapolates to 4M; the context window is 20–32× longer than GPT-4o/Claude 3.5 Sonnet, with comparable standard and in-house benchmark results.\nWhat the authors say about limits: the technical report is self-evaluated; 4M is extrapolation, not validated on every task; long-context ability is tied to specific parallelism and kernels; there is no independent reproduction or full safety evaluation.\nWhat it does not claim: not that linear attention fully replaces standard attention; not that 4M context is lossless on every task; not that 456B total parameters are consumer-deployable."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "参数 / parameters": "456B 总参数，45.9B 激活，32 专家",
+    "上下文 / context": "训练 1M；推理外推 4M",
+    "对比 / comparison": "比 GPT-4o / Claude 3.5 Sonnet 长 20–32 倍",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

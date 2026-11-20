@@ -1,0 +1,44 @@
+{
+  "id": "ling-ring-26-2026",
+  "title": {
+    "zh": "Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale",
+    "en": "Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale"
+  },
+  "category": "architecture",
+  "url": "https://arxiv.org/abs/2606.15079",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2606.15079",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2606.15079",
+      "quote": "a hybrid linear attention design that integrates Lightning Attention with MLA"
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.15079",
+      "quote": "this model family scales from 104B to 1T parameters"
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.15079",
+      "quote": "KPop, a reinforcement learning framework designed to support stable training of Ring-2.6-1T on large-scale environment-grounded data"
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.15079",
+      "quote": "We open-source all checkpoints in the 2.6 family"
+    }
+  ],
+  "notes": {
+    "zh": "问题：万亿级智能体模型既要低延迟，又要深推理，还要能稳定训练与部署；从零训练成本过高，能不能在已有基座上做架构迁移与后训练。\n证据位置：摘要把 Ling-2.6（即时响应、高 token 效率）与 Ring-2.6（深推理、复杂智能体工作流）放在一个 104B–1T 家族；用 Lightning Attention + MLA 的混合线性注意力降长上下文训练/解码成本；KPop 用异步调度组织 coding、搜索、工具与工作流执行；2.6 家族检查点全部开源。\n作者自陈局限：技术报告以自评为主，没有独立复现；1T 规模部署门槛高；KPop 依赖大规模环境数据；低延迟/深推理的分配策略仍要按场景调。\n它没主张的：不是 1T 模型能在普通硬件跑；不是 Ling 与 Ring 两个模式对所有任务都最优；不是开源权重就等于训练配方全开放。",
+    "en": "Problem: trillion-scale agentic models need low latency, deep reasoning and stable training/serving; training from scratch is too costly, so can an existing base be upgraded through architectural migration and post-training.\nWhere the evidence sits: the abstract puts Ling-2.6 (instant responses, high token efficiency) and Ring-2.6 (deeper reasoning, complex agent workflows) in one 104B–1T family; a hybrid linear attention design integrates Lightning Attention with MLA to cut long-context training and decoding cost; KPop asynchronously schedules coding, search, tool use and workflow execution; all 2.6 checkpoints are open-sourced.\nWhat the authors say about limits: the technical report is self-evaluated, with no independent reproduction; 1T deployment has a high barrier; KPop depends on large-scale environment data; the latency/reasoning split still needs per-scenario tuning.\nWhat it does not claim: not that a 1T model runs on ordinary hardware; not that Ling and Ring modes are optimal for every task; not that open weights mean the full training recipe is open."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "规模 / scale": "104B–1T",
+    "架构 / architecture": "Lightning Attention + MLA 混合线性注意力",
+    "训练 / training": "KPop 异步环境 RL",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

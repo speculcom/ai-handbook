@@ -1,0 +1,39 @@
+{
+  "id": "muon-2025",
+  "title": {
+    "zh": "Muon is Scalable for LLM Training",
+    "en": "Muon is Scalable for LLM Training"
+  },
+  "category": "scaling",
+  "url": "https://arxiv.org/abs/2502.16982",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2502.16982",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2502.16982",
+      "quote": "Muon achieves \\sim\\!2\\times computational efficiency compared to AdamW with compute optimal training"
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.16982",
+      "quote": "Moonlight, a 3B/16B-parameter Mixture-of-Expert (MoE) model trained with 5.7T tokens using Muon"
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.16982",
+      "quote": "open-source our distributed Muon implementation that is memory optimal and communication efficient"
+    }
+  ],
+  "notes": {
+    "zh": "问题：Muon 在小模型上表现好，但缺少大规模训练的可扩展性证据；直接放大时，权重衰减与逐参数更新尺度会让训练不稳。\n证据位置：摘要给两个关键修正——加 weight decay、调整每参数更新尺度，使 Muon 在大规模训练上开箱可用；scaling law 实验显示相对 AdamW 约 2 倍计算效率；用 Muon 训练 3B/16B MoE Moonlight，5.7T token，推进 Pareto 前沿；开源分布式实现与检查点。\n作者自陈局限：最大验证到 16B MoE；计算效率是比较 compute-optimal 训练，不是所有训练预算；优化器收益依赖模型形状与并行实现；没有覆盖所有架构与任务。\n它没主张的：不是 Muon 无条件替代 AdamW；不是 2 倍效率等于所有训练都减半；不是 16B 的结论自动适用于万亿模型。",
+    "en": "Problem: Muon works well at small scale but lacked evidence of large-scale scalability; naive scaling is unstable because of weight decay and per-parameter update scale.\nWhere the evidence sits: the abstract adds weight decay and adjusts the per-parameter update scale so Muon works out of the box at large scale; scaling-law experiments show about 2× computational efficiency versus AdamW; Moonlight, a 3B/16B MoE, is trained with Muon on 5.7T tokens and improves the Pareto frontier; the distributed implementation and checkpoints are open-sourced.\nWhat the authors say about limits: validation goes to a 16B MoE; the efficiency comparison is compute-optimal training, not every budget; optimizer gains depend on model shape and parallelism; not every architecture or task is covered.\nWhat it does not claim: not that Muon unconditionally replaces AdamW; not that 2× efficiency halves every training run; not that 16B results automatically hold at trillion scale."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "效率 / efficiency": "相对 AdamW 约 2×（compute-optimal）",
+    "模型 / model": "Moonlight 3B/16B MoE，5.7T tokens",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}

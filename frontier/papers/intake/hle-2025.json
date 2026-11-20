@@ -1,0 +1,40 @@
+{
+  "id": "hle-2025",
+  "title": {
+    "zh": "Humanity's Last Exam",
+    "en": "Humanity's Last Exam"
+  },
+  "category": "reasoning",
+  "url": "https://arxiv.org/abs/2501.14249",
+  "license": {
+    "kind": "arxiv-preprint",
+    "evidenceUrl": "https://arxiv.org/abs/2501.14249",
+    "checkedAt": "2026-11-20"
+  },
+  "evidence": [
+    {
+      "url": "https://arxiv.org/abs/2501.14249",
+      "quote": "HLE consists of 2,500 questions across dozens of subjects, including mathematics, humanities, and the natural sciences"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.14249",
+      "quote": "State-of-the-art LLMs demonstrate low accuracy and calibration on HLE"
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.14249",
+      "quote": "cannot be quickly answered via internet retrieval"
+    }
+  ],
+  "notes": {
+    "zh": "问题：MMLU 等常用基准已被头部模型刷到 90% 以上，难以区分前沿能力；需要一个覆盖广、答案唯一、不能靠快速检索作弊的专家级闭卷基准。\n证据位置：摘要给出 HLE，2,500 道题、几十个学科，含数学、人文与自然科学；多选题与短答案，可自动评分；每题有明确唯一答案，且不能靠互联网快速检索；作者称当前 SOTA 模型准确率与校准都低。\n作者自陈局限：这是闭卷学术题基准，不覆盖开放式研究、工具使用与真实工作流；题目由专家编写，仍可能有争议或污染；分数低不代表模型在所有实际任务都弱。\n它没主张的：不是 AGI 考试；不是所有能力都能用 2,500 题代表；不是低分模型没有实用价值。",
+    "en": "Problem: popular benchmarks such as MMLU are now above 90% for frontier models, making them poor discriminators; what is needed is a broad, expert-level closed-book benchmark with unambiguous answers that cannot be solved by quick web lookup.\nWhere the evidence sits: HLE has 2,500 questions across dozens of subjects in mathematics, humanities and natural sciences; they are multiple-choice or short-answer and automatically gradable; each has a known unambiguous answer and cannot be quickly answered via internet retrieval; the authors report low accuracy and calibration for state-of-the-art LLMs.\nWhat the authors say about limits: this is a closed-book academic benchmark, not open-ended research, tool use or real workflows; expert-written questions can still be disputed or contaminated; low scores do not mean models are weak on every practical task.\nWhat it does not claim: not an AGI exam; not that 2,500 questions represent every capability; not that a low-scoring model has no practical value."
+  },
+  "verifiedAt": "2026-11-20",
+  "specs": {
+    "证据位置 / evidence": "摘要",
+    "题量 / questions": "2,500 题，几十个学科",
+    "形式 / format": "多选 + 短答案，自动评分",
+    "限制 / constraint": "不能靠互联网快速检索",
+    "复现状态 / reproduction": "未复现（只读摘要）"
+  }
+}
