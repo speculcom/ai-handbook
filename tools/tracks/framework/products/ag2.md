@@ -82,7 +82,7 @@ axes:
 
     **Bedrock 于 v1.1.1 改为原生异步客户端** aiobotocore。官方 release 明示为 breaking。
 
-    **未知** —— 换 provider 后 tool calling / structured output 的可靠性对比，官方文档不展开
+    **边界** —— 换 provider 后 tool calling / structured output 的可靠性对比，官方文档不展开
     （已查 `beta/model_configuration` 与 Grok 兼容页）。
   runtime: >-
     **纯 Python 库，异步贯穿，不提供托管服务。**
@@ -143,7 +143,7 @@ axes:
 
       "remains **best-effort**. It is **not** a security boundary."
 
-    **未知** —— 框架级的默认文件访问边界与容器级隔离，官方文档不展开
+    **边界** —— 框架级的默认文件访问边界与容器级隔离，官方文档不展开
     （已查 `network/overview`、`agent_harness` 与 release 页）。
   background: >-
     **「关机后还能跑」在本档是纯库形态 —— 没有托管后台。**
@@ -168,7 +168,7 @@ axes:
 
     进程必须跑在你自己的服务器上；要真后台得自己上容器 / K8s。
 
-    **未知** —— 托管选项与断点续跑在崩溃场景下的具体语义，官方文档不展开
+    **边界** —— 托管选项与断点续跑在崩溃场景下的具体语义，官方文档不展开
     （已查 `network/overview` 页）。
   tools: >-
     **工具、MCP、AG-UI 三项都能在官方源核到；A2A 仅见仓库 topics。**
@@ -263,7 +263,7 @@ axes:
     官方文档警告 Redis 的 `Serializer.PICKLE` 会把代码执行能力交给任何能写该 stream 的人。
     建议只用完全可信的 Redis，JSON 为默认。
 
-    **未知** —— 框架级的进程 / 容器沙箱默认值，官方文档不展开
+    **边界** —— 框架级的进程 / 容器沙箱默认值，官方文档不展开
     （已查 `agent_harness` 与 release 页）。
   fit: >-
     **适合。**

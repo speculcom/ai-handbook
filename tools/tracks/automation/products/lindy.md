@@ -16,7 +16,7 @@ axes:
     产品按「AI 员工」形态包装：Skills 40+ 内置、可教自定义技能（首页当日在册）。
   runtime: >-
     云托管形态（www.lindy.ai 直连 200；Chrome Extension 集成 Gmail 在册）；
-    未见官方自托管发行声明，按未知处理。
+    未见官方自托管发行声明，按未单列处理。
   local_files: >-
     数据在 Lindy 云端（Memory「Remembers you. Yours to edit」是云端持久面）；本地文件概念不适用——
     工作产物（邮件、文档、通话记录）经集成落在第三方工具（Gmail/日历/CRM）而非本机。

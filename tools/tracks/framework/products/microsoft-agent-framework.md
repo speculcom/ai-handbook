@@ -89,7 +89,7 @@ axes:
 
     自建 provider 继承 `BaseAgent` / `BaseChatClient`。
 
-    **⚠ 未知：换 provider 后 tool calling / structured output 的可靠性对比，官方文档不展开。**
+    **⚠ 边界：换 provider 后 tool calling / structured output 的可靠性对比，官方文档不展开。**
     （已查 overview 页与 providers 样例 README。）
 
   runtime: >-
@@ -141,7 +141,7 @@ axes:
 
     这属「用中间件自己加固」，不是文件沙箱。
 
-    **⚠ 未知：框架级的默认文件系统权限模型与进程/容器沙箱，官方文档不展开。**
+    **⚠ 边界：框架级的默认文件系统权限模型与进程/容器沙箱，官方文档不展开。**
     （已查 overview 页与 providers 样例 README 两页。）
 
   background: >-
@@ -204,7 +204,7 @@ axes:
 
     以及实验包 **AF Labs**。
 
-    **⚠ 未知：MCP/A2A 的传输矩阵细节，官方文档未集中给出。**
+    **⚠ 边界：MCP/A2A 的传输矩阵细节，官方文档未集中给出。**
     （已查 overview 与 a2a 两页。）
 
   context: >-
@@ -232,7 +232,7 @@ axes:
 
     **两套机制官方分节描述，不可混为一谈。**
 
-    **⚠ 未知：长历史如何压缩进窗口，官方未在概览层给出统一机制。**
+    **⚠ 边界：长历史如何压缩进窗口，官方未在概览层给出统一机制。**
     （已查 overview 页与 checkpoints 页，未见类似 ADK Context Compaction 的专章。）
 
   permissions: >-
@@ -259,7 +259,7 @@ axes:
     - `SecureMCPToolProxy` 加固外部 MCP 工具
     - 跨工具机密数据外泄防护
 
-    **⚠ 未知：框架级的进程/容器沙箱默认值，官方文档不展开。**
+    **⚠ 边界：框架级的进程/容器沙箱默认值，官方文档不展开。**
     （已查 overview、checkpoints、a2a 三页。）
 
   fit: >-

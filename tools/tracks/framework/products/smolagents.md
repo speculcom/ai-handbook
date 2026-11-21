@@ -52,7 +52,7 @@ axes:
 
     **换 provider 的改动量 = 换一个 Model 类**。也可加 `provider=` 参数。代码结构不变。
 
-    **未知：换 provider 后 tool calling / 结构化输出的可靠性对齐，官方文档不展开。**
+    **边界：换 provider 后 tool calling / 结构化输出的可靠性对齐，官方文档不展开。**
     （已查 guided_tour 与 models 参考页。）
   runtime: >-
     **纯 Python 库。agent loop 由你自己在本地进程里跑。官方无托管执行服务。**
@@ -81,7 +81,7 @@ axes:
     所以**文件边界由执行环境决定，框架不提供**。本地跑则受 `LocalPythonExecutor` 的
     import 白名单约束。远程沙箱跑则限在沙箱容器内。两种沙箱模式见 secure_code_execution 页。
 
-    **未知：CodeAgent 默认允许的文件访问范围，官方文档不展开。**
+    **边界：CodeAgent 默认允许的文件访问范围，官方文档不展开。**
     （已查 secure_code_execution 与 guided_tour 两页，无文件权限章节。）
   background: >-
     **自托管 = 进程关了就停，无托管后台选项。**
@@ -93,7 +93,7 @@ axes:
 
     **官方原文**："tool calls that take days"
 
-    **未知：官方未提供把这些 memory 落盘并在新进程恢复的内建方案**（已查 tutorials/memory 与
+    **边界：官方未提供把这些 memory 落盘并在新进程恢复的内建方案**（已查 tutorials/memory 与
     guided_tour 两页）。
 
     所以断点续跑要自己序列化 steps。
@@ -128,7 +128,7 @@ axes:
 
     **官方把这一轴定位成「检查 / 改写记忆」，不是压缩。**
 
-    **未知：把大工具输出落盘这类深上下文管理，官方文档不展开。**
+    **边界：把大工具输出落盘这类深上下文管理，官方文档不展开。**
     （已查 tutorials/memory 与 guided_tour 两页。）
   permissions: >-
     **官方对执行安全说得非常直白。默认的 `LocalPythonExecutor` 不是安全沙箱。**
@@ -151,7 +151,7 @@ axes:
 
     官方另有 Human-in-the-Loop 示例（examples/plan_customization），但**不是内建审批机制**。
 
-    **未知：网络访问控制，官方文档不展开。**
+    **边界：网络访问控制，官方文档不展开。**
   fit: >-
     **适合这四类场景。**
 

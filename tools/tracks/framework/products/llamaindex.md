@@ -72,7 +72,7 @@ axes:
 
     **README 写明**："some integrations may be declined"。
 
-    **未知：官方未公布集成包的质量分层与维护活跃度分级。**
+    **边界：官方未公布集成包的质量分层与维护活跃度分级。**
     （**已查** README 与 integrations 页。）
 
   runtime: >-

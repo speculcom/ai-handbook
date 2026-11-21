@@ -94,7 +94,7 @@ axes:
     "from cloud APIs ... to self-hosted endpoints like **Ollama and vLLM**,
     to advanced routing and fallback configurations."
 
-    ⚠ **未知：换模型后的能力对齐度、本地量化模型在多后端下的行为差异，官方按套餐/版本口径结论。**
+    ⚠ **边界：换模型后的能力对齐度、本地量化模型在多后端下的行为差异，官方按套餐/版本口径结论。**
 
     本档也没有实测。
 
@@ -203,7 +203,7 @@ axes:
     它连续 3 次探针无响应就以 code 75 退出，由 supervisor 重启。
     另有 60s 心跳。
 
-    ⚠ **未知：跨休眠 / 唤醒的状态一致性，官方文档不展开。**
+    ⚠ **边界：跨休眠 / 唤醒的状态一致性，官方文档不展开。**
 
     **核验**：已查 `features/cron`、`features/tools`、`user-guide/messaging` 三页。
   tools: >-
@@ -349,7 +349,7 @@ axes:
 
     官方给了 `--dry-run` 预览。
 
-    ⚠ **未知：gateway 端口安全，官方未单列一节。**
+    ⚠ **边界：gateway 端口安全，官方未单列一节。**
 
     dashboard 侧有 OAuth / 自托管 OIDC 鉴权。
   fit: >-
@@ -519,7 +519,7 @@ cn:
 **"Migrating from OpenClaw"** 章节。
 `hermes setup` 会自动检测 `~/.openclaw` 并提供迁移。
 
-⚠ **未知：Hermes 与 OpenClaw 的关系（是否同一团队、是否改名）本档官方文档未单列。**
+⚠ **边界：Hermes 与 OpenClaw 的关系（是否同一团队、是否改名）本档官方文档未单列。**
 **本档只记录 README 的一手事实。**
 
 ## 两种形态都是一等公民
@@ -710,7 +710,7 @@ README 的文档目录里有一节独立的 **Security**，副标题原文：
 
 网关侧有 event-loop liveness watchdog 与 60s 心跳。
 
-⚠ **未知：跨休眠 / 唤醒的状态一致性，官方文档不展开。**
+⚠ **边界：跨休眠 / 唤醒的状态一致性，官方文档不展开。**
 
 ## 迁移脚本会碰密钥：用 dry-run
 

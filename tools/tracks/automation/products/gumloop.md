@@ -30,7 +30,7 @@ axes:
     Connectors 生态当日在册（Slack/HubSpot/Gong/Gmail/Salesforce，View all 入口）；Skills 面在册
     （Account Research/Outbound Email/Call Summary/CRM Hygiene）；guMCP_template 仓在册（MCP 方向官方模板）。
   context: >-
-    agent 指令（Add instructions）与 Skills 是持久配置面；跨会话记忆机制官方文档未单列，按未知处理——
+    agent 指令（Add instructions）与 Skills 是持久配置面；跨会话记忆机制官方文档未单列，按未单列处理——
     知识面主要靠连接器拉取的外部数据（CRM/Gong 记录）。
   permissions: >-
     企业向（导航 Enterprise 栏目在册）；ToS 主体 AgentHub Inc. dba Gumloop（当日在册）；

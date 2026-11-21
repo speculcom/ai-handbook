@@ -139,7 +139,7 @@ axes:
     `langgraph>=1.2` 还给了 SIGTERM 的 graceful shutdown
     （drain 后存下可续跑的 checkpoint）。
 
-    **未知：多进程并发写同一 thread 的冲突语义官方文档不展开。**
+    **边界：多进程并发写同一 thread 的冲突语义官方文档不展开。**
     ⚠ persistence 与 checkpointers 两页都没有写这一点。
 
   tools: >-
@@ -181,7 +181,7 @@ axes:
 
     它可跨 thread 召回。
 
-    **未知：「大工具输出落盘」官方文档不展开 LangGraph 提供。**
+    **边界：「大工具输出落盘」官方文档不展开 LangGraph 提供。**
     ⚠ memory 与 add-memory 两页都没有 ——
     那是上层 Deep Agents 的 context management 能力。
 

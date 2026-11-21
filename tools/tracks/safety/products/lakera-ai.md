@@ -26,7 +26,7 @@ axes:
     云侧交付：注册与配置在 platform.lakera.ai，检测走 api.lakera.ai 的托管 API，鉴权形式是
     「Authorization: Bearer $LAKERA_GUARD_API_KEY」，官方 quickstart 的调用是 POST https://api.lakera.ai/v2/guard。
     官网自我定位「The AI-Native Security Platform」，产品面写作 Workforce AI Security、AI Agent Security、AI Red Teaming。
-    本机或私有化形态：本批次官方页面未提供口径，记未知。
+    本机或私有化形态：本批次官方页面未提供口径，不补推断。
   local_files: >-
     本机不落地：prompt 与响应由你的应用发出与收回，判定结果可在控制台的 Guard 结果面回看（文档列 /guard 与
     /guard/results 两个端点）。命中记录的导出格式、保留时长与删除方式：官方在册页未逐条给出，进 unknowns。
@@ -40,7 +40,7 @@ axes:
     具体传输方式与工具审批语义：本批次按官方文档口径。
   context: >-
     判定按单次文本请求组织，策略按 project 分档（Project mode 决定「block the interaction or logging for investigation」），
-    因此它的「记忆」面就是项目与策略配置，不是跨会话上下文。跨会话记忆或历史串联：官方文档不展开，记未知。
+    因此它的「记忆」面就是项目与策略配置，不是跨会话上下文。跨会话记忆或历史串联：官方文档不展开，不补推断。
   permissions: >-
     按官方条款逐条读：隐私入口当日 301 到 checkpoint.com/privacy，主体写作「Check Point Software Technologies Ltd.」；
     留存原文是「We will retain your information for as long as necessary to achieve the purposes described in this
@@ -108,7 +108,7 @@ cn:
   origin_note: 当日在册的属地证据只有官网页脚与隐私条款跳转指向 Check Point 主体；Lakera 自身的注册主体与国籍背景本批次按官方文档口径，故按 foreign 记录。
   origin_note_en: The only locality evidence on record the same day is the site footer and the privacy redirect pointing at the Check Point entity; Lakera's own registering entity and nationality background were not verified item by item, so it is recorded as foreign.
   direct: unknown
-  direct_note: lakera.ai、docs.lakera.ai 与 checkpoint.com 当日从当前网络取到 200/301，但未在大陆网络环境做直连实测，故记未知。
+  direct_note: lakera.ai、docs.lakera.ai 与 checkpoint.com 当日从当前网络取到 200/301，但未在大陆网络环境做直连实测，故不补推断。
   direct_note_en: lakera.ai, docs.lakera.ai and checkpoint.com returned 200/301 from the current network on the verification date, but no mainland-network direct-connection measurement was made, so it is recorded as unknown.
   filing: unknown
   filing_note: 无官方依据，本批次未检索生成式 AI 备案公示，不下「未备案」结论。

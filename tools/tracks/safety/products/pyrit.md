@@ -36,10 +36,10 @@ axes:
     组件面按文档 latest 在册的有：Automated Red Teaming（点名的策略含 Crescendo、TAP）、Scenario Framework、
     Any Target、Built-in Memory、Flexible Scoring，另有 targets/converters/scorers/memory/orchestrators 这一层模块划分。
     与同大类另一份档案的直接接口：文档专页写明 Garak scenario family「implements probes inspired by the Garak framework」，
-    运行形式是 `pyrit_scan run garak.prompt_inject --target openai_chat`。MCP 接入：官方文档未说明，记未知。
+    运行形式是 `pyrit_scan run garak.prompt_inject --target openai_chat`。MCP 接入：官方文档未说明，不补推断。
   context: >-
     自适应多轮攻击靠的就是可回溯的会话状态，状态存在上述 memory 后端里；文档 latest 把「adaptive multi-turn attacks」
-    与 scenario 目录并列在册。跨会话记忆的边界、上下文压缩或截断策略：本批次官方页面未提供逐条官方正文，记未知。
+    与 scenario 目录并列在册。跨会话记忆的边界、上下文压缩或截断策略：本批次官方页面未提供逐条官方正文，不补推断。
   permissions: >-
     许可面：MIT，版权方 Microsoft（LICENSE 正文直读）。归属面要记一条事实：原 Azure/PyRIT 仓库页写着
     「PyRIT has moved! Please see https://github.com/microsoft/PyRIT!」，本档案按迁移后仓库建档。
@@ -99,7 +99,7 @@ cn:
   origin_note: Microsoft 的开源项目（仓库与 PyPI 均署名 Microsoft）；本批次官方页面未提供面向中国大陆的服务条款或中文文档。
   origin_note_en: An open-source project of Microsoft (the repository and PyPI both credit Microsoft); no mainland-facing terms page or Chinese docs were captured in this pass.
   direct: unknown
-  direct_note: github.com、microsoft.github.io 与 PyPI 在当日从当前网络取到 200，但未在大陆网络环境做直连实测，故记未知。
+  direct_note: github.com、microsoft.github.io 与 PyPI 在当日从当前网络取到 200，但未在大陆网络环境做直连实测，故不补推断。
   direct_note_en: github.com, microsoft.github.io and PyPI returned 200 from the current network on the verification date, but no mainland-network direct-connection measurement was made, so it is recorded as unknown.
   filing: unknown
   filing_note: 无官方依据，本批次未检索生成式 AI 备案公示，不下「未备案」结论。

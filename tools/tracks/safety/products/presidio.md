@@ -26,14 +26,14 @@ axes:
     官方未提供托管服务面（官方页面未提供该口径）。镜像标签与版本对应关系本批次未逐字核验。
   local_files: >-
     它不读你的工作区，只处理你显式交给它的文本与图像，结果在你的进程或你的服务里返回。recognizer 依赖的语言模型文件的
-    下载位置、缓存路径与离线打包方式：本批次官方页面未提供逐字官方说明，记未知。
+    下载位置、缓存路径与离线打包方式：本批次官方页面未提供逐字官方说明，不补推断。
   background: >-
     没有托管后台任务：一次 analyze / anonymize 是一次调用或你自己服务里的一次处理，批量与重试由你的编排层负责。
     官方文档目录（Getting Started / Analyzer / Anonymizer / Image Redactor / Samples / API Docs）未出现队列或续跑概念。
   tools: >-
     三面 API：AnalyzerEngine（识别）、AnonymizerEngine（变换）、Image Redactor（图像遮挡）。变换算子按文档 anonymizer 页
     在册：replace、redact、hash、mask、encrypt、keep、custom，经 OperatorConfig 的 type 与 params 配置，多个算子可组合。
-    MCP 接入方式：官方文档未说明，记未知。
+    MCP 接入方式：官方文档未说明，不补推断。
   context: >-
     这里的「上下文」是字面机制：recognizer 用上下文词对候选实体加权，因此同一段文本里邻近词会改变结果；文档首页把项目
     表述为面向 text and images 的「fast identification and anonymization modules」。它是无状态的一次处理，不存在跨会话记忆，
@@ -97,7 +97,7 @@ cn:
   origin_note: 治理方为社区组织 Data Privacy Stack（文档首页在册），项目源自 Microsoft；本批次官方页面未提供面向中国大陆的服务条款或中文文档。
   origin_note_en: Governed by the community organisation Data Privacy Stack (on record on the docs home page), with the project originating at Microsoft; no mainland-facing terms page or Chinese documentation was captured in this pass.
   direct: unknown
-  direct_note: 文档站与 PyPI 当日从当前网络取到 200，但仓库页与 raw 路径页面响应超时；大陆网络下的可达性与语言模型下载均未实测，故记未知。
+  direct_note: 文档站与 PyPI 当日从当前网络取到 200，但仓库页与 raw 路径页面响应超时；大陆网络下的可达性与语言模型下载均未实测，故不补推断。
   direct_note_en: The docs site and PyPI returned 200 from the current network on the verification date, but the repository page and raw path timed out; mainland-network reachability and language-model download were not measured, so it is recorded as unknown.
   filing: unknown
   filing_note: 无官方依据，本批次未检索生成式 AI 备案公示，不下「未备案」结论。

@@ -93,7 +93,7 @@ axes:
 
     **官方示例**：`LLM(model="ollama/llama3.2", base_url="http://localhost:11434")`
 
-    **未知：换 provider 后 tool calling / structured output 的可靠性，官方文档不展开。**
+    **边界：换 provider 后 tool calling / structured output 的可靠性，官方文档不展开。**
     （已查 `learn/llm-connections` 与 `concepts/llms` 两页，无 provider 间可靠性对比。）
   runtime: >-
     **它是纯库，官方口径是「从原型到生产不用换框架」。**
@@ -146,7 +146,7 @@ axes:
     另有一组**多模态文件输入**（`crewai[file-processing]` extra，`Files` 页，**early access**）。
     可传图片 / PDF / 音频 / 视频 / 文本。
 
-    **未知：容器部署时的默认权限，官方文档不展开。**（已查 Files 页与 FileReadTool 页。）
+    **边界：容器部署时的默认权限，官方文档不展开。**（已查 Files 页与 FileReadTool 页。）
   background: >-
     **它不托管后台。** 库本身不提供厂商托管的执行环境 —— 要「电脑关了还能跑」，
     得自己把进程跑在自有服务器 / VPC 上。AMP 商业侧另给 Cron scheduling。
@@ -252,7 +252,7 @@ axes:
     文件工具默认把路径限制在 `base_dir`。默认是 cwd，见 local_files 轴。
     MCP 安全官方明说是「信任」问题、不提供内置防护。
 
-    **未知：网络访问控制官方无机制**（已查 tasks 页与 `mcp/security` 页）。
+    **边界：网络访问控制官方无机制**（已查 tasks 页与 `mcp/security` 页）。
     RBAC / SSO / PII redaction 属 AMP 商业侧，开源版没有。
   fit: >-
     **适合三类场景。**
@@ -470,7 +470,7 @@ CrewAI 是三个编排对象里唯一在 README 首屏级别点名具体工具�
 **默认模型**：页原文 "By default, CrewAI uses the `gpt-4o-mini` model."
 （由 `OPENAI_MODEL_NAME` 决定）。换法：字符串标识符或用 `LLM` 类。
 
-**未知：换 provider 后 tool calling / structured output 的可靠性，官方文档不展开。**
+**边界：换 provider 后 tool calling / structured output 的可靠性，官方文档不展开。**
 
 ## 工具：MCP 与 A2A 都写了
 
@@ -520,7 +520,7 @@ MCP 的接入面：
 **它只拦输出，不管输入**；OSS 也**没有进程 / 容器级沙箱**。
 边界来自工具：文件工具默认限 `base_dir`（默认 cwd），
 MCP 安全官方明说是「信任」问题、不提供内置防护。
-**未知：网络访问控制官方无机制**。要企业级权限得走 AMP（RBAC / SSO / PII redaction）。
+**边界：网络访问控制官方无机制**。要企业级权限得走 AMP（RBAC / SSO / PII redaction）。
 
 ## 记忆：统一 Memory 系统，机制已核到（旧判断作废）
 

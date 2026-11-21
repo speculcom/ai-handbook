@@ -141,7 +141,7 @@ axes:
     另有 **Monty**，官方称其为 "a sandboxed Python interpreter that runs model-written code"。
     它用来跑模型写出的代码。
 
-    **未知：核心 SDK 层面的文件访问默认边界（不经 Harness 时），官方文档不展开**
+    **边界：核心 SDK 层面的文件访问默认边界（不经 Harness 时），官方文档不展开**
     **核验：**overview 与 harness 页已查。
   background: >-
     **这是它最硬的差异点：durable execution 官方列出八种引擎，**
@@ -226,7 +226,7 @@ axes:
     所以本档的「状态 ≠ 上下文」在这里被官方拆成三块：
     durable run（引擎）、chat thread（Persistence）、上下文压缩（compaction）。
 
-    **未知：compaction 的具体裁剪策略与阈值，官方文档未给出默认值**
+    **边界：compaction 的具体裁剪策略与阈值，官方文档未给出默认值**
     **核验：**README 与 durable 页已查。
 
   permissions: >-
@@ -249,7 +249,7 @@ axes:
 
     **凭据**：MCP 默认本地运行，官方称 "keeping credentials, hooks, and tracing under your control"。
 
-    **未知：核心 SDK 是否有进程/网络级沙箱、以及内置认证/权限边界，官方文档不展开**
+    **边界：核心 SDK 是否有进程/网络级沙箱、以及内置认证/权限边界，官方文档不展开**
     **核验：**overview、durable、mcp 三页已查。
     企业级权限与审计由 Logfire / Gateway 那侧承担。
   fit: >-

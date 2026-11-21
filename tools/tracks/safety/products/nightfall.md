@@ -20,11 +20,11 @@ axes:
   model_access: >-
     不开放选模型：检测引擎是厂商自有的，官方页面未披露底层模型档位，也没有自带模型的入口。它守的是你的 agent 与 LLM
     链路——DLP API 收文本与文件，MCP Gateway 管「AI clients 与 remote MCP servers 之间」的流量，Inference Hooks 的官方
-    文档页标题点名 Cursor、Claude Code 与 VS Code Copilot。能否替换或自选检测模型：官方页面未提供声明，记未知。
+    文档页标题点名 Cursor、Claude Code 与 VS Code Copilot。能否替换或自选检测模型：官方页面未提供声明，不补推断。
   runtime: >-
     托管交付：扫描走 api 侧的 /v3/scan 与 /v3/upload 系列端点，结果在控制台与 Violations 页回看（release notes 在册）。
     端点侧确有本地代理——macOS/Windows 的 endpoint agent 在文档与更新日志里在册（AirDrop 与 Bluetooth 外发控制、
-    MDM 授权），但检测与判定按官方口径仍是服务侧能力。自托管或 air-gapped 形态：当日抓到的页面未列，记未知。
+    MDM 授权），但检测与判定按官方口径仍是服务侧能力。自托管或 air-gapped 形态：当日抓到的页面未列，不补推断。
   local_files: >-
     你能交给它的东西（官方 FAQ 在册）：「plain text, structured and unstructured files, and even images」，格式点名
     JSON、XML、CSV 等；端点面则在你的机器上读文件以便在读取时刻阻断。**交给它的内容是否留存、留多久**：DLP API 文档与
@@ -40,7 +40,7 @@ axes:
   context: >-
     它的「上下文」是策略与规则集，不是会话记忆：一次扫描由 policyUUIDs 与 detectionRules 决定按哪些规则跑。
     可复核的历史面有明确边界——MCP Gateway 的审计记录写 user、server、tool、status 与 request payload，
-    而 payload「capped at 8 KiB」；超出部分的处置方式官方文档不展开，记未知。
+    而 payload「capped at 8 KiB」；超出部分的处置方式官方文档不展开，不补推断。
   permissions: >-
     逐条挂来源：SOC 2 Type 2 在 security 页在册；**数据出境、留存期、是否用于训练**这三问在本批次抓到的任何官方页面里
     都没有逐条答案（developer-api 文档与 FAQ 未声明，/trust 404），因此一律进 unknowns，不做「不训练」这类推断。
@@ -105,7 +105,7 @@ cn:
   origin_note: Nightfall AI（美国厂商，官网与帮助中心均英文、无面向大陆的条款页）；本批次按官方文档口径注册主体。
   origin_note_en: Nightfall AI (a US vendor; the site and help centre are English-only with no mainland-facing terms page); the registering entity was not verified item by item in this pass.
   direct: unknown
-  direct_note: nightfall.ai 与 help.nightfall.ai 当日从当前网络取到 200，但未在大陆网络环境做直连实测，故记未知。
+  direct_note: nightfall.ai 与 help.nightfall.ai 当日从当前网络取到 200，但未在大陆网络环境做直连实测，故不补推断。
   direct_note_en: nightfall.ai and help.nightfall.ai returned 200 from the current network on the verification date, but no mainland-network direct-connection measurement was made, so it is recorded as unknown.
   filing: unknown
   filing_note: 无官方依据，本批次未检索生成式 AI 备案公示，不下「未备案」结论。

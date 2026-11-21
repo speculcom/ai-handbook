@@ -23,7 +23,7 @@ axes:
   runtime: >-
     本机 Python 进程、终端交互：README 的安装命令是 `python -m pip install -U garak`，PyPI 记 `pip install garak`、
     requires-python 为 >=3.11；文档「Setting up」页同样把它描述成命令行工具。扫描请求按你选的 target 发往云端 API
-    或本机推理端点。是否存在托管执行面与 Docker 镜像口径：本批次官方页面未提供正文，记未知。
+    或本机推理端点。是否存在托管执行面与 Docker 镜像口径：本批次官方页面未提供正文，不补推断。
   local_files: >-
     读的是随包安装的探针数据集与本机配置，写的是本地结果文件：README 记结果落 JSONL、garak.log 与 hit log；
     文档「Our Features」列四类输出 Screen output、Report log、Hit log、Debug log。默认目录名、文件保留与清理规则：
@@ -35,10 +35,10 @@ axes:
     四类插件面（README 原文短语）：probes「classes for generating interactions with LLMs」、
     detectors「classes for detecting an LLM is exhibiting a given failure mode」、harnesses「classes for structuring testing」、
     generators 负责接模型。点选形式见文档示例 `--probes lmrc.Profanity`，`--list_probes` 可列探针。
-    MCP 接入方式：官方文档未说明，记未知。
+    MCP 接入方式：官方文档未说明，不补推断。
   context: >-
     这里的「上下文」是 harness 如何把多轮交互拼成一次探测，不是跨会话记忆。README 对 harnesses 的表述止于
-    「classes for structuring testing」，具体会话构造与长度策略本批次官方页面未提供逐条官方正文，记未知。
+    「classes for structuring testing」，具体会话构造与长度策略本批次官方页面未提供逐条官方正文，不补推断。
   permissions: >-
     许可面清楚：Apache-2.0（LICENSE 正文直读，见 license 字段）。数据流向只有一条官方可读口径——探针 prompt 与响应
     发往你配置的 target 端点，失败样本逐条写进本地日志（README：「If any of the prompt attempts yielded an undesirable
@@ -97,7 +97,7 @@ cn:
   origin_note: NVIDIA（美国）与维护者 Leon Derczynski 的开源项目；本批次官方页面未提供面向中国大陆的服务条款或中文站点。
   origin_note_en: An open-source project of NVIDIA (US) and maintainer Leon Derczynski; no mainland-facing terms page or Chinese site was captured in this pass.
   direct: unknown
-  direct_note: github.com、garak.ai 与 docs.garak.ai 本批次从当前网络取到 200，但未在大陆网络环境做直连实测，故记未知；PyPI 与 GitHub 需自备可达性。
+  direct_note: github.com、garak.ai 与 docs.garak.ai 本批次从当前网络取到 200，但未在大陆网络环境做直连实测，故不补推断；PyPI 与 GitHub 需自备可达性。
   direct_note_en: github.com, garak.ai and docs.garak.ai returned 200 from the current network in this pass, but no mainland-network direct-connection measurement was made, so it is recorded as unknown; PyPI and GitHub reachability is on you.
   filing: unknown
   filing_note: 无官方依据，本批次未检索生成式 AI 备案公示，不下「未备案」结论。
