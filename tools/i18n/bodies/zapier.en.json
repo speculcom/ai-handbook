@@ -1,17 +1,17 @@
 {
   "_comment": "C0-12 zapier bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（make），related 写 1 条。",
   "axes": {
-    "model_access": "AI capabilities (Zapier AI / Canvas / Agents) reach each vendor's models through the platform; the specific model list has not been verified item by item. The platform's main axis is 6000+ app integrations (the official figure not verified item by item).",
-    "runtime": "Pure cloud-hosted SaaS: Zaps/workflows run on Zapier's cloud; no self-hosted form.",
-    "local_files": "It hosts no local files; data flows between SaaS services via connectors and is processed on Zapier's cloud.",
-    "background": "Cloud hosting is naturally resident: scheduling, webhooks and delay queues are all official capabilities carried by the platform.",
-    "tools": "The connector ecosystem is the core asset; in the official help-center and license-FAQ framing, MCP/AI agents are one of Zapier's supported access surfaces (Zapier also provides MCP-side integrations; details not verified item by item).",
-    "context": "Data passing and Paths between multi-step Zaps are the official context-organization main axis; cross-task persistent memory mechanisms — no official documentation found (unknown means unknown).",
-    "permissions": "The enterprise line offers SSO/auditing etc. (official product-page framing); connector credentials are hosted and stored by the platform. Data-compliance lines (SOC 2 etc.) — official claims not verified item by item.",
-    "fit": "Fits: SaaS-ecosystem automation as the main axis, hanging AI agents on ready-made connectors, never touching deployment. Does not fit: data that must not leave your own environment; free unlimited self-hosting."
+    "model_access": "Zapier AI, Canvas and Agents draw on multiple models behind the platform. The official help centre describes AI as a Zap step and agent capability without a model-by-model version list; the platform’s main axis remains 6,000+ app integrations (official homepage figure, 2026-11-21).",
+    "runtime": "A fully hosted SaaS: Zaps, Next Gen Zaps and Agents execute in Zapier’s cloud, and the official docs offer no self-hosted image or local runner. Accounts, versions and run history are platform-hosted (2026-11-21).",
+    "local_files": "No local files are read or written. Zap inputs and outputs travel between SaaS apps through connectors, while run data sits in Zapier’s cloud. Official help states that Zap history is guaranteed for at most 60 days and displays up to 10,000 runs; Enterprise can set retention to 7–30 days, and deletion is permanent (2026-11-21).",
+    "background": "Cloud-resident by design: scheduled triggers, webhooks and delay steps are platform-scheduled, and Next Gen Zaps support durable waits of up to a year that can be cancelled mid-run. Runs do not depend on the user’s device being online, and closing the browser does not stop a deployed Zap (official help centre, 2026-11-21).",
+    "tools": "The connector ecosystem is the core asset. Official help positions Zapier MCP as the surface that lets MCP clients run app actions, and Next Gen Zaps build and deploy workflows through MCP; REST APIs, webhooks and 6,000+ app connectors sit alongside (2026-11-21).",
+    "context": "Multi-step Zaps pass data within a single run through field mapping, Paths and Code steps; run history is kept by Zap version for troubleshooting and replay. Official help lists no cross-task persistent memory or user-profile layer, so cross-session state must be maintained in an external database or storage step (2026-11-21).",
+    "permissions": "Enterprise plans provide SAML SSO, SCIM provisioning, Super Admin, app access control and custom data retention (official help centre, 2026-11-21). Connector credentials are platform-hosted, and members act under roles and shared-connection permissions. SOC 2 and similar claims should be checked on the official security page.",
+    "fit": "Fit: SaaS-first automation, attaching AI agents to ready-made connectors, and no deployment work at all. Not fit: keeping data inside your own environment, free self-hosting, or fixing long-workflow costs to a flat budget (usage-based billing; see the official pricing page for figures)."
   },
-  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
-  "unknowns": "- The model catalog connected by AI features (not verified item by item)\n- The current official framing of \"6000+ apps\" (not verified item by item)\n- Cross-task memory mechanisms (no official documentation found)",
+  "runs": "This entry checks the official help centre’s capability and permission boundaries. Workflow building, connector rate limits and billing must be measured on an account.",
+  "unknowns": "- Model-by-model versions behind AI features: the official help centre does not disclose them.\n- Live count behind the 6,000+ apps claim: the homepage gives a total without an auditable list.\n- Cross-task persistent memory: not listed in official help; an external storage step is required.",
   "related": [
     "Both connector-ecosystem automation platforms: Make's canvas is more \"flowchart\", Zapier more \"forms + directory\"."
   ],
@@ -19,6 +19,9 @@
     "Zapier · official Terms (fetched directly 200 on 2026-10-21)",
     "Zapier · official help center",
     "Zapier · official homepage (AI/Canvas/Agents narrative entry point)",
-    "Zapier · official Updates blog (changelog entry point, fetched directly 200 on 2026-10-21)"
+    "Zapier · official Updates blog (changelog entry point, fetched directly 200 on 2026-10-21)",
+    "Zapier Help: View and manage your Zap history (60-day / 10,000-run limits; fetched 200 on 2026-11-21)",
+    "Zapier Help: Customize data retention (Enterprise 7–30 days; fetched 200 on 2026-11-21)",
+    "Zapier Help: Get started with Next Gen Zaps (MCP and durable waits; fetched 200 on 2026-11-21)"
   ]
 }

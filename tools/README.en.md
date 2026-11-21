@@ -397,7 +397,7 @@ TTS, music generation, transcription products
 | [Moyin Workshop](tracks/audio/products/moyin.md) | Mobvoi | web | partial | active |
 | [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | verified | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | verified | active |
-| [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | partial | active |
+| [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | verified | active |
 | [CosyVoice](tracks/audio/products/cosyvoice.md) | Alibaba FunAudioLLM (open source) | local-app | verified | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | verified | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
@@ -425,7 +425,7 @@ Citation-first search and research products
 | [Devv](tracks/research/products/devv.md) | Devv AI | web | verified | active |
 | [Elicit](tracks/research/products/elicit.md) | Elicit | web | verified | active |
 | [Genspark](tracks/research/products/genspark.md) | Genspark | web | partial | active |
-| [Kagi](tracks/research/products/kagi.md) | Kagi | web | partial | active |
+| [Kagi](tracks/research/products/kagi.md) | Kagi | web | verified | active |
 | [NotebookLM](tracks/research/products/notebooklm.md) | Google | web | verified | active |
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | verified | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
@@ -459,7 +459,7 @@ Visual AI-app builders and workflow automation platforms
 | [SmythOS](tracks/automation/products/smythos.md) | SmythOS | web | partial | maintenance |
 | [Vertex AI Agent Builder](tracks/automation/products/vertex-agent-builder.md) | Google | web | verified | active |
 | [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | verified | active |
-| [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
+| [Zapier](tracks/automation/products/zapier.md) | Zapier | web | verified | active |
 
 ### Agent frameworks & runtimes — 42
 
@@ -474,7 +474,7 @@ Building blocks for your own agent
 | [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | verified | active |
 | [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | verified | active |
 | [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | verified | active |
-| [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
+| [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | verified | active |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | verified | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS community (Eliza Research) | harness | verified | active |
 | [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |

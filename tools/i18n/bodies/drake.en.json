@@ -1,25 +1,27 @@
 {
   "_comment": "English body for drake (robotics). Official README fetched 200 on 2026-11-07; unknowns kept explicit.",
   "axes": {
-    "model_access": "Drake is not a model product; the official README lists no model provider list. Policy or model integration usually goes through user code and ecosystem integrations; this site records it as model/policy-agnostic (site judgement, verification limited to README).",
-    "runtime": "Drake is used as a library/framework in local processes, commonly via Python/C++ or the ROS ecosystem; it is not a hosted cloud service. Installation and platform support follow official README/docs and were not tested here.",
-    "local_files": "Drake reads and writes local configuration, scenes, models or data assets; file permissions and asset licences must be checked by the user. It does not manage training-data copyright or robot workspace safety for the user.",
-    "background": "Nodes or training processes can run in the background; shutdown continuation, distribution and failure recovery are outside this verification scope and must be checked against official deployment docs.",
-    "tools": "Drake provides command-line, plugin or ecosystem interfaces (such as ROS topics/services, simulation plugins, policy-training interfaces). MCP integration is not stated in the official README and is recorded as unknown.",
-    "context": "Not applicable: Drake is not a chat model and has no LLM context window; state is carried by configuration, scenes, node state or training checkpoints.",
-    "permissions": "Permissions follow the operating system and runtime environment; with robot hardware, device access, network and emergency-stop boundaries also need checking. The official README gives no unified permission model, and this was not tested here.",
-    "fit": "Fit: motion/trajectory planning and control analysis. Not fit: unverified production deployment, safety certification or real-hardware guarantees."
+    "model_access": "Drake is not a model product and the official docs list no model-provider catalogue; policies or models enter through user code, LCM/ROS 2 integrations or external training frameworks. Its official positioning is a C++/Python toolbox for robot dynamics analysis and control design, with the model layer supplied by the user (2026-11-21).",
+    "runtime": "Drake runs as a C++/Python library inside a local process. Official support covers Ubuntu 24.04/26.04, macOS Tahoe/Golden Gate and Amazon Linux 2023, with pip, APT, binary packages and source builds; it is not a hosted cloud service and has no browser runtime (Installation page, 2026-11-21).",
+    "local_files": "Drake reads and writes local scenes, models, configuration and data assets; installs default to /opt/drake or a Python virtual environment. Users remain responsible for file permissions and asset licences; Drake does not manage training-data copyright, robot-workspace safety or cloud sync (official installation docs, 2026-11-21).",
+    "background": "Drake provides no hosted scheduler, job queue or resident server process: simulation, solving and visualisation run inside the Python/C++ process the user starts, and background execution depends on the OS and the user’s process manager. Official docs describe library build and invocation only, with no resume, distributed scheduling or job-recovery service (2026-11-21).",
+    "tools": "Drake centres on C++/Python APIs, with pydrake, MathematicalProgram solvers, Meshcat visualisation, LCM and ROS 2 integration. Official docs list four integration surfaces — Python, LCM, ROS 2 (unsupported) and Julia (unsupported) — and no MCP server or agent tool protocol (2026-11-21).",
+    "context": "Not applicable: Drake is not a chat model and has no LLM context window. State is carried by scene files, configuration, node state or checkpoints in user code; cross-session memory, prompt context and multi-turn dialogue management are outside its capability surface (2026-11-21).",
+    "permissions": "Permissions follow the OS and host process: Drake introduces no account, role or cloud ACL, and model/scene reads plus robot-device and network access inherit process permissions. On real hardware, emergency stop, device access and network isolation are user-configured; official installation docs list platforms and dependencies but define no unified permission model (2026-11-21).",
+    "fit": "Fit: robot dynamics modelling, contact/friction simulation, trajectory optimisation, control design and verification, and planning research that needs exposed equation structure (sparsity, analytical gradients, polynomial structure). Not fit: an out-of-the-box ROS navigation stack, a hosted simulation service or game-engine-style content production (2026-11-21)."
   },
   "sectionTitles": {},
   "sections": {},
-  "runs": null,
-  "unknowns": "- Mainland direct access to website/install sources and filing status were not tested in this pass.\n- Upstream push/release cadence was not verified via API; lifecycle is unknown.\n- MCP integration is not stated in the official README.",
+  "runs": "This entry checks the official docs for supported platforms, installation methods and integrations. Install size, solver performance and real-hardware deployment must be assessed in the project environment.",
+  "unknowns": "- Link quality from mainland networks to the official site and install sources, and filing applicability, must be checked against the actual network; this entry does not infer it.\n- Upstream release cadence follows the GitHub Releases page; version compatibility should be checked against release notes.\n- Official docs list no MCP server; MCP access requires wrapping the Python/C++ APIs yourself.",
   "related": [
     "Another category: local model runner. If a policy needs local inference, read llama.cpp for format and quantisation boundaries."
   ],
   "sources": [
     "RobotLocomotion/drake official repository (README fetched 200 on 2026-11-07)",
     "Official README (positioning and capability description, fetched 200 on 2026-11-07)",
-    "Commit history for RobotLocomotion/drake (change-record entry, versions not itemised on 2026-11-07)"
+    "Commit history for RobotLocomotion/drake (change-record entry, versions not itemised on 2026-11-07)",
+    "Drake official homepage (positioning, core library and integrations; fetched 200 on 2026-11-21)",
+    "Drake Installation and Quickstart (supported platforms and install methods; fetched 200 on 2026-11-21)"
   ]
 }

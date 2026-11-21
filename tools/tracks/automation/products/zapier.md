@@ -8,26 +8,21 @@ license: 商业 SaaS，条款见官方 Terms（2026-10-21 直抓 200）；无自
 
 axes:
   model_access: >-
-    AI 能力（Zapier AI / Canvas / Agents）经平台接各家模型；具体模型清单未逐条核验。
-    平台主轴是 6000+ 应用集成（官方口径数字未逐条核验）。
+    AI 能力（Zapier AI / Canvas / Agents）由平台接入多家模型，官方帮助中心把 AI 作为 Zap 步骤与 agent 能力描述，不公开逐模型版本清单；平台主轴仍是 6,000+ 应用集成（官方首页口径，2026-11-21）。
   runtime: >-
-    纯云托管 SaaS：Zap/工作流跑在 Zapier 云端；无自托管形态。
+    纯云托管 SaaS：Zap、Next Gen Zaps 与 Agents 都在 Zapier 云端执行，官方未提供自托管镜像或本地运行器；账号、版本与运行历史由平台托管（2026-11-21）。
   local_files: >-
-    不承载本机文件；数据经连接器在各 SaaS 间流转，存于 Zapier 云端处理。
+    不读写用户本机文件；Zap 的输入输出经连接器在各 SaaS 之间流转，运行数据存于 Zapier 云端。官方帮助中心说明 Zap 历史最多保证 60 天、最多显示 10,000 次运行；Enterprise 可把保留期设为 7–30 天，删除不可恢复（2026-11-21）。
   background: >-
-    云托管天然常驻：定时、webhook、延迟队列都是平台承载的官方能力。
+    云端常驻：定时触发、webhook、延迟步骤由平台调度；Next Gen Zaps 支持最长一年的 durable wait，并可在运行中取消。任务执行不依赖用户设备在线，关闭浏览器不影响已部署 Zap（官方帮助中心，2026-11-21）。
   tools: >-
-    连接器生态是核心资产；官方帮助中心与许可 FAQ 口径里 MCP/AI agent 是 Zapier 支持的接入面之一
-    （Zapier 亦提供 MCP 侧集成，细节未逐条核验）。
+    连接器生态是核心资产：官方帮助中心把 Zapier MCP 作为让 MCP 客户端调用应用动作的接入面，Next Gen Zaps 通过 MCP 构建并部署工作流；同时提供 REST API、Webhooks 与 6,000+ 应用连接器（2026-11-21）。
   context: >-
-    多步 Zap 之间的数据传递与路径（Paths）是官方上下文组织主轴；跨任务的持久记忆机制
-    未核验到官方文档（未知就说未知）。
+    多步 Zap 通过字段映射、Paths 与 Code 步骤传递单次运行的数据；运行历史按 Zap 版本保存，供排障与重放。官方帮助中心未列跨任务的持久记忆或用户画像层，跨会话状态需由外部数据库/存储步骤自行维护（2026-11-21）。
   permissions: >-
-    企业线给 SSO/审计等（官方产品页口径）；连接器凭据由平台托管存储。
-    数据合规线（SOC 2 等）官方声明未逐条核验。
+    企业线提供 SAML SSO、SCIM 用户 provisioning、Super Admin、应用访问控制与自定义数据保留（官方帮助中心，2026-11-21）；连接器凭据由平台托管，成员按角色与共享连接权限使用。SOC 2 等合规声明按官方 security 页核对。
   fit: >-
-    适合：SaaS 生态自动化为主轴、要把 AI agent 挂到现成连接器上、完全不碰部署。
-    不适合：要数据不出自有环境；要免费自托管。
+    适合：SaaS 生态自动化为主轴、要把 AI agent 挂到现成连接器上、完全不碰部署。不适合：要数据不出自有环境、要免费自托管、或要把长流程成本压到固定预算（按任务量计费，数字看官方 pricing 页）。
 
 pitfalls:
   - 把 Zapier 当「传统自动化+AI 附加」——官方已把 AI/agent 提为主轴叙事（Canvas/Agents）
@@ -51,10 +46,20 @@ sources:
     url: https://zapier.com/blog/updates/
     kind: changelog
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+  - label: Zapier · Help: View and manage your Zap history（60 天/10,000 次上限，2026-11-21 抓取 200）
+    url: https://help.zapier.com/hc/en-us/articles/8496291148685
+    kind: docs
+  - label: Zapier · Help: Customize data retention（Enterprise 7–30 天，2026-11-21 抓取 200）
+    url: https://help.zapier.com/hc/en-us/articles/8496327478413
+    kind: docs
+  - label: Zapier · Help: Get started with Next Gen Zaps（MCP 与 durable wait，2026-11-21 抓取 200）
+    url: https://help.zapier.com/hc/en-us/articles/48391476448141-Get-started-with-Next-Gen-Zaps
+    kind: docs
+
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -66,7 +71,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-21
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -81,14 +86,13 @@ cn:
 
 ## 实测记录
 
-本档未跑工作流搭建实测；结论只覆盖平台能力与权限边界。
+本档核对官方帮助中心的能力与权限边界；工作流搭建、连接器限流与计费需按账号实测。
 
 ## 未知项清单
 
-- AI 功能接入的模型清单（未逐条核验）
-- 「6000+ 应用」的官方口径现值（未逐条核验）
-- 跨任务记忆机制（未核验到官方文档）
-
+- AI 功能接入的具体模型版本清单：官方帮助中心未逐模型披露。
+- 6,000+ 应用口径的实时计数：官方首页给出总数，未提供可审计清单。
+- 跨任务持久记忆：官方帮助中心未列该能力，需外部存储步骤实现。
 ## 相关条目
 
 - [Make](./make.md) — 同为连接器生态自动化：Make 画布形态更「流程图」，Zapier 更「表单+目录」。

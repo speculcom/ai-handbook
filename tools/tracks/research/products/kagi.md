@@ -5,35 +5,26 @@ name: Kagi
 nameEn: Kagi
 vendor: Kagi
 homepage: https://kagi.com
-license: 订阅制（无广告、无免费档主打——产品姿态）。按官方条款/隐私页管辖
-  （kagi.com/privacy 直抓核验 2026-10-22）；细节未逐条核验。
-licenseEn: Subscription-first (ad-free, not free-tier-led — product posture). Governed by official
-  terms/privacy pages (kagi.com/privacy, direct-fetched 2026-10-22); details not verified line by line.
+license: 订阅制（无广告、无免费档主打）。按官方条款/隐私页管辖（kagi.com/privacy 2026-11-21 取得）；商业使用仅限 API 产品，前端产品默认非商业。
+licenseEn: Subscription-first (ad-free, not free-tier-led). Governed by the official terms and privacy page (kagi.com/privacy fetched 2026-11-21); commercial use is limited to API products, while front-end products are non-commercial by default.
 
 axes:
   model_access: >-
-    自建搜索索引（Kagi 自建索引是核心叙事）+ FastGPT 等 LLM 答案层（可切换多家模型，
-    官方产品面）；「搜索是本体、AI 是附加」的顺序与多数 AI 搜索相反。
+    自建搜索索引是核心叙事，答案层由 FastGPT、Assistant、Universal Summarizer 等组成；官方隐私页把第三方 AI provider 描述为按请求调用、尽量不留存不训练，产品面未给逐模型清单。搜索是本体、AI 是附加，与多数 AI 搜索的顺序相反（2026-11-21）。
   runtime: >-
-    网页（kagi.com）+ 浏览器扩展 + Mini Bar（官方产品线）；Kagi FastGPT/FastGPT 类问答在云端；
-    搜索索引自建。
+    网页（kagi.com）+ 浏览器扩展 + Mini Bar；搜索索引自建，FastGPT/Assistant 与摘要请求在 Kagi 云端完成。官方文档未提供本地模型包、私有化部署或离线索引，客户端只承担界面与可选缓存（2026-11-21）。
   local_files: >-
-    搜索历史可选本地化/零留存模式（官方隐私叙事：不追踪不画像）；未见官方声明的其他本机数据面。
+    搜索本身不落地用户文件；官方隐私页列出的客户端存储仅 kagi_session、_kagi_search_、kagi_previous_page、kagi_precise_location 等 cookie，以及 kagi_sse_replay（localStorage 的近期结果缓存，用于减少往返），没有账户级搜索历史库。Tor、Privacy Pass 与匿名邮箱是可选的匿名化路径（2026-11-21）。
   background: >-
-    搜索即时返回；未见官方任务队列或「关机续跑」类后台任务面（未逐条核验）。
+    搜索与摘要请求即时返回，官方文档未列作业队列、定时任务或后台批处理 API；FastGPT/Assistant 的请求在云端完成，关闭页面不保留可恢复的长任务。需要批量任务应走 Kagi API 自行编排（2026-11-21）。
   tools: >-
-    无广告搜索（招牌）、Teclis/Exa 类「先搜后 LLM 读全文」答案线（官方产品面）、
-    Universal Summarizer（URL/视频/文档摘要）、翻译；**隐私承诺是产品主轴之一**（无追踪叙事）。
+    产品面包括无广告搜索、FastGPT/Assistant 答案线、Universal Summarizer（URL/视频/文档摘要）、Kagi Translate 与 API；官方隐私页把 Assistant、Summarizer、FastGPT、Translate 都列为 AI 工具，并给出线程保留规则（2026-11-21）。
   context: >-
-    无对话记忆主打——搜索按会话制组织；跨会话记忆与画像未核验到官方声明（隐私姿态反而强调不追踪）。
+    搜索按单次查询组织，官方隐私页明确不把查询关联到账户、不构建画像；Kagi Assistant 的会话线程默认 1 天后自动永久删除，用户也可立即删除，被举报线程保留 30 天。没有跨会话长期记忆入口（2026-11-21）。
   permissions: >-
-    订阅制（D9：价格不采）；**「不追踪、不卖数据」是官方隐私叙事**——
-    条款级落点未逐条核验；付费换隐私是它的产品逻辑。
+    订阅账户 + API key 两级：官方条款写明只有 Kagi API 产品可用于商业用途，Universal Summarizer 等前端产品默认非商业，商用需另谈许可；账户可开匿名邮箱、加密货币、Tor、Privacy Pass。团队/企业管理面官方文档未单列（2026-11-21）。
   fit: >-
-    适合：愿意付费换无广告/无追踪搜索体验、要「搜索+全文读」式答案（Teclis 线）、
-    对追踪敏感的用户。
-    不适合：免费用户（无免费档主打）、大陆直连敏感（直连 200 可达但支付面按海外口径）、
-    要中文检索主打。
+    适合：愿意付费换无广告、无追踪搜索体验，要「搜索+全文读」式答案，对追踪和画像敏感的用户。不适合：只找免费档、要中文检索为主打、或需要企业级审计与团队管理面的组织（2026-11-21）。
 
 pitfalls:
   - Kagi 是「搜索引擎+AI 附加」不是「AI 搜索」——索引自建，答案层是附加；对比口径别错位
@@ -54,10 +45,14 @@ sources:
     url: https://blog.kagi.com
     kind: changelog
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+  - label: Kagi · 官方帮助文档（产品与隐私说明入口，2026-11-21 抓取 200）
+    url: https://help.kagi.com/kagi/
+    kind: docs
+
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -70,7 +65,7 @@ cn:
   filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -85,21 +80,14 @@ cn:
 
 ## 实测记录
 
-本档未跑检索质量评测；结论只覆盖产品能力与来源披露。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **自建索引 vs Google/Bing 的长尾查询覆盖差**
-- **Teclis「先搜后读全文」答案与 Perplexity 的质量对比**
-- **零留存模式的实际生效验证**（历史行为观察）
+本档核对官方隐私页与帮助文档的能力边界；检索质量、中文覆盖与零留存实际效果需按查询集自测。
 
 ## 未知项清单
 
-- 自建索引规模与更新频率（未核验到官方声明）
-- 各答案线当前可切换模型清单（未逐条清点）
-- 隐私承诺的条款级落点（未逐条核验）
-- 中文查询的实际检索质量（未做实测）
-
+- 自建索引规模与更新频率：官方未披露具体索引规模。
+- 各答案线当前可切换模型清单：官方文档未列逐模型清单。
+- 中文查询的实际检索质量：官方文档未列分语言评测。
+- 零留存的实际生效：隐私页说明不关联账户，第三方审计报告未在文档中列出。
 ## 相关条目
 
 - [Perplexity](./perplexity.md) — 顺序对照：Perplexity 是 AI 答案带搜索，Kagi 是搜索带 AI 答案。
