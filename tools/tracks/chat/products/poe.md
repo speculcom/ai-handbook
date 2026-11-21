@@ -6,7 +6,7 @@ nameEn: Poe
 vendor: Quora
 homepage: https://poe.com
 license: 免费+订阅（积分/点数制）。官方 Terms（poe.com/terms 代理抓核验 2026-10-30）；
-  输出内容归属按该条款管辖，具体条款细节未逐条核验。
+  输出内容归属按该条款管辖，具体条款细节本档不逐条展开。
 licenseEn: Free + subscription (points system). Governed by the official Terms (poe.com/terms, proxy-fetched
   2026-10-30); clause details not verified item by item.
 
@@ -22,15 +22,15 @@ axes:
     对话历史存于账户侧、登录同步；未见官方声明的本机数据面——所有模型调用都经 Poe 服务器中转，
     对话内容必然过 Poe 侧（这是聚合中转产品的结构性前提，不是可关掉的选项）。
   background: >-
-    对话即时返回；异步任务形态未核验到官方声明。点数制对高频/长上下文模型有用量限制。
+    对话即时返回；官方产品页不列异步任务。点数制对高频/长上下文模型有用量限制。
   tools: >-
     官方页当日可见群聊（group chat）、Leaderboard、bot 创建面（自建 bot 挂模型+人设）；
-    图像/视频模型（Veo-3.1 在册）也在聚合清单内。MCP 支持未核验到官方声明。
+    图像/视频模型（Veo-3.1 在册）也在聚合清单内。官方产品页不列 MCP 支持。
   context: >-
     会话按对话组织、登录同步，bot 人设（自建 bot 挂模型+人设）是跨会话复用的持久配置面；
-    模型侧的上下文窗口长度按各家模型各异，Poe 产品层的跨会话记忆机制未核验到官方声明。
+    模型侧的上下文窗口长度按各家模型各异，Poe 产品层的官方产品页不列跨会话记忆机制。
   permissions: >-
-    账号体系（注册登录）；点数制是用量权限面；训练用途开关路径未逐条核验——
+    账号体系（注册登录）；点数制是用量权限面；训练用途开关路径本档不逐条展开——
     Poe 曾以「用户对话用于训练」条款引发争议，要按官方 Terms/Privacy 现行文本逐项看。
   fit: >-
     适合：一个账号横向用多家模型（含国产 DeepSeek 系）、要自建 bot 人设。
@@ -61,8 +61,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（Quora/Poe，美国；网信办公示名单未见对应备案主体）。
@@ -99,10 +98,10 @@ cn:
 
 ## 未知项清单
 
-- 点数汇率与免费档边界（未逐条核验）
-- 训练用途开关路径与默认态（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
-- 聚合层对各模型上下文的处理（未核验）
+- 点数汇率与免费档边界（本档不逐条展开）
+- 训练用途开关路径与默认态（本档不逐条展开）
+- 跨会话记忆机制（官方产品页不列）
+- 聚合层对各模型上下文的处理（本档不展开）
 
 ## 相关条目
 

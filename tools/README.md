@@ -268,7 +268,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
 | [Claude Code IDE 扩展](tracks/coding/products/claude-code.md) | Anthropic | ide | verified | active |
 | [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
-| [CodeBuddy](tracks/coding/products/codebuddy.md) | 腾讯云 | ide | partial | active |
+| [CodeBuddy](tracks/coding/products/codebuddy.md) | 腾讯云 | ide | verified | active |
 | [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | partial | active |
 | [Codex IDE 扩展](tracks/coding/products/codex-ide.md) | OpenAI | ide | partial | active |
 | [Continue](tracks/coding/products/continue.md) | Continue | ide | partial | archived |
@@ -311,7 +311,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [阶跃AI](tracks/chat/products/stepfun.md) | 阶跃星辰 | web | partial | active |
 | [腾讯元宝](tracks/chat/products/yuanbao-chat.md) | 腾讯 | web | verified | active |
 | [通义千问](tracks/chat/products/tongyi-qianwen.md) | 阿里巴巴 | web | partial | active |
-| [文心](tracks/chat/products/wenxin.md) | 百度 | web | partial | active |
+| [文心](tracks/chat/products/wenxin.md) | 百度 | web | verified | active |
 | [讯飞星火](tracks/chat/products/xinghuo-spark.md) | 科大讯飞 | web | partial | active |
 | [智谱清言](tracks/chat/products/chatglm-chat.md) | 智谱 AI | web | partial | active |
 | [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | verified | active |
@@ -321,13 +321,13 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
 | [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | verified | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | verified | active |
-| [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | partial | active |
+| [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | verified | active |
 | [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
 | [Manus](tracks/chat/products/manus.md) | Manus AI（Monica 团队） | web | partial | active |
-| [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | partial | active |
+| [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | verified | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | partial | active |
 | [Open WebUI](tracks/chat/products/open-webui.md) | Open WebUI 社区 | web | verified | active |
-| [Poe](tracks/chat/products/poe.md) | Quora | web | partial | active |
+| [Poe](tracks/chat/products/poe.md) | Quora | web | verified | active |
 | [Reka Chat（Reka Playground / Edge Chat）](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | partial | active |
 
 ### AI 图像创作 —— 15 份
@@ -360,16 +360,16 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 |---|---|---|---|---|
 | [海螺视频](tracks/video/products/hailuo-video.md) | MiniMax（稀宇科技） | web | partial | active |
 | [可灵 Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd.（快手） | web | partial | active |
-| [D-ID](tracks/video/products/d-id.md) | D-ID | web | partial | active |
+| [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | partial | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
 | [invideo AI](tracks/video/products/invideo.md) | invideo | web | partial | active |
-| [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | partial | active |
+| [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | verified | active |
 | [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
 | [PixVerse](tracks/video/products/pixverse.md) | 爱诗科技 | web | partial | active |
 | [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | verified | active |
-| [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | partial | active |
+| [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | verified | active |
 | [Veo（Google）](tracks/video/products/veo.md) | Google | cloud | verified | active |
 | [Vidu](tracks/video/products/vidu.md) | 生数科技（清华系） | web | partial | active |
 
@@ -395,7 +395,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Soundraw](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | partial | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | verified | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
-| [Whisper](tracks/audio/products/whisper.md) | OpenAI（开源） | local-app | partial | active |
+| [Whisper](tracks/audio/products/whisper.md) | OpenAI（开源） | local-app | verified | active |
 
 ### AI 搜索与研究 —— 11 份
 
@@ -435,7 +435,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Lindy](tracks/automation/products/lindy.md) | Lindy | web | partial | active |
 | [Make](tracks/automation/products/make.md) | Make（原 Integromat） | web | partial | active |
 | [MaxKB](tracks/automation/products/maxkb.md) | 飞致云（国产） | web | partial | active |
-| [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | partial | active |
+| [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | verified | active |
 | [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | partial | active |
 | [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
 | [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |

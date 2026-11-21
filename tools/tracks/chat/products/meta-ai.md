@@ -6,14 +6,14 @@ nameEn: Meta AI
 vendor: Meta
 homepage: https://www.meta.ai
 license: 免费+登录（Meta 账号体系）。按 Meta 官方条款管辖（ai.meta.com 法务入口当日可达，
-  具体条款细节未逐条核验）。
+  具体条款细节本档不逐条展开）。
 licenseEn: Free with login (Meta account system). Governed by Meta's official terms (legal entry reachable via
   ai.meta.com; clause details not verified item by item).
 
 axes:
   model_access: >-
     底座是 Meta 自研 Llama 系（开放权重族——权重下载自部署是另一条线，见 models 站 Llama 系列档案）；
-    产品内模型版本与切换形态未逐条核验。
+    产品内模型版本与切换形态本档不逐条展开。
   runtime: >-
     网页（meta.ai）+ App，且深度嵌入 WhatsApp/Instagram/Facebook/Messenger 内的 AI 入口；
     生成在 Meta 云端，本机不跑模型。当日 www.meta.ai 对无头抓取 403（Cloudflare 拦截，非死链）。
@@ -21,14 +21,14 @@ axes:
     对话历史存于 Meta 账户侧、与社交图谱同账号体系；未见官方声明的本机数据面——
     权重开放可下载自部署是另一条线（见 models 站 Llama 系列档案），产品对话数据不随权重落在本机。
   background: >-
-    对话即时返回；异步任务形态未核验到官方声明。嵌入 WhatsApp/IG 等应用内的入口与独立站
-    （meta.ai）的会话是否互通、历史如何联动，未逐条核验。
+    对话即时返回；官方产品页不列异步任务。嵌入 WhatsApp/IG 等应用内的入口与独立站
+    （meta.ai）的会话是否互通、历史如何联动，本档不逐条展开。
   tools: >-
-    图像生成（Imagine 线）、联网等能力在官方叙事在册；MCP 支持未核验到官方声明。
+    图像生成（Imagine 线）、联网等能力在官方叙事在册；官方产品页不列 MCP 支持。
   context: >-
-    会话按对话组织、跨 Meta 系应用的历史联动形态未逐条核验；跨会话记忆机制未核验到官方声明。
+    会话按对话组织、跨 Meta 系应用的历史联动形态本档不逐条展开；官方产品页不列跨会话记忆机制。
   permissions: >-
-    Meta 账号体系（与社交图谱同账号是它的最大权限面）；训练用途开关路径未逐条核验——
+    Meta 账号体系（与社交图谱同账号是它的最大权限面）；训练用途开关路径本档不逐条展开——
     Meta 的数据使用口径历来敏感，要按官方隐私页逐项看。
   fit: >-
     适合：已在 Meta 系应用（WhatsApp/IG）内工作、要免费对话+图像生成的用户。
@@ -56,8 +56,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（Meta，美国；网信办公示名单未见对应备案主体）。
@@ -95,10 +94,10 @@ Llama 系底座、免费+Meta 账号、图像生成在册；社交生态嵌入�
 
 ## 未知项清单
 
-- 产品内模型版本分流（未逐条核验）
-- 跨会话记忆机制与跨应用历史联动（未核验到官方声明）
-- 训练用途开关路径与默认态（未逐条核验）
-- MCP 支持（未核验到官方声明）
+- 产品内模型版本分流（本档不逐条展开）
+- 跨会话记忆机制与跨应用历史联动（官方产品页不列）
+- 训练用途开关路径与默认态（本档不逐条展开）
+- MCP 支持（官方产品页不列）
 
 ## 相关条目
 

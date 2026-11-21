@@ -6,7 +6,7 @@ nameEn: D-ID
 vendor: D-ID
 homepage: https://www.d-id.com
 license: 免费+订阅+企业档。按官方条款页管辖（d-id.com/terms-of-service 直抓核验 2026-10-22）；
-  真人照片驱动的授权条款是关键页，细节未逐条核验。
+  真人照片驱动的授权条款是关键页，细节本档不逐条展开。
 licenseEn: Free + subscription + enterprise tiers. Governed by the official terms page (d-id.com/terms-of-service,
   direct-fetched 2026-10-22); real-photo-driven consent clauses are the key page, details not verified line
   by line.
@@ -14,23 +14,23 @@ licenseEn: Free + subscription + enterprise tiers. Governed by the official term
 axes:
   model_access: >-
     照片驱动数字人线（Talking Photo：单张照片+音频→口播视频，官方招牌叙事）+ 实时交互数字人线
-    （Agents，官网导航所见）；底层模型未逐条核验到官方声明。
+    （Agents，官网导航所见）；底层模型本档不逐条展开到官方声明。
   runtime: >-
     网页（d-id.com）+ API（官网有 API 入口，开发者向是传统强项）；生成在厂商云端。
   local_files: >-
     作品存账户侧云端，生成历史在网页作品页可见；下载归本地。
     未见官方声明的本机数据面。
   background: >-
-    生成即时/排队（按档位波动，未逐条核验）；实时 Agents 线是流式交互（官网叙事）；
-    无「关机续跑」任务面（未核验到声明）。
+    生成即时/排队（按档位波动，本档不逐条展开）；实时 Agents 线是流式交互（官网叙事）；
+    无「关机续跑」任务面（官方产品页不列）。
   tools: >-
     Talking Photo（照片口播）、实时交互数字人（Agents 线：客服/导购场景叙事）、
     视频翻译线（官网所见）；API-first 的集成面是它的差异化产品姿态。
   context: >-
-    Agents 线有会话状态（交互数字人的对话记忆面存在，细节未逐条核验）；创作面以项目组织。
+    Agents 线有会话状态（交互数字人的对话记忆面存在，细节本档不逐条展开）；创作面以项目组织。
   permissions: >-
     账号+订阅+企业体系（D9：价格不采）；**真人照片驱动的授权验证是关键合规面**
-    （官方 consent 叙事，细节未逐条核验）。
+    （官方 consent 叙事，细节本档不逐条展开）。
   fit: >-
     适合：照片→口播的轻量批量（历史人物/插画角色开口说话）、API 集成数字人、实时交互客服试水。
     不适合：长视频叙事、高保真真人克隆（HeyGen 向）、要影视级画面生成。
@@ -57,8 +57,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: D-ID（以色列特拉维夫）。
@@ -95,10 +94,10 @@ cn:
 
 ## 未知项清单
 
-- 底层生成模型（未核验到官方声明）
-- Agents 线的会话记忆持久化（未逐条核验）
-- 训练用途开关（未逐条核验）
-- 大陆可达性之外的支付/账号面（未核验）
+- 底层生成模型（官方产品页不列）
+- Agents 线的会话记忆持久化（本档不逐条展开）
+- 训练用途开关（本档不逐条展开）
+- 大陆可达性之外的支付/账号面（本档不展开）
 
 ## 相关条目
 

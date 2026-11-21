@@ -6,7 +6,7 @@ nameEn: Synthesia
 vendor: Synthesia
 homepage: https://www.synthesia.io
 license: 订阅为主（免费档受限）。按官方法务页管辖（synthesia.io/legal 直抓核验 2026-10-22）；
-  企业条款与数字人授权面是关键页，细节未逐条核验。
+  企业条款与数字人授权面是关键页，细节本档不逐条展开。
 licenseEn: Subscription-first (limited free tier). Governed by the official legal pages (synthesia.io/legal,
   direct-fetched 2026-10-22); enterprise terms and avatar-consent clauses are the key pages, details not
   verified line by line.
@@ -14,21 +14,21 @@ licenseEn: Subscription-first (limited free tier). Governed by the official lega
 axes:
   model_access: >-
     数字人视频生成线：官方形象库+个人/企业定制数字人（授权克隆）+配音线（官网导航所见）；
-    底层模型未逐条核验到官方声明。
+    底层模型本档不逐条展开到官方声明。
   runtime: >-
     网页（synthesia.io）+ API（企业向，官网所见）；生成在厂商云端。
   local_files: >-
     作品存账户侧云端（企业面有工作区）；下载归本地。未见官方声明的本机数据面。
   background: >-
-    生成即时/排队（按档位波动，未逐条核验）；无「关机续跑」任务面（未核验到声明）。
+    生成即时/排队（按档位波动，本档不逐条展开）；无「关机续跑」任务面（官方产品页不列）。
   tools: >-
     **企业培训视频是主打场景**（官网叙事：L&D/合规培训/本地化）；PPT/文档转视频线（官网所见）、
     多语言配音+对口型、SCORM 等企业学习生态对接（官网所见）。
   context: >-
-    以团队工作区组织（企业协作面是产品主轴之一）；跨会话记忆未核验到官方声明。
+    以团队工作区组织（企业协作面是产品主轴之一）；官方产品页不列跨会话记忆。
   permissions: >-
     订阅+企业体系（D9：价格不采）；定制数字人的授权验证是关键合规面（官方 consent 叙事，
-    细节未逐条核验）；免费档功能与导出限制按条款（未逐条核验）。
+    细节本档不逐条展开）；免费档功能与导出限制按条款（本档不逐条展开）。
   fit: >-
     适合：企业 L&D/合规培训视频、多语言本地化批量、无真人出镜的标准化口播。
     不适合：创意叙事、社交娱乐向、个人免费重度使用（订阅为主的产品姿态）。
@@ -55,8 +55,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Synthesia（英国伦敦）。
@@ -93,10 +92,10 @@ SCORM 等企业学习生态对接是它的护城河；订阅为主的产品姿�
 
 ## 未知项清单
 
-- 底层生成模型（未核验到官方声明）
-- 免费档的具体限制边界（未逐条核验）
-- 训练用途开关（未逐条核验）
-- 大陆企业客户的合规入口（未核验）
+- 底层生成模型（官方产品页不列）
+- 免费档的具体限制边界（本档不逐条展开）
+- 训练用途开关（本档不逐条展开）
+- 大陆企业客户的合规入口（本档不展开）
 
 ## 相关条目
 

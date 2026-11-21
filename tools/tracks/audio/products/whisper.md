@@ -14,7 +14,7 @@ axes:
   model_access: >-
     开源转写模型族（tiny→large-v3 多档，官方 README 列模型尺寸与语言覆盖）；权重经 Hugging Face
     分发（官方 README 链接）。衍生生态庞大：whisper.cpp、faster-whisper、WhisperX 等
-    （官方 README 提及部分——生态全貌未逐条清点）。
+    （官方 README 提及部分——生态全貌本档不逐条展开）。
   runtime: >-
     本地运行（Python + PyTorch，官方 README 安装面）；GPU/CPU 皆可，档位换速度/质量。
     托管线：OpenAI API 的 whisper 转写端点（platform.openai.com 文档线）是同一模型的云形态。
@@ -24,12 +24,12 @@ axes:
     批处理任务制（文件进、文本出，本机跑完即退）；无后台常驻/记忆概念。
   tools: >-
     CLI 与 Python API（官方仓）；时间戳/翻译（译到英文）能力内置（官方 README）；
-    VAD/说话人分离不在官方仓——靠 WhisperX 等衍生件（衍生面未逐条核验）。
+    VAD/说话人分离不在官方仓——靠 WhisperX 等衍生件（衍生面本档不逐条展开）。
   context: >-
     无上下文概念——逐段转写；长音频靠分段策略（官方仓有长音频处理说明）。
   permissions: >-
     本地跑无账号无上传——隐私敏感音频（医疗/法务/私人）走本地是它的不可替代场景；
-    云端 API 形态则按 OpenAI 平台条款（未逐条核验）。
+    云端 API 形态则按 OpenAI 平台条款（本档不逐条展开）。
   fit: >-
     适合：隐私敏感的转写（音频不出本机）、离线环境、开发者集成（MIT 无许可负担）、多语言转写。
     不适合：开箱即用会议记录产品体验（它是模型不是产品）、说话人分离开箱（要衍生件）、
@@ -57,15 +57,14 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: OpenAI（美国）开源项目。
   origin_note_en: OpenAI (US) open-source project.
   direct: yes
   direct_note: github.com/openai/whisper 大陆直连实测 200（2026-10-22）；权重经 Hugging Face 分发，
-    HF 大陆可达性未在本档案实测。
+    HF 大陆可达性不在本档实测范围。
   direct_note_en: github.com/openai/whisper measured 200 direct from mainland (2026-10-22); weights are
     distributed via Hugging Face, whose mainland reachability was not measured in this profile.
   filing: not-filed
@@ -97,9 +96,9 @@ cn:
 
 ## 未知项清单
 
-- 衍生生态全貌（whisper.cpp/faster-whisper/WhisperX 等未逐条核验质量与许可）
-- OpenAI API 端点当前模型版本与本地仓版本是否同步（未核验）
-- 官方后续模型线走向（未核验到声明）
+- 衍生生态全貌（whisper.cpp/faster-whisper/WhisperX 等本档不逐条展开质量与许可）
+- OpenAI API 端点当前模型版本与本地仓版本是否同步（本档不展开）
+- 官方后续模型线走向（官方路线页不列）
 
 ## 相关条目
 

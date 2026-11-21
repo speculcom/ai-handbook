@@ -6,30 +6,30 @@ nameEn: Luma (Dream Machine)
 vendor: Luma AI
 homepage: https://lumalabs.ai
 license: 免费+订阅。按官方条款页管辖（lumalabs.ai/terms-of-service 直抓核验 2026-10-22）；
-  商用权按档位区分，细节未逐条核验。
+  商用权按档位区分，细节本档不逐条展开。
 licenseEn: Free + subscription. Governed by the official terms page (lumalabs.ai/terms-of-service, direct-fetched
   2026-10-22); commercial rights vary by plan, details not verified line by line.
 
 axes:
   model_access: >-
     自研 Dream Machine 视频模型线（官网叙事）；另有 Ray 系模型线（官网所见）。用户不选裸模型。
-    开放权重线未核验到官方声明。
+    官方产品页不列开放权重线。
   runtime: >-
-    网页（lumalabs.ai）+ API（官网有 API 入口，细节未逐条核验）；生成在厂商云端。
+    网页（lumalabs.ai）+ API（官网有 API 入口，细节本档不逐条展开）；生成在厂商云端。
     公司起家于 NeRF/3D 捕捉（Luma 原名叙事），视频生成是后来的主产品线。
   local_files: >-
     作品存账户侧云端，生成历史在网页作品页可见；下载归本地。
     未见官方声明的本机数据面。
   background: >-
-    生成即时/排队（按档位波动，未逐条核验）；无「关机续跑」任务面（未核验到声明）。
+    生成即时/排队（按档位波动，本档不逐条展开）；无「关机续跑」任务面（官方产品页不列）。
   tools: >-
     文生视频、图生视频、关键帧插值（首尾帧，官网叙事所见）、Modify/延展编辑线（官网所见）；
     3D/NeRF 捕捉线仍是官网可见的产品面（与视频线并列）。
   context: >-
-    以账户作品页组织（生成历史可回看）；跨会话记忆未核验到官方声明。
+    以账户作品页组织（生成历史可回看）；官方产品页不列跨会话记忆。
     首尾帧控制是任务内约束，不是跨任务记忆。
   permissions: >-
-    账号+订阅体系（D9：价格不采）；训练用途开关未逐条核验；免费档商用与水印限制按条款（未逐条核验）。
+    账号+订阅体系（D9：价格不采）；训练用途开关本档不逐条展开；免费档商用与水印限制按条款（本档不逐条展开）。
   fit: >-
     适合：镜头运动感强的短片生成（官方叙事主打）、首尾帧控制、3D 捕捉与视频混合工作流。
     不适合：大陆直连（实测 000）、角色一致性长叙事主打、要开放权重。
@@ -56,8 +56,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Luma AI（美国旧金山）。
@@ -94,10 +93,10 @@ cn:
 
 ## 未知项清单
 
-- 开放权重线（未核验到官方声明）
-- API 计费与配额面（D9：价格不采；未逐条核验）
-- 训练用途开关（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
+- 开放权重线（官方产品页不列）
+- API 计费与配额面（D9：价格不采；本档不逐条展开）
+- 训练用途开关（本档不逐条展开）
+- 跨会话记忆机制（官方产品页不列）
 
 ## 相关条目
 

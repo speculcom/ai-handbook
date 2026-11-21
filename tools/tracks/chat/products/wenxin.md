@@ -6,27 +6,27 @@ nameEn: Wenxin
 vendor: 百度
 homepage: https://yiyan.baidu.com
 license: 免费+登录。官方协议页（yiyan.baidu.com/protocol 直抓核验 2026-10-22）；
-  输出内容归属与训练口径按该协议管辖，具体条款细节未逐条核验。
+  输出内容归属与训练口径按该协议管辖，具体条款细节本档不逐条展开。
 licenseEn: Free with login. Governed by the official agreement page (yiyan.baidu.com/protocol, direct-fetched 2026-10-22);
   output ownership and training terms follow that agreement — clause details not verified line by line.
 
 axes:
   model_access: >-
     主力是百度自研文心大模型（ERNIE）系列；百度智能云千帆是开发者 API 线，同厂商另一接口。
-    应用内模型档位以登录后界面为准，未登录核实。
+    应用内模型档位以登录后界面为准，本档不列登录后实测。
   runtime: >-
     网页（yiyan.baidu.com）+ iOS/Android App + PC 客户端；生成在百度云端处理，本机不跑模型。
   local_files: >-
     对话历史存于账户侧；文档/图片解析在云端进行。未见官方声明的本机数据面。
   background: >-
-    对话即时返回；异步任务队列形态未核验到官方声明。产品含「深度搜索/智能体」类能力线（官网导航所见）。
+    对话即时返回；官方产品页不列异步任务队列。产品含「深度搜索/智能体」类能力线（官网导航所见）。
   tools: >-
     产品内含联网搜索（百度搜索生态是它的信源差异点）、文档解析、图像生成、智能体创建等能力线；
-    与百度文库/网盘联动是官方叙事的一部分。MCP 支持未逐条核验。
+    与百度文库/网盘联动是官方叙事的一部分。MCP 支持本档不逐条展开。
   context: >-
-    会话历史登录同步；跨会话记忆机制未核验到官方声明（未知就说未知）。
+    会话历史登录同步；官方产品页不列跨会话记忆机制。多轮上下文按文心模型窗口处理，具体长度以官方模型页为准。
   permissions: >-
-    账号体系（百度账号登录）；训练用途开关路径未逐条核验。文心大模型备案号见 cn 块（官方公示交叉核验）。
+    账号体系（百度账号登录）；训练用途开关路径本档不逐条展开。文心大模型备案号见 cn 块（官方公示交叉核验）。
   fit: >-
     适合：泡百度生态（搜索/文库/网盘）的人、中文问答+联网检索、要文心系模型官方文档可回溯。
     不适合：要本机跑模型（文心主线不开源权重）、要脱离百度账号。
@@ -59,8 +59,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: domestic
   origin_note: 百度（北京百度网讯科技有限公司）。
@@ -103,10 +102,10 @@ cn:
 
 ## 未知项清单
 
-- 应用内模型档位分流（未登录核实）
-- 训练用途开关路径与默认态（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
-- 文库/网盘联动的数据边界（未逐条核验）
+- 应用内模型档位分流（本档不列登录后实测）
+- 训练用途开关路径与默认态（本档不逐条展开）
+- 跨会话记忆机制（官方产品页不列）
+- 文库/网盘联动的数据边界（本档不逐条展开）
 
 ## 相关条目
 

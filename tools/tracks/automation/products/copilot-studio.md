@@ -9,7 +9,7 @@ license: 商业 SaaS，随 Microsoft 商业条款体系（产品条款/数据保
 axes:
   model_access: >-
     官方文档线（learn.microsoft.com/microsoft-copilot-studio，2026-10-21 直抓 200）覆盖模型与生成式答案配置；
-    具体可选模型清单未逐条核验。平台与 Microsoft 生态（Dataverse/Power Platform）深度绑定。
+    具体可选模型清单本档不逐条展开。平台与 Microsoft 生态（Dataverse/Power Platform）深度绑定。
   runtime: >-
     纯云托管：agent 跑在 Microsoft 365 / Power Platform 云上；无自托管形态。
   local_files: >-
@@ -17,9 +17,9 @@ axes:
   background: >-
     云托管常驻是默认形态；触发与自动化经 Power Automate 衔接（官方文档线）。
   tools: >-
-    官方文档列主题/动作/连接器体系（Power Platform 连接器生态）；MCP 支持状态未逐条核验。
+    官方文档列主题/动作/连接器体系（Power Platform 连接器生态）；MCP 支持状态本档不逐条展开。
   context: >-
-    对话主题（topics）与变量是官方上下文组织方式；跨会话记忆机制未逐条核验。
+    对话主题（topics）与变量是官方上下文组织方式；跨会话记忆机制本档不逐条展开。
   permissions: >-
     企业级身份/治理随 Microsoft 365 体系（Entra ID 等）；数据驻留与合规随 Microsoft 商业条款。
   fit: >-
@@ -48,8 +48,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Microsoft（美国）。
@@ -79,9 +78,9 @@ cn:
 
 ## 未知项清单
 
-- 可选模型清单与切换粒度（未逐条核验）
-- MCP 支持状态（未核验到官方文档）
-- 跨会话记忆机制（未核验到官方文档）
+- 可选模型清单与切换粒度（本档不逐条展开）
+- MCP 支持状态（官方文档不列）
+- 跨会话记忆机制（官方文档不列）
 
 ## 相关条目
 

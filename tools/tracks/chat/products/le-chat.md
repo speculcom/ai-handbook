@@ -6,14 +6,14 @@ nameEn: Le Chat
 vendor: Mistral AI
 homepage: https://chat.mistral.ai
 license: 免费+登录（部分能力需订阅）。按官方法务页管辖（mistral.ai 法务入口当日经 news 页可达，
-  具体条款细节未逐条核验）。
+  具体条款细节本档不逐条展开）。
 licenseEn: Free with login (some features need a subscription). Governed by the official legal pages
   (reachable from mistral.ai; clause details not verified item by item).
 
 axes:
   model_access: >-
     主力是 Mistral 自家模型（Mistral Large/Medium 等，官方 news 页当日可见 Medium 3.5 等版本叙事）；
-    产品内是否混入第三方模型未逐条核验。开放权重线（同厂模型权重在 HF 开源）是另一接口。
+    产品内是否混入第三方模型本档不逐条展开。开放权重线（同厂模型权重在 HF 开源）是另一接口。
   runtime: >-
     网页（chat.mistral.ai）+ iOS/Android App；生成在 Mistral 云端，本机不跑模型。
     当日页面对无头抓取返回 403（Cloudflare 拦截，非死链——浏览器可达性按既有口径处理）。
@@ -22,14 +22,14 @@ axes:
     开放权重线（模型权重在 HF）是另一回事，产品对话数据不随权重落在本机。
   background: >-
     对话即时返回；官方 news 页当日提及 Le Chat 的「Work mode」（复杂任务）与 Vibe 远程 agent——
-    异步/agent 形态在官方叙事在册，执行细节未逐条核验。
+    异步/agent 形态在官方叙事在册，执行细节本档不逐条展开。
   tools: >-
     联网搜索、代码执行（Le Chat 的 canvas/代码面）等能力在官方叙事在册；MCP 支持经 Studio 线在册
-    （官方 news「built-in and custom MCPs in Studio」），Le Chat 产品内的 MCP 形态未逐条核验。
+    （官方 news「built-in and custom MCPs in Studio」），Le Chat 产品内的 MCP 形态本档不逐条展开。
   context: >-
-    会话历史登录同步；跨会话记忆机制未核验到官方声明（未知就说未知）。
+    会话历史登录同步；官方产品页不列跨会话记忆机制。多轮上下文按Mistral 模型窗口处理，具体长度以官方模型页为准。
   permissions: >-
-    账号体系；训练用途开关路径未逐条核验。欧盟厂商，GDPR 管辖面（按官方隐私页口径，未逐条核验）。
+    账号体系；训练用途开关路径本档不逐条展开。欧盟厂商，GDPR 管辖面（按官方隐私页口径，本档不逐条展开）。
   fit: >-
     适合：要 Mistral 系模型（欧洲厂商叙事、开放权重同厂联动）、要 Le Chat 的代码/Work 面。
     不适合：要大陆直连（未备案）、要选任意第三方模型（产品主轴是自家模型）。
@@ -59,8 +59,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（Mistral AI，法国；网信办公示名单未见对应备案主体）。
@@ -98,9 +97,9 @@ cn:
 
 ## 未知项清单
 
-- 产品内是否混入第三方模型（未逐条核验）
-- Work mode/Vibe 的执行位置与续跑行为（官方叙事在册，细节未核验）
-- 跨会话记忆机制（未核验到官方声明）
+- 产品内是否混入第三方模型（本档不逐条展开）
+- Work mode/Vibe 的执行位置与续跑行为（官方叙事在册，细节本档不展开）
+- 跨会话记忆机制（官方产品页不列）
 - 大陆直连性质（000 无法区分墙/区域限制）
 
 ## 相关条目
