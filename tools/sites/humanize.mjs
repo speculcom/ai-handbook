@@ -7,7 +7,7 @@
  * 所有结论都来自档案已有字段；不新增评分，不替读者做最终决定。
  * -------------------------------------------------------------------------- */
 
-import { JOB_LABEL, DEPLOY_LABEL, LICENSE_LABEL, TASK_KEYS, countJobs } from '../scripts/facets.mjs';
+import { JOB_LABEL, DEPLOY_LABEL, LICENSE_LABEL, COST_LABEL, TASK_KEYS, countJobs } from '../scripts/facets.mjs';
 
 const CAT_HUMAN = {
   coding: {
@@ -119,6 +119,19 @@ const FORM_SHORT = {
   harness: ['框架 / SDK', 'Framework / SDK'],
 };
 
+const LIFECYCLE_LABEL = {
+  active: ['活跃', 'Active'],
+  maintenance: ['更新放缓', 'Slowing'],
+  archived: ['已归档', 'Archived'],
+  unknown: ['状态未知', 'Unknown'],
+};
+
+const CONF_LABEL = {
+  verified: ['8 项已核', '8 checked'],
+  partial: ['有未核项', 'Some open'],
+  stale: ['需要复核', 'Recheck'],
+};
+
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const bi = (zh, en) => `<span data-zh>${esc(zh)}</span><span data-en>${esc(en)}</span>`;
 const plain = (s, n = 80) => String(s || '').replace(/[*_`#>|]/g, '').replace(/\s+/g, ' ').trim().slice(0, n);
@@ -131,6 +144,123 @@ const pct = (n, max) => max ? Math.max(4, Math.round((n / max) * 100)) : 4;
 
 function statCard(n, zh, en, tone = '') {
   return `<div class="hstat ${tone}"><b>${n}</b><span>${bi(zh, en)}</span></div>`;
+}
+
+function shapeBar(labelZh, labelEn, items, total, cls) {
+  const segs = items.map(([k, n, zh, en], i) => `<i class="seg ${cls}-${Math.min(i + 1, 5)}" style="width:${Math.max(2, Math.round((n / total) * 100))}%" title="${esc(zh)} ${n}"></i>`).join('');
+  const legend = items.map(([k, n, zh, en], i) => `<span class="shape-lg"><b class="dot ${cls}-${Math.min(i + 1, 5)}"></b>${bi(zh, en)} <em>${n}</em></span>`).join('');
+  return `<div class="shape-item">
+      <div class="shape-item-head"><span>${bi(labelZh, labelEn)}</span><small>${total}</small></div>
+      <div class="shape-track" role="img" aria-label="${esc(labelZh)}">${segs}</div>
+      <div class="shape-legend">${legend}</div>
+    </div>`;
+}
+
+function shapePanel(entries) {
+  const total = entries.length || 1;
+  const byForm = {};
+  const byDeploy = {};
+  const byLife = {};
+  const byConf = {};
+  for (const e of entries) {
+    const f = e.form || 'unknown';
+    byForm[f] = (byForm[f] || 0) + 1;
+    const d = e.facets?.deployment || 'unknown';
+    byDeploy[d] = (byDeploy[d] || 0) + 1;
+    const l = e.lifecycle || 'unknown';
+    byLife[l] = (byLife[l] || 0) + 1;
+    const c = e.confidence || 'unknown';
+    byConf[c] = (byConf[c] || 0) + 1;
+  }
+  const formItems = Object.entries(byForm)
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, n]) => {
+      const l = FORM_SHORT[k] || [k, k];
+      return [k, n, l[0], l[1]];
+    });
+  const depItems = ['local', 'hybrid', 'cloud', 'unknown'].filter((k) => byDeploy[k]).map((k) => [k, byDeploy[k], DEPLOY_LABEL[k][0], DEPLOY_LABEL[k][1]]);
+  const lifeItems = ['active', 'maintenance', 'archived', 'unknown'].filter((k) => byLife[k]).map((k) => [k, byLife[k], LIFECYCLE_LABEL[k][0], LIFECYCLE_LABEL[k][1]]);
+  const confItems = ['verified', 'partial', 'stale'].filter((k) => byConf[k]).map((k) => [k, byConf[k], CONF_LABEL[k][0], CONF_LABEL[k][1]]);
+  return `<div class="shape-panel">
+      <div class="shape-copy">
+        <h3>${bi('这类东西，先看它长什么样', 'What this category actually looks like')}</h3>
+        <p>${bi('四个切面都来自档案字段：怎么用、跑在哪、还更新吗、核到多少。先看哪一类占多数，再回上面的筛选收窄。', 'Four slices from existing fields: how you use it, where it runs, whether it is still updated and how much is checked. See what dominates, then narrow with the filters above.')}</p>
+      </div>
+      <div class="shape-grid">
+        ${shapeBar('怎么用', 'How you use it', formItems, total, 'sf')}
+        ${shapeBar('跑在哪', 'Where it runs', depItems, total, 'sd')}
+        ${shapeBar('还更新吗', 'Still updated', lifeItems, total, 'sl')}
+        ${shapeBar('核到多少', 'How much checked', confItems, total, 'sc')}
+      </div>
+    </div>`;
+}
+
+function allTable(entries) {
+  const order = ['ide', 'cli', 'cloud', 'web', 'app', 'local-app', 'mcp', 'harness'];
+  const groups = new Map();
+  for (const e of entries) {
+    const f = e.form || 'unknown';
+    if (!groups.has(f)) groups.set(f, []);
+    groups.get(f).push(e);
+  }
+  const total = entries.length || 1;
+  const licKnown = entries.filter((e) => e.facets?.licenseKind && e.facets.licenseKind !== 'unknown').length;
+  const costKnown = entries.filter((e) => e.facets?.cost && e.facets.cost !== 'unknown').length;
+  const showLic = licKnown / total >= 0.7;
+  const showCost = costKnown / total >= 0.7;
+  const cols = [
+    { zh: '对象', en: 'Object' },
+    { zh: '怎么用', en: 'How' },
+    ...(showLic ? [{ zh: '许可', en: 'Licence' }] : []),
+    ...(showCost ? [{ zh: '花钱', en: 'Cost' }] : []),
+    { zh: '中国大陆', en: 'Mainland' },
+    { zh: '核到多少', en: 'Evidence' },
+  ];
+  const cmpZh = ['怎么用', showLic ? '许可' : '', showCost ? '花钱' : '', '能不能直连', '核到多少'].filter(Boolean).join('、');
+  const cmpEn = ['how you use it', showLic ? 'licence' : '', showCost ? 'cost' : '', 'mainland access', 'how much is checked'].filter(Boolean).join(', ');
+  const keys = [...order.filter((k) => groups.has(k)), ...[...groups.keys()].filter((k) => !order.includes(k))];
+  const body = keys.map((k) => {
+    const list = groups.get(k).slice().sort((a, b) => {
+      const va = a.confidence === 'verified' ? 0 : 1;
+      const vb = b.confidence === 'verified' ? 0 : 1;
+      if (va !== vb) return va - vb;
+      const la = a.lifecycle === 'active' ? 0 : a.lifecycle === 'maintenance' ? 1 : 2;
+      const lb = b.lifecycle === 'active' ? 0 : b.lifecycle === 'maintenance' ? 1 : 2;
+      if (la !== lb) return la - lb;
+      return String(a.name).localeCompare(String(b.name), 'zh-Hans-CN');
+    });
+    const l = FORM_SHORT[k] || [k, k];
+    const head = `<tr class="at-group"><td colspan="${cols.length}">${bi(l[0], l[1])} <span>${list.length}</span></td></tr>`;
+    const rows = list.map((x) => {
+      const dp = DEPLOY_LABEL[x.facets?.deployment] || ['未核', 'Not checked'];
+      const lic = LICENSE_LABEL[x.facets?.licenseKind] || ['未核', 'Not checked'];
+      const cost = COST_LABEL[x.facets?.cost] || ['未核', 'Not checked'];
+      const cn = x.cn || {};
+      const direct = { yes: ['可直连', 'Direct'], no: ['不可达', 'Blocked'], unknown: ['未核', 'Not checked'] }[cn.direct] || ['未核', 'Not checked'];
+      const ev = x.confidence === 'verified' ? ['8 项已核', '8 checked'] : x.confidence === 'partial' ? ['有未核项', 'Some open'] : ['需要复核', 'Recheck'];
+      const life = x.lifecycle === 'active' ? ['活跃', 'Active'] : x.lifecycle === 'archived' ? ['已归档', 'Archived'] : x.lifecycle === 'maintenance' ? ['更新放缓', 'Slowing'] : ['状态未知', 'Unknown'];
+      const cells = [
+        `<td><a href="./${esc(x.id)}.html">${bi(esc(x.name), esc(x.nameEn || x.name))}</a><small>${bi(esc(x.vendor || ''), esc(x.vendor || ''))}</small></td>`,
+        `<td>${bi(dp[0], dp[1])}<br><span class="at-sub">${bi(FORM_SHORT[x.form]?.[0] || x.form || '未标', FORM_SHORT[x.form]?.[1] || x.form || 'Not set')}</span></td>`,
+        ...(showLic ? [`<td>${bi(lic[0], lic[1])}</td>`] : []),
+        ...(showCost ? [`<td>${bi(cost[0], cost[1])}</td>`] : []),
+        `<td>${bi(direct[0], direct[1])}</td>`,
+        `<td><span class="at-badge ${x.confidence}">${bi(ev[0], ev[1])}</span><br><span class="at-sub">${bi(life[0], life[1])}</span></td>`,
+      ];
+      return `<tr>${cells.join('')}</tr>`;
+    }).join('');
+    return head + rows;
+  }).join('');
+  return `<details class="all-table">
+      <summary><span class="at-title">${bi(`把 ${entries.length} 个放进一张表`, `All ${entries.length} in one table`)}</span><span class="at-hint">${bi(`按用法分组；横向比${cmpZh}`, `Grouped by form; compare ${cmpEn} side by side`)}</span><span class="at-arrow" aria-hidden="true">↓</span></summary>
+      <div class="table-wrap">
+        <table class="cmp at">
+          <thead><tr>${cols.map((c) => `<th>${bi(c.zh, c.en)}</th>`).join('')}</tr></thead>
+          <tbody>${body}</tbody>
+        </table>
+      </div>
+      <p class="at-note">${bi('表里只写档案已有字段；没核到的写「未核」，不猜。点名字进单页看 8 个问题和来源。', 'Only fields already in the entry are shown. Anything unchecked says “not checked”; nothing is guessed. Open an entry for the eight questions and sources.')}</p>
+    </details>`;
 }
 
 export function categoryHuman(partKey, site, entries) {
@@ -180,6 +310,7 @@ export function categoryHuman(partKey, site, entries) {
           ${statCard(direct, '大陆可直连', 'direct in mainland', 'cool')}
           ${statCard(attention, '上游有变化', 'upstream changed', attention ? 'warn' : '')}
         </div>
+        ${shapePanel(entries)}
         <div class="job-panel">
           <div class="job-panel-head">
             <h3>${bi('这类里，大家主要拿它干什么', 'What people mainly use these for')}</h3>
@@ -187,6 +318,7 @@ export function categoryHuman(partKey, site, entries) {
           </div>
           <div class="job-bars">${bars}</div>
         </div>
+        ${allTable(entries)}
       </div>
     </section>`;
 }
@@ -319,7 +451,7 @@ export function peers(e, entries) {
     const lic = LICENSE_LABEL[x.facets?.licenseKind] || ['未核', 'Not checked'];
     const ev = x.confidence === 'verified' ? '8 项已核' : '有未核项';
     const st = x.lifecycle === 'active' ? '活跃' : x.lifecycle === 'archived' ? '已归档' : '更新放缓';
-    return `<tr><td><a href="./${esc(x.id)}.html">${bi(esc(x.name), esc(x.nameEn || x.name))}</a></td><td>${bi(dp[0], dp[1])}</td><td>${bi(lic[0], lic[1])}</td><td>${bi(ev, x.confidence === 'verified' ? '8 axes checked' : 'Some axes open')}<br><span class="td-vendor">${bi(st, x.lifecycle === 'active' ? 'Active' : x.lifecycle === 'archived' ? 'Archived' : 'Slowing')}</span></td><td class="td-fit">${bi(firstSentence(x.tagline || x.sec?.oneline || '', 56), firstSentence(x.sec?.onelineEn || x.tagline || x.sec?.oneline || '', 72))}</td></tr>`;
+    return `<tr><td><a href="./${esc(x.id)}.html">${bi(esc(x.name), esc(x.nameEn || x.name))}</a></td><td>${bi(dp[0], dp[1])}</td><td>${bi(lic[0], lic[1])}</td><td>${bi(ev, x.confidence === 'verified' ? '8 questions checked' : 'Some questions open')}<br><span class="td-vendor">${bi(st, x.lifecycle === 'active' ? 'Active' : x.lifecycle === 'archived' ? 'Archived' : 'Slowing')}</span></td><td class="td-fit">${bi(firstSentence(x.tagline || x.sec?.oneline || '', 56), firstSentence(x.sec?.onelineEn || x.tagline || x.sec?.oneline || '', 72))}</td></tr>`;
   }).join('');
   return `<section class="section peer-section" id="peers">
       <div class="container">

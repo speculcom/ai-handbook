@@ -109,11 +109,12 @@ function deploymentOf({ form, tags }) {
 
 function licenseOf({ license, licenseEn, tags }) {
   const s = `${license || ''} ${licenseEn || ''}`.toLowerCase();
-  const tagS = tags.join(' ').toLowerCase();
-  const openTag = /^(mit|apache-?2?\.?0?|bsd|gpl|agpl|mpl|isc|unlicense|cc by)$/i.test(tagS) || /开源|open source/.test(tagS);
+  const tagList = tags.map((t) => String(t).trim().toLowerCase());
+  const openTag = tagList.some((t) => /^(mit|apache(?:-?2(?:\.0)?)?|bsd(?:-[23])?|gpl(?:v?[23])?|agpl|mpl(?:-2\.0)?|isc|unlicense|开源|open source)$/i.test(t));
   const restrictive = /不得用于商业|非商业|non-?commercial|research only|仅限研究|仅限个人|禁止商用|不得商用/.test(s);
   if (restrictive) return 'restricted';
-  if (/mit|apache|bsd|gpl|agpl|mpl|isc|unlicense|open source|开源/.test(s) || openTag) return 'open';
+  const openText = /\bmit\b|\bapache(?:-?2(?:\.0)?)?\b|\bbsd(?:-[23])?(?:-clause)?\b|\bgpl(?:v?[23])?\b|\bagpl\b|\bmpl(?:-2\.0)?\b|\bisc\b|\bunlicense\b/.test(s);
+  if (openText || openTag) return 'open';
   if (s.trim()) return 'terms';
   return 'unknown';
 }
