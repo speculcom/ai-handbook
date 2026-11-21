@@ -5,57 +5,67 @@ name: Consensus
 nameEn: Consensus
 vendor: Consensus
 homepage: https://consensus.app
-license: 免费额度+订阅（Consensus Pro）。按官方条款管辖（consensus.app/terms 直抓被 CF 拦截 403，
-  2026-10-22——本方法无法核验条款内容，不代表条款不存在）。
+license: 免费额度+订阅（Pro/Deep/Teams/Enterprise）+ API 按调用池。按官方条款/隐私页管辖（consensus.app/home/terms-of-service 与 /home/privacy-policy，2026-11-21）；API/MCP 配额按官方帮助中心（2026-11-21）。
 licenseEn: Free credits + subscription (Consensus Pro). Governed by official terms (consensus.app/terms
   returned a CF challenge 403 on direct fetch, 2026-10-22 — this method cannot verify the terms' content,
   which does not mean they do not exist).
 
 axes:
   model_access: >-
-    科学文献检索引擎+结论抽取：自建论文索引（2 亿+ 篇叙事，官方站点口径——未逐条核验）
-    +Consensus Meter（多篇研究的结论极性统计，产品招牌）。
+    自建 4 亿+ 篇同行评审论文索引（Semantic Scholar、OpenAlex、PubMed 与出版商 feed 汇入），检索用向量+词法混合排序，按研究设计/样本量/引用/时效加权；生成侧用 LLM 做摘要与综合，Consensus Meter 把二值问题的前 20 条结果分成支持/反驳/混合（2026-11-21）。
   runtime: >-
-    网页（consensus.app）为主入口；文献检索与结论生成都在厂商云端完成，未见官方声明的本地形态。
+    网页 consensus.app + iOS/Android App + REST API（`docs.consensus.app`）+ 远程 MCP（`https://mcp.consensus.app/mcp`）+ ChatGPT/Claude 集成；检索与生成在厂商云端（2026-11-21）。
   local_files: >-
-    搜索历史与高亮标注存账户侧云端；PDF/引用导出归本地。未见官方声明的其他本机数据面。
+    My Library、Collections、上传文档与 Threads 存账户侧云端（上传文件私有于账户）；引用导出 BibTeX/RIS/EndNote/CSV 与 PDF 归本地；API 返回结构化 JSON 与引用元数据（2026-11-21）。
   background: >-
-    检索与 Meter 统计即时返回；未见官方任务队列或「关机续跑」类后台任务面（未逐条核验）。
+    Research Agent 会规划检索、串联工具并套学术过滤；Deep Review 一次综合 50–100 篇，属平台侧多步任务，网页端按任务进度返回。API/MCP 每次调用独立，批量筛选由调用方编排（2026-11-21）。
   tools: >-
-    **Consensus Meter 是招牌**：对「科学界对 X 的共识方向」给统计式摘要（支持/反对/混合计数）；
-    按研究类型/样本量筛选；AI 综合答案带引用；PDF 高亮问答（Pro 线，官方产品面）。
+    论文检索、AI 综合答案（逐句回链）、Consensus Meter、按研究类型/年份/期刊/开放获取/学科过滤、Study Snapshot（方法/样本/结局）、Chat with Full Text、My Library/Collections、Threads、Citation Graph、Deep Reviews、REST API 与 MCP（2026-11-21）。
   context: >-
-    以搜索历史与文件夹组织研究项目；跨会话记忆与用户画像未核验到官方声明（未逐条核验）。
+    Threads 在同一会话内保留追问上下文；Library/Collections 持久保存论文与上传文档；跨会话不建用户画像。清空 thread history 会删搜索与关联对话，删账户撤销集成访问（2026-11-21）。
   permissions: >-
-    账号+订阅体系（D9：价格不采）；免费档功能限制（未逐条核验）；训练用途开关未逐条核验。
+    账号 + Free/Pro/Deep/Teams/Enterprise 订阅；REST 用 Bearer API Key，MCP 走 OAuth 2.1（PKCE、动态注册），另有低配额匿名档。API 与 MCP 共享每月调用池：Free 30、Pro/Team/Enterprise 500（可加到 1,000）、Deep 2,000（可加到 10,000），超出 $0.05/次（2026-11-21）。
   fit: >-
-    适合：「科学界怎么说」类问题（医学/营养/气候等实证领域）、快速结论极性判断、
-    文献初筛。
-    不适合：深度系统性综述（抽取面比 Elicit 轻）、中文文献主打、把 Meter 当定论。
+    适合：「科学界怎么说」类实证问题、文献初筛与极性统计、给 agent 接有引用的学术检索、需要导出引用。不适合：把 Meter 当定论、系统性综述的全文筛选、中文文献主打（2026-11-21）。
 
 pitfalls:
   - Consensus Meter 是「论文计数的极性统计」不是「科学定论」——论文质量不等权，读 Meter 要看底层论文
   - 检索覆盖偏英文实证文献——人文/中文/非期刊来源覆盖有限，如实按领域评估
-  - consensus.app 对 curl 返回 CF 403——本站核验方法受限如实标注，不是站点问题
+  - consensus.app 对 curl 返回 CF 403——浏览器可达，核验以浏览器抓取为准
 
 tags: [免费+订阅, 结论极性, ConsensusMeter, 科学文献, 英文向]
 related: [elicit, notebooklm, metaso, chatgpt]
 
 sources:
-  - label: Consensus · 官网（产品与能力叙事）
+  - label: Consensus · 官网（产品与能力叙事，2026-11-21 抓取 200）
     url: https://consensus.app
     kind: official
-  - label: Consensus · Terms（官方条款，直抓 CF 403，2026-10-22）
-    url: https://consensus.app/terms/
+  - label: Consensus · Terms（官方条款，2026-11-21 抓取 200）
+    url: https://consensus.app/home/terms-of-service/
     kind: official
-  - label: Consensus · Blog（官方更新线，changelog；直抓 CF 403）
+  - label: Consensus · Blog（官方更新线，changelog，2026-11-21 抓取 200）
     url: https://consensus.app/blog/
     kind: changelog
+  - label: Consensus Help · How Consensus Works（400M+ 论文与功能面，2026-11-21 抓取 200）
+    url: https://help.consensus.app/en/articles/9922673-how-consensus-works
+    kind: docs
+  - label: Consensus Help · FAQs（Deep Reviews、Meter、Library、Threads 与 API/MCP，2026-11-21 抓取 200）
+    url: https://help.consensus.app/en/articles/10073509-faqs
+    kind: docs
+  - label: Consensus Help · API（每月调用池与 $0.05/次超额，2026-11-21 抓取 200）
+    url: https://help.consensus.app/en/articles/16516328-the-consensus-api
+    kind: docs
+  - label: Consensus · llms-full（REST/MCP 端点、OAuth 与配额表，2026-11-21 抓取 200）
+    url: https://consensus.app/llms-full.txt
+    kind: docs
+  - label: Consensus · Privacy Policy（不卖数据、不用于训练与上传文件私有，2026-11-21 抓取 200）
+    url: https://consensus.app/home/privacy-policy/
+    kind: docs
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -68,7 +78,7 @@ cn:
   filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -83,21 +93,13 @@ cn:
 
 ## 实测记录
 
-本档未跑检索质量评测；结论只覆盖产品能力与来源披露。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **Meter 对争议话题的极性统计与人工综述的偏差**
-- **按样本量/研究类型筛选后的统计变化**
-- **免费档与 Pro 的功能边界**
-
+本档核对官方 llms-full、帮助中心、API 页与隐私政策；Meter 偏差、筛选后统计变化与免费/Pro 边界需按同一问题集实测。
 ## 未知项清单
 
-- 索引规模与来源构成（官方叙事未逐条核验）
-- ToS 细节（CF 403 未能直抓）
-- 训练用途开关（未逐条核验）
-- 中文文献覆盖（未核验到官方声明）
-
+- 索引规模与来源构成：官方 llms-full 标 400M+，来源含 Semantic Scholar、OpenAlex、PubMed 与出版商 feed。
+- ToS 细节：按官方 terms 页核对。
+- 训练用途开关：隐私政策明确不用于训练，条款授权限于服务处理。
+- 中文文献覆盖：按同一问题集中英对比实测。
 ## 相关条目
 
 - [Elicit](./elicit.md) — 同为科学文献向：Consensus 速查极性，Elicit 深度抽取综述。

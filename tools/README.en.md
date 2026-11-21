@@ -352,7 +352,7 @@ Text-to-image and AI image editing
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Jimeng AI](tracks/image/products/jimeng.md) | ByteDance (Jianying/CapCut team) | web | verified | active |
-| [Tongyi Wanxiang (Wan)](tracks/image/products/tongyi-wanxiang.md) | Alibaba | web | partial | active |
+| [Tongyi Wanxiang (Wan)](tracks/image/products/tongyi-wanxiang.md) | Alibaba | web | verified | active |
 | [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | verified | active |
 | [Clipdrop](tracks/image/products/clipdrop.md) | Jasper (formerly InitML; via Stability AI 2023, sold to Jasper Feb 2024) | web | verified | active |
 | [FLUX (Black Forest Labs)](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
@@ -381,7 +381,7 @@ Text/image-to-video generation and AI-native video editing
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | verified | active |
 | [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
 | [Luma (Dream Machine)](tracks/video/products/luma.md) | Luma AI | web | verified | active |
-| [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
+| [Pika](tracks/video/products/pika.md) | Pika Labs | web | verified | active |
 | [PixVerse](tracks/video/products/pixverse.md) | Aishi Technology | web | verified | active |
 | [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | verified | active |
 | [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | verified | active |
@@ -421,7 +421,7 @@ Citation-first search and research products
 | [Metaso AI Search](tracks/research/products/metaso.md) | Metaso (Shanghai Metaso Network Technology) | web | verified | active |
 | [Tiangong AI Search](tracks/research/products/tiangong.md) | Kunlun Tech | web | verified | active |
 | [Andi Search](tracks/research/products/andi.md) | Andi | web | verified | active |
-| [Consensus](tracks/research/products/consensus.md) | Consensus | web | partial | active |
+| [Consensus](tracks/research/products/consensus.md) | Consensus | web | verified | active |
 | [Devv](tracks/research/products/devv.md) | Devv AI | web | verified | active |
 | [Elicit](tracks/research/products/elicit.md) | Elicit | web | verified | active |
 | [Genspark](tracks/research/products/genspark.md) | Genspark | web | verified | active |
@@ -561,7 +561,7 @@ Desktop apps that run open-weight models on your machine
 | [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | verified | active |
 | [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins (KoboldAI community) | local-app | verified | active |
 | [Lemonade](tracks/runner/products/lemonade.md) | AMD / Lemonade community | local-app | verified | active |
-| [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
+| [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | verified | active |
 | [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge community (WasmEdge / Second State ecosystem) | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | verified | active |
 | [LocalAI](tracks/runner/products/localai.md) | Mudler T. (mudler) | cli | verified | active |

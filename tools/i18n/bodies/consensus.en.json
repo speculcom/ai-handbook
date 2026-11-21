@@ -1,25 +1,30 @@
 {
   "_comment": "C0-16 正文英译 · consensus（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（elicit/notebooklm/metaso），related 写 3 条（frontmatter related 是 [elicit, notebooklm, metaso, chatgpt]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。",
   "axes": {
-    "model_access": "Scientific-literature retrieval engine + conclusion extraction: a self-built paper index (200M+ papers narrative, official-site framing — not verified item by item) + Consensus Meter (polarity statistics across multiple studies' conclusions, the product's signature).",
-    "runtime": "Web (consensus.app) as the main entry; literature retrieval and conclusion generation both happen on the vendor's cloud; no officially stated local form seen.",
-    "local_files": "Search history and highlight annotations are stored on the account-side cloud; PDF/citation exports count as local. No other local data surfaces officially stated seen.",
-    "background": "Retrieval and Meter statistics return instantly; no official task queue or \"keep-running-after-shutdown\" style background task surface seen (not verified item by item).",
-    "tools": "**Consensus Meter is the signature**: a statistical summary of \"which way science leans on X\" (support/oppose/mixed counts); filtering by study type/sample size; AI synthesized answers with citations; PDF highlight Q&A (Pro line, official product surface).",
-    "context": "Research projects organized via search history and folders; cross-session memory and user profiling not verified to an official statement (not verified item by item).",
-    "permissions": "Account + subscription system (D9: pricing not collected); free-tier feature limits not verified item by item; the training-use switch not verified item by item.",
-    "fit": "Fits: \"what does science say\" questions (medicine/nutrition/climate and other empirical fields), quick polarity calls, literature triage. Does not fit: deep systematic reviews (its extraction surface is lighter than Elicit's), Chinese-literature-first, treating the Meter as settled science."
+    "model_access": "An in-house index of 400M+ peer-reviewed papers (Semantic Scholar, OpenAlex, PubMed and publisher feeds) with hybrid vector-plus-lexical ranking weighted by study design, sample size, citations and recency; LLMs produce summaries and synthesis, while the Consensus Meter classifies the first 20 results of a yes/no question as supporting, refuting or mixed (2026-11-21).",
+    "runtime": "Web at consensus.app, iOS/Android apps, a REST API (`docs.consensus.app`), a remote MCP server (`https://mcp.consensus.app/mcp`) and ChatGPT/Claude integrations; retrieval and generation run in the vendor cloud (2026-11-21).",
+    "local_files": "My Library, Collections, uploaded documents and Threads live account-side in the cloud (uploads are private to the account); citation exports in BibTeX/RIS/EndNote/CSV and PDFs land locally, and the API returns structured JSON with citation metadata (2026-11-21).",
+    "background": "Research Agent plans searches, chains tools and applies academic filters; Deep Review synthesises 50–100 papers in one pass, a platform-side multi-step task surfaced with progress in the web app. API/MCP calls are independent, with batch screening orchestrated by the caller (2026-11-21).",
+    "tools": "Paper search, cited AI synthesis, Consensus Meter, filters by study type/year/journal/open access/discipline, Study Snapshot (methods/sample/outcomes), Chat with Full Text, My Library/Collections, Threads, Citation Graph, Deep Reviews, REST API and MCP (2026-11-21).",
+    "context": "Threads keep follow-up context within one conversation; Library/Collections persist papers and uploads; no cross-session user profile is built. Clearing thread history deletes searches and associated conversations, and deleting the account revokes integration access (2026-11-21).",
+    "permissions": "Accounts plus Free/Pro/Deep/Teams/Enterprise subscriptions; REST uses a bearer API key and MCP uses OAuth 2.1 (PKCE, dynamic registration), with a low-quota anonymous tier. API and MCP share a monthly call pool: Free 30, Pro/Team/Enterprise 500 (up to 1,000), Deep 2,000 (up to 10,000), then $0.05 per call (2026-11-21).",
+    "fit": "Fit: evidence questions of the “what does the science say” kind, literature screening and polarity snapshots, cited academic search for agents and citation export. Not fit: treating the Meter as a verdict, full-text systematic-review screening or Chinese-first literature (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **How the Meter's polarity stats on contested topics deviate from human reviews**\n- **How the statistics shift after filtering by sample size/study type**\n- **The feature boundary between the free tier and Pro**",
-  "unknowns": "- Index size and source composition (official narrative not verified item by item)\n- ToS details (CF 403 blocked direct fetch)\n- The training-use switch (not verified item by item)\n- Chinese-literature coverage (no official statement verified)",
+  "runs": "This entry checks the official llms-full file, help centre, API page and privacy policy. Meter bias, post-filter statistics and Free/Pro boundaries need a shared question set.",
+  "unknowns": "- Index size and sources: the official llms-full cites 400M+ papers from Semantic Scholar, OpenAlex, PubMed and publisher feeds.\n- Terms details: check the official terms page.\n- Training-use controls: the privacy policy states no training, and the terms licence is limited to service processing.\n- Chinese literature coverage: measure Chinese versus English on a shared question set.",
   "related": [
     "Also scientific-literature oriented: Consensus gives quick polarity reads, Elicit does deep extraction for reviews.",
     "Complementary: Consensus finds literature and gives polarity, NotebookLM digs deep inside the sources you pick.",
     "Chinese academic counterpart: Metaso's academic tier searches Chinese libraries, Consensus works the English empirical pool."
   ],
   "sources": [
-    "Consensus · official site (product and capability narrative)",
-    "Consensus · Terms (official terms; direct fetch hit CF 403, 2026-10-22)",
-    "Consensus · Blog (official update line, changelog; direct fetch hit CF 403)"
+    "Consensus — official site (product and capability narrative; fetched 200 on 2026-11-21)",
+    "Consensus — Terms (official terms; fetched 200 on 2026-11-21)",
+    "Consensus — Blog (official changelog; fetched 200 on 2026-11-21)",
+    "Consensus Help — How Consensus Works (400M+ papers and feature surface; fetched 200 on 2026-11-21)",
+    "Consensus Help — FAQs (Deep Reviews, Meter, Library, Threads and API/MCP; fetched 200 on 2026-11-21)",
+    "Consensus Help — API (monthly call pool and $0.05 overage; fetched 200 on 2026-11-21)",
+    "Consensus — llms-full (REST/MCP endpoints, OAuth and quota table; fetched 200 on 2026-11-21)",
+    "Consensus — Privacy Policy (no data sales, no training and private uploads; fetched 200 on 2026-11-21)"
   ]
 }

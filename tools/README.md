@@ -337,7 +337,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
 | [即梦](tracks/image/products/jimeng.md) | 字节跳动（剪映团队） | web | verified | active |
-| [通义万相](tracks/image/products/tongyi-wanxiang.md) | 阿里巴巴 | web | partial | active |
+| [通义万相](tracks/image/products/tongyi-wanxiang.md) | 阿里巴巴 | web | verified | active |
 | [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | verified | active |
 | [Clipdrop](tracks/image/products/clipdrop.md) | Jasper（原 InitML，2023 并入 Stability AI，2024-02 售予 Jasper） | web | verified | active |
 | [FLUX（Black Forest Labs）](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
@@ -366,7 +366,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | verified | active |
 | [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
 | [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | verified | active |
-| [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
+| [Pika](tracks/video/products/pika.md) | Pika Labs | web | verified | active |
 | [PixVerse](tracks/video/products/pixverse.md) | 爱诗科技 | web | verified | active |
 | [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | verified | active |
 | [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | verified | active |
@@ -406,7 +406,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [秘塔 AI 搜索](tracks/research/products/metaso.md) | 秘塔科技（上海秘塔网络科技） | web | verified | active |
 | [天工 AI 搜索](tracks/research/products/tiangong.md) | 昆仑万维 | web | verified | active |
 | [Andi Search](tracks/research/products/andi.md) | Andi | web | verified | active |
-| [Consensus](tracks/research/products/consensus.md) | Consensus | web | partial | active |
+| [Consensus](tracks/research/products/consensus.md) | Consensus | web | verified | active |
 | [Devv](tracks/research/products/devv.md) | Devv AI | web | verified | active |
 | [Elicit](tracks/research/products/elicit.md) | Elicit | web | verified | active |
 | [Genspark](tracks/research/products/genspark.md) | Genspark | web | verified | active |
@@ -546,7 +546,7 @@ MCP 服务器与工具生态。
 | [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | verified | active |
 | [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins（KoboldAI 社区） | local-app | verified | active |
 | [Lemonade](tracks/runner/products/lemonade.md) | AMD / Lemonade 社区 | local-app | verified | active |
-| [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
+| [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | verified | active |
 | [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge 社区（WasmEdge / Second State 生态） | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | verified | active |
 | [LocalAI](tracks/runner/products/localai.md) | Mudler T.（mudler） | cli | verified | active |
