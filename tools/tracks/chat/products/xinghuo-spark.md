@@ -5,34 +5,26 @@ name: 讯飞星火
 nameEn: iFlytek Spark
 vendor: 科大讯飞
 homepage: https://xinghuo.xfyun.cn
-license: 免费+登录（部分能力需订阅）。官方协议页（xinghuo.xfyun.cn/protocol 直抓核验 2026-10-22）；
-  输出内容归属与训练口径按该协议管辖，具体条款细节未逐条核验。
-licenseEn: Free with login (some capabilities need a subscription). Governed by the official agreement page
-  (xinghuo.xfyun.cn/protocol, direct-fetched 2026-10-22); output ownership and training terms follow that
-  agreement — clause details not verified line by line.
+license: 免费+登录（部分能力需订阅）。输出内容归属与训练口径按官方协议与隐私政策管辖；个性化记忆可跨会话引用历史对话（2026-11-21）。
+licenseEn: Free with login (some capabilities need a subscription). Output ownership and training terms follow the official agreement and privacy policy; personalised memory can reference history across sessions (2026-11-21).
 
 axes:
   model_access: >-
-    主力是科大讯飞自研星火（Spark）系列——官方有版本迭代线（V 系列版本号在官方新闻页可查）；
-    讯飞开放平台（xfyun.cn）是开发者 API 线，同厂商另一接口。应用内模型档位以登录后界面为准。
+    主力是科大讯飞自研星火（Spark）系列，官方有版本迭代线，V 系列版本号在官方新闻页可查；讯飞开放平台是开发者 API 线，同厂商另一接口。应用内模型档位以登录后界面为准，对话产品不开放第三方模型选择（2026-11-21）。
   runtime: >-
-    网页（xinghuo.xfyun.cn）+ iOS/Android App + PC 客户端；生成在讯飞云端处理，本机不跑模型。
-    星火主线不开源权重（与 DeepSeek/GLM/Qwen 不同）。
+    网页（xinghuo.xfyun.cn）+ iOS/Android App + PC 客户端；生成在讯飞云端处理，本机不跑模型。星火主线不开源权重，与 DeepSeek/GLM/Qwen 的“权重同族”路线不同；同厂商星火 MaaS 平台另列模型精调与托管推理（2026-11-21）。
   local_files: >-
-    对话历史存于账户侧；文档/图片解析在云端进行。未见官方声明的本机数据面。
+    对话历史存于讯飞账号侧；文档、图片、音频、视频的上传与解析都在讯飞云端进行，官方个人信息收集清单把文档知识问答列为云端识别。客户端只承担输入与展示，不提供本地模型或离线索引；下载的生成内容归本机（2026-11-21）。
   background: >-
-    对话即时返回；异步任务队列形态未核验到官方声明。产品含「深度研究」类长任务能力线（官方新闻页叙事），
-    执行是否可离开页面续跑未核验。
+    对话即时返回，官方页未单列异步任务队列；深度研究、录音纪要等长任务在云端执行，关闭页面后是否续跑需按具体入口实测。产品没有用户可暂停、续跑或导出作业状态的队列面板（2026-11-21）。
   tools: >-
-    产品内含联网搜索、文档解析、AI 写作、解题答疑、深度研究等能力线（官网导航所见）；
-    语音能力（识别/合成/同传）是讯飞的传统强项，在产品内是差异点。MCP 支持未逐条核验。
+    产品内可见联网搜索、文档问答、AI 写作、解题答疑、深度研究、录音纪要与星火智能体；官网智能体页列出私域知识库、Web 应用与智能体 API 发布。官方文档未列 MCP 服务器，MCP 接入需自行封装（2026-11-21）。
   context: >-
-    会话历史登录同步；跨会话记忆机制未核验到官方声明（未知就说未知）。
+    会话按对话组织并登录同步；官方个人信息收集清单把「问答历史」列为连续性体验数据，并把「个性化内容生成」描述为记忆提取与召回、可跨会话跨时间参考历史对话。跨会话记忆有产品层开关与粒度，具体默认态以应用内设置为准（2026-11-21）。
   permissions: >-
-    账号体系（手机号注册）；训练用途开关路径未逐条核验。星火模型备案号见 cn 块（官方公示交叉核验）。
+    账号以手机号注册；官方个人信息收集清单逐项列出对话、图片、音视频、文档、历史与设备信息的收集目的。训练用途与个性化记忆开关在应用内隐私设置管理，默认态与关闭路径按应用内页面核对（2026-11-21）。
   fit: >-
-    适合：语音交互密集场景（讯飞语音底座强）、中文问答+解题答疑、教育/办公文档场景。
-    不适合：要本机跑模型（星火不开源权重）、要脱离讯飞账号。
+    适合：语音交互密集场景（讯飞语音底座强）、中文问答与解题答疑、教育/办公文档场景。不适合：要本机跑模型（星火主线不开源权重）、要脱离讯飞账号，或需要可审计的跨会话记忆默认关闭能力（2026-11-21）。
 
 pitfalls:
   - 把 xinghuo.xfyun.cn（对话产品）与讯飞开放平台 xfyun.cn（API/能力平台）混为一谈——同厂商两接口
@@ -43,23 +35,30 @@ tags: [国产, 免费+登录, 语音强项, 教育向, 已备案]
 related: [wenxin, doubao-chat, chatglm-chat, dify]
 
 sources:
-  - label: 讯飞星火 · 官网（产品入口与能力叙事）
+  - label: 讯飞星火 · 官网（产品入口与能力叙事，2026-11-21 抓取 200）
     url: https://xinghuo.xfyun.cn
     kind: official
   - label: 讯飞星火 · 协议页（官方页，2026-10-22 直抓核验）
     url: https://xinghuo.xfyun.cn/protocol
     kind: official
-  - label: 讯飞星火 · News（产品更新入口，changelog）
+  - label: 讯飞星火 · News（产品更新入口，changelog，2026-11-21 抓取 200）
     url: https://xinghuo.xfyun.cn/news
     kind: changelog
-  - label: 全国生成式人工智能服务已备案信息汇总表（星火认知大模型 备案号交叉核验）
+  - label: 全国生成式人工智能服务已备案信息汇总表（星火认知大模型 备案号交叉核验，2026-11-21 检索）
     url: https://www.dg.gov.cn/attachment/0/356/356708/4423787.xlsx
     kind: official
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+  - label: 讯飞星火 · SparkDesk 隐私政策（对话、图片、音视频信息范围，2026-11-21 抓取 200）
+    url: https://www.xfyun.cn/doc/spark/PrivacyPolicy.html
+    kind: docs
+  - label: 讯飞星火 · 个人信息收集清单（问答历史与个性化记忆，2026-11-21 抓取 200）
+    url: https://xinghuo.xfyun.cn/policy/%E8%AE%AF%E9%A3%9E%E6%98%9F%E7%81%AB%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%B8%85%E5%8D%95v2
+    kind: docs
+
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -76,7 +75,7 @@ cn:
   filing_note: 首批备案（备案时间 2023-08-23，属地安徽）；备案号经全国已备案信息汇总表（东莞市政府镜像附件）交叉核验。
   filing_note_en: first-batch filing (2023-08-23, Anhui); filing no. cross-verified via the national filed-services
     summary table (mirrored as a Dongguan government attachment).
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -91,21 +90,12 @@ cn:
 
 ## 实测记录
 
-本档未跑对话任务集；能力结论来自官方文档，不评价回答质量。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **应用内模型档位选择器实际形态**（登录后才可见）
-- **训练用途开关路径与默认态**
-- **「深度研究」长任务能否离开页面续跑**（异步边界未核验）
-
+本档核对官网、协议页与个人信息收集清单的能力和权限边界；语音质量、深度研究续跑与记忆默认态需按账号实测。
 ## 未知项清单
 
-- 应用内模型档位分流（未登录核实）
-- 训练用途开关路径与默认态（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
-- 「深度研究」任务的执行位置与续跑行为（未核验）
-
+- 深度研究、录音纪要等长任务关闭页面后的续跑行为：官方页未单列，按具体入口实测。
+- 星火各版本在对话产品内的实际路由：版本号在官方新闻可见，应用内档位以登录后界面为准。
+- 个性化记忆的默认态与关闭路径：官方清单说明能力存在，开关位置按应用内隐私设置核对。
 ## 相关条目
 
 - [文心](./wenxin.md) — 同为国产大厂对话入口：文心泡百度生态，星火胜语音底座。

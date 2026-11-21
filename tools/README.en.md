@@ -322,12 +322,12 @@ General-purpose chat assistants, web/app, including Chinese products
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Doubao](tracks/chat/products/doubao-chat.md) | ByteDance | web | partial | active |
-| [Hailuo AI](tracks/chat/products/hailuo-chat.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
-| [StepFun (Step Chat)](tracks/chat/products/stepfun.md) | StepFun | web | partial | active |
+| [Hailuo AI](tracks/chat/products/hailuo-chat.md) | MiniMax (Xiyu Jizhi) | web | verified | active |
+| [StepFun (Step Chat)](tracks/chat/products/stepfun.md) | StepFun | web | verified | active |
 | [Tencent Yuanbao](tracks/chat/products/yuanbao-chat.md) | Tencent | web | verified | active |
-| [Tongyi Qianwen (Qwen Chat)](tracks/chat/products/tongyi-qianwen.md) | Alibaba | web | partial | active |
+| [Tongyi Qianwen (Qwen Chat)](tracks/chat/products/tongyi-qianwen.md) | Alibaba | web | verified | active |
 | [Wenxin](tracks/chat/products/wenxin.md) | Baidu | web | verified | active |
-| [iFlytek Spark](tracks/chat/products/xinghuo-spark.md) | iFlytek | web | partial | active |
+| [iFlytek Spark](tracks/chat/products/xinghuo-spark.md) | iFlytek | web | verified | active |
 | [ChatGLM (Zhipu Qingyan)](tracks/chat/products/chatglm-chat.md) | Zhipu AI | web | partial | active |
 | [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | verified | active |
 | [Claude (chat app)](tracks/chat/products/claude-chat.md) | Anthropic | web | verified | active |

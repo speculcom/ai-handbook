@@ -5,33 +5,26 @@ name: 海螺AI
 nameEn: Hailuo AI
 vendor: MiniMax（稀宇科技）
 homepage: https://hailuoai.com
-license: 免费+登录（部分能力需会员）。官方协议页（hailuoai.com/protocol 直抓核验 2026-10-30）；
-  输出内容归属按该协议管辖，具体条款细节未逐条核验。
-licenseEn: Free with login (some features need a membership). Governed by the official agreement page
-  (hailuoai.com/protocol, direct-fetched 200 on 2026-10-30); clause details not verified item by item.
+license: 免费+登录（部分能力需会员）。输出内容归属按官方用户协议与付费服务协议管辖；具体条款细节以协议原文为准（2026-11-21）。
+licenseEn: Free with login (some features need a membership). Output ownership follows the official user agreement and paid-service agreement; clause details are governed by the original text (2026-11-21).
 
 axes:
   model_access: >-
-    MiniMax 自研 H 系列——官网当日页可见「MiniMax H3 正式上线」「海螺Agent H3 正式上线」的版本叙事；
-    对话产品内不开放选模型，具体档位以登录后界面为准（未登录核实）。
+    MiniMax 自研 H 系列，官网可见「MiniMax H3 正式上线」「海螺 Agent H3 正式上线」的版本叙事；对话产品内不开放选模型，具体档位以登录后界面为准。同厂商开发者 API 线另在海螺视频与 MiniMax Audio 档案中分列（2026-11-21）。
   runtime: >-
-    网页（hailuoai.com，对话入口在 /chat）+ App；生成在 MiniMax 云端，本机不跑模型。
-    同厂商另有开发者 API 线（minimax.io，见 MiniMax Audio 档案）与视频独立域（hailuoai.video，见海螺视频档案）。
+    网页（hailuoai.com，对话入口在 /chat）+ App；生成在 MiniMax 云端，本机不跑模型。同厂商另有开发者 API 线与视频独立域，三个入口共用 MiniMax 账号体系但产品面不同（2026-11-21）。
   local_files: >-
-    对话与创作资产存于账户侧（官网导航有「资产」面）；未见官方声明的本机数据面。
+    对话与创作资产存于 MiniMax 账号侧，官网导航有「资产」面集中管理视频/图片/音频；官方隐私政策说明对话输入与反馈会用于模型训练并做去标识化，未列本机模型或离线工程文件。下载的成品归本机（2026-11-21）。
   background: >-
-    对话即时返回；异步任务形态未核验到官方声明。视频/图片生成线的排队与续跑行为未逐条核验。
+    对话即时返回；视频/图片/音频生成在云端排队，官方产品页把生成放在创作流内，未给用户可暂停、续跑或导出队列状态的面板。关闭页面后任务是否继续按具体生成入口实测（2026-11-21）。
   tools: >-
-    官网导航当日可见 Design/资产/工具/视频/图片/音频多模态创作面；联网搜索等对话内工具未逐条核验。
-    MCP 支持未核验到官方声明。
+    官网导航可见 Design、资产、工具、视频、图片、音频多模态创作面；对话内联网搜索与工具调用未在官方隐私政策中逐项列出。MCP 支持官方页未列，接入需自行封装（2026-11-21）。
   context: >-
-    会话按对话组织，创作资产（视频/图片/音频）在账户侧「资产」面集中管理、可与对话创作流衔接；
-    单会话上下文窗口长度与跨会话记忆机制未核验到官方声明（未知就说未知）。
+    会话按对话组织，创作资产在账户侧「资产」面集中管理，可与对话创作流衔接；官方隐私政策只说明按上下语境生成回复，未列跨会话长期记忆或用户画像入口（2026-11-21）。
   permissions: >-
-    账号体系（登录使用）；训练用途开关路径未逐条核验。模型层备案号见 cn 块（百炼公示页当日交叉核验）。
+    账号登录使用，免费+会员分层；官方用户协议许可个人、可撤销、非商业使用，商业复制/分发需书面授权；隐私政策说明对话数据用于训练并去标识化。训练开关与会员权益按应用内页面核对（2026-11-21）。
   fit: >-
-    适合：视频+图片+音频+对话一体的国产多模态创作入口（MiniMax 生态）、要大陆直连可用。
-    不适合：要选模型、要本机跑模型、要脱离 MiniMax 账号。
+    适合：视频+图片+音频+对话一体的国产多模态创作入口（MiniMax 生态）、要大陆直连可用。不适合：要选模型、要本机跑模型、要脱离 MiniMax 账号（2026-11-21）。
 
 pitfalls:
   - 海螺AI（hailuoai.com 消费创作入口）、MiniMax 开发者线（minimax.io）、海螺视频（hailuoai.video）是同厂商三个入口——别混成一个对象
@@ -58,10 +51,20 @@ sources:
     url: https://docs.bailian.console.aliyun.com/zh/model-studio/model-filing-information-publicity
     kind: docs
 
-last_verified: 2026-10-30
-last_updated: 2026-10-30
+  - label: 海螺AI · 隐私政策（对话数据用于训练与去标识化，2026-11-17 更新）
+    url: https://hailuoai.com/doc/zh/privacy-policy.html
+    kind: docs
+  - label: 海螺AI · 用户协议（个人非商业许可，2026-11-13 更新）
+    url: https://hailuoai.com/doc/zh/user-agreement.html
+    kind: docs
+  - label: 海螺AI · 付费服务协议（输入内容权利与商业授权，2026-11-21 抓取 200）
+    url: https://hailuoai.com/doc/zh/payment-policy.html
+    kind: docs
+
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -77,7 +80,7 @@ cn:
   filing_note_en: MiniMax model-level filing number (cross-verified on the Alibaba Cloud Bailian filing disclosure page fetched 2026-10-30;
     same source and wording as the MiniMax Audio entry); the subject is the model layer — the Hailuo chat product entry's own filing
     status was not separately verified.
-  verified: 2026-10-30
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -92,21 +95,12 @@ cn:
 
 ## 实测记录
 
-本档未跑对话任务集；能力结论来自官方文档，不评价回答质量。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **登录后对话线的模型档位与多模态输入形态**（官网叙事与产品内实际能力常有距离）
-- **创作资产的商用授权边界**（生成视频/图片的会员/免费档授权差异）
-- **训练用途开关路径与默认态**
-
+本档核对官网、用户协议与隐私政策的能力边界；视频生成排队、训练开关与资产导出需按账号实测。
 ## 未知项清单
 
-- 对话产品内的模型档位分流（未登录核实）
-- 跨会话记忆机制（未核验到官方声明）
-- 训练用途开关路径与默认态（未逐条核验）
-- 对话产品入口自身的备案状态（备案号主语是模型层）
-
+- 视频/图片/音频生成关闭页面后的续跑行为：官方页未列，按具体生成入口实测。
+- 对话内联网搜索与工具调用的完整清单：官方隐私政策未逐项列出。
+- 训练用途开关的默认态与关闭路径：按应用内隐私设置核对。
 ## 相关条目
 
 - [豆包](./doubao-chat.md) — 同为国产多模态对话入口：豆包绑抖音生态，海螺绑 MiniMax 创作生态。

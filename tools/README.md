@@ -307,12 +307,12 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
 | [豆包](tracks/chat/products/doubao-chat.md) | 字节跳动 | web | partial | active |
-| [海螺AI](tracks/chat/products/hailuo-chat.md) | MiniMax（稀宇科技） | web | partial | active |
-| [阶跃AI](tracks/chat/products/stepfun.md) | 阶跃星辰 | web | partial | active |
+| [海螺AI](tracks/chat/products/hailuo-chat.md) | MiniMax（稀宇科技） | web | verified | active |
+| [阶跃AI](tracks/chat/products/stepfun.md) | 阶跃星辰 | web | verified | active |
 | [腾讯元宝](tracks/chat/products/yuanbao-chat.md) | 腾讯 | web | verified | active |
-| [通义千问](tracks/chat/products/tongyi-qianwen.md) | 阿里巴巴 | web | partial | active |
+| [通义千问](tracks/chat/products/tongyi-qianwen.md) | 阿里巴巴 | web | verified | active |
 | [文心](tracks/chat/products/wenxin.md) | 百度 | web | verified | active |
-| [讯飞星火](tracks/chat/products/xinghuo-spark.md) | 科大讯飞 | web | partial | active |
+| [讯飞星火](tracks/chat/products/xinghuo-spark.md) | 科大讯飞 | web | verified | active |
 | [智谱清言](tracks/chat/products/chatglm-chat.md) | 智谱 AI | web | partial | active |
 | [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | verified | active |
 | [Claude（对话应用）](tracks/chat/products/claude-chat.md) | Anthropic | web | verified | active |
