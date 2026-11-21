@@ -17,7 +17,7 @@ axes:
     NVIDIA/AMD/Intel GPU（CUDA/Vulkan/ROCm/OpenCL）、Apple Metal（含 iOS/iPadOS）、
     Web 浏览器（WebGPU+WASM，姊妹项目 WebLLM）、Android（OpenCL）——README 平台表逐格标注。
     GitHub mlc-ai/mlc-llm Apache-2.0 23,284★ 推送 2026-10-30（API 核验）；
-    **GitHub releases 名义停 v0.20.0（dev 标签 v0.26.dev0）——发版线在 PyPI（mlc-llm 包）**。
+    **官方安装页给两条路：从 mlc.ai/wheels 装 nightly wheel（mlc-llm-nightly-cpu / cu128 / cu130 / rocm61 / rocm62），或从源码构建；GitHub releases 只是 git 标签线（名义 v0.20.0，含 v0.26.dev0）**。
   local_files: >-
     读写本机文件——模型权重（编译产物缓存在本地）、编译配置 JSON；REST server 跑在本机端口。
     编译步骤本身产出平台特定产物（这是它与「下载即跑」型 runner 的操作差）。
@@ -38,7 +38,7 @@ axes:
     不适合：要 GGUF 即下即跑的省事路线（llama.cpp/Ollama）；不想碰编译步骤的用户。
 
 pitfalls:
-  - 把 GitHub releases 当发版线——releases 名义停 v0.20.0（标签有 v0.26.dev0），实际发版在 PyPI；看 PyPI
+  - 把 GitHub releases 当发版线——releases 名义停 v0.20.0（标签有 v0.26.dev0），实际装包走 mlc.ai/wheels 的 nightly wheel；看安装页
   - 把它当 GGUF 生态——MLC 走 safetensors 编译路线，GGUF 预量化是 llama.cpp 根；模型准备步骤不同
   - 把 llm.mlc.ai 直连 000 当死站——网络受限非停运（GitHub 仓与文档线经代理可达）
   - 忽略编译步骤——「编译-部署」是它的操作模型，第一次跑要先编译/取编译产物，不是 pull 即跑
@@ -50,17 +50,20 @@ sources:
   - label: mlc-ai/mlc-llm · 仓库（Apache-2.0；23,284★，推送 2026-10-30，GitHub API 核验；README 平台矩阵+MLCEngine 口径）
     url: https://github.com/mlc-ai/mlc-llm
     kind: repo
-  - label: GitHub releases/tags · mlc-llm（变更记录线：releases 名义 v0.20.0、标签 v0.26.dev0——发版线在 PyPI）
+  - label: GitHub releases/tags · mlc-llm（变更记录线：releases 名义 v0.20.0、标签 v0.26.dev0——实际装包走 mlc.ai/wheels 的 nightly wheel）
     url: https://github.com/mlc-ai/mlc-llm/releases
     kind: changelog
-  - label: MLC LLM · 官方文档站（安装/quick start/引擎口径；llm.mlc.ai 直连 000 网络受限，经代理 200）
-    url: https://llm.mlc.ai/docs/
+  - label: MLC LLM · 官方安装页（prebuilt nightly wheel 与源码构建两条路；mlc-llm-nightly-cpu/cu128/cu130/rocm61/rocm62，2026-11-21 直抓）
+    url: https://llm.mlc.ai/docs/install/mlc_llm
     kind: docs
+  - label: MLC AI · wheel 索引（nightly 预编译包；非 PyPI 正式发布线）
+    url: https://mlc.ai/wheels
+    kind: package
 
-last_verified: 2026-10-31
-last_updated: 2026-10-31
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -72,7 +75,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-31 检索）；开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-31); an open-source project not serving the mainland public, so filing does not apply.
-  verified: 2026-10-31
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -94,9 +97,8 @@ Android OpenCL，全部走 OpenAI 兼容 API。两条根口径：**safetensors �
 
 ## 未知项清单
 
-- PyPI 当前版本号与上传日期（pypi.org 直连 000 未达，按快照纪律不记未核验数字）
-- 支持模型清单的完整面（文档有列表，未逐条清点）
-- 编译产物在各端的分发方式（预编译 vs 用户自编译的边界，文档口径未逐条核验）
+- nightly wheel 的具体构建号（每日滚动，以 mlc.ai/wheels 当日为准）
+- 支持模型全清单（官方文档有模型页，本档不逐条清点）
 
 ## 相关条目
 

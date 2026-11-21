@@ -305,7 +305,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
 | [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | partial | active |
 | [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
-| [Qoder](tracks/coding/products/qoder.md) | Alibaba Cloud | ide | partial | active |
+| [Qoder](tracks/coding/products/qoder.md) | Alibaba Cloud | ide | verified | active |
 | [Qoder CN (formerly Lingma)](tracks/coding/products/qoder-cn.md) | Alibaba Cloud | ide | partial | active |
 | [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
 | [Trae](tracks/coding/products/trae.md) | ByteDance | ide | partial | active |
@@ -398,7 +398,7 @@ TTS, music generation, transcription products
 | [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | partial | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | verified | active |
 | [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | partial | active |
-| [CosyVoice](tracks/audio/products/cosyvoice.md) | Alibaba FunAudioLLM (open source) | local-app | partial | active |
+| [CosyVoice](tracks/audio/products/cosyvoice.md) | Alibaba FunAudioLLM (open source) | local-app | verified | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | verified | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
 | [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / SJTU X-LANCE et al. (open source) | local-app | partial | active |
@@ -442,7 +442,7 @@ Visual AI-app builders and workflow automation platforms
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | verified | active |
 | [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
 | [Dify](tracks/automation/products/dify.md) | LangGenius (China-origin, global-facing) | web | partial | active |
-| [FastGPT](tracks/automation/products/fastgpt.md) | labring (Huanji Cloud, China-origin) | web | partial | active |
+| [FastGPT](tracks/automation/products/fastgpt.md) | labring (Huanji Cloud, China-origin) | web | verified | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | verified | active |
 | [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | maintenance |
 | [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | partial | active |
@@ -476,7 +476,7 @@ Building blocks for your own agent
 | [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
 | [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
-| [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS community (Eliza Research) | harness | partial | active |
+| [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS community (Eliza Research) | harness | verified | active |
 | [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |
 | [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | verified | active |
 | [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
@@ -565,7 +565,7 @@ Desktop apps that run open-weight models on your machine
 | [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge community (WasmEdge / Second State ecosystem) | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | verified | active |
 | [LocalAI](tracks/runner/products/localai.md) | Mudler T. (mudler) | cli | verified | active |
-| [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine (CMU lineage, mlc-ai) | cli | partial | active |
+| [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine (CMU lineage, mlc-ai) | cli | verified | active |
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | verified | active |
 | [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | verified | active |
 | [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | verified | active |

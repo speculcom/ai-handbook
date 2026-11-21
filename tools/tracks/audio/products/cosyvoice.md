@@ -5,14 +5,13 @@ name: CosyVoice
 nameEn: CosyVoice
 vendor: 阿里 FunAudioLLM（开源）
 homepage: https://github.com/FunAudioLLM/CosyVoice
-license: Apache-2.0（官方仓 GitHub API 当日核验 license=Apache-2.0）；权重经 ModelScope/Hugging Face 分发，
-  各代权重页许可未逐张核验。
-licenseEn: Apache-2.0, verified against the official repository's GitHub API on the audit date (license=Apache-2.0). Weights ship via ModelScope/Hugging Face; per-generation weight-page licences were not checked one by one.
+license: Apache-2.0（官方仓 GitHub API 2026-11-21 核验 license=Apache-2.0；v1/v2/v3 三代 HF 权重 API 亦均为 apache-2.0）。
+licenseEn: Apache-2.0, verified against the official repository's GitHub API on 2026-11-21 (license=Apache-2.0); the v1/v2/v3 weight repos on Hugging Face also return apache-2.0 via API.
 
 axes:
   model_access: >-
     本体是开源模型族：v1（CosyVoice-300M）→ v2（CosyVoice2-0.5B）→ Fun-CosyVoice 3.0
-    （Fun-CosyVoice3-0.5B-2512，README 当日在册三代线）；下载权重本地推理，不接托管 API。
+    （Fun-CosyVoice3-0.5B-2512，README 当日在册三代线）；下载权重本地推理；托管调用走阿里云百炼 cosyvoice-v2/v3/v3.5 线（本档主体仍是开源仓）。
   runtime: >-
     本机 Python 运行时（README 给 conda 安装+推理/训练/部署全栈，官方描述 inference, training and
     deployment full-stack ability）；仓已迁至 QwenAudio org（FunAudioLLM/CosyVoice 301→QwenAudio/CosyVoice，
@@ -29,11 +28,10 @@ axes:
     不适用对话上下文维度——TTS 模型按单次合成请求工作；zero-shot 克隆以参考音频为条件（README 在册
     多语/跨语 zero-shot 克隆）。
   permissions: >-
-    Apache-2.0 代码许可（GitHub API 当日核验）；声音克隆涉人格权——官方 README 未给使用授权条款，
-    「官方未声明」按查过 README/仓根文件口径标注；9 语+18 中方言覆盖在 README 在册。
+    Apache-2.0 代码与三代权重许可（GitHub/HF API 2026-11-21 核验）；声音克隆涉人格权——README 的使用声明只覆盖示例内容（学术演示、侵权联系删除），不构成克隆授权条款，授权由使用者自行取得；9 语+18 中方言覆盖在 README 在册。
   fit: >-
     适合：本机/私有部署中文+方言 TTS、要 zero-shot 克隆与训练微调全栈、要 Apache-2.0 可商用底座。
-    不适合：要托管 API 开箱即用（官方不卖托管线）、要零运维。
+    不适合：只要托管 API 开箱即用（那走百炼 CosyVoice 线，不是本开源仓）、要零运维。
 
 pitfalls:
   - 官方 org 已从 FunAudioLLM 更名 QwenAudio（当日 301 核验）——旧链接仍可达但新仓主在 QwenAudio；README 克隆命令仍写 FunAudioLLM 旧名，以 301 后地址为准
@@ -62,11 +60,17 @@ sources:
   - label: QwenAudio · 官方 demo 页（cosyvoice3，2026-10-30 直抓 200；旧域 funaudiollm.github.io 当日 404）
     url: https://qwenaudio.github.io/cosyvoice3/
     kind: official
+  - label: Hugging Face · Fun-CosyVoice3-0.5B-2512 权重页（license=apache-2.0；v1/v2/v3 三档 HF API 2026-11-21 核验）
+    url: https://huggingface.co/FunAudioLLM/Fun-CosyVoice3-0.5B-2512
+    kind: package
+  - label: 阿里云百炼 · 语音合成模型页（CosyVoice cosyvoice-v2/v3/v3.5 托管线，2026-11-14 更新）
+    url: https://help.aliyun.com/zh/model-studio/tts-model
+    kind: docs
 
-last_verified: 2026-10-30
-last_updated: 2026-10-30
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -86,14 +90,14 @@ cn:
     的备案主语是服务方而非本开源仓。
   filing_note_en: an open-source model is not subject to service filing (it serves no public service, same wording as
     the Whisper precedent); filing for its hosted form (Alibaba Cloud Bailian TTS line) is the service provider's, not this repo's.
-  verified: 2026-10-30
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
 
 **CosyVoice 是阿里语音团队（QwenAudio/原 FunAudioLLM）的开源 LLM-TTS 模型族**（Apache-2.0，
 v1→v2→Fun-CosyVoice 3.0 三代线）：下载权重本机推理/训练/部署全栈，中文+方言覆盖与 zero-shot 克隆是主打——
-它是模型不是产品，官方不卖托管线。
+开源仓给模型权重与全栈代码；阿里云百炼另有 cosyvoice-v2/v3/v3.5 托管线，主体与运维边界不同。
 
 ## 适合与不适合
 
@@ -112,9 +116,8 @@ v1→v2→Fun-CosyVoice 3.0 三代线）：下载权重本机推理/训练/部�
 
 ## 未知项清单
 
-- 各代权重页的许可细节（仓 LICENSE=Apache-2.0 已核，ModelScope/HF 权重页未逐张核验）
-- 平台侧克隆使用授权条款（README 未声明——按查过 README/仓根文件口径标注）
-- 官方托管服务是否存在（百炼语音合成线是否即 CosyVoice 底座未核验到官方对应声明）
+- 百炼托管线的计费、配额与 SLA（属阿里云百炼产品条款，本档只记模型线存在，不摘托管条款）
+- 声音克隆的商业授权与平台审核细则（README 只给示例内容声明，不构成授权条款）
 
 ## 相关条目
 

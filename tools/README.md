@@ -290,7 +290,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
 | [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | partial | active |
 | [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
-| [Qoder](tracks/coding/products/qoder.md) | 阿里云 | ide | partial | active |
+| [Qoder](tracks/coding/products/qoder.md) | 阿里云 | ide | verified | active |
 | [Qoder CN（原通义灵码）](tracks/coding/products/qoder-cn.md) | 阿里云 | ide | partial | active |
 | [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
 | [Trae](tracks/coding/products/trae.md) | 字节跳动 | ide | partial | active |
@@ -383,7 +383,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | partial | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | verified | active |
 | [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | partial | active |
-| [CosyVoice](tracks/audio/products/cosyvoice.md) | 阿里 FunAudioLLM（开源） | local-app | partial | active |
+| [CosyVoice](tracks/audio/products/cosyvoice.md) | 阿里 FunAudioLLM（开源） | local-app | verified | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | verified | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
 | [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / 上交 X-LANCE 等（开源） | local-app | partial | active |
@@ -427,7 +427,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | verified | active |
 | [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
 | [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | partial | active |
-| [FastGPT](tracks/automation/products/fastgpt.md) | labring（环际云，国产） | web | partial | active |
+| [FastGPT](tracks/automation/products/fastgpt.md) | labring（环际云，国产） | web | verified | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | verified | active |
 | [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | maintenance |
 | [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | partial | active |
@@ -461,7 +461,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
 | [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
-| [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS 社区（Eliza Research） | harness | partial | active |
+| [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS 社区（Eliza Research） | harness | verified | active |
 | [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |
 | [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | verified | active |
 | [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
@@ -550,7 +550,7 @@ MCP 服务器与工具生态。
 | [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge 社区（WasmEdge / Second State 生态） | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | verified | active |
 | [LocalAI](tracks/runner/products/localai.md) | Mudler T.（mudler） | cli | verified | active |
-| [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine（CMU 系，mlc-ai） | cli | partial | active |
+| [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine（CMU 系，mlc-ai） | cli | verified | active |
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | verified | active |
 | [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | verified | active |
 | [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | verified | active |

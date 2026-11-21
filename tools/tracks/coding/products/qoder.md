@@ -21,12 +21,12 @@ axes:
   local_files: >-
     IDE/插件/CLI 形态处理本机代码与工程；CLI 官方口径「understand your entire codebase, write and modify
     code, run commands」；Cloud Agents 跑在厂商托管云沙箱（官方 Overview：不用自建 agent loop、
-    不管工具执行沙箱、不管长连接）。沙箱内代码的存储与保留策略未逐条核验。
+    不管工具执行沙箱、不管长连接）。Cloud Agents 可把自有阿里云 OSS bucket 挂到 /mnt/buckets/<name>（Beta，最多 8 个，读写可选；官方 Storage Buckets 页），Session 另有 archive/delete API，固定保留天数不在官方文档承诺。
   background: >-
     Cloud Agents 是官方托管面：全托管运行时、Session 在云端跑、结果实时流回；
     Qoder IDE 的 Quest 视窗（异步任务工作流）已于 2026-10-15 23:59 UTC+8 正式退役——
     官方公告给时间线与迁移建议（迁往 Qoder 或继续用 Editor 视窗）。
-    CLI 侧的后台/定时任务面未逐条核验。
+    CLI 自带 scheduled tasks：标准 5 段 cron、按 CLI 本机时区解释，任务定义/执行上限/自动过期见官方 Scheduled Task Reference 页；会话日志默认落 ~/.qoder/projects/<project>/<session-id>.jsonl。
   tools: >-
     官方扩展面成页：Connectors（连接器市场或自定义 MCP 服务器）、Skills（查找/安装/创建可复用任务能力）、
     Subagents（扩展提供的专家 Agent）、Plugins、自定义扩展发布指南（个人 Skill/Plugin/自定义 MCP）；
@@ -35,11 +35,11 @@ axes:
   context: >-
     记忆机制官方成页（Memory：让 Qoder 在后续任务复用稳定偏好与项目上下文）；
     Repo Wiki 生成仓库知识；规则/项目设置。Experts Mode（一个需求自动拆解、多专家 Agent 并行开发）
-    官方成页并有客户案例叙事。跨会话记忆的存储位置未逐条核验。
+    官方成页并有客户案例叙事。CLI 会话日志默认落 ~/.qoder/projects/<project>/<session-id>.jsonl，state.json 存状态；可用 QODER_CONFIG_DIR 改根目录、--delete-session 删除（官方 CLI Sessions 页）。
   permissions: >-
     官方「Access Permissions」页：任务发送前/执行中选权限模式，默认 Ask for approval（关键操作请求批准），
     覆盖文件、终端、网络与已启用工具；改权限模式不改任务工作区与执行模式。
-    账号体系走 qoder.com 账号；企业面有 Teams/Enterprise 计划页（管控细节未逐条核验）。
+    账号体系走 qoder.com 账号；企业面官方文档给 Teams/Enterprise：SAML 2.0/OIDC SSO、四类角色（Admin/Config Admin/Member/Directory Member）、Admin-only 审计日志（记录管理操作元数据，不记业务内容）——见 SSO / Members and Roles / Audit Log 页。
   fit: >-
     适合：要「IDE+插件+CLI+云端」一个账号全家的 agentic 编码闭环、Repo Wiki/记忆/Skills 上下文体系、
     可 BYOK 补自己模型、Cloud Agents 托管跑长任务。
@@ -48,7 +48,7 @@ axes:
   name_history: >-
     与 Qoder CN（原通义灵码）同挂 Qoder 品牌但两条产品线：国内线 qoder.com.cn（档案 qoder-cn）、
     国际线 qoder.com（本档案）。docs.qoder.com 客户案例页出现「Alibaba Qoder」「Alibaba Cloud 办的
-    Qoder workshop」表述，指向同一阿里体系；但官方未给两线关系的对照说明页。
+    Qoder workshop」表述，指向同一阿里体系；官方文档将两线分别记录，本档按两条产品线分别记录、不做功能等价推断。
 
 pitfalls:
   - Qoder（qoder.com 国际线）与 Qoder CN（qoder.com.cn，原通义灵码）是两条产品线——功能、模型清单、
@@ -89,11 +89,29 @@ sources:
   - label: Qoder 官网（产品家族/下载）
     url: https://qoder.com
     kind: official
+  - label: Qoder 文档 · SSO（SAML 2.0/OIDC，Teams 与 Enterprise，2026-11-21 直抓）
+    url: https://docs.qoder.com/account/teams/sso
+    kind: official
+  - label: Qoder 文档 · Members and Roles（Admin/Config Admin/Member/Directory Member 四类角色）
+    url: https://docs.qoder.com/account/teams/members-and-roles
+    kind: official
+  - label: Qoder 文档 · Audit Log（Admin-only，记录管理操作元数据，不记业务内容）
+    url: https://docs.qoder.com/account/enterprise/audit-log
+    kind: official
+  - label: Qoder 文档 · Scheduled Task Reference（cron/存储位置/执行上限/自动过期）
+    url: https://docs.qoder.com/cli/scheduled-reference
+    kind: official
+  - label: Qoder 文档 · Storage Buckets Beta（自有阿里云 OSS 挂载，最多 8 个）
+    url: https://docs.qoder.com/cloud-agents/api/environments/storage-buckets
+    kind: official
+  - label: Qoder 文档 · CLI Sessions（会话日志路径/QODER_CONFIG_DIR/--delete-session）
+    url: https://docs.qoder.com/cli/sessions
+    kind: official
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -110,7 +128,7 @@ cn:
     （国内合规叙事在 Qoder CN 线，见 qoder-cn 档案）。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the international line does not
     serve the mainland public, so filing does not apply (the domestic compliance line is Qoder CN — see the qoder-cn dossier).
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -130,16 +148,14 @@ Repo Wiki + 记忆 + Skills 上下文体系，Experts Mode 多专家并行——
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 
-- **国际版 qoder.com 与国内版 qoder.com.cn 的功能面实际差异**（官方无对照表）
-- **Quest 视窗退役后存量工作流迁到 Qoder/Editor 的实际路径**（公告只给时间线）
-- **Cloud Agents 沙箱内代码的存储位置与保留时长**（官方 Overview 未写数据边界）
+- **国际版 qoder.com 与国内版 qoder.com.cn 的功能面实际差异**（两线分别记录，需按各自控制台核对）
+- **Quest 视窗退役后存量工作流迁到 Qoder/Editor 的实际工作量**（公告给时间线，迁移成本需实测）
+- **Cloud Agents 用自有 OSS bucket 挂载时的权限边界与吞吐**（Beta 能力，需在环境配置里实测）
 
 ## 未知项清单
 
-- 国际线与 Qoder CN 的官方关系对照（只有案例页的「Alibaba Qoder」表述，无对照说明页）
-- Cloud Agents 沙箱代码的存储区域与保留策略（未逐条核验）
-- Teams/Enterprise 管控台细节（SSO/审计等未逐条核验）
-- CLI 的后台/定时任务面（未核验到官方声明）
+- 国际线与 Qoder CN 的功能差异（官方文档按两线分别记录，本档不做等价推断）
+- Cloud Agents 的固定保留天数（官方给 archive/delete API 与自有 OSS 挂载，不承诺统一保留期）
 
 ## 相关条目
 

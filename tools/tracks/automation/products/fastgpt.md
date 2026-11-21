@@ -14,26 +14,27 @@ licenseEn: FastGPT Open Source License — GitHub API verified same day: license
 
 axes:
   model_access: >-
-    平台不带自有模型——对接各家大模型（OpenAI 兼容接口为主轴）；托管版（fastgpt.io/fastgpt.cn）内置模型
-    清单未逐条核验；自托管版可接本地模型（配合 runner 类工具）。
+    平台不带自有模型——对接各家大模型（OpenAI 兼容接口为主轴）；托管版（fastgpt.io/fastgpt.cn）
+    预集成 LLM/embedding/rerank，具体目录在控制台 Account → Model provider 按区域/套餐展示（官方 Model Providers 页）；
+    自托管版可接本地模型（配合 runner 类工具）。
   runtime: >-
     双形态：开源仓自托管（labring/FastGPT，GitHub 直连 200，当日推送 2026-10-30）+ 官方托管版
     （fastgpt.io 国际版直连 200；fastgpt.cn 大陆版直连 200，页脚主体广州环际云计算有限公司+ICP备2023048773号在册）。
   local_files: >-
     自托管形态数据在本机数据库（MongoDB/向量库——部署文档在册）；托管版数据在官方云端。
-    知识库文件上传后入库向量化，原始文件留存面未逐条核验。
+    知识库文件上传后入库向量化，原始文件与向量按部署的 MongoDB/VectorDB/S3 存储（官方 Cloud vs Self-Hosted 对比页）。
   background: >-
     产品主轴是 RAG 知识库问答与应用编排（doc.fastgpt.io 文档在册）；agent/工作流编排能力在册；
-    定时与后台执行细节未逐条核验。
+    FastGPT Cloud 含 scheduled Dataset sync 与 Agent VM sandboxes（官方 Cloud Overview）。
   tools: >-
-    工作流节点生态在文档在册（知识库检索/HTTP 请求/代码执行等节点）；插件与工具扩展面文档在册；
-    MCP 支持未逐条核验到官方声明，按未知处理。
+    工作流节点生态在文档在册（知识库检索/HTTP 请求/代码执行等节点）；插件与工具扩展面文档在册；MCP 双向：外部 MCP 工具可导入为工具集（v4.9.6 起；Streamable HTTP 优先，4xx 非 429 回退 SSE），
+    FastGPT 应用也可发布为 MCP Server（Streamable HTTP，自托管另有 SSE）。
   context: >-
     知识库（RAG）是核心持久知识面（产品主轴）；多轮对话上下文与变量存储在册；
-    跨应用记忆机制细节未逐条核验。
+    跨应用记忆不在官方产品页单列，本档不推断。
   permissions: >-
     开源可审计（GPL 家族之外的 Apache+附加条件，见 license）；托管版按官方云端条款；大陆版 fastgpt.cn
-    有 ICP 备案在册；训练用途开关路径未逐条核验。
+    有 ICP 备案在册；FastGPT Cloud 隐私政策明确「不将你的数据用于额外备份存储或模型训练」，可访问/更正/删除；Cloud 版不含 SSO/自定义品牌（官方 Cloud Overview 对比表）。
   fit: >-
     适合：中文知识库问答/RAG 应用（自托管可控）、要大陆直连的托管入口（fastgpt.cn）。
     不适合：要纯 Apache 2.0 无附加条件（多租户 SaaS 受限）、要代码级 agent 框架（画布/配置为主轴）。
@@ -59,11 +60,26 @@ sources:
   - label: labring/FastGPT · 官方仓（GitHub API 当日核验 ★29,949/pushed 2026-10-30；releases v4.17.2 2026-10-09）
     url: https://github.com/labring/FastGPT
     kind: repo
+  - label: FastGPT 文档 · Cloud Overview（预集成模型/定时 Dataset sync/Agent VM/区域隔离/不含 SSO，2026-11-21 直抓）
+    url: https://doc.fastgpt.io/guide/version/cloud/intro
+    kind: docs
+  - label: FastGPT 文档 · Model Providers（控制台模型目录/按能力与价格筛选）
+    url: https://doc.fastgpt.io/guide/workspace/models
+    kind: docs
+  - label: FastGPT 文档 · Connect an MCP tool set（v4.9.6 起；Streamable HTTP 优先/SSE 回退）
+    url: https://doc.fastgpt.io/guide/build/tools/mcp_tools
+    kind: docs
+  - label: FastGPT 文档 · MCP Server（应用发布为 MCP 端点；Streamable HTTP/自托管 SSE）
+    url: https://doc.fastgpt.io/guide/build/publish/mcp_server
+    kind: docs
+  - label: FastGPT 文档 · Cloud Privacy Policy（明确不用于模型训练；可访问/更正/删除）
+    url: https://doc.fastgpt.io/guide/version/cloud/privacy
+    kind: docs
 
-last_verified: 2026-10-30
-last_updated: 2026-10-30
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -76,7 +92,7 @@ cn:
   filing_note: 未见于生成式 AI 服务/深度合成算法备案公示名单（2026-10-30 检索百炼公示页与第十六批批次清单，未见 FastGPT 条目）；
     fastgpt.cn 页脚 ICP备2023048773号 是网站 ICP 备案，与生成式 AI 服务备案是不同类别，不混记。
   filing_note_en: not in the generative-AI / deep-synthesis filing registries (Bailian disclosure page and the 16th batch list searched 2026-10-30; no FastGPT entry); the ICP number on fastgpt.cn's footer (ICP filing No. 2023048773) is a website ICP registration, a different category from generative-AI service filing — not conflated.
-  verified: 2026-10-30
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -98,14 +114,12 @@ cn:
 
 - **托管版与自托管版的能力差**（两形态并行，功能面差异未在册）
 - **知识库检索质量与分块策略默认值**（RAG 主轴产品的核心质量面，文档有参数但效果未做实测）
-- **MCP/工具调用的现役支持面**（未逐条核验到官方声明）
+- **MCP 工具集在 Streamable HTTP/SSE 两种传输下的失败回退**（官方给行为，需按实际服务实测）
 
 ## 未知项清单
 
-- 托管版内置模型清单（未逐条核验）
-- MCP 支持（未核验到官方声明）
-- 训练用途开关路径与默认态（未逐条核验）
-- 大陆托管版是否走生成式 AI 服务备案（公示名单未见条目，按未备案口径写）
+- 托管版预置模型的具体清单（随区域/套餐在控制台变化，以 Account → Model provider 为准）
+- Agent VM 沙箱的底层隔离参数（官方文档给能力，不给宿主机细节）
 
 ## 相关条目
 
