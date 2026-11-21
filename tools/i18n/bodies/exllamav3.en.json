@@ -5,8 +5,8 @@
     "runtime": "CUDA inference engine for local/single-machine multi-GPU use. PyPI records 1.6.6 released 2026-10-31 (version record only rechecked 2026-11-04). CUDA requirements follow the official repository.",
     "local_files": "Self-hosted, with weights and .exl3 checkpoints on the local machine; there is no official hosted cloud.",
     "background": "A local inference process, not a long-running service; serving usually goes through an outer layer such as TabbyAPI.",
-    "tools": "Primarily inference execution; tool calling and MCP are not core and are not verified item by item.",
-    "context": "Long context depends on VRAM and configuration; KV-cache details live in official docs and are not verified item by item.",
+    "tools": "Primarily inference execution; tool calling and MCP are not core and are kept at the official category level.",
+    "context": "Long context depends on VRAM and configuration; KV-cache details live in official docs and are kept at the official category level.",
     "permissions": "A local process with no account system; permissions come from the runtime environment.",
     "fit": "Fits NVIDIA single/multi-GPU users chasing EXL3 quantisation and low-latency inference who are willing to set up CUDA. Does not fit AMD/CPU, an out-of-the-box GUI, or the GGUF ecosystem."
   },

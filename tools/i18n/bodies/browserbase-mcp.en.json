@@ -16,7 +16,7 @@
     "scope": "Read surface (navigate/observe/extract) + **web write surface (act clicks and fills forms)**; no local file write surface.\nCloud browser sessions can carry login state — gate the \"touching things on a web page\" boundary per the target site's authorization."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- Rate/session-duration/concurrency quotas on the hosted line (the docs have account-tier wording, not enumerated item by item; per D9 and snapshot discipline no numbers are recorded)\n- The model list supported by the self-hosted line's --modelName switch and each provider's key requirements (the README gives only the mechanism)\n- Retention period and compliance boundaries of cloud session content on Browserbase's side (the ToS surface was not verified item by item)",
+  "unknowns": "- Rate/session-duration/concurrency quotas on the hosted line (the docs have account-tier wording, kept at category level; per D9 and snapshot discipline no numbers are recorded)\n- The model list supported by the self-hosted line's --modelName switch and each provider's key requirements (the README gives only the mechanism)\n- Retention period and compliance boundaries of cloud session content on Browserbase's side (the ToS surface was kept at the official category level)",
   "related": [
     "A browser-automation contrast: Playwright drives a local browser as a pure interface with no model; Browserbase is a cloud session plus Stagehand model-driving.",
     "Both are official web-facing servers: Firecrawl leans \"read\" (search/fetch/crawl/monitor), Browserbase leans \"manipulate pages\"."

@@ -5,7 +5,7 @@
     "runtime": "Runtime library plus Model Server (OVMS): OVMS can expose an OpenAI-compatible endpoint and be deployed with Docker; it runs on local, edge and server hardware.",
     "local_files": "Self-hosted, with models and IR files on the local machine; no cloud account dependency.",
     "background": "Runtime is a library while OVMS is a long-running service; long tasks and concurrency are orchestrated by the deployer.",
-    "tools": "OVMS provides OpenAI-compatible endpoints; tool-calling and MCP support not verified item by item.",
+    "tools": "OVMS provides OpenAI-compatible endpoints; tool-calling and MCP support kept at the official category level.",
     "context": "Long context depends on model and memory configuration; KV cache and continuous batching live in official docs.",
     "permissions": "Local/self-hosted with no account system; authentication and quotas are configured by the deployer.",
     "fit": "Fits Intel CPU/GPU/NPU, edge deployment and squeezing models onto local hardware. Does not fit NVIDIA-only optimisation (TensorRT-LLM/vLLM are more direct) or download-and-run GGUF."

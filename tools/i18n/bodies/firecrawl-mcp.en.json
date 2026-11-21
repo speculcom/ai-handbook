@@ -16,7 +16,7 @@
     "scope": "Mostly read (search/fetch/parse/monitor); interact can click and fill forms in a real browser —\nthe boundary between \"reading\" and \"touching things on a web page\" must be gated yourself against the target site's authorization boundaries. No local write surface."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The full parameter surface of the 27 tools and the feedback tool's behavior (the README has an inventory and trimming wording, not enumerated item by item)\n- Rate/quota numbers for the keyless vs keyed tiers (the README only says rate-limited; per D9 and snapshot discipline no numbers are recorded)\n- The functional boundaries of the self-hosted deployment line (README claims support, not verified item by item)",
+  "unknowns": "- The full parameter surface of the 27 tools and the feedback tool's behavior (the README has an inventory and trimming wording, kept at category level)\n- Rate/quota numbers for the keyless vs keyed tiers (the README only says rate-limited; per D9 and snapshot discipline no numbers are recorded)\n- The functional boundaries of the self-hosted deployment line (README claims support, kept at the official category level)",
   "related": [
     "Also an official retrieval+fetch server: Exa defaults to a minimal two tools, Firecrawl is a 27-tool full-family surface.",
     "A light-vs-heavy contrast: fetch is reference-level single-page reading, Firecrawl carries the heavy crawl/map/interact surface."

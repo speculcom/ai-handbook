@@ -5,8 +5,8 @@
     "runtime": "Compile then serve: the model is compiled into a TensorRT engine and exposed through trtllm-serve with an OpenAI-compatible interface; the official positioning is large-scale data-centre/cloud deployment.",
     "local_files": "Self-hosted, with weights and engines in your own environment; NVIDIA GPUs only, with CPU/AMD acceleration outside the official support scope.",
     "background": "A long-running service suited to batching and high concurrency; no official statement of continuing after shutdown.",
-    "tools": "trtllm-serve provides the API; tool-calling and MCP support not verified item by item.",
-    "context": "Long context depends on model and VRAM; KV-cache optimisation lives in official docs, not verified item by item.",
+    "tools": "trtllm-serve provides the API; tool-calling and MCP support kept at the official category level.",
+    "context": "Long context depends on model and VRAM; KV-cache optimisation lives in official docs, kept at the official category level.",
     "permissions": "Self-hosted with no account system; authentication, quotas and multi-tenant isolation are configured by the deployer.",
     "fit": "Fits NVIDIA GPU clusters that need production throughput and low latency and already have container/compile pipelines. Does not fit single-card consumer setups, AMD/CPU deployment, or download-and-run GGUF workflows."
   },

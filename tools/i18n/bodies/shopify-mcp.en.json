@@ -16,7 +16,7 @@
     "scope": "Pure read (public docs + schema), no store-data surface, no local write surface — among the lightest permission surfaces in MCP servers."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- Whether the dev-mcp source is readable as shipped in the npm package (the repo field is empty; the package was not unpacked to verify)\n- The API-version coverage and update cadence of introspect_admin_schema (the changelog has a POS UI extensions entry; the full range was not enumerated)\n- The capability delta between the AI Toolkit plugin form and the Dev MCP form (the official docs say the plugin \"bundles everything\"; not compared item by item)",
+  "unknowns": "- Whether the dev-mcp source is readable as shipped in the npm package (the repo field is empty; the package contents are outside this profile's scope)\n- The API-version coverage and update cadence of introspect_admin_schema (the changelog has a POS UI extensions entry; the full range is kept at the official category level)\n- The capability delta between the AI Toolkit plugin form and the Dev MCP form (the official docs say the plugin \"bundles everything\"; kept at the official category level)",
   "related": [
     "\"Domain-specific docs+schema MCP\" vs \"general web-context MCP\": Shopify is single-vendor, extremely narrow and deep; Firecrawl is web-wide and extremely broad.",
     "The same \"feed library/platform docs to agents\" route: Context7 is cross-library and general, Shopify Dev MCP is single-vendor official first-party."

@@ -5,7 +5,7 @@
     "runtime": "Integrated into Docker Desktop and Docker Engine: starts models locally and serves them through OpenAI- and Ollama-compatible APIs (official docs).",
     "local_files": "Models are stored and distributed as OCI artefacts; prompts and data are processed locally with no API key needed.",
     "background": "A long-running local service callable by apps in the Docker ecosystem; no official statement of continuing after shutdown.",
-    "tools": "OpenAI/Ollama-compatible endpoints; Docker Agent can discover already-pulled models. Tool-calling and MCP not verified item by item.",
+    "tools": "OpenAI/Ollama-compatible endpoints; Docker Agent can discover already-pulled models. Tool-calling and MCP kept at the official category level.",
     "context": "Long context depends on model and memory configuration; official presets cover low-memory and long-document setups.",
     "permissions": "Runs inside the local Docker environment; permissions come from Docker and the host system.",
     "fit": "Fits teams already on Docker who want model distribution inside container pipelines and a local OpenAI-compatible endpoint. Does not fit people avoiding Docker, extreme GPU optimisation, or a ready-made chat UI."
