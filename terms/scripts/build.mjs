@@ -1380,6 +1380,7 @@ ${TABBAR}
 
   /* P2-11（2026-11-03）· 名词对照页：把 200+ 词条的中文名 / 英文名 / 别名集中到一页。
    * 真相源仍是 terms/*.md 的 zh/en/alias；这一页只是渲染，不另存数据。 */
+  const aliasCount = flat.filter(({ t }) => (t.alias || []).length || (t.aliasEn || []).length).length;
   const aliasRows = flat
     .filter(({ t }) => (t.alias || []).length || (t.aliasEn || []).length)
     .sort((a, b) => String(a.t.zh).localeCompare(String(b.t.zh), 'zh-Hans'))
@@ -1395,19 +1396,19 @@ ${TABBAR}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>名词对照 · 学 AI | 投机取巧</title>
-  <meta name="description" content="学 AI 词条的中英名词对照表：204 个词条的中文名、英文名与常见别名，一页查完并可直接跳转到词条页。" />
+  <meta name="description" content="学 AI 词条的中英名词对照表：${aliasCount} 个有别名或英文名的词条，一页查完并可直接跳转到词条页。" />
   <link rel="canonical" href="https://learn.specul.com/aliases/" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="学 AI" />
   <meta property="og:url" content="https://learn.specul.com/aliases/" />
   <meta property="og:title" content="名词对照 · 学 AI" />
-  <meta property="og:description" content="204 个词条的中文名、英文名与常见别名，一页查完。" />
+  <meta property="og:description" content="${aliasCount} 个有别名或英文名的词条，一页查完。" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
   <script src="../brand.js?v=${SHELL.RUNTIME_VERSION}"></script>
   <link rel="stylesheet" href="../brand.css?v=${SHELL.RUNTIME_VERSION}" />
   <link rel="stylesheet" href="../learn.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"名词对照 · 学 AI","description":"204 个词条的中文名、英文名与常见别名对照表","url":"https://learn.specul.com/aliases/","inLanguage":"zh-Hans","isPartOf":{"@type":"WebSite","name":"学 AI","url":"https://learn.specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"名词对照 · 学 AI","description":"${aliasCount} 个有别名或英文名的词条对照表","url":"https://learn.specul.com/aliases/","inLanguage":"zh-Hans","isPartOf":{"@type":"WebSite","name":"学 AI","url":"https://learn.specul.com/"}}</script>
 </head>
 <body class="brand-ambient has-tabbar has-tabbar-1row" style="--accent:var(--cyan)">
 ${HEADER('learn')}
@@ -1473,3 +1474,6 @@ ${urls.map((u, i) => `  <url><loc>${u}</loc><changefreq>weekly</changefreq><prio
     if (old !== body) fs.writeFileSync(dst, body, 'utf8');
   }
 }
+
+
+
