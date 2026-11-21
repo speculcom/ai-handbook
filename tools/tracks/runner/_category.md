@@ -28,19 +28,32 @@
 | 模型权重与量化索引 | models 站的活 |
 | 推理云 API 平台本体 | 不收（归 nav；其开源运行时收） |
 
-## 收录对象（12 份）
+## 收录对象（21 份）
 
-| id | 名称 | 厂商 |
-|---|---|---|
-| `ollama` | Ollama | Ollama Inc. |
-| `lm-studio` | LM Studio | Element Labs |
-| `llama-cpp` | llama.cpp | ggml-org |
-| `vllm` | vLLM | vLLM 项目（PyTorch 基金会） |
-| `sglang` | SGLang | LMSYS / sgl-project |
-| `jan` | Jan | Menlo Research |
-| `gpt4all` | GPT4All | Nomic AI |
-| `mlx` | MLX（mlx-lm） | Apple |
-| `koboldcpp` | KoboldCpp | LostRuins |
-| `text-generation-webui` | text-generation-webui（现名 textgen） | oobabooga |
-| `tgi` | Text Generation Inference | Hugging Face |
-| `localai` | LocalAI | Mudler T.（mudler） |
+| id | 名称 | 厂商 | 形态 | 状态 |
+|---|---|---|---|---|
+| `docker-model-runner` | Docker Model Runner | Docker | 本机应用 | 8 项已核 · 活跃 |
+| `exllamav3` | ExLlamaV3 | turboderp-org | CLI | 8 项已核 · 活跃 |
+| `jan` | Jan | Menlo Research | 本机应用 | 8 项已核 · 活跃 |
+| `koboldcpp` | KoboldCpp | LostRuins（KoboldAI 社区） | 本机应用 | 8 项已核 · 活跃 |
+| `lemonade` | Lemonade | AMD / Lemonade 社区 | 本机应用 | 8 项已核 · 活跃 |
+| `llama-cpp` | llama.cpp | ggml-org | CLI | 8 项已核 · 活跃 |
+| `lm-studio` | LM Studio | Element Labs | 本机应用 | 8 项已核 · 活跃 |
+| `localai` | LocalAI | Mudler T.（mudler） | CLI | 8 项已核 · 活跃 |
+| `mlc-llm` | MLC LLM | MLCEngine（CMU 系，mlc-ai） | CLI | 8 项已核 · 活跃 |
+| `mlx` | MLX（mlx-lm） | Apple | CLI | 8 项已核 · 活跃 |
+| `msty` | Msty | Msty（CloudStack, LLC） | 本机应用 | 8 项已核 · 活跃 |
+| `tensorrt-llm` | NVIDIA TensorRT-LLM | NVIDIA | CLI | 8 项已核 · 活跃 |
+| `ollama` | Ollama | Ollama Inc. | CLI | 8 项已核 · 活跃 |
+| `openvino` | OpenVINO | Intel | CLI | 8 项已核 · 活跃 |
+| `sglang` | SGLang | LMSYS / sgl-project | CLI | 8 项已核 · 活跃 |
+| `tabbyapi` | TabbyAPI | Royal Lab（theroyallab） | CLI | 8 项已核 · 活跃 |
+| `vllm` | vLLM | vLLM 项目（PyTorch 基金会） | CLI | 8 项已核 · 活跃 |
+| `gpt4all` | GPT4All | Nomic AI | 本机应用 | 有未核项 · 更新放缓 |
+| `llamaedge` | LlamaEdge | LlamaEdge 社区（WasmEdge / Second State 生态） | CLI | 有未核项 · 更新放缓 |
+| `text-generation-webui` | text-generation-webui / textgen | oobabooga | 本机应用 | 有未核项 · 更新放缓 |
+| `tgi` | Text Generation Inference（TGI） | Hugging Face | CLI | 有未核项 · 已归档 |
+
+> 共 **21** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

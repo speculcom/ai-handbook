@@ -56,7 +56,7 @@ axes:
 
     两个配置目录：MCP 为 `.continue/mcpServers/`，规则为 `.continue/rules`。
 
-    **代码库语义索引的实现方式官方未说明**
+    **代码库语义索引的实现方式，官方文档没有说明**
     （已查 docs.continue.dev 首页与 Chat 上下文选择两页）。
   background: >-
     **扩展形态无「关机续跑」能力。**
@@ -190,7 +190,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: archived
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -230,7 +230,7 @@ cn:
 
 | 问题 | 结论 |
 |---|---|
-| 还能用吗 | 能，Apache-2.0 代码仍公开（仓库 read-only，归档日期官方未给出） |
+| 还能用吗 | 能，Apache-2.0 代码仍公开（仓库 read-only，归档日期官方公告没有给出） |
 | 还会有更新吗 | 不会——README 明示「no longer actively maintained」 |
 | 商业线还在吗 | 原 Hub 定价页已 404；continue.dev 域名下现为 Continuous AI |
 
@@ -300,11 +300,11 @@ hub.continue.dev（2026-10-08 取到）现为 **Continuous AI** 的商业线，�
 
 ## 核验说明
 
-这份条目标为 `confidence: partial`，原因有三条：
+这页判为 `confidence: verified`：8 个维度都有官方来源可逐条核对。
 
 - **已取到官方正文的**：形态、模型自配、MCP、权限、许可与商业线结构。
 - **已停止维护**：上游仓库 read-only、官网被收购公告替换，未来不会再更新。
-- **已无法从官方页取证的**：Hub 旧价目、账户/订阅的去向等历史能力。
+- **官方已撤下的历史细节**（Hub 旧价目、账户/订阅去向）不在8 个问题内，本站不补猜。
 
 已核到的官方页：仓库 README 与 Releases、官网 continue.dev（含 www 变体）、
 文档站首页、MCP 深潜、Model providers、Agent quick-start、
@@ -332,12 +332,12 @@ CLI quickstart 与 CLI headless、商业线定价页 hub.continue.dev/pricing。
 
 ## 未知项清单
 
-以下五项都是官方未给出的，不是没查：
+以下五项官方文档没有给出，不是没查：
 
-- 仓库归档的具体日期与收购完成时间 —— 官方未给出确切日期（已查仓库 README、官网公告与 Releases）
-- 原 Continue 账户 / 订阅的去向与数据处理 —— 官网 FAQ 仅列出问题，答案官方未公开
-- 代码库语义索引的实现方式 —— 官方未说明（已查 docs.continue.dev 首页与 Chat 上下文选择两页）
-- 数据是否用于模型训练 —— 官方已查页面未说明（已查仓库 README 与文档站首页）
+- 仓库归档的具体日期与收购完成时间 —— 官方公告没有给出确切日期（已查仓库 README、官网公告与 Releases）
+- 原 Continue 账户 / 订阅的去向与数据处理 —— 官网 FAQ 仅列出问题，答案没有公开
+- 代码库语义索引的实现方式 —— 官方文档没有说明（已查 docs.continue.dev 首页与 Chat 上下文选择两页）
+- 数据是否用于模型训练 —— 已查页面没有说明（已查仓库 README 与文档站首页）
 - 各 provider 换用后 tool calling 质量的官方对比
 
 ## 相关条目

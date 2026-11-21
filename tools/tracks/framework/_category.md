@@ -36,49 +36,51 @@
 
 ## 收录对象（42 份）
 
-| id | 名称 | 厂商 |
-|---|---|---|
-| `ag2` | AG2 | ag2ai |
-| `agentscope` | AgentScope | 阿里巴巴（魔搭社区） |
-| `agno` | Agno（原 Phidata） | Agno Inc. |
-| `claude-agent-sdk` | Claude Agent SDK | Anthropic |
-| `codex-sdk` | Codex SDK | OpenAI |
-| `crewai` | CrewAI | CrewAI Inc |
-| `deepagents` | Deep Agents | LangChain |
-| `drake` | Drake | Robot Locomotion Group / MIT |
-| `dspy` | DSPy | Stanford NLP / Databricks |
-| `elizaos` | ElizaOS（Eliza） | ElizaOS 社区（Eliza Research） |
-| `gazebo` | Gazebo Sim | Open Robotics |
-| `genesis` | Genesis | Genesis Embodied AI |
-| `google-adk` | Google ADK（Agent Development Kit） | Google |
-| `haystack` | Haystack | deepset |
-| `hermes-agent` | Hermes Agent | Nous Research |
-| `isaac-lab` | Isaac Lab | NVIDIA |
-| `isaac-sim` | Isaac Sim | NVIDIA |
-| `langchain` | LangChain | LangChain, Inc. |
-| `langchain4j` | LangChain4j | LangChain4j 社区 |
-| `langgraph` | LangGraph | LangChain Inc |
-| `lerobot` | LeRobot | Hugging Face |
-| `letta` | Letta / MemGPT | Letta, Inc. |
-| `llamaindex` | LlamaIndex Framework | LlamaIndex（run-llama） |
-| `mastra` | Mastra | Mastra AI |
-| `metagpt` | MetaGPT | DeepWisdom（深度赋智，国产） |
-| `microsoft-agent-framework` | Microsoft Agent Framework | Microsoft |
-| `moveit2` | MoveIt 2 | MoveIt |
-| `mujoco` | MuJoCo | Google DeepMind |
-| `nav2` | Nav2 | ROS Navigation |
-| `open-interpreter` | Open Interpreter | Open Interpreter（开源社区） |
-| `openai-agents-sdk` | OpenAI Agents SDK | OpenAI |
-| `openhands` | OpenHands Agent Canvas | OpenHands（All-Hands-AI） |
-| `pybullet` | PyBullet | Bullet Physics |
-| `pydantic-ai` | Pydantic AI | Pydantic |
-| `ros2` | ROS 2 | Open Robotics |
-| `semantic-kernel` | Semantic Kernel（SK） | Microsoft |
-| `smolagents` | smolagents | Hugging Face |
-| `spring-ai` | Spring AI | Spring（VMware/Broadcom） |
-| `strands-agents` | Strands Agents SDK | AWS |
-| `swe-agent` | SWE-agent | Princeton / Stanford（学术团队） |
-| `vercel-ai-sdk` | Vercel AI SDK 7 | Vercel |
-| `webots` | Webots | Cyberbotics |
+| id | 名称 | 厂商 | 形态 | 状态 |
+|---|---|---|---|---|
+| `ag2` | AG2 | ag2ai | 框架 / SDK | 8 项已核 · 活跃 |
+| `agentscope` | AgentScope | 阿里巴巴（魔搭社区） | 框架 / SDK | 8 项已核 · 活跃 |
+| `agno` | Agno（原 Phidata） | Agno Inc. | 框架 / SDK | 8 项已核 · 活跃 |
+| `claude-agent-sdk` | Claude Agent SDK | Anthropic | 框架 / SDK | 8 项已核 · 活跃 |
+| `codex-sdk` | Codex SDK | OpenAI | 框架 / SDK | 8 项已核 · 活跃 |
+| `crewai` | CrewAI | CrewAI Inc | 框架 / SDK | 8 项已核 · 活跃 |
+| `deepagents` | Deep Agents | LangChain | 框架 / SDK | 8 项已核 · 活跃 |
+| `drake` | Drake | Robot Locomotion Group / MIT | 框架 / SDK | 8 项已核 · 活跃 |
+| `dspy` | DSPy | Stanford NLP / Databricks | 框架 / SDK | 8 项已核 · 活跃 |
+| `elizaos` | ElizaOS（Eliza） | ElizaOS 社区（Eliza Research） | 框架 / SDK | 8 项已核 · 活跃 |
+| `gazebo` | Gazebo Sim | Open Robotics | 本机应用 | 8 项已核 · 活跃 |
+| `genesis` | Genesis | Genesis Embodied AI | 框架 / SDK | 8 项已核 · 活跃 |
+| `google-adk` | Google ADK（Agent Development Kit） | Google | 框架 / SDK | 8 项已核 · 活跃 |
+| `haystack` | Haystack | deepset | 框架 / SDK | 8 项已核 · 活跃 |
+| `hermes-agent` | Hermes Agent | Nous Research | 框架 / SDK | 8 项已核 · 活跃 |
+| `isaac-lab` | Isaac Lab | NVIDIA | 框架 / SDK | 8 项已核 · 活跃 |
+| `isaac-sim` | Isaac Sim | NVIDIA | 本机应用 | 8 项已核 · 活跃 |
+| `langchain` | LangChain | LangChain, Inc. | 框架 / SDK | 8 项已核 · 活跃 |
+| `langchain4j` | LangChain4j | LangChain4j 社区 | 框架 / SDK | 8 项已核 · 活跃 |
+| `langgraph` | LangGraph | LangChain Inc | 框架 / SDK | 8 项已核 · 活跃 |
+| `lerobot` | LeRobot | Hugging Face | 框架 / SDK | 8 项已核 · 活跃 |
+| `letta` | Letta / MemGPT | Letta, Inc. | 框架 / SDK | 8 项已核 · 活跃 |
+| `llamaindex` | LlamaIndex Framework | LlamaIndex（run-llama） | 框架 / SDK | 8 项已核 · 活跃 |
+| `mastra` | Mastra | Mastra AI | 框架 / SDK | 8 项已核 · 活跃 |
+| `microsoft-agent-framework` | Microsoft Agent Framework | Microsoft | 框架 / SDK | 8 项已核 · 活跃 |
+| `moveit2` | MoveIt 2 | MoveIt | 框架 / SDK | 8 项已核 · 活跃 |
+| `mujoco` | MuJoCo | Google DeepMind | 框架 / SDK | 8 项已核 · 活跃 |
+| `nav2` | Nav2 | ROS Navigation | 框架 / SDK | 8 项已核 · 活跃 |
+| `open-interpreter` | Open Interpreter | Open Interpreter（开源社区） | 框架 / SDK | 8 项已核 · 活跃 |
+| `openai-agents-sdk` | OpenAI Agents SDK | OpenAI | 框架 / SDK | 8 项已核 · 活跃 |
+| `openhands` | OpenHands Agent Canvas | OpenHands（All-Hands-AI） | 框架 / SDK | 8 项已核 · 活跃 |
+| `pybullet` | PyBullet | Bullet Physics | 框架 / SDK | 8 项已核 · 活跃 |
+| `pydantic-ai` | Pydantic AI | Pydantic | 框架 / SDK | 8 项已核 · 活跃 |
+| `ros2` | ROS 2 | Open Robotics | 框架 / SDK | 8 项已核 · 活跃 |
+| `semantic-kernel` | Semantic Kernel（SK） | Microsoft | 框架 / SDK | 8 项已核 · 活跃 |
+| `smolagents` | smolagents | Hugging Face | 框架 / SDK | 8 项已核 · 活跃 |
+| `spring-ai` | Spring AI | Spring（VMware/Broadcom） | 框架 / SDK | 8 项已核 · 活跃 |
+| `strands-agents` | Strands Agents SDK | AWS | 框架 / SDK | 8 项已核 · 活跃 |
+| `swe-agent` | SWE-agent | Princeton / Stanford（学术团队） | 框架 / SDK | 8 项已核 · 活跃 |
+| `vercel-ai-sdk` | Vercel AI SDK 7 | Vercel | 框架 / SDK | 8 项已核 · 活跃 |
+| `webots` | Webots | Cyberbotics | 本机应用 | 8 项已核 · 活跃 |
+| `metagpt` | MetaGPT | DeepWisdom（深度赋智，国产） | 框架 / SDK | 有未核项 · 更新放缓 |
 
-> 候选全集与去向见 `inventory/framework.md`（T9 盘点后建立）。
+> 共 **42** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

@@ -11,7 +11,7 @@ system, so that choosing becomes a traceable judgement rather than a hunch.
 
 This repository **holds data only, it does not emit conclusion pages**. The conclusion layer
 is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganized into
-**10 categories**; the former three divisions agents / harness / tools are retired):
+**12 categories**; the former three divisions agents / harness / tools are retired):
 
 | Category | Subject |
 |---|---|
@@ -27,7 +27,7 @@ is consumed by tools.specul.com (v8 · since 2026-10-21 the content is reorganiz
 
 **Three families** (homepage card grouping, not a directory layer): ready-made (coding / chat /
 image / video / audio / research / automation) · build-your-own (framework / runner) ·
-plug-in-and-run (mcp). The three families use different coordinate systems — no ranking across them.
+plug-in-and-run (mcp). The three families answer different questions — no ranking across them.
 
 Category definitions and boundary rulings: see [categories.md](./categories.md).
 
@@ -42,7 +42,7 @@ Projects of this kind are usually a column of links. This repository takes a dif
 | Sorted by stars / popularity | **No overall rankings** |
 | Copying vendor marketing copy | Only capability boundaries verifiable from official sources |
 | Leaving it blank when not found | **"Unknown" is a valid answer**, with the reason given |
-| One flat list | **A fixed set of 8 axes × every object**, comparable horizontally |
+| One flat list | **The same 8 questions for every object**, so they can be compared |
 | Nobody notices dead links | Every judgement cites an official source with a verification date |
 
 **Verified snapshots, not a claim of live measurement.**
@@ -68,7 +68,7 @@ There are 225 profiles here. Most people need three of them. Pick the lane that 
 | "I want a chat assistant or a creation tool" | [`tracks/chat/`](./tracks/chat/) · [`tracks/image/`](./tracks/image/) · [`tracks/video/`](./tracks/video/) · [`tracks/audio/`](./tracks/audio/) — read the "commercial license" line first |
 | "I want to build my own agent" | Go straight to [`tracks/framework/`](./tracks/framework/): where state lives, how context gets compressed, how far permissions reach |
 | "My agent needs to reach the outside world" | [`tracks/mcp/`](./tracks/mcp/) — the MCP server ecosystem |
-| "I want to know how two things actually differ" | Read [`axes/`](./axes/) to see what each of the 8 dimensions asks, then compare side by side |
+| "I want to know how two things actually differ" | Read [`axes/`](./axes/) to see what each of the 8 questions asks, then compare side by side |
 
 One trap worth naming up front: a ready-made tool and a build-your-own base are not the same
 kind of thing. The first question is "which one is nicer to use"; the second is
@@ -88,7 +88,7 @@ Four core rules:
 | Rule | How it is applied |
 |---|---|
 | **Abandon the aggregate score** | Without reproducible measurement under a shared input, budget and environment, no total ranking is given |
-| **Fixed coordinate system** | Every object is described on the same set of 8 axes; custom axes are not allowed |
+| **The same questions for everyone** | Every object answers the same 8 questions; no custom scoring |
 | **Unknown is a valid answer** | When it cannot be found, write "unknown" plus the reason; never fill in by guesswork |
 | **Every judgement carries evidence** | Judgements trace back to first-party official sources, distinguishing announcement / verification / effective dates |
 
@@ -100,7 +100,7 @@ The full methodology is in [METHODOLOGY.md](./METHODOLOGY.md).
 
 ### I want to look up one tool's capability boundary
 
-1. See what each of the 8 axes asks about in [axes/](./axes/)
+1. See what each of the 8 questions asks in [axes/](./axes/)
 2. Find the entry under that category's `products/` (category definitions: [categories.md](./categories.md))
 3. Follow the entry's `sources` back to the official text
 
@@ -108,7 +108,7 @@ The full methodology is in [METHODOLOGY.md](./METHODOLOGY.md).
 
 1. Read [SCHEMA.md](./SCHEMA.md) for the field format (v2: directory = category, `form:` has 8 values)
 2. Copy any entry in the same category as a template
-3. Fill in the 8 axes according to the criteria in [axes/](./axes/)
+3. Answer the 8 questions according to the criteria in [axes/](./axes/)
 4. Open a PR with links to the official sources you read
 
 ### I want to correct a piece of data
@@ -128,10 +128,10 @@ Read the matching `protocols/_protocol.md` (three protocols: coding / framework 
 tools/ (ai-handbook subtree)
 ├── METHODOLOGY.md              methodology
 ├── SCHEMA.md                   data format spec (v2)
-├── categories.md               the 10 categories: definitions and boundary rulings
+├── categories.md               the 12 categories: definitions and boundary rulings
 ├── CONTRIBUTING.md             how to contribute
 ├── SOURCES.md                  source index
-├── axes/                       definitions and criteria for the 8 axes (incl. consumer readings)
+├── axes/                       definitions and criteria for the 8 questions (incl. consumer readings)
 │   ├── model-access.md         models and access conditions
 │   ├── runtime.md              where it runs
 │   ├── local-files.md          local files
@@ -178,8 +178,8 @@ Every entry carries two independent markers:
 
 | Value | Meaning |
 |---|---|
-| `verified` | All 8 axes have official sources, and the verification date is within 90 days |
-| `partial` | Some axes are marked unknown, or verification is older than 90 days |
+| `verified` | All 8 questions have official sources, and the verification date is within 90 days |
+| `partial` | Some questions are marked unknown, or verification is older than 90 days |
 | `stale` | Upstream has released significant changes that we have not yet verified |
 
 ### `lifecycle` — the state of the object itself
@@ -194,7 +194,7 @@ tomorrow".
 | `archived` | Upstream is archived, stopped updating, or transferred maintenance |
 | `unknown` | No changelog / no repository to judge by |
 
-**Constraint**: when `lifecycle` is `archived` or `unknown`, `confidence` must not be `verified`.
+**Neither caps the other**: a product going quiet does not mean the facts were never checked. `archived` can still be `verified`; the page shows “8 questions answered” and “archived” separately.
 
 **Why it is a separate field**: an object may have been verified today and still become
 useless tomorrow if upstream has been quiet for six months.
@@ -253,14 +253,14 @@ If you need the raw snapshots for research, please contact us via an Issue.
 |---|---|
 | **specul.com** | Brand site (投机 · 推演 — speculation · inference) |
 | **nav.specul.com** | Conclusion layer: AI site directory |
-| **tools.specul.com** | Conclusion layer: AI tools across 10 categories |
+| **tools.specul.com** | Conclusion layer: AI tools across 12 categories |
 | **learn.specul.com** | Conclusion layer: AI glossary |
 | **models.specul.com** | Conclusion layer: quantized model index for local deployment |
 | **vg.specul.com** | Conclusion layer: making games with AI |
 
 **Methodology prototype**: this repository's three rules — abandon aggregate scores, make
 "unknown" legitimate, attach evidence to every judgement — are borrowed from
-[AgentClash](https://aiagentclash.com/), but the coordinate system and category definitions
+[AgentClash](https://aiagentclash.com/), but the question set and category definitions
 are independently designed here.
 
 <!-- INDEX:BEGIN generated, do not edit -->
@@ -274,8 +274,8 @@ Coding agents in your editor, terminal, or a vendor cloud
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Baidu Comate (Wenxin Kuaima)](tracks/coding/products/baidu-comate.md) | Baidu | ide | verified | active |
-| [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | partial | maintenance |
-| [Aider (Watch mode)](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
+| [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | verified | maintenance |
+| [Aider (Watch mode)](tracks/coding/products/aider.md) | Aider-AI | ide | verified | maintenance |
 | [Amazon Q Developer](tracks/coding/products/amazon-q-developer.md) | AWS | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation (spun out of Sourcegraph, Dec 2025) | cli | verified | active |
 | [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | verified | active |
@@ -286,7 +286,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [CodeBuddy](tracks/coding/products/codebuddy.md) | Tencent Cloud | ide | verified | active |
 | [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | verified | active |
 | [Codex (IDE extension)](tracks/coding/products/codex-ide.md) | OpenAI | ide | verified | active |
-| [Continue](tracks/coding/products/continue.md) | Continue | ide | partial | archived |
+| [Continue](tracks/coding/products/continue.md) | Continue | ide | verified | archived |
 | [Crush](tracks/coding/products/crush.md) | Charm | cli | verified | active |
 | [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | verified | active |
 | [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | verified | active |

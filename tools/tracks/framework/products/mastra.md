@@ -461,7 +461,7 @@ GitHub 的 license API 对整仓返回 **NOASSERTION**。
 
 `confidence: verified` 的依据：
 
-**为什么仍是 partial**：八维已全部从官方页核到结论。但仍有若干处**官方确实没写**、
+**为什么仍是 partial**：8 个问题已全部从官方页核到结论。但仍有若干处**官方确实没写**、
 只能记「官方文档不展开」的项。**共四处**：
 
 - 换 provider 后各家 tool calling / structured output 的对齐度

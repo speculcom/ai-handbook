@@ -43,22 +43,24 @@
 
 ## 收录对象（15 份）
 
-| id | 名称 | 厂商 |
-|---|---|---|
-| `microsoft-365-copilot` | Microsoft 365 Copilot | Microsoft |
-| `google-workspace-gemini` | Google Workspace Gemini | Google |
-| `notion-ai` | Notion AI | Notion |
-| `gamma` | Gamma | Gamma |
-| `canva-magic-studio` | Canva Magic Studio | Canva |
-| `grammarly` | Grammarly | Grammarly |
-| `deepl-pro` | DeepL Pro | DeepL |
-| `fireflies-ai` | Fireflies.ai | Fireflies.ai |
-| `tldv` | tl;dv | tl;dv |
-| `adobe-acrobat-ai` | Adobe Acrobat AI Assistant | Adobe |
-| `feishu-ai` | 飞书智能伙伴 | 飞书 |
-| `dingtalk-ai` | 钉钉 AI 助理 | 钉钉 |
-| `tencent-docs-ai` | 腾讯文档 AI | 腾讯 |
-| `wps-ai` | WPS AI | 金山办公 |
-| `beautiful-ai` | Beautiful.ai | Beautiful.ai |
+| id | 名称 | 厂商 | 形态 | 状态 |
+|---|---|---|---|---|
+| `dingtalk-ai` | 钉钉 AI 助理 | 钉钉 | 厂商云 | 8 项已核 · 活跃 |
+| `feishu-ai` | 飞书智能伙伴 | 飞书 | 厂商云 | 8 项已核 · 活跃 |
+| `tencent-docs-ai` | 腾讯文档 AI | 腾讯 | 网页服务 | 8 项已核 · 活跃 |
+| `adobe-acrobat-ai` | Adobe Acrobat AI Assistant | Adobe | 桌面 / 移动应用 | 8 项已核 · 活跃 |
+| `beautiful-ai` | Beautiful.ai | Beautiful.ai | 网页服务 | 8 项已核 · 活跃 |
+| `canva-magic-studio` | Canva Magic Studio | Canva | 网页服务 | 8 项已核 · 活跃 |
+| `deepl-pro` | DeepL Pro | DeepL | 网页服务 | 8 项已核 · 活跃 |
+| `fireflies-ai` | Fireflies.ai | Fireflies.ai | 厂商云 | 8 项已核 · 活跃 |
+| `gamma` | Gamma | Gamma | 网页服务 | 8 项已核 · 活跃 |
+| `google-workspace-gemini` | Google Workspace Gemini | Google | 厂商云 | 8 项已核 · 活跃 |
+| `grammarly` | Grammarly | Grammarly | 网页服务 | 8 项已核 · 活跃 |
+| `microsoft-365-copilot` | Microsoft 365 Copilot | Microsoft | 厂商云 | 8 项已核 · 活跃 |
+| `notion-ai` | Notion AI | Notion | 网页服务 | 8 项已核 · 活跃 |
+| `tldv` | tl;dv | tl;dv | 厂商云 | 8 项已核 · 活跃 |
+| `wps-ai` | WPS AI | 金山办公 | 网页服务 | 8 项已核 · 活跃 |
 
-> 这些档案是 2026-11-19 的官方页快照，`confidence: partial`；价格、合同与全国网络可达性未复核。
+> 共 **15** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

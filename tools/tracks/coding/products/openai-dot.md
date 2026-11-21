@@ -315,7 +315,7 @@ Pro 或 Business Premium 套餐已包含你的首个 Dot，无需额外付费。
 
 | 页面 | 状态 |
 |---|---|
-| Introducing Dot 发布页 | ✅ Playwright 渲染取到 5,166 字，八维度均从正文取证 |
+| Introducing Dot 发布页 | ✅ Playwright 渲染取到 5,166 字，8 个问题度均从正文取证 |
 | DevDay 2026 回顾 | ✅ 取到（Dots 的方案范围、Enterprise beta 默认关闭） |
 | 帮助中心发布记录 | ✅ 取到（23 万字，确认 2026-09-29 发布条目） |
 | Dot 安全文档 · how-we-build-safety | ✅ **2026-10-03 取到整页正文**，补齐 `local_files` / `background` / `permissions` 三维 |

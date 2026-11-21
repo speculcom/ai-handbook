@@ -28,15 +28,34 @@
 | 云端常驻任务型 agent（Dot / Muse / Grok Bot） | 归 `coding`（`form: cloud`）——主轴是替你干活 |
 | 客服机器人 / 垂直问答 / 角色扮演陪伴 | 不收 |
 
-## 收录对象（6 份）
+## 收录对象（23 份）
 
-| id | 名称 | 厂商 |
-|---|---|---|
-| `chatgpt` | ChatGPT | OpenAI |
-| `claude-chat` | Claude（对话应用） | Anthropic |
-| `gemini-chat` | Gemini（对话应用） | Google |
-| `grok-chat` | Grok | xAI |
-| `kimi-chat` | Kimi | 月之暗面 Moonshot AI |
-| `doubao-chat` | 豆包 | 字节跳动 |
+| id | 名称 | 厂商 | 形态 | 状态 |
+|---|---|---|---|---|
+| `doubao-chat` | 豆包 | 字节跳动 | 网页服务 | 8 项已核 · 活跃 |
+| `hailuo-chat` | 海螺AI | MiniMax（稀宇科技） | 网页服务 | 8 项已核 · 活跃 |
+| `stepfun` | 阶跃AI | 阶跃星辰 | 网页服务 | 8 项已核 · 活跃 |
+| `yuanbao-chat` | 腾讯元宝 | 腾讯 | 网页服务 | 8 项已核 · 活跃 |
+| `tongyi-qianwen` | 通义千问 | 阿里巴巴 | 网页服务 | 8 项已核 · 活跃 |
+| `wenxin` | 文心 | 百度 | 网页服务 | 8 项已核 · 活跃 |
+| `xinghuo-spark` | 讯飞星火 | 科大讯飞 | 网页服务 | 8 项已核 · 活跃 |
+| `chatglm-chat` | 智谱清言 | 智谱 AI | 网页服务 | 8 项已核 · 活跃 |
+| `chatgpt` | ChatGPT | OpenAI | 网页服务 | 8 项已核 · 活跃 |
+| `claude-chat` | Claude（对话应用） | Anthropic | 网页服务 | 8 项已核 · 活跃 |
+| `deepseek-chat` | DeepSeek | 深度求索 | 网页服务 | 8 项已核 · 活跃 |
+| `gemini-chat` | Gemini（对话应用） | Google | 网页服务 | 8 项已核 · 活跃 |
+| `grok-chat` | Grok | xAI | 网页服务 | 8 项已核 · 活跃 |
+| `huggingchat` | HuggingChat | Hugging Face | 网页服务 | 8 项已核 · 活跃 |
+| `kimi-chat` | Kimi | 月之暗面 Moonshot AI | 网页服务 | 8 项已核 · 活跃 |
+| `le-chat` | Le Chat | Mistral AI | 网页服务 | 8 项已核 · 活跃 |
+| `librechat` | LibreChat | LibreChat AI | 网页服务 | 8 项已核 · 活跃 |
+| `manus` | Manus | Manus AI（Monica 团队） | 网页服务 | 8 项已核 · 活跃 |
+| `meta-ai` | Meta AI | Meta | 网页服务 | 8 项已核 · 活跃 |
+| `microsoft-copilot` | Microsoft Copilot | 微软 | 网页服务 | 8 项已核 · 活跃 |
+| `open-webui` | Open WebUI | Open WebUI 社区 | 网页服务 | 8 项已核 · 活跃 |
+| `poe` | Poe | Quora | 网页服务 | 8 项已核 · 活跃 |
+| `reka-chat` | Reka Chat（Reka Playground / Edge Chat） | Reka AI, Inc. | 网页服务 | 8 项已核 · 活跃 |
 
-> 候选全集与去向见 `inventory/chat.md`（T10 盘点后建立）。
+> 共 **23** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

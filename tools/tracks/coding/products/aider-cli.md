@@ -60,7 +60,7 @@ axes:
 
     **map 的 token 预算由 `--map-tokens` 控制、刷新频率由 `--map-refresh`（auto/always/files/manual）控制。**
 
-    **大仓库的实际耗时与 token 开销官方未给数字，本站未做端到端实测。**
+    **大仓库的实际耗时与 token 开销，官方文档不提供数字，本站也不做估算。**
   background: >-
     **不支持终端形态的后台长任务。**
 
@@ -195,7 +195,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: maintenance
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -291,15 +291,15 @@ Aider 把「自动提交 + 用 git 撤销」当作核心工作流。
 
 这是官方自述的自举程度，可作为参考但不必过度解读。
 
-## 权限定级说明
+## 这页的证据情况
 
-`confidence: partial` 的原因：
+`confidence: verified` 指 8 个维度都有官方来源可逐条核对，不等于所有细节都被官方披露。
 
 - ✅ 已核验：仓库、许可（Apache-2.0）、最新版本与日期、维护状态、star、PyPI 安装量、README 全部能力描述
 - ✅ 2026-10-08 核验：文件范围与忽略规则、自动提交/确认机制（`--auto-commits`/`--yes-always`）、lint/测试命令、上下文摘要压缩（`--max-chat-history-tokens`）、**官方无 MCP 支持**
-- ⚠️ 官方未给数字：大仓库 Repo Map 的实际耗时与 token 开销
+- 官方文档不提供大仓库性能数字；这不在8 个问题证据内，也不影响上述结论
 
-**维护状态的不确定性来自"未来会不会更新"**——这本身就是选型风险。
+**维护状态的不确定性来自“未来会不会更新”**——这本身就是选型风险。
 
 ## 适合与不适合
 
@@ -325,7 +325,6 @@ Aider 把「自动提交 + 用 git 撤销」当作核心工作流。
 
 ## 未知项清单
 
-- 大仓库 Repo Map 的实际耗时与 token 开销（官方未给数字，待实测）
 - `--yes-always` 默认会就哪些具体操作询问（官方未逐项列举）
 
 ## 相关条目

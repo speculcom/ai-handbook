@@ -62,7 +62,7 @@ const EN_SECTION = {
 const EN_TITLE = {
   '十个入口，一张生态图': 'Ten doors, one ecosystem map',
   '先看清全貌，再挑一条路走': 'See the whole map, then pick a path',
-  '工具越来越多，先按任务找': 'More tools than ever; start from the job',
+  '工具越来越多，先按类目看规模': 'More tools than ever; see the category scale first',
   '开放权重模型，现在走到哪一代': 'Open-weight models: which generation are we on?',
   '显存和带宽，决定你能跑多大模型': 'VRAM and bandwidth decide how big a model you can run',
   '这些论文，分别在回答什么问题': 'What question is each paper answering?',
@@ -77,7 +77,7 @@ const EN_TITLE = {
   '最近补的四个词': 'Four terms added recently',
   '从词条到路径': 'From terms to paths',
   '六站累计：知识是一层层叠上去的': 'Six stations, cumulative: knowledge stacks up',
-  '各任务的选择数量': 'Options per task',
+  '各类目的选择数量': 'Options per category',
   '协议时间线': 'Protocol timeline',
   '三层接线': 'Three layers of wiring',
   '家族当前代次的时间分布': "When each family's current generation landed",
@@ -503,11 +503,11 @@ function vizTools() {
   return section({
     id: 'shape',
     kicker: '工具 · 一张图看全貌',
-    title: '工具越来越多，先按任务找',
+    title: '工具越来越多，先按类目看规模',
     sub: 'tool landscape',
-    dek: bi('下面看各任务有多少选择，以及 2026 年 Agent 工具是怎么接起来的。找现成的、自己搭、接上跑，三条路分开走。', 'See how many options sit in each task, and how agent tools are wired in 2026. Ready-made, build-your-own and plug-in-and-run are three separate paths.'),
+    dek: bi('先看 12 个类目各有多少选择，以及 2026 年 Agent 工具是怎么接起来的。具体「我这件活落在哪」去下面的任务矩阵。', 'See how many options sit in each of the 12 categories, and how agent tools are wired in 2026. For “where does my job land”, use the job matrix below.'),
     cards: [
-      card({ span: 7, no: '01', title: '各任务的选择数量', sub: bi('按主用途计数', 'by primary use'), svg: barChart(cats, { labelW: 170 }), foot: bi('一个工具只归一个主用途，避免重复计数。数字多不代表都好用，只是说明这一类选择多。', 'Each tool has one primary use to avoid double counting. More options do not mean better tools; they mean more to compare.') }),
+      card({ span: 7, no: '01', title: '各类目的选择数量', sub: bi('按主类目计数', 'by primary category'), svg: barChart(cats, { labelW: 170 }), foot: bi('一个工具只归一个主类目，避免重复计数。数字多不代表都好用，只是说明这一类选择多。', 'Each tool has one primary category to avoid double counting. More options do not mean better tools; they mean more to compare.') }),
       card({ span: 5, no: '02', title: '协议时间线', sub: bi('MCP / Skills / AG-UI', 'MCP / Skills / AG-UI'), svg: timeline(tl, { w: 560, rowH: 49 }), foot: bi('只列有官方规范或官方公告的节点；协议发布不等于产品已经采用。', 'Official specs or announcements only; a protocol release does not mean products have adopted it.') }),
       card({ span: 12, no: '03', title: '三层接线', sub: bi('工具与数据 / Agent 与 Agent / Agent 与用户', 'tools & data / agent ↔ agent / agent ↔ user'), svg: `<div class="vz-wire">
         <div><b>MCP</b><span>${bi('Agent ↔ 工具与数据', 'agent ↔ tools & data')}</span><small>${bi('A2A 负责 Agent 之间，MCP 负责工具与上下文；2026 的 MCP Apps 把「返回一个界面」也变成工具能力。', 'A2A handles agent-to-agent; MCP handles tools and context. MCP Apps in 2026 makes “return a UI” a tool capability.')}</small></div>
@@ -515,7 +515,7 @@ function vizTools() {
         <div><b>AG-UI</b><span>${bi('Agent ↔ 用户', 'agent ↔ user')}</span><small>${bi('一条有序事件流，把 token、工具调用、共享状态与中断送到前端。', 'One ordered event stream for tokens, tool calls, shared state and interrupts.')}</small></div>
       </div>`, foot: bi('三种协议解决三个不同边界；把任何一个当成「万能协议」都会接错线。', 'Three protocols, three boundaries; treating any one as universal wires the wrong thing.') }),
     ],
-    foot: bi('说明：类目按主用途计数；协议节点只取官方规范或公告，不把第三方教程当发布。', 'Note: categories count primary uses; protocol dates come from official specs or announcements, never third-party tutorials.'),
+    foot: bi('说明：类目按主类目计数；协议节点只取官方规范或公告，不把第三方教程当发布。', 'Note: categories count primary categories; protocol dates come from official specs or announcements, never third-party tutorials.'),
     link: `<a href="2026.html">${bi('看 2026 工具协议的变化：MCP Apps、Agent Skills、AG-UI、MCP 无状态核心', 'See what changed in tool protocols in 2026: MCP Apps, Agent Skills, AG-UI, stateless MCP')} →</a>`,
   });
 }

@@ -22,6 +22,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { shell as buildShell, nativeOption } from './shell.mjs';
 import { computeCompleteness } from '../scripts/completeness.mjs';
+import { deriveFacets, JOB_LABEL, DEPLOY_LABEL, LICENSE_LABEL, COST_LABEL, countJobs } from '../scripts/facets.mjs';
+import { categoryHuman, taskMatrix, decisionStrip, snapshot, peers, vendorPanel } from './humanize.mjs';
 import { parseFrontmatter, parseSources, bodyAfter } from '../scripts/yaml.mjs';
 import { vizFor } from '../../shared/viz.mjs';
 import { costWorkbench } from './cost-workbench.mjs';
@@ -190,6 +192,36 @@ const CN_ORIGIN_LABEL = { domestic: ['国产', 'domestic'], foreign: ['国外出
 const CN_DIRECT_LABEL = { yes: ['大陆可直连', 'direct OK'], no: ['直连不可达', 'direct blocked'], unknown: ['直连未核验', 'direct unknown'] };
 const CN_FILING_LABEL = { filed: ['已备案', 'filed'], 'not-filed': ['未见于备案名单', 'not in filing list'], unknown: ['备案未核验', 'filing unknown'] };
 
+/* 状态语义（2026-11-21）：证据与产品生命周期分开说。
+ * verified 不再读作「资料齐全」——它只表示八维都有官方依据；
+ * archived 也不再等于「资料不全」——它只表示上游产品停更。 */
+const EVIDENCE_LABEL = {
+  verified: ['8 项已核', '8 axes checked'],
+  partial: ['有未核项', 'Some axes open'],
+  stale: ['需要复核', 'Needs recheck'],
+};
+const EVIDENCE_TONE = { verified: 'is-ok', partial: 'is-warn', stale: 'is-stop' };
+const LIFECYCLE_LABEL = {
+  active: ['活跃', 'Active'],
+  maintenance: ['更新放缓', 'Slowing'],
+  archived: ['已归档', 'Archived'],
+  unknown: ['状态未知', 'Unknown'],
+};
+const LIFECYCLE_TONE = { active: 'is-ok', maintenance: 'is-warn', archived: 'is-stop', unknown: 'is-warn' };
+const evidenceChip = (e) => {
+  const l = EVIDENCE_LABEL[e.confidence] || [e.confidence, e.confidence];
+  return `<span class="t-state ${EVIDENCE_TONE[e.confidence] || 'is-warn'}">${bi(l[0], l[1])}</span>`;
+};
+const lifecycleChip = (e) => {
+  const l = LIFECYCLE_LABEL[e.lifecycle] || [e.lifecycle, e.lifecycle];
+  return `<span class="t-state ${LIFECYCLE_TONE[e.lifecycle] || 'is-warn'}">${bi(l[0], l[1])}</span>`;
+};
+const statusLine = (e, lang = 'zh') => {
+  const ev = EVIDENCE_LABEL[e.confidence] || [e.confidence, e.confidence];
+  const li = LIFECYCLE_LABEL[e.lifecycle] || [e.lifecycle, e.lifecycle];
+  return lang === 'zh' ? `${ev[0]} · ${li[0]}` : `${ev[1]} · ${li[1]}`;
+};
+
 /* vendor 英文态映射（与 _audit/repo-indexes.mjs 的 VENDOR_EN 同一口径）：
  * 档案 vendor 保持官方语境名（中文合法），渲染英文态时在这里换。
  * 未收录的 vendor 走原样回退——渲染探针会把它报成「英文态中文残留」，
@@ -309,7 +341,7 @@ const SITES = {
     key: 'coding', navKey: 'agent', dir: 'coding', domain: SITE.domain,
     name: 'AI 编程', nameEn: 'AI coding', short: 'Coding', accent: '#8b7cf8',
     tagline: bi('装在编辑器、终端，或厂商云里', 'Installed in an editor, a terminal, or a vendor cloud'),
-    desc: bi('自己能跑的成品 AI 编程工具，共用八维（模型接入 / 运行位置 / 本地文件 / 关机后任务 / 工具扩展 / 上下文 / 权限 / 适合场景）。按形态分三列——IDE 形态、CLI 形态、厂商云形态。前两者是同一产品的不同装法、不是竞争关系；厂商云形态则是另一个方向：不需要自己装，工作在别人的机器上做。',
+    desc: bi('自己能跑的成品 AI 编程工具，都按同一组问题看：模型怎么接、跑在哪、能不能改本地文件、关机后谁接着跑、能接什么工具、上下文怎么留、权限给到哪、适合什么任务。按形态分三列——IDE 形态、CLI 形态、厂商云形态。前两者是同一产品的不同装法、不是竞争关系；厂商云形态则是另一个方向：不需要自己装，工作在别人的机器上做。',
       'Finished AI coding tools you can run yourself, compared on eight shared dimensions (model access / where it runs / local files / tasks after shutdown / tools and extensions / context / permissions / best fit). Grouped into three forms — IDE, CLI and vendor cloud. The first two are different install forms of the same product, not competitors; vendor cloud is a different direction entirely: nothing to install, the work happens on someone else\'s machine.'),
     owns: ['ide', 'cli', 'cloud'],
     splitBy: 'form',   // 按形态分三组呈现（ide/cli/cloud）——三组产品各有同产品两装法，不能合成一张表
@@ -318,7 +350,7 @@ const SITES = {
     key: 'chat', navKey: 'agent', dir: 'chat', domain: SITE.domain,
     name: 'AI 对话助手', nameEn: 'Chat assistants', short: 'Chat', accent: '#f5c542',
     tagline: bi('通用对话产品，含国产', 'General-purpose chat products, Chinese ones included'),
-    desc: bi('通用 AI 对话助手——网页入口的多模型对话产品，国产与国际阵营都收。八维按消费级读法：背后模型是否披露、能不能选档、历史与记忆机制、账户数据用途与训练开关、产物商用条款。',
+    desc: bi('通用 AI 对话助手——网页入口的多模型对话产品，国产与国际阵营都收。按普通用户该问的几件事读：背后模型是否披露、能不能选档、历史与记忆怎么处理、账户数据是否用于训练、产物能不能商用。',
       'General AI chat assistants — multi-model web chat products, Chinese and international alike. The eight axes are read the consumer way: whether the model behind it is disclosed, whether you can pick tiers, how history and memory work, what your account data is used for, and what the terms say about commercial use.'),
     owns: ['web'],
     splitBy: null,
@@ -327,7 +359,7 @@ const SITES = {
     key: 'image', navKey: 'agent', dir: 'image', domain: SITE.domain,
     name: 'AI 图像创作', nameEn: 'AI image creation', short: 'Image', accent: '#f472b6',
     tagline: bi('文生图与图像工作台', 'Text-to-image and image workbenches'),
-    desc: bi('图像生成产品：文生图、编辑工作台、聚合模型入口。八维按消费级读法；permissions 维必答产物商用授权与训练用途——「能生成」≠「能商用」。',
+    desc: bi('图像生成产品：文生图、编辑工作台、聚合模型入口。同样按普通用户该问的几件事读；其中「权限与限制」必须写清产物商用授权与训练用途——「能生成」≠「能商用」。',
       'Image-generation products: text-to-image, editing workbenches, aggregated-model front ends. The eight axes are read the consumer way; the permissions axis must answer commercial use and training consent — "you can generate it" is not "you can sell it".'),
     owns: ['web', 'cloud'],
     splitBy: null,
@@ -345,7 +377,7 @@ const SITES = {
     key: 'audio', navKey: 'agent', dir: 'audio', domain: SITE.domain,
     name: 'AI 音频与语音', nameEn: 'AI audio & voice', short: 'Audio', accent: '#34d399',
     tagline: bi('音乐生成、语音合成与转写', 'Music generation, TTS and transcription'),
-    desc: bi('音频生成与转写产品：音乐生成、语音合成（TTS）、语音转写。声音克隆涉及人格权，permissions 维必须写清官方授权要求；开源模型（如 Whisper）按「模型不是产品」口径建档。',
+    desc: bi('音频生成与转写产品：音乐生成、语音合成（TTS）、语音转写。声音克隆涉及人格权，「权限与限制」这项必须写清官方授权要求；开源模型（如 Whisper）按「模型不是产品」口径建档。',
       'Audio generation and transcription products: music, TTS, speech-to-text. Voice cloning touches personality rights, so the permissions axis must state the official consent requirements; open-source models (Whisper, say) are filed under the "a model is not a product" rule.'),
     owns: ['web', 'cloud', 'local-app'],
     splitBy: null,
@@ -363,7 +395,7 @@ const SITES = {
     key: 'office', navKey: 'agent', dir: 'office', domain: SITE.domain,
     name: '办公与写作', nameEn: 'Office & writing', short: 'Office', accent: '#e0a33a',
     tagline: bi('文档、表格、演示、会议、翻译与邮件', 'Docs, sheets, slides, meetings, translation and email'),
-    desc: bi('普通办公场景的 AI 产品：文档写作、表格分析、演示生成、会议记录、翻译与邮件日程。八维按「交付物是什么、数据会去哪、能否商用」读；同一功能可能藏在通用助手或办公套件里，档案只收以办公为主轴的产品，并与 chat / research / automation 互链。',
+    desc: bi('普通办公场景的 AI 产品：文档写作、表格分析、演示生成、会议记录、翻译与邮件日程。按「交付物是什么、数据会去哪、能否商用」来读；同一功能可能藏在通用助手或办公套件里，档案只收以办公为主轴的产品，并与 chat / research / automation 互链。',
       'AI products for everyday office work: document writing, spreadsheet analysis, slide generation, meeting notes, translation and email/calendar. The eight axes are read through "what is the deliverable, where does the data go, can it be used commercially"; a feature may live inside a general assistant or an office suite, so entries only cover products whose main axis is office work and cross-link to chat / research / automation.'),
     owns: ['web', 'cloud', 'app'],
     splitBy: null,
@@ -400,7 +432,7 @@ const SITES = {
     key: 'runner', navKey: 'agent', dir: 'runner', domain: SITE.domain,
     name: '本地模型运行器', nameEn: 'Local model runners', short: 'Runners', accent: '#94a3b8',
     tagline: bi('在自己机器上跑开源模型', 'Run open-weight models on your own machine'),
-    desc: bi('本地模型运行器：把开源权重模型跑在自己的机器上——Ollama / LM Studio / llama.cpp / vLLM 这类。档案的 model_access / runtime 维写「格式 × 量化档」口径，具体量化数据在 models 站，两边互链不重复。',
+    desc: bi('本地模型运行器：把开源权重模型跑在自己的机器上——Ollama / LM Studio / llama.cpp / vLLM 这类。档案的「模型接入」「运行位置」两项写清「格式 × 量化档」，具体量化数据在 models 站，两边互链不重复。',
       'Local model runners — open-weight models running on your own machine (Ollama / LM Studio / llama.cpp / vLLM class). The model_access / runtime axes are written in "format × quant tier" terms; the per-tier numbers live on the models site, cross-linked rather than duplicated.'),
     owns: ['local-app', 'cli'],
     splitBy: null,
@@ -501,6 +533,7 @@ const CAT_LABEL = {
   framework: ['框架与运行时', 'Frameworks & runtimes'],
   mcp: ['MCP 工具', 'MCP tools'],
   runner: ['本地运行器', 'Local runners'],
+  safety: ['安全与评测', 'Safety & evaluation'],
 };
 
 // ── 读取一个赛道 ───────────────────────────────────────────────────────────
@@ -723,6 +756,7 @@ function loadTrack(partKey) {
 
     entries.push({
       id, name: fm.name, nameEn: fm.nameEn || '', vendor: fm.vendor, homepage: fm.homepage,
+      trackKey: partKey,
       mark: fm.mark || '', accent: fm.accent || '',
       tagline: fm.tagline || '', summary: fm.summary || '',
       tags: fm.tags || [], related: fm.related || [],
@@ -740,6 +774,11 @@ function loadTrack(partKey) {
       family: fm.family || '',  // framework 分层；validate 强制必填，页面需按它分组呈现
       form: fm.form, // v8 T7：形态 8 值枚举（ide/cli/cloud/harness/mcp/web/app/local-app），首页按它分形态
       cn: fm.cn || null, // S52 中文生态透镜（validate 强制必填，页面按它渲染 chip + 筛选）
+      /* 2026-11-21：分面视图。只从已有字段推导，不新增事实；见 scripts/facets.mjs。 */
+      facets: deriveFacets({
+        track: partKey, form: fm.form, tags: fm.tags || [], license: fm.license || '',
+        licenseEn: fm.licenseEn || '', vendor: fm.vendor || '', family: fm.family || '',
+      }),
       axesKeys: [...AXES.map(x => x[0]), ...mcpKeys],
       body,
       sec: {
@@ -774,9 +813,10 @@ function validate(partKey, entries, errors) {
     if (!e.sec.fit) errs.push(`${partKey}/${e.id} · 正文缺「适合与不适合」`);
     if (!e.sec.runs) errs.push(`${partKey}/${e.id} · 正文缺「实测记录」`);
     if (!e.sec.unknowns) errs.push(`${partKey}/${e.id} · 正文缺「未知项清单」`);
-    if (e.confidence === 'verified' && e.lifecycle !== 'active') {
-      errs.push(`${partKey}/${e.id} · confidence=verified 但 lifecycle=${e.lifecycle}`);
-    }
+    /* 2026-11-21：状态语义拆开。confidence 只衡量证据是否齐，lifecycle 只衡量
+     * 产品是否还在更新；已归档产品只要八维与来源核清，仍可 verified。
+     * 页面会把两个状态分开显示，不再让「停更」看起来像「资料残缺」。 */
+
     /* C0 正文英译的键漂移守卫（2026-10-24）：
      * 译文文件引用了源侧不存在的 axes 键 / 小节标题 / 数量不齐的 related·sources
      * —— 源文改名或删节后译文残留会「悄悄少一块」，构建期必须报。 */
@@ -1529,7 +1569,7 @@ function renderIndex(site, partKey, entries) {
      *  - data-blob 是搜索口径：名称 + 厂商 + 定位句（不含正文 —— 正文会提到别的产品）。 */
     const pc = PRODUCT_COMPLETENESS[e.id] || { done: 0, total: 0 };
     const blob = [e.name, e.nameEn, e.vendor, lineRaw].filter(Boolean).join(' ').toLowerCase();
-    return `        <article class="card" style="--card-accent:${esc(e.accent || site.accent)}" data-track="${esc(e.form || '')}" data-family="${esc(e.family || '')}" data-conf="${esc(e.confidence || '')}" data-cn-origin="${esc((e.cn || {}).origin || '')}" data-cn-direct="${esc((e.cn || {}).direct || '')}" data-cn-filing="${esc((e.cn || {}).filing || '')}" data-done="${pc.done}" data-total="${pc.total}" data-name="${esc(e.name)}" data-blob="${esc(blob)}">
+    return `        <article class="card" style="--card-accent:${esc(e.accent || site.accent)}" data-track="${esc(e.form || '')}" data-family="${esc(e.family || '')}" data-conf="${esc(e.confidence || '')}" data-lifecycle="${esc(e.lifecycle || '')}" data-job="${esc((e.facets.jobs || []).join(' '))}" data-deploy="${esc(e.facets.deployment || '')}" data-license="${esc(e.facets.licenseKind || '')}" data-cost="${esc(e.facets.cost || '')}" data-vendor-key="${esc(e.facets.vendorKey || '')}" data-cn-origin="${esc((e.cn || {}).origin || '')}" data-cn-direct="${esc((e.cn || {}).direct || '')}" data-cn-filing="${esc((e.cn || {}).filing || '')}" data-done="${pc.done}" data-total="${pc.total}" data-name="${esc(e.name)}" data-blob="${esc(blob)}">
           <div class="card-top">
             <div class="mark" aria-hidden="true">${bi(esc(e.mark || e.name.slice(0,2)), esc((e.nameEn || e.name).slice(0,2).toUpperCase()))}</div>
             <div class="card-id">
@@ -1539,7 +1579,7 @@ function renderIndex(site, partKey, entries) {
           </div>
           <p class="tagline">${line}</p>
           <div class="card-foot">
-            <span class="t-state ${e.confidence === 'verified' ? 'is-ok' : e.confidence === 'stale' ? 'is-stop' : 'is-warn'}">${bi(e.confidence === 'verified' ? '资料齐全' : e.confidence === 'stale' ? '需要复核' : '资料不全', e.confidence === 'verified' ? 'Complete' : e.confidence === 'stale' ? 'Needs review' : 'Partly missing')}</span>
+            <span class="t-state ${e.confidence === 'verified' && e.lifecycle === 'active' ? 'is-ok' : e.lifecycle === 'archived' || e.confidence === 'stale' ? 'is-stop' : 'is-warn'}">${bi(statusLine(e, 'zh'), statusLine(e, 'en'))}</span>
             <a class="more" href="./${esc(e.id)}.html" aria-label="${esc(e.name)} 详情" data-ui-aria-label-zh="${esc(e.name)} 详情" data-ui-aria-label-en="${esc(e.nameEn || e.name)} details">${bi('详情 →', 'Details →')}</a>
           </div>
         </article>`;
@@ -1668,9 +1708,9 @@ ${orphan.map(cardFor).join('\n')}
     const ratiosVary = ratios.size > 1;
 
     const opt = (arr) => nativeOption('', '全部', 'All') + arr.map((o) => nativeOption(o.key, o.zh || o.label || o.key, o.en || o.label || o.key)).join('');
-    const CONF_LABEL = { verified: ['资料齐全', 'Complete'], partial: ['资料不全', 'Partly missing'], stale: ['需要复核', 'Needs review'] };
+    const CONF_LABEL = EVIDENCE_LABEL;
 
-    const parts = [`          <label class="af-f"><span class="af-h">${bi('筛选档案', 'Filter entries')}</span>
+    const parts = [`          <label class="af-f"><span class="af-h">${bi('先缩小范围', 'Narrow down first')}</span>
             <input type="search" class="aq" autocomplete="off" placeholder="Cursor · Claude · Aider"></label>`];
 
     if (bySplit && splitVals.size > 1) {
@@ -1679,10 +1719,41 @@ ${orphan.map(cardFor).join('\n')}
             <select class="asel-form" data-attr="${splitAttr}">${opt(opts)}</select></label>`);
     }
     if (confVals.size > 1) {
-      parts.push(`          <label class="af-f"><span class="af-h">${bi('资料状态', 'Info status')}</span>
+      parts.push(`          <label class="af-f"><span class="af-h">${bi('核到多少', 'Evidence')}</span>
             <select class="asel-conf">${opt([...confVals].map((k) => ({ key: k, zh: (CONF_LABEL[k] || [k,k])[0], en: (CONF_LABEL[k] || [k,k])[1] })))}</select></label>`);
     }
-    /* v8 T7：任务筛选（S43）退役——tasks.json 已删、tasks: 字段回灌即硬失败。 */
+    /* 2026-11-21：三个「人怎么选」的硬条件。
+     * 它们不是新事实，是档案已有字段的视图（见 scripts/facets.mjs）。 */
+    const lifeVals = new Set(entries.map((e) => e.lifecycle).filter(Boolean));
+    if (lifeVals.size > 1) {
+      const opts = [...lifeVals].sort().map((k) => ({ key: k, zh: (LIFECYCLE_LABEL[k] || [k,k])[0], en: (LIFECYCLE_LABEL[k] || [k,k])[1] }));
+      parts.push(`          <label class="af-f"><span class="af-h">${bi('还更新吗', 'Still updated')}</span>
+            <select class="asel-life" data-attr="lifecycle">${opt(opts)}</select></label>`);
+    }
+    const jobVals = new Set(entries.flatMap((e) => (e.facets?.jobs || [])));
+    if (jobVals.size > 1) {
+      const opts = [...jobVals].sort().map((k) => ({ key: k, zh: (JOB_LABEL[k] || [k,k])[0], en: (JOB_LABEL[k] || [k,k])[1] }));
+      parts.push(`          <label class="af-f"><span class="af-h">${bi('拿它干什么', 'Main job')}</span>
+            <select class="asel-job" data-attr="job" data-multi="1">${opt(opts)}</select></label>`);
+    }
+    const deployVals = new Set(entries.map((e) => e.facets?.deployment).filter(Boolean));
+    if (deployVals.size > 1) {
+      const opts = [...deployVals].sort().map((k) => ({ key: k, zh: (DEPLOY_LABEL[k] || [k,k])[0], en: (DEPLOY_LABEL[k] || [k,k])[1] }));
+      parts.push(`          <label class="af-f"><span class="af-h">${bi('跑在哪', 'Where it runs')}</span>
+            <select class="asel-deploy" data-attr="deploy">${opt(opts)}</select></label>`);
+    }
+    const licenseVals = new Set(entries.map((e) => e.facets?.licenseKind).filter(Boolean));
+    if (licenseVals.size > 1) {
+      const opts = [...licenseVals].sort().map((k) => ({ key: k, zh: (LICENSE_LABEL[k] || [k,k])[0], en: (LICENSE_LABEL[k] || [k,k])[1] }));
+      parts.push(`          <label class="af-f"><span class="af-h">${bi('许可 / 商用', 'Licence / commercial use')}</span>
+            <select class="asel-license" data-attr="license">${opt(opts)}</select></label>`);
+    }
+    const costVals = new Set(entries.map((e) => e.facets?.cost).filter(Boolean));
+    if (costVals.size > 1) {
+      const opts = [...costVals].sort().map((k) => ({ key: k, zh: (COST_LABEL[k] || [k,k])[0], en: (COST_LABEL[k] || [k,k])[1] }));
+      parts.push(`          <label class="af-f"><span class="af-h">${bi('要不要花钱', 'Cost')}</span>
+            <select class="asel-cost" data-attr="cost">${opt(opts)}</select></label>`);
+    }
     /* S52 中文生态筛选：与 models 站同一套字段口径（origin/direct/filing）。
      * 下拉只列本页档案里真实出现的取值（B2 原则：取值唯一则不出控件）。 */
     const cnOpts = (dim, labels) => {
@@ -1712,8 +1783,8 @@ ${parts.join('\n')}
   const groupHeading = {
     form: [bi('按装法分','By install form'), bi('同一产品常有 IDE 与 CLI 两种装法，<strong>它们不是竞品</strong>——装在哪、怎么被唤起、能不能进脚本都不同。选你实际要用的那个。','A product often has both an IDE and a CLI form. <strong>They are not competitors</strong> — they differ in where they install, how they are invoked, and whether they drop into scripts. Pick the one you will actually use.')],
     family: [bi('按抽象层分组','By abstraction layer'), bi('同一层里也能差很远 —— 两个「编程底座」一个是纯原语、一个是全托管包装 CLI，所以先按抽象层分，再看具体对象。','Even within a layer the gap is wide — of two "coding bases", one is pure primitives and one is a fully managed CLI wrapper. So group by abstraction first, then look at the object.')],
-  }[splitBy] || [bi('全部对象','All objects'), bi(`按统一坐标系排列。点开任一对象可看到 ${axisNames.join(' / ')} 的完整记录、证据链接与未知项清单。`,
-    `Everything on one coordinate system. Open any object to see its full record across ${axisNamesEn.join(' / ')}, with source links and a list of unknowns.`)];
+  }[splitBy] || [bi('全部对象','All objects'), bi(`按同一套问题排列。点开任一对象，能看到 ${axisNames.join(' / ')} 的完整记录、证据链接与未知项清单。`,
+    `Everything answers the same set of questions. Open any object to see its full record across ${axisNamesEn.join(' / ')}, with source links and a list of unknowns.`)];
 
   // 完整度表按大类取自己那一行；说明文字是解读（顶层 COVERAGE_NOTE），数字来自实时计算
   const covRows = (COVERAGE_ROWS[partKey] || []).filter((t) => COVERAGE_BY_TRACK[t]);
@@ -1741,11 +1812,13 @@ ${covRows.map(t => {
 
 ${partitionBar(partKey)}
 
+    ${categoryHuman(partKey, site, entries)}
+
     ${deepGuidesSection(partKey, GUIDES)}
 
     ${guideSection(partKey, site, entries)}
 
-    <section class="section">
+    <section class="section" id="filter">
       <div class="container">
         <h2>${groupHeading[0]}</h2>
         <p class="section-desc">${groupHeading[1]}</p>
@@ -1780,7 +1853,7 @@ ${axisKeys.map(([k, label], i) => `          <div class="axis-cell">
           <table class="cmp">
             <thead>
               <tr>
-                <th>${bi('对象','Object')}</th><th>${bi('形态','Form')}</th><th>${bi('厂商','Vendor')}</th><th>${bi('适合','Best for')}</th><th>${bi('资料时间','Info dated')}</th><th>${bi('状态','Status')}</th>
+                <th>${bi('对象','Object')}</th><th>${bi('形态','Form')}</th><th>${bi('厂商','Vendor')}</th><th>${bi('适合','Best for')}</th><th>${bi('最后核验','Checked')}</th><th>${bi('核到多少 / 还更新吗','Evidence / still updated')}</th>
               </tr>
             </thead>
             <tbody>
@@ -1794,7 +1867,7 @@ ${entries.map(e => `              <tr>
                       plain((e.sec && e.sec.fitEn) || e.fit || e.axes.fit, 70))
                   : ''}</td>
                 <td class="td-date">${esc(e.lastVerified)}</td>
-                <td><span class="td-conf ${esc(e.confidence)}">${esc(e.confidence)}</span></td>
+                <td><span class="td-conf ${esc(e.confidence)}">${bi(EVIDENCE_LABEL[e.confidence]?.[0] || e.confidence, EVIDENCE_LABEL[e.confidence]?.[1] || e.confidence)}</span><br><span class="td-vendor">${bi(LIFECYCLE_LABEL[e.lifecycle]?.[0] || e.lifecycle, LIFECYCLE_LABEL[e.lifecycle]?.[1] || e.lifecycle)}</span></td>
               </tr>`).join('\n')}
             </tbody>
           </table>
@@ -1812,7 +1885,7 @@ ${entries.map(e => `              <tr>
             <li>${bi('<strong>「未知」是合法答案。</strong>查不到就写「未知」并说明为什么，不用推测填充。缺信息本身也是信息。', '<strong>"Unknown" is a legitimate answer.</strong> If it cannot be found, we write "unknown" and explain why, instead of filling the gap with guesses. Missing information is itself information.')}</li>
             <li>${bi('每个字段旁边都有来源链接，可以点回去看原文。', 'Every field carries a source link, so you can go back to the original.')}</li>
             <li>${bi('<strong>刚查过，不代表一直有效。</strong>上游归档或改版后，这里会标成 <code>active</code> / <code>maintenance</code> / <code>archived</code>。', '<strong>A recent check does not mean it stays valid.</strong> When upstream archives or changes, the entry is marked <code>active</code> / <code>maintenance</code> / <code>archived</code>.')}</li>
-            <li>${bi('<strong>不同族不混排。</strong>找现成的、自己搭的、接上与跑起来的是三种角色，坐标系不同；硬合成一张总表只会制造假的可比性。', '<strong>Families are not mixed.</strong> Ready-made tools, things you build yourself, and plug-in-and-run components are three different roles with different coordinate systems; forcing them into one master table would manufacture false comparability.')}</li>
+            <li>${bi('<strong>不同族不混排。</strong>找现成的、自己搭的、接上与跑起来的是三种角色，判断方式不同；硬合成一张总表只会制造假的可比性。', '<strong>Families are not mixed.</strong> Ready-made tools, things you build yourself, and plug-in-and-run components are three different roles with different ways of judging them; forcing them into one master table would manufacture false comparability.')}</li>
           </ul>
         </div>
         <div class="panel">
@@ -1820,7 +1893,7 @@ ${entries.map(e => `              <tr>
           <p class="t-sm mb-3">${bi('详情页与上表都带','Both the detail pages and the table above carry')} <code>confidence</code>${bi('，它反映',', which reflects')} <strong>${bi('本站数据的完整度',"how complete this site's data is")}</strong>${bi('，不是对产品的评价。',', not a judgement of the product.')}</p>
           <table class="src is-flush">
             <tbody>
-              <tr><th class="w-24"><span class="td-conf verified">verified</span></th><td>${bi(`${axisNames.length} 个维度都有官方来源，资料时间在 90 天内`, `all ${axisNames.length} dimensions have official sources and were updated within 90 days`)}</td></tr>
+              <tr><th class="w-24"><span class="td-conf verified">verified</span></th><td>${bi(`${axisNames.length} 个维度都有官方来源，最后核验在 90 天内`, `all ${axisNames.length} dimensions have official sources and were updated within 90 days`)}</td></tr>
               <tr><th><span class="td-conf partial">partial</span></th><td>${bi('部分维度写着未知，或官方文档打不开，或资料超过 90 天', 'some dimensions are marked unknown, the official docs were unreachable, or the info is over 90 days old')}</td></tr>
               <tr><th><span class="td-conf stale">stale</span></th><td>${bi('厂商已经发了大改动，这里还没来得及更新', 'the vendor has shipped a significant change that this site has not updated yet')}</td></tr>
             </tbody>
@@ -1830,7 +1903,7 @@ ${entries.map(e => `              <tr>
           <h2>${bi('本站当前的完整度','Current completeness on this site')}</h2>
           <p class="t-sm mb-2">
             ${bi("数据层用", "Recheck this figure with")} <code>node scripts/audit-gaps.mjs</code>${bi(" 可随时复核这个数字。", ".")}
-            ${bi(`下表按当前档案算（资料时间 ${latestVerified}）：`, `Computed from current data; info dated ${latestVerified}:`)}
+            ${bi(`下表按当前档案算（最后核验 ${latestVerified}）：`, `Computed from current data; info dated ${latestVerified}:`)}
           </p>
 ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/${COVERAGE.total} 维度已补齐`, `Site-wide ${COVERAGE.done}/${COVERAGE.total} dimensions filled`)}（${Math.round(COVERAGE.done / COVERAGE.total * 100)}%）</strong></p>
           <p class="t-sm">
@@ -1843,7 +1916,7 @@ ${covTable}          <p><strong class="em">${bi(`全站合计 ${COVERAGE.done}/$
         <div class="panel">
           <h2>${bi('数据来源与复核方式','Sources and how to re-check them')}</h2>
           <p>${bi('全部数据来自开源仓库', 'All data comes from the open-source repository')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">speculcom/ai-handbook</a>${bi('（CC BY 4.0）。', ' (CC BY 4.0).')}</p>
-          <p>${bi('每个条目都是纯 Markdown + frontmatter，含维度记录、证据链接、资料时间与完整度标记。仓库内含：', 'Every entry is plain Markdown plus frontmatter, carrying dimension records and an evidence chain with links, checked dates and confidence marks. The repository contains:')}</p>
+          <p>${bi('每个条目都是纯 Markdown + frontmatter，含维度记录、证据链接、最后核验日期与完整度标记。仓库内含：', 'Every entry is plain Markdown plus frontmatter, carrying dimension records and an evidence chain with links, checked dates and confidence marks. The repository contains:')}</p>
           <ul>
             <li><code>tools/METHODOLOGY.md</code> —— ${bi('方法论总纲与核心规则', 'the methodology charter and core rules')}</li>
             <li><code>tools/axes/</code> —— ${bi('每个维度的定义与判定标准（含正反例）', 'the definition and decision criteria for each dimension (with positive and negative examples)')}</li>
@@ -1922,7 +1995,7 @@ function metaDesc(s, max = 158) {
   return '';
 }
 
-function renderDetail(site, partKey, e) {
+function renderDetail(site, partKey, e, entries) {
   CTX.partKey = partKey;   // v8 T30：正文里的 .md 链接按当前大类解析
   const base = pfx(site);
   const isTools = site.owns.includes('mcp');
@@ -2080,12 +2153,13 @@ ${crumb}
       <nav class="panel is-slim" aria-label="档案目录" data-ui-aria-label-zh="档案目录" data-ui-aria-label-en="Profile contents"><p>${bi('先看你关心的部分', 'Jump to what matters to you')}</p><p>${axisKeys.map(({k,label,labelEn})=>`<a href="#dimension-${esc(k)}">${bi(label,labelEn || AXES_EN[k]?.name || label)}</a>`).join(' · ')}</p></nav>
       <div class="badges">
         ${(e.tags || []).map(t => `<span class="tag on">${bi(esc(t), esc(UI_EN.tags[t] || t))}</span>`).join('\n        ')}
-        <span class="badge accent">${bi(e.confidence === 'verified' ? '资料齐全' : e.confidence === 'stale' ? '需要复核' : '资料不全', e.confidence === 'verified' ? 'Complete' : e.confidence === 'stale' ? 'Needs review' : 'Partly missing')}</span>
-        <span class="badge">${bi(`状态：${e.lifecycle === 'active' ? '活跃' : e.lifecycle === 'maintenance' ? '维护中' : e.lifecycle === 'archived' ? '已归档' : e.lifecycle}`, `Status: ${esc(e.lifecycle)}`)}</span>
-        <span class="badge">${bi('资料时间','Info dated')} ${esc(e.lastVerified)}</span>
+        ${evidenceChip(e)}
+        ${lifecycleChip(e)}
+        <span class="badge">${bi('最后核验','Checked')} ${esc(e.lastVerified)}</span>
       </div>
 
-      <p class="t-sm">${bi('带「资料不全」的字段，说明官网没写清或链接失效；买前最好问厂商，或翻一眼它的更新日志。', 'A “partly missing” field means the official docs were unclear or a link was dead; ask the vendor or check its changelog before buying.')}</p>
+      <p class="t-sm">${bi('两个标签分开读：左边讲这页的证据是否齐，右边讲上游产品还在不在更新。停更不等于资料残缺；证据齐也不等于产品还活跃。', 'Read the two badges separately: the first is whether this page is backed by evidence, the second is whether the product is still maintained. An archived product can have complete evidence; complete evidence does not mean the product is active.')}</p>
+      ${snapshot(e)}
       ${e.sec.unknowns && /^\s*[-*]/m.test(e.sec.unknowns) ? `      <div class="panel is-slim">
         <h2 id="known-unknowns">${bi('未确认的信息','Information not confirmed')}</h2>
         ${(() => {
@@ -2180,8 +2254,8 @@ ${body}
       ${cnPanel(e.cn)}
 
       <div class="block-head">
-        <h2 class="t-h2">${bi('固定坐标系','Fixed coordinate system')}</h2>
-        <p class="t-section-lead">${axisKeys.length} ${bi('个维度','dimensions')}, ${bi('与同分区其他对象逐项可比','each comparable item by item against others in the same section')}.</p>
+        <h2 class="t-h2">${bi(`${axisKeys.length} 个问题，一张表`, `${axisKeys.length} questions, one table`)}</h2>
+        <p class="t-section-lead">${axisKeys.length} ${bi('个问题','questions')}, ${bi('与同类对象逐项可比','each comparable item by item with its peers')}.</p>
       </div>
       <dl class="axes">
 ${axesHtml}
@@ -2219,7 +2293,7 @@ ${(() => {
 
       <div class="panel">
         <h2>${bi('证据来源','Evidence sources')}</h2>
-        <p class="t-sm">${bi('资料时间','Info dated')} ${esc(e.lastVerified)}，${bi('内容更新日','content updated on')} ${esc(e.lastUpdated)}。${bi('只说明这条资料的时间，不代表每个字段都在同一天重新查过。','This is the date of the entry, not a claim that every field was rechecked that day.')}</p>
+        <p class="t-sm">${bi('最后核验','Checked')} ${esc(e.lastVerified)}，${bi('内容更新','Content updated')} ${esc(e.lastUpdated)}。${bi('只说明这页最后核验的日期，不代表每个字段都在同一天重新查过。','This is the date of the entry, not a claim that every field was rechecked that day.')}</p>
         <table class="src">
           <thead><tr><th class="w-20">${bi('类型','Type')}</th><th class="w-52">${bi('名称','Name')}</th><th>${bi('链接','Link')}</th></tr></thead>
           <tbody>
@@ -2229,7 +2303,7 @@ ${srcRows}
       </div>
 
       ${e.sec.runs ? `      <div class="panel is-slim">
-        <h2>${bi('官方口径与未核到项','Official record and unverified items')}</h2>
+        <h2>${bi('实测记录','Test notes')}</h2>
         ${e.bodyEn && e.bodyEn.runs ? `<span data-zh>${blockMd(e.sec.runs)}</span><span data-en>${blockMd(e.bodyEn.runs)}</span>` : blockMd(e.sec.runs)}
       </div>\n` : ''}
 
@@ -2247,9 +2321,12 @@ ${srcRows}
 
       ${relatedHtml}
 
+      ${peers(e, entries)}
+      ${vendorPanel(e, BY_ID, (k) => CAT_LABEL[k] || [SITES[k].name, SITES[k].nameEn])}
+
       <p class="fine mt-6">
         ${bi('本页由', 'This page is generated from the')} <a href="${SITE.repo}" target="_blank" rel="noopener" class="link-brand">ai-handbook</a> ${bi('数据层生成（CC BY 4.0）。', 'data layer (CC BY 4.0).')}
-        ${bi("方法论与坐标系定义见仓库内", "For the methodology and coordinate definitions, see")} <code>METHODOLOGY.md</code>.
+        ${bi("判断标准与方法说明见仓库内", "For the judging criteria and method notes, see")} <code>METHODOLOGY.md</code>.
       </p>
     </div>`;
 
@@ -2287,7 +2364,7 @@ ${srcRows}
 const FAMILIES = [
   { key: 'ready', name: '找现成的', nameEn: 'Ready-made',
     ask: '「有没有能直接用的？」', askEn: '"Is there something I can use directly?"',
-    cats: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'safety'] },
+    cats: ['coding', 'chat', 'image', 'video', 'audio', 'research', 'office', 'safety'] },
   { key: 'build', name: '自己搭', nameEn: 'Build your own',
     ask: '「我想自己搭一个？」', askEn: '"I want to build one myself?"',
     cats: ['automation', 'framework'] },
@@ -2296,11 +2373,13 @@ const FAMILIES = [
     cats: ['mcp', 'runner'] },
 ];
 /* 大类卡的 mark 字符（单字比两个拉丁字母辨识度高；mcp 保留协议名）。 */
-const CAT_MARK = { coding: '编', chat: '话', image: '图', video: '视', audio: '音', research: '搜', automation: '流', framework: '框', mcp: 'MCP', runner: '跑', safety: '安' };
+const CAT_MARK = { coding: '编', chat: '话', image: '图', video: '视', audio: '音', research: '搜', office: '办', automation: '流', framework: '框', mcp: 'MCP', runner: '跑', safety: '安' };
 
 function renderHome(loaded) {
   CTX.partKey = 'coding';   // 首页正文没有 .md 链接，仅为一致性设
   const byKey = Object.fromEntries(loaded.map((x) => [x.partKey, x]));
+  const allEntries = loaded.flatMap((x) => x.entries);
+  const catOrder = SITE.partitions.map((k) => ({ key: k, zh: SITES[k].name, en: SITES[k].nameEn || SITES[k].name }));
   const total = loaded.reduce((n, x) => n + x.entries.length, 0);
   const verified = loaded.reduce((n, x) => n + x.entries.filter((e) => e.confidence === 'verified').length, 0);
   const latestVerified = loaded
@@ -2311,6 +2390,11 @@ function renderHome(loaded) {
     const s = SITES[k];
     const { entries } = byKey[k];
     const v = entries.filter((e) => e.confidence === 'verified').length;
+    const jobs = Object.entries(countJobs(entries)).sort((a, b) => b[1] - a[1]).slice(0, 3);
+    const jobChips = jobs.map(([j, n]) => {
+      const l = JOB_LABEL[j] || [j, j];
+      return `<span class="cat-job">${bi(l[0], l[1])} <b>${n}</b></span>`;
+    }).join('');
     return `          <article class="card" style="--card-accent:${esc(s.accent)}" data-cat="${k}">
             <div class="card-top">
               <div class="mark" aria-hidden="true">${esc(CAT_MARK[k] || s.short.slice(0, 2))}</div>
@@ -2320,9 +2404,9 @@ function renderHome(loaded) {
                 <div class="vendor">${s.tagline}</div>
               </div>
             </div>
-            <p class="tagline">${bi('按能力、接入方式和限制整理', 'Organised by capability, setup and limits')}</p>
+            <div class="cat-jobs">${jobChips}</div>
             <div class="card-foot">
-              <span class="t-state">${bi('持续更新', 'Updated')}</span>
+              <span class="t-state">${bi(`${entries.length} 份 · ${v} 已核`, `${entries.length} entries · ${v} checked`)}</span>
               <a class="more" href="/${s.dir}/" aria-label="${esc(s.name)}" data-ui-aria-label-zh="${esc(s.name)}" data-ui-aria-label-en="${esc(s.nameEn)}">${bi('进入 →', 'Browse →')}</a>
             </div>
           </article>`;
@@ -2351,6 +2435,8 @@ ${f.cats.map(catCard).join('\n')}
 
 ${vizFor('tools')}
 
+${decisionStrip()}
+
 ${partitionBar('')}
 
     <section class="section" id="collections">
@@ -2366,6 +2452,8 @@ ${partitionBar('')}
         </ul>
       </div>
     </section>
+
+${taskMatrix(allEntries, catOrder)}
 
     <section class="section" id="cost-entry">
       <div class="container">
@@ -2568,7 +2656,7 @@ for (const { partKey, site, entries } of loaded) {
   allPages.push({ loc: `https://${SITE.domain}/${base}`, pri: '0.9' });
 
   for (const e of entries) {
-    fs.writeFileSync(path.join(dir, `${e.id}.html`), renderDetail(site, partKey, e), 'utf8');
+    fs.writeFileSync(path.join(dir, `${e.id}.html`), renderDetail(site, partKey, e, entries), 'utf8');
     allPages.push({ loc: `https://${SITE.domain}/${base}${e.id}.html`, pri: '0.7' });
   }
 
@@ -2616,13 +2704,15 @@ ${plainTagline(site.desc)}
 |---|---|---|---|---|
 ${entries.map(e => `| [${e.name}](./${e.id}.html) | ${FORM_LABEL_MD(e.form, e.family)} | ${esc(e.vendor)} | ${e.confidence} | ${e.lastVerified} |`).join('\n')}
 
-## 可信度标记
+## 状态标记
 
 | 标记 | 含义 |
 |---|---|
-| \`verified\` | all ${axisNames.length} dimensions backed by official sources, checked within 90 days |
-| \`partial\` | some dimensions unknown, or official docs unreachable, or checked over 90 days ago |
-| \`stale\` | 官方已发布重大变化，本站尚未核验 |
+| \`verified\` | 八维都有官方依据，且核验日在 90 天内（只讲证据，不讲产品是否活跃） |
+| \`partial\` | 有维度没核清、官方文档打不开，或核验超过 90 天 |
+| \`stale\` | 官方已发生重大变化，本站尚未复核 |
+
+\`lifecycle\` 单独表示产品状态（\`active\` / \`maintenance\` / \`archived\` / \`unknown\`），不参与 \`confidence\` 封顶。一个已归档产品可以有完整的证据；一个每天发版的产品也可能因为官方不披露而只有 \`partial\`。
 
 当前 ${entries.length} 个对象中，**${verifiedCount} 个为 verified**。
 

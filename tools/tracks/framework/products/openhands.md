@@ -522,7 +522,7 @@ OSS 档默认单用户、单会话 key。
 
 `confidence: verified` 的依据：
 
-**为什么不是 verified**：并非缺轴。八维核验均已核到官方机制（`context` 侧有官方
+**为什么不是 verified**：并非缺轴。8 个问题核验均已核到官方机制（`context` 侧有官方
 condenser，见 axes.context）。仍留 partial 是因为还存在**官方确实没写、或需实测**的项：
 
 - context 压缩的端到端效果

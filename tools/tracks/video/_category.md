@@ -27,12 +27,25 @@
 | 视频理解 / 分析产品 | 归 `research` 或 nav |
 | 模型经多家云 API 提供（Veo 类） | 收模型家族档案，入口在 runtime 注明 |
 
-## 收录对象（3 份）
+## 收录对象（14 份）
 
-| id | 名称 | 厂商 |
-|---|---|---|
-| `veo` | Veo | Google |
-| `runway` | Runway | Runway AI, Inc. |
-| `kling` | 可灵 Kling AI | Kling AI Pte. Ltd.（快手） |
+| id | 名称 | 厂商 | 形态 | 状态 |
+|---|---|---|---|---|
+| `hailuo-video` | 海螺视频 | MiniMax（稀宇科技） | 网页服务 | 8 项已核 · 活跃 |
+| `kling` | 可灵 Kling AI | Kling AI Pte. Ltd.（快手） | 网页服务 | 8 项已核 · 活跃 |
+| `d-id` | D-ID | D-ID | 网页服务 | 8 项已核 · 活跃 |
+| `genmo` | Genmo | Genmo | 网页服务 | 8 项已核 · 活跃 |
+| `heygen` | HeyGen | HeyGen | 网页服务 | 8 项已核 · 活跃 |
+| `higgsfield` | Higgsfield | Higgsfield AI | 网页服务 | 8 项已核 · 活跃 |
+| `invideo` | invideo AI | invideo | 网页服务 | 8 项已核 · 活跃 |
+| `luma` | Luma（Dream Machine） | Luma AI | 网页服务 | 8 项已核 · 活跃 |
+| `pika` | Pika | Pika Labs | 网页服务 | 8 项已核 · 活跃 |
+| `pixverse` | PixVerse | 爱诗科技 | 网页服务 | 8 项已核 · 活跃 |
+| `runway` | Runway | Runway AI, Inc. | 网页服务 | 8 项已核 · 活跃 |
+| `synthesia` | Synthesia | Synthesia | 网页服务 | 8 项已核 · 活跃 |
+| `veo` | Veo（Google） | Google | 厂商云 | 8 项已核 · 活跃 |
+| `vidu` | Vidu | 生数科技（清华系） | 网页服务 | 8 项已核 · 活跃 |
 
-> 候选全集与去向见 `inventory/video.md`（T12 盘点后建立）。
+> 共 **14** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

@@ -50,61 +50,34 @@
 
 ## 收录对象（25 份）
 
-> 本段由 products/ 实际在册档案生成，不是计划名单；分组口径见上文的六条线说明。
-
-> 计划里但未在本批建档（官方正文当日取不到，按「未知就说未知」不硬写）：openai-moderation-api / privateai。
-
-> 护栏与内容过滤 5：nemo-guardrails / azure-ai-content-safety / bedrock-guardrails / llm-guard / rebuff
-
-| id | 名称 | 厂商 | form | 英文正文 |
+| id | 名称 | 厂商 | 形态 | 状态 |
 |---|---|---|---|---|
-| `nemo-guardrails` | NeMo Guardrails | NVIDIA | local-app | 有 |
-| `azure-ai-content-safety` | Azure AI Content Safety | Microsoft | cloud | 有 |
-| `bedrock-guardrails` | Amazon Bedrock Guardrails | Amazon Web Services | cloud | 有 |
-| `llm-guard` | LLM Guard | Protect AI | local-app | 有 |
-| `rebuff` | Rebuff | Protect AI | local-app | 有 |
+| `bedrock-guardrails` | Amazon Bedrock Guardrails | Amazon Web Services | 厂商云 | 8 项已核 · 活跃 |
+| `arize-phoenix` | Arize Phoenix | Arize AI | 本机应用 | 8 项已核 · 活跃 |
+| `azure-ai-content-safety` | Azure AI Content Safety | Microsoft | 厂商云 | 8 项已核 · 活跃 |
+| `braintrust` | Braintrust | Braintrust AI | 网页服务 | 8 项已核 · 活跃 |
+| `adobe-content-credentials` | Content Credentials（内容凭证） | Adobe · Content Authenticity Initiative / C2PA | 网页服务 | 8 项已核 · 活跃 |
+| `garak` | garak | NVIDIA · Leon Derczynski | CLI | 8 项已核 · 活跃 |
+| `gitguardian` | GitGuardian | GitGuardian | 网页服务 | 8 项已核 · 活跃 |
+| `helicone` | Helicone | Helicone | 厂商云 | 8 项已核 · 活跃 |
+| `inspect-ai` | Inspect | UK AI Security Institute | CLI | 8 项已核 · 活跃 |
+| `lakera-ai` | Lakera | Lakera | 厂商云 | 8 项已核 · 活跃 |
+| `langfuse` | Langfuse | Langfuse | 本机应用 | 8 项已核 · 活跃 |
+| `langsmith` | LangSmith | LangChain | 厂商云 | 8 项已核 · 活跃 |
+| `langwatch` | LangWatch | LangWatch | 厂商云 | 8 项已核 · 活跃 |
+| `litellm` | LiteLLM 网关（Proxy / AI Gateway） | BerriAI · LiteLLM | 本机应用 | 8 项已核 · 活跃 |
+| `nightfall` | Nightfall | Nightfall AI | 厂商云 | 8 项已核 · 活跃 |
+| `presidio` | Presidio | Data Privacy Stack | 本机应用 | 8 项已核 · 活跃 |
+| `promptfoo` | promptfoo | promptfoo | CLI | 8 项已核 · 活跃 |
+| `pyrit` | PyRIT | Microsoft | 本机应用 | 8 项已核 · 活跃 |
+| `canary-scan` | CanaryScan | PSA Intelligence | CLI | 有未核项 · 更新放缓 |
+| `nemo-guardrails` | NeMo Guardrails | NVIDIA | 本机应用 | 有未核项 · 更新放缓 |
+| `openai-evals` | OpenAI Evals | OpenAI | CLI | 有未核项 · 更新放缓 |
+| `ragas` | Ragas | VibrantLabs | 本机应用 | 有未核项 · 更新放缓 |
+| `truepic` | Truepic Vision / Lens | Truepic Inc. | 厂商云 | 有未核项 · 更新放缓 |
+| `llm-guard` | LLM Guard | Protect AI | 本机应用 | 有未核项 · 已归档 |
+| `rebuff` | Rebuff | Protect AI | 本机应用 | 有未核项 · 已归档 |
 
-> 评测与观测 9：openai-evals / inspect-ai / langfuse / arize-phoenix / langsmith / braintrust / promptfoo / ragas / langwatch
+> 共 **25** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
 
-| id | 名称 | 厂商 | form | 英文正文 |
-|---|---|---|---|---|
-| `openai-evals` | OpenAI Evals | OpenAI | cli | 有 |
-| `inspect-ai` | Inspect | UK AI Security Institute | cli | 有 |
-| `langfuse` | Langfuse | Langfuse 项目 | local-app | 有 |
-| `arize-phoenix` | Arize Phoenix | Arize AI | local-app | 有 |
-| `langsmith` | LangSmith | LangChain | cloud | 有 |
-| `braintrust` | Braintrust | Braintrust AI | web | 有 |
-| `promptfoo` | promptfoo | promptfoo 项目 | cli | 有 |
-| `ragas` | Ragas | VibrantLabs | local-app | 有 |
-| `langwatch` | LangWatch | LangWatch | cloud | 有 |
-
-> 红队与注入检测 3：garak / canary-scan / pyrit
-
-| id | 名称 | 厂商 | form | 英文正文 |
-|---|---|---|---|---|
-| `garak` | garak | NVIDIA · Leon Derczynski | cli | 有 |
-| `canary-scan` | CanaryScan | PSA Intelligence | cli | 有 |
-| `pyrit` | PyRIT | Microsoft | local-app | 有 |
-
-> 网关与访问控制 2：helicone / litellm
-
-| id | 名称 | 厂商 | form | 英文正文 |
-|---|---|---|---|---|
-| `helicone` | Helicone | Helicone | cloud | 有 |
-| `litellm` | LiteLLM 网关（Proxy / AI Gateway） | BerriAI · LiteLLM | local-app | 有 |
-
-> 内容溯源与标识 2：truepic / adobe-content-credentials
-
-| id | 名称 | 厂商 | form | 英文正文 |
-|---|---|---|---|---|
-| `truepic` | Truepic Vision / Lens | Truepic Inc. | cloud | 有 |
-| `adobe-content-credentials` | Content Credentials（内容凭证） | Adobe · Content Authenticity Initiative / C2 | web | 有 |
-
-> 数据合规与脱敏 4：presidio / gitguardian / nightfall / lakera-ai
-
-| id | 名称 | 厂商 | form | 英文正文 |
-|---|---|---|---|---|
-| `presidio` | Presidio | Data Privacy Stack | local-app | 有 |
-| `gitguardian` | GitGuardian | GitGuardian | web | 有 |
-| `nightfall` | Nightfall | Nightfall AI | cloud | 有 |
-| `lakera-ai` | Lakera | Lakera | cloud | 有 |
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

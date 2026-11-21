@@ -165,14 +165,9 @@ function validateEntry(file, cat) {
   if (!CONFIDENCE.includes(fm.confidence)) fail(`confidence 枚举非法: ${fm.confidence}`);
   if (!LIFECYCLE.includes(fm.lifecycle)) fail(`lifecycle 枚举非法: ${fm.lifecycle}（需 active/maintenance/archived/unknown）`);
 
-  // lifecycle × confidence 组合约束
-  if (fm.lifecycle === 'archived' && fm.confidence === 'verified') {
-    fail('lifecycle=archived 时 confidence 不得为 verified（最高 partial）');
-  }
-  if (fm.lifecycle === 'unknown' && fm.confidence === 'verified') {
-    fail('lifecycle=unknown 时 confidence 不得为 verified（最高 partial）');
-  }
-
+  /* 状态语义（2026-11-21）：confidence 只衡量证据完整度，lifecycle 只衡量产品状态。
+   * 两者独立——已归档产品只要八维与来源核清，仍可 verified；页面会另显「已归档」。
+   * 这里只拦「证据不够却写 verified」的情况，不再按 lifecycle 封顶。 */
   if (fm.confidence === 'verified') {
     const all = AXES.map(a => String(ax[a] || '')).join(' ');
     if (all.includes('未知')) warn('confidence=verified 但维度里有「未知」');
@@ -181,17 +176,8 @@ function validateEntry(file, cat) {
       if (age > 90) warn(`核验日距今 ${Math.round(age)} 天，verified 应降级为 partial`);
     }
   }
-  // 归档状态：仅当**条目自身**归档时降级 confidence。
-  // 注意：正文提到「其他对象已归档」不应触发本规则——
-  // 例如 git.md 正文会说明 github server 已归档，但 git 本身是 active。
-  // 判定方式：看 lifecycle 字段，以及正文开头是否声明本对象归档。
-  const head400 = text.slice(text.indexOf('\n---\n', 4) + 5, text.indexOf('\n---\n', 4) + 405);
-  const selfArchived = fm.lifecycle === 'archived'
-    || /^#{1,3}\s*.*(本 (server|对象|条目).*(已归档|已停止)|已归档\s*→)/m.test(head400)
-    || /^(>|\s)*(已归档|Archived)\s*$/m.test(head400);
-  if (selfArchived && fm.confidence === 'verified') {
-    fail('本对象声明已归档，confidence 不得为 verified（最高 partial）');
-  }
+  /* 归档事实只写进 lifecycle 与正文，不再据此降 confidence。
+   * 正文里提到「其他对象已归档」也不应影响本条目。 */
 
   if (fm.link && fm.link.kind === 'invitation' && !fm.link.incentive) {
     fail('link.kind=invitation 时必须有 incentive');

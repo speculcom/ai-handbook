@@ -29,18 +29,20 @@
 
 ## 收录对象（11 份）
 
-| id | 名称 | 厂商 |
-|---|---|---|
-| `perplexity` | Perplexity | Perplexity AI |
-| `notebooklm` | NotebookLM | Google |
-| `elicit` | Elicit | Elicit |
-| `metaso` | 秘塔 AI 搜索 | 秘塔科技（上海秘塔网络科技） |
-| `genspark` | Genspark | Genspark |
-| `kagi` | Kagi | Kagi |
-| `you-com` | You.com | You.com |
-| `consensus` | Consensus | Consensus |
-| `tiangong` | 天工 | 昆仑万维 |
-| `devv` | Devv | Devv AI |
-| `andi` | Andi Search | Andi |
+| id | 名称 | 厂商 | 形态 | 状态 |
+|---|---|---|---|---|
+| `metaso` | 秘塔 AI 搜索 | 秘塔科技（上海秘塔网络科技） | 网页服务 | 8 项已核 · 活跃 |
+| `tiangong` | 天工 AI 搜索 | 昆仑万维 | 网页服务 | 8 项已核 · 活跃 |
+| `andi` | Andi Search | Andi | 网页服务 | 8 项已核 · 活跃 |
+| `consensus` | Consensus | Consensus | 网页服务 | 8 项已核 · 活跃 |
+| `devv` | Devv | Devv AI | 网页服务 | 8 项已核 · 活跃 |
+| `elicit` | Elicit | Elicit | 网页服务 | 8 项已核 · 活跃 |
+| `genspark` | Genspark | Genspark | 网页服务 | 8 项已核 · 活跃 |
+| `kagi` | Kagi | Kagi | 网页服务 | 8 项已核 · 活跃 |
+| `notebooklm` | NotebookLM | Google | 网页服务 | 8 项已核 · 活跃 |
+| `perplexity` | Perplexity | Perplexity AI | 网页服务 | 8 项已核 · 活跃 |
+| `you-com` | You.com | You.com | 网页服务 | 8 项已核 · 活跃 |
 
-> 候选全集与去向见 `inventory/research.md`（T29 建档后翻转）。
+> 共 **11** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

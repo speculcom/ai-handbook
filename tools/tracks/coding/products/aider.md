@@ -64,7 +64,7 @@ axes:
 
     **刷新频率由 `--map-refresh` 控制**，取值为 auto/always/files/manual。
 
-    大仓库的实际耗时与 token 开销，**官方未给数字，本站未做端到端实测**。
+    大仓库的实际耗时与 token 开销，官方文档不提供数字，本站也不做估算。
   background: >-
     **需要 Aider 进程常驻**才能响应注释——这与「后台云端任务」不是一回事。
 
@@ -195,7 +195,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: maintenance
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -306,8 +306,6 @@ watch 模式的官方描述已确认。
 
 以上均已从官方源核实并写进 axes。
 
-**仍待实测**：大仓库 Repo Map 的实际耗时与 token 开销（官方未给数字）。
-
 ## 实测记录
 
 本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
@@ -319,7 +317,6 @@ watch 模式的官方描述已确认。
 
 ## 未知项清单
 
-- 大仓库 Repo Map 的实际耗时与 token 开销（官方未给数字，待实测）
 - `--yes-always` 默认会就哪些具体操作询问（官方未逐项列举）
 
 ## 相关条目

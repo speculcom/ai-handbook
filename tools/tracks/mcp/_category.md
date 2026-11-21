@@ -31,19 +31,43 @@
 - **托管聚合器**：一个 MCP endpoint 接数百个应用（Composio 是常见例子），省去逐个接入，但权限、OAuth 令牌与数据流都经过第三方；要单独评估信任边界。
 - **选型判断**：要最小权限、自己审代码 → 单个 server；要快速接大量 SaaS、能接受第三方托管 → 聚合器。两者不能混为一谈。
 
-## 收录对象（32 份，完整清单见 `products/`）
+## 收录对象（32 份）
 
-| id | 名称 | 厂商 |
-|---|---|---|
-| `context7` | Context7 | Upstash |
-| `everything` | Everything MCP Server | Model Context Protocol |
-| `fetch` | Fetch MCP Server | Model Context Protocol |
-| `filesystem` | Filesystem MCP Server | Model Context Protocol |
-| `git` | Git MCP Server | Model Context Protocol |
-| `github-mcp` | GitHub MCP Server | GitHub |
-| `memory` | Knowledge Graph Memory Server | Model Context Protocol |
-| `playwright` | Playwright MCP Server | Microsoft |
-| `sequential-thinking` | Sequential Thinking MCP Server | Model Context Protocol |
-| `time` | Time MCP Server | Model Context Protocol |
+| id | 名称 | 厂商 | 形态 | 状态 |
+|---|---|---|---|---|
+| `1password-mcp` | 1Password Environments MCP Server | 1Password | MCP | 8 项已核 · 活跃 |
+| `atlassian-mcp` | Atlassian Remote MCP Server（Jira/Confluence） | Atlassian | MCP | 8 项已核 · 活跃 |
+| `brave-search-mcp` | Brave Search MCP Server | Brave | MCP | 8 项已核 · 活跃 |
+| `browserbase-mcp` | Browserbase MCP Server | Browserbase | MCP | 8 项已核 · 活跃 |
+| `chrome-devtools-mcp` | Chrome DevTools MCP | Google（Chrome DevTools 团队） | MCP | 8 项已核 · 活跃 |
+| `cloudflare-mcp` | Cloudflare MCP Server | Cloudflare | MCP | 8 项已核 · 活跃 |
+| `context7` | Context7 | Upstash | MCP | 8 项已核 · 活跃 |
+| `datadog-mcp` | Datadog MCP Server | Datadog | MCP | 8 项已核 · 活跃 |
+| `everything` | Everything MCP Server | Model Context Protocol | MCP | 8 项已核 · 活跃 |
+| `exa-mcp` | Exa MCP Server | Exa | MCP | 8 项已核 · 活跃 |
+| `fetch` | Fetch MCP Server | Model Context Protocol | MCP | 8 项已核 · 活跃 |
+| `figma-mcp` | Figma MCP Server | Figma | MCP | 8 项已核 · 活跃 |
+| `filesystem` | Filesystem MCP Server | Model Context Protocol | MCP | 8 项已核 · 活跃 |
+| `firecrawl-mcp` | Firecrawl MCP Server | Firecrawl | MCP | 8 项已核 · 活跃 |
+| `git` | Git MCP Server | Model Context Protocol | MCP | 8 项已核 · 活跃 |
+| `github-mcp` | GitHub MCP Server | GitHub | MCP | 8 项已核 · 活跃 |
+| `grafana-mcp` | Grafana MCP Server | Grafana Labs | MCP | 8 项已核 · 活跃 |
+| `intercom-mcp` | Intercom MCP Server | Intercom | MCP | 8 项已核 · 活跃 |
+| `memory` | Knowledge Graph Memory Server | Model Context Protocol | MCP | 8 项已核 · 活跃 |
+| `linear-mcp` | Linear MCP | Linear | MCP | 8 项已核 · 活跃 |
+| `mongodb-mcp` | MongoDB MCP Server | MongoDB | MCP | 8 项已核 · 活跃 |
+| `neon-mcp` | Neon MCP Server | Neon | MCP | 8 项已核 · 活跃 |
+| `notion-mcp` | Notion MCP | Notion | MCP | 8 项已核 · 活跃 |
+| `playwright` | Playwright MCP Server | Microsoft | MCP | 8 项已核 · 活跃 |
+| `sentry-mcp` | Sentry MCP / Toolkit | Sentry | MCP | 8 项已核 · 活跃 |
+| `sequential-thinking` | Sequential Thinking MCP Server | Model Context Protocol | MCP | 8 项已核 · 活跃 |
+| `shopify-mcp` | Shopify Dev MCP Server | Shopify | MCP | 8 项已核 · 活跃 |
+| `slack-mcp` | Slack MCP Server | Slack（Salesforce） | MCP | 8 项已核 · 活跃 |
+| `stripe-mcp` | Stripe Agent Toolkit / MCP | Stripe | MCP | 8 项已核 · 活跃 |
+| `supabase-mcp` | Supabase MCP | Supabase | MCP | 8 项已核 · 活跃 |
+| `time` | Time MCP Server | Model Context Protocol | MCP | 8 项已核 · 活跃 |
+| `zapier-mcp` | Zapier MCP | Zapier | MCP | 8 项已核 · 活跃 |
 
-> 候选全集与去向见 `inventory/mcp.md`（T9 盘点后建立）。
+> 共 **32** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

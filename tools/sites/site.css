@@ -519,7 +519,7 @@ th.w-28 { width: 112px; } th.w-52 { width: 208px; }
 @media (max-width: 760px) {
   .detail-head { flex-direction: column; gap: var(--sp-2); align-items: stretch; }
 }
-.detail-head .mark { width: 52px; height: 52px; font-size: 20px; border-radius:var(--r); }
+.detail-head .mark { width: 52px; height: 52px; font-size: 20px; border-radius:var(--r); background: color-mix(in srgb, var(--card-accent, var(--brand)) 18%, var(--surface, #fff)); border: 1px solid var(--line); }
 .detail-head h1 {
   /* 2026-10-03：原 --fs-2xl(30px) → 实测详情页 h1 仅 30px，而首页 66px，差 2.2 倍。
      这条规则特异性 (0,1,1) 高于 brand.css 的裸 h1，所以必须在这里改才生效。 */
@@ -740,3 +740,128 @@ dl.cn-rows { margin: 0; }
 .ws-actions{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
 .ws-out{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%}
 @media (max-width:520px){.ws-table{min-width:460px;font-size:14px}}
+
+/* ═══ 2026-11-21 · 人话层：先讲清替谁干活，再让人挑 ═══
+   这一组样式只服务 tools 站的三类新页面：类目人话卡、首页决策条 / 任务矩阵、
+   产品页决策快照 / 同类对照 / 同厂牌。全部用 brand.css token，不另造色板。 */
+.human-section { border-top: 1px solid var(--line); }
+.human-head { max-width: 52rem; margin-bottom: var(--sp-4); }
+.human-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-3); }
+.human-card { position: relative; padding: var(--sp-4); border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-panel); }
+.human-card .hc-no { display: block; font-size: var(--fs-micro); color: var(--ink-faint); letter-spacing: .08em; margin-bottom: var(--sp-2); }
+.human-card h3 { margin: 0 0 var(--sp-2); font-size: var(--fs-sm); }
+.human-card p { margin: 0; color: var(--ink-dim); }
+.human-asks ol { margin: 0; padding-left: 1.2em; color: var(--ink-dim); }
+.human-asks li + li { margin-top: var(--sp-1); }
+.human-stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--sp-2); margin-top: var(--sp-3); }
+.hstat { padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); }
+.hstat b { display: block; font-size: var(--fs-lg); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.hstat span { display: block; margin-top: var(--sp-1); font-size: var(--fs-micro); color: var(--ink-faint); }
+.hstat.ok { border-color: var(--ok); }
+.hstat.cool { border-color: var(--brand); }
+.hstat.warn { border-color: var(--warn); }
+.job-panel { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr); gap: var(--sp-4); align-items: start; margin-top: var(--sp-4); padding-top: var(--sp-4); border-top: 1px solid var(--line); }
+.job-panel-head p { margin: var(--sp-1) 0 0; font-size: var(--fs-xs); color: var(--ink-faint); }
+.job-bars { display: grid; gap: var(--sp-2); }
+.jb-row { display: grid; grid-template-columns: minmax(6.5rem, 10rem) minmax(0, 1fr) 2.5rem; gap: var(--sp-2); align-items: center; }
+.jb-l { font-size: var(--fs-xs); color: var(--ink-dim); }
+.jb-track { height: 8px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 8%, transparent); overflow: hidden; }
+.jb-track i { display: block; height: 100%; border-radius: inherit; background: var(--brand); }
+.jb-n { text-align: right; font-size: var(--fs-xs); color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+.decision-section { padding-top: 0; }
+.decision-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-3); }
+.decision-card { padding: var(--sp-4); border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-panel); }
+.decision-card .ds-no { display: block; font-size: var(--fs-micro); letter-spacing: .08em; color: var(--ink-faint); margin-bottom: var(--sp-3); }
+.decision-card h3 { margin: 0 0 var(--sp-2); font-size: var(--fs-base); }
+.decision-card p { margin: 0 0 var(--sp-3); color: var(--ink-dim); }
+.decision-card a { font-size: var(--fs-sm); color: var(--brand); text-decoration: none; }
+.decision-card a:hover { text-decoration: underline; }
+
+.matrix-section { border-top: 1px solid var(--line); }
+.matrix-head { max-width: 56rem; margin-bottom: var(--sp-4); }
+.matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.task-matrix { width: 100%; min-width: 1180px; border-collapse: collapse; table-layout: fixed; }
+.task-matrix th, .task-matrix td { border: 1px solid var(--line); padding: 0; text-align: center; }
+.task-matrix thead th { background: var(--bg-panel); font-size: var(--fs-xs); font-weight: 600; padding: var(--sp-2); }
+.task-matrix .tm-corner { width: 11rem; text-align: left; position: sticky; left: 0; z-index: 3; }
+.task-matrix th.tm-task { width: 11rem; text-align: left; padding: var(--sp-2); font-size: var(--fs-xs); position: sticky; left: 0; background: var(--bg); z-index: 2; }
+.task-matrix th.tm-task a { color: var(--ink); text-decoration: none; }
+.task-matrix th.tm-task a:hover { color: var(--brand); }
+.task-matrix .tm-cell a { display: block; min-height: 2.2rem; line-height: 2.2rem; color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; background: color-mix(in srgb, var(--brand) var(--heat), transparent); }
+.task-matrix .tm-cell.has a:hover { outline: 2px solid var(--brand); outline-offset: -2px; }
+.task-matrix .tm-cell:not(.has) a { color: var(--ink-faint); }
+.task-matrix .tm-total { width: 3.5rem; font-weight: 600; color: var(--ink); background: var(--bg-panel); }
+.matrix-note { margin-top: var(--sp-2); font-size: var(--fs-xs); color: var(--ink-faint); }
+
+.snapshot { margin: var(--sp-5) 0; padding: var(--sp-4); border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-panel); }
+.snap-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-2); margin-bottom: var(--sp-3); }
+.snap-head h2 { margin: 0; font-size: var(--fs-base); }
+.snap-flag { font-size: var(--fs-micro); color: var(--ink-faint); border: 1px solid var(--line); border-radius: 999px; padding: 2px var(--sp-2); }
+.snap-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-2); }
+.snap-item { min-width: 0; padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); }
+.snap-k { display: block; font-size: var(--fs-micro); color: var(--ink-faint); margin-bottom: var(--sp-1); }
+.snap-item p { margin: 0; font-size: var(--fs-sm); overflow-wrap: anywhere; }
+.snap-item small { display: block; margin-top: var(--sp-1); font-size: var(--fs-micro); color: var(--ink-faint); }
+.snap-note { margin: var(--sp-2) 0 0; font-size: var(--fs-xs); color: var(--ink-faint); }
+
+.peer-section { border-top: 1px solid var(--line); }
+.peer-table td { vertical-align: top; }
+.vendor-section { border-top: 1px solid var(--line); }
+.vendor-list { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: 0; padding: 0; list-style: none; }
+.vendor-list li a { display: inline-flex; align-items: center; gap: var(--sp-1); padding: var(--sp-1) var(--sp-2); border: 1px solid var(--line); border-radius: 999px; background: var(--bg-panel); color: var(--ink); text-decoration: none; font-size: var(--fs-xs); }
+.vendor-list li a:hover { border-color: var(--brand); color: var(--brand); }
+.vp-cat { color: var(--ink-faint); font-size: var(--fs-micro); }
+.vp-more { margin: var(--sp-2) 0 0; font-size: var(--fs-xs); color: var(--ink-faint); }
+
+@media (max-width: 900px) {
+  .human-grid, .decision-grid { grid-template-columns: 1fr; }
+  .human-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .job-panel { grid-template-columns: 1fr; }
+  .snap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .snap-grid { grid-template-columns: 1fr; }
+  .jb-row { grid-template-columns: 5.5rem minmax(0, 1fr) 2rem; }
+  .task-matrix { min-width: 1040px; }
+}
+
+/* 产品页里嵌的同类 / 同厂牌 section 已经在 .detail 容器内，别再套一层 .container */
+.detail .peer-section .container,
+.detail .vendor-section .container { max-width: none; padding-inline: 0; }
+
+/* 同类对照表：固定列宽，避免「本地 / 自托管」被挤成三行 */
+.peer-table { table-layout: fixed; }
+.peer-table th:nth-child(1) { width: 24%; }
+.peer-table th:nth-child(2) { width: 14%; }
+.peer-table th:nth-child(3) { width: 12%; }
+.peer-table th:nth-child(4) { width: 13%; }
+.peer-table th:nth-child(5) { width: 37%; }
+
+/* 首页类目卡：用真实用途计数替代重复的「按能力整理」空话 */
+.cat-jobs { display: flex; flex-wrap: wrap; gap: var(--sp-1); margin: 0 0 var(--sp-2); }
+.cat-job { display: inline-flex; align-items: baseline; gap: 4px; padding: 2px var(--sp-2); border: 1px solid var(--line); border-radius: 999px; font-size: var(--fs-micro); color: var(--ink-dim); background: var(--bg); }
+.cat-job b { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* 任务矩阵里的真实空白：说清楚，而不是让读者以为页面坏了 */
+.tm-empty { display: inline-block; margin-left: var(--sp-1); padding: 0 6px; border-radius: 4px; background: var(--warn-bg, #f3eee6); color: var(--warn, #8a5a2b); font-size: var(--fs-micro); font-weight: 400; }
+
+/* 手机上的任务矩阵：不横滑，每件事只给最相关 3 个类目 */
+.tm-mobile { display: none; }
+@media (max-width: 719px) {
+  .matrix-wrap { display: none; }
+  .tm-mobile { display: block; border: 1px solid var(--line); border-radius: var(--r-card, 14px); overflow: hidden; background: var(--surface, #fff); }
+  .tm-mobile-head { margin: 0; padding: 14px 16px; background: var(--surface-2, #f6f4fb); color: var(--ink-2, #555); font-size: var(--fs-small); line-height: 1.6; }
+  .tm-mrow { display: flex; gap: var(--sp-3); padding: 12px 16px; border-top: 1px solid var(--line); align-items: flex-start; }
+  .tm-mjob { flex: 0 0 38%; font-weight: 600; color: var(--ink); text-decoration: none; line-height: 1.45; }
+  .tm-mjob:hover { text-decoration: underline; }
+  .tm-mlist { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+  .tm-mlist a { display: inline-flex; gap: 5px; align-items: baseline; padding: 4px 9px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-2, #f6f4fb); color: var(--ink-2, #555); font-size: var(--fs-small); text-decoration: none; line-height: 1.35; }
+  .tm-mlist a b { color: var(--ink); font-weight: 500; }
+  .tm-mlist a span { color: var(--brand, #6a4cff); font-weight: 700; font-size: var(--fs-micro); }
+  .tm-mnone { color: var(--muted); font-size: var(--fs-small); line-height: 1.5; }
+  .tm-empty { display: none; }
+}
+
+/* 类目页「大家拿它干什么」标题：别落回浏览器默认 18.72px 的 h3 */
+.job-panel-head h3 { margin: 0; font-size: var(--fs-md, 18px); font-weight: 650; line-height: 1.35; }

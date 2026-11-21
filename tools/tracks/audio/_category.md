@@ -27,11 +27,28 @@
 | 语音助手硬件 | 不收 |
 | 声音克隆产品 | permissions 维必须写清官方授权要求 |
 
-## 收录对象（2 份）
+## 收录对象（17 份）
 
-| id | 名称 | 厂商 |
-|---|---|---|
-| `suno` | Suno | Suno Inc. |
-| `elevenlabs` | ElevenLabs | ElevenLabs |
+| id | 名称 | 厂商 | 形态 | 状态 |
+|---|---|---|---|---|
+| `moyin` | 魔音工坊 | 出门问问 | 网页服务 | 8 项已核 · 活跃 |
+| `aiva` | AIVA | AIVA Limited | 网页服务 | 8 项已核 · 活跃 |
+| `assemblyai` | AssemblyAI | AssemblyAI | 厂商云 | 8 项已核 · 活跃 |
+| `cartesia` | Cartesia | Cartesia AI, Inc. | 网页服务 | 8 项已核 · 活跃 |
+| `cosyvoice` | CosyVoice | 阿里 FunAudioLLM（开源） | 本机应用 | 8 项已核 · 活跃 |
+| `deepgram` | Deepgram | Deepgram | 厂商云 | 8 项已核 · 活跃 |
+| `elevenlabs` | ElevenLabs | ElevenLabs | 网页服务 | 8 项已核 · 活跃 |
+| `f5-tts` | F5-TTS | SWivid / 上交 X-LANCE 等（开源） | 本机应用 | 8 项已核 · 活跃 |
+| `fish-audio` | fish audio | fish.audio | 网页服务 | 8 项已核 · 活跃 |
+| `minimax-audio` | MiniMax Audio（海螺语音） | MiniMax（稀宇科技） | 网页服务 | 8 项已核 · 活跃 |
+| `murf` | Murf | Murf AI | 网页服务 | 8 项已核 · 活跃 |
+| `otter` | Otter.ai | Otter.ai | 网页服务 | 8 项已核 · 活跃 |
+| `resemble` | Resemble AI | Resemble AI | 网页服务 | 8 项已核 · 活跃 |
+| `soundraw` | Soundraw | SOUNDRAW Inc. | 网页服务 | 8 项已核 · 活跃 |
+| `suno` | Suno | Suno Inc. | 网页服务 | 8 项已核 · 活跃 |
+| `udio` | Udio | Udio | 网页服务 | 8 项已核 · 活跃 |
+| `whisper` | Whisper | OpenAI（开源） | 本机应用 | 8 项已核 · 活跃 |
 
-> 候选全集与去向见 `inventory/audio.md`（T13 盘点后建立）。
+> 共 **17** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+
+> 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

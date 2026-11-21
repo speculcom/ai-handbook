@@ -219,7 +219,7 @@ sources:
 **约束**：
 - `last_verified` 与 `last_updated` 不能混淆，前者是核验日，后者是更新日
 - `confidence: verified` 要求核验日在 90 天内且 8 维度无「未知」
-- **`lifecycle: archived` 时 `confidence` 最高只能 `partial`**
+- **`confidence` 只回答「这页的证据是否齐」，`lifecycle` 只回答「上游产品还在不在更新」。两者独立，不互相封顶。** 一个已经归档的产品，只要八维和来源都已核清，仍可写 `confidence: verified`；页面必须同时显示「已归档」。反过来，一个每天发版的产品也可能因为官方不披露关键信息而只有 `partial`。
 
 #### lifecycle 的判定
 
@@ -242,14 +242,15 @@ sources:
 
 #### confidence 与 lifecycle 的组合
 
-| lifecycle | confidence 上限 | 说明 |
+| lifecycle | confidence | 页面读法 |
 |---|---|---|
-| `active` | `verified` | 正常情况 |
-| `maintenance` | `verified` | 仍可用，但要在正文提示节奏放缓 |
-| `archived` | `partial` | 必须同时写明归档事实与归档时间 |
-| `unknown` | `partial` | 无法判断上游状态 |
+| `active` | `verified` | 正常情况：产品在更新，证据也齐 |
+| `maintenance` | `verified` | 仍能用，但上游节奏放缓；页面显示「更新放缓」 |
+| `archived` | `verified` | 产品已归档；页面显示「已归档 · 证据已核」，不等于「资料残缺」 |
+| 任意 | `partial` | 证据有缺口：官方没写清、链接失效或维度未核 |
+| 任意 | `stale` | 官方已发生重大变化，本站尚未复核 |
 
-**校验器会强制这条**：正文声明了「已归档」而 `confidence: verified` 的条目会报错。
+**校验器只检查证据条件**：`verified` 仍要求核验日在 90 天内、8 维不缺；不再因为 `archived` 或 `unknown` 把 `verified` 降级。页面必须把两个状态分开展示，避免让读者把「产品停更」误读成「资料没写全」。
 
 ### 2.8 链接
 
@@ -429,8 +430,8 @@ confidence: verified
 | 12 | `link.kind == invitation` 时 `incentive` 非空 | 硬失败 |
 | 13 | `confidence == verified` 时无「未知」字样 | 硬失败 |
 | 14 | `lifecycle` 在枚举内 | 硬失败 |
-| 15 | `lifecycle` 为 `archived`/`unknown` 时 `confidence` ≠ `verified` | 硬失败 |
-| 16 | 正文声明「已归档」而 `confidence == verified` | 硬失败 |
+| 15 | ~~`lifecycle` 为 `archived`/`unknown` 时 `confidence` ≠ `verified`~~（2026-11-21 已退役：lifecycle 不再封顶 confidence） | 不检查 |
+| 16 | ~~正文声明「已归档」而 `confidence == verified`~~（同上，已退役） | 不检查 |
 | 17 | 同 id 工具在三站的 `last_verified` 差异 >30 天 | **警告** |
 | 18 | `last_verified` 距今 >90 天 | **警告**，降级为 `partial` |
 | 19 | **v8**：新通道出现 `track:` / `tasks:` 字段（改名/退役反向守卫） | 硬失败 |

@@ -621,7 +621,7 @@ Enterprise 明确写可部署在 CrewAI 云。它也支持你自己的 VPC / 你
 
 `confidence: verified` 的依据：
 
-**为什么仍是 partial（补充核验后）**：八维已全部从「官方文档未单列」改为结论，
+**为什么仍是 partial（补充核验后）**：8 个问题已全部从「官方文档未单列」改为结论，
 但仍有三处**官方确实没写**、只能记「官方文档不展开」的项 ——
 换 provider 后 tool calling / structured output 的可靠性、容器部署时的默认权限、
 OSS 是否有网络访问控制的官方机制。

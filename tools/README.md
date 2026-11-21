@@ -5,7 +5,7 @@
 **AI 工具图谱** · 纯 Markdown · 开源
 
 记录 **AI 工具**（编码 agent、对话助手、图像/视频/音频创作、agent 框架、MCP 工具……）
-的能力边界、运行位置与官方证据，用一套固定坐标系组织，让选型变成可回溯的判断而不是感觉。
+的能力边界、运行位置与官方证据，都按同一组问题来写，让选型变成可回溯的判断而不是感觉。
 
 这个仓库**只存数据，不出结论页面**。结论层由 tools.specul.com 站点消费。
 内容按 **10 大类**组织：
@@ -23,7 +23,7 @@
 **为什么叫 atlas**：不是给你一堆工具名，是给你一张能给 280 个对象定位的地图。
 
 **三族分组**（首页卡片分组，不是目录层）：找现成的（coding / chat / image / video / audio /
-research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三族坐标系不同，不做横向排名。
+research / automation）· 自己搭（framework / runner）· 接上与跑起来（mcp）。三类东西该问的问题不同，不做横向排名。
 
 大类定义与边界裁决见 [categories.md](./categories.md)。
 
@@ -82,7 +82,7 @@ research / automation）· 自己搭（framework / runner）· 接上与跑起�
 | 规则 | 做法 |
 |---|---|
 | **放弃总分** | 没有统一输入、预算、环境下的复现实测，就不给总分排名 |
-| **固定坐标系** | 所有对象在同一组 8 个维度下被描述，不允许自定义维度 |
+| **同一套问题** | 所有对象都回答同样的 8 个问题，不自创一套说法 |
 | **未知是合法答案** | 查不到就写「未知」+ 原因，绝不推测填充 |
 | **每条判断挂证据** | 判断能回到官方一手源，区分发布 / 核验 / 生效三种时间语义 |
 
@@ -170,7 +170,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 值 | 含义 |
 |---|---|
-| `verified` | 8 维度均有官方来源支撑，且核验日在 90 天内 |
+| `verified` | 8 个问题都有官方来源支撑，且核验日在 90 天内 |
 | `partial` | 部分维度标为未知，或核验日超过 90 天 |
 | `stale` | 官方已发布重大变化，本站尚未核验 |
 
@@ -185,7 +185,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | `archived` | 上游已归档、停止更新或转移维护方 |
 | `unknown` | 无 changelog / 无仓库可判断 |
 
-**组合约束**：`lifecycle` 为 `archived` 或 `unknown` 时，`confidence` 不得为 `verified`。
+**两者互不封顶**：产品停更，不等于资料没核过。`archived` 仍可以是 `verified`；页面会分别写「8 项已核」和「已归档」。
 
 **为什么要单列**：一个对象即使今天刚核验过，
 若上游已半年无更新，这条数据**明天就会失效**。
@@ -246,7 +246,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | **vg.specul.com** | 结论层：AI 做游戏 |
 
 **方法论原型**：本仓库的「放弃总分 / 未知合法化 / 每条挂证据」三条规则
-借鉴自 [AgentClash](https://aiagentclash.com/)，但坐标系与大类定义是本仓库独立设计。
+借鉴自 [AgentClash](https://aiagentclash.com/)，但问题清单与大类定义是本仓库独立设计。
 
 <!-- INDEX:BEGIN generated, do not edit -->
 
@@ -259,8 +259,8 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
 | [文心快码（Baidu Comate）](tracks/coding/products/baidu-comate.md) | 百度 | ide | verified | active |
-| [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | partial | maintenance |
-| [Aider Watch 模式](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
+| [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | verified | maintenance |
+| [Aider Watch 模式](tracks/coding/products/aider.md) | Aider-AI | ide | verified | maintenance |
 | [Amazon Q Developer](tracks/coding/products/amazon-q-developer.md) | AWS | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation（原 Sourcegraph，2025-12 分拆独立） | cli | verified | active |
 | [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | verified | active |
@@ -271,7 +271,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [CodeBuddy](tracks/coding/products/codebuddy.md) | 腾讯云 | ide | verified | active |
 | [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | verified | active |
 | [Codex IDE 扩展](tracks/coding/products/codex-ide.md) | OpenAI | ide | verified | active |
-| [Continue](tracks/coding/products/continue.md) | Continue | ide | partial | archived |
+| [Continue](tracks/coding/products/continue.md) | Continue | ide | verified | archived |
 | [Crush](tracks/coding/products/crush.md) | Charm | cli | verified | active |
 | [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | verified | active |
 | [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | verified | active |
