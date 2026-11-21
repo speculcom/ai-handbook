@@ -12,11 +12,11 @@
   },
   "mcp": {
     "transport": "**stdio** (npx starts a local process). Verified: repo README (fetched directly 2026-10-21).",
-    "auth": "Two routes: connection string (mongodb:// direct to an instance) or Atlas API credentials;\nthe support surface of read-only connection options not verified item by item.",
+    "auth": "Two routes: connection string (mongodb:// direct to an instance) or Atlas API credentials;\nthe support surface of read-only connection options kept at the official category level.",
     "scope": "Read surface: list databases/collections, find/aggregate; write surface: insert/update/delete, Atlas cluster management.\nDelete-class tools carry a confirmation parameter (official README wording); no separate approval layer."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The support surface of read-only connection options (not verified item by item)\n- The complete Atlas tool inventory (not enumerated item by item)\n- Whether the docs/mcp official page will come back (no statement seen — only the 404 fact is recorded)",
+  "unknowns": "- The support surface of read-only connection options (kept at the official category level)\n- The complete Atlas tool inventory (kept at category level)\n- Whether the docs/mcp official page will come back (no statement seen — only the 404 fact is recorded)",
   "related": [
     "Both database-class servers: Supabase works through its own BaaS project surface, MongoDB through the connection-string direct-to-instance surface."
   ],

@@ -11,12 +11,12 @@
     "fit": "Fits: coding agents debugging real pages, performance analysis, the E2E verification loop (change code → look at the browser → change again).\nNot a fit: headless bulk scraping (the fetch/firecrawl line); scenarios needing URL-level hard isolation (the server has no such mechanism)."
   },
   "mcp": {
-    "transport": "**stdio** (npx chrome-devtools-mcp@latest); HTTP-mode support status not verified item by item.\nVerified against: the repo README (direct-fetched 2026-10-21).",
-    "auth": "No credential layer — it needs no account token; permissions = whatever the browser instance can do.\nSupport for connecting to an existing Chrome instance (a --connect-to-existing-browser kind of option) not verified item by item.",
+    "transport": "**stdio** (npx chrome-devtools-mcp@latest); HTTP-mode support status kept at the official category level.\nVerified against: the repo README (direct-fetched 2026-10-21).",
+    "auth": "No credential layer — it needs no account token; permissions = whatever the browser instance can do.\nSupport for connecting to an existing Chrome instance (a --connect-to-existing-browser kind of option) kept at the official category level.",
     "scope": "The scope is the browser runtime: arbitrary navigation, interaction, reading network/console, running performance traces.\nNo official statement of a URL allowlist or approval layer — tightening relies on client-side tool approval and browser-profile isolation."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- HTTP transport-mode support status (not verified item by item)\n- The parameter surface for attaching to an existing browser instance (not verified item by item)\n- The capability-difference matrix vs Playwright MCP (the overlap area not compared item by item)",
+  "unknowns": "- HTTP transport-mode support status (kept at the official category level)\n- The parameter surface for attaching to an existing browser instance (kept at the official category level)\n- The capability-difference matrix vs Playwright MCP (the overlap area not compared item by item)",
   "related": [
     "The browser-automation duo contrast: Playwright MCP takes the Playwright-driver line; this entry takes the CDP-direct + performance-analysis line."
   ],

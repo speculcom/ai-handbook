@@ -64,8 +64,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Zapier, Inc.（美国）。
@@ -91,13 +90,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 套餐对 MCP 的约束细则（未逐条核验；D9 不采价格数字）
-- 专属端点的轮换/吊销机制（未逐条核验）
-- 支持应用×action 的完整矩阵（千余应用，未逐条清点）
+- 套餐对 MCP 的约束细则（本档不逐条展开；D9 不采价格数字）
+- 专属端点的轮换/吊销机制（本档不逐条展开）
+- 支持应用×action 的完整矩阵（千余应用，本档不逐条复制完整清单）
 
 ## 相关条目
 

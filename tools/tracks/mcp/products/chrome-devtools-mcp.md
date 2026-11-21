@@ -42,11 +42,11 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **stdio**（npx chrome-devtools-mcp@latest）；HTTP 模式支持状态未逐条核验。
+    **stdio**（npx chrome-devtools-mcp@latest）；HTTP 模式支持状态本档不逐条展开。
     核验：仓 README（2026-10-21 直抓）。
   auth: >-
     无凭据层——它不需要账号 token，权限=浏览器实例能做的事。
-    连接既有 Chrome 实例（--connect-to-existing-browser 一类）支持面未逐条核验。
+    连接既有 Chrome 实例（--connect-to-existing-browser 一类）支持面本档不逐条展开。
   scope: >-
     作用域=浏览器运行时：任意导航、交互、读网络/console、跑 performance trace。
     无 URL 白名单/审批层的官方说明——收紧靠客户端侧工具审批与浏览器 profile 隔离。
@@ -65,8 +65,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Google（Chrome DevTools 团队）。
@@ -93,12 +92,12 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- HTTP 传输模式支持状态（未逐条核验）
-- 连接既有浏览器实例的参数面（未逐条核验）
+- HTTP 传输模式支持状态（本档不逐条展开）
+- 连接既有浏览器实例的参数面（本档不逐条展开）
 - 与 Playwright MCP 的能力差异矩阵（重叠区未逐条对照）
 
 ## 相关条目

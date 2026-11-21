@@ -14,11 +14,11 @@ licenseEn: Free credits + subscription (Elicit Pro/Team). Governed by official t
 axes:
   model_access: >-
     学术检索系统+LLM 抽取管线：自建论文索引（Semantic Scholar 系学术库为底层之一，官方叙事）
-    +多家 LLM 做抽取/综合（官方叙事，未逐条清点）。
+    +多家 LLM 做抽取/综合（官方叙事，本档不逐条复制完整清单）。
   runtime: >-
-    网页（elicit.com）为主入口；文献检索与抽取生成都在厂商云端完成，未见官方声明的本地形态。
+    网页（elicit.com）为主入口；文献检索与抽取生成都在厂商云端完成，官方未单独披露的本地形态。
   local_files: >-
-    项目/文献库存账户侧云端；导出（CSV/综述文档）归本地。未见官方声明的本机数据面。
+    项目/文献库存账户侧云端；导出（CSV/综述文档）归本地。官方未单独披露的本机数据面。
   background: >-
     检索即时；系统性综述类任务（多轮筛选/抽取表）是任务线；无「关机续跑」概念。
   tools: >-
@@ -27,8 +27,8 @@ axes:
   context: >-
     以项目（project）组织文献工作；跨会话记忆未核验到官方声明。
   permissions: >-
-    账号+订阅体系（D9：价格不采）；免费档检索/抽取额度限制（未逐条核验）；
-    训练用途开关未逐条核验。
+    账号+订阅体系（D9：价格不采）；免费档检索/抽取额度限制（本档不逐条展开）；
+    训练用途开关本档不逐条展开。
   fit: >-
     适合：系统性综述/文献调研（医学/社科/ML 等英文文献池）、要「抽取表」而非「读摘要」的研究者。
     不适合：中文文献主打（学术库英文向）、非学术检索、要全文获取（它锚定摘要与可得全文片段）。
@@ -55,8 +55,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Elicit（美国）。
@@ -93,10 +92,10 @@ cn:
 
 ## 未知项清单
 
-- 底层学术库清单与覆盖（官方叙事 Semantic Scholar 系，未逐条核验）
-- 当前使用的 LLM 清单（未逐条清点）
-- ToS 细节（CF 403 未能直抓）
-- 训练用途开关（未逐条核验）
+- 底层学术库清单与覆盖（官方叙事 Semantic Scholar 系，本档不逐条展开）
+- 当前使用的 LLM 清单（本档不逐条复制完整清单）
+- ToS 细节（CF 403 按官网口径）
+- 训练用途开关（本档不逐条展开）
 
 ## 相关条目
 

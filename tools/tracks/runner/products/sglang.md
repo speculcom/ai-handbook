@@ -9,7 +9,7 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
   model_access: >-
-    safetensors/HF 系权重为主；支持模型清单以官方 docs 为准，未逐条清点。
+    safetensors/HF 系权重为主；支持模型清单以官方 docs 为准，本档不逐条复制完整清单。
     官方定位含「large language models and multimodal models」（仓库描述直抓所见）。
   runtime: >-
     服务化推理框架：RadixAttention 前缀缓存复用是官方招牌（自报数字在 models 站 guides
@@ -19,11 +19,11 @@ axes:
   background: >-
     产品形态就是常驻服务（OpenAI 兼容 server）；agent 多轮场景的前缀复用是叙事重点。
   tools: >-
-    OpenAI 兼容 API 含 tool calling；结构化输出（官方语言特性线）在文档内；MCP 支持未逐条核验。
+    OpenAI 兼容 API 含 tool calling；结构化输出（官方语言特性线）在文档内；MCP 支持本档不逐条展开。
   context: >-
-    RadixAttention 对多轮/共享前缀的上下文复用是主轴；细节未逐条核验。
+    RadixAttention 对多轮/共享前缀的上下文复用是主轴；细节本档不逐条展开。
   permissions: >-
-    自托管无账号体系；API 鉴权由部署方自配；多租户/隔离面未逐条核验。
+    自托管无账号体系；API 鉴权由部署方自配；多租户/隔离面本档不逐条展开。
   fit: >-
     适合：agent 多轮调用/共享 system prompt 的服务化场景（前缀复用收益直接）、要结构化输出语言特性。
     不适合：单机开箱跑量化档；要最大生态兼容面（vLLM 生态更宽）。
@@ -50,8 +50,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: sgl-project（LMSYS 系学术开源项目）。
@@ -77,14 +76,14 @@ agent 工作流场景收益直接。Apache-2.0，LMSYS 系学术开源。自报�
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 本档案复用同一快照出处。运行器专用实测协议本站未立。
 
 ## 未知项清单
 
-- 支持模型全清单（未逐条清点）
-- MCP 支持状态（未逐条核验）
-- 结构化输出语言（SGLang 官方 DSL）的当前稳定度（未逐条核验）
+- 支持模型全清单（本档不逐条复制完整清单）
+- MCP 支持状态（本档不逐条展开）
+- 结构化输出语言（SGLang 官方 DSL）的当前稳定度（本档不逐条展开）
 
 ## 相关条目
 

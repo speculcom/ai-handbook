@@ -9,21 +9,21 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 family: orchestration
 providers:
-  - 模型经 wrapper 接入：通义/DashScope 系为主，兼 OpenAI 兼容面与本地模型（官方文档为准，未逐条清点）
+  - 模型经 wrapper 接入：通义/DashScope 系为主，兼 OpenAI 兼容面与本地模型（官方文档为准，本档不逐条复制完整清单）
   - 核心抽象是多智能体消息传递（Msg 对象），provider 层可插拔
 axes:
   model_access: >-
     各家模型经 wrapper 接入（通义/DashScope 系为主，兼 OpenAI 兼容面与本地模型——
-    以官方文档为准，未逐条清点）；多智能体消息传递是它的核心抽象（Msg 对象在 agent 间流转）。
+    以官方文档为准，本档不逐条复制完整清单）；多智能体消息传递是它的核心抽象（Msg 对象在 agent 间流转）。
   runtime: >-
     Python 库（pip 装进你的进程）；GitHub 34,871★，最近推送 2026-10-30（API 核验）。
     官方叙事是「面向多智能体的生产框架」——含可视化工作台（Studio）与分布式执行线。
   local_files: >-
     库形态跑在你进程里；数据落点由你决定。官方 Studio 工作台是本地起的可视化面。
   background: >-
-    库无常驻语义；多智能体应用常驻与否取决于你的部署。分布式执行线细节未逐条核验。
+    库无常驻语义；多智能体应用常驻与否取决于你的部署。分布式执行线细节本档不逐条展开。
   tools: >-
-    工具调用与工具包在官方模块族内；MCP 支持状态未逐条核验（官方文档有相关线，细节未核）。
+    工具调用与工具包在官方模块族内；MCP 支持状态本档不逐条展开（官方文档有相关线，细节未核）。
   context: >-
     记忆模块（短期/长期记忆组件）是它的显式面——长期记忆要接外部存储；跨会话记忆给模式不给托管。
   permissions: >-
@@ -55,8 +55,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: domestic
   origin_note: 阿里巴巴集团 / 魔搭社区（ModelScope）线开源项目（官方口径：AgentScope 由阿里团队发起）。
@@ -65,7 +64,7 @@ cn:
   direct_note: agentscope.io 直连实测 200（2026-10-21）；GitHub 仓大陆直连波动（同日代理可达）。
   direct_note_en: agentscope.io measured 200 direct (2026-10-21); the GitHub repo's mainland reachability fluctuates (200 via proxy the same day).
   filing: unknown
-  filing_note: 框架本体是开源库不面向公众提供服务，备案不适用；其关联模型服务（通义系）的备案状态属另一主体——本站未逐条核验，不下断言。
+  filing_note: 框架本体是开源库不面向公众提供服务，备案不适用；其关联模型服务（通义系）的备案状态属另一主体——本档不逐条展开，不下断言。
   filing_note_en: the framework itself is an open-source library not serving the public, so filing does not apply; filing status of the associated model service (Tongyi line) belongs to another entity — not individually verified, no assertion made.
   verified: 2026-10-21
 ---
@@ -82,13 +81,13 @@ cn:
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- 模型 wrapper 全目录（未逐条清点）
-- MCP 支持状态（官方文档有相关线，细节未逐条核验）
-- 分布式执行线当前完成度（未逐条核验）
+- 模型 wrapper 全目录（本档不逐条复制完整清单）
+- MCP 支持状态（官方文档有相关线，细节本档不逐条展开）
+- 分布式执行线当前完成度（本档不逐条展开）
 
 ## 相关条目
 

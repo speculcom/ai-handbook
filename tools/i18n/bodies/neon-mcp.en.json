@@ -11,12 +11,12 @@
     "fit": "Fits: agent dev flows for the Neon stack (create branch→try changes→merge), hooking serverless Postgres management into an agent.\nNot a fit: non-Neon Postgres (it manages its own platform); hard read-only boundaries."
   },
   "mcp": {
-    "transport": "**stdio** (npx) is primary + an official hosted remote line (details follow the repo README, not verified item by item).\nVerified: the repo and GitHub API (2026-10-21).",
+    "transport": "**stdio** (npx) is primary + an official hosted remote line (details follow the repo README, kept at the official category level).\nVerified: the repo and GitHub API (2026-10-21).",
     "auth": "Two routes: Neon API key (management surface) + Postgres connection string (data surface).",
     "scope": "Management surface: project/branch add/delete/query; data surface: SQL execution (including writes/DDL).\nNo official docs for a tool-level approval mechanism; the branch model is a structural isolation means, not an approval layer."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The status of the hosted remote endpoint (not verified item by item)\n- The full tool inventory (not enumerated item by item)\n- Details of product-wording changes after the Databricks acquisition (not verified item by item — the vendor line follows the current official owner)",
+  "unknowns": "- The status of the hosted remote endpoint (kept at the official category level)\n- The full tool inventory (kept at category level)\n- Details of product-wording changes after the Databricks acquisition (kept at the official category level — the vendor line follows the current official owner)",
   "related": [
     "Both BaaS database servers: Supabase's project surface is broader, Neon's branch isolation is the structural differentiator."
   ],

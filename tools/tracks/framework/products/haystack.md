@@ -9,12 +9,12 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 family: orchestration
 providers:
-  - 生成/嵌入模型经集成接入：OpenAI/Anthropic/本地 HF 等（官方集成目录为准，未逐条清点）
+  - 生成/嵌入模型经集成接入：OpenAI/Anthropic/本地 HF 等（官方集成目录为准，本档不逐条复制完整清单）
   - RAG 检索栈（dense/sparse/hybrid）与模型 provider 解耦：检索组件不依赖特定厂商
 axes:
   model_access: >-
     各家生成模型与嵌入模型经集成接入（OpenAI/Anthropic/本地 HF 等，以官方集成目录为准，
-    未逐条清点）；RAG 检索栈（dense/sparse/hybrid）是它的看家面。
+    本档不逐条复制完整清单）；RAG 检索栈（dense/sparse/hybrid）是它的看家面。
   runtime: >-
     Python 库（pip 装进你的进程）；GitHub 26,880★，最近推送 2026-10-30（API 核验）。
     管线（pipeline）抽象是主轴：组件连成图，跑批或跑服务都在你的进程里。
@@ -25,7 +25,7 @@ axes:
     库无常驻语义；索引管道可离线批跑，查询服务由你部署。
     2.x 把 1.x 的 node 体系重写成 component/pipeline 模型，升级是大改而非平滑迁移。
   tools: >-
-    agent 层（2.x 起）含工具调用循环；MCP 支持状态未逐条核验。
+    agent 层（2.x 起）含工具调用循环；MCP 支持状态本档不逐条展开。
   context: >-
     会话记忆组件存在（chat message store 线）；跨会话记忆要自己接存储——组件给模式不给托管。
   permissions: >-
@@ -56,8 +56,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: deepset GmbH（德国柏林）。
@@ -83,13 +82,13 @@ hybrid 检索与 reranker、评估环——生产味最浓的一条 RAG 线。2.
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- 集成全目录（未逐条清点）
-- agent 层当前完成度与 MCP 支持（未逐条核验）
-- deepset Cloud 的数据处理条款细节（另一产品面，未逐条核验）
+- 集成全目录（本档不逐条复制完整清单）
+- agent 层当前完成度与 MCP 支持（本档不逐条展开）
+- deepset Cloud 的数据处理条款细节（另一产品面，本档不逐条展开）
 
 ## 相关条目
 

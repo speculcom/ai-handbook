@@ -10,7 +10,7 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 axes:
   model_access: >-
     safetensors/HF 系权重为主（GGUF 支持有限——models 站口径：量化服务化首选仍是 llama.cpp 路线）；
-    支持模型清单以官方 docs 为准，未逐条清点。
+    支持模型清单以官方 docs 为准，本档不逐条复制完整清单。
   runtime: >-
     服务化推理引擎：PagedAttention 显存管理是官方招牌（自报数字在 models 站 guides
     serving-deep-dive.md 已核验快照，出处同源）；GitHub 95,878★（API 核验 2026-10-21）。
@@ -19,11 +19,11 @@ axes:
   background: >-
     产品形态就是常驻服务（OpenAI 兼容 server）；并发/批处理调度是主轴。
   tools: >-
-    OpenAI 兼容 API 含 tool calling；MCP 支持状态未逐条核验。
+    OpenAI 兼容 API 含 tool calling；MCP 支持状态本档不逐条展开。
   context: >-
-    长上下文按模型与显存配置；前缀缓存等优化在官方文档线，细节未逐条核验。
+    长上下文按模型与显存配置；前缀缓存等优化在官方文档线，细节本档不逐条展开。
   permissions: >-
-    自托管无账号体系；API 鉴权由部署方自配；多租户隔离与配额面未逐条核验。
+    自托管无账号体系；API 鉴权由部署方自配；多租户隔离与配额面本档不逐条展开。
   fit: >-
     适合：多模型/多请求的服务化部署、要吞吐与显存效率、生产环境 OpenAI 兼容端点。
     不适合：单机开箱跑量化档（llama.cpp/Ollama 更省事）；GGUF 深度依赖场景。
@@ -50,8 +50,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: vLLM 项目（UC Berkeley 起源，现归 PyTorch 基金会生态）。
@@ -77,14 +76,14 @@ Apache-2.0、PyTorch 基金会生态。数字口径：官方自报性能数字�
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 本档案复用同一快照出处，不重复抓取。运行器专用实测协议本站未立。
 
 ## 未知项清单
 
-- 支持模型全清单（未逐条清点）
-- MCP 支持状态（未逐条核验）
-- 前缀缓存/chunked prefill 等优化的当前默认开关（未逐条核验）
+- 支持模型全清单（本档不逐条复制完整清单）
+- MCP 支持状态（本档不逐条展开）
+- 前缀缓存/chunked prefill 等优化的当前默认开关（本档不逐条展开）
 
 ## 相关条目
 

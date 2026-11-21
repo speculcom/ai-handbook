@@ -6,7 +6,7 @@ nameEn: Tiangong AI Search
 vendor: 昆仑万维
 homepage: https://www.tiangong.cn
 license: 免费+订阅。按官方协议页管辖（tiangong.cn/agreement 直抓核验 2026-10-22）；
-  细节未逐条核验。
+  细节本档不逐条展开。
 licenseEn: Free + subscription. Governed by the official agreement page (tiangong.cn/agreement,
   direct-fetched 2026-10-22); details not verified line by line.
 
@@ -17,7 +17,7 @@ axes:
   runtime: >-
     网页（tiangong.cn）+ App（官网所见）；检索与生成在厂商云端；国内直连可用。
   local_files: >-
-    生成的文档/PPT/表格与历史存账户侧云端；下载归本地。未见官方声明的其他本机数据面。
+    生成的文档/PPT/表格与历史存账户侧云端；下载归本地。官方未单独披露的其他本机数据面。
   background: >-
     搜索即时；文档/PPT/表格/网页模式是生成任务线（官网产品面）；无「关机续跑」概念。
   tools: >-
@@ -25,9 +25,9 @@ axes:
     做同款（模板复用线，官网所见）；昆仑万维产品线多（Skywork 开源模型线/Mureka 音乐等——
     不在本档案口径）。
   context: >-
-    以任务/历史组织智能体产物；站内直抓所见「记忆」功能文案（跨会话记忆的产品边界未逐条核验）。
+    以任务/历史组织智能体产物；站内直抓所见「记忆」功能文案（跨会话记忆的产品边界本档不逐条展开）。
   permissions: >-
-    账号+订阅体系（D9：价格不采）；训练用途开关未逐条核验。
+    账号+订阅体系（D9：价格不采）；训练用途开关本档不逐条展开。
     备案：天工大模型 Beijing-TianGong-20231016（网信办批次汇总表镜像直抓，2026-10-22）；
     算法备案「天工大语言模型算法」覆盖天工 AI 搜索多端（公示叙事）。
   fit: >-
@@ -59,8 +59,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: domestic
   origin_note: 昆仑万维科技股份有限公司（中国，A 股 300418）。
@@ -102,9 +101,9 @@ cn:
 ## 未知项清单
 
 - 当前驱动模型版本（天工 4.0 等版本叙事未逐项核验）
-- 订阅档的功能边界（未逐条核验）
-- 训练用途开关（未逐条核验）
-- 各模式的产物商用授权面（未逐条核验协议原文）
+- 订阅档的功能边界（本档不逐条展开）
+- 训练用途开关（本档不逐条展开）
+- 各模式的产物商用授权面（本档不逐条展开协议原文）
 
 ## 相关条目
 

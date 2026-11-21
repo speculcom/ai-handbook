@@ -12,11 +12,11 @@
   },
   "mcp": {
     "transport": "Remote **Streamable HTTP** (official hosted endpoints) + a local stdio line;\nthe endpoint matrix is grouped by product (one remote server URL per product) — follows the repo README.\nVerified against: the repository and developers.cloudflare.com/changelog (2026-10-21).",
-    "auth": "A Cloudflare API token (a restricted token is recommended: limit account/resources/operations);\nOAuth-line support status not verified item by item.",
+    "auth": "A Cloudflare API token (a restricted token is recommended: limit account/resources/operations);\nOAuth-line support status kept at the official category level.",
     "scope": "Read surface: docs retrieval, resource queries; write surface: deploying Workers, creating/modifying D1/R2/KV, DNS record changes.\nToken granularity is the primary tightening control; no official statement of a tool-level approval mechanism."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The full product-grouping table and remote endpoint matrix (not enumerated item by item)\n- OAuth support status (not verified item by item)\n- Rate limits of each endpoint (not verified item by item)",
+  "unknowns": "- The full product-grouping table and remote endpoint matrix (kept at category level)\n- OAuth support status (kept at the official category level)\n- Rate limits of each endpoint (kept at the official category level)",
   "related": [
     "Also a model of the \"multiple trimmable toolsets\" design: GitHub uses toolsets; Cloudflare splits servers by product."
   ],

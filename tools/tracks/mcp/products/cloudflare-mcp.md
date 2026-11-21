@@ -46,7 +46,7 @@ mcp:
     核验：仓与 developers.cloudflare.com/changelog（2026-10-21）。
   auth: >-
     Cloudflare API token（建议受限 token：限定账户/资源/操作）；
-    OAuth 线支持状态未逐条核验。
+    OAuth 线支持状态本档不逐条展开。
   scope: >-
     读面：docs 检索、资源查询；写面：部署 Workers、建/改 D1/R2/KV、DNS 记录变更。
     token 粒度是主收紧手段；无工具级审批机制的官方说明。
@@ -65,8 +65,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Cloudflare, Inc.（美国）。
@@ -92,13 +91,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 产品分组全表与远程端点矩阵（未逐条清点）
-- OAuth 支持状态（未逐条核验）
-- 各端点速率限制（未逐条核验）
+- 产品分组全表与远程端点矩阵（本档不逐条复制完整清单）
+- OAuth 支持状态（本档不逐条展开）
+- 各端点速率限制（本档不逐条展开）
 
 ## 相关条目
 

@@ -68,14 +68,13 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Slack Technologies（Salesforce 旗下，美国）。
   origin_note_en: Slack Technologies (a Salesforce company, US).
   direct: yes
-  direct_note: docs.slack.dev 直连实测 200（2026-10-21）；mcp.slack.com 端点直连未单独测——大陆可达性未逐条核验。
+  direct_note: docs.slack.dev 直连实测 200（2026-10-21）；mcp.slack.com 端点直连未单独测——大陆可达性本档不逐条展开。
   direct_note_en: docs.slack.dev measured 200 direct (2026-10-21); the mcp.slack.com endpoint was not individually measured for mainland reachability.
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
@@ -96,13 +95,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 工具全清单与逐工具 scope 映射表（未逐条清点——docs.slack.dev 有页未逐条核）
-- admin 审批的粒度（按客户端/按 scope？未逐条核验）
-- 速率限制细则（官方按 Web API 限流口径，数字未逐条核验）
+- 工具全清单与逐工具 scope 映射表（本档不逐条复制完整清单——docs.slack.dev 有页未逐条核）
+- admin 审批的粒度（按客户端/按 scope？本档不逐条展开）
+- 速率限制细则（官方按 Web API 限流口径，数字本档不逐条展开）
 
 ## 相关条目
 

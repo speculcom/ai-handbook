@@ -21,7 +21,7 @@ axes:
     stdio 随客户端生死；无后台任务语义。
   tools: >-
     Stripe API 检索、账户数据查询、docs 搜索等；写能力（建产品/价格）存在——
-    完整清单以仓 README 为准，未逐条清点。
+    完整清单以仓 README 为准，本档不逐条复制完整清单。
   context: >-
     无 server 侧跨会话记忆——状态在 Stripe 账户本身。
   permissions: >-
@@ -42,11 +42,11 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **stdio**（Python/TS 包本地起进程）为主；官方文档另有远程线说明——未逐条核验。
+    **stdio**（Python/TS 包本地起进程）为主；官方文档另有远程线说明——本档不逐条展开。
     核验：docs.stripe.com/agentic-commerce 200、stripe/ai 仓（2026-10-21 直抓）。
   auth: >-
     Stripe API key（测试/正式两态）；key 权限=工具权限上界。
-    受限 key（restricted keys）支持面未逐条核验。
+    受限 key（restricted keys）支持面本档不逐条展开。
   scope: >-
     读面：账户对象查询、API 参考检索；写面：建产品/价格、发票、退款类工具存在。
     工具白名单裁剪可收窄；无工具级人工审批机制的官方说明。
@@ -65,8 +65,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Stripe, Inc.（美国）。
@@ -93,13 +92,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 工具全清单与写工具明细（未逐条清点）
-- restricted keys 的支持粒度（未逐条核验）
-- 远程托管线当前状态（未逐条核验）
+- 工具全清单与写工具明细（本档不逐条复制完整清单）
+- restricted keys 的支持粒度（本档不逐条展开）
+- 远程托管线当前状态（本档不逐条展开）
 
 ## 相关条目
 

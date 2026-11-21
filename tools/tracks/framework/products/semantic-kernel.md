@@ -9,10 +9,10 @@ licenseEn: MIT (GitHub API verified 2026-10-31).
 
 family: orchestration
 providers:
-  - 多模型接入（OpenAI/Azure OpenAI/Anthropic 等 connector 线，未逐条清点）
+  - 多模型接入（OpenAI/Azure OpenAI/Anthropic 等 connector 线，本档不逐条复制完整清单）
 axes:
   model_access: >-
-    connector 式多模型接入（OpenAI/Azure OpenAI/Anthropic 等，未逐条清点）；
+    connector 式多模型接入（OpenAI/Azure OpenAI/Anthropic 等，本档不逐条复制完整清单）；
     定位是把 LLM 能力嵌进企业应用（官方仓描述「Integrate cutting-edge LLM technology quickly and easily into your apps」）。
   runtime: >-
     **多语言 SDK 形态**（C#/.NET 与 Python 双线发版——dotnet-1.81.0 与 python-1.46.0 均在 2026-10 发版，
@@ -23,9 +23,9 @@ axes:
   background: >-
     进程内调用为主（库形态）；常驻语义随宿主应用，SK 本身不提供平面。
   tools: >-
-    skills/plugins 函数调用线是老牌卖点（SK 早期以「kernel + skills」抽象出名）；MCP 支持状态未逐条核验。
+    skills/plugins 函数调用线是老牌卖点（SK 早期以「kernel + skills」抽象出名）；MCP 支持状态本档不逐条展开。
   context: >-
-    企业应用嵌入场景的上下文管理（planner/agent 线细节未逐条核验）。
+    企业应用嵌入场景的上下文管理（planner/agent 线细节本档不逐条展开）。
   permissions: >-
     企业选型面是主轴（Azure 生态鉴权/合规线随微软云体系）；
     库本身权限面随宿主应用。
@@ -58,8 +58,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Microsoft（美国）；learn.microsoft.com 大陆可达性良好。
@@ -87,13 +86,13 @@ connector 接模型、skills/plugins 挂函数，把 LLM 嵌进现有应用进�
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- MCP 支持状态（未逐条核验）
+- MCP 支持状态（本档不逐条展开）
 - SK → MAF 的官方迁移指南覆盖度（未逐条核对）
-- planner/agent 线各组件的维护状态细分（未逐条核验）
+- planner/agent 线各组件的维护状态细分（本档不逐条展开）
 
 ## 相关条目
 

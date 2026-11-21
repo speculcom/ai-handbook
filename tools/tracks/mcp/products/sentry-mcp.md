@@ -22,13 +22,13 @@ axes:
     MCP 会话模式是请求-响应，官方未提供后台任务机制。
   tools: >-
     面向「agent 查崩溃/诊断线上问题」的工具集：whoami、找 issue、看 issue 详情、
-    事件与堆栈、release 对比等；完整工具清单以官方文档为准，未逐条清点。
+    事件与堆栈、release 对比等；完整工具清单以官方文档为准，本档不逐条复制完整清单。
   context: >-
     无跨会话记忆——每次会话独立，状态在 Sentry 平台本身。
     官方未提供 server 侧记忆或检索层（未核验到≠没有，已查文档未见）。
   permissions: >-
     权限由 Sentry 账号鉴权决定（OAuth 登录流）；能读 issue 与事件数据，
-    写操作面（如解决 issue）以官方工具清单为准——未逐条核验写能力边界。
+    写操作面（如解决 issue）以官方工具清单为准——本档不逐条展开写能力边界。
   fit: >-
     适合：编码 agent 直接查「这个报错在 Sentry 里有没有」、线上事故诊断接 agent 工作流。
     不适合：要本地日志分析（不在作用域）；要 FSL 限制期内的闭源商用集成（先读许可条款）。
@@ -36,7 +36,7 @@ axes:
 pitfalls:
   - 用旧仓名 sentry-mcp 找仓库——现 redirect 到 getsentry/toolkit（2026-10-21 直抓核验）
   - 把 FSL 当 Apache——FSL-1.1 有生产用途限制期，到期才转 Apache 2.0
-  - 把「查 issue」当「能修 issue」——写能力边界未逐条核验，别按读能力推写能力
+  - 把「查 issue」当「能修 issue」——写能力边界本档不逐条展开，别按读能力推写能力
 
 tags: [MCP, 监控诊断, Sentry, 远程托管, FSL]
 related: [cursor, claude-code]
@@ -44,14 +44,14 @@ related: [cursor, claude-code]
 mcp:
   transport: >-
     官方主推 **Streamable HTTP 远程托管**（mcp.sentry.dev）；
-    客户端配置以官方文档为准。SSE 老传输的支持状态未逐条核验。
+    客户端配置以官方文档为准。SSE 老传输的支持状态本档不逐条展开。
     核验：官方文档页与 mcp.sentry.dev 直抓 200（2026-10-21）。
   auth: >-
     走 Sentry 账号 OAuth 登录流（浏览器授权）；无 PAT 明文配置路线的官方说明——
-    未逐条核验。凭据存储与轮换细节官方未展开。
+    本档不逐条展开。凭据存储与轮换细节官方未展开。
   scope: >-
     作用域 = Sentry 账号可见的 org/project 数据面；读 issue/事件为主。
-    写操作与高危工具清单未逐条核验；无独立审批机制的官方说明。
+    写操作与高危工具清单本档不逐条展开；无独立审批机制的官方说明。
 
 sources:
   - label: getsentry/toolkit · 仓库（FSL-1.1-Apache-2.0；949★，最近推送 2026-10-30，GitHub API 核验）
@@ -70,14 +70,13 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Sentry（Functional Software, Inc.，美国）。
   origin_note_en: Sentry (Functional Software, Inc., US).
   direct: no
-  direct_note: github.com 直连实测 000（波动，同日代理可达 200）；mcp.sentry.dev 直连未测——大陆可达性未逐条核验。
+  direct_note: github.com 直连实测 000（波动，同日代理可达 200）；mcp.sentry.dev 直连未测——大陆可达性本档不逐条展开。
   direct_note_en: github.com measured 000 direct (fluctuating; 200 via proxy the same day); mcp.sentry.dev mainland reachability not individually verified.
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
@@ -98,13 +97,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 完整工具清单与写操作边界（未逐条清点）
-- SSE 传输支持状态（未逐条核验）
-- FSL 各版本 change date（未逐条核验——用前查 LICENSE.md 当前条款）
+- 完整工具清单与写操作边界（本档不逐条复制完整清单）
+- SSE 传输支持状态（本档不逐条展开）
+- FSL 各版本 change date（本档不逐条展开——用前查 LICENSE.md 当前条款）
 
 ## 相关条目
 

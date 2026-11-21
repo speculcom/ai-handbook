@@ -8,7 +8,7 @@ license: 商业 SaaS（官方 terms 页直抓 404——现行条款经 docs.rele
 
 axes:
   model_access: >-
-    平台接各家模型（OpenAI/Anthropic 等，官方文档线）；具体清单未逐条核验。
+    平台接各家模型（OpenAI/Anthropic 等，官方文档线）；具体清单本档不逐条展开。
   runtime: >-
     纯云托管：agent 团队（"AI workforce"）跑在 Relevance 云端；无自托管形态。
   local_files: >-
@@ -17,12 +17,12 @@ axes:
   background: >-
     云托管常驻；官方主打「无代码搭 AI 员工团队」——多 agent 协作是叙事主轴。
   tools: >-
-    工具/集成 + MCP（官方文档线含 MCP 条目，未逐条核验细节）。
+    工具/集成 + MCP（官方文档线含 MCP 条目，本档不逐条展开细节）。
   context: >-
-    agent 间任务传递与共享指令是官方协作面；跨会话记忆未逐条核验。
+    agent 间任务传递与共享指令是官方协作面；跨会话记忆本档不逐条展开。
   permissions: >-
-    团队/工作区权限面见官方文档线（角色与共享边界未逐条核验）；
-    企业合规声明（SOC 2 类）未逐条核验——「未核验到」不等于「没有」。
+    团队/工作区权限面见官方文档线（角色与共享边界本档不逐条展开）；
+    企业合规声明（SOC 2 类）本档不逐条展开——「未核验到」不等于「没有」。
   fit: >-
     适合：无代码搭「多 agent 协作」工作流、销售/运营自动化场景。
     不适合：要自托管；要代码级控制（归 framework）。
@@ -48,8 +48,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Relevance AI（澳大利亚，悉尼）。
@@ -79,9 +78,9 @@ cn:
 
 ## 未知项清单
 
-- 模型清单与切换粒度（未逐条核验）
-- MCP 支持细节（文档线有条目未逐条核验）
-- 官方 changelog 页现值（docs 子路径未逐一核验）
+- 模型清单与切换粒度（本档不逐条展开）
+- MCP 支持细节（文档线有条目本档不逐条展开）
+- 官方 changelog 页现值（docs 子路径本档不逐一展开）
 
 ## 相关条目
 

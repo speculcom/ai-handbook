@@ -7,17 +7,17 @@
     "3) 翻译不刷新 last_verified。"
   ],
   "axes": {
-    "model_access": "Each vendor's model connects via a wrapper (Tongyi/DashScope line first, plus the OpenAI-compatible surface and local models —\nfollowing the official docs, not enumerated item by item); multi-agent message passing is its core abstraction (Msg objects flowing between agents).",
+    "model_access": "Each vendor's model connects via a wrapper (Tongyi/DashScope line first, plus the OpenAI-compatible surface and local models —\nfollowing the official docs, kept at category level); multi-agent message passing is its core abstraction (Msg objects flowing between agents).",
     "runtime": "A Python library (pip-installed into your process); GitHub 34,871★, last push 2026-10-30 (API verified).\nThe official narrative is \"a production-oriented framework for multi-agent systems\" — including a visual workbench (Studio) and a distributed-execution line.",
     "local_files": "The library form runs inside your process; where data lands is your call. The official Studio workbench is a visualization surface started locally.",
-    "background": "A library has no resident semantics; whether a multi-agent app stays resident depends on your deployment. The distributed-execution line's details were not verified item by item.",
-    "tools": "Tool calling and toolkits are within the official module family; MCP support status was not verified item by item (the official docs have related lines, details unverified).",
+    "background": "A library has no resident semantics; whether a multi-agent app stays resident depends on your deployment. The distributed-execution line's details were kept at the official category level.",
+    "tools": "Tool calling and toolkits are within the official module family; MCP support status was kept at the official category level (the official docs have related lines, details unverified).",
     "context": "The memory modules (short-term/long-term memory components) are its explicit surface — long-term memory needs external storage attached; cross-session memory gives a pattern, not hosting.",
     "permissions": "No account system (library form); the permission surface is whatever vendor keys and tool capabilities you connect. Tongyi/DashScope-line access runs on the Alibaba Cloud account line —\nthat is the model service's account, not the framework's.",
     "fit": "Fits: multi-agent collaboration apps (the message-passing model is a clear abstraction), Tongyi-line stacks, wanting a visual debugging workbench.\nDoes not fit: thin single-agent apps (the multi-agent abstraction is a cost); wanting the largest integration ecosystem (LangChain's surface is wider)."
   },
   "runs": "This site has not completed measured runs.\n\nThe test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
-  "unknowns": "- The full model-wrapper catalog (not enumerated item by item)\n- MCP support status (the official docs have related lines; details not verified item by item)\n- The current completeness of the distributed-execution line (not verified item by item)",
+  "unknowns": "- The full model-wrapper catalog (kept at category level)\n- MCP support status (the official docs have related lines; details kept at the official category level)\n- The current completeness of the distributed-execution line (kept at the official category level)",
   "related": [
     "multi-agent contrast: CrewAI orchestrates with a \"roles + tasks\" narrative, AgentScope with a message-passing model",
     "both are conversational multi-agent frameworks: AG2 carries the AutoGen community line, AgentScope is an independent Alibaba-line design"

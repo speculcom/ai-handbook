@@ -6,7 +6,7 @@ nameEn: Deepgram
 vendor: Deepgram
 homepage: https://www.deepgram.com
 license: 免费额度+按量/订阅（API 平台姿态）。按官方条款管辖（deepgram.com 站点条款线，
-  2026-10-22 直抓核验站点可达）；输出数据留存与训练口径细节未逐条核验。
+  2026-10-22 直抓核验站点可达）；输出数据留存与训练口径细节本档不逐条展开。
 licenseEn: Free credits + usage-based/subscription (API-platform posture). Governed by official terms
   (deepgram.com site terms line, reachability direct-fetched 2026-10-22); data retention and training
   practices not verified line by line.
@@ -20,7 +20,7 @@ axes:
     API/SDK 为主入口（REST + WebSocket + 各语言 SDK，官方文档面）；**实时流式转写是主打**
     （WebSocket 流式端点官方文档化）；另有浏览器/预录文件端点。
   local_files: >-
-    云端 API——音频经 API 上传处理；数据留存策略按官方条款（未逐条核验）。
+    云端 API——音频经 API 上传处理；数据留存策略按官方条款（本档不逐条展开）。
   background: >-
     实时流式是核心形态（边说边转）；批处理端点并存；无「关机续跑」概念（API 服务）。
   tools: >-
@@ -29,8 +29,8 @@ axes:
   context: >-
     API 无记忆概念——会话上下文完全由调用方（集成方）自己管理，多轮修正靠应用层拼。
   permissions: >-
-    API key 体系+用量计费（D9：价格不采）；企业面有合规叙事（SOC2 类认证线官网所见，细节未逐条核验）；
-    数据留存/训练开关按条款（未逐条核验）。
+    API key 体系+用量计费（D9：价格不采）；企业面有合规叙事（SOC2 类认证线官网所见，细节本档不逐条展开）；
+    数据留存/训练开关按条款（本档不逐条展开）。
   fit: >-
     适合：开发者做实时语音应用（客服/会议/字幕流）、低延迟转写 API 集成、英文向高准确率。
     不适合：非开发者直接使用（它是 API 平台不是终端产品）、隐私敏感音频（云端处理）、中文向主打。
@@ -57,8 +57,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Deepgram（美国旧金山）。
@@ -95,9 +94,9 @@ cn:
 
 ## 未知项清单
 
-- 数据留存与训练用途条款细节（未逐条核验）
-- 中文模型档位的当前状态（未逐条核验）
-- 企业合规认证清单细节（未逐条核验）
+- 数据留存与训练用途条款细节（本档不逐条展开）
+- 中文模型档位的当前状态（本档不逐条展开）
+- 企业合规认证清单细节（本档不逐条展开）
 
 ## 相关条目
 

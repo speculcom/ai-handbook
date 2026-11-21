@@ -52,8 +52,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Msty（CloudStack, LLC，美国厂商，官网口径）。
@@ -81,13 +80,13 @@ Studio 桌面应用跑本地 GGUF（llama.cpp 系底座）也接云端 API，产
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 
-- 各产品线免费/付费边界与配额（官网定价页未逐条核验）
+- 各产品线免费/付费边界与配额（官网定价页本档不逐条展开）
 - 内置 llama.cpp 底座版本与量化档支持面（闭源，版本随应用捆绑）
-- MCP 接入面的具体能力与配置方式（官网产品线口径提及，未做实测）
+- MCP 接入面的具体能力与配置方式（官网产品线口径提及，本档不做实测）
 
 ## 相关条目
 

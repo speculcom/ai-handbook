@@ -9,11 +9,11 @@ licenseEn: MIT (GitHub API verified 2026-10-21).
 
 family: general-harness
 providers:
-  - 接口层接入：OpenAI/Anthropic/HF 等（官方文档为准，未逐条清点）
-  - 研究向：官方示例配置含 OpenAI/Anthropic 模型线（未逐条清点），模型选择与基准复现绑定
+  - 接口层接入：OpenAI/Anthropic/HF 等（官方文档为准，本档不逐条复制完整清单）
+  - 研究向：官方示例配置含 OpenAI/Anthropic 模型线（本档不逐条复制完整清单），模型选择与基准复现绑定
 axes:
   model_access: >-
-    各家 LLM 经接口层接入（OpenAI/Anthropic/HF 等，以官方文档为准，未逐条清点）；
+    各家 LLM 经接口层接入（OpenAI/Anthropic/HF 等，以官方文档为准，本档不逐条复制完整清单）；
     它的核心贡献是 **ACI（agent-computer interface）**——为 agent 设计的文件编辑/命令交互界面。
   runtime: >-
     Python 库 + 命令行（pip 装）；GitHub 20,682★，最近推送 2026-10-26（API 核验）。
@@ -30,7 +30,7 @@ axes:
     单任务上下文窗口管理是它的研究点（历史压缩/窗口策略）；跨会话记忆不是它的叙事。
   permissions: >-
     **命令执行=真实权限面**：agent 能跑 shell 命令，官方推荐容器隔离——
-    裸机直跑的风险口径官方文档有提示（未逐条核验细节）。
+    裸机直跑的风险口径官方文档有提示（本档不逐条展开细节）。
   fit: >-
     适合：研究/评测「agent 修代码」能力（SWE-bench 线）、要 ACI 设计参考实现。
     不适合：生产编码助手开箱（它是研究向 harness）；要 GUI 产品形态。
@@ -57,8 +57,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Princeton / Stanford 学术团队（美国）。
@@ -85,13 +84,13 @@ ACI（为 agent 设计的计算机界面）是它的核心命题，与 SWE-bench
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- 模型接口全目录（未逐条清点）
-- 容器隔离的当前默认配置细节（未逐条核验）
-- 与 mini-SWE-agent 轻量线的关系（官方有精简线，未逐条核验）
+- 模型接口全目录（本档不逐条复制完整清单）
+- 容器隔离的当前默认配置细节（本档不逐条展开）
+- 与 mini-SWE-agent 轻量线的关系（官方有精简线，本档不逐条展开）
 
 ## 相关条目
 

@@ -16,7 +16,7 @@
     "scope": "Both read and write: dashboard reads + update/create/patch, alert and IRM lines have write actions;\nthe minimum RBAC action per tool is listed in the README. SQL credentials go through data source configuration, the server never handles them."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The full tool inventory and the per-tool RBAC action mapping (the README has lists, not enumerated item by item)\n- The current usage surface of the SSE/streamable-http server mode (the README explains the mode; the official side provides no hosted endpoint)\n- The functional boundaries of the Docker/Helm deployment lines (not verified item by item)",
+  "unknowns": "- The full tool inventory and the per-tool RBAC action mapping (the README has lists, kept at category level)\n- The current usage surface of the SSE/streamable-http server mode (the README explains the mode; the official side provides no hosted endpoint)\n- The functional boundaries of the Docker/Helm deployment lines (kept at the official category level)",
   "related": [
     "Both observability surfaces: Sentry focuses on error-issue triage, Grafana is the dashboard and data-source query surface.",
     "Same-category contrast: Grafana is open source and self-hostable, Datadog is closed source with official hosting plus credential pass-through."

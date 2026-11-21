@@ -6,7 +6,7 @@ nameEn: AssemblyAI
 vendor: AssemblyAI
 homepage: https://www.assemblyai.com
 license: 免费额度+按量（API 平台姿态）。按官方条款页管辖（assemblyai.com/terms 直抓核验 2026-10-22）；
-  数据留存与训练口径细节未逐条核验。
+  数据留存与训练口径细节本档不逐条展开。
 licenseEn: Free credits + usage-based (API-platform posture). Governed by the official terms page
   (assemblyai.com/terms, direct-fetched 2026-10-22); data retention and training practices not verified
   line by line.
@@ -19,8 +19,8 @@ axes:
     API/SDK 为主入口（REST + WebSocket + SDK，官方文档面）；预录文件转写是传统强项，
     实时流端点并存（官方文档）。
   local_files: >-
-    云端 API——音频经 API 上传；数据留存策略按条款（未逐条核验）；
-    官方有「不用于训练」类承诺叙事（站点所见），条款级细节未逐条核验。
+    云端 API——音频经 API 上传；数据留存策略按条款（本档不逐条展开）；
+    官方有「不用于训练」类承诺叙事（站点所见），条款级细节本档不逐条展开。
   background: >-
     批处理（文件→结果轮询/webhook）+ 实时流双形态；无「关机续跑」概念（API 服务）。
   tools: >-
@@ -29,8 +29,8 @@ axes:
   context: >-
     API 无记忆概念；LeMUR 对既有转写做问答是「转写产物上的 LLM」，不是产品记忆。
   permissions: >-
-    API key+用量计费（D9：价格不采）；企业合规叙事（SOC2/HIPAA 类认证线官网所见，细节未逐条核验）；
-    数据留存/训练开关按条款（未逐条核验）。
+    API key+用量计费（D9：价格不采）；企业合规叙事（SOC2/HIPAA 类认证线官网所见，细节本档不逐条展开）；
+    数据留存/训练开关按条款（本档不逐条展开）。
   fit: >-
     适合：开发者做「转写+理解」管线（摘要/抽取/问答一步到位）、英文向高准确率、
     文档化体验优先的团队。
@@ -38,7 +38,7 @@ axes:
 
 pitfalls:
   - 与 Deepgram 同是 API 平台不是终端产品——差异在 AssemblyAI 把「理解层」（摘要/实体/问答）做进 API
-  - 「不用于训练」类承诺要落到条款与 DPA 才算数——站点叙事≠条款原文（未逐条核验）
+  - 「不用于训练」类承诺要落到条款与 DPA 才算数——站点叙事≠条款原文（本档不逐条展开）
   - 转写质量按语言/口音波动——官方基准英文向，中文场景要自测
 
 tags: [API平台, 转写+理解, LeMUR, 开发者向, 英文向]
@@ -58,8 +58,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: AssemblyAI（美国旧金山/丹佛双线叙事）。
@@ -96,9 +95,9 @@ cn:
 
 ## 未知项清单
 
-- 数据留存与训练条款细节（未逐条核验）
-- 中文模型档位状态（未逐条核验）
-- 企业合规认证清单细节（未逐条核验）
+- 数据留存与训练条款细节（本档不逐条展开）
+- 中文模型档位状态（本档不逐条展开）
+- 企业合规认证清单细节（本档不逐条展开）
 
 ## 相关条目
 

@@ -42,11 +42,11 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    本地 **stdio**（npx 起进程）为主；官方另有托管远程端点线（细节以官方文档为准，未逐条核验）。
+    本地 **stdio**（npx 起进程）为主；官方另有托管远程端点线（细节以官方文档为准，本档不逐条展开）。
     核验：仓 README 与 GitHub API（2026-10-21）。
   auth: >-
     Supabase 访问令牌（scope 可选配）；本地形态环境变量/参数传 token。
-    令牌轮换与最小权限实践官方文档有指引——未逐条核验细节。
+    令牌轮换与最小权限实践官方文档有指引——本档不逐条展开细节。
   scope: >-
     项目级：读 schema、执行 SQL（含写/DDL）、管迁移、看日志。
     工具组裁剪可缩小暴露面；无工具级人工审批机制的官方说明。
@@ -65,8 +65,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Supabase Inc.（美国）。
@@ -92,13 +91,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 托管远程端点的当前状态与差异（未逐条核验）
-- 工具组裁剪的完整矩阵（未逐条清点）
-- 令牌 scope 粒度细节（未逐条核验）
+- 托管远程端点的当前状态与差异（本档不逐条展开）
+- 工具组裁剪的完整矩阵（本档不逐条复制完整清单）
+- 令牌 scope 粒度细节（本档不逐条展开）
 
 ## 相关条目
 

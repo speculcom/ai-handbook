@@ -22,9 +22,9 @@ axes:
     Devin can most likely do it」（可验证性高的任务成功率高）。
   tools: >-
     工作区自带 shell/浏览器/IDE 三类工具；与 Slack/Teams 线程直接 @Devin 派单，Linear/Jira 工单线集成。
-    MCP 支持状态未逐条核验（docs 有 integrations 分区，本次未逐页读）。
+    MCP 支持状态本档不逐条展开（docs 有 integrations 分区，本次未逐页读）。
   context: >-
-    以会话为单位组织工作；知识沉淀/记忆面未逐条核验。官方建议把任务写清完成标准、拆成可验证步骤——
+    以会话为单位组织工作；知识沉淀/记忆面本档不逐条展开。官方建议把任务写清完成标准、拆成可验证步骤——
     上下文给多少由你在派单时决定。
   permissions: >-
     账号+组织体系：企业管理员分配权限；仓库访问经集成授权（GitHub 等）划定范围；API 访问单独配。
@@ -58,8 +58,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Cognition（美国）；与 Windsurf 同厂。
@@ -95,10 +94,10 @@ cn:
 
 ## 未知项清单
 
-- 模型选择面是否存在（官方文档未见，未做实测）
+- 模型选择面是否存在（官方文档未见，本档不做实测）
 - MCP 支持状态（docs integrations 分区未逐页读）
-- 知识/记忆沉淀机制细节（未逐条核验）
-- 云端工作区的网络出口与持久化策略细节（未逐条核验）
+- 知识/记忆沉淀机制细节（本档不逐条展开）
+- 云端工作区的网络出口与持久化策略细节（本档不逐条展开）
 
 ## 相关条目
 

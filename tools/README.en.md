@@ -290,7 +290,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Crush](tracks/coding/products/crush.md) | Charm | cli | partial | active |
 | [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | partial | active |
 | [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | partial | active |
-| [Devin](tracks/coding/products/devin.md) | Cognition | cloud | partial | active |
+| [Devin](tracks/coding/products/devin.md) | Cognition | cloud | verified | active |
 | [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | partial | active |
 | [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | partial | active |
 | [GitHub Copilot](tracks/coding/products/copilot.md) | GitHub / Microsoft | ide | partial | active |
@@ -324,7 +324,7 @@ General-purpose chat assistants, web/app, including Chinese products
 | [Doubao](tracks/chat/products/doubao-chat.md) | ByteDance | web | partial | active |
 | [Hailuo AI](tracks/chat/products/hailuo-chat.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
 | [StepFun (Step Chat)](tracks/chat/products/stepfun.md) | StepFun | web | partial | active |
-| [Tencent Yuanbao](tracks/chat/products/yuanbao-chat.md) | Tencent | web | partial | active |
+| [Tencent Yuanbao](tracks/chat/products/yuanbao-chat.md) | Tencent | web | verified | active |
 | [Tongyi Qianwen (Qwen Chat)](tracks/chat/products/tongyi-qianwen.md) | Alibaba | web | partial | active |
 | [Wenxin](tracks/chat/products/wenxin.md) | Baidu | web | partial | active |
 | [iFlytek Spark](tracks/chat/products/xinghuo-spark.md) | iFlytek | web | partial | active |
@@ -396,10 +396,10 @@ TTS, music generation, transcription products
 |---|---|---|---|---|
 | [Moyin Workshop](tracks/audio/products/moyin.md) | Mobvoi | web | partial | active |
 | [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | partial | active |
-| [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | partial | active |
+| [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | verified | active |
 | [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | partial | active |
 | [CosyVoice](tracks/audio/products/cosyvoice.md) | Alibaba FunAudioLLM (open source) | local-app | partial | active |
-| [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | partial | active |
+| [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | verified | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
 | [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / SJTU X-LANCE et al. (open source) | local-app | partial | active |
 | [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
@@ -419,15 +419,15 @@ Citation-first search and research products
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Metaso AI Search](tracks/research/products/metaso.md) | Metaso (Shanghai Metaso Network Technology) | web | verified | active |
-| [Tiangong AI Search](tracks/research/products/tiangong.md) | Kunlun Tech | web | partial | active |
+| [Tiangong AI Search](tracks/research/products/tiangong.md) | Kunlun Tech | web | verified | active |
 | [Andi Search](tracks/research/products/andi.md) | Andi | web | partial | active |
 | [Consensus](tracks/research/products/consensus.md) | Consensus | web | partial | active |
 | [Devv](tracks/research/products/devv.md) | Devv AI | web | verified | active |
-| [Elicit](tracks/research/products/elicit.md) | Elicit | web | partial | active |
+| [Elicit](tracks/research/products/elicit.md) | Elicit | web | verified | active |
 | [Genspark](tracks/research/products/genspark.md) | Genspark | web | partial | active |
 | [Kagi](tracks/research/products/kagi.md) | Kagi | web | partial | active |
 | [NotebookLM](tracks/research/products/notebooklm.md) | Google | web | verified | active |
-| [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
+| [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | verified | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
 ### Automation & workflows — 24
@@ -454,7 +454,7 @@ Visual AI-app builders and workflow automation platforms
 | [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | partial | active |
 | [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
 | [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
-| [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI (Sydney) | web | partial | active |
+| [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI (Sydney) | web | verified | active |
 | [Salesforce Agentforce](tracks/automation/products/agentforce.md) | Salesforce | web | partial | active |
 | [SmythOS](tracks/automation/products/smythos.md) | SmythOS | web | partial | maintenance |
 | [Vertex AI Agent Builder](tracks/automation/products/vertex-agent-builder.md) | Google | web | partial | active |
@@ -468,7 +468,7 @@ Building blocks for your own agent
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [AG2](tracks/framework/products/ag2.md) | ag2ai | harness | partial | active |
-| [AgentScope](tracks/framework/products/agentscope.md) | Alibaba (ModelScope) | harness | partial | active |
+| [AgentScope](tracks/framework/products/agentscope.md) | Alibaba (ModelScope) | harness | verified | active |
 | [Agno (formerly Phidata)](tracks/framework/products/agno.md) | Agno Inc. | harness | verified | active |
 | [Claude Agent SDK](tracks/framework/products/claude-agent-sdk.md) | Anthropic | harness | partial | active |
 | [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | partial | active |
@@ -480,15 +480,15 @@ Building blocks for your own agent
 | [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | partial | active |
 | [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | partial | active |
 | [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
-| [Haystack](tracks/framework/products/haystack.md) | deepset | harness | partial | active |
+| [Haystack](tracks/framework/products/haystack.md) | deepset | harness | verified | active |
 | [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
 | [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | partial | active |
 | [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | partial | active |
-| [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | partial | active |
+| [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | verified | active |
 | [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j community | harness | verified | active |
 | [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
 | [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | partial | active |
-| [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | partial | active |
+| [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | verified | active |
 | [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
 | [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
 | [MetaGPT](tracks/framework/products/metagpt.md) | DeepWisdom (China-origin) | harness | partial | maintenance |
@@ -502,12 +502,12 @@ Building blocks for your own agent
 | [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | partial | active |
 | [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
 | [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | partial | active |
-| [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | partial | active |
+| [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | verified | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
 | [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | verified | active |
-| [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
-| [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | partial | active |
-| [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | partial | active |
+| [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | verified | active |
+| [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | verified | active |
+| [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | verified | active |
 | [Webots](tracks/framework/products/webots.md) | Cyberbotics | local-app | partial | active |
 
 ### Tools for your AI — 32
@@ -520,34 +520,34 @@ MCP servers and the tool ecosystem
 | [Atlassian Remote MCP Server（Jira/Confluence）](tracks/mcp/products/atlassian-mcp.md) | Atlassian | mcp | partial | active |
 | [Brave Search MCP Server](tracks/mcp/products/brave-search-mcp.md) | Brave | mcp | verified | active |
 | [Browserbase MCP Server](tracks/mcp/products/browserbase-mcp.md) | Browserbase | mcp | verified | active |
-| [Chrome DevTools MCP](tracks/mcp/products/chrome-devtools-mcp.md) | Google (Chrome DevTools team) | mcp | partial | active |
-| [Cloudflare MCP Server](tracks/mcp/products/cloudflare-mcp.md) | Cloudflare | mcp | partial | active |
-| [Context7](tracks/mcp/products/context7.md) | Upstash | mcp | partial | active |
+| [Chrome DevTools MCP](tracks/mcp/products/chrome-devtools-mcp.md) | Google (Chrome DevTools team) | mcp | verified | active |
+| [Cloudflare MCP Server](tracks/mcp/products/cloudflare-mcp.md) | Cloudflare | mcp | verified | active |
+| [Context7](tracks/mcp/products/context7.md) | Upstash | mcp | verified | active |
 | [Datadog MCP Server](tracks/mcp/products/datadog-mcp.md) | Datadog | mcp | verified | active |
 | [Everything MCP Server](tracks/mcp/products/everything.md) | Model Context Protocol | mcp | verified | active |
 | [Exa MCP Server](tracks/mcp/products/exa-mcp.md) | Exa | mcp | verified | active |
 | [Fetch MCP Server](tracks/mcp/products/fetch.md) | Model Context Protocol | mcp | verified | active |
-| [Figma MCP Server](tracks/mcp/products/figma-mcp.md) | Figma | mcp | partial | active |
+| [Figma MCP Server](tracks/mcp/products/figma-mcp.md) | Figma | mcp | verified | active |
 | [Filesystem MCP Server](tracks/mcp/products/filesystem.md) | Model Context Protocol | mcp | verified | active |
 | [Firecrawl MCP Server](tracks/mcp/products/firecrawl-mcp.md) | Firecrawl | mcp | verified | active |
 | [Git MCP Server](tracks/mcp/products/git.md) | Model Context Protocol | mcp | verified | active |
 | [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | partial | active |
-| [Grafana MCP Server](tracks/mcp/products/grafana-mcp.md) | Grafana Labs | mcp | partial | active |
+| [Grafana MCP Server](tracks/mcp/products/grafana-mcp.md) | Grafana Labs | mcp | verified | active |
 | [Intercom MCP Server](tracks/mcp/products/intercom-mcp.md) | Intercom | mcp | verified | active |
 | [Knowledge Graph Memory Server](tracks/mcp/products/memory.md) | Model Context Protocol | mcp | verified | active |
-| [Linear MCP](tracks/mcp/products/linear-mcp.md) | Linear | mcp | partial | active |
-| [MongoDB MCP Server](tracks/mcp/products/mongodb-mcp.md) | MongoDB | mcp | partial | active |
-| [Neon MCP Server](tracks/mcp/products/neon-mcp.md) | Neon | mcp | partial | active |
-| [Notion MCP](tracks/mcp/products/notion-mcp.md) | Notion | mcp | partial | active |
+| [Linear MCP](tracks/mcp/products/linear-mcp.md) | Linear | mcp | verified | active |
+| [MongoDB MCP Server](tracks/mcp/products/mongodb-mcp.md) | MongoDB | mcp | verified | active |
+| [Neon MCP Server](tracks/mcp/products/neon-mcp.md) | Neon | mcp | verified | active |
+| [Notion MCP](tracks/mcp/products/notion-mcp.md) | Notion | mcp | verified | active |
 | [Playwright MCP Server](tracks/mcp/products/playwright.md) | Microsoft | mcp | verified | active |
-| [Sentry MCP / Toolkit](tracks/mcp/products/sentry-mcp.md) | Sentry | mcp | partial | active |
+| [Sentry MCP / Toolkit](tracks/mcp/products/sentry-mcp.md) | Sentry | mcp | verified | active |
 | [Sequential Thinking MCP Server](tracks/mcp/products/sequential-thinking.md) | Model Context Protocol | mcp | verified | active |
 | [Shopify Dev MCP Server](tracks/mcp/products/shopify-mcp.md) | Shopify | mcp | verified | active |
-| [Slack MCP Server](tracks/mcp/products/slack-mcp.md) | Slack (Salesforce) | mcp | partial | active |
-| [Stripe Agent Toolkit / MCP](tracks/mcp/products/stripe-mcp.md) | Stripe | mcp | partial | active |
-| [Supabase MCP](tracks/mcp/products/supabase-mcp.md) | Supabase | mcp | partial | active |
+| [Slack MCP Server](tracks/mcp/products/slack-mcp.md) | Slack (Salesforce) | mcp | verified | active |
+| [Stripe Agent Toolkit / MCP](tracks/mcp/products/stripe-mcp.md) | Stripe | mcp | verified | active |
+| [Supabase MCP](tracks/mcp/products/supabase-mcp.md) | Supabase | mcp | verified | active |
 | [Time MCP Server](tracks/mcp/products/time.md) | Model Context Protocol | mcp | verified | active |
-| [Zapier MCP](tracks/mcp/products/zapier-mcp.md) | Zapier | mcp | partial | active |
+| [Zapier MCP](tracks/mcp/products/zapier-mcp.md) | Zapier | mcp | verified | active |
 
 ### Local model runners — 21
 
@@ -564,18 +564,18 @@ Desktop apps that run open-weight models on your machine
 | [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
 | [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge community (WasmEdge / Second State ecosystem) | cli | partial | maintenance |
 | [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | verified | active |
-| [LocalAI](tracks/runner/products/localai.md) | Mudler T. (mudler) | cli | partial | active |
+| [LocalAI](tracks/runner/products/localai.md) | Mudler T. (mudler) | cli | verified | active |
 | [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine (CMU lineage, mlc-ai) | cli | partial | active |
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
-| [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | partial | active |
+| [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | verified | active |
 | [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | verified | active |
 | [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
 | [OpenVINO](tracks/runner/products/openvino.md) | Intel | cli | verified | active |
-| [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
+| [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | verified | active |
 | [TabbyAPI](tracks/runner/products/tabbyapi.md) | Royal Lab（theroyallab） | cli | partial | active |
 | [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | archived |
 | [text-generation-webui / textgen](tracks/runner/products/text-generation-webui.md) | oobabooga | local-app | partial | maintenance |
-| [vLLM](tracks/runner/products/vllm.md) | vLLM project (PyTorch Foundation) | cli | partial | active |
+| [vLLM](tracks/runner/products/vllm.md) | vLLM project (PyTorch Foundation) | cli | verified | active |
 
 
 <!-- INDEX:END -->

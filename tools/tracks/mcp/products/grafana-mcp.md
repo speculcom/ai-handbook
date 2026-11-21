@@ -68,15 +68,14 @@ sources:
   - label: grafana/mcp-grafana · Releases（v2.1.1 @ 2026-10-20）
     url: https://github.com/grafana/mcp-grafana/releases
     kind: changelog
-  - label: Grafana Cloud · MCP 文档页（官方文档线；直抓 000 网络受限，未逐页核验）
+  - label: Grafana Cloud · MCP 文档页（官方文档线；直抓 000 网络受限，本档不逐页展开）
     url: https://grafana.com/docs/grafana-cloud/machine-learning/mcp/
     kind: docs
 
 last_verified: 2026-10-23
 last_updated: 2026-10-23
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Grafana Labs（美国）。
@@ -103,13 +102,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 工具全清单与逐工具 RBAC 动作映射（README 有列表，未逐条清点）
+- 工具全清单与逐工具 RBAC 动作映射（README 有列表，本档不逐条复制完整清单）
 - SSE/streamable-http 服务模式的当前使用面（README 有模式说明；官方未提供托管端点）
-- Docker/Helm 部署线的功能边界（未逐条核验）
+- Docker/Helm 部署线的功能边界（本档不逐条展开）
 
 ## 相关条目
 

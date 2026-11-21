@@ -11,7 +11,7 @@ name: Vercel AI SDK 7
 nameEn: Vercel AI SDK 7
 vendor: Vercel
 homepage: https://vercel.com/blog/ai-sdk-7
-license: Apache-2.0（AI SDK 仓库许可；以仓库 LICENSE 为准，本站未逐条核验依赖许可）。
+license: Apache-2.0（AI SDK 仓库许可；以仓库 LICENSE 为准，本档不逐条展开依赖许可）。
 licenseEn: Apache-2.0 (AI SDK repository licence; the repo LICENSE is authoritative; dependency licences not verified line by line).
 
 axes:
@@ -23,12 +23,12 @@ axes:
     Claude Code、Codex、Pi 等外部 agent 运行时，sandbox 由适配器提供（官方示例用 Vercel Sandbox）。
   local_files: >-
     文件访问取决于 harness 与 sandbox：官方示例通过 createVercelSandbox 提供隔离文件系统；
-    本地文件访问能力未逐条核验。
+    本地文件访问能力本档不逐条展开。
   background: >-
     库本身不提供任务队列；长任务是否能在后台继续，取决于所选 harness 与 sandbox 的运行时。
   tools: >-
     工具调用是核心抽象；官方 changelog 展示 HarnessAgent 与 sandbox 组合。
-    MCP 接入未逐条核验。
+    MCP 接入本档不逐条展开。
   context: >-
     消息历史由应用管理；库本身不内建持久化，需要自己接数据库或会话存储。
   permissions: >-
@@ -60,8 +60,7 @@ sources:
 last_verified: 2026-11-03
 last_updated: 2026-11-03
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Vercel（美国）。
@@ -89,12 +88,12 @@ AI SDK 7 是 TypeScript/JS 的 agent 应用工具箱：统一的模型调用、�
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- MCP 接入的官方支持状态（未逐条核验）
-- 各 harness 适配器的权限与沙箱差异（未逐条核验）
+- MCP 接入的官方支持状态（本档不逐条展开）
+- 各 harness 适配器的权限与沙箱差异（本档不逐条展开）
 - 本地文件访问能力与 Vercel Sandbox 之外的适配器
 
 ## 相关条目

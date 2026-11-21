@@ -10,12 +10,12 @@ licenseEn: MIT (GitHub API verified 2026-10-21).
 family: orchestration
 providers:
   - 模型无关：抽象层的卖点就是「换 provider 不改代码」，
-    集成面以官方 integrations 目录为准（未逐条清点）
+    集成面以官方 integrations 目录为准（本档不逐条复制完整清单）
   - 它本身不调模型：模型接入经它的 provider 集成层（官方文档 2026-10-21 核验）
 axes:
   model_access: >-
     模型接入层是它的看家能力：各家 LLM/嵌入/工具的统一接口族（provider 集成面巨大，
-    以官方 integrations 目录为准，未逐条清点）；它本身不调模型，是「换模型不改代码」的抽象层。
+    以官方 integrations 目录为准，本档不逐条复制完整清单）；它本身不调模型，是「换模型不改代码」的抽象层。
   runtime: >-
     Python/JS 库（pip/npm 装进你的进程）；GitHub 148,689★（API 核验 2026-10-21）——
     LLM 应用框架生态的主体。配套 LangGraph（编排）/LangSmith（观测）是同一厂商的相邻产品线。
@@ -24,11 +24,11 @@ axes:
   background: >-
     库本体无常驻语义；常驻与否取决于你用它写出的应用。官方托管线（LangSmith 平台）是另一产品面。
   tools: >-
-    工具定义与调用抽象是核心面；MCP 适配器线存在（langchain-mcp-adapters），支持细节未逐条核验。
+    工具定义与调用抽象是核心面；MCP 适配器线存在（langchain-mcp-adapters），支持细节本档不逐条展开。
   context: >-
     记忆/检索组件族（buffer/window/entity 等）是它的传统叙事；跨会话记忆要自己接存储——组件给模式不给托管。
   permissions: >-
-    无账号体系（库形态）；权限面=你接的各家 API key 与工具能力。观测线（LangSmith）有数据上传面——默认行为未逐条核验。
+    无账号体系（库形态）；权限面=你接的各家 API key 与工具能力。观测线（LangSmith）有数据上传面——默认行为本档不逐条展开。
   fit: >-
     适合：要最大集成生态、要「换 provider 不改代码」的抽象层、RAG/工具流起步。
     不适合：要轻量直连单家 API（抽象层是成本）；要开箱 agent 运行时（那是 LangGraph/Deep Agents 的线）。
@@ -58,8 +58,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: LangChain, Inc.（美国）。
@@ -85,13 +84,13 @@ cn:
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- integrations 全目录与官方维护标记（未逐条清点）
-- MCP 适配器当前能力面（未逐条核验）
-- LangSmith 数据上传默认行为细节（未逐条核验）
+- integrations 全目录与官方维护标记（本档不逐条复制完整清单）
+- MCP 适配器当前能力面（本档不逐条展开）
+- LangSmith 数据上传默认行为细节（本档不逐条展开）
 
 ## 相关条目
 

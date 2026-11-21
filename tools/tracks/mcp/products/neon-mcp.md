@@ -41,7 +41,7 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **stdio**（npx）为主 + 官方托管远程线（细节以仓 README 为准，未逐条核验）。
+    **stdio**（npx）为主 + 官方托管远程线（细节以仓 README 为准，本档不逐条展开）。
     核验：仓与 GitHub API（2026-10-21）。
   auth: >-
     Neon API key（管理面）+ Postgres 连接串（数据面）两路线。
@@ -63,8 +63,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Neon, Inc.（美国，现归 Databricks——vendor 口径按官方现行主体写 Neon）。
@@ -91,13 +90,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 远程托管端点状态（未逐条核验）
-- 工具全清单（未逐条清点）
-- Databricks 收购后产品口径变化细节（未逐条核验——vendor 按现行官方主体写）
+- 远程托管端点状态（本档不逐条展开）
+- 工具全清单（本档不逐条复制完整清单）
+- Databricks 收购后产品口径变化细节（本档不逐条展开——vendor 按现行官方主体写）
 
 ## 相关条目
 

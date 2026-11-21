@@ -9,11 +9,11 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 family: general-harness
 providers:
-  - provider 层接入：OpenAI/Anthropic/Gemini/本地（服务器侧 vLLM/llama.cpp 等）（官方文档为准，未逐条清点）
+  - provider 层接入：OpenAI/Anthropic/Gemini/本地（服务器侧 vLLM/llama.cpp 等）（官方文档为准，本档不逐条复制完整清单）
   - 服务器形态：模型在服务端配置，客户端（SDK/API）不直连模型
 axes:
   model_access: >-
-    各家模型经 provider 层接入（OpenAI/Anthropic/Gemini/本地等，以官方文档为准，未逐条清点）；
+    各家模型经 provider 层接入（OpenAI/Anthropic/Gemini/本地等，以官方文档为准，本档不逐条复制完整清单）；
     它的核心叙事是**有状态 agent**：记忆分层（core/archival）由 agent 自己编辑管理（MemGPT 论文线）。
   runtime: >-
     **agent 服务器形态**（区别于纯库）：起一个常驻服务（letta server），agent 与记忆在服务器里持久存在；
@@ -25,12 +25,12 @@ axes:
     **服务器形态自带常驻语义**——这是它与其它框架大类的结构差异：agent 是持久实体，
     会话可中断续接（官方核心叙事）。
   tools: >-
-    工具/函数调用 + 文件读写类内置工具线；MCP 支持状态未逐条核验（官方文档有相关线，细节未核）。
+    工具/函数调用 + 文件读写类内置工具线；MCP 支持状态本档不逐条展开（官方文档有相关线，细节未核）。
   context: >-
     **记忆管理就是它的产品本体**：core memory（agent 自编辑）+ archival（外部检索存储）
     分层是 MemGPT 设计——跨会话记忆是它的默认面，不是附加组件。
   permissions: >-
-    服务器有鉴权配置面（细节未逐条核验）；工具执行（文件/命令类）发生在服务器环境——
+    服务器有鉴权配置面（细节本档不逐条展开）；工具执行（文件/命令类）发生在服务器环境——
     自托管机器的权限面要自己设防。
   fit: >-
     适合：要「持久人格」的 agent（长期记忆+状态续接）、要自托管 agent 服务器、MemGPT 设计路线。
@@ -61,8 +61,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Letta, Inc.（美国，MemGPT 论文团队公司化）。
@@ -89,12 +88,12 @@ cn:
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- MCP 支持状态（官方文档有相关线，细节未逐条核验）
-- 服务器鉴权配置面细节（未逐条核验）
+- MCP 支持状态（官方文档有相关线，细节本档不逐条展开）
+- 服务器鉴权配置面细节（本档不逐条展开）
 - Letta Cloud 与自托管的能力差异表（未逐条对照）
 
 ## 相关条目

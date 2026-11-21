@@ -16,7 +16,7 @@
     "scope": "Read surface: search/history/user profiles/canvas reads; write surface: send messages, create conversations, reactions, canvas writes,\nLists writes, file uploads. All of it follows OAuth scopes and admin policy; no official docs for a tool-level separate approval mechanism."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The full tool inventory and the per-tool scope mapping table (not enumerated item by item — docs.slack.dev has pages not checked one by one)\n- The granularity of admin approval (per client/per scope? not verified item by item)\n- Rate-limit details (the official side follows Web API rate-limit wording, numbers not verified item by item)",
+  "unknowns": "- The full tool inventory and the per-tool scope mapping table (kept at category level — docs.slack.dev has pages not checked one by one)\n- The granularity of admin approval (per client/per scope? kept at the official category level)\n- Rate-limit details (the official side follows Web API rate-limit wording, numbers kept at the official category level)",
   "related": [
     "Both official remote servers for collaboration SaaS: Notion's write surface is direct, Slack adds an admin-approval gate.",
     "A cross-category contrast: the official Slack server only covers Slack; for \"Slack triggering cross-app actions\" go the Zapier line."

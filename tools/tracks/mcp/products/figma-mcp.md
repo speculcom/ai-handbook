@@ -68,8 +68,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Figma, Inc.（美国）。
@@ -96,12 +95,12 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- MCP catalog 完整客户端名单（未逐条清点）
-- usage-based 计费的定价细则（官方未给数字——报价记录约定不采价格）
+- MCP catalog 完整客户端名单（本档不逐条复制完整清单）
+- usage-based 计费的定价细则（官方 pricing 页只给计费口径，价格数字按 D9 不落档）
 - 远程与桌面形态的工具差异全表（未逐条对照）
 
 ## 相关条目

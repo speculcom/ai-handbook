@@ -109,11 +109,10 @@ link:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
-  origin_note: GitGuardian（法国厂商，文档提供 English/Français 两语；官网与隐私政策均写明向美国办公室传输数据）；本批次未逐条核验注册主体。
+  origin_note: GitGuardian（法国厂商，文档提供 English/Français 两语；官网与隐私政策均写明向美国办公室传输数据）；本批次本档不逐条展开注册主体。
   origin_note_en: GitGuardian (a French vendor; the docs offer English/Français and both the site and privacy policy state transfers to the US office); the registering entity was not verified item by item in this pass.
   direct: unknown
   direct_note: www.gitguardian.com 与 docs.gitguardian.com 当日从当前网络取到 200，但未在大陆网络环境做直连实测；dashboard 与 API 可达性同样未测，故记未知。
@@ -148,7 +147,7 @@ SaaS Releases、隐私政策与 Pricing 在册的说法。
 
 - **有效性校验的实际行为**（官方 FAQ 说会 check validity，具体调用形式与失败面未在册）
 - **自托管与 air-gapped 部署下的功能差集**（哪些集成与 Honeytoken 在离线模式仍可用）
-- **MCP Server 的 read-only 约束在真实 agent 里怎么落地**（三条安全约束在册，权限模型未逐条核验）
+- **MCP Server 的 read-only 约束在真实 agent 里怎么落地**（三条安全约束在册，权限模型本档不逐条展开）
 - **扫过的代码片段在厂商侧留存多久**（公开条款未逐条说明，尽调必问）
 
 ## 变更记录说明

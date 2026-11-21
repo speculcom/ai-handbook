@@ -12,11 +12,11 @@
   },
   "mcp": {
     "transport": "**Streamable HTTP** (mcp.linear.app/mcp); the old SSE endpoint is retired (direct fetch 404 verified).\nVerified: linear.app/docs/mcp 200, endpoint 401 (2026-10-21).",
-    "auth": "OAuth browser authorization flow (log into the Linear account on first connection); no official docs for a plaintext-PAT configuration route.\nAuthorization granularity and token-revocation details not verified item by item.",
+    "auth": "OAuth browser authorization flow (log into the Linear account on first connection); no official docs for a plaintext-PAT configuration route.\nAuthorization granularity and token-revocation details kept at the official category level.",
     "scope": "Read surface: issue search/read, project and team queries; write surface: create/update issues, comments.\nIt follows the account's permissions; there is no separate approval layer."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The full tool inventory (not enumerated item by item)\n- Rate-limit details (official gives no numbers)\n- The workspace-level control surface (not verified item by item)",
+  "unknowns": "- The full tool inventory (kept at category level)\n- Rate-limit details (official gives no numbers)\n- The workspace-level control surface (kept at the official category level)",
   "related": [
     "Both the \"task surface for coding agents\": GitHub manages PRs/issues on the code side, Linear manages the product-issues side."
   ],

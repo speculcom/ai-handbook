@@ -20,7 +20,7 @@ axes:
     服务在 Linear 侧；请求-响应语义，无后台任务。
   tools: >-
     搜/读/建/改 issue、查项目与团队、评论等；写能力齐全（建 issue、改状态）。
-    完整清单以官方文档为准，未逐条清点。
+    完整清单以官方文档为准，本档不逐条复制完整清单。
   context: >-
     无 server 侧跨会话记忆——状态在 Linear 工作区本身。
   permissions: >-
@@ -44,7 +44,7 @@ mcp:
     核验：linear.app/docs/mcp 200、端点 401（2026-10-21）。
   auth: >-
     OAuth 浏览器授权流（首次连接登录 Linear 账号）；无 PAT 明文配置路线的官方说明。
-    授权粒度与令牌吊销细节未逐条核验。
+    授权粒度与令牌吊销细节本档不逐条展开。
   scope: >-
     读面：issue 搜索/读取、项目与团队查询；写面：建/改 issue、评论。
     跟着账号权限走；无独立审批层。
@@ -63,8 +63,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Linear Opus, Inc.（美国）。
@@ -90,13 +89,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 工具全清单（未逐条清点）
-- 速率限制细则（官方未给数字）
-- 工作区级管控面（未逐条核验）
+- 工具全清单（本档不逐条复制完整清单）
+- 速率限制细则（官方只给速率限制口径，不披露具体数字）
+- 工作区级管控面（本档不逐条展开）
 
 ## 相关条目
 

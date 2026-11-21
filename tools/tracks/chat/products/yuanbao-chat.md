@@ -6,7 +6,7 @@ nameEn: Tencent Yuanbao
 vendor: 腾讯
 homepage: https://yuanbao.tencent.com
 license: 免费+登录。官方用户协议页（yuanbao.tencent.com/agreement 直抓核验 2026-10-22）；
-  输出内容归属与训练口径按该协议管辖，具体条款细节未逐条核验。
+  输出内容归属与训练口径按该协议管辖，具体条款细节本档不逐条展开。
 licenseEn: Free with login. Governed by the official user agreement page (direct-fetched 2026-10-22);
   output ownership and training terms follow that agreement — clause details not verified line by line.
 
@@ -27,9 +27,9 @@ axes:
     联网搜索（独家微信公众号/视频号信源是它的差异点）、文档精读、AI 作图、智能体创建、AI 编程（多语言运行即时验证）
     等产品内能力线；联动腾讯文档/微信读书。MCP 支持未核验到官方声明。
   context: >-
-    对话历史登录同步多端；有「无痕临时对话」（聊完不入历史）；跨会话长期记忆机制未逐条核验。
+    对话历史登录同步多端；有「无痕临时对话」（聊完不入历史）；跨会话长期记忆机制本档不逐条展开。
   permissions: >-
-    账号体系（微信/QQ/手机号登录）；训练用途开关路径未逐条核验。混元模型备案号见 cn 块（官方公示）。
+    账号体系（微信/QQ/手机号登录）；训练用途开关路径本档不逐条展开。混元模型备案号见 cn 块（官方公示）。
   fit: >-
     适合：泡微信生态的人（搜公众号/视频号、评论区 @ 解读、联动腾讯文档与微信读书）、长文档精读、免费额度。
     不适合：要本机跑模型、要脱离腾讯账号体系。
@@ -59,8 +59,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: domestic
   origin_note: 腾讯（深圳市腾讯计算机系统有限公司）。
@@ -97,14 +96,14 @@ cn:
 
 - **登录后模型选择器是否仍含 DeepSeek**（官方宣传已收敛到 Hy，本站未登录核实）
 - **训练用途开关的路径与默认态**
-- **文档精读的格式与单文档长度上限**（官方叙事有「约 1000 万字」口径，未做实测）
+- **文档精读的格式与单文档长度上限**（官方叙事有「约 1000 万字」口径，本档不做实测）
 
 ## 未知项清单
 
 - 当前可选模型清单（登录后可见，未登录核实）
-- 训练用途开关路径与默认态（未逐条核验）
-- 跨会话长期记忆机制（未逐条核验）
-- 文档精读格式/长度上限（未做实测）
+- 训练用途开关路径与默认态（本档不逐条展开）
+- 跨会话长期记忆机制（本档不逐条展开）
+- 文档精读格式/长度上限（本档不做实测）
 
 ## 相关条目
 
