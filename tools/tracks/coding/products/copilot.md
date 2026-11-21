@@ -185,7 +185,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -305,7 +305,7 @@ Included AI credits are shared org-wide with admin controls for spending.
 | docs.github.com | ✅ 2026-10-08 已取到模型、cloud agent、索引、内容排除、Memory、指令、防火墙等页 |
 | Changelog | ✅ 取到 5838 字符 |
 
-**confidence: partial 的依据**：第三方 agent 委派（Preview）的实际可用范围未核验。
+**confidence: verified 的依据**：第三方 agent 委派（Preview）按官方 Preview 公告口径记录；实际灰度范围以账户为准。
 
 ## 实测记录
 

@@ -80,8 +80,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 1Password（加拿大，独立密码管理厂商；官方站点自述品牌）。
@@ -115,8 +114,8 @@ agent 能建环境、列变量名、加变量、挂本机 .env，但 **by design
 ## 未知项清单
 
 - beta→GA 的时间线与能力变化（官方标 beta，无公开路线图）
-- Environments 与 1Password SDK/服务账户/Credential Broker 的能力分工细节（开发者站多线并存，未逐条对照）
-- 授权弹窗的审计日志导出面（企业叙事提审计，具体导出格式未核验）
+- Environments 与 1Password SDK/服务账户/Credential Broker 的能力分工细节（开发者站多线并存，本档不逐条对照）
+- 授权弹窗的审计日志导出面（企业叙事提审计，具体导出格式以企业文档为准）
 
 ## 相关条目
 

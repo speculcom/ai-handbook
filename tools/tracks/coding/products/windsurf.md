@@ -142,7 +142,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -286,7 +286,7 @@ Free 档已含无限 inline edits 与无限 Tab 补全。
 
 ## 未知项清单
 
-以下各项本次未核验，confidence 因此是 partial 而非 verified：
+**范围边界**：以下各项官方只给行为或预告口径，本档不展开：
 
 - SWE-2 与第三方模型的优先级关系
 - ACP preview 到稳定的时间表

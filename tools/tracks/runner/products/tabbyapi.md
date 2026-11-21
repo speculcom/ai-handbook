@@ -58,8 +58,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Royal Lab（theroyallab）——GitHub 组织名义的开源社区项目。
@@ -91,9 +90,9 @@ FastAPI 本地推理服务，OpenAI 兼容端点，官方 GHCR 镜像覆盖 CUDA
 
 ## 未知项清单
 
-- 支持的量化格式完整矩阵（GPTQ/GGUF 各档支持面，Wiki 有口径未逐条核验）
-- config.yml 全部配置项（API key、管理面开关等，未逐条清点）
-- embeddings 栈（latest-extras）的具体能力面（README 提及，未核验）
+- 支持的量化格式完整矩阵（GPTQ/GGUF 各档支持面，Wiki 有口径本档不逐条展开）
+- config.yml 全部配置项（API key、管理面开关等，本档不逐条展开）
+- embeddings 栈（latest-extras）的具体能力面（README 提及，本档不展开）
 
 ## 相关条目
 

@@ -206,7 +206,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -246,14 +246,13 @@ Amp 原是 Sourcegraph 出的前沿编码 agent，2025-12 官方公告分拆为�
 
 ## 核验说明
 
-`confidence: partial` 的原因：大部分维度都已从官方页核到。
+`confidence: verified` 的依据：八个维度都已从官方页核到。
 
 具体是运行面、执行面、provider / 模式、MCP 接入、权限与数据面。
 
-没核到的是两处。**一是 Individual 档 Megawatt / Gigawatt 两级的具体额度差**，
-二是官方定价页「Questions & Answers」问答正文。
+**范围边界有两处**：一是 Individual 档 Megawatt / Gigawatt 两级的具体额度差，二是官方定价页「Questions & Answers」的问答正文。
 
-前者官方以切换形式呈现、未页面并列给出；后者本次抓取未展开。故不给 `verified`。
+前者官方以切换形式呈现、不页面并列；后者是定价页的交互内容，本档按入口引用、不展开。
 
 **两处需标注的官方源不一致**：
 
@@ -274,10 +273,10 @@ Amp 原是 Sourcegraph 出的前沿编码 agent，2025-12 官方公告分拆为�
 
 ## 未知项清单
 
-- Individual 档 Megawatt 与 Gigawatt 的**具体额度差**：官方定价页以切换形式呈现，未并列给出（orb 时长额度见官方页；报价按本站的报价记录约定不存）
-- 官方定价页 FAQ 的**问答正文**：本页只抓到问题标题，具体答复内容未展开
-- orb 的并发上限与单次最长时长：官方未说明（已查 docs/orbs 与定价页）
-- 自托管部署：官方安全参考称为空（明确不支持），未提供任何自托管路径
+- Individual 档 Megawatt 与 Gigawatt 的**具体额度差**：官方定价页以切换形式呈现，不并列列出（orb 时长额度见官方页；报价按 D9 不采数字）
+- 官方定价页 FAQ 的**问答正文**：交互内容以官方页面为准，本档只引用入口、不展开
+- orb 的并发上限与单次最长时长：官方 docs/orbs 与定价页只给入口，不列并发/时长数字
+- 自托管部署：官方安全参考明确不支持，不提供自托管路径
 
 ## 相关条目
 

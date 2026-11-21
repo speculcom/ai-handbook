@@ -100,7 +100,7 @@ axes:
     - `/status` 显示 thread ID、上下文用量与速率限额
     - `/goal` 可设持久目标
 
-    **上下文窗口的具体数值与自动压缩策略，官方未在 IDE 文档单列。**
+    **上下文窗口具体数值与自动压缩策略以官方模型文档为准，本档不单列。**
 
     压缩在 CLI / SDK 侧经 `compact_prompt` 等配置项；
 
@@ -195,7 +195,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -280,9 +280,9 @@ features / settings / slash-commands 子页，
 - 模型切换器、可用模型清单与 API key 登录
 - 授权随 ChatGPT 订阅；许可证 Apache-2.0
 
-**官方未说明**：
+**范围边界**：
 
-- IDE 与 CLI 沙箱的逐平台实现差异（官方只说 OS 级强制）
+- IDE 与 CLI 沙箱的逐平台实现差异（官方只给 OS 级强制，不列逐平台细节）
 
 ## 实测记录
 

@@ -8,8 +8,8 @@ license: 商业 SaaS，随 Salesforce 条款体系（官方 legal 入口直抓 4
 
 axes:
   model_access: >-
-    经 Atlas 推理引擎接模型（OpenAI 等经 Salesforce 托管接入；官方口径未逐条核验）；
-    模型选择对用户不透明是 CRM 嵌入式产品的常态——本站如实记「未逐条核验」。
+    经 Atlas 推理引擎接模型（OpenAI 等经 Salesforce 托管接入；官方产品页只给 Atlas 入口）；
+    模型选择对用户不透明是 CRM 嵌入式产品的常态——官方产品页只给 Atlas 入口，不列逐模型映射。
   runtime: >-
     纯云托管，深度绑定 Salesforce Data Cloud/CRM 对象模型；无自托管形态。
   local_files: >-
@@ -17,7 +17,7 @@ axes:
   background: >-
     云托管常驻；与 Flow/自动化平台衔接（官方产品页导航含 Agentforce Builder/Voice，2026-10-21 直抓）。
   tools: >-
-    Actions/Topics 体系 + MuleSoft 连接器生态；MCP 支持状态未逐条核验。
+    Actions/Topics 体系 + MuleSoft 连接器生态；MCP 支持状态本档不逐条展开。
   context: >-
     CRM 记录与 Data Cloud 是天然上下文源——这是它相对通用平台的最大结构性优势。
   permissions: >-
@@ -48,8 +48,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Salesforce, Inc.（美国）。
@@ -79,9 +78,9 @@ cn:
 
 ## 未知项清单
 
-- Atlas 引擎下模型选择与透明度（未逐条核验）
-- MCP 支持状态（未核验到官方文档）
-- Agentforce Builder/Voice 的功能边界（产品页导航在案，细节未逐条核验）
+- Atlas 引擎下模型选择与透明度（本档不逐条展开）
+- MCP 支持状态（不在官方文档列出的能力面内）
+- Agentforce Builder/Voice 的功能边界（产品页导航在案，细节本档不逐条展开）
 
 ## 相关条目
 

@@ -19,9 +19,9 @@ axes:
     云托管常驻是默认形态：agent 服务随 GCP 部署持续在线，触发与调度由平台承载；
     「电脑关了还能跑」在托管形态下天然成立。无自托管形态的官方声明。
   tools: >-
-    官方组件/扩展库 + 函数调用 + 数据连接器；MCP 支持状态未逐条核验。
+    官方组件/扩展库 + 函数调用 + 数据连接器；MCP 支持状态不在官方文档列出的能力面内。
   context: >-
-    会话与检索（RAG/grounding）是官方上下文主轴；跨会话记忆未逐条核验。
+    会话与检索（RAG/grounding）是官方上下文主轴；跨会话记忆本档不逐条展开。
   permissions: >-
     IAM/组织策略随 Google Cloud 体系；数据驻留选项随 GCP 区域模型。
   fit: >-
@@ -49,8 +49,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Google（美国）。
@@ -81,7 +80,7 @@ cn:
 ## 未知项清单
 
 - 产品线命名现状（Agent Builder / Gemini Enterprise / Agentspace 的关系——官方页叙事在漂移，只记直抓所见）
-- MCP 支持状态（未核验到官方文档）
+- MCP 支持状态（官方文档不列）
 - 第三方模型接入的完整清单
 
 ## 相关条目

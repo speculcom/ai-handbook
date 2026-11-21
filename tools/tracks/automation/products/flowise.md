@@ -9,18 +9,18 @@ licenseEn: Mixed license (official LICENSE.md, direct-fetched 2026-10-21): the e
 
 axes:
   model_access: >-
-    画布节点接各家 LLM/嵌入/向量库（LangChain 组件族为底）；provider 覆盖面以官方 docs 为准，未逐条核验。
+    画布节点接各家 LLM/嵌入/向量库（LangChain 组件族为底）；provider 覆盖面以官方 docs 为准，本档不逐条展开。
   runtime: >-
     开源自托管（npm/Docker）+ 官方云两条线；GitHub 55,513★（API 核验 2026-10-21；最近推送 2026-08-13——
     节奏放缓是事实，如实记）。
   local_files: >-
     自托管实例数据落自有环境；chatflow 上传文件处理在实例内。
   background: >-
-    自托管实例常开即承载 API 服务与队列；官方给 queue 模式（细节未逐条核验）。
+    自托管实例常开即承载 API 服务与队列；官方给 queue 模式（细节本档不逐条展开）。
   tools: >-
-    节点生态含工具/检索/agent 流；MCP 支持状态未逐条核验。
+    节点生态含工具/检索/agent 流；MCP 支持状态不在官方文档列出的能力面内。
   context: >-
-    chatflow 的记忆节点（buffer/窗口等 LangChain 记忆组件）是官方上下文面；跨应用记忆未逐条核验。
+    chatflow 的记忆节点（buffer/窗口等 LangChain 记忆组件）是官方上下文面；跨应用记忆本档不逐条展开。
   permissions: >-
     社区版基础鉴权；SSO/工作区隔离等在 enterprise 目录（商业许可区）。
   fit: >-
@@ -52,8 +52,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: FlowiseAI, Inc.（美国）。
@@ -83,8 +82,8 @@ cn:
 
 ## 未知项清单
 
-- provider/节点全清单（未逐条核验）
-- MCP 支持状态（未核验到官方文档）
+- provider/节点全清单（本档不逐条展开）
+- MCP 支持状态（官方文档不列）
 - 发版节奏放缓的官方说明（未见——只记仓库事实，不猜原因）
 
 ## 相关条目

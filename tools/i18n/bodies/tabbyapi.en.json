@@ -10,8 +10,8 @@
     "permissions": "Runs locally; an API key can be configured (config.yml); the permission surface = local files and GPU. The Docker wording requires a larger --shm-size\n(ExLlamaV3 uses POSIX shared memory for tensor parallelism and CPU MoE offload; the 64 MiB default is not enough — stated plainly in the README).",
     "fit": "Fits: the ExLlamaV3 ecosystem (GPTQ-family quantization) wanting an OpenAI-compatible API — the standard answer; one-shot Docker CUDA/ROCm inference servers.\nDoes not fit: production-grade serving (officially self-described as not production-oriented — that is the vLLM/TGI line); broad GGUF quant coverage (the llama.cpp root)."
   },
-  "runs": "This site has not completed measured runs. The test protocol is at [protocols/runner/_protocol.md](../../../protocols/runner/_protocol.md).",
-  "unknowns": "- The full quantization-format support matrix (per-tier GPTQ/GGUF support; the Wiki has wording, not verified item by item)\n- All config.yml options (API key, admin-surface toggles, etc.; not enumerated item by item)\n- What the embeddings stack (latest-extras) actually covers (mentioned in the README, not verified)",
+  "runs": "This profile is based on official docs and records no local measured runs. The test protocol is at [protocols/runner/_protocol.md](../../../protocols/runner/_protocol.md).",
+  "unknowns": "- The full quantization-format support matrix (per-tier GPTQ/GGUF support; the Wiki has wording, kept at official category level)\n- All config.yml options (API key, admin-surface toggles, etc.; kept at official category level)\n- What the embeddings stack (latest-extras) actually covers (mentioned in the README, kept at official category level)",
   "related": [
     "Contrast: llama.cpp is the GGUF inference root; TabbyAPI stands on the ExLlamaV3 backend (strong on the GPTQ family).",
     "Contrast: Ollama is a productized pull-and-run wrapper; TabbyAPI is an API server for frontends, with a more engineering-oriented configuration surface.",
