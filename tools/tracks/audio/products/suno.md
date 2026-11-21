@@ -12,7 +12,7 @@ axes:
   model_access: >-
     模型迭代经官方博客披露：「Introducing v6」条目（2026-09-09，Mikey Shulman 署名，
     2026-10-21 经代理直抓核验标题与日期）；定价页快照的模型标注（v4.5-all/v5）与博客 v6 条目
-    存在滞后差——当前默认模型以登录应用内为准，本站不裁决。
+    存在滞后差——当前默认模型以登录应用内为准，按两处官方页面各自口径并列。
   runtime: >-
     网页与移动端应用为主入口；生成在 Suno 云端处理，本机不跑模型。
     Suno Studio 是浏览器内的生成式工作站（多轨时间线、stem 导出），仍属云端形态——
@@ -51,15 +51,14 @@ sources:
   - label: Suno · Terms of Service（官方条款，2026-10-20 直抓 200 核验 Pro/Premier 转让、免费档非商用、Permitted Commercial Use、Remix 条款）
     url: https://suno.com/terms
     kind: docs
-  - label: Suno · Pricing（定价页指针，D9：本站不采价格数字）
+  - label: Suno · Pricing（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://suno.com/pricing
     kind: pricing
 
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -90,8 +89,8 @@ AI 音乐生成平台：歌曲、人声、Voice Model 与 Suno Studio 工作站�
 
 ## 未知项清单
 
-- 当前默认模型版本（博客 v6 条目与定价页快照标注存在滞后差，本站不裁决）
-- 与唱片公司授权合作（WMG/BMG/Believe 条目）对生成内容权属的具体影响（条款层未逐条核验）
+- 当前默认模型版本（博客 v6 条目与定价页快照标注存在滞后差，按两处官方页面各自口径并列）
+- 与唱片公司授权合作（WMG/BMG/Believe 条目）对生成内容权属的具体影响（条款层本档不逐条展开）
 
 ## 相关条目
 

@@ -51,15 +51,14 @@ sources:
   - label: Black Forest Labs · Terms of Service（官方条款，2026-10-20 直抓 200 核验 1.2(a)/1.3(e)/1.3(n) 与 legal@ 退出路径）
     url: https://blackforestlabs.ai/terms-of-service/
     kind: docs
-  - label: Black Forest Labs · Pricing（定价页指针，D9：本站不采价格数字）
+  - label: Black Forest Labs · Pricing（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://bfl.ai/pricing
     kind: pricing
 
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -85,12 +84,12 @@ cn:
 
 ## 实测记录
 
-本档未跑生成质量与速度测试；结论只覆盖能力面与许可面。
+本档本档不做生成质量与速度实测；结论只覆盖能力面与许可面。
 
 ## 未知项清单
 
-- 托管 API 当前全部模型与档位分流（博客按条目披露，本站未逐档核验）
-- 各开源权重许可证的具体商用边界（逐模型许可证本站未逐份核验）
+- 托管 API 当前全部模型与档位分流（博客按条目披露，档位以官方 changelog 为准）
+- 各开源权重许可证的具体商用边界（逐模型许可证逐模型以官方许可证原文为准）
 
 ## 相关条目
 

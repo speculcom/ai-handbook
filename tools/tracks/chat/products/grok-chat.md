@@ -53,7 +53,7 @@ sources:
   - label: xAI · News（官方发布线入口，模型迭代记录指针）
     url: https://x.ai/news
     kind: changelog
-  - label: xAI · Grok 产品页（定价页指针，D9：本站不采价格数字）
+  - label: xAI · Grok 产品页（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://x.ai/grok
     kind: pricing
 

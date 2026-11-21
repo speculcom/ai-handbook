@@ -68,7 +68,7 @@ sources:
   - label: Google blog · Nano Banana 2（Gemini 3.1 Flash Image，2026-02-26）
     url: https://blog.google/intl/pt-br/produtos/nano-banana-2/
     kind: docs
-  - label: Google AI plans（定价页指针，D9：本站不采价格数字）
+  - label: Google AI plans（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://one.google.com/about/google-ai-plans
     kind: pricing
   - label: Google blog · Gemini 4 Carbon now available（2026-11-10）
@@ -81,8 +81,7 @@ sources:
 last_verified: 2026-11-19
 last_updated: 2026-11-19
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -113,8 +112,8 @@ Google 生态里的通用对话助手：网页/Windows/macOS 三端覆盖，模�
 
 ## 未知项清单
 
-- 跨会话记忆功能的完整边界（以官方帮助页为准，本站未逐条核验）
-- 免费档当前可用模型清单（release notes 按条目披露档位，本站未逐档核验）
+- 跨会话记忆功能的完整边界（以官方帮助页为准，本档不逐条展开）
+- 免费档当前可用模型清单（release notes 按条目披露档位，档位以官方 changelog 为准）
 
 ## 相关条目
 

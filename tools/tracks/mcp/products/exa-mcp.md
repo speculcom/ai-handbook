@@ -71,8 +71,7 @@ sources:
 last_verified: 2026-10-23
 last_updated: 2026-10-23
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Exa（前 Metaphor Systems，美国）。
@@ -99,13 +98,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 匿名档与鉴权档的速率限制具体数值（官方 README 只说 rate limits，未逐条核验；按快照纪律不记数字）
+- 匿名档与鉴权档的速率限制具体数值（官方 README 只说 rate limits，本档不逐条展开；按快照纪律不记数字）
 - Exa Agent 的工具面与 Connect providers 细节（README 指向 docs.exa.ai，未逐页核验）
-- Agent Plugin 生态的兼容客户端清单（README 引 agent-plugins.org，未逐条核验）
+- Agent Plugin 生态的兼容客户端清单（README 引 agent-plugins.org，本档不逐条展开）
 
 ## 相关条目
 

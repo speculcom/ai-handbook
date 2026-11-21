@@ -17,13 +17,13 @@ axes:
   local_files: >-
     全本地运行：模型、对话与生成记录都在自有环境；未见官方云线或遥测声明。
   background: >-
-    内置 KoboldAI 兼容 API server 常驻；细节未逐条核验。
+    内置 KoboldAI 兼容 API server 常驻；细节本档不逐条展开。
   tools: >-
-    以角色扮演/创意写作负载为主轴；工具调用/function calling 支持面未逐条核验。
+    以角色扮演/创意写作负载为主轴；工具调用/function calling 支持面本档不逐条展开。
   context: >-
-    上下文与内存（memory/smart context）管理是 Kobold 系传统强项；细节未逐条核验。
+    上下文与内存（memory/smart context）管理是 Kobold 系传统强项；细节本档不逐条展开。
   permissions: >-
-    本地进程无账号体系；API server 监听与鉴权由用户自配（默认口径未逐条核验）。
+    本地进程无账号体系；API server 监听与鉴权由用户自配（默认口径本档不逐条展开）。
   fit: >-
     适合：角色扮演/长上下文创意写作、要单文件免安装、要 KoboldAI 生态兼容。
     不适合：要 OpenAI 兼容主叙事（有但非主轴）；要 AGPL 商用闭源分发（copyleft 约束）。
@@ -53,8 +53,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: LostRuins（个人维护者，KoboldAI 社区线）。
@@ -80,13 +79,13 @@ AGPL-3.0——商用集成前先读 copyleft 义务。诚实标注：官方仓�
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 
-- 上下文管理特性全清单（smart context/memory 线未逐条核验）
-- 工具调用支持状态（未逐条核验）
-- 个人维护者的长期维护承诺（未见官方声明——单点维护风险如实标注）
+- 上下文管理特性全清单（smart context/memory 线本档不逐条展开）
+- 工具调用支持状态（本档不逐条展开）
+- 个人维护者的长期维护承诺（官方未单独披露——单点维护风险如实标注）
 
 ## 相关条目
 

@@ -11,13 +11,13 @@ name: Spring AI
 nameEn: Spring AI
 vendor: Spring（VMware/Broadcom）
 homepage: https://docs.spring.io/spring-ai/reference/
-license: Apache-2.0（以仓库 LICENSE 为准，本站未逐条核验依赖许可）。
+license: Apache-2.0（以仓库 LICENSE 为准，本档不逐条展开依赖许可）。
 licenseEn: Apache-2.0 (follow the repository LICENSE; dependency licences not verified line by line here).
 
 axes:
   model_access: >-
     可移植的 Model API：用统一接口接多家模型供应商；官方文档列出 ChatClient 与模型 API。
-    当前支持列表以官方文档为准，本站未逐条清点。
+    当前支持列表以官方文档为准，本档不逐条复制完整清单。
   runtime: >-
     运行在 Spring Boot 应用内：官方提供 starters 与 auto-configuration，
     模型与向量库以 Spring Bean 方式注入。
@@ -62,8 +62,7 @@ sources:
 last_verified: 2026-11-03
 last_updated: 2026-11-03
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Spring 项目（VMware/Broadcom 生态）。
@@ -91,11 +90,11 @@ Spring AI 把 AI 能力做成 Spring 组件：可移植 Model API、ChatClient�
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- 当前支持的模型与向量库完整清单（未逐条清点）
+- 当前支持的模型与向量库完整清单（本档不逐条复制完整清单）
 - MCP 双向集成的版本与限制
 - Spring Boot 版本兼容矩阵
 

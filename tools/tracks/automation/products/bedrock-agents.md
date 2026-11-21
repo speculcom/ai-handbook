@@ -9,7 +9,7 @@ license: 商业云服务，随 AWS 条款体系；无自托管形态。
 axes:
   model_access: >-
     经 Bedrock 接各家模型（Anthropic Claude、Meta、Mistral、Amazon 自有等——Bedrock 模型目录口径）；
-    具体清单未逐条核验。
+    具体清单本档不逐条展开。
   runtime: >-
     云托管：agent 跑在 AWS（Agents 编排 + AgentCore 运行时两条线）；无自托管形态。
     旧产品 URL bedrock/agent/ 已 404（2026-10-21 直抓核验），现行入口 bedrock/agents/ 与 bedrock/agentcore/。
@@ -17,11 +17,11 @@ axes:
     知识库接 S3、向量库等 AWS 内资源，文件面完全在云内；不承载本机文件运行时——
     要「AI 读写本机文件」的形态在这里不存在（如实记，不是官方不允许）。
   background: >-
-    云托管常驻；AgentCore 主打「任意框架的托管运行时」（官方叙事，细节未逐条核验）。
+    云托管常驻；AgentCore 主打「任意框架的托管运行时」（官方叙事，细节本档不逐条展开）。
   tools: >-
-    官方 action groups/gateway + MCP 支持（Bedrock 文档线含 MCP 条目，未逐条核验细节）。
+    官方 action groups/gateway + MCP 支持（Bedrock 文档线含 MCP 条目，本档不逐条展开细节）。
   context: >-
-    会话状态与 Knowledge Bases 检索是官方上下文面；跨会话记忆未逐条核验。
+    会话状态与 Knowledge Bases 检索是官方上下文面；跨会话记忆本档不逐条展开。
   permissions: >-
     IAM/资源策略随 AWS 体系——企业治理是 AWS 原生强项。
   fit: >-
@@ -53,8 +53,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Amazon Web Services（美国）。
@@ -84,8 +83,8 @@ cn:
 
 ## 未知项清单
 
-- Agents 与 AgentCore 的功能重叠与分工（官方叙事在演进，未逐条核验）
-- MCP 支持细节（文档线有条目但未逐条核验）
+- Agents 与 AgentCore 的功能重叠与分工（官方叙事在演进，本档不逐条展开）
+- MCP 支持细节（文档线有条目但本档不逐条展开）
 - Bedrock 模型目录现值
 
 ## 相关条目

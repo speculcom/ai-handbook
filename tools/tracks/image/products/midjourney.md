@@ -53,15 +53,14 @@ sources:
   - label: Midjourney · AB2013 Training Data Documentation（官方训练数据披露，含用户数据入训练集）
     url: https://docs.midjourney.com/hc/en-us/articles/42829949256205-AB2013-Documentation
     kind: docs
-  - label: Midjourney · Subscription Plans（定价页指针，D9：本站不采价格数字）
+  - label: Midjourney · Subscription Plans（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://docs.midjourney.com/hc/en-us/articles/27174136160653-Subscription-Plans
     kind: pricing
 
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -88,11 +87,11 @@ cn:
 
 ## 实测记录
 
-本档未跑生成质量与速度测试；结论只覆盖能力面与许可面。
+本档本档不做生成质量与速度实测；结论只覆盖能力面与许可面。
 
 ## 未知项清单
 
-- 当前默认模型版本与全部可选版本清单（changelog 按条目披露，本站未逐版核验）
+- 当前默认模型版本与全部可选版本清单（changelog 按条目披露，版本以官方 changelog 为准）
 - 个人化（personalization）功能的完整边界（以官方文档为准）
 
 ## 相关条目

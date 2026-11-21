@@ -52,7 +52,7 @@ sources:
   - label: Anthropic · Consumer Terms of Service（输出物转让条款，2026-10-21 经搜索快照核验）
     url: https://www.anthropic.com/legal/consumer-terms
     kind: docs
-  - label: Anthropic · Pricing（定价页指针，D9：本站不采价格数字）
+  - label: Anthropic · Pricing（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://www.anthropic.com/pricing
     kind: pricing
 

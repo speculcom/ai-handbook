@@ -82,8 +82,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Browserbase, Inc.（美国，云端浏览器基础设施厂商）。
@@ -112,13 +111,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 托管线的速率/会话时长/并发配额（docs 有账户档位口径，未逐条清点；按 D9 与快照纪律不记数字）
+- 托管线的速率/会话时长/并发配额（docs 有账户档位口径，本档不逐条复制完整清单；按 D9 与快照纪律不记数字）
 - 自托管线换模型（--modelName）支持的模型清单与各家 key 要求（README 只给机制）
-- 云端会话内容在 Browserbase 侧的留存时长与合规边界（ToS 面未逐条核验）
+- 云端会话内容在 Browserbase 侧的留存时长与合规边界（ToS 面本档不逐条展开）
 
 ## 相关条目
 

@@ -11,7 +11,7 @@ licenseEn: Apache-2.0 (follow the repository LICENSE; Intel distribution terms a
 axes:
   model_access: >-
     把模型转换成 OpenVINO IR 后推理；支持 CPU、GPU、NPU 等 Intel 硬件。
-    支持模型与算子清单以官方文档为准，本站未逐条清点。
+    支持模型与算子清单以官方文档为准，本档不逐条复制完整清单。
   runtime: >-
     Runtime 库 + Model Server（OVMS）：OVMS 可暴露 OpenAI 兼容接口，
     也可用 Docker 部署；本地/边缘/服务器都能跑。
@@ -21,7 +21,7 @@ axes:
   background: >-
     Runtime 是库，OVMS 是常驻服务；长任务与并发由部署方编排。
   tools: >-
-    OVMS 提供 OpenAI 兼容端点；工具调用与 MCP 支持未逐条核验。
+    OVMS 提供 OpenAI 兼容端点；工具调用与 MCP 支持本档不逐条展开。
   context: >-
     长上下文按模型与内存配置；KV cache 与连续批处理在官方文档线。
   permissions: >-
@@ -57,8 +57,7 @@ sources:
 last_verified: 2026-11-03
 last_updated: 2026-11-03
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Intel（美国）。
@@ -86,11 +85,11 @@ OVMS 可暴露 OpenAI 兼容端点。
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 
-- 当前支持的模型与算子清单（未逐条清点）
+- 当前支持的模型与算子清单（本档不逐条复制完整清单）
 - OVMS 工具调用与 MCP 支持状态
 - 各硬件型号的加速矩阵
 

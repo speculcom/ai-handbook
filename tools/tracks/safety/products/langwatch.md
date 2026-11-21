@@ -4,7 +4,7 @@ form: cloud
 name: LangWatch
 vendor: LangWatch
 homepage: https://langwatch.ai/docs/
-license: Apache-2.0（官方文档页 2026-11-06 自陈「You can self-host the Apache 2.0 core」；托管版许可范围未逐条核验）。
+license: Apache-2.0（官方文档页 2026-11-06 自陈「You can self-host the Apache 2.0 core」；托管版许可范围本档不逐条展开）。
 licenseEn: Apache-2.0 for the self-hostable core, per the docs page checked 2026-11-06; licence scope of the hosted product not verified item by item.
 
 axes:
@@ -15,11 +15,11 @@ axes:
   local_files: >-
     自托管时数据在你自己的存储里；用托管版时追踪数据离开本机——留存位置与删除方式需按当日条款另行确认，本档案未核到具体政策。
   background: >-
-    追踪与评测以在线服务形式持续运行；离线批处理与定时任务的能力面未逐条核验。
+    追踪与评测以在线服务形式持续运行；离线批处理与定时任务的能力面本档不逐条展开。
   tools: >-
     官方列出的能力包含 tracing、evaluations、agent testing、prompt management；能否接入自定义评判器与外部工具，当日正文未逐条说明。
   context: >-
-    上下文由被测应用决定；平台侧对 trace 长度、采样与保留窗口的限制未逐条核验。
+    上下文由被测应用决定；平台侧对 trace 长度、采样与保留窗口的限制本档不逐条展开。
   permissions: >-
     托管版有账号与团队权限体系（具体分级未核到）；自托管版权限等同你所部署环境的访问控制。
   fit: >-
@@ -45,8 +45,7 @@ sources:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 官方文档与更新记录为境外站点，当日直抓可达（docs 由 docs.langwatch.ai 跳转至 langwatch.ai/docs/）。

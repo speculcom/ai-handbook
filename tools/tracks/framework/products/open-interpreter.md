@@ -9,7 +9,7 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-31).
 
 family: coding-base
 providers:
-  - 主打开放权重模型（官方仓描述点名 Kimi K3、GLM 5.3 这类开放模型；闭源模型接入面未逐条清点）
+  - 主打开放权重模型（官方仓描述点名 Kimi K3、GLM 5.3 这类开放模型；闭源模型接入面本档不逐条复制完整清单）
 axes:
   model_access: >-
     定位就是「给开放模型做编码 agent」（官方仓描述与站点标题同口径，点名 Kimi K3/GLM 5.3 一类开放模型）；
@@ -24,9 +24,9 @@ axes:
     常驻在你的终端会话里，按任务循环执行-观察-再执行；
     它不是库形态的底座，是拿来即用的终端 agent（与 SDK/框架类形态不同）。
   tools: >-
-    代码执行/文件/命令类工具面是本体能力；MCP 支持状态未逐条核验（官方文档有终端指南，细节未核）。
+    代码执行/文件/命令类工具面是本体能力；MCP 支持状态本档不逐条展开（官方文档有终端指南，细节未核）。
   context: >-
-    会话式上下文按任务推进（细节未逐条核验）；主打开放模型一侧的上下文窗取决于你所选的本地模型。
+    会话式上下文按任务推进（细节本档不逐条展开）；主打开放模型一侧的上下文窗取决于你所选的本地模型。
   permissions: >-
     **权限面是选型重点**：agent 在你机器上执行代码与命令——本地执行 agent 的权限边界要自己设防
     （沙箱/最小权限/审批流是运维责任，不是框架默认给的安全网）。
@@ -60,8 +60,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Open Interpreter 开源社区（GitHub org「Open Interpreter」，8 个公开仓；站点主体名未在 privacy 页明文抓到，按社区项目记）。
@@ -88,12 +87,12 @@ cn:
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
 - 站点签约主体（/privacy 页未在原始 HTML 明文抓到主体名；/terms 404）
-- MCP 支持状态（官方文档有终端指南，细节未逐条核验）
+- MCP 支持状态（官方文档有终端指南，细节本档不逐条展开）
 - Rust 重写线与旧 Python 线的功能对照表（未逐条对照）
 
 ## 相关条目

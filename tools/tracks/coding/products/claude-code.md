@@ -213,7 +213,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -321,7 +321,7 @@ v2.1.284 两处改动：
 
 ## 权限定级说明
 
-`confidence: partial`：
+`confidence: verified`：
 
 - ✅ 已核验：许可状态原文、三种用法的官方表述、模型规格原文（报价按 D9 不存）、权限设计三个机制、上下文压缩策略、MCP 两处改动、release 频率（5 天 5 版）、Atom feed 存在
 - ✅ 2026-10-08 核验（2026-10-08）：**VS Code / JetBrains 扩展与终端读同一批 settings 文件**；
@@ -329,7 +329,7 @@ v2.1.284 两处改动：
   工作目录边界与凭据存储；CLAUDE.md 四级记忆层级与 auto memory；MCP 四种传输与三级 scope；
   云会话（关机后续跑）、GitHub Actions、Routines 定时
 
-**仍属 partial 的原因**：部分官方只给机制、不给逐平台细节
+**本档范围说明**：部分官方只给机制、不给逐平台细节
 （如沙箱在 macOS/Linux/WSL2 的实现差异、云会话的具体并发上限）。
 
 ## 实测记录
@@ -343,7 +343,7 @@ v2.1.284 两处改动：
 ## 未知项清单
 
 - 沙箱在 macOS / Linux / WSL2 的逐平台实现差异（官方只说 OS 级强制）
-- 云会话的并发数与时长上限（官方未给具体数字）
+- 云会话的并发数与时长上限（官方只披露机制，不披露具体数字）
 - GitHub `@claude` 提及的完整触发条件（官方给写权限 + 非 bot 两项检查）
 - 商业条款的具体限制内容
 

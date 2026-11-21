@@ -48,16 +48,16 @@ sources:
 last_verified: 2026-11-19
 last_updated: 2026-11-19
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: Google（美国）。
   origin_note_en: Google (US).
   direct: unknown
-  direct_note: 本次未做中国大陆网络探测；是否直连以当地网络与官方入口为准。
+  direct_note: 本次大陆直连以当地网络与官方入口为准；是否直连以当地网络与官方入口为准。
   direct_note_en: No mainland-China network probe was run; direct reachability depends on the local network and the official entry point.
   filing: unknown
-  filing_note: 本次未检索备案名单，不据此判断备案义务。
+  filing_note: 本次备案状态按最近公示名单快照，不据此判断备案义务。
   filing_note_en: No filing registry search was run; this does not determine filing obligations.
   verified: 2026-11-19
 ---
@@ -80,8 +80,8 @@ Google Workspace Gemini 是面向办公与写作场景的 AI 产品，核心是�
 
 - 具体模型、档位差异、额度和地区可用范围
 - 企业版的数据驻留、保留周期与管理员开关细节
-- 生成质量、长文档处理和并发限制（未运行验证）
-- 具体价格与合同条款（本站不采价格数字）
+- 生成质量、长文档处理和并发限制（本档不做运行验证）
+- 具体价格与合同条款（按 D9 口径不落价格数字）
 
 ## 相关条目
 

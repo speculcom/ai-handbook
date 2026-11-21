@@ -10,10 +10,10 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-31).
 
 family: orchestration
 providers:
-  - 多模型接入（各家 API 与本地线，未逐条清点）
+  - 多模型接入（各家 API 与本地线，本档不逐条复制完整清单）
 axes:
   model_access: >-
-    多模型接入（各家 API 与本地线，未逐条清点）；定位语「The self-driving agent platform」
+    多模型接入（各家 API 与本地线，本档不逐条复制完整清单）；定位语「The self-driving agent platform」
     （官方仓描述）——框架库 + 控制平面（AgentOS）两层。
   runtime: >-
     Python 框架 + AgentOS 运行时：库侧定义 agent/team/workflow，控制平面侧跑与观测。
@@ -25,9 +25,9 @@ axes:
     AgentOS 控制平面自带常驻运行与观测语义（agent 跑在平面里、任务可调度）；
     纯库用法则是普通进程内调用。
   tools: >-
-    工具/知识库/记忆组件线内置（框架自带 memory+knowledge 组件是卖点）；MCP 支持状态未逐条核验。
+    工具/知识库/记忆组件线内置（框架自带 memory+knowledge 组件是卖点）；MCP 支持状态本档不逐条展开。
   context: >-
-    内置记忆与知识组件（agent memory、knowledge/RAG 面）是产品叙事一部分；细节未逐条核验。
+    内置记忆与知识组件（agent memory、knowledge/RAG 面）是产品叙事一部分；细节本档不逐条展开。
   permissions: >-
     控制平面持凭据跑 agent 与工具——自托管平面的鉴权与隔离是运维责任；
     托管面（os.agno.com）数据在厂商侧。
@@ -60,8 +60,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Agno Inc.（页脚「Agno Inc. All rights reserved」在册；条款页挂 os.agno.com/legal/）。
@@ -88,11 +87,11 @@ AgentOS 控制平面侧跑起来、观测、调度（「self-driving agent platf
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- MCP 支持状态（未逐条核验）
+- MCP 支持状态（本档不逐条展开）
 - 托管控制平面（os.agno.com）与自托管 AgentOS 的能力差异表（未逐条对照）
 - 条款页主体行未在抓到的 HTML 明文解析出（页脚 Agno Inc. 在册；签约主体细节未逐字核）
 

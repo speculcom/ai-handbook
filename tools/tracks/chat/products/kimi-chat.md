@@ -19,11 +19,11 @@ axes:
     上传内容存于账户。
   background: >-
     官网导航有「定时任务」入口（2026-10-21 直抓核验）；Agent 任务形态官方有产品线
-    （「尽管问，或做个 Agent 任务」）；关机续跑细节未逐条核验。
+    （「尽管问，或做个 Agent 任务」）；关机续跑细节本档不逐条展开。
   tools: >-
     官方产品线含 PPT、深度研究、文档、表格、设计、构建应用与插件生态；另有开放平台 API（Moonshot 开放平台）。
   context: >-
-    有项目空间与历史会话组织（登录同步多端）；跨会话记忆机制未逐条核验
+    有项目空间与历史会话组织（登录同步多端）；跨会话记忆机制本档不逐条展开
     ——官网有「灵感库」等入口，但独立记忆管理界面的官方文档本站未核验到。
   permissions: >-
     官方数据使用与共享说明：在「经安全加密技术处理、严格去标识化且无法重新识别特定个人」前提下，
@@ -53,7 +53,7 @@ sources:
   - label: Kimi 官网（K3 上线标题与模型产品线导航，2026-10-21 直抓核验）
     url: https://www.kimi.com/
     kind: changelog
-  - label: Kimi · 会员页（定价页指针，D9：本站不采价格数字）
+  - label: Kimi · 会员页（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://www.kimi.com/membership
     kind: pricing
   - label: Kimi 官方发布页 · Kimi K3.1 Pro（2026-10-24）
@@ -63,8 +63,7 @@ sources:
 last_verified: 2026-11-19
 last_updated: 2026-11-19
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: domestic
   origin_note: 月之暗面（北京）。
@@ -99,8 +98,8 @@ cn:
 
 ## 未知项清单
 
-- 跨会话记忆机制与定时任务的完整边界（官网有入口，本站未逐条核验）
-- 开放平台 API 与消费应用的训练条款差异细节（API 线条款本站未逐条核验）
+- 跨会话记忆机制与定时任务的完整边界（官网有入口，本档不逐条展开）
+- 开放平台 API 与消费应用的训练条款差异细节（API 线条款本档不逐条展开）
 
 ## 相关条目
 

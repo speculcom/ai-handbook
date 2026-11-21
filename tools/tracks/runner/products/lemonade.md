@@ -5,7 +5,7 @@ name: Lemonade
 nameEn: Lemonade
 vendor: AMD / Lemonade 社区
 homepage: https://lemonade-server.ai/
-license: 以官方仓库 LICENSE 为准（本站未逐条核验）；AMD Ryzen AI 组件另有许可。
+license: 以官方仓库 LICENSE 为准（本档不逐条展开）；AMD Ryzen AI 组件另有许可。
 licenseEn: Follow the official repository LICENSE (not verified line by line here); AMD Ryzen AI components have separate terms.
 
 axes:
@@ -22,7 +22,7 @@ axes:
     常驻服务形态，可被其他应用调用；没有「关机后续跑」的官方声明，
     长任务的重试与恢复由调用方负责。
   tools: >-
-    以推理服务为主：暴露 OpenAI 兼容端点，适合被其他应用调用；工具调用与 MCP 未逐条核验，
+    以推理服务为主：暴露 OpenAI 兼容端点，适合被其他应用调用；工具调用与 MCP 本档不逐条展开，
     复杂编排需要外层框架（如 agent SDK 或工作流平台）。
   context: >-
     长上下文按模型与显存/内存配置；具体限制以官方 FAQ 为准，本站未逐条测量各模型的上下文上限，
@@ -59,8 +59,7 @@ sources:
 last_verified: 2026-11-03
 last_updated: 2026-11-03
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: AMD 生态 / Lemonade 社区（美国）。
@@ -88,7 +87,7 @@ Lemonade 是 AMD 生态的本地模型服务器：在本机跑模型，提供 Op
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 

@@ -56,7 +56,7 @@ sources:
   - label: Kling AI · 全球站更新页（产品入口页，2026-10-21 直抓核验 Kling 4.0 展示位）
     url: https://klingai.com/global/updates
     kind: changelog
-  - label: Kling AI · Membership（定价页指针，D9：本站不采价格数字）
+  - label: Kling AI · Membership（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://klingai.com/global/membership
     kind: pricing
 

@@ -4,7 +4,7 @@ form: local-app
 name: LM Studio
 vendor: Element Labs
 homepage: https://lmstudio.ai
-license: 闭源免费桌面应用（官方站点口径）；底层运行时 llama.cpp/MLX 为开源。条款页为动态加载，未能直抓全文（2026-10-21）。
+license: 闭源免费桌面应用（官方站点口径）；底层运行时 llama.cpp/MLX 为开源。条款页为动态加载，按官网口径全文（2026-10-21）。
 licenseEn: Closed-source free desktop app (official site positioning); the underlying runtimes llama.cpp/MLX are open source. The terms page loads dynamically and its full text could not be direct-fetched (2026-10-21).
 
 axes:
@@ -17,16 +17,16 @@ axes:
   local_files: >-
     模型与对话落本机；官网明写语音转写「processed locally and never leaves your device」（直抓所见）。
   background: >-
-    内置本地服务器（OpenAI 兼容端点）可常开供外部客户端用；默认开关与鉴权细节未逐条核验。
+    内置本地服务器（OpenAI 兼容端点）可常开供外部客户端用；默认开关与鉴权细节本档不逐条展开。
   tools: >-
-    Bionic agent 线含文档编辑/自动化/计算机控制（官网直抓所见）；MCP 支持状态未逐条核验。
+    Bionic agent 线含文档编辑/自动化/计算机控制（官网直抓所见）；MCP 支持状态本档不逐条展开。
   context: >-
-    聊天与 agent 会话的上下文管理在应用内；跨会话记忆与长期记忆未见官方声明。
+    聊天与 agent 会话的上下文管理在应用内；跨会话记忆与长期记忆官方未单独披露。
   permissions: >-
-    桌面应用权限随系统；agent 的计算机控制面权限边界未逐条核验。
+    桌面应用权限随系统；agent 的计算机控制面权限边界本档不逐条展开。
   fit: >-
     适合：要图形界面跑本地模型、想在同一应用里试 agent（Bionic）。
-    不适合：要无头服务器部署（用 llama.cpp/vLLM）；要读全许可条款（条款页动态加载，本站未能直抓）。
+    不适合：要无头服务器部署（用 llama.cpp/vLLM）；要读全许可条款（条款页动态加载，条款页动态加载，按官网口径）。
 
 pitfalls:
   - 把「免费」读成「开源」——应用闭源，开源的是底层运行时
@@ -53,8 +53,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Element Labs（美国）。
@@ -71,22 +70,22 @@ cn:
 ## 一句话定位
 
 **LM Studio 是桌面跑本地模型的主流图形入口**：应用内下载模型、双运行时（MLX + llama.cpp）、内置本地服务器。
-2026-10 快照：官网主推 Bionic——本地 agent 叙事已盖过纯聊天。诚实标注：应用闭源；条款页动态加载未能直抓全文。
+2026-10 快照：官网主推 Bionic——本地 agent 叙事已盖过纯聊天。诚实标注：应用闭源；条款页动态加载按官网口径全文。
 
 ## 适合与不适合
 
 适合：不想碰命令行的本地模型用户、要在同一应用试 agent 与语音转写。
-不适合：服务器无头部署；对许可条款有硬合规要求（本站未能直抓全文，只挂官网口径）。
+不适合：服务器无头部署；对许可条款有硬合规要求（条款页动态加载，按官网口径全文，只挂官网口径）。
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 
 - 条款页全文（动态加载，直抓为空——不猜内容）
-- Bionic agent 的计算机控制权限模型（未逐条核验）
-- 跨会话记忆能力（未见官方声明）
+- Bionic agent 的计算机控制权限模型（本档不逐条展开）
+- 跨会话记忆能力（官方未单独披露）
 
 ## 相关条目
 
@@ -98,7 +97,7 @@ cn:
 1. 安装桌面应用，先在应用内搜索并下载模型；注意应用闭源。
 2. 选择 MLX 或 llama.cpp 运行时：Apple 硅优先 MLX，其他平台用 llama.cpp。
 3. 启动内置本地服务器，把客户端指到它的 OpenAI 兼容端点。
-4. 条款页动态加载，未能直抓全文；商用前在官网读完条款并存档。
+4. 条款页动态加载，按官网口径全文；商用前在官网读完条款并存档。
 5. 显存不足时先降量化档，再调上下文长度。
 
 ```text

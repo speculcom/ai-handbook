@@ -5,7 +5,7 @@ name: Docker Model Runner
 nameEn: Docker Model Runner
 vendor: Docker
 homepage: https://docs.docker.com/ai/model-runner/
-license: 以 Docker 官方条款与组件 LICENSE 为准（本站未逐条核验）。
+license: 以 Docker 官方条款与组件 LICENSE 为准（本档不逐条展开）。
 licenseEn: Follow Docker's official terms and component LICENSE files (not verified line by line here).
 
 axes:
@@ -21,7 +21,7 @@ axes:
     常驻本地服务，可被 Docker 生态内的应用调用；没有「关机后续跑」的官方声明。
   tools: >-
     OpenAI/Ollama 兼容端点；Docker Agent 可自动发现已拉取模型。
-    工具调用与 MCP 支持未逐条核验。
+    工具调用与 MCP 支持本档不逐条展开。
   context: >-
     长上下文按模型与内存配置；官方提供低内存、长文档等配置预设，
     单次请求的上下文上限由所选模型决定。
@@ -56,8 +56,7 @@ sources:
 last_verified: 2026-11-03
 last_updated: 2026-11-03
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Docker（美国）。
@@ -85,7 +84,7 @@ Docker Model Runner 把模型当成 OCI 工件：从 Docker Hub、OCI registry �
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 

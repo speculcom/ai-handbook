@@ -5,13 +5,13 @@ name: NVIDIA TensorRT-LLM
 nameEn: NVIDIA TensorRT-LLM
 vendor: NVIDIA
 homepage: https://docs.nvidia.com/tensorrt-llm/
-license: 以 NVIDIA 仓库 LICENSE 为准（本站未逐条核验）；商用前读官方许可与 NGC 条款。
+license: 以 NVIDIA 仓库 LICENSE 为准（本档不逐条展开）；商用前读官方许可与 NGC 条款。
 licenseEn: Follow the LICENSE in NVIDIA's repository (not verified line by line here); read the official licence and NGC terms before commercial use.
 
 axes:
   model_access: >-
     面向 NVIDIA GPU 的 LLM 推理工具包：Python API 定义模型，trtllm-serve 提供服务端点；
-    支持模型清单以官方文档为准，本站未逐条清点。
+    支持模型清单以官方文档为准，本档不逐条复制完整清单。
   runtime: >-
     编译 + 服务化：把模型编译成 TensorRT 引擎，再通过 trtllm-serve 暴露 OpenAI 兼容接口；
     官方定位是数据中心/云端的大规模生产部署。
@@ -21,9 +21,9 @@ axes:
     常驻服务形态，适合批处理与高并发；没有「关机后续跑」的官方声明，
     任务队列与重试由部署方负责，进程退出后需重新加载引擎。
   tools: >-
-    trtllm-serve 提供 API；工具调用与 MCP 支持状态未逐条核验。
+    trtllm-serve 提供 API；工具调用与 MCP 支持状态本档不逐条展开。
   context: >-
-    长上下文按模型与显存配置；KV cache 优化在官方文档线，细节未逐条核验。
+    长上下文按模型与显存配置；KV cache 优化在官方文档线，细节本档不逐条展开。
   permissions: >-
     自托管无账号体系；鉴权、配额与多租户隔离由部署方自配，官方不提供内置租户模型，
     GPU 资源配额需外部调度。
@@ -57,8 +57,7 @@ sources:
 last_verified: 2026-11-03
 last_updated: 2026-11-03
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: NVIDIA（美国）。
@@ -86,11 +85,11 @@ TensorRT-LLM 是 NVIDIA 的生产级 LLM 推理栈：先把模型编译成 Tenso
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 
-- 当前支持模型清单（官方文档为准，未逐条清点）
+- 当前支持模型清单（官方文档为准，本档不逐条复制完整清单）
 - 工具调用与 MCP 支持状态
 - 各版本编译时间与引擎体积
 

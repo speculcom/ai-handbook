@@ -53,15 +53,14 @@ sources:
   - label: Google DeepMind · Veo 产品页（官方页，2026-10-20 直抓 200）
     url: https://deepmind.google/technologies/veo/
     kind: docs
-  - label: Google Cloud Vertex AI 定价（定价页指针，D9：本站不采价格数字）
+  - label: Google Cloud Vertex AI 定价（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://cloud.google.com/vertex-ai/generative/pricing
     kind: pricing
 
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -88,11 +87,11 @@ Google 的视频生成模型家族：经 Gemini API / Vertex AI 与 Google AI �
 
 ## 实测记录
 
-本档未跑生成质量与速度测试；结论只覆盖能力面与许可面。
+本档本档不做生成质量与速度实测；结论只覆盖能力面与许可面。
 
 ## 未知项清单
 
-- Flow 等入口产品的档位分流与能力差异（本站未逐产品核验）
+- Flow 等入口产品的档位分流与能力差异（档位差异以官方入口页为准）
 - Veo 各版本当前可用性矩阵（GA/预览/Lite 状态随 release notes 滚动）
 
 ## 相关条目

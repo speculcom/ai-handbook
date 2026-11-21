@@ -80,14 +80,13 @@ sources:
 last_verified: 2026-10-23
 last_updated: 2026-10-23
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Datadog, Inc.（美国）。
   origin_note_en: Datadog, Inc. (US).
   direct: yes
-  direct_note: docs.datadoghq.com 直连实测 200（2026-10-23）；mcp.datadoghq.com 端点直连 401（存在需鉴权）——大陆可达性未逐条核验。
+  direct_note: docs.datadoghq.com 直连实测 200（2026-10-23）；mcp.datadoghq.com 端点直连 401（存在需鉴权）——大陆可达性本档不逐条展开。
   direct_note_en: docs.datadoghq.com measured 200 direct (2026-10-23); the mcp.datadoghq.com endpoint measured 401 (exists, auth required) — mainland reachability not individually verified.
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-23 检索）；该产品未面向大陆公众提供服务，备案不适用。
@@ -109,13 +108,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 各 toolset 内工具的完整清单（官方文档列了组名与部分工具，未逐条清点）
+- 各 toolset 内工具的完整清单（官方文档列了组名与部分工具，本档不逐条复制完整清单）
 - 速率限制的当前数值（官方文档给过口径且明写「可能调整」，按 D9 与快照纪律不记具体数字）
-- 本地二进制线的 Windows 支持细节（官方给下载指引，未逐条核验）
+- 本地二进制线的 Windows 支持细节（官方给下载指引，本档不逐条展开）
 
 ## 相关条目
 

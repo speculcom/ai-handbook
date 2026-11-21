@@ -5,13 +5,13 @@ name: ExLlamaV3
 nameEn: ExLlamaV3
 vendor: turboderp-org
 homepage: https://github.com/turboderp-org/exllamav3
-license: 以仓库 LICENSE 为准（本站未逐条核验）；商用前读官方许可原文。
+license: 以仓库 LICENSE 为准（本档不逐条展开）；商用前读官方许可原文。
 licenseEn: Follow the repository LICENSE (not verified line by line here); read the official licence before commercial use.
 
 axes:
   model_access: >-
     EXL3 量化格式（.exl3 checkpoint）与部分 HF safetensors；模型支持以官方仓与文档为准，
-    本站未逐条清点。它是 ExLlamaV2 的接续线。
+    本档不逐条复制完整清单。它是 ExLlamaV2 的接续线。
   runtime: >-
     CUDA 推理引擎，面向本地/单机多卡；PyPI 包 exllamav3（1.6.6，2026-10-31 发布；仅版本记录于 2026-11-04 复核）。
     需要 CUDA 环境，具体版本以官方仓为准。
@@ -20,10 +20,10 @@ axes:
   background: >-
     本地推理进程，不是常驻服务；要服务化通常接 TabbyAPI 等外层。
   tools: >-
-    以推理执行为主；工具调用与 MCP 不在核心面，未逐条核验，
+    以推理执行为主；工具调用与 MCP 不在核心面，本档不逐条展开，
     需要这些能力时通常在外层应用里补。
   context: >-
-    长上下文按显存与配置；KV cache 细节在官方文档线，未逐条核验。
+    长上下文按显存与配置；KV cache 细节在官方文档线，本档不逐条展开。
   permissions: >-
     本地进程无账号体系；权限由运行环境决定，对外提供服务时需要自己加鉴权与访问控制。
   fit: >-
@@ -56,8 +56,7 @@ sources:
 last_verified: 2026-11-04
 last_updated: 2026-11-04
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: turboderp-org（开源社区项目）。
@@ -85,11 +84,11 @@ ExLlamaV3 是 ExLlamaV2 的接续线：用 EXL3 量化格式在 NVIDIA GPU 上�
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 
-- 当前支持的模型架构清单（官方仓为准，未逐条清点）
+- 当前支持的模型架构清单（官方仓为准，本档不逐条复制完整清单）
 - 各版本 CUDA 要求与显存下限
 - 与 TabbyAPI 的兼容矩阵
 

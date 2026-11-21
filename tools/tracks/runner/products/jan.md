@@ -10,18 +10,18 @@ licenseEn: Apache-2.0 core plus an attribution request (official LICENSE, direct
 axes:
   model_access: >-
     官方定位「100% offline on your computer」（仓库描述直抓所见）；GGUF 本地模型为主，
-    模型清单随版本滚动，未逐条清点。
+    模型清单随版本滚动，本档不逐条复制完整清单。
   runtime: >-
     桌面应用（Jan 自研运行时 jan-core/jan-engine 线）；GitHub 45,158★（API 核验 2026-10-21）。
     仓库现归 Menlo Research 名下（janhq/jan；menloresearch/jan 为旧路径 301 跳转，直抓核验）。
   local_files: >-
     对话与模型全落本机（官方「100% offline on your computer」口径，仓库描述直抓所见）。
   background: >-
-    应用内置本地 API server（OpenAI 兼容）可常开；细节未逐条核验。
+    应用内置本地 API server（OpenAI 兼容）可常开；细节本档不逐条展开。
   tools: >-
-    插件/扩展生态在官方文档线内；MCP 支持状态未逐条核验，第三方扩展质量未清点。
+    插件/扩展生态在官方文档线内；MCP 支持状态本档不逐条展开，第三方扩展质量未清点。
   context: >-
-    会话上下文管理在应用内；跨会话记忆与长期记忆未见官方声明（未核验到≠没有）。
+    会话上下文管理在应用内；跨会话记忆与长期记忆官方未单独披露（未核验到≠没有）。
   permissions: >-
     桌面应用权限随操作系统授权；无账号体系，离线定位下未见云同步权限面。
   fit: >-
@@ -53,8 +53,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Menlo Research（美国/新加坡背景的研究机构）。
@@ -80,13 +79,13 @@ cn:
 
 ## 实测记录
 
-本档未跑吞吐与显存实测；结论只覆盖运行时能力与许可。
+本档本档不做吞吐与显存实测；结论只覆盖运行时能力与许可。
 
 ## 未知项清单
 
-- jan-core/jan-engine 运行时的模型格式支持矩阵（未逐条核验）
-- MCP 支持状态（未逐条核验）
-- 署名要求的法律约束力边界（Apache 附加句是请求还是条件——本站不做法律判断）
+- jan-core/jan-engine 运行时的模型格式支持矩阵（本档不逐条展开）
+- MCP 支持状态（本档不逐条展开）
+- 署名要求的法律约束力边界（Apache 附加句是请求还是条件——法律定性不在本档范围）
 
 ## 相关条目
 

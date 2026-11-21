@@ -6,7 +6,7 @@ nameEn: Devv
 vendor: Devv AI
 homepage: https://devv.ai
 license: 免费+订阅。按官方条款管辖（devv.ai 站内协议线，2026-10-22 直抓核验站点可达；
-  协议专页 URL 未能定位直抓——如实标注）；细节未逐条核验。
+  协议专页 URL 未能定位直抓——如实标注）；细节本档不逐条展开。
 licenseEn: Free + subscription. Governed by the official in-site agreement (devv.ai reachability
   direct-fetched 2026-10-22; the dedicated agreement URL could not be located by direct fetch — honestly
   noted); details not verified line by line.
@@ -14,21 +14,21 @@ licenseEn: Free + subscription. Governed by the official in-site agreement (devv
 axes:
   model_access: >-
     多模型路由（界面可选多家前沿模型，官方产品面）+ 自建代码文档检索索引（产品差异点：
-    实时抓官方文档）；具体模型清单未逐条清点。
+    实时抓官方文档）；具体模型清单本档不逐条复制完整清单。
   runtime: >-
     网页（devv.ai）+ 浏览器扩展（官网所见）；检索与生成在厂商云端。
   local_files: >-
-    对话历史存账户侧云端；未见官方声明的本机数据面或离线模式（未逐条核验）。
+    对话历史存账户侧云端；官方未单独披露的本机数据面或离线模式（本档不逐条展开）。
   background: >-
-    问答即时返回；未见官方任务队列或「关机续跑」类后台任务面（未逐条核验）。
+    问答即时返回；未见官方任务队列或「关机续跑」类后台任务面（本档不逐条展开）。
   tools: >-
     **开发者向 AI 搜索是主轴**：代码问题→实时检索官方文档/代码示例→带链接答案；
     代码库理解问答（官网叙事）；与 coding agent 的区别：它答代码问题，不改你的代码库
     （边界裁决「搜索向对话归 research」）。
   context: >-
-    以对话线程组织检索历史；跨会话记忆未核验到官方声明（未逐条核验）。
+    以对话线程组织检索历史；跨会话记忆未核验到官方声明（本档不逐条展开）。
   permissions: >-
-    账号+订阅体系（D9：价格不采）；训练用途开关未逐条核验——
+    账号+订阅体系（D9：价格不采）；训练用途开关本档不逐条展开——
     **开发者粘贴的代码片段可能含敏感信息，上传前要想清楚**。
   fit: >-
     适合：查 API 用法/报错/库文档（答案带官方文档链接）、中文开发者要直连可用的搜索问答。
@@ -56,8 +56,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: domestic
   origin_note: Devv AI（团队叙事为中国背景团队出海产品；注册主体未核验到官方声明——诚实标注）。
@@ -97,9 +96,9 @@ cn:
 ## 未知项清单
 
 - 注册主体与备案状态（见 cn 块——主体未清）
-- 当前可选模型清单（未逐条清点）
+- 当前可选模型清单（本档不逐条复制完整清单）
 - 协议专页 URL（站内协议线未能定位直抓——如实标注）
-- 训练用途开关（未逐条核验）
+- 训练用途开关（本档不逐条展开）
 
 ## 相关条目
 

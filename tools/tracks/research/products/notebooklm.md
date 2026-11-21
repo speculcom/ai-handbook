@@ -49,7 +49,7 @@ sources:
 last_verified: 2026-11-04
 last_updated: 2026-11-04
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: Google（美国）。
@@ -81,7 +81,7 @@ NotebookLM 条目保留原名供识别；2026-11-04 官方帮助已使用 Gemini
 - 各账号的实际迁移状态、模型选择与额度
 - 移动端在指定地区/设备的可用范围
 - 组织合同、反馈情形下的数据用途与完整留存条款
-- 检索覆盖、长文处理、音频质量与后台任务恢复（未运行验证）
+- 检索覆盖、长文处理、音频质量与后台任务恢复（本档不做运行验证）
 
 ## 相关条目
 

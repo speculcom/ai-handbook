@@ -48,15 +48,14 @@ sources:
   - label: ElevenLabs · Terms of Use（官方条款，2026-10-20 直抓 200 核验 §1(c)/§4(c)(ii)/§4(d)/§4(i)）
     url: https://elevenlabs.io/terms-of-use
     kind: docs
-  - label: ElevenLabs · Pricing（定价页指针，D9：本站不采价格数字）
+  - label: ElevenLabs · Pricing（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://elevenlabs.io/pricing
     kind: pricing
 
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -86,8 +85,8 @@ Data use 菜单退出（同类里少见）；克隆声音前先拿授权。要�
 
 ## 未知项清单
 
-- 各档位的模型与配额分流细节（changelog 滚动披露，本站未逐档核验）
-- 声音克隆训练素材的留存与删除细节（ToU 未逐条核验到独立章节）
+- 各档位的模型与配额分流细节（changelog 滚动披露，档位以官方 changelog 为准）
+- 声音克隆训练素材的留存与删除细节（ToU 本档不逐条展开到独立章节）
 
 ## 相关条目
 

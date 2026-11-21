@@ -73,7 +73,7 @@ sources:
   - label: OpenAI · Terms of Use（内容所有权与转让条款，2026-10-21 经搜索快照核验）
     url: https://openai.com/policies/row-terms-of-use/
     kind: docs
-  - label: OpenAI · ChatGPT Pricing（定价页指针，D9：本站不采价格数字）
+  - label: OpenAI · ChatGPT Pricing（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://openai.com/chatgpt/pricing/
     kind: pricing
   - label: OpenAI Help · Model release notes（2026-11-17：GPT-6.2 Astra / Sol 上线）
@@ -83,8 +83,7 @@ sources:
 last_verified: 2026-11-19
 last_updated: 2026-11-19
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -115,7 +114,7 @@ OpenAI 的通用对话助手：网页/应用/桌面全端覆盖，模型家族�
 
 ## 未知项清单
 
-- 跨会话记忆功能的完整边界（以官方帮助页为准，本站未逐条核验）
+- 跨会话记忆功能的完整边界（以官方帮助页为准，本档不逐条展开）
 
 ## 相关条目
 

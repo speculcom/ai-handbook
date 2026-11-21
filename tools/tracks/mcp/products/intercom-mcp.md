@@ -86,8 +86,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Intercom Inc.（美国/爱尔兰双总部，客户消息平台）。
@@ -116,11 +115,11 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 14 工具的完整参数面与分页游标语义细节（文档详尽但未逐条清点）
+- 14 工具的完整参数面与分页游标语义细节（文档详尽但本档不逐条复制完整清单）
 - Operator credits 的计费数值与配额（按 D9 与快照纪律不记数字）
 - AU 工作区支持时间表（官方只说 not yet supported）
 

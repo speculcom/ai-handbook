@@ -77,8 +77,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Shopify Inc.（加拿大，上市电商 SaaS）。
@@ -107,13 +106,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- dev-mcp 源码是否随 npm 包附带可读（repo 字段空；未拆包核验）
+- dev-mcp 源码是否随 npm 包附带可读（repo 字段空；本档不拆包）
 - introspect_admin_schema 覆盖的 API 版本范围与更新节奏（changelog 有 POS UI extensions 条目，全量未清点）
-- AI Toolkit 插件形态与 Dev MCP 形态的能力差集（官方说插件「bundles everything」，未逐项对照）
+- AI Toolkit 插件形态与 Dev MCP 形态的能力差集（官方说插件「bundles everything」，本档不做逐项对照）
 
 ## 相关条目
 

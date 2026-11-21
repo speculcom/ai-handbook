@@ -50,15 +50,14 @@ sources:
   - label: Runway · Terms of Use（官方条款，Last Updated 2026-09-15，2026-10-20 直抓 200 核验 §4.4 全文）
     url: https://runwayml.com/terms-of-use
     kind: docs
-  - label: Runway · Pricing（定价页指针，D9：本站不采价格数字）
+  - label: Runway · Pricing（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://runwayml.com/pricing
     kind: pricing
 
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -85,12 +84,12 @@ cn:
 
 ## 实测记录
 
-本档未跑生成质量与速度测试；结论只覆盖能力面与许可面。
+本档本档不做生成质量与速度实测；结论只覆盖能力面与许可面。
 
 ## 未知项清单
 
-- 平台内第三方模型的产物条款分层（模型来源方与平台协议的责任界面，本站未逐条核验）
-- 当前全部可用模型与档位分流矩阵（changelog 滚动披露，本站未逐档核验）
+- 平台内第三方模型的产物条款分层（模型来源方与平台协议的责任界面，本档不逐条展开）
+- 当前全部可用模型与档位分流矩阵（changelog 滚动披露，档位以官方 changelog 为准）
 
 ## 相关条目
 

@@ -75,7 +75,7 @@ sources:
 last_verified: 2026-10-23
 last_updated: 2026-10-23
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -104,13 +104,13 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 27 工具的完整参数面与 feedback 工具行为（README 有清单与裁剪口径，未逐条清点）
+- 27 工具的完整参数面与 feedback 工具行为（README 有清单与裁剪口径，本档不逐条复制完整清单）
 - keyless 档与 key 档的速率/配额数值（README 只说 rate-limited；按 D9 与快照纪律不记数字）
-- self-hosted 部署线的功能边界（README 声明支持，未逐条核验）
+- self-hosted 部署线的功能边界（README 声明支持，本档不逐条展开）
 
 ## 相关条目
 

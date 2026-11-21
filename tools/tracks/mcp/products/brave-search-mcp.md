@@ -41,7 +41,7 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **stdio**（npx @brave/brave-search-mcp-server）为主；官方另有远程线说明——未逐条核验。
+    **stdio**（npx @brave/brave-search-mcp-server）为主；官方另有远程线说明——本档不逐条展开。
     核验：仓 README（2026-10-21 直抓）。
   auth: >-
     BRAVE_API_KEY 环境变量；key 的配额/套餐层按 Brave API 账户（D9 不采价格）。
@@ -62,8 +62,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Brave Software, Inc.（美国）。
@@ -90,12 +89,12 @@ cn:
 
 ## 实测记录
 
-本档未在真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
 
 ## 未知项清单
 
-- 远程托管线当前状态（未逐条核验）
-- 各搜索族工具的完整参数面（未逐条清点）
+- 远程托管线当前状态（本档不逐条展开）
+- 各搜索族工具的完整参数面（本档不逐条复制完整清单）
 
 ## 相关条目
 

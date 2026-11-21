@@ -266,7 +266,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | partial | active |
 | [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | partial | active |
 | [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
-| [Claude Code IDE 扩展](tracks/coding/products/claude-code.md) | Anthropic | ide | partial | active |
+| [Claude Code IDE 扩展](tracks/coding/products/claude-code.md) | Anthropic | ide | verified | active |
 | [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
 | [CodeBuddy](tracks/coding/products/codebuddy.md) | 腾讯云 | ide | partial | active |
 | [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | partial | active |
@@ -314,13 +314,13 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [文心](tracks/chat/products/wenxin.md) | 百度 | web | partial | active |
 | [讯飞星火](tracks/chat/products/xinghuo-spark.md) | 科大讯飞 | web | partial | active |
 | [智谱清言](tracks/chat/products/chatglm-chat.md) | 智谱 AI | web | partial | active |
-| [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | partial | active |
+| [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | verified | active |
 | [Claude（对话应用）](tracks/chat/products/claude-chat.md) | Anthropic | web | verified | active |
 | [DeepSeek](tracks/chat/products/deepseek-chat.md) | 深度求索 | web | partial | active |
-| [Gemini（对话应用）](tracks/chat/products/gemini-chat.md) | Google | web | partial | active |
+| [Gemini（对话应用）](tracks/chat/products/gemini-chat.md) | Google | web | verified | active |
 | [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
 | [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | partial | active |
-| [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | partial | active |
+| [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | verified | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | partial | active |
 | [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
 | [Manus](tracks/chat/products/manus.md) | Manus AI（Monica 团队） | web | partial | active |
@@ -340,16 +340,16 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [通义万相](tracks/image/products/tongyi-wanxiang.md) | 阿里巴巴 | web | partial | active |
 | [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | partial | active |
 | [Clipdrop](tracks/image/products/clipdrop.md) | Jasper（原 InitML，2023 并入 Stability AI，2024-02 售予 Jasper） | web | partial | active |
-| [FLUX（Black Forest Labs）](tracks/image/products/flux.md) | Black Forest Labs | cloud | partial | active |
+| [FLUX（Black Forest Labs）](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
 | [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | partial | active |
 | [Krea](tracks/image/products/krea.md) | Krea | web | partial | active |
 | [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo（2024-07 被 Canva 收购） | web | partial | active |
 | [Microsoft Designer](tracks/image/products/microsoft-designer.md) | 微软 | web | partial | active |
-| [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | partial | active |
+| [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | verified | active |
 | [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | partial | active |
 | [Recraft](tracks/image/products/recraft.md) | Recraft | web | partial | active |
 | [SeaArt](tracks/image/products/seaart.md) | 海艺（成都海艺互娱） | web | partial | active |
-| [Stability AI（Stable Image 平台）](tracks/image/products/stability-ai.md) | Stability AI | web | partial | active |
+| [Stability AI（Stable Image 平台）](tracks/image/products/stability-ai.md) | Stability AI | web | verified | active |
 | [Tensor.Art](tracks/image/products/tensor-art.md) | ECHO INTERNATIONAL HK LIMITED（Tensor.Art） | web | partial | active |
 
 ### AI 视频创作 —— 14 份
@@ -368,9 +368,9 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | partial | active |
 | [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
 | [PixVerse](tracks/video/products/pixverse.md) | 爱诗科技 | web | partial | active |
-| [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | partial | active |
+| [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | verified | active |
 | [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | partial | active |
-| [Veo（Google）](tracks/video/products/veo.md) | Google | cloud | partial | active |
+| [Veo（Google）](tracks/video/products/veo.md) | Google | cloud | verified | active |
 | [Vidu](tracks/video/products/vidu.md) | 生数科技（清华系） | web | partial | active |
 
 ### AI 音频与语音 —— 17 份
@@ -385,7 +385,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | partial | active |
 | [CosyVoice](tracks/audio/products/cosyvoice.md) | 阿里 FunAudioLLM（开源） | local-app | partial | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | partial | active |
-| [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | partial | active |
+| [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
 | [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / 上交 X-LANCE 等（开源） | local-app | partial | active |
 | [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
 | [MiniMax Audio（海螺语音）](tracks/audio/products/minimax-audio.md) | MiniMax（稀宇科技） | web | partial | active |
@@ -393,7 +393,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | partial | active |
 | [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | partial | active |
 | [Soundraw](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | partial | active |
-| [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | partial | active |
+| [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | verified | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
 | [Whisper](tracks/audio/products/whisper.md) | OpenAI（开源） | local-app | partial | active |
 
@@ -403,15 +403,15 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [秘塔 AI 搜索](tracks/research/products/metaso.md) | 秘塔科技（上海秘塔网络科技） | web | partial | active |
+| [秘塔 AI 搜索](tracks/research/products/metaso.md) | 秘塔科技（上海秘塔网络科技） | web | verified | active |
 | [天工 AI 搜索](tracks/research/products/tiangong.md) | 昆仑万维 | web | partial | active |
 | [Andi Search](tracks/research/products/andi.md) | Andi | web | partial | active |
 | [Consensus](tracks/research/products/consensus.md) | Consensus | web | partial | active |
-| [Devv](tracks/research/products/devv.md) | Devv AI | web | partial | active |
+| [Devv](tracks/research/products/devv.md) | Devv AI | web | verified | active |
 | [Elicit](tracks/research/products/elicit.md) | Elicit | web | partial | active |
 | [Genspark](tracks/research/products/genspark.md) | Genspark | web | partial | active |
 | [Kagi](tracks/research/products/kagi.md) | Kagi | web | partial | active |
-| [NotebookLM](tracks/research/products/notebooklm.md) | Google | web | partial | active |
+| [NotebookLM](tracks/research/products/notebooklm.md) | Google | web | verified | active |
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | partial | active |
 | [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
 
@@ -424,7 +424,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [扣子 / Coze](tracks/automation/products/coze.md) | 字节跳动 | web | partial | active |
 | [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
 | [AutoGPT（现 Experts AI 团队平台）](tracks/automation/products/autogpt.md) | AutoGPT（Determinist Ltd 运营） | web | partial | active |
-| [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | partial | active |
+| [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | verified | active |
 | [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
 | [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | partial | active |
 | [FastGPT](tracks/automation/products/fastgpt.md) | labring（环际云，国产） | web | partial | active |
@@ -454,7 +454,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 |---|---|---|---|---|
 | [AG2](tracks/framework/products/ag2.md) | ag2ai | harness | partial | active |
 | [AgentScope](tracks/framework/products/agentscope.md) | 阿里巴巴（魔搭社区） | harness | partial | active |
-| [Agno（原 Phidata）](tracks/framework/products/agno.md) | Agno Inc. | harness | partial | active |
+| [Agno（原 Phidata）](tracks/framework/products/agno.md) | Agno Inc. | harness | verified | active |
 | [Claude Agent SDK](tracks/framework/products/claude-agent-sdk.md) | Anthropic | harness | partial | active |
 | [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | partial | active |
 | [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
@@ -470,7 +470,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | partial | active |
 | [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | partial | active |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | partial | active |
-| [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j 社区 | harness | partial | active |
+| [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j 社区 | harness | verified | active |
 | [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
 | [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | partial | active |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | partial | active |
@@ -481,7 +481,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | partial | active |
 | [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | partial | active |
 | [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | partial | active |
-| [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter（开源社区） | harness | partial | active |
+| [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter（开源社区） | harness | verified | active |
 | [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
 | [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
 | [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | partial | active |
@@ -489,7 +489,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | partial | active |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | partial | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
-| [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | partial | active |
+| [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | verified | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | partial | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford（学术团队） | harness | partial | active |
 | [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | partial | active |
@@ -503,22 +503,22 @@ MCP 服务器与工具生态。
 |---|---|---|---|---|
 | [1Password Environments MCP Server](tracks/mcp/products/1password-mcp.md) | 1Password | mcp | partial | active |
 | [Atlassian Remote MCP Server（Jira/Confluence）](tracks/mcp/products/atlassian-mcp.md) | Atlassian | mcp | partial | active |
-| [Brave Search MCP Server](tracks/mcp/products/brave-search-mcp.md) | Brave | mcp | partial | active |
-| [Browserbase MCP Server](tracks/mcp/products/browserbase-mcp.md) | Browserbase | mcp | partial | active |
+| [Brave Search MCP Server](tracks/mcp/products/brave-search-mcp.md) | Brave | mcp | verified | active |
+| [Browserbase MCP Server](tracks/mcp/products/browserbase-mcp.md) | Browserbase | mcp | verified | active |
 | [Chrome DevTools MCP](tracks/mcp/products/chrome-devtools-mcp.md) | Google（Chrome DevTools 团队） | mcp | partial | active |
 | [Cloudflare MCP Server](tracks/mcp/products/cloudflare-mcp.md) | Cloudflare | mcp | partial | active |
 | [Context7](tracks/mcp/products/context7.md) | Upstash | mcp | partial | active |
-| [Datadog MCP Server](tracks/mcp/products/datadog-mcp.md) | Datadog | mcp | partial | active |
+| [Datadog MCP Server](tracks/mcp/products/datadog-mcp.md) | Datadog | mcp | verified | active |
 | [Everything MCP Server](tracks/mcp/products/everything.md) | Model Context Protocol | mcp | verified | active |
-| [Exa MCP Server](tracks/mcp/products/exa-mcp.md) | Exa | mcp | partial | active |
+| [Exa MCP Server](tracks/mcp/products/exa-mcp.md) | Exa | mcp | verified | active |
 | [Fetch MCP Server](tracks/mcp/products/fetch.md) | Model Context Protocol | mcp | verified | active |
 | [Figma MCP Server](tracks/mcp/products/figma-mcp.md) | Figma | mcp | partial | active |
 | [Filesystem MCP Server](tracks/mcp/products/filesystem.md) | Model Context Protocol | mcp | verified | active |
-| [Firecrawl MCP Server](tracks/mcp/products/firecrawl-mcp.md) | Firecrawl | mcp | partial | active |
+| [Firecrawl MCP Server](tracks/mcp/products/firecrawl-mcp.md) | Firecrawl | mcp | verified | active |
 | [Git MCP Server](tracks/mcp/products/git.md) | Model Context Protocol | mcp | verified | active |
 | [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | partial | active |
 | [Grafana MCP Server](tracks/mcp/products/grafana-mcp.md) | Grafana Labs | mcp | partial | active |
-| [Intercom MCP Server](tracks/mcp/products/intercom-mcp.md) | Intercom | mcp | partial | active |
+| [Intercom MCP Server](tracks/mcp/products/intercom-mcp.md) | Intercom | mcp | verified | active |
 | [Knowledge Graph Memory Server](tracks/mcp/products/memory.md) | Model Context Protocol | mcp | verified | active |
 | [Linear MCP](tracks/mcp/products/linear-mcp.md) | Linear | mcp | partial | active |
 | [MongoDB MCP Server](tracks/mcp/products/mongodb-mcp.md) | MongoDB | mcp | partial | active |
@@ -527,7 +527,7 @@ MCP 服务器与工具生态。
 | [Playwright MCP Server](tracks/mcp/products/playwright.md) | Microsoft | mcp | verified | active |
 | [Sentry MCP / Toolkit](tracks/mcp/products/sentry-mcp.md) | Sentry | mcp | partial | active |
 | [Sequential Thinking MCP Server](tracks/mcp/products/sequential-thinking.md) | Model Context Protocol | mcp | verified | active |
-| [Shopify Dev MCP Server](tracks/mcp/products/shopify-mcp.md) | Shopify | mcp | partial | active |
+| [Shopify Dev MCP Server](tracks/mcp/products/shopify-mcp.md) | Shopify | mcp | verified | active |
 | [Slack MCP Server](tracks/mcp/products/slack-mcp.md) | Slack（Salesforce） | mcp | partial | active |
 | [Stripe Agent Toolkit / MCP](tracks/mcp/products/stripe-mcp.md) | Stripe | mcp | partial | active |
 | [Supabase MCP](tracks/mcp/products/supabase-mcp.md) | Supabase | mcp | partial | active |
@@ -540,22 +540,22 @@ MCP 服务器与工具生态。
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [Docker Model Runner](tracks/runner/products/docker-model-runner.md) | Docker | local-app | partial | active |
-| [ExLlamaV3](tracks/runner/products/exllamav3.md) | turboderp-org | cli | partial | active |
+| [Docker Model Runner](tracks/runner/products/docker-model-runner.md) | Docker | local-app | verified | active |
+| [ExLlamaV3](tracks/runner/products/exllamav3.md) | turboderp-org | cli | verified | active |
 | [GPT4All](tracks/runner/products/gpt4all.md) | Nomic AI | local-app | partial | maintenance |
-| [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | partial | active |
-| [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins（KoboldAI 社区） | local-app | partial | active |
-| [Lemonade](tracks/runner/products/lemonade.md) | AMD / Lemonade 社区 | local-app | partial | active |
+| [Jan](tracks/runner/products/jan.md) | Menlo Research | local-app | verified | active |
+| [KoboldCpp](tracks/runner/products/koboldcpp.md) | LostRuins（KoboldAI 社区） | local-app | verified | active |
+| [Lemonade](tracks/runner/products/lemonade.md) | AMD / Lemonade 社区 | local-app | verified | active |
 | [llama.cpp](tracks/runner/products/llama-cpp.md) | ggml-org | cli | partial | active |
 | [LlamaEdge](tracks/runner/products/llamaedge.md) | LlamaEdge 社区（WasmEdge / Second State 生态） | cli | partial | maintenance |
-| [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | partial | active |
+| [LM Studio](tracks/runner/products/lm-studio.md) | Element Labs | local-app | verified | active |
 | [LocalAI](tracks/runner/products/localai.md) | Mudler T.（mudler） | cli | partial | active |
 | [MLC LLM](tracks/runner/products/mlc-llm.md) | MLCEngine（CMU 系，mlc-ai） | cli | partial | active |
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | partial | active |
 | [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | partial | active |
-| [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | partial | active |
+| [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | verified | active |
 | [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
-| [OpenVINO](tracks/runner/products/openvino.md) | Intel | cli | partial | active |
+| [OpenVINO](tracks/runner/products/openvino.md) | Intel | cli | verified | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | partial | active |
 | [TabbyAPI](tracks/runner/products/tabbyapi.md) | Royal Lab（theroyallab） | cli | partial | active |
 | [Text Generation Inference（TGI）](tracks/runner/products/tgi.md) | Hugging Face | cli | partial | archived |

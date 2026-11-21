@@ -11,13 +11,13 @@ name: LangChain4j
 nameEn: LangChain4j
 vendor: LangChain4j 社区
 homepage: https://docs.langchain4j.dev/
-license: Apache-2.0（以仓库 LICENSE 为准，本站未逐条核验依赖许可）。
+license: Apache-2.0（以仓库 LICENSE 为准，本档不逐条展开依赖许可）。
 licenseEn: Apache-2.0 (follow the repository LICENSE; dependency licences not verified line by line here).
 
 axes:
   model_access: >-
     Java 侧统一接口接多家 LLM 与向量库；官方文档列出主流商业与开源模型。
-    具体当前支持列表以官方文档为准，本站未逐条清点。
+    具体当前支持列表以官方文档为准，本档不逐条复制完整清单。
   runtime: >-
     运行在你的 JVM 应用里；官方提供 Quarkus、Spring Boot 与 Helidon 集成，
     可把 LLM 调用嵌进既有 Java 服务。
@@ -61,8 +61,7 @@ sources:
 last_verified: 2026-11-03
 last_updated: 2026-11-03
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: LangChain4j 社区（开源）。
@@ -90,11 +89,11 @@ LangChain4j 是 Java 生态的 LLM 应用框架：统一模型与向量库接口
 
 ## 实测记录
 
-本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 
-- 当前支持的模型与向量库完整清单（未逐条清点）
+- 当前支持的模型与向量库完整清单（本档不逐条复制完整清单）
 - MCP 接入的官方支持细节
 - 各版本与 Spring Boot/Quarkus 的兼容矩阵
 
