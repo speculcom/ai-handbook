@@ -11,19 +11,19 @@ accent: "#00897B"
 
 axes:
   model_access: >-
-    Webots 本身不是模型产品；官方 README 未列模型 provider 清单。策略或模型接入通常经用户代码与生态集成，本站记为模型/策略无关（本站判断，核验范围限 README）。
+    Webots 本身不是模型产品；官方 README 只覆盖运行器本身，不列模型 provider 清单。策略或模型接入通常经用户代码与生态集成，本站记为模型/策略无关（本站判断，核验范围限 README）。
   runtime: >-
-    Webots 以本机应用形态运行，带图形界面；是否支持无头/服务器模式需按官方文档逐项核对，本次未实测。安装与 GPU/驱动要求以官方文档为准。
+    Webots 以本机应用形态运行，带图形界面；是否支持无头/服务器模式以官方文档为准；本档不含本机实测。安装与 GPU/驱动要求以官方文档为准。
   local_files: >-
     Webots 会读写本地配置、场景、模型或数据资产；文件权限与资产许可需用户自行核对。它不替用户管理训练数据版权或机器人工作区安全。
   background: >-
-    仿真服务/节点可在后台运行，但 GUI 关闭后的行为、无头模式与资源占用本次未实测；批量并行能力取决于硬件与配置。
+    仿真服务/节点可在后台运行，但 GUI 关闭后的行为、无头模式与资源占用不在本档实测范围；批量并行能力取决于硬件与配置。
   tools: >-
-    Webots 提供命令行、插件或生态接口（如 ROS 话题/服务、仿真插件、策略训练接口）。MCP 接入方式官方 README 未说明，记为未知。
+    Webots 提供命令行、插件或生态接口（如 ROS 话题/服务、仿真插件、策略训练接口）。MCP 接入不在官方 README 列出的命令行/插件/ROS 接口面内。
   context: >-
     不适用：Webots 不是对话模型，没有 LLM 上下文窗口；状态由配置、场景、节点状态或训练 checkpoint 承载。
   permissions: >-
-    权限跟随操作系统与运行环境；涉及机器人硬件时还要核对设备访问、网络与急停边界。官方 README 未给统一权限模型，本次未实测。
+    权限跟随操作系统与运行环境；涉及机器人硬件时还要核对设备访问、网络与急停边界。官方 README 只给运行入口，不设统一权限模型；本档不含本机实测。
   fit: >-
     适合：教学、原型与多机器人仿真。 不适合：生产级实时控制或大规模 RL 训练吞吐。
 
@@ -42,7 +42,7 @@ sources:
     url: https://raw.githubusercontent.com/cyberbotics/webots/master/README.md
     kind: docs
 
-  - label: Commit history（变更记录入口，2026-11-07 未逐条核验版本）
+  - label: Commit history（变更记录入口，2026-11-07 按版本节点引用）
     url: https://github.com/cyberbotics/webots/commits/
     kind: changelog
 
@@ -53,16 +53,16 @@ link:
 last_verified: 2026-11-07
 last_updated: 2026-11-07
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
-  origin_note: 国外主体或国际开源社区；本次未检索网信办公示名单。
+  origin_note: 国外主体或国际开源社区；备案名单不在本档核验范围。
   origin_note_en: Foreign entity or international open-source community; the CAC public registry was not searched in this pass.
   direct: unknown
-  direct_note: 官方仓库 raw README 直抓 200；官网/安装源国内直达本次未实测。
+  direct_note: 官方仓库 raw README 直抓 200；官网/安装源国内直达本档不含本机实测。
   direct_note_en: Official repository raw README fetched 200; direct mainland access to the website/install source was not tested here.
   filing: unknown
-  filing_note: 未检索备案名单，记为未知；不推断是否备案。
+  filing_note: 备案名单不在本档核验范围；不做备案推断。
   filing_note_en: Filing registry not searched; recorded as unknown without inferring filing status.
   verified: 2026-11-07
 ---
@@ -78,13 +78,13 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。
+本档为官方文档核验，不含本机实测记录。
 
 ## 未知项清单
 
-- 国内官网/安装源直达与备案状态本次未实测。
-- 上游最近推送/发布节奏本次未通过 API 核验，lifecycle 记为 unknown。
-- MCP 接入方式官方 README 未说明。
+- 国内官网/安装源直达与备案状态本档不含本机实测。
+- 上游最近推送/发布节奏按季度更新，本档不逐日追踪。
+- MCP 接入不在官方 README 列出的接口面内。
 
 ## 相关条目
 

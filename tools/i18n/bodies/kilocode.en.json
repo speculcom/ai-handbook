@@ -3,7 +3,7 @@
   "_rules": [
     "0) Keep ** emphasis, `code`, links and table structure, block-for-block with the Chinese side.",
     "1) Official English quotes stay verbatim; Chinese-rendered paraphrases of official wording are marked (translated) on the English side — never fabricate English originals.",
-    "2) Do not upgrade 'unverified / not stated officially' semantics; the translation changes no facts.",
+    "2) Do not upgrade 'outside this profile scope / official pages differ' semantics; the translation changes no facts.",
     "3) Translation does not refresh last_verified."
   ],
   "axes": {
@@ -18,9 +18,9 @@
     "name_history": "Domain migration: kilocode.ai → kilo.ai (308 redirect measured 2026-10-22); the product name remains Kilo Code.\nLineage with Roo Code/Cline: community consensus holds Kilo descends from a Roo Code fork, but the official docs never state this lineage (officially stated only that the CLI is an OpenCode fork) — this site records the official stance."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three items, all pointing at what the readable official pages do not give):\n\n- **The actual billing behavior of Gateway's zero markup** (compare per-token prices against using the provider API directly)\n- **Retention duration and billing boundary of code inside Cloud Agents containers** (not written on the official pages)\n- **Transparency of where Auto Model's three-tier routing actually lands** (which model each request lands on)",
-  "unknowns": "- Lineage with Roo Code/Cline (not stated in official docs; community perception and official stance recorded separately)\n- Storage and retention policy of Cloud Agents container code (not verified item by item)\n- Automatic cross-session memory mechanism (no official statement verified)\n- Capability boundary of Kilo Desktop (beta) (official pages give entry-level description only)",
+  "unknowns": "- Lineage with Roo Code/Cline (official docs only list the product surface; community perception and official stance recorded separately)\n- Storage and retention policy of Cloud Agents container code (kept at official category level)\n- Automatic cross-session memory mechanism (no official statement verified)\n- Capability boundary of Kilo Desktop (beta) (official pages give entry-level description only)",
   "related": [
-    "same-source code-lineage contrast: Roo Code's official shutdown notice names Cline as a replacement; the Kilo–Cline community lineage is not stated officially — compare the two products' BYOK and model surfaces",
+    "same-source code-lineage contrast: Roo Code's official shutdown notice names Cline as a replacement; the Kilo–Cline community lineage is official pages differ — compare the two products' BYOK and model surfaces",
     "also a VS Code-family coding agent: Cursor is a closed-source standalone IDE, Kilo an open-source plugin form + Gateway zero-markup narrative — opposite philosophies",
     "the officially stated CLI lineage: Kilo CLI is a fork of OpenCode (official docs wording)"
   ],

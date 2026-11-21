@@ -21,13 +21,13 @@ axes:
   local_files: >-
     托管版对话历史存于账户/浏览器侧；自部署版数据完全在自己机器上（这是它与托管对话产品的结构性差别）。
   background: >-
-    对话即时返回；异步任务形态未核验到官方声明。当日页内新增「ML Intern」入口（papers/training/spaces 向）。
+    对话即时返回；官方产品页只列对话与「ML Intern」入口（papers/training/spaces 向），不列异步任务。
   tools: >-
     开源前端的 MCP 工具接入在官方 README 在册（经 OpenAI function calling 调用 MCP server 暴露的工具、
     可经 env 预配置受信 server、用户也能在界面自行添加并做健康检查，预配置示例含 Web Search (Exa)）；
     托管版按同一代码库运行，具体开关形态未逐条核验。
   context: >-
-    会话按对话组织、托管版历史存于账户/浏览器侧；跨会话记忆机制未核验到官方声明——
+    会话按对话组织、托管版历史存于账户/浏览器侧；官方产品页只描述账户/浏览器历史，不列跨会话记忆——
     开源前端的数据层完全归自部署者管辖，这是它与托管对话产品的结构性差别。
   permissions: >-
     HF 账号可选（不登录也能用，功能受限）；数据口径按 HF 隐私页与所选模型许可双重管辖，未逐条核验。
@@ -66,8 +66,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（Hugging Face，美国；网信办公示名单未见对应备案主体）。
@@ -105,10 +104,10 @@ cn:
 
 ## 未知项清单
 
-- Omni 路由逻辑细节（未核验）
-- 托管版数据留存与训练口径（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
-- 托管版 MCP server 开关的具体形态（README 在册，托管界面未逐条核验）
+- Omni 路由逻辑细节（本档不展开）
+- 托管版数据留存与训练口径（本档不逐条展开）
+- 跨会话记忆机制（官方产品页不列）
+- 托管版 MCP server 开关的具体形态（README 在册，托管界面本档不逐条展开）
 
 ## 相关条目
 

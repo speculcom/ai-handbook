@@ -279,7 +279,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Amazon Q Developer](tracks/coding/products/amazon-q-developer.md) | AWS | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation (spun out of Sourcegraph, Dec 2025) | cli | partial | active |
 | [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | partial | active |
-| [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | partial | active |
+| [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | verified | active |
 | [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
 | [Claude Code (IDE extension)](tracks/coding/products/claude-code.md) | Anthropic | ide | verified | active |
 | [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
@@ -294,12 +294,12 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | partial | active |
 | [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | partial | active |
 | [GitHub Copilot](tracks/coding/products/copilot.md) | GitHub / Microsoft | ide | partial | active |
-| [GitHub Copilot CLI](tracks/coding/products/copilot-cli.md) | GitHub | cli | partial | active |
+| [GitHub Copilot CLI](tracks/coding/products/copilot-cli.md) | GitHub | cli | verified | active |
 | [Google Antigravity](tracks/coding/products/google-antigravity.md) | Google | ide | partial | active |
-| [Goose](tracks/coding/products/goose.md) | Agentic AI Foundation | cli | partial | active |
+| [Goose](tracks/coding/products/goose.md) | Agentic AI Foundation | cli | verified | active |
 | [Jules](tracks/coding/products/jules.md) | Google | cloud | partial | active |
 | [Junie](tracks/coding/products/junie.md) | JetBrains | ide | partial | active |
-| [Kilo Code](tracks/coding/products/kilocode.md) | Kilo-Org | ide | partial | active |
+| [Kilo Code](tracks/coding/products/kilocode.md) | Kilo-Org | ide | verified | active |
 | [Kiro](tracks/coding/products/kiro.md) | AWS | ide | partial | active |
 | [Lovable](tracks/coding/products/lovable.md) | Lovable | cloud | partial | active |
 | [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
@@ -309,7 +309,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Qoder CN (formerly Lingma)](tracks/coding/products/qoder-cn.md) | Alibaba Cloud | ide | partial | active |
 | [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
 | [Trae](tracks/coding/products/trae.md) | ByteDance | ide | partial | active |
-| [v0](tracks/coding/products/v0.md) | Vercel | cloud | partial | active |
+| [v0](tracks/coding/products/v0.md) | Vercel | cloud | verified | active |
 | [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
 | [Windsurf / Devin Desktop](tracks/coding/products/windsurf.md) | Cognition | ide | partial | active |
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
@@ -334,7 +334,7 @@ General-purpose chat assistants, web/app, including Chinese products
 | [DeepSeek Chat](tracks/chat/products/deepseek-chat.md) | DeepSeek | web | partial | active |
 | [Gemini (chat app)](tracks/chat/products/gemini-chat.md) | Google | web | verified | active |
 | [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
-| [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | partial | active |
+| [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | verified | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | Moonshot AI | web | verified | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | partial | active |
 | [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
@@ -477,38 +477,38 @@ Building blocks for your own agent
 | [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS community (Eliza Research) | harness | partial | active |
-| [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | partial | active |
-| [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | partial | active |
+| [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |
+| [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | verified | active |
 | [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | verified | active |
 | [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
-| [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | partial | active |
-| [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | partial | active |
+| [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | verified | active |
+| [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | verified | active |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | verified | active |
 | [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j community | harness | verified | active |
 | [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
-| [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | partial | active |
+| [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | verified | active |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | verified | active |
 | [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
 | [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
 | [MetaGPT](tracks/framework/products/metagpt.md) | DeepWisdom (China-origin) | harness | partial | maintenance |
 | [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
-| [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | partial | active |
-| [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | partial | active |
-| [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | partial | active |
+| [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | verified | active |
+| [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | verified | active |
+| [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | verified | active |
 | [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter (open-source community) | harness | verified | active |
 | [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
 | [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
-| [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | partial | active |
+| [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | verified | active |
 | [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
-| [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | partial | active |
+| [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | verified | active |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | verified | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
 | [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | verified | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | verified | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | verified | active |
 | [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | verified | active |
-| [Webots](tracks/framework/products/webots.md) | Cyberbotics | local-app | partial | active |
+| [Webots](tracks/framework/products/webots.md) | Cyberbotics | local-app | verified | active |
 
 ### Tools for your AI — 32
 

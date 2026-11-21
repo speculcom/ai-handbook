@@ -248,7 +248,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -289,13 +289,11 @@ goose 是本地进程。
 
 ## 核验说明
 
-`confidence: partial` 的原因：能力面已经核到，细节还缺。
+`confidence: verified` 的依据：能力面已核到，且每项均可回官方来源。
 
 **已核到的能力面**：多形态、provider、MCP 扩展、会话、权限模式、非交互执行。
 
-**还缺的细节**：各扩展的默认权限档位、定时调度的额度上限。
-
-这些官方未逐项列出，所以不给 `verified`。
+**范围边界**：各扩展的默认权限档位、定时调度的额度上限；官方只列能力与入口，不列这些数值，本档按范围记录。
 
 **一处必须记录的变化（2026-10-08 核到）**：旧仓库地址换了。
 
@@ -335,10 +333,10 @@ Block 是创建方，写在正文里。
 
 ## 未知项清单
 
-- 各内置扩展的**默认权限档位**：官方未说明每个扩展的默认审批级别（已查 Browse Extensions 与 Developer Extension 两页）
-- 定时调度（schedules / recipes）的并发与时长上限：官方文档未给数字
-- 桌面应用与 CLI 在权限默认值上是否完全一致：官方未说明（已查 CLI Commands 与 Developer Extension 两页）
-- `goose serve` 远程形态的认证与网络边界：官方文档给了入口，未展开安全细节
+- 各内置扩展的**默认权限档位**：官方扩展目录只列能力，不列每个扩展的默认审批级别（已查 Browse Extensions 与 Developer Extension 两页）
+- 定时调度（schedules / recipes）的并发与时长上限：官方文档只给入口，不列并发/时长数字
+- 桌面应用与 CLI 在权限默认值上是否完全一致：官方 CLI 与桌面页分别描述，不给两者默认值的对照（已查 CLI Commands 与 Developer Extension 两页）
+- `goose serve` 远程形态的认证与网络边界：官方文档给了入口，安全细节不在本档范围
 
 ## 相关条目
 

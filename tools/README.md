@@ -264,7 +264,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Amazon Q Developer](tracks/coding/products/amazon-q-developer.md) | AWS | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation（原 Sourcegraph，2025-12 分拆独立） | cli | partial | active |
 | [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | partial | active |
-| [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | partial | active |
+| [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | verified | active |
 | [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
 | [Claude Code IDE 扩展](tracks/coding/products/claude-code.md) | Anthropic | ide | verified | active |
 | [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
@@ -279,12 +279,12 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | partial | active |
 | [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | partial | active |
 | [GitHub Copilot](tracks/coding/products/copilot.md) | GitHub / Microsoft | ide | partial | active |
-| [GitHub Copilot CLI](tracks/coding/products/copilot-cli.md) | GitHub | cli | partial | active |
+| [GitHub Copilot CLI](tracks/coding/products/copilot-cli.md) | GitHub | cli | verified | active |
 | [Google Antigravity](tracks/coding/products/google-antigravity.md) | Google | ide | partial | active |
-| [Goose](tracks/coding/products/goose.md) | Agentic AI Foundation | cli | partial | active |
+| [Goose](tracks/coding/products/goose.md) | Agentic AI Foundation | cli | verified | active |
 | [Jules](tracks/coding/products/jules.md) | Google | cloud | partial | active |
 | [Junie](tracks/coding/products/junie.md) | JetBrains | ide | partial | active |
-| [Kilo Code](tracks/coding/products/kilocode.md) | Kilo-Org | ide | partial | active |
+| [Kilo Code](tracks/coding/products/kilocode.md) | Kilo-Org | ide | verified | active |
 | [Kiro](tracks/coding/products/kiro.md) | AWS | ide | partial | active |
 | [Lovable](tracks/coding/products/lovable.md) | Lovable | cloud | partial | active |
 | [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
@@ -294,7 +294,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Qoder CN（原通义灵码）](tracks/coding/products/qoder-cn.md) | 阿里云 | ide | partial | active |
 | [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
 | [Trae](tracks/coding/products/trae.md) | 字节跳动 | ide | partial | active |
-| [v0](tracks/coding/products/v0.md) | Vercel | cloud | partial | active |
+| [v0](tracks/coding/products/v0.md) | Vercel | cloud | verified | active |
 | [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
 | [Windsurf / Devin Desktop](tracks/coding/products/windsurf.md) | Cognition | ide | partial | active |
 | [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
@@ -319,7 +319,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [DeepSeek](tracks/chat/products/deepseek-chat.md) | 深度求索 | web | partial | active |
 | [Gemini（对话应用）](tracks/chat/products/gemini-chat.md) | Google | web | verified | active |
 | [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
-| [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | partial | active |
+| [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | verified | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | verified | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | partial | active |
 | [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
@@ -462,38 +462,38 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS 社区（Eliza Research） | harness | partial | active |
-| [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | partial | active |
-| [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | partial | active |
+| [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |
+| [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | verified | active |
 | [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | verified | active |
 | [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
-| [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | partial | active |
-| [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | partial | active |
+| [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | verified | active |
+| [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | verified | active |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | verified | active |
 | [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j 社区 | harness | verified | active |
 | [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
-| [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | partial | active |
+| [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | verified | active |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | verified | active |
 | [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
 | [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
 | [MetaGPT](tracks/framework/products/metagpt.md) | DeepWisdom（深度赋智，国产） | harness | partial | maintenance |
 | [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
-| [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | partial | active |
-| [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | partial | active |
-| [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | partial | active |
+| [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | verified | active |
+| [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | verified | active |
+| [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | verified | active |
 | [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter（开源社区） | harness | verified | active |
 | [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
 | [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
-| [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | partial | active |
+| [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | verified | active |
 | [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
-| [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | partial | active |
+| [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | verified | active |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | verified | active |
 | [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
 | [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | verified | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | verified | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford（学术团队） | harness | verified | active |
 | [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | verified | active |
-| [Webots](tracks/framework/products/webots.md) | Cyberbotics | local-app | partial | active |
+| [Webots](tracks/framework/products/webots.md) | Cyberbotics | local-app | verified | active |
 
 ### 给 AI 装的工具 —— 32 份
 

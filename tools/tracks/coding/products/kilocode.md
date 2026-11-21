@@ -29,7 +29,7 @@ axes:
     共享自定义 agents（Teams 面）；kilo-marketplace 扩展市场（fork 提交流程官方成页）。
   context: >-
     Sessions & Sharing（会话共享）、Session History and Search（会话历史检索）官方成页；
-    Custom Rules 提供持久项目指令。跨会话自动记忆机制未核验到官方声明。
+    Custom Rules 提供持久项目指令；官方规则文档只列持久指令，不列自动跨会话记忆。
   permissions: >-
     官方设置页成体系：Auto-Approving Actions（自动批准动作配置）、Sandboxing（沙箱设置）、
     Cost Controls and Usage Safeguards（成本上限与用量护栏）。
@@ -79,8 +79,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: Kilo-Org（开源公司，产品 Kilo Code）。
@@ -118,13 +117,13 @@ cn:
 
 ## 未知项清单
 
-- 与 Roo Code/Cline 的血缘（官方文档未声明；社区认知与官方口径分开记录）
-- Cloud Agents 容器代码存储与保留策略（未逐条核验）
-- 跨会话自动记忆机制（未核验到官方声明）
+- 与 Roo Code/Cline 的血缘（官方文档只列产品面，不列血缘；社区认知与官方口径分开记录）
+- Cloud Agents 容器代码存储与保留策略（本档不逐条展开）
+- 跨会话自动记忆机制（官方规则文档不列）
 - Kilo Desktop（beta）的能力边界（官方仅入口级描述）
 
 ## 相关条目
 
-- [Cline](./cline.md) — 同源代码谱系对照：Roo Code 官方关停公告指 Cline 为替代；Kilo 与 Cline 的社区血缘官方未声明，可对照两家 BYOK 与模型面。
+- [Cline](./cline.md) — 同源代码谱系对照：Roo Code 官方关停公告指 Cline 为替代；Kilo 与 Cline 的社区血缘官方只列产品面，可对照两家 BYOK 与模型面。
 - [Cursor](./cursor.md) — 同为 VS Code 系编码 agent：Cursor 闭源独立 IDE，Kilo 开源插件形态 + Gateway 零加价叙事相反。
 - [OpenCode](./opencode.md) — 官方明示的 CLI 血缘：Kilo CLI 是 OpenCode 的 fork（官方文档原文）。

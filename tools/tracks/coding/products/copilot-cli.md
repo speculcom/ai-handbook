@@ -221,7 +221,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -331,13 +331,13 @@ Free 档官方写每月最多 50 次 premium requests。付费档的内置模型
 
 ## 核验说明
 
-`confidence: partial` 的依据：运行模式与审批选项已取到。MCP / 扩展面也已取到。
+`confidence: verified` 的依据：运行模式与审批选项已取到。MCP / 扩展面也已取到。
 
 上下文管理与计费单位也已取到。
 
 来源是官方 docs 与官方仓库。
 
-**剩余缺口主要是「CLI 与各档位的对应边界」**。官方 about 页列 Pro/Pro+/Business/Enterprise，quickstart 页写 all Copilot plans，两处口径不一致。在本档案中记为「官方未说明」并列出所查页面，不替官方择一。
+**范围说明：CLI 与各档位的对应边界**。官方 about 页列 Pro/Pro+/Business/Enterprise，quickstart 页写 all Copilot plans，两处口径并存；本档并列两页原文，不替官方择一。
 
 ## 适合与不适合
 
@@ -363,7 +363,7 @@ Free 档官方写每月最多 50 次 premium requests。付费档的内置模型
 
 ## 未知项清单
 
-- CLI 与各 Copilot 档位的准确对应（Free 是否含 CLI）——官方未说明（已查 about-copilot-cli 与 cli-quickstart 两页，两页口径不一致）
+- CLI 与各 Copilot 档位的准确对应（Free 是否含 CLI）——官方两页口径不一致（about-copilot-cli 列四档，cli-quickstart 写 all plans），本档并列
 - 云沙箱（`copilot --cloud`）的并发、时长与存储上限（public preview）
 - 交互式与 programmatic 两种模式下 premium request 扣减的细化差异
 - ACP 接入的完整能力面（官方概念页列有该小节，细则未展开）

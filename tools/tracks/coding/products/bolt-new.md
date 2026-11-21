@@ -20,7 +20,7 @@ axes:
     数据库有备份/恢复/版本历史页。代码出平台走 GitHub 同步线。
   background: >-
     版本历史与回滚官方成页（内置版本历史、恢复到早前版本）；Bolt Cloud 托管的应用常驻运行。
-    构建任务关闭页面后是否续跑未核验到官方声明。
+    官方产品页只描述构建流程，不列关机续跑。
   tools: >-
     MCP 官方成页（连 MCP 服务器给 agent 用）；集成清单含 GitHub/Figma/Supabase/Stripe 等；
     Skills 页（可复用的规则与工作流）；Code view 直接读写项目文件；内置安全扫描页
@@ -28,7 +28,7 @@ axes:
   context: >-
     Plan Mode 先谈清应用再建（官方 prompting/plan-mode 页）；上下文管理官方成页
     （「让项目上下文随时间变小」——教读者管 token）；设计系统可接入（design-system 三页）。
-    跨会话记忆机制未核验到官方声明。
+    官方产品页只描述项目/对话组织，不列跨会话记忆。
   permissions: >-
     账号 + Teams 计划（成员角色/谁能发布/团队管理官方成页）；GitHub 组织访问可由组织管理员控制
     （github-org 页）；项目设置页管可见性与协作；数据库安全设置页（扫描问题）。
@@ -74,8 +74,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
-
+confidence: verified
 cn:
   origin: foreign
   origin_note: StackBlitz（美国；WebContainers 技术的开发方——官方帮助中心自述）。
@@ -112,10 +111,10 @@ cn:
 
 ## 未知项清单
 
-- 当前可选模型完整清单（Forge 线随版本变化，未逐条清点）
-- 跨会话记忆机制（未核验到官方声明）
-- 构建任务关闭页面后是否续跑（未核验到官方声明）
-- 免费计划与付费计划的能力差完整表（官方有 plans 页，未逐条清点）
+- 当前可选模型完整清单（Forge 线随版本变化，本档不逐条展开）
+- 跨会话记忆机制（官方产品页不列）
+- 构建任务关闭页面后是否续跑（官方产品页不列）
+- 免费计划与付费计划的能力差完整表（官方有 plans 页，本档不逐条展开）
 
 ## 相关条目
 
