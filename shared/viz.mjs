@@ -356,27 +356,27 @@ function section({ id, kicker, title, sub, dek, cards, foot, link }) {
 /* ---------- 各站数据 ---------- */
 const WWW_NODES = [
   { label: '模型', value: '1337', color: 'var(--cat-violet)' },
-  { label: 'AI 导航', value: '625', color: 'var(--cat-blue)' },
-  { label: '学AI', value: '260', color: 'var(--cat-teal)' },
+  { label: 'AI 导航', value: '816', color: 'var(--cat-blue)' },
+  { label: '学AI', value: '299', color: 'var(--cat-teal)' },
   { label: '工具', value: '280', color: 'var(--cat-amber)' },
-  { label: '论文', value: '33', color: 'var(--cat-rose)' },
-  { label: '算力', value: '35', color: 'var(--cat-lime)' },
-  { label: '链', value: '24', color: 'var(--cat-violet)' },
-  { label: '演示', value: '189', color: 'var(--cat-rose)' },
-  { label: '开源', value: '50', color: 'var(--cat-teal)' },
+  { label: '论文', value: '110', color: 'var(--cat-rose)' },
+  { label: '算力', value: '70', color: 'var(--cat-lime)' },
+  { label: '链', value: '46', color: 'var(--cat-violet)' },
+  { label: '演示', value: '348', color: 'var(--cat-rose)' },
+  { label: '开源', value: '135', color: 'var(--cat-teal)' },
 ];
 
 function vizWww() {
   const bars = [
     { label: 'GGUF 文件', value: 1337, color: 'var(--cat-violet)' },
-    { label: 'AI 导航条目', value: 625, color: 'var(--cat-blue)' },
-    { label: '学AI词条', value: 260, color: 'var(--cat-teal)' },
+    { label: 'AI 导航条目', value: 816, color: 'var(--cat-blue)' },
+    { label: '学AI词条', value: 299, color: 'var(--cat-teal)' },
     { label: '工具对象', value: 280, color: 'var(--cat-amber)' },
-    { label: '演示作品', value: 189, color: 'var(--cat-rose)' },
-    { label: '开源仓库', value: 50, color: 'var(--cat-teal)' },
-    { label: '硬件条目', value: 35, color: 'var(--cat-lime)' },
-    { label: '论文条目', value: 33, color: 'var(--cat-rose)' },
-    { label: '链条目', value: 24, color: 'var(--cat-violet)' },
+    { label: '演示作品', value: 348, color: 'var(--cat-rose)' },
+    { label: '开源仓库', value: 135, color: 'var(--cat-teal)' },
+    { label: '硬件条目', value: 70, color: 'var(--cat-lime)' },
+    { label: '论文条目', value: 110, color: 'var(--cat-rose)' },
+    { label: '链条目', value: 46, color: 'var(--cat-violet)' },
   ];
   const tl = [
     { date: '01-26', title: 'MCP Apps 成为正式扩展', desc: 'SEP-1865 定稿；工具可以返回可交互 UI', color: 'var(--cat-blue)' },
@@ -387,11 +387,11 @@ function vizWww() {
     { date: '10-22', title: 'Agent Skills 捐给 AAIF', desc: '70+ 平台接入；技能成为跨平台标准', color: 'var(--cat-lime)' },
     { date: '10-29', title: 'Mistral Large 4 开放权重', desc: '1.05T 总参 / 49B 激活，128 路由专家', color: 'var(--cat-violet)' },
     { date: '11-12', title: 'AMD MI450X 上市', desc: '288GB HBM4 / 23.3TB/s', color: 'var(--cat-rose)' },
-    { date: '11-19', title: '演示站并入统一外壳', desc: '189 件作品；底栏单排 10 项、2026 与 404 补齐', color: 'var(--cat-violet)' },
+    { date: '11-19', title: '演示站并入统一外壳', desc: '底栏单排 10 项、2026 与 404 补齐；作品数后续扩到 348', color: 'var(--cat-violet)' },
   ];
   return section({
     id: 'atlas',
-    kicker: '全站一张图 · 2026-11-19',
+    kicker: '全站一张图 · 2026-11-21',
     title: '十个入口，一张生态图',
     sub: 'Specul atlas',
     dek: bi('每个节点对应一个内容站，点进去就是那个站。十个入口共用同一套外壳，新增的 OSS 分站与数据、云算力、Skills、评测四节都在这张图里。', 'Every node is a content site; click through to it. All ten doors share one shell, and the new OSS site plus the data, cloud, Skills and evals sections are included.'),
@@ -400,15 +400,15 @@ function vizWww() {
       card({ span: 4, no: '02', title: '2026 关键更新', sub: bi('按官方日期排序', 'official dates only'), svg: timeline(tl, { w: 560, rowH: 51 }), foot: bi('只列有官方发布页的事件；每条的出处见各站的 2026 增补页。', 'Events with an official release page only; sources sit on each site’s 2026 page.') }),
       card({ span: 7, no: '03', title: '内容条目分布', sub: bi('各站内容量', 'content volume by site'), svg: barChart(bars), foot: bi('模型站按 GGUF 文件计，导航站按站点条目计；两者远大于其他站，横轴用真实数量，所以条长差得很开。', 'Models counts GGUF files and the directory counts site entries; both dwarf the rest, so the axis uses real counts and the bars differ a lot.') }),
       card({ span: 5, no: '04', title: '这一轮补了什么', sub: bi('新增分站 + 四个站内节 + 入口', 'one new site + four sections + entry points'), svg: `<div class="vz-list">
-        <div><b>1</b><span>${bi('个 OSS 分站：50 个仓库、6 个场景、36 个精选；许可与 star 快照逐条标注', 'OSS site: 50 repos, 6 scenes, 36 curated; licence and star snapshots on every card')}</span></div>
-        <div><b>4</b><span>${bi('个站内节：24 张数据集卡、20 个评测基准、18 家云算力、12 条 Skills', 'four sections: 24 dataset cards, 20 benchmarks, 18 cloud providers, 12 Skills entries')}</span></div>
+        <div><b>1</b><span>${bi('个 OSS 分站：135 个仓库、7 个场景，许可与 star 快照逐条标注', 'OSS site: 135 repos, 7 scenes; licence and star snapshots on every card')}</span></div>
+        <div><b>4</b><span>${bi('个站内节：40 张数据集卡、40 个评测基准、8 家云算力、12 类工具', 'four sections: 40 dataset cards, 40 benchmarks, 8 cloud providers, 12 tool categories')}</span></div>
         <div><b>1</b><span>${bi('个提示词 hub：6 篇方法指南 + 24 个可抄案例，链回工具站原有指南', 'prompt hub: 6 method guides + 24 copyable cases, linked to the existing tool guides')}</span></div>
         <div><b>5</b><span>${bi('张首页门卡：工具、模型、硬件首页各新增入口，枢纽页改成「直接用 / 自己搭」二分', 'homepage doors: new entries on tools, models and hardware, plus the use/build fork on the hub')}</span></div>
-        <div><b>1853</b><span>${bi('条跨站搜索索引：新增数据、评测、云算力、Skills、提示词与 OSS 页面；OSS 已随上线进入索引', 'cross-site search records, including the new sections, prompts and OSS; OSS is indexed after launch')}</span></div>
+        <div><b>2417</b><span>${bi('条跨站搜索索引：新增数据、评测、云算力、Skills、提示词与 OSS 页面；OSS 已随上线进入索引', 'cross-site search records, including the new sections, prompts and OSS; OSS is indexed after launch')}</span></div>
         <div><b>10</b><span>${bi('个 2026 增补页 + 10 个 404 页：OSS 也补了 404，十站共用一套外壳', '2026 pages + 404 pages; OSS has its own 404 and all ten sites share one shell')}</span></div>
       </div>`, foot: bi('清单是这一轮的实际改动，不是路线图；每项都能在站内找到对应页面。', 'This is what changed, not a roadmap; every item has a page on the site.') }),
     ],
-    foot: bi('所有数字取 2026-11-19 的构建结果；模型能力分数来自官方或第三方公开指数，不是本站实测。', 'All figures come from the 2026-11-19 build; model-capability scores come from official or third-party public indices, not measurements by this site.'),
+    foot: bi('所有数字取 2026-11-21 的构建结果；模型能力分数来自官方或第三方公开指数，不是本站实测。', 'All figures come from the 2026-11-21 build; model-capability scores come from official or third-party public indices, not measurements by this site.'),
     link: `<a href="updates-2026-11.html">${bi('读完整增补清单：2026 年 11 月更新中枢', 'Read the full change log: November 2026 hub')} →</a>`,
   });
 }
@@ -461,7 +461,7 @@ function vizLearn() {
     dek: bi('不用一上来就背名词。先看看自己缺哪一块，再按那一块往下读；六站、十六条路线都在这张图上。', 'No need to memorise terms first. See which part you are missing, then read down from there; the six stations and sixteen routes are all on this map.'),
     cards: [
       card({ span: 7, no: '01', title: '六层，词都落在哪', sub: bi('当前词库', 'current glossary'), svg: barChart(layers, { labelW: 170 }), foot: bi('「用深」和「看懂」的词最多，因为这两块最容易被术语绕晕；先挑你卡住的那一层，不用从头背。', '“Use deeply” and “understand” carry the most terms because those are where jargon gets densest. Start with the layer you are stuck on; no need to memorise them all.') }),
-      card({ span: 5, no: '02', title: '最近补的四个词', sub: bi('训练、推理、表征、生成各一个', 'one each for training, inference, representation, generation'), svg: `<div class="vz-map">
+      card({ span: 5, no: '02', title: '四个高频拐点词', sub: bi('训练、推理、表征、生成各一个', 'one each for training, inference, representation, generation'), svg: `<div class="vz-map">
         <div class="vz-map-row"><span class="vz-tag">${bi('训练', 'Training')}</span><b>GRPO</b><small>${bi('组内相对优势，省掉 critic', 'group-relative advantage, no critic')}</small></div>
         <div class="vz-map-row"><span class="vz-tag">${bi('推理', 'Inference')}</span><b>MLA</b><small>${bi('低秩压缩 KV，长上下文更省显存', 'low-rank KV compression for long context')}</small></div>
         <div class="vz-map-row"><span class="vz-tag">${bi('表征', 'Representation')}</span><b>JEPA</b><small>${bi('预测表示而不是像素', 'predict representations, not pixels')}</small></div>
@@ -470,7 +470,7 @@ function vizLearn() {
       card({ span: 12, no: '03', title: '从词条到路径', sub: bi('六层不是六个文件夹，是一条可走的路线', 'six levels, one walkable route'), svg: `<div class="vz-path">
         <span>${bi('进门', 'Enter')}</span><i>→</i><span>${bi('会用', 'Use')}</span><i>→</i><span>${bi('用深', 'Use deeply')}</span><i>→</i><span>${bi('看懂', 'Understand')}</span><i>→</i><span>${bi('选型', 'Choose')}</span><i>→</i><span>${bi('前沿', 'Frontier')}</span>
       </div>`, foot: bi('每个词条都标了所属层和难度；路径页把「先读什么」排成顺序，不按字母表。', 'Every term carries its level and difficulty; the path page orders what to read first, not alphabetically.') }),
-      card({ span: 7, no: '04', title: '六站累计：知识是一层层叠上去的', sub: bi('累计词条数 · 当前词库', 'cumulative terms · current glossary'), svg: lineChart(cumulative), foot: bi('前两站先打 80 个词的地基，第三站「用深」一次加 67 个。别从最难的开始，先有底再往上叠。', 'The first two stations lay an 80-term foundation; station three adds 67 more at once. Do not start with the hardest layer — build a base first.') }),
+      card({ span: 7, no: '04', title: '六站累计：知识是一层层叠上去的', sub: bi('累计词条数 · 当前词库', 'cumulative terms · current glossary'), svg: lineChart(cumulative), foot: bi(`前两站先打 ${layers[0].value + layers[1].value} 个词的地基，第三站「用深」一次加 ${layers[2].value} 个。别从最难的开始，先有底再往上叠。`, `The first two stations lay a foundation of ${layers[0].value + layers[1].value} terms; station three adds ${layers[2].value} more at once. Do not start with the hardest layer — build a base first.`) }),
       card({ span: 5, no: '05', title: bi(`${routePaths.length} 条路线，大半不到 45 分钟`, `${routePaths.length} paths, most under 45 minutes`), sub: bi('按建议投入时间分组', 'routes grouped by suggested time'), svg: donut(routeBuckets, { total: routePaths.length, center: String(routePaths.length), w: 460, h: 240 }), foot: bi(`${routeBuckets[0].value} 条路线 45 分钟内能走完，适合今天先动一下；一个下午、一周各 ${routeBuckets[2].value} 条，适合系统学。`, `${routeBuckets[0].value} routes finish within 45 minutes — enough to start today; ${routeBuckets[2].value} afternoon-length and ${routeBuckets[3].value} week-length route are for deeper study.`) }),
     ],
     foot: bi('说明：词条按所属层计数，不含指南和路径页。', 'Note: terms count by their level; guides and path pages are excluded.'),
@@ -701,10 +701,10 @@ function vizNav() {
     cards: [
       card({ span: 7, no: '01', title: '大家常找的几类', sub: bi('按用途分类，取前 8 类', 'top 8 by use'), svg: barChart(top, { labelW: 190 }), foot: bi('一个网站只归一个主用途；「延伸领域」不画进来，因为它不是 AI 主类目，而是跨学科的出口。', 'Each site has one primary use; “extended fields” is omitted because it is a cross-disciplinary exit, not an AI category.') }),
       card({ span: 5, no: '02', title: '链接还能打开吗', sub: bi('定期检查的结果', 'from the regular link check'), svg: donut([
-        { label: '能打开', value: 608, color: 'var(--ok)' },
-        { label: '暂未确认', value: 92, color: 'var(--warn)' },
+        { label: '能打开', value: 500, color: 'var(--ok)' },
+        { label: '暂未确认', value: 247, color: 'var(--warn)' },
         { label: '已失效', value: 0, color: 'var(--stop)' },
-      ], { total: 700, center: '608', note: 'live' }), foot: bi('700 个域名中 608 个确认存活，92 个探测环境受限未能确认；「暂未确认」不等于失效，多数是被反爬或地区限制挡住。把未确认写成失效，是目录站最常见的过度断言。', 'Of 700 domains, 608 are confirmed live and 92 are limited by the probe environment; “unconfirmed” is not dead — most are blocked by anti-bot or region limits. Calling them dead is the usual overclaim in directories.') }),
+      ], { total: 747, center: '500', note: 'live' }), foot: bi('747 个域名中 500 个确认存活（含 5 个改址），247 个被反爬、限流或探测环境挡住；「暂未确认」不等于失效。把未确认写成失效，是目录站最常见的过度断言。', 'Of 747 domains, 500 are confirmed live (including five moved); 247 are blocked by anti-bot, rate limits or the probe environment. “Unconfirmed” is not dead — calling it dead is the usual overclaim in directories.') }),
       card({ span: 12, no: '03', title: '这里只是入口', sub: bi('帮你离开本站，不是让你多待一会', 'an exit, not a place to linger'), svg: `<div class="vz-wire">
         <div><b>一句话</b><span>${bi('说明这个站能做什么', 'what the site does')}</span><small>${bi('每条都有一句说明、几个标签和一个官网链接。', 'One description, a few tags and an official link per entry.')}</small></div>
         <div><b>按用途</b><span>${bi('按你想做的事找', 'find it by what you want to do')}</span><small>${bi('按「我想做什么」组织，不按厂商规模排序。', 'Organised by “what I want to do”, not vendor size.')}</small></div>
