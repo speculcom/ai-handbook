@@ -46,6 +46,20 @@ function fmtStars(n) {
   if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
   return String(n);
 }
+/* 详情页 description 要落在 50–160 字符；摘要偏长时保留许可/语言/stars 这些硬信息，
+   只在摘要尾部收断，避免整段被搜索引擎截掉。 */
+function repoDesc(r) {
+  const prefix = `${r.name}：`;
+  const tail = ` 许可 ${r.license}，${r.language}，${fmtStars(r.stars)} stars（2026-11-20 快照）。`;
+  const room = 160 - prefix.length - tail.length;
+  let summary = String(r.summary || '').trim();
+  if (summary.length > room) {
+    let cut = summary.slice(0, Math.max(1, room - 1));
+    cut = cut.replace(/\s+\S*$/, '').replace(/[A-Za-z0-9_./-]+$/, '').replace(/[，。；、,;：:\s]+$/, '');
+    summary = `${cut}…`;
+  }
+  return prefix + summary + tail;
+}
 function dateOnly(d) { return d ? String(d).slice(0, 10) : '—'; }
 
 const repos = repoDoc.repos.map((r) => {
@@ -297,7 +311,7 @@ for (const r of repos) {
 </div>`;
     fs.writeFileSync(path.join(site, 'repos', `${r.id}.html`), page({
       title: `${r.name} · 开源 AI 工具库`,
-      desc: `${r.name}：${r.summary} 许可 ${r.license}，${r.language}，${fmtStars(r.stars)} stars（2026-11-20 快照）。`,
+      desc: repoDesc(r),
       canonical: url(`repos/${r.id}.html`),
       depth: 1,
       body

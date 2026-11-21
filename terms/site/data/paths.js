@@ -6,6 +6,7 @@ var PATHS = [
  {
   "id": "quick-start",
   "ord": 1,
+  "level": "starter",
   "zh": "半小时入门",
   "en": "The Half-Hour Primer",
   "span": {
@@ -75,6 +76,7 @@ var PATHS = [
  {
   "id": "afternoon-principles",
   "ord": 2,
+  "level": "builder",
   "zh": "一个下午看懂原理",
   "en": "One Afternoon Under the Hood",
   "span": {
@@ -148,6 +150,7 @@ var PATHS = [
  {
   "id": "full-week",
   "ord": 3,
+  "level": "deep",
   "zh": "一周路线",
   "en": "The Full Week",
   "span": {
@@ -155,8 +158,8 @@ var PATHS = [
    "en": "one week"
   },
   "lead": {
-   "zh": "六站各选代表主题，共二十五步。把能力、成本、许可与评测放在一起看，最后用具体任务检查自己的选择。",
-   "en": "Follow twenty-five representative steps across six stations. Connect capability, cost, licensing and evaluation, then examine a choice for a concrete task."
+   "zh": "六段各选代表主题，共二十五步。把能力、成本、许可与评测放在一起看，最后用具体任务检查自己的选择。",
+   "en": "Follow twenty-five representative steps across six stages. Connect capability, cost, licensing and evaluation, then examine a choice for a concrete task."
   },
   "steps": [
    "人工智能",
@@ -247,6 +250,7 @@ var PATHS = [
  {
   "id": "for-writers",
   "ord": 4,
+  "level": "starter",
   "zh": "内容工作者路线",
   "en": "The Writer's Route",
   "span": {
@@ -316,6 +320,7 @@ var PATHS = [
  {
   "id": "for-builders",
   "ord": 5,
+  "level": "builder",
   "zh": "动手开发者路线",
   "en": "The Builder's Route",
   "span": {
@@ -393,6 +398,7 @@ var PATHS = [
  {
   "id": "for-managers",
   "ord": 6,
+  "level": "ship",
   "zh": "选型决策者路线",
   "en": "The Decision-Maker's Route",
   "span": {
@@ -470,6 +476,7 @@ var PATHS = [
  {
   "id": "for-researchers",
   "ord": 7,
+  "level": "deep",
   "zh": "研究学习者路线",
   "en": "The Researcher's Route",
   "span": {
@@ -565,6 +572,7 @@ var PATHS = [
  {
   "id": "for-operators",
   "ord": 8,
+  "level": "ship",
   "zh": "运维上线路线",
   "en": "The Operator's Route",
   "span": {
@@ -642,6 +650,7 @@ var PATHS = [
  {
   "id": "for-consumers",
   "ord": 9,
+  "level": "starter",
   "zh": "普通消费者路线",
   "en": "The Everyday User's Route",
   "span": {
@@ -707,6 +716,7 @@ var PATHS = [
  {
   "id": "for-creators",
   "ord": 10,
+  "level": "starter",
   "zh": "图像 / 视频 / 音频创作者路线",
   "en": "The Image / Video / Audio Creator's Route",
   "span": {
@@ -772,6 +782,7 @@ var PATHS = [
  {
   "id": "for-safety-review",
   "ord": 11,
+  "level": "deep",
   "zh": "安全与合规评审路线",
   "en": "The Safety and Compliance Review Route",
   "span": {
@@ -845,6 +856,7 @@ var PATHS = [
  {
   "id": "for-eval-builders",
   "ord": 12,
+  "level": "deep",
   "zh": "评测与质量路线",
   "en": "The Evaluation and Quality Route",
   "span": {
@@ -916,6 +928,7 @@ var PATHS = [
  {
   "id": "for-robotics",
   "ord": 13,
+  "level": "builder",
   "zh": "机器人软件与学习路线",
   "en": "Robot software and learning route",
   "span": {
@@ -978,6 +991,7 @@ var PATHS = [
  {
   "id": "for-office",
   "ord": 14,
+  "level": "starter",
   "zh": "办公与写作路线",
   "en": "The Office Route",
   "span": {
@@ -1053,6 +1067,7 @@ var PATHS = [
  {
   "id": "for-data",
   "ord": 15,
+  "level": "builder",
   "zh": "数据与 RAG 路线",
   "en": "The Data & RAG Route",
   "span": {
@@ -1122,6 +1137,7 @@ var PATHS = [
  {
   "id": "for-teachers",
   "ord": 16,
+  "level": "starter",
   "zh": "教师与课堂路线",
   "en": "The Teacher Route",
   "span": {

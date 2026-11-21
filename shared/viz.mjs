@@ -73,10 +73,11 @@ const EN_TITLE = {
   '2026 关键更新': 'Key 2026 updates',
   '内容条目分布': 'Content volume by site',
   '这一轮补了什么': 'What this round added',
-  '六层，词都落在哪': 'Where the six levels sit',
+  '六段，词都落在哪': 'Where the six stages sit',
+  '四个高频拐点词': 'Four inflection-point terms',
   '最近补的四个词': 'Four terms added recently',
   '从词条到路径': 'From terms to paths',
-  '六站累计：知识是一层层叠上去的': 'Six stations, cumulative: knowledge stacks up',
+  '六段累计：知识是一层层叠上去的': 'Six stages, cumulative: knowledge stacks up',
   '各类目的选择数量': 'Options per category',
   '协议时间线': 'Protocol timeline',
   '三层接线': 'Three layers of wiring',
@@ -110,6 +111,7 @@ const EN_TEXT = {
   '编程': 'Coding', '框架': 'Frameworks', '安全与评测': 'Safety & evals',
   '自动化': 'Automation', '对话': 'Chat', '本地运行器': 'Local runners',
   '音频': 'Audio', '图像': 'Images', '视频': 'Video', '研究': 'Research',
+  '办公': 'Office', '四个高频拐点词': 'Four inflection-point terms',
   '协议 / MCP': 'Protocols / MCP', '标准 / 技能': 'Standards / Skills',
   '协议 / 前端': 'Protocols / front end', 'MCP 下一版': 'Next MCP',
   '协议 / MCP 下一版': 'Protocols / next MCP',
@@ -404,7 +406,7 @@ function vizWww() {
         <div><b>4</b><span>${bi('个站内节：40 张数据集卡、40 个评测基准、8 家云算力、12 类工具', 'four sections: 40 dataset cards, 40 benchmarks, 8 cloud providers, 12 tool categories')}</span></div>
         <div><b>1</b><span>${bi('个提示词 hub：6 篇方法指南 + 24 个可抄案例，链回工具站原有指南', 'prompt hub: 6 method guides + 24 copyable cases, linked to the existing tool guides')}</span></div>
         <div><b>5</b><span>${bi('张首页门卡：工具、模型、硬件首页各新增入口，枢纽页改成「直接用 / 自己搭」二分', 'homepage doors: new entries on tools, models and hardware, plus the use/build fork on the hub')}</span></div>
-        <div><b>2417</b><span>${bi('条跨站搜索索引：新增数据、评测、云算力、Skills、提示词与 OSS 页面；OSS 已随上线进入索引', 'cross-site search records, including the new sections, prompts and OSS; OSS is indexed after launch')}</span></div>
+        <div><b>2414</b><span>${bi('条跨站搜索索引：新增数据、评测、云算力、Skills、提示词与 OSS 页面；OSS 已随上线进入索引', 'cross-site search records, including the new sections, prompts and OSS; OSS is indexed after launch')}</span></div>
         <div><b>10</b><span>${bi('个 2026 增补页 + 10 个 404 页：OSS 也补了 404，十站共用一套外壳', '2026 pages + 404 pages; OSS has its own 404 and all ten sites share one shell')}</span></div>
       </div>`, foot: bi('清单是这一轮的实际改动，不是路线图；每项都能在站内找到对应页面。', 'This is what changed, not a roadmap; every item has a page on the site.') }),
     ],
@@ -458,19 +460,19 @@ function vizLearn() {
     kicker: '学 AI · 一张图看全貌',
     title: '先看清全貌，再挑一条路走',
     sub: 'learning map',
-    dek: bi('不用一上来就背名词。先看看自己缺哪一块，再按那一块往下读；六站、十六条路线都在这张图上。', 'No need to memorise terms first. See which part you are missing, then read down from there; the six stations and sixteen routes are all on this map.'),
+    dek: bi('不用一上来就背名词。先看看自己缺哪一块，再按那一块往下读；六段、十六条路线都在这张图上。', 'No need to memorise terms first. See which part you are missing, then read down from there; the six stages and sixteen routes are all on this map.'),
     cards: [
-      card({ span: 7, no: '01', title: '六层，词都落在哪', sub: bi('当前词库', 'current glossary'), svg: barChart(layers, { labelW: 170 }), foot: bi('「用深」和「看懂」的词最多，因为这两块最容易被术语绕晕；先挑你卡住的那一层，不用从头背。', '“Use deeply” and “understand” carry the most terms because those are where jargon gets densest. Start with the layer you are stuck on; no need to memorise them all.') }),
+      card({ span: 7, no: '01', title: '六段，词都落在哪', sub: bi('当前词库', 'current glossary'), svg: barChart(layers, { labelW: 170 }), foot: bi('「用深」和「看懂」的词最多，因为这两块最容易被术语绕晕；先挑你卡住的那一段，不用从头背。', '“Use deeply” and “understand” carry the most terms because those are where jargon gets densest. Start with the stage you are stuck on; no need to memorise them all.') }),
       card({ span: 5, no: '02', title: '四个高频拐点词', sub: bi('训练、推理、表征、生成各一个', 'one each for training, inference, representation, generation'), svg: `<div class="vz-map">
         <div class="vz-map-row"><span class="vz-tag">${bi('训练', 'Training')}</span><b>GRPO</b><small>${bi('组内相对优势，省掉 critic', 'group-relative advantage, no critic')}</small></div>
         <div class="vz-map-row"><span class="vz-tag">${bi('推理', 'Inference')}</span><b>MLA</b><small>${bi('低秩压缩 KV，长上下文更省显存', 'low-rank KV compression for long context')}</small></div>
         <div class="vz-map-row"><span class="vz-tag">${bi('表征', 'Representation')}</span><b>JEPA</b><small>${bi('预测表示而不是像素', 'predict representations, not pixels')}</small></div>
         <div class="vz-map-row"><span class="vz-tag">${bi('生成', 'Generation')}</span><b>Flow Matching</b><small>${bi('连续流，替代部分扩散步', 'continuous flow, fewer steps than diffusion')}</small></div>
       </div>`, foot: bi('这四个词经常被提到，但之前站内没有独立解释；现在各有一页，写清它是什么、用在哪、哪里不适用。', 'These four come up often but had no standalone explanation here; each now has a page covering what it is, where it is used and where it is not.') }),
-      card({ span: 12, no: '03', title: '从词条到路径', sub: bi('六层不是六个文件夹，是一条可走的路线', 'six levels, one walkable route'), svg: `<div class="vz-path">
-        <span>${bi('进门', 'Enter')}</span><i>→</i><span>${bi('会用', 'Use')}</span><i>→</i><span>${bi('用深', 'Use deeply')}</span><i>→</i><span>${bi('看懂', 'Understand')}</span><i>→</i><span>${bi('选型', 'Choose')}</span><i>→</i><span>${bi('前沿', 'Frontier')}</span>
-      </div>`, foot: bi('每个词条都标了所属层和难度；路径页把「先读什么」排成顺序，不按字母表。', 'Every term carries its level and difficulty; the path page orders what to read first, not alphabetically.') }),
-      card({ span: 7, no: '04', title: '六站累计：知识是一层层叠上去的', sub: bi('累计词条数 · 当前词库', 'cumulative terms · current glossary'), svg: lineChart(cumulative), foot: bi(`前两站先打 ${layers[0].value + layers[1].value} 个词的地基，第三站「用深」一次加 ${layers[2].value} 个。别从最难的开始，先有底再往上叠。`, `The first two stations lay a foundation of ${layers[0].value + layers[1].value} terms; station three adds ${layers[2].value} more at once. Do not start with the hardest layer — build a base first.`) }),
+      card({ span: 12, no: '03', title: '从词条到路径', sub: bi('六段不是六个文件夹，是一条可走的路线', 'six stages, one walkable route'), svg: `<div class="vz-path">
+        <span>${bi('进门', 'Getting in')}</span><i>→</i><span>${bi('上手', 'Hands on')}</span><i>→</i><span>${bi('用深', 'Going deeper')}</span><i>→</i><span>${bi('看懂', 'Under the hood')}</span><i>→</i><span>${bi('跑起来', 'Running it')}</span><i>→</i><span>${bi('选得对', 'Choosing right')}</span>
+      </div>`, foot: bi('每个词条都标了所属段和难度；路径页把「先读什么」排成顺序，不按字母表。', 'Every term carries its stage and difficulty; the path page orders what to read first, not alphabetically.') }),
+      card({ span: 7, no: '04', title: '六段累计：知识是一层层叠上去的', sub: bi('累计词条数 · 当前词库', 'cumulative terms · current glossary'), svg: lineChart(cumulative), foot: bi(`前两段先打 ${layers[0].value + layers[1].value} 个词的地基，第三段「用深」一次加 ${layers[2].value} 个。别从最难的开始，先有底再往上叠。`, `The first two stages lay a foundation of ${layers[0].value + layers[1].value} terms; stage three adds ${layers[2].value} more at once. Do not start with the hardest stage — build a base first.`) }),
       card({ span: 5, no: '05', title: bi(`${routePaths.length} 条路线，大半不到 45 分钟`, `${routePaths.length} paths, most under 45 minutes`), sub: bi('按建议投入时间分组', 'routes grouped by suggested time'), svg: donut(routeBuckets, { total: routePaths.length, center: String(routePaths.length), w: 460, h: 240 }), foot: bi(`${routeBuckets[0].value} 条路线 45 分钟内能走完，适合今天先动一下；一个下午、一周各 ${routeBuckets[2].value} 条，适合系统学。`, `${routeBuckets[0].value} routes finish within 45 minutes — enough to start today; ${routeBuckets[2].value} afternoon-length and ${routeBuckets[3].value} week-length route are for deeper study.`) }),
     ],
     foot: bi('说明：词条按所属层计数，不含指南和路径页。', 'Note: terms count by their level; guides and path pages are excluded.'),

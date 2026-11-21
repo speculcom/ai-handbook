@@ -69,14 +69,14 @@ var META = {
       desc:'支撑选型、采购与预算判断。偏成本与取舍。',
       descEn:'Supports selection, procurement and budget calls. Leans cost and trade-offs.' }
   },
-  /* ── 六站（v7 §1.3 / §3.2 命名表，2026-10-18 冻结）──────────────────
-   * v7 把「六层」改名为「六站」：每一站给一句「学完你能…」与「通往下一站」。
+  /* ── 六段（v7 §1.3 / §3.2 命名表，2026-10-18 冻结）──────────────────
+   * v7 把「六层」改名为「六段」：每一段给一句「学完你能…」与「通往下一段」。
    * ⚠ `name`（一..六）**不改** —— 它是 frontmatter `layer` 字段的取值、
    *   build.mjs 的 NUM2KEY、以及 validate 的 LAYERS 枚举。改的是**展示名** short。
    * ⚠ `take` / `next` 原先手写在 learn 首页（PATH_TAKE / PATH_TAKE_EN）。
    *   现在搬进这里，页面只读这一份 —— 同一句话存两处必然漂（本项目头号疾病）。
-   * 英文态用 "Station N"（2026-10-18 定）：nextEn 写的就是 "Next station"、首页 lead 写的
-   *   是 "six stations" —— 若标签还留 "Layer N"，同一页两套口径（本项目头号疾病）。
+   * 英文态用 "Stage N"（2026-10-18 定）：nextEn 写的就是 "Next stage"、首页 lead 写的
+   *   是 "six stages" —— 若标签还留 "Layer N"，同一页两套口径（本项目头号疾病）。
    *   ⚠ 锚点 id 仍是 `layer-N`（200 个词条页的出链 + anchor-check 守它），名字改、锚点不改。 */
   levels: {
     '1': { name:'一', nameEn:'One', short:'进门', shortEn:'Getting In',
@@ -84,43 +84,43 @@ var META = {
       descEn:'No technical background needed. Build intuition first; finish able to explain what AI is doing.',
       take:'能跟人聊明白 AI 在做什么',
       takeEn:'Explain what AI is doing to another person',
-      next:'通往下一站：上手 —— 从「聊得明白」到「用得不慌」',
-      nextEn:'Next station, Hands On: from following the conversation to using it without unease' },
+      next:'通往下一段：上手 —— 从「聊得明白」到「用得不慌」',
+      nextEn:'Next stage, Hands On: from following the conversation to using it without unease' },
     '2': { name:'二', nameEn:'Two', short:'上手', shortEn:'Hands On',
       desc:'认清 AI 的能力与边界。知道它什么时候会出错，比知道它多强更重要。',
       descEn:'Grasp what AI can and cannot do. Knowing when it fails matters more than knowing how strong it is.',
       take:'知道它什么时候会出错，不被演示骗',
       takeEn:'Know when it fails, so a demo cannot fool you',
-      next:'通往下一站：用深 —— 把 AI 嵌进自己的工作流',
-      nextEn:'Next station, Going Deeper: put AI inside your own workflow' },
+      next:'通往下一段：用深 —— 把 AI 嵌进自己的工作流',
+      nextEn:'Next stage, Going Deeper: put AI inside your own workflow' },
     '3': { name:'三', nameEn:'Three', short:'用深', shortEn:'Going Deeper',
       desc:'决定 AI 好不好用的那些具体做法。看完能判断一个方案靠不靠谱。',
       descEn:'The concrete practices that decide whether AI works for you. Enough to judge whether a plan holds up.',
       take:'判断一个方案靠不靠谱，而不是听服务商说',
       takeEn:'Judge whether a plan holds up instead of trusting the vendor',
-      next:'通往下一站：看懂 —— 说得清它为什么这样表现',
-      nextEn:'Next station, Under the Hood: say why it behaves that way' },
+      next:'通往下一段：看懂 —— 说得清它为什么这样表现',
+      nextEn:'Next stage, Under the Hood: say why it behaves that way' },
     '4': { name:'四', nameEn:'Four', short:'看懂', shortEn:'Under the Hood',
-      desc:'理解为什么会有这些表现。看不懂这一站，前面的词你都只能背。',
-      descEn:'Understand why it behaves this way. Skip this station and the earlier terms stay mere memorisation.',
+      desc:'理解为什么会有这些表现。看不懂这一段，前面的词你都只能背。',
+      descEn:'Understand why it behaves this way. Skip this stage and the earlier terms stay mere memorisation.',
       take:'看懂为什么会有这些表现，不再死记硬背',
       takeEn:'Understand why it behaves that way, rather than memorising',
-      next:'通往下一站：跑起来 —— 在自己机器上跑模型',
-      nextEn:'Next station, Running It: run a model on your own machine' },
+      next:'通往下一段：跑起来 —— 在自己机器上跑模型',
+      nextEn:'Next stage, Running It: run a model on your own machine' },
     '5': { name:'五', nameEn:'Five', short:'跑起来', shortEn:'Running It',
       desc:'让模型跑在自己机器上。你会关心显存够不够、跑得多快。',
       descEn:'Run the model on your own machine. Whether VRAM suffices and how fast it runs become the concern.',
       take:'知道模型跑在自己机器上要吃多少显存',
       takeEn:'Know how much VRAM running it locally will take',
-      next:'通往下一站：选得对 —— 面对新模型有自己的判断框架',
-      nextEn:'Next station, Choosing Right: have your own framework for a new model' },
+      next:'通往下一段：选得对 —— 面对新模型有自己的判断框架',
+      nextEn:'Next stage, Choosing Right: have your own framework for a new model' },
     '6': { name:'六', nameEn:'Six', short:'选得对', shortEn:'Choosing Right',
       desc:'把前面学到的东西变成一个决定。这是这一页的终点。',
       descEn:'Turn everything above into a decision. This is where the page ends.',
       take:'把学到的东西变成一个能签字的决定',
       takeEn:'Turn what you learned into a decision you can sign off on',
-      next:'六站读完。想动手：去 Agent 图谱看能装什么，去本地模型看能跑什么',
-      nextEn:'Six stations done. To build: the Agent atlas for what you can install, Models for what you can run' }
+      next:'六段读完。想动手：去 Agent 图谱看能装什么，去本地模型看能跑什么',
+      nextEn:'Six stages done. To build: the Agent atlas for what you can install, Models for what you can run' }
   }
 };
 if (typeof module !== 'undefined') module.exports = META;

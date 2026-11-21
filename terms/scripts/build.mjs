@@ -261,6 +261,12 @@ const slugSet = new Set(flat.map(({ t }) => slugOf(t)));
 const guideSlugSet = fs.existsSync(path.join(repoRoot, 'guides'))
   ? new Set(fs.readdirSync(path.join(repoRoot, 'guides')).filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, '')))
   : new Set();
+const PATH_LEVELS = {
+  starter: { zh: '入门', en: 'Starter', noteZh: '没基础也能读，先建立概念', noteEn: 'No background needed: build the concepts first' },
+  builder: { zh: '进阶', en: 'Builder', noteZh: '看得懂概念，开始动手做', noteEn: 'Know the basics and start building' },
+  deep: { zh: '深入', en: 'Deep dive', noteZh: '原理、评测与安全审查', noteEn: 'Methods, evaluation and safety review' },
+  ship: { zh: '落地', en: 'Ship it', noteZh: '部署、上线与团队决策', noteEn: 'Deploy, operate and decide for a team' },
+};
 const PATHS = [];
 if (fs.existsSync(pathsDir)) {
   for (const f of fs.readdirSync(pathsDir).filter((f) => f.endsWith('.json')).sort()) {
@@ -269,6 +275,7 @@ if (fs.existsSync(pathsDir)) {
     catch (e) { throw new Error(`paths/${f} 不是合法 JSON：${e.message}`); }
     const tag = `paths/${f}`;
     if (!p.id) throw new Error(`${tag}: 缺 id`);
+    if (!PATH_LEVELS[p.level]) throw new Error(`${tag}: level 必须是 starter / builder / deep / ship 之一`);
     if (!Array.isArray(p.steps) || p.steps.length < 3) throw new Error(`${tag}: steps 必须是 ≥3 项的数组`);
     for (const [k, v] of [['zh', p.zh], ['en', p.en]]) if (!v) throw new Error(`${tag}: 缺 ${k}（R2 双语）`);
     for (const k of ['lead', 'span']) if (!p[k] || !p[k].zh || !p[k].en) throw new Error(`${tag}: ${k} 必须中英齐`);
@@ -350,7 +357,7 @@ if (fs.existsSync(guidesDir)) {
     gSeen.add(key);
   }
 }
-if (GUIDES.length) console.log(`  · 微型指南：${GUIDES.length} 篇（${GUIDES.map((g) => `${g.zh}·第${g.station}站`).join(' · ')}）`);
+if (GUIDES.length) console.log(`  · 微型指南：${GUIDES.length} 篇（${GUIDES.map((g) => `${g.zh}·第${g.station}段`).join(' · ')}）`);
 
 /* ═══ S39（2026-10-19）· 编年史与版图 atlas/atlas.json 加载 + 构建期校验 ═══
  * 真相源是一份 JSON（不是 md）：这一页没有「正文」概念，整页都是结构化条目。
@@ -673,7 +680,7 @@ if (fs.existsSync(learnDir)) {
     inLanguage: 'zh-Hans',
     inDefinedTermSet: {
       '@type': 'DefinedTermSet',
-      name: `学 AI · 第${t.layer}站（${layerName}）`,
+      name: `学 AI · 第${t.layer}段（${layerName}）`,
       url: `https://learn.specul.com/#layer-${t.level}`,
     },
     isPartOf: { '@type': 'WebSite', name: '学 AI', url: 'https://learn.specul.com/' },
@@ -766,8 +773,8 @@ const TABBAR = SHELL.tabbar('learn');
     /* v7 §1.3（2026-10-18）：六层→六站。layer.name 读的就是 meta.js 的 short（站名）。
      * ⚠ 锚点 id 仍是 layer-N（anchor-check 守它 + 200 个页面的出链），名字改、锚点不改。
      * 英文态保留 "Layer N"：v7 的更名是中文叙事命名，英文用 Layer 更自然（meta.js 注释同口径）。 */
-    const tagZh = `第${t.layer || layer.num}站 · ${layer.name}`;
-    const tagEn = `Station ${t.level} · ${lv.shortEn || lv.nameEn || layer.name}`;
+    const tagZh = `第${t.layer || layer.num}段 · ${layer.name}`;
+    const tagEn = `Stage ${t.level} · ${lv.shortEn || lv.nameEn || layer.name}`;
 
     const refs = (t.refs || []).map((r) => {
       const lab = bi(r[0], r[2]);
@@ -791,7 +798,7 @@ const TABBAR = SHELL.tabbar('learn');
     const crossLink = `      <div class="tp-sec">
         <div class="tp-lab">${bi('现在能做什么', 'What you can do now')}</div>
         <p class="tp-p"><a href="${esc(act.href)}">${bi(act.zh, act.en)} ↗</a></p>
-        <p class="tp-p"><a href="../../#layer-${esc(String(t.level))}">${bi(`回到名词地图看第${t.level}站的其他 ${layerCount - 1} 个词 →`, `Back to the map: the other ${layerCount - 1} terms in station ${t.level} →`)}</a></p>
+        <p class="tp-p"><a href="../../#layer-${esc(String(t.level))}">${bi(`回到名词地图看第${t.level}段的其他 ${layerCount - 1} 个词 →`, `Back to the map: the other ${layerCount - 1} terms in stage ${t.level} →`)}</a></p>
       </div>
 `;
 
@@ -1037,6 +1044,7 @@ ${HEADER('learn')}
           <span>${bi('学习路径', 'Learning paths')}</span>
         </nav>
         <h1>${bi(p.zh, p.en)}</h1>
+        <p class="t-pathmeta"><span class="t-level is-${esc(p.level)}">${bi(PATH_LEVELS[p.level].zh, PATH_LEVELS[p.level].en)}</span><span class="t-levelnote">${bi(PATH_LEVELS[p.level].noteZh, PATH_LEVELS[p.level].noteEn)}</span></p>
         <p class="tp-en">${bi(p.span.zh, p.span.en)}</p>
         <p class="tp-p"><span data-zh>${esc(p.lead.zh)}</span><span data-en>${esc(p.lead.en)}</span></p>
 
@@ -1105,7 +1113,7 @@ ${TABBAR}
     let out = plainTxt(g.lead);
     const first = (g.kind === 'guide' || g.kind === 'paper') ? (g.points[0] || '')
       : g.kind === 'lesson' ? plainTxt(g.objectives[0] || '') : plainTxt(g.fact);
-    const parts = [first, g.kind === 'paper' ? '学 AI 论文卡' : g.kind === 'lesson' ? '学 AI 课堂教案' : `学 AI 第${g.station}站微型指南`];
+    const parts = [first, g.kind === 'paper' ? '学 AI 论文卡' : g.kind === 'lesson' ? '学 AI 课堂教案' : `学 AI 第${g.station}段微型指南`];
     for (const x of parts) { if (!x) continue; out += ' ' + x; if (esc(out).length >= 70) break; }
     if (esc(out).length > 158) out = out.slice(0, 120).replace(/[\s,，、;；:：\-—]+$/, '') + '…';
     return out;
@@ -1231,7 +1239,7 @@ ${HEADER('learn')}
         <nav class="tp-crumbs" aria-label="面包屑">
           <a href="../../"><span data-zh>← 名词地图</span><span data-en>← Term map</span></a>
           <span aria-hidden="true">·</span>
-          <a href="../../#layer-${esc(String(g.station))}">${bi(`第${g.station}站 · ${lv.name || ''}`, `Station ${g.station} · ${lv.shortEn || lv.nameEn || ''}`)}</a>
+          <a href="../../#layer-${esc(String(g.station))}">${bi(`第${g.station}段 · ${lv.name || ''}`, `Stage ${g.station} · ${lv.shortEn || lv.nameEn || ''}`)}</a>
           <span aria-hidden="true">·</span>
           <span>${bi(KIND_ZH, KIND_EN)}</span>
         </nav>
@@ -1396,7 +1404,7 @@ ${TABBAR}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>名词对照 · 学 AI | 投机取巧</title>
-  <meta name="description" content="学 AI 词条的中英名词对照表：${aliasCount} 个有别名或英文名的词条，一页查完并可直接跳转到词条页。" />
+  <meta name="description" content="学 AI 词条的中英名词对照表：${aliasCount} 个有别名或英文名的词条，一页查完并可直接跳转到词条页；先按中文或英文找到名字，再看定义、例子与边界。" />
   <link rel="canonical" href="https://learn.specul.com/aliases/" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="学 AI" />
@@ -1451,6 +1459,7 @@ ${TABBAR}
   for (const slug of wantGuideSlugs) urls.push(`https://learn.specul.com/guide/${ENC(slug)}/`);
   if (ATLAS) urls.push('https://learn.specul.com/atlas/');
   urls.push('https://learn.specul.com/aliases/');
+  if (fs.existsSync(path.join(learnDir, '2026.html'))) urls.push('https://learn.specul.com/2026.html');
   const sm = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u, i) => `  <url><loc>${u}</loc><changefreq>weekly</changefreq><priority>${i === 0 ? '1.0' : '0.7'}</priority></url>`).join('\n')}

@@ -332,9 +332,10 @@ ${steps.map(([zh, en]) => `    <li>${bi(zh, en)}</li>`).join('\n')}
 </div>
 <div class="sec-sources">${bi('榜单 / 来源', 'Leaderboard / source')}：<a href="${esc(e.leaderboard)}" target="_blank" rel="noopener">${esc(e.leaderboard)}</a> · ${bi('快照', 'Snapshot')} ${esc(e.snapshot)}</div>
 </div>`;
+    const evalLabel = String(e.name).trim() === String(enOf(e, 'name')).trim() ? e.name : `${e.name} / ${enOf(e, 'name')}`;
     fs.writeFileSync(path.join(site, 'evals', `${e.id}.html`), page({
-      title: `${e.name} / ${enOf(e, 'name')} · 评测基准 · AI 模型`,
-      desc: `${e.name} / ${enOf(e, 'name')}：${e.measures}；指标 ${e.metric}；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。`,
+      title: `${evalLabel} · 评测基准 · AI 模型`,
+      desc: `${evalLabel}：${e.measures}；指标 ${e.metric}。页内写清污染风险、复现条件、成本与适用边界，读完能判断这个分数能不能直接引用。`,
       canonical: url(`evals/${e.id}.html`),
       body
     }));
@@ -412,15 +413,15 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
 <div class="sec-doors">
   <a class="sec-door" href="data/index.html">
     <span class="k">Models · Data</span>
-    <h2>数据与训练语料</h2>
-    <p>${datasets.length} 张数据集卡，按 ${CAT_ORDER.length} 类整理。先看许可与商用边界，再看规模、语言与任务适配。</p>
-    <span class="more">看数据卡 →</span>
+    <h2>${bi('数据与训练语料', 'Data and training corpora')}</h2>
+    <p>${bi(`${datasets.length} 张数据集卡，按 ${CAT_ORDER.length} 类整理。先看许可与商用边界，再看规模、语言与任务适配。`, `${datasets.length} dataset cards across ${CAT_ORDER.length} categories. Start with licence and commercial boundaries, then size, language and task fit.`)}</p>
+    <span class="more">${bi('看数据卡 →', 'Open dataset cards →')}</span>
   </a>
   <a class="sec-door" href="evals/index.html">
     <span class="k">Models · Evals</span>
-    <h2>评测与榜单</h2>
-    <p>${evals.length} 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</p>
-    <span class="more">看基准卡 →</span>
+    <h2>${bi('评测与榜单', 'Evals and leaderboards')}</h2>
+    <p>${bi(`${evals.length} 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。`, `${evals.length} common benchmarks; what they test and how to read them, with no overall score or "best" ranking.`)}</p>
+    <span class="more">${bi('看基准卡 →', 'Open benchmark cards →')}</span>
   </a>
 </div>
 </div>

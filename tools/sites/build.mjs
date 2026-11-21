@@ -2460,7 +2460,7 @@ ${taskMatrix(allEntries, catOrder)}
         <h2>${bi('先算一笔账，再选方案', 'Cost it before you choose')}</h2>
         <p class="section-desc">${bi('同一个任务，云端调用、本地运行与视频按秒计费是三套完全不同的成本结构。计算器不替你猜单价：把合同价或官方计费页的价格填进去，分别算出每组假设，再比较。', 'The same job has three different cost structures: cloud calls, local running and per-second video. The calculator does not guess rates: enter contract or official billing prices, compute each group separately, then compare.')}</p>
         <ul class="reading-actions">
-          <li><a href="/mcp/guides/cost-control.html#cost-workbench">${bi('打开成本工作台（四组独立计算）', 'Open the cost workbench (four independent groups)')}</a></li>
+          <li><a href="/mcp/guides/cost-calculator.html#cost-workbench">${bi('打开成本工作台（四组独立计算）', 'Open the cost workbench (four independent groups)')}</a></li>
           <li><a href="/mcp/guides/cost-control.html">${bi('先读成本控制指南：哪些费用常被漏算', 'Read the cost-control guide: what usually gets missed')}</a></li>
         </ul>
       </div>
@@ -2479,10 +2479,10 @@ ${taskMatrix(allEntries, catOrder)}
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="categories">
       <div class="container">
         <h2>${bi('先说你在找什么','Start with what you are looking for')}</h2>
-        <p class="section-desc">${bi('三族 = 三种读者的问题。族不是目录层——目录是 12 个大类；族只是首页的摆法，让你先对上自己的那一问。', 'Three families = three reader questions. The families are not a directory layer — the directories are the 12 categories; they are just how the home page is arranged, so you can find your question first.')}</p>
+        <p class="section-desc">${bi('三族 = 三种读者的问题。族不是目录层——目录是 12 个大类；族只是首页的摆法，让你先对上自己的那一问。点进任一类目，顶部的筛选栏可以按大陆直连、本地运行、商用许可与免费档继续收窄。', 'Three families = three reader questions. The families are not a directory layer — the directories are the 12 categories; they are just how the home page is arranged, so you can find your question first. Inside any category, the filter bar narrows by mainland access, local runtime, commercial licence and free tier.')}</p>
 ${famBlocks}
       </div>
     </section>
@@ -2746,7 +2746,9 @@ ${SITE.partitions.map(k => {
 fs.writeFileSync(path.join(OUT, 'index.html'), renderHome(loaded), 'utf8');
 allPages.unshift({ loc: `https://${SITE.domain}/`, pri: '1.0' });
 
-// sitemap：一个站一份——首页 + 10 大类索引 + 全部详情 + guides（桩不进）
+// sitemap：一个站一份——首页 + 10 大类索引 + 全部详情 + guides + 五个横向集合页（桩不进）
+const COLLECTION_PAGES = ['collection-browser', 'collection-memory', 'collection-realtime', 'collection-3d', 'collection-annotation'];
+for (const f of COLLECTION_PAGES) allPages.push({ loc: `https://${SITE.domain}/${f}.html`, pri: '0.6' });
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -2812,3 +2814,9 @@ MCP 工具层用的是另外三个维度（传输 / 认证 / 权限范围），�
 
 summary.forEach(s => console.log(s));
 console.log(`\n共 ${allPages.length} 个真页 → ${path.basename(OUT)}/（含 brand.css / brand.js / site.css）`);
+
+/* 五个横向集合页不属于任何单一大类，由同目录 collections.mjs 生成。
+ * 必须在主构建清空 HTML 之后调用，否则会被当成旧产物删掉（2026-11-21 首页
+ * 五个 /collection-*.html 链接全 404，就是这么来的）。 */
+const { buildCollections } = await import('./collections.mjs');
+buildCollections(OUT);

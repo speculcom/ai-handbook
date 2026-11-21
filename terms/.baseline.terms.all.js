@@ -5846,7 +5846,7 @@ var TERMS = [
  {
   "num": "四",
   "name": "看懂",
-  "desc": "理解为什么会有这些表现。看不懂这一站，前面的词你都只能背。",
+  "desc": "理解为什么会有这些表现。看不懂这一段，前面的词你都只能背。",
   "terms": [
    {
     "zh": "Transformer",
@@ -7014,7 +7014,7 @@ var TERMS = [
      "DDPM（Ho 等，2020）把这套做法确立为主流方法。",
      "潜扩散模型（LDM，2021）把扩散搬进 VAE 压缩后的潜空间。算力大幅下降，今天多数生图模型是这一支。"
     ],
-    "why": "第二站的「扩散模型」告诉你它是什么；这一条告诉你它为什么这样工作。生图要迭代多步、「步数」是个参数，都从这里来。",
+    "why": "第二段的「扩散模型」告诉你它是什么；这一条告诉你它为什么这样工作。生图要迭代多步、「步数」是个参数，都从这里来。",
     "refs": [
      [
       "DDPM 原论文《Denoising Diffusion Probabilistic Models》（arXiv）",
@@ -7043,7 +7043,7 @@ var TERMS = [
      "DDPM (Ho et al., 2020) established this recipe as the mainstream method.",
      "Latent diffusion (LDM, 2021) runs the diffusion inside a VAE-compressed latent space, cutting compute sharply. Most image models today are this branch."
     ],
-    "whyEn": "The station-2 entry 'diffusion model' tells you what it is; this one tells you why it works that way. The many iterations and the 'steps' parameter both come from here.",
+    "whyEn": "The stage-2 entry 'diffusion model' tells you what it is; this one tells you why it works that way. The many iterations and the 'steps' parameter both come from here.",
     "slug": "扩散模型怎么生成"
    },
    {

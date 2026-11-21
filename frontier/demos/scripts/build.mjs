@@ -55,6 +55,13 @@ const samePrompt = [...new Set(entries.map((e) => e.promptHash))].filter((h) => 
 const playHref = (e) => `play.html?id=${encodeURIComponent(e.id)}`;
 const workHref = (e) => `works/${encodeURIComponent(e.id)}.html`;
 const short = (s, n = 120) => (String(s || '').length > n ? `${String(s).slice(0, n - 1)}…` : String(s || ''));
+/* 早期批次的 thumbUrl 只写了文件名，真实文件在 site/thumbs/。
+   若同名的确在 thumbs 目录，补上前缀；外链与已带路径的值不动。 */
+const thumbHref = (e) => {
+  const raw = String(e.thumbUrl || '').replace(/^\/+/, '');
+  if (!raw || /^(https?:|data:|blob:)/i.test(raw) || raw.includes('/')) return raw;
+  return fs.existsSync(path.join(OUT, 'thumbs', raw)) ? `thumbs/${raw}` : raw;
+};
 const cat = (e) => catLabels(e.category || '');
 const absUrl = (u) => (/^https?:\/\//i.test(String(u || '')) ? String(u) : `https://demos.specul.com/${String(u || '').replace(/^\/+/, '')}`);
 const licenseSummary = (e) => {
@@ -71,7 +78,7 @@ const repoLabel = (e) => ({ zh: e.repoLabel?.zh || '原仓库', en: e.repoLabel?
 function card(e) {
   const m = modelOf(e);
   const L = cat(e);
-  const thumb = String(e.thumbUrl || '').replace(/^\/+/, '');
+  const thumb = thumbHref(e);
   return `<article class="fx-card dm-card" id="${esc(e.id)}" data-cat="${esc(e.category)}" data-model="${esc(m.key)}" data-summary-zh="${esc(short(e.notes.zh, 160))}" data-summary-en="${esc(short(e.notes.en, 160))}" data-search="${esc(`${e.title.zh} ${e.title.en} ${(e.tags || []).join(' ')} ${short(e.notes.zh, 80)} ${short(e.notes.en, 80)}`.toLowerCase())}">
     <a class="dm-thumb" href="${esc(workHref(e))}" aria-label="Open ${esc(e.title.en || e.title.zh)}"><img src="${esc(thumb)}" alt="${esc(e.title.zh)}" loading="lazy" referrerpolicy="no-referrer" /></a>
     <div class="dm-card-body">
@@ -186,16 +193,22 @@ const workBody = (e) => {
 const compareBody = `<div class="container demos-page">
   <p class="kicker"><a href="index.html">${bi('← 全部作品', '← All pieces')}</a> <span class="dm-sep">/</span> <span>${bi('并排对照', 'side by side')}</span></p>
   <h1>${bi('并排看两个作品', 'Two pieces, side by side')}</h1>
-  <p class="dm-lead">${bi('左右各选一件。题目一样，就是同题对照；题目不一样，就只看两种处理方式。', 'Pick one piece on each side. Same brief means a controlled pair; different briefs mean a style comparison only.')}</p>
+  <p class="dm-lead">${bi('左右各选一件，先看首屏画面。题目一样，就是同题对照；题目不一样，就只看两种处理方式。缩略图不能点按交互，想试就去原站。', 'Pick one piece on each side and compare the opening frames. Same brief means a controlled pair; different briefs mean a style comparison only. The still is not interactive — open the original site to try it.')}</p>
   <div class="dm-compare-controls"><label>${bi('左边', 'Left')}<select id="dm-left"></select></label><button id="dm-swap" class="dm-btn dm-btn-ghost" type="button">${bi('交换', 'Swap')}</button><label>${bi('右边', 'Right')}<select id="dm-right"></select></label><span id="dm-same" class="dm-same"></span></div>
-  <div class="dm-compare"><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-l-title"></b><small id="dm-l-sub"></small></div><a id="dm-l-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-l-frame" title="Left piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-l-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-l-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-l-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-r-title"></b><small id="dm-r-sub"></small></div><a id="dm-r-open" href="#" rel="noopener"><span data-zh>全屏</span><span data-en>Full</span> &nearr;</a></div><iframe id="dm-r-frame" title="Right piece" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe><div class="dm-pane-links"><a id="dm-r-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-r-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-r-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section></div>
-  <p class="dm-note-line">${bi('“同题”按 prompt 文本哈希判断；不同题并排时，差异可能来自题目本身，不能当作模型能力结论。', '“Same brief” is determined by the prompt-text hash. When briefs differ, the difference may come from the brief itself and is not a model-capability conclusion.')}</p>
+  <div class="dm-compare"><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-l-title"></b><small id="dm-l-sub"></small></div><a id="dm-l-open" href="#" rel="noopener"><span data-zh>原站</span><span data-en>Original</span> &nearr;</a></div><a class="dm-pane-shot" id="dm-l-shotlink" href="#" rel="noopener"><img id="dm-l-shot" alt="" loading="lazy" referrerpolicy="no-referrer"></a><div class="dm-pane-links"><a id="dm-l-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-l-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-l-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-r-title"></b><small id="dm-r-sub"></small></div><a id="dm-r-open" href="#" rel="noopener"><span data-zh>原站</span><span data-en>Original</span> &nearr;</a></div><a class="dm-pane-shot" id="dm-r-shotlink" href="#" rel="noopener"><img id="dm-r-shot" alt="" loading="lazy" referrerpolicy="no-referrer"></a><div class="dm-pane-links"><a id="dm-r-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-r-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-r-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section></div>
+  <p class="dm-note-line">${bi('缩略图只截首屏，不代表完整作品；点画面或「原站」在浏览器里实际体验。并排差异可能来自题目本身，不能当作模型能力结论。', 'The still captures only the opening frame, not the whole piece; click the image or “Original” to try it in the browser. Differences may come from the brief itself and are not a model-capability conclusion.')}</p>
 </div>
 <script>(function(){
 var left=document.getElementById('dm-left'),right=document.getElementById('dm-right');var state={left:null,right:null,data:null};
-function opt(e){return '<option value="'+e.id+'">'+e.seq+' · '+e.title.zh.replace(/</g,'&lt;')+' · '+e.model.name+'</option>';}
-function pane(side,e){var cap=side==='left'?'l':'r';document.getElementById('dm-'+cap+'-title').textContent=e.title.zh;document.getElementById('dm-'+cap+'-sub').textContent=e.title.en+' · '+e.model.name+' · '+e.category;document.getElementById('dm-'+cap+'-frame').src=e.demoUrl;document.getElementById('dm-'+cap+'-open').href=e.demoUrl;document.getElementById('dm-'+cap+'-work').href='works/'+encodeURIComponent(e.id)+'.html';document.getElementById('dm-'+cap+'-source').href=e.sourceUrl;document.getElementById('dm-'+cap+'-prompt').href=e.promptUrl;state[side]=e;var a=state.left,b=state.right;var box=document.getElementById('dm-same');if(a&&b){box.textContent=a.promptHash===b.promptHash?'同题 · 可作受控对照':'不同题 · 仅作风格对照';box.className='dm-same '+(a.promptHash===b.promptHash?'is-same':'is-diff');}}
-fetch('demos-data.json').then(function(r){return r.json();}).then(function(data){state.data=data;left.innerHTML=data.map(opt).join('');right.innerHTML=data.map(opt).join('');var qs=new URLSearchParams(location.search);var l=qs.get('left')||data[0].id;var r=qs.get('right')||data.find(function(x){return x.model&&x.model.name!==data[0].model.name;}).id;left.value=l;right.value=r;left.onchange=function(){pane('left',data.find(function(x){return x.id===left.value;}));};right.onchange=function(){pane('right',data.find(function(x){return x.id===right.value;}));};document.getElementById('dm-swap').onclick=function(){var a=left.value,b=right.value;left.value=b;right.value=a;pane('left',data.find(function(x){return x.id===b;}));pane('right',data.find(function(x){return x.id===a;}));};pane('left',data.find(function(x){return x.id===l;}));pane('right',data.find(function(x){return x.id===r;}));}).catch(function(){document.getElementById('dm-same').textContent='载入失败：请通过本地静态服务器打开本页。';});
+function en(){return document.documentElement.getAttribute('data-lang')==='en';}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function title(e){return en()?(e.title.en||e.title.zh):(e.title.zh||e.title.en);}
+function cat(e){return en()?(e.categoryEn||e.category):e.category;}
+function opt(e){return '<option value="'+esc(e.id)+'">'+esc(e.seq)+' · '+esc(title(e))+' · '+esc(e.model.name)+'</option>';}
+function pane(side,e){var cap=side==='left'?'l':'r';document.getElementById('dm-'+cap+'-title').textContent=title(e);document.getElementById('dm-'+cap+'-sub').textContent=title(e)+' · '+cat(e);var shot=document.getElementById('dm-'+cap+'-shot');shot.src=e.thumbUrl||'';shot.alt=title(e)+' · '+(en()?'opening-frame thumbnail':'首屏缩略图');var shotLink=document.getElementById('dm-'+cap+'-shotlink');shotLink.href=e.demoUrl;shotLink.setAttribute('aria-label',en()?('Open the original site in a new tab: '+title(e)):(title(e)+'：在新窗口打开原站'));document.getElementById('dm-'+cap+'-open').href=e.demoUrl;document.getElementById('dm-'+cap+'-work').href='works/'+encodeURIComponent(e.id)+'.html';document.getElementById('dm-'+cap+'-source').href=e.sourceUrl;document.getElementById('dm-'+cap+'-prompt').href=e.promptUrl;state[side]=e;var a=state.left,b=state.right;var box=document.getElementById('dm-same');if(a&&b){var same=a.promptHash===b.promptHash;box.textContent=en()?(same?'Same brief · controlled pair':'Different brief · style comparison only'):(same?'同题 · 可作受控对照':'不同题 · 仅作风格对照');box.className='dm-same '+(same?'is-same':'is-diff');}}
+function byId(id){return state.data.find(function(x){return x.id===id;});}
+function repaint(){if(!state.data)return;var l=left.value||(state.left&&state.left.id)||(state.data[0]&&state.data[0].id);var r=right.value||(state.right&&state.right.id)||(byId(l)?null:l);left.innerHTML=state.data.map(opt).join('');right.innerHTML=state.data.map(opt).join('');left.value=l;if(byId(r))right.value=r;else right.value=state.data.filter(function(x){return x.id!==l;})[0].id;if(byId(l))pane('left',byId(l));if(byId(right.value))pane('right',byId(right.value));}
+fetch('demos-data.json').then(function(r){return r.json();}).then(function(data){state.data=data;var qs=new URLSearchParams(location.search);left.value=qs.get('left')||data[0].id;right.value=qs.get('right')||data.find(function(x){return x.model&&x.model.name!==data[0].model.name;}).id;repaint();left.onchange=function(){pane('left',byId(left.value));};right.onchange=function(){pane('right',byId(right.value));};document.getElementById('dm-swap').onclick=function(){var a=left.value,b=right.value;left.value=b;right.value=a;pane('left',byId(b));pane('right',byId(a));};document.addEventListener('specul:preferences',repaint);}).catch(function(){document.getElementById('dm-same').textContent=en()?'Could not load. Open this page through a local static server.':'载入失败：请通过本地静态服务器打开本页。';});
 })();</script>`;
 
 const promptsBody = `<div class="container demos-page">
@@ -242,7 +255,7 @@ for (const e of entries) {
     alternateName: e.title.en,
     description: e.notes.zh,
     url: canonical,
-    image: absUrl(e.thumbUrl),
+    image: absUrl(thumbHref(e)),
     genre: e.category,
     creator: { '@type': 'Organization', name: m.name },
     isPartOf: { '@type': 'WebSite', name: 'Specul Playground', url: 'https://demos.specul.com/' },
@@ -266,8 +279,8 @@ for (const f of ['releases.html', 'model-gpt-6-2-sol.html', 'model-claude-fable-
 }
 const compactEntries = entries.map((e) => ({
   id: e.id, seq: seq(e), collection: e.collection, num: e.num, slug: e.slug, title: e.title, notes: e.notes,
-  category: e.category, tags: e.tags, promptHash: e.promptHash, promptUrl: e.promptUrl,
-  sourceUrl: e.sourceUrl, demoUrl: /^https?:\/\//i.test(String(e.demoUrl || '')) ? e.demoUrl : String(e.demoUrl || '').replace(/^\/+/, ''), thumbUrl: String(e.thumbUrl || '').replace(/^\/+/, ''), repoUrl: e.repoUrl, model: e.model,
+  category: e.category, categoryEn: cat(e).en, tags: e.tags, promptHash: e.promptHash, promptUrl: e.promptUrl,
+  sourceUrl: e.sourceUrl, demoUrl: /^https?:\/\//i.test(String(e.demoUrl || '')) ? e.demoUrl : String(e.demoUrl || '').replace(/^\/+/, ''), thumbUrl: thumbHref(e), repoUrl: e.repoUrl, model: e.model,
   sourceLabel: e.sourceLabel, promptLabel: e.promptLabel, license: e.license, run: e.run,
   workPath: workHref(e), workUrl: `https://demos.specul.com/${workHref(e)}`,
 }));

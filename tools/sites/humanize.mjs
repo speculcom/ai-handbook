@@ -147,11 +147,11 @@ function statCard(n, zh, en, tone = '') {
 }
 
 function shapeBar(labelZh, labelEn, items, total, cls) {
-  const segs = items.map(([k, n, zh, en], i) => `<i class="seg ${cls}-${Math.min(i + 1, 5)}" style="width:${Math.max(2, Math.round((n / total) * 100))}%" title="${esc(zh)} ${n}"></i>`).join('');
+  const segs = items.map(([k, n, zh, en], i) => `<i class="seg ${cls}-${Math.min(i + 1, 5)}" style="width:${Math.max(2, Math.round((n / total) * 100))}%" title="${esc(zh)} ${n}" data-ui-title-zh="${esc(zh)} ${n}" data-ui-title-en="${esc(en)} ${n}"></i>`).join('');
   const legend = items.map(([k, n, zh, en], i) => `<span class="shape-lg"><b class="dot ${cls}-${Math.min(i + 1, 5)}"></b>${bi(zh, en)} <em>${n}</em></span>`).join('');
   return `<div class="shape-item">
       <div class="shape-item-head"><span>${bi(labelZh, labelEn)}</span><small>${total}</small></div>
-      <div class="shape-track" role="img" aria-label="${esc(labelZh)}">${segs}</div>
+      <div class="shape-track" role="img" aria-label="${esc(labelZh)}" data-ui-aria-label-zh="${esc(labelZh)}" data-ui-aria-label-en="${esc(labelEn)}">${segs}</div>
       <div class="shape-legend">${legend}</div>
     </div>`;
 }
@@ -340,7 +340,7 @@ export function taskMatrix(entries, catOrder, currentPart) {
     const cells = catOrder.map((c) => {
       const n = matrix[t.key][c.key] || 0;
       const href = `./${c.key}/?job=${encodeURIComponent(t.jobs[0])}`;
-      return `<td class="tm-cell ${n ? 'has' : ''}" style="--heat:${n ? Math.min(100, 12 + Math.round((n / max) * 88)) : 0}%"><a href="${href}" title="${esc(c.zh)} · ${esc(t.zh)}：${n} 份">${n || '·'}</a></td>`;
+      return `<td class="tm-cell ${n ? 'has' : ''}" style="--heat:${n ? Math.min(100, 12 + Math.round((n / max) * 88)) : 0}%"><a href="${href}" title="${esc(c.zh)} · ${esc(t.zh)}：${n} 份" data-ui-title-zh="${esc(c.zh)} · ${esc(t.zh)}：${n} 份" data-ui-title-en="${esc(c.en)} · ${esc(t.en)}: ${n} ${n === 1 ? 'entry' : 'entries'}">${n || '·'}</a></td>`;
     }).join('');
     const total = Object.values(matrix[t.key]).reduce((a, b) => a + b, 0);
     const empty = total === 0 ? `<span class="tm-empty">${bi('本站暂无', 'No entries yet')}</span>` : '';
@@ -400,7 +400,7 @@ export function decisionStrip() {
             <span class="ds-no">03</span>
             <h3>${bi('我有硬条件', 'I have hard constraints')}</h3>
             <p>${bi('大陆直连、本地跑、能不能商用、有没有免费档——先筛掉不符合的，再读细节。', 'Direct access in mainland China, local runtime, commercial use, a free tier — filter out what fails first, then read the details.')}</p>
-            <a href="#filter">${bi('用条件筛 →', 'Filter by constraints →')}</a>
+            <a href="#categories">${bi('先进类目，再用条件筛 →', 'Pick a category, then filter →')}</a>
           </article>
         </div>
       </div>
@@ -416,7 +416,7 @@ export function snapshot(e) {
   const direct = { yes: ['大陆可直连', 'Direct in mainland'], no: ['直连不可达', 'Blocked'], unknown: ['直连未核', 'Not checked'] }[cn.direct] || ['直连未核', 'Not checked'];
   const filing = { filed: ['已备案', 'Filed'], 'not-filed': ['未见于备案', 'Not in filing list'], unknown: ['备案未核', 'Not checked'] }[cn.filing] || ['备案未核', 'Not checked'];
   const life = e.lifecycle === 'active' ? '' : `<span class="snap-flag">${bi(e.lifecycle === 'archived' ? '上游已归档' : '上游更新放缓', e.lifecycle === 'archived' ? 'Upstream archived' : 'Upstream slowing')}</span>`;
-  return `<section class="snapshot" aria-label="决策快照">
+  return `<section class="snapshot" aria-label="决策快照" data-ui-aria-label-zh="决策快照" data-ui-aria-label-en="Decision snapshot">
       <div class="snap-head">
         <h2>${bi('30 秒判断：它能不能进你的候选名单', '30-second check: should it make your shortlist?')}</h2>
         ${life}
