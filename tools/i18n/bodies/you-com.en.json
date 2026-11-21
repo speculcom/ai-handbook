@@ -1,17 +1,17 @@
 {
   "_comment": "C0-16 正文英译 · you-com（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（perplexity/genspark/kagi），related 写 3 条（frontmatter related 是 [perplexity, genspark, kagi, chatgpt]，键按正文链接行对齐=3）。sources 3 条对齐 frontmatter。",
   "axes": {
-    "model_access": "Multi-model aggregation (the consumer answer engine offers several models, official product surface) + enterprise-side retrieval infrastructure (the ARI/Research API line — the official current main-axis narrative).",
-    "runtime": "Web (you.com) consumer side + API enterprise side; retrieval and generation on the vendor's cloud.",
-    "local_files": "Conversation history stored on the account-side cloud; no officially stated local data surface or offline mode seen (not verified item by item).",
-    "background": "Q&A is instant; the enterprise-side Research API is a service surface; no \"keep-running-after-shutdown\" concept.",
-    "tools": "Consumer side: answer engine + model switching + apps line (seen on the official site); **enterprise side: Agentic Retrieval (ARI)/Research API is the current main axis** (the official framing has pivoted to enterprise search infrastructure — this dossier is written to the official current framing).",
-    "context": "Consumer side organized by threads; the enterprise side has no memory concept (API); cross-session memory not verified to an official statement.",
-    "permissions": "Account + subscription (consumer) / contract (enterprise) (D9: pricing not collected); the training-use switch not verified item by item; **the product's center of gravity has shifted from consumer to enterprise** — the uncertainty of consumer-side investment must be honestly noted.",
-    "fit": "Fits: enterprise retrieval-infrastructure procurement evaluation (ARI/Research API), consumer-side multi-model switching experience. Does not fit: treating the consumer side as a long-term commitment (the center of gravity has moved to enterprise), mainland direct connection (measured 000)."
+    "model_access": "Multi-model aggregation on the consumer side plus enterprise retrieval infrastructure. The official API docs list Search, Contents, Answer, Research, Finance Research and an OpenAI/Anthropic-compatible Inference Router (2026-11-21).",
+    "runtime": "Consumer web (you.com) plus enterprise APIs; retrieval and generation run in the vendor cloud. The official API docs list Web Search, Contents, Answer, Research, Finance Research and Inference Router endpoints, split between ydc-index.io and api.you.com (2026-11-21).",
+    "local_files": "Chat history sits in the account cloud; the official APIs are request/response, with no local index or offline cache, returning structured JSON or Markdown. Official pages list no local data surface (2026-11-21).",
+    "background": "Q&A returns immediately; the Research API runs multiple searches, cross-references sources and synthesises within one request, making it a synchronous API rather than a pauseable job queue. Enterprise batch work must be queued by the caller (2026-11-21).",
+    "tools": "The consumer side has an answer engine, model switching and apps; the enterprise main axis is the Search API, Contents/Extract API, Answer API, Research API, Finance Research API and Inference Router, with endpoints and auth specified in the docs (2026-11-21).",
+    "context": "Consumer conversations are thread-based; enterprise APIs have no cross-request memory, so each request is independent and callers must carry context in the prompt. Cross-session memory is not listed officially (2026-11-21).",
+    "permissions": "Consumer accounts and subscriptions; enterprise contracts and API keys. Official docs require X-API-Key or Bearer auth, while training-use and retention follow the official terms and privacy page (2026-11-21).",
+    "fit": "Fit: evaluating enterprise retrieval infrastructure (Search/Research/Answer APIs) and consumer multi-model switching. Not fit: treating the consumer product as a long-term commitment (the centre of gravity has moved enterprise-side) or direct mainland access (measured 000) (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **ARI retrieval quality vs Exa/Bocha-style retrieval APIs** (enterprise-side main-axis measurement)\n- **The current selectable list for consumer-side model switching**\n- **Current limits of the consumer free tier** (an investment signal after the pivot)",
-  "unknowns": "- Long-term investment in the consumer product line (no official statement verified — risk item)\n- The current selectable-model list (not inventoried item by item)\n- The training-use switch (not verified item by item)\n- blog.you.com update frequency (changelog-line activity not verified item by item)",
+  "runs": "This entry checks the official site, terms and API docs for capability boundaries. ARI/Research retrieval quality, the consumer model list and free-tier limits need account-level measurement.",
+  "unknowns": "- Long-term investment in the consumer line: no official commitment; treat as a selection risk.\n- Current selectable model list: API docs describe Inference Router compatibility, while the consumer list follows the logged-in UI.\n- Training-use controls: check the official terms and privacy page.\n- Blog cadence: check the official changelog page.",
   "related": [
     "Both consumer AI search: Perplexity's consumer side is still the main axis, You.com has pivoted to enterprise.",
     "Both search-oriented: Genspark makes artifacts, You.com sells the retrieval substrate to enterprises.",
@@ -20,6 +20,8 @@
   "sources": [
     "You.com · official site (product and capability narrative)",
     "You.com · Terms (official terms, direct-fetch verified 2026-10-22)",
-    "You.com · Blog (official update line, changelog, direct-fetch verified 2026-10-22)"
+    "You.com · Blog (official update line, changelog, direct-fetch verified 2026-10-22)",
+    "You.com API Guides (Search/Contents/Answer/Research endpoints and auth; fetched 200 on 2026-11-21)",
+    "You.com Research API product page (multi-step retrieval and cited reports; fetched 200 on 2026-11-21)"
   ]
 }

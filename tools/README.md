@@ -362,7 +362,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [可灵 Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd.（快手） | web | verified | active |
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | verified | active |
-| [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
+| [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | verified | active |
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
 | [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
 | [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | verified | active |
@@ -409,11 +409,11 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Consensus](tracks/research/products/consensus.md) | Consensus | web | partial | active |
 | [Devv](tracks/research/products/devv.md) | Devv AI | web | verified | active |
 | [Elicit](tracks/research/products/elicit.md) | Elicit | web | verified | active |
-| [Genspark](tracks/research/products/genspark.md) | Genspark | web | partial | active |
+| [Genspark](tracks/research/products/genspark.md) | Genspark | web | verified | active |
 | [Kagi](tracks/research/products/kagi.md) | Kagi | web | verified | active |
 | [NotebookLM](tracks/research/products/notebooklm.md) | Google | web | verified | active |
 | [Perplexity](tracks/research/products/perplexity.md) | Perplexity AI | web | verified | active |
-| [You.com](tracks/research/products/you-com.md) | You.com | web | partial | active |
+| [You.com](tracks/research/products/you-com.md) | You.com | web | verified | active |
 
 ### AI 自动化与工作流 —— 24 份
 
@@ -502,7 +502,7 @@ MCP 服务器与工具生态。
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
 | [1Password Environments MCP Server](tracks/mcp/products/1password-mcp.md) | 1Password | mcp | verified | active |
-| [Atlassian Remote MCP Server（Jira/Confluence）](tracks/mcp/products/atlassian-mcp.md) | Atlassian | mcp | partial | active |
+| [Atlassian Remote MCP Server（Jira/Confluence）](tracks/mcp/products/atlassian-mcp.md) | Atlassian | mcp | verified | active |
 | [Brave Search MCP Server](tracks/mcp/products/brave-search-mcp.md) | Brave | mcp | verified | active |
 | [Browserbase MCP Server](tracks/mcp/products/browserbase-mcp.md) | Browserbase | mcp | verified | active |
 | [Chrome DevTools MCP](tracks/mcp/products/chrome-devtools-mcp.md) | Google（Chrome DevTools 团队） | mcp | verified | active |

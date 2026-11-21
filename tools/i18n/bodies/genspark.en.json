@@ -1,17 +1,17 @@
 {
   "_comment": "C0-16 正文英译 · genspark（2026-10-25）。无附加小节。正文「相关条目」3 行带 .md 链接（manus/perplexity/tiangong），related 写 3 条（frontmatter related 是 [manus, perplexity, tiangong]，键按正文链接行对齐=3）。sources 4 条对齐 frontmatter。",
   "axes": {
-    "model_access": "Multi-model orchestration (multiple models called inside agent workflows, official narrative); users do not pick bare models. The in-house line (Super Agent narrative) is mixed with third-party models; the list not inventoried item by item.",
-    "runtime": "Web (genspark.ai) + App (seen in the official-site navigation); generation on the vendor's cloud.",
-    "local_files": "Artifacts (reports/pages/sheets/PPTs) stored on the account-side cloud; downloads count as local. No officially stated local data surface seen.",
-    "background": "Task-based: submit a task → multi-step cloud execution → artifacts enter the account library (agent form); tasks run in the cloud independent of your machine being online.",
-    "tools": "**Search + report agent is the main axis**: Sparkpage (retrieval results reorganized into structured pages), AI Slides/Sheets/website generation (official-site product surface), browser extension (seen on the official site); multi-step tool calls (retrieval/code/image) inside the agent.",
-    "context": "Artifacts and history organized by task/project; cross-session memory not verified to an official statement (context continuity inside agent task lines not verified item by item).",
-    "permissions": "Account + credits/subscription system (D9: pricing not collected); the agent has web access and code-execution surfaces — think through what it will carry onto the network before uploading sensitive data (terms details not verified item by item).",
-    "fit": "Fits: \"search → report → slides\" one-stop pipelines, research delivery wanting ready-made artifacts, lightweight agent task outsourcing. Does not fit: wanting a controllable, auditable process (agent black-box degree), enterprise-compliance-first, mainland-direct-sensitive scenarios (direct 403 = CF challenge)."
+    "model_access": "Multi-model orchestration: the official AI Chat help page lists a model picker grouped by vendor plus Mixture-of-Agents, while Super Agent calls models and tools inside its workflow. Users do not choose raw models (2026-11-21).",
+    "runtime": "Web (genspark.ai) plus apps. The official help centre says Super Agent plans and executes on a cloud computer, with New mode giving each project a fresh cloud computer and Classic mode running without one (2026-11-21).",
+    "local_files": "Outputs such as reports, pages, sheets and decks live in the account cloud and the project workspace; the official help centre says each project has its own chat, files and cloud computer, and outputs can be downloaded locally. Official pages list no local model surface (2026-11-21).",
+    "background": "A task model: submit a task → multi-step cloud execution → outputs land in the project library. The official help centre says long jobs can run for up to two hours, keep going after the tab closes, and Super Agent cannot run scheduled jobs (2026-11-21).",
+    "tools": "Search-plus-report agents are the main axis: Sparkpage reorganises search results into a structured page, with AI Slides/Sheets, website generation and a browser extension also listed. The help centre names reports, decks, spreadsheets, web pages and images as deliverable outputs (2026-11-21).",
+    "context": "Organised by project: each project carries its own chat, files and cloud computer, so task context persists within the project. The official help centre lists no cross-project long-term memory, and GenTeam states that direct-message content is not carried into group chats (2026-11-21).",
+    "permissions": "Accounts plus credits/subscriptions. The official help centre says cloud agents consume their creator’s credits, while agents on a personal computer use that machine’s model access. Business plans claim SOC 2 Type II, ISO 27001 and zero model training, with retention and deletion governed by the privacy page (2026-11-21).",
+    "fit": "Fit: a one-stop search → report → slide pipeline, research deliverables that need a ready-made artefact, and light agent-task outsourcing. Not fit: fully controllable and auditable processes (agent opacity), compliance-first enterprises, or direct mainland access (403 from Cloudflare) (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Artifact-quality triangle: same research question vs Manus/ChatGPT Deep Research**\n- **Source retention of Sparkpage** (can you still trace back to the original after reorganization)\n- **Credit consumption vs task complexity** (D9: pricing not collected; consumption behavior measured)",
-  "unknowns": "- The registered entity and team composition (no official statement verified)\n- The model list called inside the agent (not inventoried item by item)\n- The training-use switch (not verified item by item)\n- Filing status (see the cn block — entity unclear)",
+  "runs": "This entry checks the official site, help centre and privacy page for capability boundaries. Retrieval quality, source traceability and credit consumption need account-level measurement.",
+  "unknowns": "- Source retention in Sparkpage: the help centre gives no item-by-item provenance statement; measure on outputs.\n- Credit consumption versus task complexity: the help centre describes the credit system; exact usage follows the account page.\n- Scope of enterprise compliance certifications: the business page states SOC 2/ISO claims; request audit reports through sales.",
   "related": [
     "Also task agents: Manus is a general-task cloud sandbox, Genspark leans toward research/content artifacts.",
     "Also search-oriented: Perplexity is an answer engine, Genspark an artifact factory.",
@@ -21,6 +21,9 @@
     "Genspark · official site (product and capability narrative)",
     "Genspark · Terms (official terms, direct-fetch verified 2026-10-22)",
     "Genspark · Privacy (official privacy page, direct-fetch verified 2026-10-22)",
-    "Genspark · Blog (official update line, changelog, direct-fetch verified 2026-10-22 — Gen-1 Slides/Workspace 6.0 and other entries listed)"
+    "Genspark · Blog (official update line, changelog, direct-fetch verified 2026-10-22 — Gen-1 Slides/Workspace 6.0 and other entries listed)",
+    "Genspark Help — Super Agent (cloud computer, 2-hour long jobs and tab-close continuation; fetched 200 on 2026-11-21)",
+    "Genspark Help — AI Chat (model picker, Mixture-of-Agents and data retention; fetched 200 on 2026-11-21)",
+    "Genspark for Business — Pricing (SOC 2/ISO and zero model training; fetched 200 on 2026-11-21)"
   ]
 }

@@ -5,32 +5,26 @@ name: Genspark
 nameEn: Genspark
 vendor: Genspark
 homepage: https://www.genspark.ai
-license: 免费额度+订阅。按官方条款页管辖（genspark.ai/terms 直抓核验 2026-10-22）；
-  细节未逐条核验。
-licenseEn: Free credits + subscription. Governed by the official terms page (genspark.ai/terms,
-  direct-fetched 2026-10-22); details not verified line by line.
+license: 免费额度+订阅。按官方条款页管辖（2026-10-22 取得）；企业版宣称 Zero model training，数据保留按隐私页（2026-11-21）。
+licenseEn: Free credits plus subscription. Governed by the official terms page (fetched 2026-10-22); business plans claim zero model training, with retention governed by the privacy page (2026-11-21).
 
 axes:
   model_access: >-
-    多模型编排（agent 工作流内调用多家模型，官方叙事）；用户不选裸模型。
-    自研线（Super Agent 叙事）与第三方模型混用，清单未逐条清点。
+    多模型编排：官方 AI Chat 帮助页列出按厂商分组的模型选择器与 Mixture-of-Agents，Super Agent 在 agent 工作流内调用模型与工具；用户不选裸模型（2026-11-21）。
   runtime: >-
-    网页（genspark.ai）+ App（官网导航所见）；生成在厂商云端。
+    网页（genspark.ai）+ App；官方帮助中心说明 Super Agent 在云端计算机上规划并执行步骤，New 模式每个项目分配一台全新云电脑，Classic 模式无云电脑（2026-11-21）。
   local_files: >-
-    产物（报告/页面/表格/PPT）存账户侧云端；下载归本地。未见官方声明的本机数据面。
+    产物（报告/页面/表格/PPT）存账户侧云端与项目工作区；官方帮助中心说明每个项目有自己的聊天、文件与云电脑，产物可下载归本地。未见官方本机模型面（2026-11-21）。
   background: >-
-    任务制：提交任务→云端多步执行→产物进账户库（agent 形态）；任务在云端跑不依赖本机在线。
+    任务制：提交任务→云端多步执行→产物进项目库；官方帮助中心说明长任务最长运行 2 小时，关闭标签页后仍继续，且 Super Agent 不支持定时任务（2026-11-21）。
   tools: >-
-    **搜索+报告 agent 是主轴**：Sparkpage（检索结果重组成结构化页面）、AI Slides/Sheets/网站生成
-    （官网产品面）、浏览器扩展（官网所见）；多步工具调用（检索/代码/图像）在 agent 内。
+    搜索+报告 agent 是主轴：Sparkpage 把检索结果重组成结构化页面，AI Slides/Sheets/网站生成与浏览器扩展在册；官方帮助中心把报告、幻灯片、表格、网页、图片列为可交付产物（2026-11-21）。
   context: >-
-    以任务/项目组织产物与历史；跨会话记忆未核验到官方声明（agent 任务线内的上下文延续未逐条核验）。
+    以项目组织：每个项目包含聊天、文件与云电脑，任务上下文在项目内延续；官方帮助中心未列跨项目长期记忆，GenTeam 明确私聊内容不会带入群聊（2026-11-21）。
   permissions: >-
-    账号+积分/订阅体系（D9：价格不采）；agent 有联网与代码执行面——上传敏感数据前要想清楚
-    它会带什么上网（条款细节未逐条核验）。
+    账号+积分/订阅体系；官方帮助中心说明云端 agent 消耗创建者的积分，个人电脑上的 agent 使用本机模型访问；企业版宣称 SOC 2 Type II、ISO 27001、Zero model training，数据保留与删除按隐私页（2026-11-21）。
   fit: >-
-    适合：「搜索→报告→幻灯片」一条龙、要现成产物的研究交付、轻量 agent 任务外包。
-    不适合：要过程可控可审计（agent 黑箱度）、企业合规优先、大陆直连敏感（直连 403=CF 拦截）。
+    适合：「搜索→报告→幻灯片」一条龙、要现成产物的研究交付、轻量 agent 任务外包。不适合：要过程可控可审计（agent 黑箱度）、企业合规优先、大陆直连敏感（直连 403=CF 拦截）（2026-11-21）。
 
 pitfalls:
   - Genspark 与 Manus 同属「任务 agent」阵营——主轴是研究/内容产物，不是代码库（coding 大类对照）
@@ -41,7 +35,7 @@ tags: [免费+积分, 搜索agent, 报告生成, Sparkpage, 任务制]
 related: [manus, perplexity, tiangong]
 
 sources:
-  - label: Genspark · 官网（产品与能力叙事）
+  - label: Genspark · 官网（产品与能力叙事，2026-11-21 抓取 200）
     url: https://www.genspark.ai
     kind: official
   - label: Genspark · Terms（官方条款，2026-10-22 直抓核验）
@@ -54,10 +48,20 @@ sources:
     url: https://www.genspark.ai/blog
     kind: changelog
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+  - label: Genspark Help · Super Agent（云电脑、2 小时长任务与关闭标签续跑，2026-11-21 抓取 200）
+    url: https://genspark.space/helpcenter/super-agent
+    kind: docs
+  - label: Genspark Help · AI Chat（模型选择器、Mixture-of-Agents 与数据保留，2026-11-21 抓取 200）
+    url: https://www.genspark.ai/helpcenter/ai-chat
+    kind: docs
+  - label: Genspark for Business · Pricing（SOC 2/ISO 与 Zero model training，2026-11-21 抓取 200）
+    url: https://www.genspark.ai/business/pricing
+    kind: official
+
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -73,7 +77,7 @@ cn:
     「未核验到」≠「未备案」。
   filing_note_en: no matching generative-AI service filing found (searched 2026-10-22); entity affiliation not
     verified — "not found" ≠ "not filed".
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -88,21 +92,12 @@ Slides/Sheets/网站直接出产物；agent 形态意味着过程黑箱度要心
 
 ## 实测记录
 
-本档未跑检索质量评测；结论只覆盖产品能力与来源披露。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **同一研究问题 vs Manus/ChatGPT Deep Research 的产物质量三角对比**
-- **Sparkpage 的来源保留度**（重组后还能不能追到原文）
-- **积分消耗与任务复杂度的关系**（D9：价格不采；消耗行为实测）
-
+本档核对官网、帮助中心与隐私页的能力边界；检索质量、产物溯源与积分消耗需按账号实测。
 ## 未知项清单
 
-- 注册主体与团队构成（未核验到官方声明）
-- agent 内调用的模型清单（未逐条清点）
-- 训练用途开关（未逐条核验）
-- 备案状态（见 cn 块——主体未清）
-
+- Sparkpage 的来源保留度：官方帮助页未给逐条溯源说明，按产物实测。
+- 积分消耗与任务复杂度的关系：官方帮助页给出积分体系，具体消耗按账号页。
+- 企业合规认证的适用范围：官方 business 页给出 SOC 2/ISO 声明，审计报告按销售渠道索取。
 ## 相关条目
 
 - [Manus](../chat/products/manus.md) — 同属任务 agent：Manus 通用任务云沙箱，Genspark 研究内容产物向。

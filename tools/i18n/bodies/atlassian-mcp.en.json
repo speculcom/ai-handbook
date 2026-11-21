@@ -1,28 +1,30 @@
 {
   "_comment": "C0-8 正文英译 · atlassian-mcp（2026-10-25）。无 extraSections（内置五节由 axes/leads/runs/unknowns/related 承载）。",
   "axes": {
-    "model_access": "**It calls no model itself** — an interface implementation called by MCP clients. It wraps Jira/Confluence capabilities\n(searching issues, reading and writing pages, querying projects) as tools for agents.",
-    "runtime": "An official hosted remote server (product page direct-fetched 200); a single endpoint covers both the Jira and Confluence product surfaces.",
-    "local_files": "Never touches the local file system — the scope is Atlassian cloud sites (issues, pages).",
-    "background": "The service lives on Atlassian's side; request-response semantics, no background tasks.",
-    "tools": "Jira: search/read/create/update issues, query projects; Confluence: search/read/create/update pages.\nThe complete inventory follows the official docs; it has not been enumerated item by item.",
-    "context": "No server-side cross-session memory — state lives on the sites themselves.",
-    "permissions": "OAuth 3LO user authorization: the agent-visible surface = the connected account's permissions on the site (including project-level restrictions);\nwrite capabilities (creating issues / editing pages) take effect directly — defend on the assumption \"it can edit your wiki for you\".",
-    "fit": "Fits: agents in enterprise dev flows pulling Jira requirement context and writing Confluence docs.\nNot a fit: scenarios needing write-approval flows; Data Center self-hosted support status is unverified."
+    "model_access": "The server does not call models itself; it is an MCP-facing implementation that wraps Jira, Confluence, Bitbucket and Teamwork Graph search and read/write capabilities as tools for Claude, Cursor, VS Code, ChatGPT and other agents (2026-11-21).",
+    "runtime": "An officially cloud-hosted remote MCP server: one endpoint covers Jira, Confluence and more Atlassian products. The official support page says clients install it into Cursor, VS Code, ChatGPT and Claude in one click, with the service running in Atlassian’s cloud rather than as a local process (2026-11-21).",
+    "local_files": "No local filesystem access; the scope is issue, page, Bitbucket repository and project metadata on the Atlassian cloud site. The client keeps only connection configuration and tool-call records, with no site content cached locally (2026-11-21).",
+    "background": "Request/response semantics: MCP tool calls execute with the client request and the service runs on Atlassian’s side, with no independent job queue or delayed work. Long operations are governed by the client’s own timeouts and retries (2026-11-21).",
+    "tools": "The official product page lists Jira issue search/create and Confluence page search/create, plus Cursor, VS Code, ChatGPT and Claude clients. The support page adds Rovo search/fetch, Teamwork Graph context and audit logging; the full tool list should be checked against the official docs and the client’s tool list (2026-11-21).",
+    "context": "No server-side cross-session memory: each tool call reads data under the current OAuth 2.1 grant and site state, so state lives in Jira/Confluence rather than in conversation context retained by the MCP server (2026-11-21).",
+    "permissions": "OAuth 2.1 user authorisation: what the agent can see equals the connected account’s site permissions, including project-level limits. Official docs say site/org admins can manage, review or revoke the MCP app’s access, with domain and IP allowlists and an audit-log event for every tool call. Write capabilities take effect directly, so assume it can edit your wiki (2026-11-21).",
+    "fit": "Fit: enterprise development flows where an agent needs Jira requirement context, writes Confluence docs and searches across Bitbucket and Teamwork Graph. Not fit: approval workflows; Data Center self-hosted support should follow the official docs (2026-11-21)."
   },
   "mcp": {
     "transport": "**Streamable HTTP remote hosting** (official endpoint); verified: product page 200 (2026-10-21).\nThe concrete endpoint URL follows the official docs (not verified item by item).",
     "auth": "OAuth 3LO (user login authorization); scopes are split by product (separate scope families for Jira / Confluence).",
     "scope": "Read surface: issue/page search and reading; write surface: create/update issues, create/update pages.\nIt follows the account's permissions; there is no tool-level approval layer."
   },
-  "runs": "This site has not completed measured runs. The test protocol is at [protocols/mcp/_protocol.md](../../../protocols/mcp/_protocol.md).",
-  "unknowns": "- The endpoint URL and the full scope table (not verified item by item)\n- Data Center support status (no official statement seen)\n- The complete tool inventory (not enumerated item by item)",
+  "runs": "This entry checks the official product page, support page and developer guide. Tool calls, write operations and project-level permissions need item-by-item validation on a test site.",
+  "unknowns": "- Endpoint URL and full scope table: check the official docs and client configuration.\n- Data Center self-hosted support: the product page centres on Cloud; check the official docs for self-hosted.\n- Full tool list: check the official docs and the client’s tool list.",
   "related": [
     "Also an issue-management server: Linear is lightweight single-product; Atlassian is one endpoint for two products with a heavier enterprise permission surface."
   ],
   "sources": [
     "Atlassian · official Remote MCP product page (direct-fetched 2026-10-21)",
     "Atlassian · developer changelog",
-    "Atlassian · official MCP launch announcement (2025-06 initial launch line)"
+    "Atlassian · official MCP launch announcement (2025-06 initial launch line)",
+    "Atlassian Support — Use Rovo MCP Server (cloud hosting, OAuth 2.1 and audit; fetched 200 on 2026-11-21)",
+    "Atlassian Developer — Getting started with Rovo MCP (clients and tool surface; fetched 200 on 2026-11-21)"
   ]
 }
