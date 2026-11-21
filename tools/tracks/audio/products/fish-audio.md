@@ -5,34 +5,26 @@ name: fish audio
 nameEn: fish audio
 vendor: fish.audio
 homepage: https://fish.audio
-license: 免费+订阅+API。按官方条款页管辖（fish.audio/en/terms 直抓核验 2026-10-22）；
-  声音克隆授权条款是关键页，细节未逐条核验。
-licenseEn: Free + subscription + API. Governed by the official terms page (fish.audio/en/terms,
-  direct-fetched 2026-10-22); voice-clone consent clauses are the key page, details not verified line by line.
+license: 免费+订阅+API。按官方条款页管辖（fish.audio/en/terms，2026-10-22 取得）；声音克隆授权与 Professional Voice Clone 验证见官方 Voice Cloning 页（2026-11-21）。
+licenseEn: Free, subscription and API tiers. Governed by the official terms page (fish.audio/en/terms, fetched 2026-10-22); clone consent and Professional Voice Clone verification follow the official Voice Cloning page (2026-11-21).
 
 axes:
   model_access: >-
-    自研语音合成模型线（fish speech 系列模型叙事，官方站点）；社区音色库（zero-shot 克隆+
-    用户共享音色市场）是产品主轴之一。开放权重线：fish audio 前身项目有开源先例，
-    当前产品线的权重开放状态未逐条核验。
+    自研语音模型线：官方文档列 s2.1-pro（生产推荐）、s2-pro、s2.1-pro-free（零成本测试档）与 drama-3（自然语言导演、带音效/停顿/标签），s1 已标注 2026-12-31 退役；自托管线基于 fish_speech 仓库（2026-11-21）。
   runtime: >-
-    网页（fish.audio）+ API（官方文档线）；生成在厂商云端。
+    云端 API `https://api.fish.audio/v1/tts`（另有 `/model` 建音色）+ 网页 fish.audio；官方自托管文档给出本地 GPU 推理服务（`localhost:8080/v1/tts`），一条请求同时支持云端与自建（2026-11-21）。
   local_files: >-
-    生成产物下载归本地；音色库在账户/社区侧。未见官方声明的本机数据面。
+    自托管路径把模型权重与音频都落在本机：官方文档给出从语义 token 到 DAC 解码的本地推理步骤，产物写本地文件；云端路径的产出以 bytes/流式分块返回，音色模型存账户侧（2026-11-21）。
   background: >-
-    生成即时/任务制（API 调用即产即回）；无「关机续跑」形态声明——
-    云端服务不依赖本机在线。
+    合成是同步/流式：`tts.convert()` 返回完整音频，`tts.stream()` 分块吐，WebSocket 接实时文本；音色训练是异步状态机，新建模型 `state` 从 created 到 trained（fast 模式多数即时可用），失败可重试（2026-11-21）。
   tools: >-
-    TTS（多语言）、zero-shot 声音克隆（上传样本即克隆——产品招牌）、音色市场（社区共享音色线）、
-    情感/风格控制（官方站点叙事）；API 面文档化。
+    TTS（多语言、mp3/wav/pcm/opus、speed 0.5–2.0）、即时克隆（直接传参考音频+转写）、持久音色模型（`POST /model`，private/unlist/public）、音色市场、Drama 3 导演式标签；官方 Voice Cloning 页另列 Professional Voice Clone（需验证，网页版）（2026-11-21）。
   context: >-
-    工具型无对话记忆；音色资产是「一致性」机制——克隆音色可复用，不是产品记忆。
+    无对话记忆：每次 TTS 请求独立，音色靠 `reference_id` 复用；即时克隆把参考样本随请求带入，持久克隆训练成 voice id，资产是跨请求一致性机制而非会话上下文（2026-11-21）。
   permissions: >-
-    账号+订阅+API 体系（D9：价格不采）；**zero-shot 克隆的授权与滥用防线是必答项**——
-    官方条款有授权口径（terms 页直抓在案），执行机制细节未逐条核验（收录标准 3）。
+    API Key（`FISH_API_KEY`）+ 账户/订阅；克隆样本须为本人或已获授权的声音，Professional Voice Clone 在官方页单列为 Verified 档；公开音色进 Voice Library 由用户选择 private/unlist/public（2026-11-21）。
   fit: >-
-    适合：零样本音色克隆工作流（自有声音快速复刻）、社区音色寻宝、开发者 API 集成。
-    不适合：克隆他人声音（授权红线）、企业级合规叙事优先、大陆直连（实测 000）。
+    适合：自有声音快速复刻、品牌统一音色、实时语音助手（约 300ms 首包，balanced 档）、自托管离线合成。不适合：克隆他人声音（授权红线）、要企业级合规审计链、大陆直连（实测 000）（2026-11-21）。
 
 pitfalls:
   - zero-shot 克隆「能用」≠「合规」——上传他人声音样本在条款上是红线，授权责任在使用者
@@ -43,20 +35,29 @@ tags: [免费+订阅, zero-shot克隆, 音色市场, API向, 需网络环境]
 related: [elevenlabs, minimax-audio, heygen]
 
 sources:
-  - label: fish audio · 官网（产品与能力叙事）
+  - label: fish audio · 官网（产品与能力叙事，2026-11-21 抓取 200）
     url: https://fish.audio
     kind: official
   - label: fish audio · Terms（官方条款，2026-10-22 直抓核验）
     url: https://fish.audio/en/terms/
     kind: official
-  - label: fish audio · Blog（官方更新线，changelog）
+  - label: fish audio · Blog（官方更新线，changelog，2026-11-21 抓取 200）
     url: https://fish.audio/blog/
     kind: changelog
+  - label: Fish Audio Docs · Text to Speech（模型、端点、延迟与语言，2026-11-21 抓取 200）
+    url: https://docs.fish.audio/features/text-to-speech
+    kind: docs
+  - label: Fish Audio Docs · Voice Cloning（即时/持久克隆与 visibility，2026-11-21 抓取 200）
+    url: https://docs.fish.audio/features/voice-cloning
+    kind: docs
+  - label: Fish Audio Docs · Self-hosting inference（本地 GPU 推理路径，2026-11-21 检索收录）
+    url: https://docs.fish.audio/developer-guide/self-hosting/running-inference
+    kind: docs
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -72,7 +73,7 @@ cn:
   filing_note_en: no matching generative-AI service filing found (searched 2026-10-22); the entity's
     affiliation was not verified — "not found" ≠ "not filed"; if the entity is a domestic team the filing
     question is assessed separately.
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -87,21 +88,13 @@ cn:
 
 ## 实测记录
 
-本档未跑音频质量与延迟测试；结论只覆盖能力面与许可面。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **zero-shot 克隆对 10 秒级样本的保真度**
-- **克隆滥用防线的实际执行**（名人声音测试——仅验证防线存在）
-- **社区音色市场的商用标注一致性**
-
+本档核对官方 TTS、Voice Cloning 与自托管文档；音质、克隆保真度与自托管显存占用需按硬件实测。
 ## 未知项清单
 
-- 注册主体与团队构成（未核验到官方声明）
-- 当前产品线权重开放状态（未逐条核验）
-- 训练用途开关与音色库的默认训练态（未逐条核验）
-- 备案状态（见 cn 块——主体未清）
-
+- 注册主体与团队构成：按官方条款页与站点署名核对。
+- 自托管权重许可：按 fish_speech 仓库 LICENSE 核对。
+- 训练用途开关：按官方条款与隐私页核对。
+- 备案状态：按网信办公示查询（主体确认后再判定口径）。
 ## 相关条目
 
 - [ElevenLabs](./elevenlabs.md) — 同为克隆向双雄：ElevenLabs 企业合规叙事重，fish audio 社区音色生态重。

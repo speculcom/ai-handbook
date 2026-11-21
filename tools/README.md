@@ -371,7 +371,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | verified | active |
 | [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | verified | active |
 | [Veo（Google）](tracks/video/products/veo.md) | Google | cloud | verified | active |
-| [Vidu](tracks/video/products/vidu.md) | 生数科技（清华系） | web | partial | active |
+| [Vidu](tracks/video/products/vidu.md) | 生数科技（清华系） | web | verified | active |
 
 ### AI 音频与语音 —— 17 份
 
@@ -379,7 +379,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [魔音工坊](tracks/audio/products/moyin.md) | 出门问问 | web | partial | active |
+| [魔音工坊](tracks/audio/products/moyin.md) | 出门问问 | web | verified | active |
 | [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | verified | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | verified | active |
 | [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | verified | active |
@@ -387,8 +387,8 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | verified | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
 | [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / 上交 X-LANCE 等（开源） | local-app | verified | active |
-| [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
-| [MiniMax Audio（海螺语音）](tracks/audio/products/minimax-audio.md) | MiniMax（稀宇科技） | web | partial | active |
+| [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | verified | active |
+| [MiniMax Audio（海螺语音）](tracks/audio/products/minimax-audio.md) | MiniMax（稀宇科技） | web | verified | active |
 | [Murf](tracks/audio/products/murf.md) | Murf AI | web | verified | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | verified | active |
 | [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | verified | active |

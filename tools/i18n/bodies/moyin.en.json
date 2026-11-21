@@ -1,17 +1,17 @@
 {
   "_comment": "C0-17 正文英译 · moyin（2026-10-26）。无附加小节。正文「相关条目」4 行带 .md 链接（minimax-audio/fish-audio/elevenlabs/hailuo-video），related 写 4 条（frontmatter related 是 [minimax-audio, fish-audio, hailuo-video]，键按正文链接行对齐=4——elevenlabs 行在正文但不在 frontmatter）。sources 4 条对齐 frontmatter。runs 带「实测建议」三条段。B 类候选：算法备案登记名「出门问问语音合成类算法」在 permissions 轴英文句内按 vidu/moyin 同口径原样保留（登记名不可译）。",
   "axes": {
-    "model_access": "Mobvoi's self-developed speech-synthesis line (the official algorithm filing \"Mobvoi speech-synthesis algorithm\" — Chinese registered name kept in the Chinese entry — covers Moyin Workshop, CAC public-registry narrative); multi-voice/multi-emotion dubbing lines inside the platform; users pick voices, not bare models.",
-    "runtime": "Web (moyin.com) as the main entry; dubbing on the vendor's cloud. No official offline-weights line seen.",
-    "local_files": "Projects and finished outputs stored on the account-side cloud (projects can be revisited and edited); downloads count as local. No officially stated local data surface seen.",
-    "background": "Editing + synthesis is an interactive form (edit text, preview in real time, re-listen line by line); no \"keep-running-after-shutdown\" concept.",
-    "tools": "Text-to-speech dubbing (multi-voice/emotion/speed control), **voice cloning** (official product surface), video-dubbing workflows (subtitle alignment/multi-character dubbing lines, seen on the official site); an overseas line (Qimiaoyuan and other related-product narratives — outside this dossier's scope).",
-    "context": "Organized by project; cross-session memory not verified to an official statement. Voice assets are the \"consistency\" mechanism.",
-    "permissions": "Account + subscription system (D9: pricing not collected); **the voice-cloning authorization line is a must-answer item** — the official agreement carries authorization framing (agreement page direct-fetched on record), details not verified item by item (inclusion criterion 3). Algorithm filing: Mobvoi speech-synthesis algorithm (official Chinese registered name kept in the Chinese entry; its service surface includes Moyin Workshop) appears in the deep-synthesis algorithm filing list — the number follows the official query portal beian.cac.gov.cn (the batch list was relayed via a third-party mirror, the original attachment was not directly fetched); algorithm filing and service filing are two numbering systems.",
-    "fit": "Fits: Chinese dubbing workflows (audiobooks/short videos/courseware), cloning your own voice, domestic direct connection and Chinese-language support. Does not fit: cloning other people's voices (authorization red line), wanting open weights, English-first usage."
+    "model_access": "Mobvoi’s in-house TTS line: the official tutorial page cites a fifth-generation TTS engine and 48 kHz output. Voice cloning comes in Efficient (20 recorded sentences, hours), Quality (100+ audio clips and transcripts, 2–3 working days) and Custom (500 professional sentences, 5–7 working days) tiers, with API access (2026-11-21).",
+    "runtime": "The moyin.com web app is the main entry, alongside mobile apps, a mini program and the “Sequence Monkey” open-platform API; synthesis runs in the vendor cloud. Sentence-by-sentence audition, selection audition and full-text synthesis all happen in the browser (2026-11-21).",
+    "local_files": "Albums and articles live account-side in the cloud, and albums do not share data; finished audio downloads as mp3 after “save and generate audio file”. Mobile and mini-program clients share the account system (2026-11-21).",
+    "background": "Interactive editing plus synthesis: long articles take longer to render, and failures are retried by contacting support or resubmitting. The workflow centres on sentence-level editing, audition and re-synthesis, without a pauseable cloud job queue (2026-11-21).",
+    "tools": "Text dubbing (multi-voice, emotion, speed), sentence audition, polyphone/prosody/number correction, pause and silence insertion (600 ms default between paragraphs), multi-role dubbing (voice per segment), voice conversion, “voice crafting”, cloud video editing and one-click video parsing (2026-11-21).",
+    "context": "“Albums” provide project context: each album has admin, chief editor and editor roles, and data and operations belong only to the current album, which can be switched in real time. This is team-workspace isolation rather than conversational memory, with voice assets providing cross-article consistency (2026-11-21).",
+    "permissions": "Accounts plus album-admin billing: synthesis charges the current album admin’s balance, and insufficient funds block synthesis. Voice cloning requires a membership for editor use, with cloning and commercial rights under the official agreement; the agreement prohibits illegal cloning of TTS data and infringement of voice rights (2026-11-21).",
+    "fit": "Fit: Chinese dubbing pipelines (audiobooks, short video, courseware), multi-user album collaboration, cloning one’s own voice and domestic direct access. Not fit: cloning others (a consent red line), open weights/offline deployment, or English-first work (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creation products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Actual strictness of the voice-cloning authorization verification flow**\n- **Efficiency of the multi-character dubbing workflow** (vs ElevenLabs/studio-class tools)\n- **Granularity and stability of emotion control**",
-  "unknowns": "- The generative-AI service filing number (not found — see the cn block)\n- The training-use switch (not verified item by item)\n- Tier boundaries of commercial licensing (agreement original not verified item by item)\n- Cross-session memory mechanism (no official statement verified)",
+  "runs": "This entry checks the official site, help centre, voice-cloning page and user agreement. Clone-consent strictness, multi-user efficiency and emotion granularity need account-level measurement.",
+  "unknowns": "- Generative-AI service filing number: check beian.cac.gov.cn (algorithm and service filings use separate numbering).\n- Training-use controls: check the official agreement and privacy page.\n- Tier boundaries for commercial rights: check the membership agreement text.\n- Cross-session memory: the product isolates albums and does not share data across them; conversational memory is not part of the product surface.",
   "related": [
     "Both domestic TTS/cloning lines: MiniMax is API-strong, Moyin Workshop is dubbing-workflow-strong.",
     "Also cloning-oriented: fish audio has a community voice ecosystem, Moyin Workshop an official voice library + workflows.",
@@ -19,9 +19,12 @@
     "Downstream of dubbing: finished voiceovers are often stitched with AI video assets into final cuts — the two lines meet in short-video workflows (cross-linked after filing)."
   ],
   "sources": [
-    "Moyin Workshop · official site (product and capability narrative)",
-    "Moyin Workshop · service agreement (official terms, direct-fetch verified 2026-10-22)",
-    "Moyin Workshop · official news page (update line, changelog, direct-fetch verified 2026-10-22)",
-    "CAC · algorithm-filing query portal (algorithm-filing verification entry, direct-fetch reachable verified 2026-10-22)"
+    "Moyin Workshop — official site (product and capability narrative; fetched 200 on 2026-11-21)",
+    "Moyin Workshop — user agreement (official terms, direct-fetched 2026-11-21)",
+    "Moyin Workshop — official news (changelog, direct-fetched 2026-10-22)",
+    "CAC — algorithm filing portal (verification entry; reachable 2026-10-22)",
+    "Moyin Workshop — help centre (sentence audition, multi-role dubbing and album isolation; fetched 200 on 2026-11-21)",
+    "Sequence Monkey Open Platform — voice cloning (efficient/quality/custom tiers and API pricing; fetched 200 on 2026-11-21)",
+    "Moyin Workshop — tutorial overview (fifth-generation TTS, 48 kHz and feature tutorials; fetched 200 on 2026-11-21)"
   ]
 }

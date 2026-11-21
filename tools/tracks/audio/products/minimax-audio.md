@@ -5,34 +5,26 @@ name: MiniMax Audio（海螺语音）
 nameEn: MiniMax Audio (Hailuo Voice)
 vendor: MiniMax（稀宇科技）
 homepage: https://www.minimax.io
-license: 免费+订阅+API。按官方条款管辖（minimax.io 站点条款线，2026-10-22 直抓核验站点可达）；
-  声音克隆的授权条款是关键页，细节未逐条核验。
-licenseEn: Free + subscription + API. Governed by the official terms on minimax.io (site reachability
-  direct-fetched 2026-10-22); voice-clone consent clauses are the key page, details not verified line by line.
+license: 免费+订阅+API。按 MiniMax 开放平台用户协议管辖（platform.minimaxi.com/docs/guides/terms-of-service，2026-11-21 取得）；声音克隆需实名/企业认证（2026-11-21）。
+licenseEn: Free, subscription and API tiers. Governed by the MiniMax open-platform user agreement (platform.minimaxi.com/docs/guides/terms-of-service, fetched 2026-11-21); voice cloning requires real-name or enterprise verification (2026-11-21).
 
 axes:
   model_access: >-
-    MiniMax 自研语音/音频模型线（speech-02 系列等模型经 API 提供，官方文档叙事）；
-    网页入口（hailuoai.com/audio 与 minimax.io/audio）+ API 平台（platform.minimaxi.com 线）双入口。
+    MiniMax 自研语音模型线：speech-2.8-hd / 2.8-turbo、speech-2.6-hd / 2.6-turbo、speech-02-hd / 02-turbo；官方 API 概览给 40 种语言、300+ 系统音色，并有音色复刻与音色设计两条资产生成线；音乐生成付费接口自 2026-08-20 起对新用户关闭，Music 3 开源权重在 Hugging Face/ModelScope（2026-11-21）。
   runtime: >-
-    网页 + API；生成在厂商云端。未见官方开放权重的音频模型声明（语言模型有开放权重先例，音频线未见）。
+    网页 MiniMax Audio（hailuoai.com/audio 与 minimax.io/audio）+ 开放平台 API（platform.minimaxi.com）；云端合成，同步 HTTP/WebSocket 与异步长文本两条通道，语音接口为无状态设计（2026-11-21）。
   local_files: >-
-    生成产物下载归本地；账户侧留存面未逐条核验。未见官方声明的本机数据面。
+    不碰本机模型：复刻音频先上传拿 `file_id`，异步长文本产出 `task_id`→`file_id`，下载 URL 自返回起 9 小时内有效；网页端作品与音色存账户侧。音乐模型另有开源权重可本地跑（2026-11-21）。
   background: >-
-    生成即时/任务制（API 调用即产即回）；无「关机续跑」形态声明——
-    云端服务不依赖本机在线。
+    同步 T2A 单次最长 10,000 字符，实时流式；异步 T2A 单次最长 100 万字符，创建任务拿 `task_id`，查询后用 `file_id` 走文件接口下载，支持句级时间戳；两条通道都不依赖本机在线（2026-11-21）。
   tools: >-
-    TTS（多语言/多风格）、**声音克隆/音色设计**（官方产品面）、音乐生成线（音乐模型经 API 提供，
-    官方文档叙事）；API 参数面（速度/音量/情绪控制）文档化。
+    TTS（40 语言、300+ 音色、音量/语调/语速、按比例混音、mp3/pcm/flac/wav）、音色快速复刻（单人/双声道，可加示例音频增强）、音色设计（prompt 生成 voice_id）、异步长文本（字幕时间戳）、官方 MCP（语音合成/克隆/视频/音乐）（2026-11-21）。
   context: >-
-    工具型产品无对话记忆概念；音色资产是它的「一致性」机制——克隆音色可复用不是记忆。
+    接口无状态：官方明确单次调用只处理传入内容、不存储用户数据、不涉及业务逻辑状态；音色资产（voice_id）是跨请求一致性机制，不是会话记忆。复刻/设计音色 7 天内未用于合成会被删除（2026-11-21）。
   permissions: >-
-    账号+订阅+API 计费体系（D9：价格不采）；**声音克隆涉人格权——官方有授权口径页，
-    细节未逐条核验**（收录标准 3：克隆授权线必答）。
-    备案：MiniMax 模型备案号 Shanghai-MiniMax-202505230046（百炼/百度云公示页交叉，2026-10-22）——模型层主语。
+    账号+API Key；声音克隆须先完成个人实名或企业认证（官方 FAQ 与接口文档一致）；客户内容须拥有知识产权或合法授权，输出责任由用户承担；协议允许在去标识化、不可重识别前提下用输入/输出做服务优化与安全风控（2026-11-21）。
   fit: >-
-    适合：中文 TTS 高质量向、声音克隆工作流（自有声音授权场景）、API 集成语音、国产直连。
-    不适合：克隆他人声音（授权红线）、要开放权重、离线跑。
+    适合：中文/多语言高质量 TTS、自有声音克隆、长文本有声书（异步+字幕）、API 集成与国产直连。不适合：克隆他人声音（授权红线）、要开放权重音频模型、离线跑 TTS（2026-11-21）。
 
 pitfalls:
   - 声音克隆的「授权」是条款红线——克隆他人声音需可证明的授权，别按功能可用性理解边界
@@ -43,7 +35,7 @@ tags: [免费+订阅, 中文TTS, 声音克隆, API向, 国产直连]
 related: [elevenlabs, fish-audio, hailuo-video]
 
 sources:
-  - label: MiniMax · 官网（产品与能力叙事）
+  - label: MiniMax · 官网（产品与能力叙事，2026-11-21 抓取 200）
     url: https://www.minimax.io
     kind: official
   - label: MiniMax Audio · 音频产品页（2026-10-22 直抓核验）
@@ -52,14 +44,23 @@ sources:
   - label: MiniMax · News（官方更新线，changelog，2026-10-22 直抓核验）
     url: https://www.minimax.io/news
     kind: changelog
-  - label: 阿里云百炼 · 模型备案信息公示（备案号交叉核验源）
+  - label: 阿里云百炼 · 模型备案信息公示（备案号交叉核验源，2026-10-22 直抓）
     url: https://docs.bailian.console.aliyun.com/zh/model-studio/model-filing-information-publicity
     kind: docs
+  - label: MiniMax 开放平台 · 接口概览（模型、40 语言、无状态与 9 小时下载，2026-11-21 抓取 200）
+    url: https://platform.minimaxi.com/docs/api-reference/api-overview
+    kind: docs
+  - label: MiniMax 开放平台 · 快速复刻（实名/企业认证与 7 天临时音色，2026-11-21 抓取 200）
+    url: https://platform.minimaxi.com/document/Voice%20Cloning?key=66719032a427f0c8a570165b
+    kind: docs
+  - label: MiniMax 开放平台 · 用户协议（客户内容授权与去标识化使用，2026-11-21 抓取 200）
+    url: https://platform.minimaxi.com/docs/guides/terms-of-service.md
+    kind: docs
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -75,7 +76,7 @@ cn:
   filing_note_en: MiniMax model-level filing number (cross-verified on Alibaba Cloud Bailian and Baidu
     Intelligent Cloud disclosure pages, 2026-10-22); the subject is the model layer — per-entry filing status
     was not verified one by one.
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -90,21 +91,13 @@ cn:
 
 ## 实测记录
 
-本档未跑音频质量与延迟测试；结论只覆盖能力面与许可面。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **克隆音色与官方音库的情绪表现差距**
-- **API 与网页入口的模型版本是否同步**
-- **声音克隆授权验证流程的实际严格度**
-
+本档核对官方接口概览、语音合成与声音复刻文档以及用户协议；克隆相似度、长文本稳定性与网页/API 模型同步需按账号实测。
 ## 未知项清单
 
-- 音频模型开放权重（未核验到官方声明）
-- 各产品入口自身的备案状态（未逐一核验）
-- 训练用途开关（未逐条核验）
-- 音乐模型与语音模型的计费是否同池（未逐条核验）
-
+- 音频模型开放权重：官方文档以 API 供给为主，权重状态按官方仓库核对。
+- 各产品入口自身的备案状态：按各入口公示页核对。
+- 训练用途开关：接口默认无状态，训练/优化口径按用户协议 6.3 与隐私页。
+- 音乐与语音计费是否同池：按按量计费页核对。
 ## 相关条目
 
 - [ElevenLabs](./elevenlabs.md) — 同为 TTS+克隆双能力：ElevenLabs 多语言面宽，MiniMax 中文向强。

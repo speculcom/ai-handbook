@@ -386,7 +386,7 @@ Text/image-to-video generation and AI-native video editing
 | [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | verified | active |
 | [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | verified | active |
 | [Veo (Google)](tracks/video/products/veo.md) | Google | cloud | verified | active |
-| [Vidu](tracks/video/products/vidu.md) | Shengshu Technology (Tsinghua-linked) | web | partial | active |
+| [Vidu](tracks/video/products/vidu.md) | Shengshu Technology (Tsinghua-linked) | web | verified | active |
 
 ### Audio & voice — 17
 
@@ -394,7 +394,7 @@ TTS, music generation, transcription products
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
-| [Moyin Workshop](tracks/audio/products/moyin.md) | Mobvoi | web | partial | active |
+| [Moyin Workshop](tracks/audio/products/moyin.md) | Mobvoi | web | verified | active |
 | [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | verified | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | verified | active |
 | [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | verified | active |
@@ -402,8 +402,8 @@ TTS, music generation, transcription products
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | verified | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
 | [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / SJTU X-LANCE et al. (open source) | local-app | verified | active |
-| [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
-| [MiniMax Audio (Hailuo Voice)](tracks/audio/products/minimax-audio.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
+| [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | verified | active |
+| [MiniMax Audio (Hailuo Voice)](tracks/audio/products/minimax-audio.md) | MiniMax (Xiyu Jizhi) | web | verified | active |
 | [Murf](tracks/audio/products/murf.md) | Murf AI | web | verified | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | verified | active |
 | [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | verified | active |

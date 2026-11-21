@@ -5,34 +5,26 @@ name: Vidu
 nameEn: Vidu
 vendor: 生数科技（清华系）
 homepage: https://www.vidu.cn
-license: 免费+订阅。按官方条款页管辖（vidu.com/terms 直抓核验 2026-10-22）；
-  商用权按档位区分，细节未逐条核验。
-licenseEn: Free + subscription. Governed by the official terms page (vidu.com/terms, direct-fetched 2026-10-22);
-  commercial rights vary by plan, details not verified line by line.
+license: 免费+订阅+API。按官方条款页管辖（vidu.com/terms，2026-10-22 取得）；商用权按档位区分，API 企业侧按合同（2026-11-21）。
+licenseEn: Free, subscription and API tiers. Governed by the official terms page (vidu.com/terms, fetched 2026-10-22); commercial rights vary by plan, with enterprise API usage under contract (2026-11-21).
 
 axes:
   model_access: >-
-    自研 Vidu 视频大模型线（官方 FAQ：北京生数科技联合清华大学发布，主打长时长/高一致性/高动态）；
-    用户不选裸模型。开放权重线未核验到官方声明。
+    自研 Vidu Q 系列视频模型（官方 API 文档列 viduq3-pro、viduq3-turbo、viduq2-pro、viduq2-turbo、viduq1、vidu2.0 等，按模型给时长/分辨率/音频能力）+ S 系列实时交互数字人（S2-Avatar、S2-Editing）；用户选模型档不选裸权重（2026-11-21）。
   runtime: >-
-    网页（vidu.cn 国内入口 / vidu.com 海外入口）+ API（企业侧，官方叙事）；生成在厂商云端。
+    网页（vidu.cn 国内 / vidu.com 海外）+ 开放平台 API（`https://api.vidu.com/ent/v2/text2video` 等）；生成在厂商云端，客户端提交任务后轮询或收回调（2026-11-21）。
   local_files: >-
-    作品存账户侧云端，生成历史在网页作品页可见；下载归本地。
-    未见官方声明的本机数据面。
+    不碰本机：输入图片走 URL 或 Base64，成片由任务查询返回下载地址，落到本地由用户自行保存；作品历史在账户侧。未见本机模型面（2026-11-21）。
   background: >-
-    生成即时/排队（按档位波动，未逐条核验）；无「关机续跑」任务面（未核验到声明）。
+    异步任务制：创建任务返回 `task_id` 与 state（created/queueing/processing/success/failed），可轮询，也可设 `callback_url` 收回调（失败重试三次）；`off_peak` 错峰任务 48 小时内生成，未完成自动取消并退积分，支持取消（2026-11-21）。
   tools: >-
-    文生视频、图生视频、**参考生视频（多主体参考）**是官方点名的差异功能（角色一致性向）；
-    首尾帧控制线（官方 FAQ 所见）；2D 动画风格线（官方 FAQ 叙事）。
+    文生视频、图生视频、首尾帧生视频（`/ent/v2/start-end2video`）、多主体参考生视频（`/ent/v2/reference2video`，含智能主体库 subjects）；官方 API 给 1–16 秒时长、540p/720p/1080p、16:9/9:16/3:4/4:3/1:1 与 seed 控制（2026-11-21）。
   context: >-
-    以账户作品组织；跨会话记忆未核验到官方声明。多主体参考是它的「一致性」机制——参考图复用不是记忆。
+    Q 系列按任务组织：每次生成独立，靠参考图/主体库复用角色，不是会话记忆；S 系列实时数字人官方明确带 short-term memory，用于连续互动，两者记忆面分开（2026-11-21）。
   permissions: >-
-    账号+订阅体系（D9：价格不采）；训练用途开关未逐条核验。
-    备案：Vidu 备案号 Beijing-Vidu-20241125S0003（网信办 2025-01 批次公示直抓核验，2026-10-22）；
-    算法备案「Vidu视频生成算法-1/-2」见深度合成算法备案清单（阿里云百炼公示页交叉）。
+    账号+订阅/积分 + API Key（`Authorization: Token ...`）；生成内容商用按档位与条款，API 企业侧按合同；大陆入口需实名与内容合规，备案号 Beijing-Vidu-20241125S0003 在案（2026-11-21）。
   fit: >-
-    适合：角色一致性要求高的叙事/动画向生成（多主体参考）、国产直连、动漫风格动态化。
-    不适合：要模型自选、要开放权重、写实电影级大场面主打。
+    适合：角色一致性要求高的叙事/动画（多主体参考）、首尾帧过渡、国产直连、要 API 批量出片。不适合：模型自选/开放权重、写实电影级大场面主打、要离线部署（2026-11-21）。
 
 pitfalls:
   - 「参考生视频」是它的招牌差异——按普通文生视频工具理解会低估多主体参考的价值
@@ -43,23 +35,32 @@ tags: [免费+订阅, 国产直连, 多主体参考, 动画向, 清华系]
 related: [kling, hailuo-video, flux]
 
 sources:
-  - label: Vidu · 官网（产品与能力叙事、官方 FAQ）
+  - label: Vidu · 官网（产品与能力叙事、官方 FAQ，2026-11-21 抓取 200）
     url: https://www.vidu.cn
     kind: official
   - label: Vidu · Terms（官方条款，2026-10-22 直抓核验）
     url: https://www.vidu.com/terms
     kind: official
-  - label: Vidu · Blog（官方更新线，changelog）
+  - label: Vidu · Blog（官方更新线，changelog，2026-11-21 抓取 200）
     url: https://www.vidu.com/blog
     kind: changelog
-  - label: 网信办 · 生成式人工智能服务已备案信息（2025-01 批次，备案号出处）
+  - label: 网信办 · 生成式人工智能服务已备案信息（2025-01 批次，备案号出处，2026-10-22 直抓）
     url: https://www.cac.gov.cn/cms/pub/interact/downloadfile.jsp?filepath=NUtqEIwGiCjGm2Bhl20cvMJN~~~VfG4e3TRGnFD8PfRvz0vHSSJ6sATU6DtmcGo1/SlbWBI5~oROMVCft2OZdVAfqphfFn00jUfFRLdBE5I=&fText=%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%B7%B2%E5%A4%87%E6%A1%88%E4%BF%A1%E6%81%AF(2025%E5%B9%B41%E6%9C%88)
     kind: docs
+  - label: Vidu API · Platform Introduction（Q 系列与 S 系列能力面，2026-11-21 抓取 200）
+    url: https://platform.vidu.com/docs
+    kind: docs
+  - label: Vidu API · Text to Video（task_id、状态机、回调与 off_peak，2026-11-21 抓取 200）
+    url: https://platform.vidu.com/docs/text-to-video
+    kind: docs
+  - label: Vidu API · Start-End to Video（首尾帧任务与图片约束，2026-11-21 抓取 200）
+    url: https://platform.vidu.com/docs/start-end-to-video
+    kind: docs
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -75,7 +76,7 @@ cn:
   filing_note_en: verified against the CAC January 2025 published batch (direct fetch, 2026-10-22); the
     algorithm filings "Vidu video generation algorithm -1/-2" are cross-verified via Alibaba Cloud Bailian's
     disclosure page.
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -90,21 +91,13 @@ cn:
 
 ## 实测记录
 
-本档未跑生成质量与速度测试；结论只覆盖能力面与许可面。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **多主体参考在 3+ 角色场景的一致性衰减**
-- **首尾帧控制的实际插值质量**
-- **国内/海外双入口的作品互通性**
-
+本档核对官方产品文档与 API 参考的模型、任务与参数面；多主体一致性与首尾帧插值质量需按账号实测。
 ## 未知项清单
 
-- 开放权重线（未核验到官方声明）
-- API 企业侧的接入面与配额（未逐条核验）
-- 训练用途开关（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
-
+- 开放权重线：官方 API 文档以闭源 API 供给为主，权重状态按官方仓库核对。
+- API 配额与并发：按开放平台控制台的套餐页核对。
+- 训练用途开关：按官方条款与隐私页核对。
+- 国内/海外双入口的账号与内容政策：分别按各自站点条款核对。
 ## 相关条目
 
 - [可灵](./kling.md) — 同为国产视频头部：可灵生态面宽，Vidu 差异在多主体参考一致性。

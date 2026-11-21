@@ -1,26 +1,29 @@
 {
   "_comment": "C0-14 vidu bodies EN. 无附加小节。正文「相关条目」3 行带 .md 链接（kling/hailuo-video/flux），related 写 3 条。sources 4 条对齐 frontmatter。filing_note_en 引文里的算法备案中文名「Vidu视频生成算法-1/-2」属官方登记名合法 B 类残留。",
   "axes": {
-    "model_access": "In-house Vidu video large-model line (official FAQ: released by Beijing Shengshu Technology jointly with Tsinghua University, leading on long duration/high consistency/high dynamics); users do not pick bare models. An open-weights line — no official statement verified.",
-    "runtime": "Web (vidu.cn domestic entry / vidu.com overseas entry) + API (the enterprise side, official narrative); generation on the vendor's cloud.",
-    "local_files": "Works stored account-side in the cloud, generation history visible on the web works page; downloads go local. No officially stated local data surface.",
-    "background": "Generation is instant/queued (varies by tier, not verified item by item); no \"keep-running-after-shutdown\" task surface (no claim verified).",
-    "tools": "Text-to-video, image-to-video, **reference-to-video (multi-subject reference)** is the differentiating function named by the official side (character-consistency oriented); a first/last-frame control line (seen in the official FAQ); a 2D-animation style line (official FAQ narrative).",
-    "context": "Organized by account works; cross-session memory — no official statement verified. Multi-subject reference is its \"consistency\" mechanism — reusable reference images are not memory.",
-    "permissions": "Account + subscription system (D9: prices not collected); the training-use switch not verified line by line. Filing: the Vidu filing no. Beijing-Vidu-20241125S0003 (CAC 2025-01 published batch, direct-fetched and verified 2026-10-22); the algorithm filings \"Vidu video generation algorithm -1/-2\" (official Chinese registered names kept in the Chinese entry) appear in the deep-synthesis algorithm filing list (cross-checked on Alibaba Cloud Model Studio's disclosure page).",
-    "fit": "Fits: narrative/animation-oriented generation with high character-consistency demands (multi-subject reference), domestic direct connection, anime-style motion. Does not fit: model self-selection, open weights, a photorealistic cinematic set-piece focus."
+    "model_access": "In-house Vidu Q video models (official API docs list viduq3-pro, viduq3-turbo, viduq2-pro, viduq2-turbo, viduq1 and vidu2.0, each with its own duration/resolution/audio capabilities) plus the S real-time interactive line (S2-Avatar, S2-Editing). Users pick model tiers, not raw weights (2026-11-21).",
+    "runtime": "Web (vidu.cn domestic / vidu.com overseas) plus the open-platform API (`https://api.vidu.com/ent/v2/text2video` and others); generation runs in the vendor cloud, with clients polling a task or receiving a callback (2026-11-21).",
+    "local_files": "No local filesystem access: input images arrive as URLs or Base64, and finished videos come back as download URLs from task queries that users save locally; work history is account-side. Official docs list no local model surface (2026-11-21).",
+    "background": "Asynchronous tasks: creation returns a `task_id` and state (created/queueing/processing/success/failed), which can be polled or delivered through `callback_url` (three retries on failure). Off-peak jobs generate within 48 hours, auto-cancel with refunds if incomplete, and can be cancelled (2026-11-21).",
+    "tools": "Text-to-video, image-to-video, start-end frame video (`/ent/v2/start-end2video`) and multi-subject reference video (`/ent/v2/reference2video`, including a subject library). The API exposes 1–16 s durations, 540p/720p/1080p, 16:9/9:16/3:4/4:3/1:1 and seed control (2026-11-21).",
+    "context": "Q-series work is task-based: each generation is independent and characters are reused through reference images or the subject library rather than conversation memory. The S-series real-time avatar explicitly carries short-term memory for continuous interaction, so the two memory surfaces are separate (2026-11-21).",
+    "permissions": "Accounts plus subscriptions/credits and an API key (`Authorization: Token ...`). Commercial use of outputs follows the plan and terms, with enterprise API usage under contract; the mainland entry requires real-name and content compliance, with filing Beijing-Vidu-20241125S0003 on record (2026-11-21).",
+    "fit": "Fit: narrative/animation needing character consistency (multi-subject reference), start-end frame transitions, domestic direct access and API batch production. Not fit: model choice/open weights, realistic cinematic blockbusters or offline deployment (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Consistency falloff of multi-subject reference in 3+ character scenes**\n- **The actual interpolation quality of first/last-frame control**\n- **Work interoperability between the domestic/overseas dual entries**",
-  "unknowns": "- The open-weights line (no official statement verified)\n- The API enterprise side's access surface and quotas (not verified item by item)\n- The training-use switch (not verified line by line)\n- Cross-session memory mechanism (no official statement verified)",
+  "runs": "This entry checks the official product docs and API reference for models, tasks and parameters. Multi-subject consistency and start-end interpolation quality need account-level measurement.",
+  "unknowns": "- Open weights: official API docs describe closed API access; check the official repository for weight status.\n- API quota and concurrency: check the open-platform console plan page.\n- Training-use controls: check the official terms and privacy page.\n- Account and content policies for the domestic and overseas entries: check each site’s terms.",
   "related": [
     "Both domestic video leaders: Kling's ecosystem surface is wide, Vidu's differentiator is multi-subject reference consistency.",
     "Both domestic in-house video entries: Hailuo's entry is light, Vidu's feature surface (reference/first-last frame) is finer.",
     "Upstream/downstream handoff: Vidu's image-to-video often takes FLUX-family images as the first frame."
   ],
   "sources": [
-    "Vidu · official site (product and capability narrative, official FAQ)",
-    "Vidu · Terms (official terms, direct-fetched and verified 2026-10-22)",
-    "Vidu · Blog (official update line, changelog)",
-    "CAC · filed generative-AI service information (2025-01 batch, filing-no. source)"
+    "Vidu — official site (product narrative and FAQ; fetched 200 on 2026-11-21)",
+    "Vidu — Terms (official terms, direct-fetched 2026-10-22)",
+    "Vidu — Blog (official changelog; fetched 200 on 2026-11-21)",
+    "CAC — filed generative-AI services (January 2025 batch, source of the filing number; direct-fetched 2026-10-22)",
+    "Vidu API — Platform Introduction (Q-series and S-series capabilities; fetched 200 on 2026-11-21)",
+    "Vidu API — Text to Video (task_id, state machine, callbacks and off_peak; fetched 200 on 2026-11-21)",
+    "Vidu API — Start-End to Video (frame task and image constraints; fetched 200 on 2026-11-21)"
   ]
 }

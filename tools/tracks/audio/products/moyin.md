@@ -5,36 +5,26 @@ name: 魔音工坊
 nameEn: Moyin Workshop
 vendor: 出门问问
 homepage: https://www.moyin.com
-license: 免费试用+订阅。按官方服务协议页管辖（moyin.com/agreement/service 直抓核验 2026-10-22）；
-  声音复刻授权条款是关键页，细节未逐条核验。
-licenseEn: Free trial + subscription. Governed by the official service agreement page
-  (moyin.com/agreement/service, direct-fetched 2026-10-22); voice-cloning consent clauses are the key page,
-  details not verified line by line.
+license: 免费试用+订阅。按官方用户协议页管辖（moyin.com/protocol，2026-11-21 取得）；声音复刻需会员并遵守授权条款（2026-11-21）。
+licenseEn: Free trial plus subscription. Governed by the official user agreement (moyin.com/protocol, fetched 2026-11-21); voice cloning requires membership and compliance with consent terms (2026-11-21).
 
 axes:
   model_access: >-
-    出门问问自研语音合成线（官方算法备案「出门问问语音合成类算法」覆盖魔音工坊——网信办公示叙事）；
-    平台内多音色/多情感配音线；用户选音色不选裸模型。
+    出门问问自研 TTS 线：官方教程页标「第五代 TTS 引擎」、48k 超高清；声音克隆分高效版（在线录音 20 句，数小时）、品质版（100+ 句音频与文本，2–3 个工作日）、定制版（专业录制 500 句，5–7 个工作日），并开放 API 调用（2026-11-21）。
   runtime: >-
-    网页（moyin.com）为主入口；配音在厂商云端。未见官方离线权重线。
+    网页 moyin.com 为主入口，另有 App、小程序与「序列猴子」开放平台 API；合成在厂商云端。编辑器内逐句试听、滑选试听与全文合成都在浏览器完成（2026-11-21）。
   local_files: >-
-    工程与成品存账户侧云端（工程可回看编辑）；下载归本地。未见官方声明的本机数据面。
+    专辑与文章存账户侧云端，专辑之间数据不互通；成品点「保存并生成音频文件」后下载 mp3 到本地。移动端与小程序共用账号体系（2026-11-21）。
   background: >-
-    编辑+合成是交互形态（文字编辑实时试听，改一句重听一句）；无「关机续跑」概念。
+    交互式编辑+合成：长文合成等待时间随文章长度增加，失败后联系客服或重新提交；工作流以逐句编辑、试听、再合成为主，没有可暂停的云端任务队列（2026-11-21）。
   tools: >-
-    文本配音（多音色/情感/语速控制）、**声音复刻**（官方产品面）、视频配音工作流
-    （字幕对齐/多角色配音线，官网所见）；出海线（奇妙元等关联产品叙事——不在本档案口径）。
+    文本配音（多音色/情感/语速）、逐句试听、多音字/韵律/数字符号纠错、停顿与静音插入（默认段间 600ms）、多人配音（按段指派发音人）、声音转换、「捏声音」、视频云剪辑与一键解析视频（2026-11-21）。
   context: >-
-    以工程（项目）组织；跨会话记忆未核验到官方声明。音色资产是「一致性」机制。
+    以「专辑」为项目上下文：每专辑有管理员/主编/编辑三类角色，数据与操作只属当前专辑，可实时切换；这是团队工作区隔离，不是对话记忆，音色资产负责跨文章一致性（2026-11-21）。
   permissions: >-
-    账号+订阅体系（D9：价格不采）；**声音复刻授权线是必答项**——官方协议有授权口径
-    （agreement 页直抓在案），细节未逐条核验（收录标准 3）。
-    算法备案：出门问问语音合成类算法（服务面含魔音工坊）在深度合成算法备案清单内——
-    编号以官方查询平台 beian.cac.gov.cn 为准（清单批次经第三方镜像转述，未直抓到原始附件）；
-    算法备案与服务备案是两套编号。
+    账号+专辑管理员余额扣款；合成费用从当前专辑管理员账户扣除，余额不足则无法合成。声音克隆需搭配会员并在编辑器使用，克隆与商用授权按官方协议；协议禁止非法克隆 TTS 数据、侵犯他人声音权益（2026-11-21）。
   fit: >-
-    适合：中文配音工作流（有声书/短视频/课件）、自有声音复刻、国内直连与中文客服面。
-    不适合：克隆他人声音（授权红线）、要开放权重、英文向主打。
+    适合：中文配音流水线（有声书/短视频/课件）、多人协作专辑、自有声音复刻、国内直连。不适合：克隆他人声音（授权红线）、要开放权重/离线部署、英文向主打（2026-11-21）。
 
 pitfalls:
   - 算法备案（网信算备…号）≠生成式 AI 服务备案号——两套编号两套口径，引用别混
@@ -45,11 +35,11 @@ tags: [免费+订阅, 中文配音, 声音复刻, 国产直连, 算法备案]
 related: [minimax-audio, fish-audio, hailuo-video]
 
 sources:
-  - label: 魔音工坊 · 官网（产品与能力叙事）
+  - label: 魔音工坊 · 官网（产品与能力叙事，2026-11-21 抓取 200）
     url: https://www.moyin.com
     kind: official
-  - label: 魔音工坊 · 服务协议（官方条款，2026-10-22 直抓核验）
-    url: https://www.moyin.com/agreement/service
+  - label: 魔音工坊 · 用户协议（官方条款，2026-11-21 直抓核验）
+    url: https://www.moyin.com/protocol
     kind: official
   - label: 魔音工坊 · 官方动态页（更新线，changelog，2026-10-22 直抓核验）
     url: https://www.moyin.com/news
@@ -57,11 +47,20 @@ sources:
   - label: 网信办 · 算法备案查询平台（算法备案核验入口，2026-10-22 直抓核验可达）
     url: https://beian.cac.gov.cn/#/home
     kind: docs
+  - label: 魔音工坊 · 使用帮助（逐句试听、多人配音与专辑隔离，2026-11-21 抓取 200）
+    url: https://www.moyin.com/help?id=1
+    kind: docs
+  - label: 序列猴子开放平台 · 声音克隆（高效/品质/定制三档与 API 价格，2026-11-21 抓取 200）
+    url: https://openapi.moyin.com/pages/voiceclone-introduce
+    kind: docs
+  - label: 魔音工坊 · 教程总览（第五代 TTS、48k 与功能教程，2026-11-21 抓取 200）
+    url: https://www.moyin.com/overview/tutorial-guide
+    kind: docs
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -78,7 +77,7 @@ cn:
     (the batch list was relayed via a third-party mirror; the original attachment was not directly fetched —
     the number should be confirmed on the official beian.cac.gov.cn portal); no generative-AI service filing
     number was found (searched 2026-10-22) — "not found" ≠ "not filed".
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -93,21 +92,13 @@ cn:
 
 ## 实测记录
 
-本档未跑音频质量与延迟测试；结论只覆盖能力面与许可面。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **声音复刻的授权验证流程实际严格度**
-- **多角色配音工作流的效率**（对比 ElevenLabs/studio 类）
-- **情感控制的粒度与稳定性**
-
+本档核对官网、帮助中心、声音克隆产品页与用户协议；克隆授权严格度、多人协作效率与情感粒度需按账号实测。
 ## 未知项清单
 
-- 生成式 AI 服务备案号（未核验到——见 cn 块）
-- 训练用途开关（未逐条核验）
-- 商用授权的档位边界（未逐条核验协议原文）
-- 跨会话记忆机制（未核验到官方声明）
-
+- 生成式 AI 服务备案号：按 beian.cac.gov.cn 查询（算法备案与服务备案分属两套编号）。
+- 训练用途开关：按官方协议与隐私页核对。
+- 商用授权的档位边界：按会员协议原文核对。
+- 跨会话记忆：产品按专辑隔离，跨专辑不互通，对话式记忆不在产品面。
 ## 相关条目
 
 - [MiniMax Audio](./minimax-audio.md) — 同为国产 TTS/克隆线：MiniMax API 向强，魔音工坊配音工作流向强。
