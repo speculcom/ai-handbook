@@ -1,26 +1,31 @@
 {
   "_comment": "C0-11 正文英译 · doubao-chat（2026-10-25）。",
   "axes": {
-    "model_access": "The Doubao model series is disclosed via ByteDance's official release line: Doubao-Seed 2.1 Pro / Lite 0915 launched on 2026-09-15 (1024k context, multimodal), followed by the November 2026 Seed-Evolving update. The specific model tier routing inside the consumer app is not verified item by item; enterprise-grade model interfaces are provided separately via Volcengine Ark.",
-    "runtime": "Web (doubao.com), mobile app and PC client — three lines covered; generation is processed on ByteDance's cloud, no model runs locally. Features are largely aligned across the three lines; voice chat is most convenient on mobile.",
-    "local_files": "Supports document parsing, text-to-image and voice chat; uploaded content is stored in the account, the training switch path is in the permissions dimension.",
-    "background": "Chats return instantly with no offline task queue; no official statement of an \"offline continuation\" form — the chat product itself does not carry long tasks; long-document processing also completes within the session.",
-    "tools": "In-product capability lines incl. text-to-image, voice chat and document parsing; enterprise-grade capabilities are provided on the separate Volcengine Ark API line.",
-    "context": "Chat history is organized per session and syncs across devices when signed in; the cross-session memory mechanism is not verified item by item (no official docs verified for a standalone memory-management entry — if unknown, say unknown).",
-    "permissions": "Official privacy policy §1.10: on the premise of \"processing with secure encryption, strict de-identification such that specific individuals cannot be re-identified\", input data, prompts and generated replies may be used for model training; you can turn it off via \"Settings → Privacy & Permissions → Help improve the model\" (mobile) or \"Settings → Help improve the model\" (PC/web). The API line has a different term: Volcengine's Doubao Model Service Agreement §4.1 — unless you separately consent, content you submit or output is not used to train the foundation models.",
-    "fit": "Chinese everyday Q&A and text-to-image. The App training switch is self-service and the API does not train by default — the two lines' terms differ, don't blend them. For running models locally or swapping models freely, it is not suitable."
+    "model_access": "The Doubao consumer app runs ByteDance’s Seed family: the official Seed 2.1 release names Pro and Turbo tiers with 1M context and multimodal understanding, and explicitly points to the “office task” mode on Doubao PC or the Doubao app; the Volcengine Ark model list carries `doubao-seed-2-1-pro-260915` / `doubao-seed-2-1-lite-260915` with 1024K context, multimodality, GUI and tool calling, plus the weekly `doubao-seed-evolving`. In-app tiers follow the signed-in interface (2026-11-21).",
+    "runtime": "Web at doubao.com, iOS/Android apps, the PC client and the Doubao Work desktop app; generation runs in ByteDance’s cloud with no local model. Enterprise model APIs are a separate Volcengine Ark line (2026-11-21).",
+    "local_files": "Uploaded documents, images, recordings and generated files live account-side; the privacy policy states that PPT/writing outputs are saved automatically to cloud drive, as are recording transcripts, original text and audio, with documents managed in cloud drive and downloads landing locally (2026-11-21).",
+    "background": "Conversations stream; the office-task mode can plan multiple steps within a session and produce documents, spreadsheets, PPTs and web pages as a foreground task, not an offline queue that resumes after shutdown. Recording transcription and meeting notes are processed in the cloud and saved to cloud drive (2026-11-21).",
+    "tools": "Text/voice/image/file chat, web search, document parsing, PPT and writing, spreadsheet handling, image and video generation, translation and simultaneous interpretation, recording transcription, screen sharing/video calls, coding and app publishing, and memory; the desktop app can also operate a virtual desktop and browser and edit documents/PPT/web pages in place (2026-11-21).",
+    "context": "Memory is on by default: it distils interests, preferences and habits from conversations into background for later replies, with a switch under Settings → Memory, per-item review/deletion, a “delete all” action, and in-chat remember/forget commands. Memory is shared across devices on one account but isolated between accounts and agents; turning the switch off stops new memories and their use without deleting existing ones (2026-11-21).",
+    "permissions": "Account plus free and paid plans; §1.10 of the personal-edition privacy policy allows inputs, instructions and replies to be analysed and used for model training after encryption, de-identification and non-reidentification, with an opt-out under Settings → Privacy & Permissions → Help improve the model in the app or Settings → Help improve the model on PC/web. Memory and cloud drive are managed separately, and the API line follows Volcengine’s separate agreement (2026-11-21).",
+    "fit": "Fit: Chinese everyday Q&A and office output, integrated memory and cloud drive, synced app/PC/web, recording transcription and interpretation. Not fit: local models, free model switching or contract-grade API data terms (use Volcengine Ark) (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).",
-  "unknowns": "- Model tier routing details inside the consumer app (the official-site news page has iteration records; this site has not verified tier by tier)\n- The cross-session memory mechanism (no official docs verified for a standalone memory-management entry)",
+  "runs": "This entry checks the Doubao site, privacy policy, memory FAQ, user agreement, Seed 2.1 release and the Volcengine Ark model list. Per-platform differences, memory caps and office-task output quality need account-level testing.",
+  "unknowns": "- Exact mapping between in-app tiers and Seed 2.1 Pro/Lite: follow the signed-in interface.\n- Memory cap and overwrite policy: the memory FAQ says the newest memories overwrite the oldest beyond the cap, with the exact cap on the product page.\n- Office-task differences by platform: follow the features each client actually exposes.",
   "related": [
     "General-chat contrast: the training switch and feedback wording differ",
     "Also domestic general chat: Kimi's training opt-out goes through customer-service registration, Doubao's App switch is self-service",
     "Ecosystem-integration route counterpart"
   ],
   "sources": [
-    "Doubao · Privacy Policy (official page, direct-fetch verified 2026-10-20 §1.10: training premise and opt-out path)",
-    "Volcengine · Doubao Model Service Agreement (§4.1: no training without separate consent)",
-    "Doubao · official-site news page (entry for product and model-iteration records)",
-    "Volcengine Ark · model release announcements (updated 2026-11-19: Seed 2.1 Pro/Lite 0915, Seed-Evolving update)"
+    "Doubao — official site (chat and work entry; fetched 200 on 2026-11-21)",
+    "Doubao — Privacy Policy (memory, cloud drive, recording transcription and training opt-out; fetched 200 on 2026-11-21)",
+    "Doubao — Memory FAQ (switch, per-item and bulk deletion, account-level sync; fetched 200 on 2026-11-21)",
+    "Doubao — User Agreement (§9.1 output ownership and free right of use; fetched 200 on 2026-11-21)",
+    "Volcengine Ark — model list (Seed 2.1 Pro/Lite 1024K, multimodal, GUI and tool calling; fetched 200 on 2026-11-21)",
+    "Volcengine Ark — Seed 2.1 model page (Pro/Turbo/Evolving and multimodal boundaries; fetched 200 on 2026-11-21)",
+    "ByteDance Seed — Seed 2.1 release (Doubao office-task entry; fetched 200 on 2026-11-21)",
+    "Doubao — desktop download page (docs/sheets/PPT/image and video generation, virtual desktop; fetched 200 on 2026-11-21)",
+    "Volcengine Ark — model release announcements (Seed 2.1 / Evolving updates; fetched 200 on 2026-11-21)"
   ]
 }

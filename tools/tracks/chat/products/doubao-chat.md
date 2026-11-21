@@ -5,35 +5,26 @@ name: 豆包
 nameEn: Doubao
 vendor: 字节跳动
 homepage: https://www.doubao.com/
-license: 官方豆包用户服务协议 §9.1 口径：公司不主张输出内容的所有权；个人版按条款授予用户免费使用权。API 侧（火山引擎《豆包模型服务协议》）是另一套条款，输出内容的使用按该协议管辖——两条线分开读。
-licenseEn: Per the official Doubao User Service Agreement §9.1, the company does not claim ownership of output content; the personal edition grants users a free right of use per the terms. The API line (Volcengine Doubao Model Service Agreement) is governed by separate terms — read the two lines separately.
+license: 免费 + 付费套餐。按官方《豆包用户服务协议》§9.1：公司不主张输出内容所有权，个人版授予用户免费使用权；API 侧按火山引擎《豆包模型服务协议》另线管辖（2026-11-21）。
+licenseEn: Free plus paid plans. Per §9.1 of the official Doubao User Service Agreement, the company claims no ownership of output and grants personal-edition users a free right of use; the API line is separately governed by the Volcengine Doubao Model Service Agreement (2026-11-21).
 
 axes:
   model_access: >-
-    豆包系列模型由字节跳动官方发布线披露：2026-09-15 上线 Doubao-Seed 2.1 Pro / Lite 0915
-    （1024k 上下文、多模态）；2026-11 Seed-Evolving 版本更新。消费应用内档位分流未逐条核验；
-    企业级模型接口经火山引擎「火山方舟」另线提供。
+    豆包消费端跑字节 Seed 家族：官方 Seed 2.1 发布页明确 Pro/Turbo 双档、1M 上下文、多模态理解，并写明「豆包电脑版或豆包 App 选择办公任务模式」即可体验；火山方舟模型列表列 `doubao-seed-2-1-pro-260915` / `doubao-seed-2-1-lite-260915`，1024K 上下文、多模态、GUI 与工具调用，另有周级更新的 `doubao-seed-evolving`。App 内具体档位以登录界面为准（2026-11-21）。
   runtime: >-
-    网页（doubao.com）、移动端 App、PC 客户端三线覆盖；生成在字节云端处理，
-    本机不跑模型。三线功能基本对齐，语音对话在移动端最顺手。
+    网页 doubao.com、iOS/Android App、PC 客户端与「豆包工作」桌面端；生成在字节云端，本机不跑模型。企业级模型接口经火山方舟另线提供（2026-11-21）。
   local_files: >-
-    支持文档解析、文生图、语音对话；上传内容存于账户，训练开关路径见 permissions 维。
+    上传文档、图片、录音与生成的文件存账户侧；隐私政策明确 PPT/写作等生成文件自动存云盘，录音转写的纪要、原文与音频也自动存云盘，文档可在云盘查阅管理，下载归本地（2026-11-21）。
   background: >-
-    对话即时返回，没有离线任务队列；没有「关机续跑」形态的官方声明——
-    对话产品本体不承载长任务，长文档处理也是会话内完成。
+    对话流式返回；「办公任务」模式可在会话内多步规划并产出文档、表格、PPT、网页等，属前台任务，不形成关机续跑的离线队列。录音转写与会议纪要在云端处理并落云盘（2026-11-21）。
   tools: >-
-    产品内含文生图、语音对话、文档解析等能力线；企业级能力经火山方舟 API 另线提供。
+    文字/语音/图片/文件对话、联网搜索、文档解析、PPT 与写作、表格处理、文生图与生视频、翻译与同声传译、录音转写、屏幕共享/视频通话、编程与应用发布、记忆功能；桌面端还可操作虚拟桌面与浏览器、定点编辑文档/PPT/网页（2026-11-21）。
   context: >-
-    有对话历史按会话组织，登录同步多端；跨会话记忆机制未逐条核验
-    （未核验到独立记忆管理入口的官方文档，未知就说未知）。
+    记忆功能默认开启：从对话中提炼兴趣、偏好、习惯等长期信息，作为后续回复背景；可在【设置-记忆】开关、逐条查阅/删除、右上角删除全部，或在对话中要求记住/忘记。同一账号记忆互通，不同账号与不同智能体之间隔离；关闭开关不再更新与参考记忆，但不自动删除旧记忆（2026-11-21）。
   permissions: >-
-    官方隐私政策 §1.10：在「经安全加密技术处理、严格去标识化且无法重新识别特定个人」前提下，
-    输入数据、指令与生成回复可能用于模型训练；可在「设置 → 隐私与权限 → 帮助模型改进效果」（移动端）
-    或「设置 → 帮助模型改进效果」（PC/网页端）关闭。API 侧另一口径：火山引擎《豆包模型服务协议》§4.1
-    ——除非你单独同意，不使用你提交或输出的内容训练基础模型。
+    账号 + 免费档 + 付费套餐；个人版隐私政策 §1.10 在加密、去标识化且不可重识别前提下，可能把输入、指令与回复用于分析与模型训练，可在 App「设置-隐私与权限-帮助模型改进效果」或 PC/网页「设置-帮助模型改进效果」关闭。记忆与云盘可分别管理；API 侧走火山引擎另一套协议（2026-11-21）。
   fit: >-
-    中文日常问答与文生图。App 训练开关是自助的，API 默认不训练——两条线的条款不同，别混着理解。
-    要本机跑模型或自由换模型，它不合适。
+    适合：中文日常问答与办公产出、要记忆与云盘一体化、要 App/PC/网页多端同步、要录音转写与同传。不适合：要本机跑模型、要自由换模型、要合同级 API 数据条款（走火山方舟）（2026-11-21）。
 
 pitfalls:
   - 把 App 隐私政策套到火山方舟 API——两条线训练口径相反（App 默认可能训练、API 默认不训练）
@@ -45,23 +36,38 @@ tags: [中文, 文生图, 语音, 境内存储]
 related: [midjourney]
 
 sources:
-  - label: 豆包 · 隐私政策（官方页，2026-10-20 直抓核验 §1.10：训练前提与关闭路径）
-    url: https://doubao.com/legal/privacy
+  - label: 豆包 · 官网（对话与工作入口，2026-11-21 抓取 200）
+    url: https://www.doubao.com/
+    kind: official
+  - label: 豆包 · 隐私政策（记忆、云盘、录音转写与训练退出，2026-11-21 抓取 200）
+    url: https://www.doubao.com/legal/privacy-policy
     kind: docs
-  - label: 火山引擎 · 豆包模型服务协议（§4.1：除非单独同意，不训练）
-    url: https://www.volcengine.com/docs/82379/1142195
+  - label: 豆包 · 记忆功能 FAQ（开关、逐条删除、全部删除与账号内同步，2026-11-21 抓取 200）
+    url: https://www.doubao.com/legal/memory_faq
     kind: docs
-  - label: 豆包 · 官网新闻页（产品与模型迭代记录入口）
-    url: https://www.doubao.com/news
-    kind: changelog
-  - label: 火山方舟 · 模型发布公告（2026-11-19 更新：Seed 2.1 Pro/Lite 0915、Seed-Evolving 更新）
-    url: https://console.volcengine.com/ark/region:cn-beijing/docs/model-release-announcement
+  - label: 豆包 · 用户协议（§9.1 输出所有权与免费使用权，2026-11-21 抓取 200）
+    url: https://www.doubao.com/legal/terms
+    kind: docs
+  - label: 火山方舟 · 模型列表（Seed 2.1 Pro/Lite 1024K、多模态、GUI 与工具调用，2026-11-21 抓取 200）
+    url: https://docs.volcengine.com/docs/ark/model-list?lang=zh
+    kind: docs
+  - label: 火山方舟 · Seed 2.1 模型页（Pro/Turbo/Evolving 与多模态边界，2026-11-21 抓取 200）
+    url: https://www.volcengine.com/docs/82379/2549861?lang=zh
+    kind: docs
+  - label: 字节跳动 Seed · Seed 2.1 发布（豆包办公任务模式入口，2026-11-21 抓取 200）
+    url: https://seed.bytedance.com/zh/blog/seed2-1-officially-released-advancing-ai-productivity
+    kind: docs
+  - label: 豆包 · 电脑版下载页（文档/表格/PPT/生图生视频与虚拟桌面，2026-11-21 抓取 200）
+    url: https://www.doubao.com/download/desktop
+    kind: official
+  - label: 火山方舟 · 模型发布公告（Seed 2.1 / Evolving 更新记录，2026-11-21 抓取 200）
+    url: https://ark.volcengine.com/region:cn-beijing/docs/model-release-announcement
     kind: changelog
 
-last_verified: 2026-11-19
-last_updated: 2026-11-19
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -73,7 +79,7 @@ cn:
   filing: filed
   filing_note: 首批第 3 行；抖音官方备案公示页确认「豆包大模型」即此编号（2024-08 算法备案由云雀更名为豆包）。
   filing_note_en: Listed in the CAC registry as "Yunque LLM" (Doubao's predecessor; Beijing-YunQue-20230821, filed 2023-08-31).
-  verified: 2026-10-20
+  verified: 2026-11-21
   filing_name: 云雀大模型（豆包前身）
   filing_name_en: Yunque LLM (Doubao's predecessor)
   filing_no: Beijing-YunQue-20230821
@@ -93,13 +99,12 @@ cn:
 
 ## 实测记录
 
-本档未跑对话任务集；能力结论来自官方文档，不评价回答质量。
-
+本档核对豆包官网、隐私政策、记忆 FAQ、用户协议、Seed 2.1 发布与火山方舟模型列表；各端功能差异、记忆条数上限与办公任务产物质量需按账号实测。
 ## 未知项清单
 
-- 消费应用内模型档位分流细节（官网新闻页有迭代记录，档位以官方 changelog 为准）
-- 跨会话记忆机制（未核验到独立记忆管理入口的官方文档）
-
+- App 内模型档位与 Seed 2.1 Pro/Lite 的逐项映射：以登录后界面为准。
+- 记忆条数上限与覆盖策略：记忆 FAQ 说明超上限时最近记忆覆盖最早记忆，具体上限以产品页为准。
+- 办公任务模式的端侧差异：以各端实际开放功能为准。
 ## 相关条目
 
 - [ChatGPT](./chatgpt.md) — 通用对话对照：训练开关与反馈口径不同

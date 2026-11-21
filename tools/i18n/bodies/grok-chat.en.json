@@ -1,26 +1,29 @@
 {
   "_comment": "C0-11 正文英译 · grok-chat（2026-10-25）。",
   "axes": {
-    "model_access": "The model family is disclosed via xAI's official release pages and press releases (the Grok iteration line); models available on grok.com and inside X may not be in sync. This site's direct fetch of x.ai sitewide is blocked by Cloudflare, so model tier routing was not verified item by item.",
-    "runtime": "Web (grok.com), iOS/Android apps; an embedded Grok entry inside the X platform; generation is processed on xAI's cloud.",
-    "local_files": "Supports image generation and editing, and file input; uploaded content is stored in the xAI account — retention and deletion are covered by the permissions dimension (deleted data is removed from systems within 30 days, official Consumer FAQ).",
-    "background": "Chats return instantly with no offline task queue; there is no official statement of an \"offline continuation\" form — the long-task form is xAI Grok Bot (a cloud task-type agent, a separate dossier under the coding category).",
-    "tools": "Real-time web search and public X post retrieval are the core differentiators; there is also xAI Grok Bot (a cloud task-type agent, a separate dossier under coding) and a standalone API line.",
-    "context": "Style/persona is adjustable; the cross-session memory mechanism is not documented item by item officially (this site has not verified official docs for a standalone memory-management entry).",
-    "permissions": "Official Consumer FAQ: your content and Grok replies may be used for model training by default — turn it off via App \"Settings → Data Controls → Improve the model\" or grok.com \"Settings → Data → Improve the Model\"; Private Chat is not used for training; enterprise and API content is not used for training. For unauthenticated use, the official FAQ says content may be retained anonymously, and some regions (excluding EU/UK) have no training opt-out option. Using Grok inside X falls under X's privacy policy — a separate set of terms.",
-    "fit": "For people who want live X information. Confirm two hard boundaries first: unauthenticated use may have no training opt-out option; inside X it is X's terms, not xAI's. For contract-grade data terms go the API/enterprise line."
+    "model_access": "The Grok consumer product runs xAI’s official model line: Grok 4.7 now powers Expert mode on grok.com and Fast mode for paid subscribers, with the API `grok-4.7` at 500K context, text+image input and no text output limit; Grok 4.6/4.5 remain listed. On the multimodal side Imagine Image 2.0 is GA as Quality Mode, Imagine Video 1.5 supports text/image/voice references, and the product page cites up to 2K and 15-second video (2026-11-21).",
+    "runtime": "Web at grok.com, iOS/Android apps and Grok inside X; generation runs in xAI’s cloud. xAI also offers a separate API (text, vision, voice, images, video) sharing the model family under different terms (2026-11-21).",
+    "local_files": "File/PDF uploads, image and video generation and project file trees are supported, with uploads and outputs stored account-side. Deleting a conversation, all conversations or the account removes data from xAI systems within 30 days, as does Private Chat (2026-11-21).",
+    "background": "Multi-agent mode parallelises sub-problems within one answer, shows each agent’s reasoning and merges them into a cited response; cross-turn long work is carried by Projects, while the cloud task agent Grok Bot is a separate entry. Chat itself streams without an offline queue (2026-11-21).",
+    "tools": "Real-time web search plus X post search with citations, parallel multi-agent, Imagine text-to-image/video and editing, Voice conversation, file/PDF analysis, vision understanding, code generation, Canvas long-form editing, custom instructions, Projects, memory and shareable conversations; paid tiers also expose Grok Bot (2026-11-21).",
+    "context": "The official product page states “Memory across chats”, remembering preferences and past conversations as background for later sessions; Threads keep context and Projects group conversations and files. Private Chat is neither saved nor viewable, Data Controls can turn off personalisation/training and delete one or all conversations, and account deletion clears data within 30 days (2026-11-21).",
+    "permissions": "Free access is available, with SuperGrok adding higher limits, priority access and multi-agent; use inside X follows X’s terms and privacy policy. The xAI Consumer FAQ says users own Inputs/Outputs and may use them commercially with attribution under the Brand Guidelines; signed-in users can turn off training under Settings → Data → Improve the Model, Private Chat is not trained, and unauthenticated use in some regions (excluding EU/UK) offers no training opt-out (2026-11-21).",
+    "fit": "Fit: real-time X/web information, multi-agent deep answers, integrated image and video creation, cross-session memory and Projects, and commercially usable output. Not fit: contract-grade data terms (use the API/enterprise line), fully offline work or avoiding X-ecosystem ties (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).",
-  "unknowns": "- Model tier routing details (x.ai sitewide direct fetch is blocked by Cloudflare; this site could not verify item by item)\n- The cross-session memory mechanism (no official docs verified for a standalone memory-management entry)",
+  "runs": "This entry checks the xAI product page, Consumer FAQ, consumer terms, Grok release notes and the Imagine launch page. Per-tier model availability, regional memory differences and video limits need account-level testing.",
+  "unknowns": "- Regional memory availability: the official product page confirms cross-chat memory, with regional differences following the signed-in settings.\n- Models and quotas per subscription tier: follow the live x.ai/grok and subscription pages.\n- Terms boundary between Grok in X and grok.com: X use follows X’s terms, while the standalone site follows xAI’s consumer terms.",
   "related": [
     "Also general chat; the training switch and feedback wording differ",
     "Its training opt-out has a \"safety-review exception\" — read as a contrast",
     "Chinese-context counterpart: App training switch is self-service, API does not train by default"
   ],
   "sources": [
-    "xAI · Consumer FAQ (official page; body captured via search snapshot on 2026-10-20; direct-connection timeout is network restriction)",
-    "xAI · Terms of Service (the 'you own the Output' clause, verified via search snapshot 2026-10-21; x.ai sitewide direct fetch blocked by Cloudflare 403)",
-    "xAI · News (official release-line entry point, model-iteration record pointer)",
-    "xAI · Grok product page (pricing page pointer, D9: this site does not collect price numbers)"
+    "xAI — Grok product page (memory across chats, Projects, multi-agent, Imagine 2K/15 s; fetched 200 on 2026-11-21)",
+    "xAI — Consumer FAQ (output ownership/commercial use, training switch, Private Chat, 30-day deletion; fetched 200 on 2026-11-21)",
+    "xAI — Consumer Terms (Inputs/Outputs ownership, platform licence and paid subscriptions; fetched 200 on 2026-11-21)",
+    "Grok — release notes (Grok 4.7 Expert/Fast, Projects, Imagine Agent Mode; verified 2026-11-21)",
+    "xAI — News (Grok 4.7, Imagine Image 2.0, Imagine Video 1.5 References; verified 2026-11-21)",
+    "xAI — Imagine Image 2.0 launch (Quality Mode and editing; fetched 200 on 2026-11-21)",
+    "xAI API — release notes (grok-4.7 500K context, Imagine model line; fetched 200 on 2026-11-21)"
   ]
 }

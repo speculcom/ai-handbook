@@ -306,7 +306,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [豆包](tracks/chat/products/doubao-chat.md) | 字节跳动 | web | partial | active |
+| [豆包](tracks/chat/products/doubao-chat.md) | 字节跳动 | web | verified | active |
 | [海螺AI](tracks/chat/products/hailuo-chat.md) | MiniMax（稀宇科技） | web | verified | active |
 | [阶跃AI](tracks/chat/products/stepfun.md) | 阶跃星辰 | web | verified | active |
 | [腾讯元宝](tracks/chat/products/yuanbao-chat.md) | 腾讯 | web | verified | active |
@@ -316,9 +316,9 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [智谱清言](tracks/chat/products/chatglm-chat.md) | 智谱 AI | web | verified | active |
 | [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | verified | active |
 | [Claude（对话应用）](tracks/chat/products/claude-chat.md) | Anthropic | web | verified | active |
-| [DeepSeek](tracks/chat/products/deepseek-chat.md) | 深度求索 | web | partial | active |
+| [DeepSeek](tracks/chat/products/deepseek-chat.md) | 深度求索 | web | verified | active |
 | [Gemini（对话应用）](tracks/chat/products/gemini-chat.md) | Google | web | verified | active |
-| [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
+| [Grok](tracks/chat/products/grok-chat.md) | xAI | web | verified | active |
 | [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | verified | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | verified | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | verified | active |
@@ -358,7 +358,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [海螺视频](tracks/video/products/hailuo-video.md) | MiniMax（稀宇科技） | web | partial | active |
+| [海螺视频](tracks/video/products/hailuo-video.md) | MiniMax（稀宇科技） | web | verified | active |
 | [可灵 Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd.（快手） | web | verified | active |
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | verified | active |

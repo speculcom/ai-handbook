@@ -321,7 +321,7 @@ General-purpose chat assistants, web/app, including Chinese products
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
-| [Doubao](tracks/chat/products/doubao-chat.md) | ByteDance | web | partial | active |
+| [Doubao](tracks/chat/products/doubao-chat.md) | ByteDance | web | verified | active |
 | [Hailuo AI](tracks/chat/products/hailuo-chat.md) | MiniMax (Xiyu Jizhi) | web | verified | active |
 | [StepFun (Step Chat)](tracks/chat/products/stepfun.md) | StepFun | web | verified | active |
 | [Tencent Yuanbao](tracks/chat/products/yuanbao-chat.md) | Tencent | web | verified | active |
@@ -331,9 +331,9 @@ General-purpose chat assistants, web/app, including Chinese products
 | [ChatGLM (Zhipu Qingyan)](tracks/chat/products/chatglm-chat.md) | Zhipu AI | web | verified | active |
 | [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | verified | active |
 | [Claude (chat app)](tracks/chat/products/claude-chat.md) | Anthropic | web | verified | active |
-| [DeepSeek Chat](tracks/chat/products/deepseek-chat.md) | DeepSeek | web | partial | active |
+| [DeepSeek Chat](tracks/chat/products/deepseek-chat.md) | DeepSeek | web | verified | active |
 | [Gemini (chat app)](tracks/chat/products/gemini-chat.md) | Google | web | verified | active |
-| [Grok](tracks/chat/products/grok-chat.md) | xAI | web | partial | active |
+| [Grok](tracks/chat/products/grok-chat.md) | xAI | web | verified | active |
 | [HuggingChat](tracks/chat/products/huggingchat.md) | Hugging Face | web | verified | active |
 | [Kimi](tracks/chat/products/kimi-chat.md) | Moonshot AI | web | verified | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | verified | active |
@@ -373,7 +373,7 @@ Text/image-to-video generation and AI-native video editing
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
-| [Hailuo Video](tracks/video/products/hailuo-video.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
+| [Hailuo Video](tracks/video/products/hailuo-video.md) | MiniMax (Xiyu Jizhi) | web | verified | active |
 | [Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd. (Kuaishou) | web | verified | active |
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | verified | active |

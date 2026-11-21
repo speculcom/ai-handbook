@@ -1,25 +1,30 @@
 {
   "_comment": "C0-14 hailuo-video bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（kling/jimeng），related 写 2 条（frontmatter related 有 3 项含 veo，键按正文链接行对齐=2）。sources 4 条对齐 frontmatter。filing_no Shanghai-MiniMax-202505230046 属登记号原样保留。",
   "axes": {
-    "model_access": "MiniMax's in-house video model line (Hailuo is its consumer-grade video entry, official narrative); users do not pick bare models. Open-weights line: MiniMax's language models have an open-weights precedent, no official open statement seen for the video line.",
-    "runtime": "Web (hailuoai.video) + app (as seen in site navigation); generation on the vendor's cloud.",
-    "local_files": "Works stored account-side in the cloud, generation history visible on the web works page; downloads go local. No officially stated local data surface.",
-    "background": "Generation is instant/queued (varies by tier, not verified item by item); no \"keep-running-after-shutdown\" task surface (no claim verified).",
-    "tools": "Text-to-video and image-to-video are the main functions (official narrative); camera-motion control capability lines (as seen in site copy, details not verified item by item).",
-    "context": "Organized via the account works page (generation history reviewable); cross-session memory — no official statement verified. Video generation is one-shot tasks; there is no \"continue where you left off\" concept.",
-    "permissions": "Account + subscription system (D9: prices not collected); the training-use switch not verified line by line. Filing: the MiniMax model filing no. Shanghai-MiniMax-202505230046 (cross-verified on Alibaba Cloud Model Studio and Baidu Intelligent Cloud official disclosure pages, 2026-10-22) — this is a model-layer filing no.; the Hailuo Video product entry's own filing status was not separately verified.",
-    "fit": "Fits: domestically available direct-connection text/image-to-video, starting free to test, short-video material output. Does not fit: model self-selection, open weights, enterprise-grade management surfaces."
+    "model_access": "Hailuo has grown from a single first-party model entry into a multi-model studio: its official account page lists the Hailuo 2.3/2.0/1.0 family and MiniMax H3 (Hailuo 3.0) alongside 12+ video models including Veo 3.1, Sora 2 and Seedance 2.0. H3’s official specs are 768p/2K, 4–15 s, 24fps and 32 kHz native stereo, with text-to-video, first/last-frame and Omni Reference modes (2026-11-21).",
+    "runtime": "Web at hailuoai.video, mobile apps and the MiniMax open-platform async API (`/v2/video_generation`, bearer auth); H3-Base weights were open-sourced on 2026-08-03 and can run locally at 768p via SGLang/vLLM/diffusers/ComfyUI, while 2K regeneration stays on the official API (2026-11-21).",
+    "local_files": "Product-side assets and outputs live in the account cloud, and free downloads carry a watermark; the open H3-Base weights, inference and 768p output can stay entirely local, while the 2K regeneration module is not part of the open release and requires the official API. The two data boundaries differ (2026-11-21).",
+    "background": "Cloud async tasks: `POST /v2/video_generation` returns a `task_id`, clients poll Query Task for status and read `content.url` on success, with List/Cancel/Delete and only the last seven days of task records kept. Console generation queues by plan priority, with paid tiers ahead (2026-11-21).",
+    "tools": "H3: text-to-video, first-frame/first-and-last-frame, Omni Reference (≤9 images + ≤3 videos + ≤3 audio, ≤12 files total), instruction-based video editing (replace/add/remove subjects and objects, change background and light, revise dialogue and voice), native stereo, up to 15 s, 2K and six ratios from 21:9 to 9:16. Hailuo 2.3: text/image-to-video at 768p/1080p for 6/10 s, with 2.3-Fast limited to image-to-video (2026-11-21).",
+    "context": "Work is organised by generation tasks and output history; one generation puts text, images, video and audio into a single multimodal context, and Omni Reference keeps character, motion, camera and voice consistent through reference files. Chat context is not carried across sessions, so reuse relies on explicit reference assets (2026-11-21).",
+    "permissions": "Account plus a free tier and paid subscriptions (Standard/Pro/Master/Ultra/Max) with credits (shells); free output is watermarked and personal-use only, while paid tiers remove the watermark and retain commercial rights. Open H3 weights follow the MiniMax H3 Community License, whose revenue threshold and attribution terms govern commercial use; the API is billed separately (2026-11-21).",
+    "fit": "Fit: one entry point for comparing models, H3 native audio-video and reference-driven generation, ad/e-commerce/short-drama shots and local 768p open-weight deployment. Not fit: free commercial use, the lowest price on a single model or fully offline 2K (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Generation duration/resolution differences between free and paid tiers** (D9: prices not collected; quota behavior to be measured)\n- **The actual controllability of camera-motion control capabilities**\n- **Whether works/accounts interoperate between the overseas entry and the domestic entry**",
-  "unknowns": "- Open weights for the video line (no official statement verified)\n- The training-use switch (not verified line by line)\n- The product entry's own generative-AI service filing status (not separately verified)\n- Cross-session memory mechanism (no official statement verified)",
+  "runs": "This entry checks the Hailuo model pages, the H3 open-source announcement, the MiniMax API overview and the paid/usage terms. Per-model availability, credit costs and 2K stability need account-level testing.",
+  "unknowns": "- Public weight coverage per H3 variant: H3-Base FL2VA/Ref2VA are open, while H3-Context-IR and H3-Regenerate-2K remain hosted by MiniMax.\n- Commercial licence revenue threshold and attribution: follow the MiniMax H3 Community License text.\n- Credit prices per model tier: follow the live generation panel and subscription page.",
   "related": [
     "Both domestic video heavyweights: Kling's ecosystem surface (app/plugins) is wider, Hailuo's entry is lighter.",
     "Both domestic image+video one-stop entries: Jimeng embeds in the CapCut ecosystem, Hailuo is a standalone video site."
   ],
   "sources": [
-    "Hailuo Video · official site (product and capability narrative)",
-    "Hailuo Video · Terms (official terms, direct-fetched and verified 2026-10-22)",
-    "Hailuo Video · Changelog (official update line)",
-    "Alibaba Cloud Model Studio · model filing information disclosure (filing-no. cross-verification source)"
+    "Hailuo Video — official site (multi-model entry and H3 studio; verified 2026-11-21)",
+    "Hailuo Video — MiniMax H3 model page (5–15 s, 2K, native stereo, 12 references and editing; fetched 200 on 2026-11-21)",
+    "Hailuo Video — AI video generator (12+ models including Veo/Sora/Seedance/H3; fetched 200 on 2026-11-21)",
+    "Hailuo Video — Hailuo 2.3 model page (T2V/I2V, 768p/1080p, 6/10 s; fetched 200 on 2026-11-21)",
+    "Hailuo AI — Paid Service Agreement (subscriptions, credits and commercial rights for paid content; verified 2026-11-21)",
+    "Hailuo AI — Terms of Use (base personal, non-commercial licence; verified 2026-11-21)",
+    "MiniMax API — overview (H3/H3-Highspeed/H3-Lite/H3-Max, async tasks and queries; fetched 200 on 2026-11-21)",
+    "MiniMax — H3 open-source announcement (H3-Base weights, Context-IR and 2K regeneration boundaries, Community License; fetched 200 on 2026-11-21)",
+    "Hailuo Video — product update (Hailuo 2.3/2.3-Fast launch and model line; verified 2026-11-21)"
   ]
 }
