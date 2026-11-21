@@ -438,7 +438,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | verified | active |
 | [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | verified | active |
 | [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | verified | active |
-| [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
+| [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | verified | active |
 | [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI（悉尼） | web | verified | active |
 | [Salesforce Agentforce](tracks/automation/products/agentforce.md) | Salesforce | web | verified | active |
 | [SmythOS](tracks/automation/products/smythos.md) | SmythOS | web | partial | maintenance |

@@ -1,22 +1,24 @@
 {
-  "_comment": "safety 大类自写批 · helicone 正文英译（2026-11-06）。axes 八维、runs/unknowns 对应「官方口径与未核到项 / 未知项清单」；related/sources 按索引对齐。",
+  "_comment": "safety 大类自写批 · helicone 正文英译（2026-11-21，Apache-2.0 与云端/自托管口径已核）。axes 八维、runs/unknowns 对应「官方口径与未核到项 / 未知项清单」；related/sources 按索引对齐。",
   "axes": {
-    "model_access": "The official docs describe it as an \"AI Gateway\" covering 100+ models, with provider keys held on the platform side after you add credits to your account.",
-    "runtime": "A hosted gateway: requests pass through the platform, and the docs say entries appear in the Requests tab \"within seconds\". Whether self-hosting exists is not stated on the page captured on the check date.",
-    "local_files": "Using a hosted gateway means requests and responses traverse a third party. Whether local files are retained, and for how long, was not verified for this entry.",
-    "background": "A standing service; the official page lists automatic logging, observability and fallbacks. Persistent background queue behaviour was not verified item by item.",
-    "tools": "The stated surface is gateway routing and observation; SDK and proxy configuration details as an extension ecosystem were not verified item by item.",
-    "context": "Context length belongs to whichever model you call; the platform's logging scope, truncation and retention windows were not verified.",
-    "permissions": "Keys and usage sit inside the account model (the docs say it \"maintains the keys for you\"). Team tiers, audit logs and export permissions were not verified item by item.",
-    "fit": "Fits: one entry point for several providers, consolidated logs, usage and failures, with requests leaving your environment accepted. Does not fit: data that must not leave your environment, or a self-hosting requirement you have not yet matched against an official deployment statement."
+    "model_access": "The official AI Gateway docs describe an open-source Rust router exposing one OpenAI-compatible interface to 100+ language models, with provider keys centralised in the gateway; both cloud-hosted and self-hosted forms are listed. It is not a model provider.",
+    "runtime": "The cloud-hosted gateway runs on the platform, with an official 99.9% SLA and global edge network. The self-hosted gateway ships as one lightweight Rust binary for Docker, Kubernetes, bare-metal or sidecar use; the full observability stack can run via Docker Compose or Helm.",
+    "local_files": "In cloud form, requests and logs live on Helicone's side. In self-hosted form, Web, Jawn, Supabase, ClickHouse and Minio run on your own infrastructure, so logs and object storage stay under your control. The gateway itself does not run local models.",
+    "background": "The gateway sits in the request path and forwards or falls back per call. The official material does not list a durable task queue as a product surface; background jobs are left to the caller's orchestration. Log writes are part of the cloud or self-hosted stack.",
+    "tools": "The docs list integrations including the OpenAI SDK, Anthropic, LangChain, Gemini and Vercel AI SDK. The gateway provides OpenAI-compatible syntax, caching, rate limits, fallbacks and built-in tracing. An MCP server is not part of the AI Gateway capability surface as documented.",
+    "context": "The gateway keeps no conversation memory: context is the request body, and length belongs to the upstream model. The observability layer stores traces and sessions for debugging, but the docs do not feed historical traces back as model context.",
+    "permissions": "Cloud use centralises keys and spend controls in the account; self-hosting leaves key and data permissions to your deployment. Team tiers, audit logs and export details are not itemised in the official docs.",
+    "fit": "Fits: teams standardising several model providers with fallback, caching, rate limits and observability, or teams that need data inside their own infrastructure and will run the self-hosted gateway. Does not fit: those expecting the gateway to supply model capability, or those unwilling to operate ClickHouse, Minio and Supabase dependencies."
   },
-  "runs": "This entry has not completed measured runs on latency, availability or failover conditions. \"100+ models\" and \"within seconds\" are quoted from the official page; the site does not treat those figures as evidence for a ranking, and draws no comparison against similar products.",
-  "unknowns": "- Licence type (no official statement captured on the check date)\n- Whether self-hosting exists and what it includes\n- Where request/response logs are stored, for how long, and how they are deleted\n- Whether logged data is used for any training or product improvement\n- Team permission tiers, audit logs and export capabilities\n- Billing and quota terms (prices are not recorded in entries)",
+  "runs": "No measured runs on latency, availability or failover conditions. \"100+ models\", \"99.9% SLA\" and \"within seconds\" are quoted from official pages; the site does not treat those figures as evidence for a ranking, and draws no comparison against similar products. Licence and self-hosting statements come from the official Open Source and AI Gateway Introduction pages.",
+  "unknowns": "- Exact retention period and deletion UI for cloud request/response logs (not itemised in the official docs)\n- Whether logged data is used for training or product improvement\n- Team permission tiers, audit logs and export details\n- Billing and quota terms (prices are not recorded in entries)\n- Capacity planning and upgrade paths for the self-hosted stack (check the deployment docs)",
   "related": [
     "Same line: LangWatch (in gateway and access control); this entry states only what its own official sources support.",
     "Same line: LiteLLM 网关（Proxy / AI Gateway） (in gateway and access control); this entry states only what its own official sources support."
   ],
   "sources": [
+    "Helicone · Open Source (Apache License 2.0, self-hosting and repositories; 200 direct on 2026-11-21)",
+    "Helicone · AI Gateway Introduction (Rust router, 100+ models, cloud/self-hosted, Docker/Kubernetes/bare-metal; 200 direct on 2026-11-21)",
     "Helicone · official docs (AI Gateway · automatic logging, observability and fallbacks; 100+ models; 200 direct on 2026-11-06)",
     "Helicone · changelog (200 direct on 2026-11-06)"
   ]

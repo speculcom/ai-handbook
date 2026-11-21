@@ -453,7 +453,7 @@ Visual AI-app builders and workflow automation platforms
 | [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | verified | active |
 | [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | verified | active |
 | [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | verified | active |
-| [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
+| [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | verified | active |
 | [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI (Sydney) | web | verified | active |
 | [Salesforce Agentforce](tracks/automation/products/agentforce.md) | Salesforce | web | verified | active |
 | [SmythOS](tracks/automation/products/smythos.md) | SmythOS | web | partial | maintenance |
