@@ -41,13 +41,25 @@
       "把一份技术报告的训练章节拆成预训练/后训练两段，各说出关键变量",
       "看到「刷新 SOTA」的说法，先查评测集发布时间和训练截止日期的关系",
       "读模型卡时能指出许可证、评测口径和已知局限三处关键信息",
-      "对路线里的论文卡，各说出研究问题与核心证据位置，并说出至少一条「论文没有主张」的流行说法"
+      "对路线里的论文卡，各说出研究问题与核心证据位置，并说出至少一条「论文没有主张」的流行说法",
+      "读论文时，摘要、实验设置、局限性分别该抓什么？",
+      "困惑度低是否等于生成质量高？",
+      "知识蒸馏与量化的目标有何不同？",
+      "论文卡里的「证据位置」为什么比结论更重要？",
+      "开放权重与开源模型的差别，为什么要看许可证？",
+      "看到「模型卡」时，如何判断评测是否可复现？"
     ],
     "en": [
       "Split a tech report's training section into pretraining and post-training, naming the key variables of each",
       "On seeing a \"new SOTA\" claim, first check the benchmark's release date against the model's training cutoff",
       "When reading a model card, point out the license, the eval setup, and the stated limitations",
-      "For each paper card on this route, state its research question and where the core evidence sits, and name at least one popular claim the paper never makes"
+      "For each paper card on this route, state its research question and where the core evidence sits, and name at least one popular claim the paper never makes",
+      "When reading a paper, what should you take from the abstract, setup and limitations?",
+      "Does lower perplexity mean better generation quality?",
+      "How do knowledge distillation and quantisation differ in goal?",
+      "Why does the evidence location on a paper card matter more than the conclusion?",
+      "Why distinguish open weights from open-source models, and why read the licence?",
+      "When reading a model card, how do you judge whether its evaluation is reproducible?"
     ]
   },
   "answers": [
@@ -70,6 +82,36 @@
       "zh": "示例：LIMA 研究少量高质量指令数据的作用，查看其受控人评与消融；不能据此声称少量数据能解决所有安全与鲁棒性问题。其他论文同样对应问题、证据和适用边界。",
       "en": "For LIMA, inspect controlled human evaluation and ablations on small high-quality instruction datasets. This does not establish that little data solves every safety or robustness problem. Apply the same question/evidence/limits structure to other papers.",
       "review": "论文卡-LIMA"
+    },
+    {
+      "zh": "摘要抓研究问题与主要主张；实验设置抓数据、基线、算力和判法；局限性抓作者承认的适用范围与未覆盖项。三处不能互相替代。",
+      "en": "The abstract gives the question and main claim; the setup gives data, baselines, compute and evaluation; limitations give the scope and gaps the authors admit. None substitutes for another.",
+      "review": "怎么读一篇AI论文"
+    },
+    {
+      "zh": "困惑度衡量模型对文本的预测概率，和人类偏好、事实正确性、任务完成度不是一回事。它可用于同设置下的语言建模对比，不能单独证明产品更好。",
+      "en": "Perplexity measures how well a model predicts text; it is not human preference, factual correctness or task success. It compares language modelling under the same setup, not product quality on its own.",
+      "review": "困惑度"
+    },
+    {
+      "zh": "蒸馏让小模型学大模型的输出或表示，目标是能力迁移；量化降低权重/激活精度，目标是省显存与带宽。两者可叠加，但失败模式不同。",
+      "en": "Distillation trains a smaller model on a larger model’s outputs or representations to transfer capability; quantisation lowers weight/activation precision to save memory and bandwidth. They can combine, with different failure modes.",
+      "review": "知识蒸馏"
+    },
+    {
+      "zh": "结论可能被摘要简化或媒体转述；证据位置能回到具体表、图和实验设置，判断结论是否被数据支撑。没有证据位置的引用只是转述。",
+      "en": "Conclusions get simplified in abstracts or media; the evidence location leads back to the exact table, figure and setup, showing whether data supports the claim. A citation without a location is just retelling.",
+      "review": "论文卡-HELM"
+    },
+    {
+      "zh": "开放权重只保证权重可下载，不一定允许商用、再发布或衍生；开源还涉及代码、训练数据和许可条件。许可证决定你能不能把权重放进产品。",
+      "en": "Open weights only means the weights can be downloaded; commercial use, redistribution or derivatives may be restricted. Open source also covers code, training data and licence terms. The licence decides whether weights can ship in a product.",
+      "review": "开放权重"
+    },
+    {
+      "zh": "看它是否给出模型版本、提示与系统设置、样本集与切分、判法、判定人和日期。缺任一项，分数只能当参考，不能当可复跑的证据。",
+      "en": "Check whether it gives model version, prompts and system settings, sample set and split, method, judges and dates. Missing any one makes the score a reference, not reproducible evidence.",
+      "review": "模型卡"
     }
   ],
   "nextTask": {

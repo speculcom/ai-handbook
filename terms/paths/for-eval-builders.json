@@ -28,12 +28,26 @@
     "zh": [
       "说明一份公开分数在什么条件下不能用于你的任务",
       "给自己的场景写出两条机器能判、三条只能人判的检查",
-      "指出一项评测结论要能被别人复跑，最少要固定哪几样东西"
+      "指出一项评测结论要能被别人复跑，最少要固定哪几样东西",
+      "评测饱和是什么意思，遇到时怎么办？",
+      "数据污染如何影响分数，怎么查？",
+      "结构化输出评测，先看格式还是内容？",
+      "迁移评估要换什么、保留什么？",
+      "可观测性在评测里记录什么？",
+      "幻觉评测为什么不能只用自动指标？",
+      "一个 20 条样本的最小评测，机器判与人判怎么分？"
     ],
     "en": [
       "Say when a published score cannot transfer to your task",
       "Write two checks your scenario can judge automatically and three that need a person",
-      "Name the minimum set of things to pin so others can reproduce an evaluation result"
+      "Name the minimum set of things to pin so others can reproduce an evaluation result",
+      "What is benchmark saturation, and what do you do when it happens?",
+      "How does data contamination affect scores, and how do you check it?",
+      "For structured-output evaluation, check format or content first?",
+      "In a migration evaluation, what changes and what stays fixed?",
+      "What does observability record in an evaluation?",
+      "Why can’t hallucination evaluation rely on automatic metrics alone?",
+      "For a 20-item minimum evaluation, how do you split machine and human judging?"
     ]
   },
   "answers": [
@@ -51,6 +65,41 @@
       "zh": "至少固定五样：模型与版本标识、提示与系统设置的原文、样本集内容与切分、判法（脚本与人判标准）、判定人及其判断口径。少任一项，别人复跑得到的差异都无法归因，只能当成另一次评测。样本会随时间失效，所以还要记下样本采集的时间范围。",
       "en": "Pin at least five: model and version identifier, prompt and system settings verbatim, sample set and its split, the method (script plus human rubric), and who judged under what rubric. Missing any one turns a re-run into a different evaluation whose gaps cannot be attributed. Also record when samples were collected, because they expire.",
       "review": "训练集与测试集"
+    },
+    {
+      "zh": "多数模型接近满分，分数已无法区分能力。此时应换更难/更贴近任务的样本，补过程指标与失败分析，而不是继续在小数点后排名。",
+      "en": "Most models approach the ceiling and scores no longer separate capability. Move to harder or more task-relevant samples, add process metrics and failure analysis instead of ranking decimal places.",
+      "review": "评测饱和"
+    },
+    {
+      "zh": "测试样本进入训练会让分数虚高，尤其公开 benchmark。查训练截止与题集发布时间、做去重/近似匹配、看未见任务与扰动版本；时间重叠只是风险提示，不是单独证据。",
+      "en": "Test items entering training inflate scores, especially public benchmarks. Check training cutoff against release dates, run exact/near-duplicate matching, and test unseen or perturbed versions; overlap is a risk signal, not proof.",
+      "review": "数据污染"
+    },
+    {
+      "zh": "先看格式是否可解析、字段是否齐全，再看字段值是否正确、引用是否真实。格式失败会让内容无法进入判分；只评内容会漏掉下游无法消费的问题。",
+      "en": "First check parseability and required fields, then whether values are correct and citations real. Format failure blocks content scoring; content-only review misses downstream unusability.",
+      "review": "结构化输出"
+    },
+    {
+      "zh": "换模型/供应商与必要接口；保留任务样本、判法、提示意图和验收标准。两边都换就无法归因，只能得到另一次不可比的评测。",
+      "en": "Change the model/vendor and necessary interfaces; keep task samples, rubric, prompt intent and acceptance criteria. Changing both removes attribution and yields another incomparable evaluation.",
+      "review": "迁移评估"
+    },
+    {
+      "zh": "每次运行的模型版本、提示、检索结果、工具调用、延迟、token 用量与判定结果。没有这些，分数无法解释，失败也无法复现。",
+      "en": "Per run: model version, prompt, retrieved context, tool calls, latency, token usage and judgement. Without them scores cannot be explained or failures reproduced.",
+      "review": "可观测性"
+    },
+    {
+      "zh": "自动指标能查引用是否存在、字段是否齐全，但判断一句话是否被材料支持、是否该拒答，需要人看上下文。自动分数只能当前置筛，不能当最终事实结论。",
+      "en": "Automatic metrics can check citation existence and required fields, but whether a claim is supported or should have been refused needs a human reading context. Use them as a filter, not a final factual verdict.",
+      "review": "幻觉"
+    },
+    {
+      "zh": "机器判格式、字段、引用编号、日期金额是否出现在材料里；人判结论是否有支撑、拒答是否恰当、语气与合规。比例可按 12 条机器前置、8 条人判深查，并记录分歧。",
+      "en": "Machines judge format, fields, citation ids and whether dates/amounts appear in the material; humans judge support, refusal appropriateness, tone and compliance. A workable split is 12 machine-first and 8 human-deep, recording disagreements.",
+      "review": "基准测试"
     }
   ],
   "nextTask": {

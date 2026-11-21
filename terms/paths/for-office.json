@@ -3,7 +3,10 @@
   "ord": 14,
   "zh": "办公与写作路线",
   "en": "The Office Route",
-  "span": { "zh": "约 45 分钟", "en": "about 45 minutes" },
+  "span": {
+    "zh": "约 45 分钟",
+    "en": "about 45 minutes"
+  },
   "lead": {
     "zh": "从「把 AI 当搜索框」走到「把 AI 接进文档、表格、会议与邮件」。先认清能力边界，再按场景练一遍完整流程。",
     "en": "Move from using AI as a search box to wiring it into documents, spreadsheets, meetings and email. Learn the limits first, then rehearse one complete workflow per scenario."
@@ -27,12 +30,26 @@
     "zh": [
       "拿到一份会议转写，能标出哪些句子必须回原文核对、哪些可以直接进纪要",
       "说清一次 PPT/表格任务里，AI 负责哪几步、人负责哪几步",
-      "判断一条办公数据能否贴进云端模型，依据是数据驻留与授权而不是「大家都这么用」"
+      "判断一条办公数据能否贴进云端模型，依据是数据驻留与授权而不是「大家都这么用」",
+      "会议纪要里，哪些内容必须标「待确认」？",
+      "用 AI 做 PPT，先给大纲还是先给模板？",
+      "表格分析中，AI 最常把什么算错？",
+      "邮件让 AI 代写，发送前必须检查哪三项？",
+      "合同审阅为什么不能只要「风险清单」？",
+      "翻译本地化，什么该译、什么不该译？",
+      "把客户数据交给 AI 清洗，最小脱敏规则是什么？"
     ],
     "en": [
       "Given a meeting transcript, mark which sentences must be checked against the transcript and which can go straight into minutes",
       "Explain which steps AI owns and which a human owns in a deck or spreadsheet task",
-      "Decide whether office data can go into a cloud model based on residency and licensing, not on “everyone does it”"
+      "Decide whether office data can go into a cloud model based on residency and licensing, not on “everyone does it”",
+      "What must be marked “to confirm” in meeting minutes?",
+      "For AI-assisted slides, start with the outline or the template?",
+      "What does AI most often get wrong in table analysis?",
+      "Before sending an AI-drafted email, what three checks are mandatory?",
+      "Why is a “risk list” not enough for contract review?",
+      "In localisation, what should and should not be translated?",
+      "What is the minimum de-identification rule before giving customer data to AI for cleaning?"
     ]
   },
   "answers": [
@@ -50,6 +67,41 @@
       "zh": "先看数据分类、合同/合规要求、模型是否留存与跨境；不能确认时改用本地模型、脱敏或不上传。",
       "en": "Check data class, contract/compliance rules, retention and cross-border transfer. If unclear, use a local model, mask the data or do not upload.",
       "review": "数据驻留"
+    },
+    {
+      "zh": "没有明确负责人、截止日期、数字口径或决策依据的条目。纪要不是逐字稿；把猜测写成结论，会比漏记更危险。",
+      "en": "Items without an owner, deadline, numeric definition or decision basis. Minutes are not transcripts; writing a guess as a conclusion is more dangerous than omitting it.",
+      "review": "怎么用 AI 做会议纪要"
+    },
+    {
+      "zh": "先定大纲与每页结论，再套模板。模板先行会让内容迁就版式；大纲先行才能检查叙事是否完整、每页是否有证据。",
+      "en": "Fix the outline and the point of each slide first, then apply the template. Template-first makes content serve layout; outline-first exposes gaps and evidence.",
+      "review": "怎么用 AI 做 PPT"
+    },
+    {
+      "zh": "口径（去重、缺失、时间窗）、行列方向、单位和总计。让它先复述口径与样本数，再给结果；关键数字要回到原始表复核。",
+      "en": "Definitions (deduplication, missing values, time window), row/column orientation, units and totals. Ask it to restate definitions and sample counts before results; recheck key numbers against the sheet.",
+      "review": "怎么用 AI 分析表格"
+    },
+    {
+      "zh": "收件人与抄送、承诺/数字/日期、语气与保密边界。尤其检查它有没有替你做出未经授权的承诺。",
+      "en": "Recipients and cc, commitments/numbers/dates, tone and confidentiality. Especially check whether it made an commitment you were not authorised to make.",
+      "review": "怎么用 AI 写邮件与排日程"
+    },
+    {
+      "zh": "清单不给条款位置、适用条件和修改建议，业务无法据此谈判。要求它逐条引用原文、标出双方义务与退出条件，再由法务复核。",
+      "en": "A list without clause location, conditions and proposed edits cannot support negotiation. Require verbatim clauses, obligations and exit terms, then have legal review.",
+      "review": "怎么用 AI 审阅合同与长文档"
+    },
+    {
+      "zh": "界面、说明、法律与营销文案要译；品牌名、代码、API 字段、法规编号和商标通常保留，除非官方有本地译名。术语表先行，避免同一词多种译法。",
+      "en": "UI, instructions, legal and marketing copy translate; brand names, code, API fields, regulation numbers and trademarks usually stay, unless an official local name exists. Build a glossary first to avoid inconsistent terms.",
+      "review": "怎么用 AI 做翻译与本地化"
+    },
+    {
+      "zh": "去掉姓名、电话、身份证、地址、账号等直接标识，能聚合就聚合；保留分析需要的字段，并记录脱敏人与还原权限。不要用「假名化」代替删除。",
+      "en": "Remove direct identifiers such as names, phones, ID numbers, addresses and accounts; aggregate where possible; keep only fields needed for analysis and record who masked and who can re-identify. Pseudonymising is not deletion.",
+      "review": "怎么用 AI 清洗数据"
     }
   ],
   "nextTask": {

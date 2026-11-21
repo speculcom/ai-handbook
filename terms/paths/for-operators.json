@@ -31,12 +31,26 @@
     "zh": [
       "说出首字延迟和吞吐各自受什么影响，各给一个优化手段",
       "给线上服务列出三件必须监控的事，并说明各自先查什么",
-      "供应商宣布模型退役时，能走一遍迁移评估的四个检查项"
+      "供应商宣布模型退役时，能走一遍迁移评估的四个检查项",
+      "KV 缓存为什么会占满显存，何时需要分页或量化？",
+      "连续批处理提升吞吐，代价是什么？",
+      "速率限制与配额应该按什么维度设？",
+      "提示注入在运维日志里通常留下什么痕迹？",
+      "权限最小化在 AI 服务里具体落在哪三层？",
+      "服务中断时，先保什么、后保什么？",
+      "模型退役迁移，为什么先跑回滚再切换？"
     ],
     "en": [
       "Say what drives time-to-first-token and throughput respectively, with one optimization for each",
       "List three things a live service must monitor, and what to check first for each",
-      "When a vendor announces retirement, walk through the four migration-assessment checks"
+      "When a vendor announces retirement, walk through the four migration-assessment checks",
+      "Why does the KV cache fill memory, and when do you need paging or quantisation?",
+      "Continuous batching raises throughput; what does it cost?",
+      "Which dimensions should rate limits and quotas use?",
+      "What traces does prompt injection usually leave in operational logs?",
+      "Where does least privilege land in an AI service?",
+      "During an outage, what do you protect first and what later?",
+      "Why rehearse rollback before switching during model retirement?"
     ]
   },
   "answers": [
@@ -53,6 +67,41 @@
     {
       "zh": "至少覆盖接口与流式、任务质量、工具与权限、成本与延迟，并核对数据条款和回滚。先在代表性请求上对比，达到预先约定的条件再切换。",
       "en": "Cover interface/streaming, task quality, tools/permissions and cost/latency, plus data terms and rollback. Compare representative requests before switching against agreed criteria.",
+      "review": "模型退役"
+    },
+    {
+      "zh": "每个并发请求都要为历史 token 保存键值向量，长度和并发上升时线性增长。并发高、上下文长或显存紧张时，分页、量化或缩短上下文才值得评估；先测命中率与延迟再选。",
+      "en": "Every concurrent request stores key/value vectors for prior tokens, growing linearly with length and concurrency. When concurrency, context or memory pressure is high, evaluate paging, quantisation or shorter context; measure hit rate and latency first.",
+      "review": "KV 缓存"
+    },
+    {
+      "zh": "新请求会插进正在生成的批次，单请求的首字与完成延迟可能变长，调度和显存管理更复杂。吞吐提升不等于每个用户都更快，要同时看 P50/P99。",
+      "en": "New requests join an in-flight batch, so per-request time-to-first-token and completion can stretch, and scheduling plus memory management get harder. Higher throughput is not faster for every user; watch P50 and P99.",
+      "review": "连续批处理"
+    },
+    {
+      "zh": "至少按租户、密钥、请求数/分钟、token/分钟和并发数分开；再叠加工具调用与重试。只限请求数，长上下文请求仍可能拖垮成本与延迟。",
+      "en": "At least tenant, key, requests per minute, tokens per minute and concurrency; add tool calls and retries. Limiting request count alone still lets long-context calls wreck cost and latency.",
+      "review": "速率限制"
+    },
+    {
+      "zh": "异常的工具名/参数、检索内容触发外部 URL、权限被拒后反复重试、同一会话突然改变任务。日志要能关联输入来源、工具调用与授权结果，否则只能看到失败。",
+      "en": "Unusual tool names or arguments, retrieved text triggering external URLs, repeated retries after permission denials, or a session abruptly changing task. Logs must link input source, tool calls and authorisation outcomes, or you only see failure.",
+      "review": "提示注入"
+    },
+    {
+      "zh": "模型可见的工具清单、执行端的凭据与资源范围、数据层的行级/字段级访问。三层任一层放宽，模型提议就可能变成越权动作。",
+      "en": "The tool list visible to the model, credentials and resource scope at execution, and row/field access at the data layer. Loosen any layer and a model proposal can become an unauthorised action.",
+      "review": "权限"
+    },
+    {
+      "zh": "先保鉴权、审计与可回滚的核心读写，再保非关键生成与实验流量；先切断有外部副作用的工具，再降级为只读或排队。顺序要事先写成 runbook，而不是临时决定。",
+      "en": "Protect authentication, audit and rollback-critical reads/writes first, then non-critical generation and experiments; cut tools with external side effects, then degrade to read-only or queueing. Write the order into a runbook in advance.",
+      "review": "服务中断风险"
+    },
+    {
+      "zh": "新模型在接口、流式、工具调用和质量上都可能变；先证明能切回旧版本，再把流量按比例放大。没有回滚，一次切换失败就会变成全量事故。",
+      "en": "A new model can change interface, streaming, tool calls and quality; prove you can switch back before scaling traffic. Without rollback, one failed cutover becomes a full outage.",
       "review": "模型退役"
     }
   ],

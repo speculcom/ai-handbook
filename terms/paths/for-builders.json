@@ -31,12 +31,26 @@
     "zh": [
       "说清一次 API 调用的费用由哪几段 token 构成",
       "解释检索链路里分块与嵌入各自决定什么",
-      "指出接入工具调用时最先要设的两道防线"
+      "指出接入工具调用时最先要设的两道防线",
+      "OpenAI 兼容接口为什么能接多家模型？哪些地方仍会不同？",
+      "向量检索效果差，先查分块还是先换嵌入模型？给出排查顺序。",
+      "检索增强能解决什么，不能解决什么？",
+      "工具定义与工具调用分别由谁负责？",
+      "MCP 主要解决接口标准化还是权限问题？",
+      "工作流编排与 Agent 自主决策的界线在哪里？",
+      "上线前的最小评测集，至少要有哪三类样本？"
     ],
     "en": [
       "Break down an API call's cost into its token segments",
       "Explain what chunking and embedding each determine in a retrieval pipeline",
-      "Name the first two defenses to put in place when adding tool calling"
+      "Name the first two defenses to put in place when adding tool calling",
+      "Why can an OpenAI-compatible API reach many models, and what still differs?",
+      "Retrieval is weak: check chunking first or swap the embedding model? Give the order.",
+      "What does retrieval augmentation solve, and what does it not?",
+      "Who owns tool definition and who owns tool invocation?",
+      "Does MCP mainly solve interface standardisation or permissions?",
+      "Where is the line between workflow orchestration and agent autonomy?",
+      "What three sample types should a minimum pre-launch evaluation set include?"
     ]
   },
   "answers": [
@@ -54,6 +68,41 @@
       "zh": "执行端校验工具名称、参数与授权范围；把检索内容和工具结果作为不可信数据处理。涉及写入或外部影响的动作，按业务风险设置审批与可撤回方式。",
       "en": "Validate tool names, arguments and authorization at execution. Treat retrieved text and tool results as untrusted data. Add approval and recovery according to the risk of writes or external effects.",
       "review": "提示注入"
+    },
+    {
+      "zh": "兼容的是请求/响应形状与常见字段，便于换 base URL；模型名、流式细节、工具调用格式、计费和限流仍各不同。上线前要用同一组请求做对照。",
+      "en": "It standardises request/response shapes and common fields so the base URL can change; model names, streaming details, tool-call formats, billing and rate limits still differ. Compare with the same request set before launch.",
+      "review": "OpenAI 兼容接口"
+    },
+    {
+      "zh": "先确认答案所在块是否被切碎或根本没入库，再查召回候选与排序，最后才换嵌入模型。分块和元数据错误换模型也救不回来。",
+      "en": "First check whether the answer-bearing chunk was split or never indexed, then inspect candidates and ranking, and only then swap the embedding model. Chunking and metadata errors will not be fixed by a new model.",
+      "review": "分块"
+    },
+    {
+      "zh": "它把外部资料放进上下文，缓解知识截止和来源缺失；不能保证检索到正确段落，也不能消除模型误读、冲突信息或引用错误。仍要评测命中与引用。",
+      "en": "It puts external material into context, easing knowledge cutoffs and missing sources; it cannot guarantee the right passage is retrieved, nor remove misreading, conflicting evidence or bad citations. Evaluate hits and citations.",
+      "review": "联网 - 检索增强"
+    },
+    {
+      "zh": "工具定义由应用提供给模型，说明名称、参数和用途；工具调用由模型提出，执行端负责校验与授权。模型提议不等于可以执行。",
+      "en": "The application defines tools for the model, including names, arguments and purpose; the model proposes calls, while the execution layer validates and authorises. A proposal is not permission to execute.",
+      "review": "工具定义"
+    },
+    {
+      "zh": "它主要统一模型与工具/资源之间的发现和调用协议，降低接入成本；权限、审计和副作用仍由执行端与业务系统负责。不要把协议当成授权。",
+      "en": "It mainly standardises discovery and invocation between models and tools/resources, lowering integration cost; permissions, audit and side effects remain with the execution layer and business systems. A protocol is not authorisation.",
+      "review": "MCP"
+    },
+    {
+      "zh": "工作流把步骤和分支预先写死，模型只在节点内生成；Agent 让模型决定下一步与工具。前者可预测、易审计，后者灵活但需要更强的护栏与回滚。",
+      "en": "A workflow fixes steps and branches in advance, with the model generating inside nodes; an agent lets the model choose the next step and tool. Workflows are predictable and auditable; agents are flexible but need stronger guardrails and rollback.",
+      "review": "工作流编排"
+    },
+    {
+      "zh": "常见成功样本、边界/歧义样本、应当拒答或转人工的样本。三类都要有真实输入与判定标准；只有成功样本会掩盖失败。",
+      "en": "Typical success cases, boundary/ambiguous cases, and cases that should be refused or escalated. Each needs real inputs and a rubric; success-only sets hide failure.",
+      "review": "评估"
     }
   ],
   "nextTask": {

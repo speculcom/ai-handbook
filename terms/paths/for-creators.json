@@ -25,12 +25,26 @@
     "zh": [
       "说清文生图 / 视频生成 / 语音合成各自的一条主要失败模式",
       "拿到一个生成工具，能先核对商用许可与训练数据来源，再看效果",
-      "知道发布 AI 生成内容时的标识义务，以及哪些素材不能直接商用"
+      "知道发布 AI 生成内容时的标识义务，以及哪些素材不能直接商用",
+      "文生图的文字为什么经常错，验收时怎么查？",
+      "视频生成的时间一致性，主要看哪两处？",
+      "语音合成验收，除了好听还要查什么？",
+      "多模态生成里，素材来源与输出许可为什么要分开记录？",
+      "AI 生成内容的标识义务，依据什么判断？",
+      "接一个商单时，怎么判断训练数据来源风险？",
+      "把这条路线压成一张验收清单，至少写五项。"
     ],
     "en": [
       "Name one main failure mode for text-to-image, video generation and speech synthesis each",
       "Given a generation tool, check commercial licensing and training-data provenance before judging output",
-      "Know the labelling duties for publishing AI-generated content and which assets cannot be used commercially"
+      "Know the labelling duties for publishing AI-generated content and which assets cannot be used commercially",
+      "Why does text in generated images often fail, and how do you check it?",
+      "Where do you check temporal consistency in generated video?",
+      "Beyond sounding pleasant, what should speech synthesis acceptance check?",
+      "Why record input provenance and output licence separately in multimodal generation?",
+      "What determines the labelling duty for AI-generated content?",
+      "How do you assess training-data provenance risk for a commercial job?",
+      "Compress this route into an acceptance checklist with at least five items."
     ]
   },
   "answers": [
@@ -48,6 +62,41 @@
       "zh": "按发布地区和平台的现行规则核对标识；字体、音乐、人物形象和参考图分别记录来源与许可。无法确认的素材先替换或暂不发布。",
       "en": "Check current labeling rules for the publication region and platform. Record sources and permissions for fonts, music, likenesses and references separately. Replace or withhold unresolved assets.",
       "review": "水印与内容凭证"
+    },
+    {
+      "zh": "图像模型按像素/潜空间生成，不擅长精确字形与排版；小字、长词、数字和品牌名最容易错。验收时放大原图逐字读，必要时后置排版，不能只看缩略图。",
+      "en": "Image models generate in pixel or latent space and are weak at exact glyphs and layout; small text, long words, numbers and brand names fail most. Zoom in and read every character, then fix typography afterwards; thumbnails are not enough.",
+      "review": "文生图"
+    },
+    {
+      "zh": "看主体跨帧的形状/身份是否漂移，以及镜头运动时背景与光影是否跳变。再查手部、文字和快速动作，这些位置最容易穿帮。",
+      "en": "Check whether the subject’s shape and identity drift across frames, and whether background and lighting jump during camera motion. Then inspect hands, text and fast action, where breaks show first.",
+      "review": "视频生成"
+    },
+    {
+      "zh": "查读音（多音字、专名）、数字与单位、停顿和重音、情绪是否匹配场景，以及声音克隆的授权。好听不等于可发布。",
+      "en": "Check pronunciation (heteronyms, proper nouns), numbers and units, pauses and stress, emotional fit, and authorisation for voice cloning. Pleasant is not publishable.",
+      "review": "语音合成"
+    },
+    {
+      "zh": "输入素材的版权、肖像和训练数据来源，与产品条款允许你如何使用输出，是两套权利。输入合法不代表输出可商用，反之亦然。",
+      "en": "Input copyright, likeness and training-data provenance are separate from what the product terms allow you to do with output. A lawful input does not clear output for commercial use, or vice versa.",
+      "review": "生成式 AI 合规义务"
+    },
+    {
+      "zh": "按发布地区、平台规则和内容类型查现行官方文本；深度合成、新闻、广告与一般创作的要求不同。把文件名、条款日期和适用条款写进发布记录。",
+      "en": "Check the official text in force for the publication region, platform rules and content type; deep synthesis, news, advertising and general creation differ. Record the document, date and applicable clause.",
+      "review": "水印与内容凭证"
+    },
+    {
+      "zh": "先看产品条款是否说明训练数据来源与侵权责任，再看素材是否包含客户未授权的品牌、人物或作品。无法确认时换工具、换素材或不用该输出。",
+      "en": "Check whether the terms state training-data provenance and indemnity, then whether inputs contain client-unauthorised brands, people or works. If unresolved, change tool, change asset or do not use the output.",
+      "review": "隐私与合规"
+    },
+    {
+      "zh": "可按：文字/数字、跨帧一致性、读音与授权、素材来源、输出商用许可、AI 标识。每项写检查人和证据位置；五项都过再交付。",
+      "en": "Use text/numbers, cross-frame consistency, pronunciation and voice rights, asset provenance, commercial output licence and AI labelling. Name the checker and evidence for each; deliver only after all pass.",
+      "review": "生成式 AI"
     }
   ],
   "nextTask": {

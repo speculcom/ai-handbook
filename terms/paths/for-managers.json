@@ -31,12 +31,26 @@
     "zh": [
       "用三个维度对比「调 API」与「自己部署」的总成本",
       "说出更换模型供应商之前必须核实的三件事",
-      "看一份供应商评测报告，判断哪些分数可以直接采信、哪些要打问号"
+      "看一份供应商评测报告，判断哪些分数可以直接采信、哪些要打问号",
+      "API 与自托管的成本，为什么不能只比单价？",
+      "供应商锁定的三个早期迹象是什么？",
+      "数据驻留与「数据不出网」有什么区别？",
+      "开源模型许可证要核对哪四项？",
+      "模型评测榜单为什么不能直接用于采购决策？",
+      "换模型前，迁移评估至少要跑哪几类样本？",
+      "采购记录里的未知项应该怎么写？"
     ],
     "en": [
       "Compare API usage against self-hosting on three cost dimensions",
       "Name three things to verify before switching model vendors",
-      "Read a vendor's evaluation report and say which scores stand up and which need a question mark"
+      "Read a vendor's evaluation report and say which scores stand up and which need a question mark",
+      "Why can API and self-hosting not be compared on unit price alone?",
+      "What are three early signs of vendor lock-in?",
+      "What is the difference between data residency and “data never leaves the network”?",
+      "Which four terms should you check in an open-model licence?",
+      "Why can a model benchmark table not be used directly for procurement?",
+      "Which sample types should a migration evaluation cover before switching models?",
+      "How should unknowns be written in a procurement record?"
     ]
   },
   "answers": [
@@ -54,6 +68,41 @@
       "zh": "相同基准版本和设置下的结果才适合对照；自选演示和未经披露的设置不能直接外推。要求提供失败样本和与你任务相近的评测说明。",
       "en": "Compare results with the same benchmark version and settings. Selected demos and undisclosed setups do not support broad conclusions. Ask for failures and task-relevant evaluation details.",
       "review": "模型评测的局限"
+    },
+    {
+      "zh": "单价只覆盖调用或硬件本身；还要算接入、数据处理、维护、监控、复核和迁移。按相同任务量与质量要求算总成本，否则报价范围不同，结论会失真。",
+      "en": "Unit price covers only calls or hardware; integration, data processing, maintenance, monitoring, review and migration also count. Compare total cost at equal workload and quality, or differing scopes distort the conclusion.",
+      "review": "自托管成本"
+    },
+    {
+      "zh": "数据和配置导不出、关键能力只能用厂商私有接口、退役或涨价时没有可执行的替代路径。出现任一条，就应把迁移成本写进采购记录。",
+      "en": "Data and configuration cannot be exported, key capabilities require proprietary interfaces, or there is no executable alternative when the vendor retires or raises prices. Any one should put migration cost into the procurement record.",
+      "review": "供应商锁定"
+    },
+    {
+      "zh": "驻留说明数据存在哪个国家/区域、受哪套法律约束；不出网说明数据是否离开你的边界。前者是位置与合规问题，后者是部署与网络问题，不能互相替代。",
+      "en": "Residency defines which country or region stores the data and which law applies; “never leaves the network” says whether data crosses your boundary. One is location and compliance, the other deployment and networking; neither substitutes for the other.",
+      "review": "数据驻留"
+    },
+    {
+      "zh": "商用与再分发、衍生作品与权重再发布、用户量与营收等附加条件、专利与商标条款。『开放权重』不等于『无限制使用』。",
+      "en": "Commercial use and redistribution, derivatives and weight redistribution, thresholds such as users or revenue, and patent/trademark terms. “Open weights” is not “unrestricted use”.",
+      "review": "许可证"
+    },
+    {
+      "zh": "榜单通常测公开任务与固定判法，和你的语言、数据、工具链与验收标准不同；版本、污染和提示设置也会改变分数。采购要补自己任务上的小样本评测。",
+      "en": "Benchmarks test public tasks with a fixed method, unlike your language, data, toolchain and acceptance criteria; version, contamination and prompting also change scores. Add a small evaluation on your own task.",
+      "review": "模型评测的局限"
+    },
+    {
+      "zh": "常见成功、边界歧义、应拒答/转人工、工具调用与长上下文各一组；再记录接口、流式、成本和回滚。只在普通问答上对比，会漏掉真正会出事故的路径。",
+      "en": "Typical success, boundary/ambiguous, should-refuse or escalate, tool-calling and long-context sets; also record interface, streaming, cost and rollback. Comparing ordinary Q&A only misses the paths that fail in production.",
+      "review": "退出成本"
+    },
+    {
+      "zh": "写成「哪一项未确认、缺哪份官方说明、谁负责补、何时复核」，不要写成「应该没问题」。未知项保留在记录里，才能在涨价、退役或事故时追溯。",
+      "en": "Write which item is unconfirmed, which official statement is missing, who owns it and when to recheck. Do not write “should be fine”. Keeping unknowns traceable matters when prices, retirement or incidents arrive.",
+      "review": "AI 产品 vs AI 模型"
     }
   ],
   "nextTask": {

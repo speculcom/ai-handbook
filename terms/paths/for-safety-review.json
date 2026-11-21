@@ -29,12 +29,26 @@
     "zh": [
       "说出三类你会在评审会上追问的风险面，各自对应什么证据",
       "判断一项功能是否触及需要留记录的义务，并指出依据来自哪份官方文本",
-      "写下一条你无法确认为「安全」的项，说明缺的是哪个官方说法"
+      "写下一条你无法确认为「安全」的项，说明缺的是哪个官方说法",
+      "提示注入的输入面与输出面，各举一个证据。",
+      "拒答与输出越界，为什么不能只看「是否拒绝」？",
+      "红队测试的最小记录应包含什么？",
+      "偏好对齐解决什么，不解决什么？",
+      "「数据不出网」与「数据驻留」在评审里各要什么证据？",
+      "可观测性为何是安全评审的一部分？",
+      "写一条「无法确认安全」的结论，必须包含哪三要素？"
     ],
     "en": [
       "Name three risk areas you would press for in a review meeting and what evidence answers each",
       "Judge whether a feature triggers a record-keeping obligation and cite which official text it comes from",
-      "Write one item you cannot confirm as safe and say which official statement is missing"
+      "Write one item you cannot confirm as safe and say which official statement is missing",
+      "Give one piece of evidence each for the input and output sides of prompt injection.",
+      "Why can’t refusal and out-of-scope output be judged by “did it refuse” alone?",
+      "What should a minimal red-team record contain?",
+      "What does preference alignment solve, and what does it not?",
+      "What evidence do “data never leaves the network” and “data residency” each need in review?",
+      "Why is observability part of a safety review?",
+      "What three elements must a “cannot confirm safety” conclusion contain?"
     ]
   },
   "answers": [
@@ -52,6 +66,41 @@
       "zh": "写成「官方未说明 + 缺哪一条」：例如只找到宣传口径里的安全防护描述，没找到拦截机制、绕过处理与日志留存的说明，那就写无法确认拦截是否生效，并列出缺失的三项。评审结论里保留未知比补一个看起来完整的判断更有用，后者会在事故复盘时站不住。",
       "en": "Write it as 'not stated officially' plus which specifics are absent. If you only find marketing-level claims about guardrails but no description of interception, post-bypass handling or log retention, record that effectiveness cannot be confirmed and list the three missing items. Keeping the unknown in the conclusion is more useful than a tidy judgement that collapses during incident review.",
       "review": "红队测试"
+    },
+    {
+      "zh": "输入面证据：检索文档里出现「忽略以上指令」并触发外部请求的日志；输出面证据：模型泄露系统提示或执行未授权工具的调用记录。两者都要能关联到具体会话与授权结果。",
+      "en": "Input evidence: a retrieved document saying “ignore previous instructions” and a log of the external request it triggered. Output evidence: a call record showing system-prompt leakage or an unauthorised tool. Both must link to the session and authorisation outcome.",
+      "review": "提示注入"
+    },
+    {
+      "zh": "拒绝可能是过度保守，也可能是该拒没拒；真正要评的是拒绝条件是否覆盖风险、拒绝后是否给安全替代、越界输出是否被拦截并可追溯。只看拒绝率会掩盖两类错误。",
+      "en": "A refusal can be over-cautious or missing when needed; evaluate whether the condition covers risk, whether a safe alternative is offered, and whether out-of-scope output is blocked and traceable. Refusal rate alone hides both errors.",
+      "review": "输出越界与拒答"
+    },
+    {
+      "zh": "测试目标与范围、输入样本、模型版本与设置、判定标准、失败样本原文、修复建议与复核日期。只写「测过了，没问题」无法复跑。",
+      "en": "Goal and scope, input samples, model version and settings, rubric, verbatim failures, fixes and recheck date. “Tested, no issue” cannot be reproduced.",
+      "review": "红队测试"
+    },
+    {
+      "zh": "它让输出更符合人类偏好与安全约束；不保证事实正确、不覆盖所有文化语境，也可能带来过度拒答。对齐是行为倾向，不是事实核验。",
+      "en": "It makes output fit human preferences and safety constraints; it does not guarantee truth, cover every cultural context or prevent over-refusal. Alignment shapes behaviour, not facts.",
+      "review": "偏好对齐"
+    },
+    {
+      "zh": "不出网要看网络边界、日志和第三方调用清单；驻留要看存储区域、跨境传输与合同条款。两者都要有当前版本和核验日期，不能只引用销售口头说明。",
+      "en": "For no-egress, inspect network boundaries, logs and third-party calls; for residency, inspect storage region, cross-border transfer and contract terms. Both need current version and check date, not a sales claim.",
+      "review": "数据不出网"
+    },
+    {
+      "zh": "没有日志就无法证明拦截生效、无法复盘越权与注入、也无法回答「谁在何时做了什么」。评审要确认关键事件被记录、可检索、留存期足够。",
+      "en": "Without logs you cannot prove a block worked, review privilege abuse or injection, or answer who did what when. Review that key events are recorded, searchable and retained long enough.",
+      "review": "可观测性"
+    },
+    {
+      "zh": "缺哪项官方说明、现有证据到什么程度、需要谁在何时补。写成可行动的未知项，而不是笼统的「有风险」。",
+      "en": "Which official statement is missing, how far the current evidence goes, and who must supply what by when. Make it an actionable unknown, not a vague “there is risk”.",
+      "review": "AI 安全"
     }
   ],
   "nextTask": {

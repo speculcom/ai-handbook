@@ -29,12 +29,26 @@
     "zh": [
       "说出 Transformer 处理一句话的大致流程：切词 → 变向量 → 注意力 → 逐词生成",
       "说清聊天模型的训练三阶段，每一阶段各解决什么问题",
-      "解释模型为什么会一本正经地编，以及上下文为什么越大越贵"
+      "解释模型为什么会一本正经地编，以及上下文为什么越大越贵",
+      "为什么上下文越长，注意力机制的计算与显存开销增长得很快？",
+      "嵌入层把词变成向量后，为什么「相似词」的向量会接近？",
+      "自回归生成为什么一次只产生一个 token，而不是整段一次输出？",
+      "缩放定律能预测什么，不能预测什么？",
+      "预训练与微调各自需要什么数据，解决什么问题？",
+      "上下文窗口加倍，是否等于模型能力加倍？",
+      "用一句话说明幻觉与生成目标的关系，并给一个核对动作。"
     ],
     "en": [
       "Walk through how a Transformer handles a sentence: split, embed, attend, generate one token at a time",
       "Explain the three training stages of a chat model and what each stage solves",
-      "Say why a model fabricates confidently, and why bigger context costs more"
+      "Say why a model fabricates confidently, and why bigger context costs more",
+      "Why do attention compute and memory grow quickly with context length?",
+      "After embedding, why do similar words end up with nearby vectors?",
+      "Why does autoregressive generation produce one token at a time instead of the whole passage at once?",
+      "What can scaling laws predict, and what can they not?",
+      "What data do pretraining and fine-tuning each need, and what do they solve?",
+      "Does doubling the context window double model capability?",
+      "In one sentence, relate hallucination to the generation objective, and give one check."
     ]
   },
   "answers": [
@@ -52,6 +66,41 @@
       "zh": "生成目标不保证每个断言有事实依据；更多上下文还会增加处理量和缓存占用。应区分输入长度、输出长度与运行方式，不把长窗口理解成可靠性保证。",
       "en": "The generation objective does not guarantee factual support for every claim. More context adds computation and cache use. Distinguish input length, output length and runtime; a long window does not guarantee reliability.",
       "review": "上下文窗口的代价"
+    },
+    {
+      "zh": "标准自注意力要让每个 token 与其它 token 计算相关性，长度翻倍时比较对数量约按平方增长；KV 缓存也随长度线性增长。稀疏、分块或线性注意力是在换取近似与实现复杂度。",
+      "en": "Standard self-attention compares every token with every other token; doubling length roughly squares the number of pairs, while the KV cache grows linearly. Sparse, chunked or linear attention trades approximation for implementation complexity.",
+      "review": "注意力机制"
+    },
+    {
+      "zh": "训练让常出现在相似上下文里的词获得相近表示；相似度因此反映用法而非词典定义。多义词仍可能冲突，不能只凭向量距离判断语义。",
+      "en": "Training gives nearby representations to words that appear in similar contexts, so similarity reflects usage rather than dictionary meaning. Polysemy can still collide; vector distance alone does not settle meaning.",
+      "review": "嵌入层"
+    },
+    {
+      "zh": "模型被训练成给定前文预测下一个 token；把新 token 接回输入再算下一步。整段一次出需要不同的非自回归模型，质量与速度取舍不同。",
+      "en": "The model is trained to predict the next token given prior text; the new token is fed back before the next step. Whole-passage output needs a different non-autoregressive model, with different quality and speed trade-offs.",
+      "review": "自回归生成"
+    },
+    {
+      "zh": "在给定数据、参数和算力配置下，它能预测损失的趋势与收益递减；不能保证具体任务质量、事实正确性或数据质量带来的上限。它是外推工具，不是产品承诺。",
+      "en": "Given data, parameters and compute, they predict loss trends and diminishing returns; they do not guarantee task quality, factual correctness or the ceiling set by data quality. They are extrapolation tools, not product promises.",
+      "review": "缩放定律"
+    },
+    {
+      "zh": "预训练用大规模无标注文本学通用模式；微调用较小的高质量标注或指令数据调整任务与回答形式。微调不能替代预训练，也不能保证事实更新。",
+      "en": "Pretraining learns general patterns from large unlabelled text; fine-tuning adjusts tasks and response formats with smaller, high-quality labelled or instruction data. Fine-tuning cannot replace pretraining or guarantee updated facts.",
+      "review": "预训练"
+    },
+    {
+      "zh": "不等于。窗口只决定可放多少 token；有效利用还受注意力、位置外推、检索位置和训练长度影响。长窗口还会增加成本与延迟。",
+      "en": "No. The window only sets how many tokens fit; effective use depends on attention, position extrapolation, where evidence sits and training length. Longer windows also add cost and latency.",
+      "review": "上下文窗口的代价"
+    },
+    {
+      "zh": "生成目标优化的是下一个 token 的可能性，不是事实为真；所以模型会补出没有依据的细节。核对动作：把关键断言逐条回到原始资料，找不到就标未知。",
+      "en": "The generation objective optimises next-token likelihood, not truth; so the model fills gaps without evidence. Check: trace each key claim to original material, and mark unknown if absent.",
+      "review": "幻觉的成因"
     }
   ],
   "nextTask": {

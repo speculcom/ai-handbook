@@ -26,12 +26,26 @@
     "zh": [
       "说清策略、模仿学习、强化学习三者关系，并指出遥操作数据通常进入哪条训练路线。",
       "解释为什么仿真里跑通不等于实机跑通，至少说出一种缩小现实差距的方法。",
-      "看一段机器人演示时，能列出要追问的三件事：人控还是自主、仿真还是实机、训练数据覆盖什么。"
+      "看一段机器人演示时，能列出要追问的三件事：人控还是自主、仿真还是实机、训练数据覆盖什么。",
+      "模仿学习的数据为什么需要覆盖失败与恢复？",
+      "遥操作数据进入训练前，要记录哪些条件？",
+      "物理仿真里最容易被忽略的三个差距？",
+      "运动规划与策略的区别是什么？",
+      "机器人中间件主要解决什么？",
+      "VLA 模型的「视觉—语言—动作」各指什么？",
+      "看一个「成功率 90%」的机器人结果，先问哪三件事？"
     ],
     "en": [
       "Explain how policy, imitation learning and reinforcement learning relate, and where teleoperation data usually enters training.",
       "Explain why passing in simulation does not mean passing on hardware, and name at least one way to narrow the reality gap.",
-      "When watching a robot demo, list three questions: human-controlled or autonomous, simulation or hardware, and what the training data covers."
+      "When watching a robot demo, list three questions: human-controlled or autonomous, simulation or hardware, and what the training data covers.",
+      "Why should imitation-learning data cover failures and recoveries?",
+      "What conditions should teleoperation data record before training?",
+      "What three reality gaps are most often missed in physics simulation?",
+      "What is the difference between motion planning and a policy?",
+      "What does robot middleware mainly solve?",
+      "In a VLA model, what do vision, language and action each refer to?",
+      "On seeing a “90% success rate” robot result, what three things do you ask first?"
     ]
   },
   "answers": [
@@ -46,6 +60,41 @@
     {
       "zh": "先问动作是人实时遥操作还是模型自主执行；再问验证在仿真还是实机；最后问训练数据覆盖哪些任务与场景，未覆盖时谁兜底。",
       "en": "First ask whether actions are human teleoperation or autonomous model execution; then whether validation was in simulation or on hardware; finally what tasks and scenes the training data covers and who handles uncovered cases."
+    },
+    {
+      "zh": "只演示成功会让策略在偏差出现时不知道如何回到任务；失败与人工恢复样本能教它纠错。没有恢复数据，实机一偏就停。",
+      "en": "Success-only demonstrations leave the policy unable to return after deviation; failure and human-recovery samples teach correction. Without recovery data, one drift stops the robot.",
+      "review": "模仿学习"
+    },
+    {
+      "zh": "记录操作者、设备、相机位姿、延迟、夹爪/力控设置、任务成功判据与干预点。缺这些，数据无法复现，也无法判断策略学到了人的补偿还是任务本身。",
+      "en": "Record operator, hardware, camera pose, latency, gripper/force settings, success criteria and intervention points. Without them data cannot be reproduced, nor whether the policy learned human compensation or the task.",
+      "review": "遥操作"
+    },
+    {
+      "zh": "接触摩擦与柔顺、传感器噪声与延迟、执行器饱和/回差。三者都会让仿真里的策略在实机上失稳，需要域随机化或系统辨识后实测复核。",
+      "en": "Contact friction and compliance, sensor noise and latency, actuator saturation and backlash. All can destabilise a simulated policy on hardware; randomise or identify, then recheck on the real machine.",
+      "review": "物理仿真"
+    },
+    {
+      "zh": "规划在已知地图/约束下搜索一条可行轨迹；策略从观测直接映射动作，应对不确定与接触。两者可串联，但规划成功不代表策略能处理扰动。",
+      "en": "Planning searches a feasible trajectory under known maps and constraints; a policy maps observations to actions under uncertainty and contact. They can chain, but planning success does not mean the policy handles disturbance.",
+      "review": "运动规划"
+    },
+    {
+      "zh": "它统一节点间的消息、时间同步、发现与生命周期，让感知、规划和控制解耦。它不保证实时性，调度与 QoS 仍要按硬件和任务配置。",
+      "en": "It standardises messaging, time sync, discovery and lifecycle between nodes, decoupling perception, planning and control. It does not guarantee real-time behaviour; scheduling and QoS still depend on hardware and task.",
+      "review": "机器人中间件"
+    },
+    {
+      "zh": "视觉是相机/深度等观测，语言是任务指令或场景描述，动作是末端轨迹、关节目标或离散技能。VLA 把三者接进一个策略，但不等于自动获得实机泛化。",
+      "en": "Vision is camera/depth observation, language is the task instruction or scene description, action is end-effector trajectory, joint targets or discrete skills. A VLA ties them into one policy; it does not automatically yield hardware generalisation.",
+      "review": "视觉语言动作模型"
+    },
+    {
+      "zh": "问测试分布（哪些物体/场景/初始位姿）、成功判据（谁判、是否允许重试）、仿真还是实机。三个不同，90% 不能横比。",
+      "en": "Ask the test distribution (objects, scenes, initial poses), the success criterion (who judges, retries allowed), and simulation or hardware. If any differs, 90% is not comparable.",
+      "review": "仿真到实机迁移"
     }
   ]
 }

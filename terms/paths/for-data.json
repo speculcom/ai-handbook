@@ -3,7 +3,10 @@
   "ord": 15,
   "zh": "数据与 RAG 路线",
   "en": "The Data & RAG Route",
-  "span": { "zh": "约 50 分钟", "en": "about 50 minutes" },
+  "span": {
+    "zh": "约 50 分钟",
+    "en": "about 50 minutes"
+  },
   "lead": {
     "zh": "数据从哪来、能不能用、怎么切、怎么测。读完能搭一条最小可评测的 RAG 语料，而不是把文档一股脑丢进向量库。",
     "en": "Where data comes from, whether it is usable, how to chunk it and how to test it. Finish with a minimum evaluable RAG corpus, not a pile of PDFs in a vector store."
@@ -24,12 +27,26 @@
     "zh": [
       "拿到一份数据集，能列出至少三项必须核对的授权信息",
       "说清「按固定字数切」和「按语义结构切」各自会在什么问题上失效",
-      "用 10 个真实问题跑一次检索，记录命中率、引用准确率和拒答率"
+      "用 10 个真实问题跑一次检索，记录命中率、引用准确率和拒答率",
+      "数据卡里为什么必须写「不适用场景」？",
+      "RAG 语料去重与保留版本，哪个优先？",
+      "清洗规则写在代码里还是数据卡里？",
+      "标注一致性低，先改指南还是先换标注员？",
+      "训练集/验证集切分，最常见的泄漏是什么？",
+      "合成数据能解决什么，不能解决什么？",
+      "一个数据集要交付，最少附带哪四份东西？"
     ],
     "en": [
       "Given a dataset, list at least three licence facts that must be checked",
       "Explain when fixed-length chunking and semantic chunking each fail",
-      "Run 10 real questions through retrieval and record hit rate, citation accuracy and refusal rate"
+      "Run 10 real questions through retrieval and record hit rate, citation accuracy and refusal rate",
+      "Why must a data card state “not suitable for” scenarios?",
+      "In RAG corpora, deduplication or version retention first?",
+      "Should cleaning rules live in code or in the data card?",
+      "When inter-annotator agreement is low, revise the guideline or replace annotators first?",
+      "What is the most common leakage when splitting train and validation sets?",
+      "What can synthetic data solve, and what can it not?",
+      "What four items should a dataset delivery include at minimum?"
     ]
   },
   "answers": [
@@ -47,6 +64,41 @@
       "zh": "命中率看正确文档是否进前 k；引用准确率看答案是否引对原文；拒答率看无依据时是否说不知道。",
       "en": "Hit rate: does the right document enter top-k; citation accuracy: does the answer cite the right passage; refusal rate: does it say “I don’t know” without evidence.",
       "review": "检索质量度量"
+    },
+    {
+      "zh": "数据卡不只说明能做什么，还要防止把数据用到未覆盖的人群、语言、时间或任务。没有不适用场景，使用者会默认它通用。",
+      "en": "A data card should not only say what the data supports; it must prevent use on uncovered populations, languages, periods or tasks. Without exclusions, users assume general applicability.",
+      "review": "怎么给数据集写数据卡"
+    },
+    {
+      "zh": "先保留权威版本与版本关系，再做去重；否则会把新旧版本混成一段，检索到过期条款。去重要保留来源与时间，不能只留最短文本。",
+      "en": "Keep the authoritative version and version links first, then deduplicate; otherwise old and new clauses blend and retrieval returns stale text. Dedup must retain source and date, not just the shortest passage.",
+      "review": "怎么用 AI 搭 RAG 语料"
+    },
+    {
+      "zh": "两边都要：代码可执行、可复跑；数据卡解释规则、影响与未处理项。只写代码，使用者不知道删了什么；只写卡，无法复现。",
+      "en": "Both: code makes rules executable and reproducible; the data card explains rules, effects and unresolved items. Code alone hides what was removed; a card alone cannot reproduce it.",
+      "review": "怎么用 AI 清洗数据"
+    },
+    {
+      "zh": "先查指南是否对边界案例有定义、培训是否一致，再查标注员是否按同一判法。直接换人会重复同样的歧义，且丢失已发现的边界案例。",
+      "en": "First check whether the guideline defines boundary cases and training was consistent, then whether annotators applied the same rubric. Replacing people repeats the ambiguity and loses the discovered edge cases.",
+      "review": "数据标注与质检怎么看"
+    },
+    {
+      "zh": "同一用户、同一文档或同一近重复样本跨集合；时间序列还会用未来预测过去。按实体/时间分组切分，并做近重复检查。",
+      "en": "The same user, document or near-duplicate appears across splits; time series also use the future to predict the past. Split by entity/time and run near-duplicate checks.",
+      "review": "数据污染"
+    },
+    {
+      "zh": "它能补稀少场景、隐私受限样本和格式变体；不能替代真实分布，也可能放大生成器的偏差。合成数据要标来源、比例，并用真实集验证。",
+      "en": "It can add rare scenarios, privacy-limited samples and format variants; it cannot replace the real distribution and may amplify generator bias. Label source and proportion, and validate on real data.",
+      "review": "合成数据"
+    },
+    {
+      "zh": "数据卡、字段说明与许可、切分与版本、质量/已知缺口记录。四份缺一，接收方就无法判断能不能用、怎么复现。",
+      "en": "A data card, field descriptions and licence, split and version, and quality/known-gap record. Missing one leaves the recipient unable to judge usability or reproduce.",
+      "review": "怎么给数据集写数据卡"
     }
   ],
   "nextTask": {

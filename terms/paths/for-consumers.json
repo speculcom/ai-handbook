@@ -25,12 +25,26 @@
     "zh": [
       "说清 AI 的回答为什么可能错，并知道至少两种核对办法",
       "拿到一段 AI 生成的文字或图片，能判断哪些信息必须人工复核",
-      "知道哪些内容不要输入公共聊天工具，以及怎么用临时聊天或关闭训练开关"
+      "知道哪些内容不要输入公共聊天工具，以及怎么用临时聊天或关闭训练开关",
+      "AI 搜索与普通搜索的最大差别是什么？",
+      "多模态模型看图和读文，失败方式有何不同？",
+      "水印与内容凭证能证明什么，不能证明什么？",
+      "提示词写得长，是否一定更好？",
+      "为什么不要把自己的身份证或客户名单贴进公共聊天？",
+      "看到「生成式 AI」宣传，如何判断它是不是只是模板？",
+      "拿到 AI 生成的图片，发布前至少查哪三项？"
     ],
     "en": [
       "Explain why an AI answer can be wrong and know at least two ways to check it",
       "Given AI-generated text or images, identify which claims need human verification",
-      "Know what not to paste into a public chat tool, and how to use temporary chat or turn off training"
+      "Know what not to paste into a public chat tool, and how to use temporary chat or turn off training",
+      "What is the biggest difference between AI search and ordinary search?",
+      "How do multimodal models fail differently on images and text?",
+      "What can watermarking and content credentials prove, and what can they not?",
+      "Is a longer prompt always better?",
+      "Why should you not paste your ID or a customer list into a public chat?",
+      "How do you tell whether a “generative AI” claim is just a template?",
+      "What three checks should an AI-generated image pass before publication?"
     ]
   },
   "answers": [
@@ -48,6 +62,41 @@
       "zh": "先区分公开资料与身份、客户、内部资料。查看当前产品的数据用途、留存和删除说明；临时聊天或训练开关各自控制什么，以该产品说明为准，不把它们当作零留存保证。",
       "en": "Separate public material from identity, customer and internal data. Read the product’s current data-use, retention and deletion terms. Temporary chats and training switches are not blanket zero-retention guarantees.",
       "review": "隐私与合规"
+    },
+    {
+      "zh": "普通搜索给出来源列表，AI 搜索直接合成答案并附少量引用。合成答案更快，但可能误读来源或漏掉反例；关键结论要回到原始页面核对。",
+      "en": "Ordinary search returns a list of sources; AI search synthesises an answer with a few citations. Synthesis is faster but can misread sources or omit counterexamples; check key claims on the original page.",
+      "review": "AI 搜索"
+    },
+    {
+      "zh": "读文可能漏掉否定、条件和长距离指代；看图可能误读小字、表格、遮挡和空间关系。验收时要分别给图和文，不要用一段漂亮描述代替逐项核对。",
+      "en": "Text can fail on negation, conditions and long-range reference; images on small text, tables, occlusion and spatial relations. Test each modality separately; a fluent description is not item-by-item verification.",
+      "review": "多模态"
+    },
+    {
+      "zh": "它们能记录来源或标识生成方式，帮助平台和读者判断；不能证明内容真实、观点正确或未经过二次编辑。水印可被裁掉，凭证也可能缺失。",
+      "en": "They can record provenance or mark generated content, helping platforms and readers; they cannot prove truth, correctness or that the file was not re-edited. Watermarks can be cropped, credentials can be missing.",
+      "review": "水印与内容凭证"
+    },
+    {
+      "zh": "不一定。长提示若把目标、资料和约束混在一起，模型更难抓重点；应先写任务与验收，再补必要上下文。长度不是质量指标。",
+      "en": "No. A long prompt that mixes goal, material and constraints makes priorities harder to find; write the task and acceptance first, then add necessary context. Length is not quality.",
+      "review": "提示词"
+    },
+    {
+      "zh": "公共产品可能留存对话、用于训练或被人工复核；一旦上传就难以撤回。先脱敏、改用临时聊天或本地工具，并确认当前条款与删除方式。",
+      "en": "Public products may retain chats, train on them or have them reviewed; once uploaded, withdrawal is hard. Mask the data, use temporary chat or a local tool, and check current terms and deletion.",
+      "review": "隐私与合规"
+    },
+    {
+      "zh": "看它能否处理未见过的新输入、是否给出可核对来源、失败时是否承认不知道。只会从固定选项拼句子、无法解释来源的产品，更像模板而非生成模型。",
+      "en": "See whether it handles unseen input, gives checkable sources and admits uncertainty. A product that only assembles fixed options and cannot explain provenance is closer to a template than a generative model.",
+      "review": "生成式 AI"
+    },
+    {
+      "zh": "查图中文字与数字、查人物/品牌/地标是否涉及授权、查是否需要 AI 生成标识。三项都要留记录；无法确认的素材先替换。",
+      "en": "Check text and numbers in the image, rights for people/brands/landmarks, and whether AI-generation labelling is required. Record all three; replace unresolved assets.",
+      "review": "水印与内容凭证"
     }
   ],
   "nextTask": {

@@ -8,8 +8,8 @@
     "en": "about 30 minutes"
   },
   "lead": {
-    "zh": "先读十个常用概念，再做三道自测。目标是分清模型、产品与能力边界，不需要记住全部名词。",
-    "en": "Read ten common concepts, then try three questions. Aim to distinguish models, products and limits without memorizing the whole glossary."
+    "zh": "先读十个常用概念，再做十道自测。目标是分清模型、产品与能力边界，不需要记住全部名词。",
+    "en": "Read ten common concepts, then try ten questions. Aim to distinguish models, products and limits without memorizing the whole glossary."
   },
   "steps": [
     "人工智能",
@@ -27,12 +27,26 @@
     "zh": [
       "向外行解释：大模型是怎么「学会」的，为什么按 Token 计费",
       "说清「AI 产品」和「AI 模型」的区别，各举一个例子",
-      "说出大模型至少一件明确做不到的事"
+      "说出大模型至少一件明确做不到的事",
+      "机器学习、深度学习、大模型三者是什么关系？",
+      "把上下文窗口从 8k 扩到 128k，为什么成本和延迟通常会上升？",
+      "生成式 AI 与只做分类的模型，输出目标有什么根本不同？",
+      "AI Agent 与聊天机器人最大的区别是什么？各举一个任务。",
+      "为什么「回答很流畅」不能当作正确性的证据？",
+      "同一句提示，为什么两次输出可能不同？",
+      "拿到一个 AI 产品页，先用哪三个问题判断它是否适合？"
     ],
     "en": [
       "Explain to a newcomer how a large model learned, and why billing counts tokens",
       "Tell apart an AI product from an AI model, with one example each",
-      "Name at least one thing a large model plainly cannot do"
+      "Name at least one thing a large model plainly cannot do",
+      "How do machine learning, deep learning and large models relate?",
+      "Why do cost and latency usually rise when context grows from 8k to 128k?",
+      "What fundamentally differs between generative AI and a classifier?",
+      "What is the biggest difference between an AI agent and a chatbot? Give one task for each.",
+      "Why is fluent wording not evidence of correctness?",
+      "Why can the same prompt produce different outputs twice?",
+      "Which three questions should you ask first about an AI product page?"
     ]
   },
   "answers": [
@@ -50,6 +64,41 @@
       "zh": "没有可靠资料或相应工具时，模型不能保证给出最新事实，也不能仅凭流畅的回答证明内容正确。可举一个需要核对原始出处的例子。",
       "en": "Without reliable sources or suitable tools, a model cannot guarantee current facts. Fluent wording does not prove correctness. Give one example that needs an original-source check.",
       "review": "能力边界"
+    },
+    {
+      "zh": "机器学习是让模型从数据中找规律的总称；深度学习是用多层神经网络做这件事；大模型通常指参数规模很大、以 Transformer 为主的深度学习模型。大模型不是机器学习的全部，也不等于某个产品。",
+      "en": "Machine learning is the broad approach of learning patterns from data; deep learning uses multilayer neural networks; large models are usually very large Transformer-based deep networks. A large model is not all of machine learning, nor a product.",
+      "review": "机器学习"
+    },
+    {
+      "zh": "模型要处理更多 token，注意力和缓存的计算/存储随长度增长；服务端还要为更长请求预留显存与带宽。窗口变大只说明能放更多输入，不代表每个位置都同样被有效利用。",
+      "en": "The model processes more tokens, and attention plus cache computation and storage grow with length; the server also reserves more memory and bandwidth. A larger window only means more input fits, not that every position is used equally well.",
+      "review": "上下文窗口"
+    },
+    {
+      "zh": "分类模型输出有限标签上的概率；生成式模型输出 token 序列的分布，需要逐词采样。后者能写新内容，也带来事实不一致和不可复现的风险。",
+      "en": "A classifier outputs probabilities over a finite label set; a generative model outputs a distribution over token sequences and samples token by token. The latter can write new content, and brings factual inconsistency and non-reproducibility.",
+      "review": "生成式 AI"
+    },
+    {
+      "zh": "聊天机器人主要生成回答；Agent 还会规划步骤、调用工具、读取结果并继续行动。比如问答是聊天；查库存、改工单、发邮件则是 Agent 任务。是否自主调用工具与承担副作用，是分界线。",
+      "en": "A chatbot mainly generates replies; an agent also plans steps, calls tools, reads results and keeps acting. Q&A is chat; checking inventory, editing a ticket or sending mail is an agent task. Tool use and side effects are the dividing line.",
+      "review": "AI Agent 与聊天机器人的区别"
+    },
+    {
+      "zh": "流畅只说明语言模型在预测下一个 token 上表现好，不保证每个断言有来源。核对要回到原始资料，尤其是数字、日期、引文和承诺。",
+      "en": "Fluency only shows the model is good at predicting the next token; it does not guarantee a source for every claim. Check original material, especially numbers, dates, quotations and commitments.",
+      "review": "能力边界"
+    },
+    {
+      "zh": "生成时通常按概率采样，温度、随机种子和服务端批处理都会影响结果；模型版本或上下文变化也会改变输出。需要可复现时，要固定设置并记录版本。",
+      "en": "Generation usually samples from probabilities; temperature, random seeds and server batching all affect the result, as do model version and context changes. For reproducibility, pin settings and record the version.",
+      "review": "生成式 AI"
+    },
+    {
+      "zh": "一问任务与验收标准是否能被它覆盖；二问数据去哪里、是否留存或跨境；三问总成本、许可和退出方式。先答这三题，再看演示效果。",
+      "en": "First, can it cover the task and acceptance criteria; second, where data goes and whether it is retained or transferred; third, total cost, licence and exit. Answer these before judging demos.",
+      "review": "AI 产品 vs AI 模型"
     }
   ],
   "nextTask": {

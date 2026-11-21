@@ -27,12 +27,26 @@
     "zh": [
       "说出幻觉的两种成因，各配一个写作场景里的例子",
       "用「联网检索 + 自己核对」替代直接采信 AI 给的引用",
-      "拿到一段 AI 文字，说清哪些部分必须人工复核、复核什么"
+      "拿到一段 AI 文字，说清哪些部分必须人工复核、复核什么",
+      "知识截止日期会怎样影响一段「最新政策」的写作？",
+      "温度调高，改善的是文风还是事实可靠性？",
+      "系统提示与用户提示冲突时，写作者应该怎么处理？",
+      "上下文里塞满资料，为什么反而可能漏掉关键句？",
+      "AI 给的引用链接能打开，为什么仍不能直接引用？",
+      "改写他人文章时，哪些改动可能构成断章取义？",
+      "给一段 AI 文案做发布前检查，列四项必查。"
     ],
     "en": [
       "Name two causes of hallucination, each with an example from a writing scenario",
       "Replace trusting AI-provided citations on faith with retrieval plus your own verification",
-      "Given a passage of AI text, say which parts require human review and what to check"
+      "Given a passage of AI text, say which parts require human review and what to check",
+      "How does a knowledge cutoff affect writing about a “latest policy”?",
+      "Does higher temperature improve style or factual reliability?",
+      "What should a writer do when system and user prompts conflict?",
+      "Why can filling the context with material make the key sentence harder to find?",
+      "Why is a working citation link still not enough to quote?",
+      "Which edits can turn a rewrite into misrepresentation?",
+      "List four checks before publishing an AI-written passage."
     ]
   },
   "answers": [
@@ -50,6 +64,41 @@
       "zh": "复核姓名、数字、引用、事实判断和对外承诺；涉及专业判断时另找可靠依据。编辑还应检查文字是否改变了原意，而不只修语法。",
       "en": "Verify names, numbers, quotations, factual claims and external commitments. Seek reliable support for specialist judgments. Check preservation of meaning, not grammar alone.",
       "review": "水印与内容凭证"
+    },
+    {
+      "zh": "截止后的政策变化模型不知道，可能用旧版本补齐。写作前先查官方日期，把截止后的事实交给检索或人工补，不要凭模型记忆。",
+      "en": "The model does not know changes after the cutoff and may fill them with older versions. Check official dates first; use retrieval or human input for post-cutoff facts, not model memory.",
+      "review": "知识截止"
+    },
+    {
+      "zh": "温度主要改变采样随机性，让表达更多样；它不会给事实更多依据，反而可能增加不稳定。事实段落应降低随机性并回到来源核对。",
+      "en": "Temperature changes sampling randomness and makes wording more varied; it adds no factual support and may increase instability. Lower randomness for factual passages and check sources.",
+      "review": "温度"
+    },
+    {
+      "zh": "系统提示定义不可越过的角色与规则，用户提示只能在其范围内提要求。冲突时以系统约束为准；若业务需要不同规则，应改配置而不是绕过。",
+      "en": "The system prompt defines the role and non-negotiable rules; the user prompt can only ask within them. The system constraint wins; if the business needs different rules, change configuration rather than bypassing it.",
+      "review": "系统提示"
+    },
+    {
+      "zh": "长上下文里信息竞争注意力，关键句可能被淹没；分块、排序和重复也会影响。先把任务与检索范围写清，再让模型逐段引用，而不是一次堆满。",
+      "en": "In a long context, information competes for attention and the key sentence can be buried; chunking, ordering and duplication also matter. State the task and retrieval scope, then ask for passage-level citations instead of one giant dump.",
+      "review": "上下文窗口"
+    },
+    {
+      "zh": "链接可达只说明页面存在，不证明作者、日期、原文或观点支持你的句子。必须打开原页核对原句与上下文，找不到就删掉或标未知。",
+      "en": "A reachable link only proves the page exists, not the author, date, wording or that it supports your sentence. Open the page and check the exact passage and context; delete or mark unknown if absent.",
+      "review": "联网 - 检索增强"
+    },
+    {
+      "zh": "删掉限定条件、把可能性改成确定、把他人观点写成事实、改变引用对象，都会改变原意。改写要保留范围和归因，重要句回原文对照。",
+      "en": "Removing qualifications, turning possibility into certainty, presenting someone’s view as fact, or changing the referent all alter meaning. Rewrites must preserve scope and attribution; check key sentences against the original.",
+      "review": "水印与内容凭证"
+    },
+    {
+      "zh": "查人名/数字/日期、查引用与来源、查是否改变原意、查对外承诺与合规标识。四项都过再发；无法确认的删掉或标未知。",
+      "en": "Check names/numbers/dates, citations and sources, whether meaning changed, and external commitments plus required labelling. Publish only after all four; remove or mark unknown what cannot be confirmed.",
+      "review": "幻觉"
     }
   ],
   "nextTask": {

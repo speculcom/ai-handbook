@@ -3,7 +3,10 @@
   "ord": 16,
   "zh": "教师与课堂路线",
   "en": "The Teacher Route",
-  "span": { "zh": "约 40 分钟", "en": "about 40 minutes" },
+  "span": {
+    "zh": "约 40 分钟",
+    "en": "about 40 minutes"
+  },
   "lead": {
     "zh": "从「AI 能不能进课堂」到「怎么用它备课、出题、批改和互动」。每一步都留一个教师复核点，避免把模型输出直接交给学生。",
     "en": "From “can AI enter the classroom” to lesson prep, question generation, grading and interaction. Every step keeps a teacher checkpoint so model output never goes straight to students."
@@ -24,12 +27,26 @@
     "zh": [
       "说清 AI 生成的内容在课堂上哪些可以直接用、哪些必须教师先核",
       "用一条学习目标写出「导入—讲解—练习—总结」四段活动，并标出 AI 参与点",
-      "给学生一条 AI 可能出错的题目，让他们找出错误并说明理由"
+      "给学生一条 AI 可能出错的题目，让他们找出错误并说明理由",
+      "课堂 AI 互动，为什么要先设「不许问」的边界？",
+      "用 AI 出题，如何避免题目只考记忆？",
+      "学生用 AI 写作业，评价应改成看什么？",
+      "备课资料含学生数据，最小化处理是什么？",
+      "AI 批改的分数，什么时候必须人工复核？",
+      "把 AI 内容带进课堂，标识与版权怎么讲？",
+      "一节课的 AI 使用，怎么写进学习目标？"
     ],
     "en": [
       "Explain which AI-generated classroom content can be used directly and which a teacher must verify first",
       "Turn one learning objective into hook, explanation, practice and summary, marking where AI participates",
-      "Give students an AI-generated question that may be wrong and have them find and explain the error"
+      "Give students an AI-generated question that may be wrong and have them find and explain the error",
+      "Why set “do not ask” boundaries before AI interaction in class?",
+      "How do you avoid AI-generated questions that only test recall?",
+      "If students use AI for homework, what should assessment look like?",
+      "Lesson material contains student data; what is the minimum handling?",
+      "When must an AI-graded score be reviewed by a human?",
+      "How do you teach labelling and copyright when bringing AI content into class?",
+      "How do you write AI use into a lesson’s learning objectives?"
     ]
   },
   "answers": [
@@ -47,6 +64,40 @@
       "zh": "重点不是「AI 也会错」，而是学生能指出错在条件、计算还是结论，并用教材或原文反驳。",
       "en": "The point is not “AI can be wrong” but that students can locate whether the condition, calculation or conclusion failed, and rebut it with the textbook or source.",
       "review": "怎么设计课堂 AI 互动"
+    },
+    {
+      "zh": "先明确哪些问题不该交给外部工具（学生隐私、考试题、未公开资料），再谈怎么用。没有边界，互动会先泄露数据，再谈学习效果。",
+      "en": "Define what must not go to an external tool (student privacy, exam items, unpublished material) before discussing use. Without boundaries, interaction leaks data before learning effects matter.",
+      "review": "怎么设计课堂 AI 互动"
+    },
+    {
+      "zh": "要求题目给新材料、让学生解释理由、比较两种方案或找出错误；答案要能按 rubric 判，而不是只对知识点。生成后自己先做一遍，删掉歧义题。",
+      "en": "Ask for new material, explanations, comparisons or error-finding; answers must be rubric-scorable, not just recall. Solve them yourself and delete ambiguous items.",
+      "review": "怎么用 AI 出题与批改"
+    },
+    {
+      "zh": "看过程证据：提纲、修改记录、来源核对与口头解释；再看最终作品。只评成品无法区分谁写的，也无法教方法。",
+      "en": "Look at process evidence: outlines, revision history, source checks and oral explanation, then the final work. Product-only grading cannot distinguish authorship or teach method."
+    },
+    {
+      "zh": "去掉姓名与可识别组合，只保留教学需要的字段；外部工具只用脱敏样本，并确认留存与删除。不要把原始班级表直接上传。",
+      "en": "Remove names and identifying combinations, keep only fields needed for teaching, use masked samples in external tools and confirm retention/deletion. Do not upload the raw class roster.",
+      "review": "隐私与合规"
+    },
+    {
+      "zh": "涉及升学/奖惩、主观题、边界分数、疑似抄袭或学生申诉时。机器分只能当初筛，最终分数要有可解释的 rubric 与复核人。",
+      "en": "When it affects progression, rewards, subjective items, borderline scores, suspected plagiarism or appeals. Machine scores are a first pass; final scores need an explainable rubric and reviewer.",
+      "review": "怎么用 AI 出题与批改"
+    },
+    {
+      "zh": "讲清哪些内容必须标 AI 生成、哪些素材不能直接商用、引用要回到原页。让学生用一张「来源/许可/标识」三列表检查自己的作品。",
+      "en": "Teach which content must be labelled AI-generated, which assets cannot be used commercially, and that citations must return to the original. Have students check their work with a source/licence/label table.",
+      "review": "水印与内容凭证"
+    },
+    {
+      "zh": "写成可观察的行为：学生能用 AI 生成初稿、核对两条来源、指出一处错误并说明理由。不要写「会用 AI」这种无法验收的目标。",
+      "en": "Write observable behaviour: students draft with AI, verify two sources, identify one error and explain why. Avoid unassessable goals such as “can use AI”.",
+      "review": "怎么用 AI 备课"
     }
   ],
   "nextTask": {
