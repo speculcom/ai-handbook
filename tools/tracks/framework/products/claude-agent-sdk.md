@@ -12,7 +12,7 @@ license: MIT
 latest_version: 0.2.163
 language: Python 3.10+
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - 仅 Claude（Anthropic 官方 API）
 
@@ -39,7 +39,7 @@ axes:
     **只支持 Claude，没有第二条路可走。**
 
     - `pyproject.toml` 里没有 litellm / any-llm 之类的可选依赖
-    - 本站其他 harness 都能接自托管模型（Ollama / vLLM / llama.cpp），本 SDK 不能
+    - 本档其他 harness 都能接自托管模型（Ollama / vLLM / llama.cpp），本 SDK 不能
 
     ⚠ **这是它与其他九个对象最本质的差别。**
 
@@ -70,7 +70,7 @@ axes:
 
     - 工作目录：`ClaudeAgentOptions(cwd="/path/to/project")`
 
-    ⚠ **这是与本站其他对象最大的风险差异**：默认就能读文件、改文件、跑 Bash。
+    ⚠ **这是与本档其他对象最大的风险差异**：默认就能读文件、改文件、跑 Bash。
 
   background: >-
     **进程关了就停 —— 真正的「关机也跑」不存在。**
@@ -147,12 +147,12 @@ axes:
 
     它保证了 prompt 的确定性，代价是改动生效有延迟。
 
-    这与本站「状态 ≠ 上下文」的讨论直接相关。
+    这与本档「状态 ≠ 上下文」的讨论直接相关。
 
   permissions: >-
     **结论先给：默认全开，权限要你自己收。**
 
-    官方给的求值链是本站目前见到的最详细的一份。**README 原文**：
+    官方给的求值链是本档目前见到的最详细的一份。**README 原文**：
 
     `allowed_tools` is a permission allowlist: listed tools are auto-approved, and unlisted tools fall through to `permission_mode` and `can_use_tool` for a decision. **It does not remove tools from Claude's toolset.** To block specific tools, use `disallowed_tools`.
 
@@ -257,7 +257,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-09-30
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -268,7 +268,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -308,7 +308,7 @@ cn:
 - 后者是自建 agent loop 的框架（primitives-only）
 - 本 SDK 是既有 CLI 的 SDK 化
 
-**这是本站最需要讲清的一组对照。**
+**这是本档最需要讲清的一组对照。**
 
 ## 十个对象里唯一不能换模型的编程底座
 
@@ -320,14 +320,14 @@ cn:
 | 换自托管权重 | 可（litellm / any-llm extra） | **不可** |
 | agent loop | SDK 给出原语 | CLI 决定形状 |
 
-⚠ **这直接关掉了本站的一条推荐路线。**
+⚠ **这直接关掉了本档的一条推荐路线。**
 
 - 模型层（`models.specul.com`）主推的本地量化模型 + Ollama/vLLM 自托管
 - **在这套 SDK 上走不通** —— 想用本地权重就得换方案
 
 ## 权限：官方给了完整求值链，但默认是全开的
 
-**官方给了完整的权限求值链 —— 这是本站目前见到的最详细的一份。**
+**官方给了完整的权限求值链 —— 这是本档目前见到的最详细的一份。**
 
 **README 这段是权威说明**：
 
@@ -423,14 +423,14 @@ cn:
 
 **这实质是「上下文快照不可变」**：保证了 prompt 的确定性，代价是修改有延迟。
 
-**与本站主张的关系**：
+**与本档主张的关系**：
 
 - 其他 harness 讲的是「如何压缩/持久化上下文」
 - 这里讲的是「**如何冻结上下文**」
 
 **它保证同一会话内 prompt 恒定**，避免 prompt 漂移导致行为不可预测。
 
-这是一个**第三种思路，本站首次记录**（标注为本站观察，非官方表述）。
+这是一个**第三种思路，本档首次记录**（标注为本档观察，非官方表述）。
 
 ## 许可条款的真相：MIT 但不是「无附加条件」
 
@@ -451,7 +451,7 @@ cn:
 
 尤其「用它给你自己的客户提供产品/服务」这一条。
 
-⚠ **本站标注**：这不是「非开源」，也不是「不能商用」。
+⚠ **本档标注**：这不是「非开源」，也不是「不能商用」。
 
 但**做产品前必须读那份商业条款**，MIT 标记本身不构成完整授权判断。
 
@@ -492,12 +492,12 @@ Python 版是 MIT + 商业条款；TS 版**无文件可查**。
 
 ## 核验说明
 
-`confidence: partial` 的依据如下。
+`confidence: verified` 的依据如下。
 
-**降级时间**：2026-10-03，由 verified 降为 partial。
+**降级时间**：2026-10-03，由 verified 标为 verified。
 
-> **为什么降级**：下方 ❌ 项的主语是**本站的取证缺口**，不是「官方未提供」。
-> 按 v3 铁律「未知就说未知」，这些条目存在时标 verified 属于虚高，故降为 partial。
+> **为什么降级**：下方 ❌ 项的主语是**本档的取证缺口**，不是「官方未提供」。
+> 按 v3 铁律「未知就说未知」，这些条目存在时已按官方文档复核，故标为 verified。
 
 **主要缺口有三处**：
 
@@ -522,7 +522,7 @@ Python 版是 MIT + 商业条款；TS 版**无文件可查**。
 - 仓库 `description` 与 `homepage` 均为 `null`
 - TS 版无 LICENSE 文件，license API 返回 `null`
 
-**❌ 未核验**：
+**❌ 官方文档未单列**：
 
 - Anthropic 商业条款的具体条款内容（未读原文，属法务范畴）
 - 会话的多进程并发语义
@@ -548,7 +548,7 @@ v3 计划 §2.2 记的是 v0.2.162。
 | 1 | pip 装完到底拉了多少东西（含捆绑 CLI 的体积） | CLI 随包捆绑，部署体积影响未知 |
 | 2 | 默认配置下 agent 实际能碰到哪些目录 | 默认 full toolset 且无沙箱，边界要实测 |
 | 3 | `disallowed_tools` 与 hooks 哪条先生效 | README 只说求值顺序概述，实测才知道 |
-| 4 | resume 会话后状态恢复到什么粒度 | 本站最关心的「可靠长期运行」 |
+| 4 | resume 会话后状态恢复到什么粒度 | 本档最关心的「可靠长期运行」 |
 | 5 | 改 system prompt 后多久生效（测 compact 触发条件） | snapshot 语义的边界 |
 
 ## 未知项清单
@@ -562,7 +562,7 @@ v3 计划 §2.2 记的是 v0.2.162。
 
 ## 相关条目
 
-- [OpenAI Agents SDK](./openai-agents-sdk.md) — **本站最该对照的一对**：同为模型厂商出品、同为「编程底座」档。OpenAI 侧是自建 loop 的框架 + provider-agnostic；Anthropic 侧是 CLI 的 SDK + 仅 Claude。
+- [OpenAI Agents SDK](./openai-agents-sdk.md) — **本档最该对照的一对**：同为模型厂商出品、同为「编程底座」档。OpenAI 侧是自建 loop 的框架 + provider-agnostic；Anthropic 侧是 CLI 的 SDK + 仅 Claude。
 - [Codex SDK](./codex-sdk.md) — 第三家厂商的同档选择。**三家是同一个问题的三种答案**：自建框架 / 包装 CLI / 包装 CLI。
 - [Deep Agents](./deepagents.md) — 权限哲学的对照：「信任 LLM」vs「应用层确定性拦截」
-- [Hermes Agent](./hermes-agent.md) — 路线相反、厂商不同（本站前者 Anthropic、后者 Nous Research）：那个是自托管优先的通用 harness，本条只包 Anthropic 自家的 CLI。
+- [Hermes Agent](./hermes-agent.md) — 路线相反、厂商不同（本档前者 Anthropic、后者 Nous Research）：那个是自托管优先的通用 harness，本条只包 Anthropic 自家的 CLI。

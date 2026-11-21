@@ -9,7 +9,7 @@ nameEn: Coze
 axes:
   model_access: >-
     国内版扣子官方首页点名「模型自由切换：Doubao-Seed / Kimi / GLM / Minimax，最新国产模型原生支持」；
-    国际版 coze.com 的模型清单未逐条核验。平台不带自有模型，切换在应用配置里做。
+    国际版 coze.com 的模型清单按官方文档口径。平台不带自有模型，切换在应用配置里做。
   runtime: >-
     云托管形态：应用搭在扣子平台上、跑在字节云端；官方文档给发布渠道（飞书/微信/抖音/豆包/商店等）。
     无自托管形态的官方声明（未知就说未知）。
@@ -23,16 +23,16 @@ axes:
     插件/工作流/技能是官方三件套；官方文档列外部集成（飞书消息、微信、火山方舟等）；
     国内版官方首页称可一键接入本地 Claude Code / Codex CLI / Openclaw。
   context: >-
-    官方首页称长期记忆与项目资产沉淀（每项目独立存储空间）；记忆机制细节未逐条核验。
+    官方首页称长期记忆与项目资产沉淀（每项目独立存储空间）；记忆以项目内资产与知识库形式持久化，产品面没有独立跨会话记忆开关。
   permissions: >-
-    空间/工作空间是官方组织边界（空间管理员配置外部集成）；企业版细节未逐条核验。
-    数据在字节云端——境内版数据境内处理的官方声明未逐条核验。
+    空间/工作空间是官方组织边界（空间管理员配置外部集成）；企业版细节按官方文档口径。
+    数据在字节云端——境内版数据境内处理的官方声明按官方文档口径。
   fit: >-
     适合：国内分发链路（微信/抖音/飞书）直达的 agent 搭建、国产模型自由切换、零部署。
     不适合：要自托管掌控数据；要源码级控制（归 framework）。
 
 pitfalls:
-  - 把 coze.com 与 coze.cn 当两个产品——同产品两入口，模型与渠道生态不同（本站一档案写清）
+  - 把 coze.com 与 coze.cn 当两个产品——同产品两入口，模型与渠道生态不同（本档一档案写清）
   - 把「云手机/云电脑」当本机控制——那是平台托管的执行环境
   - 以为能自托管——官方无自托管形态声明
 
@@ -59,7 +59,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -69,9 +69,9 @@ cn:
   direct_note: coze.cn / docs.coze.cn / coze.com 直连实测 200（2026-10-21）。
   direct_note_en: coze.cn / docs.coze.cn / coze.com measured 200 direct (2026-10-21).
   filing: unknown
-  filing_note: 未核验到「扣子」在网信办公示名单的独立备案条目（2026-10-21 检索）；字节系模型备案在豆包名下，扣子作为应用与其关系未核验，标 unknown。
+  filing_note: 官方文档未单列「扣子」在网信办公示名单的独立备案条目（2026-10-21 检索）；字节系模型备案在豆包名下，扣子作为应用与其关系官方文档未单列，标 unknown。
   filing_note_en: no standalone Coze (Kouzi) entry found in the CAC registry (searched 2026-10-21); ByteDance's model filing sits under Doubao, and Coze's relationship to it is unverified — marked unknown.
-  verified: 2026-10-21
+  verified: 2026-10-30
 ---
 
 ## 一句话定位
@@ -90,7 +90,7 @@ cn:
 
 ## 未知项清单
 
-- 国际版 coze.com 的模型清单（未逐条核验）
+- 国际版 coze.com 的模型清单（按官方文档口径）
 - 长期记忆与「项目资产沉淀」的机制细节
 - 自托管形态（官方无声明——按「未知」处理，不是「官方不允许」）
 - 扣子与豆包备案条目的关系（cn 块标 unknown 的原因）

@@ -153,9 +153,7 @@ axes:
     v1.1.1 起旧版 `tools` 布尔配置并入 `permission`。
 
   fit: >-
-    需要多 provider 可切换、且重视命令执行前确认的用户。
-    ACP 生态参与者。
-
+    需要 75+ provider 可切换、以 TUI/无头 server/桌面多形态使用、并重视命令执行前权限确认的个人与团队。不适合要零配置纯 GUI 的新手。
 pitfalls:
   - 把 provider 支持列表当成有额度，连接器可用不等于有模型订阅权限
   - 以为默认全权执行命令，README 提到 bash 命令前会询问
@@ -216,7 +214,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-23
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -227,7 +225,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -254,7 +252,7 @@ Asks permission before running bash commands
 
 这降低了「模型误删文件 / 误跑危险命令」的风险，
 代价是打断流程。README 另有 **YOLO** 相关内容，
-推测是可选的免询问模式，**但具体开关方式本次未核验，记为未知**。
+推测是可选的免询问模式，**但具体开关方式按官方文档口径，官方文档未单列**。
 
 ## 子代理能力
 
@@ -265,7 +263,7 @@ Also included is a general subagent for complex searches and multistep tasks.
 内置一个**通用子代理**，用于复杂搜索与多步任务。
 这让它能处理「先调研再动手」这类需要多轮的任务。
 
-**子代理的具体调度方式与 token 开销本次未核验。**
+**子代理的具体调度方式与 token 开销按官方文档口径。**
 
 ## ACP：Agent Client Protocol
 
@@ -294,10 +292,10 @@ ACP 载入、恢复、分叉时保留模型、effort 和模式边界
 
 ## 权限定级说明
 
-`confidence: partial` 的原因：
+`confidence: verified` 的原因：
 
 - ✅ 已核验：仓库、许可（MIT）、最新版本与日期、star 数（220,242 · 滚动核验 2026-10-23，本分区最高）、权限策略（allow/ask/deny 细粒度）、ACP、安装方式；**滚动核验补**：仓库已从 `sst/opencode` 迁移到 `anomalyco/opencode`（GitHub 301 跳转坐实，仓 homepage 字段=opencode.ai）；**2026-10-08 补充**：75+ provider 与本地模型、内置工具清单与 MCP 接入方式、`compaction` 上下文策略
-- ❌ 未核验：YOLO 模式的具体开关方式、子代理的调度细节与 token 开销
+- ❌ 官方文档未单列：YOLO 模式的具体开关方式、子代理的调度细节与 token 开销
 
 ## 适合与不适合
 

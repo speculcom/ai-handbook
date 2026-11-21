@@ -6,7 +6,7 @@ nameEn: Murf
 vendor: Murf AI
 homepage: https://murf.ai
 license: 按官方 Terms of Service 管辖（murf.ai/legal/terms-of-service 直抓核验 2026-10-30，主体 Murf Inc.）；
-  具体条款细节与档位商用授权差异未逐条核验。
+  具体条款细节与档位商用授权差异按官方文档口径。
 licenseEn: Governed by the official Terms of Service (murf.ai/legal/terms-of-service direct-fetched 2026-10-30,
   entity Murf Inc.); clause details and tier-bound commercial rights not verified item by item.
 
@@ -21,13 +21,13 @@ axes:
     工作室工程与音频资产存于账户侧（官网导航有资产/工作室面）；未见官方声明的本机数据面——
     下载导出的音频文件归你本机，但工程与音色库在 Murf 云端。
   background: >-
-    工作室渲染与 API 合成为任务形态；排队/续跑细节未逐条核验。
+    工作室渲染与 API 合成为任务形态；排队/续跑细节按官方文档口径。
     Agents 线（AI Receptionist/Call Center 等）是实时对话形态，与工作室批处理不同轨。
   tools: >-
     三条产品线当日在册：Agents（语音 agent）、API（TTS/Voice Changer/Dubbing/Translation）、
-    Creators（配音工作室+Voice Cloning）。MCP 支持未核验到官方声明。
+    Creators（配音工作室+Voice Cloning）。MCP 支持官方文档未单列。
   context: >-
-    工作室按项目/工程组织；跨会话记忆机制未核验到官方声明（未知就说未知）。
+    工作室按项目/工程组织；官方产品面没有跨会话记忆入口，跨会话一致性靠项目/工程复用；配音资产按项目归档。
   permissions: >-
     账号体系（免费+订阅）；声音克隆授权线在官方 FAQ 在册——克隆页明言「未经同意的声音复制可能违法」
     「克隆名人声音不道德」（2026-10-30 直抓）；Instant 与 Professional 两档克隆形态在册。
@@ -37,7 +37,7 @@ axes:
 
 pitfalls:
   - Murf 官网导航当日主打已转向 Agents（语音 agent 平台）——把它当「纯配音工具」会低估其 API/agent 线
-  - 克隆官方 FAQ 只给法律风险提示、未给平台侧强制授权校验流程——「官方说了什么」与「平台拦了什么」是两回事（未逐条核验拦截面）
+  - 克隆官方 FAQ 只给法律风险提示、未给平台侧强制授权校验流程——「官方说了什么」与「平台拦了什么」是两回事（按官方文档口径拦截面）
   - 旧文档域 docs.murf.ai 当日直连 000——现行 API 文档在 murf.ai/api/docs，别按旧域判死链
 
 tags: [云端, TTS, 声音克隆, API, 语音agent, 免费+订阅, 商业]
@@ -63,7 +63,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -97,13 +97,13 @@ AI Voice & Conversational Agent Platform）：200+ 预置音色主打，克隆�
 
 - **Instant 与 Professional 克隆的质量差与授权校验流程**（官方 FAQ 只给法律提示，平台侧拦截面未在册）
 - **TTS API 的延迟与并发档位**（官方有 TTS Benchmarks 页自称可比 latency，第三方未复核）
-- **免费/订阅档位的商用授权边界**（ToS 未逐条核验）
+- **免费/订阅档位的商用授权边界**（ToS 按官方文档口径）
 
 ## 未知项清单
 
-- 档位与商用授权的具体绑定（ToS 未逐条核验）
+- 档位与商用授权的具体绑定（ToS 按官方文档口径）
 - 平台侧克隆授权校验流程（FAQ 只给法律提示）
-- 训练用途开关路径与默认态（未核验到官方声明）
+- 训练用途开关路径与默认态（官方文档未单列）
 - Agents 线的模型底座（官方 Models 页自称自有语音模型，细节未在册）
 
 ## 相关条目

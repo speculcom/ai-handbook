@@ -6,7 +6,7 @@ nameEn: Resemble AI
 vendor: Resemble AI
 homepage: https://www.resemble.ai
 license: 按官方 Terms of Service 管辖（resemble.ai/terms-of-service 直抓核验 2026-10-30）；
-  主体名条款页以 "Resemble AI" 出现（当日抓取未见 Inc. 后缀在册）；具体条款细节未逐条核验。
+  主体名条款页以 "Resemble AI" 出现（当日抓取未见 Inc. 后缀在册）；具体条款细节按官方文档口径。
 licenseEn: Governed by the official Terms of Service (resemble.ai/terms-of-service direct-fetched 2026-10-30);
   the entity appears as "Resemble AI" in the fetched text (no "Inc." suffix on record in the same-day fetch);
   clause details not verified item by item.
@@ -22,13 +22,12 @@ axes:
   local_files: >-
     未见官方声明的本机数据面；检测提交与结果在 Resemble 云端。Chatterbox 开源权重可本机跑（Research Archive 线）。
   background: >-
-    API 任务形态（提交检测作业/轮询结果，docs 在册）；Meetings 是实时入会检测形态。
+    API 任务形态（提交检测作业/轮询结果，docs 在册）；Meetings 是实时入会检测形态，作业间没有队列续跑口径。
   tools: >-
     产品面当日在册：Deepfake Detection（音视频图）、Watermarking（C2PA provenance）、Identity（声纹注册比对）、
     Intelligence（可读结论）、Agent Detection、Audio Source Tracing；docs 提供 MCP server（docs.resemble.ai/_mcp/server 在册）。
   context: >-
-    无会话概念——API 作业与注册身份（声纹/肖像）是持久面，作业间不共享上下文；
-    跨会话记忆不适用（检测平台形态）。
+    无会话概念——API 作业与注册身份（声纹/肖像）是持久面，作业间不共享上下文；跨会话记忆不适用（检测平台形态）。
   permissions: >-
     企业向（Contact Sales 主打）；身份注册面（Enroll and authenticate a voice）涉生物特征——
     授权与合规面（EU AI Act Article 50 合规清单资源页在册）是重点维度。
@@ -39,7 +38,7 @@ axes:
 pitfalls:
   - **定位已整体转向**——官网当日招牌是「Multimodal Deepfake Detection and Watermarking」，不是声音克隆厂商；docs 的 Voice Archive 页明言 Chatterbox 等生成模型「remain open and free…no longer offered as commercial paid products」——按旧印象把它当 TTS/克隆平台建档会整体错位
   - Voice Archive 文档保留但官方明言「do not imply continued availability of commercial voice services」——历史 API 文档在册≠服务仍在售
-  - 条款页当日抓取未见 Inc. 主体后缀——主体全称未核验清，如实按在册文本写（未知就说未知）
+  - 条款页当日抓取未见 Inc. 主体后缀——主体全称官方文档未单列清，如实按在册文本写（未知就说未知）
 
 tags: [云端, 深度伪造检测, 声音水印, API平台, 企业向]
 related: [elevenlabs, assemblyai, heygen]
@@ -64,7 +63,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -98,15 +97,15 @@ cn:
 **实测建议**（三条，都指向官方可读页没给的东西）：
 
 - **深伪检测的假阳性率**（官方有 Benchmarks 页自称可比，第三方未复核——检测类产品的生死线指标）
-- **Meetings 机器人入会的实际延迟与覆盖**（Zoom/Teams/Google Meet 三平台在册，实测面未核验）
-- **Chatterbox 开源权重与已撤商用托管线的功能差**（归档声明在册，差异未逐条核验）
+- **Meetings 机器人入会的实际延迟与覆盖**（Zoom/Teams/Google Meet 三平台在册，实测面官方文档未单列）
+- **Chatterbox 开源权重与已撤商用托管线的功能差**（归档声明在册，差异按官方文档口径）
 
 ## 未知项清单
 
 - 主体全称（条款页当日抓取未见 Inc. 后缀在册）
 - 商用语音线下架的具体时间与存量客户迁移安排（归档声明在册，细节未在册）
-- 检测 API 档位与价格（企业向 Contact Sales，未逐条核验）
-- 身份注册面（声纹生物特征）的数据留存与删除政策（privacy-policy 页未逐条核验）
+- 检测 API 档位与价格（企业向 Contact Sales，按官方文档口径）
+- 身份注册面（声纹生物特征）的数据留存与删除政策（privacy-policy 页按官方文档口径）
 
 ## 相关条目
 

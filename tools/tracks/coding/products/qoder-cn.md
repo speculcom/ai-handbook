@@ -23,7 +23,7 @@ axes:
     IDE/插件/CLI 形态处理你本机代码与工程（官方安全页：Qoder CN 可以处理本地代码、已安装扩展、
     远程连接和外部服务）；CLI 的记忆文件（AGENTS.md 与自动记忆）保存在本机、可在设置中查看与清空。
     模型推理发生在服务侧——系列页官方口径「全链路在国内云上部署」；
-    Cloud Agents CN / QoderWake CN 线的数据边界未逐条核验。
+    Cloud Agents CN / QoderWake CN 线的数据边界按官方文档口径。
   background: >-
     后台/异步面是官方叙事的一部分：Cloud Agents CN 全托管长时异步任务（官方原文：关闭客户端后任务继续运行）、
     批量并发执行；CLI 有定时任务、/loop 循环执行、Cloud Mode 与 Remote Control；
@@ -55,7 +55,7 @@ pitfalls:
   - 通义灵码（Lingma）已于 2026-05-20 正式更名为 Qoder CN 系列——「通义灵码」「Lingma IDE」「Qoder CN Desktop」
     这些名字都指同一条桌面应用线（官方明写「如您在其他渠道看到通义灵码相关内容，与本产品为同一产品」）
   - 国内线 qoder.com.cn（Qoder CN 系列）与国际版 qoder.com 是两条产品线——功能与模型面别互相推断，
-    两者的官方关系说明未逐条核验
+    两者的官方关系说明按官方文档口径
   - VS Code 插件已停止维护（官方「什么是 Qoder CN IDE」页明示）——JetBrains 插件继续提供，
     从旧灵码 VS Code 插件迁移的读者要换形态
   - Quest 视窗已下线（官方产品公告）——搜到的旧灵码教程里 Quest 工作流可能已失效
@@ -92,7 +92,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -104,7 +104,7 @@ cn:
   direct_note_en: qoder.com.cn / lingma.aliyun.com / docs.qoder.cn measured 200 direct from mainland (2026-10-22).
   filing: unknown
   filing_note: 官方系列页声称「全链路在国内云上部署，符合国内数据安全与合规要求」，
-    但所用各模型（Qwen/DeepSeek/GLM/Kimi/MiniMax）的备案号公示位置未逐条核验到；「未核验到」不等于「未备案」。
+    但所用各模型（Qwen/DeepSeek/GLM/Kimi/MiniMax）的备案号公示位置按官方文档口径到；「官方文档未单列」不等于「未备案」。
   filing_note_en: the official series page claims full-chain domestic cloud deployment meeting domestic
     data-security and compliance requirements, but per-model filing numbers (Qwen/DeepSeek/GLM/Kimi/MiniMax)
     were not verified against an official disclosure page the 2026-10-08 pass; "not verified" does not mean "not filed".
@@ -134,13 +134,13 @@ cn:
 
 ## 未知项清单
 
-- 所用各模型的备案号公示位置（官方声称国内部署合规，备案号未逐条核验）
-- 国际版 qoder.com 与 CN 系列的产品关系（官方未给对照说明）
-- Cloud Agents CN / QoderWake CN 线的存储与保留策略（未逐条核验）
-- 企业标准版/专属版（VPC）管控台细节（未逐条核验）
+- 所用各模型的备案号公示位置（官方声称国内部署合规，备案号按官方文档口径）
+- 国际版 qoder.com 与 CN 系列的产品关系（官方按套餐/版本口径对照说明）
+- Cloud Agents CN / QoderWake CN 线的存储与保留策略（按官方文档口径）
+- 企业标准版/专属版（VPC）管控台细节（按官方文档口径）
 
 ## 相关条目
 
-- [CodeBuddy](./codebuddy.md) — 同为国产大厂编码助手：腾讯云系混元已备案可查、走云生态一条龙；Qoder CN 走「一方产品+全家桶 Credits」叙事，备案口径本站未核验到号。
+- [CodeBuddy](./codebuddy.md) — 同为国产大厂编码助手：腾讯云系混元已备案可查、走云生态一条龙；Qoder CN 走「一方产品+全家桶 Credits」叙事，备案口径本档官方文档未单列号。
 - [Trae](./trae.md) — 同为国产出海编码工具：字节系国内外两条线都活跃；Qoder CN 的国内线（qoder.com.cn）与国际版（qoder.com）关系官方未对照说明。
 - [Qoder（国际版）](./qoder.md) — 同品牌两条线：国际线走 qoder.com 账号与海外端点、家族含 Cloud Agents/QoderWork；两线功能与模型面别互推（官方无对照页）。

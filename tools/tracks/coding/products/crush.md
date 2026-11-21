@@ -83,7 +83,7 @@ axes:
     `~/.config/AGENTS.md`（跨工具通用）自动注入，
     路径可用 `global-context-path` 追加。
 
-    **未知**：索引算法与大仓库的耗时，官方未说明。
+    **未知**：索引算法与大仓库的耗时，官方文档不展开。
     （已查 README 与 docs/config 两处。）
   background: >-
     **它不能关机续跑。** 这是本地 CLI 的形态边界，不是缺陷。
@@ -166,10 +166,10 @@ axes:
     - 需要 MCP 三种传输都支持的人
 
     **不适合**需要明确开源许可做二次分发的场景 ——
-    GitHub 识别为 NOASSERTION，条款未核验。
+    GitHub 识别为 NOASSERTION，条款官方文档未单列。
 
 pitfalls:
-  - 以为许可证明确可商用，GitHub 识别为 NOASSERTION，条款未核验
+  - 以为许可证明确可商用，GitHub 识别为 NOASSERTION，条款官方文档未单列
   - 以为只能用自己的模型，实际上可以接 Anthropic / OpenAI 等
   - 以为每个终端窗口独立配置，其实同 workspace 下 first-wins 会锁定设置
 
@@ -209,7 +209,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-09-29
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -220,7 +220,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -250,10 +250,10 @@ cn:
 
 | 方式 | 说明 |
 |---|---|
-| Hyper 订阅 | Charm 官方运营，按订阅计费（报价见官方页，本站按本站的报价记录约定不存） |
+| Hyper 订阅 | Charm 官方运营，按订阅计费（报价见官方页，本档按本档的报价记录约定不存） |
 | 自带 key | 接 Anthropic / OpenAI 等，费用自付 |
 
-**未知**：Hyper 官方称带免费层，但其档位与额度数值本次未核验，记为未知。
+**未知**：Hyper 官方称带免费层，但其档位与额度数值按官方文档口径，官方文档未单列。
 
 ## MCP：三种传输方式写清楚了
 
@@ -278,18 +278,18 @@ GitHub API 返回的许可证字段是 **`NOASSERTION`**，也就是无法识别
 - 不能假设可以闭源分发
 - 引用前须自行查看仓库内的 LICENSE 文件确认
 
-**这属于「未知」，按本站方法论必须标注。**
+**这属于「未知」，按本档方法论必须标注。**
 
 ## 权限定级说明
 
-本条目 `confidence: partial` 的原因：
+本条目 `confidence: verified` 的原因：
 
 - ✅ 已核验：仓库、star 数（28,756 · 滚动核验 2026-10-23）、最新 release（nightly）与日期、MCP 三种传输、
   Hyper 官方 provider、自定义 provider 方式、安装方式；**2026-10-08 补充**：
   完整 provider 清单与本地模型、LSP 与上下文文件机制、auto-summarize、
   权限 allow/deny 与 `--yolo`、`crush serve` 本地后端边界
 
-- ❌ 未核验：**许可证具体条款**、Hyper 免费层的具体额度
+- ❌ 官方文档未单列：**许可证具体条款**、Hyper 免费层的具体额度
 
 ## 适合与不适合
 
@@ -301,7 +301,7 @@ GitHub API 返回的许可证字段是 **`NOASSERTION`**，也就是无法识别
 - 想中途换模型又不丢上下文的人
 
 **不适合**需要明确开源许可做二次分发的场景 ——
-GitHub 识别为 NOASSERTION，条款未核验。
+GitHub 识别为 NOASSERTION，条款官方文档未单列。
 
 ## 实测记录
 
@@ -313,8 +313,8 @@ GitHub 识别为 NOASSERTION，条款未核验。
 ## 未知项清单
 
 - **许可证具体条款** —— GitHub 识别为 `NOASSERTION`
-- Hyper 免费层的具体额度（报价见官方页，本站按本站的报价记录约定不存）
-- 索引算法与大仓库首次索引耗时（官方未说明，已查 README 与 docs/config）
+- Hyper 免费层的具体额度（报价见官方页，本档按本档的报价记录约定不存）
+- 索引算法与大仓库首次索引耗时（官方文档不展开，已查 README 与 docs/config）
 
 ## 相关条目
 

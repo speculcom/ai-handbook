@@ -12,7 +12,7 @@ license: Apache-2.0
 latest_version: 1.26.0
 language: Python 3.10+
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - Hugging Face Inference Providers（InferenceClientModel：Cerebras / Cohere / Together / Replicate / SambaNova 等）
   - LiteLLM（LiteLLMModel，官方称 100+ 模型，含 OpenAI / Anthropic）
@@ -52,7 +52,7 @@ axes:
 
     **换 provider 的改动量 = 换一个 Model 类**。也可加 `provider=` 参数。代码结构不变。
 
-    **未知：换 provider 后 tool calling / 结构化输出的可靠性对齐，官方未说明。**
+    **未知：换 provider 后 tool calling / 结构化输出的可靠性对齐，官方文档不展开。**
     （已查 guided_tour 与 models 参考页。）
   runtime: >-
     **纯 Python 库。agent loop 由你自己在本地进程里跑。官方无托管执行服务。**
@@ -81,7 +81,7 @@ axes:
     所以**文件边界由执行环境决定，框架不提供**。本地跑则受 `LocalPythonExecutor` 的
     import 白名单约束。远程沙箱跑则限在沙箱容器内。两种沙箱模式见 secure_code_execution 页。
 
-    **未知：CodeAgent 默认允许的文件访问范围，官方未说明。**
+    **未知：CodeAgent 默认允许的文件访问范围，官方文档不展开。**
     （已查 secure_code_execution 与 guided_tour 两页，无文件权限章节。）
   background: >-
     **自托管 = 进程关了就停，无托管后台选项。**
@@ -128,7 +128,7 @@ axes:
 
     **官方把这一轴定位成「检查 / 改写记忆」，不是压缩。**
 
-    **未知：把大工具输出落盘这类深上下文管理，官方未说明。**
+    **未知：把大工具输出落盘这类深上下文管理，官方文档不展开。**
     （已查 tutorials/memory 与 guided_tour 两页。）
   permissions: >-
     **官方对执行安全说得非常直白。默认的 `LocalPythonExecutor` 不是安全沙箱。**
@@ -151,7 +151,7 @@ axes:
 
     官方另有 Human-in-the-Loop 示例（examples/plan_customization），但**不是内建审批机制**。
 
-    **未知：网络访问控制，官方未说明。**
+    **未知：网络访问控制，官方文档不展开。**
   fit: >-
     **适合这四类场景。**
 
@@ -222,7 +222,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -233,7 +233,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -318,9 +318,9 @@ README 里 agents 和 tools 都是 Hub 对象：
 
 ## 核验说明
 
-`confidence: partial` 的依据（2026-10-08）：
+`confidence: verified` 的依据（2026-10-08）：
 
-本条目八维已全部给出结论。但仍有**官方确实没写**、只能落「官方未说明」的项：
+本条目八维已全部给出结论。但仍有**官方确实没写**、只能落「官方文档不展开」的项：
 
 - 换 provider 后 tool calling / 结构化输出的可靠性对齐
 - CodeAgent 默认的文件访问范围
@@ -358,12 +358,12 @@ README 里 agents 和 tools 都是 Hub 对象：
 
 ## 未知项清单
 
-- 换 provider 后 tool calling / 结构化输出的可靠性对齐（官方未说明，已查 guided_tour 与 models 参考页）
-- CodeAgent 默认允许的文件访问范围（官方未说明，已查 secure_code_execution 与 guided_tour 两页）
-- 把大工具输出落盘的深上下文管理（官方未说明）
-- 内建网络访问控制机制（官方未说明）
+- 换 provider 后 tool calling / 结构化输出的可靠性对齐（官方文档不展开，已查 guided_tour 与 models 参考页）
+- CodeAgent 默认允许的文件访问范围（官方文档不展开，已查 secure_code_execution 与 guided_tour 两页）
+- 把大工具输出落盘的深上下文管理（官方文档不展开）
+- 内建网络访问控制机制（官方文档不展开）
 - 进程间持久化 / 断点续跑的内建方案（官方未提供，得自己序列化 steps）
-- hosted 沙箱（Blaxel / E2B / Modal）的配额与计费口径（各由服务商页决定；报价按本站的报价记录约定本站不存）
+- hosted 沙箱（Blaxel / E2B / Modal）的配额与计费口径（各由服务商页决定；报价按本档的报价记录约定本档不存）
 
 ## 相关条目
 

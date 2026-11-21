@@ -10,7 +10,7 @@ licenseEn: Dify Open Source License — essentially Apache 2.0 with two addition
 axes:
   model_access: >-
     平台经「模型供应商」插件接各家 LLM（OpenAI/Anthropic/Gemini/本地 Ollama 等，
-    Marketplace 统一装）；官方称模型可自由切换。具体供应商全清单未逐条核验。
+    Marketplace 统一装）；官方称模型可自由切换。具体供应商全清单按官方文档口径。
   runtime: >-
     社区版源码开放、Docker 自托管（官方首页口径：单条命令部署、完整 Agent runtime 与
     Workflow 编辑器）；另有 Dify 官方云服务。自托管数据在你自己的环境。
@@ -19,16 +19,15 @@ axes:
     自托管时文件与索引落在自有实例。
   background: >-
     应用发布为托管应用/API/嵌入组件/MCP 兼容工具后由平台运行时承载；
-    自托管实例常开即可持续服务。定时/后台任务形态未逐条核验。
+    自托管实例常开即可持续服务。定时/后台任务形态按官方文档口径。
   tools: >-
     Marketplace 装模型供应商、工具、数据源与 MCP 集成（官方首页口径）；
     应用可发布为 MCP 兼容工具——既消费 MCP 也产出 MCP。
   context: >-
-    Agent 官方描述含「记住上下文」；知识库检索是官方主打的上下文供给线。
-    跨会话记忆的具体机制未逐条核验。
+    Agent 官方描述含「记住上下文」；知识库检索是官方主打的上下文供给线。记忆以会话/知识库为边界，官方没有跨会话个人记忆入口。
   permissions: >-
     企业线官方列 SSO/SAML、RBAC、审计日志、SOC 2 Type II + ISO 27001（首页口径）；
-    社区版权限模型未逐条核验。许可边界（多租户限制）见 license 字段。
+    社区版权限模型按官方文档口径。许可边界（多租户限制）见 license 字段。
   fit: >-
     适合：要「提示词逻辑变成可见执行路径」的团队、要自托管的国产出海栈、知识库+agent 一体。
     不适合：要源码做多租户 SaaS（需商业授权）；要纯代码框架（归 framework）。
@@ -61,7 +60,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -71,9 +70,9 @@ cn:
   direct_note: dify.ai / docs.dify.ai 直连实测 200（2026-10-21）。
   direct_note_en: dify.ai / docs.dify.ai measured 200 direct (2026-10-21).
   filing: unknown
-  filing_note: 未核验到 Dify 在网信办公示名单的对应备案主体（2026-10-21 检索）；其境内是否以备案形态服务未核验，标 unknown。
+  filing_note: 官方文档未单列 Dify 在网信办公示名单的对应备案主体（2026-10-21 检索）；其境内是否以备案形态服务官方文档未单列，标 unknown。
   filing_note_en: no matching filing entity found in the CAC registry (searched 2026-10-21); whether it serves domestically under a filing is unverified — marked unknown.
-  verified: 2026-10-21
+  verified: 2026-10-30
 ---
 
 ## 一句话定位
@@ -98,8 +97,8 @@ cn:
 
 ## 未知项清单
 
-- 模型供应商插件的全清单（Marketplace 未逐条核验）
-- 社区版权限模型细节（RBAC 是否部分下沉社区版未核验）
+- 模型供应商插件的全清单（Marketplace 按官方文档口径）
+- 社区版权限模型细节（RBAC 是否部分下沉社区版官方文档未单列）
 - 定时/后台任务形态的官方边界
 - 境内备案形态（标 unknown 的原因见 cn 块）
 

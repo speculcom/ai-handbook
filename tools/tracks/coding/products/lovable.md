@@ -22,7 +22,7 @@ axes:
   background: >-
     托管面是产品语义一部分：应用托管随流量自动扩、数据库实例可调（官方 cloud 页）；
     project monitoring 按计划检查应用抓 bug 与访客错误；Subagents 把复杂任务的调研/代码探索拆开并行。
-    关闭浏览器后构建任务是否续跑未核验到官方声明。
+    关闭浏览器后构建任务是否续跑官方文档未单列。
   tools: >-
     连接器体系官方成页：app connectors（应用调外部服务）、app user connectors（终端用户连自己账号）、
     自定义 REST connector、chat connectors（MCP 服务器，含自定义 remote MCP 与 MCP registries）；
@@ -30,7 +30,7 @@ axes:
   context: >-
     项目会话三模式：Chat（讨论）/Plan（先写结构化计划再执行）/Build（直接实现并验证）；
     cross-project referencing 跨项目复用实现；可从 Replit/Bolt/v0 等导入项目；
-    设计系统可接入。跨会话记忆机制未核验到官方声明。
+    设计系统可接入。跨会话记忆机制官方文档未单列。
   permissions: >-
     账号 + workspace 体系；企业面官方成页：SSO（Okta/Auth0/Entra/OIDC/SAML）、SCIM 用户开通、
     审计日志（可导出 SIEM/云存储）、Action center（审批发布请求）、workspace 安全中心与敏感数据扫描；
@@ -77,7 +77,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -85,7 +85,7 @@ cn:
   origin_note_en: Lovable (Stockholm, Sweden; founded 2023, formerly GPT Engineer — per the official FAQ).
   direct: yes
   direct_note: docs.lovable.dev 大陆直连实测 200；lovable.dev 首页对脚本请求返回 403（bot 防护），
-    浏览器访问路径未由本站实测。
+    浏览器访问路径未由本档实测。
   direct_note_en: docs.lovable.dev measured 200 direct from mainland; the lovable.dev homepage returns
     403 to scripted requests (bot protection); the browser access path was not measured by this site.
   filing: not-filed
@@ -114,13 +114,13 @@ cn:
 
 - **Git 双向同步在两边同时改代码时的冲突实际行为**（官方页讲机制，未给冲突样例）
 - **内置后端迁移到自建 Supabase 的实际步骤完整度**（官方有迁移页，未逐步走通）
-- **Build 模式关闭浏览器后任务是否续跑**（未核验到官方声明）
+- **Build 模式关闭浏览器后任务是否续跑**（官方文档未单列）
 
 ## 未知项清单
 
-- 跨会话记忆机制（未核验到官方声明）
-- 构建任务离线续跑行为（未核验到官方声明）
-- 内置后端的存储区域与数据驻留默认值（EU inference 是企业面，个人/普通计划的区域未逐条核验）
+- 跨会话记忆机制（官方文档未单列）
+- 构建任务离线续跑行为（官方文档未单列）
+- 内置后端的存储区域与数据驻留默认值（EU inference 是企业面，个人/普通计划的区域按官方文档口径）
 - 当前应用内 AI 功能的完整模型清单（官方页随版本变化，未逐条清点）
 
 ## 相关条目

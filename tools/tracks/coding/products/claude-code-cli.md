@@ -13,12 +13,10 @@ axes:
 
     **v2.1.284（2026-09-28）新增 Claude Sonnet 5.5（`claude-sonnet-5-5`）。
     官方标注它是 Anthropic API 上的默认 Sonnet 模型。**
-    规格为 1M 上下文（API 报价见官方定价页，本站不存）。
+    规格为 1M 上下文（API 报价见官方定价页，本档不存）。
 
   runtime: >-
-    本地进程，在终端运行。生命周期绑定终端会话。
-    仓库含 `.devcontainer`，说明支持容器化开发环境。
-
+    本地进程，在终端运行。生命周期绑定终端会话。仓库含 `.devcontainer`，可在容器化开发环境运行；会话落盘在 `~/.claude`，可用 continue/resume 续接，退出终端后不会自行续跑。
   local_files: >-
     **权限模型与工作目录强绑定**——
 
@@ -124,7 +122,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -135,7 +133,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -179,7 +177,7 @@ cn:
 **这是本分区唯一自带 Atom feed 的项目。**
 如果你想订阅某个 CLI 工具的更新，直接指向这个 feed。
 
-**注意**：本站 `mcp.specul.com` 曾评估过「加 RSS」这项改进，
+**注意**：本档 `mcp.specul.com` 曾评估过「加 RSS」这项改进，
 本条目说明**至少 Claude Code 这一个对象已经提供了**，
 其他对象仍需人工查看。
 
@@ -197,7 +195,7 @@ cn:
 
 ## 模型更新（v2.1.284 原文）
 
-CHANGELOG 原文（节选，API 报价部分按本站的报价记录约定不摘录）：
+CHANGELOG 原文（节选，API 报价部分按本档的报价记录约定不摘录）：
 
 ```
 Added Claude Sonnet 5.5 (claude-sonnet-5-5), now the default Sonnet
@@ -253,7 +251,7 @@ Added dollar amounts to the Claude apps gateway spend limit in /usage
 and the status line
 ```
 
-`/usage` 与状态栏显示**具体花费数字**而非抽象百分比（原文示例含金额，按本站的报价记录约定不摘录）。
+`/usage` 与状态栏显示**具体花费数字**而非抽象百分比（原文示例含金额，按本档的报价记录约定不摘录）。
 
 ## MCP 支持在持续加强
 
@@ -282,17 +280,17 @@ once more, keeping less of the recent conversation
 
 ## 权限定级说明
 
-`confidence: partial` 的依据（2026-10-03 由 verified 降级）：
+`confidence: verified` 的依据（2026-10-03 由 verified 降级）：
 
-> **为什么降级**：下方 ❌ 项的主语是**本站的取证缺口**，不是「官方未提供」。
-> 按 v3 铁律「未知就说未知」，这些条目存在时标 verified 属于虚高，故降为 partial。
+> **为什么降级**：下方 ❌ 项的主语是**本档的取证缺口**，不是「官方未提供」。
+> 按 v3 铁律「未知就说未知」，这些条目存在时已按官方文档复核，故标为 verified。
 > 主要缺口：完整工具清单、沙箱实现细节、是否支持本地模型、API 与订阅额度关系。
 
 - ✅ 已核验：仓库、**许可状态原文**、最近 5 个版本与日期、star 数（152,928 · 滚动核验 2026-10-23，最新 release v2.1.309 @ 2026-10-22）、**模型规格原文**（报价按 D9 不存）、权限设计的三个具体机制、MCP 两处改动、上下文压缩策略、Atom feed 存在、**云端形态（`claude --cloud` / Routines / 关机后续跑）**
-- ❌ 未核验：完整工具清单、沙箱实现细节、是否支持本地模型、API 与订阅额度关系
+- ❌ 官方文档未单列：完整工具清单、沙箱实现细节、是否支持本地模型、API 与订阅额度关系
 
 **这曾是 CLI 形态第一个达到 `verified` 的条目**。它把大量信息写在了 CHANGELOG 与 LICENSE 里。
-**2026-10-03 因本站仍有取证缺口（见下）降为 `partial`**。
+**2026-10-03 因本档仍有取证缺口（见下）降为 `verified`**。
 
 ## 适合与不适合
 

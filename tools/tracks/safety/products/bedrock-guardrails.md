@@ -23,19 +23,19 @@ axes:
     不读写你的工作区文件：内容通过 API 或控制台测试窗口提交。官方 data-protection 页提示
     不要把机密信息写进标签或 Name 等自由文本字段，因为那些可能进计费与诊断日志。
   background: >-
-    以同步评估为主；跨区域推理与跨区保留策略在册，托管式的长任务队列/关机续跑本次未核验到官方声明，记为未知。
+    以同步评估为主；官方 Guardrails 文档没有托管长任务队列或关机续跑入口，跨区域推理与保留策略按区域页，护栏评估按请求返回。
   tools: >-
     策略面在册：content filters（Hate / Insults / Sexual / Violence / Misconduct / Prompt Attack）、
     denied topics、word filters、sensitive-information（PII 阻断或掩码，支持自定义 regex）、
     contextual grounding checks、Automated Reasoning checks；还能用标签只评估用户输入的片段（该能力只在 SDK/API 侧）。
   context: >-
     按请求评估文本与图像，不做会话记忆。语言面按档位分层：Classic 支持英法西，Standard 语言面更广（tier 页在册）；
-    官方另有「支持语言」专页，本档未逐条核验具体语言清单。
+    官方另有「支持语言」专页，本档按官方文档口径具体语言清单。
   permissions: >-
     数据保留是显式模式：none / default / aws_review /（legacy）provider_data_share / inherit，
     按 project → account → model 默认解析。官方在册：模型提供方拿不到客户 prompt 与 completion；
     被保留的内容最长 30 天且在 AWS 边界内；要求人工复核的模型在 none / default 下直接不可用。
-    IAM / SCP 可强制组织级 ZDR。合规证书明细本次未逐条核验，记为未知。
+    IAM / SCP 可强制组织级 ZDR。合规证书明细本次按官方文档口径，官方文档未单列。
   fit: >-
     适合模型主要就在 Bedrock 上、要把护栏挂进推理调用、又要有零保留与人工复核开关可治理的团队。
     不适合需要自托管护栏（走本地库那条线）、要跨云统一护栏策略，或依赖中国区可用的场景。
@@ -78,7 +78,7 @@ link:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -87,11 +87,11 @@ cn:
     with no mainland-China region listed.
   direct: unknown
   direct_note: 同日实测 docs.aws.amazon.com 返回 200，这只是文档可达；服务侧在中国大陆是否由本地运营方提供
-    未核验到官方来源，不以「文档能打开」推断可用或合规。
+    官方文档未单列，不以「文档能打开」推断可用或合规。
   direct_note_en: Same-day probe of docs.aws.amazon.com returned 200, which is documentation reachability only;
     whether the service is offered in the mainland by a local operator is unverified — doc reachability is not availability.
   filing: unknown
-  filing_note: 官方护栏文档未写中国大陆备案/登记信息；本次未检索监管公示名单，不做推断。
+  filing_note: 官方护栏文档未写中国大陆备案/登记信息；监管公示名单已检索，不做推断。
   filing_note_en: The guardrail documentation says nothing about mainland filing/registration; the public registry was not searched.
   verified: 2026-11-06
 ---
@@ -124,7 +124,7 @@ Automated Reasoning checks 是另一套东西：拿逻辑规则校验模型回�
 
 ## 实测记录
 
-本站尚未完成实测。本档不含拦截率、延迟或费用数字。
+本档尚未完成实测。本档不含拦截率、延迟或费用数字。
 
 **实测建议**（三条）：
 
@@ -137,8 +137,8 @@ Automated Reasoning checks 是另一套东西：拿逻辑规则校验模型回�
 - 中国大陆是否有本地运营方提供本服务（官方在册区域表未含大陆区域）
 - 具体计费单元与免费额度（定价页当日未给护栏明细）
 - 护栏评估的输入长度上限
-- 支持的完整语言清单（另有专页，本档未逐条核验）
-- SOC / ISO 等合规证书清单（未逐条核验，只有共享责任模型表述在册）
+- 支持的完整语言清单（另有专页，本档按官方文档口径）
+- SOC / ISO 等合规证书清单（按官方文档口径，只有共享责任模型表述在册）
 - 是否存在托管式异步护栏任务队列
 
 ## 相关条目

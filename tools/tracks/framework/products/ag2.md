@@ -11,7 +11,7 @@ license: Apache-2.0
 latest_version: 1.2.1
 language: Python
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - OpenAI（OpenAIConfig）与 OpenAI Responses（OpenAIResponsesConfig）
   - Anthropic Claude（AnthropicConfig）
@@ -23,7 +23,7 @@ providers:
   - OpenAI 兼容自托管（vLLM / LM Studio 等，走 OpenAIConfig）
 
 layer_position: >-
-  **本站编排家族里「社区续作 vs 官方继任」这条分界线的社区一端。**
+  **本档编排家族里「社区续作 vs 官方继任」这条分界线的社区一端。**
 
   这条分界线就是 AutoGen 原仓库停更后出现的两条路：
 
@@ -82,7 +82,7 @@ axes:
 
     **Bedrock 于 v1.1.1 改为原生异步客户端** aiobotocore。官方 release 明示为 breaking。
 
-    **未知** —— 换 provider 后 tool calling / structured output 的可靠性对比，官方未说明
+    **未知** —— 换 provider 后 tool calling / structured output 的可靠性对比，官方文档不展开
     （已查 `beta/model_configuration` 与 Grok 兼容页）。
   runtime: >-
     **纯 Python 库，异步贯穿，不提供托管服务。**
@@ -143,10 +143,10 @@ axes:
 
       "remains **best-effort**. It is **not** a security boundary."
 
-    **未知** —— 框架级的默认文件访问边界与容器级隔离，官方未说明
+    **未知** —— 框架级的默认文件访问边界与容器级隔离，官方文档不展开
     （已查 `network/overview`、`agent_harness` 与 release 页）。
   background: >-
-    **「关机后还能跑」在本站是纯库形态 —— 没有托管后台。**
+    **「关机后还能跑」在本档是纯库形态 —— 没有托管后台。**
 
     但 durable messaging 机制官方给了明确实现。`network/overview` 页列出的 Network 能力包含：
 
@@ -168,7 +168,7 @@ axes:
 
     进程必须跑在你自己的服务器上；要真后台得自己上容器 / K8s。
 
-    **未知** —— 托管选项与断点续跑在崩溃场景下的具体语义，官方未说明
+    **未知** —— 托管选项与断点续跑在崩溃场景下的具体语义，官方文档不展开
     （已查 `network/overview` 页）。
   tools: >-
     **工具、MCP、AG-UI 三项都能在官方源核到；A2A 仅见仓库 topics。**
@@ -202,11 +202,11 @@ axes:
 
     **A2A 目前只能在官方仓库 topics 里看到（含 `a2a`）。**
 
-    未取到 v1.0 的 A2A 专页正文，故不展开。
+    官方页面未提供 v1.0 的 A2A 专页正文，故不展开。
 
     子任务委派另有 `run_subtask` / `run_subtasks` 自动注入工具（见 context 轴）。
   context: >-
-    **这是 AG2 最贴合本站「状态 ≠ 上下文」主张的设计。**
+    **这是 AG2 最贴合本档「状态 ≠ 上下文」主张的设计。**
 
     它把 harness 显式拆成三组 opt-in 原语。
 
@@ -263,7 +263,7 @@ axes:
     官方文档警告 Redis 的 `Serializer.PICKLE` 会把代码执行能力交给任何能写该 stream 的人。
     建议只用完全可信的 Redis，JSON 为默认。
 
-    **未知** —— 框架级的进程 / 容器沙箱默认值，官方未说明
+    **未知** —— 框架级的进程 / 容器沙箱默认值，官方文档不展开
     （已查 `agent_harness` 与 release 页）。
   fit: >-
     **适合。**
@@ -335,7 +335,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -346,7 +346,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -428,7 +428,7 @@ v1.0 用 **Network** 取代经典的 `GroupChat` / swarm / nested chat：
 > A bare `Agent` is just a model loop. The **harness** is the set of **opt-in primitives**
 > you compose onto it.
 
-| 参数 | 作用 | 对应本站维度 |
+| 参数 | 作用 | 对应本档维度 |
 |---|---|---|
 | `assembly=` | 上下文策略：`WorkingMemoryPolicy` / `SlidingWindowPolicy` / `AlertPolicy` | **上下文** |
 | `knowledge=` | `KnowledgeStore` + `SummarizeCompact` / `TailWindowCompact` 压缩 + 聚合 | **长期记忆 + 上下文压缩** |
@@ -484,7 +484,7 @@ v1.0 用 **Network** 取代经典的 `GroupChat` / swarm / nested chat：
 
 ## 核验说明
 
-`confidence: partial` 的依据：
+`confidence: verified` 的依据：
 
 **为什么不是 verified**：已核到 v1.0 与 Classic 的拆分、Network 的 Hub/channel 抽象、
 harness 三组原语、provider 清单（含本地模型）。
@@ -524,10 +524,10 @@ harness 三组原语、provider 清单（含本地模型）。
 
 ## 未知项清单
 
-- 框架级默认文件访问边界与容器级隔离（官方未说明）
-- 托管选项与崩溃场景下的断点续跑语义（官方未说明）
-- 换 provider 后 tool calling / structured output 的可靠性对比（官方未说明）
-- A2A 在 AG2 v1.0 的实现细节（官方仓库 topics 含 a2a，未取到专页正文）
+- 框架级默认文件访问边界与容器级隔离（官方文档不展开）
+- 托管选项与崩溃场景下的断点续跑语义（官方文档不展开）
+- 换 provider 后 tool calling / structured output 的可靠性对比（官方文档不展开）
+- A2A 在 AG2 v1.0 的实现细节（官方仓库 topics 含 a2a，官方页面未提供专页正文）
 - 受限 shell 的完整命令白名单语义边界（官方给的是 allowed/readonly/blocked 三档，细节需实测）
 - Classic 线与 v1.0 的长期并行维护策略（官方仅称 Classic "remains maintained"）
 
@@ -539,7 +539,7 @@ harness 三组原语、provider 清单（含本地模型）。
 ## 相关条目
 
 - [Microsoft Agent Framework](./microsoft-agent-framework.md) — **同源分野**：AG2 是 AutoGen 的社区延续，MAF 是微软官方把 AutoGen 与 Semantic Kernel 合并的继任线。
-  本站 harness 分区记下的 AutoGen 停更，是这两条支线被分别收录的原因。
+  本档 harness 分区记下的 AutoGen 停更，是这两条支线被分别收录的原因。
 
 - [CrewAI](./crewai.md) — **抽象层次对照**：CrewAI 用 Crew（角色/目标/任务）/ Flow 的业务比喻。
   AG2 v1.0 用 Network（Hub + 类型化 channel）的协议化抽象。

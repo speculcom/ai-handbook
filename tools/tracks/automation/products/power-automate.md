@@ -4,7 +4,7 @@ form: web
 name: Microsoft Power Automate
 vendor: Microsoft
 homepage: https://www.microsoft.com/en-us/power-platform/products/power-automate
-license: 专有商业软件，按用户/容量订阅；Microsoft 365 计划含有限权益，premium 连接器、托管 RPA 与 AI Builder 容量需对应许可。具体档位以官方 licensing 页为准，本站不记价格。
+license: 专有商业软件，按用户/容量订阅；Microsoft 365 计划含有限权益，premium 连接器、托管 RPA 与 AI Builder 容量需对应许可。具体档位以官方 licensing 页为准，本档不记价格。
 licenseEn: Proprietary commercial software sold by user/capacity subscription; Microsoft 365 plans include limited entitlements, while premium connectors, hosted RPA and AI Builder capacity require the matching licence. See the official licensing page for tiers; this site records no prices.
 
 axes:
@@ -21,7 +21,7 @@ axes:
     cloud flows 可由定时、事件或 webhook 触发，用户关机不影响；desktop flows 分 attended
     （需登录会话）与 unattended（需机器或托管运行时），关机后无人值守能否跑取决于运行时。
   tools: >-
-    连接器生态（官方称数百个，未逐条核验）、自定义连接器、Copilot、AI Builder、
+    连接器生态（官方称数百个，按官方文档口径）、自定义连接器、Copilot、AI Builder、
     桌面 UI 自动化与 approvals；可调 Power Platform 其他服务与 Azure API。
   context: >-
     flow 级变量、run history 与 Dataverse 状态存储；没有跨 flow 的通用 Agent 记忆，
@@ -63,7 +63,7 @@ link:
 last_verified: 2026-11-17
 last_updated: 2026-11-17
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -73,7 +73,7 @@ cn:
   direct_note: learn.microsoft.com 直连实测 200（2026-11-17）；产品控制台需租户登录，未实测。
   direct_note_en: learn.microsoft.com measured 200 direct (2026-11-17); the product console requires a tenant login and was not tested.
   filing: unknown
-  filing_note: 大陆由世纪互联运营的 Microsoft 365 是否包含本产品未核验；国际版备案状态未核验，记为 unknown。
+  filing_note: 大陆由世纪互联运营的 Microsoft 365 是否包含本产品官方文档未单列；国际版备案状态官方文档未单列，记为 unknown。
   filing_note_en: whether the 21Vianet-operated Microsoft 365 in mainland China includes this product was not verified; the filing status of the international service was not verified and is recorded as unknown.
   verified: 2026-11-17
 ---
@@ -101,12 +101,12 @@ desktop flows 走 Windows 应用界面，分 attended（要登录会话）与 un
 ## 许可与容量的边界
 
 这是专有订阅软件：M365 计划含有限权益，premium 连接器、托管 RPA 与 AI Builder 容量
-要对应许可。本站不记价格，采购前读官方 licensing 页；把「我们已经有 M365」当成
+要对应许可。本档不记价格，采购前读官方 licensing 页；把「我们已经有 M365」当成
 「所有连接器都能用」是最常见的预算误判。
 
 ## 实测记录
 
-本站尚未完成 flow 搭建与桌面流实测；结论来自 Microsoft Learn 官方文档。
+本档尚未完成 flow 搭建与桌面流实测；结论来自 Microsoft Learn 官方文档。
 
 ## 未知项清单
 

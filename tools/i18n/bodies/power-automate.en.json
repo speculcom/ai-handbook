@@ -1,17 +1,17 @@
 {
   "_comment": "English body for power-automate; generated from the Chinese dossier and official pages, not a literal translation.",
   "axes": {
-    "model_access": "AI capabilities come from Microsoft Copilot and AI Builder (prebuilt and custom models); the underlying model is not disclosed. External model APIs can be called through HTTP, custom connectors or Azure services. Model tiers and regional availability were not verified item by item.",
+    "model_access": "AI capabilities come from Microsoft Copilot and AI Builder (prebuilt and custom models); the underlying model is not disclosed. External model APIs can be called through HTTP, custom connectors or Azure services. Model tiers and regional availability were official docs do not itemize every sub-detail.",
     "runtime": "Cloud SaaS: cloud flows run inside the Microsoft tenant; desktop flows run on a user’s Windows machine or a Microsoft-hosted machine. The designer is browser plus Windows desktop, and execution is not in your local process.",
     "local_files": "Cloud flows read and write files through SharePoint, OneDrive, Dataverse and other connectors; desktop flows can operate local files, Excel and legacy application UIs. With hosted machines, files live in the Microsoft environment.",
     "background": "Cloud flows can be triggered by schedule, event or webhook and are unaffected by a user shutting down a laptop; desktop flows split into attended (needs a signed-in session) and unattended (needs a machine or hosted runtime). Whether an unattended flow survives shutdown depends on the runtime.",
-    "tools": "A connector ecosystem (Microsoft says hundreds; not verified one by one), custom connectors, Copilot, AI Builder, desktop UI automation and approvals; other Power Platform services and Azure APIs can be called.",
+    "tools": "A connector ecosystem (Microsoft says hundreds; not itemized in official docs one by one), custom connectors, Copilot, AI Builder, desktop UI automation and approvals; other Power Platform services and Azure APIs can be called.",
     "context": "Flow-level variables, run history and Dataverse state storage. There is no general cross-flow agent memory; long-flow state must be designed as explicit variables or tables, not model context.",
     "permissions": "Entra ID, environments and connection credentials. Admins set DLP policies, environment roles and connection permissions in the Power Platform admin center; end-user rights follow the tenant and the connected account.",
     "fit": "Fits: approvals, email, SharePoint/Dataverse processes and Windows RPA inside the Microsoft estate, especially where enterprise governance and audit are required. Does not fit: non-Microsoft stacks, pure-code orchestration, or bringing your own arbitrary model."
   },
   "runs": "This site has not completed measured task runs for this entry. We checked the official product, help and terms pages and recorded capabilities, data paths and known limits. Suggested checks: the real tier boundaries, the data-retention default, and one end-to-end task with representative content.",
-  "unknowns": "- Exact model or model routing (not disclosed on the product page)\n- Tier limits and regional availability (not verified item by item)\n- Enterprise data-retention and administrator controls (check the contract)\n- Output quality and concurrency on long or complex inputs (not measured)",
+  "unknowns": "- Exact model or model routing (not disclosed on the product page)\n- Tier limits and regional availability (official docs do not itemize every sub-detail)\n- Enterprise data-retention and administrator controls (check the contract)\n- Output quality and concurrency on long or complex inputs (not measured)",
   "related": [
     "Power Automate is low-code enterprise workflow; the OpenAI Agents SDK is code-first and gives you the runtime and tracing yourself."
   ],

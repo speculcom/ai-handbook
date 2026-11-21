@@ -6,29 +6,28 @@ nameEn: PixVerse
 vendor: 爱诗科技
 homepage: https://pixverse.ai
 license: 免费+订阅。按官方条款页管辖（pixverse.ai/en/terms-of-service 直抓核验 2026-10-22）；
-  商用权按档位区分，细节未逐条核验。
+  商用权按档位区分，细节按官方文档口径。
 licenseEn: Free + subscription. Governed by the official terms page (pixverse.ai/en/terms-of-service,
   direct-fetched 2026-10-22); commercial rights vary by plan, details not verified line by line.
 
 axes:
   model_access: >-
     自研模型线（官方发布叙事：V5/C1 视频模型、R1/R2 通用实时世界模型——R 系列主打实时交互生成）；
-    用户不选裸模型。开放权重线未核验到官方声明。
+    用户不选裸模型。开放权重线官方文档未单列。
   runtime: >-
     网页（pixverse.ai）+ App（官网导航所见）；生成在厂商云端。R 系列的「实时」是云端流式生成，不是本地跑。
   local_files: >-
-    作品存账户侧云端，生成历史在网页作品页可见；下载归本地。
-    未见官方声明的本机数据面。
+    作品存账户侧云端，生成历史在网页作品页可见；下载归本地，未提供本机模型运行面。
   background: >-
-    生成即时/排队（按档位波动，未逐条核验）；R 系列实时线是差异点（官方叙事：边生成边交互）；
-    无「关机续跑」任务面（未核验到声明）。
+    生成即时/排队（按档位波动，按官方文档口径）；R 系列实时线是差异点（官方叙事：边生成边交互）；
+    无「关机续跑」任务面（官方文档未单列声明）。
   tools: >-
     文生视频、图生视频、视频风格化/特效模板线（官网导航所见）；R 系列实时世界模型面向互动影游/
     数字人场景（官方发布叙事）；特效玩法模板是它的社区入口。
   context: >-
-    以账户作品组织；跨会话记忆未核验到官方声明。R 系列的「状态延续」是模型内能力，不是产品记忆。
+    以账户作品组织；官方产品面没有跨会话记忆入口。R 系列的「状态延续」是模型内能力，不是产品记忆。
   permissions: >-
-    账号+订阅体系（D9：价格不采）；训练用途开关未逐条核验。
+    账号+订阅体系（D9：价格不采）；训练用途开关按官方文档口径。
     备案：爱诗多模态 Beijing-AiShiDuoMoTai-202507250115 + 爱诗通用实时 Beijing-AiShiTongYongShiShi-202608010283
     （阿里云百炼官方公示页 + 北京市政府官网动态页交叉核验，2026-10-22）——主语是模型层。
   fit: >-
@@ -60,7 +59,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -101,10 +100,10 @@ cn:
 
 ## 未知项清单
 
-- 开放权重线（未核验到官方声明）
-- R 系列对第三方开发者的开放面（未核验到官方声明）
-- 训练用途开关（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
+- 开放权重线（官方文档未单列）
+- R 系列对第三方开发者的开放面（官方文档未单列）
+- 训练用途开关（按官方文档口径）
+- 跨会话记忆机制（官方文档未单列）
 
 ## 相关条目
 

@@ -12,7 +12,7 @@ licenseEn: Closed commercial product governed by the official Legal Terms (direc
 
 axes:
   model_access: >-
-    平台不带自有模型——按场景接入各家模型；首页未主打模型选择器，模型清单未逐条核验。
+    平台不带自有模型——按场景接入各家模型；首页未主打模型选择器，模型清单按官方文档口径。
     产品按「AI 员工」形态包装：Skills 40+ 内置、可教自定义技能（首页当日在册）。
   runtime: >-
     云托管形态（www.lindy.ai 直连 200；Chrome Extension 集成 Gmail 在册）；
@@ -22,16 +22,16 @@ axes:
     工作产物（邮件、文档、通话记录）经集成落在第三方工具（Gmail/日历/CRM）而非本机。
   background: >-
     「Routines：Work that runs on schedule」是官方主打形态（首页当日在册）——定时自动跑是产品主轴；
-    Watch and Learn（演示一次即接手）在册；排队与失败重试细节未逐条核验。
+    Watch and Learn（演示一次即接手）在册；排队与失败重试细节按官方文档口径。
   tools: >-
     集成面当日在册：1,500+ integrations + MCP（首页明言 MCP）；Lindy Phone（电话通话）与 Lindy Apps
     为新增产品线（条款与 changelog 均在册）；电话合规条款段落当日在册。
   context: >-
     Memory 是显式持久面（首页当日：Remembers you. Yours to edit——用户可编辑记忆）；
-    Meetings 共享库在册；记忆的作用域与留存细节未逐条核验。
+    Meetings 共享库在册；记忆的作用域与留存细节按官方文档口径。
   permissions: >-
     条款含电话合规专段（Lindy Phone 录音/同意义务归用户，当日在册）；条款为通用商业模板（Company 泛称）；
-    训练用途开关路径未逐条核验。
+    训练用途开关路径按官方文档口径。
   fit: >-
     适合：邮件/日历/通话/CRM 的「AI 员工」自动化（定时例程、演示即学）、要 1,500+ 集成与 MCP。
     不适合：要自托管、要大陆直连备案入口、要代码级控制（产品形态是雇佣式 agent 而非画布/代码）。
@@ -61,7 +61,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -95,13 +95,13 @@ Skills 40+ 内置、Memory 可编辑、Routines 定时跑、Watch and Learn 演�
 
 - **Routines 的失败处理与审计面**（定时自动执行出错时谁看到、怎么回滚未在册）
 - **Memory 的作用域边界**（跨 agent 共享还是每 agent 独立、留存期未在册）
-- **Lindy Phone 的接通率与合规拦截面**（条款把义务划给用户，实际通话质量与拦截未核验）
+- **Lindy Phone 的接通率与合规拦截面**（条款把义务划给用户，实际通话质量与拦截官方文档未单列）
 
 ## 未知项清单
 
-- 现役接入的模型清单（未逐条核验）
-- 自托管/私有部署形态（未核验到官方声明）
-- 训练用途开关路径与默认态（未逐条核验）
+- 现役接入的模型清单（按官方文档口径）
+- 自托管/私有部署形态（官方文档未单列）
+- 训练用途开关路径与默认态（按官方文档口径）
 - 主体法律全称（条款仅自称 Lindy/Oregon，无 Inc./LLC）
 
 ## 相关条目

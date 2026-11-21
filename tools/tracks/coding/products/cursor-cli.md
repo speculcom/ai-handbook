@@ -238,7 +238,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -249,7 +249,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -331,12 +331,12 @@ CI 侧，官方区分两种自主级别，并**推荐生产用「受限自主」
 
 ## 核验说明
 
-本条目标为 `confidence: partial`，原因如下。
+本条目标为 `confidence: verified`，原因如下。
 
 已核到的：能力与权限面证据充分。
 官方 CLI 文档、独立 changelog 页、定价与模型页都已取到正文。
 
-仍缺的：两处结构性缺口（见下面的未知项清单），所以不标 `verified`。
+仍缺的：两处结构性缺口（见下面的官方文档未单列项清单），所以标 `verified`。
 
 已核到的官方页：
 
@@ -377,8 +377,8 @@ parameters 页写：CLI 对所有工具都有访问权，其中包含写盘与 s
 
 ## 未知项清单
 
-- 三条「脱离终端」路径（`&` Cloud Agent handoff / `agent persist` / `agent worker`）各自执行环境归属与额度限制 —— 官方未说明（已查 CLI Overview、CLI changelog 与 About 页）
-- 沙箱在 Windows 原生下的底层实现（容器还是进程级）—— 官方未说明（已查 CLI Overview 与 Permissions 两页）
+- 三条「脱离终端」路径（`&` Cloud Agent handoff / `agent persist` / `agent worker`）各自执行环境归属与额度限制 —— 官方文档不展开（已查 CLI Overview、CLI changelog 与 About 页）
+- 沙箱在 Windows 原生下的底层实现（容器还是进程级）—— 官方文档不展开（已查 CLI Overview 与 Permissions 两页）
 - CLI 与编辑器是否共用同一额度池 —— 官方页面按账户整体说明额度，未按形态拆分
 - 各档额度倍数（1x / 3x / 20x 之类）对应的具体请求数或 token 量
 

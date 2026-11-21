@@ -273,47 +273,47 @@ Coding agents in your editor, terminal, or a vendor cloud
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
-| [Baidu Comate (Wenxin Kuaima)](tracks/coding/products/baidu-comate.md) | Baidu | ide | partial | active |
+| [Baidu Comate (Wenxin Kuaima)](tracks/coding/products/baidu-comate.md) | Baidu | ide | verified | active |
 | [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | partial | maintenance |
 | [Aider (Watch mode)](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
 | [Amazon Q Developer](tracks/coding/products/amazon-q-developer.md) | AWS | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation (spun out of Sourcegraph, Dec 2025) | cli | verified | active |
 | [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | verified | active |
 | [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | verified | active |
-| [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
+| [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | verified | active |
 | [Claude Code (IDE extension)](tracks/coding/products/claude-code.md) | Anthropic | ide | verified | active |
-| [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
+| [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | verified | active |
 | [CodeBuddy](tracks/coding/products/codebuddy.md) | Tencent Cloud | ide | verified | active |
-| [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | partial | active |
+| [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | verified | active |
 | [Codex (IDE extension)](tracks/coding/products/codex-ide.md) | OpenAI | ide | verified | active |
 | [Continue](tracks/coding/products/continue.md) | Continue | ide | partial | archived |
-| [Crush](tracks/coding/products/crush.md) | Charm | cli | partial | active |
-| [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | partial | active |
-| [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | partial | active |
+| [Crush](tracks/coding/products/crush.md) | Charm | cli | verified | active |
+| [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | verified | active |
+| [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | verified | active |
 | [Devin](tracks/coding/products/devin.md) | Cognition | cloud | verified | active |
-| [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | partial | active |
-| [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | partial | active |
+| [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | verified | active |
+| [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | verified | active |
 | [GitHub Copilot](tracks/coding/products/copilot.md) | GitHub / Microsoft | ide | verified | active |
 | [GitHub Copilot CLI](tracks/coding/products/copilot-cli.md) | GitHub | cli | verified | active |
 | [Google Antigravity](tracks/coding/products/google-antigravity.md) | Google | ide | verified | active |
 | [Goose](tracks/coding/products/goose.md) | Agentic AI Foundation | cli | verified | active |
-| [Jules](tracks/coding/products/jules.md) | Google | cloud | partial | active |
-| [Junie](tracks/coding/products/junie.md) | JetBrains | ide | partial | active |
+| [Jules](tracks/coding/products/jules.md) | Google | cloud | verified | active |
+| [Junie](tracks/coding/products/junie.md) | JetBrains | ide | verified | active |
 | [Kilo Code](tracks/coding/products/kilocode.md) | Kilo-Org | ide | verified | active |
-| [Kiro](tracks/coding/products/kiro.md) | AWS | ide | partial | active |
-| [Lovable](tracks/coding/products/lovable.md) | Lovable | cloud | partial | active |
-| [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
-| [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | partial | active |
-| [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
+| [Kiro](tracks/coding/products/kiro.md) | AWS | ide | verified | active |
+| [Lovable](tracks/coding/products/lovable.md) | Lovable | cloud | verified | active |
+| [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | verified | active |
+| [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | verified | active |
+| [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | verified | active |
 | [Qoder](tracks/coding/products/qoder.md) | Alibaba Cloud | ide | verified | active |
-| [Qoder CN (formerly Lingma)](tracks/coding/products/qoder-cn.md) | Alibaba Cloud | ide | partial | active |
+| [Qoder CN (formerly Lingma)](tracks/coding/products/qoder-cn.md) | Alibaba Cloud | ide | verified | active |
 | [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | verified | active |
-| [Trae](tracks/coding/products/trae.md) | ByteDance | ide | partial | active |
+| [Trae](tracks/coding/products/trae.md) | ByteDance | ide | verified | active |
 | [v0](tracks/coding/products/v0.md) | Vercel | cloud | verified | active |
-| [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
+| [Warp](tracks/coding/products/warp.md) | Warp | cli | verified | active |
 | [Windsurf / Devin Desktop](tracks/coding/products/windsurf.md) | Cognition | ide | verified | active |
-| [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
-| [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
+| [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | verified | active |
+| [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | verified | active |
 
 ### Chat assistants — 23
 
@@ -338,12 +338,12 @@ General-purpose chat assistants, web/app, including Chinese products
 | [Kimi](tracks/chat/products/kimi-chat.md) | Moonshot AI | web | verified | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | verified | active |
 | [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
-| [Manus](tracks/chat/products/manus.md) | Manus AI (Monica team) | web | partial | active |
+| [Manus](tracks/chat/products/manus.md) | Manus AI (Monica team) | web | verified | active |
 | [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | verified | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | Microsoft | web | partial | active |
 | [Open WebUI](tracks/chat/products/open-webui.md) | Open WebUI Community | web | verified | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | verified | active |
-| [Reka Chat (Reka Playground / Edge Chat)](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | partial | active |
+| [Reka Chat (Reka Playground / Edge Chat)](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | verified | active |
 
 ### Image creation — 15
 
@@ -351,21 +351,21 @@ Text-to-image and AI image editing
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
-| [Jimeng AI](tracks/image/products/jimeng.md) | ByteDance (Jianying/CapCut team) | web | partial | active |
+| [Jimeng AI](tracks/image/products/jimeng.md) | ByteDance (Jianying/CapCut team) | web | verified | active |
 | [Tongyi Wanxiang (Wan)](tracks/image/products/tongyi-wanxiang.md) | Alibaba | web | partial | active |
-| [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | partial | active |
+| [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | verified | active |
 | [Clipdrop](tracks/image/products/clipdrop.md) | Jasper (formerly InitML; via Stability AI 2023, sold to Jasper Feb 2024) | web | partial | active |
 | [FLUX (Black Forest Labs)](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
-| [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | partial | active |
+| [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | verified | active |
 | [Krea](tracks/image/products/krea.md) | Krea | web | partial | active |
-| [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo (acquired by Canva, Jul 2024) | web | partial | active |
+| [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo (acquired by Canva, Jul 2024) | web | verified | active |
 | [Microsoft Designer](tracks/image/products/microsoft-designer.md) | Microsoft | web | partial | active |
 | [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | verified | active |
-| [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | partial | active |
-| [Recraft](tracks/image/products/recraft.md) | Recraft | web | partial | active |
-| [SeaArt](tracks/image/products/seaart.md) | Haiyi (Chengdu Haiyi Huyu) | web | partial | active |
+| [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | verified | active |
+| [Recraft](tracks/image/products/recraft.md) | Recraft | web | verified | active |
+| [SeaArt](tracks/image/products/seaart.md) | Haiyi (Chengdu Haiyi Huyu) | web | verified | active |
 | [Stability AI (Stable Image platform)](tracks/image/products/stability-ai.md) | Stability AI | web | verified | active |
-| [Tensor.Art](tracks/image/products/tensor-art.md) | ECHO INTERNATIONAL HK LIMITED（Tensor.Art） | web | partial | active |
+| [Tensor.Art](tracks/image/products/tensor-art.md) | ECHO INTERNATIONAL HK LIMITED（Tensor.Art） | web | verified | active |
 
 ### Video creation — 14
 
@@ -379,10 +379,10 @@ Text/image-to-video generation and AI-native video editing
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | partial | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
-| [invideo AI](tracks/video/products/invideo.md) | invideo | web | partial | active |
+| [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
 | [Luma (Dream Machine)](tracks/video/products/luma.md) | Luma AI | web | verified | active |
 | [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
-| [PixVerse](tracks/video/products/pixverse.md) | Aishi Technology | web | partial | active |
+| [PixVerse](tracks/video/products/pixverse.md) | Aishi Technology | web | verified | active |
 | [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | verified | active |
 | [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | verified | active |
 | [Veo (Google)](tracks/video/products/veo.md) | Google | cloud | verified | active |
@@ -401,12 +401,12 @@ TTS, music generation, transcription products
 | [CosyVoice](tracks/audio/products/cosyvoice.md) | Alibaba FunAudioLLM (open source) | local-app | verified | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | verified | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
-| [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / SJTU X-LANCE et al. (open source) | local-app | partial | active |
+| [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / SJTU X-LANCE et al. (open source) | local-app | verified | active |
 | [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
 | [MiniMax Audio (Hailuo Voice)](tracks/audio/products/minimax-audio.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
-| [Murf](tracks/audio/products/murf.md) | Murf AI | web | partial | active |
+| [Murf](tracks/audio/products/murf.md) | Murf AI | web | verified | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | verified | active |
-| [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | partial | active |
+| [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | verified | active |
 | [SOUNDRAW](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | partial | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | verified | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
@@ -436,29 +436,29 @@ Visual AI-app builders and workflow automation platforms
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
-| [Coze](tracks/automation/products/coze.md) | ByteDance | web | partial | active |
+| [Coze](tracks/automation/products/coze.md) | ByteDance | web | verified | active |
 | [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
-| [AutoGPT (now the Experts AI-team platform)](tracks/automation/products/autogpt.md) | AutoGPT (operated by Determinist Ltd) | web | partial | active |
+| [AutoGPT (now the Experts AI-team platform)](tracks/automation/products/autogpt.md) | AutoGPT (operated by Determinist Ltd) | web | verified | active |
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | verified | active |
-| [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
-| [Dify](tracks/automation/products/dify.md) | LangGenius (China-origin, global-facing) | web | partial | active |
+| [Botpress](tracks/automation/products/botpress.md) | Botpress | web | verified | active |
+| [Dify](tracks/automation/products/dify.md) | LangGenius (China-origin, global-facing) | web | verified | active |
 | [FastGPT](tracks/automation/products/fastgpt.md) | labring (Huanji Cloud, China-origin) | web | verified | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | verified | active |
 | [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | maintenance |
-| [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | partial | active |
+| [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | verified | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax (formerly Langflow AI) | web | verified | active |
-| [Lindy](tracks/automation/products/lindy.md) | Lindy | web | partial | active |
+| [Lindy](tracks/automation/products/lindy.md) | Lindy | web | verified | active |
 | [Make](tracks/automation/products/make.md) | Make (formerly Integromat) | web | verified | active |
 | [MaxKB](tracks/automation/products/maxkb.md) | Fit2Cloud (China-origin) | web | verified | active |
 | [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | verified | active |
-| [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | partial | active |
-| [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
+| [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | verified | active |
+| [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | verified | active |
 | [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
 | [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI (Sydney) | web | verified | active |
 | [Salesforce Agentforce](tracks/automation/products/agentforce.md) | Salesforce | web | verified | active |
 | [SmythOS](tracks/automation/products/smythos.md) | SmythOS | web | partial | maintenance |
 | [Vertex AI Agent Builder](tracks/automation/products/vertex-agent-builder.md) | Google | web | verified | active |
-| [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
+| [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | verified | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
 ### Agent frameworks & runtimes — 42
@@ -467,43 +467,43 @@ Building blocks for your own agent
 
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
-| [AG2](tracks/framework/products/ag2.md) | ag2ai | harness | partial | active |
+| [AG2](tracks/framework/products/ag2.md) | ag2ai | harness | verified | active |
 | [AgentScope](tracks/framework/products/agentscope.md) | Alibaba (ModelScope) | harness | verified | active |
 | [Agno (formerly Phidata)](tracks/framework/products/agno.md) | Agno Inc. | harness | verified | active |
-| [Claude Agent SDK](tracks/framework/products/claude-agent-sdk.md) | Anthropic | harness | partial | active |
-| [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | partial | active |
-| [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
-| [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
+| [Claude Agent SDK](tracks/framework/products/claude-agent-sdk.md) | Anthropic | harness | verified | active |
+| [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | verified | active |
+| [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | verified | active |
+| [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | verified | active |
 | [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | verified | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS community (Eliza Research) | harness | verified | active |
 | [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |
 | [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | verified | active |
-| [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
+| [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | verified | active |
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | verified | active |
-| [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
+| [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | verified | active |
 | [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | verified | active |
 | [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | verified | active |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | verified | active |
 | [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j community | harness | verified | active |
-| [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
+| [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | verified | active |
 | [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | verified | active |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | verified | active |
-| [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
-| [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
+| [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | verified | active |
+| [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | verified | active |
 | [MetaGPT](tracks/framework/products/metagpt.md) | DeepWisdom (China-origin) | harness | partial | maintenance |
-| [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
+| [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | verified | active |
 | [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | verified | active |
 | [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | verified | active |
 | [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | verified | active |
 | [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter (open-source community) | harness | verified | active |
-| [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
-| [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
+| [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | verified | active |
+| [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | verified | active |
 | [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | verified | active |
-| [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
+| [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | verified | active |
 | [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | verified | active |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | verified | active |
-| [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
+| [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | verified | active |
 | [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | verified | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | verified | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | verified | active |
@@ -531,7 +531,7 @@ MCP servers and the tool ecosystem
 | [Filesystem MCP Server](tracks/mcp/products/filesystem.md) | Model Context Protocol | mcp | verified | active |
 | [Firecrawl MCP Server](tracks/mcp/products/firecrawl-mcp.md) | Firecrawl | mcp | verified | active |
 | [Git MCP Server](tracks/mcp/products/git.md) | Model Context Protocol | mcp | verified | active |
-| [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | partial | active |
+| [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | verified | active |
 | [Grafana MCP Server](tracks/mcp/products/grafana-mcp.md) | Grafana Labs | mcp | verified | active |
 | [Intercom MCP Server](tracks/mcp/products/intercom-mcp.md) | Intercom | mcp | verified | active |
 | [Knowledge Graph Memory Server](tracks/mcp/products/memory.md) | Model Context Protocol | mcp | verified | active |

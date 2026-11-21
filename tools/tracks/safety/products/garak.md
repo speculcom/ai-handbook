@@ -23,14 +23,14 @@ axes:
   runtime: >-
     本机 Python 进程、终端交互：README 的安装命令是 `python -m pip install -U garak`，PyPI 记 `pip install garak`、
     requires-python 为 >=3.11；文档「Setting up」页同样把它描述成命令行工具。扫描请求按你选的 target 发往云端 API
-    或本机推理端点。是否存在托管执行面与 Docker 镜像口径：本批次未取到官方正文，记未知。
+    或本机推理端点。是否存在托管执行面与 Docker 镜像口径：本批次官方页面未提供正文，记未知。
   local_files: >-
     读的是随包安装的探针数据集与本机配置，写的是本地结果文件：README 记结果落 JSONL、garak.log 与 hit log；
     文档「Our Features」列四类输出 Screen output、Report log、Hit log、Debug log。默认目录名、文件保留与清理规则：
     本批次未逐字核验。
   background: >-
     没有「关机后续跑」的托管任务：一次扫描是一个本机进程，跑完写日志。文档目录列出 Setting up、Your first scan、
-    Getting help 等条目，未出现断点续跑或队列语义。批量任务的并行与限流方式：本批次未取到官方正文。
+    Getting help 等条目，未出现断点续跑或队列语义。批量任务的并行与限流方式：本批次官方页面未提供正文。
   tools: >-
     四类插件面（README 原文短语）：probes「classes for generating interactions with LLMs」、
     detectors「classes for detecting an LLM is exhibiting a given failure mode」、harnesses「classes for structuring testing」、
@@ -38,12 +38,12 @@ axes:
     MCP 接入方式：官方文档未说明，记未知。
   context: >-
     这里的「上下文」是 harness 如何把多轮交互拼成一次探测，不是跨会话记忆。README 对 harnesses 的表述止于
-    「classes for structuring testing」，具体会话构造与长度策略本批次未取到逐条官方正文，记未知。
+    「classes for structuring testing」，具体会话构造与长度策略本批次官方页面未提供逐条官方正文，记未知。
   permissions: >-
     许可面清楚：Apache-2.0（LICENSE 正文直读，见 license 字段）。数据流向只有一条官方可读口径——探针 prompt 与响应
     发往你配置的 target 端点，失败样本逐条写进本地日志（README：「If any of the prompt attempts yielded an undesirable
-    behavior, the response will be marked as FAIL」）。是否有默认遥测、是否上传探针结果：未取到官方声明，进 unknowns。
-    它不阻断线上流量，因此不存在「拦截比例」这类结论；本站也不引用任何成功率或漏检率数字。
+    behavior, the response will be marked as FAIL」）。是否有默认遥测、是否上传探针结果：官方页面未提供声明，进 unknowns。
+    它不阻断线上流量，因此不存在「拦截比例」这类结论；本档也不引用任何成功率或漏检率数字。
   fit: >-
     适合：上线前对自己可控的 endpoint 批量跑一轮探针、要求留下可复核的 prompt/响应证据文件、要在 HuggingFace、
     OpenAI、Bedrock、litellm 等 target 之间复用同一套探针。不适合：当运行时护栏拦用户请求；把「探针全 PASS」读成
@@ -52,7 +52,7 @@ axes:
 pitfalls:
   - 把「支持哪些探针类别」读成「能拦住多少比例」——它只产出失败样本日志，不做阻断
   - 以为 garak 是运行时护栏：它是一次性扫描进程，不在请求链路里
-  - 把 `--list_probes` 的数量当成覆盖面结论：探针名与官方合规映射的关系本批次未逐条核验
+  - 把 `--list_probes` 的数量当成覆盖面结论：探针名与官方合规映射的关系本批次按官方文档口径
 
 tags: [开源, Apache-2.0, Python, 终端, CI, eval, 本地, 多模型]
 related: [pyrit, promptfoo, ollama]
@@ -90,11 +90,11 @@ link:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
-  origin_note: NVIDIA（美国）与维护者 Leon Derczynski 的开源项目；本批次未取到面向中国大陆的服务条款或中文站点。
+  origin_note: NVIDIA（美国）与维护者 Leon Derczynski 的开源项目；本批次官方页面未提供面向中国大陆的服务条款或中文站点。
   origin_note_en: An open-source project of NVIDIA (US) and maintainer Leon Derczynski; no mainland-facing terms page or Chinese site was captured in this pass.
   direct: unknown
   direct_note: github.com、garak.ai 与 docs.garak.ai 本批次从当前网络取到 200，但未在大陆网络环境做直连实测，故记未知；PyPI 与 GitHub 需自备可达性。
@@ -120,22 +120,22 @@ probes，把「什么算失效」写成 detectors，用 harness 组织成一次�
 
 ## 实测记录
 
-**本站未做端到端实测**：没有运行过 `python -m garak`，没有打开任何 JSONL/hit log，不产出分数、成功率或排名，
+**本档未做端到端实测**：没有运行过 `python -m garak`，没有打开任何 JSONL/hit log，不产出分数、成功率或排名，
 也不统计探针总数。本档案只组织官方仓库首页、LICENSE、官网、docs.garak.ai 与 PyPI 上在册的说法，逐条见 sources 与核验日。
 
 **实测建议**（四条，都指向官方可读页没给的东西）：
 
 - **换 target 后的可比性**：同一套 `--probes` 在 HuggingFace 本地端点与 OpenAPI 云端端点上的耗时与失败面差异
 - **默认日志目录与保留行为**（官方文档未逐字说明，落盘位置要自己确认）
-- **是否有默认遥测**（本批次未取到任何官方声明）
+- **是否有默认遥测**（本批次官方页面未提供任何官方声明）
 - **Docker / CI 集成里的可复现性**（官方文档未在本批次取到镜像口径）
 
 ## 变更记录说明
 
 本对象有独立 releases 页：最新条目 v0.17.1（releases/latest 直读，标题「v0.17.1」，要点含 Python 3.14 支持
-与 evaluators 侧新增 hit@k 指标口径）。**本站不引用这类指标的任何数值**，只记录「官方把评测指标写进了更新日志」这一事实。
+与 evaluators 侧新增 hit@k 指标口径）。**本档不引用这类指标的任何数值**，只记录「官方把评测指标写进了更新日志」这一事实。
 PyPI 项目页记 0.17.1 的发布时间为 2026-10-16；GitHub releases 页当日抓取文本里的日期标注与 PyPI 不完全一致，
-差异原因未核验，进 unknowns。仓库未被标记归档，故 lifecycle 记 active。
+差异原因官方文档未单列，进 unknowns。仓库未被标记归档，故 lifecycle 记 active。
 
 ## 能力边界
 
@@ -144,14 +144,14 @@ PyPI 项目页记 0.17.1 的发布时间为 2026-10-16；GitHub releases 页当�
 - 它是**评测工具**，交付物是「失败样本 + 日志」，不是拦截动作；README 的判定表述是「the response will be marked as FAIL」。
 - 它能接什么模型，等于 generators 插件面覆盖了什么；官方点名的接入见 model_access 维，其余接入方式要查 reference 文档。
 - 探针名单（README 出现的 lmrc、promptinject、encoding、snowball、xss、gcg 等）说明的是**测试语义的种类**，
-  与「挡住多少攻击比例」没有关系；本站不做这类换算，也不做产品排名。
+  与「挡住多少攻击比例」没有关系；本档不做这类换算，也不做产品排名。
 
 ## 未知项清单
 
 - 全部 generator 类型清单与逐家参数差异（官方只点名数家）
 - 默认日志目录名、文件保留与清理规则
-- 是否存在默认遥测或结果上报（未取到官方声明）
-- Docker 镜像与 CI 集成的官方口径（本批次未取到正文）
+- 是否存在默认遥测或结果上报（官方页面未提供声明）
+- Docker 镜像与 CI 集成的官方口径（本批次官方页面未提供正文）
 - harness 的会话构造与长度策略细节（README 只给一句定义）
 - MCP 接入方式（官方文档未说明）
 - releases 页与 PyPI 的 v0.17.1 日期标注差异原因

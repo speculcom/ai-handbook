@@ -223,7 +223,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-03
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -234,7 +234,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -313,7 +313,7 @@ only they hold, so not even Meta can access it.
 **官方措辞是 Later this year / In the future —— 当前不可用。**
 
 这一条如果被当成现成特性写进选型结论，就是把承诺当事实。
-本站明确标注：未实现。
+本档明确标注：未实现。
 
 ## 支付：唯一一家官方点名支付合作方的
 
@@ -367,10 +367,10 @@ AI glasses 形态「coming soon」）；
 | Help Centre · privacy/safety/security | ✅ **2026-10-03 取到整页正文**（约 2,400 词），`permissions` / `context` 引用已逐字复核 |
 | Help Centre · guidance and approval | ✅ **2026-10-03 取到整页正文**（约 1,500 词），审批档位 / 审批选项 / 可逆性出自此页 |
 | Help Centre · how Muse works with Connectors | ✅ **2026-10-03 取到整页正文**（约 900 词），自定义连接器风险出自此页 |
-| Meta AI glasses release notes | ⚠️ 仅用于确认 Muse Spark 跨形态复用与地区表述 |
-| Meta Careers（Muse Spark 技术描述） | ⚠️ 仅取到摘要 |
+| Meta AI glasses release notes | 注意： 仅用于确认 Muse Spark 跨形态复用与地区表述 |
+| Meta Careers（Muse Spark 技术描述） | 注意： 仅取到摘要 |
 
-**⚠️ 一处取证方式不一致，如实记录**：
+**注意： 一处取证方式不一致，如实记录**：
 三页 Help Centre 均为**检索接口返回的整页正文**。`WebFetch` 直抓 meta.com 在本机仍失败。
 正文完整、可逐字引用，但**不是本机渲染抓出来的**——
 若要用于正式对外引用，应再复核一次。

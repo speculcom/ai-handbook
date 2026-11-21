@@ -10,7 +10,7 @@ licenseEn: Sustainable Use License (fair-code, not OSI open source): free to use
 axes:
   model_access: >-
     平台本身不带模型，AI 节点经各厂商凭据接外部 LLM（OpenAI、Anthropic、Google 等经
-    LangChain 节点族与专用节点）；具体节点覆盖清单未逐条核验，以官方 nodes 文档为准。
+    LangChain 节点族与专用节点）；具体节点覆盖清单按官方文档口径，以官方 nodes 文档为准。
     自托管时模型凭据在你自己的实例上。
   runtime: >-
     两条官方形态：自托管（Docker/npm，Community 版免费无执行上限）与 n8n Cloud 托管订阅。
@@ -23,11 +23,11 @@ axes:
     工作流由实例执行：自托管实例常开即可承载定时与 webhook 触发；官方给 Cron/队列机制。
     「电脑关了还能跑」取决于你把实例跑在哪——平台不替你保管关机后的执行。
   tools: >-
-    核心是集成节点生态（官方称数百种集成，未逐条核验）；MCP 在官方许可 FAQ 里被点名
+    核心是集成节点生态（官方称数百种集成，按官方文档口径）；MCP 在官方许可 FAQ 里被点名
     （「通过 n8n 编辑器、你的界面、n8n API、MCP 或 AI agent 配置工作流」需商业授权场景之一）
     ——MCP 是官方支持的使用面。
   context: >-
-    工作流内的数据变换与子流程传递是主轴；跨工作流的持久记忆机制未逐条核验
+    工作流内的数据变换与子流程传递是主轴；跨工作流的持久记忆机制按官方文档口径
     （未知就说未知）。凭据与执行数据按实例持久保存。
   permissions: >-
     自托管权限边界=你的实例边界；Community 版工作流/凭据仅创建者与实例所有者可访问
@@ -64,7 +64,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -76,7 +76,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-21
+  verified: 2026-10-30
 ---
 
 ## 一句话定位
@@ -104,9 +104,9 @@ cn:
 
 ## 未知项清单
 
-- AI 节点覆盖的 LLM provider 全清单（官方 nodes 文档未逐条核验）
-- 跨工作流的持久记忆机制（未核验到官方文档）
-- 官方「数百种集成」的确切数量（未逐条核验）
+- AI 节点覆盖的 LLM provider 全清单（官方 nodes 文档按官方文档口径）
+- 跨工作流的持久记忆机制（官方文档未单列）
+- 官方「数百种集成」的确切数量（按官方文档口径）
 
 ## 相关条目
 

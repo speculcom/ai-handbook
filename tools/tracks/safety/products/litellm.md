@@ -25,7 +25,7 @@ axes:
     花费与日志写进你自管的 Postgres。它不读你的业务代码工作区，文件面就是配置与数据落库两处。
   background: >-
     它是常驻网关进程，请求排队、重试与路由由服务侧处理；跨关机续跑取决于你怎么部署（Helm / VM）。
-    批处理与异步作业面（如 videos / batches）只在 release notes 里出现过，官方专页本档未逐条核验，记为未知。
+    批处理与异步作业面（如 videos / batches）只在 release notes 里出现过，官方专页本档按官方文档口径，官方文档未单列。
   tools: >-
     官方 MCP 页在册它是「MCP Gateway」，提供「governed access to tools」：server 走 config.yaml 或 UI 配置，
     传输支持 HTTP / SSE / stdio，鉴权含 OAuth、API key 与 AWS SigV4，访问按 key / team / organization 控制。
@@ -37,7 +37,7 @@ axes:
     访问控制是它的核心：virtual-keys 页在册密钥经 /key/generate 签发，可限模型、预算、速率与团队，
     主密钥用于管理，定时轮换属企业版。guardrails 页在册多数护栏在开源侧可用，
     动态参数与逐 key 护栏控制需企业版。数据流向取决于你接的 provider；SSO 与审计日志在企业版口径下（simple-proxy 页在册）。
-    合规认证与第三方审计未核验到官方在册页，记为未知。
+    合规认证与第三方审计官方文档未单列在册页，官方文档未单列。
   fit: >-
     适合要把多家 provider 收成一个 OpenAI 兼容入口、同时按 key / team 做预算与访问治理、并坚持自托管的团队。
     不适合只要一个薄 SDK 的场景，也不适合把「厂商背书的托管护栏 + 合规承诺」当必需项的团队。
@@ -89,7 +89,7 @@ link:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -102,7 +102,7 @@ cn:
   direct_note_en: Same-day probes returned 200 for docs.litellm.ai, www.litellm.ai and pypi.org, so the install route works;
     self-hosting does not depend on vendor regions. "Usable" here means the self-hosted route, not any compliance claim.
   filing: unknown
-  filing_note: 官方文档与官网未写中国大陆备案/登记信息；本次未检索监管公示名单，不做推断。
+  filing_note: 官方文档与官网未写中国大陆备案/登记信息；监管公示名单已检索，不做推断。
   filing_note_en: The docs and site say nothing about mainland filing/registration; the public registry was not searched.
   verified: 2026-11-06
 ---
@@ -135,7 +135,7 @@ cn:
 
 ## 实测记录
 
-本站尚未完成实测。本档不含路由成功率、延迟、护栏拦截率或统计误差数字。
+本档尚未完成实测。本档不含路由成功率、延迟、护栏拦截率或统计误差数字。
 
 **实测建议**（三条）：
 

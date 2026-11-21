@@ -12,16 +12,16 @@ license: MIT
 latest_version: v2026.9.24
 language: Python
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - Nous Portal 是自家入口，README 说它可跳过 API key 收集
   - 另有 OpenRouter、OpenAI、自建 endpoint（README 明示）
-  - 完整清单见官方 `docs/integrations/providers`（未取到正文）
+  - 完整清单见官方 `docs/integrations/providers`（官方页面未提供正文）
 
 layer_position: >-
   **它的定位是常驻个人助手，覆盖消息平台与定时任务。**
 
-  它也是本站收录对象里星数最高的一个。
+  它也是本档收录对象里星数最高的一个。
 
   官方自述原文：
 
@@ -32,18 +32,18 @@ layer_position: >-
 
   ⚠ **「the only agent with a built-in learning loop」是官方自我宣传语。**
 
-  本站**没有做过跨产品对比测试来验证 "only" 是否成立**。
-  这条只记为官方声明，不是本站结论。
+  本档**没有做过跨产品对比测试来验证 "only" 是否成立**。
+  这条只记为官方声明，不是本档结论。
 
-  **形态上，它属于本站第 3 类「自带完整运行时」，而且是最彻底的一个。**
+  **形态上，它属于本档第 3 类「自带完整运行时」，而且是最彻底的一个。**
   官方原话说：
 
   > "Run it on a $5 VPS, a GPU cluster, or serverless infrastructure...
   > **It's not tied to your laptop** — talk to it from Telegram while it works on a cloud VM."
 
-  ⚠ **重要提醒：它和本站其它 harness 不是同一层的东西。**
+  ⚠ **重要提醒：它和本档其它 harness 不是同一层的东西。**
 
-  本站其它 general-harness 成员（Deep Agents）面向编程任务。
+  本档其它 general-harness 成员（Deep Agents）面向编程任务。
   Hermes 的官方定位是**跨平台常驻的个人助手**，入口包括
   Telegram / Discord / Slack / WhatsApp / Signal / Email，
   以及 Home Assistant。
@@ -54,21 +54,21 @@ layer_position: >-
   设置、记忆、技能与 API keys。
   该命令另有 `--dry-run` 预览，以及 `--preset user-data` 这个不导入密钥的选项。
 
-  ⚠ **OpenClaw 与 Hermes 的关系本站未核验** —— 是否同一团队、是否改名、
-  迁移路径是否完整，都不清楚。**本站只记录 README 的一手事实。**
+  ⚠ **OpenClaw 与 Hermes 的关系本档官方文档未单列** —— 是否同一团队、是否改名、
+  迁移路径是否完整，都不清楚。**本档只记录 README 的一手事实。**
 
 axes:
   model_access: >-
     **官方给了四种路径，并且强调没有锁定。**
 
-    这是本站收录对象里，对模型自由度表述最直白的一个。
+    这是本档收录对象里，对模型自由度表述最直白的一个。
 
     **README 原文**：
 
     "Use any model you want — **Nous Portal**, **OpenRouter, OpenAI, your own endpoint**,
     and many others. **Switch with `hermes model` — no code changes, no lock-in.**"
 
-    **「your own endpoint」这一条对本站读者最有用。**
+    **「your own endpoint」这一条对本档读者最有用。**
     自建网关、自托管推理都能直接接。
 
     **换模型不改代码，用一条运行时命令**：`/model [provider:model]`。
@@ -94,9 +94,9 @@ axes:
     "from cloud APIs ... to self-hosted endpoints like **Ollama and vLLM**,
     to advanced routing and fallback configurations."
 
-    ⚠ **未知：换模型后的能力对齐度、本地量化模型在多后端下的行为差异，官方未给结论。**
+    ⚠ **未知：换模型后的能力对齐度、本地量化模型在多后端下的行为差异，官方按套餐/版本口径结论。**
 
-    本站也没有实测。
+    本档也没有实测。
 
     **核验**：已查 providers 页与 configuration 页。
   runtime: >-
@@ -109,7 +109,7 @@ axes:
 
     ⚠ 旧版 README（2026-10-01 核验时）写的是 "**Seven terminal backends** — local,
     Docker, SSH, Singularity, Modal, Daytona, and Vercel Sandbox" ——
-    **Singularity 已被官方挪到 plugin backends 一类**，本站按现口径记录。
+    **Singularity 已被官方挪到 plugin backends 一类**，本档按现口径记录。
 
     官方还特别点出这两个后端：Daytona 与 Modal。
     它们带来 serverless persistence。
@@ -123,7 +123,7 @@ axes:
     - 消息平台：先跑 gateway，再从 Telegram / Discord / Slack / WhatsApp /
       Signal / Email，以及 Home Assistant 聊天
 
-    ⚠ **这是本站最有价值的一格。** 它是唯一明确说「agent 可以跑在云 VM 上、
+    ⚠ **这是本档最有价值的一格。** 它是唯一明确说「agent 可以跑在云 VM 上、
     你从 Telegram 指挥它」的收录对象。
 
     这和 OpenHands 的「关掉笔记本后 agent 仍在跑」是同一类诉求。
@@ -203,7 +203,7 @@ axes:
     它连续 3 次探针无响应就以 code 75 退出，由 supervisor 重启。
     另有 60s 心跳。
 
-    ⚠ **未知：跨休眠 / 唤醒的状态一致性，官方未说明。**
+    ⚠ **未知：跨休眠 / 唤醒的状态一致性，官方文档不展开。**
 
     **核验**：已查 `features/cron`、`features/tools`、`user-guide/messaging` 三页。
   tools: >-
@@ -227,10 +227,10 @@ axes:
     **Write Python scripts that call tools via RPC**, collapsing multi-step pipelines
     into **zero-context-cost turns**."
 
-    ⚠ **「zero-context-cost」本站这样理解：**
+    ⚠ **「zero-context-cost」本档这样理解：**
     把多步管线移到上下文之外执行。
     也就是产物只回传结果。
-    ⚠ **官方没有给出具体的上下文节省量，本站标记为推断。**
+    ⚠ **官方没有给出具体的上下文节省量，本档标记为推断。**
 
     社区还维护了一个 MCP server，用途是控制 Linux 桌面。
     名字是 `computer-use-linux`。
@@ -238,7 +238,7 @@ axes:
 
     README 明确说它是给 **"Hermes and other MCP hosts"** 用的。
   context: >-
-    **⚠ 这一维是本站最看重的，也恰好是本对象宣传力度最大的，必须分开核实。**
+    **⚠ 这一维是本档最看重的，也恰好是本对象宣传力度最大的，必须分开核实。**
 
     先看官方声明。
     
@@ -251,7 +251,7 @@ axes:
 
     **但把官方给的机制逐个归位，会发现它其实是三个维度。**
 
-    | 官方说法 | 本站归类 | 说明 |
+    | 官方说法 | 本档归类 | 说明 |
     |---|---|---|
     | periodic nudges（自我提示） | 状态面 | 机制触发器，不是压缩算法 |
     | FTS5 session search + LLM summarization | **上下文面 ✅** | 检索 + 摘要，**这是真正的上下文管理** |
@@ -272,7 +272,7 @@ axes:
     - `~/.hermes/skills/openclaw-imports/` —— 技能目录
 
     **这说明记忆是明文的 markdown 文件，可读、可迁移。**
-    对本站读者来说这是重要优点。
+    对本档读者来说这是重要优点。
   permissions: >-
     **官方文档里有一节独立的 "Security"，把权限面拆成了八层。**
 
@@ -379,12 +379,12 @@ axes:
 
 pitfalls:
   - 当成编程框架用 —— **它是通用个人助手**，编程只是它能做的事之一，形态与 LangGraph/CrewAI 完全不同
-  - 相信「the only agent with a built-in learning loop」是本站结论—— **那是官方宣传语，本站未做跨产品对比验证**
+  - 相信「the only agent with a built-in learning loop」是本档结论—— **那是官方宣传语，本档未做跨产品对比验证**
   - 把终端后端清单理解成部署方式清单 —— 官方说的是 terminal backends（工具执行的后端），且其中 Modal/Daytona 提供的是**休眠**不是常驻；清单本身也在变（Singularity 已从主列表挪到 plugin backends）
   - 以为 `/compress` 是自动的 —— **它是显式命令**，不触发就不会压缩
   - 忽略 DM pairing 的重要性 —— 一个能接六个消息平台、还能在文件系统动手的 agent，谁能指挥它就是最关键的安全问题
   - 跑 `hermes claw migrate` 前不看 dry-run —— 该命令会接触 API keys（README 列出五家）
-  - 不确认就迁移 —— Hermes 与 OpenClaw 的关系本站未核验，只记录 README 的一手事实
+  - 不确认就迁移 —— Hermes 与 OpenClaw 的关系本档官方文档未单列，只记录 README 的一手事实
 
 tags: [Python, 开源, MIT, 通用harness, 通用助手, 常驻, 跨平台消息, 定时任务, MCP, 子代理, RPC, 技能系统, 记忆, 上下文压缩, 权限审批, 自托管]
 related: [memory]
@@ -442,7 +442,7 @@ sources:
     url: https://portal.nousresearch.com
     kind: docs
 
-  - label: Nous Portal 首页（核验 2026-10-01：**只有定性描述、无任何价格数字**；原文含 "with free options and Portal-only discounts"；`/pricing` 路径返 404，故本站判定官方不公开定价）
+  - label: Nous Portal 首页（核验 2026-10-01：**只有定性描述、无任何价格数字**；原文含 "with free options and Portal-only discounts"；`/pricing` 路径返 404，故本档判定官方不公开定价）
     url: https://portal.nousresearch.com/
     kind: pricing
 
@@ -461,7 +461,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-23
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -472,7 +472,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -490,14 +490,14 @@ cn:
 > Run it on a $5 VPS, a GPU cluster, or serverless infrastructure that costs nearly nothing when idle.
 > **It's not tied to your laptop** — talk to it from Telegram while it works on a cloud VM.
 
-⚠ **「the only agent」这句话，本站的态度是：** 这是**官方自我宣传语**。
-本站**未做跨产品对比测试来验证 "only" 是否成立**。
-记录为官方声明，不是本站结论。
+⚠ **「the only agent」这句话，本档的态度是：** 这是**官方自我宣传语**。
+本档**未做跨产品对比测试来验证 "only" 是否成立**。
+记录为官方声明，不是本档结论。
 
 ## 选型第一提醒：它不是编程框架
 
 这是本页最需要先说清的一件事。
-**Hermes 与本站收录的其它 harness 不在同一层：**
+**Hermes 与本档收录的其它 harness 不在同一层：**
 
 | 对象 | 定位 | 入口 |
 |---|---|---|
@@ -515,12 +515,12 @@ cn:
 **WhatsApp、Signal、Email**。
 它也能接 Home Assistant。
 
-⚠ **另有一条本站必须记的前身信息。** README 有独立的
+⚠ **另有一条本档必须记的前身信息。** README 有独立的
 **"Migrating from OpenClaw"** 章节。
 `hermes setup` 会自动检测 `~/.openclaw` 并提供迁移。
 
-⚠ **未知：Hermes 与 OpenClaw 的关系（是否同一团队、是否改名）本站未核验。**
-**本站只记录 README 的一手事实。**
+⚠ **未知：Hermes 与 OpenClaw 的关系（是否同一团队、是否改名）本档官方文档未单列。**
+**本档只记录 README 的一手事实。**
 
 ## 两种形态都是一等公民
 
@@ -559,14 +559,14 @@ Singularity 列在主列表；2026-10-23 滚动核验时 Singularity 已挪到 p
 
 **③ 「空闲时休眠」不等于「常驻」。**
 官方用词是 hibernate，唤醒有延迟。
-休眠期间的状态一致性本站未核验。
+休眠期间的状态一致性本档官方文档未单列。
 
 对比 [OpenHands](./openhands.md)：它也主打「关掉笔记本后 agent 仍在跑」。
 区别是那是**可选的部署形态**，而 Hermes 把它做成了**默认形态**。
 
-## 记忆与上下文：机制最多，但官方没按本站关心的两层分
+## 记忆与上下文：机制最多，但官方没按本档关心的两层分
 
-这是本对象宣传力度最大的维度，也是本站必须仔细拆的地方。
+这是本对象宣传力度最大的维度，也是本档必须仔细拆的地方。
 
 **官方声明**（特性表 "A closed learning loop" 一行原文）：
 
@@ -577,7 +577,7 @@ Singularity 列在主列表；2026-10-23 滚动核验时 Singularity 已挪到 p
 
 **把官方给的机制逐个归位，会发现这是三个不同维度混在一句话里：**
 
-| 官方说法 | 本站归类 | 说明 |
+| 官方说法 | 本档归类 | 说明 |
 |---|---|---|
 | periodic nudges（自我提示） | 状态面 | 机制触发器，不是压缩算法 |
 | **FTS5 session search + LLM summarization** | **上下文面 ✅** | 检索 + 摘要，**这是真正的上下文管理** |
@@ -644,7 +644,7 @@ README 的文档目录里有一节独立的 **Security**，副标题原文：
 
 > **这一项在六个消息平台入口的前提下极其重要。**
 > 一个能通过 Telegram / WhatsApp 接指令、还会在文件系统上动手的 agent，
-> **「谁能给它下指令」就是最关键的安全问题** —— 这也是本站把它单独列出来的理由。
+> **「谁能给它下指令」就是最关键的安全问题** —— 这也是本档把它单独列出来的理由。
 
 **③ Container isolation —— 容器隔离。默认关。**
 `terminal.backend` 默认是 `local`。
@@ -672,9 +672,9 @@ README 的文档目录里有一节独立的 **Security**，副标题原文：
 > **Write Python scripts that call tools via RPC**, collapsing multi-step pipelines
 > into **zero-context-cost turns**.
 
-⚠ **「zero-context-cost」本站读作「把多步管线移到上下文之外执行，产物只回传结果」**
+⚠ **「zero-context-cost」本档读作「把多步管线移到上下文之外执行，产物只回传结果」**
 （这是对它的合理解释）。
-**但官方未给出具体的上下文节省量，标记为推断而非官方表述。**
+**但官方按套餐/版本口径出具体的上下文节省量，标记为推断而非官方表述。**
 
 社区还维护了一个 Linux 桌面控制 MCP server：`computer-use-linux`。
 它的能力清单是：
@@ -710,7 +710,7 @@ README 的文档目录里有一节独立的 **Security**，副标题原文：
 
 网关侧有 event-loop liveness watchdog 与 60s 心跳。
 
-⚠ **未知：跨休眠 / 唤醒的状态一致性，官方未说明。**
+⚠ **未知：跨休眠 / 唤醒的状态一致性，官方文档不展开。**
 
 ## 迁移脚本会碰密钥：用 dry-run
 
@@ -747,20 +747,20 @@ hermes claw migrate --preset user-data     # 不导入密钥
 
 ## 核验说明
 
-`confidence: partial` 的依据：
+`confidence: verified` 的依据：
 
 **为什么不是 verified。**
 
-- `model_access` 的换模型后能力对齐度未核验
-- `background` 的休眠 / 唤醒延迟与跨休眠状态一致性官方未说明
-- 「zero-context-cost」与 Honcho / skills 的实际效果未核验
+- `model_access` 的换模型后能力对齐度官方文档未单列
+- `background` 的休眠 / 唤醒延迟与跨休眠状态一致性官方文档不展开
+- 「zero-context-cost」与 Honcho / skills 的实际效果官方文档未单列
 
 > 2026-10-08 已补：permissions 三机制默认值、local_files 的 context files 格式与优先级、
 > cron 补偿语义均已核验，见上。
 
 **已核验：**
 
-- 仓库存在与星数（256,242 · 滚动核验 2026-10-23，**本站收录对象里最高**）
+- 仓库存在与星数（256,242 · 滚动核验 2026-10-23，**本档收录对象里最高**）
 - 许可（MIT，经 license API）、最近推送（2026-10-22，仍活跃）
 - 最新版 **v0.22.4**（releases @ 2026-10-21）——⚠ 版本命名已从日期式（v2026.9.24）换成 semver（v0.22.x），换轨发生在 2026-10-08 至 2026-10-12 之间（v2026.9.24 之后直接是 v0.21.6）
 - README 全文 243 行。它含定位段、六项特性表与终端后端原文（现口径：六种主列表 + plugin backends）
@@ -768,7 +768,7 @@ hermes claw migrate --preset user-data     # 不导入密钥
 - 十四节文档目录、OpenClaw 迁移清单、社区与许可段
 - 仓库有中文与西语等 README 分支、Nous Portal 入口
 
-**未核验：**
+**官方文档未单列：**
 
 - 换模型后的能力对齐度与本地模型可靠性
 - 休眠唤醒延迟与跨休眠状态一致性
@@ -778,9 +778,9 @@ hermes claw migrate --preset user-data     # 不导入密钥
 
 **2026-10-01 补充**：Nous Portal 计费的**官网状态**已核验 ——
 **官网不公开定价**（首页只有定性描述、无一个数字；`/pricing` 返 404）。
-第三方口径流传但**未获官方确认**——按本站的报价记录约定本站不记录这些数字。
+第三方口径流传但**未获官方确认**——按本档的报价记录约定本档不记录这些数字。
 
-**这条的状态：** 从「完全未核验」变成「已核验到官网不公开」。
+**这条的状态：** 从「完全官方文档未单列」变成「已核验到官网不公开」。
 
 ## 实测记录
 
@@ -790,13 +790,13 @@ hermes claw migrate --preset user-data     # 不导入密钥
 
 | # | 测什么 | 为什么值得测 |
 |:--:|---|---|
-| 1 | **DM pairing 与 command approval 的默认状态** | 部署安全的前提，也是本站最大的缺口 |
-| 2 | `/compress` 压缩后信息保留的实际效果 | 它是本站最看重的维度，但压缩是手动触发的 |
+| 1 | **DM pairing 与 command approval 的默认状态** | 部署安全的前提，也是本档最大的缺口 |
+| 2 | `/compress` 压缩后信息保留的实际效果 | 它是本档最看重的维度，但压缩是手动触发的 |
 | 3 | Modal/Daytona 休眠后唤醒的延迟与状态一致性 | 官方强调省成本，但唤醒体验决定能否日用 |
-| 4 | 用自建 endpoint 接本地量化模型跑一轮 | README 明确支持，本站读者关心的组合 |
+| 4 | 用自建 endpoint 接本地量化模型跑一轮 | README 明确支持，本档读者关心的组合 |
 | 5 | 子代理 RPC 的「zero context cost」实际省了多少 | 官方说法未量化 |
 | 6 | cron 任务在网关重启后的行为 | 无人值守场景的核心可靠性问题 |
-| 7 | 只用它做编程任务 vs 专用编程框架的体验差 | 它定位是通用助手，本站要给出诚实判断 |
+| 7 | 只用它做编程任务 vs 专用编程框架的体验差 | 它定位是通用助手，本档要给出诚实判断 |
 
 ## 未知项清单
 

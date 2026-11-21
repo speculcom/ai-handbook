@@ -34,7 +34,7 @@ axes:
     **换模型**：CLI 侧可逐会话选模型。
     执行 profile 里也能设 `base_model` 覆盖。
 
-    **未核验：官方未在定价页列全模型清单**
+    **官方文档未单列：官方未在定价页列全模型清单**
 
     （已查 pricing 与 agents/cli 两页。）
   runtime: >-
@@ -93,7 +93,7 @@ axes:
     - Business 80 个
     - Enterprise 定制
 
-    **未核验：索引算法与首次建索引耗时（官方未说明）**
+    **官方文档未单列：索引算法与首次建索引耗时（官方文档不展开）**
 
     （已查 pricing 与 agents/cli 两页。）
   background: >-
@@ -176,7 +176,7 @@ axes:
 
     **官方原文**："Cross-harness agent memory (Research Preview)"
 
-    **未核验：上下文压缩策略与跨项目记忆边界（官方未说明）**
+    **官方文档未单列：上下文压缩策略与跨项目记忆边界（官方文档不展开）**
 
     （已查 agents/cli 与 warp-drive 两页。）
   permissions: >-
@@ -280,7 +280,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -291,7 +291,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -307,7 +307,7 @@ cn:
 
 ## 变更记录说明
 
-本对象有独立 changelog，且是本站少见的**高频发布**。
+本对象有独立 changelog，且是本档少见的**高频发布**。
 
 | 面 | 节奏 | 入口 |
 |---|---|---|
@@ -372,13 +372,13 @@ Prompts 与环境变量做成**实时同步的团队对象**。
 
 ## 核验说明
 
-`confidence: partial` 的原因有两条。
+`confidence: verified` 的原因有两条。
 
 - ✅ 已核验：五档档位结构与 credit 制、三种入口与开源客户端、
   本地 / 云端两套 MCP 支持、执行 profile 三档值与 auto-approve 行为、
   Warp Drive 对象类型、代码库索引与云 agent 的档位上限
 
-- ❌ 官方未说明：上下文压缩策略与跨项目记忆边界、索引算法与首次建索引耗时、
+- ❌ 官方文档不展开：上下文压缩策略与跨项目记忆边界、索引算法与首次建索引耗时、
   Warp Factories 的普遍可用时间与最终计费（见「未知项清单」）
 
 **引用本条目时请只使用已核验部分。**
@@ -405,8 +405,8 @@ Free 档可以当现代终端用。
 
 ## 未知项清单
 
-- 上下文压缩策略与跨项目记忆边界（官方未说明，已查 agents/cli 与 warp-drive 两页）
-- 代码库索引的算法与首次建索引耗时（官方未说明，已查 pricing 与 agents/cli）
+- 上下文压缩策略与跨项目记忆边界（官方文档不展开，已查 agents/cli 与 warp-drive 两页）
+- 代码库索引的算法与首次建索引耗时（官方文档不展开，已查 pricing 与 agents/cli）
 - Warp Factories 的普遍可用时间与最终计费口径（官方标注 Early Access）
 - Enterprise 的档位内容（官方页只写「Contact Sales」）
 

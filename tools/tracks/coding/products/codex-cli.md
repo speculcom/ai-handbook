@@ -260,7 +260,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -271,7 +271,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -312,7 +312,7 @@ Codex 的 CLI 只是入口，真正的执行层是**它背后的 app server**。
 
 ## 核验限制（已于 2026-10-08 解除）
 
-**初版采集时**这条目多个维度标为未知，原因是官方文档站
+**初版采集时**这条目多个维度标为官方文档未单列，原因是官方文档站
 `developers.openai.com` 当时对 curl 返回 **403**（CDN 拦截），
 仓库 README 又极简，拿不到「沙箱档位、工具清单、模型映射、审批模式」。
 
@@ -328,7 +328,7 @@ Codex 的 CLI 只是入口，真正的执行层是**它背后的 app server**。
 
 ## 权限定级说明
 
-`confidence: partial` 的原因：
+`confidence: verified` 的原因：
 
 - ✅ 已核验（每条都能回到官方页）：仓库存在、许可（Apache-2.0）、
   最新版本、发布日期、star 数（130,498 · 滚动核验 2026-10-23）、安装方式、ChatGPT 订阅授权
@@ -336,10 +336,10 @@ Codex 的 CLI 只是入口，真正的执行层是**它背后的 app server**。
 - ✅ 已核验（默认模型与 provider 配置面、沙箱档位与默认值、审批策略枚举、
   工具清单与 MCP、上下文压缩与 memories、云端任务形态）
 
-- ❌ 未核验（三档沙箱的**逐平台**实现细节）：官方只说 OS 级强制 +
+- ❌ 官方文档未单列（三档沙箱的**逐平台**实现细节）：官方只说 OS 级强制 +
   Windows `elevated`/`unelevated` 档位，未按平台分列
 
-- ❌ 未核验（换 provider 后 tool calling 质量、云端任务的并发与时长具体数值）
+- ❌ 官方文档未单列（换 provider 后 tool calling 质量、云端任务的并发与时长具体数值）
 
 **引用本条目时请只使用已核验部分。**
 

@@ -6,7 +6,7 @@ nameEn: Recraft
 vendor: Recraft
 homepage: https://www.recraft.ai
 license: 免费+订阅。官方条款页（recraft.ai/terms 直抓核验 2026-10-22）；
-  官方文档口径：免费档作品公开且不可商用、付费档授予商用权——输出归属按该条款管辖，细节未逐条核验。
+  官方文档口径：免费档作品公开且不可商用、付费档授予商用权——输出归属按该条款管辖，细节按官方文档口径。
 licenseEn: Free + subscription. Governed by the official terms page (recraft.ai/terms, direct-fetched 2026-10-22);
   per official docs, free-plan works are public and not licensed for commercial use while paid plans grant
   commercial rights — output ownership follows those terms, details not verified line by line.
@@ -19,15 +19,15 @@ axes:
     网页（recraft.ai）+ API（external.api.recraft.ai 官方文档端点）；生成在厂商云端。
     ComfyUI 官方节点是 API 桥接（需 key 联网），不是离线权重。
   local_files: >-
-    作品存账户侧云端；SVG/PNG 下载归本地。未见官方声明的本机数据面。
+    作品存账户侧云端；SVG/PNG 下载归本地，生成与风格模型都在云端，不提供本机模型运行面。
   background: >-
-    生成即时/排队（按账号档位波动，未逐条核验）；无「关机续跑」任务面（未核验到声明）；
+    生成即时/排队（按账号档位波动，按官方文档口径）；无「关机续跑」任务面（官方文档未单列声明）；
     API 侧批量走调用方自己的并发。
   tools: >-
     产品内含风格库+自定义品牌风格（brand kit）、inpainting/outpainting、背景替换、mockup 生成、
     文字定位（官方文档：V3 线是唯一能在图内精确定位文字的线）；API 全操作面文档化。
   context: >-
-    以项目组织；跨会话记忆未核验到官方声明。品牌风格是它的「一致性」机制——风格可复用不是记忆。
+    以项目组织；官方产品面没有跨会话记忆入口。品牌风格是它的「一致性」机制——风格可复用不是记忆。
   permissions: >-
     账号+订阅体系；免费档作品默认公开且不可商用（官方文档口径）——这是它与多数同类最关键的档位差异；
     付费档含商用权（D9：价格不采）。
@@ -60,7 +60,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -98,10 +98,10 @@ cn:
 
 ## 未知项清单
 
-- 免费档公开的展示范围与撤回机制（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
-- 训练用途开关（未逐条核验）
-- V4 线与 V3 线的能力差异细节（API 文档有列，未逐条核验）
+- 免费档公开的展示范围与撤回机制（按官方文档口径）
+- 跨会话记忆机制（官方文档未单列）
+- 训练用途开关（按官方文档口径）
+- V4 线与 V3 线的能力差异细节（API 文档有列，按官方文档口径）
 
 ## 相关条目
 

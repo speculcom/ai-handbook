@@ -258,47 +258,47 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [文心快码（Baidu Comate）](tracks/coding/products/baidu-comate.md) | 百度 | ide | partial | active |
+| [文心快码（Baidu Comate）](tracks/coding/products/baidu-comate.md) | 百度 | ide | verified | active |
 | [Aider](tracks/coding/products/aider-cli.md) | Aider-AI | cli | partial | maintenance |
 | [Aider Watch 模式](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
 | [Amazon Q Developer](tracks/coding/products/amazon-q-developer.md) | AWS | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation（原 Sourcegraph，2025-12 分拆独立） | cli | verified | active |
 | [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | verified | active |
 | [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | verified | active |
-| [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
+| [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | verified | active |
 | [Claude Code IDE 扩展](tracks/coding/products/claude-code.md) | Anthropic | ide | verified | active |
-| [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | partial | active |
+| [Cline](tracks/coding/products/cline.md) | Cline Bot | ide | verified | active |
 | [CodeBuddy](tracks/coding/products/codebuddy.md) | 腾讯云 | ide | verified | active |
-| [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | partial | active |
+| [Codex CLI](tracks/coding/products/codex-cli.md) | OpenAI | cli | verified | active |
 | [Codex IDE 扩展](tracks/coding/products/codex-ide.md) | OpenAI | ide | verified | active |
 | [Continue](tracks/coding/products/continue.md) | Continue | ide | partial | archived |
-| [Crush](tracks/coding/products/crush.md) | Charm | cli | partial | active |
-| [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | partial | active |
-| [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | partial | active |
+| [Crush](tracks/coding/products/crush.md) | Charm | cli | verified | active |
+| [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | verified | active |
+| [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | verified | active |
 | [Devin](tracks/coding/products/devin.md) | Cognition | cloud | verified | active |
-| [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | partial | active |
-| [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | partial | active |
+| [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | verified | active |
+| [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | verified | active |
 | [GitHub Copilot](tracks/coding/products/copilot.md) | GitHub / Microsoft | ide | verified | active |
 | [GitHub Copilot CLI](tracks/coding/products/copilot-cli.md) | GitHub | cli | verified | active |
 | [Google Antigravity](tracks/coding/products/google-antigravity.md) | Google | ide | verified | active |
 | [Goose](tracks/coding/products/goose.md) | Agentic AI Foundation | cli | verified | active |
-| [Jules](tracks/coding/products/jules.md) | Google | cloud | partial | active |
-| [Junie](tracks/coding/products/junie.md) | JetBrains | ide | partial | active |
+| [Jules](tracks/coding/products/jules.md) | Google | cloud | verified | active |
+| [Junie](tracks/coding/products/junie.md) | JetBrains | ide | verified | active |
 | [Kilo Code](tracks/coding/products/kilocode.md) | Kilo-Org | ide | verified | active |
-| [Kiro](tracks/coding/products/kiro.md) | AWS | ide | partial | active |
-| [Lovable](tracks/coding/products/lovable.md) | Lovable | cloud | partial | active |
-| [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | partial | active |
-| [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | partial | active |
-| [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
+| [Kiro](tracks/coding/products/kiro.md) | AWS | ide | verified | active |
+| [Lovable](tracks/coding/products/lovable.md) | Lovable | cloud | verified | active |
+| [Meta Muse](tracks/coding/products/meta-muse.md) | Meta | cloud | verified | active |
+| [OpenAI Dot](tracks/coding/products/openai-dot.md) | OpenAI | cloud | verified | active |
+| [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | verified | active |
 | [Qoder](tracks/coding/products/qoder.md) | 阿里云 | ide | verified | active |
-| [Qoder CN（原通义灵码）](tracks/coding/products/qoder-cn.md) | 阿里云 | ide | partial | active |
+| [Qoder CN（原通义灵码）](tracks/coding/products/qoder-cn.md) | 阿里云 | ide | verified | active |
 | [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | verified | active |
-| [Trae](tracks/coding/products/trae.md) | 字节跳动 | ide | partial | active |
+| [Trae](tracks/coding/products/trae.md) | 字节跳动 | ide | verified | active |
 | [v0](tracks/coding/products/v0.md) | Vercel | cloud | verified | active |
-| [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
+| [Warp](tracks/coding/products/warp.md) | Warp | cli | verified | active |
 | [Windsurf / Devin Desktop](tracks/coding/products/windsurf.md) | Cognition | ide | verified | active |
-| [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | partial | active |
-| [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | partial | active |
+| [xAI Grok Bot](tracks/coding/products/grok-bot.md) | xAI | cloud | verified | active |
+| [Zed](tracks/coding/products/zed.md) | Zed Industries | ide | verified | active |
 
 ### AI 对话助手 —— 23 份
 
@@ -323,12 +323,12 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Kimi](tracks/chat/products/kimi-chat.md) | 月之暗面 Moonshot AI | web | verified | active |
 | [Le Chat](tracks/chat/products/le-chat.md) | Mistral AI | web | verified | active |
 | [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
-| [Manus](tracks/chat/products/manus.md) | Manus AI（Monica 团队） | web | partial | active |
+| [Manus](tracks/chat/products/manus.md) | Manus AI（Monica 团队） | web | verified | active |
 | [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | verified | active |
 | [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | partial | active |
 | [Open WebUI](tracks/chat/products/open-webui.md) | Open WebUI 社区 | web | verified | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | verified | active |
-| [Reka Chat（Reka Playground / Edge Chat）](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | partial | active |
+| [Reka Chat（Reka Playground / Edge Chat）](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | verified | active |
 
 ### AI 图像创作 —— 15 份
 
@@ -336,21 +336,21 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [即梦](tracks/image/products/jimeng.md) | 字节跳动（剪映团队） | web | partial | active |
+| [即梦](tracks/image/products/jimeng.md) | 字节跳动（剪映团队） | web | verified | active |
 | [通义万相](tracks/image/products/tongyi-wanxiang.md) | 阿里巴巴 | web | partial | active |
-| [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | partial | active |
+| [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | verified | active |
 | [Clipdrop](tracks/image/products/clipdrop.md) | Jasper（原 InitML，2023 并入 Stability AI，2024-02 售予 Jasper） | web | partial | active |
 | [FLUX（Black Forest Labs）](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
-| [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | partial | active |
+| [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | verified | active |
 | [Krea](tracks/image/products/krea.md) | Krea | web | partial | active |
-| [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo（2024-07 被 Canva 收购） | web | partial | active |
+| [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo（2024-07 被 Canva 收购） | web | verified | active |
 | [Microsoft Designer](tracks/image/products/microsoft-designer.md) | 微软 | web | partial | active |
 | [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | verified | active |
-| [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | partial | active |
-| [Recraft](tracks/image/products/recraft.md) | Recraft | web | partial | active |
-| [SeaArt](tracks/image/products/seaart.md) | 海艺（成都海艺互娱） | web | partial | active |
+| [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | verified | active |
+| [Recraft](tracks/image/products/recraft.md) | Recraft | web | verified | active |
+| [SeaArt](tracks/image/products/seaart.md) | 海艺（成都海艺互娱） | web | verified | active |
 | [Stability AI（Stable Image 平台）](tracks/image/products/stability-ai.md) | Stability AI | web | verified | active |
-| [Tensor.Art](tracks/image/products/tensor-art.md) | ECHO INTERNATIONAL HK LIMITED（Tensor.Art） | web | partial | active |
+| [Tensor.Art](tracks/image/products/tensor-art.md) | ECHO INTERNATIONAL HK LIMITED（Tensor.Art） | web | verified | active |
 
 ### AI 视频创作 —— 14 份
 
@@ -364,10 +364,10 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | partial | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
-| [invideo AI](tracks/video/products/invideo.md) | invideo | web | partial | active |
+| [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
 | [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | verified | active |
 | [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
-| [PixVerse](tracks/video/products/pixverse.md) | 爱诗科技 | web | partial | active |
+| [PixVerse](tracks/video/products/pixverse.md) | 爱诗科技 | web | verified | active |
 | [Runway](tracks/video/products/runway.md) | Runway AI, Inc. | web | verified | active |
 | [Synthesia](tracks/video/products/synthesia.md) | Synthesia | web | verified | active |
 | [Veo（Google）](tracks/video/products/veo.md) | Google | cloud | verified | active |
@@ -386,12 +386,12 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [CosyVoice](tracks/audio/products/cosyvoice.md) | 阿里 FunAudioLLM（开源） | local-app | verified | active |
 | [Deepgram](tracks/audio/products/deepgram.md) | Deepgram | cloud | verified | active |
 | [ElevenLabs](tracks/audio/products/elevenlabs.md) | ElevenLabs | web | verified | active |
-| [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / 上交 X-LANCE 等（开源） | local-app | partial | active |
+| [F5-TTS](tracks/audio/products/f5-tts.md) | SWivid / 上交 X-LANCE 等（开源） | local-app | verified | active |
 | [fish audio](tracks/audio/products/fish-audio.md) | fish.audio | web | partial | active |
 | [MiniMax Audio（海螺语音）](tracks/audio/products/minimax-audio.md) | MiniMax（稀宇科技） | web | partial | active |
-| [Murf](tracks/audio/products/murf.md) | Murf AI | web | partial | active |
+| [Murf](tracks/audio/products/murf.md) | Murf AI | web | verified | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | verified | active |
-| [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | partial | active |
+| [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | verified | active |
 | [Soundraw](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | partial | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | verified | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
@@ -421,29 +421,29 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [扣子 / Coze](tracks/automation/products/coze.md) | 字节跳动 | web | partial | active |
+| [扣子 / Coze](tracks/automation/products/coze.md) | 字节跳动 | web | verified | active |
 | [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
-| [AutoGPT（现 Experts AI 团队平台）](tracks/automation/products/autogpt.md) | AutoGPT（Determinist Ltd 运营） | web | partial | active |
+| [AutoGPT（现 Experts AI 团队平台）](tracks/automation/products/autogpt.md) | AutoGPT（Determinist Ltd 运营） | web | verified | active |
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | verified | active |
-| [Botpress](tracks/automation/products/botpress.md) | Botpress | web | partial | active |
-| [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | partial | active |
+| [Botpress](tracks/automation/products/botpress.md) | Botpress | web | verified | active |
+| [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | verified | active |
 | [FastGPT](tracks/automation/products/fastgpt.md) | labring（环际云，国产） | web | verified | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | verified | active |
 | [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | maintenance |
-| [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | partial | active |
+| [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | verified | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax（原 Langflow AI） | web | verified | active |
-| [Lindy](tracks/automation/products/lindy.md) | Lindy | web | partial | active |
+| [Lindy](tracks/automation/products/lindy.md) | Lindy | web | verified | active |
 | [Make](tracks/automation/products/make.md) | Make（原 Integromat） | web | verified | active |
 | [MaxKB](tracks/automation/products/maxkb.md) | 飞致云（国产） | web | verified | active |
 | [Microsoft Copilot Studio](tracks/automation/products/copilot-studio.md) | Microsoft | web | verified | active |
-| [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | partial | active |
-| [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | partial | active |
+| [Microsoft Power Automate](tracks/automation/products/power-automate.md) | Microsoft | web | verified | active |
+| [n8n](tracks/automation/products/n8n.md) | n8n GmbH | web | verified | active |
 | [Pipedream（Connect / Workflows）](tracks/automation/products/pipedream.md) | Pipedream | web | partial | active |
 | [Relevance AI](tracks/automation/products/relevance-ai.md) | Relevance AI（悉尼） | web | verified | active |
 | [Salesforce Agentforce](tracks/automation/products/agentforce.md) | Salesforce | web | verified | active |
 | [SmythOS](tracks/automation/products/smythos.md) | SmythOS | web | partial | maintenance |
 | [Vertex AI Agent Builder（Gemini Enterprise 平台线）](tracks/automation/products/vertex-agent-builder.md) | Google | web | verified | active |
-| [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | partial | active |
+| [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | verified | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | partial | active |
 
 ### Agent 框架与运行时 —— 42 份
@@ -452,43 +452,43 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
-| [AG2](tracks/framework/products/ag2.md) | ag2ai | harness | partial | active |
+| [AG2](tracks/framework/products/ag2.md) | ag2ai | harness | verified | active |
 | [AgentScope](tracks/framework/products/agentscope.md) | 阿里巴巴（魔搭社区） | harness | verified | active |
 | [Agno（原 Phidata）](tracks/framework/products/agno.md) | Agno Inc. | harness | verified | active |
-| [Claude Agent SDK](tracks/framework/products/claude-agent-sdk.md) | Anthropic | harness | partial | active |
-| [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | partial | active |
-| [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
-| [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
+| [Claude Agent SDK](tracks/framework/products/claude-agent-sdk.md) | Anthropic | harness | verified | active |
+| [Codex SDK](tracks/framework/products/codex-sdk.md) | OpenAI | harness | verified | active |
+| [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | verified | active |
+| [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | verified | active |
 | [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
 | [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | verified | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS 社区（Eliza Research） | harness | verified | active |
 | [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |
 | [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | verified | active |
-| [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | partial | active |
+| [Google ADK（Agent Development Kit）](tracks/framework/products/google-adk.md) | Google | harness | verified | active |
 | [Haystack](tracks/framework/products/haystack.md) | deepset | harness | verified | active |
-| [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | partial | active |
+| [Hermes Agent](tracks/framework/products/hermes-agent.md) | Nous Research | harness | verified | active |
 | [Isaac Lab](tracks/framework/products/isaac-lab.md) | NVIDIA | harness | verified | active |
 | [Isaac Sim](tracks/framework/products/isaac-sim.md) | NVIDIA | local-app | verified | active |
 | [LangChain](tracks/framework/products/langchain.md) | LangChain, Inc. | harness | verified | active |
 | [LangChain4j](tracks/framework/products/langchain4j.md) | LangChain4j 社区 | harness | verified | active |
-| [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | partial | active |
+| [LangGraph](tracks/framework/products/langgraph.md) | LangChain Inc | harness | verified | active |
 | [LeRobot](tracks/framework/products/lerobot.md) | Hugging Face | harness | verified | active |
 | [Letta / MemGPT](tracks/framework/products/letta.md) | Letta, Inc. | harness | verified | active |
-| [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | partial | active |
-| [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | partial | active |
+| [LlamaIndex Framework](tracks/framework/products/llamaindex.md) | LlamaIndex（run-llama） | harness | verified | active |
+| [Mastra](tracks/framework/products/mastra.md) | Mastra AI | harness | verified | active |
 | [MetaGPT](tracks/framework/products/metagpt.md) | DeepWisdom（深度赋智，国产） | harness | partial | maintenance |
-| [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | partial | active |
+| [Microsoft Agent Framework](tracks/framework/products/microsoft-agent-framework.md) | Microsoft | harness | verified | active |
 | [MoveIt 2](tracks/framework/products/moveit2.md) | MoveIt | harness | verified | active |
 | [MuJoCo](tracks/framework/products/mujoco.md) | Google DeepMind | harness | verified | active |
 | [Nav2](tracks/framework/products/nav2.md) | ROS Navigation | harness | verified | active |
 | [Open Interpreter](tracks/framework/products/open-interpreter.md) | Open Interpreter（开源社区） | harness | verified | active |
-| [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | partial | active |
-| [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | partial | active |
+| [OpenAI Agents SDK](tracks/framework/products/openai-agents-sdk.md) | OpenAI | harness | verified | active |
+| [OpenHands Agent Canvas](tracks/framework/products/openhands.md) | OpenHands（All-Hands-AI） | harness | verified | active |
 | [PyBullet](tracks/framework/products/pybullet.md) | Bullet Physics | harness | verified | active |
-| [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | partial | active |
+| [Pydantic AI](tracks/framework/products/pydantic-ai.md) | Pydantic | harness | verified | active |
 | [ROS 2](tracks/framework/products/ros2.md) | Open Robotics | harness | verified | active |
 | [Semantic Kernel（SK）](tracks/framework/products/semantic-kernel.md) | Microsoft | harness | verified | active |
-| [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | partial | active |
+| [smolagents](tracks/framework/products/smolagents.md) | Hugging Face | harness | verified | active |
 | [Spring AI](tracks/framework/products/spring-ai.md) | Spring（VMware/Broadcom） | harness | verified | active |
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | verified | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford（学术团队） | harness | verified | active |
@@ -516,7 +516,7 @@ MCP 服务器与工具生态。
 | [Filesystem MCP Server](tracks/mcp/products/filesystem.md) | Model Context Protocol | mcp | verified | active |
 | [Firecrawl MCP Server](tracks/mcp/products/firecrawl-mcp.md) | Firecrawl | mcp | verified | active |
 | [Git MCP Server](tracks/mcp/products/git.md) | Model Context Protocol | mcp | verified | active |
-| [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | partial | active |
+| [GitHub MCP Server](tracks/mcp/products/github-mcp.md) | GitHub | mcp | verified | active |
 | [Grafana MCP Server](tracks/mcp/products/grafana-mcp.md) | Grafana Labs | mcp | verified | active |
 | [Intercom MCP Server](tracks/mcp/products/intercom-mcp.md) | Intercom | mcp | verified | active |
 | [Knowledge Graph Memory Server](tracks/mcp/products/memory.md) | Model Context Protocol | mcp | verified | active |

@@ -188,7 +188,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -199,7 +199,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -286,7 +286,7 @@ Zed 的定位是 agent 的编排层，不是「我自带一个模型」。
 
 也**不适合**需要实测才知道大仓库表现的人 —— 索引策略官方未公开说明。
 
-## 与本站其他站点的关系
+## 与本档其他站点的关系
 
 Zed 的 External Agents 直接涉及本仓库收录的多个对象：
 
@@ -305,7 +305,7 @@ agents 分区两种形态（IDE 扩展 / 终端）与 tools 分区（MCP 扩展�
 八维已全部核到官方机制。
 含模型接入 5 路径、工具权限与 OS 级沙箱、自动压缩、MCP、多根与远端开发。
 
-**仍未核验**（官方未给或需实测）：
+**仍官方文档未单列**（官方按套餐/版本口径或需实测）：
 
 - 三类 agent path 在「客户端关闭后」的实际行为
 

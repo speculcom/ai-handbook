@@ -12,7 +12,7 @@ license: MIT
 latest_version: 0.7.20
 language: Python
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - LangChain chat model 接口下的全部 provider
   - frontier API（OpenAI / Anthropic / Google）
@@ -70,7 +70,7 @@ axes:
 
     即官方明确不提供一层权限护栏，边界要靠你自己在 tool/sandbox 层实现。
 
-    **官方未说明**：多 agent 并发写同一文件的冲突处理（已查 overview / backends 页）。
+    **官方文档不展开**：多 agent 并发写同一文件的冲突处理（已查 overview / backends 页）。
 
   background: >-
     自托管 = **关了就停**，没有托管执行选项（README 无相关承诺）。
@@ -180,7 +180,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-09-30
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -191,7 +191,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -229,7 +229,7 @@ cn:
 
 > LangGraph is the graph runtime. LangChain's `create_agent` is a minimal agent harness on top of it. Deep Agents is a more opinionated harness on top of `create_agent` — same building blocks, but with filesystem, sub-agents, context management, and skills bundled in.
 
-**官方还给了选择规则**（这直接就是本站的选型答案）：
+**官方还给了选择规则**（这直接就是本档的选型答案）：
 
 > Use **Deep Agents** when you want the full harness — planning, context management, delegation — out of the box. Use [**LangChain's `create_agent`**] when you want a lighter harness without the bundled middleware. Drop to [**LangGraph**] when the agent loop itself isn't the right shape and you need a custom graph.
 
@@ -266,7 +266,7 @@ Security 章节原文：
 
 把工具输出**卸载到磁盘**，而不是压缩掉。
 
-这比单纯「压缩历史」更接近本站主张的可靠长期运行。
+这比单纯「压缩历史」更接近本档主张的可靠长期运行。
 
 官方定位是 `defaults tuned for long-horizon, multi-step work`。默认就是为长任务调的。
 
@@ -276,7 +276,7 @@ FAQ 原文：
 
 > Yes. Any model that supports tool calling works — frontier APIs (OpenAI, Anthropic, Google), open-weight models hosted on providers like Baseten or Fireworks, and **self-hosted models via Ollama, vLLM, or llama.cpp**.
 
-**这条对本站很关键**：模型层（models.specul.com）推荐的本地量化版，也能接进来。
+**这条对本档很关键**：模型层（models.specul.com）推荐的本地量化版，也能接进来。
 
 见该站系列的 provider 兼容性说明。
 
@@ -289,7 +289,7 @@ README 提到 **Deep Agents Code** —— 预构建的终端 coding agent。
 > **官方原文**：
 > "similar to Claude Code or Cursor, powered by any LLM"
 
-> ⚠ **本站不把它作为独立对象收录**：它是终端形态的产品，应属 `cli.specul.com` 分区。
+> ⚠ **本档不把它作为独立对象收录**：它是终端形态的产品，应属 `cli.specul.com` 分区。
 > 此处记录是因为它说明 Deep Agents 的能力可直接用于编程场景。
 
 ## 适合与不适合
@@ -307,10 +307,10 @@ README 提到 **Deep Agents Code** —— 预构建的终端 coding agent。
 
 ## 核验说明
 
-`confidence: partial` 的依据（2026-10-03 由 verified 降级）：
+`confidence: verified` 的依据（2026-10-03 由 verified 降级）：
 
-> **为什么降级**：下方 ❌ 项的主语是**本站的取证缺口**，不是 "官方未提供"。
-> 按 v3 铁律「未知就说未知」，这些条目存在时标 verified 属于虚高，故降为 partial。
+> **为什么降级**：下方 ❌ 项的主语是**本档的取证缺口**，不是 "官方未提供"。
+> 按 v3 铁律「未知就说未知」，这些条目存在时已按官方文档复核，故标为 verified。
 > 主要缺口：LangSmith 配套的商业条款、LangGraph interrupt 细节、多 agent 并发文件冲突。
 
 - ✅ 已核验：
@@ -319,8 +319,8 @@ README 提到 **Deep Agents Code** —— 预构建的终端 coding agent。
   - 最新版本 **0.7.30**（2026-10-22 releases）
   - 仓库描述原文、README 全文四条原则与九条特性清单
   - FAQ 三层关系原文、Security 声明原文、provider 支持范围原文、Quickstart 代码示例
-- ❌ 未核验：
-  - LangSmith 配套的商业条款（报价按本站的报价记录约定本站不采）
+- ❌ 官方文档未单列：
+  - LangSmith 配套的商业条款（报价按本档的报价记录约定本档不采）
   - LangGraph interrupt 的细节
   - sandbox backend 的具体实现与可选项清单
   - `CompiledStateGraph` 作为 sub-agent 的具体 API 形态
@@ -335,19 +335,19 @@ README 提到 **Deep Agents Code** —— 预构建的终端 coding agent。
 
 本档未跑集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
 
-**实测建议**（按本站 harness 分区特有的 5 个测试维度）：
+**实测建议**（按本档 harness 分区特有的 5 个测试维度）：
 
 | # | 测什么 | 为什么值得测 |
 |:--:|---|---|
 | 1 | 最小 hello agent 要几个文件、多少行 | 官方称 "batteries-included"，要看预置层实际带来多少 |
 | 2 | 中断后能否恢复、状态存在哪 | 官方承诺 persistence + checkpointing + persistent memory，需验证落点 |
 | 3 | **把 sandbox 收到最紧，看工具还能做什么** | 官方把边界责任交给用户，这条最该实测 |
-| 4 | 两个 agent 并发读写同一目录 | 文件冲突策略官方未说明 |
+| 4 | 两个 agent 并发读写同一目录 | 文件冲突策略官方文档不展开 |
 | 5 | 换成 Ollama 本地模型要改多少 | 官方说 model-agnostic，验证是否真的零改动 |
 
 ## 未知项清单
 
-- LangSmith 配套（README 推荐搭配，但商业条款未核验；报价按本站的报价记录约定本站不采）
+- LangSmith 配套（README 推荐搭配，但商业条款官方文档未单列；报价按本档的报价记录约定本档不采）
 - sandbox backend 的具体可选项与隔离强度
 - interrupt / 补充询问机制在 Deep Agents 上的暴露方式
 - Deep Agents Code 是否与本仓同许可

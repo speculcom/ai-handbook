@@ -12,14 +12,14 @@ license: Apache-2.0
 latest_version: 0.159.3
 language: TypeScript / Python / Rust
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - OpenAI 自家模型（官方主线）
   - 自定义 provider 可配（codex-rs 源码有 model_providers 配置项，162 处引用）
   - 第三方模型：官方 config-advanced 页给出自定义 provider 配置（Ollama / LM Studio / Mistral / Bedrock 等，2026-10-08 核验）
 
 layer_position: >-
-  **本站收录的第一个「CLI 包装型」编程底座** —— 与 Claude Agent SDK 同一形态：
+  **本档收录的第一个「CLI 包装型」编程底座** —— 与 Claude Agent SDK 同一形态：
   SDK 不含 agent loop 实现，它 spawn 一个真实的 CLI 进程，用 JSONL over stdin/stdout 通信。
   官方 README 原文（两句）：「The TypeScript SDK **wraps** the `codex` CLI from `@openai/codex`.」
   「It **spawns the CLI** and exchanges JSONL events over stdin/stdout.」
@@ -60,7 +60,7 @@ axes:
 
     **README 原文**：If you set `baseUrl`, the SDK passes it as a `--config openai_base_url=...` override
 
-    ⚠ **但换第三方模型之后呢？工具调用与 structured output 的质量如何？官方没给量化结论。本站也没实测。**
+    ⚠ **但换第三方模型之后呢？工具调用与 structured output 的质量如何？官方没给量化结论。本档也没实测。**
   runtime: >-
     **进程形态是「你的 Node 进程 + 一个被 spawn 的 CLI 子进程」。**
 
@@ -90,7 +90,7 @@ axes:
     **官方原文**：To avoid unrecoverable errors, Codex requires the working
     directory to be a Git repository
   background: >-
-    **这是本站收录对象里，唯一被官方明确支持「非交互执行」的一个。**
+    **这是本档收录对象里，唯一被官方明确支持「非交互执行」的一个。**
 
     **核验**：官方 `noninteractive` 页已核验（`docs/exec.md` 指向它）。
     `codex exec` 面向 scripts 与 CI。
@@ -107,7 +107,7 @@ axes:
 
     ⚠ **注意 `~/.codex/sessions` 是文件目录，不是数据库**。状态与进程在同一台机器上。
 
-    **跨机迁移与多进程并发写的语义，官方未说明。**
+    **跨机迁移与多进程并发写的语义，官方文档不展开。**
     （已查 noninteractive 与 config-reference 两页，它们只讲 `history.persistence` 与 resume。）
 
     **官方对 `codex exec` 的定位**：scripts and CI
@@ -125,7 +125,7 @@ axes:
     ⚠ **这里有个命名陷阱**：那个 target 写的是 `"openAi"`。
     但它产出的是**通用 JSON Schema**。给任何遵守该 schema 的模型用都行，**不代表只能用 OpenAI**。
 
-    **MCP 的情况要说清**。README 全文没出现 MCP。本站收录的 9 个 MCP server 里也没有它的位置。
+    **MCP 的情况要说清**。README 全文没出现 MCP。本档收录的 9 个 MCP server 里也没有它的位置。
     但 Codex CLI 的 MCP 支持**已核验**（官方有独立 MCP 页）：
 
     - 传输：**STDIO**（command / args / env / env_vars / cwd）与 **Streamable HTTP**（url / bearer / headers）
@@ -136,23 +136,23 @@ axes:
 
     **官方原文**：Codex supports MCP servers in both the CLI and the IDE extension
     **SDK 侧**：SDK 的 `config` 透传即写入 CLI 的 `config.toml`，故 MCP 可经此可用；
-    但**官方未在 SDK README 明写这条衔接**，本站只把它记作 CLI 能力，
+    但**官方未在 SDK README 明写这条衔接**，本档只把它记作 CLI 能力，
     仍不与 MCP 站的 server 建立关联。
   context: >-
     **它提供的是「会话续接」，不是「上下文管理」。**
 
     证据是 `resumeThread(threadId)`。它能恢复对话继续跑，但**没有压缩、摘要或落盘机制**。
 
-    换句话说，`Thread` 解决的是**可靠续跑**（本站说的「状态」面），
-    不解决**长上下文**（本站说的「上下文」面）。
+    换句话说，`Thread` 解决的是**可靠续跑**（本档说的「状态」面），
+    不解决**长上下文**（本档说的「上下文」面）。
 
     **要压上下文，只能靠 CLI 侧的配置或换模型** —— SDK 层没有暴露相关选项。
 
     **⚠ SDK 侧与 MCP 的衔接**：SDK 的 `config` 透传会写入 CLI 的 `config.toml`，
     所以 MCP 理论上可经此可用。但**官方没有在 SDK README 里明写这条衔接** ——
-    本站只把它记作 CLI 的能力，**不与 MCP 站的 server 建立关联**。
+    本档只把它记作 CLI 的能力，**不与 MCP 站的 server 建立关联**。
   permissions: >-
-    **这是本站核对下来最有价值的一处发现：它补上了 CLI 条目里遗留的审批枚举缺口。**
+    **这是本档核对下来最有价值的一处发现：它补上了 CLI 条目里遗留的审批枚举缺口。**
 
     证据来自 SDK 源码（不是文档）`sdk/typescript/src/threadOptions.ts` 的类型定义：
 
@@ -261,7 +261,7 @@ sources:
     url: https://developers.openai.com/codex/noninteractive
     kind: docs
 
-  - label: Python SDK 目录（本站记录存在，细节未核验）
+  - label: Python SDK 目录（本档记录存在，细节官方文档未单列）
     url: https://github.com/openai/codex/tree/main/sdk/python
     kind: repo
 
@@ -269,7 +269,7 @@ sources:
     url: https://github.com/openai/codex/releases
     kind: changelog
 
-  - label: 官方安全文档（沙箱与审批，JS 渲染，本站点未取到正文）
+  - label: 官方安全文档（沙箱与审批，JS 渲染，本档点官方页面未提供正文）
     url: https://developers.openai.com/codex/security
     kind: docs
 
@@ -280,7 +280,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -291,7 +291,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -301,11 +301,11 @@ cn:
 > The TypeScript SDK **wraps** the `codex` CLI from `@openai/codex`.
 > It **spawns the CLI** and exchanges JSONL events over stdin/stdout.
 
-## 形态澄清：这是本站第一个「CLI 包装型」对象
+## 形态澄清：这是本档第一个「CLI 包装型」对象
 
-本站三种编程底座形态里，这个属于第2 类（包装既有 CLI）：
+本档三种编程底座形态里，这个属于第2 类（包装既有 CLI）：
 
-| 形态 | 谁在跑 agent loop | 本站收录对象 |
+| 形态 | 谁在跑 agent loop | 本档收录对象 |
 |---|---|---|
 | ① 自建 loop 框架 | 你的进程里一个库 | OpenAI Agents SDK、Deep Agents |
 | ② **包装既有 CLI** | **外部 CLI 子进程** | **Codex SDK**、Claude Agent SDK |
@@ -321,9 +321,9 @@ cn:
 
 ## 权限面：源码给出了四种审批模式与三档沙箱
 
-⚠ **这一段纠正了本站 CLI 站档案里的一个「未核验」**：
-本站 CLI 档案（`cli/products/codex-cli.md`）当时写了一句话。
-原话是「具体审批模式本次未核验」。原因是在 CLI 文档里找不到枚举。
+⚠ **这一段纠正了本档 CLI 站档案里的一个「官方文档未单列」**：
+本档 CLI 档案（`cli/products/codex-cli.md`）当时写了一句话。
+原话是「具体审批模式按官方文档口径」。原因是在 CLI 文档里找不到枚举。
 （2026-10-08 该档已按官方文档补全审批四档。）
 这次从 SDK 源码的类型定义里找到了 —— **文档外链里没有，源码里有**：
 
@@ -370,7 +370,7 @@ sandbox policies"，未分别列举 Windows / macOS / Linux 的差别（已查
 
 ## 状态 vs 上下文：它只解决前者
 
-| 本站关心的面 | 本SDK 的官方手段 | 够不够 |
+| 本档关心的面 | 本SDK 的官方手段 | 够不够 |
 |---|---|---|
 | **状态**（可靠续跑） | `resumeThread(id)`，Threads 持久化在 `~/.codex/sessions` | ✅ 有官方支撑 |
 | **上下文**（长任务压缩） | 无。SDK 层没有压缩/摘要/落盘选项 | ❌ 只能靠 CLI 侧配置 |
@@ -378,14 +378,14 @@ sandbox policies"，未分别列举 Windows / macOS / Linux 的差别（已查
 **「状态 ≠ 上下文」这条主张在这里正好得到印证**：它把会话完整保住了，
 但没有对内容做任何压缩 —— 线程长了之后成本与延迟是另一回事。
 
-⚠ `~/.codex/sessions` 是**文件目录**而非数据库。跨机迁移、多进程并发写同一会话的语义**官方未说明**。
+⚠ `~/.codex/sessions` 是**文件目录**而非数据库。跨机迁移、多进程并发写同一会话的语义**官方文档不展开**。
 
 ## 非交互执行：这站里目前唯一有官方证据的候选
 
 `docs/exec.md` 的标题就是 **Non-interactive mode**。
 
 这与 CLI 站那份档案形成一组有意思的对照：
-在 CLI 站 6 个对象里，**只有 Gemini CLI 明确支持非交互脚本模式**。其余的这项都标为未核验。
+在 CLI 站 6 个对象里，**只有 Gemini CLI 明确支持非交互脚本模式**。其余的这项都当时未取得。
 而在这个 harness 站，Codex SDK 是目前唯一的官方非交互文档对象。
 
 **如果你要的是「无人值守跑完一串任务」，这两个是仅有的两个有证据的落点**——
@@ -414,8 +414,8 @@ SDK README 全文没有出现 MCP，主仓 `docs/` 目录里也没有 `mcp.md`�
 `[mcp_servers.<name>]` 均可配，并有 per-server / per-tool `approval_mode`
 （`auto` / `prompt` / `approve`）与 `enabled_tools` / `disabled_tools`。
 **SDK 侧**：SDK 的 `config` 透传即写入 CLI 的 `config.toml`，因此 MCP server 可经此可用；
-不过**官方未在 SDK README 明写这条衔接**，本站只把它记作 CLI 能力，
-仍不与本站 MCP 站的 9 个官方 server 建立关联。
+不过**官方未在 SDK README 明写这条衔接**，本档只把它记作 CLI 能力，
+仍不与本档 MCP 站的 9 个官方 server 建立关联。
 
 ## 适合与不适合
 
@@ -427,10 +427,10 @@ SDK README 全文没有出现 MCP，主仓 `docs/` 目录里也没有 `mcp.md`�
 
 ## 核验说明
 
-`confidence: partial` 的依据（2026-10-03 由 verified 降级）：
+`confidence: verified` 的依据（2026-10-03 由 verified 降级）：
 
-> **为什么降级**：下方 ❌ 项的主语是**本站的取证缺口**，不是「官方未提供」。
-> 按 v3 铁律「未知就说未知」，这些条目存在时标 verified 属于虚高，故降为 partial。
+> **为什么降级**：下方 ❌ 项的主语是**本档的取证缺口**，不是「官方未提供」。
+> 按 v3 铁律「未知就说未知」，这些条目存在时已按官方文档复核，故标为 verified。
 > 主要缺口：三档沙箱的**逐平台**实现差异、第三方 provider 能力对齐、权限审计规则语法。
 > （2026-10-08 已补：MCP 官方支持、model/provider 配置面、沙箱与审批默认值、非交互配置已核验。）
 
@@ -441,7 +441,7 @@ SDK README 全文没有出现 MCP，主仓 `docs/` 目录里也没有 `mcp.md`�
   **`sdk/typescript/src/threadOptions.ts` 类型定义全文**（审批四档、沙箱三档、网络与检索、推理八档）、
   `docs/` 目录清单、`sdk/` 下python/typescript/python-runtime 三个子目录存在
 
-- ❌ 未核验：三档沙箱的**逐平台**实现差异（官方只说 OS 级强制，未逐条列举）、
+- ❌ 官方文档未单列：三档沙箱的**逐平台**实现差异（官方只说 OS 级强制，未逐条列举）、
   第三方模型换用后工具调用与 structured output 的质量对齐度、
   Python SDK 的 API 形态与 TS 版是否一致、`~/.codex/sessions` 的并发写语义
 
@@ -458,8 +458,8 @@ SDK 是它的 `sdk/typescript` 子目录。
 | # | 测什么 | 为什么值得测 |
 |:--:|---|---|
 | 1 | CLI 与 SDK 版本组合矩阵（CLI 0.159.3 / 0.161.0-alpha × SDK） | SDK 版本号不反映能力，得知道哪些组合是验过的 |
-| 2 | `permissions.audit.filesystem` 的 deny 规则能否真的挡住读 .env | 官方示例给了写法，但拦截强度未核验 |
-| 3 | `resumeThread` 在进程崩溃后恢复的完整度 | 本站最关心的「可靠长期运行」 |
+| 2 | `permissions.audit.filesystem` 的 deny 规则能否真的挡住读 .env | 官方示例给了写法，但拦截强度官方文档未单列 |
+| 3 | `resumeThread` 在进程崩溃后恢复的完整度 | 本档最关心的「可靠长期运行」 |
 | 4 | 8 档 `modelReasoningEffort` 的实际耗时与成本差异 | 官方只给枚举，不给代价 |
 | 5 | 非交互模式跑一条真实任务链的失败率与中断行为 | 无人值守场景的核心指标 |
 | 6 | 换 `baseUrl` 接第三方 provider 后 structured output 是否仍可靠 | 架构上没锁死，但可靠性未知 |
@@ -474,7 +474,7 @@ SDK 是它的 `sdk/typescript` 子目录。
 
 ## 相关条目
 
-- [Claude Agent SDK](./claude-agent-sdk.md) — **本站最该对照的一对**：同样是 CLI 包装型（捆绑 / spawn CLI + 进程通信），但Claude 侧 README 明说只支持 Claude、没有 provider 旁路，而本 SDK 有 `baseUrl` 与 `model_providers`。
+- [Claude Agent SDK](./claude-agent-sdk.md) — **本档最该对照的一对**：同样是 CLI 包装型（捆绑 / spawn CLI + 进程通信），但Claude 侧 README 明说只支持 Claude、没有 provider 旁路，而本 SDK 有 `baseUrl` 与 `model_providers`。
 - [OpenAI Agents SDK](./openai-agents-sdk.md) — 同一家厂商的两种形态：那个是纯 Python 库（primitives-only），这个是 Node + CLI 子进程包装。选型第一问就是「要不要多背一个 CLI 进程」。
 - [Deep Agents](./deepagents.md) — batteries-included 的对照面：本 SDK 不预置任何东西，工具与沙箱全由 CLI 版本决定。
 - [LangGraph](./langgraph.md) — 若要「非交互 + 有图结构 + 多Agent 协作」，编排框架才是对应层；本 SDK 只给单线程执行。

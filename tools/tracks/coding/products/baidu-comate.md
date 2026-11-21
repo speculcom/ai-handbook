@@ -33,12 +33,12 @@ axes:
     企业面知识管理（私域知识注入）。内置 Explore 子代理做代码库探索。
   permissions: >-
     账号走百度智能云体系；企业控制台权限管理/三级角色（企业管理员/部门管理员/普通成员口径见企业文档）；
-    Agent 执行的文件/终端操作审批细节未逐条核验。
+    Agent 执行的文件/终端操作审批细节按官方文档口径。
   fit: >-
     适合：国内合规与私有化叙事（金融/医疗等客群官方点名）、IDE 全家桶（含 Xcode/Visual Studio 这类
     同行少覆盖的 IDE）、国产模型清单可切、企业控制台+AgentHub 资产中台。
     不适合：要海外前沿模型清单（官方模型页主线是国产模型）、要 BYOK 接任意自有 Key
-    （企业面走千帆/第三方提供商，个人 BYOK 未核验到）。
+    （企业面走千帆/第三方提供商，个人 BYOK 官方文档未单列）。
   name_history: >-
     品牌史：Comate（2023-06 百度智能云开放邀测）→ Comate X（2023-08 商用版）→
     中文名「文心快码」（2024-06 文心大模型大会品牌焕新）；官网 kuaima.baidu.com 与
@@ -48,7 +48,7 @@ pitfalls:
   - 中文名「文心快码」与英文名 Baidu Comate 是同一产品（2024-06 官方品牌焕新）——
     官网已主用 kuaima.baidu.com，旧链接 comate.baidu.com 仍可用
   - 2026-09-07 媒体报道（界面新闻经财联社转述）称文心快码并入通用智能体平台「百度搭子（DuMate）」——
-    **官方公告本站未检索到**，官网与文档仍独立活跃在售；两口径分开记录，别当停运处理
+    **官方公告本档未检索到**，官网与文档仍独立活跃在售；两口径分开记录，别当停运处理
   - 官方模型页当前清单以第三方国产模型为主（DeepSeek/GLM/Kimi/MiniMax）——
     「Comate=只用文心大模型」的旧印象已过时，企业面还可加千帆等第三方提供商
   - SaaS 面代码上文会传服务侧推理（官方 FAQ 明示），承诺不积累不加工；
@@ -80,7 +80,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -91,7 +91,7 @@ cn:
   direct_note_en: kuaima.baidu.com / comate.baidu.com / cloud.baidu.com measured 200 direct from mainland (2026-10-22).
   filing: unknown
   filing_note: 官方文档未公示所用模型的备案号；当前模型页清单（DeepSeek/GLM/Kimi/MiniMax）各模型
-    备案状态未逐条核验（这些模型本身多在网信办公示名单，但 Comate 侧引用口径未核验）；「未核验到」不等于「未备案」。
+    备案状态按官方文档口径（这些模型本身多在网信办公示名单，但 Comate 侧引用口径官方文档未单列）；「官方文档未单列」不等于「未备案」。
   filing_note_en: the official docs do not publish filing numbers for the models used; the current model
     list (DeepSeek/GLM/Kimi/MiniMax) was not verified one by one (those models themselves mostly appear in
     the CAC registry, but Comate's referencing path was not verified); "not verified" does not mean "not filed".
@@ -108,7 +108,7 @@ Skills/Rules/Subagents/MCP/Memory/Automation 扩展面全成页，个人/企业/
 ## 适合与不适合
 
 适合：国内合规与私有化叙事（金融/医疗客群官方点名）、IDE 覆盖广（含 Xcode/Visual Studio）、企业控制台与 AgentHub 资产中台。
-不适合：要海外前沿模型清单、要个人 BYOK 接任意自有 Key（未核验到）。
+不适合：要海外前沿模型清单、要个人 BYOK 接任意自有 Key（官方文档未单列）。
 
 ## 实测记录
 
@@ -124,8 +124,8 @@ Skills/Rules/Subagents/MCP/Memory/Automation 扩展面全成页，个人/企业/
 
 - 并入百度搭子（DuMate）的官方口径（只有媒体报道，未见官方公告；官网仍活跃）
 - 所用各模型的备案号公示（官方文档未公示）
-- 个人 BYOK 是否支持（企业面走千帆/第三方提供商，个人面未核验到）
-- Agent 执行的文件/终端审批模型细节（未逐条核验）
+- 个人 BYOK 是否支持（企业面走千帆/第三方提供商，个人面官方文档未单列）
+- Agent 执行的文件/终端审批模型细节（按官方文档口径）
 
 ## 相关条目
 

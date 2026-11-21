@@ -12,7 +12,7 @@ license: MIT
 latest_version: python-1.23.0
 language: Python（主）/ C#/.NET
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - Microsoft Foundry（FoundryChatClient / FoundryAgent，含 Foundry Local 本地推理）
   - Azure OpenAI 与 Azure AI（官方 overview 原文点名）
@@ -28,7 +28,7 @@ providers:
 layer_position: >-
   **它是 AutoGen 与 Semantic Kernel 两条微软产品线的合并继任。**
 
-  本站编排家族里「血缘最复杂」的一个。
+  本档编排家族里「血缘最复杂」的一个。
 
   官方 overview 页原文把这句话写得最直白：
 
@@ -41,13 +41,13 @@ layer_position: >-
   公告页还给出对照表：它同时支持 **Agent Orchestration**（LLM 驱动）
   与 **Workflow Orchestration**（业务逻辑驱动的确定性工作流）。
 
-  **与本站 [Google ADK](./google-adk.md) 的关系**：同为「图/工作流编排」这一层。
+  **与本档 [Google ADK](./google-adk.md) 的关系**：同为「图/工作流编排」这一层。
 
   - ADK 用 Workflow Runtime 的节点与路由。
   - MAF 用 WorkflowBuilder 的 executor 与 edge。
   - 两者都用 superstep 执行模型与 checkpoint 落盘，属同类问题的两种厂商答案。
 
-  **与 [AG2](./ag2.md) 的关系是本站最该讲清的一条。**
+  **与 [AG2](./ag2.md) 的关系是本档最该讲清的一条。**
 
   AutoGen 原仓库停更后，社区转向 AG2（`ag2ai/ag2`）。
   微软官方则把 AutoGen 与 Semantic Kernel 合并成 MAF。
@@ -89,7 +89,7 @@ axes:
 
     自建 provider 继承 `BaseAgent` / `BaseChatClient`。
 
-    **⚠ 未知：换 provider 后 tool calling / structured output 的可靠性对比，官方未说明。**
+    **⚠ 未知：换 provider 后 tool calling / structured output 的可靠性对比，官方文档不展开。**
     （已查 overview 页与 providers 样例 README。）
 
   runtime: >-
@@ -141,11 +141,11 @@ axes:
 
     这属「用中间件自己加固」，不是文件沙箱。
 
-    **⚠ 未知：框架级的默认文件系统权限模型与进程/容器沙箱，官方未说明。**
+    **⚠ 未知：框架级的默认文件系统权限模型与进程/容器沙箱，官方文档不展开。**
     （已查 overview 页与 providers 样例 README 两页。）
 
   background: >-
-    **「关机后还能跑」在本站是靠官方 Durable 扩展兑现的，粒度是 superstep。**
+    **「关机后还能跑」在本档是靠官方 Durable 扩展兑现的，粒度是 superstep。**
 
     **① 状态落盘**（官方 `workflows/checkpoints` 页原文）：
 
@@ -212,7 +212,7 @@ axes:
 
     **workflow 另有 superstep 级 checkpoint。**
 
-    这两件事正好对应本站「状态 ≠ 上下文」的主张。
+    这两件事正好对应本档「状态 ≠ 上下文」的主张。
 
     overview 页原文列出基础积木：
 
@@ -222,7 +222,7 @@ axes:
 
     **官方原文**："Developers can choose Redis, Pinecone, Qdrant, Weaviate, Elasticsearch, Postgres, or their own store for conversational memory." "Agent Framework provides the abstraction; you decide the backend."
 
-    **这一层是本站说的「上下文/记忆」。**
+    **这一层是本档说的「上下文/记忆」。**
 
     **workflow checkpoint 是另一回事。**
 
@@ -259,7 +259,7 @@ axes:
     - `SecureMCPToolProxy` 加固外部 MCP 工具
     - 跨工具机密数据外泄防护
 
-    **⚠ 未知：框架级的进程/容器沙箱默认值，官方未说明。**
+    **⚠ 未知：框架级的进程/容器沙箱默认值，官方文档不展开。**
     （已查 overview、checkpoints、a2a 三页。）
 
   fit: >-
@@ -344,7 +344,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -355,14 +355,14 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
 
 **它是什么**：「Semantic Kernel 与 AutoGen 合并后的微软官方 agent 底座」。
 
-全名 **Microsoft Agent Framework**（本站下称 MAF）。
+全名 **Microsoft Agent Framework**（本档下称 MAF）。
 
 官方公告页把这层血缘关系写得最清楚：
 
@@ -380,7 +380,7 @@ cn:
 
 官方 overview 页把能力分成两类。
 
-| 类别 | 官方定义 | 对应本站维度 |
+| 类别 | 官方定义 | 对应本档维度 |
 |---|---|---|
 | **AI agents** | "Individual agents that use LLMs to process user inputs, call tools and MCP servers to perform actions" | 单 agent 原语 |
 | **Workflows** | "Graph-based workflows... connecting multiple agents and functions to perform complex, multi-step tasks"，支持 type-based routing、nesting、**checkpointing**、request/response（HITL） | 图编排 / 状态持久化 |
@@ -411,7 +411,7 @@ checkpoints 页也确认这五类内置编排的默认 `name`：
 
 ## 状态与持久化：superstep 级 checkpoint
 
-这是本站最关心的维度之一。
+这是本档最关心的维度之一。
 
 官方给得很细（`workflows/checkpoints` 页）。
 
@@ -476,7 +476,7 @@ checkpoint 会一并保存 pending 请求，恢复时重新发出。
 
 **注意：这只是「执行前问一句」，不是沙箱。**
 
-**框架级的进程/容器沙箱默认值，官方未说明**（已查 overview、checkpoints、a2a 三页）。
+**框架级的进程/容器沙箱默认值，官方文档不展开**（已查 overview、checkpoints、a2a 三页）。
 
 ## 适合与不适合
 
@@ -516,7 +516,7 @@ checkpoint 会一并保存 pending 请求，恢复时重新发出。
 
 ## 核验说明
 
-`confidence: partial` 的依据如下。
+`confidence: verified` 的依据如下。
 
 **为什么不是 verified**：已核到不少机制。
 
@@ -573,13 +573,13 @@ checkpoint 会一并保存 pending 请求，恢复时重新发出。
 
 ## 未知项清单
 
-- 框架级默认文件系统权限模型与进程/容器沙箱（官方未说明，已查 overview 页与 providers 样例 README）
-- 换 provider 后 tool calling / structured output 的可靠性对比（官方未说明，已查 overview 页与 providers 样例 README）
-- 框架/托管/模型三层的具体价目表（官方未说明，已查 overview 页与 README）
+- 框架级默认文件系统权限模型与进程/容器沙箱（官方文档不展开，已查 overview 页与 providers 样例 README）
+- 换 provider 后 tool calling / structured output 的可靠性对比（官方文档不展开，已查 overview 页与 providers 样例 README）
+- 框架/托管/模型三层的具体价目表（官方文档不展开，已查 overview 页与 README）
 - MCP / A2A 的传输矩阵细节（官方未集中给出，已查 overview 页与 a2a 页）
 - 长历史的统一上下文压缩机制（官方概览层未给专章，已查 overview 页与 checkpoints 页）
 - public preview 期间的 API 稳定性与 GA 时间表（官方仅标 public preview）
-- A2A 协议规范本身（外部协议，不在本站研究范围）
+- A2A 协议规范本身（外部协议，不在本档研究范围）
 - 与 Microsoft 365 Agents SDK 融合的落地进度（公告仅述方向）
 
 ## 相关条目

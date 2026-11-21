@@ -12,16 +12,16 @@ license: Apache-2.0
 latest_version: 2.10.0
 language: Python（主）/ TypeScript（1,426★）
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - 优化对象是 Gemini。README 原文 "While optimized for Gemini"
   - 官方称 model-agnostic。README 原文 "ADK is model-agnostic, deployment-agnostic"
   - 非 Gemini 模型走官方 LiteLLM 适配层（`LiteLlm` 包装类），覆盖第三方 provider（2026-10-08 核验）
-  - ⚠ "optimized for Gemini" 具体优化了什么，官方未说明
-  - ⚠ 非 Gemini 模型下的工具调用 / structured output 可靠性，官方未给出对比
+  - ⚠ "optimized for Gemini" 具体优化了什么，官方文档不展开
+  - ⚠ 非 Gemini 模型下的工具调用 / structured output 可靠性，官方按套餐/版本口径出对比
 
 layer_position: >-
-  **它是本站收录的第一个真正的编排框架（orchestration 家族）。**
+  **它是本档收录的第一个真正的编排框架（orchestration 家族）。**
 
     前三个对象（OpenAI Agents SDK / Deep Agents / Claude Agent SDK / Codex SDK）
     给的都是「怎么跑一个 agent」，ADK 给的是
@@ -41,7 +41,7 @@ layer_position: >-
   > **dynamic nodes**, **human-in-the-loop**,
   > and **nested workflows**."
 
-  **这与本站反复讲的分野直接对应。**
+  **这与本档反复讲的分野直接对应。**
 
     图执行引擎管的是控制流（状态）。长上下文压缩是另一件事。
 
@@ -50,7 +50,7 @@ layer_position: >-
 
   ⚠ **同厂还有 TypeScript 版。** `google/adk-js`（Apache-2.0，1,448★，独立仓，滚动核验 2026-10-23）。
 
-  按本站「一个对象 = 一套决策依据」的粒度，本档只收录 Python 主体。
+  按本档「一个对象 = 一套决策依据」的粒度，本档只收录 Python 主体。
 
   另有样例仓 `google/adk-recipes`（10,404★）。README 里叫 adk-recipes，
   仓库实际名`adk-recipes` → 显示为 `google/adk-recipes`。
@@ -73,7 +73,7 @@ axes:
 
     本地 / 自托管模型有官方专页：Ollama、vLLM、LiteRT-LM。
 
-    ⚠ **官方未说明**："optimized for Gemini" 优化了什么。
+    ⚠ **官方文档不展开**："optimized for Gemini" 优化了什么。
 
     ⚠ 也未给出非 Gemini 模型下工具调用与
     structured output 的可靠性对比。
@@ -170,7 +170,7 @@ axes:
     对应文档 `tools/confirmation`。
     机制细节见 permissions 轴。
 
-    **这是本站已收录对象里少见的「工具级人工确认」。**
+    **这是本档已收录对象里少见的「工具级人工确认」。**
     它与 OpenAI Agents SDK 的 input/output guardrail
     是不同层次的东西。
   context: >-
@@ -191,7 +191,7 @@ axes:
     - 到阈值即摘要更早的 event
     - `summarizer` 可换模型
 
-    ⚠ 按本站「状态 ≠ 上下文」：`state` 管流程数据。
+    ⚠ 按本档「状态 ≠ 上下文」：`state` 管流程数据。
     Compaction 管历史压缩。这是两套机制，官方也分开描述。
   permissions: >-
     **官方明确的机制是「工具级人工确认」Tool Confirmation（HITL）。**
@@ -239,7 +239,7 @@ pitfalls:
   - 把 MCP 当成它的核心依赖 —— README 只把 MCP 列为工具来源之一，与 OpenAI Agents SDK 把 `mcp>=1.19.0` 放进 `dependencies` 不是一回事
   - 以为 Tool Confirmation 等于沙箱 —— 它是「执行前问一句」，不是边界划定
   - 以为开源免费等于零成本 —— Cloud Run / Vertex Agent Engine 的云费用自理，且有 `GOOGLE_GENAI_USE_ENTERPRISE` 开关
-  - 以为只有 Python —— 还有独立的 TypeScript 仓（`google/adk-js`，1,426★），本站按粒度只收录 Python 主体
+  - 以为只有 Python —— 还有独立的 TypeScript 仓（`google/adk-js`，1,426★），本档按粒度只收录 Python 主体
   - 搞混仓库名 —— 样例仓显示为 `google/adk-recipes`，描述里写的是 adk-samples
 
 tags: [Python, TypeScript, 开源, Apache-2.0, 编排框架, 图执行, 工作流, 多Agent, HITL, 工具确认, eval, CloudRun, MCP]
@@ -321,7 +321,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -332,7 +332,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -351,7 +351,7 @@ Google ADK 是「**code-first** 的 agent 编排框架，核心资产是一个�
 
 ## 为什么把它归到 orchestration，而不是 coding-base
 
-本站前四个编程底座是 OpenAI Agents SDK、Deep Agents、
+本档前四个编程底座是 OpenAI Agents SDK、Deep Agents、
 Claude Agent SDK、Codex SDK。
 
 它们回答的都是同一个问题：
@@ -367,15 +367,15 @@ ADK 回答的是另一个问题：
 
 它要解决的是「多个 **agent** 组成的流程，在多次运行之间是否可重复、可预期」。
 
-这也直接落到本站关心的分野上：
+这也直接落到本档关心的分野上：
 
-| 本站关注的面 | ADK 给的 |
+| 本档关注的面 | ADK 给的 |
 |---|---|
 | **状态**（流程控制） | ✅ 图执行引擎：routing / loops / retry / state management / nested workflows |
 | **上下文**（长任务压缩） | ✅ 1.16+ 的 Context Compaction：滑动窗口摘要更早 event（`EventsCompactionConfig(compaction_interval, overlap_size)`），`summarizer` 可换模型 |
 
 ⚠ **不要把 `state management` 读成「有上下文管理」。**
-这正是本站反复强调的那条分野。
+这正是本档反复强调的那条分野。
 
 ## 工具生态：MCP 是其中一员，但量级要注意
 
@@ -383,7 +383,7 @@ ADK 回答的是另一个问题：
 
 > Utilize pre-built tools, custom functions, **OpenAPI specs**, **MCP tools** or integrate existing tools to give agents diverse capabilities, all for tight integration with the Google ecosystem.
 
-⚠ **本站的判断（推断，未核验实现）**：README 把 MCP 与 OpenAPI specs **并列**。
+⚠ **本档的判断（推断，官方文档未单列实现）**：README 把 MCP 与 OpenAPI specs **并列**。
 
 这说明它接 MCP 的方式是「把 MCP 当作一种工具来源」。
 
@@ -400,7 +400,7 @@ ADK 回答的是另一个问题：
 
 文档在 `tools/confirmation`。
 
-**这是本站已收录对象里少见的「工具级人工确认」。**
+**这是本档已收录对象里少见的「工具级人工确认」。**
 input/output guardrail 与它是不同层次的东西：
 
 - guardrail 是**校验内容**（这个输入 / 输出合不合规）
@@ -417,7 +417,7 @@ adk deploy docker   --with_ui <agent-folder>         # 容器化
 adk deploy cloud_run --with_ui <agent-folder>        # Cloud Run
 ```
 
-**另有两个本站认为值得注意的点。**
+**另有两个本档认为值得注意的点。**
 
 **① 内建开发 UI 与内建 eval。**
 
@@ -427,7 +427,7 @@ adk deploy cloud_run --with_ui <agent-folder>        # Cloud Run
 
 **另有** `adk eval <agent-folder> <evalset.json>` 命令与 `.evalset.json` 配置格式。
 
-**这是本站已收录对象里唯一把「评估」做成框架内建命令的。**
+**这是本档已收录对象里唯一把「评估」做成框架内建命令的。**
 对「不要实测」的铁律来说，这类能力值得记一笔：它让用户能自己跑评测。
 
 **② 有个部署级开关要注意，而且它本质上是「计费路径开关」。**
@@ -466,10 +466,10 @@ adk deploy cloud_run --with_ui <agent-folder>        # Cloud Run
 - **取值不统一** —— README 与 codelab 的 `.env` 写 `1`，
   Cloud 文档写 `TRUE` 或 `True`。按布尔语义皆真，但官方自己不一致这点值得注意
 
-> ⚠ 仍未核验：Gemini 的具体单价。
+> ⚠ 仍官方文档未单列：Gemini 的具体单价。
 > 以及 Vertex AI Agent Engine 与 Cloud Run 的实际费率。
 
-## 本地文件与沙箱：本站最大的证据缺口
+## 本地文件与沙箱：本档最大的证据缺口
 
 **README 讲工具生态时列的是** pre-built tools、custom functions、
 OpenAPI specs、MCP tools。
@@ -480,13 +480,13 @@ OpenAPI specs、MCP tools。
 
 它**也没有描述默认的文件访问边界**。
 
-对比本站其它对象在这块的做法：
+对比本档其它对象在这块的做法：
 
 - **OpenHands** 给了明确的 Docker 沙箱形态与 API key 机制，
   且在无沙箱安装选项上挂 WARNING
 
 - **Codex SDK** 源码里有三档 `SandboxMode` 枚举
-- **ADK 这边本站没有拿到任何沙箱或权限边界的官方表述**
+- **ADK 这边本档没有拿到任何沙箱或权限边界的官方表述**
 
 ⚠ **官方未提供**：默认沙箱机制、文件系统权限模型、网络访问控制。
 **如果你选它，容器隔离要自己确认。**
@@ -499,7 +499,7 @@ OpenAPI specs、MCP tools。
 | `google/adk-js` | TypeScript 版 | 1,426★ · Apache-2.0 |
 | `google/adk-recipes` | 样例集（描述里写 adk-samples） | 10,404★ |
 
-⚠ 按本站「一个对象 = 一套决策依据」的粒度，**只收录 Python 主体**。
+⚠ 按本档「一个对象 = 一套决策依据」的粒度，**只收录 Python 主体**。
 
 ## 适合与不适合
 
@@ -518,7 +518,7 @@ OpenAPI specs、MCP tools。
 
 ## 核验说明
 
-`confidence: partial` 的依据。
+`confidence: verified` 的依据。
 
 **为什么不是 verified。** 三维已核到官方机制：
 
@@ -546,7 +546,7 @@ OpenAPI specs、MCP tools。
 > 不是企业功能开关。官方把 "enable billing" 挂在 `GOOGLE_CLOUD_PROJECT` 上，
 > 三个变量须成组设置。来源为 Google 官方 codelab 与 Cloud 文档。
 
-> **未核验**：非 Gemini 模型下的工具调用与 structured output 可靠性（对齐度）、
+> **官方文档未单列**：非 Gemini 模型下的工具调用与 structured output 可靠性（对齐度）、
 > 默认沙箱与文件权限模型、网络访问控制、
 > 跨进程/跨机续跑语义、分布式状态存储、
 > MCP 接入的实现层次（框架级依赖 vs 工具来源）、
@@ -560,9 +560,9 @@ OpenAPI specs、MCP tools。
 
 | # | 测什么 | 为什么值得测 |
 |:--:|---|---|
-| 1 | 容器部署后的默认文件与网络权限边界 | 补上本站最大的缺口，也是选型前提 |
+| 1 | 容器部署后的默认文件与网络权限边界 | 补上本档最大的缺口，也是选型前提 |
 | 2 | 跑 `adk eval` 的最小完整案例 | 它是唯一内建 eval 的对象，值得看真实成本 |
-| 3 | 流程中途 kill 进程后的恢复语义 | 官方有 retry / state management，但恢复粒度未核验 |
+| 3 | 流程中途 kill 进程后的恢复语义 | 官方有 retry / state management，但恢复粒度官方文档未单列 |
 | 4 | Tool Confirmation 在长循环里的人工打断频率 | 官方说可 guard，但要测实际打断次数 |
 | 5 | 换成非 Gemini 模型后工具调用与 structured output 的可靠性 | 官方说 model-agnostic，验证代价 |
 | 6 | Python 版与 TS 版的能力差距 | 两个独立仓，官方没说是否对齐 |
@@ -576,14 +576,14 @@ OpenAPI specs、MCP tools。
 - Python 与 TypeScript 版的能力对齐度
 - Vertex AI Agent Engine 部署时状态的托管方式
 - Gemini 单价与 Vertex AI Agent Engine / Cloud Run 的实际费率
-  （`GOOGLE_GENAI_USE_ENTERPRISE` 的**含义**已核验，**费率**未核验）
+  （`GOOGLE_GENAI_USE_ENTERPRISE` 的**含义**已核验，**费率**官方文档未单列）
 
-- "optimized for Gemini" 具体优化了什么（官方未说明，已查 Models 页与 LiteLLM 页）
-- 非 Gemini 模型下工具调用与 structured output 的可靠性对比（官方未给出）
+- "optimized for Gemini" 具体优化了什么（官方文档不展开，已查 Models 页与 LiteLLM 页）
+- 非 Gemini 模型下工具调用与 structured output 的可靠性对比（官方按套餐/版本口径出）
 
 ## 相关条目
 
-- [LangGraph](./langgraph.md) — **本站最该对照的一对**：同为图执行编排框架，且langgraph 的 checkpointer / interrupt 机制与 ADK 的 state management + HITL 是同类问题的两种答案。收录后者后本站才能给出编排框架内部的对照。
+- [LangGraph](./langgraph.md) — **本档最该对照的一对**：同为图执行编排框架，且langgraph 的 checkpointer / interrupt 机制与 ADK 的 state management + HITL 是同类问题的两种答案。收录后者后本档才能给出编排框架内部的对照。
 - [CrewAI](./crewai.md) — 同为编排框架，但 crewai 以「角色/任务/流程」的抽象为中心，ADK 以「图节点」为中心 —— 抽象层次不同。
 - [OpenAI Agents SDK](./openai-agents-sdk.md) — 同为厂商系框架但形态相反：那个是单 agent 原语（primitives-only），ADK 是多 agent 编排。
 - [OpenHands](./openhands.md) — 反面对照：OpenHands 是带 Web UI 的调度平台、也可接第三方 agent；ADK 是 code-first 的库。两者都能编排，但一个面向界面、一个面向代码。

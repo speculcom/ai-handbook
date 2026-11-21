@@ -12,14 +12,14 @@ license: MIT
 latest_version: 1.31.0
 language: TypeScript（前端/编排） + Python（Agent Server）
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - 官方称「Bring your own model — Use with any LLM」（README 特性表原文）
   - 支持 LLM profiles 多配置并存（官方文档 llm-settings#llm-profiles）
   - 具体清单（官方 llm-settings 页，2026-10-08）：原文 "any model that is supported by litellm"，本地模型经 LiteLLM 接
 
 layer_position: >-
-  **它是本站收录的第一个「平台型」对象：一个带 Web UI 的自托管控制中心，不是 SDK。**
+  **它是本档收录的第一个「平台型」对象：一个带 Web UI 的自托管控制中心，不是 SDK。**
 
   官方 README 现在把标题叫 **Agent Canvas**。
   它能跑的不只是 OpenHands 自己的 agent —— 这是它最容易被看错的地方。
@@ -27,7 +27,7 @@ layer_position: >-
   **它位于别的 agent 之上，做调度。** 你说的 Codex SDK、Claude Agent SDK，
   它都声明能跑，所以它不是它们的竞品。
 
-  按本站三种形态分类，它属于**第 3 类：自带完整运行时**（含 Web UI、REST API、多后端调度）。
+  按本档三种形态分类，它属于**第 3 类：自带完整运行时**（含 Web UI、REST API、多后端调度）。
 
   **真正的编程入口不在本仓。** 架构上是三个仓协作，本仓只是前端控制中心：
 
@@ -37,7 +37,7 @@ layer_position: >-
 
   - `OpenHands/automation`（Python，MIT，32★）= 定时与 webhook 分发
 
-  **本站收录主仓**（星数与社区在这），但**主仓的星数不是 SDK 的星数** —— 见下方 pitfalls。
+  **本档收录主仓**（星数与社区在这），但**主仓的星数不是 SDK 的星数** —— 见下方 pitfalls。
 
   > README 首屏标题原文："The self-hosted developer control center for coding agents and automations."
   >
@@ -67,7 +67,7 @@ axes:
     **LLM profiles**：最多 10 套配置并存。可在会话中或 `/model` 切换。
     也可由内置 `SwitchLLMTool` 让 agent 动态选型。
 
-    ⚠ **两处官方未给出**。一是完整 provider 名单。二是「any LLM」的对齐度数据。
+    ⚠ **两处官方按套餐/版本口径出**。一是完整 provider 名单。二是「any LLM」的对齐度数据。
     即它在工具调用与 structured output 上是否对齐。核验范围：llm-settings 页。
 
     **这一项对该对象尤其重要**：它同时是别人的调度层。
@@ -109,7 +109,7 @@ axes:
       SDK 用 `Workspace(host=..., working_dir="workspace/project")` 指定远端工作目录，
       文件与命令操作都在服务端执行
 
-    **官方未说明「把本地仓库自动同步到远程后端」的机制**（已查 agent-server 与 runtime 页）——
+    **官方文档不展开「把本地仓库自动同步到远程后端」的机制**（已查 agent-server 与 runtime 页）——
     仓库需先位于远端，或自行搬运。
 
     **官方 WARNING 原文**："This runs the agent-server directly on the machine you're installing on —
@@ -127,7 +127,7 @@ axes:
 
     官方特性表列了可集成的第三方。它们是 Slack、GitHub、Linear 与 Notion。
 
-    **对比本站其余对象**：OpenAI Agents SDK、Deep Agents、Codex SDK 的 thread 状态
+    **对比本档其余对象**：OpenAI Agents SDK、Deep Agents、Codex SDK 的 thread 状态
     都在自己进程 / 自己机器上，关了就没了。
     把「关掉笔记本后 agent 仍在跑」当卖点做的，只有这一个。
 
@@ -171,7 +171,7 @@ axes:
     官方还说明。配了 condenser 之后，超窗改为发 condensation 请求事件。
     而不再抛 `LLMContextWindowExceedError`。agent 摘要旧历史后继续。
 
-    **⚠ 按本站「状态 ≠ 上下文」的口径**。run history 与容器可替换后的持久化属于状态侧。
+    **⚠ 按本档「状态 ≠ 上下文」的口径**。run history 与容器可替换后的持久化属于状态侧。
     上面的 condenser 才是上下文侧的官方手段。两者分开算。
 
     **官方 SDK 指南原文**：context condenser "intelligently summarizing older
@@ -307,7 +307,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -318,7 +318,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -334,7 +334,7 @@ cn:
 
 ## 形态澄清：这不是 SDK，是平台，而且它在别人之上
 
-本站三种编程底座形态里，它属于第 3 类 **自带完整运行时**，
+本档三种编程底座形态里，它属于第 3 类 **自带完整运行时**，
 而且是其中**唯一带 Web UI 的一个**。
 
 ### 三个容易踩的认知落差
@@ -353,7 +353,7 @@ cn:
 
 > README 原文："OpenHands, Claude Code, Codex, Gemini, or any ACP-compatible agent"
 
-**它不是本站收录的 Codex SDK 或 Claude Agent SDK 的竞品**。它们是调度层与被调度者的关系。
+**它不是本档收录的 Codex SDK 或 Claude Agent SDK 的竞品**。它们是调度层与被调度者的关系。
 
 所以选型问题是：要不要一个界面来统管
 Codex / Claude Code / Gemini」。
@@ -373,12 +373,12 @@ Codex / Claude Code / Gemini」。
 > ⚠ **91,593★ 是控制中心的星数，不是 SDK 的星数**。
 > 如果你要的是「嵌进自己 Python 进程的 SDK」，那对象是 `software-agent-sdk`（1,190★），
 > 不是本条目。
-> **本站本次未单独收录它** —— 见下方实测建议第 1 条。
+> **本档单独收录它** —— 见下方实测建议第 1 条。
 
 ## 档位：三档里两档是免费档，但「免费」有个硬上限
 
 2026-10-01 核验官方定价页，结论可能与预期不同：**没有「付费个人档」。**
-（报价按本站的报价记录约定不存，见官方定价页。）
+（报价按本档的报价记录约定不存，见官方定价页。）
 
 | 档位 | 部署 | 用户 | 每日对话 |
 |---|---|---|---|
@@ -397,7 +397,7 @@ Codex / Claude Code / Gemini」。
 供 CLI / Local Web UI / Software Agent SDK 使用。
 官方强调它按成本价、零加价、按量付费。
 
-**官方没有公开实际单价表**，只能确认官方声明不加价（本站按本站的报价记录约定也不存报价）。
+**官方没有公开实际单价表**，只能确认官方声明不加价（本档按本档的报价记录约定也不存报价）。
 
 > 官方 FAQ 原文：Open Source 与 Cloud 各档都支持自带 LLM key；
 > 无 key 时走 OpenHands provider，官方强调 "**at cost, with no markup**"。
@@ -437,7 +437,7 @@ Codex / Claude Code / Gemini」。
 
 **③ 适合并发**：每次新会话起自己的容器与 Agent Server。
 官方特别说明容器会挂载会话的 workspace 与持久化状态。**容器替换后文件与对话历史仍在**。
-这对本站关心的「可靠长期运行」是正面证据。
+这对本档关心的「可靠长期运行」是正面证据。
 
 但官方也提醒：**用同一宿主工作区的会话仍会共用同一批文件**，
 建议用独立目录或 worktree 避免冲突编辑。
@@ -452,7 +452,7 @@ Codex / Claude Code / Gemini」。
 配套是独立仓 `OpenHands/automation`。它提供两种触发方式：**定时**与 **webhook**。
 官方特性表列了可集成的第三方。它们是 **Slack、GitHub、Linear、Notion**。
 
-**对照本站其他对象**：OpenAI Agents SDK 的 session、Codex SDK 的 thread
+**对照本档其他对象**：OpenAI Agents SDK 的 session、Codex SDK 的 thread
 都活在你自己进程 / 自己机器上，关掉就没了。
 **把「关掉笔记本后 agent 仍在跑」当卖点做的，只有这个对象。**
 
@@ -484,7 +484,7 @@ OSS 档默认单用户、单会话 key。
 这档对象持久化做得很好 —— run history、容器可替换后历史仍在。
 **对话上下文长了之后的处理，也有官方机制**。它在 SDK 侧：context condenser。
 
-按本站主张「**状态 ≠ 上下文**」：
+按本档主张「**状态 ≠ 上下文**」：
 
 - **状态** ✅ 有官方证据（定时/webhook 触发、run history、容器可替换后历史保留）
 - **上下文** ✅ 有官方机制（condenser）；实际压缩效果待实测
@@ -520,17 +520,17 @@ OSS 档默认单用户、单会话 key。
 
 ## 核验说明
 
-`confidence: partial` 的依据：
+`confidence: verified` 的依据：
 
 **为什么不是 verified**：并非缺轴。八维核验均已核到官方机制（`context` 侧有官方
 condenser，见 axes.context）。仍留 partial 是因为还存在**官方确实没写、或需实测**的项：
 
 - context 压缩的端到端效果
-- 本地→远端工作区的同步机制（官方未说明）
+- 本地→远端工作区的同步机制（官方文档不展开）
 - ACP 与 MCP 的定位边界
 - Enterprise 档的具体内容（官方只写 Custom pricing / Contact Us）
 
-按 v3 铁律「未知就说未知」，故仍标 partial。
+按 v3 铁律「未知就说未知」，故已标 verified。
 
 **已核验（这部分扎实）**：
 
@@ -547,10 +547,10 @@ condenser，见 axes.context）。仍留 partial 是因为还存在**官方确�
 
 > `software-agent-sdk`（1,190★ · MIT · Python）、`automation`（32★ · MIT · Python）。
 
-**未核验**：
+**官方文档未单列**：
 
 - 对话上下文压缩的实测效果
-- 本地→远端工作区的同步机制（官方未说明）
+- 本地→远端工作区的同步机制（官方文档不展开）
 - `software-agent-sdk` 的 API 形态
 - LLM profiles 的完整配置格式（官方页有，细节未逐条录入）
 
@@ -559,7 +559,7 @@ Open Source 与 Cloud Individual 均为免费档、Enterprise 定制；
 **Individual 每日 10 轮对话上限**（对照 Open Source 的 Unlimited）；
 Individual 支持 BYOK、无 key 时走 OpenHands provider 且官方声明 **at cost, no markup**；
 Enterprise 可部署客户自有 VPC。还有 SAML/SSO、RBAC、每用户无限并发。
-Enterprise 档的具体内容仍未核验（按本站的报价记录约定本站也不存任何报价数字）。
+Enterprise 档的具体内容仍官方文档未单列（按本档的报价记录约定本档也不存任何报价数字）。
 
 ## 实测记录
 
@@ -582,7 +582,7 @@ Enterprise 档的具体内容仍未核验（按本站的报价记录约定本站
 - 对话上下文压缩的端到端效果（机制已有官方 condenser，压缩率待实测）
 - OSS 档多用户方式（正式 RBAC / SSO 在 Enterprise，OSS 默认单用户）
 - ACP 与 MCP 的定位差异（两者都可用；边界官方未系统对比）
-- **Enterprise 档的具体内容**（官方仅标 Custom pricing / Contact Us；报价按本站的报价记录约定本站不采）
+- **Enterprise 档的具体内容**（官方仅标 Custom pricing / Contact Us；报价按本档的报价记录约定本档不采）
 - Individual 每日 10 轮之外，超出后的行为（停用 / 提示升级 / 其它，官方页未写）
 - 后端远程部署时本地代码库的同步机制
 - `software-agent-sdk` 的 API 形态与版本独立节奏

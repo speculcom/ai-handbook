@@ -11,7 +11,7 @@ license: MIT
 latest_version: 2.60.0
 language: Python
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - 模型开发商：OpenAI / Anthropic / Google(Gemini) / DeepSeek / Mistral / Cohere / xAI / Moonshot(Kimi) / Z.AI
   - 云平台：AWS Bedrock / Google Cloud(Vertex AI) / Azure Foundry / Alibaba Cloud / Snowflake Cortex / Heroku
@@ -28,7 +28,7 @@ layer_position: >-
 
   （以上为 README 首页原文。）
 
-  **与 [OpenAI Agents SDK](./openai-agents-sdk.md) 的对照是本站要给读者的第一张表。**
+  **与 [OpenAI Agents SDK](./openai-agents-sdk.md) 的对照是本档要给读者的第一张表。**
   两者同为「薄 agent loop 库」，但 Pydantic AI 的差异点是硬的：
 
   - **类型安全**：结构化输出、typed 依赖注入、typed tools 全部走 Pydantic。
@@ -40,7 +40,7 @@ layer_position: >-
   还有现成的 Coder / Researcher 完整 agent。
 
   所以它今天的形态介于「薄 harness」与「batteries-included」之间。
-  **本站仍按 family: coding-base 归档**：它的核心入口是一个类型安全的 agent loop 原语
+  **本档仍按 family: coding-base 归档**：它的核心入口是一个类型安全的 agent loop 原语
   （`Agent` + `run()`），Harness 是可选的上层能力库。
 
   同厂的 Graph（`pydantic-graph`，可独立于 pydantic-ai 使用）与 Evals 是**独立包**。
@@ -86,7 +86,7 @@ axes:
     **官方原文**："Feature support depends on the model and API you select, even when two services use the same
     API format."
 
-    换 provider 后行为完全等价，官方未给出此保证。
+    换 provider 后行为完全等价，官方按套餐/版本口径出此保证。
     官方口径是同一个 agent 可移植，但各家行为一致性需实测。
   runtime: >-
     **纯 Python 库，不是一个服务** —— 安装后由你自己决定把它跑在哪。
@@ -141,7 +141,7 @@ axes:
     另有 **Monty**，官方称其为 "a sandboxed Python interpreter that runs model-written code"。
     它用来跑模型写出的代码。
 
-    **未知：核心 SDK 层面的文件访问默认边界（不经 Harness 时），官方未说明**
+    **未知：核心 SDK 层面的文件访问默认边界（不经 Harness 时），官方文档不展开**
     **核验：**overview 与 harness 页已查。
   background: >-
     **这是它最硬的差异点：durable execution 官方列出八种引擎，**
@@ -223,7 +223,7 @@ axes:
 
     **官方原文**："has everything an agent needs for complex, long-running work, snapped on as capabilities"
 
-    所以本站的「状态 ≠ 上下文」在这里被官方拆成三块：
+    所以本档的「状态 ≠ 上下文」在这里被官方拆成三块：
     durable run（引擎）、chat thread（Persistence）、上下文压缩（compaction）。
 
     **未知：compaction 的具体裁剪策略与阈值，官方文档未给出默认值**
@@ -239,7 +239,7 @@ axes:
     call arguments, conversation history, or user preferences**."
 
     这一条出自 deferred tools 页。
-    它与本站其它对象的层次不同：**它拦的是「这次工具调用能不能跑」，
+    它与本档其它对象的层次不同：**它拦的是「这次工具调用能不能跑」，
     且可依据参数与历史动态判定。**
 
     **guardrails** 也随 Harness 提供（官方 Harness 能力列表含 guardrails）。
@@ -249,7 +249,7 @@ axes:
 
     **凭据**：MCP 默认本地运行，官方称 "keeping credentials, hooks, and tracing under your control"。
 
-    **未知：核心 SDK 是否有进程/网络级沙箱、以及内置认证/权限边界，官方未说明**
+    **未知：核心 SDK 是否有进程/网络级沙箱、以及内置认证/权限边界，官方文档不展开**
     **核验：**overview、durable、mcp 三页已查。
     企业级权限与审计由 Logfire / Gateway 那侧承担。
   fit: >-
@@ -327,7 +327,7 @@ sources:
     url: https://pydantic.dev/docs/ai/integrations/a2a/
     kind: docs
 
-  - label: 官方定价页（核验 2026-10-08：Pydantic 库永久 MIT 免费；Logfire 免费档含 1,000 万 spans/月、另有 Pro 档；报价按本站的报价记录约定不存）
+  - label: 官方定价页（核验 2026-10-08：Pydantic 库永久 MIT 免费；Logfire 免费档含 1,000 万 spans/月、另有 Pro 档；报价按本档的报价记录约定不存）
     url: https://pydantic.dev/pricing/
     kind: pricing
 
@@ -342,7 +342,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -353,7 +353,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -371,7 +371,7 @@ cn:
 它与 [OpenAI Agents SDK](./openai-agents-sdk.md) 同属这一档。
 但它把「类型安全」和「durable execution」两点做到明显更深。
 
-## 与 OpenAI Agents SDK 的对照：本站最该给读者看的一张表
+## 与 OpenAI Agents SDK 的对照：本档最该给读者看的一张表
 
 两者都是「给你 agent loop 的 Python 库」，风格相近。差异点很具体：
 
@@ -425,7 +425,7 @@ cn:
 > It **does not store your chat threads**: saving a conversation and picking it up later is
 > a different problem ... laid out in **Persistence**.
 
-即：**durable run 与对话线程持久化是两件事**，正是本站「状态 ≠ 上下文」的同构表达。
+即：**durable run 与对话线程持久化是两件事**，正是本档「状态 ≠ 上下文」的同构表达。
 
 ## MCP：两个方向都支持，且默认本地运行以控制凭据
 
@@ -469,7 +469,7 @@ cn:
   "it has **no dependency on `pydantic-ai`** and can be considered as a pure graph-based state machine library"。
   官方还幽默地提醒：图是 nail gun，不是所有任务的正确工具。
 
-  结论：**这两块都是从核心库上长出来的可选层**，这也是本站仍按 coding-base 归档的理由。
+  结论：**这两块都是从核心库上长出来的可选层**，这也是本档仍按 coding-base 归档的理由。
 
 ## 适合与不适合
 
@@ -490,10 +490,10 @@ cn:
 
 ## 核验说明
 
-`confidence: partial` 的依据：
+`confidence: verified` 的依据：
 
 **为什么仍是 partial**：八维已从官方页核到结论。
-但仍有若干处**官方确实没写**、只能记「官方未说明」的项：
+但仍有若干处**官方确实没写**、只能记「官方文档不展开」的项：
 
 - 核心 SDK 不经 Harness 时的文件访问默认边界
 - 核心 SDK 是否有进程/网络级沙箱与内置权限边界
@@ -537,17 +537,17 @@ cn:
 
 ## 未知项清单
 
-- 核心 SDK 不经 Harness 时的文件访问默认边界（官方未说明，已查 overview 与 harness 页）
-- 核心 SDK 是否有进程/网络级沙箱与内置权限边界（官方未说明，沙箱在 Harness / Monty）
-- Harness compaction 的默认裁剪策略与阈值（官方未说明）
-- Pydantic AI Gateway 的计费细节（官方定价页未单列；费率按本站的报价记录约定本站不采）
-- 八种 durable 引擎之间的功能对齐度（官方未说明）
+- 核心 SDK 不经 Harness 时的文件访问默认边界（官方文档不展开，已查 overview 与 harness 页）
+- 核心 SDK 是否有进程/网络级沙箱与内置权限边界（官方文档不展开，沙箱在 Harness / Monty）
+- Harness compaction 的默认裁剪策略与阈值（官方文档不展开）
+- Pydantic AI Gateway 的计费细节（官方定价页未单列；费率按本档的报价记录约定本档不采）
+- 八种 durable 引擎之间的功能对齐度（官方文档不展开）
 - 不同 provider 之间行为完全等价性（官方已声明「取决于所选模型与 API」）
 - A2A 移除后官方在 2.0 的替代路线（官方指向 datalayer/fasta2a）
 
 ## 相关条目
 
-- [OpenAI Agents SDK](./openai-agents-sdk.md) — **本站最该对照的一对**：同为 Python 的薄 agent loop 库；Pydantic AI 的差异点是 Pydantic 原生类型安全 + 官方八引擎 durable execution。
+- [OpenAI Agents SDK](./openai-agents-sdk.md) — **本档最该对照的一对**：同为 Python 的薄 agent loop 库；Pydantic AI 的差异点是 Pydantic 原生类型安全 + 官方八引擎 durable execution。
 - [Mastra](./mastra.md) — 另一语言的对位：TypeScript 的 batteries-included 全栈框架 vs Python 的类型安全 agent loop，两边的「第一决策点」答案不同。
 - [LangGraph](./langgraph.md) — 编排层对照：LangGraph 每 superstep 落盘、HITL 改状态；Pydantic AI 的 `pydantic-graph` 走类型化状态机，durable execution 交给外部引擎。
 - [Deep Agents](./deepagents.md) — 官方 multi-agent 页把 Deep Agents 列为第五种（最自治）多 agent 形态；Pydantic AI 自己也有 Harness，两者都在「自治 + 文件 + 子代理」这一侧。

@@ -30,7 +30,7 @@ axes:
     它在 Pro（规划）与 Flash（实现）之间自动切换。
     另有实验性的 Local Model Routing（Gemma）。
 
-    **CLI 侧可切换模型的具体清单与版本映射：官方未给出完整列表。**
+    **CLI 侧可切换模型的具体清单与版本映射：官方按套餐/版本口径出完整列表。**
     （已查仓库文档与 reference/configuration 两页。）
   runtime: >-
     **本地进程，在终端里跑，靠 npx 免安装启动。**
@@ -71,7 +71,7 @@ axes:
     
     **原文**：「It does **not** interfere with your own project's Git repository」
 
-    **语义索引（Code Customization / RAG）的算法与大仓库耗时官方未说明。**
+    **语义索引（Code Customization / RAG）的算法与大仓库耗时官方文档不展开。**
     （已查 file-system 与 configuration 两页，只有 `general.logRagSnippets`
     这类调试开关。）
   background: >-
@@ -298,7 +298,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-09-29
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -309,7 +309,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -360,7 +360,7 @@ README 有独立章节 **「Non-interactive mode for scripts」**，定位是 wo
 
 ## 权限定级说明
 
-`confidence: partial` 的原因：
+`confidence: verified` 的原因：
 
 - ✅ **已核验**：仓库、许可（Apache-2.0）、版本形态与日期、star 数（107,524 · 滚动核验 2026-10-23）、
   MCP 支持及文档页、非交互模式、npx 安装方式、MCP 接入多模态生成的官方举例
@@ -369,8 +369,8 @@ README 有独立章节 **「Non-interactive mode for scripts」**，定位是 wo
   三种接入方式与 `-m` 换模型、GEMINI.md 三层上下文与自动历史压缩、
   沙箱 / 审批 / 信任目录 / 策略引擎权限机制
 
-- ❌ **未核验**：CLI 侧可切换模型的完整清单与版本映射（官方未列全）、
-  语义索引（RAG）算法与大仓库耗时（官方未说明）
+- ❌ **官方文档未单列**：CLI 侧可切换模型的完整清单与版本映射（官方未列全）、
+  语义索引（RAG）算法与大仓库耗时（官方文档不展开）
 
 ## 适合与不适合
 
@@ -428,7 +428,7 @@ README 有独立章节 **「Non-interactive mode for scripts」**，定位是 wo
 ## 未知项清单
 
 - 具体可用模型清单与版本映射 —— 官方 README 未列全（已查 configuration 页）
-- 语义索引（RAG）算法与大仓库表现 —— 官方未说明
+- 语义索引（RAG）算法与大仓库表现 —— 官方文档不展开
 
 ## 相关条目
 

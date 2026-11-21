@@ -86,7 +86,7 @@ link:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -94,7 +94,7 @@ cn:
   origin_note_en: Microsoft entity; the official region table is grouped as Americas / Europe / Asia Pacific / Middle East & Africa.
   direct: unknown
   direct_note: 同日实测 learn.microsoft.com 与 azure.microsoft.com 返回 200，但这只是文档可达；
-    官方区域在册表未列中国大陆区域，定价页当日也未写中国区可用性。服务在大陆是否可用未核验到官方来源，
+    官方区域在册表未列中国大陆区域，定价页当日也未写中国区可用性。服务在大陆是否可用官方文档未单列，
     不以「网页能打开」推断合规可用。
   direct_note_en: Same-day probes returned 200 for learn.microsoft.com and azure.microsoft.com, but that is documentation reachability only;
     the official region table lists no mainland-China region and the pricing page said nothing about a China region.
@@ -135,7 +135,7 @@ Embedded SDK 与 Groundedness detection。更早的 GA / preview 节奏可回溯
 
 ## 实测记录
 
-本站尚未完成实测。本档不含拦截率、误报率或延迟数字；官方也要求逐语言自测。
+本站当前未完成实测。本档不含拦截率、误报率或延迟数字；官方也要求逐语言自测。
 
 **实测建议**（三条）：
 

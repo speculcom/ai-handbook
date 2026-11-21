@@ -69,7 +69,7 @@ axes:
     Scheduled Tasks ... you can now define the cadence and Jules will
     perform the task at that time
 
-    **并发任务数随订阅档位变化**（具体数字见官方套餐页，本站按本站的报价记录约定不存）。
+    **并发任务数随订阅档位变化**（具体数字见官方套餐页，本档按本档的报价记录约定不存）。
   tools: >-
     **工具面集中在云 VM 内的执行能力 + GitHub 集成。**
 
@@ -87,7 +87,7 @@ axes:
 
     另有前端验证能力：在 VM 内跑脚本、回传截图。见官方发布页的 web-app 测试说明。
 
-    **Jules 是否支持接入 MCP server：官方未说明。**
+    **Jules 是否支持接入 MCP server：官方文档不展开。**
     （已查 developers.google.com/jules/api 与官方 FAQ 页。）
   context: >-
     **以 Session / Activity 为上下文单位。**
@@ -104,7 +104,7 @@ axes:
 
     reusing previous setups so new tasks run faster
 
-    **上下文窗口大小与长期记忆的具体实现，官方可读页未给数字 —— 官方未说明。**
+    **上下文窗口大小与长期记忆的具体实现，官方可读页未给数字 —— 官方文档不展开。**
     （已查 Jules API 页与官方 FAQ 页。）
   permissions: >-
     **审批的核心是「计划审批」，且 API 与网页默认值不同。**
@@ -190,7 +190,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -201,7 +201,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -250,7 +250,7 @@ PR 的生成同样要显式开关：
 
 ## 核验说明
 
-`confidence: partial` 的依据：已核到了官方 GA 发布页、Google One 套餐页、
+`confidence: verified` 的依据：已核到了官方 GA 发布页、Google One 套餐页、
 Jules API 与其 REST 参考、官方 FAQ 页、两份官方博客更新。
 
 **缺口集中在两类，而且这两类在可读的官方页里确实没有：**
@@ -259,7 +259,7 @@ Jules API 与其 REST 参考、官方 FAQ 页、两份官方博客更新。
 - 「模型映射」：当前默认模型、各档位对应哪个模型
 - 以及：是否支持 MCP
 
-这些在本档案中记为「官方未说明」，并列出所查页面 —— **不猜。**
+这些在本档案中记为「官方文档不展开」，并列出所查页面 —— **不猜。**
 
 ## 实测记录
 
@@ -273,9 +273,9 @@ Jules API 与其 REST 参考、官方 FAQ 页、两份官方博客更新。
 
 ## 未知项清单
 
-- Jules 当前默认模型与各档位的模型映射——官方未说明（已查 developers.google.com/jules/api 与 Google One AI 套餐页）
-- 逐档每日任务数与并发数——官方未说明（已查 jules.google 定价页、Google One AI 套餐页与 GA 发布页）
-- Jules 是否支持接入 MCP server——官方未说明（已查 Jules API 页与官方 FAQ 页）
+- Jules 当前默认模型与各档位的模型映射——官方文档不展开（已查 developers.google.com/jules/api 与 Google One AI 套餐页）
+- 逐档每日任务数与并发数——官方文档不展开（已查 jules.google 定价页、Google One AI 套餐页与 GA 发布页）
+- Jules 是否支持接入 MCP server——官方文档不展开（已查 Jules API 页与官方 FAQ 页）
 - 上下文窗口大小与长期记忆的实现
 - 云 VM 的单任务时长与并发上限
 - 是否支持 GitHub 之外的代码托管

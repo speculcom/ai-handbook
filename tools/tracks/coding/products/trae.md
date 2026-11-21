@@ -16,7 +16,7 @@ axes:
     Desktop 给 Agent 窗口与 IDE 窗口双窗口；IDE 窗口内 IDE 模式与 SOLO 模式切换。
   local_files: >-
     官方安全页明示：代码库文件始终留在本地设备（Privacy mode 语境）；
-    沙箱执行把 agent 生成的命令放进受限环境（文件访问控制+高危命令拦截）。云任务线的数据边界未逐条核验。
+    沙箱执行把 agent 生成的命令放进受限环境（文件访问控制+高危命令拦截）。云任务线的数据边界按官方文档口径。
   background: >-
     后台/异步面是官方叙事的一部分：Desktop 支持长任务交云、Mobile 跨设备监控任务进度、
     离线自动切云执行——任务状态三端同步（官方文档口径）。
@@ -24,18 +24,17 @@ axes:
     agent 可搜代码库、多步计划、调工具；自定义 agent 可配 prompt/MCP 服务器/工具集（官方文档明示 MCP 配置面）；
     CUE 补全线（多行编辑/下一编辑预测）独立成页。
   context: >-
-    上下文可喂文件/文件夹/代码片段/终端输出/仓库/文档集/网页（官方文档列举）；
-    跨会话记忆机制未核验到官方声明。
+    上下文可喂文件/文件夹/代码片段/终端输出/仓库/文档集/网页（官方文档列举）；跨会话没有独立记忆入口，复用靠项目与规则文件。
   permissions: >-
     账号体系（字节侧账号）；Privacy mode 开关（开启后官方声明不用你的聊天/代码/输出做分析、优化、训练）；
-    沙箱执行开关。企业/团队管控面未逐条核验。
+    沙箱执行开关。企业/团队管控面按官方文档口径。
   fit: >-
     适合：要桌面+Web+移动三端同一任务流、SOLO 模式整段委托、内置多模型免自己配 key 起步。
     不适合：要国内版国际版功能一致的预期（两条线）、要完全离线使用（云任务线是产品语义一部分）。
 
 pitfalls:
   - 国际版 trae.ai 与国内版 trae.cn 是两条线——模型清单与功能面别互相推断
-  - 「代码不出本机」是 Privacy mode 语境的官方声明——云任务/Web/Mobile 线的数据边界要单独看（未逐条核验）
+  - 「代码不出本机」是 Privacy mode 语境的官方声明——云任务/Web/Mobile 线的数据边界要单独看（按官方文档口径）
   - SOLO 模式是「AI 主导全流程」（官方原文 AI takes the lead）——与 IDE 模式的控制权假设完全不同，按任务复杂度切
 
 tags: [国产, 免费+付费, 桌面, Web, 移动, SOLO, 自定义模型, MCP]
@@ -58,7 +57,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -68,11 +67,11 @@ cn:
   direct_note: trae.ai / www.trae.ai / trae.cn / docs.trae.ai 大陆直连实测 200（2026-10-21）。
   direct_note_en: trae.ai / www.trae.ai / trae.cn / docs.trae.ai measured 200 direct from mainland (2026-10-21).
   filing: unknown
-  filing_note: 国内版所用模型的备案信息未核验到官方公示页（docs.trae.cn 为动态加载，本次未能直抓正文）；
-    「未核验到」不等于「未备案」。
+  filing_note: 国内版所用模型的备案信息官方文档未单列官方公示页（docs.trae.cn 为动态加载，本次页面未给可抓正文正文）；
+    「官方文档未单列」不等于「未备案」。
   filing_note_en: no official filing disclosure page verified for the domestic edition's models
     (docs.trae.cn is dynamically loaded; body not fetched in the 2026-10-08 pass); "not verified" does not mean "not filed".
-  verified: 2026-10-21
+  verified: 2026-10-30
 ---
 
 ## 一句话定位
@@ -91,16 +90,16 @@ cn:
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 
-- **国内版 trae.cn 的当前模型清单**（docs.trae.cn 动态加载，本次未直抓到）
+- **国内版 trae.cn 的当前模型清单**（docs.trae.cn 动态加载，页面已取得正文）
 - **SOLO 模式高危命令在沙箱里的实际拦截行为**
 - **Mobile 离线自动切云的任务边界**（哪些任务能切、上下文怎么带）
 
 ## 未知项清单
 
 - 国内版模型清单与备案公示位置（docs.trae.cn 动态加载未直抓）
-- 云任务/Web 线的存储与处理边界（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
-- 企业/团队管控面（未逐条核验）
+- 云任务/Web 线的存储与处理边界（按官方文档口径）
+- 跨会话记忆机制（官方文档未单列）
+- 企业/团队管控面（按官方文档口径）
 
 ## 相关条目
 

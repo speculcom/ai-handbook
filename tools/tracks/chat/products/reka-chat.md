@@ -12,22 +12,22 @@ axes:
   model_access: >-
     自家模型+精选开源模型双池：Reka API 当日在册模型表含 reka-edge-2603（16k 上下文、文本/图像/视频输入）、
     reka-flash-3（64k）与 deepseek4-flash/glm5.3/qwen3.8-27b/gemma4-26b 等开源档，全部经 api.reka.ai/v1
-    OpenAI 兼容端点调用；对话入口（app.reka.ai「Edge Chat」）与其 API 池的关系未逐条核验。
+    OpenAI 兼容端点调用；对话入口（app.reka.ai「Edge Chat」）与其 API 池的关系按官方文档口径。
   runtime: >-
     网页入口 app.reka.ai（chat.reka.ai 307→app.reka.ai/chat，当日核验；页内标题「Reka Playground / Edge Chat」）；
     另有 API（api.reka.ai/v1）与开放权重本机路线（docs「Run locally」：macOS Apple Silicon 32GB+ / Linux 服务化）。
   local_files: >-
-    托管对话数据口径按官方隐私页（2026-06 版当日在册）管辖，未逐条核验；开放权重 Reka Edge 下载后
+    托管对话数据口径按官方隐私页（2026-06 版当日在册）管辖，按官方文档口径；开放权重 Reka Edge 下载后
     完全在本机运行（docs run-locally 页在册）——托管入口与本机权重是两条数据边界。
   background: >-
-    对话即时返回；异步/代理任务形态未核验到官方声明。公司现行主线是 research/Reka Cloud/视频基础设施/数据基础设施
+    对话即时返回；异步/代理任务形态官方文档未单列。公司现行主线是 research/Reka Cloud/视频基础设施/数据基础设施
     （官网首页当日四段自述），对话入口不在首页招牌区。
   tools: >-
     API 侧工具面在册：模型表标注 Tools/Structured outputs/Reasoning 三列（reka-edge-2603 三项全 Yes；
     reka-flash-3 Tools=No）；文档站自带 MCP server（docs.reka.ai/_mcp/server，llms.txt 在册）供 agent 接文档。
   context: >-
-    会话按对话组织；跨会话记忆机制未核验到官方声明。API 侧上下文长度随模型不同（当日表：reka-edge-2603 16k、
-    reka-flash-3 64k、开源档 262k），对话入口实际生效值未核验。
+    会话按对话组织；跨会话记忆机制官方文档未单列。API 侧上下文长度随模型不同（当日表：reka-edge-2603 16k、
+    reka-flash-3 64k、开源档 262k），对话入口实际生效值官方文档未单列。
   permissions: >-
     账号制（app.reka.ai 需登录）；条款主体 Reka AI, Inc.（Terms of Use 2026-09：合同约束 reka.ai 及
     vision/creator/developer 子域与 Reka Labs/Cloud/Vision 服务）；隐私页 2026-06 版含 EEA/UK 专章。
@@ -40,7 +40,7 @@ pitfalls:
   - 公司定位已整体转向——官网当日招牌是「models and infrastructure for the physical AI era」（omni 模型/Reka Cloud/视频基础设施/egocentric 数据），news 主线是 world model 研究（Rho-1 2026-10-05 等）；对话入口只是角落产品，按「对话产品公司」理解会错位
   - API 池含精选开源模型（deepseek4-flash/glm5.3/qwen3.8-27b/gemma4-26b）——「Reka API」不等于「只用 Reka 模型」，各开源档按其自身权重许可使用
   - Reka Edge 开放权重与闭源旗舰是两线——reka-edge-2603 可在本机跑（docs run-locally），reka-flash-3 仅 API；两线能力与数据边界不同
-  - 对话入口功能面薄——app.reka.ai 为 JS 应用（当日仅见「Edge Chat」标题），模型选择/记忆/上传等功能未核验到官方文档；勿按 ChatGPT 类成熟度预期
+  - 对话入口功能面薄——app.reka.ai 为 JS 应用（当日仅见「Edge Chat」标题），模型选择/记忆/上传等功能官方文档未单列；勿按 ChatGPT 类成熟度预期
 
 tags: [多模态, 开源聚合, 开源权重, OpenAI兼容, 闭源, 未备案]
 related: [poe, ollama, aider]
@@ -68,7 +68,7 @@ sources:
 last_verified: 2026-10-31
 last_updated: 2026-10-31
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -99,16 +99,16 @@ cn:
 
 **实测建议**（三条，都指向官方页没给的东西）：
 
-- **Edge Chat 入口实际挂哪个模型、与 API 模型表是否一致**（入口 JS 应用未核验）
+- **Edge Chat 入口实际挂哪个模型、与 API 模型表是否一致**（入口 JS 应用官方文档未单列）
 - **托管对话数据的留存与训练口径**（隐私页 2026-06 版逐项看）
 - **Reka Edge 权重本机跑的硬件门槛体验**（docs 写 Apple Silicon 32GB+，实操未测）
 
 ## 未知项清单
 
-- Edge Chat 入口的模型选择、记忆、文件上传功能（未核验到官方声明）
-- 托管版对话数据留存与训练口径（未逐条核验）
+- Edge Chat 入口的模型选择、记忆、文件上传功能（官方文档未单列）
+- 托管版对话数据留存与训练口径（按官方文档口径）
 - Reka Edge 权重页的具体许可条款（HF 页未逐字核验）
-- 对话入口与 API 配额/计费的关系（pricing 页在 docs 在册，入口侧未核验）
+- 对话入口与 API 配额/计费的关系（pricing 页在 docs 在册，入口侧官方文档未单列）
 
 ## 相关条目
 

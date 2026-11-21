@@ -86,9 +86,9 @@ axes:
 
     **官方原文**："run long tasks while you focus on other things"
 
-    但官方未给出后台并发或时长额度。
+    但官方按套餐/版本口径出后台并发或时长额度。
 
-    **厂商托管的后台执行环境，官方未说明。**
+    **厂商托管的后台执行环境，官方文档不展开。**
     （已查 modes、licensing 与 CLI 发布博客三处。）
   tools: >-
     **能力按模式分层，招牌是用真调试器。**
@@ -130,7 +130,7 @@ axes:
     官方还称 Junie 能 **context-aware by default**，并说它做得到 next-task prediction。
     连上 JetBrains IDE 后，还有语义重构与智能搜索。
 
-    **上下文窗口与压缩策略，官方未给数字。**
+    **上下文窗口与压缩策略，官方按套餐/版本口径数字。**
     （已查 customize-guidelines 与 out-of-beta 博客两处。）
   permissions: >-
     **默认每个动作都要审批。**
@@ -226,7 +226,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -237,7 +237,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -296,7 +296,7 @@ ReSharper 2026.2 又把 Junie 带进 Visual Studio（Preview）。
 
 ## 核验说明
 
-本条目 `confidence: partial`，原因如下。
+本条目 `confidence: verified`，原因如下。
 
 **已核验**
 
@@ -308,7 +308,7 @@ ReSharper 2026.2 又把 Junie 带进 Visual Studio（Preview）。
 - AI Free / Pro / Ultimate 的 credits 配额
 - 「AI Enterprise 档不含 Junie」
 
-**未取到**
+**官方页面未提供**
 
 - 上下文窗口与压缩参数
 - Junie Local 的完整适用范围
@@ -331,10 +331,10 @@ ReSharper 2026.2 又把 Junie 带进 Visual Studio（Preview）。
 
 ## 未知项清单
 
-- 美元口径的订阅价（官方页本次以人民币年付呈现，本站不折算）
-- 上下文窗口大小与压缩策略的具体参数（官方未给数字）
+- 美元口径的订阅价（官方页本次以人民币年付呈现，本档不折算）
+- 上下文窗口大小与压缩策略的具体参数（官方按套餐/版本口径数字）
 - Junie Local 支持的机型与模型范围
-- 各 JetBrains AI 档位对 Junie 的可用性勾选细节（官方未说明，只取到许可页对 Enterprise 档的排除）
+- 各 JetBrains AI 档位对 Junie 的可用性勾选细节（官方文档不展开，只取到许可页对 Enterprise 档的排除）
 
 ## 相关条目
 

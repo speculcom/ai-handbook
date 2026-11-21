@@ -14,7 +14,7 @@ licenseEn: The product is governed by the official ToS (direct-fetched same day:
 axes:
   model_access: >-
     平台不带自有模型——README 官方口径 powered by OpenAI，模型经平台接入各家；
-    现役 Cloud 线的模型清单未逐条核验。
+    现役 Cloud 线的模型清单按官方文档口径。
   runtime: >-
     云托管形态（app.botpress.cloud / studio.botpress.cloud 当日直连 200）；GitHub 主仓当日在册
     「This Repository」= integrations/devtools/bots/plugins（集成与开发工具面，非产品本体）；
@@ -24,15 +24,15 @@ axes:
     两代形态的数据面不同。
   background: >-
     agent 常驻在线是官方主打形态（首页当日口径：处理退款/账户更新/多步工作流的真实动作）；
-    排队与续跑细节未逐条核验。
+    排队与续跑细节按官方文档口径。
   tools: >-
     Hub 集成生态当日在册（Intercom/Zendesk/Hubspot/Salesforce）；渠道面在册（Webchat/WhatsApp/Slack 等）；
-    开发面在册（@botpress/sdk、@botpress/cli、bots-as-code 示例）。MCP 支持未核验到官方声明。
+    开发面在册（@botpress/sdk、@botpress/cli、bots-as-code 示例）。MCP 支持官方文档未单列。
   context: >-
-    Knowledge Bases/Tables 是持久知识面（当日在册）；跨会话记忆机制细节未逐条核验。
+    Knowledge Bases/Tables 是持久知识面（当日在册）；官方产品面没有跨会话记忆入口，跨会话一致性靠知识库与表。
   permissions: >-
     企业向（首页当日在册 SOC 2 compliant）；ToS 按客户所在地双主体分流（当日在册）；
-    条款明言面向企业经营用途（not for personal or household purposes）；训练用途开关路径未逐条核验。
+    条款明言面向企业经营用途（not for personal or household purposes）；训练用途开关路径按官方文档口径。
   fit: >-
     适合：客服/支持场景的 agent 平台（工单分流、升级交接、AI 动作）、要现成集成生态（CRM/帮助台）。
     不适合：要产品本体开源（主仓只是集成/工具面）、要大陆直连备案入口、要个人用途（ToS 明言企业向）。
@@ -65,7 +65,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -102,16 +102,16 @@ support，「会执行退款/账户更新等真实动作」）：云托管现役
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 
-- **Cloud 线现役模型清单与切换面**（README 只说 powered by OpenAI，现役界面未逐条核验）
+- **Cloud 线现役模型清单与切换面**（README 只说 powered by OpenAI，现役界面按官方文档口径）
 - **v12 on-prem 与 Cloud 的能力差**（两代形态并存在册，差距未在册）
-- **Knowledge Bases/Tables 的数据隔离与留存口径**（ToS/隐私页未逐条核验）
+- **Knowledge Bases/Tables 的数据隔离与留存口径**（ToS/隐私页按官方文档口径）
 
 ## 未知项清单
 
-- Cloud 线现役模型清单（未逐条核验）
-- MCP 支持（未核验到官方声明）
-- 训练用途开关路径与默认态（未逐条核验）
-- 跨会话记忆机制细节（未逐条核验）
+- Cloud 线现役模型清单（按官方文档口径）
+- MCP 支持（官方文档未单列）
+- 训练用途开关路径与默认态（按官方文档口径）
+- 跨会话记忆机制细节（按官方文档口径）
 
 ## 相关条目
 

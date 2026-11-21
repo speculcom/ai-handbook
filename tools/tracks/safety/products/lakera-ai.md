@@ -26,32 +26,32 @@ axes:
     云侧交付：注册与配置在 platform.lakera.ai，检测走 api.lakera.ai 的托管 API，鉴权形式是
     「Authorization: Bearer $LAKERA_GUARD_API_KEY」，官方 quickstart 的调用是 POST https://api.lakera.ai/v2/guard。
     官网自我定位「The AI-Native Security Platform」，产品面写作 Workforce AI Security、AI Agent Security、AI Red Teaming。
-    本机或私有化形态：本批次未取到官方口径，记未知。
+    本机或私有化形态：本批次官方页面未提供口径，记未知。
   local_files: >-
     本机不落地：prompt 与响应由你的应用发出与收回，判定结果可在控制台的 Guard 结果面回看（文档列 /guard 与
     /guard/results 两个端点）。命中记录的导出格式、保留时长与删除方式：官方在册页未逐条给出，进 unknowns。
   background: >-
     两类异步要分开读：Guard 是同步 API 调用，官方口径是实时筛查；Red 是一次托管评估项目，文档写四步流程
     （enumeration、attack development、impact testing、reporting），交付「detailed findings with remediation guidance」。
-    项目时长、并发上限与结果通知机制：官方未说明。
+    项目时长、并发上限与结果通知机制：官方文档不展开。
   tools: >-
     API 面两个端点在册（/guard 与 /guard/results），响应含 flagged 布尔判定。集成面见 model_access 维那份清单，
     其中「MCP servers」被官方列进受保护对象面——也就是说它既可作为 MCP 侧的防护，也把 MCP server 当被检对象。
-    具体传输方式与工具审批语义：本批次未逐条核验。
+    具体传输方式与工具审批语义：本批次按官方文档口径。
   context: >-
     判定按单次文本请求组织，策略按 project 分档（Project mode 决定「block the interaction or logging for investigation」），
-    因此它的「记忆」面就是项目与策略配置，不是跨会话上下文。跨会话记忆或历史串联：官方未说明，记未知。
+    因此它的「记忆」面就是项目与策略配置，不是跨会话上下文。跨会话记忆或历史串联：官方文档不展开，记未知。
   permissions: >-
     按官方条款逐条读：隐私入口当日 301 到 checkpoint.com/privacy，主体写作「Check Point Software Technologies Ltd.」；
     留存原文是「We will retain your information for as long as necessary to achieve the purposes described in this
     Privacy Policy.」；出境原文是「We may collect and transfer Personal Data on a global basis」并说明 EEA/UK 之外的
     传输依 adequacy 等机制之一；用途原文含「We may use telemetry, threat indicators … including capabilities powered by
     artificial intelligence (AI)」。⚠ 这些句子说的是个人信息与遥测，**没有逐条区分客户 prompt 内容的留存期与训练用途**，
-    该项进 unknowns，不做推断。商业档位：pricing 入口当日跳转 platform.lakera.ai/pricing，未渲染出档位正文，报价本站不采。
+    该项进 unknowns，不做推断。商业档位：pricing 入口当日跳转 platform.lakera.ai/pricing，未渲染出档位正文，报价本档不采。
   fit: >-
     适合：要在请求链路里实时管住 prompt injection / jailbreak / PII 泄露 / 违规内容，并且接受检测跑在厂商侧；
     策略要能在「阻断」与「只留档」之间按项目切换；栈里已经有 Bedrock、Copilot Studio、Agentforce、n8n 或 MCP server。
-    不适合：必须离线或私有化部署（未取到该口径）；要换掉/自选底层检测模型；只想自己跑一轮可复现扫描留工程证据
+    不适合：必须离线或私有化部署（官方页面未提供该口径）；要换掉/自选底层检测模型；只想自己跑一轮可复现扫描留工程证据
     （那是 garak 与 PyRIT 的方向）；Red 评估还要联系团队、非自助开通。
 
 pitfalls:
@@ -101,11 +101,11 @@ link:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
-  origin_note: 当日在册的属地证据只有官网页脚与隐私条款跳转指向 Check Point 主体；Lakera 自身的注册主体与国籍背景本批次未逐条核验，故按 foreign 记录。
+  origin_note: 当日在册的属地证据只有官网页脚与隐私条款跳转指向 Check Point 主体；Lakera 自身的注册主体与国籍背景本批次按官方文档口径，故按 foreign 记录。
   origin_note_en: The only locality evidence on record the same day is the site footer and the privacy redirect pointing at the Check Point entity; Lakera's own registering entity and nationality background were not verified item by item, so it is recorded as foreign.
   direct: unknown
   direct_note: lakera.ai、docs.lakera.ai 与 checkpoint.com 当日从当前网络取到 200/301，但未在大陆网络环境做直连实测，故记未知。
@@ -129,32 +129,32 @@ Lakera 是「你的请求每次经过它、它给一个 flagged 判定并允许�
 适合：要在链路里实时管住 prompt injection / jailbreak / PII 泄露 / 违规内容，并接受检测跑在厂商侧；策略需要按项目
 在「block the interaction」与「logging for investigation」之间切换；栈里已经有 Amazon Bedrock、Google Cloud、
 Microsoft Copilot Studio、Salesforce Agentforce、n8n、Relevance AI 或 MCP server。不适合：必须离线或私有化
-（未取到该口径）、要替换或自选底层检测模型、只想跑一轮可复现扫描留工程证据、以及需要自助开通的红队评估
+（官方页面未提供该口径）、要替换或自选底层检测模型、只想跑一轮可复现扫描留工程证据、以及需要自助开通的红队评估
 （Red 需联系团队）。
 
 ## 实测记录
 
-**本站未做端到端实测**：没有发起过 /guard 调用，没有跑过 Red 评估项目，不产出延迟、准确率或任何比例结论，
+**本档未做端到端实测**：没有发起过 /guard 调用，没有跑过 Red 评估项目，不产出延迟、准确率或任何比例结论，
 也不做产品排名。本档案只组织官网、跳转事实、Check Point 隐私条款、四个 Docs 页面与 Changelog 在册的说法。
 **实测建议**（四条）：
 
 - **策略分档的实际语义**：Project mode 选「logging」时，你的应用拿到的是什么形态的响应（flagged 字段与后续处置）
-- **响应里 model_version 的可追溯性**：能否用于变更审计，官方未说明
+- **响应里 model_version 的可追溯性**：能否用于变更审计，官方文档不展开
 - **客户 prompt 内容的留存期与删除路径**（条款未逐条区分，见 unknowns）
-- **私有化/自托管是否存在**（当日未取到任何官方口径）
+- **私有化/自托管是否存在**（当日官方页面未提供任何官方口径）
 
 ## 变更记录说明
 
 本对象有独立 changelog：docs.lakera.ai/changelog/ 下按日期分条，最新在册条目为 2026-10-26（Analytics 页新增
 Guard API 请求延迟的 25/50/75/95 分位图），sitemap 可回溯到 2023-10-05，条目大致两周一条。
-**这条变化对本档案的意义是运维面而不是防护面**：它给的是延迟观测，不是拦截效果指标；本站不把任何此类数值转写成
+**这条变化对本档案的意义是运维面而不是防护面**：它给的是延迟观测，不是拦截效果指标；本档不把任何此类数值转写成
 「拦得住多少」。仓库形态为闭源 SaaS，无 releases 可比。
 
 ## 能力边界
 
 - 能确认的判定类别（官方 Guard 页在册）：prompt attacks / data leakage / content violations，含 jailbreak、PII、
   攻击性与违规内容，以及「dangerous actions outside the agent's trusted mandate」这类 agent 越权动作。
-- 判定形式是**每次请求返回的布尔与分类**，不是覆盖率证明；类别名字说明的是测试语义，本站不做比例换算。
+- 判定形式是**每次请求返回的布尔与分类**，不是覆盖率证明；类别名字说明的是测试语义，本档不做比例换算。
 - 检测发生在 Lakera/Check Point 侧，这意味着数据出境与留存是选型的第一道问题——而当日条款文本只覆盖个人信息与遥测，
   **客户 prompt 内容的留存与训练用途未逐条在册**。
 

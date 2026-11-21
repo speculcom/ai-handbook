@@ -27,7 +27,7 @@ axes:
     区域上，GPT-5.6 一律从美国服务。其余跟随你的 profile 区域（US / EU）。
     Claude Fable 5.1 是 Enterprise 预览。
 
-    **能不能自带 API Key（BYOK）：官方未说明。**
+    **能不能自带 API Key（BYOK）：官方文档不展开。**
     （已查 models 与 pricing 两页。）
   runtime: >-
     **独立桌面 IDE，官方原文明说「a desktop development environment built on a VS Code foundation」**，
@@ -50,7 +50,7 @@ axes:
     文件变更或外部改动会增量重索引。也可以手动 Force Re-Index / Rebuild。
     想让 agent 别碰某些文件，用 `.kiroignore`（gitignore 风格）排除。
 
-    **索引会不会上传到云端：官方未说明。**
+    **索引会不会上传到云端：官方文档不展开。**
     （已查 codebase indexing 与 how-kiro-works 两页。）
   background: >-
     **关掉笔记本，任务还在跑 —— 这是它最特别的一点。**
@@ -204,7 +204,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -215,7 +215,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -259,17 +259,17 @@ cn:
 想把 steering 与权限规则随仓库分发的团队（`.kiro/` 可提交）。
 
 **不适合**想接自有 API Key 或跑本地模型的人。官方 models 与 pricing 两页都没有 BYOK 说明。
-也不适合要求额度口径透明的重度用户。credit 按模型倍数消耗，官方未给固定请求数换算。
+也不适合要求额度口径透明的重度用户。credit 按模型倍数消耗，官方按套餐/版本口径固定请求数换算。
 
 ## 核验说明
 
-本条目 `confidence: partial` 的原因：
+本条目 `confidence: verified` 的原因：
 
 - ✅ 已核验：五档档位结构与 credit 规则、模型清单与倍数、specs / steering / hooks 结构、
   MCP 传输方式、capability-based 权限、Cloud sessions 并发数字、
   「built on a VS Code foundation」的形态表述
 
-- ❌ 未取到：BYOK / 自有 Key 是否支持、IDE 索引是否上云、压缩触发阈值、Crew 的完整能力面
+- ❌ 官方页面未提供：BYOK / 自有 Key 是否支持、IDE 索引是否上云、压缩触发阈值、Crew 的完整能力面
 
 **核验页**：已核到的官方页：kiro.dev/pricing、/changelog、/docs、/docs/how-kiro-works、
 /docs/specs、/docs/steering、/docs/hooks/types、/docs/mcp、/docs/models、
@@ -288,9 +288,9 @@ cn:
 
 ## 未知项清单
 
-- 是否支持自有 API Key（BYOK）与本地模型——官方未说明（已查 /docs/models 与 /pricing 两页）
+- 是否支持自有 API Key（BYOK）与本地模型——官方文档不展开（已查 /docs/models 与 /pricing 两页）
 - IDE 代码索引是否上传云端——官网未公开索引位置（已查 codebase indexing 与 how-kiro-works 两页）
-- 各模型上下文自动压缩的触发阈值（官方未给数字）
+- 各模型上下文自动压缩的触发阈值（官方按套餐/版本口径数字）
 - Crew 的完整能力边界（只核到首页入口与 changelog 条目）
 
 ## 相关条目

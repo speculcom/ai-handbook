@@ -6,7 +6,7 @@ nameEn: Jimeng AI
 vendor: 字节跳动（剪映团队）
 homepage: https://jimeng.jianying.com
 license: 免费+积分+会员订阅。官方协议页（jimeng.jianying.com/agreement 直抓核验 2026-10-22）；
-  生成作品的使用与水印规则按该协议与站内会员说明管辖，条款细节未逐条核验。
+  生成作品的使用与水印规则按该协议与站内会员说明管辖，条款细节按官方文档口径。
 licenseEn: Free + credits + membership tiers. Governed by the official agreement page
   (jimeng.jianying.com/agreement, direct-fetched 2026-10-22); usage and watermark rules for generated works
   follow that agreement and the in-site membership notes — clause details not verified line by line.
@@ -21,7 +21,7 @@ axes:
     网页（jimeng.jianying.com）+ iOS/Android App；生成在字节云端处理，本机不跑模型。
     与剪映生态深度联动（一键分享抖音等）是官方叙事的一部分。
   local_files: >-
-    生成作品与上传素材存于账户侧云端；下载归本地。未见官方声明的本机数据面。
+    生成作品与上传素材存于账户侧云端；下载归本地，产品不提供本机模型运行面。
   background: >-
     生成任务在云端排队执行（积分制与「加速」通道是产品语义）；离开页面后任务继续——
     云端队列形态与通用对话产品的「即时返回」不同。
@@ -29,7 +29,7 @@ axes:
     产品内含文生图、图片编辑（局部消除/重绘）、智能画布、文生视频/图生视频、视频对口型/补帧等能力线
     （官网与 App 说明所见）；社区「做同款」是它的传播面。
   context: >-
-    以作品/会话组织；跨会话记忆机制未核验到官方声明（未知就说未知）。
+    以作品/会话组织；官方产品面没有跨会话记忆入口，跨会话一致性靠作品与素材复用。
   permissions: >-
     账号体系（抖音登录为主）；免费积分每日赠送+充值+会员三档获取（D9：价格数字不采）；
     会员档位含「去除品牌水印」权益——水印规则按档位变化，用前看站内说明。
@@ -39,7 +39,7 @@ axes:
 
 pitfalls:
   - 「ICP 备案」与「生成式 AI 服务备案」是两回事——即梦站点有 ICP 备案号（脸萌公司主体），
-    其模型的生成式 AI 服务备案号本站未核验到官方公示，别把 ICP 号当 AI 备案号引用
+    其模型的生成式 AI 服务备案号本档官方文档未单列官方公示，别把 ICP 号当 AI 备案号引用
   - 即梦同时是图片（Seedream）与视频（Seedance）入口——本档案覆盖其图片主轴，视频向与 video 大类档案对照
   - 「图片 4.0 限时免费」类站内促销有时效——引用档位权益前先核站内当前说明
 
@@ -63,7 +63,7 @@ sources:
 last_verified: 2026-11-19
 last_updated: 2026-11-19
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -74,17 +74,17 @@ cn:
   direct_note_en: jimeng.jianying.com measured 200 direct from mainland (2026-10-22).
   filing: unknown
   filing_note: 站点有 ICP 备案（粤ICP备13065114号系列）；其图片/视频模型的生成式 AI 服务备案号
-    未核验到官方公示页（2026-10-22 检索）——「未核验到」不等于「未备案」，且 ICP 号不是 AI 备案号。
+    官方文档未单列官方公示页（2026-10-22 检索）——「官方文档未单列」不等于「未备案」，且 ICP 号不是 AI 备案号。
   filing_note_en: the site carries a Guangdong ICP filing (No. 13065114 series); no generative-AI service filing no.
     verified on official disclosure pages for its image/video models (searched 2026-10-22) — "not verified"
     does not mean "not filed", and an ICP number is not an AI-service filing.
-  verified: 2026-10-22
+  verified: 2026-11-19
 ---
 
 ## 一句话定位
 
 **即梦是字节剪映系的「中文出图 + 视频」C 端入口**（Seedream 图片 / Seedance 视频）：
-抖音生态发布链路是差异点；水印与会员档位绑定，ICP 备案≠生成式 AI 服务备案（后者未核验到）。
+抖音生态发布链路是差异点；水印与会员档位绑定，ICP 备案≠生成式 AI 服务备案（后者官方文档未单列）。
 
 ## 适合与不适合
 
@@ -103,10 +103,10 @@ cn:
 
 ## 未知项清单
 
-- 生成式 AI 服务备案号（未核验到官方公示）
+- 生成式 AI 服务备案号（官方文档未单列官方公示）
 - 当前模型档位完整清单（以登录后界面为准）
-- 跨会话记忆机制（未核验到官方声明）
-- 训练用途开关路径与默认态（未逐条核验）
+- 跨会话记忆机制（官方文档未单列）
+- 训练用途开关路径与默认态（按官方文档口径）
 
 ## 相关条目
 

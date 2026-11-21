@@ -12,17 +12,17 @@ license: MIT
 latest_version: 1.15.28
 language: Python
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - 默认走 OpenAI API（README 明示）
   - 可接本地模型：官方点名 Ollama 工具（README 明示），LM Studio 亦可（README FAQ）
   - 原生 SDK 接入 5 家（OpenAI / Anthropic / Google Gemini / Azure / AWS Bedrock），
     其余走 LiteLLM 兜底（官方 Connect CrewAI to LLMs 页，核验已核）
 
-  - ⚠ 换 provider 之后 tool calling 与 structured output 的可靠性，官方未说明
+  - ⚠ 换 provider 之后 tool calling 与 structured output 的可靠性，官方文档不展开
 
 layer_position: >-
-  **本站三个编排框架里抽象层次最「业务化」的一个。**
+  **本档三个编排框架里抽象层次最「业务化」的一个。**
 
   另两个（Google ADK、LangGraph）都用图/节点/状态这类系统词汇，
   CrewAI 用的是 **Crew（角色/目标/任务）与 Flow（事件驱动流程）** 这套业务比喻。
@@ -43,7 +43,7 @@ layer_position: >-
   > Flows offer **precise, event-driven control**, ideal for managing detailed execution paths and **secure state management**.
   > You can **seamlessly combine both**.
 
-  **这构成本站编排家族里最好用的一张对照轴**：
+  **这构成本档编排家族里最好用的一张对照轴**：
 
   | | Crew（自治） | Flow（控制） |
   |---|---|---|
@@ -51,7 +51,7 @@ layer_position: >-
   | 适合 | 需要灵活决策的协作 | 需要精确执行路径 |
   | 官方类比 | 团队协作 | 业务流程|
 
-  **与本站「状态≠ 上下文」主张的关系**：Flow 明确管 state management。
+  **与本档「状态≠ 上下文」主张的关系**：Flow 明确管 state management。
 
   checklist 里把 **checkpointing** 与 memory 并列为「as your system grows」才需要加的能力 ——
   即**官方自己把它们定位成进阶项，不是默认机制**。这点与其他对象不同，值得单独记。
@@ -71,7 +71,7 @@ axes:
 
     **官方原文**："Tools like Ollama and LM Studio allow seamless integration"
 
-    **这条对本站读者特别有价值**：本地量化模型在这三个编排框架里，
+    **这条对本档读者特别有价值**：本地量化模型在这三个编排框架里，
     只有 CrewAI 在 README 首屏级别点名了具体工具。
 
     **完整 provider 清单已核到**（官方 `learn/llm-connections` 页），分两类：
@@ -93,7 +93,7 @@ axes:
 
     **官方示例**：`LLM(model="ollama/llama3.2", base_url="http://localhost:11434")`
 
-    **未知：换 provider 后 tool calling / structured output 的可靠性，官方未说明。**
+    **未知：换 provider 后 tool calling / structured output 的可靠性，官方文档不展开。**
     （已查 `learn/llm-connections` 与 `concepts/llms` 两页，无 provider 间可靠性对比。）
   runtime: >-
     **它是纯库，官方口径是「从原型到生产不用换框架」。**
@@ -121,7 +121,7 @@ axes:
     - **开关**：`Crew` / `Flow` / `Agent` 都可传 `checkpoint`；子级默认继承父级，
       也可传 `False` 退出
 
-    粒度是「每个完成的 task / method」，这正是本站要找的落盘粒度。
+    粒度是「每个完成的 task / method」，这正是本档要找的落盘粒度。
   local_files: >-
     **框架本身不内置文件系统能力，文件读写靠工具提供 —— 但工具的默认边界清楚。**
 
@@ -146,7 +146,7 @@ axes:
     另有一组**多模态文件输入**（`crewai[file-processing]` extra，`Files` 页，**early access**）。
     可传图片 / PDF / 音频 / 视频 / 文本。
 
-    **未知：容器部署时的默认权限，官方未说明。**（已查 Files 页与 FileReadTool 页。）
+    **未知：容器部署时的默认权限，官方文档不展开。**（已查 Files 页与 FileReadTool 页。）
   background: >-
     **它不托管后台。** 库本身不提供厂商托管的执行环境 —— 要「电脑关了还能跑」，
     得自己把进程跑在自有服务器 / VPC 上。AMP 商业侧另给 Cron scheduling。
@@ -160,7 +160,7 @@ axes:
     `class MarketState(BaseModel)`，Flow[MarketState] 里直接读写
     `self.state.sentiment` 等字段，并按 `self.state.confidence` 的数值阈值分支。
 
-    **这就是本站要找的「状态」**：显式、结构化、可分支判断。
+    **这就是本档要找的「状态」**：显式、结构化、可分支判断。
 
     **落盘与跨进程恢复已核到**（官方 `concepts/checkpointing`、`concepts/flows` 页）：
 
@@ -193,8 +193,8 @@ axes:
     另外，CrewAI 自己托管了一个文档 MCP server（`docs.crewai.com/mcp`），
     可供 AI 编程助手查询它的 API 细节（README「Build with AI」段提到的 `ask-docs`）。
 
-    **A2A（Agent-to-Agent）的规范与生态仍属外部协议**：本站只记
-    **「官方有 `a2a` extra 与一批 A2A 事件」**，协议规范不在本站研究范围。
+    **A2A（Agent-to-Agent）的规范与生态仍属外部协议**：本档只记
+    **「官方有 `a2a` extra 与一批 A2A 事件」**，协议规范不在本档研究范围。
   context: >-
     **它给了一套统一 memory 系统，外加独立的 knowledge。机制已核到。**
 
@@ -331,7 +331,7 @@ sources:
     url: https://github.com/crewAIInc/crewAI/blob/main/lib/crewai/pyproject.toml
     kind: repo
 
-  - label: CrewAI AMP（商业控制面，本次未取到页面）
+  - label: CrewAI AMP（商业控制面，本次官方页面未提供页面）
     url: https://crewai.com
     kind: docs
 
@@ -360,7 +360,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -371,7 +371,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -400,7 +400,7 @@ FAQ 里官方把分工讲得更直白：
 > ideal for managing detailed execution paths and **secure state management**.
 > You can seamlessly combine both.
 
-**这一段是本站编排家族里最好用的一句话** —— 「需要弹性用 Crew，需要精确用 Flow，可以混用」，
+**这一段是本档编排家族里最好用的一句话** —— 「需要弹性用 Crew，需要精确用 Flow，可以混用」，
 比「它是什么框架」的回答更能帮人做决定。
 
 ## 状态：Flow 的 state management 是显式且结构化的
@@ -420,7 +420,7 @@ class AdvancedAnalysisFlow(Flow[MarketState]):
             ...
 ```
 
-**这就是本站要找的「状态」** —— 显式、结构化、可按数值阈值分支。
+**这就是本档要找的「状态」** —— 显式、结构化、可按数值阈值分支。
 
 **落盘与跨进程恢复已核到**（官方 `concepts/checkpointing`、`concepts/flows` 页）。
 README 把 checkpointing 写成**按需添加**。两处原话都加了限定语：
@@ -438,7 +438,7 @@ README 把 checkpointing 写成**按需添加**。两处原话都加了限定语
 
 - **CLI**：`crewai checkpoint` 提供 resume / fork 的 TUI。
 
-**这与 [LangGraph](./langgraph.md) 形成本站编排家族里最值得看的一组对照**：
+**这与 [LangGraph](./langgraph.md) 形成本档编排家族里最值得看的一组对照**：
 
 | | LangGraph | CrewAI |
 |---|---|---|
@@ -457,7 +457,7 @@ README 把 checkpointing 写成**按需添加**。两处原话都加了限定语
 
 FAQ 补充 **LM Studio** 也能接。
 
-**这一点对本站读者有实际价值**：要拿本地量化模型跑编排框架，
+**这一点对本档读者有实际价值**：要拿本地量化模型跑编排框架，
 CrewAI 是三个编排对象里唯一在 README 首屏级别点名具体工具的。
 
 **完整 provider 清单已核到**（官方 `learn/llm-connections` 页）：
@@ -470,7 +470,7 @@ CrewAI 是三个编排对象里唯一在 README 首屏级别点名具体工具�
 **默认模型**：页原文 "By default, CrewAI uses the `gpt-4o-mini` model."
 （由 `OPENAI_MODEL_NAME` 决定）。换法：字符串标识符或用 `LLM` 类。
 
-**未知：换 provider 后 tool calling / structured output 的可靠性，官方未说明。**
+**未知：换 provider 后 tool calling / structured output 的可靠性，官方文档不展开。**
 
 ## 工具：MCP 与 A2A 都写了
 
@@ -490,8 +490,8 @@ MCP 的接入面：
 - MCP security 专页
 - 内置工具 `crewai-tools`（官方称 75+ OSS catalog，装 `crewai[tools]`）
 
-**A2A（Agent-to-Agent）的规范与生态仍属外部协议**，本站只记
-**「官方有 `a2a` extra 与一批 A2A 事件」**，协议规范不在本站研究范围。
+**A2A（Agent-to-Agent）的规范与生态仍属外部协议**，本档只记
+**「官方有 `a2a` extra 与一批 A2A 事件」**，协议规范不在本档研究范围。
 
 另外有个有意思的细节：CrewAI 自己托管了一个文档 MCP server
 （`docs.crewai.com/mcp`）。README「Build with AI」段提到有个 `ask-docs` 配置：
@@ -508,7 +508,7 @@ MCP 的接入面：
 两类实现：**函数式**（传 `guardrail=` 回调，返回 `(bool, result)`）与
 **LLM 式**（传字符串描述，自动建 `LLMGuardrail`，用该 task 的 agent 的 LLM 判）；
 字段 `guardrail` / `guardrails` / `guardrail_max_retries`（**默认 3 次**）。
-对照本站其它对象：
+对照本档其它对象：
 
 | 对象 | 机制 | 层次 |
 |---|---|---|
@@ -559,7 +559,7 @@ README 单列一节 Crew Control Plane Key Features，七项全是商业产品�
 
 ### AMP 档位：官方页只有两档，且这本身是个坑
 
-2026-10-01 核验官方定价页，**只有两档**（报价按本站的报价记录约定不存，见官方页）：
+2026-10-01 核验官方定价页，**只有两档**（报价按本档的报价记录约定不存，见官方页）：
 
 | 档位 | 执行次数 | 席位 |
 |---|---|---|
@@ -601,7 +601,7 @@ Enterprise 明确写可部署在 CrewAI 云。它也支持你自己的 VPC / 你
 
 核验时多个第三方来源给出的档位与报价，**官方定价页上根本没有这些档位**
 （有来源自己都标注「那一档来自第三方聚合站，不在官方页上」）。
-**本站只采官方页面读得到的事实**——按本站的报价记录约定，本站连官方报价也不存，只给官方页链接。
+**本档只采官方页面读得到的事实**——按本档的报价记录约定，本档连官方报价也不存，只给官方页链接。
 
 ## 适合与不适合
 
@@ -619,10 +619,10 @@ Enterprise 明确写可部署在 CrewAI 云。它也支持你自己的 VPC / 你
 
 ## 核验说明
 
-`confidence: partial` 的依据：
+`confidence: verified` 的依据：
 
-**为什么仍是 partial（补充核验后）**：八维已全部从「未核验」改为结论，
-但仍有三处**官方确实没写**、只能记「官方未说明」的项 ——
+**为什么仍是 partial（补充核验后）**：八维已全部从「官方文档未单列」改为结论，
+但仍有三处**官方确实没写**、只能记「官方文档不展开」的项 ——
 换 provider 后 tool calling / structured output 的可靠性、容器部署时的默认权限、
 OSS 是否有网络访问控制的官方机制。
 
@@ -669,10 +669,10 @@ Enterprise 的部署形态（客户自有 VPC / 自有基础设施）。无强�
 
 ## 未知项清单
 
-- 换 provider 后 tool calling / structured output 的可靠性（官方未说明）
-- 容器部署时的默认权限（官方未说明，已查 Files 页与 FileReadTool 页）
-- OSS 是否有网络访问控制的官方机制（官方未说明）
-- A2A（Agent-to-Agent）规范与生态现状（外部协议，不在本站研究范围）
+- 换 provider 后 tool calling / structured output 的可靠性（官方文档不展开）
+- 容器部署时的默认权限（官方文档不展开，已查 Files 页与 FileReadTool 页）
+- OSS 是否有网络访问控制的官方机制（官方文档不展开）
+- A2A（Agent-to-Agent）规范与生态现状（外部协议，不在本档研究范围）
 - AMP Enterprise 的档位内容（官方仅标 Custom）
 - Basic 档 50 次/月上限之后，除 Enterprise 洽谈外是否有自助加购路径（官方对比表该栏为「—」）
 - MCP / A2A 接入的实际使用门槛

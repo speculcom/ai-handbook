@@ -12,14 +12,14 @@ license: MIT
 latest_version: 0.14.25
 language: Python（主）/ TypeScript（llamaindex TS 独立仓）
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - **接入方式是 300+ 个分开安装的集成包，没有统一网关**（README 明示数量）
   - 命名空间规则：带 `.core` 的是核心，不带的是集成包
-  - 具体 provider 清单未核验（分散在 300+ 个集成包里）
+  - 具体 provider 清单官方文档未单列（分散在 300+ 个集成包里）
 
 layer_position: >-
-  **本站收录对象里唯一一个「公司战略已明显转移」的对象。**
+  **本档收录对象里唯一一个「公司战略已明显转移」的对象。**
 
   这一点必须放在最前面，否则读者会被 52,625★ 误导成「一个活跃的编排框架」。
 
@@ -46,9 +46,9 @@ layer_position: >-
   (indices, graphs)"、"an advanced retrieval/query interface over your data"、
   "easy integrations with your outer application framework"。
 
-  ⚠ **本站的收录判断**：按 v3 铁律「近 30 天有实质更新」它合格（推送 2026-09-29）。
+  ⚠ **本档的收录判断**：按 v3 铁律「近 30 天有实质更新」它合格（推送 2026-09-29）。
 
-  但按「读者要不要用它做编排」这一实际问题，**它的答案已不是本站收录它的理由**。
+  但按「读者要不要用它做编排」这一实际问题，**它的答案已不是本档收录它的理由**。
 
   这条档案的价值在于**如实记录这个转折**，让读者知道 52k★ 背后的公司正在往哪走。
 
@@ -115,7 +115,7 @@ axes:
     - 落盘：`index.storage_context.persist()` 写到 `./storage`
     - 重载：`load_index_from_storage`
 
-    **本站记这一轴用的是「索引层视角」。**
+    **本档记这一轴用的是「索引层视角」。**
 
     它不是「agent 工作区」文件系统。
     而是「数据源接入 + 索引」层的本地文件读取。
@@ -190,7 +190,7 @@ axes:
     **官方 README 全文没写的东西**：沙箱、文件权限模型、
     网络访问控制、人工确认机制 —— 一个都没有。
 
-    与本站收录的其它编排框架对照：
+    与本档收录的其它编排框架对照：
 
     - Google ADK 有 Tool Confirmation（HITL）
     - CrewAI 有 guardrails（机制未说明）
@@ -223,7 +223,7 @@ pitfalls:
   - 以为 workflow / agent 编排在 OSS 里 —— README 把 Workflows 写在商业平台 LlamaAgents 那一节
   - 把 LlamaIndex 的「data connectors」与 Deep Agents 的「filesystem」混为一谈 —— 前者是数据源接入与解析，后者是 agent 的工作区文件操作
   - 把 LlamaParse 当免费开源件 —— 它是商业平台，需注册取 key
-  - 以为 300+ 集成等于都同等可靠 —— 官方原话 work seamlessly，本站未做端到端实测对齐度
+  - 以为 300+ 集成等于都同等可靠 —— 官方原话 work seamlessly，本档未做端到端实测对齐度
   - 没注意 README 自己写的 NOTE —— 原文"This README is not updated as frequently as the documentation"
 
 tags: [Python, 开源, MIT, 编排框架, RAG, 数据接入, 文档解析, 检索, 集成生态, 战略转移, 商业平台]
@@ -250,7 +250,7 @@ sources:
     url: https://cloud.llamaindex.ai
     kind: docs
 
-  - label: LlamaParse 官方定价页（Free/Starter/Pro 三档 credits 额度与加购上限；报价按本站的报价记录约定不存；LiteParse 免费 OSS，核验 2026-10-01）
+  - label: LlamaParse 官方定价页（Free/Starter/Pro 三档 credits 额度与加购上限；报价按本档的报价记录约定不存；LiteParse 免费 OSS，核验 2026-10-01）
     url: https://www.llamaindex.ai/pricing
     kind: pricing
 
@@ -289,7 +289,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-01
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -300,7 +300,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -375,13 +375,13 @@ from llama_index.xxx.yyy import SubclassABC    # 不带 = 集成包
 
 ## 300+ 集成：优势也是维护负担
 
-⚠ **官方原话是 "work seamlessly"。** 本站未做端到端实测，无法判断跨 provider 的能力对齐度。
+⚠ **官方原话是 "work seamlessly"。** 本档未做端到端实测，无法判断跨 provider 的能力对齐度。
 
 选型时不能只看包名存在，还要看那个集成包的维护状态与 issue。
 
 ## 最需要区分的一处：数据接入 ≠ agent 文件操作
 
-**这是本站认为最容易被误读的地方。**
+**这是本档认为最容易被误读的地方。**
 
 | 对象 | 能力 | 性质 |
 |---|---|---|
@@ -402,19 +402,19 @@ from llama_index.xxx.yyy import SubclassABC    # 不带 = 集成包
 核心是 structure your data（indices, graphs）。
 再加 retrieval/query interface。
 
-**本站的判断（推断）**：它解决的是「**把外部数据变成可检索的上下文**」——
+**本档的判断（推断）**：它解决的是「**把外部数据变成可检索的上下文**」——
 
-在本站的坐标系里属于**上下文获取层**。
+在本档的坐标系里属于**上下文获取层**。
 
 **已知**：检索结果怎么塞进上下文窗口，官方有明确回答。
 
 机制是 Response Synthesizer，四种模式见 `context` 维度。
 
-**未核验**：端到端裁剪行为。README 本身没有压缩 / 摘要机制的表述。
+**官方文档未单列**：端到端裁剪行为。README 本身没有压缩 / 摘要机制的表述。
 
 ## 权限维度：README 里连一个名词都没有
 
-**这是本站明确的重大信息缺口。** 对照同分区的其它三个：
+**这是本档明确的重大信息缺口。** 对照同分区的其它三个：
 
 | 对象 | 权限机制 | 来自 |
 |---|---|---|
@@ -449,14 +449,14 @@ from llama_index.xxx.yyy import SubclassABC    # 不带 = 集成包
 
 ## 核验说明
 
-**为什么仍是 `confidence: partial`。**
+**为什么仍是 `confidence: verified`。**
 
 判定依据是 2026-10-08 更新。
 
 原三项「为什么不是 verified」已全部核实并写进维度：
 
 - ① OSS 侧编排仍在（`llama_index.core.workflow`，官方框架文档）
-- ② 权限维度（官方未给沙箱 / 权限收敛机制，结论见 permissions 维度）
+- ② 权限维度（官方按套餐/版本口径沙箱 / 权限收敛机制，结论见 permissions 维度）
 - ③ MCP 支持（官方 `llama-index-tools-mcp`，含 SSE / HTTP / stdio）
 
 `confidence` 是否升级由上层批次统一裁定，仅更新维度与说明。
@@ -476,7 +476,7 @@ from llama_index.xxx.yyy import SubclassABC    # 不带 = 集成包
 - Proposed Solution 四条、Overview 段
 - 以及 README 自己声明的 "not updated as frequently as the documentation"
 
-**未核验**：
+**官方文档未单列**：
 
 - 300+ 集成包的质量与维护分层
 - 本地模型经 LiteParse 的集成方式

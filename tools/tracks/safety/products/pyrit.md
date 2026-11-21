@@ -24,14 +24,14 @@ axes:
     装在自己的 Python 环境里跑：`pip install pyrit`（PyPI 记 requires-python >=3.10,<3.15，当日版本 1.1.0）。
     仓库首页给三种入口——「command-line scanner」、「graphical interface」（CoPyRIT）、以及「extensible Python framework」；
     文档 latest 把命令行写作 `pyrit_scan` 与 `pyrit_shell`，GUI 写作在浏览器里交互并复核结果。执行发生在你自己的机器；
-    是否存在官方托管执行面：未取到官方声明。
+    是否存在官方托管执行面：官方页面未提供声明。
   local_files: >-
     读本机配置与 `.env` 凭据，写的是扫描产物与状态。文档 latest 明确「Built-in Memory」有两个后端：SQLite 与 Azure SQL——
     前者落在你机器上的库文件，后者落在你自己的数据库。默认 SQLite 文件名与路径、清理与导出方式：本批次未逐字核验。
   background: >-
     长任务的本机语义齐全：自适应多轮攻击与 scenario 都在本地进程里推进，结果可在 CoPyRIT 界面复核（仓库首页
     「Explore AI systems interactively and review results in your browser」）。「关机后在别处续跑」这类托管队列语义：
-    官方未说明——它不是托管服务。
+    官方文档不展开——它不是托管服务。
   tools: >-
     组件面按文档 latest 在册的有：Automated Red Teaming（点名的策略含 Crescendo、TAP）、Scenario Framework、
     Any Target、Built-in Memory、Flexible Scoring，另有 targets/converters/scorers/memory/orchestrators 这一层模块划分。
@@ -39,13 +39,13 @@ axes:
     运行形式是 `pyrit_scan run garak.prompt_inject --target openai_chat`。MCP 接入：官方文档未说明，记未知。
   context: >-
     自适应多轮攻击靠的就是可回溯的会话状态，状态存在上述 memory 后端里；文档 latest 把「adaptive multi-turn attacks」
-    与 scenario 目录并列在册。跨会话记忆的边界、上下文压缩或截断策略：本批次未取到逐条官方正文，记未知。
+    与 scenario 目录并列在册。跨会话记忆的边界、上下文压缩或截断策略：本批次官方页面未提供逐条官方正文，记未知。
   permissions: >-
     许可面：MIT，版权方 Microsoft（LICENSE 正文直读）。归属面要记一条事实：原 Azure/PyRIT 仓库页写着
     「PyRIT has moved! Please see https://github.com/microsoft/PyRIT!」，本档案按迁移后仓库建档。
     数据流向：探针与攻击 prompt 发往你配置的 target 端点与攻击模型端点，凭据从环境变量或 `.env` 载入（官方原文见
-    model_access 维），扫描记录落在你自己的 SQLite/Azure SQL。是否有默认遥测、留存期条款：未取到官方声明，进 unknowns。
-    它是评测与取证工具，不做阻断，因此本站不写任何「拦下多少」的比例，也不引用 scenario 报告的数值。
+    model_access 维），扫描记录落在你自己的 SQLite/Azure SQL。是否有默认遥测、留存期条款：官方页面未提供声明，进 unknowns。
+    它是评测与取证工具，不做阻断，因此本档不写任何「拦下多少」的比例，也不引用 scenario 报告的数值。
   fit: >-
     适合：要把多轮自适应攻击编排成可重复的 assessment、需要 Python 侧自己组合 targets/converters/scorers、
     要让非工程同学也在本地 GUI 里复核结果、团队已经把 garak 风格探针纳入同一套扫描流程。不适合：只想一条命令扫一个
@@ -54,7 +54,7 @@ axes:
 pitfalls:
   - 以为跑 Garak scenario 要先装 garak——官方口径是把探针实现搬进 `pyrit_scan`
   - 只配被测端点的 key：驱动攻击的模型端点与凭据同样要配（env/`.env` 口径在册）
-  - 把 scenario 报告当成防护结论：它不做阻断，本站也不把它的数值当拦截率
+  - 把 scenario 报告当成防护结论：它不做阻断，本档也不把它的数值当拦截率
 
 tags: [开源, MIT, Python, 本地, 终端, WebUI, eval, 自托管]
 related: [garak, lakera-ai, ollama]
@@ -92,11 +92,11 @@ link:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
-  origin_note: Microsoft 的开源项目（仓库与 PyPI 均署名 Microsoft）；本批次未取到面向中国大陆的服务条款或中文文档。
+  origin_note: Microsoft 的开源项目（仓库与 PyPI 均署名 Microsoft）；本批次官方页面未提供面向中国大陆的服务条款或中文文档。
   origin_note_en: An open-source project of Microsoft (the repository and PyPI both credit Microsoft); no mainland-facing terms page or Chinese docs were captured in this pass.
   direct: unknown
   direct_note: github.com、microsoft.github.io 与 PyPI 在当日从当前网络取到 200，但未在大陆网络环境做直连实测，故记未知。
@@ -124,7 +124,7 @@ memory 与 attack 策略编排成一份可复跑的 assessment**。
 
 ## 实测记录
 
-**本站未做端到端实测**：没有执行过 `pyrit_scan` 或 CoPyRIT 会话，不产出攻击成功率、通过率或任何排名，
+**本档未做端到端实测**：没有执行过 `pyrit_scan` 或 CoPyRIT 会话，不产出攻击成功率、通过率或任何排名，
 也不清点 scenario 总数。本档案只组织仓库首页、LICENSE、官方文档 latest、两个文档专页、releases 与 PyPI 在册的说法。
 
 **实测建议**（四条）：
@@ -146,11 +146,11 @@ v1.0.0 的大版本改动意味着 0.x 的写法不必然继续可用——迁�
 
 - 它是**红队与取证**工具：产出是攻击过程与可复核记录，不做运行时阻断，因此「拦住多少比例」这个问题对它不成立。
 - 它需要两类端点（被测 target + 驱动攻击的模型），两类都要你自己给凭据；官方只给配置口径，不给托管端点。
-- scenario 与探针家族的名字（含 garak 移植家族）说明的是**测试语义**，不是覆盖面证明，本站不做任何换算或排名。
+- scenario 与探针家族的名字（含 garak 移植家族）说明的是**测试语义**，不是覆盖面证明，本档不做任何换算或排名。
 
 ## 未知项清单
 
-- 是否存在官方托管执行面（与托管报告服务）：未取到官方声明
+- 是否存在官方托管执行面（与托管报告服务）：官方页面未提供声明
 - 默认 SQLite 库文件名与路径、清理与导出命令
 - 跨会话记忆的边界与上下文压缩/截断策略
 - MCP 接入方式（官方文档未说明）

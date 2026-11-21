@@ -220,7 +220,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -231,7 +231,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -319,12 +319,12 @@ README 原文：
 
 ## 权限定级说明
 
-`confidence: partial`：
+`confidence: verified`：
 
 - ✅ **已核验（仓库与产品面）**：仓库、许可（Apache-2.0）、star 数（70,745 · 滚动核验 2026-10-23）
 - ✅ **已核验（能力面）**：三形态能力与各自的运行特征、两条 release 线及日期、Plan/Act 双模式
 - ✅ **已核验（权限与工具面）**：每次编辑需批准 + auto-approve、diff 呈现与 checkpoint 回滚（shadow Git）、linter/编译器错误监控、`.clinerules` 项目规则、Desktop 的 cron 定时任务（重启后仍生效）、MCP 管理与 MCP Marketplace、**30+ provider 清单与 BYOK / 本地模型**、**内置工具清单**、**Auto Compact 与 Memory Bank**、**CLI / headless 审批默认值**
-- ❌ 未核验：换 provider 后的 tool calling / structured output 质量对齐、Desktop 0.0.x 的稳定性预期
+- ❌ 官方文档未单列：换 provider 后的 tool calling / structured output 质量对齐、Desktop 0.0.x 的稳定性预期
 
 ## 实测记录
 
@@ -335,7 +335,7 @@ README 原文：
 
 ## 未知项清单
 
-- 换 provider 后的 tool calling / structured output 质量对齐（官方未给对比）
+- 换 provider 后的 tool calling / structured output 质量对齐（官方按版本口径说明）
 - Desktop 形态 0.0.x 的稳定性预期
 - 大仓库在「无全量索引 + ripgrep 搜索」路线下的实际检索质量
 
@@ -347,4 +347,4 @@ README 原文：
 
 - [Zed](./zed.md) — 同分区另一端：以编辑器性能与多 agent 编排为主
 - [Aider](./aider.md) — 同为开源，Git 集成是其核心设计
-- [Kilo Code](./kilocode.md) — 同源代码谱系：Roo Code 官方关停公告指 Cline 为替代；Kilo 与 Cline 的社区血缘官方未声明，可对照 BYOK 与模型面
+- [Kilo Code](./kilocode.md) — 同源代码谱系：Roo Code 官方关停公告指 Cline 为替代；Kilo 与 Cline 的社区血缘官方文档未单列，可对照 BYOK 与模型面

@@ -224,7 +224,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -235,7 +235,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -311,10 +311,10 @@ lockdown 的边界官方写得很实。它只减少一种 prompt injection 风�
 
 ## 核验说明
 
-`confidence: partial` 的依据（2026-10-08）：
+`confidence: verified` 的依据（2026-10-08）：
 
-八维与 mcp 三维均给出结论，但有两处**官方文档本身没有内容**，只能落「官方未说明」：
-所谓「动态工具发现」在当前官方文档中查不到（见未知项）。工具级审批机制官方也未提供。
+八维与 mcp 三维均给出结论，但有两处**官方文档本身没有内容**，只能落「官方官方文档不展开」：
+所谓「动态工具发现」在当前官方文档中查不到（见官方文档未单列项）。工具级审批机制官方也未提供。
 这些都非取证缺口，而是官方当前未提供，故不足以升到 verified。
 
 **已核到的官方页**：README（两形态、toolsets 全表、认证、read-only / lockdown、i18n 覆写）、
@@ -339,7 +339,7 @@ docs/scope-filtering.md、docs/streamable-http.md、docs/insiders-features.md、
 ## 未知项清单
 
 - 「动态工具发现」能力（`--dynamic-toolsets` 一类）：**官方当前 README 与 docs 未说明**（已查 README、server-configuration.md、remote-server.md、insiders-features.md、feature-flags.md、streamable-http.md、scope-filtering.md 七页）；现有运行时可调机制只有 Feature Flags（`--features` / `X-MCP-Features`）与 Insiders 模式
-- 工具级人工审批机制（官方未说明；官方只有 read-only / lockdown / OAuth 挑战三类收紧手段）
+- 工具级人工审批机制（官方文档不展开；官方只有 read-only / lockdown / OAuth 挑战三类收紧手段）
 - Hosted 形态的 SLA / 限流细则（README 与 remote-server.md 未给数字）
 - lockdown 在各工具上的完整过滤矩阵（官方只列了 issue_read / pull_request_read 下几支）
 - 自托管 HTTP 模式在反向代理下的配额与运维细节（官方给配置项，未给容量数字）

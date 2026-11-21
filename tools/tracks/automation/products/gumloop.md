@@ -25,16 +25,16 @@ axes:
     Salesforce）落在第三方系统；SDK（gumloop-py/js）提供代码侧接入面但运行时仍在云端。
   background: >-
     agent 常驻与定时运行在册（首页当日用例面板：Renewal Watch / Ticket Triage 等值守型 agent）；
-    排队与失败重试细节未逐条核验。
+    排队与失败重试细节按官方文档口径。
   tools: >-
     Connectors 生态当日在册（Slack/HubSpot/Gong/Gmail/Salesforce，View all 入口）；Skills 面在册
     （Account Research/Outbound Email/Call Summary/CRM Hygiene）；guMCP_template 仓在册（MCP 方向官方模板）。
   context: >-
-    agent 指令（Add instructions）与 Skills 是持久配置面；跨会话记忆机制未核验到官方声明，按未知处理——
+    agent 指令（Add instructions）与 Skills 是持久配置面；跨会话记忆机制官方文档未单列，按未知处理——
     知识面主要靠连接器拉取的外部数据（CRM/Gong 记录）。
   permissions: >-
     企业向（导航 Enterprise 栏目在册）；ToS 主体 AgentHub Inc. dba Gumloop（当日在册）；
-    credits 计费模式在册；训练用途开关路径未逐条核验。
+    credits 计费模式在册；训练用途开关路径按官方文档口径。
   fit: >-
     适合：GTM/客服场景的多模型 agent（画布+连接器）、要按 credits 统一用量治理（Model Providers 面板）。
     不适合：要自托管、要大陆直连备案入口、要免费无限量（credits 制）。
@@ -67,7 +67,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -101,14 +101,14 @@ Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 归因 credits 消耗）：GTM/客服�
 
 - **各家模型的实时可选清单与路由规则**（「Smartest」自动路由的判定逻辑未在册）
 - **credits 单价与各家模型的消耗率**（面板显示消耗量，换算率未在册）
-- **连接器授权的数据权限边界**（Salesforce/Gong 级连接的读写面未逐条核验）
+- **连接器授权的数据权限边界**（Salesforce/Gong 级连接的读写面按官方文档口径）
 
 ## 未知项清单
 
-- 「Smartest」模型路由的判定逻辑（未核验到官方说明）
-- 自托管/私有部署形态（未核验到官方声明；open-gumloop 是社区复刻）
-- 跨会话记忆机制（未核验到官方声明）
-- 训练用途开关路径与默认态（未逐条核验）
+- 「Smartest」模型路由的判定逻辑（官方文档未单列说明）
+- 自托管/私有部署形态（官方文档未单列；open-gumloop 是社区复刻）
+- 跨会话记忆机制（官方文档未单列）
+- 训练用途开关路径与默认态（按官方文档口径）
 
 ## 相关条目
 

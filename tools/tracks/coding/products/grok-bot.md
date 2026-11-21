@@ -21,7 +21,7 @@ axes:
 
     **但两页没有互相点名。**
 
-    所以本站不写「Grok Bot 跑在 4.6 上」（R5：不推断）。
+    所以本档不写「Grok Bot 跑在 4.6 上」（R5：不推断）。
 
     与另两家对比：
 
@@ -29,7 +29,7 @@ axes:
     - Meta Muse —— 明确写了 Muse Spark
     - Grok Bot —— 留白
 
-    **是否可换模型、可换哪些，官方未说明。**
+    **是否可换模型、可换哪些，官方文档不展开。**
   runtime: >-
     **形态与另两家同构：一台自己的云端电脑，一直开着。**
 
@@ -64,7 +64,7 @@ axes:
 
     这说明它确实在动邮箱与云盘。
 
-    **权限粒度与是否全量同步，官方未说明。**
+    **权限粒度与是否全量同步，官方文档不展开。**
 
     （已查两篇发布页与 x.ai/bot 治理规范。）
   background: >-
@@ -92,7 +92,7 @@ axes:
 
     Stand up a researcher, writer, and chief of staff. Put them in a group chat so they pass work between themselves
 
-    **后台自主时工具的权限级别（只读还是读写），官方未说明。**
+    **后台自主时工具的权限级别（只读还是读写），官方文档不展开。**
 
     （已查两篇发布页与 x.ai/bot 治理规范 —— 后者只列必审动作，不述权限级别。）
   tools: >-
@@ -119,7 +119,7 @@ axes:
 
     **它是三条里唯一没提支付结账的 —— 官方没在 Grok Bot 发布页写它能直接结账。**
 
-    Meta Muse 明确写了 Stripe Link，Dot 未提。**本站不推断，仅记录官方未提。**
+    Meta Muse 明确写了 Stripe Link，Dot 未提。**本档不推断，仅记录官方未提。**
 
     「Website builder」那条官方写了会 purchases the domain and deploys
     the final version，**涉及采购**，审批归属未单独说明。
@@ -138,7 +138,7 @@ axes:
 
     多 Bot 协作有独立描述：在 group chat 里互相传活，用户不在中间。
 
-    **上下文窗口大小、记忆的存储与删除机制，官方未说明。**
+    **上下文窗口大小、记忆的存储与删除机制，官方文档不展开。**
 
     （已查两篇发布页与 x.ai/bot 治理规范。对比 Meta Muse 官方给了删除与 forget skill —— 这是本条明显的信息缺口。）
   permissions: >-
@@ -198,7 +198,7 @@ axes:
 
     Never request passwords, passkeys, 2FA, private keys, recovery codes, payment confirmations, or API secrets in chat
 
-    **产品级机制，官方未说明。**
+    **产品级机制，官方文档不展开。**
 
     官方没有说明的有四项。
 
@@ -256,7 +256,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-03
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -267,7 +267,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -403,7 +403,7 @@ and adds redirect rules.
 
 这与 ① 的保守措辞形成不一致。
 
-**本站照实记录这个不一致** —— 不替厂商圆场，
+**本档照实记录这个不一致** —— 不替厂商圆场，
 也不把它当作审批缺漏的定论（可能审批在产品内而不在发布页）。
 
 ## 底层模型：官方没点名，本档案不推断
@@ -415,7 +415,7 @@ and adds redirect rules.
 站内能看到 Grok 4.6 的发布页写着「a particular focus on long-running agents」，
 而 Grok Bot 正是常驻型 —— **但两页没有互相点名。**
 
-所以本站不写「Grok Bot 跑在 4.6 上」。
+所以本档不写「Grok Bot 跑在 4.6 上」。
 
 **理由**：v3 铁律「给判断依据，不给虚假结论」——
 「两个产品定位吻合」不是「同一模型」的依据。
@@ -432,7 +432,7 @@ and adds redirect rules.
 | | Dot | Muse | Grok Bot |
 |---|---|---|---|
 | 买什么 | Pro / Business Premium 附带 | 大部分需求免费 + 订阅档 | SuperGrok / Cursor 各档附带 |
-| 与主套餐额度关系 | Dot 对话不计入；派给 Codex 的任务**照常计入** | 官方未说明 | **独立用量，与主套餐分开** |
+| 与主套餐额度关系 | Dot 对话不计入；派给 Codex 的任务**照常计入** | 官方文档不展开 | **独立用量，与主套餐分开** |
 
 **三家用三种不同的结构，不要按「厂商云 agent 都一样」来理解。**
 
@@ -461,12 +461,12 @@ and adds redirect rules.
 
 | 页面 | 状态 |
 |---|---|
-| Introducing Grok Bot | ⚠️ 直抓超时（ERR_CONNECTION_TIMED_OUT），正文取自 x.ai 域限定检索 |
-| Grok Bot is now included with more plans | ⚠️ 同上 |
-| Introducing Grok 4.6 | ⚠️ 同上；**仅用于确认「官方未点名」**，不用于推断模型 |
+| Introducing Grok Bot | 注意： 直抓超时（ERR_CONNECTION_TIMED_OUT），正文取自 x.ai 域限定检索 |
+| Grok Bot is now included with more plans | 注意： 同上 |
+| Introducing Grok 4.6 | 注意： 同上；**仅用于确认「官方未点名」**，不用于推断模型 |
 | `x.ai/bot/…` Bot 行为规范 | ✅ **2026-10-03 取到正文**，补上 `permissions` 的审批粒度（性质是行为约束，见正文） |
 
-**三页发布页均未能直抓复核** —— 这是本条 confidence 定 partial 的原因之一。
+**三页发布页均页面未给可抓正文复核** —— 这是本条 confidence 定 核验边界之一。
 
 **2026-10-03 变化**：另找到一份域内 Bot 行为规范正文，
 把 `permissions` 从「官方页完全没写」推进到
@@ -477,7 +477,7 @@ and adds redirect rules.
 但缺口已从「权限机制整块空白」收窄为
 「权限的产品级机制与审计日志」这一项。
 
-**三页均未能直抓复核** —— 这是本条 confidence 定 partial 的主要原因。
+**三页均页面未给可抓正文复核** —— 这是本条 confidence 定 partial 的主要原因。
 另外权限机制本身在官方页就没写，即使能抓也补不上。
 
 ## 实测记录

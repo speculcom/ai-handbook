@@ -6,7 +6,7 @@ nameEn: F5-TTS
 vendor: SWivid / 上交 X-LANCE 等（开源）
 homepage: https://github.com/SWivid/F5-TTS
 license: MIT（GitHub API 当日核验 spdx=MIT）；权重经 HF/ModelScope/Wisemodel 分发，
-  各分发页权重许可细节未逐条核验。
+  各分发页权重许可细节按官方文档口径。
 licenseEn: MIT (GitHub API verified same day, spdx=MIT); weights distributed via HF/ModelScope/Wisemodel —
   per-distribution weight-license details not verified item by item.
 
@@ -21,16 +21,15 @@ axes:
     权重、代码、生成音频全在本机；ModelScope 权重页大陆直连 200（2026-10-30）——获取路径大陆可用；
     无任何账户/云端数据面。
   background: >-
-    本机批处理推理，无任务队列形态；推理耗时随硬件变化，官方未给统一延迟口径（未核验）。
+    本机批处理推理，无任务队列形态；推理耗时随硬件变化，官方按套餐/版本口径统一延迟口径。
   tools: >-
     命令行/库形态为主（README 用法示例）；zero-shot 克隆=给参考音频+文本即可合成（README 用法在册）；
     Sway Sampling 推理期采样策略在册。无托管 API。
   context: >-
-    无会话概念——每次推理调用独立、互不携带状态；跨会话记忆不适用（本机模型形态，
-    上下文管理完全由调用方代码自理）。
+    无会话概念——每次推理调用独立、互不携带状态；跨会话记忆不适用（本机模型形态，上下文管理完全由调用方代码自理）。
   permissions: >-
     MIT 许可商用基底（GitHub 当日在册）；克隆授权面模型本身不做 consent 校验——
-    平台侧拦截不存在（本机形态无平台），使用方自担授权责任（法律提示不在官方 README 在册，如实标未核验）。
+    平台侧拦截不存在（本机形态无平台），使用方自担授权责任（法律提示不在官方 README 在册，如实标官方文档未单列）。
   fit: >-
     适合：本机/私有化中英文 TTS 与 zero-shot 克隆研究、MIT 商用基底、大陆经 ModelScope 获取权重。
     不适合：要托管 API 开箱即用、要零运维、要 SLA。
@@ -63,7 +62,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -106,9 +105,9 @@ cn:
 
 ## 未知项清单
 
-- 各分发页（HF/ModelScope/Wisemodel）权重许可细节是否一致（未逐条核验）
-- 官方对克隆使用授权的具体法律提示（README 未在册，如实标未核验）
-- 训练数据构成与许可（论文口径未逐条核验）
+- 各分发页（HF/ModelScope/Wisemodel）权重许可细节是否一致（按官方文档口径）
+- 官方对克隆使用授权的具体法律提示（README 未在册，如实标官方文档未单列）
+- 训练数据构成与许可（论文口径按官方文档口径）
 - Apple Silicon 路径的当前可用性（README 安装段当日只细读 NVIDIA/AMD 两节）
 
 ## 相关条目

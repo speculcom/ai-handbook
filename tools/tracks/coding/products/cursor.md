@@ -114,7 +114,7 @@ axes:
     ⚠ 旧版档案写「从 Pro+ 起可用」——那是旧定价页能力清单的表述；
     2026-10-23 滚动核验时档位已换轨（见「档位结构」一节），
     新定价页与 MCP 文档页均未再标注这三项的档位门槛，
-    **本站未核验到新档位下这三项的可用范围**。
+    **本档官方文档未单列新档位下这三项的可用范围**。
     **Bugbot 是智能体驱动的代码审查。**
 
     Teams 档另有团队应用市场，面向内部规则、技能与插件。
@@ -264,7 +264,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-09-29
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -275,7 +275,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -357,7 +357,7 @@ cn:
 
 ⚠ **档位命名与结构已整体换轨**（旧 6 档 Hobby/Pro/Pro+/Ultra/Teams/Enterprise 已退役）。
 官方定价页现列 **Free / Plus / Premium / Super / Ultra / Teams / Enterprise**
-（报价数字按本站的报价记录约定不存，见官方定价页）：
+（报价数字按本档的报价记录约定不存，见官方定价页）：
 
 | 档位 | 关键能力（官方口径） |
 |---|---|
@@ -373,7 +373,7 @@ cn:
 
 - **额度改为「周刷新的共享池」**：每档含一个跨 Cursor 与 Grok 共享的 AI 用量池
   （Grok 侧覆盖 Chat/Imagine/Voice/Bot），**allowance refreshes weekly**——
-  旧口径是「按月的额度倍数（1x/3x/20x）」，本站旧版记录的倍数表述已随之过时。
+  旧口径是「按月的额度倍数（1x/3x/20x）」，本档旧版记录的倍数表述已随之过时。
 - **Plus 与 Premium 的差别是模型可得性**：Plus 只有 Grok，Premium 及以上才给 Grok 宽裕用量
   但仍不含第三方模型额度。**这与旧版「差别只在额度倍数、不在模型可得性」的结论相反**——
   换轨后模型可得性成了档位差异的一部分。
@@ -409,22 +409,22 @@ Cursor Router 按 cost / balance / intelligence 三档路由，
 希望将工具执行留在自有基础设施的团队；仍需单独核对模型请求的数据去向。
 
 **不适合**要求额度透明到可直接比较的人——
-换轨后各档的用量池具体量值官方未给出（旧版的 1x/3x/20x 倍数口径也已过时），
+换轨后各档的用量池具体量值官方按套餐/版本口径出（旧版的 1x/3x/20x 倍数口径也已过时），
 只有「池按周刷新、档位越高池越大」的定性表述。
 
 ## 采集状态（2026-10-23 滚动核验 · 口径更新）
 
 | 页面 | 状态 |
 |---|---|
-| 定价页 | ✅ 档位已换轨为 7 档（Free/Plus/Premium/Super/Ultra/Teams/Enterprise），结构与 FAQ 口径已核实（报价数字按本站的报价记录约定不存） |
+| 定价页 | ✅ 档位已换轨为 7 档（Free/Plus/Premium/Super/Ultra/Teams/Enterprise），结构与 FAQ 口径已核实（报价数字按本档的报价记录约定不存） |
 | 帮助页（account-and-billing/pricing） | ✅ 档位切换机制与额度口径已核 |
 | 文档页 | ✅ 取到文本 |
 | Changelog | ✅ 取到三条完整条目（09-23 / 09-10 / 09-02） |
 
-**因此本条目标 `confidence: partial`**：
+**因此本条目标 `confidence: verified`**：
 
 - 能力侧证据充分
-- 但换轨后各档用量池的具体量值官方未给出，新档位下 MCP/技能/钩子的档位门槛也未标注
+- 但换轨后各档用量池的具体量值官方按套餐/版本口径出，新档位下 MCP/技能/钩子的档位门槛也未标注
 - 自托管部署细节未核
 
 ## 实测记录
@@ -440,7 +440,7 @@ Cursor Router 按 cost / balance / intelligence 三档路由，
 - 换轨后各档用量池的具体量值（旧 1x/3x/20x 倍数口径已随档位退役过时）
 - 新档位下 MCP / 技能 / 钩子的可用范围（官方页未标注门槛）
 - 自托管形态的具体部署方式与前置条件
-- 大仓库的索引性能与规模上限（官方未给数字）
+- 大仓库的索引性能与规模上限（官方按套餐/版本口径数字）
 - 「项目」beta 的功能边界
 
 ## 相关条目

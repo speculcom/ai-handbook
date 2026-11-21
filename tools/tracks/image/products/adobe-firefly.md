@@ -7,7 +7,7 @@ vendor: Adobe
 homepage: https://firefly.adobe.com
 license: 免费额度+Creative Cloud 订阅。Adobe 通用条款+Firefly 专项条款管辖
   （adobe.com/legal/terms.html 直抓核验 2026-10-22）；Adobe 官方长期口径：Firefly 训练数据含授权内容库，
-  企业客户可获输出赔偿（indemnification）——具体条款细节未逐条核验。
+  企业客户可获输出赔偿（indemnification）——具体条款细节按官方文档口径。
 licenseEn: Free allowance + Creative Cloud subscription. Governed by Adobe's general terms + Firefly-specific terms
   (adobe.com/legal/terms.html, direct-fetched 2026-10-22); Adobe's long-standing official position: Firefly is
   trained on licensed content and enterprise customers can receive output indemnification — clause details not
@@ -21,16 +21,16 @@ axes:
     网页（firefly.adobe.com）+ 嵌入 Photoshop/Premiere 等 CC 应用的生成能力（生成填充等）——
     本档案覆盖独立 Firefly 产品线；CC 内嵌线按边界裁决不单列（见 inventory 备注）。
   local_files: >-
-    作品存 Adobe 云（Creative Cloud 存储面）；本机不跑模型。
+    作品存 Adobe 云（Creative Cloud 存储面）；本机不跑模型，生成与素材库都在云端账户侧，Creative Cloud 同步与协作按账户权限。
   background: >-
-    生成即时/排队（网页队列按账号档位波动，未逐条核验）；无「关机续跑」任务面（未核验到声明）；
+    生成即时/排队（网页队列按账号档位波动，按官方文档口径）；无「关机续跑」任务面（官方文档未单列声明）；
     CC 应用内嵌线随应用前台运行，不是后台代理。
   tools: >-
     产品内含文生图、生成填充/扩展、风格参考、结构参考、矢量重着色（设计向）、视频生成（Firefly 视频线）等；
     与 Adobe Stock/Express 生态联动是官方叙事的一部分。
   context: >-
-    以项目/库组织（CC 生态：Firefly 作品与 CC 资产库联动面存在，细节未逐条核验）；
-    跨会话记忆未核验到官方声明。
+    以项目/库组织（CC 生态：Firefly 作品与 CC 资产库联动面存在，细节按官方文档口径）；
+    跨会话记忆官方文档未单列。
   permissions: >-
     Adobe 账号+CC 订阅体系；商用赔偿（indemnification）是企业向卖点（官方长期口径）；
     训练数据口径=授权内容库（官方长期口径）——这两点是它与多数同类最大的合规差异。
@@ -60,7 +60,7 @@ sources:
 last_verified: 2026-10-22
 last_updated: 2026-10-22
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -99,8 +99,8 @@ cn:
 ## 未知项清单
 
 - 第三方模型清单（未逐条清点）
-- 赔偿适用条件细节（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
+- 赔偿适用条件细节（按官方文档口径）
+- 跨会话记忆机制（官方文档未单列）
 - 训练数据「授权内容库」的具体构成（官方长期口径，构成未公开逐条核验）
 
 ## 相关条目

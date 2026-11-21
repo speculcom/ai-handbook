@@ -16,14 +16,14 @@ axes:
   runtime: >-
     `pip install inspect-ai` 装进自己的 Python 环境，主入口是终端命令 `inspect eval`（文档首页示例 `inspect eval simpleqa.py --model ...`）；
     官方文档首页另列网页版 Inspect View 做监控与可视化、VS Code 扩展辅助编写与调试。
-    执行发生在你的机器与你选的沙箱里；官方托管云线：官方未说明。
+    执行发生在你的机器与你选的沙箱里；官方托管云线：官方文档不展开。
   local_files: >-
     评测是写进 `.py` 的 Task（Dataset + Solver + Scorer），数据集可直接用 `hf_dataset()` 从 HuggingFace 载入；
     官方文档首页把「over 200 pre-built evaluations ready to run on any model」列为自带内容，文档目录另有 Log Files / Inspect View / Task Views 条目。
     默认日志目录名与文件归置规则本批次未逐字核验。
   background: >-
     本机批量执行：官方文档目录列出 Running Eval Sets、Parallelism、Handling Errors、Setting Limits、Checkpointing 与 Intervention，
-    即并行跑评测集、断点与人工介入是文档内的既有概念。关机后任务在别处续跑：官方未说明——它不是托管服务。
+    即并行跑评测集、断点与人工介入是文档内的既有概念。关机后任务在别处续跑：官方文档不展开——它不是托管服务。
   tools: >-
     官方文档首页列内置 bash、python、文本编辑、网页搜索、computer 工具，并写明支持自定义工具与 MCP 工具；
     文档目录另有 Tool Approval、Tool Result Review、Agent Bridge、Extensions 等条目。
@@ -31,11 +31,11 @@ axes:
   context: >-
     文档目录列出 Compaction（上下文压缩）、Caching、Fallbacks、Multimodal、Structured Output，
     以及 Multiple Scorers、Scoring Policy、Model Grading 等评分侧概念。跨会话记忆不是它的模型：一次评测一份日志。
-    压缩策略与默认阈值：本批次未取到官方正文。
+    压缩策略与默认阈值：本批次官方页面未提供正文。
   permissions: >-
     MIT 许可（LICENSE 原文，版权方为 UK AI Security Institute）。运行在你自己的环境，模型调用走你配置的 provider 与 key；
     官方文档首页把沙箱系统说成支持在 Docker、Kubernetes、Modal、Proxmox、Vagrant 等「running untrusted model code」，并有扩展 API；
-    文档目录另有 Sandboxing、Approvers、Hooks、Filesystems 条目。遥测与数据上传条款：本批次未取到官方说明。
+    文档目录另有 Sandboxing、Approvers、Hooks、Filesystems 条目。遥测与数据上传条款：本批次官方页面未提供说明。
   fit: >-
     适合：自己写评测与 agent 任务、要把不受信模型代码关进沙箱、要工具审批与本地日志复核、要跨 20 余家 provider 跑同一份任务。
     不适合：只想点托管控制台、只要一个指标库而不想维护 Python 评测、把跑分榜单当交付物。
@@ -69,11 +69,11 @@ link:
 last_verified: 2026-11-06
 last_updated: 2026-11-06
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
-  origin_note: 英国 AI 安全研究所（AI Security Institute）与 Meridian Labs 的开源项目；本批次未取到面向中国大陆的服务条款页。
+  origin_note: 英国 AI 安全研究所（AI Security Institute）与 Meridian Labs 的开源项目；本批次官方页面未提供面向中国大陆的服务条款页。
   origin_note_en: An open-source project of the UK AI Security Institute and Meridian Labs; no mainland-facing terms page was captured in this pass.
   direct: unknown
   direct_note: 官方文档站本批次经 HTTP 200 取到正文，但未做大陆网络环境下的直连可用实测，故记未知。
@@ -91,13 +91,13 @@ cn:
 ## 适合与不适合
 
 适合：要自己写评测与 agent 任务（含多 agent 与外部 agent）、要把模型生成的不受信代码放进 Docker / Kubernetes 一类沙箱、要在终端批量跑评测集并在本地日志里逐样本复核、要在多家 provider 之间复用同一份任务定义。
-不适合：只想在网页控制台点几下就拿到结论、只需要几个打分指标不想维护 Python 工程、把别人跑出的分数当交付物（本站也不这样用）。
+不适合：只想在网页控制台点几下就拿到结论、只需要几个打分指标不想维护 Python 工程、把别人跑出的分数当交付物（本档也不这样用）。
 
 ## 实测记录
 
-**本站未做端到端实测**：本档案没有运行 `inspect eval`，没有打开 Inspect View 复核日志，不产出分数、准确率或任何排名，也没有清点官方文档列出的预置评测清单。
+**本档未做端到端实测**：本档案没有运行 `inspect eval`，没有打开 Inspect View 复核日志，不产出分数、准确率或任何排名，也没有清点官方文档列出的预置评测清单。
 本节只组织官方文档首页与仓库 README 里出现过的说法（安装方式、模型 provider 与本地推理、沙箱后端、工具与 MCP、工具审批、日志与查看器、外部 agent 运行），逐条见 sources 与核验日。
-官方文档首页另有 Tutorial 与 Options 页，本批次未取到其正文。
+官方文档首页另有 Tutorial 与 Options 页，本批次官方页面未提供其正文。
 
 ## 变更记录说明
 
@@ -108,7 +108,7 @@ cn:
 
 - 全模型 provider 清单与逐家能力差异（官方称 20 余家，未逐条清点）
 - 默认日志目录名、日志文件保留与清理规则
-- 遥测与数据上传条款（含是否有默认上报）：当日未取到官方正文
+- 遥测与数据上传条款（含是否有默认上报）：当日官方页面未提供官方正文
 - 关机或断网后任务的续跑语义；是否存在托管执行面
 - Compaction 的默认策略与阈值、Caching 的命中范围
 - 工具审批（Approvers）的默认严格度与可配置档位

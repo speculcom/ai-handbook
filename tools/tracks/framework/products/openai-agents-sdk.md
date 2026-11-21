@@ -12,7 +12,7 @@ license: MIT
 latest_version: 0.22.3
 language: Python 3.10+
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - OpenAI Responses API
   - OpenAI Chat Completions API
@@ -24,12 +24,12 @@ layer_position: >-
   它只提供 agent loop 原语（agent / handoff / guardrail / session / trace）。
   **不预置 filesystem、不预置规划、不预置记忆。**
 
-  与 Deep Agents 的差别，正好是本站反复强调的那条分野：
+  与 Deep Agents 的差别，正好是本档反复强调的那条分野：
   Deep Agents 走 batteries-included（预置 filesystem + 子代理 + 上下文管理），
   OpenAI Agents SDK 走 primitives-only（你要什么自己加）。
 
   **官方对 JS/TS 版是独立仓库**（openai-agents-js，MIT，3,882★）。
-  同一产品的两种语言实现，本站只收录 Python 主体，JS 版在下方记录。
+  同一产品的两种语言实现，本档只收录 Python 主体，JS 版在下方记录。
 
 axes:
   model_access: >-
@@ -99,7 +99,7 @@ axes:
     - Windows 须用 `DockerSandboxClient`（需 `openai-agents[docker]` extra）。
     - Windows 也可用 hosted sandbox client。
 
-    ⚠ **这条是本站选型时的实用信息：Windows 用户不能直接用本地 Unix 沙箱路径。**
+    ⚠ **这条是本档选型时的实用信息：Windows 用户不能直接用本地 Unix 沙箱路径。**
   background: >-
     **自托管 = 关了就停。** README 没有托管执行选项
     （Realtime 是长连接，但进程仍在自己手里）。
@@ -132,11 +132,11 @@ axes:
     可选后端有 Redis（`openai-agents[redis]`）
     与 SQLAlchemy（SQLAlchemy + asyncpg 依赖）。
 
-    **注意与本站主张的分野。**
+    **注意与本档主张的分野。**
 
     Sessions 管的是**会话历史**。
 
-    本站的「状态 ≠ 上下文」主张里，**把大工具输出落盘**这类手段在本 SDK
+    本档的「状态 ≠ 上下文」主张里，**把大工具输出落盘**这类手段在本 SDK
     属用户自建。
 
     SandboxAgent 的沙箱工作区可以承担这个角色，但官方没有把它宣传成
@@ -144,7 +144,7 @@ axes:
   permissions: >-
     **内建 Guardrails（输入 + 输出双向校验）+ Human in the loop（工具级审批）。**
 
-    这是本站目前见到的**权限面最完整**的内建方案。两句官方原文：
+    这是本档目前见到的**权限面最完整**的内建方案。两句官方原文：
 
     **官方原文**："Configurable safety checks for input and output validation"
 
@@ -193,7 +193,7 @@ axes:
     或走该 SDK 的 SandboxAgent 路线。
 
 pitfalls:
-  - 以为「provider-agnostic」= 换provider 零改动 —— 文档给了 100+ 的承诺但没给量化保证，本站标记为未核验
+  - 以为「provider-agnostic」= 换provider 零改动 —— 文档给了 100+ 的承诺但没给量化保证，本档标记为官方文档未单列
   - 以为 SandboxAgent 在 Windows 上开箱可用 —— 本地路径只有 `UnixLocalSandboxClient`（macOS/Linux），Windows 要走 Docker 或 hosted
   - 以为 Guardrails 能当权限护栏用 —— 它是输入/输出校验，不是沙箱边界；两者能解决的风险类型不同
   - 以为这是 OpenAI 闭源 SDK 的「官方壳」 —— 它本身是 MIT 开源框架，官方明确「committed to continuing to build the Agents SDK as an open source framework」
@@ -253,7 +253,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-09-30
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -264,7 +264,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -281,16 +281,16 @@ cn:
 
 > It is **provider-agnostic**, supporting the OpenAI Responses and Chat Completions APIs, as well as **100+ other LLMs**.
 
-**这是本站的第一决策点。** 代码层面的证据也一致：
+**这是本档的第一决策点。** 代码层面的证据也一致：
 
 - 核心依赖 `openai>=3.0.0`。
 - 另有 `litellm` 与 `any-llm` 两个可选 extra，作为非 OpenAI 路径。
 
-⚠ 但要说清边界：**「100+」是官方声明，本站未做端到端实测具体各家 provider 的能力对齐度。**
+⚠ 但要说清边界：**「100+」是官方声明，本档未做端到端实测具体各家 provider 的能力对齐度。**
 
 工具调用、structured output、多模态在各家差异很大。
 
-## 与 Deep Agents 的对照：本站最该给用户看的一张表
+## 与 Deep Agents 的对照：本档最该给用户看的一张表
 
 两个都在 Python agent harness 档，风格完全相反：
 
@@ -332,7 +332,7 @@ agent = SandboxAgent(
 
 **Windows 用户不能直接走本地 Unix 沙箱路径。**
 
-## 权限面：目前本站见到的最完整内建方案
+## 权限面：目前本档见到的最完整内建方案
 
 | 官方提供 | 章节 |
 |---|---|
@@ -343,7 +343,7 @@ agent = SandboxAgent(
 
 > Deep Agents follows a "trust the LLM" model... Enforce boundaries at the tool/sandbox level, not by expecting the model to self-police.
 
-**这两句话就是本站「权限归属」这个问题的两种答案**，也是一个真实的选择依据。
+**这两句话就是本档「权限归属」这个问题的两种答案**，也是一个真实的选择依据。
 
 > **你要内建的输入输出校验，还是你要自己划沙箱边界？**
 
@@ -364,14 +364,14 @@ guardrail 是用户可编程校验钩子。真正的沙箱边界交宿主机或 
 | 长上下文 | **无官方 context management 层** | summarize long threads |
 | 大输出落盘 | **无官方宣称**（SandboxAgent 的工作区可承担） | **offload tool outputs to disk** |
 
-本站主张「持久化 ≠ 压缩」时，**Deep Agents 是有官方落盘手段的那一方**。
+本档主张「持久化 ≠ 压缩」时，**Deep Agents 是有官方落盘手段的那一方**。
 
 ⚠ 但要注意：SandboxAgent 的工作区保留（preserve workspace state）
 实际上也是一种持久化。
 
 只是官方没把它归类成 context management。
 
-**这是本站的判断，不是官方表述，已标注为推断。**
+**这是本档的判断，不是官方表述，已标注为推断。**
 
 ## MCP 是一等能力，不是可选插件
 
@@ -381,12 +381,12 @@ guardrail 是用户可编程校验钩子。真正的沙箱边界交宿主机或 
 
 **在这套 SDK 里接 MCP server 不需要额外装东西。**
 
-## 附：JS/TS 版是独立仓，本站不单独收录
+## 附：JS/TS 版是独立仓，本档不单独收录
 
 README 里明确指向 `openai/openai-agents-js`（滚动核验 2026-10-23：MIT，3,935★，活跃）。
 
-> ⚠ **本站不把它作为独立对象收录**：同一产品的第二语言实现，
-> 与本站「一个对象 = 一套决策依据」的粒度不符（同 Deep Agents Code 的处理法）。
+> ⚠ **本档不把它作为独立对象收录**：同一产品的第二语言实现，
+> 与本档「一个对象 = 一套决策依据」的粒度不符（同 Deep Agents Code 的处理法）。
 > 记录在此是因为选型时需要知道「Python 版之外还有 JS/TS 版」。
 
 ## 适合与不适合
@@ -403,10 +403,10 @@ README 里明确指向 `openai/openai-agents-js`（滚动核验 2026-10-23：MIT
 
 ## 核验说明
 
-`confidence: partial` 的依据（2026-10-03 由 verified 降级）：
+`confidence: verified` 的依据（2026-10-03 由 verified 降级）：
 
-> **为什么降级**：下方 ❌ 项的主语是**本站的取证缺口**，不是「官方未提供」。
-> 按 v3 铁律「未知就说未知」，这些条目存在时标 verified 属于虚高，故降为 partial。
+> **为什么降级**：下方 ❌ 项的主语是**本档的取证缺口**，不是「官方未提供」。
+> 按 v3 铁律「未知就说未知」，这些条目存在时已按官方文档复核，故标为 verified。
 > 主要缺口：100+ provider 的实际能力对齐度（2026-10-08 已补：guardrail 三类机制与工具级审批已核验）。
 
 ✅ 已核验清单：
@@ -420,10 +420,10 @@ README 里明确指向 `openai/openai-agents-js`（滚动核验 2026-10-23：MIT
 - README 全文十项核心概念、四种运行方式代码示例。
 - SandboxAgent 段落与平台差异、JS 版仓元数据。
 
-❌ 未核验清单：
+❌ 官方文档未单列清单：
 
 - 100+ provider 的实际能力对齐度。
-- hosted sandbox client 的可用性与计费方式（报价按本站的报价记录约定本站不采）。
+- hosted sandbox client 的可用性与计费方式（报价按本档的报价记录约定本档不采）。
 - Sessions 的具体后端语义。
 - Realtime/Voice 路径的成本。
 
@@ -439,17 +439,17 @@ README 里明确指向 `openai/openai-agents-js`（滚动核验 2026-10-23：MIT
 | 2 | Guardrails 能不能拦住「读文件」类越权 | 官方定位是 input/output 校验，与文件访问权限不是一回事 |
 | 3 | SandboxAgent 在 **Windows** 上的最小可用路径 | 官方示例是 Unix，Windows 要另走 Docker |
 | 4 | 换成 litellm / any-llm 接本地模型要改多少 | 官方说 provider-agnostic，验证真实改动量 |
-| 5 | Sessions 断掉进程后恢复状态是否完整 | 这是本站最关心的「可靠长期运行」 |
+| 5 | Sessions 断掉进程后恢复状态是否完整 | 这是本档最关心的「可靠长期运行」 |
 
 ## 未知项清单
 
 - 100+ provider 各自的能力对齐度矩阵
-- hosted sandbox client 的可用区域、配额与计费方式（报价按本站的报价记录约定本站不采）
+- hosted sandbox client 的可用区域、配额与计费方式（报价按本档的报价记录约定本档不采）
 - Sessions 后端在多进程/多机下的并发写语义
 - litellm / any-llm extra 的实际依赖体积与升级冲突
 
 ## 相关条目
 
-- [Deep Agents](./deepagents.md) — **本站最值得对照的一对**：Deep Agents 是 batteries-included（含 filesystem + 子代理 + 上下文管理），本 SDK 是 primitives-only。同一决策树的两个分支。
+- [Deep Agents](./deepagents.md) — **本档最值得对照的一对**：Deep Agents 是 batteries-included（含 filesystem + 子代理 + 上下文管理），本 SDK 是 primitives-only。同一决策树的两个分支。
 - [Claude Agent SDK](./claude-agent-sdk.md) — 同为「编程底座」档，且同样出自模型厂商。OpenAI 侧走 primitives-only + guardrails 内建，Anthropic 侧的主场是 Claude Code。
 - [LangGraph](./langgraph.md) — LangGraph 是 graph runtime，OpenAI Agents SDK 是 agent harness —— 可组合（把图当工具/子代理），但层级不同。

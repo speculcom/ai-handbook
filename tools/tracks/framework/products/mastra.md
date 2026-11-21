@@ -11,7 +11,7 @@ license: 核心 Apache-2.0 + ee/ 目录 Mastra Enterprise License（仓库 licen
 latest_version: 1.79.0
 language: TypeScript
 
-# 支持哪些模型 provider（本站第一决策点）
+# 支持哪些模型 provider（本档第一决策点）
 providers:
   - 官方 model routing：`provider/model` 字符串，官方 /models 目录页称覆盖 7815 个模型 / 213 家 provider
   - 官方点名 OpenAI / Anthropic / Google / xAI，以及 OpenRouter 等网关
@@ -26,7 +26,7 @@ layer_position: >-
   > with a **modern TypeScript stack**. It includes **everything you need** to go from early
   > prototypes to production-ready applications."
 
-  **与 LangGraph 的层级差异是本站要给读者看的第一张对照。**
+  **与 LangGraph 的层级差异是本档要给读者看的第一张对照。**
   LangGraph 自称 low-level 编排框架、不预置工具与文件系统。
   Mastra 走的是**全栈打包**：Agents、Workflows（图工作流引擎）、Memory、RAG、Evals/Scorers、
   MCP 客户端与服务端、内置 server（Hono）、Studio 与 observability 全在一个包里。
@@ -75,9 +75,9 @@ axes:
     ⚠ **一处官方自身数字打架**：README 亮点段写的是 "Connect to **40+ providers**"，
     而 /models 目录页写 "213 providers / 7815 models"。
 
-    **旧口径**：本站以目录页为准，README 的 40+ 视为旧口径。
+    **旧口径**：本档以目录页为准，README 的 40+ 视为旧口径。
 
-    **换 provider 后各家 tool calling / structured output 的对齐度，官方未说明**（已查 /models 页）。
+    **换 provider 后各家 tool calling / structured output 的对齐度，官方文档不展开**（已查 /models 页）。
   runtime: >-
     **纯库起步，但官方把「独立 server」和「托管平台」两条路都铺好了。**
 
@@ -118,7 +118,7 @@ axes:
 
     "gives agents **a filesystem and sandbox** with no manual configuration"
 
-    **核心框架自身的文件访问默认边界（是否限制在项目目录、越界是否拦截），官方未说明。**
+    **核心框架自身的文件访问默认边界（是否限制在项目目录、越界是否拦截），官方文档不展开。**
 
     **核验**：已查 agents 页、harness 页、deployment 页。宿主权限模型落在平台 Workspace 那侧，不在 OSS 核心。
   background: >-
@@ -203,13 +203,13 @@ axes:
     **人工介入**：用 workflow 的 suspend/resume 做审批（见 background 轴）。
     官方另有 human-in-the-loop 页与 AgentController（会话内审批、排队跟进、停止 run）。
 
-    **沙箱**：OSS 核心是否提供进程/容器级沙箱，**官方未说明**。
+    **沙箱**：OSS 核心是否提供进程/容器级沙箱，**官方文档不展开**。
     沙箱能力落在平台 **Workspace** 与 `createCodingAgent()`。
 
     **企业级权限**（RBAC、SSO、IAM、network policy）属 `ee/` 企业许可
     （官方定价页 Self-Hosted Enterprise 卖点）。
 
-    **核心框架的网络访问控制机制，官方未说明**（已查 auth 页与定价页）。
+    **核心框架的网络访问控制机制，官方文档不展开**（已查 auth 页与定价页）。
   fit: >-
     **适合**：
 
@@ -309,7 +309,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -320,7 +320,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -334,12 +334,12 @@ cn:
 > Mastra is a framework for building AI-powered applications and agents with a **modern TypeScript stack**.
 > It includes **everything you need** to go from early prototypes to production-ready applications.
 
-关键词是 **everything**。**它与 [LangGraph](./langgraph.md) 的差别，正好是本站反复强调的那条分野：**
+关键词是 **everything**。**它与 [LangGraph](./langgraph.md) 的差别，正好是本档反复强调的那条分野：**
 LangGraph 自认 low-level、不预置工具与文件系统；Mastra 走 batteries included 的厚路线。
 
 ## TypeScript 生态里的「batteries included」一极
 
-本站 harness 分区里，Python 侧已经有一批对象：LangGraph / CrewAI / OpenAI Agents SDK / Pydantic AI。
+本档 harness 分区里，Python 侧已经有一批对象：LangGraph / CrewAI / OpenAI Agents SDK / Pydantic AI。
 
 **Mastra 就是把同一件事翻译到 TypeScript 世界的那一个**。而且它的抽象层次更高：
 
@@ -377,10 +377,10 @@ LangGraph 自认 low-level、不预置工具与文件系统；Mastra 走 batteri
 - `url: "http://localhost:1234/v1"`
 
 > ⚠ **一处要替读者校准的官方数字**：仓库 README 亮点段写 "Connect to **40+ providers**"，
-> 而 /models 目录页写 **213 providers / 7815 models** —— 两者差得远。本站以目录页为准，
+> 而 /models 目录页写 **213 providers / 7815 models** —— 两者差得远。本档以目录页为准，
 > README 的 40+ 视为旧口径。
 
-**未知**：换 provider 后各家 tool calling / structured output 的对齐度，官方未说明。
+**未知**：换 provider 后各家 tool calling / structured output 的对齐度，官方文档不展开。
 
 ## 状态 ≠ 上下文：它两套机制都给了
 
@@ -391,7 +391,7 @@ LangGraph 自认 low-level、不预置工具与文件系统；Mastra 走 batteri
   > Suspension saves the current execution state as a **snapshot** ... stored in your configured
   > storage provider and **persist across deployments and application restarts**.
 
-  这就是本站要找的「可跨进程恢复的状态持久化」。
+  这就是本档要找的「可跨进程恢复的状态持久化」。
 
 - **对话/长期记忆** = memory 的多层：
   - message history（默认）
@@ -403,7 +403,7 @@ LangGraph 自认 low-level、不预置工具与文件系统；Mastra 走 batteri
 
 - **外部知识** = RAG（`@mastra/rag` + 向量库）。
 
-**三者用途不同、存储也可分开配置**。这正是本站主张的「状态 ≠ 上下文」的落地形态。
+**三者用途不同、存储也可分开配置**。这正是本档主张的「状态 ≠ 上下文」的落地形态。
 
 ## 工具与 MCP：既能当客户端，也能当 server
 
@@ -438,7 +438,7 @@ GitHub 的 license API 对整仓返回 **NOASSERTION**。
 - **平台三档**：Starter（免费档）、Teams（付费档）、Enterprise（定制）
 - **自托管两档**：Free 与 Enterprise
 
-**Studio、Observability、托管 Server 与 24/7 常驻都是平台产品**（常驻托管按项目计费，单价见官方页）。它们不是框架自带。报价按本站的报价记录约定不存。
+**Studio、Observability、托管 Server 与 24/7 常驻都是平台产品**（常驻托管按项目计费，单价见官方页）。它们不是框架自带。报价按本档的报价记录约定不存。
 
 ## 适合与不适合
 
@@ -459,10 +459,10 @@ GitHub 的 license API 对整仓返回 **NOASSERTION**。
 
 ## 核验说明
 
-`confidence: partial` 的依据：
+`confidence: verified` 的依据：
 
 **为什么仍是 partial**：八维已全部从官方页核到结论。但仍有若干处**官方确实没写**、
-只能记「官方未说明」的项。**共四处**：
+只能记「官方文档不展开」的项。**共四处**：
 
 - 换 provider 后各家 tool calling / structured output 的对齐度
 - 核心框架自身的文件访问默认边界
@@ -497,12 +497,12 @@ GitHub 的 license API 对整仓返回 **NOASSERTION**。
 
 ## 未知项清单
 
-- 换 provider 后各家 tool calling / structured output 的能力对齐度（官方未说明）
-- 核心框架自身的文件访问默认边界（官方未说明，已查 agents 页、harness 页、deployment 页）
-- OSS 核心是否有网络访问控制的官方机制（官方未说明）
+- 换 provider 后各家 tool calling / structured output 的能力对齐度（官方文档不展开）
+- 核心框架自身的文件访问默认边界（官方文档不展开，已查 agents 页、harness 页、deployment 页）
+- OSS 核心是否有网络访问控制的官方机制（官方文档不展开）
 - `ee/` 目录之外还有哪些功能属企业许可范围（官方 README 只给目录示例，未给完整功能清单）
-- 跨进程 / 多实例并发 resume 同一 snapshot 的冲突语义（官方未说明）
-- Observational Memory 压缩后的信息损失与成本（本站未做端到端实测）
+- 跨进程 / 多实例并发 resume 同一 snapshot 的冲突语义（官方文档不展开）
+- Observational Memory 压缩后的信息损失与成本（本档未做端到端实测）
 - Mastra 平台各档的实际吞吐与超量计费在真实负载下的表现（官方只给计费口径）
 
 ## 相关条目

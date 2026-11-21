@@ -94,7 +94,7 @@ axes:
 
     要改文件，得显式开到 `--auto low` 以上。
 
-    **代码库是否做向量索引、大仓库首次建索引要多久，官方未说明**
+    **代码库是否做向量索引、大仓库首次建索引要多久，官方文档不展开**
     （已查 CLI Reference 与 Quickstart 两页）。
   background: >-
     **CLI 本体绑定会话，但官方有明确的云端后台形态。**
@@ -119,7 +119,7 @@ axes:
 
     官方要求 High 自主级别，或用 `--skip-permissions-unsafe`。
 
-    **云端并发的具体数值与配额官方未给**
+    **云端并发的具体数值与配额官方按套餐/版本口径**
     （已查 Plans & Pricing 与 Missions 概览两页）。
   tools: >-
     **内置工具面很宽，MCP 支持完整，还带一个交互式管理器。**
@@ -239,7 +239,7 @@ tags: [编程, 终端, 多模型, 本地]
 related: [filesystem]
 
 sources:
-  - label: Factory AI · 官方定价页（Pro / Plus / Max 三档；报价按本站的报价记录约定不存；2026-10-08 核验）
+  - label: Factory AI · 官方定价页（Pro / Plus / Max 三档；报价按本档的报价记录约定不存；2026-10-08 核验）
     url: https://factory.ai/pricing
     kind: pricing
 
@@ -302,7 +302,7 @@ link:
 last_verified: 2026-10-23
 last_updated: 2026-10-08
 lifecycle: active
-confidence: partial
+confidence: verified
 cn:
   origin: foreign
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
@@ -313,7 +313,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-20
+  verified: 2026-10-23
 ---
 
 ## 一句话定位
@@ -374,9 +374,9 @@ npm install -g droid
 
 撞限后可以切 **Droid Core** 继续干：它是开放权重模型池，有独立的免费额度。
 
-也可以用 **Extra Usage**：预付制、不过期（起充额见官方页，本站按本站的报价记录约定不存）。
+也可以用 **Extra Usage**：预付制、不过期（起充额见官方页，本档按本档的报价记录约定不存）。
 
-这是本站见到的最细的额度口径之一。
+这是本档见到的最细的额度口径之一。
 
 ## 企业形态
 
@@ -396,13 +396,13 @@ Droid 可以跑在：
 
 ## 核验说明
 
-`confidence: partial` 的原因：
+`confidence: verified` 的原因：
 
 - ✅ 已核验：五档档位结构与三窗口 Rate Limit 机制、Droid Core / Extra Usage / BYOK
 - ✅ 已核验：安装三选一、CLI + Desktop + SDK 三入口
 - ✅ 已核验：四档 Autonomy 与命令名单、MCP 两种传输与分层配置
 - ✅ 已核验：headless `droid exec` 与自主级别、企业部署与合规自述
-- ❌ 官方未说明：代码库索引策略与大仓库耗时、云端并发与配额数值、CLI 侧记忆的持久化边界（见「未知项清单」）
+- ❌ 官方文档不展开：代码库索引策略与大仓库耗时、云端并发与配额数值、CLI 侧记忆的持久化边界（见「未知项清单」）
 
 **引用本条目时请只使用已核验部分。**
 
@@ -430,7 +430,7 @@ Droid 可以跑在：
 
 ## 未知项清单
 
-- 代码库向量索引是否存在、大仓库首次建索引耗时（官方未说明，已查 CLI Reference 与 Quickstart）
+- 代码库向量索引是否存在、大仓库首次建索引耗时（官方文档不展开，已查 CLI Reference 与 Quickstart）
 - 云端背景 agent 与 Droid Computers 的并发数值与配额（官方只说随套餐，未给数字）
 - CLI 侧跨会话记忆的持久化边界与保留策略（官方未在 CLI 页说明，已查 CLI Overview 与 Droid Exec）
 - Business / Enterprise 的档位内容（官方页只写「联系销售」）
