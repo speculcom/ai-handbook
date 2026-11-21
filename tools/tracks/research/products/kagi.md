@@ -10,21 +10,33 @@ licenseEn: Subscription-first (ad-free, not free-tier-led). Governed by the offi
 
 axes:
   model_access: >-
-    自建搜索索引是核心叙事，答案层由 FastGPT、Assistant、Universal Summarizer 等组成；官方隐私页把第三方 AI provider 描述为按请求调用、尽量不留存不训练，产品面未给逐模型清单。搜索是本体、AI 是附加，与多数 AI 搜索的顺序相反（2026-11-21）。
+    自建搜索索引是核心叙事，答案层由 FastGPT、Assistant、Universal Summarizer 等组成。
+    官方隐私页把第三方 AI provider 描述为按请求调用、尽量不留存不训练。产品面未给逐模型清单。
+    搜索是本体、AI 是附加，与多数 AI 搜索的顺序相反（2026-11-21）。
   runtime: >-
-    网页（kagi.com）+ 浏览器扩展 + Mini Bar；搜索索引自建，FastGPT/Assistant 与摘要请求在 Kagi 云端完成。官方文档未提供本地模型包、私有化部署或离线索引，客户端只承担界面与可选缓存（2026-11-21）。
+    网页 kagi.com、浏览器扩展与 Mini Bar 是入口。搜索索引自建，FastGPT、Assistant 与摘要请求在 Kagi 云端完成。
+    官方文档未提供本地模型包、私有化部署或离线索引。客户端只承担界面与可选缓存（2026-11-21）。
   local_files: >-
-    搜索本身不落地用户文件；官方隐私页列出的客户端存储仅 kagi_session、_kagi_search_、kagi_previous_page、kagi_precise_location 等 cookie，以及 kagi_sse_replay（localStorage 的近期结果缓存，用于减少往返），没有账户级搜索历史库。Tor、Privacy Pass 与匿名邮箱是可选的匿名化路径（2026-11-21）。
+    搜索本身不落地用户文件。官方隐私页列出的客户端存储只有 `kagi_session`、`_kagi_search_`、`kagi_previous_page`、
+    `kagi_precise_location` 等 cookie，以及 `kagi_sse_replay`。后者是 localStorage 的近期结果缓存，用来减少往返。
+    官方未列账户级搜索历史库。Tor、Privacy Pass 与匿名邮箱是可选的匿名化路径（2026-11-21）。
   background: >-
-    搜索与摘要请求即时返回，官方文档未列作业队列、定时任务或后台批处理 API；FastGPT/Assistant 的请求在云端完成，关闭页面不保留可恢复的长任务。需要批量任务应走 Kagi API 自行编排（2026-11-21）。
+    搜索与摘要请求即时返回。官方文档未列作业队列、定时任务或后台批处理 API。
+    FastGPT 与 Assistant 的请求在云端完成，关闭页面不保留可恢复的长任务。需要批量任务应走 Kagi API 自行编排（2026-11-21）。
   tools: >-
-    产品面包括无广告搜索、FastGPT/Assistant 答案线、Universal Summarizer（URL/视频/文档摘要）、Kagi Translate 与 API；官方隐私页把 Assistant、Summarizer、FastGPT、Translate 都列为 AI 工具，并给出线程保留规则（2026-11-21）。
+    产品面包括无广告搜索、FastGPT/Assistant 答案线、Universal Summarizer（URL/视频/文档摘要）、Kagi Translate 与 API。
+    官方隐私页把 Assistant、Summarizer、FastGPT、Translate 都列为 AI 工具，并给出线程保留规则（2026-11-21）。
   context: >-
-    搜索按单次查询组织，官方隐私页明确不把查询关联到账户、不构建画像；Kagi Assistant 的会话线程默认 1 天后自动永久删除，用户也可立即删除，被举报线程保留 30 天。没有跨会话长期记忆入口（2026-11-21）。
+    搜索按单次查询组织。官方隐私页明确不把查询关联到账户、不构建画像。
+    Kagi Assistant 的会话线程默认 1 天后自动永久删除，用户也可立即删除，被举报线程保留 30 天。
+    没有跨会话长期记忆入口（2026-11-21）。
   permissions: >-
-    订阅账户 + API key 两级：官方条款写明只有 Kagi API 产品可用于商业用途，Universal Summarizer 等前端产品默认非商业，商用需另谈许可；账户可开匿名邮箱、加密货币、Tor、Privacy Pass。团队/企业管理面官方文档未单列（2026-11-21）。
+    订阅账户与 API key 两级。官方条款写明只有 Kagi API 产品可用于商业用途。
+    Universal Summarizer 等前端产品默认非商业，商用需另谈许可。
+    账户可开匿名邮箱、加密货币、Tor 与 Privacy Pass。团队或企业管理面官方文档未单列（2026-11-21）。
   fit: >-
-    适合：愿意付费换无广告、无追踪搜索体验，要「搜索+全文读」式答案，对追踪和画像敏感的用户。不适合：只找免费档、要中文检索为主打、或需要企业级审计与团队管理面的组织（2026-11-21）。
+    适合：愿意付费换无广告、无追踪搜索体验，要「搜索+全文读」式答案，对追踪和画像敏感的用户。
+    不适合：只找免费档、要中文检索为主打，或需要企业级审计与团队管理面的组织（2026-11-21）。
 
 pitfalls:
   - Kagi 是「搜索引擎+AI 附加」不是「AI 搜索」——索引自建，答案层是附加；对比口径别错位

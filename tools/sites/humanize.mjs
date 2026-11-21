@@ -140,6 +140,16 @@ const firstSentence = (s, n = 80) => {
   const m = t.match(/^.*?[。！？!?](?=\s|$)/);
   return (m ? m[0] : t).slice(0, n);
 };
+/* 快照卡里的英文摘要不能在单词中间截断（实测 adobe-acrobat-ai 显示成
+ * 「PDF summarisin」）。按词边界收尾，并补省略号；中文没有空格就按字符截。 */
+const clip = (s, n = 84) => {
+  const t = plain(s, n * 2);
+  if (t.length <= n) return t;
+  let cut = t.slice(0, n - 1).trimEnd();
+  const space = cut.lastIndexOf(' ');
+  if (space >= Math.floor(n * 0.55)) cut = cut.slice(0, space);
+  return cut.replace(/[,;:，、；：\-—]$/, '') + '…';
+};
 const pct = (n, max) => max ? Math.max(4, Math.round((n / max) * 100)) : 4;
 
 function statCard(n, zh, en, tone = '') {
@@ -408,7 +418,7 @@ export function decisionStrip() {
 }
 
 export function snapshot(e) {
-  const tag = firstSentence(e.tagline || e.sec?.oneline || '', 88);
+  const tag = firstSentence(e.tagline || e.sec?.oneline || '', 200);
   const dp = DEPLOY_LABEL[e.facets?.deployment] || [e.facets?.deployment || '未核', 'Not checked'];
   const form = FORM_SHORT[e.form] || [e.form || '未标', e.form || 'Not set'];
   const lic = LICENSE_LABEL[e.facets?.licenseKind] || [e.facets?.licenseKind || '未核', 'Not checked'];
@@ -422,7 +432,7 @@ export function snapshot(e) {
         ${life}
       </div>
       <div class="snap-grid">
-        <div class="snap-item"><span class="snap-k">${bi('一句话', 'In one line')}</span><p>${bi(tag, plain(e.sec?.onelineEn || tag, 84))}</p></div>
+        <div class="snap-item"><span class="snap-k">${bi('一句话', 'In one line')}</span><p>${bi(clip(tag, 88), clip(e.sec?.onelineEn || tag, 88))}</p></div>
         <div class="snap-item"><span class="snap-k">${bi('怎么用它', 'How you use it')}</span><p>${bi(dp[0], dp[1])} · ${bi(form[0], form[1])}</p></div>
         <div class="snap-item"><span class="snap-k">${bi('许可 / 商用', 'Licence / commercial use')}</span><p>${bi(lic[0], lic[1])}</p><small>${bi('商用前读原文，别只看标签', 'Read the original licence before commercial use')}</small></div>
         <div class="snap-item"><span class="snap-k">${bi('中国大陆', 'Mainland China')}</span><p>${bi(direct[0], direct[1])} · ${bi(filing[0], filing[1])}</p></div>

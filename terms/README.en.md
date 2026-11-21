@@ -3,7 +3,7 @@
 > 中文版：[README.md](./README.md)
 
 AI jargon has a way of going over your head — you hear a term ten times in a day and
-still can't say what anyone just said. This repo takes 200 of the most common ones
+still can't say what anyone just said. This repo takes 299 of the most common ones
 apart: **what it is, why you'd need it, and where the claim comes from.**
 
 **Who it's for**: people meeting AI for the first time, who'd rather not start with a paper.
@@ -20,7 +20,7 @@ Pick one, based on where you are right now:
 
 | Where you are | Which path |
 |---|---|
-| I know nothing, I want a start | Read the **six stations** in order. Don't skip — if a station-four term makes no sense, it's usually station three you skipped |
+| I know nothing, I want a start | Read the **six stages** in order. Don't skip — if a stage-four term makes no sense, it's usually stage three you skipped |
 | I only care about one kind of thing | Browse by the **8 domains** (concept / model / development / agent / data / media / infrastructure / choice) |
 | I came here with a specific problem | Browse by the **4 purposes**: Learn · Build · Avoid · Choose |
 
@@ -28,21 +28,21 @@ All three routes lead to the same terms. Only the entrance differs.
 
 ---
 
-## How the six stations are ordered
+## How the six stages are ordered
 
 One rule decides the order: **later terms lean on earlier ones.**
 
-| Station | What you can do after | Terms |
+| Stage | What you can do after | Terms |
 |---|---|---|
-| 1 · Getting In | Explain to a human what AI is doing | 30 |
-| 2 · Hands On | Know when it fails, so a demo cannot fool you | 35 |
-| 3 · Going Deeper | Judge whether a plan holds up instead of trusting the vendor | 35 |
-| 4 · Under the Hood | Understand why it behaves that way, rather than memorising | 30 |
-| 5 · Running It | Know how much VRAM running it locally will take | 25 |
-| 6 · Choosing Right | Turn what you learned into a decision you can sign off on | 30 |
+| 1 · Getting In | Explain to a human what AI is doing | 36 |
+| 2 · Hands On | Know when it fails, so a demo cannot fool you | 44 |
+| 3 · Going Deeper | Judge whether a plan holds up instead of trusting the vendor | 76 |
+| 4 · Under the Hood | Understand why it behaves that way, rather than memorising | 60 |
+| 5 · Running It | Know how much VRAM running it locally will take | 46 |
+| 6 · Choosing Right | Turn what you learned into a decision you can sign off on | 37 |
 
-A concrete case: "context window" sits in station one, "Transformer" in station four.
-Start at station four with the Transformer paper and you will stall — not because you
+A concrete case: "context window" sits in stage one, "Transformer" in stage four.
+Start at stage four with the Transformer paper and you will stall — not because you
 are slow, because the groundwork isn't there.
 
 ---
@@ -63,13 +63,13 @@ Saying it up front so you don't go hunting for something that isn't here:
 
 ```
 terms/ (ai-handbook subtree)
-├── terms/              228 terms, one file each (frontmatter + a fixed body skeleton)
-│   └── INDEX.md        build output · station-grouped index, do not edit by hand
+├── terms/              299 terms, one file each (frontmatter + a fixed body skeleton)
+│   └── INDEX.md        build output · stage-grouped index, do not edit by hand
 ├── terms.en.json       English text (keyed by the Chinese term name)
 ├── paths/              learning-path source of truth (ordered slugs + checkpoints, bilingual)
 ├── guides/             short-guide source of truth (frontmatter discipline as terms; SCHEMA.md §8)
 ├── guides.en.json      English guide bodies (keyed by file name)
-├── meta.js             the three classification schemes: station / domain / purpose
+├── meta.js             the three classification schemes: stage / domain / purpose
 ├── dims.js             three observation dimensions (model access / runtime / transport)
 ├── SCHEMA.md           term format spec (§8 covers short guides)
 └── scripts/build.mjs   the build script (includes a field-by-field equivalence gate)
@@ -87,9 +87,9 @@ inconsistent skeleton gets caught by the validator.
 
 ## Content index
 
-### Read in order — the six stations
+### Read in order — the six stages
 
-| Station | What you can do after | Terms |
+| Stage | What you can do after | Terms |
 |---|---|---|
 | **1 · Getting In** | Explain what AI is doing to another person | 36 |
 | **2 · Hands On** | Know when it fails, so a demo cannot fool you | 44 |
@@ -98,7 +98,7 @@ inconsistent skeleton gets caught by the validator.
 | **5 · Running It** | Know how much VRAM running it locally will take | 46 |
 | **6 · Choosing Right** | Turn what you learned into a decision you can sign off on | 37 |
 
-<details><summary><b>Station 1 · Getting In · 36 terms</b> — Explain what AI is doing to another person (click to expand)</summary>
+<details><summary><b>Stage 1 · Getting In · 36 terms</b> — Explain what AI is doing to another person (click to expand)</summary>
 
 | Term | In one line | Domain | Use |
 |---|---|---|---|
@@ -141,7 +141,7 @@ inconsistent skeleton gets caught by the validator.
 
 </details>
 
-<details><summary><b>Station 2 · Hands On · 44 terms</b> — Know when it fails, so a demo cannot fool you (click to expand)</summary>
+<details><summary><b>Stage 2 · Hands On · 44 terms</b> — Know when it fails, so a demo cannot fool you (click to expand)</summary>
 
 | Term | In one line | Domain | Use |
 |---|---|---|---|
@@ -192,7 +192,7 @@ inconsistent skeleton gets caught by the validator.
 
 </details>
 
-<details><summary><b>Station 3 · Going Deeper · 76 terms</b> — Judge whether a plan holds up instead of trusting the vendor (click to expand)</summary>
+<details><summary><b>Stage 3 · Going Deeper · 76 terms</b> — Judge whether a plan holds up instead of trusting the vendor (click to expand)</summary>
 
 | Term | In one line | Domain | Use |
 |---|---|---|---|
@@ -275,7 +275,7 @@ inconsistent skeleton gets caught by the validator.
 
 </details>
 
-<details><summary><b>Station 4 · Under the Hood · 60 terms</b> — Understand why it behaves that way, rather than memorising (click to expand)</summary>
+<details><summary><b>Stage 4 · Under the Hood · 60 terms</b> — Understand why it behaves that way, rather than memorising (click to expand)</summary>
 
 | Term | In one line | Domain | Use |
 |---|---|---|---|
@@ -342,7 +342,7 @@ inconsistent skeleton gets caught by the validator.
 
 </details>
 
-<details><summary><b>Station 5 · Running It · 46 terms</b> — Know how much VRAM running it locally will take (click to expand)</summary>
+<details><summary><b>Stage 5 · Running It · 46 terms</b> — Know how much VRAM running it locally will take (click to expand)</summary>
 
 | Term | In one line | Domain | Use |
 |---|---|---|---|
@@ -395,7 +395,7 @@ inconsistent skeleton gets caught by the validator.
 
 </details>
 
-<details><summary><b>Station 6 · Choosing Right · 37 terms</b> — Turn what you learned into a decision you can sign off on (click to expand)</summary>
+<details><summary><b>Stage 6 · Choosing Right · 37 terms</b> — Turn what you learned into a decision you can sign off on (click to expand)</summary>
 
 | Term | In one line | Domain | Use |
 |---|---|---|---|
@@ -465,7 +465,7 @@ inconsistent skeleton gets caught by the validator.
 | Item | Measured value |
 |---|---|
 | Terms | 299 |
-| Stations | Getting In 36 · Hands On 44 · Going Deeper 76 · Under the Hood 60 · Running It 46 · Choosing Right 37 |
+| Stages | Getting In 36 · Hands On 44 · Going Deeper 76 · Under the Hood 60 · Running It 46 · Choosing Right 37 |
 | Learning paths | 16 curated ordered routes, each with a checkpoint |
 | Short guides | 111 guides of 5-10 minutes each (English coverage 111/111) |
 | Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |

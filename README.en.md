@@ -40,7 +40,7 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 | Item | Measured value |
 |---|---|
 | terms · Terms | 299 |
-| terms · Stations | Getting In 36 · Hands On 44 · Going Deeper 76 · Under the Hood 60 · Running It 46 · Choosing Right 37 |
+| terms · Stages | Getting In 36 · Hands On 44 · Going Deeper 76 · Under the Hood 60 · Running It 46 · Choosing Right 37 |
 | terms · Learning paths | 16 curated ordered routes, each with a checkpoint |
 | terms · Short guides | 111 guides of 5-10 minutes each (English coverage 111/111) |
 | terms · Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |

@@ -12,21 +12,32 @@ licenseEn: Free credits + subscription (Consensus Pro). Governed by official ter
 
 axes:
   model_access: >-
-    自建 4 亿+ 篇同行评审论文索引（Semantic Scholar、OpenAlex、PubMed 与出版商 feed 汇入），检索用向量+词法混合排序，按研究设计/样本量/引用/时效加权；生成侧用 LLM 做摘要与综合，Consensus Meter 把二值问题的前 20 条结果分成支持/反驳/混合（2026-11-21）。
+    自建 4 亿+ 篇同行评审论文索引，来源包括 Semantic Scholar、OpenAlex、PubMed 与出版商 feed。
+    检索用向量与词法混合排序，再按研究设计、样本量、引用与时效加权。
+    生成侧用 LLM 做摘要与综合。Consensus Meter 把二值问题的前 20 条结果分成支持、反驳与混合（2026-11-21）。
   runtime: >-
-    网页 consensus.app + iOS/Android App + REST API（`docs.consensus.app`）+ 远程 MCP（`https://mcp.consensus.app/mcp`）+ ChatGPT/Claude 集成；检索与生成在厂商云端（2026-11-21）。
+    网页 consensus.app、iOS/Android App、REST API（`docs.consensus.app`）、远程 MCP（`https://mcp.consensus.app/mcp`），
+    另有 ChatGPT 与 Claude 集成。检索与生成都在厂商云端（2026-11-21）。
   local_files: >-
-    My Library、Collections、上传文档与 Threads 存账户侧云端（上传文件私有于账户）；引用导出 BibTeX/RIS/EndNote/CSV 与 PDF 归本地；API 返回结构化 JSON 与引用元数据（2026-11-21）。
+    My Library、Collections、上传文档与 Threads 存账户侧云端，上传文件私有于账户。
+    引用可导出 BibTeX、RIS、EndNote、CSV，PDF 归本地。API 返回结构化 JSON 与引用元数据（2026-11-21）。
   background: >-
-    Research Agent 会规划检索、串联工具并套学术过滤；Deep Review 一次综合 50–100 篇，属平台侧多步任务，网页端按任务进度返回。API/MCP 每次调用独立，批量筛选由调用方编排（2026-11-21）。
+    Research Agent 会规划检索、串联工具并套学术过滤。Deep Review 一次综合 50–100 篇，属平台侧多步任务，
+    网页端按任务进度返回。API 与 MCP 每次调用独立，批量筛选由调用方编排（2026-11-21）。
   tools: >-
-    论文检索、AI 综合答案（逐句回链）、Consensus Meter、按研究类型/年份/期刊/开放获取/学科过滤、Study Snapshot（方法/样本/结局）、Chat with Full Text、My Library/Collections、Threads、Citation Graph、Deep Reviews、REST API 与 MCP（2026-11-21）。
+    产品包括论文检索、逐句回链的 AI 综合答案、Consensus Meter，以及按研究类型、年份、期刊、开放获取与学科过滤。
+    另有 Study Snapshot（方法/样本/结局）、Chat with Full Text、My Library/Collections、Threads、Citation Graph、
+    Deep Reviews、REST API 与 MCP（2026-11-21）。
   context: >-
-    Threads 在同一会话内保留追问上下文；Library/Collections 持久保存论文与上传文档；跨会话不建用户画像。清空 thread history 会删搜索与关联对话，删账户撤销集成访问（2026-11-21）。
+    Threads 在同一会话内保留追问上下文。Library 与 Collections 持久保存论文和上传文档。
+    跨会话不建用户画像。清空 thread history 会删搜索与关联对话；删账户会撤销集成访问（2026-11-21）。
   permissions: >-
-    账号 + Free/Pro/Deep/Teams/Enterprise 订阅；REST 用 Bearer API Key，MCP 走 OAuth 2.1（PKCE、动态注册），另有低配额匿名档。API 与 MCP 共享每月调用池：Free 30、Pro/Team/Enterprise 500（可加到 1,000）、Deep 2,000（可加到 10,000），超出 $0.05/次（2026-11-21）。
+    账号体系，分 Free、Pro、Deep、Teams 与 Enterprise 订阅。REST 用 Bearer API Key，MCP 走 OAuth 2.1，
+    含 PKCE 与动态注册，另有低配额匿名档。API 与 MCP 共享每月调用池：Free 30，Pro/Team/Enterprise 500（可加到 1,000），
+    Deep 2,000（可加到 10,000），超出 $0.05/次（2026-11-21）。
   fit: >-
-    适合：「科学界怎么说」类实证问题、文献初筛与极性统计、给 agent 接有引用的学术检索、需要导出引用。不适合：把 Meter 当定论、系统性综述的全文筛选、中文文献主打（2026-11-21）。
+    适合：「科学界怎么说」类实证问题、文献初筛与极性统计、给 agent 接有引用的学术检索、需要导出引用。
+    不适合：把 Meter 当定论、系统性综述的全文筛选、以中文文献为主打的场景（2026-11-21）。
 
 pitfalls:
   - Consensus Meter 是「论文计数的极性统计」不是「科学定论」——论文质量不等权，读 Meter 要看底层论文

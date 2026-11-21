@@ -267,6 +267,30 @@ const PATH_LEVELS = {
   deep: { zh: '深入', en: 'Deep dive', noteZh: '原理、评测与安全审查', noteEn: 'Methods, evaluation and safety review' },
   ship: { zh: '落地', en: 'Ship it', noteZh: '部署、上线与团队决策', noteEn: 'Deploy, operate and decide for a team' },
 };
+/* 路径读完后的跨站练习入口。四档各三条，目的不是继续读，而是马上用一次。
+ * 链接只写根入口或长期存在的页面；标题与理由面向“刚走完这条路”的人。 */
+const PATH_HANDOFF = {
+  starter: [
+    { href: 'https://tools.specul.com/', zh: '挑一件现成工具，先干完一件活', en: 'Pick one ready-made tool and finish one job', whyZh: '不用先学完原理。每份档案先看「30 秒判断」，再看限制和收费。', whyEn: 'No theory first. Read the 30-second check in each profile, then limits and pricing.' },
+    { href: 'https://demos.specul.com/', zh: '看三件真实作品，找感觉', en: 'See three real pieces for a feel', whyZh: '先看结果，再决定要不要回头补原理；每件都带原站和 prompt。', whyEn: 'See the result first, then decide whether to revisit the theory. Each piece links to its original site and prompt.' },
+    { href: 'https://learn.specul.com/atlas/', zh: '把学过的词放回地图', en: 'Put the terms back on the map', whyZh: '概念不是一条直线；在地图上看它们怎么相邻，比继续背词有用。', whyEn: 'Concepts are not a straight line. Seeing how they neighbour each other beats memorising more terms.' },
+  ],
+  builder: [
+    { href: 'https://tools.specul.com/', zh: '按任务找工具，查许可和部署', en: 'Find a tool by task, check licence and deployment', whyZh: '先按手里的活筛，再看它跑在哪、许可能不能商用、数据去哪里。', whyEn: 'Filter by the job first, then check where it runs, whether the licence allows commercial use, and where data goes.' },
+    { href: 'https://oss.specul.com/', zh: '从源码跑一个最小项目', en: 'Run a minimal project from source', whyZh: '选一个许可清楚的仓库，先跑通最小例子，再决定要不要接进自己的流程。', whyEn: 'Pick a repo with a clear licence, get the smallest example running, then decide whether to integrate it.' },
+    { href: 'https://demos.specul.com/prompts.html', zh: '拿原始 prompt 复跑一件作品', en: 'Reproduce a piece from its original prompt', whyZh: '只改一个变量，看看结果差在哪里；别把一次复跑当成模型结论。', whyEn: 'Change one variable and see what differs. Do not treat one rerun as a conclusion about the model.' },
+  ],
+  deep: [
+    { href: 'https://papers.specul.com/', zh: '读原始论文，核对摘要里的数字', en: 'Read the original paper and check the numbers', whyZh: '每张论文卡都写清问题、证据与边界；摘要里的数字要回到原文核对。', whyEn: 'Each paper card states the question, evidence and limits. Check the numbers in the abstract against the paper.' },
+    { href: 'https://models.specul.com/', zh: '查家族代次与量化档', en: 'Check family generations and quant builds', whyZh: '把「同一个名字」拆成代次、上下文、量化档和许可，别拿旧卡当新模型。', whyEn: 'Split one name into generation, context, quant build and licence. Do not mistake an old card for a new model.' },
+    { href: 'https://learn.specul.com/atlas/', zh: '把原理接回概念地图', en: 'Reconnect the theory to the concept map', whyZh: '读完论文再回地图，看它改变了哪些词的含义，知识才不会散成点。', whyEn: 'Return to the map after the paper and see which terms changed meaning, so the knowledge does not stay in scattered points.' },
+  ],
+  ship: [
+    { href: 'https://hardware.specul.com/tco.html', zh: '算显存、功耗与总成本', en: 'Work out VRAM, power and total cost', whyZh: '先把硬件、云租用与电费放在同一张账上，再谈「值不值」。', whyEn: 'Put hardware, cloud rental and electricity on one bill before arguing whether it is worth it.' },
+    { href: 'https://models.specul.com/', zh: '查量化档、许可与容量边界', en: 'Check quant builds, licence and capacity limits', whyZh: '部署前确认量化精度、上下文、并发与许可，别只看参数量。', whyEn: 'Before deploying, confirm quant precision, context, concurrency and licence. Parameter count alone is not enough.' },
+    { href: 'https://chain.specul.com/', zh: '看链上工具、支付与信任边界', en: 'See on-chain tools, payments and trust boundaries', whyZh: '涉及付款、结算或外部调用时，先分清谁托管、谁签名、出问题谁负责。', whyEn: 'When payment, settlement or external calls are involved, separate who hosts, who signs and who is accountable.' },
+  ],
+};
 const PATHS = [];
 if (fs.existsSync(pathsDir)) {
   for (const f of fs.readdirSync(pathsDir).filter((f) => f.endsWith('.json')).sort()) {
@@ -1072,6 +1096,13 @@ ${ckEn}
         <p class="tp-p">${bi('先试着回答，再展开参考答案。答不上来的地方，可从上方步骤返回对应词条。参考回答是核对要点，不要求逐字复述。', 'Try answering before opening the reference. Revisit the relevant step above if needed. These answers highlight key ideas; you do not need to repeat the wording.')}</p>
 ${answersHtml}
         ${p.nextTask ? `<section class="tp-sec"><h2>${bi('用在一个具体任务里', 'Apply this to a concrete task')}</h2><p><a href="${esc(p.nextTask.href)}">${bi(esc(p.nextTask.zh),esc(p.nextTask.en))} →</a></p></section>` : ''}
+        <section class="tp-sec tp-handoff">
+          <h2>${bi('走完这一段，去哪练', 'Where to practise after this route')}</h2>
+          <p class="tp-p">${bi('这条路线负责把概念讲通。下一步不用再读一遍；挑一个地方，把刚学的用一次。', 'This route gets the concepts across. Do not reread it; pick one place below and use what you just learned once.')}</p>
+          <div class="t-grid t-grid-3">
+${(PATH_HANDOFF[p.level] || []).map((h) => `            <div class="t-pathcard"><h3><a href="${esc(h.href)}">${bi(esc(h.zh), esc(h.en))}</a></h3><p class="t-pathlead">${bi(esc(h.whyZh), esc(h.whyEn))}</p><a class="t-pathgo" href="${esc(h.href)}">${bi('去这里 →', 'Open →')}</a></div>`).join('\n')}
+          </div>
+        </section>
         <div class="tp-sec">
           <div class="tp-lab">${bi('其他路径', 'Other paths')}</div>
           <p class="tp-p">${otherPaths}</p>
