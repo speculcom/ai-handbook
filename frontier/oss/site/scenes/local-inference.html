@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/scenes/local-inference.html" />
   <meta property="og:title" content="本地推理与部署 · 开源 AI 工具库" />
   <meta property="og:description" content="本地推理与部署：从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。 收录 15 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/scenes/local-inference.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/scenes/local-inference.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/scenes/local-inference.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -111,7 +116,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="../repos/ollama.html">Ollama</a></h3>
   <p class="repo-owner">ollama / ollama</p>
-  <p>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</p>
+  <p><span data-zh>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</span><span data-en>Pull and run local models with one command, with a built-in model library and an OpenAI-compatible API.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -123,7 +128,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="../repos/llama-cpp.html">llama.cpp</a></h3>
   <p class="repo-owner">ggml-org / llama.cpp</p>
-  <p>C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。</p>
+  <p><span data-zh>C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。</span><span data-en>A C/C++ inference engine that runs on CPUs, Apple Silicon and consumer GPUs, with a wide range of quantisation formats.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>C++</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -135,7 +140,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="../repos/vllm.html">vLLM</a></h3>
   <p class="repo-owner">vllm-project / vllm</p>
-  <p>高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。</p>
+  <p><span data-zh>高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。</span><span data-en>A high-throughput inference and serving engine with PagedAttention, continuous batching and multi-GPU support.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -147,7 +152,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="../repos/sglang.html">SGLang</a></h3>
   <p class="repo-owner">sgl-project / sglang</p>
-  <p>高性能推理运行时，擅长结构化生成、前缀缓存与多卡服务。</p>
+  <p><span data-zh>高性能推理运行时，擅长结构化生成、前缀缓存与多卡服务。</span><span data-en>A high-performance inference runtime strong at structured generation, prefix caching and multi-GPU serving.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -159,7 +164,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="../repos/localai.html">LocalAI</a></h3>
   <p class="repo-owner">mudler / LocalAI</p>
-  <p>本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。</p>
+  <p><span data-zh>本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。</span><span data-en>A local OpenAI-compatible API supporting text, image and speech backends.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -171,7 +176,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/tgi.html">Text Generation Inference</a></h3>
   <p class="repo-owner">huggingface / text-generation-inference</p>
-  <p>Hugging Face 的生产级文本生成服务，支持张量并行、量化与流式输出。</p>
+  <p><span data-zh>Hugging Face 的生产级文本生成服务，支持张量并行、量化与流式输出。</span><span data-en>Hugging Face’s production text-generation service with tensor parallelism, quantisation and streaming.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -183,7 +188,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="../repos/tensorrt-llm.html">TensorRT-LLM</a></h3>
   <p class="repo-owner">NVIDIA / TensorRT-LLM</p>
-  <p>NVIDIA 的 LLM 推理优化栈：自定义 kernel、量化、in-flight batching 与多卡并行，面向生产吞吐。</p>
+  <p><span data-zh>NVIDIA 的 LLM 推理优化栈：自定义 kernel、量化、in-flight batching 与多卡并行，面向生产吞吐。</span><span data-en>NVIDIA’s LLM inference optimisation stack: custom kernels, quantisation, in-flight batching and multi-GPU for production throughput.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -195,7 +200,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="../repos/textgen-webui.html">Text Generation WebUI</a></h3>
   <p class="repo-owner">oobabooga / textgen</p>
-  <p>本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。</p>
+  <p><span data-zh>本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。</span><span data-en>A local LLM web UI supporting llama.cpp, Transformers and ExLlama backends, with model loading, chat and extensions on one page.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>AGPL-3.0</dd></div>
@@ -207,7 +212,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/open-webui.html">Open WebUI</a></h3>
   <p class="repo-owner">open-webui / open-webui</p>
-  <p>自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。</p>
+  <p><span data-zh>自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。</span><span data-en>A self-hosted AI chat and workbench for Ollama and OpenAI-compatible APIs, with RAG, web search, multi-user permissions and tool extensions.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Svelte</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -219,7 +224,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/lmdeploy.html">LMDeploy</a></h3>
   <p class="repo-owner">InternLM / lmdeploy</p>
-  <p>高吞吐 LLM 推理与部署工具，提供 TurboMind/PyTorch 引擎、KV 量化、多卡并行和 OpenAI 兼容 API。</p>
+  <p><span data-zh>高吞吐 LLM 推理与部署工具，提供 TurboMind/PyTorch 引擎、KV 量化、多卡并行和 OpenAI 兼容 API。</span><span data-en>A high-throughput inference and deployment toolkit with TurboMind and PyTorch engines, KV quantisation, multi-GPU and an OpenAI-compatible API.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -231,7 +236,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="../repos/mlc-llm.html">MLC LLM</a></h3>
   <p class="repo-owner">mlc-ai / mlc-llm</p>
-  <p>基于 TVM 的通用 LLM 编译部署引擎，可把模型编译到 CUDA、ROCm、Metal、Vulkan、WebGPU 等后端。</p>
+  <p><span data-zh>基于 TVM 的通用 LLM 编译部署引擎，可把模型编译到 CUDA、ROCm、Metal、Vulkan、WebGPU 等后端。</span><span data-en>A TVM-based compiler and deployment engine that compiles LLMs to CUDA, ROCm, Metal, Vulkan and WebGPU backends.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -243,7 +248,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="../repos/llamafile.html">llamafile</a></h3>
   <p class="repo-owner">Mozilla-Ocho / llamafile</p>
-  <p>把 llama.cpp 与模型权重打包成单个可执行文件，跨 macOS/Windows/Linux/BSD 运行，无需安装 Python。</p>
+  <p><span data-zh>把 llama.cpp 与模型权重打包成单个可执行文件，跨 macOS/Windows/Linux/BSD 运行，无需安装 Python。</span><span data-en>Package llama.cpp and model weights into a single executable that runs on macOS, Windows, Linux and BSD without Python.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>C++</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -255,7 +260,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/litellm.html">LiteLLM</a></h3>
   <p class="repo-owner">BerriAI / litellm</p>
-  <p>把 100+ 模型 API 统一成 OpenAI 兼容格式的网关与 SDK：Rust 核心、虚拟密钥、成本追踪、限流/负载均衡、guardrails、日志与缓存，可自托管。</p>
+  <p><span data-zh>把 100+ 模型 API 统一成 OpenAI 兼容格式的网关与 SDK：Rust 核心、虚拟密钥、成本追踪、限流/负载均衡、guardrails、日志与缓存，可自托管。</span><span data-en>A gateway and SDK that normalises 100+ model APIs into an OpenAI-compatible format, with a Rust core, virtual keys, cost tracking, rate limits, load balancing, guardrails, logging and caching, self-hostable.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT + Enterprise</dd></div>

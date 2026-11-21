@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://models.specul.com/evals/frontiercode-2.html" />
   <meta property="og:title" content="FrontierCode 2.0 / FrontierCode 2.0 · 评测基准 · AI 模型" />
   <meta property="og:description" content="FrontierCode 2.0 / FrontierCode 2.0：代码改动是否达到「维护者愿意合并」的标准；指标 mergeability 分数与通过率；由资深开源维护者制定的评分标准；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/evals/frontiercode-2.html" />
+  <link rel="alternate" hreflang="en" href="https://models.specul.com/evals/frontiercode-2.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://models.specul.com/evals/frontiercode-2.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,27 +101,27 @@
 <header class="sec-detail">
   <p class="eyebrow">Models · Evals</p>
   <h1><span data-zh>FrontierCode 2.0</span><span data-en>FrontierCode 2.0</span></h1>
-  <p class="sub"><span data-zh>代码改动是否达到「维护者愿意合并」的标准</span><span data-en>Whether a code change meets the bar of “a maintainer would merge it”</span></p>
+  <p class="sub"><span data-zh>代码改动是否达到「维护者愿意合并」的标准</span><span data-en>Whether a code change meets a maintainer’s merge bar</span></p>
 </header>
 <div class="sec-nav"><a href="index.html"><span data-zh>← 全部评测</span><span data-en>← All evals</span></a><a href="../index.html"><span data-zh>模型站</span><span data-en>Models</span></a></div>
 <table class="sec-table">
-  <tr><th><span data-zh>测什么</span><span data-en>What it measures</span></th><td><span data-zh>代码改动是否达到「维护者愿意合并」的标准</span><span data-en>Whether a code change meets the bar of “a maintainer would merge it”</span></td></tr>
-  <tr><th><span data-zh>任务与数据</span><span data-en>Tasks and data</span></th><td><span data-zh>132 个任务，来自更多仓库与类别，含安全补丁、性能优化；参考解平均改动文件多 67%、代码行多 89%，代码库大 25%</span><span data-en>132 tasks from more repositories and categories, including security patches and performance work; reference solutions touch 67% more files and 89% more lines on average, in codebases 25% larger</span></td></tr>
-  <tr><th><span data-zh>指标</span><span data-en>Metric</span></th><td><span data-zh>mergeability 分数与通过率；由资深开源维护者制定的评分标准</span><span data-en>Mergeability score and pass rate, using criteria written by elite open-source maintainers</span></td></tr>
-  <tr><th><span data-zh>污染风险</span><span data-en>Contamination risk</span></th><td><span data-zh>官方未公开全部题集；评分依赖维护者标准，存在主观判断；任务来自真实仓库，模型可能见过相关代码。</span><span data-en>Not all tasks are public; grading depends on maintainer criteria and carries subjective judgment; tasks come from real repositories, so models may have seen related code.</span></td></tr>
-  <tr><th><span data-zh>复现</span><span data-en>Reproduction</span></th><td><span data-zh>用官方 harness 跑固定任务，记录模型档位、成本、输出 token 与失败类别；mergeability 要按评分细则复核。</span><span data-en>Run the fixed tasks with the official harness and record model effort, cost, output tokens and failure categories; re-check mergeability against the rubric.</span></td></tr>
-  <tr><th><span data-zh>成本</span><span data-en>Cost</span></th><td><span data-zh>中高；多文件任务与人工评分，单次 rollout 成本可达十几美元</span><span data-en>Medium-high; multi-file tasks and human grading, with some rollouts costing over ten dollars</span></td></tr>
+  <tr><th><span data-zh>测什么</span><span data-en>What it measures</span></th><td><span data-zh>代码改动是否达到「维护者愿意合并」的标准</span><span data-en>Whether a code change meets a maintainer’s merge bar</span></td></tr>
+  <tr><th><span data-zh>任务与数据</span><span data-en>Tasks and data</span></th><td><span data-zh>132 个任务，来自更多仓库与类别，含安全补丁、性能优化；参考解平均改动文件多 67%、代码行多 89%，代码库大 25%</span><span data-en>132 tasks from more repositories and categories, including security patches and performance work; reference solutions touch 67% more files and 89% more lines and a 25% larger codebase</span></td></tr>
+  <tr><th><span data-zh>指标</span><span data-en>Metric</span></th><td><span data-zh>mergeability 分数与通过率；由资深开源维护者制定的评分标准</span><span data-en>Mergeability score and pass rate, using criteria set by senior open-source maintainers</span></td></tr>
+  <tr><th><span data-zh>污染风险</span><span data-en>Contamination risk</span></th><td><span data-zh>官方未公开全部题集；评分依赖维护者标准，存在主观判断；任务来自真实仓库，模型可能见过相关代码。</span><span data-en>Medium; tasks are public but multi-file changes are hard to memorise.</span></td></tr>
+  <tr><th><span data-zh>复现</span><span data-en>Reproduction</span></th><td><span data-zh>用官方 harness 跑固定任务，记录模型档位、成本、输出 token 与失败类别；mergeability 要按评分细则复核。</span><span data-en>Medium to high; multi-file tasks and human scoring; a single rollout can cost tens of dollars.</span></td></tr>
+  <tr><th><span data-zh>成本</span><span data-en>Cost</span></th><td><span data-zh>中高；多文件任务与人工评分，单次 rollout 成本可达十几美元</span><span data-en>Medium to high; multi-file tasks and human grading.</span></td></tr>
   <tr><th><span data-zh>快照日</span><span data-en>Snapshot</span></th><td>2026-11-19</td></tr>
   <tr><th><span data-zh>核验日</span><span data-en>Verified</span></th><td>2026-11-19</td></tr>
 </table>
 <div class="sec-body">
   <h2><span data-zh>怎么读</span><span data-en>How to read it</span></h2>
-  <p><span data-zh>它补的是「能否合并」而不是「能否跑通测试」；分数低不代表模型不能用，代表它还没达到维护者的合并标准。选型时把它和自家代码库的 50–100 条真实 PR 对照。</span><span data-en>It measures “would this merge” rather than “do tests pass”; a low score does not mean the model is unusable, only that it misses the maintainer bar. Compare it with 50–100 real PRs from your own repository.</span></p>
+  <p><span data-zh>它补的是「能否合并」而不是「能否跑通测试」；分数低不代表模型不能用，代表它还没达到维护者的合并标准。选型时把它和自家代码库的 50–100 条真实 PR 对照。</span><span data-en>Measures mergeability, not just test passing. Report the rubric and the reviewer.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li><span data-zh>打开榜单或论文页，确认题集版本、评分脚本与提交日期。</span><span data-en>Open the leaderboard or paper and confirm the task-set version, scoring script and submission date.</span></li>
-    <li><span data-zh>把它和你关心的业务任务做对照；找不到对应任务，就自己建 50–100 条内部评测。</span><span data-en>Compare it with the business task you care about; if there is no match, build 50–100 internal cases.</span></li>
-    <li><span data-zh>读《怎么读榜单》，把“分数”写成“条件 + 参考价值”。</span><span data-en>Read “How to read a leaderboard” and write scores as “conditions plus reference value”.</span></li>
+    <li><span data-zh>固定仓库快照、工具权限与超时，把失败拆成编译、测试、越权与环境四类。</span><span data-en>Pin the repo snapshot, tool permissions and timeout; split failures into build, test, permission and environment.</span></li>
+    <li><span data-zh>用你自己的 20–50 个真实 issue 或任务复跑，区分“能写出代码”和“能交付可用结果”。</span><span data-en>Re-run on 20–50 of your real issues or tasks; separate “can write code” from “can deliver a usable result”.</span></li>
+    <li><span data-zh>把 pass@1、token 成本与人工复核时间一起报；只看通过率会漏掉返工成本。</span><span data-en>Report pass@1 with token cost and human review time; pass rate alone hides rework.</span></li>
   </ul>
 </div>
 <div class="sec-sources"><span data-zh>榜单 / 来源</span><span data-en>Leaderboard / source</span>：<a href="https://cognition.com/frontiercode" target="_blank" rel="noopener">https://cognition.com/frontiercode</a> · <span data-zh>快照</span><span data-en>Snapshot</span> 2026-11-19</div>

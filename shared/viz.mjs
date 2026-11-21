@@ -489,6 +489,7 @@ function vizTools() {
     { label: '本地运行器', value: 21, color: 'var(--cat-blue)' },
     { label: '音频', value: 17, color: 'var(--cat-violet)' },
     { label: '图像', value: 15, color: 'var(--cat-teal)' },
+    { label: '办公', value: 15, color: 'var(--cat-lime)' },
     { label: '视频', value: 14, color: 'var(--cat-amber)' },
     { label: '研究', value: 11, color: 'var(--cat-rose)' },
   ];
@@ -596,14 +597,22 @@ function vizHardware() {
     cards: [
       card({ span: 7, no: '01', title: 'HBM 容量 × 带宽', sub: bi('9 个代表型号，对数横轴', '9 representative parts, log x-axis'), svg: scatter(pts), foot: bi('不同厂商的 FP4 口径不同：NVIDIA 写 NVFP4，AMD 写 OCP MXFP4；点的高度只表示官方带宽，不表示算力排名。', 'FP4 formats differ: NVIDIA says NVFP4, AMD says OCP MXFP4. Height encodes official bandwidth only, not a compute ranking.') }),
       card({ span: 5, no: '02', title: '2026 六个硬件节点', sub: bi('发布 / 上市日期', 'release / launch dates'), svg: timeline(tl, { w: 560, rowH: 50 }), foot: bi('B300 的 15 PF 是 dense NVFP4；Rubin 的 50 PF 是 NVFP4 推理性能。两者不能直接横比。', 'B300’s 15 PF is dense NVFP4; Rubin’s 50 PF is NVFP4 inference performance. They are not directly comparable.') }),
-      card({ span: 12, no: '03', title: '同样 288GB，为什么不是同一张卡', sub: bi('容量相同，带宽与互联差一个代际', 'same capacity, different generation'), svg: `<div class="vz-compare">
+      card({ span: 12, no: '03', title: '本地跑模型：显存台阶与 4-bit 权重上限', sub: bi('经验值：参数量约 2× 显存，KV 缓存另算', 'rule of thumb: params ≈ 2× VRAM, KV cache excluded'), svg: columnChart([
+        { label: '8 GB', value: 4, color: 'var(--ink-faint)' },
+        { label: '16 GB', value: 8, color: 'var(--cat-blue)' },
+        { label: '24 GB', value: 12, color: 'var(--cat-blue)' },
+        { label: '32 GB', value: 16, color: 'var(--cat-violet)' },
+        { label: '48 GB', value: 24, color: 'var(--cat-violet)' },
+        { label: '96 GB', value: 48, color: 'var(--cat-rose)' },
+      ], { w: 760, h: 280, unit: '4-bit 参数量（B，估算）' }), foot: bi('这是 4-bit 权重的粗算：8 GB 约 4B、16 GB 约 8B，往上同理。长上下文、KV 缓存、视觉编码器和并发会吃掉余量，实际能跑的比这个数小。', 'A rough 4-bit rule: 8 GB ≈ 4B, 16 GB ≈ 8B, and so on. Long context, KV cache, vision encoders and concurrency eat the headroom, so real capacity is lower.') }),
+      card({ span: 12, no: '04', title: '同样 288GB，为什么不是同一张卡', sub: bi('容量相同，带宽与互联差一个代际', 'same capacity, different generation'), svg: `<div class="vz-compare">
         <div><b>B300</b><span>288GB HBM3e</span><span>8TB/s</span><span>NVLink 5 1.8TB/s</span><small>${bi('Blackwell Ultra；15 PF dense NVFP4；最高 1400W。', 'Blackwell Ultra; 15 PF dense NVFP4; up to 1,400W.')}</small></div>
         <div><b>Rubin</b><span>288GB HBM4</span><span>22TB/s</span><span>NVLink 6 3.6TB/s</span><small>${bi('Vera Rubin；50 PF NVFP4 推理；336B 晶体管。', 'Vera Rubin; 50 PF NVFP4 inference; 336B transistors.')}</small></div>
         <div><b>MI450X</b><span>288GB HBM4</span><span>23.3TB/s</span><span>UALoE 3.6TB/s</span><small>${bi('CDNA5；40.3 PF MXFP4；8 个 HBM4 stack。', 'CDNA5; 40.3 PF MXFP4; eight HBM4 stacks.')}</small></div>
       </div>`, foot: bi('三张卡都写 288GB，但 HBM 代际、带宽、互联与软件栈不同；采购时先把「容量」之外的三个数拉出来。', 'All three say 288GB, but HBM generation, bandwidth, interconnect and software stack differ; pull those three numbers before comparing capacity.') }),
     ],
     foot: bi('说明：容量为单卡 HBM，不含整机；带宽为官方峰值。整机 / 机架数字另计入 Helios 条目。', 'Note: capacity is per-GPU HBM, not system; bandwidth is the official peak. Rack-level figures sit in the Helios entry.'),
-    link: `<a href="2026.html">${bi('看 2026 硬件增补：Rubin、B300、MI455X、MI450X、TPU7x、Helios', 'See the 2026 hardware patch: Rubin, B300, MI455X, MI450X, TPU7x, Helios')} →</a>`,
+    link: `<a href="2026.html">${bi('看 2026 硬件增补：Rubin、B300、MI455X、MI450X、TPU7x、Helios', 'See the 2026 hardware patch: Rubin, B300, MI455X, MI450X, TPU7x, Helios')} →</a> · <a href="tco.html">${bi('买卡还是租云：算一遍 TCO', 'Buy or rent: run the TCO')} →</a>`,
   });
 }
 

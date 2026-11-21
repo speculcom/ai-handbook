@@ -1,0 +1,26 @@
+{
+  "_comment": "English body for open-webui; generated from the Chinese dossier and official pages, not a literal translation.",
+  "axes": {
+    "model_access": "No built-in model: connect Ollama and any local or cloud OpenAI-compatible API, plus providers such as Anthropic. Credentials stay in your instance. Provider coverage and version differences follow the official Connect a Provider documentation.",
+    "runtime": "Self-hosted web app: Docker, Python, Kubernetes or a desktop app. The front end is a browser; inference and data stay on your machine or server by default and do not pass through Open WebUI’s cloud.",
+    "local_files": "Upload documents, images and code; knowledge bases and vector stores live in your instance. Open Terminal gives an agent a controlled shell and filesystem to read, write, run scripts and return artefacts to the conversation.",
+    "background": "Automations can run prompts on a schedule, and long tasks run in the instance background. Whether they continue after shutdown depends on where the instance is deployed; the platform does not host your execution environment.",
+    "tools": "Python Tools and Functions, Skills, OpenAPI and MCP (the official mcpo bridge turns an MCP server into OpenAPI); built-in code execution, web search and image-generation plugin surfaces.",
+    "context": "The context window is set by the connected model. The instance provides conversation history, Memory, knowledge-base retrieval and a full-text injection switch; cross-project long-term memory boundaries were not verified item by item.",
+    "permissions": "Multi-user RBAC: roles, groups, per-model and per-resource access, SSO/OIDC/LDAP, SCIM, MFA and API keys. Data and logs stay on your infrastructure; admins can disable telemetry and external services.",
+    "fit": "Fits: teams that want one private chat entry point over local and cloud models, with RAG, tool use, multi-user permissions and a self-hosted data boundary. Does not fit: zero-ops SaaS, or procurement that requires a vendor SLA."
+  },
+  "runs": "This site has not completed measured task runs for this entry. We checked the official product, help and terms pages and recorded capabilities, data paths and known limits. Suggested checks: the real tier boundaries, the data-retention default, and one end-to-end task with representative content.",
+  "unknowns": "- Exact provider and feature matrix (not verified item by item)\n- Open Terminal isolation and escape risks (not measured)\n- SSO, SCIM and permission edge cases (check the deployment docs)\n- Long-running automations after host restarts (not measured)",
+  "related": [
+    "Open WebUI can front Ollama; it adds a full workspace, RBAC and retrieval on top of the runtime.",
+    "Open WebUI and Dify overlap on RAG and assistants: Open WebUI is a chat workspace, Dify is a workflow and app builder."
+  ],
+  "sources": [
+    "Open WebUI · official site",
+    "Open WebUI · docs",
+    "Open WebUI · features",
+    "Open WebUI · licence terms",
+    "Open WebUI · GitHub repository and releases"
+  ]
+}

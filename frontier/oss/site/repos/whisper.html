@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/whisper.html" />
   <meta property="og:title" content="Whisper · 开源 AI 工具库" />
   <meta property="og:description" content="Whisper：OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。 许可 MIT，Python，113.0k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/whisper.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/whisper.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/whisper.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h1>Whisper</h1>
   <p class="owner">openai / whisper</p>
-  <p class="sub">OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</p>
+  <p class="sub"><span data-zh>OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</span><span data-en>OpenAI’s speech-recognition models and inference code, multilingual and timestamp-capable, with a simple install.</span></p>
 </header>
 <div class="factbar">
   <span><b>113.0k</b> stars</span>
   <span><b>13687</b> forks</span>
-  <span><b>Python</b> 语言</span>
-  <span><b>MIT</b> 许可</span>
-  <span>最近推送 <b>2026-08-31</b></span>
+  <span><b>Python</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>MIT</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2026-08-31</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>多语言识别稳，适合做转写基线。</li><li>模型与代码开放，社区资料多。</li><li>命令行与 Python 调用都简单。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">实时低延迟流式识别要额外工程。<br>说话人分离、热词定制要自己补。</p>
-  <h2>最小上手</h2>
-  <ol><li>读 README / quickstart，确认 运行时 版本与系统依赖。</li><li>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</li><li>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>需要音频解码、模型权重；实时场景还要低延迟推理与流式接口，批量转写要任务队列。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/faster-whisper.html">faster-whisper</a> — 轻量，用 CTranslate2 重写 Whisper 推理，速度更快、显存更省。</li><li><a href="../repos/whisperx.html">WhisperX</a> — 轻量，Whisper 的批处理加速版：VAD 切分、词级对齐与说话人分离，输出带时间戳的转写与字幕。</li><li><a href="../repos/funasr.html">FunASR</a> — 生产可用，阿里达摩院的语音识别工具链，中文 ASR、标点、热词、说话人分离齐全。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>多语言识别稳，适合做转写基线。</span><span data-en>Strong multilingual recognition.</span></li><li><span data-zh>模型与代码开放，社区资料多。</span><span data-en>Timestamps make transcription useful for subtitles and diarisation.</span></li><li><span data-zh>命令行与 Python 调用都简单。</span><span data-en>Reference implementation is easy to run.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>实时低延迟流式识别要额外工程。</span><span data-en>You need real-time streaming on a CPU.</span><br><span data-zh>说话人分离、热词定制要自己补。</span><span data-en>You need speaker labels out of the box.</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>读 README / quickstart，确认 运行时 版本与系统依赖。</span><span data-en>Transcribe a 5-minute clip and inspect timestamps.</span></li><li><span data-zh>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</span><span data-en>Test a noisy and an accented sample.</span></li><li><span data-zh>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</span><span data-en>Record language, model size and word error rate.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>需要音频解码、模型权重；实时场景还要低延迟推理与流式接口，批量转写要任务队列。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</span><span data-en>Code is MIT; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/faster-whisper.html">faster-whisper</a> — <span data-zh>轻量</span><span data-en>Lightweight</span>，<span data-zh>用 CTranslate2 重写 Whisper 推理，速度更快、显存更省。</span><span data-en>A CTranslate2 reimplementation of Whisper inference with faster speed and lower memory use.</span></li><li><a href="../repos/whisperx.html">WhisperX</a> — <span data-zh>轻量</span><span data-en>Lightweight</span>，<span data-zh>Whisper 的批处理加速版：VAD 切分、词级对齐与说话人分离，输出带时间戳的转写与字幕。</span><span data-en>A batched and accelerated Whisper pipeline with VAD segmentation, word-level alignment and speaker diarisation, producing timestamped transcripts and subtitles.</span></li><li><a href="../repos/funasr.html">FunASR</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>阿里达摩院的语音识别工具链，中文 ASR、标点、热词、说话人分离齐全。</span><span data-en>Alibaba DAMO’s speech-recognition toolchain with Chinese ASR, punctuation, hotwords and speaker diarisation.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/openai/whisper" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://github.com/openai/whisper" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=whisper">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/openai/whisper" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://github.com/openai/whisper" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=whisper"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

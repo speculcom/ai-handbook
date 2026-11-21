@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/yao-2023-tree-of-thoughts.html" />
   <meta property="og:title" content="Tree of Thoughts: Deliberate Problem Solving with Large… · AI 论文" />
   <meta property="og:description" content="问题：LM 推理仍是 token 级、从左到右的决策，在需要探索、策略前瞻或初始决策起关键作用的任务上会失效；能否让 LM 在以「思维」为中间步骤的树上做 deliberate 搜索——考虑多条推理路径、自评估选择、必要时前瞻与回溯。 证据位置：摘要给出 Game of 24 上 GPT-4 + C" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/yao-2023-tree-of-thoughts.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/yao-2023-tree-of-thoughts.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/yao-2023-tree-of-thoughts.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>推理</span><span data-en>Reasoning</span></span></div>
   <h1><span data-zh>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</span><span data-en>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：LM 推理仍是 token 级、从左到右的决策，在需要探索、策略前瞻或初始决策起关键作用的任务上会失效；能否让 LM 在以「思维」为中间步骤的树上做 deliberate 搜索——考虑多条推理路径、自评估选择、必要时前瞻与回溯。<br>证据位置：摘要给出 Game of 24 上 GPT-4 + CoT 仅解出 4% 而 ToT 达 74%；实验在 Section 4.1 Table 2——从 4nums.com 抓取的 1,362 局中取较难的第 901-1,000 局、以 100 局成功率为指标，GPT-4、温度 0.7（实验于 2023 年 5 月 5-16 日进行）；成本与局限在 Section 6 Discussion 与 Appendix B.3。<br>作者自陈局限：Section 6 写明这类 deliberate search &quot;might not be necessary for many existing tasks that GPT-4 already excels at&quot;，且作为初步工作只探索了三个相对简单的任务；Appendix B.3 写明 &quot;could require 5-100 times more generated tokens than CoT&quot;；工作只用现成 LM，微调被留作未来方向。<br>它没主张的：74% 是 100 局较难子集、BFS 每步保留 b=5 候选设置下的成功率，不是全部 1,362 局的成绩；论文没有证明 ToT 处处优于 CoT——Appendix B.1 在 GSM8K/StrategyQA 上只有小幅提升，B.2 中 GPT-3.5+ToT 在 Game of 24 仅 19%；作者也指出一般填字游戏可由专用 NLP 管线解决，本文并未主张取代它们，更没有任何训练层面的结论。</span><span data-en>Problem: LM inference remains token-level, left-to-right decision making, which falls short on tasks requiring exploration, strategic lookahead, or where initial decisions play a pivotal role; can an LM instead search deliberately over a tree with thoughts as intermediate steps — considering multiple reasoning paths, self-evaluating choices, and looking ahead or backtracking when necessary.<br>Where the evidence sits: the abstract reports 74% success for ToT vs 4% for GPT-4 with chain-of-thought prompting on Game of 24; the experiment is in Section 4.1, Table 2 — the relatively hard games indexed 901-1,000 out of 1,362 scraped from 4nums.com, success rate over 100 games, GPT-4 at temperature 0.7 (experiments run May 5-16, 2023); cost and limits are in Section 6, Discussion, and Appendix B.3.<br>What the authors say about limits: Section 6 states that deliberate search &quot;might not be necessary for many existing tasks that GPT-4 already excels at&quot; and that, as an initial step, only three relatively simple tasks are explored; Appendix B.3 states ToT &quot;could require 5-100 times more generated tokens than CoT&quot;; the work uses an off-the-shelf LM, with fine-tuning left as a future direction.<br>What it does not claim: 74% is the success rate on the 100-game hard subset with BFS keeping b=5 candidates per step, not a result on all 1,362 games; the paper does not show ToT beats CoT everywhere — Appendix B.1 reports only slight gains on GSM8K/StrategyQA and Appendix B.2 reports GPT-3.5+ToT at 19% on Game of 24; the authors note general crosswords can be solved by specialized NLP pipelines, and no training-level claim is made.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；Section 4.1 Table 2（Game of 24）；Appendix B.3 成本分析</dd></div><div><dt>Game of 24 成功率 / success</dt><dd>ToT 74% vs GPT-4 CoT 4%</dd></div><div><dt>测试集 / test set</dt><dd>4nums.com 共 1,362 局，取较难的第 901-1,000 局，以 100 局成功率为指标</dd></div><div><dt>额外生成开销 / cost</dt><dd>生成 token 可达 CoT 的 5-100 倍</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2305.10601" rel="noopener">https://arxiv.org/abs/2305.10601</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>推理</span><span data-en>Reasoning</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="deepseek-r1-2025.html"><span data-zh>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span><span data-en>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span></a></li><li><a href="emnlp-2026-recognition-refusal.html"><span data-zh>Recognition–Refusal Misalignment in LLMs</span><span data-en>Recognition–Refusal Misalignment in LLMs</span></a></li><li><a href="hle-2025.html"><span data-zh>Humanity's Last Exam</span><span data-en>Humanity's Last Exam</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/giskard.html" />
   <meta property="og:title" content="Giskard · 开源 AI 工具库" />
   <meta property="og:description" content="Giskard：开源 ML/LLM 测试与红队工具：扫描提示注入、越权、幻觉与 RAG 质量问题，并生成可复现测试。 许可 Apache-2.0，Python，6.0k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/giskard.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/giskard.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/giskard.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h1>Giskard</h1>
   <p class="owner">Giskard-AI / giskard-oss</p>
-  <p class="sub">开源 ML/LLM 测试与红队工具：扫描提示注入、越权、幻觉与 RAG 质量问题，并生成可复现测试。</p>
+  <p class="sub"><span data-zh>开源 ML/LLM 测试与红队工具：扫描提示注入、越权、幻觉与 RAG 质量问题，并生成可复现测试。</span><span data-en>Open-source ML and LLM testing and red-teaming: scan prompt injection, authorization, hallucination and RAG quality issues, then generate reproducible tests.</span></p>
 </header>
 <div class="factbar">
   <span><b>6.0k</b> stars</span>
   <span><b>577</b> forks</span>
-  <span><b>Python</b> 语言</span>
-  <span><b>Apache-2.0</b> 许可</span>
-  <span>最近推送 <b>2026-11-20</b></span>
+  <span><b>Python</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>Apache-2.0</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2026-11-20</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>把安全扫描与质量评测放在同一套 API，适合上线前门禁。</li><li>能针对 RAG 与多轮 agent 生成测试用例，不只查单轮 prompt。</li><li>结果可落成测试集，方便回归与人工复核。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">扫描通过不等于安全，不能替代人工红队与权限设计。<br>仓库已从 giskard 迁到 giskard-oss，老教程的 import 与 API 可能对不上。</p>
-  <h2>最小上手</h2>
-  <ol><li>pip 装 giskard，先拿官方 demo 模型跑一次 scan，读风险分类。</li><li>换成自己的 RAG/agent，补 20–30 条业务边界用例。</li><li>把高风险项修完后重跑，确认不是只改提示词绕过去。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>Python + 模型 API 或本地推理；RAG 扫描还要文档库与向量检索。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码 Apache-2.0；模型与测试数据另算。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/inspect-ai.html">Inspect AI</a> — 特定场景，英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。</li><li><a href="../repos/deepeval.html">DeepEval</a> — 先试这个，像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。</li><li><a href="../repos/trulens.html">TruLens</a> — 生产可用，LLM 应用与 agent 的评测、追踪工具，基于 OpenTelemetry，把检索、生成与评分串成可解释的 trace。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>把安全扫描与质量评测放在同一套 API，适合上线前门禁。</span><span data-en>Scans produce concrete failing examples, not just scores.</span></li><li><span data-zh>能针对 RAG 与多轮 agent 生成测试用例，不只查单轮 prompt。</span><span data-en>Tests can be re-run after a fix.</span></li><li><span data-zh>结果可落成测试集，方便回归与人工复核。</span><span data-en>Covers both classical ML and LLM risks.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>扫描通过不等于安全，不能替代人工红队与权限设计。</span><span data-en>You need a one-time penetration test with no regression suite.</span><br><span data-zh>仓库已从 giskard 迁到 giskard-oss，老教程的 import 与 API 可能对不上。</span><span data-en>You cannot run adversarial prompts against the system.</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>pip 装 giskard，先拿官方 demo 模型跑一次 scan，读风险分类。</span><span data-en>Scan a small RAG app with a read-only test account.</span></li><li><span data-zh>换成自己的 RAG/agent，补 20–30 条业务边界用例。</span><span data-en>Pick three findings and turn them into regression tests.</span></li><li><span data-zh>把高风险项修完后重跑，确认不是只改提示词绕过去。</span><span data-en>Fix one issue and confirm the test now passes.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>Python + 模型 API 或本地推理；RAG 扫描还要文档库与向量检索。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码 Apache-2.0；模型与测试数据另算。</span><span data-en>Code is Apache-2.0; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/inspect-ai.html">Inspect AI</a> — <span data-zh>特定场景</span><span data-en>Niche</span>，<span data-zh>英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。</span><span data-en>An evaluation framework from the UK AI Safety Institute for rigorous, reproducible task evaluation.</span></li><li><a href="../repos/deepeval.html">DeepEval</a> — <span data-zh>先试这个</span><span data-en>Start here</span>，<span data-zh>像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。</span><span data-en>Test LLMs like unit tests: assertions, metrics, datasets and CI integration.</span></li><li><a href="../repos/trulens.html">TruLens</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>LLM 应用与 agent 的评测、追踪工具，基于 OpenTelemetry，把检索、生成与评分串成可解释的 trace。</span><span data-en>Evaluation and tracing for LLM apps and agents on OpenTelemetry, connecting retrieval, generation and feedback into an explainable trace.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/Giskard-AI/giskard-oss" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://docs.giskard.ai/" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=giskard">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/Giskard-AI/giskard-oss" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://docs.giskard.ai/" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=giskard"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

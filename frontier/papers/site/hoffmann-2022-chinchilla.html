@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/hoffmann-2022-chinchilla.html" />
   <meta property="og:title" content="Training Compute-Optimal Large Language Models · AI 论文" />
   <meta property="og:description" content="问题：在给定算力预算下，模型参数与训练 token 该怎么分配，才能得到损失最低的模型。 证据位置：三种拟合方法给出的指数在 Table 2（方法一 a=0.50、b=0.50；方法二 0.49/0.51；方法三 0.46/0.54），对照 Kaplan et al. 2020 的 0.73/0.2" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/hoffmann-2022-chinchilla.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/hoffmann-2022-chinchilla.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/hoffmann-2022-chinchilla.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
   <h1><span data-zh>Training Compute-Optimal Large Language Models</span><span data-en>Training Compute-Optimal Large Language Models</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：在给定算力预算下，模型参数与训练 token 该怎么分配，才能得到损失最低的模型。<br>证据位置：三种拟合方法给出的指数在 Table 2（方法一 a=0.50、b=0.50；方法二 0.49/0.51；方法三 0.46/0.54），对照 Kaplan et al. 2020 的 0.73/0.27；参数拟合式在附录 D.2。<br>作者自陈局限：讨论一节自己列了三条——大规模上只有 Chinchilla 与 Gopher 两次可比训练、缺中间规模验证；假设算力前沿服从幂律；在高算力区观察到 log(N_opt) 出现凹性，因此可能仍然高估了最优模型规模。此外作者提示 Chinchilla 用了四倍于 Gopher 的数据、训练集与测试集重叠可能人为抬高基准成绩。<br>它没主张的：论文没有说「模型越小越好」，也没有给出适用于任何架构的常数；结论是同一算力预算下参数与 token 应按相同比例增长，且这一结论建立在语言模型与所采用拟合形式之上。</span><span data-en>Problem: under a fixed compute budget, how should parameters and training tokens be split to reach the lowest loss.<br>Where the evidence sits: the exponents from three fitting procedures are in Table 2 (method one a=0.50, b=0.50; method two 0.49/0.51; method three 0.46/0.54), against 0.73/0.27 in Kaplan et al. 2020; the parametric fit is in Appendix D.2.<br>What the authors say about limits: the discussion lists three — only two comparable large-scale runs (Chinchilla and Gopher) with no intermediate-scale validation; an assumption that the compute-efficient frontier follows a power law; and observed concavity in log(N_opt) at high compute budgets, which suggests the optimal model size may still be overestimated. The authors also caution that Chinchilla saw four times more data than Gopher, so train/test overlap may inflate benchmark results.<br>What it does not claim: the paper does not say smaller is better, nor produce constants valid for any architecture; the finding is that parameters and tokens should scale in equal proportion at a given budget, conditional on language models and the fitted form used.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>被测模型规模 / model</dt><dd>70B 参数，1.4T token</dd></div><div><dt>拟合指数 a,b / exponents</dt><dd>0.50 / 0.50（方法一）· 对照 Kaplan 2020: 0.73 / 0.27</dd></div><div><dt>MMLU 平均准确率 / MMLU</dt><dd>67.5%</dd></div><div><dt>局限位置 / limits</dt><dd>Section 5 Discussion &amp; Conclusion</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2203.15556" rel="noopener">https://arxiv.org/abs/2203.15556</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="brown-2020-gpt3.html"><span data-zh>Language Models are Few-Shot Learners</span><span data-en>Language Models are Few-Shot Learners</span></a></li><li><a href="deepseek-v3-2024.html"><span data-zh>DeepSeek-V3 Technical Report</span><span data-en>DeepSeek-V3 Technical Report</span></a></li><li><a href="fedus-2022-switch.html"><span data-zh>Switch Transformer：用简单稀疏路由扩到万亿参数</span><span data-en>Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

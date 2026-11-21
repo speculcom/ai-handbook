@@ -39,15 +39,15 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| terms · Terms | 292 |
-| terms · Stations | Getting In 36 · Hands On 44 · Going Deeper 69 · Under the Hood 60 · Running It 46 · Choosing Right 37 |
+| terms · Terms | 299 |
+| terms · Stations | Getting In 36 · Hands On 44 · Going Deeper 76 · Under the Hood 60 · Running It 46 · Choosing Right 37 |
 | terms · Learning paths | 16 curated ordered routes, each with a checkpoint |
 | terms · Short guides | 111 guides of 5-10 minutes each (English coverage 111/111) |
 | terms · Chronicle and atlas | 18 timeline entries · 12 companies · 5 vocabulary shifts |
-| terms · Domain | concept 75 · infra 50 · choice 39 · agent 38 · model 27 · media 27 · data 25 · dev 11 |
-| terms · Purpose (purposeTag) | learn 112 · apply 77 · guard 55 · judge 48 |
-| terms · Source entries (refs) | 823 |
-| terms · English coverage | 292 / 292 |
+| terms · Domain | concept 75 · infra 50 · agent 41 · choice 39 · model 28 · media 27 · data 25 · dev 14 |
+| terms · Purpose (purposeTag) | learn 116 · apply 80 · guard 55 · judge 48 |
+| terms · Source entries (refs) | 837 |
+| terms · English coverage | 299 / 299 |
 | tools · Total profiles | 280 |
 | tools · By category | coding 41 · chat 23 · image 15 · video 14 · audio 17 · research 11 · office 15 · automation 24 · framework 42 · mcp 32 · runner 21 · safety 25 |
 | tools · By form | web 108 · harness 39 · mcp 32 · cli 30 · cloud 28 · local-app 23 · ide 19 · app 1 |
@@ -58,7 +58,7 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 | models · Quant builds (sum of coverage) | 1262 |
 | models · GGUF files | 1337 |
 | models · Quantizers | 54 |
-| models · Family lineage cards (families) | 16 |
+| models · Family lineage cards (families) | 20 |
 | models · Closed-model cards (closed) | 7 |
 | models · Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->

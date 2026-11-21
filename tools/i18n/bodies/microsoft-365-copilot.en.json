@@ -1,0 +1,25 @@
+{
+  "_comment": "English body for microsoft-365-copilot; generated from the Chinese dossier and official pages, not a literal translation.",
+  "axes": {
+    "model_access": "Driven by Microsoft Copilot; the specific model and tier vary by Microsoft 365 edition, region and enterprise contract, and the product page does not name a single model.",
+    "runtime": "Runs in Microsoft 365’s cloud, with entry points in Word, Excel, PowerPoint, Outlook, Teams and the Copilot app; the local client handles the interface and document editing.",
+    "local_files": "Can read documents, email, meetings and chat context in OneDrive and SharePoint; whether an unuploaded local file enters context depends on the client and tenant policy.",
+    "background": "Meeting notes and email summaries are triggered inside the relevant app; there is no general “keep running after shutdown” background agent, and long work stays within a session.",
+    "tools": "Deep integration with Word, Excel, PowerPoint, Outlook, Teams and SharePoint; Copilot Studio extends custom tools and connectors.",
+    "context": "Context comes from Microsoft Graph and tenant content the user can access; cross-app memory is bounded by tenant permissions, retention policy and user authorisation.",
+    "permissions": "Tenant admins control availability, data boundary and logs; commercial use depends on the Microsoft 365 contract and Copilot licence, not the personal-edition description.",
+    "fit": "Fits: document drafting, email summaries, meeting follow-up and spreadsheet assistance for teams already in Microsoft 365. Does not fit: treating it as a cross-organisation general search engine."
+  },
+  "runs": "This site has not completed measured task runs for this entry. We checked the official product, help and terms pages and recorded capabilities, data paths and known limits. Suggested checks: the real tier boundaries, the data-retention default, and one end-to-end task with representative content.",
+  "unknowns": "- Exact model and routing by edition (not disclosed)\n- Feature and regional availability (not verified item by item)\n- Data boundary, retention and training-use terms (check the contract)\n- Quality on very large spreadsheets and long Teams threads (not measured)",
+  "related": [
+    "Both embed AI in a productivity suite; Microsoft 365 Copilot is tied to Microsoft Graph, Google Workspace Gemini to Google Drive.",
+    "Copilot and Notion AI both work over organisational documents; compare permission inheritance, connectors and retention.",
+    "Copilot Studio and Power Automate overlap on custom agents and workflows; compare governance and where execution runs."
+  ],
+  "sources": [
+    "Microsoft 365 Copilot · official product page",
+    "Microsoft Learn · Copilot documentation",
+    "Microsoft · enterprise terms"
+  ]
+}

@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://hardware.specul.com/meta-mtia-300-500.html" />
   <meta property="og:title" content="Meta MTIA 300–500（路线） · 硬件算力" />
   <meta property="og:description" content="回答「Meta 自研芯片现在到哪一代、各代分别干什么」。官方路线是两年四代：MTIA 300 已量产，做排序/推荐训练，也是 MTIA 首颗训练芯片，内置 NIC 与通信卸载；MTIA 400 / 450 / 500 覆盖通用工作负载，但主要用于 GenAI 推理，2026–2027 部署；450 " />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://hardware.specul.com/meta-mtia-300-500.html" />
+  <link rel="alternate" hreflang="en" href="https://hardware.specul.com/meta-mtia-300-500.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://hardware.specul.com/meta-mtia-300-500.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -94,8 +99,9 @@
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>加速卡</span><span data-en>Accelerators</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>加速卡</span><span data-en>Accelerators</span></span><span class="fx-badge"><span data-zh>未公布单价</span><span data-en>No public price</span></span></div>
   <h1><span data-zh>Meta MTIA 300–500（路线）</span><span data-en>Meta MTIA 300–500 (roadmap)</span></h1>
+  <p class="fx-price-note"><span data-zh><span data-zh>未公布单价</span><span data-en>No public price</span></span><span data-en><span data-zh>未公布单价</span><span data-en>No public price</span></span> · <span data-zh>官方页未给公开单价；这类产品通常按整机、云实例或询价成交，不拿经销商价冒充官方价。</span><span data-en>No public unit price on the official page; these usually sell as systems, cloud instances or on request, so dealer quotes are not presented as official.</span></p>
   <p class="fx-entry-lead"><span data-zh>回答「Meta 自研芯片现在到哪一代、各代分别干什么」。官方路线是两年四代：MTIA 300 已量产，做排序/推荐训练，也是 MTIA 首颗训练芯片，内置 NIC 与通信卸载；MTIA 400 / 450 / 500 覆盖通用工作负载，但主要用于 GenAI 推理，2026–2027 部署；450 / 500 明确先为 GenAI 推理优化。节奏是每 6 个月或更短一代，模块化设计可插入现有机架，软件栈走 PyTorch / vLLM / Triton / OCP。<br>不主张：这是路线卡，不是单卡规格卡；官方没有披露 300/400/450/500 的 HBM 容量、算力、功耗与价格，本卡不填。行业转述的「300→500 HBM 带宽 4.5×、算力 25×」未在本次抓取的官方页找到，不写。MTIA 不对外出租，只服务 Meta 内部负载。</span><span data-en>Answers which generation Meta&#39;s in-house silicon has reached and what each generation is for. The official roadmap is four generations in two years: MTIA 300 is already in production for ranking and recommendation training, Meta&#39;s first training chip, with built-in NICs and communication offloading; MTIA 400 / 450 / 500 cover all workloads but are primarily for GenAI inference in 2026–2027; 450 and 500 are explicitly optimized first for GenAI inference. The cadence is one generation every six months or less, with modular designs that drop into existing racks and a PyTorch / vLLM / Triton / OCP software stack.<br>It does not claim: this is a roadmap card, not a per-chip spec sheet; Meta has not disclosed HBM capacity, compute, power or price for 300/400/450/500, so those fields are left empty. The widely repeated &quot;4.5x HBM bandwidth and 25x compute from 300 to 500&quot; figures were not found on the official pages fetched here and are not written. MTIA is not rented out; it serves Meta&#39;s internal workloads.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>代次 / generations</dt><dd>MTIA 300 / 400 / 450 / 500</dd></div><div><dt>节奏 / cadence</dt><dd>每 6 个月或更短一代</dd></div><div><dt>MTIA 300</dt><dd>排序/推荐训练；已量产；内置 NIC 与 HCCL 通信卸载</dd></div><div><dt>MTIA 400/450/500</dt><dd>GenAI 推理为主；2026–2027 部署</dd></div><div><dt>MTIA 450/500</dt><dd>先为 GenAI 推理优化</dd></div><div><dt>系统 / system</dt><dd>模块化，可插入现有机架；OCP 标准</dd></div><div><dt>软件 / software</dt><dd>PyTorch / vLLM / Triton</dd></div><div><dt>单卡规格 / per-chip specs</dt><dd>官方未披露 HBM / 算力 / 功耗</dd></div><div><dt>状态 / status</dt><dd>2026-03-11 路线公布；300 已量产</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -124,8 +130,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-release</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/" rel="noopener">https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>加速卡</span><span data-en>Accelerators</span></dd></div>
+      <div><dt><span data-zh>状态</span><span data-en>Status</span></dt><dd><span data-zh>已发布 / 未出货</span><span data-en>Announced</span></dd></div>
+      <div><dt><span data-zh>适合</span><span data-en>Use cases</span></dt><dd><span data-zh>训练</span><span data-en>Training</span></dd></div>
+      <div><dt><span data-zh>价格口径</span><span data-en>Price basis</span></dt><dd><span data-zh>未公布单价</span><span data-en>No public price</span> · not-published</dd></div>
     </dl>
   </section>
+  
   
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="amd-instinct-mi210.html"><span data-zh>AMD Instinct MI210</span><span data-en>AMD Instinct MI210</span></a></li><li><a href="amd-instinct-mi300x.html"><span data-zh>AMD Instinct MI300X</span><span data-en>AMD Instinct MI300X</span></a></li><li><a href="amd-instinct-mi325x.html"><span data-zh>AMD Instinct MI325X</span><span data-en>AMD Instinct MI325X</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-local.html"><span data-zh>本机跑模型：显存、量化与部署</span><span data-en>Run models locally: VRAM, quantization, serving</span></a></li><li><a href="https://models.specul.com/"><span data-zh>按显存挑模型与量化档</span><span data-en>Pick a model and quant tier by VRAM</span></a></li></ul></section>

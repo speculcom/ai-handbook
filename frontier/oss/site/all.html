@@ -4,20 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>全部开源仓库 · 开源 AI 工具库</title>
-  <meta name="description" content="131 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。" />
+  <meta name="description" content="135 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。" />
   <link rel="canonical" href="https://oss.specul.com/all.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="全部开源仓库 · 开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/all.html" />
   <meta property="og:title" content="全部开源仓库 · 开源 AI 工具库" />
-  <meta property="og:description" content="131 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。" />
+  <meta property="og:description" content="135 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/all.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/all.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/all.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
   <link rel="stylesheet" href="brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="oss.css?v=493aa226" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"全部开源仓库 · 开源 AI 工具库","description":"131 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。","url":"https://oss.specul.com/all.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"全部开源仓库 · 开源 AI 工具库","description":"135 个 AI 开源仓库，按场景、语言、许可与上手层筛选；不按 star 排名，每张卡写清适用与不适合。","url":"https://oss.specul.com/all.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,7 +101,7 @@
 <header class="page-head">
   <p class="eyebrow">OSS · All repos</p>
   <h1><span data-zh>全部仓库</span><span data-en>All repositories</span></h1>
-  <p class="lede"><span data-zh>131 个仓库，按场景、语言、许可与上手层筛。默认按场景顺序排，不按 star 排；star 只是快照。</span><span data-en>131 repositories, filtered by scene, language, licence and onboarding level. Sorted by scene, not by stars; stars are only a snapshot.</span></p>
+  <p class="lede"><span data-zh>135 个仓库，按场景、语言、许可与上手层筛。默认按场景顺序排，不按 star 排；star 只是快照。</span><span data-en>135 repositories, filtered by scene, language, licence and onboarding level. Sorted by scene, not by stars; stars are only a snapshot.</span></p>
 </header>
 <div class="filters">
   <input id="q" type="search" placeholder="搜名称、用途、标签" data-ui-placeholder-zh="搜名称、用途、标签" data-ui-placeholder-en="Search name, use or tag" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" />
@@ -104,13 +109,13 @@
   <select id="lang" aria-label="语言" data-ui-aria-label-zh="语言" data-ui-aria-label-en="Language"><option value="" data-ui-text-zh="全部语言" data-ui-text-en="All languages">全部语言</option><option value="C">C</option><option value="C#">C#</option><option value="C++">C++</option><option value="Go">Go</option><option value="HTML">HTML</option><option value="JavaScript">JavaScript</option><option value="Jupyter Notebook">Jupyter Notebook</option><option value="Python">Python</option><option value="Rust">Rust</option><option value="Svelte">Svelte</option><option value="TypeScript">TypeScript</option></select>
   <select id="license" aria-label="许可" data-ui-aria-label-zh="许可" data-ui-aria-label-en="Licence"><option value="" data-ui-text-zh="全部许可" data-ui-text-en="All licences">全部许可</option><option value="permissive" data-ui-text-zh="宽松（MIT / Apache / BSD）" data-ui-text-en="Permissive (MIT / Apache / BSD)">宽松（MIT / Apache / BSD）</option><option value="weak" data-ui-text-zh="弱 copyleft（LGPL / MPL / CC-BY-SA）" data-ui-text-en="Weak copyleft (LGPL / MPL / CC-BY-SA)">弱 copyleft（LGPL / MPL / CC-BY-SA）</option><option value="strong" data-ui-text-zh="强 copyleft（GPL / AGPL）" data-ui-text-en="Strong copyleft (GPL / AGPL)">强 copyleft（GPL / AGPL）</option><option value="other" data-ui-text-zh="其他 / 见仓库" data-ui-text-en="Other / see repository">其他 / 见仓库</option></select>
   <select id="tier" aria-label="上手层" data-ui-aria-label-zh="上手层" data-ui-aria-label-en="Onboarding level"><option value="" data-ui-text-zh="全部上手层" data-ui-text-en="All onboarding levels">全部上手层</option><option value="start" data-ui-text-zh="先试这个" data-ui-text-en="Start here">先试这个</option><option value="prod" data-ui-text-zh="生产可用" data-ui-text-en="Production">生产可用</option><option value="local" data-ui-text-zh="本地优先" data-ui-text-en="Local-first">本地优先</option><option value="scale" data-ui-text-zh="规模 / 性能" data-ui-text-en="Scale / performance">规模 / 性能</option><option value="niche" data-ui-text-zh="特定场景" data-ui-text-en="Niche">特定场景</option><option value="light" data-ui-text-zh="轻量" data-ui-text-en="Lightweight">轻量</option></select>
-  <span class="count" id="count"><span data-zh>131 个</span><span data-en>131 repos</span></span>
+  <span class="count" id="count"><span data-zh>135 个</span><span data-en>135 repos</span></span>
 </div>
 <div class="repo-grid" id="grid"><article class="repo-card" data-id="langgraph" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="langgraph 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 python mit 有状态图">
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/langgraph.html">LangGraph</a></h3>
   <p class="repo-owner">langchain-ai / langgraph</p>
-  <p>把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。</p>
+  <p><span data-zh>把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。</span><span data-en>Write an agent as a stateful graph: nodes, edges, checkpoints, human approval and rollback are explicit.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -122,7 +127,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/crewai.html">CrewAI</a></h3>
   <p class="repo-owner">crewAIInc / crewAI</p>
-  <p>用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</p>
+  <p><span data-zh>用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</span><span data-en>Build multi-agent teams from roles, tasks and a collaboration process; good for getting division of labour running quickly.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -134,7 +139,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/autogen.html">AutoGen</a></h3>
   <p class="repo-owner">microsoft / autogen</p>
-  <p>微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。</p>
+  <p><span data-zh>微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。</span><span data-en>Microsoft’s multi-agent framework built around conversable agents, tool use and distributed execution.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>CC-BY-4.0</dd></div>
@@ -146,7 +151,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/openai-agents.html">OpenAI Agents SDK</a></h3>
   <p class="repo-owner">openai / openai-agents-python</p>
-  <p>轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。</p>
+  <p><span data-zh>轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。</span><span data-en>A lightweight agent runtime with four core ideas: agents, handoffs, guardrails and traces.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -158,7 +163,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/pydantic-ai.html">Pydantic AI</a></h3>
   <p class="repo-owner">pydantic / pydantic-ai</p>
-  <p>用 Pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。</p>
+  <p><span data-zh>用 Pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。</span><span data-en>Write agents with Pydantic’s type system: inputs, outputs and tool arguments are strongly validated.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -170,7 +175,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/smolagents.html">smolagents</a></h3>
   <p class="repo-owner">huggingface / smolagents</p>
-  <p>Hugging Face 的极简 agent 库，主打“让模型写代码来调用工具”。</p>
+  <p><span data-zh>Hugging Face 的极简 agent 库，主打“让模型写代码来调用工具”。</span><span data-en>Hugging Face’s minimal agent library, centred on letting the model write code to call tools.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -182,7 +187,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/autogpt.html">AutoGPT</a></h3>
   <p class="repo-owner">Significant-Gravitas / AutoGPT</p>
-  <p>从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 AutoGPT 循环也留在仓库里。</p>
+  <p><span data-zh>从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 AutoGPT 循环也留在仓库里。</span><span data-en>Evolved from the autonomous-agent experiment into an agent platform with a visual builder, runtime and template market; the classic AutoGPT loop remains in the repo.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT + Polyform Shield</dd></div>
@@ -194,7 +199,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/openhands.html">OpenHands</a></h3>
   <p class="repo-owner">All-Hands-AI / OpenHands</p>
-  <p>能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。</p>
+  <p><span data-zh>能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。</span><span data-en>A software-engineering agent that can read code, edit it and run commands, with CLI, web UI and a sandboxed runtime.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -206,7 +211,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/mem0.html">Mem0</a></h3>
   <p class="repo-owner">mem0ai / mem0</p>
-  <p>给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。</p>
+  <p><span data-zh>给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。</span><span data-en>A long-term memory layer for agents: extract, store and retrieve user preferences and facts, with vector and graph backends.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -218,7 +223,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/zep.html">Zep</a></h3>
   <p class="repo-owner">getzep / zep</p>
-  <p>面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。</p>
+  <p><span data-zh>面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。</span><span data-en>A memory service for agents: session summaries, fact extraction, graph memory and retrieval, with a community edition and cloud service.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -230,7 +235,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/browser-use.html">Browser Use</a></h3>
   <p class="repo-owner">browser-use / browser-use</p>
-  <p>让 LLM 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。</p>
+  <p><span data-zh>让 LLM 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。</span><span data-en>Let an LLM operate a web browser: locate elements, click, type, take screenshots and complete multi-step tasks.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -242,7 +247,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/stagehand.html">Stagehand</a></h3>
   <p class="repo-owner">browserbase / stagehand</p>
-  <p>TypeScript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。</p>
+  <p><span data-zh>TypeScript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。</span><span data-en>A TypeScript browser-automation framework that mixes natural-language actions with deterministic code actions.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -254,7 +259,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/openclaw.html">OpenClaw</a></h3>
   <p class="repo-owner">openclaw / openclaw</p>
-  <p>把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</p>
+  <p><span data-zh>把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</span><span data-en>Run a personal assistant on your own machine, connected to 20+ chat channels plus native desktop and mobile; one Gateway manages sessions, skills, schedules and sandboxed execution.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -266,7 +271,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/deepseek-harness.html">DeepSeek Harness</a></h3>
   <p class="repo-owner">deepseek-ai / deepseek-harness</p>
-  <p>DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</p>
+  <p><span data-zh>DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</span><span data-en>DeepSeek’s plugin-based agent harness (dsh): everything is a plugin, a local web UI starts with one command, and it targets long tasks across models and tools.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -278,7 +283,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/hermes-agent.html">Hermes Agent</a></h3>
   <p class="repo-owner">NousResearch / hermes-agent</p>
-  <p>Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。</p>
+  <p><span data-zh>Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。</span><span data-en>Nous Research’s self-improving agent: it turns complex tasks into skills, with cross-session memory, parallel sub-agents and a gateway for 20+ messaging channels.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -290,7 +295,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/opencode.html">OpenCode</a></h3>
   <p class="repo-owner">anomalyco / opencode</p>
-  <p>终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。</p>
+  <p><span data-zh>终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。</span><span data-en>An open-source coding agent in the terminal: separate build and plan agents, LSP feedback, 75+ model providers and a desktop beta.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -302,7 +307,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/orca.html">Orca</a></h3>
   <p class="repo-owner">stablyai / orca</p>
-  <p>把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。</p>
+  <p><span data-zh>把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。</span><span data-en>A desktop and cloud console that runs coding agents such as Claude Code and Codex in parallel, each in its own git worktree, with diffs, browser and CLI.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -314,7 +319,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/codex-cli.html">Codex CLI</a></h3>
   <p class="repo-owner">openai / codex</p>
-  <p>OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</p>
+  <p><span data-zh>OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</span><span data-en>OpenAI’s local coding agent: Rust binary, OS-level sandbox, MCP and cloud-task handoff, built for editing code in the terminal.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -326,7 +331,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/dspy.html">DSPy</a></h3>
   <p class="repo-owner">stanfordnlp / dspy</p>
-  <p>把提示词、检索和工具调用写成可组合的模块，再用优化器按指标自动改提示与示例；不是手写链式调用的封装。</p>
+  <p><span data-zh>把提示词、检索和工具调用写成可组合的模块，再用优化器按指标自动改提示与示例；不是手写链式调用的封装。</span><span data-en>Write prompts, retrieval and tool calls as composable modules, then optimise prompts and examples against a metric instead of hand-tuning chains.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -338,7 +343,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/semantic-kernel.html">Semantic Kernel</a></h3>
   <p class="repo-owner">microsoft / semantic-kernel</p>
-  <p>微软的跨语言 agent/插件编排框架，覆盖 C#、Python、Java，提供连接器、函数、记忆、流程与 Agent 抽象。</p>
+  <p><span data-zh>微软的跨语言 agent/插件编排框架，覆盖 C#、Python、Java，提供连接器、函数、记忆、流程与 Agent 抽象。</span><span data-en>Microsoft’s cross-language agent and plugin framework for C#, Python and Java, with connectors, functions, memory, processes and agent abstractions.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>C#</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -350,7 +355,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/agno.html">Agno</a></h3>
   <p class="repo-owner">agno-agi / agno</p>
-  <p>轻量高性能的 agent runtime，支持单 agent、团队、workflow，以及 memory、knowledge、tools 和多模态输入。</p>
+  <p><span data-zh>轻量高性能的 agent runtime，支持单 agent、团队、workflow，以及 memory、knowledge、tools 和多模态输入。</span><span data-en>A lightweight, high-performance agent runtime supporting single agents, teams, workflows, memory, knowledge, tools and multimodal input.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -362,7 +367,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/aider.html">Aider</a></h3>
   <p class="repo-owner">Aider-AI / aider</p>
-  <p>终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。</p>
+  <p><span data-zh>终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。</span><span data-en>A pair-programming agent in the terminal that reads and writes a local git repo, produces diffs, commits automatically and uses a repo map to control context.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -374,7 +379,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/cline.html">Cline</a></h3>
   <p class="repo-owner">cline / cline</p>
-  <p>VS Code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。</p>
+  <p><span data-zh>VS Code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。</span><span data-en>An autonomous coding agent inside VS Code that can read files, edit code, run terminal commands and use a browser, asking for approval at each step.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -386,7 +391,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="repos/goose.html">Goose</a></h3>
   <p class="repo-owner">block / goose</p>
-  <p>Block 开源的本地 AI agent，提供 CLI 与桌面端，通过 MCP 扩展工具，可接任意 LLM。</p>
+  <p><span data-zh>Block 开源的本地 AI agent，提供 CLI 与桌面端，通过 MCP 扩展工具，可接任意 LLM。</span><span data-en>Block’s open-source local AI agent with CLI and desktop apps, MCP-based tool extension and support for any LLM.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -398,7 +403,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/langfuse.html">Langfuse</a></h3>
   <p class="repo-owner">langfuse / langfuse</p>
-  <p>LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。</p>
+  <p><span data-zh>LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。</span><span data-en>Tracing, evaluation, prompt management and cost analytics for LLM applications, available self-hosted.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -410,7 +415,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/ragas.html">Ragas</a></h3>
   <p class="repo-owner">explodinggradients / ragas</p>
-  <p>RAG 评测库：检索相关性、答案忠实度、上下文召回等指标。</p>
+  <p><span data-zh>RAG 评测库：检索相关性、答案忠实度、上下文召回等指标。</span><span data-en>A RAG evaluation library covering retrieval relevance, answer faithfulness and context recall.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -422,7 +427,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/deepeval.html">DeepEval</a></h3>
   <p class="repo-owner">confident-ai / deepeval</p>
-  <p>像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。</p>
+  <p><span data-zh>像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。</span><span data-en>Test LLMs like unit tests: assertions, metrics, datasets and CI integration.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -434,7 +439,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/promptfoo.html">promptfoo</a></h3>
   <p class="repo-owner">promptfoo / promptfoo</p>
-  <p>prompt / 模型 / agent 的对比评测工具，配置化跑多模型多 prompt。</p>
+  <p><span data-zh>prompt / 模型 / agent 的对比评测工具，配置化跑多模型多 prompt。</span><span data-en>A config-driven comparison harness for prompts, models and agents across many providers.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -446,7 +451,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/phoenix.html">Arize Phoenix</a></h3>
   <p class="repo-owner">Arize-ai / phoenix</p>
-  <p>开源 LLM 追踪与评测平台，基于 OpenTelemetry，带可视化与数据集管理。</p>
+  <p><span data-zh>开源 LLM 追踪与评测平台，基于 OpenTelemetry，带可视化与数据集管理。</span><span data-en>Open-source LLM tracing and evaluation on OpenTelemetry, with visual exploration and dataset management.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -458,7 +463,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/inspect-ai.html">Inspect AI</a></h3>
   <p class="repo-owner">UKGovernmentBEIS / inspect_ai</p>
-  <p>英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。</p>
+  <p><span data-zh>英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。</span><span data-en>An evaluation framework from the UK AI Safety Institute for rigorous, reproducible task evaluation.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -470,7 +475,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/trulens.html">TruLens</a></h3>
   <p class="repo-owner">truera / trulens</p>
-  <p>LLM 应用与 agent 的评测、追踪工具，基于 OpenTelemetry，把检索、生成与评分串成可解释的 trace。</p>
+  <p><span data-zh>LLM 应用与 agent 的评测、追踪工具，基于 OpenTelemetry，把检索、生成与评分串成可解释的 trace。</span><span data-en>Evaluation and tracing for LLM apps and agents on OpenTelemetry, connecting retrieval, generation and feedback into an explainable trace.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -482,7 +487,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/evidently.html">Evidently</a></h3>
   <p class="repo-owner">evidentlyai / evidently</p>
-  <p>数据与模型监控框架：数据漂移、质量、LLM 输出评测都能出报表、测试与带告警的看板。</p>
+  <p><span data-zh>数据与模型监控框架：数据漂移、质量、LLM 输出评测都能出报表、测试与带告警的看板。</span><span data-en>A data and model monitoring framework: drift, quality and LLM output checks with reports, tests and alerting dashboards.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Jupyter Notebook</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -494,7 +499,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/giskard.html">Giskard</a></h3>
   <p class="repo-owner">Giskard-AI / giskard-oss</p>
-  <p>开源 ML/LLM 测试与红队工具：扫描提示注入、越权、幻觉与 RAG 质量问题，并生成可复现测试。</p>
+  <p><span data-zh>开源 ML/LLM 测试与红队工具：扫描提示注入、越权、幻觉与 RAG 质量问题，并生成可复现测试。</span><span data-en>Open-source ML and LLM testing and red-teaming: scan prompt injection, authorization, hallucination and RAG quality issues, then generate reproducible tests.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -506,7 +511,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/lm-evaluation-harness.html">LM Evaluation Harness</a></h3>
   <p class="repo-owner">EleutherAI / lm-evaluation-harness</p>
-  <p>标准 LLM 评测框架，覆盖数百任务、few-shot、loglikelihood 与生成式指标，支持 HF、vLLM 和 API 后端。</p>
+  <p><span data-zh>标准 LLM 评测框架，覆盖数百任务、few-shot、loglikelihood 与生成式指标，支持 HF、vLLM 和 API 后端。</span><span data-en>A standard LLM evaluation harness covering hundreds of tasks, few-shot settings, log-likelihood and generative metrics, with HF, vLLM and API backends.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -518,7 +523,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/ollama.html">Ollama</a></h3>
   <p class="repo-owner">ollama / ollama</p>
-  <p>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</p>
+  <p><span data-zh>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</span><span data-en>Pull and run local models with one command, with a built-in model library and an OpenAI-compatible API.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -530,7 +535,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="repos/llama-cpp.html">llama.cpp</a></h3>
   <p class="repo-owner">ggml-org / llama.cpp</p>
-  <p>C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。</p>
+  <p><span data-zh>C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。</span><span data-en>A C/C++ inference engine that runs on CPUs, Apple Silicon and consumer GPUs, with a wide range of quantisation formats.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>C++</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -542,7 +547,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/vllm.html">vLLM</a></h3>
   <p class="repo-owner">vllm-project / vllm</p>
-  <p>高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。</p>
+  <p><span data-zh>高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。</span><span data-en>A high-throughput inference and serving engine with PagedAttention, continuous batching and multi-GPU support.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -554,7 +559,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/sglang.html">SGLang</a></h3>
   <p class="repo-owner">sgl-project / sglang</p>
-  <p>高性能推理运行时，擅长结构化生成、前缀缓存与多卡服务。</p>
+  <p><span data-zh>高性能推理运行时，擅长结构化生成、前缀缓存与多卡服务。</span><span data-en>A high-performance inference runtime strong at structured generation, prefix caching and multi-GPU serving.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -566,7 +571,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="repos/localai.html">LocalAI</a></h3>
   <p class="repo-owner">mudler / LocalAI</p>
-  <p>本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。</p>
+  <p><span data-zh>本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。</span><span data-en>A local OpenAI-compatible API supporting text, image and speech backends.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -578,7 +583,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/tgi.html">Text Generation Inference</a></h3>
   <p class="repo-owner">huggingface / text-generation-inference</p>
-  <p>Hugging Face 的生产级文本生成服务，支持张量并行、量化与流式输出。</p>
+  <p><span data-zh>Hugging Face 的生产级文本生成服务，支持张量并行、量化与流式输出。</span><span data-en>Hugging Face’s production text-generation service with tensor parallelism, quantisation and streaming.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -590,7 +595,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/tensorrt-llm.html">TensorRT-LLM</a></h3>
   <p class="repo-owner">NVIDIA / TensorRT-LLM</p>
-  <p>NVIDIA 的 LLM 推理优化栈：自定义 kernel、量化、in-flight batching 与多卡并行，面向生产吞吐。</p>
+  <p><span data-zh>NVIDIA 的 LLM 推理优化栈：自定义 kernel、量化、in-flight batching 与多卡并行，面向生产吞吐。</span><span data-en>NVIDIA’s LLM inference optimisation stack: custom kernels, quantisation, in-flight batching and multi-GPU for production throughput.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -602,7 +607,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="repos/textgen-webui.html">Text Generation WebUI</a></h3>
   <p class="repo-owner">oobabooga / textgen</p>
-  <p>本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。</p>
+  <p><span data-zh>本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。</span><span data-en>A local LLM web UI supporting llama.cpp, Transformers and ExLlama backends, with model loading, chat and extensions on one page.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>AGPL-3.0</dd></div>
@@ -614,7 +619,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/open-webui.html">Open WebUI</a></h3>
   <p class="repo-owner">open-webui / open-webui</p>
-  <p>自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。</p>
+  <p><span data-zh>自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。</span><span data-en>A self-hosted AI chat and workbench for Ollama and OpenAI-compatible APIs, with RAG, web search, multi-user permissions and tool extensions.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Svelte</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -626,7 +631,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/lmdeploy.html">LMDeploy</a></h3>
   <p class="repo-owner">InternLM / lmdeploy</p>
-  <p>高吞吐 LLM 推理与部署工具，提供 TurboMind/PyTorch 引擎、KV 量化、多卡并行和 OpenAI 兼容 API。</p>
+  <p><span data-zh>高吞吐 LLM 推理与部署工具，提供 TurboMind/PyTorch 引擎、KV 量化、多卡并行和 OpenAI 兼容 API。</span><span data-en>A high-throughput inference and deployment toolkit with TurboMind and PyTorch engines, KV quantisation, multi-GPU and an OpenAI-compatible API.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -638,7 +643,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="repos/mlc-llm.html">MLC LLM</a></h3>
   <p class="repo-owner">mlc-ai / mlc-llm</p>
-  <p>基于 TVM 的通用 LLM 编译部署引擎，可把模型编译到 CUDA、ROCm、Metal、Vulkan、WebGPU 等后端。</p>
+  <p><span data-zh>基于 TVM 的通用 LLM 编译部署引擎，可把模型编译到 CUDA、ROCm、Metal、Vulkan、WebGPU 等后端。</span><span data-en>A TVM-based compiler and deployment engine that compiles LLMs to CUDA, ROCm, Metal, Vulkan and WebGPU backends.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -650,7 +655,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/llamafile.html">llamafile</a></h3>
   <p class="repo-owner">Mozilla-Ocho / llamafile</p>
-  <p>把 llama.cpp 与模型权重打包成单个可执行文件，跨 macOS/Windows/Linux/BSD 运行，无需安装 Python。</p>
+  <p><span data-zh>把 llama.cpp 与模型权重打包成单个可执行文件，跨 macOS/Windows/Linux/BSD 运行，无需安装 Python。</span><span data-en>Package llama.cpp and model weights into a single executable that runs on macOS, Windows, Linux and BSD without Python.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>C++</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -662,7 +667,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/comfyui.html">ComfyUI</a></h3>
   <p class="repo-owner">comfyanonymous / ComfyUI</p>
-  <p>节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。</p>
+  <p><span data-zh>节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。</span><span data-en>A node-based image and video generation workflow that wires models, samplers, ControlNet and post-processing into a graph.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>GPL-3.0</dd></div>
@@ -674,7 +679,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/sd-webui.html">Stable Diffusion WebUI</a></h3>
   <p class="repo-owner">AUTOMATIC1111 / stable-diffusion-webui</p>
-  <p>最经典的 SD 图形界面，文生图、图生图、LoRA、ControlNet 都在一个页面。</p>
+  <p><span data-zh>最经典的 SD 图形界面，文生图、图生图、LoRA、ControlNet 都在一个页面。</span><span data-en>The classic Stable Diffusion web UI: text-to-image, image-to-image, LoRA and ControlNet on one page.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>AGPL-3.0</dd></div>
@@ -686,7 +691,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/diffusers.html">Diffusers</a></h3>
   <p class="repo-owner">huggingface / diffusers</p>
-  <p>扩散模型的 Python 库：pipeline、调度器、训练与量化，适合写代码而不是点界面。</p>
+  <p><span data-zh>扩散模型的 Python 库：pipeline、调度器、训练与量化，适合写代码而不是点界面。</span><span data-en>A Python library for diffusion models: pipelines, schedulers, training and quantisation, built for code rather than a UI.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -698,7 +703,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/fooocus.html">Fooocus</a></h3>
   <p class="repo-owner">lllyasviel / Fooocus</p>
-  <p>把 SDXL 的常用参数收起来，主打“少调参也能出好图”。</p>
+  <p><span data-zh>把 SDXL 的常用参数收起来，主打“少调参也能出好图”。</span><span data-en>A simplified SDXL interface that hides most parameters and aims at good images with little tuning.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>GPL-3.0</dd></div>
@@ -710,7 +715,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/invokeai.html">InvokeAI</a></h3>
   <p class="repo-owner">invoke-ai / InvokeAI</p>
-  <p>面向创作者的图像生成工作台，统一画布、图层、模型管理与批量生成。</p>
+  <p><span data-zh>面向创作者的图像生成工作台，统一画布、图层、模型管理与批量生成。</span><span data-en>A creator-oriented image generation workbench with a unified canvas, layers, model management and batch generation.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -722,7 +727,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/wan21.html">Wan2.1</a></h3>
   <p class="repo-owner">Wan-Video / Wan2.1</p>
-  <p>开源视频生成模型与推理代码，支持文生视频、图生视频与多尺寸。</p>
+  <p><span data-zh>开源视频生成模型与推理代码，支持文生视频、图生视频与多尺寸。</span><span data-en>Open-source video generation models and inference code for text-to-video, image-to-video and multiple resolutions.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -734,7 +739,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/comfyui-manager.html">ComfyUI Manager</a></h3>
   <p class="repo-owner">Comfy-Org / ComfyUI-Manager</p>
-  <p>ComfyUI 的扩展与模型管理器：装缺失节点、下载模型、检查版本冲突，还能做环境快照与恢复。</p>
+  <p><span data-zh>ComfyUI 的扩展与模型管理器：装缺失节点、下载模型、检查版本冲突，还能做环境快照与恢复。</span><span data-en>An extension and model manager for ComfyUI: install missing nodes, download models, check version conflicts and snapshot or restore an environment.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>GPL-3.0</dd></div>
@@ -746,7 +751,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/sdnext.html">SD.Next</a></h3>
   <p class="repo-owner">vladmandic / sdnext</p>
-  <p>Stable Diffusion WebUI 的现代分支，支持新模型、Diffusers/ONNX/OpenVINO 多后端，也兼顾 AMD 与 Intel。</p>
+  <p><span data-zh>Stable Diffusion WebUI 的现代分支，支持新模型、Diffusers/ONNX/OpenVINO 多后端，也兼顾 AMD 与 Intel。</span><span data-en>A modern fork of Stable Diffusion WebUI supporting new models, Diffusers/ONNX/OpenVINO backends and AMD or Intel hardware.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -758,7 +763,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/real-esrgan.html">Real-ESRGAN</a></h3>
   <p class="repo-owner">xinntao / Real-ESRGAN</p>
-  <p>真实场景图像/视频超分与修复：盲超分、降噪、去压缩伪影，提供 Python API 与轻量 ncnn 可执行文件。</p>
+  <p><span data-zh>真实场景图像/视频超分与修复：盲超分、降噪、去压缩伪影，提供 Python API 与轻量 ncnn 可执行文件。</span><span data-en>Real-world image and video super-resolution and restoration: blind upscaling, denoising and compression-artifact removal, with a Python API and a lightweight ncnn binary.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>BSD-3-Clause</dd></div>
@@ -770,7 +775,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/hunyuanvideo.html">HunyuanVideo</a></h3>
   <p class="repo-owner">Tencent-Hunyuan / HunyuanVideo</p>
-  <p>腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。</p>
+  <p><span data-zh>腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。</span><span data-en>Tencent Hunyuan’s open video generation models and inference code for text-to-video and image-to-video.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -782,7 +787,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/cogvideo.html">CogVideo</a></h3>
   <p class="repo-owner">zai-org / CogVideo</p>
-  <p>智谱 CogVideoX 系列视频生成模型与推理代码，支持文本/图像到视频。</p>
+  <p><span data-zh>智谱 CogVideoX 系列视频生成模型与推理代码，支持文本/图像到视频。</span><span data-en>Zhipu’s CogVideoX family of video generation models and inference code for text-to-video and image-to-video.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -794,7 +799,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/ltx-video.html">LTX-Video</a></h3>
   <p class="repo-owner">Lightricks / LTX-Video</p>
-  <p>Lightricks 的实时视频生成模型与代码，基于 DiT，强调速度与较低显存。</p>
+  <p><span data-zh>Lightricks 的实时视频生成模型与代码，基于 DiT，强调速度与较低显存。</span><span data-en>Lightricks’ real-time video generation model and code, based on a DiT and focused on speed and lower VRAM.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -818,7 +823,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/open-sora.html">Open-Sora</a></h3>
   <p class="repo-owner">hpcaitech / Open-Sora</p>
-  <p>开源视频生成全流程：数据清洗、VAE、DiT 训练、推理，支持文生视频与图生视频。</p>
+  <p><span data-zh>开源视频生成全流程：数据清洗、VAE、DiT 训练、推理，支持文生视频与图生视频。</span><span data-en>A full open video-generation pipeline: data cleaning, VAE, DiT training and inference for text-to-video and image-to-video.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -830,7 +835,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/qwen-image.html">Qwen-Image</a></h3>
   <p class="repo-owner">QwenLM / Qwen-Image</p>
-  <p>Qwen 的图像生成与编辑模型，20B MMDiT，主打复杂中文文字渲染、海报排版和多图编辑。</p>
+  <p><span data-zh>Qwen 的图像生成与编辑模型，20B MMDiT，主打复杂中文文字渲染、海报排版和多图编辑。</span><span data-en>Qwen’s image generation and editing model, a 20B MMDiT focused on complex Chinese text rendering, poster layout and multi-image editing.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -842,7 +847,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="repos/framepack.html">FramePack</a></h3>
   <p class="repo-owner">lllyasviel / FramePack</p>
-  <p>面向低显存的视频生成框架，用下一帧预测和分段生成，把长视频生成压到 6GB 笔记本 GPU 可跑。</p>
+  <p><span data-zh>面向低显存的视频生成框架，用下一帧预测和分段生成，把长视频生成压到 6GB 笔记本 GPU 可跑。</span><span data-en>A low-VRAM video generation framework using next-frame prediction and segmented generation, aiming at long clips on a 6GB laptop GPU.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -854,7 +859,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/hunyuan3d-2.html">Hunyuan3D-2</a></h3>
   <p class="repo-owner">Tencent-Hunyuan / Hunyuan3D-2</p>
-  <p>腾讯混元的 3D 生成模型：图/文生 3D mesh，两阶段 shape + texture，支持轻量版与 PBR 纹理。</p>
+  <p><span data-zh>腾讯混元的 3D 生成模型：图/文生 3D mesh，两阶段 shape + texture，支持轻量版与 PBR 纹理。</span><span data-en>Tencent Hunyuan’s 3D generation model: image or text to a 3D mesh with a two-stage shape and texture pipeline, including a lightweight variant and PBR textures.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -866,7 +871,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/ragflow.html">RAGFlow</a></h3>
   <p class="repo-owner">infiniflow / ragflow</p>
-  <p>带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</p>
+  <p><span data-zh>带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</span><span data-en>A RAG platform with document parsing, chunking, retrieval and citations, built to get a knowledge base running.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -878,7 +883,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/dify.html">Dify</a></h3>
   <p class="repo-owner">langgenius / dify</p>
-  <p>把 prompt、RAG、agent、工作流和模型接入做成可视化平台。</p>
+  <p><span data-zh>把 prompt、RAG、agent、工作流和模型接入做成可视化平台。</span><span data-en>A visual platform for prompts, RAG, agents, workflows and model connections.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -890,7 +895,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/llama-index.html">LlamaIndex</a></h3>
   <p class="repo-owner">run-llama / llama_index</p>
-  <p>面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。</p>
+  <p><span data-zh>面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。</span><span data-en>A data framework for RAG and application layers: connectors, indexes, retrieval, query engines and agents.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -902,7 +907,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/haystack.html">Haystack</a></h3>
   <p class="repo-owner">deepset-ai / haystack</p>
-  <p>用 pipeline 把检索、生成、评测、路由串起来，偏工程化与可测试。</p>
+  <p><span data-zh>用 pipeline 把检索、生成、评测、路由串起来，偏工程化与可测试。</span><span data-en>A pipeline framework that wires retrieval, generation, evaluation and routing, with an engineering and testable focus.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -914,7 +919,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/qdrant.html">Qdrant</a></h3>
   <p class="repo-owner">qdrant / qdrant</p>
-  <p>Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</p>
+  <p><span data-zh>Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</span><span data-en>A Rust vector database with filtering, hybrid search, distributed deployment and quantisation.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -926,7 +931,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/chroma.html">Chroma</a></h3>
   <p class="repo-owner">chroma-core / chroma</p>
-  <p>轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。</p>
+  <p><span data-zh>轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。</span><span data-en>A lightweight vector store with quick Python and JavaScript onboarding, suited to prototypes and small knowledge bases.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -938,7 +943,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/weaviate.html">Weaviate</a></h3>
   <p class="repo-owner">weaviate / weaviate</p>
-  <p>带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。</p>
+  <p><span data-zh>带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。</span><span data-en>A vector database with hybrid search: vectors plus BM25, multi-tenancy, modular vectorisation and reranking, with GraphQL and REST APIs.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>BSD-3-Clause + Weaviate License</dd></div>
@@ -950,7 +955,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/milvus.html">Milvus</a></h3>
   <p class="repo-owner">milvus-io / milvus</p>
-  <p>面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。</p>
+  <p><span data-zh>面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。</span><span data-en>A distributed vector database for large-scale retrieval, supporting HNSW, IVF, DiskANN, scalar filtering and multi-tenancy.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -962,7 +967,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/docling.html">Docling</a></h3>
   <p class="repo-owner">docling-project / docling</p>
-  <p>文档解析工具包：PDF / HTML / Office 转结构化 Markdown / JSON，保留版面、表格与阅读顺序。</p>
+  <p><span data-zh>文档解析工具包：PDF / HTML / Office 转结构化 Markdown / JSON，保留版面、表格与阅读顺序。</span><span data-en>A document parsing toolkit that turns PDF, HTML and Office files into structured Markdown or JSON while preserving layout, tables and reading order.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -974,7 +979,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/unstructured.html">Unstructured</a></h3>
   <p class="repo-owner">Unstructured-IO / unstructured</p>
-  <p>文档 ETL 工具：把 PDF、HTML、图片、Office 文件分区、清洗并带上元数据，喂给 RAG。</p>
+  <p><span data-zh>文档 ETL 工具：把 PDF、HTML、图片、Office 文件分区、清洗并带上元数据，喂给 RAG。</span><span data-en>A document ETL toolkit that partitions, cleans and metadata-tags PDFs, HTML, images and Office files for RAG.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>HTML</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -986,7 +991,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/marker.html">Marker</a></h3>
   <p class="repo-owner">datalab-to / marker</p>
-  <p>PDF → Markdown / JSON 的高质量转换器，重点处理版面、表格、公式与阅读顺序。</p>
+  <p><span data-zh>PDF → Markdown / JSON 的高质量转换器，重点处理版面、表格、公式与阅读顺序。</span><span data-en>A high-quality PDF-to-Markdown and JSON converter focused on layout, tables, formulas and reading order.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1010,7 +1015,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/firecrawl.html">Firecrawl</a></h3>
   <p class="repo-owner">firecrawl / firecrawl</p>
-  <p>把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</p>
+  <p><span data-zh>把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</span><span data-en>Crawl websites into clean Markdown or structured data for RAG and agents, available as a local binary, MCP server or self-hosted API.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>AGPL-3.0</dd></div>
@@ -1022,7 +1027,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/graphify.html">Graphify</a></h3>
   <p class="repo-owner">Graphify-Labs / graphify</p>
-  <p>把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。</p>
+  <p><span data-zh>把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。</span><span data-en>Map code, documents, SQL and PDFs into a queryable knowledge graph, so coding agents can query the graph instead of grepping the whole repository.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1034,7 +1039,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/pgvector.html">pgvector</a></h3>
   <p class="repo-owner">pgvector / pgvector</p>
-  <p>Postgres 的向量扩展，给普通表加 vector 列、距离操作符和 HNSW/IVFFlat 索引，让向量检索和业务数据留在同一个库。</p>
+  <p><span data-zh>Postgres 的向量扩展，给普通表加 vector 列、距离操作符和 HNSW/IVFFlat 索引，让向量检索和业务数据留在同一个库。</span><span data-en>A Postgres extension that adds vector columns, distance operators and HNSW or IVFFlat indexes, keeping vector search next to business data.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>C</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -1046,7 +1051,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="repos/lancedb.html">LanceDB</a></h3>
   <p class="repo-owner">lancedb / lancedb</p>
-  <p>嵌入式多模态向量数据库，Rust 核心 + Python/JS SDK，底层 Lance 列存，支持向量、全文、SQL 过滤和版本化。</p>
+  <p><span data-zh>嵌入式多模态向量数据库，Rust 核心 + Python/JS SDK，底层 Lance 列存，支持向量、全文、SQL 过滤和版本化。</span><span data-en>An embedded multimodal vector database with a Rust core and Python/JavaScript SDKs, built on Lance columnar storage with vector, full-text, SQL filtering and versioning.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1058,7 +1063,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/r2r.html">R2R</a></h3>
   <p class="repo-owner">SciPhi-AI / R2R</p>
-  <p>生产化 RAG 服务：文档摄入、混合检索、知识图谱、agentic RAG、用户与租户管理，带 REST API 和 Web UI。</p>
+  <p><span data-zh>生产化 RAG 服务：文档摄入、混合检索、知识图谱、agentic RAG、用户与租户管理，带 REST API 和 Web UI。</span><span data-en>A production-oriented RAG service: document ingestion, hybrid retrieval, knowledge graphs, agentic RAG, users and tenants, with a REST API and web UI.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1070,7 +1075,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/graphrag.html">GraphRAG</a></h3>
   <p class="repo-owner">microsoft / graphrag</p>
-  <p>微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。</p>
+  <p><span data-zh>微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。</span><span data-en>Microsoft’s GraphRAG implementation: extract entities and relations from text, build communities, generate summaries and support global and local queries.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1082,7 +1087,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/whisper.html">Whisper</a></h3>
   <p class="repo-owner">openai / whisper</p>
-  <p>OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</p>
+  <p><span data-zh>OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</span><span data-en>OpenAI’s speech-recognition models and inference code, multilingual and timestamp-capable, with a simple install.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1094,7 +1099,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/faster-whisper.html">faster-whisper</a></h3>
   <p class="repo-owner">SYSTRAN / faster-whisper</p>
-  <p>用 CTranslate2 重写 Whisper 推理，速度更快、显存更省。</p>
+  <p><span data-zh>用 CTranslate2 重写 Whisper 推理，速度更快、显存更省。</span><span data-en>A CTranslate2 reimplementation of Whisper inference with faster speed and lower memory use.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1106,7 +1111,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/funasr.html">FunASR</a></h3>
   <p class="repo-owner">modelscope / FunASR</p>
-  <p>阿里达摩院的语音识别工具链，中文 ASR、标点、热词、说话人分离齐全。</p>
+  <p><span data-zh>阿里达摩院的语音识别工具链，中文 ASR、标点、热词、说话人分离齐全。</span><span data-en>Alibaba DAMO’s speech-recognition toolchain with Chinese ASR, punctuation, hotwords and speaker diarisation.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1118,7 +1123,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/cosyvoice.html">CosyVoice</a></h3>
   <p class="repo-owner">FunAudioLLM / CosyVoice</p>
-  <p>零样本语音合成与音色克隆，支持多语言与情感控制。</p>
+  <p><span data-zh>零样本语音合成与音色克隆，支持多语言与情感控制。</span><span data-en>Zero-shot speech synthesis and voice cloning with multilingual and emotional control.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1130,7 +1135,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/chattts.html">ChatTTS</a></h3>
   <p class="repo-owner">2noise / ChatTTS</p>
-  <p>面向对话场景的 TTS，韵律自然，支持中英文与笑声等副语言。</p>
+  <p><span data-zh>面向对话场景的 TTS，韵律自然，支持中英文与笑声等副语言。</span><span data-en>A conversational TTS model with natural prosody, Chinese and English support and paralinguistic cues such as laughter.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>AGPL-3.0</dd></div>
@@ -1142,7 +1147,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/fish-speech.html">Fish Speech</a></h3>
   <p class="repo-owner">fishaudio / fish-speech</p>
-  <p>多语言 TTS 与音色克隆，强调少样本、跨语言与情感表达。</p>
+  <p><span data-zh>多语言 TTS 与音色克隆，强调少样本、跨语言与情感表达。</span><span data-en>Multilingual TTS and voice cloning with a focus on few-shot, cross-lingual and emotional expression.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -1154,7 +1159,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/whisperx.html">WhisperX</a></h3>
   <p class="repo-owner">m-bain / whisperX</p>
-  <p>Whisper 的批处理加速版：VAD 切分、词级对齐与说话人分离，输出带时间戳的转写与字幕。</p>
+  <p><span data-zh>Whisper 的批处理加速版：VAD 切分、词级对齐与说话人分离，输出带时间戳的转写与字幕。</span><span data-en>A batched and accelerated Whisper pipeline with VAD segmentation, word-level alignment and speaker diarisation, producing timestamped transcripts and subtitles.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>BSD-2-Clause</dd></div>
@@ -1166,7 +1171,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="repos/gpt-sovits.html">GPT-SoVITS</a></h3>
   <p class="repo-owner">RVC-Boss / GPT-SoVITS</p>
-  <p>少样本语音克隆与 TTS：约 1 分钟干净语音就能微调，支持中英日跨语言，带训练与推理 WebUI。</p>
+  <p><span data-zh>少样本语音克隆与 TTS：约 1 分钟干净语音就能微调，支持中英日跨语言，带训练与推理 WebUI。</span><span data-en>Few-shot voice cloning and TTS: fine-tune on about one minute of clean speech, support Chinese, English and Japanese cross-lingual output, with training and inference web UIs.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1178,7 +1183,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/vibevoice.html">VibeVoice</a></h3>
   <p class="repo-owner">microsoft / VibeVoice</p>
-  <p>微软开源语音模型家族：60 分钟长音频转写（谁在何时说了什么）、50+ 语言与流式 ASR；TTS 代码已因滥用下架。</p>
+  <p><span data-zh>微软开源语音模型家族：60 分钟长音频转写（谁在何时说了什么）、50+ 语言与流式 ASR；TTS 代码已因滥用下架。</span><span data-en>Microsoft’s open speech model family: 60-minute audio transcription with who spoke when, 50+ languages and streaming ASR; the TTS code was withdrawn because of misuse.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1190,7 +1195,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/sensevoice.html">SenseVoice</a></h3>
   <p class="repo-owner">FunAudioLLM / SenseVoice</p>
-  <p>多语言语音理解模型，做 ASR、语种识别、情感识别和音频事件检测，非自回归，推理延迟低。</p>
+  <p><span data-zh>多语言语音理解模型，做 ASR、语种识别、情感识别和音频事件检测，非自回归，推理延迟低。</span><span data-en>A multilingual speech-understanding model for ASR, language identification, emotion recognition and audio-event detection, with low non-autoregressive latency.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>C</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1202,7 +1207,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/index-tts.html">IndexTTS</a></h3>
   <p class="repo-owner">index-tts / index-tts</p>
-  <p>B 站开源的工业级 TTS，支持零样本音色克隆、情感与语速控制，中文/英文，非自回归。</p>
+  <p><span data-zh>B 站开源的工业级 TTS，支持零样本音色克隆、情感与语速控制，中文/英文，非自回归。</span><span data-en>Bilibili’s industrial-grade open TTS with zero-shot voice cloning, emotion and speed control, Chinese and English, non-autoregressive.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -1214,7 +1219,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/pyannote-audio.html">pyannote.audio</a></h3>
   <p class="repo-owner">pyannote / pyannote-audio</p>
-  <p>说话人日志工具包，覆盖 VAD、speaker embedding、聚类和端到端 diarization pipeline。</p>
+  <p><span data-zh>说话人日志工具包，覆盖 VAD、speaker embedding、聚类和端到端 diarization pipeline。</span><span data-en>A speaker-diarisation toolkit covering VAD, speaker embeddings, clustering and end-to-end diarisation pipelines.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Jupyter Notebook</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1370,7 +1375,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="repos/megatron-lm.html">Megatron-LM</a></h3>
   <p class="repo-owner">NVIDIA / Megatron-LM</p>
-  <p>NVIDIA 的大规模 Transformer 训练框架，支持张量/流水/序列/上下文并行、FP8、MoE 和分布式 checkpoint。</p>
+  <p><span data-zh>NVIDIA 的大规模 Transformer 训练框架，支持张量/流水/序列/上下文并行、FP8、MoE 和分布式 checkpoint。</span><span data-en>NVIDIA’s large-scale Transformer training framework with tensor, pipeline, sequence and context parallelism, FP8, MoE and distributed checkpointing.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -1382,7 +1387,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/litellm.html">LiteLLM</a></h3>
   <p class="repo-owner">BerriAI / litellm</p>
-  <p>把 100+ 模型 API 统一成 OpenAI 兼容格式的网关与 SDK：Rust 核心、虚拟密钥、成本追踪、限流/负载均衡、guardrails、日志与缓存，可自托管。</p>
+  <p><span data-zh>把 100+ 模型 API 统一成 OpenAI 兼容格式的网关与 SDK：Rust 核心、虚拟密钥、成本追踪、限流/负载均衡、guardrails、日志与缓存，可自托管。</span><span data-en>A gateway and SDK that normalises 100+ model APIs into an OpenAI-compatible format, with a Rust core, virtual keys, cost tracking, rate limits, load balancing, guardrails, logging and caching, self-hostable.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT + Enterprise</dd></div>
@@ -1394,7 +1399,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/google-adk.html">Google ADK</a></h3>
   <p class="repo-owner">google / adk-python</p>
-  <p>Google 的代码优先 Python agent 工具包：把工具、会话、记忆、评测与部署放进同一套抽象，可用 Gemini 或其它模型。</p>
+  <p><span data-zh>Google 的代码优先 Python agent 工具包：把工具、会话、记忆、评测与部署放进同一套抽象，可用 Gemini 或其它模型。</span><span data-en>Google’s code-first Python agent toolkit, bringing tools, sessions, memory, evaluation and deployment into one abstraction, usable with Gemini or other models.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1406,7 +1411,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/letta.html">Letta</a></h3>
   <p class="repo-owner">letta-ai / letta</p>
-  <p>有状态 agent 平台：把记忆分成 core / recall / archival 三层，连同对话、工具调用与 agent 状态一起持久化，跨会话保留并允许 agent 自己编辑记忆。</p>
+  <p><span data-zh>有状态 agent 平台：把记忆分成 core / recall / archival 三层，连同对话、工具调用与 agent 状态一起持久化，跨会话保留并允许 agent 自己编辑记忆。</span><span data-en>A stateful agent platform that splits memory into core, recall and archival tiers, persisting conversations, tool calls and agent state across sessions and allowing the agent to edit its own memory.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1418,7 +1423,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/open-interpreter.html">Open Interpreter</a></h3>
   <p class="repo-owner">OpenInterpreter / openinterpreter</p>
-  <p>让模型在本机写并执行代码的终端 agent：把自然语言任务拆成 shell/Python 步骤，读文件、跑命令、看输出再修正；2026 版本转向 Kimi K3.1、GLM 5.3 等开放权重模型。</p>
+  <p><span data-zh>让模型在本机写并执行代码的终端 agent：把自然语言任务拆成 shell/Python 步骤，读文件、跑命令、看输出再修正；2026 版本转向 Kimi K3.1、GLM 5.3 等开放权重模型。</span><span data-en>A terminal agent that writes and runs code on your machine: it turns natural-language tasks into shell or Python steps, reads files, runs commands, inspects output and corrects itself; the 2026 version moves toward open-weight models such as Kimi K3.1 and GLM 5.3.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1430,7 +1435,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/swe-agent.html">SWE-agent</a></h3>
   <p class="repo-owner">SWE-agent / SWE-agent</p>
-  <p>把 GitHub issue 变成代码修改的软件工程 agent：通过 agent-computer interface（ACI）把搜索、编辑、测试等命令收进受限接口，让模型闭环修 issue。</p>
+  <p><span data-zh>把 GitHub issue 变成代码修改的软件工程 agent：通过 agent-computer interface（ACI）把搜索、编辑、测试等命令收进受限接口，让模型闭环修 issue。</span><span data-en>A software-engineering agent that turns a GitHub issue into a code change, using an agent-computer interface (ACI) to constrain search, edit and test commands so the model can close the loop on the issue.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1442,7 +1447,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/continue.html">Continue</a></h3>
   <p class="repo-owner">continuedev / continue</p>
-  <p>开源 IDE/CLI 编程 agent：VS Code、JetBrains 插件加 CLI，支持本地或云端模型、规则文件、代码索引与自定义工具。</p>
+  <p><span data-zh>开源 IDE/CLI 编程 agent：VS Code、JetBrains 插件加 CLI，支持本地或云端模型、规则文件、代码索引与自定义工具。</span><span data-en>An open-source IDE and CLI coding agent: VS Code and JetBrains plugins plus a CLI, with local or hosted models, rules files, code indexing and custom tools.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1454,7 +1459,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/anythingllm.html">AnythingLLM</a></h3>
   <p class="repo-owner">Mintplex-Labs / anything-llm</p>
-  <p>本地优先的 RAG 桌面与服务器：把文档、网页、代码灌进 workspace，接本地或云端模型，提供 chat、agent 与 API。</p>
+  <p><span data-zh>本地优先的 RAG 桌面与服务器：把文档、网页、代码灌进 workspace，接本地或云端模型，提供 chat、agent 与 API。</span><span data-en>A local-first RAG desktop and server that ingests documents, web pages and code into workspaces, connects local or hosted models and exposes chat, agent and API modes.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>JavaScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1466,7 +1471,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="repos/kokoro.html">Kokoro</a></h3>
   <p class="repo-owner">hexgrad / kokoro</p>
-  <p>82M 参数的开源 TTS 推理库：轻量、快，Apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。</p>
+  <p><span data-zh>82M 参数的开源 TTS 推理库：轻量、快，Apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。</span><span data-en>An 82M-parameter open TTS inference library: lightweight and fast, with Apache-licensed weights, multilingual voice packs and a pip package for local or edge deployment.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1478,7 +1483,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/f5-tts.html">F5-TTS</a></h3>
   <p class="repo-owner">SWivid / F5-TTS</p>
-  <p>基于 Flow Matching 与 Diffusion Transformer 的 TTS：用短参考音频做零样本声音克隆，支持中英与速度控制，提供训练与推理代码。</p>
+  <p><span data-zh>基于 Flow Matching 与 Diffusion Transformer 的 TTS：用短参考音频做零样本声音克隆，支持中英与速度控制，提供训练与推理代码。</span><span data-en>A TTS model based on Flow Matching and a Diffusion Transformer: zero-shot voice cloning from a short reference, Chinese and English, with speed control and training code.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1490,7 +1495,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/trellis.html">TRELLIS</a></h3>
   <p class="repo-owner">microsoft / TRELLIS</p>
-  <p>微软的 3D 资产生成模型：文本或图片输入，输出辐射场、3D Gaussian 与 mesh；核心是 Structured LATent（SLAT）统一表示与 Rectified Flow Transformer。</p>
+  <p><span data-zh>微软的 3D 资产生成模型：文本或图片输入，输出辐射场、3D Gaussian 与 mesh；核心是 Structured LATent（SLAT）统一表示与 Rectified Flow Transformer。</span><span data-en>Microsoft’s 3D asset generation model: text or image input to a radiance field, 3D Gaussians and a mesh, built on a Structured LATent (SLAT) representation and a Rectified Flow Transformer.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1502,7 +1507,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/kohya-ss.html">kohya_ss</a></h3>
   <p class="repo-owner">bmaltais / kohya_ss</p>
-  <p>Stable Diffusion 系模型的训练 GUI 与脚本集合：LoRA、DreamBooth、fine-tune、数据集打标与工具，覆盖 SD1/SDXL/FLUX 等。</p>
+  <p><span data-zh>Stable Diffusion 系模型的训练 GUI 与脚本集合：LoRA、DreamBooth、fine-tune、数据集打标与工具，覆盖 SD1/SDXL/FLUX 等。</span><span data-en>A training GUI and script collection for Stable Diffusion models: LoRA, DreamBooth, fine-tuning, dataset tagging and utilities across SD1, SDXL and FLUX.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1514,7 +1519,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/swe-bench.html">SWE-bench</a></h3>
   <p class="repo-owner">SWE-bench / SWE-bench</p>
-  <p>软件工程 agent 的基准与评测 harness：从真实 GitHub issue 与对应 PR 构造任务，测模型能否生成通过测试的 patch。</p>
+  <p><span data-zh>软件工程 agent 的基准与评测 harness：从真实 GitHub issue 与对应 PR 构造任务，测模型能否生成通过测试的 patch。</span><span data-en>A software-engineering benchmark and evaluation harness built from real GitHub issues and their pull requests, testing whether a model can produce a patch that passes the tests.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -1526,7 +1531,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/litgpt.html">LitGPT</a></h3>
   <p class="repo-owner">Lightning-AI / litgpt</p>
-  <p>Lightning AI 的轻量 LLM 训练、微调与部署配方：20+ 模型，支持 pretrain、SFT、LoRA、量化与推理，强调单卡可跑与可读代码。</p>
+  <p><span data-zh>Lightning AI 的轻量 LLM 训练、微调与部署配方：20+ 模型，支持 pretrain、SFT、LoRA、量化与推理，强调单卡可跑与可读代码。</span><span data-en>Lightning AI’s lightweight recipes for LLM training, fine-tuning and deployment: 20+ models, pretraining, SFT, LoRA, quantisation and inference, with an emphasis on single-GPU runs and readable code.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -1678,10 +1683,58 @@
     <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
   </dl>
   <a class="repo-link" href="repos/langchain.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="livekit-agents" data-scene="speech-audio" data-lang="—" data-license="permissive" data-tier="prod" data-search="livekit agents 实时语音/视频 agent 框架：webrtc 传输、语音活动检测、打断、工具调用与多模态管线放在一套运行时里。 python apache-2.0 实时语音 webrtc">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="repos/livekit-agents.html">LiveKit Agents</a></h3>
+  <p class="repo-owner">livekit / agents</p>
+  <p><span data-zh>实时语音/视频 Agent 框架：WebRTC 传输、语音活动检测、打断、工具调用与多模态管线放在一套运行时里。</span><span data-en>A realtime voice/video agent framework: WebRTC transport, VAD, interruption, tool calls and multimodal pipelines in one runtime.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>—</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>—</dd></div>
+    <div><dt>最近推送</dt><dd>—</dd></div>
+  </dl>
+  <a class="repo-link" href="repos/livekit-agents.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="pipecat" data-scene="speech-audio" data-lang="—" data-license="permissive" data-tier="prod" data-search="pipecat 面向语音与多模态应用的实时管线框架：把 transport、vad、stt、llm、tts 与打断串成可观测的帧流。 python bsd-2-clause 实时语音 多模态管线">
+  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="repos/pipecat.html">Pipecat</a></h3>
+  <p class="repo-owner">pipecat-ai / pipecat</p>
+  <p><span data-zh>面向语音与多模态应用的实时管线框架：把 transport、VAD、STT、LLM、TTS 与打断串成可观测的帧流。</span><span data-en>A realtime pipeline framework for voice and multimodal apps: transport, VAD, STT, LLM, TTS and interruption as an observable frame stream.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>—</dd></div>
+    <div><dt>许可</dt><dd>BSD-2-Clause</dd></div>
+    <div><dt>Stars</dt><dd>—</dd></div>
+    <div><dt>最近推送</dt><dd>—</dd></div>
+  </dl>
+  <a class="repo-link" href="repos/pipecat.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="cvat" data-scene="multimodal-visual" data-lang="—" data-license="permissive" data-tier="prod" data-search="cvat 图像、视频、音频与 3d 数据的标注平台：框、多边形、关键点、轨迹、审核与团队协作都在一套 web 应用里。 python mit 标注 视频 / 3d">
+  <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="repos/cvat.html">CVAT</a></h3>
+  <p class="repo-owner">cvat-ai / cvat</p>
+  <p><span data-zh>图像、视频、音频与 3D 数据的标注平台：框、多边形、关键点、轨迹、审核与团队协作都在一套 Web 应用里。</span><span data-en>An annotation platform for image, video, audio and 3D data: boxes, polygons, keypoints, tracks, review and team collaboration in one web app.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>—</dd></div>
+    <div><dt>许可</dt><dd>MIT</dd></div>
+    <div><dt>Stars</dt><dd>—</dd></div>
+    <div><dt>最近推送</dt><dd>—</dd></div>
+  </dl>
+  <a class="repo-link" href="repos/cvat.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="steel-browser" data-scene="agent-frameworks" data-lang="—" data-license="permissive" data-tier="prod" data-search="steel browser 给 ai agent 用的开源浏览器 api：会话、cookie、代理、截图、pdf 与动作接口打包成可自托管的沙箱。 typescript apache-2.0 浏览器 agent 沙箱">
+  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
+  <h3 class="repo-name"><a href="repos/steel-browser.html">Steel Browser</a></h3>
+  <p class="repo-owner">steel-dev / steel-browser</p>
+  <p><span data-zh>给 AI Agent 用的开源浏览器 API：会话、Cookie、代理、截图、PDF 与动作接口打包成可自托管的沙箱。</span><span data-en>An open-source browser API for AI agents: sessions, cookies, proxies, screenshots, PDFs and actions packaged as a self-hostable sandbox.</span></p>
+  <dl class="repo-facts">
+    <div><dt>语言</dt><dd>—</dd></div>
+    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
+    <div><dt>Stars</dt><dd>—</dd></div>
+    <div><dt>最近推送</dt><dd>—</dd></div>
+  </dl>
+  <a class="repo-link" href="repos/steel-browser.html">看仓库卡 →</a>
 </article></div>
 <div class="empty" id="empty" hidden><span data-zh>没有匹配的仓库。换个关键词，或清掉筛选。</span><span data-en>No matching repositories. Try another keyword or clear the filters.</span></div>
 </div>
-<script>window.OSS_DATA=[{"id":"langgraph","name":"LangGraph","owner":"langchain-ai","repo":"langgraph","summary":"把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":45130,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","有状态图"]},{"id":"crewai","name":"CrewAI","owner":"crewAIInc","repo":"crewAI","summary":"用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":61086,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","多 agent"]},{"id":"autogen","name":"AutoGen","owner":"microsoft","repo":"autogen","summary":"微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"CC-BY-4.0","stars":61928,"pushed":"2026-11-12","catalogOnly":false,"tags":["Python","MIT","多 agent"]},{"id":"openai-agents","name":"OpenAI Agents SDK","owner":"openai","repo":"openai-agents-python","summary":"轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":30755,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","MIT","轻量"]},{"id":"pydantic-ai","name":"Pydantic AI","owner":"pydantic","repo":"pydantic-ai","summary":"用 Pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"light","tierLabel":"轻量","language":"Python","license":"MIT","stars":21279,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","MIT","类型安全"]},{"id":"smolagents","name":"smolagents","owner":"huggingface","repo":"smolagents","summary":"Hugging Face 的极简 agent 库，主打“让模型写代码来调用工具”。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"light","tierLabel":"轻量","language":"Python","license":"Apache-2.0","stars":30434,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","代码执行"]},{"id":"autogpt","name":"AutoGPT","owner":"Significant-Gravitas","repo":"AutoGPT","summary":"从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 AutoGPT 循环也留在仓库里。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"niche","tierLabel":"特定场景","language":"Python","license":"MIT + Polyform Shield","stars":188118,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","MIT / Polyform Shield","自主 agent"]},{"id":"openhands","name":"OpenHands","owner":"All-Hands-AI","repo":"OpenHands","summary":"能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"MIT","stars":93903,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python/TS","MIT","编程 agent"]},{"id":"mem0","name":"Mem0","owner":"mem0ai","repo":"mem0","summary":"给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":69211,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","记忆层"]},{"id":"zep","name":"Zep","owner":"getzep","repo":"zep","summary":"面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":5007,"pushed":"2026-11-17","catalogOnly":false,"tags":["Python","Apache-2.0","记忆服务"]},{"id":"browser-use","name":"Browser Use","owner":"browser-use","repo":"browser-use","summary":"让 LLM 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":121456,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","浏览器 agent"]},{"id":"stagehand","name":"Stagehand","owner":"browserbase","repo":"stagehand","summary":"TypeScript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"niche","tierLabel":"特定场景","language":"TypeScript","license":"MIT","stars":26095,"pushed":"2026-11-19","catalogOnly":false,"tags":["TypeScript","MIT","浏览器自动化"]},{"id":"openclaw","name":"OpenClaw","owner":"openclaw","repo":"openclaw","summary":"把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"MIT","stars":394835,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","MIT","2026 新项目","个人助理","20+ 渠道"]},{"id":"deepseek-harness","name":"DeepSeek Harness","owner":"deepseek-ai","repo":"deepseek-harness","summary":"DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"MIT","stars":284217,"pushed":"2026-11-18","catalogOnly":false,"tags":["TypeScript","MIT","2026 新项目","插件化","dsh"]},{"id":"hermes-agent","name":"Hermes Agent","owner":"NousResearch","repo":"hermes-agent","summary":"Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":264762,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","MIT","2026 新项目","自改进","技能记忆"]},{"id":"opencode","name":"OpenCode","owner":"anomalyco","repo":"opencode","summary":"终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"MIT","stars":228049,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","MIT","2026 新项目","Coding agent","TUI"]},{"id":"orca","name":"Orca","owner":"stablyai","repo":"orca","summary":"把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"MIT","stars":129904,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","MIT","2026 新项目","并行 agent","worktree"]},{"id":"codex-cli","name":"Codex CLI","owner":"openai","repo":"codex","summary":"OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Rust","license":"Apache-2.0","stars":135896,"pushed":"2026-11-20","catalogOnly":false,"tags":["Rust","Apache-2.0","Coding agent","沙箱","MCP"]},{"id":"dspy","name":"DSPy","owner":"stanfordnlp","repo":"dspy","summary":"把提示词、检索和工具调用写成可组合的模块，再用优化器按指标自动改提示与示例；不是手写链式调用的封装。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":39153,"pushed":"2026-11-19","tags":["Python","MIT","提示词优化","模块化"]},{"id":"semantic-kernel","name":"Semantic Kernel","owner":"microsoft","repo":"semantic-kernel","summary":"微软的跨语言 agent/插件编排框架，覆盖 C#、Python、Java，提供连接器、函数、记忆、流程与 Agent 抽象。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"C#","license":"MIT","stars":28790,"pushed":"2026-11-20","tags":["C#","Python","Java","MIT","企业集成"]},{"id":"agno","name":"Agno","owner":"agno-agi","repo":"agno","summary":"轻量高性能的 agent runtime，支持单 agent、团队、workflow，以及 memory、knowledge、tools 和多模态输入。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":43244,"pushed":"2026-11-20","tags":["Python","TypeScript","Apache-2.0","多智能体","内存"]},{"id":"aider","name":"Aider","owner":"Aider-AI","repo":"aider","summary":"终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":50195,"pushed":"2026-05-22","tags":["Python","Apache-2.0","编程智能体","CLI","Git"]},{"id":"cline","name":"Cline","owner":"cline","repo":"cline","summary":"VS Code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"Apache-2.0","stars":71791,"pushed":"2026-11-19","tags":["TypeScript","Apache-2.0","VS Code","编程智能体"]},{"id":"goose","name":"Goose","owner":"block","repo":"goose","summary":"Block 开源的本地 AI agent，提供 CLI 与桌面端，通过 MCP 扩展工具，可接任意 LLM。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"local","tierLabel":"本地优先","language":"Rust","license":"Apache-2.0","stars":56817,"pushed":"2026-11-20","tags":["Rust","Apache-2.0","MCP","桌面智能体","本地"]},{"id":"langfuse","name":"Langfuse","owner":"langfuse","repo":"langfuse","summary":"LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"NOASSERTION","stars":37604,"pushed":"2026-11-19","catalogOnly":false,"tags":["TypeScript/Python","MIT","可观测"]},{"id":"ragas","name":"Ragas","owner":"explodinggradients","repo":"ragas","summary":"RAG 评测库：检索相关性、答案忠实度、上下文召回等指标。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":16376,"pushed":"2026-11-14","catalogOnly":false,"tags":["Python","Apache-2.0","RAG 评测"]},{"id":"deepeval","name":"DeepEval","owner":"confident-ai","repo":"deepeval","summary":"像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":19547,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","单元测试"]},{"id":"promptfoo","name":"promptfoo","owner":"promptfoo","repo":"promptfoo","summary":"prompt / 模型 / agent 的对比评测工具，配置化跑多模型多 prompt。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"MIT","stars":27432,"pushed":"2026-11-18","catalogOnly":false,"tags":["TypeScript","MIT","prompt 评测"]},{"id":"phoenix","name":"Arize Phoenix","owner":"Arize-ai","repo":"phoenix","summary":"开源 LLM 追踪与评测平台，基于 OpenTelemetry，带可视化与数据集管理。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"NOASSERTION","stars":12348,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","OTel"]},{"id":"inspect-ai","name":"Inspect AI","owner":"UKGovernmentBEIS","repo":"inspect_ai","summary":"英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"niche","tierLabel":"特定场景","language":"Python","license":"MIT","stars":3283,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","评测框架"]},{"id":"trulens","name":"TruLens","owner":"truera","repo":"trulens","summary":"LLM 应用与 agent 的评测、追踪工具，基于 OpenTelemetry，把检索、生成与评分串成可解释的 trace。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":3664,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","MIT","可解释评分"]},{"id":"evidently","name":"Evidently","owner":"evidentlyai","repo":"evidently","summary":"数据与模型监控框架：数据漂移、质量、LLM 输出评测都能出报表、测试与带告警的看板。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Jupyter Notebook","license":"Apache-2.0","stars":8075,"pushed":"2026-09-29","catalogOnly":false,"tags":["Python","Apache-2.0","监控"]},{"id":"giskard","name":"Giskard","owner":"Giskard-AI","repo":"giskard-oss","summary":"开源 ML/LLM 测试与红队工具：扫描提示注入、越权、幻觉与 RAG 质量问题，并生成可复现测试。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":5962,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","红队"]},{"id":"lm-evaluation-harness","name":"LM Evaluation Harness","owner":"EleutherAI","repo":"lm-evaluation-harness","summary":"标准 LLM 评测框架，覆盖数百任务、few-shot、loglikelihood 与生成式指标，支持 HF、vLLM 和 API 后端。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":14506,"pushed":"2026-11-04","tags":["Python","MIT","评测","Benchmark","复现"]},{"id":"ollama","name":"Ollama","owner":"ollama","repo":"ollama","summary":"一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"start","tierLabel":"先试这个","language":"Go","license":"MIT","stars":187556,"pushed":"2026-11-18","catalogOnly":false,"tags":["Go","MIT","本地推理"]},{"id":"llama-cpp","name":"llama.cpp","owner":"ggml-org","repo":"llama.cpp","summary":"C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"local","tierLabel":"本地优先","language":"C++","license":"MIT","stars":135626,"pushed":"2026-11-18","catalogOnly":false,"tags":["C++","MIT","GGUF"]},{"id":"vllm","name":"vLLM","owner":"vllm-project","repo":"vllm","summary":"高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":97184,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python/C++","Apache-2.0","高吞吐"]},{"id":"sglang","name":"SGLang","owner":"sgl-project","repo":"sglang","summary":"高性能推理运行时，擅长结构化生成、前缀缓存与多卡服务。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":39041,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","高性能"]},{"id":"localai","name":"LocalAI","owner":"mudler","repo":"LocalAI","summary":"本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"local","tierLabel":"本地优先","language":"Go","license":"MIT","stars":50438,"pushed":"2026-11-18","catalogOnly":false,"tags":["Go","MIT","OpenAI 兼容"]},{"id":"tgi","name":"Text Generation Inference","owner":"huggingface","repo":"text-generation-inference","summary":"Hugging Face 的生产级文本生成服务，支持张量并行、量化与流式输出。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":10877,"pushed":"2026-03-21","catalogOnly":false,"tags":["Rust/Python","Apache-2.0","HF 生态"]},{"id":"tensorrt-llm","name":"TensorRT-LLM","owner":"NVIDIA","repo":"TensorRT-LLM","summary":"NVIDIA 的 LLM 推理优化栈：自定义 kernel、量化、in-flight batching 与多卡并行，面向生产吞吐。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":15108,"pushed":"2026-11-20","catalogOnly":false,"tags":["C++/Python","Apache-2.0","NVIDIA"]},{"id":"textgen-webui","name":"Text Generation WebUI","owner":"oobabooga","repo":"textgen","summary":"本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"local","tierLabel":"本地优先","language":"Python","license":"AGPL-3.0","stars":47733,"pushed":"2026-08-17","catalogOnly":false,"tags":["Python","AGPL-3.0","WebUI"]},{"id":"open-webui","name":"Open WebUI","owner":"open-webui","repo":"open-webui","summary":"自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Svelte","license":"NOASSERTION","stars":159105,"pushed":"2026-11-19","catalogOnly":false,"tags":["Svelte","自定义许可","自托管","RAG","多用户"]},{"id":"lmdeploy","name":"LMDeploy","owner":"InternLM","repo":"lmdeploy","summary":"高吞吐 LLM 推理与部署工具，提供 TurboMind/PyTorch 引擎、KV 量化、多卡并行和 OpenAI 兼容 API。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":8151,"pushed":"2026-11-20","tags":["Python","Apache-2.0","推理服务","量化","OpenAI API"]},{"id":"mlc-llm","name":"MLC LLM","owner":"mlc-ai","repo":"mlc-llm","summary":"基于 TVM 的通用 LLM 编译部署引擎，可把模型编译到 CUDA、ROCm、Metal、Vulkan、WebGPU 等后端。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"local","tierLabel":"本地优先","language":"Python","license":"Apache-2.0","stars":23401,"pushed":"2026-11-20","tags":["Python","Apache-2.0","TVM","跨平台","WebGPU"]},{"id":"llamafile","name":"llamafile","owner":"Mozilla-Ocho","repo":"llamafile","summary":"把 llama.cpp 与模型权重打包成单个可执行文件，跨 macOS/Windows/Linux/BSD 运行，无需安装 Python。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"light","tierLabel":"轻量","language":"C++","license":"NOASSERTION","stars":26673,"pushed":"2026-11-09","tags":["C++","Apache-2.0","单文件","便携","GGUF"]},{"id":"comfyui","name":"ComfyUI","owner":"comfyanonymous","repo":"ComfyUI","summary":"节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"start","tierLabel":"先试这个","language":"Python","license":"GPL-3.0","stars":147518,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","GPL-3.0","节点工作流"]},{"id":"sd-webui","name":"Stable Diffusion WebUI","owner":"AUTOMATIC1111","repo":"stable-diffusion-webui","summary":"最经典的 SD 图形界面，文生图、图生图、LoRA、ControlNet 都在一个页面。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"start","tierLabel":"先试这个","language":"Python","license":"AGPL-3.0","stars":165338,"pushed":"2026-03-02","catalogOnly":false,"tags":["Python","AGPL-3.0","SD 界面"]},{"id":"diffusers","name":"Diffusers","owner":"huggingface","repo":"diffusers","summary":"扩散模型的 Python 库：pipeline、调度器、训练与量化，适合写代码而不是点界面。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":34941,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","扩散库"]},{"id":"fooocus","name":"Fooocus","owner":"lllyasviel","repo":"Fooocus","summary":"把 SDXL 的常用参数收起来，主打“少调参也能出好图”。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"light","tierLabel":"轻量","language":"Python","license":"GPL-3.0","stars":53959,"pushed":"2025-12-01","catalogOnly":false,"tags":["Python","GPL-3.0","SDXL"]},{"id":"invokeai","name":"InvokeAI","owner":"invoke-ai","repo":"InvokeAI","summary":"面向创作者的图像生成工作台，统一画布、图层、模型管理与批量生成。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"Apache-2.0","stars":29117,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","创作工作台"]},{"id":"wan21","name":"Wan2.1","owner":"Wan-Video","repo":"Wan2.1","summary":"开源视频生成模型与推理代码，支持文生视频、图生视频与多尺寸。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":17458,"pushed":"2026-03-05","catalogOnly":false,"tags":["Python","Apache-2.0","视频生成"]},{"id":"comfyui-manager","name":"ComfyUI Manager","owner":"Comfy-Org","repo":"ComfyUI-Manager","summary":"ComfyUI 的扩展与模型管理器：装缺失节点、下载模型、检查版本冲突，还能做环境快照与恢复。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"light","tierLabel":"轻量","language":"Python","license":"GPL-3.0","stars":16901,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","GPL-3.0","ComfyUI 扩展"]},{"id":"sdnext","name":"SD.Next","owner":"vladmandic","repo":"sdnext","summary":"Stable Diffusion WebUI 的现代分支，支持新模型、Diffusers/ONNX/OpenVINO 多后端，也兼顾 AMD 与 Intel。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":7380,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","SD 分支"]},{"id":"real-esrgan","name":"Real-ESRGAN","owner":"xinntao","repo":"Real-ESRGAN","summary":"真实场景图像/视频超分与修复：盲超分、降噪、去压缩伪影，提供 Python API 与轻量 ncnn 可执行文件。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"light","tierLabel":"轻量","language":"Python","license":"BSD-3-Clause","stars":37579,"pushed":"2024-08-06","catalogOnly":false,"tags":["Python","BSD-3-Clause","超分"]},{"id":"hunyuanvideo","name":"HunyuanVideo","owner":"Tencent-Hunyuan","repo":"HunyuanVideo","summary":"腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"NOASSERTION","stars":12800,"pushed":"2026-10-08","catalogOnly":false,"tags":["Python","自定义许可","视频生成"]},{"id":"cogvideo","name":"CogVideo","owner":"zai-org","repo":"CogVideo","summary":"智谱 CogVideoX 系列视频生成模型与推理代码，支持文本/图像到视频。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":13214,"pushed":"2025-11-04","catalogOnly":false,"tags":["Python","Apache-2.0","视频生成"]},{"id":"ltx-video","name":"LTX-Video","owner":"Lightricks","repo":"LTX-Video","summary":"Lightricks 的实时视频生成模型与代码，基于 DiT，强调速度与较低显存。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":11433,"pushed":"2026-11-02","catalogOnly":false,"tags":["Python","Apache-2.0","视频生成"]},{"id":"flux1","name":"FLUX.1","owner":"black-forest-labs","repo":"flux","summary":"Black Forest Labs 的图像生成模型与推理代码：FLUX.1 [schnell] / [dev] / [pro] 三条线。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":26073,"pushed":"2025-07-31","catalogOnly":false,"tags":["Python","Apache-2.0","图像生成","FLUX"]},{"id":"open-sora","name":"Open-Sora","owner":"hpcaitech","repo":"Open-Sora","summary":"开源视频生成全流程：数据清洗、VAE、DiT 训练、推理，支持文生视频与图生视频。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":29943,"pushed":"2026-04-09","tags":["Python","Apache-2.0","视频生成","DiT","训练"]},{"id":"qwen-image","name":"Qwen-Image","owner":"QwenLM","repo":"Qwen-Image","summary":"Qwen 的图像生成与编辑模型，20B MMDiT，主打复杂中文文字渲染、海报排版和多图编辑。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":8487,"pushed":"2026-02-10","tags":["Python","Apache-2.0","图像生成","图像编辑","中文文字"]},{"id":"framepack","name":"FramePack","owner":"lllyasviel","repo":"FramePack","summary":"面向低显存的视频生成框架，用下一帧预测和分段生成，把长视频生成压到 6GB 笔记本 GPU 可跑。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"local","tierLabel":"本地优先","language":"Python","license":"Apache-2.0","stars":17371,"pushed":"2025-10-16","tags":["Python","Apache-2.0","视频生成","低显存","长视频"]},{"id":"hunyuan3d-2","name":"Hunyuan3D-2","owner":"Tencent-Hunyuan","repo":"Hunyuan3D-2","summary":"腾讯混元的 3D 生成模型：图/文生 3D mesh，两阶段 shape + texture，支持轻量版与 PBR 纹理。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"NOASSERTION","stars":15504,"pushed":"2025-10-28","tags":["Python","3D 生成","Mesh","纹理","腾讯混元"]},{"id":"ragflow","name":"RAGFlow","owner":"infiniflow","repo":"ragflow","summary":"带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"start","tierLabel":"先试这个","language":"Go","license":"Apache-2.0","stars":94399,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","RAG 平台"]},{"id":"dify","name":"Dify","owner":"langgenius","repo":"dify","summary":"把 prompt、RAG、agent、工作流和模型接入做成可视化平台。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"start","tierLabel":"先试这个","language":"Python","license":"NOASSERTION","stars":161444,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0（附加条件）","可视化"]},{"id":"llama-index","name":"LlamaIndex","owner":"run-llama","repo":"llama_index","summary":"面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":52946,"pushed":"2026-11-14","catalogOnly":false,"tags":["Python","MIT","RAG 框架"]},{"id":"haystack","name":"Haystack","owner":"deepset-ai","repo":"haystack","summary":"用 pipeline 把检索、生成、评测、路由串起来，偏工程化与可测试。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":27046,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","pipeline"]},{"id":"qdrant","name":"Qdrant","owner":"qdrant","repo":"qdrant","summary":"Rust 写的向量数据库，带过滤、混合检索、分布式与量化。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Rust","license":"Apache-2.0","stars":35633,"pushed":"2026-11-18","catalogOnly":false,"tags":["Rust","Apache-2.0","向量库"]},{"id":"chroma","name":"Chroma","owner":"chroma-core","repo":"chroma","summary":"轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"light","tierLabel":"轻量","language":"Rust","license":"Apache-2.0","stars":29711,"pushed":"2026-11-13","catalogOnly":false,"tags":["Python","Apache-2.0","轻量向量库"]},{"id":"weaviate","name":"Weaviate","owner":"weaviate","repo":"weaviate","summary":"带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Go","license":"BSD-3-Clause + Weaviate License","stars":16956,"pushed":"2026-11-20","catalogOnly":false,"tags":["Go","BSD-3-Clause / Weaviate","混合检索"]},{"id":"milvus","name":"Milvus","owner":"milvus-io","repo":"milvus","summary":"面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"scale","tierLabel":"规模 / 性能","language":"Go","license":"Apache-2.0","stars":46707,"pushed":"2026-11-20","catalogOnly":false,"tags":["Go/C++","Apache-2.0","分布式"]},{"id":"docling","name":"Docling","owner":"docling-project","repo":"docling","summary":"文档解析工具包：PDF / HTML / Office 转结构化 Markdown / JSON，保留版面、表格与阅读顺序。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":70770,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","文档解析"]},{"id":"unstructured","name":"Unstructured","owner":"Unstructured-IO","repo":"unstructured","summary":"文档 ETL 工具：把 PDF、HTML、图片、Office 文件分区、清洗并带上元数据，喂给 RAG。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"HTML","license":"Apache-2.0","stars":15765,"pushed":"2026-11-17","catalogOnly":false,"tags":["Python","Apache-2.0","文档 ETL"]},{"id":"marker","name":"Marker","owner":"datalab-to","repo":"marker","summary":"PDF → Markdown / JSON 的高质量转换器，重点处理版面、表格、公式与阅读顺序。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":40981,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","PDF 转换"]},{"id":"lightrag","name":"LightRAG","owner":"HKUDS","repo":"LightRAG","summary":"轻量 GraphRAG 实现：把文档抽成实体关系图，再做向量+图检索，成本比全文 GraphRAG 低。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"light","tierLabel":"轻量","language":"Python","license":"MIT","stars":40775,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","MIT","GraphRAG","增量更新"]},{"id":"firecrawl","name":"Firecrawl","owner":"firecrawl","repo":"firecrawl","summary":"把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"AGPL-3.0","stars":204231,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","AGPL-3.0","网页抓取","Markdown","MCP"]},{"id":"graphify","name":"Graphify","owner":"Graphify-Labs","repo":"graphify","summary":"把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":150660,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","2026 新项目","知识图谱","代码检索"]},{"id":"pgvector","name":"pgvector","owner":"pgvector","repo":"pgvector","summary":"Postgres 的向量扩展，给普通表加 vector 列、距离操作符和 HNSW/IVFFlat 索引，让向量检索和业务数据留在同一个库。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"C","license":"NOASSERTION","stars":23747,"pushed":"2026-11-20","tags":["SQL","PostgreSQL","向量检索","RAG"]},{"id":"lancedb","name":"LanceDB","owner":"lancedb","repo":"lancedb","summary":"嵌入式多模态向量数据库，Rust 核心 + Python/JS SDK，底层 Lance 列存，支持向量、全文、SQL 过滤和版本化。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"local","tierLabel":"本地优先","language":"Rust","license":"Apache-2.0","stars":11952,"pushed":"2026-11-20","tags":["Rust","Apache-2.0","嵌入式","多模态","向量库"]},{"id":"r2r","name":"R2R","owner":"SciPhi-AI","repo":"R2R","summary":"生产化 RAG 服务：文档摄入、混合检索、知识图谱、agentic RAG、用户与租户管理，带 REST API 和 Web UI。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":8103,"pushed":"2025-11-07","tags":["Python","MIT","RAG 服务","知识图谱","REST API"]},{"id":"graphrag","name":"GraphRAG","owner":"microsoft","repo":"graphrag","summary":"微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"MIT","stars":36699,"pushed":"2026-11-19","tags":["Python","MIT","GraphRAG","知识图谱","全局查询"]},{"id":"whisper","name":"Whisper","owner":"openai","repo":"whisper","summary":"OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":113022,"pushed":"2026-08-31","catalogOnly":false,"tags":["Python","MIT","ASR"]},{"id":"faster-whisper","name":"faster-whisper","owner":"SYSTRAN","repo":"faster-whisper","summary":"用 CTranslate2 重写 Whisper 推理，速度更快、显存更省。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"light","tierLabel":"轻量","language":"Python","license":"MIT","stars":26855,"pushed":"2026-11-12","catalogOnly":false,"tags":["Python","MIT","CTranslate2"]},{"id":"funasr","name":"FunASR","owner":"modelscope","repo":"FunASR","summary":"阿里达摩院的语音识别工具链，中文 ASR、标点、热词、说话人分离齐全。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":21065,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","中文 ASR"]},{"id":"cosyvoice","name":"CosyVoice","owner":"FunAudioLLM","repo":"CosyVoice","summary":"零样本语音合成与音色克隆，支持多语言与情感控制。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":24440,"pushed":"2026-05-25","catalogOnly":false,"tags":["Python","Apache-2.0","TTS"]},{"id":"chattts","name":"ChatTTS","owner":"2noise","repo":"ChatTTS","summary":"面向对话场景的 TTS，韵律自然，支持中英文与笑声等副语言。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"light","tierLabel":"轻量","language":"Python","license":"AGPL-3.0","stars":40024,"pushed":"2026-04-10","catalogOnly":false,"tags":["Python","MIT","对话 TTS"]},{"id":"fish-speech","name":"Fish Speech","owner":"fishaudio","repo":"fish-speech","summary":"多语言 TTS 与音色克隆，强调少样本、跨语言与情感表达。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"NOASSERTION","stars":33779,"pushed":"2026-11-14","catalogOnly":false,"tags":["Python","Apache-2.0","TTS"]},{"id":"whisperx","name":"WhisperX","owner":"m-bain","repo":"whisperX","summary":"Whisper 的批处理加速版：VAD 切分、词级对齐与说话人分离，输出带时间戳的转写与字幕。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"light","tierLabel":"轻量","language":"Python","license":"BSD-2-Clause","stars":25523,"pushed":"2026-11-12","catalogOnly":false,"tags":["Python","BSD-2-Clause","词级时间戳"]},{"id":"gpt-sovits","name":"GPT-SoVITS","owner":"RVC-Boss","repo":"GPT-SoVITS","summary":"少样本语音克隆与 TTS：约 1 分钟干净语音就能微调，支持中英日跨语言，带训练与推理 WebUI。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"MIT","stars":64140,"pushed":"2026-11-11","catalogOnly":false,"tags":["Python","MIT","语音克隆"]},{"id":"vibevoice","name":"VibeVoice","owner":"microsoft","repo":"VibeVoice","summary":"微软开源语音模型家族：60 分钟长音频转写（谁在何时说了什么）、50+ 语言与流式 ASR；TTS 代码已因滥用下架。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":57310,"pushed":"2026-10-08","catalogOnly":false,"tags":["Python","MIT","语音识别","长音频","50+ 语言"]},{"id":"sensevoice","name":"SenseVoice","owner":"FunAudioLLM","repo":"SenseVoice","summary":"多语言语音理解模型，做 ASR、语种识别、情感识别和音频事件检测，非自回归，推理延迟低。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"C","license":"MIT","stars":9794,"pushed":"2026-09-30","tags":["Python","MIT","ASR","多语言","情感识别"]},{"id":"index-tts","name":"IndexTTS","owner":"index-tts","repo":"index-tts","summary":"B 站开源的工业级 TTS，支持零样本音色克隆、情感与语速控制，中文/英文，非自回归。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"NOASSERTION","stars":25210,"pushed":"2026-09-29","tags":["Python","TTS","音色克隆","中文","情感控制"]},{"id":"pyannote-audio","name":"pyannote.audio","owner":"pyannote","repo":"pyannote-audio","summary":"说话人日志工具包，覆盖 VAD、speaker embedding、聚类和端到端 diarization pipeline。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"Jupyter Notebook","license":"MIT","stars":10815,"pushed":"2026-11-19","tags":["Python","MIT","说话人分离","Diarization","会议"]},{"id":"unsloth","name":"Unsloth","owner":"unslothai","repo":"unsloth","summary":"QLoRA/LoRA 微调加速：用 Triton 内核把 7B–70B 模型的显存占用和训练时间压下来。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":79777,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","QLoRA","单卡"]},{"id":"llamafactory","name":"LLaMA-Factory","owner":"hiyouga","repo":"LLaMA-Factory","summary":"一套配置跑通微调：LoRA、QLoRA、全参与 DPO，带 WebUI 和模型导出。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":76142,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","LoRA","WebUI"]},{"id":"axolotl","name":"Axolotl","owner":"axolotl-ai-cloud","repo":"axolotl","summary":"一份 YAML 配置跑通微调：支持 LoRA、QLoRA、全参、DPO、GRPO 与多机训练。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":12738,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","YAML","多机"]},{"id":"peft","name":"PEFT","owner":"huggingface","repo":"peft","summary":"参数高效微调的标准库：LoRA、IA3、Prefix Tuning 等适配器，接 Transformers 与 Accelerate。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":21909,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","LoRA","Adapter"]},{"id":"ms-swift","name":"ms-swift","owner":"modelscope","repo":"ms-swift","summary":"ModelScope 的微调与部署工具链：LLM、多模态模型的 LoRA/全参、DPO/GRPO、推理与评测。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":16130,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","ModelScope","多模态"]},{"id":"trl","name":"TRL","owner":"huggingface","repo":"trl","summary":"Hugging Face 的强化学习与对齐训练库：SFT、DPO、PPO、GRPO、奖励模型都能接。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":19771,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","RLHF","DPO"]},{"id":"torchtune","name":"torchtune","owner":"meta-pytorch","repo":"torchtune","summary":"PyTorch 原生的微调配方库：可读的训练循环、FSDP、激活检查点与常用后训练配方。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"BSD-3-Clause","stars":5819,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","BSD-3-Clause","PyTorch","FSDP"]},{"id":"deepspeed","name":"DeepSpeed","owner":"deepspeedai","repo":"DeepSpeed","summary":"微软的大模型训练优化库：ZeRO、Offload、混合精度与 MoE 训练，把显存与吞吐压到可用。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":43343,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","ZeRO","多机"]},{"id":"torchtitan","name":"TorchTitan","owner":"pytorch","repo":"torchtitan","summary":"PyTorch 官方的大模型训练配方：张量并行、流水并行、FSDP 与分布式检查点，按 Llama 3 路线给参考实现。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"BSD-3-Clause","stars":5926,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","BSD-3-Clause","FSDP","并行"]},{"id":"verl","name":"verl","owner":"volcengine","repo":"verl","summary":"字节跳动的 RL 训练框架：面向 LLM Agent 与推理任务，支持 PPO/GRPO 与多轮工具调用。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":24283,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","Agentic RL","GRPO"]},{"id":"openrlhf","name":"OpenRLHF","owner":"OpenRLHF","repo":"OpenRLHF","summary":"基于 Ray + vLLM 的 RLHF 训练框架：PPO、GRPO、DPO、KTO 与多机多卡编排。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":10170,"pushed":"2026-11-03","catalogOnly":false,"tags":["Python","Apache-2.0","Ray","PPO"]},{"id":"ktransformers","name":"KTransformers","owner":"kvcache-ai","repo":"ktransformers","summary":"面向异构硬件的推理/微调框架：把 MoE 专家卸载到 CPU/内存，用少量 GPU 跑大模型。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"local","tierLabel":"本地优先","language":"Python","license":"Apache-2.0","stars":19686,"pushed":"2026-11-13","catalogOnly":false,"tags":["Python","Apache-2.0","MoE","专家卸载"]},{"id":"megatron-lm","name":"Megatron-LM","owner":"NVIDIA","repo":"Megatron-LM","summary":"NVIDIA 的大规模 Transformer 训练框架，支持张量/流水/序列/上下文并行、FP8、MoE 和分布式 checkpoint。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"NOASSERTION","stars":18445,"pushed":"2026-11-20","tags":["Python","CUDA","BSD-3-Clause","分布式训练","MoE"]},{"id":"litellm","name":"LiteLLM","owner":"BerriAI","repo":"litellm","summary":"把 100+ 模型 API 统一成 OpenAI 兼容格式的网关与 SDK：Rust 核心、虚拟密钥、成本追踪、限流/负载均衡、guardrails、日志与缓存，可自托管。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT + Enterprise","stars":63615,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Rust","MIT + Enterprise","AI 网关"]},{"id":"google-adk","name":"Google ADK","owner":"google","repo":"adk-python","summary":"Google 的代码优先 Python agent 工具包：把工具、会话、记忆、评测与部署放进同一套抽象，可用 Gemini 或其它模型。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":22282,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","Agent 框架","Google"]},{"id":"letta","name":"Letta","owner":"letta-ai","repo":"letta","summary":"有状态 agent 平台：把记忆分成 core / recall / archival 三层，连同对话、工具调用与 agent 状态一起持久化，跨会话保留并允许 agent 自己编辑记忆。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":25503,"pushed":"2026-10-18","catalogOnly":false,"tags":["Python","Apache-2.0","有状态 Agent","长期记忆"]},{"id":"open-interpreter","name":"Open Interpreter","owner":"OpenInterpreter","repo":"openinterpreter","summary":"让模型在本机写并执行代码的终端 agent：把自然语言任务拆成 shell/Python 步骤，读文件、跑命令、看输出再修正；2026 版本转向 Kimi K3.1、GLM 5.3 等开放权重模型。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":68924,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","终端 Agent","本地执行"]},{"id":"swe-agent","name":"SWE-agent","owner":"SWE-agent","repo":"SWE-agent","summary":"把 GitHub issue 变成代码修改的软件工程 agent：通过 agent-computer interface（ACI）把搜索、编辑、测试等命令收进受限接口，让模型闭环修 issue。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":20839,"pushed":"2026-11-16","catalogOnly":false,"tags":["Python","MIT","编程 Agent","SWE-bench"]},{"id":"continue","name":"Continue","owner":"continuedev","repo":"continue","summary":"开源 IDE/CLI 编程 agent：VS Code、JetBrains 插件加 CLI，支持本地或云端模型、规则文件、代码索引与自定义工具。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"Apache-2.0","stars":36527,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","Apache-2.0","编程 Agent","IDE"]},{"id":"anythingllm","name":"AnythingLLM","owner":"Mintplex-Labs","repo":"anything-llm","summary":"本地优先的 RAG 桌面与服务器：把文档、网页、代码灌进 workspace，接本地或云端模型，提供 chat、agent 与 API。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"light","tierLabel":"轻量","language":"JavaScript","license":"MIT","stars":68464,"pushed":"2026-11-20","catalogOnly":false,"tags":["JavaScript","MIT","本地 RAG","桌面应用"]},{"id":"kokoro","name":"Kokoro","owner":"hexgrad","repo":"kokoro","summary":"82M 参数的开源 TTS 推理库：轻量、快，Apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"light","tierLabel":"轻量","language":"Python","license":"Apache-2.0","stars":10258,"pushed":"2025-08-06","catalogOnly":false,"tags":["Python","Apache-2.0","TTS","82M"]},{"id":"f5-tts","name":"F5-TTS","owner":"SWivid","repo":"F5-TTS","summary":"基于 Flow Matching 与 Diffusion Transformer 的 TTS：用短参考音频做零样本声音克隆，支持中英与速度控制，提供训练与推理代码。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":15630,"pushed":"2026-11-03","catalogOnly":false,"tags":["Python","MIT","TTS","声音克隆"]},{"id":"trellis","name":"TRELLIS","owner":"microsoft","repo":"TRELLIS","summary":"微软的 3D 资产生成模型：文本或图片输入，输出辐射场、3D Gaussian 与 mesh；核心是 Structured LATent（SLAT）统一表示与 Rectified Flow Transformer。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":14362,"pushed":"2026-10-27","catalogOnly":false,"tags":["Python","MIT","3D 生成","CVPR 2025"]},{"id":"kohya-ss","name":"kohya_ss","owner":"bmaltais","repo":"kohya_ss","summary":"Stable Diffusion 系模型的训练 GUI 与脚本集合：LoRA、DreamBooth、fine-tune、数据集打标与工具，覆盖 SD1/SDXL/FLUX 等。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":12677,"pushed":"2026-08-01","catalogOnly":false,"tags":["Python","Apache-2.0","LoRA","Diffusion 训练"]},{"id":"swe-bench","name":"SWE-bench","owner":"SWE-bench","repo":"SWE-bench","summary":"软件工程 agent 的基准与评测 harness：从真实 GitHub issue 与对应 PR 构造任务，测模型能否生成通过测试的 patch。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":6227,"pushed":"2026-09-18","catalogOnly":false,"tags":["Python","MIT","Agent 评测","SWE-bench"]},{"id":"litgpt","name":"LitGPT","owner":"Lightning-AI","repo":"litgpt","summary":"Lightning AI 的轻量 LLM 训练、微调与部署配方：20+ 模型，支持 pretrain、SFT、LoRA、量化与推理，强调单卡可跑与可读代码。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":13757,"pushed":"2026-11-10","catalogOnly":false,"tags":["Python","Apache-2.0","LLM 微调","单卡"]},{"id":"transformers","name":"Transformers","owner":"huggingface","repo":"transformers","summary":"Hugging Face 的模型库与统一接口：AutoModel / AutoTokenizer 覆盖文本、视觉、音频与多模态，支持 PyTorch、TensorFlow、Flax；能直接加载 Hub 权重，也能接 PEFT、vLLM、TGI 等后端。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":169320,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","模型库","多模态"]},{"id":"accelerate","name":"Accelerate","owner":"huggingface","repo":"accelerate","summary":"把 PyTorch 的多 GPU、TPU、混合精度、梯度累积、FSDP 与 DeepSpeed 启动样板收进一个 API：设备放置、分布式启动和混合精度不用手写。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":9950,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","分布式训练","混合精度"]},{"id":"datasets","name":"Datasets","owner":"huggingface","repo":"datasets","summary":"Hugging Face 的数据集库：load_dataset 读取 Hub、Parquet、JSON、CSV，支持流式读取、内存映射、map/filter/shuffle 与 train/test split，不用先把整份语料塞进内存。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":22173,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","数据集","流式读取"]},{"id":"ray","name":"Ray","owner":"ray-project","repo":"ray","summary":"分布式计算框架：把 Python 任务与 actor 扩展到多核多机；Ray Train / Serve / Data / Tune 覆盖训练、推理、数据加载与超参搜索。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":44348,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","分布式","Ray Serve"]},{"id":"mlflow","name":"MLflow","owner":"mlflow","repo":"mlflow","summary":"实验跟踪、模型注册、打包与部署的开源平台：记录参数、指标与产物，比较 run，注册模型版本并部署 REST/gRPC 服务。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":28909,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","实验跟踪","模型注册"]},{"id":"crawl4ai","name":"Crawl4AI","owner":"unclecode","repo":"crawl4ai","summary":"面向 LLM 的网页抓取与清洗：异步爬取、浏览器渲染、去噪、Markdown/JSON 输出、分块与缓存，适合把网页变成 RAG 可用的语料。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":87596,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","爬虫","RAG"]},{"id":"fastmcp","name":"FastMCP","owner":"jlowin","repo":"fastmcp","summary":"用 Python 快速搭 MCP 服务器：装饰器声明 tools、resources 与 prompts，自动生成 schema，支持 stdio/HTTP、认证、组合与测试。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":28691,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","MCP","工具服务"]},{"id":"instructor","name":"Instructor","owner":"567-labs","repo":"instructor","summary":"用 Pydantic 模型约束 LLM 输出：自动重试、流式部分对象、函数调用/JSON schema、多 provider 适配，让“返回一个结构体”变可靠。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":14127,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","MIT","结构化输出","Pydantic"]},{"id":"outlines","name":"Outlines","owner":"dottxt-ai","repo":"outlines","summary":"结构化生成库：用正则、JSON schema 或 CFG 约束 token 采样，保证输出可解析；支持 Transformers、vLLM、llama.cpp 等后端。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":16016,"pushed":"2026-09-21","catalogOnly":false,"tags":["Python","Apache-2.0","结构化生成","本地推理"]},{"id":"argilla","name":"Argilla","owner":"argilla-io","repo":"argilla","summary":"人机协同的数据标注与 curation 平台：数据集、标注任务、弱监督、模型反馈与 Hugging Face Hub 集成，适合 SFT/RLHF 数据。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":5208,"pushed":"2026-11-16","catalogOnly":false,"tags":["Python","Apache-2.0","数据标注","RLHF"]},{"id":"label-studio","name":"Label Studio","owner":"HumanSignal","repo":"label-studio","summary":"多模态数据标注平台：文本、图像、音频、视频、HTML 与时间序列都能用模板化界面标注；支持 ML 后端预标注、多人协作与多种导出格式。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":28734,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","多模态标注","协作"]},{"id":"langchain","name":"LangChain","owner":"langchain-ai","repo":"langchain","summary":"LLM 应用框架：模型、工具、检索、记忆与 agent 的组件化抽象；LangGraph 做有状态编排，LangSmith 做观测。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":149968,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","MIT","LLM 框架","Agent"]}];</script>
+<script>window.OSS_DATA=[{"id":"langgraph","name":"LangGraph","owner":"langchain-ai","repo":"langgraph","summary":"把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":45130,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","有状态图"]},{"id":"crewai","name":"CrewAI","owner":"crewAIInc","repo":"crewAI","summary":"用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":61086,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","多 agent"]},{"id":"autogen","name":"AutoGen","owner":"microsoft","repo":"autogen","summary":"微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"CC-BY-4.0","stars":61928,"pushed":"2026-11-12","catalogOnly":false,"tags":["Python","MIT","多 agent"]},{"id":"openai-agents","name":"OpenAI Agents SDK","owner":"openai","repo":"openai-agents-python","summary":"轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":30755,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","MIT","轻量"]},{"id":"pydantic-ai","name":"Pydantic AI","owner":"pydantic","repo":"pydantic-ai","summary":"用 Pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"light","tierLabel":"轻量","language":"Python","license":"MIT","stars":21279,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","MIT","类型安全"]},{"id":"smolagents","name":"smolagents","owner":"huggingface","repo":"smolagents","summary":"Hugging Face 的极简 agent 库，主打“让模型写代码来调用工具”。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"light","tierLabel":"轻量","language":"Python","license":"Apache-2.0","stars":30434,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","代码执行"]},{"id":"autogpt","name":"AutoGPT","owner":"Significant-Gravitas","repo":"AutoGPT","summary":"从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 AutoGPT 循环也留在仓库里。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"niche","tierLabel":"特定场景","language":"Python","license":"MIT + Polyform Shield","stars":188118,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","MIT / Polyform Shield","自主 agent"]},{"id":"openhands","name":"OpenHands","owner":"All-Hands-AI","repo":"OpenHands","summary":"能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"MIT","stars":93903,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python/TS","MIT","编程 agent"]},{"id":"mem0","name":"Mem0","owner":"mem0ai","repo":"mem0","summary":"给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":69211,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","记忆层"]},{"id":"zep","name":"Zep","owner":"getzep","repo":"zep","summary":"面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":5007,"pushed":"2026-11-17","catalogOnly":false,"tags":["Python","Apache-2.0","记忆服务"]},{"id":"browser-use","name":"Browser Use","owner":"browser-use","repo":"browser-use","summary":"让 LLM 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":121456,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","浏览器 agent"]},{"id":"stagehand","name":"Stagehand","owner":"browserbase","repo":"stagehand","summary":"TypeScript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"niche","tierLabel":"特定场景","language":"TypeScript","license":"MIT","stars":26095,"pushed":"2026-11-19","catalogOnly":false,"tags":["TypeScript","MIT","浏览器自动化"]},{"id":"openclaw","name":"OpenClaw","owner":"openclaw","repo":"openclaw","summary":"把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"MIT","stars":394835,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","MIT","2026 新项目","个人助理","20+ 渠道"]},{"id":"deepseek-harness","name":"DeepSeek Harness","owner":"deepseek-ai","repo":"deepseek-harness","summary":"DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"MIT","stars":284217,"pushed":"2026-11-18","catalogOnly":false,"tags":["TypeScript","MIT","2026 新项目","插件化","dsh"]},{"id":"hermes-agent","name":"Hermes Agent","owner":"NousResearch","repo":"hermes-agent","summary":"Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":264762,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","MIT","2026 新项目","自改进","技能记忆"]},{"id":"opencode","name":"OpenCode","owner":"anomalyco","repo":"opencode","summary":"终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"MIT","stars":228049,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","MIT","2026 新项目","Coding agent","TUI"]},{"id":"orca","name":"Orca","owner":"stablyai","repo":"orca","summary":"把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"MIT","stars":129904,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","MIT","2026 新项目","并行 agent","worktree"]},{"id":"codex-cli","name":"Codex CLI","owner":"openai","repo":"codex","summary":"OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Rust","license":"Apache-2.0","stars":135896,"pushed":"2026-11-20","catalogOnly":false,"tags":["Rust","Apache-2.0","Coding agent","沙箱","MCP"]},{"id":"dspy","name":"DSPy","owner":"stanfordnlp","repo":"dspy","summary":"把提示词、检索和工具调用写成可组合的模块，再用优化器按指标自动改提示与示例；不是手写链式调用的封装。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":39153,"pushed":"2026-11-19","tags":["Python","MIT","提示词优化","模块化"]},{"id":"semantic-kernel","name":"Semantic Kernel","owner":"microsoft","repo":"semantic-kernel","summary":"微软的跨语言 agent/插件编排框架，覆盖 C#、Python、Java，提供连接器、函数、记忆、流程与 Agent 抽象。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"C#","license":"MIT","stars":28790,"pushed":"2026-11-20","tags":["C#","Python","Java","MIT","企业集成"]},{"id":"agno","name":"Agno","owner":"agno-agi","repo":"agno","summary":"轻量高性能的 agent runtime，支持单 agent、团队、workflow，以及 memory、knowledge、tools 和多模态输入。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":43244,"pushed":"2026-11-20","tags":["Python","TypeScript","Apache-2.0","多智能体","内存"]},{"id":"aider","name":"Aider","owner":"Aider-AI","repo":"aider","summary":"终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":50195,"pushed":"2026-05-22","tags":["Python","Apache-2.0","编程智能体","CLI","Git"]},{"id":"cline","name":"Cline","owner":"cline","repo":"cline","summary":"VS Code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"Apache-2.0","stars":71791,"pushed":"2026-11-19","tags":["TypeScript","Apache-2.0","VS Code","编程智能体"]},{"id":"goose","name":"Goose","owner":"block","repo":"goose","summary":"Block 开源的本地 AI agent，提供 CLI 与桌面端，通过 MCP 扩展工具，可接任意 LLM。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"local","tierLabel":"本地优先","language":"Rust","license":"Apache-2.0","stars":56817,"pushed":"2026-11-20","tags":["Rust","Apache-2.0","MCP","桌面智能体","本地"]},{"id":"langfuse","name":"Langfuse","owner":"langfuse","repo":"langfuse","summary":"LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"NOASSERTION","stars":37604,"pushed":"2026-11-19","catalogOnly":false,"tags":["TypeScript/Python","MIT","可观测"]},{"id":"ragas","name":"Ragas","owner":"explodinggradients","repo":"ragas","summary":"RAG 评测库：检索相关性、答案忠实度、上下文召回等指标。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":16376,"pushed":"2026-11-14","catalogOnly":false,"tags":["Python","Apache-2.0","RAG 评测"]},{"id":"deepeval","name":"DeepEval","owner":"confident-ai","repo":"deepeval","summary":"像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":19547,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","单元测试"]},{"id":"promptfoo","name":"promptfoo","owner":"promptfoo","repo":"promptfoo","summary":"prompt / 模型 / agent 的对比评测工具，配置化跑多模型多 prompt。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"start","tierLabel":"先试这个","language":"TypeScript","license":"MIT","stars":27432,"pushed":"2026-11-18","catalogOnly":false,"tags":["TypeScript","MIT","prompt 评测"]},{"id":"phoenix","name":"Arize Phoenix","owner":"Arize-ai","repo":"phoenix","summary":"开源 LLM 追踪与评测平台，基于 OpenTelemetry，带可视化与数据集管理。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"NOASSERTION","stars":12348,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","OTel"]},{"id":"inspect-ai","name":"Inspect AI","owner":"UKGovernmentBEIS","repo":"inspect_ai","summary":"英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"niche","tierLabel":"特定场景","language":"Python","license":"MIT","stars":3283,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","评测框架"]},{"id":"trulens","name":"TruLens","owner":"truera","repo":"trulens","summary":"LLM 应用与 agent 的评测、追踪工具，基于 OpenTelemetry，把检索、生成与评分串成可解释的 trace。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":3664,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","MIT","可解释评分"]},{"id":"evidently","name":"Evidently","owner":"evidentlyai","repo":"evidently","summary":"数据与模型监控框架：数据漂移、质量、LLM 输出评测都能出报表、测试与带告警的看板。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Jupyter Notebook","license":"Apache-2.0","stars":8075,"pushed":"2026-09-29","catalogOnly":false,"tags":["Python","Apache-2.0","监控"]},{"id":"giskard","name":"Giskard","owner":"Giskard-AI","repo":"giskard-oss","summary":"开源 ML/LLM 测试与红队工具：扫描提示注入、越权、幻觉与 RAG 质量问题，并生成可复现测试。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":5962,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","红队"]},{"id":"lm-evaluation-harness","name":"LM Evaluation Harness","owner":"EleutherAI","repo":"lm-evaluation-harness","summary":"标准 LLM 评测框架，覆盖数百任务、few-shot、loglikelihood 与生成式指标，支持 HF、vLLM 和 API 后端。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":14506,"pushed":"2026-11-04","tags":["Python","MIT","评测","Benchmark","复现"]},{"id":"ollama","name":"Ollama","owner":"ollama","repo":"ollama","summary":"一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"start","tierLabel":"先试这个","language":"Go","license":"MIT","stars":187556,"pushed":"2026-11-18","catalogOnly":false,"tags":["Go","MIT","本地推理"]},{"id":"llama-cpp","name":"llama.cpp","owner":"ggml-org","repo":"llama.cpp","summary":"C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"local","tierLabel":"本地优先","language":"C++","license":"MIT","stars":135626,"pushed":"2026-11-18","catalogOnly":false,"tags":["C++","MIT","GGUF"]},{"id":"vllm","name":"vLLM","owner":"vllm-project","repo":"vllm","summary":"高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":97184,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python/C++","Apache-2.0","高吞吐"]},{"id":"sglang","name":"SGLang","owner":"sgl-project","repo":"sglang","summary":"高性能推理运行时，擅长结构化生成、前缀缓存与多卡服务。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":39041,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","高性能"]},{"id":"localai","name":"LocalAI","owner":"mudler","repo":"LocalAI","summary":"本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"local","tierLabel":"本地优先","language":"Go","license":"MIT","stars":50438,"pushed":"2026-11-18","catalogOnly":false,"tags":["Go","MIT","OpenAI 兼容"]},{"id":"tgi","name":"Text Generation Inference","owner":"huggingface","repo":"text-generation-inference","summary":"Hugging Face 的生产级文本生成服务，支持张量并行、量化与流式输出。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":10877,"pushed":"2026-03-21","catalogOnly":false,"tags":["Rust/Python","Apache-2.0","HF 生态"]},{"id":"tensorrt-llm","name":"TensorRT-LLM","owner":"NVIDIA","repo":"TensorRT-LLM","summary":"NVIDIA 的 LLM 推理优化栈：自定义 kernel、量化、in-flight batching 与多卡并行，面向生产吞吐。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":15108,"pushed":"2026-11-20","catalogOnly":false,"tags":["C++/Python","Apache-2.0","NVIDIA"]},{"id":"textgen-webui","name":"Text Generation WebUI","owner":"oobabooga","repo":"textgen","summary":"本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"local","tierLabel":"本地优先","language":"Python","license":"AGPL-3.0","stars":47733,"pushed":"2026-08-17","catalogOnly":false,"tags":["Python","AGPL-3.0","WebUI"]},{"id":"open-webui","name":"Open WebUI","owner":"open-webui","repo":"open-webui","summary":"自托管 AI 聊天/工作台：接 Ollama 与 OpenAI 兼容 API，带 RAG、联网搜索、多用户权限与工具扩展。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Svelte","license":"NOASSERTION","stars":159105,"pushed":"2026-11-19","catalogOnly":false,"tags":["Svelte","自定义许可","自托管","RAG","多用户"]},{"id":"lmdeploy","name":"LMDeploy","owner":"InternLM","repo":"lmdeploy","summary":"高吞吐 LLM 推理与部署工具，提供 TurboMind/PyTorch 引擎、KV 量化、多卡并行和 OpenAI 兼容 API。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":8151,"pushed":"2026-11-20","tags":["Python","Apache-2.0","推理服务","量化","OpenAI API"]},{"id":"mlc-llm","name":"MLC LLM","owner":"mlc-ai","repo":"mlc-llm","summary":"基于 TVM 的通用 LLM 编译部署引擎，可把模型编译到 CUDA、ROCm、Metal、Vulkan、WebGPU 等后端。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"local","tierLabel":"本地优先","language":"Python","license":"Apache-2.0","stars":23401,"pushed":"2026-11-20","tags":["Python","Apache-2.0","TVM","跨平台","WebGPU"]},{"id":"llamafile","name":"llamafile","owner":"Mozilla-Ocho","repo":"llamafile","summary":"把 llama.cpp 与模型权重打包成单个可执行文件，跨 macOS/Windows/Linux/BSD 运行，无需安装 Python。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"light","tierLabel":"轻量","language":"C++","license":"NOASSERTION","stars":26673,"pushed":"2026-11-09","tags":["C++","Apache-2.0","单文件","便携","GGUF"]},{"id":"comfyui","name":"ComfyUI","owner":"comfyanonymous","repo":"ComfyUI","summary":"节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"start","tierLabel":"先试这个","language":"Python","license":"GPL-3.0","stars":147518,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","GPL-3.0","节点工作流"]},{"id":"sd-webui","name":"Stable Diffusion WebUI","owner":"AUTOMATIC1111","repo":"stable-diffusion-webui","summary":"最经典的 SD 图形界面，文生图、图生图、LoRA、ControlNet 都在一个页面。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"start","tierLabel":"先试这个","language":"Python","license":"AGPL-3.0","stars":165338,"pushed":"2026-03-02","catalogOnly":false,"tags":["Python","AGPL-3.0","SD 界面"]},{"id":"diffusers","name":"Diffusers","owner":"huggingface","repo":"diffusers","summary":"扩散模型的 Python 库：pipeline、调度器、训练与量化，适合写代码而不是点界面。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":34941,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","扩散库"]},{"id":"fooocus","name":"Fooocus","owner":"lllyasviel","repo":"Fooocus","summary":"把 SDXL 的常用参数收起来，主打“少调参也能出好图”。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"light","tierLabel":"轻量","language":"Python","license":"GPL-3.0","stars":53959,"pushed":"2025-12-01","catalogOnly":false,"tags":["Python","GPL-3.0","SDXL"]},{"id":"invokeai","name":"InvokeAI","owner":"invoke-ai","repo":"InvokeAI","summary":"面向创作者的图像生成工作台，统一画布、图层、模型管理与批量生成。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"Apache-2.0","stars":29117,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","创作工作台"]},{"id":"wan21","name":"Wan2.1","owner":"Wan-Video","repo":"Wan2.1","summary":"开源视频生成模型与推理代码，支持文生视频、图生视频与多尺寸。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":17458,"pushed":"2026-03-05","catalogOnly":false,"tags":["Python","Apache-2.0","视频生成"]},{"id":"comfyui-manager","name":"ComfyUI Manager","owner":"Comfy-Org","repo":"ComfyUI-Manager","summary":"ComfyUI 的扩展与模型管理器：装缺失节点、下载模型、检查版本冲突，还能做环境快照与恢复。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"light","tierLabel":"轻量","language":"Python","license":"GPL-3.0","stars":16901,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","GPL-3.0","ComfyUI 扩展"]},{"id":"sdnext","name":"SD.Next","owner":"vladmandic","repo":"sdnext","summary":"Stable Diffusion WebUI 的现代分支，支持新模型、Diffusers/ONNX/OpenVINO 多后端，也兼顾 AMD 与 Intel。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":7380,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","SD 分支"]},{"id":"real-esrgan","name":"Real-ESRGAN","owner":"xinntao","repo":"Real-ESRGAN","summary":"真实场景图像/视频超分与修复：盲超分、降噪、去压缩伪影，提供 Python API 与轻量 ncnn 可执行文件。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"light","tierLabel":"轻量","language":"Python","license":"BSD-3-Clause","stars":37579,"pushed":"2024-08-06","catalogOnly":false,"tags":["Python","BSD-3-Clause","超分"]},{"id":"hunyuanvideo","name":"HunyuanVideo","owner":"Tencent-Hunyuan","repo":"HunyuanVideo","summary":"腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"NOASSERTION","stars":12800,"pushed":"2026-10-08","catalogOnly":false,"tags":["Python","自定义许可","视频生成"]},{"id":"cogvideo","name":"CogVideo","owner":"zai-org","repo":"CogVideo","summary":"智谱 CogVideoX 系列视频生成模型与推理代码，支持文本/图像到视频。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":13214,"pushed":"2025-11-04","catalogOnly":false,"tags":["Python","Apache-2.0","视频生成"]},{"id":"ltx-video","name":"LTX-Video","owner":"Lightricks","repo":"LTX-Video","summary":"Lightricks 的实时视频生成模型与代码，基于 DiT，强调速度与较低显存。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":11433,"pushed":"2026-11-02","catalogOnly":false,"tags":["Python","Apache-2.0","视频生成"]},{"id":"flux1","name":"FLUX.1","owner":"black-forest-labs","repo":"flux","summary":"Black Forest Labs 的图像生成模型与推理代码：FLUX.1 [schnell] / [dev] / [pro] 三条线。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":26073,"pushed":"2025-07-31","catalogOnly":false,"tags":["Python","Apache-2.0","图像生成","FLUX"]},{"id":"open-sora","name":"Open-Sora","owner":"hpcaitech","repo":"Open-Sora","summary":"开源视频生成全流程：数据清洗、VAE、DiT 训练、推理，支持文生视频与图生视频。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":29943,"pushed":"2026-04-09","tags":["Python","Apache-2.0","视频生成","DiT","训练"]},{"id":"qwen-image","name":"Qwen-Image","owner":"QwenLM","repo":"Qwen-Image","summary":"Qwen 的图像生成与编辑模型，20B MMDiT，主打复杂中文文字渲染、海报排版和多图编辑。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":8487,"pushed":"2026-02-10","tags":["Python","Apache-2.0","图像生成","图像编辑","中文文字"]},{"id":"framepack","name":"FramePack","owner":"lllyasviel","repo":"FramePack","summary":"面向低显存的视频生成框架，用下一帧预测和分段生成，把长视频生成压到 6GB 笔记本 GPU 可跑。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"local","tierLabel":"本地优先","language":"Python","license":"Apache-2.0","stars":17371,"pushed":"2025-10-16","tags":["Python","Apache-2.0","视频生成","低显存","长视频"]},{"id":"hunyuan3d-2","name":"Hunyuan3D-2","owner":"Tencent-Hunyuan","repo":"Hunyuan3D-2","summary":"腾讯混元的 3D 生成模型：图/文生 3D mesh，两阶段 shape + texture，支持轻量版与 PBR 纹理。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"NOASSERTION","stars":15504,"pushed":"2025-10-28","tags":["Python","3D 生成","Mesh","纹理","腾讯混元"]},{"id":"ragflow","name":"RAGFlow","owner":"infiniflow","repo":"ragflow","summary":"带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"start","tierLabel":"先试这个","language":"Go","license":"Apache-2.0","stars":94399,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","RAG 平台"]},{"id":"dify","name":"Dify","owner":"langgenius","repo":"dify","summary":"把 prompt、RAG、agent、工作流和模型接入做成可视化平台。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"start","tierLabel":"先试这个","language":"Python","license":"NOASSERTION","stars":161444,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0（附加条件）","可视化"]},{"id":"llama-index","name":"LlamaIndex","owner":"run-llama","repo":"llama_index","summary":"面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":52946,"pushed":"2026-11-14","catalogOnly":false,"tags":["Python","MIT","RAG 框架"]},{"id":"haystack","name":"Haystack","owner":"deepset-ai","repo":"haystack","summary":"用 pipeline 把检索、生成、评测、路由串起来，偏工程化与可测试。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":27046,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","pipeline"]},{"id":"qdrant","name":"Qdrant","owner":"qdrant","repo":"qdrant","summary":"Rust 写的向量数据库，带过滤、混合检索、分布式与量化。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Rust","license":"Apache-2.0","stars":35633,"pushed":"2026-11-18","catalogOnly":false,"tags":["Rust","Apache-2.0","向量库"]},{"id":"chroma","name":"Chroma","owner":"chroma-core","repo":"chroma","summary":"轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"light","tierLabel":"轻量","language":"Rust","license":"Apache-2.0","stars":29711,"pushed":"2026-11-13","catalogOnly":false,"tags":["Python","Apache-2.0","轻量向量库"]},{"id":"weaviate","name":"Weaviate","owner":"weaviate","repo":"weaviate","summary":"带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Go","license":"BSD-3-Clause + Weaviate License","stars":16956,"pushed":"2026-11-20","catalogOnly":false,"tags":["Go","BSD-3-Clause / Weaviate","混合检索"]},{"id":"milvus","name":"Milvus","owner":"milvus-io","repo":"milvus","summary":"面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"scale","tierLabel":"规模 / 性能","language":"Go","license":"Apache-2.0","stars":46707,"pushed":"2026-11-20","catalogOnly":false,"tags":["Go/C++","Apache-2.0","分布式"]},{"id":"docling","name":"Docling","owner":"docling-project","repo":"docling","summary":"文档解析工具包：PDF / HTML / Office 转结构化 Markdown / JSON，保留版面、表格与阅读顺序。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":70770,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","文档解析"]},{"id":"unstructured","name":"Unstructured","owner":"Unstructured-IO","repo":"unstructured","summary":"文档 ETL 工具：把 PDF、HTML、图片、Office 文件分区、清洗并带上元数据，喂给 RAG。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"HTML","license":"Apache-2.0","stars":15765,"pushed":"2026-11-17","catalogOnly":false,"tags":["Python","Apache-2.0","文档 ETL"]},{"id":"marker","name":"Marker","owner":"datalab-to","repo":"marker","summary":"PDF → Markdown / JSON 的高质量转换器，重点处理版面、表格、公式与阅读顺序。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":40981,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","PDF 转换"]},{"id":"lightrag","name":"LightRAG","owner":"HKUDS","repo":"LightRAG","summary":"轻量 GraphRAG 实现：把文档抽成实体关系图，再做向量+图检索，成本比全文 GraphRAG 低。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"light","tierLabel":"轻量","language":"Python","license":"MIT","stars":40775,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","MIT","GraphRAG","增量更新"]},{"id":"firecrawl","name":"Firecrawl","owner":"firecrawl","repo":"firecrawl","summary":"把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"AGPL-3.0","stars":204231,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","AGPL-3.0","网页抓取","Markdown","MCP"]},{"id":"graphify","name":"Graphify","owner":"Graphify-Labs","repo":"graphify","summary":"把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":150660,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","2026 新项目","知识图谱","代码检索"]},{"id":"pgvector","name":"pgvector","owner":"pgvector","repo":"pgvector","summary":"Postgres 的向量扩展，给普通表加 vector 列、距离操作符和 HNSW/IVFFlat 索引，让向量检索和业务数据留在同一个库。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"C","license":"NOASSERTION","stars":23747,"pushed":"2026-11-20","tags":["SQL","PostgreSQL","向量检索","RAG"]},{"id":"lancedb","name":"LanceDB","owner":"lancedb","repo":"lancedb","summary":"嵌入式多模态向量数据库，Rust 核心 + Python/JS SDK，底层 Lance 列存，支持向量、全文、SQL 过滤和版本化。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"local","tierLabel":"本地优先","language":"Rust","license":"Apache-2.0","stars":11952,"pushed":"2026-11-20","tags":["Rust","Apache-2.0","嵌入式","多模态","向量库"]},{"id":"r2r","name":"R2R","owner":"SciPhi-AI","repo":"R2R","summary":"生产化 RAG 服务：文档摄入、混合检索、知识图谱、agentic RAG、用户与租户管理，带 REST API 和 Web UI。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":8103,"pushed":"2025-11-07","tags":["Python","MIT","RAG 服务","知识图谱","REST API"]},{"id":"graphrag","name":"GraphRAG","owner":"microsoft","repo":"graphrag","summary":"微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"MIT","stars":36699,"pushed":"2026-11-19","tags":["Python","MIT","GraphRAG","知识图谱","全局查询"]},{"id":"whisper","name":"Whisper","owner":"openai","repo":"whisper","summary":"OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":113022,"pushed":"2026-08-31","catalogOnly":false,"tags":["Python","MIT","ASR"]},{"id":"faster-whisper","name":"faster-whisper","owner":"SYSTRAN","repo":"faster-whisper","summary":"用 CTranslate2 重写 Whisper 推理，速度更快、显存更省。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"light","tierLabel":"轻量","language":"Python","license":"MIT","stars":26855,"pushed":"2026-11-12","catalogOnly":false,"tags":["Python","MIT","CTranslate2"]},{"id":"funasr","name":"FunASR","owner":"modelscope","repo":"FunASR","summary":"阿里达摩院的语音识别工具链，中文 ASR、标点、热词、说话人分离齐全。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":21065,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","MIT","中文 ASR"]},{"id":"cosyvoice","name":"CosyVoice","owner":"FunAudioLLM","repo":"CosyVoice","summary":"零样本语音合成与音色克隆，支持多语言与情感控制。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"Apache-2.0","stars":24440,"pushed":"2026-05-25","catalogOnly":false,"tags":["Python","Apache-2.0","TTS"]},{"id":"chattts","name":"ChatTTS","owner":"2noise","repo":"ChatTTS","summary":"面向对话场景的 TTS，韵律自然，支持中英文与笑声等副语言。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"light","tierLabel":"轻量","language":"Python","license":"AGPL-3.0","stars":40024,"pushed":"2026-04-10","catalogOnly":false,"tags":["Python","MIT","对话 TTS"]},{"id":"fish-speech","name":"Fish Speech","owner":"fishaudio","repo":"fish-speech","summary":"多语言 TTS 与音色克隆，强调少样本、跨语言与情感表达。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"NOASSERTION","stars":33779,"pushed":"2026-11-14","catalogOnly":false,"tags":["Python","Apache-2.0","TTS"]},{"id":"whisperx","name":"WhisperX","owner":"m-bain","repo":"whisperX","summary":"Whisper 的批处理加速版：VAD 切分、词级对齐与说话人分离，输出带时间戳的转写与字幕。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"light","tierLabel":"轻量","language":"Python","license":"BSD-2-Clause","stars":25523,"pushed":"2026-11-12","catalogOnly":false,"tags":["Python","BSD-2-Clause","词级时间戳"]},{"id":"gpt-sovits","name":"GPT-SoVITS","owner":"RVC-Boss","repo":"GPT-SoVITS","summary":"少样本语音克隆与 TTS：约 1 分钟干净语音就能微调，支持中英日跨语言，带训练与推理 WebUI。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"niche","tierLabel":"特定场景","language":"Python","license":"MIT","stars":64140,"pushed":"2026-11-11","catalogOnly":false,"tags":["Python","MIT","语音克隆"]},{"id":"vibevoice","name":"VibeVoice","owner":"microsoft","repo":"VibeVoice","summary":"微软开源语音模型家族：60 分钟长音频转写（谁在何时说了什么）、50+ 语言与流式 ASR；TTS 代码已因滥用下架。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"start","tierLabel":"先试这个","language":"Python","license":"MIT","stars":57310,"pushed":"2026-10-08","catalogOnly":false,"tags":["Python","MIT","语音识别","长音频","50+ 语言"]},{"id":"sensevoice","name":"SenseVoice","owner":"FunAudioLLM","repo":"SenseVoice","summary":"多语言语音理解模型，做 ASR、语种识别、情感识别和音频事件检测，非自回归，推理延迟低。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"C","license":"MIT","stars":9794,"pushed":"2026-09-30","tags":["Python","MIT","ASR","多语言","情感识别"]},{"id":"index-tts","name":"IndexTTS","owner":"index-tts","repo":"index-tts","summary":"B 站开源的工业级 TTS，支持零样本音色克隆、情感与语速控制，中文/英文，非自回归。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"NOASSERTION","stars":25210,"pushed":"2026-09-29","tags":["Python","TTS","音色克隆","中文","情感控制"]},{"id":"pyannote-audio","name":"pyannote.audio","owner":"pyannote","repo":"pyannote-audio","summary":"说话人日志工具包，覆盖 VAD、speaker embedding、聚类和端到端 diarization pipeline。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"Jupyter Notebook","license":"MIT","stars":10815,"pushed":"2026-11-19","tags":["Python","MIT","说话人分离","Diarization","会议"]},{"id":"unsloth","name":"Unsloth","owner":"unslothai","repo":"unsloth","summary":"QLoRA/LoRA 微调加速：用 Triton 内核把 7B–70B 模型的显存占用和训练时间压下来。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":79777,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","QLoRA","单卡"]},{"id":"llamafactory","name":"LLaMA-Factory","owner":"hiyouga","repo":"LLaMA-Factory","summary":"一套配置跑通微调：LoRA、QLoRA、全参与 DPO，带 WebUI 和模型导出。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"start","tierLabel":"先试这个","language":"Python","license":"Apache-2.0","stars":76142,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","LoRA","WebUI"]},{"id":"axolotl","name":"Axolotl","owner":"axolotl-ai-cloud","repo":"axolotl","summary":"一份 YAML 配置跑通微调：支持 LoRA、QLoRA、全参、DPO、GRPO 与多机训练。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":12738,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","YAML","多机"]},{"id":"peft","name":"PEFT","owner":"huggingface","repo":"peft","summary":"参数高效微调的标准库：LoRA、IA3、Prefix Tuning 等适配器，接 Transformers 与 Accelerate。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":21909,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","LoRA","Adapter"]},{"id":"ms-swift","name":"ms-swift","owner":"modelscope","repo":"ms-swift","summary":"ModelScope 的微调与部署工具链：LLM、多模态模型的 LoRA/全参、DPO/GRPO、推理与评测。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":16130,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","ModelScope","多模态"]},{"id":"trl","name":"TRL","owner":"huggingface","repo":"trl","summary":"Hugging Face 的强化学习与对齐训练库：SFT、DPO、PPO、GRPO、奖励模型都能接。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":19771,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","RLHF","DPO"]},{"id":"torchtune","name":"torchtune","owner":"meta-pytorch","repo":"torchtune","summary":"PyTorch 原生的微调配方库：可读的训练循环、FSDP、激活检查点与常用后训练配方。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"BSD-3-Clause","stars":5819,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","BSD-3-Clause","PyTorch","FSDP"]},{"id":"deepspeed","name":"DeepSpeed","owner":"deepspeedai","repo":"DeepSpeed","summary":"微软的大模型训练优化库：ZeRO、Offload、混合精度与 MoE 训练，把显存与吞吐压到可用。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":43343,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","ZeRO","多机"]},{"id":"torchtitan","name":"TorchTitan","owner":"pytorch","repo":"torchtitan","summary":"PyTorch 官方的大模型训练配方：张量并行、流水并行、FSDP 与分布式检查点，按 Llama 3 路线给参考实现。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"BSD-3-Clause","stars":5926,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","BSD-3-Clause","FSDP","并行"]},{"id":"verl","name":"verl","owner":"volcengine","repo":"verl","summary":"字节跳动的 RL 训练框架：面向 LLM Agent 与推理任务，支持 PPO/GRPO 与多轮工具调用。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":24283,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","Agentic RL","GRPO"]},{"id":"openrlhf","name":"OpenRLHF","owner":"OpenRLHF","repo":"OpenRLHF","summary":"基于 Ray + vLLM 的 RLHF 训练框架：PPO、GRPO、DPO、KTO 与多机多卡编排。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"Apache-2.0","stars":10170,"pushed":"2026-11-03","catalogOnly":false,"tags":["Python","Apache-2.0","Ray","PPO"]},{"id":"ktransformers","name":"KTransformers","owner":"kvcache-ai","repo":"ktransformers","summary":"面向异构硬件的推理/微调框架：把 MoE 专家卸载到 CPU/内存，用少量 GPU 跑大模型。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"local","tierLabel":"本地优先","language":"Python","license":"Apache-2.0","stars":19686,"pushed":"2026-11-13","catalogOnly":false,"tags":["Python","Apache-2.0","MoE","专家卸载"]},{"id":"megatron-lm","name":"Megatron-LM","owner":"NVIDIA","repo":"Megatron-LM","summary":"NVIDIA 的大规模 Transformer 训练框架，支持张量/流水/序列/上下文并行、FP8、MoE 和分布式 checkpoint。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"scale","tierLabel":"规模 / 性能","language":"Python","license":"NOASSERTION","stars":18445,"pushed":"2026-11-20","tags":["Python","CUDA","BSD-3-Clause","分布式训练","MoE"]},{"id":"litellm","name":"LiteLLM","owner":"BerriAI","repo":"litellm","summary":"把 100+ 模型 API 统一成 OpenAI 兼容格式的网关与 SDK：Rust 核心、虚拟密钥、成本追踪、限流/负载均衡、guardrails、日志与缓存，可自托管。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT + Enterprise","stars":63615,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Rust","MIT + Enterprise","AI 网关"]},{"id":"google-adk","name":"Google ADK","owner":"google","repo":"adk-python","summary":"Google 的代码优先 Python agent 工具包：把工具、会话、记忆、评测与部署放进同一套抽象，可用 Gemini 或其它模型。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":22282,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","Agent 框架","Google"]},{"id":"letta","name":"Letta","owner":"letta-ai","repo":"letta","summary":"有状态 agent 平台：把记忆分成 core / recall / archival 三层，连同对话、工具调用与 agent 状态一起持久化，跨会话保留并允许 agent 自己编辑记忆。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":25503,"pushed":"2026-10-18","catalogOnly":false,"tags":["Python","Apache-2.0","有状态 Agent","长期记忆"]},{"id":"open-interpreter","name":"Open Interpreter","owner":"OpenInterpreter","repo":"openinterpreter","summary":"让模型在本机写并执行代码的终端 agent：把自然语言任务拆成 shell/Python 步骤，读文件、跑命令、看输出再修正；2026 版本转向 Kimi K3.1、GLM 5.3 等开放权重模型。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":68924,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","终端 Agent","本地执行"]},{"id":"swe-agent","name":"SWE-agent","owner":"SWE-agent","repo":"SWE-agent","summary":"把 GitHub issue 变成代码修改的软件工程 agent：通过 agent-computer interface（ACI）把搜索、编辑、测试等命令收进受限接口，让模型闭环修 issue。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":20839,"pushed":"2026-11-16","catalogOnly":false,"tags":["Python","MIT","编程 Agent","SWE-bench"]},{"id":"continue","name":"Continue","owner":"continuedev","repo":"continue","summary":"开源 IDE/CLI 编程 agent：VS Code、JetBrains 插件加 CLI，支持本地或云端模型、规则文件、代码索引与自定义工具。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"TypeScript","license":"Apache-2.0","stars":36527,"pushed":"2026-11-20","catalogOnly":false,"tags":["TypeScript","Apache-2.0","编程 Agent","IDE"]},{"id":"anythingllm","name":"AnythingLLM","owner":"Mintplex-Labs","repo":"anything-llm","summary":"本地优先的 RAG 桌面与服务器：把文档、网页、代码灌进 workspace，接本地或云端模型，提供 chat、agent 与 API。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"light","tierLabel":"轻量","language":"JavaScript","license":"MIT","stars":68464,"pushed":"2026-11-20","catalogOnly":false,"tags":["JavaScript","MIT","本地 RAG","桌面应用"]},{"id":"kokoro","name":"Kokoro","owner":"hexgrad","repo":"kokoro","summary":"82M 参数的开源 TTS 推理库：轻量、快，Apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"light","tierLabel":"轻量","language":"Python","license":"Apache-2.0","stars":10258,"pushed":"2025-08-06","catalogOnly":false,"tags":["Python","Apache-2.0","TTS","82M"]},{"id":"f5-tts","name":"F5-TTS","owner":"SWivid","repo":"F5-TTS","summary":"基于 Flow Matching 与 Diffusion Transformer 的 TTS：用短参考音频做零样本声音克隆，支持中英与速度控制，提供训练与推理代码。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":15630,"pushed":"2026-11-03","catalogOnly":false,"tags":["Python","MIT","TTS","声音克隆"]},{"id":"trellis","name":"TRELLIS","owner":"microsoft","repo":"TRELLIS","summary":"微软的 3D 资产生成模型：文本或图片输入，输出辐射场、3D Gaussian 与 mesh；核心是 Structured LATent（SLAT）统一表示与 Rectified Flow Transformer。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":14362,"pushed":"2026-10-27","catalogOnly":false,"tags":["Python","MIT","3D 生成","CVPR 2025"]},{"id":"kohya-ss","name":"kohya_ss","owner":"bmaltais","repo":"kohya_ss","summary":"Stable Diffusion 系模型的训练 GUI 与脚本集合：LoRA、DreamBooth、fine-tune、数据集打标与工具，覆盖 SD1/SDXL/FLUX 等。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":12677,"pushed":"2026-08-01","catalogOnly":false,"tags":["Python","Apache-2.0","LoRA","Diffusion 训练"]},{"id":"swe-bench","name":"SWE-bench","owner":"SWE-bench","repo":"SWE-bench","summary":"软件工程 agent 的基准与评测 harness：从真实 GitHub issue 与对应 PR 构造任务，测模型能否生成通过测试的 patch。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":6227,"pushed":"2026-09-18","catalogOnly":false,"tags":["Python","MIT","Agent 评测","SWE-bench"]},{"id":"litgpt","name":"LitGPT","owner":"Lightning-AI","repo":"litgpt","summary":"Lightning AI 的轻量 LLM 训练、微调与部署配方：20+ 模型，支持 pretrain、SFT、LoRA、量化与推理，强调单卡可跑与可读代码。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":13757,"pushed":"2026-11-10","catalogOnly":false,"tags":["Python","Apache-2.0","LLM 微调","单卡"]},{"id":"transformers","name":"Transformers","owner":"huggingface","repo":"transformers","summary":"Hugging Face 的模型库与统一接口：AutoModel / AutoTokenizer 覆盖文本、视觉、音频与多模态，支持 PyTorch、TensorFlow、Flax；能直接加载 Hub 权重，也能接 PEFT、vLLM、TGI 等后端。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":169320,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","模型库","多模态"]},{"id":"accelerate","name":"Accelerate","owner":"huggingface","repo":"accelerate","summary":"把 PyTorch 的多 GPU、TPU、混合精度、梯度累积、FSDP 与 DeepSpeed 启动样板收进一个 API：设备放置、分布式启动和混合精度不用手写。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":9950,"pushed":"2026-11-18","catalogOnly":false,"tags":["Python","Apache-2.0","分布式训练","混合精度"]},{"id":"datasets","name":"Datasets","owner":"huggingface","repo":"datasets","summary":"Hugging Face 的数据集库：load_dataset 读取 Hub、Parquet、JSON、CSV，支持流式读取、内存映射、map/filter/shuffle 与 train/test split，不用先把整份语料塞进内存。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":22173,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","Apache-2.0","数据集","流式读取"]},{"id":"ray","name":"Ray","owner":"ray-project","repo":"ray","summary":"分布式计算框架：把 Python 任务与 actor 扩展到多核多机；Ray Train / Serve / Data / Tune 覆盖训练、推理、数据加载与超参搜索。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":44348,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","分布式","Ray Serve"]},{"id":"mlflow","name":"MLflow","owner":"mlflow","repo":"mlflow","summary":"实验跟踪、模型注册、打包与部署的开源平台：记录参数、指标与产物，比较 run，注册模型版本并部署 REST/gRPC 服务。","scene":"eval-observability","sceneTitle":"评测与可观测","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":28909,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","实验跟踪","模型注册"]},{"id":"crawl4ai","name":"Crawl4AI","owner":"unclecode","repo":"crawl4ai","summary":"面向 LLM 的网页抓取与清洗：异步爬取、浏览器渲染、去噪、Markdown/JSON 输出、分块与缓存，适合把网页变成 RAG 可用的语料。","scene":"rag-knowledge","sceneTitle":"RAG 与知识库","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":87596,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","爬虫","RAG"]},{"id":"fastmcp","name":"FastMCP","owner":"jlowin","repo":"fastmcp","summary":"用 Python 快速搭 MCP 服务器：装饰器声明 tools、resources 与 prompts，自动生成 schema，支持 stdio/HTTP、认证、组合与测试。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":28691,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","MCP","工具服务"]},{"id":"instructor","name":"Instructor","owner":"567-labs","repo":"instructor","summary":"用 Pydantic 模型约束 LLM 输出：自动重试、流式部分对象、函数调用/JSON schema、多 provider 适配，让“返回一个结构体”变可靠。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":14127,"pushed":"2026-11-19","catalogOnly":false,"tags":["Python","MIT","结构化输出","Pydantic"]},{"id":"outlines","name":"Outlines","owner":"dottxt-ai","repo":"outlines","summary":"结构化生成库：用正则、JSON schema 或 CFG 约束 token 采样，保证输出可解析；支持 Transformers、vLLM、llama.cpp 等后端。","scene":"local-inference","sceneTitle":"本地推理与部署","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":16016,"pushed":"2026-09-21","catalogOnly":false,"tags":["Python","Apache-2.0","结构化生成","本地推理"]},{"id":"argilla","name":"Argilla","owner":"argilla-io","repo":"argilla","summary":"人机协同的数据标注与 curation 平台：数据集、标注任务、弱监督、模型反馈与 Hugging Face Hub 集成，适合 SFT/RLHF 数据。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":5208,"pushed":"2026-11-16","catalogOnly":false,"tags":["Python","Apache-2.0","数据标注","RLHF"]},{"id":"label-studio","name":"Label Studio","owner":"HumanSignal","repo":"label-studio","summary":"多模态数据标注平台：文本、图像、音频、视频、HTML 与时间序列都能用模板化界面标注；支持 ML 后端预标注、多人协作与多种导出格式。","scene":"training-finetune","sceneTitle":"训练与微调","tier":"prod","tierLabel":"生产可用","language":"Python","license":"Apache-2.0","stars":28734,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","Apache-2.0","多模态标注","协作"]},{"id":"langchain","name":"LangChain","owner":"langchain-ai","repo":"langchain","summary":"LLM 应用框架：模型、工具、检索、记忆与 agent 的组件化抽象；LangGraph 做有状态编排，LangSmith 做观测。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"Python","license":"MIT","stars":149968,"pushed":"2026-11-20","catalogOnly":false,"tags":["Python","MIT","LLM 框架","Agent"]},{"id":"livekit-agents","name":"LiveKit Agents","owner":"livekit","repo":"agents","summary":"实时语音/视频 Agent 框架：WebRTC 传输、语音活动检测、打断、工具调用与多模态管线放在一套运行时里。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"—","license":"Apache-2.0","stars":null,"pushed":"—","tags":["Python","Apache-2.0","实时语音","WebRTC"]},{"id":"pipecat","name":"Pipecat","owner":"pipecat-ai","repo":"pipecat","summary":"面向语音与多模态应用的实时管线框架：把 transport、VAD、STT、LLM、TTS 与打断串成可观测的帧流。","scene":"speech-audio","sceneTitle":"语音与音频","tier":"prod","tierLabel":"生产可用","language":"—","license":"BSD-2-Clause","stars":null,"pushed":"—","tags":["Python","BSD-2-Clause","实时语音","多模态管线"]},{"id":"cvat","name":"CVAT","owner":"cvat-ai","repo":"cvat","summary":"图像、视频、音频与 3D 数据的标注平台：框、多边形、关键点、轨迹、审核与团队协作都在一套 Web 应用里。","scene":"multimodal-visual","sceneTitle":"多模态与图像视频","tier":"prod","tierLabel":"生产可用","language":"—","license":"MIT","stars":null,"pushed":"—","tags":["Python","MIT","标注","视频 / 3D"]},{"id":"steel-browser","name":"Steel Browser","owner":"steel-dev","repo":"steel-browser","summary":"给 AI Agent 用的开源浏览器 API：会话、Cookie、代理、截图、PDF 与动作接口打包成可自托管的沙箱。","scene":"agent-frameworks","sceneTitle":"Agent 框架与编排","tier":"prod","tierLabel":"生产可用","language":"—","license":"Apache-2.0","stars":null,"pushed":"—","tags":["TypeScript","Apache-2.0","浏览器","Agent 沙箱"]}];</script>
 <script>
 (function(){
   const data=window.OSS_DATA;

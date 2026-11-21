@@ -11,13 +11,18 @@
   <meta property="og:url" content="https://demos.specul.com/works/claude-fable-5-2-009-koi-pond-noon.html" />
   <meta property="og:title" content="Koi Pond, Noon · Specul" />
   <meta property="og:description" content="Koi Pond, Noon：作者自述：A bright, full-bleed garden pond seen from directly above at midday. The water runs from pale jade shallows at the mossy corner s…" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://demos.specul.com/works/claude-fable-5-2-009-koi-pond-noon.html" />
+  <link rel="alternate" hreflang="en" href="https://demos.specul.com/works/claude-fable-5-2-009-koi-pond-noon.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://demos.specul.com/works/claude-fable-5-2-009-koi-pond-noon.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
   <link rel="stylesheet" href="../brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../demos.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Koi Pond, Noon","alternateName":"Koi Pond, Noon","description":"作者自述：A bright, full-bleed garden pond seen from directly above at midday. The water runs from pale jade shallows at the mossy corner stones through teal to a deep centre, with pebbles on the floor and a slow net of caustic light sliding over everything, fish included. Nine to thirteen koi, each a flexing spine with its own painted pattern (kohaku, showa, ogon, tancho), cruise in bursts and glides, paddle their pectoral fins and drag soft shadows across the floor that lengthen over deeper water. Lily pads drift on tethers, two lotus flowers breathe, maple leaves turn, water striders dart, and now and then a dragonfly and its shadow cross the frame. The page opens in white glare that settles like eyes adjusting to the sun while the fish swim in from the edges. There is nothing to achieve: tap for ripples, hold to feed, and watch the whole pond turn towards one spot.","url":"https://demos.specul.com/works/claude-fable-5-2-009-koi-pond-noon.html","image":"https://raw.githubusercontent.com/MiaAI-Lab/Claude-Fable-5.2-HTML-Files/main/thumbs/009-koi-pond-noon.jpg","genre":"数据可视化","creator":{"@type":"Organization","name":"Claude Fable 5.2"},"isPartOf":{"@type":"WebSite","name":"Specul Playground","url":"https://demos.specul.com/"},"isAccessibleForFree":true}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Koi Pond, Noon","alternateName":"Koi Pond, Noon","description":"作者自述：A bright, full-bleed garden pond seen from directly above at midday. The water runs from pale jade shallows at the mossy corner stones through teal to a deep centre, with pebbles on the floor and a slow net of caustic light sliding over everything, fish included. Nine to thirteen koi, each a flexing spine with its own painted pattern (kohaku, showa, ogon, tancho), cruise in bursts and glides, paddle their pectoral fins and drag soft shadows across the floor that lengthen over deeper water. Lily pads drift on tethers, two lotus flowers breathe, maple leaves turn, water striders dart, and now and then a dragonfly and its shadow cross the frame. The page opens in white glare that settles like eyes adjusting to the sun while the fish swim in from the edges. There is nothing to achieve: tap for ripples, hold to feed, and watch the whole pond turn towards one spot.","url":"https://demos.specul.com/works/claude-fable-5-2-009-koi-pond-noon.html","image":"https://demos.specul.com/thumbs/claude-fable-5-2-009-koi-pond-noon.jpg","genre":"数据可视化","creator":{"@type":"Organization","name":"Claude Fable 5.2"},"isPartOf":{"@type":"WebSite","name":"Specul Playground","url":"https://demos.specul.com/"},"isAccessibleForFree":true}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,7 +101,7 @@
   <p class="kicker"><a href="../index.html"><span data-zh>← 全部作品</span><span data-en>← All pieces</span></a> <span class="dm-sep">/</span> <span><span data-zh>数据可视化</span><span data-en>Data viz</span></span> <span class="dm-sep">/</span> <span>012</span></p>
   <div class="dm-play-head">
     <div>
-      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>数据可视化</span><span data-en>Data viz</span></span><span class="dm-card-num">012 / 314</span></div>
+      <div class="dm-card-meta"><span class="dm-card-cat"><span data-zh>数据可视化</span><span data-en>Data viz</span></span><span class="dm-card-num">012 / 348</span></div>
       <h1><span data-zh>Koi Pond, Noon</span><span data-en>Koi Pond, Noon</span></h1>
       <p class="dm-lead"><span data-zh>模型：Claude Fable 5.2。原始发布页、源码、prompt 与许可都在下方。</span><span data-en>Model: Claude Fable 5.2. Original publisher page, source, prompt and licence are below.</span></p>
     </div>

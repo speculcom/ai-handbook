@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/graphrag.html" />
   <meta property="og:title" content="GraphRAG · 开源 AI 工具库" />
   <meta property="og:description" content="GraphRAG：微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。 许可 MIT，Python，36.7k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/graphrag.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/graphrag.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/graphrag.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h1>GraphRAG</h1>
   <p class="owner">microsoft / graphrag</p>
-  <p class="sub">微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。</p>
+  <p class="sub"><span data-zh>微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。</span><span data-en>Microsoft’s GraphRAG implementation: extract entities and relations from text, build communities, generate summaries and support global and local queries.</span></p>
 </header>
 <div class="factbar">
   <span><b>36.7k</b> stars</span>
   <span><b>3887</b> forks</span>
-  <span><b>Python</b> 语言</span>
-  <span><b>MIT</b> 许可</span>
-  <span>最近推送 <b>2026-11-19</b></span>
+  <span><b>Python</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>MIT</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2026-11-19</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>跨文档总结和关系推理是普通 top-k 检索的短板，GraphRAG 提供了完整的图索引与查询参考。</li><li>社区摘要让“这批文档整体在讲什么”可回答，而不是只返回相似段落。</li><li>开源实现可拆开看实体抽取、聚类、摘要和查询各自的成本。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">低延迟、频繁更新的小知识库；建图索引贵，增量更新麻烦。<br>只需要精确关键词检索或单文档问答的场景。</p>
-  <h2>最小上手</h2>
-  <ol><li>pip install graphrag，准备一个文档目录和模型端点。</li><li>graphrag init 后跑索引，观察实体/关系抽取与社区报告。</li><li>用 20–50 个跨文档问题比较 global 与 local 查询的质量和成本。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>Python 3.10+；LLM API；建图需要大量 token 与磁盘。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码 MIT；模型与数据另计。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/lightrag.html">LightRAG</a> — 轻量，轻量 GraphRAG 实现：把文档抽成实体关系图，再做向量+图检索，成本比全文 GraphRAG 低。</li><li><a href="../repos/r2r.html">R2R</a> — 生产可用，生产化 RAG 服务：文档摄入、混合检索、知识图谱、agentic RAG、用户与租户管理，带 REST API 和 Web UI。</li><li><a href="../repos/llama-index.html">LlamaIndex</a> — 生产可用，面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>跨文档总结和关系推理是普通 top-k 检索的短板，GraphRAG 提供了完整的图索引与查询参考。</span><span data-en>Global questions can use community summaries rather than top-k chunks.</span></li><li><span data-zh>社区摘要让“这批文档整体在讲什么”可回答，而不是只返回相似段落。</span><span data-en>Entity and relation extraction is part of the pipeline.</span></li><li><span data-zh>开源实现可拆开看实体抽取、聚类、摘要和查询各自的成本。</span><span data-en>A reference implementation for graph-based RAG.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>低延迟、频繁更新的小知识库；建图索引贵，增量更新麻烦。</span><span data-en>You need a low-cost index for a small corpus.</span><br><span data-zh>只需要精确关键词检索或单文档问答的场景。</span><span data-en>You cannot afford the extraction and summarisation calls.</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>pip install graphrag，准备一个文档目录和模型端点。</span><span data-en>Index a small document set and inspect the graph.</span></li><li><span data-zh>graphrag init 后跑索引，观察实体/关系抽取与社区报告。</span><span data-en>Ask one global and one local question.</span></li><li><span data-zh>用 20–50 个跨文档问题比较 global 与 local 查询的质量和成本。</span><span data-en>Record token cost before scaling the corpus.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>Python 3.10+；LLM API；建图需要大量 token 与磁盘。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码 MIT；模型与数据另计。</span><span data-en>Code is MIT; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/lightrag.html">LightRAG</a> — <span data-zh>轻量</span><span data-en>Lightweight</span>，<span data-zh>轻量 GraphRAG 实现：把文档抽成实体关系图，再做向量+图检索，成本比全文 GraphRAG 低。</span><span data-en>A lightweight GraphRAG implementation: extract entities and relations, then combine vector and graph retrieval at lower cost than full GraphRAG.</span></li><li><a href="../repos/r2r.html">R2R</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>生产化 RAG 服务：文档摄入、混合检索、知识图谱、agentic RAG、用户与租户管理，带 REST API 和 Web UI。</span><span data-en>A production-oriented RAG service: document ingestion, hybrid retrieval, knowledge graphs, agentic RAG, users and tenants, with a REST API and web UI.</span></li><li><a href="../repos/llama-index.html">LlamaIndex</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。</span><span data-en>A data framework for RAG and application layers: connectors, indexes, retrieval, query engines and agents.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/microsoft/graphrag" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://microsoft.github.io/graphrag/" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=graphrag">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/microsoft/graphrag" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://microsoft.github.io/graphrag/" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=graphrag"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

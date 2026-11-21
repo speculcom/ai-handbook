@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/scenes/rag-knowledge.html" />
   <meta property="og:title" content="RAG 与知识库 · 开源 AI 工具库" />
   <meta property="og:description" content="RAG 与知识库：从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。 收录 20 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/scenes/rag-knowledge.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/scenes/rag-knowledge.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/scenes/rag-knowledge.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -111,7 +116,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="../repos/ragflow.html">RAGFlow</a></h3>
   <p class="repo-owner">infiniflow / ragflow</p>
-  <p>带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</p>
+  <p><span data-zh>带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</span><span data-en>A RAG platform with document parsing, chunking, retrieval and citations, built to get a knowledge base running.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -123,7 +128,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="../repos/dify.html">Dify</a></h3>
   <p class="repo-owner">langgenius / dify</p>
-  <p>把 prompt、RAG、agent、工作流和模型接入做成可视化平台。</p>
+  <p><span data-zh>把 prompt、RAG、agent、工作流和模型接入做成可视化平台。</span><span data-en>A visual platform for prompts, RAG, agents, workflows and model connections.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -135,7 +140,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/llama-index.html">LlamaIndex</a></h3>
   <p class="repo-owner">run-llama / llama_index</p>
-  <p>面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。</p>
+  <p><span data-zh>面向 RAG 与应用层的数据框架：连接器、索引、检索、查询引擎、agent。</span><span data-en>A data framework for RAG and application layers: connectors, indexes, retrieval, query engines and agents.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -147,7 +152,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/haystack.html">Haystack</a></h3>
   <p class="repo-owner">deepset-ai / haystack</p>
-  <p>用 pipeline 把检索、生成、评测、路由串起来，偏工程化与可测试。</p>
+  <p><span data-zh>用 pipeline 把检索、生成、评测、路由串起来，偏工程化与可测试。</span><span data-en>A pipeline framework that wires retrieval, generation, evaluation and routing, with an engineering and testable focus.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -159,7 +164,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/qdrant.html">Qdrant</a></h3>
   <p class="repo-owner">qdrant / qdrant</p>
-  <p>Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</p>
+  <p><span data-zh>Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</span><span data-en>A Rust vector database with filtering, hybrid search, distributed deployment and quantisation.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -171,7 +176,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="../repos/chroma.html">Chroma</a></h3>
   <p class="repo-owner">chroma-core / chroma</p>
-  <p>轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。</p>
+  <p><span data-zh>轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。</span><span data-en>A lightweight vector store with quick Python and JavaScript onboarding, suited to prototypes and small knowledge bases.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -183,7 +188,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/weaviate.html">Weaviate</a></h3>
   <p class="repo-owner">weaviate / weaviate</p>
-  <p>带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。</p>
+  <p><span data-zh>带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。</span><span data-en>A vector database with hybrid search: vectors plus BM25, multi-tenancy, modular vectorisation and reranking, with GraphQL and REST APIs.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>BSD-3-Clause + Weaviate License</dd></div>
@@ -195,7 +200,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="../repos/milvus.html">Milvus</a></h3>
   <p class="repo-owner">milvus-io / milvus</p>
-  <p>面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。</p>
+  <p><span data-zh>面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。</span><span data-en>A distributed vector database for large-scale retrieval, supporting HNSW, IVF, DiskANN, scalar filtering and multi-tenancy.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -207,7 +212,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="../repos/docling.html">Docling</a></h3>
   <p class="repo-owner">docling-project / docling</p>
-  <p>文档解析工具包：PDF / HTML / Office 转结构化 Markdown / JSON，保留版面、表格与阅读顺序。</p>
+  <p><span data-zh>文档解析工具包：PDF / HTML / Office 转结构化 Markdown / JSON，保留版面、表格与阅读顺序。</span><span data-en>A document parsing toolkit that turns PDF, HTML and Office files into structured Markdown or JSON while preserving layout, tables and reading order.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -219,7 +224,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/unstructured.html">Unstructured</a></h3>
   <p class="repo-owner">Unstructured-IO / unstructured</p>
-  <p>文档 ETL 工具：把 PDF、HTML、图片、Office 文件分区、清洗并带上元数据，喂给 RAG。</p>
+  <p><span data-zh>文档 ETL 工具：把 PDF、HTML、图片、Office 文件分区、清洗并带上元数据，喂给 RAG。</span><span data-en>A document ETL toolkit that partitions, cleans and metadata-tags PDFs, HTML, images and Office files for RAG.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>HTML</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -231,7 +236,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h3 class="repo-name"><a href="../repos/marker.html">Marker</a></h3>
   <p class="repo-owner">datalab-to / marker</p>
-  <p>PDF → Markdown / JSON 的高质量转换器，重点处理版面、表格、公式与阅读顺序。</p>
+  <p><span data-zh>PDF → Markdown / JSON 的高质量转换器，重点处理版面、表格、公式与阅读顺序。</span><span data-en>A high-quality PDF-to-Markdown and JSON converter focused on layout, tables, formulas and reading order.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -255,7 +260,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/firecrawl.html">Firecrawl</a></h3>
   <p class="repo-owner">firecrawl / firecrawl</p>
-  <p>把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</p>
+  <p><span data-zh>把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</span><span data-en>Crawl websites into clean Markdown or structured data for RAG and agents, available as a local binary, MCP server or self-hosted API.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>AGPL-3.0</dd></div>
@@ -267,7 +272,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="../repos/graphify.html">Graphify</a></h3>
   <p class="repo-owner">Graphify-Labs / graphify</p>
-  <p>把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。</p>
+  <p><span data-zh>把代码、文档、SQL、PDF 等映射成可查询知识图谱，让 coding agent 用图查询替代全仓 grep。</span><span data-en>Map code, documents, SQL and PDFs into a queryable knowledge graph, so coding agents can query the graph instead of grepping the whole repository.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -279,7 +284,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/pgvector.html">pgvector</a></h3>
   <p class="repo-owner">pgvector / pgvector</p>
-  <p>Postgres 的向量扩展，给普通表加 vector 列、距离操作符和 HNSW/IVFFlat 索引，让向量检索和业务数据留在同一个库。</p>
+  <p><span data-zh>Postgres 的向量扩展，给普通表加 vector 列、距离操作符和 HNSW/IVFFlat 索引，让向量检索和业务数据留在同一个库。</span><span data-en>A Postgres extension that adds vector columns, distance operators and HNSW or IVFFlat indexes, keeping vector search next to business data.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>C</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -291,7 +296,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h3 class="repo-name"><a href="../repos/lancedb.html">LanceDB</a></h3>
   <p class="repo-owner">lancedb / lancedb</p>
-  <p>嵌入式多模态向量数据库，Rust 核心 + Python/JS SDK，底层 Lance 列存，支持向量、全文、SQL 过滤和版本化。</p>
+  <p><span data-zh>嵌入式多模态向量数据库，Rust 核心 + Python/JS SDK，底层 Lance 列存，支持向量、全文、SQL 过滤和版本化。</span><span data-en>An embedded multimodal vector database with a Rust core and Python/JavaScript SDKs, built on Lance columnar storage with vector, full-text, SQL filtering and versioning.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -303,7 +308,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/r2r.html">R2R</a></h3>
   <p class="repo-owner">SciPhi-AI / R2R</p>
-  <p>生产化 RAG 服务：文档摄入、混合检索、知识图谱、agentic RAG、用户与租户管理，带 REST API 和 Web UI。</p>
+  <p><span data-zh>生产化 RAG 服务：文档摄入、混合检索、知识图谱、agentic RAG、用户与租户管理，带 REST API 和 Web UI。</span><span data-en>A production-oriented RAG service: document ingestion, hybrid retrieval, knowledge graphs, agentic RAG, users and tenants, with a REST API and web UI.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -315,7 +320,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="../repos/graphrag.html">GraphRAG</a></h3>
   <p class="repo-owner">microsoft / graphrag</p>
-  <p>微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。</p>
+  <p><span data-zh>微软的 GraphRAG 实现：从文本抽实体和关系建图，生成社区摘要，支持 global/local 等查询模式。</span><span data-en>Microsoft’s GraphRAG implementation: extract entities and relations from text, build communities, generate summaries and support global and local queries.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -327,7 +332,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h3 class="repo-name"><a href="../repos/anythingllm.html">AnythingLLM</a></h3>
   <p class="repo-owner">Mintplex-Labs / anything-llm</p>
-  <p>本地优先的 RAG 桌面与服务器：把文档、网页、代码灌进 workspace，接本地或云端模型，提供 chat、agent 与 API。</p>
+  <p><span data-zh>本地优先的 RAG 桌面与服务器：把文档、网页、代码灌进 workspace，接本地或云端模型，提供 chat、agent 与 API。</span><span data-en>A local-first RAG desktop and server that ingests documents, web pages and code into workspaces, connects local or hosted models and exposes chat, agent and API modes.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>JavaScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>

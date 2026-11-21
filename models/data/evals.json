@@ -11,7 +11,17 @@
     "snapshot": "2026-11-19",
     "cost": "低；本地单卡可跑",
     "note": "适合看知识面，不适合判断实际任务能力；不要把分数当唯一选型依据。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "MMLU",
+      "measures": "Breadth of knowledge across 57 subjects",
+      "tasks": "Multiple-choice questions spanning STEM, humanities, social science, law and medicine",
+      "metric": "Accuracy (per question)",
+      "contamination": "Very high: the test set has been public for years, so assume some models have seen it.",
+      "reproduction": "Low cost; a single local GPU can run it. Fix the prompt template, few-shot count and answer parsing.",
+      "cost": "Low; local single-GPU evaluation.",
+      "note": "Use it as a breadth signal, not a task-capability score. Compare models on the same prompt and parsing protocol."
+    }
   },
   {
     "id": "mmlu-pro",
@@ -25,7 +35,17 @@
     "snapshot": "2026-11-19",
     "cost": "低到中；10 选项推理更长",
     "note": "比 MMLU 更不容易靠记忆得分，但仍不等于业务能力。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "MMLU-Pro",
+      "measures": "Harder, more reasoning-oriented multi-domain knowledge",
+      "tasks": "10-option multiple-choice questions after enhancement and filtering",
+      "metric": "Accuracy",
+      "contamination": "High; derived from public questions and widely used in training data.",
+      "reproduction": "Low to medium; ten-option reasoning produces longer outputs. Record prompt and option order.",
+      "cost": "Low to medium; longer reasoning per item.",
+      "note": "Better discrimination than MMLU at the top end, but still a knowledge test, not an agent task."
+    }
   },
   {
     "id": "gpqa",
@@ -38,8 +58,21 @@
     "leaderboard": "https://github.com/idavidrein/gpqa",
     "snapshot": "2026-11-19",
     "cost": "低；题量小",
-    "note": "高分说明科学推理强，但题量小、波动大，不要只看一个百分点。",
-    "verifiedAt": "2026-11-19"
+    "note": {
+      "zh": "GPQA 测的是「研究生级科学问答」：物理、化学、生物的选择题，题面刻意写得让非专家也能读懂、但只有领域专家才答得对。常用的钻石集更小、更难，扩展集题量更大但平均难度低一些。\n读分时先问三件事：用的是钻石集还是扩展集、几 shot、是否允许模型联网或调用计算工具。允许搜索的分数和闭卷分数不能放在一张表里；钻石集题量小，一两个百分点的波动可能只是抽样噪声，报告置信区间比排名更有用。\n污染要单独看：题目公开、传播广，中文/英文模型都可能在预训练里见过；厂商自评的「零样本」不等于「没污染」。低成本适合快速筛，但不适合单独决定上线。",
+      "en": "GPQA measures graduate-level science Q&A: physics, chemistry and biology multiple-choice items written so a non-expert can read them but only a domain expert should answer correctly. The diamond subset is smaller and harder; the extended set is larger but somewhat easier on average.\nBefore citing a score, ask three things: diamond or extended set, how many shots, and whether web search or calculator tools were allowed. A search-enabled score and a closed-book score do not belong in the same table. The diamond set is small enough that one or two points can be sampling noise; a confidence interval is more useful than a rank.\nTreat contamination separately: the items are public and widely circulated, so both Chinese and English models may have seen them. A vendor's “zero-shot” claim is not proof of no contamination. Low cost makes it a quick filter, not a release decision."
+    },
+    "verifiedAt": "2026-11-21",
+    "en": {
+      "name": "GPQA",
+      "measures": "Graduate-level science Q&A",
+      "tasks": "Physics, chemistry and biology multiple-choice; diamond and extended sets",
+      "metric": "Accuracy",
+      "contamination": "High; questions are public and small in number.",
+      "reproduction": "Low cost but small item count. Use the diamond subset and report confidence intervals.",
+      "cost": "Low; small item count.",
+      "note": "GPQA measures graduate-level science Q&A: physics, chemistry and biology multiple-choice items written so a non-expert can read them but only a domain expert should answer correctly. The diamond subset is smaller and harder; the extended set is larger but somewhat easier on average.\nBefore citing a score, ask three things: diamond or extended set, how many shots, and whether web search or calculator tools were allowed. A search-enabled score and a closed-book score do not belong in the same table. The diamond set is small enough that one or two points can be sampling noise; a confidence interval is more useful than a rank.\nTreat contamination separately: the items are public and widely circulated, so both Chinese and English models may have seen them. A vendor's “zero-shot” claim is not proof of no contamination. Low cost makes it a quick filter, not a release decision."
+    }
   },
   {
     "id": "humaneval",
@@ -53,7 +86,17 @@
     "snapshot": "2026-11-19",
     "cost": "低；本地可执行",
     "note": "题量小、单一语言；适合做快速对照，不适合单独代表代码能力。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "HumanEval",
+      "measures": "Function-level Python code generation",
+      "tasks": "164 tasks with a function signature and docstring; generate the implementation",
+      "metric": "pass@1 / pass@k (unit-test pass rate)",
+      "contamination": "Very high; the problems and tests are widely public.",
+      "reproduction": "Low cost; execute in a sandbox with pinned Python and test dependencies.",
+      "cost": "Low; runnable locally.",
+      "note": "Small and single-language. Use it as a smoke test, not a complete code benchmark."
+    }
   },
   {
     "id": "mbpp",
@@ -67,7 +110,17 @@
     "snapshot": "2026-11-19",
     "cost": "低",
     "note": "难度低于 HumanEval，适合看基础代码能力是否稳定。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "MBPP",
+      "measures": "Entry-level Python programming",
+      "tasks": "About 1,000 short tasks with natural-language descriptions and tests",
+      "metric": "pass@1",
+      "contamination": "High; public for years.",
+      "reproduction": "Low; execute tests in a sandbox and pin the Python version.",
+      "cost": "Low.",
+      "note": "Good for basic syntax and simple functions. It says little about multi-file engineering."
+    }
   },
   {
     "id": "swe-bench",
@@ -81,7 +134,17 @@
     "snapshot": "2026-11-19",
     "cost": "高；需要容器与测试执行",
     "note": "最接近真实修 bug 的公开基准之一，但环境重、结果受脚手架影响大。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "SWE-bench",
+      "measures": "Ability to fix real GitHub issues",
+      "tasks": "Generate a patch from a repository issue and run the project tests",
+      "metric": "Resolution rate (tests pass)",
+      "contamination": "High for older instances; use the latest split and check repository dates.",
+      "reproduction": "High; needs containers, dependency installation and test execution.",
+      "cost": "High; container and test execution per instance.",
+      "note": "The strongest public signal for repository-level coding. Report the split and environment, not just the headline."
+    }
   },
   {
     "id": "terminal-bench",
@@ -95,7 +158,17 @@
     "snapshot": "2026-11-19",
     "cost": "中到高；需要容器执行",
     "note": "适合测 agent 的工具使用与恢复能力，不只是文本生成。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Terminal-Bench",
+      "measures": "Multi-step tasks in a terminal environment",
+      "tasks": "File operations, configuration, builds and debugging inside a container",
+      "metric": "Task completion rate",
+      "contamination": "Medium; tasks are public but require environment interaction.",
+      "reproduction": "Medium to high; container images and network access matter.",
+      "cost": "Medium to high; container execution.",
+      "note": "Closer to real ops work than single-turn code generation. Check whether the agent is allowed to install packages."
+    }
   },
   {
     "id": "livecodebench",
@@ -108,8 +181,21 @@
     "leaderboard": "https://livecodebench.github.io/",
     "snapshot": "2026-11-19",
     "cost": "低到中",
-    "note": "比固定题集更能反映新题上的泛化，但题源偏竞赛风格。",
-    "verifiedAt": "2026-11-19"
+    "note": {
+      "zh": "LiveCodeBench 的卖点是「按时间切分」：从竞赛平台持续收新题，只评测模型发布之后出现的题目，从而降低训练集污染。它不只看代码生成，还能测自我修复、代码执行与测试用例生成；指标通常是 pass@1。\n读分时先固定三件事：题目版本/时间窗口、执行环境（语言版本、超时、内存）、pass@1 的采样次数。不同窗口的题难度不同，跨月分数不能直接连成趋势线；竞赛题偏算法，和真实仓库里的改 bug、读文档、跑测试不是同一种能力。\n它适合回答「模型在新题上能不能写对」，不适合回答「能不能维护一个项目」。后者要去看 SWE-bench、Terminal-Bench 或你自己的仓库任务。",
+      "en": "LiveCodeBench's selling point is a date split: it keeps collecting new contest problems and evaluates only items published after a model's release, which lowers training-set contamination. It covers code generation but also self-repair, execution and test-case generation; the usual metric is pass@1.\nFix three things before citing a score: the problem version/time window, the execution environment (language version, timeout, memory) and the number of samples behind pass@1. Difficulty differs by window, so scores from different months do not form a trend line; contest problems are algorithm-heavy and are not the same ability as fixing a bug in a real repo, reading docs or running tests.\nUse it to ask “can the model solve a new problem”, not “can it maintain a project”. For the latter, go to SWE-bench, Terminal-Bench or your own repository tasks."
+    },
+    "verifiedAt": "2026-11-21",
+    "en": {
+      "name": "LiveCodeBench",
+      "measures": "Continuously updated code generation",
+      "tasks": "New problems collected from contest platforms, split by date",
+      "metric": "pass@1",
+      "contamination": "Lower by design because problems are time-sliced, but recent items can still leak.",
+      "reproduction": "Low to medium; fix the contest window and evaluation harness.",
+      "cost": "Low to medium.",
+      "note": "LiveCodeBench's selling point is a date split: it keeps collecting new contest problems and evaluates only items published after a model's release, which lowers training-set contamination. It covers code generation but also self-repair, execution and test-case generation; the usual metric is pass@1.\nFix three things before citing a score: the problem version/time window, the execution environment (language version, timeout, memory) and the number of samples behind pass@1. Difficulty differs by window, so scores from different months do not form a trend line; contest problems are algorithm-heavy and are not the same ability as fixing a bug in a real repo, reading docs or running tests.\nUse it to ask “can the model solve a new problem”, not “can it maintain a project”. For the latter, go to SWE-bench, Terminal-Bench or your own repository tasks."
+    }
   },
   {
     "id": "mt-bench",
@@ -123,7 +209,17 @@
     "snapshot": "2026-11-19",
     "cost": "低；主要花评委调用",
     "note": "适合看对话体验，不适合当客观真值；评委偏差要单独报告。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "MT-Bench",
+      "measures": "Multi-turn dialogue quality",
+      "tasks": "80 multi-turn questions across writing, role-play, reasoning and more",
+      "metric": "Model-judge score (1–10)",
+      "contamination": "Medium; prompts are public and judges may favour familiar styles.",
+      "reproduction": "Low; mostly judge calls. Fix judge model, prompt and position order.",
+      "cost": "Low; mainly judge API calls.",
+      "note": "Judge scores are not human preferences. Report the judge model and agreement with a small human sample."
+    }
   },
   {
     "id": "alpaca-eval",
@@ -137,7 +233,17 @@
     "snapshot": "2026-11-19",
     "cost": "低到中",
     "note": "胜率高不代表事实正确；要结合人工抽检与任务评测。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "AlpacaEval 2.0",
+      "measures": "Instruction-following win rate",
+      "tasks": "805 instructions compared with a reference model’s answer",
+      "metric": "Length-controlled win rate (LC win rate)",
+      "contamination": "Medium; instructions and reference outputs are public.",
+      "reproduction": "Low to medium; judge model and length control are essential.",
+      "cost": "Low to medium.",
+      "note": "Length control matters. An uncorrected win rate rewards verbose answers."
+    }
   },
   {
     "id": "arena-hard",
@@ -151,7 +257,17 @@
     "snapshot": "2026-11-19",
     "cost": "中；评委调用较多",
     "note": "比 AlpacaEval 更难，但仍属于模型评委口径，不是人类真值。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Arena-Hard",
+      "measures": "Win rate on hard instructions",
+      "tasks": "500 hard prompts compared with a baseline model",
+      "metric": "Win rate",
+      "contamination": "Medium; prompts are public, and judge style bias remains.",
+      "reproduction": "Medium; many judge calls. Fix the baseline and judge prompt.",
+      "cost": "Medium; many judge calls.",
+      "note": "A useful discriminator at the top, but still a judge-based proxy for preference."
+    }
   },
   {
     "id": "chatbot-arena",
@@ -164,8 +280,21 @@
     "leaderboard": "https://lmarena.ai/",
     "snapshot": "2026-11-19",
     "cost": "无法自建同等规模",
-    "note": "最接近真实用户偏好，但榜单会变；引用时要写快照日与置信区间。",
-    "verifiedAt": "2026-11-19"
+    "note": {
+      "zh": "Chatbot Arena 测的是人类偏好：用户给两个匿名模型同一个 prompt，投票选更好的一个，再用 Elo / Bradley-Terry 估排名。它最接近真实用户分布，但测的是「偏好」不是「正确」：更长、更自信、排版更好看的回答容易赢，事实错误不一定被扣分。\n引用时至少写清快照日、总投票量、置信区间和类别榜（代码、数学、中文等）。总榜和类别榜可能给出不同结论；新模型上线初期票数少，排名波动大。用户分布也不是你的用户分布，ToB 长文档、工具调用、严格格式这些场景在 Arena 里权重很低。\n它无法在本地复现同等规模；适合当外部信号，不适合当验收门禁。",
+      "en": "Chatbot Arena measures human preference: users give two anonymous models the same prompt and vote for the better answer, with Elo/Bradley-Terry used to estimate a ranking. It is the closest public signal to real user distribution, but it measures preference, not correctness: longer, more confident or better-formatted answers tend to win, and factual errors are not always penalised.\nWhen citing it, give at least the snapshot date, total vote count, confidence interval and the category board (code, maths, Chinese, etc.). Overall and category boards can disagree; a new model with few votes moves a lot. The user distribution is not your user distribution either: long enterprise documents, tool calls and strict formats carry little weight in the Arena.\nIt cannot be reproduced locally at the same scale; use it as an external signal, not as a release gate."
+    },
+    "verifiedAt": "2026-11-21",
+    "en": {
+      "name": "Chatbot Arena",
+      "measures": "Human preference win rate and Elo",
+      "tasks": "Anonymous pairwise comparisons with user votes",
+      "metric": "Elo / win rate",
+      "contamination": "Low for live votes, but prompt distribution is uncontrolled and public examples can influence style.",
+      "reproduction": "Not reproducible at the same scale; use the public leaderboard as a reference, not a local benchmark.",
+      "cost": "Cannot be recreated at equivalent scale.",
+      "note": "Chatbot Arena measures human preference: users give two anonymous models the same prompt and vote for the better answer, with Elo/Bradley-Terry used to estimate a ranking. It is the closest public signal to real user distribution, but it measures preference, not correctness: longer, more confident or better-formatted answers tend to win, and factual errors are not always penalised.\nWhen citing it, give at least the snapshot date, total vote count, confidence interval and the category board (code, maths, Chinese, etc.). Overall and category boards can disagree; a new model with few votes moves a lot. The user distribution is not your user distribution either: long enterprise documents, tool calls and strict formats carry little weight in the Arena.\nIt cannot be reproduced locally at the same scale; use it as an external signal, not as a release gate."
+    }
   },
   {
     "id": "helm",
@@ -178,8 +307,21 @@
     "leaderboard": "https://crfm.stanford.edu/helm/",
     "snapshot": "2026-11-19",
     "cost": "高；场景多",
-    "note": "优点是透明、分场景报告；缺点是不是所有模型都覆盖全场景。",
-    "verifiedAt": "2026-11-19"
+    "note": {
+      "zh": "HELM 是「多场景、多指标」的透明评测：同一批模型跑问答、摘要、分类、安全等大量场景，并分别报告准确率、校准、鲁棒性、公平性、偏见、毒性、效率等维度，不合成一个总分。\n读分时不要只看一个平均：先确认模型是否覆盖了同一组场景、prompt 与 few-shot 是否一致、指标版本是否相同。HELM 的价值是「剖面」——一个模型可能准确率高但校准差、或英文强中文弱；这些取舍在单榜里看不到。\n它的成本高、场景多，更新节奏也不可能跟上每个新模型；厂商通常只提交部分场景。引用时要写清「哪些场景跑了、哪些没跑」，不要把未覆盖当成零分或满分。",
+      "en": "HELM is a transparent multi-scenario, multi-metric evaluation: the same batch of models runs many scenarios (Q&A, summarisation, classification, safety and more), with separate metrics for accuracy, calibration, robustness, fairness, bias, toxicity and efficiency rather than one composite score.\nDo not read only an average: first confirm the models cover the same scenario set, the prompts and few-shot settings match, and the metric version is the same. HELM's value is a profile — a model can be accurate but poorly calibrated, or strong in English and weak in Chinese; those trade-offs disappear in a single leaderboard.\nIt is expensive and broad, and its cadence cannot track every new model; vendors often submit only some scenarios. Say which scenarios ran and which did not; an uncovered scenario is neither zero nor full marks."
+    },
+    "verifiedAt": "2026-11-21",
+    "en": {
+      "name": "HELM",
+      "measures": "Broad multi-scenario, multi-metric evaluation",
+      "tasks": "Q&A, summarisation, classification, safety and many other scenarios",
+      "metric": "Per-scenario metrics, no single composite score",
+      "contamination": "Varies by scenario; some datasets are public and old.",
+      "reproduction": "High; many scenarios and models. Standardise prompts, few-shot settings and metrics.",
+      "cost": "High; many scenarios.",
+      "note": "HELM is a transparent multi-scenario, multi-metric evaluation: the same batch of models runs many scenarios (Q&A, summarisation, classification, safety and more), with separate metrics for accuracy, calibration, robustness, fairness, bias, toxicity and efficiency rather than one composite score.\nDo not read only an average: first confirm the models cover the same scenario set, the prompts and few-shot settings match, and the metric version is the same. HELM's value is a profile — a model can be accurate but poorly calibrated, or strong in English and weak in Chinese; those trade-offs disappear in a single leaderboard.\nIt is expensive and broad, and its cadence cannot track every new model; vendors often submit only some scenarios. Say which scenarios ran and which did not; an uncovered scenario is neither zero nor full marks."
+    }
   },
   {
     "id": "livebench",
@@ -192,8 +334,21 @@
     "leaderboard": "https://livebench.ai/",
     "snapshot": "2026-11-19",
     "cost": "中",
-    "note": "适合看新题上的稳定性；跨月比较要确认题目版本是否变化。",
-    "verifiedAt": "2026-11-19"
+    "note": {
+      "zh": "LiveBench 按月刷新题目，用较新的题源降低污染，覆盖数学、代码、推理、数据整理等任务；每个任务单独报准确率。它的重点不是「一次排名」，而是「在新题上是否稳定」。\n跨月比较必须先确认版本：题目换了，难度和分布都会变，分数不能直接连成趋势。部分任务用模型评委或规则评分，评委模型换了也会影响结果；报告要写清版本月份、任务子集、评分脚本与评委模型。\n它适合做「新鲜度检查」，不适合替代真实业务评测；题量有限，细分任务上的波动可能很大。",
+      "en": "LiveBench refreshes its items monthly, using newer sources to reduce contamination, and covers maths, code, reasoning, data analysis and other tasks with per-task accuracy. Its point is not one ranking but stability on fresh items.\nBefore comparing across months, confirm the release: when items change, difficulty and distribution change, so scores do not form a trend line. Some tasks use a model judge or rule-based scoring, and swapping the judge changes the result; report the release month, task subset, scoring script and judge model.\nUse it as a freshness check, not a substitute for your own business evaluation; item counts are limited and sub-task scores can swing."
+    },
+    "verifiedAt": "2026-11-21",
+    "en": {
+      "name": "LiveBench",
+      "measures": "Continuously updated multi-task capability",
+      "tasks": "Maths, code, reasoning, data analysis and more; monthly refresh",
+      "metric": "Per-task accuracy",
+      "contamination": "Lower by design because tasks refresh, but recent tasks can still leak.",
+      "reproduction": "Medium; use the official harness and report the release month.",
+      "cost": "Medium.",
+      "note": "LiveBench refreshes its items monthly, using newer sources to reduce contamination, and covers maths, code, reasoning, data analysis and other tasks with per-task accuracy. Its point is not one ranking but stability on fresh items.\nBefore comparing across months, confirm the release: when items change, difficulty and distribution change, so scores do not form a trend line. Some tasks use a model judge or rule-based scoring, and swapping the judge changes the result; report the release month, task subset, scoring script and judge model.\nUse it as a freshness check, not a substitute for your own business evaluation; item counts are limited and sub-task scores can swing."
+    }
   },
   {
     "id": "open-llm-leaderboard",
@@ -207,7 +362,17 @@
     "snapshot": "2026-11-19",
     "cost": "低到中",
     "note": "适合横向找候选，不适合直接下结论；平均分会掩盖任务差异。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Open LLM Leaderboard",
+      "measures": "Standardised comparison of open models",
+      "tasks": "Several fixed benchmarks including MMLU, GSM8K and IFEval",
+      "metric": "Per-benchmark scores plus an average",
+      "contamination": "High for older public benchmarks; the average can hide contamination.",
+      "reproduction": "Low to medium; use the official harness and model revision.",
+      "cost": "Low to medium.",
+      "note": "A convenient index, not a verdict. Check per-benchmark scores and the model revision date."
+    }
   },
   {
     "id": "ceval",
@@ -220,8 +385,21 @@
     "leaderboard": "https://cevalbenchmark.com/",
     "snapshot": "2026-11-19",
     "cost": "低",
-    "note": "中文知识面基线；不能代表中文实际任务能力。",
-    "verifiedAt": "2026-11-19"
+    "note": {
+      "zh": "C-Eval 是中文多学科知识评测：从中学到大学水平的多选题，覆盖 52 个学科，常被当作中文基座模型的「知识面基线」。\n读分时固定 5-shot、prompt 模板、选项顺序与答案抽取；不同厂商的模板差异足以造成几个百分点。题目公开且被中文训练集大量使用，污染风险很高；「零样本」也不等于没污染。\n它不能代表中文实际任务能力：写作、长文档、检索、工具调用、多轮对话都要另测。C-Eval 高但业务评测差，是常见组合，不要用单榜做上线决定。",
+      "en": "C-Eval is a Chinese multi-subject knowledge benchmark: multiple-choice items from middle-school to university level across 52 subjects, often used as the knowledge baseline for Chinese base models.\nFix the 5-shot setting, prompt template, option order and answer extraction; vendor template differences alone can move a score by several points. The items are public and heavily used in Chinese training data, so contamination risk is high; “zero-shot” is not proof of no contamination.\nIt does not represent Chinese task ability: writing, long documents, retrieval, tool calls and multi-turn dialogue need separate tests. A high C-Eval score with weak business evaluation is a common combination; do not make a release decision from one board."
+    },
+    "verifiedAt": "2026-11-21",
+    "en": {
+      "name": "C-Eval",
+      "measures": "Chinese multi-disciplinary knowledge",
+      "tasks": "Middle-school to university multiple-choice, 52 subjects",
+      "metric": "Accuracy",
+      "contamination": "High; questions are public and widely used in Chinese training data.",
+      "reproduction": "Low; fix the prompt, answer parsing and few-shot setting.",
+      "cost": "Low.",
+      "note": "C-Eval is a Chinese multi-subject knowledge benchmark: multiple-choice items from middle-school to university level across 52 subjects, often used as the knowledge baseline for Chinese base models.\nFix the 5-shot setting, prompt template, option order and answer extraction; vendor template differences alone can move a score by several points. The items are public and heavily used in Chinese training data, so contamination risk is high; “zero-shot” is not proof of no contamination.\nIt does not represent Chinese task ability: writing, long documents, retrieval, tool calls and multi-turn dialogue need separate tests. A high C-Eval score with weak business evaluation is a common combination; do not make a release decision from one board."
+    }
   },
   {
     "id": "cmmlu",
@@ -234,8 +412,21 @@
     "leaderboard": "https://github.com/haonan-li/CMMLU",
     "snapshot": "2026-11-19",
     "cost": "低",
-    "note": "比 C-Eval 覆盖更细；仍属于知识型评测。",
-    "verifiedAt": "2026-11-19"
+    "note": {
+      "zh": "CMMLU 是中文多学科知识的选择题评测，覆盖 67 个主题，从人文、社科到理工与专业领域。它比 C-Eval 的主题覆盖更细，但仍属于「知识型」评测：会做题不等于会做中文任务。\n读分时固定 shot 数、prompt 模板、答案抽取方式和是否使用中文思维链；不同厂商的「5-shot」实现经常不一致。题目公开且被广泛用于中文训练，污染风险高，尤其是中文基座模型；厂商自评前最好做同源题去重或至少标注风险。\n它适合做中文知识面基线，不适合单独判断写作、检索、工具调用或长文档能力。",
+      "en": "CMMLU is a Chinese multi-subject multiple-choice knowledge benchmark covering 67 topics across humanities, social sciences, STEM and professional fields. It is finer-grained than C-Eval, but still a knowledge test: answering these items is not the same as doing a Chinese task.\nFix the shot count, prompt template, answer extraction and whether Chinese chain-of-thought is allowed; vendors' “5-shot” implementations often differ. The items are public and widely used in Chinese training, so contamination risk is high, especially for Chinese base models; before citing a vendor score, deduplicate same-source items or at least flag the risk.\nUse it as a Chinese knowledge baseline, not as a standalone test of writing, retrieval, tool use or long-document work."
+    },
+    "verifiedAt": "2026-11-21",
+    "en": {
+      "name": "CMMLU",
+      "measures": "Chinese knowledge and reasoning",
+      "tasks": "Chinese multiple-choice across 67 topics",
+      "metric": "Accuracy",
+      "contamination": "High; public and widely benchmarked.",
+      "reproduction": "Low; pin the prompt format and answer extraction.",
+      "cost": "Low.",
+      "note": "CMMLU is a Chinese multi-subject multiple-choice knowledge benchmark covering 67 topics across humanities, social sciences, STEM and professional fields. It is finer-grained than C-Eval, but still a knowledge test: answering these items is not the same as doing a Chinese task.\nFix the shot count, prompt template, answer extraction and whether Chinese chain-of-thought is allowed; vendors' “5-shot” implementations often differ. The items are public and widely used in Chinese training, so contamination risk is high, especially for Chinese base models; before citing a vendor score, deduplicate same-source items or at least flag the risk.\nUse it as a Chinese knowledge baseline, not as a standalone test of writing, retrieval, tool use or long-document work."
+    }
   },
   {
     "id": "longbench",
@@ -249,7 +440,17 @@
     "snapshot": "2026-11-19",
     "cost": "中到高；长上下文吃显存",
     "note": "适合看长文任务，但“支持 128k”不等于能同等利用 128k。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "LongBench",
+      "measures": "Long-context understanding",
+      "tasks": "20+ tasks across QA, summarisation, code and retrieval",
+      "metric": "Per-task F1 / accuracy / ROUGE",
+      "contamination": "Medium; many source datasets are public and old.",
+      "reproduction": "Medium to high; long contexts consume memory and truncation policy matters.",
+      "cost": "Medium to high; long-context memory.",
+      "note": "Report the context length and truncation strategy. A score at 4K does not transfer to 128K."
+    }
   },
   {
     "id": "ragas",
@@ -262,8 +463,21 @@
     "leaderboard": "https://docs.ragas.io/",
     "snapshot": "2026-11-19",
     "cost": "低到中；评委调用为主",
-    "note": "适合做内部回归，不适合当行业排名；指标定义要先写清。",
-    "verifiedAt": "2026-11-19"
+    "note": {
+      "zh": "RAGAS 评的是 RAG 管线，不是模型本身：把「检索到的上下文」和「生成的答案」分开打分，常见指标包括上下文精确率/召回率、答案忠实度、答案相关性。它通常用模型评委，所以评委模型、prompt 和指标版本都会改变结果。\n读分时先固定文档集、问题集、评委模型、嵌入模型与指标定义；跨项目、跨文档集的分数不能直接比。忠实度高只说明「答案没超出上下文」，不说明「上下文本身是对的」；检索召回高也不说明「生成用上了」。\n它适合内部回归与定位问题（是检索差还是生成差），不适合当行业排行榜；评委偏见与长文档截断要单独检查。",
+      "en": "RAGAS evaluates the RAG pipeline, not the model alone: it scores retrieved context and generated answer separately, with metrics such as context precision/recall, answer faithfulness and answer relevancy. It usually relies on a model judge, so the judge, prompt and metric version all change the result.\nFix the document set, question set, judge model, embedding model and metric definitions; scores across projects or document sets are not comparable. High faithfulness only means the answer stayed within the context, not that the context is correct; high retrieval recall does not mean the generator used it.\nUse it for internal regression and diagnosis (is retrieval or generation the weak link), not as an industry leaderboard; check judge bias and long-document truncation separately."
+    },
+    "verifiedAt": "2026-11-21",
+    "en": {
+      "name": "RAGAS",
+      "measures": "RAG pipeline quality",
+      "tasks": "Retrieval relevance, answer faithfulness, context recall and related metrics",
+      "metric": "Per-metric scores, often with a model judge",
+      "contamination": "Low for domain-specific test sets; judge bias and prompt leakage remain.",
+      "reproduction": "Low to medium; judge calls dominate. Fix judge model, embeddings and test set.",
+      "cost": "Low to medium; mainly judge calls.",
+      "note": "RAGAS evaluates the RAG pipeline, not the model alone: it scores retrieved context and generated answer separately, with metrics such as context precision/recall, answer faithfulness and answer relevancy. It usually relies on a model judge, so the judge, prompt and metric version all change the result.\nFix the document set, question set, judge model, embedding model and metric definitions; scores across projects or document sets are not comparable. High faithfulness only means the answer stayed within the context, not that the context is correct; high retrieval recall does not mean the generator used it.\nUse it for internal regression and diagnosis (is retrieval or generation the weak link), not as an industry leaderboard; check judge bias and long-document truncation separately."
+    }
   },
   {
     "id": "truthfulqa",
@@ -277,7 +491,17 @@
     "snapshot": "2026-11-19",
     "cost": "低",
     "note": "适合看常见误解，但覆盖有限；高分不等于事实可靠。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "TruthfulQA",
+      "measures": "Factuality and common misconceptions",
+      "tasks": "817 questions across 38 topics",
+      "metric": "Truthfulness and informativeness (MC / generation)",
+      "contamination": "High; the dataset is public and widely used.",
+      "reproduction": "Low; report both MC and generation variants.",
+      "cost": "Low.",
+      "note": "It tests resistance to common misconceptions, not general factuality. Pair it with fresh claim verification."
+    }
   },
   {
     "id": "agentbench",
@@ -296,7 +520,17 @@
     "notFor": "不适合单一业务场景选型。",
     "compare": "与 GAIA 相比更偏受控环境，与 OSWorld 相比桌面操作比重较低。",
     "verify": "核对环境版本、任务数与评分脚本；抽 5 条看轨迹。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "AgentBench",
+      "measures": "Task completion across multiple agent environments (OS, database, knowledge graph, web and more)",
+      "tasks": "Eight interactive environments with text tasks",
+      "metric": "Success rate / task completion rate",
+      "contamination": "Medium; environments and tasks are public but interaction traces are harder to memorise.",
+      "reproduction": "Medium to high; needs multi-environment containers and API calls.",
+      "cost": "Medium to high; multi-environment containers and API calls.",
+      "note": "A broad agent smoke test. Report per-environment results; an average hides which environment failed."
+    }
   },
   {
     "id": "tau-bench",
@@ -315,7 +549,17 @@
     "notFor": "不适合评估创意任务。",
     "compare": "与 AgentBench 相比更偏业务对话与工具约束。",
     "verify": "核对域、工具 schema 与用户模拟器版本。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "τ-bench",
+      "measures": "Task completion with tool calls plus user dialogue (retail / airline domains)",
+      "tasks": "Multi-turn dialogue, simulated user and tool calls",
+      "metric": "Task success rate / pass^k",
+      "contamination": "Medium; domains and tools are public, but successful trajectories are harder to memorise.",
+      "reproduction": "Medium; needs an LLM user simulator and a fixed tool environment.",
+      "cost": "Medium; LLM user simulator calls.",
+      "note": "Tests policy adherence as well as tool use. Report pass^k, not only pass@1."
+    }
   },
   {
     "id": "gaia",
@@ -334,7 +578,17 @@
     "notFor": "不适合离线模型单独评测。",
     "compare": "与 AgentBench 相比更贴近真实助理任务，工具依赖更强。",
     "verify": "核对 split、工具配置与答案格式。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "GAIA",
+      "measures": "Real-world assistant tasks (search, files, multi-step reasoning)",
+      "tasks": "466 public questions; multimodal and tool use",
+      "metric": "Accuracy (exact match)",
+      "contamination": "Medium; questions are public, so check for leakage in training data.",
+      "reproduction": "Medium; needs browser/search and file tools.",
+      "cost": "Medium; browser/search and file tools.",
+      "note": "A strong general-assistant benchmark. Report the level split and whether tools were available."
+    }
   },
   {
     "id": "webarena",
@@ -353,7 +607,17 @@
     "notFor": "不适合评估 API-only agent。",
     "compare": "与 OSWorld 相比更偏网页，OSWorld 覆盖桌面应用。",
     "verify": "核对环境镜像、任务 ID 与重置脚本。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "WebArena",
+      "measures": "Task completion in web environments (shopping, forum, CMS and more)",
+      "tasks": "812 tasks in recreated real websites",
+      "metric": "Success rate",
+      "contamination": "Medium; environments are public but state changes complicate memorisation.",
+      "reproduction": "Medium to high; needs browsers and containers.",
+      "cost": "Medium to high; browser and containers.",
+      "note": "Closer to real web work than static QA. Check environment reset and allowed actions."
+    }
   },
   {
     "id": "osworld",
@@ -372,7 +636,17 @@
     "notFor": "不适合评估无 GUI 的 API agent。",
     "compare": "与 WebArena 相比覆盖桌面应用，环境更重。",
     "verify": "核对 VM 镜像、任务 ID 与评分器。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "OSWorld",
+      "measures": "Desktop OS task completion across applications, files and settings",
+      "tasks": "Hundreds of tasks in Ubuntu and Windows virtual machines",
+      "metric": "Success rate / partial completion",
+      "contamination": "Medium; tasks are public but VM interaction is hard to memorise.",
+      "reproduction": "High; needs VMs and a vision model.",
+      "cost": "High; VMs and vision models.",
+      "note": "A realistic desktop-agent test. Report OS, VM image and whether screenshots were used."
+    }
   },
   {
     "id": "bfcl",
@@ -391,7 +665,17 @@
     "notFor": "不适合评估多步规划。",
     "compare": "与 τ-bench 相比更偏函数调用原子能力，不强调用户对话。",
     "verify": "核对函数库版本与评分脚本。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Berkeley Function Calling Leaderboard (BFCL)",
+      "measures": "Function calling: tool selection and argument filling",
+      "tasks": "Multi-turn, multi-function, single-turn and parallel calls",
+      "metric": "AST accuracy / execution accuracy",
+      "contamination": "Medium; test cases are public and widely used.",
+      "reproduction": "Low to medium; mostly API calls. Fix the tool schema and parsing.",
+      "cost": "Low to medium; mainly API calls.",
+      "note": "AST accuracy checks structure; execution accuracy checks behaviour. Report both."
+    }
   },
   {
     "id": "mmmu",
@@ -410,7 +694,17 @@
     "notFor": "不适合评估视频理解。",
     "compare": "与 DocVQA / ChartQA 相比更偏学科知识，不专攻文档版面。",
     "verify": "核对 split、图像版本与评分。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "MMMU",
+      "measures": "University-level multimodal knowledge (image + text)",
+      "tasks": "Multi-disciplinary questions with charts, tables and diagrams",
+      "metric": "Accuracy",
+      "contamination": "High; public and widely used in multimodal training.",
+      "reproduction": "Medium; needs a vision model and image preprocessing.",
+      "cost": "Medium; vision model calls.",
+      "note": "Tests visual knowledge, not image generation. Check image resolution and OCR settings."
+    }
   },
   {
     "id": "video-mme-eval",
@@ -429,7 +723,17 @@
     "notFor": "不适合评估视频生成。",
     "compare": "与 MMMU 相比更偏时序视频；与 DocVQA 相比不是文档。",
     "verify": "核对视频清单、抽帧配置与评分。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Video-MME",
+      "measures": "Video understanding across short, medium and long videos",
+      "tasks": "900 videos and 2,700 questions across domains",
+      "metric": "Accuracy",
+      "contamination": "Medium; videos and questions are public.",
+      "reproduction": "High; video decoding and long context.",
+      "cost": "High; video decoding and long context.",
+      "note": "Report duration buckets. A short-video score does not imply long-video capability."
+    }
   },
   {
     "id": "docvqa",
@@ -448,7 +752,17 @@
     "notFor": "不适合评估纯文本 RAG。",
     "compare": "与 ChartQA 相比更偏文档版面；ChartQA 专攻图表。",
     "verify": "核对数据集版本、OCR 与 ANLS 脚本。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "DocVQA",
+      "measures": "Document-image QA covering layout, tables and handwriting",
+      "tasks": "About 50k questions over scanned documents",
+      "metric": "ANLS / accuracy",
+      "contamination": "High; public and widely used.",
+      "reproduction": "Medium; needs OCR or a vision model.",
+      "cost": "Medium; OCR or vision.",
+      "note": "Layout and OCR quality dominate. Report preprocessing and whether tables were parsed."
+    }
   },
   {
     "id": "chartqa",
@@ -467,7 +781,17 @@
     "notFor": "不适合评估表格计算。",
     "compare": "与 DocVQA 相比更专攻图表。",
     "verify": "核对 split、OCR 与评分。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "ChartQA",
+      "measures": "Chart QA and numerical reasoning",
+      "tasks": "Charts plus questions, both synthetic and real",
+      "metric": "Accuracy / relaxed accuracy",
+      "contamination": "High; public and widely used.",
+      "reproduction": "Low to medium; vision model and chart parsing.",
+      "cost": "Low to medium; vision model.",
+      "note": "Relaxed accuracy hides numerical errors. Report exact accuracy separately."
+    }
   },
   {
     "id": "harmbench",
@@ -486,7 +810,17 @@
     "notFor": "不适合评估隐私或数据合规。",
     "compare": "与 ToxiGen 相比更偏攻击与拒答，不是毒性分类。",
     "verify": "核对行为集、攻击脚本与 judge。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "HarmBench",
+      "measures": "Harmful-request refusal and attack success rate",
+      "tasks": "400+ behaviours and text attacks",
+      "metric": "Attack success rate / refusal rate",
+      "contamination": "Medium; behaviours and attacks are public.",
+      "reproduction": "Medium; needs a judge and multiple samples.",
+      "cost": "Medium; judge and multiple samples.",
+      "note": "A safety red-team benchmark, not a general safety guarantee. Report the judge and attack set."
+    }
   },
   {
     "id": "toxigen",
@@ -505,7 +839,17 @@
     "notFor": "不适合中文或其它语言直接套用。",
     "compare": "与 BBQ 相比更偏隐性仇恨，BBQ 偏偏见问答。",
     "verify": "核对群体列表、标签与分类器。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "ToxiGen",
+      "measures": "Detection of implicit hate speech targeting minority groups",
+      "tasks": "13 groups and adversarially generated toxic text",
+      "metric": "Toxicity classification F1 / accuracy",
+      "contamination": "Medium; the dataset is public and used in safety training.",
+      "reproduction": "Low; fix the classifier and group mapping.",
+      "cost": "Low.",
+      "note": "It measures a classifier on a specific corpus, not a model’s real-world harm rate."
+    }
   },
   {
     "id": "bbq",
@@ -524,7 +868,17 @@
     "notFor": "不适合中文直接套用。",
     "compare": "与 ToxiGen 相比更偏问答偏见。",
     "verify": "核对类别、模板与评分。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "BBQ",
+      "measures": "Social-bias QA across gender, race, age and more",
+      "tasks": "Multiple-choice with ambiguous and unambiguous contexts",
+      "metric": "Accuracy / bias score",
+      "contamination": "High; public and widely used.",
+      "reproduction": "Low; report both ambiguous and unambiguous subsets.",
+      "cost": "Low.",
+      "note": "Bias scores depend on the context split. Do not reduce it to one accuracy number."
+    }
   },
   {
     "id": "ruler",
@@ -543,7 +897,17 @@
     "notFor": "不适合评估长文档问答质量。",
     "compare": "与 InfiniteBench 相比更偏合成检索；InfiniteBench 更偏真实任务。",
     "verify": "核对任务配置、长度与评分。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "RULER",
+      "measures": "Long-context retrieval and multi-hop tracing",
+      "tasks": "Four task families at 4K–128K+ lengths",
+      "metric": "Accuracy",
+      "contamination": "Medium; synthetic tasks are less likely to leak but templates are public.",
+      "reproduction": "Medium to high; long-context memory and exact length settings matter.",
+      "cost": "Medium to high; long-context inference.",
+      "note": "Report each length bucket. A model that passes 4K may fail at 128K."
+    }
   },
   {
     "id": "infinitebench",
@@ -562,7 +926,17 @@
     "notFor": "不适合评估工具调用。",
     "compare": "与 RULER 相比更偏真实任务，合成检索少。",
     "verify": "核对任务清单、长度与评分。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "InfiniteBench",
+      "measures": "Real tasks at very long context (retrieval, code, dialogue, books)",
+      "tasks": "10+ tasks with 100K+ contexts",
+      "metric": "Accuracy / task metrics",
+      "contamination": "Medium; source texts are public but context lengths are expensive to memorise.",
+      "reproduction": "High; long context and task-specific scoring.",
+      "cost": "High; long context.",
+      "note": "Closer to real long-document work. Check truncation and retrieval augmentation settings."
+    }
   },
   {
     "id": "ifeval",
@@ -581,7 +955,17 @@
     "notFor": "不适合评估事实正确。",
     "compare": "与 MT-Bench 相比更偏可验证约束，不靠 judge。",
     "verify": "核对 prompt 版本与评分脚本。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "IFEval",
+      "measures": "Instruction following with verifiable constraints",
+      "tasks": "500+ prompts with multiple constraints",
+      "metric": "Strict accuracy / loose accuracy",
+      "contamination": "High; prompts and constraints are public.",
+      "reproduction": "Low; deterministic constraint checking.",
+      "cost": "Low.",
+      "note": "Measures compliance with explicit constraints, not open-ended helpfulness."
+    }
   },
   {
     "id": "terminal-bench-4-1",
@@ -603,7 +987,17 @@
     "costEn": "High; up to eight hours per task across five attempts, suited to teams with budget",
     "note": "它测的是「模型 + agent 脚手架」的完整系统，不是裸模型；同一模型换 harness 分数会变。读榜先看解析率、置信区间与 token/成本，再看排名。",
     "noteEn": "It measures the whole system of model plus agent harness, not the bare model; the same model can score differently under another harness. Read resolution rate, confidence interval and token/cost before rank.",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Terminal-Bench 4.1",
+      "measures": "Ability to complete real software-engineering tasks in a terminal",
+      "tasks": "66 containerised professional tasks covering code fixes, data processing and system operations; up to five attempts per task and eight hours per attempt",
+      "metric": "Resolution rate with a 95% confidence interval",
+      "contamination": "Medium; tasks are public but long interactive trajectories are hard to memorise.",
+      "reproduction": "High; per-task attempts can run for hours, suited to teams with budget.",
+      "cost": "High; up to eight hours × five attempts per task.",
+      "note": "A heavyweight terminal-agent benchmark. Report attempts, time budget and container image."
+    }
   },
   {
     "id": "frontiercode-2",
@@ -625,7 +1019,17 @@
     "costEn": "Medium-high; multi-file tasks and human grading, with some rollouts costing over ten dollars",
     "note": "它补的是「能否合并」而不是「能否跑通测试」；分数低不代表模型不能用，代表它还没达到维护者的合并标准。选型时把它和自家代码库的 50–100 条真实 PR 对照。",
     "noteEn": "It measures “would this merge” rather than “do tests pass”; a low score does not mean the model is unusable, only that it misses the maintainer bar. Compare it with 50–100 real PRs from your own repository.",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "FrontierCode 2.0",
+      "measures": "Whether a code change meets a maintainer’s merge bar",
+      "tasks": "132 tasks from more repositories and categories, including security patches and performance work; reference solutions touch 67% more files and 89% more lines and a 25% larger codebase",
+      "metric": "Mergeability score and pass rate, using criteria set by senior open-source maintainers",
+      "contamination": "Medium; tasks are public but multi-file changes are hard to memorise.",
+      "reproduction": "Medium to high; multi-file tasks and human scoring; a single rollout can cost tens of dollars.",
+      "cost": "Medium to high; multi-file tasks and human grading.",
+      "note": "Measures mergeability, not just test passing. Report the rubric and the reviewer."
+    }
   },
   {
     "id": "vals-index-v2-2",
@@ -647,7 +1051,17 @@
     "costEn": "Medium-high; eight components, with full-suite cost tracking model API prices",
     "note": "它是「加权综合指数」，不是单一任务榜；综合分高不代表你关心的那个行业任务强。先看四个 sector 的分项，再看综合分。",
     "noteEn": "It is a weighted composite, not a single-task leaderboard; a high composite does not prove strength on the sector you care about. Read the four sector sub-scores before the headline.",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Vals Index v2.2",
+      "measures": "Economic impact of AI on real work in finance, coding, law and tax",
+      "tasks": "Eight components: Finance Agent v2.1, EMB v1.1, Code Migration v1.1, HLAB-Vals-1.1, Tax Agent Bench and more",
+      "metric": "GDP-weighted accuracy across US industry shares",
+      "contamination": "Medium; task sets are specialised and less likely to be in general training data.",
+      "reproduction": "Medium to high; eight components and API costs vary by model.",
+      "cost": "Medium to high; full suite cost depends on model API prices.",
+      "note": "A work-impact index, not a general capability score. Report component-level results."
+    }
   },
   {
     "id": "agent-arena-index",
@@ -669,6 +1083,16 @@
     "costEn": "Low; uses official session data and needs no in-house task set",
     "note": "它测的是「人机协作中的净提升」，不是静态题集分数；适合看真实使用体验，不适合证明某个能力上限。分类榜（Work / Coding / Chat）比总榜更接近选型。",
     "noteEn": "It measures net improvement in human-agent collaboration, not a static benchmark score; useful for real-world experience, not for proving a capability ceiling. Category boards (Work, Coding, Chat) are closer to procurement than the overall board.",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Agent Arena Index",
+      "measures": "How a model performs as an orchestrator in real agent sessions",
+      "tasks": "Real users delegating multi-step work in Agent Mode: coding, research, app building and documents; the official snapshot covers 57 models and about 2.75M sessions",
+      "metric": "Net Improvement (percentage-point lift over the average model)",
+      "contamination": "Low for the official session data; it is observational, not a fixed test set.",
+      "reproduction": "Low; uses official session data, so you do not need to build a task set.",
+      "cost": "Low; official session data.",
+      "note": "Observational and closer to real work, but selection bias and session mix matter. Read the methodology."
+    }
   }
 ]

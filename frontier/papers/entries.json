@@ -3736,5 +3736,678 @@
       "训练成本 / training": "10× fewer tokens; 2.5× fewer steps",
       "复现状态 / reproduction": "未复现（只读摘要）"
     }
+  },
+  {
+    "id": "relay-bench-2026",
+    "title": {
+      "zh": "Relay-Bench: Evaluating LLMs on Multi-Domain Reasoning Chains",
+      "en": "Relay-Bench: Evaluating LLMs on Multi-Domain Reasoning Chains"
+    },
+    "category": "evaluation",
+    "url": "https://arxiv.org/abs/2607.18438",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2607.18438",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2607.18438",
+        "quote": "The leading model, GPT-5.5 (xHigh), scores 43.3%."
+      },
+      {
+        "url": "https://arxiv.org/abs/2607.18438",
+        "quote": "All problems are composed of two to thirteen subproblems and do not require multi-modal input or output."
+      }
+    ],
+    "notes": {
+      "zh": "问题：单域基准已经饱和，但真实任务往往把视觉、代码、数学、检索、数据分析串在一条链上；现有基准很少测“跨域接力”。\n证据位置：摘要给出 21 页、7 图的纯文本基准，题目由 2–13 个子问题拼成，允许模型用代码执行、联网与工具；公开结果里得分最高的模型 GPT-5.5（xHigh）只有 43.3%。\n作者自陈局限：只测文本输入输出；题目的“上下文膨胀”和编码层是人为加的复杂度，和真实工作流的噪声不完全同构；模型可用工具，分数受 harness 影响大；没有开源榜单的长期污染检查。\n它没主张的：不是通用能力排行榜；不是多模态基准；不是“低于 43% 就不会做跨域任务”的结论。",
+      "en": "Problem: single-domain benchmarks are saturated, while real tasks string vision, code, maths, retrieval and data analysis into one chain; few benchmarks measure that cross-domain relay.\nWhere the evidence sits: the abstract describes a 21-page, 7-figure text-only benchmark whose items chain 2–13 subproblems and explicitly allow code execution, web search and tools; the leading model, GPT-5.5 (xHigh), scores 43.3%.\nWhat the authors say about limits: text-only input and output; the deliberate context bloat and prompt encoding add artificial complexity that is not identical to real workflow noise; tool access makes scores harness-dependent; there is no long-term contamination check for a public leaderboard.\nWhat it does not claim: a general capability ranking; a multimodal benchmark; that a model below 43% cannot do cross-domain work."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "发表 / venue": "arXiv 2607.18438",
+      "题目结构 / structure": "2–13 个子问题串成一条跨域链",
+      "公开最高分 / top reported score": "GPT-5.5 (xHigh) 43.3%",
+      "工具 / tools": "允许代码执行、联网与外部工具",
+      "证据位置 / evidence": "摘要；21 页 7 图",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "sk-bench-2026",
+    "title": {
+      "zh": "sk-bench: A Native-First Benchmark for Evaluating Large Language Models in Slovak",
+      "en": "sk-bench: A Native-First Benchmark for Evaluating Large Language Models in Slovak"
+    },
+    "category": "evaluation",
+    "url": "https://arxiv.org/abs/2610.09152",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2610.09152",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2610.09152",
+        "quote": "We present sk-bench, a native-first Slovak benchmark with 30 datasets (33 scored task variants) across ten skill categories."
+      },
+      {
+        "url": "https://arxiv.org/abs/2610.09152",
+        "quote": "The best open model trails proprietary APIs by 12.6 points."
+      }
+    ],
+    "notes": {
+      "zh": "问题：多语言基准常把斯洛伐克语漏掉，或只用机器翻译凑数；屈折丰富的语言一翻译就丢掉形态信息。\n证据位置：摘要给出 30 个数据集、33 个计分任务变体、10 类技能；11 个资源为首次打包，含斯洛伐克语改写的 IFEval 检查器与原生语法/形态资源；评测 55 个开放与闭源模型，最佳开源比闭源 API 低 12.6 分。\n作者自陈局限：只覆盖斯洛伐克语；55 个模型的 harness 统一但不等于所有部署条件；翻译数据与原生数据的排序相似（ρ≥0.98），但翻译把强模型区分得更差；人类写与 LLM 生成的问答题排序不同（ρ=0.72）。\n它没主张的：不是所有低资源语言的通用模板；不是“继续预训练一定有害”——论文只说 Qwen3-14B 继续斯洛伐克语预训练后总分降 13.9，指令微调能补回四分之三；不是替代人工母语评估。",
+      "en": "Problem: multilingual benchmarks often omit Slovak or cover it only through machine translation, which strips morphology in a richly inflected language.\nWhere the evidence sits: the abstract reports 30 datasets, 33 scored task variants and ten skill categories; eleven resources are newly packaged, including Slovak-adapted IFEval checkers and native grammar/morphology resources; 55 open and closed models are evaluated, and the best open model trails proprietary APIs by 12.6 points.\nWhat the authors say about limits: Slovak only; one harness for 55 models is not every deployment condition; native and translated closed-form data rank models similarly (ρ≥0.98), but translation separates the strongest models less well; human-authored and LLM-generated QA rank differently (ρ=0.72).\nWhat it does not claim: a universal template for all low-resource languages; that continued pretraining always hurts — only that Qwen3-14B lost 13.9 points and instruction tuning restored three quarters; a replacement for native-speaker evaluation."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "语言 / language": "斯洛伐克语",
+      "规模 / size": "30 数据集 / 33 计分任务 / 10 类技能",
+      "模型数 / models": "55 个开放与闭源",
+      "关键差 / gap": "最佳开源落后闭源 API 12.6 分",
+      "证据位置 / evidence": "摘要；EMNLP 2026 Main",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "gacc-bench-2026",
+    "title": {
+      "zh": "GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models",
+      "en": "GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models"
+    },
+    "category": "evaluation",
+    "url": "https://arxiv.org/abs/2610.21893",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2610.21893",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2610.21893",
+        "quote": "The benchmark contains 500 goals and 2,571 questions over 281 document and agent-trace contexts from seven collections spanning diverse domains, with all instances reviewed by human experts."
+      },
+      {
+        "url": "https://arxiv.org/abs/2610.21893",
+        "quote": "Compared with goal-agnostic compression, target-goal conditioning consistently improves accuracy, whereas mismatched-goal conditioning reduces it."
+      }
+    ],
+    "notes": {
+      "zh": "问题：长上下文压缩通常按“通用重要性”删，但真实应用先给目标、后给问题；压完才发现关键信息没了。\n证据位置：摘要给出 500 个目标、2,571 个问题、281 个文档/智能体轨迹，覆盖 7 个集合；压缩器只看源文、目标和长度预算，评测问题被扣住；10 个压缩器与全上下文仍有明显差距，目标条件化稳定提升、错配目标会掉分。\n作者自陈局限：目标由源文问题聚类导出，不等于用户真实目标；固定 reader 隔离了压缩器与阅读器，但也固定了一种阅读行为；281 个上下文、7 个集合仍偏窄；没有端到端延迟/成本报告。\n它没主张的：不是通用摘要评测；不是“压缩率越高越好”；不是所有任务都该目标条件化。",
+      "en": "Problem: long-context compression usually deletes by generic importance, but real applications give the goal first and the questions later; key information is often gone by then.\nWhere the evidence sits: 500 goals, 2,571 questions and 281 document/agent-trace contexts across seven collections; the compressor sees only source, goal and budget while evaluation questions are withheld; ten compressors still trail full context, and goal conditioning consistently helps while mismatched goals hurt.\nWhat the authors say about limits: goals are derived by clustering source-grounded questions, not real user goals; one fixed reader isolates the compressor but also fixes one reading behaviour; 281 contexts over seven collections is narrow; no end-to-end latency or cost is reported.\nWhat it does not claim: a general summarisation benchmark; that higher compression is always better; that every task should be goal-conditioned."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "规模 / size": "500 目标 / 2,571 问题 / 281 上下文",
+      "覆盖 / coverage": "7 个集合",
+      "压缩器 / compressors": "10 个 LLM",
+      "关键发现 / finding": "目标条件化提升；错配目标下降",
+      "证据位置 / evidence": "摘要；人工复核",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "dataorchestra-2026",
+    "title": {
+      "zh": "DataOrchestra: Learning to Orchestrate Per-Example Curation of Pretraining Data",
+      "en": "DataOrchestra: Learning to Orchestrate Per-Example Curation of Pretraining Data"
+    },
+    "category": "data",
+    "url": "https://arxiv.org/abs/2607.24717",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2607.24717",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2607.24717",
+        "quote": "We propose DataOrchestra, a framework that unifies different processing operations and orchestrates an example-specific pipeline for each example."
+      },
+      {
+        "url": "https://arxiv.org/abs/2607.24717",
+        "quote": "We pretrain models from 0.5B to 7B from scratch on web data processed by DataOrchestra and observe stable average gains over individual data-processing methods across 11 benchmarks."
+      }
+    ],
+    "notes": {
+      "zh": "问题：预训练数据处理通常在语料/领域级定一套固定策略，再一刀切到所有样本；不同样本其实需要不同处理。\n证据位置：摘要给出 orchestrator，对每个 chunk 决定丢弃、保留或清洗；清洗时选一个或多个下游操作（程序编辑到 LLM 改写），并为每步生成具体指令；从 0.5B 到 7B 从头预训练，在 11 个基准上稳定优于单一处理法，数学继续预训练也更强，并因跳过不必要操作降低处理算力。\n作者自陈局限：需要训练 orchestrator 与工具模型，前期工程成本不低；0.5B–7B 规模，未验证百 B 级；11 个基准偏通用与数学，代码/多语言覆盖有限；处理策略的收益依赖工具模型质量。\n它没主张的：不是“数据越多越好”；不是一套固定规则；不是替代人工数据审计。",
+      "en": "Problem: pretraining data processing usually fixes one strategy at corpus or domain level and applies it uniformly; different examples need different treatment.\nWhere the evidence sits: an orchestrator decides per chunk whether to drop, keep or clean; when cleaning it selects one or more downstream operations from programmatic editing to LLM rewriting and generates a concrete instruction for each step; models from 0.5B to 7B pretrained from scratch show stable average gains over single processing methods across 11 benchmarks, also on maths continued pretraining, while skipping unnecessary operations reduces processing compute.\nWhat the authors say about limits: training the orchestrator and tool models adds upfront engineering cost; 0.5B–7B scale, not validated at hundred-billion scale; 11 benchmarks lean general and maths, with limited code/multilingual coverage; gains depend on tool-model quality.\nWhat it does not claim: that more data is always better; a fixed rule set; a replacement for human data audit."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "规模 / scale": "0.5B–7B 从头预训练",
+      "基准 / benchmarks": "11 个",
+      "核心 / method": "逐样本编排丢弃/保留/清洗",
+      "代码 / code": "GAIR-NLP/DataOrchestra",
+      "证据位置 / evidence": "摘要；36 页",
+      "复现状态 / reproduction": "未复现"
+    },
+    "codeUrl": "https://github.com/GAIR-NLP/DataOrchestra"
+  },
+  {
+    "id": "dataevolve-2026",
+    "title": {
+      "zh": "Data Darwinism Part II: DataEvolve — AI can Autonomously Evolve Pretraining Data Curation",
+      "en": "Data Darwinism Part II: DataEvolve — AI can Autonomously Evolve Pretraining Data Curation"
+    },
+    "category": "data",
+    "url": "https://arxiv.org/abs/2603.14420",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2603.14420",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2603.14420",
+        "quote": "Applied to 8 categories spanning 672B tokens from Nemotron-CC, DataEvolve produces Darwin-CC, a 504B-token dataset with strategies evolved through 30 iterations per category."
+      },
+      {
+        "url": "https://arxiv.org/abs/2603.14420",
+        "quote": "Training 3B models on 500B tokens, Darwin-CC outperforms raw data (+3.96 points) and achieves a 44.13 average score across 18 benchmarks, surpassing DCLM, Ultra-FineWeb, and FineWeb-Edu."
+      }
+    ],
+    "notes": {
+      "zh": "问题：数据达尔文主义 Part I 给出十级处理阶梯，但策略仍靠人工为单一类目设计；现代语料有数百个异质类目，人工设计不可行。\n证据位置：摘要给出闭环进化：识别质量问题→生成候选策略→在采样数据上执行→评估→跨代改进，并用问题池/策略池积累知识；在 Nemotron-CC 的 8 个类目、672B token 上跑 30 轮，产出 504B token 的 Darwin-CC；3B 模型训 500B token，18 个基准均分 44.13，优于 DCLM、Ultra-FineWeb、FineWeb-Edu，比原始数据 +3.96。\n作者自陈局限：只在 Nemotron-CC 的 8 类上验证；3B/500B token 规模；进化出的策略集中在清洗（定向去噪、格式归一），不代表覆盖所有数据价值维度；30 轮迭代的算力成本未细报；没有更大模型验证。\n它没主张的：不是“AI 自动造数据”；不是任何语料都能套用；不是 44.13 分可跨基准直接比较。",
+      "en": "Problem: Data Darwinism Part I gave a ten-level processing ladder but still required manual strategy design for a single category; modern corpora have hundreds of heterogeneous categories, making manual design prohibitive.\nWhere the evidence sits: a closed evolutionary loop identifies quality issues, generates candidate strategies, executes on sampled data, evaluates and refines across generations, accumulating an issue pool and a strategy pool; on 8 Nemotron-CC categories and 672B tokens it runs 30 iterations per category to produce the 504B-token Darwin-CC; 3B models trained on 500B tokens average 44.13 across 18 benchmarks, beating DCLM, Ultra-FineWeb and FineWeb-Edu and gaining 3.96 over raw data.\nWhat the authors say about limits: validated only on 8 Nemotron-CC categories; 3B/500B-token scale; evolved strategies converge on cleaning (targeted denoising, format normalisation) and do not cover every dimension of data value; the compute cost of 30 iterations is not broken out; no larger-model validation.\nWhat it does not claim: that AI generates data; that any corpus can use the same loop; that 44.13 is comparable across benchmark suites."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "数据 / dataset": "Darwin-CC 504B token",
+      "来源 / source": "Nemotron-CC 8 类 672B token",
+      "训练 / training": "3B 模型 / 500B token",
+      "均分 / average": "18 基准 44.13",
+      "证据位置 / evidence": "摘要",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "groundset-2026",
+    "title": {
+      "zh": "GroundSet: A Cadastral-Grounded Dataset for Spatial Understanding with Vector Data",
+      "en": "GroundSet: A Cadastral-Grounded Dataset for Spatial Understanding with Vector Data"
+    },
+    "category": "data",
+    "url": "https://arxiv.org/abs/2603.14609",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2603.14609",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2603.14609",
+        "quote": "we introduce a large-scale dataset grounded in verifiable cadastral vector data, comprising 3.8 million annotated objects across 510k high-resolution images with 135 granular semantic categories."
+      },
+      {
+        "url": "https://arxiv.org/abs/2603.14609",
+        "quote": "high-fidelity supervision effectively bridges this gap, enabling standard architectures to master fine-grained spatial grounding without complex architectural modifications."
+      }
+    ],
+    "notes": {
+      "zh": "问题：遥感多模态模型在细粒度空间理解上很弱，根因是依赖有限或改用途的旧数据集，标签不可核验。\n证据位置：摘要给出以地籍矢量数据为真值的 380 万标注对象、51 万张高分辨率影像、135 个细粒度语义类；用 7 个空间推理任务做指令微调基准；标准 LLaVA 架构在高保真监督下能学会细粒度空间 grounding，而遥感专用与商用模型零样本仍吃力。\n作者自陈局限：地籍数据有地域与行政体系偏差；135 类不等于通用地理本体；只用 LLaVA 做基线，未扫更多架构；数据许可与敏感地籍信息需逐地区核；没有真实灾害/城市规划下游验证。\n它没主张的：不是通用遥感大模型；不是“数据规模解决一切”；不是所有国家都能拿到同等矢量真值。",
+      "en": "Problem: remote-sensing multimodal models are weak at fine-grained spatial understanding because they rely on limited or repurposed legacy datasets whose labels cannot be verified.\nWhere the evidence sits: 3.8 million annotated objects over 510k high-resolution images and 135 fine-grained semantic categories, grounded in cadastral vector data; a seven-task instruction-tuning benchmark shows a standard LLaVA architecture can learn fine-grained spatial grounding under high-fidelity supervision, while RS-specialised and commercial models still struggle zero-shot.\nWhat the authors say about limits: cadastral data carries regional and administrative bias; 135 categories are not a universal geographic ontology; only LLaVA is used as baseline, not a broader architecture sweep; data licences and sensitive cadastral information need per-region checks; no downstream disaster or urban-planning validation.\nWhat it does not claim: a general remote-sensing model; that scale alone solves everything; that every country can obtain equivalent vector ground truth."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "规模 / size": "380 万对象 / 51 万影像",
+      "类目 / categories": "135 个细粒度语义类",
+      "任务 / tasks": "7 个空间推理任务",
+      "基线 / baseline": "LLaVA",
+      "证据位置 / evidence": "摘要；v2",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "inference-control-plane-2026",
+    "title": {
+      "zh": "From Inference Engine to Inference Control Plane: Connecting vLLM, llm-d, and the Evolution of Efficient Distributed LLM Serving",
+      "en": "From Inference Engine to Inference Control Plane: Connecting vLLM, llm-d, and the Evolution of Efficient Distributed LLM Serving"
+    },
+    "category": "systems",
+    "url": "https://arxiv.org/abs/2609.23130",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2609.23130",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2609.23130",
+        "quote": "The contribution is synthesis rather than a new benchmark; all reported performance and deployment results remain attributed to their original sources."
+      },
+      {
+        "url": "https://arxiv.org/abs/2609.23130",
+        "quote": "We propose an Inference Execution Planner that selects feasible execution plans rather than only endpoints, including aggregated versus disaggregated topology, KV source and transfer action, hardware variant, routing/admission policy, and slower scaling decisions."
+      }
+    ],
+    "notes": {
+      "zh": "问题：LLM 推理正从“引擎内优化”变成“跨集群的分布式控制”：可复用状态、阶段放置、异构加速器、网络、自动扩缩、可靠性和 SLO 都要一起管。\n证据位置：摘要明确这是综述/研究议程，不是新基准；把 vLLM（PagedAttention、连续批处理、kernel、量化、并行）与 llm-d（控制面）视为互补层，提出 Inference Execution Planner 选择聚合/分离拓扑、KV 来源与传输、硬件变体、路由/准入和扩缩策略；所有性能数字均归原出处。\n作者自陈局限：没有新实验测量；结论依赖被引系统的公开数据与生产报告；控制面抽象仍缺统一接口与故障模型；SLO-goodput 评估框架尚未在真实集群验证。\n它没主张的：不是 vLLM/llm-d 的性能对比；不是一套可直接部署的调度器；不是“控制面一定优于引擎优化”。",
+      "en": "Problem: LLM inference is shifting from engine-local optimisation to distributed control over reusable state, phase placement, heterogeneous accelerators, networking, autoscaling, reliability and SLOs.\nWhere the evidence sits: explicitly a synthesis and research agenda, not a new benchmark; vLLM (PagedAttention, continuous batching, kernels, quantisation, parallelism) and llm-d (control plane) are treated as complementary layers; an Inference Execution Planner selects aggregated vs disaggregated topology, KV source and transfer, hardware variant, routing/admission and scaling policy; every performance number stays attributed to its original source.\nWhat the authors say about limits: no new experimental measurements; conclusions rest on cited public data and production reports; the control-plane abstraction still lacks a unified interface and failure model; the SLO-goodput evaluation framework is not validated on a real cluster.\nWhat it does not claim: a vLLM vs llm-d performance comparison; a deployable scheduler; that a control plane always beats engine-level optimisation."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "类型 / type": "综述 + 研究议程",
+      "层 / layers": "vLLM 引擎 + llm-d 控制面",
+      "规划 / planner": "拓扑 / KV / 硬件 / 路由 / 扩缩",
+      "新测量 / new measurements": "无",
+      "证据位置 / evidence": "摘要；17 页 5 图 5 表",
+      "复现状态 / reproduction": "不适用"
+    }
+  },
+  {
+    "id": "rtp-llm-2026",
+    "title": {
+      "zh": "RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale",
+      "en": "RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale"
+    },
+    "category": "systems",
+    "url": "https://arxiv.org/abs/2611.00967",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2611.00967",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2611.00967",
+        "quote": "RTP-LLM has evolved from an exploratory system into a shared production engine that supports \\sim100 models and processes hundreds of trillions of tokens per day."
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.00967",
+        "quote": "Its architecture separates model-specific execution from shared request processing, state management, and resource coordination."
+      }
+    ],
+    "notes": {
+      "zh": "问题：模型与推理技术快速演进，模型接入成了反复发生的生产任务，而不是一次性集成；共享推理基础设施要在异构生产环境里同时保持可演进与可靠。\n证据位置：摘要给出阿里开源生产引擎 RTP-LLM，把模型相关执行与共享请求处理、状态管理、资源协调分离；显式接口把兼容改动局部化；已支持约 100 个模型，每天处理数百万亿 token；论文描述架构与生产实践如何吸收模型演进、隔离故障影响。\n作者自陈局限：是生产系统报告，不是受控基准；约 100 模型/每日数百万亿 token是阿里内部口径；硬件与网络拓扑细节有限；开源版本与内部部署可能不同；没有与 vLLM/SGLang 的同等条件对比。\n它没主张的：不是最快引擎；不是通用部署配方；不是“分离架构一定优于单体”。",
+      "en": "Problem: models and inference techniques evolve quickly, so model enablement is a recurring production task rather than one-time integration; shared inference infrastructure must stay evolvable and reliable across heterogeneous production environments.\nWhere the evidence sits: Alibaba’s open-source production engine RTP-LLM separates model-specific execution from shared request processing, state management and resource coordination; explicit interfaces localise compatible changes; it supports roughly 100 models and processes hundreds of trillions of tokens per day; the paper describes how architecture and production practice absorb model evolution and contain failure impact.\nWhat the authors say about limits: a production system report, not a controlled benchmark; ~100 models and hundreds of trillions of tokens per day are Alibaba-internal figures; hardware and network topology detail is limited; the open-source release may differ from internal deployment; no equal-condition comparison with vLLM or SGLang.\nWhat it does not claim: the fastest engine; a universal deployment recipe; that a separated architecture always beats a monolith."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "部署 / deployment": "阿里共享生产引擎",
+      "模型 / models": "约 100 个",
+      "吞吐 / volume": "每日数百万亿 token",
+      "架构 / architecture": "模型执行与共享服务分离",
+      "证据位置 / evidence": "摘要",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "obm-2026",
+    "title": {
+      "zh": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving",
+      "en": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving"
+    },
+    "category": "systems",
+    "url": "https://arxiv.org/abs/2611.17097",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2611.17097",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2611.17097",
+        "quote": "We propose Optical Broadcast Memory (OBM), an open-ended hierarchical Tap-and-Amplify fiber architecture that generalizes and replaces the optical ring paradigm."
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.17097",
+        "quote": "Evaluated at a datacenter scale of 80,000 accelerators, OBM eliminates petabytes of HBM while being competitive or better in throughput and energy per token than an HBM-based system."
+      }
+    ],
+    "notes": {
+      "zh": "问题：数据中心 LLM 推理被显存容量与带宽卡住；权重只读且各实例相同，却在数万张加速卡的本地 DRAM 里重复存放，带来资本开支、静态功耗与重复取数能耗。\n证据位置：摘要提出 Optical Broadcast Memory（OBM）：中心内存服务器持续广播权重，推理节点用只接收的共封装光学器件被动分接，参数直接送到计算单元、不经中间缓冲；用动态 slack 适配长且变化的上下文，并说明如何服务 MoE；在 8 万加速卡规模评估，去掉 PB 级 HBM，吞吐与每 token 能耗与 HBM 系统相当或更好。\n作者自陈局限：是架构与规模模拟，不是已建成数据中心；依赖共封装光学与光纤广播的工程成熟度；故障域从单机变成中心内存服务器，可靠性/维护未展开；8 万卡假设与真实负载、网络拓扑仍有距离；没有成本模型细项。\n它没主张的：不是现有集群的改造方案；不是“HBM 无用”；不是已经商用。",
+      "en": "Problem: datacenter LLM inference is bottlenecked by memory capacity and bandwidth; weights are read-only and identical across instances yet replicated in local DRAM on tens of thousands of accelerators, incurring capex, static power and redundant fetch energy.\nWhere the evidence sits: Optical Broadcast Memory (OBM) has a central memory server continuously broadcast weights that inference nodes passively tap with receive-only co-packaged optics, delivering parameters directly to compute units without intermediate buffering; dynamically sized slack accommodates long and variable contexts, and the layout is shown to serve MoE models; at 80,000 accelerators it eliminates petabytes of HBM while matching or beating HBM throughput and energy per token.\nWhat the authors say about limits: an architecture and scale simulation, not a built datacenter; depends on co-packaged optics and fibre-broadcast engineering maturity; the failure domain moves from a single node to the central memory server, with reliability and maintenance not detailed; the 80k-accelerator assumption is still far from real workloads and topologies; no itemised cost model.\nWhat it does not claim: a retrofit for existing clusters; that HBM is useless; that it is commercially available."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "规模 / scale": "8 万加速卡（模拟）",
+      "核心 / method": "光纤广播权重，节点被动分接",
+      "收益 / gain": "去掉 PB 级 HBM；吞吐/能耗持平或更好",
+      "状态 / status": "架构评估，未建成",
+      "证据位置 / evidence": "摘要",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "locate-steer-improve-2026",
+    "title": {
+      "zh": "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models",
+      "en": "Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models"
+    },
+    "category": "interpretability",
+    "url": "https://arxiv.org/abs/2601.14004",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2601.14004",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2601.14004",
+        "quote": "we present a practical survey structured around the pipeline: \"Locate, Steer, and Improve.\""
+      },
+      {
+        "url": "https://arxiv.org/abs/2601.14004",
+        "quote": "we demonstrate how this framework enables tangible improvements in Alignment, Capability, and Efficiency, effectively operationalizing MI as an actionable methodology for model optimization."
+      }
+    ],
+    "notes": {
+      "zh": "问题：现有机制可解释性综述多把 MI 当观察科学，总结分析洞见，却缺一套可执行干预框架。\n证据位置：摘要把综述结构化为“Locate（诊断）→ Steer（干预）→ Improve（优化）”，按可解释对象形式化分类定位与操控方法，并展示该框架如何在对齐、能力、效率上带来可度量改进；附带精选论文列表。\n作者自陈局限：是综述，不是新实验；覆盖以 Transformer LLM 为主；干预效果依赖模型与任务，综述难以统一比较；论文列表有时效性；未系统讨论安全/滥用风险。\n它没主张的：不是“MI 已能完全解释 LLM”；不是一套通用工具链；不是所有干预都能稳定提升。",
+      "en": "Problem: existing mechanistic-interpretability reviews treat MI as an observational science, summarising insights without a systematic framework for actionable intervention.\nWhere the evidence sits: the survey is structured as Locate (diagnosis) → Steer (intervention) → Improve (optimisation), formally categorises localising and steering methods by interpretable object, and shows how the framework enables measurable gains in alignment, capability and efficiency; a curated paper list accompanies it.\nWhat the authors say about limits: a survey, not new experiments; coverage centres on Transformer LLMs; intervention effects depend on model and task and are hard to compare across a survey; the paper list ages; safety and misuse risks are not systematically discussed.\nWhat it does not claim: that MI fully explains LLMs; a universal toolchain; that every intervention improves stably."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "类型 / type": "综述",
+      "框架 / framework": "Locate → Steer → Improve",
+      "目标 / targets": "对齐 / 能力 / 效率",
+      "证据位置 / evidence": "摘要；v4",
+      "复现状态 / reproduction": "不适用"
+    }
+  },
+  {
+    "id": "interpreting-parameters-2026",
+    "title": {
+      "zh": "Interpreting Language Model Parameters",
+      "en": "Interpreting Language Model Parameters"
+    },
+    "category": "interpretability",
+    "url": "https://arxiv.org/abs/2610.20748",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2610.20748",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2610.20748",
+        "quote": "The method, adVersarial Parameter Decomposition (VPD), optimizes for decompositions of neural network parameters into simple subcomponents that preserve the network's input-output behavior even when many subcomponents are ablated"
+      },
+      {
+        "url": "https://arxiv.org/abs/2610.20748",
+        "quote": "we study how sequences of interactions between these parameter subcomponents produce the network's output on particular inputs, enabling a new kind of 'circuit' analysis."
+      }
+    ],
+    "notes": {
+      "zh": "问题：机制可解释性在中间表示上找到不少结构，但对“参数与非线性如何在这些表示上计算”进展很少。\n证据位置：摘要提出 adVersarial Parameter Decomposition（VPD），把语言模型参数分解为各自只实现算法一小部分的子组件，同时要求少量子组件就能解释网络在任一输入上的行为；优化目标是在大量子组件被消融（包括对抗性选择消融）时仍保持输入输出行为；用子组件间交互序列做一种新的“电路”分析。\n作者自陈局限：124 页、47 图，工程量大；方法仍是研究工具，未证明可扩展到前沿规模；子组件的“简单/忠实”由优化目标定义，解释性仍依赖人工判读；对抗消融的评估成本高；没有下游编辑任务的系统验证。\n它没主张的：不是完整电路发现；不是可直接用于生产的模型编辑；不是所有参数都能被干净分解。",
+      "en": "Problem: mechanistic interpretability has found structure in intermediate representations but little progress on how parameters and nonlinearities compute over them.\nWhere the evidence sits: adVersarial Parameter Decomposition (VPD) decomposes parameters into subcomponents that each implement a small part of the learned algorithm, while requiring only a small fraction to account for behaviour on any input; the objective preserves input-output behaviour under many ablations, including adversarially selected ones; sequences of subcomponent interactions enable a new kind of circuit analysis.\nWhat the authors say about limits: 124 pages and 47 figures make it a heavy research tool; not shown to scale to frontier models; “simple and faithful” is defined by the objective and still needs human reading; adversarial ablation is expensive to evaluate; no systematic validation on downstream editing tasks.\nWhat it does not claim: complete circuit discovery; a production model-editing method; that every parameter decomposes cleanly."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "规模 / length": "124 页 / 47 图",
+      "方法 / method": "VPD 参数分解",
+      "评估 / eval": "对抗消融下保持行为",
+      "证据位置 / evidence": "摘要",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "mi-agent-failures-2026",
+    "title": {
+      "zh": "Can Mechanistic Interpretability Help Explain LLM Agent Failures? A Case Study on Web Element Hallucination",
+      "en": "Can Mechanistic Interpretability Help Explain LLM Agent Failures? A Case Study on Web Element Hallucination"
+    },
+    "category": "interpretability",
+    "url": "https://arxiv.org/abs/2611.18514",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2611.18514",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2611.18514",
+        "quote": "We find that a linear probe trained on the last prompt token can predict hallucinations before generation begins (0.80 AUC) and steering along a probe direction corrects 85\\% of hallucinations, but disrupts 7\\% of valid actions."
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.18514",
+        "quote": "The probe direction is sensitive to prompt formatting, losing much of its steering effect after a minor change to how actions are represented."
+      }
+    ],
+    "notes": {
+      "zh": "问题：MI 在解释 LLM 内部计算上进展明显，但在解释 LLM 智能体决策失败上还没证明同等有效。\n证据位置：摘要聚焦网页智能体“幻觉出不存在的操作”，对 Qwen2.5-7B-Instruct 在真实网站交互做一系列机制分析；最后提示 token 上训练的线性探针可在生成前预测幻觉（0.80 AUC），沿探针方向操控能纠正 85% 幻觉，但破坏 7% 的有效操作。\n作者自陈局限：探针方向对 prompt 格式敏感，动作表示稍改就丢掉大部分操控效果；电路识别困难，计算分散在多个组件与位置，依赖信息随样本变化；只测一个 7B 模型与网页场景；0.80 AUC/85% 是离线探针结果，不等于生产可用的实时防护。\n它没主张的：不是通用智能体失败解释器；不是“探针可解决幻觉”；不是电路方法在智能体上已成熟。",
+      "en": "Problem: MI has progressed in explaining internal LLM computation but has not demonstrated comparable success in explaining LLM-agent decision failures.\nWhere the evidence sits: the case study targets web agents hallucinating unavailable actions, applying mechanistic analyses to Qwen2.5-7B-Instruct on live websites; a linear probe on the last prompt token predicts hallucination before generation (0.80 AUC), and steering along the probe direction corrects 85% of hallucinations while disrupting 7% of valid actions.\nWhat the authors say about limits: the probe direction is sensitive to prompt formatting and loses most steering effect after a minor change in action representation; circuit identification is difficult because computation is spread across components and positions and the relied-on information varies by example; one 7B model and one web setting; 0.80 AUC/85% are offline probe results, not a production real-time guard.\nWhat it does not claim: a general agent-failure explainer; that probes solve hallucination; that circuit methods are mature for agents."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "模型 / model": "Qwen2.5-7B-Instruct",
+      "场景 / setting": "真实网站网页智能体",
+      "探针 / probe": "0.80 AUC 预判幻觉",
+      "操控 / steering": "纠正 85% 幻觉；破坏 7% 有效动作",
+      "证据位置 / evidence": "摘要",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "scalevla-2026",
+    "title": {
+      "zh": "ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters",
+      "en": "ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters"
+    },
+    "category": "robotics",
+    "url": "https://arxiv.org/abs/2611.21607",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2611.21607",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2611.21607",
+        "quote": "We introduce ScaleVLA, which connects a 552B DeepSeek-V4.1-Flash backbone to a trainable action DiT, and systematically compare VLMs from 2B to 552B under a shared training setup."
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.21607",
+        "quote": "Despite its scale, ScaleVLA achieves 216 ms median latency per action chunk."
+      }
+    ],
+    "notes": {
+      "zh": "问题：前沿 VLM 已显示机器人控制潜力，但多数 VLA 策略仍用很小的 VLM 骨干，没吃到规模红利。\n证据位置：摘要把 552B DeepSeek-V4.1-Flash 骨干接到可训练 action DiT，在统一训练设置下比较 2B–552B；样本效率上 10 条示范超过 2B 用 50 条（87.8% vs 85.6%）；LIBERO-PRO 成功率 45.1%，小骨干最多 31.3%；真实充电器插入从 4/10 到 9/10；每 action chunk 中位延迟 216 ms。\n作者自陈局限：552B 训练/推理成本极高，不是普通实验室可复现；只测三类能力与有限任务；216 ms 中位延迟是否满足高频控制仍未展开；依赖 DeepSeek-V4.1-Flash 权重与许可；真实世界任务数量少。\n它没主张的：不是通用机器人基础模型；不是“参数越大越好”；不是实时闭环控制已达标。",
+      "en": "Problem: frontier VLMs show robot-control potential, but most VLA policies still use much smaller VLM backbones and leave that scale untapped.\nWhere the evidence sits: a 552B DeepSeek-V4.1-Flash backbone is connected to a trainable action DiT and compared with 2B–552B under one training setup; 10 demonstrations beat a 2B backbone trained on 50 (87.8% vs 85.6%); LIBERO-PRO reaches 45.1% versus at most 31.3% for smaller backbones; real charger insertion rises from 4/10 to 9/10; median latency is 216 ms per action chunk.\nWhat the authors say about limits: 552B training and inference are prohibitively expensive and not reproducible in an ordinary lab; only three capability families and a limited task set are tested; whether 216 ms meets high-frequency control is not analysed; depends on DeepSeek-V4.1-Flash weights and licence; few real-world tasks.\nWhat it does not claim: a general robot foundation model; that bigger is always better; that real-time closed-loop control is solved."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "骨干 / backbone": "552B DeepSeek-V4.1-Flash",
+      "对比 / compare": "2B–552B 统一训练",
+      "LIBERO-PRO": "45.1%（小骨干 ≤31.3%）",
+      "延迟 / latency": "216 ms / action chunk",
+      "代码 / code": "GalaxyGeneralRobotics/ScaleVLA",
+      "证据位置 / evidence": "摘要；Tech Report",
+      "复现状态 / reproduction": "未复现"
+    },
+    "codeUrl": "https://github.com/GalaxyGeneralRobotics/ScaleVLA"
+  },
+  {
+    "id": "qwen-vla-2026",
+    "title": {
+      "zh": "Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments",
+      "en": "Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments"
+    },
+    "category": "robotics",
+    "url": "https://arxiv.org/abs/2605.30280",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2605.30280",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2605.30280",
+        "quote": "We present Qwen-VLA, a unified embodied foundation model that extends Qwen's vision-language modeling stack from perception, understanding, and reasoning to continuous action and trajectory generation through a DiT-based action decoder."
+      },
+      {
+        "url": "https://arxiv.org/abs/2605.30280",
+        "quote": "Qwen-VLA-Instruct achieves 97.9% on LIBERO, 73.7% on Simpler-WidowX, 86.1%/87.2% on RoboTwin-Easy/Hard, 69.0% OSR on R2R, 59.6% SR on RxR, 76.9% average OOD success in real-world ALOHA experiments, and 26.6% zero-shot success on DOMINO dynamic manipulation."
+      }
+    ],
+    "notes": {
+      "zh": "问题：具身智能常按任务训专用模型（操作、导航各一套），能力碎片化，跨任务/环境/本体泛化有限。\n证据位置：摘要给出 Qwen-VLA，把 Qwen 视觉语言栈经 DiT action decoder 扩到连续动作与轨迹；联合预训练覆盖机器人操作轨迹、人类第一视角示范、仿真、VLN、轨迹监督与辅助视觉语言数据；用 embodiment-aware prompt 指定本体与控制约定；LIBERO 97.9%、Simpler-WidowX 73.7%、RoboTwin 86.1/87.2、R2R OSR 69.0%、RxR SR 59.6%、ALOHA 真实 OOD 均 76.9%、DOMINO 零样本 26.6%。\n作者自陈局限：数据混合与本体描述是强依赖，换本体要改 prompt；真实实验集中在 ALOHA 与有限任务；DOMINO 零样本 26.6% 仍低；34 页报告，训练细节与数据许可需回原文；没有长期自主运行验证。\n它没主张的：不是所有机器人都零样本可用；不是单一模型取代导航/操作专用栈；不是 97.9% 等于真实世界 97.9%。",
+      "en": "Problem: embodied intelligence is often split into task-specific models for manipulation and navigation, fragmenting capabilities and limiting generalisation across tasks, environments and embodiments.\nWhere the evidence sits: Qwen-VLA extends Qwen’s vision-language stack through a DiT action decoder to continuous actions and trajectories; joint pretraining spans robot manipulation, human egocentric demonstrations, simulation, VLN, trajectory supervision and auxiliary vision-language data; embodiment-aware prompts specify the robot and control convention; results include 97.9% LIBERO, 73.7% Simpler-WidowX, 86.1/87.2 RoboTwin, 69.0% R2R OSR, 59.6% RxR SR, 76.9% real ALOHA OOD and 26.6% zero-shot DOMINO.\nWhat the authors say about limits: the data mixture and embodiment description are strong dependencies, so a new body needs a new prompt; real experiments centre on ALOHA and a limited task set; 26.6% zero-shot DOMINO is still low; a 34-page report means training details and data licences need the original; no long-term autonomous operation is validated.\nWhat it does not claim: zero-shot usability on any robot; that one model replaces dedicated navigation/manipulation stacks; that 97.9% LIBERO equals 97.9% in the real world."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "统一 / scope": "操作 + 导航 + 轨迹",
+      "解码 / decoder": "DiT action decoder",
+      "LIBERO": "97.9%",
+      "真实 OOD / real OOD": "ALOHA 均 76.9%",
+      "零样本 / zero-shot": "DOMINO 26.6%",
+      "代码 / code": "QwenLM/Qwen-VLA",
+      "证据位置 / evidence": "摘要；34 页",
+      "复现状态 / reproduction": "未复现"
+    },
+    "codeUrl": "https://github.com/QwenLM/Qwen-VLA"
+  },
+  {
+    "id": "rynnvla-latent-2026",
+    "title": {
+      "zh": "RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions",
+      "en": "RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions"
+    },
+    "category": "robotics",
+    "url": "https://arxiv.org/abs/2610.34356",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2610.34356",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2610.34356",
+        "quote": "We apply RynnLAM to 30.1K hours of human, robot, and simulation videos, producing 745.52M latent-action descriptors."
+      },
+      {
+        "url": "https://arxiv.org/abs/2610.34356",
+        "quote": "The resulting 4B policy achieves 98.8% success on LIBERO, 84.7% on LIBERO-Plus without benchmark-specific adaptation"
+      }
+    ],
+    "notes": {
+      "zh": "问题：VLA 扩展受限于动作标注示范稀缺、不同本体控制空间不兼容；大量异质交互视频有视觉变化却无原生动作标签。\n证据位置：摘要给出 RynnLAM 从视觉转移学连续、3D-grounded latent action，不需原生机器人控制；结合残差未来特征预测、相机补偿 3D-flow 监督与相机运动解耦；在 30.1K 小时人类/机器人/仿真视频上产出 745.52M latent-action 描述；4B 策略 LIBERO 98.8%、LIBERO-Plus 84.7%、VLABench 五轨均 51.9%、RoboTwin 2.0 双臂 88.6%，并在六个真实任务上领先。\n作者自陈局限：latent action 从视频推断，接触力/本体动力学信息有限；30.1K 小时数据与 745M 描述规模成本高；4B 策略真实部署延迟未报；六个真实任务覆盖有限；代码/项目页已给出但训练数据未必全开放。\n它没主张的：不是无标签就能替代全部真实示范；不是所有视频都适用；不是 98.8% LIBERO 等于真实操作可靠性。",
+      "en": "Problem: VLA scaling is constrained by scarce action-labelled demonstrations and incompatible control spaces across embodiments; heterogeneous interaction video contains visual change but no native action labels.\nWhere the evidence sits: RynnLAM learns continuous, 3D-grounded latent actions from visual transitions without native robot control, combining residual future-feature prediction, camera-compensated 3D-flow supervision and camera-motion decoupling; 30.1K hours of human, robot and simulation video yield 745.52M latent-action descriptors; the 4B policy reaches 98.8% LIBERO, 84.7% LIBERO-Plus, 51.9% average over five VLABench tracks and 88.6% RoboTwin 2.0 bimanual, leading on six real tasks.\nWhat the authors say about limits: latent actions inferred from video carry limited contact-force and body-dynamics information; 30.1K hours and 745M descriptors are costly; real deployment latency for the 4B policy is not reported; six real tasks are a narrow set; code and project page exist but training data may not be fully open.\nWhat it does not claim: that unlabelled video replaces all real demonstrations; that every video works; that 98.8% LIBERO equals real manipulation reliability."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "数据 / data": "30.1K 小时视频 / 745.52M 描述",
+      "策略 / policy": "4B",
+      "LIBERO": "98.8% / LIBERO-Plus 84.7%",
+      "真实 / real": "RoboTwin 2.0 88.6%",
+      "代码 / code": "alibaba-damo-academy/RynnVLA-Latent",
+      "证据位置 / evidence": "摘要；v2",
+      "复现状态 / reproduction": "未复现"
+    },
+    "codeUrl": "https://github.com/alibaba-damo-academy/RynnVLA-Latent"
+  },
+  {
+    "id": "bernini-2026",
+    "title": {
+      "zh": "Bernini: Latent Semantic Planning for Video Diffusion",
+      "en": "Bernini: Latent Semantic Planning for Video Diffusion"
+    },
+    "category": "generative-media",
+    "url": "https://arxiv.org/abs/2605.22344",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2605.22344",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2605.22344",
+        "quote": "An MLLM-based planner predicts the target semantic representation directly in the ViT embedding space, and a DiT-based renderer synthesizes pixels conditioned on this plan"
+      },
+      {
+        "url": "https://arxiv.org/abs/2605.22344",
+        "quote": "Bernini achieves state-of-the-art performance across a wide range of video generation and editing benchmarks"
+      }
+    ],
+    "notes": {
+      "zh": "问题：多模态 LLM 擅长语义推理，扩散模型擅长像素保真，但两者各做各的；视频生成/编辑仍缺“先规划语义、再渲染像素”的分工。\n证据位置：摘要提出 Bernini，MLLM planner 直接在 ViT embedding 空间预测目标语义表示，DiT renderer 以该计划、文本特征和（编辑时的）源 VAE 特征为条件合成像素；语义作为接口，planner 与 renderer 可分开训练、轻度联合；引入 SA-3D RoPE 处理多视觉输入，并在 planner 中加入 CoT；论文称在多项生成/编辑基准达 SOTA。\n作者自陈局限：MLLM planner 与 DiT renderer 都很大，训练/推理成本高；语义接口的“可解释”不等于可控；SOTA 声明依赖其基准选择；编辑任务对源 VAE 特征依赖强；没有长视频/实时性报告。\n它没主张的：不是通用视频编辑器；不是“语义计划一定比像素扩散好”；不是开源可商用（许可需核）。",
+      "en": "Problem: multimodal LLMs reason over semantics and diffusion models render pixels, but the two families remain separate; video generation and editing lack a division of labour between semantic planning and rendering.\nWhere the evidence sits: Bernini’s MLLM planner predicts the target semantic representation directly in ViT embedding space, and a DiT renderer synthesises pixels conditioned on that plan plus text features and, for editing, source VAE features; semantics act as the interface so planner and renderer train separately with light co-training; SA-3D RoPE handles multiple visual inputs and CoT is added to the planner; the paper reports state of the art on several generation and editing benchmarks.\nWhat the authors say about limits: both planner and renderer are large, so training and inference are costly; an interpretable semantic interface is not the same as controllable output; SOTA depends on the chosen benchmarks; editing relies heavily on source VAE features; no long-video or real-time reporting.\nWhat it does not claim: a general video editor; that semantic planning always beats pixel-space diffusion; that it is open-source or commercially usable without checking the licence."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "分工 / split": "MLLM planner + DiT renderer",
+      "接口 / interface": "ViT embedding 语义",
+      "编辑 / editing": "源 VAE 特征 + SA-3D RoPE",
+      "证据位置 / evidence": "摘要；v2",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "diff-vf-2026",
+    "title": {
+      "zh": "Diff-VF: Training-free High-quality Long Video Generation via Diffusion Model",
+      "en": "Diff-VF: Training-free High-quality Long Video Generation via Diffusion Model"
+    },
+    "category": "generative-media",
+    "url": "https://arxiv.org/abs/2608.05976",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2608.05976",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2608.05976",
+        "quote": "we propose Diff-VF, a training-free, plug-and-play and model-agnostic framework that converts existing short-video diffusion backbones into long-video generators without modifying or fine-tuning the base model."
+      },
+      {
+        "url": "https://arxiv.org/abs/2608.05976",
+        "quote": "Diff-VF achieves a more favorable balance between temporal coherence and motion diversity than base models and recent training-free long video generation baselines, including FreeNoise, FreeLong, and RIFLEx"
+      }
+    ],
+    "notes": {
+      "zh": "问题：多数视频扩散模型只用短视频训练，外推到长视频时退化：长时间一致性保不住，动作多样性也丢。\n证据位置：摘要提出 Diff-VF，免训练、即插即用、模型无关，把现成短视频骨干变长视频生成器，不改/不微调基座；三个策略：Hybrid Noise Initialization 约束全局语义、Weighted Window Sampling 消除窗口接缝、Temporal Extended Sampling 用随 timestep 变化的融合建立长程依赖；再用 Skip Residual Guidance 做长视频增强；VBench-Long 上在时序一致性与动作多样性之间比 FreeNoise/FreeLong/RIFLEx 更均衡，并在两个基座验证。\n作者自陈局限：仍是推理期技巧，不增加模型知识；窗口/融合超参依赖基座；VBench-Long 是自动指标，缺人类偏好；长视频长度上限未给；没有实时性/显存报告。\n它没主张的：不是新的长视频训练方法；不是所有基座都同等受益；不是超越专门训练的长视频模型。",
+      "en": "Problem: most video diffusion models are trained on short clips and degrade when extrapolated to long video, losing long-range temporal coherence or motion diversity.\nWhere the evidence sits: Diff-VF is training-free, plug-and-play and model-agnostic, turning existing short-video backbones into long-video generators without modifying or fine-tuning them; Hybrid Noise Initialization constrains global semantics, Weighted Window Sampling removes inter-window seams, and Temporal Extended Sampling builds long-range dependencies with timestep-varying fusion; Skip Residual Guidance extends it to enhancement; on VBench-Long it balances coherence and motion diversity better than FreeNoise, FreeLong and RIFLEx across two base models.\nWhat the authors say about limits: an inference-time technique that adds no model knowledge; window and fusion hyperparameters depend on the backbone; VBench-Long is automatic and lacks human preference; the maximum length is not stated; no latency or VRAM reporting.\nWhat it does not claim: a new long-video training method; that every backbone benefits equally; that it beats purpose-trained long-video models."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "类型 / type": "免训练 / 即插即用",
+      "策略 / strategies": "HNI + WWS + TES",
+      "基座 / backbones": "两个短视频扩散模型",
+      "评测 / eval": "VBench-Long",
+      "证据位置 / evidence": "摘要；TOMM 接收",
+      "复现状态 / reproduction": "未复现"
+    }
+  },
+  {
+    "id": "mobilewan-2026",
+    "title": {
+      "zh": "MobileWan: Closing the Quality Gap for Mobile Video Diffusion",
+      "en": "MobileWan: Closing the Quality Gap for Mobile Video Diffusion"
+    },
+    "category": "generative-media",
+    "url": "https://arxiv.org/abs/2607.06173",
+    "license": {
+      "kind": "arxiv-preprint",
+      "evidenceUrl": "https://arxiv.org/abs/2607.06173",
+      "checkedAt": "2026-11-21"
+    },
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2607.06173",
+        "quote": "MobileWan becomes the first 5B-scale video diffusion model deployable on a commercial mobile device."
+      },
+      {
+        "url": "https://arxiv.org/abs/2607.06173",
+        "quote": "Our system generates 5-second 480x832 videos at 16 FPS in 20 seconds end-to-end latency, achieving a VBench score of 83.79"
+      }
+    ],
+    "notes": {
+      "zh": "问题：视频扩散靠把 Transformer 扩到数十亿参数提升画质，但移动端模型仍困在 0.4–1.8B 参数，质量上不去。\n证据位置：摘要反过来主张“高质量移动生成不必小模型”：从 Wan2.2-5B 出发，用递归蒸馏把生成改成 chunk 级自回归、常数显存注意力；结合因果线性注意力，推理时像 RNN 且保持跨 chunk 时序；再用二值 per-head gate 的可学习注意力头剪枝（噪声偏置稀疏目标 + 蒸馏微调）、采样步蒸馏与显存优化 VAE 解码；首款 5B 级商用手机可部署，5 秒 480×832、16 FPS、端到端 20 秒，VBench 83.79。\n作者自陈局限：依赖 Qualcomm 硬件与特定推理栈；5 秒/480×832 是较小规格；20 秒端到端不等于交互式；VBench 83.79 是自动分；训练蒸馏管线复杂；真实手机型号/内存门槛未在摘要给全。\n它没主张的：不是通用移动视频模型；不是 5B 一定优于小模型；不是所有手机都能跑。",
+      "en": "Problem: video diffusion has improved by scaling transformer architectures to billions of parameters, while mobile models remain limited to 0.4–1.8B and lag in quality.\nWhere the evidence sits: starting from Wan2.2-5B, recurrence distillation turns generation into a chunk-wise autoregressive process with constant-memory attention; causal linear attention makes inference RNN-like while preserving cross-chunk coherence; learnable per-head binary gates prune attention heads with a noise-biased sparsity objective and distillation finetuning; with sampling-step distillation and memory-optimised VAE decoding, it is the first 5B-scale video diffusion model deployable on a commercial phone, generating 5-second 480×832 at 16 FPS in 20 seconds end-to-end with VBench 83.79.\nWhat the authors say about limits: depends on Qualcomm hardware and a specific inference stack; 5 seconds at 480×832 is a modest spec; 20 seconds end-to-end is not interactive; VBench 83.79 is automatic; the distillation pipeline is complex; the exact phone models and memory threshold are not fully given in the abstract.\nWhat it does not claim: a general mobile video model; that 5B always beats smaller models; that every phone can run it."
+    },
+    "verifiedAt": "2026-11-21",
+    "specs": {
+      "基座 / base": "Wan2.2-5B",
+      "规格 / output": "5 秒 480×832 / 16 FPS",
+      "延迟 / latency": "端到端 20 秒",
+      "VBench": "83.79",
+      "代码 / code": "Qualcomm-AI-research/MobileWan",
+      "证据位置 / evidence": "摘要；v2",
+      "复现状态 / reproduction": "未复现"
+    },
+    "codeUrl": "https://github.com/Qualcomm-AI-research/MobileWan"
   }
 ]

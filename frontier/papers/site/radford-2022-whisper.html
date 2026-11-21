@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/radford-2022-whisper.html" />
   <meta property="og:title" content="Whisper：用大规模弱监督做稳健语音识别 · AI 论文" />
   <meta property="og:description" content="问题：语音识别通常依赖大量高质量人工转写与领域内微调，换数据集就掉点；能不能用互联网上带噪的转写做弱监督，训练一个不微调也能跨数据集工作的模型？ 证据位置：数据与任务设计在 §2，模型与训练在 §3，零样本评测在 §3.x；长音频解码启发式在 §4.5（Table 7）；局限集中在 §6 Limit" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/radford-2022-whisper.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/radford-2022-whisper.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/radford-2022-whisper.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
   <h1><span data-zh>Whisper：用大规模弱监督做稳健语音识别</span><span data-en>Robust Speech Recognition via Large-Scale Weak Supervision</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：语音识别通常依赖大量高质量人工转写与领域内微调，换数据集就掉点；能不能用互联网上带噪的转写做弱监督，训练一个不微调也能跨数据集工作的模型？<br>证据位置：数据与任务设计在 §2，模型与训练在 §3，零样本评测在 §3.x；长音频解码启发式在 §4.5（Table 7）；局限集中在 §6 Limitations and Future Work，结论在 §7。<br>作者自陈局限：§6 列了五类——解码仍会重复循环、漏掉首尾词、甚至整段幻觉，§4.5 的启发式只是权宜；低资源语言数据少，很多语言不足 1,000 小时，性能差且提升路径是加数据；本文只研究了零样本，没有系统研究微调；Whisper 的稳健性有多少来自编码器、多少来自语言模型解码器仍不清楚；没有用无监督预训练或自训练等辅助目标。<br>它没主张的：没有说 Whisper 在所有语言上都接近人类——§6 明说很多语言仍很差；没有说零样本一定优于领域内微调——作者反而说高质量监督数据上微调可能更好；也没有说时间戳启发式解决了长音频问题——原文称其为 workaround，仍需更多研究。</span><span data-en>Problem: speech recognition usually depends on large high-quality human transcripts and in-domain fine-tuning, and degrades when the dataset changes; can noisy internet transcripts provide weak supervision for a model that works across datasets without fine-tuning?<br>Where the evidence sits: data and task design in Section 2, model and training in Section 3, zero-shot evaluation in 3.x; long-form decoding heuristics in 4.5 (Table 7); limitations in Section 6 and conclusion in Section 7.<br>Stated limits: Section 6 lists five — decoding can loop, drop the first or last words, or hallucinate an entire transcript, with the 4.5 heuristics merely a workaround; low-resource languages have little data, many under 1,000 hours, and perform poorly; only zero-shot transfer was studied, not fine-tuning; how much robustness comes from the encoder versus the language-model decoder is unclear; and no unsupervised pretraining or auxiliary objectives were used.<br>What it does not claim: it does not claim Whisper approaches human accuracy in all languages — Section 6 says many remain poor; it does not claim zero-shot always beats in-domain fine-tuning, suggesting the opposite where high-quality supervised data exists; and it does not claim the timestamp heuristics solve long-form audio, calling them a workaround that needs more research.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 数据；§3 模型与零样本评测；§4.5 长音频解码（Table 7）；§6 局限；§7 结论</dd></div><div><dt>规模 / scale</dt><dd>680,000 小时多语言、多任务弱监督</dd></div><div><dt>关键数字 / key numbers</dt><dd>零样本跨标准基准；多语言覆盖，低资源语言多不足 1,000 小时</dd></div><div><dt>自陈局限 / stated limits</dt><dd>重复/漏词/幻觉；低资源语言差；只研究零样本；编码器与解码器贡献不明（§6）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2212.04356" rel="noopener">https://arxiv.org/abs/2212.04356</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="brown-2020-gpt3.html"><span data-zh>Language Models are Few-Shot Learners</span><span data-en>Language Models are Few-Shot Learners</span></a></li><li><a href="deepseek-v3-2024.html"><span data-zh>DeepSeek-V3 Technical Report</span><span data-en>DeepSeek-V3 Technical Report</span></a></li><li><a href="fedus-2022-switch.html"><span data-zh>Switch Transformer：用简单稀疏路由扩到万亿参数</span><span data-en>Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

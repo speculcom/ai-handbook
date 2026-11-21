@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>买卡还是租云：三年 TCO 计算器 · 硬件算力 · Specul</title>
+  <meta name="description" content="把一次性买卡与按小时租云放进同一张三年账单：卡价、主机、功耗、电价、云价、折旧与运维，算出平衡点。" />
+  <link rel="canonical" href="https://hardware.specul.com/tco.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="买卡还是租云：三年 TCO 计算器 · 硬件算力 · Specul" />
+  <meta property="og:url" content="https://hardware.specul.com/tco.html" />
+  <meta property="og:title" content="买卡还是租云：三年 TCO 计算器 · 硬件算力 · Specul" />
+  <meta property="og:description" content="把一次性买卡与按小时租云放进同一张三年账单：卡价、主机、功耗、电价、云价、折旧与运维，算出平衡点。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://hardware.specul.com/tco.html" />
+  <link rel="alternate" hreflang="en" href="https://hardware.specul.com/tco.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://hardware.specul.com/tco.html" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=0e72a386c5db"></script>
+  <link rel="stylesheet" href="brand.css?v=0e72a386c5db" />
+  <link rel="stylesheet" href="site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"买卡还是租云：三年 TCO 计算器 · 硬件算力 · Specul","description":"把一次性买卡与按小时租云放进同一张三年账单：卡价、主机、功耗、电价、云价、折旧与运维，算出平衡点。","url":"https://hardware.specul.com/tco.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+        <a href="https://hardware.specul.com/" aria-current="page"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" aria-current="page" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container ms-page">
+  <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件清单</span><span data-en>← Back to hardware</span></a></p>
+  <h1><span data-zh>买卡，还是租云？先把三年账算出来</span><span data-en>Buy a card or rent cloud? Run the three-year numbers</span></h1>
+  <p><span data-zh>这个计算器不替你选，只把「一次性买卡」和「按小时租」放在同一张账单上。默认值是一张消费级旗舰卡 + 一台主机；换成你手上的报价即可。所有金额为美元，不含税、不含网络与机房。</span><span data-en>This calculator does not choose for you; it puts an upfront purchase and an hourly rental on the same bill. Defaults are a consumer flagship plus a host; replace them with your quotes. All amounts are USD, excluding tax, network and colocation.</span></p>
+
+  <section class="fx-entry-sec">
+    <h2><span data-zh>输入</span><span data-en>Inputs</span></h2>
+    <div class="tco-grid">
+      <label><span data-zh>卡价（美元）</span><span data-en>Card price (USD)</span><input id="tco-card" type="number" min="0" step="50" value="1999"></label>
+      <label><span data-zh>主机 / 电源 / 机箱（美元）</span><span data-en>Host, PSU, chassis (USD)</span><input id="tco-host" type="number" min="0" step="50" value="1500"></label>
+      <label><span data-zh>整机功耗（瓦）</span><span data-en>System power (W)</span><input id="tco-watt" type="number" min="0" step="10" value="600"></label>
+      <label><span data-zh>每天跑几小时</span><span data-en>Hours per day</span><input id="tco-hours" type="number" min="0" max="24" step="0.5" value="8"></label>
+      <label><span data-zh>电价（美元 / kWh）</span><span data-en>Power price (USD/kWh)</span><input id="tco-kwh" type="number" min="0" step="0.01" value="0.15"></label>
+      <label><span data-zh>云租价（美元 / GPU·小时）</span><span data-en>Cloud rate (USD/GPU-hour)</span><input id="tco-cloud" type="number" min="0" step="0.05" value="2.5"></label>
+      <label><span data-zh>折旧年限（年）</span><span data-en>Depreciation (years)</span><input id="tco-years" type="number" min="1" max="8" step="1" value="3"></label>
+      <label><span data-zh>运维 / 备件系数（每年，%）</span><span data-en>Ops / spares (% per year)</span><input id="tco-ops" type="number" min="0" step="1" value="5"></label>
+    </div>
+    <p class="fx-entry-link"><button type="button" id="tco-run" class="tco-btn"><span data-zh>重算</span><span data-en>Recalculate</span></button> <span class="t-sm"><span data-zh>改任一数字会自动重算。</span><span data-en>Any change recalculates automatically.</span></span></p>
+  </section>
+
+  <section class="fx-entry-sec">
+    <h2><span data-zh>结果</span><span data-en>Result</span></h2>
+    <div class="tco-out" id="tco-out" aria-live="polite"></div>
+    <dl class="fx-specs" id="tco-detail"></dl>
+  </section>
+
+  <section class="fx-entry-sec">
+    <h2><span data-zh>怎么读这几个数</span><span data-en>How to read the numbers</span></h2>
+    <ul class="fx-list">
+      <li><span data-zh>「买」= 卡价 + 主机 + 电费 + 运维，按年限摊；没有算残值、闲置和折旧税盾。</span><span data-en>“Buy” = card + host + power + ops over the years; residual value, idle time and tax shields are excluded.</span></li>
+      <li><span data-zh>「租」= 云价 × 每天小时 × 365 × 年限；没有算存储、出口流量与长期折扣。</span><span data-en>“Rent” = cloud rate × hours/day × 365 × years; storage, egress and long-term discounts are excluded.</span></li>
+      <li><span data-zh>「平衡点」= 每年要跑多少小时，买才不比租贵。低于它，租更省；高于它，买更省——前提是卡不闲置。</span><span data-en>“Break-even” = hours per year at which buying costs the same as renting. Below it, rent; above it, buy — provided the card is not idle.</span></li>
+      <li><span data-zh>这张账不含「时间」：自己装驱动、修环境、排队和故障排查都要人。把它折算成你的时薪，再加进买卡一侧。</span><span data-en>This bill excludes time: drivers, environments, queues and troubleshooting cost people. Price your hourly rate and add it to the buy side.</span></li>
+    </ul>
+  </section>
+</div>
+<script>
+(function(){
+  const ids=['tco-card','tco-host','tco-watt','tco-hours','tco-kwh','tco-cloud','tco-years','tco-ops'];
+  const $=(id)=>document.getElementById(id);
+  const fmt=(n)=>'$'+Math.round(n).toLocaleString('en-US');
+  function run(){
+    const card=+$('tco-card').value||0, host=+$('tco-host').value||0;
+    const watt=+$('tco-watt').value||0, hours=Math.min(24,Math.max(0,+$('tco-hours').value||0));
+    const kwh=+$('tco-kwh').value||0, cloud=+$('tco-cloud').value||0;
+    const years=Math.max(1,+$('tco-years').value||3), ops=Math.max(0,+$('tco-ops').value||0)/100;
+    const capex=card+host;
+    const annualHours=hours*365;
+    const power=capex? watt/1000*annualHours*kwh : 0;
+    const maint=capex*ops;
+    const buyTotal=capex+(power+maint)*years;
+    const rentTotal=cloud*annualHours*years;
+    const diff=rentTotal-buyTotal;
+    const breakEven=cloud>0 ? (buyTotal/years)/cloud : 0;
+    const verdict = diff>0 ? '买更省' : '租更省';
+    const verdictEn = diff>0 ? 'Buying is cheaper' : 'Renting is cheaper';
+    const zh = diff>0
+      ? '按这套假设，买比租 '+(years)+' 年省 '+fmt(diff)+'；每年跑满 '+Math.round(breakEven)+' 小时是平衡点。'
+      : '按这套假设，租比买 '+years+' 年省 '+fmt(-diff)+'；只有每年超过 '+Math.round(breakEven)+' 小时，买才划得来。';
+    const en = diff>0
+      ? 'Under these assumptions, buying saves '+fmt(diff)+' over '+years+' years; the break-even is about '+Math.round(breakEven)+' hours per year.'
+      : 'Under these assumptions, renting saves '+fmt(-diff)+' over '+years+' years; buying only pays off above about '+Math.round(breakEven)+' hours per year.';
+    $('tco-out').innerHTML='<p class="tco-verdict"><b data-zh>'+verdict+'</b><b data-en>'+verdictEn+'</b></p><p data-zh>'+zh+'</p><p data-en>'+en+'</p>';
+    $('tco-detail').innerHTML=
+      '<div><dt data-zh>买：'+years+' 年总成本</dt><dt data-en>Buy: '+years+'-year total</dt><dd>'+fmt(buyTotal)+'</dd></div>'+
+      '<div><dt data-zh>其中电费</dt><dt data-en>of which power</dt><dd>'+fmt(power*years)+'</dd></div>'+
+      '<div><dt data-zh>其中运维</dt><dt data-en>of which ops</dt><dd>'+fmt(maint*years)+'</dd></div>'+
+      '<div><dt data-zh>租：'+years+' 年总成本</dt><dt data-en>Rent: '+years+'-year total</dt><dd>'+fmt(rentTotal)+'</dd></div>'+
+      '<div><dt data-zh>平衡点（小时 / 年）</dt><dt data-en>Break-even (hours/year)</dt><dd>'+Math.round(breakEven)+'</dd></div>'+
+      '<div><dt data-zh>折合每 GPU·小时（买）</dt><dt data-en>Buy cost per GPU-hour</dt><dd>'+(annualHours?fmt(buyTotal/(annualHours*years)):'—')+'</dd></div>';
+  }
+  ids.forEach((id)=>$(id).addEventListener('input',run));
+  $('tco-run').addEventListener('click',run);
+  run();
+})();
+</script>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
+    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
+    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
+    <a href="https://hardware.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
+    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</nav>
+</body>
+</html>

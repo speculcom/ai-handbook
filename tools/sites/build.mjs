@@ -2353,6 +2353,31 @@ ${vizFor('tools')}
 
 ${partitionBar('')}
 
+    <section class="section" id="collections">
+      <div class="container">
+        <h2>${bi('五个横向集合：工具之外的“一整套”','Five cross-cutting collections')}</h2>
+        <p class="section-desc">${bi('有些需求不是单个产品能解决的：浏览器操作、长期记忆、实时语音、3D/数字人、数据标注。这五页把工具、框架与开源库按一条链路串起来，不重复写档案。', 'Some needs are not solved by one product: browser operation, long-term memory, realtime voice, 3D/avatars and data annotation. These five pages connect tools, frameworks and open-source libraries along one chain without duplicating entries.')}</p>
+        <ul class="reading-actions">
+          <li><a href="/collection-browser.html">${bi('浏览器 / 电脑操作 Agent','Browser / computer-use agents')}</a></li>
+          <li><a href="/collection-memory.html">${bi('Agent 记忆：写、读、遗忘','Agent memory: write, read, forget')}</a></li>
+          <li><a href="/collection-realtime.html">${bi('实时语音：转写、合成、打断','Realtime voice: STT, TTS, interruption')}</a></li>
+          <li><a href="/collection-3d.html">${bi('3D 与数字人：几何、驱动、口播','3D and avatars: geometry, driving, talking heads')}</a></li>
+          <li><a href="/collection-annotation.html">${bi('数据标注：图像、视频、3D','Data annotation: image, video, 3D')}</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="cost-entry">
+      <div class="container">
+        <h2>${bi('先算一笔账，再选方案', 'Cost it before you choose')}</h2>
+        <p class="section-desc">${bi('同一个任务，云端调用、本地运行与视频按秒计费是三套完全不同的成本结构。计算器不替你猜单价：把合同价或官方计费页的价格填进去，分别算出每组假设，再比较。', 'The same job has three different cost structures: cloud calls, local running and per-second video. The calculator does not guess rates: enter contract or official billing prices, compute each group separately, then compare.')}</p>
+        <ul class="reading-actions">
+          <li><a href="/mcp/guides/cost-control.html#cost-workbench">${bi('打开成本工作台（四组独立计算）', 'Open the cost workbench (four independent groups)')}</a></li>
+          <li><a href="/mcp/guides/cost-control.html">${bi('先读成本控制指南：哪些费用常被漏算', 'Read the cost-control guide: what usually gets missed')}</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section" id="task-practice">
       <div class="container">
         <h2>${bi('带着文件练一遍','Practice with sample files')}</h2>

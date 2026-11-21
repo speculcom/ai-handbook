@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://chain.specul.com/did-resolution.html" />
   <meta property="og:title" content="DID Resolution：把标识解析成可核验文档 · 链" />
   <meta property="og:description" content="交集：AI 内容凭证与模型出处声明常用 DID 标识签发者或主体；验证者不能只看标识字符串，还要解析出 DID document 与元数据，才能找验证方法和状态信息。 适用范围：官方规范定义 DID resolution 是取得 DID document 与伴随元数据的过程，并规定 conformi" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://chain.specul.com/did-resolution.html" />
+  <link rel="alternate" hreflang="en" href="https://chain.specul.com/did-resolution.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://chain.specul.com/did-resolution.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span></div>
   <h1><span data-zh>DID Resolution：把标识解析成可核验文档</span><span data-en>DID Resolution: resolving identifiers into verifiable documents</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>交集：AI 内容凭证与模型出处声明常用 DID 标识签发者或主体；验证者不能只看标识字符串，还要解析出 DID document 与元数据，才能找验证方法和状态信息。<br>适用范围：官方规范定义 DID resolution 是取得 DID document 与伴随元数据的过程，并规定 conforming resolver 至少实现一个 DID method 的解析函数且能返回 DID document。它规定解析接口与元数据，不保证 DID 背后主体身份真实。<br>未解决：各 DID method 的更新、撤销与可用性不同；页面仍是 Editor’s Draft，AI 凭证系统要核对目标 method 的实现与治理，而不是把解析成功当成信任完成。</span><span data-en>The intersection: AI content credentials and model provenance statements often use DIDs for issuers or subjects; verifiers must resolve the identifier into a DID document and metadata to find verification methods and status information.<br>Scope: the specification defines DID resolution as obtaining a DID document and accompanying metadata, and requires conforming resolvers to implement the resolution function for at least one DID method and return a DID document. It standardises resolution and metadata, not the real-world identity behind the DID.<br>Open: DID methods differ in update, revocation and availability; the page remains an Editor’s Draft, so credential systems must check the target method implementation and governance rather than treating successful resolution as completed trust.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>协议状态 / status</dt><dd>草案（W3C Editor’s Draft，页面配置 specStatus: ED）</dd></div><div><dt>规范来源 / source</dt><dd>https://w3c.github.io/did-resolution/</dd></div><div><dt>核验日 / checked</dt><dd>2026-11-07</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -112,10 +118,14 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-specification</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://w3c.github.io/did-resolution/" rel="noopener">https://w3c.github.io/did-resolution/</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
+      
+      
+      
     </dl>
   </section>
   
-  <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="acp-agentic-commerce.html"><span data-zh>ACP：让 AI Agent 走完商家结账</span><span data-en>ACP: agent-ready merchant checkout</span></a></li><li><a href="ap2-agent-payments.html"><span data-zh>AP2：Agent Payments Protocol</span><span data-en>AP2: Agent Payments Protocol</span></a></li><li><a href="arbitrum-nitro.html"><span data-zh>Arbitrum Nitro：乐观汇总与交互式欺诈证明</span><span data-en>Arbitrum Nitro: optimistic rollup with interactive fraud proofs</span></a></li></ul></section>
+  
+  <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="arbitrum-nitro.html"><span data-zh>Arbitrum Nitro：乐观汇总与交互式欺诈证明</span><span data-en>Arbitrum Nitro: optimistic rollup with interactive fraud proofs</span></a></li><li><a href="chainlink-data-feeds.html"><span data-zh>Chainlink Data Feeds：把链下价格聚合成链上读数</span><span data-en>Chainlink Data Feeds: aggregating off-chain prices into on-chain reads</span></a></li><li><a href="eigenlayer.html"><span data-zh>EigenLayer：再质押与共享安全</span><span data-en>EigenLayer: restaking and shared security</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/domain-trust.html"><span data-zh>许可、评测、凭证的判断框架</span><span data-en>A framework for licences, evals and credentials</span></a></li><li><a href="https://specul.com/topic-agent.html"><span data-zh>搭智能体：权限、支付与护栏</span><span data-en>Build agents: permissions, payments, guardrails</span></a></li></ul></section>
   <p><a class="fx-source" href="https://w3c.github.io/did-resolution/" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>

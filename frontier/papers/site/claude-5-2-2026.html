@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/claude-5-2-2026.html" />
   <meta property="og:title" content="Introducing Claude Fable 5.2 and Claude Mythos 5.2 · AI 论文" />
   <meta property="og:description" content="问题：Fable 5.2 与 Mythos 5.2 同底座，为什么分成两档，安全边界怎么划。 证据位置：官方发布页写明 Fable 带网络安全与生物安全分类器，会拦下多数高风险网络任务；Mythos 仅向经过验证的机构开放，主打网络安全工程；两者共用同一底座，系统卡另附。 作者自陈局限：安全结论来自" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/claude-5-2-2026.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/claude-5-2-2026.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/claude-5-2-2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>对齐</span><span data-en>Alignment</span></span></div>
   <h1><span data-zh>Introducing Claude Fable 5.2 and Claude Mythos 5.2</span><span data-en>Introducing Claude Fable 5.2 and Claude Mythos 5.2</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：Fable 5.2 与 Mythos 5.2 同底座，为什么分成两档，安全边界怎么划。<br>证据位置：官方发布页写明 Fable 带网络安全与生物安全分类器，会拦下多数高风险网络任务；Mythos 仅向经过验证的机构开放，主打网络安全工程；两者共用同一底座，系统卡另附。<br>作者自陈局限：安全结论来自 Anthropic 自己的预发布测试与内部评测；没有独立第三方复现；部分能力（如 AI 研发加速）在训练时被刻意限制，相关任务只到 Opus 5.5 水平。<br>它没主张的：不是「无护栏的更强模型」；不是所有机构都能用 Mythos；不是对全部网络攻防任务都开放。</span><span data-en>Problem: Fable 5.2 and Mythos 5.2 share one underlying model — why split them, and where is the safety boundary?<br>Where the evidence sits: the official announcement says Fable carries cyber and biology classifiers that block most high-risk cyber tasks; Mythos is limited to vetted organizations and focuses on cybersecurity engineering; both share one underlying model, with a separate system card.<br>What the authors say about limits: safety conclusions come from Anthropic’s own prerelease testing and internal evaluations, with no independent third-party reproduction; some capabilities, such as accelerating AI research, were deliberately limited during training and perform only at Opus 5.5 level.<br>What it does not claim: an unguarded “stronger model”; that every organization can use Mythos; that it is open for all cyber offence and defence tasks.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发布 / release</dt><dd>2026-11-09（官方发布页）</dd></div><div><dt>档位 / tiers</dt><dd>Fable 5.2（带网络安全/生物安全护栏）/ Mythos 5.2（仅验证机构）</dd></div><div><dt>安全评测 / safety evals</dt><dd>预发布测试 + 内部评测（官方口径）</dd></div><div><dt>证据位置 / evidence</dt><dd>发布页 Safety and alignment / Safeguards 段</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读官方发布页）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-release</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" rel="noopener">https://www.anthropic.com/claude-fable-and-mythos-5-2</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>对齐</span><span data-en>Alignment</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="abstain-r1-2026.html"><span data-zh>Abstain-R1: Calibrated Abstention and Post-Refusal Clarification via Verifiable RL</span><span data-en>Abstain-R1: Calibrated Abstention and Post-Refusal Clarification via Verifiable RL</span></a></li><li><a href="bai-2022-constitutional-ai.html"><span data-zh>Constitutional AI: Harmlessness from AI Feedback</span><span data-en>Constitutional AI: Harmlessness from AI Feedback</span></a></li><li><a href="dapo-2025.html"><span data-zh>DAPO: An Open-Source LLM Reinforcement Learning System at Scale</span><span data-en>DAPO: An Open-Source LLM Reinforcement Learning System at Scale</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

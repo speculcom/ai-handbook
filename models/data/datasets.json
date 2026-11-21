@@ -16,7 +16,22 @@
     ],
     "quality": "从 96 批 Common Crawl 清洗，附教育向子集 FineWeb-Edu；清洗步骤有公开报告。",
     "caveat": "网页语料仍有噪声、重复与低质页；训练前要做语言筛选、去重和许可复核。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "FineWeb",
+      "source": "Hugging Face",
+      "size": "15T tokens",
+      "languages": "English",
+      "format": "Parquet / web text",
+      "license": "ODC-By 1.0",
+      "commercial": "Allowed with attribution",
+      "access": "Direct download",
+      "tasks": [
+        "Pretraining"
+      ],
+      "quality": "Cleaned from 96 Common Crawl dumps, with an education-oriented FineWeb-Edu subset; the cleaning pipeline has a public report.",
+      "caveat": "Web text still contains noise, duplicates and low-quality pages. Filter by language, deduplicate and re-check licences before training."
+    }
   },
   {
     "id": "dolma",
@@ -36,7 +51,23 @@
     ],
     "quality": "AI2 公开的研究语料，定位是给科研提供可复现的对照底座。",
     "caveat": "3T 是清洗后的口径；网页来源仍可能含敏感或侵权内容，使用前按用途复核。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Dolma",
+      "source": "AI2",
+      "size": "3T tokens",
+      "languages": "Mostly English",
+      "format": "JSONL / Parquet",
+      "license": "ODC-BY 1.0",
+      "commercial": "Allowed with attribution",
+      "access": "Direct download",
+      "tasks": [
+        "Pretraining",
+        "Research baseline"
+      ],
+      "quality": "AI2’s public research corpus, positioned as a reproducible baseline for research.",
+      "caveat": "The 3T figure is post-cleaning. Web sources may still contain sensitive or infringing material; review for your use case."
+    }
   },
   {
     "id": "redpajama-v2",
@@ -56,7 +87,23 @@
     ],
     "quality": "多语言网页语料，带质量信号与去重标记，适合做多语言预训练基线。",
     "caveat": "30T 是原始规模，清洗后可用量取决于质量筛选；不同语言覆盖不均。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "RedPajama-Data-v2",
+      "source": "Together AI",
+      "size": "30T tokens (raw)",
+      "languages": "English / German / French / Spanish / Italian",
+      "format": "JSONL / Parquet",
+      "license": "Apache-2.0",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "Pretraining",
+        "Multilingual"
+      ],
+      "quality": "Multilingual web corpus with quality signals and deduplication flags, suitable as a multilingual pretraining baseline.",
+      "caveat": "30T is the raw scale; usable volume depends on quality filtering, and language coverage is uneven."
+    }
   },
   {
     "id": "oasst1",
@@ -76,7 +123,23 @@
     ],
     "quality": "人工编写的多轮对话树，带审核与语言标签，适合做对话 SFT 的起点。",
     "caveat": "社区众包，质量参差；不同语言样本量差异大，直接混合会偏英文。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "OpenAssistant OASST1",
+      "source": "OpenAssistant",
+      "size": "About 161k messages",
+      "languages": "35 languages",
+      "format": "JSONL",
+      "license": "Apache-2.0",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "SFT",
+        "Dialogue"
+      ],
+      "quality": "Human-written multi-turn conversation trees with review and language tags; a useful starting point for dialogue SFT.",
+      "caveat": "Community crowdsourced, so quality varies; sample sizes differ sharply by language, and naive mixing skews English."
+    }
   },
   {
     "id": "dolly15k",
@@ -96,7 +159,23 @@
     ],
     "quality": "Databricks 员工人工编写，覆盖问答、生成、摘要、信息抽取等类别。",
     "caveat": "CC-BY-SA 有传染性；如果你把数据混进训练集，衍生数据的分发方式要先看许可。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Databricks Dolly 15k",
+      "source": "Databricks",
+      "size": "15k instructions",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "CC-BY-SA-4.0",
+      "commercial": "Allowed; derivative works must stay open",
+      "access": "Direct download",
+      "tasks": [
+        "SFT",
+        "Instruction following"
+      ],
+      "quality": "Written by Databricks employees and covering Q&A, generation, summarisation and extraction.",
+      "caveat": "CC-BY-SA is copyleft. If you mix it into a training set, check how derivative data may be distributed."
+    }
   },
   {
     "id": "flan-collection",
@@ -116,7 +195,23 @@
     ],
     "quality": "把大量 NLP 任务改写成指令格式，任务覆盖面广，适合做指令微调的对照基线。",
     "caveat": "任务模板高度统一，直接拿去训对话模型会显得机械；需要重采样与模板多样化。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "FLAN Collection",
+      "source": "Google",
+      "size": "About 1,836 tasks / 15M+ examples",
+      "languages": "Mostly English",
+      "format": "JSON / TFDS",
+      "license": "Apache-2.0",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "SFT",
+        "Multi-task"
+      ],
+      "quality": "Rewrites many NLP tasks as instructions; broad task coverage makes it a strong instruction-tuning baseline.",
+      "caveat": "Task templates are highly uniform, so a dialogue model trained directly on it can sound mechanical. Resample and diversify templates."
+    }
   },
   {
     "id": "hh-rlhf",
@@ -136,7 +231,23 @@
     ],
     "quality": "有帮助性与无害性两组人类偏好数据，是 RLHF 早期常用的公开基线。",
     "caveat": "对话风格与现在的助手产品差异较大；直接拿旧偏好训新模型，可能学到过时的表达。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Anthropic HH-RLHF",
+      "source": "Anthropic",
+      "size": "About 170k preference pairs",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "RLHF",
+        "Preference modelling"
+      ],
+      "quality": "Human preference data split into helpfulness and harmlessness; an early public baseline for RLHF.",
+      "caveat": "Dialogue style differs from current assistants. Training a new model on old preferences can teach outdated phrasing."
+    }
   },
   {
     "id": "ultrafeedback",
@@ -157,7 +268,24 @@
     ],
     "quality": "用多个模型生成回答再做细粒度评分，适合做偏好对齐与 DPO 训练。",
     "caveat": "评分由模型产生，会带入评分模型的偏好；用于生产前要抽检偏差。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "UltraFeedback",
+      "source": "OpenBMB",
+      "size": "About 64k prompts × 4 answers",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "RLHF",
+        "Preference modelling",
+        "DPO"
+      ],
+      "quality": "Multiple models generate answers that are then fine-grained scored; useful for preference alignment and DPO.",
+      "caveat": "Scores come from models and carry the scorer’s preferences. Sample for bias before production use."
+    }
   },
   {
     "id": "nectar",
@@ -177,7 +305,23 @@
     ],
     "quality": "GPT-4 对多个模型回答做 7 档排序，适合研究排序式偏好学习。",
     "caveat": "排序由单一模型完成，存在位置偏差与风格偏好；不要当作人类真值。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Nectar",
+      "source": "Berkeley",
+      "size": "About 183k prompts, 7 answers each",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "RLHF",
+        "Preference ranking"
+      ],
+      "quality": "GPT-4 ranks seven model answers on a seven-point scale; useful for studying ranked preference learning.",
+      "caveat": "Ranking is done by one model, with position and style bias. Do not treat it as human ground truth."
+    }
   },
   {
     "id": "mmlu",
@@ -196,7 +340,22 @@
     ],
     "quality": "覆盖 57 个学科的多选题，是模型知识广度的常用基线。",
     "caveat": "题目公开已久，污染风险高；分数高不等于会做实际任务。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "MMLU",
+      "source": "UC Berkeley et al.",
+      "size": "About 14k test questions / 57 subjects",
+      "languages": "English",
+      "format": "CSV / Parquet",
+      "license": "MIT",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "Knowledge evaluation"
+      ],
+      "quality": "Multiple-choice questions across 57 subjects; a common baseline for breadth of model knowledge.",
+      "caveat": "Questions have been public for years, so contamination risk is high. A high score does not prove the model can do real tasks."
+    }
   },
   {
     "id": "gsm8k",
@@ -215,7 +374,22 @@
     ],
     "quality": "题目短、答案唯一，适合观察多步算术与推理链是否稳定。",
     "caveat": "难度集中在小学范围；高分不代表能处理真实业务里的表格与多约束问题。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "GSM8K",
+      "source": "OpenAI",
+      "size": "8,500 grade-school problems",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "Math reasoning"
+      ],
+      "quality": "Short problems with unique answers, useful for checking multi-step arithmetic and reasoning stability.",
+      "caveat": "Difficulty is limited to grade-school maths. A high score does not imply handling tables and multiple constraints in real work."
+    }
   },
   {
     "id": "humaneval",
@@ -234,7 +408,22 @@
     ],
     "quality": "函数级代码生成基准，用单元测试判分，口径清楚。",
     "caveat": "题量小，单一语言；分数波动大，不能单独代表代码能力。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "HumanEval",
+      "source": "OpenAI",
+      "size": "164 Python function tasks",
+      "languages": "English / Python",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "Code generation"
+      ],
+      "quality": "Function-level code generation scored by unit tests, with a clear protocol.",
+      "caveat": "Small and single-language; scores fluctuate and cannot represent code capability on their own."
+    }
   },
   {
     "id": "natural-questions",
@@ -254,7 +443,23 @@
     ],
     "quality": "来自真实搜索查询，附 Wikipedia 段落标注，适合做检索与阅读理解的联合评测。",
     "caveat": "维基页面会变，旧标注可能对不上；做 RAG 评测要固定快照。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Natural Questions",
+      "source": "Google",
+      "size": "About 307k real queries",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "CC-BY-SA-3.0",
+      "commercial": "Allowed; derivatives must stay open",
+      "access": "Direct download",
+      "tasks": [
+        "RAG",
+        "Open-domain QA"
+      ],
+      "quality": "Real search queries with Wikipedia passage annotations, useful for joint retrieval and reading evaluation.",
+      "caveat": "Wikipedia pages change and old annotations may not align. Fix a snapshot for RAG evaluation."
+    }
   },
   {
     "id": "hotpotqa",
@@ -274,7 +479,23 @@
     ],
     "quality": "需要跨两段以上证据才能回答，适合测检索召回与证据拼接。",
     "caveat": "部分问题依赖维基结构；真实文档库的噪声与权限问题它不覆盖。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "HotpotQA",
+      "source": "CMU et al.",
+      "size": "About 113k multi-hop questions",
+      "languages": "English",
+      "format": "JSON",
+      "license": "CC-BY-4.0",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "RAG",
+        "Multi-hop reasoning"
+      ],
+      "quality": "Questions require evidence from two or more passages, useful for testing retrieval recall and evidence stitching.",
+      "caveat": "Some questions depend on Wikipedia structure. It does not cover noise and permissions in a real document store."
+    }
   },
   {
     "id": "beir",
@@ -294,7 +515,23 @@
     ],
     "quality": "跨领域检索基准集合，适合比较 embedding 与检索策略的泛化。",
     "caveat": "各子集许可与领域不同；不要把 18 个分数平均成一个总分。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "BEIR",
+      "source": "UKP Lab",
+      "size": "18 retrieval datasets",
+      "languages": "Multilingual / multi-domain",
+      "format": "JSONL / TSV",
+      "license": "Apache-2.0",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "RAG",
+        "Retrieval evaluation"
+      ],
+      "quality": "A cross-domain retrieval benchmark for comparing embedding and retrieval generalisation.",
+      "caveat": "Subsets have different licences and domains. Do not average all 18 scores into one number."
+    }
   },
   {
     "id": "laion5b",
@@ -314,7 +551,23 @@
     ],
     "quality": "大规模图文对，适合研究对比学习与图文检索。",
     "caveat": "不托管图像；URL 会失效，图像许可与肖像权要逐条核对，不能默认可商用。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "LAION-5B",
+      "source": "LAION",
+      "size": "5.85B image-text pairs (URL metadata)",
+      "languages": "Multilingual",
+      "format": "URL + metadata",
+      "license": "Metadata CC-BY-4.0; image copyright follows the source site",
+      "commercial": "Metadata usable; images need source-by-source review",
+      "access": "Metadata download / images fetched from source",
+      "tasks": [
+        "Multimodal pretraining",
+        "Retrieval"
+      ],
+      "quality": "Large-scale image-text pairs for contrastive learning and image-text retrieval research.",
+      "caveat": "Images are not hosted; URLs break and image licences and portrait rights must be checked individually. Do not assume commercial use."
+    }
   },
   {
     "id": "datacomp1b",
@@ -334,7 +587,23 @@
     ],
     "quality": "固定训练预算下比较数据筛选方法，适合做可复现的缩放实验。",
     "caveat": "图像不随数据集重新分发；商用前要核对源站许可与肖像权。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "DataComp-1B",
+      "source": "DataComp",
+      "size": "About 1.4B image-text pairs",
+      "languages": "Mostly English",
+      "format": "Parquet / metadata",
+      "license": "CC-BY-4.0 (metadata); images follow source",
+      "commercial": "Metadata usable; images need source-by-source review",
+      "access": "Direct metadata download",
+      "tasks": [
+        "Multimodal pretraining",
+        "Data filtering research"
+      ],
+      "quality": "Compares data-filtering methods under a fixed training budget, enabling reproducible scaling experiments.",
+      "caveat": "Images are not redistributed with the dataset. Check source licences and portrait rights before commercial use."
+    }
   },
   {
     "id": "coco-captions",
@@ -354,7 +623,23 @@
     ],
     "quality": "图像描述的标准基线，标注格式稳定，适合做小规模对照。",
     "caveat": "图像来自 Flickr，许可不统一；不能把整个数据集默认成商用可分发。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "COCO Captions",
+      "source": "COCO Consortium",
+      "size": "About 330k images / 5 captions each",
+      "languages": "English",
+      "format": "JSON + images",
+      "license": "Annotations CC-BY-4.0; images follow Flickr sources",
+      "commercial": "Annotations usable; images need per-image review",
+      "access": "Direct download",
+      "tasks": [
+        "Image captioning",
+        "Caption evaluation"
+      ],
+      "quality": "A standard captioning baseline with stable annotation format, suitable for small controlled comparisons.",
+      "caveat": "Images come from Flickr with mixed licences. Do not treat the whole dataset as commercially redistributable."
+    }
   },
   {
     "id": "the-stack",
@@ -374,7 +659,23 @@
     ],
     "quality": "从公开 GitHub 仓库抽取并去重，附许可与仓库元数据。",
     "caveat": "代码许可混杂，含 copyleft 与无许可仓库；训练与分发前必须过滤。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "The Stack",
+      "source": "BigCode",
+      "size": "About 3TB deduplicated code / 300+ languages",
+      "languages": "Multiple code languages",
+      "format": "JSONL / Parquet",
+      "license": "MIT (dataset packaging); code follows the original repositories",
+      "commercial": "Check each repository’s code licence",
+      "access": "Gated download",
+      "tasks": [
+        "Code pretraining",
+        "Code retrieval"
+      ],
+      "quality": "Extracted from public GitHub repositories and deduplicated, with licence and repository metadata.",
+      "caveat": "Code licences are mixed, including copyleft and unlicensed repositories. Filter before training and distribution."
+    }
   },
   {
     "id": "starcoderdata",
@@ -394,7 +695,23 @@
     ],
     "quality": "StarCoder 系列所用代码语料，语言覆盖广，附去重与许可过滤记录。",
     "caveat": "数据集打包许可不等于代码许可；生成代码的许可证继承问题要单独评估。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "StarCoderData",
+      "source": "BigCode",
+      "size": "About 250B code tokens / 80+ languages",
+      "languages": "Multiple code languages",
+      "format": "JSONL",
+      "license": "Apache-2.0 (dataset packaging); code follows the original repositories",
+      "commercial": "Check each repository’s code licence",
+      "access": "Direct download",
+      "tasks": [
+        "Code pretraining",
+        "Code completion"
+      ],
+      "quality": "The code corpus used by StarCoder, with broad language coverage and deduplication and licence-filtering records.",
+      "caveat": "The dataset packaging licence is not the code licence. Assess licence inheritance for generated code separately."
+    }
   },
   {
     "id": "pubmedqa",
@@ -414,7 +731,23 @@
     ],
     "quality": "从 PubMed 摘要构造的是/否/不确定问答，适合做医学文献检索问答的基线。",
     "caveat": "不是临床指南，不能用于诊断建议；专业用途要另行核对最新文献与监管要求。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "PubMedQA",
+      "source": "KAIST et al.",
+      "size": "About 273k biomedical Q&A items",
+      "languages": "English",
+      "format": "JSON",
+      "license": "MIT",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "Domain QA",
+        "RAG"
+      ],
+      "quality": "Yes/no/maybe questions built from PubMed abstracts; a baseline for biomedical literature QA.",
+      "caveat": "Not a clinical guideline and must not be used for diagnosis. Professional use requires current literature and regulatory review."
+    }
   },
   {
     "id": "ultrachat-200k",
@@ -434,7 +767,23 @@
     ],
     "quality": "由模型生成的多轮对话， topic 覆盖广，适合做对话 SFT 的合成基线。",
     "caveat": "合成数据会放大生成模型的风格与错误；要混入人工数据并做去重与质量过滤。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "UltraChat 200k",
+      "source": "Hugging Face H4",
+      "size": "About 200k multi-turn dialogues",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "SFT",
+        "Dialogue"
+      ],
+      "quality": "Model-generated multi-turn dialogue with broad topic coverage; a synthetic baseline for dialogue SFT.",
+      "caveat": "Synthetic data amplifies the generator’s style and errors. Mix with human data and deduplicate and filter."
+    }
   },
   {
     "id": "wizardlm-evol",
@@ -454,7 +803,23 @@
     ],
     "quality": "用 Evol-Instruct 把简单指令改写成更深、更复杂版本，适合做指令难度爬坡。",
     "caveat": "合成指令可能不自然或不可执行；训练前要抽检并去掉重复模板。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "WizardLM Evol-Instruct",
+      "source": "WizardLM team",
+      "size": "About 70k evolved instructions",
+      "languages": "English",
+      "format": "JSON",
+      "license": "Apache-2.0",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "SFT",
+        "Instruction following"
+      ],
+      "quality": "Evol-Instruct rewrites simple instructions into deeper, more complex versions, useful for increasing instruction difficulty.",
+      "caveat": "Synthetic instructions can be unnatural or unexecutable. Sample and remove repeated templates before training."
+    }
   },
   {
     "id": "openhermes-25",
@@ -474,7 +839,23 @@
     ],
     "quality": "混合合成与公开指令数据，覆盖广，是社区常用的 SFT 基线。",
     "caveat": "来源混合，重复与低质样本多；需按来源分层抽样并做去重。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "OpenHermes-2.5",
+      "source": "Teknium",
+      "size": "About 1M dialogue samples",
+      "languages": "Mostly English",
+      "format": "JSONL",
+      "license": "Apache-2.0",
+      "commercial": "Allowed",
+      "access": "Direct download",
+      "tasks": [
+        "SFT",
+        "Dialogue"
+      ],
+      "quality": "A mix of synthetic and public instruction data with broad coverage; a common community SFT baseline.",
+      "caveat": "Mixed provenance means duplicates and low-quality samples. Stratify by source and deduplicate."
+    }
   },
   {
     "id": "dclm-baseline",
@@ -500,7 +881,23 @@
     "notFor": "不适合需要逐条授权证明的闭源商用语料。",
     "compare": "与 FineWeb 同属网页预训练语料；DCLM 更强调过滤消融，FineWeb 提供教育向子集。",
     "verify": "在数据集卡核对 1.0 版本、token 数与许可；抽 100 条看语言与正文质量。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "DCLM-Baseline",
+      "source": "DataComp-LM / ML Foundations",
+      "size": "4T tokens (1.0 baseline)",
+      "languages": "English",
+      "format": "Parquet / JSONL",
+      "license": "CC-BY-4.0 (see dataset card)",
+      "commercial": "Allowed with attribution",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Pretraining",
+        "Data filtering ablations"
+      ],
+      "quality": "Cleaned Common Crawl with a DCLM filter model and ablation reports; the emphasis is quality filtering rather than raw scale.",
+      "caveat": "Web text still carries copyright, noise and duplication. The filter model carries its own bias; a filter score is not a ground-truth quality label."
+    }
   },
   {
     "id": "pile",
@@ -526,7 +923,23 @@
     "notFor": "不适合作为 2026 年新模型的唯一预训练语料。",
     "compare": "与 RedPajama-v2 / DCLM 相比，Pile 更老、更小，但子集结构清楚，适合复现实验。",
     "verify": "逐个核对子集的数据卡与许可；抽 50 条看正文与元数据。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "The Pile",
+      "source": "EleutherAI",
+      "size": "About 825 GiB / 22 subsets",
+      "languages": "Mostly English",
+      "format": "JSONL",
+      "license": "MIT (code); each subset has its own terms",
+      "commercial": "Check each subset",
+      "access": "Hugging Face / EleutherAI",
+      "tasks": [
+        "Pretraining",
+        "Research baseline"
+      ],
+      "quality": "A classic 22-subset mixture for small-model ablations and research reproduction.",
+      "caveat": "Built in 2020, so web and code data are dated; several subsets have separate licences and provenance that need review."
+    }
   },
   {
     "id": "tulu-3-sft",
@@ -553,7 +966,24 @@
     "notFor": "不适合需要特定行业术语或中文母语风格的任务，需另配领域数据。",
     "compare": "与 OpenHermes / SmolTalk 相比，Tülu 3 的配方与评估报告更完整。",
     "verify": "核对配方版本、各子集许可与样本数；抽 100 条看模板一致性。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Tülu 3 SFT Mixture",
+      "source": "Allen Institute for AI",
+      "size": "About 1M+ instruction samples",
+      "languages": "Mostly English",
+      "format": "JSONL / Parquet",
+      "license": "ODC-BY 1.0 (see dataset card)",
+      "commercial": "Allowed with attribution",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "SFT",
+        "Instruction following",
+        "Multi-task mixture"
+      ],
+      "quality": "A recipe-based mixture of public SFT sets with Tülu 3 training reports and ablations, useful as a reproducible post-training baseline.",
+      "caveat": "The mixture inherits each source’s style and bias, and subset licences differ. Do not rely on the top-level card alone."
+    }
   },
   {
     "id": "smoltalk",
@@ -580,7 +1010,24 @@
     "notFor": "不适合直接做法律、医疗等高危领域 SFT。",
     "compare": "与 Tülu 3 SFT 相比更轻、更偏对话；复杂指令覆盖不如 Tülu 3。",
     "verify": "核对数据集版本与许可；抽 100 条检查多轮结构与拒答。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "SmolTalk",
+      "source": "Hugging Face",
+      "size": "About 2M dialogue samples",
+      "languages": "Mostly English",
+      "format": "JSONL / Parquet",
+      "license": "Apache-2.0 (see dataset card)",
+      "commercial": "Allowed with licence notice",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "SFT",
+        "Dialogue",
+        "Small-model post-training"
+      ],
+      "quality": "A mixture aimed at small-model conversation, covering everyday Q&A, instructions and multi-turn dialogue.",
+      "caveat": "Mostly English everyday dialogue with limited specialist and Chinese coverage; synthetic or rewritten samples can amplify model style."
+    }
   },
   {
     "id": "helpsteer2",
@@ -607,7 +1054,24 @@
     "notFor": "不适合直接替代目标用户的偏好数据。",
     "compare": "与 UltraFeedback 相比规模小，但维度标签更细。",
     "verify": "核对标签字段与许可；抽 50 条看多维评分是否一致。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "HelpSteer2",
+      "source": "NVIDIA",
+      "size": "About 21k preference samples",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "CC-BY-4.0",
+      "commercial": "Allowed with attribution",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Reward modelling",
+        "Preference alignment",
+        "DPO"
+      ],
+      "quality": "Multi-aspect human annotations (helpfulness, correctness, coherence, complexity, verbosity), useful for interpretable reward models.",
+      "caveat": "Annotators and prompts skew English and general-assistant use. It does not directly represent Chinese or industry preferences."
+    }
   },
   {
     "id": "reward-bench",
@@ -633,7 +1097,23 @@
     "notFor": "不适合单独决定 DPO 配方。",
     "compare": "与 HelpSteer2 互补：一个用于训练，一个用于评测奖励模型。",
     "verify": "核对子集划分与评分脚本；抽 20 条看 chosen/rejected 是否合理。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "RewardBench",
+      "source": "Allen Institute for AI",
+      "size": "Several thousand preference pairs",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed with notice",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Reward-model evaluation",
+        "Preference diagnostics"
+      ],
+      "quality": "Preference pairs across chat, reasoning and safety subsets, designed to evaluate reward models rather than generators.",
+      "caveat": "The set is small and subset difficulty varies. A high score does not guarantee better downstream DPO."
+    }
   },
   {
     "id": "math-500",
@@ -659,7 +1139,23 @@
     "notFor": "不适合代表竞赛级数学或中文数学能力。",
     "compare": "与 GSM8K 相比更难、更偏竞赛；与 AIME 相比更易复现。",
     "verify": "核对 500 题版本与答案字段；抽 10 题手算验证评分。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "MATH-500",
+      "source": "Hugging Face H4",
+      "size": "500 problems",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed with notice",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Math reasoning evaluation",
+        "Answer extraction"
+      ],
+      "quality": "A 500-problem subset of the MATH test set with clear problem and answer structure, often used for quick comparisons.",
+      "caveat": "Problems have been public for a long time, so contamination risk is high. Answer extraction and equivalence checking strongly affect scores."
+    }
   },
   {
     "id": "aime-2024",
@@ -685,7 +1181,23 @@
     "notFor": "不适合作为唯一数学评测。",
     "compare": "与 MATH-500 相比题少但更难；适合做补充而非主榜。",
     "verify": "核对年份与题号；抽 5 题人工验证答案。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "AIME 2024",
+      "source": "MAA / AI-MO",
+      "size": "30 problems (2024 AIME I/II)",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "Problem copyright belongs to MAA; verify use",
+      "commercial": "Check each item",
+      "access": "Hugging Face / official problem text",
+      "tasks": [
+        "Competition maths",
+        "Long-chain reasoning"
+      ],
+      "quality": "Competition-level problems with unique answers, useful for stress-testing long reasoning and self-checking.",
+      "caveat": "Very few problems, so a single item swings the score; contamination risk rises after public release."
+    }
   },
   {
     "id": "ms-marco",
@@ -712,7 +1224,24 @@
     "notFor": "不适合中文或垂直领域检索，需另配语料。",
     "compare": "与 Natural Questions / HotpotQA 相比更偏真实搜索查询与段落检索。",
     "verify": "核对协议与 split；抽 50 条看查询/段落/答案字段。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "MS MARCO",
+      "source": "Microsoft",
+      "size": "About 8.8M passages / 1M+ queries",
+      "languages": "English",
+      "format": "JSONL / TSV",
+      "license": "MS MARCO data terms",
+      "commercial": "Check the terms",
+      "access": "Hugging Face / official download",
+      "tasks": [
+        "Retrieval",
+        "RAG",
+        "Reranking"
+      ],
+      "quality": "Large-scale real search queries and passages for training and evaluating retrievers and rerankers.",
+      "caveat": "Queries and passages skew English web content; answers are not always complete and are not direct generation ground truth."
+    }
   },
   {
     "id": "triviaqa",
@@ -738,7 +1267,23 @@
     "notFor": "不适合中文开放域问答。",
     "compare": "与 Natural Questions 相比更偏 trivia，答案别名更多。",
     "verify": "核对 split 与答案别名；抽 20 条看证据文档。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "TriviaQA",
+      "source": "University of Washington",
+      "size": "About 95K question-answer pairs",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "Apache-2.0",
+      "commercial": "Allowed with notice",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Open-domain QA",
+        "RAG evaluation"
+      ],
+      "quality": "Trivia questions with evidence documents and answer aliases, useful for retrieval-plus-reading evaluation.",
+      "caveat": "Questions and evidence skew English Wikipedia and web pages; some answers have aliases and time-sensitive facts."
+    }
   },
   {
     "id": "llava-instruct-150k",
@@ -764,7 +1309,23 @@
     "notFor": "不适合直接做中文多模态或医疗影像。",
     "compare": "与 DataComp / LAION 相比更偏指令数据，不是预训练图文对。",
     "verify": "核对图像 ID 与指令字段；抽 50 条看图文是否一致。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "LLaVA-Instruct-150K",
+      "source": "LLaVA / University of Wisconsin–Madison",
+      "size": "150k image-text instructions",
+      "languages": "English",
+      "format": "JSON",
+      "license": "LLaVA data terms; images follow COCO",
+      "commercial": "Check image and text terms separately",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Multimodal SFT",
+        "Image-text QA"
+      ],
+      "quality": "GPT-generated image-text instructions covering description, reasoning and dialogue; an early multimodal SFT baseline.",
+      "caveat": "Instructions are model-generated and can contain hallucinations and style bias; images come from COCO and carry its terms."
+    }
   },
   {
     "id": "video-mme",
@@ -790,7 +1351,23 @@
     "notFor": "不适合直接代表中文视频或专业影视理解。",
     "compare": "与 MVBench / LongVideoBench 相比，Video-MME 更强调多时长与多领域覆盖。",
     "verify": "核对视频清单、题目与许可；抽 10 段看时间戳。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Video-MME",
+      "source": "Video-MME team",
+      "size": "900 videos / 2,700 questions",
+      "languages": "Mostly English",
+      "format": "Video + JSON",
+      "license": "CC-BY-4.0 (see dataset card)",
+      "commercial": "Check the dataset card",
+      "access": "Hugging Face / official page",
+      "tasks": [
+        "Video understanding",
+        "Multimodal QA"
+      ],
+      "quality": "Video QA across durations and domains, useful for long-video understanding and temporal grounding.",
+      "caveat": "Video sources and copyright need item-by-item review; contamination risk rises after public release."
+    }
   },
   {
     "id": "commitpackft",
@@ -817,7 +1394,24 @@
     "notFor": "不适合直接生成专利或闭源代码。",
     "compare": "与 The Stack / StarCoderData 相比更偏“修改指令”，不是纯代码语料。",
     "verify": "核对协议、语言分布与仓库过滤规则；抽 50 条看 diff。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "CommitPackFT",
+      "source": "BigCode",
+      "size": "About 2M commits",
+      "languages": "Multiple code languages",
+      "format": "JSONL / Parquet",
+      "license": "BigCode dataset terms",
+      "commercial": "Check the terms",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Code SFT",
+        "Commit-message generation",
+        "Code editing"
+      ],
+      "quality": "Instruction-code pairs filtered from real Git commits, covering multiple languages and realistic edits.",
+      "caveat": "Commit quality varies and includes debug residue and code with unclear licences. Filter by repository."
+    }
   },
   {
     "id": "apps",
@@ -843,7 +1437,23 @@
     "notFor": "不适合评估大型仓库级修改。",
     "compare": "与 HumanEval / MBPP 相比题更多、测试更完整。",
     "verify": "核对 split 与测试用例；抽 10 题本地跑通。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "APPS",
+      "source": "UC Berkeley",
+      "size": "10,000 problems",
+      "languages": "English statements / Python code",
+      "format": "JSON",
+      "license": "MIT",
+      "commercial": "Allowed with notice",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Code generation",
+        "Unit-test evaluation"
+      ],
+      "quality": "Includes problem statements, examples and hidden tests, so it measures whether code passes tests rather than surface similarity.",
+      "caveat": "Statements and tests have been public for years, so contamination risk is high; some tests are incomplete."
+    }
   },
   {
     "id": "magicoder-oss-instruct",
@@ -869,7 +1479,23 @@
     "notFor": "不适合直接替代真实提交数据。",
     "compare": "与 CommitPackFT 相比更便宜、更可控，但真实修改场景覆盖少。",
     "verify": "核对数据集版本与许可；抽 20 条实际执行代码。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Magicoder-OSS-Instruct",
+      "source": "UIUC / Magicoder",
+      "size": "75k examples",
+      "languages": "English",
+      "format": "JSONL",
+      "license": "MIT",
+      "commercial": "Allowed with notice",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Code SFT",
+        "Synthetic instructions"
+      ],
+      "quality": "Instructions and code pairs generated backwards from open-source snippets, emphasising diversity and real code context.",
+      "caveat": "Synthetic instructions carry model style and errors; code snippet licences must be checked repository by repository."
+    }
   },
   {
     "id": "cosmopedia",
@@ -896,6 +1522,23 @@
     "notFor": "不适合需要最新事实或长尾真实知识的预训练。",
     "compare": "与 UltraChat / OpenHermes 相比更偏预训练长文，不是对话 SFT。",
     "verify": "核对版本、token 数与生成模型；抽 50 篇看事实与重复。",
-    "verifiedAt": "2026-11-19"
+    "verifiedAt": "2026-11-19",
+    "en": {
+      "name": "Cosmopedia",
+      "source": "Hugging Face",
+      "size": "About 30M documents / 25B tokens",
+      "languages": "English",
+      "format": "Parquet / JSONL",
+      "license": "Apache-2.0 (see dataset card)",
+      "commercial": "Allowed with notice",
+      "access": "Hugging Face direct download",
+      "tasks": [
+        "Synthetic pretraining",
+        "Small-model training",
+        "Educational content"
+      ],
+      "quality": "Synthetic textbooks, stories and Q&A with clear structure, useful for small-model pretraining experiments.",
+      "caveat": "Synthetic text amplifies the generator’s biases and factual errors; it cannot replace real web corpora."
+    }
   }
 ]

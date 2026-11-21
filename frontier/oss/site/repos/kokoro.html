@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/kokoro.html" />
   <meta property="og:title" content="Kokoro · 开源 AI 工具库" />
   <meta property="og:description" content="Kokoro：82M 参数的开源 TTS 推理库：轻量、快，Apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。 许可 Apache-2.0，Python，10.3k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/kokoro.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/kokoro.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/kokoro.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
   <h1>Kokoro</h1>
   <p class="owner">hexgrad / kokoro</p>
-  <p class="sub">82M 参数的开源 TTS 推理库：轻量、快，Apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。</p>
+  <p class="sub"><span data-zh>82M 参数的开源 TTS 推理库：轻量、快，Apache 权重，提供多语言 voicepack 与 pip 包，适合本地与边缘部署。</span><span data-en>An 82M-parameter open TTS inference library: lightweight and fast, with Apache-licensed weights, multilingual voice packs and a pip package for local or edge deployment.</span></p>
 </header>
 <div class="factbar">
   <span><b>10.3k</b> stars</span>
   <span><b>1166</b> forks</span>
-  <span><b>Python</b> 语言</span>
-  <span><b>Apache-2.0</b> 许可</span>
-  <span>最近推送 <b>2025-08-06</b></span>
+  <span><b>Python</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>Apache-2.0</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2025-08-06</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>模型小，CPU 也能跑，成本远低于大 TTS。</li><li>同尺寸里音质强，适合原型、旁白与低延迟场景。</li><li>权重 Apache-2.0，部署限制少。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">不是声音克隆或情感控制平台；音色与语言受 voicepack 限制。<br>长文本、多人对话与商业配音仍要工程封装。<br>仓库最近推送停在 2025-08，权重大版本少，别期待持续新特性。</p>
-  <h2>最小上手</h2>
-  <ol><li>pip install kokoro soundfile，按 README 用 KPipeline 生成一段英文。</li><li>换 lang_code 与 voice 试中文/日文，检查发音。</li><li>用 1k 字长文测延迟与内存，再决定 CPU 还是 GPU 部署。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>Python；PyTorch；espeak-ng（部分语言）；模型权重约几百 MB。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码与权重 Apache-2.0；voicepack 与训练数据另核。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/chattts.html">ChatTTS</a> — 轻量，面向对话场景的 TTS，韵律自然，支持中英文与笑声等副语言。</li><li><a href="../repos/cosyvoice.html">CosyVoice</a> — 特定场景，零样本语音合成与音色克隆，支持多语言与情感控制。</li><li><a href="../repos/index-tts.html">IndexTTS</a> — 生产可用，B 站开源的工业级 TTS，支持零样本音色克隆、情感与语速控制，中文/英文，非自回归。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>模型小，CPU 也能跑，成本远低于大 TTS。</span><span data-en>Very small and fast.</span></li><li><span data-zh>同尺寸里音质强，适合原型、旁白与低延迟场景。</span><span data-en>Apache-licensed weights.</span></li><li><span data-zh>权重 Apache-2.0，部署限制少。</span><span data-en>Pip-installable for local and edge use.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>不是声音克隆或情感控制平台；音色与语言受 voicepack 限制。</span><span data-en>You need studio-grade expressive control.</span><br><span data-zh>长文本、多人对话与商业配音仍要工程封装。</span><span data-en>You need many languages beyond the released voice packs.</span><br><span data-zh>仓库最近推送停在 2025-08，权重大版本少，别期待持续新特性。</span><span data-en>仓库最近推送停在 2025-08，权重大版本少，别期待持续新特性。</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>pip install kokoro soundfile，按 README 用 KPipeline 生成一段英文。</span><span data-en>Install the pip package and synthesise one sentence.</span></li><li><span data-zh>换 lang_code 与 voice 试中文/日文，检查发音。</span><span data-en>Try two voice packs and compare.</span></li><li><span data-zh>用 1k 字长文测延迟与内存，再决定 CPU 还是 GPU 部署。</span><span data-en>Measure latency on the target edge device.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>Python；PyTorch；espeak-ng（部分语言）；模型权重约几百 MB。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码与权重 Apache-2.0；voicepack 与训练数据另核。</span><span data-en>Code is Apache-2.0; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/chattts.html">ChatTTS</a> — <span data-zh>轻量</span><span data-en>Lightweight</span>，<span data-zh>面向对话场景的 TTS，韵律自然，支持中英文与笑声等副语言。</span><span data-en>A conversational TTS model with natural prosody, Chinese and English support and paralinguistic cues such as laughter.</span></li><li><a href="../repos/cosyvoice.html">CosyVoice</a> — <span data-zh>特定场景</span><span data-en>Niche</span>，<span data-zh>零样本语音合成与音色克隆，支持多语言与情感控制。</span><span data-en>Zero-shot speech synthesis and voice cloning with multilingual and emotional control.</span></li><li><a href="../repos/index-tts.html">IndexTTS</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>B 站开源的工业级 TTS，支持零样本音色克隆、情感与语速控制，中文/英文，非自回归。</span><span data-en>Bilibili’s industrial-grade open TTS with zero-shot voice cloning, emotion and speed control, Chinese and English, non-autoregressive.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/hexgrad/kokoro" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://github.com/hexgrad/kokoro#usage" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=kokoro">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/hexgrad/kokoro" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://github.com/hexgrad/kokoro#usage" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=kokoro"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

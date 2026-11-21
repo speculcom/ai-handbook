@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/textgen-webui.html" />
   <meta property="og:title" content="Text Generation WebUI · 开源 AI 工具库" />
   <meta property="og:description" content="Text Generation WebUI：本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。 许可 AGPL-3.0，Python，47.7k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/textgen-webui.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/textgen-webui.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/textgen-webui.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
   <h1>Text Generation WebUI</h1>
   <p class="owner">oobabooga / textgen</p>
-  <p class="sub">本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。</p>
+  <p class="sub"><span data-zh>本地 LLM 的 Web 界面，支持 llama.cpp、Transformers、ExLlama 等后端，模型加载、角色对话与扩展都在一个页面里。</span><span data-en>A local LLM web UI supporting llama.cpp, Transformers and ExLlama backends, with model loading, chat and extensions on one page.</span></p>
 </header>
 <div class="factbar">
   <span><b>47.7k</b> stars</span>
   <span><b>5975</b> forks</span>
-  <span><b>Python</b> 语言</span>
-  <span><b>AGPL-3.0</b> 许可</span>
-  <span>最近推送 <b>2026-08-17</b></span>
+  <span><b>Python</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>AGPL-3.0</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2026-08-17</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>装完就能在浏览器里加载 GGUF / safetensors，适合本地试模型。</li><li>后端切换与采样参数暴露得全，调 prompt 与量化对比方便。</li><li>扩展生态成熟，角色卡、语音、图像等能按需加。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">不是生产推理服务，并发与多租户不如 vLLM/TGI。<br>扩展与依赖更新快，版本冲突要会看日志。</p>
-  <h2>最小上手</h2>
-  <ol><li>用官方 one-click installer 或 Docker，先跑 7B 级 GGUF，确认后端与显卡都识别。</li><li>换一个量化档位，对比速度、显存与输出质量。</li><li>要长期用就锁版本、记模型目录，别让扩展自动升级打乱环境。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>Python/PyTorch + llama.cpp/ExLlama 等后端；模型权重。GPU 显存按量化与上下文，CPU 也能跑但慢。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码 AGPL-3.0；模型权重与扩展各自许可，分发 Web 服务前先看 AGPL 义务。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/ollama.html">Ollama</a> — 先试这个，一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</li><li><a href="../repos/localai.html">LocalAI</a> — 本地优先，本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。</li><li><a href="../repos/llama-cpp.html">llama.cpp</a> — 本地优先，C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>装完就能在浏览器里加载 GGUF / safetensors，适合本地试模型。</span><span data-en>Many backends behind one interface.</span></li><li><span data-zh>后端切换与采样参数暴露得全，调 prompt 与量化对比方便。</span><span data-en>Model loading, characters and extensions are built in.</span></li><li><span data-zh>扩展生态成熟，角色卡、语音、图像等能按需加。</span><span data-en>A long-standing community UI with many guides.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>不是生产推理服务，并发与多租户不如 vLLM/TGI。</span><span data-en>You need a production API with multi-user isolation.</span><br><span data-zh>扩展与依赖更新快，版本冲突要会看日志。</span><span data-en>You want a minimal command-line tool.</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>用官方 one-click installer 或 Docker，先跑 7B 级 GGUF，确认后端与显卡都识别。</span><span data-en>Load a small GGUF model and run one chat.</span></li><li><span data-zh>换一个量化档位，对比速度、显存与输出质量。</span><span data-en>Switch to another backend and compare speed.</span></li><li><span data-zh>要长期用就锁版本、记模型目录，别让扩展自动升级打乱环境。</span><span data-en>Disable untrusted extensions before exposing it on a network.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>Python/PyTorch + llama.cpp/ExLlama 等后端；模型权重。GPU 显存按量化与上下文，CPU 也能跑但慢。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码 AGPL-3.0；模型权重与扩展各自许可，分发 Web 服务前先看 AGPL 义务。</span><span data-en>Code is AGPL-3.0; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/ollama.html">Ollama</a> — <span data-zh>先试这个</span><span data-en>Start here</span>，<span data-zh>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</span><span data-en>Pull and run local models with one command, with a built-in model library and an OpenAI-compatible API.</span></li><li><a href="../repos/localai.html">LocalAI</a> — <span data-zh>本地优先</span><span data-en>Local-first</span>，<span data-zh>本地 OpenAI 兼容 API，支持文本、图像、语音等多模态后端。</span><span data-en>A local OpenAI-compatible API supporting text, image and speech backends.</span></li><li><a href="../repos/llama-cpp.html">llama.cpp</a> — <span data-zh>本地优先</span><span data-en>Local-first</span>，<span data-zh>C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。</span><span data-en>A C/C++ inference engine that runs on CPUs, Apple Silicon and consumer GPUs, with a wide range of quantisation formats.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/oobabooga/textgen" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://github.com/oobabooga/textgen/wiki" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=textgen-webui">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/oobabooga/textgen" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://github.com/oobabooga/textgen/wiki" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=textgen-webui"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

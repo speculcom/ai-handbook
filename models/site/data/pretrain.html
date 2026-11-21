@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://models.specul.com/data/pretrain.html" />
   <meta property="og:title" content="预训练语料 · 数据 · AI 模型" />
   <meta property="og:description" content="预训练语料数据集索引：FineWeb、Dolma、RedPajama-Data-v2、DCLM-Baseline、The Pile。每张卡写清许可、规模、获取方式与使用边界。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/data/pretrain.html" />
+  <link rel="alternate" hreflang="en" href="https://models.specul.com/data/pretrain.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://models.specul.com/data/pretrain.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -101,40 +106,60 @@
 <div class="sec-nav"><a href="index.html">← 全部数据</a><a href="../index.html">模型站</a></div>
 <nav class="sec-nav" aria-label="数据分类" data-ui-aria-label-zh="数据分类" data-ui-aria-label-en="Dataset categories"><a href="pretrain.html" aria-current="page"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></a><a href="sft.html"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></a><a href="preference.html"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></a><a href="eval.html"><span data-zh>评测集</span><span data-en>Evaluation sets</span></a><a href="rag.html"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></a><a href="multimodal.html"><span data-zh>多模态</span><span data-en>Multimodal</span></a><a href="code-domain.html"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></a><a href="synthetic.html"><span data-zh>合成数据</span><span data-en>Synthetic data</span></a></nav>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="fineweb.html">FineWeb</a></h3>
-  <p>从 96 批 Common Crawl 清洗，附教育向子集 FineWeb-Edu；清洗步骤有公开报告。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>15T tokens</dd></div><div><dt>许可</dt><dd>ODC-By 1.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">网页语料仍有噪声、重复与低质页；训练前要做语言筛选、去重和许可复核。</p>
-  <a class="sec-link" href="fineweb.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="fineweb.html"><span data-zh>FineWeb</span><span data-en>FineWeb</span></a></h3>
+  <p><span data-zh>从 96 批 Common Crawl 清洗，附教育向子集 FineWeb-Edu；清洗步骤有公开报告。</span><span data-en>Cleaned from 96 Common Crawl dumps, with an education-oriented FineWeb-Edu subset; the cleaning pipeline has a public report.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>15T tokens</span><span data-en>15T tokens</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>ODC-By 1.0</span><span data-en>ODC-By 1.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>网页语料仍有噪声、重复与低质页；训练前要做语言筛选、去重和许可复核。</span><span data-en>Web text still contains noise, duplicates and low-quality pages. Filter by language, deduplicate and re-check licences before training.</span></p>
+  <a class="sec-link" href="fineweb.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="dolma.html">Dolma</a></h3>
-  <p>AI2 公开的研究语料，定位是给科研提供可复现的对照底座。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>3T tokens</dd></div><div><dt>许可</dt><dd>ODC-BY 1.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">3T 是清洗后的口径；网页来源仍可能含敏感或侵权内容，使用前按用途复核。</p>
-  <a class="sec-link" href="dolma.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="dolma.html"><span data-zh>Dolma</span><span data-en>Dolma</span></a></h3>
+  <p><span data-zh>AI2 公开的研究语料，定位是给科研提供可复现的对照底座。</span><span data-en>AI2’s public research corpus, positioned as a reproducible baseline for research.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>3T tokens</span><span data-en>3T tokens</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>ODC-BY 1.0</span><span data-en>ODC-BY 1.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>3T 是清洗后的口径；网页来源仍可能含敏感或侵权内容，使用前按用途复核。</span><span data-en>The 3T figure is post-cleaning. Web sources may still contain sensitive or infringing material; review for your use case.</span></p>
+  <a class="sec-link" href="dolma.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="redpajama-v2.html">RedPajama-Data-v2</a></h3>
-  <p>多语言网页语料，带质量信号与去重标记，适合做多语言预训练基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>30T tokens（原始）</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">30T 是原始规模，清洗后可用量取决于质量筛选；不同语言覆盖不均。</p>
-  <a class="sec-link" href="redpajama-v2.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="redpajama-v2.html"><span data-zh>RedPajama-Data-v2</span><span data-en>RedPajama-Data-v2</span></a></h3>
+  <p><span data-zh>多语言网页语料，带质量信号与去重标记，适合做多语言预训练基线。</span><span data-en>Multilingual web corpus with quality signals and deduplication flags, suitable as a multilingual pretraining baseline.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>30T tokens（原始）</span><span data-en>30T tokens (raw)</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>30T 是原始规模，清洗后可用量取决于质量筛选；不同语言覆盖不均。</span><span data-en>30T is the raw scale; usable volume depends on quality filtering, and language coverage is uneven.</span></p>
+  <a class="sec-link" href="redpajama-v2.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="dclm-baseline.html">DCLM-Baseline</a></h3>
-  <p>从 Common Crawl 清洗，附 DCLM 过滤模型与消融报告；强调质量过滤，不是单纯扩量。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>4T tokens（1.0 基线）</dd></div><div><dt>许可</dt><dd>CC-BY-4.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">网页语料仍有版权、噪声与重复；过滤模型会带入自身偏差，不能把过滤分当质量真值。</p>
-  <a class="sec-link" href="dclm-baseline.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="dclm-baseline.html"><span data-zh>DCLM-Baseline</span><span data-en>DCLM-Baseline</span></a></h3>
+  <p><span data-zh>从 Common Crawl 清洗，附 DCLM 过滤模型与消融报告；强调质量过滤，不是单纯扩量。</span><span data-en>Cleaned Common Crawl with a DCLM filter model and ablation reports; the emphasis is quality filtering rather than raw scale.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>4T tokens（1.0 基线）</span><span data-en>4T tokens (1.0 baseline)</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-4.0（以数据集卡为准）</span><span data-en>CC-BY-4.0 (see dataset card)</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>网页语料仍有版权、噪声与重复；过滤模型会带入自身偏差，不能把过滤分当质量真值。</span><span data-en>Web text still carries copyright, noise and duplication. The filter model carries its own bias; a filter score is not a ground-truth quality label.</span></p>
+  <a class="sec-link" href="dclm-baseline.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="pile.html">The Pile</a></h3>
-  <p>22 个子集的经典混合，适合做小模型消融和研究复现。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 825 GiB / 22 个子集</dd></div><div><dt>许可</dt><dd>MIT（代码）；各子集逐源条款</dd></div><div><dt>获取</dt><dd>Hugging Face / EleutherAI</dd></div></dl>
-  <p class="sec-caveat">构建于 2020 年，网页与代码数据已过时；部分子集许可与来源需要逐项复核。</p>
-  <a class="sec-link" href="pile.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="pile.html"><span data-zh>The Pile</span><span data-en>The Pile</span></a></h3>
+  <p><span data-zh>22 个子集的经典混合，适合做小模型消融和研究复现。</span><span data-en>A classic 22-subset mixture for small-model ablations and research reproduction.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 825 GiB / 22 个子集</span><span data-en>About 825 GiB / 22 subsets</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT（代码）；各子集逐源条款</span><span data-en>MIT (code); each subset has its own terms</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face / EleutherAI</span><span data-en>Hugging Face / EleutherAI</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>构建于 2020 年，网页与代码数据已过时；部分子集许可与来源需要逐项复核。</span><span data-en>Built in 2020, so web and code data are dated; several subsets have separate licences and provenance that need review.</span></p>
+  <a class="sec-link" href="pile.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 </div>
   </main>

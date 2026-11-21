@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/leviathan-2023-speculative-decoding.html" />
   <meta property="og:title" content="Fast Inference from Transformers via Speculative Decoding · AI 论文" />
   <meta property="og:description" content="问题：自回归解码是串行的——生成 K 个 token 就要串行跑 K 次大模型；能否不改架构、不重训、也不改变输出分布，就把解码加速。 证据位置：摘要给出 T5-XXL 对比标准 T5X 实现的 2X-3X 加速且输出不变；实测数字在 Section 4.1 Table 2——单张 TPU-v4、b" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/leviathan-2023-speculative-decoding.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/leviathan-2023-speculative-decoding.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/leviathan-2023-speculative-decoding.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span></div>
   <h1><span data-zh>Fast Inference from Transformers via Speculative Decoding</span><span data-en>Fast Inference from Transformers via Speculative Decoding</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：自回归解码是串行的——生成 K 个 token 就要串行跑 K 次大模型；能否不改架构、不重训、也不改变输出分布，就把解码加速。<br>证据位置：摘要给出 T5-XXL 对比标准 T5X 实现的 2X-3X 加速且输出不变；实测数字在 Section 4.1 Table 2——单张 TPU-v4、batch size 1，目标模型 T5-XXL（11B），近似模型为 T5-small/base/large，任务是 WMT EnDe 翻译与 CNNDM 摘要；局限写在 Section 6 Discussion。<br>作者自陈局限：原文写明 &quot;latency is improved through increased concurrency at the cost of an increased number of arithmetic operations&quot;，因此 &quot;our method is not helpful for configurations where additional computation resources are not available&quot;；另自陈 &quot;We tested speculative decoding only in the text modality&quot;，beam search 场景的分析 &quot;we leave it for future work&quot;（Appendix A.4）。<br>它没主张的：论文没有说总算术运算量会下降——拒绝猜测时计算被浪费、总运算量可能更高，加速前提是有闲置算力（如内存带宽是瓶颈）；2X-3X 是 batch size 1、单 TPU-v4、对比 T5X 这一特定实现的口径，不能直接外推到批处理服务或其他硬件；也没有在其他模态上给出结果。</span><span data-en>Problem: autoregressive decoding is serial — decoding K tokens takes K serial runs of the large model; can it be accelerated without changing the architecture, retraining, or the output distribution.<br>Where the evidence sits: the abstract reports 2X-3X acceleration on T5-XXL vs the standard T5X implementation with identical outputs; the measurements are in Section 4.1, Table 2 — a single TPU-v4, batch size 1, T5-XXL (11B) as target with T5-small/base/large as approximation models, on WMT EnDe translation and CNNDM summarization; the limits are in Section 6, Discussion.<br>What the authors say about limits: the paper states &quot;latency is improved through increased concurrency at the cost of an increased number of arithmetic operations&quot;, hence &quot;our method is not helpful for configurations where additional computation resources are not available&quot;; it also notes &quot;We tested speculative decoding only in the text modality&quot;, and the beam-search analysis is left to future work (Appendix A.4).<br>What it does not claim: the paper does not claim fewer total arithmetic operations — rejected guesses waste computation and total operations may rise, and the speed-up presupposes spare compute (e.g. memory bandwidth as the bottleneck); the 2X-3X figure is specific to batch size 1 on one TPU-v4 against the T5X implementation and does not automatically transfer to batched serving or other hardware; no results are claimed for other modalities.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；Section 4.1 Table 2（单 TPU-v4、batch size 1）；Section 6 Discussion</dd></div><div><dt>T5-XXL 加速 / speedup</dt><dd>2X-3X（对比标准 T5X 实现，输出不变）</dd></div><div><dt>EnDe 翻译 / translation</dt><dd>2.6X（temp=1）/ 3.4X（temp=0）</dd></div><div><dt>CNNDM 摘要 / summarization</dt><dd>2.3X（temp=1）/ 3.1X（temp=0）</dd></div><div><dt>测量设置 / setup</dt><dd>batch size 1，单张 TPU-v4</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2211.17192" rel="noopener">https://arxiv.org/abs/2211.17192</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="awq-2023.html"><span data-zh>AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</span><span data-en>AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</span></a></li><li><a href="bitnet158-2024.html"><span data-zh>The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits</span><span data-en>The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits</span></a></li><li><a href="dao-2022-flashattention.html"><span data-zh>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</span><span data-en>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

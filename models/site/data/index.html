@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://models.specul.com/data/" />
   <meta property="og:title" content="数据与训练语料 · AI 模型" />
   <meta property="og:description" content="40 张数据集卡，按预训练、SFT、偏好、评测、RAG、多模态、代码领域、合成数据八类整理；每张写清许可、规模、获取方式与使用边界。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/data/" />
+  <link rel="alternate" hreflang="en" href="https://models.specul.com/data/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://models.specul.com/data/" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -108,306 +113,466 @@
 <h2>预训练语料 <span class="sec-tag">5</span></h2>
 <p>从网页、书籍、代码里洗出来的底座语料；先看许可、去重与语言分布。</p>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="fineweb.html">FineWeb</a></h3>
-  <p>从 96 批 Common Crawl 清洗，附教育向子集 FineWeb-Edu；清洗步骤有公开报告。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>15T tokens</dd></div><div><dt>许可</dt><dd>ODC-By 1.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">网页语料仍有噪声、重复与低质页；训练前要做语言筛选、去重和许可复核。</p>
-  <a class="sec-link" href="fineweb.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="fineweb.html"><span data-zh>FineWeb</span><span data-en>FineWeb</span></a></h3>
+  <p><span data-zh>从 96 批 Common Crawl 清洗，附教育向子集 FineWeb-Edu；清洗步骤有公开报告。</span><span data-en>Cleaned from 96 Common Crawl dumps, with an education-oriented FineWeb-Edu subset; the cleaning pipeline has a public report.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>15T tokens</span><span data-en>15T tokens</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>ODC-By 1.0</span><span data-en>ODC-By 1.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>网页语料仍有噪声、重复与低质页；训练前要做语言筛选、去重和许可复核。</span><span data-en>Web text still contains noise, duplicates and low-quality pages. Filter by language, deduplicate and re-check licences before training.</span></p>
+  <a class="sec-link" href="fineweb.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="dolma.html">Dolma</a></h3>
-  <p>AI2 公开的研究语料，定位是给科研提供可复现的对照底座。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>3T tokens</dd></div><div><dt>许可</dt><dd>ODC-BY 1.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">3T 是清洗后的口径；网页来源仍可能含敏感或侵权内容，使用前按用途复核。</p>
-  <a class="sec-link" href="dolma.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="dolma.html"><span data-zh>Dolma</span><span data-en>Dolma</span></a></h3>
+  <p><span data-zh>AI2 公开的研究语料，定位是给科研提供可复现的对照底座。</span><span data-en>AI2’s public research corpus, positioned as a reproducible baseline for research.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>3T tokens</span><span data-en>3T tokens</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>ODC-BY 1.0</span><span data-en>ODC-BY 1.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>3T 是清洗后的口径；网页来源仍可能含敏感或侵权内容，使用前按用途复核。</span><span data-en>The 3T figure is post-cleaning. Web sources may still contain sensitive or infringing material; review for your use case.</span></p>
+  <a class="sec-link" href="dolma.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="redpajama-v2.html">RedPajama-Data-v2</a></h3>
-  <p>多语言网页语料，带质量信号与去重标记，适合做多语言预训练基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>30T tokens（原始）</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">30T 是原始规模，清洗后可用量取决于质量筛选；不同语言覆盖不均。</p>
-  <a class="sec-link" href="redpajama-v2.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="redpajama-v2.html"><span data-zh>RedPajama-Data-v2</span><span data-en>RedPajama-Data-v2</span></a></h3>
+  <p><span data-zh>多语言网页语料，带质量信号与去重标记，适合做多语言预训练基线。</span><span data-en>Multilingual web corpus with quality signals and deduplication flags, suitable as a multilingual pretraining baseline.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>30T tokens（原始）</span><span data-en>30T tokens (raw)</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>30T 是原始规模，清洗后可用量取决于质量筛选；不同语言覆盖不均。</span><span data-en>30T is the raw scale; usable volume depends on quality filtering, and language coverage is uneven.</span></p>
+  <a class="sec-link" href="redpajama-v2.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="dclm-baseline.html">DCLM-Baseline</a></h3>
-  <p>从 Common Crawl 清洗，附 DCLM 过滤模型与消融报告；强调质量过滤，不是单纯扩量。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>4T tokens（1.0 基线）</dd></div><div><dt>许可</dt><dd>CC-BY-4.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">网页语料仍有版权、噪声与重复；过滤模型会带入自身偏差，不能把过滤分当质量真值。</p>
-  <a class="sec-link" href="dclm-baseline.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="dclm-baseline.html"><span data-zh>DCLM-Baseline</span><span data-en>DCLM-Baseline</span></a></h3>
+  <p><span data-zh>从 Common Crawl 清洗，附 DCLM 过滤模型与消融报告；强调质量过滤，不是单纯扩量。</span><span data-en>Cleaned Common Crawl with a DCLM filter model and ablation reports; the emphasis is quality filtering rather than raw scale.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>4T tokens（1.0 基线）</span><span data-en>4T tokens (1.0 baseline)</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-4.0（以数据集卡为准）</span><span data-en>CC-BY-4.0 (see dataset card)</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>网页语料仍有版权、噪声与重复；过滤模型会带入自身偏差，不能把过滤分当质量真值。</span><span data-en>Web text still carries copyright, noise and duplication. The filter model carries its own bias; a filter score is not a ground-truth quality label.</span></p>
+  <a class="sec-link" href="dclm-baseline.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">预训练语料</span></div>
-  <h3><a href="pile.html">The Pile</a></h3>
-  <p>22 个子集的经典混合，适合做小模型消融和研究复现。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 825 GiB / 22 个子集</dd></div><div><dt>许可</dt><dd>MIT（代码）；各子集逐源条款</dd></div><div><dt>获取</dt><dd>Hugging Face / EleutherAI</dd></div></dl>
-  <p class="sec-caveat">构建于 2020 年，网页与代码数据已过时；部分子集许可与来源需要逐项复核。</p>
-  <a class="sec-link" href="pile.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></span></div>
+  <h3><a href="pile.html"><span data-zh>The Pile</span><span data-en>The Pile</span></a></h3>
+  <p><span data-zh>22 个子集的经典混合，适合做小模型消融和研究复现。</span><span data-en>A classic 22-subset mixture for small-model ablations and research reproduction.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 825 GiB / 22 个子集</span><span data-en>About 825 GiB / 22 subsets</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT（代码）；各子集逐源条款</span><span data-en>MIT (code); each subset has its own terms</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face / EleutherAI</span><span data-en>Hugging Face / EleutherAI</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>构建于 2020 年，网页与代码数据已过时；部分子集许可与来源需要逐项复核。</span><span data-en>Built in 2020, so web and code data are dated; several subsets have separate licences and provenance that need review.</span></p>
+  <a class="sec-link" href="pile.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 <h2>指令与 SFT <span class="sec-tag">5</span></h2>
 <p>把任务写成指令-回答对，用来教模型按格式做事。</p>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="oasst1.html">OpenAssistant OASST1</a></h3>
-  <p>人工编写的多轮对话树，带审核与语言标签，适合做对话 SFT 的起点。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 16.1 万条消息</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">社区众包，质量参差；不同语言样本量差异大，直接混合会偏英文。</p>
-  <a class="sec-link" href="oasst1.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="oasst1.html"><span data-zh>OpenAssistant OASST1</span><span data-en>OpenAssistant OASST1</span></a></h3>
+  <p><span data-zh>人工编写的多轮对话树，带审核与语言标签，适合做对话 SFT 的起点。</span><span data-en>Human-written multi-turn conversation trees with review and language tags; a useful starting point for dialogue SFT.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 16.1 万条消息</span><span data-en>About 161k messages</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>社区众包，质量参差；不同语言样本量差异大，直接混合会偏英文。</span><span data-en>Community crowdsourced, so quality varies; sample sizes differ sharply by language, and naive mixing skews English.</span></p>
+  <a class="sec-link" href="oasst1.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="dolly15k.html">Databricks Dolly 15k</a></h3>
-  <p>Databricks 员工人工编写，覆盖问答、生成、摘要、信息抽取等类别。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>1.5 万条指令</dd></div><div><dt>许可</dt><dd>CC-BY-SA-4.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">CC-BY-SA 有传染性；如果你把数据混进训练集，衍生数据的分发方式要先看许可。</p>
-  <a class="sec-link" href="dolly15k.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="dolly15k.html"><span data-zh>Databricks Dolly 15k</span><span data-en>Databricks Dolly 15k</span></a></h3>
+  <p><span data-zh>Databricks 员工人工编写，覆盖问答、生成、摘要、信息抽取等类别。</span><span data-en>Written by Databricks employees and covering Q&amp;A, generation, summarisation and extraction.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>1.5 万条指令</span><span data-en>15k instructions</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-SA-4.0</span><span data-en>CC-BY-SA-4.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>CC-BY-SA 有传染性；如果你把数据混进训练集，衍生数据的分发方式要先看许可。</span><span data-en>CC-BY-SA is copyleft. If you mix it into a training set, check how derivative data may be distributed.</span></p>
+  <a class="sec-link" href="dolly15k.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="flan-collection.html">FLAN Collection</a></h3>
-  <p>把大量 NLP 任务改写成指令格式，任务覆盖面广，适合做指令微调的对照基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 1,836 个任务 / 1,500 万级样本</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">任务模板高度统一，直接拿去训对话模型会显得机械；需要重采样与模板多样化。</p>
-  <a class="sec-link" href="flan-collection.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="flan-collection.html"><span data-zh>FLAN Collection</span><span data-en>FLAN Collection</span></a></h3>
+  <p><span data-zh>把大量 NLP 任务改写成指令格式，任务覆盖面广，适合做指令微调的对照基线。</span><span data-en>Rewrites many NLP tasks as instructions; broad task coverage makes it a strong instruction-tuning baseline.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 1,836 个任务 / 1,500 万级样本</span><span data-en>About 1,836 tasks / 15M+ examples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>任务模板高度统一，直接拿去训对话模型会显得机械；需要重采样与模板多样化。</span><span data-en>Task templates are highly uniform, so a dialogue model trained directly on it can sound mechanical. Resample and diversify templates.</span></p>
+  <a class="sec-link" href="flan-collection.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="tulu-3-sft.html">Tülu 3 SFT Mixture</a></h3>
-  <p>把多个公开 SFT 集按配方混合，附 Tülu 3 训练报告与消融，适合做可复现的后训练基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 100 万+ 指令样本</dd></div><div><dt>许可</dt><dd>ODC-BY 1.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">混合配方会带入各源集的风格与偏差；部分子集许可不同，不能只看总卡。</p>
-  <a class="sec-link" href="tulu-3-sft.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="tulu-3-sft.html"><span data-zh>Tülu 3 SFT Mixture</span><span data-en>Tülu 3 SFT Mixture</span></a></h3>
+  <p><span data-zh>把多个公开 SFT 集按配方混合，附 Tülu 3 训练报告与消融，适合做可复现的后训练基线。</span><span data-en>A recipe-based mixture of public SFT sets with Tülu 3 training reports and ablations, useful as a reproducible post-training baseline.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 100 万+ 指令样本</span><span data-en>About 1M+ instruction samples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>ODC-BY 1.0（以数据集卡为准）</span><span data-en>ODC-BY 1.0 (see dataset card)</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>混合配方会带入各源集的风格与偏差；部分子集许可不同，不能只看总卡。</span><span data-en>The mixture inherits each source’s style and bias, and subset licences differ. Do not rely on the top-level card alone.</span></p>
+  <a class="sec-link" href="tulu-3-sft.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="smoltalk.html">SmolTalk</a></h3>
-  <p>面向小模型对话能力整理的混合集，覆盖日常问答、指令与多轮对话。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 200 万条对话样本</dd></div><div><dt>许可</dt><dd>Apache-2.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">以英文日常对话为主，专业领域与中文覆盖有限；合成/改写样本可能放大模型风格。</p>
-  <a class="sec-link" href="smoltalk.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="smoltalk.html"><span data-zh>SmolTalk</span><span data-en>SmolTalk</span></a></h3>
+  <p><span data-zh>面向小模型对话能力整理的混合集，覆盖日常问答、指令与多轮对话。</span><span data-en>A mixture aimed at small-model conversation, covering everyday Q&amp;A, instructions and multi-turn dialogue.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 200 万条对话样本</span><span data-en>About 2M dialogue samples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0（以数据集卡为准）</span><span data-en>Apache-2.0 (see dataset card)</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>以英文日常对话为主，专业领域与中文覆盖有限；合成/改写样本可能放大模型风格。</span><span data-en>Mostly English everyday dialogue with limited specialist and Chinese coverage; synthetic or rewritten samples can amplify model style.</span></p>
+  <a class="sec-link" href="smoltalk.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 <h2>偏好与 RLHF <span class="sec-tag">5</span></h2>
 <p>人类或模型对回答排序，用来做偏好对齐与 DPO。</p>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">偏好与 RLHF</span></div>
-  <h3><a href="hh-rlhf.html">Anthropic HH-RLHF</a></h3>
-  <p>有帮助性与无害性两组人类偏好数据，是 RLHF 早期常用的公开基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 17 万组偏好对比</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">对话风格与现在的助手产品差异较大；直接拿旧偏好训新模型，可能学到过时的表达。</p>
-  <a class="sec-link" href="hh-rlhf.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></span></div>
+  <h3><a href="hh-rlhf.html"><span data-zh>Anthropic HH-RLHF</span><span data-en>Anthropic HH-RLHF</span></a></h3>
+  <p><span data-zh>有帮助性与无害性两组人类偏好数据，是 RLHF 早期常用的公开基线。</span><span data-en>Human preference data split into helpfulness and harmlessness; an early public baseline for RLHF.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 17 万组偏好对比</span><span data-en>About 170k preference pairs</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>对话风格与现在的助手产品差异较大；直接拿旧偏好训新模型，可能学到过时的表达。</span><span data-en>Dialogue style differs from current assistants. Training a new model on old preferences can teach outdated phrasing.</span></p>
+  <a class="sec-link" href="hh-rlhf.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">偏好与 RLHF</span></div>
-  <h3><a href="ultrafeedback.html">UltraFeedback</a></h3>
-  <p>用多个模型生成回答再做细粒度评分，适合做偏好对齐与 DPO 训练。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 6.4 万条 prompt × 4 个回答</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">评分由模型产生，会带入评分模型的偏好；用于生产前要抽检偏差。</p>
-  <a class="sec-link" href="ultrafeedback.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></span></div>
+  <h3><a href="ultrafeedback.html"><span data-zh>UltraFeedback</span><span data-en>UltraFeedback</span></a></h3>
+  <p><span data-zh>用多个模型生成回答再做细粒度评分，适合做偏好对齐与 DPO 训练。</span><span data-en>Multiple models generate answers that are then fine-grained scored; useful for preference alignment and DPO.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 6.4 万条 prompt × 4 个回答</span><span data-en>About 64k prompts × 4 answers</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>评分由模型产生，会带入评分模型的偏好；用于生产前要抽检偏差。</span><span data-en>Scores come from models and carry the scorer’s preferences. Sample for bias before production use.</span></p>
+  <a class="sec-link" href="ultrafeedback.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">偏好与 RLHF</span></div>
-  <h3><a href="nectar.html">Nectar</a></h3>
-  <p>GPT-4 对多个模型回答做 7 档排序，适合研究排序式偏好学习。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 18.3 万条 prompt，每组 7 个回答</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">排序由单一模型完成，存在位置偏差与风格偏好；不要当作人类真值。</p>
-  <a class="sec-link" href="nectar.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></span></div>
+  <h3><a href="nectar.html"><span data-zh>Nectar</span><span data-en>Nectar</span></a></h3>
+  <p><span data-zh>GPT-4 对多个模型回答做 7 档排序，适合研究排序式偏好学习。</span><span data-en>GPT-4 ranks seven model answers on a seven-point scale; useful for studying ranked preference learning.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 18.3 万条 prompt，每组 7 个回答</span><span data-en>About 183k prompts, 7 answers each</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>排序由单一模型完成，存在位置偏差与风格偏好；不要当作人类真值。</span><span data-en>Ranking is done by one model, with position and style bias. Do not treat it as human ground truth.</span></p>
+  <a class="sec-link" href="nectar.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">偏好与 RLHF</span></div>
-  <h3><a href="helpsteer2.html">HelpSteer2</a></h3>
-  <p>多维度人工标注（帮助性、正确性、连贯性、复杂度、冗长度），适合训练可解释的奖励模型。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 2.1 万条偏好样本</dd></div><div><dt>许可</dt><dd>CC-BY-4.0</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">标注者与提示分布偏英文、偏通用助手；不能直接代表中文或行业偏好。</p>
-  <a class="sec-link" href="helpsteer2.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></span></div>
+  <h3><a href="helpsteer2.html"><span data-zh>HelpSteer2</span><span data-en>HelpSteer2</span></a></h3>
+  <p><span data-zh>多维度人工标注（帮助性、正确性、连贯性、复杂度、冗长度），适合训练可解释的奖励模型。</span><span data-en>Multi-aspect human annotations (helpfulness, correctness, coherence, complexity, verbosity), useful for interpretable reward models.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 2.1 万条偏好样本</span><span data-en>About 21k preference samples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-4.0</span><span data-en>CC-BY-4.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>标注者与提示分布偏英文、偏通用助手；不能直接代表中文或行业偏好。</span><span data-en>Annotators and prompts skew English and general-assistant use. It does not directly represent Chinese or industry preferences.</span></p>
+  <a class="sec-link" href="helpsteer2.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">偏好与 RLHF</span></div>
-  <h3><a href="reward-bench.html">RewardBench</a></h3>
-  <p>覆盖聊天、推理、安全等子集的偏好对，专门用来测奖励模型而不是生成模型。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>数千条偏好对</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">题集规模不大，子集间难度差异明显；分数高不等于下游 DPO 一定好。</p>
-  <a class="sec-link" href="reward-bench.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></span></div>
+  <h3><a href="reward-bench.html"><span data-zh>RewardBench</span><span data-en>RewardBench</span></a></h3>
+  <p><span data-zh>覆盖聊天、推理、安全等子集的偏好对，专门用来测奖励模型而不是生成模型。</span><span data-en>Preference pairs across chat, reasoning and safety subsets, designed to evaluate reward models rather than generators.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>数千条偏好对</span><span data-en>Several thousand preference pairs</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题集规模不大，子集间难度差异明显；分数高不等于下游 DPO 一定好。</span><span data-en>The set is small and subset difficulty varies. A high score does not guarantee better downstream DPO.</span></p>
+  <a class="sec-link" href="reward-bench.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 <h2>评测集 <span class="sec-tag">5</span></h2>
 <p>用来量分数的题集；注意污染与版本，不要混进训练。</p>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="mmlu.html">MMLU</a></h3>
-  <p>覆盖 57 个学科的多选题，是模型知识广度的常用基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 1.4 万道测试题 / 57 学科</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">题目公开已久，污染风险高；分数高不等于会做实际任务。</p>
-  <a class="sec-link" href="mmlu.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="mmlu.html"><span data-zh>MMLU</span><span data-en>MMLU</span></a></h3>
+  <p><span data-zh>覆盖 57 个学科的多选题，是模型知识广度的常用基线。</span><span data-en>Multiple-choice questions across 57 subjects; a common baseline for breadth of model knowledge.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 1.4 万道测试题 / 57 学科</span><span data-en>About 14k test questions / 57 subjects</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题目公开已久，污染风险高；分数高不等于会做实际任务。</span><span data-en>Questions have been public for years, so contamination risk is high. A high score does not prove the model can do real tasks.</span></p>
+  <a class="sec-link" href="mmlu.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="gsm8k.html">GSM8K</a></h3>
-  <p>题目短、答案唯一，适合观察多步算术与推理链是否稳定。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>8,500 道小学应用题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">难度集中在小学范围；高分不代表能处理真实业务里的表格与多约束问题。</p>
-  <a class="sec-link" href="gsm8k.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="gsm8k.html"><span data-zh>GSM8K</span><span data-en>GSM8K</span></a></h3>
+  <p><span data-zh>题目短、答案唯一，适合观察多步算术与推理链是否稳定。</span><span data-en>Short problems with unique answers, useful for checking multi-step arithmetic and reasoning stability.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>8,500 道小学应用题</span><span data-en>8,500 grade-school problems</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>难度集中在小学范围；高分不代表能处理真实业务里的表格与多约束问题。</span><span data-en>Difficulty is limited to grade-school maths. A high score does not imply handling tables and multiple constraints in real work.</span></p>
+  <a class="sec-link" href="gsm8k.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="humaneval.html">HumanEval</a></h3>
-  <p>函数级代码生成基准，用单元测试判分，口径清楚。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>164 道 Python 函数题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">题量小，单一语言；分数波动大，不能单独代表代码能力。</p>
-  <a class="sec-link" href="humaneval.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="humaneval.html"><span data-zh>HumanEval</span><span data-en>HumanEval</span></a></h3>
+  <p><span data-zh>函数级代码生成基准，用单元测试判分，口径清楚。</span><span data-en>Function-level code generation scored by unit tests, with a clear protocol.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>164 道 Python 函数题</span><span data-en>164 Python function tasks</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题量小，单一语言；分数波动大，不能单独代表代码能力。</span><span data-en>Small and single-language; scores fluctuate and cannot represent code capability on their own.</span></p>
+  <a class="sec-link" href="humaneval.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="math-500.html">MATH-500</a></h3>
-  <p>从 MATH 测试集抽出的 500 题子集，题面与答案结构清楚，常用于快速比较数学推理。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>500 题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">题目公开已久，污染风险高；答案抽取与等价判断会显著影响分数。</p>
-  <a class="sec-link" href="math-500.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="math-500.html"><span data-zh>MATH-500</span><span data-en>MATH-500</span></a></h3>
+  <p><span data-zh>从 MATH 测试集抽出的 500 题子集，题面与答案结构清楚，常用于快速比较数学推理。</span><span data-en>A 500-problem subset of the MATH test set with clear problem and answer structure, often used for quick comparisons.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>500 题</span><span data-en>500 problems</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题目公开已久，污染风险高；答案抽取与等价判断会显著影响分数。</span><span data-en>Problems have been public for a long time, so contamination risk is high. Answer extraction and equivalence checking strongly affect scores.</span></p>
+  <a class="sec-link" href="math-500.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="aime-2024.html">AIME 2024</a></h3>
-  <p>竞赛级数学题，答案唯一，适合压力测试长链推理与自我校验。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>30 题（2024 AIME I/II）</dd></div><div><dt>许可</dt><dd>题目版权归 MAA；使用需核对</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方题面</dd></div></dl>
-  <p class="sec-caveat">题量小，单题波动会放大分数差；题面公开后污染风险高。</p>
-  <a class="sec-link" href="aime-2024.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="aime-2024.html"><span data-zh>AIME 2024</span><span data-en>AIME 2024</span></a></h3>
+  <p><span data-zh>竞赛级数学题，答案唯一，适合压力测试长链推理与自我校验。</span><span data-en>Competition-level problems with unique answers, useful for stress-testing long reasoning and self-checking.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>30 题（2024 AIME I/II）</span><span data-en>30 problems (2024 AIME I/II)</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>题目版权归 MAA；使用需核对</span><span data-en>Problem copyright belongs to MAA; verify use</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face / 官方题面</span><span data-en>Hugging Face / official problem text</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题量小，单题波动会放大分数差；题面公开后污染风险高。</span><span data-en>Very few problems, so a single item swings the score; contamination risk rises after public release.</span></p>
+  <a class="sec-link" href="aime-2024.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 <h2>RAG 文档 <span class="sec-tag">5</span></h2>
 <p>检索问答的证据库；质量、更新与权限比 chunk size 更重要。</p>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">RAG 文档</span></div>
-  <h3><a href="natural-questions.html">Natural Questions</a></h3>
-  <p>来自真实搜索查询，附 Wikipedia 段落标注，适合做检索与阅读理解的联合评测。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 30.7 万条真实查询</dd></div><div><dt>许可</dt><dd>CC-BY-SA-3.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">维基页面会变，旧标注可能对不上；做 RAG 评测要固定快照。</p>
-  <a class="sec-link" href="natural-questions.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></span></div>
+  <h3><a href="natural-questions.html"><span data-zh>Natural Questions</span><span data-en>Natural Questions</span></a></h3>
+  <p><span data-zh>来自真实搜索查询，附 Wikipedia 段落标注，适合做检索与阅读理解的联合评测。</span><span data-en>Real search queries with Wikipedia passage annotations, useful for joint retrieval and reading evaluation.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 30.7 万条真实查询</span><span data-en>About 307k real queries</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-SA-3.0</span><span data-en>CC-BY-SA-3.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>维基页面会变，旧标注可能对不上；做 RAG 评测要固定快照。</span><span data-en>Wikipedia pages change and old annotations may not align. Fix a snapshot for RAG evaluation.</span></p>
+  <a class="sec-link" href="natural-questions.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">RAG 文档</span></div>
-  <h3><a href="hotpotqa.html">HotpotQA</a></h3>
-  <p>需要跨两段以上证据才能回答，适合测检索召回与证据拼接。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 11.3 万条多跳问答</dd></div><div><dt>许可</dt><dd>CC-BY-4.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">部分问题依赖维基结构；真实文档库的噪声与权限问题它不覆盖。</p>
-  <a class="sec-link" href="hotpotqa.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></span></div>
+  <h3><a href="hotpotqa.html"><span data-zh>HotpotQA</span><span data-en>HotpotQA</span></a></h3>
+  <p><span data-zh>需要跨两段以上证据才能回答，适合测检索召回与证据拼接。</span><span data-en>Questions require evidence from two or more passages, useful for testing retrieval recall and evidence stitching.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 11.3 万条多跳问答</span><span data-en>About 113k multi-hop questions</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-4.0</span><span data-en>CC-BY-4.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>部分问题依赖维基结构；真实文档库的噪声与权限问题它不覆盖。</span><span data-en>Some questions depend on Wikipedia structure. It does not cover noise and permissions in a real document store.</span></p>
+  <a class="sec-link" href="hotpotqa.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">RAG 文档</span></div>
-  <h3><a href="beir.html">BEIR</a></h3>
-  <p>跨领域检索基准集合，适合比较 embedding 与检索策略的泛化。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>18 个检索数据集</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">各子集许可与领域不同；不要把 18 个分数平均成一个总分。</p>
-  <a class="sec-link" href="beir.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></span></div>
+  <h3><a href="beir.html"><span data-zh>BEIR</span><span data-en>BEIR</span></a></h3>
+  <p><span data-zh>跨领域检索基准集合，适合比较 embedding 与检索策略的泛化。</span><span data-en>A cross-domain retrieval benchmark for comparing embedding and retrieval generalisation.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>18 个检索数据集</span><span data-en>18 retrieval datasets</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>各子集许可与领域不同；不要把 18 个分数平均成一个总分。</span><span data-en>Subsets have different licences and domains. Do not average all 18 scores into one number.</span></p>
+  <a class="sec-link" href="beir.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">RAG 文档</span></div>
-  <h3><a href="ms-marco.html">MS MARCO</a></h3>
-  <p>大规模真实搜索查询与段落，适合训练/评测检索器与重排器。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 880 万段落 / 100 万+ 查询</dd></div><div><dt>许可</dt><dd>MS MARCO 数据使用协议</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方下载</dd></div></dl>
-  <p class="sec-caveat">查询与段落偏英文网页；答案不一定完整，不能直接当生成训练真值。</p>
-  <a class="sec-link" href="ms-marco.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></span></div>
+  <h3><a href="ms-marco.html"><span data-zh>MS MARCO</span><span data-en>MS MARCO</span></a></h3>
+  <p><span data-zh>大规模真实搜索查询与段落，适合训练/评测检索器与重排器。</span><span data-en>Large-scale real search queries and passages for training and evaluating retrievers and rerankers.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 880 万段落 / 100 万+ 查询</span><span data-en>About 8.8M passages / 1M+ queries</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MS MARCO 数据使用协议</span><span data-en>MS MARCO data terms</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face / 官方下载</span><span data-en>Hugging Face / official download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>查询与段落偏英文网页；答案不一定完整，不能直接当生成训练真值。</span><span data-en>Queries and passages skew English web content; answers are not always complete and are not direct generation ground truth.</span></p>
+  <a class="sec-link" href="ms-marco.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">RAG 文档</span></div>
-  <h3><a href="triviaqa.html">TriviaQA</a></h3>
-  <p>问题来自 trivia 爱好者，附证据文档与多答案别名，适合测检索+阅读。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 95K 问答对</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">题目与证据偏英文维基/网页；部分答案有别名与时间敏感信息。</p>
-  <a class="sec-link" href="triviaqa.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></span></div>
+  <h3><a href="triviaqa.html"><span data-zh>TriviaQA</span><span data-en>TriviaQA</span></a></h3>
+  <p><span data-zh>问题来自 trivia 爱好者，附证据文档与多答案别名，适合测检索+阅读。</span><span data-en>Trivia questions with evidence documents and answer aliases, useful for retrieval-plus-reading evaluation.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 95K 问答对</span><span data-en>About 95K question-answer pairs</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题目与证据偏英文维基/网页；部分答案有别名与时间敏感信息。</span><span data-en>Questions and evidence skew English Wikipedia and web pages; some answers have aliases and time-sensitive facts.</span></p>
+  <a class="sec-link" href="triviaqa.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 <h2>多模态 <span class="sec-tag">5</span></h2>
 <p>图文、视频与音频对；图像版权随源站，不能默认可商用。</p>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
-  <h3><a href="laion5b.html">LAION-5B</a></h3>
-  <p>大规模图文对，适合研究对比学习与图文检索。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>58.5 亿图文对（URL 元数据）</dd></div><div><dt>许可</dt><dd>元数据 CC-BY-4.0；图像版权随源站</dd></div><div><dt>获取</dt><dd>元数据下载 / 图像需回源</dd></div></dl>
-  <p class="sec-caveat">不托管图像；URL 会失效，图像许可与肖像权要逐条核对，不能默认可商用。</p>
-  <a class="sec-link" href="laion5b.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+  <h3><a href="laion5b.html"><span data-zh>LAION-5B</span><span data-en>LAION-5B</span></a></h3>
+  <p><span data-zh>大规模图文对，适合研究对比学习与图文检索。</span><span data-en>Large-scale image-text pairs for contrastive learning and image-text retrieval research.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>58.5 亿图文对（URL 元数据）</span><span data-en>5.85B image-text pairs (URL metadata)</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>元数据 CC-BY-4.0；图像版权随源站</span><span data-en>Metadata CC-BY-4.0; image copyright follows the source site</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>元数据下载 / 图像需回源</span><span data-en>Metadata download / images fetched from source</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>不托管图像；URL 会失效，图像许可与肖像权要逐条核对，不能默认可商用。</span><span data-en>Images are not hosted; URLs break and image licences and portrait rights must be checked individually. Do not assume commercial use.</span></p>
+  <a class="sec-link" href="laion5b.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
-  <h3><a href="datacomp1b.html">DataComp-1B</a></h3>
-  <p>固定训练预算下比较数据筛选方法，适合做可复现的缩放实验。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 14 亿图文对</dd></div><div><dt>许可</dt><dd>CC-BY-4.0（元数据）；图像随源站</dd></div><div><dt>获取</dt><dd>直接下载元数据</dd></div></dl>
-  <p class="sec-caveat">图像不随数据集重新分发；商用前要核对源站许可与肖像权。</p>
-  <a class="sec-link" href="datacomp1b.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+  <h3><a href="datacomp1b.html"><span data-zh>DataComp-1B</span><span data-en>DataComp-1B</span></a></h3>
+  <p><span data-zh>固定训练预算下比较数据筛选方法，适合做可复现的缩放实验。</span><span data-en>Compares data-filtering methods under a fixed training budget, enabling reproducible scaling experiments.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 14 亿图文对</span><span data-en>About 1.4B image-text pairs</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-4.0（元数据）；图像随源站</span><span data-en>CC-BY-4.0 (metadata); images follow source</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载元数据</span><span data-en>Direct metadata download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>图像不随数据集重新分发；商用前要核对源站许可与肖像权。</span><span data-en>Images are not redistributed with the dataset. Check source licences and portrait rights before commercial use.</span></p>
+  <a class="sec-link" href="datacomp1b.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
-  <h3><a href="coco-captions.html">COCO Captions</a></h3>
-  <p>图像描述的标准基线，标注格式稳定，适合做小规模对照。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 33 万张图 / 每图 5 条描述</dd></div><div><dt>许可</dt><dd>标注 CC-BY-4.0；图像随 Flickr 源站</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">图像来自 Flickr，许可不统一；不能把整个数据集默认成商用可分发。</p>
-  <a class="sec-link" href="coco-captions.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+  <h3><a href="coco-captions.html"><span data-zh>COCO Captions</span><span data-en>COCO Captions</span></a></h3>
+  <p><span data-zh>图像描述的标准基线，标注格式稳定，适合做小规模对照。</span><span data-en>A standard captioning baseline with stable annotation format, suitable for small controlled comparisons.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 33 万张图 / 每图 5 条描述</span><span data-en>About 330k images / 5 captions each</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>标注 CC-BY-4.0；图像随 Flickr 源站</span><span data-en>Annotations CC-BY-4.0; images follow Flickr sources</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>图像来自 Flickr，许可不统一；不能把整个数据集默认成商用可分发。</span><span data-en>Images come from Flickr with mixed licences. Do not treat the whole dataset as commercially redistributable.</span></p>
+  <a class="sec-link" href="coco-captions.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
-  <h3><a href="llava-instruct-150k.html">LLaVA-Instruct-150K</a></h3>
-  <p>用 GPT 生成图文指令，覆盖描述、推理与对话，是早期多模态 SFT 的常用基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>15 万条图文指令</dd></div><div><dt>许可</dt><dd>LLaVA 数据条款；图像随 COCO</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">指令由模型生成，存在幻觉与风格偏差；图像来自 COCO，版权随源数据集。</p>
-  <a class="sec-link" href="llava-instruct-150k.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+  <h3><a href="llava-instruct-150k.html"><span data-zh>LLaVA-Instruct-150K</span><span data-en>LLaVA-Instruct-150K</span></a></h3>
+  <p><span data-zh>用 GPT 生成图文指令，覆盖描述、推理与对话，是早期多模态 SFT 的常用基线。</span><span data-en>GPT-generated image-text instructions covering description, reasoning and dialogue; an early multimodal SFT baseline.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>15 万条图文指令</span><span data-en>150k image-text instructions</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>LLaVA 数据条款；图像随 COCO</span><span data-en>LLaVA data terms; images follow COCO</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>指令由模型生成，存在幻觉与风格偏差；图像来自 COCO，版权随源数据集。</span><span data-en>Instructions are model-generated and can contain hallucinations and style bias; images come from COCO and carry its terms.</span></p>
+  <a class="sec-link" href="llava-instruct-150k.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">多模态</span></div>
-  <h3><a href="video-mme.html">Video-MME</a></h3>
-  <p>覆盖不同时长与领域的视频问答，适合测长视频理解与时间定位。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>900 段视频 / 2,700 题</dd></div><div><dt>许可</dt><dd>CC-BY-4.0（以数据卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方页</dd></div></dl>
-  <p class="sec-caveat">视频来源与版权需逐条核对；题集公开后污染风险上升。</p>
-  <a class="sec-link" href="video-mme.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>多模态</span><span data-en>Multimodal</span></span></div>
+  <h3><a href="video-mme.html"><span data-zh>Video-MME</span><span data-en>Video-MME</span></a></h3>
+  <p><span data-zh>覆盖不同时长与领域的视频问答，适合测长视频理解与时间定位。</span><span data-en>Video QA across durations and domains, useful for long-video understanding and temporal grounding.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>900 段视频 / 2,700 题</span><span data-en>900 videos / 2,700 questions</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-4.0（以数据卡为准）</span><span data-en>CC-BY-4.0 (see dataset card)</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face / 官方页</span><span data-en>Hugging Face / official page</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>视频来源与版权需逐条核对；题集公开后污染风险上升。</span><span data-en>Video sources and copyright need item-by-item review; contamination risk rises after public release.</span></p>
+  <a class="sec-link" href="video-mme.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 <h2>代码与领域 <span class="sec-tag">5</span></h2>
 <p>代码、医学、法律等专业语料；逐仓/逐篇核对许可。</p>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="the-stack.html">The Stack</a></h3>
-  <p>从公开 GitHub 仓库抽取并去重，附许可与仓库元数据。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 3TB 去重代码 / 300+ 语言</dd></div><div><dt>许可</dt><dd>MIT（数据集打包）；代码随原仓库</dd></div><div><dt>获取</dt><dd>需接受条件后下载</dd></div></dl>
-  <p class="sec-caveat">代码许可混杂，含 copyleft 与无许可仓库；训练与分发前必须过滤。</p>
-  <a class="sec-link" href="the-stack.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="the-stack.html"><span data-zh>The Stack</span><span data-en>The Stack</span></a></h3>
+  <p><span data-zh>从公开 GitHub 仓库抽取并去重，附许可与仓库元数据。</span><span data-en>Extracted from public GitHub repositories and deduplicated, with licence and repository metadata.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 3TB 去重代码 / 300+ 语言</span><span data-en>About 3TB deduplicated code / 300+ languages</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT（数据集打包）；代码随原仓库</span><span data-en>MIT (dataset packaging); code follows the original repositories</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>需接受条件后下载</span><span data-en>Gated download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>代码许可混杂，含 copyleft 与无许可仓库；训练与分发前必须过滤。</span><span data-en>Code licences are mixed, including copyleft and unlicensed repositories. Filter before training and distribution.</span></p>
+  <a class="sec-link" href="the-stack.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="starcoderdata.html">StarCoderData</a></h3>
-  <p>StarCoder 系列所用代码语料，语言覆盖广，附去重与许可过滤记录。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 2,500 亿代码 token / 80+ 语言</dd></div><div><dt>许可</dt><dd>Apache-2.0（数据集打包）；代码随原仓库</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">数据集打包许可不等于代码许可；生成代码的许可证继承问题要单独评估。</p>
-  <a class="sec-link" href="starcoderdata.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="starcoderdata.html"><span data-zh>StarCoderData</span><span data-en>StarCoderData</span></a></h3>
+  <p><span data-zh>StarCoder 系列所用代码语料，语言覆盖广，附去重与许可过滤记录。</span><span data-en>The code corpus used by StarCoder, with broad language coverage and deduplication and licence-filtering records.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 2,500 亿代码 token / 80+ 语言</span><span data-en>About 250B code tokens / 80+ languages</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0（数据集打包）；代码随原仓库</span><span data-en>Apache-2.0 (dataset packaging); code follows the original repositories</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>数据集打包许可不等于代码许可；生成代码的许可证继承问题要单独评估。</span><span data-en>The dataset packaging licence is not the code licence. Assess licence inheritance for generated code separately.</span></p>
+  <a class="sec-link" href="starcoderdata.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="pubmedqa.html">PubMedQA</a></h3>
-  <p>从 PubMed 摘要构造的是/否/不确定问答，适合做医学文献检索问答的基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 27.3 万条生物医学问答</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">不是临床指南，不能用于诊断建议；专业用途要另行核对最新文献与监管要求。</p>
-  <a class="sec-link" href="pubmedqa.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="pubmedqa.html"><span data-zh>PubMedQA</span><span data-en>PubMedQA</span></a></h3>
+  <p><span data-zh>从 PubMed 摘要构造的是/否/不确定问答，适合做医学文献检索问答的基线。</span><span data-en>Yes/no/maybe questions built from PubMed abstracts; a baseline for biomedical literature QA.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 27.3 万条生物医学问答</span><span data-en>About 273k biomedical Q&amp;A items</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>不是临床指南，不能用于诊断建议；专业用途要另行核对最新文献与监管要求。</span><span data-en>Not a clinical guideline and must not be used for diagnosis. Professional use requires current literature and regulatory review.</span></p>
+  <a class="sec-link" href="pubmedqa.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="commitpackft.html">CommitPackFT</a></h3>
-  <p>从真实 Git 提交中筛出的指令-代码对，覆盖多语言与真实修改场景。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 200 万条提交</dd></div><div><dt>许可</dt><dd>BigCode 数据集协议</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">提交质量参差，含调试残留与许可证不明的代码；需按仓库过滤。</p>
-  <a class="sec-link" href="commitpackft.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="commitpackft.html"><span data-zh>CommitPackFT</span><span data-en>CommitPackFT</span></a></h3>
+  <p><span data-zh>从真实 Git 提交中筛出的指令-代码对，覆盖多语言与真实修改场景。</span><span data-en>Instruction-code pairs filtered from real Git commits, covering multiple languages and realistic edits.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 200 万条提交</span><span data-en>About 2M commits</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>BigCode 数据集协议</span><span data-en>BigCode dataset terms</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>提交质量参差，含调试残留与许可证不明的代码；需按仓库过滤。</span><span data-en>Commit quality varies and includes debug residue and code with unclear licences. Filter by repository.</span></p>
+  <a class="sec-link" href="commitpackft.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="apps.html">APPS</a></h3>
-  <p>包含题面、样例与隐藏测试，适合测“写完能不能过测试”而不是只看相似度。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>10,000 题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">题面与测试公开已久，污染风险高；部分题测试不完整。</p>
-  <a class="sec-link" href="apps.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="apps.html"><span data-zh>APPS</span><span data-en>APPS</span></a></h3>
+  <p><span data-zh>包含题面、样例与隐藏测试，适合测“写完能不能过测试”而不是只看相似度。</span><span data-en>Includes problem statements, examples and hidden tests, so it measures whether code passes tests rather than surface similarity.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>10,000 题</span><span data-en>10,000 problems</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题面与测试公开已久，污染风险高；部分题测试不完整。</span><span data-en>Statements and tests have been public for years, so contamination risk is high; some tests are incomplete.</span></p>
+  <a class="sec-link" href="apps.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 <h2>合成数据 <span class="sec-tag">5</span></h2>
 <p>模型生成或改写的样本；补长尾，但会放大模型风格与错误。</p>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">合成数据</span></div>
-  <h3><a href="ultrachat-200k.html">UltraChat 200k</a></h3>
-  <p>由模型生成的多轮对话， topic 覆盖广，适合做对话 SFT 的合成基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 20 万条多轮对话</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">合成数据会放大生成模型的风格与错误；要混入人工数据并做去重与质量过滤。</p>
-  <a class="sec-link" href="ultrachat-200k.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>合成数据</span><span data-en>Synthetic data</span></span></div>
+  <h3><a href="ultrachat-200k.html"><span data-zh>UltraChat 200k</span><span data-en>UltraChat 200k</span></a></h3>
+  <p><span data-zh>由模型生成的多轮对话， topic 覆盖广，适合做对话 SFT 的合成基线。</span><span data-en>Model-generated multi-turn dialogue with broad topic coverage; a synthetic baseline for dialogue SFT.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 20 万条多轮对话</span><span data-en>About 200k multi-turn dialogues</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>合成数据会放大生成模型的风格与错误；要混入人工数据并做去重与质量过滤。</span><span data-en>Synthetic data amplifies the generator’s style and errors. Mix with human data and deduplicate and filter.</span></p>
+  <a class="sec-link" href="ultrachat-200k.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">合成数据</span></div>
-  <h3><a href="wizardlm-evol.html">WizardLM Evol-Instruct</a></h3>
-  <p>用 Evol-Instruct 把简单指令改写成更深、更复杂版本，适合做指令难度爬坡。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 7 万条进化指令</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">合成指令可能不自然或不可执行；训练前要抽检并去掉重复模板。</p>
-  <a class="sec-link" href="wizardlm-evol.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>合成数据</span><span data-en>Synthetic data</span></span></div>
+  <h3><a href="wizardlm-evol.html"><span data-zh>WizardLM Evol-Instruct</span><span data-en>WizardLM Evol-Instruct</span></a></h3>
+  <p><span data-zh>用 Evol-Instruct 把简单指令改写成更深、更复杂版本，适合做指令难度爬坡。</span><span data-en>Evol-Instruct rewrites simple instructions into deeper, more complex versions, useful for increasing instruction difficulty.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 7 万条进化指令</span><span data-en>About 70k evolved instructions</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>合成指令可能不自然或不可执行；训练前要抽检并去掉重复模板。</span><span data-en>Synthetic instructions can be unnatural or unexecutable. Sample and remove repeated templates before training.</span></p>
+  <a class="sec-link" href="wizardlm-evol.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">合成数据</span></div>
-  <h3><a href="openhermes-25.html">OpenHermes-2.5</a></h3>
-  <p>混合合成与公开指令数据，覆盖广，是社区常用的 SFT 基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 100 万条对话样本</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">来源混合，重复与低质样本多；需按来源分层抽样并做去重。</p>
-  <a class="sec-link" href="openhermes-25.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>合成数据</span><span data-en>Synthetic data</span></span></div>
+  <h3><a href="openhermes-25.html"><span data-zh>OpenHermes-2.5</span><span data-en>OpenHermes-2.5</span></a></h3>
+  <p><span data-zh>混合合成与公开指令数据，覆盖广，是社区常用的 SFT 基线。</span><span data-en>A mix of synthetic and public instruction data with broad coverage; a common community SFT baseline.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 100 万条对话样本</span><span data-en>About 1M dialogue samples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>来源混合，重复与低质样本多；需按来源分层抽样并做去重。</span><span data-en>Mixed provenance means duplicates and low-quality samples. Stratify by source and deduplicate.</span></p>
+  <a class="sec-link" href="openhermes-25.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">合成数据</span></div>
-  <h3><a href="magicoder-oss-instruct.html">Magicoder-OSS-Instruct</a></h3>
-  <p>从开源代码片段反向生成指令-代码对，强调多样性与真实代码语境。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>7.5 万条</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">合成指令可能带模型风格与错误；代码片段许可需逐仓核对。</p>
-  <a class="sec-link" href="magicoder-oss-instruct.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>合成数据</span><span data-en>Synthetic data</span></span></div>
+  <h3><a href="magicoder-oss-instruct.html"><span data-zh>Magicoder-OSS-Instruct</span><span data-en>Magicoder-OSS-Instruct</span></a></h3>
+  <p><span data-zh>从开源代码片段反向生成指令-代码对，强调多样性与真实代码语境。</span><span data-en>Instructions and code pairs generated backwards from open-source snippets, emphasising diversity and real code context.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>7.5 万条</span><span data-en>75k examples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>合成指令可能带模型风格与错误；代码片段许可需逐仓核对。</span><span data-en>Synthetic instructions carry model style and errors; code snippet licences must be checked repository by repository.</span></p>
+  <a class="sec-link" href="magicoder-oss-instruct.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">合成数据</span></div>
-  <h3><a href="cosmopedia.html">Cosmopedia</a></h3>
-  <p>用生成模型合成的教科书、故事与问答文本，结构清楚，适合小模型预训练实验。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 3,000 万篇 / 25B tokens</dd></div><div><dt>许可</dt><dd>Apache-2.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">合成文本会放大生成模型的偏见与事实错误；不能替代真实网页语料。</p>
-  <a class="sec-link" href="cosmopedia.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>合成数据</span><span data-en>Synthetic data</span></span></div>
+  <h3><a href="cosmopedia.html"><span data-zh>Cosmopedia</span><span data-en>Cosmopedia</span></a></h3>
+  <p><span data-zh>用生成模型合成的教科书、故事与问答文本，结构清楚，适合小模型预训练实验。</span><span data-en>Synthetic textbooks, stories and Q&amp;A with clear structure, useful for small-model pretraining experiments.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 3,000 万篇 / 25B tokens</span><span data-en>About 30M documents / 25B tokens</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0（以数据集卡为准）</span><span data-en>Apache-2.0 (see dataset card)</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>合成文本会放大生成模型的偏见与事实错误；不能替代真实网页语料。</span><span data-en>Synthetic text amplifies the generator’s biases and factual errors; it cannot replace real web corpora.</span></p>
+  <a class="sec-link" href="cosmopedia.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 <h2>怎么选数据</h2>
 <div class="sec-grid"><article class="sec-card">

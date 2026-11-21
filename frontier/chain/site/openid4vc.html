@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://chain.specul.com/openid4vc.html" />
   <meta property="og:title" content="OpenID for Verifiable Credential Issuance 1.0 · 链" />
   <meta property="og:description" content="交集：AI agent 或用户需要把「身份、资质、授权」以可验证凭证形式出示给模型/服务；OpenID4VCI 定义签发 API 与密钥证明格式。 适用范围：规范定义凭证签发、proof JWT、nonce 与 issuer 校验；它不规定凭证内容模型（那是 VC data model）也不规定具体" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://chain.specul.com/openid4vc.html" />
+  <link rel="alternate" hreflang="en" href="https://chain.specul.com/openid4vc.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://chain.specul.com/openid4vc.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>凭证</span><span data-en>Credentials</span></span></div>
   <h1><span data-zh>OpenID for Verifiable Credential Issuance 1.0</span><span data-en>OpenID for Verifiable Credential Issuance 1.0</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>交集：AI agent 或用户需要把「身份、资质、授权」以可验证凭证形式出示给模型/服务；OpenID4VCI 定义签发 API 与密钥证明格式。<br>适用范围：规范定义凭证签发、proof JWT、nonce 与 issuer 校验；它不规定凭证内容模型（那是 VC data model）也不规定具体信任框架。<br>未解决：钱包/发行方互操作、撤销与隐私、以及 AI agent 持有凭证时的委托与最小披露，仍需上层 profile 与合规规则。</span><span data-en>Intersection: AI agents or users need to present identity, qualifications or authorisations as verifiable credentials; OpenID4VCI defines the issuance API and key-proof format.<br>Scope: the spec defines credential issuance, proof JWTs, nonces and issuer validation; it does not define the credential content model (that is the VC data model) or a specific trust framework.<br>Open: wallet/issuer interoperability, revocation and privacy, and delegation/minimal disclosure when an AI agent holds credentials still need profiles and compliance rules.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>协议状态 / status</dt><dd>已部署</dd></div><div><dt>版本 / version</dt><dd>1.0</dd></div><div><dt>证明类型 / proof</dt><dd>openid4vci-proof+jwt</dd></div><div><dt>签发 / issuance</dt><dd>Credential Issuer API</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-specification</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html" rel="noopener">https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>凭证</span><span data-en>Credentials</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="erc-6551-token-bound-accounts.html"><span data-zh>ERC-6551：给每个 NFT 一个链上账户</span><span data-en>ERC-6551: token-bound accounts</span></a></li><li><a href="safe-smart-account.html"><span data-zh>Safe 智能账户：多签、阈值与账户抽象</span><span data-en>Safe smart account: multisig, threshold and account abstraction</span></a></li><li><a href="w3c-did.html"><span data-zh>W3C 去中心化标识符 DID</span><span data-en>W3C Decentralized Identifiers (DID)</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/domain-trust.html"><span data-zh>许可、评测、凭证的判断框架</span><span data-en>A framework for licences, evals and credentials</span></a></li><li><a href="https://specul.com/topic-agent.html"><span data-zh>搭智能体：权限、支付与护栏</span><span data-en>Build agents: permissions, payments, guardrails</span></a></li></ul></section>

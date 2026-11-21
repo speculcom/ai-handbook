@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/qwen3-2025.html" />
   <meta property="og:title" content="Qwen3 Technical Report · AI 论文" />
   <meta property="og:description" content="问题：推理模型与聊天模型通常是两套权重，用户要在「想得深」和「答得快」之间切换；能不能用一套模型、一个框架同时提供两种模式，并给推理预算。 证据位置：摘要给出 0.6B–235B 的稠密与 MoE 系列；把 thinking / non-thinking 两种模式统一，支持按查询或模板动态切换，并引" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/qwen3-2025.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/qwen3-2025.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/qwen3-2025.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
   <h1><span data-zh>Qwen3 Technical Report</span><span data-en>Qwen3 Technical Report</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：推理模型与聊天模型通常是两套权重，用户要在「想得深」和「答得快」之间切换；能不能用一套模型、一个框架同时提供两种模式，并给推理预算。<br>证据位置：摘要给出 0.6B–235B 的稠密与 MoE 系列；把 thinking / non-thinking 两种模式统一，支持按查询或模板动态切换，并引入 thinking budget；多语言从 29 种扩到 119 种；全部模型以 Apache 2.0 开放。<br>作者自陈局限：摘要的 SOTA 说法来自自建评测；最大 235B，部署成本未展开；thinking budget 的收益依赖任务与提示；没有独立复现与完整安全评估。<br>它没主张的：不是所有任务都该开 thinking；不是小模型在每项基准都追平大模型；不是 Apache 2.0 就等于无使用限制。</span><span data-en>Problem: reasoning models and chat models are usually separate weights, forcing a trade-off between deep thinking and fast replies; can one model family provide both modes with a reasoning budget.<br>Where the evidence sits: the abstract covers dense and MoE models from 0.6B to 235B; it unifies thinking and non-thinking modes with dynamic switching by query or template and adds a thinking budget; multilingual support grows from 29 to 119 languages and dialects; all models are released under Apache 2.0.<br>What the authors say about limits: the SOTA claim comes from their own evaluation; the largest model is 235B and deployment cost is not detailed; thinking-budget gains depend on task and prompt; there is no independent reproduction or full safety evaluation.<br>What it does not claim: not that every task should enable thinking; not that small models match large ones on every benchmark; not that Apache 2.0 means no usage constraints.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要</dd></div><div><dt>规模 / scale</dt><dd>0.6B–235B，稠密与 MoE</dd></div><div><dt>模式 / modes</dt><dd>thinking / non-thinking 统一框架 + thinking budget</dd></div><div><dt>语言 / languages</dt><dd>29 → 119 种语言和方言</dd></div><div><dt>许可 / licence</dt><dd>Apache 2.0</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2505.09388" rel="noopener">https://arxiv.org/abs/2505.09388</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="brown-2020-gpt3.html"><span data-zh>Language Models are Few-Shot Learners</span><span data-en>Language Models are Few-Shot Learners</span></a></li><li><a href="deepseek-v3-2024.html"><span data-zh>DeepSeek-V3 Technical Report</span><span data-en>DeepSeek-V3 Technical Report</span></a></li><li><a href="fedus-2022-switch.html"><span data-zh>Switch Transformer：用简单稀疏路由扩到万亿参数</span><span data-en>Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

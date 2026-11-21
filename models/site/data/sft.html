@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://models.specul.com/data/sft.html" />
   <meta property="og:title" content="指令与 SFT · 数据 · AI 模型" />
   <meta property="og:description" content="指令与 SFT数据集索引：OpenAssistant OASST1、Databricks Dolly 15k、FLAN Collection、Tülu 3 SFT Mixture、SmolTalk。每张卡写清许可、规模、获取方式与使用边界。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/data/sft.html" />
+  <link rel="alternate" hreflang="en" href="https://models.specul.com/data/sft.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://models.specul.com/data/sft.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -101,40 +106,60 @@
 <div class="sec-nav"><a href="index.html">← 全部数据</a><a href="../index.html">模型站</a></div>
 <nav class="sec-nav" aria-label="数据分类" data-ui-aria-label-zh="数据分类" data-ui-aria-label-en="Dataset categories"><a href="pretrain.html"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></a><a href="sft.html" aria-current="page"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></a><a href="preference.html"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></a><a href="eval.html"><span data-zh>评测集</span><span data-en>Evaluation sets</span></a><a href="rag.html"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></a><a href="multimodal.html"><span data-zh>多模态</span><span data-en>Multimodal</span></a><a href="code-domain.html"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></a><a href="synthetic.html"><span data-zh>合成数据</span><span data-en>Synthetic data</span></a></nav>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="oasst1.html">OpenAssistant OASST1</a></h3>
-  <p>人工编写的多轮对话树，带审核与语言标签，适合做对话 SFT 的起点。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 16.1 万条消息</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">社区众包，质量参差；不同语言样本量差异大，直接混合会偏英文。</p>
-  <a class="sec-link" href="oasst1.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="oasst1.html"><span data-zh>OpenAssistant OASST1</span><span data-en>OpenAssistant OASST1</span></a></h3>
+  <p><span data-zh>人工编写的多轮对话树，带审核与语言标签，适合做对话 SFT 的起点。</span><span data-en>Human-written multi-turn conversation trees with review and language tags; a useful starting point for dialogue SFT.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 16.1 万条消息</span><span data-en>About 161k messages</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>社区众包，质量参差；不同语言样本量差异大，直接混合会偏英文。</span><span data-en>Community crowdsourced, so quality varies; sample sizes differ sharply by language, and naive mixing skews English.</span></p>
+  <a class="sec-link" href="oasst1.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="dolly15k.html">Databricks Dolly 15k</a></h3>
-  <p>Databricks 员工人工编写，覆盖问答、生成、摘要、信息抽取等类别。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>1.5 万条指令</dd></div><div><dt>许可</dt><dd>CC-BY-SA-4.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">CC-BY-SA 有传染性；如果你把数据混进训练集，衍生数据的分发方式要先看许可。</p>
-  <a class="sec-link" href="dolly15k.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="dolly15k.html"><span data-zh>Databricks Dolly 15k</span><span data-en>Databricks Dolly 15k</span></a></h3>
+  <p><span data-zh>Databricks 员工人工编写，覆盖问答、生成、摘要、信息抽取等类别。</span><span data-en>Written by Databricks employees and covering Q&amp;A, generation, summarisation and extraction.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>1.5 万条指令</span><span data-en>15k instructions</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>CC-BY-SA-4.0</span><span data-en>CC-BY-SA-4.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>CC-BY-SA 有传染性；如果你把数据混进训练集，衍生数据的分发方式要先看许可。</span><span data-en>CC-BY-SA is copyleft. If you mix it into a training set, check how derivative data may be distributed.</span></p>
+  <a class="sec-link" href="dolly15k.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="flan-collection.html">FLAN Collection</a></h3>
-  <p>把大量 NLP 任务改写成指令格式，任务覆盖面广，适合做指令微调的对照基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 1,836 个任务 / 1,500 万级样本</dd></div><div><dt>许可</dt><dd>Apache-2.0</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">任务模板高度统一，直接拿去训对话模型会显得机械；需要重采样与模板多样化。</p>
-  <a class="sec-link" href="flan-collection.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="flan-collection.html"><span data-zh>FLAN Collection</span><span data-en>FLAN Collection</span></a></h3>
+  <p><span data-zh>把大量 NLP 任务改写成指令格式，任务覆盖面广，适合做指令微调的对照基线。</span><span data-en>Rewrites many NLP tasks as instructions; broad task coverage makes it a strong instruction-tuning baseline.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 1,836 个任务 / 1,500 万级样本</span><span data-en>About 1,836 tasks / 15M+ examples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>任务模板高度统一，直接拿去训对话模型会显得机械；需要重采样与模板多样化。</span><span data-en>Task templates are highly uniform, so a dialogue model trained directly on it can sound mechanical. Resample and diversify templates.</span></p>
+  <a class="sec-link" href="flan-collection.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="tulu-3-sft.html">Tülu 3 SFT Mixture</a></h3>
-  <p>把多个公开 SFT 集按配方混合，附 Tülu 3 训练报告与消融，适合做可复现的后训练基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 100 万+ 指令样本</dd></div><div><dt>许可</dt><dd>ODC-BY 1.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">混合配方会带入各源集的风格与偏差；部分子集许可不同，不能只看总卡。</p>
-  <a class="sec-link" href="tulu-3-sft.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="tulu-3-sft.html"><span data-zh>Tülu 3 SFT Mixture</span><span data-en>Tülu 3 SFT Mixture</span></a></h3>
+  <p><span data-zh>把多个公开 SFT 集按配方混合，附 Tülu 3 训练报告与消融，适合做可复现的后训练基线。</span><span data-en>A recipe-based mixture of public SFT sets with Tülu 3 training reports and ablations, useful as a reproducible post-training baseline.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 100 万+ 指令样本</span><span data-en>About 1M+ instruction samples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>ODC-BY 1.0（以数据集卡为准）</span><span data-en>ODC-BY 1.0 (see dataset card)</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>混合配方会带入各源集的风格与偏差；部分子集许可不同，不能只看总卡。</span><span data-en>The mixture inherits each source’s style and bias, and subset licences differ. Do not rely on the top-level card alone.</span></p>
+  <a class="sec-link" href="tulu-3-sft.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">指令与 SFT</span></div>
-  <h3><a href="smoltalk.html">SmolTalk</a></h3>
-  <p>面向小模型对话能力整理的混合集，覆盖日常问答、指令与多轮对话。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 200 万条对话样本</dd></div><div><dt>许可</dt><dd>Apache-2.0（以数据集卡为准）</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">以英文日常对话为主，专业领域与中文覆盖有限；合成/改写样本可能放大模型风格。</p>
-  <a class="sec-link" href="smoltalk.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></span></div>
+  <h3><a href="smoltalk.html"><span data-zh>SmolTalk</span><span data-en>SmolTalk</span></a></h3>
+  <p><span data-zh>面向小模型对话能力整理的混合集，覆盖日常问答、指令与多轮对话。</span><span data-en>A mixture aimed at small-model conversation, covering everyday Q&amp;A, instructions and multi-turn dialogue.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 200 万条对话样本</span><span data-en>About 2M dialogue samples</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0（以数据集卡为准）</span><span data-en>Apache-2.0 (see dataset card)</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>以英文日常对话为主，专业领域与中文覆盖有限；合成/改写样本可能放大模型风格。</span><span data-en>Mostly English everyday dialogue with limited specialist and Chinese coverage; synthetic or rewritten samples can amplify model style.</span></p>
+  <a class="sec-link" href="smoltalk.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 </div>
   </main>

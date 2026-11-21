@@ -1,0 +1,25 @@
+{
+  "_comment": "English body for notion-ai; generated from the Chinese dossier and official pages, not a literal translation.",
+  "axes": {
+    "model_access": "Driven by third-party generative models; Notion does not publish the full provider list or routing details, and features vary by tier and feature flag.",
+    "runtime": "Runs in Notion’s cloud, with web, desktop and mobile entry points; no model runs locally, and offline mode only edits existing content.",
+    "local_files": "Can read pages, databases and uploaded attachments in the current workspace; local files must be uploaded to Notion and cannot be scanned directly from the local disk.",
+    "background": "Writing, summarising and database filling are triggered inside a page; there is no general background agent, and long work stays within the current session.",
+    "tools": "Integrated with Notion pages, databases, comments, calendar and connectors; Notion MCP can expose workspace content to external agents.",
+    "context": "Context comes from the current workspace and pages the user can access; cross-team and cross-workspace retrieval is limited by sharing settings.",
+    "permissions": "Workspace admins control members, guests, connectors and retention; commercial use follows the tier and official terms, and customer content should not be used for training by default.",
+    "fit": "Fits: teams already using Notion for knowledge bases, project docs and light databases. Does not fit: a general chat entry point or heavyweight spreadsheet calculation."
+  },
+  "runs": "This site has not completed measured task runs for this entry. We checked the official product, help and terms pages and recorded capabilities, data paths and known limits. Suggested checks: the real tier boundaries, the data-retention default, and one end-to-end task with representative content.",
+  "unknowns": "- Exact model providers and routing (not disclosed)\n- Tier limits and AI feature flags (not verified)\n- Retention, training-use and connector permissions (check the contract)\n- Quality on large databases and long pages (not measured)",
+  "related": [
+    "Both put AI inside a workspace; Notion AI is tied to Notion pages and databases, Microsoft 365 Copilot to Office and Graph.",
+    "Notion AI and Feishu AI both cover docs and collaboration; compare permission model, connectors and data residency.",
+    "Notion MCP and LibreChat MCP both expose workspace tools to agents; compare authentication and auditability."
+  ],
+  "sources": [
+    "Notion · AI official page",
+    "Notion · help centre",
+    "Notion · terms and privacy"
+  ]
+}

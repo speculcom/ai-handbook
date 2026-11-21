@@ -4,20 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>开源 AI 工具库 — 自己拿下来跑 · Specul</title>
-  <meta name="description" content="131 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
+  <meta name="description" content="135 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
   <link rel="canonical" href="https://oss.specul.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="开源 AI 工具库" />
   <meta property="og:url" content="https://oss.specul.com/" />
   <meta property="og:title" content="开源 AI 工具库 — 自己拿下来跑 · Specul" />
-  <meta property="og:description" content="131 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
+  <meta property="og:description" content="135 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
   <link rel="stylesheet" href="brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="oss.css?v=493aa226" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"开源 AI 工具库 — 自己拿下来跑 · Specul","description":"131 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。","url":"https://oss.specul.com/","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"开源 AI 工具库 — 自己拿下来跑 · Specul","description":"135 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。","url":"https://oss.specul.com/","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -109,7 +114,7 @@
 </div>
 <div class="section-head"><h2>按场景找</h2><span class="sub">七个场景，挑一个你手上的活</span></div>
 <div class="scene-grid"><a class="scene-card scene-1" href="scenes/agent-frameworks.html">
-  <span class="no">01 · 32 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <span class="no">01 · 33 <span data-zh>个仓库</span><span data-en>repos</span></span>
   <h3><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></h3>
   <p><span data-zh>把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</span><span data-en>Wire models, tools, state and human approval into a workflow that can run, retry and resume. Decide whether you need a state machine before choosing an abstraction.</span></p>
   <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
@@ -124,12 +129,12 @@
   <p><span data-zh>从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。</span><span data-en>Run models on hardware you control: check quantisation, memory fit, concurrency and serving API before choosing.</span></p>
   <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a><a class="scene-card scene-4" href="scenes/multimodal-visual.html">
-  <span class="no">04 · 18 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <span class="no">04 · 19 <span data-zh>个仓库</span><span data-en>repos</span></span>
   <h3><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></h3>
   <p><span data-zh>图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。</span><span data-en>Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms.</span></p>
   <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
 </a><a class="scene-card scene-5" href="scenes/speech-audio.html">
-  <span class="no">05 · 14 <span data-zh>个仓库</span><span data-en>repos</span></span>
+  <span class="no">05 · 16 <span data-zh>个仓库</span><span data-en>repos</span></span>
   <h3><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></h3>
   <p><span data-zh>语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。</span><span data-en>Transcribe, synthesise and separate speakers: check language coverage, latency, streaming and data handling.</span></p>
   <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
@@ -149,7 +154,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/crewai.html">CrewAI</a></h3>
   <p class="repo-owner">crewAIInc / crewAI</p>
-  <p>用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</p>
+  <p><span data-zh>用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</span><span data-en>Build multi-agent teams from roles, tasks and a collaboration process; good for getting division of labour running quickly.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -161,7 +166,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/ragflow.html">RAGFlow</a></h3>
   <p class="repo-owner">infiniflow / ragflow</p>
-  <p>带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</p>
+  <p><span data-zh>带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</span><span data-en>A RAG platform with document parsing, chunking, retrieval and citations, built to get a knowledge base running.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -173,7 +178,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/ollama.html">Ollama</a></h3>
   <p class="repo-owner">ollama / ollama</p>
-  <p>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</p>
+  <p><span data-zh>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</span><span data-en>Pull and run local models with one command, with a built-in model library and an OpenAI-compatible API.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Go</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -185,7 +190,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/comfyui.html">ComfyUI</a></h3>
   <p class="repo-owner">comfyanonymous / ComfyUI</p>
-  <p>节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。</p>
+  <p><span data-zh>节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。</span><span data-en>A node-based image and video generation workflow that wires models, samplers, ControlNet and post-processing into a graph.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>GPL-3.0</dd></div>
@@ -197,7 +202,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/whisper.html">Whisper</a></h3>
   <p class="repo-owner">openai / whisper</p>
-  <p>OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</p>
+  <p><span data-zh>OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</span><span data-en>OpenAI’s speech-recognition models and inference code, multilingual and timestamp-capable, with a simple install.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -209,7 +214,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/langfuse.html">Langfuse</a></h3>
   <p class="repo-owner">langfuse / langfuse</p>
-  <p>LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。</p>
+  <p><span data-zh>LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。</span><span data-en>Tracing, evaluation, prompt management and cost analytics for LLM applications, available self-hosted.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -223,7 +228,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/openclaw.html">OpenClaw</a></h3>
   <p class="repo-owner">openclaw / openclaw</p>
-  <p>把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</p>
+  <p><span data-zh>把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</span><span data-en>Run a personal assistant on your own machine, connected to 20+ chat channels plus native desktop and mobile; one Gateway manages sessions, skills, schedules and sandboxed execution.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -235,7 +240,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h3 class="repo-name"><a href="repos/deepseek-harness.html">DeepSeek Harness</a></h3>
   <p class="repo-owner">deepseek-ai / deepseek-harness</p>
-  <p>DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</p>
+  <p><span data-zh>DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</span><span data-en>DeepSeek’s plugin-based agent harness (dsh): everything is a plugin, a local web UI starts with one command, and it targets long tasks across models and tools.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>MIT</dd></div>
@@ -247,7 +252,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/codex-cli.html">Codex CLI</a></h3>
   <p class="repo-owner">openai / codex</p>
-  <p>OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</p>
+  <p><span data-zh>OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</span><span data-en>OpenAI’s local coding agent: Rust binary, OS-level sandbox, MCP and cloud-task handoff, built for editing code in the terminal.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Rust</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -259,7 +264,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="repos/firecrawl.html">Firecrawl</a></h3>
   <p class="repo-owner">firecrawl / firecrawl</p>
-  <p>把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</p>
+  <p><span data-zh>把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</span><span data-en>Crawl websites into clean Markdown or structured data for RAG and agents, available as a local binary, MCP server or self-hosted API.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>TypeScript</dd></div>
     <div><dt>许可</dt><dd>AGPL-3.0</dd></div>

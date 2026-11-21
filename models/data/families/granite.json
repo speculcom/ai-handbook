@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "code": "granite",
+  "name": {
+    "zh": "Granite",
+    "en": "Granite"
+  },
+  "vendor": {
+    "zh": "IBM",
+    "en": "IBM"
+  },
+  "currentGen": {
+    "zh": "Granite 4.2",
+    "en": "Granite 4.2"
+  },
+  "currentGenDate": "2026-11",
+  "generations": [
+    {
+      "gen": "Granite 4.2 3B",
+      "date": "2026-11",
+      "zh": "小尺寸 dense 档：3B，128K 上下文，带 thinking 模式；Apache-2.0。",
+      "en": "Small dense tier: 3B, 128K context and a thinking mode; Apache-2.0.",
+      "url": "https://research.ibm.com/blog/introducing-granite-4-2"
+    },
+    {
+      "gen": "Granite 4.2 8B",
+      "date": "2026-11",
+      "zh": "中尺寸 dense 档：8B，128K 上下文；适合单卡或企业边缘部署。",
+      "en": "Mid dense tier: 8B, 128K context; suited to a single GPU or enterprise edge deployment.",
+      "url": "https://research.ibm.com/blog/introducing-granite-4-2"
+    },
+    {
+      "gen": "Granite 4.2 30B",
+      "date": "2026-11",
+      "zh": "大尺寸 dense 档：30B，128K 上下文；面向企业工作流与编码任务。",
+      "en": "Large dense tier: 30B, 128K context; aimed at enterprise workflows and coding tasks.",
+      "url": "https://research.ibm.com/blog/introducing-granite-4-2"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "3B（边缘/单机）",
+      "en": "3B (edge / single machine)"
+    },
+    {
+      "zh": "8B（单卡）",
+      "en": "8B (single GPU)"
+    },
+    {
+      "zh": "30B（多卡/企业）",
+      "en": "30B (multi-GPU / enterprise)"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "apache-2.0",
+      "zh": "Apache-2.0",
+      "en": "Apache-2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "IBM Research 的 Granite 4.2 发布文列出 3B / 8B / 30B dense 三档、128K 上下文、thinking 模式与 Apache-2.0。",
+      "en": "IBM Research’s Granite 4.2 announcement lists 3B / 8B / 30B dense tiers, a 128K context, a thinking mode and Apache-2.0.",
+      "url": "https://research.ibm.com/blog/introducing-granite-4-2"
+    }
+  ],
+  "positioning": {
+    "zh": "IBM 的企业向开放权重家族：尺寸克制、许可干净、强调工作流与编码，适合在合规要求高的企业里做私有部署。它不是“跑分最强”路线，优势在许可、可审计与企业集成。",
+    "en": "IBM’s enterprise-oriented open-weight family: restrained sizes, clean licensing, and an emphasis on workflows and coding, suited to private deployment in compliance-heavy enterprises. It is not a benchmark-maximalist line; its advantage is licensing, auditability and enterprise integration."
+  },
+  "onSite": {
+    "series": [],
+    "zh": "本站尚未收录 Granite 的量化对比；8B/30B 的 GGUF 生态在增长，但下载量未达到本站门槛。",
+    "en": "No Granite quantisation comparison yet; the 8B/30B GGUF ecosystem is growing but below this site’s download threshold."
+  },
+  "sources": [
+    {
+      "label": "IBM Research · Introducing Granite 4.2",
+      "url": "https://research.ibm.com/blog/introducing-granite-4-2",
+      "kind": "official",
+      "labelEn": "IBM Research · Introducing Granite 4.2"
+    },
+    {
+      "label": "IBM Granite · Hugging Face 模型卡",
+      "url": "https://huggingface.co/ibm-granite",
+      "kind": "docs",
+      "labelEn": "IBM Granite · Hugging Face model cards"
+    }
+  ],
+  "last_verified": "2026-11-21",
+  "confidence": "verified",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 IBM（美国）。",
+    "originNoteEn": "Made by IBM (United States).",
+    "direct": "unknown",
+    "directNote": "本次未做中国大陆网络探测。",
+    "directNoteEn": "No mainland-China network probe was run.",
+    "filing": {
+      "status": "unknown",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "未检索备案名单。",
+      "noteEn": "Filing registry not searched."
+    },
+    "last_verified": "2026-11-21",
+    "sources": [
+      {
+        "label": "IBM Granite 官方页",
+        "url": "https://www.ibm.com/granite",
+        "kind": "official"
+      }
+    ]
+  }
+}

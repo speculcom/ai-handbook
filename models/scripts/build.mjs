@@ -1470,6 +1470,7 @@ ${vizFor('models')}
     <section class="family-list">
       <h2>${bi('家族谱系','Model families')} <small>${bi('先选家族和尺寸','family and size first')}</small></h2>
       <p class="sec-desc">${bi('每个开放权重家族一张卡：它是什么来头、现在哪一代、有哪些尺寸档、许可能不能商用、官方说过什么能力。家族内哪一代有量化对比，卡上直接给入口。', 'One card per open-weight family: where it comes from, which generation is current, what size tiers exist, whether the licence allows commercial use, and what the vendor officially claims. Where a generation has quantisation coverage, the card links straight to it.')}</p>
+      <p class="sec-desc"><a href="matrix.html"><b>${bi('不想一张张点？看 20 个家族的横向选型矩阵 →', 'Do not want to open 20 cards? See the 20-family comparison matrix →')}</b></a> ${bi('参数、上下文、许可、本站量化覆盖与参考显存放在一张表里。', 'Parameters, context, licence, on-site quantisation coverage and reference VRAM in one table.')}</p>
       <div class="famcards">
 ${familyCards}
       </div>

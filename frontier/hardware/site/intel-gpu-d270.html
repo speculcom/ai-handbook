@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://hardware.specul.com/intel-gpu-d270.html" />
   <meta property="og:title" content="Intel GPU D270（Crescent Island） · 硬件算力" />
   <meta property="og:description" content="回答「不想上机柜级液冷、又要在标准 PCIe 服务器里跑大显存推理，Intel 现在有什么卡」。D270 是 Intel 当前的数据中心推理 GPU：Xe3P、32 个 Xe core / 256 个 XMX、160GB LPDDR5X、1.5TB/s、350W、PCIe 5.0 风冷，原生 FP4" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://hardware.specul.com/intel-gpu-d270.html" />
+  <link rel="alternate" hreflang="en" href="https://hardware.specul.com/intel-gpu-d270.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://hardware.specul.com/intel-gpu-d270.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -94,8 +99,9 @@
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>加速卡</span><span data-en>Accelerators</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>加速卡</span><span data-en>Accelerators</span></span><span class="fx-badge"><span data-zh>未公布单价</span><span data-en>No public price</span></span></div>
   <h1><span data-zh>Intel GPU D270（Crescent Island）</span><span data-en>Intel GPU D270 (Crescent Island)</span></h1>
+  <p class="fx-price-note"><span data-zh><span data-zh>未公布单价</span><span data-en>No public price</span></span><span data-en><span data-zh>未公布单价</span><span data-en>No public price</span></span> · <span data-zh>官方页未给公开单价；这类产品通常按整机、云实例或询价成交，不拿经销商价冒充官方价。</span><span data-en>No public unit price on the official page; these usually sell as systems, cloud instances or on request, so dealer quotes are not presented as official.</span></p>
   <p class="fx-entry-lead"><span data-zh>回答「不想上机柜级液冷、又要在标准 PCIe 服务器里跑大显存推理，Intel 现在有什么卡」。D270 是 Intel 当前的数据中心推理 GPU：Xe3P、32 个 Xe core / 256 个 XMX、160GB LPDDR5X、1.5TB/s、350W、PCIe 5.0 风冷，原生 FP4 到 FP64；单卡可跑 300B 参数，8 卡可跑 1T+。它的差异点不是峰值算力，而是「大显存 + 低功耗 + 标准形态」。<br>不主张：480GB 是合作方配置，不是 Intel 品牌卡默认容量；1.3 PFLOPS 是 FP8，不是 FP4；单卡 300B / 8 卡 1T+ 是官方容量口径，不等于这些模型能以理想吞吐运行；官方给的性能对比基于 pre-production 芯片，属于厂商测试，不是独立实测；没有公开价格与正式上市日期。</span><span data-en>Answers what Intel offers when a standard PCIe server must run large-memory inference without rack-level liquid cooling. D270 is Intel&#39;s current data-center inference GPU: Xe3P, 32 Xe cores / 256 XMX engines, 160 GB LPDDR5X at 1.5 TB/s, 350 W, PCIe 5.0 air-cooled, native FP4 through FP64; one card holds up to 300B parameters and eight cards more than 1T. Its differentiator is large memory plus low power in a standard form factor, not peak compute.<br>It does not claim: 480 GB is a partner configuration, not the default Intel-branded card; 1.3 PFLOPS is FP8, not FP4; the 300B / 1T+ figures are capacity statements, not a promise of ideal throughput; Intel&#39;s comparisons use pre-production silicon and are vendor tests, not independent measurements; no public price or general-availability date.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>架构 / architecture</dt><dd>Intel Xe3P</dd></div><div><dt>Xe cores / XMX</dt><dd>32 Xe cores / 256 XMX engines</dd></div><div><dt>显存 / memory</dt><dd>160 GB LPDDR5X（合作方配置可至 480 GB）</dd></div><div><dt>带宽 / bandwidth</dt><dd>1.5 TB/s</dd></div><div><dt>FP8 算力 / FP8 compute</dt><dd>1.3 PFLOPS</dd></div><div><dt>精度 / precision</dt><dd>原生 FP4–FP64，FP64 全速</dd></div><div><dt>功耗 / power</dt><dd>350 W</dd></div><div><dt>形态 / form factor</dt><dd>PCIe 5.0 插卡，风冷</dd></div><div><dt>模型容量 / model capacity</dt><dd>单卡 300B；8 卡 1T+</dd></div><div><dt>状态 / status</dt><dd>2026-11-16 官方 HPC 文章；OCP 2026 公布 D 系列</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-spec-page</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html" rel="noopener">https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>加速卡</span><span data-en>Accelerators</span></dd></div>
+      <div><dt><span data-zh>状态</span><span data-en>Status</span></dt><dd><span data-zh>已发布 / 未出货</span><span data-en>Announced</span></dd></div>
+      
+      <div><dt><span data-zh>价格口径</span><span data-en>Price basis</span></dt><dd><span data-zh>未公布单价</span><span data-en>No public price</span> · not-published</dd></div>
     </dl>
   </section>
+  
   
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="amd-instinct-mi210.html"><span data-zh>AMD Instinct MI210</span><span data-en>AMD Instinct MI210</span></a></li><li><a href="amd-instinct-mi300x.html"><span data-zh>AMD Instinct MI300X</span><span data-en>AMD Instinct MI300X</span></a></li><li><a href="amd-instinct-mi325x.html"><span data-zh>AMD Instinct MI325X</span><span data-en>AMD Instinct MI325X</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-local.html"><span data-zh>本机跑模型：显存、量化与部署</span><span data-en>Run models locally: VRAM, quantization, serving</span></a></li><li><a href="https://models.specul.com/"><span data-zh>按显存挑模型与量化档</span><span data-en>Pick a model and quant tier by VRAM</span></a></li></ul></section>

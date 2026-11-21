@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://chain.specul.com/x402-http-payments.html" />
   <meta property="og:title" content="x402：用 HTTP 402 直接为 API 付费 · 链" />
   <meta property="og:description" content="交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具调用可以自带预算：Agent 调一个付费 API，付款与取数在同一个请求链路里完成。 适用范围：官方文档把流程写成五步（请求、402 指令、" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://chain.specul.com/x402-http-payments.html" />
+  <link rel="alternate" hreflang="en" href="https://chain.specul.com/x402-http-payments.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://chain.specul.com/x402-http-payments.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -94,8 +99,9 @@
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>支付与结算</span><span data-en>Payments &amp; settlement</span></span></div>
   <h1><span data-zh>x402：用 HTTP 402 直接为 API 付费</span><span data-en>x402: paying for APIs over HTTP 402</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>交集：把「按次付费」放回 HTTP 语义里——服务端返回 402 与付款指令，客户端付完再取资源，不需要账号、会话或凭据管理。对 AI Agent 的意义是工具调用可以自带预算：Agent 调一个付费 API，付款与取数在同一个请求链路里完成。<br>适用范围：官方文档把流程写成五步（请求、402 指令、付款载荷、服务端或 facilitator 验证结算、返回资源），并说明标准本身 0 费用、支持 EVM 批量结算。<br>未解决：付款的最终性、退款、争议与合规责任落在具体服务方与链上资产，不在协议层；本站不评价任何 x402 服务的定价或可靠性。</span><span data-en>The intersection: putting pay-per-call back into HTTP semantics — the server returns 402 plus payment instructions, the client pays, then receives the resource, with no accounts, sessions or credential management. For AI agents this means tool calls can carry their own budget: a paid API call and its payment settle in the same request path.<br>Scope: the official docs describe a five-step flow (request, 402 instructions, payment payload, verification and settlement by the server or a facilitator, resource) and state that the standard itself has zero fees and supports batched EVM settlement.<br>Open: finality, refunds, disputes and compliance sit with the specific service and on-chain asset, not the protocol layer; this entry does not judge any x402 service’s pricing or reliability.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>协议基础 / basis</dt><dd>HTTP 402 Payment Required</dd></div><div><dt>费用 / protocol fee</dt><dd>0（标准本身，官方文档）</dd></div><div><dt>结算 / settlement</dt><dd>EVM 批量结算（batch settlement）</dd></div><div><dt>适用对象 / users</dt><dd>服务方、买家、AI Agent</dd></div><div><dt>许可 / license</dt><dd>Apache-2.0（官方文档声明）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -115,11 +121,15 @@
       <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-17</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-documentation</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://docs.x402.org/" rel="noopener">https://docs.x402.org/</a></dd></div>
-      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>支付与结算</span><span data-en>Payments &amp; settlement</span></dd></div>
+      <div><dt><span data-zh>状态</span><span data-en>Status</span></dt><dd><span data-zh>生产可用</span><span data-en>Production</span></dd></div>
+      
+      
     </dl>
   </section>
   
-  <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="acp-agentic-commerce.html"><span data-zh>ACP：让 AI Agent 走完商家结账</span><span data-en>ACP: agent-ready merchant checkout</span></a></li><li><a href="ap2-agent-payments.html"><span data-zh>AP2：Agent Payments Protocol</span><span data-en>AP2: Agent Payments Protocol</span></a></li><li><a href="arbitrum-nitro.html"><span data-zh>Arbitrum Nitro：乐观汇总与交互式欺诈证明</span><span data-en>Arbitrum Nitro: optimistic rollup with interactive fraud proofs</span></a></li></ul></section>
+  
+  <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="acp-agentic-commerce.html"><span data-zh>ACP：让 AI Agent 走完商家结账</span><span data-en>ACP: agent-ready merchant checkout</span></a></li><li><a href="ap2-agent-payments.html"><span data-zh>AP2：Agent Payments Protocol</span><span data-en>AP2: Agent Payments Protocol</span></a></li><li><a href="mastercard-agent-pay.html"><span data-zh>Mastercard Agent Pay：卡组织的 Agent 支付框架</span><span data-en>Mastercard Agent Pay: a card-network framework for agents</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/domain-trust.html"><span data-zh>许可、评测、凭证的判断框架</span><span data-en>A framework for licences, evals and credentials</span></a></li><li><a href="https://specul.com/topic-agent.html"><span data-zh>搭智能体：权限、支付与护栏</span><span data-en>Build agents: permissions, payments, guardrails</span></a></li></ul></section>
   <p><a class="fx-source" href="https://docs.x402.org/" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>

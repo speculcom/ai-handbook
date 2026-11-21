@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/dao-2022-flashattention.html" />
   <meta property="og:title" content="FlashAttention: Fast and Memory-Efficient Exact Attention… · AI 论文" />
   <meta property="og:description" content="问题：自注意力的时间与显存随序列长度平方增长，瓶颈不在算力而在显存读写；能不能不把 N×N 注意力矩阵写回显存也算出精确结果。 证据位置：摘要给出三档端到端加速与 7.6 倍注意力计算加速；局限写在第 5 节 Limitations and Future Directions。 作者自陈局限：三点—" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/dao-2022-flashattention.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/dao-2022-flashattention.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/dao-2022-flashattention.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span></div>
   <h1><span data-zh>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</span><span data-en>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：自注意力的时间与显存随序列长度平方增长，瓶颈不在算力而在显存读写；能不能不把 N×N 注意力矩阵写回显存也算出精确结果。<br>证据位置：摘要给出三档端到端加速与 7.6 倍注意力计算加速；局限写在第 5 节 Limitations and Future Directions。<br>作者自陈局限：三点——每换一种注意力实现就要重写一个 CUDA kernel，要用比 PyTorch 低得多的语言写、工程量大；实现未必能跨 GPU 架构移植；他们的 IO 优化只在单卡上达到常数级最优，而注意力计算本身是可跨多卡并行的。<br>它没主张的：论文没有说这是近似注意力——结果精确；但也没有声称解决了多卡切分问题，更没有说端到端加速比等于注意力算子加速比（摘要里 15% / 3× / 2.4× 与算子级 7.6× 是两个口径，不能混用）。</span><span data-en>Problem: self-attention time and memory grow quadratically with sequence length, and the bottleneck is memory traffic rather than arithmetic; can exact attention be computed without writing the N×N matrix back to HBM.<br>Where the evidence sits: the abstract gives three end-to-end speed-ups plus a 7.6× speed-up on the attention computation itself; the limits are in Section 5, Limitations and Future Directions.<br>What the authors say about limits: three — each new attention implementation needs a new CUDA kernel written in a much lower-level language than PyTorch, which is significant engineering effort; implementations may not transfer across GPU architectures; and their IO-aware version is optimal within constants on a single GPU, whereas the attention computation itself may be parallelisable across multiple GPUs.<br>What it does not claim: the paper does not present an approximation — the result is exact — but it also does not solve multi-GPU partitioning, and it does not equate end-to-end speed-up with kernel speed-up (the 15% / 3× / 2.4× figures and the 7.6× kernel figure are different measurements and must not be mixed).</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要（三档端到端）；Section 5 Limitations</dd></div><div><dt>BERT-large 端到端 / e2e</dt><dd>15%（序列 512）</dd></div><div><dt>GPT-2 端到端 / e2e</dt><dd>3×（序列 1K）</dd></div><div><dt>注意力算子 / kernel</dt><dd>7.6×；显存随序列长度线性</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2205.14135" rel="noopener">https://arxiv.org/abs/2205.14135</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="awq-2023.html"><span data-zh>AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</span><span data-en>AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</span></a></li><li><a href="bitnet158-2024.html"><span data-zh>The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits</span><span data-en>The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits</span></a></li><li><a href="flashattention3-2024.html"><span data-zh>FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision</span><span data-en>FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

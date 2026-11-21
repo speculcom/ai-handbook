@@ -3,21 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>RULER · 评测基准 · AI 模型</title>
-  <meta name="description" content="RULER：长上下文检索与多跳追踪；指标 准确率；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。" />
+  <title>RULER / RULER · 评测基准 · AI 模型</title>
+  <meta name="description" content="RULER / RULER：长上下文检索与多跳追踪；指标 准确率；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。" />
   <link rel="canonical" href="https://models.specul.com/evals/ruler.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="RULER · 评测基准 · AI 模型" />
+  <meta property="og:site_name" content="RULER / RULER · 评测基准 · AI 模型" />
   <meta property="og:url" content="https://models.specul.com/evals/ruler.html" />
-  <meta property="og:title" content="RULER · 评测基准 · AI 模型" />
-  <meta property="og:description" content="RULER：长上下文检索与多跳追踪；指标 准确率；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。" />
+  <meta property="og:title" content="RULER / RULER · 评测基准 · AI 模型" />
+  <meta property="og:description" content="RULER / RULER：长上下文检索与多跳追踪；指标 准确率；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/evals/ruler.html" />
+  <link rel="alternate" hreflang="en" href="https://models.specul.com/evals/ruler.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://models.specul.com/evals/ruler.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
   <link rel="stylesheet" href="../brand.css?v=0e72a386c5db" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RULER · 评测基准 · AI 模型","description":"RULER：长上下文检索与多跳追踪；指标 准确率；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。","url":"https://models.specul.com/evals/ruler.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RULER / RULER · 评测基准 · AI 模型","description":"RULER / RULER：长上下文检索与多跳追踪；指标 准确率；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。","url":"https://models.specul.com/evals/ruler.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -95,41 +100,31 @@
 <div class="container">
 <header class="sec-detail">
   <p class="eyebrow">Models · Evals</p>
-  <h1>RULER</h1>
-  <p class="sub">长上下文检索与多跳追踪</p>
+  <h1><span data-zh>RULER</span><span data-en>RULER</span></h1>
+  <p class="sub"><span data-zh>长上下文检索与多跳追踪</span><span data-en>Long-context retrieval and multi-hop tracing</span></p>
 </header>
-<div class="sec-nav"><a href="index.html">← 全部评测</a><a href="../index.html">模型站</a></div>
+<div class="sec-nav"><a href="index.html"><span data-zh>← 全部评测</span><span data-en>← All evals</span></a><a href="../index.html"><span data-zh>模型站</span><span data-en>Models</span></a></div>
 <table class="sec-table">
-  <tr><th>测什么</th><td>长上下文检索与多跳追踪</td></tr>
-  <tr><th>任务与数据</th><td>4 类任务；长度 4K–128K+</td></tr>
-  <tr><th>指标</th><td>准确率</td></tr>
-  <tr><th>污染风险</th><td>合成任务公开；模型可能见过模板；长度外推。</td></tr>
-  <tr><th>复现</th><td>固定 tokenizer、长度、针位置与评分。</td></tr>
-  <tr><th>成本</th><td>中高；长上下文推理</td></tr>
-  <tr><th>快照日</th><td>2026-11-19（本站快照；上游版本以仓库为准）</td></tr>
-  <tr><th>核验日</th><td>2026-11-19</td></tr>
+  <tr><th><span data-zh>测什么</span><span data-en>What it measures</span></th><td><span data-zh>长上下文检索与多跳追踪</span><span data-en>Long-context retrieval and multi-hop tracing</span></td></tr>
+  <tr><th><span data-zh>任务与数据</span><span data-en>Tasks and data</span></th><td><span data-zh>4 类任务；长度 4K–128K+</span><span data-en>Four task families at 4K–128K+ lengths</span></td></tr>
+  <tr><th><span data-zh>指标</span><span data-en>Metric</span></th><td><span data-zh>准确率</span><span data-en>Accuracy</span></td></tr>
+  <tr><th><span data-zh>污染风险</span><span data-en>Contamination risk</span></th><td><span data-zh>合成任务公开；模型可能见过模板；长度外推。</span><span data-en>Medium; synthetic tasks are less likely to leak but templates are public.</span></td></tr>
+  <tr><th><span data-zh>复现</span><span data-en>Reproduction</span></th><td><span data-zh>固定 tokenizer、长度、针位置与评分。</span><span data-en>Medium to high; long-context memory and exact length settings matter.</span></td></tr>
+  <tr><th><span data-zh>成本</span><span data-en>Cost</span></th><td><span data-zh>中高；长上下文推理</span><span data-en>Medium to high; long-context inference.</span></td></tr>
+  <tr><th><span data-zh>快照日</span><span data-en>Snapshot</span></th><td>2026-11-19（本站快照；上游版本以仓库为准）</td></tr>
+  <tr><th><span data-zh>核验日</span><span data-en>Verified</span></th><td>2026-11-19</td></tr>
 </table>
 <div class="sec-body">
-  <h2>怎么读</h2>
-  <p>适合看长上下文有效性；不适合真实长文档。</p>
-<h2>第一次使用</h2>
-  <p>先跑 4K/8K 两档，确认 tokenizer 与位置。</p>
-<h2>常见坑</h2>
-  <p>把“能塞进去”当“能用”；长度口径不一。</p>
-<h2>不适合</h2>
-  <p>不适合评估长文档问答质量。</p>
-<h2>对比与替代</h2>
-  <p>与 InfiniteBench 相比更偏合成检索；InfiniteBench 更偏真实任务。</p>
-<h2>怎么验证</h2>
-  <p>核对任务配置、长度与评分。</p>
-  <h2>下一步</h2>
+  <h2><span data-zh>怎么读</span><span data-en>How to read it</span></h2>
+  <p><span data-zh>适合看长上下文有效性；不适合真实长文档。</span><span data-en>Report each length bucket. A model that passes 4K may fail at 128K.</span></p>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开榜单或论文页，确认题集版本、评分脚本与提交日期。</li>
-    <li>把它和你关心的业务任务做对照；找不到对应任务，就自己建 50–100 条内部评测。</li>
-    <li>读 <a href="guides/read-leaderboard.html">怎么读榜单</a>，把“分数”写成“条件 + 参考价值”。</li>
+    <li><span data-zh>固定题集版本、few-shot 与 CoT 设置，先用公开样例把分数对齐到同一口径。</span><span data-en>Fix the task-set version, few-shot and CoT settings; align scores on public samples first.</span></li>
+    <li><span data-zh>从你自己的知识库抽 50–100 条，补测“知道 / 不知道 / 已过期”三类，而不是只测选择题。</span><span data-en>Sample 50–100 items from your own corpus and test know / do-not-know / outdated, not only multiple choice.</span></li>
+    <li><span data-zh>与另一个知识类基准交叉；单一分数只能说明某类题型的表现，不能代表业务准确率。</span><span data-en>Cross-check with another knowledge benchmark; one score reflects one task shape, not business accuracy.</span></li>
   </ul>
 </div>
-<div class="sec-sources">榜单 / 来源：<a href="https://github.com/NVIDIA/RULER" target="_blank" rel="noopener">https://github.com/NVIDIA/RULER</a> · 快照 2026-11-19（本站快照；上游版本以仓库为准）</div>
+<div class="sec-sources"><span data-zh>榜单 / 来源</span><span data-en>Leaderboard / source</span>：<a href="https://github.com/NVIDIA/RULER" target="_blank" rel="noopener">https://github.com/NVIDIA/RULER</a> · <span data-zh>快照</span><span data-en>Snapshot</span> 2026-11-19（本站快照；上游版本以仓库为准）</div>
 </div>
   </main>
   <footer class="site-footer">

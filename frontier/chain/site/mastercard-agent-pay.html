@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://chain.specul.com/mastercard-agent-pay.html" />
   <meta property="og:title" content="Mastercard Agent Pay：卡组织的 Agent 支付框架 · 链" />
   <meta property="og:description" content="交集：Agent Pay 不是单一 API，而是把卡组织的四件事拼起来：Know Your Agent 注册、每个 agent 独立签发的 Agentic Token、Payment Passkeys 的生物识别授权，以及 Verifiable Intent 把消费者原始指令和最终交易绑定。Toke" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://chain.specul.com/mastercard-agent-pay.html" />
+  <link rel="alternate" hreflang="en" href="https://chain.specul.com/mastercard-agent-pay.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://chain.specul.com/mastercard-agent-pay.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -94,8 +99,9 @@
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>协议档案</span><span data-en>Protocol records</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>支付与结算</span><span data-en>Payments &amp; settlement</span></span></div>
   <h1><span data-zh>Mastercard Agent Pay：卡组织的 Agent 支付框架</span><span data-en>Mastercard Agent Pay: a card-network framework for agents</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>交集：Agent Pay 不是单一 API，而是把卡组织的四件事拼起来：Know Your Agent 注册、每个 agent 独立签发的 Agentic Token、Payment Passkeys 的生物识别授权，以及 Verifiable Intent 把消费者原始指令和最终交易绑定。Token 可限定额度、商户类别、时间窗与用途，消费者可随时撤销。<br>适用范围：2025 美国上线；2026 在澳洲、新西兰、新加坡、马来西亚、印度、韩国、台湾与拉美完成 live 交易，DBS/UOB、hoppa、Santander 等参与。Cloudflare 的 Web Bot Auth 是 agent 流量认证层，Mastercard 把它接进 Agent Pay；Agent Pay Trust Framework 再加入身份、欺诈与行为洞察，并给发卡行一个 agent 概率分。<br>未解决：它不是链上结算，也不等于统一标准；KYA 与风险评分仍由网络/发卡行掌握，跨网络（Visa TAP / Amex ACE）互操作还在演进；商户改造与地区覆盖不均衡。</span><span data-en>The intersection: Agent Pay is not one API but four card-network pieces — Know Your Agent registration, an Agentic Token uniquely issued per agent, biometric authorisation through Mastercard Payment Passkeys, and Verifiable Intent binding the consumer’s original instruction to the final transaction. Tokens can be scoped by amount, merchant category, time window and purpose, and revoked at any time.<br>Scope: launched in the US in 2025 and completed live transactions in 2026 across Australia, New Zealand, Singapore, Malaysia, India, Korea, Taiwan and Latin America, with DBS/UOB, hoppa and Santander among participants. Cloudflare’s Web Bot Auth authenticates agent traffic and feeds Agent Pay; the Agent Pay Trust Framework adds identity, fraud and behavioural insight plus an agent probability score for issuers.<br>Open: it is not on-chain settlement and not a single universal standard; KYA and risk scoring remain with the network/issuer, cross-network interoperability with Visa TAP and Amex ACE is still evolving, and merchant upgrades and geographic coverage are uneven.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>协议定位 / role</dt><dd>卡组织的 agentic 支付与信任框架</dd></div><div><dt>身份 / identity</dt><dd>Know Your Agent（KYA）注册 + 唯一 Agentic Token</dd></div><div><dt>授权 / authorization</dt><dd>Mastercard Payment Passkeys + 消费者预授权范围</dd></div><div><dt>意图 / intent</dt><dd>Verifiable Intent（2026-03 公布）</dd></div><div><dt>范围 / scope</dt><dd>额度、商户类别、时间窗、用途，可随时撤销</dd></div><div><dt>状态 / status</dt><dd>美国 2025 上线；2026 亚太/拉美多市场 live</dd></div><div><dt>互操作 / interop</dt><dd>Web Bot Auth + Agent Pay Acceptance Framework</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -119,11 +125,15 @@
       <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-20</dd></div>
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-documentation</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-delivers-its-first-live-agentic-transaction-in-singapore-with-dbs-and-uob" rel="noopener">https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-delivers-its-first-live-agentic-transaction-in-singapore-with-dbs-and-uob</a></dd></div>
-      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>协议档案</span><span data-en>Protocol records</span></dd></div>
+      <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>支付与结算</span><span data-en>Payments &amp; settlement</span></dd></div>
+      <div><dt><span data-zh>状态</span><span data-en>Status</span></dt><dd><span data-zh>生产可用</span><span data-en>Production</span></dd></div>
+      
+      
     </dl>
   </section>
   
-  <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="acp-agentic-commerce.html"><span data-zh>ACP：让 AI Agent 走完商家结账</span><span data-en>ACP: agent-ready merchant checkout</span></a></li><li><a href="ap2-agent-payments.html"><span data-zh>AP2：Agent Payments Protocol</span><span data-en>AP2: Agent Payments Protocol</span></a></li><li><a href="arbitrum-nitro.html"><span data-zh>Arbitrum Nitro：乐观汇总与交互式欺诈证明</span><span data-en>Arbitrum Nitro: optimistic rollup with interactive fraud proofs</span></a></li></ul></section>
+  
+  <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="acp-agentic-commerce.html"><span data-zh>ACP：让 AI Agent 走完商家结账</span><span data-en>ACP: agent-ready merchant checkout</span></a></li><li><a href="ap2-agent-payments.html"><span data-zh>AP2：Agent Payments Protocol</span><span data-en>AP2: Agent Payments Protocol</span></a></li><li><a href="visa-trusted-agent-protocol.html"><span data-zh>Visa TAP：让商家认出可信的购物 Agent</span><span data-en>Visa TAP: letting merchants recognise trusted shopping agents</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/domain-trust.html"><span data-zh>许可、评测、凭证的判断框架</span><span data-en>A framework for licences, evals and credentials</span></a></li><li><a href="https://specul.com/topic-agent.html"><span data-zh>搭智能体：权限、支付与护栏</span><span data-en>Build agents: permissions, payments, guardrails</span></a></li></ul></section>
   <p><a class="fx-source" href="https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-delivers-its-first-live-agentic-transaction-in-singapore-with-dbs-and-uob" rel="noopener"><span data-zh>去官网看原页</span><span data-en>Open the official page</span> &rarr;</a></p>
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>

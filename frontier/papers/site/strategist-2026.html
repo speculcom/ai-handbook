@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/strategist-2026.html" />
   <meta property="og:title" content="Strategist：让 agent 自己进化推理策略 · AI 论文" />
   <meta property="og:description" content="问题：agent 的推理流程（prompt、工具顺序、验证步骤）大多手工写，做完一个任务经验不沉淀，下个任务从零再来；模型冻结时，系统另一半能否自己变好？ 证据位置：Strategist 把策略写成可执行 blueprint，候选策略在真实样本上跑、按结果改，所有策略连同测量卡进共享库；30 个 b" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/strategist-2026.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/strategist-2026.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/strategist-2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
   <h1><span data-zh>Strategist：让 agent 自己进化推理策略</span><span data-en>Strategist: Evolving Reasoning with Agents</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：agent 的推理流程（prompt、工具顺序、验证步骤）大多手工写，做完一个任务经验不沉淀，下个任务从零再来；模型冻结时，系统另一半能否自己变好？<br>证据位置：Strategist 把策略写成可执行 blueprint，候选策略在真实样本上跑、按结果改，所有策略连同测量卡进共享库；30 个 benchmark 上 24 胜、平均准确率 74.7% vs 对比基线 74.0%，推理成本低 39%；10 个 held-out 上不搜索也能接近基线，策略可迁移到 GPT-5 / Gemini-2.5。<br>作者自陈局限：不是处处 Pareto——MedQA / AIME 2024 更便宜但低 4–5 分；最终策略在 hidden split 上选，hidden 比 test 高 4.3 分而 test 只高 0.7，选择含运气；只测 30 个 benchmark 与 18 个基线；成本按 USD/token 计，换 provider 会变；没有独立复现。<br>它没主张的：不是所有任务都更便宜或更准；不是替代模型训练；不是自动发现就一定优于人写策略；不是跨所有模型/工具无成本迁移。</span><span data-en>Problem: an agent&#39;s inference procedure — prompts, tool order, verification steps — is mostly hand-written, and experience from one task does not carry to the next; with the model frozen, can the other half of the system improve itself?<br>Where the evidence sits: Strategist writes strategies as executable blueprints, runs candidates on real samples and revises them from results, storing every strategy plus a measurement card in a shared library. On 30 benchmarks it wins 24, matches the strongest baseline&#39;s average accuracy (74.7% vs 74.0%) at 39% lower inference cost; on 10 held-out benchmarks retrieval without search stays close to the baseline, and strategies transfer to GPT-5 / Gemini-2.5.<br>What the authors say about limits: it is not Pareto-improving everywhere — on MedQA and AIME 2024 it is cheaper (0.44×, 0.77×) but 4–5 points less accurate; the final strategy is chosen on a hidden split, which is 4.3 points above baseline versus 0.7 on test, so selection includes luck; only 30 benchmarks and 18 baselines are tested; cost is measured in USD/tokens and changes with provider; no independent reproduction.<br>What it does not claim: that every task is cheaper or more accurate; a replacement for model training; that automated search always beats human-written strategies; cost-free transfer across all models and tools.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发表 / venue</dt><dd>arXiv 2611.03618；NeurIPS 2026</dd></div><div><dt>规模 / scale</dt><dd>30 个 benchmark；18 个基线</dd></div><div><dt>结果 / result</dt><dd>24/30 胜；74.7% vs 74.0%；成本 -39%</dd></div><div><dt>迁移 / transfer</dt><dd>10 个 held-out；GPT-5 / Gemini-2.5 可迁移</dd></div><div><dt>机制 / mechanism</dt><dd>Strategy Blueprint + 共享库 + measurement card</dd></div><div><dt>代价 / trade-off</dt><dd>MedQA / AIME 更便宜但低 4–5 分；hidden/test 选择有运气</dd></div><div><dt>证据位置 / evidence</dt><dd>摘要；第 5–7 节；结论</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读论文与 HTML 全文）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2611.03618" rel="noopener">https://arxiv.org/abs/2611.03618</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="agentbench-2023.html"><span data-zh>AgentBench: Evaluating LLMs as Agents</span><span data-en>AgentBench: Evaluating LLMs as Agents</span></a></li><li><a href="contextweaver-2026.html"><span data-zh>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</span><span data-en>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</span></a></li><li><a href="droidprefill-2026.html"><span data-zh>DroidPrefill：用手机 NPU 跑完全本地的 GUI agent</span><span data-en>Building Fully On-Device GUI Agents with Mobile NPUs</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

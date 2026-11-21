@@ -32,6 +32,8 @@ const CAT_ORDER = Object.keys(CATS);
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 const bi = (zh, en) => `<span data-zh>${esc(zh)}</span><span data-en>${esc(en)}</span>`;
+const enOf = (o, k) => (o.en && o.en[k] != null && o.en[k] !== '') ? o.en[k] : o[k];
+const enArr = (o, k) => (o.en && Array.isArray(o.en[k]) && o.en[k].length) ? o.en[k] : (o[k] || []);
 const url = (p) => `https://models.specul.com/${p.replace(/^/, '')}`;
 const prefixFor = (depth) => '../'.repeat(depth);
 
@@ -62,17 +64,33 @@ function card({ href, tag, title, desc, facts = [], caveat = '', more = '看详�
 </article>`;
 }
 
+function dsCardBi(d) {
+  const cat = CATS[d.category];
+  return `<article class="sec-card">
+  <div class="sec-card-top"><span class="sec-tag">${bi(cat.zh, cat.en)}</span></div>
+  <h3><a href="${esc(datasetHref(d.id))}">${bi(d.name, enOf(d, 'name'))}</a></h3>
+  <p>${bi(d.quality, enOf(d, 'quality'))}</p>
+  <dl class="sec-facts">
+    <div><dt>${bi('规模', 'Size')}</dt><dd>${bi(d.size, enOf(d, 'size'))}</dd></div>
+    <div><dt>${bi('许可', 'Licence')}</dt><dd>${bi(d.license, enOf(d, 'license'))}</dd></div>
+    <div><dt>${bi('获取', 'Access')}</dt><dd>${bi(d.access, enOf(d, 'access'))}</dd></div>
+  </dl>
+  <p class="sec-caveat">${bi(d.caveat, enOf(d, 'caveat'))}</p>
+  <a class="sec-link" href="${esc(datasetHref(d.id))}">${bi('看数据卡 →', 'Open dataset card →')}</a>
+</article>`;
+}
+
 function evalCardBi(e) {
   return `<article class="sec-card">
   <div class="sec-card-top"><span class="sec-tag">${bi('基准', 'Benchmark')}</span></div>
-  <h3><a href="${esc(e.id)}.html">${bi(e.name, e.nameEn)}</a></h3>
-  <p>${bi(e.measures, e.measuresEn)}</p>
+  <h3><a href="${esc(e.id)}.html">${bi(e.name, enOf(e, 'name'))}</a></h3>
+  <p>${bi(e.measures, enOf(e, 'measures'))}</p>
   <dl class="sec-facts">
-    <div><dt>${bi('指标', 'Metric')}</dt><dd>${bi(e.metric, e.metricEn)}</dd></div>
-    <div><dt>${bi('成本', 'Cost')}</dt><dd>${bi(e.cost, e.costEn)}</dd></div>
+    <div><dt>${bi('指标', 'Metric')}</dt><dd>${bi(e.metric, enOf(e, 'metric'))}</dd></div>
+    <div><dt>${bi('成本', 'Cost')}</dt><dd>${bi(e.cost, enOf(e, 'cost'))}</dd></div>
     <div><dt>${bi('快照', 'Snapshot')}</dt><dd>${esc(e.snapshot)}</dd></div>
   </dl>
-  <p class="sec-caveat">${bi(e.contamination, e.contaminationEn)}</p>
+  <p class="sec-caveat">${bi(e.contamination, enOf(e, 'contamination'))}</p>
   <a class="sec-link" href="${esc(e.id)}.html">${bi('看基准卡 →', 'Open benchmark card →')}</a>
 </article>`;
 }
@@ -100,15 +118,7 @@ function datasetHref(id) { return `${id}.html`; }
     const list = datasets.filter((d) => d.category === cat);
     return `<h2>${esc(CATS[cat].zh)} <span class="sec-tag">${list.length}</span></h2>
 <p>${esc(CATS[cat].desc)}</p>
-<div class="sec-grid">${list.map((d) => card({
-      href: datasetHref(d.id),
-      tag: CATS[cat].zh,
-      title: d.name,
-      desc: d.quality,
-      facts: [['规模', d.size], ['许可', d.license], ['获取', d.access]],
-      caveat: d.caveat,
-      more: '看数据卡 →'
-    })).join('')}</div>`;
+<div class="sec-grid">${list.map((d) => dsCardBi(d)).join('')}</div>`;
   }).join('\n');
 
   const body = `<div class="container">
@@ -154,15 +164,7 @@ for (const cat of CAT_ORDER) {
 </header>
 <div class="sec-nav"><a href="index.html">← 全部数据</a><a href="../index.html">模型站</a></div>
 ${nav}
-<div class="sec-grid">${list.map((d) => card({
-    href: datasetHref(d.id),
-    tag: CATS[cat].zh,
-    title: d.name,
-    desc: d.quality,
-    facts: [['规模', d.size], ['许可', d.license], ['获取', d.access]],
-    caveat: d.caveat,
-    more: '看数据卡 →'
-  })).join('')}</div>
+<div class="sec-grid">${list.map((d) => dsCardBi(d)).join('')}</div>
 </div>`;
   fs.writeFileSync(path.join(site, 'data', categoryHref(cat)), page({
     title: `${CATS[cat].zh} · 数据 · AI 模型`,
@@ -178,40 +180,40 @@ for (const d of datasets) {
   const body = `<div class="container">
 <header class="sec-detail">
   <p class="eyebrow">Models · Data · ${bi(cat.zh, cat.en)}</p>
-  <h1>${esc(d.name)}</h1>
-  <p class="sub">${esc(d.quality)}</p>
+  <h1>${bi(d.name, enOf(d, 'name'))}</h1>
+  <p class="sub">${bi(d.quality, enOf(d, 'quality'))}</p>
 </header>
 <div class="sec-nav"><a href="index.html">${bi('← 全部数据', '← All data')}</a><a href="${esc(datasetHref(d.category))}">${bi(cat.zh, cat.en)}</a><a href="../index.html">${bi('模型站', 'Models')}</a></div>
 <table class="sec-table">
-  <tr><th>来源</th><td>${esc(d.source)}</td></tr>
-  <tr><th>规模</th><td>${esc(d.size)}</td></tr>
-  <tr><th>语言</th><td>${esc(d.languages)}</td></tr>
-  <tr><th>格式</th><td>${esc(d.format)}</td></tr>
-  <tr><th>许可</th><td>${esc(d.license)}</td></tr>
-  <tr><th>商用</th><td>${esc(d.commercial)}</td></tr>
-  <tr><th>获取</th><td>${esc(d.access)}</td></tr>
-  <tr><th>任务适配</th><td>${esc((d.tasks || []).join(' / '))}</td></tr>
-  <tr><th>核验日</th><td>${esc(d.verifiedAt)}</td></tr>
+  <tr><th>${bi('来源', 'Source')}</th><td>${bi(d.source, enOf(d, 'source'))}</td></tr>
+  <tr><th>${bi('规模', 'Size')}</th><td>${bi(d.size, enOf(d, 'size'))}</td></tr>
+  <tr><th>${bi('语言', 'Languages')}</th><td>${bi(d.languages, enOf(d, 'languages'))}</td></tr>
+  <tr><th>${bi('格式', 'Format')}</th><td>${bi(d.format, enOf(d, 'format'))}</td></tr>
+  <tr><th>${bi('许可', 'Licence')}</th><td>${bi(d.license, enOf(d, 'license'))}</td></tr>
+  <tr><th>${bi('商用', 'Commercial use')}</th><td>${bi(d.commercial, enOf(d, 'commercial'))}</td></tr>
+  <tr><th>${bi('获取', 'Access')}</th><td>${bi(d.access, enOf(d, 'access'))}</td></tr>
+  <tr><th>${bi('任务适配', 'Task fit')}</th><td>${bi((d.tasks || []).join(' / '), enArr(d, 'tasks').join(' / '))}</td></tr>
+  <tr><th>${bi('核验日', 'Verified')}</th><td>${esc(d.verifiedAt)}</td></tr>
 </table>
 <div class="sec-body">
-  <h2>质量与偏差</h2>
-  <p>${esc(d.quality)}</p>
-  <h2>使用边界</h2>
-  <p class="sec-caveat">${esc(d.caveat)}</p>
-${d.firstUse ? `<h2>第一次使用</h2>\n  <p>${esc(d.firstUse)}</p>` : ''}
-${d.pitfalls ? `<h2>常见坑</h2>\n  <p>${esc(d.pitfalls)}</p>` : ''}
-${d.cost ? `<h2>成本</h2>\n  <p>${esc(d.cost)}</p>` : ''}
-${d.notFor ? `<h2>不适合</h2>\n  <p>${esc(d.notFor)}</p>` : ''}
-${d.compare ? `<h2>对比与替代</h2>\n  <p>${esc(d.compare)}</p>` : ''}
-${d.verify ? `<h2>怎么验证</h2>\n  <p>${esc(d.verify)}</p>` : ''}
-  <h2>下一步</h2>
+  <h2>${bi('质量与偏差', 'Quality and bias')}</h2>
+  <p>${bi(d.quality, enOf(d, 'quality'))}</p>
+  <h2>${bi('使用边界', 'Use boundaries')}</h2>
+  <p class="sec-caveat">${bi(d.caveat, enOf(d, 'caveat'))}</p>
+${d.firstUse ? `<h2>${bi('第一次使用', 'First use')}</h2>\n  <p>${bi(d.firstUse, d.firstUseEn || d.firstUse)}</p>` : ''}
+${d.pitfalls ? `<h2>${bi('常见坑', 'Common pitfalls')}</h2>\n  <p>${bi(d.pitfalls, d.pitfallsEn || d.pitfalls)}</p>` : ''}
+${d.cost ? `<h2>${bi('成本', 'Cost')}</h2>\n  <p>${bi(d.cost, d.costEn || d.cost)}</p>` : ''}
+${d.notFor ? `<h2>${bi('不适合', 'Not for')}</h2>\n  <p>${bi(d.notFor, d.notForEn || d.notFor)}</p>` : ''}
+${d.compare ? `<h2>${bi('对比与替代', 'Compare and alternatives')}</h2>\n  <p>${bi(d.compare, d.compareEn || d.compare)}</p>` : ''}
+${d.verify ? `<h2>${bi('怎么验证', 'How to verify')}</h2>\n  <p>${bi(d.verify, d.verifyEn || d.verify)}</p>` : ''}
+  <h2>${bi('下一步', 'Next steps')}</h2>
   <ul>
-    <li>打开来源页，下载数据集卡与许可原文，确认版本与获取条件。</li>
-    <li>先抽 100–500 条样本做质量、语言与敏感内容抽检，再决定是否进训练管线。</li>
-    <li>如果用于 RAG 或 SFT，先读 <a href="guides/rag-corpus.html">RAG 语料怎么选</a> / <a href="guides/sft-data-mix.html">SFT 数据怎么配比</a>。</li>
+    <li>${bi('打开来源页，下载数据集卡与许可原文，确认版本与获取条件。', 'Open the source page, download the dataset card and licence, and confirm the version and access terms.')}</li>
+    <li>${bi('先抽 100–500 条样本做质量、语言与敏感内容抽检，再决定是否进训练管线。', 'Sample 100–500 records for quality, language and sensitive content before adding it to a training pipeline.')}</li>
+    <li>${bi('如果用于 RAG 或 SFT，先读 RAG 语料怎么选 / SFT 数据怎么配比。', 'For RAG or SFT, first read how to choose a RAG corpus and how to mix SFT data.')}</li>
   </ul>
 </div>
-<div class="sec-sources">来源：<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.url)}</a> · 核验日 ${esc(d.verifiedAt)} · 许可以来源页为准</div>
+<div class="sec-sources">${bi('来源', 'Source')}：<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.url)}</a> · ${bi('核验日', 'Verified')} ${esc(d.verifiedAt)} · ${bi('许可以来源页为准', 'Licence terms follow the source page')}</div>
 </div>`;
   fs.writeFileSync(path.join(site, 'data', datasetHref(d.id)), page({
     title: `${d.name} · 数据卡 · AI 模型`,
@@ -259,15 +261,7 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
   <div><b>0</b><span>个总分排名</span></div>
 </div>
 <div class="sec-note"><b>读榜四问：</b>测的是知识、推理还是任务完成？题目有没有被训练集见过？评委是谁、分数怎么算？能不能复现、成本多少？四问缺一，分数只能当参考。</div>
-<div class="sec-grid">${evals.map((e) => e.nameEn ? evalCardBi(e) : card({
-    href: `${e.id}.html`,
-    tag: '基准',
-    title: e.name,
-    desc: e.measures,
-    facts: [['指标', e.metric], ['成本', e.cost], ['快照', e.snapshot]],
-    caveat: e.contamination,
-    more: '看基准卡 →'
-  })).join('')}</div>
+<div class="sec-grid">${evals.map((e) => evalCardBi(e)).join('')}</div>
 <div class="sec-grid">${evalGuides.map((g) => card({
     href: `guides/${g.id}.html`,
     tag: '指南',
@@ -285,40 +279,62 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
 }
 
 // 评测单卡
+const EVAL_GROUPS = {
+  knowledge: ['mmlu','mmlu-pro','gpqa','helm','livebench','open-llm-leaderboard','ceval','cmmlu','mmmu','ruler','infinitebench','longbench','docvqa','chartqa','video-mme-eval','ifeval'],
+  agent: ['humaneval','mbpp','swe-bench','terminal-bench','livecodebench','agentbench','tau-bench','gaia','webarena','osworld','bfcl','terminal-bench-4-1','frontiercode-2','vals-index-v2-2','agent-arena-index'],
+  preference: ['mt-bench','alpaca-eval','arena-hard','chatbot-arena','ragas','truthfulqa','harmbench','toxigen','bbq']
+};
+const evalGroup = (id) => Object.keys(EVAL_GROUPS).find((g) => EVAL_GROUPS[g].includes(id)) || 'knowledge';
+const EVAL_STEPS = {
+  knowledge: [
+    ['固定题集版本、few-shot 与 CoT 设置，先用公开样例把分数对齐到同一口径。', 'Fix the task-set version, few-shot and CoT settings; align scores on public samples first.'],
+    ['从你自己的知识库抽 50–100 条，补测“知道 / 不知道 / 已过期”三类，而不是只测选择题。', 'Sample 50–100 items from your own corpus and test know / do-not-know / outdated, not only multiple choice.'],
+    ['与另一个知识类基准交叉；单一分数只能说明某类题型的表现，不能代表业务准确率。', 'Cross-check with another knowledge benchmark; one score reflects one task shape, not business accuracy.']
+  ],
+  agent: [
+    ['固定仓库快照、工具权限与超时，把失败拆成编译、测试、越权与环境四类。', 'Pin the repo snapshot, tool permissions and timeout; split failures into build, test, permission and environment.'],
+    ['用你自己的 20–50 个真实 issue 或任务复跑，区分“能写出代码”和“能交付可用结果”。', 'Re-run on 20–50 of your real issues or tasks; separate “can write code” from “can deliver a usable result”.'],
+    ['把 pass@1、token 成本与人工复核时间一起报；只看通过率会漏掉返工成本。', 'Report pass@1 with token cost and human review time; pass rate alone hides rework.']
+  ],
+  preference: [
+    ['固定裁判模型、裁判提示与回答位置随机化，先测裁判自身的一致性。', 'Fix the judge model and prompt, randomise answer order, and test the judge’s own consistency first.'],
+    ['双盲人工抽检 100–200 条，把“安全拒答”和“过度拒答”分开统计。', 'Run a blinded human check on 100–200 items, counting safe refusals and over-refusals separately.'],
+    ['报告胜率分布与样本量，不把一个偏好分数当成通用质量分，也不跨榜单直接横比。', 'Report win-rate distribution and sample size; do not treat one preference score as general quality or compare across leaderboards.']
+  ]
+};
 for (const e of evals) {
-  if (e.nameEn) {
+  const steps = EVAL_STEPS[evalGroup(e.id)];
+  if (e.en || e.nameEn) {
     const body = `<div class="container">
 <header class="sec-detail">
   <p class="eyebrow">Models · Evals</p>
-  <h1>${bi(e.name, e.nameEn)}</h1>
-  <p class="sub">${bi(e.measures, e.measuresEn)}</p>
+  <h1>${bi(e.name, enOf(e, 'name'))}</h1>
+  <p class="sub">${bi(e.measures, enOf(e, 'measures'))}</p>
 </header>
 <div class="sec-nav"><a href="index.html">${bi('← 全部评测', '← All evals')}</a><a href="../index.html">${bi('模型站', 'Models')}</a></div>
 <table class="sec-table">
-  <tr><th>${bi('测什么', 'What it measures')}</th><td>${bi(e.measures, e.measuresEn)}</td></tr>
-  <tr><th>${bi('任务与数据', 'Tasks and data')}</th><td>${bi(e.tasks, e.tasksEn)}</td></tr>
-  <tr><th>${bi('指标', 'Metric')}</th><td>${bi(e.metric, e.metricEn)}</td></tr>
-  <tr><th>${bi('污染风险', 'Contamination risk')}</th><td>${bi(e.contamination, e.contaminationEn)}</td></tr>
-  <tr><th>${bi('复现', 'Reproduction')}</th><td>${bi(e.reproduction, e.reproductionEn)}</td></tr>
-  <tr><th>${bi('成本', 'Cost')}</th><td>${bi(e.cost, e.costEn)}</td></tr>
+  <tr><th>${bi('测什么', 'What it measures')}</th><td>${bi(e.measures, enOf(e, 'measures'))}</td></tr>
+  <tr><th>${bi('任务与数据', 'Tasks and data')}</th><td>${bi(e.tasks, enOf(e, 'tasks'))}</td></tr>
+  <tr><th>${bi('指标', 'Metric')}</th><td>${bi(e.metric, enOf(e, 'metric'))}</td></tr>
+  <tr><th>${bi('污染风险', 'Contamination risk')}</th><td>${bi(e.contamination, enOf(e, 'contamination'))}</td></tr>
+  <tr><th>${bi('复现', 'Reproduction')}</th><td>${bi(e.reproduction, enOf(e, 'reproduction'))}</td></tr>
+  <tr><th>${bi('成本', 'Cost')}</th><td>${bi(e.cost, enOf(e, 'cost'))}</td></tr>
   <tr><th>${bi('快照日', 'Snapshot')}</th><td>${esc(e.snapshot)}</td></tr>
   <tr><th>${bi('核验日', 'Verified')}</th><td>${esc(e.verifiedAt)}</td></tr>
 </table>
 <div class="sec-body">
   <h2>${bi('怎么读', 'How to read it')}</h2>
-  <p>${bi(e.note, e.noteEn)}</p>
+  <p>${bi(e.note, enOf(e, 'note'))}</p>
   <h2>${bi('下一步', 'Next steps')}</h2>
   <ul>
-    <li>${bi('打开榜单或论文页，确认题集版本、评分脚本与提交日期。', 'Open the leaderboard or paper and confirm the task-set version, scoring script and submission date.')}</li>
-    <li>${bi('把它和你关心的业务任务做对照；找不到对应任务，就自己建 50–100 条内部评测。', 'Compare it with the business task you care about; if there is no match, build 50–100 internal cases.')}</li>
-    <li>${bi('读《怎么读榜单》，把“分数”写成“条件 + 参考价值”。', 'Read “How to read a leaderboard” and write scores as “conditions plus reference value”.')}</li>
+${steps.map(([zh, en]) => `    <li>${bi(zh, en)}</li>`).join('\n')}
   </ul>
 </div>
 <div class="sec-sources">${bi('榜单 / 来源', 'Leaderboard / source')}：<a href="${esc(e.leaderboard)}" target="_blank" rel="noopener">${esc(e.leaderboard)}</a> · ${bi('快照', 'Snapshot')} ${esc(e.snapshot)}</div>
 </div>`;
     fs.writeFileSync(path.join(site, 'evals', `${e.id}.html`), page({
-      title: `${e.name} / ${e.nameEn} · 评测基准 · AI 模型`,
-      desc: `${e.name} / ${e.nameEn}：${e.measures}；指标 ${e.metric}；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。`,
+      title: `${e.name} / ${enOf(e, 'name')} · 评测基准 · AI 模型`,
+      desc: `${e.name} / ${enOf(e, 'name')}：${e.measures}；指标 ${e.metric}；污染风险、复现条件、成本与适用边界都在页内写清，读完能判断这个分数能不能直接引用。`,
       canonical: url(`evals/${e.id}.html`),
       body
     }));
@@ -351,9 +367,7 @@ ${e.compare ? `<h2>对比与替代</h2>\n  <p>${esc(e.compare)}</p>` : ''}
 ${e.verify ? `<h2>怎么验证</h2>\n  <p>${esc(e.verify)}</p>` : ''}
   <h2>下一步</h2>
   <ul>
-    <li>打开榜单或论文页，确认题集版本、评分脚本与提交日期。</li>
-    <li>把它和你关心的业务任务做对照；找不到对应任务，就自己建 50–100 条内部评测。</li>
-    <li>读 <a href="guides/read-leaderboard.html">怎么读榜单</a>，把“分数”写成“条件 + 参考价值”。</li>
+${steps.map(([zh]) => `    <li>${esc(zh)}</li>`).join('\n')}
   </ul>
 </div>
 <div class="sec-sources">榜单 / 来源：<a href="${esc(e.leaderboard)}" target="_blank" rel="noopener">${esc(e.leaderboard)}</a> · 快照 ${esc(e.snapshot)}</div>

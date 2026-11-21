@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/qdrant.html" />
   <meta property="og:title" content="Qdrant · 开源 AI 工具库" />
   <meta property="og:description" content="Qdrant：Rust 写的向量数据库，带过滤、混合检索、分布式与量化。 许可 Apache-2.0，Rust，35.6k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/qdrant.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/qdrant.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/qdrant.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h1>Qdrant</h1>
   <p class="owner">qdrant / qdrant</p>
-  <p class="sub">Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</p>
+  <p class="sub"><span data-zh>Rust 写的向量数据库，带过滤、混合检索、分布式与量化。</span><span data-en>A Rust vector database with filtering, hybrid search, distributed deployment and quantisation.</span></p>
 </header>
 <div class="factbar">
   <span><b>35.6k</b> stars</span>
   <span><b>2824</b> forks</span>
-  <span><b>Rust</b> 语言</span>
-  <span><b>Apache-2.0</b> 许可</span>
-  <span>最近推送 <b>2026-11-18</b></span>
+  <span><b>Rust</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>Apache-2.0</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2026-11-18</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>过滤与负载均衡成熟，适合生产检索。</li><li>Rust 性能好，单机与集群都能跑。</li><li>API 与多语言客户端完整。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">只需要内存小索引，Chroma 更轻。<br>不想运维数据库，应该看托管服务。</p>
-  <h2>最小上手</h2>
-  <ol><li>读 README / quickstart，确认 运行时 版本与系统依赖。</li><li>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</li><li>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/chroma.html">Chroma</a> — 轻量，轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。</li><li><a href="../repos/weaviate.html">Weaviate</a> — 生产可用，带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。</li><li><a href="../repos/milvus.html">Milvus</a> — 规模 / 性能，面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>过滤与负载均衡成熟，适合生产检索。</span><span data-en>Payload filters combine metadata constraints with vector search.</span></li><li><span data-zh>Rust 性能好，单机与集群都能跑。</span><span data-en>Hybrid search supports sparse and dense signals.</span></li><li><span data-zh>API 与多语言客户端完整。</span><span data-en>Quantisation reduces memory at scale.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>只需要内存小索引，Chroma 更轻。</span><span data-en>You need an embedded store with no server.</span><br><span data-zh>不想运维数据库，应该看托管服务。</span><span data-en>Your dataset fits in a simple in-memory index.</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>读 README / quickstart，确认 运行时 版本与系统依赖。</span><span data-en>Create a collection with one payload field and filter on it.</span></li><li><span data-zh>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</span><span data-en>Compare recall with and without quantisation.</span></li><li><span data-zh>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</span><span data-en>Measure latency at your expected concurrency.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</span><span data-en>Code is Apache-2.0; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/chroma.html">Chroma</a> — <span data-zh>轻量</span><span data-en>Lightweight</span>，<span data-zh>轻量向量库，Python/JS 上手快，适合原型与中小规模知识库。</span><span data-en>A lightweight vector store with quick Python and JavaScript onboarding, suited to prototypes and small knowledge bases.</span></li><li><a href="../repos/weaviate.html">Weaviate</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>带混合检索的向量数据库：向量 + BM25、多租户、模块化向量化与 rerank，提供 GraphQL/REST 接口。</span><span data-en>A vector database with hybrid search: vectors plus BM25, multi-tenancy, modular vectorisation and reranking, with GraphQL and REST APIs.</span></li><li><a href="../repos/milvus.html">Milvus</a> — <span data-zh>规模 / 性能</span><span data-en>Scale / performance</span>，<span data-zh>面向大规模向量检索的分布式数据库，支持 HNSW/IVF/DiskANN 等索引、标量过滤与多租户。</span><span data-en>A distributed vector database for large-scale retrieval, supporting HNSW, IVF, DiskANN, scalar filtering and multi-tenancy.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/qdrant/qdrant" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://qdrant.tech/documentation/" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=qdrant">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/qdrant/qdrant" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://qdrant.tech/documentation/" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=qdrant"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

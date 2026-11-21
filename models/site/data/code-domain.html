@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://models.specul.com/data/code-domain.html" />
   <meta property="og:title" content="代码与领域 · 数据 · AI 模型" />
   <meta property="og:description" content="代码与领域数据集索引：The Stack、StarCoderData、PubMedQA、CommitPackFT、APPS。每张卡写清许可、规模、获取方式与使用边界。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/data/code-domain.html" />
+  <link rel="alternate" hreflang="en" href="https://models.specul.com/data/code-domain.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://models.specul.com/data/code-domain.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -101,40 +106,60 @@
 <div class="sec-nav"><a href="index.html">← 全部数据</a><a href="../index.html">模型站</a></div>
 <nav class="sec-nav" aria-label="数据分类" data-ui-aria-label-zh="数据分类" data-ui-aria-label-en="Dataset categories"><a href="pretrain.html"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></a><a href="sft.html"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></a><a href="preference.html"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></a><a href="eval.html"><span data-zh>评测集</span><span data-en>Evaluation sets</span></a><a href="rag.html"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></a><a href="multimodal.html"><span data-zh>多模态</span><span data-en>Multimodal</span></a><a href="code-domain.html" aria-current="page"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></a><a href="synthetic.html"><span data-zh>合成数据</span><span data-en>Synthetic data</span></a></nav>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="the-stack.html">The Stack</a></h3>
-  <p>从公开 GitHub 仓库抽取并去重，附许可与仓库元数据。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 3TB 去重代码 / 300+ 语言</dd></div><div><dt>许可</dt><dd>MIT（数据集打包）；代码随原仓库</dd></div><div><dt>获取</dt><dd>需接受条件后下载</dd></div></dl>
-  <p class="sec-caveat">代码许可混杂，含 copyleft 与无许可仓库；训练与分发前必须过滤。</p>
-  <a class="sec-link" href="the-stack.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="the-stack.html"><span data-zh>The Stack</span><span data-en>The Stack</span></a></h3>
+  <p><span data-zh>从公开 GitHub 仓库抽取并去重，附许可与仓库元数据。</span><span data-en>Extracted from public GitHub repositories and deduplicated, with licence and repository metadata.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 3TB 去重代码 / 300+ 语言</span><span data-en>About 3TB deduplicated code / 300+ languages</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT（数据集打包）；代码随原仓库</span><span data-en>MIT (dataset packaging); code follows the original repositories</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>需接受条件后下载</span><span data-en>Gated download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>代码许可混杂，含 copyleft 与无许可仓库；训练与分发前必须过滤。</span><span data-en>Code licences are mixed, including copyleft and unlicensed repositories. Filter before training and distribution.</span></p>
+  <a class="sec-link" href="the-stack.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="starcoderdata.html">StarCoderData</a></h3>
-  <p>StarCoder 系列所用代码语料，语言覆盖广，附去重与许可过滤记录。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 2,500 亿代码 token / 80+ 语言</dd></div><div><dt>许可</dt><dd>Apache-2.0（数据集打包）；代码随原仓库</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">数据集打包许可不等于代码许可；生成代码的许可证继承问题要单独评估。</p>
-  <a class="sec-link" href="starcoderdata.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="starcoderdata.html"><span data-zh>StarCoderData</span><span data-en>StarCoderData</span></a></h3>
+  <p><span data-zh>StarCoder 系列所用代码语料，语言覆盖广，附去重与许可过滤记录。</span><span data-en>The code corpus used by StarCoder, with broad language coverage and deduplication and licence-filtering records.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 2,500 亿代码 token / 80+ 语言</span><span data-en>About 250B code tokens / 80+ languages</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>Apache-2.0（数据集打包）；代码随原仓库</span><span data-en>Apache-2.0 (dataset packaging); code follows the original repositories</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>数据集打包许可不等于代码许可；生成代码的许可证继承问题要单独评估。</span><span data-en>The dataset packaging licence is not the code licence. Assess licence inheritance for generated code separately.</span></p>
+  <a class="sec-link" href="starcoderdata.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="pubmedqa.html">PubMedQA</a></h3>
-  <p>从 PubMed 摘要构造的是/否/不确定问答，适合做医学文献检索问答的基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 27.3 万条生物医学问答</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">不是临床指南，不能用于诊断建议；专业用途要另行核对最新文献与监管要求。</p>
-  <a class="sec-link" href="pubmedqa.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="pubmedqa.html"><span data-zh>PubMedQA</span><span data-en>PubMedQA</span></a></h3>
+  <p><span data-zh>从 PubMed 摘要构造的是/否/不确定问答，适合做医学文献检索问答的基线。</span><span data-en>Yes/no/maybe questions built from PubMed abstracts; a baseline for biomedical literature QA.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 27.3 万条生物医学问答</span><span data-en>About 273k biomedical Q&amp;A items</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>不是临床指南，不能用于诊断建议；专业用途要另行核对最新文献与监管要求。</span><span data-en>Not a clinical guideline and must not be used for diagnosis. Professional use requires current literature and regulatory review.</span></p>
+  <a class="sec-link" href="pubmedqa.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="commitpackft.html">CommitPackFT</a></h3>
-  <p>从真实 Git 提交中筛出的指令-代码对，覆盖多语言与真实修改场景。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 200 万条提交</dd></div><div><dt>许可</dt><dd>BigCode 数据集协议</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">提交质量参差，含调试残留与许可证不明的代码；需按仓库过滤。</p>
-  <a class="sec-link" href="commitpackft.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="commitpackft.html"><span data-zh>CommitPackFT</span><span data-en>CommitPackFT</span></a></h3>
+  <p><span data-zh>从真实 Git 提交中筛出的指令-代码对，覆盖多语言与真实修改场景。</span><span data-en>Instruction-code pairs filtered from real Git commits, covering multiple languages and realistic edits.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 200 万条提交</span><span data-en>About 2M commits</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>BigCode 数据集协议</span><span data-en>BigCode dataset terms</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>提交质量参差，含调试残留与许可证不明的代码；需按仓库过滤。</span><span data-en>Commit quality varies and includes debug residue and code with unclear licences. Filter by repository.</span></p>
+  <a class="sec-link" href="commitpackft.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">代码与领域</span></div>
-  <h3><a href="apps.html">APPS</a></h3>
-  <p>包含题面、样例与隐藏测试，适合测“写完能不能过测试”而不是只看相似度。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>10,000 题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">题面与测试公开已久，污染风险高；部分题测试不完整。</p>
-  <a class="sec-link" href="apps.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></span></div>
+  <h3><a href="apps.html"><span data-zh>APPS</span><span data-en>APPS</span></a></h3>
+  <p><span data-zh>包含题面、样例与隐藏测试，适合测“写完能不能过测试”而不是只看相似度。</span><span data-en>Includes problem statements, examples and hidden tests, so it measures whether code passes tests rather than surface similarity.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>10,000 题</span><span data-en>10,000 problems</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题面与测试公开已久，污染风险高；部分题测试不完整。</span><span data-en>Statements and tests have been public for years, so contamination risk is high; some tests are incomplete.</span></p>
+  <a class="sec-link" href="apps.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 </div>
   </main>

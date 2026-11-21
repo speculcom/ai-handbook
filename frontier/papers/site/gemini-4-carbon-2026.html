@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/gemini-4-carbon-2026.html" />
   <meta property="og:title" content="Gemini 4 Carbon Model Card · AI 论文" />
   <meta property="og:description" content="问题：Carbon 相对 Argon 强在哪里，官方模型卡承认哪些限制。 证据位置：Google DeepMind 模型卡写明 Carbon 面向长程 Agent、复杂知识工作、工程、网络安全与科学推理；输入输出合计上下文最高 1M；模型卡同时声明会列出已知局限、缓解措施与安全表现。 作者自陈局限：" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/gemini-4-carbon-2026.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/gemini-4-carbon-2026.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/gemini-4-carbon-2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
   <h1><span data-zh>Gemini 4 Carbon Model Card</span><span data-en>Gemini 4 Carbon Model Card</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：Carbon 相对 Argon 强在哪里，官方模型卡承认哪些限制。<br>证据位置：Google DeepMind 模型卡写明 Carbon 面向长程 Agent、复杂知识工作、工程、网络安全与科学推理；输入输出合计上下文最高 1M；模型卡同时声明会列出已知局限、缓解措施与安全表现。<br>作者自陈局限：模型卡由厂商发布，评测口径与内部基准未全部公开；Carbon 基于 Argon，不是全新架构；网络安全能力只向 Fairwind 等验证通道开放。<br>它没主张的：不是「所有任务都比 Argon 强」；不是独立第三方榜单结论；不是无条件向所有开发者开放全部能力。</span><span data-en>Problem: where is Carbon stronger than Argon, and what limits does the official model card acknowledge?<br>Where the evidence sits: the Google DeepMind model card says Carbon targets long-horizon agentic workflows across complex knowledge work, engineering, cybersecurity and scientific reasoning; the combined input-output context window is up to 1M; the card also states it covers known limitations, mitigations and safety performance.<br>What the authors say about limits: the model card is vendor-published and does not disclose every evaluation protocol or internal benchmark; Carbon is based on Argon rather than a new architecture; cyber capabilities are gated through verified channels such as Fairwind.<br>What it does not claim: better than Argon on every task; an independent third-party leaderboard conclusion; unconditional access to every capability for every developer.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发布 / release</dt><dd>2026-11（模型卡）/ 2026-11-10 开放（官方博客）</dd></div><div><dt>上下文 / context</dt><dd>最高 1M（输入 + 输出合计）</dd></div><div><dt>定位 / positioning</dt><dd>长程 Agent、复杂知识工作、工程、网络安全、科学推理</dd></div><div><dt>证据位置 / evidence</dt><dd>模型卡 Description / Inputs / Evaluation 段</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读官方模型卡）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-model-card</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://deepmind.google/models/model-cards/gemini-4-carbon/" rel="noopener">https://deepmind.google/models/model-cards/gemini-4-carbon/</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="agentbench-2023.html"><span data-zh>AgentBench: Evaluating LLMs as Agents</span><span data-en>AgentBench: Evaluating LLMs as Agents</span></a></li><li><a href="contextweaver-2026.html"><span data-zh>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</span><span data-en>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</span></a></li><li><a href="droidprefill-2026.html"><span data-zh>DroidPrefill：用手机 NPU 跑完全本地的 GUI agent</span><span data-en>Building Fully On-Device GUI Agents with Mobile NPUs</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

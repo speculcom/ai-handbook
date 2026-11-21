@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/peso-lora-2026.html" />
   <meta property="og:title" content="Parameter-Efficient Subspace Optimization for LLM… · AI 论文" />
   <meta property="og:description" content="问题：LoRA 式分析通常只跟踪低维因子，缺少全参数空间里的收敛保证；子空间方法为何有效、何时该探索新子空间，也缺统一解释。 证据位置：摘要提出 PESO 框架，把 LoRA 等现有方法纳入子空间优化的「探索—利用」视角；实例化出的 PESO-LoRA 对诱导更新给出全参数空间收敛保证，并在标准微调" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/peso-lora-2026.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/peso-lora-2026.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/peso-lora-2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>适配</span><span data-en>Adaptation</span></span></div>
   <h1><span data-zh>Parameter-Efficient Subspace Optimization for LLM Fine-Tuning</span><span data-en>Parameter-Efficient Subspace Optimization for LLM Fine-Tuning</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：LoRA 式分析通常只跟踪低维因子，缺少全参数空间里的收敛保证；子空间方法为何有效、何时该探索新子空间，也缺统一解释。<br>证据位置：摘要提出 PESO 框架，把 LoRA 等现有方法纳入子空间优化的「探索—利用」视角；实例化出的 PESO-LoRA 对诱导更新给出全参数空间收敛保证，并在标准微调基准上优于强 PEFT 基线。<br>作者自陈局限：属优化理论论文（math.OC），摘要未给模型规模、绝对分数或逐任务表；实验是标准微调基准；收敛结论依赖其假设；未报告生产部署。<br>它没主张的：不是新的模型架构；不是对所有任务都更快；不是完整的大规模基准横扫；不是无需调参。</span><span data-en>Problem: LoRA-style analyses usually track only low-dimensional factors and lack convergence guarantees in the full parameter space; there is also no unified account of why subspace methods work or when to explore a new subspace.<br>Where the evidence sits: the abstract introduces PESO, which places methods such as LoRA in an exploration–exploitation view of subspace optimization; the instantiated PESO-LoRA gives convergence guarantees in the full-parameter space for the induced update and improves over strong PEFT baselines on standard fine-tuning benchmarks.<br>What the authors say about limits: this is an optimization paper (math.OC); the abstract gives no model scale, absolute scores or per-task table; experiments are standard fine-tuning benchmarks; the convergence result depends on its assumptions; no production deployment is reported.<br>What it does not claim: a new model architecture; faster results on every task; a complete large-scale benchmark sweep; no tuning required.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发表 / venue</dt><dd>arXiv 2512.02216（v2，2026-02-10）</dd></div><div><dt>模型规模 / scale</dt><dd>摘要未给具体规模</dd></div><div><dt>方法 / method</dt><dd>子空间优化框架；PESO-LoRA</dd></div><div><dt>目标 / target</dt><dd>全参数空间收敛保证 + 内存效率</dd></div><div><dt>证据位置 / evidence</dt><dd>摘要；收敛性与标准微调基准</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -112,8 +118,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2512.02216" rel="noopener">https://arxiv.org/abs/2512.02216</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>适配</span><span data-en>Adaptation</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="chain-dora-2026.html"><span data-zh>ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning</span><span data-en>ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning</span></a></li><li><a href="dettmers-2023-qlora.html"><span data-zh>QLoRA: Efficient Finetuning of Quantized LLMs</span><span data-en>QLoRA: Efficient Finetuning of Quantized LLMs</span></a></li><li><a href="gpart-2026.html"><span data-zh>GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning</span><span data-en>GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

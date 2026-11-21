@@ -2,7 +2,7 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-92 条。
+110 条。
 
 - [目录](https://papers.specul.com/index.html)
 - [怎么用](https://papers.specul.com/about.html)
@@ -99,3 +99,21 @@
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://papers.specul.com/yao-2022-react.html) — 问题：推理（思维链）与行动（动作规划）此前被分开研究，能不能让模型交替「想一步、做一步、看结果」再继续。 证据位置：摘要给出 ALFWorld 与 WebSho
 - [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://papers.specul.com/yao-2023-tree-of-thoughts.html) — 问题：LM 推理仍是 token 级、从左到右的决策，在需要探索、策略前瞻或初始决策起关键作用的任务上会失效；能否让 LM 在以「思维」为中间步骤的树上做 de
 - [YaRN: Efficient Context Window Extension of Large Language Models](https://papers.specul.com/yarn-2023.html) — 问题：RoPE 模型超出训练长度后失效，如何用更少 token 与训练步数扩展上下文窗口。 证据位置：摘要称比此前方法少 10× token、少 2.5× 训练
+- [Relay-Bench: Evaluating LLMs on Multi-Domain Reasoning Chains](https://papers.specul.com/relay-bench-2026.html) — 问题：单域基准已经饱和，但真实任务往往把视觉、代码、数学、检索、数据分析串在一条链上；现有基准很少测“跨域接力”。 证据位置：摘要给出 21 页、7 图的纯文本
+- [sk-bench: A Native-First Benchmark for Evaluating Large Language Models in Slovak](https://papers.specul.com/sk-bench-2026.html) — 问题：多语言基准常把斯洛伐克语漏掉，或只用机器翻译凑数；屈折丰富的语言一翻译就丢掉形态信息。 证据位置：摘要给出 30 个数据集、33 个计分任务变体、10 类
+- [GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models](https://papers.specul.com/gacc-bench-2026.html) — 问题：长上下文压缩通常按“通用重要性”删，但真实应用先给目标、后给问题；压完才发现关键信息没了。 证据位置：摘要给出 500 个目标、2,571 个问题、281
+- [DataOrchestra: Learning to Orchestrate Per-Example Curation of Pretraining Data](https://papers.specul.com/dataorchestra-2026.html) — 问题：预训练数据处理通常在语料/领域级定一套固定策略，再一刀切到所有样本；不同样本其实需要不同处理。 证据位置：摘要给出 orchestrator，对每个 ch
+- [Data Darwinism Part II: DataEvolve — AI can Autonomously Evolve Pretraining Data Curation](https://papers.specul.com/dataevolve-2026.html) — 问题：数据达尔文主义 Part I 给出十级处理阶梯，但策略仍靠人工为单一类目设计；现代语料有数百个异质类目，人工设计不可行。 证据位置：摘要给出闭环进化：识别
+- [GroundSet: A Cadastral-Grounded Dataset for Spatial Understanding with Vector Data](https://papers.specul.com/groundset-2026.html) — 问题：遥感多模态模型在细粒度空间理解上很弱，根因是依赖有限或改用途的旧数据集，标签不可核验。 证据位置：摘要给出以地籍矢量数据为真值的 380 万标注对象、51
+- [From Inference Engine to Inference Control Plane: Connecting vLLM, llm-d, and the Evolution of Efficient Distributed LLM Serving](https://papers.specul.com/inference-control-plane-2026.html) — 问题：LLM 推理正从“引擎内优化”变成“跨集群的分布式控制”：可复用状态、阶段放置、异构加速器、网络、自动扩缩、可靠性和 SLO 都要一起管。 证据位置：摘要
+- [RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale](https://papers.specul.com/rtp-llm-2026.html) — 问题：模型与推理技术快速演进，模型接入成了反复发生的生产任务，而不是一次性集成；共享推理基础设施要在异构生产环境里同时保持可演进与可靠。 证据位置：摘要给出阿里
+- [Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving](https://papers.specul.com/obm-2026.html) — 问题：数据中心 LLM 推理被显存容量与带宽卡住；权重只读且各实例相同，却在数万张加速卡的本地 DRAM 里重复存放，带来资本开支、静态功耗与重复取数能耗。 证
+- [Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models](https://papers.specul.com/locate-steer-improve-2026.html) — 问题：现有机制可解释性综述多把 MI 当观察科学，总结分析洞见，却缺一套可执行干预框架。 证据位置：摘要把综述结构化为“Locate（诊断）→ Steer（干预
+- [Interpreting Language Model Parameters](https://papers.specul.com/interpreting-parameters-2026.html) — 问题：机制可解释性在中间表示上找到不少结构，但对“参数与非线性如何在这些表示上计算”进展很少。 证据位置：摘要提出 adVersarial Parameter 
+- [Can Mechanistic Interpretability Help Explain LLM Agent Failures? A Case Study on Web Element Hallucination](https://papers.specul.com/mi-agent-failures-2026.html) — 问题：MI 在解释 LLM 内部计算上进展明显，但在解释 LLM 智能体决策失败上还没证明同等有效。 证据位置：摘要聚焦网页智能体“幻觉出不存在的操作”，对 Q
+- [ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters](https://papers.specul.com/scalevla-2026.html) — 问题：前沿 VLM 已显示机器人控制潜力，但多数 VLA 策略仍用很小的 VLM 骨干，没吃到规模红利。 证据位置：摘要把 552B DeepSeek-V4.1
+- [Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments](https://papers.specul.com/qwen-vla-2026.html) — 问题：具身智能常按任务训专用模型（操作、导航各一套），能力碎片化，跨任务/环境/本体泛化有限。 证据位置：摘要给出 Qwen-VLA，把 Qwen 视觉语言栈经
+- [RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions](https://papers.specul.com/rynnvla-latent-2026.html) — 问题：VLA 扩展受限于动作标注示范稀缺、不同本体控制空间不兼容；大量异质交互视频有视觉变化却无原生动作标签。 证据位置：摘要给出 RynnLAM 从视觉转移学
+- [Bernini: Latent Semantic Planning for Video Diffusion](https://papers.specul.com/bernini-2026.html) — 问题：多模态 LLM 擅长语义推理，扩散模型擅长像素保真，但两者各做各的；视频生成/编辑仍缺“先规划语义、再渲染像素”的分工。 证据位置：摘要提出 Bernin
+- [Diff-VF: Training-free High-quality Long Video Generation via Diffusion Model](https://papers.specul.com/diff-vf-2026.html) — 问题：多数视频扩散模型只用短视频训练，外推到长视频时退化：长时间一致性保不住，动作多样性也丢。 证据位置：摘要提出 Diff-VF，免训练、即插即用、模型无关，
+- [MobileWan: Closing the Quality Gap for Mobile Video Diffusion](https://papers.specul.com/mobilewan-2026.html) — 问题：视频扩散靠把 Transformer 扩到数十亿参数提升画质，但移动端模型仍困在 0.4–1.8B 参数，质量上不去。 证据位置：摘要反过来主张“高质量移

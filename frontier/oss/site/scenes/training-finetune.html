@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/scenes/training-finetune.html" />
   <meta property="og:title" content="训练与微调 · 开源 AI 工具库" />
   <meta property="og:description" content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 20 个开源仓库，写清许可、活跃度、适合与不适合。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/scenes/training-finetune.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/scenes/training-finetune.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/scenes/training-finetune.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -255,7 +260,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
   <h3 class="repo-name"><a href="../repos/megatron-lm.html">Megatron-LM</a></h3>
   <p class="repo-owner">NVIDIA / Megatron-LM</p>
-  <p>NVIDIA 的大规模 Transformer 训练框架，支持张量/流水/序列/上下文并行、FP8、MoE 和分布式 checkpoint。</p>
+  <p><span data-zh>NVIDIA 的大规模 Transformer 训练框架，支持张量/流水/序列/上下文并行、FP8、MoE 和分布式 checkpoint。</span><span data-en>NVIDIA’s large-scale Transformer training framework with tensor, pipeline, sequence and context parallelism, FP8, MoE and distributed checkpointing.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>NOASSERTION</dd></div>
@@ -267,7 +272,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/kohya-ss.html">kohya_ss</a></h3>
   <p class="repo-owner">bmaltais / kohya_ss</p>
-  <p>Stable Diffusion 系模型的训练 GUI 与脚本集合：LoRA、DreamBooth、fine-tune、数据集打标与工具，覆盖 SD1/SDXL/FLUX 等。</p>
+  <p><span data-zh>Stable Diffusion 系模型的训练 GUI 与脚本集合：LoRA、DreamBooth、fine-tune、数据集打标与工具，覆盖 SD1/SDXL/FLUX 等。</span><span data-en>A training GUI and script collection for Stable Diffusion models: LoRA, DreamBooth, fine-tuning, dataset tagging and utilities across SD1, SDXL and FLUX.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>
@@ -279,7 +284,7 @@
   <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
   <h3 class="repo-name"><a href="../repos/litgpt.html">LitGPT</a></h3>
   <p class="repo-owner">Lightning-AI / litgpt</p>
-  <p>Lightning AI 的轻量 LLM 训练、微调与部署配方：20+ 模型，支持 pretrain、SFT、LoRA、量化与推理，强调单卡可跑与可读代码。</p>
+  <p><span data-zh>Lightning AI 的轻量 LLM 训练、微调与部署配方：20+ 模型，支持 pretrain、SFT、LoRA、量化与推理，强调单卡可跑与可读代码。</span><span data-en>Lightning AI’s lightweight recipes for LLM training, fine-tuning and deployment: 20+ models, pretraining, SFT, LoRA, quantisation and inference, with an emphasis on single-GPU runs and readable code.</span></p>
   <dl class="repo-facts">
     <div><dt>语言</dt><dd>Python</dd></div>
     <div><dt>许可</dt><dd>Apache-2.0</dd></div>

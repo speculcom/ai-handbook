@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/gpart-2026.html" />
   <meta property="og:title" content="GPart: End-to-End Isometric Fine-Tuning via Global… · AI 论文" />
   <meta property="og:description" content="问题：LoRA 的双线性参数化让「可训练参数 → 权重更新」不保距；把低维向量投到 LoRA 参数空间的做法，又会被后续双线性映射破坏端到端等距。 证据位置：摘要称 GPart 用稀疏、等距的分区矩阵把 d 维可训练向量直接映到全权重空间；只有一个主超参 d，checkpoint 只存该向量与随机种" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/gpart-2026.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/gpart-2026.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/gpart-2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>适配</span><span data-en>Adaptation</span></span></div>
   <h1><span data-zh>GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning</span><span data-en>GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：LoRA 的双线性参数化让「可训练参数 → 权重更新」不保距；把低维向量投到 LoRA 参数空间的做法，又会被后续双线性映射破坏端到端等距。<br>证据位置：摘要称 GPart 用稀疏、等距的分区矩阵把 d 维可训练向量直接映到全权重空间；只有一个主超参 d，checkpoint 只存该向量与随机种子；在自然语言理解、计算机视觉、数学推理基准上，以极低参数预算达到与现有 PEFT 相当或更好的结果。<br>作者自陈局限：仍是预印本（v3）；摘要只给「match or improve」，没有绝对值与逐任务表；主超参 d 的选择仍需实验；未报告大规模分布式训练与生产服务。<br>它没主张的：不是 LoRA 的通用替代；不是在万亿参数上已验证；不是训练速度或吞吐的结论；不是无需调参。</span><span data-en>Problem: LoRA’s bilinear parameterization does not preserve distance between trainable parameters and weight updates; projecting a low-dimensional vector into LoRA’s parameter space still breaks end-to-end isometry through the subsequent bilinear map.<br>Where the evidence sits: the abstract says GPart maps a d-dimensional trainable vector directly into the full weight space through a sparse, isometric partition matrix; it has one main hyperparameter d, and the checkpoint is just that vector plus a random seed; on natural-language-understanding, computer-vision and mathematical-reasoning benchmarks it matches or improves existing PEFT methods at ultra-low parameter budgets.<br>What the authors say about limits: still a preprint (v3); the abstract only says “match or improve”, without absolute numbers or a per-task table; choosing d still needs experiments; large-scale distributed training and production serving are not reported.<br>What it does not claim: a general replacement for LoRA; validation at trillion-parameter scale; a training-speed or throughput result; no tuning required.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发表 / venue</dt><dd>arXiv 2605.14841（v3，2026-10-02）</dd></div><div><dt>模型规模 / scale</dt><dd>摘要未给统一规模；覆盖 NLU / CV / 数学推理基准</dd></div><div><dt>方法 / method</dt><dd>全局参数分区 + 稀疏等距矩阵，直接线性参数化</dd></div><div><dt>目标 / target</dt><dd>端到端等距、极低参数预算的 PEFT</dd></div><div><dt>证据位置 / evidence</dt><dd>摘要；三类基准；代码链接</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -112,8 +118,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2605.14841" rel="noopener">https://arxiv.org/abs/2605.14841</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>适配</span><span data-en>Adaptation</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="chain-dora-2026.html"><span data-zh>ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning</span><span data-en>ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning</span></a></li><li><a href="dettmers-2023-qlora.html"><span data-zh>QLoRA: Efficient Finetuning of Quantized LLMs</span><span data-en>QLoRA: Efficient Finetuning of Quantized LLMs</span></a></li><li><a href="hu-2021-lora.html"><span data-zh>LoRA: Low-Rank Adaptation of Large Language Models</span><span data-en>LoRA: Low-Rank Adaptation of Large Language Models</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

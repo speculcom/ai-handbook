@@ -2,7 +2,7 @@
 
 > 按类目整理、每条挂官方来源的事实目录，适合快速查参数。
 
-40 条。
+46 条。
 
 - [目录](https://chain.specul.com/index.html)
 - [怎么用](https://chain.specul.com/about.html)
@@ -47,3 +47,9 @@
 - [Filecoin 可验证存储](https://chain.specul.com/filecoin-verifiable-storage.html) — 交集：训练数据与模型权重的长期留存——「谁还持有这份数据」这件事有周期性证明可查，而不是只能相信服务商的状态页。适用范围：官方说明存储方每 24 小时窗口证明一
 - [IPFS 内容标识 CID](https://chain.specul.com/ipfs-cid.html) — 交集：训练数据集与模型文件的内容寻址——同一份数据在任何节点得到同一标识，数据集出处记录里就能写清「指的是哪一份字节」，而不是一个会变的下载地址。适用范围：CI
 - [TEE 远程证明（以 Phala 为例）](https://chain.specul.com/tee-attestation.html) — 交集：AI 推理跑在第三方云上时，用户怎么相信「模型与代码确实按声明运行」。TEE 远程证明把运行时度量、签名与验证报告交给软件核验。 适用范围：这里以 Pha
+- [Stripe Agentic Commerce：SPT、Link Agent Wallet 与 ACS](https://chain.specul.com/stripe-agentic-commerce.html) — 问题：Agent 代用户结账时，商户既不想让 agent 拿到原始卡号，又需要确认这笔钱是用户授权的。 证据位置：Stripe 的 Shared Payment
+- [Cloudflare Pay Per Crawl：让 AI 抓取按次付费](https://chain.specul.com/cloudflare-pay-per-crawl.html) — 问题：内容站不想被 AI 爬虫白拿，但按 robots.txt 封禁又会失去索引与曝光；需要一种「可读但收费」的中间态。 证据位置：Pay Per Crawl 
+- [Coinbase CDP：AgentKit、x402 Facilitator 与 Agentic Account](https://chain.specul.com/coinbase-cdp-agent-payments.html) — 问题：Agent 需要一个能自己收付稳定币的钱包与结算通道，但直接暴露私钥或让模型自由转账都不安全。 证据位置：CDP 提供 AgentKit（给 agent 
+- [Circle Gateway：统一 USDC 余额与跨链即时结算](https://chain.specul.com/circle-gateway.html) — 问题：Agent 在多条链上调用服务时，如果每个链都要预置资金，资金效率很低，跨链桥又有等待与合约风险。 证据位置：Gateway 让用户把 USDC / EU
+- [Skyfire：给 AI Agent 的支付网络与预算控制](https://chain.specul.com/skyfire-agent-payments.html) — 问题：Agent 调用第三方服务时，开户、绑卡、充值都卡在人这边；需要一个 agent 能持有预算、按次付款的钱包层。 证据位置：Skyfire 提供面向 ag
+- [Nevermined Pay：x402 上的额度、订阅与计量结算](https://chain.specul.com/nevermined-pay.html) — 问题：标准 x402 每次请求都要签名付款，高频微调用会不断弹钱包、耗 Gas；企业还需要额度、订阅与可审计计量。 证据位置：Nevermined 在 x402

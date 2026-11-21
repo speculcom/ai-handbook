@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://chain.specul.com/tee-attestation.html" />
   <meta property="og:title" content="TEE 远程证明（以 Phala 为例） · 链" />
   <meta property="og:description" content="交集：AI 推理跑在第三方云上时，用户怎么相信「模型与代码确实按声明运行」。TEE 远程证明把运行时度量、签名与验证报告交给软件核验。 适用范围：这里以 Phala 的 CPU/GPU TEE 与 attestation 示例说明流程；它不保证模型本身正确，也不保证所有云都支持同样的证明格式。 未解" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://chain.specul.com/tee-attestation.html" />
+  <link rel="alternate" hreflang="en" href="https://chain.specul.com/tee-attestation.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://chain.specul.com/tee-attestation.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>来源标识</span><span data-en>Provenance</span></span></div>
   <h1><span data-zh>TEE 远程证明（以 Phala 为例）</span><span data-en>TEE remote attestation (Phala example)</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>交集：AI 推理跑在第三方云上时，用户怎么相信「模型与代码确实按声明运行」。TEE 远程证明把运行时度量、签名与验证报告交给软件核验。<br>适用范围：这里以 Phala 的 CPU/GPU TEE 与 attestation 示例说明流程；它不保证模型本身正确，也不保证所有云都支持同样的证明格式。<br>未解决：不同 TEE 厂商（Intel TDX / NVIDIA CC / AMD SEV）证明链与信任根不统一；侧信道、供应链与运维方仍可能破坏假设；跨云验证缺少统一标准。</span><span data-en>Intersection: when AI inference runs on a third-party cloud, how does the user know the model and code ran as claimed? TEE remote attestation exposes runtime measurements, signatures and verifier reports to software.<br>Scope: this uses Phala&#39;s CPU/GPU TEE and attestation example to show the flow; it does not guarantee the model is correct, nor that every cloud supports the same attestation format.<br>Open: trust roots and attestation chains differ across Intel TDX / NVIDIA CC / AMD SEV; side channels, supply chain and operators can still break the assumption; cross-cloud verification lacks a common standard.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>协议状态 / status</dt><dd>已部署（产品化示例）</dd></div><div><dt>证明对象 / attested</dt><dd>运行时度量 + 镜像摘要</dd></div><div><dt>验证方式 / verify</dt><dd>签名与 attestation 报告</dd></div><div><dt>来源 / source</dt><dd>Phala 官方页</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-specification</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://phala.com/" rel="noopener">https://phala.com/</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>来源标识</span><span data-en>Provenance</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="c2pa-ai-ml-guidance.html"><span data-zh>C2PA 面向 AI/ML 的实施指南</span><span data-en>C2PA guidance for AI and machine learning</span></a></li><li><a href="c2pa-content-credentials.html"><span data-zh>C2PA 内容凭证</span><span data-en>C2PA Content Credentials</span></a></li><li><a href="erc721-token-standard.html"><span data-zh>ERC-721：每个 token 都唯一的 ownership 标准</span><span data-en>ERC-721: a standard where every token is unique</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/domain-trust.html"><span data-zh>许可、评测、凭证的判断框架</span><span data-en>A framework for licences, evals and credentials</span></a></li><li><a href="https://specul.com/topic-agent.html"><span data-zh>搭智能体：权限、支付与护栏</span><span data-en>Build agents: permissions, payments, guardrails</span></a></li></ul></section>

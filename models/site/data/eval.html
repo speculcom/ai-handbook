@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://models.specul.com/data/eval.html" />
   <meta property="og:title" content="评测集 · 数据 · AI 模型" />
   <meta property="og:description" content="评测集数据集索引：MMLU、GSM8K、HumanEval、MATH-500、AIME 2024。每张卡写清许可、规模、获取方式与使用边界。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/data/eval.html" />
+  <link rel="alternate" hreflang="en" href="https://models.specul.com/data/eval.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://models.specul.com/data/eval.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -101,40 +106,60 @@
 <div class="sec-nav"><a href="index.html">← 全部数据</a><a href="../index.html">模型站</a></div>
 <nav class="sec-nav" aria-label="数据分类" data-ui-aria-label-zh="数据分类" data-ui-aria-label-en="Dataset categories"><a href="pretrain.html"><span data-zh>预训练语料</span><span data-en>Pretraining corpora</span></a><a href="sft.html"><span data-zh>指令与 SFT</span><span data-en>Instruction &amp; SFT</span></a><a href="preference.html"><span data-zh>偏好与 RLHF</span><span data-en>Preference &amp; RLHF</span></a><a href="eval.html" aria-current="page"><span data-zh>评测集</span><span data-en>Evaluation sets</span></a><a href="rag.html"><span data-zh>RAG 文档</span><span data-en>RAG corpora</span></a><a href="multimodal.html"><span data-zh>多模态</span><span data-en>Multimodal</span></a><a href="code-domain.html"><span data-zh>代码与领域</span><span data-en>Code &amp; domain</span></a><a href="synthetic.html"><span data-zh>合成数据</span><span data-en>Synthetic data</span></a></nav>
 <div class="sec-grid"><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="mmlu.html">MMLU</a></h3>
-  <p>覆盖 57 个学科的多选题，是模型知识广度的常用基线。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>约 1.4 万道测试题 / 57 学科</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">题目公开已久，污染风险高；分数高不等于会做实际任务。</p>
-  <a class="sec-link" href="mmlu.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="mmlu.html"><span data-zh>MMLU</span><span data-en>MMLU</span></a></h3>
+  <p><span data-zh>覆盖 57 个学科的多选题，是模型知识广度的常用基线。</span><span data-en>Multiple-choice questions across 57 subjects; a common baseline for breadth of model knowledge.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>约 1.4 万道测试题 / 57 学科</span><span data-en>About 14k test questions / 57 subjects</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题目公开已久，污染风险高；分数高不等于会做实际任务。</span><span data-en>Questions have been public for years, so contamination risk is high. A high score does not prove the model can do real tasks.</span></p>
+  <a class="sec-link" href="mmlu.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="gsm8k.html">GSM8K</a></h3>
-  <p>题目短、答案唯一，适合观察多步算术与推理链是否稳定。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>8,500 道小学应用题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">难度集中在小学范围；高分不代表能处理真实业务里的表格与多约束问题。</p>
-  <a class="sec-link" href="gsm8k.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="gsm8k.html"><span data-zh>GSM8K</span><span data-en>GSM8K</span></a></h3>
+  <p><span data-zh>题目短、答案唯一，适合观察多步算术与推理链是否稳定。</span><span data-en>Short problems with unique answers, useful for checking multi-step arithmetic and reasoning stability.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>8,500 道小学应用题</span><span data-en>8,500 grade-school problems</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>难度集中在小学范围；高分不代表能处理真实业务里的表格与多约束问题。</span><span data-en>Difficulty is limited to grade-school maths. A high score does not imply handling tables and multiple constraints in real work.</span></p>
+  <a class="sec-link" href="gsm8k.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="humaneval.html">HumanEval</a></h3>
-  <p>函数级代码生成基准，用单元测试判分，口径清楚。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>164 道 Python 函数题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>直接下载</dd></div></dl>
-  <p class="sec-caveat">题量小，单一语言；分数波动大，不能单独代表代码能力。</p>
-  <a class="sec-link" href="humaneval.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="humaneval.html"><span data-zh>HumanEval</span><span data-en>HumanEval</span></a></h3>
+  <p><span data-zh>函数级代码生成基准，用单元测试判分，口径清楚。</span><span data-en>Function-level code generation scored by unit tests, with a clear protocol.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>164 道 Python 函数题</span><span data-en>164 Python function tasks</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>直接下载</span><span data-en>Direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题量小，单一语言；分数波动大，不能单独代表代码能力。</span><span data-en>Small and single-language; scores fluctuate and cannot represent code capability on their own.</span></p>
+  <a class="sec-link" href="humaneval.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="math-500.html">MATH-500</a></h3>
-  <p>从 MATH 测试集抽出的 500 题子集，题面与答案结构清楚，常用于快速比较数学推理。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>500 题</dd></div><div><dt>许可</dt><dd>MIT</dd></div><div><dt>获取</dt><dd>Hugging Face 直接下载</dd></div></dl>
-  <p class="sec-caveat">题目公开已久，污染风险高；答案抽取与等价判断会显著影响分数。</p>
-  <a class="sec-link" href="math-500.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="math-500.html"><span data-zh>MATH-500</span><span data-en>MATH-500</span></a></h3>
+  <p><span data-zh>从 MATH 测试集抽出的 500 题子集，题面与答案结构清楚，常用于快速比较数学推理。</span><span data-en>A 500-problem subset of the MATH test set with clear problem and answer structure, often used for quick comparisons.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>500 题</span><span data-en>500 problems</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>MIT</span><span data-en>MIT</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face 直接下载</span><span data-en>Hugging Face direct download</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题目公开已久，污染风险高；答案抽取与等价判断会显著影响分数。</span><span data-en>Problems have been public for a long time, so contamination risk is high. Answer extraction and equivalence checking strongly affect scores.</span></p>
+  <a class="sec-link" href="math-500.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article><article class="sec-card">
-  <div class="sec-card-top"><span class="sec-tag">评测集</span></div>
-  <h3><a href="aime-2024.html">AIME 2024</a></h3>
-  <p>竞赛级数学题，答案唯一，适合压力测试长链推理与自我校验。</p>
-  <dl class="sec-facts"><div><dt>规模</dt><dd>30 题（2024 AIME I/II）</dd></div><div><dt>许可</dt><dd>题目版权归 MAA；使用需核对</dd></div><div><dt>获取</dt><dd>Hugging Face / 官方题面</dd></div></dl>
-  <p class="sec-caveat">题量小，单题波动会放大分数差；题面公开后污染风险高。</p>
-  <a class="sec-link" href="aime-2024.html">看数据卡 →</a>
+  <div class="sec-card-top"><span class="sec-tag"><span data-zh>评测集</span><span data-en>Evaluation sets</span></span></div>
+  <h3><a href="aime-2024.html"><span data-zh>AIME 2024</span><span data-en>AIME 2024</span></a></h3>
+  <p><span data-zh>竞赛级数学题，答案唯一，适合压力测试长链推理与自我校验。</span><span data-en>Competition-level problems with unique answers, useful for stress-testing long reasoning and self-checking.</span></p>
+  <dl class="sec-facts">
+    <div><dt><span data-zh>规模</span><span data-en>Size</span></dt><dd><span data-zh>30 题（2024 AIME I/II）</span><span data-en>30 problems (2024 AIME I/II)</span></dd></div>
+    <div><dt><span data-zh>许可</span><span data-en>Licence</span></dt><dd><span data-zh>题目版权归 MAA；使用需核对</span><span data-en>Problem copyright belongs to MAA; verify use</span></dd></div>
+    <div><dt><span data-zh>获取</span><span data-en>Access</span></dt><dd><span data-zh>Hugging Face / 官方题面</span><span data-en>Hugging Face / official problem text</span></dd></div>
+  </dl>
+  <p class="sec-caveat"><span data-zh>题量小，单题波动会放大分数差；题面公开后污染风险高。</span><span data-en>Very few problems, so a single item swings the score; contamination risk rises after public release.</span></p>
+  <a class="sec-link" href="aime-2024.html"><span data-zh>看数据卡 →</span><span data-en>Open dataset card →</span></a>
 </article></div>
 </div>
   </main>

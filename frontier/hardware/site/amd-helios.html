@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://hardware.specul.com/amd-helios.html" />
   <meta property="og:title" content="AMD Helios 机架 · 硬件算力" />
   <meta property="og:description" content="回答「一个机架能装多少 HBM、给多少 FP8/FP4 算力」，不是单卡规格。官方写的 31 TB 是 72 张 MI455X 的合计；1.4 EF FP8 与 2.9 EF FP4 也是整机架数字。采购时先确认是 72 张 MI455X 还是 MI450X 配置，两者单卡显存不同。 不主张：不是单" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://hardware.specul.com/amd-helios.html" />
+  <link rel="alternate" hreflang="en" href="https://hardware.specul.com/amd-helios.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://hardware.specul.com/amd-helios.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -94,8 +99,9 @@
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>整机</span><span data-en>Systems</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>整机</span><span data-en>Systems</span></span><span class="fx-badge"><span data-zh>未公布单价</span><span data-en>No public price</span></span></div>
   <h1><span data-zh>AMD Helios 机架</span><span data-en>AMD Helios rack</span></h1>
+  <p class="fx-price-note"><span data-zh><span data-zh>未公布单价</span><span data-en>No public price</span></span><span data-en><span data-zh>未公布单价</span><span data-en>No public price</span></span> · <span data-zh>官方页未给公开单价；这类产品通常按整机、云实例或询价成交，不拿经销商价冒充官方价。</span><span data-en>No public unit price on the official page; these usually sell as systems, cloud instances or on request, so dealer quotes are not presented as official.</span></p>
   <p class="fx-entry-lead"><span data-zh>回答「一个机架能装多少 HBM、给多少 FP8/FP4 算力」，不是单卡规格。官方写的 31 TB 是 72 张 MI455X 的合计；1.4 EF FP8 与 2.9 EF FP4 也是整机架数字。采购时先确认是 72 张 MI455X 还是 MI450X 配置，两者单卡显存不同。<br>不主张：不是单芯片性能比较；不是「买到就能跑满」的保证；整机功耗、冷却与机房条件另算。</span><span data-en>Answers how much HBM and FP8/FP4 compute one rack holds, not a single card. The official 31 TB is the sum of 72 MI455X GPUs; 1.4 EF FP8 and 2.9 EF FP4 are rack-level figures too. Confirm whether the configuration is 72 MI455X or MI450X — their per-card memory differs.<br>It does not claim: a single-chip comparison; a guarantee that buying the rack means running at peak; power, cooling and facility constraints are separate.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>GPU 数量 / GPUs</dt><dd>72× AMD Instinct MI455X 或 MI450X</dd></div><div><dt>HBM 合计 / total HBM</dt><dd>31 TB HBM4（MI455X 配置）</dd></div><div><dt>FP8 算力 / FP8</dt><dd>1.4 EFLOPS（整机架）</dd></div><div><dt>FP4 算力 / FP4</dt><dd>2.9 EFLOPS（整机架）</dd></div><div><dt>互联 / interconnect</dt><dd>AMD Infinity Fabric；UALoE / UALink</dd></div><div><dt>形态 / form</dt><dd>机架级（rackscale）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-spec-page</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.amd.com/en/products/accelerators/instinct/mi400.html" rel="noopener">https://www.amd.com/en/products/accelerators/instinct/mi400.html</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>整机</span><span data-en>Systems</span></dd></div>
+      <div><dt><span data-zh>状态</span><span data-en>Status</span></dt><dd><span data-zh>已发布 / 未出货</span><span data-en>Announced</span></dd></div>
+      <div><dt><span data-zh>适合</span><span data-en>Use cases</span></dt><dd><span data-zh>集群</span><span data-en>Cluster</span></dd></div>
+      <div><dt><span data-zh>价格口径</span><span data-en>Price basis</span></dt><dd><span data-zh>未公布单价</span><span data-en>No public price</span> · not-published</dd></div>
     </dl>
   </section>
+  
   
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="nvidia-dgx-b200.html"><span data-zh>NVIDIA DGX B200</span><span data-en>NVIDIA DGX B200</span></a></li><li><a href="nvidia-dgx-spark.html"><span data-zh>NVIDIA DGX Spark</span><span data-en>NVIDIA DGX Spark</span></a></li><li><a href="nvidia-dgx-spark-hpc-kit.html"><span data-zh>NVIDIA DGX Spark HPC Developer Kit</span><span data-en>NVIDIA DGX Spark HPC Developer Kit</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-local.html"><span data-zh>本机跑模型：显存、量化与部署</span><span data-en>Run models locally: VRAM, quantization, serving</span></a></li><li><a href="https://models.specul.com/"><span data-zh>按显存挑模型与量化档</span><span data-en>Pick a model and quant tier by VRAM</span></a></li></ul></section>

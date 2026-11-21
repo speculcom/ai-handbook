@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "code": "olmo",
+  "name": {
+    "zh": "OLMo",
+    "en": "OLMo"
+  },
+  "vendor": {
+    "zh": "Allen Institute for AI (Ai2)",
+    "en": "Allen Institute for AI (Ai2)"
+  },
+  "currentGen": {
+    "zh": "OLMo 3.1",
+    "en": "OLMo 3.1"
+  },
+  "currentGenDate": "2026-11",
+  "generations": [
+    {
+      "gen": "OLMo 3.1 7B",
+      "date": "2026-11",
+      "zh": "7B 全开放档：数据、代码、检查点与训练配方公开；65K 上下文；Apache-2.0。",
+      "en": "7B fully open tier: data, code, checkpoints and training recipe are public; 65K context; Apache-2.0.",
+      "url": "https://allenai.org/olmo"
+    },
+    {
+      "gen": "OLMo 3.1 32B",
+      "date": "2026-11",
+      "zh": "32B 全开放档：面向多卡训练与研究复现；同样公开数据与检查点。",
+      "en": "32B fully open tier: aimed at multi-GPU training and research reproduction; data and checkpoints are public too.",
+      "url": "https://allenai.org/olmo"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "7B（单卡）",
+      "en": "7B (single GPU)"
+    },
+    {
+      "zh": "32B（多卡）",
+      "en": "32B (multi-GPU)"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "apache-2.0",
+      "zh": "Apache-2.0（模型与代码）",
+      "en": "Apache-2.0 (models and code)",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "Ai2 的 OLMo 页面把 OLMo 3 定位为完全开放的语言模型：权重、数据、代码与检查点都可获取；3.1 延续 7B / 32B 两档，Apache-2.0。",
+      "en": "Ai2’s OLMo page positions OLMo 3 as a fully open language model with weights, data, code and checkpoints available; 3.1 continues the 7B / 32B tiers under Apache-2.0.",
+      "url": "https://allenai.org/olmo"
+    }
+  ],
+  "positioning": {
+    "zh": "Ai2 的全开放研究家族：真正把数据、代码、检查点和训练配方一起放出，适合做可复现实验与教学。它的优势不是榜单分数，而是“你能从头查到尾”；代价是训练与评测成本要自己承担。",
+    "en": "Ai2’s fully open research family: it releases data, code, checkpoints and the training recipe together, suited to reproducible experiments and teaching. Its advantage is not a leaderboard score but end-to-end inspectability; the cost is that you bear the training and evaluation burden."
+  },
+  "onSite": {
+    "series": [],
+    "zh": "本站尚未收录 OLMo 的量化对比；7B 的 GGUF 生态可用，但下载量未达到本站门槛。",
+    "en": "No OLMo quantisation comparison yet; the 7B GGUF ecosystem is usable but below this site’s download threshold."
+  },
+  "sources": [
+    {
+      "label": "Ai2 · OLMo 官方页",
+      "url": "https://allenai.org/olmo",
+      "kind": "official",
+      "labelEn": "Ai2 · OLMo official page"
+    },
+    {
+      "label": "Ai2 · OLMo 3 发布说明",
+      "url": "https://allenai.org/blog/olmo3",
+      "kind": "blog",
+      "labelEn": "Ai2 · OLMo 3 announcement"
+    }
+  ],
+  "last_verified": "2026-11-21",
+  "confidence": "partial",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 Ai2（美国）。",
+    "originNoteEn": "Made by Ai2 (United States).",
+    "direct": "unknown",
+    "directNote": "本次未做中国大陆网络探测。",
+    "directNoteEn": "No mainland-China network probe was run.",
+    "filing": {
+      "status": "unknown",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "未检索备案名单。",
+      "noteEn": "Filing registry not searched."
+    },
+    "last_verified": "2026-11-21",
+    "sources": [
+      {
+        "label": "Ai2 OLMo 官方页",
+        "url": "https://allenai.org/olmo",
+        "kind": "official"
+      }
+    ]
+  }
+}

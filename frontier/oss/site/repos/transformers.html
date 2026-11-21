@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/transformers.html" />
   <meta property="og:title" content="Transformers · 开源 AI 工具库" />
   <meta property="og:description" content="Transformers：Hugging Face 的模型库与统一接口：AutoModel / AutoTokenizer 覆盖文本、视觉、音频与多模态，支持 PyTorch、TensorFlow、Flax；能直接加载 Hub 权重，也能接 PEFT、vLLM、TGI 等后端。 许可 Apache-2.0，Python，169.3k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/transformers.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/transformers.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/transformers.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -119,7 +124,7 @@
   <p><span data-zh>代码 Apache-2.0；每个模型权重有自己的许可，商用前逐一读 model card 与 LICENSE。</span><span data-en>Code is Apache-2.0; every model weight carries its own licence — read the model card and LICENSE before commercial use.</span></p>
   <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
   <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
-  <ul><li><a href="../repos/vllm.html">vLLM</a> — <span data-zh>规模 / 性能</span><span data-en>Scale / performance</span>，高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。</li><li><a href="../repos/llama-cpp.html">llama.cpp</a> — <span data-zh>本地优先</span><span data-en>Local-first</span>，C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。</li><li><a href="../repos/ollama.html">Ollama</a> — <span data-zh>先试这个</span><span data-en>Start here</span>，一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</li></ul>
+  <ul><li><a href="../repos/vllm.html">vLLM</a> — <span data-zh>规模 / 性能</span><span data-en>Scale / performance</span>，<span data-zh>高吞吐推理与服务引擎，PagedAttention、连续批处理、多卡并行。</span><span data-en>A high-throughput inference and serving engine with PagedAttention, continuous batching and multi-GPU support.</span></li><li><a href="../repos/llama-cpp.html">llama.cpp</a> — <span data-zh>本地优先</span><span data-en>Local-first</span>，<span data-zh>C/C++ 推理引擎，CPU、Apple Silicon、消费级 GPU 都能跑，量化格式丰富。</span><span data-en>A C/C++ inference engine that runs on CPUs, Apple Silicon and consumer GPUs, with a wide range of quantisation formats.</span></li><li><a href="../repos/ollama.html">Ollama</a> — <span data-zh>先试这个</span><span data-en>Start here</span>，<span data-zh>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</span><span data-en>Pull and run local models with one command, with a built-in model library and an OpenAI-compatible API.</span></li></ul>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
     <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>

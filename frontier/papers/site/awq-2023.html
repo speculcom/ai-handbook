@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/awq-2023.html" />
   <meta property="og:title" content="AWQ: Activation-aware Weight Quantization for LLM… · AI 论文" />
   <meta property="og:description" content="问题：LLM 低比特权重量化如何保精度、又保持硬件友好，能落到端侧。 证据位置：摘要称只保护 1% 显著权重即可大幅降低量化误差；显著通道要按激活分布而非权重判断；用等价缩放保护显著通道；不依赖反向传播或重建；TinyChat 在桌面/移动 GPU 上相对 HF FP16 有 3× 以上加速；可在移" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/awq-2023.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/awq-2023.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/awq-2023.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>效率</span><span data-en>Efficiency</span></span></div>
   <h1><span data-zh>AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</span><span data-en>AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：LLM 低比特权重量化如何保精度、又保持硬件友好，能落到端侧。<br>证据位置：摘要称只保护 1% 显著权重即可大幅降低量化误差；显著通道要按激活分布而非权重判断；用等价缩放保护显著通道；不依赖反向传播或重建；TinyChat 在桌面/移动 GPU 上相对 HF FP16 有 3× 以上加速；可在移动 GPU 跑 70B Llama-2。<br>作者自陈局限：权重量化，激活仍较高精度；校准集有偏；3× 是特定实现/硬件；未覆盖所有模型结构。<br>它没主张的：不是训练方法；不是 4-bit 无损；不是所有设备都能跑 70B。</span><span data-en>Problem: how to quantise LLM weights to low bits while keeping accuracy and hardware-friendly deployment on edge devices?<br>Where the evidence sits: the abstract says protecting only 1% salient weights greatly reduces quantisation error; saliency should be judged from activations, not weights; an equivalent scaling protects salient channels; no backprop or reconstruction is used; TinyChat reports &gt;3x speedup over HF FP16 on desktop and mobile GPUs and runs 70B Llama-2 on mobile GPUs.<br>What the authors say about limits: weight-only quantisation, activations stay higher precision; calibration set bias; 3x is implementation/hardware-specific; not every model architecture is covered.<br>What it does not claim: not a training method; not lossless 4-bit; not every device can run 70B.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要：1% 显著权重、激活分布、3× 加速</dd></div><div><dt>权重量化 / weight bits</dt><dd>4-bit</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2306.00978" rel="noopener">https://arxiv.org/abs/2306.00978</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>效率</span><span data-en>Efficiency</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="bitnet158-2024.html"><span data-zh>The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits</span><span data-en>The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits</span></a></li><li><a href="dao-2022-flashattention.html"><span data-zh>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</span><span data-en>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</span></a></li><li><a href="flashattention3-2024.html"><span data-zh>FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision</span><span data-en>FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

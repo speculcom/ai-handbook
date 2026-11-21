@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/hybrid-agents-2026.html" />
   <meta property="og:title" content="Hybrid Reasoning Agents · AI 论文" />
   <meta property="og:description" content="问题：文本推理可解释、能调工具，但 token 成本高；latent reasoning 省 token，却缺少原生工具访问与可读性；能不能在同一生成过程里在两种模式间动态切换。 证据位置：摘要提出 HybridAgents，用轻量 HybridLink 在文本与 latent 模式间切换，并用连续" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/hybrid-agents-2026.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/hybrid-agents-2026.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/hybrid-agents-2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>推理</span><span data-en>Reasoning</span></span></div>
   <h1><span data-zh>Hybrid Reasoning Agents</span><span data-en>Hybrid Reasoning Agents</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：文本推理可解释、能调工具，但 token 成本高；latent reasoning 省 token，却缺少原生工具访问与可读性；能不能在同一生成过程里在两种模式间动态切换。<br>证据位置：摘要提出 HybridAgents，用轻量 HybridLink 在文本与 latent 模式间切换，并用连续工作记忆跨多轮保留无损混合上下文；配套 HybridSFT 与 HybridRL 后训练；在 3 个模型规模、11 个基准（数学、科学、医学、搜索、智能体推理）上平均提升 10.4%，token 减 35.5–54.7%，推理快 1.8–2.6 倍，成本省 2.7–3.7 倍。<br>作者自陈局限：3 个模型规模、11 个基准；latent 模式可解释性仍有限；工具调用与多轮工作记忆依赖架构改造；没有生产部署与安全评估。<br>它没主张的：不是所有推理都该转 latent；不是 10.4% 是跨所有任务的统一增益；不是 token 减少必然保持同等可解释性。</span><span data-en>Problem: text reasoning is inspectable and can call tools but costs tokens; latent reasoning saves tokens but lacks native tool access and readability; can a single generation process switch between the two.<br>Where the evidence sits: HybridAgents uses a lightweight HybridLink to switch between text and latent modes and keeps a continuous working memory across turns for lossless hybrid context; HybridSFT and HybridRL post-training coordinate the modes; across three model scales and 11 benchmarks in mathematics, science, medicine, search and agentic reasoning it improves performance by 10.4%, cuts tokens by 35.5–54.7%, speeds inference by 1.8–2.6× and saves 2.7–3.7× cost.<br>What the authors say about limits: three model scales and 11 benchmarks; latent-mode interpretability remains limited; tool use and multi-turn working memory require architectural changes; production deployment and safety evaluation are not covered.<br>What it does not claim: not that every reasoning task should move to latent space; not that 10.4% is a uniform gain across all tasks; not that token savings preserve the same interpretability.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要</dd></div><div><dt>方法 / method</dt><dd>HybridLink + 连续工作记忆 + HybridSFT/HybridRL</dd></div><div><dt>规模 / scale</dt><dd>3 个模型规模，11 个基准</dd></div><div><dt>提升 / gain</dt><dd>平均 +10.4%；token -35.5–54.7%；推理 1.8–2.6×；成本 2.7–3.7×</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2610.18861" rel="noopener">https://arxiv.org/abs/2610.18861</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>推理</span><span data-en>Reasoning</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="deepseek-r1-2025.html"><span data-zh>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span><span data-en>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span></a></li><li><a href="emnlp-2026-recognition-refusal.html"><span data-zh>Recognition–Refusal Misalignment in LLMs</span><span data-en>Recognition–Refusal Misalignment in LLMs</span></a></li><li><a href="hle-2025.html"><span data-zh>Humanity's Last Exam</span><span data-en>Humanity's Last Exam</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

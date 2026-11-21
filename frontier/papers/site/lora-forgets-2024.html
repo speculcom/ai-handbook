@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/lora-forgets-2024.html" />
   <meta property="og:title" content="LoRA Learns Less and Forgets Less · AI 论文" />
   <meta property="og:description" content="问题：LoRA 省显存是共识，但它相对全参数微调到底少学了多少、又少忘了多少，缺少同条件下的系统对照。 证据位置：摘要在编程与数学两个目标域、约 10 万条指令微调与 20B token 持续预训练两种数据机制下比较；标准低秩设置里 LoRA 明显不如全参数微调，但域外保持更好，且全参数微调学到的扰" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/lora-forgets-2024.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/lora-forgets-2024.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/lora-forgets-2024.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>适配</span><span data-en>Adaptation</span></span></div>
   <h1><span data-zh>LoRA Learns Less and Forgets Less</span><span data-en>LoRA Learns Less and Forgets Less</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：LoRA 省显存是共识，但它相对全参数微调到底少学了多少、又少忘了多少，缺少同条件下的系统对照。<br>证据位置：摘要在编程与数学两个目标域、约 10 万条指令微调与 20B token 持续预训练两种数据机制下比较；标准低秩设置里 LoRA 明显不如全参数微调，但域外保持更好，且全参数微调学到的扰动秩比典型 LoRA 高 10–100 倍。<br>作者自陈局限：只覆盖编程与数学两个域、两种数据机制；结论针对标准低秩配置，不覆盖所有 rank/目标模块组合；没有给出所有任务的统一最优配方。<br>它没主张的：不是 LoRA 一无是处；不是全参数微调一定更好；不是提高 rank 就能完全抹平差距。</span><span data-en>Problem: LoRA saves memory, but how much less it learns and how much less it forgets than full fine-tuning lacked a controlled comparison.<br>Where the evidence sits: the abstract compares programming and mathematics, in instruction fine-tuning (about 100K prompt-response pairs) and continued pre-training (20B tokens); in standard low-rank settings LoRA substantially underperforms full fine-tuning, but better preserves out-of-domain performance, and full fine-tuning learns perturbations with 10–100× higher rank than typical LoRA.<br>What the authors say about limits: only two target domains and two data regimes; conclusions apply to standard low-rank configurations, not every rank or target-module combination; no universal best recipe across all tasks.<br>What it does not claim: not that LoRA is useless; not that full fine-tuning always wins; not that raising rank closes the gap entirely.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；TMLR 2024</dd></div><div><dt>目标域 / domains</dt><dd>编程、数学</dd></div><div><dt>数据机制 / regimes</dt><dd>约 10 万条指令微调；20B token 持续预训练</dd></div><div><dt>秩差距 / rank gap</dt><dd>全参数微调扰动秩高 10–100 倍</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2405.09673" rel="noopener">https://arxiv.org/abs/2405.09673</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>适配</span><span data-en>Adaptation</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="chain-dora-2026.html"><span data-zh>ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning</span><span data-en>ChainDoRA: Tensor-Train Factorized Weight-Decomposed Low-Rank Adaptation for Parameter-Efficient LLM Fine-Tuning</span></a></li><li><a href="dettmers-2023-qlora.html"><span data-zh>QLoRA: Efficient Finetuning of Quantized LLMs</span><span data-en>QLoRA: Efficient Finetuning of Quantized LLMs</span></a></li><li><a href="gpart-2026.html"><span data-zh>GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning</span><span data-en>GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

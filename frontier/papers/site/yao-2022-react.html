@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/yao-2022-react.html" />
   <meta property="og:title" content="ReAct: Synergizing Reasoning and Acting in Language Models · AI 论文" />
   <meta property="og:description" content="问题：推理（思维链）与行动（动作规划）此前被分开研究，能不能让模型交替「想一步、做一步、看结果」再继续。 证据位置：摘要给出 ALFWorld 与 WebShop 分别高出模仿学习与强化学习 34% 与 10% 的绝对成功率；HotpotQA 27.4、FEVER 60.9 在表 1。 作者自陈局限" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/yao-2022-react.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/yao-2022-react.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/yao-2022-react.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>推理</span><span data-en>Reasoning</span></span></div>
   <h1><span data-zh>ReAct: Synergizing Reasoning and Acting in Language Models</span><span data-en>ReAct: Synergizing Reasoning and Acting in Language Models</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：推理（思维链）与行动（动作规划）此前被分开研究，能不能让模型交替「想一步、做一步、看结果」再继续。<br>证据位置：摘要给出 ALFWorld 与 WebShop 分别高出模仿学习与强化学习 34% 与 10% 的绝对成功率；HotpotQA 27.4、FEVER 60.9 在表 1。<br>作者自陈局限：没有独立的 Limitations 章节，边界散在 §3.3 与 §6——交替结构提高了可追溯性，但也限制了推理自由度，推理错误率比纯思维链更高；检索到的信息是否有用是成败关键，无效检索占错误案例的 23%；大动作空间任务需要更多示例，很容易超出上下文长度上限；作者还指出所有提示方法都仍显著落后于领域专用的 SOTA，且离人类专家水平很远。<br>它没主张的：论文没有说 ReAct 在所有任务上都优于思维链——在 HotpotQA 上它比 CoT 略低（27.4 对 29.4），只在 FEVER 上更高；也没有说它能替代微调或达到人类水平。</span><span data-en>Problem: reasoning (chain of thought) and acting (action planning) had been studied separately; can a model interleave thinking, acting and observing.<br>Where the evidence sits: the abstract gives absolute success-rate gains of 34% and 10% over imitation and reinforcement learning on ALFWorld and WebShop; HotpotQA 27.4 and FEVER 60.9 are in Table 1.<br>What the authors say about limits: no separate Limitations section; the boundaries are in 3.3 and 6 — the interleaved structure improves groundedness and trustworthiness but constrains reasoning flexibility, raising the reasoning error rate above plain chain of thought; whether retrieval returns useful knowledge is critical, and non-informative search accounts for 23% of error cases; tasks with large action spaces need more demonstrations, which easily exceed the in-context length limit; and all prompting methods remain well behind domain-specific state of the art and far from expert humans.<br>What it does not claim: the paper does not say ReAct beats chain of thought on every task — on HotpotQA it is slightly lower (27.4 versus 29.4) and only higher on FEVER — nor that it replaces fine-tuning or reaches human level.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；表 1（HotpotQA / FEVER）；§3.3 与 §6</dd></div><div><dt>ALFWorld</dt><dd>最佳 ReAct 平均成功率 71%（Act 45%、BUTLER 37%）</dd></div><div><dt>WebShop</dt><dd>成功率绝对提升 10%</dd></div><div><dt>HotpotQA / FEVER</dt><dd>27.4 EM / 60.9 Acc</dd></div><div><dt>无效检索占比 / failed retrieval</dt><dd>错误案例的 23%</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2210.03629" rel="noopener">https://arxiv.org/abs/2210.03629</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>推理</span><span data-en>Reasoning</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="deepseek-r1-2025.html"><span data-zh>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span><span data-en>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span></a></li><li><a href="emnlp-2026-recognition-refusal.html"><span data-zh>Recognition–Refusal Misalignment in LLMs</span><span data-en>Recognition–Refusal Misalignment in LLMs</span></a></li><li><a href="hle-2025.html"><span data-zh>Humanity's Last Exam</span><span data-en>Humanity's Last Exam</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

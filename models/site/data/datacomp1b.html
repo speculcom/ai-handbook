@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://models.specul.com/data/datacomp1b.html" />
   <meta property="og:title" content="DataComp-1B · 数据卡 · AI 模型" />
   <meta property="og:description" content="DataComp-1B 数据集卡：约 14 亿图文对，英文为主，CC-BY-4.0（元数据）；图像随源站。图像不随数据集重新分发；商用前要核对源站许可与肖像权。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/data/datacomp1b.html" />
+  <link rel="alternate" hreflang="en" href="https://models.specul.com/data/datacomp1b.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://models.specul.com/data/datacomp1b.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -95,40 +100,40 @@
 <div class="container">
 <header class="sec-detail">
   <p class="eyebrow">Models · Data · <span data-zh>多模态</span><span data-en>Multimodal</span></p>
-  <h1>DataComp-1B</h1>
-  <p class="sub">固定训练预算下比较数据筛选方法，适合做可复现的缩放实验。</p>
+  <h1><span data-zh>DataComp-1B</span><span data-en>DataComp-1B</span></h1>
+  <p class="sub"><span data-zh>固定训练预算下比较数据筛选方法，适合做可复现的缩放实验。</span><span data-en>Compares data-filtering methods under a fixed training budget, enabling reproducible scaling experiments.</span></p>
 </header>
 <div class="sec-nav"><a href="index.html"><span data-zh>← 全部数据</span><span data-en>← All data</span></a><a href="multimodal.html"><span data-zh>多模态</span><span data-en>Multimodal</span></a><a href="../index.html"><span data-zh>模型站</span><span data-en>Models</span></a></div>
 <table class="sec-table">
-  <tr><th>来源</th><td>DataComp</td></tr>
-  <tr><th>规模</th><td>约 14 亿图文对</td></tr>
-  <tr><th>语言</th><td>英文为主</td></tr>
-  <tr><th>格式</th><td>Parquet / 元数据</td></tr>
-  <tr><th>许可</th><td>CC-BY-4.0（元数据）；图像随源站</td></tr>
-  <tr><th>商用</th><td>元数据可用；图像需逐源核对</td></tr>
-  <tr><th>获取</th><td>直接下载元数据</td></tr>
-  <tr><th>任务适配</th><td>多模态预训练 / 数据筛选研究</td></tr>
-  <tr><th>核验日</th><td>2026-11-19</td></tr>
+  <tr><th><span data-zh>来源</span><span data-en>Source</span></th><td><span data-zh>DataComp</span><span data-en>DataComp</span></td></tr>
+  <tr><th><span data-zh>规模</span><span data-en>Size</span></th><td><span data-zh>约 14 亿图文对</span><span data-en>About 1.4B image-text pairs</span></td></tr>
+  <tr><th><span data-zh>语言</span><span data-en>Languages</span></th><td><span data-zh>英文为主</span><span data-en>Mostly English</span></td></tr>
+  <tr><th><span data-zh>格式</span><span data-en>Format</span></th><td><span data-zh>Parquet / 元数据</span><span data-en>Parquet / metadata</span></td></tr>
+  <tr><th><span data-zh>许可</span><span data-en>Licence</span></th><td><span data-zh>CC-BY-4.0（元数据）；图像随源站</span><span data-en>CC-BY-4.0 (metadata); images follow source</span></td></tr>
+  <tr><th><span data-zh>商用</span><span data-en>Commercial use</span></th><td><span data-zh>元数据可用；图像需逐源核对</span><span data-en>Metadata usable; images need source-by-source review</span></td></tr>
+  <tr><th><span data-zh>获取</span><span data-en>Access</span></th><td><span data-zh>直接下载元数据</span><span data-en>Direct metadata download</span></td></tr>
+  <tr><th><span data-zh>任务适配</span><span data-en>Task fit</span></th><td><span data-zh>多模态预训练 / 数据筛选研究</span><span data-en>Multimodal pretraining / Data filtering research</span></td></tr>
+  <tr><th><span data-zh>核验日</span><span data-en>Verified</span></th><td>2026-11-19</td></tr>
 </table>
 <div class="sec-body">
-  <h2>质量与偏差</h2>
-  <p>固定训练预算下比较数据筛选方法，适合做可复现的缩放实验。</p>
-  <h2>使用边界</h2>
-  <p class="sec-caveat">图像不随数据集重新分发；商用前要核对源站许可与肖像权。</p>
+  <h2><span data-zh>质量与偏差</span><span data-en>Quality and bias</span></h2>
+  <p><span data-zh>固定训练预算下比较数据筛选方法，适合做可复现的缩放实验。</span><span data-en>Compares data-filtering methods under a fixed training budget, enabling reproducible scaling experiments.</span></p>
+  <h2><span data-zh>使用边界</span><span data-en>Use boundaries</span></h2>
+  <p class="sec-caveat"><span data-zh>图像不随数据集重新分发；商用前要核对源站许可与肖像权。</span><span data-en>Images are not redistributed with the dataset. Check source licences and portrait rights before commercial use.</span></p>
 
 
 
 
 
 
-  <h2>下一步</h2>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开来源页，下载数据集卡与许可原文，确认版本与获取条件。</li>
-    <li>先抽 100–500 条样本做质量、语言与敏感内容抽检，再决定是否进训练管线。</li>
-    <li>如果用于 RAG 或 SFT，先读 <a href="guides/rag-corpus.html">RAG 语料怎么选</a> / <a href="guides/sft-data-mix.html">SFT 数据怎么配比</a>。</li>
+    <li><span data-zh>打开来源页，下载数据集卡与许可原文，确认版本与获取条件。</span><span data-en>Open the source page, download the dataset card and licence, and confirm the version and access terms.</span></li>
+    <li><span data-zh>先抽 100–500 条样本做质量、语言与敏感内容抽检，再决定是否进训练管线。</span><span data-en>Sample 100–500 records for quality, language and sensitive content before adding it to a training pipeline.</span></li>
+    <li><span data-zh>如果用于 RAG 或 SFT，先读 RAG 语料怎么选 / SFT 数据怎么配比。</span><span data-en>For RAG or SFT, first read how to choose a RAG corpus and how to mix SFT data.</span></li>
   </ul>
 </div>
-<div class="sec-sources">来源：<a href="https://huggingface.co/datasets/datacomp/datacomp-1b" target="_blank" rel="noopener">https://huggingface.co/datasets/datacomp/datacomp-1b</a> · 核验日 2026-11-19 · 许可以来源页为准</div>
+<div class="sec-sources"><span data-zh>来源</span><span data-en>Source</span>：<a href="https://huggingface.co/datasets/datacomp/datacomp-1b" target="_blank" rel="noopener">https://huggingface.co/datasets/datacomp/datacomp-1b</a> · <span data-zh>核验日</span><span data-en>Verified</span> 2026-11-19 · <span data-zh>许可以来源页为准</span><span data-en>Licence terms follow the source page</span></div>
 </div>
   </main>
   <footer class="site-footer">

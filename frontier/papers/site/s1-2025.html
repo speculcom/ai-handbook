@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/s1-2025.html" />
   <meta property="og:title" content="s1: Simple test-time scaling · AI 论文" />
   <meta property="og:description" content="问题：测试时扩展被 o1 证明有效，但方法不公开；能不能用很小的数据、很简单的预算控制，复现出强推理并解释哪些因素起作用。 证据位置：摘要用难度、多样性、质量三条标准筛出 1,000 题的 s1K；提出 budget forcing，通过在模型想结束时强停或追加「Wait」来缩短/延长思考；Qwen" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/s1-2025.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/s1-2025.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/s1-2025.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>推理</span><span data-en>Reasoning</span></span></div>
   <h1><span data-zh>s1: Simple test-time scaling</span><span data-en>s1: Simple test-time scaling</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：测试时扩展被 o1 证明有效，但方法不公开；能不能用很小的数据、很简单的预算控制，复现出强推理并解释哪些因素起作用。<br>证据位置：摘要用难度、多样性、质量三条标准筛出 1,000 题的 s1K；提出 budget forcing，通过在模型想结束时强停或追加「Wait」来缩短/延长思考；Qwen2.5-32B-Instruct 微调后在 MATH 与 AIME24 上最多超 o1-preview 27%，继续扩展从 50% 到 57%。<br>作者自陈局限：评测集中在竞赛数学；s1K 只有 1,000 题，覆盖有限；budget forcing 依赖模型愿意继续生成，不是通用推理控制；32B 规模，未验证更大模型。<br>它没主张的：不是所有任务都能靠测试时算力提升；不是「Wait」提示万能；不是 27% 代表全面超过 o1-preview。</span><span data-en>Problem: test-time scaling was demonstrated by o1 but its method was not public; can a tiny dataset and a simple budget control reproduce strong reasoning and show which factors matter.<br>Where the evidence sits: the abstract curates s1K, 1,000 questions selected for difficulty, diversity and quality; budget forcing either terminates the model’s thinking or appends “Wait” to lengthen it; Qwen2.5-32B-Instruct fine-tuned on s1K exceeds o1-preview by up to 27% on MATH and AIME24, and further scaling moves AIME24 from 50% to 57%.<br>What the authors say about limits: evaluation focuses on competition mathematics; s1K has only 1,000 questions; budget forcing depends on the model continuing to generate and is not general reasoning control; the model is 32B, with larger scales untested.<br>What it does not claim: not that every task improves with more test-time compute; not that appending “Wait” always works; not that 27% is an all-round win over o1-preview.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要</dd></div><div><dt>数据 / data</dt><dd>s1K，1,000 题</dd></div><div><dt>方法 / method</dt><dd>budget forcing（强停 / 追加 Wait）</dd></div><div><dt>数学 / maths</dt><dd>MATH、AIME24；最多超 o1-preview 27%</dd></div><div><dt>扩展 / scaling</dt><dd>AIME24 50% → 57%</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2501.19393" rel="noopener">https://arxiv.org/abs/2501.19393</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>推理</span><span data-en>Reasoning</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="deepseek-r1-2025.html"><span data-zh>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span><span data-en>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span></a></li><li><a href="emnlp-2026-recognition-refusal.html"><span data-zh>Recognition–Refusal Misalignment in LLMs</span><span data-en>Recognition–Refusal Misalignment in LLMs</span></a></li><li><a href="hle-2025.html"><span data-zh>Humanity's Last Exam</span><span data-en>Humanity's Last Exam</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

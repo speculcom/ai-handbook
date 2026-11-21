@@ -5553,6 +5553,293 @@ var TERMS = [
     ],
     "whyEn": "Agents in 2026 sell remembering you; without understanding how memory is written and recalled, you cannot tell real memory from a temporary stitch-up.",
     "slug": "长时记忆"
+   },
+   {
+    "zh": "AG-UI（Agent-User Interaction 协议）",
+    "en": "AG-UI (Agent-User Interaction Protocol)",
+    "alias": [
+     "AG-UI",
+     "Agent-User Interaction",
+     "智能体前端交互协议"
+    ],
+    "purpose": "把 agent 的一次运行变成一条结构化事件流，让前端能实时渲染文本、工具调用、共享状态和人工确认，而不是只等一个最终回答。",
+    "def": [
+     "AG-UI 是面向 agent 与前端的开放协议：客户端发起一次 run，agent 按顺序发事件，事件覆盖文本增量、工具调用、状态补丁、推理过程、中断与恢复。",
+     "它补的是「agent 到用户界面」这一段；MCP 管 agent 接工具，A2A 管 agent 之间协作，三者可以同时用。"
+    ],
+    "why": "聊天框只能显示文本，但真实 agent 会调工具、改状态、停下来等人确认。没有统一事件流，每个框架都要自己写一套前端适配，换框架就重做。",
+    "refs": [
+     [
+      "AG-UI · 官方仓库与 1.0 规范",
+      "https://github.com/ag-ui-protocol/ag-ui",
+      "AG-UI official repository and 1.0 specification"
+     ],
+     [
+      "AG-UI · 规范草案",
+      "https://docs.ag-ui.com/spec/draft",
+      "AG-UI specification draft"
+     ]
+    ],
+    "domain": "dev",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 70,
+    "last_verified": "2026-11-21",
+    "verified_scope": "refs",
+    "purposeEn": "Turn one agent run into a structured event stream so the front end can render text deltas, tool calls, shared state and human approvals in real time instead of waiting for a final answer.",
+    "defEn": [
+     "AG-UI is an open protocol between an agent and a user-facing application: the client starts a run and the agent emits ordered events covering text deltas, tool calls, state patches, reasoning, interrupts and resumes.",
+     "It fills the agent-to-UI segment. MCP connects agents to tools, A2A connects agents to other agents, and AG-UI brings the agent into the interface; an application can use all three."
+    ],
+    "whyEn": "A chat box can show text, but a real agent calls tools, changes state and pauses for approval. Without a shared event stream every framework reinvents its own front-end adapter, and switching frameworks means rebuilding it.",
+    "slug": "AG-UI"
+   },
+   {
+    "zh": "MCP Apps",
+    "en": "MCP Apps",
+    "alias": [
+     "MCP 应用",
+     "MCP UI 扩展",
+     "ui:// 资源"
+    ],
+    "purpose": "让 MCP 工具不只会返回一段文字，还能把一个可交互的 HTML 界面渲染在宿主对话里，例如表单、图表、看板和分步流程。",
+    "def": [
+     "MCP Apps 是 MCP 的官方扩展：工具在元数据里声明一个 ui:// 资源，宿主预取并在沙箱 iframe 中渲染；界面与宿主通过 JSON-RPC / postMessage 双向通信。",
+     "工具结果仍按 MCP 返回，UI 只是同一结果的可视化层；不支持该扩展的宿主会退化为纯文本工具。"
+    ],
+    "why": "很多任务用文字说不清，用户需要在对话里填表、选参数、看图表。MCP Apps 把这层界面标准化，避免每个工具厂商各做一套私有 UI 协议。",
+    "refs": [
+     [
+      "MCP Apps · 官方概览",
+      "https://modelcontextprotocol.io/extensions/apps/overview",
+      "MCP Apps official overview"
+     ],
+     [
+      "MCP Apps · 发布公告（2026-01-26）",
+      "https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/",
+      "MCP Apps launch announcement, 26 January 2026"
+     ]
+    ],
+    "domain": "dev",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 71,
+    "last_verified": "2026-11-21",
+    "verified_scope": "refs",
+    "purposeEn": "Let an MCP tool return more than text: an interactive HTML surface such as a form, chart, dashboard or multi-step flow rendered inside the host conversation.",
+    "defEn": [
+     "MCP Apps is an official MCP extension. A tool declares a ui:// resource in its metadata; the host prefetches it and renders it in a sandboxed iframe, with bidirectional JSON-RPC over postMessage.",
+     "Tool results still travel through MCP; the UI is a presentation layer over the same result, and hosts that do not support the extension fall back to a text-only tool."
+    ],
+    "whyEn": "Many tasks cannot be expressed well in prose: users need to fill a form, choose parameters or inspect a chart. MCP Apps standardises that surface instead of leaving every vendor to invent a private UI protocol.",
+    "slug": "MCP Apps"
+   },
+   {
+    "zh": "x402",
+    "en": "x402",
+    "alias": [
+     "HTTP 402 支付",
+     "x402 协议",
+     "机器支付协议"
+    ],
+    "purpose": "让 API、内容或数字服务直接通过 HTTP 402 收款：客户端先拿到付款要求，付款后重试同一请求，不需要账号、API key 或订阅。",
+    "def": [
+     "x402 复用长期保留的 HTTP 402 Payment Required 状态码：服务端在响应里给出价格、收款地址、资产与网络，客户端完成支付后带凭证重试。",
+     "它是支付协商层，不规定具体的链上结算实现；稳定币、 facilitator、批量结算都可以接。"
+    ],
+    "why": "Agent 要按次调用大量服务，传统开户、绑卡、按月订阅都不适合机器。x402 把「这次请求要不要付、付多少、付给谁」放回 HTTP 本身，适合按次计费与微支付。",
+    "refs": [
+     [
+      "x402 · 官方文档",
+      "https://docs.x402.org/",
+      "x402 official documentation"
+     ],
+     [
+      "x402 · 官方网站",
+      "https://www.x402.org/",
+      "x402 official site"
+     ]
+    ],
+    "domain": "dev",
+    "purposeTag": "apply",
+    "level": 3,
+    "layer": "三",
+    "ord": 72,
+    "last_verified": "2026-11-21",
+    "verified_scope": "refs",
+    "purposeEn": "Let APIs, content and digital services charge directly over HTTP 402: the client receives payment requirements, pays, and retries the same request without an account, API key or subscription.",
+    "defEn": [
+     "x402 reuses the long-reserved HTTP 402 Payment Required status. The server returns price, payee, asset and network; after payment the client retries with a proof.",
+     "It is a payment negotiation layer, not a settlement implementation: stablecoins, facilitators and batched settlement can all sit underneath."
+    ],
+    "whyEn": "Agents make many pay-per-call requests, while sign-up, card-on-file and monthly subscriptions are built for humans. x402 puts “does this request cost money, how much and to whom” back into HTTP itself.",
+    "slug": "x402"
+   },
+   {
+    "zh": "ERC-8004",
+    "en": "ERC-8004",
+    "alias": [
+     "Trustless Agents",
+     "无需信任的智能体标准",
+     "Agent 身份注册表"
+    ],
+    "purpose": "用三套链上注册表给 agent 一个可移植身份、可查询声誉和可验证的执行结果，让互不相识的 agent 也能判断「该不该把任务交给它」。",
+    "def": [
+     "ERC-8004 定义 Identity / Reputation / Validation 三套注册表：身份用 ERC-721 表示并指向注册文件，声誉记录客户反馈，验证把执行结果交给质押重跑、zkML 或 TEE 等机制核验。",
+     "它只做发现与信任信号，不规定支付、通信或业务逻辑；x402、A2A 等协议可以接在它上面。"
+    ],
+    "why": "Agent 经济里最缺的不是能力，而是「你是谁、以前做得怎么样、这次做得对不对」。没有可移植的身份与声誉，每次跨组织协作都要从零建立信任。",
+    "refs": [
+     [
+      "ERC-8004 · 官方 EIP（Draft）",
+      "https://eips.ethereum.org/EIPS/eip-8004",
+      "ERC-8004 official EIP, Draft"
+     ],
+     [
+      "8004.org · 学习页",
+      "https://www.8004.org/learn",
+      "8004.org learn page"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "learn",
+    "level": 3,
+    "layer": "三",
+    "ord": 73,
+    "last_verified": "2026-11-21",
+    "verified_scope": "refs",
+    "purposeEn": "Give agents a portable on-chain identity, a queryable reputation and a verifiable execution record through three registries, so strangers can judge whether to delegate work to them.",
+    "defEn": [
+     "ERC-8004 defines Identity, Reputation and Validation registries: identity is an ERC-721 pointing to a registration file, reputation stores client feedback, and validation can use staked re-execution, zkML or TEE attestations.",
+     "It only covers discovery and trust signals; payment, messaging and business logic stay with other protocols such as x402 and A2A."
+    ],
+    "whyEn": "The scarce resource in an agent economy is not capability but trust: who are you, how did you perform before, and was this run correct? Without portable identity and reputation, every cross-organisation collaboration starts from zero.",
+    "slug": "ERC-8004"
+   },
+   {
+    "zh": "Agent Memory（智能体记忆）",
+    "en": "Agent Memory",
+    "alias": [
+     "智能体记忆",
+     "长期记忆",
+     "Agent Memory"
+    ],
+    "purpose": "让 agent 在跨会话、跨任务时保留有用的经历、事实和做法，并在需要时检索、更新、遗忘，而不是每次从零开始。",
+    "def": [
+     "Agent Memory 通常分工作记忆、情景记忆、语义记忆与程序性记忆：分别对应当前上下文、过去交互、结构化事实和可复用技能。",
+     "完整链路不止「存」，还包括写入筛选、索引与检索、冲突处理、巩固与遗忘；只加一个向量库不等于有记忆。"
+    ],
+    "why": "长任务和多轮协作里，重复问同一件事、忘记上次的约束、把过期信息当事实，都会直接降低可用性。记忆是 agent 从「一次性问答」走向「持续协作」的关键一层。",
+    "refs": [
+     [
+      "Memory for Autonomous LLM Agents · arXiv 2603.07670",
+      "https://arxiv.org/abs/2603.07670",
+      "Memory for Autonomous LLM Agents: Mechanisms, Evaluation, and Emerging Frontiers"
+     ],
+     [
+      "A Survey of Agent Memory · arXiv 2602.06052",
+      "https://arxiv.org/abs/2602.06052",
+      "A Survey of Agent Memory in the Second Half"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "learn",
+    "level": 3,
+    "layer": "三",
+    "ord": 74,
+    "last_verified": "2026-11-21",
+    "verified_scope": "refs",
+    "purposeEn": "Let an agent retain useful experiences, facts and procedures across sessions and tasks, then retrieve, update and forget them instead of starting from scratch each time.",
+    "defEn": [
+     "Agent memory is usually split into working, episodic, semantic and procedural memory: the current context, past interactions, structured facts and reusable skills.",
+     "The full pipeline is more than “store”: it includes write filtering, indexing and retrieval, conflict handling, consolidation and forgetting. Adding a vector database alone is not memory."
+    ],
+    "whyEn": "In long tasks and repeated collaboration, asking the same question again, forgetting a previous constraint or treating stale information as fact quickly destroys usability. Memory is the layer that moves an agent from one-shot answering to sustained work.",
+    "slug": "Agent Memory"
+   },
+   {
+    "zh": "Byteification（字节化）",
+    "en": "Byteification",
+    "alias": [
+     "字节化",
+     "字节级语言模型",
+     "tokenizer-free"
+    ],
+    "purpose": "把已经训练好的子词模型改造为直接读写 UTF-8 字节的模型，去掉固定分词器，同时尽量保留原模型的能力。",
+    "def": [
+     "Byteification 是一种特殊的 tokenizer transfer：用两阶段训练把子词模型改成字节级模型，先复制原模型行为，再端到端适配。",
+     "它不等于从头训练 byte-level 模型；重点是复用原模型的参数与生态，降低改造成本。"
+    ],
+    "why": "分词器会把代码、数学、生物序列等细粒度信息切碎，也会让新语言、新符号需要扩表。字节化让模型直接处理原始字节，对字符级任务和多语言扩展更灵活。",
+    "refs": [
+     [
+      "Retrofitting language models to operate over bytes · Nature（2026）",
+      "https://www.nature.com/articles/s41586-026-11111-4",
+      "Retrofitting language models to operate over bytes, Nature 2026"
+     ],
+     [
+      "Byte Language Models · arXiv 2610.05978",
+      "https://arxiv.org/abs/2610.05978",
+      "Byte Language Models: Scaling, Emergent Abstractions, and Information Allocation"
+     ]
+    ],
+    "domain": "model",
+    "purposeTag": "learn",
+    "level": 3,
+    "layer": "三",
+    "ord": 75,
+    "last_verified": "2026-11-21",
+    "verified_scope": "refs",
+    "purposeEn": "Retrofit an already trained subword model to read and write UTF-8 bytes directly, removing the fixed tokenizer while preserving as much of the original model’s capability as possible.",
+    "defEn": [
+     "Byteification is a special case of tokenizer transfer: a two-stage procedure first reproduces the source model’s behaviour, then adapts end to end to byte-level operation.",
+     "It is not training a byte-level model from scratch; the point is to reuse the source model’s parameters and ecosystem and lower the cost of conversion."
+    ],
+    "whyEn": "Tokenizers fragment fine-grained information in code, mathematics and biological sequences, and new languages or symbols often require vocabulary expansion. Byte-level operation gives the model raw bytes and more flexibility for character-level work and multilingual extension.",
+    "slug": "Byteification"
+   },
+   {
+    "zh": "Agent Payments（智能体支付）",
+    "en": "Agent Payments",
+    "alias": [
+     "智能体支付",
+     "Agent 支付",
+     "代理支付"
+    ],
+    "purpose": "让 agent 代表用户完成付款，同时把「谁授权、买了什么、金额多少、出了事谁负责」变成可验证、可审计的凭证。",
+    "def": [
+     "Agent Payments 不是单一协议，而是一族做法：AP2 用 Intent / Cart / Payment Mandate 表达授权，ACP 面向商户与 agent 的结账流程，Visa TAP、Mastercard Agent Pay 与 x402 覆盖卡组织、链上支付等不同轨道。",
+     "共同点是：用户先给出有边界的授权，agent 在边界内执行，商户与支付方验证凭证，事后可追溯。"
+    ],
+    "why": "Agent 能自主购物、订票、调用付费 API 后，传统「人点确认」的假设失效。没有授权凭证与责任链，商户不敢收，用户不敢放，支付网络也无法处理争议。",
+    "refs": [
+     [
+      "AP2 · 官方文档",
+      "https://ap2-protocol.org/",
+      "Agent Payments Protocol official documentation"
+     ],
+     [
+      "x402 · 官方文档",
+      "https://docs.x402.org/",
+      "x402 official documentation"
+     ]
+    ],
+    "domain": "agent",
+    "purposeTag": "learn",
+    "level": 3,
+    "layer": "三",
+    "ord": 76,
+    "last_verified": "2026-11-21",
+    "verified_scope": "refs",
+    "purposeEn": "Let an agent pay on a user’s behalf while making who authorised it, what was bought, how much was spent and who is accountable verifiable and auditable.",
+    "defEn": [
+     "Agent payments is a family, not one protocol: AP2 expresses authority through Intent, Cart and Payment Mandate; ACP covers merchant checkout with agents; Visa TAP, Mastercard Agent Pay and x402 cover card rails and on-chain rails.",
+     "The common pattern is bounded user authority, execution inside that boundary, verification by the merchant and payment provider, and an audit trail afterwards."
+    ],
+    "whyEn": "Once agents can shop, book tickets and call paid APIs, the assumption that a human clicks “confirm” no longer holds. Without mandates and a chain of responsibility, merchants will not accept the transaction and users will not delegate it.",
+    "slug": "Agent Payments"
    }
   ]
  },

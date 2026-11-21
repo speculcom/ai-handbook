@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/fedus-2022-switch.html" />
   <meta property="og:title" content="Switch Transformer：用简单稀疏路由扩到万亿参数 · AI 论文" />
   <meta property="og:description" content="问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？ 证据位置：Switch 层与 top-1 路由在 §2；容量因子与负载均衡损失在 §2.2；训练与稳定性技巧（选择性精度、初始化、正则）在 " />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/fedus-2022-switch.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/fedus-2022-switch.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/fedus-2022-switch.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
   <h1><span data-zh>Switch Transformer：用简单稀疏路由扩到万亿参数</span><span data-en>Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：MoE 参数多、算力恒定，但路由复杂、通信贵、训练不稳，所以一直没普及；能不能把路由简化成「每个 token 只选一个专家」，再配一套训练技巧把它跑稳？<br>证据位置：Switch 层与 top-1 路由在 §2；容量因子与负载均衡损失在 §2.2；训练与稳定性技巧（选择性精度、初始化、正则）在 §3；结果在 §4–§5，包含 T5-Base/Large 同算力 7× 预训练加速、101 种语言的 mT5 增益、万亿参数 Switch-C 对 T5-XXL 的 4× 加速；结论在 §9。<br>作者自陈局限：论文没有独立 Limitations 章节。Appendix E 明确提醒：上游困惑度不一定转化为下游任务——在最大模型区间（T5-11B/T5-XXL），Switch 模型并不总能把预训练优势带到 SuperGLUE 微调；作者说这需要未来研究，并指出专家模型的微调动态很复杂，依赖正则、负载均衡与超参。<br>它没主张的：没有说 Switch 在所有下游任务上都优于 dense——Appendix E 反而说小中模型区间两者相似，最大模型在 SuperGLUE 上不一定更好；没有说 top-1 路由普适最优——只与 GShard 等少数路由做了比较；也没有说 7× 加速能直接换算成 7× 成本优势——通信与专家并行开销未计入这句口号。</span><span data-en>Problem: MoE has many parameters at constant compute, but complex routing, expensive communication and unstable training kept it niche; can routing be simplified to one expert per token and paired with training tricks to make it stable?<br>Where the evidence sits: the Switch layer and top-1 routing in Section 2, capacity factor and load-balancing loss in 2.2, training and stability techniques (selective precision, initialization, regularization) in Section 3; results in Sections 4-5, including 7x pretraining speedup at equal compute for T5-Base/Large, gains across 101 languages for mT5, and a 4x speedup of trillion-parameter Switch-C over T5-XXL; conclusion in Section 9.<br>Stated limits: no separate Limitations section. Appendix E warns that upstream perplexity does not necessarily transfer downstream — in the largest regime (T5-11B/T5-XXL) Switch models do not always carry their pretraining advantage into SuperGLUE fine-tuning, which the authors leave to future work and attribute to complex fine-tuning dynamics depending on regularization, load balancing and hyperparameters.<br>What it does not claim: it does not claim Switch beats dense models on every downstream task — Appendix E says the two are similar in small-to-medium regimes and the largest Switch model is not always better on SuperGLUE; it does not claim top-1 routing is universally optimal, comparing only a few alternatives such as GShard; and it does not claim the 7x speedup translates directly into 7x cost savings, since communication and expert-parallel overhead are outside that headline.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§2 路由与负载均衡；§3 训练技巧；§4–5 结果；§9 结论；Appendix E 下游迁移</dd></div><div><dt>规模 / scale</dt><dd>T5-Base/Large 至 1.6T 参数、2048 专家的 Switch-C</dd></div><div><dt>关键数字 / key numbers</dt><dd>同算力最高 7× 预训练加速；101 语言优于 mT5-Base；相对 T5-XXL 4× 加速</dd></div><div><dt>自陈局限 / stated limits</dt><dd>最大模型的上游困惑度不总能迁移到 SuperGLUE（Appendix E）；无独立 Limitations 章节</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2101.03961" rel="noopener">https://arxiv.org/abs/2101.03961</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="brown-2020-gpt3.html"><span data-zh>Language Models are Few-Shot Learners</span><span data-en>Language Models are Few-Shot Learners</span></a></li><li><a href="deepseek-v3-2024.html"><span data-zh>DeepSeek-V3 Technical Report</span><span data-en>DeepSeek-V3 Technical Report</span></a></li><li><a href="gpt-6-2-2026.html"><span data-zh>GPT-6.2 Astra and GPT-6.2 Sol</span><span data-en>GPT-6.2 Astra and GPT-6.2 Sol</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

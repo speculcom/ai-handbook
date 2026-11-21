@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/mamba2-2024.html" />
   <meta property="og:title" content="Transformers are SSMs: Generalized Models and Efficient… · AI 论文" />
   <meta property="og:description" content="问题：Transformer 与 SSM 长期被当成两条路线，能不能用结构化半可分矩阵把二者写成同一个理论框架，并据此做出更快的层。 证据位置：摘要提出 state space duality（SSD），把 SSM 与注意力变体通过矩阵分解连起来；由此设计 Mamba-2，其核心层是 Mamba 选" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/mamba2-2024.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/mamba2-2024.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/mamba2-2024.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
   <h1><span data-zh>Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality</span><span data-en>Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：Transformer 与 SSM 长期被当成两条路线，能不能用结构化半可分矩阵把二者写成同一个理论框架，并据此做出更快的层。<br>证据位置：摘要提出 state space duality（SSD），把 SSM 与注意力变体通过矩阵分解连起来；由此设计 Mamba-2，其核心层是 Mamba 选择性 SSM 的细化版，速度提升 2–8 倍，语言建模仍与 Transformer 竞争力相当。<br>作者自陈局限：摘要只给「相对 Mamba 快 2–8 倍、与 Transformer 竞争」的结论，没有给完整任务表、最大规模或训练成本；没有独立复现；ICML 2024 版本与预印本可能不同。<br>它没主张的：不是「Transformer 已死」；不是所有序列任务都更快；2–8 倍是核心层速度，不是端到端训练或推理全面加速。</span><span data-en>Problem: Transformers and SSMs have been treated as separate routes; can structured semiseparable matrices put both in one theoretical framework and yield a faster layer.<br>Where the evidence sits: the abstract introduces state space duality (SSD), connecting SSMs and attention variants through matrix decompositions; it then designs Mamba-2, whose core layer refines Mamba’s selective SSM, is 2–8X faster and remains competitive with Transformers on language modeling.<br>What the authors say about limits: the abstract gives the 2–8X layer speedup and competitive language-modeling result, but no full task table, maximum scale or training cost; there is no independent reproduction; the ICML 2024 version may differ from the preprint.<br>What it does not claim: not “Transformers are dead”; not faster on every sequence task; the 2–8X figure is a core-layer speedup, not end-to-end training or inference acceleration.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；ICML 2024</dd></div><div><dt>核心层速度 / layer speed</dt><dd>相对 Mamba 选择性 SSM 快 2–8 倍</dd></div><div><dt>语言建模 / language</dt><dd>与 Transformer 竞争力相当（摘要口径）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读摘要）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2405.21060" rel="noopener">https://arxiv.org/abs/2405.21060</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="balestriero-2026-jepa-prh.html"><span data-zh>Proving and Improving the Platonic Representation Hypothesis with JEPAs</span><span data-en>Proving and Improving the Platonic Representation Hypothesis with JEPAs</span></a></li><li><a href="deepseek-v2-2024.html"><span data-zh>DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model</span><span data-en>DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model</span></a></li><li><a href="devlin-2019-bert.html"><span data-zh>BERT：面向语言理解的深度双向 Transformer 预训练</span><span data-en>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

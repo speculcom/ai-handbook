@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/wei-2022-chain-of-thought.html" />
   <meta property="og:title" content="Chain-of-Thought Prompting Elicits Reasoning in Large… · AI 论文" />
   <meta property="og:description" content="问题：复杂推理任务上直接给答案效果差，能不能让模型先写出中间推理步骤再给结论。 证据位置：规模涌现的结论在 Figure 4 与第 3.2 节，GSM8K 的具体数值在表 1、表 2（PaLM 540B 从 17.9 升到 56.9）。 作者自陈局限：第 6 节列了四条——思维链模仿了人类的思考过程" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/wei-2022-chain-of-thought.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/wei-2022-chain-of-thought.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/wei-2022-chain-of-thought.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>推理</span><span data-en>Reasoning</span></span></div>
   <h1><span data-zh>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</span><span data-en>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：复杂推理任务上直接给答案效果差，能不能让模型先写出中间推理步骤再给结论。<br>证据位置：规模涌现的结论在 Figure 4 与第 3.2 节，GSM8K 的具体数值在表 1、表 2（PaLM 540B 从 17.9 升到 56.9）。<br>作者自陈局限：第 6 节列了四条——思维链模仿了人类的思考过程，但这不回答神经网络是否真的在「推理」，作者把它留作开放问题；少样本场景手工加推理链的标注成本很低，但换到微调就可能高得不可行；没有任何机制保证推理路径正确，错误路径也能推出看似合理的答案；这种能力只在大规模模型上涌现，导致实际服务成本高。<br>它没主张的：论文没有说思维链让模型获得了可靠推理能力，也没有说小模型加提示就能复现；作者明确写了它对 10B 以下多数模型反而有害，所以「加一句 let’s think step by step 就变聪明」不是这篇的结论。</span><span data-en>Problem: on complex reasoning tasks, answering directly works poorly; can the model be made to write intermediate steps before concluding.<br>Where the evidence sits: the scale-emergence result is Figure 4 and Section 3.2; the GSM8K numbers are Tables 1 and 2 (PaLM 540B from 17.9 to 56.9).<br>What the authors say about limits: Section 6 lists four — a chain of thought emulates human reasoning but does not answer whether the network is actually reasoning, which is left open; manually annotating chains is cheap in the few-shot setting but could be prohibitive for fine-tuning; there is no guarantee of correct reasoning paths, so wrong paths also produce plausible answers; and the ability emerges only at large scale, making real-world serving costly.<br>What it does not claim: the paper does not say chain of thought confers reliable reasoning, nor that small models can reproduce it with a prompt — the authors state it actually hurts most models under 10B parameters, so &quot;just add let us think step by step&quot; is not the finding here.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>Figure 4 与第 3.2 节；表 1、表 2（GSM8K）</dd></div><div><dt>GSM8K / PaLM 540B</dt><dd>17.9 → 56.9（标准提示 → 思维链）</dd></div><div><dt>涌现门槛 / emergence</dt><dd>约 100B 参数以上；10B 以下多为负收益</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2201.11903" rel="noopener">https://arxiv.org/abs/2201.11903</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>推理</span><span data-en>Reasoning</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="deepseek-r1-2025.html"><span data-zh>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span><span data-en>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span></a></li><li><a href="emnlp-2026-recognition-refusal.html"><span data-zh>Recognition–Refusal Misalignment in LLMs</span><span data-en>Recognition–Refusal Misalignment in LLMs</span></a></li><li><a href="hle-2025.html"><span data-zh>Humanity's Last Exam</span><span data-en>Humanity's Last Exam</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/hunyuanvideo.html" />
   <meta property="og:title" content="HunyuanVideo · 开源 AI 工具库" />
   <meta property="og:description" content="HunyuanVideo：腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。 许可 NOASSERTION，Python，12.8k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/hunyuanvideo.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/hunyuanvideo.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/hunyuanvideo.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
   <h1>HunyuanVideo</h1>
   <p class="owner">Tencent-Hunyuan / HunyuanVideo</p>
-  <p class="sub">腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。</p>
+  <p class="sub"><span data-zh>腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。</span><span data-en>Tencent Hunyuan’s open video generation models and inference code for text-to-video and image-to-video.</span></p>
 </header>
 <div class="factbar">
   <span><b>12.8k</b> stars</span>
   <span><b>1393</b> forks</span>
-  <span><b>Python</b> 语言</span>
-  <span><b>NOASSERTION</b> 许可</span>
-  <span>最近推送 <b>2026-10-08</b></span>
+  <span><b>Python</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>NOASSERTION</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2026-10-08</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>开源权重与推理脚本完整，适合本地实验。</li><li>生成质量与运动一致性在开源视频模型里靠前。</li><li>可接 ComfyUI 等生态。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">显存不足 24GB 的单卡用户，先看轻量模型。<br>需要商用授权明确的素材；模型许可与生成内容要分开看。</p>
-  <h2>最小上手</h2>
-  <ol><li>按 README 下载权重，先跑 5 秒低分辨率示例。</li><li>记录显存峰值与生成时长，再决定是否升分辨率。</li><li>换自己的参考图/提示词，检查水印与人物一致性。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>Python + PyTorch + CUDA；建议 24GB+ 显存，长视频要分段与更多存储。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码与权重许可需读仓库 LICENSE / 模型卡；生成内容商用与肖像权另核。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/cogvideo.html">CogVideo</a> — 生产可用，智谱 CogVideoX 系列视频生成模型与推理代码，支持文本/图像到视频。</li><li><a href="../repos/ltx-video.html">LTX-Video</a> — 特定场景，Lightricks 的实时视频生成模型与代码，基于 DiT，强调速度与较低显存。</li><li><a href="../repos/wan21.html">Wan2.1</a> — 特定场景，开源视频生成模型与推理代码，支持文生视频、图生视频与多尺寸。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>开源权重与推理脚本完整，适合本地实验。</span><span data-en>Open weights and code for local video work.</span></li><li><span data-zh>生成质量与运动一致性在开源视频模型里靠前。</span><span data-en>Supports text and image conditioning.</span></li><li><span data-zh>可接 ComfyUI 等生态。</span><span data-en>A strong Chinese-lab alternative to Western video models.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>显存不足 24GB 的单卡用户，先看轻量模型。</span><span data-en>You need short generation times on small GPUs.</span><br><span data-zh>需要商用授权明确的素材；模型许可与生成内容要分开看。</span><span data-en>You need a hosted API with no local setup.</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>按 README 下载权重，先跑 5 秒低分辨率示例。</span><span data-en>Run a short official example and record VRAM.</span></li><li><span data-zh>记录显存峰值与生成时长，再决定是否升分辨率。</span><span data-en>Fix the seed and compare text vs image conditioning.</span></li><li><span data-zh>换自己的参考图/提示词，检查水印与人物一致性。</span><span data-en>Check the licence for commercial use before publishing output.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>Python + PyTorch + CUDA；建议 24GB+ 显存，长视频要分段与更多存储。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码与权重许可需读仓库 LICENSE / 模型卡；生成内容商用与肖像权另核。</span><span data-en>Code is NOASSERTION; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/cogvideo.html">CogVideo</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>智谱 CogVideoX 系列视频生成模型与推理代码，支持文本/图像到视频。</span><span data-en>Zhipu’s CogVideoX family of video generation models and inference code for text-to-video and image-to-video.</span></li><li><a href="../repos/ltx-video.html">LTX-Video</a> — <span data-zh>特定场景</span><span data-en>Niche</span>，<span data-zh>Lightricks 的实时视频生成模型与代码，基于 DiT，强调速度与较低显存。</span><span data-en>Lightricks’ real-time video generation model and code, based on a DiT and focused on speed and lower VRAM.</span></li><li><a href="../repos/wan21.html">Wan2.1</a> — <span data-zh>特定场景</span><span data-en>Niche</span>，<span data-zh>开源视频生成模型与推理代码，支持文生视频、图生视频与多尺寸。</span><span data-en>Open-source video generation models and inference code for text-to-video, image-to-video and multiple resolutions.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/Tencent-Hunyuan/HunyuanVideo" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://github.com/Tencent-Hunyuan/HunyuanVideo#readme" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=hunyuanvideo">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/Tencent-Hunyuan/HunyuanVideo" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://github.com/Tencent-Hunyuan/HunyuanVideo#readme" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=hunyuanvideo"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/kirillov-2023-sam.html" />
   <meta property="og:title" content="SAM：可提示的分割一切模型 · AI 论文" />
   <meta property="og:description" content="问题：分割任务通常按语义/实例/全景分开训练，换任务就要换模型；能不能定义一个「给提示就出掩码」的通用任务，用一个模型加提示工程覆盖多种分割？ 证据位置：任务、模型与数据分别在 §3–§5；数据引擎与 SA-1B 在 §4；零样本评测在 §6–§7（23 个分割数据集、边缘检测、候选框、实例分割、文" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/kirillov-2023-sam.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/kirillov-2023-sam.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/kirillov-2023-sam.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
   <h1><span data-zh>SAM：可提示的分割一切模型</span><span data-en>Segment Anything</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：分割任务通常按语义/实例/全景分开训练，换任务就要换模型；能不能定义一个「给提示就出掩码」的通用任务，用一个模型加提示工程覆盖多种分割？<br>证据位置：任务、模型与数据分别在 §3–§5；数据引擎与 SA-1B 在 §4；零样本评测在 §6–§7（23 个分割数据集、边缘检测、候选框、实例分割、文本到掩码）；局限集中在 §8，结论紧随其后。<br>作者自陈局限：§8 列了六条——会漏细结构，偶尔幻觉出小的不连通部件，边界不如「放大再算」的方法锐利；给很多点时，专用交互式分割方法会更好；重编码器使整体并非实时（虽然提示解码是实时的）；文本到掩码只是探索性尝试，不够稳健；如何用简单提示实现语义与全景分割仍不清楚；在特定领域，专用工具会优于 SAM。<br>它没主张的：没有说 SAM 在所有分割任务上超过专用模型——§8 明确说专用交互式方法与领域工具会更好；没有说文本到掩码可用——原文称 exploratory and not entirely robust；也没有说「分割一切」字面成立——论文自己把任务限定为可提示分割，并承认语义/全景分割的提示设计未解决。</span><span data-en>Problem: segmentation is usually split into semantic, instance and panoptic tasks with separate models; can a single “give a prompt, get a mask” task plus prompt engineering cover many segmentation settings?<br>Where the evidence sits: task, model and data in Sections 3-5; data engine and SA-1B in Section 4; zero-shot evaluation in Sections 6-7 (23 segmentation datasets, edge detection, object proposals, instance segmentation, text-to-mask); limitations in Section 8, immediately before the conclusion.<br>Stated limits: Section 8 lists six — SAM misses fine structures, occasionally hallucinates small disconnected components, and produces less crisp boundaries than methods that zoom in; dedicated interactive segmentation methods outperform it when many points are given; the heavy image encoder means overall performance is not real-time even though prompt decoding is; text-to-mask is exploratory and not robust; simple prompts for semantic and panoptic segmentation remain unclear; and domain-specific tools will beat SAM in their domains.<br>What it does not claim: it does not claim SAM beats specialised models on every segmentation task — Section 8 says dedicated interactive methods and domain tools do better; it does not claim text-to-mask is usable, calling it exploratory and not entirely robust; and it does not claim “segment anything” literally, framing the task as promptable segmentation and leaving semantic/panoptic prompting unresolved.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§3–5 任务/模型/数据；§6–7 零样本评测；§8 局限；结论</dd></div><div><dt>规模 / scale</dt><dd>SA-1B：1B+ 掩码、1,100 万张授权与隐私合规图像</dd></div><div><dt>关键数字 / key numbers</dt><dd>23 个分割数据集零样本评测；单前景点即可产出高质量掩码</dd></div><div><dt>自陈局限 / stated limits</dt><dd>漏细结构、幻觉小部件、边界不锐利、整体非实时、文本到掩码不稳（§8）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2304.02643" rel="noopener">https://arxiv.org/abs/2304.02643</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="balestriero-2026-jepa-prh.html"><span data-zh>Proving and Improving the Platonic Representation Hypothesis with JEPAs</span><span data-en>Proving and Improving the Platonic Representation Hypothesis with JEPAs</span></a></li><li><a href="deepseek-v2-2024.html"><span data-zh>DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model</span><span data-en>DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model</span></a></li><li><a href="devlin-2019-bert.html"><span data-zh>BERT：面向语言理解的深度双向 Transformer 预训练</span><span data-en>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

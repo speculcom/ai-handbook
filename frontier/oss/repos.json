@@ -38,7 +38,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python / Node 运行时 + LLM API 密钥；浏览器类还要 Playwright/Chromium；生产要并发、日志与重试。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Write an agent as a stateful graph: nodes, edges, checkpoints, human approval and rollback are explicit.",
+      "whyEn": [
+        "The state-machine shape is clear for long flows with branches, retries and human approval.",
+        "Checkpointing and persistence are strong, so a failed run can resume from the middle.",
+        "Compatible with LangChain tools and LangSmith observability, with a large ecosystem."
+      ],
+      "notForEn": [
+        "A single-turn Q&A or a simple prompt chain does not need a graph.",
+        "If you want a no-code drag-and-drop agent builder, look at platform products first."
+      ],
+      "firstRunEn": [
+        "Read the README and quickstart; confirm the runtime version and system dependencies.",
+        "Run the smallest official example and record the model, keys and data paths.",
+        "Try one or two of your own cases and watch logs, memory and failure modes."
+      ]
     },
     {
       "id": "crewai",
@@ -78,7 +93,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python / Node 运行时 + LLM API 密钥；浏览器类还要 Playwright/Chromium；生产要并发、日志与重试。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Build multi-agent teams from roles, tasks and a collaboration process; good for getting division of labour running quickly.",
+      "whyEn": [
+        "Role and task abstractions map naturally to how teams describe work.",
+        "The process layer supports sequential and hierarchical collaboration without writing a scheduler.",
+        "A large template and example ecosystem shortens the first prototype."
+      ],
+      "notForEn": [
+        "You need fine-grained control over every message and state transition.",
+        "The job is a single agent with a few tools; the team abstraction adds overhead."
+      ],
+      "firstRunEn": [
+        "Install the package and run the official quickstart with one model key.",
+        "Define two roles and one task each; log every delegation and hand-off.",
+        "Add a tool and a failure case, then check retries and cost before scaling the crew."
+      ]
     },
     {
       "id": "autogen",
@@ -118,7 +148,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python / Node 运行时 + LLM API 密钥；浏览器类还要 Playwright/Chromium；生产要并发、日志与重试。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Microsoft’s multi-agent framework built around conversable agents, tool use and distributed execution.",
+      "whyEn": [
+        "Conversable agents make multi-agent patterns such as group chat and critic loops explicit.",
+        "Tool use and code execution are first-class, not bolted on.",
+        "Supports distributed runtimes and multiple model providers."
+      ],
+      "notForEn": [
+        "You want the smallest possible single-agent loop with no conversation model.",
+        "You need a stable, fully deterministic workflow with no free-form agent chat."
+      ],
+      "firstRunEn": [
+        "Use the official quickstart and a single model provider first.",
+        "Run a two-agent conversation and log every turn and tool call.",
+        "Add a termination condition and a budget cap before trying code execution."
+      ]
     },
     {
       "id": "openai-agents",
@@ -158,7 +203,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python / Node 运行时 + LLM API 密钥；浏览器类还要 Playwright/Chromium；生产要并发、日志与重试。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A lightweight agent runtime with four core ideas: agents, handoffs, guardrails and traces.",
+      "whyEn": [
+        "Small API surface; the agent loop and handoff model are easy to inspect.",
+        "Guardrails and tracing are built in rather than left to the application.",
+        "Works across model providers and can be extended with tools."
+      ],
+      "notForEn": [
+        "You need a full visual workflow builder or a hosted agent platform.",
+        "You require a complex multi-agent graph with persistent state out of the box."
+      ],
+      "firstRunEn": [
+        "Install the SDK and run the official hello-world agent.",
+        "Add one tool and one handoff, then inspect the trace.",
+        "Add a guardrail that rejects an unsafe tool call and confirm the failure path."
+      ]
     },
     {
       "id": "pydantic-ai",
@@ -197,7 +257,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python / Node 运行时 + LLM API 密钥；浏览器类还要 Playwright/Chromium；生产要并发、日志与重试。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Write agents with Pydantic’s type system: inputs, outputs and tool arguments are strongly validated.",
+      "whyEn": [
+        "Typed inputs and outputs catch malformed model responses early.",
+        "Tool schemas come from the same type definitions, reducing duplication.",
+        "A good fit for Python services that already use Pydantic."
+      ],
+      "notForEn": [
+        "You need a no-code builder or a polyglot runtime.",
+        "The task is a quick prototype where strict schemas slow down iteration."
+      ],
+      "firstRunEn": [
+        "Run the official example with a typed result model.",
+        "Add a tool with typed arguments and test an invalid argument.",
+        "Inspect validation errors and decide whether to retry or fail closed."
+      ]
     },
     {
       "id": "smolagents",
@@ -236,7 +311,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python / Node 运行时 + LLM API 密钥；浏览器类还要 Playwright/Chromium；生产要并发、日志与重试。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Hugging Face’s minimal agent library, centred on letting the model write code to call tools.",
+      "whyEn": [
+        "Very small surface area; the code-writing loop is easy to read and modify.",
+        "Code actions can compose multiple tools in one step.",
+        "Fits local models and Hugging Face tooling."
+      ],
+      "notForEn": [
+        "You cannot run generated code in a safe sandbox.",
+        "You need a production-grade orchestrator with rich state and observability."
+      ],
+      "firstRunEn": [
+        "Run the official example with a sandboxed executor.",
+        "Give it two tools and check how it writes and runs code.",
+        "Add a timeout and a cost cap before pointing it at real systems."
+      ]
     },
     {
       "id": "autogpt",
@@ -275,7 +365,22 @@
         "再决定是留在平台，还是只借鉴它的 agent 循环自己实现。"
       ],
       "deps": "Docker / Docker Compose 起平台前端、后端、数据库与队列；另需 LLM API 密钥。源码开发还要 Node 与 Python 工具链。",
-      "licenseNote": "仓库双许可：`autogpt_platform/` 为 Polyform Shield，目录外为 MIT；模型与第三方服务另算。"
+      "licenseNote": "仓库双许可：`autogpt_platform/` 为 Polyform Shield，目录外为 MIT；模型与第三方服务另算。",
+      "summaryEn": "Evolved from the autonomous-agent experiment into an agent platform with a visual builder, runtime and template market; the classic AutoGPT loop remains in the repo.",
+      "whyEn": [
+        "The platform path gives non-coders a visual way to assemble agents.",
+        "The classic loop is still available for people who want the original behaviour.",
+        "Templates and a runtime shorten the path from idea to a running agent."
+      ],
+      "notForEn": [
+        "You need a small library to embed in an existing application.",
+        "You want strict determinism; autonomous loops are exploratory by design."
+      ],
+      "firstRunEn": [
+        "Start with a template rather than a blank agent.",
+        "Set a clear goal, budget and stop condition before the first run.",
+        "Review every action and tool call; autonomous loops can drift."
+      ]
     },
     {
       "id": "openhands",
@@ -314,7 +419,22 @@
         "再逐步放开写权限与测试命令，别一上来接生产仓库。"
       ],
       "deps": "Docker（沙箱运行时）+ LLM API 或本地模型；Web/CLI 客户端。生产还要鉴权、网络出口与审计日志。",
-      "licenseNote": "代码 MIT；模型与第三方工具各自许可，接入前核对。"
+      "licenseNote": "代码 MIT；模型与第三方工具各自许可，接入前核对。",
+      "summaryEn": "A software-engineering agent that can read code, edit it and run commands, with CLI, web UI and a sandboxed runtime.",
+      "whyEn": [
+        "The sandbox runtime makes command execution and file edits safer to try.",
+        "A web UI plus CLI covers both interactive and scripted use.",
+        "Can point at local or hosted models."
+      ],
+      "notForEn": [
+        "You need a lightweight code-completion plugin rather than an autonomous engineer.",
+        "You cannot give it a disposable workspace or a sandbox."
+      ],
+      "firstRunEn": [
+        "Run it against a disposable repository, not your main working copy.",
+        "Give it one issue with a clear test command.",
+        "Review the diff and the command log before merging anything."
+      ]
     },
     {
       "id": "mem0",
@@ -354,7 +474,22 @@
       ],
       "deps": "Python 3.9+；最小示例可本地跑；生产要配向量库（Qdrant / pgvector 等）与 LLM API。",
       "licenseNote": "代码 Apache-2.0；托管版的数据条款与开源版不同，商用前分别核对。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "A long-term memory layer for agents: extract, store and retrieve user preferences and facts, with vector and graph backends.",
+      "whyEn": [
+        "Separates memory extraction from storage and retrieval, so each stage can be inspected.",
+        "Supports multiple backends instead of locking you into one vector store.",
+        "Designed as a layer other agents can call."
+      ],
+      "notForEn": [
+        "You only need short conversation history inside one session.",
+        "Your data cannot leave the application boundary or be persisted."
+      ],
+      "firstRunEn": [
+        "Start with a local vector backend and a small set of test facts.",
+        "Write a preference, restart the process, then retrieve it in a new session.",
+        "Test a conflicting update and decide how stale facts should be replaced."
+      ]
     },
     {
       "id": "zep",
@@ -394,7 +529,22 @@
       ],
       "deps": "Docker / Python；自部署要 Postgres、向量库与 LLM API；云版按套餐。",
       "licenseNote": "代码 Apache-2.0；云服务与社区版的数据处理条款分开核对。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "A memory service for agents: session summaries, fact extraction, graph memory and retrieval, with a community edition and cloud service.",
+      "whyEn": [
+        "Combines summaries, facts and graph relations rather than a single vector index.",
+        "The community edition allows a local trial before committing to cloud.",
+        "Designed around conversational sessions, which fits assistant workloads."
+      ],
+      "notForEn": [
+        "You need a purely embedded library with no service process.",
+        "You cannot store conversation data in a separate memory service."
+      ],
+      "firstRunEn": [
+        "Run the community edition locally and load a short conversation.",
+        "Ask for a summary and a fact, then restart and query both.",
+        "Test how the system handles corrections and deleted messages."
+      ]
     },
     {
       "id": "browser-use",
@@ -434,7 +584,22 @@
       ],
       "deps": "Python + Playwright/Chromium；需要 LLM API；生产要浏览器隔离与代理。",
       "licenseNote": "代码 MIT；浏览器里的内容、账号与站点条款仍归原站，自动化前读 robots/ToS。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "Let an LLM operate a web browser: locate elements, click, type, take screenshots and complete multi-step tasks.",
+      "whyEn": [
+        "Turns browser actions into a model-readable loop instead of brittle selectors alone.",
+        "Screenshots and DOM signals can be combined for recovery.",
+        "Useful for tasks that have a web UI but no API."
+      ],
+      "notForEn": [
+        "The target site offers a stable API; browser automation is slower and more fragile.",
+        "You cannot isolate credentials or tolerate UI changes."
+      ],
+      "firstRunEn": [
+        "Run against a staging account and a simple two-step task.",
+        "Log every click, input and screenshot; check where it loses the page state.",
+        "Add domain allowlists and a hard stop before using real credentials."
+      ]
     },
     {
       "id": "stagehand",
@@ -474,7 +639,22 @@
       ],
       "deps": "Node 18+ / TypeScript；需要浏览器运行时与 LLM API；托管浏览器另计费。",
       "licenseNote": "代码 MIT；Browserbase 托管服务另按平台条款，账号与页面数据不因开源而授权。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "A TypeScript browser-automation framework that mixes natural-language actions with deterministic code actions.",
+      "whyEn": [
+        "Natural-language steps handle fuzzy UI; code steps stay deterministic where needed.",
+        "TypeScript-first, so it fits existing web tooling.",
+        "Aims at controllable web agents rather than a fully autonomous browser."
+      ],
+      "notForEn": [
+        "You need a Python-first stack.",
+        "Every step must be deterministic and reproducible without model calls."
+      ],
+      "firstRunEn": [
+        "Run the official example against a test page.",
+        "Replace one natural-language step with a coded action and compare reliability.",
+        "Add assertions on the final page state, not just the model’s answer."
+      ]
     },
     {
       "id": "openclaw",
@@ -516,7 +696,22 @@
         "再加一个只读任务（读日历 / 读文件），观察日志、权限提示与失败恢复，再决定要不要开写操作。"
       ],
       "deps": "Node.js + 模型 API key 或本地 Ollama；消息渠道凭据；建议 Docker / 沙箱；长期运行要守护进程与日志。",
-      "licenseNote": "代码 MIT；技能、模型与渠道 SDK 可能各有许可，商用前逐项核对。"
+      "licenseNote": "代码 MIT；技能、模型与渠道 SDK 可能各有许可，商用前逐项核对。",
+      "summaryEn": "Run a personal assistant on your own machine, connected to 20+ chat channels plus native desktop and mobile; one Gateway manages sessions, skills, schedules and sandboxed execution.",
+      "whyEn": [
+        "Local-first control over sessions, skills and scheduled jobs.",
+        "A single gateway across many messaging channels reduces integration work.",
+        "Sandboxed execution is part of the design, not an afterthought."
+      ],
+      "notForEn": [
+        "You want a hosted service with no local runtime.",
+        "You cannot manage credentials, updates and a long-running gateway."
+      ],
+      "firstRunEn": [
+        "Start the gateway on a spare machine and connect one test chat account.",
+        "Create a skill with no write permissions and inspect its trace.",
+        "Add a scheduled job and verify what happens when the machine sleeps."
+      ]
     },
     {
       "id": "deepseek-harness",
@@ -558,7 +753,22 @@
         "再装一个工具插件，换成自己的仓库/文档做一次长任务，记录断点与恢复行为。"
       ],
       "deps": "Node.js；模型 API key 或本地 endpoint；插件依赖；长期运行要守护进程与磁盘空间。",
-      "licenseNote": "代码 MIT；第三方插件与模型权重可能另有许可，插件市场里的仓库要单独看。"
+      "licenseNote": "代码 MIT；第三方插件与模型权重可能另有许可，插件市场里的仓库要单独看。",
+      "summaryEn": "DeepSeek’s plugin-based agent harness (dsh): everything is a plugin, a local web UI starts with one command, and it targets long tasks across models and tools.",
+      "whyEn": [
+        "Plugin boundaries make it easy to add or replace capabilities.",
+        "One-command local web UI lowers the entry cost.",
+        "Built for multi-model, multi-tool long-running work."
+      ],
+      "notForEn": [
+        "You need a stable, widely documented production orchestrator.",
+        "You want a minimal library rather than a harness with a UI."
+      ],
+      "firstRunEn": [
+        "Start the local UI and run a read-only task first.",
+        "Install one plugin and check its permissions and logs.",
+        "Set a task budget and a stop condition before a long run."
+      ]
     },
     {
       "id": "hermes-agent",
@@ -600,7 +810,22 @@
         "再开一个消息渠道（Telegram 最轻），观察跨会话续接与子 agent 并行的资源占用。"
       ],
       "deps": "Python / uv；模型 API key；消息渠道凭据；长期记忆与技能目录；VPS 或本地机器。",
-      "licenseNote": "代码 MIT；技能内容、模型与渠道 SDK 的许可要分开看。"
+      "licenseNote": "代码 MIT；技能内容、模型与渠道 SDK 的许可要分开看。",
+      "summaryEn": "Nous Research’s self-improving agent: it turns complex tasks into skills, with cross-session memory, parallel sub-agents and a gateway for 20+ messaging channels.",
+      "whyEn": [
+        "Skill extraction makes repeated work reusable instead of re-prompting.",
+        "Cross-session memory and sub-agents target long, multi-step projects.",
+        "The channel gateway covers many chat surfaces."
+      ],
+      "notForEn": [
+        "You need a tightly audited workflow with no self-modification.",
+        "You cannot review generated skills before they are reused."
+      ],
+      "firstRunEn": [
+        "Run one task and inspect the skill it proposes, without enabling reuse.",
+        "Approve a skill manually and test it on a second task.",
+        "Check memory writes and delete anything that should not persist."
+      ]
     },
     {
       "id": "opencode",
@@ -642,7 +867,22 @@
         "再开 build 模式跑测试与修复，观察 LSP 报错、工具调用与回滚。"
       ],
       "deps": "Node.js / npm 或 brew；模型 provider key；git 仓库；可选桌面端。",
-      "licenseNote": "代码 MIT；模型 provider 与可选付费网关另有条款。"
+      "licenseNote": "代码 MIT；模型 provider 与可选付费网关另有条款。",
+      "summaryEn": "An open-source coding agent in the terminal: separate build and plan agents, LSP feedback, 75+ model providers and a desktop beta.",
+      "whyEn": [
+        "Plan and build modes separate reasoning from edits.",
+        "LSP feedback gives the agent compiler-level signals.",
+        "Broad provider support avoids a single-model lock-in."
+      ],
+      "notForEn": [
+        "You need a mature IDE plugin rather than a terminal-first tool.",
+        "You cannot run commands in a disposable checkout."
+      ],
+      "firstRunEn": [
+        "Open a disposable repository and start in plan mode.",
+        "Ask for a small change, review the diff, then run the tests.",
+        "Check how LSP errors feed back before enabling auto-edit."
+      ]
     },
     {
       "id": "orca",
@@ -684,7 +924,22 @@
         "再试 coordinator + worker 模式，观察并行资源占用、合并冲突与失败回收。"
       ],
       "deps": "桌面端（macOS / Windows / Linux）；git；已有 coding agent 的订阅或 API key；可选 SSH / 云 VM。",
-      "licenseNote": "代码 MIT；底层 agent 与模型服务另有条款，注意不要重复计费。"
+      "licenseNote": "代码 MIT；底层 agent 与模型服务另有条款，注意不要重复计费。",
+      "summaryEn": "A desktop and cloud console that runs coding agents such as Claude Code and Codex in parallel, each in its own git worktree, with diffs, browser and CLI.",
+      "whyEn": [
+        "Worktrees isolate parallel agents so edits do not collide.",
+        "A diff and browser view make review part of the workflow.",
+        "Useful for comparing several agents on the same task."
+      ],
+      "notForEn": [
+        "You only run one agent at a time in one checkout.",
+        "You cannot manage multiple worktrees and review queues."
+      ],
+      "firstRunEn": [
+        "Create two worktrees and give each agent the same small task.",
+        "Compare diffs and test results before merging either branch.",
+        "Delete the losing worktree and keep the review record."
+      ]
     },
     {
       "id": "codex-cli",
@@ -726,7 +981,22 @@
         "跑一个“改代码 + 跑测试”的小任务，观察 diff、测试输出与云任务交接。"
       ],
       "deps": "Node.js / npm 或 brew；OpenAI 账号或 API key；git；可选 MCP server。",
-      "licenseNote": "代码 Apache-2.0；模型服务与云任务按 OpenAI 条款计费。"
+      "licenseNote": "代码 Apache-2.0；模型服务与云任务按 OpenAI 条款计费。",
+      "summaryEn": "OpenAI’s local coding agent: Rust binary, OS-level sandbox, MCP and cloud-task handoff, built for editing code in the terminal.",
+      "whyEn": [
+        "OS-level sandboxing limits what a command can touch.",
+        "MCP support lets it use external tools without custom glue.",
+        "Cloud-task handoff covers work that outgrows a terminal session."
+      ],
+      "notForEn": [
+        "You need a GUI-first coding assistant.",
+        "You cannot grant a terminal agent filesystem access."
+      ],
+      "firstRunEn": [
+        "Run it in a disposable repo with the sandbox enabled.",
+        "Ask for a one-file change and inspect the diff.",
+        "Test a command that should be blocked and confirm the sandbox stops it."
+      ]
     },
     {
       "id": "dspy",
@@ -764,7 +1034,24 @@
         "用 20–50 条自己的样本接上 BootstrapFewShot 或 MIPROv2，记录基线分数。"
       ],
       "deps": "Python 3.9+；任意 LLM API 或本地模型；优化器需要少量标注样本与可重复的评分函数。",
-      "licenseNote": "代码 MIT；模型与数据按其自身条款。"
+      "licenseNote": "代码 MIT；模型与数据按其自身条款。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "Write prompts, retrieval and tool calls as composable modules, then optimise prompts and examples against a metric instead of hand-tuning chains.",
+      "whyEn": [
+        "Modules and signatures make prompt programs testable.",
+        "Optimisers can search demonstrations and instructions against a metric.",
+        "A better fit than ad-hoc string concatenation when you have evaluation data."
+      ],
+      "notForEn": [
+        "You have no evaluation set and no way to measure improvement.",
+        "You only need one static prompt with no optimisation loop."
+      ],
+      "firstRunEn": [
+        "Start with a small labelled set and a simple metric.",
+        "Build one module and record the baseline score.",
+        "Run an optimiser and compare on a held-out set, not the training examples."
+      ]
     },
     {
       "id": "semantic-kernel",
@@ -804,7 +1091,24 @@
         "把插件换成自己一个只读内部 API，观察函数调用与错误处理。"
       ],
       "deps": ".NET 8+ / Python 3.10+ / Java 17+；模型 API 或本地端点；企业场景还要身份与日志。",
-      "licenseNote": "代码 MIT；模型与数据另计。"
+      "licenseNote": "代码 MIT；模型与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "Microsoft’s cross-language agent and plugin framework for C#, Python and Java, with connectors, functions, memory, processes and agent abstractions.",
+      "whyEn": [
+        "One framework across .NET, Python and Java teams.",
+        "Connectors and plugins map to existing enterprise services.",
+        "Process and agent abstractions cover both deterministic and model-driven flows."
+      ],
+      "notForEn": [
+        "You want a tiny Python-only agent library.",
+        "You need the newest experimental agent features without a stable API."
+      ],
+      "firstRunEn": [
+        "Run the official sample in the language your team uses.",
+        "Register one function as a plugin and call it from a prompt.",
+        "Add a process with a deterministic step and a model step, then test failures."
+      ]
     },
     {
       "id": "agno",
@@ -844,7 +1148,24 @@
         "开 session 记忆，重复两轮同一用户请求，确认上下文是否按预期保留。"
       ],
       "deps": "Python 3.10+ 或 Node 18+；模型 API；持久 memory 需要数据库。",
-      "licenseNote": "代码 Apache-2.0；模型与数据另计。"
+      "licenseNote": "代码 Apache-2.0；模型与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A lightweight, high-performance agent runtime supporting single agents, teams, workflows, memory, knowledge, tools and multimodal input.",
+      "whyEn": [
+        "Small runtime with a broad feature set.",
+        "Teams and workflows cover multi-agent coordination without a separate framework.",
+        "Memory, knowledge and multimodal input are built in."
+      ],
+      "notForEn": [
+        "You need a mature visual builder and hosted platform.",
+        "Your workflow requires deep custom scheduling beyond teams and workflows."
+      ],
+      "firstRunEn": [
+        "Run a single agent with one tool and one knowledge source.",
+        "Turn it into a two-agent team and log the hand-off.",
+        "Add memory and verify what persists across a restart."
+      ]
     },
     {
       "id": "aider",
@@ -884,7 +1205,24 @@
         "开一个测试命令，让它改代码后自动跑测试，观察失败重试。"
       ],
       "deps": "Python 3.10+；git；模型 API 或本地端点；可选 lint/test 命令。",
-      "licenseNote": "代码 Apache-2.0；模型与数据另计。"
+      "licenseNote": "代码 Apache-2.0；模型与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A pair-programming agent in the terminal that reads and writes a local git repo, produces diffs, commits automatically and uses a repo map to control context.",
+      "whyEn": [
+        "Git-native: every change is a diff you can review and revert.",
+        "The repo map keeps context focused on relevant files.",
+        "Works well for small, well-scoped edits."
+      ],
+      "notForEn": [
+        "You need an autonomous agent that runs long multi-step tasks.",
+        "The repository is too large or noisy to map usefully."
+      ],
+      "firstRunEn": [
+        "Run it on a clean branch with a one-file task.",
+        "Review the diff and the commit message before accepting.",
+        "Test a task that touches two files and check the repo map context."
+      ]
     },
     {
       "id": "cline",
@@ -923,7 +1261,24 @@
         "检查每步 diff 与终端输出，记录误改/越权点再决定是否放开自动批准。"
       ],
       "deps": "VS Code 1.84+；模型 API 或本地端点；需要工作区读写与终端权限。",
-      "licenseNote": "代码 Apache-2.0；模型与数据另计。"
+      "licenseNote": "代码 Apache-2.0；模型与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "An autonomous coding agent inside VS Code that can read files, edit code, run terminal commands and use a browser, asking for approval at each step.",
+      "whyEn": [
+        "Step-by-step approval keeps a human in the loop.",
+        "Editor integration makes diffs and file context visible.",
+        "Terminal and browser access cover more than code completion."
+      ],
+      "notForEn": [
+        "You want fully unattended execution with no approvals.",
+        "You cannot install a VS Code extension or grant workspace access."
+      ],
+      "firstRunEn": [
+        "Open a disposable workspace and start with read-only tasks.",
+        "Approve one file edit and inspect the diff.",
+        "Run a test command and check the approval prompt before enabling auto-approve."
+      ]
     },
     {
       "id": "goose",
@@ -963,7 +1318,24 @@
         "在测试目录里跑一个会写文件的任务，观察权限提示与日志。"
       ],
       "deps": "macOS/Linux/Windows；模型 API 或本地端点；MCP server 可选。",
-      "licenseNote": "代码 Apache-2.0；模型、MCP 工具与数据另计。"
+      "licenseNote": "代码 Apache-2.0；模型、MCP 工具与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "Block’s open-source local AI agent with CLI and desktop apps, MCP-based tool extension and support for any LLM.",
+      "whyEn": [
+        "Local-first execution with desktop and CLI surfaces.",
+        "MCP extensions avoid a proprietary tool format.",
+        "Model-agnostic, so you can use hosted or local models."
+      ],
+      "notForEn": [
+        "You need a hosted multi-user platform.",
+        "You cannot manage local tool permissions and updates."
+      ],
+      "firstRunEn": [
+        "Install the CLI and run a read-only task.",
+        "Add one MCP server and inspect the tools it exposes.",
+        "Test a denied permission and confirm the agent stops."
+      ]
     },
     {
       "id": "langfuse",
@@ -1003,7 +1375,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要评测集、模型 API 或本地推理；大规模跑要并发、结果存储与日志/追踪后端。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Tracing, evaluation, prompt management and cost analytics for LLM applications, available self-hosted.",
+      "whyEn": [
+        "Traces connect a request to its prompts, retrieval and model cost.",
+        "Prompt versions and evaluation runs live next to production traces.",
+        "Self-hosting keeps sensitive traces inside your infrastructure."
+      ],
+      "notForEn": [
+        "You only need a one-off script with no repeated evaluation.",
+        "You cannot operate a database-backed observability service."
+      ],
+      "firstRunEn": [
+        "Start the self-hosted stack and instrument one request.",
+        "Compare two prompt versions on a small labelled set.",
+        "Set a retention policy before sending real user data."
+      ]
     },
     {
       "id": "ragas",
@@ -1043,7 +1430,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要评测集、模型 API 或本地推理；大规模跑要并发、结果存储与日志/追踪后端。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A RAG evaluation library covering retrieval relevance, answer faithfulness and context recall.",
+      "whyEn": [
+        "Metrics are split by retrieval and generation, so failures are easier to locate.",
+        "Works with synthetic and human-labelled test sets.",
+        "Useful as a CI gate for RAG changes."
+      ],
+      "notForEn": [
+        "You need a full tracing platform rather than a metrics library.",
+        "You have no test questions or ground-truth answers."
+      ],
+      "firstRunEn": [
+        "Build 30–50 question-answer-context triples from real queries.",
+        "Score the current pipeline and record per-metric failures.",
+        "Add one retrieval change and compare on the same set."
+      ]
     },
     {
       "id": "deepeval",
@@ -1083,7 +1485,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要评测集、模型 API 或本地推理；大规模跑要并发、结果存储与日志/追踪后端。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Test LLMs like unit tests: assertions, metrics, datasets and CI integration.",
+      "whyEn": [
+        "Assertions make regressions visible in CI.",
+        "Datasets and metrics are code-reviewed with the application.",
+        "Supports several model providers and local models."
+      ],
+      "notForEn": [
+        "You need exploratory analysis rather than pass/fail tests.",
+        "Your evaluation needs human judgement on every case."
+      ],
+      "firstRunEn": [
+        "Write three assertions for one known failure mode.",
+        "Run them against the current prompt and record the baseline.",
+        "Add the suite to CI and fail the build on a regression."
+      ]
     },
     {
       "id": "promptfoo",
@@ -1123,7 +1540,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要评测集、模型 API 或本地推理；大规模跑要并发、结果存储与日志/追踪后端。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A config-driven comparison harness for prompts, models and agents across many providers.",
+      "whyEn": [
+        "YAML configs make experiments reproducible and reviewable.",
+        "Side-by-side outputs expose model and prompt differences quickly.",
+        "Can run red-team and assertion checks in the same harness."
+      ],
+      "notForEn": [
+        "You need a hosted dashboard as the primary interface.",
+        "You only test one model and one prompt manually."
+      ],
+      "firstRunEn": [
+        "Create a config with two prompts and two models.",
+        "Run the same test cases and diff the outputs.",
+        "Add an assertion and a cost column before choosing a winner."
+      ]
     },
     {
       "id": "phoenix",
@@ -1163,7 +1595,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要评测集、模型 API 或本地推理；大规模跑要并发、结果存储与日志/追踪后端。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Open-source LLM tracing and evaluation on OpenTelemetry, with visual exploration and dataset management.",
+      "whyEn": [
+        "OpenTelemetry-based traces fit existing observability stacks.",
+        "The UI makes retrieval and tool spans inspectable.",
+        "Datasets and experiments connect traces to evaluation."
+      ],
+      "notForEn": [
+        "You need a fully managed SaaS with no local service.",
+        "Your stack cannot emit OpenTelemetry traces."
+      ],
+      "firstRunEn": [
+        "Run the local server and trace one RAG request.",
+        "Inspect the retrieval span and the final prompt.",
+        "Turn a failed trace into a dataset example and re-run it."
+      ]
     },
     {
       "id": "inspect-ai",
@@ -1203,7 +1650,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要评测集、模型 API 或本地推理；大规模跑要并发、结果存储与日志/追踪后端。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "An evaluation framework from the UK AI Safety Institute for rigorous, reproducible task evaluation.",
+      "whyEn": [
+        "Task, solver and scorer are separate, making evaluations auditable.",
+        "Designed for reproducible runs and detailed logs.",
+        "Good fit for safety and capability evaluations with custom scorers."
+      ],
+      "notForEn": [
+        "You need a quick leaderboard-style score with no custom scorer.",
+        "You cannot define a clear task and scoring rule."
+      ],
+      "firstRunEn": [
+        "Run one built-in task and inspect the sample log.",
+        "Write a custom scorer for a small domain task.",
+        "Re-run with a different model and compare per-sample results."
+      ]
     },
     {
       "id": "trulens",
@@ -1243,7 +1705,22 @@
         "把评分接进 CI 或发布前对比，不要只看单次总分。"
       ],
       "deps": "Python + 模型 API 或本地推理；可接 OTel 兼容后端。评测集与评分器要自己准备。",
-      "licenseNote": "代码 MIT；模型与评测数据另有条款。"
+      "licenseNote": "代码 MIT；模型与评测数据另有条款。",
+      "summaryEn": "Evaluation and tracing for LLM apps and agents on OpenTelemetry, connecting retrieval, generation and feedback into an explainable trace.",
+      "whyEn": [
+        "Feedback functions attach scores to individual trace spans.",
+        "The trace shows why an answer was produced, not only the final score.",
+        "Works with several orchestration frameworks."
+      ],
+      "notForEn": [
+        "You only need aggregate metrics with no span-level diagnosis.",
+        "You cannot run an instrumented service."
+      ],
+      "firstRunEn": [
+        "Instrument one RAG chain and record a trace.",
+        "Attach a faithfulness feedback function.",
+        "Find the lowest-scoring span and inspect its retrieved context."
+      ]
     },
     {
       "id": "evidently",
@@ -1283,7 +1760,22 @@
         "把关键指标做成定期任务，接告警而不是只存报表。"
       ],
       "deps": "Python + 数据/模型输出；看板要服务与存储。LLM 评测还要模型 API 或本地推理。",
-      "licenseNote": "代码 Apache-2.0；数据与模型另算。"
+      "licenseNote": "代码 Apache-2.0；数据与模型另算。",
+      "summaryEn": "A data and model monitoring framework: drift, quality and LLM output checks with reports, tests and alerting dashboards.",
+      "whyEn": [
+        "Data drift and model quality live in one report.",
+        "Tests can run in batch or production.",
+        "Alerting turns monitoring into an operational loop."
+      ],
+      "notForEn": [
+        "You need only offline evaluation with no production monitoring.",
+        "You have no reference dataset for drift comparison."
+      ],
+      "firstRunEn": [
+        "Compare a current batch with a reference batch.",
+        "Add one quality test and one drift test.",
+        "Send a failing report to a test channel before enabling alerts."
+      ]
     },
     {
       "id": "giskard",
@@ -1323,7 +1815,22 @@
         "把高风险项修完后重跑，确认不是只改提示词绕过去。"
       ],
       "deps": "Python + 模型 API 或本地推理；RAG 扫描还要文档库与向量检索。",
-      "licenseNote": "代码 Apache-2.0；模型与测试数据另算。"
+      "licenseNote": "代码 Apache-2.0；模型与测试数据另算。",
+      "summaryEn": "Open-source ML and LLM testing and red-teaming: scan prompt injection, authorization, hallucination and RAG quality issues, then generate reproducible tests.",
+      "whyEn": [
+        "Scans produce concrete failing examples, not just scores.",
+        "Tests can be re-run after a fix.",
+        "Covers both classical ML and LLM risks."
+      ],
+      "notForEn": [
+        "You need a one-time penetration test with no regression suite.",
+        "You cannot run adversarial prompts against the system."
+      ],
+      "firstRunEn": [
+        "Scan a small RAG app with a read-only test account.",
+        "Pick three findings and turn them into regression tests.",
+        "Fix one issue and confirm the test now passes."
+      ]
     },
     {
       "id": "lm-evaluation-harness",
@@ -1363,7 +1870,24 @@
         "固定版本与 prompt，横向跑 2–3 个模型并保存原始样本结果。"
       ],
       "deps": "Python；模型后端（HF/vLLM/API）；部分任务需要数据集下载。",
-      "licenseNote": "代码 MIT；数据集与模型各自条款。"
+      "licenseNote": "代码 MIT；数据集与模型各自条款。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A standard LLM evaluation harness covering hundreds of tasks, few-shot settings, log-likelihood and generative metrics, with HF, vLLM and API backends.",
+      "whyEn": [
+        "A shared harness makes scores comparable across models.",
+        "Task definitions and prompts are explicit and versioned.",
+        "Supports local and API backends."
+      ],
+      "notForEn": [
+        "You need a business-specific evaluation that the public tasks do not cover.",
+        "You cannot control prompt templates and scoring settings."
+      ],
+      "firstRunEn": [
+        "Run one small task on a local model with a fixed few-shot count.",
+        "Record the task version, prompt template and scoring script.",
+        "Re-run with a different backend and compare the delta."
+      ]
     },
     {
       "id": "ollama",
@@ -1403,7 +1927,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "对应推理引擎与模型权重；GPU 显存取决于量化与上下文，CPU 场景要接受更低吞吐。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Pull and run local models with one command, with a built-in model library and an OpenAI-compatible API.",
+      "whyEn": [
+        "The model library and one-command pull remove setup friction.",
+        "The OpenAI-compatible endpoint works with existing clients.",
+        "Good for laptops and small servers, not just demos."
+      ],
+      "notForEn": [
+        "You need multi-node serving at production throughput.",
+        "You require fine-grained control over batching and scheduling."
+      ],
+      "firstRunEn": [
+        "Install it and pull a small quantised model.",
+        "Call the OpenAI-compatible endpoint with one prompt.",
+        "Watch memory and token throughput before choosing a larger model."
+      ]
     },
     {
       "id": "llama-cpp",
@@ -1443,7 +1982,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "对应推理引擎与模型权重；GPU 显存取决于量化与上下文，CPU 场景要接受更低吞吐。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A C/C++ inference engine that runs on CPUs, Apple Silicon and consumer GPUs, with a wide range of quantisation formats.",
+      "whyEn": [
+        "Runs without a Python stack on many platforms.",
+        "Quantisation formats cover small memory budgets.",
+        "A common backend behind many local UIs."
+      ],
+      "notForEn": [
+        "You need high-throughput multi-user serving.",
+        "You want a managed API rather than a binary and libraries."
+      ],
+      "firstRunEn": [
+        "Build or download a binary and run a small GGUF model.",
+        "Record tokens/sec, memory and thread count.",
+        "Try a lower-bit quantisation and compare quality on your own prompts."
+      ]
     },
     {
       "id": "vllm",
@@ -1483,7 +2037,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "对应推理引擎与模型权重；GPU 显存取决于量化与上下文，CPU 场景要接受更低吞吐。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A high-throughput inference and serving engine with PagedAttention, continuous batching and multi-GPU support.",
+      "whyEn": [
+        "Throughput is the main design goal.",
+        "PagedAttention and continuous batching reduce memory waste.",
+        "An OpenAI-compatible server is included."
+      ],
+      "notForEn": [
+        "You only run one model for one user on a laptop.",
+        "Your GPU memory is too small for the model even after quantisation."
+      ],
+      "firstRunEn": [
+        "Serve a small model and measure tokens/sec at concurrency 1 and 8.",
+        "Check KV-cache memory and preemption behaviour.",
+        "Compare a quantised version on the same workload."
+      ]
     },
     {
       "id": "sglang",
@@ -1523,7 +2092,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "对应推理引擎与模型权重；GPU 显存取决于量化与上下文，CPU 场景要接受更低吞吐。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A high-performance inference runtime strong at structured generation, prefix caching and multi-GPU serving.",
+      "whyEn": [
+        "Structured output and constrained decoding are first-class.",
+        "Prefix caching helps repeated system prompts and multi-turn work.",
+        "Supports multi-GPU serving."
+      ],
+      "notForEn": [
+        "You need the broadest model compatibility above all.",
+        "Your workload is a single short request."
+      ],
+      "firstRunEn": [
+        "Serve one model and run a JSON-schema constrained generation.",
+        "Measure prefix-cache hits on repeated prompts.",
+        "Compare throughput with vLLM on the same hardware."
+      ]
     },
     {
       "id": "localai",
@@ -1563,7 +2147,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "对应推理引擎与模型权重；GPU 显存取决于量化与上下文，CPU 场景要接受更低吞吐。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A local OpenAI-compatible API supporting text, image and speech backends.",
+      "whyEn": [
+        "One API surface across several modalities.",
+        "Can run without a GPU for small models.",
+        "Drop-in shape for OpenAI-style clients."
+      ],
+      "notForEn": [
+        "You need the fastest text-only serving engine.",
+        "You want a managed multi-tenant platform."
+      ],
+      "firstRunEn": [
+        "Start the server with one text model.",
+        "Call the chat endpoint from an OpenAI client.",
+        "Add one image or speech backend and check memory."
+      ]
     },
     {
       "id": "tgi",
@@ -1603,7 +2202,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "对应推理引擎与模型权重；GPU 显存取决于量化与上下文，CPU 场景要接受更低吞吐。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Hugging Face’s production text-generation service with tensor parallelism, quantisation and streaming.",
+      "whyEn": [
+        "Production-oriented serving with streaming and batching.",
+        "Tensor parallelism for models that do not fit one GPU.",
+        "Works with Hugging Face model hub artefacts."
+      ],
+      "notForEn": [
+        "You only need a local desktop chat.",
+        "Your hardware lacks the GPUs the model requires."
+      ],
+      "firstRunEn": [
+        "Launch one model with a single GPU and stream a response.",
+        "Measure latency at concurrency 1 and 10.",
+        "Enable quantisation and compare quality and memory."
+      ]
     },
     {
       "id": "tensorrt-llm",
@@ -1643,7 +2257,22 @@
         "再开 in-flight batching / 量化，逐项对比显存与质量。"
       ],
       "deps": "NVIDIA GPU（新架构优先）+ CUDA/cuDNN + 大显存；转换要 Hugging Face 权重，服务要 Triton 或内置 runtime。",
-      "licenseNote": "代码 Apache-2.0；NVIDIA 容器、模型权重与 TensorRT 组件另有条款。"
+      "licenseNote": "代码 Apache-2.0；NVIDIA 容器、模型权重与 TensorRT 组件另有条款。",
+      "summaryEn": "NVIDIA’s LLM inference optimisation stack: custom kernels, quantisation, in-flight batching and multi-GPU for production throughput.",
+      "whyEn": [
+        "Optimised for NVIDIA hardware and production throughput.",
+        "Supports quantisation and in-flight batching.",
+        "A path to lower latency at high concurrency."
+      ],
+      "notForEn": [
+        "You run on AMD, Apple or CPU only.",
+        "You need quick experiments without an engine build step."
+      ],
+      "firstRunEn": [
+        "Build an engine for one supported model.",
+        "Benchmark latency and throughput at two batch sizes.",
+        "Compare FP16 and a quantised build on your own prompts."
+      ]
     },
     {
       "id": "textgen-webui",
@@ -1683,7 +2312,22 @@
         "要长期用就锁版本、记模型目录，别让扩展自动升级打乱环境。"
       ],
       "deps": "Python/PyTorch + llama.cpp/ExLlama 等后端；模型权重。GPU 显存按量化与上下文，CPU 也能跑但慢。",
-      "licenseNote": "代码 AGPL-3.0；模型权重与扩展各自许可，分发 Web 服务前先看 AGPL 义务。"
+      "licenseNote": "代码 AGPL-3.0；模型权重与扩展各自许可，分发 Web 服务前先看 AGPL 义务。",
+      "summaryEn": "A local LLM web UI supporting llama.cpp, Transformers and ExLlama backends, with model loading, chat and extensions on one page.",
+      "whyEn": [
+        "Many backends behind one interface.",
+        "Model loading, characters and extensions are built in.",
+        "A long-standing community UI with many guides."
+      ],
+      "notForEn": [
+        "You need a production API with multi-user isolation.",
+        "You want a minimal command-line tool."
+      ],
+      "firstRunEn": [
+        "Load a small GGUF model and run one chat.",
+        "Switch to another backend and compare speed.",
+        "Disable untrusted extensions before exposing it on a network."
+      ]
     },
     {
       "id": "open-webui",
@@ -1725,7 +2369,22 @@
         "再配联网搜索/工具与 RBAC，观察并发、日志、反向代理与备份。"
       ],
       "deps": "Docker / Python；Ollama 或 OpenAI 兼容 API；向量库/嵌入模型；生产要反向代理、持久卷与备份。",
-      "licenseNote": "自定义许可（BSD-3 基础 + 品牌条款）：移除/替换 Open WebUI 品牌受用户数与商业授权限制，商用前读 LICENSE。"
+      "licenseNote": "自定义许可（BSD-3 基础 + 品牌条款）：移除/替换 Open WebUI 品牌受用户数与商业授权限制，商用前读 LICENSE。",
+      "summaryEn": "A self-hosted AI chat and workbench for Ollama and OpenAI-compatible APIs, with RAG, web search, multi-user permissions and tool extensions.",
+      "whyEn": [
+        "A full chat UI rather than a raw API.",
+        "RAG, search and multi-user controls are built in.",
+        "Works with local and hosted model endpoints."
+      ],
+      "notForEn": [
+        "You need a single-user desktop app with no server.",
+        "You cannot manage accounts and data retention."
+      ],
+      "firstRunEn": [
+        "Run it with one local model and create two users.",
+        "Upload a small document and test RAG citations.",
+        "Check what traces and documents are stored before inviting others."
+      ]
     },
     {
       "id": "lmdeploy",
@@ -1765,7 +2424,24 @@
         "开 KV 量化与多卡，测并发 1/8/32 下的吞吐和首 token 延迟。"
       ],
       "deps": "CUDA 11.8+/12.x；Python；模型权重；多卡需要 NCCL。",
-      "licenseNote": "代码 Apache-2.0；模型权重另计。"
+      "licenseNote": "代码 Apache-2.0；模型权重另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A high-throughput inference and deployment toolkit with TurboMind and PyTorch engines, KV quantisation, multi-GPU and an OpenAI-compatible API.",
+      "whyEn": [
+        "Two engines let you trade compatibility for speed.",
+        "KV-cache quantisation reduces memory.",
+        "Ships an OpenAI-compatible server."
+      ],
+      "notForEn": [
+        "Your model architecture is not supported by either engine.",
+        "You need a managed cloud endpoint."
+      ],
+      "firstRunEn": [
+        "Serve a supported model and run a chat completion.",
+        "Measure KV-cache memory with and without quantisation.",
+        "Compare TurboMind and PyTorch engine throughput."
+      ]
     },
     {
       "id": "mlc-llm",
@@ -1805,7 +2481,24 @@
         "换 WebGPU 或 Metal 后端，记录加载时间、token/s 与内存占用。"
       ],
       "deps": "Python；TVM；目标平台工具链；编译需要模型权重。",
-      "licenseNote": "代码 Apache-2.0；模型权重另计。"
+      "licenseNote": "代码 Apache-2.0；模型权重另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A TVM-based compiler and deployment engine that compiles LLMs to CUDA, ROCm, Metal, Vulkan and WebGPU backends.",
+      "whyEn": [
+        "Compilation targets many hardware backends, including browsers.",
+        "Useful when the deployment device is not a standard NVIDIA server.",
+        "Can produce portable runtimes."
+      ],
+      "notForEn": [
+        "You need same-day support for every new model.",
+        "You want a simple pip-install-and-run experience."
+      ],
+      "firstRunEn": [
+        "Compile one small model for a supported target.",
+        "Run it and record latency and memory.",
+        "Try a second backend and compare output consistency."
+      ]
     },
     {
       "id": "llamafile",
@@ -1845,7 +2538,24 @@
         "换一个较小量化文件，记录 CPU/GPU 下的 tokens/s 与内存。"
       ],
       "deps": "无 Python/容器依赖；模型权重可内嵌；GPU 加速需对应驱动。",
-      "licenseNote": "代码 Apache-2.0；内嵌模型权重可能另有条款，分发前核对。"
+      "licenseNote": "代码 Apache-2.0；内嵌模型权重可能另有条款，分发前核对。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "Package llama.cpp and model weights into a single executable that runs on macOS, Windows, Linux and BSD without Python.",
+      "whyEn": [
+        "One file to distribute; no Python environment.",
+        "Runs across desktop operating systems.",
+        "Good for offline demos and air-gapped machines."
+      ],
+      "notForEn": [
+        "You need multi-user serving or GPU scaling.",
+        "Your model is too large for the target machine."
+      ],
+      "firstRunEn": [
+        "Download a small llamafile and run it locally.",
+        "Open the built-in web UI and send one prompt.",
+        "Check memory and startup time on the oldest machine you support."
+      ]
     },
     {
       "id": "comfyui",
@@ -1885,7 +2595,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "通常需要 GPU（10–24GB+ 视模型而定）与模型权重；视频任务还要解码、存储与更长生成时间。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A node-based image and video generation workflow that wires models, samplers, ControlNet and post-processing into a graph.",
+      "whyEn": [
+        "Graph workflows are reproducible and inspectable.",
+        "Supports many models and control adapters.",
+        "The node ecosystem extends without forking the core."
+      ],
+      "notForEn": [
+        "You want a one-click app with no graph editing.",
+        "You need a production API without managing custom nodes."
+      ],
+      "firstRunEn": [
+        "Load the default text-to-image workflow and render one image.",
+        "Save the workflow JSON with the model, seed and sampler.",
+        "Pin custom-node versions before sharing the workflow."
+      ]
     },
     {
       "id": "sd-webui",
@@ -1925,7 +2650,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "通常需要 GPU（10–24GB+ 视模型而定）与模型权重；视频任务还要解码、存储与更长生成时间。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "The classic Stable Diffusion web UI: text-to-image, image-to-image, LoRA and ControlNet on one page.",
+      "whyEn": [
+        "The most familiar interface for SD workflows.",
+        "Extensions cover upscaling, control and batch tools.",
+        "Large community documentation."
+      ],
+      "notForEn": [
+        "You need a modern multi-user production service.",
+        "You want a code-first library rather than a UI."
+      ],
+      "firstRunEn": [
+        "Install one checkpoint and render at a fixed seed.",
+        "Add a LoRA and compare the same prompt.",
+        "Check extension permissions before installing third-party code."
+      ]
     },
     {
       "id": "diffusers",
@@ -1965,7 +2705,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "通常需要 GPU（10–24GB+ 视模型而定）与模型权重；视频任务还要解码、存储与更长生成时间。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A Python library for diffusion models: pipelines, schedulers, training and quantisation, built for code rather than a UI.",
+      "whyEn": [
+        "Pipelines make model loading and inference composable.",
+        "Schedulers and training loops are exposed.",
+        "Fits research and custom deployment."
+      ],
+      "notForEn": [
+        "You want a visual workflow editor.",
+        "You need the fastest inference without writing code."
+      ],
+      "firstRunEn": [
+        "Run a text-to-image pipeline with a fixed seed.",
+        "Swap one scheduler and compare output.",
+        "Record model revision and dtype in the experiment log."
+      ]
     },
     {
       "id": "fooocus",
@@ -2005,7 +2760,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "通常需要 GPU（10–24GB+ 视模型而定）与模型权重；视频任务还要解码、存储与更长生成时间。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A simplified SDXL interface that hides most parameters and aims at good images with little tuning.",
+      "whyEn": [
+        "Low parameter count lowers the learning curve.",
+        "Good defaults for SDXL.",
+        "Useful for quick visual exploration."
+      ],
+      "notForEn": [
+        "You need precise control over samplers and composition.",
+        "You need batch automation at scale."
+      ],
+      "firstRunEn": [
+        "Render a prompt with default settings.",
+        "Change only the style and seed, one at a time.",
+        "Check VRAM before enabling upscaling."
+      ]
     },
     {
       "id": "invokeai",
@@ -2045,7 +2815,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "通常需要 GPU（10–24GB+ 视模型而定）与模型权重；视频任务还要解码、存储与更长生成时间。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A creator-oriented image generation workbench with a unified canvas, layers, model management and batch generation.",
+      "whyEn": [
+        "Canvas and layers support iterative editing.",
+        "Model management is built in.",
+        "Batch generation fits production workflows."
+      ],
+      "notForEn": [
+        "You only need a single text-to-image call.",
+        "You cannot run a local server or manage model files."
+      ],
+      "firstRunEn": [
+        "Create one image and edit a masked region.",
+        "Add a second model and compare the same seed.",
+        "Export the workflow record with model and settings."
+      ]
     },
     {
       "id": "wan21",
@@ -2084,7 +2869,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "通常需要 GPU（10–24GB+ 视模型而定）与模型权重；视频任务还要解码、存储与更长生成时间。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Open-source video generation models and inference code for text-to-video, image-to-video and multiple resolutions.",
+      "whyEn": [
+        "Covers both text and image conditioning.",
+        "Multiple sizes and aspect ratios.",
+        "Open code for local experimentation."
+      ],
+      "notForEn": [
+        "You need real-time generation on a laptop.",
+        "You cannot allocate GPU memory for video."
+      ],
+      "firstRunEn": [
+        "Run the smallest official example with a short prompt.",
+        "Fix the seed and compare resolutions.",
+        "Record frame count, VRAM and generation time."
+      ]
     },
     {
       "id": "comfyui-manager",
@@ -2122,7 +2922,22 @@
         "生产或共用环境先做快照，再批量装插件。"
       ],
       "deps": "ComfyUI + Python 环境；模型下载还要网络与磁盘。GPU 按工作流而定。",
-      "licenseNote": "代码 GPL-3.0；第三方节点与模型各自许可。"
+      "licenseNote": "代码 GPL-3.0；第三方节点与模型各自许可。",
+      "summaryEn": "An extension and model manager for ComfyUI: install missing nodes, download models, check version conflicts and snapshot or restore an environment.",
+      "whyEn": [
+        "Finds missing nodes instead of hand-installing dependencies.",
+        "Model downloads and version checks are centralised.",
+        "Environment snapshots make workflows portable."
+      ],
+      "notForEn": [
+        "You run ComfyUI without custom nodes.",
+        "You cannot review third-party code before installing it."
+      ],
+      "firstRunEn": [
+        "Create an environment snapshot before installing anything.",
+        "Install one node and inspect its dependencies.",
+        "Restore the snapshot and confirm the workflow still loads."
+      ]
     },
     {
       "id": "sdnext",
@@ -2162,7 +2977,22 @@
         "批量或视频任务再调后端与优化开关，不要一次全开。"
       ],
       "deps": "Python/PyTorch；NVIDIA/AMD/Intel GPU 均可，按后端装对应运行时；模型权重与 VAE。",
-      "licenseNote": "代码 Apache-2.0；模型权重与扩展各自许可。"
+      "licenseNote": "代码 Apache-2.0；模型权重与扩展各自许可。",
+      "summaryEn": "A modern fork of Stable Diffusion WebUI supporting new models, Diffusers/ONNX/OpenVINO backends and AMD or Intel hardware.",
+      "whyEn": [
+        "Multiple backends beyond CUDA.",
+        "Supports AMD and Intel accelerators.",
+        "Keeps the familiar WebUI surface."
+      ],
+      "notForEn": [
+        "You need the most conservative, widely tested UI.",
+        "Your GPU backend is unsupported."
+      ],
+      "firstRunEn": [
+        "Start with the backend that matches your GPU.",
+        "Render one image and record backend and dtype.",
+        "Compare output with the same seed on a second backend."
+      ]
     },
     {
       "id": "real-esrgan",
@@ -2200,7 +3030,22 @@
         "视频先抽帧、超分、再合帧；检查音画同步与帧率。"
       ],
       "deps": "Python/PyTorch 或 ncnn portable；GPU 可选。视频还要 ffmpeg 与足够磁盘。",
-      "licenseNote": "代码 BSD-3-Clause；模型权重与训练数据另有条款。"
+      "licenseNote": "代码 BSD-3-Clause；模型权重与训练数据另有条款。",
+      "summaryEn": "Real-world image and video super-resolution and restoration: blind upscaling, denoising and compression-artifact removal, with a Python API and a lightweight ncnn binary.",
+      "whyEn": [
+        "Handles real degradation, not only clean bicubic downscaling.",
+        "Works on images and video.",
+        "The ncnn binary runs without a full Python stack."
+      ],
+      "notForEn": [
+        "You need creative generation rather than restoration.",
+        "You need real-time 4K video on a CPU."
+      ],
+      "firstRunEn": [
+        "Run one degraded image through the general model.",
+        "Compare the ncnn and Python paths at the same scale.",
+        "Check face enhancement separately; it can change identity."
+      ]
     },
     {
       "id": "hunyuanvideo",
@@ -2240,7 +3085,22 @@
       ],
       "deps": "Python + PyTorch + CUDA；建议 24GB+ 显存，长视频要分段与更多存储。",
       "licenseNote": "代码与权重许可需读仓库 LICENSE / 模型卡；生成内容商用与肖像权另核。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "Tencent Hunyuan’s open video generation models and inference code for text-to-video and image-to-video.",
+      "whyEn": [
+        "Open weights and code for local video work.",
+        "Supports text and image conditioning.",
+        "A strong Chinese-lab alternative to Western video models."
+      ],
+      "notForEn": [
+        "You need short generation times on small GPUs.",
+        "You need a hosted API with no local setup."
+      ],
+      "firstRunEn": [
+        "Run a short official example and record VRAM.",
+        "Fix the seed and compare text vs image conditioning.",
+        "Check the licence for commercial use before publishing output."
+      ]
     },
     {
       "id": "cogvideo",
@@ -2280,7 +3140,22 @@
       ],
       "deps": "Python + PyTorch + CUDA；不同尺寸对应 12–24GB+ 显存，长视频要分段。",
       "licenseNote": "代码 Apache-2.0；模型权重许可与生成内容商用条款另读模型卡。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "Zhipu’s CogVideoX family of video generation models and inference code for text-to-video and image-to-video.",
+      "whyEn": [
+        "Open code and weights across several sizes.",
+        "Supports both text and image conditioning.",
+        "Well documented examples."
+      ],
+      "notForEn": [
+        "You need CPU-only generation.",
+        "You need a real-time interactive tool."
+      ],
+      "firstRunEn": [
+        "Run the smallest model with a short prompt.",
+        "Record generation time and VRAM.",
+        "Compare one image-conditioned and one text-only run."
+      ]
     },
     {
       "id": "ltx-video",
@@ -2320,7 +3195,22 @@
       ],
       "deps": "Python + PyTorch + CUDA；建议 12GB+ 显存，速度取决于分辨率和帧数。",
       "licenseNote": "代码 Apache-2.0；模型权重与生成内容商用条款另读模型卡。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "Lightricks’ real-time video generation model and code, based on a DiT and focused on speed and lower VRAM.",
+      "whyEn": [
+        "Speed-oriented design.",
+        "Lower memory footprint than many video models.",
+        "Open code for local experiments."
+      ],
+      "notForEn": [
+        "You need the highest visual fidelity regardless of cost.",
+        "Your GPU is below the minimum memory."
+      ],
+      "firstRunEn": [
+        "Generate a short clip at the default resolution.",
+        "Measure time and VRAM at two lengths.",
+        "Compare a longer clip for drift and consistency."
+      ]
     },
     {
       "id": "flux1",
@@ -2417,7 +3307,24 @@
         "用 10–20 条自己的视频做微调或推理对比，记录吞吐与失败模式。"
       ],
       "deps": "CUDA GPU；推理 24GB+ 显存；训练需要多卡与大数据。",
-      "licenseNote": "代码 Apache-2.0；模型权重与训练数据另计。"
+      "licenseNote": "代码 Apache-2.0；模型权重与训练数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A full open video-generation pipeline: data cleaning, VAE, DiT training and inference for text-to-video and image-to-video.",
+      "whyEn": [
+        "Covers data preparation through training, not only inference.",
+        "Useful for reproducing a video model end to end.",
+        "Open code and recipes."
+      ],
+      "notForEn": [
+        "You only want to generate a clip from a prompt.",
+        "You cannot manage a large video dataset and training run."
+      ],
+      "firstRunEn": [
+        "Start with the inference example, not training.",
+        "Run a short prompt and record the compute.",
+        "Read the data-cleaning recipe before attempting a fine-tune."
+      ]
     },
     {
       "id": "qwen-image",
@@ -2457,7 +3364,24 @@
         "用同一张商品图做编辑，比较原图保真与文字区域。"
       ],
       "deps": "Python；PyTorch；24GB+ 显存；模型权重数十 GB。",
-      "licenseNote": "代码与权重 Apache-2.0；生成内容与训练数据另计。"
+      "licenseNote": "代码与权重 Apache-2.0；生成内容与训练数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "Qwen’s image generation and editing model, a 20B MMDiT focused on complex Chinese text rendering, poster layout and multi-image editing.",
+      "whyEn": [
+        "Strong Chinese text rendering compared with many image models.",
+        "Supports editing, not only text-to-image.",
+        "Open weights and code."
+      ],
+      "notForEn": [
+        "You need fast generation on a small GPU.",
+        "You need photographic realism above all."
+      ],
+      "firstRunEn": [
+        "Generate a poster with Chinese text and inspect glyph errors.",
+        "Edit one region and compare identity preservation.",
+        "Record VRAM and steps for a 1024px output."
+      ]
     },
     {
       "id": "framepack",
@@ -2497,7 +3421,24 @@
         "换自己的首帧图，比较不同分段长度下的漂移与一致性。"
       ],
       "deps": "Python；CUDA 6GB+ 显存；模型权重；ffmpeg。",
-      "licenseNote": "代码 Apache-2.0；模型权重与生成内容另计。"
+      "licenseNote": "代码 Apache-2.0；模型权重与生成内容另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A low-VRAM video generation framework using next-frame prediction and segmented generation, aiming at long clips on a 6GB laptop GPU.",
+      "whyEn": [
+        "Designed for very small GPU memory.",
+        "Segmented generation enables longer clips.",
+        "A practical local-video option."
+      ],
+      "notForEn": [
+        "You need the highest motion quality.",
+        "You need multi-user serving."
+      ],
+      "firstRunEn": [
+        "Run the official low-VRAM example on a 6–8GB GPU.",
+        "Generate two segments and check the seam.",
+        "Record time per second of output."
+      ]
     },
     {
       "id": "hunyuan3d-2",
@@ -2526,14 +3467,33 @@
         "纹理",
         "腾讯混元"
       ],
-      "alternatives": [],
+      "alternatives": [
+        "trellis"
+      ],
       "firstRun": [
         "按 README 安装依赖并下载 shape/texture 权重。",
         "用一张白底物体图跑 image-to-3D，导出 obj/glb。",
         "在 Blender 检查拓扑与纹理，记录需要手工修的部分。"
       ],
       "deps": "CUDA 12GB+；Python；模型权重；Blender 可选。",
-      "licenseNote": "代码与权重适用 Tencent Hunyuan 3D 2.0 Community License；商用、地区与分发有限制，必须读原文。"
+      "licenseNote": "代码与权重适用 Tencent Hunyuan 3D 2.0 Community License；商用、地区与分发有限制，必须读原文。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "Tencent Hunyuan’s 3D generation model: image or text to a 3D mesh with a two-stage shape and texture pipeline, including a lightweight variant and PBR textures.",
+      "whyEn": [
+        "Generates a usable mesh, not only a point cloud.",
+        "Two-stage shape and texture improve detail.",
+        "A lightweight variant lowers the barrier."
+      ],
+      "notForEn": [
+        "You need CAD-precision geometry.",
+        "You need rigged, animation-ready assets out of the box."
+      ],
+      "firstRunEn": [
+        "Generate one mesh from a clean product image.",
+        "Inspect the topology and texture seams.",
+        "Try the lightweight variant and compare quality and time."
+      ]
     },
     {
       "id": "ragflow",
@@ -2573,7 +3533,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A RAG platform with document parsing, chunking, retrieval and citations, built to get a knowledge base running.",
+      "whyEn": [
+        "Document parsing and chunking are included, not left as an exercise.",
+        "Citations make answers auditable.",
+        "A full platform shortens the path to a working knowledge base."
+      ],
+      "notForEn": [
+        "You need a thin library inside an existing app.",
+        "You cannot operate a stateful service and document store."
+      ],
+      "firstRunEn": [
+        "Load 20 representative documents and inspect the parsed chunks.",
+        "Ask five questions and check the citations.",
+        "Test a question whose answer is not in the corpus."
+      ]
     },
     {
       "id": "dify",
@@ -2613,7 +3588,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A visual platform for prompts, RAG, agents, workflows and model connections.",
+      "whyEn": [
+        "Visual workflows lower the barrier for non-engineers.",
+        "RAG and agent nodes live in the same canvas.",
+        "Model connections are managed centrally."
+      ],
+      "notForEn": [
+        "You need a code-only library with no platform.",
+        "You require full control over every runtime detail."
+      ],
+      "firstRunEn": [
+        "Build a two-node workflow: retrieve, then answer.",
+        "Add a citation requirement and test a miss.",
+        "Export the workflow as code before depending on the UI."
+      ]
     },
     {
       "id": "llama-index",
@@ -2653,7 +3643,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A data framework for RAG and application layers: connectors, indexes, retrieval, query engines and agents.",
+      "whyEn": [
+        "Connectors cover many document sources.",
+        "Indexes and query engines are composable.",
+        "Agent abstractions sit on top of the same data layer."
+      ],
+      "notForEn": [
+        "You want a ready-made hosted RAG product.",
+        "You need only a single vector search call."
+      ],
+      "firstRunEn": [
+        "Index 10 documents with one embedding model.",
+        "Compare vector and keyword retrieval on the same query.",
+        "Add a reranker and measure answer quality, not only recall."
+      ]
     },
     {
       "id": "haystack",
@@ -2692,7 +3697,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A pipeline framework that wires retrieval, generation, evaluation and routing, with an engineering and testable focus.",
+      "whyEn": [
+        "Pipelines are explicit and testable.",
+        "Evaluation and routing are part of the framework.",
+        "Good fit for production RAG with clear interfaces."
+      ],
+      "notForEn": [
+        "You need a visual builder.",
+        "You want a minimal prototype with no pipeline abstraction."
+      ],
+      "firstRunEn": [
+        "Build a retrieve-then-generate pipeline.",
+        "Add an evaluation component and a small labelled set.",
+        "Test a routing branch with an out-of-domain query."
+      ]
     },
     {
       "id": "qdrant",
@@ -2732,7 +3752,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A Rust vector database with filtering, hybrid search, distributed deployment and quantisation.",
+      "whyEn": [
+        "Payload filters combine metadata constraints with vector search.",
+        "Hybrid search supports sparse and dense signals.",
+        "Quantisation reduces memory at scale."
+      ],
+      "notForEn": [
+        "You need an embedded store with no server.",
+        "Your dataset fits in a simple in-memory index."
+      ],
+      "firstRunEn": [
+        "Create a collection with one payload field and filter on it.",
+        "Compare recall with and without quantisation.",
+        "Measure latency at your expected concurrency."
+      ]
     },
     {
       "id": "chroma",
@@ -2771,7 +3806,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "Python + 文档解析依赖（OCR/PDF/版面）；大规模跑要对象存储、向量库与索引任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A lightweight vector store with quick Python and JavaScript onboarding, suited to prototypes and small knowledge bases.",
+      "whyEn": [
+        "Very little setup for a first prototype.",
+        "Python and JavaScript clients.",
+        "Good for local experiments."
+      ],
+      "notForEn": [
+        "You need distributed, multi-tenant production scale.",
+        "You need advanced hybrid search and operational tooling."
+      ],
+      "firstRunEn": [
+        "Embed 100 documents and run three queries.",
+        "Add metadata filters and check results.",
+        "Measure memory before deciding whether to move to a larger store."
+      ]
     },
     {
       "id": "weaviate",
@@ -2810,7 +3860,22 @@
         "再评估多租户、备份与监控，别只看查询延迟。"
       ],
       "deps": "Docker 或 Kubernetes；向量化模型可内置模块或外部服务。生产要对象存储、备份与监控。",
-      "licenseNote": "代码是 BSD-3-Clause 与 Weaviate License 混合；企业功能与云服务另有条款。"
+      "licenseNote": "代码是 BSD-3-Clause 与 Weaviate License 混合；企业功能与云服务另有条款。",
+      "summaryEn": "A vector database with hybrid search: vectors plus BM25, multi-tenancy, modular vectorisation and reranking, with GraphQL and REST APIs.",
+      "whyEn": [
+        "Hybrid search is built in.",
+        "Multi-tenancy fits shared deployments.",
+        "Modular vectorisers and rerankers reduce glue code."
+      ],
+      "notForEn": [
+        "You need an embedded library with no service.",
+        "You want to avoid schema and module configuration."
+      ],
+      "firstRunEn": [
+        "Create a class with a vectoriser and import a small corpus.",
+        "Compare vector-only and hybrid results.",
+        "Test a tenant-isolation query before scaling."
+      ]
     },
     {
       "id": "milvus",
@@ -2849,7 +3914,22 @@
         "要上集群再规划 etcd、MinIO、消息队列与监控。"
       ],
       "deps": "Docker（standalone）或 Kubernetes（集群）+ etcd/对象存储/消息队列；Python/Go/Java SDK。",
-      "licenseNote": "代码 Apache-2.0；托管服务与第三方组件另算。"
+      "licenseNote": "代码 Apache-2.0；托管服务与第三方组件另算。",
+      "summaryEn": "A distributed vector database for large-scale retrieval, supporting HNSW, IVF, DiskANN, scalar filtering and multi-tenancy.",
+      "whyEn": [
+        "Designed for large collections and distributed deployment.",
+        "Several index types for different memory and latency budgets.",
+        "Scalar filtering and multi-tenancy are supported."
+      ],
+      "notForEn": [
+        "You have a few thousand vectors and want a local file.",
+        "You cannot operate a distributed cluster."
+      ],
+      "firstRunEn": [
+        "Start a single-node deployment and load 100k vectors.",
+        "Compare HNSW and IVF on recall and latency.",
+        "Test a filtered query and a tenant boundary."
+      ]
     },
     {
       "id": "docling",
@@ -2889,7 +3969,22 @@
       ],
       "deps": "Python 3.9+；CPU 可跑基础解析；OCR/版面模型与大批量任务建议 GPU。",
       "licenseNote": "代码 MIT；文档内容版权归原作者，解析输出不改变原文档许可。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "A document parsing toolkit that turns PDF, HTML and Office files into structured Markdown or JSON while preserving layout, tables and reading order.",
+      "whyEn": [
+        "Layout and reading order are preserved.",
+        "Tables and structure are explicit.",
+        "Output is ready for chunking and retrieval."
+      ],
+      "notForEn": [
+        "You need OCR for handwritten or low-quality scans.",
+        "You need a full RAG platform."
+      ],
+      "firstRunEn": [
+        "Parse one complex PDF with tables.",
+        "Check reading order and table structure in the output.",
+        "Compare a scanned page with the text-layer version."
+      ]
     },
     {
       "id": "unstructured",
@@ -2929,7 +4024,22 @@
       ],
       "deps": "Python；基础解析 CPU 可跑，OCR/版面模型需要额外依赖与 GPU；批处理要对象存储。",
       "licenseNote": "代码 Apache-2.0；部分解析模型/依赖另有许可，商用前逐项核对。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "A document ETL toolkit that partitions, cleans and metadata-tags PDFs, HTML, images and Office files for RAG.",
+      "whyEn": [
+        "Partitioning by element type improves chunk quality.",
+        "Metadata travels with the chunks.",
+        "Supports many file formats."
+      ],
+      "notForEn": [
+        "You need a single-format parser with no pipeline.",
+        "You cannot install system OCR or PDF dependencies."
+      ],
+      "firstRunEn": [
+        "Partition one PDF and inspect element types.",
+        "Attach source and page metadata to each chunk.",
+        "Test a table-heavy page and check the extracted text."
+      ]
     },
     {
       "id": "marker",
@@ -2969,7 +4079,22 @@
       ],
       "deps": "Python + PyTorch；GPU 更快，CPU 可跑小批量；扫描件要 OCR 依赖。",
       "licenseNote": "代码 Apache-2.0；模型权重与训练数据可能另有条款，商用前核对。",
-      "verifiedAt": "2026-11-19"
+      "verifiedAt": "2026-11-19",
+      "summaryEn": "A high-quality PDF-to-Markdown and JSON converter focused on layout, tables, formulas and reading order.",
+      "whyEn": [
+        "Layout-aware conversion preserves tables and formulas.",
+        "Output is easier to chunk than raw PDF text.",
+        "Good for technical and academic documents."
+      ],
+      "notForEn": [
+        "You need a general Office-format converter.",
+        "You need fast processing of millions of pages on CPU."
+      ],
+      "firstRunEn": [
+        "Convert one technical PDF with formulas.",
+        "Check table and equation fidelity.",
+        "Compare with a plain PDF text extractor on the same page."
+      ]
     },
     {
       "id": "lightrag",
@@ -3068,7 +4193,22 @@
         "再试 crawl 一个 10 页以内的小站，观察限速、去重、失败重试与 robots 行为。"
       ],
       "deps": "Docker / Node 或本地二进制；Playwright / 浏览器依赖；可选云 API key；向量库另配。",
-      "licenseNote": "代码 AGPL-3.0；云服务与商用条款另计，网络服务部署前先读 AGPL 义务。"
+      "licenseNote": "代码 AGPL-3.0；云服务与商用条款另计，网络服务部署前先读 AGPL 义务。",
+      "summaryEn": "Crawl websites into clean Markdown or structured data for RAG and agents, available as a local binary, MCP server or self-hosted API.",
+      "whyEn": [
+        "Returns clean Markdown instead of raw HTML.",
+        "Can expose a crawl as an MCP tool.",
+        "Local and self-hosted options exist."
+      ],
+      "notForEn": [
+        "You need to crawl sites that require complex authentication.",
+        "You cannot respect robots and rate limits."
+      ],
+      "firstRunEn": [
+        "Crawl three pages from a site you own.",
+        "Inspect the Markdown and link structure.",
+        "Set a crawl limit and a delay before a larger run."
+      ]
     },
     {
       "id": "graphify",
@@ -3110,7 +4250,22 @@
         "再接进 coding assistant，观察查询延迟、上下文长度与增量更新是否正常。"
       ],
       "deps": "Python / pipx；模型 API key（用于抽取/摘要）；仓库读写；大仓库要磁盘与内存。",
-      "licenseNote": "代码 Apache-2.0；云服务与第三方模型另计。"
+      "licenseNote": "代码 Apache-2.0；云服务与第三方模型另计。",
+      "summaryEn": "Map code, documents, SQL and PDFs into a queryable knowledge graph, so coding agents can query the graph instead of grepping the whole repository.",
+      "whyEn": [
+        "Graph queries can replace repeated full-repo greps.",
+        "Relations between code and documents become explicit.",
+        "Useful for large or polyglot repositories."
+      ],
+      "notForEn": [
+        "The repository is small enough to search directly.",
+        "You need a general-purpose graph database rather than a code mapper."
+      ],
+      "firstRunEn": [
+        "Index one repository and inspect the entity types.",
+        "Ask a cross-file dependency question through the graph.",
+        "Compare the answer with a grep-based search."
+      ]
     },
     {
       "id": "pgvector",
@@ -3149,7 +4304,24 @@
         "加 HNSW 索引，用 1 万–10 万条真实数据测 recall 与延迟。"
       ],
       "deps": "PostgreSQL 13+；编译扩展需要 pg_config；应用侧任意语言驱动。",
-      "licenseNote": "PostgreSQL License；数据库与 embedding 模型另计。"
+      "licenseNote": "PostgreSQL License；数据库与 embedding 模型另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A Postgres extension that adds vector columns, distance operators and HNSW or IVFFlat indexes, keeping vector search next to business data.",
+      "whyEn": [
+        "One database for relational and vector data.",
+        "Transactions and permissions reuse Postgres.",
+        "HNSW and IVFFlat indexes are supported."
+      ],
+      "notForEn": [
+        "You need a dedicated vector database at very large scale.",
+        "Your Postgres instance cannot be extended."
+      ],
+      "firstRunEn": [
+        "Create a vector column and insert 10k rows.",
+        "Build an HNSW index and compare recall and latency.",
+        "Test a filtered query that combines SQL and vector distance."
+      ]
     },
     {
       "id": "lancedb",
@@ -3189,7 +4361,24 @@
         "用 10 万条数据测建索引时间、查询延迟与磁盘占用。"
       ],
       "deps": "Python 3.9+ 或 Node 18+；本地磁盘；多模态还要 embedding 模型。",
-      "licenseNote": "代码 Apache-2.0；模型与数据另计。"
+      "licenseNote": "代码 Apache-2.0；模型与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "An embedded multimodal vector database with a Rust core and Python/JavaScript SDKs, built on Lance columnar storage with vector, full-text, SQL filtering and versioning.",
+      "whyEn": [
+        "Embedded deployment with no separate server.",
+        "Multimodal and full-text search in one store.",
+        "Lance versioning helps reproduce datasets."
+      ],
+      "notForEn": [
+        "You need a distributed multi-writer cluster.",
+        "Your workload is purely relational."
+      ],
+      "firstRunEn": [
+        "Create a table with vectors and metadata.",
+        "Run a vector query and a SQL filter together.",
+        "Test a versioned dataset update and roll back."
+      ]
     },
     {
       "id": "r2r",
@@ -3229,7 +4418,24 @@
         "开用户/租户与权限，检查文档隔离和引用返回。"
       ],
       "deps": "Docker；Postgres + pgvector；模型 API 或本地 embedding/LLM 端点。",
-      "licenseNote": "代码 MIT；模型与数据另计。"
+      "licenseNote": "代码 MIT；模型与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A production-oriented RAG service: document ingestion, hybrid retrieval, knowledge graphs, agentic RAG, users and tenants, with a REST API and web UI.",
+      "whyEn": [
+        "Ingestion through serving is one service.",
+        "Hybrid retrieval and graph features are included.",
+        "Tenant and user management are built in."
+      ],
+      "notForEn": [
+        "You need a lightweight library.",
+        "You cannot operate a service with a database and API."
+      ],
+      "firstRunEn": [
+        "Ingest a small corpus and run a hybrid query.",
+        "Create two tenants and test isolation.",
+        "Compare agentic and plain RAG on the same question."
+      ]
     },
     {
       "id": "graphrag",
@@ -3269,7 +4475,24 @@
         "用 20–50 个跨文档问题比较 global 与 local 查询的质量和成本。"
       ],
       "deps": "Python 3.10+；LLM API；建图需要大量 token 与磁盘。",
-      "licenseNote": "代码 MIT；模型与数据另计。"
+      "licenseNote": "代码 MIT；模型与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "Microsoft’s GraphRAG implementation: extract entities and relations from text, build communities, generate summaries and support global and local queries.",
+      "whyEn": [
+        "Global questions can use community summaries rather than top-k chunks.",
+        "Entity and relation extraction is part of the pipeline.",
+        "A reference implementation for graph-based RAG."
+      ],
+      "notForEn": [
+        "You need a low-cost index for a small corpus.",
+        "You cannot afford the extraction and summarisation calls."
+      ],
+      "firstRunEn": [
+        "Index a small document set and inspect the graph.",
+        "Ask one global and one local question.",
+        "Record token cost before scaling the corpus."
+      ]
     },
     {
       "id": "whisper",
@@ -3309,7 +4532,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要音频解码、模型权重；实时场景还要低延迟推理与流式接口，批量转写要任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "OpenAI’s speech-recognition models and inference code, multilingual and timestamp-capable, with a simple install.",
+      "whyEn": [
+        "Strong multilingual recognition.",
+        "Timestamps make transcription useful for subtitles and diarisation.",
+        "Reference implementation is easy to run."
+      ],
+      "notForEn": [
+        "You need real-time streaming on a CPU.",
+        "You need speaker labels out of the box."
+      ],
+      "firstRunEn": [
+        "Transcribe a 5-minute clip and inspect timestamps.",
+        "Test a noisy and an accented sample.",
+        "Record language, model size and word error rate."
+      ]
     },
     {
       "id": "faster-whisper",
@@ -3349,7 +4587,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要音频解码、模型权重；实时场景还要低延迟推理与流式接口，批量转写要任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A CTranslate2 reimplementation of Whisper inference with faster speed and lower memory use.",
+      "whyEn": [
+        "Faster than the reference implementation on the same hardware.",
+        "Lower memory use enables smaller GPUs.",
+        "Compatible with Whisper models."
+      ],
+      "notForEn": [
+        "You need features only present in the reference Whisper pipeline.",
+        "You need the largest model on a CPU in real time."
+      ],
+      "firstRunEn": [
+        "Transcribe the same clip as Whisper and compare speed and text.",
+        "Test int8 and float16 settings.",
+        "Record memory and real-time factor."
+      ]
     },
     {
       "id": "funasr",
@@ -3389,7 +4642,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要音频解码、模型权重；实时场景还要低延迟推理与流式接口，批量转写要任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Alibaba DAMO’s speech-recognition toolchain with Chinese ASR, punctuation, hotwords and speaker diarisation.",
+      "whyEn": [
+        "Chinese ASR and punctuation are bundled.",
+        "Hotwords help domain vocabulary.",
+        "Diarisation is available in the toolchain."
+      ],
+      "notForEn": [
+        "You need a single minimal Whisper-style script.",
+        "You need broad multilingual coverage beyond Chinese and English."
+      ],
+      "firstRunEn": [
+        "Transcribe a Chinese meeting clip with punctuation.",
+        "Add three hotwords and check recognition.",
+        "Enable diarisation and inspect speaker turns."
+      ]
     },
     {
       "id": "cosyvoice",
@@ -3429,7 +4697,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要音频解码、模型权重；实时场景还要低延迟推理与流式接口，批量转写要任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Zero-shot speech synthesis and voice cloning with multilingual and emotional control.",
+      "whyEn": [
+        "Zero-shot cloning from a short reference.",
+        "Multilingual and emotion controls.",
+        "Open code and weights for local use."
+      ],
+      "notForEn": [
+        "You need a hosted API with no local GPU.",
+        "You need guaranteed identity protection; cloning carries misuse risk."
+      ],
+      "firstRunEn": [
+        "Clone a voice from a clean 10-second reference.",
+        "Test the same text in two languages.",
+        "Check the licence and consent requirements before sharing output."
+      ]
     },
     {
       "id": "chattts",
@@ -3469,7 +4752,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要音频解码、模型权重；实时场景还要低延迟推理与流式接口，批量转写要任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "A conversational TTS model with natural prosody, Chinese and English support and paralinguistic cues such as laughter.",
+      "whyEn": [
+        "Prosody is tuned for dialogue.",
+        "Supports Chinese and English.",
+        "Paralinguistic cues are available."
+      ],
+      "notForEn": [
+        "You need studio-grade control over every phoneme.",
+        "You need a fully hosted service."
+      ],
+      "firstRunEn": [
+        "Synthesise a short dialogue turn in Chinese.",
+        "Try the same text in English.",
+        "Check stability across long paragraphs."
+      ]
     },
     {
       "id": "fish-speech",
@@ -3509,7 +4807,22 @@
         "换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。"
       ],
       "deps": "需要音频解码、模型权重；实时场景还要低延迟推理与流式接口，批量转写要任务队列。",
-      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。"
+      "licenseNote": "代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。",
+      "summaryEn": "Multilingual TTS and voice cloning with a focus on few-shot, cross-lingual and emotional expression.",
+      "whyEn": [
+        "Few-shot cloning from short references.",
+        "Cross-lingual synthesis.",
+        "Emotion and style controls."
+      ],
+      "notForEn": [
+        "You cannot obtain consent for the reference voice.",
+        "You need a lightweight CPU-only engine."
+      ],
+      "firstRunEn": [
+        "Clone from a consented reference and test one sentence.",
+        "Try a second language with the same voice.",
+        "Check pronunciation of names and numbers."
+      ]
     },
     {
       "id": "whisperx",
@@ -3549,7 +4862,22 @@
         "批量任务先做 VAD 切分与并发，再核对边界处有没有丢词。"
       ],
       "deps": "Python/PyTorch + ffmpeg；模型权重。说话人分离要 pyannote 与 Hugging Face token；GPU 建议 8GB+。",
-      "licenseNote": "代码 BSD-2-Clause；Whisper/pyannote 模型权重各自许可，商用前核对。"
+      "licenseNote": "代码 BSD-2-Clause；Whisper/pyannote 模型权重各自许可，商用前核对。",
+      "summaryEn": "A batched and accelerated Whisper pipeline with VAD segmentation, word-level alignment and speaker diarisation, producing timestamped transcripts and subtitles.",
+      "whyEn": [
+        "Word-level alignment improves subtitles.",
+        "VAD and diarisation are integrated.",
+        "Batched processing is faster on long audio."
+      ],
+      "notForEn": [
+        "You need a minimal single-file transcriber.",
+        "You cannot install diarisation models."
+      ],
+      "firstRunEn": [
+        "Transcribe a two-speaker clip with diarisation.",
+        "Check word-level timestamps in the subtitle output.",
+        "Compare speed and accuracy with plain Whisper."
+      ]
     },
     {
       "id": "gpt-sovits",
@@ -3588,7 +4916,22 @@
         "对比不同参考音频长度与情感，固定随机种子记录效果。"
       ],
       "deps": "Python/PyTorch；GPU 建议 8GB+，训练更吃显存；ffmpeg 与参考音频。",
-      "licenseNote": "代码 MIT；训练数据、参考人声与生成音频的授权要单独确认，商用尤其注意人格权与平台规则。"
+      "licenseNote": "代码 MIT；训练数据、参考人声与生成音频的授权要单独确认，商用尤其注意人格权与平台规则。",
+      "summaryEn": "Few-shot voice cloning and TTS: fine-tune on about one minute of clean speech, support Chinese, English and Japanese cross-lingual output, with training and inference web UIs.",
+      "whyEn": [
+        "Very small fine-tuning data requirement.",
+        "Cross-lingual synthesis.",
+        "Web UIs for training and inference."
+      ],
+      "notForEn": [
+        "You need a one-click hosted service.",
+        "You cannot secure consent and abuse controls for cloned voices."
+      ],
+      "firstRunEn": [
+        "Prepare one minute of clean, consented speech.",
+        "Fine-tune and test one sentence per language.",
+        "Check artefacts on long and expressive lines."
+      ]
     },
     {
       "id": "vibevoice",
@@ -3630,7 +4973,22 @@
         "再试流式或 BitNet 边缘版，比较 RTF、内存与准确率，决定要不要上生产。"
       ],
       "deps": "Python / PyTorch；Hugging Face 权重；GPU 更快，CPU 可用 BitNet；长音频要内存/磁盘。",
-      "licenseNote": "代码 MIT；模型权重与微软使用政策另计，商用与再分发前逐项核对。"
+      "licenseNote": "代码 MIT；模型权重与微软使用政策另计，商用与再分发前逐项核对。",
+      "summaryEn": "Microsoft’s open speech model family: 60-minute audio transcription with who spoke when, 50+ languages and streaming ASR; the TTS code was withdrawn because of misuse.",
+      "whyEn": [
+        "Long-form transcription with speaker and time context.",
+        "Broad language coverage.",
+        "Streaming ASR is part of the family."
+      ],
+      "notForEn": [
+        "You need the TTS component; it is no longer available.",
+        "You need a small CPU-only model."
+      ],
+      "firstRunEn": [
+        "Transcribe a 10-minute multi-speaker clip.",
+        "Check speaker turns and timestamps.",
+        "Test a noisy segment and record failure modes."
+      ]
     },
     {
       "id": "sensevoice",
@@ -3670,7 +5028,24 @@
         "接 VAD 处理长音频，记录实时率与情感/事件标签。"
       ],
       "deps": "Python；PyTorch；CPU 可跑，GPU 更快；ffmpeg。",
-      "licenseNote": "代码 MIT；模型权重与训练数据另计。"
+      "licenseNote": "代码 MIT；模型权重与训练数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A multilingual speech-understanding model for ASR, language identification, emotion recognition and audio-event detection, with low non-autoregressive latency.",
+      "whyEn": [
+        "Multiple speech tasks in one model.",
+        "Non-autoregressive inference keeps latency low.",
+        "Multilingual coverage."
+      ],
+      "notForEn": [
+        "You need word-level timestamps for subtitles.",
+        "You need a general-purpose audio LLM."
+      ],
+      "firstRunEn": [
+        "Run ASR and language ID on a short clip.",
+        "Test emotion on a clearly expressive sample.",
+        "Check latency on CPU and GPU."
+      ]
     },
     {
       "id": "index-tts",
@@ -3710,7 +5085,24 @@
         "换情绪文本和长句，记录稳定性、RTF 与失败样本。"
       ],
       "deps": "Python；PyTorch；GPU 推荐；参考音频 5–10 秒。",
-      "licenseNote": "适用 bilibili Model Use License；商用、分发与改编需逐条核对。"
+      "licenseNote": "适用 bilibili Model Use License；商用、分发与改编需逐条核对。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "Bilibili’s industrial-grade open TTS with zero-shot voice cloning, emotion and speed control, Chinese and English, non-autoregressive.",
+      "whyEn": [
+        "Zero-shot cloning and emotion control.",
+        "Chinese and English support.",
+        "Non-autoregressive inference is fast."
+      ],
+      "notForEn": [
+        "You need a hosted API with no GPU.",
+        "You cannot obtain consent for the reference voice."
+      ],
+      "firstRunEn": [
+        "Clone a consented voice and synthesise one paragraph.",
+        "Change speed and emotion separately.",
+        "Check pronunciation of numbers and mixed-language text."
+      ]
     },
     {
       "id": "pyannote-audio",
@@ -3750,7 +5142,24 @@
         "把结果与 ASR 时间戳对齐，统计 speaker error 与漏检。"
       ],
       "deps": "Python；PyTorch；Hugging Face token；ffmpeg。",
-      "licenseNote": "代码 MIT；预训练模型在 Hugging Face 上另有条款，商用前核对。"
+      "licenseNote": "代码 MIT；预训练模型在 Hugging Face 上另有条款，商用前核对。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "A speaker-diarisation toolkit covering VAD, speaker embeddings, clustering and end-to-end diarisation pipelines.",
+      "whyEn": [
+        "The full diarisation pipeline is available.",
+        "Components can be used separately.",
+        "A standard baseline for speaker segmentation."
+      ],
+      "notForEn": [
+        "You need a turnkey transcription product.",
+        "You cannot accept the model licence and gated access requirements."
+      ],
+      "firstRunEn": [
+        "Run VAD and diarisation on a two-speaker clip.",
+        "Check speaker-turn boundaries against the audio.",
+        "Measure diarisation error on a labelled sample."
+      ]
     },
     {
       "id": "unsloth",
@@ -4474,7 +5883,24 @@
         "换张量/流水并行度，记录吞吐、显存与通信开销。"
       ],
       "deps": "CUDA；PyTorch；NCCL；多 GPU；大规模需要高速互联。",
-      "licenseNote": "代码 BSD-3-Clause（NVIDIA 版权）；模型与数据另计。"
+      "licenseNote": "代码 BSD-3-Clause（NVIDIA 版权）；模型与数据另计。",
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push",
+      "summaryEn": "NVIDIA’s large-scale Transformer training framework with tensor, pipeline, sequence and context parallelism, FP8, MoE and distributed checkpointing.",
+      "whyEn": [
+        "Designed for multi-node large-model training.",
+        "Parallelism strategies are configurable rather than ad hoc.",
+        "FP8, MoE and distributed checkpoints are supported."
+      ],
+      "notForEn": [
+        "You want to fine-tune a 7B model on one GPU.",
+        "You do not have a multi-GPU cluster and a training team."
+      ],
+      "firstRunEn": [
+        "Run a small single-node example first.",
+        "Record the parallelism layout, global batch size and throughput.",
+        "Scale to two nodes and check checkpoint resume."
+      ]
     },
     {
       "id": "litellm",
@@ -4516,7 +5942,22 @@
       "deps": "Python 3.9+ / Docker；至少一个上游模型 API 或本地推理后端；生产要 Redis/Postgres（配额、缓存、日志）与反向代理。",
       "licenseNote": "代码为 MIT + 企业目录单独许可；企业功能、第三方模型与数据各自条款，商用前读 LICENSE 与 enterprise/LICENSE。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "A gateway and SDK that normalises 100+ model APIs into an OpenAI-compatible format, with a Rust core, virtual keys, cost tracking, rate limits, load balancing, guardrails, logging and caching, self-hostable.",
+      "whyEn": [
+        "One API shape across providers.",
+        "Virtual keys, budgets and rate limits centralise control.",
+        "Self-hosting keeps logs and keys in your infrastructure."
+      ],
+      "notForEn": [
+        "You use one provider and one key with no routing needs.",
+        "You cannot operate a gateway service."
+      ],
+      "firstRunEn": [
+        "Route two providers through one virtual key.",
+        "Set a budget and a rate limit, then test both.",
+        "Check that logs redact prompts and keys as expected."
+      ]
     },
     {
       "id": "google-adk",
@@ -4558,7 +5999,22 @@
       "deps": "Python 3.10+；Gemini API key 或其它模型接入；部署到 Cloud Run 需要 GCP 配置。",
       "licenseNote": "Apache-2.0；示例数据、第三方工具与 Google 托管服务各自条款。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "Google’s code-first Python agent toolkit, bringing tools, sessions, memory, evaluation and deployment into one abstraction, usable with Gemini or other models.",
+      "whyEn": [
+        "Sessions, memory and evaluation are part of the toolkit.",
+        "Works with Gemini and other providers.",
+        "Code-first rather than a visual builder."
+      ],
+      "notForEn": [
+        "You need a non-Python runtime.",
+        "You want a fully hosted agent platform with no deployment work."
+      ],
+      "firstRunEn": [
+        "Run the official sample with one tool.",
+        "Add a session and test a multi-turn task.",
+        "Run the built-in evaluation on three cases."
+      ]
     },
     {
       "id": "letta",
@@ -4600,7 +6056,22 @@
       "deps": "Docker / Python；Postgres + pgvector；LLM API 或本地模型；嵌入模型。",
       "licenseNote": "Apache-2.0；模型、嵌入服务与记忆数据另计。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "A stateful agent platform that splits memory into core, recall and archival tiers, persisting conversations, tool calls and agent state across sessions and allowing the agent to edit its own memory.",
+      "whyEn": [
+        "Memory tiers are explicit and inspectable.",
+        "State persists beyond a single context window.",
+        "The agent can edit its own memory, which enables long-running work."
+      ],
+      "notForEn": [
+        "You need a stateless request-response service.",
+        "You cannot govern what the agent writes into memory."
+      ],
+      "firstRunEn": [
+        "Create an agent and have a two-session conversation.",
+        "Inspect core, recall and archival memory after each turn.",
+        "Test a correction and a deletion before trusting it with real data."
+      ]
     },
     {
       "id": "open-interpreter",
@@ -4642,7 +6113,22 @@
       "deps": "Python 3.10+；模型 API 或本地 OpenAI 兼容端点；Docker/VM 做隔离。",
       "licenseNote": "Apache-2.0；模型权重、执行环境与第三方工具另计。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "A terminal agent that writes and runs code on your machine: it turns natural-language tasks into shell or Python steps, reads files, runs commands, inspects output and corrects itself; the 2026 version moves toward open-weight models such as Kimi K3.1 and GLM 5.3.",
+      "whyEn": [
+        "Runs real code instead of only describing steps.",
+        "Reads local files and observes command output.",
+        "Supports open-weight models in the 2026 line."
+      ],
+      "notForEn": [
+        "You cannot run generated code in a sandbox.",
+        "You need deterministic, auditable workflows."
+      ],
+      "firstRunEn": [
+        "Run it in a disposable container with no credentials.",
+        "Ask for a read-only file inspection first.",
+        "Add a command allowlist and a hard timeout before write operations."
+      ]
     },
     {
       "id": "swe-agent",
@@ -4684,7 +6170,22 @@
       "deps": "Docker；Python；模型 API；SWE-bench 数据集与评测 harness。",
       "licenseNote": "MIT；数据集、仓库代码与模型权重各自许可。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "A software-engineering agent that turns a GitHub issue into a code change, using an agent-computer interface (ACI) to constrain search, edit and test commands so the model can close the loop on the issue.",
+      "whyEn": [
+        "The ACI constrains actions instead of giving a raw shell.",
+        "Designed around issue-to-patch tasks.",
+        "Works with SWE-bench-style evaluation."
+      ],
+      "notForEn": [
+        "You need a general chat agent.",
+        "You cannot run tests in an isolated repository."
+      ],
+      "firstRunEn": [
+        "Run one issue in a disposable repo with a test command.",
+        "Inspect every ACI action and the final patch.",
+        "Check whether the patch passes the repository’s tests."
+      ]
     },
     {
       "id": "continue",
@@ -4726,7 +6227,22 @@
       "deps": "VS Code / JetBrains 或 Node CLI；模型 API 或本地 Ollama/vLLM；代码索引占磁盘。",
       "licenseNote": "Apache-2.0；模型、扩展市场与第三方插件各自条款。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "An open-source IDE and CLI coding agent: VS Code and JetBrains plugins plus a CLI, with local or hosted models, rules files, code indexing and custom tools.",
+      "whyEn": [
+        "Works across VS Code and JetBrains.",
+        "Rules files make project conventions explicit.",
+        "Local or hosted models can be mixed."
+      ],
+      "notForEn": [
+        "You need a fully autonomous long-running agent.",
+        "You cannot install IDE plugins or index code."
+      ],
+      "firstRunEn": [
+        "Install the plugin and run a read-only explanation task.",
+        "Add a rules file and test a style-sensitive edit.",
+        "Check what code is indexed before enabling a hosted model."
+      ]
     },
     {
       "id": "anythingllm",
@@ -4768,7 +6284,22 @@
       "deps": "桌面版或 Docker；嵌入模型 + LLM（本地 Ollama 或 API）；向量库（内置 LanceDB 等）。",
       "licenseNote": "MIT；模型、嵌入服务与上传文档的版权另计。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "A local-first RAG desktop and server that ingests documents, web pages and code into workspaces, connects local or hosted models and exposes chat, agent and API modes.",
+      "whyEn": [
+        "Desktop and server modes cover personal and team use.",
+        "Workspaces keep separate corpora.",
+        "Chat, agent and API surfaces share one backend."
+      ],
+      "notForEn": [
+        "You need a code-only RAG library.",
+        "You cannot manage local data storage and model keys."
+      ],
+      "firstRunEn": [
+        "Create a workspace with five documents.",
+        "Ask a cited question and check the sources.",
+        "Try the API mode with the same workspace."
+      ]
     },
     {
       "id": "kokoro",
@@ -4810,7 +6341,22 @@
       "deps": "Python；PyTorch；espeak-ng（部分语言）；模型权重约几百 MB。",
       "licenseNote": "代码与权重 Apache-2.0；voicepack 与训练数据另核。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "An 82M-parameter open TTS inference library: lightweight and fast, with Apache-licensed weights, multilingual voice packs and a pip package for local or edge deployment.",
+      "whyEn": [
+        "Very small and fast.",
+        "Apache-licensed weights.",
+        "Pip-installable for local and edge use."
+      ],
+      "notForEn": [
+        "You need studio-grade expressive control.",
+        "You need many languages beyond the released voice packs."
+      ],
+      "firstRunEn": [
+        "Install the pip package and synthesise one sentence.",
+        "Try two voice packs and compare.",
+        "Measure latency on the target edge device."
+      ]
     },
     {
       "id": "f5-tts",
@@ -4852,7 +6398,22 @@
       "deps": "Python + PyTorch；GPU 推荐（推理可 CPU 但慢）；参考音频；模型权重。",
       "licenseNote": "代码 MIT；预训练权重与 Emilia 数据可能另有非商用/署名条款，商用前读模型卡。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "A TTS model based on Flow Matching and a Diffusion Transformer: zero-shot voice cloning from a short reference, Chinese and English, with speed control and training code.",
+      "whyEn": [
+        "Zero-shot cloning from a short reference.",
+        "Flow-matching and DiT architecture.",
+        "Training and inference code are available."
+      ],
+      "notForEn": [
+        "You need a CPU-only real-time engine.",
+        "You cannot secure consent for cloned voices."
+      ],
+      "firstRunEn": [
+        "Clone a consented reference and synthesise one sentence.",
+        "Test Chinese and English with the same voice.",
+        "Compare speed settings for naturalness."
+      ]
     },
     {
       "id": "trellis",
@@ -4894,7 +6455,22 @@
       "deps": "Linux + NVIDIA GPU（CUDA）；conda；数 GB 权重；Blender/trimesh 查看输出。",
       "licenseNote": "代码 MIT；预训练权重与训练数据条款另核，商用前读模型卡。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "Microsoft’s 3D asset generation model: text or image input to a radiance field, 3D Gaussians and a mesh, built on a Structured LATent (SLAT) representation and a Rectified Flow Transformer.",
+      "whyEn": [
+        "One representation supports several 3D outputs.",
+        "Open code and weights.",
+        "A strong research baseline for image-to-3D."
+      ],
+      "notForEn": [
+        "You need production-ready asset pipelines with retopology.",
+        "You need CPU-only inference."
+      ],
+      "firstRunEn": [
+        "Run the official image-to-3D example.",
+        "Export the mesh and inspect scale and normals.",
+        "Compare Gaussian and mesh outputs for your use case."
+      ]
     },
     {
       "id": "kohya-ss",
@@ -4936,7 +6512,22 @@
       "deps": "Python + PyTorch/CUDA；NVIDIA GPU（8GB 起，越大越稳）；训练图片与正则图；可选 wandb/tensorboard。",
       "licenseNote": "Apache-2.0；基础模型、数据集与生成内容各自许可。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "A training GUI and script collection for Stable Diffusion models: LoRA, DreamBooth, fine-tuning, dataset tagging and utilities across SD1, SDXL and FLUX.",
+      "whyEn": [
+        "Covers several fine-tuning methods in one toolkit.",
+        "Dataset tagging utilities reduce manual work.",
+        "Supports SD1, SDXL and FLUX lines."
+      ],
+      "notForEn": [
+        "You need a hosted training service.",
+        "You cannot curate and license a training dataset."
+      ],
+      "firstRunEn": [
+        "Train a small LoRA on 10 licensed images.",
+        "Compare the same seed before and after training.",
+        "Check overfitting on a held-out prompt."
+      ]
     },
     {
       "id": "swe-bench",
@@ -4978,7 +6569,22 @@
       "deps": "Docker；Python；模型 API 或本地模型；数据集与仓库镜像，磁盘占用大。",
       "licenseNote": "MIT；仓库代码、issue/PR 文本与测试数据各自许可。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "A software-engineering benchmark and evaluation harness built from real GitHub issues and their pull requests, testing whether a model can produce a patch that passes the tests.",
+      "whyEn": [
+        "Tasks come from real repositories and issues.",
+        "Passing tests is the success criterion, not a judge model.",
+        "A standard baseline for coding agents."
+      ],
+      "notForEn": [
+        "You need a quick smoke test for a chat model.",
+        "You cannot run repository test suites in isolation."
+      ],
+      "firstRunEn": [
+        "Run one repository’s test suite on the base commit.",
+        "Evaluate one agent patch and inspect the failure logs.",
+        "Record the harness version, test command and environment."
+      ]
     },
     {
       "id": "litgpt",
@@ -5020,7 +6626,22 @@
       "deps": "Python + PyTorch；单卡 GPU 起；模型权重；训练数据。",
       "licenseNote": "Apache-2.0；模型权重与数据集另计。",
       "catalogOnly": false,
-      "verifiedAt": "2026-11-20"
+      "verifiedAt": "2026-11-20",
+      "summaryEn": "Lightning AI’s lightweight recipes for LLM training, fine-tuning and deployment: 20+ models, pretraining, SFT, LoRA, quantisation and inference, with an emphasis on single-GPU runs and readable code.",
+      "whyEn": [
+        "Recipes are readable and modifiable.",
+        "Covers pretraining, SFT, LoRA and quantisation.",
+        "Designed to run on a single GPU where possible."
+      ],
+      "notForEn": [
+        "You need a large-scale multi-node training framework.",
+        "You want a no-code fine-tuning product."
+      ],
+      "firstRunEn": [
+        "Run the smallest SFT recipe on one GPU.",
+        "Record memory, throughput and evaluation scores.",
+        "Try LoRA and compare quality with full fine-tuning."
+      ]
     },
     {
       "id": "transformers",
@@ -5741,6 +7362,224 @@
       "depsEn": "Python; a provider API key or local endpoint; vector stores and tools bring their own dependencies.",
       "licenseNote": "MIT；集成的模型、向量库与工具各自许可。",
       "licenseNoteEn": "MIT; integrated models, vector stores and tools carry their own licences."
+    },
+    {
+      "id": "livekit-agents",
+      "name": "LiveKit Agents",
+      "owner": "livekit",
+      "repo": "agents",
+      "url": "https://github.com/livekit/agents",
+      "docs": "https://docs.livekit.io/agents/",
+      "summary": "实时语音/视频 Agent 框架：WebRTC 传输、语音活动检测、打断、工具调用与多模态管线放在一套运行时里。",
+      "why": [
+        "端到端实时链路是它的主场：WebRTC 传输、VAD、打断与轮次控制都有现成实现。",
+        "Python 框架可接多家 STT/TTS/LLM，适合做电话客服、实时助手与语音 Agent。",
+        "与 LiveKit Cloud / 自托管 SFU 配套，房间、参与者与录制权限可分开管。"
+      ],
+      "notFor": [
+        "只做离线转写或批量音频处理，不需要实时房间与 WebRTC。",
+        "希望零代码搭语音机器人，先看平台型产品；这套要写管线与部署。"
+      ],
+      "scene": "speech-audio",
+      "tier": "prod",
+      "order": 21,
+      "tags": [
+        "Python",
+        "Apache-2.0",
+        "实时语音",
+        "WebRTC"
+      ],
+      "alternatives": [
+        "pipecat",
+        "whisper"
+      ],
+      "firstRun": [
+        "读官方 README / quickstart，确认 Python / LiveKit 版本与系统依赖。",
+        "按官方最小示例跑通 语音 Agent 最小房间，记录端口、密钥与数据路径。",
+        "换成自己的 1–2 个样本，观察延迟、并发与失败模式；不要先用生产流量压。"
+      ],
+      "firstRunEn": [
+        "Read the official README and quickstart; confirm the runtime version and system dependencies.",
+        "Run the smallest voice-agent room example and record ports, keys and data paths.",
+        "Try one or two of your own cases and watch latency, concurrency and failure modes; do not start with production traffic."
+      ],
+      "deps": "Python 运行时 + LiveKit server（Cloud 或自托管）+ STT/TTS/LLM 凭据；生产要 TURN、并发与录制存储。",
+      "licenseNote": "代码 Apache-2.0；LiveKit Cloud、模型与语音供应商另计条款，商用前核对。",
+      "summaryEn": "A realtime voice/video agent framework: WebRTC transport, VAD, interruption, tool calls and multimodal pipelines in one runtime.",
+      "whyEn": [
+        "Built for the realtime path: WebRTC transport, VAD, interruption and turn control are already implemented.",
+        "The Python framework connects to multiple STT/TTS/LLM vendors, suited to phone agents, live assistants and voice agents.",
+        "Pairs with LiveKit Cloud or a self-hosted SFU, with rooms, participants and recording permissions managed separately."
+      ],
+      "notForEn": [
+        "Offline transcription or batch audio does not need realtime rooms and WebRTC.",
+        "For a no-code voice bot, start with a platform product; this expects pipeline and deployment work."
+      ],
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push"
+    },
+    {
+      "id": "pipecat",
+      "name": "Pipecat",
+      "owner": "pipecat-ai",
+      "repo": "pipecat",
+      "url": "https://github.com/pipecat-ai/pipecat",
+      "docs": "https://docs.pipecat.ai/",
+      "summary": "面向语音与多模态应用的实时管线框架：把 transport、VAD、STT、LLM、TTS 与打断串成可观测的帧流。",
+      "why": [
+        "帧流模型清楚：每个处理器的输入输出可观测，延迟卡在哪一段容易定位。",
+        "传输层可换（WebRTC、WebSocket、电话等），不把业务绑死在一个云。",
+        "Daily 维护、社区活跃，示例覆盖语音助手、实时视频与多模态。"
+      ],
+      "notFor": [
+        "只做文本聊天，不需要音频帧与实时打断。",
+        "想要托管好的成品客服系统，先看 SaaS；这套要自己接供应商与部署。"
+      ],
+      "scene": "speech-audio",
+      "tier": "prod",
+      "order": 22,
+      "tags": [
+        "Python",
+        "BSD-2-Clause",
+        "实时语音",
+        "多模态管线"
+      ],
+      "alternatives": [
+        "livekit-agents",
+        "whisper"
+      ],
+      "firstRun": [
+        "读官方 README / quickstart，确认 Python 版本与系统依赖。",
+        "按官方最小示例跑通 本地语音管线，记录端口、密钥与数据路径。",
+        "换成自己的 1–2 个样本，观察延迟、并发与失败模式；不要先用生产流量压。"
+      ],
+      "firstRunEn": [
+        "Read the official README and quickstart; confirm the runtime version and system dependencies.",
+        "Run the smallest local voice pipeline example and record ports, keys and data paths.",
+        "Try one or two of your own cases and watch latency, concurrency and failure modes; do not start with production traffic."
+      ],
+      "deps": "Python 运行时 + 至少一家 STT/TTS/LLM 凭据；实时场景要 TURN / WebRTC 与稳定网络。",
+      "licenseNote": "代码 BSD-2-Clause；Daily 托管、模型与语音供应商另计条款。",
+      "summaryEn": "A realtime pipeline framework for voice and multimodal apps: transport, VAD, STT, LLM, TTS and interruption as an observable frame stream.",
+      "whyEn": [
+        "The frame-stream model is clear: each processor’s input and output are observable, so latency is easy to localise.",
+        "The transport layer is swappable (WebRTC, WebSocket, telephony), so the business is not locked to one cloud.",
+        "Maintained by Daily with an active community; examples cover voice assistants, realtime video and multimodal."
+      ],
+      "notForEn": [
+        "Text-only chat does not need audio frames or realtime interruption.",
+        "For a hosted turnkey contact-centre product, look at SaaS; this expects vendor wiring and deployment."
+      ],
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push"
+    },
+    {
+      "id": "cvat",
+      "name": "CVAT",
+      "owner": "cvat-ai",
+      "repo": "cvat",
+      "url": "https://github.com/cvat-ai/cvat",
+      "docs": "https://docs.cvat.ai/",
+      "summary": "图像、视频、音频与 3D 数据的标注平台：框、多边形、关键点、轨迹、审核与团队协作都在一套 Web 应用里。",
+      "why": [
+        "视频与 3D 标注是强项：轨迹插值、多视图、审核与质量控制比通用工具细。",
+        "可自托管，数据不出内网；也有云与企业版，权限、分析与 API 分层。",
+        "AI 辅助标注与自动预标注可接模型，减少重复框选。"
+      ],
+      "notFor": [
+        "只标几十张图、没有团队协作与审核需求，Label Studio 更轻。",
+        "需要文本/对话标注为主，先看 Argilla / Doccano 类工具。"
+      ],
+      "scene": "multimodal-visual",
+      "tier": "prod",
+      "order": 21,
+      "tags": [
+        "Python",
+        "MIT",
+        "标注",
+        "视频 / 3D"
+      ],
+      "alternatives": [
+        "label-studio"
+      ],
+      "firstRun": [
+        "读官方 README / quickstart，确认 Docker / Python 版本与系统依赖。",
+        "按官方最小示例跑通 CVAT 本地部署与一次标注任务，记录端口、密钥与数据路径。",
+        "换成自己的 1–2 个样本，观察延迟、并发与失败模式；不要先用生产流量压。"
+      ],
+      "firstRunEn": [
+        "Read the official README and quickstart; confirm the runtime version and system dependencies.",
+        "Run the smallest local CVAT deployment and one annotation job example and record ports, keys and data paths.",
+        "Try one or two of your own cases and watch latency, concurrency and failure modes; do not start with production traffic."
+      ],
+      "deps": "Docker / Docker Compose；生产要对象存储、数据库、鉴权与备份。",
+      "licenseNote": "代码 MIT；云服务、企业功能与标注服务另计条款。",
+      "summaryEn": "An annotation platform for image, video, audio and 3D data: boxes, polygons, keypoints, tracks, review and team collaboration in one web app.",
+      "whyEn": [
+        "Video and 3D annotation are the strengths: track interpolation, multi-view, review and QC are finer than generic tools.",
+        "Self-hostable, so data stays inside the network; cloud and enterprise tiers separate permissions, analytics and APIs.",
+        "AI-assisted and pre-annotation can call a model and reduce repeated box drawing."
+      ],
+      "notForEn": [
+        "A few dozen images with no team review: Label Studio is lighter.",
+        "Text/conversation annotation should start with Argilla or Doccano-style tools."
+      ],
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push"
+    },
+    {
+      "id": "steel-browser",
+      "name": "Steel Browser",
+      "owner": "steel-dev",
+      "repo": "steel-browser",
+      "url": "https://github.com/steel-dev/steel-browser",
+      "docs": "https://docs.steel.dev/",
+      "summary": "给 AI Agent 用的开源浏览器 API：会话、Cookie、代理、截图、PDF 与动作接口打包成可自托管的沙箱。",
+      "why": [
+        "把浏览器当服务：会话隔离、持久化登录态、代理与文件下载都有 API，不用自己拼 Playwright 基础设施。",
+        "可自托管，适合需要把浏览数据留在自己网络里的 Agent 项目。",
+        "与 Browser Use / Stagehand 类框架可配合，负责“浏览器运行时”这一层。"
+      ],
+      "notFor": [
+        "只做一次性抓取，Firecrawl / 静态 HTTP 更省。",
+        "需要成熟云浏览器与全球代理，先比较 Browserbase 等托管服务。"
+      ],
+      "scene": "agent-frameworks",
+      "tier": "prod",
+      "order": 33,
+      "tags": [
+        "TypeScript",
+        "Apache-2.0",
+        "浏览器",
+        "Agent 沙箱"
+      ],
+      "alternatives": [
+        "browser-use"
+      ],
+      "firstRun": [
+        "读官方 README / quickstart，确认 Node / Docker 版本与系统依赖。",
+        "按官方最小示例跑通 Steel 本地会话与截图，记录端口、密钥与数据路径。",
+        "换成自己的 1–2 个样本，观察延迟、并发与失败模式；不要先用生产流量压。"
+      ],
+      "firstRunEn": [
+        "Read the official README and quickstart; confirm the runtime version and system dependencies.",
+        "Run the smallest local Steel session and screenshot example and record ports, keys and data paths.",
+        "Try one or two of your own cases and watch latency, concurrency and failure modes; do not start with production traffic."
+      ],
+      "deps": "Docker 或 Node 运行时 + Chromium；生产要会话存储、代理与资源限额。",
+      "licenseNote": "代码 Apache-2.0；Steel 云服务与代理另计条款。",
+      "summaryEn": "An open-source browser API for AI agents: sessions, cookies, proxies, screenshots, PDFs and actions packaged as a self-hostable sandbox.",
+      "whyEn": [
+        "Browser as a service: session isolation, persistent login state, proxies and downloads via API, without assembling Playwright infrastructure.",
+        "Self-hostable, suited to agent projects that must keep browsing data inside their own network.",
+        "Works with Browser Use / Stagehand-style frameworks as the browser runtime layer."
+      ],
+      "notForEn": [
+        "One-off scraping is cheaper with Firecrawl or plain HTTP.",
+        "For mature cloud browsers and global proxies, compare hosted services such as Browserbase first."
+      ],
+      "verifiedAt": "2026-11-21",
+      "verifiedScope": "repo-existence-and-last-push"
     }
   ]
 }

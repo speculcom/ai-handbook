@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://hardware.specul.com/nvidia-vera-rubin-nvl72.html" />
   <meta property="og:title" content="NVIDIA Vera Rubin NVL72（整机柜） · 硬件算力" />
   <meta property="og:description" content="回答「Rubin 代整机柜到底给多少算力、多少 HBM、什么时候能买到」。NVL72 把 72 颗 Rubin GPU、36 颗 Vera CPU 装进一个 MGX 机柜：NVFP4 推理 3,600 PFLOPS、训练 2,520 PFLOPS，GPU 侧合计 20.7 TB HBM4 / 1,4" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://hardware.specul.com/nvidia-vera-rubin-nvl72.html" />
+  <link rel="alternate" hreflang="en" href="https://hardware.specul.com/nvidia-vera-rubin-nvl72.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://hardware.specul.com/nvidia-vera-rubin-nvl72.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -94,8 +99,9 @@
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>整机</span><span data-en>Systems</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>整机</span><span data-en>Systems</span></span><span class="fx-badge"><span data-zh>未公布单价</span><span data-en>No public price</span></span></div>
   <h1><span data-zh>NVIDIA Vera Rubin NVL72（整机柜）</span><span data-en>NVIDIA Vera Rubin NVL72 (rack)</span></h1>
+  <p class="fx-price-note"><span data-zh><span data-zh>未公布单价</span><span data-en>No public price</span></span><span data-en><span data-zh>未公布单价</span><span data-en>No public price</span></span> · <span data-zh>官方页未给公开单价；这类产品通常按整机、云实例或询价成交，不拿经销商价冒充官方价。</span><span data-en>No public unit price on the official page; these usually sell as systems, cloud instances or on request, so dealer quotes are not presented as official.</span></p>
   <p class="fx-entry-lead"><span data-zh>回答「Rubin 代整机柜到底给多少算力、多少 HBM、什么时候能买到」。NVL72 把 72 颗 Rubin GPU、36 颗 Vera CPU 装进一个 MGX 机柜：NVFP4 推理 3,600 PFLOPS、训练 2,520 PFLOPS，GPU 侧合计 20.7 TB HBM4 / 1,400 TB/s；官方页面标「Available Now」，并称相对 GB200 NVL72 每百万 token 成本降至十分之一、每兆瓦 token 吞吐提升最多 10×。<br>不主张：算力与成本都是厂商口径，页面自己写「projected performance subject to change」，没有第三方实测；3,600 PF 是 NVFP4 稀疏口径，不能和 FP16 数字直接横比；20.7 TB 是 72 卡合计，不是单卡；「可用」不等于大规模现货。</span><span data-en>Answers what a Rubin-generation rack delivers in compute, HBM and availability. NVL72 packs 72 Rubin GPUs and 36 Vera CPUs into one MGX rack: 3,600 PFLOPS NVFP4 inference, 2,520 PFLOPS training, and 20.7 TB HBM4 / 1,400 TB/s aggregate on the GPU side. The official page marks it &quot;Available Now&quot; and claims one-tenth the cost per million tokens and up to 10x more tokens per megawatt than GB200 NVL72.<br>It does not claim: compute and cost are vendor figures; the page itself says &quot;projected performance subject to change&quot;, with no third-party measurement; 3,600 PF is NVFP4 sparse, not directly comparable with FP16; 20.7 TB is 72-GPU aggregate, not per GPU; &quot;available&quot; does not mean broad volume shipping.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>配置 / configuration</dt><dd>72× Rubin GPU + 36× Vera CPU</dd></div><div><dt>NVFP4 推理 / inference</dt><dd>3,600 PFLOPS（稀疏口径）</dd></div><div><dt>NVFP4 训练 / training</dt><dd>2,520 PFLOPS</dd></div><div><dt>GPU 显存 / HBM</dt><dd>20.7 TB HBM4（合计）</dd></div><div><dt>GPU 带宽 / bandwidth</dt><dd>1,400 TB/s（合计）</dd></div><div><dt>CPU 核心 / cores</dt><dd>3,168 颗 NVIDIA Olympus 核心</dd></div><div><dt>网络 / networking</dt><dd>32.4 TB/s</dd></div><div><dt>状态 / status</dt><dd>官方页标 Available Now（2026-11）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -124,8 +130,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>vendor-claim</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener">https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>整机</span><span data-en>Systems</span></dd></div>
+      <div><dt><span data-zh>状态</span><span data-en>Status</span></dt><dd><span data-zh>已发布 / 未出货</span><span data-en>Announced</span></dd></div>
+      <div><dt><span data-zh>适合</span><span data-en>Use cases</span></dt><dd><span data-zh>集群</span><span data-en>Cluster</span></dd></div>
+      <div><dt><span data-zh>价格口径</span><span data-en>Price basis</span></dt><dd><span data-zh>未公布单价</span><span data-en>No public price</span> · not-published</dd></div>
     </dl>
   </section>
+  
   
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="amd-helios.html"><span data-zh>AMD Helios 机架</span><span data-en>AMD Helios rack</span></a></li><li><a href="nvidia-dgx-b200.html"><span data-zh>NVIDIA DGX B200</span><span data-en>NVIDIA DGX B200</span></a></li><li><a href="nvidia-dgx-spark.html"><span data-zh>NVIDIA DGX Spark</span><span data-en>NVIDIA DGX Spark</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-local.html"><span data-zh>本机跑模型：显存、量化与部署</span><span data-en>Run models locally: VRAM, quantization, serving</span></a></li><li><a href="https://models.specul.com/"><span data-zh>按显存挑模型与量化档</span><span data-en>Pick a model and quant tier by VRAM</span></a></li></ul></section>

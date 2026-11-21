@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "code": "nemotron",
+  "name": {
+    "zh": "Nemotron",
+    "en": "Nemotron"
+  },
+  "vendor": {
+    "zh": "NVIDIA",
+    "en": "NVIDIA"
+  },
+  "currentGen": {
+    "zh": "Nemotron 3.5",
+    "en": "Nemotron 3.5"
+  },
+  "currentGenDate": "2026-11",
+  "generations": [
+    {
+      "gen": "Nemotron 3.5 Lightning 30B-A3B",
+      "date": "2026-11",
+      "zh": "轻量档：30B 总参 / 3B 激活 MoE，面向单机与低延迟 agent；官方给出 1M 上下文。",
+      "en": "Lightweight tier: 30B total / 3B active MoE, aimed at single-machine and low-latency agents; the official page states a 1M context.",
+      "url": "https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron/llm-info/"
+    },
+    {
+      "gen": "Nemotron 3.5 Super 120B-A12B",
+      "date": "2026-11",
+      "zh": "中档：120B 总参 / 12B 激活，适合多卡推理与较复杂 agent 工作流。",
+      "en": "Mid tier: 120B total / 12B active, suited to multi-GPU inference and more complex agent workflows.",
+      "url": "https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron/llm-info/"
+    },
+    {
+      "gen": "Nemotron 3.5 Ultra 550B-A55B",
+      "date": "2026-11",
+      "zh": "旗舰：550B 总参 / 55B 激活，面向大集群与最高质量档；本地部署门槛很高。",
+      "en": "Flagship: 550B total / 55B active, aimed at large clusters and the highest-quality tier; the local-deployment bar is very high.",
+      "url": "https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron/llm-info/"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "30B-A3B（单机/低延迟）",
+      "en": "30B-A3B (single machine / low latency)"
+    },
+    {
+      "zh": "120B-A12B（多卡）",
+      "en": "120B-A12B (multi-GPU)"
+    },
+    {
+      "zh": "550B-A55B（集群）",
+      "en": "550B-A55B (cluster)"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "nvidia-open-model-license",
+      "zh": "NVIDIA Nemotron Open Model License / OpenMDW-1.1（以模型卡为准）",
+      "en": "NVIDIA Nemotron Open Model License / OpenMDW-1.1 (per model card)",
+      "url": "https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron/llm-info/"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "NVIDIA 官方 Nemotron 页面列出 Lightning 30B-A3B、Super 120B-A12B、Ultra 550B-A55B 三档，并标注 1M 上下文与开放模型许可。",
+      "en": "NVIDIA’s official Nemotron page lists Lightning 30B-A3B, Super 120B-A12B and Ultra 550B-A55B, with a 1M context and an open-model licence.",
+      "url": "https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron/llm-info/"
+    }
+  ],
+  "positioning": {
+    "zh": "NVIDIA 的开放权重 agent 家族：三档 MoE 覆盖单机到集群，主打长上下文、推理与本地 agent。它的价值不在“又一个开源模型”，而在把 NVIDIA 的推理栈、NIM 与硬件适配绑在一起；如果你不用 NVIDIA 硬件，收益会打折。",
+    "en": "NVIDIA’s open-weight agent family: three MoE tiers from a single machine to a cluster, pitched at long context, reasoning and local agents. Its value is not “another open model” but the coupling with NVIDIA’s inference stack, NIM and hardware; without NVIDIA hardware the benefit is smaller."
+  },
+  "onSite": {
+    "series": [],
+    "zh": "本站尚未收录 Nemotron 的量化对比：三档尺寸跨度大，GGUF 生态与下载量还在早期，未达到本站约 30 万下载的门槛。",
+    "en": "No Nemotron quantisation comparison yet: the three tiers span very different sizes and the GGUF ecosystem is still early, below this site’s ~300k-download threshold."
+  },
+  "sources": [
+    {
+      "label": "NVIDIA · Nemotron LLM 官方信息页",
+      "url": "https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron/llm-info/",
+      "kind": "official",
+      "labelEn": "NVIDIA · Nemotron LLM official information page"
+    },
+    {
+      "label": "NVIDIA · Nemotron 模型卡与许可入口",
+      "url": "https://huggingface.co/nvidia",
+      "kind": "docs",
+      "labelEn": "NVIDIA · Nemotron model cards and licence entry"
+    }
+  ],
+  "last_verified": "2026-11-21",
+  "confidence": "partial",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 NVIDIA（美国）。",
+    "originNoteEn": "Made by NVIDIA (United States).",
+    "direct": "unknown",
+    "directNote": "本次未做中国大陆网络探测。",
+    "directNoteEn": "No mainland-China network probe was run.",
+    "filing": {
+      "status": "unknown",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "未检索备案名单。",
+      "noteEn": "Filing registry not searched."
+    },
+    "last_verified": "2026-11-21",
+    "sources": [
+      {
+        "label": "NVIDIA Nemotron 官方页",
+        "url": "https://www.nvidia.com/en-us/ai/nemotron/",
+        "kind": "official"
+      }
+    ]
+  }
+}

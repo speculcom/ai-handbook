@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/timeout-cascades-2026.html" />
   <meta property="og:title" content="用超时级联降低 coding agent 推理成本 · AI 论文" />
   <meta property="og:description" content="问题：coding agent 很吃 GPU 小时，小模型便宜但怕不稳；能不能先用小模型、失败再升级大模型，在不掉解决率的前提下省钱？ 证据位置：论文在 SWE-bench Verified 上评 36 个 2024 年后开放权重模型，发现小模型在 easy/medium 上已接近大模型，差距集中在" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/timeout-cascades-2026.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/timeout-cascades-2026.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/timeout-cascades-2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></span></div>
   <h1><span data-zh>用超时级联降低 coding agent 推理成本</span><span data-en>Reducing Inference Cost of Coding Agents with Timeout Cascades</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：coding agent 很吃 GPU 小时，小模型便宜但怕不稳；能不能先用小模型、失败再升级大模型，在不掉解决率的前提下省钱？<br>证据位置：论文在 SWE-bench Verified 上评 36 个 2024 年后开放权重模型，发现小模型在 easy/medium 上已接近大模型，差距集中在 hard；用 GLM-4.7-Flash 先跑、超时后升级 GLM-4.7，按 120 分钟超时，easy 任务 GPU 小时从 821 降到 546（-33.5%），全部任务从 2,585 降到 2,160（-16.4%），解决率不掉；简单级联接近 oracle 路由。<br>作者自陈局限：单次运行、只测一对主模型、只测一个 benchmark；工作负载必须 easy/medium 占多数（SWE-bench Verified 91%），hard 为主时级联会退化；升级是冷重启，不继承小模型的中间状态；墙钟时间反而增加（41.6 分钟/任务 → 65.5 或 84.5 分钟），不适合交互式等结果。<br>它没主张的：不是所有 coding agent 都能省 33%；不是小模型可以替代大模型；不是级联一定优于学习型路由；不是延迟也会下降。</span><span data-en>Problem: coding agents burn GPU-hours; small models are cheaper but riskier. Can a small-model-first cascade cut cost without losing resolve rate?<br>Where the evidence sits: the paper evaluates 36 open-weight models released since 2024 on SWE-bench Verified and finds recent small models close the gap on easy/medium tasks, with the gap concentrated on hard tasks. Using GLM-4.7-Flash first and escalating to GLM-4.7 after a timeout, at a 120-minute timeout, GPU-hours fall from 821 to 546 on easy tasks (-33.5%) and from 2,585 to 2,160 on all tasks (-16.4%) without sacrificing resolve rate; the simple cascade nearly matches an oracle-style router.<br>What the authors say about limits: single-run evaluations, one primary model pair and one benchmark; the workload must be dominated by easy/medium tasks (91% of SWE-bench Verified), and the cascade degrades when hard tasks dominate; escalation is a cold restart and does not inherit the small model&#39;s intermediate state; wall-clock time rises (41.6 min/task to 65.5 or 84.5 min), so it is unsuitable for interactive waiting.<br>What it does not claim: that every coding agent saves 33%; that small models replace large ones; that a cascade always beats a learned router; that latency also falls.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发表 / venue</dt><dd>arXiv 2611.24324（2026-11-18）</dd></div><div><dt>评测 / benchmark</dt><dd>SWE-bench Verified（500 题；混合策略用 466 题完整轨迹）</dd></div><div><dt>模型 / models</dt><dd>36 个 2024 年后开放权重模型；主对 GLM-4.7-Flash → GLM-4.7</dd></div><div><dt>成本 / cost</dt><dd>easy 任务 -33.5%；全部任务 -16.4% GPU-hours</dd></div><div><dt>解决率 / resolve</dt><dd>不牺牲整体解决率；简单级联接近 oracle 路由</dd></div><div><dt>代价 / trade-off</dt><dd>墙钟 41.6 → 65.5 / 84.5 分钟；适合异步任务</dd></div><div><dt>证据位置 / evidence</dt><dd>摘要；第 V–VI 节；结论</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读论文与 HTML 全文）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2611.24324" rel="noopener">https://arxiv.org/abs/2611.24324</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>Agent 与工具</span><span data-en>Agents &amp; tools</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="agentbench-2023.html"><span data-zh>AgentBench: Evaluating LLMs as Agents</span><span data-en>AgentBench: Evaluating LLMs as Agents</span></a></li><li><a href="contextweaver-2026.html"><span data-zh>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</span><span data-en>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</span></a></li><li><a href="droidprefill-2026.html"><span data-zh>DroidPrefill：用手机 NPU 跑完全本地的 GUI agent</span><span data-en>Building Fully On-Device GUI Agents with Mobile NPUs</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

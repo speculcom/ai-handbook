@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/aider.html" />
   <meta property="og:title" content="Aider · 开源 AI 工具库" />
   <meta property="og:description" content="Aider：终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。 许可 Apache-2.0，Python，50.2k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/aider.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/aider.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/aider.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h1>Aider</h1>
   <p class="owner">Aider-AI / aider</p>
-  <p class="sub">终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。</p>
+  <p class="sub"><span data-zh>终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。</span><span data-en>A pair-programming agent in the terminal that reads and writes a local git repo, produces diffs, commits automatically and uses a repo map to control context.</span></p>
 </header>
 <div class="factbar">
   <span><b>50.2k</b> stars</span>
   <span><b>5177</b> forks</span>
-  <span><b>Python</b> 语言</span>
-  <span><b>Apache-2.0</b> 许可</span>
-  <span>最近推送 <b>2026-05-22</b></span>
+  <span><b>Python</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>Apache-2.0</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2026-05-22</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>最小侵入的 coding agent 基线：一个命令、一个仓库，每轮改动都能用 git diff 审。</li><li>Repo map、edit format 和自动 lint/test 回环的设计，值得做代码 agent 的人拆开看。</li><li>支持多家模型和本地端点，方便横向比较模型在真实仓库上的编辑能力。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">需要图形 IDE、多 agent 并行或大规模团队权限管理的场景。<br>没有 git 的目录，或不允许 agent 直接改文件的仓库。</p>
-  <h2>最小上手</h2>
-  <ol><li>pip install aider-chat，准备 git 仓库和模型 API key。</li><li>在干净分支上让 aider 改一个 README 或小函数，检查 diff。</li><li>开一个测试命令，让它改代码后自动跑测试，观察失败重试。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>Python 3.10+；git；模型 API 或本地端点；可选 lint/test 命令。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码 Apache-2.0；模型与数据另计。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/cline.html">Cline</a> — 先试这个，VS Code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。</li><li><a href="../repos/codex-cli.html">Codex CLI</a> — 生产可用，OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</li><li><a href="../repos/opencode.html">OpenCode</a> — 生产可用，终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>最小侵入的 coding agent 基线：一个命令、一个仓库，每轮改动都能用 git diff 审。</span><span data-en>Git-native: every change is a diff you can review and revert.</span></li><li><span data-zh>Repo map、edit format 和自动 lint/test 回环的设计，值得做代码 agent 的人拆开看。</span><span data-en>The repo map keeps context focused on relevant files.</span></li><li><span data-zh>支持多家模型和本地端点，方便横向比较模型在真实仓库上的编辑能力。</span><span data-en>Works well for small, well-scoped edits.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>需要图形 IDE、多 agent 并行或大规模团队权限管理的场景。</span><span data-en>You need an autonomous agent that runs long multi-step tasks.</span><br><span data-zh>没有 git 的目录，或不允许 agent 直接改文件的仓库。</span><span data-en>The repository is too large or noisy to map usefully.</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>pip install aider-chat，准备 git 仓库和模型 API key。</span><span data-en>Run it on a clean branch with a one-file task.</span></li><li><span data-zh>在干净分支上让 aider 改一个 README 或小函数，检查 diff。</span><span data-en>Review the diff and the commit message before accepting.</span></li><li><span data-zh>开一个测试命令，让它改代码后自动跑测试，观察失败重试。</span><span data-en>Test a task that touches two files and check the repo map context.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>Python 3.10+；git；模型 API 或本地端点；可选 lint/test 命令。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码 Apache-2.0；模型与数据另计。</span><span data-en>Code is Apache-2.0; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/cline.html">Cline</a> — <span data-zh>先试这个</span><span data-en>Start here</span>，<span data-zh>VS Code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。</span><span data-en>An autonomous coding agent inside VS Code that can read files, edit code, run terminal commands and use a browser, asking for approval at each step.</span></li><li><a href="../repos/codex-cli.html">Codex CLI</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</span><span data-en>OpenAI’s local coding agent: Rust binary, OS-level sandbox, MCP and cloud-task handoff, built for editing code in the terminal.</span></li><li><a href="../repos/opencode.html">OpenCode</a> — <span data-zh>生产可用</span><span data-en>Production</span>，<span data-zh>终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。</span><span data-en>An open-source coding agent in the terminal: separate build and plan agents, LSP feedback, 75+ model providers and a desktop beta.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/Aider-AI/aider" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://aider.chat/" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=aider">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/Aider-AI/aider" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://aider.chat/" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=aider"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

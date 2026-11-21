@@ -17,12 +17,16 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   Cohere　当前代 Command A+（2026-05）　3 代　许可 apache-2.0　没有它的量化对比
 - [DeepSeek](https://models.specul.com/families/deepseek/): MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，这里系列页有记录）。适合追新、能接受大模型的部署者。
   深度求索 DeepSeek　当前代 V4.1-Flash（2026-09）　3 代　许可 mit　量化对比：deepseek-v4
+- [Falcon](https://models.specul.com/families/falcon/): TII 的混合架构家族：H1R 7B 用 Transformer-Mamba 混合结构把 7B 做到单卡可跑，适合做长序列与低显存实验。许可不是 OSI，商用前要逐条读；生态规模也小于 Llama/Qwen。
+  TII（阿联酋技术创新研究院）　当前代 Falcon H1R 7B（2026-01）　2 代　许可 falcon-tii-license　没有它的量化对比
 - [Gemma](https://models.specul.com/families/gemma/): 尺寸档最全的家族（E2B 到 31B），端侧到服务器一条线；许可是 Apache-2.0 + 使用政策组合，下载前读政策原文。这里的 gemma-4 系列覆盖其中三档。
   Google DeepMind　当前代 Gemma 4（2026-03）　2 代　许可 apache-2.0　量化对比：gemma-4
 - [GLM 智谱](https://models.specul.com/families/glm/): 中文 agent 与代码强项、迭代节奏极快（半年四代）。大杯与 Flash 杯许可不同——本地部署优先 MIT 的 Flash 杯。这里的 glm-5 系列在 GLM-5.3 上。
   智谱 AI · Z.ai　当前代 GLM-5.3（2026-08）　4 代　许可 mit, other　量化对比：glm-5
 - [gpt-oss](https://models.specul.com/families/gpt-oss/): OpenAI 首次放出的开放权重 MoE：Apache-2.0、官方就按「量化后交付」设计（MXFP4），单卡可跑是它的主打场景。这里有 gpt-oss 系列的量化对比。
   OpenAI　当前代 gpt-oss（2025-08）　1 代　许可 apache-2.0　量化对比：gpt-oss
+- [Granite](https://models.specul.com/families/granite/): IBM 的企业向开放权重家族：尺寸克制、许可干净、强调工作流与编码，适合在合规要求高的企业里做私有部署。它不是“跑分最强”路线，优势在许可、可审计与企业集成。
+  IBM　当前代 Granite 4.2（2026-11）　3 代　许可 apache-2.0　没有它的量化对比
 - [KAT Coder](https://models.specul.com/families/kat/): 快手 Kwaipilot 的代码家族：API 版闭源、Dev 版开放权重。它是这里的「派生模型」代表——官方自己声明基座是 Qwen3.6-35B-A3B，选它等于选 Qwen 谱系 + 快手代码后训练。
   Kwaipilot（快手）　当前代 KAT-Coder-V2.5（2026-07）　2 代　许可 apache-2.0　量化对比：kat-coder
 - [Kimi](https://models.specul.com/families/kimi/): 国产开放权重旗舰：K3.1 Pro 把 K3 的后训练推到新一档，2.8T 总参 / 104B 激活、1M 上下文，权重于 2026-11-04 开放，许可为自定义 Kimi K3.1 Pro License。对话产品「Kimi 智能助手」在网信办首批备案；模型权重与备案是两回事。
@@ -37,6 +41,10 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   Mistral AI（法国）　当前代 Mistral Large 4（2026-10）　5 代　许可 mistral-ecosystem-open-weight, apache-2.0, other　没有它的量化对比
 - [Muse](https://models.specul.com/families/muse/): Meta 在 Llama 之外的新开放权重线（meta-models org）。发布走门控：要先在 HF 登录同意才能下载，这是选型时的硬约束，卡上如实写。这里有 Muse Glimmer 30B 的量化对比。
   Meta　当前代 Muse Glimmer（2026-08）　2 代　许可 apache-2.0　量化对比：muse-glimmer
+- [Nemotron](https://models.specul.com/families/nemotron/): NVIDIA 的开放权重 agent 家族：三档 MoE 覆盖单机到集群，主打长上下文、推理与本地 agent。它的价值不在“又一个开源模型”，而在把 NVIDIA 的推理栈、NIM 与硬件适配绑在一起；如果你不用 NVIDIA 硬件，收益会打折。
+  NVIDIA　当前代 Nemotron 3.5（2026-11）　3 代　许可 nvidia-open-model-license　没有它的量化对比
+- [OLMo](https://models.specul.com/families/olmo/): Ai2 的全开放研究家族：真正把数据、代码、检查点和训练配方一起放出，适合做可复现实验与教学。它的优势不是榜单分数，而是“你能从头查到尾”；代价是训练与评测成本要自己承担。
+  Allen Institute for AI (Ai2)　当前代 OLMo 3.1（2026-11）　2 代　许可 apache-2.0　没有它的量化对比
 - [Ornith](https://models.specul.com/families/ornith/): 新晋家族（2026 年才出现两代）：MIT 许可 + 三档尺寸覆盖单卡到旗舰。出品主体 DeepReinforce 的注册辖区官方未声明，这里按「国外出品」处理并在属地依据里写明（S52 口径）。
   Ornith AI（DeepReinforce）　当前代 Ornith 1.5（2026-08）　2 代　许可 mit　量化对比：ornith-1-5
 - [Phi](https://models.specul.com/families/phi/): 微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。这里没有它的量化对比——当前代 GGUF 生态太薄（见下）。

@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/su-2021-roformer.html" />
   <meta property="og:title" content="RoFormer: Enhanced Transformer with Rotary Position… · AI 论文" />
   <meta property="og:description" content="问题：自注意力本身不带位置信息，已有的绝对与相对位置编码大多把位置向量加到词表示上，因此没法直接用在把注意力改写成线性形式的架构里；能不能让编码既带绝对位置、又在注意力内积中显式体现相对位置。 证据位置：方法在 §3.2（二维旋转推广到一般形式），长程衰减等性质在 §3.3 与 §3.4.3；实验在" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/su-2021-roformer.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/su-2021-roformer.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/su-2021-roformer.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>架构</span><span data-en>Architecture</span></span></div>
   <h1><span data-zh>RoFormer: Enhanced Transformer with Rotary Position Embedding</span><span data-en>RoFormer: Enhanced Transformer with Rotary Position Embedding</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：自注意力本身不带位置信息，已有的绝对与相对位置编码大多把位置向量加到词表示上，因此没法直接用在把注意力改写成线性形式的架构里；能不能让编码既带绝对位置、又在注意力内积中显式体现相对位置。<br>证据位置：方法在 §3.2（二维旋转推广到一般形式），长程衰减等性质在 §3.3 与 §3.4.3；实验在 §4，原文说明全部跑在两台各 4 张 V100 的云服务器上——WMT14 英德 BLEU 在表 1（Transformer-base 27.3、RoFormer 27.5），GLUE 六项在表 2，Performer 加 RoPE 的预训练损失曲线在 Figure 3 右图，中文长文本 CAIL2019-SCM 在表 5；局限有独立小节 §4.5.5 Limitations of the work。<br>作者自陈局限：§4.5.5 自己列了三条——把相对位置关系写成二维子空间里的旋转虽有数学形式，但没有充分解释为什么它比其他位置编码策略收敛更快；长程衰减性质已经证明、长文本上表现更好也观察到了，但作者说还没给出可信的解释；此外 RoFormer 建立在 Transformer 基础设施之上，预训练需要硬件资源。<br>它没主张的：论文没有说 RoPE 在所有下游任务上都优于 BERT——表 2 里 SST-2、QNLI、MNLI 三项 RoFormer 更低，正文自己写的口径是六项中的三项；表 5 的 1024 结果也不能读成「只在 512 上训练、直接外推到 1024」的证据，因为表 4 的分阶段预训练把最大序列长度提到过 1536；「能配线性自注意力」这一点在 §4.4 只用 Performer 的预训练损失曲线验证，没有给下游任务分数。</span><span data-en>Problem: self-attention carries no position information by itself, and most existing absolute and relative encodings add a position vector to the token representation, so they cannot be used directly in architectures that rewrite attention in linear form; can an encoding carry absolute position while making relative position explicit inside the attention inner product.<br>Where the evidence sits: the method is in 3.2 (a 2D rotation generalised to the full form) and the long-term decay properties in 3.3 and 3.4.3; experiments are in Section 4, which states they all ran on two cloud servers with 4 V100 GPUs each — WMT14 English-German BLEU in Table 1 (Transformer-base 27.3, RoFormer 27.5), six GLUE tasks in Table 2, Performer-with-RoPE pre-training loss curves in Figure 3 (right), and Chinese long-text CAIL2019-SCM in Table 5; the limits have their own subsection, 4.5.5 Limitations of the work.<br>What the authors say about limits: 4.5.5 lists three — although relative position is formulated mathematically as rotations in 2D sub-spaces, there is no thorough explanation of why it converges faster than other position encoding strategies; the long-term decay property is proved and better long-text performance is observed, but the authors say they have not come up with a faithful explanation; and RoFormer is built on Transformer-based infrastructure, so pre-training requires hardware resources.<br>What it does not claim: the paper does not say RoPE beats BERT on every downstream task — in Table 2 RoFormer is lower on SST-2, QNLI and MNLI, and the text itself says three out of six datasets; the 1024 result in Table 5 is not evidence of train-at-512-then-extrapolate, because the staged pre-training in Table 4 raised the maximum sequence length to 1536; and compatibility with linear self-attention is supported in 4.4 only by Performer pre-training loss curves, with no downstream task scores.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>§3.2–§3.4（方法与性质）；表 1、表 2、表 5、Figure 3；§4.5.5 Limitations of the work</dd></div><div><dt>GLUE 对比口径 / GLUE</dt><dd>正文写六项中的三项优于 BERT（表 2）</dd></div><div><dt>中文长文本 / long text</dt><dd>CAIL2019-SCM 输入长度 1024 时较 WoBERT 绝对提升 1.5%（§4.5.4 原文口径）</dd></div><div><dt>局限位置 / limits</dt><dd>§4.5.5 Limitations of the work（独立小节）</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -120,8 +126,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2104.09864" rel="noopener">https://arxiv.org/abs/2104.09864</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>架构</span><span data-en>Architecture</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="balestriero-2026-jepa-prh.html"><span data-zh>Proving and Improving the Platonic Representation Hypothesis with JEPAs</span><span data-en>Proving and Improving the Platonic Representation Hypothesis with JEPAs</span></a></li><li><a href="deepseek-v2-2024.html"><span data-zh>DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model</span><span data-en>DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model</span></a></li><li><a href="devlin-2019-bert.html"><span data-zh>BERT：面向语言理解的深度双向 Transformer 预训练</span><span data-en>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

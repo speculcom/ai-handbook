@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://chain.specul.com/erc-6551-token-bound-accounts.html" />
   <meta property="og:title" content="ERC-6551：给每个 NFT 一个链上账户 · 链" />
   <meta property="og:description" content="交集：ERC-6551 给每个 NFT 派生一个确定性的智能合约账户，NFT 可以自己持有资产、调用应用，不需要改现有 NFT 合约。对 Agent 的意义是“身份即账户”：一个代表 agent/角色的 NFT 可以绑定自己的钱包、权限和资产，持有者转移 NFT 就转移控制权。 适用范围：注册表用 " />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://chain.specul.com/erc-6551-token-bound-accounts.html" />
+  <link rel="alternate" hreflang="en" href="https://chain.specul.com/erc-6551-token-bound-accounts.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://chain.specul.com/erc-6551-token-bound-accounts.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回链</span><span data-en>← Back to Chain</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>凭证</span><span data-en>Credentials</span></span></div>
   <h1><span data-zh>ERC-6551：给每个 NFT 一个链上账户</span><span data-en>ERC-6551: token-bound accounts</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>交集：ERC-6551 给每个 NFT 派生一个确定性的智能合约账户，NFT 可以自己持有资产、调用应用，不需要改现有 NFT 合约。对 Agent 的意义是“身份即账户”：一个代表 agent/角色的 NFT 可以绑定自己的钱包、权限和资产，持有者转移 NFT 就转移控制权。<br>适用范围：注册表用 create2 保证地址可预测，账户是实现合约的 ERC-1167 最小代理；执行接口允许有效签名者代账户调用 CALL/DELEGATECALL/CREATE/CREATE2。<br>未解决：账户安全取决于实现合约与签名者策略，不解决私钥管理、社会恢复或权限撤销；它不是通用 agent 身份标准，跨链和账户抽象组合仍有碎片化。</span><span data-en>The intersection: ERC-6551 derives a deterministic smart-contract account for every NFT, so the NFT can hold assets and call applications without changing the existing NFT contract. For agents this means identity-as-account: an NFT representing an agent or character can own a wallet, permissions and assets, and transferring the NFT transfers control.<br>Scope: the registry uses create2 for predictable addresses, accounts are ERC-1167 minimal proxies to an implementation, and the execution interface lets valid signers call CALL/DELEGATECALL/CREATE/CREATE2 on the account’s behalf.<br>Open: account security depends on the implementation and signer policy; it does not solve key management, social recovery or permission revocation; it is not a general agent-identity standard, and cross-chain/account-abstraction combinations remain fragmented.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>标准 / standard</dt><dd>ERC-6551（EIP）</dd></div><div><dt>账户 / account</dt><dd>每个 NFT 一个确定性合约账户</dd></div><div><dt>部署 / deployment</dt><dd>ERC-1167 最小代理 + create2</dd></div><div><dt>执行 / execution</dt><dd>CALL / DELEGATECALL / CREATE / CREATE2</dd></div><div><dt>注册表 / registry</dt><dd>0x000000006551c19487814612e58FE06813775758</dd></div><div><dt>适用 / fit</dt><dd>NFT 持有资产、Agent 身份与权限绑定</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-documentation</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://eips.ethereum.org/EIPS/eip-6551" rel="noopener">https://eips.ethereum.org/EIPS/eip-6551</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>凭证</span><span data-en>Credentials</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="openid4vc.html"><span data-zh>OpenID for Verifiable Credential Issuance 1.0</span><span data-en>OpenID for Verifiable Credential Issuance 1.0</span></a></li><li><a href="safe-smart-account.html"><span data-zh>Safe 智能账户：多签、阈值与账户抽象</span><span data-en>Safe smart account: multisig, threshold and account abstraction</span></a></li><li><a href="w3c-did.html"><span data-zh>W3C 去中心化标识符 DID</span><span data-en>W3C Decentralized Identifiers (DID)</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/domain-trust.html"><span data-zh>许可、评测、凭证的判断框架</span><span data-en>A framework for licences, evals and credentials</span></a></li><li><a href="https://specul.com/topic-agent.html"><span data-zh>搭智能体：权限、支付与护栏</span><span data-en>Build agents: permissions, payments, guardrails</span></a></li></ul></section>

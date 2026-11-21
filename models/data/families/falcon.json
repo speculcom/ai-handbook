@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "code": "falcon",
+  "name": {
+    "zh": "Falcon",
+    "en": "Falcon"
+  },
+  "vendor": {
+    "zh": "TII（阿联酋技术创新研究院）",
+    "en": "TII (Technology Innovation Institute, UAE)"
+  },
+  "currentGen": {
+    "zh": "Falcon H1R 7B",
+    "en": "Falcon H1R 7B"
+  },
+  "currentGenDate": "2026-01",
+  "generations": [
+    {
+      "gen": "Falcon H1R 7B",
+      "date": "2026-01",
+      "zh": "7B 混合架构档：Hybrid Transformer-Mamba，单卡可跑；Falcon TII License（不是 OSI 许可）。",
+      "en": "7B hybrid tier: Hybrid Transformer-Mamba, runnable on a single GPU; Falcon TII License (not an OSI licence).",
+      "url": "https://falconllm.tii.ae/"
+    },
+    {
+      "gen": "Falcon H1 系",
+      "date": "2025",
+      "zh": "上一代 H1 混合架构系列，覆盖多个尺寸；许可与商用条款以模型卡为准。",
+      "en": "Previous H1 hybrid line across several sizes; licence and commercial terms per model card.",
+      "url": "https://falconllm.tii.ae/"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "7B（单卡）",
+      "en": "7B (single GPU)"
+    },
+    {
+      "zh": "上一代多尺寸（以官方页为准）",
+      "en": "Previous multi-size line (see official page)"
+    }
+  ],
+  "licenses": [
+    {
+      "id": "falcon-tii-license",
+      "zh": "Falcon TII License（以模型卡为准；不是 Apache/MIT 类 OSI 许可）",
+      "en": "Falcon TII License (per model card; not an Apache/MIT-style OSI licence)",
+      "url": "https://falconllm.tii.ae/"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "TII 的 Falcon 官方页把 H1R 7B 描述为 Hybrid Transformer-Mamba 架构，并给出 Falcon TII License；具体商用条款以模型卡为准。",
+      "en": "TII’s official Falcon page describes H1R 7B as a Hybrid Transformer-Mamba architecture under the Falcon TII License; commercial terms follow the model card.",
+      "url": "https://falconllm.tii.ae/"
+    }
+  ],
+  "positioning": {
+    "zh": "TII 的混合架构家族：H1R 7B 用 Transformer-Mamba 混合结构把 7B 做到单卡可跑，适合做长序列与低显存实验。许可不是 OSI，商用前要逐条读；生态规模也小于 Llama/Qwen。",
+    "en": "TII’s hybrid-architecture family: H1R 7B uses a Transformer-Mamba mix to keep 7B runnable on one GPU, suited to long-sequence and low-VRAM experiments. The licence is not OSI, so read it before commercial use; the ecosystem is smaller than Llama or Qwen."
+  },
+  "onSite": {
+    "series": [],
+    "zh": "本站尚未收录 Falcon 的量化对比；7B 的 GGUF 生态存在，但下载量未达到本站门槛。",
+    "en": "No Falcon quantisation comparison yet; a 7B GGUF ecosystem exists but is below this site’s download threshold."
+  },
+  "sources": [
+    {
+      "label": "TII · Falcon 官方页",
+      "url": "https://falconllm.tii.ae/",
+      "kind": "official",
+      "labelEn": "TII · Falcon official page"
+    },
+    {
+      "label": "TII · Falcon H1R 模型卡",
+      "url": "https://huggingface.co/tiiuae",
+      "kind": "docs",
+      "labelEn": "TII · Falcon H1R model cards"
+    }
+  ],
+  "last_verified": "2026-11-21",
+  "confidence": "partial",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 TII（阿联酋）。",
+    "originNoteEn": "Made by TII (UAE).",
+    "direct": "unknown",
+    "directNote": "本次未做中国大陆网络探测。",
+    "directNoteEn": "No mainland-China network probe was run.",
+    "filing": {
+      "status": "unknown",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "未检索备案名单。",
+      "noteEn": "Filing registry not searched."
+    },
+    "last_verified": "2026-11-21",
+    "sources": [
+      {
+        "label": "TII Falcon 官方页",
+        "url": "https://falconllm.tii.ae/",
+        "kind": "official"
+      }
+    ]
+  }
+}

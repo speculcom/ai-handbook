@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://papers.specul.com/ouyang-2022-instructgpt.html" />
   <meta property="og:title" content="Training language models to follow instructions with human… · AI 论文" />
   <meta property="og:description" content="问题：让模型跟着用户意图走，而不只是把下一词预测得更准；做法是用人类偏好数据做监督微调再训奖励模型做强化学习。 证据位置：摘要给出 1.3B 胜过 175B 的偏好结论；局限集中在第 5.3 节 Limitations，对齐对象的讨论在第 5.2 节，未解决问题在第 5.4 节。 作者自陈局限：写了" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/ouyang-2022-instructgpt.html" />
+  <link rel="alternate" hreflang="en" href="https://papers.specul.com/ouyang-2022-instructgpt.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/ouyang-2022-instructgpt.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -96,6 +101,7 @@
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>对齐</span><span data-en>Alignment</span></span></div>
   <h1><span data-zh>Training language models to follow instructions with human feedback</span><span data-en>Training language models to follow instructions with human feedback</span></h1>
+  
   <p class="fx-entry-lead"><span data-zh>问题：让模型跟着用户意图走，而不只是把下一词预测得更准；做法是用人类偏好数据做监督微调再训奖励模型做强化学习。<br>证据位置：摘要给出 1.3B 胜过 175B 的偏好结论；局限集中在第 5.3 节 Limitations，对齐对象的讨论在第 5.2 节，未解决问题在第 5.4 节。<br>作者自陈局限：写了三层——标注者以英语为主、数据几乎全是英文指令，不能代表全部使用者；模型既不完全对齐也不完全安全，仍会编造事实、生成有毒或偏见内容；作者认为最大的局限是模型多数情况下会服从用户指令，即使这在现实世界可能造成伤害。他们还明确说并不主张研究者、雇来的标注者或 API 客户就是偏好的正确来源。<br>它没主张的：论文没有说对齐问题已被解决，也没有给出一个能同时满足所有人偏好的方案——作者原话是不可能训练出同时对齐所有人偏好、或让所有人都认可其取舍的系统。</span><span data-en>Problem: make a model follow user intent rather than only predict the next token better, using human preference data for supervised fine-tuning followed by reward-model-driven reinforcement learning.<br>Where the evidence sits: the abstract gives the 1.3B-beats-175B preference result; the limits are concentrated in Section 5.3 (Limitations), the question of whose preferences count is in 5.2, and open questions in 5.4.<br>What the authors say about limits: three layers — labelers are primarily English-speaking and the data is almost entirely English instructions, so they are not representative of everyone affected; the models are neither fully aligned nor fully safe and still fabricate facts or produce toxic and biased content; and the stated greatest limitation is that the models follow the user’s instruction even when that could cause real-world harm. They also state plainly that they are not claiming researchers, hired labelers or API customers are the right source of preferences.<br>What it does not claim: the paper does not say alignment is solved, nor offer a scheme that satisfies everyone — the authors write that it is impossible to train a system aligned to everyone’s preferences at once, or where everyone would endorse the tradeoffs.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>证据位置 / evidence</dt><dd>摘要；Section 5.3 Limitations；5.2 对齐对象；5.4 开放问题</dd></div><div><dt>方法 / method</dt><dd>SFT → 奖励模型 → PPO</dd></div><div><dt>摘要口径 / headline</dt><dd>1.3B 的输出被偏好于 175B GPT-3，参数量少 100 倍</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>arxiv-preprint</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://arxiv.org/abs/2203.02155" rel="noopener">https://arxiv.org/abs/2203.02155</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>对齐</span><span data-en>Alignment</span></dd></div>
+      
+      
+      
     </dl>
   </section>
+  
   <section class="fx-entry-sec"><h2><span data-zh>论文里的数字怎么读</span><span data-en>How to read the numbers</span></h2><p><span data-zh>先分清测什么、怎么算、和谁比、有没有数据污染。拿不准就回原文看实验设置。</span><span data-en>Before citing a score, separate what it measures, how it is scored, what it compares against and whether contamination is controlled. If unsure, go back to the experiment setup in the paper.</span> <a href="https://models.specul.com/evals/"><span data-zh>看评测基准</span><span data-en>See benchmark cards</span></a> · <a href="https://models.specul.com/data/"><span data-zh>看数据集卡</span><span data-en>See dataset cards</span></a></p></section>
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="abstain-r1-2026.html"><span data-zh>Abstain-R1: Calibrated Abstention and Post-Refusal Clarification via Verifiable RL</span><span data-en>Abstain-R1: Calibrated Abstention and Post-Refusal Clarification via Verifiable RL</span></a></li><li><a href="bai-2022-constitutional-ai.html"><span data-zh>Constitutional AI: Harmlessness from AI Feedback</span><span data-en>Constitutional AI: Harmlessness from AI Feedback</span></a></li><li><a href="claude-5-2-2026.html"><span data-zh>Introducing Claude Fable 5.2 and Claude Mythos 5.2</span><span data-en>Introducing Claude Fable 5.2 and Claude Mythos 5.2</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-research.html"><span data-zh>做研究 / 写报告：从找论文到整理引用</span><span data-en>Research / reports: from finding papers to citations</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>看评测基准：论文里的分数怎么复现</span><span data-en>See benchmark cards: how to reproduce a score</span></a></li></ul></section>

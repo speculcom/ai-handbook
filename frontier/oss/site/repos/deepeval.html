@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://oss.specul.com/repos/deepeval.html" />
   <meta property="og:title" content="DeepEval · 开源 AI 工具库" />
   <meta property="og:description" content="DeepEval：像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。 许可 Apache-2.0，Python，19.5k stars（2026-11-20 快照）。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/repos/deepeval.html" />
+  <link rel="alternate" hreflang="en" href="https://oss.specul.com/repos/deepeval.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/repos/deepeval.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="../brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -97,39 +102,39 @@
   <div class="top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
   <h1>DeepEval</h1>
   <p class="owner">confident-ai / deepeval</p>
-  <p class="sub">像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。</p>
+  <p class="sub"><span data-zh>像写单元测试一样测 LLM：断言、指标、数据集与 CI 集成。</span><span data-en>Test LLMs like unit tests: assertions, metrics, datasets and CI integration.</span></p>
 </header>
 <div class="factbar">
   <span><b>19.5k</b> stars</span>
   <span><b>2223</b> forks</span>
-  <span><b>Python</b> 语言</span>
-  <span><b>Apache-2.0</b> 许可</span>
-  <span>最近推送 <b>2026-11-18</b></span>
+  <span><b>Python</b> <span data-zh>语言</span><span data-en>Language</span></span>
+  <span><b>Apache-2.0</b> <span data-zh>许可</span><span data-en>License</span></span>
+  <span><span data-zh>最近推送</span><span data-en>Last push</span> <b>2026-11-18</b></span>
 </div>
 <div class="detail-body">
-  <h2>为什么选</h2>
-  <ul><li>pytest 风格，工程团队容易上手。</li><li>指标与断言丰富，适合 CI 回归。</li><li>支持 RAG、agent、安全等场景。</li></ul>
-  <h2>不适合</h2>
-  <p class="warn">模型评委指标需要自己校准。<br>大规模评测有成本，要先抽样。</p>
-  <h2>最小上手</h2>
-  <ol><li>读 README / quickstart，确认 运行时 版本与系统依赖。</li><li>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</li><li>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</li></ol>
-  <h2>依赖与成本</h2>
-  <p>需要评测集、模型 API 或本地推理；大规模跑要并发、结果存储与日志/追踪后端。</p>
-  <h2>许可与使用边界</h2>
-  <p>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</p>
-  <p>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</p>
-  <h2>替代与相邻</h2>
-  <ul><li><a href="../repos/ragas.html">Ragas</a> — 先试这个，RAG 评测库：检索相关性、答案忠实度、上下文召回等指标。</li><li><a href="../repos/promptfoo.html">promptfoo</a> — 先试这个，prompt / 模型 / agent 的对比评测工具，配置化跑多模型多 prompt。</li><li><a href="../repos/inspect-ai.html">Inspect AI</a> — 特定场景，英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。</li></ul>
-  <h2>下一步</h2>
+  <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
+  <ul><li><span data-zh>pytest 风格，工程团队容易上手。</span><span data-en>Assertions make regressions visible in CI.</span></li><li><span data-zh>指标与断言丰富，适合 CI 回归。</span><span data-en>Datasets and metrics are code-reviewed with the application.</span></li><li><span data-zh>支持 RAG、agent、安全等场景。</span><span data-en>Supports several model providers and local models.</span></li></ul>
+  <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
+  <p class="warn"><span data-zh>模型评委指标需要自己校准。</span><span data-en>You need exploratory analysis rather than pass/fail tests.</span><br><span data-zh>大规模评测有成本，要先抽样。</span><span data-en>Your evaluation needs human judgement on every case.</span></p>
+  <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
+  <ol><li><span data-zh>读 README / quickstart，确认 运行时 版本与系统依赖。</span><span data-en>Write three assertions for one known failure mode.</span></li><li><span data-zh>按官方示例跑最小用例，记录模型/权重、密钥与数据路径。</span><span data-en>Run them against the current prompt and record the baseline.</span></li><li><span data-zh>换成自己的 1–2 个样本，观察日志、显存/内存与失败模式。</span><span data-en>Add the suite to CI and fail the build on a regression.</span></li></ol>
+  <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>
+  <p><span data-zh>需要评测集、模型 API 或本地推理；大规模跑要并发、结果存储与日志/追踪后端。</span><span data-en>Check runtime, model weights and external service dependencies in the README.</span></p>
+  <h2><span data-zh>许可与使用边界</span><span data-en>License and usage boundaries</span></h2>
+  <p><span data-zh>代码许可为 仓库 LICENSE；模型权重、训练数据与生成内容可能另有条款，商用前逐项核对。</span><span data-en>Code is Apache-2.0; model weights, training data and generated content may have separate terms — check each before commercial use.</span></p>
+  <p><span data-zh>开源不等于可商用：GPL / AGPL 有传染性；代码许可、模型许可、生成内容许可要分开看。上线前读仓库 LICENSE 与模型卡，必要时让法务确认。</span><span data-en>Open source is not automatically commercial-use friendly: GPL / AGPL are copyleft; code, model and output licenses are separate. Read the LICENSE and model card before launch, and involve legal when needed.</span></p>
+  <h2><span data-zh>替代与相邻</span><span data-en>Alternatives and neighbors</span></h2>
+  <ul><li><a href="../repos/ragas.html">Ragas</a> — <span data-zh>先试这个</span><span data-en>Start here</span>，<span data-zh>RAG 评测库：检索相关性、答案忠实度、上下文召回等指标。</span><span data-en>A RAG evaluation library covering retrieval relevance, answer faithfulness and context recall.</span></li><li><a href="../repos/promptfoo.html">promptfoo</a> — <span data-zh>先试这个</span><span data-en>Start here</span>，<span data-zh>prompt / 模型 / agent 的对比评测工具，配置化跑多模型多 prompt。</span><span data-en>A config-driven comparison harness for prompts, models and agents across many providers.</span></li><li><a href="../repos/inspect-ai.html">Inspect AI</a> — <span data-zh>特定场景</span><span data-en>Niche</span>，<span data-zh>英国 AI 安全研究院的评测框架，适合做严谨、可复现的任务评测。</span><span data-en>An evaluation framework from the UK AI Safety Institute for rigorous, reproducible task evaluation.</span></li></ul>
+  <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
-    <li>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</li>
-    <li>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</li>
-    <li>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</li>
+    <li><span data-zh>打开 GitHub，先读 README、LICENSE、最近 release 与 issue。</span><span data-en>Open GitHub and read the README, LICENSE, latest release and issues first.</span></li>
+    <li><span data-zh>按“部署依赖 / 显存 / 数据 / 网络 / 权限”列一张上手清单。</span><span data-en>Make an onboarding checklist for deployment dependencies, VRAM, data, network and permissions.</span></li>
+    <li><span data-zh>用一个小样本跑通，再决定是否进生产；不要直接上生产数据。</span><span data-en>Run a small sample first, then decide on production; never start with production data.</span></li>
   </ul>
-  <p><a class="btn" href="https://github.com/confident-ai/deepeval" target="_blank" rel="noopener">GitHub 仓库 ↗</a> <a class="btn" href="https://docs.confident-ai.com/" target="_blank" rel="noopener">文档 ↗</a> <a class="btn" href="../compare.html?ids=deepeval">加入对比</a></p>
+  <p><a class="btn" href="https://github.com/confident-ai/deepeval" target="_blank" rel="noopener"><span data-zh>GitHub 仓库 ↗</span><span data-en>GitHub repository ↗</span></a> <a class="btn" href="https://docs.confident-ai.com/" target="_blank" rel="noopener"><span data-zh>文档 ↗</span><span data-en>Docs ↗</span></a> <a class="btn" href="../compare.html?ids=deepeval"><span data-zh>加入对比</span><span data-en>Add to compare</span></a></p>
 </div>
-<div class="note"><b>快照口径：</b>stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</div>
-<div class="note"><b>不背书：</b>本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</div>
+<div class="note"><span data-zh>快照口径：stars / forks / language / license / pushed_at 来自 GitHub API 2026-11-20 快照；之后的变化没有回写。标签与“适合 / 不适合”是编辑判断，不是 GitHub 元数据。</span><span data-en>Snapshot: stars / forks / language / license / pushed_at come from the GitHub API snapshot on 2026-11-20; later changes are not written back. Tags and “fit / not fit” are editorial judgments, not GitHub metadata.</span></div>
+<div class="note"><span data-zh>不背书：本站只做索引与风险提示，不审计代码、不保证安全、不替你做许可判断。仓库脚本与模型权重请自行审查。</span><span data-en>No endorsement: this site only indexes and flags risks; it does not audit code, guarantee security or make license decisions for you. Review repository scripts and model weights yourself.</span></div>
 </div>
   </main>
   <footer class="site-footer">

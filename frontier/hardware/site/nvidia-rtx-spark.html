@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://hardware.specul.com/nvidia-rtx-spark.html" />
   <meta property="og:title" content="NVIDIA RTX Spark 紧凑桌面 · 硬件算力" />
   <meta property="og:description" content="回答「一台能长期跑本地智能体的 Windows 小主机是什么形态」。RTX Spark 把 20 核 Grace CPU、6144 核 Blackwell RTX GPU 与最高 128GB 统一内存做进紧凑桌面，FP4 峰值 1 PFLOP，官方口径可本地跑 120B 参数级模型；140W TDP" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://hardware.specul.com/nvidia-rtx-spark.html" />
+  <link rel="alternate" hreflang="en" href="https://hardware.specul.com/nvidia-rtx-spark.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://hardware.specul.com/nvidia-rtx-spark.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -59,7 +64,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -94,8 +99,9 @@
   <main id="main">
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回硬件算力</span><span data-en>← Back to Compute</span></a></p>
-  <div class="fx-top"><span class="fx-badge"><span data-zh>整机</span><span data-en>Systems</span></span></div>
+  <div class="fx-top"><span class="fx-badge"><span data-zh>整机</span><span data-en>Systems</span></span><span class="fx-badge"><span data-zh>未公布单价</span><span data-en>No public price</span></span></div>
   <h1><span data-zh>NVIDIA RTX Spark 紧凑桌面</span><span data-en>NVIDIA RTX Spark compact desktop</span></h1>
+  <p class="fx-price-note"><span data-zh><span data-zh>未公布单价</span><span data-en>No public price</span></span><span data-en><span data-zh>未公布单价</span><span data-en>No public price</span></span> · <span data-zh>官方页未给公开单价；这类产品通常按整机、云实例或询价成交，不拿经销商价冒充官方价。</span><span data-en>No public unit price on the official page; these usually sell as systems, cloud instances or on request, so dealer quotes are not presented as official.</span></p>
   <p class="fx-entry-lead"><span data-zh>回答「一台能长期跑本地智能体的 Windows 小主机是什么形态」。RTX Spark 把 20 核 Grace CPU、6144 核 Blackwell RTX GPU 与最高 128GB 统一内存做进紧凑桌面，FP4 峰值 1 PFLOP，官方口径可本地跑 120B 参数级模型；140W TDP，适合 24 小时挂智能体与定时任务。它不是数据中心 GPU，也不能把 128GB 当成 HBM：带宽和可靠性等级都不同。</span><span data-en>Answers what a Windows compact desktop built to run local agents around the clock looks like. RTX Spark combines a 20-core Grace CPU, a 6,144-core Blackwell RTX GPU and up to 128GB of unified memory in a small desktop, with up to 1 petaflop of FP4 AI performance; NVIDIA says it can run 120B-parameter-class models locally at a 140W TDP, which suits always-on agents and scheduled jobs. It is not a data-centre GPU, and the 128GB is not HBM: bandwidth and reliability classes differ.</span></p>
   <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>GPU</dt><dd>6144-core NVIDIA Blackwell RTX GPU</dd></div><div><dt>CPU</dt><dd>20-core NVIDIA Grace CPU</dd></div><div><dt>memory</dt><dd>up to 128 GB LPDDR5X unified</dd></div><div><dt>AI performance</dt><dd>up to 1 PFLOP FP4</dd></div><div><dt>TDP</dt><dd>140 W</dd></div><div><dt>OS</dt><dd>Windows 11</dd></div><div><dt>network</dt><dd>10 GbE, Wi-Fi 7</dd></div><div><dt>form</dt><dd>compact desktop (partner systems roughly 1.1–1.3 L)</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
@@ -116,8 +122,12 @@
       <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-spec-page</dd></div>
       <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.nvidia.com/en-us/products/rtx-spark/" rel="noopener">https://www.nvidia.com/en-us/products/rtx-spark/</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>整机</span><span data-en>Systems</span></dd></div>
+      <div><dt><span data-zh>状态</span><span data-en>Status</span></dt><dd><span data-zh>已发布 / 未出货</span><span data-en>Announced</span></dd></div>
+      <div><dt><span data-zh>适合</span><span data-en>Use cases</span></dt><dd><span data-zh>集群</span><span data-en>Cluster</span> · <span data-zh>本地推理</span><span data-en>Local inference</span></dd></div>
+      <div><dt><span data-zh>价格口径</span><span data-en>Price basis</span></dt><dd><span data-zh>未公布单价</span><span data-en>No public price</span> · not-published</dd></div>
     </dl>
   </section>
+  
   
   <section class="fx-entry-sec"><h2><span data-zh>同类目还有</span><span data-en>More in this category</span></h2><ul class="fx-list"><li><a href="amd-helios.html"><span data-zh>AMD Helios 机架</span><span data-en>AMD Helios rack</span></a></li><li><a href="nvidia-dgx-b200.html"><span data-zh>NVIDIA DGX B200</span><span data-en>NVIDIA DGX B200</span></a></li><li><a href="nvidia-dgx-spark.html"><span data-zh>NVIDIA DGX Spark</span><span data-en>NVIDIA DGX Spark</span></a></li></ul></section>
   <section class="fx-entry-sec"><h2><span data-zh>下一步</span><span data-en>Next step</span></h2><ul class="fx-list"><li><a href="https://specul.com/topic-local.html"><span data-zh>本机跑模型：显存、量化与部署</span><span data-en>Run models locally: VRAM, quantization, serving</span></a></li><li><a href="https://models.specul.com/"><span data-zh>按显存挑模型与量化档</span><span data-en>Pick a model and quant tier by VRAM</span></a></li></ul></section>
