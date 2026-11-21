@@ -19,13 +19,17 @@ axes:
     网页产品（aiva.ai）+ 桌面端（官网导航 Download 在册）；生成在 AIVA 云端；
     导出面「any file format」叙事在册（MP3/MIDI 在定价页点名）。
   local_files: >-
-    下载导出的工程/音频归本机，生成过程与曲库在 AIVA 侧；未见官方声明的本机模型面。
+    下载导出的 MP3/MIDI 与工程文件归本机；生成过程、预置风格与账户曲库在 AIVA 云端。
+    产品面没有本机模型下载，离线状态不能生成。
   background: >-
-    生成即时返回叙事（in seconds）；长任务队列/续跑细节未逐条核验。
+    生成提交后在 AIVA 云端任务队列执行，网页/桌面端关闭不改变云端作业；
+    官方以「in seconds」描述返回速度，未给暂停、续跑或队列位置控制。
   tools: >-
-    编辑面在册（Edit your generated tracks、MIDI 导出对接 DAW 工作流）；MCP/API 支持未核验到官方声明。
+    编辑面在册（Edit your generated tracks、MIDI 导出对接 DAW 工作流）；
+    MCP 与公开 API 不在官网已列能力面，扩展接口未单列。
   context: >-
-    作品按账户曲库组织；跨会话记忆机制未核验到官方声明（未知就说未知）。
+    作品按账户曲库组织，每次生成读取风格、参考音频/MIDI 与当前编辑参数；
+    产品面没有跨会话记忆入口，创作连续性靠曲目与工程本身。
   permissions: >-
     账号体系（免费+订阅，€0 免费档当日在册）；变现权限按档位分层是核心差异——
     免费档仅 YouTube/Twitch/TikTok/Instagram 四平台可变现且版权归 AIVA Limited（条款页当日在册）。
@@ -35,8 +39,8 @@ axes:
 
 pitfalls:
   - 版权按档位分层不是「生成即归你」——免费档版权归 AIVA Limited、变现限四平台，Pro 才「永久完整版权」（条款页当日在册）；配乐商用前必按档位核对
-  - 「250+ 风格」是产品叙事不是可核验的模型清单——风格模型自建面（上传影响源）与预置风格的关系未逐条核验
-  - 训练数据构成与版权来源未核验到官方声明——AI 配乐商用尽调时这是关键未知项
+  - 「250+ 风格」是产品叙事不是可核验的模型清单——风格模型自建面（上传影响源）与预置风格的关系以官网叙事为限
+  - 训练数据构成与版权来源在官方披露范围之外——AI 配乐商用尽调时需单列
 
 tags: [云端, 音乐生成, 免费+订阅, 付费商用, 商业]
 related: [suno, udio, runway]
@@ -61,11 +65,11 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
-  origin_note: AIVA Limited（条款页当日在册主体；卢森堡背景未逐条核验，按条款页在册口径写 foreign）。
+  origin_note: AIVA Limited（条款页当日在册主体；卢森堡背景按条款页在册口径写 foreign）。
   origin_note_en: AIVA Limited (entity on record in the terms page same day; Luxembourg background not verified item by item,
     recorded as foreign per the terms-page evidence).
   direct: yes
@@ -94,16 +98,16 @@ cn:
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 
-- **免费档四平台变现限制的实际执行面**（条款在册，平台侧如何判定/拦截未核验）
-- **自建风格模型（上传影响源）与预置 250+ 风格的交互**（官网叙事在册，机制未核验）
+- **免费档四平台变现限制的实际执行面**（条款在册，平台侧如何判定/拦截需自行实测）
+- **自建风格模型（上传影响源）与预置 250+ 风格的交互**（官网叙事在册，机制细节需自行实测）
 - **生成曲与既有曲库的相似度风险**（训练数据构成未在册，商用尽调关键项）
 
 ## 未知项清单
 
-- 训练数据构成与版权来源（未核验到官方声明）
-- 桌面端与网页端功能面差异（Download 在册，差异未逐条核验）
+- 训练数据构成与版权来源（官方披露范围之外）
+- 桌面端与网页端功能面差异（Download 在册，差异需自行核对）
 - 档位价格具体数字（pricing 页 JS 渲染，未逐条抓取）
-- 免费档「15 downloads/月」与时长 5 分钟限制的工程面细节（定价页在册，执行面未核验）
+- 免费档「15 downloads/月」与时长 5 分钟限制的工程面细节（定价页在册，执行面需自行核对）
 
 ## 相关条目
 

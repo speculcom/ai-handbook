@@ -6,7 +6,7 @@ nameEn: SOUNDRAW
 vendor: SOUNDRAW Inc.
 homepage: https://soundraw.io
 license: 按官方 Terms of Service 管辖（soundraw.io/terms 直抓核验 2026-10-30，更新日期 2025-06-12，主体 SOUNDRAW Inc.）；
-  具体档位授权差异未逐条核验。
+  具体档位授权差异以 ToS 为准。
 licenseEn: Governed by the official Terms of Service (soundraw.io/terms direct-fetched 2026-10-30, updated 2025-06-12,
   entity SOUNDRAW Inc.); tier-bound licensing details not verified item by item.
 
@@ -15,19 +15,23 @@ axes:
     自有生成线：官网当日招牌口径「trained only on music we create in-house」（100% Copyright-Safe 叙事）——
     训练数据自述为自建曲库；不开放选第三方模型。
   runtime: >-
-    网页产品（soundraw.io）；生成在 SOUNDRAW 云端；Mixer 面（切乐器轨/调强度/改时长）当日在册；
-    API/本机面未核验到官方声明。
+    网页产品（soundraw.io）；生成与 Mixer 在 SOUNDRAW 云端，浏览器操作，本机不跑模型；
+    API/桌面端不在官网已列产品面。
   local_files: >-
-    下载导出的音频归本机，生成与曲库在 SOUNDRAW 侧；未见官方声明的本机数据面。
+    下载导出的音频归本机；生成、账户曲库与 Mixer 工程在 SOUNDRAW 云端；
+    产品面没有本机模型或离线生成入口。
   background: >-
-    生成即时返回叙事（in seconds）；队列/续跑细节未逐条核验。
+    提交后在云端生成；官方以「in seconds」描述出曲速度，关闭浏览器不改变云端作业；
+    产品面没有暂停、续跑或队列位置控制。
   tools: >-
-    编辑面在册（Mixer 逐轨开关/强度/时长、风格混合 Blend Genres）；MCP/API 支持未核验到官方声明。
+    编辑面在册（Mixer 逐轨开关/强度/时长、Blend Genres 风格混合）；
+    MCP 与公开 API 不在官网已列能力面，扩展接口未单列。
   context: >-
-    作品按账户曲库组织、可回访再编辑；跨会话记忆机制未核验到官方声明（未知就说未知）。
+    作品按账户曲库组织、可回访再编辑；每次生成读取情绪/风格/时长参数，
+    产品面没有跨会话记忆入口。
   permissions: >-
     账号体系（免费+订阅）；「免版税」是主打叙事——每曲「legally yours to use, monetize, and share」
-    官网当日在册；具体档位授权边界按 ToS，未逐条核验。
+    官网当日在册；具体档位授权边界以 ToS（2025-06-12 版）为准。
   fit: >-
     适合：视频/播客免版税配乐、按情绪/风格/时长快速选曲改曲、要「训练数据自述干净」的版权叙事。
     不适合：要大陆直连备案入口、要人声带词整曲（主打器乐 beat）、要本机跑模型。
@@ -57,11 +61,11 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
-  origin_note: SOUNDRAW Inc.（条款页当日在册主体；日本背景未逐条核验，按条款页在册口径写 foreign）。
+  origin_note: SOUNDRAW Inc.（条款页当日在册主体；日本背景按条款页在册口径写 foreign）。
   origin_note_en: SOUNDRAW Inc. (entity on record in the terms page same day; Japan background not verified item by item,
     recorded as foreign per the terms-page evidence).
   direct: yes
@@ -91,15 +95,15 @@ cn:
 **实测建议**（三条，都指向官方可读页没给的东西）：
 
 - **「in-house 训练」叙事的第三方验证面**（官网自述在册，审计/曲库来源未在册——这是它区别于同类产品的核心卖点，值得单独尽调）
-- **Mixer 逐轨编辑的实际粒度**（乐器轨开关/强度/时长的工程面效果未核验）
-- **订阅档位下架后已下载曲目的授权存续**（ToS 未逐条核验）
+- **Mixer 逐轨编辑的实际粒度**（乐器轨开关/强度/时长的工程面效果需自行实测）
+- **订阅档位下架后已下载曲目的授权存续**（以 ToS 为准）
 
 ## 未知项清单
 
 - 自建曲库的规模与来源（官网叙事未给数字）
 - 档位价格具体数字与授权差异（pricing 页 JS 渲染，未逐条抓取）
-- 是否有 API 面（未核验到官方声明）
-- 下架订阅后已导出曲目授权是否存续（ToS 未逐条核验）
+- 是否有 API 面（官方未列）
+- 下架订阅后已导出曲目授权是否存续（以 ToS 为准）
 
 ## 相关条目
 

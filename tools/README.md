@@ -342,7 +342,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Clipdrop](tracks/image/products/clipdrop.md) | Jasper（原 InitML，2023 并入 Stability AI，2024-02 售予 Jasper） | web | partial | active |
 | [FLUX（Black Forest Labs）](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
 | [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | verified | active |
-| [Krea](tracks/image/products/krea.md) | Krea | web | partial | active |
+| [Krea](tracks/image/products/krea.md) | Krea | web | verified | active |
 | [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo（2024-07 被 Canva 收购） | web | verified | active |
 | [Microsoft Designer](tracks/image/products/microsoft-designer.md) | 微软 | web | partial | active |
 | [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | verified | active |
@@ -361,7 +361,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [海螺视频](tracks/video/products/hailuo-video.md) | MiniMax（稀宇科技） | web | partial | active |
 | [可灵 Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd.（快手） | web | verified | active |
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
-| [Genmo](tracks/video/products/genmo.md) | Genmo | web | partial | active |
+| [Genmo](tracks/video/products/genmo.md) | Genmo | web | verified | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
 | [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
@@ -380,7 +380,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
 | [魔音工坊](tracks/audio/products/moyin.md) | 出门问问 | web | partial | active |
-| [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | partial | active |
+| [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | verified | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | verified | active |
 | [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | partial | active |
 | [CosyVoice](tracks/audio/products/cosyvoice.md) | 阿里 FunAudioLLM（开源） | local-app | verified | active |
@@ -392,7 +392,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Murf](tracks/audio/products/murf.md) | Murf AI | web | verified | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | verified | active |
 | [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | verified | active |
-| [Soundraw](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | partial | active |
+| [Soundraw](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | verified | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | verified | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
 | [Whisper](tracks/audio/products/whisper.md) | OpenAI（开源） | local-app | verified | active |

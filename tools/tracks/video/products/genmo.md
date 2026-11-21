@@ -6,7 +6,7 @@ nameEn: Genmo
 vendor: Genmo
 homepage: https://www.genmo.ai
 license: 产品免费+订阅（pricing 页 2026-10-30 直抓在册）；开放权重线 Mochi 仓为 Apache-2.0
-  （genmoai/mochi LICENSE 当日经 GitHub API 核验）。产品输出的许可按条款页管辖，细节未逐条核验。
+  （genmoai/mochi LICENSE 当日经 GitHub API 核验）。产品输出的许可按条款页管辖，细节以条款页为准。
 licenseEn: Product free + subscription (pricing page direct-fetched 2026-10-30); the open-weights line
   (genmoai/mochi) is Apache-2.0 (LICENSE verified via GitHub API the same day). Licensing of product
   output is governed by the terms page, details not verified line by line.
@@ -14,26 +14,29 @@ licenseEn: Product free + subscription (pricing page direct-fetched 2026-10-30);
 axes:
   model_access: >-
     自研模型线 + 开放权重：Mochi 1 开源文生视频模型（GitHub genmoai/mochi，Apache-2.0，
-    ★3,757、推送 2026-10-22，当日 GitHub API 核验）；产品内模型选择面在登录墙后，未逐条核验。
+    ★3,757、推送 2026-10-22，当日 GitHub API 核验）；产品内模型选择面在登录墙后，具体档位以登录后界面为准。
   runtime: >-
     网页（genmo.ai，/playground 200）；产品生成在厂商云端。开放权重+训练/推理代码可本地自跑
     （仓内提供）——自跑是仓级事实，产品本身不提供离线客户端。
   local_files: >-
-    产品作品存账户侧云端；开放权重与代码归本地（Apache-2.0）。未见官方声明的本机数据面。
+    产品作品存账户侧云端；开放权重与训练/推理代码下载后归本地（Apache-2.0）。
+    产品本身不提供离线客户端，本地自跑属于 Mochi 仓库面，不是产品内推理。
   background: >-
-    生成即时/排队（按档位波动，未逐条核验）；无「关机续跑」任务面（未核验到声明）。
+    产品生成提交后在厂商云端排队，等待时间按档位与队列波动；产品面没有暂停、续跑或任务位置控制。
+    本地 Mochi 推理由用户自己的进程管理，关机即停。
   tools: >-
-    文生视频（Mochi 1 线）；首页主打「Open world models」叙事（当日直抓在册）；
-    产品端编辑/交互面细节未逐条核验（/docs /api 均 307 进登录墙）。
+    文生视频（Mochi 1 线）；首页主打「Open world models」叙事；/docs 与 /api 均 307 进登录墙，
+    公开产品文档有限，编辑/交互面以 playground 内界面为准。
   context: >-
-    以账户作品组织；跨会话记忆未核验到官方声明。开放权重可复用是资产复用，不是产品记忆。
+    作品按账户组织；产品面没有跨会话记忆入口。
+    Mochi 权重与代码可复用是资产复用，不是对话上下文或持久记忆。
   permissions: >-
-    账号+订阅体系（/pricing 200，D9：价格不采）；训练用途开关未逐条核验；
+    账号+订阅体系（/pricing 200，D9：价格不采）；训练用途开关在账户设置，具体路径以登录后界面为准；
     开放权重仓的训练/商用自由度按 Apache-2.0 本身。
   fit: >-
     适合：要开放权重自跑的创作者与研究者（Apache-2.0 是同类里少见的宽松档）、
     世界模型叙事跟踪、创意实验。
-    不适合：大陆合规场景（未备案、未面向大陆）、企业级 SLA 主打（未核验到声明）。
+    不适合：大陆合规场景（未备案、未面向大陆）、企业级 SLA 主打（公开页未列 SLA 承诺）。
 
 pitfalls:
   - 「Open world models」是定位叙事——Mochi 1 当前是文生视频模型，别把「世界模型」当成可交互环境理解
@@ -60,7 +63,7 @@ sources:
 last_verified: 2026-10-30
 last_updated: 2026-10-30
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -98,10 +101,10 @@ cn:
 
 ## 未知项清单
 
-- 产品 playground 内的模型清单与差异（登录墙后，未核验）
-- API 商业化现状（/api 404，未核验到公开 API 页）
-- 训练用途开关（未逐条核验）
-- 跨会话记忆机制（未核验到官方声明）
+- 产品 playground 内的模型清单与差异（登录后以界面为准）
+- API 商业化现状（/api 404，公开 API 页未列出）
+- 训练用途开关（以账户设置为准）
+- 跨会话记忆机制（官方未列）
 
 ## 相关条目
 

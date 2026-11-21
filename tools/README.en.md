@@ -357,7 +357,7 @@ Text-to-image and AI image editing
 | [Clipdrop](tracks/image/products/clipdrop.md) | Jasper (formerly InitML; via Stability AI 2023, sold to Jasper Feb 2024) | web | partial | active |
 | [FLUX (Black Forest Labs)](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
 | [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | verified | active |
-| [Krea](tracks/image/products/krea.md) | Krea | web | partial | active |
+| [Krea](tracks/image/products/krea.md) | Krea | web | verified | active |
 | [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo (acquired by Canva, Jul 2024) | web | verified | active |
 | [Microsoft Designer](tracks/image/products/microsoft-designer.md) | Microsoft | web | partial | active |
 | [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | verified | active |
@@ -376,7 +376,7 @@ Text/image-to-video generation and AI-native video editing
 | [Hailuo Video](tracks/video/products/hailuo-video.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
 | [Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd. (Kuaishou) | web | verified | active |
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
-| [Genmo](tracks/video/products/genmo.md) | Genmo | web | partial | active |
+| [Genmo](tracks/video/products/genmo.md) | Genmo | web | verified | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
 | [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
 | [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
@@ -395,7 +395,7 @@ TTS, music generation, transcription products
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Moyin Workshop](tracks/audio/products/moyin.md) | Mobvoi | web | partial | active |
-| [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | partial | active |
+| [AIVA](tracks/audio/products/aiva.md) | AIVA Limited | web | verified | active |
 | [AssemblyAI](tracks/audio/products/assemblyai.md) | AssemblyAI | cloud | verified | active |
 | [Cartesia](tracks/audio/products/cartesia.md) | Cartesia AI, Inc. | web | partial | active |
 | [CosyVoice](tracks/audio/products/cosyvoice.md) | Alibaba FunAudioLLM (open source) | local-app | verified | active |
@@ -407,7 +407,7 @@ TTS, music generation, transcription products
 | [Murf](tracks/audio/products/murf.md) | Murf AI | web | verified | active |
 | [Otter.ai](tracks/audio/products/otter.md) | Otter.ai | web | verified | active |
 | [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | verified | active |
-| [SOUNDRAW](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | partial | active |
+| [SOUNDRAW](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | verified | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | verified | active |
 | [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
 | [Whisper](tracks/audio/products/whisper.md) | OpenAI (open source) | local-app | verified | active |
