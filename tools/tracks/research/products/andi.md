@@ -5,59 +5,66 @@ name: Andi Search
 nameEn: Andi Search
 vendor: Andi
 homepage: https://andisearch.com
-license: 免费。按官方条款/隐私页管辖（andisearch.com/terms 与 /privacy 直抓核验 2026-10-22）；
-  细节未逐条核验。
+license: 免费（消费端）+ API 按结果计费。按官方条款/隐私页管辖（andisearch.com/terms 与 andiai.com/legal/privacy-policy，2026-11-21）；API 用量与价格按官方文档（2026-11-21）。
 licenseEn: Free. Governed by the official terms/privacy pages (andisearch.com/terms and /privacy,
   direct-fetched 2026-10-22); details not verified line by line.
 
 axes:
   model_access: >-
-    自研检索+生成架构（官方叙事：直接生成答案而非「检索后包装」——「direct answer」路线）；
-    自研模型线（官方叙事），不路由第三方大模型（官方口径，未逐条核验）。
+    自研检索+生成架构：Trantora AI index 覆盖 25B+ 页面，按语义与可信度排序，垃圾在入库时过滤；生成侧用 ensemble of models，API 按 `searchMode` 分 low-cost、fast、balanced、deep、exhaustive 五档自动/手动选择（2026-11-21）。
   runtime: >-
-    网页（andisearch.com）为主入口；检索与生成都在厂商云端完成，未见官方声明的本地/离线形态。
+    网页 andisearch.com + PWA + Chrome 扩展 + REST API（`https://api.andiai.com`）+ 远程 MCP（`https://api.andiai.com/mcp`）+ CLI；检索与生成在厂商云端，CLI 在本地（2026-11-21）。
   local_files: >-
-    隐私叙事：不追踪不存画像（官方隐私页叙事）；未见官方声明的其他本机数据面。
+    匿名使用时不建账户：设置与历史只存浏览器本地；API 返回结构化 JSON 或 LLM-ready Markdown，`format=context` 直接喂 RAG，不在本地落文件；CLI 读 `ANDI_API_KEY` 环境变量（2026-11-21）。
   background: >-
-    搜索问答即时返回；未见官方任务队列或「关机续跑」类后台任务面（未逐条核验）。
+    请求-响应式：fast 模式亚秒返回，deep 约 2–3 秒，exhaustive 覆盖最大；无托管任务队列或关机续跑形态，长任务由调用方自己拆（2026-11-21）。
   tools: >-
-    AI 原生搜索（答案直接生成+来源标注）、对话追问线、**「像朋友一样解释」的通俗化答案风格**
-    （官方叙事）；无广告（产品姿态）。
+    直接答案+来源标注、Reader Mode 去广告阅读、Summarize、News/Images/Videos 标签；API 有 `/api/v1/search`、`/api/v1/fetch`、多查询（最多 5 条合并去重）、OpenSearch 兼容端点、`format=context` 与 MCP 搜索/抓页工具（2026-11-21）。
   context: >-
-    对话式追问在同一会话内成立；跨会话记忆与个性化画像未核验到官方声明（隐私叙事反而强调不存画像）。
+    匿名搜索不记录、不存画像，跨会话没有记忆；登录账户只存提供功能所需的信息；浏览器本地保存设置与历史，MCP/API 每次调用独立（2026-11-21）。
   permissions: >-
-    免费产品（D9：价格不采——免费为主）；隐私承诺（不追踪叙事）条款级落点未逐条核验；
-    训练用途开关未逐条核验。
+    消费端免费、无广告、无追踪、默认匿名；API 按结果计费（官方标 <1¢/query，响应里给 `metrics.cost_dollars`），用 `x-api-key` 鉴权；隐私政策承诺不出售数据、不记录搜索（2026-11-21）。
   fit: >-
-    适合：要直接答案+解释风格的轻量研究、对追踪敏感、免费无广告需求。
-    不适合：深度学术检索（无学术垂直）、中文向主打、要可审计检索过程。
+    适合：要直接答案+可核来源的轻量研究、隐私敏感、免费无广告、给 agent/RAG 接搜索 API。不适合：深度学术垂直检索、中文向主打、要完全可审计的检索日志（2026-11-21）。
 
 pitfalls:
   - 「直接生成答案」路线意味着检索过程对用户半透明——要核来源时看它的引用面，别只看答案文本
-  - 小团队产品——功能节奏与长期性与大厂不同，选型把「持续性」列风险项（未核验到官方路线图）
+  - 小团队产品——功能节奏与长期性与大厂不同，选型把「持续性」列风险项（按官方产品公告核对）
   - andisearch.com 大陆直连实测 200（2026-10-22）——可达，但账号/支付面简单（免费为主）
 
 tags: [免费, 直接答案, 无广告, 隐私叙事, 自研架构]
 related: [kagi, perplexity, metaso, chatgpt]
 
 sources:
-  - label: Andi · 官网（产品与能力叙事）
+  - label: Andi · 官网（产品与能力叙事，2026-11-21 抓取 200）
     url: https://andisearch.com
     kind: official
   - label: Andi · Terms（官方条款，2026-10-22 直抓核验）
     url: https://andisearch.com/terms
     kind: official
-  - label: Andi · Privacy（官方隐私页，2026-10-22 直抓核验）
-    url: https://andisearch.com/privacy
+  - label: Andi · Privacy（官方隐私页，2026-11-21 抓取 200）
+    url: https://andiai.com/legal/privacy-policy
     kind: official
-  - label: Andi · 官方博客（andisearch.com 站内链向 andiai.com/blogs；页面 JS 渲染，正文经 2026-10-22 搜索快照核验——含带日期的功能公告条目）
+  - label: Andi · 官方博客（andiai.com/blogs，2026-10-22 搜索快照核验）
     url: https://andiai.com/blogs
     kind: changelog
+  - label: Andi · About（87% 准确率、无追踪与 Reader Mode，2026-11-21 抓取 200）
+    url: https://andisearch.com/about/
+    kind: official
+  - label: Andi · FAQ（Y Combinator、25B 页面索引与 API，2026-11-21 抓取 200）
+    url: https://andiai.com/faq
+    kind: docs
+  - label: Andi · Search API（25B+ 页面、五档 searchMode、MCP 与按结果计费，2026-11-21 抓取 200）
+    url: https://andiai.com/api
+    kind: docs
+  - label: Andi · API Docs（base URL、x-api-key 与 search/fetch 端点，2026-11-21 抓取 200）
+    url: https://docs.andiai.com
+    kind: docs
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -70,7 +77,7 @@ cn:
   filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -85,21 +92,13 @@ cn:
 
 ## 实测记录
 
-本档未跑检索质量评测；结论只覆盖产品能力与来源披露。
-
-**实测建议**（三条，都指向官方可读页没给的东西）：
-
-- **「直接答案」与 Perplexity「检索+引用」的答案质量对比**（同一问题集）
-- **来源标注的覆盖率**（多少答案带可核引用）
-- **不追踪叙事的实际验证**（网络请求观察）
-
+本档核对官网、About、FAQ、隐私政策与 API 文档；答案质量、来源覆盖率与不追踪叙事的实际行为需按同一问题集与网络请求观察。
 ## 未知项清单
 
-- 自研架构的技术细节（官方叙事，未逐条核验）
-- 产品长期性/融资状态（未核验到官方声明——风险项）
-- 训练用途开关（未逐条核验）
-- 中文查询质量（未做实测）
-
+- 自研架构的技术细节：官方给 Trantora 索引与 ensemble 口径，模型清单按 API 文档核对。
+- 产品长期性与融资状态：官方 FAQ 称 Y Combinator 支持。
+- 训练用途开关：按隐私政策与账户设置核对。
+- 中文查询质量：按同一问题集中英对比实测。
 ## 相关条目
 
 - [Kagi](./kagi.md) — 同为隐私向搜索：Kagi 自建索引订阅制，Andi 自研答案架构免费。

@@ -339,7 +339,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [即梦](tracks/image/products/jimeng.md) | 字节跳动（剪映团队） | web | verified | active |
 | [通义万相](tracks/image/products/tongyi-wanxiang.md) | 阿里巴巴 | web | partial | active |
 | [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | verified | active |
-| [Clipdrop](tracks/image/products/clipdrop.md) | Jasper（原 InitML，2023 并入 Stability AI，2024-02 售予 Jasper） | web | partial | active |
+| [Clipdrop](tracks/image/products/clipdrop.md) | Jasper（原 InitML，2023 并入 Stability AI，2024-02 售予 Jasper） | web | verified | active |
 | [FLUX（Black Forest Labs）](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
 | [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | verified | active |
 | [Krea](tracks/image/products/krea.md) | Krea | web | verified | active |
@@ -363,7 +363,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | verified | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | verified | active |
-| [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
+| [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | verified | active |
 | [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
 | [Luma（Dream Machine）](tracks/video/products/luma.md) | Luma AI | web | verified | active |
 | [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
@@ -405,7 +405,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 |---|---|---|---|---|
 | [秘塔 AI 搜索](tracks/research/products/metaso.md) | 秘塔科技（上海秘塔网络科技） | web | verified | active |
 | [天工 AI 搜索](tracks/research/products/tiangong.md) | 昆仑万维 | web | verified | active |
-| [Andi Search](tracks/research/products/andi.md) | Andi | web | partial | active |
+| [Andi Search](tracks/research/products/andi.md) | Andi | web | verified | active |
 | [Consensus](tracks/research/products/consensus.md) | Consensus | web | partial | active |
 | [Devv](tracks/research/products/devv.md) | Devv AI | web | verified | active |
 | [Elicit](tracks/research/products/elicit.md) | Elicit | web | verified | active |
@@ -422,7 +422,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
 | [扣子 / Coze](tracks/automation/products/coze.md) | 字节跳动 | web | verified | active |
-| [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
+| [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | verified | active |
 | [AutoGPT（现 Experts AI 团队平台）](tracks/automation/products/autogpt.md) | AutoGPT（Determinist Ltd 运营） | web | verified | active |
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | verified | active |
 | [Botpress](tracks/automation/products/botpress.md) | Botpress | web | verified | active |

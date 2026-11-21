@@ -1,24 +1,28 @@
 {
   "_comment": "C0-12 activepieces bodies EN. 无附加小节。正文「相关条目」1 行带 .md 链接（n8n），related 写 1 条。",
   "axes": {
-    "model_access": "AI pieces reach each vendor's models via credentials (OpenAI etc.); the specific list has not been verified item by item. When self-hosted, credentials live on your instance.",
-    "runtime": "Open-source self-hosting (Docker) + official cloud, two lines; GitHub 25,150★, last push 2026-10-21 (API-verified, active).",
-    "local_files": "Self-hosted instance data lands in your own environment; the pieces ecosystem's credentials and execution data sit inside the instance.",
-    "background": "A continuously running self-hosted instance carries schedules/webhooks; the official docs provide a queue-worker mode (details not verified item by item).",
-    "tools": "The pieces (integration) ecosystem + community-contribution mechanism are the core; MCP support status has not been verified item by item.",
-    "context": "Step-to-step data passing and variable references within a flow are the official context main axis; cross-flow shared memory mechanisms have not been verified item by item (unknown means unknown). Execution history within the instance persists per flow.",
-    "permissions": "Community edition has basic roles; SSO/projects etc. live in the ee/ directory (commercial-license zone) — the feature boundary is the license boundary.",
-    "fit": "Fits: self-hosted automation wanting an MIT-main license, low-code you can hack on. Does not fit: out-of-the-box enterprise features (in the ee commercial line); a connector ecosystem on Zapier's scale (much smaller)."
+    "model_access": "No built-in model weights: AI pieces connect to providers (OpenAI and others) through credentials, and an AI SDK supports building agents inside flows; self-hosting keeps credentials on the user’s instance (2026-11-21).",
+    "runtime": "Open-source self-hosting plus official cloud: production self-hosting uses Docker Compose with PostgreSQL and Redis, while the single-machine hobby container uses PGLite and an in-memory queue (not upgradable to Enterprise). The repo has 25,150 stars and last pushed 2026-10-21 (2026-11-21).",
+    "local_files": "Self-hosted data stays in the user’s environment: the hobby container writes to `~/.activepieces`, production uses the user’s PostgreSQL/Redis, and piece credentials and execution data remain on the instance; cloud data is vendor-hosted (2026-11-21).",
+    "background": "A always-on self-hosted instance carries schedule and webhook triggers; production uses Redis queue workers across instances, human-in-the-loop supports delays and approvals, and flows ship with auto retries and versioning (2026-11-21).",
+    "tools": "The pieces ecosystem is the core: the official MCP page says one server URL covers 770+ apps, while the README lists 280+ pieces available as MCP (both counts grow with releases). The builder includes loops, branches, auto retries, HTTP, Code with NPM, ASK AI, versioning and templates (2026-11-21).",
+    "context": "Step-to-step data passing and variable references are the main context; execution history persists per flow, and cross-flow sharing relies on explicit storage/queue pieces rather than implicit memory (2026-11-21).",
+    "permissions": "The community edition is MIT Expat, with enterprise features under the commercial `packages/ee` licence; SSO, projects and role controls sit on the ee line. MCP connections use OAuth2 with limited scopes, 256-bit encrypted credentials and no read-back API (2026-11-21).",
+    "fit": "Fit: self-hosted automation with an MIT core, hackable low-code and direct MCP exposure of pieces. Not fit: a Zapier-scale connector ecosystem or turnkey enterprise features (those sit on the ee commercial line) (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The closest test protocol is the code-side [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md) (the tool-calling and credential-boundary sections are reusable; no workflow-platform-specific protocol exists on this site yet).",
-  "unknowns": "- The exact count of the pieces ecosystem (not verified item by item)\n- MCP support status (no official documentation found)\n- The full boundary of queue-worker mode in the community edition",
+  "runs": "This entry checks the official install docs, repository README and MCP pages. Queue throughput, community-edition boundaries and specific piece availability need testing on one’s own instance.",
+  "unknowns": "- Piece count: the official MCP page says 770+ while the README says 280+; check the release pages.\n- MCP client compatibility: official pages name Claude, Cursor and any MCP client.\n- Full queue-worker boundaries in the community edition: check the self-host docs and Redis configuration.",
   "related": [
     "License contrast: both self-hosted automation platforms — SUL (fair-code) vs MIT+ee mixed is the core divide."
   ],
   "sources": [
-    "Activepieces/Activepieces · LICENSE (MIT Expat + ee commercial zone, direct-fetched & verified 2026-10-21)",
-    "Activepieces/Activepieces · repository (25,150★, last push 2026-10-21, verified via GitHub API)",
-    "Activepieces · official docs",
-    "Activepieces/Activepieces · Releases (changelog)"
+    "Activepieces/Activepieces — LICENSE (MIT Expat plus ee commercial area; direct-fetched 2026-10-21)",
+    "Activepieces/Activepieces — repository (25,150 stars, last push 2026-10-21, verified via GitHub API)",
+    "Activepieces — official docs (fetched 200 on 2026-11-21)",
+    "Activepieces/Activepieces — Releases (changelog; fetched 200 on 2026-11-21)",
+    "Activepieces — Install Options (Docker Compose with PostgreSQL and Redis; fetched 200 on 2026-11-21)",
+    "Activepieces — Hobbyist Installation (PGLite and in-memory queue boundaries; fetched 200 on 2026-11-21)",
+    "Activepieces/Activepieces — README (280+ pieces, 60% community contributions and MCP; fetched 200 on 2026-11-21)",
+    "Activepieces — MCP page (one server URL for 770+ apps and OAuth auth; fetched 200 on 2026-11-21)"
   ]
 }

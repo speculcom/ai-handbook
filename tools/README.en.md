@@ -354,7 +354,7 @@ Text-to-image and AI image editing
 | [Jimeng AI](tracks/image/products/jimeng.md) | ByteDance (Jianying/CapCut team) | web | verified | active |
 | [Tongyi Wanxiang (Wan)](tracks/image/products/tongyi-wanxiang.md) | Alibaba | web | partial | active |
 | [Adobe Firefly](tracks/image/products/adobe-firefly.md) | Adobe | web | verified | active |
-| [Clipdrop](tracks/image/products/clipdrop.md) | Jasper (formerly InitML; via Stability AI 2023, sold to Jasper Feb 2024) | web | partial | active |
+| [Clipdrop](tracks/image/products/clipdrop.md) | Jasper (formerly InitML; via Stability AI 2023, sold to Jasper Feb 2024) | web | verified | active |
 | [FLUX (Black Forest Labs)](tracks/image/products/flux.md) | Black Forest Labs | cloud | verified | active |
 | [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | verified | active |
 | [Krea](tracks/image/products/krea.md) | Krea | web | verified | active |
@@ -378,7 +378,7 @@ Text/image-to-video generation and AI-native video editing
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | verified | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | verified | active |
-| [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | partial | active |
+| [Higgsfield](tracks/video/products/higgsfield.md) | Higgsfield AI | web | verified | active |
 | [invideo AI](tracks/video/products/invideo.md) | invideo | web | verified | active |
 | [Luma (Dream Machine)](tracks/video/products/luma.md) | Luma AI | web | verified | active |
 | [Pika](tracks/video/products/pika.md) | Pika Labs | web | partial | active |
@@ -420,7 +420,7 @@ Citation-first search and research products
 |---|---|---|---|---|
 | [Metaso AI Search](tracks/research/products/metaso.md) | Metaso (Shanghai Metaso Network Technology) | web | verified | active |
 | [Tiangong AI Search](tracks/research/products/tiangong.md) | Kunlun Tech | web | verified | active |
-| [Andi Search](tracks/research/products/andi.md) | Andi | web | partial | active |
+| [Andi Search](tracks/research/products/andi.md) | Andi | web | verified | active |
 | [Consensus](tracks/research/products/consensus.md) | Consensus | web | partial | active |
 | [Devv](tracks/research/products/devv.md) | Devv AI | web | verified | active |
 | [Elicit](tracks/research/products/elicit.md) | Elicit | web | verified | active |
@@ -437,7 +437,7 @@ Visual AI-app builders and workflow automation platforms
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Coze](tracks/automation/products/coze.md) | ByteDance | web | verified | active |
-| [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | partial | active |
+| [Activepieces](tracks/automation/products/activepieces.md) | Activepieces Inc. | web | verified | active |
 | [AutoGPT (now the Experts AI-team platform)](tracks/automation/products/autogpt.md) | AutoGPT (operated by Determinist Ltd) | web | verified | active |
 | [Bedrock Agents / AgentCore](tracks/automation/products/bedrock-agents.md) | AWS | web | verified | active |
 | [Botpress](tracks/automation/products/botpress.md) | Botpress | web | verified | active |

@@ -1,17 +1,17 @@
 {
   "_comment": "C0-14 higgsfield bodies EN. 无附加小节。正文「相关条目」4 行带 .md 链接（runway/luma/kling/krea），related 写 4 条。sources 3 条对齐 frontmatter。",
   "axes": {
-    "model_access": "Aggregation + in-house hybrid: the platform offers generation entries for multiple models (as seen in site navigation) + an in-house line (the company name doubles as the model-brand narrative). The concrete aggregation list has not been inventoried item by item.",
-    "runtime": "Web (higgsfield.ai); generation on the vendor's cloud. No official offline-weights line seen.",
-    "local_files": "Works stored account-side in the cloud, generation history visible on the web works page; downloads go local. No officially stated local data surface.",
-    "background": "Generation is instant/queued (varies by tier, not verified item by item); no \"keep-running-after-shutdown\" task surface (no claim verified).",
-    "tools": "**Camera Control (the Move series) is its signature differentiator** (the site's lead narrative: preset camera moves — dolly/crash zoom/crane etc., one-click application); image-to-video, effect-template lines (as seen in site navigation).",
-    "context": "Organized by account works; cross-session memory — no official statement verified. Camera-move presets are its \"consistency\" mechanism — reusable, not memory.",
-    "permissions": "Account + subscription system (D9: prices not collected); the training-use switch not verified line by line; commercial and watermark limits on free-tier output follow the terms (not verified line by line).",
-    "fit": "Fits: camera-controlled short films (preset camera language), creators outsourcing \"director feel\" to presets, dynamic social-media material. Does not fit: open weights, scenarios sensitive to mainland direct connection (direct 200 works but the product targets overseas), a long-narrative-consistency focus."
+    "model_access": "A hybrid of in-house and partner models: in-house covers Soul 2.0 (photoreal images), Soul Cinema (cinematic images), Higgsfield DOP (cinematic video), Keyframes (storyboards) and Cinema Studio (a 1,296-lens and colour workspace), with an in-house reasoning engine orchestrating both lines. The API catalogue also lists Seedance, Kling, Wan, MiniMax, LTX, PixVerse, Grok, Recraft, Ideogram and Qwen (2026-11-21).",
+    "runtime": "Web at higgsfield.ai plus an asynchronous API (`https://api.higgsfield.ai`, Python/TypeScript SDKs). The web runs Cinema Studio/Soul ID workspaces, while the API submits to model endpoints, bills from a prepaid USD balance and unlocks 20 concurrent requests per key (2026-11-21).",
+    "local_files": "No local model: image/video inputs arrive as URLs, and a submission returns `request_id` and `status_url`; clients poll or receive a webhook until completed, then download the output. Works live in the account library, with exports saved locally by the user (2026-11-21).",
+    "background": "An asynchronous lifecycle: submit, store `request_id`, poll `status_url` or wait for a webhook, then download on completion. Each model has its own timeout, timed-out requests fail without charge and can be resubmitted; Cinema Studio supports up to 30 seconds and 50 reference images per generation (2026-11-21).",
+    "tools": "Cinema Studio 4.0 (30+ movement presets, seven genres, camera/lens/aperture f/1.4–f/11, lighting presets, 50+ colour palettes, Emotion Wheel, up to 1080p/30 s), Soul ID character consistency, Soul HEX colour control, Keyframes storyboards, audio/lip-sync translation and an official MCP (2026-11-21).",
+    "context": "Organised around account works and Elements: Soul ID locks one character across shots, and Cinema Studio reuses the same camera logic across clips. These are generation-consistency mechanisms rather than conversational memory (2026-11-21).",
+    "permissions": "Web subscriptions plus a prepaid API balance; API keys come as an ID:secret pair, shown once and meant for server-side use. Consumer terms allow commercial output and claim no ownership, but inputs/outputs may train models by default (except under enterprise agreements); uploading a person’s likeness requires consent, and outputs may carry C2PA watermarks (2026-11-21).",
+    "fit": "Fit: short films needing controllable camera language, cross-shot character consistency, advertising/fashion/narrative storyboards and API batch production. Not fit: open weights/offline use, zero-cost unlimited iteration, or keeping content out of training without an enterprise agreement (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Camera-preset tracking quality on complex subjects (multiple people / fast motion)**\n- **Style differences across vendors' outputs in the aggregated model list**\n- **Conflict behavior between preset camera moves and custom prompts**",
-  "unknowns": "- The registered entity and team background (no official statement verified)\n- The boundary list between in-house and aggregated models (not inventoried item by item)\n- The training-use switch (not verified line by line)\n- Cross-session memory mechanism (no official statement verified)",
+  "runs": "This entry checks the official About page, Cinema Studio settings reference, API docs and terms. Camera-follow quality, partner-model style differences and timeout boundaries need account-level measurement.",
+  "unknowns": "- Registered entity and team background: check the official terms and About page credits.\n- The full in-house versus partner model boundary: check the API catalogue and web model selector item by item.\n- Training-use controls: consumer terms allow training by default, with enterprise agreements handled separately.\n- Output retention: check the API request-lifecycle docs and account storage pages.",
   "related": [
     "Both camera-oriented: Runway gives a professional toolchain to tune yourself, Higgsfield gives presets to apply in one click.",
     "Both camera-move narrative oriented: Luma does first/last-frame interpolation, Higgsfield a preset camera-move library.",
@@ -19,8 +19,12 @@
     "Image-to-video upstream: Higgsfield's input frames are often first drawn on Krea/Flux-style image benches before generation."
   ],
   "sources": [
-    "Higgsfield · official site (product and capability narrative)",
-    "Higgsfield · Terms of Use (official terms, direct-fetched and verified 2026-10-22)",
-    "Higgsfield · Blog (official update line, changelog)"
+    "Higgsfield — official site (product and capability narrative; fetched 200 on 2026-11-21)",
+    "Higgsfield — Terms of Use (official terms, direct-fetched 2026-11-21)",
+    "Higgsfield — Blog (official changelog; fetched 200 on 2026-11-21)",
+    "Higgsfield — About (Soul 2.0/Soul Cinema/DOP/Keyframes/Cinema Studio and the reasoning engine; fetched 200 on 2026-11-21)",
+    "Higgsfield — Cinema Studio 4.0 settings reference (30+ moves, lenses and 50 references; fetched 200 on 2026-11-21)",
+    "Higgsfield API — docs index (async API, request_id/status_url, polling or webhook; fetched 200 on 2026-11-21)",
+    "Higgsfield — API getting started (20 concurrency per key, prepaid balance and model catalogue; fetched 200 on 2026-11-21)"
   ]
 }

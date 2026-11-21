@@ -4,28 +4,26 @@ form: web
 name: Activepieces
 vendor: Activepieces Inc.
 homepage: https://www.activepieces.com
-license: 混合许可（官方 LICENSE 直抓核验 2026-10-21）：ee 目录归商业许可；其余内容 MIT Expat；第三方组件保留原许可。
+license: 混合许可（官方 LICENSE 直抓核验 2026-10-21）：ee 目录归商业许可；其余内容 MIT Expat；第三方组件保留原许可（2026-11-21 复核）。
 licenseEn: Mixed license (official LICENSE, direct-fetched 2026-10-21): content under ee/ directories falls under the commercial license; everything else is MIT Expat; third-party components keep their original licenses.
 
 axes:
   model_access: >-
-    AI pieces 经凭据接各家模型（OpenAI 等）；具体清单未逐条核验。自托管时凭据在你实例上。
+    不内置模型权重：AI pieces 经凭据接各家模型（OpenAI 等），另提供 AI SDK 在 flow 内搭 agent；自托管时凭据留在自己实例上（2026-11-21）。
   runtime: >-
-    开源自托管（Docker）+ 官方云两条线；GitHub 25,150★、最近推送 2026-10-21（API 核验，活跃）。
+    开源自托管 + 官方云两条线：生产自托管用 Docker Compose + PostgreSQL + Redis；单机 hobby 容器用 PGLite + 内存队列（不可扩到企业版）；仓库 25,150★、最近推送 2026-10-21（2026-11-21）。
   local_files: >-
-    自托管实例数据落自有环境；pieces 生态的凭据与执行数据在实例内。
+    自托管数据落自有环境：hobby 容器写 `~/.activepieces`，生产写自己的 PostgreSQL/Redis；pieces 凭据与执行数据都在实例内，云版则归厂商托管（2026-11-21）。
   background: >-
-    自托管实例常开即承载定时/webhook；官方给 queue worker 模式（细节未逐条核验）。
+    自托管实例常开承载定时与 webhook 触发；生产用 Redis 队列 worker 跑多实例，human-in-the-loop 支持延时等待与审批，flow 自带自动重试与版本化（2026-11-21）。
   tools: >-
-    pieces（集成）生态 + 社区贡献机制是核心；MCP 支持状态未逐条核验。
+    pieces（集成）生态是核心：官方 MCP 页称一个 server URL 覆盖 770+ 应用，仓库 README 标 280+ pieces 可作 MCP（两个口径随版本增长）；builder 含 loops、branches、自动重试、HTTP、Code with NPM、ASK AI、版本化与模板（2026-11-21）。
   context: >-
-    flow 内步骤间的数据传递与变量引用是官方上下文主轴；跨流程的共享记忆机制未逐条核验
-    （未知就说未知）。实例内的执行历史按 flow 持久保存。
+    flow 内步骤间的数据传递与变量引用是上下文主轴；每次执行的历史按 flow 持久保存，跨 flow 共享靠显式存储/队列 piece，不靠隐式记忆（2026-11-21）。
   permissions: >-
-    社区版基础角色；SSO/项目等属 ee 目录（商业许可区）——功能分界即许可分界。
+    社区版 MIT Expat，企业功能在 `packages/ee` 商业许可区；SSO/项目/权限等企业能力按 ee 线。MCP 连接走 OAuth2 限定 scope、凭据 256-bit 加密且不提供读回 API（2026-11-21）。
   fit: >-
-    适合：要 MIT 主体许可的自托管自动化、要可魔改的低代码。
-    不适合：要企业功能开箱（在 ee 商业线）；要连接器生态与 Zapier 同量级（体量小得多）。
+    适合：要 MIT 主体许可的自托管自动化、要可魔改的低代码、要把 pieces 直接暴露给 MCP 客户端。不适合：要 Zapier 同量级连接器生态、要企业功能开箱（在 ee 商业线）（2026-11-21）。
 
 pitfalls:
   - 把「MIT 主体」读成全仓 MIT——ee/ 目录是商业许可区
@@ -42,17 +40,29 @@ sources:
   - label: Activepieces/Activepieces · 仓库（25,150★，最近推送 2026-10-21，GitHub API 核验）
     url: https://github.com/Activepieces/Activepieces
     kind: repo
-  - label: Activepieces · 官方文档
+  - label: Activepieces · 官方文档（2026-11-21 抓取 200）
     url: https://www.activepieces.com/docs
     kind: docs
-  - label: Activepieces/Activepieces · Releases（changelog）
+  - label: Activepieces/Activepieces · Releases（changelog，2026-11-21 抓取 200）
     url: https://github.com/Activepieces/Activepieces/releases
     kind: changelog
+  - label: Activepieces · Install Options（Docker Compose + PostgreSQL + Redis，2026-11-21 抓取 200）
+    url: https://www.activepieces.com/docs/install/overview
+    kind: docs
+  - label: Activepieces · Hobbyist Installation（PGLite + 内存队列边界，2026-11-21 抓取 200）
+    url: https://www.activepieces.com/docs/install/options/docker
+    kind: docs
+  - label: Activepieces/Activepieces · README（280+ pieces、60% 社区贡献与 MCP，2026-11-21 抓取 200）
+    url: https://raw.githubusercontent.com/activepieces/activepieces/main/README.md
+    kind: docs
+  - label: Activepieces · MCP 页（一个 server URL 覆盖 770+ 应用与 OAuth 鉴权，2026-11-21 抓取 200）
+    url: https://www.activepieces.com/mcp/cometapi
+    kind: docs
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -64,7 +74,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-21
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -79,14 +89,12 @@ cn:
 
 ## 实测记录
 
-本档未跑工作流搭建实测；结论只覆盖平台能力与权限边界。
-
+本档核对官方安装文档、仓库 README 与 MCP 页；队列吞吐、社区版边界与具体 piece 可用性需按自己实例实测。
 ## 未知项清单
 
-- pieces 生态的确切数量（未逐条核验）
-- MCP 支持状态（未核验到官方文档）
-- queue worker 模式在社区版的完整边界
-
+- pieces 生态数量：官方 MCP 页 770+、README 280+，按版本页核对。
+- MCP 客户端兼容：官方称 Claude、Cursor 与任意 MCP 客户端。
+- queue worker 在社区版的完整边界：按 self-host 文档与 Redis 配置核对。
 ## 相关条目
 
 - [n8n](./n8n.md) — 许可对照：同为自托管自动化，SUL（fair-code）vs MIT+ee 混合是核心分野。
