@@ -1,17 +1,17 @@
 {
   "_comment": "C0-11 正文英译 · chatglm-chat（2026-10-25）。",
   "axes": {
-    "model_access": "The main line is Zhipu's self-developed GLM series (Zhipu's official site zhipuai.cn has a model-release line); the GLM open-weight line (HF/ModelScope) and the cloud chat are the same family — running locally belongs to the runner dossiers. In-app model tiers are per the signed-in UI.",
-    "runtime": "Web (chatglm.cn) + iOS/Android apps; generation is processed on the vendor's cloud, no model runs locally. The developer entry is the open platform (open.bigmodel.cn) — same vendor, two interfaces alongside the chat product.",
-    "local_files": "Chat history and knowledge-base files are stored on the account side; the product has a \"knowledge base\" surface (upload documents for retrieval Q&A), data lives in the cloud account.",
-    "background": "Chats return instantly; the product includes agent and browser-extension entries (seen in official navigation); no official statement verified for an \"offline continuation\" form.",
-    "tools": "In-product capability lines incl. data analysis (code-interpreter type), text-to-image, web retrieval and PPT generation (seen in the official feature-page navigation); an agent-creation surface exists. MCP support not verified item by item.",
-    "context": "Session history syncs when signed in; the knowledge base is an explicit cross-session material surface; finer memory mechanics not verified item by item.",
-    "permissions": "Account system (phone-number registration); the training-use switch path not verified item by item. The GLM model filing number is in the cn block (cross-verified against official public disclosures).",
-    "fit": "Suits: Chinese long-document parsing and retrieval Q&A, wanting the GLM open-weight same family (run locally if the cloud isn't enough), student/workplace document scenarios. Does not suit: office/social ecosystem integration, or fully leaving the account system."
+    "model_access": "The main line is Zhipu’s in-house GLM family, with a public model-release line on the Zhipu site; GLM open weights sit in the same family as cloud chat, while local execution belongs to the runner entries. In-app model tiers follow the logged-in UI, and the official privacy policy names Q&A, content generation and agent interaction as basic functions (2026-11-21).",
+    "runtime": "Web (chatglm.cn) plus iOS/Android apps; generation runs in the vendor cloud and no model runs locally. The developer entry is the open platform (open.bigmodel.cn), a second interface from the same vendor; the plugin runs inside browser pages while inference stays in the cloud (2026-11-21).",
+    "local_files": "Chat history and knowledge-base files live on the account. The official privacy policy says conversation records are kept to show history and deleted or anonymised after account cancellation, user deletion or the necessary period. Knowledge-base documents are parsed and retrieved in the cloud; no model runs locally, and downloaded outputs belong to the local machine (2026-11-21).",
+    "background": "Chat responses return immediately; agents and plugins execute in the cloud, and the official specific-function rules say the plugin’s advanced mode requires screenshot authorisation and acting on the user’s behalf on sub-pages. Official pages offer no pause/resume task queue; long tasks should be measured per agent entry (2026-11-21).",
+    "tools": "The product includes data analysis (code-interpreter style), text-to-image, web retrieval and PPT generation, with agent creation and plugin entries. The official specific-function rules list plugin general/advanced modes and a skills marketplace; MCP support is not listed officially and requires wrapping the APIs yourself (2026-11-21).",
+    "context": "Chat history syncs on login; the knowledge base is an explicit cross-session data surface, and the official privacy policy treats conversation records and knowledge bases separately. Finer-grained long-term memory and user profiles are not listed officially and should be checked in product settings (2026-11-21).",
+    "permissions": "Accounts register by phone number. The official privacy policy says conversation records are kept to show history and deleted or anonymised after cancellation, deletion or the necessary period. Plugins need browser-page information and screenshot authorisation; training-use switches follow in-app privacy settings; the GLM filing number is in the cn block (2026-11-21).",
+    "fit": "Fit: Chinese long-document parsing and retrieval Q&A, the GLM open-weight family for cloud-plus-local choice, and student/workplace document work. Not fit: office/social-suite integration or fully leaving the account system (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Knowledge-base capacity limits and retrieval-quality boundary** (the official entry exists; limits unverified)\n- **The training-use switch path and default state**\n- **The actual form of the in-app model tier selector**",
-  "unknowns": "- Knowledge-base capacity/retrieval details (not verified item by item)\n- The training-use switch path and default state (not verified item by item)\n- In-app model tier routing (not verified while signed in)\n- The capability boundary of agents and the browser extension (not verified item by item)",
+  "runs": "This entry checks the official site, privacy policy and specific-function rules for capability boundaries. Knowledge-base retrieval, plugin authorisation and long agent tasks need account-level measurement.",
+  "unknowns": "- Resumption and queue control for long agent tasks: not listed officially; measure per entry.\n- Long-term memory and user-profile entries: not listed officially; check in-product settings.\n- Size and format limits for knowledge-base files: the feature page gives the entry; exact limits follow upload prompts.",
   "related": [
     "Also a domestic open-weight same family: both GLM and DeepSeek weights can run locally under runner dossiers.",
     "Also domestic long-document-oriented: Kimi leads with ultra-long context, Qingyan leads with knowledge-base retrieval."
@@ -20,6 +20,8 @@
     "ChatGLM (Zhipu Qingyan) · official site (product and feature lines)",
     "ChatGLM (Zhipu Qingyan) · Terms of Service (official page, direct-fetch verified 2026-10-22)",
     "ChatGLM (Zhipu Qingyan) · Blog (product-update entry, changelog)",
-    "Alibaba Cloud Model Studio · Model Filing Information Publicity (Zhipu Qingyan (ChatGLM) filing number cross-verification)"
+    "Alibaba Cloud Model Studio · Model Filing Information Publicity (Zhipu Qingyan (ChatGLM) filing number cross-verification)",
+    "Zhipu Qingyan privacy policy (2026-08-05 version, conversation records and deletion rules; fetched 200 on 2026-11-21)",
+    "Zhipu Qingyan specific-function rules (plugin authorisation and skills marketplace; fetched 200 on 2026-11-21)"
   ]
 }

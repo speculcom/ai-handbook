@@ -1,17 +1,17 @@
 {
   "_comment": "C0-13 microsoft-designer bodies EN. 无附加小节。正文「相关条目」2 行带 .md 链接（microsoft-copilot/adobe-firefly），related 写 2 条。sources 3 条对齐 frontmatter。",
   "axes": {
-    "model_access": "Models are routed on Microsoft's side (the DALL·E-family image line merged into the Bing/Copilot ecosystem narrative; the current concrete model tiers not verified item by item); users pick features, not bare models.",
-    "runtime": "Web (designer.microsoft.com) + image capabilities embedded in Bing/Copilot/Office apps; generation processed on Microsoft's cloud.",
-    "local_files": "Works stored on the Microsoft account side (integration surfaces with the OneDrive/Office ecosystem); no models run locally.",
-    "background": "Generation is instant; no \"keep-running-after-shutdown\" task surface (no claim verified); image capabilities embedded in Office are invoked in the host app's foreground.",
-    "tools": "The product includes text-to-image, image editing (background removal etc.), design templates (social graphics/posters), image-to-video-style capability lines (as seen in site navigation); it overlaps with Canva-style template design but AI generation is the main axis (included in this category; Canva is not — see inventory).",
-    "context": "Organized by projects (integration surfaces with the OneDrive/Office ecosystem exist; details not verified item by item); cross-session memory — no official statement verified.",
-    "permissions": "Microsoft account system; the training-use switch sits in Microsoft's privacy dashboard (same dashboard line as Copilot), path and default state not verified item by item; commercial rights vary by subscription tier (D9: prices not collected).",
-    "fit": "Fits: lightweight design output for Microsoft-ecosystem users (social-graphic/poster templates + AI generation), starting free. Does not fit: wanting model self-selection, open weights, or leaving the Microsoft account."
+    "model_access": "Models are routed by Microsoft; the official FAQ describes the product as generative-AI image creation and editing without publishing model-by-model versions, and users choose features rather than raw models. Designer shares ecosystem and quota conventions with the Copilot/Bing image line (2026-11-21).",
+    "runtime": "Web (designer.microsoft.com) plus image capabilities embedded in Bing, Copilot and Office apps; generation runs in Microsoft’s cloud and no model runs locally. The official FAQ says Designer is integrated across the web and Microsoft apps and tools (2026-11-21).",
+    "local_files": "Designs save automatically to Microsoft’s cloud and return through My projects, counting against the universal Microsoft storage quota; uploaded personal images go to OneDrive and must be deleted there. No model runs locally, and exported downloads belong to the local machine (2026-11-21).",
+    "background": "Generation returns immediately; the official FAQ lists no async job queue or resume-after-shutdown surface, and embedded Office image features run in the host app’s foreground. Long-task state should be measured per entry (2026-11-21).",
+    "tools": "The product includes text-to-image, image editing such as background removal, design templates for social posts and posters, and image-to-video capabilities; the official FAQ describes Designer as a generative-AI graphic design tool. It overlaps template design tools such as Canva, but AI generation is the main axis (2026-11-21).",
+    "context": "Work is organised by project: projects persist in My projects in the cloud and link to OneDrive/Office, while the official FAQ lists no cross-session chat memory or user profile — project context lives in design files rather than a conversation thread (2026-11-21).",
+    "permissions": "A Microsoft account is required. The official FAQ licenses Designer for personal, non-commercial use only; commercial use must be checked against the subscription tier and Microsoft terms. Training-use controls sit in the Microsoft privacy panel, while uploaded images live in OneDrive under account quota and deletion (2026-11-21).",
+    "fit": "Fit: lightweight design output for Microsoft-ecosystem users (social/post templates plus AI generation) and a free start. Not fit: model choice, open weights or leaving the Microsoft account (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to creative products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **The generation-quota difference between the free and M365 tiers** (D9: prices not collected; quota behavior to be measured)\n- **The image model tier currently routed to**\n- **Whether the training switch is the same dashboard as Copilot's**",
-  "unknowns": "- The current model-routing list (not verified item by item)\n- Free vs. subscription quota differences (not verified item by item)\n- Cross-session memory mechanism (no official statement verified)\n- The training-use switch path (not verified line by line)",
+  "runs": "This entry checks the official FAQ and Microsoft terms for capability, storage and licensing boundaries. Generation quality, free/subscription quotas and commercial rights need account-level measurement.",
+  "unknowns": "- Exact current image-model version: not disclosed model by model in the official FAQ; check the product UI.\n- Generation-quota difference between free and M365 tiers: the FAQ only says frequent use may need a subscription; check the account page.\n- Tier boundary for commercial licensing: the FAQ states a personal non-commercial licence, so commercial use needs separate checking against Microsoft terms.",
   "related": [
     "Same-ecosystem conversation entry: Designer is the design surface, Copilot the conversation surface.",
     "Both big-vendor design AI lines: Firefly leans on the enterprise-compliance narrative, Designer on free lightweight."
@@ -19,6 +19,7 @@
   "sources": [
     "Microsoft Designer · official site (product and capability narrative)",
     "Microsoft · Services Agreement (official terms, direct-fetched and verified 2026-10-22)",
-    "Windows App · What's New (Designer's updates riding the ecosystem, changelog)"
+    "Windows App · What's New (Designer's updates riding the ecosystem, changelog)",
+    "Microsoft Support — Designer FAQ (cloud storage, OneDrive and personal non-commercial licence; fetched 200 on 2026-11-21)"
   ]
 }

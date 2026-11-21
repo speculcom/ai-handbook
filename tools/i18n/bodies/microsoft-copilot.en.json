@@ -1,17 +1,17 @@
 {
   "_comment": "C0-11 正文英译 · microsoft-copilot（2026-10-25）。",
   "axes": {
-    "model_access": "Models are routed on Microsoft's side with a limited user-facing choice: the official narrative says Copilot uses OpenAI-family models (GPT line) plus Microsoft's own MAI line; the current tiering is not verified item by item. \"Whether a selector exists and what it offers\" is per the signed-in UI.",
-    "runtime": "Web (copilot.microsoft.com) + Windows-embedded + iOS/Android apps + Edge-embedded; generation is processed on Microsoft's cloud. It is an adjacent but different product surface from Microsoft 365 Copilot (office-suite embedded) — this dossier covers the consumer Copilot.",
-    "local_files": "Chat history is stored on the Microsoft account side; there are account-linked surfaces with Bing search history and Edge data (governed by the Microsoft privacy dashboard), details not verified item by item.",
-    "background": "Chats return instantly; the product includes proactive capability lines like \"Copilot Vision/Actions\" (official narrative); no official statement verified for an async task queue.",
-    "tools": "Built-in capability lines incl. web retrieval (Bing-based), image generation (Designer/DALL·E line) and image understanding; integration with Microsoft 365 apps belongs to another product surface. MCP support not verified item by item.",
-    "context": "Chat history syncs when signed in; the cross-session memory mechanism is not verified item by item (there is an official \"Copilot Memory\"-type narrative; implementation details unverified).",
-    "permissions": "Microsoft account system (enterprise/personal account lines); the training-use switch is in the Microsoft privacy dashboard (account privacy settings); the exact path and default state not verified item by item.",
-    "fit": "Suits: Windows/Edge/Bing ecosystem users, free web-connected Q&A, enterprises already in the Microsoft ecosystem. Does not suit: model self-selection, leaving the Microsoft account, or mainland direct-connection scenarios (see the cn block)."
+    "model_access": "Models are routed by Microsoft; official narratives mention OpenAI-family models plus Microsoft’s own MAI family, without a model-by-model list of current tiers. Whether a selector exists and what it offers follows the logged-in UI. Routing can change, so a single UI snapshot is not a commitment (2026-11-21).",
+    "runtime": "Web (copilot.microsoft.com), Windows integration, iOS/Android apps and Edge integration; generation runs in Microsoft’s cloud. Microsoft 365 Copilot is a neighbouring but distinct product surface — this entry covers the consumer Copilot (2026-11-21).",
+    "local_files": "Chat history sits on the Microsoft account. The official privacy FAQ says conversations are saved by default, viewable in the Copilot app’s history, stored for 18 months by default and deletable individually or wholesale. Copilot for Windows references local recent items but does not scan or upload files automatically; browsing history stays on the device and is sent only according to settings (2026-11-21).",
+    "background": "Chat responses return immediately, and the official privacy FAQ lists no pause/resume task queue. Consumer Deep Research retired on 2026-08-18, with deep research moving to the Researcher agent in Microsoft 365 Copilot (official support page, 2026-11-21).",
+    "tools": "Web retrieval on the Bing base, image generation on the Designer/DALL·E line and image understanding are built in; deep research has retired on the consumer side, while the Researcher agent provides multi-step research in Microsoft 365 Copilot. Microsoft 365 app integration is another surface; official pages do not list MCP as a consumer capability (2026-11-21).",
+    "context": "Chat history syncs on login and is stored for 18 months by default. The official privacy FAQ and personalisation page say Copilot Memory infers preferences from prior conversations and uses them later; turning personalisation off stops memory and personalisation but does not delete history. Copilot Memory has a separate saved-memories management entry (2026-11-21).",
+    "permissions": "Microsoft accounts span personal and enterprise lines. The official privacy FAQ says that, except for opted-out users, Microsoft uses Copilot conversations, uploaded images/files and voice activity to train AI, removing names, account identifiers and other identifying data first. Personalisation switches sit in Copilot settings, with paths checked on the account page (2026-11-21).",
+    "fit": "Fit: Windows/Edge/Bing ecosystem users, free web-grounded Q&A and enterprises already in Microsoft’s ecosystem. Not fit: model choice, leaving the Microsoft account or direct mainland access (see the cn block) (2026-11-21)."
   },
-  "runs": "This site has not completed measured runs. The coding-oriented test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md) (the coding task suite does not apply to chat products).\n\n**Suggested measurements** (three, all pointing at things the official readable pages do not give):\n\n- **Whether a model selector exists and its options** (verify in the signed-in UI)\n- **The path and default state of the training switch in the account privacy dashboard**\n- **The actual trigger boundary of Copilot Vision/Actions**",
-  "unknowns": "- The list of currently routed models (changes with official adjustments; not verified item by item)\n- The training switch path and default state (not verified item by item)\n- Implementation details of the Copilot Memory-type narrative (not verified item by item)\n- The capability boundary between free and M365 subscription (D9: prices not collected; capability boundary not verified item by item)",
+  "runs": "This entry checks the official privacy FAQ, personalisation page and support page for capability and permission boundaries. Model routing, quotas and mainland direct access need account and network measurements.",
+  "unknowns": "- Model-by-model routing list: not published; check the logged-in UI.\n- Default state of personalisation memory and saved-memories controls: check Copilot settings.\n- Capability difference between free and M365 tiers: check the account page and subscription entitlements.",
   "related": [
     "General-chat contrast: ChatGPT's model line is more single and clear, Copilot goes through Microsoft routing.",
     "Also a big-tech ecosystem chat entry: Google-family vs Microsoft-family."
@@ -21,6 +21,8 @@
     "Microsoft · Services Agreement (official terms, direct-fetched 2026-10-22)",
     "Microsoft 365 Copilot · Release Notes (adjacent product surface, changelog)",
     "Microsoft Support · Deep Research in Microsoft Copilot (consumer retirement on 2026-08-18)",
-    "Microsoft Learn · Researcher agent FAQ (the deep-research agent in Microsoft 365 Copilot)"
+    "Microsoft Learn · Researcher agent FAQ (the deep-research agent in Microsoft 365 Copilot)",
+    "Microsoft Support — Copilot privacy FAQ (18-month storage and training terms; fetched 200 on 2026-11-21)",
+    "Microsoft Support — Personalize what Copilot remembers (Copilot Memory and disable paths; fetched 200 on 2026-11-21)"
   ]
 }

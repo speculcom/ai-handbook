@@ -328,7 +328,7 @@ General-purpose chat assistants, web/app, including Chinese products
 | [Tongyi Qianwen (Qwen Chat)](tracks/chat/products/tongyi-qianwen.md) | Alibaba | web | verified | active |
 | [Wenxin](tracks/chat/products/wenxin.md) | Baidu | web | verified | active |
 | [iFlytek Spark](tracks/chat/products/xinghuo-spark.md) | iFlytek | web | verified | active |
-| [ChatGLM (Zhipu Qingyan)](tracks/chat/products/chatglm-chat.md) | Zhipu AI | web | partial | active |
+| [ChatGLM (Zhipu Qingyan)](tracks/chat/products/chatglm-chat.md) | Zhipu AI | web | verified | active |
 | [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | verified | active |
 | [Claude (chat app)](tracks/chat/products/claude-chat.md) | Anthropic | web | verified | active |
 | [DeepSeek Chat](tracks/chat/products/deepseek-chat.md) | DeepSeek | web | partial | active |
@@ -340,7 +340,7 @@ General-purpose chat assistants, web/app, including Chinese products
 | [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
 | [Manus](tracks/chat/products/manus.md) | Manus AI (Monica team) | web | verified | active |
 | [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | verified | active |
-| [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | Microsoft | web | partial | active |
+| [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | Microsoft | web | verified | active |
 | [Open WebUI](tracks/chat/products/open-webui.md) | Open WebUI Community | web | verified | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | verified | active |
 | [Reka Chat (Reka Playground / Edge Chat)](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | verified | active |
@@ -359,7 +359,7 @@ Text-to-image and AI image editing
 | [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | verified | active |
 | [Krea](tracks/image/products/krea.md) | Krea | web | verified | active |
 | [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo (acquired by Canva, Jul 2024) | web | verified | active |
-| [Microsoft Designer](tracks/image/products/microsoft-designer.md) | Microsoft | web | partial | active |
+| [Microsoft Designer](tracks/image/products/microsoft-designer.md) | Microsoft | web | verified | active |
 | [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | verified | active |
 | [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | verified | active |
 | [Recraft](tracks/image/products/recraft.md) | Recraft | web | verified | active |
@@ -409,7 +409,7 @@ TTS, music generation, transcription products
 | [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | verified | active |
 | [SOUNDRAW](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | verified | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | verified | active |
-| [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
+| [Udio](tracks/audio/products/udio.md) | Udio | web | verified | active |
 | [Whisper](tracks/audio/products/whisper.md) | OpenAI (open source) | local-app | verified | active |
 
 ### Search & research — 11

@@ -313,7 +313,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [通义千问](tracks/chat/products/tongyi-qianwen.md) | 阿里巴巴 | web | verified | active |
 | [文心](tracks/chat/products/wenxin.md) | 百度 | web | verified | active |
 | [讯飞星火](tracks/chat/products/xinghuo-spark.md) | 科大讯飞 | web | verified | active |
-| [智谱清言](tracks/chat/products/chatglm-chat.md) | 智谱 AI | web | partial | active |
+| [智谱清言](tracks/chat/products/chatglm-chat.md) | 智谱 AI | web | verified | active |
 | [ChatGPT](tracks/chat/products/chatgpt.md) | OpenAI | web | verified | active |
 | [Claude（对话应用）](tracks/chat/products/claude-chat.md) | Anthropic | web | verified | active |
 | [DeepSeek](tracks/chat/products/deepseek-chat.md) | 深度求索 | web | partial | active |
@@ -325,7 +325,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [LibreChat](tracks/chat/products/librechat.md) | LibreChat AI | web | verified | active |
 | [Manus](tracks/chat/products/manus.md) | Manus AI（Monica 团队） | web | verified | active |
 | [Meta AI](tracks/chat/products/meta-ai.md) | Meta | web | verified | active |
-| [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | partial | active |
+| [Microsoft Copilot](tracks/chat/products/microsoft-copilot.md) | 微软 | web | verified | active |
 | [Open WebUI](tracks/chat/products/open-webui.md) | Open WebUI 社区 | web | verified | active |
 | [Poe](tracks/chat/products/poe.md) | Quora | web | verified | active |
 | [Reka Chat（Reka Playground / Edge Chat）](tracks/chat/products/reka-chat.md) | Reka AI, Inc. | web | verified | active |
@@ -344,7 +344,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Ideogram](tracks/image/products/ideogram.md) | Ideogram | web | verified | active |
 | [Krea](tracks/image/products/krea.md) | Krea | web | verified | active |
 | [Leonardo AI](tracks/image/products/leonardo-ai.md) | Leonardo（2024-07 被 Canva 收购） | web | verified | active |
-| [Microsoft Designer](tracks/image/products/microsoft-designer.md) | 微软 | web | partial | active |
+| [Microsoft Designer](tracks/image/products/microsoft-designer.md) | 微软 | web | verified | active |
 | [Midjourney](tracks/image/products/midjourney.md) | Midjourney, Inc. | web | verified | active |
 | [Playground](tracks/image/products/playground.md) | AI Playground, Inc. | web | verified | active |
 | [Recraft](tracks/image/products/recraft.md) | Recraft | web | verified | active |
@@ -394,7 +394,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Resemble AI](tracks/audio/products/resemble.md) | Resemble AI | web | verified | active |
 | [Soundraw](tracks/audio/products/soundraw.md) | SOUNDRAW Inc. | web | verified | active |
 | [Suno](tracks/audio/products/suno.md) | Suno Inc. | web | verified | active |
-| [Udio](tracks/audio/products/udio.md) | Udio | web | partial | active |
+| [Udio](tracks/audio/products/udio.md) | Udio | web | verified | active |
 | [Whisper](tracks/audio/products/whisper.md) | OpenAI（开源） | local-app | verified | active |
 
 ### AI 搜索与研究 —— 11 份
