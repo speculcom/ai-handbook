@@ -263,7 +263,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [Aider Watch 模式](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
 | [Amazon Q Developer](tracks/coding/products/amazon-q-developer.md) | AWS | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation（原 Sourcegraph，2025-12 分拆独立） | cli | verified | active |
-| [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | partial | active |
+| [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | verified | active |
 | [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | verified | active |
 | [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
 | [Claude Code IDE 扩展](tracks/coding/products/claude-code.md) | Anthropic | ide | verified | active |
@@ -292,7 +292,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
 | [Qoder](tracks/coding/products/qoder.md) | 阿里云 | ide | verified | active |
 | [Qoder CN（原通义灵码）](tracks/coding/products/qoder-cn.md) | 阿里云 | ide | partial | active |
-| [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
+| [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | verified | active |
 | [Trae](tracks/coding/products/trae.md) | 字节跳动 | ide | partial | active |
 | [v0](tracks/coding/products/v0.md) | Vercel | cloud | verified | active |
 | [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
@@ -359,7 +359,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | 名字 | 厂商 | 形态 | 数据可信度 | 上游状态 |
 |---|---|---|---|---|
 | [海螺视频](tracks/video/products/hailuo-video.md) | MiniMax（稀宇科技） | web | partial | active |
-| [可灵 Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd.（快手） | web | partial | active |
+| [可灵 Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd.（快手） | web | verified | active |
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | partial | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
@@ -460,7 +460,7 @@ framework 的 30 个对象按**抽象层**分三组，这是本站对该大类�
 | [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
 | [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
 | [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
-| [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
+| [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | verified | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS 社区（Eliza Research） | harness | verified | active |
 | [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |
 | [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | verified | active |
@@ -554,7 +554,7 @@ MCP 服务器与工具生态。
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | verified | active |
 | [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | verified | active |
 | [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | verified | active |
-| [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
+| [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | verified | active |
 | [OpenVINO](tracks/runner/products/openvino.md) | Intel | cli | verified | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | verified | active |
 | [TabbyAPI](tracks/runner/products/tabbyapi.md) | Royal Lab（theroyallab） | cli | verified | active |

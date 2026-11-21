@@ -5,8 +5,8 @@ name: 可灵 Kling AI
 nameEn: Kling AI
 vendor: Kling AI Pte. Ltd.（快手）
 homepage: https://klingai.com/global/
-license: 官方国际版 ToS §4.4：「You own all intellectual property rights and other proprietary interests in and to the Content under applicable law… We do not claim ownership of the Content.」——所有权归用户；但 §4.6：「without our written permission, you may not use, reproduce, distribute… the Output for any commercial purposes」——商用需书面许可。会员的商业许可在《Terms of Paid Service》（3.1.2 会员商用不受限、7.2 水印归属）——该页正文为动态加载、本次直抓未能取得，本站不转述其细节；非会员按 §4.5 须为输出标注 Kling 品牌。
-licenseEn: Official international ToS §4.4: 'You own all intellectual property rights and other proprietary interests in and to the Content under applicable law… We do not claim ownership of the Content.' But §4.6: 'without our written permission, you may not use, reproduce, distribute… the Output for any commercial purposes' — commercial use requires written permission. The membership commercial license lives in the Terms of Paid Service (reported as 3.1.2 members' commercial use unrestricted and 7.2 watermark rights) — that page loads its text dynamically and could not be fetched directly on 2026-10-20, so this site does not restate its details. Non-members must label output with Kling branding per §4.5.
+license: 官方国际版 ToS §4.4：「You own all intellectual property rights and other proprietary interests in and to the Content under applicable law… We do not claim ownership of the Content.」——所有权归用户；但 §4.6：「without our written permission, you may not use, reproduce, distribute… the Output for any commercial purposes」——商用需书面许可。会员的商业许可以《Terms of Paid Service》原文为准——官方条款入口页在册，本档不复述法律条款编号；非会员按 §4.5 须为输出标注 Kling 品牌。
+licenseEn: Official international ToS §4.4: 'You own all intellectual property rights and other proprietary interests in and to the Content under applicable law… We do not claim ownership of the Content.' But §4.6: 'without our written permission, you may not use, reproduce, distribute… the Output for any commercial purposes' — commercial use requires written permission. The membership commercial license is governed by the Terms of Paid Service — the official terms entry is on record; clause details are left to the original text. Non-members must label output with Kling branding per §4.5.
 
 axes:
   model_access: >-
@@ -21,7 +21,7 @@ axes:
     生成为任务制：提交后云端排队产出，产出物进账户素材库；
     没有「关机续跑」形态的官方声明——任务在云端跑，不依赖本机在线。
   tools: >-
-    API 线面向企业与开发者（4.0 发布口径称 API 将开放）；平台内 Recreate/下载等社区机制（ToS §4.8）；
+    API 线已公开：官方 Dev Pricing 页列 Kling 3.0 Turbo 等模型与按秒计费，Kling Skills 支持 Claude Code/Cursor/Codex 等第三方 agent 调用；套餐与额度以控制台为准；平台内 Recreate/下载等社区机制（ToS §4.8）；
     被第三方平台聚合调用（如 Runway MCP 上架 Kling 3.0/O3，见 Runway changelog 2026-09-18）。
   context: >-
     生成为任务制，无跨会话对话记忆形态；创作延续靠素材库与参考输入
@@ -50,7 +50,7 @@ sources:
   - label: Kling AI · Terms of Service（国际版官方条款，2026-10-20 直抓 200 核验 §4.4/§4.6/§4.7 全文）
     url: https://app.klingai.com/global/docs/user-policy
     kind: docs
-  - label: Kling AI · Terms of Paid Service（条款入口页，正文动态加载、本次未能直抓核验——会员商用细节本站不转述）
+  - label: Kling AI · Terms of Paid Service（官方条款入口页；正文动态加载，本档不复述条款细节，2026-10-20）
     url: https://app.klingai.com/global/docs/paid-service-terms
     kind: docs
   - label: Kling AI · 全球站更新页（产品入口页，2026-10-21 直抓核验 Kling 4.0 展示位）
@@ -59,11 +59,17 @@ sources:
   - label: Kling AI · Membership（定价页指针，D9：按 D9 口径不落价格数字）
     url: https://klingai.com/global/membership
     kind: pricing
+  - label: Kling AI · Dev Pricing（API 模型与按秒计费口径，2026-11-21 直抓）
+    url: https://kling.ai/dev/pricing
+    kind: pricing
+  - label: Kling AI · Kling Skills（官方 API Skill，支持 Claude Code/Cursor/Codex 等，2026-10-28）
+    url: https://kling.ai/document-api/api/get-started/kling-skills.md
+    kind: docs
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: domestic
@@ -75,7 +81,7 @@ cn:
   filing: filed
   filing_note: 2024-11 批次附件第 218 行。
   filing_note_en: Listed in the CAC registry as "Kling" (Beijing-KeLing-202409250032, filed 2024-10-15).
-  verified: 2026-10-20
+  verified: 2026-11-21
   filing_name: 可灵
   filing_name_en: Kling
   filing_no: Beijing-KeLing-202409250032
@@ -90,7 +96,7 @@ cn:
 ## 适合与不适合
 
 适合重图生视频质量、在中文生态里工作的创作者。商用先确认会员线与水印条款；
-发布到社区等于公开、可被他人 Recreate。要 API 直连的企业用户走 API 线（4.0 发布口径称将开放）。
+发布到社区等于公开、可被他人 Recreate。要 API 直连的企业用户走已公开的 Dev API 线。
 训练退出走邮件、只面向未来——在意这一点要先接受。
 
 ## 实测记录
@@ -99,8 +105,8 @@ cn:
 
 ## 未知项清单
 
-- 《Terms of Paid Service》会员商用条款细节（页面动态加载，2026-10-20 直抓未能取得正文，本站不转述）
-- API 线当前开放范围与定价（4.0 新闻稿称将开放，本站未核验落地状态）
+- 《Terms of Paid Service》的逐条法律条款（官方条款入口页在册，本档不复述条款编号；商用前直接核对原文）
+- API 套餐额度与具体单价（官方 Dev Pricing 页给公开模型与计费口径，实际套餐以控制台为准）
 
 ## 相关条目
 

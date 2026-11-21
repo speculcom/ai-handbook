@@ -38,7 +38,7 @@ axes:
   permissions: >-
     企业定位（enterprise-grade 口径贯穿官方文档）：Trust Center、Status Page 官方入口在导航；
     Analytics API 用 scoped OAuth token 或 service-account bearer token，写权限按需申请（官方 llms.txt 口径）。
-    个人侧权限模型未逐条核验。
+    工具权限在 Auggie CLI 与 Cosmos 云 agent 生效，IDE 扩展不强制执行（官方 Tool Permissions 页）；企业档 Standard/Business 最多 50 席、Enterprise 自定义（官方 Pricing 页）。
   fit: >-
     适合：企业级「软件工厂」叙事——要跨 SDLC 的 agent 流水线（ticket→PR→merge→monitor）、
     self-hosted 环境把 agent 跑在自己基础设施、多前沿模型清单（含自研 Prism 路由）。
@@ -49,7 +49,7 @@ pitfalls:
   - 2026-10-08 官方博客「Augment Code's next chapter」：Cosmos、Auggie CLI、Code Context Engine 及相关技术
     加入 Harness，团队并入——产品连续性走 Harness 体系，检索时 Augment/Harness 两个名字都要认
   - 官网与 docs 仍活跃在售 Cosmos（2026-10-22 实测 200）——「被收购」不等于「下线」，
-    但后续归属与品牌走向官方未给完整说明
+    当前官网与 docs 继续在售 Cosmos；并入后的品牌与合同细节按 Harness/销售口径，不在产品页展开
   - 计费是 token 制三段（LLM token + Cosmos 算力 + 服务费）——与按 credit 包月的同类工具口径不同，
     对比成本前先核 Token-Based Pricing 页
 
@@ -81,11 +81,17 @@ sources:
   - label: Augment Code 官网（Cosmos/软件工厂叙事）
     url: https://www.augmentcode.com
     kind: official
+  - label: Augment Code · Pricing（Standard/Business/Enterprise，最多 50 席，Data Residency，2026-11-21 直抓）
+    url: https://www.augmentcode.com/pricing
+    kind: pricing
+  - label: Augment Code 文档 · Tool Permissions（CLI/云 agent 生效，IDE 扩展不强制）
+    url: https://docs.augmentcode.com/cli/permissions
+    kind: docs
 
-last_verified: 2026-10-22
-last_updated: 2026-10-22
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -100,7 +106,7 @@ cn:
   filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve
     the mainland public, so filing does not apply.
-  verified: 2026-10-22
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -120,16 +126,14 @@ Environments 可托管云/自有基础设施/本机三选一，Code Context Engi
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 
-- **Harness 并入后购买/续约路径的实际变化**（公告只说资产与团队并入，未给客户迁移细则）
+- **Harness 并入后的购买/续约路径**（按销售合同确认，产品页不展开）
 - **self-hosted daemon 在真实 CI 里的隔离与审计行为**（官方有 daemon-config 页，未做实测）
 - **Prism 路由的实际模型选择透明度**（能否看到每次请求落到哪个模型）
 
 ## 未知项清单
 
-- Harness 并入后的品牌与产品线走向（官方公告未给完整说明）
-- 个人/小团队计划是否存在（导航以企业销售为主，未核验到个人档）
-- 托管云沙箱的代码存储区域与保留策略（未逐条核验）
-- 个人侧权限模型细节（未逐条核验）
+- Harness 并入后的品牌与合同细节（官方公告给资产与团队并入，具体迁移按销售合同）
+- 托管云沙箱的代码存储区域与保留策略（Enterprise 定价页列 Data Residency 选项，具体区域与保留期按合同）
 
 ## 相关条目
 

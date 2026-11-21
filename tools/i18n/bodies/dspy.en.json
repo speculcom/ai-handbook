@@ -7,17 +7,17 @@
     "3) 翻译不刷新 last_verified。"
   ],
   "axes": {
-    "model_access": "Each vendor's LM connects uniformly through dspy.LM (OpenAI/Anthropic/Gemini/local vLLM etc.,\nfollowing the official docs' LM-integration line, not enumerated item by item); its differentiator is **treating prompts as programmable parameters** —\nsignatures declare inputs and outputs, and optimizers automatically tune prompts and few-shot examples.",
+    "model_access": "Each vendor's LM connects uniformly through dspy.LM (OpenAI/Anthropic/Gemini/local vLLM etc.,\nfollowing the official docs' LM-integration line); its differentiator is **treating prompts as programmable parameters** —\nsignatures declare inputs and outputs, and optimizers automatically tune prompts and few-shot examples.",
     "runtime": "A Python library (pip-installed into your process); GitHub 38,850★, last push 2026-10-29 (API verified).\nAcademic origin (Stanford NLP), with industrial-side Databricks investment (per the official narrative).",
     "local_files": "The library form runs inside your process; optimization artifacts (program state/examples) land at paths you specify — data never leaves your side.",
     "background": "A library has no resident semantics; optimization (teleprompting) is an offline batch task that ends when it finishes.",
-    "tools": "ReAct-style agent modules and tool calling are within the official module family; MCP support status has no verified official mainline statement.",
+    "tools": "ReAct-style agent modules and tool calling are within the official module family; MCP goes through the official bridge: dspy.Tool.from_mcp_tool(session, mcp_tool) turns an MCP tool into a DSPy Tool, and the official tutorial gives an MCP SDK v2 Client + stdio example.",
     "context": "State management follows your program; cross-session memory is not part of its narrative — its \"memory\" is the optimized examples and weights.",
-    "permissions": "No account system; the permission surface is whatever vendors' API keys you connect. The optimization process calls models heavily (a token-cost surface);\nbudget-control parameters are in the official docs line, details not verified item by item.",
+    "permissions": "No account system; the permission surface is whatever vendors' API keys you connect. The optimization process calls models heavily (a token-cost surface);\nbudget-control parameters sit in the official docs and optimizer configuration, and this dossier fixes no specific values.",
     "fit": "Fits: turning \"prompt tuning\" into a reproducible optimization process (with metrics, with a training set); pipelines where models are swappable.\nDoes not fit: wanting an out-of-the-box agent runtime; small samples without metrics (optimizers consume metrics — without metrics there is nothing to optimize)."
   },
   "runs": "This site has not completed measured runs.\n\nThe test protocol is at [protocols/framework/_protocol.md](../../../protocols/framework/_protocol.md).",
-  "unknowns": "- The full LM-integration catalog (not enumerated item by item)\n- MCP support status (no verified official mainline statement)\n- Sample-size rules of thumb per optimizer (the official docs have guidance; not verified item by item)",
+  "unknowns": "- The full LM-integration catalog (the official LM-integration docs roll forward; this dossier does not enumerate it)\n- Sample-size rules of thumb per optimizer (official guidance exists; results vary by task, so this dossier fixes no numbers)",
   "related": [
     "same-layer contrast: LangChain orchestrates components, DSPy optimizes prompts — one handles wiring, the other handles training",
     "both on the \"types/structure first\" route: Pydantic governs output structure, DSPy governs prompt quality"
@@ -25,6 +25,8 @@
   "sources": [
     "stanfordnlp/dspy · repository (MIT; 38,850★, last push 2026-10-29, GitHub API verified)",
     "DSPy · official docs",
-    "stanfordnlp/dspy · Releases (changelog)"
+    "stanfordnlp/dspy · Releases (changelog)",
+    "DSPy Docs · Use MCP in DSPy (dspy.Tool.from_mcp_tool + MCP SDK v2 Client, 2026-11-04)",
+    "DSPy Docs · Tools and MCP (MCP tool to DSPy Tool schema mapping, direct-fetched 2026-11-21)"
   ]
 }

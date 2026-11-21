@@ -7,17 +7,17 @@
     "3) 翻译不刷新 last_verified。"
   ],
   "axes": {
-    "model_access": "**Choose by \"mode\" rather than by bare model**: the official docs list four modes — Free/Auto/Power/Max. Free is the free tier within plan allowances, Auto routes automatically, Power/Max are paid tiers (Max uses the strongest frontier models). Which models sit behind each tier follows the official plan-page framing; not enumerated one by one. Enterprise workspaces have only the Auto mode; admins can manage model access via Enterprise model controls.",
+    "model_access": "**Choose by \"mode\" rather than by bare model**: the official docs list four modes — Free/Auto/Power/Max. Free is the free tier within plan allowances, Auto routes automatically, Power/Max are paid tiers (Max uses the strongest frontier models). Which models sit behind each tier is shown live by the in-account Model selector (official framing: the model list is account-specific and shifts with plans and staged rollouts). Enterprise workspaces have only the Auto mode; admins can manage model access via Enterprise model controls.",
     "runtime": "**Built-in agent in a cloud IDE**: projects, dependencies, databases and deployments all live on Replit cloud. The official docs state the Agent \"writes code, sets up infrastructure, tests results\" and automatically creates checkpoints you can roll back to. Desktop/mobile are entry points; execution happens in the cloud.",
-    "local_files": "Code and data default to living in Replit cloud projects, not on your machine; artifacts can be exported (official export/migration lines exist; details not verified one by one). External services (BigQuery/Slack/Notion/Linear etc.) are connected via official connectors, pulling data directly from chat.",
+    "local_files": "Code and data default to living in Replit cloud projects, not on your machine. Code and projects migrate through GitHub/GitLab repositories (official Connect your repository / Contribute code); platform-hosted databases, Auth and object storage data move out under each service's docs. External services (BigQuery/Slack/Notion/Linear etc.) are connected via official connectors, pulling data directly from chat.",
     "background": "**There is a background-task surface**: the official docs give quota lines of Core 1 / Pro 10 \"Active background tasks\" — background tasks are part of the product semantics. Plan mode produces a task list for approval before work starts.",
-    "tools": "The agent ships with the full chain — create projects, install dependencies, test, deploy. The connector surface (BigQuery/Slack/Notion/Linear etc.) is an officially listed connection directory; not enumerated one by one. **MCP support status: not verified to an official statement.**",
-    "context": "Multiple artifacts within a project share the same backend and data (web/mobile/slides/video in one project); checkpoints provide a state-rollback surface. Cross-project memory: no official statement seen.",
+    "tools": "The agent ships with the full chain — create projects, install dependencies, test, deploy. The connector surface (BigQuery/Slack/Notion/Linear etc.) follows the official Integrations directory for the day. **MCP both ways: the Agent can connect prelisted or custom MCP servers (official Connect via MCP), and Replit also offers an MCP Server for compatible clients (Connect through MCP).**",
+    "context": "Multiple artifacts within a project share the same backend and data (web/mobile/slides/video in one project); checkpoints provide a state-rollback surface. Cross-project memory is not part of the official docs narrative.",
     "permissions": "Account + plan system. Paid actions require confirmation (official FAQ: \"paid actions require confirmation before they start\"; when the Free tier runs out it offers \"Allow once\" for one-time approval). Enterprise has model-access controls. Deployment yields a Replit-hosted URL.",
     "fit": "Good fit: going from natural language straight to a deployable app (database and deployment included), non-engineers building prototypes, wanting checkpoint rollback as a safety net.\n\nNot a fit: making your existing codebase the main battlefield (its main axis is idea → new project), wanting full self-selection at the model layer."
   },
   "runs": "This site has not completed measured runs. The test protocol is at [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md).\n\n**Suggested measurement** (three, each pointing at something the official readable pages do not give):\n\n- **The actual usable amount of the Free tier's five-hour-reset allowance** — the official page only gives the framing \"allowances reset every five hours\"\n- **The confirmation interaction details of \"Allow once\"** (when it prompts, how many times)\n- **The complete path for exporting/migrating artifacts out** (official migration lines exist; boundaries not verified one by one)",
-  "unknowns": "- The concrete model list behind each mode (official framing follows the plan pages; not enumerated one by one)\n- MCP support status (not verified to an official statement)\n- Detailed boundaries of artifact export and data migration (not verified one by one)\n- Cross-project memory mechanism (no official statement seen)",
+  "unknowns": "- The concrete model list behind each mode (the in-account Model selector changes in real time; the account is authoritative)\n- Migration boundary for platform-hosted databases/Auth data (code moves via Git; hosted data follows each service's docs)\n- Cross-project memory (the official docs do not list a standalone memory product surface; this dossier does not infer one)",
   "related": [
     "Same cloud form: Devin takes your existing repositories and opens PRs; Replit builds new projects from an idea. [Lovable](./lovable.md) / [Bolt.new](./bolt-new.md) / [v0](./v0.md) — same natural-language site-building line, artifacts are exportable codebases; Replit gives a full cloud development environment while those three hide the environment inside a prompt flow.",
     ""
@@ -25,6 +25,9 @@
   "sources": [
     "Replit Docs · Replit Agent overview (modes / Plan / background tasks / FAQ)",
     "Replit Docs · Updates (weekly changelog, latest 2026-10-16)",
-    "Replit · official site"
+    "Replit · official site",
+    "Replit Docs · Connect via MCP (prelisted/custom MCP servers, direct-fetched 2026-11-21)",
+    "Replit Docs · Choose a model (in-account Model selector is authoritative)",
+    "Replit Docs · Connect to your repository (GitHub/GitLab migration surface)"
   ]
 }

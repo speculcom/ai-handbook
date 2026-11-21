@@ -8,23 +8,22 @@ homepage: https://replit.com
 axes:
   model_access: >-
     按「模式」选而非按裸模型选：官方文档列 Free/Auto/Power/Max 四态——Free 是套餐额度内的免费档，
-    Auto 自动路由，Power/Max 是付费档（Max 使用官方定位的前沿模型）；具体每档挂哪些模型官方按套餐页口径给，
-    未逐条清点。企业工作区只有一个 Auto 模式，管理员可用 Enterprise model controls 管模型访问。
+    Auto 自动路由，Power/Max 是付费档（Max 使用官方定位的前沿模型）；具体每档可用模型在账户内 Model selector 实时展示（官方口径：模型清单以账户为准，随套餐与滚动上线变化）。企业工作区只有一个 Auto 模式，管理员可用 Enterprise model controls 管模型访问。
   runtime: >-
     云端 IDE 内建 agent：项目、依赖、数据库、部署全在 Replit 云上；官方文档明确 Agent 会
     「写代码、搭基础设施、测结果」并自动建 checkpoint 可回滚。桌面/手机是入口，执行在云上。
   local_files: >-
-    代码与数据默认在 Replit 云项目里，不在你本机；产物可导出（官方有导出/迁移线，细节未逐条核验）。
+    代码与数据默认在 Replit 云项目里，不在你本机；代码与项目以 GitHub/GitLab 仓库为迁移面（官方 Connect your repository / Contribute code）；平台托管数据库、Auth 与对象存储的数据按各服务文档单独迁出。
     连接外部服务（BigQuery/Slack/Notion/Linear 等）经官方 connector 从聊天直接取数。
   background: >-
     有后台任务面：官方文档给 Core 1 个、Pro 10 个「Active background tasks」的配额行——
     后台跑任务是产品语义的一部分；Plan mode 先出任务清单供审批再动工。
   tools: >-
     agent 自带建项目/装依赖/测试/部署全链；connector 面（BigQuery/Slack/Notion/Linear 等）
-    是官方列出的连接目录，未逐条清点。MCP 支持状态未核验到官方声明。
+    是官方列出的连接目录，以 Integrations 目录当日列表为准。MCP 双向：Agent 可接预列 MCP 服务器或自定义服务器（官方 Connect via MCP），Replit 也提供 MCP Server 供兼容客户端接入（Connect through MCP）。
   context: >-
     项目内多产物共享同一后端与数据（web/mobile/slides/视频同项目）；checkpoint 提供状态回滚面。
-    跨项目记忆未见官方声明。
+    跨项目记忆不在官方文档叙事内；项目内 checkpoint 提供回滚面。
   permissions: >-
     账号+套餐体系；付费动作需确认（官方 FAQ：paid actions require confirmation before they start，
     Free 不够时给 Allow once 单次放行）；企业版有模型访问管控。部署即 Replit 托管 URL。
@@ -36,7 +35,7 @@ pitfalls:
   - 把 Replit Agent 当「装进现有仓库的编码 agent」——官方定位是从想法到新项目（含基础设施），
     现有代码库协作不是它文档的主叙事
   - Free/Power/Max 是「模式」不是模型名——每档背后挂什么模型随官方调整，别把档位当固定模型清单
-  - 产物与数据默认在 Replit 云上——导出与迁移线存在但边界要自己核（未逐条核验）
+  - 产物与数据默认在 Replit 云上——代码经 Git 仓库迁出，托管数据库/Auth 数据按各服务文档处理。
 
 tags: [闭源, 云IDE, 自然语言建站, checkpoint, 后台任务]
 related: [supabase-mcp, linear-mcp, notion-mcp]
@@ -51,11 +50,20 @@ sources:
   - label: Replit · 官网
     url: https://replit.com
     kind: official
+  - label: Replit 文档 · Connect via MCP（预列/自定义 MCP 服务器，2026-11-21 直抓）
+    url: https://docs.replit.com/build/connect-via-mcp
+    kind: docs
+  - label: Replit 文档 · Choose a model（账户内 Model selector 为模型清单权威）
+    url: https://docs.replit.com/chat/model-selector
+    kind: docs
+  - label: Replit 文档 · Connect to your repository（GitHub/GitLab 仓库迁移面）
+    url: https://docs.replit.com/build/code/connect-your-repository
+    kind: docs
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -67,7 +75,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-21
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -88,14 +96,13 @@ Free/Power/Max 模式选档不选裸模型，checkpoint 兜底回滚。
 
 - **Free 档五小时重置额度的实际可用量**——官方只给「allowances reset every five hours」口径
 - **Allow once 单次放行的确认交互细节**（何时弹、弹几次）
-- **产物导出/迁出的完整路径**（官方有迁移线，边界未逐条核验）
+- **GitHub/GitLab 仓库迁移与平台托管数据库/Auth 数据的边界**（按官方 Connect repository 与数据删除文档实测）
 
 ## 未知项清单
 
-- 各模式背后具体模型清单（官方按套餐页口径，未逐条清点）
-- MCP 支持状态（未核验到官方声明）
-- 产物导出与数据迁出的细节边界（未逐条核验）
-- 跨项目记忆机制（未见官方声明）
+- 各模式背后的具体模型清单（账户内 Model selector 实时变化，以账户为准）
+- 平台托管数据库/Auth 数据的迁出边界（代码走 Git，托管数据按各服务文档处理）
+- 跨项目记忆（官方文档不列独立记忆产品面，本档不推断）
 
 ## 相关条目
 

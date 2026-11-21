@@ -278,7 +278,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Aider (Watch mode)](tracks/coding/products/aider.md) | Aider-AI | ide | partial | maintenance |
 | [Amazon Q Developer](tracks/coding/products/amazon-q-developer.md) | AWS | ide | partial | maintenance |
 | [Amp](tracks/coding/products/amp.md) | Amp Frontier Corporation (spun out of Sourcegraph, Dec 2025) | cli | verified | active |
-| [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | partial | active |
+| [Augment Code](tracks/coding/products/augment-code.md) | Augment Code | cloud | verified | active |
 | [Bolt.new](tracks/coding/products/bolt-new.md) | StackBlitz | cloud | verified | active |
 | [Claude Code CLI](tracks/coding/products/claude-code-cli.md) | Anthropic | cli | partial | active |
 | [Claude Code (IDE extension)](tracks/coding/products/claude-code.md) | Anthropic | ide | verified | active |
@@ -307,7 +307,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [OpenCode](tracks/coding/products/opencode.md) | OpenCode | cli | partial | active |
 | [Qoder](tracks/coding/products/qoder.md) | Alibaba Cloud | ide | verified | active |
 | [Qoder CN (formerly Lingma)](tracks/coding/products/qoder-cn.md) | Alibaba Cloud | ide | partial | active |
-| [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | partial | active |
+| [Replit Agent](tracks/coding/products/replit-agent.md) | Replit | cloud | verified | active |
 | [Trae](tracks/coding/products/trae.md) | ByteDance | ide | partial | active |
 | [v0](tracks/coding/products/v0.md) | Vercel | cloud | verified | active |
 | [Warp](tracks/coding/products/warp.md) | Warp | cli | partial | active |
@@ -374,7 +374,7 @@ Text/image-to-video generation and AI-native video editing
 | Name | Vendor | Form | Confidence | Lifecycle |
 |---|---|---|---|---|
 | [Hailuo Video](tracks/video/products/hailuo-video.md) | MiniMax (Xiyu Jizhi) | web | partial | active |
-| [Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd. (Kuaishou) | web | partial | active |
+| [Kling AI](tracks/video/products/kling.md) | Kling AI Pte. Ltd. (Kuaishou) | web | verified | active |
 | [D-ID](tracks/video/products/d-id.md) | D-ID | web | verified | active |
 | [Genmo](tracks/video/products/genmo.md) | Genmo | web | partial | active |
 | [HeyGen](tracks/video/products/heygen.md) | HeyGen | web | partial | active |
@@ -475,7 +475,7 @@ Building blocks for your own agent
 | [CrewAI](tracks/framework/products/crewai.md) | CrewAI Inc | harness | partial | active |
 | [Deep Agents](tracks/framework/products/deepagents.md) | LangChain | harness | partial | active |
 | [Drake](tracks/framework/products/drake.md) | Robot Locomotion Group / MIT | harness | partial | active |
-| [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | partial | active |
+| [DSPy](tracks/framework/products/dspy.md) | Stanford NLP / Databricks | harness | verified | active |
 | [ElizaOS（Eliza）](tracks/framework/products/elizaos.md) | ElizaOS community (Eliza Research) | harness | verified | active |
 | [Gazebo Sim](tracks/framework/products/gazebo.md) | Open Robotics | local-app | verified | active |
 | [Genesis](tracks/framework/products/genesis.md) | Genesis Embodied AI | harness | verified | active |
@@ -569,7 +569,7 @@ Desktop apps that run open-weight models on your machine
 | [MLX（mlx-lm）](tracks/runner/products/mlx.md) | Apple | cli | verified | active |
 | [Msty](tracks/runner/products/msty.md) | Msty（CloudStack, LLC） | local-app | verified | active |
 | [NVIDIA TensorRT-LLM](tracks/runner/products/tensorrt-llm.md) | NVIDIA | cli | verified | active |
-| [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | partial | active |
+| [Ollama](tracks/runner/products/ollama.md) | Ollama Inc. | cli | verified | active |
 | [OpenVINO](tracks/runner/products/openvino.md) | Intel | cli | verified | active |
 | [SGLang](tracks/runner/products/sglang.md) | LMSYS / sgl-project | cli | verified | active |
 | [TabbyAPI](tracks/runner/products/tabbyapi.md) | Royal Lab（theroyallab） | cli | verified | active |

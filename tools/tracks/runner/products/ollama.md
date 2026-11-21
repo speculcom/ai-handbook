@@ -10,23 +10,23 @@ licenseEn: MIT (official repo LICENSE, direct-fetched 2026-10-21); model weights
 axes:
   model_access: >-
     官方模型库（ollama.com/search 直抓 200）一键拉取开源模型；GGUF 与 safetensors 可导入
-    （docs.ollama.com/import 直抓核验）；模型库目录随上架变化，未逐条清点。
+    （docs.ollama.com/import 直抓核验）；模型库目录随上架变化，以 ollama.com/search 当日列表为准。
   runtime: >-
     本地进程（CLI + API server，默认 11434 端口）；官方 README 声明「locally or in the cloud」——
-    云端线（Ollama Cloud）存在，细节未逐条核验。GitHub 185,274★（API 核验 2026-10-21）。
+    云端线（Ollama Cloud）存在：官方 Cloud 文档给 API key、用量与套餐，Cloud FAQ 明确零数据留存（ZDR）。GitHub 185,274★（API 核验 2026-10-21）。
   local_files: >-
-    模型权重与对话数据默认落本机；云端线（Ollama Cloud）的存储与处理边界未逐条核验。
+    模型权重与对话数据默认落本机；云端模型的提示与响应按 ZDR 瞬时处理、不存储不记日志、不用于训练；账号只保留基础信息与不含内容的用量元数据（Cloud FAQ）。
   background: >-
-    API server 常驻即承载后台推理；官方文档有 keep-alive/并发说明页，细节未逐条核验。
+    API server 常驻即承载后台推理；keep_alive 与并发队列行为见官方本地 FAQ（OLLAMA_KEEP_ALIVE、并行请求与显存排队）。
   tools: >-
-    官方文档含 tool calling 页（docs.ollama.com 导航直抓所见）；MCP 支持状态未核验到官方声明。
+    官方工具面是 function calling / tool calling API（docs.ollama.com 有 Tool calling 页）；文档目录不列 MCP 接入，MCP 需外部桥接，本档不把外部桥当官方能力。
   context: >-
-    上下文长度按 Modelfile/参数配置（Modelfile Reference 在官方文档导航内）；跨会话记忆未见官方声明。
+    上下文默认按显存分档：<24GiB 4k、24–48GiB 32k、≥48GiB 256k；Cloud 模型默认用最大上下文（官方 Context length 页）。跨会话记忆不在官方文档叙事内。
   permissions: >-
-    本机运行无账号即可用（API server 默认本机监听）；云端线需登录，其权限面未逐条核验。
+    本机运行无账号即可用（API server 默认本机监听）；云端线用 Ollama 账号/API key 登录，API key 在设置页管理，数据面按 Cloud FAQ 的 ZDR 与账号删除条款。
   fit: >-
     适合：一条命令把开源模型跑起来、要 OpenAI 兼容本地 API、桌面与服务器通吃。
-    不适合：要极致吞吐/服务化调度（那是 vLLM/SGLang 的活）；要逐条核验云端线数据边界。
+    不适合：要极致吞吐/服务化调度（那是 vLLM/SGLang 的活）；对云端数据边界有硬要求（先读 Cloud FAQ 的 ZDR 条款）。
 
 pitfalls:
   - 把「MIT 的 Ollama」当「模型免费商用」——权重许可跟着模型走，不跟工具走
@@ -49,11 +49,23 @@ sources:
   - label: ollama/ollama · Releases（changelog）
     url: https://github.com/ollama/ollama/releases
     kind: changelog
+  - label: Ollama 文档 · Cloud（云端模型/API key/用量与套餐，2026-11-21 直抓）
+    url: https://docs.ollama.com/cloud.md
+    kind: docs
+  - label: Ollama 文档 · Cloud FAQ（零数据留存 ZDR、不训练、账号删除）
+    url: https://docs.ollama.com/cloud/faq.md
+    kind: docs
+  - label: Ollama 文档 · Context length（按显存档位默认上下文，2026-11-21 直抓）
+    url: https://docs.ollama.com/context-length.md
+    kind: docs
+  - label: Ollama 文档 · 本地 FAQ（keep_alive 与并发处理）
+    url: https://docs.ollama.com/faq.md
+    kind: docs
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -65,7 +77,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-21
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -85,9 +97,8 @@ models 站的 GGUF 索引口径（llama.cpp 格式源头）与本档案 model_ac
 
 ## 未知项清单
 
-- Ollama Cloud 的数据存储与处理边界（未逐条核验）
-- MCP 支持状态（未核验到官方声明）
-- 模型库完整目录与各家权重的商用条款（未逐条清点）
+- 模型库完整目录与各家权重许可（随上架与权重页变化，以模型页为准）
+- MCP 接入（官方文档目录不列 MCP，本档只记 tool calling API，不推断外部桥）
 
 ## 相关条目
 

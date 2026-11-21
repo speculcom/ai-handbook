@@ -9,12 +9,12 @@ licenseEn: MIT (GitHub API verified 2026-10-21).
 
 family: orchestration
 providers:
-  - dspy.LM 统一接入：OpenAI/Anthropic/Gemini/本地 vLLM 等（官方 docs 列举，未逐条清点）
-  - 官方叙事里 LM 层依托 LiteLLM 的支持面——provider 面大体随 LiteLLM（未逐条核验）
+  - dspy.LM 统一接入：OpenAI/Anthropic/Gemini/本地 vLLM 等（以官方 LM 集成文档为准）
+  - 官方叙事里 LM 层依托 LiteLLM 的支持面——provider 面随 LiteLLM 公式支持面
 axes:
   model_access: >-
     各家 LM 通过 dspy.LM 统一接入（OpenAI/Anthropic/Gemini/本地 vLLM 等，
-    以官方 docs 的 LM 集成线为准，未逐条清点）；它的差异点是**把提示词当可编程参数**——
+    以官方 docs 的 LM 集成线为准）；它的差异点是**把提示词当可编程参数**——
     签名（signature）声明输入输出，优化器自动调提示与权重示例。
   runtime: >-
     Python 库（pip 装进你的进程）；GitHub 38,850★，最近推送 2026-10-29（API 核验）。
@@ -24,12 +24,12 @@ axes:
   background: >-
     库无常驻语义；优化（teleprompting）是离线批任务，跑完即止。
   tools: >-
-    ReAct 类 agent 模块与工具调用在官方模块族内；MCP 支持状态未核验到官方主线声明。
+    ReAct 类 agent 模块与工具调用在官方模块族内；MCP 走官方桥：dspy.Tool.from_mcp_tool(session, mcp_tool) 把 MCP 工具转成 DSPy Tool，官方教程给 MCP SDK v2 Client + stdio 示例。
   context: >-
     状态管理跟着你的 program 走；跨会话记忆不是它的叙事——它的「记忆」是优化出来的示例与权重。
   permissions: >-
     无账号体系；权限面=你接的各家 API key。优化过程会大量调模型（token 成本面），
-    预算控制参数在官方文档线，细节未逐条核验。
+    预算控制参数在官方文档线与优化器配置内，本档不固化具体数值。
   fit: >-
     适合：把「调提示词」变成可复现的优化流程（有指标、有训练集）、多模型可换的管线。
     不适合：要开箱 agent 运行时；小样本没指标时（优化器吃指标，没指标没意义）。
@@ -52,11 +52,17 @@ sources:
   - label: stanfordnlp/dspy · Releases（changelog）
     url: https://github.com/stanfordnlp/dspy/releases
     kind: changelog
+  - label: DSPy 文档 · Use MCP in DSPy（dspy.Tool.from_mcp_tool + MCP SDK v2 Client，2026-11-04）
+    url: https://dspy.ai/current/tutorials/mcp/
+    kind: docs
+  - label: DSPy 文档 · Tools and MCP（MCP 工具到 DSPy Tool 的 schema 映射，2026-11-21 直抓）
+    url: https://dspy.ai/current/diving-deeper/tools/
+    kind: docs
 
-last_verified: 2026-10-30
-last_updated: 2026-10-21
+last_verified: 2026-11-21
+last_updated: 2026-11-21
 lifecycle: active
-confidence: partial
+confidence: verified
 
 cn:
   origin: foreign
@@ -68,7 +74,7 @@ cn:
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
-  verified: 2026-10-21
+  verified: 2026-11-21
 ---
 
 ## 一句话定位
@@ -87,9 +93,8 @@ cn:
 
 ## 未知项清单
 
-- LM 集成全目录（未逐条清点）
-- MCP 支持状态（未核验到官方主线声明）
-- 各优化器的样本量经验值（官方有指引，未逐条核验）
+- LM 集成全目录（官方 LM 集成文档滚动更新，本档不逐条清点）
+- 各优化器的样本量经验值（官方有指引，效果随任务变化，本档不固化数字）
 
 ## 相关条目
 
