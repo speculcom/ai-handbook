@@ -42,7 +42,7 @@ const SHELL_PATH = path.join(handbookRoot, 'shared', 'brand', 'shell.mjs');
 if (!fs.existsSync(SHELL_PATH)) {
   throw new Error(
     `glossary 仓缺少 vendored 外壳：${SHELL_PATH}\n` +
-    `主仓执行 node _tmp/vendor-brand.mjs 可补齐；本仓单独构建时它必须随仓库提交。`
+    `主仓执行 node _audit/vendor-brand.mjs 可补齐；本仓单独构建时它必须随仓库提交。`
   );
 }
 const SHELL = await import(pathToFileURL(SHELL_PATH).href);

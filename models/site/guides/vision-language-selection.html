@@ -117,7 +117,8 @@
     </section>
     <section class="fam-sec" id="guide-section-2">
       <h2><span data-zh>分辨率就是信息量</span><span data-en>Resolution is information</span></h2>
-<p>Qwen2-VL 用动态分辨率把不同尺寸的图片映射成不同数量的视觉 token；<br>这比固定切图更贴近人类感知，但也意味着大图会消耗更多 token。<br>选型时先确认：输入图会被缩到多大、切几块、每块多少 token。<br>一张 A4 扫描件缩到 1024 长边后，小字可能已经不可读，这时换更大的模型也救不回来。</p>
+<p>Qwen2-VL 用动态分辨率把不同尺寸的图片映射成不同数量的视觉 token。<br>这比固定切图更贴近人类感知，但也意味着大图会消耗更多 token。<br>选型时先确认：输入图会被缩到多大、切几块、每块多少 token。</p>
+<p>一张 A4 扫描件缩到 1024 长边后，小字可能已经不可读。这时换更大的模型也救不回来。</p>
     </section>
     <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>定位与坐标</span><span data-en>Grounding and coordinates</span></h2>
@@ -129,7 +130,8 @@
     </section>
     <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>评测与成本</span><span data-en>Evaluation and cost</span></h2>
-<p>用 30–50 张真实业务图做盲测，分「答对 / 部分对 / 编造」三档；<br>编造要单列，因为它在业务里最贵。<br>成本按「图像 token × 单价 + 输出 token」估算；高分辨率与多图输入会把成本抬得很快。<br>Qwen2-VL 论文报告 72B 在多模态基准上接近当时的 GPT-4o 与 Claude 3.5 Sonnet，这是论文口径，不等于你的票据任务也同样接近。</p>
+<p>用 30–50 张真实业务图做盲测，分「答对 / 部分对 / 编造」三档；<br>编造要单列，因为它在业务里最贵。<br>成本按「图像 token × 单价 + 输出 token」估算。高分辨率与多图输入会把成本抬得很快。</p>
+<p>Qwen2-VL 论文报告 72B 在多模态基准上接近当时的 GPT-4o 与 Claude 3.5 Sonnet。这是论文口径，不等于你的票据任务也同样接近。</p>
 <p><b>边界</b>：论文里的基准分数与具体业务图分布不同；上线前必须用自有样本复测。</p>
 <p><b>先补概念</b>：<a href="https://learn.specul.com/term/%E8%A7%86%E8%A7%89%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" target="_blank" rel="noopener">视觉语言模型</a> 是学 AI 站的相关科普。</p>
     </section>

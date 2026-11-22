@@ -83,9 +83,9 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   8 节 · 9 条官方出处 · 资料 2026-10-21
 - [蒸馏：小模型怎么从大模型身上学](https://models.specul.com/guides/distillation.html): logit 蒸馏与数据蒸馏两条路、为什么开放权重家族几乎人人蒸馏、以及「蒸馏来的」这个标签在选型里意味着什么。从业者视角深版；一页科普在学 AI 站。
   7 节 · 8 条官方出处 · 资料 2026-10-20
-- [端侧部署：带宽、量化与功耗的三重约束](https://models.specul.com/guides/edge-deployment.html): 端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。
+- [端侧部署：带宽、量化与功耗的三重约束](https://models.specul.com/guides/edge-deployment.html): 端侧不是「小一号的服务器」。内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。
   6 节 · 3 条官方出处 · 资料 2026-11-17
-- [GPU 事实与成本数学：跑模型的硬件账](https://models.specul.com/guides/gpu-cost-math.html): 从可用内存拆解驻留权重、上下文缓存、并发与运行时；区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。
+- [GPU 事实与成本数学：跑模型的硬件账](https://models.specul.com/guides/gpu-cost-math.html): 从可用内存拆解驻留权重、上下文缓存、并发与运行时。区分理想化带宽算式和实际吞吐，附可填写预算，不存单价或购卡建议。
   8 节 · 8 条官方出处 · 资料 2026-10-21
 - [把日志留在本地到底意味着什么](https://models.specul.com/guides/local-log-retention.html): 把「日志留在本地」拆成三条线：写在哪、谁能读、留多久。逐条给运行器官方文档里的证据位置，并说明磁盘加密、备份同步与监听地址为什么都不在这四个字里。
   10 节 · 5 条官方出处 · 资料 2026-11-06
@@ -107,7 +107,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   7 节 · 8 条官方出处 · 资料 2026-10-21
 - [SFT：让续写机器学会「好好回答」](https://models.specul.com/guides/sft.html): 监督微调在预训练之后做什么——指令数据从哪来、质量为什么压过数量、LoRA 这类省显存做法的边界。从业者视角深版；一页科普在学 AI 站。
   7 节 · 7 条官方出处 · 资料 2026-10-20
-- [任务模型：嵌入、重排、OCR 与语音识别](https://models.specul.com/guides/task-models.html): 从输入输出、运行库和验收方法区分四类任务；逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。
+- [任务模型：嵌入、重排、OCR 与语音识别](https://models.specul.com/guides/task-models.html): 从输入输出、运行库和验收方法区分四类任务。逐层记录平台与格式兼容性，未安装验证的组合保留未知，附练习与排查入口。
   8 节 · 6 条官方出处 · 资料 2026-11-04
 - [开源训练栈：多卡训练的工具链](https://models.specul.com/guides/training-stack.html): 一张卡装不下大模型之后，数据并行、ZeRO、张量并行、流水线并行怎么组合；DeepSpeed、Megatron-LM、torchtitan、nanotron、TRL 各站在哪一层。从业者视角的选型地图；词条版在学 AI 站，互链不重复。
   6 节 · 8 条官方出处 · 资料 2026-10-21

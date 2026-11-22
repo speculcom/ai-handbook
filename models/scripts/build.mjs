@@ -1926,7 +1926,7 @@ fs.copyFileSync(path.join(HERE, 'capacity-calculator.js'), path.join(SITE, 'capa
  * 原先 CSS 是本文件里的两个模板字符串（`const CSS = \`…\`` + `const FILTER_CSS = \`…\``），
  * 后果是：改样式要动 .mjs、CSS 门禁扫不到它、`site/` 既是产物又像源（看着能改，实际会被覆盖）。
  * 抽取时已验证：CSS 内容与抽取前**逐字符相同**，产物差异仅为新增的一行分节注释 ✓
- * （零模板插值，是纯静态文本；`node _tmp/verify-models-css-extract.mjs` 可复验）。
+ * （零模板插值，是纯静态文本。）
  *
  * R3（内容库自足）：本仓单独 clone 后仍要能构建，所以源文件放在**仓内** `css/models.css`，
  * 随仓一起走 —— 不能放工作区，那会让 clone-build 门禁挂掉。 */

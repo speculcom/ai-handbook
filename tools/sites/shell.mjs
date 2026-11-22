@@ -18,7 +18,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 /* S9（2026-10-21）：三仓合并 ai-handbook——共享核心只有一份在仓根 shared/brand/（宪章 3）。 */
@@ -27,12 +27,12 @@ const vendored = path.join(here, '..', '..', 'shared', 'brand', 'shell.mjs');
 if (!fs.existsSync(vendored)) {
   throw new Error(
     `agent 站缺少 vendored 外壳：${vendored}\n` +
-    `请先在主仓执行 node _tmp/vendor-brand.mjs（它把 _sites/_template/shell.mjs 拷进各内容仓的 brand/）。\n` +
+    `请先在主仓执行 node _audit/vendor-brand.mjs（它把 _sites/_template/shell.mjs 拷进各内容仓的 brand/）。\n` +
     `本仓单独构建（node build.mjs）时同样需要它 —— 所以它必须随仓库一起提交。`
   );
 }
 
-const mod = await import(`file://${vendored.replace(/\\/g, '/')}`);
+const mod = await import(pathToFileURL(vendored).href);
 
 /* 只转出对外有用的那些，HEAD/BODY_START 之类内部用的不暴露。 */
 export const BRAND = mod.BRAND;

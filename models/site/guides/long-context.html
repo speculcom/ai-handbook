@@ -113,23 +113,26 @@
     </section>
     <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>窗口不等于会用</span><span data-en>A window is not effective use</span></h2>
-<p>Lost in the Middle 的实验很直接：把相关信息放在长输入的开头或结尾，模型表现最好；<br>放到中间，性能显著下降，即使模型宣称支持长上下文。<br>所以「窗口多大」只是准入条件，「中间能不能找到」要在你的任务上单独测。</p>
+<p>Lost in the Middle 的实验很直接。相关内容放开头或结尾，模型表现最好。模型表现最好。<br>放到中间，性能显著下降，即使模型宣称支持长上下文。<br>所以「窗口多大」只是准入条件，「中间能不能找到」要在你的任务上单独测。</p>
     </section>
     <section class="fam-sec" id="guide-section-2">
       <h2><span data-zh>位置编码决定能不能外推</span><span data-en>Position encoding decides extrapolation</span></h2>
-<p>主流模型用 RoPE：把绝对位置写成旋转矩阵，同时在注意力里保留相对位置依赖。<br>RoPE 的序列长度灵活性是外推的基础，但超出训练长度仍会退化；<br>常见做法是位置插值、频率缩放或在更长数据上继续训练。<br>看到「支持 1M」时，先问训练长度是多少、用了哪种外推方法、在什么任务上验证过。</p>
+<p>主流模型用 RoPE：把绝对位置写成旋转矩阵，同时在注意力里保留相对位置依赖。<br>RoPE 的序列长度灵活性是外推的基础，但超出训练长度仍会退化；<br>常见做法是位置插值、频率缩放或在更长数据上继续训练。</p>
+<p>看到「支持 1M」时，先问训练长度是多少、用了哪种外推方法、在什么任务上验证过。</p>
     </section>
     <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>注意力成本与预填充</span><span data-en>Attention cost and prefill</span></h2>
-<p>标准注意力的计算随序列长度呈二次增长，长输入的预填充阶段最贵。<br>解码阶段每生成一个 token 都要读历史 KV，长上下文会把带宽压力放大。<br>工程上会用分块预填充、FlashAttention、前缀缓存来摊薄，但这些优化不改变「中间信息难找」这个模型问题。</p>
+<p>标准注意力的计算随序列长度呈二次增长，长输入的预填充阶段最贵。<br>解码阶段每生成一个 token 都要读历史 KV，长上下文会把带宽压力放大。</p>
+<p>工程上会用分块预填充、FlashAttention、前缀缓存来摊薄。但这些优化不改变「中间信息难找」这个模型问题。</p>
     </section>
     <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>KV cache 的显存账</span><span data-en>The KV-cache bill</span></h2>
-<p>KV cache 随「层数 × 头数 × 头维度 × 序列长度 × 批量 × 字节」增长。<br>上下文翻倍，KV cache 也大致翻倍；这往往比权重更早撞墙。<br>估算顺序：先算权重，再算目标上下文与批量下的 KV cache，最后留运行时余量。<br>长上下文服务要按「并发 × 长度」定价，而不是按单次请求定价。</p>
+<p>KV cache 随一串因子增长。包括层数、头数、头维度、序列长度、批量和字节。<br>上下文翻倍，KV cache 也大致翻倍；这往往比权重更早撞墙。<br>估算顺序：先算权重，再算目标上下文与批量下的 KV cache，最后留运行时余量。</p>
+<p>长上下文服务要按「并发 × 长度」定价，而不是按单次请求定价。</p>
     </section>
     <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>长上下文还是 RAG</span><span data-en>Long context or RAG</span></h2>
-<p>资料总量小、需要整体推理、且能接受预填充成本时，长上下文更简单；<br>资料量大、更新频繁、需要引用定位时，RAG 更可控。<br>两者可以叠加：先用检索把候选缩到几十 K，再让模型在窗口内做跨段推理。</p>
+<p><b>依据：</b> 资料总量小、需要整体推理、且能接受预填充成本时，长上下文更简单。<br>资料量大、更新频繁、需要引用定位时，RAG 更可控。<br>两者可以叠加：先用检索把候选缩到几十 K，再让模型在窗口内做跨段推理。</p>
     </section>
     <section class="fam-sec" id="guide-section-6">
       <h2><span data-zh>验收方法</span><span data-en>How to accept it</span></h2>
@@ -139,8 +142,10 @@
   <li>成本测试：目标长度与并发下的首字延迟、吞吐、显存峰值。</li>
   <li>任务测试：用真实合同、日志或代码库，不用「大海捞针」一根针代替全部能力。</li>
 </ul>
-<p><b>边界</b>：论文结论来自特定模型与任务；不同模型、不同外推方法与不同推理框架的表现不能直接移植。</p>
-<p><b>先补概念</b>：<a href="https://learn.specul.com/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3/" target="_blank" rel="noopener">上下文窗口</a> 与 <a href="https://learn.specul.com/term/%E9%95%BF%E4%B8%8A%E4%B8%8B%E6%96%87/" target="_blank" rel="noopener">长上下文</a> 是学 AI 站的相关科普。</p>
+<p><b>边界</b></p>
+<p>论文结论来自特定模型与任务。不同模型、不同外推方法与不同推理框架的表现不能直接移植。</p>
+<p><b>先补概念</b></p>
+<p><a href="https://learn.specul.com/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3/" target="_blank" rel="noopener">上下文窗口</a> 与 <a href="https://learn.specul.com/term/%E9%95%BF%E4%B8%8A%E4%B8%8B%E6%96%87/" target="_blank" rel="noopener">长上下文</a> 是学 AI 站的相关科普。</p>
     </section>
 
     <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">

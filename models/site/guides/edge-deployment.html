@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>端侧部署：带宽、量化与功耗的三重约束 · 做模型专题</title>
-  <meta name="description" content="端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。（资料更新到 2026-11-17，关键事实挂官方出处）" />
+  <meta name="description" content="端侧不是「小一号的服务器」。内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。（资料更新到 2026-11-17，关键事实挂官方出处）" />
   <link rel="canonical" href="https://models.specul.com/guides/edge-deployment.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="端侧部署：带宽、量化与功耗的三重约束 · 做模型专题" />
   <meta property="og:url" content="https://models.specul.com/guides/edge-deployment.html" />
   <meta property="og:title" content="端侧部署：带宽、量化与功耗的三重约束 · 做模型专题" />
-  <meta property="og:description" content="端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。（资料更新到 2026-11-17，关键事实挂官方出处）" />
+  <meta property="og:description" content="端侧不是「小一号的服务器」。内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。（资料更新到 2026-11-17，关键事实挂官方出处）" />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:locale:alternate" content="en_US" />
   <link rel="alternate" hreflang="zh-CN" href="https://models.specul.com/guides/edge-deployment.html" />
@@ -101,7 +101,7 @@
     <header class="page-head">
       <p class="eyebrow"><span data-zh>做模型专题</span><span data-en>How models are made</span>　<span class="t-tag"><span data-zh>训练管线 · 第 8 站</span><span data-en>training pipeline · stage 8</span></span></p>
       <h1><span data-zh>端侧部署：带宽、量化与功耗的三重约束</span><span data-en>Edge deployment: bandwidth, quantisation and power</span><span class="sub"><span data-zh>从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>practitioner-perspective methodology · key facts carry official sources</span></span></h1>
-      <p class="lede"><span data-zh>端侧不是「小一号的服务器」：内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。</span><span data-en>An edge device is not a small server: memory bandwidth, power and cooling become the ceiling before compute does. Accept on tokens per second, peak memory and sustained power.</span></p>
+      <p class="lede"><span data-zh>端侧不是「小一号的服务器」。内存带宽、功耗和散热先于算力成为上限。选型要按 token/s、内存峰值和持续功耗验收。</span><span data-en>An edge device is not a small server: memory bandwidth, power and cooling become the ceiling before compute does. Accept on tokens per second, peak memory and sustained power.</span></p>
     </header>
 
     <nav class="fam-sec" aria-label="文章目录" data-ui-aria-label-zh="文章目录" data-ui-aria-label-en="Article contents"><p><span data-zh>按问题阅读</span><span data-en>On this page</span></p><ul><li><a href="#guide-section-1"><span data-zh>带宽先撞墙</span><span data-en>Bandwidth hits first</span></a></li><li><a href="#guide-section-2"><span data-zh>量化档位决定能不能装</span><span data-en>Quantisation decides fit</span></a></li><li><a href="#guide-section-3"><span data-zh>统一内存 vs 独立显存</span><span data-en>Unified vs discrete memory</span></a></li><li><a href="#guide-section-4"><span data-zh>功耗与散热</span><span data-en>Power and cooling</span></a></li><li><a href="#guide-section-5"><span data-zh>验收清单</span><span data-en>Acceptance checklist</span></a></li></ul></nav>
@@ -113,15 +113,20 @@
     </section>
     <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>带宽先撞墙</span><span data-en>Bandwidth hits first</span></h2>
-<p>解码每生成一个 token 都要把激活的权重读一遍，端侧常见的瓶颈是内存带宽，而不是峰值算力。<br>以 Jetson AGX Thor 为例：128GB LPDDR5X、273 GB/s、40–130W。<br>粗算：7B 模型 4-bit 约 3.5GB 权重，理想情况下每 token 至少读一遍，273 GB/s 给出一个很粗的上界；<br>实际还要加上 KV cache、采样与框架开销，达不到纸面上限。</p>
+<p>解码每生成一个 token 都要把激活的权重读一遍。端侧常见瓶颈是内存带宽，而不是峰值算力。</p>
+<p>以 Jetson AGX Thor 为例。128GB LPDDR5X、273 GB/s、40–130W。</p>
+<p>粗算：7B 模型 4-bit 约 3.5GB 权重。理想情况下每 token 至少读一遍。273 GB/s 给出一个很粗的上界。</p>
+<p>实际还要加上 KV cache、采样与框架开销，达不到纸面上限。</p>
     </section>
     <section class="fam-sec" id="guide-section-2">
       <h2><span data-zh>量化档位决定能不能装</span><span data-en>Quantisation decides fit</span></h2>
-<p>端侧优先看 4-bit 与混合精度：Q4 通常比 FP16 小 3–4 倍，质量损失要在自己的任务上测。<br>低于 4-bit 时，质量下降与算子支持问题都会变多；不是所有推理框架都支持同一套量化格式。<br>先确认框架支持的格式（GGUF、ONNX、MLX 等），再谈模型。</p>
+<p>端侧优先看 4-bit 与混合精度。Q4 通常比 FP16 小 3–4 倍，质量损失要在自己的任务上测。<br>低于 4-bit 时，质量下降与算子支持问题都会变多。不是所有推理框架都支持同一套量化格式。</p>
+<p>先确认框架支持的格式（GGUF、ONNX、MLX 等），再谈模型。</p>
     </section>
     <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>统一内存 vs 独立显存</span><span data-en>Unified vs discrete memory</span></h2>
-<p>统一内存（CPU/GPU 共享）能把更大的模型装进同一池，但带宽通常低于独立显存；<br>独立显存快，但容量固定，装不下就要卸载到内存或闪存。<br>LLM in a Flash 的思路是把权重放在闪存、按需换入 DRAM，能跑约两倍于 DRAM 的模型，但速度取决于闪存带宽与读取连续性。</p>
+<p>统一内存（CPU/GPU 共享）能把更大的模型装进同一池，但带宽通常低于独立显存。<br>独立显存快，但容量固定，装不下就要卸载到内存或闪存。</p>
+<p>LLM in a Flash 的思路是把权重放在闪存，按需换入 DRAM。这样能跑约两倍于 DRAM 的模型。速度取决于闪存带宽与读取连续性。</p>
     </section>
     <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>功耗与散热</span><span data-en>Power and cooling</span></h2>
@@ -131,13 +136,15 @@
       <h2><span data-zh>验收清单</span><span data-en>Acceptance checklist</span></h2>
 <ul>
   <li>目标模型 + 目标量化格式，能否在设备上加载并跑满上下文。</li>
-  <li>batch=1 的首字延迟与 decode token/s；连续 30 分钟后的衰减。</li>
+  <li>batch=1 的首字延迟与 decode token/s。连续 30 分钟后的衰减。</li>
   <li>内存峰值与是否触发交换/卸载。</li>
   <li>断电重启后的冷启动时间。</li>
   <li>真实任务的答案质量，不只看困惑度。</li>
 </ul>
-<p><b>边界</b>：端侧数字高度依赖具体设备、量化格式与推理框架；本文只给估算方法，不给跨设备排名。</p>
-<p><b>先补概念</b>：<a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96/" target="_blank" rel="noopener">量化</a> 是学 AI 站的相关科普。</p>
+<p><b>边界</b></p>
+<p>端侧数字高度依赖具体设备、量化格式与推理框架。本文只给估算方法，不给跨设备排名。</p>
+<p><b>先补概念</b></p>
+<p><a href="https://learn.specul.com/term/%E9%87%8F%E5%8C%96/" target="_blank" rel="noopener">量化</a> 是学 AI 站的相关科普。</p>
     </section>
 
     <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">

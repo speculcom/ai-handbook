@@ -113,19 +113,23 @@
     </section>
     <section class="fam-sec" id="guide-section-1">
       <h2><span data-zh>先分清两个数字</span><span data-en>Two numbers first</span></h2>
-<p>MoE 的「参数量」几乎总要拆成两栏：<b>总参数</b>与<b>每 token 激活参数</b>。<br>Mixtral 8×7B 每层 8 个专家、每 token 选 2 个，总参数 47B，推理时只激活 13B；<br>DeepSeek-V3 总参数 671B，每 token 激活 37B。<br>两个数字回答的是不同问题：总参数决定要装下多少权重，激活参数决定每 token 大约要做多少计算。</p>
+<p><b>一句话</b>：MoE 的「参数量」几乎总要拆成两栏：<b>总参数</b>与<b>每 token 激活参数</b>。<br><b>依据：</b> Mixtral 8×7B 每层有 8 个专家，每 token 选 2 个。总参数 47B，推理时只激活 13B。</p>
+<p>DeepSeek-V3 总参数 671B，每 token 激活 37B。<br>两个数字回答的是不同问题。总参数决定要装下多少权重，激活参数决定每 token 要做多少计算。</p>
     </section>
     <section class="fam-sec" id="guide-section-2">
       <h2><span data-zh>省的是算力，不是显存</span><span data-en>You save compute, not memory</span></h2>
-<p>稀疏激活降低的是每 token 的 FLOPs，不是权重占用的显存。<br>所有专家通常都要常驻显存，或者从内存/闪存按需换入；后者的瓶颈会从算力变成带宽。<br>粗算显存：<code>总参数 × 每参数字节 + KV cache + 运行时开销</code>。<br>4-bit 量化的 47B 模型仍需约 24 GB 权重，再叠加 KV cache；13B 激活并不意味着 13B 的显存。<br>先按总参数选卡，再按激活参数估速度，顺序不能反。</p>
+<p>稀疏激活降低的是每 token 的 FLOPs，不是权重占用的显存。<br>所有专家通常都要常驻显存，或者从内存/闪存按需换入。后者的瓶颈会从算力变成带宽。<br>粗算显存：<code>总参数 × 每参数字节 + KV cache + 运行时开销</code>。</p>
+<p>4-bit 量化的 47B 模型仍需约 24 GB 权重。这还没算 KV cache。13B 激活并不意味着 13B 的显存。<br>先按总参数选卡，再按激活参数估速度，顺序不能反。</p>
     </section>
     <section class="fam-sec" id="guide-section-3">
       <h2><span data-zh>路由与负载均衡</span><span data-en>Routing and load balance</span></h2>
-<p>MoE 的路由器只给每个 token 选少数专家，训练时容易出现「少数专家吃掉大部分 token」的坍塌。<br>Switch Transformer 用辅助负载均衡损失约束专家利用率；<br>DeepSeek-V3 报告了无辅助损失的负载均衡策略，并在 14.8T token 预训练中保持稳定。<br>选型时不要只看「专家数」；要问：推理框架是否支持这套路由、是否有容量因子、超长尾批次会不会把某些专家打爆。</p>
+<p>MoE 的路由器只给每个 token 选少数专家。训练时容易出现「少数专家吃掉大部分 token」的坍塌。<br>Switch Transformer 用辅助负载均衡损失约束专家利用率；</p>
+<p>DeepSeek-V3 报告了无辅助损失的负载均衡策略。它在 14.8T token 预训练中保持稳定。<br>选型时不要只看「专家数」。要问：推理框架是否支持这套路由、是否有容量因子、超长尾批次会不会把某些专家打爆。</p>
     </section>
     <section class="fam-sec" id="guide-section-4">
       <h2><span data-zh>并行与通信</span><span data-en>Parallelism and communication</span></h2>
-<p>专家并行会把不同专家放到不同卡上，token 需要 all-to-all 发送到对应专家再收回。<br>这会引入通信开销，也会让小批量推理更难摊薄。<br>单卡能放下时，优先单卡或张量并行；跨机专家并行适合高吞吐服务，不适合低并发交互。<br>批量越大，路由越容易均衡、吞吐越高；批量小且任务杂时，尾延迟更明显。</p>
+<p>专家并行会把不同专家放到不同卡上。token 要 all-to-all 发送到对应专家，再收回。<br>这会引入通信开销，也会让小批量推理更难摊薄。<br>单卡能放下时，优先单卡或张量并行。跨机专家并行适合高吞吐服务，不适合低并发交互。</p>
+<p>批量越大，路由越容易均衡、吞吐越高；批量小且任务杂时，尾延迟更明显。</p>
     </section>
     <section class="fam-sec" id="guide-section-5">
       <h2><span data-zh>选型清单</span><span data-en>Selection checklist</span></h2>
@@ -136,8 +140,10 @@
   <li>在你的任务集上比较 MoE 与同激活量的 dense 模型，不要用榜单总分代替。</li>
   <li>问清容量因子与丢弃策略：被丢弃的 token 会直接影响答案质量。</li>
 </ul>
-<p><b>边界</b>：以上参数来自各自论文摘要；不同版本的量化、并行配置和上下文长度都会改变实际占用，部署前必须实测。</p>
-<p><b>先补概念</b>：<a href="https://learn.specul.com/term/MoE%20-%20%E6%B7%B7%E5%90%88%E4%B8%93%E5%AE%B6/" target="_blank" rel="noopener">MoE - 混合专家</a> 与 <a href="https://learn.specul.com/term/%E4%B8%93%E5%AE%B6%E5%8D%B8%E8%BD%BD/" target="_blank" rel="noopener">专家卸载</a> 是学 AI 站的相关科普。</p>
+<p><b>边界</b></p>
+<p>以上参数来自各自论文摘要。不同版本的量化、并行配置和上下文长度都会改变实际占用，部署前必须实测。</p>
+<p><b>先补概念</b></p>
+<p><a href="https://learn.specul.com/term/MoE%20-%20%E6%B7%B7%E5%90%88%E4%B8%93%E5%AE%B6/" target="_blank" rel="noopener">MoE - 混合专家</a> 与 <a href="https://learn.specul.com/term/%E4%B8%93%E5%AE%B6%E5%8D%B8%E8%BD%BD/" target="_blank" rel="noopener">专家卸载</a> 是学 AI 站的相关科普。</p>
     </section>
 
     <nav class="fam-sec" aria-label="下一步" data-ui-aria-label-zh="下一步" data-ui-aria-label-en="Next steps">

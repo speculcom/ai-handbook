@@ -406,7 +406,7 @@ function vizWww() {
         <div><b>4</b><span>${bi('个站内节：40 张数据集卡、40 个评测基准、8 家云算力、12 类工具', 'four sections: 40 dataset cards, 40 benchmarks, 8 cloud providers, 12 tool categories')}</span></div>
         <div><b>1</b><span>${bi('个提示词 hub：6 篇方法指南 + 24 个可抄案例，链回工具站原有指南', 'prompt hub: 6 method guides + 24 copyable cases, linked to the existing tool guides')}</span></div>
         <div><b>5</b><span>${bi('张首页门卡：工具、模型、硬件首页各新增入口，枢纽页改成「直接用 / 自己搭」二分', 'homepage doors: new entries on tools, models and hardware, plus the use/build fork on the hub')}</span></div>
-        <div><b>2414</b><span>${bi('条跨站搜索索引：新增数据、评测、云算力、Skills、提示词与 OSS 页面；OSS 已随上线进入索引', 'cross-site search records, including the new sections, prompts and OSS; OSS is indexed after launch')}</span></div>
+        <div><b>2404</b><span>${bi('条跨站搜索索引：新增数据、评测、云算力、Skills、提示词与 OSS 页面；OSS 已随上线进入索引', 'cross-site search records, including the new sections, prompts and OSS; OSS is indexed after launch')}</span></div>
         <div><b>10</b><span>${bi('个 2026 增补页 + 10 个 404 页：OSS 也补了 404，十站共用一套外壳', '2026 pages + 404 pages; OSS has its own 404 and all ten sites share one shell')}</span></div>
       </div>`, foot: bi('清单是这一轮的实际改动，不是路线图；每项都能在站内找到对应页面。', 'This is what changed, not a roadmap; every item has a page on the site.') }),
     ],

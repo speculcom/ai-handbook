@@ -7409,7 +7409,7 @@ var TERMS = [
      ],
      [
       "Sutton 与 Barto《Reinforcement Learning: An Introduction》官方书页",
-      "http://incompleteideas.net/book/the-book.html",
+      "https://incompleteideas.net/book/the-book.html",
       "Sutton & Barto, Reinforcement Learning: An Introduction, official book page"
      ]
     ],
