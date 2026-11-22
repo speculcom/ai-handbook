@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-整理 API 契约与错误分支。
+**一句话**：整理 API 契约与错误分支。
 输入：API 描述、示例请求响应、错误码。
 
 ## [提示词本体|The prompt]

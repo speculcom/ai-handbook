@@ -10,22 +10,21 @@ licenseEn: See the official product and terms pages; this entry records capabili
 
 axes:
   model_access: >-
-    由 Google Gemini 提供生成式能力，具体模型代次与可用功能随 Workspace 版本、地区和管理员设置变化。
+    由 Google Gemini 提供生成式能力。具体模型代次与可用功能随 Workspace 版本、地区和管理员设置变化。
   runtime: >-
-    运行在 Google Workspace 云端，入口在 Gmail、Docs、Sheets、Slides、Meet 与 Gemini 应用；本机不跑模型。
+    运行在 Google Workspace 云端。入口在 Gmail、Docs、Sheets、Slides、Meet 与 Gemini 应用。本机不跑模型。
   local_files: >-
-    可基于 Drive 中的文档、邮件与会议内容工作；本地文件需先上传或由客户端授权，不能默认视为已进入上下文。
+    可基于 Drive 中的文档、邮件与会议内容工作。本地文件需先上传或由客户端授权，不能默认视为已进入上下文。
   background: >-
-    会议摘要、邮件线程总结等在对应应用内生成；没有跨会话的持久后台代理，长任务仍要回到会话。
+    会议摘要、邮件线程总结等在对应应用内生成。没有跨会话的持久后台代理，长任务仍要回到会话。
   tools: >-
-    与 Gmail / Drive / Docs / Sheets / Slides / Meet 集成，可通过 Workspace 扩展与第三方连接器接入外部数据。
+    与 Gmail / Drive / Docs / Sheets / Slides / Meet 集成。可通过 Workspace 扩展与第三方连接器接入外部数据。
   context: >-
-    上下文来自当前账号可访问的 Drive 与 Workspace 数据；跨会话记忆和组织范围由管理员策略控制。
+    上下文来自当前账号可访问的 Drive 与 Workspace 数据。跨会话记忆和组织范围由管理员策略控制。
   permissions: >-
-    管理员可控制 Gemini 功能、数据访问与日志；商业使用取决于 Workspace 套餐与 Gemini 附加许可，数据条款按企业合同核对。
+    管理员可控制 Gemini 功能、数据访问与日志。商业使用取决于 Workspace 套餐与 Gemini 附加许可。数据条款按企业合同核对。
   fit: >-
-    适合 Google Workspace 团队做邮件起草、文档总结、表格分析和会议跟进；不适合替代专业财务建模或法律审阅。
-
+    适合 Google Workspace 团队做邮件起草、文档总结、表格分析和会议跟进。不适合替代专业财务建模或法律审阅。
 pitfalls:
   - 把 Gemini 应用与 Workspace 里的 Gemini 附加功能当成同一个产品——入口、许可和数据范围不同。
   - 以为 Drive 里所有内容都会被检索——仍受账号权限、共享设置和管理员开关限制。
@@ -64,17 +63,21 @@ cn:
 
 ## 一句话定位
 
-Google Workspace Gemini 是面向办公与写作场景的 AI 产品，核心是把文档、表格、演示这类任务放进现有工作流；它不替代最终审校与责任判断。
+Google Workspace Gemini 是面向办公与写作场景的 AI 产品。
+核心是把文档、表格、演示这类任务放进现有工作流。
+它不替代最终审校与责任判断。
 
 ## 适合与不适合
 
-适合：适合 Google Workspace 团队做邮件起草、文档总结、表格分析和会议跟进；不适合替代专业财务建模或法律审阅。
+适合：适合 Google Workspace 团队做邮件起草、文档总结、表格分析和会议跟进。
+不适合替代专业财务建模或法律审阅。
 
-不适合：需要完全离线、跨组织统一检索、或把生成结果直接作为法律/财务定稿的场景；这些要另配本地工具或专业审阅流程。
+不适合：需要完全离线、跨组织统一检索、或把生成结果直接作为法律/财务定稿的场景。
+这些要另配本地工具或专业审阅流程。
 
 ## 实测记录
 
-2026-11-19 只核对官方产品页、帮助入口与条款入口，记录能力边界、数据路径和已知限制；没有登录账号、没有跑完整任务，也没有复核对价格数字与全部企业合同。页面中的功能名称以官方当前入口为准。
+**依据：** 2026-11-19 只核对官方产品页、帮助入口与条款入口，记录能力边界、数据路径和已知限制；没有登录账号、没有跑完整任务，也没有复核对价格数字与全部企业合同。页面中的功能名称以官方当前入口为准。
 
 ## 未知项清单
 

@@ -9,30 +9,25 @@ licenseEn: BSD-3-Clause based, with a branding clause from v0.6.6: you may not r
 
 axes:
   model_access: >-
-    不自带模型，接 Ollama 与本机/云端任何 OpenAI 兼容 API，也可接 Anthropic 等provider；
-    模型凭据保存在你自己的实例上。具体 provider 覆盖与版本差异以官方 Connect a Provider 文档为准。
-  runtime: >-
-    自托管 Web 应用：Docker、Python、Kubernetes 或桌面应用；前端在浏览器，
-    推理与数据默认留在你部署的机器/服务器，不经过 Open WebUI 云端。
-  local_files: >-
-    可上传文档、图片与代码，知识库与向量库落在自有实例；Open Terminal 给 Agent
-    一个受控的 shell 与文件系统，可读写、运行脚本并把产物放回对话。
-  background: >-
-    支持按计划自动运行提示词（Automations），长任务由实例后台执行；
-    关机后能否继续取决于实例部署在哪里，平台本身不托管你的执行环境。
-  tools: >-
-    Python Tools/Functions、Skills、OpenAPI 与 MCP（官方提供 mcpo 把 MCP server
-    转成 OpenAPI）；内置代码执行、Web 搜索与图像生成插件面。
-  context: >-
-    上下文窗口由所接模型决定；实例提供对话历史、Memory、知识库检索与
-    「全文注入」开关，跨项目的长期记忆边界未逐项核验。
-  permissions: >-
-    多用户 RBAC：角色、用户组、按模型/资源授权，SSO/OIDC/LDAP、SCIM、MFA 与 API Key；
-    数据与日志在自有基础设施，管理员可关闭遥测与外部服务。
-  fit: >-
-    适合：团队要在本地与云端模型之上统一一个私有聊天入口，并要 RAG、工具调用、
-    多用户权限与自托管数据边界。不适合：零运维 SaaS、或需要厂商 SLA 才能合规的采购。
+    不自带模型，接 Ollama 与本机/云端任何 OpenAI 兼容 API。也可接 Anthropic 等provider。模型凭据保存在你自己的实例上。
 
+    具体 provider 覆盖与版本差异以官方 Connect a Provider 文档为准。
+  runtime: >-
+    自托管 Web 应用。Docker、Python、Kubernetes 或桌面应用。前端在浏览器， 推理与数据默认留在你部署的机器/服务器。不经过 Open WebUI 云端。
+  local_files: >-
+    可上传文档、图片与代码，知识库与向量库落在自有实例。Open Terminal 给 Agent 一个受控的 shell 与文件系统。可读写、运行脚本并把产物放回对话。
+  background: >-
+    支持按计划自动运行提示词（Automations），长任务由实例后台执行。关机后能否继续取决于实例部署在哪里。平台本身不托管你的执行环境。
+  tools: >-
+    Python Tools/Functions、Skills、OpenAPI 与 MCP（官方提供 mcpo 把 MCP server 转成 OpenAPI）。
+
+    内置代码执行、Web 搜索与图像生成插件面。
+  context: >-
+    上下文窗口由所接模型决定。实例提供对话历史、Memory、知识库检索与 「全文注入」开关。跨项目的长期记忆边界未逐项核验。
+  permissions: >-
+    **依据：** 多用户 RBAC：角色、用户组、按模型/资源授权，SSO/OIDC/LDAP、SCIM、MFA 与 API Key； 数据与日志在自有基础设施，管理员可关闭遥测与外部服务。
+  fit: >-
+    **依据：** 适合：团队要在本地与云端模型之上统一一个私有聊天入口，并要 RAG、工具调用、 多用户权限与自托管数据边界。不适合：零运维 SaaS、或需要厂商 SLA 才能合规的采购。
 pitfalls:
   - 把 Open WebUI 当模型本身——它只是前端，模型要另接 Ollama 或 API
   - 以为 BSD-3 就能白标——v0.6.6 起品牌不能删，超过 50 人要企业许可
@@ -83,24 +78,25 @@ cn:
 ## 一句话定位
 
 **Open WebUI 是「把本地与云端模型收进一个私有聊天界面」的自托管平台**——
-它不是模型，也不是云服务；你接什么模型、数据放哪台机器，由你决定。
+它不是模型，也不是云服务。
+你接什么模型、数据放哪台机器，由你决定。
 
 ## 适合与不适合
 
-适合团队在 Ollama 与 OpenAI 兼容 API 之上统一入口，需要知识库、工具调用、
-多用户 RBAC 与数据不出内网。不适合想开箱即用、不愿维护容器与升级的人；
-也不适合把「BSD-3」误解成可以随意白标的商业分发。
+**依据：** 适合团队在 Ollama 与 OpenAI 兼容 API 之上统一入口，需要知识库、工具调用、多用户 RBAC 与数据不出内网。
+
+不适合想开箱即用、不愿维护容器与升级的人也不适合把「BSD-3」误解成可以随意白标的商业分发。
 
 ## 许可先读这一页
 
-官方 License 页写得很清楚：v0.6.6（2025-04-19）起，许可证是 **BSD-3-Clause 加一条品牌限制**——
-不得移除、修改或遮挡 Open WebUI 的品牌；30 天内 50 名及以下用户、贡献者书面许可、
-或企业许可三种情况例外。v0.6.5 及更早的代码仍是纯 BSD-3。
-如果要做白标产品，先看企业许可，不要按「开源=随便改」处理。
+官方 License 页写得很清楚：v0.6.6（2025-04-19）起。许可证是 **BSD-3-Clause 加一条品牌限制**——不得移除、修改或遮挡 Open WebUI 的品牌。
+
+30 天内 50 名及以下用户、贡献者书面许可、或企业许可三种情况例外。v0.6.5 及更早的代码仍是纯 BSD-3。如果要做白标产品，先看企业许可，不要按「开源=随便改」处理。
 
 ## 实测记录
 
-本站尚未完成实例部署与并发实测；能力结论来自官方 Docs 与仓库元数据。
+本站尚未完成实例部署与并发实测。
+能力结论来自官方 Docs 与仓库元数据。
 
 ## 未知项清单
 

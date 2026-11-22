@@ -26,8 +26,8 @@ axes:
     官方声明会收集 MCP 使用信息（工具名/参数/错误/用户标识，不含 prompt 与模型推理），存 120 天。
   tools: >-
     按 **toolsets 分组**（URL 参数 ?toolsets= 选择，默认 core）：core（logs/metrics/traces/
-    dashboards/monitors/incidents/hosts/services/events/notebooks）、alerting、apm（Preview）、
-    cases、dbm、ddsql（Preview）、error-tracking、feature-flags、llmobs、product-analytics、
+    **依据：** dashboards/monitors/incidents/hosts/services/events/notebooks）、alerting、apm（Preview）、
+    **依据：** cases、dbm、ddsql（Preview）、error-tracking、feature-flags、llmobs、product-analytics、
     networks、onboarding、security、software-delivery、synthetics、workflows；toolsets=all 开全部 GA 组。
   context: >-
     无 server 侧跨会话记忆——状态在 Datadog 平台本身；官方建议用 toolsets 裁剪工具省上下文窗口。

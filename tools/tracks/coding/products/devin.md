@@ -7,32 +7,33 @@ homepage: https://devin.ai
 
 axes:
   model_access: >-
-    官方可读页（docs intro 与 release notes）未列「用户选模型」的面——模型与版本由厂商侧决定，
-    这是厂商云形态的共性（本站判断，依据是「已查 intro 页未见 model 选择文档」，不是「官方声明不可选」）。
+    官方可读页（docs intro 与 release notes）未列「用户选模型」的面——模型与版本由厂商侧决定。
+
+    **依据：** 这是厂商云形态的共性（本站判断，依据是「已查 intro 页未见 model 选择文档」，不是「官方声明不可选」）。
   runtime: >-
-    会话跑在 Devin 的云工作区：网页端（app.devin.ai）内嵌三件套——Shell（看命令执行）、
-    嵌入式 IDE（可实时接管改代码）、Browser（看它查文档/测应用）。另有 Devin for Terminal
-    （cli.devin.ai 安装）在你本机跑，长任务用 /handoff 交给云端 Devin；还有 Devin API。
+    会话跑在 Devin 的云工作区。网页端（app.devin.ai）内嵌三件套——Shell（看命令执行）、 嵌入式 IDE（可实时接管改代码）、Browser（看它查文档/测应用）。
+
+    另有 Devin for Terminal （cli.devin.ai 安装）在你本机跑。长任务用 /handoff 交给云端 Devin。还有 Devin API。
   local_files: >-
-    云端会话不碰你本机文件——它在你授权的仓库上 clone、改、提 PR；仓库可见范围由集成授权决定。
-    Terminal 形态是例外：它直接在你本机环境跑，接管的是本地代码库。
+    云端会话不碰你本机文件。它在你授权的仓库上 clone、改、提 PR。仓库可见范围由集成授权决定。Terminal 形态是例外。它直接在你本机环境跑，接管的是本地代码库。
   background: >-
-    主轴就是异步：官方按「自主 AI 软件工程师」定义它，适合并行处理多个任务——Linear/Jira 工单、
-    整段新功能、bug 复现修复、迁移重构。官方经验法则原文：「if you can do it in three hours,
-    Devin can most likely do it」（可验证性高的任务成功率高）。
+    **依据：** 主轴就是异步：官方按「自主 AI 软件工程师」定义它。适合并行处理多个任务——Linear/Jira 工单、 整段新功能、bug 复现修复、迁移重构。官方经验法则原文。
+
+    **依据：** 「if you can do it in three hours, Devin can most likely do it」（可验证性高的任务成功率高）。
   tools: >-
-    工作区自带 shell/浏览器/IDE 三类工具；与 Slack/Teams 线程直接 @Devin 派单，Linear/Jira 工单线集成。
+    工作区自带 shell/浏览器/IDE 三类工具。与 Slack/Teams 线程直接 @Devin 派单。Linear/Jira 工单线集成。
+
     MCP 支持状态本档不逐条展开（docs 有 integrations 分区，本次未逐页读）。
   context: >-
-    以会话为单位组织工作；知识沉淀/记忆面本档不逐条展开。官方建议把任务写清完成标准、拆成可验证步骤——
-    上下文给多少由你在派单时决定。
+    以会话为单位组织工作。知识沉淀/记忆面本档不逐条展开。官方建议把任务写清完成标准、拆成可验证步骤。上下文给多少由你在派单时决定。
   permissions: >-
-    账号+组织体系：企业管理员分配权限；仓库访问经集成授权（GitHub 等）划定范围；API 访问单独配。
-    云端环境有联网能力（Browser 工具是产品语义的一部分），官方要求按对待公共计算面的标准看待它。
+    账号+组织体系。企业管理员分配权限。仓库访问经集成授权（GitHub 等）划定范围。API 访问单独配。云端环境有联网能力（Browser 工具是产品语义的一部分）。
+
+    官方要求按对待公共计算面的标准看待它。
   fit: >-
     适合：把积压工单批量委派出去、并行跑多个任务、在 Slack 里随手 @ 派单、要「先给个草稿 PR 再接管」。
-    不适合：要选模型、要全程本机执行（Terminal 只覆盖轻任务）、要把密钥放进被 clone 的仓库。
 
+    不适合：要选模型、要全程本机执行（Terminal 只覆盖轻任务）、要把密钥放进被 clone 的仓库。
 pitfalls:
   - Devin 与 Windsurf 同属 Cognition，但是两条产品线——云异步工程师 vs IDE（Windsurf 档案另列），别混成一个
   - 「三小时法则」是官方经验法则不是保证——官方自己强调任务要「容易验证」（CI 能过/能自动部署验证）
@@ -75,7 +76,8 @@ cn:
 ## 一句话定位
 
 **Devin 是「工单进、草稿 PR 出」的云异步软件工程师**（Cognition）：会话在厂商云工作区跑，
-自带 shell/IDE/浏览器，Slack/Linear/Jira 直接派单，并行处理积压任务。
+自带 shell/IDE/浏览器。
+Slack/Linear/Jira 直接派单，并行处理积压任务。
 
 ## 适合与不适合
 
@@ -84,7 +86,7 @@ cn:
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

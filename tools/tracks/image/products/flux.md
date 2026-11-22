@@ -10,31 +10,25 @@ licenseEn: Official ToS 1.2(a): the platform does not claim ownership of Outputs
 
 axes:
   model_access: >-
-    模型家族官方博客披露迭代线：FLUX 3（2026-07-23「Real World Models」多模态流模型条目）、
-    FLUX 3 Video Part 1（2026-08-04）、FLUX Video Upscale 2K/4K（2026-08-20）、
-    FLUX 3 Action（2026-09-23）、FLUX 3 Image Klein（2026-10-15，5.6B 开源权重条目）
-    ——2026-10-21 直抓 bfl.ai/blog 核验；部分权重开源可自托管。
-  runtime: >-
-    托管线：官方 API 与 playground，生成在云端；开源线：权重可下载自托管，
-    官方另有端侧条目（FLUX.2 Klein 进 ASUS ProArt 笔记本，2026-06-04）。
-  local_files: >-
-    API/playground 可上传图像作输入；自托管线本机跑模型时数据不出本机。
-  background: >-
-    API 为请求-产出制：任务在云端跑，客户端可断开后轮询取回；
-    没有「关机续跑」形态的官方声明——模型接口本身不承载跨会话任务。
-  tools: >-
-    主形态是模型接口（API/playground），被第三方应用与平台集成（如 Runway、各类图像工作流）；
-    官方不做终端创作套件。
-  context: >-
-    模型接口无状态：每次请求独立，不带跨请求记忆；上下文延续由调用方的应用层
-    自行组织（多参考图输入是请求内能力，不是会话记忆）。
-  permissions: >-
-    官方 ToS：默认可能用输入与输出改进模型，退出走 legal@blackforestlabs.ai 邮件申请；
-    条款对「用输出训练其他模型」有明确限制（1.3(n)）。
-  fit: >-
-    要接 FLUX 官方 API、或想自托管开源 FLUX 权重的人/团队。托管与自托管许可路径不同，
-    商用前先确认走哪条；做模型训练的人注意 1.3(n) 的输出训练禁令。
+    模型家族官方博客披露迭代线。
 
+    FLUX 3（2026-07-23「Real World Models」多模态流模型条目）、 FLUX 3 Video Part 1（2026-08-04）、FLUX Video Upscale 2K/4K（2026-08-20）、 FLUX 3 Action（2026-09-23）、FLUX 3 Image Klein（2026-10-15，5.6B 开源权重条目） ——2026-10-21 直抓 bfl.ai/blog 核验。
+
+    部分权重开源可自托管。
+  runtime: >-
+    托管线：官方 API 与 playground，生成在云端。开源线：权重可下载自托管。官方另有端侧条目（FLUX.2 Klein 进 ASUS ProArt 笔记本，2026-06-04）。
+  local_files: >-
+    API/playground 可上传图像作输入。自托管线本机跑模型时数据不出本机。
+  background: >-
+    API 为请求-产出制。任务在云端跑，客户端可断开后轮询取回。没有「关机续跑」形态的官方声明——模型接口本身不承载跨会话任务。
+  tools: >-
+    主形态是模型接口（API/playground），被第三方应用与平台集成（如 Runway、各类图像工作流）。官方不做终端创作套件。
+  context: >-
+    模型接口无状态。每次请求独立，不带跨请求记忆。上下文延续由调用方的应用层 自行组织（多参考图输入是请求内能力，不是会话记忆）。
+  permissions: >-
+    官方 ToS：默认可能用输入与输出改进模型。退出走 legal@blackforestlabs.ai 邮件申请。条款对「用输出训练其他模型」有明确限制（1.3(n)）。
+  fit: >-
+    要接 FLUX 官方 API、或想自托管开源 FLUX 权重的人/团队。托管与自托管许可路径不同， 商用前先确认走哪条。做模型训练的人注意 1.3(n) 的输出训练禁令。
 pitfalls:
   - 把「不主张所有权」读成「随便商用」——商用限于你自己的 Output，且 1.3(n) 禁训练其他模型
   - 把托管 API 条款套到自托管开源权重——两套许可证体系
@@ -74,13 +68,17 @@ cn:
 
 ## 一句话定位
 
-图像模型家族的双路线供应商：官方 API/playground 托管生成，部分权重开源可自托管甚至进端侧；
+**一句话**：图像模型家族的双路线供应商。
+官方 API/playground 托管生成。
+部分权重开源可自托管甚至进端侧
 「不主张所有权、但禁训练其他模型」是条款里需要单独核对的条款。
 
 ## 适合与不适合
 
-适合要接 FLUX API 做集成、或要自托管开源权重的团队。做模型训练的人先读 1.3(n)——
-用 FLUX 输出训练其他模型被条款禁止。要开箱即用的创作社区形态，对照 Midjourney 再选。
+适合要接 FLUX API 做集成、或要自托管开源权重的团队。
+做模型训练的人先读 1.3(n)——
+用 FLUX 输出训练其他模型被条款禁止。
+要开箱即用的创作社区形态，对照 Midjourney 再选。
 
 ## 实测记录
 

@@ -13,27 +13,25 @@ providers:
   - RAG 检索栈（dense/sparse/hybrid）与模型 provider 解耦：检索组件不依赖特定厂商
 axes:
   model_access: >-
-    各家生成模型与嵌入模型经集成接入（OpenAI/Anthropic/本地 HF 等，以官方集成目录为准，
-    本档不逐条复制完整清单）；RAG 检索栈（dense/sparse/hybrid）是它的看家面。
-  runtime: >-
-    Python 库（pip 装进你的进程）；GitHub 26,880★，最近推送 2026-10-30（API 核验）。
-    管线（pipeline）抽象是主轴：组件连成图，跑批或跑服务都在你的进程里。
-  local_files: >-
-    文档索引与检索数据在你选的存储（文件/向量库/文档库）——数据不出你侧；
-    deepset Cloud 托管线是另一产品面。
-  background: >-
-    库无常驻语义；索引管道可离线批跑，查询服务由你部署。
-    2.x 把 1.x 的 node 体系重写成 component/pipeline 模型，升级是大改而非平滑迁移。
-  tools: >-
-    agent 层（2.x 起）含工具调用循环；MCP 支持状态本档不逐条展开。
-  context: >-
-    会话记忆组件存在（chat message store 线）；跨会话记忆要自己接存储——组件给模式不给托管。
-  permissions: >-
-    无账号体系（库形态）；权限面=你接的各家 key 与存储凭据。deepset Cloud 上传面是另一条线的口径。
-  fit: >-
-    适合：生产级 RAG 管线（检索质量工程：hybrid/reranker/评估环）、要可审计的组件图。
-    不适合：只要一个薄聊天壳（过重）；agent 深度编排（LangGraph 线更专）。
+    各家生成模型与嵌入模型经集成接入（OpenAI/Anthropic/本地 HF 等，以官方集成目录为准， 本档不逐条复制完整清单）。
 
+    RAG 检索栈（dense/sparse/hybrid）是它的看家面。
+  runtime: >-
+    Python 库（pip 装进你的进程）。GitHub 26,880★。最近推送 2026-10-30（API 核验）。管线（pipeline）抽象是主轴。
+
+    组件连成图，跑批或跑服务都在你的进程里。
+  local_files: >-
+    文档索引与检索数据在你选的存储（文件/向量库/文档库）——数据不出你侧。deepset Cloud 托管线是另一产品面。
+  background: >-
+    库无常驻语义。索引管道可离线批跑，查询服务由你部署。2.x 把 1.x 的 node 体系重写成 component/pipeline 模型。升级是大改而非平滑迁移。
+  tools: >-
+    agent 层（2.x 起）含工具调用循环。MCP 支持状态本档不逐条展开。
+  context: >-
+    会话记忆组件存在（chat message store 线）。跨会话记忆要自己接存储——组件给模式不给托管。
+  permissions: >-
+    无账号体系（库形态）。权限面=你接的各家 key 与存储凭据。deepset Cloud 上传面是另一条线的口径。
+  fit: >-
+    适合：生产级 RAG 管线（检索质量工程：hybrid/reranker/评估环）、要可审计的组件图。不适合：只要一个薄聊天壳（过重）。agent 深度编排（LangGraph 线更专）。
 pitfalls:
   - 把 Haystack 当「demo 级 RAG 脚本」——它的定位是生产管线（索引/查询分离、评估环）
   - 把 deepset Cloud 与开源库混谈——托管线的数据上传口径是另一产品条款
@@ -72,8 +70,9 @@ cn:
 
 ## 一句话定位
 
-**Haystack 是「检索质量工程」那一派的 RAG 框架**（Apache-2.0，deepset）：索引/查询管线分离、
-hybrid 检索与 reranker、评估环——生产味最浓的一条 RAG 线。2.x 管线 API 大改，旧教程要警惕。
+**Haystack 是「检索质量工程」那一派的 RAG 框架**（Apache-2.0，deepset）：索引/查询管线分离、hybrid 检索与 reranker、评估环。生产味最浓的一条 RAG 线。
+
+2.x 管线 API 大改，旧教程要警惕。
 
 ## 适合与不适合
 
@@ -82,7 +81,8 @@ hybrid 检索与 reranker、评估环——生产味最浓的一条 RAG 线。2.
 
 ## 实测记录
 
-本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测。
+结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 

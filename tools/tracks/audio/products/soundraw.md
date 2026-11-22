@@ -12,30 +12,21 @@ licenseEn: Governed by the official Terms of Service (soundraw.io/terms direct-f
 
 axes:
   model_access: >-
-    自有生成线：官网当日招牌口径「trained only on music we create in-house」（100% Copyright-Safe 叙事）——
-    训练数据自述为自建曲库；不开放选第三方模型。
+    **依据：** 自有生成线：官网当日招牌口径「trained only on music we create in-house」（100% Copyright-Safe 叙事）—— 训练数据自述为自建曲库；不开放选第三方模型。
   runtime: >-
-    网页产品（soundraw.io）；生成与 Mixer 在 SOUNDRAW 云端，浏览器操作，本机不跑模型；
-    API/桌面端不在官网已列产品面。
+    网页产品（soundraw.io）。生成与 Mixer 在 SOUNDRAW 云端，浏览器操作，本机不跑模型。API/桌面端不在官网已列产品面。
   local_files: >-
-    下载导出的音频归本机；生成、账户曲库与 Mixer 工程在 SOUNDRAW 云端；
-    产品面没有本机模型或离线生成入口。
+    下载导出的音频归本机。生成、账户曲库与 Mixer 工程在 SOUNDRAW 云端。产品面没有本机模型或离线生成入口。
   background: >-
-    提交后在云端生成；官方以「in seconds」描述出曲速度，关闭浏览器不改变云端作业；
-    产品面没有暂停、续跑或队列位置控制。
+    提交后在云端生成。官方以「in seconds」描述出曲速度。关闭浏览器不改变云端作业。产品面没有暂停、续跑或队列位置控制。
   tools: >-
-    编辑面在册（Mixer 逐轨开关/强度/时长、Blend Genres 风格混合）；
-    MCP 与公开 API 不在官网已列能力面，扩展接口未单列。
+    编辑面在册（Mixer 逐轨开关/强度/时长、Blend Genres 风格混合）。MCP 与公开 API 不在官网已列能力面，扩展接口未单列。
   context: >-
-    作品按账户曲库组织、可回访再编辑；每次生成读取情绪/风格/时长参数，
-    产品面没有跨会话记忆入口。
+    作品按账户曲库组织、可回访再编辑。每次生成读取情绪/风格/时长参数。产品面没有跨会话记忆入口。
   permissions: >-
-    账号体系（免费+订阅）；「免版税」是主打叙事——每曲「legally yours to use, monetize, and share」
-    官网当日在册；具体档位授权边界以 ToS（2025-06-12 版）为准。
+    **依据：** 账号体系（免费+订阅）；「免版税」是主打叙事——每曲「legally yours to use, monetize, and share」 官网当日在册；具体档位授权边界以 ToS（2025-06-12 版）为准。
   fit: >-
-    适合：视频/播客免版税配乐、按情绪/风格/时长快速选曲改曲、要「训练数据自述干净」的版权叙事。
-    不适合：要大陆直连备案入口、要人声带词整曲（主打器乐 beat）、要本机跑模型。
-
+    适合：视频/播客免版税配乐、按情绪/风格/时长快速选曲改曲、要「训练数据自述干净」的版权叙事。不适合：要大陆直连备案入口、要人声带词整曲（主打器乐 beat）、要本机跑模型。
 pitfalls:
   - 「100% Copyright-Safe / 只用自建音乐训练」是官方自述叙事（官网当日在册）——第三方审计未在册，商用尽调时按自述口径对待
   - 主打器乐 beat 不是带人声整曲——与 Suno/AIVA 的「song」定位不同，找带词歌曲时它是错工具

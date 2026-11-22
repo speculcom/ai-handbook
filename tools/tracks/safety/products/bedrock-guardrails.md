@@ -12,34 +12,37 @@ licenseEn: Commercial cloud service under the AWS Service Terms and the shared-r
 
 axes:
   model_access: >-
-    守的是你在 Bedrock 上调的模型。官方支持页在册：护栏作用于 bedrock-runtime 的 InvokeModel /
-    InvokeModelWithResponseStream / Converse / ConverseStream 调用；bedrock-mantle 端点不支持。
-    目录中多数模型可挂，嵌入、重排、语音与个别文本模型（页内列了具体清单）不行，挂了会报 ValidationException。
-    ApplyGuardrail 可脱离模型单独评内容，因此也能守 Bedrock 之外的应用。
+    守的是你在 Bedrock 上调的模型。官方支持页在册。
+
+    护栏作用于 bedrock-runtime 的 InvokeModel / InvokeModelWithResponseStream / Converse / ConverseStream 调用。
+
+    bedrock-mantle 端点不支持。目录中多数模型可挂，嵌入、重排、语音与个别文本模型（页内列了具体清单）不行。挂了会报 ValidationException。
+
+    ApplyGuardrail 可脱离模型单独评内容。因此也能守 Bedrock 之外的应用。
   runtime: >-
-    托管云：区域 API + Bedrock 控制台。检测在 AWS 侧执行，Standard tier 使用跨区域推理。
-    官方页未在册任何本机/离线形态，护栏策略是云端资源（draft + version）。
+    托管云：区域 API + Bedrock 控制台。检测在 AWS 侧执行，Standard tier 使用跨区域推理。官方页未在册任何本机/离线形态。
+
+    护栏策略是云端资源（draft + version）。
   local_files: >-
-    不读写你的工作区文件：内容通过 API 或控制台测试窗口提交。官方 data-protection 页提示
-    不要把机密信息写进标签或 Name 等自由文本字段，因为那些可能进计费与诊断日志。
+    不读写你的工作区文件。内容通过 API 或控制台测试窗口提交。官方 data-protection 页提示 不要把机密信息写进标签或 Name 等自由文本字段。因为那些可能进计费与诊断日志。
   background: >-
-    以同步评估为主；官方 Guardrails 文档没有托管长任务队列或关机续跑入口，跨区域推理与保留策略按区域页，护栏评估按请求返回。
+    以同步评估为主。官方 Guardrails 文档没有托管长任务队列或关机续跑入口。跨区域推理与保留策略按区域页，护栏评估按请求返回。
   tools: >-
-    策略面在册：content filters（Hate / Insults / Sexual / Violence / Misconduct / Prompt Attack）、
-    denied topics、word filters、sensitive-information（PII 阻断或掩码，支持自定义 regex）、
-    contextual grounding checks、Automated Reasoning checks；还能用标签只评估用户输入的片段（该能力只在 SDK/API 侧）。
+    策略面在册：content filters（Hate / Insults / Sexual / Violence / Misconduct / Prompt Attack）、 denied topics、word filters、sensitive-information（PII 阻断或掩码，支持自定义 regex）、 contextual grounding checks、Automated Reasoning checks。
+
+    还能用标签只评估用户输入的片段（该能力只在 SDK/API 侧）。
   context: >-
-    按请求评估文本与图像，不做会话记忆。语言面按档位分层：Classic 支持英法西，Standard 语言面更广（tier 页在册）；
+    按请求评估文本与图像，不做会话记忆。语言面按档位分层。Classic 支持英法西。Standard 语言面更广（tier 页在册）。
+
     官方另有「支持语言」专页，本档按官方文档口径具体语言清单。
   permissions: >-
-    数据保留是显式模式：none / default / aws_review /（legacy）provider_data_share / inherit，
-    按 project → account → model 默认解析。官方在册：模型提供方拿不到客户 prompt 与 completion；
-    被保留的内容最长 30 天且在 AWS 边界内；要求人工复核的模型在 none / default 下直接不可用。
-    IAM / SCP 可强制组织级 ZDR。合规证书明细本次按官方文档口径，官方文档未单列。
-  fit: >-
-    适合模型主要就在 Bedrock 上、要把护栏挂进推理调用、又要有零保留与人工复核开关可治理的团队。
-    不适合需要自托管护栏（走本地库那条线）、要跨云统一护栏策略，或依赖中国区可用的场景。
+    数据保留是显式模式。none / default / aws_review /（legacy）provider_data_share / inherit。
 
+    按 project → account → model 默认解析。官方在册：模型提供方拿不到客户 prompt 与 completion。被保留的内容最长 30 天且在 AWS 边界内。
+
+    要求人工复核的模型在 none / default 下直接不可用。IAM / SCP 可强制组织级 ZDR。合规证书明细本次按官方文档口径，官方文档未单列。
+  fit: >-
+    适合模型主要就在 Bedrock 上、要把护栏挂进推理调用、又要有零保留与人工复核开关可治理的团队。不适合需要自托管护栏（走本地库那条线）、要跨云统一护栏策略，或依赖中国区可用的场景。
 pitfalls:
   - 以为设成 aws_review 就等于所有请求都被保留：官方写明各模型按 allowed_modes 独立决定
   - 以为目录里任何模型都能挂护栏：嵌入/重排/语音等被官方列为不支持，请求直接报错
@@ -100,27 +103,34 @@ cn:
 
 它是挂在推理调用上的策略层，也能脱离模型单独评内容。
 
-官方文档把两种用法分开写：一种是调模型时带上 guardrail ID 与版本，
-另一种是 ApplyGuardrail——不启动模型调用，直接把内容送进护栏评。
+官方文档把两种用法分开写。
+一种是调模型时带上 guardrail ID 与版本，
+另一种是 ApplyGuardrail。
+不启动模型调用，直接把内容送进护栏评。
 
 ## 适合与不适合
 
-适合模型主要跑在 Bedrock 上的团队：策略与控制台、SDK 是一条线，数据保留模式还能当准入闸门用。
-不适合需要把护栏代码留在自己环境里的团队（那是本地库那条线），也不适合指望「一套护栏跨多云同行为」的人。
-按官方支持页，护栏与模型的对应关系要逐模型查 model card，不能按模型类型推断。
+适合模型主要跑在 Bedrock 上的团队。策略与控制台、SDK 是一条线。数据保留模式还能当准入闸门用。不适合需要把护栏代码留在自己环境里的团队（那是本地库那条线）。
+
+也不适合指望「一套护栏跨多云同行为」的人。按官方支持页，护栏与模型的对应关系要逐模型查 model card。不能按模型类型推断。
 
 ## 能力边界
 
-档位差异是实质的：Standard tier 才支持代码内容里的危害检测、跨区域推理与 prompt leakage 检测，
-denied topics 的字符上限也从 200 提到 1000（tier 页在册）。Classic 只保英法西。
-contextual grounding 的 Standard 档只在区域子集可用，在其他区域请求会直接校验失败。
-Automated Reasoning checks 是另一套东西：拿逻辑规则校验模型回答，不等同于内容过滤。
+档位差异是实质的。
+
+Standard tier 才支持代码内容里的危害检测、跨区域推理与 prompt leakage 检测，denied topics 的字符上限也从 200 提到 1000（tier 页在册）。
+
+Classic 只保英法西。contextual grounding 的 Standard 档只在区域子集可用。在其他区域请求会直接校验失败。
+
+Automated Reasoning checks 是另一套东西：拿逻辑规则校验模型回答。不等同于内容过滤。
 
 ## 变更记录说明
 
-变更记录走官方文档历史页。当日在册最新条目为 2026-10-30 的 Watermarking in Amazon Bedrock
-（列出会加水印的模型与检测方式），护栏相关的历史条目在同页可回溯；
-本档据此判 lifecycle = active，但护栏自身的独立发布说明页未单独设立，记为口径缺口。
+变更记录走官方文档历史页。
+
+当日在册最新条目为 2026-10-30 的 Watermarking in Amazon Bedrock（列出会加水印的模型与检测方式），护栏相关的历史条目在同页可回溯；本档据此判 lifecycle = active。
+
+但护栏自身的独立发布说明页未单独设立，记为口径缺口。
 
 ## 实测记录
 

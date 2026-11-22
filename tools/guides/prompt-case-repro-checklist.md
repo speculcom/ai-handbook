@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-为论文复现准备核对清单。
+**一句话**：为论文复现准备核对清单。
 输入：论文摘要、官方仓库、实验设置。
 
 ## [提示词本体|The prompt]

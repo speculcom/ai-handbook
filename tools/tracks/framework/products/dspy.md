@@ -13,27 +13,29 @@ providers:
   - 官方叙事里 LM 层依托 LiteLLM 的支持面——provider 面随 LiteLLM 公式支持面
 axes:
   model_access: >-
-    各家 LM 通过 dspy.LM 统一接入（OpenAI/Anthropic/Gemini/本地 vLLM 等，
-    以官方 docs 的 LM 集成线为准）；它的差异点是**把提示词当可编程参数**——
-    签名（signature）声明输入输出，优化器自动调提示与权重示例。
+    各家 LM 通过 dspy.LM 统一接入（OpenAI/Anthropic/Gemini/本地 vLLM 等， 以官方 docs 的 LM 集成线为准）。
+
+    它的差异点是**把提示词当可编程参数**—— 签名（signature）声明输入输出。优化器自动调提示与权重示例。
   runtime: >-
-    Python 库（pip 装进你的进程）；GitHub 38,850★，最近推送 2026-10-29（API 核验）。
+    Python 库（pip 装进你的进程）。GitHub 38,850★。最近推送 2026-10-29（API 核验）。
+
     学术出身（Stanford NLP），工业侧 Databricks 投入（官方叙事口径）。
   local_files: >-
-    库形态跑在你进程里；优化产物（program 状态/示例）落你指定路径——数据不出你侧。
+    库形态跑在你进程里。优化产物（program 状态/示例）落你指定路径——数据不出你侧。
   background: >-
-    库无常驻语义；优化（teleprompting）是离线批任务，跑完即止。
+    库无常驻语义。优化（teleprompting）是离线批任务，跑完即止。
   tools: >-
-    ReAct 类 agent 模块与工具调用在官方模块族内；MCP 走官方桥：dspy.Tool.from_mcp_tool(session, mcp_tool) 把 MCP 工具转成 DSPy Tool，官方教程给 MCP SDK v2 Client + stdio 示例。
-  context: >-
-    状态管理跟着你的 program 走；跨会话记忆不是它的叙事——它的「记忆」是优化出来的示例与权重。
-  permissions: >-
-    无账号体系；权限面=你接的各家 API key。优化过程会大量调模型（token 成本面），
-    预算控制参数在官方文档线与优化器配置内，本档不固化具体数值。
-  fit: >-
-    适合：把「调提示词」变成可复现的优化流程（有指标、有训练集）、多模型可换的管线。
-    不适合：要开箱 agent 运行时；小样本没指标时（优化器吃指标，没指标没意义）。
+    ReAct 类 agent 模块与工具调用在官方模块族内。
 
+    MCP 走官方桥：dspy.Tool.from_mcp_tool(session, mcp_tool) 把 MCP 工具转成 DSPy Tool。
+
+    官方教程给 MCP SDK v2 Client + stdio 示例。
+  context: >-
+    状态管理跟着你的 program 走。跨会话记忆不是它的叙事——它的「记忆」是优化出来的示例与权重。
+  permissions: >-
+    无账号体系。权限面=你接的各家 API key。优化过程会大量调模型（token 成本面）。预算控制参数在官方文档线与优化器配置内，本档不固化具体数值。
+  fit: >-
+    适合：把「调提示词」变成可复现的优化流程（有指标、有训练集）、多模型可换的管线。不适合：要开箱 agent 运行时。小样本没指标时（优化器吃指标，没指标没意义）。
 pitfalls:
   - 把 DSPy 当「又一个 prompt 模板库」——它的核心是优化器（把提示当参数训练），不用优化器等于白用
   - 没有评估指标就上优化器——优化器需要 metric，没指标时它无从优化
@@ -79,8 +81,7 @@ cn:
 
 ## 一句话定位
 
-**DSPy 把「调提示词」变成编程问题**（MIT，Stanford NLP/Databricks）：签名声明输入输出，
-优化器把提示当参数训练。用它的分水岭一句话：**有没有评估指标**——有指标它是杠杆，没指标它无从下手。
+**DSPy 把「调提示词」变成编程问题**（MIT，Stanford NLP/Databricks）：签名声明输入输出，优化器把提示当参数训练。用它的分水岭一句话：**有没有评估指标**——有指标它是杠杆，没指标它无从下手。
 
 ## 适合与不适合
 

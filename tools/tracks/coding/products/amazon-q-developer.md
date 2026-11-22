@@ -8,37 +8,29 @@ homepage: https://aws.amazon.com/q/developer/
 
 axes:
   model_access: >-
-    官方 what-is 页明示 Powered by Amazon Bedrock：模型经 Bedrock 托管调用，
-    模型本身经 Bedrock 增强 AWS 内容做问答；含自动滥用检测（Bedrock 侧安全机制）。
-    用户不能自选底层模型（官方未给模型选择器）；BYOK 不适用——计费与账号走 AWS。
+    官方 what-is 页明示 Powered by Amazon Bedrock：模型经 Bedrock 托管调用。模型本身经 Bedrock 增强 AWS 内容做问答。
+
+    含自动滥用检测（Bedrock 侧安全机制）。用户不能自选底层模型（官方未给模型选择器）。BYOK 不适用——计费与账号走 AWS。
   runtime: >-
-    两条形态线：IDE 插件（VS Code / JetBrains 内的对话、内联补全、生成新代码、安全漏洞扫描、
-    语言升级/调试/优化等代码改造）与命令行（官方 CLI 页原文「The Q CLI has become the Kiro CLI」——
-    CLI 线已迁 Kiro 品牌）。定位是「理解、构建、扩展、运维 AWS 应用」的生成式助手，
-    AWS 架构/资源/最佳实践/文档问答是官方主线。
+    **依据：** 两条形态线：IDE 插件（VS Code / JetBrains 内的对话、内联补全、生成新代码、安全漏洞扫描、 **依据：** 语言升级/调试/优化等代码改造）与命令行（官方 CLI 页原文「The Q CLI has become the Kiro CLI」—— CLI 线已迁 Kiro 品牌）。定位是「理解、构建、扩展、运维 AWS 应用」的生成式助手， AWS 架构/资源/最佳实践/文档问答是官方主线。
   local_files: >-
-    IDE 插件在你本机 IDE 内处理代码（补全/生成/扫描在插件工作流内发生）；
-    代码是否离开本机上传服务侧未逐条核验（Bedrock 推理在服务侧是确定事实）。
+    IDE 插件在你本机 IDE 内处理代码（补全/生成/扫描在插件工作流内发生）。代码是否离开本机上传服务侧未逐条核验（Bedrock 推理在服务侧是确定事实）。
+
     问答面引用你的 AWS 资源上下文（官方口径：针对你的 AWS 资源与架构给带引用的回答）。
   background: >-
-    无官方长时异步任务面（未核验到后台续跑声明）；Agentic 编码能力官方指向 Kiro
-    （EOL 公告原文：For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro…
-    including agentic coding, chat and MCP support）。
-  tools: >-
-    IDE 插件内置能力官方列：代码对话、内联补全、生成新代码、安全漏洞扫描（security scans）、
-    代码升级（Java 版本升级等 transformations）、调试与优化；
-    MCP 支持在 Kiro 侧（EOL 公告点名 Kiro 有 MCP support），Amazon Q 插件侧 MCP 未核验到。
-  context: >-
-    上下文锚在 AWS 侧：你的 AWS 资源、架构、文档与支持内容（官方 what-is 页口径）；
-    IDE 内跟随当前工程。跨会话记忆机制未核验到官方声明。
-  permissions: >-
-    账号与计费走 AWS（IAM/账户体系）；IDE 插件操作本机文件的审批细节未逐条核验。
-    Bedrock 侧自动滥用检测是官方明示的安全机制。
-  fit: >-
-    适合：重度 AWS 用户——问架构/资源/最佳实践带引用、IDE 内做 Java 升级与安全扫描这类官方招牌改造任务。
-    不适合：要 agentic 编码新能力（官方明确指向 Kiro）、要长期押注 IDE 插件线
-    （2027-04-30 停止支持，见 pitfalls）。
+    无官方长时异步任务面（未核验到后台续跑声明）。
 
+    **依据：** Agentic 编码能力官方指向 Kiro （EOL 公告原文：For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro… including agentic coding, chat and MCP support）。
+  tools: >-
+    **依据：** IDE 插件内置能力官方列：代码对话、内联补全、生成新代码、安全漏洞扫描（security scans）、 代码升级（Java 版本升级等 transformations）、调试与优化； MCP 支持在 Kiro 侧（EOL 公告点名 Kiro 有 MCP support），Amazon Q 插件侧 MCP 未核验到。
+  context: >-
+    上下文锚在 AWS 侧。你的 AWS 资源、架构、文档与支持内容（官方 what-is 页口径）。IDE 内跟随当前工程。跨会话记忆机制未核验到官方声明。
+  permissions: >-
+    账号与计费走 AWS（IAM/账户体系）。IDE 插件操作本机文件的审批细节未逐条核验。Bedrock 侧自动滥用检测是官方明示的安全机制。
+  fit: >-
+    适合：重度 AWS 用户。问架构/资源/最佳实践带引用、IDE 内做 Java 升级与安全扫描这类官方招牌改造任务。
+
+    不适合：要 agentic 编码新能力（官方明确指向 Kiro）、要长期押注 IDE 插件线 （2027-04-30 停止支持，见 pitfalls）。
 pitfalls:
   - **官方 EOL 公告**：Amazon Q Developer IDE 插件 2027-04-30 停止支持（AWS 官方 End of support notice），
     官方点名替代是 Kiro（agentic coding/chat/MCP）——现在选型新项目的 IDE 面应直接看 Kiro 档案
@@ -100,7 +92,7 @@ AWS 把 agentic 编码未来押在 Kiro 上。
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

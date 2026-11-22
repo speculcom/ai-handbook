@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-按纳入排除标准筛选文献。
+**一句话**：按纳入排除标准筛选文献。
 输入：文献标题摘要、纳入标准、排除标准。
 
 ## [提示词本体|The prompt]
@@ -30,7 +30,7 @@ confidence: partial
 
 ## [预期输出形态|Expected output shape]
 
-decisions[]，含标准与逐字依据。
+**依据：**： decisions[]，含标准与逐字依据。
 
 ## [检查点|Checkpoints]
 

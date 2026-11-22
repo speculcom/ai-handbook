@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-解释 SQL 并核对索引与边界。
+**一句话**：解释 SQL 并核对索引与边界。
 输入：SQL、表结构、索引定义。
 
 ## [提示词本体|The prompt]

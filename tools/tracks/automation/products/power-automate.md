@@ -9,31 +9,33 @@ licenseEn: Proprietary commercial software sold by user/capacity subscription; M
 
 axes:
   model_access: >-
-    AI 能力来自 Microsoft Copilot 与 AI Builder（预置/自定义模型），底层模型未披露；
-    也可通过 HTTP、自定义连接器或 Azure 服务调用外部模型 API。可选的模型档位与区域可用性未逐项核验。
-  runtime: >-
-    云端 SaaS：cloud flows 在 Microsoft 租户内运行；desktop flows 跑在用户 Windows 机器
-    或 Microsoft 托管机器上；设计器为浏览器 + Windows 桌面应用，执行不在你的本地进程里。
-  local_files: >-
-    cloud flows 经 SharePoint、OneDrive、Dataverse 等连接器读写文件；desktop flows
-    可直接操作本机文件、Excel 与 legacy 应用界面；托管机器形态下文件在 Microsoft 环境。
-  background: >-
-    cloud flows 可由定时、事件或 webhook 触发，用户关机不影响；desktop flows 分 attended
-    （需登录会话）与 unattended（需机器或托管运行时），关机后无人值守能否跑取决于运行时。
-  tools: >-
-    连接器生态（官方称数百个，按官方文档口径）、自定义连接器、Copilot、AI Builder、
-    桌面 UI 自动化与 approvals；可调 Power Platform 其他服务与 Azure API。
-  context: >-
-    flow 级变量、run history 与 Dataverse 状态存储；没有跨 flow 的通用 Agent 记忆，
-    长流程状态要靠显式变量/表设计，不是模型上下文。
-  permissions: >-
-    依托 Entra ID、环境（environment）与连接凭据；管理员用 Power Platform admin center
-    配 DLP 策略、环境角色与连接权限；终端用户权限跟随租户与连接账户。
-  fit: >-
-    适合：Microsoft 生态内的审批、邮件、SharePoint/Dataverse 流程与 Windows RPA，
-    以及需要企业治理与审计的自动化。不适合：非 Microsoft 为主的技术栈、纯代码编排、
-    或要求自带任意模型的场景。
+    AI 能力来自 Microsoft Copilot 与 AI Builder（预置/自定义模型）。底层模型未披露。也可通过 HTTP、自定义连接器或 Azure 服务调用外部模型 API。
 
+    可选的模型档位与区域可用性未逐项核验。
+  runtime: >-
+    云端 SaaS。cloud flows 在 Microsoft 租户内运行。desktop flows 跑在用户 Windows 机器 或 Microsoft 托管机器上。
+
+    设计器为浏览器 + Windows 桌面应用，执行不在你的本地进程里。
+  local_files: >-
+    cloud flows 经 SharePoint、OneDrive、Dataverse 等连接器读写文件。desktop flows 可直接操作本机文件、Excel 与 legacy 应用界面。
+
+    托管机器形态下文件在 Microsoft 环境。
+  background: >-
+    cloud flows 可由定时、事件或 webhook 触发，用户关机不影响。desktop flows 分 attended （需登录会话）与 unattended（需机器或托管运行时）。
+
+    关机后无人值守能否跑取决于运行时。
+  tools: >-
+    **依据：** 连接器生态（官方称数百个，按官方文档口径）、自定义连接器、Copilot、AI Builder、 桌面 UI 自动化与 approvals；可调 Power Platform 其他服务与 Azure API。
+  context: >-
+    flow 级变量、run history 与 Dataverse 状态存储。没有跨 flow 的通用 Agent 记忆。长流程状态要靠显式变量/表设计，不是模型上下文。
+  permissions: >-
+    依托 Entra ID、环境（environment）与连接凭据。管理员用 Power Platform admin center 配 DLP 策略、环境角色与连接权限。
+
+    终端用户权限跟随租户与连接账户。
+  fit: >-
+    适合：Microsoft 生态内的审批、邮件、SharePoint/Dataverse 流程与 Windows RPA。以及需要企业治理与审计的自动化。
+
+    不适合：非 Microsoft 为主的技术栈、纯代码编排、 或要求自带任意模型的场景。
 pitfalls:
   - 以为 M365 订阅就含无限 premium 连接器与桌面流——有配额与附加许可
   - 把 Copilot 当自动生成完整流程——生成结果仍需逐步校验与测试
@@ -80,33 +82,32 @@ cn:
 
 ## 一句话定位
 
-**Power Automate 是微软生态里的企业与桌面自动化平台**——
-cloud flows 负责 SaaS 间编排，desktop flows 负责 Windows 桌面 RPA，
-Copilot 与 AI Builder 把自然语言和模型能力嵌进流程，但它是低代码自动化，不是 Agent 框架。
+**Power Automate 是微软生态里的企业与桌面自动化平台**——cloud flows 负责 SaaS 间编排。
+
+desktop flows 负责 Windows 桌面 RPACopilot 与 AI Builder 把自然语言和模型能力嵌进流程。但它是低代码自动化，不是 Agent 框架。
 
 ## 适合与不适合
 
-适合已经深度使用 Microsoft 365、SharePoint、Dataverse、Teams 的组织，
-要把审批、通知、数据同步与 Windows 桌面操作串起来，并且需要环境、DLP 与审计治理。
-不适合非微软为主的技术栈、需要代码级可控性的团队，
-或想自带任意第三方模型、把平台当通用 Agent 运行时的场景。
+**依据：** 适合已经深度使用 Microsoft 365、SharePoint、Dataverse、Teams 的组织，要把审批、通知、数据同步与 Windows 桌面操作串起来。
+
+并且需要环境、DLP 与审计治理。不适合非微软为主的技术栈、需要代码级可控性的团队，或想自带任意第三方模型、把平台当通用 Agent 运行时的场景。
 
 ## 两种 flow 别混为一谈
 
-官方文档把能力拆成 cloud、desktop 与 generative actions（预览）：
-cloud flows 在租户云端按定时/事件触发，用户关机不影响；
-desktop flows 走 Windows 应用界面，分 attended（要登录会话）与 unattended（要机器或托管运行时）。
-「桌面流能不能无人值守跑」不是产品默认能力，而是运行时与许可的问题。
+官方文档把能力拆成 cloud、desktop 与 generative actions（预览）：cloud flows 在租户云端按定时/事件触发，用户关机不影响；desktop flows 走 Windows 应用界面。
+
+分 attended（要登录会话）与 unattended（要机器或托管运行时）。「桌面流能不能无人值守跑」不是产品默认能力。而是运行时与许可的问题。
 
 ## 许可与容量的边界
 
-这是专有订阅软件：M365 计划含有限权益，premium 连接器、托管 RPA 与 AI Builder 容量
-要对应许可。本档不记价格，采购前读官方 licensing 页；把「我们已经有 M365」当成
-「所有连接器都能用」是最常见的预算误判。
+这是专有订阅软件。M365 计划含有限权益，premium 连接器、托管 RPA 与 AI Builder 容量要对应许可。本档不记价格，采购前读官方 licensing 页。
+
+把「我们已经有 M365」当成「所有连接器都能用」是最常见的预算误判。
 
 ## 实测记录
 
-本档尚未完成 flow 搭建与桌面流实测；结论来自 Microsoft Learn 官方文档。
+本档尚未完成 flow 搭建与桌面流实测。
+结论来自 Microsoft Learn 官方文档。
 
 ## 未知项清单
 
@@ -116,7 +117,8 @@ desktop flows 走 Windows 应用界面，分 attended（要登录会话）与 un
 
 ## 变更记录说明
 
-本对象无独立 changelog 页，变更记录见官方 What's new 页与 Service Updates。
+本对象无独立 changelog 页。
+变更记录见官方 What's new 页与 Service Updates。
 
 ## 相关条目
 

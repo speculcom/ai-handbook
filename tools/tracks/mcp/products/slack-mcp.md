@@ -9,30 +9,27 @@ licenseEn: Closed-source official hosted service (under Slack's ToS); no open-so
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Slack 工作区能力
-    （搜索、读消息/线程、发消息、canvases、Lists）包装成工具给 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Slack 工作区能力 （搜索、读消息/线程、发消息、canvases、Lists）包装成工具给 agent 用。
   runtime: >-
-    官方托管远程 server（mcp.slack.com/mcp——直抓 401=存在需鉴权）；
-    Streamable HTTP + JSON-RPC 2.0（官方文档口径）。旧 slackapi/slack-mcp-server 仓已 404（2026-10-21 直抓）。
+    官方托管远程 server（mcp.slack.com/mcp——直抓 401=存在需鉴权）。Streamable HTTP + JSON-RPC 2.0（官方文档口径）。
+
+    旧 slackapi/slack-mcp-server 仓已 404（2026-10-21 直抓）。
   local_files: >-
-    不碰本机文件系统——作用域是 Slack 云端工作区（消息、文件、canvases、Lists）。
+    不碰本机文件系统。作用域是 Slack 云端工作区（消息、文件、canvases、Lists）。
   background: >-
-    服务在 Slack 侧；会话请求-响应，无后台监听语义——「agent 不监视 Slack，等你问」。
+    服务在 Slack 侧。会话请求-响应，无后台监听语义。「agent 不监视 Slack，等你问」。
   tools: >-
-    搜索（消息/文件/用户/频道）、读频道与线程、发消息、建会话、reaction、
-    canvas 读写、用户档案、Lists 增删改查、文件上传（官方 changelog 2026-05 有新增工具记录）；
-    完整清单以 docs.slack.dev 为准。
+    **依据：** 搜索（消息/文件/用户/频道）、读频道与线程、发消息、建会话、reaction、 **依据：** canvas 读写、用户档案、Lists 增删改查、文件上传（官方 changelog 2026-05 有新增工具记录）； 完整清单以 docs.slack.dev 为准。
   context: >-
-    无 server 侧跨会话记忆——状态在 Slack 工作区本身；搜索工具是它的「取上下文」主手段。
+    无 server 侧跨会话记忆。状态在 Slack 工作区本身。搜索工具是它的「取上下文」主手段。
   permissions: >-
-    **权限面是这条目的核心**：OAuth user-token scopes 逐工具映射（search:read、chat:write、
-    canvases:write 等）+ **工作区管理员审批**（admin 决定哪些 MCP 客户端可连）——
-    未发布 Marketplace/内部 app 连不上。写动作（发消息/建会话）跟着授权 scope 走。
+    **权限面是这条目的核心**：OAuth user-token scopes 逐工具映射（search:read、chat:write、 canvases:write 等）+ **工作区管理员审批**（admin 决定哪些 MCP 客户端可连）—— 未发布 Marketplace/内部 app 连不上。
+
+    写动作（发消息/建会话）跟着授权 scope 走。
   fit: >-
     适合：编码/研究 agent 取「团队在 Slack 里的决策与上下文」、总结频道、代拟消息。
-    不适合：要事件触发自动化（MCP 不是触发器——要自动化走 Workflow/automation 线）；
-    要 bot-token 无 OAuth 路线（官方走 user-token OAuth）。
 
+    不适合：要事件触发自动化（MCP 不是触发器——要自动化走 Workflow/automation 线）。要 bot-token 无 OAuth 路线（官方走 user-token OAuth）。
 pitfalls:
   - 把 MCP 当「agent 常驻 Slack」——它只在会话里响应，不监视不触发
   - 用旧仓 slackapi/slack-mcp-server 找官方实现——已 404，现役是官方托管 mcp.slack.com
@@ -44,16 +41,15 @@ related: [cursor, windsurf]
 
 mcp:
   transport: >-
-    **Streamable HTTP**（JSON-RPC 2.0），端点 mcp.slack.com/mcp。
-    官方明写 **SSE 与 Dynamic Client Registration 暂不支持**（第三方核验页转述官方 docs）——
-    客户端要走现行 remote MCP/OAuth 路径。核验：docs.slack.dev 200、端点 401（2026-10-21 直抓）。
-  auth: >-
-    OAuth 2.0 user-token 流（slack.com OAuth 端点授权）；工具逐一对应 scope。
-    **管理员审批是前置门**：工作区 admin 批准 MCP 客户端集成才能连。
-  scope: >-
-    读面：搜索/历史/用户档案/canvas 读；写面：发消息、建会话、reaction、canvas 写、
-    Lists 写、文件上传。全部跟着 OAuth scope 与 admin 策略走；无工具级独立审批机制的官方说明。
+    **Streamable HTTP**（JSON-RPC 2.0）。端点 mcp.slack.com/mcp。
 
+    官方明写 **SSE 与 Dynamic Client Registration 暂不支持**（第三方核验页转述官方 docs）—— 客户端要走现行 remote MCP/OAuth 路径。
+
+    **依据：** 核验：docs.slack.dev 200、端点 401（2026-10-21 直抓）。
+  auth: >-
+    OAuth 2.0 user-token 流（slack.com OAuth 端点授权）。工具逐一对应 scope。**管理员审批是前置门**：工作区 admin 批准 MCP 客户端集成才能连。
+  scope: >-
+    **依据：** 读面：搜索/历史/用户档案/canvas 读；写面：发消息、建会话、reaction、canvas 写、 Lists 写、文件上传。全部跟着 OAuth scope 与 admin 策略走；无工具级独立审批机制的官方说明。
 sources:
   - label: Slack · 官方 MCP 文档（端点、传输、鉴权口径，2026-10-21 直抓核验）
     url: https://docs.slack.dev/ai/slack-mcp-server
@@ -84,18 +80,20 @@ cn:
 
 ## 一句话定位
 
-**Slack 自营的官方 MCP server**（mcp.slack.com/mcp）：agent 能搜工作区、读线程、代拟消息、
-管 canvas 与 Lists。两条硬口径：**admin 审批是前置门**；**它只在会话里响应，不监视不触发**。
-诚实标注：旧 slackapi 仓已 404；reference 版已归档转第三方维护——本条目是 Slack 自营线。
+**Slack 自营的官方 MCP server**（mcp.slack.com/mcp）：agent 能搜工作区、读线程、代拟消息、管 canvas 与 Lists。两条硬口径：**admin 审批是前置门**。
+
+**它只在会话里响应，不监视不触发**。诚实标注：旧 slackapi 仓已 404。reference 版已归档转第三方维护——本条目是 Slack 自营线。
 
 ## 适合与不适合
 
 适合：让 agent 拿「团队真实讨论」作上下文、频道总结、代拟消息草稿。
-不适合：事件触发自动化（那是 Workflow 线的活）；要 bot-token 直连的旧路线。
+不适合：事件触发自动化（那是 Workflow 线的活）。
+要 bot-token 直连的旧路线。
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

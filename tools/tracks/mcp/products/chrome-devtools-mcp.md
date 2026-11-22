@@ -9,29 +9,25 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Chrome DevTools 协议（CDP）能力
-    包装成工具：导航、点击、截图、性能 trace、网络与 console 日志。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Chrome DevTools 协议（CDP）能力 包装成工具：导航、点击、截图、性能 trace、网络与 console 日志。
   runtime: >-
-    本地进程（npx 起 stdio，驱动本机 Chrome）；GitHub 54,460★，最近推送 2026-10-29（API 核验）——
-    MCP 生态头部流量之一。
+    本地进程（npx 起 stdio，驱动本机 Chrome）。GitHub 54,460★。最近推送 2026-10-29（API 核验）—— MCP 生态头部流量之一。
   local_files: >-
-    操作的是浏览器运行时：页面、网络、console；截图/trace 可落本地路径（由参数指定）。
-    它不读写你项目源码——那是 filesystem server 的活。
+    操作的是浏览器运行时。页面、网络、console。截图/trace 可落本地路径（由参数指定）。它不读写你项目源码。那是 filesystem server 的活。
   background: >-
-    随客户端生死（stdio 子进程）；Chrome 实例由它启动或连接。无后台任务语义。
+    随客户端生死（stdio 子进程）。Chrome 实例由它启动或连接。无后台任务语义。
   tools: >-
-    导航/交互（click/type/upload）、截图、performance trace 与分析、网络与 console 读取、
-    模拟（CPU/网络节流）等；完整清单以仓 README 为准。
+    导航/交互（click/type/upload）、截图、performance trace 与分析、网络与 console 读取、 模拟（CPU/网络节流）等。完整清单以仓 README 为准。
   context: >-
     无跨会话记忆——页面状态在浏览器实例里，会话结束实例关闭。
   permissions: >-
-    **它驱动一个真实浏览器**：能访问客户端让它去的任何 URL、以浏览器身份交互。
-    官方口径是给编码 agent 做「看得到浏览器」的能力；隔离与白名单靠客户端/浏览器 profile 配置——
-    server 本身无 URL 白名单机制的官方说明。
-  fit: >-
-    适合：编码 agent 调试真实页面、性能分析、E2E 验证闭环（改代码→看浏览器→再改）。
-    不适合：要无头批量抓取（那是 fetch/firecrawl 线）；要 URL 级硬隔离（server 无此机制）。
+    **它驱动一个真实浏览器**：能访问客户端让它去的任何 URL、以浏览器身份交互。官方口径是给编码 agent 做「看得到浏览器」的能力。
 
+    隔离与白名单靠客户端/浏览器 profile 配置—— server 本身无 URL 白名单机制的官方说明。
+  fit: >-
+    适合：编码 agent 调试真实页面、性能分析、E2E 验证闭环（改代码→看浏览器→再改）。不适合：要无头批量抓取（那是 fetch/firecrawl 线）。
+
+    要 URL 级硬隔离（server 无此机制）。
 pitfalls:
   - 把它当 Playwright MCP 的替代品混用——两者重叠但机制不同（CDP 直连 vs Playwright 驱动），官方 reference 归档后推荐 Playwright 是另一条线，两者现役都活跃
   - 忘了它驱动真实浏览器=真实网络出口——agent 让它访问什么就访问什么
@@ -42,15 +38,13 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **stdio**（npx chrome-devtools-mcp@latest）；HTTP 模式支持状态本档不逐条展开。
-    核验：仓 README（2026-10-21 直抓）。
+    **stdio**（npx chrome-devtools-mcp@latest）。HTTP 模式支持状态本档不逐条展开。 核验：仓 README（2026-10-21 直抓）。
   auth: >-
-    无凭据层——它不需要账号 token，权限=浏览器实例能做的事。
-    连接既有 Chrome 实例（--connect-to-existing-browser 一类）支持面本档不逐条展开。
+    无凭据层——它不需要账号 token。权限=浏览器实例能做的事。连接既有 Chrome 实例（--connect-to-existing-browser 一类）支持面本档不逐条展开。
   scope: >-
-    作用域=浏览器运行时：任意导航、交互、读网络/console、跑 performance trace。
-    无 URL 白名单/审批层的官方说明——收紧靠客户端侧工具审批与浏览器 profile 隔离。
+    作用域=浏览器运行时。任意导航、交互、读网络/console、跑 performance trace。无 URL 白名单/审批层的官方说明。
 
+    收紧靠客户端侧工具审批与浏览器 profile 隔离。
 sources:
   - label: ChromeDevTools/chrome-devtools-mcp · 仓库（Apache-2.0；54,460★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/ChromeDevTools/chrome-devtools-mcp
@@ -81,18 +75,20 @@ cn:
 
 ## 一句话定位
 
-**Chrome 官方团队做的「让 agent 看见浏览器」**：CDP 直连，导航、交互、截图、performance trace、
-网络与 console 全暴露给编码 agent。Apache-2.0、53k★、活跃维护。
-安全口径一句话：**它驱动真实浏览器=真实网络出口，server 本身没有 URL 白名单层**。
+**Chrome 官方团队做的「让 agent 看见浏览器」**：CDP 直连。导航、交互、截图、performance trace、网络与 console 全暴露给编码 agent。
+
+Apache-2.0、53k★、活跃维护。安全口径一句话：**它驱动真实浏览器=真实网络出口。server 本身没有 URL 白名单层**。
 
 ## 适合与不适合
 
 适合：编码 agent 的「改代码→浏览器验证」闭环、性能诊断、E2E 调试。
-不适合：批量抓取（fetch/firecrawl 更合适）；要 URL 级硬隔离的场景。
+不适合：批量抓取（fetch/firecrawl 更合适）。
+要 URL 级硬隔离的场景。
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

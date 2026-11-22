@@ -9,24 +9,23 @@ licenseEn: AGPL-3.0 (GitHub API verified 2026-10-21; official repo LICENSE direc
 
 axes:
   model_access: >-
-    GGUF/safetensors 多后端（llama.cpp/exllama 系等 loader 生态）；模型与 loader 矩阵未逐条清点。
+    GGUF/safetensors 多后端（llama.cpp/exllama 系等 loader 生态）。模型与 loader 矩阵未逐条清点。
   runtime: >-
-    本地 WebUI（Gradio 线）+ 命令行；GitHub 47,728★，最近推送 2026-08-17（GitHub API 核验 2026-10-30）。
+    本地 WebUI（Gradio 线）+ 命令行。GitHub 47,728★。最近推送 2026-08-17（GitHub API 核验 2026-10-30）。
+
     仓库现名 oobabooga/textgen（旧名 text-generation-webui 301 跳转，直抓核验）。
   local_files: >-
-    全本地：模型、对话与扩展数据都在自有环境；未见官方云线或遥测声明。
+    全本地：模型、对话与扩展数据都在自有环境。未见官方云线或遥测声明。
   background: >-
     内置 OpenAI 兼容 API server 扩展线；细节未逐条核验。
   tools: >-
-    扩展（extensions）生态是主轴之一；MCP 支持未逐条核验。
+    扩展（extensions）生态是主轴之一。MCP 支持未逐条核验。
   context: >-
-    上下文长度与聊天模板管理是核心面；长上下文裁剪策略细节未逐条核验。
+    上下文长度与聊天模板管理是核心面。长上下文裁剪策略细节未逐条核验。
   permissions: >-
-    本地进程无账号体系；WebUI 默认本机监听，共享/公网暴露需使用者自行配置。
+    本地进程无账号体系。WebUI 默认本机监听，共享/公网暴露需使用者自行配置。
   fit: >-
-    适合：要扩展生态与多 loader 灵活度、社区玩法（角色卡/微调衔接）。
-    不适合：要开箱极简（界面信息密度高）；要 AGPL 之外的许可做闭源分发。
-
+    适合：要扩展生态与多 loader 灵活度、社区玩法（角色卡/微调衔接）。不适合：要开箱极简（界面信息密度高）。要 AGPL 之外的许可做闭源分发。
 pitfalls:
   - 用旧仓名找仓库——现名 oobabooga/textgen（旧名 301 仍可达，引用以现名为准）
   - AGPL copyleft——闭源分发集成前先读义务
@@ -67,7 +66,8 @@ cn:
 ## 一句话定位
 
 **text-generation-webui（现名 textgen）是本地 LLM 的「瑞士军刀」一代**：多 loader、扩展生态、可结合多种社区扩展。
-诚实标注：仓库改名 oobabooga/textgen；最近推送 2026-08-17（API 快照）——维护节奏介于活跃与放缓之间。
+
+诚实标注：仓库改名 oobabooga/textgen。最近推送 2026-08-17（API 快照）——维护节奏介于活跃与放缓之间。
 
 ## 适合与不适合
 

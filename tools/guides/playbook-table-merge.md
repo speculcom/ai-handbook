@@ -15,7 +15,7 @@ confidence: partial
 
 ## [下载与范围|Downloads and scope]
 
-这是虚构订单与客户数据，CC BY 4.0，不含真实客户。前三个文件是输入，reference 文件是设计的参考答案，不是某工具的处理结果。
+**一句话**：这是虚构订单与客户数据，CC BY 4.0，不含真实客户。前三个文件是输入，reference 文件是设计的参考答案，不是某工具的处理结果。
 
 - [customers.csv](https://tools.specul.com/samples/merge/customers.csv)
 - [orders-a.csv](https://tools.specul.com/samples/merge/orders-a.csv)

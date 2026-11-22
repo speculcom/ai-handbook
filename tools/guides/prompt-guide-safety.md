@@ -26,7 +26,7 @@ confidence: verified
 ## [这一篇讲什么|What this guide covers]
 
 **提示词安全的核心问题：模型分不清指令和数据。**
-论文的一句话概括：LLM 集成应用 "blur the line between data and instructions"。
+**依据：** 论文的一句话概括：LLM 集成应用 "blur the line between data and instructions"。
 攻击者把指令藏进数据，模型就可能照办。
 防御分三层：提示词层分隔、应用层护栏、协议层最小权限。
 效果未实测；以下机制均出自官方文档、规范与论文。

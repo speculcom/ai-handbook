@@ -15,7 +15,7 @@ confidence: partial
 
 ## [下载与范围|Downloads and scope]
 
-这是单个合成声音朗读角色标签的虚构会议，CC BY 4.0；不是实际人员录音，也不模拟真实多人分离。WAV 为 16 kHz、单声道、16-bit PCM。script 是合成脚本，reference 是从脚本设计的答案，均不是 ASR 输出。
+**一句话**：这是单个合成声音朗读角色标签的虚构会议，CC BY 4.0；不是实际人员录音，也不模拟真实多人分离。WAV 为 16 kHz、单声道、16-bit PCM。script 是合成脚本，reference 是从脚本设计的答案，均不是 ASR 输出。
 
 - [fictional-meeting.wav](https://tools.specul.com/samples/meeting/fictional-meeting.wav)
 - [script.txt](https://tools.specul.com/samples/meeting/script.txt)
@@ -58,7 +58,7 @@ confidence: partial
 - 每条结论可回听；原话的 not、if 和 proposed 没丢。
 - 对照脚本时区分识别错误和整理错误；修纪要不能掩盖错误转写。
 
-参考文件展示一种记录方式，不要求逐字相同。这里只有一个声音加口述标签，无法据此评价多人说话人识别。
+**依据：**： 参考文件展示一种记录方式，不要求逐字相同。这里只有一个声音加口述标签，无法据此评价多人说话人识别。
 
 ## [失败后查哪里|When it fails]
 

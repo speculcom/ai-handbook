@@ -10,35 +10,39 @@ licenseEn: Official Gemini API Additional Terms, 'Use of Generated Content': Goo
 
 axes:
   model_access: >-
-    模型家族官方 release notes 披露并按订阅档位分流：2026-10-13 Gemini 4 Argon 面向
-    Google AI Pro & Ultra 全球推出；2026-10-28/11-10 Gemini 4 Carbon 面向 Ultra 与付费开发者；
-    2026-11-18 Gemini 4 Neon 进入 Gemini app 与 API。免费档与付费档可用模型不同，以 release notes 为准。
-  runtime: >-
-    网页为主入口；桌面端有官方应用——Windows 应用（release notes 2026-09-10，Alt+Space 唤起）
-    与 macOS 应用（2026-07-29 语音创作条目、2026-10-13 Antigravity 编码条目）；生成在 Google 云端处理。
-  local_files: >-
-    支持多模态输入与文件上传；官方隐私声明明确不直接拿 Gmail/Drive/Photos 原库训练，
-    但回答过程中产生的摘要、摘录与推断会被用于训练（Connected Apps 个人化页）。
-  background: >-
-    对话即时返回；Skills 功能（release notes 2026-09-30）是可复用的指令集、可自动匹配触发，
-    但没有「关机续跑」形态的官方声明。
-  tools: >-
-    Google 生态联动（搜索、Workspace、Chrome）是主卖点；Connected Apps 可接第三方工具
-    （含 MCP server 工具，官方帮助页 16836988）；Gemini macOS 应用内置 Antigravity 编码 agent（2026-10-13）。
-    研究线有 Deep Research 与 Deep Research Max（官方 blog 2026-04-21：基于 Gemini 3.1 Pro，支持 MCP、
-    原生可视化与自定义来源）；图像线有 Nano Banana 2（Gemini 3.1 Flash Image，官方 blog 2026-02-26，
-    支持图像生成与编辑）。
-  context: >-
-    有记忆与个性化功能；Gems（定制指令）将被 Skills 取代并自动迁移（release notes 2026-09-30）。
-    跨会话记忆的完整边界以官方帮助页为准。
-  permissions: >-
-    官方 Gemini Apps 隐私声明（2026-10-13 更新）：Keep Activity 开启时提示、生成内容与反馈
-    用于改进 Google 服务（含训练生成式模型）；关闭后未来对话不用于训练（除非提交反馈）；
-    临时聊天与关闭活动记录时保留 72 小时、不用于训练；人工审核员会审阅部分数据——官方提醒勿输入机密信息。
-  fit: >-
-    已在 Google 生态里工作的人——联动是真优势。在意训练就关 Keep Activity；
-    在意机密内容按官方提醒不要输入。要本机跑模型或自由换模型，这类闭源云助手都不合适。
+    模型家族官方 release notes 披露并按订阅档位分流：2026-10-13 Gemini 4 Argon 面向 Google AI Pro & Ultra 全球推出。
 
+    2026-10-28/11-10 Gemini 4 Carbon 面向 Ultra 与付费开发者。2026-11-18 Gemini 4 Neon 进入 Gemini app 与 API。
+
+    免费档与付费档可用模型不同。以 release notes 为准。
+  runtime: >-
+    网页为主入口。桌面端有官方应用。
+
+    Windows 应用（release notes 2026-09-10，Alt+Space 唤起） 与 macOS 应用（2026-07-29 语音创作条目、2026-10-13 Antigravity 编码条目）。
+
+    生成在 Google 云端处理。
+  local_files: >-
+    支持多模态输入与文件上传。官方隐私声明明确不直接拿 Gmail/Drive/Photos 原库训练。
+
+    **依据：** 但回答过程中产生的摘要、摘录与推断会被用于训练（Connected Apps 个人化页）。
+  background: >-
+    对话即时返回。Skills 功能（release notes 2026-09-30）是可复用的指令集、可自动匹配触发。但没有「关机续跑」形态的官方声明。
+  tools: >-
+    Google 生态联动（搜索、Workspace、Chrome）是主卖点。Connected Apps 可接第三方工具 （含 MCP server 工具，官方帮助页 16836988）。
+
+    Gemini macOS 应用内置 Antigravity 编码 agent（2026-10-13）。
+
+    研究线有 Deep Research 与 Deep Research Max（官方 blog 2026-04-21：基于 Gemini 3.1 Pro，支持 MCP、 原生可视化与自定义来源）。
+
+    图像线有 Nano Banana 2（Gemini 3.1 Flash Image，官方 blog 2026-02-26， 支持图像生成与编辑）。
+  context: >-
+    有记忆与个性化功能。Gems（定制指令）将被 Skills 取代并自动迁移（release notes 2026-09-30）。跨会话记忆的完整边界以官方帮助页为准。
+  permissions: >-
+    官方 Gemini Apps 隐私声明（2026-10-13 更新）：Keep Activity 开启时提示、生成内容与反馈 用于改进 Google 服务（含训练生成式模型）。
+
+    关闭后未来对话不用于训练（除非提交反馈）。临时聊天与关闭活动记录时保留 72 小时、不用于训练。人工审核员会审阅部分数据——官方提醒勿输入机密信息。
+  fit: >-
+    已在 Google 生态里工作的人——联动是真优势。在意训练就关 Keep Activity。在意机密内容按官方提醒不要输入。要本机跑模型或自由换模型，这类闭源云助手都不合适。
 pitfalls:
   - 把「不直接训练 Gmail/Drive 原库」读成「你的对话内容不训练」——回答中产生的摘要与推断仍会被训练（官方明写）
   - 把 Keep Activity 与临时聊天混为一谈——两套机制，前者管未来对话训练，后者管留存与历史
@@ -97,14 +101,15 @@ cn:
 
 ## 一句话定位
 
-Google 生态里的通用对话助手：网页/Windows/macOS 三端覆盖，模型按订阅档位分流，
+Google 生态里的通用对话助手。
+网页/Windows/macOS 三端覆盖，模型按订阅档位分流，
 「不训练你的邮箱原库，但训练回答过程里的摘要」是它最容易被误读的一行条款。
 
 ## 适合与不适合
 
-适合已经在 Google 生态（搜索、Workspace、Chrome）里工作的人——联动是真实优势。
-在意训练用途就关 Keep Activity（只影响未来对话）；在意机密内容按官方提醒不要输入。
-要本机运行或自由换模型，它不合适——去看本地模型运行器与开源框架。
+适合已经在 Google 生态（搜索、Workspace、Chrome）里工作的人——联动是真实优势。在意训练用途就关 Keep Activity（只影响未来对话）。在意机密内容按官方提醒不要输入。
+
+要本机运行或自由换模型，它不合适。去看本地模型运行器与开源框架。
 
 ## 实测记录
 
@@ -131,5 +136,7 @@ Google 生态里的通用对话助手：网页/Windows/macOS 三端覆盖，模�
 
 ```text
 给我一份带来源的研究摘要：主题【 】，时间范围【 】。
-要求：每条结论后标来源与日期；找不到就写「未找到」；不要合并冲突来源。
+要求：每条结论后标来源与日期。
+找不到就写「未找到」。
+不要合并冲突来源。
 ```

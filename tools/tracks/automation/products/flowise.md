@@ -9,24 +9,21 @@ licenseEn: Mixed license (official LICENSE.md, direct-fetched 2026-10-21): the e
 
 axes:
   model_access: >-
-    画布节点接各家 LLM/嵌入/向量库（LangChain 组件族为底）；provider 覆盖面以官方 docs 为准，本档不逐条展开。
+    画布节点接各家 LLM/嵌入/向量库（LangChain 组件族为底）。provider 覆盖面以官方 docs 为准，本档不逐条展开。
   runtime: >-
-    开源自托管（npm/Docker）+ 官方云两条线；GitHub 55,513★（API 核验 2026-10-21；最近推送 2026-08-13——
-    节奏放缓是事实，如实记）。
+    开源自托管（npm/Docker）+ 官方云两条线。GitHub 55,513★（API 核验 2026-10-21；最近推送 2026-08-13—— 节奏放缓是事实，如实记）。
   local_files: >-
     自托管实例数据落自有环境；chatflow 上传文件处理在实例内。
   background: >-
-    自托管实例常开即承载 API 服务与队列；官方给 queue 模式（细节本档不逐条展开）。
+    自托管实例常开即承载 API 服务与队列。官方给 queue 模式（细节本档不逐条展开）。
   tools: >-
-    节点生态含工具/检索/agent 流；MCP 支持状态不在官方文档列出的能力面内。
+    节点生态含工具/检索/agent 流。MCP 支持状态不在官方文档列出的能力面内。
   context: >-
-    chatflow 的记忆节点（buffer/窗口等 LangChain 记忆组件）是官方上下文面；跨应用记忆本档不逐条展开。
+    chatflow 的记忆节点（buffer/窗口等 LangChain 记忆组件）是官方上下文面。跨应用记忆本档不逐条展开。
   permissions: >-
-    社区版基础鉴权；SSO/工作区隔离等在 enterprise 目录（商业许可区）。
+    社区版基础鉴权。SSO/工作区隔离等在 enterprise 目录（商业许可区）。
   fit: >-
-    适合：画布搭 LLM 应用（RAG/agent 流）起步快、要自托管。
-    不适合：要企业功能开箱；要活跃发版节奏（2026-08 后推送放缓——建档快照口径）。
-
+    适合：画布搭 LLM 应用（RAG/agent 流）起步快、要自托管。不适合：要企业功能开箱。要活跃发版节奏（2026-08 后推送放缓——建档快照口径）。
 pitfalls:
   - 把「Apache 2.0 主体」读成全仓——enterprise 目录是商业区
   - 与 2024 年的星数/热度印象对齐——发版节奏已放缓，看仓库最近推送
@@ -68,13 +65,15 @@ cn:
 
 ## 一句话定位
 
-**Flowise 是「画布搭 LLM 应用」的开山一代**（LangChain 组件族的可视化封装）：RAG/agent 流原型极快。
-两个诚实标注：许可是 Apache 2.0 + enterprise 商业区混合；2026-08 后仓库推送放缓——热度与维护节奏要看快照。
+**Flowise 是「画布搭 LLM 应用」的开山一代**（LangChain 组件族的可视化封装）：RAG/agent 流原型极快。两个诚实标注。许可是 Apache 2.0 + enterprise 商业区混合。
+
+2026-08 后仓库推送放缓——热度与维护节奏要看快照。
 
 ## 适合与不适合
 
 适合：LLM 应用（RAG、agent 流）快速原型、要自托管、要读源码。
-不适合：要企业功能开箱（SSO 等在商业区）；要长期活跃发版承诺（按快照口径）。
+不适合：要企业功能开箱（SSO 等在商业区）。
+要长期活跃发版承诺（按快照口径）。
 
 ## 实测记录
 

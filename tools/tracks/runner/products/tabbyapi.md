@@ -9,32 +9,37 @@ licenseEn: AGPL-3.0 (GitHub API verified 2026-10-31).
 
 axes:
   model_access: >-
-    **ExLlamaV3 官方 API 后端**——README 自述「TabbyAPI is also the official API backend server for
-    ExllamaV3」：跑 GPTQ/GGUF 等 ExLlamaV3 支持的本地权重（exllamav3 后端），不是调外部模型的服务。
-    模型文件放本机目录挂载进进程（Docker 口径：models 目录挂进容器）。
+    **ExLlamaV3 官方 API 后端**——README 自述「TabbyAPI is also the official API backend server for ExllamaV3」：跑 GPTQ/GGUF 等 ExLlamaV3 支持的本地权重（exllamav3 后端）。
+
+    不是调外部模型的服务。模型文件放本机目录挂载进进程（Docker 口径：models 目录挂进容器）。
   runtime: >-
-    **FastAPI 本地服务**（Python 3.10–3.14）；官方 CUDA 镜像在 GHCR（ghcr.io/theroyallab/tabbyapi），
+    **FastAPI 本地服务**（Python 3.10–3.14）。官方 CUDA 镜像在 GHCR（ghcr.io/theroyallab/tabbyapi）。
+
     标签 latest（CUDA 12.8）/cu13/latest-rocm（AMD RX 7900 系）/latest-extras（含可选 embeddings 栈）。
-    GitHub theroyallab/tabbyAPI AGPL-3.0 1,502★ 推送 2026-10-30（API 核验）；
-    **GitHub releases 为 0——发版走 rolling release（README 自述），变更记录线看 commits**。
+
+    GitHub theroyallab/tabbyAPI AGPL-3.0 1,502★ 推送 2026-10-30（API 核验）。
+
+    **GitHub releases 为 0——发版走 rolling release（README 自述）。变更记录线看 commits**。
   local_files: >-
-    读写本机文件——模型权重目录、config.yml 配置；API 默认 localhost:5000。
+    读写本机文件。模型权重目录、config.yml 配置。API 默认 localhost:5000。
   background: >-
-    常驻本机进程（FastAPI server）；无常驻云面。README 免责声明自述「hobby project…not meant to run
-    on production servers」——生产负载官方建议另寻方案。
+    常驻本机进程（FastAPI server）。无常驻云面。
+
+    **依据：** README 免责声明自述「hobby project…not meant to run on production servers」——生产负载官方建议另寻方案。
   tools: >-
-    OpenAI 兼容 API 面（chat/completions 等端点）+ 管理面（admin UI/status 页，commits 可见 admin 功能演进）；
+    OpenAI 兼容 API 面（chat/completions 等端点）+ 管理面（admin UI/status 页，commits 可见 admin 功能演进）。
+
     不是 agent 工具宿主，是给前端（SillyTavern 类）或客户端供推理 API 的服务端。
   context: >-
-    无跨会话记忆（推理服务面）——上下文长度随 ExLlamaV3 后端配置（max_context 类参数）变化；
-    对话状态由前端客户端（SillyTavern 类）携带，服务端不存会话历史。
+    无跨会话记忆（推理服务面）。上下文长度随 ExLlamaV3 后端配置（max_context 类参数）变化。对话状态由前端客户端（SillyTavern 类）携带，服务端不存会话历史。
   permissions: >-
-    本机运行；可配 API key（config.yml）；权限面=本机文件与 GPU。Docker 口径要 --shm-size 调大
-    （ExLlamaV3 用 POSIX 共享内存做张量并行/CPU MoE 卸载，默认 64MiB 不够——README 明写）。
-  fit: >-
-    适合：ExLlamaV3 生态（GPTQ 系量化）要 OpenAI 兼容 API 的标准答案；要 Docker 一键起 CUDA/ROCm 推理服务。
-    不适合：要生产级服务化（官方自述非生产向，vLLM/TGI 那条线）；要 GGUF 全量化档广覆盖（llama.cpp 根）。
+    本机运行。可配 API key（config.yml）。权限面=本机文件与 GPU。
 
+    Docker 口径要 --shm-size 调大 （ExLlamaV3 用 POSIX 共享内存做张量并行/CPU MoE 卸载，默认 64MiB 不够——README 明写）。
+  fit: >-
+    适合：ExLlamaV3 生态（GPTQ 系量化）要 OpenAI 兼容 API 的标准答案。要 Docker 一键起 CUDA/ROCm 推理服务。
+
+    不适合：要生产级服务化（官方自述非生产向，vLLM/TGI 那条线）。要 GGUF 全量化档广覆盖（llama.cpp 根）。
 pitfalls:
   - 把 tabbyapi.com 当官网——README 官方警告「The ONLY official source for TabbyAPI information is this repository」，其他声称代表 TabbyAPI 的站点/下载/服务均非官方（tabbyapi.com 直连为 Cloudflare 验证页）
   - 等 GitHub releases——releases 为 0，它是 rolling release，看 commits 与 Wiki
@@ -74,15 +79,18 @@ cn:
 
 ## 一句话定位
 
-**TabbyAPI：ExLlamaV3 的官方 API 后端服务器**（AGPL-3.0，1,502★ 推送 2026-10-30）——
-FastAPI 本地推理服务，OpenAI 兼容端点，官方 GHCR 镜像覆盖 CUDA 12.8/13 与 AMD ROCm。
-两条硬口径：**README 官方警告「本仓是唯一官方信息源」——tabbyapi.com 反而非官方**；
-**rolling release、GitHub releases 为 0——变更记录线看 commits**。
+**TabbyAPI：ExLlamaV3 的官方 API 后端服务器**（AGPL-3.0，1,502★ 推送 2026-10-30）——FastAPI 本地推理服务，OpenAI 兼容端点。
+
+官方 GHCR 镜像覆盖 CUDA 12.8/13 与 AMD ROCm。
+
+两条硬口径：**README 官方警告「本仓是唯一官方信息源」——tabbyapi.com 反而非官方**；**rolling release、GitHub releases 为 0——变更记录线看 commits**。
 
 ## 适合与不适合
 
-适合：ExLlamaV3（GPTQ 系）要 OpenAI 兼容 API；Docker 一键起本地推理服务。
-不适合：生产级服务化（官方自述非生产向）；GGUF 全量化档广覆盖路线（llama.cpp 根）。
+适合：ExLlamaV3（GPTQ 系）要 OpenAI 兼容 API。
+Docker 一键起本地推理服务。
+不适合：生产级服务化（官方自述非生产向）。
+GGUF 全量化档广覆盖路线（llama.cpp 根）。
 
 ## 实测记录
 

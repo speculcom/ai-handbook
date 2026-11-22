@@ -9,27 +9,21 @@ licenseEn: Closed-source official hosted service (under Linear's ToS); no open-s
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Linear 议题管理
-    （搜 issue、建/改 issue、项目与团队查询）包装成工具给 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Linear 议题管理 （搜 issue、建/改 issue、项目与团队查询）包装成工具给 agent 用。
   runtime: >-
-    官方托管远程 server（mcp.linear.app/mcp——直抓 401=存在需鉴权；旧 /sse 端点 404——
-    传输线已换代，直抓核验 2026-10-21）。
+    官方托管远程 server（mcp.linear.app/mcp——直抓 401=存在需鉴权；旧 /sse 端点 404—— 传输线已换代，直抓核验 2026-10-21）。
   local_files: >-
-    不碰本机文件系统——作用域是 Linear 云端工作区（issues/projects/teams）。
+    不碰本机文件系统。作用域是 Linear 云端工作区（issues/projects/teams）。
   background: >-
     服务在 Linear 侧；请求-响应语义，无后台任务。
   tools: >-
-    搜/读/建/改 issue、查项目与团队、评论等；写能力齐全（建 issue、改状态）。
-    完整清单以官方文档为准，本档不逐条复制完整清单。
+    搜/读/建/改 issue、查项目与团队、评论等。写能力齐全（建 issue、改状态）。完整清单以官方文档为准，本档不逐条复制完整清单。
   context: >-
     无 server 侧跨会话记忆——状态在 Linear 工作区本身。
   permissions: >-
-    OAuth 用户鉴权：agent 可见面=所连 Linear 账号权限；写操作直接生效，
-    无工具级审批机制的官方说明——接 agent 前按「它能替你建改 issue」设防。
+    OAuth 用户鉴权。agent 可见面=所连 Linear 账号权限。写操作直接生效， 无工具级审批机制的官方说明——接 agent 前按「它能替你建改 issue」设防。
   fit: >-
-    适合：编码 agent 干完活顺手建/更新 issue、从 Linear 拉「这个需求当时怎么说的」。
-    不适合：要审批流的严格写管控；非 Linear 栈。
-
+    适合：编码 agent 干完活顺手建/更新 issue、从 Linear 拉「这个需求当时怎么说的」。不适合：要审批流的严格写管控。非 Linear 栈。
 pitfalls:
   - 用旧 /sse 端点配置——已 404（2026-10-21 直抓），现役 /mcp（Streamable HTTP）
   - 把「连上」当「能看全部」——可见面跟着所连账号权限
@@ -40,15 +34,13 @@ related: [claude-code, cursor]
 
 mcp:
   transport: >-
-    **Streamable HTTP**（mcp.linear.app/mcp）；旧 SSE 端点已下线（直抓 404 核验）。
-    核验：linear.app/docs/mcp 200、端点 401（2026-10-21）。
-  auth: >-
-    OAuth 浏览器授权流（首次连接登录 Linear 账号）；无 PAT 明文配置路线的官方说明。
-    授权粒度与令牌吊销细节本档不逐条展开。
-  scope: >-
-    读面：issue 搜索/读取、项目与团队查询；写面：建/改 issue、评论。
-    跟着账号权限走；无独立审批层。
+    **Streamable HTTP**（mcp.linear.app/mcp）。旧 SSE 端点已下线（直抓 404 核验）。
 
+    **依据：** 核验：linear.app/docs/mcp 200、端点 401（2026-10-21）。
+  auth: >-
+    OAuth 浏览器授权流（首次连接登录 Linear 账号）。无 PAT 明文配置路线的官方说明。授权粒度与令牌吊销细节本档不逐条展开。
+  scope: >-
+    读面：issue 搜索/读取、项目与团队查询。写面：建/改 issue、评论。跟着账号权限走。无独立审批层。
 sources:
   - label: Linear · 官方 MCP 文档（端点与鉴权口径，2026-10-21 直抓核验）
     url: https://linear.app/docs/mcp
@@ -79,7 +71,7 @@ cn:
 
 ## 一句话定位
 
-**Linear 官方 MCP server**（mcp.linear.app/mcp）：agent 搜 issue、建 issue、改状态。
+**Linear 官方 MCP server**：（mcp.linear.app/mcp）：agent 搜 issue、建 issue、改状态。
 一条直抓事实：**旧 SSE 端点已下线**——配置里还写 /sse 的要先换 /mcp。
 
 ## 适合与不适合
@@ -89,7 +81,8 @@ cn:
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

@@ -12,30 +12,29 @@ licenseEn: Closed commercial product governed by the official Legal Terms (direc
 
 axes:
   model_access: >-
-    平台不带自有模型——按场景接入各家模型；首页未主打模型选择器，模型清单按官方文档口径。
-    产品按「AI 员工」形态包装：Skills 40+ 内置、可教自定义技能（首页当日在册）。
+    平台不带自有模型。按场景接入各家模型。首页未主打模型选择器，模型清单按官方文档口径。产品按「AI 员工」形态包装。Skills 40+ 内置、可教自定义技能（首页当日在册）。
   runtime: >-
-    云托管形态（www.lindy.ai 直连 200；Chrome Extension 集成 Gmail 在册）；
-    未见官方自托管发行声明，按未单列处理。
+    云托管形态（www.lindy.ai 直连 200；Chrome Extension 集成 Gmail 在册）。未见官方自托管发行声明，按未单列处理。
   local_files: >-
-    数据在 Lindy 云端（Memory「Remembers you. Yours to edit」是云端持久面）；本地文件概念不适用——
-    工作产物（邮件、文档、通话记录）经集成落在第三方工具（Gmail/日历/CRM）而非本机。
+    数据在 Lindy 云端（Memory「Remembers you. Yours to edit」是云端持久面）。
+
+    本地文件概念不适用—— 工作产物（邮件、文档、通话记录）经集成落在第三方工具（Gmail/日历/CRM）而非本机。
   background: >-
-    「Routines：Work that runs on schedule」是官方主打形态（首页当日在册）——定时自动跑是产品主轴；
-    Watch and Learn（演示一次即接手）在册；排队与失败重试细节按官方文档口径。
+    「Routines：Work that runs on schedule」是官方主打形态（首页当日在册）——定时自动跑是产品主轴。Watch and Learn（演示一次即接手）在册。
+
+    排队与失败重试细节按官方文档口径。
   tools: >-
-    集成面当日在册：1,500+ integrations + MCP（首页明言 MCP）；Lindy Phone（电话通话）与 Lindy Apps
-    为新增产品线（条款与 changelog 均在册）；电话合规条款段落当日在册。
+    集成面当日在册。1,500+ integrations + MCP（首页明言 MCP）。Lindy Phone（电话通话）与 Lindy Apps 为新增产品线（条款与 changelog 均在册）。
+
+    电话合规条款段落当日在册。
   context: >-
-    Memory 是显式持久面（首页当日：Remembers you. Yours to edit——用户可编辑记忆）；
-    Meetings 共享库在册；记忆的作用域与留存细节按官方文档口径。
+    Memory 是显式持久面（首页当日：Remembers you. Yours to edit——用户可编辑记忆）。Meetings 共享库在册。记忆的作用域与留存细节按官方文档口径。
   permissions: >-
-    条款含电话合规专段（Lindy Phone 录音/同意义务归用户，当日在册）；条款为通用商业模板（Company 泛称）；
-    训练用途开关路径按官方文档口径。
+    条款含电话合规专段（Lindy Phone 录音/同意义务归用户，当日在册）。条款为通用商业模板（Company 泛称）。训练用途开关路径按官方文档口径。
   fit: >-
     适合：邮件/日历/通话/CRM 的「AI 员工」自动化（定时例程、演示即学）、要 1,500+ 集成与 MCP。
-    不适合：要自托管、要大陆直连备案入口、要代码级控制（产品形态是雇佣式 agent 而非画布/代码）。
 
+    不适合：要自托管、要大陆直连备案入口、要代码级控制（产品形态是雇佣式 agent 而非画布/代码）。
 pitfalls:
   - 条款主体只自称「Lindy（a company registered in Oregon）」——没有 Inc./LLC 全称在册，引用主体时别自行补全
   - 「AI 员工」是产品包装不是能力承诺：电话（Lindy Phone）线条款把录音/同意合规义务划给用户——涉电话场景先读条款电话段
@@ -78,9 +77,9 @@ cn:
 
 ## 一句话定位
 
-**Lindy 是「雇一个 AI 员工」形态的云端自动化平台**（首页当日招牌：Hire an AI Employee That Gets Work Done——
-Skills 40+ 内置、Memory 可编辑、Routines 定时跑、Watch and Learn 演示一次即接手）：邮件/日历/通话/CRM 场景为主轴，
-1,500+ 集成 + MCP；不是画布也不是代码框架，是雇佣式 agent 产品。
+**Lindy**：一个「雇一个 AI 员工」形态的云端自动化平台。首页当日招牌是 Hire an AI Employee That Gets Work Done。Skills 40+ 内置，Memory 可编辑，Routines 定时跑，Watch and Learn 演示一次即接手。
+
+场景以邮件、日历、通话与 CRM 为主轴，另有 1,500+ 集成与 MCP。它不是画布，也不是代码框架，而是雇佣式 agent 产品。
 
 ## 适合与不适合
 

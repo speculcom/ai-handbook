@@ -9,30 +9,35 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-31).
 
 axes:
   model_access: >-
-    **GGUF 本地权重 + WASM 应用层**——模型走 GGML/AUTO 预加载（README 命令口径），
-    推理逻辑编成 Wasm 应用（llama-chat.wasm 等）跑在 WasmEdge 运行时上；
+    **GGUF 本地权重 + WASM 应用层**——模型走 GGML/AUTO 预加载（README 命令口径）。
+
+    推理逻辑编成 Wasm 应用（llama-chat.wasm 等）跑在 WasmEdge 运行时上。
+
     覆盖 LLM/embedding/语音转写/TTS/文生图/多模态六类模型线（README 分类链接）。
   runtime: >-
-    **WasmEdge 运行时上的跨平台 Wasm 应用**——「cross-platform portable Wasm app that can run on many
-    CPU and GPU devices」（README）；先装 WasmEdge，再下载 GGUF + .wasm 应用即跑。
-    GitHub LlamaEdge/LlamaEdge Apache-2.0 1,663★ 推送停 2026-02-08（API 核验）；
+    **WasmEdge 运行时上的跨平台 Wasm 应用**——「cross-platform portable Wasm app that can run on many CPU and GPU devices」（README）。
+
+    先装 WasmEdge，再下载 GGUF + .wasm 应用即跑。
+
+    GitHub LlamaEdge/LlamaEdge Apache-2.0 1,663★ 推送停 2026-02-08（API 核验）。
+
     最新 release 0.29.0 同日（2026-02-08）发布。
   local_files: >-
-    读写本机文件——GGUF 模型文件、.wasm 应用文件；wasmedge --dir .:. 挂载当前目录。
+    读写本机文件。GGUF 模型文件、.wasm 应用文件。wasmedge --dir .:. 挂载当前目录。
   background: >-
-    CLI/本地服务进程（OpenAI 兼容 web 服务端点：/v1/chat/completions、/v1/embeddings、
-    /v1/audio/transcriptions 等——README 端点列表）；无常驻云面。
-  tools: >-
-    OpenAI 兼容 API 端点面 + CLI chat 应用；不是 agent 工具宿主。
-  context: >-
-    无跨会话记忆（推理服务面）——上下文长度随 GGUF 模型与 WasmEdge 预加载参数配置；
-    对话状态由客户端携带，服务端不存会话。
-  permissions: >-
-    本机运行；权限面=本机文件与 CPU/GPU。Wasm 沙箱是运行时层卖点（WasmEdge 口径）。
-  fit: >-
-    适合：要 WASM 可移植路线——一份 .wasm 应用跨 CPU/GPU 设备；边缘/嵌入式场景（WasmEdge 生态）。
-    不适合：要活跃发版节奏（主仓推送停 2026-02-08）；要 llama.cpp 原生全特性面（WASM 层是转译路线）。
+    CLI/本地服务进程（OpenAI 兼容 web 服务端点：/v1/chat/completions、/v1/embeddings、 /v1/audio/transcriptions 等——README 端点列表）。
 
+    无常驻云面。
+  tools: >-
+    OpenAI 兼容 API 端点面 + CLI chat 应用。不是 agent 工具宿主。
+  context: >-
+    无跨会话记忆（推理服务面）。上下文长度随 GGUF 模型与 WasmEdge 预加载参数配置。对话状态由客户端携带，服务端不存会话。
+  permissions: >-
+    本机运行。权限面=本机文件与 CPU/GPU。Wasm 沙箱是运行时层卖点（WasmEdge 口径）。
+  fit: >-
+    适合：要 WASM 可移植路线。一份 .wasm 应用跨 CPU/GPU 设备。边缘/嵌入式场景（WasmEdge 生态）。不适合：要活跃发版节奏（主仓推送停 2026-02-08）。
+
+    要 llama.cpp 原生全特性面（WASM 层是转译路线）。
 pitfalls:
   - 按旧 org 名找仓——现役主仓 LlamaEdge/LlamaEdge（README 内仍引 second-state/LlamaEdge 下载链接，两 org 同生态）
   - 把推送停 2026-02-08 当停运——llamaedge.com 文档线在线（直连 200）、release 0.29.0 同日发布；lifecycle 按 maintenance 口径
@@ -73,14 +78,16 @@ cn:
 
 ## 一句话定位
 
-**LlamaEdge：WasmEdge 运行时上的 GGUF 推理 Wasm 应用集**（Apache-2.0，1,663★）——
-「run LLM inference apps and create OpenAI-compatible API services locally」：
-装 WasmEdge → 下载 GGUF + llama-chat.wasm → 即跑；.wasm 应用跨 CPU/GPU 设备可移植是核心卖点。
+**LlamaEdge：WasmEdge 运行时上的 GGUF 推理 Wasm 应用集**（Apache-2.0，1,663★）——「run LLM inference apps and create OpenAI-compatible API services locally」：装 WasmEdge → 下载 GGUF + llama-chat.wasm → 即跑。
+
+.wasm 应用跨 CPU/GPU 设备可移植是核心卖点。
+
 口径要点：**主仓推送停 2026-02-08、release 0.29.0 同日——lifecycle=maintenance**（文档站在线非停运）。
 
 ## 适合与不适合
 
-适合：WASM 可移植路线、边缘/嵌入式设备；WasmEdge 生态用户。
+适合：WASM 可移植路线、边缘/嵌入式设备。
+WasmEdge 生态用户。
 不适合：要活跃发版节奏；要 llama.cpp 原生全特性面。
 
 ## 实测记录

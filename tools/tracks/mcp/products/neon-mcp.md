@@ -9,28 +9,25 @@ licenseEn: MIT (GitHub API verified 2026-10-21).
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Neon（serverless Postgres）
-    的管理 API 与数据库操作包装成工具给 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Neon（serverless Postgres） 的管理 API 与数据库操作包装成工具给 agent 用。
   runtime: >-
-    本地进程（npx stdio）+ 官方托管远程线；GitHub 659★，最近推送 2026-10-29（API 核验）。
+    本地进程（npx stdio）+ 官方托管远程线。GitHub 659★。最近推送 2026-10-29（API 核验）。
+
     旧 docs 路径（neon.com/docs/ai-and-mcp/mcp-server）直抓 404——现役以仓为准。
   local_files: >-
     不读写本机项目文件——作用域是 Neon 云端项目/分支与数据库。
   background: >-
-    stdio 随客户端生死；Neon 的分支（branch）能力是它特色——agent 可建库分支做隔离试验。
+    stdio 随客户端生死。Neon 的分支（branch）能力是它特色——agent 可建库分支做隔离试验。
   tools: >-
-    项目管理、分支创建/删除、数据库查询执行、schema 查看等；写能力齐全
-    （建分支、执行 SQL）。完整清单以仓 README 为准。
+    **依据：** 项目管理、分支创建/删除、数据库查询执行、schema 查看等；写能力齐全 （建分支、执行 SQL）。完整清单以仓 README 为准。
   context: >-
     无跨会话记忆——状态在 Neon 项目本身。
   permissions: >-
     **两条凭据**：Neon API key（管理面：项目/分支）+ Postgres 连接串（数据面：SQL）。
-    Neon 的分支模型给了「agent 在副本上试」的隔离玩法——但默认连主分支时写面照旧，
-    按「它能执行 SQL」设防。
-  fit: >-
-    适合：Neon 栈的 agent 开发流（建分支→试改→合并）、serverless Postgres 管理接 agent。
-    不适合：非 Neon 的 Postgres（它管自家平台）；要硬只读边界。
 
+    Neon 的分支模型给了「agent 在副本上试」的隔离玩法——但默认连主分支时写面照旧。按「它能执行 SQL」设防。
+  fit: >-
+    适合：Neon 栈的 agent 开发流（建分支→试改→合并）、serverless Postgres 管理接 agent。不适合：非 Neon 的 Postgres（它管自家平台）。要硬只读边界。
 pitfalls:
   - 找 neon.com/docs/ai-and-mcp/mcp-server——该路径 404（2026-10-21 直抓），现役以 neondatabase 仓为准
   - 把「分支隔离」当默认安全——默认操作面跟着连接配置走，主分支照写不误
@@ -41,14 +38,11 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **stdio**（npx）为主 + 官方托管远程线（细节以仓 README 为准，本档不逐条展开）。
-    核验：仓与 GitHub API（2026-10-21）。
+    **stdio**（npx）为主 + 官方托管远程线（细节以仓 README 为准，本档不逐条展开）。 核验：仓与 GitHub API（2026-10-21）。
   auth: >-
     Neon API key（管理面）+ Postgres 连接串（数据面）两路线。
   scope: >-
-    管理面：项目/分支增删查；数据面：SQL 执行（含写/DDL）。
-    无工具级审批机制的官方说明；分支模型是结构性隔离手段而非审批层。
-
+    管理面：项目/分支增删查。数据面：SQL 执行（含写/DDL）。无工具级审批机制的官方说明。分支模型是结构性隔离手段而非审批层。
 sources:
   - label: neondatabase/mcp-server-neon · 仓库（MIT；659★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/neondatabase/mcp-server-neon
@@ -79,9 +73,9 @@ cn:
 
 ## 一句话定位
 
-**Neon 官方 MCP server**（MIT）：agent 管 Neon 项目、建分支、跑 SQL。
-特色是**分支模型**——agent 可以在库副本上试改动；但默认连接面照旧，
-按「它能执行 SQL、管理 key 能删项目」设防。诚实标注：旧 docs 路径 404，现役以仓为准。
+**Neon 官方 MCP server**（MIT）：agent 管 Neon 项目、建分支、跑 SQL。特色是**分支模型**——agent 可以在库副本上试改动。
+
+但默认连接面照旧，按「它能执行 SQL、管理 key 能删项目」设防。诚实标注：旧 docs 路径 404，现役以仓为准。
 
 ## 适合与不适合
 
@@ -90,7 +84,8 @@ cn:
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

@@ -13,30 +13,31 @@ licenseEn: The product is governed by the official ToS (direct-fetched same day:
 
 axes:
   model_access: >-
-    平台不带自有模型——README 官方口径 powered by OpenAI，模型经平台接入各家；
-    现役 Cloud 线的模型清单按官方文档口径。
+    平台不带自有模型。README 官方口径 powered by OpenAI，模型经平台接入各家。现役 Cloud 线的模型清单按官方文档口径。
   runtime: >-
-    云托管形态（app.botpress.cloud / studio.botpress.cloud 当日直连 200）；GitHub 主仓当日在册
-    「This Repository」= integrations/devtools/bots/plugins（集成与开发工具面，非产品本体）；
+    云托管形态（app.botpress.cloud / studio.botpress.cloud 当日直连 200）。
+
+    GitHub 主仓当日在册 「This Repository」= integrations/devtools/bots/plugins（集成与开发工具面，非产品本体）。
+
     自托管走 v12 旧代仓（botpress/v12，AGPL-3.0）。
   local_files: >-
-    Cloud 线数据在 Botpress 云端（Knowledge Bases/Tables 组件当日在册）；v12 on-prem 形态数据在本机——
-    两代形态的数据面不同。
+    Cloud 线数据在 Botpress 云端（Knowledge Bases/Tables 组件当日在册）。v12 on-prem 形态数据在本机—— 两代形态的数据面不同。
   background: >-
-    agent 常驻在线是官方主打形态（首页当日口径：处理退款/账户更新/多步工作流的真实动作）；
-    排队与续跑细节按官方文档口径。
+    agent 常驻在线是官方主打形态（首页当日口径：处理退款/账户更新/多步工作流的真实动作）。排队与续跑细节按官方文档口径。
   tools: >-
-    Hub 集成生态当日在册（Intercom/Zendesk/Hubspot/Salesforce）；渠道面在册（Webchat/WhatsApp/Slack 等）；
+    Hub 集成生态当日在册（Intercom/Zendesk/Hubspot/Salesforce）。渠道面在册（Webchat/WhatsApp/Slack 等）。
+
     开发面在册（@botpress/sdk、@botpress/cli、bots-as-code 示例）。MCP 支持官方文档未单列。
   context: >-
-    Knowledge Bases/Tables 是持久知识面（当日在册）；官方产品面没有跨会话记忆入口，跨会话一致性靠知识库与表。
+    Knowledge Bases/Tables 是持久知识面（当日在册）。官方产品面没有跨会话记忆入口，跨会话一致性靠知识库与表。
   permissions: >-
-    企业向（首页当日在册 SOC 2 compliant）；ToS 按客户所在地双主体分流（当日在册）；
-    条款明言面向企业经营用途（not for personal or household purposes）；训练用途开关路径按官方文档口径。
+    企业向（首页当日在册 SOC 2 compliant）。ToS 按客户所在地双主体分流（当日在册）。
+
+    条款明言面向企业经营用途（not for personal or household purposes）。训练用途开关路径按官方文档口径。
   fit: >-
     适合：客服/支持场景的 agent 平台（工单分流、升级交接、AI 动作）、要现成集成生态（CRM/帮助台）。
-    不适合：要产品本体开源（主仓只是集成/工具面）、要大陆直连备案入口、要个人用途（ToS 明言企业向）。
 
+    不适合：要产品本体开源（主仓只是集成/工具面）、要大陆直连备案入口、要个人用途（ToS 明言企业向）。
 pitfalls:
   - 「GitHub 主仓 MIT」≠「Botpress 产品开源」——主仓在册内容是 integrations/devtools/plugins，Cloud 本体闭源（README This Repository 节当日在册）
   - 自托管只有 v12 旧代（AGPL-3.0，2025-04 后推送放缓）——现役产品是 Cloud 线，别按 v12 评估现役形态
@@ -87,14 +88,13 @@ cn:
 
 ## 一句话定位
 
-**Botpress 是企业向客服场景的 AI agent 平台**（首页当日招牌：enterprise-grade AI agent platform for customer
-support，「会执行退款/账户更新等真实动作」）：云托管现役线 + Hub 集成生态；GitHub 主仓是集成/开发工具面（MIT），
-产品本体闭源——「开源 Botpress」的说法要按仓内容拆开看。
+**Botpress 是企业向客服场景的 AI agent 平台**（首页当日招牌：enterprise-grade AI agent platform for customersupport，「会执行退款/账户更新等真实动作」）。云托管现役线 + Hub 集成生态。
+
+GitHub 主仓是集成/开发工具面（MIT），产品本体闭源——「开源 Botpress」的说法要按仓内容拆开看。
 
 ## 适合与不适合
 
-适合：客服/支持 agent（工单分流、升级交接、AI 动作）、现成集成生态（Intercom/Zendesk/Salesforce）。
-不适合：要产品本体开源、要大陆直连备案入口、要个人用途（ToS 明言企业向）。
+适合：客服/支持 agent（工单分流、升级交接、AI 动作）、现成集成生态（Intercom/Zendesk/Salesforce）。不适合：要产品本体开源、要大陆直连备案入口、要个人用途（ToS 明言企业向）。
 
 ## 实测记录
 

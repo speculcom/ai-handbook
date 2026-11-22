@@ -11,22 +11,29 @@ licenseEn: Free (per-tool daily caps) + subscription. Governed by the official t
 
 axes:
   model_access: >-
-    工具集形态：官方 API 文档逐个列 Uncrop、Remove Background、Image Upscaling（最高 x16）、Cleanup、Remove Text、Text to Image、Replace Background（beta）；文生图与背景替换基于 Stable Diffusion 实现，其余为各工具专用模型。用户选工具，不选裸模型（2026-11-21）。
+    工具集形态：官方 API 文档逐个列 Uncrop、Remove Background、Image Upscaling（最高 x16）、Cleanup、Remove Text、Text to Image、Replace Background（beta）。
+
+    文生图与背景替换基于 Stable Diffusion 实现。其余为各工具专用模型。用户选工具，不选裸模型（2026-11-21）。
   runtime: >-
-    网页 clipdrop.co + API（`https://clipdrop-api.co/...`）；处理在厂商云端。API 以 multipart/form-data 上传单图，直接返回处理后的图片二进制（2026-11-21）。
+    **依据：** 网页 clipdrop.co + API（`https://clipdrop-api.co/...`）；处理在厂商云端。API 以 multipart/form-data 上传单图，直接返回处理后的图片二进制（2026-11-21）。
   local_files: >-
-    上传走 multipart，结果以 PNG/JPG 二进制回传，落盘由调用方完成；官方 API 文档按单次请求-响应组织，不提供项目或历史接口。网页端作品与历史以账户界面为准（2026-11-21）。
+    上传走 multipart。结果以 PNG/JPG 二进制回传，落盘由调用方完成。官方 API 文档按单次请求-响应组织，不提供项目或历史接口。
+
+    网页端作品与历史以账户界面为准（2026-11-21）。
   background: >-
-    单图原子操作、同步返回：一次请求处理一张图，批量与并发由调用方编排（官方 API 文档给单图端点与文件大小/分辨率约束）；没有托管队列或关机续跑任务面（2026-11-21）。
+    单图原子操作、同步返回。一次请求处理一张图，批量与并发由调用方编排（官方 API 文档给单图端点与文件大小/分辨率约束）。没有托管队列或关机续跑任务面（2026-11-21）。
   tools: >-
-    Remove Background、Cleanup、Replace Background、Uncrop、Image Upscaler（最高 x16）、Relight（重打光，网页端特色）、Text Remover、Universal Resizer、Text to Image；API 覆盖其中七条端点线（2026-11-21）。
+    Remove Background、Cleanup、Replace Background、Uncrop、Image Upscaler（最高 x16）、Relight（重打光，网页端特色）、Text Remover、Universal Resizer、Text to Image。
+
+    API 覆盖其中七条端点线（2026-11-21）。
   context: >-
-    无项目/记忆概念：单图进、单图出的工具流；上下文完全由调用方（人或 API 集成方）维护，输出不带跨请求状态（2026-11-21）。
+    无项目/记忆概念。单图进、单图出的工具流。上下文完全由调用方（人或 API 集成方）维护。输出不带跨请求状态（2026-11-21）。
   permissions: >-
-    免费档各工具有每日次数上限，付费档提升额度；API 用 API Key 鉴权。归属按 Jasper/Clipdrop 条款：客户内容不被主张所有权，上传素材须自有或已获授权（含肖像与商标）；训练口径按条款与 Jasper 隐私政策（2026-11-21）。
+    免费档各工具有每日次数上限，付费档提升额度。API 用 API Key 鉴权。归属按 Jasper/Clipdrop 条款。客户内容不被主张所有权，上传素材须自有或已获授权（含肖像与商标）。
+
+    训练口径按条款与 Jasper 隐私政策（2026-11-21）。
   fit: >-
     适合：电商产品图批量处理、抠图/去物/重打光/放大等原子操作、API 集成进自有产品。不适合：创作向生成（文生图只是配角）、风格一致性、项目化管理（2026-11-21）。
-
 pitfalls:
   - 归属三跳：InitML（2020 创立）→ Stability AI（2023-02 收购）→ Jasper（2024-02 售出）——
     「Stability 旗下」是旧认知，API 条款现在走 Jasper 口径（官网 FAQ 自述）
@@ -87,7 +94,8 @@ cn:
 
 ## 实测记录
 
-本档核对官方 API 文档、工具页与 Jasper 法律页；Relight 效果边界、免费档超限行为与 API 迁移后的兼容性需按账号实测。
+本档核对官方 API 文档、工具页与 Jasper 法律页。
+Relight 效果边界、免费档超限行为与 API 迁移后的兼容性需按账号实测。
 ## 未知项清单
 
 - 各工具背后的具体模型档位：按各 API 文档的端点参数与模型说明核对。

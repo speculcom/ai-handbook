@@ -9,25 +9,23 @@ license: 商业云服务，随 Google Cloud 条款体系；无自托管形态。
 
 axes:
   model_access: >-
-    平台原生接 Gemini 系列模型，并可经 Model Garden 接第三方模型；官方页面（2026-10-21 直抓）
-    显示产品线已并入「Gemini platform」叙事（Innovate, build, and deploy enterprise-ready agents）。
-  runtime: >-
-    云托管：agent 跑在 Google Cloud（Vertex/Agentspace 线）；无自托管形态。
-  local_files: >-
-    数据源接 BigQuery/Drive/SharePoint 等云内连接器；不承载本机文件运行时。
-  background: >-
-    云托管常驻是默认形态：agent 服务随 GCP 部署持续在线，触发与调度由平台承载；
-    「电脑关了还能跑」在托管形态下天然成立。无自托管形态的官方声明。
-  tools: >-
-    官方组件/扩展库 + 函数调用 + 数据连接器；MCP 支持状态不在官方文档列出的能力面内。
-  context: >-
-    会话与检索（RAG/grounding）是官方上下文主轴；跨会话记忆本档不逐条展开。
-  permissions: >-
-    IAM/组织策略随 Google Cloud 体系；数据驻留选项随 GCP 区域模型。
-  fit: >-
-    适合：GCP 存量企业、要 Gemini 原生栈、要企业治理现成。
-    不适合：不在 GCP 生态；要自托管。
+    平台原生接 Gemini 系列模型，并可经 Model Garden 接第三方模型。
 
+    官方页面（2026-10-21 直抓） 显示产品线已并入「Gemini platform」叙事（Innovate, build, and deploy enterprise-ready agents）。
+  runtime: >-
+    云托管：agent 跑在 Google Cloud（Vertex/Agentspace 线）。无自托管形态。
+  local_files: >-
+    数据源接 BigQuery/Drive/SharePoint 等云内连接器。不承载本机文件运行时。
+  background: >-
+    云托管常驻是默认形态。agent 服务随 GCP 部署持续在线，触发与调度由平台承载。「电脑关了还能跑」在托管形态下天然成立。无自托管形态的官方声明。
+  tools: >-
+    官方组件/扩展库 + 函数调用 + 数据连接器。MCP 支持状态不在官方文档列出的能力面内。
+  context: >-
+    会话与检索（RAG/grounding）是官方上下文主轴。跨会话记忆本档不逐条展开。
+  permissions: >-
+    IAM/组织策略随 Google Cloud 体系。数据驻留选项随 GCP 区域模型。
+  fit: >-
+    适合：GCP 存量企业、要 Gemini 原生栈、要企业治理现成。不适合：不在 GCP 生态。要自托管。
 pitfalls:
   - 产品线改名频繁（Agent Builder→Gemini Enterprise→Gemini platform 叙事）——按官方现行页读，别按旧名搜
   - 与 ADK（framework 大类）混同——ADK 是代码框架，Agent Builder 是平台界面；Google 两条线都推
@@ -65,12 +63,11 @@ cn:
 
 ## 一句话定位
 
-**Vertex AI Agent Builder 是 Google 的企业 agent 平台线**——官方页已并入「Gemini platform」叙事
-（enterprise-ready agents 的构建/部署/治理）。它与代码侧的 [Google ADK](../../framework/products/google-adk.md) 是同一战略的两条腿。
+**Vertex AI Agent Builder 是 Google 的企业 agent 平台线**：——官方页已并入「Gemini platform」叙事（enterprise-ready agents 的构建/部署/治理）。它与代码侧的 [Google ADK](../../framework/products/google-adk.md) 是同一战略的两条腿。
 
 ## 适合与不适合
 
-适合：GCP 存量、要 Gemini 原生 + 企业治理现成。
+**一句话**：适合GCP 存量、要 Gemini 原生 + 企业治理现成。
 不适合：不在 GCP 生态；要自托管（无此形态）。
 
 ## 实测记录

@@ -10,30 +10,27 @@ licenseEn: Official Gemini API Additional Terms, 'Use of Generated Content': 'Go
 
 axes:
   model_access: >-
-    模型版本经 Google 官方发布线披露：Vertex AI release notes 记录 Veo 3.1 GA（2025-11-17 条目）、
-    Veo 3.1 reference-to-video 与 video extension 预览、Veo 3.1 Lite（2026-04-02 条目，
-    官方称 Vertex AI 上最具成本效益的 Veo）——2026-10-21 经代理直抓核验。
+    模型版本经 Google 官方发布线披露。
+
+    Vertex AI release notes 记录 Veo 3.1 GA（2025-11-17 条目）、 Veo 3.1 reference-to-video 与 video extension 预览、Veo 3.1 Lite（2026-04-02 条目， 官方称 Vertex AI 上最具成本效益的 Veo）——2026-10-21 经代理直抓核验。
   runtime: >-
-    经 Gemini API / Vertex AI 云 API 与 Google AI 订阅计划（Flow 等产品入口）提供；
-    生成在 Google 云端处理，本机不跑模型。
+    经 Gemini API / Vertex AI 云 API 与 Google AI 订阅计划（Flow 等产品入口）提供。生成在 Google 云端处理，本机不跑模型。
   local_files: >-
-    支持参考图输入（reference-to-video 能力见 Vertex release notes 条目）；输入内容留存见 permissions 维。
+    支持参考图输入（reference-to-video 能力见 Vertex release notes 条目）。输入内容留存见 permissions 维。
   background: >-
-    API 为请求-轮询制（生成任务提交后取回）；没有「关机续跑」形态的官方声明。
+    API 为请求-轮询制（生成任务提交后取回）。没有「关机续跑」形态的官方声明。
   tools: >-
-    主形态是模型接口（Gemini API / Vertex AI），被 Flow、第三方剪辑与代理工作流集成；
-    输出带水印与 SynthID 溯源标记。
+    主形态是模型接口（Gemini API / Vertex AI），被 Flow、第三方剪辑与代理工作流集成。输出带水印与 SynthID 溯源标记。
   context: >-
-    生成为任务制，无跨会话记忆形态；上下文由调用方组织——
-    reference-to-video 与 video extension 是请求内/任务间衔接能力（见 Vertex release notes 条目），不是会话记忆。
+    生成为任务制，无跨会话记忆形态。上下文由调用方组织。
+
+    reference-to-video 与 video extension 是请求内/任务间衔接能力（见 Vertex release notes 条目）。不是会话记忆。
   permissions: >-
-    官方 Gemini API 附加条款（2026-03-23 生效）：非付费服务（AI Studio、免费配额）提交的内容与
-    生成回答会被用于「提供、改进与开发 Google 产品与机器学习技术」，且人工审核员可能阅读；
+    官方 Gemini API 附加条款（2026-03-23 生效）：非付费服务（AI Studio、免费配额）提交的内容与 生成回答会被用于「提供、改进与开发 Google 产品与机器学习技术」，且人工审核员可能阅读。
+
     付费服务不用于改进产品，按数据处理附加条款处理。EEA/瑞士/英国用户即使免费配额也按付费口径。
   fit: >-
-    已在 Google 云/Workspace 生态、需要企业级数据条款（付费不训练）的视频生成用户与团队。
-    免费配额线会被训练，别混；在意溯源标记（SynthID）的场景这条是加分项。
-
+    已在 Google 云/Workspace 生态、需要企业级数据条款（付费不训练）的视频生成用户与团队。免费配额线会被训练，别混。在意溯源标记（SynthID）的场景这条是加分项。
 pitfalls:
   - 把「付费不训练」套到免费配额——免费线内容与回答会被用于改进模型（EEA/瑞士/英国例外）
   - 把 Gemini Apps 隐私声明套到 API——两份文件、两套口径
@@ -76,14 +73,16 @@ cn:
 
 ## 一句话定位
 
-Google 的视频生成模型家族：经 Gemini API / Vertex AI 与 Google AI 计划交付，
-带 SynthID 溯源；「免费配额会被训练、付费不训练」是数据条款的分水岭。
+**一句话**：Google 的视频生成模型家族。
+经 Gemini API / Vertex AI 与 Google AI 计划交付，
+带 SynthID 溯源。
+「免费配额会被训练、付费不训练」是数据条款的分水岭。
 
 ## 适合与不适合
 
-适合已在 Google 云生态、要企业级数据条款（付费不训练）的视频生成场景。
-免费配额线会被训练且可能人工审核——按这条线自查。要开箱即用的创作工作室界面，
-它本体是模型接口，工作室形态在 Flow 等入口产品里。
+适合已在 Google 云生态、要企业级数据条款（付费不训练）的视频生成场景。免费配额线会被训练且可能人工审核——按这条线自查。
+
+要开箱即用的创作工作室界面，它本体是模型接口，工作室形态在 Flow 等入口产品里。
 
 ## 实测记录
 

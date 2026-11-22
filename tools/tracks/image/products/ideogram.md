@@ -16,29 +16,29 @@ licenseEn: Product free + subscription. Open side is special: Ideogram 4.0 ships
 
 axes:
   model_access: >-
-    自家模型族：4.0 开放权重（量化版在 HF，推理代码 Apache-2.0 在 GitHub ideogram-oss），4.5 闭源托管
-    （官方文档只给 api.ideogram.ai 托管调用线）；平台 catalog 还聚合第三方图像/视频模型（官方叙事，未逐条清点）。
+    自家模型族：4.0 开放权重（量化版在 HF，推理代码 Apache-2.0 在 GitHub ideogram-oss）。
+
+    4.5 闭源托管 （官方文档只给 api.ideogram.ai 托管调用线）。平台 catalog 还聚合第三方图像/视频模型（官方叙事，未逐条清点）。
+
     主打差异是排版文字渲染（「crystal-clear type」官方口径）。
   runtime: >-
-    网页（ideogram.ai）+ API（developer.ideogram.ai 直抓 200）+ 官方 MCP server（官方文档明示
-    「Connect Ideogram to Claude, Cursor, and other MCP clients」）；4.0 权重可自托管。
+    **依据：** 网页（ideogram.ai）+ API（developer.ideogram.ai 直抓 200）+ 官方 MCP server（官方文档明示 「Connect Ideogram to Claude, Cursor, and other MCP clients」）。
+
+    4.0 权重可自托管。
   local_files: >-
-    托管线作品存账户侧；4.0 自托管线全在你侧——两条线数据边界不同（官方 licensing 页把「数据留在你的栈里」
-    列为许可卖点）。
+    托管线作品存账户侧。4.0 自托管线全在你侧。两条线数据边界不同（官方 licensing 页把「数据留在你的栈里」 列为许可卖点）。
   background: >-
-    托管生成即时/排队；官方产品面没有「关机续跑」任务入口。自托管线后台行为由你的部署决定。
+    托管生成即时/排队。官方产品面没有「关机续跑」任务入口。自托管线后台行为由你的部署决定。
   tools: >-
-    产品内含生成、编辑（4.5 precise edit：未改动像素逐字复制是官方卖点）、背景移除/物体移除等专用 app、
-    风格控制；API 统一端点切模型；MCP server 官方提供。
+    **依据：** 产品内含生成、编辑（4.5 precise edit：未改动像素逐字复制是官方卖点）、背景移除/物体移除等专用 app、 风格控制；API 统一端点切模型；MCP server 官方提供。
   context: >-
-    以项目/作品组织；官方产品面没有跨会话记忆入口。多轮编辑的「漂移控制」是 4.5 的官方叙事。
+    以项目/作品组织。官方产品面没有跨会话记忆入口。多轮编辑的「漂移控制」是 4.5 的官方叙事。
   permissions: >-
-    账号+订阅体系；开放权重线按非商用协议/商业许可两档（D9：价格不采，档位存在是事实）；
-    输出商用限制=不训练竞品（官方 FAQ 直抓口径）。
+    账号+订阅体系。开放权重线按非商用协议/商业许可两档（D9：价格不采，档位存在是事实）。输出商用限制=不训练竞品（官方 FAQ 直抓口径）。
   fit: >-
     适合：图内排版文字要求高（海报/品牌物料）、要开放权重非商用研究+商业自托管路径、要官方 MCP 接入 agent 流。
-    不适合：要免费商用自托管（商业自托管需付费许可）、要 4.5 权重（闭源）。
 
+    不适合：要免费商用自托管（商业自托管需付费许可）、要 4.5 权重（闭源）。
 pitfalls:
   - 开放权重只覆盖 4.0——4.5 是闭源托管（官方文档无下载路径）；「Ideogram 开源」的说法主语必须落到 4.0
   - 开放权重≠免费商用——非商用协议免费，商用自托管要 Self-Serve/Enterprise 许可（官方 licensing 页三档）
@@ -84,7 +84,8 @@ cn:
 ## 一句话定位
 
 **Ideogram 以「图内排版文字」见长**：4.0 开放量化权重（非商用免费/商用自托管需许可），
-4.5 闭源托管主打 precise edit；官方 MCP server 可直接接进 agent 工作流。
+4.5 闭源托管主打 precise edit。
+官方 MCP server 可直接接进 agent 工作流。
 
 ## 适合与不适合
 

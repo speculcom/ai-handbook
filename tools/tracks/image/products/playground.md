@@ -14,30 +14,33 @@ licenseEn: Free + subscription. Governed by the official terms page (playgrounda
 
 axes:
   model_access: >-
-    第三方模型聚合是现状：首页点名 GPT Image 2、Nano Banana Pro、Nano Banana、Seedream（当日直抓在册）；
-    自研模型线（Playground v2/v2.5/v3）已停更——2025-01 官方砍掉 legacy 产品线（第三方评测口径），
+    第三方模型聚合是现状。首页点名 GPT Image 2、Nano Banana Pro、Nano Banana、Seedream（当日直抓在册）。
+
+    自研模型线（Playground v2/v2.5/v3）已停更——2025-01 官方砍掉 legacy 产品线（第三方评测口径）。
+
     现售的主要是别家模型的存取权（credits 按模型消耗）。
   runtime: >-
-    网页（playground.com→playgroundai.com）+ iOS App（App Store 链接在册，4.9/5·5,400+ 评分）；
-    生成与设计编辑在厂商云端；无本地运行时面。
+    网页（playground.com→playgroundai.com）+ iOS App（App Store 链接在册，4.9/5·5,400+ 评分）。生成与设计编辑在厂商云端。
+
+    无本地运行时面。
   local_files: >-
-    设计稿与素材存账户侧云端；印刷周边（T 恤/贴纸等）走平台下单面；
-    未见官方声明的本机数据面或导出后本地编辑线（细节按官方文档口径）。
+    设计稿与素材存账户侧云端。印刷周边（T 恤/贴纸等）走平台下单面。未见官方声明的本机数据面或导出后本地编辑线（细节按官方文档口径）。
   background: >-
-    即时生成+编辑器（Smart Layers 非破坏性编辑、Extract Text 转可编辑图层，首页在册）；
-    无常驻任务/关机续跑面（官方文档未单列声明）；模板 24 类（首页在册）。
+    即时生成+编辑器（Smart Layers 非破坏性编辑、Extract Text 转可编辑图层，首页在册）。无常驻任务/关机续跑面（官方文档未单列声明）。模板 24 类（首页在册）。
   tools: >-
-    设计工作台是本体：模板定制、Smart Layers、换风格/移除物体/加 mockup 工具（首页在册）、周边印刷商店；
-    不是纯生图器——官方定位「The AI design studio for everyone」（首页在册），对标 Canva 一类设计台。
+    设计工作台是本体。模板定制、Smart Layers、换风格/移除物体/加 mockup 工具（首页在册）、周边印刷商店。
+
+    不是纯生图器——官方定位「The AI design studio for everyone」（首页在册）。对标 Canva 一类设计台。
   context: >-
-    以项目/设计稿组织；官方产品面没有跨会话记忆入口。模板与图层体系是它的一致性机制，不是记忆；项目文件与模板承担复用。
+    以项目/设计稿组织。官方产品面没有跨会话记忆入口。模板与图层体系是它的一致性机制，不是记忆。项目文件与模板承担复用。
   permissions: >-
-    免费+订阅（D9：价格不采）；条款明示输出不保证可版权、不保证唯一、商用需自行清权；
-    公开资产默认他人可 remix、许可协议终止后仍存续（条款在册）；DMCA 代理为第三方 JACO Product Development, LLC（条款在册）。
+    免费+订阅（D9：价格不采）。条款明示输出不保证可版权、不保证唯一、商用需自行清权。公开资产默认他人可 remix、许可协议终止后仍存续（条款在册）。
+
+    DMCA 代理为第三方 JACO Product Development, LLC（条款在册）。
   fit: >-
     适合：贴纸/T 恤/海报/logo 一类成品设计流、模板+图层编辑工作流、一个界面用多家生图模型。
-    不适合：要自研模型线（已转向第三方聚合）、要输出版权确定性（条款明确不保证）、企业合规叙事优先。
 
+    不适合：要自研模型线（已转向第三方聚合）、要输出版权确定性（条款明确不保证）、企业合规叙事优先。
 pitfalls:
   - **产品史三段要分清**：自研模型时代（2022–2024，v2/v2.5/v3）→砍线转向（2025-01 legacy 下线退款）→售出后新团队运营（2026-06 创始人确认售出、官方博客确认新团队）——「Playground 收摊了」与「Playground 没变」都不对，现役是设计台+第三方模型聚合
   - 条款主体 **AI Playground, Inc.**（Dover, Delaware 通知地址、加州法域）≠ 同名商标纠纷方 Playground AI LLC（另一家公司，2023 年起诉讼史）——引用主体按条款页在册名
@@ -81,8 +84,9 @@ cn:
 
 ## 一句话定位
 
-**Playground 是「设计成品」向的 AI 设计台**：模板+Smart Layers 图层编辑把点子变成贴纸/T 恤/海报/logo，
-生图用第三方模型（GPT Image 2/Nano Banana/Seedream）；自研模型时代已结束，公司 2026-06 售出后由新团队运营。
+**Playground 是「设计成品」向的 AI 设计台**：模板+Smart Layers 图层编辑把点子变成贴纸/T 恤/海报/logo，生图用第三方模型（GPT Image 2/Nano Banana/Seedream）。
+
+自研模型时代已结束，公司 2026-06 售出后由新团队运营。
 
 ## 适合与不适合
 

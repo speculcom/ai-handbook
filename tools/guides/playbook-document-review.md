@@ -15,14 +15,14 @@ confidence: partial
 
 ## [下载与范围|Downloads and scope]
 
-这组短材料是长文审阅的缩小练习，CC BY 4.0；不是公司真实制度，不是法律建议，也不代表已审阅真实合同。先使用两版原文，再看参考问题表。
+**依据：**： 这组短材料是长文审阅的缩小练习，CC BY 4.0；不是公司真实制度，不是法律建议，也不代表已审阅真实合同。先使用两版原文，再看参考问题表。
 
 - [policy-v1.md](https://tools.specul.com/samples/review/policy-v1.md)
 - [policy-v2.md](https://tools.specul.com/samples/review/policy-v2.md)
 - [reference-findings.csv](https://tools.specul.com/samples/review/reference-findings.csv)
 - [reference-summary.md](https://tools.specul.com/samples/review/reference-summary.md)
 
-把方法扩展到长文时仍需保留完整版本、目录和跨段引用；不能凭这个短例子认定某工具能处理任意长度文件。
+**一句话**：把方法扩展到长文时仍需保留完整版本、目录和跨段引用；不能凭这个短例子认定某工具能处理任意长度文件。
 
 ## [先定审阅问题和输出|Define questions and output]
 
@@ -50,7 +50,7 @@ confidence: partial
 不修改原文件，不把未确认条款标成已批准。
 ```
 
-真实长文可先建立全篇索引，再分段审阅，最后专门查跨段关系；分段后的摘要不能替代原文。
+**依据：** 真实长文可先建立全篇索引，再分段审阅，最后专门查跨段关系；分段后的摘要不能替代原文。
 
 ## [验收与参考结果|Acceptance and reference]
 
@@ -73,4 +73,4 @@ confidence: partial
 
 把确认后的发现整理成 [带来源的研究简报](https://tools.specul.com/mcp/guides/playbook-research-brief.html)；缺证据的结论先保留在问题表。
 
-2026-11-04 核对了 W3C 文本定位说明。示例原文与参考审阅由本站编写；未宣称完成真实合同审查或运行任何长文产品。
+**依据：** 2026-11-04 核对了 W3C 文本定位说明。示例原文与参考审阅由本站编写；未宣称完成真实合同审查或运行任何长文产品。

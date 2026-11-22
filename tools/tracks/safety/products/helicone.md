@@ -9,29 +9,27 @@ licenseEn: Apache-2.0 — the official open-source page read on 2026-11-21 state
 
 axes:
   model_access: >-
-    官方 AI Gateway 文档写明它是开源 Rust 路由，用单一 OpenAI 兼容接口接 100+ 语言模型；provider 密钥由网关集中保管，
-    云端与自托管两种形态都列在册。它不是模型提供方。
-  runtime: >-
-    云端托管版由平台执行，官方列 99.9% SLA 与全球边缘网络；自托管版是单个 Rust 二进制，可跑 Docker / Kubernetes /
-    bare-metal / sidecar；完整观测栈另可用 Docker Compose 或 Helm 部署。
-  local_files: >-
-    云端形态下请求与日志落在 Helicone 侧；自托管形态把 Web、Jawn、Supabase、ClickHouse、Minio 跑在你自己的基础设施里，
-    日志与对象存储由你控制。网关本身不跑本地模型。
-  background: >-
-    网关位于请求路径，逐次转发与回退；官方没有把持久任务队列列为产品面，后台作业需由调用方编排。
-    观测日志写入是平台或自托管栈的一部分。
-  tools: >-
-    官方列 OpenAI SDK、Anthropic、LangChain、Gemini、Vercel AI SDK 等接入；网关提供统一 OpenAI 语法、缓存、限流、
-    fallback 与内置 tracing。MCP 服务端不在 AI Gateway 文档的已列能力面。
-  context: >-
-    网关不维护对话记忆：上下文就是每次请求体，长度由上游模型决定；观测面保存 trace/session 供排查，
-    但文档没有把历史 trace 回注为模型上下文。
-  permissions: >-
-    云端用账户内集中密钥与花费控制；自托管把密钥与数据权限交给你的部署环境。团队分级、审计日志与导出细项官方文档未逐条单列。
-  fit: >-
-    适合：多家模型统一接入、需要 fallback / 缓存 / 限流 / 观测，或数据必须留在自有基础设施而选择自托管网关的团队。
-    不适合：想要托管模型能力本身；或不愿维护 ClickHouse / Minio / Supabase 等自托管依赖的团队。
+    官方 AI Gateway 文档写明它是开源 Rust 路由。用单一 OpenAI 兼容接口接 100+ 语言模型。provider 密钥由网关集中保管。云端与自托管两种形态都列在册。
 
+    它不是模型提供方。
+  runtime: >-
+    云端托管版由平台执行。官方列 99.9% SLA 与全球边缘网络。自托管版是单个 Rust 二进制。可跑 Docker / Kubernetes / bare-metal / sidecar。
+
+    完整观测栈另可用 Docker Compose 或 Helm 部署。
+  local_files: >-
+    **依据：** 云端形态下请求与日志落在 Helicone 侧；自托管形态把 Web、Jawn、Supabase、ClickHouse、Minio 跑在你自己的基础设施里， 日志与对象存储由你控制。网关本身不跑本地模型。
+  background: >-
+    网关位于请求路径，逐次转发与回退。官方没有把持久任务队列列为产品面，后台作业需由调用方编排。观测日志写入是平台或自托管栈的一部分。
+  tools: >-
+    **依据：** 官方列 OpenAI SDK、Anthropic、LangChain、Gemini、Vercel AI SDK 等接入；网关提供统一 OpenAI 语法、缓存、限流、 fallback 与内置 tracing。MCP 服务端不在 AI Gateway 文档的已列能力面。
+  context: >-
+    网关不维护对话记忆。上下文就是每次请求体，长度由上游模型决定。观测面保存 trace/session 供排查。但文档没有把历史 trace 回注为模型上下文。
+  permissions: >-
+    云端用账户内集中密钥与花费控制。自托管把密钥与数据权限交给你的部署环境。团队分级、审计日志与导出细项官方文档未逐条单列。
+  fit: >-
+    适合：多家模型统一接入、需要 fallback / 缓存 / 限流 / 观测，或数据必须留在自有基础设施而选择自托管网关的团队。不适合：想要托管模型能力本身。
+
+    或不愿维护 ClickHouse / Minio / Supabase 等自托管依赖的团队。
 pitfalls:
   - 把「统一入口」当成「统一能力」——各家模型的参数与行为差异不会因网关消失
   - 只看观测面板方便，没确认请求体里带了什么敏感内容就送出去
@@ -75,19 +73,23 @@ cn:
 
 ## 一句话定位
 
-**Helicone 是开源的 AI Gateway 与 LLM 观测平台**：官方把它写成 Rust 路由，单一 OpenAI 兼容接口接 100+ 模型，
-带缓存、限流、fallback 与 tracing；可选云端托管，也可把网关二进制或整套观测栈部署在自己的基础设施里。它解决的是
-「调用集中管理 + 观测」，不是「模型质量判断」。
+**Helicone 是开源的 AI Gateway 与 LLM 观测平台**：官方把它写成 Rust 路由。
+
+单一 OpenAI 兼容接口接 100+ 模型带缓存、限流、fallback 与 tracing。可选云端托管，也可把网关二进制或整套观测栈部署在自己的基础设施里。
+
+它解决的是「调用集中管理 + 观测」，不是「模型质量判断」。
 
 ## 适合与不适合
 
-适合：需要一家以上模型接入、想把日志/用量/失败回退收在一处，且接受云端形态；或数据必须留在自有环境、愿意维护
-ClickHouse / Minio / Supabase 而选自托管。 不适合：把网关当成模型能力本身；不愿承担自托管依赖运维的团队。
+适合：需要一家以上模型接入、想把日志/用量/失败回退收在一处，且接受云端形态。
+
+或数据必须留在自有环境、愿意维护ClickHouse / Minio / Supabase 而选自托管。不适合：把网关当成模型能力本身。不愿承担自托管依赖运维的团队。
 
 ## 实测记录
 
-未做延迟、可用性或回退生效条件的实测；「100+ 模型」「99.9% SLA」「数秒内出现」等表述是官方页原文，本站不重复其数字
-作为评价依据，也不据此评价同类产品。许可与自托管口径取自官方 Open Source 页与 AI Gateway Introduction 页。
+**依据：** 未做延迟、可用性或回退生效条件的实测；「100+ 模型」「99.9% SLA」「数秒内出现」等表述是官方页原文，本站不重复其数字作为评价依据，也不据此评价同类产品。
+
+许可与自托管口径取自官方 Open Source 页与 AI Gateway Introduction 页。
 
 ## 未知项清单
 

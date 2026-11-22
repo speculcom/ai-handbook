@@ -13,28 +13,35 @@ licenseEn: Governed by the official Terms of Service (resemble.ai/terms-of-servi
 
 axes:
   model_access: >-
-    自有检测模型线当日在册：RAD-S1（官方口径 first System One model for AI agent detection）、
-    DETECT-World（world model architecture for detection）、PerTh（多模态水印）；
+    自有检测模型线当日在册。
+
+    RAD-S1（官方口径 first System One model for AI agent detection）、 DETECT-World（world model architecture for detection）、PerTh（多模态水印）。
+
     生成侧 Chatterbox 等语音模型转入 Research Archive（开源保留、不再作商用付费产品，docs 当日在册）。
   runtime: >-
-    云端 API 平台（docs.resemble.ai 当日在册：Detect/Watermark/Identity/Meetings 等端点）+
-    即用面（Meetings 机器人入 Zoom/Teams/Google Meet、Chrome 扩展）；本机不跑模型。
+    云端 API 平台（docs.resemble.ai 当日在册：Detect/Watermark/Identity/Meetings 等端点）+ 即用面（Meetings 机器人入 Zoom/Teams/Google Meet、Chrome 扩展）。
+
+    本机不跑模型。
   local_files: >-
-    未见官方声明的本机数据面；检测提交与结果在 Resemble 云端。Chatterbox 开源权重可本机跑（Research Archive 线）。
+    未见官方声明的本机数据面。检测提交与结果在 Resemble 云端。Chatterbox 开源权重可本机跑（Research Archive 线）。
   background: >-
-    API 任务形态（提交检测作业/轮询结果，docs 在册）；Meetings 是实时入会检测形态，作业间没有队列续跑口径。
+    API 任务形态（提交检测作业/轮询结果，docs 在册）。Meetings 是实时入会检测形态，作业间没有队列续跑口径。
   tools: >-
-    产品面当日在册：Deepfake Detection（音视频图）、Watermarking（C2PA provenance）、Identity（声纹注册比对）、
-    Intelligence（可读结论）、Agent Detection、Audio Source Tracing；docs 提供 MCP server（docs.resemble.ai/_mcp/server 在册）。
+    产品面当日在册。
+
+    Deepfake Detection（音视频图）、Watermarking（C2PA provenance）、Identity（声纹注册比对）、 Intelligence（可读结论）、Agent Detection、Audio Source Tracing。
+
+    docs 提供 MCP server（docs.resemble.ai/_mcp/server 在册）。
   context: >-
-    无会话概念——API 作业与注册身份（声纹/肖像）是持久面，作业间不共享上下文；跨会话记忆不适用（检测平台形态）。
+    无会话概念——API 作业与注册身份（声纹/肖像）是持久面，作业间不共享上下文。跨会话记忆不适用（检测平台形态）。
   permissions: >-
-    企业向（Contact Sales 主打）；身份注册面（Enroll and authenticate a voice）涉生物特征——
-    授权与合规面（EU AI Act Article 50 合规清单资源页在册）是重点维度。
+    企业向（Contact Sales 主打）。
+
+    身份注册面（Enroll and authenticate a voice）涉生物特征—— 授权与合规面（EU AI Act Article 50 合规清单资源页在册）是重点维度。
   fit: >-
     适合：企业反深伪（会议防护/客服欺诈/KYC/媒体水印）、AI agent 检测、C2PA 溯源合规。
-    不适合：找 TTS/声音克隆托管服务（商用语音线已撤，见 pitfalls）、个人免费使用、大陆直连备案入口。
 
+    不适合：找 TTS/声音克隆托管服务（商用语音线已撤，见 pitfalls）、个人免费使用、大陆直连备案入口。
 pitfalls:
   - **定位已整体转向**——官网当日招牌是「Multimodal Deepfake Detection and Watermarking」，不是声音克隆厂商；docs 的 Voice Archive 页明言 Chatterbox 等生成模型「remain open and free…no longer offered as commercial paid products」——按旧印象把它当 TTS/克隆平台建档会整体错位
   - Voice Archive 文档保留但官方明言「do not imply continued availability of commercial voice services」——历史 API 文档在册≠服务仍在售
@@ -82,8 +89,7 @@ cn:
 
 ## 一句话定位
 
-**Resemble AI 已从「声音克隆厂商」整体转向「多模态深伪检测与水印」企业平台**（官网当日招牌在册）：
-检测（RAD-S1/DETECT-World）、水印（PerTh/C2PA）、身份注册三线；生成语音线转入开源研究归档、不再商用售卖。
+**Resemble AI**：从「声音克隆厂商」整体转向「多模态深伪检测与水印」企业平台：（官网当日招牌在册）：检测（RAD-S1/DETECT-World）、水印（PerTh/C2PA）、身份注册三线。生成语音线转入开源研究归档、不再商用售卖。
 
 ## 适合与不适合
 

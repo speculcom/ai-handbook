@@ -7,37 +7,35 @@ homepage: https://bolt.new
 
 axes:
   model_access: >-
-    官方帮助中心有 Bolt Forge 页：Pro/Lite 计划可经 Forge 用开源模型并切换；
-    参考页（Introduction to LLMs）讲模型/token 概念但未给完整可选清单——清单随版本变化，未逐条清点。
-    构建 agent 分两档（官方「Choose an agent」页）：Standard 与 Max，按任务类型切换。
-  runtime: >-
-    浏览器内运行是官方明示的技术底座：Bolt 由 StackBlitz 开发，跑在 WebContainers 上
-    （官方原文：在浏览器里直接跑 Node.js，装环境这一步被取消）。
-    网页形态为主；官方文档未见桌面/移动客户端叙事。
-  local_files: >-
-    项目在 Bolt 平台内；GitHub 集成官方成页：连仓库备份代码、自动同步 commit、跨分支工作、
-    两边保持同步。Bolt Cloud 提供内置托管+数据库+域名（官方 bolt-cloud 页），
-    数据库有备份/恢复/版本历史页。代码出平台走 GitHub 同步线。
-  background: >-
-    版本历史与回滚官方成页（内置版本历史、恢复到早前版本）；Bolt Cloud 托管的应用常驻运行。
-    官方产品页只描述构建流程，不列关机续跑。
-  tools: >-
-    MCP 官方成页（连 MCP 服务器给 agent 用）；集成清单含 GitHub/Figma/Supabase/Stripe 等；
-    Skills 页（可复用的规则与工作流）；Code view 直接读写项目文件；内置安全扫描页
-    （发布前检查项目安全问题）。
-  context: >-
-    Plan Mode 先谈清应用再建（官方 prompting/plan-mode 页）；上下文管理官方成页
-    （「让项目上下文随时间变小」——教读者管 token）；设计系统可接入（design-system 三页）。
-    官方产品页只描述项目/对话组织，不列跨会话记忆。
-  permissions: >-
-    账号 + Teams 计划（成员角色/谁能发布/团队管理官方成页）；GitHub 组织访问可由组织管理员控制
-    （github-org 页）；项目设置页管可见性与协作；数据库安全设置页（扫描问题）。
-    token 计量官方成页（agent 工作量按 token 计）。
-  fit: >-
-    适合：免装环境浏览器内直接建全栈应用（WebContainers 底座）、要 GitHub 同步线、
-    要内置托管+数据库一条龙（Bolt Cloud）、非技术者与开发者共用同一环境。
-    不适合：要深度离线（平台内叙事）、要完全掌控构建模型（Forge 是计划绑定的开源模型线）。
+    官方帮助中心有 Bolt Forge 页。Pro/Lite 计划可经 Forge 用开源模型并切换。
 
+    参考页（Introduction to LLMs）讲模型/token 概念但未给完整可选清单——清单随版本变化。未逐条清点。
+
+    构建 agent 分两档（官方「Choose an agent」页）：Standard 与 Max。按任务类型切换。
+  runtime: >-
+    **依据：** 浏览器内运行是官方明示的技术底座。Bolt 由 StackBlitz 开发。跑在 WebContainers 上 （官方原文：在浏览器里直接跑 Node.js，装环境这一步被取消）。
+
+    网页形态为主。官方文档未见桌面/移动客户端叙事。
+  local_files: >-
+    **依据：** 项目在 Bolt 平台内；GitHub 集成官方成页：连仓库备份代码、自动同步 commit、跨分支工作、 两边保持同步。Bolt Cloud 提供内置托管+数据库+域名（官方 bolt-cloud 页）， 数据库有备份/恢复/版本历史页。代码出平台走 GitHub 同步线。
+  background: >-
+    版本历史与回滚官方成页（内置版本历史、恢复到早前版本）。Bolt Cloud 托管的应用常驻运行。官方产品页只描述构建流程，不列关机续跑。
+  tools: >-
+    MCP 官方成页（连 MCP 服务器给 agent 用）。集成清单含 GitHub/Figma/Supabase/Stripe 等。Skills 页（可复用的规则与工作流）。
+
+    Code view 直接读写项目文件。内置安全扫描页 （发布前检查项目安全问题）。
+  context: >-
+    Plan Mode 先谈清应用再建（官方 prompting/plan-mode 页）。上下文管理官方成页 （「让项目上下文随时间变小」——教读者管 token）。
+
+    设计系统可接入（design-system 三页）。官方产品页只描述项目/对话组织，不列跨会话记忆。
+  permissions: >-
+    账号 + Teams 计划（成员角色/谁能发布/团队管理官方成页）。GitHub 组织访问可由组织管理员控制 （github-org 页）。项目设置页管可见性与协作。
+
+    数据库安全设置页（扫描问题）。token 计量官方成页（agent 工作量按 token 计）。
+  fit: >-
+    适合：免装环境浏览器内直接建全栈应用（WebContainers 底座）、要 GitHub 同步线、 要内置托管+数据库一条龙（Bolt Cloud）、非技术者与开发者共用同一环境。
+
+    不适合：要深度离线（平台内叙事）、要完全掌控构建模型（Forge 是计划绑定的开源模型线）。
 pitfalls:
   - 计量单位是 token 不是「消息数」：官方 Tokens 页明示 agent 工作量按 token 计——
     长会话/大上下文直接烧额度，官方专门有「Maximize token efficiency」页
@@ -91,8 +89,9 @@ cn:
 
 ## 一句话定位
 
-**Bolt.new 是 StackBlitz 的浏览器内全栈 AI 构建器**：跑在 WebContainers 上（浏览器里直接跑 Node.js，
-免装环境），agent 分 Standard/Max 两档、按 token 计量，Bolt Cloud 给托管+数据库，GitHub 双向同步线在位。
+**Bolt.new 是 StackBlitz 的浏览器内全栈 AI 构建器**：跑在 WebContainers 上（浏览器里直接跑 Node.js，免装环境），agent 分 Standard/Max 两档、按 token 计量。
+
+Bolt Cloud 给托管+数据库。GitHub 双向同步线在位。
 
 ## 适合与不适合
 
@@ -101,7 +100,7 @@ cn:
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

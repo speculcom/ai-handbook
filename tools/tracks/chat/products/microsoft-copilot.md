@@ -10,22 +10,37 @@ licenseEn: Free with a Microsoft account (some capabilities require a Microsoft 
 
 axes:
   model_access: >-
-    模型由微软侧路由，官方叙事里 Copilot 用 OpenAI 系模型 + 自家 MAI 系，具体当前档位不公开逐模型清单；「选择器是否存在、能选什么」以登录后界面为准。路由随官方调整，不把某次界面快照当承诺（2026-11-21）。
+    模型由微软侧路由，官方叙事里 Copilot 用 OpenAI 系模型 + 自家 MAI 系。具体当前档位不公开逐模型清单。「选择器是否存在、能选什么」以登录后界面为准。
+
+    路由随官方调整，不把某次界面快照当承诺（2026-11-21）。
   runtime: >-
-    网页（copilot.microsoft.com）+ Windows 内嵌 + iOS/Android App + Edge 内嵌；生成在微软云端处理。与 Microsoft 365 Copilot（办公套件内嵌）是相邻但不同的产品面——本档案覆盖 C 端 Copilot（2026-11-21）。
+    网页（copilot.microsoft.com）+ Windows 内嵌 + iOS/Android App + Edge 内嵌。生成在微软云端处理。
+
+    与 Microsoft 365 Copilot（办公套件内嵌）是相邻但不同的产品面——本档案覆盖 C 端 Copilot（2026-11-21）。
   local_files: >-
-    对话历史存于微软账户侧；官方隐私 FAQ 说明默认保存对话、可在 Copilot 应用对话历史查看，默认存储 18 个月，可删除单条或全部。Windows 版引用本机「最近项目」，但不会自动扫描或上传文件；浏览历史保存在设备上，按设置决定是否发送（2026-11-21）。
+    对话历史存于微软账户侧。官方隐私 FAQ 说明默认保存对话、可在 Copilot 应用对话历史查看。默认存储 18 个月，可删除单条或全部。Windows 版引用本机「最近项目」。
+
+    但不会自动扫描或上传文件。浏览历史保存在设备上，按设置决定是否发送（2026-11-21）。
   background: >-
-    对话即时返回；官方隐私 FAQ 未列可暂停/续跑的任务队列。C 端 Deep Research 已于 2026-08-18 退役，深度研究改由 Microsoft 365 Copilot 的 Researcher 智能体承接（官方支持页，2026-11-21）。
+    对话即时返回。官方隐私 FAQ 未列可暂停/续跑的任务队列。C 端 Deep Research 已于 2026-08-18 退役。
+
+    深度研究改由 Microsoft 365 Copilot 的 Researcher 智能体承接（官方支持页，2026-11-21）。
   tools: >-
-    联网检索（Bing 底座）、图像生成（Designer / DALL·E 线）、图像理解等能力线内建；深度研究在 C 端已退役，Researcher 智能体在 Microsoft 365 Copilot 中提供多步研究。与 Microsoft 365 应用联动属另一产品面；MCP 支持官方页未列为 C 端能力（2026-11-21）。
+    联网检索（Bing 底座）、图像生成（Designer / DALL·E 线）、图像理解等能力线内建。
+
+    深度研究在 C 端已退役，Researcher 智能体在 Microsoft 365 Copilot 中提供多步研究。与 Microsoft 365 应用联动属另一产品面。
+
+    MCP 支持官方页未列为 C 端能力（2026-11-21）。
   context: >-
-    对话历史登录同步，默认保存 18 个月；官方隐私 FAQ 与个性化页说明 Copilot Memory 会用先前对话推断偏好并在后续对话使用，关闭个性化后停止记忆与个性化，但不会删除历史。Copilot Memory 有独立 saved memories 管理入口（2026-11-21）。
+    对话历史登录同步，默认保存 18 个月。官方隐私 FAQ 与个性化页说明 Copilot Memory 会用先前对话推断偏好并在后续对话使用。关闭个性化后停止记忆与个性化，但不会删除历史。
+
+    Copilot Memory 有独立 saved memories 管理入口（2026-11-21）。
   permissions: >-
-    微软账号体系（个人/企业两条线）；官方隐私 FAQ 说明除已选择退出的用户外，微软会用 Copilot 对话、上传图像/文件、语音等活动训练 AI，训练前移除姓名、账号标识等可识别信息。个性化开关在 Copilot 设置，路径按账户页核对（2026-11-21）。
+    微软账号体系（个人/企业两条线）。官方隐私 FAQ 说明除已选择退出的用户外。微软会用 Copilot 对话、上传图像/文件、语音等活动训练 AI。训练前移除姓名、账号标识等可识别信息。
+
+    个性化开关在 Copilot 设置，路径按账户页核对（2026-11-21）。
   fit: >-
     适合：Windows/Edge/Bing 生态用户、要免费联网问答、企业已在微软生态。不适合：要模型自选、要脱离微软账号、大陆直连场景（见 cn 块）（2026-11-21）。
-
 pitfalls:
   - 把 C 端 Copilot 与 Microsoft 365 Copilot 混为一谈——免费网页版与办公套件内嵌是两个产品面，条款与能力不同
   - 与 GitHub Copilot 也不是一个产品——编码向归 coding 大类（copilot 档案），本档案是通用对话
@@ -81,8 +96,9 @@ cn:
 
 ## 一句话定位
 
-**Microsoft Copilot 是 Windows/Edge/Bing 生态的免费对话入口**：联网检索是底座能力，
-模型由微软侧路由；与 Microsoft 365 Copilot、GitHub Copilot 是三个不同产品面，别混。
+**Microsoft Copilot 是 Windows/Edge/Bing 生态的免费对话入口**：联网检索是底座能力，模型由微软侧路由。
+
+与 Microsoft 365 Copilot、GitHub Copilot 是三个不同产品面。别混。
 
 ## 适合与不适合
 
@@ -91,7 +107,8 @@ cn:
 
 ## 实测记录
 
-本档核对官方隐私 FAQ、个性化页与支持页的能力和权限边界；模型路由、配额与大陆直连需按账号和网络环境实测。
+本档核对官方隐私 FAQ、个性化页与支持页的能力和权限边界。
+模型路由、配额与大陆直连需按账号和网络环境实测。
 ## 未知项清单
 
 - 当前模型路由的逐模型清单：官方未公开，按登录后界面核对。

@@ -9,25 +9,27 @@ licenseEn: Closed-source free desktop app (official site positioning); the under
 
 axes:
   model_access: >-
-    应用内直接下载最新本地 LLM（官网直抓所见）；GGUF 为主，MLX 与 llama.cpp 双运行时
-    （官网原文「Powered by the LM Studio runtime, with MLX and llama.cpp under the hood」）。
-  runtime: >-
-    桌面应用（macOS/Windows/Linux）；官网现主推「Bionic」agent（本地 agent for work and code）——
-    产品叙事已从纯聊天扩到 agent，建档快照口径。
-  local_files: >-
-    模型与对话落本机；官网明写语音转写「processed locally and never leaves your device」（直抓所见）。
-  background: >-
-    内置本地服务器（OpenAI 兼容端点）可常开供外部客户端用；默认开关与鉴权细节本档不逐条展开。
-  tools: >-
-    Bionic agent 线含文档编辑/自动化/计算机控制（官网直抓所见）；MCP 支持状态本档不逐条展开。
-  context: >-
-    聊天与 agent 会话的上下文管理在应用内；跨会话记忆与长期记忆官方未单独披露。
-  permissions: >-
-    桌面应用权限随系统；agent 的计算机控制面权限边界本档不逐条展开。
-  fit: >-
-    适合：要图形界面跑本地模型、想在同一应用里试 agent（Bionic）。
-    不适合：要无头服务器部署（用 llama.cpp/vLLM）；要读全许可条款（条款页动态加载，条款页动态加载，按官网口径）。
+    应用内直接下载最新本地 LLM（官网直抓所见）。
 
+    **依据：** GGUF 为主，MLX 与 llama.cpp 双运行时 （官网原文「Powered by the LM Studio runtime, with MLX and llama.cpp under the hood」）。
+  runtime: >-
+    桌面应用（macOS/Windows/Linux）。官网现主推「Bionic」agent（本地 agent for work and code）—— 产品叙事已从纯聊天扩到 agent。
+
+    建档快照口径。
+  local_files: >-
+    **依据：** 模型与对话落本机；官网明写语音转写「processed locally and never leaves your device」（直抓所见）。
+  background: >-
+    内置本地服务器（OpenAI 兼容端点）可常开供外部客户端用。默认开关与鉴权细节本档不逐条展开。
+  tools: >-
+    Bionic agent 线含文档编辑/自动化/计算机控制（官网直抓所见）。MCP 支持状态本档不逐条展开。
+  context: >-
+    聊天与 agent 会话的上下文管理在应用内。跨会话记忆与长期记忆官方未单独披露。
+  permissions: >-
+    桌面应用权限随系统。agent 的计算机控制面权限边界本档不逐条展开。
+  fit: >-
+    适合：要图形界面跑本地模型、想在同一应用里试 agent（Bionic）。不适合：要无头服务器部署（用 llama.cpp/vLLM）。
+
+    要读全许可条款（条款页动态加载，条款页动态加载，按官网口径）。
 pitfalls:
   - 把「免费」读成「开源」——应用闭源，开源的是底层运行时
   - 只记得它是聊天壳——官网现主推 Bionic agent，产品面已扩
@@ -69,13 +71,15 @@ cn:
 
 ## 一句话定位
 
-**LM Studio 是桌面跑本地模型的主流图形入口**：应用内下载模型、双运行时（MLX + llama.cpp）、内置本地服务器。
-2026-10 快照：官网主推 Bionic——本地 agent 叙事已盖过纯聊天。诚实标注：应用闭源；条款页动态加载按官网口径全文。
+**LM Studio 是桌面跑本地模型的主流图形入口**：应用内下载模型、双运行时（MLX + llama.cpp）、内置本地服务器。2026-10 快照。
+
+官网主推 Bionic——本地 agent 叙事已盖过纯聊天。诚实标注：应用闭源。条款页动态加载按官网口径全文。
 
 ## 适合与不适合
 
 适合：不想碰命令行的本地模型用户、要在同一应用试 agent 与语音转写。
-不适合：服务器无头部署；对许可条款有硬合规要求（条款页动态加载，按官网口径全文，只挂官网口径）。
+不适合：服务器无头部署。
+对许可条款有硬合规要求（条款页动态加载，按官网口径全文，只挂官网口径）。
 
 ## 实测记录
 
@@ -102,5 +106,6 @@ cn:
 
 ```text
 本地服务器默认端口以应用界面为准；
-客户端 base_url 指向本机端点，模型名填应用里显示的模型 ID。
+客户端 base_url 指向本机端点。
+模型名填应用里显示的模型 ID。
 ```

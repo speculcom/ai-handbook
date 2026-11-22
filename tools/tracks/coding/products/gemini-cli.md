@@ -72,7 +72,7 @@ axes:
     **原文**：「It does **not** interfere with your own project's Git repository」
 
     **语义索引（Code Customization / RAG）的算法与大仓库耗时官方文档不展开。**
-    （已查 file-system 与 configuration 两页，只有 `general.logRagSnippets`
+    **依据：** （已查 file-system 与 configuration 两页，只有 `general.logRagSnippets`
     这类调试开关。）
   background: >-
     **本地 CLI，不支持关机续跑。**

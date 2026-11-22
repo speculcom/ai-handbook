@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-按清单审查 diff 并标出证据位置。
+**一句话**：按清单审查 diff 并标出证据位置。
 输入：diff、审查清单、项目约束。
 
 ## [提示词本体|The prompt]
@@ -30,7 +30,7 @@ confidence: partial
 
 ## [预期输出形态|Expected output shape]
 
-issues[]，含行号与逐字证据。
+**依据：**： issues[]，含行号与逐字证据。
 
 ## [检查点|Checkpoints]
 

@@ -8,43 +8,49 @@ homepage: https://www.augmentcode.com
 
 axes:
   model_access: >-
-    官方 Available Models 页列全清单：Anthropic Claude 系（Fable 5.1/5、Opus 5/4.8/4.7/4.6、Sonnet 5.5/5、Haiku 4.5）、
-    Google Gemini（3.8/3.7 Flash、3.1 Pro）、OpenAI GPT（6.1 Sol、6 Astra、5.6 Sol/Terra/Luna、5.5）、
-    xAI Grok 4.6/4.5、智谱 GLM 5.3 Flash/5.2 与 Moonshot Kimi K3/K2.7 Code（托管在 Fireworks/Baseten）、
-    自研 Prism（组合 Claude 与 GPT 的模型集成，Prism 选项按策展模型族路由）。
-    计费走 token 制（Token-Based Pricing 页：LLM token + Cosmos 算力 + 服务费三段）。
+    **依据：** 官方 Available Models 页列全清单：Anthropic Claude 系（Fable 5.1/5、Opus 5/4.8/4.7/4.6、Sonnet 5.5/5、Haiku 4.5）、 Google Gemini（3.8/3.7 Flash、3.1 Pro）、OpenAI GPT（6.1 Sol、6 Astra、5.6 Sol/Terra/Luna、5.5）、 xAI Grok 4.6/4.5、智谱 GLM 5.3 Flash/5.2 与 Moonshot Kimi K3/K2.7 Code（托管在 Fireworks/Baseten）、 自研 Prism（组合 Claude 与 GPT 的模型集成，Prism 选项按策展模型族路由）。 计费走 token 制（Token-Based Pricing 页：LLM token + Cosmos 算力 + 服务费三段）。
   runtime: >-
-    主线是 Cosmos 平台（官方 Introduction：Environments/Experts/Sessions/Capabilities/Triggers 五积木）：
-    把规划-实现-评审-反馈连成可重复的 Software Factory 工作流（Requirements→Ticket、Ticket→PR、
-    PR→Merge、Signal→Ticket 四条官方 loop）。Environments 三选一：Augment 托管云沙箱、你自己的 VM/物理机
-    （self-hosted daemon）、甚至本机笔记本。另有 Auggie CLI（终端 agent：仓库实现/代码探索/跑测试/CI 自动化）
-    与 VS Code / JetBrains 的 IDE 扩展面。
+    主线是 Cosmos 平台（官方 Introduction：Environments/Experts/Sessions/Capabilities/Triggers 五积木）： 把规划-实现-评审-反馈连成可重复的 Software Factory 工作流（Requirements→Ticket、Ticket→PR、 PR→Merge、Signal→Ticket 四条官方 loop）。
+
+    Environments 三选一。Augment 托管云沙箱、你自己的 VM/物理机 （self-hosted daemon）、甚至本机笔记本。
+
+    另有 Auggie CLI（终端 agent：仓库实现/代码探索/跑测试/CI 自动化） 与 VS Code / JetBrains 的 IDE 扩展面。
   local_files: >-
-    IDE 扩展与 Auggie CLI 处理本机代码库；Cosmos 的 Environments 决定代码在哪——托管云沙箱、
-    self-hosted daemon（跑在你自己基础设施上，daemon-config.json 配工作区与隔离）或本机。
+    IDE 扩展与 Auggie CLI 处理本机代码库。
+
+    Cosmos 的 Environments 决定代码在哪——托管云沙箱、 self-hosted daemon（跑在你自己基础设施上，daemon-config.json 配工作区与隔离）或本机。
+
     self-hosted 面是官方一等公民（官方页明示 own virtual or physical infrastructure）。
   background: >-
-    Cosmos 主打长时多步交付：durable environments、scheduled automations（定时自动化）、
-    跨仓库跨工具协调（官方 llms.txt 使用指引原文）；Triggers 把事件接进 loop。
-    官方叙事「always-on software delivery system」——从 spec 到验证常跑。
+    **依据：** Cosmos 主打长时多步交付：durable environments、scheduled automations（定时自动化）、 跨仓库跨工具协调（官方 llms.txt 使用指引原文）。
+
+    Triggers 把事件接进 loop。官方叙事「always-on software delivery system」——从 spec 到验证常跑。
   tools: >-
-    MCP 面官方成页多处：Cosmos Experts 接 MCP servers（MCP Registry）、CLI/IDE 侧 MCP 配置、
-    Context Engine MCP（把上下文引擎以 MCP 插进任何 agent）、Code Review 的 MCP context 接入；
+    MCP 面官方成页多处。
+
+    Cosmos Experts 接 MCP servers（MCP Registry）、CLI/IDE 侧 MCP 配置、 Context Engine MCP（把上下文引擎以 MCP 插进任何 agent）、Code Review 的 MCP context 接入。
+
     官方还提供 Docs MCP server（Streamable HTTP）给外部 agent 查 Augment 文档。
   context: >-
-    招牌是 Code Context Engine：官方口径 world-class context engine，跨代码库的结构化理解；
-    以 MCP 形式输出给别的 agent 用（Context Engine MCP 页）。
-    Wisdom 类上下文（PR 历史、业务需求）在 Software Factory 各 loop 页有展开。
-  permissions: >-
-    企业定位（enterprise-grade 口径贯穿官方文档）：Trust Center、Status Page 官方入口在导航；
-    Analytics API 用 scoped OAuth token 或 service-account bearer token，写权限按需申请（官方 llms.txt 口径）。
-    工具权限在 Auggie CLI 与 Cosmos 云 agent 生效，IDE 扩展不强制执行（官方 Tool Permissions 页）；企业档 Standard/Business 最多 50 席、Enterprise 自定义（官方 Pricing 页）。
-  fit: >-
-    适合：企业级「软件工厂」叙事——要跨 SDLC 的 agent 流水线（ticket→PR→merge→monitor）、
-    self-hosted 环境把 agent 跑在自己基础设施、多前沿模型清单（含自研 Prism 路由）。
-    不适合：找个人免费档入门（主线是企业交付与 token 计费）；
-    要产品归属稳定的读者——2026-10 起 Cosmos/Auggie CLI/Context Engine 资产已并入 Harness。
+    招牌是 Code Context Engine。官方口径 world-class context engine，跨代码库的结构化理解。
 
+    以 MCP 形式输出给别的 agent 用（Context Engine MCP 页）。Wisdom 类上下文（PR 历史、业务需求）在 Software Factory 各 loop 页有展开。
+  permissions: >-
+    企业定位（enterprise-grade 口径贯穿官方文档）：Trust Center、Status Page 官方入口在导航。
+
+    Analytics API 用 scoped OAuth token 或 service-account bearer token。写权限按需申请（官方 llms.txt 口径）。
+
+    工具权限在 Auggie CLI 与 Cosmos 云 agent 生效。IDE 扩展不强制执行（官方 Tool Permissions 页）。
+
+    企业档 Standard/Business 最多 50 席、Enterprise 自定义（官方 Pricing 页）。
+  fit: >-
+    适合：企业级「软件工厂」叙事。
+
+    要跨 SDLC 的 agent 流水线（ticket→PR→merge→monitor）、 self-hosted 环境把 agent 跑在自己基础设施、多前沿模型清单（含自研 Prism 路由）。
+
+    不适合：找个人免费档入门（主线是企业交付与 token 计费）。
+
+    要产品归属稳定的读者——2026-10 起 Cosmos/Auggie CLI/Context Engine 资产已并入 Harness。
 pitfalls:
   - 2026-10-08 官方博客「Augment Code's next chapter」：Cosmos、Auggie CLI、Code Context Engine 及相关技术
     加入 Harness，团队并入——产品连续性走 Harness 体系，检索时 Augment/Harness 两个名字都要认
@@ -111,18 +117,19 @@ cn:
 
 ## 一句话定位
 
-**Augment Code 是企业级「软件工厂」平台**：Cosmos 把规划-实现-评审-反馈连成可重复的 agent 流水线，
-Environments 可托管云/自有基础设施/本机三选一，Code Context Engine 招牌可经 MCP 插进别的 agent，
-提供多厂商模型清单（含自研 Prism 路由）——**2026-10-08 官方公告 Cosmos/Auggie CLI/Context Engine 资产加入 Harness**。
+**Augment Code 是企业级「软件工厂」平台**：Cosmos 把规划-实现-评审-反馈连成可重复的 agent 流水线，Environments 可托管云/自有基础设施/本机三选一。
+
+Code Context Engine 招牌可经 MCP 插进别的 agent提供多厂商模型清单（含自研 Prism 路由）——**2026-10-08 官方公告 Cosmos/Auggie CLI/Context Engine 资产加入 Harness**。
 
 ## 适合与不适合
 
 适合：企业级跨 SDLC 的 agent 流水线、self-hosted 把 agent 跑在自己基础设施、要多前沿模型清单与 token 透明计费。
+
 不适合：找个人免费档入门、要产品归属完全稳定（正处 Harness 并入过渡期）。
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

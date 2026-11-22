@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-生成带证据占位的报告大纲。
+**一句话**：生成带证据占位的报告大纲。
 输入：报告目标、读者、已有材料清单。
 
 ## [提示词本体|The prompt]

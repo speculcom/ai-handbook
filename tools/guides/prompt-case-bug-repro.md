@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-把 bug 描述整理成最小复现步骤。
+**一句话**：把 bug 描述整理成最小复现步骤。
 输入：bug 描述、日志片段、环境信息。
 
 ## [提示词本体|The prompt]

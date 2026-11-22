@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-生成结构化输出并校验字段。
+**一句话**：生成结构化输出并校验字段。
 输入：字段需求、样例 JSON、事实来源。
 
 ## [提示词本体|The prompt]

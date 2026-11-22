@@ -12,27 +12,29 @@ licenseEn: The SRE runtime repo is MIT (GitHub API verified same day); smythos-s
 
 axes:
   model_access: >-
-    SRE 运行时对接各家模型（仓描述当日在册：cloud-native runtime for agentic AI）；
-    sre-models-pub 仓在册（模型配置发布面）；现役可用模型清单未逐条核验。
+    SRE 运行时对接各家模型（仓描述当日在册：cloud-native runtime for agentic AI）。sre-models-pub 仓在册（模型配置发布面）。
+
+    现役可用模型清单未逐条核验。
   runtime: >-
-    开源自托管是现役主形态：官网 smythos.com 当日 302 重定向到 github.com/smythos/sre（官网让位于仓）；
-    SRE 仓描述明言 local/cloud/edge 三态运行；托管 Studio 服务面未逐条核验。
+    开源自托管是现役主形态。官网 smythos.com 当日 302 重定向到 github.com/smythos/sre（官网让位于仓）。
+
+    SRE 仓描述明言 local/cloud/edge 三态运行。托管 Studio 服务面未逐条核验。
   local_files: >-
-    自托管运行时数据在本机/自有部署（local 态在仓描述在册）；托管形态数据面未逐条核验。
+    自托管运行时数据在本机/自有部署（local 态在仓描述在册）。托管形态数据面未逐条核验。
   background: >-
-    agent 运行时（build/run/manage）是仓描述主轴；后台常驻与调度机制细节未逐条核验——
-    且仓推送停在 2026-04-03（GitHub API 当日核验），现役维护强度存疑。
+    agent 运行时（build/run/manage）是仓描述主轴。后台常驻与调度机制细节未逐条核验—— 且仓推送停在 2026-04-03（GitHub API 当日核验）。
+
+    现役维护强度存疑。
   tools: >-
-    smyth-docker-mcp 仓在册（MCP 方向）；skills 仓在册；具体工具/连接器清单未逐条核验。
+    smyth-docker-mcp 仓在册（MCP 方向）。skills 仓在册。具体工具/连接器清单未逐条核验。
   context: >-
-    运行时的 agent 状态管理在仓描述在册（manage intelligent agents）；跨会话记忆机制细节未逐条核验。
+    运行时的 agent 状态管理在仓描述在册（manage intelligent agents）。跨会话记忆机制细节未逐条核验。
   permissions: >-
-    MIT 运行时（许可宽松）；商业服务条款未逐条核验；训练用途开关路径未逐条核验。
+    MIT 运行时（许可宽松）。商业服务条款未逐条核验。训练用途开关路径未逐条核验。
   fit: >-
     适合：要 MIT 许可的 agent 运行时自托管（local/cloud/edge）、读源码评估 agent 编排设计。
-    不适合：要活跃产品与托管服务（官网已让位于仓、推送停 2026-04）、要企业支持叙事、
-    要大陆直连备案入口。
 
+    **依据：** 不适合：要活跃产品与托管服务（官网已让位于仓、推送停 2026-04）、要企业支持叙事、 要大陆直连备案入口。
 pitfalls:
   - **官网让位于仓**：smythos.com 当日 302→github.com/smythos/sre——按「有官网=有活跃产品」的直觉建档会错位；现役真相面是 GitHub org
   - **收缩信号在册**：SRE/studio/docs 三仓推送都停在 2026-04-03（GitHub API 当日核验，未 archived）——按「活跃项目」评估维护/安全响应有风险，本档案按 maintenance 口径写
@@ -75,9 +77,9 @@ cn:
 
 ## 一句话定位
 
-**SmythOS 现役真相面是 GitHub 上的开源 agent 运行时 SRE**（仓描述当日在册：cloud-native runtime for agentic AI，
-local/cloud/edge 三态）：官网 smythos.com 已 302 重定向到 SRE 仓——早期「无代码 agent 平台+托管服务」的定位
-不再自证；SRE/studio/docs 三仓推送停在 2026-04-03（未 archived），本站按 maintenance 口径写。
+**SmythOS 现役真相面是 GitHub 上的开源 agent 运行时 SRE**：（仓描述当日在册：cloud-native runtime for agentic AI，local/cloud/edge 三态）。官网 smythos.com 已 302 重定向到 SRE 仓——早期「无代码 agent 平台+托管服务」的定位不再自证。
+
+SRE/studio/docs 三仓推送停在 2026-04-03（未 archived）。本站按 maintenance 口径写。
 
 ## 适合与不适合
 

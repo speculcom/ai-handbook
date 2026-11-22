@@ -37,7 +37,7 @@ Anthropic 官方教程教了两招。
 第一招：让模型把答案包进 XML 标签，程序取标签之间的内容即可。
 第二招叫预填（prefill）：把开场标签或 `{` 放进 assistant 轮，
 模型会从这个位置接着写。官方措辞很克制：
-强制 JSON 输出「不是确定性的，但接近」（原文 "not deterministically, but close to it"）。
+**依据：** 强制 JSON 输出「不是确定性的，但接近」（原文 "not deterministically, but close to it"）。
 配套技巧：把闭合标签设为 `stop_sequences`，答案一出就停，省掉收尾废话。
 
 提示词层成本低、随模型可用，但它只是引导。
@@ -46,7 +46,7 @@ Anthropic 官方教程教了两招。
 ## [API 层：schema 约束|API level: schema constraints]
 
 OpenAI 的 Structured Outputs 把约束下沉到生成过程。
-官方原文：它 "guarantees the model will always generate responses that adhere to your supplied JSON Schema"。
+**依据：** 官方原文：它 "guarantees the model will always generate responses that adhere to your supplied JSON Schema"。
 开启方式是 `strict: true`，可用于响应格式或函数定义。
 
 与 JSON mode 的区别要分清：
@@ -74,7 +74,7 @@ API 层的保证从哪来？语法约束解码（GCD）是背后的机制之一�
 client 应当对照 schema 校验。
 
 一个容易混的概念，规范专门澄清：
-"structuredContent is server-produced result data and is unrelated to LLM 'structured outputs'"。
+**依据：** "structuredContent is server-produced result data and is unrelated to LLM 'structured outputs'"。
 也就是说，MCP 的结构化结果是 server 产出的数据，
 与模型侧的 schema 约束生成是两回事。两道闸各管各的。
 

@@ -10,27 +10,21 @@ licenseEn: Apache-2.0 (follow the repository LICENSE; Intel distribution terms a
 
 axes:
   model_access: >-
-    把模型转换成 OpenVINO IR 后推理；支持 CPU、GPU、NPU 等 Intel 硬件。
-    支持模型与算子清单以官方文档为准，本档不逐条复制完整清单。
+    把模型转换成 OpenVINO IR 后推理。支持 CPU、GPU、NPU 等 Intel 硬件。支持模型与算子清单以官方文档为准，本档不逐条复制完整清单。
   runtime: >-
-    Runtime 库 + Model Server（OVMS）：OVMS 可暴露 OpenAI 兼容接口，
-    也可用 Docker 部署；本地/边缘/服务器都能跑。
+    Runtime 库 + Model Server（OVMS）。OVMS 可暴露 OpenAI 兼容接口， 也可用 Docker 部署。本地/边缘/服务器都能跑。
   local_files: >-
-    自托管，模型与 IR 文件在本地；不依赖云端账号，转换与缓存目录由部署方管理，
-    模型分发也由部署方负责。
+    自托管，模型与 IR 文件在本地。不依赖云端账号，转换与缓存目录由部署方管理， 模型分发也由部署方负责。
   background: >-
-    Runtime 是库，OVMS 是常驻服务；长任务与并发由部署方编排。
+    Runtime 是库，OVMS 是常驻服务。长任务与并发由部署方编排。
   tools: >-
-    OVMS 提供 OpenAI 兼容端点；工具调用与 MCP 支持本档不逐条展开。
+    OVMS 提供 OpenAI 兼容端点。工具调用与 MCP 支持本档不逐条展开。
   context: >-
-    长上下文按模型与内存配置；KV cache 与连续批处理在官方文档线。
+    长上下文按模型与内存配置。KV cache 与连续批处理在官方文档线。
   permissions: >-
-    本地/自托管，无账号体系；鉴权、配额与多租户隔离都由部署方在 OVMS 外层配置，
-    官方不提供内置租户模型。
+    本地/自托管，无账号体系。鉴权、配额与多租户隔离都由部署方在 OVMS 外层配置， 官方不提供内置租户模型。
   fit: >-
-    适合：Intel CPU/GPU/NPU、边缘部署、要把模型压到本地运行。
-    不适合：NVIDIA 独占优化场景（TensorRT-LLM/vLLM 更直接）；想要 GGUF 即下即跑。
-
+    适合：Intel CPU/GPU/NPU、边缘部署、要把模型压到本地运行。不适合：NVIDIA 独占优化场景（TensorRT-LLM/vLLM 更直接）。想要 GGUF 即下即跑。
 pitfalls:
   - 把 OpenVINO 当成只支持 Intel CPU——官方也覆盖 GPU/NPU，但型号有矩阵
   - 以为模型拿来就能跑——通常要先转 IR
@@ -73,7 +67,8 @@ cn:
 
 ## 一句话定位
 
-OpenVINO 是 Intel 的推理运行时与模型服务器：先把模型转成 IR，再在 CPU/GPU/NPU 上跑；
+OpenVINO 是 Intel 的推理运行时与模型服务器。
+先把模型转成 IR，再在 CPU/GPU/NPU 上跑
 OVMS 可暴露 OpenAI 兼容端点。
 
 跨大类对照：[Dify](../automation/dify.html)。

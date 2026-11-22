@@ -16,28 +16,27 @@ licenseEn: Apache-2.0 (AI SDK repository licence; the repo LICENSE is authoritat
 
 axes:
   model_access: >-
-    通过 provider 包接多家模型供应商；模型切换在应用代码里完成。
-    AI SDK 7 新增 HarnessAgent，可把既有 agent harness 当成可切换运行时（官方 changelog）。
-  runtime: >-
-    TypeScript/JavaScript 库，运行在你的 Node/边缘/浏览器应用里；harness adapters 负责驱动
-    Claude Code、Codex、Pi 等外部 agent 运行时，sandbox 由适配器提供（官方示例用 Vercel Sandbox）。
-  local_files: >-
-    文件访问取决于 harness 与 sandbox：官方示例通过 createVercelSandbox 提供隔离文件系统；
-    本地文件访问能力本档不逐条展开。
-  background: >-
-    库本身不提供任务队列；长任务是否能在后台继续，取决于所选 harness 与 sandbox 的运行时。
-  tools: >-
-    工具调用是核心抽象；官方 changelog 展示 HarnessAgent 与 sandbox 组合。
-    MCP 接入本档不逐条展开。
-  context: >-
-    消息历史由应用管理；库本身不内建持久化，需要自己接数据库或会话存储。
-  permissions: >-
-    BYOK 为主，密钥在应用侧；sandbox 边界由 harness 适配器决定，
-    官方示例把 Vercel Sandbox 作为隔离层。多租户隔离需自行设计。
-  fit: >-
-    适合：TypeScript/JS 团队自建 agent 应用，想在不改业务代码的前提下切换模型或 harness。
-    不适合：要开箱即用的成品 agent（看 coding/chat 类产品）；要 Python 生态（看 LangGraph/Agno）。
+    通过 provider 包接多家模型供应商。模型切换在应用代码里完成。AI SDK 7 新增 HarnessAgent。
 
+    可把既有 agent harness 当成可切换运行时（官方 changelog）。
+  runtime: >-
+    TypeScript/JavaScript 库。运行在你的 Node/边缘/浏览器应用里。
+
+    harness adapters 负责驱动 Claude Code、Codex、Pi 等外部 agent 运行时。sandbox 由适配器提供（官方示例用 Vercel Sandbox）。
+  local_files: >-
+    文件访问取决于 harness 与 sandbox。官方示例通过 createVercelSandbox 提供隔离文件系统。本地文件访问能力本档不逐条展开。
+  background: >-
+    库本身不提供任务队列。长任务是否能在后台继续，取决于所选 harness 与 sandbox 的运行时。
+  tools: >-
+    工具调用是核心抽象。官方 changelog 展示 HarnessAgent 与 sandbox 组合。MCP 接入本档不逐条展开。
+  context: >-
+    消息历史由应用管理。库本身不内建持久化，需要自己接数据库或会话存储。
+  permissions: >-
+    BYOK 为主，密钥在应用侧。sandbox 边界由 harness 适配器决定。官方示例把 Vercel Sandbox 作为隔离层。多租户隔离需自行设计。
+  fit: >-
+    适合：TypeScript/JS 团队自建 agent 应用。想在不改业务代码的前提下切换模型或 harness。不适合：要开箱即用的成品 agent（看 coding/chat 类产品）。
+
+    要 Python 生态（看 LangGraph/Agno）。
 pitfalls:
   - 把 HarnessAgent 当成「内置 Claude Code」——它是适配层，仍需相应 harness 与运行环境
   - 以为换 harness 不用改权限模型——不同 harness 的工具面与沙箱边界不同
@@ -83,12 +82,12 @@ AI SDK 7 是 TypeScript/JS 的 agent 应用工具箱：统一的模型调用、�
 
 ## 适合与不适合
 
-适合：TypeScript/JS 团队自建 agent 应用，想保留业务代码、只切换模型或 harness。
-不适合：要成品 agent（看 coding/chat 类产品）；要 Python 生态（看 LangGraph、Agno）。
+适合：TypeScript/JS 团队自建 agent 应用。想保留业务代码、只切换模型或 harness。不适合：要成品 agent（看 coding/chat 类产品）。要 Python 生态（看 LangGraph、Agno）。
 
 ## 实测记录
 
-本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测。
+结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 

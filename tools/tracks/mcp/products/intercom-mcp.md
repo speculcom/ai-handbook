@@ -9,39 +9,37 @@ licenseEn: Closed-source official hosted service (Intercom ToS); intercom/interc
 
 axes:
   model_access: >-
-    **它自己不调模型**——官方托管远程 server，被 MCP 客户端调用。例外口径：**Fin Operator 工具族**
-    会驱动 Intercom 自家 AI（Operator）干活——send_operator_message 消耗 Operator credits
-    （与在 Intercom 里开一轮对话同口径计费），其余四个 Operator 工具免费。
+    **它自己不调模型**——官方托管远程 server，被 MCP 客户端调用。
+
+    例外口径：**Fin Operator 工具族** 会驱动 Intercom 自家 AI（Operator）干活——send_operator_message 消耗 Operator credits （与在 Intercom 里开一轮对话同口径计费）。
+
+    其余四个 Operator 工具免费。
   runtime: >-
-    **官方托管 remote server**（无自托管线）：US 端点 https://mcp.intercom.com/mcp、
-    EU 端点 https://mcp.eu.intercom.com/mcp（EU 请求在 EU 内处理，符合其 Regional Data Hosting 承诺）；
+    **官方托管 remote server**（无自托管线）：US 端点 https://mcp.intercom.com/mcp、 EU 端点 https://mcp.eu.intercom.com/mcp（EU 请求在 EU 内处理，符合其 Regional Data Hosting 承诺）。
+
     **AU 托管工作区暂不支持**（官方明写）。端点直连实测 401（存在、需鉴权，非死链）。
   local_files: >-
-    不读写本机文件——读写对象全在 Intercom 工作区侧（conversations/contacts/companies/
-    Help Center articles）。
+    不读写本机文件。读写对象全在 Intercom 工作区侧（conversations/contacts/companies/ Help Center articles）。
   background: >-
-    无常驻本机后台；连接活在客户端与 Intercom 托管端点之间（官方：连接保持活跃以接收更新）。
+    无常驻本机后台。连接活在客户端与 Intercom 托管端点之间（官方：连接保持活跃以接收更新）。
   tools: >-
-    官方文档现口径 **14 个工具**：通用族 **search**（query DSL：object_type:conversations/contacts、
-    字段操作符 eq/neq/gt/contains、分页 starting_after）+ **fetch**（按前缀 ID 取全量详情）；
-    直连 API 族 search_conversations / get_conversation / search_contacts / companies /
-    Help Center articles（**list/search/get 读 + create/update 写**）；
-    **Fin Operator 五工具**（send_operator_message / get_operator_response / get_proposal_details /
-    apply_proposals / reject_proposals——apply 会改动工作区线上配置）。
-  context: >-
-    无 server 侧跨会话记忆；上下文=你的 Intercom 工作区数据本身（官方叙事：AI 助手保持
-    对工作区的环境感知）。Operator 对话有服务端会话态（get_operator_response 稍后取答）。
-  permissions: >-
-    **两种鉴权**：OAuth（推荐；Dynamic Client Registration，但 redirect URI 过 allowlist——
-    localhost/127.0.0.1 任意端口已放行，其他回调要先申请加白）或 Bearer token（Intercom API token，
-    需 scopes：读 users/companies、读 conversations、读写 articles）。
-    **Bearer 连接拿不到 Fin Operator 工具**（官方明写）；Operator 权限上线前建立的旧连接需重连。
-    工具按「你本人在工作区的权限」授权——MCP 不扩权。
-  fit: >-
-    适合：客服/支持团队把 Intercom 数据接进 AI 工具（Claude/Cursor/VS Code 等官方在册客户端）——
-    查会话、查联系人、读写帮助文档、驱动 Operator；EU 工作区有数据驻留线。
-    不适合：AU 托管工作区（不支持）；要自托管/开源实现（无）；要 Bearer 简单接入还用 Operator（拿不到）。
+    官方文档现口径 **14 个工具**：通用族 **search**（query DSL：object_type:conversations/contacts、 字段操作符 eq/neq/gt/contains、分页 starting_after）+ **fetch**（按前缀 ID 取全量详情）。
 
+    直连 API 族 search_conversations / get_conversation / search_contacts / companies / Help Center articles（**list/search/get 读 + create/update 写**）。
+
+    **Fin Operator 五工具**（send_operator_message / get_operator_response / get_proposal_details / apply_proposals / reject_proposals——apply 会改动工作区线上配置）。
+  context: >-
+    无 server 侧跨会话记忆。上下文=你的 Intercom 工作区数据本身（官方叙事：AI 助手保持 对工作区的环境感知）。
+
+    Operator 对话有服务端会话态（get_operator_response 稍后取答）。
+  permissions: >-
+    **两种鉴权**：OAuth（推荐；Dynamic Client Registration，但 redirect URI 过 allowlist—— localhost/127.0.0.1 任意端口已放行，其他回调要先申请加白）或 Bearer token（Intercom API token， 需 scopes：读 users/companies、读 conversations、读写 articles）。
+
+    **Bearer 连接拿不到 Fin Operator 工具**（官方明写）。Operator 权限上线前建立的旧连接需重连。工具按「你本人在工作区的权限」授权——MCP 不扩权。
+  fit: >-
+    适合：客服/支持团队把 Intercom 数据接进 AI 工具（Claude/Cursor/VS Code 等官方在册客户端）—— 查会话、查联系人、读写帮助文档、驱动 Operator。
+
+    EU 工作区有数据驻留线。不适合：AU 托管工作区（不支持）。要自托管/开源实现（无）。要 Bearer 简单接入还用 Operator（拿不到）。
 pitfalls:
   - 把 inventory 旧 URL（intercom.com/mcp）当文档线——2026-10-31 实测 404；现役是 developers.intercom.com/docs/guides/mcp + 端点本身
   - 把 intercom/intercom-mcp-server 仓当源码——它是文档仓（无 license、推送停 2025-09）；server 闭源托管
@@ -56,16 +54,17 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **streamable-http**（推荐：US https://mcp.intercom.com/mcp、EU https://mcp.eu.intercom.com/mcp）
-    + **legacy SSE**（/sse，官方标 deprecated、仅为向后兼容保留）。核验：mcp.intercom.com 首页与
-    developers.intercom.com/docs/guides/mcp（2026-10-31 直连 200；端点直连 401=存在需鉴权）。
-  auth: >-
-    OAuth（推荐；DCR+redirect URI allowlist）或 Bearer token（API token+scopes：读 users/companies、
-    读 conversations、读写 articles）。工具授权=你本人工作区权限镜像，MCP 不扩权。
-  scope: >-
-    读面（conversations/contacts/companies/articles）+ **写面**（Help Center articles 创建/更新、
-    Operator apply_proposals 改线上配置）；无本机面。写面按工作区权限与提案审批把关。
+    **streamable-http**（推荐：US https://mcp.intercom.com/mcp、EU https://mcp.eu.intercom.com/mcp） + **legacy SSE**（/sse，官方标 deprecated、仅为向后兼容保留）。
 
+    **依据：** 核验：mcp.intercom.com 首页与 developers.intercom.com/docs/guides/mcp（2026-10-31 直连 200；端点直连 401=存在需鉴权）。
+  auth: >-
+    OAuth（推荐；DCR+redirect URI allowlist）或 Bearer token（API token+scopes：读 users/companies、 读 conversations、读写 articles）。
+
+    工具授权=你本人工作区权限镜像，MCP 不扩权。
+  scope: >-
+    读面（conversations/contacts/companies/articles）+ **写面**（Help Center articles 创建/更新、 Operator apply_proposals 改线上配置）。
+
+    无本机面。写面按工作区权限与提案审批把关。
 sources:
   - label: Intercom Developers · MCP 指南（14 工具清单/OAuth 与 Bearer/scopes/排障；直连 200）
     url: https://developers.intercom.com/docs/guides/mcp
@@ -102,20 +101,22 @@ cn:
 
 ## 一句话定位
 
-**Intercom 官方托管 MCP server**（闭源 remote，streamable-http）：客服数据接进 AI 工具——
-14 工具：query-DSL search/fetch + conversations/contacts/companies 读 + Help Center articles 读写 +
-**Fin Operator 五工具**（apply_proposals 会真改线上配置；**Bearer 连接拿不到 Operator 工具，要 OAuth**）。
-区域两口径：US/EU 端点分开（EU 数据在 EU 内处理）、**AU 工作区不支持**；
-旧 SSE 端点已 deprecated。GitHub 那个仓只是文档仓，别当源码。
+**Intercom 官方托管 MCP server**（闭源 remote，streamable-http）：客服数据接进 AI 工具——14 工具：query-DSL search/fetch + conversations/contacts/companies 读 + Help Center articles 读写 +**Fin Operator 五工具**（apply_proposals 会真改线上配置；**Bearer 连接拿不到 Operator 工具，要 OAuth**）。
+
+区域两口径：US/EU 端点分开（EU 数据在 EU 内处理）、**AU 工作区不支持**；旧 SSE 端点已 deprecated。GitHub 那个仓只是文档仓，别当源码。
 
 ## 适合与不适合
 
-适合：支持团队把 Intercom 接进 Claude/Cursor/VS Code 等官方在册客户端；EU 数据驻留需求。
-不适合：AU 托管工作区；要自托管/开源；要 Bearer 简单接入还用 Operator。
+适合：支持团队把 Intercom 接进 Claude/Cursor/VS Code 等官方在册客户端。
+EU 数据驻留需求。
+不适合：AU 托管工作区。
+要自托管/开源。
+要 Bearer 简单接入还用 Operator。
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

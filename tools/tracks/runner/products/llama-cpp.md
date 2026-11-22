@@ -9,21 +9,33 @@ licenseEn: MIT (official repo README badge and LICENSE consistent, direct-fetche
 
 axes:
   model_access: >-
-    GGUF 生态根：官方 server 支持 F16 与量化模型在 GPU/CPU 推理，模型可从 Hugging Face 取 GGUF 或自转 safetensors；支持模型族随合入滚动，量化档由社区量化者产出（2026-11-21）。
+    GGUF 生态根。官方 server 支持 F16 与量化模型在 GPU/CPU 推理。模型可从 Hugging Face 取 GGUF，也可自转 safetensors。支持模型族随合入滚动，量化档由社区量化者产出（2026-11-21）。
   runtime: >-
-    C/C++ 推理库 + `llama-server`：OpenAI 兼容 `/v1/chat/completions`、`/v1/completions`、embeddings 与 responses，另有 Anthropic 兼容 `/v1/messages`；构建后端覆盖 CPU、Metal、SYCL、CUDA、HIP、Vulkan，自带 Web UI（2026-11-21）。
+    C/C++ 推理库，另有 `llama-server`。OpenAI 兼容 `/v1/chat/completions`、`/v1/completions`、embeddings 与 responses，另有 Anthropic 兼容 `/v1/messages`。
+
+    构建后端覆盖 CPU、Metal、SYCL、CUDA、HIP 与 Vulkan，自带 Web UI（2026-11-21）。
   local_files: >-
-    全本地：模型权重、KV cache、对话与生成物都在自有机器；`--kv-offload` 可把 KV cache 放 GPU，`--no-kv-offload` 留 CPU；官方无云托管线（2026-11-21）。
+    全本地。模型权重、KV cache、对话与生成物都在自有机器。`--kv-offload` 可把 KV cache 放 GPU，`--no-kv-offload` 留 CPU。官方无云托管线（2026-11-21）。
   background: >-
-    `llama-server` 常驻即服务：连续批处理默认开启、`-np/--parallel` 配多 slot、`--ctx-checkpoints` 保留上下文检查点；适合常开进程，托管队列由部署方自建（2026-11-21）。
+    `llama-server` 常驻即服务。连续批处理默认开启。`-np/--parallel` 配多 slot，`--ctx-checkpoints` 保留上下文检查点。适合常开进程，托管队列由部署方自建（2026-11-21）。
   tools: >-
-    工具面强：`--jinja` 开 OpenAI 风格 function calling/tool use（原生格式+通用回退，覆盖任意模型）；实验性 `--mcp-servers-json` 接 Cursor 兼容 MCP server；`--agent` 开内置工具与 CORS 代理；另有 schema 约束 JSON、多模态、reranking、监控端点（2026-11-21）。
+    工具面强。`--jinja` 开 OpenAI 风格 function calling 与 tool use。它含原生格式与通用回退，覆盖任意模型。
+
+    实验性 `--mcp-servers-json` 接 Cursor 兼容 MCP server。`--agent` 开内置工具与 CORS 代理。
+
+    另有 schema 约束 JSON、多模态、reranking 与监控端点（2026-11-21）。
   context: >-
-    上下文按运行参数控制：`-c/--ctx-size` 设 prompt 窗口，`--kv-unified-per-slot` 给每个并行 slot 限额，`-ctk/-ctv` 可把 KV cache 压到 q8/q4 等类型，`--ctx-checkpoints` 最多留 32 个检查点（2026-11-21）。
+    上下文按运行参数控制。`-c/--ctx-size` 设 prompt 窗口，`--kv-unified-per-slot` 给每个并行 slot 限额。
+
+    `-ctk/-ctv` 可把 KV cache 压到 q8/q4 等类型，`--ctx-checkpoints` 最多留 32 个检查点（2026-11-21）。
   permissions: >-
-    MIT 许可，本地进程无账号体系；`llama-server` 用 `--api-key` 或 `--api-key-file` 做 Bearer 鉴权；MCP/agent 默认关闭，开启时出于安全默认把 CORS 限到 localhost，官方明确提示勿在不可信环境启用（2026-11-21）。
+    MIT 许可，本地进程无账号体系。`llama-server` 用 `--api-key` 或 `--api-key-file` 做 Bearer 鉴权。
+
+    MCP/agent 默认关闭。开启时出于安全默认把 CORS 限到 localhost。官方明确提示勿在不可信环境启用（2026-11-21）。
   fit: >-
-    适合：要细粒度控制（量化档/后端/上下文/KV cache）、消费级硬件跑 GGUF、给下游工具做本地推理底座、在 server 层接 MCP/工具调用。不适合：要开箱 GUI、要多模型高吞吐服务化（vLLM/SGLang 更强）（2026-11-21）。
+    适合要细粒度控制的人，包括量化档、后端、上下文与 KV cache。也适合消费级硬件跑 GGUF。
+
+    还适合给下游工具做本地推理底座，在 server 层接 MCP 或工具调用。不适合要开箱 GUI。也不适合要多模型高吞吐服务化，后者 vLLM/SGLang 更强（2026-11-21）。
 
 pitfalls:
   - 把 GGUF 支持面当「所有模型都有量化档」——量化档由第三方量化者产出，看 models 站索引
@@ -73,17 +85,19 @@ cn:
 
 ## 一句话定位
 
-**llama.cpp 是整个本地推理生态的地基**：GGUF 格式由它定义，models 站的量化索引按它的口径建，
-Ollama/LM Studio/KoboldCpp 都在它上面盖楼。MIT、纯 C/C++、llama-server 提供官方 REST 线。
+**llama.cpp 是整个本地推理生态的地基**：GGUF 格式由它定义，models 站的量化索引按它的口径建。Ollama/LM Studio/KoboldCpp 都在它上面盖楼。
+
+MIT、纯 C/C++、llama-server 提供官方 REST 线。
 
 ## 适合与不适合
 
-适合：要控制量化档/后端/每个参数的用户、消费级 GPU 与 Apple 硅跑 GGUF、给自研工具做推理底座。
-不适合：要开箱 GUI；要多模型高并发服务化（那是 vLLM/SGLang 的调度强项）。
+适合：要控制量化档、后端与每个参数的用户。也适合消费级 GPU 与 Apple 硅跑 GGUF，给自研工具做推理底座。
+不适合要开箱 GUI。也不适合要多模型高并发服务化，那是 vLLM/SGLang 的调度强项。
 
 ## 实测记录
 
-本档核对官方 server/function-calling/build 文档与仓库许可；吞吐、显存与 MCP 工具链稳定性需按具体硬件与模型实测。
+本档核对官方 server/function-calling/build 文档与仓库许可。吞吐、显存与 MCP 工具链稳定性需按具体硬件与模型实测。
+
 ## 未知项清单
 
 - 支持模型全清单：官方按合入滚动，按仓库模型页核对。
@@ -93,3 +107,7 @@ Ollama/LM Studio/KoboldCpp 都在它上面盖楼。MIT、纯 C/C++、llama-serve
 
 - [Ollama](./ollama.md) — 在 llama.cpp 之上做开箱体验的一代；要底层控制回到本档案。
 - [KoboldCpp](./koboldcpp.md) — 基于 llama.cpp 的单文件 GUI 路线。
+
+
+
+

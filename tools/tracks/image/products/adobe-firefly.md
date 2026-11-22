@@ -15,29 +15,25 @@ licenseEn: Free allowance + Creative Cloud subscription. Governed by Adobe's gen
 
 axes:
   model_access: >-
-    Firefly 自家模型族（图像/视频/音效多模态线）+ 平台内可选第三方模型（官方叙事：Firefly 应用可调用
-    第三方模型，未逐条清点）；模型由 Adobe 侧上架。
+    Firefly 自家模型族（图像/视频/音效多模态线）+ 平台内可选第三方模型（官方叙事：Firefly 应用可调用 第三方模型，未逐条清点）。模型由 Adobe 侧上架。
   runtime: >-
-    网页（firefly.adobe.com）+ 嵌入 Photoshop/Premiere 等 CC 应用的生成能力（生成填充等）——
-    本档案覆盖独立 Firefly 产品线；CC 内嵌线按边界裁决不单列（见 inventory 备注）。
+    网页（firefly.adobe.com）+ 嵌入 Photoshop/Premiere 等 CC 应用的生成能力（生成填充等）—— 本档案覆盖独立 Firefly 产品线。
+
+    CC 内嵌线按边界裁决不单列（见 inventory 备注）。
   local_files: >-
-    作品存 Adobe 云（Creative Cloud 存储面）；本机不跑模型，生成与素材库都在云端账户侧，Creative Cloud 同步与协作按账户权限。
+    作品存 Adobe 云（Creative Cloud 存储面）。本机不跑模型，生成与素材库都在云端账户侧。Creative Cloud 同步与协作按账户权限。
   background: >-
-    生成即时/排队（网页队列按账号档位波动，按官方文档口径）；无「关机续跑」任务面（官方文档未单列声明）；
-    CC 应用内嵌线随应用前台运行，不是后台代理。
+    生成即时/排队（网页队列按账号档位波动，按官方文档口径）。无「关机续跑」任务面（官方文档未单列声明）。CC 应用内嵌线随应用前台运行，不是后台代理。
   tools: >-
-    产品内含文生图、生成填充/扩展、风格参考、结构参考、矢量重着色（设计向）、视频生成（Firefly 视频线）等；
-    与 Adobe Stock/Express 生态联动是官方叙事的一部分。
+    **依据：** 产品内含文生图、生成填充/扩展、风格参考、结构参考、矢量重着色（设计向）、视频生成（Firefly 视频线）等； 与 Adobe Stock/Express 生态联动是官方叙事的一部分。
   context: >-
-    以项目/库组织（CC 生态：Firefly 作品与 CC 资产库联动面存在，细节按官方文档口径）；
-    跨会话记忆官方文档未单列。
+    以项目/库组织（CC 生态：Firefly 作品与 CC 资产库联动面存在，细节按官方文档口径）。跨会话记忆官方文档未单列。
   permissions: >-
-    Adobe 账号+CC 订阅体系；商用赔偿（indemnification）是企业向卖点（官方长期口径）；
+    Adobe 账号+CC 订阅体系。商用赔偿（indemnification）是企业向卖点（官方长期口径）。
+
     训练数据口径=授权内容库（官方长期口径）——这两点是它与多数同类最大的合规差异。
   fit: >-
-    适合：企业合规采购（赔偿+授权训练叙事）、已在 Adobe 生态、设计到交付链路。
-    不适合：脱离 Adobe 账号体系、要开放权重本地跑（Firefly 不开源）。
-
+    适合：企业合规采购（赔偿+授权训练叙事）、已在 Adobe 生态、设计到交付链路。不适合：脱离 Adobe 账号体系、要开放权重本地跑（Firefly 不开源）。
 pitfalls:
   - 独立 Firefly 产品线 ≠ Photoshop 里的生成填充——同模型族两入口，条款与积分池按 Adobe 口径联动但产品面不同
   - 「商用赔偿」有适用条件（账号类型/使用面）——企业采购前按 Adobe 官方条款核赔偿范围，别把营销口径当无条件承诺

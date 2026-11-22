@@ -9,25 +9,23 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
   model_access: >-
-    safetensors/HF 系权重为主（GGUF 支持有限——models 站口径：量化服务化首选仍是 llama.cpp 路线）；
-    支持模型清单以官方 docs 为准，本档不逐条复制完整清单。
+    safetensors/HF 系权重为主（GGUF 支持有限——models 站口径：量化服务化首选仍是 llama.cpp 路线）。支持模型清单以官方 docs 为准，本档不逐条复制完整清单。
   runtime: >-
-    服务化推理引擎：PagedAttention 显存管理是官方招牌（自报数字在 models 站 guides
-    serving-deep-dive.md 已核验快照，出处同源）；GitHub 95,878★（API 核验 2026-10-21）。
-  local_files: >-
-    自托管部署，数据在自有环境；无官方托管云线（第三方云托管不算官方）。
-  background: >-
-    产品形态就是常驻服务（OpenAI 兼容 server）；并发/批处理调度是主轴。
-  tools: >-
-    OpenAI 兼容 API 含 tool calling；MCP 支持状态本档不逐条展开。
-  context: >-
-    长上下文按模型与显存配置；前缀缓存等优化在官方文档线，细节本档不逐条展开。
-  permissions: >-
-    自托管无账号体系；API 鉴权由部署方自配；多租户隔离与配额面本档不逐条展开。
-  fit: >-
-    适合：多模型/多请求的服务化部署、要吞吐与显存效率、生产环境 OpenAI 兼容端点。
-    不适合：单机开箱跑量化档（llama.cpp/Ollama 更省事）；GGUF 深度依赖场景。
+    **依据：** 服务化推理引擎：PagedAttention 显存管理是官方招牌（自报数字在 models 站 guides serving-deep-dive.md 已核验快照，出处同源）。
 
+    GitHub 95,878★（API 核验 2026-10-21）。
+  local_files: >-
+    自托管部署，数据在自有环境。无官方托管云线（第三方云托管不算官方）。
+  background: >-
+    产品形态就是常驻服务（OpenAI 兼容 server）。并发/批处理调度是主轴。
+  tools: >-
+    OpenAI 兼容 API 含 tool calling。MCP 支持状态本档不逐条展开。
+  context: >-
+    长上下文按模型与显存配置。前缀缓存等优化在官方文档线，细节本档不逐条展开。
+  permissions: >-
+    自托管无账号体系。API 鉴权由部署方自配。多租户隔离与配额面本档不逐条展开。
+  fit: >-
+    适合：多模型/多请求的服务化部署、要吞吐与显存效率、生产环境 OpenAI 兼容端点。不适合：单机开箱跑量化档（llama.cpp/Ollama 更省事）。GGUF 深度依赖场景。
 pitfalls:
   - 把「跑开源模型」都当等价——vLLM 强在服务化调度，单机单模型开箱它不是最省事
   - 把 PagedAttention 自报数字当本站实测——那是官方口径快照，本站不实测
@@ -66,8 +64,9 @@ cn:
 
 ## 一句话定位
 
-**vLLM 是开源模型的推理与服务化引擎**：PagedAttention 把显存管理做成核心竞争力，OpenAI 兼容 server 直接对接现有客户端。
-Apache-2.0、PyTorch 基金会生态。数字口径：官方自报性能数字在 models 站 guides 已核验快照，本站不实测。
+**vLLM 是开源模型的推理与服务化引擎**：PagedAttention 把显存管理做成核心竞争力。OpenAI 兼容 server 直接对接现有客户端。
+
+**依据：** Apache-2.0、PyTorch 基金会生态。数字口径：官方自报性能数字在 models 站 guides 已核验快照，本站不实测。
 
 ## 适合与不适合
 

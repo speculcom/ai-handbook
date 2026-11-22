@@ -12,29 +12,29 @@ licenseEn: Product free (HF account optional); frontend code Apache-2.0 (officia
 
 axes:
   model_access: >-
-    开源模型聚合是它的本体形态：当日页内可见「Models 137」清单与 Omni 自动路由
-    （官方文案「Omni automatically picks the best AI model… You can also choose from any available open source models」）——
-    用户直接选开源模型，全部托管在 HF 推理侧。
+    **依据：** 开源模型聚合是它的本体形态：当日页内可见「Models 137」清单与 Omni 自动路由 （官方文案「Omni automatically picks the best AI model… You can also choose from any available open source models」）—— 用户直接选开源模型。
+
+    全部托管在 HF 推理侧。
   runtime: >-
-    网页（huggingface.co/chat）；前端开源（chat-ui 仓 Apache-2.0，当日 ★11,004/pushed 2026-10-30）——
-    可自部署（runner 类的 text-generation-webui 等是另一条本机路线）。托管版生成在 HF 侧。
+    网页（huggingface.co/chat）。
+
+    前端开源（chat-ui 仓 Apache-2.0，当日 ★11,004/pushed 2026-10-30）—— 可自部署（runner 类的 text-generation-webui 等是另一条本机路线）。
+
+    托管版生成在 HF 侧。
   local_files: >-
-    托管版对话历史存于账户/浏览器侧；自部署版数据完全在自己机器上（这是它与托管对话产品的结构性差别）。
+    托管版对话历史存于账户/浏览器侧。自部署版数据完全在自己机器上（这是它与托管对话产品的结构性差别）。
   background: >-
-    对话即时返回；官方产品页只列对话与「ML Intern」入口（papers/training/spaces 向），不列异步任务。
+    对话即时返回。官方产品页只列对话与「ML Intern」入口（papers/training/spaces 向）。不列异步任务。
   tools: >-
-    开源前端的 MCP 工具接入在官方 README 在册（经 OpenAI function calling 调用 MCP server 暴露的工具、
-    可经 env 预配置受信 server、用户也能在界面自行添加并做健康检查，预配置示例含 Web Search (Exa)）；
+    开源前端的 MCP 工具接入在官方 README 在册（经 OpenAI function calling 调用 MCP server 暴露的工具、 可经 env 预配置受信 server、用户也能在界面自行添加并做健康检查，预配置示例含 Web Search (Exa)）。
+
     托管版按同一代码库运行，具体开关形态未逐条核验。
   context: >-
-    会话按对话组织、托管版历史存于账户/浏览器侧；官方产品页只描述账户/浏览器历史，不列跨会话记忆——
-    开源前端的数据层完全归自部署者管辖，这是它与托管对话产品的结构性差别。
+    会话按对话组织、托管版历史存于账户/浏览器侧。官方产品页只描述账户/浏览器历史。不列跨会话记忆—— 开源前端的数据层完全归自部署者管辖。这是它与托管对话产品的结构性差别。
   permissions: >-
-    HF 账号可选（不登录也能用，功能受限）；数据口径按 HF 隐私页与所选模型许可双重管辖，未逐条核验。
+    HF 账号可选（不登录也能用，功能受限）。数据口径按 HF 隐私页与所选模型许可双重管辖，未逐条核验。
   fit: >-
-    适合：只用开源模型、要一个账号横排 137 个开源档、要参考/自部署开源 chat 前端。
-    不适合：要用闭源旗舰模型（GPT/Claude 不在列）、要大陆直连（未备案）。
-
+    适合：只用开源模型、要一个账号横排 137 个开源档、要参考/自部署开源 chat 前端。不适合：要用闭源旗舰模型（GPT/Claude 不在列）、要大陆直连（未备案）。
 pitfalls:
   - HuggingChat 只有开源模型——它与 Poe 同为聚合但模型池完全不同（Poe 含闭源 API）
   - 「前端开源可自部署」与「托管版跑 HF 推理」是两件事——自部署要自己接推理后端（挂 runner 类工具）
@@ -84,8 +84,9 @@ cn:
 
 ## 一句话定位
 
-**HuggingChat 是「只用开源模型」的聚合对话产品**（HF 出品，当日 137 个模型+Omni 自动路由）：
-前端 chat-ui 开源（Apache-2.0）可自部署——它同时是产品，也是开源 chat 前端的参考实现。
+**HuggingChat**：一个「只用开源模型」的聚合对话产品。HF 出品，当日列了 137 个模型，另有 Omni 自动路由。
+
+前端 chat-ui 开源，许可证 Apache-2.0，可自部署。它既是产品，也是开源 chat 前端的参考实现。
 
 ## 适合与不适合
 

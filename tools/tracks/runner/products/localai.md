@@ -9,25 +9,29 @@ licenseEn: MIT (official site states "Open source · MIT · v4.8.0", GitHub API 
 
 axes:
   model_access: >-
-    多引擎（engines）架构接各家后端；官网口径「Run text, voice, vision, image, video, 3D and agent
-    workloads through one open runtime」（直抓所见）；模型/引擎矩阵本档不逐条复制完整清单。
+    多引擎（engines）架构接各家后端。
+
+    **依据：** 官网口径「Run text, voice, vision, image, video, 3D and agent workloads through one open runtime」（直抓所见）。
+
+    模型/引擎矩阵本档不逐条复制完整清单。
   runtime: >-
-    单二进制 OpenAI 兼容 API 前置多后端；官网称亦兼容 Anthropic/Ollama/ElevenLabs API（直抓所见）；
+    单二进制 OpenAI 兼容 API 前置多后端。官网称亦兼容 Anthropic/Ollama/ElevenLabs API（直抓所见）。
+
     GitHub 50,065★（API 核验 2026-10-21）。
   local_files: >-
-    官网口径「keep your data on your hardware」（直抓所见）；全自托管。
+    官网口径「keep your data on your hardware」（直抓所见）。全自托管。
   background: >-
-    常驻服务形态（单二进制 API server）；CPU-only 模式官网点名（直抓所见），并发细节本档不逐条展开。
+    常驻服务形态（单二进制 API server）。CPU-only 模式官网点名（直抓所见），并发细节本档不逐条展开。
   tools: >-
-    agent 负载在官方多模态叙事内；工具调用面与 MCP 支持本档不逐条展开。
+    agent 负载在官方多模态叙事内。工具调用面与 MCP 支持本档不逐条展开。
   context: >-
-    上下文长度按后端引擎与部署配置变化；跨请求缓存与记忆线本档不逐条展开。
+    上下文长度按后端引擎与部署配置变化。跨请求缓存与记忆线本档不逐条展开。
   permissions: >-
-    自托管无账号体系；API 鉴权由部署方自配；多引擎后端的凭据面（如接云 API）本档不逐条展开。
+    自托管无账号体系。API 鉴权由部署方自配。多引擎后端的凭据面（如接云 API）本档不逐条展开。
   fit: >-
-    适合：一个二进制换 URL 就把现有 OpenAI 客户端转本地、要文本之外（语音/图像）多模态负载同一运行时。
-    不适合：只要单一 LLM 极致性能（专用引擎更精）；要大厂官方背书（个人主导项目）。
+    适合：一个二进制换 URL 就把现有 OpenAI 客户端转本地、要文本之外（语音/图像）多模态负载同一运行时。不适合：只要单一 LLM 极致性能（专用引擎更精）。
 
+    要大厂官方背书（个人主导项目）。
 pitfalls:
   - 把「兼容多家 API」当「性能对齐各家官方」——兼容是接口面，性能跟后端引擎走
   - 个人主导项目的维护面——看仓库节奏与贡献者面（GitHub API 快照口径）
@@ -69,13 +73,16 @@ cn:
 
 ## 一句话定位
 
-**LocalAI 是「换 URL 就转本地」的多模态运行时**：单二进制 OpenAI 兼容前置，底下接多引擎，
-文本/语音/视觉/agent 负载同一栈。MIT、活跃维护（v4.8.0 官网直抓口径）。
+**LocalAI 是「换 URL 就转本地」的多模态运行时**：单二进制 OpenAI 兼容前置。
+底下接多引擎
+文本/语音/视觉/agent 负载同一栈。
+MIT、活跃维护（v4.8.0 官网直抓口径）。
 
 ## 适合与不适合
 
 适合：现有 OpenAI 客户端最小改动转本地、CPU-only 机器、要多模态负载同一运行时。
-不适合：单一 LLM 极致吞吐（专用引擎更精）；要机构级背书（个人主导）。
+不适合：单一 LLM 极致吞吐（专用引擎更精）。
+要机构级背书（个人主导）。
 
 ## 实测记录
 

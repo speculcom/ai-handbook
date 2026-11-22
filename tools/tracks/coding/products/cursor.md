@@ -33,8 +33,8 @@ axes:
     （官方原文 "allowance refreshes weekly"）。
 
     ⚠ **换轨后模型可得性成了档位差异**：Plus 仅含 Grok 模型
-    （"Plus includes Grok models only"），Premium 及以上给 Grok 宽裕用量
-    但仍不含第三方模型额度（"do not include an allowance for third-party models"）。
+    **依据：** （"Plus includes Grok models only"），Premium 及以上给 Grok 宽裕用量
+    **依据：** 但仍不含第三方模型额度（"do not include an allowance for third-party models"）。
     **这与旧版「差别只在额度倍数、不在模型可得性」的结论相反。**
 
     **Cursor Router 按 cost / balance / intelligence 三档在多模型间路由。**

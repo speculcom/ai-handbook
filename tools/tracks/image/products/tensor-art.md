@@ -13,31 +13,37 @@ licenseEn: Free + VIP subscription (1/30/90-day passes). Governed by the officia
 
 axes:
   model_access: >-
-    社区模型托管与在线跑是本体：checkpoint/LoRA/ControlNet/Textual Inversion 上传、分享与在线生成
-    （Civitai 式社区模型生态，条款 1.2「image generation and posting service」在册）；
-    基础模型（SD1.5 一类）供直接生成；在线 LoRA 训练（隐私页 Model Training features 在册）；自研模型线官方文档未单列。
+    社区模型托管与在线跑是本体。
+
+    checkpoint/LoRA/ControlNet/Textual Inversion 上传、分享与在线生成 （Civitai 式社区模型生态，条款 1.2「image generation and posting service」在册）。
+
+    基础模型（SD1.5 一类）供直接生成。在线 LoRA 训练（隐私页 Model Training features 在册）。自研模型线官方文档未单列。
   runtime: >-
-    网页（tensor.art）+ 官方软件应用（条款多处提及 Tensor.Art software application，可下载）；
-    生成在厂商云端按 credit 跑；平台不提供本地运行时——下载的应用是客户端不是本地推理引擎（细节按官方文档口径）。
+    网页（tensor.art）+ 官方软件应用（条款多处提及 Tensor.Art software application，可下载）。生成在厂商云端按 credit 跑。
+
+    平台不提供本地运行时——下载的应用是客户端不是本地推理引擎（细节按官方文档口径）。
   local_files: >-
-    作品与模型存账户侧云端；条款提及可下载的软件应用（本机安装面在册），但其本机数据面官方文档未单列；
+    作品与模型存账户侧云端。条款提及可下载的软件应用（本机安装面在册）。但其本机数据面官方文档未单列。
+
     社区模型的下载面当日官方文档未单列（全站 Cloudflare 反爬，curl 通道 403，仅部分官方页经 WebFetch 命中）。
   background: >-
-    credit 制即时生成：VIP 会员每日 300 credit、当日刷新不结转（会员条款在册）；
-    无常驻任务面（官方文档未单列声明）；LoRA 训练提交后在云端跑（Model Training 功能在册，排队/时长细节官方文档未单列）。
+    credit 制即时生成。VIP 会员每日 300 credit、当日刷新不结转（会员条款在册）。无常驻任务面（官方文档未单列声明）。
+
+    LoRA 训练提交后在云端跑（Model Training 功能在册，排队/时长细节官方文档未单列）。
   tools: >-
-    在线 LoRA 训练（隐私页 Model Training features）、模型上传与社区分享（条款 3.7 转载须原作者书面同意）、
-    社区画廊与发布（posting service）；news 页最新条目「Free Video Trial with Wan2.2」显示视频生成面试验（2026-10-31）；
-    API 面官方文档未单列官方口径（第三方评测称无 API，不作依据）。
+    在线 LoRA 训练（隐私页 Model Training features）、模型上传与社区分享（条款 3.7 转载须原作者书面同意）、 社区画廊与发布（posting service）。
+
+    news 页最新条目「Free Video Trial with Wan2.2」显示视频生成面试验（2026-10-31）。API 面官方文档未单列官方口径（第三方评测称无 API，不作依据）。
   context: >-
-    以模型页/作品页组织；官方产品面没有跨会话记忆入口。社区模型库（风格模型可复用）是它的一致性机制，不是记忆；模型页与作品页承担复用。
+    以模型页/作品页组织。官方产品面没有跨会话记忆入口。社区模型库（风格模型可复用）是它的一致性机制，不是记忆。模型页与作品页承担复用。
   permissions: >-
-    免费+VIP 订阅（1/30/90 天档、每日 300 credit；D9：价格不采）；条款 3.1 平台对模型与生成图不做所有权主张、
-    内容可自由使用；3.7 转载模型须原作者书面同意；3.6 不鼓励 NSFW 内容（社区治理口径）；账号须 18+（2.2）。
+    免费+VIP 订阅（1/30/90 天档、每日 300 credit；D9：价格不采）。条款 3.1 平台对模型与生成图不做所有权主张、 内容可自由使用。3.7 转载模型须原作者书面同意。
+
+    3.6 不鼓励 NSFW 内容（社区治理口径）。账号须 18+（2.2）。
   fit: >-
     适合：免费 credit 生图+社区模型寻宝（SD 生态）、在线 LoRA 训练、模型分享社区。
-    不适合：要官方自研前沿模型（它是托管+基础模型平台）、企业合规叙事优先（条款面薄、无 DPA 面）、对社区内容治理敏感的场景。
 
+    不适合：要官方自研前沿模型（它是托管+基础模型平台）、企业合规叙事优先（条款面薄、无 DPA 面）、对社区内容治理敏感的场景。
 pitfalls:
   - **全站 Cloudflare 反爬**（curl 直连 000/代理 403）——公共核验面极薄：条款/会员条款/隐私/news 四页经 WebFetch 当日命中，其余面（下载面、API）官方文档未单列，档案按 partial 如实记
   - 主体是隐私页在册的 **ECHO INTERNATIONAL HK LIMITED（香港）**，联系邮箱挂 echo.tech 域——与大陆 echo.tech 的关系官方文档未单列，备案口径不能按大陆服务混断
@@ -87,8 +93,9 @@ cn:
 
 ## 一句话定位
 
-**Tensor.Art 是 SD 生态的社区模型托管+在线生成台**：checkpoint/LoRA 上传分享与在线跑、在线 LoRA 训练、
-免费 credit+VIP 订阅；主体是隐私页在册的香港公司（ECHO INTERNATIONAL HK LIMITED）。
+**Tensor.Art 是 SD 生态的社区模型托管+在线生成台**：checkpoint/LoRA 上传分享与在线跑、在线 LoRA 训练、免费 credit+VIP 订阅。
+
+主体是隐私页在册的香港公司（ECHO INTERNATIONAL HK LIMITED）。
 
 ## 适合与不适合
 

@@ -9,25 +9,23 @@ licenseEn: Apache-2.0 core plus an attribution request (official LICENSE, direct
 
 axes:
   model_access: >-
-    官方定位「100% offline on your computer」（仓库描述直抓所见）；GGUF 本地模型为主，
-    模型清单随版本滚动，本档不逐条复制完整清单。
+    官方定位「100% offline on your computer」（仓库描述直抓所见）。GGUF 本地模型为主， 模型清单随版本滚动，本档不逐条复制完整清单。
   runtime: >-
-    桌面应用（Jan 自研运行时 jan-core/jan-engine 线）；GitHub 45,158★（API 核验 2026-10-21）。
+    桌面应用（Jan 自研运行时 jan-core/jan-engine 线）。GitHub 45,158★（API 核验 2026-10-21）。
+
     仓库现归 Menlo Research 名下（janhq/jan；menloresearch/jan 为旧路径 301 跳转，直抓核验）。
   local_files: >-
     对话与模型全落本机（官方「100% offline on your computer」口径，仓库描述直抓所见）。
   background: >-
-    应用内置本地 API server（OpenAI 兼容）可常开；细节本档不逐条展开。
+    应用内置本地 API server（OpenAI 兼容）可常开。细节本档不逐条展开。
   tools: >-
-    插件/扩展生态在官方文档线内；MCP 支持状态本档不逐条展开，第三方扩展质量未清点。
+    插件/扩展生态在官方文档线内。MCP 支持状态本档不逐条展开，第三方扩展质量未清点。
   context: >-
-    会话上下文管理在应用内；跨会话记忆与长期记忆官方未单独披露（未核验到≠没有）。
+    会话上下文管理在应用内。跨会话记忆与长期记忆官方未单独披露（未核验到≠没有）。
   permissions: >-
-    桌面应用权限随操作系统授权；无账号体系，离线定位下未见云同步权限面。
+    桌面应用权限随操作系统授权。无账号体系，离线定位下未见云同步权限面。
   fit: >-
-    适合：要开源的桌面 GUI 跑离线模型（对比闭源的 LM Studio）。
-    不适合：要服务化多模型部署；要开箱即用最新模型（模型获取体验弱于 Ollama）。
-
+    适合：要开源的桌面 GUI 跑离线模型（对比闭源的 LM Studio）。不适合：要服务化多模型部署。要开箱即用最新模型（模型获取体验弱于 Ollama）。
 pitfalls:
   - 把 NOASSERTION 当「许可不明」——读 LICENSE 原文是 Apache2.0+署名请求，GitHub 标记只是机器判不了附加句
   - 用旧仓名 menloresearch/jan 找仓库——现路径 janhq/jan（旧路径 301 跳转仍可达）
@@ -69,8 +67,9 @@ cn:
 
 ## 一句话定位
 
-**Jan 是「开源版 ChatGPT 桌面替代」的长期主义者**：100% 离线跑本地模型，Apache-2.0 主体加一句署名请求。
-诚实标注：GitHub API 标 NOASSERTION 是机器判不了附加署名句——读 LICENSE 原文才准；官网直连 000（网络受限非死亡）。
+**Jan 是「开源版 ChatGPT 桌面替代」的长期主义者**：100% 离线跑本地模型。Apache-2.0 主体加一句署名请求。
+
+**依据：** 诚实标注：GitHub API 标 NOASSERTION 是机器判不了附加署名句——读 LICENSE 原文才准；官网直连 000（网络受限非死亡）。
 
 ## 适合与不适合
 

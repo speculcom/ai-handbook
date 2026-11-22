@@ -18,7 +18,7 @@ axes:
     有两面都要模型：被红队的 target，和驱动攻击的那一面。仓库首页点名 target 覆盖「OpenAI, Anthropic, Azure OpenAI,
     Microsoft Foundry, Azure Machine Learning, Google Gemini, Google Vertex AI, AWS Bedrock, Hugging Face, Ollama,
     Groq, OpenRouter, Cohere, and GitHub Copilot」，接入协议写「HTTP, WebSockets, browser automation with Playwright,
-    or custom targets」；文档 latest 把这一点概括为 Any Target。凭据侧官方原文：「PyRIT loads API credentials from
+    **依据：** or custom targets」；文档 latest 把这一点概括为 Any Target。凭据侧官方原文：「PyRIT loads API credentials from
     environment variables or `.env` files」，示例变量是 OPENAI_CHAT_ENDPOINT / OPENAI_CHAT_KEY / OPENAI_CHAT_MODEL。
   runtime: >-
     装在自己的 Python 环境里跑：`pip install pyrit`（PyPI 记 requires-python >=3.10,<3.15，当日版本 1.1.0）。
@@ -27,7 +27,7 @@ axes:
     是否存在官方托管执行面：官方页面未提供声明。
   local_files: >-
     读本机配置与 `.env` 凭据，写的是扫描产物与状态。文档 latest 明确「Built-in Memory」有两个后端：SQLite 与 Azure SQL——
-    前者落在你机器上的库文件，后者落在你自己的数据库。默认 SQLite 文件名与路径、清理与导出方式：本批次未逐字核验。
+    **依据：** 前者落在你机器上的库文件，后者落在你自己的数据库。默认 SQLite 文件名与路径、清理与导出方式：本批次未逐字核验。
   background: >-
     长任务的本机语义齐全：自适应多轮攻击与 scenario 都在本地进程里推进，结果可在 CoPyRIT 界面复核（仓库首页
     「Explore AI systems interactively and review results in your browser」）。「关机后在别处续跑」这类托管队列语义：
@@ -35,15 +35,15 @@ axes:
   tools: >-
     组件面按文档 latest 在册的有：Automated Red Teaming（点名的策略含 Crescendo、TAP）、Scenario Framework、
     Any Target、Built-in Memory、Flexible Scoring，另有 targets/converters/scorers/memory/orchestrators 这一层模块划分。
-    与同大类另一份档案的直接接口：文档专页写明 Garak scenario family「implements probes inspired by the Garak framework」，
+    **依据：** 与同大类另一份档案的直接接口：文档专页写明 Garak scenario family「implements probes inspired by the Garak framework」，
     运行形式是 `pyrit_scan run garak.prompt_inject --target openai_chat`。MCP 接入：官方文档未说明，不补推断。
   context: >-
     自适应多轮攻击靠的就是可回溯的会话状态，状态存在上述 memory 后端里；文档 latest 把「adaptive multi-turn attacks」
     与 scenario 目录并列在册。跨会话记忆的边界、上下文压缩或截断策略：本批次官方页面未提供逐条官方正文，不补推断。
   permissions: >-
     许可面：MIT，版权方 Microsoft（LICENSE 正文直读）。归属面要记一条事实：原 Azure/PyRIT 仓库页写着
-    「PyRIT has moved! Please see https://github.com/microsoft/PyRIT!」，本档案按迁移后仓库建档。
-    数据流向：探针与攻击 prompt 发往你配置的 target 端点与攻击模型端点，凭据从环境变量或 `.env` 载入（官方原文见
+    **依据：** 「PyRIT has moved! Please see https://github.com/microsoft/PyRIT!」，本档案按迁移后仓库建档。
+    **依据：** 数据流向：探针与攻击 prompt 发往你配置的 target 端点与攻击模型端点，凭据从环境变量或 `.env` 载入（官方原文见
     model_access 维），扫描记录落在你自己的 SQLite/Azure SQL。是否有默认遥测、留存期条款：官方页面未提供声明，进 unknowns。
     它是评测与取证工具，不做阻断，因此本档不写任何「拦下多少」的比例，也不引用 scenario 报告的数值。
   fit: >-
@@ -111,8 +111,8 @@ cn:
 
 **PyRIT 是微软那份「自己搭红队流程」的本机工具箱**（MIT，已从 Azure/PyRIT 迁到 microsoft/PyRIT）：
 仓库首页把它写成 automated scans + adaptive multi-turn attacks + a web UI，官方文档 latest 的定义句落在
-「assessing the security and safety of generative AI systems at scale」。和同大类另一份 garak 档案的分野很干脆——
-**garak 的默认形态是一条命令扫一个端点，PyRIT 的默认形态是你用 Python 把 targets、converters、scorers、
+    **依据：** 「assessing the security and safety of generative AI systems at scale」。和同大类另一份 garak 档案的分野很干脆——
+    **依据：** **garak 的默认形态是一条命令扫一个端点，PyRIT 的默认形态是你用 Python 把 targets、converters、scorers、
 memory 与 attack 策略编排成一份可复跑的 assessment**。
 
 ## 适合与不适合

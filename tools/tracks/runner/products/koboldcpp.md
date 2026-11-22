@@ -9,25 +9,21 @@ licenseEn: AGPL-3.0 (GitHub API verified 2026-10-21; official repo LICENSE direc
 
 axes:
   model_access: >-
-    GGUF 为主（仓库描述「Run GGUF AI models locally」直抓所见）+ transformers 转换线；
-    支持量化档看 models 站 GGUF 索引口径。
+    GGUF 为主（仓库描述「Run GGUF AI models locally」直抓所见）+ transformers 转换线。支持量化档看 models 站 GGUF 索引口径。
   runtime: >-
-    单文件可执行程序（「One File. Zero Install.」官方描述）；基于 llama.cpp 系；
-    GitHub 12,097★（API 核验 2026-10-21）。
+    单文件可执行程序（「One File. Zero Install.」官方描述）。基于 llama.cpp 系。GitHub 12,097★（API 核验 2026-10-21）。
   local_files: >-
-    全本地运行：模型、对话与生成记录都在自有环境；未见官方云线或遥测声明。
+    全本地运行：模型、对话与生成记录都在自有环境。未见官方云线或遥测声明。
   background: >-
-    内置 KoboldAI 兼容 API server 常驻；细节本档不逐条展开。
+    内置 KoboldAI 兼容 API server 常驻。细节本档不逐条展开。
   tools: >-
-    以角色扮演/创意写作负载为主轴；工具调用/function calling 支持面本档不逐条展开。
+    以角色扮演/创意写作负载为主轴。工具调用/function calling 支持面本档不逐条展开。
   context: >-
-    上下文与内存（memory/smart context）管理是 Kobold 系传统强项；细节本档不逐条展开。
+    上下文与内存（memory/smart context）管理是 Kobold 系传统强项。细节本档不逐条展开。
   permissions: >-
-    本地进程无账号体系；API server 监听与鉴权由用户自配（默认口径本档不逐条展开）。
+    本地进程无账号体系。API server 监听与鉴权由用户自配（默认口径本档不逐条展开）。
   fit: >-
-    适合：角色扮演/长上下文创意写作、要单文件免安装、要 KoboldAI 生态兼容。
-    不适合：要 OpenAI 兼容主叙事（有但非主轴）；要 AGPL 商用闭源分发（copyleft 约束）。
-
+    适合：角色扮演/长上下文创意写作、要单文件免安装、要 KoboldAI 生态兼容。不适合：要 OpenAI 兼容主叙事（有但非主轴）。要 AGPL 商用闭源分发（copyleft 约束）。
 pitfalls:
   - AGPL 的 copyleft——基于它分发服务要开源义务，商用闭源集成前先读条款
   - 找错仓库——官方仓在 LostRuins 名下，koboldai/koboldcpp 已 404（2026-10-21 直抓核验）
@@ -69,13 +65,15 @@ cn:
 
 ## 一句话定位
 
-**KoboldCpp 是角色扮演/创意写作圈的本地推理老兵**：单文件免安装、GGUF、Kobold 系上下文管理传统。
-AGPL-3.0——商用集成前先读 copyleft 义务。诚实标注：官方仓在 LostRuins 名下（koboldai 名下旧仓 404）。
+**KoboldCpp 是角色扮演/创意写作圈的本地推理老兵**：单文件免安装、GGUF、Kobold 系上下文管理传统。AGPL-3.0。
+
+商用集成前先读 copyleft 义务。诚实标注：官方仓在 LostRuins 名下（koboldai 名下旧仓 404）。
 
 ## 适合与不适合
 
 适合：长上下文角色扮演与创意写作、要零安装单文件、KoboldAI 前端生态用户。
-不适合：要 AGPL 之外的宽松许可做闭源集成；要 OpenAI 兼容作主工作流（能用但非主轴）。
+不适合：要 AGPL 之外的宽松许可做闭源集成。
+要 OpenAI 兼容作主工作流（能用但非主轴）。
 
 ## 实测记录
 

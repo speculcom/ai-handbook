@@ -10,22 +10,35 @@ licenseEn: Free, subscription and API tiers. Governed by the official terms page
 
 axes:
   model_access: >-
-    自研语音模型线：官方文档列 s2.1-pro（生产推荐）、s2-pro、s2.1-pro-free（零成本测试档）与 drama-3（自然语言导演、带音效/停顿/标签），s1 已标注 2026-12-31 退役；自托管线基于 fish_speech 仓库（2026-11-21）。
-  runtime: >-
-    云端 API `https://api.fish.audio/v1/tts`（另有 `/model` 建音色）+ 网页 fish.audio；官方自托管文档给出本地 GPU 推理服务（`localhost:8080/v1/tts`），一条请求同时支持云端与自建（2026-11-21）。
-  local_files: >-
-    自托管路径把模型权重与音频都落在本机：官方文档给出从语义 token 到 DAC 解码的本地推理步骤，产物写本地文件；云端路径的产出以 bytes/流式分块返回，音色模型存账户侧（2026-11-21）。
-  background: >-
-    合成是同步/流式：`tts.convert()` 返回完整音频，`tts.stream()` 分块吐，WebSocket 接实时文本；音色训练是异步状态机，新建模型 `state` 从 created 到 trained（fast 模式多数即时可用），失败可重试（2026-11-21）。
-  tools: >-
-    TTS（多语言、mp3/wav/pcm/opus、speed 0.5–2.0）、即时克隆（直接传参考音频+转写）、持久音色模型（`POST /model`，private/unlist/public）、音色市场、Drama 3 导演式标签；官方 Voice Cloning 页另列 Professional Voice Clone（需验证，网页版）（2026-11-21）。
-  context: >-
-    无对话记忆：每次 TTS 请求独立，音色靠 `reference_id` 复用；即时克隆把参考样本随请求带入，持久克隆训练成 voice id，资产是跨请求一致性机制而非会话上下文（2026-11-21）。
-  permissions: >-
-    API Key（`FISH_API_KEY`）+ 账户/订阅；克隆样本须为本人或已获授权的声音，Professional Voice Clone 在官方页单列为 Verified 档；公开音色进 Voice Library 由用户选择 private/unlist/public（2026-11-21）。
-  fit: >-
-    适合：自有声音快速复刻、品牌统一音色、实时语音助手（约 300ms 首包，balanced 档）、自托管离线合成。不适合：克隆他人声音（授权红线）、要企业级合规审计链、大陆直连（实测 000）（2026-11-21）。
+    自研语音模型线。官方文档列 s2.1-pro（生产推荐）、s2-pro、s2.1-pro-free（零成本测试档）与 drama-3（自然语言导演、带音效/停顿/标签）。
 
+    s1 已标注 2026-12-31 退役。自托管线基于 fish_speech 仓库（2026-11-21）。
+  runtime: >-
+    **依据：** 云端 API `https://api.fish.audio/v1/tts`（另有 `/model` 建音色）+ 网页 fish.audio；官方自托管文档给出本地 GPU 推理服务（`localhost:8080/v1/tts`），一条请求同时支持云端与自建（2026-11-21）。
+  local_files: >-
+    自托管路径把模型权重与音频都落在本机。官方文档给出从语义 token 到 DAC 解码的本地推理步骤，产物写本地文件。云端路径的产出以 bytes/流式分块返回。
+
+    音色模型存账户侧（2026-11-21）。
+  background: >-
+    合成是同步/流式。`tts.convert()` 返回完整音频，`tts.stream()` 分块吐。WebSocket 接实时文本。
+
+    音色训练是异步状态机，新建模型 `state` 从 created 到 trained（fast 模式多数即时可用）。失败可重试（2026-11-21）。
+  tools: >-
+    TTS（多语言、mp3/wav/pcm/opus、speed 0.5–2.0）、即时克隆（直接传参考音频+转写）、持久音色模型（`POST /model`，private/unlist/public）、音色市场、Drama 3 导演式标签。
+
+    官方 Voice Cloning 页另列 Professional Voice Clone（需验证，网页版）（2026-11-21）。
+  context: >-
+    无对话记忆：每次 TTS 请求独立，音色靠 `reference_id` 复用。即时克隆把参考样本随请求带入。持久克隆训练成 voice id。
+
+    资产是跨请求一致性机制而非会话上下文（2026-11-21）。
+  permissions: >-
+    API Key（`FISH_API_KEY`）+ 账户/订阅。克隆样本须为本人或已获授权的声音。Professional Voice Clone 在官方页单列为 Verified 档。
+
+    公开音色进 Voice Library 由用户选择 private/unlist/public（2026-11-21）。
+  fit: >-
+    适合：自有声音快速复刻、品牌统一音色、实时语音助手（约 300ms 首包，balanced 档）、自托管离线合成。
+
+    不适合：克隆他人声音（授权红线）、要企业级合规审计链、大陆直连（实测 000）（2026-11-21）。
 pitfalls:
   - zero-shot 克隆「能用」≠「合规」——上传他人声音样本在条款上是红线，授权责任在使用者
   - 社区音色库的商用权利逐音色看标注——别按「平台可用=可商用」理解
@@ -88,7 +101,8 @@ cn:
 
 ## 实测记录
 
-本档核对官方 TTS、Voice Cloning 与自托管文档；音质、克隆保真度与自托管显存占用需按硬件实测。
+本档核对官方 TTS、Voice Cloning 与自托管文档。
+音质、克隆保真度与自托管显存占用需按硬件实测。
 ## 未知项清单
 
 - 注册主体与团队构成：按官方条款页与站点署名核对。

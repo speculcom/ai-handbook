@@ -17,8 +17,8 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-从会议记录提取负责人、期限与待确认项。
-输入：会议记录原文、参会人名单、时区。
+**一句话**：从会议记录提取负责人、期限与待确认项。
+**依据：**： 输入：会议记录原文、参会人名单、时区。
 
 ## [提示词本体|The prompt]
 
@@ -30,7 +30,7 @@ confidence: partial
 
 ## [预期输出形态|Expected output shape]
 
-actions[] 与 open_questions[]，每条带原文 evidence。
+**依据：** actions[] 与 open_questions[]，每条带原文 evidence。
 
 ## [检查点|Checkpoints]
 

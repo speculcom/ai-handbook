@@ -10,29 +10,27 @@ licenseEn: Official Consumer Terms of Service: as between you and Anthropic you 
 
 axes:
   model_access: >-
-    模型家族官方 release notes 披露并按档位分流（2026 年线：Claude Fable 5.1 / Mythos 5.1 /
-    Opus 5 / Sonnet 5 / Haiku 5.5 等发布记录）；聊天内可选模型，Enterprise 管理员可控制成员可用模型。
+    模型家族官方 release notes 披露并按档位分流（2026 年线：Claude Fable 5.1 / Mythos 5.1 / Opus 5 / Sonnet 5 / Haiku 5.5 等发布记录）。
+
+    聊天内可选模型，Enterprise 管理员可控制成员可用模型。
   runtime: >-
-    网页、桌面（macOS/Windows）、移动应用；对话生成在 Anthropic 云端处理。
-    Cowork 线有本地会话形态（跑在你的电脑上），与云端会话并列——本条目主轴是对话应用。
+    网页、桌面（macOS/Windows）、移动应用。对话生成在 Anthropic 云端处理。Cowork 线有本地会话形态（跑在你的电脑上），与云端会话并列——本条目主轴是对话应用。
   local_files: >-
-    可上传文档做长文分析；上传内容存于 Claude 账户。删除的对话前端立即消失、后端 30 天内删除（官方隐私政策）。
+    可上传文档做长文分析。上传内容存于 Claude 账户。删除的对话前端立即消失、后端 30 天内删除（官方隐私政策）。
   background: >-
-    Cowork 远程会话（beta）官方明说「Work continues when you close your laptop, and scheduled
-    tasks run with no device online」（release notes 2026-07-07）——关机续跑与定时任务有官方出处。
+    **依据：** Cowork 远程会话（beta）官方明说「Work continues when you close your laptop, and scheduled tasks run with no device online」（release notes 2026-07-07）——关机续跑与定时任务有官方出处。
   tools: >-
-    连接器生态（Microsoft 365 含写工具、Salesforce 插件等官方条目）；Artifacts 产出代码与内容；
-    Skills/插件安全扫描（Enterprise beta）。
+    连接器生态（Microsoft 365 含写工具、Salesforce 插件等官方条目）。Artifacts 产出代码与内容。Skills/插件安全扫描（Enterprise beta）。
   context: >-
-    记忆功能为分类条目制：Settings > Memory 可查看全部 Topics、逐条编辑或删除；敏感话题默认不入记忆；
+    记忆功能为分类条目制。Settings > Memory 可查看全部 Topics、逐条编辑或删除。敏感话题默认不入记忆。
+
     Free/Pro/Max 默认开、Team/Enterprise 默认关（release notes 2026-08-25）。
   permissions: >-
-    官方隐私政策（2026-09-10 生效）：消费者对话默认可能用于训练，账户设置里可 opt out；
-    即使退出，被安全审查标记的对话仍会被用；API/Enterprise 数据由客户协议管辖，不适用本政策。
-  fit: >-
-    重长文阅读与写作质量的人。要「对话绝不进训练」就在设置里 opt out（注意安全审查例外）；
-    要合同级数据条款走 API/Enterprise。与 Claude Code 是两条产品线，别混。
+    官方隐私政策（2026-09-10 生效）。消费者对话默认可能用于训练，账户设置里可 opt out。即使退出，被安全审查标记的对话仍会被用。
 
+    API/Enterprise 数据由客户协议管辖，不适用本政策。
+  fit: >-
+    重长文阅读与写作质量的人。要「对话绝不进训练」就在设置里 opt out（注意安全审查例外）。要合同级数据条款走 API/Enterprise。与 Claude Code 是两条产品线，别混。
 pitfalls:
   - 把对话应用与 Claude Code 当成一条产品线——两条线、两份档案
   - 以为训练 opt-out 覆盖一切——被安全审查标记的对话是官方明写的例外
@@ -81,8 +79,10 @@ Cowork 线把「关机续跑、定时任务」写进了官方 release notes。
 
 ## 适合与不适合
 
-适合长文档分析、写作与内容产出。在意训练就在设置里 opt out（安全审查例外是官方明写的）；
-企业数据走 API/Enterprise 线。编码 agent 是另一条产品线（Claude Code），别拿这页当它。
+适合长文档分析、写作与内容产出。
+在意训练就在设置里 opt out（安全审查例外是官方明写的）
+企业数据走 API/Enterprise 线。
+编码 agent 是另一条产品线（Claude Code），别拿这页当它。
 
 ## 实测记录
 

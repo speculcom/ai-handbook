@@ -12,28 +12,23 @@ licenseEn: Free with login (Meta account system). Governed by Meta's official te
 
 axes:
   model_access: >-
-    底座是 Meta 自研 Llama 系（开放权重族——权重下载自部署是另一条线，见 models 站 Llama 系列档案）；
-    产品内模型版本与切换形态本档不逐条展开。
+    底座是 Meta 自研 Llama 系（开放权重族——权重下载自部署是另一条线，见 models 站 Llama 系列档案）。产品内模型版本与切换形态本档不逐条展开。
   runtime: >-
-    网页（meta.ai）+ App，且深度嵌入 WhatsApp/Instagram/Facebook/Messenger 内的 AI 入口；
-    生成在 Meta 云端，本机不跑模型。当日 www.meta.ai 对无头抓取 403（Cloudflare 拦截，非死链）。
-  local_files: >-
-    对话历史存于 Meta 账户侧、与社交图谱同账号体系；未见官方声明的本机数据面——
-    权重开放可下载自部署是另一条线（见 models 站 Llama 系列档案），产品对话数据不随权重落在本机。
-  background: >-
-    对话即时返回；官方产品页不列异步任务。嵌入 WhatsApp/IG 等应用内的入口与独立站
-    （meta.ai）的会话是否互通、历史如何联动，本档不逐条展开。
-  tools: >-
-    图像生成（Imagine 线）、联网等能力在官方叙事在册；官方产品页不列 MCP 支持。
-  context: >-
-    会话按对话组织、跨 Meta 系应用的历史联动形态本档不逐条展开；官方产品页不列跨会话记忆机制。
-  permissions: >-
-    Meta 账号体系（与社交图谱同账号是它的最大权限面）；训练用途开关路径本档不逐条展开——
-    Meta 的数据使用口径历来敏感，要按官方隐私页逐项看。
-  fit: >-
-    适合：已在 Meta 系应用（WhatsApp/IG）内工作、要免费对话+图像生成的用户。
-    不适合：要脱离 Meta 账号、要大陆直连（未备案）、要权重在产品内本地跑。
+    网页（meta.ai）+ App，且深度嵌入 WhatsApp/Instagram/Facebook/Messenger 内的 AI 入口。生成在 Meta 云端，本机不跑模型。
 
+    当日 www.meta.ai 对无头抓取 403（Cloudflare 拦截，非死链）。
+  local_files: >-
+    对话历史存于 Meta 账户侧、与社交图谱同账号体系。未见官方声明的本机数据面—— 权重开放可下载自部署是另一条线（见 models 站 Llama 系列档案）。产品对话数据不随权重落在本机。
+  background: >-
+    对话即时返回。官方产品页不列异步任务。嵌入 WhatsApp/IG 等应用内的入口与独立站 （meta.ai）的会话是否互通、历史如何联动。本档不逐条展开。
+  tools: >-
+    图像生成（Imagine 线）、联网等能力在官方叙事在册。官方产品页不列 MCP 支持。
+  context: >-
+    会话按对话组织、跨 Meta 系应用的历史联动形态本档不逐条展开。官方产品页不列跨会话记忆机制。
+  permissions: >-
+    Meta 账号体系（与社交图谱同账号是它的最大权限面）。训练用途开关路径本档不逐条展开—— Meta 的数据使用口径历来敏感。要按官方隐私页逐项看。
+  fit: >-
+    适合：已在 Meta 系应用（WhatsApp/IG）内工作、要免费对话+图像生成的用户。不适合：要脱离 Meta 账号、要大陆直连（未备案）、要权重在产品内本地跑。
 pitfalls:
   - Meta AI（www.meta.ai 对话助手）与 coding 大类的 meta-muse（编码云）是两条产品线——inventory 登记时已注明，别混
   - 「Llama 开放权重」不等于「Meta AI 可本地跑」——产品跑在 Meta 云上，权重线是下载自部署
@@ -74,8 +69,7 @@ cn:
 
 ## 一句话定位
 
-**Meta AI 是 Meta 的对话助手**（meta.ai + 嵌入 WhatsApp/IG/FB/Messenger）：
-Llama 系底座、免费+Meta 账号、图像生成在册；社交生态嵌入是它区别于其他对话产品的最大特征与最大权限面。
+**Meta AI 是 Meta 的对话助手**：（meta.ai + 嵌入 WhatsApp/IG/FB/Messenger）：Llama 系底座、免费+Meta 账号、图像生成在册。社交生态嵌入是它区别于其他对话产品的最大特征与最大权限面。
 
 ## 适合与不适合
 

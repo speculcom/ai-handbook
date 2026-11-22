@@ -10,27 +10,21 @@ licenseEn: Follow the LICENSE in NVIDIA's repository (not verified line by line 
 
 axes:
   model_access: >-
-    面向 NVIDIA GPU 的 LLM 推理工具包：Python API 定义模型，trtllm-serve 提供服务端点；
-    支持模型清单以官方文档为准，本档不逐条复制完整清单。
+    面向 NVIDIA GPU 的 LLM 推理工具包。Python API 定义模型。trtllm-serve 提供服务端点。支持模型清单以官方文档为准，本档不逐条复制完整清单。
   runtime: >-
-    编译 + 服务化：把模型编译成 TensorRT 引擎，再通过 trtllm-serve 暴露 OpenAI 兼容接口；
-    官方定位是数据中心/云端的大规模生产部署。
+    编译 + 服务化。把模型编译成 TensorRT 引擎。再通过 trtllm-serve 暴露 OpenAI 兼容接口。官方定位是数据中心/云端的大规模生产部署。
   local_files: >-
-    自托管，权重与引擎在自有环境；NVIDIA GPU 限定，CPU/AMD 加速不在官方支持范围。
+    自托管，权重与引擎在自有环境。NVIDIA GPU 限定，CPU/AMD 加速不在官方支持范围。
   background: >-
-    常驻服务形态，适合批处理与高并发；没有「关机后续跑」的官方声明，
-    任务队列与重试由部署方负责，进程退出后需重新加载引擎。
+    常驻服务形态，适合批处理与高并发。没有「关机后续跑」的官方声明， 任务队列与重试由部署方负责。进程退出后需重新加载引擎。
   tools: >-
-    trtllm-serve 提供 API；工具调用与 MCP 支持状态本档不逐条展开。
+    trtllm-serve 提供 API。工具调用与 MCP 支持状态本档不逐条展开。
   context: >-
-    长上下文按模型与显存配置；KV cache 优化在官方文档线，细节本档不逐条展开。
+    长上下文按模型与显存配置。KV cache 优化在官方文档线，细节本档不逐条展开。
   permissions: >-
-    自托管无账号体系；鉴权、配额与多租户隔离由部署方自配，官方不提供内置租户模型，
-    GPU 资源配额需外部调度。
+    **依据：** 自托管无账号体系；鉴权、配额与多租户隔离由部署方自配，官方不提供内置租户模型， GPU 资源配额需外部调度。
   fit: >-
-    适合：NVIDIA GPU 集群、要生产级吞吐与低延迟、已有容器/编译流水线。
-    不适合：单机消费级显卡开箱、AMD/CPU 部署、想要 GGUF 即下即跑。
-
+    适合：NVIDIA GPU 集群、要生产级吞吐与低延迟、已有容器/编译流水线。不适合：单机消费级显卡开箱、AMD/CPU 部署、想要 GGUF 即下即跑。
 pitfalls:
   - 把 TensorRT-LLM 当成 llama.cpp 的替代——它需要编译引擎，部署链更重
   - 以为 AMD/CPU 也能跑——官方定位是 NVIDIA GPU
@@ -73,7 +67,8 @@ cn:
 
 ## 一句话定位
 
-TensorRT-LLM 是 NVIDIA 的生产级 LLM 推理栈：先把模型编译成 TensorRT 引擎，再用 trtllm-serve 提供 OpenAI 兼容端点。
+TensorRT-LLM 是 NVIDIA 的生产级 LLM 推理栈：先把模型编译成 TensorRT 引擎。
+再用 trtllm-serve 提供 OpenAI 兼容端点。
 它面向 NVIDIA GPU 集群，不是单机开箱工具。
 
 跨大类对照：[LangGraph](../framework/langgraph.html)。

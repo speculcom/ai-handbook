@@ -10,30 +10,25 @@ licenseEn: Official ToS §4 'Content Rights': paid users own their Assets — 'Y
 
 axes:
   model_access: >-
-    模型迭代经官方更新页（updates.midjourney.com）与 Alpha changelog 披露（2026-10-08
-    「Testing Thinking Mode」、9-24「Edit updates, thumbnail previews」等条目，2026-10-21 直抓核验）；
+    模型迭代经官方更新页（updates.midjourney.com）与 Alpha changelog 披露（2026-10-08 「Testing Thinking Mode」、9-24「Edit updates, thumbnail previews」等条目，2026-10-21 直抓核验）。
+
     生成时可选版本，默认版本以官方文档为准。
   runtime: >-
-    网页应用与 Discord Bot 两条使用线；生成在 Midjourney 云端处理，本机不跑模型。
+    网页应用与 Discord Bot 两条使用线。生成在 Midjourney 云端处理，本机不跑模型。
   local_files: >-
-    支持图像上传作参考与编辑输入；产出默认在社区公开可浏览、可被他人 Remix（官方帮助页口径），
-    仅 Pro/Mega 档 Stealth 模式承诺尽力不公开。
+    支持图像上传作参考与编辑输入。产出默认在社区公开可浏览、可被他人 Remix（官方帮助页口径）。仅 Pro/Mega 档 Stealth 模式承诺尽力不公开。
   background: >-
-    生成为任务制（提交-排队-产出）；没有「关机续跑」形态的官方声明。
+    生成为任务制（提交-排队-产出）。没有「关机续跑」形态的官方声明。
   tools: >-
-    网页编辑器持续迭代（edit updates、缩略图预览等 changelog 条目）；Discord Bot 线可群内生成；
-    Remix 机制是产品内置的二次创作路径。
+    网页编辑器持续迭代（edit updates、缩略图预览等 changelog 条目）。Discord Bot 线可群内生成。Remix 机制是产品内置的二次创作路径。
   context: >-
-    生成为任务制，无跨会话记忆形态；个人化偏好通过参数与 Remix 体现。
+    生成为任务制，无跨会话记忆形态。个人化偏好通过参数与 Remix 体现。
   permissions: >-
-    官方隐私政策 §1 明确适用于「通过训练 Midjourney 机器学习算法的过程收集的数据」；
-    官方 AB2013 训练数据披露称训练集含「第三方与 Midjourney 用户提供的数据」；
-    默认公开可浏览、可被 Remix，Stealth 模式（Pro/Mega）是尽力不公开选项；
-    官方文档未见面向用户的训练退出开关。
-  fit: >-
-    重图像风格质量、能接受「默认公开」社区形态的人。要作品不公开或商用归属清晰，
-    先看订阅档与 Stealth 条款再开工；大体量公司注意营收门槛条款。
+    官方隐私政策 §1 明确适用于「通过训练 Midjourney 机器学习算法的过程收集的数据」。官方 AB2013 训练数据披露称训练集含「第三方与 Midjourney 用户提供的数据」。
 
+    默认公开可浏览、可被 Remix。Stealth 模式（Pro/Mega）是尽力不公开选项。官方文档未见面向用户的训练退出开关。
+  fit: >-
+    重图像风格质量、能接受「默认公开」社区形态的人。要作品不公开或商用归属清晰。先看订阅档与 Stealth 条款再开工。大体量公司注意营收门槛条款。
 pitfalls:
   - 把「付费拥有 Assets」当成无门槛——年营收超 100 万美元的公司须 Pro/Mega 档才拥有
   - 把 Stealth 当成训练退出——它只管公开与否，官方文档没有训练 opt-out 开关
@@ -76,14 +71,15 @@ cn:
 
 ## 一句话定位
 
-图像生成平台：网页 + Discord 双线，社区默认公开可 Remix；
+图像生成平台。
+网页 + Discord 双线，社区默认公开可 Remix
 「付费拥有 Assets、但大营收公司要高档位」是最容易被忽略的一条许可门槛。
 
 ## 适合与不适合
 
-适合重图像风格质量、接受「默认公开」社区形态的创作者。要作品不公开就查 Stealth 条款
-（Pro/Mega 专属、尽力性质）；要商用归属清晰先读 ToS §4 与订阅档；公司用户注意营收例外。
-在意「素材绝不进训练」——官方文档没有训练退出开关，这一点要先接受。
+适合重图像风格质量、接受「默认公开」社区形态的创作者。要作品不公开就查 Stealth 条款（Pro/Mega 专属、尽力性质）。要商用归属清晰先读 ToS §4 与订阅档。公司用户注意营收例外。
+
+在意「素材绝不进训练」。官方文档没有训练退出开关，这一点要先接受。
 
 ## 实测记录
 

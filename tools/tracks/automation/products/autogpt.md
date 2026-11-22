@@ -14,31 +14,29 @@ licenseEn: Two-zone licensing (LICENSE direct-fetched same day): everything insi
 
 axes:
   model_access: >-
-    平台按任务接入各家模型（现役 Experts 线的模型选择面按官方文档口径）；classic 自主 agent 线
-    历史上以 OpenAI 系为主，现役默认官方文档未单列。
+    平台按任务接入各家模型（现役 Experts 线的模型选择面按官方文档口径）。classic 自主 agent 线 历史上以 OpenAI 系为主。现役默认官方文档未单列。
   runtime: >-
-    双形态：托管平台（隐私政策当日在册：「The AutoGPT Platform at platform.agpt.co」）+
-    开源自托管（导航 GitHub「Explore the code and self-host」在册；仓当日推送 2026-10-30）。
+    双形态：托管平台（隐私政策当日在册：「The AutoGPT Platform at platform.agpt.co」）+ 开源自托管（导航 GitHub「Explore the code and self-host」在册；仓当日推送 2026-10-30）。
   local_files: >-
-    自托管形态数据在本机（代码与部署自管）；托管版数据在 Determinist Ltd 云端
-    （隐私政策自任 data controller，当日在册）。
+    自托管形态数据在本机（代码与部署自管）。托管版数据在 Determinist Ltd 云端 （隐私政策自任 data controller，当日在册）。
   background: >-
-    现役产品是「AI 专家团队」：按职位分工的 Experts（AI SDR/SEO writer/LinkedIn posts/执行助理）
-    由 Otto 协调（首页当日在册）——多步异步执行是产品主轴；排队与失败恢复细节按官方文档口径。
-  tools: >-
-    Integrations 页在册（Apps and tools your experts can use）；平台 blocks/工作流面在文档与仓在册；
-    具体连接器清单按官方文档口径。
-  context: >-
-    Experts 的任务上下文与协调面（Otto）是产品核心；官方产品面没有跨会话记忆入口，持久化靠平台任务与知识面，任务状态由平台保存。
-  permissions: >-
-    托管版主体 Determinist Ltd trading as "AutoGPT"（英格兰及威尔士注册，条款与隐私政策当日在册）；
-    subprocessors 页在册；训练用途开关路径按官方文档口径。
-  fit: >-
-    适合：多步异步的「AI 团队」委托式工作（内容/销售/研究）、要开源自托管（平台 Polyform Shield+
-    classic MIT 分区）。
-    不适合：要确定性画布工作流（自主 agent 血统）、要大陆直连备案入口、要宽松无限制的平台许可
-    （平台区是 Polyform Shield 非 MIT）。
+    现役产品是「AI 专家团队」。
 
+    按职位分工的 Experts（AI SDR/SEO writer/LinkedIn posts/执行助理） 由 Otto 协调（首页当日在册）——多步异步执行是产品主轴。
+
+    排队与失败恢复细节按官方文档口径。
+  tools: >-
+    Integrations 页在册（Apps and tools your experts can use）。平台 blocks/工作流面在文档与仓在册。具体连接器清单按官方文档口径。
+  context: >-
+    Experts 的任务上下文与协调面（Otto）是产品核心。官方产品面没有跨会话记忆入口。持久化靠平台任务与知识面，任务状态由平台保存。
+  permissions: >-
+    托管版主体 Determinist Ltd trading as "AutoGPT"（英格兰及威尔士注册，条款与隐私政策当日在册）。subprocessors 页在册。
+
+    训练用途开关路径按官方文档口径。
+  fit: >-
+    适合：多步异步的「AI 团队」委托式工作（内容/销售/研究）、要开源自托管（平台 Polyform Shield+ classic MIT 分区）。
+
+    不适合：要确定性画布工作流（自主 agent 血统）、要大陆直连备案入口、要宽松无限制的平台许可 （平台区是 Polyform Shield 非 MIT）。
 pitfalls:
   - **条款主体是 Determinist Ltd trading as "AutoGPT"（英格兰及威尔士）**——GitHub org 名 Significant-Gravitas 不是签约主体，引用主体按条款原文
   - **许可按目录分区**：autogpt_platform 内 Polyform Shield、外 MIT——「AutoGPT 是 MIT」只对 classic 线成立；仓 license=NOASSERTION 正是双许可的结果
@@ -84,10 +82,9 @@ cn:
 
 ## 一句话定位
 
-**AutoGPT 现役形态是「你的 AI 专家团队」**（首页当日招牌：Your team of AI Experts——按职位分工的
-AI SDR/SEO writer/LinkedIn 写手/执行助理，由 Otto 协调）：托管平台 platform.agpt.co + 开源自托管双路径，
-仓 ★187,826 当日核验；从 2023 自主 agent 实验到低代码平台再到 Experts，产品线两度转向，
-classic 线仍在仓但已非主打——按任何一代旧印象建档都会错位。
+**AutoGPT 现役形态是「你的 AI 专家团队」**：（首页当日招牌：Your team of AI Experts——按职位分工的AI SDR/SEO writer/LinkedIn 写手/执行助理。由 Otto 协调）：托管平台 platform.agpt.co + 开源自托管双路径仓 ★187,826 当日核验。
+
+从 2023 自主 agent 实验到低代码平台再到 Experts，产品线两度转向，classic 线仍在仓但已非主打。按任何一代旧印象建档都会错位。
 
 ## 适合与不适合
 

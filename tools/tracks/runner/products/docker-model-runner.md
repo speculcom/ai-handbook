@@ -10,27 +10,21 @@ licenseEn: Follow Docker's official terms and component LICENSE files (not verif
 
 axes:
   model_access: >-
-    从 Docker Hub、任意 OCI 兼容 registry 或 Hugging Face 拉取模型并运行；
-    支持 LLM 与其他 AI 模型，具体模型清单以官方文档为准。
+    从 Docker Hub、任意 OCI 兼容 registry 或 Hugging Face 拉取模型并运行。支持 LLM 与其他 AI 模型，具体模型清单以官方文档为准。
   runtime: >-
-    集成在 Docker Desktop 与 Docker Engine：本地拉起模型，
-    通过 OpenAI 与 Ollama 兼容 API 提供服务（官方文档）。
+    集成在 Docker Desktop 与 Docker Engine：本地拉起模型。通过 OpenAI 与 Ollama 兼容 API 提供服务（官方文档）。
   local_files: >-
-    模型作为 OCI 工件存储与分发；提示与数据在本机处理，不需要 API key。
+    模型作为 OCI 工件存储与分发。提示与数据在本机处理，不需要 API key。
   background: >-
-    常驻本地服务，可被 Docker 生态内的应用调用；没有「关机后续跑」的官方声明。
+    常驻本地服务，可被 Docker 生态内的应用调用。没有「关机后续跑」的官方声明。
   tools: >-
-    OpenAI/Ollama 兼容端点；Docker Agent 可自动发现已拉取模型。
-    工具调用与 MCP 支持本档不逐条展开。
+    OpenAI/Ollama 兼容端点。Docker Agent 可自动发现已拉取模型。工具调用与 MCP 支持本档不逐条展开。
   context: >-
-    长上下文按模型与内存配置；官方提供低内存、长文档等配置预设，
-    单次请求的上下文上限由所选模型决定。
+    长上下文按模型与内存配置。官方提供低内存、长文档等配置预设。单次请求的上下文上限由所选模型决定。
   permissions: >-
     本地 Docker 环境内运行；权限由 Docker 与宿主系统决定。
   fit: >-
-    适合：已用 Docker 的团队、想把模型分发纳入容器流水线、要本地 OpenAI 兼容端点。
-    不适合：不想装 Docker、要 GPU 极限优化、要成品聊天界面。
-
+    适合：已用 Docker 的团队、想把模型分发纳入容器流水线、要本地 OpenAI 兼容端点。不适合：不想装 Docker、要 GPU 极限优化、要成品聊天界面。
 pitfalls:
   - 把 DMR 当成云端模型服务——它在本机跑，数据不出本机
   - 以为所有镜像都能直接跑模型——模型要按 DMR 的 OCI 工件格式分发
@@ -72,7 +66,7 @@ cn:
 
 ## 一句话定位
 
-Docker Model Runner 把模型当成 OCI 工件：从 Docker Hub、OCI registry 或 Hugging Face 拉取，
+**一句话**：Docker Model Runner 把模型当成 OCI 工件：从 Docker Hub、OCI registry 或 Hugging Face 拉取，
 在本机通过 OpenAI/Ollama 兼容 API 提供服务。
 
 跨大类对照：[OpenAI Agents SDK](../framework/openai-agents-sdk.html)。

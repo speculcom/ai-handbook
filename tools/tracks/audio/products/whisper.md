@@ -12,29 +12,27 @@ licenseEn: MIT (weights and code, official repo LICENSE direct-fetched 2026-10-2
 
 axes:
   model_access: >-
-    开源转写模型族（tiny→large-v3 多档，官方 README 列模型尺寸与语言覆盖）；权重经 Hugging Face
-    分发（官方 README 链接）。衍生生态庞大：whisper.cpp、faster-whisper、WhisperX 等
-    （官方 README 提及部分——生态全貌本档不逐条展开）。
+    开源转写模型族（tiny→large-v3 多档，官方 README 列模型尺寸与语言覆盖）。权重经 Hugging Face 分发（官方 README 链接）。衍生生态庞大。
+
+    whisper.cpp、faster-whisper、WhisperX 等 （官方 README 提及部分——生态全貌本档不逐条展开）。
   runtime: >-
-    本地运行（Python + PyTorch，官方 README 安装面）；GPU/CPU 皆可，档位换速度/质量。
+    本地运行（Python + PyTorch，官方 README 安装面）。GPU/CPU 皆可，档位换速度/质量。
+
     托管线：OpenAI API 的 whisper 转写端点（platform.openai.com 文档线）是同一模型的云形态。
   local_files: >-
-    完全本地：音频、转写结果都在本机——这是它与所有云端转写产品最根本的数据边界差异。
+    完全本地：音频、转写结果都在本机。这是它与所有云端转写产品最根本的数据边界差异。
   background: >-
-    批处理任务制（文件进、文本出，本机跑完即退）；无后台常驻/记忆概念。
+    批处理任务制（文件进、文本出，本机跑完即退）。无后台常驻/记忆概念。
   tools: >-
-    CLI 与 Python API（官方仓）；时间戳/翻译（译到英文）能力内置（官方 README）；
-    VAD/说话人分离不在官方仓——靠 WhisperX 等衍生件（衍生面本档不逐条展开）。
+    CLI 与 Python API（官方仓）。时间戳/翻译（译到英文）能力内置（官方 README）。VAD/说话人分离不在官方仓——靠 WhisperX 等衍生件（衍生面本档不逐条展开）。
   context: >-
-    无上下文概念——逐段转写；长音频靠分段策略（官方仓有长音频处理说明）。
+    无上下文概念。逐段转写。长音频靠分段策略（官方仓有长音频处理说明）。
   permissions: >-
-    本地跑无账号无上传——隐私敏感音频（医疗/法务/私人）走本地是它的不可替代场景；
-    云端 API 形态则按 OpenAI 平台条款（本档不逐条展开）。
+    本地跑无账号无上传。隐私敏感音频（医疗/法务/私人）走本地是它的不可替代场景。云端 API 形态则按 OpenAI 平台条款（本档不逐条展开）。
   fit: >-
     适合：隐私敏感的转写（音频不出本机）、离线环境、开发者集成（MIT 无许可负担）、多语言转写。
-    不适合：开箱即用会议记录产品体验（它是模型不是产品）、说话人分离开箱（要衍生件）、
-    无 GPU 重度使用（大档位 CPU 慢）。
 
+    不适合：开箱即用会议记录产品体验（它是模型不是产品）、说话人分离开箱（要衍生件）、 无 GPU 重度使用（大档位 CPU 慢）。
 pitfalls:
   - Whisper 是模型不是产品——「会议转写工具」体验（Otter 类）要自己搭壳或用衍生产品
   - 说话人分离/实时流不在官方仓——看到「Whisper 实时字幕」类产品都是衍生件，质量与许可各自核
@@ -76,7 +74,8 @@ cn:
 
 ## 一句话定位
 
-**Whisper 是转写领域的「开源基座」**：MIT 权重多档位本地跑，隐私敏感音频不出本机；
+**Whisper 是转写领域的「开源基座」**：MIT 权重多档位本地跑。
+隐私敏感音频不出本机
 它是模型不是产品——会议记录体验要壳件，说话人分离靠衍生生态。
 
 ## 适合与不适合

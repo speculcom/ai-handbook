@@ -15,28 +15,27 @@ providers:
   - agent 循环 model-driven：调哪些工具由接入的模型自己决定
 axes:
   model_access: >-
-    多 provider 接入（Bedrock 系为主，兼 Anthropic/OpenAI/LiteLLM 线——以官方文档为准，
-    本档不逐条复制完整清单）；官方叙事是「model-driven」：agent 循环由模型决定调哪些工具。
+    多 provider 接入（Bedrock 系为主，兼 Anthropic/OpenAI/LiteLLM 线——以官方文档为准， 本档不逐条复制完整清单）。
+
+    官方叙事是「model-driven」：agent 循环由模型决定调哪些工具。
   runtime: >-
-    Python/TS SDK（装进你的进程）；GitHub 8,997★，最近推送 2026-10-29（API 核验）。
+    Python/TS SDK（装进你的进程）。GitHub 8,997★。最近推送 2026-10-29（API 核验）。
+
     AWS 开源线（官方出品，非托管服务——与 Bedrock Agents 托管线区分）。
   local_files: >-
-    库形态跑在你进程里；数据落点由你决定。工具执行（shell/文件类）在你机器上发生——
-    权限面跟着你给的工具走。
+    库形态跑在你进程里。数据落点由你决定。工具执行（shell/文件类）在你机器上发生。权限面跟着你给的工具走。
   background: >-
-    库无常驻语义；agent 应用常驻与否取决于你的部署。观测线（agent 轨迹导出）在官方文档内。
+    库无常驻语义。agent 应用常驻与否取决于你的部署。观测线（agent 轨迹导出）在官方文档内。
   tools: >-
-    工具定义极简（装饰器式）；**MCP 支持是官方显式面**（MCP 客户端集成在文档主线）——
-    这是它与多数框架的差异点之一。
+    工具定义极简（装饰器式）。**MCP 支持是官方显式面**（MCP 客户端集成在文档主线）—— 这是它与多数框架的差异点之一。
   context: >-
-    会话记忆组件在官方模块族内（会话持久化线）；跨会话记忆给接口不给托管。
+    会话记忆组件在官方模块族内（会话持久化线）。跨会话记忆给接口不给托管。
   permissions: >-
-    无账号体系（库形态）；权限面=你接的各家 key + 你注册的工具能力（含 shell 类高危工具——
-    官方文档有安全指引线，本档不逐条展开）。
+    无账号体系（库形态）。权限面=你接的各家 key + 你注册的工具能力（含 shell 类高危工具—— 官方文档有安全指引线，本档不逐条展开）。
   fit: >-
-    适合：AWS 栈的 agent 开发（Bedrock 一等公民）、要显式 MCP 客户端能力、要轻量 SDK 不要重框架。
-    不适合：非 AWS 栈的默认选型（生态面比 LangChain 窄）；要可视化编排（它是代码优先）。
+    适合：AWS 栈的 agent 开发（Bedrock 一等公民）、要显式 MCP 客户端能力、要轻量 SDK 不要重框架。不适合：非 AWS 栈的默认选型（生态面比 LangChain 窄）。
 
+    要可视化编排（它是代码优先）。
 pitfalls:
   - 与 Bedrock Agents 托管线混谈——Strands 是开源 SDK（Apache2.0），Bedrock Agents 是托管服务（automation 大类）
   - 用旧仓名 sdk-python 找仓库——现 redirect 到 harness-sdk（2026-10-21 直抓核验）
@@ -75,9 +74,9 @@ cn:
 
 ## 一句话定位
 
-**AWS 的开源 agent SDK**（Apache-2.0）：model-driven 循环、装饰器式工具、**MCP 客户端是官方主线**。
-与 Bedrock Agents 托管线分清楚：Strands 是「拿来自己搭的底座」（本大类），托管线在 automation。
-仓现名 harness-sdk（旧名 redirect——直抓核验）。
+**AWS 的开源 agent SDK**（Apache-2.0）：model-driven 循环、装饰器式工具、**MCP 客户端是官方主线**。与 Bedrock Agents 托管线分清楚。
+
+Strands 是「拿来自己搭的底座」（本大类）。托管线在 automation。仓现名 harness-sdk（旧名 redirect——直抓核验）。
 
 ## 适合与不适合
 
@@ -86,7 +85,8 @@ cn:
 
 ## 实测记录
 
-本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测。
+结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 

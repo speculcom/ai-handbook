@@ -14,31 +14,33 @@ licenseEn: Closed commercial product governed by the official ToS (direct-fetche
 
 axes:
   model_access: >-
-    多模型选择器是产品显性面（首页当日在册：Agent Settings 的 Model 项「Smartest (Claude 5.5 Opus)」；
-    用量面板列 GPT-6.1 Sol / Claude Opus 5.5 / Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 各家消耗）——
-    模型按 credits 消耗计费，各家可用清单以界面为准。
+    多模型选择器是产品显性面（首页当日在册：Agent Settings 的 Model 项「Smartest (Claude 5.5 Opus)」； 用量面板列 GPT-6.1 Sol / Claude Opus 5.5 / Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 各家消耗）—— 模型按 credits 消耗计费。
+
+    各家可用清单以界面为准。
   runtime: >-
-    云托管形态（www.gumloop.com 直连 200）；未见官方自托管发行声明（社区有 open-gumloop 复刻仓，
-    非官方）；agent 运行在 Gumloop 云端，按 credits 计量。
+    云托管形态（www.gumloop.com 直连 200）。未见官方自托管发行声明（社区有 open-gumloop 复刻仓， 非官方）。
+
+    agent 运行在 Gumloop 云端，按 credits 计量。
   local_files: >-
-    工作流与 agent 数据在 Gumloop 云端；本地文件概念不适用——产物经连接器（Slack/HubSpot/Gong/Gmail/
-    Salesforce）落在第三方系统；SDK（gumloop-py/js）提供代码侧接入面但运行时仍在云端。
+    工作流与 agent 数据在 Gumloop 云端。本地文件概念不适用——产物经连接器（Slack/HubSpot/Gong/Gmail/ Salesforce）落在第三方系统。
+
+    SDK（gumloop-py/js）提供代码侧接入面但运行时仍在云端。
   background: >-
-    agent 常驻与定时运行在册（首页当日用例面板：Renewal Watch / Ticket Triage 等值守型 agent）；
-    排队与失败重试细节按官方文档口径。
+    agent 常驻与定时运行在册（首页当日用例面板：Renewal Watch / Ticket Triage 等值守型 agent）。排队与失败重试细节按官方文档口径。
   tools: >-
-    Connectors 生态当日在册（Slack/HubSpot/Gong/Gmail/Salesforce，View all 入口）；Skills 面在册
-    （Account Research/Outbound Email/Call Summary/CRM Hygiene）；guMCP_template 仓在册（MCP 方向官方模板）。
+    Connectors 生态当日在册（Slack/HubSpot/Gong/Gmail/Salesforce，View all 入口）。
+
+    Skills 面在册 （Account Research/Outbound Email/Call Summary/CRM Hygiene）。
+
+    guMCP_template 仓在册（MCP 方向官方模板）。
   context: >-
-    agent 指令（Add instructions）与 Skills 是持久配置面；跨会话记忆机制官方文档未单列，按未单列处理——
-    知识面主要靠连接器拉取的外部数据（CRM/Gong 记录）。
+    agent 指令（Add instructions）与 Skills 是持久配置面。跨会话记忆机制官方文档未单列。按未单列处理—— 知识面主要靠连接器拉取的外部数据（CRM/Gong 记录）。
   permissions: >-
-    企业向（导航 Enterprise 栏目在册）；ToS 主体 AgentHub Inc. dba Gumloop（当日在册）；
-    credits 计费模式在册；训练用途开关路径按官方文档口径。
+    企业向（导航 Enterprise 栏目在册）。ToS 主体 AgentHub Inc. dba Gumloop（当日在册）。credits 计费模式在册。训练用途开关路径按官方文档口径。
   fit: >-
     适合：GTM/客服场景的多模型 agent（画布+连接器）、要按 credits 统一用量治理（Model Providers 面板）。
-    不适合：要自托管、要大陆直连备案入口、要免费无限量（credits 制）。
 
+    不适合：要自托管、要大陆直连备案入口、要免费无限量（credits 制）。
 pitfalls:
   - 条款主体是 **AgentHub Inc. (doing business as Gumloop)**——品牌名与法律主体不同名，引用主体按 ToS 原文
   - 条款路径是 /tos（/terms、/legal/terms 均 404）——按惯例路径探测会误判「无条款页」
@@ -84,9 +86,7 @@ cn:
 
 ## 一句话定位
 
-**Gumloop 是画布+连接器形态的企业向 AI agent 平台，多模型选择器是显性卖点**（首页当日招牌：Build AI agents
-for work；Agent Settings 里 Model 可选「Smartest (Claude 5.5 Opus)」，用量面板按 GPT-6.1 Sol / Claude Opus 5.5 /
-Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 归因 credits 消耗）：GTM/客服场景用例为主轴，法律主体是 AgentHub Inc.。
+**Gumloop**：画布+连接器形态的企业向 AI agent 平台。多模型选择器是显性卖点：（首页当日招牌：Build AI agentsfor work。Agent Settings 里 Model 可选「Smartest (Claude 5.5 Opus)」。用量面板按 GPT-6.1 Sol / Claude Opus 5.5 /Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 归因 credits 消耗）：GTM/客服场景用例为主轴。法律主体是 AgentHub Inc.。
 
 ## 适合与不适合
 

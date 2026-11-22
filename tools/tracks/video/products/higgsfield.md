@@ -11,21 +11,33 @@ licenseEn: Free + subscription. Governed by the official terms page (higgsfield.
 
 axes:
   model_access: >-
-    自研+聚合混合：自研线含 Soul 2.0（写实图像）、Soul Cinema（电影感图像）、Higgsfield DOP（电影感视频）、Keyframes（分镜）、Cinema Studio（1,296 镜头与色彩工作台），自研 reasoning engine 编排内外模型；API 目录另列 Seedance、Kling、Wan、MiniMax、LTX、PixVerse、Grok 与 Recraft、Ideogram、Qwen（2026-11-21）。
+    自研与聚合混合。自研线含 Soul 2.0（写实图像）与 Soul Cinema（电影感图像）。另有 Higgsfield DOP（电影感视频）。
+
+    另有 Keyframes 负责分镜。Cinema Studio 提供 1,296 镜头与色彩工作台。自研 reasoning engine 编排内外模型。
+
+    API 目录另列 Seedance、Kling、Wan、MiniMax、LTX、PixVerse、Grok、Recraft、Ideogram 与 Qwen（2026-11-21）。
   runtime: >-
-    网页 higgsfield.ai + 异步 API（`https://api.higgsfield.ai`，Python/TypeScript SDK）；网页跑 Cinema Studio/Soul ID 等工作台，API 按模型端点提交，额度用预付美元余额，单 key 解锁 20 并发（2026-11-21）。
+    **入口：** 网页为 higgsfield.ai，异步 API（`https://api.higgsfield.ai`，有 Python/TypeScript SDK）。网页跑 Cinema Studio、Soul ID 等工作台。
+
+    API 按模型端点提交，额度用预付美元余额。单 key 解锁 20 并发（2026-11-21）。
   local_files: >-
-    不碰本机模型：输入图片/视频走 URL，提交后拿 `request_id` 与 `status_url`，轮询或 webhook 到 completed 再下载成片；作品在账户库，导出落本地由用户保存（2026-11-21）。
+    不碰本机模型。输入图片或视频走 URL。提交后拿 `request_id` 与 `status_url`。轮询或 webhook 到 completed 再下载成片。作品在账户库，导出落本地由用户保存（2026-11-21）。
   background: >-
-    异步请求生命周期：submit → 存 `request_id` → poll `status_url` 或 webhook → completed 下载；模型各有超时上限，超时标记失败且不扣费，可重提；Cinema Studio 单条最长 30 秒、最多 50 张参考图（2026-11-21）。
+    异步请求有固定生命周期：submit、存 `request_id`、poll `status_url` 或 webhook、completed 后下载。模型各有超时上限；超时标记失败且不扣费，可重提。
+
+    Cinema Studio 单条最长 30 秒，最多 50 张参考图（2026-11-21）。
   tools: >-
-    Cinema Studio 4.0（30+ 运镜预设、7 genre、相机/镜头/光圈 f/1.4–f/11、灯光预设、50+ 色板、Emotion Wheel、最高 1080p/30s）、Soul ID 角色一致性、Soul HEX 色彩控制、Keyframes 分镜、音频/口型翻译、官方 MCP（2026-11-21）。
+    Cinema Studio 4.0 提供 30+ 运镜预设、7 种 genre、相机与镜头控制、f/1.4–f/11 光圈、灯光预设、50+ 色板与 Emotion Wheel，最高 1080p/30s。
+
+    Soul ID 管角色一致性。Soul HEX 管色彩控制，Keyframes 做分镜。另有音频/口型翻译与官方 MCP（2026-11-21）。
   context: >-
-    以账户作品和 Elements 组织：Soul ID 把同一角色跨镜头锁定，Cinema Studio 把同一套相机逻辑复用到多条片段；这是资产生成的「一致性」机制，不是对话记忆（2026-11-21）。
+    以账户作品和 Elements 组织。Soul ID 把同一角色跨镜头锁定。Cinema Studio 把同一套相机逻辑复用到多条片段。这是资产生成的「一致性」机制，不是对话记忆（2026-11-21）。
   permissions: >-
-    网页订阅 + API 预付余额；API key 为 ID:secret 两段、只显示一次、要求服务端使用。消费级条款允许商用输出、不主张输出所有权，但默认可用输入/输出训练模型（企业协议除外）；上传人物形象需本人授权，输出可能带 C2PA 水印（2026-11-21）。
+    网页订阅加 API 预付余额。API key 为 ID:secret 两段，只显示一次，要求服务端使用。消费级条款允许商用输出，不主张输出所有权。默认可用输入/输出训练模型，企业协议除外。
+
+    上传人物形象需本人授权。输出可能带 C2PA 水印（2026-11-21）。
   fit: >-
-    适合：要镜头语言可控的短片、角色跨镜头一致、广告/时尚/叙事分镜、API 批量出片。不适合：要开放权重/离线、零成本无限试错、完全不想让内容进训练（需企业协议）（2026-11-21）。
+    适合要镜头语言可控的短片、角色跨镜头一致。也适合广告/时尚/叙事分镜与 API 批量出片。不适合要开放权重或离线、零成本无限试错、完全不想让内容进训练的场景。最后一种需企业协议（2026-11-21）。
 
 pitfalls:
   - 「镜头控制」是预设套用不是自由导演——运镜模板库的边界决定上限，别按专业摄影理解
@@ -79,7 +91,7 @@ cn:
 
 ## 一句话定位
 
-**Higgsfield 把「运镜」做成产品**：预设镜头语言（dolly/crash zoom/crane 等）一键套用到生成视频——
+**Higgsfield 把「运镜」做成产品**：预设镜头语言（dolly/crash zoom/crane 等）一键套用到生成视频。
 它卖的是「导演感」，不是通用生成器。
 
 ## 适合与不适合
@@ -89,7 +101,7 @@ cn:
 
 ## 实测记录
 
-本档核对官网 About、Cinema Studio 参数页、API 文档与用户协议；运镜跟随质量、聚合模型风格差异与超时边界需按账号实测。
+本档核对官网 About、Cinema Studio 参数页、API 文档与用户协议。运镜跟随质量、聚合模型风格差异与超时边界需按账号实测。
 ## 未知项清单
 
 - 注册主体与团队背景：按官方条款与 About 页署名核对。
@@ -102,3 +114,4 @@ cn:
 - [Luma](./luma.md) — 同为运镜叙事向：Luma 首尾帧插值，Higgsfield 预设运镜库。
 - [可灵](./kling.md) — 可灵也有运镜控制线：可灵是综合大台内的一项，Higgsfield 全站围绕它。
 - [Krea](../image/products/krea.md) — 图生视频上游：Higgsfield 的输入帧常在 Krea/Flux 类图像台先出图再生成。
+

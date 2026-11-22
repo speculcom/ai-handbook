@@ -13,35 +13,37 @@ licenseEn: Commercial cloud service governed by the Azure agreements and product
 
 axes:
   model_access: >-
-    它不给模型，只给护栏。官方 Foundry 护栏页在册：护栏用 Azure AI Content Safety 的分类模型，
-    适用于所有「Azure 出售的 Foundry Models」（音频转写除外），agent 侧 tool call / tool response 为 preview。
-    也可以完全脱离 Foundry，用独立 REST API 守任意平台的模型输出。
+    它不给模型，只给护栏。官方 Foundry 护栏页在册。护栏用 Azure AI Content Safety 的分类模型。
+
+    适用于所有「Azure 出售的 Foundry Models」（音频转写除外）。agent 侧 tool call / tool response 为 preview。也可以完全脱离 Foundry。
+
+    用独立 REST API 守任意平台的模型输出。
   runtime: >-
     托管云 API + 网页工作台（contentsafety.cognitive.azure.com 在册）。检测在 Azure 侧执行。
-    官方容器页在册 own-environment 选项只有 Analyze text / Analyze image / Prompt Shields，
-    且 connected 与 disconnected 容器于 2027-04-30 退役，容器仍需回连 Azure 计量。
-  local_files: >-
-    不读写你的工作区文件：内容通过 REST / SDK 提交，或在工作台里上传样本与数据集。
-    数据页在册的唯一留存项是 blocklist：条目存 Azure Storage、同区域、微软托管密钥加密，可用 DELETE API 删。
-  background: >-
-    同步请求—响应为主。官方 FAQ 在册「异步过滤」：过滤与流式返回并行、内容不缓冲，
-    代价是「不安全内容可能在过滤完成前短暂露出」。这是延迟取舍，不是关机后续跑的托管任务。
-  tools: >-
-    API 面在册：Analyze text、Analyze image、Multimodal（preview，2027-04-30 退役）、Prompt Shields、
-    Protected material（text / code）、Groundedness（preview，同期退役）、Custom categories（standard / rapid）、
-    Task Adherence、Blocklist。SDK 覆盖 C# / Python / Java / JavaScript；工作台可导出调用代码。
-  context: >-
-    按单次请求判定，不做长上下文或记忆。官方 limits 页在册输入上限：文本 10K 字符、
-    图像 4MB、Prompt Shields 10K 字符、groundedness 源 55K 字符、task adherence 100K 字符等。
-    多轮与会话管理由调用方自己负责。
-  permissions: >-
-    数据页在册三条硬陈述：检测时不存储输入文本与图像、不用客户数据训练或改进模型、
-    Azure OpenAI 的 Abuse Monitoring 不适用（内容不做人工复核）。区域页在册：数据留在你所选区域。
-    鉴权支持 Microsoft Entra ID / 托管身份，支持 CMK / BYOK。档位 F0 / S0，F0 有月度免费额度（数字见定价页）。
-  fit: >-
-    适合已经把工作负载放在 Azure 上、要多模态分级严重度与提示攻击检测、并要求区域驻留与「不训练」承诺的团队。
-    不适合需要离线长期跑护栏的场景（容器即将退役），也不适合要自己掌握 rail 代码与模型端点的团队——那类需求看本地线。
 
+    官方容器页在册 own-environment 选项只有 Analyze text / Analyze image / Prompt Shields。
+
+    且 connected 与 disconnected 容器于 2027-04-30 退役。容器仍需回连 Azure 计量。
+  local_files: >-
+    不读写你的工作区文件。内容通过 REST / SDK 提交，或在工作台里上传样本与数据集。数据页在册的唯一留存项是 blocklist。
+
+    条目存 Azure Storage、同区域、微软托管密钥加密。可用 DELETE API 删。
+  background: >-
+    同步请求—响应为主。官方 FAQ 在册「异步过滤」。过滤与流式返回并行、内容不缓冲， 代价是「不安全内容可能在过滤完成前短暂露出」。这是延迟取舍，不是关机后续跑的托管任务。
+  tools: >-
+    **依据：** API 面在册：Analyze text、Analyze image、Multimodal（preview，2027-04-30 退役）、Prompt Shields、 Protected material（text / code）、Groundedness（preview，同期退役）、Custom categories（standard / rapid）、 Task Adherence、Blocklist。SDK 覆盖 C# / Python / Java / JavaScript；工作台可导出调用代码。
+  context: >-
+    按单次请求判定，不做长上下文或记忆。官方 limits 页在册输入上限。
+
+    文本 10K 字符、 图像 4MB、Prompt Shields 10K 字符、groundedness 源 55K 字符、task adherence 100K 字符等。多轮与会话管理由调用方自己负责。
+  permissions: >-
+    数据页在册三条硬陈述。检测时不存储输入文本与图像、不用客户数据训练或改进模型、 Azure OpenAI 的 Abuse Monitoring 不适用（内容不做人工复核）。
+
+    区域页在册：数据留在你所选区域。鉴权支持 Microsoft Entra ID / 托管身份，支持 CMK / BYOK。档位 F0 / S0，F0 有月度免费额度（数字见定价页）。
+  fit: >-
+    适合已经把工作负载放在 Azure 上、要多模态分级严重度与提示攻击检测、并要求区域驻留与「不训练」承诺的团队。不适合需要离线长期跑护栏的场景（容器即将退役）。
+
+    也不适合要自己掌握 rail 代码与模型端点的团队——那类需求看本地线。
 pitfalls:
   - 把容器当长期离线方案：官方页在册 connected / disconnected 容器 2027-04-30 退役
   - 把「异步过滤」当成零暴露：官方 FAQ 写明不安全内容可能在过滤完成前短暂露出
@@ -109,33 +111,37 @@ cn:
 
 它是云上的内容判定接口，不替你决定怎么处理结果。
 
-官方 FAQ 把这点写得很直白：API 返回的是分类元数据（严重度或二值结果），
+官方 FAQ 把这点写得很直白。
+API 返回的是分类元数据（严重度或二值结果），
 删除、打标、拦截这些执行动作由你自己的策略来做。
 
 ## 适合与不适合
 
-适合已在 Azure 上跑模型、要文本与图像分级严重度加提示攻击检测、并要求区域驻留的团队。
-不适合两类需求：要长期离线跑护栏（容器已公告退役），要自己掌握 rail 逻辑与模型端点
-（那是本地库那条线）。想拿它做「谁更准」的横向排名也不合适——官方语言页明确建议你自己测。
+适合已在 Azure 上跑模型、要文本与图像分级严重度加提示攻击检测、并要求区域驻留的团队。不适合两类需求。要长期离线跑护栏（容器已公告退役）。
+
+要自己掌握 rail 逻辑与模型端点（那是本地库那条线）。想拿它做「谁更准」的横向排名也不合适。官方语言页明确建议你自己测。
 
 ## 能力边界
 
-在册的判定对象有四类干预点：用户输入、工具调用（preview）、工具响应（preview）、输出。
-Foundry 侧模型默认挂 Microsoft.DefaultV2；输出侧的内容危害关掉需要走审批表单，
-输入侧人人可关。agent 护栏会整体覆盖模型护栏，官方页给了示例说明这种覆盖的实际后果。
-另有一条硬边界写在 Overview：本服务不得用于检测非法儿童性虐待图像。
+在册的判定对象有四类干预点。用户输入、工具调用（preview）、工具响应（preview）、输出。Foundry 侧模型默认挂 Microsoft.DefaultV2。
+
+输出侧的内容危害关掉需要走审批表单，输入侧人人可关。agent 护栏会整体覆盖模型护栏。官方页给了示例说明这种覆盖的实际后果。另有一条硬边界写在 Overview。
+
+本服务不得用于检测非法儿童性虐待图像。
 
 ## 变更记录说明
 
-变更记录走官方 What's new 页（无独立 releases 页）。当日在册要点：
-2026-10 文本内容危害分类与 Prompt Shields（UPIA / XPIA）模型更新，先在 Spain Central 灰度、
-分阶段扩展，并明确「不改动 PII、task adherence、blocklist、protected material 与图像能力」；
-同期公告 2027-04-30 退役 Multimodal、Custom categories（rapid）、connected / disconnected 容器、
-Embedded SDK 与 Groundedness detection。更早的 GA / preview 节奏可回溯到 2023-05 公开预览。
+变更记录走官方 What's new 页（无独立 releases 页）。当日在册要点：2026-10 文本内容危害分类与 Prompt Shields（UPIA / XPIA）模型更新。
+
+先在 Spain Central 灰度、 分阶段扩展，并明确「不改动 PII、task adherence、blocklist、protected material 与图像能力」；同期公告 2027-04-30 退役 Multimodal、Custom categories（rapid）、connected / disconnected 容器、Embedded SDK 与 Groundedness detection。
+
+更早的 GA / preview 节奏可回溯到 2023-05 公开预览。
 
 ## 实测记录
 
-本站当前未完成实测。本档不含拦截率、误报率或延迟数字；官方也要求逐语言自测。
+本站当前未完成实测。
+本档不含拦截率、误报率或延迟数字。
+官方也要求逐语言自测。
 
 **实测建议**（三条）：
 

@@ -10,29 +10,33 @@ licenseEn: Apache-2.0, verified against the official repository's GitHub API on 
 
 axes:
   model_access: >-
-    本体是开源模型族：v1（CosyVoice-300M）→ v2（CosyVoice2-0.5B）→ Fun-CosyVoice 3.0
-    （Fun-CosyVoice3-0.5B-2512，README 当日在册三代线）；下载权重本地推理；托管调用走阿里云百炼 cosyvoice-v2/v3/v3.5 线（本档主体仍是开源仓）。
+    本体是开源模型族。
+
+    v1（CosyVoice-300M）→ v2（CosyVoice2-0.5B）→ Fun-CosyVoice 3.0 （Fun-CosyVoice3-0.5B-2512，README 当日在册三代线）。
+
+    下载权重本地推理。托管调用走阿里云百炼 cosyvoice-v2/v3/v3.5 线（本档主体仍是开源仓）。
   runtime: >-
-    本机 Python 运行时（README 给 conda 安装+推理/训练/部署全栈，官方描述 inference, training and
-    deployment full-stack ability）；仓已迁至 QwenAudio org（FunAudioLLM/CosyVoice 301→QwenAudio/CosyVoice，
-    当日核验）；README 克隆命令仍写旧 org 名。
+    本机 Python 运行时（README 给 conda 安装+推理/训练/部署全栈，官方描述 inference, training and deployment full-stack ability）。
+
+    仓已迁至 QwenAudio org（FunAudioLLM/CosyVoice 301→QwenAudio/CosyVoice， 当日核验）。README 克隆命令仍写旧 org 名。
   local_files: >-
-    权重、代码、合成输出全在本机——开源模型仓没有账户侧数据面（这是它与托管 TTS 产品的结构性差别）。
+    权重、代码、合成输出全在本机。开源模型仓没有账户侧数据面（这是它与托管 TTS 产品的结构性差别）。
   background: >-
-    本机批处理/流式推理：README 在册 Bi-Streaming（text-in/audio-out 双流，官方称延迟低至 150ms）；
-    无云端任务面。
+    本机批处理/流式推理。README 在册 Bi-Streaming（text-in/audio-out 双流，官方称延迟低至 150ms）。无云端任务面。
   tools: >-
-    发音控制面在册（README：中文拼音/英文 CMU 音素 pronunciation inpainting、文本正则化免传统前端、
-    Instruct 支持情感/语速/音量指令）；MCP 不适用（模型仓不是 agent 宿主）。
+    发音控制面在册（README：中文拼音/英文 CMU 音素 pronunciation inpainting、文本正则化免传统前端、 Instruct 支持情感/语速/音量指令）。
+
+    MCP 不适用（模型仓不是 agent 宿主）。
   context: >-
-    不适用对话上下文维度——TTS 模型按单次合成请求工作；zero-shot 克隆以参考音频为条件（README 在册
-    多语/跨语 zero-shot 克隆）。
+    不适用对话上下文维度。TTS 模型按单次合成请求工作。zero-shot 克隆以参考音频为条件（README 在册 多语/跨语 zero-shot 克隆）。
   permissions: >-
-    Apache-2.0 代码与三代权重许可（GitHub/HF API 2026-11-21 核验）；声音克隆涉人格权——README 的使用声明只覆盖示例内容（学术演示、侵权联系删除），不构成克隆授权条款，授权由使用者自行取得；9 语+18 中方言覆盖在 README 在册。
+    Apache-2.0 代码与三代权重许可（GitHub/HF API 2026-11-21 核验）。声音克隆涉人格权——README 的使用声明只覆盖示例内容（学术演示、侵权联系删除）。
+
+    不构成克隆授权条款，授权由使用者自行取得。9 语+18 中方言覆盖在 README 在册。
   fit: >-
     适合：本机/私有部署中文+方言 TTS、要 zero-shot 克隆与训练微调全栈、要 Apache-2.0 可商用底座。
-    不适合：只要托管 API 开箱即用（那走百炼 CosyVoice 线，不是本开源仓）、要零运维。
 
+    不适合：只要托管 API 开箱即用（那走百炼 CosyVoice 线，不是本开源仓）、要零运维。
 pitfalls:
   - 官方 org 已从 FunAudioLLM 更名 QwenAudio（当日 301 核验）——旧链接仍可达但新仓主在 QwenAudio；README 克隆命令仍写 FunAudioLLM 旧名，以 301 后地址为准
   - 它是模型不是产品——没有账号、没有控制台、没有 SLA；「CosyVoice 服务」在官方口径里不存在（百炼语音合成是另一条托管线，别混）
@@ -95,9 +99,9 @@ cn:
 
 ## 一句话定位
 
-**CosyVoice 是阿里语音团队（QwenAudio/原 FunAudioLLM）的开源 LLM-TTS 模型族**（Apache-2.0，
-v1→v2→Fun-CosyVoice 3.0 三代线）：下载权重本机推理/训练/部署全栈，中文+方言覆盖与 zero-shot 克隆是主打——
-开源仓给模型权重与全栈代码；阿里云百炼另有 cosyvoice-v2/v3/v3.5 托管线，主体与运维边界不同。
+**CosyVoice 是阿里语音团队（QwenAudio/原 FunAudioLLM）的开源 LLM-TTS 模型族**（Apache-2.0，v1→v2→Fun-CosyVoice 3.0 三代线）。下载权重本机推理/训练/部署全栈。
+
+中文+方言覆盖与 zero-shot 克隆是主打——开源仓给模型权重与全栈代码。阿里云百炼另有 cosyvoice-v2/v3/v3.5 托管线。主体与运维边界不同。
 
 ## 适合与不适合
 

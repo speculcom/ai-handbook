@@ -9,25 +9,23 @@ licenseEn: MIT (GitHub API verified 2026-10-21; both mlx and mlx-lm repos are MI
 
 axes:
   model_access: >-
-    MLX 原生格式 + HF 转换（mlx-community 生态）；GGUF 可转换（mlx-community 有转换线）；
-    模型清单随社区滚动，本档不逐条展开。
+    MLX 原生格式 + HF 转换（mlx-community 生态）。GGUF 可转换（mlx-community 有转换线）。模型清单随社区滚动，本档不逐条展开。
   runtime: >-
-    Apple 硅（M 系）统一内存架构的原生张量框架；mlx-lm 是官方 LLM 运行线
-    （「Run LLMs with MLX」仓库描述直抓所见）。GitHub mlx 28,975★ / mlx-lm 7,506★（API 核验 2026-10-21）。
-  local_files: >-
-    全本地：模型与输出都在自有环境；未见官方云线——Apple 未提供配套云端推理线（未见声明）。
-  background: >-
-    mlx_lm.server 提供 OpenAI 兼容服务线；细节本档不逐条展开。
-  tools: >-
-    mlx-lm 含 tool calling 线；官方产品页不列 MCP 支持。
-  context: >-
-    上下文按参数配置；KV 缓存量化在 mlx-lm 文档线，细节本档不逐条展开。
-  permissions: >-
-    本地进程无账号体系；命令行/服务线鉴权由使用者自配（mlx_lm.server 细节本档不逐条展开）。
-  fit: >-
-    适合：Apple 硅机器要原生性能（统一内存红利）、要在 Mac 上微调（mlx-lm 带微调线）。
-    不适合：非 Apple 硬件；要跨平台同一栈（llama.cpp 覆盖面更宽）。
+    Apple 硅（M 系）统一内存架构的原生张量框架。mlx-lm 是官方 LLM 运行线 （「Run LLMs with MLX」仓库描述直抓所见）。
 
+    GitHub mlx 28,975★ / mlx-lm 7,506★（API 核验 2026-10-21）。
+  local_files: >-
+    全本地：模型与输出都在自有环境。未见官方云线。Apple 未提供配套云端推理线（未见声明）。
+  background: >-
+    mlx_lm.server 提供 OpenAI 兼容服务线。细节本档不逐条展开。
+  tools: >-
+    mlx-lm 含 tool calling 线。官方产品页不列 MCP 支持。
+  context: >-
+    上下文按参数配置。KV 缓存量化在 mlx-lm 文档线，细节本档不逐条展开。
+  permissions: >-
+    本地进程无账号体系。命令行/服务线鉴权由使用者自配（mlx_lm.server 细节本档不逐条展开）。
+  fit: >-
+    适合：Apple 硅机器要原生性能（统一内存红利）、要在 Mac 上微调（mlx-lm 带微调线）。不适合：非 Apple 硬件。要跨平台同一栈（llama.cpp 覆盖面更宽）。
 pitfalls:
   - 把 MLX 当通用推理引擎——Apple 硅专属，x86/NVIDIA 不是它的场
   - 只记 mlx 框架——跑 LLM 要用 mlx-lm 这层
@@ -70,7 +68,8 @@ cn:
 ## 一句话定位
 
 **MLX 是 Apple 硅的官方本地推理栈**：统一内存架构的原生框架（mlx）+ 官方 LLM 运行线（mlx-lm），
-MIT、活跃维护。Mac 用户跑本地模型的「亲儿子」路线——连微调都在同一栈里。
+MIT、活跃维护。
+Mac 用户跑本地模型的「亲儿子」路线——连微调都在同一栈里。
 
 ## 适合与不适合
 

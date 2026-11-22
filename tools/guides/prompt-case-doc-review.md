@@ -17,8 +17,8 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-按清单审查文档条款并标出缺失与风险。
-输入：文档原文、审查清单、适用范围说明。
+**一句话**：按清单审查文档条款并标出缺失与风险。
+**依据：**： 输入：文档原文、审查清单、适用范围说明。
 
 ## [提示词本体|The prompt]
 
@@ -30,7 +30,7 @@ confidence: partial
 
 ## [预期输出形态|Expected output shape]
 
-条款核对表 items[]，含状态、逐字引文和风险备注。
+**依据：** 条款核对表 items[]，含状态、逐字引文和风险备注。
 
 ## [检查点|Checkpoints]
 

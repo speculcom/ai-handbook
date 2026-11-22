@@ -13,28 +13,27 @@ providers:
   - 多模型接入（各家 API 与本地线，本档不逐条复制完整清单）
 axes:
   model_access: >-
-    多模型接入（各家 API 与本地线，本档不逐条复制完整清单）；定位语「The self-driving agent platform」
-    （官方仓描述）——框架库 + 控制平面（AgentOS）两层。
-  runtime: >-
-    Python 框架 + AgentOS 运行时：库侧定义 agent/team/workflow，控制平面侧跑与观测。
-    GitHub agno-agi/agno 42,981★、最近推送 2026-10-30（API 核验，高活跃）；
-    releases 高频（v3.1.12，2026-10-29）；官网 changelog 最新条目 2026-10-30。
-  local_files: >-
-    库与 AgentOS 可自托管（「runs in your cloud」官方口径）；托管控制平面是另一产品面（os.agno.com）。
-  background: >-
-    AgentOS 控制平面自带常驻运行与观测语义（agent 跑在平面里、任务可调度）；
-    纯库用法则是普通进程内调用。
-  tools: >-
-    工具/知识库/记忆组件线内置（框架自带 memory+knowledge 组件是卖点）；MCP 支持状态本档不逐条展开。
-  context: >-
-    内置记忆与知识组件（agent memory、knowledge/RAG 面）是产品叙事一部分；细节本档不逐条展开。
-  permissions: >-
-    控制平面持凭据跑 agent 与工具——自托管平面的鉴权与隔离是运维责任；
-    托管面（os.agno.com）数据在厂商侧。
-  fit: >-
-    适合：要「框架+控制平面」一体（跑起来+观测+调度）、Python 生态、要高频发版的活跃选型。
-    不适合：只要薄库不要平面、TS 生态（Python 为主）。
+    多模型接入（各家 API 与本地线，本档不逐条复制完整清单）。
 
+    定位语「The self-driving agent platform」 （官方仓描述）——框架库 + 控制平面（AgentOS）两层。
+  runtime: >-
+    Python 框架 + AgentOS 运行时。库侧定义 agent/team/workflow，控制平面侧跑与观测。
+
+    GitHub agno-agi/agno 42,981★、最近推送 2026-10-30（API 核验，高活跃）。releases 高频（v3.1.12，2026-10-29）。
+
+    官网 changelog 最新条目 2026-10-30。
+  local_files: >-
+    库与 AgentOS 可自托管（「runs in your cloud」官方口径）。托管控制平面是另一产品面（os.agno.com）。
+  background: >-
+    AgentOS 控制平面自带常驻运行与观测语义（agent 跑在平面里、任务可调度）。纯库用法则是普通进程内调用。
+  tools: >-
+    工具/知识库/记忆组件线内置（框架自带 memory+knowledge 组件是卖点）。MCP 支持状态本档不逐条展开。
+  context: >-
+    内置记忆与知识组件（agent memory、knowledge/RAG 面）是产品叙事一部分。细节本档不逐条展开。
+  permissions: >-
+    控制平面持凭据跑 agent 与工具。自托管平面的鉴权与隔离是运维责任。托管面（os.agno.com）数据在厂商侧。
+  fit: >-
+    适合：要「框架+控制平面」一体（跑起来+观测+调度）、Python 生态、要高频发版的活跃选型。不适合：只要薄库不要平面、TS 生态（Python 为主）。
 pitfalls:
   - 改名史两段：Phidata → Agno（2025 年初改名）——旧教程/旧包名 phidata 与现 agno 是同一线，检索时两词都要查
   - 条款挂在 os.agno.com/legal/（tos+privacy 200 在册），主站 /terms /privacy 404——条款面在控制平面子域，不在营销主域
@@ -76,9 +75,9 @@ cn:
 
 ## 一句话定位
 
-**Agno（原 Phidata）把「框架 + 控制平面」做成一体**（Apache-2.0）：库侧定义 agent/team/workflow，
-AgentOS 控制平面侧跑起来、观测、调度（「self-driving agent platform」）。发版高频
-（v3.1.12，2026-10-29）、changelog 当日有条目——活跃线。
+**Agno（原 Phidata）把「框架 + 控制平面」做成一体**（Apache-2.0）：库侧定义 agent/team/workflow，AgentOS 控制平面侧跑起来、观测、调度（「self-driving agent platform」）。
+
+发版高频（v3.1.12，2026-10-29）、changelog 当日有条目——活跃线。
 
 ## 适合与不适合
 
@@ -87,7 +86,8 @@ AgentOS 控制平面侧跑起来、观测、调度（「self-driving agent platf
 
 ## 实测记录
 
-本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测。
+结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 

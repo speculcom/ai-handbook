@@ -8,42 +8,41 @@ homepage: https://kuaima.baidu.com
 
 axes:
   model_access: >-
-    官方「模型」文档页列可选清单：DeepSeek V4 Flash/V4 Pro、GLM-4.7/5-Turbo/5.0/5.1/5.2/5v-Turbo、
-    Kimi-K2.5/K2.6、MiniMax M2.5/M3/M2.7——注意主线是第三方国产大模型，不只文心系；
-    企业用户可再添加第三方模型提供商 API（官方页点名百度智能云千帆 ModelBuilder 清单）。
-    切换走对话框 Auto 按钮或模型选择页（官方两种方法成页）。
+    官方「模型」文档页列可选清单。
+
+    DeepSeek V4 Flash/V4 Pro、GLM-4.7/5-Turbo/5.0/5.1/5.2/5v-Turbo、 Kimi-K2.5/K2.6、MiniMax M2.5/M3/M2.7——注意主线是第三方国产大模型。
+
+    不只文心系。企业用户可再添加第三方模型提供商 API（官方页点名百度智能云千帆 ModelBuilder 清单）。切换走对话框 Auto 按钮或模型选择页（官方两种方法成页）。
   runtime: >-
-    形态全家桶（官方文档导航）：Comate AI IDE（独立 IDE）、VS Code / JetBrains 全系 / Visual Studio /
-    Xcode 插件、CLI；企业控制台（权限/用量/知识管理/指令管理/开放中心）与 Deepwiki、AgentHub 企业面成页。
+    形态全家桶（官方文档导航）。Comate AI IDE（独立 IDE）、VS Code / JetBrains 全系 / Visual Studio / Xcode 插件、CLI。
+
+    企业控制台（权限/用量/知识管理/指令管理/开放中心）与 Deepwiki、AgentHub 企业面成页。
+
     个人版/企业版/私有化部署版三档（官方 FAQ 明示差异：License 管理、数据报表、规模化私有部署）。
   local_files: >-
-    插件/IDE/CLI 形态处理本机代码；官方 FAQ 明示 SaaS 推理需把正在编写文件的上文传给模型，
-    并承诺「不使用这部分上传的代码做任何积累、分析、加工等后续动作」；
-    私有化部署下模型与服务都在客户私域，数据不出域（FAQ 原文口径）。
+    插件/IDE/CLI 形态处理本机代码。官方 FAQ 明示 SaaS 推理需把正在编写文件的上文传给模型。并承诺「不使用这部分上传的代码做任何积累、分析、加工等后续动作」。
+
+    **依据：** 私有化部署下模型与服务都在客户私域，数据不出域（FAQ 原文口径）。
   background: >-
-    Mission Mode（明确目标端到端交付：自主分解目标、持续执行直到完成）与 Spec 模式（规范驱动）官方成页；
-    Automation（定时/事件自动化）扩展能力成页；Comate NEXT 计划（云端工作台、智能体自主协作）
-    见官方文档页口径。
+    Mission Mode（明确目标端到端交付：自主分解目标、持续执行直到完成）与 Spec 模式（规范驱动）官方成页。Automation（定时/事件自动化）扩展能力成页。
+
+    Comate NEXT 计划（云端工作台、智能体自主协作） 见官方文档页口径。
   tools: >-
-    扩展能力官方全成页：Subagent（内置 Explore 子代理，各自独立上下文窗口）、Skills（开放标准能力包）、
-    Rules（自定义指令：代码规范/框架偏好/项目约定）、MCP、Command、Memory；
+    扩展能力官方全成页：Subagent（内置 Explore 子代理，各自独立上下文窗口）、Skills（开放标准能力包）、 Rules（自定义指令：代码规范/框架偏好/项目约定）、MCP、Command、Memory。
+
     「@」快捷键加 File/Folder/Terminal/Doc/Rules 上下文、「/」快捷键加 Skills/Commands/Subagents。
   context: >-
-    Memory 官方成页（跨会话记忆）；代码索引官方成页（仓库级索引）；
-    企业面知识管理（私域知识注入）。内置 Explore 子代理做代码库探索。
+    Memory 官方成页（跨会话记忆）。代码索引官方成页（仓库级索引）。企业面知识管理（私域知识注入）。内置 Explore 子代理做代码库探索。
   permissions: >-
-    账号走百度智能云体系；企业控制台权限管理/三级角色（企业管理员/部门管理员/普通成员口径见企业文档）；
-    Agent 执行的文件/终端操作审批细节按官方文档口径。
+    账号走百度智能云体系。企业控制台权限管理/三级角色（企业管理员/部门管理员/普通成员口径见企业文档）。Agent 执行的文件/终端操作审批细节按官方文档口径。
   fit: >-
-    适合：国内合规与私有化叙事（金融/医疗等客群官方点名）、IDE 全家桶（含 Xcode/Visual Studio 这类
-    同行少覆盖的 IDE）、国产模型清单可切、企业控制台+AgentHub 资产中台。
-    不适合：要海外前沿模型清单（官方模型页主线是国产模型）、要 BYOK 接任意自有 Key
-    （企业面走千帆/第三方提供商，个人 BYOK 官方文档未单列）。
-  name_history: >-
-    品牌史：Comate（2023-06 百度智能云开放邀测）→ Comate X（2023-08 商用版）→
-    中文名「文心快码」（2024-06 文心大模型大会品牌焕新）；官网 kuaima.baidu.com 与
-    comate.baidu.com 并行可用，文档在 cloud.baidu.com/doc/COMATE——检索时 Comate/文心快码都要认。
+    适合：国内合规与私有化叙事（金融/医疗等客群官方点名）、IDE 全家桶（含 Xcode/Visual Studio 这类 同行少覆盖的 IDE）、国产模型清单可切、企业控制台+AgentHub 资产中台。
 
+    不适合：要海外前沿模型清单（官方模型页主线是国产模型）、要 BYOK 接任意自有 Key （企业面走千帆/第三方提供商，个人 BYOK 官方文档未单列）。
+  name_history: >-
+    品牌史：Comate（2023-06 百度智能云开放邀测）→ Comate X（2023-08 商用版）→ 中文名「文心快码」（2024-06 文心大模型大会品牌焕新）。
+
+    官网 kuaima.baidu.com 与 comate.baidu.com 并行可用。文档在 cloud.baidu.com/doc/COMATE——检索时 Comate/文心快码都要认。
 pitfalls:
   - 中文名「文心快码」与英文名 Baidu Comate 是同一产品（2024-06 官方品牌焕新）——
     官网已主用 kuaima.baidu.com，旧链接 comate.baidu.com 仍可用
@@ -100,19 +99,17 @@ cn:
 
 ## 一句话定位
 
-**文心快码（Baidu Comate）是百度的 AI 编码全家桶**：Comate AI IDE + VS Code/JetBrains/Visual Studio/Xcode
-插件 + CLI，官方模型页以国产模型为主（DeepSeek/GLM/Kimi/MiniMax 可切、企业可加千帆），
-Skills/Rules/Subagents/MCP/Memory/Automation 扩展面全成页，个人/企业/私有化三档——
-私有化「数据不出域」是它的官方合规主打。
+**文心快码（Baidu Comate）是百度的 AI 编码全家桶**：Comate AI IDE + VS Code/JetBrains/Visual Studio/Xcode插件 + CLI，官方模型页以国产模型为主（DeepSeek/GLM/Kimi/MiniMax 可切、企业可加千帆），Skills/Rules/Subagents/MCP/Memory/Automation 扩展面全成页。
+
+个人/企业/私有化三档——私有化「数据不出域」是它的官方合规主打。
 
 ## 适合与不适合
 
-适合：国内合规与私有化叙事（金融/医疗客群官方点名）、IDE 覆盖广（含 Xcode/Visual Studio）、企业控制台与 AgentHub 资产中台。
-不适合：要海外前沿模型清单、要个人 BYOK 接任意自有 Key（官方文档未单列）。
+适合：国内合规与私有化叙事（金融/医疗客群官方点名）、IDE 覆盖广（含 Xcode/Visual Studio）、企业控制台与 AgentHub 资产中台。不适合：要海外前沿模型清单、要个人 BYOK 接任意自有 Key（官方文档未单列）。
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

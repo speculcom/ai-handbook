@@ -9,37 +9,37 @@ licenseEn: The npm package is ISC (npm registry metadata verified 2026-10-31); t
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的本地 server（stdio）。它把 shopify.dev 文档检索、
-    Admin GraphQL schema introspection 等「Shopify 平台上下文」喂给你的编码 agent。
+    **它自己不调模型**——被 MCP 客户端调用的本地 server（stdio）。
+
+    它把 shopify.dev 文档检索、 Admin GraphQL schema introspection 等「Shopify 平台上下文」喂给你的编码 agent。
   runtime: >-
-    **本地 npx 线**（npx -y @shopify/dev-mcp@latest，Node 18+）；官方明写「server 本地跑、
-    不需要鉴权」。发版线在 npm（1.18.0，2026-10-27，143 个版本）；**GitHub 无独立 dev-mcp 仓**
-    （Shopify/dev-mcp 404）——代码随 npm 包发布，插件/skills 线在 Shopify/Shopify-AI-Toolkit 仓
-    （MIT 621★，推送 2026-10-27）。官方另有 instrumentation 遥测（OPT_OUT_INSTRUMENTATION 可退出）。
+    **本地 npx 线**（npx -y @shopify/dev-mcp@latest，Node 18+）。官方明写「server 本地跑、 不需要鉴权」。
+
+    发版线在 npm（1.18.0，2026-10-27，143 个版本）。**GitHub 无独立 dev-mcp 仓** （Shopify/dev-mcp 404）——代码随 npm 包发布。
+
+    插件/skills 线在 Shopify/Shopify-AI-Toolkit 仓 （MIT 621★，推送 2026-10-27）。
+
+    官方另有 instrumentation 遥测（OPT_OUT_INSTRUMENTATION 可退出）。
   local_files: >-
-    不读写本机文件——输出文档检索结果与 schema 结构；它服务的是「你写 Shopify 代码」的场景，
-    代码文件由你的 agent/编辑器落盘，不由它落盘。
+    不读写本机文件。输出文档检索结果与 schema 结构。它服务的是「你写 Shopify 代码」的场景， 代码文件由你的 agent/编辑器落盘。不由它落盘。
   background: >-
     无常驻后台——stdio server 随 MCP 客户端拉起，进程生命周期跟客户端走。
   tools: >-
-    核心四工具（官方文档口径）：**search_dev_docs**（搜 shopify.dev 文档）/
-    **introspect_admin_schema**（访问与搜索 Admin GraphQL schema）/
-    **fetch_docs_by_path**（按路径取文档页）/ **get_started**（API 入门引导）；
+    核心四工具（官方文档口径）：**search_dev_docs**（搜 shopify.dev 文档）/ **introspect_admin_schema**（访问与搜索 Admin GraphQL schema）/ **fetch_docs_by_path**（按路径取文档页）/ **get_started**（API 入门引导）。
+
     内置 prompt：shopify_admin_graphql（帮你写 Admin API GraphQL 操作）。
+
     Polaris Web Components 支持经 POLARIS_UNIFIED 环境变量 opt-in（实验性）。
   context: >-
-    无 server 侧跨会话记忆；上下文由 MCP 客户端会话承载。schema 按 API 版本可查
-    （含字段级文档与弃用标注——官方文档线口径）。
+    无 server 侧跨会话记忆。上下文由 MCP 客户端会话承载。schema 按 API 版本可查 （含字段级文档与弃用标注——官方文档线口径）。
   permissions: >-
-    **不需要鉴权**（官方明写 server 本地跑无 auth）——它只读公开文档与 schema，
-    不碰你的店铺数据；要店铺操作（建 app/主题/跑 CLI）走 Shopify CLI 的认证上下文，
-    那是 AI Toolkit 的另一条线，不是这个 MCP server 的能力。
-    instrumentation 遥测默认开，OPT_OUT_INSTRUMENTATION=true 退出。
-  fit: >-
-    适合：Shopify 开发者给编码 agent 补「平台上下文」——文档检索+schema 探查免模型瞎猜 API 字段；
-    零鉴权零配置起步。
-    不适合：要 agent 直接操作店铺（它不碰店铺数据）；非 Shopify 生态（单厂商专用）。
+    **不需要鉴权**（官方明写 server 本地跑无 auth）——它只读公开文档与 schema。不碰你的店铺数据。要店铺操作（建 app/主题/跑 CLI）走 Shopify CLI 的认证上下文。
 
+    那是 AI Toolkit 的另一条线。不是这个 MCP server 的能力。instrumentation 遥测默认开。OPT_OUT_INSTRUMENTATION=true 退出。
+  fit: >-
+    适合：Shopify 开发者给编码 agent 补「平台上下文」——文档检索+schema 探查免模型瞎猜 API 字段。零鉴权零配置起步。不适合：要 agent 直接操作店铺（它不碰店铺数据）。
+
+    非 Shopify 生态（单厂商专用）。
 pitfalls:
   - 把 inventory 旧 URL（shopify.dev/docs/agents-of-change）当文档线——2026-10-31 实测 404；现役文档页是 docs/apps/build/ai-toolkit（Dev MCP 是 AI Toolkit 三形态之一）
   - 找 GitHub 源码仓——Shopify/dev-mcp 不存在（404），代码随 npm 发布；插件/skills 在 Shopify/Shopify-AI-Toolkit 仓，别混
@@ -53,13 +53,14 @@ related: [cursor, claude-code]
 mcp:
   transport: >-
     **stdio**（npx -y @shopify/dev-mcp@latest；claude mcp add --transport stdio 官方示例）。
-    核验：shopify.dev AI Toolkit 页与 Polaris using-mcp 页（2026-10-31 直连 200）。
+
+    **依据：** 核验：shopify.dev AI Toolkit 页与 Polaris using-mcp 页（2026-10-31 直连 200）。
   auth: >-
-    无鉴权（官方明写本地 server 不需要 auth）。instrumentation 遥测默认开，
-    OPT_OUT_INSTRUMENTATION 环境变量退出；Polaris 支持 POLARIS_UNIFIED opt-in。
+    无鉴权（官方明写本地 server 不需要 auth）。instrumentation 遥测默认开。OPT_OUT_INSTRUMENTATION 环境变量退出。
+
+    Polaris 支持 POLARIS_UNIFIED opt-in。
   scope: >-
     纯读面（公开文档+schema），无店铺数据面、无本机写面——权限面在 MCP server 里属最轻一档。
-
 sources:
   - label: shopify.dev · AI Toolkit 官方页（Dev MCP 安装与定位；旧 agents-of-change 路径 404 后现役；直连 200）
     url: https://shopify.dev/docs/apps/build/ai-toolkit
@@ -93,20 +94,23 @@ cn:
 
 ## 一句话定位
 
-**Shopify 官方 Dev MCP server**（npm ISC，本地 stdio，无鉴权）：给编码 agent 补 Shopify 平台上下文——
-文档检索（search_dev_docs/fetch_docs_by_path）+ Admin GraphQL schema 探查（introspect_admin_schema）。
-它是 **Shopify AI Toolkit 三形态之一**（插件 / agent skills / Dev MCP）；
-**GitHub 无独立 dev-mcp 仓**（代码随 npm 发布），inventory 旧 URL agents-of-change 已 404。
-纯读面、不碰店铺数据——店铺操作走 Shopify CLI 线，别混。
+**Shopify 官方 Dev MCP server**（npm ISC，本地 stdio，无鉴权）：给编码 agent 补 Shopify 平台上下文——文档检索（search_dev_docs/fetch_docs_by_path）+ Admin GraphQL schema 探查（introspect_admin_schema）。
+
+它是 **Shopify AI Toolkit 三形态之一**（插件 / agent skills / Dev MCP）；**GitHub 无独立 dev-mcp 仓**（代码随 npm 发布）。
+
+inventory 旧 URL agents-of-change 已 404。纯读面、不碰店铺数据——店铺操作走 Shopify CLI 线，别混。
 
 ## 适合与不适合
 
-适合：Shopify 开发者要 agent 写对 API 字段/schema/CLI；零鉴权零配置起步。
-不适合：要 agent 直接操作店铺（无店铺面）；非 Shopify 生态。
+适合：Shopify 开发者要 agent 写对 API 字段/schema/CLI。
+零鉴权零配置起步。
+不适合：要 agent 直接操作店铺（无店铺面）。
+非 Shopify 生态。
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

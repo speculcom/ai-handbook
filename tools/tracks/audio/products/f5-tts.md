@@ -12,28 +12,27 @@ licenseEn: MIT (GitHub API verified same day, spdx=MIT); weights distributed via
 
 axes:
   model_access: >-
-    开源权重线：F5-TTS（Diffusion Transformer + ConvNeXt V2）与 E2 TTS 复现两模型在册（README 当日核验），
-    v1 base 模型 2025-03-12 发布；下载权重本机推理，无官方托管服务。
+    开源权重线：F5-TTS（Diffusion Transformer + ConvNeXt V2）与 E2 TTS 复现两模型在册（README 当日核验）。
+
+    v1 base 模型 2025-03-12 发布。下载权重本机推理，无官方托管服务。
   runtime: >-
-    本机 Python 推理栈（conda + PyTorch，NVIDIA CUDA 与 AMD ROCm 安装路径 README 在册，ROCm 仅 Linux）；
+    本机 Python 推理栈（conda + PyTorch，NVIDIA CUDA 与 AMD ROCm 安装路径 README 在册，ROCm 仅 Linux）。
+
     社区 Gradio Space（E2-F5-TTS）可试跑但非官方托管产品。
   local_files: >-
-    权重、代码、生成音频全在本机；ModelScope 权重页大陆直连 200（2026-10-30）——获取路径大陆可用；
-    无任何账户/云端数据面。
+    权重、代码、生成音频全在本机。ModelScope 权重页大陆直连 200（2026-10-30）——获取路径大陆可用。无任何账户/云端数据面。
   background: >-
-    本机批处理推理，无任务队列形态；推理耗时随硬件变化，官方按套餐/版本口径统一延迟口径。
+    本机批处理推理，无任务队列形态。推理耗时随硬件变化，官方按套餐/版本口径统一延迟口径。
   tools: >-
-    命令行/库形态为主（README 用法示例）；zero-shot 克隆=给参考音频+文本即可合成（README 用法在册）；
-    Sway Sampling 推理期采样策略在册。无托管 API。
+    命令行/库形态为主（README 用法示例）。zero-shot 克隆=给参考音频+文本即可合成（README 用法在册）。Sway Sampling 推理期采样策略在册。无托管 API。
   context: >-
-    无会话概念——每次推理调用独立、互不携带状态；跨会话记忆不适用（本机模型形态，上下文管理完全由调用方代码自理）。
+    无会话概念——每次推理调用独立、互不携带状态。跨会话记忆不适用（本机模型形态，上下文管理完全由调用方代码自理）。
   permissions: >-
-    MIT 许可商用基底（GitHub 当日在册）；克隆授权面模型本身不做 consent 校验——
-    平台侧拦截不存在（本机形态无平台），使用方自担授权责任（法律提示不在官方 README 在册，如实标官方文档未单列）。
-  fit: >-
-    适合：本机/私有化中英文 TTS 与 zero-shot 克隆研究、MIT 商用基底、大陆经 ModelScope 获取权重。
-    不适合：要托管 API 开箱即用、要零运维、要 SLA。
+    MIT 许可商用基底（GitHub 当日在册）。克隆授权面模型本身不做 consent 校验—— 平台侧拦截不存在（本机形态无平台）。
 
+    使用方自担授权责任（法律提示不在官方 README 在册，如实标官方文档未单列）。
+  fit: >-
+    适合：本机/私有化中英文 TTS 与 zero-shot 克隆研究、MIT 商用基底、大陆经 ModelScope 获取权重。不适合：要托管 API 开箱即用、要零运维、要 SLA。
 pitfalls:
   - 它是模型不是产品——没有账号、控制台、SLA；「F5-TTS 服务」在官方口径里不存在（HF Space 是社区演示不是官方托管）
   - 官方入口 github.com 大陆直连当日 000——权重经 ModelScope（AI-ModelScope/E2-F5-TTS studio 与 SWivid 权重页）直连 200，按获取路径判可达性而不是按仓库域
@@ -85,8 +84,7 @@ cn:
 
 ## 一句话定位
 
-**F5-TTS 是中国学术团队（上交 X-LANCE 等）的开源 flow-matching TTS 模型**（MIT，★15,487，
-最近推送 2026-10-23 当日在册）：下载权重本机跑，中英文 zero-shot 克隆是主打用法，无官方托管服务。
+**F5-TTS**：中国学术团队（上交 X-LANCE 等）的开源 flow-matching TTS 模型：（MIT。★15,487最近推送 2026-10-23 当日在册）。下载权重本机跑，中英文 zero-shot 克隆是主打用法，无官方托管服务。
 
 ## 适合与不适合
 

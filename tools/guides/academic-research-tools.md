@@ -59,7 +59,7 @@ confidence: partial
 ## [查引用态度：Scite|Checking citation stance: Scite]
 
 Scite 的 Smart Citations 把引用分成**支持 / 反对 / 仅提及**，用来判断一篇论文是被验证还是被质疑。
-它不能替代你读原文：分类由模型与规则生成，边界情况仍要人工核对。
+**依据：** 它不能替代你读原文：分类由模型与规则生成，边界情况仍要人工核对。
 
 <!-- EN -->
 > Scite's Smart Citations classify citations as **supporting / contrasting / mentioning**, which helps tell whether a paper has been replicated or challenged.

@@ -8,30 +8,37 @@ license: 商业源码可用（source-available）模型：Connect/Workflows 平�
 
 axes:
   model_access: >-
-    工作流步骤可接各家 LLM（官方 AI 集成文档线）；Connect 让应用或 AI agent 直接调用任意 AI API / LLM。
-    特色是代码优先：步骤可写 Node/Python/Bash，平台本身不是模型提供方。
+    工作流步骤可接各家 LLM（官方 AI 集成文档线）。Connect 让应用或 AI agent 直接调用任意 AI API / LLM。特色是代码优先。步骤可写 Node/Python/Bash。
+
+    平台本身不是模型提供方。
   runtime: >-
-    Pipedream 托管 serverless runtime 与 workflow service；Connect 的 API、SDK、MCP Servers 与 API Proxy 也在平台侧。
+    Pipedream 托管 serverless runtime 与 workflow service。Connect 的 API、SDK、MCP Servers 与 API Proxy 也在平台侧。
+
     本地 CLI 用于开发部署，官方没有完整自托管形态的声明。
   local_files: >-
-    执行在 Pipedream 云端；本机经 CLI/SDK 开发。Connect 的 OAuth 凭据与 token 在平台侧 HTTPS 传输并加密存储；
-    Workflows 结构可用官方导出工具下载为 JSON，平台本身不跑本地模型。
+    执行在 Pipedream 云端。本机经 CLI/SDK 开发。Connect 的 OAuth 凭据与 token 在平台侧 HTTPS 传输并加密存储。
+
+    Workflows 结构可用官方导出工具下载为 JSON。平台本身不跑本地模型。
   background: >-
-    托管 serverless runtime 承载定时调度、webhook、事件队列与重试，电脑关机后仍可运行。
-    Workflows 自 2026 起进入维护模式、2027-03-31 关停；Connect 不受影响。
+    托管 serverless runtime 承载定时调度、webhook、事件队列与重试。电脑关机后仍可运行。Workflows 自 2026 起进入维护模式、2027-03-31 关停。
+
+    Connect 不受影响。
   tools: >-
-    Connect 提供 Client SDK、2,500+ API 的托管授权、10k 预构建 tools/triggers、MCP Servers 与 API Proxy；
+    Connect 提供 Client SDK、2,500+ API 的托管授权、10k 预构建 tools/triggers、MCP Servers 与 API Proxy。
+
     工作流侧有代码步骤与 source-available 组件注册表。
   context: >-
-    平台不做对话记忆：Connect 用 external_user_id 标识终端用户，每次调用取该用户的 token；跨调用对话历史与应用状态
-    由调用方维护，平台持久面是 connected account 与 workflow 配置。
-  permissions: >-
-    Connect 可用官方 OAuth client 或自带 client 接受 OAuth/API key；凭据 HTTPS 传输、静态加密，官方可提供 SOC 2 Type 2
-    报告与 HIPAA BAA。Workflows 的凭据与 OAuth token 将在 2027-04-30 前永久删除。
-  fit: >-
-    适合：给应用或 AI agent 加第三方集成的开发者（Connect 线）；要代码级控制又接受托管运行时的自动化团队。
-    不适合：完全不碰代码的团队；要求完整自托管；仍把 Workflows 当长期生产平台、不准备 2027 迁移的用户。
+    平台不做对话记忆。Connect 用 external_user_id 标识终端用户。每次调用取该用户的 token。跨调用对话历史与应用状态 由调用方维护。
 
+    平台持久面是 connected account 与 workflow 配置。
+  permissions: >-
+    Connect 可用官方 OAuth client 或自带 client 接受 OAuth/API key。凭据 HTTPS 传输、静态加密。官方可提供 SOC 2 Type 2 报告与 HIPAA BAA。
+
+    Workflows 的凭据与 OAuth token 将在 2027-04-30 前永久删除。
+  fit: >-
+    适合：给应用或 AI agent 加第三方集成的开发者（Connect 线）。要代码级控制又接受托管运行时的自动化团队。不适合：完全不碰代码的团队。要求完整自托管。
+
+    仍把 Workflows 当长期生产平台、不准备 2027 迁移的用户。
 pitfalls:
   - 把它归「纯低代码」——它是开发者向：代码步骤是一等公民，界面是搭流程的壳
   - Connect 与 Workflows 是两条产品线（被集成 vs 自己自动化），档案合并写但读官方要分开
@@ -78,18 +85,23 @@ cn:
 
 ## 一句话定位
 
-**Pipedream 是「开发者向」的托管自动化与集成平台**：代码步骤（Node/Python/Bash）是一等公民，Connect 线让「你的应用」
-成为别人工作流里的节点。需要先记住一条硬边界：**Workflows 与 String 已进入维护模式，2027-03-31 关停，Connect 不受影响**。
+**Pipedream 是「开发者向」的托管自动化与集成平台**：代码步骤（Node/Python/Bash）是一等公民。Connect 线让「你的应用」成为别人工作流里的节点。
+
+需要先记住一条硬边界：**Workflows 与 String 已进入维护模式。2027-03-31 关停，Connect 不受影响**。
 
 ## 适合与不适合
 
-适合：工程师做自动化、要代码级控制又想要托管运行时与 OAuth 托管；SaaS 要做集成面（Connect）。
-不适合：完全不想碰代码（去 Zapier/Make）；要完整自托管（官方无此形态声明）；把 Workflows 当长期平台、不做迁移的用户。
+适合：工程师做自动化、要代码级控制又想要托管运行时与 OAuth 托管。SaaS 要做集成面（Connect）。不适合：完全不想碰代码（去 Zapier/Make）。要完整自托管（官方无此形态声明）。
+
+把 Workflows 当长期平台、不做迁移的用户。
 
 ## 实测记录
 
-未跑工作流搭建实测；结论只覆盖平台能力、授权边界与官方公布的关停时间线。Connect 的 2,500+ API、10k tools/triggers、
-MCP、API Proxy 与凭据加密口径取自官方 Connect Overview；Workflows 的关停与数据删除取自官方 Workflows 文档。
+未跑工作流搭建实测。结论只覆盖平台能力、授权边界与官方公布的关停时间线。
+
+Connect 的 2,500+ API、10k tools/triggers、MCP、API Proxy 与凭据加密口径取自官方 Connect Overview。
+
+Workflows 的关停与数据删除取自官方 Workflows 文档。
 
 ## 未知项清单
 

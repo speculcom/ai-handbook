@@ -22,7 +22,7 @@ confidence: verified
 ## [先分清两个数字|Two numbers first]
 
 MoE 的「参数量」几乎总要拆成两栏：**总参数**与**每 token 激活参数**。
-Mixtral 8×7B 每层 8 个专家、每 token 选 2 个，总参数 47B，推理时只激活 13B；
+**依据：** Mixtral 8×7B 每层 8 个专家、每 token 选 2 个，总参数 47B，推理时只激活 13B；
 DeepSeek-V3 总参数 671B，每 token 激活 37B。
 两个数字回答的是不同问题：总参数决定要装下多少权重，激活参数决定每 token 大约要做多少计算。
 

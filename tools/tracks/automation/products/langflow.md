@@ -9,26 +9,21 @@ licenseEn: MIT (GitHub API license field verified 2026-10-21) — the cleanest l
 
 axes:
   model_access: >-
-    组件接各家 LLM/embedding/向量库；DataStax 收购后与其向量数据库（AstraDB）线深度整合，
-    其余 provider 覆盖以官方 docs 为准，本档不逐条展开。
+    组件接各家 LLM/embedding/向量库。DataStax 收购后与其向量数据库（AstraDB）线深度整合。其余 provider 覆盖以官方 docs 为准，本档不逐条展开。
   runtime: >-
-    开源自托管（pip/uv/Docker）+ DataStax 托管线；GitHub 155,885★、最近推送 2026-10-21（API 核验，非常活跃）。
+    开源自托管（pip/uv/Docker）+ DataStax 托管线。GitHub 155,885★、最近推送 2026-10-21（API 核验，非常活跃）。
   local_files: >-
-    自托管实例的数据、flow 定义与凭据全部落在自有环境；官方文档给导出/导入 flow 的机制
-    （细节本档不逐条展开）。Cloud 托管线数据在 DataStax 云端。
+    自托管实例的数据、flow 定义与凭据全部落在自有环境。官方文档给导出/导入 flow 的机制 （细节本档不逐条展开）。Cloud 托管线数据在 DataStax 云端。
   background: >-
-    自托管实例常开即承载 API 服务与后台执行；官方给部署文档（细节本档不逐条展开）。
-    「电脑关了还能跑」取决于你把实例跑在哪——平台不替你保管关机后的执行。
+    自托管实例常开即承载 API 服务与后台执行。官方给部署文档（细节本档不逐条展开）。「电脑关了还能跑」取决于你把实例跑在哪。平台不替你保管关机后的执行。
   tools: >-
-    组件市场（marketplace）+ 自定义组件是官方扩展面；MCP 支持状态不在官方文档列出的能力面内。
+    组件市场（marketplace）+ 自定义组件是官方扩展面。MCP 支持状态不在官方文档列出的能力面内。
   context: >-
-    flow 内状态与记忆组件是官方上下文面；跨 flow 记忆本档不逐条展开。
+    flow 内状态与记忆组件是官方上下文面。跨 flow 记忆本档不逐条展开。
   permissions: >-
-    开源版基础鉴权；企业治理随 DataStax 托管线——开/商分界本档不逐条展开。
+    开源版基础鉴权。企业治理随 DataStax 托管线。开/商分界本档不逐条展开。
   fit: >-
-    适合：要 MIT 许可的 LLM 画布、要 Python 自定义组件、DataStax 栈。
-    不适合：要开箱企业治理（在托管线）。
-
+    适合：要 MIT 许可的 LLM 画布、要 Python 自定义组件、DataStax 栈。不适合：要开箱企业治理（在托管线）。
 pitfalls:
   - 把它当「LangChain 官方产品」——它是独立项目（现归 DataStax），与 LangChain/LangGraph 是近亲不是同门
   - 只看到星数不看归属——DataStax 收购后产品叙事向企业数据栈倾斜（按官方口径建档）
@@ -69,13 +64,16 @@ cn:
 
 ## 一句话定位
 
-**Langflow 是 使用 MIT 许可的 LLM 画布平台**，现归 DataStax——
-产品叙事向企业数据栈（AstraDB 向量线）倾斜。Python 自定义组件是它的扩展主轴。
+**Langflow 是 使用 MIT 许可的 LLM 画布平台**。
+现归 DataStax——
+产品叙事向企业数据栈（AstraDB 向量线）倾斜。
+Python 自定义组件是它的扩展主轴。
 
 ## 适合与不适合
 
 适合：要 MIT 自由度、要 Python 写自定义组件、DataStax/向量库栈用户。
-不适合：要开箱企业治理（在 DataStax 托管线）；要「LangChain 官方」血统（它是独立近亲）。
+不适合：要开箱企业治理（在 DataStax 托管线）。
+要「LangChain 官方」血统（它是独立近亲）。
 
 ## 实测记录
 

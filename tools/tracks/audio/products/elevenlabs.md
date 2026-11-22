@@ -10,28 +10,27 @@ licenseEn: Official ToU §1(c): paid users may use Outputs commercially, while f
 
 axes:
   model_access: >-
-    模型迭代经官方 changelog 披露：Eleven v4 与 Eleven v4 Turbo 发布（2026-09-28 条目）、
-    Scribe v2 Medical 正式可用（2026-09-11）、music_v2_5 API 支持（2026-09-14）
-    ——2026-10-21 直抓核验；平台内还聚合第三方模型配置（changelog 条目含 gpt/claude 系 LLM 接入）。
-  runtime: >-
-    网页、API 与移动端；生成在云端处理。API 是配音/语音产品集成的主入口之一。
-  local_files: >-
-    支持文本、脚本与音频素材输入（转录、克隆训练）；素材处理口径见 permissions 维。
-  background: >-
-    生成为请求制；Agents/电话线产品有持续会话形态（changelog 通话排队等条目）；
-    没有「关机续跑」形态的官方声明。
-  tools: >-
-    产品面宽：TTS、Voice Design/克隆、Speech to Text（Scribe 系）、Text to Dialogue、
-    Conversational AI（电话/Widget）、Workflows/Flows 编排、音频效果（audio_effects 2026-10-12 条目）。
-  context: >-
-    生成为请求制，无跨会话对话记忆形态；声音资产（Voice Library/个人声音）是持久化形态。
-  permissions: >-
-    官方 ToU §4(d) 授予平台为运营与改进（含训练）使用内容的许可；§4(i) 提供 Data use 设置菜单
-    可退出把内容用于训练——自助退出在同类里少见。声音克隆须本人授权或取得合法授权。
-  fit: >-
-    做配音、有声内容、语音产品的团队。训练退出是自助菜单（相对少见，值得点名）；
-    克隆他人声音前先拿授权——这是人格权红线，不是纯条款问题。
+    模型迭代经官方 changelog 披露。
 
+    Eleven v4 与 Eleven v4 Turbo 发布（2026-09-28 条目）、 Scribe v2 Medical 正式可用（2026-09-11）、music_v2_5 API 支持（2026-09-14） ——2026-10-21 直抓核验。
+
+    平台内还聚合第三方模型配置（changelog 条目含 gpt/claude 系 LLM 接入）。
+  runtime: >-
+    网页、API 与移动端。生成在云端处理。API 是配音/语音产品集成的主入口之一。
+  local_files: >-
+    支持文本、脚本与音频素材输入（转录、克隆训练）。素材处理口径见 permissions 维。
+  background: >-
+    生成为请求制。Agents/电话线产品有持续会话形态（changelog 通话排队等条目）。没有「关机续跑」形态的官方声明。
+  tools: >-
+    产品面宽：TTS、Voice Design/克隆、Speech to Text（Scribe 系）、Text to Dialogue、 Conversational AI（电话/Widget）、Workflows/Flows 编排、音频效果（audio_effects 2026-10-12 条目）。
+  context: >-
+    生成为请求制，无跨会话对话记忆形态。声音资产（Voice Library/个人声音）是持久化形态。
+  permissions: >-
+    官方 ToU §4(d) 授予平台为运营与改进（含训练）使用内容的许可。§4(i) 提供 Data use 设置菜单 可退出把内容用于训练——自助退出在同类里少见。
+
+    声音克隆须本人授权或取得合法授权。
+  fit: >-
+    做配音、有声内容、语音产品的团队。训练退出是自助菜单（相对少见，值得点名）。克隆他人声音前先拿授权——这是人格权红线，不是纯条款问题。
 pitfalls:
   - 商用权与档位绑定——免费档输出仅非商用，换档才放开
   - 以为训练退出没有——§4(i) 有自助 Data use 菜单（同类里少见，别按别家经验套）
@@ -71,13 +70,16 @@ cn:
 
 ## 一句话定位
 
-语音合成与配音平台：TTS、克隆、转写、对话 AI、工作流编排一条齐；
+**依据：** 语音合成与配音平台：TTS、克隆、转写、对话 AI、工作流编排一条齐；
 「训练退出是自助菜单」在同类里少见，商用权与档位绑定。
 
 ## 适合与不适合
 
-适合做配音、有声内容、语音产品集成的团队——API 线成熟。在意训练用途可用自助
-Data use 菜单退出（同类里少见）；克隆声音前先拿授权。要生成音乐而非语音，对照 Suno。
+适合做配音、有声内容、语音产品集成的团队——API 线成熟。
+在意训练用途可用自助
+Data use 菜单退出（同类里少见）。
+克隆声音前先拿授权。
+要生成音乐而非语音，对照 Suno。
 
 ## 实测记录
 

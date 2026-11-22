@@ -13,34 +13,39 @@ licenseEn: Commercial service under its own terms and privacy policy (legal and 
 
 axes:
   model_access: >-
-    不开放选模型：在册的检测面是 Truepic 自己的验真与检查流水线。verification-tests 页在册项目为
-    模糊度、时间准确性、位置、屏幕翻拍检测与可选 AI 任务；Lens 侧走 PKI 签名证书与 C2PA
-    content credentials 判来源（lens-api 页在册）。验真用的具体模型是否披露、能否替换，官方页未逐条说明，记为未知。
+    不开放选模型。在册的检测面是 Truepic 自己的验真与检查流水线。verification-tests 页在册项目为 模糊度、时间准确性、位置、屏幕翻拍检测与可选 AI 任务。
+
+    Lens 侧走 PKI 签名证书与 C2PA content credentials 判来源（lens-api 页在册）。验真用的具体模型是否披露、能否替换，官方页未逐条说明，记为未知。
   runtime: >-
-    托管云交付：Vision 网页平台（登录入口与 Okta SSO 在文档在册）加 REST API。
-    regions 页在册只有 US 与 UK 两个区域，并写明数据存在发起请求的那个区域。未见本机或离线形态的官方声明。
+    托管云交付：Vision 网页平台（登录入口与 Okta SSO 在文档在册）加 REST API。regions 页在册只有 US 与 UK 两个区域，并写明数据存在发起请求的那个区域。
+
+    未见本机或离线形态的官方声明。
   local_files: >-
-    你上传图像/视频与检查单，结果以 JSON 报告返回，检查单可导出 PDF（导出页在文档导航在册）。
-    Lens Web SDK 在浏览器侧完成采集。官方页未声明读写你的本地文件系统，也未声明媒体最终落在哪家存储。
+    你上传图像/视频与检查单，结果以 JSON 报告返回。检查单可导出 PDF（导出页在文档导航在册）。Lens Web SDK 在浏览器侧完成采集。官方页未声明读写你的本地文件系统。
+
+    也未声明媒体最终落在哪家存储。
   background: >-
-    检查按任务态推进：Inspection Statuses、Alerts、Webhooks 等页面在官方文档导航在册，
-    说明是「提交后异步出结论 + 回调通知」的形态。任务队列时长与续跑细节本次未逐页核验，记为未知。
+    检查按任务态推进。Inspection Statuses、Alerts、Webhooks 等页面在官方文档导航在册。说明是「提交后异步出结论 + 回调通知」的形态。
+
+    任务队列时长与续跑细节本次未逐页核验，记为未知。
   tools: >-
-    扩展面是 API 而非插件：OAuth 2.0 鉴权、Lens API 与 Lens Web SDK（各有独立 changelog）、
-    webhook 与 webhook actions、网站表单、嵌入原生应用的 webview（以上页面均在文档导航在册）。
+    扩展面是 API 而非插件。
+
+    OAuth 2.0 鉴权、Lens API 与 Lens Web SDK（各有独立 changelog）、 webhook 与 webhook actions、网站表单、嵌入原生应用的 webview（以上页面均在文档导航在册）。
+
     MCP 或其他第三方工具协议未见官方声明，记为未知。
   context: >-
-    以单条 inspection 为组织单位：Teams、Custom Fields、Lists、Message Template Sets 在册，
-    Risk Network 提供跨客户的历史线索。这不是会话式上下文，跨请求的「记忆」机制官方未说明，记为未知。
+    **依据：** 以单条 inspection 为组织单位：Teams、Custom Fields、Lists、Message Template Sets 在册， **依据：** Risk Network 提供跨客户的历史线索。这不是会话式上下文，跨请求的「记忆」机制官方未说明，记为未知。
   permissions: >-
-    官方 getting-started 页在册「Vision 不提供自助注册」，走演示与合同。API 限流在册：每 10 秒最多 20 次请求。
-    隐私政策（生效 2026-01-23）在册：采集标识符、内容与设备数据；以匿名化数据训练模型；
-    与分包方在全球范围共享；保留期按合同，账号终止后 90 天。合规认证明细未核验到——
+    官方 getting-started 页在册「Vision 不提供自助注册」。走演示与合同。API 限流在册。每 10 秒最多 20 次请求。隐私政策（生效 2026-01-23）在册。
+
+    采集标识符、内容与设备数据。以匿名化数据训练模型。与分包方在全球范围共享。保留期按合同，账号终止后 90 天。合规认证明细未核验到。
+
     官方 trust 页本次直抓只返回动态脚本壳，无在册内容，记为未知。
   fit: >-
-    适合保险理赔、贷款与抵押、设备勘验这类要「拍摄即验真、事后可举证」的流程，以及要把验真结论接进自有系统的 API 用户。
-    不适合要 LLM 输入输出过滤的团队（不是它的产品主轴），也不适合要自托管或要免费自助额度的人。
+    适合保险理赔、贷款与抵押、设备勘验这类要「拍摄即验真、事后可举证」的流程，以及要把验真结论接进自有系统的 API 用户。不适合要 LLM 输入输出过滤的团队（不是它的产品主轴）。
 
+    也不适合要自托管或要免费自助额度的人。
 pitfalls:
   - 把 Truepic 当通用内容审核 API：官方在册主轴是拍摄验真与检查流水，不是 prompt 与输出过滤
   - 以为有 C2PA 凭证就等于内容真实：凭证给的是来源与编辑史，不等于内容没有误导
@@ -115,29 +120,31 @@ cn:
 
 它验的是「这张照片是不是当场拍的」，不是「这段话能不能发」。
 
-官方文档把主轴写成拍摄即验真：PKI 签名证书加 C2PA content credentials，
+官方文档把主轴写成拍摄即验真。
+PKI 签名证书加 C2PA content credentials，
 再叠一组现场一致性检查（时间、位置、屏幕翻拍、清晰度）。
 
 ## 适合与不适合
 
-适合保险理赔、贷款抵押、设备勘验这类要证据链的流程，以及要把验真结论用 API 接进自有系统的团队。
-不适合两类人：要找 LLM 输入输出过滤的（那是护栏那条线），要自助注册先试起来的
-——官方 getting-started 页明写不提供自助开通，走演示与合同。
+适合保险理赔、贷款抵押、设备勘验这类要证据链的流程，以及要把验真结论用 API 接进自有系统的团队。不适合两类人。要找 LLM 输入输出过滤的（那是护栏那条线）。
+
+要自助注册先试起来的——官方 getting-started 页明写不提供自助开通，走演示与合同。
 
 ## 能力边界
 
-在册能判的：媒体是否为签名设备当场采集、是否翻拍屏幕、时间与位置是否自洽、
-元数据是否被改动，以及可选的 AI 分析任务。不在册的：它不判内容是否有害，
-也不替你决定要不要采信这张图。C2PA 侧的边界是本站观点：凭证给的是来源与处理史，
-不是「真实」的终极判定（详见 [Content Credentials](./adobe-content-credentials.md)）。
+**依据：** 在册能判的：媒体是否为签名设备当场采集、是否翻拍屏幕、时间与位置是否自洽、元数据是否被改动，以及可选的 AI 分析任务。
+
+不在册的：它不判内容是否有害，也不替你决定要不要采信这张图。C2PA 侧的边界是本站观点。凭证给的是来源与处理史，不是「真实」的终极判定（详见 [Content Credentials](./adobe-content-credentials.md)）。
 
 ## 变更记录说明
 
-公开版本记录只有两条 SDK 线：Lens API changelog 最新在册条目为 2024-09-26
-（加 C2PA 1.4 / 2.0、hash box、GPSHPositioningError 与元数据断言），
-Lens Web SDK changelog 最新为 2025-01-22。Vision 平台本体无公开 changelog。
-官网 blog 与 newsroom 有 2026 年的产品与集成在册条目（如 2026-08 AI Analysis），
-但没有可核验的版本号，故 lifecycle 记 maintenance 而非 active。
+公开版本记录只有两条 SDK 线。
+
+Lens API changelog 最新在册条目为 2024-09-26（加 C2PA 1.4 / 2.0、hash box、GPSHPositioningError 与元数据断言），Lens Web SDK changelog 最新为 2025-01-22。
+
+Vision 平台本体无公开 changelog。
+
+官网 blog 与 newsroom 有 2026 年的产品与集成在册条目（如 2026-08 AI Analysis），但没有可核验的版本号，故 lifecycle 记 maintenance 而非 active。
 
 ## 实测记录
 

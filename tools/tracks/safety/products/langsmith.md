@@ -14,38 +14,37 @@ licenseEn: >-
 
 axes:
   model_access: >-
-    被观测与被评测的模型都不由平台提供：官方产品页点名可接 OpenAI、Anthropic、Vercel AI SDK、LlamaIndex
-    与自研实现（当日在册）。评测器面含人工、代码、LLM-as-judge、decision model 与成对比较
-    （evaluation-concepts 当日在册）。**judge 是否必须自备模型凭据，该页未说明，官方文档未单列。**
+    **依据：** 被观测与被评测的模型都不由平台提供：官方产品页点名可接 OpenAI、Anthropic、Vercel AI SDK、LlamaIndex 与自研实现（当日在册）。评测器面含人工、代码、LLM-as-judge、decision model 与成对比较 （evaluation-concepts 当日在册）。**judge 是否必须自备模型凭据，该页未说明，官方文档未单列。**
   runtime: >-
-    主形态是厂商托管云（SaaS），另有 BYOC 与企业版自托管：官方写「Self-hosted LangSmith 是 Enterprise
-    加购」「在你自己的 Kubernetes 集群里跑」，默认捆绑存储、生产建议改用外部存储服务
-    （self-hosted 文档当日在册）。控制台在浏览器，SDK、CLI 与 API 是代码面。
+    主形态是厂商托管云（SaaS）。另有 BYOC 与企业版自托管：官方写「Self-hosted LangSmith 是 Enterprise 加购」「在你自己的 Kubernetes 集群里跑」。
+
+    默认捆绑存储、生产建议改用外部存储服务 （self-hosted 文档当日在册）。控制台在浏览器，SDK、CLI 与 API 是代码面。
   local_files: >-
-    数据面默认在厂商侧，除非走 BYOC 或自托管；trace 由 SDK 或 OpenTelemetry 上报，
-    OTLP 端点是 LANGSMITH_ENDPOINT 加 /otel（当日在册）。平台不读本机代码库；
-    **导出与删除接口面本次按官方文档口径。**
+    数据面默认在厂商侧，除非走 BYOC 或自托管。trace 由 SDK 或 OpenTelemetry 上报。OTLP 端点是 LANGSMITH_ENDPOINT 加 /otel（当日在册）。
+
+    平台不读本机代码库。**导出与删除接口面本次按官方文档口径。**
   background: >-
-    在线评测跑在生产 trace 上（evaluation-concepts 当日在册），离线评测用带参考输出的数据集做回归对照；
-    官方 changelog 当日在册条目提到在线评测器的细粒度权限与自定义视图。
-    **评分队列的吞吐、延迟与抽样口径未在册，官方文档未单列。**
+    在线评测跑在生产 trace 上（evaluation-concepts 当日在册）。离线评测用带参考输出的数据集做回归对照。
+
+    官方 changelog 当日在册条目提到在线评测器的细粒度权限与自定义视图。**评分队列的吞吐、延迟与抽样口径未在册，官方文档未单列。**
   tools: >-
-    OpenTelemetry 摄入并可用 collector 做多目的地 fanout（当日在册）；官方 CLI 可查询与管理
-    traces、runs、datasets、evaluators、experiments、insights、threads（当日在册）；
+    OpenTelemetry 摄入并可用 collector 做多目的地 fanout（当日在册）。
+
+    官方 CLI 可查询与管理 traces、runs、datasets、evaluators、experiments、insights、threads（当日在册）。
+
     文档索引在册的 Terraform 面把评测器与规则当代码管。**MCP 接入方式官方文档未单列。**
   context: >-
-    观测与评测对象按 workspace 与 project 组织，权限按 workspace 配内置或自定义角色
-    （enterprise 文档当日在册）；数据集带参考输出，用于回归对照。
-    **保留时长与 TTL 的具体口径未逐条在册，官方文档未单列；「跨会话记忆」不是本类平台的功能面。**
-  permissions: >-
-    合规标记当日在册：SOC 2 Type II、HIPAA、GDPR（enterprise 文档直抓）；SAML 或 OIDC 单点登录与
-    即时用户配置同页在册。档位与配额事实为 Developer 免费档、Plus 与按需 Enterprise（含自托管与 BYOC），
-    价格数字按 D9 不采。**是否用客户 trace 训练模型、数据保留条款正文未抓到（privacy 页当日 404），官方文档未单列。**
-  fit: >-
-    适合要「一个控制台管住 trace、数据集、评测器与告警」、又不想自运维观测栈的团队；
-    已用 OpenTelemetry 的应用可先接进来再换后端。不适合把许可门槛当次要问题、
-    或必须整机自托管却买不到企业档的团队；本档不测分也不排名。
+    观测与评测对象按 workspace 与 project 组织。权限按 workspace 配内置或自定义角色 （enterprise 文档当日在册）。数据集带参考输出，用于回归对照。
 
+    **保留时长与 TTL 的具体口径未逐条在册，官方文档未单列。「跨会话记忆」不是本类平台的功能面。**
+  permissions: >-
+    合规标记当日在册。SOC 2 Type II、HIPAA、GDPR（enterprise 文档直抓）。SAML 或 OIDC 单点登录与 即时用户配置同页在册。
+
+    档位与配额事实为 Developer 免费档、Plus 与按需 Enterprise（含自托管与 BYOC）。价格数字按 D9 不采。
+
+    **是否用客户 trace 训练模型、数据保留条款正文未抓到（privacy 页当日 404）。官方文档未单列。**
+  fit: >-
+    **依据：** 适合要「一个控制台管住 trace、数据集、评测器与告警」、又不想自运维观测栈的团队； 已用 OpenTelemetry 的应用可先接进来再换后端。不适合把许可门槛当次要问题、 或必须整机自托管却买不到企业档的团队；本档不测分也不排名。
 pitfalls:
   - 把「支持任意框架」当成零成本兼容——接入面靠 SDK 与 OTel，字段口径要在 collector 侧对齐（当日在册）
   - 把自托管当成可自选部署形态——官方口径是 Enterprise 加购，默认捆绑存储、生产要换外部服务
@@ -109,10 +108,11 @@ cn:
 
 ## 适合与不适合
 
-适合想要一个控制台同时管 trace、数据集、评测器和告警，又不想自运维观测栈的团队。
-已有 OpenTelemetry 的应用可以先接进来，之后再决定要不要同时发往别的后端。
-不适合把许可门槛当次要问题的团队：自托管按官方口径是企业版加购，还要自备集群与外部存储。
-本档只写它支持哪些评测类型，不写它测出来的分数，也不做同类排名。
+适合想要一个控制台同时管 trace、数据集、评测器和告警。又不想自运维观测栈的团队。
+
+已有 OpenTelemetry 的应用可以先接进来，之后再决定要不要同时发往别的后端。不适合把许可门槛当次要问题的团队。
+
+自托管按官方口径是企业版加购，还要自备集群与外部存储。本档只写它支持哪些评测类型，不写它测出来的分数，也不做同类排名。
 
 ## 实测记录
 
@@ -126,9 +126,9 @@ cn:
 
 ## 变更记录说明
 
-官方 changelog 当日直抓在册，最新条目日期 2026-11-02，条目覆盖评测、数据集、
-标注队列与在线评测器的权限面。旧域名 docs.smith.langchain.com 当日 308 跳转新域名，
-档案一律按新域名挂源。
+官方 changelog 当日直抓在册。最新条目日期 2026-11-02，条目覆盖评测、数据集、标注队列与在线评测器的权限面。
+
+旧域名 docs.smith.langchain.com 当日 308 跳转新域名，档案一律按新域名挂源。
 
 ## 未知项清单
 

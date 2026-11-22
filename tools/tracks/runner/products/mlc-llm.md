@@ -10,7 +10,7 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-31).
 axes:
   model_access: >-
     **自带编译式推理引擎（MLCEngine）**——不是调外部模型的服务，是把模型编译成目标平台的原生执行码
-    （「Universal LLM Deployment Engine with ML Compilation」官方定位）。模型侧吃 safetensors 系
+    **依据：** （「Universal LLM Deployment Engine with ML Compilation」官方定位）。模型侧吃 safetensors 系
     （HF 权重编译路线），与 llama.cpp 的 GGUF 预量化路线是两条根。
   runtime: >-
     **编译-部署型 CLI/库**（pip mlc-llm / mlc_llm 命令）；覆盖平台矩阵是它的主打面：
@@ -80,11 +80,11 @@ cn:
 
 ## 一句话定位
 
-**MLC LLM：编译式跨平台推理引擎**（Apache-2.0，23,284★ 推送 2026-10-30）——
-「Universal LLM Deployment Engine with ML Compilation」：把模型编译成目标平台原生码，
-一套 MLCEngine 覆盖 NVIDIA/AMD/Intel GPU、Apple Metal（含 iOS）、浏览器 WebGPU/WASM（WebLLM）、
-Android OpenCL，全部走 OpenAI 兼容 API。两条根口径：**safetensors 编译路线 ≠ GGUF 预量化路线**；
-**发版线在 PyPI 不在 GitHub releases**（名义 v0.20.0/dev 标签 v0.26.dev0）。
+**MLC LLM**：编译式跨平台推理引擎，许可证 Apache-2.0。仓库 23,284★，最近推送 2026-10-30。
+
+    **依据：** 官方定位「Universal LLM Deployment Engine with ML Compilation」：把模型编译成目标平台原生码。一套 MLCEngine 覆盖 NVIDIA/AMD/Intel GPU、Apple Metal（含 iOS）、浏览器 WebGPU/WASM（WebLLM）、Android OpenCL，全部走 OpenAI 兼容 API。
+
+    两条根口径：**safetensors 编译路线 ≠ GGUF 预量化路线**；**发版线在 PyPI 不在 GitHub releases**（名义 v0.20.0/dev 标签 v0.26.dev0）。
 
 ## 适合与不适合
 

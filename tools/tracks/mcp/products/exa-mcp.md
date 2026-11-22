@@ -9,35 +9,29 @@ licenseEn: MIT (GitHub API verified 2026-10-23).
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Exa 的检索与抓取
-    （web search、网页正文、多步研究 Agent）包装成工具给 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Exa 的检索与抓取 （web search、网页正文、多步研究 Agent）包装成工具给 agent 用。
   runtime: >-
-    官方托管远程 server（https://mcp.exa.ai/mcp，streamable-http）为主；
-    仓同时是 Agent Plugin（agent-plugins.org 生态）与 Claude/Codex 插件线。
-    GitHub 5,162★，最近推送 2026-10-19（API 核验）；GitHub releases 为空，
-    发版线在 npm（exa-mcp-server 3.4.2）。
+    **依据：** 官方托管远程 server（https://mcp.exa.ai/mcp，streamable-http）为主； 仓同时是 Agent Plugin（agent-plugins.org 生态）与 Claude/Codex 插件线。 GitHub 5,162★，最近推送 2026-10-19（API 核验）；GitHub releases 为空， 发版线在 npm（exa-mcp-server 3.4.2）。
   local_files: >-
-    不读写本机文件——输出检索结果与网页正文（clean markdown）。
+    不读写本机文件。输出检索结果与网页正文（clean markdown）。
   background: >-
     服务在 Exa 侧；会话请求-响应，无后台监听语义。
   tools: >-
-    默认两工具：web_search_exa（搜索取干净内容）、web_fetch_exa（按 URL 读全文 markdown）；
-    可选工具经 URL 参数 ?tools= 开启：web_search_advanced_exa（过滤/域名/日期/子页爬取）、
-    agent_run（Exa Agent 多步研究/列表构建/结构化输出）。
+    默认两工具：web_search_exa（搜索取干净内容）、web_fetch_exa（按 URL 读全文 markdown）。可选工具经 URL 参数?tools= 开启。
+
+    web_search_advanced_exa（过滤/域名/日期/子页爬取）、 agent_run（Exa Agent 多步研究/列表构建/结构化输出）。
+
     仓内 skills/ 目录带 search 与 exa-agent 两个 Agent Skill（插件安装时装载）。
   context: >-
-    无 server 侧跨会话记忆——每次检索独立；多步状态在 Exa Agent 任务内。
+    无 server 侧跨会话记忆。每次检索独立。多步状态在 Exa Agent 任务内。
   permissions: >-
-    **匿名可用**：托管端点匿名接入带速率限制（官方 README 口径）；
-    提额与 Exa Agent 要 OAuth（推荐，客户端弹登录）或 API key
-    （?exaApiKey= 参数 / Authorization Bearer / x-api-key 三种传法）。
-    纯读面——不能写任何系统，风险面是查询内容外发与配额。
-  fit: >-
-    适合：给 agent 一路「搜索+读正文」二合一的检索面（默认两工具就覆盖）、
-    零门槛接入（匿名可用）、要多步研究 Agent 的进阶面。
-    不适合：要深度站点级爬取编排（crawl/map 这类面在 firecrawl 线）；
-    要完全离线（托管线要连 Exa）。
+    **匿名可用**：托管端点匿名接入带速率限制（官方 README 口径）。提额与 Exa Agent 要 OAuth（推荐，客户端弹登录）或 API key （?
 
+    exaApiKey= 参数 / Authorization Bearer / x-api-key 三种传法）。纯读面——不能写任何系统，风险面是查询内容外发与配额。
+  fit: >-
+    适合：给 agent 一路「搜索+读正文」二合一的检索面（默认两工具就覆盖）、 零门槛接入（匿名可用）、要多步研究 Agent 的进阶面。
+
+    不适合：要深度站点级爬取编排（crawl/map 这类面在 firecrawl 线）。要完全离线（托管线要连 Exa）。
 pitfalls:
   - 只看到默认两工具——advanced search 与 agent_run 要经 ?tools= 参数显式开启，且会**替换**默认集（官方 README：include all you want）
   - 把 GitHub releases 当发版线——该仓 releases 为空，现役版本在 npm（exa-mcp-server）
@@ -49,14 +43,15 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **streamable-http**（https://mcp.exa.ai/mcp）；经 Agent Plugin / Claude / Codex
-    插件线安装时同一托管端点。核验：仓 README（2026-10-23 直抓）。
+    **streamable-http**（https://mcp.exa.ai/mcp）。经 Agent Plugin / Claude / Codex 插件线安装时同一托管端点。
+
+    **依据：** 核验：仓 README（2026-10-23 直抓）。
   auth: >-
-    匿名可用（限流）；OAuth 优先（?login 或 /oauth 强制登录流）；
-    API key 可走 ?exaApiKey= 查询参数、Authorization Bearer 或 x-api-key 头。
+    匿名可用（限流）。OAuth 优先（?login 或 /oauth 强制登录流）。API key 可走?
+
+    exaApiKey= 查询参数、Authorization Bearer 或 x-api-key 头。
   scope: >-
     纯读：搜索族 + 网页读取 + 研究 Agent。无写面；无审批需求。
-
 sources:
   - label: exa-labs/exa-mcp-server · 仓库（MIT；5,162★，最近推送 2026-10-19，GitHub API 核验）
     url: https://github.com/exa-labs/exa-mcp-server
@@ -87,9 +82,11 @@ cn:
 
 ## 一句话定位
 
-**Exa 官方 MCP server**（MIT）：默认就两工具——web_search_exa 搜索、web_fetch_exa 读正文，
-干净 markdown 直供 agent。**匿名就能连**（限流），OAuth/API key 提额并解锁 Exa Agent 多步研究。
-诚实标注：GitHub releases 为空，发版线在 npm；advanced search 与 agent_run 要 ?tools= 显式开。
+**Exa 官方 MCP server**（MIT）：默认就两工具——web_search_exa 搜索、web_fetch_exa 读正文，干净 markdown 直供 agent。
+
+**匿名就能连**（限流），OAuth/API key 提额并解锁 Exa Agent 多步研究。诚实标注：GitHub releases 为空，发版线在 npm。
+
+advanced search 与 agent_run 要?tools= 显式开。
 
 ## 适合与不适合
 
@@ -98,7 +95,8 @@ cn:
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

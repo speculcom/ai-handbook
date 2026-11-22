@@ -10,22 +10,33 @@ licenseEn: Consumer free plus subscription; enterprise by contract. Governed by 
 
 axes:
   model_access: >-
-    多模型聚合（消费端可选多家模型）+ 企业端检索基础设施：官方 API 文档列 Search、Contents、Answer、Research、Finance Research 与 Inference Router（OpenAI/Anthropic 兼容）六条线（2026-11-21）。
-  runtime: >-
-    网页（you.com）消费端 + API 企业端；检索与生成在厂商云端。官方 API 文档列 Web Search、Contents、Answer、Research、Finance Research 与 Inference Router 六个端点，分别走 ydc-index.io 与 api.you.com（2026-11-21）。
-  local_files: >-
-    对话历史存账户侧云端；官方 API 是请求-响应式，不落地本机索引或离线缓存，返回结构化 JSON/Markdown；未见官方本机数据面（2026-11-21）。
-  background: >-
-    问答即时返回；Research API 在单次请求内完成多轮搜索、交叉引用与综合，属同步 API 而非可暂停作业队列；企业批量任务由调用方自行排队（2026-11-21）。
-  tools: >-
-    消费端 answer engine+模型切换+apps 线；企业端 Search API、Contents/Extract API、Answer API、Research API、Finance Research API 与 Inference Router 是现行主轴，官方文档给出端点与鉴权方式（2026-11-21）。
-  context: >-
-    消费端以线程组织；企业端 API 无跨请求记忆，每次请求独立，上下文需由调用方在 prompt 中携带；跨会话记忆官方页未列（2026-11-21）。
-  permissions: >-
-    账号+订阅（消费端）/合同与 API key（企业端）；官方文档要求 X-API-Key 或 Bearer，训练用途开关与数据保留按官方条款与隐私页核对（2026-11-21）。
-  fit: >-
-    适合：企业检索基础设施采购评估（Search/Research/Answer API）、消费端多模型切换体验。不适合：把消费端当长期承诺（重心已转企业端）、大陆直连（实测 000）（2026-11-21）。
+    多模型聚合（消费端可选多家模型）+ 企业端检索基础设施。
 
+    官方 API 文档列 Search、Contents、Answer、Research、Finance Research 与 Inference Router（OpenAI/Anthropic 兼容）六条线（2026-11-21）。
+  runtime: >-
+    网页（you.com）消费端 + API 企业端。检索与生成在厂商云端。
+
+    官方 API 文档列 Web Search、Contents、Answer、Research、Finance Research 与 Inference Router 六个端点。
+
+    分别走 ydc-index.io 与 api.you.com（2026-11-21）。
+  local_files: >-
+    对话历史存账户侧云端。官方 API 是请求-响应式。不落地本机索引或离线缓存。返回结构化 JSON/Markdown。未见官方本机数据面（2026-11-21）。
+  background: >-
+    问答即时返回。Research API 在单次请求内完成多轮搜索、交叉引用与综合。属同步 API 而非可暂停作业队列。企业批量任务由调用方自行排队（2026-11-21）。
+  tools: >-
+    消费端 answer engine+模型切换+apps 线。
+
+    企业端 Search API、Contents/Extract API、Answer API、Research API、Finance Research API 与 Inference Router 是现行主轴。
+
+    官方文档给出端点与鉴权方式（2026-11-21）。
+  context: >-
+    消费端以线程组织。企业端 API 无跨请求记忆，每次请求独立。上下文需由调用方在 prompt 中携带。跨会话记忆官方页未列（2026-11-21）。
+  permissions: >-
+    账号+订阅（消费端）/合同与 API key（企业端）。官方文档要求 X-API-Key 或 Bearer。训练用途开关与数据保留按官方条款与隐私页核对（2026-11-21）。
+  fit: >-
+    适合：企业检索基础设施采购评估（Search/Research/Answer API）、消费端多模型切换体验。
+
+    不适合：把消费端当长期承诺（重心已转企业端）、大陆直连（实测 000）（2026-11-21）。
 pitfalls:
   - You.com 的「AI 搜索消费产品」旧认知已过时——官方现行主轴是企业搜索基础设施（ARI/Research API）
   - 消费端仍在运营但投入方向存疑——选型时把「消费端长期性」列为风险项
@@ -73,8 +84,9 @@ cn:
 
 ## 一句话定位
 
-**You.com 的重心已经从消费端 AI 搜索转向企业检索基础设施**（ARI/Research API）：
-消费端 answer engine 仍在运营，但选型要把「消费端长期性」列为风险项。
+**You.com 的重心已经从消费端 AI 搜索转向企业检索基础设施**：（ARI/Research API）：
+消费端 answer engine 仍在运营。
+但选型要把「消费端长期性」列为风险项。
 
 ## 适合与不适合
 
@@ -83,7 +95,8 @@ cn:
 
 ## 实测记录
 
-本档核对官网、条款与 API 文档的能力边界；ARI/Research 检索质量、消费端模型清单与免费档限制需按账号实测。
+本档核对官网、条款与 API 文档的能力边界。
+ARI/Research 检索质量、消费端模型清单与免费档限制需按账号实测。
 ## 未知项清单
 
 - 消费端产品线的长期投入：官方页未给承诺，列为选型风险项。

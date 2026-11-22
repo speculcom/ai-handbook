@@ -9,29 +9,25 @@ licenseEn: MIT (stripe/ai repo, GitHub API verified 2026-10-21 — Stripe's offi
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Stripe 后台能力
-    （产品/价格/客户/支付查询、文档检索）包装成工具给 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Stripe 后台能力 （产品/价格/客户/支付查询、文档检索）包装成工具给 agent 用。
   runtime: >-
-    本地进程（Python/TS 包起 stdio）为主；GitHub stripe/ai 2,000★，
-    最近推送 2026-10-30（API 核验）。Stripe 另有 agentic commerce 产品线（ACP 等）——
-    那是「agent 直接收款」的另一层，不算这个 server 本体。
+    本地进程（Python/TS 包起 stdio）为主。GitHub stripe/ai 2,000★。最近推送 2026-10-30（API 核验）。
+
+    Stripe 另有 agentic commerce 产品线（ACP 等）—— 那是「agent 直接收款」的另一层。不算这个 server 本体。
   local_files: >-
-    不碰本机文件系统——作用域是 Stripe 云端账户数据（customers/products/invoices 等）。
+    不碰本机文件系统。作用域是 Stripe 云端账户数据（customers/products/invoices 等）。
   background: >-
     stdio 随客户端生死；无后台任务语义。
   tools: >-
-    Stripe API 检索、账户数据查询、docs 搜索等；写能力（建产品/价格）存在——
-    完整清单以仓 README 为准，本档不逐条复制完整清单。
+    Stripe API 检索、账户数据查询、docs 搜索等。写能力（建产品/价格）存在—— 完整清单以仓 README 为准。本档不逐条复制完整清单。
   context: >-
     无 server 侧跨会话记忆——状态在 Stripe 账户本身。
   permissions: >-
-    **凭据=Stripe API key，按 key 权限走**：测试/正式 key 差别巨大。
-    官方工具支持按 key 类型与工具白名单裁剪；支付写操作（退款/发送发票）真实存在——
-    接 agent 前按 key 权限最坏面设防。
-  fit: >-
-    适合：Stripe 集成开发时让 agent 查 API 用法、查账户对象、试测试模式操作。
-    不适合：要「只读保险」硬边界；非 Stripe 栈。
+    **凭据=Stripe API key。按 key 权限走**：测试/正式 key 差别巨大。官方工具支持按 key 类型与工具白名单裁剪。
 
+    支付写操作（退款/发送发票）真实存在—— 接 agent 前按 key 权限最坏面设防。
+  fit: >-
+    适合：Stripe 集成开发时让 agent 查 API 用法、查账户对象、试测试模式操作。不适合：要「只读保险」硬边界。非 Stripe 栈。
 pitfalls:
   - 把 Agent Toolkit 与 agentic commerce（ACP 收款线）混谈——一个是开发工具一个是商业产品线
   - 用正式 key 接 agent 试写操作——先测试模式，写面（退款等）按最坏假设设防
@@ -42,15 +38,13 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **stdio**（Python/TS 包本地起进程）为主；官方文档另有远程线说明——本档不逐条展开。
-    核验：docs.stripe.com/agentic-commerce 200、stripe/ai 仓（2026-10-21 直抓）。
-  auth: >-
-    Stripe API key（测试/正式两态）；key 权限=工具权限上界。
-    受限 key（restricted keys）支持面本档不逐条展开。
-  scope: >-
-    读面：账户对象查询、API 参考检索；写面：建产品/价格、发票、退款类工具存在。
-    工具白名单裁剪可收窄；无工具级人工审批机制的官方说明。
+    **stdio**（Python/TS 包本地起进程）为主。官方文档另有远程线说明——本档不逐条展开。
 
+    **依据：** 核验：docs.stripe.com/agentic-commerce 200、stripe/ai 仓（2026-10-21 直抓）。
+  auth: >-
+    Stripe API key（测试/正式两态）。key 权限=工具权限上界。受限 key（restricted keys）支持面本档不逐条展开。
+  scope: >-
+    读面：账户对象查询、API 参考检索。写面：建产品/价格、发票、退款类工具存在。工具白名单裁剪可收窄。无工具级人工审批机制的官方说明。
 sources:
   - label: Stripe · 官方 agentic commerce 文档（工具线口径，2026-10-21 直抓核验）
     url: https://docs.stripe.com/agentic-commerce
@@ -81,9 +75,9 @@ cn:
 
 ## 一句话定位
 
-**Stripe 官方给 agent 的开发工具线**（stripe/ai，MIT）：查 API 用法、查账户对象、
-测试模式试操作。两条澄清：它与「agent 直接收款」的 agentic commerce 产品线不是一回事；
-**写操作（退款/发票）真实存在——按 key 权限最坏面设防**。
+**Stripe 官方给 agent 的开发工具线**（stripe/ai，MIT）：查 API 用法、查账户对象、测试模式试操作。
+
+两条澄清：它与「agent 直接收款」的 agentic commerce 产品线不是一回事**写操作（退款/发票）真实存在——按 key 权限最坏面设防**。
 
 ## 适合与不适合
 
@@ -92,7 +86,8 @@ cn:
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

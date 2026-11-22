@@ -8,24 +8,23 @@ license: 商业 SaaS，随 Microsoft 商业条款体系（产品条款/数据保
 
 axes:
   model_access: >-
-    官方文档线（learn.microsoft.com/microsoft-copilot-studio，2026-10-21 直抓 200）覆盖模型与生成式答案配置；
+    官方文档线（learn.microsoft.com/microsoft-copilot-studio，2026-10-21 直抓 200）覆盖模型与生成式答案配置。
+
     具体可选模型清单本档不逐条展开。平台与 Microsoft 生态（Dataverse/Power Platform）深度绑定。
   runtime: >-
-    纯云托管：agent 跑在 Microsoft 365 / Power Platform 云上；无自托管形态。
+    纯云托管：agent 跑在 Microsoft 365 / Power Platform 云上。无自托管形态。
   local_files: >-
-    知识源接 SharePoint/文件/Dataverse 等平台内数据；不承载本机文件运行时。
+    知识源接 SharePoint/文件/Dataverse 等平台内数据。不承载本机文件运行时。
   background: >-
-    云托管常驻是默认形态；触发与自动化经 Power Automate 衔接（官方文档线）。
+    云托管常驻是默认形态。触发与自动化经 Power Automate 衔接（官方文档线）。
   tools: >-
-    官方文档列主题/动作/连接器体系（Power Platform 连接器生态）；MCP 支持状态本档不逐条展开。
+    官方文档列主题/动作/连接器体系（Power Platform 连接器生态）。MCP 支持状态本档不逐条展开。
   context: >-
-    对话主题（topics）与变量是官方上下文组织方式；跨会话记忆机制本档不逐条展开。
+    对话主题（topics）与变量是官方上下文组织方式。跨会话记忆机制本档不逐条展开。
   permissions: >-
-    企业级身份/治理随 Microsoft 365 体系（Entra ID 等）；数据驻留与合规随 Microsoft 商业条款。
+    企业级身份/治理随 Microsoft 365 体系（Entra ID 等）。数据驻留与合规随 Microsoft 商业条款。
   fit: >-
-    适合：Microsoft 365/Power Platform 存量企业、要企业治理现成、要 M365 生态内分发。
-    不适合：不在 Microsoft 生态；要自托管。
-
+    适合：Microsoft 365/Power Platform 存量企业、要企业治理现成、要 M365 生态内分发。不适合：不在 Microsoft 生态。要自托管。
 pitfalls:
   - 把它当独立聊天机器人工具——它的价值绑定在 Power Platform/Dataverse 生态里
   - 计费按消息/容量计量——本站按 D9 不采价格数字，看官方 pricing 页
@@ -64,13 +63,15 @@ cn:
 
 ## 一句话定位
 
-**Copilot Studio 是 Microsoft 生态里的企业低代码 agent 平台**——它的「能不能用」很大程度取决于
-你在不在 Power Platform/Dataverse 生态里。企业治理（身份、数据驻留）随 Microsoft 365 体系现成提供。
+**Copilot Studio 是 Microsoft 生态里的企业低代码 agent 平台**——它的「能不能用」很大程度取决于你在不在 Power Platform/Dataverse 生态里。
+
+企业治理（身份、数据驻留）随 Microsoft 365 体系现成提供。
 
 ## 适合与不适合
 
 适合：M365/Power Platform 存量企业、要现成企业治理、agent 要在 Teams/官网/M365 内分发。
-不适合：不在 Microsoft 生态（生态外价值骤减）；要自托管（无此形态）。
+不适合：不在 Microsoft 生态（生态外价值骤减）。
+要自托管（无此形态）。
 
 ## 实测记录
 

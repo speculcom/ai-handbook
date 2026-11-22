@@ -315,7 +315,7 @@ lockdown 的边界官方写得很实。它只减少一种 prompt injection 风�
 
 8 个问题与 MCP 三项均给出结论，但有两处**官方文档本身没有内容**，只能落「官方官方文档不展开」：
 所谓「动态工具发现」在当前官方文档中查不到（见官方文档未单列项）。工具级审批机制官方也未提供。
-这些都非取证缺口，而是官方当前未提供，故不足以升到 verified。
+**依据：** 这些都非取证缺口，而是官方当前未提供，故不足以升到 verified。
 
 **已核到的官方页**：README（两形态、toolsets 全表、认证、read-only / lockdown、i18n 覆写）、
 docs/remote-server.md（端点、URL 修饰、X-MCP-* 头）、docs/server-configuration.md、

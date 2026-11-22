@@ -550,7 +550,7 @@ cn:
 ⚠ **三点要说清。**
 
 **① 这是 terminal backend，指的是「工具在哪执行」，不是部署方式清单。**
-local 就是本机执行，Docker 是容器，SSH 是远端机，
+**依据：** local 就是本机执行，Docker 是容器，SSH 是远端机，
 Modal/Daytona/Vercel 是 serverless。
 
 **② 清单本身在变。** 2026-10-01 核验时 README 写「Seven terminal backends」并把

@@ -13,40 +13,35 @@ licenseEn: >-
 
 axes:
   model_access: >-
-    平台自己不产内容，评测量靠你配的模型——LLM-as-a-Judge 走「LLM Connection」，
-    凭据由用户自配（judge 文档当日直抓在册）；被观测的应用可接任意框架与模型，
-    自托管另有「Bring your own LLM API」口径（self-hosting 页当日在册）。
-    **judge 可用模型全清单与版本映射按官方文档逐条清点，官方文档未单列。**
+    平台自己不产内容，评测量靠你配的模型。LLM-as-a-Judge 走「LLM Connection」。凭据由用户自配（judge 文档当日直抓在册）。被观测的应用可接任意框架与模型。
+
+    自托管另有「Bring your own LLM API」口径（self-hosting 页当日在册）。**judge 可用模型全清单与版本映射按官方文档逐条清点，官方文档未单列。**
   runtime: >-
-    开源可自部署（Docker Compose 起测试、Kubernetes/Helm 起生产，self-hosting 页当日在册），
-    另有官方云（AWS 美/欧/日三区，security 页当日在册）；交互面是 Web 控制台加 SDK 与 API。
-    **本机跑的是平台服务与界面，不在本机跑被评测的模型。**
+    开源可自部署（Docker Compose 起测试、Kubernetes/Helm 起生产，self-hosting 页当日在册）， 另有官方云（AWS 美/欧/日三区，security 页当日在册）。
+
+    交互面是 Web 控制台加 SDK 与 API。**本机跑的是平台服务与界面，不在本机跑被评测的模型。**
   local_files: >-
-    自托管时 trace、score、prompt、数据集都落在自有 PostgreSQL、ClickHouse、Redis 与对象存储
-    （当日在册）；数据靠 SDK、OpenTelemetry、API 上报，平台不读本机代码库；
-    导出与删除接口面按官方文档逐条清点。
+    **依据：** 自托管时 trace、score、prompt、数据集都落在自有 PostgreSQL、ClickHouse、Redis 与对象存储 **依据：** （当日在册）；数据靠 SDK、OpenTelemetry、API 上报，平台不读本机代码库； 导出与删除接口面按官方文档逐条清点。
   background: >-
-    在线评测在生产 trace 上异步打分（evaluation overview 与 judge 文档当日在册），
-    实验（Experiments）批量跑数据集；关机续跑不是这类平台的功能面。
+    在线评测在生产 trace 上异步打分（evaluation overview 与 judge 文档当日在册）。实验（Experiments）批量跑数据集。关机续跑不是这类平台的功能面。
+
     **抽样比例、评分延迟与失败重试口径按官方文档口径，官方文档未单列。**
   tools: >-
-    Python 与 JS SDK、REST API、OpenTelemetry 摄入；官方文档 MCP server 当日直抓在册，
-    它只把文档暴露给 agent，能否读 trace 与 score 的鉴权 MCP 面官方文档未单列；
-    CI/CD 用于「回归时挡住部署」（evaluation overview 当日在册）。
+    Python 与 JS SDK、REST API、OpenTelemetry 摄入。官方文档 MCP server 当日直抓在册。它只把文档暴露给 agent。
+
+    能否读 trace 与 score 的鉴权 MCP 面官方文档未单列。CI/CD 用于「回归时挡住部署」（evaluation overview 当日在册）。
   context: >-
-    观测对象按项目组织，trace 与 score 带来源关联；分数类型 NUMERIC、CATEGORICAL、BOOLEAN、TEXT
-    四类当日在册；从 trace 沉淀数据集、prompt 版本管理在产品面在册。
-    跨项目记忆不是平台功能面，官方文档未单列。
+    **依据：** 观测对象按项目组织，trace 与 score 带来源关联；分数类型 NUMERIC、CATEGORICAL、BOOLEAN、TEXT 四类当日在册；从 trace 沉淀数据集、prompt 版本管理在产品面在册。 跨项目记忆不是平台功能面，官方文档未单列。
   permissions: >-
-    自托管可 air-gapped，数据留在自有环境；云版 SOC 2 Type II、项目级 RBAC 与 SSO
-    （security 页当日在册）；档位与配额事实（Hobby 与 Core、Pro、Enterprise 四档，
-    用量单位与数据访问时长随档位变化）当日在 pricing 页在册，价格数字按 D9 不采。
+    自托管可 air-gapped，数据留在自有环境。云版 SOC 2 Type II、项目级 RBAC 与 SSO （security 页当日在册）。
+
+    档位与配额事实（Hobby 与 Core、Pro、Enterprise 四档， 用量单位与数据访问时长随档位变化）当日在 pricing 页在册。价格数字按 D9 不采。
+
     **是否用客户数据训练模型未读到条款正文，官方文档未单列。**
   fit: >-
-    适合要把数据留在自有环境（自托管或气隙部署）、观测与评测共用同一套 trace、
-    把线上样本沉淀成数据集再在 CI 挡回归的团队。不适合只想用厂商侧托管红队或合规审计、
-    不愿自备 judge 模型密钥的场景；本档不测分也不排名。
+    适合要把数据留在自有环境（自托管或气隙部署）、观测与评测共用同一套 trace、 把线上样本沉淀成数据集再在 CI 挡回归的团队。
 
+    不适合只想用厂商侧托管红队或合规审计、 不愿自备 judge 模型密钥的场景。本档不测分也不排名。
 pitfalls:
   - 把「平台自带评测」当成自带模型——judge 分数来自你配置的 LLM Connection，密钥与用量都在你账上
   - 把开源当成全功能——核心 MIT、/ee 企业目录另有许可，企业功能边界已取得正文
@@ -109,14 +104,14 @@ cn:
 ## 一句话定位
 
 **Langfuse 是开源的观测与评测平台**。
-它的核心差异是自托管：trace、评分、提示词和数据集都能留在自己的环境里。
+它的核心差异是自托管。
+trace、评分、提示词和数据集都能留在自己的环境里。
 
 ## 适合与不适合
 
-适合数据不能出域、又要「线上看得见的东西变成发布前挡得住的回归」的团队。
-它把观测与评测接在同一套 trace 上：先看、再沉淀成数据集、再在 CI 里挡住退化。
-不适合只想用厂商侧托管红队或合规审计的场景，也不适合不愿自备 judge 模型密钥的团队。
-本档只记它支持哪些评测面，不记它测出来的分数。
+适合数据不能出域、又要「线上看得见的东西变成发布前挡得住的回归」的团队。它把观测与评测接在同一套 trace 上。先看、再沉淀成数据集、再在 CI 里挡住退化。不适合只想用厂商侧托管红队或合规审计的场景。
+
+也不适合不愿自备 judge 模型密钥的团队。本档只记它支持哪些评测面，不记它测出来的分数。
 
 ## 实测记录
 
@@ -130,9 +125,9 @@ cn:
 
 ## 变更记录说明
 
-官方 changelog 页本次直抓返回 404，变更记录以官方仓库 Releases 在册：
-最新 v4.76.0（页面标 Nov 05），其前有 v4.75.0、v4.74.0、v4.73.0。
-发版节奏接近每日一次，因此 lifecycle 记 active。
+官方 changelog 页本次直抓返回 404。变更记录以官方仓库 Releases 在册：最新 v4.76.0（页面标 Nov 05）。
+
+其前有 v4.75.0、v4.74.0、v4.73.0。发版节奏接近每日一次，因此 lifecycle 记 active。
 
 ## 未知项清单
 

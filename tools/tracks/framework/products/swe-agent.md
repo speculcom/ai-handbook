@@ -13,28 +13,25 @@ providers:
   - 研究向：官方示例配置含 OpenAI/Anthropic 模型线（本档不逐条复制完整清单），模型选择与基准复现绑定
 axes:
   model_access: >-
-    各家 LLM 经接口层接入（OpenAI/Anthropic/HF 等，以官方文档为准，本档不逐条复制完整清单）；
+    各家 LLM 经接口层接入（OpenAI/Anthropic/HF 等，以官方文档为准，本档不逐条复制完整清单）。
+
     它的核心贡献是 **ACI（agent-computer interface）**——为 agent 设计的文件编辑/命令交互界面。
   runtime: >-
-    Python 库 + 命令行（pip 装）；GitHub 20,682★，最近推送 2026-10-26（API 核验）。
-    学术出身（Princeton/Stanford 论文线）；SWE-bench 评测生态与它深度关联（同团队的基准线）。
-  local_files: >-
-    agent 在容器或本机环境里读写文件、跑命令——文件操作真实发生在你给的环境；
-    官方推荐容器化跑（隔离口径）。
-  background: >-
-    任务型运行：给定 issue→跑修复→结束；无常驻语义。批量评测跑（SWE-bench 式）是它的主用法之一。
-  tools: >-
-    工具面就是它的 ACI 设计核心：文件查看/编辑、搜索、命令执行——
-    「为 agent 设计的界面」是它的研究命题，不是通用工具生态。
-  context: >-
-    单任务上下文窗口管理是它的研究点（历史压缩/窗口策略）；跨会话记忆不是它的叙事。
-  permissions: >-
-    **命令执行=真实权限面**：agent 能跑 shell 命令，官方推荐容器隔离——
-    裸机直跑的风险口径官方文档有提示（本档不逐条展开细节）。
-  fit: >-
-    适合：研究/评测「agent 修代码」能力（SWE-bench 线）、要 ACI 设计参考实现。
-    不适合：生产编码助手开箱（它是研究向 harness）；要 GUI 产品形态。
+    Python 库 + 命令行（pip 装）。GitHub 20,682★。最近推送 2026-10-26（API 核验）。学术出身（Princeton/Stanford 论文线）。
 
+    SWE-bench 评测生态与它深度关联（同团队的基准线）。
+  local_files: >-
+    agent 在容器或本机环境里读写文件、跑命令。文件操作真实发生在你给的环境。官方推荐容器化跑（隔离口径）。
+  background: >-
+    任务型运行：给定 issue→跑修复→结束。无常驻语义。批量评测跑（SWE-bench 式）是它的主用法之一。
+  tools: >-
+    工具面就是它的 ACI 设计核心。文件查看/编辑、搜索、命令执行—— 「为 agent 设计的界面」是它的研究命题。不是通用工具生态。
+  context: >-
+    单任务上下文窗口管理是它的研究点（历史压缩/窗口策略）。跨会话记忆不是它的叙事。
+  permissions: >-
+    **命令执行=真实权限面**：agent 能跑 shell 命令。官方推荐容器隔离—— 裸机直跑的风险口径官方文档有提示（本档不逐条展开细节）。
+  fit: >-
+    适合：研究/评测「agent 修代码」能力（SWE-bench 线）、要 ACI 设计参考实现。不适合：生产编码助手开箱（它是研究向 harness）。要 GUI 产品形态。
 pitfalls:
   - 把它当生产编码 agent——它是研究向 harness（论文与评测线），产品化要自己补
   - 裸机直跑命令执行面——官方推荐容器隔离，别省这层
@@ -73,8 +70,8 @@ cn:
 
 ## 一句话定位
 
-**SWE-agent 是「agent 修代码」研究线的参考实现**（MIT，Princeton/Stanford）：
-ACI（为 agent 设计的计算机界面）是它的核心命题，与 SWE-bench 评测生态同源。
+**SWE-agent 是「agent 修代码」研究线的参考实现**（MIT，Princeton/Stanford）：ACI（为 agent 设计的计算机界面）是它的核心命题，与 SWE-bench 评测生态同源。
+
 生产开箱不是它的定位——它是给研究与评测用的参考实现。
 
 ## 适合与不适合
@@ -84,7 +81,8 @@ ACI（为 agent 设计的计算机界面）是它的核心命题，与 SWE-bench
 
 ## 实测记录
 
-本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测。
+结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 

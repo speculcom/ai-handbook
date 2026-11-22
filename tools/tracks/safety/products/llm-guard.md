@@ -12,35 +12,37 @@ licenseEn: MIT (official LICENSE opens with "The MIT License (MIT)"; copyright l
 
 axes:
   model_access: >-
-    它守的是「进模型前」与「模型回来后」的文本，不是某个厂商的模型本体。官方 README 的入门示例走
-    ChatGPT / OpenAI API 路线（examples/openai_api.py），文档当日列出的交付形态是 Python 库与 API server。
-    哪些扫描器需要下载本地权重、哪些需要外部推理服务，本次只抓到文档索引级口径，未逐条核验，记为未知。
+    它守的是「进模型前」与「模型回来后」的文本。不是某个厂商的模型本体。
+
+    官方 README 的入门示例走 ChatGPT / OpenAI API 路线（examples/openai_api.py）。文档当日列出的交付形态是 Python 库与 API server。
+
+    哪些扫描器需要下载本地权重、哪些需要外部推理服务。本次只抓到文档索引级口径，未逐条核验，记为未知。
   runtime: >-
-    自托管：`pip install llm-guard` 在你自己的环境里跑，README 要求 Python 3.9 及以上（PyPI 包元数据当日给的约束是
-    >=3.10 且 <3.13，两处口径不一致，已记入未知项）。文档当日另给 API server 部署路径，即把扫描器架在你侧服务里
-    做前后置检查。不存在需要交给厂商的计算面——官方正文未描述云端代跑。
+    自托管：`pip install llm-guard` 在你自己的环境里跑。
+
+    README 要求 Python 3.9 及以上（PyPI 包元数据当日给的约束是 >=3.10 且 <3.13，两处口径不一致，已记入未知项）。
+
+    文档当日另给 API server 部署路径，即把扫描器架在你侧服务里 做前后置检查。不存在需要交给厂商的计算面。官方正文未描述云端代跑。
   local_files: >-
-    官方 README 与文档索引当日都把处理对象描述为 prompt / completion 文本，未声明读取工作区文件或遍历目录的能力。
-    扫描器对文件型输入（附件、目录）的支持范围与临时文件落盘行为，官方未说明。
+    官方 README 与文档索引当日都把处理对象描述为 prompt / completion 文本。未声明读取工作区文件或遍历目录的能力。
+
+    **依据：** 扫描器对文件型输入（附件、目录）的支持范围与临时文件落盘行为，官方未说明。
   background: >-
-    作为库时随你的进程生死；作为 API server 时是你自己常驻的服务，启停与扩缩由部署方掌握。
-    官方未说明托管队列、关机续跑或异步任务能力。
+    **依据：** 作为库时随你的进程生死。作为 API server 时是你自己常驻的服务，启停与扩缩由部署方掌握。 官方未说明托管队列、关机续跑或异步任务能力。
   tools: >-
-    官方 README 列出 15 个 Prompt scanners 与 21 个 Output scanners，覆盖 PromptInjection、InvisibleText、
-    Secrets、Anonymize、Toxicity、BanTopics、Regex、TokenLimit 等输入通道，以及 Bias、MaliciousURLs、
-    Sensitive、FactualConsistency、Relevance、JSON、LanguageSame 等输出通道。文档当日口径是可按阈值与
-    mask / block / answer 类处置动作配置。MCP 接入方式官方未说明。
+    官方 README 列出 15 个 Prompt scanners 与 21 个 Output scanners。
+
+    覆盖 PromptInjection、InvisibleText、 Secrets、Anonymize、Toxicity、BanTopics、Regex、TokenLimit 等输入通道，以及 Bias、MaliciousURLs、 Sensitive、FactualConsistency、Relevance、JSON、LanguageSame 等输出通道。
+
+    **依据：** 文档当日口径是可按阈值与 mask / block / answer 类处置动作配置。MCP 接入方式官方未说明。
   context: >-
-    检测以单次送入的文本为单位，官方未说明会话级记忆、跨轮上下文或历史攻击库机制。
-    上下文长度上限由 TokenLimit 这类扫描器自行设定，具体默认值本次未核验，记为未知。
+    **依据：** 检测以单次送入的文本为单位，官方未说明会话级记忆、跨轮上下文或历史攻击库机制。 上下文长度上限由 TokenLimit 这类扫描器自行设定，具体默认值本次未核验，记为未知。
   permissions: >-
-    许可为 MIT（见 license 字段，逐条以官方 LICENSE 原文为准），可商用与再分发，需保留版权声明。
-    数据流向是本项目最需要留空的一维：官方 README 与当日抓到的文档索引未声明遥测、日志留存或把文本发给第三方的范围，
-    记为未知。合规认证（SOC 2 类）在当日抓到的页面中未见陈述。仓库已归档，官方明示不再活跃维护。
+    **依据：** 许可为 MIT（见 license 字段，逐条以官方 LICENSE 原文为准），可商用与再分发，需保留版权声明。 数据流向是本项目最需要留空的一维：官方 README 与当日抓到的文档索引未声明遥测、日志留存或把文本发给第三方的范围， 记为未知。合规认证（SOC 2 类）在当日抓到的页面中未见陈述。仓库已归档，官方明示不再活跃维护。
   fit: >-
     适合：要把输入/输出检查写进自己链路、能自己接管依赖与模型下载、并接受「规则不再更新」这一事实的工程团队。
-    不适合：指望持续的安全规则维护、指望托管 SLA，或需要以检测率/绕过率作为选型依据的场景（本站不跑实测，也不引官方数字）。
 
+    不适合：指望持续的安全规则维护、指望托管 SLA，或需要以检测率/绕过率作为选型依据的场景（本站不跑实测，也不引官方数字）。
 pitfalls:
   - 把 README 的扫描器清单当成检测能力承诺——官方只列通道，不列命中率
   - 以为上游仍在维护：仓库与关联 Hugging Face 模型均已宣布归档
@@ -98,20 +100,19 @@ cn:
 
 ## 一句话定位
 
-Protect AI 开源的 LLM 输入/输出扫描工具箱：一侧拦 prompt（注入、隐形文本、密钥、毒性、话题禁用），
-一侧拦 completion（偏见、恶意链接、敏感信息、事实一致性）。它是「你自己部署的扫描器集合」，不是托管护栏服务。
+**LLM Guard**：Protect AI 开源的 LLM 输入/输出扫描工具箱。**依据：** 一侧拦 prompt（注入、隐形文本、密钥、毒性、话题禁用），一侧拦 completion（偏见、恶意链接、敏感信息、事实一致性）。它是「你自己部署的扫描器集合」，不是托管护栏服务。
 
 ## 适合与不适合
 
-适合把前后置检查嵌进自有链路、并且愿意自己承担依赖与模型下载的团队；文档当日给的两种用法是 Python 库与 API server。
-不适合需要「上游持续更新」的场景——README 顶部警告块已宣布项目归档，关联 Hugging Face 模型同样不再维护。
-也不适合想找检测率数字的读者：官方只声明支持哪些通道，本站不做端到端实测。
+适合把前后置检查嵌进自有链路、并且愿意自己承担依赖与模型下载的团队。文档当日给的两种用法是 Python 库与 API server。不适合需要「上游持续更新」的场景。
+
+README 顶部警告块已宣布项目归档。关联 Hugging Face 模型同样不再维护。也不适合想找检测率数字的读者。官方只声明支持哪些通道，本站不做端到端实测。
 
 ## 实测记录
 
-本站未做端到端实测：没有跑过任何扫描器的检测样例，也没有测过阈值与处置动作的实际行为。
-本页全部结论只组织自官方 README、官方文档索引与 LICENSE / PyPI 元数据（2026-11-06 抓取），
-「检测通道清单」一节即 README 列表的照录，不代表任何命中或拦截表现。
+本站未做端到端实测。没有跑过任何扫描器的检测样例。也没有测过阈值与处置动作的实际行为。
+
+本页全部结论只组织自官方 README、官方文档索引与 LICENSE / PyPI 元数据（2026-11-06 抓取），「检测通道清单」一节即 README 列表的照录。不代表任何命中或拦截表现。
 
 ## 未知项清单
 
@@ -132,11 +133,12 @@ Protect AI 开源的 LLM 输入/输出扫描工具箱：一侧拦 prompt（注�
 
 ## 检测通道清单（官方 README 照录）
 
-Prompt scanners（15 项）：Anonymize、BanCode、BanCompetitors、BanSubstrings、BanTopics、Code、Gibberish、
-InvisibleText、Language、PromptInjection、Regex、Secrets、Sentiment、TokenLimit、Toxicity。
+Prompt scanners（15 项）。
 
-Output scanners（21 项）：BanCode、BanCompetitors、BanSubstrings、BanTopics、Bias、Code、Deanonymize、JSON、
-Language、LanguageSame、MaliciousURLs、NoRefusal、ReadingTime、FactualConsistency、Gibberish、Regex、Relevance、
+Anonymize、BanCode、BanCompetitors、BanSubstrings、BanTopics、Code、Gibberish、InvisibleText、Language、PromptInjection、Regex、Secrets、Sentiment、TokenLimit、Toxicity。
+
+**依据：** Output scanners（21 项）：BanCode、BanCompetitors、BanSubstrings、BanTopics、Bias、Code、Deanonymize、JSON、
+**依据：** Language、LanguageSame、MaliciousURLs、NoRefusal、ReadingTime、FactualConsistency、Gibberish、Regex、Relevance、
 Sensitive、Sentiment、Toxicity、URLReachability。
 
 > 这张表只是官方声明的**能力面清单**。本站没有跑过其中任何一项，也不引官方或第三方的命中率数字。
@@ -147,6 +149,6 @@ README 顶部警告块原文（2026-11-06 抓取）：
 
 > THIS PROJECT HAS BEEN ARCHIVED. This project and its associated models on Hugging Face are no longer under active development or maintained.
 
-配套可核验事实：仓库 `archived` 标志为真、最后推送 2026-07-08、PyPI 最新版本 0.3.16 发布于 2025-05-19。
-因此本条目 lifecycle 记 `archived`，confidence 上限为 `partial`。
-选型含义是**维护责任转移**：规则集、依赖与安全修复都要自己接手。
+配套可核验事实。仓库 `archived` 标志为真、最后推送 2026-07-08、PyPI 最新版本 0.3.16 发布于 2025-05-19。因此本条目 lifecycle 记 `archived`。
+
+confidence 上限为 `partial`。选型含义是**维护责任转移**：规则集、依赖与安全修复都要自己接手。

@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-生成分步重构计划与回滚点。
+**一句话**：生成分步重构计划与回滚点。
 输入：代码结构描述、目标、约束。
 
 ## [提示词本体|The prompt]

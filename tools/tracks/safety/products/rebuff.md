@@ -15,37 +15,45 @@ licenseEn: Apache-2.0 (the official LICENSE file is the full Apache License Vers
 
 axes:
   model_access: >-
-    官方 README 的四层里有一层就是「用一个专用 LLM 分析进来的 prompt」，因此模型是显式配置项：
-    `RebuffSdk(openai_apikey, pinecone_apikey, pinecone_index, openai_model)`，其中 openai_model 可选、默认 gpt-3.5-turbo。
-    向量侧官方给的是 Pinecone，自托管段落允许换成 Chroma。除 OpenAI 之外的 LLM 提供方官方未说明。
+    官方 README 的四层里有一层就是「用一个专用 LLM 分析进来的 prompt」。
+
+    因此模型是显式配置项： `RebuffSdk(openai_apikey, pinecone_apikey, pinecone_index, openai_model)`。
+
+    其中 openai_model 可选、默认 gpt-3.5-turbo。 向量侧官方给的是 Pinecone。自托管段落允许换成 Chroma。
+
+    **依据：** 除 OpenAI 之外的 LLM 提供方官方未说明。
   runtime: >-
-    两条路径都在你侧：`pip install rebuff` 的 SDK 跑在你自己的应用进程里；自托管 Playground/API server 是 Node 应用，
-    按 README 在 `server/` 目录 `npm install` 后 `npm run dev`，起在 `http://localhost:3000`，
+    两条路径都在你侧：`pip install rebuff` 的 SDK 跑在你自己的应用进程里。自托管 Playground/API server 是 Node 应用。
+
+    **依据：** 按 README 在 `server/` 目录 `npm install` 后 `npm run dev`。起在 `http://localhost:3000`。
+
     并需要先把 SQL 库与向量库按 Supabase / Pinecone 搭起来。官方 hosted playground 域名当日未取到正文。
   local_files: >-
-    官方正文的处理对象始终是 prompt 文本与 completion 文本，未声明读取工作区文件、目录或附件的能力。
-    自托管时它需要的是数据库与向量库连接，而不是对你仓库的访问——文件级能力官方未说明。
+    官方正文的处理对象始终是 prompt 文本与 completion 文本。未声明读取工作区文件、目录或附件的能力。
+
+    **依据：** 自托管时它需要的是数据库与向量库连接，而不是对你仓库的访问——文件级能力官方未说明。
   background: >-
-    SDK 形态随宿主应用进程生死；自托管 server 形态是常驻服务（带 Supabase 与向量库）。
-    官方未说明任务队列、定时复检或关机续跑类机制。
+    **依据：** SDK 形态随宿主应用进程生死。自托管 server 形态是常驻服务（带 Supabase 与向量库）。 官方未说明任务队列、定时复检或关机续跑类机制。
   tools: >-
-    官方 README 声明的四层检测是 Heuristics、LLM-based detection、VectorDB、Canary tokens；
+    官方 README 声明的四层检测是 Heuristics、LLM-based detection、VectorDB、Canary tokens。
+
     SDK 面是 `detect_injection`、`add_canary_word`、`is_canaryword_leaked` 三个入口。
-    官方路线图勾选了 JavaScript/TypeScript SDK，把「Python SDK 与 TS 对等」留在未完成项。MCP 或其他扩展接入方式官方未说明。
+
+    **依据：** 官方路线图勾选了 JavaScript/TypeScript SDK。把「Python SDK 与 TS 对等」留在未完成项。MCP 或其他扩展接入方式官方未说明。
   context: >-
-    它的「记忆」就是向量库：官方描述为把历史攻击的 embedding 存进 VectorDB 以识别相似攻击，
-    并在 canary 泄漏时把该输入 prompt 的 embedding 写回，形成 attack signature learning。
-    库容量、保留时长与清理策略官方未说明。
+    它的「记忆」就是向量库。官方描述为把历史攻击的 embedding 存进 VectorDB 以识别相似攻击。并在 canary 泄漏时把该输入 prompt 的 embedding 写回。
+
+    **依据：** 形成 attack signature learning。 库容量、保留时长与清理策略官方未说明。
   permissions: >-
-    许可 Apache-2.0（见 license 字段）。数据流向由配置决定：官方示例要求传入 OpenAI 与 Pinecone 凭据，
-    即被检测文本会交给所配置的外部服务；官方正文当日未给出隐私或数据处理条款。
-    自托管环境变量清单里另有 MASTER_API_KEY、MASTER_CREDIT_AMOUNT、BILLING_RATE_INT_10K，
-    说明 server 侧自带额度与按请求扣减的概念（README 给出该整数的换算口径，本站不展开数字）。合规认证与训练用途官方未说明。
+    许可 Apache-2.0（见 license 字段）。数据流向由配置决定。官方示例要求传入 OpenAI 与 Pinecone 凭据。即被检测文本会交给所配置的外部服务。
+
+    官方正文当日未给出隐私或数据处理条款。自托管环境变量清单里另有 MASTER_API_KEY、MASTER_CREDIT_AMOUNT、BILLING_RATE_INT_10K。
+
+    **依据：** 说明 server 侧自带额度与按请求扣减的概念（README 给出该整数的换算口径，本站不展开数字）。合规认证与训练用途官方未说明。
   fit: >-
     适合在自家应用里加一层提示注入告警与 canary 泄漏自检、并把攻击样本沉淀成向量的研究与工程试验。
-    不适合需要维护承诺、需要明确数据处理条款、或需要完全离线运行的场景：
-    仓库已归档，且「Local-only mode」在官方路线图里仍是未完成项。
 
+    不适合需要维护承诺、需要明确数据处理条款、或需要完全离线运行的场景： 仓库已归档，且「Local-only mode」在官方路线图里仍是未完成项。
 pitfalls:
   - 把四层防御理解成保障承诺：README 的 Disclaimer 自述仍是原型，不能提供完全防护
   - 以为可以纯本地跑：Local-only mode 至今是官方路线图未勾选项，检测层默认要外部 LLM
@@ -99,20 +107,25 @@ cn:
 
 ## 一句话定位
 
-Protect AI 开源的「自硬化」提示注入检测器：启发式 + 专用 LLM 判定 + 历史攻击向量库 + canary 词泄漏回检四层叠在一起，
-泄漏一次就把那次的 embedding 存下来用于下次识别。它是嵌在你应用里的 SDK 与可自托管的服务，不是替你运行模型的网关。
+Protect AI 开源的「自硬化」提示注入检测器。
+
+启发式 + 专用 LLM 判定 + 历史攻击向量库 + canary 词泄漏回检四层叠在一起，泄漏一次就把那次的 embedding 存下来用于下次识别。
+
+它是嵌在你应用里的 SDK 与可自托管的服务。不是替你运行模型的网关。
 
 ## 适合与不适合
 
-适合给自己产品的输入加一层注入告警、并顺手做泄漏自检的团队，也适合把攻击样本累积成向量库做研究复现。
-不适合需要维护承诺与合规条款的生产链路（仓库已归档），也不适合必须完全离线的部署——
-官方路线图的 Local-only mode 至今未勾选，README 的 SDK 初始化就要 OpenAI 与 Pinecone 凭据。
+适合给自己产品的输入加一层注入告警、并顺手做泄漏自检的团队。也适合把攻击样本累积成向量库做研究复现。不适合需要维护承诺与合规条款的生产链路（仓库已归档）。
+
+也不适合必须完全离线的部署——官方路线图的 Local-only mode 至今未勾选。README 的 SDK 初始化就要 OpenAI 与 Pinecone 凭据。
 
 ## 实测记录
 
-本站未做端到端实测：没有安装 SDK、没有起过自托管 server、也没有构造过 canary 泄漏样例。
-本页结论只来自官方 README、LICENSE、仓库 docs 目录清单与 PyPI / GitHub 元数据（2026-11-06 抓取）；
-官方文档站域名当日无响应，故 docs.rebuff.ai 的正文未纳入。
+本站未做端到端实测。没有安装 SDK、没有起过自托管 server、也没有构造过 canary 泄漏样例。
+
+本页结论只来自官方 README、LICENSE、仓库 docs 目录清单与 PyPI / GitHub 元数据（2026-11-06 抓取）；官方文档站域名当日无响应。
+
+故 docs.rebuff.ai 的正文未纳入。
 
 ## 未知项清单
 
@@ -132,25 +145,27 @@ Protect AI 开源的「自硬化」提示注入检测器：启发式 + 专用 LL
 
 ## 官方声明的能力面
 
-README（2026-11-06 抓取）对四层的原样表述：Heuristics 在输入到达 LLM 前过滤可疑内容；
-LLM-based detection 用专用 LLM 分析 prompt 并识别攻击；VectorDB 存历史攻击 embedding 以拦相似攻击；
-Canary tokens 在 prompt 里加令牌以检测泄漏，并据此刻录本次输入的 embedding 防未来攻击。
+README（2026-11-06 抓取）对四层的原样表述：Heuristics 在输入到达 LLM 前过滤可疑内容；LLM-based detection 用专用 LLM 分析 prompt 并识别攻击。
+
+VectorDB 存历史攻击 embedding 以拦相似攻击Canary tokens 在 prompt 里加令牌以检测泄漏，并据此刻录本次输入的 embedding 防未来攻击。
 
 Disclaimer 原文：
 
 > Rebuff is still a prototype and **cannot provide 100% protection** against prompt injection attacks!
 
-**这句话是选型的第一读项**：它是官方对自己能力边界的定性，本站不引任何检出或绕过数字。
+**这句话是选型的第一读项**：它是官方对自己能力边界的定性。
+本站不引任何检出或绕过数字。
 
 ## 部署前提（官方自托管口径）
 
-README 的自托管一节要求先备齐 Supabase、OpenAI 与向量库（Pinecone，或按文档换 Chroma），
-再在 `server/` 目录准备 `.env.local`，其中包含 OPENAI_API_KEY、MASTER_API_KEY、BILLING_RATE_INT_10K、
-MASTER_CREDIT_AMOUNT、Supabase anon key 与 URL、Pinecone key / environment / index name、
-SUPABASE_SERVICE_KEY 与 REBUFF_API，之后 `npm install` 与 `npm run dev`，服务落在 `http://localhost:3000`。
-其中 BILLING_RATE_INT_10K 的官方解释是每请求扣减的额度单位，README 另行给出该整数的换算口径（本站不展开数字）。
+README 的自托管一节要求先备齐 Supabase、OpenAI 与向量库（Pinecone，或按文档换 Chroma），再在 `server/` 目录准备 `.env.local`。
+
+    **依据：** 其中包含 OPENAI_API_KEY、MASTER_API_KEY、BILLING_RATE_INT_10K、MASTER_CREDIT_AMOUNT、Supabase anon key 与 URL、Pinecone key / environment / index name、 SUPABASE_SERVICE_KEY 与 REBUFF_API，之后 `npm install` 与 `npm run dev`，服务落在 `http://localhost:3000`。
+
+其中 BILLING_RATE_INT_10K 的官方解释是每请求扣减的额度单位。README 另行给出该整数的换算口径（本站不展开数字）。
 
 ## 归档状态
 
-仓库 `archived` 标志为真；最后提交 2024-01-25，最后推送 2024-08-07，PyPI 版本停在 0.1.1（2024-01-20）。
-据此 lifecycle 记 `archived`、confidence 上限 `partial`：本页描述的是它定格时的能力面，不代表当前可用状态。
+仓库 `archived` 标志为真。最后提交 2024-01-25。最后推送 2024-08-07。PyPI 版本停在 0.1.1（2024-01-20）。
+
+据此 lifecycle 记 `archived`、confidence 上限 `partial`：本页描述的是它定格时的能力面。不代表当前可用状态。

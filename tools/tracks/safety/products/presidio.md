@@ -18,37 +18,51 @@ licenseEn: >-
 
 axes:
   model_access: >-
-    它本身不带生成模型：analyzer 页写明「Predefined recognizers leverage regex, Named Entity Recognition and other types
-    of logic to detect PII in unstructured text.」，识别面由正则、NLP（spaCy / Transformers 类）、规则与校验和组合，
-    上下文词用来加权 score，自定义 recognizer 有官方 tutorial。可选 NLP 引擎与模型档位的完整清单：本批次未逐条清点。
+    它本身不带生成模型。
+
+    **依据：** analyzer 页写明「Predefined recognizers leverage regex, Named Entity Recognition and other types of logic to detect PII in unstructured text.」。
+
+    识别面由正则、NLP（spaCy / Transformers 类）、规则与校验和组合。上下文词用来加权 score。自定义 recognizer 有官方 tutorial。
+
+    可选 NLP 引擎与模型档位的完整清单：本批次未逐条清点。
   runtime: >-
-    全部跑在你自己的边界内：文档首页的安装口径是 pip 包或 Docker REST API，并写明支持离线使用、数据留在你自己的部署里。
-    官方未提供托管服务面（官方页面未提供该口径）。镜像标签与版本对应关系本批次未逐字核验。
+    全部跑在你自己的边界内。文档首页的安装口径是 pip 包或 Docker REST API，并写明支持离线使用、数据留在你自己的部署里。 官方未提供托管服务面（官方页面未提供该口径）。
+
+    **依据：** 镜像标签与版本对应关系本批次未逐字核验。
   local_files: >-
-    它不读你的工作区，只处理你显式交给它的文本与图像，结果在你的进程或你的服务里返回。recognizer 依赖的语言模型文件的
-    下载位置、缓存路径与离线打包方式：本批次官方页面未提供逐字官方说明，不补推断。
+    它不读你的工作区，只处理你显式交给它的文本与图像。结果在你的进程或你的服务里返回。
+
+    **依据：** recognizer 依赖的语言模型文件的 下载位置、缓存路径与离线打包方式：本批次官方页面未提供逐字官方说明。不补推断。
   background: >-
-    没有托管后台任务：一次 analyze / anonymize 是一次调用或你自己服务里的一次处理，批量与重试由你的编排层负责。
+    没有托管后台任务。一次 analyze / anonymize 是一次调用或你自己服务里的一次处理。批量与重试由你的编排层负责。
+
     官方文档目录（Getting Started / Analyzer / Anonymizer / Image Redactor / Samples / API Docs）未出现队列或续跑概念。
   tools: >-
-    三面 API：AnalyzerEngine（识别）、AnonymizerEngine（变换）、Image Redactor（图像遮挡）。变换算子按文档 anonymizer 页
-    在册：replace、redact、hash、mask、encrypt、keep、custom，经 OperatorConfig 的 type 与 params 配置，多个算子可组合。
-    MCP 接入方式：官方文档未说明，不补推断。
+    三面 API：AnalyzerEngine（识别）、AnonymizerEngine（变换）、Image Redactor（图像遮挡）。变换算子按文档 anonymizer 页 在册。
+
+    replace、redact、hash、mask、encrypt、keep、custom。经 OperatorConfig 的 type 与 params 配置，多个算子可组合。
+
+    MCP 接入方式。官方文档未说明，不补推断。
   context: >-
-    这里的「上下文」是字面机制：recognizer 用上下文词对候选实体加权，因此同一段文本里邻近词会改变结果；文档首页把项目
-    表述为面向 text and images 的「fast identification and anonymization modules」。它是无状态的一次处理，不存在跨会话记忆，
+    这里的「上下文」是字面机制。recognizer 用上下文词对候选实体加权。因此同一段文本里邻近词会改变结果。
+
+    文档首页把项目 表述为面向 text and images 的「fast identification and anonymization modules」。它是无状态的一次处理，不存在跨会话记忆。
+
     批量场景的上下文窗口管理属于你自己的调用方。
   permissions: >-
-    许可见 license 字段（MIT，依 PyPI 元数据；LICENSE 正文未直读到）。归属要记两条实测事实：旧址
-    microsoft.github.io/presidio 当日显示「This page has moved」，中间站 data-privacy-stack.github.io 再 301 到
-    presidio.dataprivacystack.org，文档首页指认项目由 Data Privacy Stack 治理。**数据流向**：识别与脱敏在你自己的部署内完成、
-    支持离线，即文本不必发给第三方。**红线口径**：analyzer 页原文在册「Scores are not probabilities」，所以 score 阈值
-    不是检出概率，本档不写检出率、漏检率，也不做任何产品排名；它是否满足某法域的匿名化义务，官方不作法律结论。
-  fit: >-
-    适合：把个人数据识别与变换插进自己的管线（RAG 入库前、日志落盘前、发给云端模型前）、需要算子级定制与自定义
-    recognizer、要求文本不出自己的网络边界、要把整套东西离线跑。不适合：要托管控制台与合规交付物；要文本与图像之外的
-    模态（官方在册面止于这两类）；把 score 阈值当合规证明的团队。
+    许可见 license 字段（MIT，依 PyPI 元数据；LICENSE 正文未直读到）。归属要记两条实测事实。
 
+    旧址 microsoft.github.io/presidio 当日显示「This page has moved」。
+
+    中间站 data-privacy-stack.github.io 再 301 到 presidio.dataprivacystack.org。
+
+    文档首页指认项目由 Data Privacy Stack 治理。**数据流向**：识别与脱敏在你自己的部署内完成、 支持离线，即文本不必发给第三方。
+
+    **红线口径**：analyzer 页原文在册「Scores are not probabilities」。所以 score 阈值 不是检出概率，本档不写检出率、漏检率，也不做任何产品排名。
+
+    它是否满足某法域的匿名化义务，官方不作法律结论。
+  fit: >-
+    **依据：** 适合：把个人数据识别与变换插进自己的管线（RAG 入库前、日志落盘前、发给云端模型前）、需要算子级定制与自定义 recognizer、要求文本不出自己的网络边界、要把整套东西离线跑。不适合：要托管控制台与合规交付物；要文本与图像之外的 模态（官方在册面止于这两类）；把 score 阈值当合规证明的团队。
 pitfalls:
   - 把 score 当「检出概率」：官方 analyzer 页原文是「Scores are not probabilities」
   - 把「算子有七类」当成脱敏覆盖率：算子是可组合动作，官方不给任何命中比例
@@ -107,23 +121,27 @@ cn:
 
 ## 一句话定位
 
-**Presidio 是「自己部署的那一层脱敏 SDK」**：文档首页把它写成面向 text 与 images 的快速识别与匿名化模块，
-三面 API 是 AnalyzerEngine、AnonymizerEngine、Image Redactor，变换算子官方在册 replace / redact / hash / mask /
-encrypt / keep / custom。它和本大类托管那几份的区别只有一条：**文本要不要出你的边界**——Presidio 官方口径是在你自己的
-部署里完成、支持离线；也因此它的输出没有任何「拦住了多少」的比例含义，官方 analyzer 页甚至专门写着
-「Scores are not probabilities」。
+**Presidio 是「自己部署的那一层脱敏 SDK」**：文档首页把它写成面向 text 与 images 的快速识别与匿名化模块，三面 API 是 AnalyzerEngine、AnonymizerEngine、Image Redactor。
+
+变换算子官方在册 replace / redact / hash / mask /encrypt / keep / custom。
+
+它和本大类托管那几份的区别只有一条：**文本要不要出你的边界**——Presidio 官方口径是在你自己的部署里完成、支持离线。也因此它的输出没有任何「拦住了多少」的比例含义。
+
+官方 analyzer 页甚至专门写着「Scores are not probabilities」。
 
 ## 适合与不适合
 
-适合：把个人数据识别与变换插进自己的管线（RAG 入库前、日志落盘前、发给云端模型前）、需要算子级组合与自定义
-recognizer、要求文本不出网络边界、需要离线跑完整链路。不适合：要托管控制台与合规交付物；要 text/image 之外的模态
-（官方在册面止于这两类）；把 score 阈值当合规证明的团队。
+**依据：** 适合：把个人数据识别与变换插进自己的管线（RAG 入库前、日志落盘前、发给云端模型前）、需要算子级组合与自定义recognizer、要求文本不出网络边界、需要离线跑完整链路。
+
+不适合：要托管控制台与合规交付物。要 text/image 之外的模态（官方在册面止于这两类）；把 score 阈值当合规证明的团队。
 
 ## 实测记录
 
-**本档未做端到端实测**：没有安装并调用过 AnalyzerEngine/AnonymizerEngine，没有跑过任何语料来测命中效果，
-不产出检出率、漏检率、精度或任何排名，也不清点官方 recognizer 数量。本档案只组织文档首页、Analyzer/Anonymizer 两个
-文档页、PyPI 项目页与发布历史在册的说法。
+**本档未做端到端实测**：没有安装并调用过 AnalyzerEngine/AnonymizerEngine。
+
+没有跑过任何语料来测命中效果不产出检出率、漏检率、精度或任何排名。也不清点官方 recognizer 数量。
+
+本档案只组织文档首页、Analyzer/Anonymizer 两个文档页、PyPI 项目页与发布历史在册的说法。
 
 **实测建议**（四条）：
 
@@ -134,10 +152,13 @@ recognizer、要求文本不出网络边界、需要离线跑完整链路。不�
 
 ## 变更记录说明
 
-本对象有可核验的变更记录，但不在仓库页上：**PyPI 发布历史在册**（presidio-analyzer 2.2.366 发布于 2026-10-27、
-2.2.365 于 2026-10-25、2.2.364 于 2026-07-22、2.2.363 于 2026-06-28、2.2.362 于 2026-03-15、2.2.361 于 2026-02-12）。
-文档首页另指认 CHANGELOG.md 位于 github.com/data-privacy-stack/presidio，本批次该仓库页与 raw 路径均页面响应超时，
-官方页面未提供正文——所以变更内容口径以包索引日期为准，逐条内容进 unknowns。按发布密度（近 30 天内有版本）判 lifecycle active。
+本对象有可核验的变更记录。但不在仓库页上：**PyPI 发布历史在册**（presidio-analyzer 2.2.366 发布于 2026-10-27、2.2.365 于 2026-10-25、2.2.364 于 2026-07-22、2.2.363 于 2026-06-28、2.2.362 于 2026-03-15、2.2.361 于 2026-02-12）。
+
+文档首页另指认 CHANGELOG.md 位于 github.com/data-privacy-stack/presidio。
+
+本批次该仓库页与 raw 路径均页面响应超时官方页面未提供正文。所以变更内容口径以包索引日期为准。逐条内容进 unknowns。
+
+按发布密度（近 30 天内有版本）判 lifecycle active。
 
 ## 能力边界
 

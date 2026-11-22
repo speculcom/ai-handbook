@@ -9,30 +9,25 @@ licenseEn: FSL-1.1-Apache-2.0 (official repo LICENSE.md, direct-fetched 2026-10-
 
 axes:
   model_access: >-
-    **它自己不调模型**——它是被 MCP 客户端调用的接口实现，选模型是客户端的事。
-    它把 Sentry 平台能力（issue、事件、release、告警）包装成 MCP 工具供 agent 查询与诊断。
+    **它自己不调模型**——它是被 MCP 客户端调用的接口实现，选模型是客户端的事。它把 Sentry 平台能力（issue、事件、release、告警）包装成 MCP 工具供 agent 查询与诊断。
   runtime: >-
-    官方托管远程 server 为主（mcp.sentry.dev 直抓 200）；仓 getsentry/toolkit 是官方工具线
-    （949★，最近推送 2026-10-30，GitHub API 核验）。旧仓名 getsentry/sentry-mcp 已 redirect（直抓所见）。
-  local_files: >-
-    不碰本机文件系统——它操作的是 Sentry 云端数据（issue/事件/release）。
-    本地日志与源码不在它作用域内；要读本地文件得配 filesystem server。
-  background: >-
-    远程托管形态与客户端进程无关，服务在 Sentry 侧；无断点续跑语义——
-    MCP 会话模式是请求-响应，官方未提供后台任务机制。
-  tools: >-
-    面向「agent 查崩溃/诊断线上问题」的工具集：whoami、找 issue、看 issue 详情、
-    事件与堆栈、release 对比等；完整工具清单以官方文档为准，本档不逐条复制完整清单。
-  context: >-
-    无跨会话记忆——每次会话独立，状态在 Sentry 平台本身。
-    官方未提供 server 侧记忆或检索层（未核验到≠没有，已查文档未见）。
-  permissions: >-
-    权限由 Sentry 账号鉴权决定（OAuth 登录流）；能读 issue 与事件数据，
-    写操作面（如解决 issue）以官方工具清单为准——本档不逐条展开写能力边界。
-  fit: >-
-    适合：编码 agent 直接查「这个报错在 Sentry 里有没有」、线上事故诊断接 agent 工作流。
-    不适合：要本地日志分析（不在作用域）；要 FSL 限制期内的闭源商用集成（先读许可条款）。
+    官方托管远程 server 为主（mcp.sentry.dev 直抓 200）。
 
+    仓 getsentry/toolkit 是官方工具线 （949★，最近推送 2026-10-30，GitHub API 核验）。
+
+    旧仓名 getsentry/sentry-mcp 已 redirect（直抓所见）。
+  local_files: >-
+    不碰本机文件系统。它操作的是 Sentry 云端数据（issue/事件/release）。本地日志与源码不在它作用域内。要读本地文件得配 filesystem server。
+  background: >-
+    远程托管形态与客户端进程无关，服务在 Sentry 侧。无断点续跑语义—— MCP 会话模式是请求-响应。官方未提供后台任务机制。
+  tools: >-
+    **依据：** 面向「agent 查崩溃/诊断线上问题」的工具集：whoami、找 issue、看 issue 详情、 事件与堆栈、release 对比等；完整工具清单以官方文档为准，本档不逐条复制完整清单。
+  context: >-
+    **依据：** 无跨会话记忆。每次会话独立，状态在 Sentry 平台本身。 官方未提供 server 侧记忆或检索层（未核验到≠没有，已查文档未见）。
+  permissions: >-
+    权限由 Sentry 账号鉴权决定（OAuth 登录流）。能读 issue 与事件数据。写操作面（如解决 issue）以官方工具清单为准——本档不逐条展开写能力边界。
+  fit: >-
+    适合：编码 agent 直接查「这个报错在 Sentry 里有没有」、线上事故诊断接 agent 工作流。不适合：要本地日志分析（不在作用域）。要 FSL 限制期内的闭源商用集成（先读许可条款）。
 pitfalls:
   - 用旧仓名 sentry-mcp 找仓库——现 redirect 到 getsentry/toolkit（2026-10-21 直抓核验）
   - 把 FSL 当 Apache——FSL-1.1 有生产用途限制期，到期才转 Apache 2.0
@@ -43,16 +38,13 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    官方主推 **Streamable HTTP 远程托管**（mcp.sentry.dev）；
-    客户端配置以官方文档为准。SSE 老传输的支持状态本档不逐条展开。
-    核验：官方文档页与 mcp.sentry.dev 直抓 200（2026-10-21）。
-  auth: >-
-    走 Sentry 账号 OAuth 登录流（浏览器授权）；无 PAT 明文配置路线的官方说明——
-    本档不逐条展开。凭据存储与轮换细节官方未展开。
-  scope: >-
-    作用域 = Sentry 账号可见的 org/project 数据面；读 issue/事件为主。
-    写操作与高危工具清单本档不逐条展开；无独立审批机制的官方说明。
+    官方主推 **Streamable HTTP 远程托管**（mcp.sentry.dev）。客户端配置以官方文档为准。SSE 老传输的支持状态本档不逐条展开。
 
+    **依据：** 核验：官方文档页与 mcp.sentry.dev 直抓 200（2026-10-21）。
+  auth: >-
+    走 Sentry 账号 OAuth 登录流（浏览器授权）。无 PAT 明文配置路线的官方说明—— 本档不逐条展开。凭据存储与轮换细节官方未展开。
+  scope: >-
+    作用域 = Sentry 账号可见的 org/project 数据面。读 issue/事件为主。写操作与高危工具清单本档不逐条展开。无独立审批机制的官方说明。
 sources:
   - label: getsentry/toolkit · 仓库（FSL-1.1-Apache-2.0；949★，最近推送 2026-10-30，GitHub API 核验）
     url: https://github.com/getsentry/toolkit
@@ -86,18 +78,22 @@ cn:
 
 ## 一句话定位
 
-**Sentry 官方的 agent 工具线**：把「查崩溃、看事件、对 release」包成 MCP 工具，
-编码 agent 能直接问「这个报错线上有没有」。诚实标注：旧仓 sentry-mcp 已 redirect 到 getsentry/toolkit；
-许可是 FSL-1.1-Apache-2.0——不是纯 Apache，生产用途有限制期。
+**Sentry 官方的 agent 工具线**：把「查崩溃、看事件、对 release」包成 MCP 工具，编码 agent 能直接问「这个报错线上有没有」。
+
+诚实标注：旧仓 sentry-mcp 已 redirect 到 getsentry/toolkit许可是 FSL-1.1-Apache-2.0。
+
+不是纯 Apache，生产用途有限制期。
 
 ## 适合与不适合
 
 适合：编码/运维 agent 接 Sentry 诊断流、线上事故时让 agent 拉 issue 上下文。
-不适合：本地日志分析（不在作用域）；FSL 限制期内的闭源商用集成。
+不适合：本地日志分析（不在作用域）。
+FSL 限制期内的闭源商用集成。
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

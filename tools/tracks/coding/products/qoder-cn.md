@@ -8,49 +8,47 @@ homepage: https://qoder.com.cn
 
 axes:
   model_access: >-
-    官方模型选择器页明示三档用法：Auto 智能路由、Fast 快速档位、直接指定模型；
-    可指定清单含 Qwen3.8/3.7 系、DeepSeek-V4-Pro/Flash、GLM-5.3/Flash、Kimi-K3/K2.8-Preview、
-    MiniMax-M3.1-Flash（各带 Credits 用量参考系数，清单与系数以客户端为准）；
-    还可通过 API 密钥接入自己的模型（官方「自定义模型」页，CLI 侧称 BYOK 向导）。
-    系列页官方口径「底层支持 GLM、DeepSeek、Kimi、MiniMax 等国内主流大模型」。
+    官方模型选择器页明示三档用法。Auto 智能路由、Fast 快速档位、直接指定模型。
+
+    可指定清单含 Qwen3.8/3.7 系、DeepSeek-V4-Pro/Flash、GLM-5.3/Flash、Kimi-K3/K2.8-Preview、 MiniMax-M3.1-Flash（各带 Credits 用量参考系数，清单与系数以客户端为准）。
+
+    还可通过 API 密钥接入自己的模型（官方「自定义模型」页，CLI 侧称 BYOK 向导）。系列页官方口径「底层支持 GLM、DeepSeek、Kimi、MiniMax 等国内主流大模型」。
   runtime: >-
-    Qoder CN 是产品系列（官方家族页）：一体化 AI 工作空间 Qoder CN（桌面应用）、
-    Qoder CN IDE、Qoder CN JetBrains 插件、Qoder CN CLI、Agent SDK（TypeScript/Python）、
-    Cloud Agents CN（云端全托管 Agent 平台）、QoderWake CN（数字员工）、移动端与网页版；
-    Credits 跨产品共享（订阅口径见官方账号与订阅页）。编码主线是 IDE/插件/CLI 三形态；
-    官方「什么是 Qoder CN IDE」页明示 VS Code 插件已停止维护。
+    Qoder CN 是产品系列（官方家族页）。
+
+    一体化 AI 工作空间 Qoder CN（桌面应用）、 Qoder CN IDE、Qoder CN JetBrains 插件、Qoder CN CLI、Agent SDK（TypeScript/Python）、 Cloud Agents CN（云端全托管 Agent 平台）、QoderWake CN（数字员工）、移动端与网页版。
+
+    Credits 跨产品共享（订阅口径见官方账号与订阅页）。编码主线是 IDE/插件/CLI 三形态。官方「什么是 Qoder CN IDE」页明示 VS Code 插件已停止维护。
   local_files: >-
-    IDE/插件/CLI 形态处理你本机代码与工程（官方安全页：Qoder CN 可以处理本地代码、已安装扩展、
-    远程连接和外部服务）；CLI 的记忆文件（AGENTS.md 与自动记忆）保存在本机、可在设置中查看与清空。
-    模型推理发生在服务侧——系列页官方口径「全链路在国内云上部署」；
+    IDE/插件/CLI 形态处理你本机代码与工程（官方安全页：Qoder CN 可以处理本地代码、已安装扩展、 远程连接和外部服务）。
+
+    CLI 的记忆文件（AGENTS.md 与自动记忆）保存在本机、可在设置中查看与清空。模型推理发生在服务侧。系列页官方口径「全链路在国内云上部署」。
+
     Cloud Agents CN / QoderWake CN 线的数据边界按官方文档口径。
   background: >-
-    后台/异步面是官方叙事的一部分：Cloud Agents CN 全托管长时异步任务（官方原文：关闭客户端后任务继续运行）、
-    批量并发执行；CLI 有定时任务、/loop 循环执行、Cloud Mode 与 Remote Control；
-    移动端可查看智能体进展、审批关键操作（官网口径）。
-    注意官方公告「Qoder CN IDE『Quest』视窗下线通知」——旧教程里的 Quest 面已过时。
+    **依据：** 后台/异步面是官方叙事的一部分：Cloud Agents CN 全托管长时异步任务（官方原文：关闭客户端后任务继续运行）、 批量并发执行；CLI 有定时任务、/loop 循环执行、Cloud Mode 与 Remote Control； 移动端可查看智能体进展、审批关键操作（官网口径）。 注意官方公告「Qoder CN IDE『Quest』视窗下线通知」——旧教程里的 Quest 面已过时。
   tools: >-
-    官方文档给全扩展面：MCP（连接器市场或自定义 MCP 服务器，配置在 ~/.qoder/settings.json）、
-    Skills、Plugins、Subagents（专家团：前后端/数据库/运维/测试领域智能体）、Hooks、自定义指令与命令；
-    CLI 内置文件读写、Shell 执行、Grep/Glob、Web 搜索与网页抓取，支持非交互模式接入脚本与 CI/CD；
+    官方文档给全扩展面：MCP（连接器市场或自定义 MCP 服务器，配置在 ~/.qoder/settings.json）、 Skills、Plugins、Subagents（专家团：前后端/数据库/运维/测试领域智能体）、Hooks、自定义指令与命令。
+
+    **依据：** CLI 内置文件读写、Shell 执行、Grep/Glob、Web 搜索与网页抓取。支持非交互模式接入脚本与 CI/CD。
+
     另有 Repo Wiki（为代码仓库生成项目知识）与代码安全扫描（提交/推送前渐进式扫描）。
   context: >-
-    记忆机制官方成页：全局记忆与项目记忆两类、可分别开关与清空，保存在本机记忆目录；
-    官方把上下文来源分三层——记忆（跨任务偏好背景）、Repo Wiki（代码库生成的项目知识）、
-    知识库（团队维护的结构化资料）；另有上下文压缩、代码库索引、规则设置、多模态输入（图片/PDF）。
+    记忆机制官方成页。全局记忆与项目记忆两类、可分别开关与清空，保存在本机记忆目录。
+
+    官方把上下文来源分三层——记忆（跨任务偏好背景）、Repo Wiki（代码库生成的项目知识）、 知识库（团队维护的结构化资料）。
+
+    另有上下文压缩、代码库索引、规则设置、多模态输入（图片/PDF）。
   permissions: >-
-    账号体系（阿里云账号）；CLI 有权限模式、规则配置与工具调用审批流（官方权限页）；
-    终端与沙箱页明示在任务中运行项目命令并审查需要授权的操作；
+    账号体系（阿里云账号）。CLI 有权限模式、规则配置与工具调用审批流（官方权限页）。终端与沙箱页明示在任务中运行项目命令并审查需要授权的操作。
+
     安全与授权页给账号/凭证/扩展/连接的核查清单。企业侧有企业标准版与企业专属版（VPC 部署）。
   fit: >-
-    适合：要国内合规叙事（阿里云一方产品、国内主流大模型+国内云上部署，官方点名金融/政务客群）、
-    IDE/JetBrains 插件/CLI 三形态同账号、全家桶 Credits 共享、企业 VPC 专属部署。
-    不适合：要海外模型清单自选（主线模型面是国内主流大模型）、还在依赖 VS Code 插件（已停维护）。
+    **依据：** 适合：要国内合规叙事（阿里云一方产品、国内主流大模型+国内云上部署，官方点名金融/政务客群）、 IDE/JetBrains 插件/CLI 三形态同账号、全家桶 Credits 共享、企业 VPC 专属部署。 不适合：要海外模型清单自选（主线模型面是国内主流大模型）、还在依赖 VS Code 插件（已停维护）。
   name_history: >-
-    品牌改名史（档案要写清）：智能编码助手通义灵码（Lingma，2023 首发）→ Qoder CN 系列
-    （2026-05-20 官方正式更名）；桌面应用曾用名 Lingma IDE、Qoder CN Desktop——
-    同一产品不同时期多个名字，检索时通义灵码/Lingma/Qoder CN 都要认。
+    品牌改名史（档案要写清）。智能编码助手通义灵码（Lingma，2023 首发）→ Qoder CN 系列 （2026-05-20 官方正式更名）。
 
+    桌面应用曾用名 Lingma IDE、Qoder CN Desktop—— 同一产品不同时期多个名字。检索时通义灵码/Lingma/Qoder CN 都要认。
 pitfalls:
   - 通义灵码（Lingma）已于 2026-05-20 正式更名为 Qoder CN 系列——「通义灵码」「Lingma IDE」「Qoder CN Desktop」
     这些名字都指同一条桌面应用线（官方明写「如您在其他渠道看到通义灵码相关内容，与本产品为同一产品」）
@@ -113,9 +111,9 @@ cn:
 
 ## 一句话定位
 
-**Qoder CN 是阿里云的 AI 编码产品线**（原通义灵码，2026-05-20 官方更名）：桌面 IDE + JetBrains 插件 + CLI
-三形态，国内主流大模型可切换可 BYOK，记忆/Repo Wiki/知识库三层上下文，全家桶 Credits 共享——
-「阿里云一方产品 + 国内部署」是它的官方合规叙事。
+**Qoder CN 是阿里云的 AI 编码产品线**（原通义灵码，2026-05-20 官方更名）：桌面 IDE + JetBrains 插件 + CLI三形态，国内主流大模型可切换可 BYOK。
+
+记忆/Repo Wiki/知识库三层上下文。全家桶 Credits 共享——「阿里云一方产品 + 国内部署」是它的官方合规叙事。
 
 ## 适合与不适合
 
@@ -124,7 +122,7 @@ cn:
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

@@ -9,29 +9,23 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21; the old repo name mcp-ser
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Supabase 平台能力
-    （项目、数据库查询、迁移、日志、文档检索）包装成工具给编码 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Supabase 平台能力 （项目、数据库查询、迁移、日志、文档检索）包装成工具给编码 agent 用。
   runtime: >-
-    双形态：本地 npx 进程（stdio）+ 官方托管远程线；GitHub 2,983★，
-    最近推送 2026-10-29（GitHub API 核验）。
+    双形态：本地 npx 进程（stdio）+ 官方托管远程线。GitHub 2,983★。最近推送 2026-10-29（GitHub API 核验）。
   local_files: >-
-    本地形态不直接读写你本机项目文件（那是 filesystem server 的活）——
-    它操作的是 Supabase 云端项目：表、迁移、日志。
+    本地形态不直接读写你本机项目文件（那是 filesystem server 的活）—— 它操作的是 Supabase 云端项目：表、迁移、日志。
   background: >-
-    本地 stdio 随客户端生死；远程托管形态在 Supabase 侧。无后台任务语义。
+    本地 stdio 随客户端生死。远程托管形态在 Supabase 侧。无后台任务语义。
   tools: >-
-    数据库查询/迁移、项目管理、日志与诊断、docs 检索等；
-    工具可按需裁剪（官方支持选择性启用工具组）；完整清单以仓 README 为准。
+    **依据：** 数据库查询/迁移、项目管理、日志与诊断、docs 检索等； 工具可按需裁剪（官方支持选择性启用工具组）；完整清单以仓 README 为准。
   context: >-
-    无 server 侧跨会话记忆——状态在 Supabase 项目本身（schema、数据）。
+    无 server 侧跨会话记忆。状态在 Supabase 项目本身（schema、数据）。
   permissions: >-
-    **凭据=Supabase 访问令牌，权限面大**：能连项目级 API（含 SQL 执行面）。
-    官方提供工具裁剪与只读类工具区分，但 SQL 写/DDL 能力真实存在——
-    接 agent 前按「给它一个能改库的凭据」这个最坏假设设防。
-  fit: >-
-    适合：编码 agent 直接管自家 Supabase 项目（查 schema、跑迁移、看日志）。
-    不适合：要「只读保险」的硬边界（裁剪能收窄但不是沙箱）；非 Supabase 栈项目。
+    **凭据=Supabase 访问令牌。权限面大**：能连项目级 API（含 SQL 执行面）。官方提供工具裁剪与只读类工具区分。
 
+    但 SQL 写/DDL 能力真实存在—— 接 agent 前按「给它一个能改库的凭据」这个最坏假设设防。
+  fit: >-
+    适合：编码 agent 直接管自家 Supabase 项目（查 schema、跑迁移、看日志）。不适合：要「只读保险」的硬边界（裁剪能收窄但不是沙箱）。非 Supabase 栈项目。
 pitfalls:
   - 把工具裁剪当安全沙箱——SQL 执行面真实存在，凭据权限才是边界
   - 用旧仓名 mcp-server-supabase——现 redirect 到 supabase/mcp（2026-10-21 直抓）
@@ -42,15 +36,11 @@ related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    本地 **stdio**（npx 起进程）为主；官方另有托管远程端点线（细节以官方文档为准，本档不逐条展开）。
-    核验：仓 README 与 GitHub API（2026-10-21）。
+    本地 **stdio**（npx 起进程）为主。官方另有托管远程端点线（细节以官方文档为准，本档不逐条展开）。 核验：仓 README 与 GitHub API（2026-10-21）。
   auth: >-
-    Supabase 访问令牌（scope 可选配）；本地形态环境变量/参数传 token。
-    令牌轮换与最小权限实践官方文档有指引——本档不逐条展开细节。
+    Supabase 访问令牌（scope 可选配）。本地形态环境变量/参数传 token。令牌轮换与最小权限实践官方文档有指引——本档不逐条展开细节。
   scope: >-
-    项目级：读 schema、执行 SQL（含写/DDL）、管迁移、看日志。
-    工具组裁剪可缩小暴露面；无工具级人工审批机制的官方说明。
-
+    项目级：读 schema、执行 SQL（含写/DDL）、管迁移、看日志。工具组裁剪可缩小暴露面。无工具级人工审批机制的官方说明。
 sources:
   - label: supabase/mcp · 仓库（Apache-2.0；2,983★，最近推送 2026-10-29，GitHub API 核验）
     url: https://github.com/supabase/mcp
@@ -81,17 +71,20 @@ cn:
 
 ## 一句话定位
 
-**Supabase 官方 MCP server**（Apache-2.0，仓现名 supabase/mcp）：编码 agent 直接查 schema、
-跑迁移、看日志。安全口径一句话：**它的 SQL 执行面是真的——按「能改库的凭据」设防，裁剪不是沙箱**。
+**Supabase 官方 MCP server**（Apache-2.0，仓现名 supabase/mcp）：编码 agent 直接查 schema、跑迁移、看日志。
+
+安全口径一句话：**它的 SQL 执行面是真的——按「能改库的凭据」设防，裁剪不是沙箱**。
 
 ## 适合与不适合
 
 适合：Supabase 栈项目的 agent 开发流（schema/迁移/日志一条龙）。
-不适合：要硬只读边界；非 Supabase 项目（它不是通用数据库 server）。
+不适合：要硬只读边界。
+非 Supabase 项目（它不是通用数据库 server）。
 
 ## 实测记录
 
-本档本档不做真实客户端逐项跑通；工具清单与权限来自官方 README。
+本档本档不做真实客户端逐项跑通。
+工具清单与权限来自官方 README。
 
 ## 未知项清单
 

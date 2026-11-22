@@ -10,32 +10,41 @@ licenseEn: Closed-source product (contracting party Reka AI, Inc.; Terms of Use 
 
 axes:
   model_access: >-
-    自家模型+精选开源模型双池：Reka API 当日在册模型表含 reka-edge-2603（16k 上下文、文本/图像/视频输入）、
-    reka-flash-3（64k）与 deepseek4-flash/glm5.3/qwen3.8-27b/gemma4-26b 等开源档，全部经 api.reka.ai/v1
-    OpenAI 兼容端点调用；对话入口（app.reka.ai「Edge Chat」）与其 API 池的关系按官方文档口径。
+    自家模型+精选开源模型双池。
+
+    Reka API 当日在册模型表含 reka-edge-2603（16k 上下文、文本/图像/视频输入）、 reka-flash-3（64k）与 deepseek4-flash/glm5.3/qwen3.8-27b/gemma4-26b 等开源档。
+
+    全部经 api.reka.ai/v1 OpenAI 兼容端点调用。对话入口（app.reka.ai「Edge Chat」）与其 API 池的关系按官方文档口径。
   runtime: >-
-    网页入口 app.reka.ai（chat.reka.ai 307→app.reka.ai/chat，当日核验；页内标题「Reka Playground / Edge Chat」）；
+    网页入口 app.reka.ai（chat.reka.ai 307→app.reka.ai/chat，当日核验；页内标题「Reka Playground / Edge Chat」）。
+
     另有 API（api.reka.ai/v1）与开放权重本机路线（docs「Run locally」：macOS Apple Silicon 32GB+ / Linux 服务化）。
   local_files: >-
-    托管对话数据口径按官方隐私页（2026-06 版当日在册）管辖，按官方文档口径；开放权重 Reka Edge 下载后
-    完全在本机运行（docs run-locally 页在册）——托管入口与本机权重是两条数据边界。
-  background: >-
-    对话即时返回；异步/代理任务形态官方文档未单列。公司现行主线是 research/Reka Cloud/视频基础设施/数据基础设施
-    （官网首页当日四段自述），对话入口不在首页招牌区。
-  tools: >-
-    API 侧工具面在册：模型表标注 Tools/Structured outputs/Reasoning 三列（reka-edge-2603 三项全 Yes；
-    reka-flash-3 Tools=No）；文档站自带 MCP server（docs.reka.ai/_mcp/server，llms.txt 在册）供 agent 接文档。
-  context: >-
-    会话按对话组织；跨会话记忆机制官方文档未单列。API 侧上下文长度随模型不同（当日表：reka-edge-2603 16k、
-    reka-flash-3 64k、开源档 262k），对话入口实际生效值官方文档未单列。
-  permissions: >-
-    账号制（app.reka.ai 需登录）；条款主体 Reka AI, Inc.（Terms of Use 2026-09：合同约束 reka.ai 及
-    vision/creator/developer 子域与 Reka Labs/Cloud/Vision 服务）；隐私页 2026-06 版含 EEA/UK 专章。
-  fit: >-
-    适合：跟 Reka 自家模型线（Edge/Flash）+想经一家 API 横排精选开源档（DeepSeek/GLM/Qwen/Gemma）；
-    要 Reka Edge 开放权重本机路线。不适合：要成熟 C 端对话产品（入口面薄、公司重心已转向 physical AI）；
-    要大陆直连对话服务（未备案）。
+    托管对话数据口径按官方隐私页（2026-06 版当日在册）管辖，按官方文档口径。
 
+    开放权重 Reka Edge 下载后 完全在本机运行（docs run-locally 页在册）——托管入口与本机权重是两条数据边界。
+  background: >-
+    对话即时返回。异步/代理任务形态官方文档未单列。公司现行主线是 research/Reka Cloud/视频基础设施/数据基础设施 （官网首页当日四段自述）。对话入口不在首页招牌区。
+  tools: >-
+    API 侧工具面在册。
+
+    模型表标注 Tools/Structured outputs/Reasoning 三列（reka-edge-2603 三项全 Yes； reka-flash-3 Tools=No）。
+
+    文档站自带 MCP server（docs.reka.ai/_mcp/server，llms.txt 在册）供 agent 接文档。
+  context: >-
+    会话按对话组织。跨会话记忆机制官方文档未单列。API 侧上下文长度随模型不同（当日表：reka-edge-2603 16k、 reka-flash-3 64k、开源档 262k）。
+
+    对话入口实际生效值官方文档未单列。
+  permissions: >-
+    账号制（app.reka.ai 需登录）。
+
+    条款主体 Reka AI, Inc.（Terms of Use 2026-09：合同约束 reka.ai 及 vision/creator/developer 子域与 Reka Labs/Cloud/Vision 服务）。
+
+    隐私页 2026-06 版含 EEA/UK 专章。
+  fit: >-
+    适合：跟 Reka 自家模型线（Edge/Flash）+想经一家 API 横排精选开源档（DeepSeek/GLM/Qwen/Gemma）。要 Reka Edge 开放权重本机路线。
+
+    不适合：要成熟 C 端对话产品（入口面薄、公司重心已转向 physical AI）。要大陆直连对话服务（未备案）。
 pitfalls:
   - 公司定位已整体转向——官网当日招牌是「models and infrastructure for the physical AI era」（omni 模型/Reka Cloud/视频基础设施/egocentric 数据），news 主线是 world model 研究（Rho-1 2026-10-05 等）；对话入口只是角落产品，按「对话产品公司」理解会错位
   - API 池含精选开源模型（deepseek4-flash/glm5.3/qwen3.8-27b/gemma4-26b）——「Reka API」不等于「只用 Reka 模型」，各开源档按其自身权重许可使用
@@ -85,8 +94,9 @@ cn:
 
 ## 一句话定位
 
-**Reka Chat 是一家已整体转向 physical AI 的研究室留下的对话入口**（app.reka.ai「Edge Chat」）：
-公司当日招牌是 omni 模型、Reka Cloud、视频与数据基础设施；对话产品面薄，真正的可核验面在 API（OpenAI 兼容、自家 Edge/Flash+精选开源档）与 Reka Edge 开放权重本机路线。
+**Reka Chat 是一家已整体转向 physical AI 的研究室留下的对话入口**（app.reka.ai「Edge Chat」）：公司当日招牌是 omni 模型、Reka Cloud、视频与数据基础设施。
+
+对话产品面薄，真正的可核验面在 API（OpenAI 兼容、自家 Edge/Flash+精选开源档）与 Reka Edge 开放权重本机路线。
 
 ## 适合与不适合
 

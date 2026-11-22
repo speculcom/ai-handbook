@@ -7,39 +7,45 @@ homepage: https://lovable.dev
 
 axes:
   model_access: >-
-    官方 FAQ 明示：构建侧模型由 Lovable 选并自动更新，用户不能为 Build/Plan/Chat 模式指定具体模型；
-    你自己应用内的 AI 功能可从官方 AI features 页的支持清单选模型（聊天/图像/视频/语音等各有页）。
-    企业版有 EU inference（模型请求留在欧洲端点）。
+    官方 FAQ 明示。构建侧模型由 Lovable 选并自动更新。用户不能为 Build/Plan/Chat 模式指定具体模型。
+
+    你自己应用内的 AI 功能可从官方 AI features 页的支持清单选模型（聊天/图像/视频/语音等各有页）。企业版有 EU inference（模型请求留在欧洲端点）。
   runtime: >-
-    网页端为主形态；官方另有桌面应用、iOS/Android 移动应用、Lovable API（发布项目/管理工作区）、
-    Lovable MCP server（把 Lovable 接进 IDE 与外部 agent）。项目在 workspace 内建，
-    一个项目对应一个可同步出代码库的应用（官方 welcome 页口径）。
+    网页端为主形态。
+
+    官方另有桌面应用、iOS/Android 移动应用、Lovable API（发布项目/管理工作区）、 Lovable MCP server（把 Lovable 接进 IDE 与外部 agent）。
+
+    项目在 workspace 内建。一个项目对应一个可同步出代码库的应用（官方 welcome 页口径）。
   local_files: >-
-    项目代码存在 Lovable 平台内；Git sync 与 GitHub/GitLab/Bitbucket 仓库自动双向同步（官方页明示），
-    也可 Download codebase（付费计划）。内置后端（Cloud）由 Lovable 托管，基于 Supabase 开源底座
-    （官方 cloud 页明示：数据库/认证/存储/edge functions，无需自建 Supabase）。
+    项目代码存在 Lovable 平台内。Git sync 与 GitHub/GitLab/Bitbucket 仓库自动双向同步（官方页明示）。也可 Download codebase（付费计划）。
+
+    内置后端（Cloud）由 Lovable 托管。基于 Supabase 开源底座 （官方 cloud 页明示：数据库/认证/存储/edge functions，无需自建 Supabase）。
+
     官方「部署托管与所有权」页口径「you are never locked in」：可导出代码、迁移数据、自托管部分或全部栈。
   background: >-
-    托管面是产品语义一部分：应用托管随流量自动扩、数据库实例可调（官方 cloud 页）；
-    project monitoring 按计划检查应用抓 bug 与访客错误；Subagents 把复杂任务的调研/代码探索拆开并行。
-    关闭浏览器后构建任务是否续跑官方文档未单列。
-  tools: >-
-    连接器体系官方成页：app connectors（应用调外部服务）、app user connectors（终端用户连自己账号）、
-    自定义 REST connector、chat connectors（MCP 服务器，含自定义 remote MCP 与 MCP registries）；
-    内置安全扫描 + Aikido/Wiz 集成；Code mode 内置代码编辑器；可把已发布应用反向发布为 MCP server。
-  context: >-
-    项目会话三模式：Chat（讨论）/Plan（先写结构化计划再执行）/Build（直接实现并验证）；
-    cross-project referencing 跨项目复用实现；可从 Replit/Bolt/v0 等导入项目；
-    设计系统可接入。跨会话记忆机制官方文档未单列。
-  permissions: >-
-    账号 + workspace 体系；企业面官方成页：SSO（Okta/Auth0/Entra/OIDC/SAML）、SCIM 用户开通、
-    审计日志（可导出 SIEM/云存储）、Action center（审批发布请求）、workspace 安全中心与敏感数据扫描；
-    项目可见性（私有/内部/公开）与 RLS 行级安全策略控制数据访问；个人 2FA。
-  fit: >-
-    适合：从想法到带数据库/认证/托管的全栈应用一条龙、要 Git 双向同步把代码放进自己仓库、
-    企业治理叙事（SSO/SCIM/审计/EU inference）。
-    不适合：要指定构建模型（官方明示不能）、要免费把代码下载回本地（Download codebase 是付费计划功能）。
+    托管面是产品语义一部分。应用托管随流量自动扩、数据库实例可调（官方 cloud 页）。project monitoring 按计划检查应用抓 bug 与访客错误。
 
+    Subagents 把复杂任务的调研/代码探索拆开并行。关闭浏览器后构建任务是否续跑官方文档未单列。
+  tools: >-
+    连接器体系官方成页。
+
+    app connectors（应用调外部服务）、app user connectors（终端用户连自己账号）、 自定义 REST connector、chat connectors（MCP 服务器，含自定义 remote MCP 与 MCP registries）。
+
+    内置安全扫描 + Aikido/Wiz 集成。Code mode 内置代码编辑器。可把已发布应用反向发布为 MCP server。
+  context: >-
+    项目会话三模式。Chat（讨论）/Plan（先写结构化计划再执行）/Build（直接实现并验证）。cross-project referencing 跨项目复用实现。
+
+    可从 Replit/Bolt/v0 等导入项目。设计系统可接入。跨会话记忆机制官方文档未单列。
+  permissions: >-
+    账号 + workspace 体系。企业面官方成页。
+
+    SSO（Okta/Auth0/Entra/OIDC/SAML）、SCIM 用户开通、 审计日志（可导出 SIEM/云存储）、Action center（审批发布请求）、workspace 安全中心与敏感数据扫描。
+
+    项目可见性（私有/内部/公开）与 RLS 行级安全策略控制数据访问。个人 2FA。
+  fit: >-
+    适合：从想法到带数据库/认证/托管的全栈应用一条龙、要 Git 双向同步把代码放进自己仓库、 企业治理叙事（SSO/SCIM/审计/EU inference）。
+
+    不适合：要指定构建模型（官方明示不能）、要免费把代码下载回本地（Download codebase 是付费计划功能）。
 pitfalls:
   - 构建侧模型不能指定（官方 FAQ：Lovable 为 Build/Plan/Chat 模式选模型并自动更新）——
     与 IDE 类工具的「模型选择器」体验完全不同；能选的是你应用内的 AI 功能模型
@@ -97,9 +103,9 @@ cn:
 
 ## 一句话定位
 
-**Lovable 是瑞典 Lovable 的全栈 AI 建站平台**：自然语言生成带前端/数据库/认证/托管的完整应用，
-内置后端基于 Supabase 开源底座，Git 双向同步把代码放进你自己的仓库——
-官方口径「never locked in」，但构建模型不能指定、训练数据政策按计划分层。
+**Lovable 是瑞典 Lovable 的全栈 AI 建站平台**：自然语言生成带前端/数据库/认证/托管的完整应用，内置后端基于 Supabase 开源底座。
+
+Git 双向同步把代码放进你自己的仓库——官方口径「never locked in」，但构建模型不能指定、训练数据政策按计划分层。
 
 ## 适合与不适合
 
@@ -108,7 +114,7 @@ cn:
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-把 PDF 表格抽成可核对的结构化 rows。
+**一句话**：把 PDF 表格抽成可核对的结构化 rows。
 输入：PDF 转出的表格文本、字段清单、页码或表号。
 
 ## [提示词本体|The prompt]

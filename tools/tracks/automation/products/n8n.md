@@ -9,35 +9,31 @@ licenseEn: Sustainable Use License (fair-code, not OSI open source): free to use
 
 axes:
   model_access: >-
-    平台本身不带模型，AI 节点经各厂商凭据接外部 LLM（OpenAI、Anthropic、Google 等经
-    LangChain 节点族与专用节点）；具体节点覆盖清单按官方文档口径，以官方 nodes 文档为准。
-    自托管时模型凭据在你自己的实例上。
-  runtime: >-
-    两条官方形态：自托管（Docker/npm，Community 版免费无执行上限）与 n8n Cloud 托管订阅。
-    自托管队列模式（worker 扩展）包含在 Community 内，multi-main 高可用属付费档
-    （官方 choose-n8n 口径，2026-10 第三方转述+官方 docs 对照）。
-  local_files: >-
-    自托管实例跑在你自己的机器/服务器上，工作流数据、凭据、执行日志都落在自有环境；
-    二进制数据外部存储（S3 等）属付费档。Cloud 形态数据在 n8n 云端。
-  background: >-
-    工作流由实例执行：自托管实例常开即可承载定时与 webhook 触发；官方给 Cron/队列机制。
-    「电脑关了还能跑」取决于你把实例跑在哪——平台不替你保管关机后的执行。
-  tools: >-
-    核心是集成节点生态（官方称数百种集成，按官方文档口径）；MCP 在官方许可 FAQ 里被点名
-    （「通过 n8n 编辑器、你的界面、n8n API、MCP 或 AI agent 配置工作流」需商业授权场景之一）
-    ——MCP 是官方支持的使用面。
-  context: >-
-    工作流内的数据变换与子流程传递是主轴；跨工作流的持久记忆机制按官方文档口径
-    （官方未单列的，不补推断）。凭据与执行数据按实例持久保存。
-  permissions: >-
-    自托管权限边界=你的实例边界；Community 版工作流/凭据仅创建者与实例所有者可访问
-    （共享属付费档）。企业 SSO/RBAC 属 Business/Enterprise  licence key 解锁。
-    许可边界比权限边界更关键：SUL 三条限制见 license 字段。
-  fit: >-
-    适合：跨系统自动化为主轴、要把 AI 节点嵌进既有流程、要自托管掌控数据。
-    不适合：要把 n8n 包进自己产品卖给客户（需商业协议）；要纯代码编排（去看 framework）；
-    要开箱多租户 SaaS（Community 无共享）。
+    平台本身不带模型，AI 节点经各厂商凭据接外部 LLM（OpenAI、Anthropic、Google 等经 LangChain 节点族与专用节点）。
 
+    具体节点覆盖清单按官方文档口径，以官方 nodes 文档为准。自托管时模型凭据在你自己的实例上。
+  runtime: >-
+    两条官方形态。自托管（Docker/npm，Community 版免费无执行上限）与 n8n Cloud 托管订阅。自托管队列模式（worker 扩展）包含在 Community 内。
+
+    multi-main 高可用属付费档 （官方 choose-n8n 口径，2026-10 第三方转述+官方 docs 对照）。
+  local_files: >-
+    **依据：** 自托管实例跑在你自己的机器/服务器上，工作流数据、凭据、执行日志都落在自有环境； 二进制数据外部存储（S3 等）属付费档。Cloud 形态数据在 n8n 云端。
+  background: >-
+    工作流由实例执行。自托管实例常开即可承载定时与 webhook 触发。官方给 Cron/队列机制。「电脑关了还能跑」取决于你把实例跑在哪。平台不替你保管关机后的执行。
+  tools: >-
+    核心是集成节点生态（官方称数百种集成，按官方文档口径）。
+
+    MCP 在官方许可 FAQ 里被点名 （「通过 n8n 编辑器、你的界面、n8n API、MCP 或 AI agent 配置工作流」需商业授权场景之一） ——MCP 是官方支持的使用面。
+  context: >-
+    工作流内的数据变换与子流程传递是主轴。跨工作流的持久记忆机制按官方文档口径 （官方未单列的，不补推断）。凭据与执行数据按实例持久保存。
+  permissions: >-
+    自托管权限边界=你的实例边界。Community 版工作流/凭据仅创建者与实例所有者可访问 （共享属付费档）。
+
+    企业 SSO/RBAC 属 Business/Enterprise licence key 解锁。许可边界比权限边界更关键。SUL 三条限制见 license 字段。
+  fit: >-
+    适合：跨系统自动化为主轴、要把 AI 节点嵌进既有流程、要自托管掌控数据。不适合：要把 n8n 包进自己产品卖给客户（需商业协议）。要纯代码编排（去看 framework）。
+
+    要开箱多租户 SaaS（Community 无共享）。
 pitfalls:
   - 把「源码可得」当「开源」——SUL 是 fair-code，内部业务用途之外有硬限制
   - 把 n8n 托管给客户收费——SUL 明确不允许，需 n8n Embed 商业协议
@@ -81,22 +77,23 @@ cn:
 
 ## 一句话定位
 
-**n8n 是「自动化优先」的低代码工作流平台**——AI 是它众多节点里的一类，不是它的身份。
-它最容易被误读的地方是许可：源码公开，但它是 **fair-code（Sustainable Use License）**，不是 OSI 开源。
+**n8n 是「自动化优先」的低代码工作流平台**——AI 是它众多节点里的一类。不是它的身份。它最容易被误读的地方是许可：源码公开。但它是 **fair-code（Sustainable Use License）**。
+
+不是 OSI 开源。
 
 ## 许可是它最该先读的一页
 
-官方 Community license 页给 SUL 三条限制（要点转述）：只能用于**自有内部业务或非商业个人用途**；
-分发必须**免费且非商业**；不得移除许可与版权声明。文件名含 `.ee.` 的部分归 Enterprise License。
+官方 Community license 页给 SUL 三条限制（要点转述）：只能用于**自有内部业务或非商业个人用途**；分发必须**免费且非商业**。不得移除许可与版权声明。
 
-官方帮助中心进一步给了判例式口径：你在自己实例上替客户跑工作流、客户只拿结果——允许；
+文件名含 `.ee.` 的部分归 Enterprise License。
+
+官方帮助中心进一步给了判例式口径。
+你在自己实例上替客户跑工作流、客户只拿结果——允许
 客户能进编辑器或经你的界面/API/MCP/AI agent 配置工作流——需要商业协议（n8n Embed）。
 
 ## 适合与不适合
 
-适合：跨系统自动化是主轴、要把 AI 嵌进既有流程、要自托管掌控数据与凭据。
-不适合：把 n8n 包进产品卖给客户（商业协议线）；纯代码编排（去 [OpenAI Agents SDK](../../framework/products/openai-agents-sdk.md) 等 framework 大类）；
-开箱团队共享（Community 版工作流仅创建者可见）。
+适合：跨系统自动化是主轴、要把 AI 嵌进既有流程、要自托管掌控数据与凭据。不适合：把 n8n 包进产品卖给客户（商业协议线）。纯代码编排（去 [OpenAI Agents SDK](../../framework/products/openai-agents-sdk.md) 等 framework 大类）开箱团队共享（Community 版工作流仅创建者可见）。
 
 ## 实测记录
 

@@ -7,30 +7,41 @@ homepage: https://replit.com
 
 axes:
   model_access: >-
-    按「模式」选而非按裸模型选：官方文档列 Free/Auto/Power/Max 四态——Free 是套餐额度内的免费档，
-    Auto 自动路由，Power/Max 是付费档（Max 使用官方定位的前沿模型）；具体每档可用模型在账户内 Model selector 实时展示（官方口径：模型清单以账户为准，随套餐与滚动上线变化）。企业工作区只有一个 Auto 模式，管理员可用 Enterprise model controls 管模型访问。
+    按「模式」选而非按裸模型选。官方文档列 Free/Auto/Power/Max 四态——Free 是套餐额度内的免费档。Auto 自动路由。
+
+    Power/Max 是付费档（Max 使用官方定位的前沿模型）。具体每档可用模型在账户内 Model selector 实时展示（官方口径：模型清单以账户为准，随套餐与滚动上线变化）。
+
+    企业工作区只有一个 Auto 模式。管理员可用 Enterprise model controls 管模型访问。
   runtime: >-
-    云端 IDE 内建 agent：项目、依赖、数据库、部署全在 Replit 云上；官方文档明确 Agent 会
-    「写代码、搭基础设施、测结果」并自动建 checkpoint 可回滚。桌面/手机是入口，执行在云上。
+    **依据：** 云端 IDE 内建 agent：项目、依赖、数据库、部署全在 Replit 云上；官方文档明确 Agent 会 「写代码、搭基础设施、测结果」并自动建 checkpoint 可回滚。桌面/手机是入口，执行在云上。
   local_files: >-
-    代码与数据默认在 Replit 云项目里，不在你本机；代码与项目以 GitHub/GitLab 仓库为迁移面（官方 Connect your repository / Contribute code）；平台托管数据库、Auth 与对象存储的数据按各服务文档单独迁出。
-    连接外部服务（BigQuery/Slack/Notion/Linear 等）经官方 connector 从聊天直接取数。
+    代码与数据默认在 Replit 云项目里，不在你本机。
+
+    代码与项目以 GitHub/GitLab 仓库为迁移面（官方 Connect your repository / Contribute code）。
+
+    平台托管数据库、Auth 与对象存储的数据按各服务文档单独迁出。连接外部服务（BigQuery/Slack/Notion/Linear 等）经官方 connector 从聊天直接取数。
   background: >-
-    有后台任务面：官方文档给 Core 1 个、Pro 10 个「Active background tasks」的配额行——
-    后台跑任务是产品语义的一部分；Plan mode 先出任务清单供审批再动工。
+    有后台任务面。官方文档给 Core 1 个、Pro 10 个「Active background tasks」的配额行—— 后台跑任务是产品语义的一部分。Plan mode 先出任务清单供审批再动工。
   tools: >-
-    agent 自带建项目/装依赖/测试/部署全链；connector 面（BigQuery/Slack/Notion/Linear 等）
-    是官方列出的连接目录，以 Integrations 目录当日列表为准。MCP 双向：Agent 可接预列 MCP 服务器或自定义服务器（官方 Connect via MCP），Replit 也提供 MCP Server 供兼容客户端接入（Connect through MCP）。
+    agent 自带建项目/装依赖/测试/部署全链。connector 面（BigQuery/Slack/Notion/Linear 等） 是官方列出的连接目录。
+
+    以 Integrations 目录当日列表为准。MCP 双向：Agent 可接预列 MCP 服务器或自定义服务器（官方 Connect via MCP）。
+
+    Replit 也提供 MCP Server 供兼容客户端接入（Connect through MCP）。
   context: >-
-    项目内多产物共享同一后端与数据（web/mobile/slides/视频同项目）；checkpoint 提供状态回滚面。
-    跨项目记忆不在官方文档叙事内；项目内 checkpoint 提供回滚面。
+    项目内多产物共享同一后端与数据（web/mobile/slides/视频同项目）。checkpoint 提供状态回滚面。跨项目记忆不在官方文档叙事内。
+
+    项目内 checkpoint 提供回滚面。
   permissions: >-
-    账号+套餐体系；付费动作需确认（官方 FAQ：paid actions require confirmation before they start，
-    Free 不够时给 Allow once 单次放行）；企业版有模型访问管控。部署即 Replit 托管 URL。
+    账号+套餐体系。
+
+    付费动作需确认（官方 FAQ：paid actions require confirmation before they start， Free 不够时给 Allow once 单次放行）。
+
+    企业版有模型访问管控。部署即 Replit 托管 URL。
   fit: >-
     适合：从自然语言直接到「能上线的应用」（含数据库/部署）、非工程师做原型、要 checkpoint 回滚兜底。
-    不适合：要接你自己已有的代码库为主战场（它主轴是从想法到新项目）、要模型层完全自选。
 
+    不适合：要接你自己已有的代码库为主战场（它主轴是从想法到新项目）、要模型层完全自选。
 pitfalls:
   - 把 Replit Agent 当「装进现有仓库的编码 agent」——官方定位是从想法到新项目（含基础设施），
     现有代码库协作不是它文档的主叙事
@@ -81,7 +92,8 @@ cn:
 ## 一句话定位
 
 **Replit Agent 是「从自然语言到能上线的应用」的云 IDE agent**：建项目、装基础设施、测试、部署一条龙，
-Free/Power/Max 模式选档不选裸模型，checkpoint 兜底回滚。
+**一句话**：Free/Power/Max 模式选档不选裸模型。
+checkpoint 兜底回滚。
 
 ## 适合与不适合
 
@@ -90,7 +102,7 @@ Free/Power/Max 模式选档不选裸模型，checkpoint 兜底回滚。
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

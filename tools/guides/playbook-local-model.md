@@ -30,7 +30,7 @@ confidence: partial
 
 ## [显存：先算再下|VRAM: calculate before downloading]
 
-以下 KV 算式仅用于常规注意力缓存的简化预算，不适用于所有架构或缓存实现。GB 按十进制计，GiB = 字节 / 2^30。
+**一句话**：以下 KV 算式仅用于常规注意力缓存的简化预算，不适用于所有架构或缓存实现。GB 按十进制计，GiB = 字节 / 2^30。
 
 ```
 权重体积 GB ≈ 参数量(B) × bpw / 8

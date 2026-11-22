@@ -17,7 +17,7 @@ confidence: partial
 
 ## [任务与输入|Task and inputs]
 
-生成表格公式并给校验样例。
+**一句话**：生成表格公式并给校验样例。
 输入：列定义、计算目标、边界条件。
 
 ## [提示词本体|The prompt]

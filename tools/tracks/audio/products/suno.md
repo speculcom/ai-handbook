@@ -10,31 +10,31 @@ licenseEn: Official ToS: on Pro/Premier paid tiers, 'Suno hereby assigns to you 
 
 axes:
   model_access: >-
-    模型迭代经官方博客披露：「Introducing v6」条目（2026-09-09，Mikey Shulman 署名，
-    2026-10-21 经代理直抓核验标题与日期）；定价页快照的模型标注（v4.5-all/v5）与博客 v6 条目
-    存在滞后差——当前默认模型以登录应用内为准，按两处官方页面各自口径并列。
-  runtime: >-
-    网页与移动端应用为主入口；生成在 Suno 云端处理，本机不跑模型。
-    Suno Studio 是浏览器内的生成式工作站（多轨时间线、stem 导出），仍属云端形态——
-    界面在浏览器里，算力在云端。
-  local_files: >-
-    支持上传音频作参考/续写（付费档上传时长更高，见定价页指针）；上传素材的权属见 permissions 维。
-  background: >-
-    生成为任务制：提交提示词/素材后排队产出，产出物进账户库。
-    没有「关机续跑」形态的官方声明——任务在云端跑，不依赖本机在线。
-  tools: >-
-    Suno Studio（网页版生成式音频工作站：多轨、stem 导出）与编辑工具线（博客 Studio 2.0、
-    Speech (beta) 2026-10-01 等条目）；Persona/Inspo 等风格控制。
-  context: >-
-    生成为任务制，无跨会话对话记忆形态；风格延续通过 Persona 等机制。
-  permissions: >-
-    官方 ToS：用户保留 Submissions 所有权（「you retain all right, title, and interest in and to your
-    Submissions」），但授予 Suno 全球免许可金（含创建衍生作品）；条款明确该许可覆盖
-    「train, develop, fine-tune or otherwise improve」其模型，未见训练退出开关。禁止用输出训练其他模型。
-  fit: >-
-    做 AI 音乐、在意「上传素材归我」的人。商用要走付费下载通道（见许可列），Remix 一律非商用；
-    在意「素材绝不进训练」——条款没有退出选项，要先接受。
+    模型迭代经官方博客披露。「Introducing v6」条目（2026-09-09，Mikey Shulman 署名， 2026-10-21 经代理直抓核验标题与日期）。
 
+    定价页快照的模型标注（v4.5-all/v5）与博客 v6 条目 存在滞后差——当前默认模型以登录应用内为准。按两处官方页面各自口径并列。
+  runtime: >-
+    网页与移动端应用为主入口。生成在 Suno 云端处理，本机不跑模型。Suno Studio 是浏览器内的生成式工作站（多轨时间线、stem 导出）。
+
+    仍属云端形态—— 界面在浏览器里，算力在云端。
+  local_files: >-
+    支持上传音频作参考/续写（付费档上传时长更高，见定价页指针）。上传素材的权属见 permissions 维。
+  background: >-
+    生成为任务制。提交提示词/素材后排队产出，产出物进账户库。没有「关机续跑」形态的官方声明。任务在云端跑，不依赖本机在线。
+  tools: >-
+    Suno Studio（网页版生成式音频工作站：多轨、stem 导出）与编辑工具线（博客 Studio 2.0、 Speech (beta) 2026-10-01 等条目）。
+
+    Persona/Inspo 等风格控制。
+  context: >-
+    生成为任务制，无跨会话对话记忆形态。风格延续通过 Persona 等机制。
+  permissions: >-
+    **依据：** 官方 ToS：用户保留 Submissions 所有权（「you retain all right, title, and interest in and to your Submissions」）。
+
+    但授予 Suno 全球免许可金（含创建衍生作品）。条款明确该许可覆盖 「train, develop, fine-tune or otherwise improve」其模型。未见训练退出开关。
+
+    禁止用输出训练其他模型。
+  fit: >-
+    做 AI 音乐、在意「上传素材归我」的人。商用要走付费下载通道（见许可列），Remix 一律非商用。在意「素材绝不进训练」——条款没有退出选项，要先接受。
 pitfalls:
   - 把「付费即商用」读准——商用绑定「经付费下载配额下载」这一动作，且 Remix 一律非商用
   - 以为上传素材会被拿走——Submissions 所有权保留，但平台取得含训练在内的宽许可
@@ -74,7 +74,8 @@ cn:
 
 ## 一句话定位
 
-AI 音乐生成平台：歌曲、人声、Voice Model 与 Suno Studio 工作站；
+AI 音乐生成平台。
+歌曲、人声、Voice Model 与 Suno Studio 工作站
 「商用绑定付费下载配额、Remix 一律非商用」是许可条款里最具体的分层。
 
 ## 适合与不适合

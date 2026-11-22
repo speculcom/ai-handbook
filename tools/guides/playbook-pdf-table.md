@@ -18,7 +18,7 @@ confidence: partial
 
 ## [下载与范围|Downloads and scope]
 
-以下是本站制作的虚构订单，CC BY 4.0。两份 PDF 内容相同，一份有文字层，另一份是光栅图像。参考表按设计数据编写，不是运行 OCR 得到的结果，也不代表任何工具的识别率。输入为英文，便于比较字符与列。
+**一句话**：以下是本站制作的虚构订单，CC BY 4.0。两份 PDF 内容相同，一份有文字层，另一份是光栅图像。参考表按设计数据编写，不是运行 OCR 得到的结果，也不代表任何工具的识别率。输入为英文，便于比较字符与列。
 
 - [可选中文字的 PDF](https://tools.specul.com/samples/pdf-table/fictional-order-text.pdf)
 - [只有图像的 PDF](https://tools.specul.com/samples/pdf-table/fictional-order-scan.pdf)

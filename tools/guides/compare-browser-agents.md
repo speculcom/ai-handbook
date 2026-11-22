@@ -24,7 +24,7 @@ confidence: partial
 
 ## [一句话选择|One-line choice]
 
-- **本机浏览器 + 结构化页面快照 + 不需视觉模型**：选 Playwright MCP。
+**一句话**：- **本机浏览器 + 结构化页面快照 + 不需视觉模型**：选 Playwright MCP。
 - **不想在本机起浏览器 + 要自然语言驱动网页**：选 Browserbase MCP。
 - **给编码 Agent 看页面、抓性能与 console**：选 Chrome DevTools MCP。
 
@@ -40,7 +40,7 @@ confidence: partial
 
 ## [能力边界|Capability limits]
 
-**Playwright MCP**
+**Playwright MCP**：
 
 - 默认有头模式，`--headless` 可切；headless 默认空闲 1 小时关闭，headed 默认不自动关闭。
 - 用户 profile 默认落盘在 Playwright 缓存目录（按 workspace hash 隔离），`--isolated` 可改为仅存内存。

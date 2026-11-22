@@ -10,26 +10,23 @@ licenseEn: Follow the repository LICENSE (not verified line by line here); read 
 
 axes:
   model_access: >-
-    EXL3 量化格式（.exl3 checkpoint）与部分 HF safetensors；模型支持以官方仓与文档为准，
-    本档不逐条复制完整清单。它是 ExLlamaV2 的接续线。
+    EXL3 量化格式（.exl3 checkpoint）与部分 HF safetensors。模型支持以官方仓与文档为准， 本档不逐条复制完整清单。它是 ExLlamaV2 的接续线。
   runtime: >-
-    CUDA 推理引擎，面向本地/单机多卡；PyPI 包 exllamav3（1.6.6，2026-10-31 发布；仅版本记录于 2026-11-04 复核）。
+    CUDA 推理引擎，面向本地/单机多卡。PyPI 包 exllamav3（1.6.6，2026-10-31 发布；仅版本记录于 2026-11-04 复核）。
+
     需要 CUDA 环境，具体版本以官方仓为准。
   local_files: >-
-    自托管，权重与 .exl3 checkpoint 在本地；没有官方托管云。
+    自托管，权重与 .exl3 checkpoint 在本地。没有官方托管云。
   background: >-
-    本地推理进程，不是常驻服务；要服务化通常接 TabbyAPI 等外层。
+    本地推理进程，不是常驻服务。要服务化通常接 TabbyAPI 等外层。
   tools: >-
-    以推理执行为主；工具调用与 MCP 不在核心面，本档不逐条展开，
-    需要这些能力时通常在外层应用里补。
+    以推理执行为主。工具调用与 MCP 不在核心面，本档不逐条展开。需要这些能力时通常在外层应用里补。
   context: >-
-    长上下文按显存与配置；KV cache 细节在官方文档线，本档不逐条展开。
+    长上下文按显存与配置。KV cache 细节在官方文档线，本档不逐条展开。
   permissions: >-
-    本地进程无账号体系；权限由运行环境决定，对外提供服务时需要自己加鉴权与访问控制。
+    本地进程无账号体系。权限由运行环境决定，对外提供服务时需要自己加鉴权与访问控制。
   fit: >-
-    适合：NVIDIA 单机/多卡、追 EXL3 量化与低延迟推理、愿意自己配 CUDA 环境。
-    不适合：AMD/CPU、想要开箱 GUI、想要 GGUF 生态。
-
+    适合：NVIDIA 单机/多卡、追 EXL3 量化与低延迟推理、愿意自己配 CUDA 环境。不适合：AMD/CPU、想要开箱 GUI、想要 GGUF 生态。
 pitfalls:
   - 把 ExLlamaV3 当成 llama.cpp 的替代——它走 EXL3/CUDA 路线，不是 GGUF
   - 以为装了包就能跑——还需要 CUDA 与对应模型 checkpoint
@@ -72,7 +69,8 @@ cn:
 
 ## 一句话定位
 
-ExLlamaV3 是 ExLlamaV2 的接续线：用 EXL3 量化格式在 NVIDIA GPU 上做低延迟本地推理。
+ExLlamaV3 是 ExLlamaV2 的接续线。
+用 EXL3 量化格式在 NVIDIA GPU 上做低延迟本地推理。
 它是引擎本体，不是 GGUF 工具，也不是 API server。
 
 跨大类对照：[LlamaIndex](../framework/llamaindex.html)。
@@ -99,4 +97,7 @@ ExLlamaV3 是 ExLlamaV2 的接续线：用 EXL3 量化格式在 NVIDIA GPU 上�
 
 ## 核验说明
 
-2026-11-04 仅复核 PyPI 版本记录：1.6.6 发布于 2026-10-31，1.6.5 为 2026-10-25 的历史版本。未安装该版本，也未重新核验全部架构、CUDA 或 TabbyAPI 兼容性。
+2026-11-04 仅复核 PyPI 版本记录。
+1.6.6 发布于 2026-10-31。
+1.6.5 为 2026-10-25 的历史版本。
+未安装该版本，也未重新核验全部架构、CUDA 或 TabbyAPI 兼容性。

@@ -12,29 +12,29 @@ licenseEn: Governed by the official Terms of Service (murf.ai/legal/terms-of-ser
 
 axes:
   model_access: >-
-    自有语音模型线：官网导航当日分「Models（TTS API，官方口径 purpose built for voice agents）」与
-    Creators（200+ 预置音色）两面；不开放选第三方模型。
+    **依据：** 自有语音模型线：官网导航当日分「Models（TTS API，官方口径 purpose built for voice agents）」与 Creators（200+ 预置音色）两面；不开放选第三方模型。
   runtime: >-
-    网页工作室（murf.ai）+ API（murf.ai/api，API 文档在 murf.ai/api/docs，当日直抓 200）；
-    生成在 Murf 云端，本机不跑模型。集成面在册 Canva/Google Slides/PowerPoint 等。
-  local_files: >-
-    工作室工程与音频资产存于账户侧（官网导航有资产/工作室面）；未见官方声明的本机数据面——
-    下载导出的音频文件归你本机，但工程与音色库在 Murf 云端。
-  background: >-
-    工作室渲染与 API 合成为任务形态；排队/续跑细节按官方文档口径。
-    Agents 线（AI Receptionist/Call Center 等）是实时对话形态，与工作室批处理不同轨。
-  tools: >-
-    三条产品线当日在册：Agents（语音 agent）、API（TTS/Voice Changer/Dubbing/Translation）、
-    Creators（配音工作室+Voice Cloning）。MCP 支持官方文档未单列。
-  context: >-
-    工作室按项目/工程组织；官方产品面没有跨会话记忆入口，跨会话一致性靠项目/工程复用；配音资产按项目归档。
-  permissions: >-
-    账号体系（免费+订阅）；声音克隆授权线在官方 FAQ 在册——克隆页明言「未经同意的声音复制可能违法」
-    「克隆名人声音不道德」（2026-10-30 直抓）；Instant 与 Professional 两档克隆形态在册。
-  fit: >-
-    适合：配音工作室+TTS API+语音 agent 一体的商用语音平台、要 200+ 预置音色不走克隆。
-    不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型。
+    网页工作室（murf.ai）+ API（murf.ai/api，API 文档在 murf.ai/api/docs，当日直抓 200）。生成在 Murf 云端，本机不跑模型。
 
+    集成面在册 Canva/Google Slides/PowerPoint 等。
+  local_files: >-
+    工作室工程与音频资产存于账户侧（官网导航有资产/工作室面）。未见官方声明的本机数据面—— 下载导出的音频文件归你本机。但工程与音色库在 Murf 云端。
+  background: >-
+    工作室渲染与 API 合成为任务形态。排队/续跑细节按官方文档口径。Agents 线（AI Receptionist/Call Center 等）是实时对话形态，与工作室批处理不同轨。
+  tools: >-
+    三条产品线当日在册。
+
+    Agents（语音 agent）、API（TTS/Voice Changer/Dubbing/Translation）、 Creators（配音工作室+Voice Cloning）。
+
+    MCP 支持官方文档未单列。
+  context: >-
+    工作室按项目/工程组织。官方产品面没有跨会话记忆入口。跨会话一致性靠项目/工程复用。配音资产按项目归档。
+  permissions: >-
+    账号体系（免费+订阅）。声音克隆授权线在官方 FAQ 在册——克隆页明言「未经同意的声音复制可能违法」 「克隆名人声音不道德」（2026-10-30 直抓）。
+
+    Instant 与 Professional 两档克隆形态在册。
+  fit: >-
+    适合：配音工作室+TTS API+语音 agent 一体的商用语音平台、要 200+ 预置音色不走克隆。不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型。
 pitfalls:
   - Murf 官网导航当日主打已转向 Agents（语音 agent 平台）——把它当「纯配音工具」会低估其 API/agent 线
   - 克隆官方 FAQ 只给法律风险提示、未给平台侧强制授权校验流程——「官方说了什么」与「平台拦了什么」是两回事（按官方文档口径拦截面）
@@ -81,8 +81,7 @@ cn:
 
 ## 一句话定位
 
-**Murf 是「配音工作室 + TTS API + 语音 agent」三线一体的商用语音平台**（官网当日招牌已转向
-AI Voice & Conversational Agent Platform）：200+ 预置音色主打，克隆是辅线，API 文档与 changelog 公开可核。
+**Murf**：「配音工作室 + TTS API + 语音 agent」三线一体的商用语音平台：（官网当日招牌已转向AI Voice & Conversational Agent Platform）：200+ 预置音色主打。克隆是辅线。API 文档与 changelog 公开可核。
 
 ## 适合与不适合
 

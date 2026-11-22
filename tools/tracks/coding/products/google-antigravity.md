@@ -7,34 +7,33 @@ homepage: https://antigravity.google
 
 axes:
   model_access: >-
-    官方 overview 页的界面截图直接列出模型选择器：Gemini 系与 Claude 系、GPT-OSS 等并列可选
-    （截图所示清单，官方页面不列完整列表）；CLI 会话头显示当前模型（如 Gemini 3.8 Flash High）。
-    模型面由 Google 侧上架决定，第三方模型可用性随官方调整。
-  runtime: >-
-    四个官方面（overview 页原文口径）：Antigravity App（桌面端，v2.5+，从 Agent Manager 演进的
-    独立指挥中心）、Antigravity CLI（终端客户端，本地 shell/远程云环境/SSH 都能跑）、
-    Editor extensions（5 个 IDE 的扩展）、Antigravity SDK（Python 编程运行时）。
-    App/CLI/IDE 扩展的执行都在你本机环境；SDK 是「几行 Python 跑 agent harness」。
-  local_files: >-
-    官方 settings 文档明示边界：默认 agent 只能访问活动项目文件夹与 ~/.gemini/antigravity-ide/
-    （产物、知识项、配置都在这个本地目录）；「非工作区文件访问」是显式开关，默认关。
-  background: >-
-    官方叙事同时覆盖同步 pair-programming 与异步后台 agent：App 支持按项目归档对话、
-    定时任务（scheduled messages/tasks）自动处理日常工作；CLI 可调度后台子 agent。
-  tools: >-
-    产物机制（Artifacts：实现计划/验证报告/提议变更）是核心面；浏览器在环（browser-in-the-loop）
-    做前端自动化验证；MCP 支持状态不在官方文档列出的能力面内（官方文档导航没有独立 MCP 页）。
-  context: >-
-    知识项（knowledge items）落 ~/.gemini/antigravity-ide/ 本地目录（settings 文档口径）；
-    跨会话记忆的产品化程度本档不逐条展开。
-  permissions: >-
-    官方 settings 文档给出三层控制面：终端命令自动执行（请求审查 vs 始终继续+可配白/黑名单）、
-    非工作区文件访问开关（默认关）、严格模式（限制外部资源与敏感操作）。账号走 Google 体系。
-  fit: >-
-    适合：要 Google 系模型+多面协同（桌面指挥中心/终端/IDE 扩展/SDK 同一 harness）、
-    要定时任务与后台子 agent、要「命令执行策略」显式可调的团队。
-    不适合：大陆直连场景（主域直连不稳）、要把产物放非 Google 账号体系的。
+    官方 overview 页的界面截图直接列出模型选择器。Gemini 系与 Claude 系、GPT-OSS 等并列可选 （截图所示清单，官方页面不列完整列表）。
 
+    CLI 会话头显示当前模型（如 Gemini 3.8 Flash High）。模型面由 Google 侧上架决定。第三方模型可用性随官方调整。
+  runtime: >-
+    **依据：** 四个官方面（overview 页原文口径）：Antigravity App（桌面端，v2.5+，从 Agent Manager 演进的 独立指挥中心）、Antigravity CLI（终端客户端，本地 shell/远程云环境/SSH 都能跑）、 Editor extensions（5 个 IDE 的扩展）、Antigravity SDK（Python 编程运行时）。 App/CLI/IDE 扩展的执行都在你本机环境；SDK 是「几行 Python 跑 agent harness」。
+  local_files: >-
+    官方 settings 文档明示边界。默认 agent 只能访问活动项目文件夹与 ~/.gemini/antigravity-ide/ （产物、知识项、配置都在这个本地目录）。
+
+    「非工作区文件访问」是显式开关，默认关。
+  background: >-
+    官方叙事同时覆盖同步 pair-programming 与异步后台 agent：App 支持按项目归档对话、 定时任务（scheduled messages/tasks）自动处理日常工作。
+
+    CLI 可调度后台子 agent。
+  tools: >-
+    产物机制（Artifacts：实现计划/验证报告/提议变更）是核心面。浏览器在环（browser-in-the-loop） 做前端自动化验证。
+
+    MCP 支持状态不在官方文档列出的能力面内（官方文档导航没有独立 MCP 页）。
+  context: >-
+    知识项（knowledge items）落 ~/.gemini/antigravity-ide/ 本地目录（settings 文档口径）。跨会话记忆的产品化程度本档不逐条展开。
+  permissions: >-
+    官方 settings 文档给出三层控制面。终端命令自动执行（请求审查 vs 始终继续+可配白/黑名单）、 非工作区文件访问开关（默认关）、严格模式（限制外部资源与敏感操作）。
+
+    账号走 Google 体系。
+  fit: >-
+    适合：要 Google 系模型+多面协同（桌面指挥中心/终端/IDE 扩展/SDK 同一 harness）、 要定时任务与后台子 agent、要「命令执行策略」显式可调的团队。
+
+    不适合：大陆直连场景（主域直连不稳）、要把产物放非 Google 账号体系的。
 pitfalls:
   - 四个面（App/CLI/IDE 扩展/SDK）是同一 harness 的不同入口，不是四个独立产品——别按 Gemini Code Assist
     或 Firebase Studio 的旧认知套它（官方文档有 Firebase Studio 迁移页，那条线并入本平台叙事）
@@ -78,8 +77,9 @@ cn:
 
 ## 一句话定位
 
-**Google Antigravity 是 Google 的 agent-first 开发平台**：桌面指挥中心/CLI/IDE 扩展/Python SDK
-四面共用一套 harness，命令执行策略与工作区边界是官方显式给的三档控制面。
+**Google Antigravity 是 Google 的 agent-first 开发平台**：桌面指挥中心/CLI/IDE 扩展/Python SDK四面共用一套 harness。
+
+命令执行策略与工作区边界是官方显式给的三档控制面。
 
 ## 适合与不适合
 
@@ -88,7 +88,7 @@ cn:
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**（三条，都指向官方可读页没给的东西）：
 

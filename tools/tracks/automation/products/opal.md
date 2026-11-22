@@ -10,27 +10,23 @@ licenseEn: Official terms not verified line by line; ownership and commercial sc
 
 axes:
   model_access: >-
-    不直接暴露模型选择：官方叙事是「用自然语言搭 AI mini-app」，2026 的 agent step 让工作流按目标
-    自动选择工具与模型（如 Web Search、Veo）。具体模型清单未在官方页逐条列出。
-  runtime: >-
-    云端 Web 应用，在 Google Labs 的托管环境运行；工作流文件保存在 Google Drive 的
-    My Drive > Opal 下（官方 FAQ 写明停用后的文件保留方式）。
-  local_files: >-
-    工作流与素材存放在 Google 账号侧；本机不跑模型。导入导出与素材保留边界以官方页为准。
-  background: >-
-    以交互式搭积木为主；官方 agent step 可按目标触发工具与模型，但没有「关机后续跑」的官方声明。
-  tools: >-
-    内建 generate 步骤与 agent step；agent step 可调用 Web Search、Veo 等 Google 工具，
-    并可把多步任务串成工作流。第三方工具接入面未逐条核验。
-  context: >-
-    单次工作流的上下文由步骤与模型决定；跨会话记忆与长期状态未在官方页逐条说明。
-  permissions: >-
-    Google 账号体系；工作流文件在 Drive 内，分享范围按 Drive 权限管理。
-    数据训练用途与商用条款以 Google 服务条款为准，本站未逐条核验。
-  fit: >-
-    适合：不写代码、想把「生成 + 搜索 + 视频」串成小应用的人；需要快速做原型并分享。
-    不适合：要自托管、要模型自选、要长期稳定生产（官方已宣布 2026-11-17 停用实验服务）。
+    不直接暴露模型选择。官方叙事是「用自然语言搭 AI mini-app」，2026 的 agent step 让工作流按目标 自动选择工具与模型（如 Web Search、Veo）。
 
+    具体模型清单未在官方页逐条列出。
+  runtime: >-
+    云端 Web 应用，在 Google Labs 的托管环境运行。工作流文件保存在 Google Drive 的 My Drive > Opal 下（官方 FAQ 写明停用后的文件保留方式）。
+  local_files: >-
+    工作流与素材存放在 Google 账号侧。本机不跑模型。导入导出与素材保留边界以官方页为准。
+  background: >-
+    以交互式搭积木为主。官方 agent step 可按目标触发工具与模型。但没有「关机后续跑」的官方声明。
+  tools: >-
+    内建 generate 步骤与 agent step。agent step 可调用 Web Search、Veo 等 Google 工具。并可把多步任务串成工作流。第三方工具接入面未逐条核验。
+  context: >-
+    单次工作流的上下文由步骤与模型决定。跨会话记忆与长期状态未在官方页逐条说明。
+  permissions: >-
+    Google 账号体系。工作流文件在 Drive 内，分享范围按 Drive 权限管理。数据训练用途与商用条款以 Google 服务条款为准，本站未逐条核验。
+  fit: >-
+    适合：不写代码、想把「生成 + 搜索 + 视频」串成小应用的人。需要快速做原型并分享。不适合：要自托管、要模型自选、要长期稳定生产（官方已宣布 2026-11-17 停用实验服务）。
 pitfalls:
   - 把 Opal 当成长期生产平台——官方 FAQ 明确 2026-11-17 停用，现有工作流不会自动迁移；需保留提示与文件并按目标任务重新搭建
   - 以为它能自选模型——官方叙事是 agent step 自动选工具与模型，不是让用户逐模型配置
@@ -76,7 +72,8 @@ cn:
 
 ## 一句话定位
 
-Opal 是 Google Labs 的无代码 AI mini-app 搭建器：用自然语言描述，就能把生成、搜索、视频等步骤串成可分享的小应用。
+Opal 是 Google Labs 的无代码 AI mini-app 搭建器：用自然语言描述。就能把生成、搜索、视频等步骤串成可分享的小应用。
+
 实验服务计划于 2026-11-17 停用，现有工作流不会自动迁移。Drive 文件保留，提示与流程需按目标任务重新搭建。
 
 跨大类对照：[LangGraph](../framework/langgraph.html)。
@@ -84,7 +81,8 @@ Opal 是 Google Labs 的无代码 AI mini-app 搭建器：用自然语言描述�
 ## 适合与不适合
 
 适合：不写代码、想快速把「生成 + 搜索 + 视频」串成原型并分享的人。
-不适合：要自托管、要模型自选、要长期稳定生产——官方已给出停运时间表。
+不适合：要自托管、要模型自选、要长期稳定生产。
+官方已给出停运时间表。
 
 ## 实测记录
 
@@ -103,4 +101,6 @@ Opal 是 Google Labs 的无代码 AI mini-app 搭建器：用自然语言描述�
 
 ## 核验说明
 
-2026-11-04 仅对照官方 FAQ 复核停用日期、Drive 文件保留及不自动迁移。模型、集成、网络等其他字段保留原有核验范围；没有运行或迁移工作流。
+2026-11-04 仅对照官方 FAQ 复核停用日期、Drive 文件保留及不自动迁移。
+模型、集成、网络等其他字段保留原有核验范围。
+没有运行或迁移工作流。

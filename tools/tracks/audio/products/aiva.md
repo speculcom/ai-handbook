@@ -13,30 +13,23 @@ licenseEn: Governed by the official Terms of Service (aiva.ai/terms-of-service d
 
 axes:
   model_access: >-
-    自有音乐生成模型线（250+ 风格叙事当日在册）；不开放选第三方模型；
-    可上传音频/MIDI 影响源、自建风格模型（官网 Ultimate customizability 段当日在册）。
+    自有音乐生成模型线（250+ 风格叙事当日在册）。不开放选第三方模型。可上传音频/MIDI 影响源、自建风格模型（官网 Ultimate customizability 段当日在册）。
   runtime: >-
-    网页产品（aiva.ai）+ 桌面端（官网导航 Download 在册）；生成在 AIVA 云端；
-    导出面「any file format」叙事在册（MP3/MIDI 在定价页点名）。
+    网页产品（aiva.ai）+ 桌面端（官网导航 Download 在册）。生成在 AIVA 云端。导出面「any file format」叙事在册（MP3/MIDI 在定价页点名）。
   local_files: >-
-    下载导出的 MP3/MIDI 与工程文件归本机；生成过程、预置风格与账户曲库在 AIVA 云端。
-    产品面没有本机模型下载，离线状态不能生成。
+    下载导出的 MP3/MIDI 与工程文件归本机。生成过程、预置风格与账户曲库在 AIVA 云端。产品面没有本机模型下载，离线状态不能生成。
   background: >-
-    生成提交后在 AIVA 云端任务队列执行，网页/桌面端关闭不改变云端作业；
-    官方以「in seconds」描述返回速度，未给暂停、续跑或队列位置控制。
+    生成提交后在 AIVA 云端任务队列执行。网页/桌面端关闭不改变云端作业。官方以「in seconds」描述返回速度。未给暂停、续跑或队列位置控制。
   tools: >-
-    编辑面在册（Edit your generated tracks、MIDI 导出对接 DAW 工作流）；
-    MCP 与公开 API 不在官网已列能力面，扩展接口未单列。
+    编辑面在册（Edit your generated tracks、MIDI 导出对接 DAW 工作流）。MCP 与公开 API 不在官网已列能力面，扩展接口未单列。
   context: >-
-    作品按账户曲库组织，每次生成读取风格、参考音频/MIDI 与当前编辑参数；
-    产品面没有跨会话记忆入口，创作连续性靠曲目与工程本身。
+    作品按账户曲库组织，每次生成读取风格、参考音频/MIDI 与当前编辑参数。产品面没有跨会话记忆入口，创作连续性靠曲目与工程本身。
   permissions: >-
-    账号体系（免费+订阅，€0 免费档当日在册）；变现权限按档位分层是核心差异——
-    免费档仅 YouTube/Twitch/TikTok/Instagram 四平台可变现且版权归 AIVA Limited（条款页当日在册）。
-  fit: >-
-    适合：非 DAW 用户的整曲生成、要 MIDI 可编辑进 DAW、Pro 档要完整版权的商用配乐。
-    不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型、免费档全平台变现。
+    账号体系（免费+订阅，€0 免费档当日在册）。
 
+    变现权限按档位分层是核心差异—— 免费档仅 YouTube/Twitch/TikTok/Instagram 四平台可变现且版权归 AIVA Limited（条款页当日在册）。
+  fit: >-
+    适合：非 DAW 用户的整曲生成、要 MIDI 可编辑进 DAW、Pro 档要完整版权的商用配乐。不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型、免费档全平台变现。
 pitfalls:
   - 版权按档位分层不是「生成即归你」——免费档版权归 AIVA Limited、变现限四平台，Pro 才「永久完整版权」（条款页当日在册）；配乐商用前必按档位核对
   - 「250+ 风格」是产品叙事不是可核验的模型清单——风格模型自建面（上传影响源）与预置风格的关系以官网叙事为限
@@ -85,7 +78,8 @@ cn:
 ## 一句话定位
 
 **AIVA 是「整曲生成 + MIDI 可编辑」的网页配乐助手**（AIVA Limited，当日直抓在册）：
-250+ 风格叙事主打，版权按档位分层——免费档版权归平台限四平台变现，Pro 才永久完整版权。
+250+ 风格叙事主打，版权按档位分层。
+免费档版权归平台限四平台变现，Pro 才永久完整版权。
 
 ## 适合与不适合
 

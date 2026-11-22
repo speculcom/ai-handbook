@@ -10,22 +10,33 @@ licenseEn: Governed by the official Terms of Service (cartesia.ai/legal/terms fe
 
 axes:
   model_access: >-
-    自有模型线：Sonic（TTS，sonic-2 支持 15 种语言、90ms 模型延迟；sonic-turbo 低至 40ms）、Ink（STT，Ink-Whisper 流式转写）+ Managed Agents；不开放选第三方模型。官网另有 44 语言叙事，逐语言能力以 TTS Models 页的 15 语言表为准（2026-11-21）。
+    自有模型线：Sonic（TTS，sonic-2 支持 15 种语言、90ms 模型延迟；sonic-turbo 低至 40ms）、Ink（STT，Ink-Whisper 流式转写）+ Managed Agents。
+
+    不开放选第三方模型。官网另有 44 语言叙事，逐语言能力以 TTS Models 页的 15 语言表为准（2026-11-21）。
   runtime: >-
-    云端 API + 托管 agent：Sonic/Ink 通过 Cartesia API 提供流式请求，官方 quickstart 以 API key 鉴权；Managed Agents 在云端托管电话/客服类语音 agent。本机不跑模型，官方文档未给本地推理包（2026-11-21）。
+    云端 API + 托管 agent。Sonic/Ink 通过 Cartesia API 提供流式请求。官方 quickstart 以 API key 鉴权。
+
+    Managed Agents 在云端托管电话/客服类语音 agent。本机不跑模型，官方文档未给本地推理包（2026-11-21）。
   local_files: >-
-    不读写用户本机文件；合成音频由 API 流式返回，下载后归本机，音色与 agent 配置保存在 Cartesia 账户侧。官方文档未列本地模型缓存或离线工程文件（2026-11-21）。
+    不读写用户本机文件。合成音频由 API 流式返回，下载后归本机。音色与 agent 配置保存在 Cartesia 账户侧。官方文档未列本地模型缓存或离线工程文件（2026-11-21）。
   background: >-
-    API 以流式和请求-响应为主，Managed Agents 是云端常驻托管；官方文档提供 agent 部署与电话集成，未列用户可暂停/续跑的作业队列。批量合成需客户端自行排队与重试（2026-11-21）。
+    API 以流式和请求-响应为主。Managed Agents 是云端常驻托管。官方文档提供 agent 部署与电话集成。未列用户可暂停/续跑的作业队列。
+
+    批量合成需客户端自行排队与重试（2026-11-21）。
   tools: >-
-    官方 docs 列 Sonic TTS、Ink STT、Agents、API Reference、MCP、LiveKit、Pipecat、Rasa、Twilio 等集成；cartesia-mcp 是官方 MCP Server，可在 Cursor/Claude Desktop/OpenAI Agents 中列音色、跑 TTS（2026-11-21）。
+    官方 docs 列 Sonic TTS、Ink STT、Agents、API Reference、MCP、LiveKit、Pipecat、Rasa、Twilio 等集成。
+
+    cartesia-mcp 是官方 MCP Server。可在 Cursor/Claude Desktop/OpenAI Agents 中列音色、跑 TTS（2026-11-21）。
   context: >-
-    Voice Agents 在单次会话内维护对话状态与转写上下文；官方 Agents 文档把会话编排交给 agent 层。跨会话长期记忆、用户画像与持久知识库官方文档未列，需外部存储自行实现（2026-11-21）。
+    Voice Agents 在单次会话内维护对话状态与转写上下文。官方 Agents 文档把会话编排交给 agent 层。跨会话长期记忆、用户画像与持久知识库官方文档未列。
+
+    需外部存储自行实现（2026-11-21）。
   permissions: >-
-    账号分免费、订阅与企业（Contact Sales）；企业可配 SSO/组织。Terms 要求用户对上传的音色样本拥有授权，克隆音色不得冒充他人；API key 按项目签发，权限随账号角色。具体条款以 Terms 2026-11-21 版为准。
+    账号分免费、订阅与企业（Contact Sales）。企业可配 SSO/组织。Terms 要求用户对上传的音色样本拥有授权，克隆音色不得冒充他人。API key 按项目签发，权限随账号角色。
+
+    具体条款以 Terms 2026-11-21 版为准。
   fit: >-
     适合：低延迟实时 TTS（voice agent 底座）、15 语言覆盖、托管语音 agent 开箱。不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型（2026-11-21）。
-
 pitfalls:
   - 主打是「实时低延迟」——官方 latency 数字是自家口径（docs/官网在册），第三方未复核；选型对比时按同条件自测
   - Ink 是语音转文本模型（不是 TTS 附属功能）——把它当「TTS 厂商的转写副线」会低估其独立模型线定位
@@ -80,8 +91,7 @@ cn:
 
 ## 一句话定位
 
-**Cartesia 是「实时低延迟 TTS（Sonic）+ 转录模型（Ink）+ 托管语音 agent」三线平台**
-（Cartesia AI, Inc.，条款当日在册）：44 语言语音面，voice agent 底座场景（客服/外呼/招聘筛选）主打。
+**Cartesia**：「实时低延迟 TTS（Sonic）+ 转录模型（Ink）+ 托管语音 agent」三线平台：（Cartesia AI, Inc.，条款当日在册）。44 语言语音面，voice agent 底座场景（客服/外呼/招聘筛选）主打。
 
 ## 适合与不适合
 
@@ -90,7 +100,8 @@ cn:
 
 ## 实测记录
 
-本档核对官方 docs 的模型、集成与权限面；音频质量、端到端延迟与中文覆盖需按同一测试集自测。
+本档核对官方 docs 的模型、集成与权限面。
+音频质量、端到端延迟与中文覆盖需按同一测试集自测。
 
 ## 未知项清单
 

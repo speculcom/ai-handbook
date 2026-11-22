@@ -16,26 +16,21 @@ licenseEn: Apache-2.0 (follow the repository LICENSE; dependency licences not ve
 
 axes:
   model_access: >-
-    可移植的 Model API：用统一接口接多家模型供应商；官方文档列出 ChatClient 与模型 API。
-    当前支持列表以官方文档为准，本档不逐条复制完整清单。
+    可移植的 Model API。用统一接口接多家模型供应商。官方文档列出 ChatClient 与模型 API。当前支持列表以官方文档为准，本档不逐条复制完整清单。
   runtime: >-
-    运行在 Spring Boot 应用内：官方提供 starters 与 auto-configuration，
-    模型与向量库以 Spring Bean 方式注入。
+    运行在 Spring Boot 应用内。官方提供 starters 与 auto-configuration。模型与向量库以 Spring Bean 方式注入。
   local_files: >-
-    文档摄取（ETL）与向量库由应用配置；框架本身不托管数据，
-    索引落盘位置与检索链路由所选向量库决定。
+    文档摄取（ETL）与向量库由应用配置。框架本身不托管数据， 索引落盘位置与检索链路由所选向量库决定。
   background: >-
     库形态，不内建任务队列；异步与长任务由 Spring 侧自行编排。
   tools: >-
-    支持工具调用与 MCP：官方文档写明可消费 MCP server，也可把 Spring 服务暴露给 AI 生态。
+    支持工具调用与 MCP。官方文档写明可消费 MCP server。也可把 Spring 服务暴露给 AI 生态。
   context: >-
-    对话记忆由 ChatClient 与 memory 配置管理；持久化需自己接存储。
+    对话记忆由 ChatClient 与 memory 配置管理。持久化需自己接存储。
   permissions: >-
-    Spring Security 体系内运行；权限由应用配置，无内置多租户隔离。
+    Spring Security 体系内运行。权限由应用配置，无内置多租户隔离。
   fit: >-
-    适合：Spring Boot 团队、要把 AI 能力做成标准 Spring 组件、需要 MCP 与向量库集成。
-    不适合：非 Java 团队、要成品 agent、要轻量脚本式调用。
-
+    适合：Spring Boot 团队、要把 AI 能力做成标准 Spring 组件、需要 MCP 与向量库集成。不适合：非 Java 团队、要成品 agent、要轻量脚本式调用。
 pitfalls:
   - 把 Spring AI 当成 LangChain4j 的官方版——两者是不同项目，抽象与生态不同
   - 以为加了 starter 就自动配好模型——仍需 API key 与模型配置
@@ -78,7 +73,7 @@ cn:
 
 ## 一句话定位
 
-Spring AI 把 AI 能力做成 Spring 组件：可移植 Model API、ChatClient、向量库与 MCP 集成，
+**依据：** Spring AI 把 AI 能力做成 Spring 组件：可移植 Model API、ChatClient、向量库与 MCP 集成，
 用 Spring Boot 的 starter 和 auto-configuration 装配。
 
 跨大类对照：[vLLM](../runner/vllm.html)。
@@ -90,7 +85,8 @@ Spring AI 把 AI 能力做成 Spring 组件：可移植 Model API、ChatClient�
 
 ## 实测记录
 
-本档本档不做集成与性能实测；结论只覆盖 API 与官方文档披露的能力面。
+本档本档不做集成与性能实测。
+结论只覆盖 API 与官方文档披露的能力面。
 
 ## 未知项清单
 

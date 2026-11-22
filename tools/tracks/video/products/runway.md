@@ -10,30 +10,35 @@ licenseEn: Official Terms of Use §4.4 'User Inputs and Outputs': 'The Company d
 
 axes:
   model_access: >-
-    自家 Gen 系模型 + 第三方模型聚合双形态：changelog 显示平台内可调用 Seedance 2.5、Kling 3.0/O3、
-    Ideogram 4.5、Seedream 5.0 Flash、ElevenLabs V4 等第三方模型（2026-09~10 条目，2026-10-21 直抓核验）；
+    自家 Gen 系模型 + 第三方模型聚合双形态。
+
+    changelog 显示平台内可调用 Seedance 2.5、Kling 3.0/O3、 Ideogram 4.5、Seedream 5.0 Flash、ElevenLabs V4 等第三方模型（2026-09~10 条目，2026-10-21 直抓核验）。
+
     档位分流按 Free/Standard/Pro/Enterprise 线（以定价页为准）。
   runtime: >-
-    网页应用为主，另有 DaVinci Resolve 插件（2026-09-23）、Premiere Pro/After Effects 插件（2026-09-08 条目）
-    等宿主内入口；生成在 Runway 云端处理。
-  local_files: >-
-    支持上传素材（图像/视频/音频）作输入；Brand Kits 资产库组织素材；上传内容训练口径见 permissions 维。
-  background: >-
-    生成为任务制；Agent 形态可多步规划生成（Seedance Draft Mode 条目 2026-10-02）；
-    没有「关机续跑」形态的官方声明。
-  tools: >-
-    Runway MCP 是官方扩展面：Cursor Marketplace（2026-09-23）、Grok Bot 插件（2026-09-17）、
-    OpenAI Dots 集成（2026-10-01）均见 changelog；平台内亦聚合第三方生成模型供调用。
-  context: >-
-    Brand Kits 提供品牌资产复用（Agent 可创建/编辑，2026-09-10 条目）；无跨会话对话记忆形态。
-  permissions: >-
-    官方 ToU §4.4：输入与输出可能被用于训练与改进其模型——条款写明用户授予
-    「non-exclusive, irrevocable, perpetual」训练许可；§4.2 平台不主张 Your Content 所有权，
-    但公开区内容会授予大范围许可。未见训练退出开关。
-  fit: >-
-    重视频生成工作流、要 API/MCP 集成的团队。在意「素材绝不进训练」的先确认——
-    条款层面没有退出选项；企业 credit 管控（Project Credit Caps 2026-10-09）是团队向加分项。
+    网页应用为主，另有 DaVinci Resolve 插件（2026-09-23）、Premiere Pro/After Effects 插件（2026-09-08 条目） 等宿主内入口。
 
+    生成在 Runway 云端处理。
+  local_files: >-
+    支持上传素材（图像/视频/音频）作输入。Brand Kits 资产库组织素材。上传内容训练口径见 permissions 维。
+  background: >-
+    生成为任务制。Agent 形态可多步规划生成（Seedance Draft Mode 条目 2026-10-02）。没有「关机续跑」形态的官方声明。
+  tools: >-
+    Runway MCP 是官方扩展面。
+
+    Cursor Marketplace（2026-09-23）、Grok Bot 插件（2026-09-17）、 OpenAI Dots 集成（2026-10-01）均见 changelog。
+
+    平台内亦聚合第三方生成模型供调用。
+  context: >-
+    Brand Kits 提供品牌资产复用（Agent 可创建/编辑，2026-09-10 条目）。无跨会话对话记忆形态。
+  permissions: >-
+    官方 ToU §4.4。输入与输出可能被用于训练与改进其模型——条款写明用户授予 「non-exclusive, irrevocable, perpetual」训练许可。
+
+    §4.2 平台不主张 Your Content 所有权。但公开区内容会授予大范围许可。未见训练退出开关。
+  fit: >-
+    重视频生成工作流、要 API/MCP 集成的团队。在意「素材绝不进训练」的先确认。条款层面没有退出选项。
+
+    企业 credit 管控（Project Credit Caps 2026-10-09）是团队向加分项。
 pitfalls:
   - 在意训练用途的人以为能退出——条款授予不可撤销的永久训练许可，无退出开关
   - 把「商用不设限」读成无条件——以遵守条款为前提，且 §5(viii) 禁开发竞争产品
@@ -73,7 +78,9 @@ cn:
 
 ## 一句话定位
 
-视频生成创作平台：Gen 系自家模型 + 第三方模型聚合，MCP/剪辑软件插件全线铺开；
+**一句话**：视频生成创作平台。
+Gen 系自家模型 + 第三方模型聚合。
+MCP/剪辑软件插件全线铺开
 「训练许可不可撤销、无退出开关」是数据条款里最硬的一条。
 
 ## 适合与不适合

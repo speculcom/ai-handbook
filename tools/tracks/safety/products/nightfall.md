@@ -18,42 +18,53 @@ licenseEn: >-
 
 axes:
   model_access: >-
-    不开放选模型：检测引擎是厂商自有的，官方页面未披露底层模型档位，也没有自带模型的入口。它守的是你的 agent 与 LLM
-    链路——DLP API 收文本与文件，MCP Gateway 管「AI clients 与 remote MCP servers 之间」的流量，Inference Hooks 的官方
-    文档页标题点名 Cursor、Claude Code 与 VS Code Copilot。能否替换或自选检测模型：官方页面未提供声明，不补推断。
-  runtime: >-
-    托管交付：扫描走 api 侧的 /v3/scan 与 /v3/upload 系列端点，结果在控制台与 Violations 页回看（release notes 在册）。
-    端点侧确有本地代理——macOS/Windows 的 endpoint agent 在文档与更新日志里在册（AirDrop 与 Bluetooth 外发控制、
-    MDM 授权），但检测与判定按官方口径仍是服务侧能力。自托管或 air-gapped 形态：当日抓到的页面未列，不补推断。
-  local_files: >-
-    你能交给它的东西（官方 FAQ 在册）：「plain text, structured and unstructured files, and even images」，格式点名
-    JSON、XML、CSV 等；端点面则在你的机器上读文件以便在读取时刻阻断。**交给它的内容是否留存、留多久**：DLP API 文档与
-    FAQ 均未声明，进 unknowns。图像与文件的能力限制见 supported file types 文档页（本批次未逐条读取）。
-  background: >-
-    异步任务面清楚：文件扫描是 /v3/upload（POST 发起）→ /v3/upload/{fileId}（PATCH 传分块）→ /finish → /scan 的多步流程，
-    配套 webhooks 与异步通知文档页在册；事件在控制台聚合。**这层跑在厂商侧**，不存在「关机后续跑」的本机任务语义。
-  tools: >-
-    API 面（DLP 文档页在册）：请求字段 payload、policyUUIDs、detectionRules、redactionConfig、alertConfig，响应字段
-    findings、redactedPayload、message。扩展面：Nightfall 官方 MCP server 文档在册（让 AI 助手直接查安全数据），
-    Inference Hooks 接 IDE/agent，Premier 档另列 OpenTelemetry audit trail 与 MCP server discovery（pricing 页在册）。
-    MCP 传输方式与工具审批细节：本批次按官方文档口径。
-  context: >-
-    它的「上下文」是策略与规则集，不是会话记忆：一次扫描由 policyUUIDs 与 detectionRules 决定按哪些规则跑。
-    可复核的历史面有明确边界——MCP Gateway 的审计记录写 user、server、tool、status 与 request payload，
-    而 payload「capped at 8 KiB」；超出部分的处置方式官方文档不展开，不补推断。
-  permissions: >-
-    逐条挂来源：SOC 2 Type 2 在 security 页在册；**数据出境、留存期、是否用于训练**这三问在本批次抓到的任何官方页面里
-    都没有逐条答案（developer-api 文档与 FAQ 未声明，/trust 404），因此一律进 unknowns，不做「不训练」这类推断。
-    档位与额度事实（pricing 页在册，不含价格）：Foundation Edition 覆盖「12 API-integrated SaaS apps」的
-    Data Detection & Response，端点代理「covers every SaaS app, desktop app, and AI app」，每用户许可含「2 endpoint devices」，
-    各档均含「150 GB of data-at-rest scanning」；Premier 另加 AI agent stack、MCP server discovery 与
-    OpenTelemetry audit trail。红线口径：官方在册的是检测类别与动作（block、mask/redact、removeFinding、cryptoConfig），
-    本档不写检出率、漏检率，也不把它与自部署方案排名——选型看的是「数据能不能出你的边界」这一条约束。
-  fit: >-
-    适合：SaaS、端点与 agent 三条面已经在用，要统一管控；需要在 MCP 与 IDE hooks 这一层加动作；愿意用托管 API 在发给
-    模型之前把 PII 与凭据处理掉；需要事件面与审计面而不是自己搭一套。不适合：硬约束「文本不出自己的边界」或要求可审计
-    的开源许可（那种约束下走自部署方案）；只需要凭据泄露监测与 incident 工作流的团队。
+    不开放选模型。检测引擎是厂商自有的。官方页面未披露底层模型档位，也没有自带模型的入口。它守的是你的 agent 与 LLM 链路——DLP API 收文本与文件。
 
+    **依据：** MCP Gateway 管「AI clients 与 remote MCP servers 之间」的流量。
+
+    Inference Hooks 的官方 文档页标题点名 Cursor、Claude Code 与 VS Code Copilot。能否替换或自选检测模型。官方页面未提供声明，不补推断。
+  runtime: >-
+    托管交付：扫描走 api 侧的 /v3/scan 与 /v3/upload 系列端点。结果在控制台与 Violations 页回看（release notes 在册）。端点侧确有本地代理。
+
+    macOS/Windows 的 endpoint agent 在文档与更新日志里在册（AirDrop 与 Bluetooth 外发控制、 MDM 授权）。但检测与判定按官方口径仍是服务侧能力。
+
+    自托管或 air-gapped 形态。当日抓到的页面未列，不补推断。
+  local_files: >-
+    **依据：** 你能交给它的东西（官方 FAQ 在册）：「plain text, structured and unstructured files, and even images」，格式点名 JSON、XML、CSV 等；端点面则在你的机器上读文件以便在读取时刻阻断。**交给它的内容是否留存、留多久**：DLP API 文档与 FAQ 均未声明，进 unknowns。图像与文件的能力限制见 supported file types 文档页（本批次未逐条读取）。
+  background: >-
+    异步任务面清楚。文件扫描是 /v3/upload（POST 发起）→ /v3/upload/{fileId}（PATCH 传分块）→ /finish → /scan 的多步流程。
+
+    配套 webhooks 与异步通知文档页在册。事件在控制台聚合。**这层跑在厂商侧**，不存在「关机后续跑」的本机任务语义。
+  tools: >-
+    **依据：** API 面（DLP 文档页在册）：请求字段 payload、policyUUIDs、detectionRules、redactionConfig、alertConfig，响应字段 findings、redactedPayload、message。扩展面：Nightfall 官方 MCP server 文档在册（让 AI 助手直接查安全数据）， Inference Hooks 接 IDE/agent，Premier 档另列 OpenTelemetry audit trail 与 MCP server discovery（pricing 页在册）。 MCP 传输方式与工具审批细节：本批次按官方文档口径。
+  context: >-
+    它的「上下文」是策略与规则集，不是会话记忆。一次扫描由 policyUUIDs 与 detectionRules 决定按哪些规则跑。
+
+    **依据：** 可复核的历史面有明确边界——MCP Gateway 的审计记录写 user、server、tool、status 与 request payload。
+
+    而 payload「capped at 8 KiB」。超出部分的处置方式官方文档不展开，不补推断。
+  permissions: >-
+    逐条挂来源：SOC 2 Type 2 在 security 页在册。
+
+    **数据出境、留存期、是否用于训练**这三问在本批次抓到的任何官方页面里 都没有逐条答案（developer-api 文档与 FAQ 未声明，/trust 404）。
+
+    因此一律进 unknowns，不做「不训练」这类推断。
+
+    档位与额度事实（pricing 页在册，不含价格）：Foundation Edition 覆盖「12 API-integrated SaaS apps」的 Data Detection & Response。
+
+    **依据：** 端点代理「covers every SaaS app, desktop app, and AI app」，每用户许可含「2 endpoint devices」。
+
+    各档均含「150 GB of data-at-rest scanning」。
+
+    Premier 另加 AI agent stack、MCP server discovery 与 OpenTelemetry audit trail。
+
+    红线口径：官方在册的是检测类别与动作（block、mask/redact、removeFinding、cryptoConfig）。本档不写检出率、漏检率。
+
+    也不把它与自部署方案排名——选型看的是「数据能不能出你的边界」这一条约束。
+  fit: >-
+    适合：SaaS、端点与 agent 三条面已经在用，要统一管控。需要在 MCP 与 IDE hooks 这一层加动作。愿意用托管 API 在发给 模型之前把 PII 与凭据处理掉。
+
+    需要事件面与审计面而不是自己搭一套。不适合：硬约束「文本不出自己的边界」或要求可审计 的开源许可（那种约束下走自部署方案）。只需要凭据泄露监测与 incident 工作流的团队。
 pitfalls:
   - 把「有 MCP Gateway」当成「MCP 流量已全量脱敏」：官方在册审计 payload 上限 8 KiB，超出部分未说明
   - 把 endpoint agent 当成整套离线：检测与判定按官方口径仍是服务侧能力
@@ -115,22 +126,29 @@ cn:
 
 ## 一句话定位
 
-**Nightfall 是「AI 时代那套托管 DLP」**：官网首页自我定位 "Security Platform for Agents, MCP and Data Movement"，
-把三件事放在同一层——发给模型前的文本/文件扫描（DLP API）、IDE 与 agent 的 Inference Hooks、以及坐在 AI 客户端与远端
-MCP server 之间的 Gateway。它和自部署那条线的分工不需要排名来表述：**能不能把数据交出去**就是分界线；能交出去，
-这里给的是策略化、事件化、审计化的一套托管面；不能交出去，就该去看算子与 recognizer 都在自己机器上的方案。
+**Nightfall 是「AI 时代那套托管 DLP」**：官网首页自我定位 "Security Platform for Agents, MCP and Data Movement"，把三件事放在同一层。
+
+发给模型前的文本/文件扫描（DLP API）、IDE 与 agent 的 Inference Hooks、以及坐在 AI 客户端与远端MCP server 之间的 Gateway。
+
+它和自部署那条线的分工不需要排名来表述：**能不能把数据交出去**就是分界线。能交出去，这里给的是策略化、事件化、审计化的一套托管面。
+
+不能交出去，就该去看算子与 recognizer 都在自己机器上的方案。
 
 ## 适合与不适合
 
-适合：SaaS、端点、agent 三条面已经在用且想统一管控；需要在 MCP 与 IDE hooks 这一层真的下动作（Block server、
-Disable tool）；愿意用托管 API 在数据进模型前把 PII 与凭据处理掉；需要事件面与审计面而不是自己搭。不适合：
-「文本不出自己边界」的硬约束，或要求公开许可与可自托管审计；只需要凭据泄露监测与 incident 工作流的团队。
+适合：SaaS、端点、agent 三条面已经在用且想统一管控。需要在 MCP 与 IDE hooks 这一层真的下动作（Block server、Disable tool）。
+
+愿意用托管 API 在数据进模型前把 PII 与凭据处理掉。需要事件面与审计面而不是自己搭。不适合：「文本不出自己边界」的硬约束，或要求公开许可与可自托管审计。
+
+只需要凭据泄露监测与 incident 工作流的团队。
 
 ## 实测记录
 
-**本档未做端到端实测**：没有调用过 /v3/scan，没有部署过 MCP Gateway 或端点代理，不产出检出率、漏检率、延迟或任何
-排名。本档案只组织官网、Security、Pricing、帮助中心首页、两个 developer-api 页、MCP Gateway 文档与 Release Notes
-在册的说法。**实测建议**（四条）：
+**本档未做端到端实测**：没有调用过 /v3/scan。没有部署过 MCP Gateway 或端点代理。不产出检出率、漏检率、延迟或任何排名。
+
+本档案只组织官网、Security、Pricing、帮助中心首页、两个 developer-api 页、MCP Gateway 文档与 Release Notes在册的说法。
+
+**实测建议**（四条）：
 
 - **8 KiB 之外的 payload 怎么处置**（Gateway 审计边界在册，超限行为未在册）
 - **redactionConfig 与 cryptoConfig 混用时的还原与审计语义**
@@ -139,10 +157,9 @@ Disable tool）；愿意用托管 API 在数据进模型前把 PII 与凭据处�
 
 ## 变更记录说明
 
-本对象没有站内 changelog 页（/changelog 与 /trust 当日返回 404），但帮助中心有独立 Release Notes：
-最新在册条目为 2026-10（Violations 页新增加密状态筛选；Google Drive 补救动作给出失败原因）与 2026-09
-（macOS 27 经 MDM 授予辅助功能权限；AirDrop 与 Bluetooth 外发控制；Windows 各外发通道的 branded block dialogs）。
-这些是**产品变更事实**，不含任何效果指标；本档案的 changelog 链接即指向该 Release Notes 页。
+本对象没有站内 changelog 页（/changelog 与 /trust 当日返回 404）。但帮助中心有独立 Release Notes：最新在册条目为 2026-10（Violations 页新增加密状态筛选；Google Drive 补救动作给出失败原因）与 2026-09（macOS 27 经 MDM 授予辅助功能权限；AirDrop 与 Bluetooth 外发控制；Windows 各外发通道的 branded block dialogs）。
+
+这些是**产品变更事实**，不含任何效果指标。本档案的 changelog 链接即指向该 Release Notes 页。
 
 ## 能力边界
 

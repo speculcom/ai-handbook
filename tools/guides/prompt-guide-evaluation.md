@@ -24,7 +24,7 @@ confidence: verified
 
 **评测回答一个问题：这次改动，比上次好还是坏。**
 OpenAI 给「有韧性的提示词」下了定义：
-"one that provides high-quality responses across the full breadth of possible inputs"。
+**依据：** "one that provides high-quality responses across the full breadth of possible inputs"。
 要靠评测而不是感觉达到它。官方推荐的路径叫评测飞轮：
 分析（Analyze）→ 测量（Measure）→ 改进（Improve），循环往复。
 效果未实测；以下机制均出自官方教程与论文。
@@ -56,7 +56,7 @@ OpenAI Evals 教程分两类评分：
 ## [LLM 裁判与偏差|LLM judges and their biases]
 
 模型判分能规模化，但裁判本身要审。
-论文系统检查了 LLM 裁判的偏差：位置偏差、冗长偏差、自我增强偏差，
+**依据：** 论文系统检查了 LLM 裁判的偏差：位置偏差、冗长偏差、自我增强偏差，
 以及推理能力不足。强裁判与人类偏好的一致性可达人类之间的水平（论文报告）。
 
 官方教程给了校准裁判的流程：

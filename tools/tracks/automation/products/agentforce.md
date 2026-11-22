@@ -8,24 +8,23 @@ license: 商业 SaaS，随 Salesforce 条款体系（官方 legal 入口直抓 4
 
 axes:
   model_access: >-
-    经 Atlas 推理引擎接模型（OpenAI 等经 Salesforce 托管接入；官方产品页只给 Atlas 入口）；
-    模型选择对用户不透明是 CRM 嵌入式产品的常态——官方产品页只给 Atlas 入口，不列逐模型映射。
+    经 Atlas 推理引擎接模型（OpenAI 等经 Salesforce 托管接入；官方产品页只给 Atlas 入口）。
+
+    模型选择对用户不透明是 CRM 嵌入式产品的常态——官方产品页只给 Atlas 入口。不列逐模型映射。
   runtime: >-
-    纯云托管，深度绑定 Salesforce Data Cloud/CRM 对象模型；无自托管形态。
+    纯云托管，深度绑定 Salesforce Data Cloud/CRM 对象模型。无自托管形态。
   local_files: >-
     数据面是 CRM 对象与 Data Cloud；不承载本机文件运行时。
   background: >-
-    云托管常驻；与 Flow/自动化平台衔接（官方产品页导航含 Agentforce Builder/Voice，2026-10-21 直抓）。
+    云托管常驻。与 Flow/自动化平台衔接（官方产品页导航含 Agentforce Builder/Voice，2026-10-21 直抓）。
   tools: >-
-    Actions/Topics 体系 + MuleSoft 连接器生态；MCP 支持状态本档不逐条展开。
+    Actions/Topics 体系 + MuleSoft 连接器生态。MCP 支持状态本档不逐条展开。
   context: >-
-    CRM 记录与 Data Cloud 是天然上下文源——这是它相对通用平台的最大结构性优势。
+    CRM 记录与 Data Cloud 是天然上下文源。这是它相对通用平台的最大结构性优势。
   permissions: >-
-    权限随 Salesforce 共享模型/权限集体系——企业治理是 Salesforce 原生强项。
+    权限随 Salesforce 共享模型/权限集体系。企业治理是 Salesforce 原生强项。
   fit: >-
-    适合：Salesforce 存量企业（客服/销售场景）、要 CRM 上下文开箱即用。
-    不适合：不在 Salesforce 生态（价值锚点消失）；要自托管。
-
+    适合：Salesforce 存量企业（客服/销售场景）、要 CRM 上下文开箱即用。不适合：不在 Salesforce 生态（价值锚点消失）。要自托管。
 pitfalls:
   - 把它当通用 agent 平台——它的价值锚在 CRM 上下文与 Salesforce 流程里
   - 官网 legal 旧路径 404——条款走 help.salesforce.com 文档线读
@@ -64,8 +63,9 @@ cn:
 
 ## 一句话定位
 
-**Agentforce 是 Salesforce 生态内的企业 agent 平台**——价值锚点是 CRM 记录与 Data Cloud 天然上下文：
-客服/销售场景里「agent 知道客户的一切」是通用平台给不了的结构性优势。出了 Salesforce 生态，锚点消失。
+**Agentforce 是 Salesforce 生态内的企业 agent 平台**：——价值锚点是 CRM 记录与 Data Cloud 天然上下文：客服/销售场景里「agent 知道客户的一切」是通用平台给不了的结构性优势。
+
+出了 Salesforce 生态，锚点消失。
 
 ## 适合与不适合
 
