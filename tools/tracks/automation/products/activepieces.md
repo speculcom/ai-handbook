@@ -4,7 +4,7 @@ form: web
 name: Activepieces
 vendor: Activepieces Inc.
 homepage: https://www.activepieces.com
-license: 混合许可（官方 LICENSE 直抓核验 2026-10-21）：ee 目录归商业许可；其余内容 MIT Expat；第三方组件保留原许可（2026-11-21 复核）。
+license: 混合许可（官方 LICENSE 直抓核验 2026-10-21）：ee 目录归商业许可。其余内容 MIT Expat。第三方组件保留原许可（2026-11-21 复核）。
 licenseEn: Mixed license (official LICENSE, direct-fetched 2026-10-21): content under ee/ directories falls under the commercial license; everything else is MIT Expat; third-party components keep their original licenses.
 
 axes:
@@ -33,9 +33,9 @@ axes:
 
     MCP 连接走 OAuth2 限定 scope、凭据 256-bit 加密且不提供读回 API（2026-11-21）。
   fit: >-
-    适合：要 MIT 主体许可的自托管自动化、要可魔改的低代码、要把 pieces 直接暴露给 MCP 客户端。
+    适合：要 MIT 主体许可的自托管自动化。要可魔改的低代码。要把 pieces 直接暴露给 MCP 客户端。
 
-    不适合：要 Zapier 同量级连接器生态、要企业功能开箱（在 ee 商业线）（2026-11-21）。
+    不适合：要 Zapier 同量级连接器生态。要企业功能开箱（在 ee 商业线）（2026-11-21）。
 pitfalls:
   - 把「MIT 主体」读成全仓 MIT——ee/ 目录是商业许可区
   - 与 Zapier/Make 比连接器数量——体量差距大，先核自己要的集成有没有
@@ -83,7 +83,7 @@ cn:
   direct_note: activepieces.com/docs 直连实测 200（2026-10-21）。
   direct_note_en: activepieces.com/docs measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-11-21
 ---
@@ -107,9 +107,9 @@ cn:
 队列吞吐、社区版边界与具体 piece 可用性需按自己实例实测。
 ## 未知项清单
 
-- pieces 生态数量：官方 MCP 页 770+、README 280+，按版本页核对。
+- pieces 生态数量。官方 MCP 页 770+、README 280+，按版本页核对。
 - MCP 客户端兼容：官方称 Claude、Cursor 与任意 MCP 客户端。
-- queue worker 在社区版的完整边界：按 self-host 文档与 Redis 配置核对。
+- queue worker 在社区版的完整边界。按 self-host 文档与 Redis 配置核对。
 ## 相关条目
 
 - [n8n](./n8n.md) — 许可对照：同为自托管自动化，SUL（fair-code）vs MIT+ee 混合是核心分野。

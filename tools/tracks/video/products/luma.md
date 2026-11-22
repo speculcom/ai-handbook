@@ -5,7 +5,7 @@ name: Luma（Dream Machine）
 nameEn: Luma (Dream Machine)
 vendor: Luma AI
 homepage: https://lumalabs.ai
-license: 免费+订阅。按官方条款页管辖（lumalabs.ai/terms-of-service 直抓核验 2026-10-22）；
+license: 免费+订阅。按官方条款页管辖（lumalabs.ai/terms-of-service 直抓核验 2026-10-22）。
   商用权按档位区分，细节本档不逐条展开。
 licenseEn: Free + subscription. Governed by the official terms page (lumalabs.ai/terms-of-service, direct-fetched
   2026-10-22); commercial rights vary by plan, details not verified line by line.
@@ -20,17 +20,17 @@ axes:
   background: >-
     生成即时/排队（按档位波动，本档不逐条展开）。无「关机续跑」任务面（官方产品页不列）。
   tools: >-
-    **依据：** 文生视频、图生视频、关键帧插值（首尾帧，官网叙事所见）、Modify/延展编辑线（官网所见）； 3D/NeRF 捕捉线仍是官网可见的产品面（与视频线并列）。
+    **依据：** 文生视频、图生视频、关键帧插值（首尾帧，官网叙事所见）、Modify/延展编辑线（官网所见）。 3D/NeRF 捕捉线仍是官网可见的产品面（与视频线并列）。
   context: >-
     以账户作品页组织（生成历史可回看）。官方产品页不列跨会话记忆。首尾帧控制是任务内约束，不是跨任务记忆。
   permissions: >-
     账号+订阅体系（D9：价格不采）。训练用途开关本档不逐条展开。免费档商用与水印限制按条款（本档不逐条展开）。
   fit: >-
-    适合：镜头运动感强的短片生成（官方叙事主打）、首尾帧控制、3D 捕捉与视频混合工作流。不适合：大陆直连（实测 000）、角色一致性长叙事主打、要开放权重。
+    适合：镜头运动感强的短片生成（官方叙事主打）。首尾帧控制。3D 捕捉与视频混合工作流。不适合：大陆直连（实测 000）。角色一致性长叙事主打。要开放权重。
 pitfalls:
-  - Luma 的产品面不止视频——3D/NeRF 捕捉线仍在官网；「Luma=视频站」是窄化
-  - 大陆直连实测 000（2026-10-22，代理 200 可达）——可达性问题不是站点死亡
-  - Dream Machine 是产品/模型线名，Luma AI 是公司名——转述时主语别混
+  - Luma 的产品面不止视频——3D/NeRF 捕捉线仍在官网。「Luma=视频站」是窄化
+  - 大陆直连实测 000（2026-10-22，代理 200 可达）。可达性问题不是站点死亡
+  - Dream Machine 是产品/模型线名，Luma AI 是公司名。转述时主语别混
 
 tags: [免费+订阅, 镜头运动向, 首尾帧, 3D捕捉, 需网络环境]
 related: [runway, veo, pika, midjourney]
@@ -55,10 +55,10 @@ cn:
   origin_note: Luma AI（美国旧金山）。
   origin_note_en: Luma AI (San Francisco, US).
   direct: no
-  direct_note: lumalabs.ai 大陆直连实测 000（2026-10-22，代理下 200 可达）——直连不可达，需网络环境。
+  direct_note: lumalabs.ai 大陆直连实测 000（2026-10-22，代理下 200 可达）。直连不可达，需网络环境。
   direct_note_en: lumalabs.ai measured 000 direct from mainland (2026-10-22; 200 via proxy) — unreachable without a network path.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-10-22

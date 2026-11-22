@@ -59,10 +59,12 @@ confidence: partial
 
 promptfoo 的 CI/CD 文档把这套作用说成两件事：
 在改动进入生产前发现退化，以及质量阈值未达标时让构建失败。
+
 **官方原文**（英文）："Fail the build when quality thresholds aren't met."
 
 LangSmith 文档把评测按运行时机分成两类：开发期在整理好的数据集上跑，
 生产里对真实交互实时评分。
+
 **官方原文**（英文）："Run evaluations on curated datasets during development."
 两个卡点用同一份判据，才能把差异归因到环境而不是判据本身。
 
@@ -76,7 +78,7 @@ LangSmith 文档把评测按运行时机分成两类：开发期在整理好的�
 6. 接回滚：发布后卡点的告警要能直接连到回滚动作或降级开关。
 
 判定条件要区分「测不过」与「没测成」。
-评测服务返回 401 / 403 或 429 属于后者，按环境故障处理，不能当成质量结论。
+评测服务返回 401 / 403 或 429 属于后者。按环境故障处理，不能当成质量结论。
 
 ## [贯穿案例：一次被挡住的合并|Worked example: a blocked merge]
 
@@ -125,8 +127,9 @@ LangSmith 文档把评测按运行时机分成两类：开发期在整理好的�
 
 ## [核验范围与未知|What was verified and what is not]
 
-2026-11-06 直抓了五处官方来源：promptfoo 的 CI/CD 集成页与入门页材料、
+2026-11-06 直抓了五处官方来源。包括 promptfoo 的 CI/CD 集成页与入门页材料、
 LangSmith 评测文档、MLflow 评测文档、Microsoft Learn 红队规划文档、Anthropic 工程博客。
+
 本篇只转述这些页面写明的用途与口径，未在任何产品中配置或运行流水线。
 
 以下未知：

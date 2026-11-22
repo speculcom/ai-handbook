@@ -5,7 +5,7 @@ name: 文心
 nameEn: Wenxin
 vendor: 百度
 homepage: https://yiyan.baidu.com
-license: 免费+登录。官方协议页（yiyan.baidu.com/protocol 直抓核验 2026-10-22）；
+license: 免费+登录。官方协议页（yiyan.baidu.com/protocol 直抓核验 2026-10-22）。
   输出内容归属与训练口径按该协议管辖，具体条款细节本档不逐条展开。
 licenseEn: Free with login. Governed by the official agreement page (yiyan.baidu.com/protocol, direct-fetched 2026-10-22);
   output ownership and training terms follow that agreement — clause details not verified line by line.
@@ -20,21 +20,21 @@ axes:
   background: >-
     对话即时返回。官方产品页不列异步任务队列。产品含「深度搜索/智能体」类能力线（官网导航所见）。
   tools: >-
-    **依据：** 产品内含联网搜索（百度搜索生态是它的信源差异点）、文档解析、图像生成、智能体创建等能力线； 与百度文库/网盘联动是官方叙事的一部分。MCP 支持本档不逐条展开。
+    **依据：** 产品内含联网搜索（百度搜索生态是它的信源差异点）、文档解析、图像生成、智能体创建等能力线。 与百度文库/网盘联动是官方叙事的一部分。MCP 支持本档不逐条展开。
   context: >-
     会话历史登录同步。官方产品页不列跨会话记忆机制。多轮上下文按文心模型窗口处理，具体长度以官方模型页为准。
   permissions: >-
     账号体系（百度账号登录）。训练用途开关路径本档不逐条展开。文心大模型备案号见 cn 块（官方公示交叉核验）。
   fit: >-
-    适合：泡百度生态（搜索/文库/网盘）的人、中文问答+联网检索、要文心系模型官方文档可回溯。不适合：要本机跑模型（文心主线不开源权重）、要脱离百度账号。
+    适合：泡百度生态（搜索/文库/网盘）的人。中文问答+联网检索。要文心系模型官方文档可回溯。不适合：要本机跑模型（文心主线不开源权重）。要脱离百度账号。
   name_history: >-
-    品牌改名史（档案要写清）。文心一言（2023 首发）→ 文小言（2024-09 App 端改名）→ 「文心」统一（2025-11-02 官方口径）——同一产品不同时期三个名字。
+    品牌改名史（档案要写清）。文心一言（2023 首发）→ 文小言（2024-09 App 端改名）→ 「文心」统一（2025-11-02 官方口径）。同一产品不同时期三个名字。
 
     检索时三个都要认。
 pitfalls:
-  - 改名史陷阱——「文心一言」「文小言」「文心」是同一产品的不同时期名字，别当三个产品
-  - 把 yiyan.baidu.com（对话产品）与百度智能云千帆（API 平台）混为一谈——同厂商两接口
-  - 把文心当开源权重族——与 DeepSeek/GLM/Qwen 不同，文心主线不开源权重，本地跑这条线不成立
+  - 改名史陷阱。「文心一言」「文小言」「文心」是同一产品的不同时期名字，别当三个产品
+  - 把 yiyan.baidu.com（对话产品）与百度智能云千帆（API 平台）混为一谈。同厂商两接口
+  - 把文心当开源权重族。与 DeepSeek/GLM/Qwen 不同，文心主线不开源权重，本地跑这条线不成立
 
 tags: [国产, 免费+登录, 百度生态, 联网搜索, 改名史, 已备案]
 related: [doubao-chat, yuanbao-chat, chatglm-chat, dify]
@@ -69,7 +69,7 @@ cn:
   filing_name_en: Wenxin Yiyan
   filing_no: Beijing-WenXinYiYan-20230821
   filing_date: 2023-08-31
-  filing_note: 首批备案（备案时间 2023-08-31，属地北京）；备案号经百度智能云官方公示页核验——
+  filing_note: 首批备案（备案时间 2023-08-31，属地北京）。备案号经百度智能云官方公示页核验——
     公示名仍用旧品牌「文心一言」，与产品现名「文心」并存，转述时两个都提。
   filing_note_en: first-batch filing (2023-08-31, Beijing); filing no. verified on Baidu Intelligent Cloud official
     disclosure page — the registry name still uses the old brand "Wenxin Yiyan" alongside the current product

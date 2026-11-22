@@ -4,14 +4,14 @@ form: web
 name: Open WebUI
 vendor: Open WebUI 社区
 homepage: https://openwebui.com
-license: BSD-3-Clause 为基础，自 v0.6.6 起附加品牌条款：不得移除、修改或遮挡 Open WebUI 名称、Logo 与界面标识；例外为 30 天内 50 名及以下用户、贡献者获书面许可、或持有允许改品牌的企业许可。v0.6.5 及更早代码仍为纯 BSD-3。
+license: BSD-3-Clause 为基础，自 v0.6.6 起附加品牌条款。不得移除、修改或遮挡 Open WebUI 名称、Logo 与界面标识。例外为 30 天内 50 名及以下用户、贡献者获书面许可、或持有允许改品牌的企业许可。v0.6.5 及更早代码仍为纯 BSD-3。
 licenseEn: BSD-3-Clause based, with a branding clause from v0.6.6: you may not remove, alter or obscure the Open WebUI name, logo or UI marks, except with 50 or fewer users in a 30-day period, written permission as a contributor, or an enterprise licence that explicitly allows rebranding. Code up to and including v0.6.5 remains pure BSD-3.
 
 axes:
   model_access: >-
     不自带模型，接 Ollama 与本机/云端任何 OpenAI 兼容 API。也可接 Anthropic 等provider。模型凭据保存在你自己的实例上。
 
-    具体 provider 覆盖与版本差异以官方 Connect a Provider 文档为准。
+    具体 provider 覆盖与版本差异，以官方 Connect a Provider 文档为准。
   runtime: >-
     自托管 Web 应用。Docker、Python、Kubernetes 或桌面应用。前端在浏览器， 推理与数据默认留在你部署的机器/服务器。不经过 Open WebUI 云端。
   local_files: >-
@@ -25,9 +25,9 @@ axes:
   context: >-
     上下文窗口由所接模型决定。实例提供对话历史、Memory、知识库检索与 「全文注入」开关。跨项目的长期记忆边界未逐项核验。
   permissions: >-
-    **依据：** 多用户 RBAC：角色、用户组、按模型/资源授权，SSO/OIDC/LDAP、SCIM、MFA 与 API Key； 数据与日志在自有基础设施，管理员可关闭遥测与外部服务。
+    **依据：** 多用户 RBAC：角色、用户组、按模型/资源授权，SSO/OIDC/LDAP、SCIM、MFA 与 API Key。 数据与日志在自有基础设施，管理员可关闭遥测与外部服务。
   fit: >-
-    **依据：** 适合：团队要在本地与云端模型之上统一一个私有聊天入口，并要 RAG、工具调用、 多用户权限与自托管数据边界。不适合：零运维 SaaS、或需要厂商 SLA 才能合规的采购。
+    **依据：** 适合团队在本地与云端模型之上统一一个私有聊天入口。还要 RAG、工具调用、多用户权限与自托管数据边界。不适合：零运维 SaaS、或需要厂商 SLA 才能合规的采购。
 pitfalls:
   - 把 Open WebUI 当模型本身——它只是前端，模型要另接 Ollama 或 API
   - 以为 BSD-3 就能白标——v0.6.6 起品牌不能删，超过 50 人要企业许可
@@ -70,7 +70,7 @@ cn:
   direct_note: docs.openwebui.com 与 api.github.com 直连实测 200（2026-11-17）。
   direct_note_en: docs.openwebui.com and api.github.com measured 200 direct (2026-11-17).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-11-17 检索）；自托管软件不由平台方面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-11-17 检索）。自托管软件不由平台方面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-11-17); a self-hosted product is not offered to the mainland public by a platform operator, so filing does not apply.
   verified: 2026-11-17
 ---
@@ -83,13 +83,13 @@ cn:
 
 ## 适合与不适合
 
-**依据：** 适合团队在 Ollama 与 OpenAI 兼容 API 之上统一入口，需要知识库、工具调用、多用户 RBAC 与数据不出内网。
+**依据：** 它适合团队在 Ollama 与 OpenAI 兼容 API 之上统一入口。所需能力包括知识库、工具调用、多用户 RBAC 与数据不出内网。
 
-不适合想开箱即用、不愿维护容器与升级的人也不适合把「BSD-3」误解成可以随意白标的商业分发。
+不适合想开箱即用、不愿维护容器与升级的人。也不适合把 BSD-3 误解成可随意白标的商业分发。
 
 ## 许可先读这一页
 
-官方 License 页写得很清楚：v0.6.6（2025-04-19）起。许可证是 **BSD-3-Clause 加一条品牌限制**——不得移除、修改或遮挡 Open WebUI 的品牌。
+官方 License 页写得很清楚：v0.6.6（2025-04-19）起。许可证是 BSD-3-Clause 加一条品牌限制。不得移除、修改或遮挡 Open WebUI 的品牌。
 
 30 天内 50 名及以下用户、贡献者书面许可、或企业许可三种情况例外。v0.6.5 及更早的代码仍是纯 BSD-3。如果要做白标产品，先看企业许可，不要按「开源=随便改」处理。
 
@@ -106,5 +106,5 @@ cn:
 
 ## 相关条目
 
-- [Ollama](../../runner/products/ollama.md) — 本地模型运行时；Open WebUI 是最常见的它的前端。
+- [Ollama](../../runner/products/ollama.md) — 本地模型运行时。Open WebUI 是最常见的它的前端。
 - [Dify](../../automation/products/dify.md) — 同样自托管，但 Dify 主轴是编排应用与 Agent 工作流，不是聊天界面。

@@ -14,7 +14,7 @@ axes:
 
     v1（CosyVoice-300M）→ v2（CosyVoice2-0.5B）→ Fun-CosyVoice 3.0 （Fun-CosyVoice3-0.5B-2512，README 当日在册三代线）。
 
-    下载权重本地推理。托管调用走阿里云百炼 cosyvoice-v2/v3/v3.5 线（本档主体仍是开源仓）。
+    下载权重本地推理。托管调用走阿里云百炼 cosyvoice-v2/v3/v3.5 线。本档主体仍是开源仓。
   runtime: >-
     本机 Python 运行时（README 给 conda 安装+推理/训练/部署全栈，官方描述 inference, training and deployment full-stack ability）。
 
@@ -24,23 +24,23 @@ axes:
   background: >-
     本机批处理/流式推理。README 在册 Bi-Streaming（text-in/audio-out 双流，官方称延迟低至 150ms）。无云端任务面。
   tools: >-
-    发音控制面在册（README：中文拼音/英文 CMU 音素 pronunciation inpainting、文本正则化免传统前端、 Instruct 支持情感/语速/音量指令）。
+    发音控制面在册。README 列了中文拼音与英文 CMU 音素 pronunciation inpainting。文本正则化免传统前端。Instruct 支持情感、语速与音量指令。
 
     MCP 不适用（模型仓不是 agent 宿主）。
   context: >-
-    不适用对话上下文维度。TTS 模型按单次合成请求工作。zero-shot 克隆以参考音频为条件（README 在册 多语/跨语 zero-shot 克隆）。
+    不适用对话上下文维度。TTS 模型按单次合成请求工作。zero-shot 克隆以参考音频为条件。README 在册多语与跨语 zero-shot 克隆。
   permissions: >-
-    Apache-2.0 代码与三代权重许可（GitHub/HF API 2026-11-21 核验）。声音克隆涉人格权——README 的使用声明只覆盖示例内容（学术演示、侵权联系删除）。
+    Apache-2.0 代码与三代权重许可（GitHub/HF API 2026-11-21 核验）。声音克隆涉人格权。README 的使用声明只覆盖示例内容，学术演示、侵权联系删除。
 
     不构成克隆授权条款，授权由使用者自行取得。9 语+18 中方言覆盖在 README 在册。
   fit: >-
-    适合：本机/私有部署中文+方言 TTS、要 zero-shot 克隆与训练微调全栈、要 Apache-2.0 可商用底座。
+    适合：本机/私有部署中文+方言 TTS。要 zero-shot 克隆与训练微调全栈。要 Apache-2.0 可商用底座。
 
-    不适合：只要托管 API 开箱即用（那走百炼 CosyVoice 线，不是本开源仓）、要零运维。
+    不适合：只要托管 API 开箱即用。那走百炼 CosyVoice 线，不是本开源仓。要零运维。
 pitfalls:
-  - 官方 org 已从 FunAudioLLM 更名 QwenAudio（当日 301 核验）——旧链接仍可达但新仓主在 QwenAudio；README 克隆命令仍写 FunAudioLLM 旧名，以 301 后地址为准
-  - 它是模型不是产品——没有账号、没有控制台、没有 SLA；「CosyVoice 服务」在官方口径里不存在（百炼语音合成是另一条托管线，别混）
-  - 官方 demo 页（funaudiollm.github.io/cosyvoice3）当日 404、新址 qwenaudio.github.io/cosyvoice3 直抓 200——README 内链仍指旧域，按新域核
+  - 官方 org 已从 FunAudioLLM 更名 QwenAudio（当日 301 核验）。旧链接仍可达但新仓主在 QwenAudio。README 克隆命令仍写 FunAudioLLM 旧名，以 301 后地址为准
+  - 它是模型不是产品——没有账号、没有控制台、没有 SLA。「CosyVoice 服务」在官方口径里不存在（百炼语音合成是另一条托管线，别混）
+  - 官方 demo 页（funaudiollm.github.io/cosyvoice3）当日 404、新址 qwenaudio.github.io/cosyvoice3 直抓 200。README 内链仍指旧域，按新域核
 
 tags: [开源, Apache-2.0, 模型非产品, 中文TTS, 声音克隆, 自托管, 多语言]
 related: [whisper, fish-audio, elevenlabs, ollama]
@@ -84,13 +84,13 @@ cn:
     "QwenAudio Team" (the Chinese description adds "Qianwen speech team"); the linked site funasr.com carries
     the "DAMO Academy" narrative, direct-fetched 200 same day).
   direct: unknown
-  direct_note: 官方入口 github.com 大陆直连当日实测 000（代理 200）——GitHub 大陆可达性长期波动，
-    不下「被墙/区域限制」结论；权重经 ModelScope 分发当日直连 200，本机获取路径大陆可用。
+  direct_note: 官方入口 github.com 大陆直连当日实测 000（代理 200）。GitHub 大陆可达性长期波动，
+    不下「被墙/区域限制」结论。权重经 ModelScope 分发当日直连 200，本机获取路径大陆可用。
   direct_note_en: the official entry github.com measured 000 direct from mainland (200 via proxy) — GitHub's mainland
     reachability fluctuates long-term, no "blocked vs region-limited" conclusion drawn; weights via ModelScope
     measured 200 direct same day, so the local acquisition path works from the mainland.
   filing: not-filed
-  filing_note: 开源模型不适用服务备案（不面向公众提供服务，同 Whisper 先例口径）；其托管形态（阿里云百炼语音合成线）
+  filing_note: 开源模型不适用服务备案（不面向公众提供服务，同 Whisper 先例口径）。其托管形态（阿里云百炼语音合成线）
     的备案主语是服务方而非本开源仓。
   filing_note_en: an open-source model is not subject to service filing (it serves no public service, same wording as
     the Whisper precedent); filing for its hosted form (Alibaba Cloud Bailian TTS line) is the service provider's, not this repo's.
@@ -105,7 +105,7 @@ cn:
 
 ## 适合与不适合
 
-适合：本机/私有部署中文+方言 TTS、zero-shot 克隆与微调全栈、Apache-2.0 商用底座。
+适合：本机/私有部署中文+方言 TTS。zero-shot 克隆与微调全栈。Apache-2.0 商用底座。
 不适合：要托管 API 开箱即用、要零运维。
 
 ## 实测记录

@@ -4,7 +4,7 @@ form: cli
 name: Ollama
 vendor: Ollama Inc.
 homepage: https://ollama.com
-license: MIT（官方仓 LICENSE 直抓核验 2026-10-21）；模型权重各自带自己的许可，下载什么模型受什么约束。
+license: MIT（官方仓 LICENSE 直抓核验 2026-10-21）。模型权重各自带自己的许可，下载什么模型受什么约束。
 licenseEn: MIT (official repo LICENSE, direct-fetched 2026-10-21); model weights carry their own licenses — whatever you download is bound by its own terms.
 
 axes:
@@ -15,7 +15,7 @@ axes:
   runtime: >-
     本地进程（CLI + API server，默认 11434 端口）。
 
-    官方 README 声明「locally or in the cloud」—— 云端线（Ollama Cloud）存在：官方 Cloud 文档给 API key、用量与套餐。
+    官方 README 声明「locally or in the cloud」。 云端线（Ollama Cloud）存在：官方 Cloud 文档给 API key、用量与套餐。
 
     Cloud FAQ 明确零数据留存（ZDR）。GitHub 185,274★（API 核验 2026-10-21）。
   local_files: >-
@@ -33,7 +33,7 @@ axes:
   permissions: >-
     本机运行无账号即可用（API server 默认本机监听）。云端线用 Ollama 账号/API key 登录。API key 在设置页管理。数据面按 Cloud FAQ 的 ZDR 与账号删除条款。
   fit: >-
-    适合：一条命令把开源模型跑起来、要 OpenAI 兼容本地 API、桌面与服务器通吃。不适合：要极致吞吐/服务化调度（那是 vLLM/SGLang 的活）。
+    适合：一条命令把开源模型跑起来。要 OpenAI 兼容本地 API。桌面与服务器通吃。不适合：要极致吞吐/服务化调度（那是 vLLM/SGLang 的活）。
 
     对云端数据边界有硬要求（先读 Cloud FAQ 的 ZDR 条款）。
 pitfalls:
@@ -83,7 +83,7 @@ cn:
   direct_note: ollama.com 与 docs.ollama.com 直连实测 200（2026-10-21）。
   direct_note_en: ollama.com and docs.ollama.com measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-11-21
 ---
@@ -98,7 +98,7 @@ cn:
 
 ## 适合与不适合
 
-适合：快速把 DeepSeek/Qwen/Llama 这类开源模型跑起来、给本地应用接 OpenAI 兼容端点、桌面与服务器同一套命令。不适合：高并发服务化调度（vLLM/SGLang 更合适）。
+适合：快速把 DeepSeek/Qwen/Llama 这类开源模型跑起来。给本地应用接 OpenAI 兼容端点。桌面与服务器同一套命令。不适合：高并发服务化调度（vLLM/SGLang 更合适）。
 
 对云端线数据边界有硬要求但没逐条核验过。
 
@@ -115,7 +115,7 @@ models 站的 GGUF 索引口径（llama.cpp 格式源头）与本档案 model_ac
 ## 相关条目
 
 - [vLLM](./vllm.md) — 同为开源模型运行器：vLLM 主打服务化高吞吐，Ollama 主打单机开箱。
-- [llama.cpp](./llama-cpp.md) — Ollama 底层依赖的 GGUF 生态根；要细粒度控制直接用 llama.cpp。
+- [llama.cpp](./llama-cpp.md) — Ollama 底层依赖的 GGUF 生态根。要细粒度控制直接用 llama.cpp。
 
 ## 第一次怎么用
 

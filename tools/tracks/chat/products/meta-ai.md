@@ -18,7 +18,7 @@ axes:
 
     当日 www.meta.ai 对无头抓取 403（Cloudflare 拦截，非死链）。
   local_files: >-
-    对话历史存于 Meta 账户侧、与社交图谱同账号体系。未见官方声明的本机数据面—— 权重开放可下载自部署是另一条线（见 models 站 Llama 系列档案）。产品对话数据不随权重落在本机。
+    对话历史存于 Meta 账户侧、与社交图谱同账号体系。未见官方声明的本机数据面。 权重开放可下载自部署是另一条线（见 models 站 Llama 系列档案）。产品对话数据不随权重落在本机。
   background: >-
     对话即时返回。官方产品页不列异步任务。嵌入 WhatsApp/IG 等应用内的入口与独立站 （meta.ai）的会话是否互通、历史如何联动。本档不逐条展开。
   tools: >-
@@ -28,11 +28,11 @@ axes:
   permissions: >-
     Meta 账号体系（与社交图谱同账号是它的最大权限面）。训练用途开关路径本档不逐条展开—— Meta 的数据使用口径历来敏感。要按官方隐私页逐项看。
   fit: >-
-    适合：已在 Meta 系应用（WhatsApp/IG）内工作、要免费对话+图像生成的用户。不适合：要脱离 Meta 账号、要大陆直连（未备案）、要权重在产品内本地跑。
+    适合：已在 Meta 系应用（WhatsApp/IG）内工作。要免费对话+图像生成的用户。不适合：要脱离 Meta 账号。要大陆直连（未备案）。要权重在产品内本地跑。
 pitfalls:
-  - Meta AI（www.meta.ai 对话助手）与 coding 大类的 meta-muse（编码云）是两条产品线——inventory 登记时已注明，别混
-  - 「Llama 开放权重」不等于「Meta AI 可本地跑」——产品跑在 Meta 云上，权重线是下载自部署
-  - Meta AI 嵌在 WhatsApp/IG 里=同一账号体系的数据联动——敏感使用要单独想清楚
+  - Meta AI（www.meta.ai 对话助手）与 coding 大类的 meta-muse（编码云）是两条产品线。inventory 登记时已注明，别混
+  - 「Llama 开放权重」不等于「Meta AI 可本地跑」。产品跑在 Meta 云上，权重线是下载自部署
+  - Meta AI 嵌在 WhatsApp/IG 里=同一账号体系的数据联动。敏感使用要单独想清楚
 
 tags: [海外大厂, 免费+登录, Llama底座, 社交生态嵌入, 未备案]
 related: [grok-chat, chatgpt, meta-muse]
@@ -57,11 +57,11 @@ cn:
   origin_note: 国外主体（Meta，美国；网信办公示名单未见对应备案主体）。
   origin_note_en: foreign entity (Meta, USA; no matching filing entity in the CAC registry).
   direct: no
-  direct_note: www.meta.ai 大陆直连 000（网络不可达，2026-10-30）；Meta 系服务在大陆整体不可用的既有口径一致。
+  direct_note: www.meta.ai 大陆直连 000（网络不可达，2026-10-30）。Meta 系服务在大陆整体不可用的既有口径一致。
   direct_note_en: www.meta.ai measured 000 direct from mainland (network unreachable, 2026-10-30); consistent with the long-standing
     unavailability of Meta services in the mainland.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与批次 PDF 镜像，未见 Meta 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与批次 PDF 镜像，未见 Meta 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page and batch PDF mirrors searched 2026-10-30; no Meta entry);
     the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30

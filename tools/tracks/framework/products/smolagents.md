@@ -52,7 +52,7 @@ axes:
 
     **换 provider 的改动量 = 换一个 Model 类**。也可加 `provider=` 参数。代码结构不变。
 
-    **边界：换 provider 后 tool calling / 结构化输出的可靠性对齐，官方文档不展开。**
+    **边界：换 provider 后，tool calling 与结构化输出的可靠性要对齐。官方文档不展开。**
     （已查 guided_tour 与 models 参考页。）
   runtime: >-
     **纯 Python 库。agent loop 由你自己在本地进程里跑。官方无托管执行服务。**
@@ -98,10 +98,10 @@ axes:
 
     所以断点续跑要自己序列化 steps。
   tools: >-
-    **工具面很宽，而且 MCP 是一等接入。** README 自述 "Tool-agnostic"，工具共四个来源：
+    **工具面很宽，而且 MCP 是一等接入。** README 自述 "Tool-agnostic"。工具共四个来源：
 
     - ① 自定义工具 —— `@tool` 装饰器或继承 `Tool` 类
-    - ② **MCP** —— `ToolCollection.from_mcp(...)` 可读任意 MCP server（装 `smolagents[mcp]`）
+    - ② **MCP** 。 `ToolCollection.from_mcp(...)` 可读任意 MCP server（装 `smolagents[mcp]`）
     - ③ LangChain 工具 —— `Tool.from_langchain`
     - ④ **把 HF Hub Space 当工具** —— `Tool.from_space`
 
@@ -167,8 +167,8 @@ axes:
     - 要 batteries-included 的预置文件系统 / 记忆 / 子代理编排
 
 pitfalls:
-  - 把 LocalPythonExecutor 当安全沙箱——官方明文它 is not a security boundary，可被绕过
-  - 以为它是「写代码专用」工具——官方定位是 barebones library for agents，CodeAgent 只是「用代码表达动作」
+  - 把 LocalPythonExecutor 当安全沙箱。官方明文它 is not a security boundary，可被绕过
+  - 以为它是「写代码专用」工具。官方定位是 barebones library for agents，CodeAgent 只是「用代码表达动作」
   - 以为接上就有托管后台或断点续跑——纯库，进程关了就停，memory 不落盘
 
 tags: [Python, 开源, Apache-2.0, 编程底座, 沙箱, MCP, 多Agent, 子代理, 本地模型, Ollama]
@@ -228,10 +228,10 @@ cn:
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
   origin_note_en: foreign entity (no matching filing entity in the CAC registry).
   direct: no
-  direct_note: 文档站在 huggingface.co，大陆直连稳定超时（同日两次 000）；pip 安装走 PyPI 实测可达。
+  direct_note: 文档站在 huggingface.co，大陆直连稳定超时（同日两次 000）。pip 安装走 PyPI 实测可达。
   direct_note_en: docs live on huggingface.co, which times out consistently from mainland (000 twice); pip install via PyPI measured reachable.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-23
 ---
@@ -290,7 +290,7 @@ README 直接写明默认解释器的定位：
 - **托管云沙箱**：Blaxel、E2B、Modal（`pip install 'smolagents[blaxel|e2b|modal]'`）
 - **自托管容器**：Docker（`executor_type="docker"`）
 
-**两种模式要分清**：只把代码片段送进沙箱（简单，但多 agent 不可用）；
+**两种模式要分清**：只把代码片段送进沙箱（简单，但多 agent 不可用）。
 或把整个 agent（含模型、工具）搬进沙箱（隔离更强，但要传凭据、要手动搭）。
 
 ## 与 HF Hub 的关系：分享，不是托管
@@ -310,9 +310,12 @@ README 里 agents 和 tools 都是 Hub 对象：
 **适合**：认同 code-as-action 并愿意给 LLM 生成的代码上沙箱。
 要 model-agnostic 与本地模型（transformers / Ollama / mlx-lm）。
 要薄、可 hack、约千行的库。
+
 要 MCP / LangChain / Hub Space 工具生态。
 
-**不适合**：需要厂商托管的常驻后台或断点续跑。它是纯库，进程关了就停、memory 不落盘。
+**不适合**
+
+需要厂商托管的常驻后台或断点续跑。它是纯库，进程关了就停、memory 不落盘。
 既不愿承担任意代码执行风险又不想上远程沙箱。
 想要开箱即用的文件系统 / 记忆 / 子代理编排。
 
@@ -340,7 +343,7 @@ README 里 agents 和 tools 都是 Hub 对象：
 - examples/multiagents
 - conceptual_guides/intro_agents
 
-仓库元数据经 GitHub API 核验（29,996★、Apache-2.0、最近推送 2026-10-22、最新版 1.26.0；滚动核验 2026-10-23 时 1.26.0 仍是最新 release——仓库活跃提交但发版节奏放缓）。
+仓库元数据经 GitHub API 核验。29,996★，Apache-2.0，最近推送 2026-10-22，最新版 1.26.0。滚动核验到 2026-10-23 时，1.26.0 仍是最新 release。仓库活跃提交，但发版节奏放缓。
 
 ## 实测记录
 
@@ -368,5 +371,5 @@ README 里 agents 和 tools 都是 Hub 对象：
 ## 相关条目
 
 - [OpenAI Agents SDK](./openai-agents-sdk.md) — **最该对照的一对**：同为「原语型」，分野在动作表示（code-as-action vs 函数调用）。一个有内建 guardrails/HITL，一个要自己上沙箱。
-- [Claude Agent SDK](./claude-agent-sdk.md) — 另一个出自模型厂商的编程底座；但那个包装既有 CLI，smolagents 是自己写 loop 的库。
+- [Claude Agent SDK](./claude-agent-sdk.md) — 另一个出自模型厂商的编程底座。但那个包装既有 CLI，smolagents 是自己写 loop 的库。
 - [CrewAI](./crewai.md) — 反面对照：CrewAI 是 Crew/Flow 双抽象的编排层，smolagents 更薄，只有 agent 库 + `managed_agents` 委派，不做状态机编排。

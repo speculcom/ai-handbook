@@ -102,7 +102,7 @@ axes:
 
     **官方原文**："replays the previous session's history"
 
-    **跨会话长期记忆**由 rules、context providers 与 assistant 配置承载；
+    **跨会话长期记忆**由 rules、context providers 与 assistant 配置承载。
     `config.yaml` 有 `data` 字段。
 
     **上下文窗口大小跟随所选模型**，官方在已查页面未给出统一数字
@@ -115,7 +115,7 @@ axes:
     **tool policies** 可把特定工具设为自动或排除。
     IDE 里可点 `Continue` 放行，或点 `Cancel` 拒绝。
 
-    CLI 侧口径不同。**官方 headless 页原文**："tools that would normally prompt for approval (`ask` permission) are automatically excluded"；
+    CLI 侧口径不同。**官方 headless 页原文**："tools that would normally prompt for approval (`ask` permission) are automatically excluded"。
     要写文件必须显式 `--allow Write --allow Edit`（或 `--allow "*"`），
     另有 `--readonly`（Plan）、`--auto`、`--exclude`。
 
@@ -135,9 +135,9 @@ axes:
     也不适合依赖官方支持与持续修复的人。
 
 pitfalls:
-  - 以为 Continue 仍在持续维护 —— 仓库 README 已标 no longer actively maintained and is read-only
-  - 以为 Hub 商业线旧价目仍有效 —— 官网已被收购公告替换，原定价页 continue.dev/pricing 已 404
-  - 以为模型自带额度 —— 扩展本身免费开源，模型费要自备 provider 或本地 Ollama
+  - 以为 Continue 仍在持续维护 。 仓库 README 已标 no longer actively maintained and is read-only
+  - 以为 Hub 商业线旧价目仍有效 。 官网已被收购公告替换，原定价页 continue.dev/pricing 已 404
+  - 以为模型自带额度 —— 扩展本身免费开源。模型费要自备 provider 或本地 Ollama
 
 tags: [编程, 开源, 多模型, VSCode]
 related: [filesystem]
@@ -199,7 +199,7 @@ cn:
   direct_note: 官网直连实测 200。
   direct_note_en: official site measured 200 direct.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-20
 ---
@@ -207,7 +207,7 @@ cn:
 ## 一句话定位
 
 **开源、模型完全自配的 IDE 扩展**。
-但它已停更：Continue 被 Cursor 收购，上游仓库转入 read-only，
+但它已停更。Continue 被 Cursor 收购，上游仓库转入 read-only。
 官网只剩收购公告 —— **代码仍可自由使用，后续不会再有更新**。
 
 ## 当前状态：仓库已只读，不再更新
@@ -226,20 +226,20 @@ cn:
 「final 2.0.0 release」（releases 里可见 `v2.0.0-vscode`、`v2.1.0-vscode`）。
 
 从 release note 看，最终版移除了 CLI 安装横幅与「Hub slug」，
-并加了 deprecation 提示；同时按 README 口径**「removing anonymous telemetry」**。
+并加了 deprecation 提示。同时按 README 口径**「removing anonymous telemetry」**。
 
 | 问题 | 结论 |
 |---|---|
 | 还能用吗 | 能，Apache-2.0 代码仍公开（仓库 read-only，归档日期官方公告没有给出） |
-| 还会有更新吗 | 不会——README 明示「no longer actively maintained」 |
-| 商业线还在吗 | 原 Hub 定价页已 404；continue.dev 域名下现为 Continuous AI |
+| 还会有更新吗 | 不会。README 明示「no longer actively maintained」 |
+| 商业线还在吗 | 原 Hub 定价页已 404。continue.dev 域名下现为 Continuous AI |
 
 ## 三种形态（README 与文档列出）
 
 | 形态 | 关键能力 |
 |---|---|
-| **VS Code 扩展** | Agent / Chat / Edit / Autocomplete 模式，工具需逐次批准 |
-| **JetBrains 插件** | 同上；README 建议改用 CLI |
+| **VS Code 扩展** | Agent / Chat / Edit / Autocomplete 模式。工具需逐次批准 |
+| **JetBrains 插件** | 同上。README 建议改用 CLI |
 | **CLI（`cn`）** | 终端 agent，TUI 与 headless 双模式，可进 CI / git hooks |
 
 ## 模型自配（官方列 30+ provider）
@@ -267,18 +267,17 @@ Continue 可以指任意 provider，包括完全本地跑。
 
 ## MCP 与权限
 
-MCP 官方支持三种传输：`stdio`、`sse`、`streamable-http`；
-配置放在 `.continue/mcpServers/`，**且可直接把 Claude / Cursor / Cline 的
-JSON MCP 配置复制进来**。官方一句硬限制要注意：
+MCP 官方支持三种传输：`stdio`、`sse`、`streamable-http`。
+配置放在 `.continue/mcpServers/`，且可直接把 Claude / Cursor / Cline 的 JSON MCP 配置复制进来。官方一句硬限制要注意：
 "MCP can only be used in the **agent** mode"。
 
 权限口径分两侧：
 
 - **IDE**：官方原文 "By default, Agent mode will ask permission when it wants
-  to use a tool"，可用 tool policies 设为自动或排除；
+  to use a tool"，可用 tool policies 设为自动或排除。
 
 - **CLI headless**：官方原文「tools that would normally prompt for approval
-  (`ask` permission) are automatically excluded」，要写文件必须显式
+  (`ask` permission) are automatically excluded」。要写文件必须显式
   `--allow Write`（或 `--allow "*"`）。
 
 ## 商业线：Continuous AI（与开源扩展分开读）
@@ -291,7 +290,7 @@ hub.continue.dev（2026-10-08 取到）现为 **Continuous AI** 的商业线，�
 | Team | 按席位订阅（含每席 credits）：团队内共享私有 agent，Gmail/GitHub SSO |
 | Company | 定制：SAML/OIDC、BYOK、承诺用量 / 发票 / SLA |
 
-报价数字按本站的报价记录约定不存，见 hub.continue.dev/pricing。
+报价数字按本站约定不存。见 hub.continue.dev/pricing。
 
 **注意这不是 IDE 扩展的订阅** —— 扩展本身免费开源。
 
@@ -300,7 +299,7 @@ hub.continue.dev（2026-10-08 取到）现为 **Continuous AI** 的商业线，�
 
 ## 核验说明
 
-这页判为 `confidence: verified`：8 个维度都有官方来源可逐条核对。
+这页判为 confidence: verified。8 个维度都有官方来源可逐条核对。
 
 - **已取到官方正文的**：形态、模型自配、MCP、权限、许可与商业线结构。
 - **已停止维护**：上游仓库 read-only、官网被收购公告替换，未来不会再更新。
@@ -308,6 +307,7 @@ hub.continue.dev（2026-10-08 取到）现为 **Continuous AI** 的商业线，�
 
 已核到的官方页：仓库 README 与 Releases、官网 continue.dev（含 www 变体）、
 文档站首页、MCP 深潜、Model providers、Agent quick-start、
+
 CLI quickstart 与 CLI headless、商业线定价页 hub.continue.dev/pricing。
 
 ## 适合与不适合
@@ -317,12 +317,12 @@ CLI quickstart 与 CLI headless、商业线定价页 hub.continue.dev/pricing。
 - 需要把同一 agent 用到终端与 CI（`cn -p`）的人。
 
 **不适合**需要持续维护与长期演进的场景 ——
-上游仓库已 read-only，公司被 Cursor 收购，后续只会以「代码仍可自由使用」的形态存在。
+上游仓库已 read-only。公司被 Cursor 收购，后续只会以「代码仍可自由使用」的形态存在。
 也不适合依赖官方支持与持续修复的人。
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点测两点。
 
@@ -334,14 +334,14 @@ CLI quickstart 与 CLI headless、商业线定价页 hub.continue.dev/pricing。
 
 以下五项官方文档没有给出，不是没查：
 
-- 仓库归档的具体日期与收购完成时间 —— 官方公告没有给出确切日期（已查仓库 README、官网公告与 Releases）
-- 原 Continue 账户 / 订阅的去向与数据处理 —— 官网 FAQ 仅列出问题，答案没有公开
-- 代码库语义索引的实现方式 —— 官方文档没有说明（已查 docs.continue.dev 首页与 Chat 上下文选择两页）
+- 仓库归档的具体日期与收购完成时间 。 官方公告没有给出确切日期（已查仓库 README、官网公告与 Releases）
+- 原 Continue 账户 / 订阅的去向与数据处理 。 官网 FAQ 仅列出问题，答案没有公开
+- 代码库语义索引的实现方式 。 官方文档没有说明（已查 docs.continue.dev 首页与 Chat 上下文选择两页）
 - 数据是否用于模型训练 —— 已查页面没有说明（已查仓库 README 与文档站首页）
 - 各 provider 换用后 tool calling 质量的官方对比
 
 ## 相关条目
 
-- [Cursor](./cursor.md) — 收购方；两者在「模型自配 vs 目录内模型」上正好对立，值得并排看
+- [Cursor](./cursor.md) — 收购方。两者在「模型自配 vs 目录内模型」上正好对立，值得并排看
 - [Cline](./cline.md) — 同为开源 IDE 扩展，Cline 仍在活跃维护，是 Continue 停更后的直接替代参照
 - [Codex IDE 扩展](./codex-ide.md) — 同为「扩展而非独立编辑器」，可对照宿主与权限模型

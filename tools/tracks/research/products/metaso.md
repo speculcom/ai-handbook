@@ -13,7 +13,7 @@ licenseEn: Free + membership/credits (purchase page shown after login; D9: no pr
 
 axes:
   model_access: >-
-    自研 MetaLLM 大语言模型（官网 about-us 明确自研叙事）——AI 搜索产品里少见的自研路线。各功能调用的模型版本官网未逐项披露（不推测）。
+    自研 MetaLLM 大语言模型（官网 about-us 明确自研叙事）。AI 搜索产品里少见的自研路线。各功能调用的模型版本官网未逐项披露（不推测）。
   runtime: >-
     网页（metaso.cn）+ App/小程序（官网所见）。检索与生成在厂商云端。国内直连可用。
   local_files: >-
@@ -21,7 +21,7 @@ axes:
   background: >-
     三档强度（简洁/深入/深度研究，官网产品面）。深度研究是多线追搜任务线。无「关机续跑」概念。
   tools: >-
-    **依据：** 六路检索（全网/文库/学术/图片/视频/播客，官网产品面）、答案分节+来源角标、 大纲/脑图生成、学术档细分（中文库/英文库/PubMed/分区筛选，官网所见）、 幻灯片/互动网页生成、事实核验入口、API 开放。
+    **依据：** 六路检索覆盖全网、文库、学术、图片、视频与播客，官网产品面在册。另做答案分节加来源角标、大纲与脑图生成。学术档可细分中文库、英文库、PubMed 与分区筛选。还有幻灯片、互动网页生成、事实核验入口与 API 开放。
   context: >-
     以历史/书架组织检索记录。跨会话记忆未核验到官方声明（本档不逐条展开）。
   permissions: >-
@@ -29,13 +29,13 @@ axes:
 
     备案：MetaLLM 备案号 Shanghai-MetaLLM-20231106（网信办 2024-04 备案汇总附件直抓核验， 2026-10-22）。
 
-    算法备案「MetaLLM大语言模型文本生成算法」覆盖秘塔AI搜索多端 （网信办 2023-08 算法清单直抓）——两套编号别混引。
+    算法备案「MetaLLM 大语言模型文本生成算法」覆盖秘塔 AI 搜索多端。网信办 2023-08 算法清单直抓。两套编号别混引。
   fit: >-
     **依据：** 适合：中文资料深度检索（无广告直达结果）、学术中文库检索、要大纲/脑图结构化输出、国内直连。 不适合：英文向全球检索主打、把 AI 答案当无源结论（角标要核原文）。
 pitfalls:
-  - 「没有广告，直达结果」是产品口号——「直达的结果」仍是 AI 综合，来源角标要点开核原文
-  - 自研 MetaLLM 意味着能力曲线跟秘塔自己走——与调 GPT/Claude 系的产品对比时别假设同源能力
-  - 会员/积分购买页要登录才展示——按 D9 口径不落价格数字（D9），额度面以登录后页面为准
+  - 「没有广告，直达结果」是产品口号。「直达的结果」仍是 AI 综合，来源角标要点开核原文
+  - 自研 MetaLLM 意味着能力曲线跟秘塔自己走。与调 GPT/Claude 系的产品对比时别假设同源能力
+  - 会员/积分购买页要登录才展示。按 D9 口径不落价格数字（D9），额度面以登录后页面为准
 
 tags: [免费+会员, 中文AI搜索, 自研MetaLLM, 学术检索, 国产直连]
 related: [perplexity, notebooklm, devv, kimi-chat]
@@ -71,7 +71,7 @@ cn:
   filing: filed
   filing_no: Shanghai-MetaLLM-20231106
   filing_note: MetaLLM 生成式 AI 服务备案号（网信办 2024-04 公告附件汇总表直抓核验，2026-10-22，
-    主体上海秘塔网络科技有限公司）；算法备案（2023-08 批次清单直抓）覆盖秘塔AI搜索多端——两套编号别混引。
+    主体上海秘塔网络科技有限公司）。算法备案（2023-08 批次清单直抓）覆盖秘塔AI搜索多端——两套编号别混引。
   filing_note_en: MetaLLM generative-AI service filing number (CAC April-2024 announcement attachment,
     direct-fetched and verified 2026-10-22, filer Shanghai Metaso Network Technology Co., Ltd.); the
     algorithm filing (August 2023 batch) covers Metaso AI Search across surfaces — two numbering systems, don't cross-quote.
@@ -80,7 +80,7 @@ cn:
 
 ## 一句话定位
 
-**秘塔 AI 搜索是「没有广告，直达结果」的中文 AI 搜索**：自研 MetaLLM（少见的自研路线）、
+**秘塔 AI 搜索是「没有广告，直达结果」的中文 AI 搜索**：它走自研 MetaLLM，这在国内少见。
 六路检索、学术中文库细分、大纲/脑图结构化输出；国内直连可用。
 
 ## 适合与不适合

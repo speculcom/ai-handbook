@@ -140,7 +140,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它答得贴切、接得上话，说明它读懂了你的意思。",
   "mythEn": "It answers aptly and keeps up with the conversation, so it must have understood what you meant.",
-  "fact": "语言模型依据上下文生成文本。回答贴切可以说明任务表现，但不能仅由流畅程度判断它是否理解了你的处境；还要检查指代、限制和事实是否保留。",
+  "fact": "语言模型依据上下文生成文本。回答贴切可以说明任务表现，但不能仅由流畅程度判断它是否理解了你的处境。还要检查指代、限制和事实是否保留。",
   "factEn": "Language models generate text from context. A fitting response shows task behavior; fluency alone does not establish understanding of your situation. Check references, constraints and preserved facts.",
   "objectives": null,
   "objectivesEn": null,
@@ -198,7 +198,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "各家都在说 AGI 临近，说明它有一个可核对的到达时间。",
   "mythEn": "Everyone says AGI is near, so there must be a checkable date when it arrives.",
-  "fact": "AGI 的定义与评价标准并未统一。“临近”只有在能力范围、测试条件和完成标准明确时才可核对；研究目标或时间预测不能直接当作已经实现的证据。",
+  "fact": "AGI 的定义与评价标准并未统一。“临近”只有在能力范围、测试条件和完成标准明确时才可核对。研究目标或时间预测不能直接当作已经实现的证据。",
   "factEn": "AGI definitions and evaluation criteria are not settled. A claim of proximity needs specified capabilities, test conditions and completion criteria; a research goal or forecast does not establish achievement.",
   "objectives": null,
   "objectivesEn": null,
@@ -695,9 +695,9 @@ var GUIDES = [
    "en": "Dropping a few input→output examples into the prompt changes performance noticeably — but bad examples steer the model the wrong way. Five criteria for picking them."
   },
   "points": [
-   "例子覆盖你要的边界情况，而不是只放最简单的：模型会模仿例子的分布。",
+   "例子覆盖你要的边界情况，而不是只放最简单的。模型会模仿例子的分布。",
    "格式与真实输入完全一致：示例里的字段名、标点、换行都会被照抄。",
-   "数量从两三个起步，边际收益递减快；塞太多还挤占上下文、拉高成本。",
+   "数量从两三个起步，边际收益递减快。塞太多还挤占上下文、拉高成本。",
    "示例之间要有差异：三个几乎一样的例子等于一个，还让模型以为只会这一种。",
    "遇到输出跑偏，先检查是不是某个示例在带节奏——错误示例比没有示例更糟。"
   ],
@@ -953,7 +953,7 @@ var GUIDES = [
   "ord": 1,
   "span": 15,
   "lead": {
-   "zh": "学员把同一份材料先自由提问、再结构化提问，比较字段完整度与事实一致度，并记住格式合法不等于内容正确。",
+   "zh": "学员把同一份材料先自由提问、再结构化提问，比较字段完整度与事实一致度。还要记住：格式合法不等于内容正确。",
    "en": "Learners ask about the same material freely first and then with a structured prompt, compare field completeness and factual consistency, and remember that valid format does not mean correct content."
   },
   "points": null,
@@ -975,8 +975,8 @@ var GUIDES = [
    "Explain that few-shot examples enter only the current context and do not retrain the model."
   ],
   "materials": [
-   "微软 Learn《Prompt engineering techniques》：系统消息、少样本示例与指令位置的官方口径。",
-   "微软 Learn《How to use structured outputs》：结构化输出遵循调用方给的 JSON Schema。",
+   "微软 Learn《Prompt engineering techniques》。系统消息、少样本示例与指令位置的官方口径。",
+   "微软 Learn《How to use structured outputs》。结构化输出遵循调用方给的 JSON Schema。",
    "JSON Schema 官方站：查字段类型与必填项的写法。",
    "一份虚构活动通知原文（约 200 字）＋字段清单：时间、地点、主题、报名方式。"
   ],
@@ -988,7 +988,7 @@ var GUIDES = [
   ],
   "steps": [
    "3 分钟基线：各组自由提问一次，保存原始输出，不改指令。",
-   "4 分钟改写：把指令补成四部分，禁止事项要可判定，例如不得添加原文没有的费用。",
+   "4 分钟改写：把指令补成四部分，禁止事项要可判定。例如不得添加原文没有的费用。",
    "4 分钟校验：先查结构是否合法，再逐字段回连原文，标出无依据项。",
    "4 分钟对照：比较两次的字段完整度与事实一致度，说明差异来自哪一部分指令。"
   ],
@@ -999,9 +999,9 @@ var GUIDES = [
    "4-minute comparison: compare field completeness and factual consistency across the two runs and explain which instruction part caused the difference."
   ],
   "misconceptions": [
-   "把「输出是合法 JSON」当成「字段值正确」；官方文档区分 JSON 模式与按 schema 的结构化输出。",
-   "把「给了示例」当成「模型学会了」；示例只影响当次推理。",
-   "以为加一句「不要编造」就能消除无依据字段；仍要逐字段回连原文。"
+   "把「输出是合法 JSON」当成「字段值正确」。官方文档区分 JSON 模式与按 schema 的结构化输出。",
+   "把「给了示例」当成「模型学会了」。示例只影响当次推理。",
+   "以为加一句「不要编造」就能消除无依据字段。仍要逐字段回连原文。"
   ],
   "misconceptionsEn": [
    "Treating valid JSON as correct field values; official documentation distinguishes JSON mode from schema-based structured outputs.",
@@ -1035,7 +1035,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "语气肯定、结构完整，说明内容可靠。",
   "mythEn": "A confident tone and a tidy structure mean the content is trustworthy.",
-  "fact": "语气是否肯定，不能单独证明事实正确。核对原始出处是否支持具体句子，尤其是数字、日期、姓名和引用；无法确认的部分保留为未知。",
+  "fact": "语气是否肯定，不能单独证明事实正确。核对原始出处是否支持具体句子，尤其是数字、日期、姓名和引用。无法确认的部分保留为未知。",
   "factEn": "Confident wording alone does not establish correctness. Check support for each claim, especially numbers, dates, names and citations; leave unverified parts unknown.",
   "objectives": null,
   "objectivesEn": null,
@@ -1762,13 +1762,13 @@ var GUIDES = [
    "en": "Official update snapshots: distinguish dates, rollout scope and planned shutdowns, with source references."
   },
   "points": [
-   "研究线：Google 在 2026-04-21 发布 Deep Research 与 Deep Research Max，基于 Gemini 3.1 Pro，支持 MCP 与自定义来源。",
-   "图像与停运：Nano Banana 2（Gemini 3.1 Flash Image）于 2026-02-26 上线；ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex；微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。",
-   "模型档位：Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出；Claude Duet 于 2026-10-21 向 Pro / Max 开放研究预览。",
-   "工具线：Google Opal 计划于 2026-11-17 停用，工作流不会自动迁移；Vercel AI SDK 7 在 2026 changelog 发布。",
-   "研究线 2：Byteification 于 2026-10-07 登上 Nature，49.1B token 把子词模型改成字节级；同月 29 日 JEPA-PRH 预印本给出 109M 文本 JEPA 的跨模态对齐结果。",
+   "研究线。Google 在 2026-04-21 发布 Deep Research 与 Deep Research Max，基于 Gemini 3.1 Pro，支持 MCP 与自定义来源。",
+   "图像与停运：Nano Banana 2（Gemini 3.1 Flash Image）于 2026-02-26 上线。ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex。微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。",
+   "模型档位：Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出。Claude Duet 于 2026-10-21 向 Pro / Max 开放研究预览。",
+   "工具线：Google Opal 计划于 2026-11-17 停用，工作流不会自动迁移。Vercel AI SDK 7 在 2026 changelog 发布。",
+   "研究线 2：Byteification 于 2026-10-07 登上 Nature，49.1B token 把子词模型改成字节级。同月 29 日 JEPA-PRH 预印本给出 109M 文本 JEPA 的跨模态对齐结果。",
    "模型线：Meta Muse Spark Open（2026-10-15，816B / 42B 激活）、Mistral Large 4（2026-10-29，1.05T / 49B 激活）、小米 MiMo-V2.6（2026-09-22）相继开放权重或开源。",
-   "协议线：Agent Skills 于 2026-10-22 捐给 AAIF；AMD MI450X 于 2026-11-12 上市；本地线 ExLlamaV3 1.6.5 于 2026-10-25 发布。"
+   "协议线：Agent Skills 于 2026-10-22 捐给 AAIF。AMD MI450X 于 2026-11-12 上市。本地线 ExLlamaV3 1.6.5 于 2026-10-25 发布。"
   ],
   "pointsEn": [
    "Research: Google shipped Deep Research and Deep Research Max on 2026-04-21, built on Gemini 3.1 Pro with MCP and custom sources.",
@@ -2115,12 +2115,12 @@ var GUIDES = [
   },
   "points": [
    "先列工具清单，按只读、写入、对外发送、花钱、删改五级分类。",
-   "默认最小权限：能读一个目录就不要给整个盘；能查就不要给改。",
+   "默认最小权限：能读一个目录就不要给整个盘。能查就不要给改。",
    "写操作要二次确认：把参数和影响范围展示给人，确认后才执行。",
    "对外发送与支付单列：这类动作不可撤销，必须人工在场。",
    "用白名单而不是黑名单：URL、命令、路径都列允许集合。",
-   "记录每次调用：谁、什么参数、结果、耗时；日志要能回放到具体任务。",
-   "把工具返回内容当不可信输入，不执行其中的指令；定期做越权演练验证拦截。"
+   "记录每次调用：谁、什么参数、结果、耗时。日志要能回放到具体任务。",
+   "把工具返回内容当不可信输入，不执行其中的指令。定期做越权演练验证拦截。"
   ],
   "pointsEn": [
    "List every tool and classify it into five levels: read-only, write, external send, spend and delete.",
@@ -2712,7 +2712,7 @@ var GUIDES = [
   "ord": 1,
   "span": 15,
   "lead": {
-   "zh": "学员把一次 RAG 回答拆成检索、片段、生成三段责任，用三列核对表定位问题出在哪一段，并给出可验证的改进动作。",
+   "zh": "学员把一次 RAG 回答拆成检索、片段、生成三段责任。再用三列核对表定位问题出在哪一段，并给出可验证的改进动作。",
    "en": "Learners split a RAG answer into retrieval, passage and generation responsibilities, use a three-column check sheet to locate the failing stage, and propose a verifiable improvement."
   },
   "points": null,
@@ -2722,7 +2722,7 @@ var GUIDES = [
   "fact": null,
   "factEn": null,
   "objectives": [
-   "能把一次回答拆成三段责任：检索是否命中、片段是否够用、生成是否超出片段。",
+   "能把一次回答拆成三段责任。检索是否命中、片段是否够用、生成是否超出片段。",
    "能为每个断言找到对应片段与位置，找不到就标为无依据。",
    "能说明分块会切断上下文，重排只改候选顺序、不新增事实。",
    "能提出一个改进动作，并说明用什么口径验证它有没有效。"
@@ -2734,9 +2734,9 @@ var GUIDES = [
    "Propose one improvement and state how to verify whether it worked."
   ],
   "materials": [
-   "Anthropic 官方工程博客《Introducing Contextual Retrieval》：传统 RAG 编码时丢上下文会让检索失败。",
+   "Anthropic 官方工程博客《Introducing Contextual Retrieval》。传统 RAG 编码时丢上下文会让检索失败。",
    "Cohere 官方 Rerank 文档：给定查询与文档列表，按语义相关度排序。",
-   "LlamaIndex 官方 CitationQueryEngine 示例：答案带来源节点引用的写法。",
+   "LlamaIndex 官方 CitationQueryEngine 示例。答案带来源节点引用的写法。",
    "三份虚构内部文档片段（其中一份条款被切断上下文）＋一张三列核对表。"
   ],
   "materialsEn": [
@@ -2758,10 +2758,10 @@ var GUIDES = [
    "4-minute improvement: each group gives one action and verification method; the class groups them by which responsibility stage changed."
   ],
   "misconceptions": [
-   "以为答案带了引用就可信；引用可能指向不支持该句的片段。",
-   "把检索不到归因为模型笨；也可能是分块切断上下文或用词不一致。",
-   "以为重排能补出缺失事实；它只调整候选顺序。",
-   "把厂商博客里的提升幅度直接搬到自己的库；那是特定数据与设置下的结果。"
+   "以为答案带了引用就可信。引用可能指向不支持该句的片段。",
+   "把检索不到归因为模型笨。也可能是分块切断上下文或用词不一致。",
+   "以为重排能补出缺失事实。它只调整候选顺序。",
+   "把厂商博客里的提升幅度直接搬到自己的库。那是特定数据与设置下的结果。"
   ],
   "misconceptionsEn": [
    "Assuming an answer with citations is trustworthy; a citation may point to a passage that does not support the sentence.",
@@ -2796,7 +2796,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "评测分数高的模型，在你的任务上也一定好。",
   "mythEn": "A model that scores high on the leaderboards must also be good at your task.",
-  "fact": "榜单结果受任务集、版本、设置和指标限制。它可以提供初筛证据，但不能替代你的输入、延迟、错误成本与权限条件；不同口径的分数也不能直接比较。",
+  "fact": "榜单结果受任务集、版本、设置和指标限制。它可以提供初筛证据，但不能替代你的输入、延迟、错误成本与权限条件。不同口径的分数也不能直接比较。",
   "factEn": "Leaderboard results depend on tasks, versions, setup and metrics. They inform initial screening, not your inputs, latency, failure costs or permission constraints. Scores on different bases are not directly comparable.",
   "objectives": null,
   "objectivesEn": null,
@@ -2883,7 +2883,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "评测分数高，系统用起来就可靠。",
   "mythEn": "A high evaluation score means the system is reliable in use.",
-  "fact": "可靠性关心的是波动与分布：同一输入跑多次是否一致、没见过的输入表现如何、边界场景的失败长什么样。分数是某个版本在某个任务集、某个设置下的一次读数，两个口径不同。要判断可靠，就用自己的样本复跑并记下波动。（虚构示例）输入是同一条退款期限咨询 → 处理是用同一提示、同一模型版本各跑三遍 → 结果判断是三遍里有一遍把期限说错，说明这条链路的波动不为零 → 下一步不是去引用它的高分，而是把该问法加进自己的评测样本，看修复后是否还会波动。",
+  "fact": "可靠性关心的是波动与分布。同一输入跑多次是否一致、没见过的输入表现如何、边界场景的失败长什么样。分数是某个版本在某个任务集、某个设置下的一次读数，两个口径不同。要判断可靠，就用自己的样本复跑并记下波动。（虚构示例）输入是同一条退款期限咨询 → 处理是用同一提示、同一模型版本各跑三遍 → 结果判断是三遍里有一遍把期限说错，说明这条链路的波动不为零 → 下一步不是去引用它的高分，而是把该问法加进自己的评测样本，看修复后是否还会波动。",
   "factEn": "Reliability is about spread and distribution: whether the same input gives consistent results over repeats, how unseen inputs behave, what failures look like at the boundaries. A score is one reading of one version on one task set under one setting - a different question. Judge reliability by rerunning your own samples and recording the variance. (Fictional example) Input is one query about a refund deadline -> processing runs it three times with the same prompt and the same model version -> the check finds one of the three stating the deadline wrongly, so variance on this path is not zero -> the next step is to add that phrasing to your own sample set and recheck after a fix, not to cite the high score.",
   "objectives": null,
   "objectivesEn": null,
@@ -3004,7 +3004,7 @@ var GUIDES = [
   "ord": 1,
   "span": 12,
   "lead": {
-   "zh": "学员用两篇论文摘要练「主张—证据—条件」三栏读法，再把观察连回自回归与注意力，去掉无条件的能力断言。",
+   "zh": "学员用两篇论文摘要练「主张—证据—条件」三栏读法。再把观察连回自回归与注意力，去掉无条件的能力断言。",
    "en": "Learners use two paper abstracts to practise a claim-evidence-conditions reading, then connect observations back to autoregression and attention and remove unconditional capability claims."
   },
   "points": null,
@@ -3026,8 +3026,8 @@ var GUIDES = [
    "Distinguish information fitting in the window from information in the window being used, citing position-effect findings."
   ],
   "materials": [
-   "arXiv 1706.03762《Attention Is All You Need》摘要页：翻译任务、BLEU 与训练设置。",
-   "arXiv 2307.03172《Lost in the Middle》摘要页：多文档问答与键值检索中的位置效应。",
+   "arXiv 1706.03762《Attention Is All You Need》摘要页。翻译任务、BLEU 与训练设置。",
+   "arXiv 2307.03172《Lost in the Middle》摘要页。多文档问答与键值检索中的位置效应。",
    "本站《论文卡-Attention Is All You Need》作为读法示例。",
    "三栏工作表：主张、证据位置、条件与未主张。"
   ],
@@ -3050,10 +3050,10 @@ var GUIDES = [
    "3-minute mechanism link: use autoregression and attention to explain the observations and identify statements with insufficient evidence."
   ],
   "misconceptions": [
-   "把标题或摘要里的强措辞当结论；结论受任务与设置限制。",
-   "把长窗口当成「长文档都能答对」；信息在中间时表现可能下降。",
-   "把注意力当成人类式「注意到重点」；它是权重计算。",
-   "把某个指标提升当成能力全面升级；BLEU 对应特定翻译任务。"
+   "把标题或摘要里的强措辞当结论。结论受任务与设置限制。",
+   "把长窗口当成「长文档都能答对」。信息在中间时表现可能下降。",
+   "把注意力当成人类式「注意到重点」。它是权重计算。",
+   "把某个指标提升当成能力全面升级。BLEU 对应特定翻译任务。"
   ],
   "misconceptionsEn": [
    "Treating strong wording in a title or abstract as the conclusion; conclusions are bounded by task and setup.",
@@ -3088,7 +3088,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "它像你一样按字和词理解输入。",
   "mythEn": "It reads your input word by word, the way you do.",
-  "fact": "文本通常先被分成 Token，一个词或字符与一个 Token 不一定一一对应。需要精确计数、拼写或标点检查时，应明确规则并使用可核对的方法，不凭聊天表现推断准确性。",
+  "fact": "文本通常先被分成 Token，一个词或字符与一个 Token 不一定一一对应。需要精确计数、拼写或标点检查时，应明确规则。用可核对的方法检查，不要凭聊天表现推断准确性。",
   "factEn": "Text is typically tokenized; tokens and words/characters need not map one-to-one. For exact counting, spelling or punctuation, define rules and use checkable methods rather than inferring accuracy from conversation.",
   "objectives": null,
   "objectivesEn": null,
@@ -3377,11 +3377,11 @@ var GUIDES = [
    "en": "The 'less is more' alignment-data experiment: fine-tuning on just 1,000 curated examples. This card lays out what it set out to test, where the evidence sits, and what it does not claim."
   },
   "points": [
-   "研究问题：摘要原话——按两阶段训练 LIMA（65B 参数 LLaMa 模型），\"fine-tuned with the standard supervised loss on only 1,000 carefully curated prompts and responses\"（只用 1000 条精选问答做标准监督微调），\"without any reinforcement learning or human preference modeling\"（不做强化学习也不做人类偏好建模）——要测的就是两个训练阶段的相对重要性。",
-   "核心证据：第 4 节人工评测（对照 GPT-4/Bard/DaVinci003）与第 5 节消融（数据多样性/质量/数量）——摘要给出受控人评数字：\"responses from LIMA are either equivalent or strictly preferred to GPT-4 in 43% of cases\"（43% 的情况下 LIMA 的回答与 GPT-4 相当或更好）；结论句是 \"almost all knowledge in large language models is learned during pretraining\"（几乎所有知识都在预训练阶段学到）。",
-   "作者自陈局限：没有独立的 Limitations 节（2026-10-30 核对 arXiv HTML 版）；第 7 节 Discussion 开头明确自陈两条——构造样例的心智成本难以规模化、\"LIMA is not as robust as product-grade models\"（不如产品级模型稳健，解码 unlucky sample 或对抗性提示常出弱回答）。",
-   "它没有主张的：43%/58%/65% 是「相当或更好」的受控人评占比，不是「整体达到 GPT-4 水平」；「1000 条足够」是对话风格层面的证据，论文没有主张安全、事实性、鲁棒性也能靠 1000 条解决——这三项恰恰是它自陈薄弱的地方。",
-   "读法提示：这篇的价值是把「知识来自预训练、对齐数据管的是风格」这个假设做成了可检验的消融；引用它时先分清「少数据能对齐」与「少数据能对齐一切」是两个命题。"
+   "研究问题。摘要原话。按两阶段训练 LIMA（65B 参数 LLaMa 模型），\"fine-tuned with the standard supervised loss on only 1,000 carefully curated prompts and responses\"（只用 1000 条精选问答做标准监督微调），\"without any reinforcement learning or human preference modeling\"（不做强化学习也不做人类偏好建模）——要测的就是两个训练阶段的相对重要性。",
+   "核心证据：第 4 节人工评测（对照 GPT-4/Bard/DaVinci003）与第 5 节消融（数据多样性/质量/数量）。摘要给出受控人评数字：\"responses from LIMA are either equivalent or strictly preferred to GPT-4 in 43% of cases\"（43% 的情况下 LIMA 的回答与 GPT-4 相当或更好）。结论句是 \"almost all knowledge in large language models is learned during pretraining\"（几乎所有知识都在预训练阶段学到）。",
+   "作者自陈局限：没有独立的 Limitations 节（2026-10-30 核对 arXiv HTML 版）。第 7 节 Discussion 开头明确自陈两条。构造样例的心智成本难以规模化、\"LIMA is not as robust as product-grade models\"（不如产品级模型稳健，解码 unlucky sample 或对抗性提示常出弱回答）。",
+   "它没有主张的：43%/58%/65% 是「相当或更好」的受控人评占比，不是「整体达到 GPT-4 水平」。「1000 条足够」是对话风格层面的证据，论文没有主张安全、事实性、鲁棒性也能靠 1000 条解决。这三项恰恰是它自陈薄弱的地方。",
+   "读法提示：这篇的价值是把「知识来自预训练、对齐数据管的是风格」这个假设做成了可检验的消融。引用它时先分清「少数据能对齐」与「少数据能对齐一切」是两个命题。"
   ],
   "pointsEn": [
    "Research question: the abstract describes training LIMA (a 65B LLaMa model) \"fine-tuned with the standard supervised loss on only 1,000 carefully curated prompts and responses\", \"without any reinforcement learning or human preference modeling\" — the point is to measure the relative importance of the two training stages.",
@@ -3582,7 +3582,7 @@ var GUIDES = [
   "ord": 1,
   "span": 15,
   "lead": {
-   "zh": "学员按权重、KV 缓存、运行时开销三项列估算表，再用运行器的占用输出核对，分清能启动、跑得动、答得完三个问题。",
+   "zh": "学员按权重、KV 缓存、运行时开销三项列估算表。再用运行器的占用输出核对，分清能启动、跑得动、答得完三个问题。",
    "en": "Learners build an estimate from weights, KV cache and runtime overhead, check it against runner occupancy output, and separate can start, can run and can finish answering."
   },
   "points": null,
@@ -3604,8 +3604,8 @@ var GUIDES = [
    "Give three fallback paths when the model does not fit and state the cost of each."
   ],
   "materials": [
-   "llama.cpp 官方 README：1.5 到 8-bit 整数量化，以及 CPU＋GPU 混合推理。",
-   "Ollama 官方 FAQ：ollama ps 的 PROCESSOR 列与 num_ctx 上下文设置。",
+   "llama.cpp 官方 README。1.5 到 8-bit 整数量化，以及 CPU＋GPU 混合推理。",
+   "Ollama 官方 FAQ。ollama ps 的 PROCESSOR 列与 num_ctx 上下文设置。",
    "Hugging Face Transformers 官方 KV 缓存文档（仓库源文件）：缓存占用、卸载与量化缓存。",
    "一张估算表：参数量、位宽、上下文长度、批量、可用显存、可用内存。"
   ],
@@ -3628,10 +3628,10 @@ var GUIDES = [
    "4-minute fallbacks: smaller model, lower quantisation tier and partial offloading each get one cost and one next-step test condition."
   ],
   "misconceptions": [
-   "以为权重装得下就跑得快；缓存与卸载会改变速度和延迟。",
-   "以为量化只省显存；官方文档把它写成内存与速度的取舍，质量要在自己任务上核对。",
-   "以为本地部署就等于数据合规；还要看日志、权限与出网路径。",
-   "把文档示例里的占用数字当成自己机器的结果；硬件与设置不同。"
+   "以为权重装得下就跑得快。缓存与卸载会改变速度和延迟。",
+   "以为量化只省显存。官方文档把它写成内存与速度的取舍，质量要在自己任务上核对。",
+   "以为本地部署就等于数据合规。还要看日志、权限与出网路径。",
+   "把文档示例里的占用数字当成自己机器的结果。硬件与设置不同。"
   ],
   "misconceptionsEn": [
    "Assuming that if weights fit the model runs fast; cache and offloading change speed and latency.",
@@ -3666,7 +3666,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "量化就是把模型质量砍掉一半。",
   "mythEn": "Quantising cuts model quality in half.",
-  "fact": "量化改变数值表示，质量影响取决于模型、方法、档位和任务。bpw 描述每个权重平均占多少比特，不是能力分数；需用相同任务比较质量、内存和速度。",
+  "fact": "量化改变数值表示，质量影响取决于模型、方法、档位和任务。bpw 描述每个权重平均占多少比特，不是能力分数。需用相同任务比较质量、内存和速度。",
   "factEn": "Quantization changes numeric representation. Effects depend on model, method, tier and task. Bits per weight describe average storage, not capability; compare quality, memory and speed on equal tasks.",
   "objectives": null,
   "objectivesEn": null,
@@ -3695,7 +3695,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "显存装不下，就只能换显卡。",
   "mythEn": "If it does not fit in VRAM, the only option is a better graphics card.",
-  "fact": "部分运行器支持把一部分工作放到系统内存或 CPU，但还受总内存、架构支持和速度要求限制。先分别计算权重、缓存与运行时占用，再评估更小规格、量化或卸载方案。",
+  "fact": "部分运行器支持把一部分工作放到系统内存或 CPU。这样做仍受总内存、架构支持和速度要求限制。先分别计算权重、缓存与运行时占用，再评估更小规格、量化或卸载方案。",
   "factEn": "Some runtimes support system-memory/CPU offload, subject to total memory, architecture and speed constraints. Budget weights, cache and runtime separately before assessing smaller variants, quantization or offload.",
   "objectives": null,
   "objectivesEn": null,
@@ -3724,7 +3724,7 @@ var GUIDES = [
   "pointsEn": null,
   "myth": "只要接口兼容 OpenAI，换过去效果就一样。",
   "mythEn": "If the API is OpenAI-compatible, switching over gives the same behaviour.",
-  "fact": "兼容通常指某些请求与响应约定；支持范围、默认参数、流式、工具调用和错误处理仍需逐项核对。接口名称相同不代表产品行为或输出质量相同。",
+  "fact": "兼容通常指某些请求与响应约定。支持范围、默认参数、流式、工具调用和错误处理仍需逐项核对。接口名称相同不代表产品行为或输出质量相同。",
   "factEn": "Compatibility typically concerns specified request/response conventions. Check supported scope, defaults, streaming, tools and errors individually. Shared interface names do not establish equal behavior or output quality.",
   "objectives": null,
   "objectivesEn": null,
@@ -4090,15 +4090,15 @@ var GUIDES = [
   "ord": 8,
   "span": 8,
   "lead": {
-   "zh": "模型卡讲「这个模型是什么、怎么用」，系统卡与部署安全页讲「上线前测过什么、还担心什么」。两份要分开读、对照读。",
+   "zh": "模型卡讲「这个模型是什么、怎么用」。系统卡与部署安全页讲「上线前测过什么、还担心什么」。两份要分开读、对照读。",
    "en": "Model cards say what a model is and how to use it; system cards and deployment safety pages say what was tested before release and what still worries the publisher. Read them separately, and side by side."
   },
   "points": [
-   "先分清对象：模型卡面向使用者（用途、限制、评测口径、训练数据说明），系统卡或部署安全页面向风险关注者（测了哪些风险、结果如何、什么条件下继续推进）。",
-   "看它测了什么、没测什么：只有能力评测、没有失效场景说明的文档，撑不起高风险用途；反过来只讲风险、不给可核对的口径也不行。",
+   "先分清对象。模型卡面向使用者（用途、限制、评测口径、训练数据说明）。系统卡或部署安全页面向风险关注者（测了哪些风险、结果如何、什么条件下继续推进）。",
+   "看它测了什么、没测什么。只有能力评测、没有失效场景说明的文档，撑不起高风险用途。反过来只讲风险、不给可核对的口径也不行。",
    "版本与日期一起记：同一型号在不同批次的卡片上结果可能不同，引用时把版本号与发布日期写进你的记录。",
-   "重点读「不适合做什么」那一栏：厂商写明的失败场景与拒答行为比宣传语可用；没有这一栏的卡片要打折看。",
-   "对照自己的用途找缺口：你要跑的场景如果不在它的评测覆盖里，这个缺口要自己补测，不能靠外推补齐。",
+   "重点读「不适合做什么」那一栏：厂商写明的失败场景与拒答行为比宣传语可用。没有这一栏的卡片要打折看。",
+   "对照自己的用途找缺口。你要跑的场景如果不在它的评测覆盖里。这个缺口要自己补测，不能靠外推补齐。",
    "举个例子（虚构需求）：输入是团队想用某个模型做医疗问答初稿 → 处理是把它的模型卡与系统卡并排读，列出「有没有医疗相关评测」「已知拒答与幻觉说明写在哪一栏」→ 结果判断是若两类文档都没覆盖该场景，结论写「卡片不足以支持此用途」→ 下一步是把该场景写进自己的评测样本，小范围试跑并留记录，再决定是否接入。"
   ],
   "pointsEn": [
@@ -4485,7 +4485,7 @@ var GUIDES = [
   "ord": 1,
   "span": 15,
   "lead": {
-   "zh": "学员把前五个单元的证据汇成一页决策记录，按官方风险框架与提示注入条目做一次评审，写清未验证项与复核日。",
+   "zh": "学员把前五个单元的证据汇成一页决策记录。再按官方风险框架与提示注入条目做一次评审，写清未验证项与复核日。",
    "en": "Learners consolidate evidence from the first five units into a one-page decision record, review it against an official risk framework and prompt-injection guidance, and write unverified items and a review date."
   },
   "points": null,
@@ -4495,7 +4495,7 @@ var GUIDES = [
   "fact": null,
   "factEn": null,
   "objectives": [
-   "能写出一页决策记录：任务、候选、证据、风险与缓解、未验证项、复核日。",
+   "能写出一页决策记录。任务、候选、证据、风险与缓解、未验证项、复核日。",
    "能按模型卡口径核对候选的用途、限制、训练数据与评测条件，缺项写未知。",
    "能把记录按 GOVERN、MAP、MEASURE、MANAGE 四个功能归类，指出哪一栏还空着。",
    "能给出提示注入的缓解动作，含最小权限与高风险动作的人工批准。"
@@ -4507,9 +4507,9 @@ var GUIDES = [
    "Give prompt-injection mitigations including least privilege and human approval for high-risk actions."
   ],
   "materials": [
-   "NIST AI RMF 官方页与 AI RMF 1.0 正文：Part 2 的四个功能。",
-   "OWASP GenAI《LLM01:2025 Prompt Injection》官方条目：注入成因与缓解措施。",
-   "arXiv 1810.03993《Model Cards for Model Reporting》摘要：模型卡该写什么。",
+   "NIST AI RMF 官方页与 AI RMF 1.0 正文。Part 2 的四个功能。",
+   "OWASP GenAI《LLM01:2025 Prompt Injection》官方条目。注入成因与缓解措施。",
+   "arXiv 1810.03993《Model Cards for Model Reporting》摘要。模型卡该写什么。",
    "本站《怎么读模型卡》《怎么防提示注入》两篇指南作为课前阅读。",
    "一页决策记录模板，六栏同课时目标第一条。"
   ],
@@ -4521,7 +4521,7 @@ var GUIDES = [
    "A one-page decision-record template with the six columns from the first objective."
   ],
   "steps": [
-   "3 分钟定任务：写成可判定条件，含输入、输出、允许出错范围与复核人角色。",
+   "3 分钟定任务。写成可判定条件，含输入、输出、允许出错范围与复核人角色。",
    "4 分钟填证据：每个候选只写能回连来源的内容，缺项写未知。",
    "4 分钟做评审：按四个功能与提示注入条目列风险、缓解动作与责任角色。",
    "4 分钟写退出：给出退出条件与复核日，小组互评哪一栏最容易被跳过。"
@@ -4533,10 +4533,10 @@ var GUIDES = [
    "4-minute exit: give exit conditions and a review date; groups peer-review which column is most often skipped."
   ],
   "misconceptions": [
-   "以为评测分数高就可以上线；评测条件与自己的任务条件可能不同。",
-   "以为加了护栏就没有风险；权限、日志与人工复核仍在护栏之外。",
-   "以为合规框架能替自己做决定；NIST AI RMF 是自愿使用的框架，给结构不给结论。",
-   "以为开源或本地部署天然更安全；许可、数据路径与访问控制仍要逐项看。"
+   "以为评测分数高就可以上线。评测条件与自己的任务条件可能不同。",
+   "以为加了护栏就没有风险。权限、日志与人工复核仍在护栏之外。",
+   "以为合规框架能替自己做决定。NIST AI RMF 是自愿使用的框架，给结构不给结论。",
+   "以为开源或本地部署天然更安全。许可、数据路径与访问控制仍要逐项看。"
   ],
   "misconceptionsEn": [
    "Assuming a high evaluation score means ready to launch; evaluation conditions may differ from your task conditions.",

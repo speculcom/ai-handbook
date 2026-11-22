@@ -7,9 +7,9 @@ homepage: https://www.lakera.ai/
 mark: L
 accent: "#F26D6D"
 license: >-
-  商业 SaaS，不开源：官网与文档均未给出仓库或许可字段，本批次未抓到任何自托管发行物。
-  账号与数据条款的可读入口当日实测为跳转——lakera.ai/privacy-policy 301 到 checkpoint.com/privacy，
-  页脚署 Check Point；合规证书（SOC 2 / ISO 27001 等）在当日抓到的页面里未点名，属「未披露」而非「没有」。
+  商业 SaaS，不开源。官网与文档均未给出仓库或许可字段，本批次未抓到任何自托管发行物。
+  账号与数据条款的可读入口当日实测为跳转。lakera.ai/privacy-policy 301 到 checkpoint.com/privacy，
+  页脚署 Check Point。合规证书（SOC 2 / ISO 27001 等）在当日抓到的页面里未点名，属「未披露」而非「没有」。
 licenseEn: >-
   Commercial SaaS, not open source: neither the site nor the docs expose a repository or licence field, and no self-hosted
   artefact was captured in this pass. The readable terms entry is a redirect measured the same day —
@@ -36,7 +36,7 @@ axes:
 
     本机或私有化形态。本批次官方页面未提供口径，不补推断。
   local_files: >-
-    本机不落地：prompt 与响应由你的应用发出与收回。判定结果可在控制台的 Guard 结果面回看（文档列 /guard 与 /guard/results 两个端点）。
+    本机不落地：prompt 与响应由你的应用发出与收回。判定结果可在控制台的 Guard 结果面回看。文档列 /guard 与 /guard/results 两个端点。
 
     命中记录的导出格式、保留时长与删除方式。官方在册页未逐条给出，进 unknowns。
   background: >-
@@ -48,11 +48,11 @@ axes:
   tools: >-
     API 面两个端点在册（/guard 与 /guard/results）。响应含 flagged 布尔判定。集成面见 model_access 维那份清单。
 
-    其中「MCP servers」被官方列进受保护对象面——也就是说它既可作为 MCP 侧的防护。也把 MCP server 当被检对象。具体传输方式与工具审批语义。本批次按官方文档口径。
+    其中「MCP servers」被官方列进受保护对象面。也就是说它既可作为 MCP 侧的防护。也把 MCP server 当被检对象。具体传输方式与工具审批语义。本批次按官方文档口径。
   context: >-
     **依据：** 判定按单次文本请求组织，策略按 project 分档（Project mode 决定「block the interaction or logging for investigation」）， 因此它的「记忆」面就是项目与策略配置，不是跨会话上下文。跨会话记忆或历史串联：官方文档不展开，不补推断。
   permissions: >-
-    按官方条款逐条读：隐私入口当日 301 到 checkpoint.com/privacy。主体写作「Check Point Software Technologies Ltd.」。
+    按官方条款逐条读。隐私入口当日 301 到 checkpoint.com/privacy。主体写作「Check Point Software Technologies Ltd.」。
 
     **依据：** 留存原文是「We will retain your information for as long as necessary to achieve the purposes described in this **依据：** Privacy Policy.」。
 
@@ -64,15 +64,15 @@ axes:
 
     商业档位：pricing 入口当日跳转 platform.lakera.ai/pricing。未渲染出档位正文，报价本档不采。
   fit: >-
-    适合：要在请求链路里实时管住 prompt injection / jailbreak / PII 泄露 / 违规内容。并且接受检测跑在厂商侧。策略要能在「阻断」与「只留档」之间按项目切换。
+    适合：要在请求链路里实时管住 prompt injection、jailbreak、PII 泄露与违规内容。并且接受检测跑在厂商侧。策略要能在「阻断」与「只留档」之间按项目切换。
 
     栈里已经有 Bedrock、Copilot Studio、Agentforce、n8n 或 MCP server。不适合：必须离线或私有化部署（官方页面未提供该口径）。
 
     要换掉/自选底层检测模型。只想自己跑一轮可复现扫描留工程证据 （那是 garak 与 PyRIT 的方向）。Red 评估还要联系团队、非自助开通。
 pitfalls:
   - 把官网三条产品线当成可自托管组件：当日在册只有托管控制台 + Bearer API
-  - 把 Project mode 的「block」读成拦截比例：官方在册的是策略开关，不给任何比例结论
-  - 还按 Lakera 旧主体读数据条款：privacy 与 security 入口当日均 301 到 Check Point 侧
+  - 把 Project mode 的「block」读成拦截比例。官方在册的是策略开关，不给任何比例结论
+  - 还按 Lakera 旧主体读数据条款。privacy 与 security 入口当日均 301 到 Check Point 侧
 
 tags: [云端, 商业, guardrails, API, 多平台]
 related: [azure-ai-content-safety, pyrit, n8n]
@@ -120,7 +120,7 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: 当日在册的属地证据只有官网页脚与隐私条款跳转指向 Check Point 主体；Lakera 自身的注册主体与国籍背景本批次按官方文档口径，故按 foreign 记录。
+  origin_note: 当日在册的属地证据只有官网页脚与隐私条款跳转指向 Check Point 主体。Lakera 自身的注册主体与国籍背景本批次按官方文档口径，故按 foreign 记录。
   origin_note_en: The only locality evidence on record the same day is the site footer and the privacy redirect pointing at the Check Point entity; Lakera's own registering entity and nationality background were not verified item by item, so it is recorded as foreign.
   direct: unknown
   direct_note: lakera.ai、docs.lakera.ai 与 checkpoint.com 当日从当前网络取到 200/301，但未在大陆网络环境做直连实测，故不补推断。
@@ -139,25 +139,29 @@ cn:
 
 工程侧能看到的是 platform.lakera.ai 的控制台加api.lakera.ai 的 Bearer API。
 
-**和本大类另外两份红队档案的分工很直白**：garak 与 PyRIT 是「你自己跑、跑完留证据」，Lakera 是「你的请求每次经过它、它给一个 flagged 判定并允许你选择阻断还是留档」。
+**和本大类另外两份红队档案的分工很直白**：garak 与 PyRIT 是「你自己跑、跑完留证据」。Lakera 是「你的请求每次经过它，它给一个 flagged 判定」。你可选阻断或留档。
 
-当日另一个必须记的事实是**归属与条款入口已经统一到 Check Point**（privacy 与 security 都 301 过去）。
+当日另一个必须记的事实是归属与条款入口已统一到 Check Point。privacy 与 security 都 301 过去。
 
 ## 适合与不适合
 
-适合：要在链路里实时管住 prompt injection / jailbreak / PII 泄露 / 违规内容，并接受检测跑在厂商侧。策略需要按项目在「block the interaction」与「logging for investigation」之间切换。
+适合：要在链路里实时管住 prompt injection、jailbreak、PII 泄露与违规内容。也要接受检测跑在厂商侧。
+
+策略需要按项目在「block the interaction」与「logging for investigation」之间切换。
 
 栈里已经有 Amazon Bedrock、Google Cloud、Microsoft Copilot Studio、Salesforce Agentforce、n8n、Relevance AI 或 MCP server。
 
-不适合：必须离线或私有化（官方页面未提供该口径）、要替换或自选底层检测模型、只想跑一轮可复现扫描留工程证据、以及需要自助开通的红队评估（Red 需联系团队）。
+不适合：必须离线或私有化（官方页面未提供该口径）。要替换或自选底层检测模型。只想跑一轮可复现扫描留工程证据。以及需要自助开通的红队评估（Red 需联系团队）。
 
 ## 实测记录
 
-**本档未做端到端实测**：没有发起过 /guard 调用，没有跑过 Red 评估项目。不产出延迟、准确率或任何比例结论也不做产品排名。
+**本档未做端到端实测**
 
-本档案只组织官网、跳转事实、Check Point 隐私条款、四个 Docs 页面与 Changelog 在册的说法。**实测建议**（四条）：
+没有发起过 /guard 调用，没有跑过 Red 评估项目。不产出延迟、准确率或任何比例结论也不做产品排名。
 
-- **策略分档的实际语义**：Project mode 选「logging」时，你的应用拿到的是什么形态的响应（flagged 字段与后续处置）
+本档案只组织官网、跳转事实与 Check Point 隐私条款。还组织四个 Docs 页面与 Changelog 的在册说法。**实测建议**（四条）：
+
+- **策略分档的实际语义**：Project mode 选「logging」时。你的应用拿到的是什么形态的响应（flagged 字段与后续处置）
 - **响应里 model_version 的可追溯性**：能否用于变更审计，官方文档不展开
 - **客户 prompt 内容的留存期与删除路径**（条款未逐条区分，见 unknowns）
 - **私有化/自托管是否存在**（当日官方页面未提供任何官方口径）
@@ -174,8 +178,8 @@ sitemap 可回溯到 2023-10-05，条目大致两周一条。**这条变化对�
 
 - 能确认的判定类别（官方 Guard 页在册）：prompt attacks / data leakage / content violations，含 jailbreak、PII、
   **依据：** 攻击性与违规内容，以及「dangerous actions outside the agent's trusted mandate」这类 agent 越权动作。
-- 判定形式是**每次请求返回的布尔与分类**，不是覆盖率证明；类别名字说明的是测试语义，本档不做比例换算。
-- 检测发生在 Lakera/Check Point 侧，这意味着数据出境与留存是选型的第一道问题——而当日条款文本只覆盖个人信息与遥测，
+- 判定形式是**每次请求返回的布尔与分类**，不是覆盖率证明。类别名字说明的是测试语义，本档不做比例换算。
+- 检测发生在 Lakera/Check Point 侧。这意味着数据出境与留存是选型的第一道问题——而当日条款文本只覆盖个人信息与遥测，
   **客户 prompt 内容的留存与训练用途未逐条在册**。
 
 ## 未知项清单
@@ -192,12 +196,12 @@ sitemap 可回溯到 2023-10-05，条目大致两周一条。**这条变化对�
 ## 相关条目
 
 - [Azure AI Content Safety](./azure-ai-content-safety.md) — 同为托管内容安全 API：那份挂在 Azure 账号与区域口径下，本档案挂在 Check Point 主体的 SaaS 条款下。
-- [PyRIT](./pyrit.md) — 同一问题的两端：本档案是链路里的托管判定，那份是你自己编排、自己留记录的红队流程。
+- [PyRIT](./pyrit.md) — 同一问题的两端：本档案是链路里的托管判定。那份是你自己编排、自己留记录的红队流程。
 - [n8n](../../automation/products/n8n.md) — 官方在册的集成面之一：agent 工作流平台是它被防护的对象形态。
 
 ## 部署建议
 
-1. 先解决尽调问题：客户 prompt 是否出境、留存多久、是否进训练——当日条款文本**没有**逐条回答这三问，要拿 DPA 再判。
-2. 灰度时先让 Project mode 走「logging」，把 flagged 的处置权留在自己应用里，再决定何时切「block」。
+1. 先解决尽调问题：客户 prompt 是否出境、留存多久、是否进训练。当日条款文本**没有**逐条回答这三问。要拿 DPA 再判。
+2. 灰度时先让 Project mode 走「logging」。把 flagged 的处置权留在自己应用里，再决定何时切「block」。
 3. 把响应里的 model_version / git_revision 记进你的变更日志，否则事后无法举证当时用的是哪一版检测。
-4. 红队需求先分清：要工程可复现的探针记录走 PyRIT/garak，要一份带整改建议的托管评估再联系 Lakera Red。
+4. 红队需求先分清：要工程可复现的探针记录走 PyRIT/garak。要一份带整改建议的托管评估再联系 Lakera Red。

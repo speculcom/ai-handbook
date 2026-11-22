@@ -59,12 +59,14 @@ confidence: partial
 | 框架类文件 | 风险管理的结构与做法 | 它是自愿采用还是强制要求 |
 
 厂商自述页通常给索引而非全量数据。
-Anthropic 透明度页列出部分安全评估摘要与一份完整 system card。
+Anthropic 透明度页列出部分安全评估摘要，以及一份完整 system card。
 条目按政治倾向、诚实性、agent 安全等分开。
+
 **本页只描述其索引形态**：条目分得细，不代表每个条目都有同等深度的数据。
 
 学术一侧，Model Cards 论文建议随模型发布一份简短的表现说明。
 **论文摘要原文**（英文）把它定义为 "short documents accompanying trained machine learning models"。
+
 这句话的含义是：报告的价值在「分条件的表现」，不在一个总分。
 
 ## [读报告的七个步骤|Seven reading steps]
@@ -79,7 +81,9 @@ Anthropic 透明度页列出部分安全评估摘要与一份完整 system card�
 
 第 3 步与第 5 步通常省事。跨国评估类报告自身就强调缺口：
 International AI Safety Report 官方站写明，
+
 **原文**（英文）："significant gaps remain: sophisticated attackers can often bypass current defences"
+
 同一页面还说明它的统筹方式：报告由 30 多个国家提名的国际专家咨询小组统筹。
 撰写者与资助方公开可查。
 
@@ -126,8 +130,9 @@ International AI Safety Report 官方站写明，
 
 ## [核验范围与未知|What was verified and what is not]
 
-2026-11-06 直抓了五处来源页面：Model Cards 论文摘要页、
+2026-11-06 直抓了五处来源页面。包括 Model Cards 论文摘要页、
 International AI Safety Report 官方站、英国 AI Security Institute 政府组织页、
+
 Anthropic 透明度页、NIST AI 风险管理框架页。
 本篇只转述这些页面自身写明的内容，未读取任何完整报告的正文数据。
 

@@ -5,14 +5,14 @@ name: 魔音工坊
 nameEn: Moyin Workshop
 vendor: 出门问问
 homepage: https://www.moyin.com
-license: 免费试用+订阅。按官方用户协议页管辖（moyin.com/protocol，2026-11-21 取得）；声音复刻需会员并遵守授权条款（2026-11-21）。
+license: 免费试用+订阅。按官方用户协议页管辖（moyin.com/protocol，2026-11-21 取得）。声音复刻需会员并遵守授权条款（2026-11-21）。
 licenseEn: Free trial plus subscription. Governed by the official user agreement (moyin.com/protocol, fetched 2026-11-21); voice cloning requires membership and compliance with consent terms (2026-11-21).
 
 axes:
   model_access: >-
     出门问问自研 TTS 线。官方教程页标「第五代 TTS 引擎」、48k 超高清。
 
-    声音克隆分高效版（在线录音 20 句，数小时）、品质版（100+ 句音频与文本，2–3 个工作日）、定制版（专业录制 500 句，5–7 个工作日），并开放 API 调用（2026-11-21）。
+    声音克隆分三档。高效版在线录音 20 句，数小时完成。品质版要 100+ 句音频与文本，2–3 个工作日。定制版要专业录制 500 句，5–7 个工作日。三档都开放 API 调用。
   runtime: >-
     网页 moyin.com 为主入口。另有 App、小程序与「序列猴子」开放平台 API。合成在厂商云端。编辑器内逐句试听、滑选试听与全文合成都在浏览器完成（2026-11-21）。
   local_files: >-
@@ -20,7 +20,7 @@ axes:
   background: >-
     交互式编辑+合成。长文合成等待时间随文章长度增加，失败后联系客服或重新提交。工作流以逐句编辑、试听、再合成为主。没有可暂停的云端任务队列（2026-11-21）。
   tools: >-
-    文本配音（多音色/情感/语速）、逐句试听、多音字/韵律/数字符号纠错、停顿与静音插入（默认段间 600ms）、多人配音（按段指派发音人）、声音转换、「捏声音」、视频云剪辑与一键解析视频（2026-11-21）。
+    文本配音支持多音色、情感与语速。编辑器可逐句试听，并纠多音字、韵律与数字符号。还能插入停顿与静音，默认段间 600ms。多人配音按段指派发音人。另有声音转换、捏声音、视频云剪辑与一键解析视频。
   context: >-
     以「专辑」为项目上下文。每专辑有管理员/主编/编辑三类角色，数据与操作只属当前专辑，可实时切换。这是团队工作区隔离，不是对话记忆。音色资产负责跨文章一致性（2026-11-21）。
   permissions: >-
@@ -28,11 +28,11 @@ axes:
 
     协议禁止非法克隆 TTS 数据、侵犯他人声音权益（2026-11-21）。
   fit: >-
-    适合：中文配音流水线（有声书/短视频/课件）、多人协作专辑、自有声音复刻、国内直连。不适合：克隆他人声音（授权红线）、要开放权重/离线部署、英文向主打（2026-11-21）。
+    适合：中文配音流水线（有声书/短视频/课件）。多人协作专辑。自有声音复刻。国内直连。不适合：克隆他人声音（授权红线）。要开放权重/离线部署。英文向主打（2026-11-21）。
 pitfalls:
   - 算法备案（网信算备…号）≠生成式 AI 服务备案号——两套编号两套口径，引用别混
   - 声音复刻的授权验证与商用边界按官方协议——「功能可用」不等于「随便克隆」
-  - 出门问问产品线多（魔音工坊/奇妙元等）——本档案只管魔音工坊，关联产品不在口径内
+  - 出门问问产品线多（魔音工坊/奇妙元等）。本档案只管魔音工坊，关联产品不在口径内
 
 tags: [免费+订阅, 中文配音, 声音复刻, 国产直连, 算法备案]
 related: [minimax-audio, fish-audio, hailuo-video]
@@ -74,7 +74,7 @@ cn:
   direct_note_en: moyin.com measured 200 direct from mainland (2026-10-22).
   filing: unknown
   filing_note: 出门问问语音合成类算法在深度合成算法备案清单内（批次清单经第三方镜像转述，
-    原始附件未直抓到——编号以 beian.cac.gov.cn 官方查询为准）；生成式 AI 服务备案号未核验到
+    原始附件未直抓到——编号以 beian.cac.gov.cn 官方查询为准）。生成式 AI 服务备案号未核验到
     （2026-10-22 检索）——「未核验到」≠「未备案」。
   filing_note_en: Mobvoi's speech-synthesis algorithm appears in the deep-synthesis algorithm-filing list
     (the batch list was relayed via a third-party mirror; the original attachment was not directly fetched —
@@ -99,7 +99,7 @@ cn:
 克隆授权严格度、多人协作效率与情感粒度需按账号实测。
 ## 未知项清单
 
-- 生成式 AI 服务备案号：按 beian.cac.gov.cn 查询（算法备案与服务备案分属两套编号）。
+- 生成式 AI 服务备案号。按 beian.cac.gov.cn 查询（算法备案与服务备案分属两套编号）。
 - 训练用途开关：按官方协议与隐私页核对。
 - 商用授权的档位边界：按会员协议原文核对。
 - 跨会话记忆：产品按专辑隔离，跨专辑不互通，对话式记忆不在产品面。

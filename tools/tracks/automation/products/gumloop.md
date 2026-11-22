@@ -5,8 +5,8 @@ name: Gumloop
 nameEn: Gumloop
 vendor: Gumloop
 homepage: https://www.gumloop.com
-license: 闭源商业产品，按官方 ToS 管辖（当日直抓在册：主体 AgentHub Inc. (doing business as Gumloop)，
-  ToS 更新日 2026-10-07）；GitHub 上 gumloop org 只有 gumloop-py/gumloop-js 等 Apache-2.0 SDK 仓，
+license: 闭源商业产品，按官方 ToS 管辖（当日直抓在册。主体 AgentHub Inc. (doing business as Gumloop)，
+  ToS 更新日 2026-10-07）。GitHub 上 gumloop org 只有 gumloop-py/gumloop-js 等 Apache-2.0 SDK 仓，
   产品本体未见开源发行。
 licenseEn: Closed commercial product governed by the official ToS (direct-fetched same day: entity AgentHub Inc.
   (doing business as Gumloop), ToS last updated 2026-10-07); on GitHub the gumloop org only hosts Apache-2.0 SDK repos
@@ -14,7 +14,7 @@ licenseEn: Closed commercial product governed by the official ToS (direct-fetche
 
 axes:
   model_access: >-
-    多模型选择器是产品显性面（首页当日在册：Agent Settings 的 Model 项「Smartest (Claude 5.5 Opus)」； 用量面板列 GPT-6.1 Sol / Claude Opus 5.5 / Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 各家消耗）—— 模型按 credits 消耗计费。
+    多模型选择器是产品显性面（首页当日在册：Agent Settings 的 Model 项「Smartest (Claude 5.5 Opus)」； 用量面板列 GPT-6.1 Sol / Claude Opus 5.5 / Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 各家消耗）。 模型按 credits 消耗计费。
 
     各家可用清单以界面为准。
   runtime: >-
@@ -22,7 +22,7 @@ axes:
 
     agent 运行在 Gumloop 云端，按 credits 计量。
   local_files: >-
-    工作流与 agent 数据在 Gumloop 云端。本地文件概念不适用——产物经连接器（Slack/HubSpot/Gong/Gmail/ Salesforce）落在第三方系统。
+    工作流与 agent 数据在 Gumloop 云端。本地文件概念不适用。产物经连接器（Slack/HubSpot/Gong/Gmail/ Salesforce）落在第三方系统。
 
     SDK（gumloop-py/js）提供代码侧接入面但运行时仍在云端。
   background: >-
@@ -38,13 +38,13 @@ axes:
   permissions: >-
     企业向（导航 Enterprise 栏目在册）。ToS 主体 AgentHub Inc. dba Gumloop（当日在册）。credits 计费模式在册。训练用途开关路径按官方文档口径。
   fit: >-
-    适合：GTM/客服场景的多模型 agent（画布+连接器）、要按 credits 统一用量治理（Model Providers 面板）。
+    适合：GTM/客服场景的多模型 agent（画布+连接器）。要按 credits 统一用量治理（Model Providers 面板）。
 
     不适合：要自托管、要大陆直连备案入口、要免费无限量（credits 制）。
 pitfalls:
-  - 条款主体是 **AgentHub Inc. (doing business as Gumloop)**——品牌名与法律主体不同名，引用主体按 ToS 原文
-  - 条款路径是 /tos（/terms、/legal/terms 均 404）——按惯例路径探测会误判「无条款页」
-  - 多模型面板显示的是**用量归因**（各家 token 消耗）不是「可任意指定任意模型」——具体可选清单以界面为准
+  - 条款主体是 **AgentHub Inc. (doing business as Gumloop)**。品牌名与法律主体不同名，引用主体按 ToS 原文
+  - 条款路径是 /tos（/terms、/legal/terms 均 404）。按惯例路径探测会误判「无条款页」
+  - 多模型面板显示的是**用量归因**（各家 token 消耗）不是「可任意指定任意模型」。具体可选清单以界面为准
 
 tags: [低代码, agent平台, 多模型选择, MCP, 集成生态, 云托管, credits计费, 商业]
 related: [lindy, n8n, langchain]
@@ -79,19 +79,25 @@ cn:
   direct_note: www.gumloop.com、/tos、/privacy-policy、/changelog 大陆直连实测 200（2026-10-30）。
   direct_note_en: www.gumloop.com, /tos, /privacy-policy and /changelog measured 200 direct from mainland (2026-10-30).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与第十六批批次清单，未见 Gumloop/AgentHub 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与第十六批批次清单，未见 Gumloop/AgentHub 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page and the 16th batch list searched 2026-10-30; no Gumloop/AgentHub entry); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30
 ---
 
 ## 一句话定位
 
-**Gumloop**：画布+连接器形态的企业向 AI agent 平台。多模型选择器是显性卖点：（首页当日招牌：Build AI agentsfor work。Agent Settings 里 Model 可选「Smartest (Claude 5.5 Opus)」。用量面板按 GPT-6.1 Sol / Claude Opus 5.5 /Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 归因 credits 消耗）：GTM/客服场景用例为主轴。法律主体是 AgentHub Inc.。
+**Gumloop**：画布+连接器形态的企业向 AI agent 平台。多模型选择器是显性卖点：（首页当日招牌。Build AI agentsfor work。
+
+Agent Settings 里 Model 可选「Smartest (Claude 5.5 Opus)」。
+
+用量面板按 GPT-6.1 Sol / Claude Opus 5.5 /Grok 4.7 / Kimi K3 / DeepSeek V4.1 Flash 归因 credits 消耗）。GTM/客服场景用例为主轴。
+
+法律主体是 AgentHub Inc.。
 
 ## 适合与不适合
 
-适合：GTM/客服多模型 agent（画布+连接器+Skills）、要按 credits 统一治理各家模型用量。
-不适合：要自托管（社区复刻≠官方）、要大陆直连备案入口、要免费无限量（credits 制）。
+适合：GTM/客服多模型 agent（画布+连接器+Skills）。要按 credits 统一治理各家模型用量。
+不适合：要自托管（社区复刻≠官方）。要大陆直连备案入口。要免费无限量（credits 制）。
 
 ## 实测记录
 
@@ -113,5 +119,5 @@ cn:
 ## 相关条目
 
 - [Lindy](./lindy.md) — 同为工作 agent 平台：Lindy 是雇佣式「AI 员工」，Gumloop 是画布+连接器的自建 agent。
-- [n8n](./n8n.md) — 集成自动化对照：n8n fair-code 可自托管；Gumloop 全托管、agent 与多模型治理为主轴。
-- [LangChain](../../framework/products/langchain.md) — 代码优先对照：要源码级控制归 framework，要托管画布归本类。
+- [n8n](./n8n.md) — 集成自动化对照：n8n fair-code 可自托管。Gumloop 全托管、agent 与多模型治理为主轴。
+- [LangChain](../../framework/products/langchain.md) — 代码优先对照：要源码级控制归 framework。要托管画布归本类。

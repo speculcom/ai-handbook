@@ -9,9 +9,11 @@ licenseEn: Proprietary (closed-source; no open-source license published on the s
 
 axes:
   model_access: >-
-    **混合面**——本地模型（GGUF 下载/管理，llama.cpp 系底座）+ 云端模型接入（OpenAI/Anthropic 等 API key 接入）。
+    **混合面**。本地模型支持 GGUF 下载与管理，底座是 llama.cpp 系。
 
-    产品矩阵四线：Studio（桌面主应用）/Go（移动端）/Nexus（企业私有 LLM 平台）/Stack（云端托管）。
+    云端模型可接 OpenAI、Anthropic 等 API key。
+
+    产品矩阵四线。Studio 是桌面主应用，Go 是移动端。Nexus 是企业私有 LLM 平台，Stack 是云端托管。
   runtime: >-
     **桌面 GUI 应用**（Windows/macOS）+ 移动端 Go。本地推理走内置 llama.cpp 系底座。
 
@@ -31,9 +33,9 @@ axes:
   fit: >-
     适合：要「本地+云端一个桌面应用」的混合使用。企业私有 LLM（Nexus 线）。不适合：要开源可审计栈（闭源）。只要纯 CLI 服务化（vLLM/TGI 那条线）。
 pitfalls:
-  - 用旧域 msty.app——301→msty.ai（www.msty.app 直连 000）；现役域是 msty.ai（2026-10-31 核验）
-  - 把四产品线混为一谈——Studio（桌面）/Go（移动）/Nexus（企业私有）/Stack（云托管）是不同产品，能力与计费面不同
-  - 闭源当开源用——无公开源码许可；隐私/遥测口径只能按官网自述，不可代码核验
+  - 用旧域 msty.app。301→msty.ai（www.msty.app 直连 000）。现役域是 msty.ai（2026-10-31 核验）
+  - 把四产品线混为一谈。Studio（桌面）/Go（移动）/Nexus（企业私有）/Stack（云托管）是不同产品，能力与计费面不同
+  - 闭源当开源用——无公开源码许可。隐私/遥测口径只能按官网自述，不可代码核验
 
 tags: [本地推理, 桌面应用, 混合, 闭源, RAG, 私有化]
 related: [lm-studio, jan, ollama, chatgpt]
@@ -58,7 +60,7 @@ cn:
   origin_note: Msty（CloudStack, LLC，美国厂商，官网口径）。
   origin_note_en: Msty (CloudStack, LLC, a US vendor per the official site).
   direct: yes
-  direct_note: msty.ai 直连 200；旧域 msty.app 301→msty.ai、www.msty.app 直连 000（2026-10-31）。
+  direct_note: msty.ai 直连 200。旧域 msty.app 301→msty.ai、www.msty.app 直连 000（2026-10-31）。
   direct_note_en: msty.ai returned 200 direct; the legacy msty.app 301-redirects to msty.ai and www.msty.app measured 000 direct (2026-10-31).
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-10-31 检索）。
@@ -68,9 +70,9 @@ cn:
 
 ## 一句话定位
 
-**Msty：本地+云端混合的桌面 LLM 应用**：（闭源，CloudStack, LLC）——Studio 桌面应用跑本地 GGUF（llama.cpp 系底座）也接云端 API。产品线四线 Studio/Go/Nexus/Stack。
+**Msty 是本地加云端混合的桌面 LLM 应用**：闭源，CloudStack, LLC。Studio 桌面应用跑本地 GGUF，底座是 llama.cpp 系，也接云端 API。产品线四线，含 Studio、Go、Nexus 与 Stack。
 
-口径要点：**现役域 msty.ai（旧域 msty.app 301、www.msty.app 直连 000）**；闭源——隐私与能力口径按官网自述，不可代码核验。
+口径要点：**现役域 msty.ai（旧域 msty.app 301、www.msty.app 直连 000）**。闭源——隐私与能力口径按官网自述，不可代码核验。
 
 ## 适合与不适合
 
@@ -89,7 +91,7 @@ cn:
 
 ## 相关条目
 
-- [LM Studio](./lm-studio.md) — 同类：桌面 GUI 本地模型应用；LM Studio 免费闭源、Msty 混合云端+企业线更重。
+- [LM Studio](./lm-studio.md) — 同类：桌面 GUI 本地模型应用。LM Studio 免费闭源、Msty 混合云端+企业线更重。
 - [Jan](./jan.md) — 同类：开源桌面 GUI 对照 Msty 闭源桌面 GUI。
 - [Ollama](./ollama.md) — 底座对照：桌面 GUI 类应用多挂 llama.cpp/Ollama 式本地推理底座。
-- [ChatGPT](../../chat/products/chatgpt.md) — 混合面对照：Msty 一个应用同时接本地与云端模型；ChatGPT 只有云端线——混合架构的取舍（一个入口两种数据边界）正是它的产品主张。
+- [ChatGPT](../../chat/products/chatgpt.md) — 混合面对照：Msty 一个应用同时接本地与云端模型。ChatGPT 只有云端线。混合架构的取舍（一个入口两种数据边界）正是它的产品主张。

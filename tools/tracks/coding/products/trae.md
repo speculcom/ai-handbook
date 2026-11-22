@@ -7,13 +7,13 @@ homepage: https://www.trae.ai
 
 axes:
   model_access: >-
-    官方文档（docs.trae.ai/ide/models）明示内置多模型并支持 API key 添加自定义模型。
+    官方文档 docs.trae.ai/ide/models 明示内置多模型。它也支持 API key 添加自定义模型。
 
-    内置清单随版本变化（本次抓到的清单含 GPT 系/DeepSeek/Gemini 系等条目，未逐条清点为完整列表）。
+    内置清单随版本变化。本次抓到 GPT 系、DeepSeek、Gemini 系等条目，未逐条清点为完整列表。
 
     国际版（trae.ai）与国内版（trae.cn）模型面不同，以各自官方页为准。
   runtime: >-
-    官方口径三客户端。Desktop（独立应用，不依赖 TRAE IDE 运行，支持本地与云任务）、 Web（云端环境免安装）、Mobile（派发管理任务，设备离线自动切云执行）。
+    官方口径三客户端。Desktop 是独立应用，不依赖 TRAE IDE 运行，支持本地与云任务。Web 是云端环境，免安装。Mobile 可派发管理任务，设备离线自动切云执行。
 
     Desktop 给 Agent 窗口与 IDE 窗口双窗口。IDE 窗口内 IDE 模式与 SOLO 模式切换。
   local_files: >-
@@ -21,21 +21,21 @@ axes:
 
     云任务线的数据边界按官方文档口径。
   background: >-
-    后台/异步面是官方叙事的一部分。Desktop 支持长任务交云、Mobile 跨设备监控任务进度、 离线自动切云执行——任务状态三端同步（官方文档口径）。
+    后台/异步面是官方叙事的一部分。Desktop 支持长任务交云。Mobile 可跨设备监控任务进度，离线自动切云执行。任务状态三端同步（官方文档口径）。
   tools: >-
-    agent 可搜代码库、多步计划、调工具。自定义 agent 可配 prompt/MCP 服务器/工具集（官方文档明示 MCP 配置面）。CUE 补全线（多行编辑/下一编辑预测）独立成页。
+    agent 可搜代码库、多步计划、调工具。自定义 agent 可配 prompt、MCP 服务器与工具集。官方文档明示 MCP 配置面。CUE 补全线（多行编辑/下一编辑预测）独立成页。
   context: >-
     上下文可喂文件/文件夹/代码片段/终端输出/仓库/文档集/网页（官方文档列举）。跨会话没有独立记忆入口，复用靠项目与规则文件。
   permissions: >-
-    账号体系（字节侧账号）。Privacy mode 开关（开启后官方声明不用你的聊天/代码/输出做分析、优化、训练）。沙箱执行开关。企业/团队管控面按官方文档口径。
+    账号体系（字节侧账号）。Privacy mode 是开关。开启后官方声明不用你的聊天、代码与输出做分析、优化或训练。沙箱执行开关。企业/团队管控面按官方文档口径。
   fit: >-
-    适合：要桌面+Web+移动三端同一任务流、SOLO 模式整段委托、内置多模型免自己配 key 起步。
+    适合：要桌面+Web+移动三端同一任务流。SOLO 模式整段委托。内置多模型免自己配 key 起步。
 
-    不适合：要国内版国际版功能一致的预期（两条线）、要完全离线使用（云任务线是产品语义一部分）。
+    不适合：要国内版国际版功能一致的预期（两条线）。要完全离线使用（云任务线是产品语义一部分）。
 pitfalls:
-  - 国际版 trae.ai 与国内版 trae.cn 是两条线——模型清单与功能面别互相推断
-  - 「代码不出本机」是 Privacy mode 语境的官方声明——云任务/Web/Mobile 线的数据边界要单独看（按官方文档口径）
-  - SOLO 模式是「AI 主导全流程」（官方原文 AI takes the lead）——与 IDE 模式的控制权假设完全不同，按任务复杂度切
+  - 国际版 trae.ai 与国内版 trae.cn 是两条线。模型清单与功能面别互相推断
+  - 「代码不出本机」是 Privacy mode 语境的官方声明。云任务/Web/Mobile 线的数据边界要单独看（按官方文档口径）
+  - SOLO 模式是「AI 主导全流程」（官方原文 AI takes the lead）。与 IDE 模式的控制权假设完全不同，按任务复杂度切
 
 tags: [国产, 免费+付费, 桌面, Web, 移动, SOLO, 自定义模型, MCP]
 related: [cursor, claude-code-cli, codebuddy, figma-mcp]
@@ -61,13 +61,13 @@ confidence: verified
 
 cn:
   origin: domestic
-  origin_note: 字节跳动（北京字节跳动科技有限公司体系）；国际版与国内版两条线。
+  origin_note: 字节跳动（北京字节跳动科技有限公司体系）。国际版与国内版两条线。
   origin_note_en: ByteDance; two lines — international (trae.ai) and domestic (trae.cn).
   direct: yes
   direct_note: trae.ai / www.trae.ai / trae.cn / docs.trae.ai 大陆直连实测 200（2026-10-21）。
   direct_note_en: trae.ai / www.trae.ai / trae.cn / docs.trae.ai measured 200 direct from mainland (2026-10-21).
   filing: unknown
-  filing_note: 国内版所用模型的备案信息官方文档未单列官方公示页（docs.trae.cn 为动态加载，本次页面未给可抓正文正文）；
+  filing_note: 国内版所用模型的备案信息官方文档未单列官方公示页（docs.trae.cn 为动态加载，本次页面未给可抓正文正文）。
     「官方文档未单列」不等于「未备案」。
   filing_note_en: no official filing disclosure page verified for the domestic edition's models
     (docs.trae.cn is dynamically loaded; body not fetched in the 2026-10-08 pass); "not verified" does not mean "not filed".
@@ -76,7 +76,7 @@ cn:
 
 ## 一句话定位
 
-**Trae 是字节跳动的三端 AI IDE**（桌面/Web/移动）：Desktop 双窗口（Agent/IDE）+ SOLO 模式整段委托，内置多模型可加自定义 key。
+**Trae 是字节跳动的三端 AI IDE，覆盖桌面、Web 与移动**：Desktop 有 Agent/IDE 双窗口，另有 SOLO 模式做整段委托。内置多模型，可加自定义 key。
 
 Privacy mode 与沙箱执行是官方显式给的开关。
 

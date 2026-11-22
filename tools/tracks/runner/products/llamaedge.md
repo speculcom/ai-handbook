@@ -9,11 +9,11 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-31).
 
 axes:
   model_access: >-
-    **GGUF 本地权重 + WASM 应用层**——模型走 GGML/AUTO 预加载（README 命令口径）。
+    **GGUF 本地权重加 WASM 应用层**：模型走 GGML/AUTO 预加载，README 命令口径。
 
-    推理逻辑编成 Wasm 应用（llama-chat.wasm 等）跑在 WasmEdge 运行时上。
+    推理逻辑编成 Wasm 应用，如 llama-chat.wasm。它跑在 WasmEdge 运行时上。
 
-    覆盖 LLM/embedding/语音转写/TTS/文生图/多模态六类模型线（README 分类链接）。
+    覆盖 LLM、embedding、语音转写、TTS、文生图与多模态六类模型线，README 分类链接。
   runtime: >-
     **WasmEdge 运行时上的跨平台 Wasm 应用**——「cross-platform portable Wasm app that can run on many CPU and GPU devices」（README）。
 
@@ -39,10 +39,10 @@ axes:
 
     要 llama.cpp 原生全特性面（WASM 层是转译路线）。
 pitfalls:
-  - 按旧 org 名找仓——现役主仓 LlamaEdge/LlamaEdge（README 内仍引 second-state/LlamaEdge 下载链接，两 org 同生态）
-  - 把推送停 2026-02-08 当停运——llamaedge.com 文档线在线（直连 200）、release 0.29.0 同日发布；lifecycle 按 maintenance 口径
-  - 忘装 WasmEdge 前置——它不是独立二进制 runner，是 WasmEdge 上跑 .wasm 应用；install_v2.sh 是第一步
-  - 把六类模型线当同等成熟——LLM 线是主仓主线，embedding/语音/图像线在各自仓与文档页，成熟度不同
+  - 按旧 org 名找仓。现役主仓 LlamaEdge/LlamaEdge（README 内仍引 second-state/LlamaEdge 下载链接，两 org 同生态）
+  - 把推送停 2026-02-08 当停运。llamaedge.com 文档线在线（直连 200）、release 0.29.0 同日发布。lifecycle 按 maintenance 口径
+  - 忘装 WasmEdge 前置。它不是独立二进制 runner，是 WasmEdge 上跑 .wasm 应用。install_v2.sh 是第一步
+  - 把六类模型线当同等成熟。LLM 线是主仓主线，embedding/语音/图像线在各自仓与文档页，成熟度不同
 
 tags: [本地推理, 服务化推理, OpenAI兼容, WASM, WasmEdge, GGUF, Apache-2.0, 端侧]
 related: [llama-cpp, ollama, localai, aider]
@@ -68,10 +68,10 @@ cn:
   origin_note: LlamaEdge 社区（Second State / WasmEdge 生态，CNCF 毕业项目 WasmEdge 同系）。
   origin_note_en: LlamaEdge community (Second State / WasmEdge ecosystem, same lineage as the CNCF-graduated WasmEdge).
   direct: yes
-  direct_note: llamaedge.com 直连 200；GitHub 仓直连 200（2026-10-31）。
+  direct_note: llamaedge.com 直连 200。GitHub 仓直连 200（2026-10-31）。
   direct_note_en: llamaedge.com and the GitHub repo both returned 200 direct (2026-10-31).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-31 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-31 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-31); an open-source project not serving the mainland public, so filing does not apply.
   verified: 2026-10-31
 ---
@@ -103,6 +103,6 @@ WasmEdge 生态用户。
 ## 相关条目
 
 - [llama.cpp](./llama-cpp.md) — 底座对照：LlamaEdge 把 llama.cpp 系推理编成 Wasm 跑在 WasmEdge 上，GGUF 同源。
-- [Ollama](./ollama.md) — 对照：Ollama 是产品化封装；LlamaEdge 是可移植 Wasm 路线，端覆盖偏边缘设备。
-- [LocalAI](./localai.md) — 同类：都是 OpenAI 兼容本地服务栈；LocalAI 走 Go 后端插件，LlamaEdge 走 Wasm 应用。
-- [Aider](../../coding/products/aider.md) — 消费端对照：Aider 这类编码 agent 可指向任意 OpenAI 兼容端点——LlamaEdge 起本机端点后，agent 工作流即可跑在 WASM 推理栈上（端点兼容是两条线的接点）。
+- [Ollama](./ollama.md) — 对照：Ollama 是产品化封装。LlamaEdge 是可移植 Wasm 路线，端覆盖偏边缘设备。
+- [LocalAI](./localai.md) — 同类：都是 OpenAI 兼容本地服务栈。LocalAI 走 Go 后端插件，LlamaEdge 走 Wasm 应用。
+- [Aider](../../coding/products/aider.md) — 消费端对照：Aider 这类编码 agent 可指向任意 OpenAI 兼容端点。LlamaEdge 起本机端点后，agent 工作流即可跑在 WASM 推理栈上（端点兼容是两条线的接点）。

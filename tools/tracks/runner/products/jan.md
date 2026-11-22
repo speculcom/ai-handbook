@@ -15,7 +15,7 @@ axes:
 
     仓库现归 Menlo Research 名下（janhq/jan；menloresearch/jan 为旧路径 301 跳转，直抓核验）。
   local_files: >-
-    对话与模型全落本机（官方「100% offline on your computer」口径，仓库描述直抓所见）。
+    对话与模型全落本机。官方口径是「100% offline on your computer」，仓库描述直抓所见。
   background: >-
     应用内置本地 API server（OpenAI 兼容）可常开。细节本档不逐条展开。
   tools: >-
@@ -27,8 +27,8 @@ axes:
   fit: >-
     适合：要开源的桌面 GUI 跑离线模型（对比闭源的 LM Studio）。不适合：要服务化多模型部署。要开箱即用最新模型（模型获取体验弱于 Ollama）。
 pitfalls:
-  - 把 NOASSERTION 当「许可不明」——读 LICENSE 原文是 Apache2.0+署名请求，GitHub 标记只是机器判不了附加句
-  - 用旧仓名 menloresearch/jan 找仓库——现路径 janhq/jan（旧路径 301 跳转仍可达）
+  - 把 NOASSERTION 当「许可不明」。读 LICENSE 原文是 Apache2.0+署名请求，GitHub 标记只是机器判不了附加句
+  - 用旧仓名 menloresearch/jan 找仓库。现路径 janhq/jan（旧路径 301 跳转仍可达）
   - 把「开源」与「模型免费」混谈——权重许可跟着模型走
 
 tags: [开源, Apache2.0署名, 桌面应用, 离线, GGUF]
@@ -60,16 +60,16 @@ cn:
   direct_note: www.jan.ai 直连实测 000（网络受限，非死亡判定；经代理可达 200）。
   direct_note_en: www.jan.ai measured 000 direct (network-limited, not a death verdict; 200 via proxy).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
 
 ## 一句话定位
 
-**Jan 是「开源版 ChatGPT 桌面替代」的长期主义者**：100% 离线跑本地模型。Apache-2.0 主体加一句署名请求。
+**Jan 是「开源版 ChatGPT 桌面替代」的长期主义者**：它走 100% 离线本地模型。Apache-2.0 主体加一句署名请求。
 
-**依据：** 诚实标注：GitHub API 标 NOASSERTION 是机器判不了附加署名句——读 LICENSE 原文才准；官网直连 000（网络受限非死亡）。
+**依据：** 诚实标注：GitHub API 标 NOASSERTION 是机器判不了附加署名句。读 LICENSE 原文才准。官网直连 000（网络受限非死亡）。
 
 ## 适合与不适合
 
@@ -89,4 +89,4 @@ cn:
 ## 相关条目
 
 - [LM Studio](./lm-studio.md) — 同为桌面 GUI：LM Studio 闭源但 agent 叙事激进，Jan 开源但节奏更稳。
-- [Ollama](./ollama.md) — 模型获取与 CLI 线 Ollama 更强；Jan 的价值在开源桌面壳。
+- [Ollama](./ollama.md) — 模型获取与 CLI 线 Ollama 更强。Jan 的价值在开源桌面壳。

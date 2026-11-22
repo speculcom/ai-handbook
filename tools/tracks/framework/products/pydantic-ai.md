@@ -32,7 +32,7 @@ layer_position: >-
   两者同为「薄 agent loop 库」，但 Pydantic AI 的差异点是硬的：
 
   - **类型安全**：结构化输出、typed 依赖注入、typed tools 全部走 Pydantic。
-  - **durable execution**：官方列出八种引擎 —— Temporal、DBOS、Prefect、Restate、AWS Lambda、
+  - **durable execution**：官方列出八种引擎 。 Temporal、DBOS、Prefect、Restate、AWS Lambda、
     Kitaru、Airflow、Absurd。前五个与厂商团队共维护。
 
   **但它已经不是「纯 primitives」了。** 官方另发 **Pydantic AI Harness**，
@@ -64,17 +64,17 @@ axes:
 
     官方目录把 provider 分四类。
 
-    - **模型开发商 9 家** —— OpenAI、Anthropic、Google(Gemini)、DeepSeek、Mistral
+    - **模型开发商 9 家** 。 OpenAI、Anthropic、Google(Gemini)、DeepSeek、Mistral
       另有 Cohere / xAI / Moonshot(Kimi) / Z.AI
 
-    - **云平台 6 家** —— AWS Bedrock、Google Cloud(Vertex AI)、Azure Foundry、
+    - **云平台 6 家** 。 AWS Bedrock、Google Cloud(Vertex AI)、Azure Foundry、
       Alibaba Cloud、Snowflake Cortex、Heroku
 
-    - **本地与自托管 3 个** —— Ollama（`ollama:`）、vLLM（`vllm:`）、LiteLLM（`litellm:`）
-    - **推理平台与网关 8 个** —— Groq、Cerebras、Hugging Face、Together、Fireworks、OpenRouter
+    - **本地与自托管 3 个** 。 Ollama（`ollama:`）、vLLM（`vllm:`）、LiteLLM（`litellm:`）
+    - **推理平台与网关 8 个** 。 Groq、Cerebras、Hugging Face、Together、Fireworks、OpenRouter
       这六个是推理平台，Vercel AI Gateway 与 Pydantic AI Gateway 是两个网关
 
-    用法是 `<provider>:<model>` 前缀字符串，例如 `Agent('openai:gpt-5.2')`。
+    用法是 `<provider>:<model>` 前缀字符串。例如 `Agent('openai:gpt-5.2')`。
     官方 models/overview 页给出 **provider 目录表**。
     每个 provider 在表里附服务类型与选择语法。
 
@@ -106,7 +106,7 @@ axes:
     - 丢进 durable background queue（那一路要把 engine 接上，见 background 轴）
 
     **谁运营 agent loop**：你自己。
-    官方另给两个可选组件 —— **Pydantic AI Gateway**（可自托管）做模型路由，
+    官方另给两个可选组件 。 **Pydantic AI Gateway**（可自托管）做模型路由，
     **Logfire** 做观测。
     两者可选，不改变「库由你运营」这个事实。
 
@@ -138,7 +138,7 @@ axes:
     **关键边界官方写明了**：文件访问是 **workspace-rooted**（限定工作区），
     shell 是 **allowlisted**（白名单）。
 
-    另有 **Monty**，官方称其为 "a sandboxed Python interpreter that runs model-written code"。
+    另有 **Monty**。官方称其为 "a sandboxed Python interpreter that runs model-written code"。
     它用来跑模型写出的代码。
 
     **边界：核心 SDK 层面的文件访问默认边界（不经 Harness 时），官方文档不展开**
@@ -161,7 +161,7 @@ axes:
     其中 "the **first five co-maintained** with the vendor teams"。
     第三方还有一种 **durable execution backend builder**，可以自接引擎。
 
-    接法示例：`TemporalDurability()` capability + `PydanticAIWorkflow`，官方称：
+    接法示例：`TemporalDurability()` capability + `PydanticAIWorkflow`。官方称：
 
     "a run working through a background queue **survives restarts, failures, and long waits**"
 
@@ -247,7 +247,7 @@ axes:
     **沙箱**：官方 **Monty** 是 "a sandboxed Python interpreter that runs model-written code"。
     Harness 的 `Shell` 是 **allowlisted**，`FileSystem` 是 **workspace-rooted**。
 
-    **凭据**：MCP 默认本地运行，官方称 "keeping credentials, hooks, and tracing under your control"。
+    **凭据**：MCP 默认本地运行。官方称 "keeping credentials, hooks, and tracing under your control"。
 
     **边界：核心 SDK 是否有进程/网络级沙箱、以及内置认证/权限边界，官方文档不展开**
     **核验：**overview、durable、mcp 三页已查。
@@ -271,13 +271,13 @@ axes:
     - 想完全避免任何商业组件 —— Logfire 与 Gateway 是官方推荐但**可选**，
       官方声明 OTel 与自托管都支持
 
-    - 需要框架开箱自带进程级沙箱与网络策略 —— 沙箱在 Harness / Monty，非核心 SDK
+    - 需要框架开箱自带进程级沙箱与网络策略 。 沙箱在 Harness / Monty，非核心 SDK
 
 pitfalls:
-  - 以为它是「纯薄 harness」—— 官方今另有 Pydantic AI Harness，把 memory/guardrails/sub-agents/上下文管理打包成 capabilities，还附完整 Coder
-  - 把「durability」当成「存对话」—— 官方明文 "Durability is not storage"：durable engine 只保证 run 存活，线程持久化是另一模块
-  - 以为 evals / 观测必须用 Pydantic Logfire —— 官方声明是标准 OpenTelemetry，任何 OTLP 后端都能接
-  - 以为 A2A 是长期内建能力 —— 官方已把 `to_a2a()` 标为 1.x 弃用、2.0 移除，`fasta2a` 迁到 datalayer/fasta2a
+  - 以为它是「纯薄 harness」。 官方今另有 Pydantic AI Harness。把 memory/guardrails/sub-agents/上下文管理打包成 capabilities，还附完整 Coder
+  - 把「durability」当成「存对话」。 官方明文 "Durability is not storage"。durable engine 只保证 run 存活，线程持久化是另一模块
+  - 以为 evals / 观测必须用 Pydantic Logfire 。 官方声明是标准 OpenTelemetry，任何 OTLP 后端都能接
+  - 以为 A2A 是长期内建能力 。 官方已把 `to_a2a()` 标为 1.x 弃用、2.0 移除，`fasta2a` 迁到 datalayer/fasta2a
 
 tags: [Python, 开源, MIT, 编程底座, 通用harness, 类型安全, MCP, A2A, durable-execution, 持久化, 状态管理, 图执行, 子代理, 多Agent, eval, HITL, human-in-the-loop, 沙箱, 集成生态]
 related: [filesystem]
@@ -351,7 +351,7 @@ cn:
   direct_note: 官网直连实测 200；PyPI 实测可达。
   direct_note_en: official site measured 200 direct; PyPI measured reachable.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-23
 ---
@@ -381,9 +381,9 @@ cn:
 | 非 OpenAI 模型 | litellm / any-llm 适配器 | **provider 目录原生**：`<provider>:<model>` 字符串切换，含本地 Ollama/vLLM |
 | durable execution | 无独立引擎（自建） | **官方八种引擎**（Temporal/DBOS/Prefect/Restate/AWS Lambda/Kitaru/Airflow/Absurd） |
 | 上层能力 | primitives-only | **另有 Pydantic AI Harness**（memory/guardrails/sub-agents/compaction + 现成 Coder） |
-| 观测 | Traces 默认上报 OpenAI 后端 | **标准 OpenTelemetry**，任何 OTLP 后端；Logfire 可选 |
+| 观测 | Traces 默认上报 OpenAI 后端 | **标准 OpenTelemetry**，任何 OTLP 后端。Logfire 可选 |
 
-**一句口诀**：要 Python 的「类型安全 + durable」选 Pydantic AI；
+**一句口诀**：要 Python 的「类型安全 + durable」选 Pydantic AI。
 要极简、要 guardrails 内建、认 OpenAI 生态选 OpenAI Agents SDK。
 
 ## model-agnostic：provider 目录是官方的第一卖点
@@ -465,11 +465,11 @@ cn:
 
   官方也强调 Coder 不是黑盒。**官方原文**："use it whole, or use the blocks it bundles directly; the two are equivalent"。
 
-- **`pydantic-graph`**：官方 graphs 页称它**可独立于 pydantic-ai 使用** ——
+- **`pydantic-graph`**：官方 graphs 页称它**可独立于 pydantic-ai 使用** 。
   "it has **no dependency on `pydantic-ai`** and can be considered as a pure graph-based state machine library"。
   官方还幽默地提醒：图是 nail gun，不是所有任务的正确工具。
 
-  结论：**这两块都是从核心库上长出来的可选层**，这也是本档仍按 coding-base 归档的理由。
+  结论：**这两块都是从核心库上长出来的可选层**。这也是本档仍按 coding-base 归档的理由。
 
 ## 适合与不适合
 
@@ -529,7 +529,7 @@ cn:
 | # | 测什么 | 为什么值得测 |
 |:--:|---|---|
 | 1 | 最小 hello agent 要几个文件、多少行 | 量化「薄 agent loop」的真实上手成本 |
-| 2 | 给一个 Pydantic 输出模型，验证 run 必返回该类型 | 官方卖点是 typed end to end，要验证「返库即类型」 |
+| 2 | 给一个 Pydantic 输出模型，验证 run 必返回该类型 | 官方卖点是 typed end to end。要验证「返库即类型」 |
 | 3 | 接 Ollama 本地模型跑通一个带工具与结构化输出的 agent | 官方目录单列 Ollama，验证真实可行性 |
 | 4 | 用 TemporalDurability 跑一个长任务，kill 进程后续跑 | 官方 durable 承诺的核心，必须验证 |
 | 5 | agent delegation / hand-off / graph 三种多 agent 写法代码量对比 | 官方给五种复杂度层级，验证选型建议 |
@@ -547,7 +547,7 @@ cn:
 
 ## 相关条目
 
-- [OpenAI Agents SDK](./openai-agents-sdk.md) — **本档最该对照的一对**：同为 Python 的薄 agent loop 库；Pydantic AI 的差异点是 Pydantic 原生类型安全 + 官方八引擎 durable execution。
+- [OpenAI Agents SDK](./openai-agents-sdk.md) — **本档最该对照的一对**：同为 Python 的薄 agent loop 库。Pydantic AI 的差异点是 Pydantic 原生类型安全 + 官方八引擎 durable execution。
 - [Mastra](./mastra.md) — 另一语言的对位：TypeScript 的 batteries-included 全栈框架 vs Python 的类型安全 agent loop，两边的「第一决策点」答案不同。
-- [LangGraph](./langgraph.md) — 编排层对照：LangGraph 每 superstep 落盘、HITL 改状态；Pydantic AI 的 `pydantic-graph` 走类型化状态机，durable execution 交给外部引擎。
-- [Deep Agents](./deepagents.md) — 官方 multi-agent 页把 Deep Agents 列为第五种（最自治）多 agent 形态；Pydantic AI 自己也有 Harness，两者都在「自治 + 文件 + 子代理」这一侧。
+- [LangGraph](./langgraph.md) — 编排层对照：LangGraph 每 superstep 落盘、HITL 改状态。Pydantic AI 的 `pydantic-graph` 走类型化状态机，durable execution 交给外部引擎。
+- [Deep Agents](./deepagents.md) — 官方 multi-agent 页把 Deep Agents 列为第五种（最自治）多 agent 形态。Pydantic AI 自己也有 Harness，两者都在「自治 + 文件 + 子代理」这一侧。

@@ -23,13 +23,13 @@ axes:
   permissions: >-
     **它驱动一个真实浏览器**：能访问客户端让它去的任何 URL、以浏览器身份交互。官方口径是给编码 agent 做「看得到浏览器」的能力。
 
-    隔离与白名单靠客户端/浏览器 profile 配置—— server 本身无 URL 白名单机制的官方说明。
+    隔离与白名单靠客户端/浏览器 profile 配置。 server 本身无 URL 白名单机制的官方说明。
   fit: >-
-    适合：编码 agent 调试真实页面、性能分析、E2E 验证闭环（改代码→看浏览器→再改）。不适合：要无头批量抓取（那是 fetch/firecrawl 线）。
+    适合：编码 agent 调试真实页面。性能分析。E2E 验证闭环（改代码→看浏览器→再改）。不适合：要无头批量抓取（那是 fetch/firecrawl 线）。
 
     要 URL 级硬隔离（server 无此机制）。
 pitfalls:
-  - 把它当 Playwright MCP 的替代品混用——两者重叠但机制不同（CDP 直连 vs Playwright 驱动），官方 reference 归档后推荐 Playwright 是另一条线，两者现役都活跃
+  - 把它当 Playwright MCP 的替代品混用。两者重叠但机制不同（CDP 直连 vs Playwright 驱动）。官方 reference 归档后推荐 Playwright 是另一条线，两者现役都活跃
   - 忘了它驱动真实浏览器=真实网络出口——agent 让它访问什么就访问什么
   - 把 53k★ 当「安全默认」——星数是热度，权限面要按「浏览器身份」单独评估
 
@@ -68,7 +68,7 @@ cn:
   direct_note: github.com 直连实测 000（波动，同日代理可达 200）。
   direct_note_en: github.com measured 000 direct (fluctuating; 200 via proxy the same day).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---

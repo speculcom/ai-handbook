@@ -5,14 +5,14 @@ name: Otter.ai
 nameEn: Otter.ai
 vendor: Otter.ai
 homepage: https://otter.ai
-license: 免费档+订阅。按官方条款页管辖（otter.ai/terms-of-service 直抓核验 2026-10-22）；
+license: 免费档+订阅。按官方条款页管辖（otter.ai/terms-of-service 直抓核验 2026-10-22）。
   会议数据留存与训练口径以官方隐私页为准，本档不逐条展开。
 licenseEn: Free tier + subscription. Governed by the official terms page (otter.ai/terms-of-service,
   direct-fetched 2026-10-22); meeting-data retention and training practices not verified line by line.
 
 axes:
   model_access: >-
-    自研转写/纪要模型线（Otter 自述转写引擎）。用户不选模型。曾有「用客户音频训练」的隐私争议史（2021-2022 公开报道叙事）——当前训练口径按官方 隐私页（按官方入口引用）。
+    自研转写/纪要模型线（Otter 自述转写引擎）。用户不选模型。曾有「用客户音频训练」的隐私争议史（2021-2022 公开报道叙事）。当前训练口径按官方 隐私页（按官方入口引用）。
   runtime: >-
     网页+移动 App+会议平台机器人接入（Zoom/Meet/Teams 机器人入会实时转写，官方产品面）。处理在厂商云端。
   local_files: >-
@@ -30,10 +30,10 @@ axes:
   fit: >-
     适合：会议记录/访谈整理（英文向成熟）、个人与小团队的转写纪要流水线。
 
-    不适合：中文会议主打（转写引擎英文向叙事）、隐私极敏感场景（云端+机器人入会）、 把免费档当长期方案（分钟数限制）。
+    不适合：中文会议主打（转写引擎英文向叙事）。隐私极敏感场景（云端+机器人入会）。 把免费档当长期方案（分钟数限制）。
 pitfalls:
-  - 机器人入会模式=第三方机器人进你的会议——企业使用前要过 IT/合规审查，知情同意是使用方责任
-  - 「用客户音频训练」争议史（2021-2022 公开报道）——当前口径以官方隐私页为准，敏感场景读条款原文
+  - 机器人入会模式=第三方机器人进你的会议。企业使用前要过 IT/合规审查，知情同意是使用方责任
+  - 「用客户音频训练」争议史（2021-2022 公开报道）。当前口径以官方隐私页为准，敏感场景读条款原文
   - 转写引擎英文向成熟——中文会议准确率要实测，别按英文体验推断
 
 tags: [免费+订阅, 会议转写, 机器人入会, 英文向, 纪要行动项]
@@ -62,7 +62,7 @@ cn:
   direct_note: otter.ai 大陆直连实测 200（2026-10-22）。
   direct_note_en: otter.ai measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-10-22

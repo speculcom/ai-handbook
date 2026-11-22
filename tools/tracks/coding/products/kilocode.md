@@ -12,13 +12,13 @@ axes:
 
     Auto Model 自动路由分 Efficient/Frontier/Free 三档。BYOK 官方成页（自带 Key 直接用）。本地模型经 Ollama / LM Studio 官方成页。
 
-    计费三段：Free 档用量另计（按供应商原价）、 Kilo Pass、Teams 按席位订阅、Enterprise（官方 pricing 页，具体价格本站按 D9 不采）。
+    计费分三段。Free 档用量另计，按供应商原价；Kilo Pass 另算。Teams 按席位订阅，Enterprise 另议。价格见官方 pricing 页，本站按 D9 不采具体数字。
   runtime: >-
     开源（GitHub MIT，主仓 Kilo-Org/kilocode）：VS Code 扩展 + JetBrains 插件 + CLI + Kilo Desktop（beta）。
 
-    官方文档明示 Kilo CLI 是 OpenCode 的 fork（支持同款配置）。Cloud Agents。
+    官方文档明示 Kilo CLI 是 OpenCode 的 fork。它支持同款配置。Cloud Agents。
 
-    每会话隔离 Linux 容器（预装 Node.js/git/gh/glab，可 apt 加装）、 自动建分支持续推送、临时环境——官方口径「no local machine required」。
+    每会话隔离在 Linux 容器里，预装 Node.js、git、gh、glab，可 apt 加装。会自动建分支持续推送，环境是临时的。官方口径「no local machine required」。
   local_files: >-
     IDE 扩展/CLI 在你本机处理代码库（开源可自审）。Cloud Agents 在厂商托管隔离容器内跑。仓库克隆进容器、自动分支管理。容器内代码的存储与保留策略未逐条核验。
   background: >-
@@ -42,19 +42,19 @@ axes:
 
     **依据：** 企业面：SSO/SAML、SCIM、审计日志、数据驻留（EU Sovereignty 官方页）、SLA、 限制可用模型/供应商、Shared Private Gateway BYOK（官方 pricing/enterprise 页）。
   fit: >-
-    适合：要开源可自审 + 500+ 模型零加价 + BYOK/本地模型全支持、VS Code/JetBrains/CLI/云端多形态、 免费起步按量付费。
+    适合：要开源可自审 + 500+ 模型零加价 + BYOK/本地模型全支持。VS Code/JetBrains/CLI/云端多形态。 免费起步按量付费。
 
-    不适合：要厂商背书强治理叙事（企业面有但主体是开源社区公司）、 找「Roo Code 官方继任」（Roo 官方关停公告指 ZooCode/Cline，未提 Kilo——见 pitfalls）。
+    不适合：要厂商背书强治理叙事（企业面有但主体是开源社区公司）。 找「Roo Code 官方继任」（Roo 官方关停公告指 ZooCode/Cline，未提 Kilo——见 pitfalls）。
   name_history: >-
     域名迁移：kilocode.ai → kilo.ai（2026-10-22 实测 308 重定向）。产品名仍 Kilo Code。与 Roo Code/Cline 的血缘。
 
-    社区普遍认知 Kilo 源自 Roo Code 分支。但官方文档未声明该血缘（官方只明示 CLI 是 OpenCode 的 fork）——本站按官方口径记录。
+    社区普遍认知 Kilo 源自 Roo Code 分支。但官方文档未声明该血缘（官方只明示 CLI 是 OpenCode 的 fork）。本站按官方口径记录。
 pitfalls:
-  - 域名已迁 kilo.ai（旧 kilocode.ai 308 重定向）——旧教程/旧链接仍多指 kilocode.ai，
+  - 域名已迁 kilo.ai（旧 kilocode.ai 308 重定向）。旧教程/旧链接仍多指 kilocode.ai，
     文档站实际在 kilocode-docs.vercel.app 提供 raw markdown
-  - 「Kilo 是 Roo Code 继任」是社区认知不是官方声明——Roo Code 官方关停公告（2026-05-15）
-    给的替代是 ZooCode（社区 fork）与 Cline，未提 Kilo；检索血缘要分清口径来源
-  - Free 档「免费」指不订阅，模型用量按供应商原价另计（官方 pricing 页明示 usage billed separately）——
+  - 「Kilo 是 Roo Code 继任」是社区认知不是官方声明。Roo Code 官方关停公告（2026-05-15）
+    给的替代是 ZooCode（社区 fork）与 Cline，未提 Kilo。检索血缘要分清口径来源
+  - Free 档「免费」指不订阅。模型用量按供应商原价另计（官方 pricing 页明示 usage billed separately）。
     与「包月含额度」类产品口径不同
 
 tags: [开源, 免费+付费, IDE, 插件, CLI, 云端Agent, MCP, BYOK, 本地模型]
@@ -92,7 +92,7 @@ cn:
   direct_note: kilo.ai / kilocode.ai（308 跳转）/ kilo.ai/docs 大陆直连实测 200（2026-10-22）。
   direct_note_en: kilo.ai / kilocode.ai (308 redirect) / kilo.ai/docs measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve
     the mainland public, so filing does not apply.
   verified: 2026-10-22
@@ -102,11 +102,11 @@ cn:
 
 **Kilo Code 是开源编码 agent**（GitHub MIT）：VS Code/JetBrains/CLI/Desktop + Cloud Agents隔离容器，500+ 模型零加价、BYOK 与本地模型（Ollama/LM Studio）全支持。
 
-免费起步按供应商原价计量——官方叙事「all-in-one agentic engineering platform」，域名已迁 kilo.ai。
+免费起步按供应商原价计量。官方叙事「all-in-one agentic engineering platform」，域名已迁 kilo.ai。
 
 ## 适合与不适合
 
-适合：要开源可自审、模型面极宽（含零加价 Gateway 与本地模型）、多形态一个账号、免费起步按量付费。不适合：要强厂商治理背书、找「Roo Code 官方继任」（官方关停公告指 ZooCode/Cline，未提 Kilo）。
+适合：要开源可自审。模型面极宽（含零加价 Gateway 与本地模型）。多形态一个账号。免费起步按量付费。不适合：要强厂商治理背书。找「Roo Code 官方继任」（官方关停公告指 ZooCode/Cline，未提 Kilo）。
 
 ## 实测记录
 
@@ -127,6 +127,6 @@ cn:
 
 ## 相关条目
 
-- [Cline](./cline.md) — 同源代码谱系对照：Roo Code 官方关停公告指 Cline 为替代；Kilo 与 Cline 的社区血缘官方只列产品面，可对照两家 BYOK 与模型面。
+- [Cline](./cline.md) — 同源代码谱系对照：Roo Code 官方关停公告指 Cline 为替代。Kilo 与 Cline 的社区血缘官方只列产品面，可对照两家 BYOK 与模型面。
 - [Cursor](./cursor.md) — 同为 VS Code 系编码 agent：Cursor 闭源独立 IDE，Kilo 开源插件形态 + Gateway 零加价叙事相反。
 - [OpenCode](./opencode.md) — 官方明示的 CLI 血缘：Kilo CLI 是 OpenCode 的 fork（官方文档原文）。

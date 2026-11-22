@@ -5,7 +5,7 @@ name: Poe
 nameEn: Poe
 vendor: Quora
 homepage: https://poe.com
-license: 免费+订阅（积分/点数制）。官方 Terms（poe.com/terms 代理抓核验 2026-10-30）；
+license: 免费+订阅（积分/点数制）。官方 Terms（poe.com/terms 代理抓核验 2026-10-30）。
   输出内容归属按该条款管辖，具体条款细节本档不逐条展开。
 licenseEn: Free + subscription (points system). Governed by the official Terms (poe.com/terms, proxy-fetched
   2026-10-30); clause details not verified item by item.
@@ -14,19 +14,19 @@ axes:
   model_access: >-
     多模型聚合是它的本体形态。
 
-    **依据：** 官方页当日可见「Chat with the best AI… Explore GPT-5, Claude-Sonnet-5, DeepSeek-R1, Veo-3.1, and thousands of others」——用户直接选模型对话。
+    **依据：** 官方页当日可见「Chat with the best AI… Explore GPT-5, Claude-Sonnet-5, DeepSeek-R1, Veo-3.1, and thousands of others」。用户直接选模型对话。
 
     模型经 Poe 侧接入各家 API（各模型计费点数不同）。
   runtime: >-
     网页（poe.com）+ iOS/Android App。对话经 Poe 服务器转发到各模型 API，本机不跑模型。
 
-    当日 poe.com 对无头抓取 307→login 403（登录墙+CF，非死链）。
+    当日 poe.com 对无头抓取返回 307→login 403。这是登录墙加 CF，不是死链。
   local_files: >-
     对话历史存于账户侧、登录同步。未见官方声明的本机数据面——所有模型调用都经 Poe 服务器中转。对话内容必然过 Poe 侧（这是聚合中转产品的结构性前提，不是可关掉的选项）。
   background: >-
     对话即时返回。官方产品页不列异步任务。点数制对高频/长上下文模型有用量限制。
   tools: >-
-    官方页当日可见群聊（group chat）、Leaderboard、bot 创建面（自建 bot 挂模型+人设）。图像/视频模型（Veo-3.1 在册）也在聚合清单内。
+    官方页当日可见群聊 group chat 与 Leaderboard。另有 bot 创建面。自建 bot 可挂模型与人设。图像/视频模型（Veo-3.1 在册）也在聚合清单内。
 
     官方产品页不列 MCP 支持。
   context: >-
@@ -34,11 +34,11 @@ axes:
   permissions: >-
     账号体系（注册登录）。点数制是用量权限面。训练用途开关路径本档不逐条展开—— Poe 曾以「用户对话用于训练」条款引发争议。要按官方 Terms/Privacy 现行文本逐项看。
   fit: >-
-    适合：一个账号横向用多家模型（含国产 DeepSeek 系）、要自建 bot 人设。不适合：要免费无限量用旗舰模型（点数制）、要大陆直连（未备案）、要数据不经 Poe 中转。
+    适合：一个账号横向用多家模型（含国产 DeepSeek 系）。要自建 bot 人设。不适合：要免费无限量用旗舰模型（点数制）。要大陆直连（未备案）。要数据不经 Poe 中转。
 pitfalls:
-  - Poe 是中转聚合层——你的对话经 Poe 服务器转发到各家模型 API，敏感数据要按「多一方经手」评估
+  - Poe 是中转聚合层。你的对话经 Poe 服务器转发到各家模型 API，敏感数据要按「多一方经手」评估
   - 点数制不是「免费无限」——旗舰模型与长上下文消耗快，免费档边界要实测
-  - 模型名带后缀（如 Claude-Sonnet-5）是 Poe 侧接入的具体版本——别把它等同于该厂最新能力面
+  - 模型名带后缀（如 Claude-Sonnet-5）是 Poe 侧接入的具体版本。别把它等同于该厂最新能力面
 
 tags: [多模型聚合, 点数制, bot创建, 海外, 未备案]
 related: [chatgpt, claude-chat, ollama]
@@ -69,7 +69,7 @@ cn:
   direct_note: poe.com 大陆直连 000（网络不可达，2026-10-30）。
   direct_note_en: poe.com measured 000 direct from mainland (network unreachable, 2026-10-30).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与批次 PDF 镜像，未见 Poe/Quora 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与批次 PDF 镜像，未见 Poe/Quora 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page and batch PDF mirrors searched 2026-10-30; no Poe/Quora entry);
     the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30
@@ -77,7 +77,9 @@ cn:
 
 ## 一句话定位
 
-**Poe 是「一个账号用多家模型」的聚合对话产品**：（Quora 出品）：GPT/Claude/DeepSeek/Veo 等经 Poe 侧接入、用户直接选模型，点数制计费，自建 bot 面在册。
+**Poe 是「一个账号用多家模型」的聚合对话产品。**
+
+它由 Quora 出品。GPT、Claude、DeepSeek、Veo 等经 Poe 侧接入，用户直接选模型。点数制计费，自建 bot 面在册。
 
 数据全部经 Poe 服务器中转。
 

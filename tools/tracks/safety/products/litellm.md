@@ -5,7 +5,7 @@ name: LiteLLM 网关（Proxy / AI Gateway）
 nameEn: LiteLLM Proxy (AI Gateway)
 vendor: BerriAI · LiteLLM
 homepage: https://docs.litellm.ai/
-license: MIT（PyPI 项目页 2026-11-06 直抓在册）；文档另在册部分运维与治理能力属企业版，
+license: MIT（PyPI 项目页 2026-11-06 直抓在册）。文档另在册部分运维与治理能力属企业版，
   开源核心与企业边界的逐条清单本档不复制，以官方 enterprise 页为准。
 licenseEn: MIT (on the PyPI project page, direct-fetched 2026-11-06). The docs record that some operational and
   governance capabilities belong to the Enterprise edition; the item-by-item boundary is not duplicated here —
@@ -13,43 +13,50 @@ licenseEn: MIT (on the PyPI project page, direct-fetched 2026-11-06). The docs r
 
 axes:
   model_access: >-
-    这是它的主轴之一。官方 providers 页在册「100+ LLM，一种 OpenAI 格式」。密钥自带（BYO key）。
+    这是它的主轴之一。官方 providers 页在册「100+ LLM，一种 OpenAI 格式」。密钥自带，走 BYO key。
 
-    自托管端点也在这条线上（页内在册 Ollama、vLLM、Llamafile）。
+    自托管端点也在这条线上。页内在册 Ollama、vLLM 与 Llamafile。
 
-    release notes 在册 provider 持续新增 （2026-11 条目含 Microsoft 365 Copilot、Azure PTU 容量等）。
+    release notes 在册 provider 持续新增。2026-11 条目含 Microsoft 365 Copilot 与 Azure PTU 容量等。
 
     护栏判定不内置，由挂进来的外部 rail 完成。
   runtime: >-
-    自托管为主：simple-proxy 页在册 pip 安装后 `litellm --config config.yaml` 起服务。默认 4000 端口。
+    自托管为主。simple-proxy 页在册 pip 安装后 `litellm --config config.yaml` 起服务，默认 4000 端口。
 
-    deploy 页在册镜像 ghcr.io/berriai/litellm、Docker 运行示例、Helm / Terraform 与 Postgres 依赖、 健康检查 /health/readiness。
+    deploy 页在册镜像 ghcr.io/berriai/litellm、Docker 运行示例、Helm/Terraform 与 Postgres 依赖。健康检查走 /health/readiness。
 
     首页在册另有托管云用法。生产需数据库这点在 simple-proxy 页明写。
   local_files: >-
-    **依据：** 读的是你本机的 config.yaml（模型清单、密钥引用、guardrail 配置），密钥与路由定义都在你自己的环境； 花费与日志写进你自管的 Postgres。它不读你的业务代码工作区，文件面就是配置与数据落库两处。
+    **依据：** 读的是你本机的 config.yaml。含模型清单、密钥引用与 guardrail 配置。
+
+    密钥与路由定义都在你自己的环境。花费与日志写进你自管的 Postgres。它不读你的业务代码工作区，文件面就是配置与数据落库两处。
   background: >-
-    它是常驻网关进程，请求排队、重试与路由由服务侧处理。跨关机续跑取决于你怎么部署（Helm / VM）。
+    它是常驻网关进程。请求排队、重试与路由由服务侧处理。跨关机续跑取决于你怎么部署，例如 Helm 或 VM。
 
-    批处理与异步作业面（如 videos / batches）只在 release notes 里出现过。官方专页本档按官方文档口径，官方文档未单列。
+    批处理与异步作业面只在 release notes 里出现过。含 videos 与 batches。官方专页本档按官方文档口径，官方文档未单列。
   tools: >-
-    官方 MCP 页在册它是「MCP Gateway」。提供「governed access to tools」：server 走 config.yaml 或 UI 配置。
+    官方 MCP 页在册它是「MCP Gateway」，提供「governed access to tools」。server 走 config.yaml 或 UI 配置。
 
-    传输支持 HTTP / SSE / stdio。鉴权含 OAuth、API key 与 AWS SigV4。访问按 key / team / organization 控制。
+    传输支持 HTTP、SSE 与 stdio。鉴权含 OAuth、API key 与 AWS SigV4。访问按 key、team 与 organization 控制。
 
     另外有 A2A、Auto Router、logging 与 OpenTelemetry 页在文档导航在册。
   context: >-
-    上下文由调用方透传，网关自身不做记忆或压缩。虚拟密钥、预算与团队是访问层的边界，不是上下文层。上下文窗口实际大小由你路由到的模型决定。
+    上下文由调用方透传。网关自身不做记忆或压缩。虚拟密钥、预算与团队是访问层的边界，不是上下文层。上下文窗口实际大小由你路由到的模型决定。
   permissions: >-
-    **依据：** 访问控制是它的核心：virtual-keys 页在册密钥经 /key/generate 签发，可限模型、预算、速率与团队， 主密钥用于管理，定时轮换属企业版。guardrails 页在册多数护栏在开源侧可用， 动态参数与逐 key 护栏控制需企业版。数据流向取决于你接的 provider；SSO 与审计日志在企业版口径下（simple-proxy 页在册）。 合规认证与第三方审计官方文档未单列在册页，官方文档未单列。
-  fit: >-
-    适合要把多家 provider 收成一个 OpenAI 兼容入口、同时按 key / team 做预算与访问治理、并坚持自托管的团队。不适合只要一个薄 SDK 的场景。
+    **依据：** 访问控制是它的核心。virtual-keys 页在册密钥经 /key/generate 签发。可限模型、预算、速率与团队。
 
-    也不适合把「厂商背书的托管护栏 + 合规承诺」当必需项的团队。
+    主密钥用于管理，定时轮换属企业版。guardrails 页在册多数护栏在开源侧可用。动态参数与逐 key 护栏控制需企业版。
+
+    数据流向取决于你接的 provider。SSO 与审计日志在企业版口径下，simple-proxy 页在册。合规认证与第三方审计官方文档未单列。
+  fit: >-
+    适合要把多家 provider 收成一个 OpenAI 兼容入口的团队。也适合按 key 与 team 做预算与访问治理，并坚持自托管。
+
+    不适合只要一个薄 SDK 的场景。也不适合把厂商托管的护栏与合规承诺当必需项的团队。
+
 pitfalls:
-  - 以为开源版就带 SSO 与审计日志：官方 simple-proxy 页把这些写在企业版口径里
-  - 以为 MCP 工具接进来就安全：MCP 页在册的是按 key / team / org 的授权面，策略仍要自己配
-  - 以为 100+ provider 等于都能挂护栏：护栏集成是另一份清单，逐 key 控制还要企业版
+  - 以为开源版就带 SSO 与审计日志。官方 simple-proxy 页把这些写在企业版口径里
+  - 以为 MCP 工具接进来就安全。MCP 页在册的是按 key / team / org 的授权面，策略仍要自己配
+  - 以为 100+ provider 等于都能挂护栏。护栏集成是另一份清单，逐 key 控制还要企业版
 
 tags: [本地, 开源, 自托管, 云端, 权限链, webhook, MCP, guardrails]
 related: [nemo-guardrails, azure-ai-content-safety, bedrock-guardrails]
@@ -97,16 +104,16 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: BerriAI / LiteLLM 主体（PyPI 与官网当日在册）；开源项目，无中国区特供版本的官方声明。
+  origin_note: BerriAI / LiteLLM 主体（PyPI 与官网当日在册）。开源项目，无中国区特供版本的官方声明。
   origin_note_en: BerriAI / LiteLLM (on the PyPI page and official site the same day); an open-source project with
     no official statement about a China-specific edition.
   direct: yes
-  direct_note: 同日实测 docs.litellm.ai、www.litellm.ai 与 pypi.org 返回 200，安装路由可用；
+  direct_note: 同日实测 docs.litellm.ai、www.litellm.ai 与 pypi.org 返回 200，安装路由可用。
     自建服务不依赖厂商区域，故「可用」指自托管路由，不指任何合规承诺。
   direct_note_en: Same-day probes returned 200 for docs.litellm.ai, www.litellm.ai and pypi.org, so the install route works;
     self-hosting does not depend on vendor regions. "Usable" here means the self-hosted route, not any compliance claim.
   filing: unknown
-  filing_note: 官方文档与官网未写中国大陆备案/登记信息；监管公示名单已检索，不做推断。
+  filing_note: 官方文档与官网未写中国大陆备案/登记信息。监管公示名单已检索，不做推断。
   filing_note_en: The docs and site say nothing about mainland filing/registration; the public registry was not searched.
   verified: 2026-11-06
 ---
@@ -121,9 +128,9 @@ cn:
 
 ## 适合与不适合
 
-适合要把多模型接入收口、需要按 key / team / organization 分层授权，并坚持把密钥与日志留在自己环境里的团队。不适合只要一个薄客户端 SDK 的场景。
+适合要把多模型接入收口、需要按 key、team 与 organization 分层授权，并坚持把密钥与日志留在自己环境里的团队。不适合只要一个薄客户端 SDK 的场景。
 
-也不适合必须拿到厂商背书的托管护栏与合规承诺的团队——护栏在这里是「你挂进来的外部服务」，不是厂商担保。
+也不适合必须拿到厂商背书的托管护栏与合规承诺的团队。护栏在这里是「你挂进来的外部服务」，不是厂商担保。
 
 ## 能力边界
 
@@ -137,7 +144,7 @@ cn:
 
 PyPI 最新 1.108.1（2026-11-05）。近期条目里能看到与安全相关的连续动作。
 
-例如 2026-10-24 更换镜像签名密钥并调整信任根以及多条修 spend logging 的记录。花费统计的正确性要靠实测确认，不能只看版本标题。
+例如 2026-10-24 更换镜像签名密钥并调整信任根，还有多条修 spend logging 的记录。花费统计的正确性要靠实测确认，不能只看版本标题。
 
 ## 实测记录
 
@@ -160,6 +167,6 @@ PyPI 最新 1.108.1（2026-11-05）。近期条目里能看到与安全相关的
 
 ## 相关条目
 
-- [NeMo Guardrails](./nemo-guardrails.md) — 护栏本体在那边；这里决定在哪个入口、对哪些 key 调用它。
-- [Amazon Bedrock Guardrails](./bedrock-guardrails.md) — 云内推理层的策略与数据保留模式，这里是可以把它当外部 rail 挂进来的入口层。
+- [NeMo Guardrails](./nemo-guardrails.md) — 护栏本体在那边。这里决定在哪个入口、对哪些 key 调用它。
+- [Amazon Bedrock Guardrails](./bedrock-guardrails.md) — 云内推理层的策略与数据保留模式。这里是可以把它当外部 rail 挂进来的入口层。
 - [Azure AI Content Safety](./azure-ai-content-safety.md) — 判定能力在厂商侧，路由与预算治理在网关侧，两层互不替代。

@@ -5,14 +5,14 @@ name: Murf
 nameEn: Murf
 vendor: Murf AI
 homepage: https://murf.ai
-license: 按官方 Terms of Service 管辖（murf.ai/legal/terms-of-service 直抓核验 2026-10-30，主体 Murf Inc.）；
+license: 按官方 Terms of Service 管辖（murf.ai/legal/terms-of-service 直抓核验 2026-10-30，主体 Murf Inc.）。
   具体条款细节与档位商用授权差异按官方文档口径。
 licenseEn: Governed by the official Terms of Service (murf.ai/legal/terms-of-service direct-fetched 2026-10-30,
   entity Murf Inc.); clause details and tier-bound commercial rights not verified item by item.
 
 axes:
   model_access: >-
-    **依据：** 自有语音模型线：官网导航当日分「Models（TTS API，官方口径 purpose built for voice agents）」与 Creators（200+ 预置音色）两面；不开放选第三方模型。
+    **依据：** 自有语音模型线：官网导航当日分「Models（TTS API，官方口径 purpose built for voice agents）」与 Creators（200+ 预置音色）两面。不开放选第三方模型。
   runtime: >-
     网页工作室（murf.ai）+ API（murf.ai/api，API 文档在 murf.ai/api/docs，当日直抓 200）。生成在 Murf 云端，本机不跑模型。
 
@@ -30,15 +30,15 @@ axes:
   context: >-
     工作室按项目/工程组织。官方产品面没有跨会话记忆入口。跨会话一致性靠项目/工程复用。配音资产按项目归档。
   permissions: >-
-    账号体系（免费+订阅）。声音克隆授权线在官方 FAQ 在册——克隆页明言「未经同意的声音复制可能违法」 「克隆名人声音不道德」（2026-10-30 直抓）。
+    账号体系（免费+订阅）。声音克隆授权线在官方 FAQ 在册。克隆页明言「未经同意的声音复制可能违法」 「克隆名人声音不道德」（2026-10-30 直抓）。
 
     Instant 与 Professional 两档克隆形态在册。
   fit: >-
-    适合：配音工作室+TTS API+语音 agent 一体的商用语音平台、要 200+ 预置音色不走克隆。不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型。
+    适合：配音工作室+TTS API+语音 agent 一体的商用语音平台。要 200+ 预置音色不走克隆。不适合：要大陆直连备案入口。要选第三方模型。要本机跑模型。
 pitfalls:
-  - Murf 官网导航当日主打已转向 Agents（语音 agent 平台）——把它当「纯配音工具」会低估其 API/agent 线
-  - 克隆官方 FAQ 只给法律风险提示、未给平台侧强制授权校验流程——「官方说了什么」与「平台拦了什么」是两回事（按官方文档口径拦截面）
-  - 旧文档域 docs.murf.ai 当日直连 000——现行 API 文档在 murf.ai/api/docs，别按旧域判死链
+  - Murf 官网导航当日主打已转向 Agents（语音 agent 平台）。把它当「纯配音工具」会低估其 API/agent 线
+  - 克隆官方 FAQ 只给法律风险提示、未给平台侧强制授权校验流程。「官方说了什么」与「平台拦了什么」是两回事（按官方文档口径拦截面）
+  - 旧文档域 docs.murf.ai 当日直连 000。现行 API 文档在 murf.ai/api/docs，别按旧域判死链
 
 tags: [云端, TTS, 声音克隆, API, 语音agent, 免费+订阅, 商业]
 related: [elevenlabs, fish-audio, heygen]
@@ -67,13 +67,13 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: Murf Inc.（美国，Terms of Service 当日直抓在册）；未见于网信办公示名单。
+  origin_note: Murf Inc.（美国，Terms of Service 当日直抓在册）。未见于网信办公示名单。
   origin_note_en: Murf Inc. (US, on record in the Terms of Service direct-fetched same day); not in the CAC public registry.
   direct: yes
   direct_note: murf.ai 与 /pricing、/voice-cloning、/api/docs 大陆直连实测 200（2026-10-30）。
   direct_note_en: murf.ai and /pricing, /voice-cloning, /api/docs measured 200 direct from mainland (2026-10-30).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与批次 PDF 镜像，未见 Murf 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与批次 PDF 镜像，未见 Murf 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page and batch PDF mirrors searched 2026-10-30; no Murf entry);
     the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30
@@ -81,11 +81,13 @@ cn:
 
 ## 一句话定位
 
-**Murf**：「配音工作室 + TTS API + 语音 agent」三线一体的商用语音平台：（官网当日招牌已转向AI Voice & Conversational Agent Platform）：200+ 预置音色主打。克隆是辅线。API 文档与 changelog 公开可核。
+**Murf**
+
+「配音工作室 + TTS API + 语音 agent」三线一体的商用语音平台。（官网当日招牌已转向AI Voice & Conversational Agent Platform）：200+ 预置音色主打。克隆是辅线。API 文档与 changelog 公开可核。
 
 ## 适合与不适合
 
-适合：商用配音工作室、TTS API 接入、语音 agent（接待/客服/外呼）、200+ 预置音色。
+适合：商用配音工作室。TTS API 接入。语音 agent（接待/客服/外呼）。200+ 预置音色。
 不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型。
 
 ## 实测记录

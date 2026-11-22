@@ -5,7 +5,7 @@ name: Cartesia
 nameEn: Cartesia
 vendor: Cartesia AI, Inc.
 homepage: https://cartesia.ai
-license: 按官方 Terms of Service 管辖（cartesia.ai/legal/terms 2026-11-21 取得，主体 Cartesia AI, Inc.）；档位商用授权差异以 Terms 与 Order Form 为准。
+license: 按官方 Terms of Service 管辖（cartesia.ai/legal/terms 2026-11-21 取得，主体 Cartesia AI, Inc.）。档位商用授权差异以 Terms 与 Order Form 为准。
 licenseEn: Governed by the official Terms of Service (cartesia.ai/legal/terms fetched 2026-11-21, entity Cartesia AI, Inc.); tier-bound commercial rights follow the Terms and Order Form.
 
 axes:
@@ -36,11 +36,11 @@ axes:
 
     具体条款以 Terms 2026-11-21 版为准。
   fit: >-
-    适合：低延迟实时 TTS（voice agent 底座）、15 语言覆盖、托管语音 agent 开箱。不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型（2026-11-21）。
+    适合：低延迟实时 TTS（voice agent 底座）。15 语言覆盖。托管语音 agent 开箱。不适合：要大陆直连备案入口。要选第三方模型。要本机跑模型（2026-11-21）。
 pitfalls:
-  - 主打是「实时低延迟」——官方 latency 数字是自家口径（docs/官网在册），第三方未复核；选型对比时按同条件自测
-  - Ink 是语音转文本模型（不是 TTS 附属功能）——把它当「TTS 厂商的转写副线」会低估其独立模型线定位
-  - 官网 changelog 页 404——现行 changelog 在 docs.cartesia.ai/changelog（2026 年在册），别按主域路径判更新面缺失
+  - 主打是「实时低延迟」。官方 latency 数字是自家口径（docs/官网在册）。第三方未复核。选型对比时按同条件自测
+  - Ink 是语音转文本模型（不是 TTS 附属功能）。把它当「TTS 厂商的转写副线」会低估其独立模型线定位
+  - 官网 changelog 页 404。现行 changelog 在 docs.cartesia.ai/changelog（2026 年在册），别按主域路径判更新面缺失
 
 tags: [云端, TTS, 语音agent, 多语言, API平台, 免费+订阅, 商业]
 related: [elevenlabs, murf, botpress]
@@ -83,7 +83,7 @@ cn:
   direct_note: cartesia.ai 与 /pricing、/legal/terms、docs.cartesia.ai 大陆直连实测 200（2026-10-30）。
   direct_note_en: cartesia.ai and /pricing, /legal/terms, docs.cartesia.ai measured 200 direct from mainland (2026-10-30).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页，未见 Cartesia 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页，未见 Cartesia 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page searched 2026-10-30; no Cartesia entry);
     the product does not serve the mainland public, so filing does not apply.
   verified: 2026-11-21
@@ -95,7 +95,7 @@ cn:
 
 ## 适合与不适合
 
-适合：低延迟实时 TTS（voice agent 底座）、44 语言覆盖、托管语音 agent 开箱。
+适合：低延迟实时 TTS（voice agent 底座）。44 语言覆盖。托管语音 agent 开箱。
 不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型。
 
 ## 实测记录

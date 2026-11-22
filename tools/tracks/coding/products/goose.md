@@ -111,7 +111,7 @@ axes:
     **传输方式已核到两种**：
 
     - stdio：`--with-extension`，可带 ENV=val 与显式名字
-    - Streamable HTTP：`--with-streamable-http-extension <url>`
+    - Streamable HTTP。`--with-streamable-http-extension <url>`
 
     另有 `--with-builtin`。
 
@@ -147,7 +147,7 @@ axes:
     - `goose session -r` —— 续接
     - `--fork` —— 复制历史，开新会话
     - `--edit` —— 用编辑器改对话
-    - `session list / rename / remove / export` —— 可导出 markdown / json / yaml
+    - `session list / rename / remove / export` 。 可导出 markdown / json / yaml
 
     **压缩**：官方 changelog 提到过这一条。
 
@@ -203,7 +203,7 @@ axes:
 pitfalls:
   - 以为默认有人工审批——默认 Autonomous 模式，不确认即可执行命令、改文件
   - 以为它只写代码——官方定位是通用 agent（研究、写作、自动化、数据分析）
-  - 以为装上就能用——首次使用必须先配置 LLM provider（goose configure）
+  - 以为装上就能用。首次使用必须先配置 LLM provider（goose configure）
 
 tags: [编程, 终端, 本地, 开源, 多模型]
 related: [filesystem]
@@ -254,10 +254,10 @@ cn:
   origin_note: 国外主体（网信办公示名单未见对应备案主体）。
   origin_note_en: foreign entity (no matching filing entity in the CAC registry).
   direct: yes
-  direct_note: 官网仓库在 GitHub，大陆直连波动（同日实测 200/000 混合）；npm / PyPI 安装源实测稳定可达。
+  direct_note: 官网仓库在 GitHub，大陆直连波动（同日实测 200/000 混合）。npm / PyPI 安装源实测稳定可达。
   direct_note_en: Hosted on GitHub — direct reachability from mainland fluctuates (200/000 mixed on the same day); npm / PyPI install routes measured stable.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-20
 ---
@@ -293,7 +293,7 @@ goose 是本地进程。
 
 **已核到的能力面**：多形态、provider、MCP 扩展、会话、权限模式、非交互执行。
 
-**范围边界**：各扩展的默认权限档位、定时调度的额度上限；官方只列能力与入口，不列这些数值，本档按范围记录。
+**范围边界**：各扩展的默认权限档位、定时调度的额度上限。官方只列能力与入口，不列这些数值，本档按范围记录。
 
 **一处必须记录的变化（2026-10-08 核到）**：旧仓库地址换了。
 
@@ -321,7 +321,7 @@ Block 是创建方，写在正文里。
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 测试协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
@@ -335,11 +335,11 @@ Block 是创建方，写在正文里。
 
 - 各内置扩展的**默认权限档位**：官方扩展目录只列能力，不列每个扩展的默认审批级别（已查 Browse Extensions 与 Developer Extension 两页）
 - 定时调度（schedules / recipes）的并发与时长上限：官方文档只给入口，不列并发/时长数字
-- 桌面应用与 CLI 在权限默认值上是否完全一致：官方 CLI 与桌面页分别描述，不给两者默认值的对照（已查 CLI Commands 与 Developer Extension 两页）
+- 桌面应用与 CLI 在权限默认值上是否完全一致。官方 CLI 与桌面页分别描述，不给两者默认值的对照（已查 CLI Commands 与 Developer Extension 两页）
 - `goose serve` 远程形态的认证与网络边界：官方文档给了入口，安全细节不在本档范围
 
 ## 相关条目
 
 - [Codex CLI](./codex-cli.md) — 同为终端 agent，可对照 provider 面与权限默认值
-- [Gemini CLI](./gemini-cli.md) — 同为开源 CLI，对照 MCP 支持与额度口径
-- [Amp](./amp.md) — 同为 CLI 形态，对照「纯本地」与「云端 orb」两种运行面
+- [Gemini CLI](./gemini-cli.md) — 同为开源 CLI。对照 MCP 支持与额度口径
+- [Amp](./amp.md) — 同为 CLI 形态。对照「纯本地」与「云端 orb」两种运行面

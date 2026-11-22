@@ -24,7 +24,7 @@ axes:
   permissions: >-
     本地 Docker 环境内运行；权限由 Docker 与宿主系统决定。
   fit: >-
-    适合：已用 Docker 的团队、想把模型分发纳入容器流水线、要本地 OpenAI 兼容端点。不适合：不想装 Docker、要 GPU 极限优化、要成品聊天界面。
+    适合：已用 Docker 的团队。想把模型分发纳入容器流水线。要本地 OpenAI 兼容端点。不适合：不想装 Docker。要 GPU 极限优化。要成品聊天界面。
 pitfalls:
   - 把 DMR 当成云端模型服务——它在本机跑，数据不出本机
   - 以为所有镜像都能直接跑模型——模型要按 DMR 的 OCI 工件格式分发
@@ -56,10 +56,10 @@ cn:
   origin_note: Docker（美国）。
   origin_note_en: Docker (US).
   direct: yes
-  direct_note: docs.docker.com 大陆直连未核验；Docker Hub 可经镜像获取。
+  direct_note: docs.docker.com 大陆直连未核验。Docker Hub 可经镜像获取。
   direct_note_en: Direct reachability from mainland not verified; Docker Hub is available through mirrors.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-11-03 检索）；开发工具未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-11-03 检索）。开发工具未面向大陆公众提供服务，备案不适用。
   filing_note_en: Not in the CAC public registry (searched 2026-11-03); the developer tool does not serve the mainland public, so filing does not apply.
   verified: 2026-11-03
 ---
@@ -73,7 +73,7 @@ cn:
 
 ## 适合与不适合
 
-适合：已用 Docker 的团队、想把模型分发纳入容器流水线、要本地 OpenAI 兼容端点。
+适合：已用 Docker 的团队。想把模型分发纳入容器流水线。要本地 OpenAI 兼容端点。
 不适合：不想装 Docker、要 GPU 极限优化、要成品聊天界面。
 
 ## 实测记录

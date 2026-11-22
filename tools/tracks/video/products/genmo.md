@@ -5,7 +5,7 @@ name: Genmo
 nameEn: Genmo
 vendor: Genmo
 homepage: https://www.genmo.ai
-license: 产品免费+订阅（pricing 页 2026-10-30 直抓在册）；开放权重线 Mochi 仓为 Apache-2.0
+license: 产品免费+订阅（pricing 页 2026-10-30 直抓在册）。开放权重线 Mochi 仓为 Apache-2.0
   （genmoai/mochi LICENSE 当日经 GitHub API 核验）。产品输出的许可按条款页管辖，细节以条款页为准。
 licenseEn: Product free + subscription (pricing page direct-fetched 2026-10-30); the open-weights line
   (genmoai/mochi) is Apache-2.0 (LICENSE verified via GitHub API the same day). Licensing of product
@@ -31,13 +31,13 @@ axes:
   permissions: >-
     账号+订阅体系（/pricing 200，D9：价格不采）。训练用途开关在账户设置，具体路径以登录后界面为准。开放权重仓的训练/商用自由度按 Apache-2.0 本身。
   fit: >-
-    适合：要开放权重自跑的创作者与研究者（Apache-2.0 是同类里少见的宽松档）、 世界模型叙事跟踪、创意实验。
+    适合：要开放权重自跑的创作者与研究者（Apache-2.0 是同类里少见的宽松档）。 世界模型叙事跟踪。创意实验。
 
-    不适合：大陆合规场景（未备案、未面向大陆）、企业级 SLA 主打（公开页未列 SLA 承诺）。
+    不适合：大陆合规场景（未备案、未面向大陆）。企业级 SLA 主打（公开页未列 SLA 承诺）。
 pitfalls:
-  - 「Open world models」是定位叙事——Mochi 1 当前是文生视频模型，别把「世界模型」当成可交互环境理解
-  - 开放权重线（Mochi 仓 Apache-2.0）与产品（playground）是两个面——仓宽松不等于产品输出宽松
-  - /docs /api /changelog 全部 307 跳登录墙——公开文档面有限，blog 是公开更新线
+  - 「Open world models」是定位叙事。Mochi 1 当前是文生视频模型，别把「世界模型」当成可交互环境理解
+  - 开放权重线（Mochi 仓 Apache-2.0）与产品（playground）是两个面。仓宽松不等于产品输出宽松
+  - /docs /api /changelog 全部 307 跳登录墙。公开文档面有限，blog 是公开更新线
 
 tags: [免费+订阅, 开源权重, 自研模型, 直连可用, 世界模型]
 related: [runway, luma, flux]
@@ -69,7 +69,7 @@ cn:
   direct_note: genmo.ai 大陆直连实测 200（2026-10-30，代理同 200）。
   direct_note_en: genmo.ai measured 200 direct from mainland (2026-10-30; also 200 via proxy).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-30); the product does not serve the
     mainland public, so filing does not apply.
   verified: 2026-10-30
@@ -77,13 +77,13 @@ cn:
 
 ## 一句话定位
 
-**Genmo 把「开放权重」做成招牌**：Mochi 1 以 Apache-2.0 开源（同类海外视频台里少见的宽松档）——
+**Genmo 把「开放权重」做成招牌**：Mochi 1 以 Apache-2.0 开源（同类海外视频台里少见的宽松档）。
 它同时卖云端产品（playground）和可自跑的模型线，两个面要分开看。
 
 ## 适合与不适合
 
 适合：开放权重自跑与微调、研究实验、世界模型叙事跟踪。
-不适合：把「世界模型」当可交互环境、要产品级文档/API 公开面（登录墙后）、大陆合规场景。
+不适合：把「世界模型」当可交互环境。要产品级文档/API 公开面（登录墙后）。大陆合规场景。
 
 ## 实测记录
 

@@ -3,7 +3,7 @@ id: playbook-service-agent
 topic: planning
 title: 任务：搭一个客服 Agent 并上线
 titleEn: Playbook: building and shipping a customer-service agent
-summary: 意图、知识库、工具、护栏、评估、上线六段；含生态锁定、许可、人工兜底、验收单与失败模式。
+summary: 意图、知识库、工具、护栏、评估、上线六段。含生态锁定、许可、人工兜底、验收单与失败模式。
 summaryEn: Six stages — intents, knowledge base, tools, guardrails, evaluation, launch — with ecosystem lock-in, licensing, human fallback, an acceptance list and failure modes.
 sources:
   - label: Microsoft · Copilot Studio 官方页（企业低代码 agent、Power Platform / Dataverse 生态；2026-10 快照）
@@ -24,7 +24,7 @@ confidence: partial
 
 ## [准备：先划不能答的问题|Prepare: list what it must not answer]
 
-**一句话**：下面是一种带人工兜底的客服流程设计，不是产品运行记录。题数、流量比例、观察周期和抽样量是示例预算，应按风险与业务量另定；写操作的审批方式是本示例的权限边界。
+**一句话**：下面是一种带人工兜底的客服流程设计，不是产品运行记录。题数、流量比例、观察周期和抽样量是示例预算，应按风险与业务量另定。写操作的审批方式是本示例的权限边界。
 
 1. **意图清单**：退款、改地址、查物流、产品咨询、投诉，按频次排序。
 2. **禁区清单**：价格承诺、法律责任、医疗建议、账号密码，一律转人工。
@@ -36,7 +36,7 @@ confidence: partial
 ## [知识库：只放可对外的话|Knowledge base: approved text only]
 
 - 只收官方已发布的 FAQ、政策、产品文档；内部草稿不进库。
-- 每条知识带版本与生效日期；实现过期处理，旧版本保留可追溯记录，不再参与默认检索。
+- 每条知识带版本与生效日期。实现过期处理，旧版本保留可追溯记录，不再参与默认检索。
 - 分块按语义，不按固定字数；每块保留原文链接。
 - 检索命中后要求引用原文句，答不出就说「没找到」。
 
@@ -64,7 +64,7 @@ confidence: partial
 
 ## [评估：先离线再灰度|Evaluate offline first]
 
-- **离线集**：100 条真实问题，覆盖高频与禁区；每条有标准答案与可接受变体。
+- **离线集**：100 条真实问题，覆盖高频与禁区。每条有标准答案与可接受变体。
 - **指标**：解决率、转人工率、错误承诺率、平均轮次、引用准确率。
 - **灰度**：先 5% 流量，持续一周；错误承诺率不达标就回滚。
 - **回归**：知识库每次更新跑一遍离线集。
@@ -73,7 +73,7 @@ confidence: partial
 
 ## [上线：可观测与回滚|Launch: observe and roll back]
 
-- 按最小必要范围记录意图、检索命中、工具调用、回答与转接结果；敏感字段脱敏，明确日志访问权限与保留期。
+- 按最小必要范围记录意图、检索命中、工具调用、回答与转接结果。敏感字段脱敏，明确日志访问权限与保留期。
 - 设三条告警：错误承诺、转人工率异常、检索空命中率异常。
 - 回滚开关：一键切回人工或旧版本。
 - 每周抽 20 条会话人工复核。
@@ -86,7 +86,7 @@ confidence: partial
 月费用 = 会话数 × 平均会话费用 + 席位与复核费用 + 维护
 ```
 
-单价按每百万 tokens 填写；缓存输入按对应费率另列，重试计入实际调用次数。检索与工具只按实际计费项目计算，不重复乘模型轮数。用 [成本计算器](https://tools.specul.com/mcp/guides/cost-calculator.html) 记录假设。
+单价按每百万 tokens 填写。缓存输入按对应费率另列，重试计入实际调用次数。检索与工具只按实际计费项目计算，不重复乘模型轮数。用 [成本计算器](https://tools.specul.com/mcp/guides/cost-calculator.html) 记录假设。
 
 ## [验收单|Acceptance checklist]
 
@@ -102,6 +102,6 @@ confidence: partial
 ## [常见误判|Common misreads]
 
 - 把「低代码平台」当成「零治理」：身份、数据驻留、审计仍要配。
-- 把「fair-code」当成「OSI 开源」：n8n 的 Sustainable Use License 有使用限制。
+- 把「fair-code」当成「OSI 开源」。n8n 的 Sustainable Use License 有使用限制。
 - 把「知识库大」当成「答得准」：过期与冲突条目比数量更伤。
 - 把「转人工」当成失败：该转不转才是失败。

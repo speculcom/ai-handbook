@@ -25,11 +25,11 @@ axes:
   permissions: >-
     自托管无账号体系。API 鉴权由部署方自配。多租户隔离与配额面本档不逐条展开。
   fit: >-
-    适合：多模型/多请求的服务化部署、要吞吐与显存效率、生产环境 OpenAI 兼容端点。不适合：单机开箱跑量化档（llama.cpp/Ollama 更省事）。GGUF 深度依赖场景。
+    适合：多模型/多请求的服务化部署。要吞吐与显存效率。生产环境 OpenAI 兼容端点。不适合：单机开箱跑量化档（llama.cpp/Ollama 更省事）。GGUF 深度依赖场景。
 pitfalls:
   - 把「跑开源模型」都当等价——vLLM 强在服务化调度，单机单模型开箱它不是最省事
-  - 把 PagedAttention 自报数字当本站实测——那是官方口径快照，本站不实测
-  - 指望 GGUF 一等公民支持——量化服务化首选 llama.cpp 路线（models 站口径）
+  - 把 PagedAttention 自报数字当本站实测。那是官方口径快照，本站不实测
+  - 指望 GGUF 一等公民支持。量化服务化首选 llama.cpp 路线（models 站口径）
 
 tags: [开源, Apache2.0, 服务化推理, PagedAttention, OpenAI兼容]
 related: [openai-agents-sdk, llamaindex]
@@ -57,7 +57,7 @@ cn:
   direct_note: docs.vllm.ai 直连实测 200（2026-10-21）。
   direct_note_en: docs.vllm.ai measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
@@ -71,7 +71,7 @@ cn:
 ## 适合与不适合
 
 适合：生产部署多模型/高并发推理服务、GPU 集群吞吐优先。
-不适合：个人单机开箱（Ollama 更省事）、GGUF 量化档深度依赖（llama.cpp 路线）。
+不适合：个人单机开箱（Ollama 更省事）。GGUF 量化档深度依赖（llama.cpp 路线）。
 
 ## 实测记录
 
@@ -87,12 +87,12 @@ cn:
 ## 相关条目
 
 - [SGLang](./sglang.md) — 同为服务化推理引擎：SGLang 主打 RadixAttention 与 agent 工作流前缀复用。
-- [llama.cpp](./llama-cpp.md) — 单机 GGUF 路线的根；两条路线在 models 站 guides 有对照。
+- [llama.cpp](./llama-cpp.md) — 单机 GGUF 路线的根。两条路线在 models 站 guides 有对照。
 
 ## 第一次怎么用
 
 1. 在 NVIDIA GPU 机器上安装 vLLM，先跑 `vllm --help` 确认版本。
-2. 用 `vllm serve <model>` 起 OpenAI 兼容服务；模型名与上下文长度按官方文档配。
+2. 用 `vllm serve <model>` 起 OpenAI 兼容服务。模型名与上下文长度按官方文档配。
 3. 多人并发前先测显存峰值与 tokens/s，再调 batch 与并行参数。
 4. PagedAttention 管显存，但上下文越长 KV 缓存越吃显存。
 5. 生产环境加监控与限流；不要直接把默认参数暴露到公网。

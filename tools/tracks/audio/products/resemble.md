@@ -5,8 +5,8 @@ name: Resemble AI
 nameEn: Resemble AI
 vendor: Resemble AI
 homepage: https://www.resemble.ai
-license: 按官方 Terms of Service 管辖（resemble.ai/terms-of-service 直抓核验 2026-10-30）；
-  主体名条款页以 "Resemble AI" 出现（当日抓取未见 Inc. 后缀在册）；具体条款细节按官方文档口径。
+license: 按官方 Terms of Service 管辖（resemble.ai/terms-of-service 直抓核验 2026-10-30）。
+  主体名条款页以 "Resemble AI" 出现（当日抓取未见 Inc. 后缀在册）。具体条款细节按官方文档口径。
 licenseEn: Governed by the official Terms of Service (resemble.ai/terms-of-service direct-fetched 2026-10-30);
   the entity appears as "Resemble AI" in the fetched text (no "Inc." suffix on record in the same-day fetch);
   clause details not verified item by item.
@@ -17,7 +17,7 @@ axes:
 
     RAD-S1（官方口径 first System One model for AI agent detection）、 DETECT-World（world model architecture for detection）、PerTh（多模态水印）。
 
-    生成侧 Chatterbox 等语音模型转入 Research Archive（开源保留、不再作商用付费产品，docs 当日在册）。
+    生成侧 Chatterbox 等语音模型转入 Research Archive。这些模型保留开源，但不再作商用付费产品，docs 当日在册。
   runtime: >-
     云端 API 平台（docs.resemble.ai 当日在册：Detect/Watermark/Identity/Meetings 等端点）+ 即用面（Meetings 机器人入 Zoom/Teams/Google Meet、Chrome 扩展）。
 
@@ -37,15 +37,15 @@ axes:
   permissions: >-
     企业向（Contact Sales 主打）。
 
-    身份注册面（Enroll and authenticate a voice）涉生物特征—— 授权与合规面（EU AI Act Article 50 合规清单资源页在册）是重点维度。
+    身份注册面（Enroll and authenticate a voice）涉生物特征。 授权与合规面是重点维度。依据是 EU AI Act Article 50 合规清单资源页，在册。
   fit: >-
-    适合：企业反深伪（会议防护/客服欺诈/KYC/媒体水印）、AI agent 检测、C2PA 溯源合规。
+    适合：企业反深伪（会议防护/客服欺诈/KYC/媒体水印）。AI agent 检测。C2PA 溯源合规。
 
-    不适合：找 TTS/声音克隆托管服务（商用语音线已撤，见 pitfalls）、个人免费使用、大陆直连备案入口。
+    不适合：找 TTS/声音克隆托管服务（商用语音线已撤，见 pitfalls）。个人免费使用。大陆直连备案入口。
 pitfalls:
-  - **定位已整体转向**——官网当日招牌是「Multimodal Deepfake Detection and Watermarking」，不是声音克隆厂商；docs 的 Voice Archive 页明言 Chatterbox 等生成模型「remain open and free…no longer offered as commercial paid products」——按旧印象把它当 TTS/克隆平台建档会整体错位
-  - Voice Archive 文档保留但官方明言「do not imply continued availability of commercial voice services」——历史 API 文档在册≠服务仍在售
-  - 条款页当日抓取未见 Inc. 主体后缀——主体全称官方文档未单列清，如实按在册文本写（未知就说未知）
+  - **定位已整体转向**——官网当日招牌是「Multimodal Deepfake Detection and Watermarking」，不是声音克隆厂商。docs 的 Voice Archive 页明言 Chatterbox 等生成模型「remain open and free…no longer offered as commercial paid products」。按旧印象把它当 TTS/克隆平台建档会整体错位
+  - Voice Archive 文档保留但官方明言「do not imply continued availability of commercial voice services」。历史 API 文档在册≠服务仍在售
+  - 条款页当日抓取未见 Inc. 主体后缀。主体全称官方文档未单列清，如实按在册文本写（未知就说未知）
 
 tags: [云端, 深度伪造检测, 声音水印, API平台, 企业向]
 related: [elevenlabs, assemblyai, heygen]
@@ -81,7 +81,7 @@ cn:
   direct_note: resemble.ai 与 /changelog、/terms-of-service、docs.resemble.ai 大陆直连实测 200（2026-10-30）。
   direct_note_en: resemble.ai and /changelog, /terms-of-service, docs.resemble.ai measured 200 direct from mainland (2026-10-30).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页，未见 Resemble 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页，未见 Resemble 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page searched 2026-10-30; no Resemble entry);
     the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30
@@ -89,12 +89,14 @@ cn:
 
 ## 一句话定位
 
-**Resemble AI**：从「声音克隆厂商」整体转向「多模态深伪检测与水印」企业平台：（官网当日招牌在册）：检测（RAD-S1/DETECT-World）、水印（PerTh/C2PA）、身份注册三线。生成语音线转入开源研究归档、不再商用售卖。
+**Resemble AI**
+
+从「声音克隆厂商」整体转向「多模态深伪检测与水印」企业平台。官网当日招牌在册，产品分三线。检测线有 RAD-S1 与 DETECT-World。水印线有 PerTh 与 C2PA。第三线是身份注册。生成语音线转入开源研究归档、不再商用售卖。
 
 ## 适合与不适合
 
-适合：企业反深伪（会议防护/客服欺诈/KYC/媒体水印）、AI agent 检测、C2PA 溯源合规。
-不适合：找 TTS/声音克隆托管服务（商用语音线已撤）、个人免费使用、大陆直连备案入口。
+适合：企业反深伪（会议防护/客服欺诈/KYC/媒体水印）。AI agent 检测。C2PA 溯源合规。
+不适合：找 TTS/声音克隆托管服务（商用语音线已撤）。个人免费使用。大陆直连备案入口。
 
 ## 实测记录
 

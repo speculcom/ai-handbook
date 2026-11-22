@@ -3,7 +3,7 @@ id: exercise-creator
 topic: planning
 title: 练习包 · Creator：把一份官方资料做成三件套并留下事实表
 titleEn: Exercise: three assets from one official source
-summary: 选一份官方产品页，产出短文、图像提示词与 30 秒口播稿，并附 5 条事实核对表与 2 条被拒的说法；评分标准看引用、边界与一致性。
+summary: 选一份官方产品页，产出短文、图像提示词与 30 秒口播稿，并附 5 条事实核对表与 2 条被拒的说法。评分标准看引用、边界与一致性。
 summaryEn: Take one official product page and produce a short post, an image prompt and a 30-second script, plus a five-claim fact table and two rejected claims; the rubric checks citations, boundaries and consistency.
 sources:
   - label: 本站 · 怎么验证 AI 的输出
@@ -21,13 +21,13 @@ confidence: partial
 
 ## [任务|The task]
 
-选一份**有发布日期**的官方产品页或 changelog，做一组可发布的三件套。只准用这一份来源，不补二手总结。篇幅和评分线是本练习约束；口播时长需实际朗读确认。
+选一份**有发布日期**的官方产品页或 changelog，做一组可发布的三件套。只准用这一份来源，不补二手总结。篇幅和评分线是本练习约束。口播时长需实际朗读确认。
 
 1. 短文：150–200 字，说清「变了什么、影响谁、要做什么」，标题不夸张。
 2. 图像提示词：一段可复现的英文提示词，描述一个具体场景，不生成商标或真人肖像。
 3. 30 秒口播稿：约 90–110 字，按「变化 → 影响 → 动作」三段写。
 
-同时交一张事实表：5 条关键说法，每条写来源句子与日期；再列 2 条你决定不写的说法及原因。
+同时交一张事实表：5 条关键说法，每条写来源句子与日期。再列 2 条你决定不写的说法及原因。
 
 ## [交付物|Deliverables]
 

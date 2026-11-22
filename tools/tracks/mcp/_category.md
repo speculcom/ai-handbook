@@ -1,6 +1,8 @@
 # mcp 大类收录声明
 
-**主题**：给 AI 装的工具——MCP server 与工具接口，给 agent 接上文件、浏览器、GitHub 这些能力。
+**主题**
+
+给 AI 装的工具。MCP server 和工具接口，让 agent 接上文件、浏览器、GitHub。
 定义与边界裁决见 [../../categories.md](../../categories.md) §10。
 
 ## 收录标准（三条全满足）
@@ -11,8 +13,9 @@
 | 2 | 有官方仓库/文档，`transport / auth / scope` 三维至少两维可答 |
 | 3 | **能力边界可核验**（它能读写什么、要不要密钥） |
 
-**形态归属**：本大类对象 `form: mcp`，额外必填 `mcp.transport` / `mcp.auth` / `mcp.scope`
-三个特有维度（定义见 [taxonomy/](./taxonomy/)）。
+**形态归属**
+
+本大类对象都用 `form: mcp`。档案还必须填 `mcp.transport`、`mcp.auth`、`mcp.scope` 三个特有维度（定义见 [taxonomy/](./taxonomy/)）。
 
 **边界情况**：
 
@@ -28,8 +31,8 @@
 ## 托管 MCP 聚合器 vs 单个 server
 
 - **单个 server**：一个进程或端点只做一类能力（文件、Git、浏览器），权限面窄，装之前能逐项审。
-- **托管聚合器**：一个 MCP endpoint 接数百个应用（Composio 是常见例子），省去逐个接入，但权限、OAuth 令牌与数据流都经过第三方；要单独评估信任边界。
-- **选型判断**：要最小权限、自己审代码 → 单个 server；要快速接大量 SaaS、能接受第三方托管 → 聚合器。两者不能混为一谈。
+- **托管聚合器**：一个 MCP endpoint 接数百个应用（Composio 是常见例子），省去逐个接入，但权限、OAuth 令牌与数据流都经过第三方。要单独评估信任边界。
+- **选型判断**：要最小权限、自己审代码 → 单个 server。要快速接大量 SaaS、能接受第三方托管 → 聚合器。两者不能混为一谈。
 
 ## 收录对象（32 份）
 
@@ -68,6 +71,6 @@
 | `time` | Time MCP Server | Model Context Protocol | MCP | 8 项已核 · 活跃 |
 | `zapier-mcp` | Zapier MCP | Zapier | MCP | 8 项已核 · 活跃 |
 
-> 共 **32** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+> 共 **32** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

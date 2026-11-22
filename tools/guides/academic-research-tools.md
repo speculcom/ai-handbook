@@ -27,7 +27,7 @@ confidence: partial
 
 ## [这一篇讲什么|What this guide covers]
 
-学术工具不是「一个更聪明的搜索框」，而是四件不同的事：**找论文、读论文、查引用态度、做综述**。
+学术工具不是「一个更聪明的搜索框」，而是四件不同的事。**找论文、读论文、查引用态度、做综述**。
 先定你要做哪件事，再选工具；本节不排名、不报价格。
 
 <!-- EN -->
@@ -36,9 +36,9 @@ confidence: partial
 
 ## [找论文：Semantic Scholar / Google Scholar / arXiv|Finding papers: Semantic Scholar / Google Scholar / arXiv]
 
-- **Semantic Scholar**：提供 Academic Graph API，可查作者、论文、引用与参考文献，并有 Recommendations API；适合做程序化检索与引文网络。
+- **Semantic Scholar**：提供 Academic Graph API，可查作者、论文、引用与参考文献，并有 Recommendations API。适合做程序化检索与引文网络。
 - **Google Scholar**：覆盖面广，但无官方 API，批量抓取受条款限制。
-- **arXiv**：预印本主库，按分类与日期浏览最直接；未经同行评审的版本要单独标注。
+- **arXiv**：预印本主库，按分类与日期浏览最直接。未经同行评审的版本要单独标注。
 
 <!-- EN -->
 > - **Semantic Scholar**: offers the Academic Graph API for authors, papers, citations and references, plus a Recommendations API; suited to programmatic search and citation networks.
@@ -47,9 +47,9 @@ confidence: partial
 
 ## [读论文：SciSpace / Elicit / 通用聊天助手|Reading papers: SciSpace / Elicit / general chat assistants]
 
-- **SciSpace**：面向论文的问答、解释与写作辅助，提供 PDF 对话与引用管理；适合逐篇精读与写作。
+- **SciSpace**：面向论文的问答、解释与写作辅助，提供 PDF 对话与引用管理。适合逐篇精读与写作。
 - **Elicit**：把研究问题拆成检索与数据抽取表格，适合做文献综述的初筛。
-- **通用聊天助手**：上传 PDF 也能读，但引用与页码常错；关键句要回原文核对。
+- **通用聊天助手**：上传 PDF 也能读，但引用与页码常错。关键句要回原文核对。
 
 <!-- EN -->
 > - **SciSpace**: paper-oriented Q&A, explanation and writing help with PDF chat and reference management; suited to close reading and writing.
@@ -58,7 +58,7 @@ confidence: partial
 
 ## [查引用态度：Scite|Checking citation stance: Scite]
 
-Scite 的 Smart Citations 把引用分成**支持 / 反对 / 仅提及**，用来判断一篇论文是被验证还是被质疑。
+Scite 的 Smart Citations 把引用分成三类。分为**支持、反对、仅提及**。它用这个分类判断论文是被验证还是被质疑。
 **依据：** 它不能替代你读原文：分类由模型与规则生成，边界情况仍要人工核对。
 
 <!-- EN -->

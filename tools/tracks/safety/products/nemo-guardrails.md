@@ -5,7 +5,7 @@ name: NeMo Guardrails
 nameEn: NeMo Guardrails
 vendor: NVIDIA
 homepage: https://docs.nvidia.com/nemo/guardrails/
-license: Apache-2.0（PyPI 项目页与 GitHub 仓库页 2026-11-06 直抓在册）；开源工具本体，
+license: Apache-2.0（PyPI 项目页与 GitHub 仓库页 2026-11-06 直抓在册）。开源工具本体，
   不含对用户内容的使用限制条款——内容归属由你接的模型端点条款决定。
 licenseEn: Apache-2.0 (on the PyPI project page and the GitHub repository page, direct-fetched 2026-11-06);
   the open-source toolkit itself puts no claim on your content — content terms follow whichever model endpoint you configure.
@@ -16,7 +16,7 @@ axes:
 
     NVIDIA NIM、 OpenAI、Azure、Anthropic、Hugging Face、Ollama、LangChain。可同机服务也可远端端点。
 
-    护栏判定可用应用模型自检（LLM self-checking）、NemoGuard / Nemotron 专用安全模型。
+    护栏判定可用应用模型自检，即 LLM self-checking。也可用 NemoGuard 与 Nemotron 专用安全模型。
 
     也可挂第三方（目录在册 LlamaGuard、ActiveFence、Cisco AI Defense 等）。
   runtime: >-
@@ -40,7 +40,7 @@ axes:
 
     MCP 接入方式记为未知。
   context: >-
-    会话消息由调用方带入，rail 在处理 user / assistant 消息时逐条判定。retrieval rail 可读 knowledge_base 做检索过滤。
+    会话消息由调用方带入。rail 在处理 user 与 assistant 消息时逐条判定。retrieval rail 可读 knowledge_base 做检索过滤。
 
     跨会话记忆与持久化策略本次未核验到官方声明， 记为未知。上下文长度实际上限由你所选模型决定。
   permissions: >-
@@ -48,11 +48,11 @@ axes:
 
     观测面有 logging / tracing 专页在册。合规认证（SOC 2 / ISO 等）与训练用途承诺本次未核验，记为未知。
   fit: >-
-    **依据：** 适合：要在自己的进程或容器里加可编程护栏——话题控制、PII、越狱检测、工具调用管控， 并且要能换模型与端点。不适合：只想要一个托管控制台带审核工作流、要把评测平台当主轴、 或不能接受「护栏质量取决于所选模型」这件事。
+    **依据：** 适合：要在自己的进程或容器里加可编程护栏。话题控制、PII、越狱检测、工具调用管控， 并且要能换模型与端点。不适合：只想要一个托管控制台带审核工作流。也不适合把评测平台当主轴，或不能接受「护栏质量取决于所选模型」。
 pitfalls:
   - 把它当托管安全服务：本体是本地库 / 容器，数据流向由你配的端点决定
-  - 以为工具调用自动被拦：官方工具集成页写明 tool 消息绕过 input 校验，建议补 output rail
-  - 把 catalog 里的第三方 rail 当免费内置能力：接第三方即把送检内容送出你的环境
+  - 以为工具调用自动被拦。官方工具集成页写明 tool 消息绕过 input 校验，建议补 output rail
+  - 把 catalog 里的第三方 rail 当免费内置能力。接第三方即把送检内容送出你的环境
 
 tags: [本地, 开源, guardrails, 多后端, 自托管, API]
 related: [azure-ai-content-safety, bedrock-guardrails, litellm]
@@ -112,15 +112,15 @@ confidence: partial
 
 cn:
   origin: foreign
-  origin_note: NVIDIA 主体（文档站与仓库页当日在册）；未见面向中国大陆的本地化版本。
+  origin_note: NVIDIA 主体（文档站与仓库页当日在册）。未见面向中国大陆的本地化版本。
   origin_note_en: NVIDIA entity (on the docs site and repository page same day); no mainland-localised edition found.
   direct: yes
-  direct_note: 同日实测 docs.nvidia.com 与 pypi.org 返回 200，github.com 返回 000（本机网络受限）；
+  direct_note: 同日实测 docs.nvidia.com 与 pypi.org 返回 200，github.com 返回 000（本机网络受限）。
     安装路由走 PyPI 可达，文档可达不等于任何合规承诺。
   direct_note_en: Same-day probes: docs.nvidia.com and pypi.org returned 200, github.com returned 000 (local network restriction);
     the install route via PyPI is reachable. Page reachability is not a compliance claim.
   filing: unknown
-  filing_note: 官方文档与仓库页当日在册内容未写中国大陆备案/登记信息；本次未检索监管公示名单，不做推断。
+  filing_note: 官方文档与仓库页当日在册内容未写中国大陆备案/登记信息。本次未检索监管公示名单，不做推断。
   filing_note_en: Nothing on the mainland filing/registration appears in the official pages fetched same day;
     the regulator's public registry was not searched, so no inference is made.
   verified: 2026-11-06
@@ -130,7 +130,7 @@ cn:
 
 它是本地跑的护栏库，不是托管的安全服务。
 
-NVIDIA 把它写成「给 LLM 应用加可编程护栏的开源 Python 库」（About 页当日在册）：
+NVIDIA 把它写成「给 LLM 应用加可编程护栏的开源 Python 库」。About 页当日在册。
 rail 的类型、判定用的模型、数据往哪走。
 都由你 config.yml 里的选择决定。
 
@@ -138,15 +138,15 @@ rail 的类型、判定用的模型、数据往哪走。
 
 适合在自有进程或容器里加护栏的团队。话题控制、越狱检测、PII、工具调用管控都能写进 rail。不适合想要托管控制台与审核工作流的人。
 
-也不适合把「护栏质量」当厂商承诺的团队——判定用的是你选的模型，模型换了结论就跟着换。
+也不适合把「护栏质量」当厂商承诺的团队——判定用的是你选的模型。模型换了结论就跟着换。
 
 ## 能力边界
 
-**依据：** 官方 catalog 页在册的家族是：内容安全、越狱防护、话题控制、PII 检测、agentic 安全与工具调用、幻觉与自检、第三方 rail API。
+**依据：** 官方 catalog 页在册的家族有内容安全、越狱防护、话题控制、PII 检测、agentic 安全与工具调用、幻觉与自检、第三方 rail API。
 
 它拦的是消息与动作。「人工审核外包」与跨厂商模型打分都不在官方口径里（本站观点，按在册页面范围判断）。
 
-评测面（evaluate）在开源包内，用公开数据集跑 dialog / fact-checking / moderation / hallucination四类指标——这是「你自己的 rail 配置有多准」，不是跨厂商的跑分。
+评测面（evaluate）在开源包内，用公开数据集跑 dialog / fact-checking / moderation / hallucination四类指标。这是「你自己的 rail 配置有多准」，不是跨厂商的跑分。
 
 ## 变更记录说明
 
@@ -177,6 +177,6 @@ rail 的类型、判定用的模型、数据往哪走。
 
 ## 相关条目
 
-- [Azure AI Content Safety](./azure-ai-content-safety.md) — 同为护栏，运行位置相反：那边检测在厂商侧，这里在你进程里。
+- [Azure AI Content Safety](./azure-ai-content-safety.md) — 同为护栏，运行位置相反：那边检测在厂商侧。这里在你进程里。
 - [Amazon Bedrock Guardrails](./bedrock-guardrails.md) — 策略面相似（内容/越狱/PII），差别在能不能换模型端点。
-- [LiteLLM](./litellm.md) — 网关侧也能挂 rail；这里是应用内库，那里是入口治理。
+- [LiteLLM](./litellm.md) — 网关侧也能挂 rail。这里是应用内库，那里是入口治理。

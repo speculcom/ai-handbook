@@ -9,11 +9,11 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 family: orchestration
 providers:
-  - 生成/嵌入模型经集成接入：OpenAI/Anthropic/本地 HF 等（官方集成目录为准，本档不逐条复制完整清单）
+  - 生成/嵌入模型经集成接入。OpenAI/Anthropic/本地 HF 等（官方集成目录为准，本档不逐条复制完整清单）
   - RAG 检索栈（dense/sparse/hybrid）与模型 provider 解耦：检索组件不依赖特定厂商
 axes:
   model_access: >-
-    各家生成模型与嵌入模型经集成接入（OpenAI/Anthropic/本地 HF 等，以官方集成目录为准， 本档不逐条复制完整清单）。
+    各家生成模型与嵌入模型经集成接入。可接 OpenAI、Anthropic 与本地 HF 等。以官方集成目录为准，本档不逐条复制完整清单。
 
     RAG 检索栈（dense/sparse/hybrid）是它的看家面。
   runtime: >-
@@ -31,9 +31,9 @@ axes:
   permissions: >-
     无账号体系（库形态）。权限面=你接的各家 key 与存储凭据。deepset Cloud 上传面是另一条线的口径。
   fit: >-
-    适合：生产级 RAG 管线（检索质量工程：hybrid/reranker/评估环）、要可审计的组件图。不适合：只要一个薄聊天壳（过重）。agent 深度编排（LangGraph 线更专）。
+    适合：生产级 RAG 管线。重点在检索质量工程，含 hybrid、reranker 与评估环。要可审计的组件图。不适合：只要一个薄聊天壳（过重）。agent 深度编排（LangGraph 线更专）。
 pitfalls:
-  - 把 Haystack 当「demo 级 RAG 脚本」——它的定位是生产管线（索引/查询分离、评估环）
+  - 把 Haystack 当「demo 级 RAG 脚本」。它的定位是生产管线（索引/查询分离、评估环）
   - 把 deepset Cloud 与开源库混谈——托管线的数据上传口径是另一产品条款
   - 1.x→2.x 的管线 API 大改——旧教程代码在新版跑不通，看版本标记
 
@@ -63,14 +63,14 @@ cn:
   direct_note: haystack.deepset.ai 直连实测 200（2026-10-21）。
   direct_note_en: haystack.deepset.ai measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
 
 ## 一句话定位
 
-**Haystack 是「检索质量工程」那一派的 RAG 框架**（Apache-2.0，deepset）：索引/查询管线分离、hybrid 检索与 reranker、评估环。生产味最浓的一条 RAG 线。
+**Haystack 是检索质量工程的 RAG 框架**。它用 Apache-2.0，来自 deepset。索引与查询管线分离，支持 hybrid 检索、reranker 与评估环。生产味最浓的一条 RAG 线。
 
 2.x 管线 API 大改，旧教程要警惕。
 

@@ -6,7 +6,7 @@ nameEn: Ideogram
 vendor: Ideogram
 homepage: https://ideogram.ai
 license: 产品免费+订阅。开源侧特殊：Ideogram 4.0 开放量化权重（HF 直抓 401=仓存在需授权；GitHub ideogram-oss 组织直抓 200），
-  按 Ideogram Non-Commercial Model Agreement 免费非商用；商用自托管需 Self-Serve 商业许可（官方 licensing 页直抓核验）。
+  按 Ideogram Non-Commercial Model Agreement 免费非商用。商用自托管需 Self-Serve 商业许可（官方 licensing 页直抓核验）。
   官方 FAQ 口径：Ideogram 不主张输出所有权，输出可商用（禁用于训练竞品模型）。
 licenseEn: Product free + subscription. Open side is special: Ideogram 4.0 ships quantized weights
   (HF direct 401 = repo exists behind gating; GitHub ideogram-oss org direct 200) free for non-commercial use
@@ -30,19 +30,19 @@ axes:
   background: >-
     托管生成即时/排队。官方产品面没有「关机续跑」任务入口。自托管线后台行为由你的部署决定。
   tools: >-
-    **依据：** 产品内含生成、编辑（4.5 precise edit：未改动像素逐字复制是官方卖点）、背景移除/物体移除等专用 app、 风格控制；API 统一端点切模型；MCP server 官方提供。
+    **依据：** 产品内含生成、编辑（4.5 precise edit：未改动像素逐字复制是官方卖点）、背景移除/物体移除等专用 app、 风格控制。API 统一端点切模型。MCP server 官方提供。
   context: >-
     以项目/作品组织。官方产品面没有跨会话记忆入口。多轮编辑的「漂移控制」是 4.5 的官方叙事。
   permissions: >-
     账号+订阅体系。开放权重线按非商用协议/商业许可两档（D9：价格不采，档位存在是事实）。输出商用限制=不训练竞品（官方 FAQ 直抓口径）。
   fit: >-
-    适合：图内排版文字要求高（海报/品牌物料）、要开放权重非商用研究+商业自托管路径、要官方 MCP 接入 agent 流。
+    适合：图内排版文字要求高（海报/品牌物料）。要开放权重非商用研究+商业自托管路径。要官方 MCP 接入 agent 流。
 
     不适合：要免费商用自托管（商业自托管需付费许可）、要 4.5 权重（闭源）。
 pitfalls:
-  - 开放权重只覆盖 4.0——4.5 是闭源托管（官方文档无下载路径）；「Ideogram 开源」的说法主语必须落到 4.0
-  - 开放权重≠免费商用——非商用协议免费，商用自托管要 Self-Serve/Enterprise 许可（官方 licensing 页三档）
-  - 平台 catalog 聚合第三方模型——「用 Ideogram」可能是用别家的模型，看请求里的 model 字符串
+  - 开放权重只覆盖 4.0——4.5 是闭源托管（官方文档无下载路径）。「Ideogram 开源」的说法主语必须落到 4.0
+  - 开放权重≠免费商用。非商用协议免费，商用自托管要 Self-Serve/Enterprise 许可（官方 licensing 页三档）
+  - 平台 catalog 聚合第三方模型。「用 Ideogram」可能是用别家的模型，看请求里的 model 字符串
 
 tags: [免费+订阅, 排版文字强, 开放权重4.0, 商业自托管许可, MCP官方]
 related: [flux, stability-ai, midjourney, chatgpt]
@@ -71,11 +71,11 @@ cn:
   origin_note: Ideogram（加拿大多伦多/美国旧金山双线叙事）。
   origin_note_en: Ideogram (Toronto / San Francisco dual-line narrative).
   direct: no
-  direct_note: ideogram.ai 大陆直连实测 000（2026-10-22，代理下 403=CF 拦截可达）——直连不可达，需网络环境。
+  direct_note: ideogram.ai 大陆直连实测 000（2026-10-22，代理下 403=CF 拦截可达）。直连不可达，需网络环境。
   direct_note_en: ideogram.ai measured 000 direct from mainland (2026-10-22; 403 via proxy = CF challenge, reachable) —
     unreachable without a network path.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-10-22

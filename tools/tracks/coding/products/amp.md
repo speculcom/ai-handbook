@@ -147,7 +147,7 @@ axes:
     替换为 `[REDACTED:amp]`），但承认是 best-effort。
 
     线程数据存于 ampcode.com（GCP）。**默认不用你的数据训练**（企业档永不可开）。
-    删除线程后数据 30 天内移除；Enterprise 提供零数据保留（ZDR）。
+    删除线程后数据 30 天内移除。Enterprise 提供零数据保留（ZDR）。
 
     **订阅与 BYOK 额度是两回事**。自带 Key 或订阅时，无 Amp token 费用。
   fit: >-
@@ -160,7 +160,7 @@ axes:
 
 pitfalls:
   - 以为默认会在执行工具前请求批准——官方明确默认不审批
-  - 以为有独立 VS Code 扩展——实际靠 CLI + ide connect 接入（VS Code/Cursor/Windsurf/Zed/Neovim）
+  - 以为有独立 VS Code 扩展。实际靠 CLI + ide connect 接入（VS Code/Cursor/Windsurf/Zed/Neovim）
   - 把订阅当成全部开销——orbs 按分钟、超量按 credits 另计
 
 tags: [编程, 终端, 云端, 混合, 多模型]
@@ -215,7 +215,7 @@ cn:
   direct_note: 官网直连实测 200。
   direct_note_en: official site measured 200 direct.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-20
 ---
@@ -223,7 +223,7 @@ cn:
 ## 一句话定位
 
 Amp 原是 Sourcegraph 出的前沿编码 agent，2025-12 官方公告分拆为独立公司 Amp Frontier Corporation
-（Sourcegraph 官方博客与 ampcode.com 公告同日互证）；**CLI + 云端 orb + runner 三执行面**。
+（Sourcegraph 官方博客与 ampcode.com 公告同日互证）。**CLI + 云端 orb + runner 三执行面**。
 
 发一句提示就能合上笔记本继续跑。
 
@@ -250,9 +250,11 @@ Amp 原是 Sourcegraph 出的前沿编码 agent，2025-12 官方公告分拆为�
 
 具体是运行面、执行面、provider / 模式、MCP 接入、权限与数据面。
 
-**范围边界有两处**：一是 Individual 档 Megawatt / Gigawatt 两级的具体额度差，二是官方定价页「Questions & Answers」的问答正文。
+**范围边界有两处**
 
-前者官方以切换形式呈现、不页面并列；后者是定价页的交互内容，本档按入口引用、不展开。
+一是 Individual 档 Megawatt / Gigawatt 两级的具体额度差，二是官方定价页「Questions & Answers」的问答正文。
+
+前者官方以切换形式呈现、不页面并列。后者是定价页的交互内容，本档按入口引用、不展开。
 
 **两处需标注的官方源不一致**：
 
@@ -263,7 +265,7 @@ Amp 原是 Sourcegraph 出的前沿编码 agent，2025-12 官方公告分拆为�
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：重点验三处。
 
@@ -275,11 +277,11 @@ Amp 原是 Sourcegraph 出的前沿编码 agent，2025-12 官方公告分拆为�
 
 - Individual 档 Megawatt 与 Gigawatt 的**具体额度差**：官方定价页以切换形式呈现，不并列列出（orb 时长额度见官方页；报价按 D9 不采数字）
 - 官方定价页 FAQ 的**问答正文**：交互内容以官方页面为准，本档只引用入口、不展开
-- orb 的并发上限与单次最长时长：官方 docs/orbs 与定价页只给入口，不列并发/时长数字
+- orb 的并发上限与单次最长时长。官方 docs/orbs 与定价页只给入口，不列并发/时长数字
 - 自托管部署：官方安全参考明确不支持，不提供自托管路径
 
 ## 相关条目
 
-- [Goose](./goose.md) — 同为 CLI 形态，对照「纯本地进程」与「云端 orb 长跑」两种运行面
-- [Codex CLI](./codex-cli.md) — 同为多 provider 终端 agent，对照权限默认与 MCP 传输
-- [Claude Code CLI](./claude-code-cli.md) — 同为前沿编码 agent，对照审批机制与数据策略
+- [Goose](./goose.md) — 同为 CLI 形态。对照「纯本地进程」与「云端 orb 长跑」两种运行面
+- [Codex CLI](./codex-cli.md) — 同为多 provider 终端 agent。对照权限默认与 MCP 传输
+- [Claude Code CLI](./claude-code-cli.md) — 同为前沿编码 agent。对照审批机制与数据策略

@@ -5,26 +5,26 @@ name: ChatGPT
 nameEn: ChatGPT
 vendor: OpenAI
 homepage: https://chatgpt.com/
-license: 官方 Terms of Use「Ownership of content」：在你与 OpenAI 之间，你保留输入的所有权、拥有输出——「We hereby assign to you all our right, title, and interest, if any, in and to Output」；同时声明输出可能不唯一（其他用户可获相似输出），转让不延及其他用户输出。商用无档位门槛，但须遵守 Usage Policies。
+license: 官方 Terms of Use「Ownership of content」。在你与 OpenAI 之间。你保留输入的所有权、拥有输出。「We hereby assign to you all our right, title, and interest, if any, in and to Output」。同时声明输出可能不唯一（其他用户可获相似输出），转让不延及其他用户输出。商用无档位门槛，但须遵守 Usage Policies。
 licenseEn: Official Terms of Use, 'Ownership of content': as between you and OpenAI you retain Input ownership and own the Output — 'We hereby assign to you all our right, title, and interest, if any, in and to Output.' Outputs may not be unique; the assignment does not extend to other users' outputs. No tier gate on commercial use, subject to the Usage Policies.
 
 axes:
   model_access: >-
-    模型家族官方发布说明按档位分流。2026-11-17 上线 GPT-6.2 Astra（复杂专业工作）与 GPT-6.2 Sol（多步任务的速度/成本平衡）。
+    模型家族官方发布说明按档位分流。2026-11-17 上线 GPT-6.2 Astra，面向复杂专业工作。同时上线 GPT-6.2 Sol，用于多步任务的速度/成本平衡。
 
     GPT-6 Astra、GPT-6.1 Sol/Terra 仍在列。聊天内可选模型与档位以官方 release notes 为准。
   runtime: >-
     网页、iOS/Android、macOS/Windows 桌面端。全部生成与检索在 OpenAI 云端处理，本机不跑模型。
 
-    桌面端内置浏览器，浏览器智能体能力并入 ChatGPT 与 Codex（官方版本说明：Atlas 浏览器于 2026-08-09 停运）。桌面端快捷聊天/截屏功能也只是入口，处理仍在云端。
+    桌面端内置浏览器，浏览器智能体能力并入 ChatGPT 与 Codex。官方版本说明称，Atlas 浏览器于 2026-08-09 停运。桌面端快捷聊天/截屏功能也只是入口，处理仍在云端。
   local_files: >-
-    可上传文件、图像与音频（音频上传见 release notes 2026-10-06：转写、摘要、问答）。上传内容存于 OpenAI 账户。归谁与留存见 permissions 维。
+    可上传文件、图像与音频。音频上传见 release notes 2026-10-06，支持转写、摘要、问答。上传内容存于 OpenAI 账户。归谁与留存见 permissions 维。
   background: >-
-    对话即时返回。ChatGPT 工作（官方版本说明，2026-07）面向长任务：可跟踪进度、回答问题、调整方向、 批准重要操作，并支持一次性或按计划/触发条件重复运行。
+    对话即时返回。ChatGPT 工作（官方版本说明，2026-07）面向长任务。可跟踪进度、回答问题、调整方向、批准重要操作。支持一次性运行，也支持按计划或触发条件重复运行。
 
     Codex Cloud 线明确「任务可在你电脑休眠时继续」 （release notes 2026-09-29）。对话产品本体没有关机续跑形态。
   tools: >-
-    Deep Research（官方 2026-02-10 更新：可连接任意 MCP 或 app、把网页搜索限定到可信站点、实时进度并可中断补充）。
+    Deep Research 在官方 2026-02-10 更新。可连接任意 MCP 或 app，把网页搜索限定到可信站点。进度实时可见，也能中断补充。
 
     **依据：** ChatGPT 智能体 agent mode（公开网站、上传文件、已连接第三方来源，官方 2025-07-17 发布、2025-08-08 向 Enterprise/Edu 推出）。
 
@@ -45,8 +45,8 @@ pitfalls:
   - 把「关闭训练开关」当成临时聊天——两套独立机制，开关只管未来对话
   - 以为反馈（点赞/点踩）不受训练开关约束——官方明说整段相关对话可能入训练
   - 把消费线条款套到 API/Enterprise——两条线数据条款不同
-  - 还在找 ChatGPT Atlas 浏览器——官方已宣布 2026-08-09 停运，浏览器智能体能力并入 ChatGPT 与 Codex
-  - 以为 DALL·E GPT 仍是现役图像入口——官方于 2026-08-30 停用，改用 ChatGPT 图像
+  - 还在找 ChatGPT Atlas 浏览器。官方已宣布 2026-08-09 停运，浏览器智能体能力并入 ChatGPT 与 Codex
+  - 以为 DALL·E GPT 仍是现役图像入口。官方于 2026-08-30 停用，改用 ChatGPT 图像
 
 tags: [云端, 多模态, 记忆, 商业]
 
@@ -93,7 +93,7 @@ cn:
   direct_note: chatgpt.com 大陆直连稳定超时（2026-10-20 同日两次 000）。
   direct_note_en: chatgpt.com times out consistently from mainland (000 twice).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-20
 ---
@@ -126,11 +126,11 @@ OpenAI 的通用对话助手。
 
 ## 第一次怎么用
 
-1. 登录后先开设置里的数据开关：把「用于改进服务」与「训练」分别看清楚，再决定是否关闭。
+1. 登录后先开设置里的数据开关。把「用于改进服务」与「训练」分别看清楚，再决定是否关闭。
 2. 上传一个真实文件（PDF 或表格），要求它先给目录与结论，再逐段引用原文。
 3. 需要多步研究时，明确写「先列检索计划，再执行，最后给带日期的来源表」。
-4. 要图像就直说尺寸、风格与用途；图像 2.0 已并入主产品，不需要另找入口。
-5. 需要浏览器操作时注意：Atlas 已于 2026-08-09 停运，能力并入 ChatGPT / Codex，入口变了。
+4. 要图像就直说尺寸、风格与用途。图像 2.0 已并入主产品，不需要另找入口。
+5. 需要浏览器操作时注意。Atlas 已于 2026-08-09 停运，能力并入 ChatGPT / Codex，入口变了。
 
 ```text
 请基于我上传的文件回答，规则：

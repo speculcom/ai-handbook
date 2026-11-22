@@ -4,7 +4,7 @@ form: web
 name: Dify
 vendor: LangGenius（国产出海）
 homepage: https://dify.ai
-license: Dify Open Source License——本质 Apache 2.0 加两条附加条件：未经书面许可不得用源码运营多租户环境（一 workspace 即一租户）；使用其前端不得移除/修改控制台 LOGO 与版权信息（纯后端使用不受此限）。
+license: Dify Open Source License。本质 Apache 2.0 加两条附加条件。未经书面许可不得用源码运营多租户环境（一 workspace 即一租户）。使用其前端不得移除/修改控制台 LOGO 与版权信息（纯后端使用不受此限）。
 licenseEn: Dify Open Source License — essentially Apache 2.0 with two additional conditions: no multi-tenant operation from the source code without written authorization (one workspace = one tenant); the console LOGO/copyright may not be removed or modified when using its frontend (backend-only use is exempt).
 
 axes:
@@ -13,23 +13,23 @@ axes:
 
     具体供应商全清单按官方文档口径。
   runtime: >-
-    社区版源码开放、Docker 自托管（官方首页口径：单条命令部署、完整 Agent runtime 与 Workflow 编辑器）。另有 Dify 官方云服务。自托管数据在你自己的环境。
+    社区版源码开放，支持 Docker 自托管。官方首页称，单条命令即可部署，带完整 Agent runtime 与 Workflow 编辑器。另有 Dify 官方云服务。自托管数据在你自己的环境。
   local_files: >-
-    知识库线官方描述为「为文件、网站、在线文档与云盘建数据管道」（抽取/清洗/分块/索引/检索测试）。自托管时文件与索引落在自有实例。
+    知识库线官方描述为「为文件、网站、在线文档与云盘建数据管道」。流程含抽取、清洗、分块、索引与检索测试。自托管时文件与索引落在自有实例。
   background: >-
     应用发布为托管应用/API/嵌入组件/MCP 兼容工具后由平台运行时承载。自托管实例常开即可持续服务。定时/后台任务形态按官方文档口径。
   tools: >-
-    Marketplace 装模型供应商、工具、数据源与 MCP 集成（官方首页口径）。应用可发布为 MCP 兼容工具——既消费 MCP 也产出 MCP。
+    Marketplace 可装模型供应商、工具、数据源与 MCP 集成。这是官方首页口径。应用可发布为 MCP 兼容工具——既消费 MCP 也产出 MCP。
   context: >-
     Agent 官方描述含「记住上下文」。知识库检索是官方主打的上下文供给线。记忆以会话/知识库为边界，官方没有跨会话个人记忆入口。
   permissions: >-
-    **依据：** 企业线官方列 SSO/SAML、RBAC、审计日志、SOC 2 Type II + ISO 27001（首页口径）； 社区版权限模型按官方文档口径。许可边界（多租户限制）见 license 字段。
+    **依据：** 企业线官方列 SSO/SAML、RBAC、审计日志、SOC 2 Type II + ISO 27001（首页口径）。 社区版权限模型按官方文档口径。许可边界（多租户限制）见 license 字段。
   fit: >-
-    适合：要「提示词逻辑变成可见执行路径」的团队、要自托管的国产出海栈、知识库+agent 一体。不适合：要源码做多租户 SaaS（需商业授权）。要纯代码框架（归 framework）。
+    适合：要「提示词逻辑变成可见执行路径」的团队。要自托管的国产出海栈。知识库+agent 一体。不适合：要源码做多租户 SaaS（需商业授权）。要纯代码框架（归 framework）。
 pitfalls:
   - 把「Apache 2.0 本质」读成无限制——多租户与 LOGO 两条附加条件是硬线
   - 把云服务与自托管社区版的能力混同——企业项（SSO/RBAC/审计）在商业线
-  - 只把它当聊天机器人搭建器——官方定位是 agentic 工作流平台（Workflow/Chatflow 双形态）
+  - 只把它当聊天机器人搭建器。官方定位是 agentic 工作流平台（Workflow/Chatflow 双形态）
 
 tags: [国产, 低代码, agentic工作流, 知识库, MCP, 自托管, Apache2.0附加条款]
 related: [langgraph]
@@ -64,14 +64,14 @@ cn:
   direct_note: dify.ai / docs.dify.ai 直连实测 200（2026-10-21）。
   direct_note_en: dify.ai / docs.dify.ai measured 200 direct (2026-10-21).
   filing: unknown
-  filing_note: 官方文档未单列 Dify 在网信办公示名单的对应备案主体（2026-10-21 检索）；其境内是否以备案形态服务官方文档未单列，标 unknown。
+  filing_note: 官方文档未单列 Dify 在网信办公示名单的对应备案主体（2026-10-21 检索）。其境内是否以备案形态服务官方文档未单列，标 unknown。
   filing_note_en: no matching filing entity found in the CAC registry (searched 2026-10-21); whether it serves domestically under a filing is unverified — marked unknown.
   verified: 2026-10-30
 ---
 
 ## 一句话定位
 
-**Dify 是国产出海的 agentic 工作流平台**：把提示词逻辑做成可见、可测、可交接的 Workflow/Chatflow 执行路径，知识库管道与 Marketplace 集成是一等公民。
+**Dify 是国产出海的 agentic 工作流平台**：它把提示词逻辑做成可见、可测、可交接的 Workflow/Chatflow 执行路径。知识库管道与 Marketplace 集成是一等公民。
 
 许可是「Apache 2.0 + 两条附加条件」，多租户限制最该先读。
 
@@ -83,7 +83,7 @@ cn:
 
 ## 适合与不适合
 
-适合：要自托管、要「产品/法务/工程在同一画布上对齐」的团队。知识库+agent 一体交付。不适合：拿源码做多租户 SaaS 售卖（商业授权线）。纯代码编排（去 [LangGraph](../../framework/products/langgraph.md) 等 framework 大类）。
+适合：要自托管。要「产品/法务/工程在同一画布上对齐」的团队。知识库+agent 一体交付。不适合：拿源码做多租户 SaaS 售卖（商业授权线）。纯代码编排（去 [LangGraph](../../framework/products/langgraph.md) 等 framework 大类）。
 
 ## 实测记录
 

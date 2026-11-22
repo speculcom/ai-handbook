@@ -9,7 +9,7 @@ axes:
   model_access: >-
     官方帮助中心有 Bolt Forge 页。Pro/Lite 计划可经 Forge 用开源模型并切换。
 
-    参考页（Introduction to LLMs）讲模型/token 概念但未给完整可选清单——清单随版本变化。未逐条清点。
+    参考页（Introduction to LLMs）讲模型/token 概念但未给完整可选清单。清单随版本变化。未逐条清点。
 
     构建 agent 分两档（官方「Choose an agent」页）：Standard 与 Max。按任务类型切换。
   runtime: >-
@@ -17,7 +17,7 @@ axes:
 
     网页形态为主。官方文档未见桌面/移动客户端叙事。
   local_files: >-
-    **依据：** 项目在 Bolt 平台内；GitHub 集成官方成页：连仓库备份代码、自动同步 commit、跨分支工作、 两边保持同步。Bolt Cloud 提供内置托管+数据库+域名（官方 bolt-cloud 页）， 数据库有备份/恢复/版本历史页。代码出平台走 GitHub 同步线。
+    **依据：** 项目在 Bolt 平台内。GitHub 集成官方成页。连仓库备份代码、自动同步 commit、跨分支工作、 两边保持同步。Bolt Cloud 提供内置托管+数据库+域名（官方 bolt-cloud 页）， 数据库有备份/恢复/版本历史页。代码出平台走 GitHub 同步线。
   background: >-
     版本历史与回滚官方成页（内置版本历史、恢复到早前版本）。Bolt Cloud 托管的应用常驻运行。官方产品页只描述构建流程，不列关机续跑。
   tools: >-
@@ -33,15 +33,15 @@ axes:
 
     数据库安全设置页（扫描问题）。token 计量官方成页（agent 工作量按 token 计）。
   fit: >-
-    适合：免装环境浏览器内直接建全栈应用（WebContainers 底座）、要 GitHub 同步线、 要内置托管+数据库一条龙（Bolt Cloud）、非技术者与开发者共用同一环境。
+    适合：免装环境浏览器内直接建全栈应用（WebContainers 底座）。要 GitHub 同步线。 要内置托管+数据库一条龙（Bolt Cloud）。非技术者与开发者共用同一环境。
 
-    不适合：要深度离线（平台内叙事）、要完全掌控构建模型（Forge 是计划绑定的开源模型线）。
+    不适合：要深度离线（平台内叙事）。要完全掌控构建模型（Forge 是计划绑定的开源模型线）。
 pitfalls:
-  - 计量单位是 token 不是「消息数」：官方 Tokens 页明示 agent 工作量按 token 计——
-    长会话/大上下文直接烧额度，官方专门有「Maximize token efficiency」页
-  - Bolt Cloud 数据库的认证/存储/secrets 是 Bolt 托管形态——与「连自己的 Supabase」是两条线
+  - 计量单位是 token 不是「消息数」。官方 Tokens 页明示 agent 工作量按 token 计。
+    长会话/大上下文直接烧额度。官方专门有「Maximize token efficiency」页
+  - Bolt Cloud 数据库的认证/存储/secrets 是 Bolt 托管形态。与「连自己的 Supabase」是两条线
     （官方 integrations 页两者都有），数据边界别混
-  - 移动端应用走 Expo 集成线（官方 intro 页）——不是所有 Web 栈能力在移动线上等价
+  - 移动端应用走 Expo 集成线（官方 intro 页）。不是所有 Web 栈能力在移动线上等价
 
 tags: [海外, 免费+付费, Web, 全栈, WebContainers, MCP, GitHub同步, token计量]
 related: [lovable, v0, replit-agent, supabase-mcp]
@@ -81,7 +81,7 @@ cn:
   direct_note: bolt.new / support.bolt.new 大陆直连实测 200（2026-10-22）。
   direct_note_en: bolt.new / support.bolt.new measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve
     the mainland public, so filing does not apply.
   verified: 2026-10-22
@@ -95,7 +95,7 @@ Bolt Cloud 给托管+数据库。GitHub 双向同步线在位。
 
 ## 适合与不适合
 
-适合：免装环境直接建应用、GitHub 同步、内置托管一条龙、非技术者与开发者共用。
+适合：免装环境直接建应用。GitHub 同步。内置托管一条龙。非技术者与开发者共用。
 不适合：深度离线场景、要完全掌控构建模型（Forge 按计划绑定）。
 
 ## 实测记录

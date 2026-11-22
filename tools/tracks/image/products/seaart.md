@@ -5,8 +5,8 @@ name: SeaArt
 nameEn: SeaArt
 vendor: 海艺（成都海艺互娱）
 homepage: https://www.seaart.ai
-license: 免费+订阅。按官方条款页管辖（seaart.ai/en/terms 直抓核验 2026-10-22）；
-  商用权按档位与模型许可区分——社区模型页明示「转载模型权利归原作者」、生成图商用范围逐模型标注，
+license: 免费+订阅。按官方条款页管辖（seaart.ai/en/terms 直抓核验 2026-10-22）。
+  商用权按档位与模型许可区分。社区模型页明示「转载模型权利归原作者」、生成图商用范围逐模型标注，
   细节按官方文档口径。
 licenseEn: Free + subscription. Governed by the official terms page (seaart.ai/en/terms, direct-fetched 2026-10-22);
   commercial rights vary by plan and per-model license — community model pages state reposted models' rights
@@ -17,7 +17,7 @@ axes:
   model_access: >-
     多模型聚合平台。
 
-    官网列第三方模型清单（Seedance/Wan/GPT Image/Seedream/Flux/Qwen Image 等， 官网导航与隐私页所见）+ 社区模型库（checkpoint/LoRA 托管，模型页标 Base Model 与许可范围）。
+    官网列第三方模型清单，含 Seedance、Wan、GPT Image、Seedream、Flux 与 Qwen Image 等。社区模型库托管 checkpoint/LoRA，模型页标 Base Model 与许可范围。
 
     自研模型线官方文档未单列。
   runtime: >-
@@ -29,18 +29,18 @@ axes:
   background: >-
     生成即时/排队（高峰期排队是社区常见反馈，档位差异按官方文档口径）。无「关机续跑」任务面 （官方文档未单列声明）。LoRA 训练提交后在云端跑。
   tools: >-
-    在线 LoRA 训练（官方页：上传数据集选基础模型 FLUX/SDXL/Pony/Wan 等，可导出对接 ComfyUI）、 ControlNet/inpainting、图像+视频双线（官网导航所见）、社区画廊（作品带提示词分享）、 模型市场变现面（官方 FAQ 口径）。
+    在线 LoRA 训练。官方页说明上传数据集、选基础模型 FLUX/SDXL/Pony/Wan 等，可导出对接 ComfyUI。另有 ControlNet 与 inpainting。图像与视频双线、社区画廊、模型市场变现面都在官网在册。
   context: >-
     以作品/模型页组织。官方产品面没有跨会话记忆入口。社区模型库是它的一致性机制。风格模型可复用不是记忆。风格模型可跨作品复用。
   permissions: >-
     账号+订阅体系（D9：价格不采）。商用权逐模型标注（模型页 License Scope 面所见）。训练用途开关按官方文档口径。主体是中国团队出海产品（海外用户占比高，官网主站面向海外）。
   fit: >-
-    适合：二次元/插画向社区生态、云端 LoRA 训练+导出 ComfyUI、一个平台聚合多家模型、下载社区模型。
+    适合：二次元/插画向社区生态。云端 LoRA 训练+导出 ComfyUI。一个平台聚合多家模型。下载社区模型。
 
-    不适合：要官方自研前沿模型（它是聚合方）、要企业级合规叙事、对社区内容治理敏感的场景。
+    不适合：要官方自研前沿模型（它是聚合方）。要企业级合规叙事。对社区内容治理敏感的场景。
 pitfalls:
-  - 社区模型的商用许可**逐模型不同**——模型页的 License Scope 才是依据，别按「平台会员=全部可商用」理解
-  - 「可下载模型」≠「SeaArt 在本地跑」——下载后走的是本地生态（ComfyUI 等），平台本身是云端服务
+  - 社区模型的商用许可**逐模型不同**。模型页的 License Scope 才是依据，别按「平台会员=全部可商用」理解
+  - 「可下载模型」≠「SeaArt 在本地跑」。下载后走的是本地生态（ComfyUI 等），平台本身是云端服务
   - 中国团队出海产品：主站 seaart.ai 面向海外，大陆可达性与备案口径要分开看（见 cn 块）
 
 tags: [免费+订阅, 社区模型库, LoRA训练, 二次元向, 模型聚合]
@@ -67,15 +67,15 @@ confidence: verified
 
 cn:
   origin: domestic
-  origin_note: 成都海艺互娱科技有限公司（中国）——主站面向海外的出海产品（官网口径：全球创作者社区）。
+  origin_note: 成都海艺互娱科技有限公司（中国）。主站面向海外的出海产品（官网口径：全球创作者社区）。
   origin_note_en: Chengdu Haiyi Huyu Technology Co., Ltd. (China) — a going-overseas product whose main site
     targets global creators (per official positioning).
   direct: yes
   direct_note: seaart.ai 大陆直连实测 200（2026-10-22）。
   direct_note_en: seaart.ai measured 200 direct from mainland (2026-10-22).
   filing: unknown
-  filing_note: 官方文档未单列 seaart.ai 主站对应的生成式 AI 服务备案（2026-10-22 检索）；
-    主站面向海外，官方文档未单列≠未备案——公司另有国内线产品，其备案情况不在本档案口径内。
+  filing_note: 官方文档未单列 seaart.ai 主站对应的生成式 AI 服务备案（2026-10-22 检索）。
+    主站面向海外。官方文档未单列≠未备案——公司另有国内线产品。其备案情况不在本档案口径内。
   filing_note_en: no generative-AI service filing found for the seaart.ai main site (searched 2026-10-22);
     the main site targets overseas users — "not found" ≠ "not filed"; the company's domestic-line products
     are outside this profile's scope.
@@ -84,12 +84,12 @@ cn:
 
 ## 一句话定位
 
-**SeaArt 是二次元/插画向的社区型聚合创作台**：云端 LoRA 训练+导出、社区模型库（许可逐模型标注）、
+**SeaArt 是二次元与插画向的社区型聚合创作台**：它提供云端 LoRA 训练与导出、社区模型库，许可逐模型标注。
 多家第三方模型聚合；中国团队（成都海艺互娱）的出海产品。
 
 ## 适合与不适合
 
-适合：二次元插画生态、云端训练 LoRA 再导 ComfyUI、社区模型寻宝、一平台多模型。
+适合：二次元插画生态。云端训练 LoRA 再导 ComfyUI。社区模型寻宝。一平台多模型。
 不适合：要官方自研前沿模型、企业合规叙事优先、对社区内容治理敏感。
 
 ## 实测记录

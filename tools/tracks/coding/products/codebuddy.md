@@ -7,17 +7,17 @@ homepage: https://www.codebuddy.cn
 
 axes:
   model_access: >-
-    官方文档明示。除腾讯自研混元大模型外，支持其它大模型接入与切换（官方产品概述页点名 DeepSeek 为例）。具体可选模型清单随版本，本档不逐条展开。
+    官方文档明示。除腾讯自研混元外，它也支持其它大模型接入与切换。官方产品概述页点名 DeepSeek 为例。具体可选模型清单随版本，本档不逐条展开。
 
     国际版（codebuddy.ai）与国内版（codebuddy.cn）是两条线。模型面可能不同——以各自官方页为准。
   runtime: >-
     官方口径「插件、IDE、CLI 三端全开发场景覆盖」。IDE 插件（VS Code/JetBrains 系）、 独立 AI IDE（codebuddy.cn/ide）、命令行形态各有官方文档页。
 
-    执行在你本机（插件/IDE/CLI 形态的共性， 本站判断；官方未逐页声明执行位置）。
+    执行在你本机，这是插件/IDE/CLI 形态的共性，也是本站判断。官方未逐页声明执行位置。
   local_files: >-
-    代码在你本机编辑器/工程里。IDE 形态的部署线（CloudStudio 一键部署沙盒环境生成分享链接） 会把产物上传腾讯云侧——上传范围与保留策略本档不逐条展开。
+    代码在你本机编辑器/工程里。IDE 形态有部署线，用 CloudStudio 一键部署沙盒环境并生成分享链接。这会把产物上传腾讯云侧。上传范围与保留策略本档不逐条展开。
   background: >-
-    **依据：** 未见官方声明后台常驻/异步任务面；三端形态都以交互式会话为主叙事（已查官方文档导航未见 background-agent 页，官方文档导航未单列该页，不能据此判断没有此能力）。
+    **依据：** 未见官方声明后台常驻/异步任务面。三端形态都以交互式会话为主叙事（已查官方文档导航未见 background-agent 页，官方文档导航未单列该页，不能据此判断没有此能力）。
   tools: >-
     官方文档含 MCP 配置面（IDE 文档导航内）。企业侧管控文章提到 MCP 服务器白名单配置—— 转述官方。能力细节本档不逐条展开。设计到代码（Figma 导入生成页面）是官方主打场景之一。
   context: >-
@@ -27,14 +27,14 @@ axes:
 
     **依据：** 数据面：官方主打「符合国内安全要求」的合规叙事（腾讯云官方 PDF 原文对比 ChatGPT 的表述）。
   fit: >-
-    适合：国内团队要合规叙事（混元已备案）、腾讯云生态（CloudBase/CloudStudio）内建站到部署一条龙、 插件+IDE+CLI 同账号三端切换。
+    适合：国内团队要合规叙事（混元已备案）。腾讯云生态（CloudBase/CloudStudio）内建站到部署一条龙。 插件+IDE+CLI 同账号三端切换。
 
-    不适合：要全球模型清单自选（模型面以官方列出的为准）、深度依赖海外 SaaS 集成链。
+    不适合：要全球模型清单自选（模型面以官方列出的为准）。深度依赖海外 SaaS 集成链。
 pitfalls:
-  - 国内版 codebuddy.cn 与国际版 codebuddy.ai 是两条线——功能与模型面别互相推断
-  - 「已备案」的官方口径指混元模型（备案号 Guangdong-TencentHunyuan-20230901，官方文档公示）——
+  - 国内版 codebuddy.cn 与国际版 codebuddy.ai 是两条线。功能与模型面别互相推断
+  - 「已备案」的官方口径指混元模型（备案号 Guangdong-TencentHunyuan-20230901，官方文档公示）。
     不等于产品所有功能面都有独立备案，转述时主语别滑
-  - CloudStudio 一键部署会把产物上到云侧沙盒——「代码在本机」不等于「产物不出本机」
+  - CloudStudio 一键部署会把产物上到云侧沙盒。「代码在本机」不等于「产物不出本机」
 
 tags: [国产, 免费+付费, 插件, AI-IDE, CLI, 混元, 已备案]
 related: [supabase-mcp, copilot, figma-mcp]
@@ -66,7 +66,7 @@ cn:
   direct_note_en: codebuddy.cn and codebuddy.ai measured 200 direct from mainland (2026-10-21).
   filing: filed
   filing_no: Guangdong-TencentHunyuan-20230901
-  filing_note: 官方文档公示所用模型备案信息：腾讯混元助手大模型，备案单位深圳市腾讯计算机系统有限公司，
+  filing_note: 官方文档公示所用模型备案信息。腾讯混元助手大模型，备案单位深圳市腾讯计算机系统有限公司，
     备案号 Guangdong-TencentHunyuan-20230901（出处：CodeBuddy 插件产品概述页「模型信息」节）。
   filing_note_en: the official docs publish the model filing: Tencent Hunyuan assistant LLM, filed by
     Shenzhen Tencent Computer Systems Co., Ltd., filing no. Guangdong-TencentHunyuan-20230901
@@ -76,7 +76,7 @@ cn:
 
 ## 一句话定位
 
-**CodeBuddy 是腾讯云的三端编码助手**（插件/AI IDE/CLI）：混元为主、可接其它大模型，
+**CodeBuddy 是腾讯云的三端编码助手，含插件、AI IDE 与 CLI**：它以混元为主，可接其它大模型。
 Figma 到代码、CloudStudio 一键部署一条龙。
 所用混元模型备案号由官方文档公示。
 
@@ -104,5 +104,5 @@ Figma 到代码、CloudStudio 一键部署一条龙。
 
 ## 相关条目
 
-- [Qoder CN（原通义灵码）](./qoder-cn.md) — 同为国产大厂编码助手：阿里云系走「一方产品+全家桶 Credits」叙事，备案号以厂商公示页为准；CodeBuddy 的混元备案号官方文档可查。
+- [Qoder CN（原通义灵码）](./qoder-cn.md) — 同为国产大厂编码助手：阿里云系走「一方产品+全家桶 Credits」叙事，备案号以厂商公示页为准。CodeBuddy 的混元备案号官方文档可查。
 - [Trae](./trae.md) — 同为国产出海编码工具：字节系 IDE，SOLO 模式叙事。

@@ -5,7 +5,7 @@ name: Consensus
 nameEn: Consensus
 vendor: Consensus
 homepage: https://consensus.app
-license: 免费额度+订阅（Pro/Deep/Teams/Enterprise）+ API 按调用池。按官方条款/隐私页管辖（consensus.app/home/terms-of-service 与 /home/privacy-policy，2026-11-21）；API/MCP 配额按官方帮助中心（2026-11-21）。
+license: 免费额度+订阅（Pro/Deep/Teams/Enterprise）+ API 按调用池。按官方条款/隐私页管辖（consensus.app/home/terms-of-service 与 /home/privacy-policy，2026-11-21）。API/MCP 配额按官方帮助中心（2026-11-21）。
 licenseEn: Free credits + subscription (Consensus Pro). Governed by official terms (consensus.app/terms
   returned a CF challenge 403 on direct fetch, 2026-10-22 — this method cannot verify the terms' content,
   which does not mean they do not exist).
@@ -40,13 +40,13 @@ axes:
 
     超出 $0.05/次（2026-11-21）。
   fit: >-
-    适合：「科学界怎么说」类实证问题、文献初筛与极性统计、给 agent 接有引用的学术检索、需要导出引用。
+    适合：「科学界怎么说」类实证问题。文献初筛与极性统计。给 agent 接有引用的学术检索。需要导出引用。
 
-    不适合：把 Meter 当定论、系统性综述的全文筛选、以中文文献为主打的场景（2026-11-21）。
+    不适合：把 Meter 当定论。系统性综述的全文筛选。以中文文献为主打的场景（2026-11-21）。
 pitfalls:
-  - Consensus Meter 是「论文计数的极性统计」不是「科学定论」——论文质量不等权，读 Meter 要看底层论文
+  - Consensus Meter 是「论文计数的极性统计」不是「科学定论」。论文质量不等权，读 Meter 要看底层论文
   - 检索覆盖偏英文实证文献——人文/中文/非期刊来源覆盖有限，如实按领域评估
-  - consensus.app 对 curl 返回 CF 403——浏览器可达，核验以浏览器抓取为准
+  - consensus.app 对 curl 返回 CF 403。浏览器可达，核验以浏览器抓取为准
 
 tags: [免费+订阅, 结论极性, ConsensusMeter, 科学文献, 英文向]
 related: [elicit, notebooklm, metaso, chatgpt]
@@ -90,7 +90,7 @@ cn:
   direct_note: consensus.app 大陆直连实测 200（2026-10-22）。
   direct_note_en: consensus.app measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-11-21
@@ -98,7 +98,7 @@ cn:
 
 ## 一句话定位
 
-**Consensus 回答「科学界怎么说」**：Consensus Meter 把多篇研究的结论极性统计成摘要——
+**Consensus 回答「科学界怎么说」**：Consensus Meter 把多篇研究的结论极性统计成摘要。
 快速判断实证领域共识方向；但计数不等权，Meter 不是定论。
 
 ## 适合与不适合

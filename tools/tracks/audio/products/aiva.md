@@ -5,17 +5,17 @@ name: AIVA
 nameEn: AIVA
 vendor: AIVA Limited
 homepage: https://www.aiva.ai
-license: 按官方 Terms of Service 管辖（aiva.ai/terms-of-service 直抓核验 2026-10-30，主体 AIVA Limited）；
-  版权按档位分层——免费档生成曲版权归 AIVA Limited、仅限四平台变现，Pro 订阅档「永久拥有完整版权」（条款页当日在册）。
+license: 按官方 Terms of Service 管辖（aiva.ai/terms-of-service 直抓核验 2026-10-30，主体 AIVA Limited）。
+  版权按档位分层。免费档生成曲版权归 AIVA Limited、仅限四平台变现，Pro 订阅档「永久拥有完整版权」（条款页当日在册）。
 licenseEn: Governed by the official Terms of Service (aiva.ai/terms-of-service direct-fetched 2026-10-30, entity AIVA Limited);
   copyright is tier-split — free-tier compositions stay owned by AIVA Limited with monetization limited to four platforms,
   Pro subscription grants "full copyright … forever" (on record in the terms page same day).
 
 axes:
   model_access: >-
-    自有音乐生成模型线（250+ 风格叙事当日在册）。不开放选第三方模型。可上传音频/MIDI 影响源、自建风格模型（官网 Ultimate customizability 段当日在册）。
+    自有音乐生成模型线（250+ 风格叙事当日在册）。不开放选第三方模型。可上传音频或 MIDI 影响源。也能自建风格模型，官网 Ultimate customizability 段当日在册。
   runtime: >-
-    网页产品（aiva.ai）+ 桌面端（官网导航 Download 在册）。生成在 AIVA 云端。导出面「any file format」叙事在册（MP3/MIDI 在定价页点名）。
+    网页产品（aiva.ai）+ 桌面端（官网导航 Download 在册）。生成在 AIVA 云端。导出面称「any file format」。MP3 与 MIDI 在定价页点名。
   local_files: >-
     下载导出的 MP3/MIDI 与工程文件归本机。生成过程、预置风格与账户曲库在 AIVA 云端。产品面没有本机模型下载，离线状态不能生成。
   background: >-
@@ -27,12 +27,12 @@ axes:
   permissions: >-
     账号体系（免费+订阅，€0 免费档当日在册）。
 
-    变现权限按档位分层是核心差异—— 免费档仅 YouTube/Twitch/TikTok/Instagram 四平台可变现且版权归 AIVA Limited（条款页当日在册）。
+    变现权限按档位分层是核心差异。 免费档仅 YouTube、Twitch、TikTok、Instagram 四平台可变现。版权归 AIVA Limited，条款页当日在册。
   fit: >-
-    适合：非 DAW 用户的整曲生成、要 MIDI 可编辑进 DAW、Pro 档要完整版权的商用配乐。不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型、免费档全平台变现。
+    适合：非 DAW 用户的整曲生成。要 MIDI 可编辑进 DAW。Pro 档要完整版权的商用配乐。不适合：要大陆直连备案入口。要选第三方模型。要本机跑模型。免费档全平台变现。
 pitfalls:
-  - 版权按档位分层不是「生成即归你」——免费档版权归 AIVA Limited、变现限四平台，Pro 才「永久完整版权」（条款页当日在册）；配乐商用前必按档位核对
-  - 「250+ 风格」是产品叙事不是可核验的模型清单——风格模型自建面（上传影响源）与预置风格的关系以官网叙事为限
+  - 版权按档位分层不是「生成即归你」。免费档版权归 AIVA Limited、变现限四平台，Pro 才「永久完整版权」（条款页当日在册）。配乐商用前必按档位核对
+  - 「250+ 风格」是产品叙事不是可核验的模型清单。风格模型自建面（上传影响源）与预置风格的关系以官网叙事为限
   - 训练数据构成与版权来源在官方披露范围之外——AI 配乐商用尽调时需单列
 
 tags: [云端, 音乐生成, 免费+订阅, 付费商用, 商业]
@@ -69,7 +69,7 @@ cn:
   direct_note: aiva.ai 与 /pricing、/terms-of-service、/changelog 大陆直连实测 200（2026-10-30）。
   direct_note_en: aiva.ai and /pricing, /terms-of-service, /changelog measured 200 direct from mainland (2026-10-30).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页，未见 AIVA 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页，未见 AIVA 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page searched 2026-10-30; no AIVA entry);
     the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30
@@ -77,13 +77,13 @@ cn:
 
 ## 一句话定位
 
-**AIVA 是「整曲生成 + MIDI 可编辑」的网页配乐助手**（AIVA Limited，当日直抓在册）：
+**AIVA 是「整曲生成 + MIDI 可编辑」的网页配乐助手**：主体为 AIVA Limited，当日直抓在册。
 250+ 风格叙事主打，版权按档位分层。
 免费档版权归平台限四平台变现，Pro 才永久完整版权。
 
 ## 适合与不适合
 
-适合：非 DAW 用户的整曲生成、要 MIDI 导出进 DAW、Pro 档要完整版权的商用配乐。
+适合：非 DAW 用户的整曲生成。要 MIDI 导出进 DAW。Pro 档要完整版权的商用配乐。
 不适合：要大陆直连备案入口、要选第三方模型、要本机跑模型、免费档全平台变现。
 
 ## 实测记录

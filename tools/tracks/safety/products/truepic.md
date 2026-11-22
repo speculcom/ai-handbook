@@ -6,18 +6,18 @@ nameEn: Truepic Vision / Lens
 vendor: Truepic Inc.
 homepage: https://www.truepic.com/
 license: 商业服务，条款与隐私政策管辖（legal 与 privacy-policy 页 2026-11-06 直抓在册，
-  privacy 政策生效日 2026-01-23）；未见面向客户的开源许可面，未见官方声明的免费自助档。
+  privacy 政策生效日 2026-01-23）。未见面向客户的开源许可面，未见官方声明的免费自助档。
 licenseEn: Commercial service under its own terms and privacy policy (legal and privacy-policy pages direct-fetched
   2026-11-06; the privacy policy is effective 2026-01-23). No customer-facing open-source licence is on record,
   and no free self-serve tier is stated.
 
 axes:
   model_access: >-
-    不开放选模型。在册的检测面是 Truepic 自己的验真与检查流水线。verification-tests 页在册项目为 模糊度、时间准确性、位置、屏幕翻拍检测与可选 AI 任务。
+    不开放选模型。在册的检测面是 Truepic 自己的验真与检查流水线。verification-tests 页在册项目为模糊度、时间准确性、位置、屏幕翻拍检测与可选 AI 任务。
 
     Lens 侧走 PKI 签名证书与 C2PA content credentials 判来源（lens-api 页在册）。验真用的具体模型是否披露、能否替换，官方页未逐条说明，记为未知。
   runtime: >-
-    托管云交付：Vision 网页平台（登录入口与 Okta SSO 在文档在册）加 REST API。regions 页在册只有 US 与 UK 两个区域，并写明数据存在发起请求的那个区域。
+    托管云交付：Vision 网页平台，登录入口与 Okta SSO 在文档在册。另有 REST API。regions 页在册只有 US 与 UK 两个区域。并写明数据存在发起请求的那个区域。
 
     未见本机或离线形态的官方声明。
   local_files: >-
@@ -43,11 +43,11 @@ axes:
 
     官方 trust 页本次直抓只返回动态脚本壳，无在册内容，记为未知。
   fit: >-
-    适合保险理赔、贷款与抵押、设备勘验这类要「拍摄即验真、事后可举证」的流程，以及要把验真结论接进自有系统的 API 用户。不适合要 LLM 输入输出过滤的团队（不是它的产品主轴）。
+    适合保险理赔、贷款与抵押、设备勘验这类要「拍摄即验真、事后可举证」的流程。也适合要把验真结论接进自有系统的 API 用户。不适合要 LLM 输入输出过滤的团队（不是它的产品主轴）。
 
     也不适合要自托管或要免费自助额度的人。
 pitfalls:
-  - 把 Truepic 当通用内容审核 API：官方在册主轴是拍摄验真与检查流水，不是 prompt 与输出过滤
+  - 把 Truepic 当通用内容审核 API。官方在册主轴是拍摄验真与检查流水，不是 prompt 与输出过滤
   - 以为有 C2PA 凭证就等于内容真实：凭证给的是来源与编辑史，不等于内容没有误导
   - 以为能自助开通：官方 getting-started 页在册「不提供 self-serve signup」
 
@@ -103,15 +103,15 @@ confidence: partial
 
 cn:
   origin: foreign
-  origin_note: Truepic Inc.（隐私政策当日在册主体）；官方 regions 页只列 US 与 UK。
+  origin_note: Truepic Inc.（隐私政策当日在册主体）。官方 regions 页只列 US 与 UK。
   origin_note_en: Truepic Inc. (entity on record in the privacy policy same day); the official regions page lists only US and UK.
   direct: unknown
-  direct_note: 同日实测 www.truepic.com 与 vision.truepic.dev 返回 200，但这只是站点与文档可达；
+  direct_note: 同日实测 www.truepic.com 与 vision.truepic.dev 返回 200，但这只是站点与文档可达。
     服务侧无自助开通、区域未含大陆，故不判「可用」。verify.truepic.com 本次实测返回 000（无法建连）。
   direct_note_en: Same-day probes returned 200 for www.truepic.com and vision.truepic.dev, but that is site/documentation reachability only;
     there is no self-serve provisioning and no mainland region, so availability is not asserted. verify.truepic.com returned 000.
   filing: unknown
-  filing_note: 官方站点与文档均未写中国大陆备案/登记信息；本次未检索监管公示名单，不做推断。
+  filing_note: 官方站点与文档均未写中国大陆备案/登记信息。本次未检索监管公示名单，不做推断。
   filing_note_en: Neither the site nor the docs mention mainland filing/registration; the public registry was not searched.
   verified: 2026-11-06
 ---
@@ -126,13 +126,13 @@ PKI 签名证书加 C2PA content credentials，
 
 ## 适合与不适合
 
-适合保险理赔、贷款抵押、设备勘验这类要证据链的流程，以及要把验真结论用 API 接进自有系统的团队。不适合两类人。要找 LLM 输入输出过滤的（那是护栏那条线）。
+适合保险理赔、贷款抵押、设备勘验这类要证据链的流程。也适合要把验真结论用 API 接进自有系统的团队。不适合两类人。要找 LLM 输入输出过滤的（那是护栏那条线）。
 
-要自助注册先试起来的——官方 getting-started 页明写不提供自助开通，走演示与合同。
+要自助注册先试起来的。官方 getting-started 页明写不提供自助开通，走演示与合同。
 
 ## 能力边界
 
-**依据：** 在册能判的：媒体是否为签名设备当场采集、是否翻拍屏幕、时间与位置是否自洽、元数据是否被改动，以及可选的 AI 分析任务。
+**依据：** 在册能判的有几项。媒体是否由签名设备当场采集、是否翻拍屏幕、时间与位置是否自洽、元数据是否被改动，以及可选 AI 分析任务。
 
 不在册的：它不判内容是否有害，也不替你决定要不要采信这张图。C2PA 侧的边界是本站观点。凭证给的是来源与处理史，不是「真实」的终极判定（详见 [Content Credentials](./adobe-content-credentials.md)）。
 
@@ -167,6 +167,6 @@ Vision 平台本体无公开 changelog。
 
 ## 相关条目
 
-- [Content Credentials](./adobe-content-credentials.md) — 同一套凭证标准的验证侧生态；这里是采集与业务流，那里是通用验证器。
+- [Content Credentials](./adobe-content-credentials.md) — 同一套凭证标准的验证侧生态。这里是采集与业务流，那里是通用验证器。
 - [Azure AI Content Safety](./azure-ai-content-safety.md) — 一条管「内容该不该拦」，一条管「内容能不能举证」。
-- [LiteLLM](./litellm.md) — 网关侧留的是调用与预算记录，这里留的是媒体与拍摄现场记录。
+- [LiteLLM](./litellm.md) — 网关侧留的是调用与预算记录。这里留的是媒体与拍摄现场记录。

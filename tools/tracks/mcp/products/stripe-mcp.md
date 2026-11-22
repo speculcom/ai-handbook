@@ -9,11 +9,11 @@ licenseEn: MIT (stripe/ai repo, GitHub API verified 2026-10-21 — Stripe's offi
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Stripe 后台能力 （产品/价格/客户/支付查询、文档检索）包装成工具给 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Stripe 后台能力包装成工具给 agent 用。含产品、价格、客户、支付查询与文档检索。
   runtime: >-
     本地进程（Python/TS 包起 stdio）为主。GitHub stripe/ai 2,000★。最近推送 2026-10-30（API 核验）。
 
-    Stripe 另有 agentic commerce 产品线（ACP 等）—— 那是「agent 直接收款」的另一层。不算这个 server 本体。
+    Stripe 另有 agentic commerce 产品线（ACP 等）。 那是「agent 直接收款」的另一层。不算这个 server 本体。
   local_files: >-
     不碰本机文件系统。作用域是 Stripe 云端账户数据（customers/products/invoices 等）。
   background: >-
@@ -25,13 +25,13 @@ axes:
   permissions: >-
     **凭据=Stripe API key。按 key 权限走**：测试/正式 key 差别巨大。官方工具支持按 key 类型与工具白名单裁剪。
 
-    支付写操作（退款/发送发票）真实存在—— 接 agent 前按 key 权限最坏面设防。
+    支付写操作真实存在，含退款与发送发票。接 agent 前按 key 权限最坏面设防。
   fit: >-
-    适合：Stripe 集成开发时让 agent 查 API 用法、查账户对象、试测试模式操作。不适合：要「只读保险」硬边界。非 Stripe 栈。
+    适合：Stripe 集成开发时让 agent 查 API 用法。查账户对象。试测试模式操作。不适合：要「只读保险」硬边界。非 Stripe 栈。
 pitfalls:
-  - 把 Agent Toolkit 与 agentic commerce（ACP 收款线）混谈——一个是开发工具一个是商业产品线
+  - 把 Agent Toolkit 与 agentic commerce（ACP 收款线）混谈。一个是开发工具一个是商业产品线
   - 用正式 key 接 agent 试写操作——先测试模式，写面（退款等）按最坏假设设防
-  - 找 stripe/agent-toolkit 旧仓名——现役官方线在 stripe/ai 仓（2026-10-21 API 核验）
+  - 找 stripe/agent-toolkit 旧仓名。现役官方线在 stripe/ai 仓（2026-10-21 API 核验）
 
 tags: [MCP, 支付, 开发工具, MIT, 本地stdio]
 related: [cursor, claude-code]
@@ -65,19 +65,19 @@ cn:
   origin_note: Stripe, Inc.（美国）。
   origin_note_en: Stripe, Inc. (US).
   direct: yes
-  direct_note: docs.stripe.com 直连实测 200（2026-10-21）；stripe.com 主域直连 000（波动标注）。
+  direct_note: docs.stripe.com 直连实测 200（2026-10-21）。stripe.com 主域直连 000（波动标注）。
   direct_note_en: docs.stripe.com measured 200 direct (2026-10-21); the stripe.com apex measured 000 (fluctuating, noted).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
 
 ## 一句话定位
 
-**Stripe 官方给 agent 的开发工具线**（stripe/ai，MIT）：查 API 用法、查账户对象、测试模式试操作。
+**Stripe 官方给 agent 的开发工具线是**：可查 API 用法、查账户对象、测试模式试操作。
 
-两条澄清：它与「agent 直接收款」的 agentic commerce 产品线不是一回事**写操作（退款/发票）真实存在——按 key 权限最坏面设防**。
+两条澄清。它与「agent 直接收款」的 agentic commerce 产品线不是一回事。写操作真实存在，含退款与发票。按 key 权限最坏面设防。
 
 ## 适合与不适合
 

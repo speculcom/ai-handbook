@@ -5,8 +5,8 @@ name: FastGPT
 nameEn: FastGPT
 vendor: labring（环际云，国产）
 homepage: https://fastgpt.io
-license: FastGPT Open Source License——GitHub API 当日核验 license=NOASSERTION，LICENSE 在册为 Apache 2.0
-  加附加条件：未经书面许可不得用其源码运营多租户 SaaS 服务（对标 FastGPT.AI 形态）；使用其前端不得移除/修改
+license: FastGPT Open Source License。GitHub API 当日核验 license=NOASSERTION，LICENSE 在册为 Apache 2.0
+  加附加条件：未经书面许可不得用其源码运营多租户 SaaS 服务（对标 FastGPT.AI 形态）。使用其前端不得移除/修改
   LOGO 与版权信息（与 Dify 同款两条件口径）。
 licenseEn: FastGPT Open Source License — GitHub API verified same day: license=NOASSERTION; the LICENSE on record is
   Apache 2.0 with additional conditions: no multi-tenant SaaS operation (FastGPT.AI-style) from the source code without
@@ -18,13 +18,13 @@ axes:
 
     具体目录在控制台 Account → Model provider 按区域/套餐展示（官方 Model Providers 页）。自托管版可接本地模型（配合 runner 类工具）。
   runtime: >-
-    双形态：开源仓自托管（labring/FastGPT，GitHub 直连 200，当日推送 2026-10-30）+ 官方托管版 （fastgpt.io 国际版直连 200；fastgpt.cn 大陆版直连 200，页脚主体广州环际云计算有限公司+ICP备2023048773号在册）。
+    双形态：开源仓自托管，或官方托管。开源仓是 labring/FastGPT，GitHub 直连 200，当日推送 2026-10-30。托管版有 fastgpt.io 国际版，直连 200；还有 fastgpt.cn 大陆版，直连 200。页脚主体为广州环际云计算有限公司，ICP 备案 2023048773 号在册。
   local_files: >-
     自托管形态数据在本机数据库（MongoDB/向量库——部署文档在册）。托管版数据在官方云端。知识库文件上传后入库向量化。
 
     原始文件与向量按部署的 MongoDB/VectorDB/S3 存储（官方 Cloud vs Self-Hosted 对比页）。
   background: >-
-    产品主轴是 RAG 知识库问答与应用编排（doc.fastgpt.io 文档在册）。agent/工作流编排能力在册。
+    产品主轴是 RAG 知识库问答与应用编排。doc.fastgpt.io 文档在册。agent/工作流编排能力在册。
 
     FastGPT Cloud 含 scheduled Dataset sync 与 Agent VM sandboxes（官方 Cloud Overview）。
   tools: >-
@@ -38,15 +38,15 @@ axes:
   permissions: >-
     开源可审计（GPL 家族之外的 Apache+附加条件，见 license）。托管版按官方云端条款。大陆版 fastgpt.cn 有 ICP 备案在册。
 
-    FastGPT Cloud 隐私政策明确「不将你的数据用于额外备份存储或模型训练」。可访问/更正/删除。Cloud 版不含 SSO/自定义品牌（官方 Cloud Overview 对比表）。
+    FastGPT Cloud 隐私政策明确，不将你的数据用于额外备份存储或模型训练。可访问/更正/删除。Cloud 版不含 SSO 与自定义品牌。依据是官方 Cloud Overview 对比表。
   fit: >-
-    适合：中文知识库问答/RAG 应用（自托管可控）、要大陆直连的托管入口（fastgpt.cn）。
+    适合：中文知识库问答/RAG 应用（自托管可控）。要大陆直连的托管入口（fastgpt.cn）。
 
-    不适合：要纯 Apache 2.0 无附加条件（多租户 SaaS 受限）、要代码级 agent 框架（画布/配置为主轴）。
+    不适合：要纯 Apache 2.0 无附加条件（多租户 SaaS 受限）。要代码级 agent 框架（画布/配置为主轴）。
 pitfalls:
-  - **两版两主体两入口**：fastgpt.io（国际托管）与 fastgpt.cn（大陆托管，页脚广州环际云计算有限公司+ICP备2023048773号）——ICP 网站备案≠生成式 AI 服务备案，别混
-  - license=NOASSERTION 不是「无许可」——LICENSE 实为 Apache 2.0+两条附加条件（多租户 SaaS 限制+LOGO 保留），与 Dify 同款
-  - 文档域是 doc.fastgpt.io（直连 307→200）——主站路径 /en/introduction 404，别按主站路径判文档缺失
+  - **两版两主体两入口**：fastgpt.io（国际托管）与 fastgpt.cn（大陆托管，页脚广州环际云计算有限公司+ICP备2023048773号）。ICP 网站备案≠生成式 AI 服务备案，别混
+  - license=NOASSERTION 不是「无许可」。LICENSE 实为 Apache 2.0+两条附加条件（多租户 SaaS 限制+LOGO 保留），与 Dify 同款
+  - 文档域是 doc.fastgpt.io（直连 307→200）。主站路径 /en/introduction 404，别按主站路径判文档缺失
 
 tags: [国产, 低代码, RAG, 知识库, 自托管, 开源, Apache2.0附加条款, agentic工作流]
 related: [dify, maxkb, ollama]
@@ -87,13 +87,13 @@ confidence: verified
 
 cn:
   origin: domestic
-  origin_note: labring 开源项目；大陆托管版页脚主体广州环际云计算有限公司（fastgpt.cn 当日直抓在册）。
+  origin_note: labring 开源项目。大陆托管版页脚主体广州环际云计算有限公司（fastgpt.cn 当日直抓在册）。
   origin_note_en: labring open-source project; the mainland hosted version's footer entity is Guangzhou Huanji Cloud Computing Co., Ltd. (fastgpt.cn direct-fetched same day).
   direct: yes
-  direct_note: fastgpt.io、fastgpt.cn、doc.fastgpt.io（307→200）、GitHub 仓大陆直连实测 200（2026-10-30）——开源+大陆托管版双获取路径。
+  direct_note: fastgpt.io、fastgpt.cn、doc.fastgpt.io（307→200）、GitHub 仓大陆直连实测 200（2026-10-30）。开源+大陆托管版双获取路径。
   direct_note_en: fastgpt.io, fastgpt.cn, doc.fastgpt.io (307→200) and the GitHub repo all measured 200 direct from mainland (2026-10-30) — open source plus a mainland hosted entry.
   filing: not-filed
-  filing_note: 未见于生成式 AI 服务/深度合成算法备案公示名单（2026-10-30 检索百炼公示页与第十六批批次清单，未见 FastGPT 条目）；
+  filing_note: 未见于生成式 AI 服务/深度合成算法备案公示名单（2026-10-30 检索百炼公示页与第十六批批次清单，未见 FastGPT 条目）。
     fastgpt.cn 页脚 ICP备2023048773号 是网站 ICP 备案，与生成式 AI 服务备案是不同类别，不混记。
   filing_note_en: not in the generative-AI / deep-synthesis filing registries (Bailian disclosure page and the 16th batch list searched 2026-10-30; no FastGPT entry); the ICP number on fastgpt.cn's footer (ICP filing No. 2023048773) is a website ICP registration, a different category from generative-AI service filing — not conflated.
   verified: 2026-11-21
@@ -101,14 +101,16 @@ cn:
 
 ## 一句话定位
 
-**FastGPT 是国产开源的 RAG 知识库问答与应用构建平台**（文档主轴：知识库问答+agent/工作流编排）：开源仓自托管（★29,949 当日核验）+ 官方托管双入口——fastgpt.io 国际版、fastgpt.cn 大陆版（页脚主体广州环际云计算有限公司，ICP 备案在册）。
+**FastGPT 是国产开源的 RAG 知识库问答与应用构建平台**：文档主轴是知识库问答加 agent/工作流编排。它有两种形态：开源仓自托管，★29,949 当日核验；以及官方托管双入口。
+
+托管版有 fastgpt.io 国际版与 fastgpt.cn 大陆版。大陆版页脚主体为广州环际云计算有限公司，ICP 备案在册。
 
 许可是 Apache 2.0 加两条附加条件（与 Dify 同款）。
 
 ## 适合与不适合
 
 适合：中文知识库问答/RAG 应用（自托管可控）、要大陆直连托管入口。
-不适合：要纯 Apache 2.0 无附加条件（多租户 SaaS 受限）、要代码级 agent 框架。
+不适合：要纯 Apache 2.0 无附加条件（多租户 SaaS 受限）。要代码级 agent 框架。
 
 ## 实测记录
 
@@ -127,6 +129,6 @@ cn:
 
 ## 相关条目
 
-- [Dify](./dify.md) — 同为国产开源 agent 搭建平台：Dify 通用 agent 画布；FastGPT 以 RAG 知识库问答为主轴。
-- [MaxKB](./maxkb.md) — 同为国产开源企业知识库问答：MaxKB GPL-3.0、飞致云企业交付向；FastGPT Apache+附加条件、社区生态大。
-- [Ollama](../../runner/products/ollama.md) — 本地模型层对照：FastGPT 自托管版可接本地模型，模型运行器归 runner 类。
+- [Dify](./dify.md) — 同为国产开源 agent 搭建平台：Dify 通用 agent 画布。FastGPT 以 RAG 知识库问答为主轴。
+- [MaxKB](./maxkb.md) — 同为国产开源企业知识库问答：MaxKB GPL-3.0、飞致云企业交付向。FastGPT Apache+附加条件、社区生态大。
+- [Ollama](../../runner/products/ollama.md) — 本地模型层对照：FastGPT 自托管版可接本地模型。模型运行器归 runner 类。

@@ -5,7 +5,7 @@ name: You.com
 nameEn: You.com
 vendor: You.com
 homepage: https://you.com
-license: 消费端免费+订阅；企业端按合同。按官方条款页管辖（2026-10-22 取得）；API 鉴权与数据保留按官方文档（2026-11-21）。
+license: 消费端免费+订阅。企业端按合同。按官方条款页管辖（2026-10-22 取得）。API 鉴权与数据保留按官方文档（2026-11-21）。
 licenseEn: Consumer free plus subscription; enterprise by contract. Governed by the official terms page (fetched 2026-10-22); API auth and retention follow the official docs (2026-11-21).
 
 axes:
@@ -34,13 +34,13 @@ axes:
   permissions: >-
     账号+订阅（消费端）/合同与 API key（企业端）。官方文档要求 X-API-Key 或 Bearer。训练用途开关与数据保留按官方条款与隐私页核对（2026-11-21）。
   fit: >-
-    适合：企业检索基础设施采购评估（Search/Research/Answer API）、消费端多模型切换体验。
+    适合：企业检索基础设施采购评估（Search/Research/Answer API）。消费端多模型切换体验。
 
-    不适合：把消费端当长期承诺（重心已转企业端）、大陆直连（实测 000）（2026-11-21）。
+    不适合：把消费端当长期承诺（重心已转企业端）。大陆直连（实测 000）（2026-11-21）。
 pitfalls:
-  - You.com 的「AI 搜索消费产品」旧认知已过时——官方现行主轴是企业搜索基础设施（ARI/Research API）
+  - You.com 的「AI 搜索消费产品」旧认知已过时。官方现行主轴是企业搜索基础设施（ARI/Research API）
   - 消费端仍在运营但投入方向存疑——选型时把「消费端长期性」列为风险项
-  - you.com 大陆直连 000（2026-10-22，代理 200）——可达性按代理口径
+  - you.com 大陆直连 000（2026-10-22，代理 200）。可达性按代理口径
 
 tags: [免费+订阅, 企业搜索API, ARI, 多模型切换, 重心转向]
 related: [perplexity, genspark, kagi, chatgpt]
@@ -73,10 +73,10 @@ cn:
   origin_note: You.com（美国旧金山，创始人 Richard Socher——前 Salesforce 首席科学家叙事）。
   origin_note_en: You.com (San Francisco, US; founder Richard Socher — ex-Salesforce Chief Scientist narrative).
   direct: no
-  direct_note: you.com 大陆直连实测 000（2026-10-22，代理下 200 可达）——直连不可达，需网络环境。
+  direct_note: you.com 大陆直连实测 000（2026-10-22，代理下 200 可达）。直连不可达，需网络环境。
   direct_note_en: you.com measured 000 direct from mainland (2026-10-22; 200 via proxy) — unreachable without a network path.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-11-21

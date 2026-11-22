@@ -5,7 +5,7 @@ name: MaxKB
 nameEn: MaxKB
 vendor: 飞致云（国产）
 homepage: https://maxkb.cn
-license: GPL-3.0（GitHub API 当日核验 license=GPL-3.0；1Panel-dev/MaxKB 仓）；官方另有专业版/企业版
+license: GPL-3.0（GitHub API 当日核验 license=GPL-3.0；1Panel-dev/MaxKB 仓）。官方另有专业版/企业版
   商业发行（飞致云博客当日在册：专业版+企业版用户超 1,000 家）。
 licenseEn: GPL-3.0 (GitHub API verified same day: license=GPL-3.0, 1Panel-dev/MaxKB); Fit2Cloud also sells commercial
   Professional/Enterprise editions (same-day official blog: 1,000+ paying Professional/Enterprise users).
@@ -20,23 +20,23 @@ axes:
   local_files: >-
     自托管形态数据在本机（部署文档在册）。这是与托管类产品的核心差异：知识库文件、对话记录全部落在自有部署内。商业发行的数据面按合同形态本档不逐条展开。
   background: >-
-    产品主轴是企业知识库问答（RAG）+工作流编排+技能（Skills）+MCP 工具调用（官方博客当日在册四能力）。定时与后台执行细节本档不逐条展开。
+    产品主轴有四块。包括企业知识库问答 RAG、工作流编排、技能 Skills、MCP 工具调用。官方博客当日在册。定时与后台执行细节本档不逐条展开。
   tools: >-
-    MCP 工具调用是官方明言能力（博客当日在册「支持 RAG、工作流编排、技能(Skills) 和 MCP 工具调用」）。工作流编排节点面在 docs 在册。具体连接器清单本档不逐条展开。
+    MCP 工具调用是官方明言能力。博客当日在册写道，支持四类能力。包括 RAG、工作流编排、技能(Skills) 和 MCP 工具调用。工作流编排节点面在 docs 在册。具体连接器清单本档不逐条展开。
   context: >-
     知识库（RAG）是核心持久知识面。多轮对话上下文在册。跨应用记忆机制细节本档不逐条展开。
   permissions: >-
-    GPL-3.0 强 copyleft。衍生分发义务与 Apache 家族不同（商用集成要评估传染面）。深度合成服务算法备案 双条目在册（见 cn 块：服务提供者+服务技术支持者两个角色都备了）。
+    GPL-3.0 强 copyleft。衍生分发义务与 Apache 家族不同（商用集成要评估传染面）。深度合成服务算法备案有双条目在册。服务提供者与服务技术支持者两个角色都备了，见 cn 块。
 
     训练用途开关路径本档不逐条展开。
   fit: >-
-    适合：企业内网自托管知识库问答（数据不出域）、要 MCP 工具调用与工作流编排的国产开源方案、 要已备案的合规叙事（算法备案双条目在册）。
+    适合：企业内网自托管知识库问答（数据不出域）。要 MCP 工具调用与工作流编排的国产开源方案。 要已备案的合规叙事（算法备案双条目在册）。
 
-    不适合：要宽松许可（GPL-3.0 copyleft）、要个人轻量上手（企业交付向）。
+    不适合：要宽松许可（GPL-3.0 copyleft）。要个人轻量上手（企业交付向）。
 pitfalls:
-  - **备案类别要分清**：MaxKB 通过的是**深度合成服务算法备案**（第十六批，2026-03-12 公示，服务提供者+技术支持者双条目）——不是生成式 AI 服务备案，两者是不同类别
-  - maxkb.cn 大陆直连 403（CF 类拦截非死链，代理可达）——判可达性别只看官网入口，仓与文档域（GitHub/docs.fit2cloud.com）直连 200
-  - GPL-3.0 ≠ Apache 家族——把 MaxKB 嵌进闭源产品前必须评估 copyleft 分发义务，与 Dify/FastGPT 的 Apache+附加条件是完全不同的合规路径
+  - **备案类别要分清**：MaxKB 通过的是**深度合成服务算法备案**（第十六批，2026-03-12 公示，服务提供者+技术支持者双条目）。不是生成式 AI 服务备案，两者是不同类别
+  - maxkb.cn 大陆直连 403（CF 类拦截非死链，代理可达）。判可达性别只看官网入口，仓与文档域（GitHub/docs.fit2cloud.com）直连 200
+  - GPL-3.0 ≠ Apache 家族。把 MaxKB 嵌进闭源产品前必须评估 copyleft 分发义务，与 Dify/FastGPT 的 Apache+附加条件是完全不同的合规路径
 
 tags: [国产, 低代码, RAG, 知识库, 自托管, 开源, GPL-3.0, MCP, 企业向]
 related: [fastgpt, dify, ollama]
@@ -61,10 +61,10 @@ lifecycle: active
 confidence: verified
 cn:
   origin: domestic
-  origin_note: 杭州飞致云信息科技有限公司（备案清单当日解析在册）；开源项目 1Panel-dev/MaxKB。
+  origin_note: 杭州飞致云信息科技有限公司（备案清单当日解析在册）。开源项目 1Panel-dev/MaxKB。
   origin_note_en: Hangzhou Fit2Cloud Information Technology Co., Ltd. (on record in the filing list parsed same day); open-source project 1Panel-dev/MaxKB.
   direct: yes
-  direct_note: GitHub 仓与 docs.fit2cloud.com/maxkb 大陆直连实测 200（2026-10-30）；maxkb.cn 官网直连 403（CF 类拦截非死链，代理可达）——获取路径以仓与文档域为准。
+  direct_note: GitHub 仓与 docs.fit2cloud.com/maxkb 大陆直连实测 200（2026-10-30）。maxkb.cn 官网直连 403（CF 类拦截非死链，代理可达）。获取路径以仓与文档域为准。
   direct_note_en: the GitHub repo and docs.fit2cloud.com/maxkb measured 200 direct from mainland (2026-10-30); maxkb.cn measured 403 direct (Cloudflare-style block, not a dead link; reachable via proxy) — acquisition paths go by the repo and docs domains.
   filing: filed
   filing_no: 网信算备330106491701101260019号 / 网信算备330106491701101260027号
@@ -72,8 +72,8 @@ cn:
   filing_date: 2026-03-12
   filing_note: 第十六批《境内深度合成服务算法备案清单》（2026-03-12 公示）当日下载官方文件解析双条目在册：
     条目 605「MaxKB多模态生成合成算法-1」服务提供者=杭州飞致云信息科技有限公司（MaxKB智能体平台网站/其他，
-    网信算备330106491701101260019号）；条目 750「MaxKB多模态生成合成算法」服务技术支持者（网信算备
-    330106491701101260027号）；与飞致云官方博客公告交叉一致。属深度合成算法备案类别，非生成式 AI 服务备案。
+    网信算备330106491701101260019号）。条目 750「MaxKB多模态生成合成算法」服务技术支持者（网信算备
+    330106491701101260027号）。与飞致云官方博客公告交叉一致。属深度合成算法备案类别，非生成式 AI 服务备案。
   filing_note_en: the 16th "Domestic Deep-Synthesis Service Algorithm Filing List" (publicized 2026-03-12) was downloaded and parsed
     same day, two entries on record: row 605 "MaxKB multimodal generative synthesis algorithm-1" as service provider = Hangzhou
     Fit2Cloud Information Technology Co., Ltd. (MaxKB agent platform, website/other, CAC algorithm filing no. 330106491701101260019);
@@ -84,14 +84,14 @@ cn:
 
 ## 一句话定位
 
-**MaxKB 是飞致云出品的国产开源企业级智能体平台**：（官方博客当日口径：RAG 检索增强生成+工作流编排+技能Skills+MCP 工具调用四能力）：GPL-3.0 开源自托管为主形态（★23,081 当日核验）。
+**MaxKB 是飞致云出品的国产开源企业级智能体平台**：官方博客当日口径列出四能力。包括 RAG 检索增强生成、工作流编排、技能 Skills、MCP 工具调用。GPL-3.0 开源自托管是主形态，★23,081 当日核验。
 
-**深度合成服务算法备案双条目在册**（服务提供者+技术支持者，第十六批 2026-03-12）——企业内网「数据不出域」场景的国产合规叙事样本。
+**深度合成服务算法备案有双条目在册**：服务提供者与技术支持者都在第十六批，2026-03-12。这是企业内网「数据不出域」场景的国产合规叙事样本。
 
 ## 适合与不适合
 
-适合：企业内网自托管知识库问答（数据不出域）、要 MCP+工作流的国产开源方案、要已备案合规叙事。
-不适合：要宽松许可（GPL-3.0 copyleft）、要个人轻量上手（企业交付向）。
+适合：企业内网自托管知识库问答（数据不出域）。要 MCP+工作流的国产开源方案。要已备案合规叙事。
+不适合：要宽松许可（GPL-3.0 copyleft）。要个人轻量上手（企业交付向）。
 
 ## 实测记录
 
@@ -112,6 +112,6 @@ cn:
 
 ## 相关条目
 
-- [FastGPT](./fastgpt.md) — 同为国产开源 RAG 问答平台：FastGPT Apache+附加条件、社区生态大；MaxKB GPL-3.0、企业交付+备案叙事。
-- [Dify](./dify.md) — 国产开源 agent 平台对照：Dify 通用画布出海向；MaxKB 企业内网交付向。
-- [Ollama](../../runner/products/ollama.md) — 本地模型层对照：MaxKB 自托管可接本地模型，模型运行器归 runner 类。
+- [FastGPT](./fastgpt.md) — 同为国产开源 RAG 问答平台：FastGPT Apache+附加条件、社区生态大。MaxKB GPL-3.0、企业交付+备案叙事。
+- [Dify](./dify.md) — 国产开源 agent 平台对照：Dify 通用画布出海向。MaxKB 企业内网交付向。
+- [Ollama](../../runner/products/ollama.md) — 本地模型层对照：MaxKB 自托管可接本地模型。模型运行器归 runner 类。

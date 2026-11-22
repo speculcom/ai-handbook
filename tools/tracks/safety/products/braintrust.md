@@ -15,41 +15,44 @@ licenseEn: >-
 
 axes:
   model_access: >-
-    评测用的模型由你接入：官方页面在册 OpenAI 与 Anthropic 凭据在 Settings 的 Models 里配（当日直抓）。
-    scorer 面分代码、LLM judge 与 autoevals 三类（guides/evals 当日在册）。
-    **judge 支持的厂商全清单、以及是否统一经网关转发按官方文档口径，官方文档未单列。**
+    评测用的模型由你接入。官方页面在册 OpenAI 与 Anthropic 凭据的配置位置。它们在 Settings 的 Models 里配，当日直抓。
+
+    scorer 面分代码、LLM judge 与 autoevals 三类，guides/evals 当日在册。judge 支持的厂商全清单与是否统一经网关转发，官方文档未单列。
   runtime: >-
-    主要交互面是浏览器里的控制台（官方文档当日在册的定位是「active observability platform」）；
-    评测也能在本机与 CI 用 bt CLI 跑（/cli 当日在册）。数据面可选部署进客户环境，
-    控制面留在厂商侧管认证、用户与元数据（/self-hosting 当日在册）。
+    主要交互面是浏览器里的控制台。官方文档当日定位是「active observability platform」。
+
+    评测也能在本机与 CI 用 bt CLI 跑，/cli 当日在册。数据面可选部署进客户环境。控制面留在厂商侧，管认证、用户与元数据，/self-hosting 当日在册。
   local_files: >-
-    默认数据在厂商侧；走客户侧数据面时 PostgreSQL、Redis、对象存储与 Brainstore 装在你自己的环境
-    （当日在册），控制面只保存认证与元数据。平台不读本机代码库；
-    bt CLI 在本地读写评测配置与数据同步（当日在册）。
+    默认数据在厂商侧。走客户侧数据面时，PostgreSQL、Redis、对象存储与 Brainstore 装在你自己的环境，当日在册。
+
+    控制面只保存认证与元数据。平台不读本机代码库。bt CLI 在本地读写评测配置与数据同步，当日在册。
   background: >-
-    生产 trace 用在线打分异步评测（guides/evals 当日在册），实验（experiments）批量跑数据集做回归对照。
-    **抽样比例、评分延迟与告警时序的口径在官方故障页有提及，但按官方文档口径，官方文档未单列。**
+    生产 trace 用在线打分异步评测，guides/evals 当日在册。实验（experiments）批量跑数据集做回归对照。
+
+    抽样比例、评分延迟与告警时序的口径，官方故障页有提及。按官方文档口径，官方文档未单列。
   tools: >-
-    **依据：** bt CLI 经 curl、npm、pnpm 或 mise 安装，可本地与 CI 跑评测、管理函数、查日志、同步数据
-    （当日在册）；SDK 面覆盖 Python 与 TypeScript；文档索引在册含 OpenTelemetry 发送 trace 的集成页，
-    目标页正文已取得。**MCP 接入方式官方文档未单列。**
+    **依据：** bt CLI 经 curl、npm、pnpm 或 mise 安装。它可本地与 CI 跑评测、管理函数、查日志、同步数据，当日在册。
+
+    SDK 面覆盖 Python 与 TypeScript。文档索引含 OpenTelemetry 发送 trace 的集成页，目标页正文已取得。MCP 接入方式官方文档未单列。
   context: >-
-    trace、实验与数据集在同一面板里对照；人工评审面支持一行填多个分数
-    （官方页面当日在册）。**数据集版本与对照口径未读到正文，官方文档未单列；
-    「跨会话记忆」不是本类平台的功能面。**
+    trace、实验与数据集在同一面板里对照。人工评审面支持一行填多个分数，官方页面当日在册。
+
+    数据集版本与对照口径未读到正文，官方文档未单列。「跨会话记忆」不是本类平台的功能面。
   permissions: >-
-    合规与加密当日在册：AES-256、SOC 2 Type II、HIPAA，另称推理输入输出不由模型宿主留存（/security）。
-    **依据：** 档位与配额事实为免费至付费档、企业可自定义保留期，配额随 trace 量、数据量与每月分数条数变化
-    （pricing 当日在册），价格数字按 D9 不采。**数据是否用于训练未读到条款正文，官方文档未单列。**
+    合规与加密当日在册：AES-256、SOC 2 Type II、HIPAA。另称推理输入输出不由模型宿主留存，见 /security。
+
+    档位与配额事实为免费至付费档，企业可自定义保留期。配额随 trace 量、数据量与每月分数条数变化，pricing 当日在册。价格数字按 D9 不采。
+
+    数据是否用于训练未读到条款正文，官方文档未单列。
   fit: >-
-    适合把评测当发布闸门、要在 PR 与 CI 里跑实验对照，又不想自运维整套观测栈的团队。
-    不适合要整机自托管（控制面仍在厂商侧）、或想把平台再分发对外提供的团队；
-    本档只记支持的评测类型，不记分数也不排名。
+    适合把评测当发布闸门、要在 PR 与 CI 里跑实验对照、又不想自运维整套观测栈的团队。
+
+    不适合要整机自托管，因为控制面仍在厂商侧。也不适合想把平台再分发对外提供的团队。本档只记支持的评测类型，不记分数也不排名。
 
 pitfalls:
-  - 把「自托管」当成整机自己跑——官方口径是数据面在客户环境、控制面管认证与元数据（当日在册）
-  - 把在线评测当实时告警——异步打分与告警时序官方另有条目，抽样与延迟口径按官方文档口径
-  - 把评测成绩当可横向比较的指标——官方只在册支持的 scorer 类型，本档不采分数也不排名
+  - 把「自托管」当成整机自己跑。官方口径是数据面在客户环境、控制面管认证与元数据（当日在册）
+  - 把在线评测当实时告警。异步打分与告警时序官方另有条目，抽样与延迟口径按官方文档口径
+  - 把评测成绩当可横向比较的指标。官方只在册支持的 scorer 类型，本档不采分数也不排名
 
 tags: [云端, 商业平台, 自托管, WebUI, eval, 混合, CI]
 
@@ -94,13 +97,13 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: 官方域名 braintrust.dev 与 docs.braintrust.dev 当日在册；公司主体与注册地按官方文档口径，按 foreign 记。
+  origin_note: 官方域名 braintrust.dev 与 docs.braintrust.dev 当日在册。公司主体与注册地按官方文档口径，按 foreign 记。
   origin_note_en: the official braintrust.dev and docs.braintrust.dev domains are on record today; the legal entity and place of incorporation were not item-verified, so recorded as foreign.
   direct: yes
   direct_note: 本档 10 个在册源页面当日直抓均 200（www.braintrust.dev/docs 与 /changelog 经 308 跳 docs.braintrust.dev 后取到正文）。
   direct_note_en: all ten on-record source pages fetched 200 today (www.braintrust.dev/docs and /changelog 308-redirected to docs.braintrust.dev before the body was retrieved).
   filing: unknown
-  filing_note: 备案公示名单已检索；托管型开发者平台是否落入备案口径官方文档未单列，记入未知项清单。
+  filing_note: 备案公示名单已检索。托管型开发者平台是否落入备案口径官方文档未单列，记入未知项清单。
   filing_note_en: the filing registry was not searched today; whether a hosted developer platform falls under filing scope is unverified — listed under unknowns.
   verified: 2026-11-06
 ---
@@ -108,12 +111,13 @@ cn:
 ## 一句话定位
 
 **Braintrust 是把评测当发布闸门的观测平台**。
-当日在册的官方自我定位是「主动式观测平台」，评测、人工反馈与生产打分在同一个面板里。
+当日官方自我定位是「主动式观测平台」。评测、人工反馈与生产打分在同一个面板里。
 
 ## 适合与不适合
 
 适合要在 PR 和 CI 里跑实验对照、又想把观测栈托管出去的团队：
-数据集喂实验、代码与 judge 与 autoevals 三类 scorer 并行、生产 trace 走在线打分。
+数据集喂实验。代码、judge 与 autoevals 三类 scorer 并行。生产 trace 走在线打分。
+
 数据必须留在自己环境时，它提供「客户侧数据面 + 厂商侧控制面」的混合部署，
 但控制面仍在厂商侧，整机自托管不是它的口径。
 本档只写它支持什么评测，不写分数，也不做同类排名。
@@ -132,6 +136,7 @@ cn:
 
 官方 changelog 当日直抓在册，最新条目是 11 月的 bt CLI v0.29.0，10 月条目为 Trace Muse Code。
 数据面另有独立版本线，当日在册最新为 v2.21.0（页面标 11 月）。
+
 两条线都在近 30 天内更新，因此 lifecycle 记 active。
 
 ## 未知项清单

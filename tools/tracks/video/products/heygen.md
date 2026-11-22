@@ -5,7 +5,7 @@ name: HeyGen
 nameEn: HeyGen
 vendor: HeyGen
 homepage: https://www.heygen.com
-license: 免费+订阅+企业档。按官方条款页管辖（2026-10-22 取得）；数字人克隆需本人身份验证，官方 FAQ 称用户数据不用于模型训练（2026-11-21）。
+license: 免费+订阅+企业档。按官方条款页管辖（2026-10-22 取得）。数字人克隆需本人身份验证。官方 FAQ 称用户数据不用于模型训练（2026-11-21）。
 licenseEn: Free, subscription and enterprise tiers. Governed by the official terms page (fetched 2026-10-22); avatar cloning requires on-camera identity verification, and the official FAQ says user data is not used for model training (2026-11-21).
 
 axes:
@@ -34,12 +34,12 @@ axes:
 
     100% 用户数据不用于训练（2026-11-21）。
   fit: >-
-    适合：企业培训/营销视频本地化（翻译+对口型）、真人出镜替代（授权克隆）、批量口播视频。
+    适合：企业培训/营销视频本地化（翻译+对口型）。真人出镜替代（授权克隆）。批量口播视频。
 
-    不适合：创意叙事生成、要「一眼 AI 感」的娱乐向、无授权克隆他人（条款红线）（2026-11-21）。
+    不适合：创意叙事生成。要「一眼 AI 感」的娱乐向。无授权克隆他人（条款红线）（2026-11-21）。
 pitfalls:
-  - 克隆真人形象/声音有授权验证流程——「克隆任何人」在条款上走不通，别按演示视频理解产品边界
-  - 数字人视频与生成式视频（Runway 类）是两个物种——HeyGen 主功能是「人说话」，不是「造世界」
+  - 克隆真人形象/声音有授权验证流程。「克隆任何人」在条款上走不通，别按演示视频理解产品边界
+  - 数字人视频与生成式视频（Runway 类）是两个物种。HeyGen 主功能是「人说话」，不是「造世界」
   - 视频翻译的对口型质量随语言差异大——用前按目标语言实测
 
 tags: [免费+订阅, 数字人, 视频翻译, 对口型, 企业向]
@@ -73,10 +73,10 @@ cn:
   origin_note: HeyGen（美国洛杉矶，创始人 Josh Xu 等，公开叙事）。
   origin_note_en: HeyGen (Los Angeles, US; founders Josh Xu et al., public narrative).
   direct: no
-  direct_note: heygen.com 大陆直连实测 000（2026-10-22，代理下 200 可达）——直连不可达，需网络环境。
+  direct_note: heygen.com 大陆直连实测 000（2026-10-22，代理下 200 可达）。直连不可达，需网络环境。
   direct_note_en: heygen.com measured 000 direct from mainland (2026-10-22; 200 via proxy) — unreachable without a network path.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-11-21

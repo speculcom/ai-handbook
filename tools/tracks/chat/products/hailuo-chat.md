@@ -5,7 +5,7 @@ name: 海螺AI
 nameEn: Hailuo AI
 vendor: MiniMax（稀宇科技）
 homepage: https://hailuoai.com
-license: 免费+登录（部分能力需会员）。输出内容归属按官方用户协议与付费服务协议管辖；具体条款细节以协议原文为准（2026-11-21）。
+license: 免费+登录（部分能力需会员）。输出内容归属按官方用户协议与付费服务协议管辖。具体条款细节以协议原文为准（2026-11-21）。
 licenseEn: Free with login (some features need a membership). Output ownership follows the official user agreement and paid-service agreement; clause details are governed by the original text (2026-11-21).
 
 axes:
@@ -36,11 +36,11 @@ axes:
 
     训练开关与会员权益按应用内页面核对（2026-11-21）。
   fit: >-
-    适合：视频+图片+音频+对话一体的国产多模态创作入口（MiniMax 生态）、要大陆直连可用。不适合：要选模型、要本机跑模型、要脱离 MiniMax 账号（2026-11-21）。
+    适合：视频+图片+音频+对话一体的国产多模态创作入口（MiniMax 生态）。要大陆直连可用。不适合：要选模型。要本机跑模型。要脱离 MiniMax 账号（2026-11-21）。
 pitfalls:
-  - 海螺AI（hailuoai.com 消费创作入口）、MiniMax 开发者线（minimax.io）、海螺视频（hailuoai.video）是同厂商三个入口——别混成一个对象
-  - 备案号主语是模型层（Shanghai-MiniMax-202505230046）——对话产品入口自身的备案状态未单独核验
-  - 官网主打是视频创作（「每个想法都是一部大片」）——对话线能力边界以登录后实测为准，别按视频招牌推断
+  - 海螺AI（hailuoai.com 消费创作入口）、MiniMax 开发者线（minimax.io）、海螺视频（hailuoai.video）是同厂商三个入口。别混成一个对象
+  - 备案号主语是模型层（Shanghai-MiniMax-202505230046）。对话产品入口自身的备案状态未单独核验
+  - 官网主打是视频创作（「每个想法都是一部大片」）。对话线能力边界以登录后实测为准，别按视频招牌推断
 
 tags: [国产, 多模态创作, MiniMax生态, 免费+登录, 已备案]
 related: [doubao-chat, yuanbao-chat, minimax-audio]
@@ -79,14 +79,14 @@ confidence: verified
 
 cn:
   origin: domestic
-  origin_note: MiniMax（上海稀宇极智科技有限公司，中国）——与 MiniMax Audio、海螺视频档案同主体。
+  origin_note: MiniMax（上海稀宇极智科技有限公司，中国）。与 MiniMax Audio、海螺视频档案同主体。
   origin_note_en: MiniMax (Shanghai Xiyu Jizhi Technology Co., Ltd., China) — same entity as the MiniMax Audio and Hailuo Video entries.
   direct: yes
   direct_note: hailuoai.com 与 /chat 大陆直连实测 200（2026-10-30）。
   direct_note_en: hailuoai.com and /chat measured 200 direct from mainland (2026-10-30).
   filing: filed
   filing_no: Shanghai-MiniMax-202505230046
-  filing_note: MiniMax 模型层备案号（阿里云百炼备案公示页当日抓取交叉核验，2026-10-30；与 MiniMax Audio 档案同源同口径）；
+  filing_note: MiniMax 模型层备案号（阿里云百炼备案公示页当日抓取交叉核验，2026-10-30；与 MiniMax Audio 档案同源同口径）。
     主语是模型层——海螺对话产品入口自身的备案状态未单独核验。
   filing_note_en: MiniMax model-level filing number (cross-verified on the Alibaba Cloud Bailian filing disclosure page fetched 2026-10-30;
     same source and wording as the MiniMax Audio entry); the subject is the model layer — the Hailuo chat product entry's own filing

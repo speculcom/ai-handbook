@@ -5,7 +5,7 @@ name: Synthesia
 nameEn: Synthesia
 vendor: Synthesia
 homepage: https://www.synthesia.io
-license: 订阅为主（免费档受限）。按官方法务页管辖（synthesia.io/legal 直抓核验 2026-10-22）；
+license: 订阅为主（免费档受限）。按官方法务页管辖（synthesia.io/legal 直抓核验 2026-10-22）。
   企业条款与数字人授权面是关键页，细节本档不逐条展开。
 licenseEn: Subscription-first (limited free tier). Governed by the official legal pages (synthesia.io/legal,
   direct-fetched 2026-10-22); enterprise terms and avatar-consent clauses are the key pages, details not
@@ -21,17 +21,17 @@ axes:
   background: >-
     生成即时/排队（按档位波动，本档不逐条展开）。无「关机续跑」任务面（官方产品页不列）。
   tools: >-
-    **企业培训视频是主打场景**（官网叙事：L&D/合规培训/本地化）。PPT/文档转视频线（官网所见）、 多语言配音+对口型、SCORM 等企业学习生态对接（官网所见）。
+    **企业培训视频是主打场景**（官网叙事：L&D/合规培训/本地化）。PPT 或文档转视频线，官网所见。另有多语言配音加对口型、SCORM 等企业学习生态对接。
   context: >-
     以团队工作区组织（企业协作面是产品主轴之一）。官方产品页不列跨会话记忆。
   permissions: >-
-    订阅+企业体系（D9：价格不采）。定制数字人的授权验证是关键合规面（官方 consent 叙事， 细节本档不逐条展开）。免费档功能与导出限制按条款（本档不逐条展开）。
+    订阅+企业体系（D9：价格不采）。定制数字人的授权验证是关键合规面。官方 consent 叙事在册，细节本档不逐条展开。免费档功能与导出限制按条款（本档不逐条展开）。
   fit: >-
-    适合：企业 L&D/合规培训视频、多语言本地化批量、无真人出镜的标准化口播。不适合：创意叙事、社交娱乐向、个人免费重度使用（订阅为主的产品姿态）。
+    适合：企业 L&D/合规培训视频。多语言本地化批量。无真人出镜的标准化口播。不适合：创意叙事。社交娱乐向。个人免费重度使用（订阅为主的产品姿态）。
 pitfalls:
-  - 「订阅为主」是产品姿态——免费档是试用入口不是长期免费方案，按企业采购理解定价面
-  - 培训场景的合规叙事（形象授权/内容审核）是它对企业客户的核心卖点——按个人工具理解会低估
-  - 数字人视频与生成式视频是两个物种——Synthesia 主功能是「人说话」，不是「造世界」
+  - 「订阅为主」是产品姿态。免费档是试用入口不是长期免费方案，按企业采购理解定价面
+  - 培训场景的合规叙事（形象授权/内容审核）是它对企业客户的核心卖点。按个人工具理解会低估
+  - 数字人视频与生成式视频是两个物种。Synthesia 主功能是「人说话」，不是「造世界」
 
 tags: [订阅为主, 数字人, 企业培训, 多语言配音, SCORM对接]
 related: [heygen, d-id, elevenlabs]
@@ -59,7 +59,7 @@ cn:
   direct_note: synthesia.io 大陆直连实测 200（2026-10-22）。
   direct_note_en: synthesia.io measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-10-22
@@ -67,7 +67,7 @@ cn:
 
 ## 一句话定位
 
-**Synthesia 是企业培训向的数字人视频台**：L&D/合规培训/多语言本地化是主打场景，
+**Synthesia 是企业培训向的数字人视频台**：主打场景是 L&D、合规培训与多语言本地化。
 SCORM 等企业学习生态对接是它的护城河；订阅为主的产品姿态。
 
 ## 适合与不适合

@@ -5,12 +5,12 @@ name: Gemini（对话应用）
 nameEn: Gemini (chat app)
 vendor: Google
 homepage: https://gemini.google.com/
-license: 官方 Gemini API 附加条款「Use of Generated Content」口径：Google 不主张生成内容所有权（「Google won't claim ownership over that content」）；商用按适用法律合规使用，API 返回内容可能需向你的用户提供归属信息；官方同时声明输出可能与他人相似，并保留水印与 SynthID 溯源标记。
+license: 官方 Gemini API 附加条款「Use of Generated Content」口径。Google 不主张生成内容所有权（「Google won't claim ownership over that content」）。商用按适用法律合规使用，API 返回内容可能需向你的用户提供归属信息。官方同时声明输出可能与他人相似，并保留水印与 SynthID 溯源标记。
 licenseEn: Official Gemini API Additional Terms, 'Use of Generated Content': Google does not claim ownership of generated content; commercial use must comply with applicable law, and API-returned content may require attribution to your users. Google notes outputs may be similar across users and reserves watermarking and SynthID provenance marks.
 
 axes:
   model_access: >-
-    模型家族官方 release notes 披露并按订阅档位分流：2026-10-13 Gemini 4 Argon 面向 Google AI Pro & Ultra 全球推出。
+    模型家族官方 release notes 披露并按订阅档位分流。2026-10-13 Gemini 4 Argon 面向 Google AI Pro & Ultra 全球推出。
 
     2026-10-28/11-10 Gemini 4 Carbon 面向 Ultra 与付费开发者。2026-11-18 Gemini 4 Neon 进入 Gemini app 与 API。
 
@@ -26,7 +26,7 @@ axes:
 
     **依据：** 但回答过程中产生的摘要、摘录与推断会被用于训练（Connected Apps 个人化页）。
   background: >-
-    对话即时返回。Skills 功能（release notes 2026-09-30）是可复用的指令集、可自动匹配触发。但没有「关机续跑」形态的官方声明。
+    对话即时返回。Skills 功能见 release notes 2026-09-30。它是可复用的指令集，可自动匹配触发。但没有「关机续跑」形态的官方声明。
   tools: >-
     Google 生态联动（搜索、Workspace、Chrome）是主卖点。Connected Apps 可接第三方工具 （含 MCP server 工具，官方帮助页 16836988）。
 
@@ -38,16 +38,16 @@ axes:
   context: >-
     有记忆与个性化功能。Gems（定制指令）将被 Skills 取代并自动迁移（release notes 2026-09-30）。跨会话记忆的完整边界以官方帮助页为准。
   permissions: >-
-    官方 Gemini Apps 隐私声明（2026-10-13 更新）：Keep Activity 开启时提示、生成内容与反馈 用于改进 Google 服务（含训练生成式模型）。
+    官方 Gemini Apps 隐私声明于 2026-10-13 更新。Keep Activity 开启时，提示、生成内容与反馈会用于改进 Google 服务，包括训练生成式模型。
 
     关闭后未来对话不用于训练（除非提交反馈）。临时聊天与关闭活动记录时保留 72 小时、不用于训练。人工审核员会审阅部分数据——官方提醒勿输入机密信息。
   fit: >-
     已在 Google 生态里工作的人——联动是真优势。在意训练就关 Keep Activity。在意机密内容按官方提醒不要输入。要本机跑模型或自由换模型，这类闭源云助手都不合适。
 pitfalls:
-  - 把「不直接训练 Gmail/Drive 原库」读成「你的对话内容不训练」——回答中产生的摘要与推断仍会被训练（官方明写）
-  - 把 Keep Activity 与临时聊天混为一谈——两套机制，前者管未来对话训练，后者管留存与历史
-  - 把 API 条款套到消费应用——Gemini Apps 隐私声明与 Gemini API 附加条款是两份文件
-  - 把 Deep Research 当成「一次搜索」——它基于 Gemini 3.1 Pro 做多步研究，2026-04-21 起支持 MCP 与自定义来源
+  - 把「不直接训练 Gmail/Drive 原库」读成「你的对话内容不训练」。回答中产生的摘要与推断仍会被训练（官方明写）
+  - 把 Keep Activity 与临时聊天混为一谈。两套机制，前者管未来对话训练，后者管留存与历史
+  - 把 API 条款套到消费应用。Gemini Apps 隐私声明与 Gemini API 附加条款是两份文件
+  - 把 Deep Research 当成「一次搜索」。它基于 Gemini 3.1 Pro 做多步研究，2026-04-21 起支持 MCP 与自定义来源
 
 tags: [云端, 多模态, 生态联动, 记忆, 商业]
 
@@ -94,7 +94,7 @@ cn:
   direct_note: gemini.google.com 大陆直连稳定超时（2026-10-20 同日两次 000）。
   direct_note_en: gemini.google.com times out consistently from mainland (000 twice).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-20
 ---
@@ -107,7 +107,7 @@ Google 生态里的通用对话助手。
 
 ## 适合与不适合
 
-适合已经在 Google 生态（搜索、Workspace、Chrome）里工作的人——联动是真实优势。在意训练用途就关 Keep Activity（只影响未来对话）。在意机密内容按官方提醒不要输入。
+适合已经在 Google 生态里工作的人。生态含搜索、Workspace 与 Chrome。联动是真实优势。在意训练用途就关 Keep Activity（只影响未来对话）。在意机密内容按官方提醒不要输入。
 
 要本机运行或自由换模型，它不合适。去看本地模型运行器与开源框架。
 
@@ -123,14 +123,14 @@ Google 生态里的通用对话助手。
 ## 相关条目
 
 - [ChatGPT](./chatgpt.md) — 同为通用对话，训练开关机制与档位分流不同
-- [Claude（对话应用）](./claude-chat.md) — 训练 opt-out 有「安全审查例外」，对照读
+- [Claude（对话应用）](./claude-chat.md) — 训练 opt-out 有「安全审查例外」。对照读
 - [豆包](./doubao-chat.md) — 中文场景对照：App 训练开关自助、API 默认不训练
 
 ## 第一次怎么用
 
-1. 打开 Keep Activity 设置，确认未来对话是否用于训练；临时聊天保留 72 小时且不训练。
-2. 研究线用 Deep Research / Deep Research Max（2026-04-21 起支持 MCP 与自定义来源），要求它给出来源表。
-3. 图像线用 Nano Banana 2（2026-02-26 上线），先定用途再定风格。
+1. 打开 Keep Activity 设置，确认未来对话是否用于训练。临时聊天保留 72 小时且不训练。
+2. 研究线用 Deep Research / Deep Research Max（2026-04-21 起支持 MCP 与自定义来源）。要求它给出来源表。
+3. 图像线用 Nano Banana 2（2026-02-26 上线）。先定用途再定风格。
 4. 需要 Workspace 联动时，逐项确认 Connected Apps 的授权范围。
 5. 大陆直连会稳定超时（2026-10-20 两次 000），需要自备网络路径。
 

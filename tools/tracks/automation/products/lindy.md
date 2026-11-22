@@ -5,7 +5,7 @@ name: Lindy
 nameEn: Lindy
 vendor: Lindy
 homepage: https://www.lindy.ai
-license: 闭源商业产品，按官方 Legal Terms 管辖（当日直抓在册：主体自称 Lindy，「a company registered in
+license: 闭源商业产品，按官方 Legal Terms 管辖（当日直抓在册。主体自称 Lindy，「a company registered in
   Oregon」——条款未给出 Inc./LLC 全称，按在册原文写）。
 licenseEn: Closed commercial product governed by the official Legal Terms (direct-fetched same day: the entity calls itself
   Lindy, "a company registered in Oregon" — no Inc./LLC full name given in the terms, recorded as written).
@@ -18,9 +18,9 @@ axes:
   local_files: >-
     数据在 Lindy 云端（Memory「Remembers you. Yours to edit」是云端持久面）。
 
-    本地文件概念不适用—— 工作产物（邮件、文档、通话记录）经集成落在第三方工具（Gmail/日历/CRM）而非本机。
+    本地文件概念不适用。 工作产物（邮件、文档、通话记录）经集成落在第三方工具（Gmail/日历/CRM）而非本机。
   background: >-
-    「Routines：Work that runs on schedule」是官方主打形态（首页当日在册）——定时自动跑是产品主轴。Watch and Learn（演示一次即接手）在册。
+    「Routines。Work that runs on schedule」是官方主打形态（首页当日在册）。定时自动跑是产品主轴。Watch and Learn（演示一次即接手）在册。
 
     排队与失败重试细节按官方文档口径。
   tools: >-
@@ -32,13 +32,13 @@ axes:
   permissions: >-
     条款含电话合规专段（Lindy Phone 录音/同意义务归用户，当日在册）。条款为通用商业模板（Company 泛称）。训练用途开关路径按官方文档口径。
   fit: >-
-    适合：邮件/日历/通话/CRM 的「AI 员工」自动化（定时例程、演示即学）、要 1,500+ 集成与 MCP。
+    适合：邮件/日历/通话/CRM 的「AI 员工」自动化（定时例程、演示即学）。要 1,500+ 集成与 MCP。
 
-    不适合：要自托管、要大陆直连备案入口、要代码级控制（产品形态是雇佣式 agent 而非画布/代码）。
+    不适合：要自托管。要大陆直连备案入口。要代码级控制（产品形态是雇佣式 agent 而非画布/代码）。
 pitfalls:
-  - 条款主体只自称「Lindy（a company registered in Oregon）」——没有 Inc./LLC 全称在册，引用主体时别自行补全
-  - 「AI 员工」是产品包装不是能力承诺：电话（Lindy Phone）线条款把录音/同意合规义务划给用户——涉电话场景先读条款电话段
-  - changelog 活跃（最新 2026-10-28）且产品线扩张快（Phone/Apps 均为近期新增）——按旧评测印象判断功能面会滞后
+  - 条款主体只自称「Lindy（a company registered in Oregon）」。没有 Inc./LLC 全称在册，引用主体时别自行补全
+  - 「AI 员工」是产品包装不是能力承诺。电话（Lindy Phone）线条款把录音/同意合规义务划给用户。涉电话场景先读条款电话段
+  - changelog 活跃（最新 2026-10-28）且产品线扩张快（Phone/Apps 均为近期新增）。按旧评测印象判断功能面会滞后
 
 tags: [agent平台, AI员工, 邮件日历, 语音电话, MCP, 集成生态, 云托管, 免费+订阅, 商业]
 related: [gumloop, n8n, chatgpt]
@@ -70,7 +70,7 @@ cn:
   direct_note: www.lindy.ai、/terms、/changelog、/pricing 大陆直连实测 200（2026-10-30）。
   direct_note_en: www.lindy.ai, /terms, /changelog and /pricing measured 200 direct from mainland (2026-10-30).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与第十六批批次清单，未见 Lindy 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与第十六批批次清单，未见 Lindy 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page and the 16th batch list searched 2026-10-30; no Lindy entry); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30
 ---
@@ -83,7 +83,7 @@ cn:
 
 ## 适合与不适合
 
-适合：邮件/日历/通话/CRM 的例行自动化（定时例程、演示即学）、要现成集成与 MCP。
+适合：邮件/日历/通话/CRM 的例行自动化（定时例程、演示即学）。要现成集成与 MCP。
 不适合：要自托管、要大陆直连备案入口、要代码级控制。
 
 ## 实测记录
@@ -106,5 +106,5 @@ cn:
 ## 相关条目
 
 - [Gumloop](./gumloop.md) — 同为工作流 agent 平台：Gumloop 是画布+连接器形态，Lindy 是雇佣式 AI 员工形态。
-- [n8n](./n8n.md) — 集成自动化对照：n8n 节点画布自托管可选、fair-code；Lindy 全托管、产品语言是「员工」。
-- [ChatGPT](../../chat/products/chatgpt.md) — 委托形态对照：ChatGPT 是你驱动的通用对话入口，Lindy 是常驻自走的「员工」——同为自然语言下达，运行模型不同。
+- [n8n](./n8n.md) — 集成自动化对照：n8n 节点画布自托管可选、fair-code。Lindy 全托管、产品语言是「员工」。
+- [ChatGPT](../../chat/products/chatgpt.md) — 委托形态对照：ChatGPT 是你驱动的通用对话入口，Lindy 是常驻自走的「员工」。同为自然语言下达，运行模型不同。

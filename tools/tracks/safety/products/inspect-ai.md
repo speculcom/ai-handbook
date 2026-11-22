@@ -34,7 +34,7 @@ axes:
 
     也就是说，并行跑评测集、断点与人工介入都是文档里的既有概念。关机后任务在别处续跑，官方文档不展开，因为它不是托管服务。
   tools: >-
-    官方文档首页列内置 bash、python、文本编辑、网页搜索与 computer 工具，并写明支持自定义工具与 MCP 工具。
+    官方文档首页列内置 bash、python、文本编辑、网页搜索与 computer 工具。还写明支持自定义工具与 MCP 工具。
 
     文档目录另有 Tool Approval、Tool Result Review、Agent Bridge、Extensions 等条目。首页还称可运行外部 agent 作为被测对象。
 
@@ -48,13 +48,13 @@ axes:
   permissions: >-
     **依据：** MIT 许可，LICENSE 原文的版权方为 UK AI Security Institute。运行在你自己的环境，模型调用走你配置的 provider 与 key。 官方文档首页把沙箱系统说成支持在 Docker、Kubernetes、Modal、Proxmox、Vagrant 等环境运行不受信模型代码，并有扩展 API。 文档目录另有 Sandboxing、Approvers、Hooks、Filesystems 条目。遥测与数据上传条款，本批次官方页面未提供说明。
   fit: >-
-    适合：自己写评测与 agent 任务、要把不受信模型代码关进沙箱、要工具审批与本地日志复核、要跨 20 余家 provider 跑同一份任务。
+    适合：自己写评测与 agent 任务。要把不受信模型代码关进沙箱。要工具审批与本地日志复核。要跨 20 余家 provider 跑同一份任务。
 
-    不适合：只想点托管控制台、只要一个指标库而不想维护 Python 评测、把跑分榜单当交付物。
+    不适合：只想点托管控制台。只要一个指标库而不想维护 Python 评测。把跑分榜单当交付物。
 pitfalls:
   - 把它当云端评测服务——沙箱是你自己提供的 Docker / K8s / Modal 等环境
   - 以为评测靠 YAML 配就行——Inspect 的 Task 是写在 Python 里的
-  - 把「200+ 预置评测」当成现成结论——官方口径是可直接运行的实现，结果仍要你自己跑
+  - 把「200+ 预置评测」当成现成结论——官方口径是可直接运行的实现。结果仍要你自己跑
 
 tags: [开源, MIT, Python, eval, 沙箱, MCP, 多模型, 自托管]
 related: [openai-evals, ragas, langfuse]
@@ -84,7 +84,7 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: 英国 AI 安全研究所（AI Security Institute）与 Meridian Labs 的开源项目；本批次官方页面未提供面向中国大陆的服务条款页。
+  origin_note: 英国 AI 安全研究所（AI Security Institute）与 Meridian Labs 的开源项目。本批次官方页面未提供面向中国大陆的服务条款页。
   origin_note_en: An open-source project of the UK AI Security Institute and Meridian Labs; no mainland-facing terms page was captured in this pass.
   direct: unknown
   direct_note: 官方文档站本批次经 HTTP 200 取到正文，但未做大陆网络环境下的直连可用实测，故记未知。
@@ -97,29 +97,31 @@ cn:
 
 ## 一句话定位
 
-**Inspect 是英国 AI 安全研究所（与 Meridian Labs）做的开源评测框架**。它用 Python 把 Dataset、Solver、Scorer 拼成一个 Task。
+**Inspect**：它用 Python 把 Dataset、Solver、Scorer 拼成一个 Task。
 
 用 `inspect eval` 在你自己的环境里跑。沙箱、工具审批与本地日志负责管住「不受信的模型代码」。
 
-官方文档首页同时把它定位成 frontier AI evaluations 的写作与复用工件，而不是托管打分服务。
+官方文档首页把它定位成 frontier AI evaluations 的写作与复用工件。它不是托管打分服务。
 
 ## 适合与不适合
 
-适合：要自己写评测与 agent 任务（含多 agent 与外部 agent）、要把模型生成的不受信代码放进 Docker / Kubernetes 一类沙箱、要在终端批量跑评测集并在本地日志里逐样本复核、要在多家 provider 之间复用同一份任务定义。
+适合：要自己写评测与 agent 任务（含多 agent 与外部 agent）。要把模型生成的不受信代码放进 Docker / Kubernetes 一类沙箱。要在终端批量跑评测集并在本地日志里逐样本复核。要在多家 provider 之间复用同一份任务定义。
 
-不适合：只想在网页控制台点几下就拿到结论、只需要几个打分指标不想维护 Python 工程、把别人跑出的分数当交付物（本档也不这样用）。
+不适合：只想在网页控制台点几下就拿到结论。只需要几个打分指标不想维护 Python 工程。把别人跑出的分数当交付物（本档也不这样用）。
 
 ## 实测记录
 
-**本档未做端到端实测**：本档案没有运行 `inspect eval`。没有打开 Inspect View 复核日志。不产出分数、准确率或任何排名。也没有清点官方文档列出的预置评测清单。
+**本档未做端到端实测**
 
-本节只组织官方文档首页与仓库 README 里出现过的说法：安装方式、模型 provider 与本地推理、沙箱后端、工具与 MCP、工具审批、日志与查看器、外部 agent 运行。
+本档案没有运行 `inspect eval`。没有打开 Inspect View 复核日志。不产出分数、准确率或任何排名。也没有清点官方文档列出的预置评测清单。
+
+本节只组织官方文档首页与仓库 README 里出现过的说法。安装方式、模型 provider 与本地推理、沙箱后端、工具与 MCP、工具审批、日志与查看器，以及外部 agent 运行。
 
 逐条见 sources 与核验日。官方文档首页另有 Tutorial 与 Options 页。本批次官方页面未提供其正文。
 
 ## 变更记录说明
 
-本对象无独立读取的 changelog 正文。文档首页导航给出 CHANGELOG 入口（见 sources），本批次未逐条验读。维护节奏按上游仓库元数据判断。
+本对象无独立读取的 changelog 正文。文档首页导航给出 CHANGELOG 入口，见 sources。本批次未逐条验读。维护节奏按上游仓库元数据判断。
 
 最近推送 2026-11-06（GitHub API 核验当日）。仓库未被标记为 archived，故 `lifecycle` 记 active。但版本内具体变更内容未清点，属未核项。
 
@@ -136,14 +138,14 @@ cn:
 
 ## 相关条目
 
-- [OpenAI Evals](./openai-evals.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径，对照请看那份。
-- [Ragas](./ragas.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径，对照请看那份。
-- [Langfuse](./langfuse.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径，对照请看那份。
+- [OpenAI Evals](./openai-evals.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径。对照请看那份。
+- [Ragas](./ragas.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径。对照请看那份。
+- [Langfuse](./langfuse.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径。对照请看那份。
 
 ## 第一次怎么用
 
 1. 先确定模型接入：官方快速上手示例是「装对应 SDK + 导出 API key」，本地推理走 HuggingFace / vLLM / SGLang。
 2. `pip install inspect-ai`，用 `inspect eval <task.py> --model <provider/model>` 跑第一个任务。
-3. 需要模型执行代码或操作文件时，先读官方 Sandboxing 口径，把任务放进 Docker 等沙箱后端，再考虑工具审批。
-4. 想看逐样本结果，用官方列出的 Inspect View；要边写边调，官方推荐（但非必需）VS Code 扩展。
+3. 需要模型执行代码或操作文件时。先读官方 Sandboxing 口径。把任务放进 Docker 等沙箱后端，再考虑工具审批。
+4. 想看逐样本结果，用官方列出的 Inspect View。要边写边调，官方推荐（但非必需）VS Code 扩展。
 5. 批量跑多任务时查官方文档的 Eval Sets 与 Parallelism 条目，而不是自己写循环。

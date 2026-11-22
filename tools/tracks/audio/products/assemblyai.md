@@ -5,7 +5,7 @@ name: AssemblyAI
 nameEn: AssemblyAI
 vendor: AssemblyAI
 homepage: https://www.assemblyai.com
-license: 免费额度+按量（API 平台姿态）。按官方条款页管辖（assemblyai.com/terms 直抓核验 2026-10-22）；
+license: 免费额度+按量（API 平台姿态）。按官方条款页管辖（assemblyai.com/terms 直抓核验 2026-10-22）。
   数据留存与训练口径细节本档不逐条展开。
 licenseEn: Free credits + usage-based (API-platform posture). Governed by the official terms page
   (assemblyai.com/terms, direct-fetched 2026-10-22); data retention and training practices not verified
@@ -21,16 +21,16 @@ axes:
   background: >-
     批处理（文件→结果轮询/webhook）+ 实时流双形态。无「关机续跑」概念（API 服务）。
   tools: >-
-    转写+说话人分离+摘要+主题/实体/情感等理解层参数（官方文档列面全）。LeMUR 线（转写后 LLM 问答/抽取，官方文档叙事）——「转写+理解」一体化是它的差异叙事。
+    转写+说话人分离+摘要+主题/实体/情感等理解层参数（官方文档列面全）。LeMUR 线（转写后 LLM 问答/抽取，官方文档叙事）。「转写+理解」一体化是它的差异叙事。
   context: >-
     API 无记忆概念。LeMUR 对既有转写做问答是「转写产物上的 LLM」，不是产品记忆。
   permissions: >-
     API key+用量计费（D9：价格不采）。企业合规叙事（SOC2/HIPAA 类认证线官网所见，细节本档不逐条展开）。数据留存/训练开关按条款（本档不逐条展开）。
   fit: >-
-    适合：开发者做「转写+理解」管线（摘要/抽取/问答一步到位）、英文向高准确率、 文档化体验优先的团队。不适合：非开发者直接使用、隐私敏感音频（云端）、中文向主打。
+    适合：开发者做「转写+理解」管线（摘要/抽取/问答一步到位）。英文向高准确率。 文档化体验优先的团队。不适合：非开发者直接使用。隐私敏感音频（云端）。中文向主打。
 pitfalls:
-  - 与 Deepgram 同是 API 平台不是终端产品——差异在 AssemblyAI 把「理解层」（摘要/实体/问答）做进 API
-  - 「不用于训练」类承诺要落到条款与 DPA 才算数——站点叙事≠条款原文（本档不逐条展开）
+  - 与 Deepgram 同是 API 平台不是终端产品。差异在 AssemblyAI 把「理解层」（摘要/实体/问答）做进 API
+  - 「不用于训练」类承诺要落到条款与 DPA 才算数。站点叙事≠条款原文（本档不逐条展开）
   - 转写质量按语言/口音波动——官方基准英文向，中文场景要自测
 
 tags: [API平台, 转写+理解, LeMUR, 开发者向, 英文向]
@@ -59,7 +59,7 @@ cn:
   direct_note: assemblyai.com 大陆直连实测 200（2026-10-22）。
   direct_note_en: assemblyai.com measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-10-22

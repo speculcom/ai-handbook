@@ -5,7 +5,7 @@ name: Whisper
 nameEn: Whisper
 vendor: OpenAI（开源）
 homepage: https://github.com/openai/whisper
-license: MIT（模型权重与代码，官方仓 LICENSE 直抓核验 2026-10-22）——
+license: MIT（模型权重与代码，官方仓 LICENSE 直抓核验 2026-10-22）。
   权重与代码均宽松开源，本地使用无账号无配额。
 licenseEn: MIT (weights and code, official repo LICENSE direct-fetched 2026-10-22) — permissively open,
   local use requires no account and has no quotas.
@@ -24,19 +24,19 @@ axes:
   background: >-
     批处理任务制（文件进、文本出，本机跑完即退）。无后台常驻/记忆概念。
   tools: >-
-    CLI 与 Python API（官方仓）。时间戳/翻译（译到英文）能力内置（官方 README）。VAD/说话人分离不在官方仓——靠 WhisperX 等衍生件（衍生面本档不逐条展开）。
+    CLI 与 Python API（官方仓）。时间戳/翻译（译到英文）能力内置（官方 README）。VAD/说话人分离不在官方仓。靠 WhisperX 等衍生件（衍生面本档不逐条展开）。
   context: >-
     无上下文概念。逐段转写。长音频靠分段策略（官方仓有长音频处理说明）。
   permissions: >-
     本地跑无账号无上传。隐私敏感音频（医疗/法务/私人）走本地是它的不可替代场景。云端 API 形态则按 OpenAI 平台条款（本档不逐条展开）。
   fit: >-
-    适合：隐私敏感的转写（音频不出本机）、离线环境、开发者集成（MIT 无许可负担）、多语言转写。
+    适合：隐私敏感的转写（音频不出本机）。离线环境。开发者集成（MIT 无许可负担）。多语言转写。
 
-    不适合：开箱即用会议记录产品体验（它是模型不是产品）、说话人分离开箱（要衍生件）、 无 GPU 重度使用（大档位 CPU 慢）。
+    不适合：开箱即用会议记录产品体验（它是模型不是产品）。说话人分离开箱（要衍生件）。 无 GPU 重度使用（大档位 CPU 慢）。
 pitfalls:
-  - Whisper 是模型不是产品——「会议转写工具」体验（Otter 类）要自己搭壳或用衍生产品
-  - 说话人分离/实时流不在官方仓——看到「Whisper 实时字幕」类产品都是衍生件，质量与许可各自核
-  - 官方仓与 OpenAI API 的 whisper 端点是「同模型两形态」——本地 MIT vs 平台条款，数据边界完全不同
+  - Whisper 是模型不是产品。「会议转写工具」体验（Otter 类）要自己搭壳或用衍生产品
+  - 说话人分离/实时流不在官方仓。看到「Whisper 实时字幕」类产品都是衍生件，质量与许可各自核
+  - 官方仓与 OpenAI API 的 whisper 端点是「同模型两形态」。本地 MIT vs 平台条款，数据边界完全不同
 
 tags: [开源MIT, 本地转写, 多语言, 模型非产品, 隐私向]
 related: [deepgram, otter, ollama]
@@ -61,12 +61,12 @@ cn:
   origin_note: OpenAI（美国）开源项目。
   origin_note_en: OpenAI (US) open-source project.
   direct: yes
-  direct_note: github.com/openai/whisper 大陆直连实测 200（2026-10-22）；权重经 Hugging Face 分发，
+  direct_note: github.com/openai/whisper 大陆直连实测 200（2026-10-22）。权重经 Hugging Face 分发，
     HF 大陆可达性不在本档实测范围。
   direct_note_en: github.com/openai/whisper measured 200 direct from mainland (2026-10-22); weights are
     distributed via Hugging Face, whose mainland reachability was not measured in this profile.
   filing: not-filed
-  filing_note: 开源模型不适用服务备案（不面向公众提供服务）；OpenAI 未见于网信办公示名单（2026-10-22 检索）。
+  filing_note: 开源模型不适用服务备案（不面向公众提供服务）。OpenAI 未见于网信办公示名单（2026-10-22 检索）。
   filing_note_en: an open-source model is not subject to service filing (it serves no public service);
     OpenAI is not in the CAC public registry (searched 2026-10-22).
   verified: 2026-10-22

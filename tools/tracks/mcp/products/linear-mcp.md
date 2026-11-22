@@ -4,14 +4,14 @@ form: mcp
 name: Linear MCP
 vendor: Linear
 homepage: https://linear.app/docs/mcp
-license: 闭源官方托管服务（Linear ToS 约束）；无开源仓——官方文档与端点直抓核验 2026-10-21。
+license: 闭源官方托管服务（Linear ToS 约束）。无开源仓——官方文档与端点直抓核验 2026-10-21。
 licenseEn: Closed-source official hosted service (under Linear's ToS); no open-source repo — official docs and endpoint direct-fetched 2026-10-21.
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Linear 议题管理 （搜 issue、建/改 issue、项目与团队查询）包装成工具给 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Linear 议题管理包装成工具给 agent 用。含搜 issue、建与改 issue、项目与团队查询。
   runtime: >-
-    官方托管远程 server（mcp.linear.app/mcp——直抓 401=存在需鉴权；旧 /sse 端点 404—— 传输线已换代，直抓核验 2026-10-21）。
+    官方托管远程 server 在 mcp.linear.app/mcp。直抓 401，说明存在且需鉴权。旧 /sse 端点 404，传输线已换代。直抓核验于 2026-10-21。
   local_files: >-
     不碰本机文件系统。作用域是 Linear 云端工作区（issues/projects/teams）。
   background: >-
@@ -21,11 +21,11 @@ axes:
   context: >-
     无 server 侧跨会话记忆——状态在 Linear 工作区本身。
   permissions: >-
-    OAuth 用户鉴权。agent 可见面=所连 Linear 账号权限。写操作直接生效， 无工具级审批机制的官方说明——接 agent 前按「它能替你建改 issue」设防。
+    OAuth 用户鉴权。agent 可见面=所连 Linear 账号权限。写操作直接生效， 无工具级审批机制的官方说明。接 agent 前按「它能替你建改 issue」设防。
   fit: >-
-    适合：编码 agent 干完活顺手建/更新 issue、从 Linear 拉「这个需求当时怎么说的」。不适合：要审批流的严格写管控。非 Linear 栈。
+    适合：编码 agent 干完活顺手建/更新 issue。从 Linear 拉「这个需求当时怎么说的」。不适合：要审批流的严格写管控。非 Linear 栈。
 pitfalls:
-  - 用旧 /sse 端点配置——已 404（2026-10-21 直抓），现役 /mcp（Streamable HTTP）
+  - 用旧 /sse 端点配置。已 404（2026-10-21 直抓），现役 /mcp（Streamable HTTP）
   - 把「连上」当「能看全部」——可见面跟着所连账号权限
   - 写操作无审批——agent 建 issue/改状态直接生效
 
@@ -64,7 +64,7 @@ cn:
   direct_note: linear.app 直连实测 200（2026-10-21）。
   direct_note_en: linear.app measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---

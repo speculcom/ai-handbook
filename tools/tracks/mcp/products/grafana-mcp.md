@@ -12,53 +12,59 @@ axes:
     **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 Grafana 实例
     （仪表盘、数据源、告警、OnCall/IRM 等）包装成工具给 agent 用。
   runtime: >-
-    本地进程（uvx mcp-grafana stdio；官方另给 Docker、二进制、Helm 部署线）；
-    GitHub 3,593★，最近推送 2026-10-23，最新 release v2.1.1（2026-10-20，API 核验）。
-    完整功能要求 Grafana 9.0 或更新（官方 README：更早版本缺 API 端点，数据源类操作可能不可用）。
+    本地进程为主，走 uvx mcp-grafana stdio。官方另给 Docker、二进制与 Helm 部署线。
+
+    GitHub 3,593★，最近推送 2026-10-23。最新 release 是 v2.1.1，2026-10-20 API 核验。
+
+    完整功能要求 Grafana 9.0 或更新。官方 README 说更早版本缺 API 端点。数据源类操作可能不可用。
   local_files: >-
     不读写本机文件——作用域是 Grafana 实例与其连接的数据源；
     统一 SQL 的凭据由数据源配置处理，官方 README 明写服务端看不到凭据。
   background: >-
     stdio 随客户端生死；无后台任务语义。
   tools: >-
-    仪表盘族（搜索/读取/摘要/JSONPath 属性提取/更新/创建/patch）、数据源族、
-    统一 SQL（ClickHouse/Snowflake/Athena/MySQL/PostgreSQL/MSSQL）、
-    Prometheus/Loki/CloudWatch/Elasticsearch 等查询族、Cloud Logging、RBAC 与用户管理族；
-    部分工具组（跑面板查询、查询示例、Graphite）**默认禁用**，要 --enabled-tools 开启。
+    仪表盘族含搜索、读取、摘要、JSONPath 属性提取、更新、创建与 patch。另有数据源族。
+
+    查询族覆盖统一 SQL，含 ClickHouse、Snowflake、Athena、MySQL、PostgreSQL 与 MSSQL。还有 Prometheus、Loki、CloudWatch、Elasticsearch、Cloud Logging 与 RBAC 用户管理族。
+
+    部分工具组默认禁用，含跑面板查询、查询示例与 Graphite。要 --enabled-tools 开启。
+
     完整清单以仓 README 为准。
   context: >-
     无 server 侧跨会话记忆——状态在 Grafana 实例本身。
     官方 README 专门警告：整份仪表盘 JSON 很吃上下文窗口，
     优先用 summary/JSONPath/patch 这类省窗口的工具。
   permissions: >-
-    **权限面是这条目的核心**：Grafana 服务账号 token + RBAC 细粒度 scopes
-    （官方 README 逐工具列最小动作）；README 同时给了省事提示——内置 Editor 角色
-    比手工 scopes 粗，只在「方便比最小权限重要」时用。
-    SSE/streamable-http 线可另设调用方鉴权（--server-auth-token），stdio 不受影响。
+    **权限面是这条目的核心**：靠服务账号 token 与 RBAC scopes。
+    官方 README 逐工具列最小动作。README 也给了省事提示：内置 Editor 角色比手工 scopes 粗。
+
+    Editor 只在「方便比最小权限重要」时用。SSE/streamable-http 线可另设调用方鉴权，stdio 不受影响。
   fit: >-
-    适合：agent 在自托管或 Grafana Cloud 上查仪表盘/指标/告警、改仪表盘、
+    适合：agent 在自托管或 Grafana Cloud 上查仪表盘/指标/告警。改仪表盘。
     跨数据源统一 SQL 查询。
-    不适合：零配置无 token 场景（要服务账号 token）；Grafana 9.0 以下（部分功能缺）。
+    不适合：零配置无 token 场景（要服务账号 token）。Grafana 9.0 以下（部分功能缺）。
 
 pitfalls:
-  - 把「开源」当「零配置」——要 GRAFANA_URL 加服务账号 token，RBAC scopes 决定哪些工具真能用
-  - 默认拉整份仪表盘 JSON——官方 README 明说吃上下文窗口，summary/JSONPath/patch 才是预期用法
-  - 以为所有工具都在——跑面板查询、查询示例、Graphite 等默认禁用，要 --enabled-tools
-  - 图省事直接给 Editor 角色——官方提示它比手工 scopes 粗，严格最小权限场景别用它
+  - 把「开源」当「零配置」。要 GRAFANA_URL 加服务账号 token，RBAC scopes 决定哪些工具真能用
+  - 默认拉整份仪表盘 JSON。官方 README 明说吃上下文窗口，summary/JSONPath/patch 才是预期用法
+  - 以为所有工具都在——跑面板查询、查询示例、Graphite 等默认禁用。要 --enabled-tools
+  - 图省事直接给 Editor 角色。官方提示它比手工 scopes 粗，严格最小权限场景别用它
 
 tags: [MCP, 可观测, Grafana, Apache-2.0, 本地stdio, 自托管]
 related: [cursor, claude-code]
 
 mcp:
   transport: >-
-    **stdio**（uvx mcp-grafana）为主；官方另提供 SSE/streamable-http 服务模式
+    **stdio**（uvx mcp-grafana）为主。官方另提供 SSE/streamable-http 服务模式
     （可加调用方鉴权）。核验：仓 README（2026-10-23 直抓）。
   auth: >-
-    服务端用 GRAFANA_SERVICE_ACCOUNT_TOKEN 连 Grafana；客户端侧可选
-    --server-auth-token Bearer（仅 SSE/streamable-http 生效）。
-    官方 README：启用调用方鉴权时，验证过的 Authorization 头会在到达 Grafana 前被剥掉。
+    服务端用 GRAFANA_SERVICE_ACCOUNT_TOKEN 连 Grafana。
+
+    客户端侧可选 --server-auth-token Bearer，仅 SSE/streamable-http 生效。
+
+    官方 README 说，启用调用方鉴权时，验证过的 Authorization 头会被剥掉。它到不了 Grafana。
   scope: >-
-    读写都有：仪表盘读 + 更新/创建/patch，告警与 IRM 线有写动作；
+    读写都有：仪表盘读 + 更新/创建/patch，告警与 IRM 线有写动作。
     每工具最小 RBAC 动作 README 有列表。SQL 凭据走数据源配置，server 不经手。
 
 sources:
@@ -81,24 +87,25 @@ cn:
   origin_note: Grafana Labs（美国）。
   origin_note_en: Grafana Labs (US).
   direct: no
-  direct_note: grafana.com 直连实测 000（网络受限，非死链）；GitHub 仓与 raw README 经代理 200（2026-10-23）。
+  direct_note: grafana.com 直连实测 000（网络受限，非死链）。GitHub 仓与 raw README 经代理 200（2026-10-23）。
   direct_note_en: grafana.com measured 000 direct (network restricted, not dead); the GitHub repo and raw README returned 200 via proxy (2026-10-23).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-23 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-23 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-23); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-23
 ---
 
 ## 一句话定位
 
-**Grafana 官方 MCP server**（Apache-2.0，Go 实现）：把 agent 接进你的 Grafana 实例——
-仪表盘、数据源、统一 SQL、告警与 IRM。三条硬口径：**服务账号 token + RBAC scopes 是前置门**；
-**部分工具组默认禁用**；**整份仪表盘 JSON 是上下文窗口黑洞，官方备了 summary/JSONPath/patch 三件套**。
+**Grafana 官方 MCP server**（Apache-2.0，Go 实现）：把 agent 接进你的 Grafana 实例。
+仪表盘、数据源、统一 SQL、告警与 IRM。三条硬口径：**服务账号 token + RBAC scopes 是前置门**。
+
+**部分工具组默认禁用****：**整份仪表盘 JSON 是上下文窗口黑洞。官方备了 summary、JSONPath 与 patch 三件套。
 
 ## 适合与不适合
 
-适合：agent 在自托管或 Grafana Cloud 上查仪表盘/指标/告警、改仪表盘、跨数据源统一 SQL。
-不适合：零配置无 token 场景；Grafana 9.0 以下（部分功能因缺 API 端点不可用）。
+适合：agent 在自托管或 Grafana Cloud 上查仪表盘/指标/告警。改仪表盘。跨数据源统一 SQL。
+不适合：零配置无 token 场景。Grafana 9.0 以下（部分功能因缺 API 端点不可用）。
 
 ## 实测记录
 

@@ -5,7 +5,7 @@ name: 讯飞星火
 nameEn: iFlytek Spark
 vendor: 科大讯飞
 homepage: https://xinghuo.xfyun.cn
-license: 免费+登录（部分能力需订阅）。输出内容归属与训练口径按官方协议与隐私政策管辖；个性化记忆可跨会话引用历史对话（2026-11-21）。
+license: 免费+登录（部分能力需订阅）。输出内容归属与训练口径按官方协议与隐私政策管辖。个性化记忆可跨会话引用历史对话（2026-11-21）。
 licenseEn: Free with login (some capabilities need a subscription). Output ownership and training terms follow the official agreement and privacy policy; personalised memory can reference history across sessions (2026-11-21).
 
 axes:
@@ -38,13 +38,13 @@ axes:
 
     默认态与关闭路径按应用内页面核对（2026-11-21）。
   fit: >-
-    适合：语音交互密集场景（讯飞语音底座强）、中文问答与解题答疑、教育/办公文档场景。
+    适合：语音交互密集场景（讯飞语音底座强）。中文问答与解题答疑。教育/办公文档场景。
 
-    不适合：要本机跑模型（星火主线不开源权重）、要脱离讯飞账号，或需要可审计的跨会话记忆默认关闭能力（2026-11-21）。
+    不适合：要本机跑模型（星火主线不开源权重）。要脱离讯飞账号，或需要可审计的跨会话记忆默认关闭能力（2026-11-21）。
 pitfalls:
-  - 把 xinghuo.xfyun.cn（对话产品）与讯飞开放平台 xfyun.cn（API/能力平台）混为一谈——同厂商两接口
+  - 把 xinghuo.xfyun.cn（对话产品）与讯飞开放平台 xfyun.cn（API/能力平台）混为一谈。同厂商两接口
   - 把星火当开源权重族——星火主线不开源，「本地跑星火」这条线不成立
-  - 语音强项是讯飞底座——但「语音能力」在产品内的具体形态（实时同传/声音复刻）要按官方页逐项核，别整块照搬宣传
+  - 语音强项是讯飞底座。但「语音能力」在产品内的具体形态（实时同传/声音复刻）要按官方页逐项核，别整块照搬宣传
 
 tags: [国产, 免费+登录, 语音强项, 教育向, 已备案]
 related: [wenxin, doubao-chat, chatglm-chat, dify]
@@ -87,7 +87,7 @@ cn:
   filing_name_en: Xinghuo Cognitive LLM
   filing_no: Anhui-XingHuoRenZhiDaMoXing-20230823
   filing_date: 2023-08-23
-  filing_note: 首批备案（备案时间 2023-08-23，属地安徽）；备案号经全国已备案信息汇总表（东莞市政府镜像附件）交叉核验。
+  filing_note: 首批备案（备案时间 2023-08-23，属地安徽）。备案号经全国已备案信息汇总表（东莞市政府镜像附件）交叉核验。
   filing_note_en: first-batch filing (2023-08-23, Anhui); filing no. cross-verified via the national filed-services
     summary table (mirrored as a Dongguan government attachment).
   verified: 2026-11-21
@@ -111,8 +111,8 @@ cn:
 ## 未知项清单
 
 - 深度研究、录音纪要等长任务关闭页面后的续跑行为：官方页未单列，按具体入口实测。
-- 星火各版本在对话产品内的实际路由：版本号在官方新闻可见，应用内档位以登录后界面为准。
-- 个性化记忆的默认态与关闭路径：官方清单说明能力存在，开关位置按应用内隐私设置核对。
+- 星火各版本在对话产品内的实际路由。版本号在官方新闻可见，应用内档位以登录后界面为准。
+- 个性化记忆的默认态与关闭路径。官方清单说明能力存在，开关位置按应用内隐私设置核对。
 ## 相关条目
 
 - [文心](./wenxin.md) — 同为国产大厂对话入口：文心泡百度生态，星火胜语音底座。

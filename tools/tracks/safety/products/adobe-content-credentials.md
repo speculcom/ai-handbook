@@ -5,8 +5,8 @@ name: Content Credentials（内容凭证）
 nameEn: Content Credentials
 vendor: Adobe · Content Authenticity Initiative / C2PA
 homepage: https://contentcredentials.org/
-license: 规范侧为 C2PA 开放的公开标准（c2pa.org 与 contentcredentials.org 当日在册，站点自述「A standard by C2PA」）；
-  参考实现与库在 CAI 开源文档 hub 在册；内容归属、商标与各签发方条款不在本档判定范围内。
+license: 规范侧为 C2PA 开放的公开标准（c2pa.org 与 contentcredentials.org 当日在册，站点自述「A standard by C2PA」）。
+  参考实现与库在 CAI 开源文档 hub 在册。内容归属、商标与各签发方条款不在本档判定范围内。
 licenseEn: On the specification side this is an open published standard of C2PA (on contentcredentials.org and c2pa.org,
   direct-fetched same day; the site self-describes as "A standard by C2PA"); reference implementations and libraries are
   listed on the CAI open-source docs hub. Content ownership, trademarks and per-issuer terms are out of scope here.
@@ -15,7 +15,7 @@ axes:
   model_access: >-
     它不接模型也不守模型。manifest 由产出内容的工具写入。声明用了哪个应用、设备或 AI 服务。Adobe 的 AEM 文档页在册。
 
-    资产详情会列出产生该资产的应用、设备与 AI 工具（例如 Adobe Firefly）以及后续改动。具体哪些模型被披露取决于各签发方写入什么，本档不推断。
+    资产详情会列出产生该资产的应用、设备与 AI 工具，例如 Adobe Firefly。也会列出后续改动。具体哪些模型被披露取决于各签发方写入什么，本档不推断。
   runtime: >-
     浏览器里的验证器是主入口。
 
@@ -23,7 +23,7 @@ axes:
 
     本地侧有 SDK 与 C2PA CLI（CAI 文档 hub 在册）。接入方产品（如 AEM Assets）在自家界面内直接显示 manifest。
   local_files: >-
-    网页验证器要你上传或拖入文件。本地库与 CLI 在你自己的机器上读写文件并解析 manifest （文档 hub 的 Reader / validate 流程在册）。
+    网页验证器要你上传或拖入文件。本地库与 CLI 在你自己的机器上读写文件并解析 manifest。文档 hub 的 Reader 与 validate 流程在册。
 
     上传到验证器侧的文件如何留存，本次官方页面未提供声明，官方文档未单列。
   background: >-
@@ -45,8 +45,8 @@ axes:
 
     也不适合没有任何签发方参与、却想凭空验真的期待。
 pitfalls:
-  - 以为有 Content Credentials 就等于内容可信：它给的是来源与编辑史，不是真假判定
-  - 以为没凭证就是造假或 AI 生成：官方 Inspect 口径要区分「缺失」与「无效」两种状态
+  - 以为有 Content Credentials 就等于内容可信。它给的是来源与编辑史，不是真假判定
+  - 以为没凭证就是造假或 AI 生成。官方 Inspect 口径要区分「缺失」与「无效」两种状态
   - 把它当审核开关：它不拦内容，只产出可验证声明与校验结论
 
 tags: [云端, 本地, 开源, API]
@@ -98,7 +98,7 @@ cn:
   direct_note_en: Same-day probes returned 200 for contentcredentials.org, verify.contentauthenticity.org,
     opensource.contentauthenticity.org and c2pa.org. That is page reachability only, not a mainland compliance conclusion.
   filing: unknown
-  filing_note: 官方站点与文档均未提中国大陆备案/登记；凭证体系本身也不面向公众提供 AI 服务，备案适用性官方文档未单列，不做推断。
+  filing_note: 官方站点与文档均未提中国大陆备案/登记。凭证体系本身也不面向公众提供 AI 服务，备案适用性官方文档未单列，不做推断。
   filing_note_en: Neither the sites nor the docs mention mainland filing/registration; the credential system is not a public-facing
     AI service, and its filing applicability was not verified — no inference is made.
   verified: 2026-11-06
@@ -114,21 +114,21 @@ cn:
 
 ## 适合与不适合
 
-适合要出证的发布方、要区分凭证缺失与凭证损坏的审核与取证流程，以及把凭证写进自家资产管的团队。不适合三类期待。
+适合要出证的发布方，也适合要区分凭证缺失与损坏的审核与取证流程。把凭证写进自家资产管的团队也适合。不适合三类期待。
 
 拿它当内容过滤器、拿它当「真假判定器」、以及在没有任何签发方写入时指望它凭空验真。本档也不把它与内容过滤线的产品排在一起——两条线回答的问题不同。
 
 ## 能力边界
 
-校验能做的是。验签名、比对内容绑定、检查被引用的 assertions、按 trust list 判断签发者可信度，并明确区分「缺失」与「无效」。
+校验能做的是。验签名、比对内容绑定、检查被引用的 assertions、按 trust list 判断签发者可信度。还要明确区分「缺失」与「无效」。
 
 它不能保证内容不误导（本档观点）——编辑史真实，叙事仍可能骗人。官方页面只把校验范围写成签名、绑定与 assertions。
 
-另有一条常被忽略：身份 assertion 与签名校验是分开绑定的，所以「谁签的」和「谁声称自己是谁」在结论里是两件事（文档 hub 在册）。
+另有一条常被忽略：身份 assertion 与签名校验分开绑定。所以「谁签的」和「谁声称自己是谁」在结论里是两件事，文档 hub 在册。
 
 ## 变更记录说明
 
-本对象没有独立的产品 changelog。可核验的更新流水有三处。CAI 官方博客（在册条目含相机、手机与 CDN 侧的实现落地）、C2PA 规范发布页（当日跳转落点为 2.5 目录）、以及 c2pa.org 自述的当前版本 2.3（发布日 2026-01-08）。
+本对象没有独立的产品 changelog。可核验的更新流水有三处。CAI 官方博客在册，条目含相机、手机与 CDN 侧落地。C2PA 规范发布页当日跳转落点为 2.5 目录。c2pa.org 自述当前版本是 2.3，发布日 2026-01-08。
 
 两个版本号在同一天的直抓结果里不一致。本档不据此推断实际最新版本。lifecycle 记 unknown。
 
@@ -148,11 +148,11 @@ cn:
 - 合规认证与数据处理者清单（官方页面未提供在册页面）
 - 当前生效的 C2PA 规范版本号（两页在册口径不一致）
 - 官方可核验的最近更新节奏（lifecycle 因此记 unknown）
-- Adobe 自家产品文档面：helpx.adobe.com 当日直抓返回 403，仅取到 Experience League 页
+- Adobe 自家产品文档面。helpx.adobe.com 当日直抓返回 403，仅取到 Experience League 页
 - 中国大陆接入与备案适用性
 
 ## 相关条目
 
-- [Truepic](./truepic.md) — 同一套凭证的两端：这里做通用验证与写入规范，那里做拍摄现场的采集验真与业务流。
+- [Truepic](./truepic.md) — 同一套凭证的两端：这里做通用验证与写入规范。那里做拍摄现场的采集验真与业务流。
 - [Azure AI Content Safety](./azure-ai-content-safety.md) — 一条答「这份内容该不该拦」，一条答「这份内容能不能举证」。
 - [LiteLLM](./litellm.md) — 网关留调用与预算记录，凭证留内容本体记录，两者互不替代。

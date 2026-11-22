@@ -790,7 +790,7 @@ var PATHS = [
    "en": "about 45 minutes"
   },
   "lead": {
-   "zh": "上线前把风险面、数据面与义务面分开看：先确认会被怎样滥用，再确认数据去了哪里，最后确认你必须留下什么记录。读完应能写出一份带未知项的评审结论。",
+   "zh": "上线前把风险面、数据面与义务面分开看。先确认会被怎样滥用，再确认数据去了哪里，最后确认你必须留下什么记录。读完应能写出一份带未知项的评审结论。",
    "en": "Split the pre-launch review into risk, data and obligation: how it can be misused, where the data goes, and what records you must keep. Finish with a written review that names unresolved items."
   },
   "steps": [
@@ -864,7 +864,7 @@ var PATHS = [
    "en": "about 40 minutes"
   },
   "lead": {
-   "zh": "从「别人报的分数」走到「你能自己复跑的判法」：先弄清评测在测什么、什么时候失效，再把它落成一套能记录、能复跑、能追责的最小流程。",
+   "zh": "从「别人报的分数」走到「你能自己复跑的判法」。先弄清评测在测什么、什么时候失效，再把它落成一套能记录、能复跑、能追责的最小流程。",
    "en": "Move from other people's scores to judgements you can re-run: what an evaluation actually measures, where it fails, and how to land it as a minimal flow you can record, re-run and hold accountable."
   },
   "steps": [

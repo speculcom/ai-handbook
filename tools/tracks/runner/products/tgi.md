@@ -25,12 +25,12 @@ axes:
   permissions: >-
     自托管无账号体系。API 鉴权由部署方自配。与 HF Hub 交互的 token 权限面未逐条核验。
   fit: >-
-    适合：HF 生态内既有 TGI 部署的延续（权重/客户端/文档同一门）、要官方 Docker 线。不适合：新项目选型。官方公告点名推荐 vLLM/SGLang 与 llama.cpp/MLX。
+    适合：HF 生态内既有 TGI 部署的延续（权重/客户端/文档同一门）。要官方 Docker 线。不适合：新项目选型。官方公告点名推荐 vLLM/SGLang 与 llama.cpp/MLX。
 
     仓库已归档只读。
 pitfalls:
-  - 把 HF 出品当「默认推荐」——官方 README 公告已明确推荐改用 vLLM/SGLang（及 llama.cpp/MLX 这类互操作本地引擎）
-  - 仓库已归档只读（2026-03-21）——不再有安全补丁与新模型支持，存量部署选型要评估维护风险
+  - 把 HF 出品当「默认推荐」。官方 README 公告已明确推荐改用 vLLM/SGLang（及 llama.cpp/MLX 这类互操作本地引擎）
+  - 仓库已归档只读（2026-03-21）。不再有安全补丁与新模型支持，存量部署选型要评估维护风险
   - 把 GGUF 当一等公民——TGI 主路线是 safetensors
 
 tags: [开源, Apache2.0, 服务化推理, HuggingFace生态]
@@ -60,24 +60,24 @@ cn:
   direct_note: huggingface.co 直连实测 000（网络受限，非死亡判定；经代理可达 200）。
   direct_note_en: huggingface.co measured 000 direct (network-limited, not a death verdict; 200 via proxy).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
 
 ## 一句话定位
 
-**TGI 是 Hugging Face 官方的服务化推理服务器**：权重、客户端、文档同一门生态。Apache-2.0。诚实标注：仓库已于 2026-03-21 归档只读（GitHub API 核验 2026-10-30）。
+**TGI 是 Hugging Face 官方的服务化推理服务器**：权重、客户端与文档在同一门生态。Apache-2.0。诚实标注：仓库已于 2026-03-21 归档只读（GitHub API 核验 2026-10-30）。
 
-官方 README 公告自陈进入 maintenance mode——只收小修小补，并点名推荐改用 vLLM、SGLang 与 llama.cpp/MLX。
+官方 README 公告自陈进入 maintenance mode。只收小修小补。官方点名推荐改用 vLLM、SGLang 与 llama.cpp/MLX。
 
 存量部署可用，新项目按官方推荐选型。
 
 ## 适合与不适合
 
-适合：HF Hub 重度用户的既有 TGI 部署延续、要官方 Docker/客户端配套。不适合：新项目默认选型。
+适合：HF Hub 重度用户的既有 TGI 部署延续。要官方 Docker/客户端配套。不适合：新项目默认选型。
 
-官方公告点名推荐 vLLM/SGLang（服务化）与 llama.cpp/MLX（本地）。单机开箱走 Ollama。
+官方公告点名推荐 vLLM 与 SGLang 做服务化，llama.cpp 与 MLX 做本地。单机开箱走 Ollama。
 
 ## 实测记录
 
@@ -92,5 +92,5 @@ cn:
 
 ## 相关条目
 
-- [vLLM](./vllm.md) / [SGLang](./sglang.md) — 服务化推理的现役两极；TGI 是 HF 生态内的官方选项。
-- [llama.cpp](./llama-cpp.md) — GGUF 单机路线的根；TGI 主路线是 safetensors 服务化。
+- [vLLM](./vllm.md) / [SGLang](./sglang.md) — 服务化推理的现役两极。TGI 是 HF 生态内的官方选项。
+- [llama.cpp](./llama-cpp.md) — GGUF 单机路线的根。TGI 主路线是 safetensors 服务化。

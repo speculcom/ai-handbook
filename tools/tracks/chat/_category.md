@@ -11,7 +11,9 @@
 | 2 | 官方披露了可用的模型信息或产品能力页（八维至少 model_access / runtime 可答） |
 | 3 | 有官方文档或帮助中心可核验 |
 
-**形态归属**（决定 `form:` 取值；⚠ 下表第一列不加反引号——audit.mjs 把「反引号小写词开头的 ≥3 列表格行」当档案声明）：
+**形态归属**
+
+决定 `form:` 取值。⚠ 下表第一列不加反引号。audit.mjs 会把「反引号小写词开头的 ≥3 列表格行」当成档案声明。
 
 | 形态 | 判据 |
 |:--|:--|
@@ -25,7 +27,7 @@
 | 编程向对话产品（编码 agent 聊天界面） | 归 `coding` |
 | 搜索向对话产品（主打带引用的答案） | 归 `research` |
 | 对话产品带代码能力（ChatGPT 能写代码） | 仍归 `chat`（官方自我定位是通用助手） |
-| 云端常驻任务型 agent（Dot / Muse / Grok Bot） | 归 `coding`（`form: cloud`）——主轴是替你干活 |
+| 云端常驻任务型 agent（Dot / Muse / Grok Bot） | 归 `coding`（`form: cloud`）。主轴是替你干活 |
 | 客服机器人 / 垂直问答 / 角色扮演陪伴 | 不收 |
 
 ## 收录对象（23 份）
@@ -56,6 +58,6 @@
 | `poe` | Poe | Quora | 网页服务 | 8 项已核 · 活跃 |
 | `reka-chat` | Reka Chat（Reka Playground / Edge Chat） | Reka AI, Inc. | 网页服务 | 8 项已核 · 活跃 |
 
-> 共 **23** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+> 共 **23** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

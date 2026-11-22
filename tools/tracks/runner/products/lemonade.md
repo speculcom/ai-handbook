@@ -5,7 +5,7 @@ name: Lemonade
 nameEn: Lemonade
 vendor: AMD / Lemonade 社区
 homepage: https://lemonade-server.ai/
-license: 以官方仓库 LICENSE 为准（本档不逐条展开）；AMD Ryzen AI 组件另有许可。
+license: 以官方仓库 LICENSE 为准（本档不逐条展开）。AMD Ryzen AI 组件另有许可。
 licenseEn: Follow the official repository LICENSE (not verified line by line here); AMD Ryzen AI components have separate terms.
 
 axes:
@@ -24,9 +24,9 @@ axes:
   permissions: >-
     本地进程无账号体系。权限由宿主环境与调用方决定。多用户隔离需要自己加一层服务包装与鉴权。
   fit: >-
-    适合：AMD Ryzen AI / NPU 用户、想要本地 OpenAI 兼容端点、离线或隐私场景。不适合：NVIDIA 独占优化、想要开箱 GUI 聊天（看 LM Studio 等）。
+    适合：AMD Ryzen AI / NPU 用户。想要本地 OpenAI 兼容端点。离线或隐私场景。不适合：NVIDIA 独占优化。想要开箱 GUI 聊天（看 LM Studio 等）。
 pitfalls:
-  - 把 Lemonade 当成 Windows 专属——官方也有 SDK 与 Linux 后端，但硬件支持有矩阵
+  - 把 Lemonade 当成 Windows 专属。官方也有 SDK 与 Linux 后端，但硬件支持有矩阵
   - 以为所有模型都能 NPU 加速——NPU 支持按型号与模型而定
   - 把实验性 vLLM ROCm 当稳定后端——官方自己标注 experimental
 
@@ -57,10 +57,10 @@ cn:
   origin_note: AMD 生态 / Lemonade 社区（美国）。
   origin_note_en: AMD ecosystem / Lemonade community (US).
   direct: yes
-  direct_note: lemonade-server.ai 大陆直连未核验；GitHub/安装包可经镜像获取。
+  direct_note: lemonade-server.ai 大陆直连未核验。GitHub/安装包可经镜像获取。
   direct_note_en: Direct reachability from mainland not verified; GitHub and installers are available through mirrors.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-11-03 检索）；开源工具未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-11-03 检索）。开源工具未面向大陆公众提供服务，备案不适用。
   filing_note_en: Not in the CAC public registry (searched 2026-11-03); the open-source tool does not serve the mainland public, so filing does not apply.
   verified: 2026-11-03
 ---
@@ -76,7 +76,7 @@ Ryzen AI MAX+ 上另有实验性 vLLM ROCm 后端。
 
 ## 适合与不适合
 
-适合：AMD Ryzen AI / NPU 用户、想要本地 OpenAI 兼容端点、离线或隐私场景。
+适合：AMD Ryzen AI / NPU 用户。想要本地 OpenAI 兼容端点。离线或隐私场景。
 不适合：NVIDIA 独占优化、想要开箱 GUI 聊天。
 
 ## 实测记录

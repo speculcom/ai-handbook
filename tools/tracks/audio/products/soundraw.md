@@ -5,14 +5,14 @@ name: Soundraw
 nameEn: SOUNDRAW
 vendor: SOUNDRAW Inc.
 homepage: https://soundraw.io
-license: 按官方 Terms of Service 管辖（soundraw.io/terms 直抓核验 2026-10-30，更新日期 2025-06-12，主体 SOUNDRAW Inc.）；
+license: 按官方 Terms of Service 管辖（soundraw.io/terms 直抓核验 2026-10-30，更新日期 2025-06-12，主体 SOUNDRAW Inc.）。
   具体档位授权差异以 ToS 为准。
 licenseEn: Governed by the official Terms of Service (soundraw.io/terms direct-fetched 2026-10-30, updated 2025-06-12,
   entity SOUNDRAW Inc.); tier-bound licensing details not verified item by item.
 
 axes:
   model_access: >-
-    **依据：** 自有生成线：官网当日招牌口径「trained only on music we create in-house」（100% Copyright-Safe 叙事）—— 训练数据自述为自建曲库；不开放选第三方模型。
+    **依据：** 自有生成线：官网当日招牌口径「trained only on music we create in-house」（100% Copyright-Safe 叙事）。 训练数据自述为自建曲库。不开放选第三方模型。
   runtime: >-
     网页产品（soundraw.io）。生成与 Mixer 在 SOUNDRAW 云端，浏览器操作，本机不跑模型。API/桌面端不在官网已列产品面。
   local_files: >-
@@ -24,13 +24,13 @@ axes:
   context: >-
     作品按账户曲库组织、可回访再编辑。每次生成读取情绪/风格/时长参数。产品面没有跨会话记忆入口。
   permissions: >-
-    **依据：** 账号体系（免费+订阅）；「免版税」是主打叙事——每曲「legally yours to use, monetize, and share」 官网当日在册；具体档位授权边界以 ToS（2025-06-12 版）为准。
+    **依据：** 账号体系（免费+订阅）。「免版税」是主打叙事。每曲「legally yours to use, monetize, and share」 官网当日在册。具体档位授权边界以 ToS（2025-06-12 版）为准。
   fit: >-
-    适合：视频/播客免版税配乐、按情绪/风格/时长快速选曲改曲、要「训练数据自述干净」的版权叙事。不适合：要大陆直连备案入口、要人声带词整曲（主打器乐 beat）、要本机跑模型。
+    适合：视频/播客免版税配乐。按情绪/风格/时长快速选曲改曲。要「训练数据自述干净」的版权叙事。不适合：要大陆直连备案入口。要人声带词整曲（主打器乐 beat）。要本机跑模型。
 pitfalls:
-  - 「100% Copyright-Safe / 只用自建音乐训练」是官方自述叙事（官网当日在册）——第三方审计未在册，商用尽调时按自述口径对待
-  - 主打器乐 beat 不是带人声整曲——与 Suno/AIVA 的「song」定位不同，找带词歌曲时它是错工具
-  - 无独立 changelog 页（/changelog 与 /updates 当日 404）——更新面只有 blog 一条线，产品变更追踪粒度弱
+  - 「100% Copyright-Safe / 只用自建音乐训练」是官方自述叙事（官网当日在册）。第三方审计未在册，商用尽调时按自述口径对待
+  - 主打器乐 beat 不是带人声整曲。与 Suno/AIVA 的「song」定位不同，找带词歌曲时它是错工具
+  - 无独立 changelog 页（/changelog 与 /updates 当日 404）。更新面只有 blog 一条线，产品变更追踪粒度弱
 
 tags: [云端, 音乐生成, 免版税, 免费+订阅, 商业]
 related: [suno, aiva, runway]
@@ -63,7 +63,7 @@ cn:
   direct_note: soundraw.io 与 /pricing、/terms 大陆直连实测 200（2026-10-30）。
   direct_note_en: soundraw.io and /pricing, /terms measured 200 direct from mainland (2026-10-30).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页，未见 Soundraw 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页，未见 Soundraw 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page searched 2026-10-30; no Soundraw entry);
     the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30
@@ -76,7 +76,7 @@ cn:
 
 ## 适合与不适合
 
-适合：视频/播客免版税配乐、按情绪/风格/时长快速选曲改曲、要「训练数据自述干净」的版权叙事。
+适合：视频/播客免版税配乐。按情绪/风格/时长快速选曲改曲。要「训练数据自述干净」的版权叙事。
 不适合：要大陆直连备案入口、要人声带词整曲（主打器乐 beat）、要本机跑模型。
 
 ## 实测记录

@@ -4,7 +4,7 @@ form: mcp
 name: Notion MCP
 vendor: Notion
 homepage: https://developers.notion.com/docs/mcp
-license: 闭源官方托管服务（Notion ToS 约束）；无开源仓——官方文档页直抓核验 2026-10-21。
+license: 闭源官方托管服务（Notion ToS 约束）。无开源仓——官方文档页直抓核验 2026-10-21。
 licenseEn: Closed-source official hosted service (under Notion's ToS); no open-source repo — official docs page direct-fetched 2026-10-21.
 
 axes:
@@ -23,12 +23,12 @@ axes:
   context: >-
     无 server 侧跨会话记忆。状态在 Notion 工作区本身。Notion AI 的记忆线是另一产品，不算它。
   permissions: >-
-    OAuth 用户鉴权 + 工作区权限模型。agent 能看到/改什么。跟着连接的那个 Notion 账号的 页面共享权限走——这是选型要点：连谁的账号=谁的可见面。
+    OAuth 用户鉴权 + 工作区权限模型。agent 能看到/改什么。跟着连接的那个 Notion 账号的 页面共享权限走。这是选型要点。连谁的账号=谁的可见面。
   fit: >-
-    适合：agent 读写团队知识库、把会议记录/任务写进 Notion 数据库、从 wiki 检索上下文。不适合：要离线/自托管（无本地形态）。要细于账号权限的工具级隔离。
+    适合：agent 读写团队知识库。把会议记录/任务写进 Notion 数据库。从 wiki 检索上下文。不适合：要离线/自托管（无本地形态）。要细于账号权限的工具级隔离。
 pitfalls:
-  - 把「连上 Notion MCP」当「agent 能看全工作区」——可见面=所连账号的页面权限
-  - 把 notion.mcp.run 000 当服务死了——现役端点是 mcp.notion.com/mcp（401=需鉴权）
+  - 把「连上 Notion MCP」当「agent 能看全工作区」。可见面=所连账号的页面权限
+  - 把 notion.mcp.run 000 当服务死了。现役端点是 mcp.notion.com/mcp（401=需鉴权）
   - 写操作无独立审批——agent 建页改块直接生效，接 agent 前先想清楚写面
 
 tags: [MCP, 知识库, 协作, 远程托管, OAuth]
@@ -61,10 +61,10 @@ cn:
   origin_note: Notion Labs, Inc.（美国）。
   origin_note_en: Notion Labs, Inc. (US).
   direct: yes
-  direct_note: developers.notion.com 直连实测 200（2026-10-21）；notion.mcp.run 直连 000（网络受限，非死亡判定）。
+  direct_note: developers.notion.com 直连实测 200（2026-10-21）。notion.mcp.run 直连 000（网络受限，非死亡判定）。
   direct_note_en: developers.notion.com measured 200 direct (2026-10-21); notion.mcp.run measured 000 direct (network-limited, not a death verdict).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---

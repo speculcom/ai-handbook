@@ -87,9 +87,7 @@ axes:
     **File diff reviews in code editors** 在更高档位提供。
 
   context: >-
-    **上下文窗口有上限说明**：部分模型支持 **1M token 上下文**
-    （仅 VS Code 与 Copilot CLI 可用），并有可调 reasoning
-    （VS Code、CLI 与 cloud agent）。
+    **上下文窗口有上限说明**：
 
     **跨会话记忆已核验为官方功能 Copilot Memory（public preview）**：
     存仓库级事实与用户级偏好，带引用并在当前分支校验，

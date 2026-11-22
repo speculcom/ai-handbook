@@ -5,7 +5,7 @@ name: Langfuse
 vendor: Langfuse
 homepage: https://langfuse.com
 license: >-
-  核心 MIT（官方仓库 LICENSE 当日直抓在册为「MIT Expat」）；
+  核心 MIT（官方仓库 LICENSE 当日直抓在册为「MIT Expat」）。
   /ee 企业目录另按 ee/LICENSE 管辖，该文件正文已取得，官方文档未单列。
 licenseEn: >-
   Core under MIT (the repository LICENSE page, direct-fetched today, reads "MIT Expat");
@@ -17,33 +17,33 @@ axes:
 
     自托管另有「Bring your own LLM API」口径（self-hosting 页当日在册）。**judge 可用模型全清单与版本映射按官方文档逐条清点，官方文档未单列。**
   runtime: >-
-    开源可自部署（Docker Compose 起测试、Kubernetes/Helm 起生产，self-hosting 页当日在册）， 另有官方云（AWS 美/欧/日三区，security 页当日在册）。
+    开源可自部署。Docker Compose 起测试，Kubernetes/Helm 起生产，self-hosting 页当日在册。另有官方云，AWS 美、欧、日三区，security 页当日在册。
 
     交互面是 Web 控制台加 SDK 与 API。**本机跑的是平台服务与界面，不在本机跑被评测的模型。**
   local_files: >-
-    **依据：** 自托管时 trace、score、prompt、数据集都落在自有 PostgreSQL、ClickHouse、Redis 与对象存储 **依据：** （当日在册）；数据靠 SDK、OpenTelemetry、API 上报，平台不读本机代码库； 导出与删除接口面按官方文档逐条清点。
+    **依据：** 自托管时 trace、score、prompt 与数据集都落在自有 PostgreSQL、ClickHouse、Redis 与对象存储，当日在册。数据靠 SDK、OpenTelemetry、API 上报，平台不读本机代码库。 导出与删除接口面按官方文档逐条清点。
   background: >-
-    在线评测在生产 trace 上异步打分（evaluation overview 与 judge 文档当日在册）。实验（Experiments）批量跑数据集。关机续跑不是这类平台的功能面。
+    在线评测在生产 trace 上异步打分。evaluation overview 与 judge 文档当日在册。实验（Experiments）批量跑数据集。关机续跑不是这类平台的功能面。
 
     **抽样比例、评分延迟与失败重试口径按官方文档口径，官方文档未单列。**
   tools: >-
     Python 与 JS SDK、REST API、OpenTelemetry 摄入。官方文档 MCP server 当日直抓在册。它只把文档暴露给 agent。
 
-    能否读 trace 与 score 的鉴权 MCP 面官方文档未单列。CI/CD 用于「回归时挡住部署」（evaluation overview 当日在册）。
+    能否读 trace 与 score 的鉴权 MCP 面官方文档未单列。CI/CD 用于「回归时挡住部署」。evaluation overview 当日在册。
   context: >-
-    **依据：** 观测对象按项目组织，trace 与 score 带来源关联；分数类型 NUMERIC、CATEGORICAL、BOOLEAN、TEXT 四类当日在册；从 trace 沉淀数据集、prompt 版本管理在产品面在册。 跨项目记忆不是平台功能面，官方文档未单列。
+    **依据：** 观测对象按项目组织，trace 与 score 带来源关联。分数类型 NUMERIC、CATEGORICAL、BOOLEAN、TEXT 四类当日在册。从 trace 沉淀数据集、prompt 版本管理在产品面在册。 跨项目记忆不是平台功能面，官方文档未单列。
   permissions: >-
     自托管可 air-gapped，数据留在自有环境。云版 SOC 2 Type II、项目级 RBAC 与 SSO （security 页当日在册）。
 
-    档位与配额事实（Hobby 与 Core、Pro、Enterprise 四档， 用量单位与数据访问时长随档位变化）当日在 pricing 页在册。价格数字按 D9 不采。
+    档位与配额事实当日在 pricing 页在册。Hobby 与 Core、Pro、Enterprise 四档，用量单位与数据访问时长随档位变化。价格数字按 D9 不采。
 
     **是否用客户数据训练模型未读到条款正文，官方文档未单列。**
   fit: >-
-    适合要把数据留在自有环境（自托管或气隙部署）、观测与评测共用同一套 trace、 把线上样本沉淀成数据集再在 CI 挡回归的团队。
+    适合要把数据留在自有环境，自托管或气隙部署。观测与评测共用同一套 trace，再把线上样本沉淀成数据集，在 CI 挡回归。
 
     不适合只想用厂商侧托管红队或合规审计、 不愿自备 judge 模型密钥的场景。本档不测分也不排名。
 pitfalls:
-  - 把「平台自带评测」当成自带模型——judge 分数来自你配置的 LLM Connection，密钥与用量都在你账上
+  - 把「平台自带评测」当成自带模型。judge 分数来自你配置的 LLM Connection，密钥与用量都在你账上
   - 把开源当成全功能——核心 MIT、/ee 企业目录另有许可，企业功能边界已取得正文
   - 把在线评测当实时告警——异步打分有延迟与抽样口径，官方可读页未逐条在册
 
@@ -90,13 +90,13 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: 官方 /terms 当日 307 跳转 clickhouse.com 通用条款页，按该在册口径记 foreign；注册地与收购关系按官方文档口径。
+  origin_note: 官方 /terms 当日 307 跳转 clickhouse.com 通用条款页，按该在册口径记 foreign。注册地与收购关系按官方文档口径。
   origin_note_en: langfuse.com/terms 307-redirected to clickhouse.com's general terms page today; recorded as foreign on that evidence; incorporation and acquisition relationship not item-verified.
   direct: yes
   direct_note: langfuse.com 的 docs、evaluation、self-hosting、security、pricing 与 github.com 的 LICENSE、Releases 当日直抓均 200。
   direct_note_en: langfuse.com docs, evaluation, self-hosting, security and pricing plus github.com LICENSE and Releases all returned 200 to direct fetch today.
   filing: unknown
-  filing_note: 网信办公示名单已检索；开发者向自托管平台是否落入备案口径官方文档未单列，记入未知项清单。
+  filing_note: 网信办公示名单已检索。开发者向自托管平台是否落入备案口径官方文档未单列，记入未知项清单。
   filing_note_en: the CAC public registry was not searched today; whether a developer-facing self-hosted platform falls under filing scope is not verified — listed under unknowns.
   verified: 2026-11-06
 ---
@@ -125,7 +125,7 @@ trace、评分、提示词和数据集都能留在自己的环境里。
 
 ## 变更记录说明
 
-官方 changelog 页本次直抓返回 404。变更记录以官方仓库 Releases 在册：最新 v4.76.0（页面标 Nov 05）。
+官方 changelog 页本次直抓返回 404。变更记录以官方仓库 Releases 在册：最新 v4.76.0，页面标 Nov 05。
 
 其前有 v4.75.0、v4.74.0、v4.73.0。发版节奏接近每日一次，因此 lifecycle 记 active。
 
@@ -140,6 +140,6 @@ trace、评分、提示词和数据集都能留在自己的环境里。
 
 ## 相关条目
 
-- [Arize Phoenix](./arize-phoenix.md) — 同为可自部署的开源观测加评测；Phoenix 以 OpenTelemetry 与批量实验为中心，许可是 ELv2。
-- [Braintrust](./braintrust.md) — 同为评测平台；Braintrust 把评测当发布闸门，托管面更重，自托管只到客户侧数据面。
-- [LangSmith](./langsmith.md) — 同为 trace 与评测一体；LangSmith 本体是 SaaS，自托管是企业版加购。
+- [Arize Phoenix](./arize-phoenix.md) — 同为可自部署的开源观测加评测。Phoenix 以 OpenTelemetry 与批量实验为中心，许可是 ELv2。
+- [Braintrust](./braintrust.md) — 同为评测平台。Braintrust 把评测当发布闸门，托管面更重，自托管只到客户侧数据面。
+- [LangSmith](./langsmith.md) — 同为 trace 与评测一体。LangSmith 本体是 SaaS，自托管是企业版加购。

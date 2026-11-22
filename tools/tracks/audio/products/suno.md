@@ -5,14 +5,14 @@ name: Suno
 nameEn: Suno
 vendor: Suno Inc.
 homepage: https://suno.com/
-license: 官方 ToS：Pro/Premier 付费档——「Suno hereby assigns to you all of its right, title and interest in and to any Output owned by Suno」；免费/Basic 档——输出仅限「lawful, personal and non-commercial purposes」。商用许可绑定「Permitted Commercial Use」：只有经付费档下载配额下载的 Output 可商用；Remix（他人二创）无论档位一律非商用。
+license: 官方 ToS。Pro/Premier 付费档。「Suno hereby assigns to you all of its right, title and interest in and to any Output owned by Suno」。免费/Basic 档。输出仅限「lawful, personal and non-commercial purposes」。商用许可绑定「Permitted Commercial Use」。只有经付费档下载配额下载的 Output 可商用。Remix（他人二创）无论档位一律非商用。
 licenseEn: Official ToS: on Pro/Premier paid tiers, 'Suno hereby assigns to you all of its right, title and interest in and to any Output owned by Suno'; on the free/Basic tier, Outputs may only be used for 'lawful, personal and non-commercial purposes'. Commercial rights tie to 'Permitted Commercial Use' — only Outputs downloaded through your paid tier's download allocation may be commercially exploited. Remixes are non-commercial regardless of tier.
 
 axes:
   model_access: >-
     模型迭代经官方博客披露。「Introducing v6」条目（2026-09-09，Mikey Shulman 署名， 2026-10-21 经代理直抓核验标题与日期）。
 
-    定价页快照的模型标注（v4.5-all/v5）与博客 v6 条目 存在滞后差——当前默认模型以登录应用内为准。按两处官方页面各自口径并列。
+    定价页快照的模型标注（v4.5-all/v5）与博客 v6 条目 存在滞后差。当前默认模型以登录应用内为准。按两处官方页面各自口径并列。
   runtime: >-
     网页与移动端应用为主入口。生成在 Suno 云端处理，本机不跑模型。Suno Studio 是浏览器内的生成式工作站（多轨时间线、stem 导出）。
 
@@ -22,7 +22,7 @@ axes:
   background: >-
     生成为任务制。提交提示词/素材后排队产出，产出物进账户库。没有「关机续跑」形态的官方声明。任务在云端跑，不依赖本机在线。
   tools: >-
-    Suno Studio（网页版生成式音频工作站：多轨、stem 导出）与编辑工具线（博客 Studio 2.0、 Speech (beta) 2026-10-01 等条目）。
+    Suno Studio 是网页版生成式音频工作站，支持多轨与 stem 导出。编辑工具线还有博客里的 Studio 2.0、Speech (beta) 2026-10-01 等条目。
 
     Persona/Inspo 等风格控制。
   context: >-
@@ -36,8 +36,8 @@ axes:
   fit: >-
     做 AI 音乐、在意「上传素材归我」的人。商用要走付费下载通道（见许可列），Remix 一律非商用。在意「素材绝不进训练」——条款没有退出选项，要先接受。
 pitfalls:
-  - 把「付费即商用」读准——商用绑定「经付费下载配额下载」这一动作，且 Remix 一律非商用
-  - 以为上传素材会被拿走——Submissions 所有权保留，但平台取得含训练在内的宽许可
+  - 把「付费即商用」读准。商用绑定「经付费下载配额下载」这一动作，且 Remix 一律非商用
+  - 以为上传素材会被拿走。Submissions 所有权保留，但平台取得含训练在内的宽许可
   - 用输出训练其他模型——条款明确禁止
 
 tags: [云端, 音乐生成, 工作站, 付费商用, 商业]
@@ -67,7 +67,7 @@ cn:
   direct_note: suno.com 大陆直连稳定超时（2026-10-20 同日两次 000）。
   direct_note_en: suno.com times out consistently from mainland (000 twice).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-20
 ---

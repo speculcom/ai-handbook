@@ -7,10 +7,10 @@ homepage: https://www.gitguardian.com/
 mark: GG
 accent: "#FF6B6B"
 license: >-
-  商业 SaaS，不开源：官网与文档均未提供许可证字段或自托管源码发行物，本批次未抓到任何「可自部署的开源核心」口径
+  商业 SaaS，不开源。官网与文档均未提供许可证字段或自托管源码发行物，本批次未抓到任何「可自部署的开源核心」口径
   （/trust 与 /security 两个入口当日返回 404）。可确认的合规线索只有官网在册的框架清单
-  「PCI DSS, CIS, NIS2, SOC 2, DORA, ISO 27001, SOX, GDPR」——这是它写给自己的**对标语义**，
-  不是本站核验过的认证证书；具体证书、DPA 与 subprocessor 清单未披露到公开页，进 unknowns。
+  「PCI DSS, CIS, NIS2, SOC 2, DORA, ISO 27001, SOX, GDPR」。这是它写给自己的**对标语义**，
+  不是本站核验过的认证证书。具体证书、DPA 与 subprocessor 清单未披露到公开页，进 unknowns。
 licenseEn: >-
   Commercial SaaS, not open source: neither the site nor the docs expose a licence field or a self-deployable open core,
   and no such claim was captured in this pass (/trust and /security both returned 404 that day). The only compliance
@@ -22,7 +22,7 @@ axes:
   model_access: >-
     它不守模型，也不接模型档位。主轴是凭据（secrets）与身份。与被测模型的关系只有两条在册面。官方文档导航列出 「GitGuardian MCP Server」。
 
-    其页描述是把凭据安全能力带进 AI 编码助手。另一条是 ggshield 覆盖 IDE 与 pre-commit/pre-push 这些「代码写出来的地方」。可换的检测模型。
+    其页描述是把凭据安全能力带进 AI 编码助手。另一条是 ggshield，覆盖 IDE 与 pre-commit/pre-push。这些正是代码写出来的地方。可换的检测模型。
 
     不适用（它做的是模式匹配 + 有效性校验，不是模型评测）。
   runtime: >-
@@ -40,9 +40,9 @@ axes:
 
     **扫过的代码内容在厂商侧留存多久**： 公开条款未逐条说明，进 unknowns。
   background: >-
-    后台面是它的强项之一，但归属不同。平台侧持续监测（含公开 GitHub 监测与 incident 生命周期）， 本机侧则是提交前/推送前的即时拦截。
+    后台面是它的强项之一，但归属不同。平台侧持续监测，含公开 GitHub 监测与 incident 生命周期。本机侧则是提交前与推送前的即时拦截。
 
-    SaaS 更新的节奏可在文档的 SaaS Releases 逐日回看 （当日在册最新为 2026-10-29 的团队同步条目）。
+    SaaS 更新节奏可在文档的 SaaS Releases 逐日回看。当日在册最新为 2026-10-29 的团队同步条目。
   tools: >-
     集成分布在文档导航里成体系。
 
@@ -50,20 +50,20 @@ axes:
 
     **MCP 面官方在册**：MCP Server 文档页写明 「Bring secrets security directly into your AI coding assistant」，并列出「read-only permissions, server-side scanning, and secret redaction」这三条安全约束。
   context: >-
-    它的「记忆」是资产与事件台账，不是会话上下文。NHI Governance（非人身份治理）、incidents 生命周期、 perimeter 监测范围这些对象长期驻留在平台里。
+    它的「记忆」是资产与事件台账，不是会话上下文。NHI Governance 是非人身份治理。incidents 生命周期与 perimeter 监测范围这些对象长期驻留在平台里。
 
-    跨会话记忆/上下文窗口不适用——它不生成内容。检测器的历史与版本另有一页 Detection Engine Releases（文档导航在册，本批次未逐条读取）。
+    跨会话记忆/上下文窗口不适用——它不生成内容。检测器的历史与版本另有一页 Detection Engine Releases。文档导航在册，本批次未逐条读取。
   permissions: >-
-    **依据：** 逐条挂来源：账号与数据条款的可读入口是官网隐私政策，其中留存原文是「Data collected when you request information or **依据：** when you contact us is kept for two (2) years from our last contact.」，出境原文是 **依据：** 「We may share your Personal Data with our US office, which is located outside of the EEA, in the US.」； **是否把客户代码或命中内容用于训练**：该政策未提及，也未声明客户代码存储范围，两项都进 unknowns。 检测语义按官方 FAQ 在册：引擎分「Pre-Validation」「Matching」「Post-Validation」三步，且 **依据：** 「GitGuardian will check the validity of the detected credentials」。红线：官方标称的「600+ types of hardcoded secrets」 是**密钥类型计数**，本站绝不把它写成拦截率或覆盖率，也不与 PII 类工具排名—— 「Secrets never leave your perimeter」这类官网表述只在自托管/边界面语境下读。
+    **依据：** 逐条挂来源：账号与数据条款的可读入口是官网隐私政策。其中留存原文是「Data collected when you request information or **依据：** when you contact us is kept for two (2) years from our last contact.」，出境原文是 **依据：** 「We may share your Personal Data with our US office, which is located outside of the EEA, in the US.」。 **是否把客户代码或命中内容用于训练**：该政策未提及，也未声明客户代码存储范围，两项都进 unknowns。 检测语义按官方 FAQ 在册。引擎分「Pre-Validation」「Matching」「Post-Validation」三步，且 **依据：** 「GitGuardian will check the validity of the detected credentials」。红线：官方标称的「600+ types of hardcoded secrets」 是**密钥类型计数**，本站绝不把它写成拦截率或覆盖率，也不与 PII 类工具排名。 「Secrets never leave your perimeter」这类官网表述只在自托管/边界面语境下读。
   fit: >-
-    适合：凭据与非人身份已成规模（多仓库 + CI + 容器 + 协作工具 + AI 编码助手）。要的是持续监测与事件闭环， 而不是扫一次。需要 pre-commit/pre-push 与 IDE 侧即时拦截。
+    适合：凭据与非人身份已成规模，含多仓库、CI、容器、协作工具与 AI 编码助手。要的是持续监测与事件闭环， 而不是扫一次。需要 pre-commit/pre-push 与 IDE 侧即时拦截。
 
-    网络边界要求高时可以走 self-hosting 甚至 air-gapped。不适合：目标是「个人数据进模型前的脱敏算子在自己机器上跑」（那是 Presidio 那条约束）。
+    网络边界要求高时可以走 self-hosting 甚至 air-gapped。不适合：目标是「个人数据进模型前的脱敏算子在自己机器上跑」。那是 Presidio 那条约束。
 
     只要一次性红队扫描留证据。期望用凭据扫描器替代模型评测。
 pitfalls:
   - 把「600+ 密钥类型」读成拦截率：官方口径是类型计数，本站不换算成任何比例
-  - 以为只有 SaaS 一条路：官方文档明确列出 self-hosting 与 air-gapped 两种安装形态
+  - 以为只有 SaaS 一条路。官方文档明确列出 self-hosting 与 air-gapped 两种安装形态
   - 拿它当模型评测或脱敏工具：对象是凭据与身份，既不评模型行为也不提供脱敏算子
 
 tags: [云端, 商业, 自托管, 终端, CI, API]
@@ -111,10 +111,10 @@ lifecycle: active
 confidence: verified
 cn:
   origin: foreign
-  origin_note: GitGuardian（法国厂商，文档提供 English/Français 两语；官网与隐私政策均写明向美国办公室传输数据）；本批次本档不逐条展开注册主体。
+  origin_note: GitGuardian（法国厂商，文档提供 English/Français 两语；官网与隐私政策均写明向美国办公室传输数据）。本批次本档不逐条展开注册主体。
   origin_note_en: GitGuardian (a French vendor; the docs offer English/Français and both the site and privacy policy state transfers to the US office); the registering entity was not verified item by item in this pass.
   direct: unknown
-  direct_note: www.gitguardian.com 与 docs.gitguardian.com 当日从当前网络取到 200，但未在大陆网络环境做直连实测；dashboard 与 API 可达性同样未测，故记未知。
+  direct_note: www.gitguardian.com 与 docs.gitguardian.com 当日从当前网络取到 200，但未在大陆网络环境做直连实测。dashboard 与 API 可达性同样未测，故记未知。
   direct_note_en: www.gitguardian.com and docs.gitguardian.com returned 200 from the current network on the verification date, but no mainland-network measurement was made; dashboard and API reachability were likewise untested, so it is recorded as unknown.
   filing: unknown
   filing_note: 无官方依据，本批次未检索生成式 AI 备案公示，不下「未备案」结论。
@@ -128,25 +128,27 @@ cn:
 
 产品面同时给出SaaS 平台、ggshield 与 ggscout。
 
-覆盖面从代码仓库、CI/CD、容器镜像仓库一直排到 Slack/Jira/Confluence 与 AI 编码助手。
+覆盖面从代码仓库、CI/CD、容器镜像仓库，一直排到 Slack、Jira、Confluence 与 AI 编码助手。
 
-放在本大类里，它回答的问题跟脱敏与红队那几份都不一样——**不是「模型会不会出错」，而是「已经流出去的密钥，你现在知不知道」**。对本大类最关键的一条边界是。
+放在本大类里，它回答的问题跟脱敏与红队那几份都不一样。**不是「模型会不会出错」，而是「已经流出去的密钥，你现在知不知道」**。对本大类最关键的一条边界是。
 
 它评的不是模型行为，所以任何「护住模型」的说法都不该写在这份档案里。
 
 ## 适合与不适合
 
-适合：凭据与非人身份已经成规模（多仓库 + CI + 容器 + 协作工具 + AI 助手）。需要的是持续监测与事件闭环而不是扫一次需要 pre-commit/pre-push 与 IDE 侧的即时拦截。
+适合：凭据与非人身份已经成规模，含多仓库、CI、容器、协作工具与 AI 助手。需要的是持续监测与事件闭环，不是扫一次。也要 pre-commit/pre-push 与 IDE 侧的即时拦截。
 
-网络边界要求高时可以走 self-hosting 甚至 air-gapped 形态。不适合：目标是「个人数据进模型前的算子必须跑在自己机器上」（那是 Presidio 那条约束）。
+网络边界要求高时，可以走 self-hosting 甚至 air-gapped 形态。不适合：个人数据进模型前的算子必须跑在自己机器上。那是 Presidio 那条约束。
 
 只要一次性红队扫描留工程证据期望用密钥扫描器替代模型评测。
 
 ## 实测记录
 
-**本站未做端到端实测**：没有接入过任何仓库或 CI。没有触发过 incident。没有运行 ggshield 扫描不产出检出比例、误报率或任何排名。
+**本站未做端到端实测**
 
-本档案只组织官网、文档首页导航、四个文档分区页、检测引擎 FAQ、SaaS Releases、隐私政策与 Pricing 在册的说法。
+没有接入过任何仓库或 CI。没有触发过 incident。没有运行 ggshield 扫描不产出检出比例、误报率或任何排名。
+
+本档案只组织几类在册说法。含官网、文档首页导航、四个文档分区页、检测引擎 FAQ、SaaS Releases、隐私政策与 Pricing。
 
 **实测建议**（四条）：
 
@@ -165,14 +167,14 @@ cn:
 
 ## 能力边界
 
-- 对象边界：凭据、密钥、非人身份与它们的流动面；**不含模型行为评测、不含个人数据脱敏算子**。
-- 检测语义边界：官方 FAQ 把引擎写成「Pre-Validation → Matching → Post-Validation」三段，并对命中的凭据做有效性校验；
+- 对象边界：凭据、密钥、非人身份与它们的流动面。**不含模型行为评测、不含个人数据脱敏算子**。
+- 检测语义边界：官方 FAQ 把引擎写成「Pre-Validation → Matching → Post-Validation」三段，并对命中的凭据做有效性校验。
   官网标称的「600+ types of hardcoded secrets」是**类型计数**。
   本站不把它换算成拦截率、也不与别的工具排名。
 - 误报语义：官方 FAQ 自己给的定义是「a false positive occurs when our detection engine raises an alert for a secret
   that is not one and has never been one」——**这是定义。
   不是指标**。
-- 边界面：ggshield 的扫描在本机跑（官方在册），平台侧扫描在厂商侧跑；「Secrets never leave your perimeter」这类表述
+- 边界面：ggshield 的扫描在本机跑（官方在册），平台侧扫描在厂商侧跑。「Secrets never leave your perimeter」这类表述
   只在自托管/边界面语境下读，本档案不把它当条款引用。
 
 ## 未知项清单
@@ -194,7 +196,7 @@ cn:
 
 ## 部署建议
 
-1. 先分清约束：能接受托管扫描 → 走 SaaS；不能 → 读 Self-Hosting 文档（Kubernetes 与 air-gapped 两种口径在册）再评估人力。
-2. 接入顺序建议「先只读后阻断」：先做仓库与 CI 的监测与事件分诊，再把 ggshield 的 pre-commit/pre-push 开成阻断。
+1. 先分清约束：能接受托管扫描 → 走 SaaS。不能 → 读 Self-Hosting 文档（Kubernetes 与 air-gapped 两种口径在册）再评估人力。
+2. 接入顺序建议「先只读后阻断」。先做仓库与 CI 的监测与事件分诊，再把 ggshield 的 pre-commit/pre-push 开成阻断。
 3. 有效性校验会向 issuing 服务发起调用（官方 FAQ 口径），接入前确认出网白名单与限流。
-4. AI 编码助手那面如果要接官方 MCP Server，先把 read-only 与 secret redaction 这两条约束验证一遍再给权限。
+4. AI 编码助手那面如果要接官方 MCP Server。先把 read-only 与 secret redaction 这两条约束验证一遍再给权限。

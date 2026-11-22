@@ -4,14 +4,14 @@ form: mcp
 name: Intercom MCP Server
 vendor: Intercom
 homepage: https://developers.intercom.com/docs/guides/mcp
-license: 闭源官方托管服务（Intercom ToS 约束）；GitHub 上 intercom/intercom-mcp-server 只是文档仓（无 license 声明，推送停 2025-09-22，GitHub API 核验 2026-10-31）——server 本体不开源。
+license: 闭源官方托管服务（Intercom ToS 约束）。GitHub 上 intercom/intercom-mcp-server 只是文档仓（无 license 声明，推送停 2025-09-22，GitHub API 核验 2026-10-31）。server 本体不开源。
 licenseEn: Closed-source official hosted service (Intercom ToS); intercom/intercom-mcp-server on GitHub is a documentation-only repo (no license declared, last push 2025-09-22, GitHub API verified 2026-10-31) — the server itself is not open source.
 
 axes:
   model_access: >-
     **它自己不调模型**——官方托管远程 server，被 MCP 客户端调用。
 
-    例外口径：**Fin Operator 工具族** 会驱动 Intercom 自家 AI（Operator）干活——send_operator_message 消耗 Operator credits （与在 Intercom 里开一轮对话同口径计费）。
+    例外口径：**Fin Operator 工具族** 会驱动 Intercom 自家 AI（Operator）干活。send_operator_message 消耗 Operator credits （与在 Intercom 里开一轮对话同口径计费）。
 
     其余四个 Operator 工具免费。
   runtime: >-
@@ -23,31 +23,49 @@ axes:
   background: >-
     无常驻本机后台。连接活在客户端与 Intercom 托管端点之间（官方：连接保持活跃以接收更新）。
   tools: >-
-    官方文档现口径 **14 个工具**：通用族 **search**（query DSL：object_type:conversations/contacts、 字段操作符 eq/neq/gt/contains、分页 starting_after）+ **fetch**（按前缀 ID 取全量详情）。
+    官方文档现口径 14 个工具。通用族有 search 与 fetch。
 
-    直连 API 族 search_conversations / get_conversation / search_contacts / companies / Help Center articles（**list/search/get 读 + create/update 写**）。
+    search 用 query DSL，object_type 支持 conversations 与 contacts。字段操作符支持 eq/neq/gt/contains，分页用 starting_after。
 
-    **Fin Operator 五工具**（send_operator_message / get_operator_response / get_proposal_details / apply_proposals / reject_proposals——apply 会改动工作区线上配置）。
+    fetch 按前缀 ID 取全量详情。
+
+    直连 API 族含 search_conversations、get_conversation、search_contacts、companies 与 Help Center articles。
+
+    读面是 list、search 与 get。写面是 create 与 update。
+
+    **Fin Operator 五工具**：send_operator_message、get_operator_response、get_proposal_details、apply_proposals 与 reject_proposals。
+
+    apply 会改动工作区线上配置。
   context: >-
-    无 server 侧跨会话记忆。上下文=你的 Intercom 工作区数据本身（官方叙事：AI 助手保持 对工作区的环境感知）。
+    无 server 侧跨会话记忆。上下文就是你的 Intercom 工作区数据。官方叙事称 AI 助手能保持对工作区的环境感知。
 
     Operator 对话有服务端会话态（get_operator_response 稍后取答）。
   permissions: >-
-    **两种鉴权**：OAuth（推荐；Dynamic Client Registration，但 redirect URI 过 allowlist—— localhost/127.0.0.1 任意端口已放行，其他回调要先申请加白）或 Bearer token（Intercom API token， 需 scopes：读 users/companies、读 conversations、读写 articles）。
+    **两种鉴权**：OAuth 或 Bearer token。
 
-    **Bearer 连接拿不到 Fin Operator 工具**（官方明写）。Operator 权限上线前建立的旧连接需重连。工具按「你本人在工作区的权限」授权——MCP 不扩权。
+    OAuth 推荐，走 Dynamic Client Registration，但 redirect URI 要过 allowlist。localhost 与 127.0.0.1 任意端口已放行，其他回调要先申请加白。
+
+    Bearer token 用 Intercom API token。需 scopes：读 users 与 companies、读 conversations、读写 articles。
+
+    **Bearer 连接拿不到 Fin Operator 工具**，官方明写。Operator 权限上线前建立的旧连接需重连。
+
+    工具按「你本人在工作区的权限」授权。MCP 不扩权。
   fit: >-
-    适合：客服/支持团队把 Intercom 数据接进 AI 工具（Claude/Cursor/VS Code 等官方在册客户端）—— 查会话、查联系人、读写帮助文档、驱动 Operator。
+    适合：客服与支持团队把 Intercom 数据接进 AI 工具。Claude、Cursor、VS Code 等客户端官方在册。
 
-    EU 工作区有数据驻留线。不适合：AU 托管工作区（不支持）。要自托管/开源实现（无）。要 Bearer 简单接入还用 Operator（拿不到）。
+    可查会话、查联系人、读写帮助文档，也能驱动 Operator。
+
+    EU 工作区有数据驻留线。不适合：AU 托管工作区，官方不支持。
+
+    也不适合要自托管或开源实现的场景。Bearer 简单接入还想要 Operator，也拿不到。
 pitfalls:
-  - 把 inventory 旧 URL（intercom.com/mcp）当文档线——2026-10-31 实测 404；现役是 developers.intercom.com/docs/guides/mcp + 端点本身
-  - 把 intercom/intercom-mcp-server 仓当源码——它是文档仓（无 license、推送停 2025-09）；server 闭源托管
-  - 用 Bearer token 却期待 Operator 工具——官方明写 Bearer 连接不含 Fin Operator 工具，要 OAuth
-  - 混 US/EU 端点——app.intercom.com=US 用 mcp.intercom.com，app.eu.intercom.com=EU 用 mcp.eu.intercom.com；AU 不支持
-  - 旧连接（Operator 权限上线前建的）调 Operator 工具报错——重连即可（官方排障口径）
-  - 自建 MCP 客户端 OAuth 回调不在 allowlist——注册与授权会失败，localhost 之外要先申请
-  - apply_proposals 会真改工作区线上配置——Operator 提案不是预览玩具
+  - 把 inventory 旧 URL（intercom.com/mcp）当文档线。2026-10-31 实测 404。现役是 developers.intercom.com/docs/guides/mcp + 端点本身
+  - 把 intercom/intercom-mcp-server 仓当源码。它是文档仓（无 license、推送停 2025-09）。server 闭源托管
+  - 用 Bearer token 却期待 Operator 工具。官方明写 Bearer 连接不含 Fin Operator 工具。要 OAuth
+  - 混 US/EU 端点。app.intercom.com=US 用 mcp.intercom.com，app.eu.intercom.com=EU 用 mcp.eu.intercom.com。AU 不支持
+  - 旧连接（Operator 权限上线前建的）调 Operator 工具报错。重连即可（官方排障口径）
+  - 自建 MCP 客户端 OAuth 回调不在 allowlist。注册与授权会失败，localhost 之外要先申请
+  - apply_proposals 会真改工作区线上配置。Operator 提案不是预览玩具
 
 tags: [MCP, 客服, CRM, 远程托管, OAuth, 区域端点, Operator]
 related: [cursor, claude-code]
@@ -91,23 +109,25 @@ cn:
   origin_note: Intercom Inc.（美国/爱尔兰双总部，客户消息平台）。
   origin_note_en: Intercom Inc. (US/Ireland dual-headquartered customer messaging platform).
   direct: yes
-  direct_note: developers.intercom.com 与 intercom.com 直连 200；mcp.intercom.com/mcp 与 mcp.eu.intercom.com/mcp 直连 401（端点存在需鉴权）；mcp.intercom.com 首页直连 200（2026-10-31）。
+  direct_note: developers.intercom.com 与 intercom.com 直连 200。mcp.intercom.com/mcp 与 mcp.eu.intercom.com/mcp 直连 401（端点存在需鉴权）。mcp.intercom.com 首页直连 200（2026-10-31）。
   direct_note_en: developers.intercom.com and intercom.com returned 200 direct; mcp.intercom.com/mcp and mcp.eu.intercom.com/mcp returned 401 direct (endpoints exist, auth required); the mcp.intercom.com landing page returned 200 direct (2026-10-31).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-31 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-31 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-31); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-31
 ---
 
 ## 一句话定位
 
-**Intercom 官方托管 MCP server**（闭源 remote，streamable-http）：客服数据接进 AI 工具——14 工具：query-DSL search/fetch + conversations/contacts/companies 读 + Help Center articles 读写 +**Fin Operator 五工具**（apply_proposals 会真改线上配置；**Bearer 连接拿不到 Operator 工具，要 OAuth**）。
+**Intercom 官方托管 MCP server**（闭源 remote，streamable-http）：客服数据接进 AI 工具。
 
-区域两口径：US/EU 端点分开（EU 数据在 EU 内处理）、**AU 工作区不支持**；旧 SSE 端点已 deprecated。GitHub 那个仓只是文档仓，别当源码。
+14 工具：query-DSL search/fetch + conversations/contacts/companies 读 + Help Center articles 读写 +**Fin Operator 五工具**（apply_proposals 会真改线上配置；**Bearer 连接拿不到 Operator 工具，要 OAuth**）。
+
+区域两口径。US 与 EU 端点分开，EU 数据在 EU 内处理。AU 工作区不支持。旧 SSE 端点已 deprecated。GitHub 那个仓只是文档仓，别当源码。
 
 ## 适合与不适合
 
-适合：支持团队把 Intercom 接进 Claude/Cursor/VS Code 等官方在册客户端。
+适合：支持团队把 Intercom 接进官方在册客户端。含 Claude、Cursor 与 VS Code。
 EU 数据驻留需求。
 不适合：AU 托管工作区。
 要自托管/开源。

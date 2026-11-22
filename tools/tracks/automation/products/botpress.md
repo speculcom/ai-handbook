@@ -5,8 +5,8 @@ name: Botpress
 nameEn: Botpress
 vendor: Botpress
 homepage: https://botpress.com
-license: 产品按官方 ToS 管辖（当日直抓在册：加拿大客户对 Technologies Botpress Inc.（加拿大公司）、
-  其余对 Botpress, Inc.（特拉华公司）——按客户所在地分流）；GitHub 主仓 MIT、on-prem v12 仓 AGPL-3.0（GitHub API 当日核验）。
+license: 产品按官方 ToS 管辖（当日直抓在册。加拿大客户对 Technologies Botpress Inc.（加拿大公司）、
+  其余对 Botpress, Inc.（特拉华公司）——按客户所在地分流）。GitHub 主仓 MIT、on-prem v12 仓 AGPL-3.0（GitHub API 当日核验）。
 licenseEn: The product is governed by the official ToS (direct-fetched same day: Canadian customers contract with
   Technologies Botpress Inc. (a Canadian Corporation), everyone else with Botpress, Inc. (a Delaware company) —
   routed by customer location); the GitHub main repo is MIT, the on-prem v12 repo AGPL-3.0 (GitHub API verified same day).
@@ -35,13 +35,13 @@ axes:
 
     条款明言面向企业经营用途（not for personal or household purposes）。训练用途开关路径按官方文档口径。
   fit: >-
-    适合：客服/支持场景的 agent 平台（工单分流、升级交接、AI 动作）、要现成集成生态（CRM/帮助台）。
+    适合：客服/支持场景的 agent 平台（工单分流、升级交接、AI 动作）。要现成集成生态（CRM/帮助台）。
 
-    不适合：要产品本体开源（主仓只是集成/工具面）、要大陆直连备案入口、要个人用途（ToS 明言企业向）。
+    不适合：要产品本体开源（主仓只是集成/工具面）。要大陆直连备案入口。要个人用途（ToS 明言企业向）。
 pitfalls:
-  - 「GitHub 主仓 MIT」≠「Botpress 产品开源」——主仓在册内容是 integrations/devtools/plugins，Cloud 本体闭源（README This Repository 节当日在册）
-  - 自托管只有 v12 旧代（AGPL-3.0，2025-04 后推送放缓）——现役产品是 Cloud 线，别按 v12 评估现役形态
-  - 旧文档域 docs.botpress.cloud 当日直连 000——现行文档在 botpress.com/docs（changelog 在 /docs/changelog），别按旧域判死链
+  - 「GitHub 主仓 MIT」≠「Botpress 产品开源」。主仓在册内容是 integrations/devtools/plugins，Cloud 本体闭源（README This Repository 节当日在册）
+  - 自托管只有 v12 旧代（AGPL-3.0，2025-04 后推送放缓）。现役产品是 Cloud 线，别按 v12 评估现役形态
+  - 旧文档域 docs.botpress.cloud 当日直连 000。现行文档在 botpress.com/docs（changelog 在 /docs/changelog），别按旧域判死链
 
 tags: [低代码, agent平台, 客服销售, 云托管, 集成生态, 商业]
 related: [dify, coze, langchain]
@@ -75,12 +75,12 @@ cn:
   origin_note_en: dual entity by customer location — Technologies Botpress Inc. (Canada) / Botpress, Inc. (Delaware, US),
     on record in the ToS direct-fetched same day; not in the CAC public registry.
   direct: yes
-  direct_note: botpress.com、app.botpress.cloud、botpress.com/docs 大陆直连实测 200（2026-10-30）；
+  direct_note: botpress.com、app.botpress.cloud、botpress.com/docs 大陆直连实测 200（2026-10-30）。
     GitHub 两仓直连 000（代理 200）——代码获取需网络环境。
   direct_note_en: botpress.com, app.botpress.cloud and botpress.com/docs measured 200 direct from mainland (2026-10-30);
     the two GitHub repos measured 000 direct (200 via proxy) — code acquisition needs a network path.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与批次 PDF 镜像，未见 Botpress 条目）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-30 检索百炼公示页与批次 PDF 镜像，未见 Botpress 条目）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (Bailian disclosure page and batch PDF mirrors searched 2026-10-30; no Botpress entry);
     the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-30
@@ -90,11 +90,11 @@ cn:
 
 **Botpress 是企业向客服场景的 AI agent 平台**（首页当日招牌：enterprise-grade AI agent platform for customersupport，「会执行退款/账户更新等真实动作」）。云托管现役线 + Hub 集成生态。
 
-GitHub 主仓是集成/开发工具面（MIT），产品本体闭源——「开源 Botpress」的说法要按仓内容拆开看。
+GitHub 主仓是集成/开发工具面（MIT），产品本体闭源。「开源 Botpress」的说法要按仓内容拆开看。
 
 ## 适合与不适合
 
-适合：客服/支持 agent（工单分流、升级交接、AI 动作）、现成集成生态（Intercom/Zendesk/Salesforce）。不适合：要产品本体开源、要大陆直连备案入口、要个人用途（ToS 明言企业向）。
+适合：客服/支持 agent（工单分流、升级交接、AI 动作）。现成集成生态（Intercom/Zendesk/Salesforce）。不适合：要产品本体开源。要大陆直连备案入口。要个人用途（ToS 明言企业向）。
 
 ## 实测记录
 
@@ -115,6 +115,6 @@ GitHub 主仓是集成/开发工具面（MIT），产品本体闭源——「开
 
 ## 相关条目
 
-- [Dify](./dify.md) — 同为 agent 搭建平台：Dify 开源可自托管、通用向；Botpress 云托管、客服场景纵深。
+- [Dify](./dify.md) — 同为 agent 搭建平台：Dify 开源可自托管、通用向。Botpress 云托管、客服场景纵深。
 - [扣子 / Coze](./coze.md) — 同为低代码 agent 平台：Coze 绑国内分发渠道，Botpress 绑客服集成生态。
-- [LangChain](../../framework/products/langchain.md) — 代码优先对照：要源码级控制归 framework，要平台托管归本类。
+- [LangChain](../../framework/products/langchain.md) — 代码优先对照：要源码级控制归 framework。要平台托管归本类。

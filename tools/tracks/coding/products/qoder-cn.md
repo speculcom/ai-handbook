@@ -10,33 +10,39 @@ axes:
   model_access: >-
     官方模型选择器页明示三档用法。Auto 智能路由、Fast 快速档位、直接指定模型。
 
-    可指定清单含 Qwen3.8/3.7 系、DeepSeek-V4-Pro/Flash、GLM-5.3/Flash、Kimi-K3/K2.8-Preview、 MiniMax-M3.1-Flash（各带 Credits 用量参考系数，清单与系数以客户端为准）。
+    可指定清单含 Qwen3.8/3.7 系、DeepSeek-V4-Pro/Flash、GLM-5.3/Flash、Kimi-K3/K2.8-Preview、MiniMax-M3.1-Flash。
 
-    还可通过 API 密钥接入自己的模型（官方「自定义模型」页，CLI 侧称 BYOK 向导）。系列页官方口径「底层支持 GLM、DeepSeek、Kimi、MiniMax 等国内主流大模型」。
+    各带 Credits 用量参考系数，清单与系数以客户端为准。
+
+    还可通过 API 密钥接入自己的模型。官方「自定义模型」页有说明，CLI 侧称 BYOK 向导。系列页官方口径称，底层支持多家国内主流大模型。包括 GLM、DeepSeek、Kimi 与 MiniMax。
   runtime: >-
     Qoder CN 是产品系列（官方家族页）。
 
-    一体化 AI 工作空间 Qoder CN（桌面应用）、 Qoder CN IDE、Qoder CN JetBrains 插件、Qoder CN CLI、Agent SDK（TypeScript/Python）、 Cloud Agents CN（云端全托管 Agent 平台）、QoderWake CN（数字员工）、移动端与网页版。
+    一体化 AI 工作空间 Qoder CN（桌面应用）、Qoder CN IDE、Qoder CN JetBrains 插件、Qoder CN CLI。
+
+    Agent SDK（TypeScript/Python）、Cloud Agents CN（云端全托管 Agent 平台）、QoderWake CN（数字员工）、移动端与网页版。
 
     Credits 跨产品共享（订阅口径见官方账号与订阅页）。编码主线是 IDE/插件/CLI 三形态。官方「什么是 Qoder CN IDE」页明示 VS Code 插件已停止维护。
   local_files: >-
-    IDE/插件/CLI 形态处理你本机代码与工程（官方安全页：Qoder CN 可以处理本地代码、已安装扩展、 远程连接和外部服务）。
+    IDE、插件与 CLI 形态处理你本机代码与工程。官方安全页称，Qoder CN 可处理本地代码、已安装扩展、远程连接和外部服务。
 
-    CLI 的记忆文件（AGENTS.md 与自动记忆）保存在本机、可在设置中查看与清空。模型推理发生在服务侧。系列页官方口径「全链路在国内云上部署」。
+    CLI 的记忆文件含 AGENTS.md 与自动记忆，保存在本机。可在设置中查看与清空。模型推理发生在服务侧。系列页官方口径「全链路在国内云上部署」。
 
     Cloud Agents CN / QoderWake CN 线的数据边界按官方文档口径。
   background: >-
-    **依据：** 后台/异步面是官方叙事的一部分：Cloud Agents CN 全托管长时异步任务（官方原文：关闭客户端后任务继续运行）、 批量并发执行；CLI 有定时任务、/loop 循环执行、Cloud Mode 与 Remote Control； 移动端可查看智能体进展、审批关键操作（官网口径）。 注意官方公告「Qoder CN IDE『Quest』视窗下线通知」——旧教程里的 Quest 面已过时。
+    **依据：** 后台/异步面是官方叙事的一部分：Cloud Agents CN 全托管长时异步任务（官方原文：关闭客户端后任务继续运行）、 批量并发执行。CLI 有定时任务、/loop 循环执行、Cloud Mode 与 Remote Control。 移动端可查看智能体进展、审批关键操作（官网口径）。 注意官方公告「Qoder CN IDE『Quest』视窗下线通知」。旧教程里的 Quest 面已过时。
   tools: >-
-    官方文档给全扩展面：MCP（连接器市场或自定义 MCP 服务器，配置在 ~/.qoder/settings.json）、 Skills、Plugins、Subagents（专家团：前后端/数据库/运维/测试领域智能体）、Hooks、自定义指令与命令。
+    官方文档给全扩展面。MCP 可接连接器市场或自定义服务器。配置文件在 ~/.qoder/settings.json。
 
-    **依据：** CLI 内置文件读写、Shell 执行、Grep/Glob、Web 搜索与网页抓取。支持非交互模式接入脚本与 CI/CD。
+    另有 Skills、Plugins、Subagents、Hooks、自定义指令与命令。Subagents 是专家团，覆盖前后端、数据库、运维与测试。
 
-    另有 Repo Wiki（为代码仓库生成项目知识）与代码安全扫描（提交/推送前渐进式扫描）。
+    **依据：** CLI 内置文件读写、Shell 执行与 Grep/Glob。也支持 Web 搜索与网页抓取。支持非交互模式接入脚本与 CI/CD。
+
+    另有 Repo Wiki，为代码仓库生成项目知识。还有代码安全扫描，在提交/推送前渐进式扫描。
   context: >-
     记忆机制官方成页。全局记忆与项目记忆两类、可分别开关与清空，保存在本机记忆目录。
 
-    官方把上下文来源分三层——记忆（跨任务偏好背景）、Repo Wiki（代码库生成的项目知识）、 知识库（团队维护的结构化资料）。
+    官方把上下文来源分三层。记忆保存跨任务偏好背景。Repo Wiki 为代码库生成项目知识。知识库是团队维护的结构化资料。
 
     另有上下文压缩、代码库索引、规则设置、多模态输入（图片/PDF）。
   permissions: >-
@@ -44,19 +50,21 @@ axes:
 
     安全与授权页给账号/凭证/扩展/连接的核查清单。企业侧有企业标准版与企业专属版（VPC 部署）。
   fit: >-
-    **依据：** 适合：要国内合规叙事（阿里云一方产品、国内主流大模型+国内云上部署，官方点名金融/政务客群）、 IDE/JetBrains 插件/CLI 三形态同账号、全家桶 Credits 共享、企业 VPC 专属部署。 不适合：要海外模型清单自选（主线模型面是国内主流大模型）、还在依赖 VS Code 插件（已停维护）。
-  name_history: >-
-    品牌改名史（档案要写清）。智能编码助手通义灵码（Lingma，2023 首发）→ Qoder CN 系列 （2026-05-20 官方正式更名）。
+    **依据：** 适合要国内合规叙事。阿里云一方产品，国内主流大模型加国内云上部署，官方点名金融/政务客群。IDE、JetBrains 插件与 CLI 三形态同账号。全家桶 Credits 共享。企业还有 VPC 专属部署。
 
-    桌面应用曾用名 Lingma IDE、Qoder CN Desktop—— 同一产品不同时期多个名字。检索时通义灵码/Lingma/Qoder CN 都要认。
+    不适合：要海外模型清单自选。主线模型面是国内主流大模型。还在依赖 VS Code 插件也不适合，已停维护。
+  name_history: >-
+    品牌改名史（档案要写清）。智能编码助手通义灵码 Lingma 于 2023 首发。后转为 Qoder CN 系列，2026-05-20 官方正式更名。
+
+    桌面应用曾用名 Lingma IDE、Qoder CN Desktop。 同一产品不同时期多个名字。检索时通义灵码/Lingma/Qoder CN 都要认。
 pitfalls:
-  - 通义灵码（Lingma）已于 2026-05-20 正式更名为 Qoder CN 系列——「通义灵码」「Lingma IDE」「Qoder CN Desktop」
+  - 通义灵码（Lingma）已于 2026-05-20 正式更名为 Qoder CN 系列。「通义灵码」「Lingma IDE」「Qoder CN Desktop」
     这些名字都指同一条桌面应用线（官方明写「如您在其他渠道看到通义灵码相关内容，与本产品为同一产品」）
-  - 国内线 qoder.com.cn（Qoder CN 系列）与国际版 qoder.com 是两条产品线——功能与模型面别互相推断，
+  - 国内线 qoder.com.cn（Qoder CN 系列）与国际版 qoder.com 是两条产品线。功能与模型面别互相推断，
     两者的官方关系说明按官方文档口径
-  - VS Code 插件已停止维护（官方「什么是 Qoder CN IDE」页明示）——JetBrains 插件继续提供，
+  - VS Code 插件已停止维护（官方「什么是 Qoder CN IDE」页明示）。JetBrains 插件继续提供，
     从旧灵码 VS Code 插件迁移的读者要换形态
-  - Quest 视窗已下线（官方产品公告）——搜到的旧灵码教程里 Quest 工作流可能已失效
+  - Quest 视窗已下线（官方产品公告）。搜到的旧灵码教程里 Quest 工作流可能已失效
 
 tags: [国产, 免费+付费, 桌面, 插件, CLI, 国产模型, MCP, Credits, 企业VPC]
 related: [codebuddy, trae, claude-code-cli, claude-agent-sdk]
@@ -94,7 +102,7 @@ confidence: verified
 
 cn:
   origin: domestic
-  origin_note: 阿里云（阿里巴巴体系）——官方口径「阿里云一方产品，由阿里云统一研发与运维」。
+  origin_note: 阿里云（阿里巴巴体系）。官方口径「阿里云一方产品，由阿里云统一研发与运维」。
   origin_note_en: Alibaba Cloud — the official docs call it a first-party Alibaba Cloud product,
     developed and operated by Alibaba Cloud itself.
   direct: yes
@@ -102,7 +110,7 @@ cn:
   direct_note_en: qoder.com.cn / lingma.aliyun.com / docs.qoder.cn measured 200 direct from mainland (2026-10-22).
   filing: unknown
   filing_note: 官方系列页声称「全链路在国内云上部署，符合国内数据安全与合规要求」，
-    但所用各模型（Qwen/DeepSeek/GLM/Kimi/MiniMax）的备案号公示位置按官方文档口径到；「官方文档未单列」不等于「未备案」。
+    但所用各模型（Qwen/DeepSeek/GLM/Kimi/MiniMax）的备案号公示位置按官方文档口径到。「官方文档未单列」不等于「未备案」。
   filing_note_en: the official series page claims full-chain domestic cloud deployment meeting domestic
     data-security and compliance requirements, but per-model filing numbers (Qwen/DeepSeek/GLM/Kimi/MiniMax)
     were not verified against an official disclosure page the 2026-10-08 pass; "not verified" does not mean "not filed".
@@ -111,13 +119,13 @@ cn:
 
 ## 一句话定位
 
-**Qoder CN 是阿里云的 AI 编码产品线**（原通义灵码，2026-05-20 官方更名）：桌面 IDE + JetBrains 插件 + CLI三形态，国内主流大模型可切换可 BYOK。
+**Qoder CN 是阿里云的 AI 编码产品线**：原通义灵码，2026-05-20 官方更名。形态有桌面 IDE、JetBrains 插件与 CLI。国内主流大模型可切换，也可 BYOK。
 
-记忆/Repo Wiki/知识库三层上下文。全家桶 Credits 共享——「阿里云一方产品 + 国内部署」是它的官方合规叙事。
+记忆/Repo Wiki/知识库三层上下文。全家桶 Credits 共享。它的官方合规叙事是「阿里云一方产品 + 国内部署」。
 
 ## 适合与不适合
 
-适合：国内合规叙事（金融/政务客群是官方点名对象）、IDE/插件/CLI 三形态同账号、企业 VPC 专属部署。
+适合：国内合规叙事（金融/政务客群是官方点名对象）。IDE/插件/CLI 三形态同账号。企业 VPC 专属部署。
 不适合：要海外模型清单自选、还在依赖 VS Code 插件（已停维护）。
 
 ## 实测记录
@@ -139,6 +147,6 @@ cn:
 
 ## 相关条目
 
-- [CodeBuddy](./codebuddy.md) — 同为国产大厂编码助手：腾讯云系混元已备案可查、走云生态一条龙；Qoder CN 走「一方产品+全家桶 Credits」叙事，备案口径本档官方文档未单列号。
-- [Trae](./trae.md) — 同为国产出海编码工具：字节系国内外两条线都活跃；Qoder CN 的国内线（qoder.com.cn）与国际版（qoder.com）关系官方未对照说明。
-- [Qoder（国际版）](./qoder.md) — 同品牌两条线：国际线走 qoder.com 账号与海外端点、家族含 Cloud Agents/QoderWork；两线功能与模型面别互推（官方无对照页）。
+- [CodeBuddy](./codebuddy.md) — 同为国产大厂编码助手：腾讯云系混元已备案可查、走云生态一条龙。Qoder CN 走「一方产品+全家桶 Credits」叙事，备案口径本档官方文档未单列号。
+- [Trae](./trae.md) — 同为国产出海编码工具：字节系国内外两条线都活跃。Qoder CN 的国内线（qoder.com.cn）与国际版（qoder.com）关系官方未对照说明。
+- [Qoder（国际版）](./qoder.md) — 同品牌两条线：国际线走 qoder.com 账号与海外端点、家族含 Cloud Agents/QoderWork。两线功能与模型面别互推（官方无对照页）。

@@ -7,8 +7,8 @@ homepage: https://www.nightfall.ai/
 mark: N
 accent: "#8B5CF6"
 license: >-
-  商业 SaaS，不开源：官网与帮助中心均未给出仓库或许可证字段，本批次官方页面未提供自托管发行物（/trust 与 /changelog 两个入口
-  当日返回 404）。合规口径可确认的只有一句——security 页在册「Nightfall is SOC 2 Type 2 certified」；
+  商业 SaaS，不开源。官网与帮助中心均未给出仓库或许可证字段，本批次官方页面未提供自托管发行物（/trust 与 /changelog 两个入口
+  当日返回 404）。合规口径可确认的只有一句。security 页在册「Nightfall is SOC 2 Type 2 certified」。
   ISO 27001、GDPR/DPA、subprocessor 清单在当日抓到的页面里未点名，属「未披露」而非「没有」。
 licenseEn: >-
   Commercial SaaS, not open source: neither the site nor the help centre exposes a repository or licence field, and no
@@ -30,7 +30,7 @@ axes:
 
     自托管或 air-gapped 形态。当日抓到的页面未列，不补推断。
   local_files: >-
-    **依据：** 你能交给它的东西（官方 FAQ 在册）：「plain text, structured and unstructured files, and even images」，格式点名 JSON、XML、CSV 等；端点面则在你的机器上读文件以便在读取时刻阻断。**交给它的内容是否留存、留多久**：DLP API 文档与 FAQ 均未声明，进 unknowns。图像与文件的能力限制见 supported file types 文档页（本批次未逐条读取）。
+    **依据：** 你能交给它的东西（官方 FAQ 在册）：「plain text, structured and unstructured files, and even images」，格式点名 JSON、XML、CSV 等。端点面则在你的机器上读文件以便在读取时刻阻断。**交给它的内容是否留存、留多久**：DLP API 文档与 FAQ 均未声明，进 unknowns。图像与文件的能力限制见 supported file types 文档页（本批次未逐条读取）。
   background: >-
     异步任务面清楚。文件扫描是 /v3/upload（POST 发起）→ /v3/upload/{fileId}（PATCH 传分块）→ /finish → /scan 的多步流程。
 
@@ -40,13 +40,13 @@ axes:
   context: >-
     它的「上下文」是策略与规则集，不是会话记忆。一次扫描由 policyUUIDs 与 detectionRules 决定按哪些规则跑。
 
-    **依据：** 可复核的历史面有明确边界——MCP Gateway 的审计记录写 user、server、tool、status 与 request payload。
+    **依据：** 可复核的历史面有明确边界。MCP Gateway 的审计记录写 user、server、tool、status 与 request payload。
 
     而 payload「capped at 8 KiB」。超出部分的处置方式官方文档不展开，不补推断。
   permissions: >-
     逐条挂来源：SOC 2 Type 2 在 security 页在册。
 
-    **数据出境、留存期、是否用于训练**这三问在本批次抓到的任何官方页面里 都没有逐条答案（developer-api 文档与 FAQ 未声明，/trust 404）。
+    **数据出境、留存期与是否用于训练是三个问题**：本批次抓到的任何官方页面都没有逐条答案。developer-api 文档与 FAQ 未声明，/trust 404。
 
     因此一律进 unknowns，不做「不训练」这类推断。
 
@@ -62,13 +62,13 @@ axes:
 
     也不把它与自部署方案排名——选型看的是「数据能不能出你的边界」这一条约束。
   fit: >-
-    适合：SaaS、端点与 agent 三条面已经在用，要统一管控。需要在 MCP 与 IDE hooks 这一层加动作。愿意用托管 API 在发给 模型之前把 PII 与凭据处理掉。
+    适合：SaaS。端点与 agent 三条面已经在用，要统一管控。需要在 MCP 与 IDE hooks 这一层加动作。愿意用托管 API 在发给 模型之前把 PII 与凭据处理掉。
 
-    需要事件面与审计面而不是自己搭一套。不适合：硬约束「文本不出自己的边界」或要求可审计 的开源许可（那种约束下走自部署方案）。只需要凭据泄露监测与 incident 工作流的团队。
+    需要事件面与审计面而不是自己搭一套。不适合：硬约束「文本不出自己的边界」，或要求可审计的开源许可。那种约束下走自部署方案。只需要凭据泄露监测与 incident 工作流的团队。
 pitfalls:
-  - 把「有 MCP Gateway」当成「MCP 流量已全量脱敏」：官方在册审计 payload 上限 8 KiB，超出部分未说明
+  - 把「有 MCP Gateway」当成「MCP 流量已全量脱敏」。官方在册审计 payload 上限 8 KiB，超出部分未说明
   - 把 endpoint agent 当成整套离线：检测与判定按官方口径仍是服务侧能力
-  - 把「SOC 2 在册」读成「留存与训练用途已披露」：那三问本批次官方页面未提供条款答案
+  - 把「SOC 2 在册」读成「留存与训练用途已披露」。那三问本批次官方页面未提供条款答案
 
 tags: [云端, 商业, API, 混合, 自动化]
 related: [presidio, gitguardian, claude-code-cli]
@@ -113,7 +113,7 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: Nightfall AI（美国厂商，官网与帮助中心均英文、无面向大陆的条款页）；本批次按官方文档口径注册主体。
+  origin_note: Nightfall AI（美国厂商，官网与帮助中心均英文、无面向大陆的条款页）。本批次按官方文档口径注册主体。
   origin_note_en: Nightfall AI (a US vendor; the site and help centre are English-only with no mainland-facing terms page); the registering entity was not verified item by item in this pass.
   direct: unknown
   direct_note: nightfall.ai 与 help.nightfall.ai 当日从当前网络取到 200，但未在大陆网络环境做直连实测，故不补推断。
@@ -126,9 +126,9 @@ cn:
 
 ## 一句话定位
 
-**Nightfall 是「AI 时代那套托管 DLP」**：官网首页自我定位 "Security Platform for Agents, MCP and Data Movement"，把三件事放在同一层。
+**Nightfall 是「AI 时代那套托管 DLP」**：官网首页自我定位 "Security Platform for Agents, MCP and Data Movement"。把三件事放在同一层。
 
-发给模型前的文本/文件扫描（DLP API）、IDE 与 agent 的 Inference Hooks、以及坐在 AI 客户端与远端MCP server 之间的 Gateway。
+发给模型前的文本与文件扫描走 DLP API。IDE 与 agent 的 Inference Hooks 也在。另有坐在 AI 客户端与远端 MCP server 之间的 Gateway。
 
 它和自部署那条线的分工不需要排名来表述：**能不能把数据交出去**就是分界线。能交出去，这里给的是策略化、事件化、审计化的一套托管面。
 
@@ -136,7 +136,7 @@ cn:
 
 ## 适合与不适合
 
-适合：SaaS、端点、agent 三条面已经在用且想统一管控。需要在 MCP 与 IDE hooks 这一层真的下动作（Block server、Disable tool）。
+适合：SaaS。端点。agent 三条面已经在用且想统一管控。需要在 MCP 与 IDE hooks 这一层真的下动作（Block server、Disable tool）。
 
 愿意用托管 API 在数据进模型前把 PII 与凭据处理掉。需要事件面与审计面而不是自己搭。不适合：「文本不出自己边界」的硬约束，或要求公开许可与可自托管审计。
 
@@ -144,7 +144,9 @@ cn:
 
 ## 实测记录
 
-**本档未做端到端实测**：没有调用过 /v3/scan。没有部署过 MCP Gateway 或端点代理。不产出检出率、漏检率、延迟或任何排名。
+**本档未做端到端实测**
+
+没有调用过 /v3/scan。没有部署过 MCP Gateway 或端点代理。不产出检出率、漏检率、延迟或任何排名。
 
 本档案只组织官网、Security、Pricing、帮助中心首页、两个 developer-api 页、MCP Gateway 文档与 Release Notes在册的说法。
 
@@ -157,7 +159,7 @@ cn:
 
 ## 变更记录说明
 
-本对象没有站内 changelog 页（/changelog 与 /trust 当日返回 404）。但帮助中心有独立 Release Notes：最新在册条目为 2026-10（Violations 页新增加密状态筛选；Google Drive 补救动作给出失败原因）与 2026-09（macOS 27 经 MDM 授予辅助功能权限；AirDrop 与 Bluetooth 外发控制；Windows 各外发通道的 branded block dialogs）。
+本对象没有站内 changelog 页（/changelog 与 /trust 当日返回 404）。但帮助中心有独立 Release Notes。最新在册条目为 2026-10（Violations 页新增加密状态筛选；Google Drive 补救动作给出失败原因）与 2026-09（macOS 27 经 MDM 授予辅助功能权限；AirDrop 与 Bluetooth 外发控制；Windows 各外发通道的 branded block dialogs）。
 
 这些是**产品变更事实**，不含任何效果指标。本档案的 changelog 链接即指向该 Release Notes 页。
 
@@ -168,7 +170,7 @@ cn:
   models, and datasets」——**是类别清单，不是覆盖率**。
 - 动作面在册：阻断（Block/Disable）、掩码（maskConfig）、替换（substitutionConfig / infoTypeSubstitutionConfig）、
   加密（cryptoConfig）、删除（removeFinding）、返回 redactedPayload。
-- 边界要说清：判定与扫描发生在厂商侧，端点代理只是把动作推到读取时刻；本批次官方页面未提供自托管或 air-gapped 口径。
+- 边界要说清：判定与扫描发生在厂商侧，端点代理只是把动作推到读取时刻。本批次官方页面未提供自托管或 air-gapped 口径。
 
 ## 未知项清单
 
@@ -189,7 +191,7 @@ cn:
 
 ## 部署建议
 
-1. 先做一次「出境判断」：把准备交给 API 的内容分级，若任何一级明确不允许出边界，本档案这条线就直接排除，不必再比能力。
-2. 若可出境，第一轮只跑 redaction 不跑阻断，把 redactedPayload 与你的原文做人工抽样核对——**注意本档不代为给出命中率结论**。
-3. 上 MCP Gateway 前，先确认审计 payload 上限（官方在册 8 KiB）与你的取证需求是否匹配，并明确超限行为要向厂商确认。
-4. 把 SOC 2 报告与 DPA 索取列为合同前置项：本批次抓到的公开页面只确认了认证存在，未确认留存与训练用途。
+1. 先做一次「出境判断」。把准备交给 API 的内容分级，若任何一级明确不允许出边界，本档案这条线就直接排除，不必再比能力。
+2. 若可出境。第一轮只跑 redaction 不跑阻断。把 redactedPayload 与你的原文做人工抽样核对。**注意本档不代为给出命中率结论**。
+3. 上 MCP Gateway 前。先确认审计 payload 上限（官方在册 8 KiB）与你的取证需求是否匹配，并明确超限行为要向厂商确认。
+4. 把 SOC 2 报告与 DPA 索取列为合同前置项。本批次抓到的公开页面只确认了认证存在，未确认留存与训练用途。

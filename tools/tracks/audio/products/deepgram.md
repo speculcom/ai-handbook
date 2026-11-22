@@ -6,7 +6,7 @@ nameEn: Deepgram
 vendor: Deepgram
 homepage: https://www.deepgram.com
 license: 免费额度+按量/订阅（API 平台姿态）。按官方条款管辖（deepgram.com 站点条款线，
-  2026-10-22 直抓核验站点可达）；输出数据留存与训练口径细节本档不逐条展开。
+  2026-10-22 直抓核验站点可达）。输出数据留存与训练口径细节本档不逐条展开。
 licenseEn: Free credits + usage-based/subscription (API-platform posture). Governed by official terms
   (deepgram.com site terms line, reachability direct-fetched 2026-10-22); data retention and training
   practices not verified line by line.
@@ -29,11 +29,11 @@ axes:
   permissions: >-
     API key 体系+用量计费（D9：价格不采）。企业面有合规叙事（SOC2 类认证线官网所见，细节本档不逐条展开）。数据留存/训练开关按条款（本档不逐条展开）。
   fit: >-
-    适合：开发者做实时语音应用（客服/会议/字幕流）、低延迟转写 API 集成、英文向高准确率。
+    适合：开发者做实时语音应用（客服/会议/字幕流）。低延迟转写 API 集成。英文向高准确率。
 
-    不适合：非开发者直接使用（它是 API 平台不是终端产品）、隐私敏感音频（云端处理）、中文向主打。
+    不适合：非开发者直接使用（它是 API 平台不是终端产品）。隐私敏感音频（云端处理）。中文向主打。
 pitfalls:
-  - Deepgram 是 API 平台不是终端产品——「用 Deepgram 转写会议」实际是「用 Deepgram 造一个转写产品」
+  - Deepgram 是 API 平台不是终端产品。「用 Deepgram 转写会议」实际是「用 Deepgram 造一个转写产品」
   - 实时流式与批处理是不同端点不同计费面——按单一「转写服务」理解会错配
   - 转写质量按语言/口音/领域波动——官方基准是英文向叙事，中文场景要自测
 
@@ -63,7 +63,7 @@ cn:
   direct_note: deepgram.com 大陆直连实测 200（2026-10-22）。
   direct_note_en: deepgram.com measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-10-22

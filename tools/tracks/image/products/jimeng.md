@@ -5,7 +5,7 @@ name: 即梦
 nameEn: Jimeng AI
 vendor: 字节跳动（剪映团队）
 homepage: https://jimeng.jianying.com
-license: 免费+积分+会员订阅。官方协议页（jimeng.jianying.com/agreement 直抓核验 2026-10-22）；
+license: 免费+积分+会员订阅。官方协议页（jimeng.jianying.com/agreement 直抓核验 2026-10-22）。
   生成作品的使用与水印规则按该协议与站内会员说明管辖，条款细节按官方文档口径。
 licenseEn: Free + credits + membership tiers. Governed by the official agreement page
   (jimeng.jianying.com/agreement, direct-fetched 2026-10-22); usage and watermark rules for generated works
@@ -25,17 +25,17 @@ axes:
   background: >-
     生成任务在云端排队执行（积分制与「加速」通道是产品语义）。离开页面后任务继续—— 云端队列形态与通用对话产品的「即时返回」不同。
   tools: >-
-    **依据：** 产品内含文生图、图片编辑（局部消除/重绘）、智能画布、文生视频/图生视频、视频对口型/补帧等能力线 （官网与 App 说明所见）；社区「做同款」是它的传播面。
+    **依据：** 产品内含文生图、图片编辑（局部消除/重绘）、智能画布、文生视频/图生视频、视频对口型/补帧等能力线 （官网与 App 说明所见）。社区「做同款」是它的传播面。
   context: >-
     以作品/会话组织。官方产品面没有跨会话记忆入口。跨会话一致性靠作品与素材复用。
   permissions: >-
     账号体系（抖音登录为主）。免费积分每日赠送+充值+会员三档获取（D9：价格数字不采）。会员档位含「去除品牌水印」权益——水印规则按档位变化，用前看站内说明。
   fit: >-
-    适合：中文语义出图、图片与视频一条链路、抖音生态发布链路。不适合：要模型自选、要无水印免费出图（水印与档位绑定）、要本机跑模型。
+    适合：中文语义出图。图片与视频一条链路。抖音生态发布链路。不适合：要模型自选。要无水印免费出图（水印与档位绑定）。要本机跑模型。
 pitfalls:
-  - 「ICP 备案」与「生成式 AI 服务备案」是两回事——即梦站点有 ICP 备案号（脸萌公司主体），
+  - 「ICP 备案」与「生成式 AI 服务备案」是两回事。即梦站点有 ICP 备案号（脸萌公司主体），
     其模型的生成式 AI 服务备案号本档官方文档未单列官方公示，别把 ICP 号当 AI 备案号引用
-  - 即梦同时是图片（Seedream）与视频（Seedance）入口——本档案覆盖其图片主轴，视频向与 video 大类档案对照
+  - 即梦同时是图片（Seedream）与视频（Seedance）入口。本档案覆盖其图片主轴，视频向与 video 大类档案对照
   - 「图片 4.0 限时免费」类站内促销有时效——引用档位权益前先核站内当前说明
 
 tags: [国产, 免费+积分+会员, 中文语义, 图视频一体, 抖音生态]
@@ -68,8 +68,8 @@ cn:
   direct_note: jimeng.jianying.com 大陆直连实测 200（2026-10-22）。
   direct_note_en: jimeng.jianying.com measured 200 direct from mainland (2026-10-22).
   filing: unknown
-  filing_note: 站点有 ICP 备案（粤ICP备13065114号系列）；其图片/视频模型的生成式 AI 服务备案号
-    官方文档未单列官方公示页（2026-10-22 检索）——「官方文档未单列」不等于「未备案」，且 ICP 号不是 AI 备案号。
+  filing_note: 站点有 ICP 备案（粤ICP备13065114号系列）。其图片/视频模型的生成式 AI 服务备案号
+    官方文档未单列官方公示页（2026-10-22 检索）。「官方文档未单列」不等于「未备案」，且 ICP 号不是 AI 备案号。
   filing_note_en: the site carries a Guangdong ICP filing (No. 13065114 series); no generative-AI service filing no.
     verified on official disclosure pages for its image/video models (searched 2026-10-22) — "not verified"
     does not mean "not filed", and an ICP number is not an AI-service filing.

@@ -11,7 +11,9 @@
 | 2 | 有官方产品页与能力文档 |
 | 3 | 能回答「产物归谁/能否商用」至少一条官方条款（permissions 维可答） |
 
-**形态归属**（决定 `form:` 取值；⚠ 下表第一列不加反引号——audit.mjs 判据）：
+**形态归属**
+
+决定 `form:` 取值。⚠ 下表第一列不加反引号，audit.mjs 按这个判据检查。
 
 | 形态 | 判据 |
 |:--|:--|
@@ -48,6 +50,6 @@
 | `stability-ai` | Stability AI（Stable Image 平台） | Stability AI | 网页服务 | 8 项已核 · 活跃 |
 | `tensor-art` | Tensor.Art | ECHO INTERNATIONAL HK LIMITED（Tensor.Art） | 网页服务 | 8 项已核 · 活跃 |
 
-> 共 **15** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
+> 共 **15** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

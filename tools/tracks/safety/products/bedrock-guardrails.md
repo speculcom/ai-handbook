@@ -5,7 +5,7 @@ name: Amazon Bedrock Guardrails
 nameEn: Amazon Bedrock Guardrails
 vendor: Amazon Web Services
 homepage: https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html
-license: 商业云服务，按 AWS 服务条款与共享责任模型管辖（data-protection 页 2026-11-06 直抓在册）；
+license: 商业云服务，按 AWS 服务条款与共享责任模型管辖（data-protection 页 2026-11-06 直抓在册）。
   内容归属仍由所选模型的条款决定。
 licenseEn: Commercial cloud service under the AWS Service Terms and the shared-responsibility model
   (recorded on the data-protection page, direct-fetched 2026-11-06); content rights still follow the terms of whichever model you pick.
@@ -24,7 +24,7 @@ axes:
 
     护栏策略是云端资源（draft + version）。
   local_files: >-
-    不读写你的工作区文件。内容通过 API 或控制台测试窗口提交。官方 data-protection 页提示 不要把机密信息写进标签或 Name 等自由文本字段。因为那些可能进计费与诊断日志。
+    不读写你的工作区文件。内容通过 API 或控制台测试窗口提交。官方 data-protection 页提示，不要把机密信息写进标签或 Name 等自由文本字段。因为那些可能进计费与诊断日志。
   background: >-
     以同步评估为主。官方 Guardrails 文档没有托管长任务队列或关机续跑入口。跨区域推理与保留策略按区域页，护栏评估按请求返回。
   tools: >-
@@ -42,11 +42,11 @@ axes:
 
     要求人工复核的模型在 none / default 下直接不可用。IAM / SCP 可强制组织级 ZDR。合规证书明细本次按官方文档口径，官方文档未单列。
   fit: >-
-    适合模型主要就在 Bedrock 上、要把护栏挂进推理调用、又要有零保留与人工复核开关可治理的团队。不适合需要自托管护栏（走本地库那条线）、要跨云统一护栏策略，或依赖中国区可用的场景。
+    适合模型主要在 Bedrock 上、要把护栏挂进推理调用、还要零保留与人工复核开关的团队。不适合需要自托管护栏、要跨云统一策略，或依赖中国区可用的场景。
 pitfalls:
-  - 以为设成 aws_review 就等于所有请求都被保留：官方写明各模型按 allowed_modes 独立决定
+  - 以为设成 aws_review 就等于所有请求都被保留。官方写明各模型按 allowed_modes 独立决定
   - 以为目录里任何模型都能挂护栏：嵌入/重排/语音等被官方列为不支持，请求直接报错
-  - 以为护栏必须跟着模型调用跑：ApplyGuardrail 可脱离模型单独评，计费与接入路径不同
+  - 以为护栏必须跟着模型调用跑。ApplyGuardrail 可脱离模型单独评，计费与接入路径不同
 
 tags: [云端, 商业, guardrails, API, 多后端]
 related: [azure-ai-content-safety, nemo-guardrails, litellm]
@@ -85,16 +85,16 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: AWS 主体；官方 tier 页的在册区域表为美欧亚中东与 GovCloud，未列中国大陆区域。
+  origin_note: AWS 主体。官方 tier 页的在册区域表为美欧亚中东与 GovCloud，未列中国大陆区域。
   origin_note_en: AWS entity; the recorded region table on the tier page covers US / Europe / Asia Pacific / Middle East and GovCloud,
     with no mainland-China region listed.
   direct: unknown
-  direct_note: 同日实测 docs.aws.amazon.com 返回 200，这只是文档可达；服务侧在中国大陆是否由本地运营方提供
+  direct_note: 同日实测 docs.aws.amazon.com 返回 200。这只是文档可达。服务侧在中国大陆是否由本地运营方提供
     官方文档未单列，不以「文档能打开」推断可用或合规。
   direct_note_en: Same-day probe of docs.aws.amazon.com returned 200, which is documentation reachability only;
     whether the service is offered in the mainland by a local operator is unverified — doc reachability is not availability.
   filing: unknown
-  filing_note: 官方护栏文档未写中国大陆备案/登记信息；监管公示名单已检索，不做推断。
+  filing_note: 官方护栏文档未写中国大陆备案/登记信息。监管公示名单已检索，不做推断。
   filing_note_en: The guardrail documentation says nothing about mainland filing/registration; the public registry was not searched.
   verified: 2026-11-06
 ---
@@ -118,17 +118,17 @@ cn:
 
 档位差异是实质的。
 
-Standard tier 才支持代码内容里的危害检测、跨区域推理与 prompt leakage 检测，denied topics 的字符上限也从 200 提到 1000（tier 页在册）。
+Standard tier 才支持几项。代码内容里的危害检测、跨区域推理与 prompt leakage 检测都在内。denied topics 字符上限也从 200 提到 1000，tier 页在册。
 
 Classic 只保英法西。contextual grounding 的 Standard 档只在区域子集可用。在其他区域请求会直接校验失败。
 
-Automated Reasoning checks 是另一套东西：拿逻辑规则校验模型回答。不等同于内容过滤。
+Automated Reasoning checks 是另一套东西。拿逻辑规则校验模型回答。不等同于内容过滤。
 
 ## 变更记录说明
 
 变更记录走官方文档历史页。
 
-当日在册最新条目为 2026-10-30 的 Watermarking in Amazon Bedrock（列出会加水印的模型与检测方式），护栏相关的历史条目在同页可回溯；本档据此判 lifecycle = active。
+当日在册最新条目是 2026-10-30 的 Watermarking in Amazon Bedrock。它列出会加水印的模型与检测方式。护栏相关历史条目在同页可回溯。本档据此判 lifecycle = active。
 
 但护栏自身的独立发布说明页未单独设立，记为口径缺口。
 
@@ -153,6 +153,6 @@ Automated Reasoning checks 是另一套东西：拿逻辑规则校验模型回�
 
 ## 相关条目
 
-- [Azure AI Content Safety](./azure-ai-content-safety.md) — 同为托管护栏；差别在数据保留是否做成显式模式与跨区域推理开关。
+- [Azure AI Content Safety](./azure-ai-content-safety.md) — 同为托管护栏。差别在数据保留是否做成显式模式与跨区域推理开关。
 - [NeMo Guardrails](./nemo-guardrails.md) — 想把自己写的 rail 与模型端点留在自己环境里时，看这条线。
-- [LiteLLM](./litellm.md) — 多云或自托管入口的策略治理在网关层，这里是云内推理层。
+- [LiteLLM](./litellm.md) — 多云或自托管入口的策略治理在网关层。这里是云内推理层。

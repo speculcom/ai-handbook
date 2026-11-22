@@ -27,11 +27,11 @@ axes:
   permissions: >-
     自托管无账号体系。API 鉴权由部署方自配。多租户/隔离面本档不逐条展开。
   fit: >-
-    适合：agent 多轮调用/共享 system prompt 的服务化场景（前缀复用收益直接）、要结构化输出语言特性。不适合：单机开箱跑量化档。要最大生态兼容面（vLLM 生态更宽）。
+    适合：agent 多轮调用/共享 system prompt 的服务化场景（前缀复用收益直接）。要结构化输出语言特性。不适合：单机开箱跑量化档。要最大生态兼容面（vLLM 生态更宽）。
 pitfalls:
   - 把 RadixAttention 自报数字当本站实测——官方口径快照，本站不实测
-  - 与 vLLM 二选一时只看吞吐——agent 多轮场景前缀复用才是 SGLang 的差异点
-  - 把 LMSYS 项目当 LMSYS 产品——SGLang 是独立项目（sgl-project），Chatbot Arena 是另一条线
+  - 与 vLLM 二选一时只看吞吐。agent 多轮场景前缀复用才是 SGLang 的差异点
+  - 把 LMSYS 项目当 LMSYS 产品。SGLang 是独立项目（sgl-project），Chatbot Arena 是另一条线
 
 tags: [开源, Apache2.0, 服务化推理, RadixAttention, 多模态]
 related: [openai-agents-sdk, langgraph]
@@ -59,7 +59,7 @@ cn:
   direct_note: docs.sglang.ai 直连实测 200（2026-10-21）。
   direct_note_en: docs.sglang.ai measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
@@ -72,7 +72,7 @@ Apache-2.0，LMSYS 系学术开源。自报数字走 models 站 guides 快照口
 
 ## 适合与不适合
 
-适合：agent 多轮调用、大量共享 system prompt/few-shot 的服务化部署、要官方结构化输出特性。
+适合：agent 多轮调用。大量共享 system prompt/few-shot 的服务化部署。要官方结构化输出特性。
 不适合：单机开箱（Ollama）。
 要最宽生态兼容面（vLLM 更成熟）。
 

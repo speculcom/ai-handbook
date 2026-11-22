@@ -5,7 +5,7 @@ name: Google Opal
 nameEn: Google Opal
 vendor: Google Labs
 homepage: https://opal.google/
-license: 官方条款页面未逐条核验；工具生成内容与上传素材的归属、商用范围以 Google 服务条款为准。本站不解读条款。
+license: 官方条款页面未逐条核验。工具生成内容与上传素材的归属、商用范围以 Google 服务条款为准。本站不解读条款。
 licenseEn: Official terms not verified line by line; ownership and commercial scope of generated content and uploaded assets follow Google's service terms. This site does not interpret the terms.
 
 axes:
@@ -26,10 +26,10 @@ axes:
   permissions: >-
     Google 账号体系。工作流文件在 Drive 内，分享范围按 Drive 权限管理。数据训练用途与商用条款以 Google 服务条款为准，本站未逐条核验。
   fit: >-
-    适合：不写代码、想把「生成 + 搜索 + 视频」串成小应用的人。需要快速做原型并分享。不适合：要自托管、要模型自选、要长期稳定生产（官方已宣布 2026-11-17 停用实验服务）。
+    适合：不写代码。想把「生成 + 搜索 + 视频」串成小应用的人。需要快速做原型并分享。不适合：要自托管。要模型自选。要长期稳定生产（官方已宣布 2026-11-17 停用实验服务）。
 pitfalls:
-  - 把 Opal 当成长期生产平台——官方 FAQ 明确 2026-11-17 停用，现有工作流不会自动迁移；需保留提示与文件并按目标任务重新搭建
-  - 以为它能自选模型——官方叙事是 agent step 自动选工具与模型，不是让用户逐模型配置
+  - 把 Opal 当成长期生产平台。官方 FAQ 明确 2026-11-17 停用，现有工作流不会自动迁移。需保留提示与文件并按目标任务重新搭建
+  - 以为它能自选模型。官方叙事是 agent step 自动选工具与模型，不是让用户逐模型配置
   - 把「免费实验」当成「商用授权」——商用范围以 Google 服务条款为准
 
 tags: [无代码, Google, 云端, 实验性]
@@ -62,17 +62,17 @@ cn:
   origin_note: Google（美国）。
   origin_note_en: Google (US).
   direct: no
-  direct_note: opal.google 大陆直连未核验；Google 系服务在大陆通常需网络环境。
+  direct_note: opal.google 大陆直连未核验。Google 系服务在大陆通常需网络环境。
   direct_note_en: Direct reachability from mainland not verified; Google services generally need a network path there.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-11-03 检索）；该实验产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-11-03 检索）。该实验产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: Not in the CAC public registry (searched 2026-11-03); the experimental product does not serve the mainland public, so filing does not apply.
   verified: 2026-11-03
 ---
 
 ## 一句话定位
 
-Opal 是 Google Labs 的无代码 AI mini-app 搭建器：用自然语言描述。就能把生成、搜索、视频等步骤串成可分享的小应用。
+Opal 是 Google Labs 的无代码 AI mini-app 搭建器。用自然语言描述。就能把生成、搜索、视频等步骤串成可分享的小应用。
 
 实验服务计划于 2026-11-17 停用，现有工作流不会自动迁移。Drive 文件保留，提示与流程需按目标任务重新搭建。
 
@@ -96,7 +96,7 @@ Opal 是 Google Labs 的无代码 AI mini-app 搭建器：用自然语言描述�
 
 ## 相关条目
 
-- [Coze](./coze.md) — 同为可视化搭 AI 应用；Coze 可发布到国内渠道，Opal 走 Google 生态
+- [Coze](./coze.md) — 同为可视化搭 AI 应用。Coze 可发布到国内渠道，Opal 走 Google 生态
 - [Dify](./dify.md) — 可自托管的工作流平台，与 Opal 的云端托管形成对照
 
 ## 核验说明

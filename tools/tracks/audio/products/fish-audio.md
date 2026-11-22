@@ -5,16 +5,16 @@ name: fish audio
 nameEn: fish audio
 vendor: fish.audio
 homepage: https://fish.audio
-license: 免费+订阅+API。按官方条款页管辖（fish.audio/en/terms，2026-10-22 取得）；声音克隆授权与 Professional Voice Clone 验证见官方 Voice Cloning 页（2026-11-21）。
+license: 免费+订阅+API。按官方条款页管辖（fish.audio/en/terms，2026-10-22 取得）。声音克隆授权与 Professional Voice Clone 验证见官方 Voice Cloning 页（2026-11-21）。
 licenseEn: Free, subscription and API tiers. Governed by the official terms page (fish.audio/en/terms, fetched 2026-10-22); clone consent and Professional Voice Clone verification follow the official Voice Cloning page (2026-11-21).
 
 axes:
   model_access: >-
-    自研语音模型线。官方文档列 s2.1-pro（生产推荐）、s2-pro、s2.1-pro-free（零成本测试档）与 drama-3（自然语言导演、带音效/停顿/标签）。
+    自研语音模型线。官方文档列出四档模型。s2.1-pro 用于生产，s2-pro 次之，s2.1-pro-free 是零成本测试档。drama-3 支持自然语言导演，带音效、停顿与标签。
 
     s1 已标注 2026-12-31 退役。自托管线基于 fish_speech 仓库（2026-11-21）。
   runtime: >-
-    **依据：** 云端 API `https://api.fish.audio/v1/tts`（另有 `/model` 建音色）+ 网页 fish.audio；官方自托管文档给出本地 GPU 推理服务（`localhost:8080/v1/tts`），一条请求同时支持云端与自建（2026-11-21）。
+    **依据：** 云端 API `https://api.fish.audio/v1/tts`（另有 `/model` 建音色）+ 网页 fish.audio。官方自托管文档给出本地 GPU 推理服务（`localhost:8080/v1/tts`），一条请求同时支持云端与自建（2026-11-21）。
   local_files: >-
     自托管路径把模型权重与音频都落在本机。官方文档给出从语义 token 到 DAC 解码的本地推理步骤，产物写本地文件。云端路径的产出以 bytes/流式分块返回。
 
@@ -22,7 +22,7 @@ axes:
   background: >-
     合成是同步/流式。`tts.convert()` 返回完整音频，`tts.stream()` 分块吐。WebSocket 接实时文本。
 
-    音色训练是异步状态机，新建模型 `state` 从 created 到 trained（fast 模式多数即时可用）。失败可重试（2026-11-21）。
+    音色训练是异步状态机。新建模型 state 从 created 到 trained，fast 模式多数即时可用。失败可重试（2026-11-21）。
   tools: >-
     TTS（多语言、mp3/wav/pcm/opus、speed 0.5–2.0）、即时克隆（直接传参考音频+转写）、持久音色模型（`POST /model`，private/unlist/public）、音色市场、Drama 3 导演式标签。
 
@@ -36,13 +36,13 @@ axes:
 
     公开音色进 Voice Library 由用户选择 private/unlist/public（2026-11-21）。
   fit: >-
-    适合：自有声音快速复刻、品牌统一音色、实时语音助手（约 300ms 首包，balanced 档）、自托管离线合成。
+    适合：自有声音快速复刻。品牌统一音色。实时语音助手（约 300ms 首包，balanced 档）。自托管离线合成。
 
-    不适合：克隆他人声音（授权红线）、要企业级合规审计链、大陆直连（实测 000）（2026-11-21）。
+    不适合：克隆他人声音（授权红线）。要企业级合规审计链。大陆直连（实测 000）（2026-11-21）。
 pitfalls:
-  - zero-shot 克隆「能用」≠「合规」——上传他人声音样本在条款上是红线，授权责任在使用者
+  - zero-shot 克隆「能用」≠「合规」。上传他人声音样本在条款上是红线，授权责任在使用者
   - 社区音色库的商用权利逐音色看标注——别按「平台可用=可商用」理解
-  - fish.audio 大陆直连 000（2026-10-22，代理 200）——可达性问题不是站点死亡
+  - fish.audio 大陆直连 000（2026-10-22，代理 200）。可达性问题不是站点死亡
 
 tags: [免费+订阅, zero-shot克隆, 音色市场, API向, 需网络环境]
 related: [elevenlabs, minimax-audio, heygen]
@@ -78,10 +78,10 @@ cn:
   origin_note_en: fish.audio (team narrative includes China-background members; the registered entity was
     not verified — honest labeling).
   direct: no
-  direct_note: fish.audio 大陆直连实测 000（2026-10-22，代理下 200 可达）——直连不可达，需网络环境。
+  direct_note: fish.audio 大陆直连实测 000（2026-10-22，代理下 200 可达）。直连不可达，需网络环境。
   direct_note_en: fish.audio measured 000 direct from mainland (2026-10-22; 200 via proxy) — unreachable without a network path.
   filing: unknown
-  filing_note: 未核验到对应生成式 AI 服务备案（2026-10-22 检索）；主体归属未核验清楚，
+  filing_note: 未核验到对应生成式 AI 服务备案（2026-10-22 检索）。主体归属未核验清楚，
     「未核验到」≠「未备案」——若主体为国内团队则备案口径另论。
   filing_note_en: no matching generative-AI service filing found (searched 2026-10-22); the entity's
     affiliation was not verified — "not found" ≠ "not filed"; if the entity is a domestic team the filing
@@ -91,7 +91,7 @@ cn:
 
 ## 一句话定位
 
-**fish audio 是 zero-shot 音色克隆向的 TTS 台**：上传样本即复刻音色 + 社区音色市场；
+**fish audio 是 zero-shot 音色克隆向的 TTS 台**：上传样本即复刻音色，另有社区音色市场。
 「能用」与「合规」之间隔着授权红线。
 
 ## 适合与不适合

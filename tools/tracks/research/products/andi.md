@@ -5,7 +5,7 @@ name: Andi Search
 nameEn: Andi Search
 vendor: Andi
 homepage: https://andisearch.com
-license: 免费（消费端）+ API 按结果计费。按官方条款/隐私页管辖（andisearch.com/terms 与 andiai.com/legal/privacy-policy，2026-11-21）；API 用量与价格按官方文档（2026-11-21）。
+license: 免费（消费端）+ API 按结果计费。按官方条款/隐私页管辖（andisearch.com/terms 与 andiai.com/legal/privacy-policy，2026-11-21）。API 用量与价格按官方文档（2026-11-21）。
 licenseEn: Free. Governed by the official terms/privacy pages (andisearch.com/terms and /privacy,
   direct-fetched 2026-10-22); details not verified line by line.
 
@@ -15,7 +15,7 @@ axes:
 
     API 按 `searchMode` 分 low-cost、fast、balanced、deep、exhaustive 五档自动/手动选择（2026-11-21）。
   runtime: >-
-    **依据：** 网页 andisearch.com + PWA + Chrome 扩展 + REST API（`https://api.andiai.com`）+ 远程 MCP（`https://api.andiai.com/mcp`）+ CLI；检索与生成在厂商云端，CLI 在本地（2026-11-21）。
+    **依据：** 网页 andisearch.com + PWA + Chrome 扩展 + REST API（`https://api.andiai.com`）+ 远程 MCP（`https://api.andiai.com/mcp`）+ CLI。检索与生成在厂商云端，CLI 在本地（2026-11-21）。
   local_files: >-
     匿名使用时不建账户。设置与历史只存浏览器本地。API 返回结构化 JSON 或 LLM-ready Markdown。`format=context` 直接喂 RAG，不在本地落文件。
 
@@ -33,11 +33,11 @@ axes:
 
     隐私政策承诺不出售数据、不记录搜索（2026-11-21）。
   fit: >-
-    适合：要直接答案+可核来源的轻量研究、隐私敏感、免费无广告、给 agent/RAG 接搜索 API。不适合：深度学术垂直检索、中文向主打、要完全可审计的检索日志（2026-11-21）。
+    适合：要直接答案+可核来源的轻量研究。隐私敏感。免费无广告。给 agent/RAG 接搜索 API。不适合：深度学术垂直检索。中文向主打。要完全可审计的检索日志（2026-11-21）。
 pitfalls:
-  - 「直接生成答案」路线意味着检索过程对用户半透明——要核来源时看它的引用面，别只看答案文本
-  - 小团队产品——功能节奏与长期性与大厂不同，选型把「持续性」列风险项（按官方产品公告核对）
-  - andisearch.com 大陆直连实测 200（2026-10-22）——可达，但账号/支付面简单（免费为主）
+  - 「直接生成答案」路线意味着检索过程对用户半透明。要核来源时看它的引用面，别只看答案文本
+  - 小团队产品。功能节奏与长期性与大厂不同，选型把「持续性」列风险项（按官方产品公告核对）
+  - andisearch.com 大陆直连实测 200（2026-10-22）。可达，但账号/支付面简单（免费为主）
 
 tags: [免费, 直接答案, 无广告, 隐私叙事, 自研架构]
 related: [kagi, perplexity, metaso, chatgpt]
@@ -81,7 +81,7 @@ cn:
   direct_note: andisearch.com 大陆直连实测 200（2026-10-22）。
   direct_note_en: andisearch.com measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-11-21
@@ -104,7 +104,7 @@ cn:
 答案质量、来源覆盖率与不追踪叙事的实际行为需按同一问题集与网络请求观察。
 ## 未知项清单
 
-- 自研架构的技术细节：官方给 Trantora 索引与 ensemble 口径，模型清单按 API 文档核对。
+- 自研架构的技术细节：官方给 Trantora 索引与 ensemble 口径。模型清单按 API 文档核对。
 - 产品长期性与融资状态：官方 FAQ 称 Y Combinator 支持。
 - 训练用途开关：按隐私政策与账户设置核对。
 - 中文查询质量：按同一问题集中英对比实测。

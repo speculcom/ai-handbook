@@ -5,7 +5,7 @@ name: PixVerse
 nameEn: PixVerse
 vendor: 爱诗科技
 homepage: https://pixverse.ai
-license: 免费+订阅。按官方条款页管辖（pixverse.ai/en/terms-of-service 直抓核验 2026-10-22）；
+license: 免费+订阅。按官方条款页管辖（pixverse.ai/en/terms-of-service 直抓核验 2026-10-22）。
   商用权按档位区分，细节按官方文档口径。
 licenseEn: Free + subscription. Governed by the official terms page (pixverse.ai/en/terms-of-service,
   direct-fetched 2026-10-22); commercial rights vary by plan, details not verified line by line.
@@ -26,12 +26,12 @@ axes:
   permissions: >-
     账号+订阅体系（D9：价格不采）。训练用途开关按官方文档口径。
 
-    备案：爱诗多模态 Beijing-AiShiDuoMoTai-202507250115 + 爱诗通用实时 Beijing-AiShiTongYongShiShi-202608010283 （阿里云百炼官方公示页 + 北京市政府官网动态页交叉核验，2026-10-22）——主语是模型层。
+    备案：爱诗多模态 Beijing-AiShiDuoMoTai-202507250115 + 爱诗通用实时 Beijing-AiShiTongYongShiShi-202608010283 （阿里云百炼官方公示页 + 北京市政府官网动态页交叉核验，2026-10-22）。主语是模型层。
   fit: >-
-    适合：特效模板/玩法向短视频、社交传播素材、实时交互场景试水（R 系列）、国产直连。不适合：要模型自选、要开放权重、严肃影视级长镜头主打。
+    适合：特效模板/玩法向短视频。社交传播素材。实时交互场景试水（R 系列）。国产直连。不适合：要模型自选。要开放权重。严肃影视级长镜头主打。
 pitfalls:
   - 「实时世界模型」（R 系列）≠「本地实时」——生成仍在云端，卖点是延迟与交互性
-  - 备案主语是模型（爱诗多模态/爱诗通用实时）——不等于 pixverse.ai 海外站产品入口自身的备案状态
+  - 备案主语是模型（爱诗多模态/爱诗通用实时）。不等于 pixverse.ai 海外站产品入口自身的备案状态
   - 特效模板向是它的社区入口——按「严肃影视工具」理解会错判它的产品重心
 
 tags: [免费+订阅, 国产直连, 特效模板, 实时世界模型, 社交向]
@@ -65,7 +65,7 @@ cn:
   direct_note_en: pixverse.ai measured 200 direct from mainland (2026-10-22).
   filing: filed
   filing_no: Beijing-AiShiDuoMoTai-202507250115
-  filing_note: 爱诗多模态备案号（阿里云百炼官方公示页核验，2026-10-22）；R 系列另有
+  filing_note: 爱诗多模态备案号（阿里云百炼官方公示页核验，2026-10-22）。R 系列另有
     Beijing-AiShiTongYongShiShi-202608010283（北京市政府官网动态页交叉）。主语是模型层。
   filing_note_en: Aishi multimodal filing number (verified on Alibaba Cloud Bailian's official disclosure page,
     2026-10-22); the R-series line has its own number Beijing-AiShiTongYongShiShi-202608010283 (cross-checked

@@ -15,7 +15,7 @@ axes:
   model_access: >-
     多模型接入（各家 API 与本地线，本档不逐条复制完整清单）。
 
-    定位语「The self-driving agent platform」 （官方仓描述）——框架库 + 控制平面（AgentOS）两层。
+    定位语「The self-driving agent platform」 （官方仓描述）。框架库 + 控制平面（AgentOS）两层。
   runtime: >-
     Python 框架 + AgentOS 运行时。库侧定义 agent/team/workflow，控制平面侧跑与观测。
 
@@ -25,19 +25,19 @@ axes:
   local_files: >-
     库与 AgentOS 可自托管（「runs in your cloud」官方口径）。托管控制平面是另一产品面（os.agno.com）。
   background: >-
-    AgentOS 控制平面自带常驻运行与观测语义（agent 跑在平面里、任务可调度）。纯库用法则是普通进程内调用。
+    AgentOS 控制平面自带常驻运行与观测语义。agent 跑在平面里，任务可调度。纯库用法则是普通进程内调用。
   tools: >-
-    工具/知识库/记忆组件线内置（框架自带 memory+knowledge 组件是卖点）。MCP 支持状态本档不逐条展开。
+    工具、知识库与记忆组件线内置。框架自带 memory 与 knowledge 组件是卖点。MCP 支持状态本档不逐条展开。
   context: >-
-    内置记忆与知识组件（agent memory、knowledge/RAG 面）是产品叙事一部分。细节本档不逐条展开。
+    内置记忆与知识组件是产品叙事一部分。包括 agent memory 与 knowledge/RAG 面。细节本档不逐条展开。
   permissions: >-
     控制平面持凭据跑 agent 与工具。自托管平面的鉴权与隔离是运维责任。托管面（os.agno.com）数据在厂商侧。
   fit: >-
-    适合：要「框架+控制平面」一体（跑起来+观测+调度）、Python 生态、要高频发版的活跃选型。不适合：只要薄库不要平面、TS 生态（Python 为主）。
+    适合：要「框架+控制平面」一体（跑起来+观测+调度）。Python 生态。要高频发版的活跃选型。不适合：只要薄库不要平面。TS 生态（Python 为主）。
 pitfalls:
-  - 改名史两段：Phidata → Agno（2025 年初改名）——旧教程/旧包名 phidata 与现 agno 是同一线，检索时两词都要查
-  - 条款挂在 os.agno.com/legal/（tos+privacy 200 在册），主站 /terms /privacy 404——条款面在控制平面子域，不在营销主域
-  - 库/平面两分：Apache-2.0 是库仓许可；托管控制平面（os.agno.com）是商业服务面——许可与商用条款按面分开看
+  - 改名史两段：Phidata → Agno（2025 年初改名）。旧教程/旧包名 phidata 与现 agno 是同一线，检索时两词都要查
+  - 条款挂在 os.agno.com/legal/（tos+privacy 200 在册），主站 /terms /privacy 404。条款面在控制平面子域，不在营销主域
+  - 库/平面两分：Apache-2.0 是库仓许可。托管控制平面（os.agno.com）是商业服务面——许可与商用条款按面分开看
 
 tags: [开源, Apache2.0, agent平台, 控制平面, 记忆组件, 改名史]
 related: [langgraph, letta, dify]
@@ -65,10 +65,10 @@ cn:
   origin_note: Agno Inc.（页脚「Agno Inc. All rights reserved」在册；条款页挂 os.agno.com/legal/）。
   origin_note_en: Agno Inc. (footer "Agno Inc. All rights reserved" on record; terms hosted at os.agno.com/legal/).
   direct: yes
-  direct_note: agno.com / docs.agno.com / os.agno.com/legal/tos 直连实测均 200（2026-10-31）；GitHub 仓大陆直连波动（同日代理可达）。
+  direct_note: agno.com / docs.agno.com / os.agno.com/legal/tos 直连实测均 200（2026-10-31）。GitHub 仓大陆直连波动（同日代理可达）。
   direct_note_en: agno.com, docs.agno.com and os.agno.com/legal/tos all measured 200 direct (2026-10-31); the GitHub repo's mainland reachability fluctuates (200 via proxy the same day).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-31 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-31 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-31); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-31
 ---
@@ -77,7 +77,7 @@ cn:
 
 **Agno（原 Phidata）把「框架 + 控制平面」做成一体**（Apache-2.0）：库侧定义 agent/team/workflow，AgentOS 控制平面侧跑起来、观测、调度（「self-driving agent platform」）。
 
-发版高频（v3.1.12，2026-10-29）、changelog 当日有条目——活跃线。
+发版高频（v3.1.12，2026-10-29）、changelog 当日有条目。活跃线。
 
 ## 适合与不适合
 
@@ -97,6 +97,6 @@ cn:
 
 ## 相关条目
 
-- [LangGraph](./langgraph.md) — 同大类对照：LangGraph 给图与状态机制让你搭平面，Agno 把平面（AgentOS）直接给你——搭与给的分野。
+- [LangGraph](./langgraph.md) — 同大类对照：LangGraph 给图与状态机制让你搭平面，Agno 把平面（AgentOS）直接给你。搭与给的分野。
 - [Letta](./letta.md) — 同大类对照：Letta 的记忆是 agent 自编辑本体（服务器形态），Agno 的记忆是框架内置组件（平面观测形态）。
-- [Dify](../../automation/products/dify.md) — 跨大类对照：Dify 低代码可视化搭 agent 应用，Agno 代码定义 agent 再交给平面跑——automation 与 framework 的边界样本。
+- [Dify](../../automation/products/dify.md) — 跨大类对照：Dify 低代码可视化搭 agent 应用，Agno 代码定义 agent 再交给平面跑。automation 与 framework 的边界样本。

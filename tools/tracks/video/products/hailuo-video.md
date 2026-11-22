@@ -5,7 +5,7 @@ name: 海螺视频
 nameEn: Hailuo Video
 vendor: MiniMax（稀宇科技）
 homepage: https://hailuoai.video
-license: 免费档（带水印、个人使用）+ 付费订阅（去水印、商用权，按《海螺AI付费服务协议》）。开源 H3-Base 按 MiniMax H3 Community License；站点基础使用条款与付费协议分别管辖，商用按付费协议与开源许可执行（2026-11-21）。
+license: 免费档（带水印、个人使用）+ 付费订阅（去水印、商用权，按《海螺AI付费服务协议》）。开源 H3-Base 按 MiniMax H3 Community License。站点基础使用条款与付费协议分别管辖，商用按付费协议与开源许可执行（2026-11-21）。
 licenseEn: Free tier (watermarked, personal use) plus paid subscriptions (watermark-free, commercial rights under the Hailuo AI Paid Service Agreement). Open H3-Base follows the MiniMax H3 Community License; the site’s base terms and the paid agreement govern separately, with commercial use following the paid agreement and the open licence (2026-11-21).
 
 axes:
@@ -28,7 +28,9 @@ axes:
 
     可 List/Cancel/Delete，只保留最近 7 天任务记录。控制台生成按队列优先级排队，付费档优先（2026-11-21）。
   tools: >-
-    H3：文生视频、首帧/首尾帧、Omni Reference（≤9 图 + ≤3 视频 + ≤3 音频，合计 ≤12 文件）、指令式视频编辑（替换/增删人物物体、改背景光线、改台词与音色）、原生立体声、最长 15 秒、2K、21:9 至 9:16 六种画幅。
+    H3 支持文生视频与首帧、首尾帧。Omni Reference 可带不超过 9 图、3 视频与 3 音频，合计不超过 12 文件。
+
+    指令式视频编辑可替换或增删人物物体，改背景光线，改台词与音色。另有原生立体声、最长 15 秒、2K 与 21:9 至 9:16 六种画幅。
 
     Hailuo 2.3。文生/图生视频，768p/1080p、6/10 秒。2.3-Fast 只做图生（2026-11-21）。
   context: >-
@@ -40,12 +42,12 @@ axes:
 
     H3 开源权重按 MiniMax H3 Community License。商用须遵守该许可的收入门槛与署名条款。API 另有按量计费（2026-11-21）。
   fit: >-
-    适合：一条入口横评多模型、H3 的原生音画与参考生视频、广告/电商/短剧镜头、需要本地 768p 开源部署。不适合：要免费商用、要单一模型极致低价、要全离线 2K（2026-11-21）。
+    适合：一条入口横评多模型。H3 的原生音画与参考生视频。广告/电商/短剧镜头。需要本地 768p 开源部署。不适合：要免费商用。要单一模型极致低价。要全离线 2K（2026-11-21）。
 pitfalls:
-  - 「海螺」是产品名、「MiniMax」是公司/模型名——媒体报道常混用，转述时按官方页主语（L5）
-  - 备案号 Shanghai-MiniMax-202505230046 是模型层备案（官方公示页主语是 MiniMax）——
+  - 「海螺」是产品名、「MiniMax」是公司/模型名。媒体报道常混用，转述时按官方页主语（L5）
+  - 备案号 Shanghai-MiniMax-202505230046 是模型层备案（官方公示页主语是 MiniMax）。
     不等于「海螺视频产品入口已备案」，两者主语不同
-  - hailuoai.video（海外入口）与国内入口的账号与内容政策分别成页——别按同一账号体系理解
+  - hailuoai.video（海外入口）与国内入口的账号与内容政策分别成页。别按同一账号体系理解
 
 tags: [免费+订阅, 国产直连, 文生视频, 图生视频, 自研模型]
 related: [kling, jimeng, veo]
@@ -93,7 +95,7 @@ cn:
   direct_note_en: hailuoai.video measured 200 direct from mainland (2026-10-22).
   filing: filed
   filing_no: Shanghai-MiniMax-202505230046
-  filing_note: MiniMax 模型备案号（阿里云百炼与百度智能云官方公示页交叉核验，2026-10-22）；
+  filing_note: MiniMax 模型备案号（阿里云百炼与百度智能云官方公示页交叉核验，2026-10-22）。
     主语是模型层——海螺视频产品入口按监管公示与站点条款分别理解。
   filing_note_en: MiniMax model-level filing number (cross-verified on Alibaba Cloud Bailian and Baidu
     Intelligent Cloud official disclosure pages, 2026-10-22); the subject is the model layer — the Hailuo
@@ -103,13 +105,13 @@ cn:
 
 ## 一句话定位
 
-**海螺视频是 MiniMax 的消费级视频生成入口**（H3 自研音画模型 + 12+ 多模型工作室）：
+**海螺视频是 MiniMax 的消费级视频生成入口**：它用 H3 自研音画模型，另有 12+ 多模型工作室。
 国产、大陆直连可用、免费档起步。
 模型层备案号见下方，产品入口按监管公示与站点条款分别理解。
 
 ## 适合与不适合
 
-适合：国产直连的文/图/参考生视频与原生音画、一条入口横评多模型、免费试水、短视频与广告素材。
+适合：国产直连的文/图/参考生视频与原生音画。一条入口横评多模型。免费试水。短视频与广告素材。
 不适合：免费商用、完全离线 2K、把模型层备案号当作产品入口备案。
 
 ## 实测记录
@@ -118,8 +120,8 @@ cn:
 各模型实际可用档位、积分消耗与 2K 生成稳定性需按账号实测。
 ## 未知项清单
 
-- H3 各变体的公开权重范围：H3-Base FL2VA/Ref2VA 已开源，H3-Context-IR 与 H3-Regenerate-2K 仍由官方托管。
-- 商业许可的收入门槛与署名细则：按 MiniMax H3 Community License 原文执行。
+- H3 各变体的公开权重范围。H3-Base FL2VA/Ref2VA 已开源，H3-Context-IR 与 H3-Regenerate-2K 仍由官方托管。
+- 商业许可的收入门槛与署名细则。按 MiniMax H3 Community License 原文执行。
 - 各模型档位积分价：以生成面板与订阅页实时展示为准。
 ## 相关条目
 

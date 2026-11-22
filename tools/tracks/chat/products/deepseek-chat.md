@@ -5,7 +5,7 @@ name: DeepSeek
 nameEn: DeepSeek Chat
 vendor: 深度求索
 homepage: https://chat.deepseek.com
-license: 免费注册使用；API 按 token 峰谷计费（官方模型与价格页）。按官方 Terms of Use 与隐私政策管辖：Outputs 权利让渡给用户，对外传播须核实并标注 AI 生成；训练用途可在设置中退出（2026-11-21）。
+license: 免费注册使用。API 按 token 峰谷计费（官方模型与价格页）。按官方 Terms of Use 与隐私政策管辖：Outputs 权利让渡给用户。对外传播须核实并标注 AI 生成。训练用途可在设置中退出（2026-11-21）。
 licenseEn: Free with registration; API billed per token on peak/off-peak rates (official models and pricing page). Governed by the official Terms of Use and privacy policy: Output rights are assigned to the user, redistribution requires accuracy checks and AI labelling, and training use can be opted out in settings (2026-11-21).
 
 axes:
@@ -40,13 +40,13 @@ axes:
 
     隐私政策允许在设置中管理聊天历史，并提供训练用途退出权。条款把 Outputs 权利让渡给用户。对外传播须核实真实性并标注 AI 生成（2026-11-21）。
   fit: >-
-    适合：中文推理与长文、1M 上下文、要官方模型文档与 OpenAI/Anthropic 双协议、API 与开源权重同族可选。
+    适合：中文推理与长文。1M 上下文。要官方模型文档与 OpenAI/Anthropic 双协议。API 与开源权重同族可选。
 
-    不适合：要跨会话记忆、要后台长任务或工作流、要办公套件生态联动（2026-11-21）。
+    不适合：要跨会话记忆。要后台长任务或工作流。要办公套件生态联动（2026-11-21）。
 pitfalls:
-  - 把对话产品与 API 平台混为一谈——chat.deepseek.com 与 platform.deepseek.com 同厂商两接口，条款与配额各自成页
-  - 把开源权重当产品本体——权重本地跑归 Ollama/llama.cpp 等 runner，与云端对话产品的数据边界完全不同
-  - 直抓 chat.deepseek.com 返回 429 是限流不是站点死亡（2026-10-22 实测）——浏览器可达
+  - 把对话产品与 API 平台混为一谈。chat.deepseek.com 与 platform.deepseek.com 同厂商两接口，条款与配额各自成页
+  - 把开源权重当产品本体。权重本地跑归 Ollama/llama.cpp 等 runner，与云端对话产品的数据边界完全不同
+  - 直抓 chat.deepseek.com 返回 429 是限流不是站点死亡（2026-10-22 实测）。浏览器可达
 
 tags: [国产, 免费+注册, 推理模式, 开源权重同族, 已备案]
 related: [ollama, llama-cpp, kimi-chat]
@@ -84,13 +84,13 @@ cn:
   origin_note: 深度求索（杭州）。
   origin_note_en: DeepSeek (Hangzhou).
   direct: yes
-  direct_note: chat.deepseek.com 大陆直连实测 429（2026-10-22）——限流但可达，非站点死亡。
+  direct_note: chat.deepseek.com 大陆直连实测 429（2026-10-22）。限流但可达，非站点死亡。
   direct_note_en: chat.deepseek.com measured 429 direct from mainland (2026-10-22) — rate-limited but reachable, not dead.
   filing: filed
   filing_name: 求索对话 DeepSeek Chat
   filing_name_en: Qiusuo Chat (DeepSeek Chat)
   filing_no: Beijing-DeepseekChat-202404280016
-  filing_note: 备案号经阿里云百炼与火山方舟两页官方公示交叉核验；属地北京，2024 年新增批次。
+  filing_note: 备案号经阿里云百炼与火山方舟两页官方公示交叉核验。属地北京，2024 年新增批次。
   filing_note_en: filing no. cross-verified on Alibaba Cloud Model Studio and Volcengine Ark official disclosure pages;
     Beijing jurisdiction, added in a 2024 batch.
   verified: 2026-11-21

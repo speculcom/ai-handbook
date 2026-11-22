@@ -5,16 +5,16 @@ name: 天工 AI 搜索
 nameEn: Tiangong AI Search
 vendor: 昆仑万维
 homepage: https://www.tiangong.cn
-license: 免费+订阅。按官方协议页管辖（tiangong.cn/agreement 直抓核验 2026-10-22）；
+license: 免费+订阅。按官方协议页管辖（tiangong.cn/agreement 直抓核验 2026-10-22）。
   细节本档不逐条展开。
 licenseEn: Free + subscription. Governed by the official agreement page (tiangong.cn/agreement,
   direct-fetched 2026-10-22); details not verified line by line.
 
 axes:
   model_access: >-
-    自研「天工」大模型线（备案号 Beijing-TianGong-20231016，网信办 2024-04 备案汇总附件直抓核验）。
+    自研「天工」大模型线。备案号 Beijing-TianGong-20231016，网信办 2024-04 备案汇总附件直抓核验。
 
-    产品现定位「超级智能体」（官网标题叙事）——搜索+文档/PPT/表格/网页多模式生成。
+    产品现定位「超级智能体」（官网标题叙事）。搜索+文档/PPT/表格/网页多模式生成。
   runtime: >-
     网页（tiangong.cn）+ App（官网所见）。检索与生成在厂商云端。国内直连可用。
   local_files: >-
@@ -22,20 +22,20 @@ axes:
   background: >-
     搜索即时。文档/PPT/表格/网页模式是生成任务线（官网产品面）。无「关机续跑」概念。
   tools: >-
-    AI 搜索（起家功能）+ 超级智能体多模式（极速/文档/PPT/表格/网页，官网产品面）、 做同款（模板复用线，官网所见）。
+    AI 搜索是起家功能。另有超级智能体多模式，含极速、文档、PPT、表格与网页，官网产品面在册。
 
-    昆仑万维产品线多（Skywork 开源模型线/Mureka 音乐等—— 不在本档案口径）。
+    昆仑万维产品线多，还有 Skywork 开源模型线与 Mureka 音乐等。它们不在本档案口径。
   context: >-
     以任务/历史组织智能体产物。站内直抓所见「记忆」功能文案（跨会话记忆的产品边界本档不逐条展开）。
   permissions: >-
-    账号+订阅体系（D9：价格不采）。训练用途开关本档不逐条展开。备案：天工大模型 Beijing-TianGong-20231016（网信办批次汇总表镜像直抓，2026-10-22）。
+    账号+订阅体系（D9：价格不采）。训练用途开关本档不逐条展开。备案：天工大模型 Beijing-TianGong-20231016。网信办批次汇总表镜像直抓，2026-10-22。
 
     算法备案「天工大语言模型算法」覆盖天工 AI 搜索多端（公示叙事）。
   fit: >-
-    适合：中文搜索+办公产物一条龙（PPT/表格/文档直接生成）、国内直连、模板复用工作流。不适合：英文向检索主打、把生成产物当免审成品（PPT/表格要人工复核）。
+    适合：中文搜索+办公产物一条龙（PPT/表格/文档直接生成）。国内直连。模板复用工作流。不适合：英文向检索主打。把生成产物当免审成品（PPT/表格要人工复核）。
 pitfalls:
-  - 天工从「AI 搜索」转向「超级智能体」是产品定位变化——旧评测口径（纯搜索对比）已过时
-  - 昆仑万维产品线多（开源 Skywork/Mureka/SkyReels 等）——本档案只管 tiangong.cn 消费端
+  - 天工从「AI 搜索」转向「超级智能体」是产品定位变化。旧评测口径（纯搜索对比）已过时
+  - 昆仑万维产品线多（开源 Skywork/Mureka/SkyReels 等）。本档案只管 tiangong.cn 消费端
   - 生成 PPT/表格的「一条龙」质量随主题波动——产物要人工复核再交付
 
 tags: [免费+订阅, 超级智能体, 中文搜索, PPT生成, 国产直连]

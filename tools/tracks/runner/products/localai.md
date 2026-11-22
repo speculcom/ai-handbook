@@ -29,7 +29,7 @@ axes:
   permissions: >-
     自托管无账号体系。API 鉴权由部署方自配。多引擎后端的凭据面（如接云 API）本档不逐条展开。
   fit: >-
-    适合：一个二进制换 URL 就把现有 OpenAI 客户端转本地、要文本之外（语音/图像）多模态负载同一运行时。不适合：只要单一 LLM 极致性能（专用引擎更精）。
+    适合：一个二进制换 URL 就把现有 OpenAI 客户端转本地。要文本之外（语音/图像）多模态负载同一运行时。不适合：只要单一 LLM 极致性能（专用引擎更精）。
 
     要大厂官方背书（个人主导项目）。
 pitfalls:
@@ -66,7 +66,7 @@ cn:
   direct_note: localai.io 直连实测 200（2026-10-21）。
   direct_note_en: localai.io measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
@@ -80,7 +80,7 @@ MIT、活跃维护（v4.8.0 官网直抓口径）。
 
 ## 适合与不适合
 
-适合：现有 OpenAI 客户端最小改动转本地、CPU-only 机器、要多模态负载同一运行时。
+适合：现有 OpenAI 客户端最小改动转本地。CPU-only 机器。要多模态负载同一运行时。
 不适合：单一 LLM 极致吞吐（专用引擎更精）。
 要机构级背书（个人主导）。
 
@@ -97,4 +97,4 @@ MIT、活跃维护（v4.8.0 官网直抓口径）。
 ## 相关条目
 
 - [Ollama](./ollama.md) — 同为 OpenAI 兼容本地栈：Ollama 模型库开箱顺滑，LocalAI 多模态与多 API 兼容更宽。
-- [vLLM](./vllm.md) — 单一 LLM 服务化吞吐 vLLM 更精；LocalAI 的价值在「一个运行时多种负载」。
+- [vLLM](./vllm.md) — 单一 LLM 服务化吞吐 vLLM 更精。LocalAI 的价值在「一个运行时多种负载」。

@@ -5,7 +5,7 @@ name: Udio
 nameEn: Udio
 vendor: Udio
 homepage: https://www.udio.com
-license: 免费+订阅（过渡期）。按官方 ToS 管辖（2026-10-22 取得）；2025-11-12 起执行过渡版 ToS（官方 FAQ 自述）——新授权平台上线前，现行输出权利按过渡 ToS。
+license: 免费+订阅（过渡期）。按官方 ToS 管辖（2026-10-22 取得）。2025-11-12 起执行过渡版 ToS（官方 FAQ 自述）。新授权平台上线前，现行输出权利按过渡 ToS。
 licenseEn: Free plus subscription during the transition. Governed by the official ToS (fetched 2026-10-22); a transition ToS took effect on 2025-11-12 (per the official FAQ) — output rights follow the transition ToS until the new licensed platform launches.
 
 axes:
@@ -38,10 +38,10 @@ axes:
   fit: >-
     适合：音乐生成双雄之一的创作体验（复杂曲风向口碑）、跟踪授权平台新形态。
 
-    不适合：需要「下载带走」的商用管线（walled garden 方向）、要确定性条款（过渡期）（2026-11-21）。
+    不适合：需要「下载带走」的商用管线（walled garden 方向）。要确定性条款（过渡期）（2026-11-21）。
 pitfalls:
-  - Udio 处于「版权被告→授权平台」转型期——任何「Udio 输出可商用」的旧教程都可能过时，用前查现行 ToS
-  - walled garden 是新平台方向（UMG 公告原文叙事）——按「生成即拥有可下载」理解会误判未来形态
+  - Udio 处于「版权被告→授权平台」转型期。任何「Udio 输出可商用」的旧教程都可能过时，用前查现行 ToS
+  - walled garden 是新平台方向（UMG 公告原文叙事）。按「生成即拥有可下载」理解会误判未来形态
   - 与 Suno 的诉讼与和解线各自独立——两家条款走向不同，别互相推断
 
 tags: [免费+订阅, 音乐生成, 版权和解, walled-garden, 过渡期]
@@ -84,7 +84,7 @@ cn:
   direct_note: udio.com 大陆直连实测 200（2026-10-22）。
   direct_note_en: udio.com measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-11-21
@@ -99,7 +99,7 @@ UMG/WMG 已和解，新平台走 walled garden 路线。
 ## 适合与不适合
 
 适合：音乐创作体验、跟踪授权平台新形态。
-不适合：要下载带走的商用管线（walled garden 方向）、要确定性条款（过渡期）。
+不适合：要下载带走的商用管线（walled garden 方向）。要确定性条款（过渡期）。
 
 ## 实测记录
 
@@ -109,7 +109,7 @@ UMG/WMG 已和解，新平台走 walled garden 路线。
 
 - 新授权平台的上线时间与正式条款：官方尚未给出确定日期，按公告与 ToS 更新跟进。
 - 过渡期下载与分发权的边界：按现行过渡 ToS 原文核对。
-- 免费/订阅档的并发生成与积分细则：官方 pricing 页给出档位框架，具体消耗按账号页。
+- 免费/订阅档的并发生成与积分细则。官方 pricing 页给出档位框架，具体消耗按账号页。
 ## 相关条目
 
 - [Suno](./suno.md) — 音乐生成双雄的另一半：两家诉讼/和解线独立，条款走向不同。

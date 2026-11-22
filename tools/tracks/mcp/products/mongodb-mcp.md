@@ -9,7 +9,7 @@ licenseEn: Apache-2.0 (GitHub API verified 2026-10-21).
 
 axes:
   model_access: >-
-    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 MongoDB 数据库操作 （连接、集合查询、聚合）与 Atlas 管理包装成工具给 agent 用。
+    **它自己不调模型**——被 MCP 客户端调用的接口实现。它把 MongoDB 数据库操作与 Atlas 管理包装成工具给 agent 用。含连接、集合查询与聚合。
   runtime: >-
     本地进程（npx stdio）。GitHub 1,152★。最近推送 2026-10-30（API 核验）。官方 docs/mcp 页直抓 404。
 
@@ -23,13 +23,13 @@ axes:
   context: >-
     无跨会话记忆——数据状态在数据库本身。
   permissions: >-
-    **两条凭据路线**：连接串直连（能连什么库=能做什么，含写/删）或 Atlas API key（管 Atlas 面）。
+    **两条凭据路线**：连接串直连，能连什么库就能做什么，含写与删。也可用 Atlas API key 管 Atlas 面。
 
-    官方 README 明确提示高危操作确认机制存在（删除类工具带确认参数）—— 但边界仍是凭据：接 agent 前按「它能删集合」设防。
+    官方 README 明确提示高危操作确认机制存在（删除类工具带确认参数）。 但边界仍是凭据：接 agent 前按「它能删集合」设防。
   fit: >-
-    适合：MongoDB 项目的 agent 开发流（查 schema、跑聚合、试写操作）。不适合：要硬只读沙箱。非 MongoDB 栈。
+    适合：MongoDB 项目的 agent 开发流。查 schema、跑聚合、试写操作。不适合：要硬只读沙箱。非 MongoDB 栈。
 pitfalls:
-  - 找 mongodb.com/docs/mcp——该路径 404（2026-10-21 直抓），现役以 mongodb-js 仓为准
+  - 找 mongodb.com/docs/mcp。该路径 404（2026-10-21 直抓），现役以 mongodb-js 仓为准
   - 把「删除类工具带确认」当安全边界——确认参数可被 agent 自己填，凭据才是边界
   - 连接串直连本地库与 Atlas 混配——两条凭据路线权限面不同
 
@@ -63,10 +63,10 @@ cn:
   origin_note: MongoDB, Inc.（美国）。
   origin_note_en: MongoDB, Inc. (US).
   direct: no
-  direct_note: github.com 直连实测 000（波动，同日代理可达 200）；mongodb.com 直连 200（docs 首页）。
+  direct_note: github.com 直连实测 000（波动，同日代理可达 200）。mongodb.com 直连 200（docs 首页）。
   direct_note_en: github.com measured 000 direct (fluctuating; 200 via proxy the same day); mongodb.com measured 200 direct (docs home).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---

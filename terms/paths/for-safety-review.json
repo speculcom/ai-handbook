@@ -9,7 +9,7 @@
     "en": "about 45 minutes"
   },
   "lead": {
-    "zh": "上线前把风险面、数据面与义务面分开看：先确认会被怎样滥用，再确认数据去了哪里，最后确认你必须留下什么记录。读完应能写出一份带未知项的评审结论。",
+    "zh": "上线前把风险面、数据面与义务面分开看。先确认会被怎样滥用，再确认数据去了哪里，最后确认你必须留下什么记录。读完应能写出一份带未知项的评审结论。",
     "en": "Split the pre-launch review into risk, data and obligation: how it can be misused, where the data goes, and what records you must keep. Finish with a written review that names unresolved items."
   },
   "steps": [
@@ -54,27 +54,27 @@
   },
   "answers": [
     {
-      "zh": "三类可分别取：输入面（提示注入、越权指令）、输出面（拒答边界、越界内容）、数据面（是否出网、驻留在哪）。输入面要看厂商是否披露拦截机制与绕过后的处理；输出面要看拒答的条件而非「是否拒绝」；数据面要看留存与删除条款原文。只拿到「已通过安全测试」这句话不算证据。",
+      "zh": "三类可分别取。输入面（提示注入、越权指令）、输出面（拒答边界、越界内容）、数据面（是否出网、驻留在哪）。输入面要看厂商是否披露拦截机制与绕过后的处理。输出面要看拒答的条件而非「是否拒绝」。数据面要看留存与删除条款原文。只拿到「已通过安全测试」这句话不算证据。",
       "en": "Take input (prompt injection, instruction override), output (refusal boundaries, out-of-scope content) and data (leaves the network, residency). For input ask how interception works and what happens after a bypass; for output ask the conditions of refusal, not whether refusal exists; for data read the retention and deletion terms verbatim. A bare 'passed security testing' claim is not evidence.",
       "review": "提示注入"
     },
     {
-      "zh": "先看功能是否把用户内容送进模型、是否生成对外发布的内容、是否留存输入。生成或传播内容的服务通常要面对标识与记录义务；具体范围以你所在辖区的现行官方文本为准，不要从同行做法推断。核到就把文件名与日期写进评审记录，核不到就标「未核到」，不要写「不适用」。",
+      "zh": "先看功能是否把用户内容送进模型、是否生成对外发布的内容、是否留存输入。生成或传播内容的服务通常要面对标识与记录义务。具体范围以你所在辖区的现行官方文本为准，不要从同行做法推断。核到就把文件名与日期写进评审记录，核不到就标「未核到」，不要写「不适用」。",
       "en": "Ask whether user content enters the model, whether output is published externally, and whether inputs are retained. Services that generate or spread content usually face labelling and record duties; the scope follows the official text in force for your jurisdiction, not peer practice. If verified, write the document name and date into the review record; if not, mark it unverified instead of writing 'not applicable'.",
       "review": "生成式 AI 合规义务"
     },
     {
-      "zh": "写成「官方未说明 + 缺哪一条」：例如只找到宣传口径里的安全防护描述，没找到拦截机制、绕过处理与日志留存的说明，那就写无法确认拦截是否生效，并列出缺失的三项。评审结论里保留未知比补一个看起来完整的判断更有用，后者会在事故复盘时站不住。",
+      "zh": "写成「官方未说明 + 缺哪一条」。例如只找到宣传口径里的安全防护描述。没找到拦截机制、绕过处理与日志留存的说明。那就写无法确认拦截是否生效，并列出缺失的三项。评审结论里保留未知比补一个看起来完整的判断更有用，后者会在事故复盘时站不住。",
       "en": "Write it as 'not stated officially' plus which specifics are absent. If you only find marketing-level claims about guardrails but no description of interception, post-bypass handling or log retention, record that effectiveness cannot be confirmed and list the three missing items. Keeping the unknown in the conclusion is more useful than a tidy judgement that collapses during incident review.",
       "review": "红队测试"
     },
     {
-      "zh": "输入面证据：检索文档里出现「忽略以上指令」并触发外部请求的日志；输出面证据：模型泄露系统提示或执行未授权工具的调用记录。两者都要能关联到具体会话与授权结果。",
+      "zh": "输入面证据：检索文档里出现「忽略以上指令」并触发外部请求的日志。输出面证据：模型泄露系统提示或执行未授权工具的调用记录。两者都要能关联到具体会话与授权结果。",
       "en": "Input evidence: a retrieved document saying “ignore previous instructions” and a log of the external request it triggered. Output evidence: a call record showing system-prompt leakage or an unauthorised tool. Both must link to the session and authorisation outcome.",
       "review": "提示注入"
     },
     {
-      "zh": "拒绝可能是过度保守，也可能是该拒没拒；真正要评的是拒绝条件是否覆盖风险、拒绝后是否给安全替代、越界输出是否被拦截并可追溯。只看拒绝率会掩盖两类错误。",
+      "zh": "拒绝可能是过度保守，也可能是该拒没拒。真正要评的是拒绝条件是否覆盖风险、拒绝后是否给安全替代、越界输出是否被拦截并可追溯。只看拒绝率会掩盖两类错误。",
       "en": "A refusal can be over-cautious or missing when needed; evaluate whether the condition covers risk, whether a safe alternative is offered, and whether out-of-scope output is blocked and traceable. Refusal rate alone hides both errors.",
       "review": "输出越界与拒答"
     },
@@ -84,12 +84,12 @@
       "review": "红队测试"
     },
     {
-      "zh": "它让输出更符合人类偏好与安全约束；不保证事实正确、不覆盖所有文化语境，也可能带来过度拒答。对齐是行为倾向，不是事实核验。",
+      "zh": "它让输出更符合人类偏好与安全约束。不保证事实正确、不覆盖所有文化语境，也可能带来过度拒答。对齐是行为倾向，不是事实核验。",
       "en": "It makes output fit human preferences and safety constraints; it does not guarantee truth, cover every cultural context or prevent over-refusal. Alignment shapes behaviour, not facts.",
       "review": "偏好对齐"
     },
     {
-      "zh": "不出网要看网络边界、日志和第三方调用清单；驻留要看存储区域、跨境传输与合同条款。两者都要有当前版本和核验日期，不能只引用销售口头说明。",
+      "zh": "不出网要看网络边界、日志和第三方调用清单。驻留要看存储区域、跨境传输与合同条款。两者都要有当前版本和核验日期，不能只引用销售口头说明。",
       "en": "For no-egress, inspect network boundaries, logs and third-party calls; for residency, inspect storage region, cross-border transfer and contract terms. Both need current version and check date, not a sales claim.",
       "review": "数据不出网"
     },

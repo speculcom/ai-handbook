@@ -4,7 +4,7 @@ form: harness
 family: orchestration
 # 支持哪些模型 provider（本站第一决策点）
 providers:
-  - 可移植 Model API 接多家模型供应商；官方文档列出 ChatClient 与模型 API
+  - 可移植 Model API 接多家模型供应商。官方文档列出 ChatClient 与模型 API
   - 向量库以 Spring Bean 方式注入，支持多家实现
   - provider 选择与应用配置分离，不绑定单一厂商
 name: Spring AI
@@ -30,9 +30,9 @@ axes:
   permissions: >-
     Spring Security 体系内运行。权限由应用配置，无内置多租户隔离。
   fit: >-
-    适合：Spring Boot 团队、要把 AI 能力做成标准 Spring 组件、需要 MCP 与向量库集成。不适合：非 Java 团队、要成品 agent、要轻量脚本式调用。
+    适合：Spring Boot 团队。要把 AI 能力做成标准 Spring 组件。需要 MCP 与向量库集成。不适合：非 Java 团队。要成品 agent。要轻量脚本式调用。
 pitfalls:
-  - 把 Spring AI 当成 LangChain4j 的官方版——两者是不同项目，抽象与生态不同
+  - 把 Spring AI 当成 LangChain4j 的官方版。两者是不同项目，抽象与生态不同
   - 以为加了 starter 就自动配好模型——仍需 API key 与模型配置
   - 忽略 Spring 版本兼容——starters 与 Boot 版本要对齐
 
@@ -63,10 +63,10 @@ cn:
   origin_note: Spring 项目（VMware/Broadcom 生态）。
   origin_note_en: Spring project (VMware/Broadcom ecosystem).
   direct: yes
-  direct_note: docs.spring.io 大陆直连未核验；Maven Central 可经镜像获取。
+  direct_note: docs.spring.io 大陆直连未核验。Maven Central 可经镜像获取。
   direct_note_en: Direct reachability from mainland not verified; Maven Central is available through mirrors.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-11-03 检索）；开源框架未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-11-03 检索）。开源框架未面向大陆公众提供服务，备案不适用。
   filing_note_en: Not in the CAC public registry (searched 2026-11-03); the open-source framework does not serve the mainland public, so filing does not apply.
   verified: 2026-11-03
 ---
@@ -80,7 +80,7 @@ cn:
 
 ## 适合与不适合
 
-适合：Spring Boot 团队、要把 AI 做成标准 Bean、需要 MCP 与向量库集成。
+适合：Spring Boot 团队。要把 AI 做成标准 Bean。需要 MCP 与向量库集成。
 不适合：非 Java 团队、要成品 agent、要轻量脚本调用。
 
 ## 实测记录
@@ -97,4 +97,4 @@ cn:
 ## 相关条目
 
 - [LangChain4j](./langchain4j.md) — 另一条 Java 路线，抽象更偏 LangChain 风格
-- [LangChain](./langchain.md) — Python 侧同类框架，对照读
+- [LangChain](./langchain.md) — Python 侧同类框架。对照读

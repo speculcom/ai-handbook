@@ -5,7 +5,7 @@ name: Google Workspace Gemini
 nameEn: Google Workspace Gemini
 vendor: Google
 homepage: https://workspace.google.com/solutions/ai/
-license: 官方产品页与条款页为准；本条目只记录能力与边界，不复制价格数字或完整合同。
+license: 官方产品页与条款页为准。本条目只记录能力与边界，不复制价格数字或完整合同。
 licenseEn: See the official product and terms pages; this entry records capabilities and boundaries only, not price figures or the full contract.
 
 axes:
@@ -26,7 +26,7 @@ axes:
   fit: >-
     适合 Google Workspace 团队做邮件起草、文档总结、表格分析和会议跟进。不适合替代专业财务建模或法律审阅。
 pitfalls:
-  - 把 Gemini 应用与 Workspace 里的 Gemini 附加功能当成同一个产品——入口、许可和数据范围不同。
+  - 把 Gemini 应用与 Workspace 里的 Gemini 附加功能当成同一个产品。入口、许可和数据范围不同。
   - 以为 Drive 里所有内容都会被检索——仍受账号权限、共享设置和管理员开关限制。
   - 把生成摘要当会议原始记录——行动项和数字仍需回看原文。
 
@@ -53,7 +53,7 @@ cn:
   origin_note: Google（美国）。
   origin_note_en: Google (US).
   direct: unknown
-  direct_note: 本次大陆直连以当地网络与官方入口为准；是否直连以当地网络与官方入口为准。
+  direct_note: 本次大陆直连以当地网络与官方入口为准。是否直连以当地网络与官方入口为准。
   direct_note_en: No mainland-China network probe was run; direct reachability depends on the local network and the official entry point.
   filing: unknown
   filing_note: 本次备案状态按最近公示名单快照，不据此判断备案义务。
@@ -69,7 +69,7 @@ Google Workspace Gemini 是面向办公与写作场景的 AI 产品。
 
 ## 适合与不适合
 
-适合：适合 Google Workspace 团队做邮件起草、文档总结、表格分析和会议跟进。
+适合：适合 Google Workspace 团队做邮件起草。文档总结。表格分析和会议跟进。
 不适合替代专业财务建模或法律审阅。
 
 不适合：需要完全离线、跨组织统一检索、或把生成结果直接作为法律/财务定稿的场景。
@@ -77,7 +77,7 @@ Google Workspace Gemini 是面向办公与写作场景的 AI 产品。
 
 ## 实测记录
 
-**依据：** 2026-11-19 只核对官方产品页、帮助入口与条款入口，记录能力边界、数据路径和已知限制；没有登录账号、没有跑完整任务，也没有复核对价格数字与全部企业合同。页面中的功能名称以官方当前入口为准。
+**依据：** 2026-11-19 只核对官方产品页、帮助入口与条款入口，记录能力边界、数据路径和已知限制。没有登录账号、没有跑完整任务，也没有复核对价格数字与全部企业合同。页面中的功能名称以官方当前入口为准。
 
 ## 未知项清单
 

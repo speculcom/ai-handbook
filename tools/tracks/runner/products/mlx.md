@@ -25,7 +25,7 @@ axes:
   permissions: >-
     本地进程无账号体系。命令行/服务线鉴权由使用者自配（mlx_lm.server 细节本档不逐条展开）。
   fit: >-
-    适合：Apple 硅机器要原生性能（统一内存红利）、要在 Mac 上微调（mlx-lm 带微调线）。不适合：非 Apple 硬件。要跨平台同一栈（llama.cpp 覆盖面更宽）。
+    适合：Apple 硅机器要原生性能（统一内存红利）。要在 Mac 上微调（mlx-lm 带微调线）。不适合：非 Apple 硬件。要跨平台同一栈（llama.cpp 覆盖面更宽）。
 pitfalls:
   - 把 MLX 当通用推理引擎——Apple 硅专属，x86/NVIDIA 不是它的场
   - 只记 mlx 框架——跑 LLM 要用 mlx-lm 这层
@@ -60,7 +60,7 @@ cn:
   direct_note: ml-explore.github.io 直连实测 200（2026-10-21）。
   direct_note_en: ml-explore.github.io measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
@@ -73,7 +73,7 @@ Mac 用户跑本地模型的「亲儿子」路线——连微调都在同一栈�
 
 ## 适合与不适合
 
-适合：M 系 Mac 要原生性能与统一内存红利、要在 Mac 上做 LoRA 微调、mlx-community 模型生态。
+适合：M 系 Mac 要原生性能与统一内存红利。要在 Mac 上做 LoRA 微调。mlx-community 模型生态。
 不适合：非 Apple 硬件（框架专属）；要跨平台单一技术栈。
 
 ## 实测记录
@@ -88,5 +88,5 @@ Mac 用户跑本地模型的「亲儿子」路线——连微调都在同一栈�
 
 ## 相关条目
 
-- [llama.cpp](./llama-cpp.md) — 跨平台 GGUF 路线的根；LM Studio 把两条线都包进一个应用。
-- [Ollama](./ollama.md) — Mac 上开箱模型获取 Ollama 更顺滑；MLX 的价值在 Apple 硅原生性能与同栈微调。
+- [llama.cpp](./llama-cpp.md) — 跨平台 GGUF 路线的根。LM Studio 把两条线都包进一个应用。
+- [Ollama](./ollama.md) — Mac 上开箱模型获取 Ollama 更顺滑。MLX 的价值在 Apple 硅原生性能与同栈微调。

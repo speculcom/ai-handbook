@@ -5,7 +5,7 @@ name: OpenAI Evals
 vendor: OpenAI
 homepage: https://github.com/openai/evals
 mark: E
-license: MIT（仓库 LICENSE.md 原文直读，首行 "MIT License"、"Copyright (c) 2023 OpenAI"，2026-11-06）。开源框架需自备 OpenAI API key 或自行实现 CompletionFn；Snowflake 日志是可选外部服务。
+license: MIT（仓库 LICENSE.md 原文直读，首行 "MIT License"、"Copyright (c) 2023 OpenAI"，2026-11-06）。开源框架需自备 OpenAI API key 或自行实现 CompletionFn。Snowflake 日志是可选外部服务。
 licenseEn: MIT (LICENSE.md read directly: "MIT License", "Copyright (c) 2023 OpenAI", 2026-11-06). The open-source framework needs your own OpenAI API key or a self-implemented CompletionFn; Snowflake logging is an optional external service.
 
 axes:
@@ -16,7 +16,7 @@ axes:
 
     **依据：** 仓库 `evals/registry/completion_fns` 提供现成完成函数。OpenAI 之外托管服务的一等支持：官方未说明。
   runtime: >-
-    **依据：** 本机 Python 进程，README 标 "Minimum Required Version: Python 3.9"；`pip install evals` 装运行环境， 自建评测建议克隆仓库后 `pip install -e .`。主入口是终端命令 `oaieval`（单评测）与 `oaievalset`（评测集），可脚本化进 CI。 README 首行另把托管用法指向 OpenAI Dashboard 的 Evals 文档；那条云线本批次未取到官方正文。
+    **依据：** 本机 Python 进程，README 标 "Minimum Required Version: Python 3.9"。`pip install evals` 装运行环境， 自建评测建议克隆仓库后 `pip install -e .`。主入口是终端命令 `oaieval`（单评测）与 `oaievalset`（评测集），可脚本化进 CI。 README 首行另把托管用法指向 OpenAI Dashboard 的 Evals 文档。那条云线本批次未取到官方正文。
   local_files: >-
     评测定义是仓库内 YAML（`evals/registry/evals`、`evals/registry/eval_sets`）。实现代码在 `evals/elsuite`。
 
@@ -46,12 +46,12 @@ axes:
 
     **依据：** 提交还受平台 Usage Policies 约束。数据在 OpenAI 服务端的留存与训练用途：官方未说明。
   fit: >-
-    适合：把公开基准与自写 YAML 评测放在本机或 CI 里批量跑、要可读的 registry 与本地 JSONL 日志、愿意实现 CompletionFn 接自有系统。
+    适合：把公开基准与自写 YAML 评测放在本机或 CI 里批量跑。要可读的 registry 与本地 JSONL 日志。愿意实现 CompletionFn 接自有系统。
 
-    不适合：只要托管控制台与托管数据面（该走 Dashboard Evals）、强依赖非 OpenAI 模型且不想写适配层、要沙箱或工具审批这类运行时边界。
+    不适合：只要托管控制台与托管数据面（该走 Dashboard Evals）。强依赖非 OpenAI 模型且不想写适配层。要沙箱或工具审批这类运行时边界。
 pitfalls:
-  - 把它当成 Evals 的唯一入口——README 首行已把托管用法指向 OpenAI Dashboard
-  - 以为不配 API key 也能跑：默认完成函数走 OpenAI API，成本与限速由官方提示
+  - 把它当成 Evals 的唯一入口。README 首行已把托管用法指向 OpenAI Dashboard
+  - 以为不配 API key 也能跑。默认完成函数走 OpenAI API，成本与限速由官方提示
   - 把自定义代码评测直接提 PR——README 明写目前不接受这类贡献
 
 tags: [开源, MIT, Python, eval, 终端, 多模型]
@@ -82,7 +82,7 @@ confidence: partial
 
 cn:
   origin: foreign
-  origin_note: OpenAI 维护的开源仓库；本批次未取到面向中国大陆的服务条款页。
+  origin_note: OpenAI 维护的开源仓库。本批次未取到面向中国大陆的服务条款页。
   origin_note_en: An open-source repository maintained by OpenAI; no mainland-facing terms page was captured in this pass.
   direct: unknown
   direct_note: 本批次未做 github.com / raw 域名的直连可用实测（正文经镜像 CDN 取到），故可用性记为未知。
@@ -97,13 +97,13 @@ cn:
 
 **OpenAI Evals 是"你自己机器上跑的评测框架 + 公开评测登记册"**：评测用 YAML 描述、用 `oaieval` / `oaievalset` 在终端批量执行。结果落成可自查的本地 JSONL 日志。
 
-它同时是 README 首行让位给托管 Dashboard Evals 的那一份开源代码——两条线本站分开看。本档案只覆盖开源框架本体。
+它同时是 README 首行让位给托管 Dashboard Evals 的那一份开源代码。两条线本站分开看。本档案只覆盖开源框架本体。
 
 ## 适合与不适合
 
-适合：要把公开基准和自写 YAML 评测塞进本机脚本或 CI、想读日志文件而不是打开一个控制台、愿意为自有系统实现 CompletionFn。
+适合：要把公开基准和自写 YAML 评测塞进本机脚本或 CI。想读日志文件而不是打开一个控制台。愿意为自有系统实现 CompletionFn。
 
-不适合：只想要托管界面与托管数据面（那是 Dashboard 那条线）、强依赖非 OpenAI 模型却不想写适配层、需要沙箱与工具审批这类运行时边界。
+不适合：只想要托管界面与托管数据面（那是 Dashboard 那条线）。强依赖非 OpenAI 模型却不想写适配层。需要沙箱与工具审批这类运行时边界。
 
 ## 实测记录
 
@@ -133,15 +133,15 @@ cn:
 
 ## 相关条目
 
-- [Inspect](./inspect-ai.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径，对照请看那份。
-- [Ragas](./ragas.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径，对照请看那份。
-- [Langfuse](./langfuse.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径，对照请看那份。
+- [Inspect](./inspect-ai.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径。对照请看那份。
+- [Ragas](./ragas.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径。对照请看那份。
+- [Langfuse](./langfuse.md) — 同属「评测与观测」线：本档案只写自己在册的官方口径。对照请看那份。
 
 ## 第一次怎么用
 
-1. 先决定是走开源框架还是走 Dashboard 的托管 Evals——README 首行指的是后者，本档案讲的是前者。
+1. 先决定是走开源框架还是走 Dashboard 的托管 Evals。README 首行指的是后者，本档案讲的是前者。
 2. 设置 `OPENAI_API_KEY`（README：运行评测必需），并知道官方提醒这会按 API 计费。
-3. 只想跑现成评测：`pip install evals`；评测数据在 Git-LFS 里，按 README 的 `git lfs fetch` / `git lfs pull` 取。
-4. 终端跑 `oaieval <模型或完成函数> <eval 名>`；评测名取自 `evals/registry/evals` 下的 YAML，批量用 `oaievalset`。
+3. 只想跑现成评测：`pip install evals`。评测数据在 Git-LFS 里，按 README 的 `git lfs fetch` / `git lfs pull` 取。
+4. 终端跑 `oaieval <模型或完成函数> <eval 名>`。评测名取自 `evals/registry/evals` 下的 YAML，批量用 `oaievalset`。
 5. 结果先在 `tmp/evallogs` 的 JSONL 里自查，再考虑是否配 Snowflake 日志。
-6. 想接自己的系统就实现 CompletionFn，但别把自定义代码直接提进 registry——README 目前不收。
+6. 想接自己的系统就实现 CompletionFn，但别把自定义代码直接提进 registry。README 目前不收。

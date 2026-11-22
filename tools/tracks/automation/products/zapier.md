@@ -4,7 +4,7 @@ form: web
 name: Zapier
 vendor: Zapier
 homepage: https://zapier.com
-license: 商业 SaaS，条款见官方 Terms（2026-10-21 直抓 200）；无自托管形态。
+license: 商业 SaaS，条款见官方 Terms（2026-10-21 直抓 200）。无自托管形态。
 
 axes:
   model_access: >-
@@ -18,7 +18,7 @@ axes:
 
     Enterprise 可把保留期设为 7–30 天。删除不可恢复（2026-11-21）。
   background: >-
-    云端常驻：定时触发、webhook、延迟步骤由平台调度。Next Gen Zaps 支持最长一年的 durable wait，并可在运行中取消。任务执行不依赖用户设备在线。
+    云端常驻：定时触发、webhook、延迟步骤由平台调度。Next Gen Zaps 支持最长一年的 durable wait。运行中也能取消。任务执行不依赖用户设备在线。
 
     关闭浏览器不影响已部署 Zap（官方帮助中心，2026-11-21）。
   tools: >-
@@ -30,16 +30,16 @@ axes:
 
     跨会话状态需由外部数据库/存储步骤自行维护（2026-11-21）。
   permissions: >-
-    企业线提供 SAML SSO、SCIM 用户 provisioning、Super Admin、应用访问控制与自定义数据保留（官方帮助中心，2026-11-21）。
+    企业线提供 SAML SSO、SCIM 用户 provisioning 与 Super Admin。还提供应用访问控制与自定义数据保留。官方帮助中心，2026-11-21。
 
     连接器凭据由平台托管，成员按角色与共享连接权限使用。SOC 2 等合规声明按官方 security 页核对。
   fit: >-
-    适合：SaaS 生态自动化为主轴、要把 AI agent 挂到现成连接器上、完全不碰部署。
+    适合：SaaS 生态自动化为主轴。要把 AI agent 挂到现成连接器上。完全不碰部署。
 
-    不适合：要数据不出自有环境、要免费自托管、或要把长流程成本压到固定预算（按任务量计费，数字看官方 pricing 页）。
+    不适合：要数据不出自有环境。要免费自托管。或要把长流程成本压到固定预算（按任务量计费，数字看官方 pricing 页）。
 pitfalls:
-  - 把 Zapier 当「传统自动化+AI 附加」——官方已把 AI/agent 提为主轴叙事（Canvas/Agents）
-  - 按任务量计费模型下低估长流程成本——本站按 D9 不采价格数字，看官方 pricing 页
+  - 把 Zapier 当「传统自动化+AI 附加」。官方已把 AI/agent 提为主轴叙事（Canvas/Agents）
+  - 按任务量计费模型下低估长流程成本。本站按 D9 不采价格数字，看官方 pricing 页
   - 把连接器可用性当稳定承诺——第三方 SaaS 接口会变
 
 tags: [SaaS自动化, 云托管, 连接器生态, agent, 无代码]
@@ -82,20 +82,20 @@ cn:
   direct_note: zapier.com / help.zapier.com 直连实测 200（2026-10-21）。
   direct_note_en: zapier.com / help.zapier.com measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-11-21
 ---
 
 ## 一句话定位
 
-**Zapier 是「连接器生态」的代名词**——6000+ SaaS 集成的云托管自动化平台，
+**Zapier 是「连接器生态」的代名词**：它是 6000+ SaaS 集成的云托管自动化平台。
 官方叙事已把 AI/agent（Canvas、Agents）提到主轴位置。
 没有自托管形态，一切在云端。
 
 ## 适合与不适合
 
-适合：SaaS 间自动化是主轴、要把 AI agent 直接挂到现成连接器上、零部署。
+适合：SaaS 间自动化是主轴。要把 AI agent 直接挂到现成连接器上，或要零部署。
 不适合：数据不能出自有环境（去看 [n8n](./n8n.md) 自托管）。
 要免费无上限跑量（看官方 pricing 页）。
 

@@ -10,12 +10,12 @@ licenseEn: MIT (GitHub API verified 2026-10-21).
 family: general-harness
 providers:
   - 接口层接入：OpenAI/Anthropic/HF 等（官方文档为准，本档不逐条复制完整清单）
-  - 研究向：官方示例配置含 OpenAI/Anthropic 模型线（本档不逐条复制完整清单），模型选择与基准复现绑定
+  - 研究向：官方示例配置含 OpenAI/Anthropic 模型线（本档不逐条复制完整清单）。模型选择与基准复现绑定
 axes:
   model_access: >-
-    各家 LLM 经接口层接入（OpenAI/Anthropic/HF 等，以官方文档为准，本档不逐条复制完整清单）。
+    各家 LLM 经接口层接入，含 OpenAI、Anthropic 与 HF 等。以官方文档为准，本档不逐条复制完整清单。
 
-    它的核心贡献是 **ACI（agent-computer interface）**——为 agent 设计的文件编辑/命令交互界面。
+    它的核心贡献是 **ACI（agent-computer interface）**。为 agent 设计的文件编辑/命令交互界面。
   runtime: >-
     Python 库 + 命令行（pip 装）。GitHub 20,682★。最近推送 2026-10-26（API 核验）。学术出身（Princeton/Stanford 论文线）。
 
@@ -31,11 +31,11 @@ axes:
   permissions: >-
     **命令执行=真实权限面**：agent 能跑 shell 命令。官方推荐容器隔离—— 裸机直跑的风险口径官方文档有提示（本档不逐条展开细节）。
   fit: >-
-    适合：研究/评测「agent 修代码」能力（SWE-bench 线）、要 ACI 设计参考实现。不适合：生产编码助手开箱（它是研究向 harness）。要 GUI 产品形态。
+    适合：研究/评测「agent 修代码」能力（SWE-bench 线）。要 ACI 设计参考实现。不适合：生产编码助手开箱（它是研究向 harness）。要 GUI 产品形态。
 pitfalls:
-  - 把它当生产编码 agent——它是研究向 harness（论文与评测线），产品化要自己补
+  - 把它当生产编码 agent。它是研究向 harness（论文与评测线），产品化要自己补
   - 裸机直跑命令执行面——官方推荐容器隔离，别省这层
-  - 与 SWE-bench 基准混谈——SWE-bench 是评测集（同团队另一产物），SWE-agent 是跑评测的 agent 框架
+  - 与 SWE-bench 基准混谈。SWE-bench 是评测集（同团队另一产物），SWE-agent 是跑评测的 agent 框架
 
 tags: [开源, MIT, 研究向, 代码修复, ACI, SWE-bench]
 related: [claude-code-cli, codex-cli]
@@ -60,17 +60,17 @@ cn:
   origin_note: Princeton / Stanford 学术团队（美国）。
   origin_note_en: Princeton / Stanford academic teams (US).
   direct: yes
-  direct_note: swe-agent.com 直连实测 200（2026-10-21）；GitHub 仓大陆直连波动（同日代理可达）。
+  direct_note: swe-agent.com 直连实测 200（2026-10-21）。GitHub 仓大陆直连波动（同日代理可达）。
   direct_note_en: swe-agent.com measured 200 direct (2026-10-21); the GitHub repo's mainland reachability fluctuates (200 via proxy the same day).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
 
 ## 一句话定位
 
-**SWE-agent 是「agent 修代码」研究线的参考实现**（MIT，Princeton/Stanford）：ACI（为 agent 设计的计算机界面）是它的核心命题，与 SWE-bench 评测生态同源。
+**SWE-agent**：ACI 是为 agent 设计的计算机界面，是它的核心命题。它与 SWE-bench 评测生态同源。
 
 生产开箱不是它的定位——它是给研究与评测用的参考实现。
 

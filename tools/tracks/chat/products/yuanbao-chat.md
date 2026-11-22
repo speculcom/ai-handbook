@@ -5,7 +5,7 @@ name: 腾讯元宝
 nameEn: Tencent Yuanbao
 vendor: 腾讯
 homepage: https://yuanbao.tencent.com
-license: 免费+登录。官方用户协议页（yuanbao.tencent.com/agreement 直抓核验 2026-10-22）；
+license: 免费+登录。官方用户协议页（yuanbao.tencent.com/agreement 直抓核验 2026-10-22）。
   输出内容归属与训练口径按该协议管辖，具体条款细节本档不逐条展开。
 licenseEn: Free with login. Governed by the official user agreement page (direct-fetched 2026-10-22);
   output ownership and training terms follow that agreement — clause details not verified line by line.
@@ -24,17 +24,17 @@ axes:
   background: >-
     对话即时返回，无「关机续跑」形态的官方声明。深度思考是会话内推理档位，不是异步任务。
   tools: >-
-    **依据：** 联网搜索（独家微信公众号/视频号信源是它的差异点）、文档精读、AI 作图、智能体创建、AI 编程（多语言运行即时验证） 等产品内能力线；联动腾讯文档/微信读书。MCP 支持未核验到官方声明。
+    **依据：** 联网搜索（独家微信公众号/视频号信源是它的差异点）、文档精读、AI 作图、智能体创建、AI 编程（多语言运行即时验证） 等产品内能力线。联动腾讯文档/微信读书。MCP 支持未核验到官方声明。
   context: >-
     对话历史登录同步多端。有「无痕临时对话」（聊完不入历史）。跨会话长期记忆机制本档不逐条展开。
   permissions: >-
     账号体系（微信/QQ/手机号登录）。训练用途开关路径本档不逐条展开。混元模型备案号见 cn 块（官方公示）。
   fit: >-
-    适合：泡微信生态的人（搜公众号/视频号、评论区 @ 解读、联动腾讯文档与微信读书）、长文档精读、免费额度。不适合：要本机跑模型、要脱离腾讯账号体系。
+    适合：泡微信生态的人（搜公众号/视频号、评论区 @ 解读、联动腾讯文档与微信读书）。长文档精读。免费额度。不适合：要本机跑模型。要脱离腾讯账号体系。
 pitfalls:
-  - 把「元宝」与「混元」混为一谈——混元是模型（hunyuan.tencent.com 是模型/研究站，不能聊天），元宝是搭在其上的 C 端入口
-  - 把「双模型自由切换」当现状——当前官方宣传已收敛到 Hy 系列，DeepSeek 是否仍可选需登录后界面确认（本站未登录核实）
-  - 把元宝与腾讯 ima 当同一产品——同基于混元但一个是通用助手、一个是个人知识库工作台
+  - 把「元宝」与「混元」混为一谈。混元是模型（hunyuan.tencent.com 是模型/研究站，不能聊天），元宝是搭在其上的 C 端入口
+  - 把「双模型自由切换」当现状。当前官方宣传已收敛到 Hy 系列，DeepSeek 是否仍可选需登录后界面确认（本站未登录核实）
+  - 把元宝与腾讯 ima 当同一产品。同基于混元但一个是通用助手、一个是个人知识库工作台
 
 tags: [国产, 免费+登录, 微信生态, 公众号信源, 文档精读, 已备案]
 related: [codebuddy, kimi-chat, doubao-chat]
@@ -68,7 +68,7 @@ cn:
   filing_name: 腾讯混元助手大模型（元宝所用模型）
   filing_name_en: Tencent Hunyuan Assistant LLM (the model Yuanbao uses)
   filing_no: Guangdong-TencentHunyuan-20230901
-  filing_note: 元宝所用混元模型备案号经腾讯云官方文档交叉核验（Guangdong-TencentHunyuan-20230901）；
+  filing_note: 元宝所用混元模型备案号经腾讯云官方文档交叉核验（Guangdong-TencentHunyuan-20230901）。
     元宝作为 C 端入口承载该已备案模型。
   filing_note_en: the Hunyuan model behind Yuanbao is filed (Guangdong-TencentHunyuan-20230901, cross-verified via
     Tencent Cloud official docs); Yuanbao is the consumer entry carrying that filed model.

@@ -5,7 +5,7 @@ name: Kagi
 nameEn: Kagi
 vendor: Kagi
 homepage: https://kagi.com
-license: 订阅制（无广告、无免费档主打）。按官方条款/隐私页管辖（kagi.com/privacy 2026-11-21 取得）；商业使用仅限 API 产品，前端产品默认非商业。
+license: 订阅制（无广告、无免费档主打）。按官方条款/隐私页管辖（kagi.com/privacy 2026-11-21 取得）。商业使用仅限 API 产品，前端产品默认非商业。
 licenseEn: Subscription-first (ad-free, not free-tier-led). Governed by the official terms and privacy page (kagi.com/privacy fetched 2026-11-21); commercial use is limited to API products, while front-end products are non-commercial by default.
 
 axes:
@@ -40,13 +40,13 @@ axes:
 
     账户可开匿名邮箱、加密货币、Tor 与 Privacy Pass。团队或企业管理面官方文档未单列（2026-11-21）。
   fit: >-
-    适合：愿意付费换无广告、无追踪搜索体验，要「搜索+全文读」式答案。对追踪和画像敏感的用户。
+    适合：愿意付费换无广告。无追踪搜索体验，要「搜索+全文读」式答案。对追踪和画像敏感的用户。
 
-    不适合：只找免费档、要中文检索为主打，或需要企业级审计与团队管理面的组织（2026-11-21）。
+    不适合：只找免费档。要中文检索为主打，或需要企业级审计与团队管理面的组织（2026-11-21）。
 pitfalls:
-  - Kagi 是「搜索引擎+AI 附加」不是「AI 搜索」——索引自建，答案层是附加；对比口径别错位
-  - 订阅制是产品姿态——没有免费档兜底，「先试试」的成本结构与其他家不同（D9：价格不采）
-  - kagi.com 大陆直连实测 200（2026-10-22）——可达，但账号/支付按海外口径
+  - Kagi 是「搜索引擎+AI 附加」不是「AI 搜索」——索引自建，答案层是附加。对比口径别错位
+  - 订阅制是产品姿态。没有免费档兜底，「先试试」的成本结构与其他家不同（D9：价格不采）
+  - kagi.com 大陆直连实测 200（2026-10-22）。可达，但账号/支付按海外口径
 
 tags: [订阅制, 自建索引, 无广告无追踪, FastGPT, 隐私向]
 related: [perplexity, andi, metaso, chatgpt]
@@ -79,7 +79,7 @@ cn:
   direct_note: kagi.com 大陆直连实测 200（2026-10-22）。
   direct_note_en: kagi.com measured 200 direct from mainland (2026-10-22).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve the mainland
     public, so filing does not apply.
   verified: 2026-11-21

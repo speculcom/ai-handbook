@@ -14,13 +14,13 @@ providers:
   - 它本身不调模型：模型接入经它的 provider 集成层（官方文档 2026-10-21 核验）
 axes:
   model_access: >-
-    模型接入层是它的看家能力。各家 LLM/嵌入/工具的统一接口族（provider 集成面巨大， 以官方 integrations 目录为准，本档不逐条复制完整清单）。
+    模型接入层是它的看家能力。各家 LLM、嵌入与工具走统一接口族。provider 集成面很大。具体清单以官方 integrations 目录为准，本档不逐条复制。
 
     它本身不调模型，是「换模型不改代码」的抽象层。
   runtime: >-
-    Python/JS 库（pip/npm 装进你的进程）。GitHub 148,689★（API 核验 2026-10-21）—— LLM 应用框架生态的主体。
+    Python/JS 库（pip/npm 装进你的进程）。GitHub 148,689★（API 核验 2026-10-21）。 LLM 应用框架生态的主体。
 
-    配套 LangGraph（编排）/LangSmith（观测）是同一厂商的相邻产品线。
+    配套 LangGraph 做编排，LangSmith 做观测。两者是同一厂商的相邻产品线。
   local_files: >-
     库形态跑在你自己的代码与进程里。数据落点由你的集成决定（向量库/文件都在你侧）。
   background: >-
@@ -32,13 +32,13 @@ axes:
   permissions: >-
     无账号体系（库形态）。权限面=你接的各家 API key 与工具能力。观测线（LangSmith）有数据上传面。默认行为本档不逐条展开。
   fit: >-
-    适合：要最大集成生态、要「换 provider 不改代码」的抽象层、RAG/工具流起步。不适合：要轻量直连单家 API（抽象层是成本）。
+    适合：要最大集成生态。要「换 provider 不改代码」的抽象层。RAG/工具流起步。不适合：要轻量直连单家 API（抽象层是成本）。
 
     要开箱 agent 运行时（那是 LangGraph/Deep Agents 的线）。
 pitfalls:
-  - 把 LangChain/LangGraph/Deep Agents 混成一团——同厂商三条线：组件抽象层、图编排、预制深 agent
-  - 把 148k★ 的生态当「每个集成都一等公民」——第三方集成质量参差，看官方维护标记
-  - 用观测线不查数据上传面——LangSmith 上传 trace 是产品语义，接前先核默认行为
+  - 把 LangChain/LangGraph/Deep Agents 混成一团。同厂商三条线。组件抽象层、图编排、预制深 agent
+  - 把 148k★ 的生态当「每个集成都一等公民」。第三方集成质量参差，看官方维护标记
+  - 用观测线不查数据上传面。LangSmith 上传 trace 是产品语义，接前先核默认行为
 
 tags: [开源, MIT, 框架, 集成生态, RAG, Python, JS]
 related: [cursor, claude-code]
@@ -69,14 +69,14 @@ cn:
   direct_note: langchain.com 与 python.langchain.com 直连实测 200（2026-10-21）。
   direct_note_en: langchain.com and python.langchain.com measured 200 direct (2026-10-21).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；开源项目未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。开源项目未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the open-source project does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
 
 ## 一句话定位
 
-**LangChain 是 LLM 应用框架生态的主体**（MIT，148k★）：模型/工具/检索的统一抽象层，提供多类集成入口。同厂商三条线要分清。
+**LangChain 是 LLM 应用框架生态的主体**：MIT，148k★。它提供模型、工具与检索的统一抽象层，有多类集成入口。同厂商三条线要分清。
 
 LangChain（组件抽象）、LangGraph（图编排）、Deep Agents（预制深 agent）。
 

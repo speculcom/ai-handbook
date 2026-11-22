@@ -30,13 +30,13 @@ axes:
   context: >-
     SOP（标准作业流程）编码进角色交互是它的核心设计。上下文按角色间消息传递组织（官方文档口径）。
   permissions: >-
-    代码执行发生在你机器上。多 agent 自动流水线的中间产物要人审再落地—— 全自动「软件公司」的产出质量与责任面在用户侧。
+    代码执行发生在你机器上。多 agent 自动流水线的中间产物要人审再落地。 全自动「软件公司」的产出质量与责任面在用户侧。
   fit: >-
-    适合：多智能体协作研究、SOP 流水线实验、软件生成流程的学术复现（论文引用量大）。不适合：要活跃维护的生产选型（推送/发版放缓）、要精细单 agent 控制。
+    适合：多智能体协作研究。SOP 流水线实验。软件生成流程的学术复现（论文引用量大）。不适合：要活跃维护的生产选型（推送/发版放缓）。要精细单 agent 控制。
 pitfalls:
-  - **活跃度两口径**：MetaGPT 仓最近推送 2026-01-21、release 停在 v0.8.2（2025-03）——但 FoundationAgents 组织侧其他仓（CEO-Arena 2026-10-29、OpenManus 58,830★）仍活跃：团队重心在移，选型按仓侧现状写
-  - 星数高≠维护活跃：71,097★ 是论文热度存量——生产选型看 pushed_at 与 releases，不看星数
-  - 组织更名线：GitHub org 从 geekan/MetaGPT 迁到 FoundationAgents（深度赋智团队线）——旧链接会跳
+  - **活跃度两口径**：MetaGPT 仓最近推送 2026-01-21、release 停在 v0.8.2（2025-03）。但 FoundationAgents 组织侧其他仓（CEO-Arena 2026-10-29、OpenManus 58,830★）仍活跃：团队重心在移，选型按仓侧现状写
+  - 星数高≠维护活跃：71,097★ 是论文热度存量。生产选型看 pushed_at 与 releases，不看星数
+  - 组织更名线：GitHub org 从 geekan/MetaGPT 迁到 FoundationAgents（深度赋智团队线）。旧链接会跳
 
 tags: [国产, 开源, 多智能体, 软件公司模拟, MIT]
 related: [crewai, agentscope, devin]
@@ -65,10 +65,10 @@ cn:
   origin_note: 北京深度赋智（DeepWisdom）团队线开源项目（GitHub org FoundationAgents；文档站挂 deepwisdom.ai）。
   origin_note_en: Open-source project of Beijing DeepWisdom (GitHub org FoundationAgents; docs site on deepwisdom.ai).
   direct: yes
-  direct_note: docs.deepwisdom.ai 直连实测 200（2026-10-31）；GitHub 仓大陆直连波动（同日代理可达）。
+  direct_note: docs.deepwisdom.ai 直连实测 200（2026-10-31）。GitHub 仓大陆直连波动（同日代理可达）。
   direct_note_en: docs.deepwisdom.ai measured 200 direct (2026-10-31); the GitHub repo's mainland reachability fluctuates (200 via proxy the same day).
   filing: unknown
-  filing_note: 框架本体是开源库不面向公众提供服务，备案不适用；其关联产品（DeepWisdom 系应用）的备案状态属另一主体——本站未逐条核验，不下断言。
+  filing_note: 框架本体是开源库不面向公众提供服务，备案不适用。其关联产品（DeepWisdom 系应用）的备案状态属另一主体。本站未逐条核验，不下断言。
   filing_note_en: the framework itself is an open-source library not serving the public, so filing does not apply; filing status of associated DeepWisdom products belongs to another entity — not individually verified, no assertion made.
   verified: 2026-10-31
 ---
@@ -96,6 +96,6 @@ cn:
 
 ## 相关条目
 
-- [CrewAI](./crewai.md) — 同大类对照：同为多角色协作框架，CrewAI 面向生产编排且活跃发版，MetaGPT 偏研究流水线且仓侧放缓——活跃度是选型差。
-- [AgentScope](./agentscope.md) — 同大类对照：同为国产多智能体框架，AgentScope（阿里系）仍在活跃推送，MetaGPT 仓侧放缓——国产线内部也分活跃/放缓。
-- [Devin](../../coding/products/devin.md) — 跨大类对照：Devin 是替你干活的成品（coding 大类），MetaGPT 是让你搭「软件公司流水线」的底座（framework 大类）——§7 收录标准的正反两面。
+- [CrewAI](./crewai.md) — 同大类对照：同为多角色协作框架，CrewAI 面向生产编排且活跃发版，MetaGPT 偏研究流水线且仓侧放缓。活跃度是选型差。
+- [AgentScope](./agentscope.md) — 同大类对照：同为国产多智能体框架，AgentScope（阿里系）仍在活跃推送，MetaGPT 仓侧放缓。国产线内部也分活跃/放缓。
+- [Devin](../../coding/products/devin.md) — 跨大类对照：Devin 是替你干活的成品（coding 大类），MetaGPT 是让你搭「软件公司流水线」的底座（framework 大类）。§7 收录标准的正反两面。

@@ -4,7 +4,7 @@ form: web
 name: Microsoft Copilot Studio
 vendor: Microsoft
 homepage: https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio
-license: 商业 SaaS，随 Microsoft 商业条款体系（产品条款/数据保护附录 DPA）；无自托管形态。
+license: 商业 SaaS，随 Microsoft 商业条款体系（产品条款/数据保护附录 DPA）。无自托管形态。
 
 axes:
   model_access: >-
@@ -24,11 +24,11 @@ axes:
   permissions: >-
     企业级身份/治理随 Microsoft 365 体系（Entra ID 等）。数据驻留与合规随 Microsoft 商业条款。
   fit: >-
-    适合：Microsoft 365/Power Platform 存量企业、要企业治理现成、要 M365 生态内分发。不适合：不在 Microsoft 生态。要自托管。
+    适合：Microsoft 365/Power Platform 存量企业。要企业治理现成。要 M365 生态内分发。不适合：不在 Microsoft 生态。要自托管。
 pitfalls:
-  - 把它当独立聊天机器人工具——它的价值绑定在 Power Platform/Dataverse 生态里
+  - 把它当独立聊天机器人工具。它的价值绑定在 Power Platform/Dataverse 生态里
   - 计费按消息/容量计量——本站按 D9 不采价格数字，看官方 pricing 页
-  - 官网产品页直抓 403（CF 拦截）——核验走 learn.microsoft.com 文档线
+  - 官网产品页直抓 403（CF 拦截）。核验走 learn.microsoft.com 文档线
 
 tags: [企业低代码, 云托管, PowerPlatform, M365, agent]
 related: [microsoft-agent-framework]
@@ -53,23 +53,23 @@ cn:
   origin_note: Microsoft（美国）。
   origin_note_en: Microsoft (US).
   direct: unknown
-  direct_note: 产品页直抓 403（CF 拦截）、文档线 200——整体直连性标 unknown。
+  direct_note: 产品页直抓 403（CF 拦截）、文档线 200。整体直连性标 unknown。
   direct_note_en: product page 403 (Cloudflare), docs 200 — overall directness marked unknown.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-21 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-21 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-21); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-21
 ---
 
 ## 一句话定位
 
-**Copilot Studio 是 Microsoft 生态里的企业低代码 agent 平台**——它的「能不能用」很大程度取决于你在不在 Power Platform/Dataverse 生态里。
+**Copilot Studio**：它能不能用，很大程度取决于你是否在 Power Platform/Dataverse 生态里。
 
 企业治理（身份、数据驻留）随 Microsoft 365 体系现成提供。
 
 ## 适合与不适合
 
-适合：M365/Power Platform 存量企业、要现成企业治理、agent 要在 Teams/官网/M365 内分发。
+适合：M365/Power Platform 存量企业。要现成企业治理。agent 要在 Teams/官网/M365 内分发。
 不适合：不在 Microsoft 生态（生态外价值骤减）。
 要自托管（无此形态）。
 

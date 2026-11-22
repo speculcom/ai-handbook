@@ -42,9 +42,9 @@ axes:
 
     官方安装文档只列平台与依赖。未定义统一权限模型（2026-11-21）。
   fit: >-
-    适合：机器人动力学建模、接触/摩擦仿真、轨迹优化、控制设计与验证，以及需要暴露方程结构（稀疏性、解析梯度、多项式结构）的规划算法研究。
+    适合：机器人动力学建模。接触/摩擦仿真。轨迹优化。控制设计与验证，以及需要暴露方程结构（稀疏性、解析梯度、多项式结构）的规划算法研究。
 
-    不适合：开箱即用的 ROS 导航栈、云端仿真服务或通用游戏引擎式内容制作（2026-11-21）。
+    不适合：开箱即用的 ROS 导航栈。云端仿真服务或通用游戏引擎式内容制作（2026-11-21）。
 pitfalls:
   - 以为它是通用仿真游戏引擎——它偏模型化分析与优化
   - 忽略求解器选择与约束建模对结果的影响
@@ -81,13 +81,13 @@ lifecycle: active
 confidence: verified
 cn:
   origin: foreign
-  origin_note: 国外主体或国际开源社区；网信办公示名单适用性按产品是否面向大陆公众判断。
+  origin_note: 国外主体或国际开源社区。网信办公示名单适用性按产品是否面向大陆公众判断。
   origin_note_en: Foreign entity or international open-source community; CAC registry applicability depends on whether the product serves the mainland public.
   direct: unknown
-  direct_note: 官方仓库 raw README 与官网文档取得 200；官网与安装源的大陆链路质量按实际网络环境核对。
+  direct_note: 官方仓库 raw README 与官网文档取得 200。官网与安装源的大陆链路质量按实际网络环境核对。
   direct_note_en: Official repository raw README and site docs returned 200; mainland link quality to the site and install sources must be checked against the actual network.
   filing: unknown
-  filing_note: 未见于网信办公示名单检索记录；该产品为开源软件，备案适用性按实际分发方式判断。
+  filing_note: 未见于网信办公示名单检索记录。该产品为开源软件，备案适用性按实际分发方式判断。
   filing_note_en: Not found in the CAC public-registry check; this is open-source software and filing applicability depends on how it is distributed.
   verified: 2026-11-21
 ---
@@ -109,9 +109,9 @@ cn:
 
 ## 未知项清单
 
-- 国内网络到官网与安装源的链路质量、以及备案适用性，需按实际网络环境核对；本档不推断。
-- 上游版本节奏以 GitHub Releases 页为准；具体版本兼容性按 Release Notes 核对。
-- 官方文档未列 MCP 服务器；如需 MCP 接入需自行封装 Python/C++ API。
+- 国内网络到官网与安装源的链路质量、以及备案适用性，需按实际网络环境核对。本档不推断。
+- 上游版本节奏以 GitHub Releases 页为准。具体版本兼容性按 Release Notes 核对。
+- 官方文档未列 MCP 服务器。如需 MCP 接入需自行封装 Python/C++ API。
 ## 相关条目
 
-- [llama.cpp](../../runner/products/llama-cpp.md) — 另一类：本地模型运行器；策略需要本地推理时看它。
+- [llama.cpp](../../runner/products/llama-cpp.md) — 另一类：本地模型运行器。策略需要本地推理时看它。

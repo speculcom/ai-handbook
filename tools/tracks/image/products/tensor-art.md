@@ -4,8 +4,8 @@ form: web
 name: Tensor.Art
 vendor: ECHO INTERNATIONAL HK LIMITED（Tensor.Art）
 homepage: https://tensor.art
-license: 免费+VIP 订阅（1/30/90 天档）。按官方条款页管辖（terms-of-service-new 经 WebFetch 当日核验 2026-10-31）；
-  条款 3.1 明言平台对模型与生成图不做所有权/版权主张、创作内容用户可自由使用；转载模型须原作者书面同意（3.7）。
+license: 免费+VIP 订阅（1/30/90 天档）。按官方条款页管辖（terms-of-service-new 经 WebFetch 当日核验 2026-10-31）。
+  条款 3.1 明言平台对模型与生成图不做所有权/版权主张、创作内容用户可自由使用。转载模型须原作者书面同意（3.7）。
 licenseEn: Free + VIP subscription (1/30/90-day passes). Governed by the official terms page (terms-of-service-new,
   WebFetch-verified 2026-10-31); clause 3.1 states the platform makes no ownership/copyright claims over models or
   generated images and created content may be freely used by the user; reposting a model requires the original
@@ -21,17 +21,17 @@ axes:
   runtime: >-
     网页（tensor.art）+ 官方软件应用（条款多处提及 Tensor.Art software application，可下载）。生成在厂商云端按 credit 跑。
 
-    平台不提供本地运行时——下载的应用是客户端不是本地推理引擎（细节按官方文档口径）。
+    平台不提供本地运行时。下载的应用是客户端不是本地推理引擎（细节按官方文档口径）。
   local_files: >-
     作品与模型存账户侧云端。条款提及可下载的软件应用（本机安装面在册）。但其本机数据面官方文档未单列。
 
-    社区模型的下载面当日官方文档未单列（全站 Cloudflare 反爬，curl 通道 403，仅部分官方页经 WebFetch 命中）。
+    社区模型的下载面，当日官方文档未单列。全站有 Cloudflare 反爬，curl 通道 403。仅部分官方页经 WebFetch 命中。
   background: >-
     credit 制即时生成。VIP 会员每日 300 credit、当日刷新不结转（会员条款在册）。无常驻任务面（官方文档未单列声明）。
 
-    LoRA 训练提交后在云端跑（Model Training 功能在册，排队/时长细节官方文档未单列）。
+    LoRA 训练提交后在云端跑。Model Training 功能在册，排队与时长细节官方文档未单列。
   tools: >-
-    在线 LoRA 训练（隐私页 Model Training features）、模型上传与社区分享（条款 3.7 转载须原作者书面同意）、 社区画廊与发布（posting service）。
+    在线 LoRA 训练见隐私页 Model Training features。模型可上传并社区分享，条款 3.7 要求转载须原作者书面同意。另有社区画廊与发布服务。
 
     news 页最新条目「Free Video Trial with Wan2.2」显示视频生成面试验（2026-10-31）。API 面官方文档未单列官方口径（第三方评测称无 API，不作依据）。
   context: >-
@@ -41,13 +41,13 @@ axes:
 
     3.6 不鼓励 NSFW 内容（社区治理口径）。账号须 18+（2.2）。
   fit: >-
-    适合：免费 credit 生图+社区模型寻宝（SD 生态）、在线 LoRA 训练、模型分享社区。
+    适合：免费 credit 生图+社区模型寻宝（SD 生态）。在线 LoRA 训练。模型分享社区。
 
-    不适合：要官方自研前沿模型（它是托管+基础模型平台）、企业合规叙事优先（条款面薄、无 DPA 面）、对社区内容治理敏感的场景。
+    不适合：要官方自研前沿模型（它是托管+基础模型平台）。企业合规叙事优先（条款面薄、无 DPA 面）。对社区内容治理敏感的场景。
 pitfalls:
-  - **全站 Cloudflare 反爬**（curl 直连 000/代理 403）——公共核验面极薄：条款/会员条款/隐私/news 四页经 WebFetch 当日命中，其余面（下载面、API）官方文档未单列，档案按 partial 如实记
-  - 主体是隐私页在册的 **ECHO INTERNATIONAL HK LIMITED（香港）**，联系邮箱挂 echo.tech 域——与大陆 echo.tech 的关系官方文档未单列，备案口径不能按大陆服务混断
-  - 条款 3.1「平台不做所有权主张」≠「你拥有版权」——AI 生成图的可版权性取决于法域（与各生成产品同口径）
+  - **全站 Cloudflare 反爬**（curl 直连 000/代理 403）。公共核验面极薄：条款/会员条款/隐私/news 四页经 WebFetch 当日命中。其余面（下载面、API）官方文档未单列，档案按 partial 如实记
+  - 主体是隐私页在册的 **ECHO INTERNATIONAL HK LIMITED（香港）**，联系邮箱挂 echo.tech 域。与大陆 echo.tech 的关系官方文档未单列，备案口径不能按大陆服务混断
+  - 条款 3.1「平台不做所有权主张」≠「你拥有版权」。AI 生成图的可版权性取决于法域（与各生成产品同口径）
 
 tags: [免费+订阅, 社区模型库, LoRA训练, SD生态, credit制]
 related: [seaart, flux, huggingchat]
@@ -73,19 +73,19 @@ confidence: verified
 
 cn:
   origin: domestic
-  origin_note: 隐私页在册主体 ECHO INTERNATIONAL HK LIMITED（香港铜锣湾希慎道 33 号利园一期 19 楼）；
-    联系邮箱 Tensor.Art@echo.tech——与大陆 echo.tech 的关系官方文档未单列，按在册主体记。
+  origin_note: 隐私页在册主体 ECHO INTERNATIONAL HK LIMITED（香港铜锣湾希慎道 33 号利园一期 19 楼）。
+    联系邮箱 Tensor.Art@echo.tech。与大陆 echo.tech 的关系官方文档未单列，按在册主体记。
   origin_note_en: The privacy policy lists ECHO INTERNATIONAL HK LIMITED (19/F Lee Garden One, Causeway Bay, Hong Kong)
     as the contact entity; the contact email sits on the echo.tech domain — the relationship to mainland echo.tech
     is unverified, recorded per the listed entity.
   direct: no
-  direct_note: tensor.art 大陆直连实测 000（2026-10-31 两次）；代理下 curl 403（Cloudflare 反爬）——
+  direct_note: tensor.art 大陆直连实测 000（2026-10-31 两次）。代理下 curl 403（Cloudflare 反爬）——
     官方条款/隐私页经 WebFetch 命中，浏览器直连可达性官方文档未单列。
   direct_note_en: tensor.art measured 000 direct from mainland (2026-10-31, two retests); via proxy curl returns
     403 (Cloudflare anti-bot) — official terms/privacy pages were reached via WebFetch; browser reachability unverified.
   filing: unknown
-  filing_note: 未检索到 Tensor.Art 对应的网信办深度合成/生成式 AI 备案条目（2026-10-31）；
-    主体为香港公司，是否适用大陆备案口径不明——官方文档未单列≠未备案，如实 unknown。
+  filing_note: 未检索到 Tensor.Art 对应的网信办深度合成/生成式 AI 备案条目（2026-10-31）。
+    主体为香港公司，是否适用大陆备案口径不明。官方文档未单列≠未备案，如实 unknown。
   filing_note_en: no Tensor.Art entry found in the CAC deep-synthesis / generative-AI registries (searched 2026-10-31);
     the entity is Hong Kong-based and whether mainland filing applies is unclear — "not found" ≠ "not filed", recorded as unknown.
   verified: 2026-10-31
@@ -93,13 +93,13 @@ cn:
 
 ## 一句话定位
 
-**Tensor.Art 是 SD 生态的社区模型托管+在线生成台**：checkpoint/LoRA 上传分享与在线跑、在线 LoRA 训练、免费 credit+VIP 订阅。
+**Tensor.Art 是 SD 生态的社区模型托管加在线生成台**：它支持 checkpoint/LoRA 上传分享与在线跑。也提供在线 LoRA 训练、免费 credit 与 VIP 订阅。
 
 主体是隐私页在册的香港公司（ECHO INTERNATIONAL HK LIMITED）。
 
 ## 适合与不适合
 
-适合：免费 credit 生图、社区模型寻宝、在线 LoRA 训练、SD 生态分享社区。
+适合：免费 credit 生图、社区模型寻宝。也适合在线 LoRA 训练与 SD 生态分享社区。
 不适合：要官方自研前沿模型、企业合规叙事优先、对社区内容治理敏感。
 
 ## 实测记录

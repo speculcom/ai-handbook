@@ -5,7 +5,7 @@ name: F5-TTS
 nameEn: F5-TTS
 vendor: SWivid / 上交 X-LANCE 等（开源）
 homepage: https://github.com/SWivid/F5-TTS
-license: MIT（GitHub API 当日核验 spdx=MIT）；权重经 HF/ModelScope/Wisemodel 分发，
+license: MIT（GitHub API 当日核验 spdx=MIT）。权重经 HF/ModelScope/Wisemodel 分发，
   各分发页权重许可细节按官方文档口径。
 licenseEn: MIT (GitHub API verified same day, spdx=MIT); weights distributed via HF/ModelScope/Wisemodel —
   per-distribution weight-license details not verified item by item.
@@ -20,7 +20,7 @@ axes:
 
     社区 Gradio Space（E2-F5-TTS）可试跑但非官方托管产品。
   local_files: >-
-    权重、代码、生成音频全在本机。ModelScope 权重页大陆直连 200（2026-10-30）——获取路径大陆可用。无任何账户/云端数据面。
+    权重、代码、生成音频全在本机。ModelScope 权重页大陆直连 200（2026-10-30）。获取路径大陆可用。无任何账户/云端数据面。
   background: >-
     本机批处理推理，无任务队列形态。推理耗时随硬件变化，官方按套餐/版本口径统一延迟口径。
   tools: >-
@@ -32,11 +32,11 @@ axes:
 
     使用方自担授权责任（法律提示不在官方 README 在册，如实标官方文档未单列）。
   fit: >-
-    适合：本机/私有化中英文 TTS 与 zero-shot 克隆研究、MIT 商用基底、大陆经 ModelScope 获取权重。不适合：要托管 API 开箱即用、要零运维、要 SLA。
+    适合：本机/私有化中英文 TTS 与 zero-shot 克隆研究。MIT 商用基底。大陆经 ModelScope 获取权重。不适合：要托管 API 开箱即用。要零运维。要 SLA。
 pitfalls:
-  - 它是模型不是产品——没有账号、控制台、SLA；「F5-TTS 服务」在官方口径里不存在（HF Space 是社区演示不是官方托管）
-  - 官方入口 github.com 大陆直连当日 000——权重经 ModelScope（AI-ModelScope/E2-F5-TTS studio 与 SWivid 权重页）直连 200，按获取路径判可达性而不是按仓库域
-  - README 的实验室署名（X-LANCE 上交、SII、PCL）是研究归属不是公司主体——商用集成时 MIT 无担保条款照常适用
+  - 它是模型不是产品——没有账号、控制台、SLA。「F5-TTS 服务」在官方口径里不存在（HF Space 是社区演示不是官方托管）
+  - 官方入口 github.com 大陆直连当日 000。权重经 ModelScope（AI-ModelScope/E2-F5-TTS studio 与 SWivid 权重页）直连 200，按获取路径判可达性而不是按仓库域
+  - README 的实验室署名（X-LANCE 上交、SII、PCL）是研究归属不是公司主体。商用集成时 MIT 无担保条款照常适用
 
 tags: [开源MIT, 模型非产品, 中文TTS, zero-shot克隆, 自托管, 多语言]
 related: [cosyvoice, fish-audio, ollama]
@@ -65,13 +65,13 @@ confidence: verified
 
 cn:
   origin: domestic
-  origin_note: 中国学术团队开源项目——README 徽章当日在册 X-LANCE（上海交通大学）、SII、PCL 三实验室署名；
+  origin_note: 中国学术团队开源项目。README 徽章当日在册 X-LANCE（上海交通大学）、SII、PCL 三实验室署名。
     作者 SWivid 个人维护（GitHub 主体口径）。
   origin_note_en: open-source project of Chinese academic teams — README badges on record same day list
     X-LANCE (Shanghai Jiao Tong University), SII and PCL labs; maintained by author SWivid (GitHub entity).
   direct: unknown
-  direct_note: 官方入口 github.com 大陆直连当日实测 000（代理 200）——GitHub 大陆可达性长期波动，
-    不下「被墙/区域限制」结论；权重经 ModelScope 分发当日直连 200，本机获取路径大陆可用。
+  direct_note: 官方入口 github.com 大陆直连当日实测 000（代理 200）。GitHub 大陆可达性长期波动，
+    不下「被墙/区域限制」结论。权重经 ModelScope 分发当日直连 200，本机获取路径大陆可用。
   direct_note_en: the official entry github.com measured 000 direct from mainland (200 via proxy) — GitHub's mainland
     reachability fluctuates long-term, no "blocked vs region-limited" conclusion drawn; weights via ModelScope
     measured 200 direct same day, so the local acquisition path works from the mainland.
@@ -88,7 +88,7 @@ cn:
 
 ## 适合与不适合
 
-适合：本机/私有化中英文 TTS 与 zero-shot 克隆研究、MIT 商用基底、大陆经 ModelScope 获取权重。
+适合：本机/私有化中英文 TTS 与 zero-shot 克隆研究。MIT 商用基底。大陆经 ModelScope 获取权重。
 不适合：要托管 API 开箱即用、要零运维、要 SLA。
 
 ## 实测记录

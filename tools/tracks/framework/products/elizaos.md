@@ -12,7 +12,7 @@ providers:
   - 多模型接入（OpenAI/Anthropic/本地等插件式接入，具体插件目录以官方 Plugin Registry 为准）
 axes:
   model_access: >-
-    插件式多模型接入（各家 API 与本地线都有插件，目录以官方 Plugin Registry 为准）。它的本体不在模型，在「角色」抽象——一个 agent 配置文件定义人格+能力。
+    插件式多模型接入，各家 API 与本地线都有插件。目录以官方 Plugin Registry 为准。它的本体不在模型，在「角色」抽象——一个 agent 配置文件定义人格+能力。
   runtime: >-
     TypeScript 运行时（官方仓描述「Open source agentic operating system」）：起一个常驻进程。agent 按角色配置对外接渠道。
 
@@ -22,7 +22,7 @@ axes:
 
     支持最近/语义向量/关键词检索。具体数据库后端随部署适配器。
   background: >-
-    常驻进程+多渠道接入是默认形态。agent 长期在线接消息、按角色行事—— 「角色 agent」是它的产品叙事核心。
+    常驻进程+多渠道接入是默认形态。agent 长期在线接消息，按角色行事。「角色 agent」是它的产品叙事核心。
   tools: >-
     插件生态是主轴（渠道插件/动作插件）。MCP 通过 @elizaos/plugin-mcp 接入 MCP 服务器（npm 2.0.5，2026-11-11 更新；维护者为 Eliza 核心成员）。
   context: >-
@@ -30,10 +30,10 @@ axes:
   permissions: >-
     插件与动作可触达外部账号/渠道。接什么渠道、给什么凭据是配置者责任。插件第三方代码面要自己审。
   fit: >-
-    适合：要「有人格的常驻 agent」（社交/陪伴/社区 bot）、TS 生态、插件式扩展。不适合：要编程任务底座、要企业工作流编排、对第三方插件供应链敏感的场景。
+    适合：要「有人格的常驻 agent」（社交/陪伴/社区 bot）。TS 生态。插件式扩展。不适合：要编程任务底座。要企业工作流编排。对第三方插件供应链敏感的场景。
 pitfalls:
-  - 品牌与域名散：elizaos.ai 301→elizaresearch.ai（新主体站「Eliza Research」）、文档在 docs.elizaos.ai、仓在 elizaOS/eliza——三处口径要一起看，别按单域名判断项目死活
-  - 加密社区出身：项目与 token 生态关联深（ai16z 线）——选型时把技术框架与投机叙事分开，本站只记框架面
+  - 品牌与域名散：elizaos.ai 301→elizaresearch.ai（新主体站「Eliza Research」）、文档在 docs.elizaos.ai、仓在 elizaOS/eliza。三处口径要一起看，别按单域名判断项目死活
+  - 加密社区出身：项目与 token 生态关联深（ai16z 线）。选型时把技术框架与投机叙事分开，本站只记框架面
   - 插件=第三方代码：动作插件可持凭据触达外部渠道，供应链审查是配置者责任
 
 tags: [开源, 角色agent, 多智能体, 插件生态, TypeScript]
@@ -66,20 +66,20 @@ confidence: verified
 
 cn:
   origin: foreign
-  origin_note: ElizaOS 社区（GitHub org elizaOS，20 个公开仓）；主体站现挂「Eliza Research」（elizaresearch.ai，自述「builds products at the intersection of AI and people」）。
+  origin_note: ElizaOS 社区（GitHub org elizaOS，20 个公开仓）。主体站现挂「Eliza Research」（elizaresearch.ai，自述「builds products at the intersection of AI and people」）。
   origin_note_en: ElizaOS community (GitHub org elizaOS, 20 public repos); the entity site now runs as "Eliza Research" (elizaresearch.ai, self-described as building "products at the intersection of AI and people").
   direct: yes
-  direct_note: elizaos.ai 直连 301→elizaresearch.ai 直连 200、docs.elizaos.ai 直连 200（2026-10-31）；GitHub 仓大陆直连波动（同日代理可达）。
+  direct_note: elizaos.ai 直连 301→elizaresearch.ai 直连 200、docs.elizaos.ai 直连 200（2026-10-31）。GitHub 仓大陆直连波动（同日代理可达）。
   direct_note_en: elizaos.ai measured 301→elizaresearch.ai 200 direct, docs.elizaos.ai 200 direct (2026-10-31); the GitHub repo's mainland reachability fluctuates (200 via proxy the same day).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-31 检索）；开源框架不面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-31 检索）。开源框架不面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-31); an open-source framework not serving the mainland public, so filing does not apply.
   verified: 2026-11-21
 ---
 
 ## 一句话定位
 
-**ElizaOS 把「角色」做成 agent 单元**（MIT，TypeScript）：一个 character 配置文件定义人格与能力，常驻进程接多渠道（官方仓自称「agentic operating system」）。
+**ElizaOS 把「角色」做成 agent 单元**：一个 character 配置文件定义人格与能力。常驻进程接多渠道，官方仓自称「agentic operating system」。
 
 加密社区出身、插件生态大——**框架面与投机叙事要分开看**。
 
@@ -99,6 +99,6 @@ cn:
 
 ## 相关条目
 
-- [CrewAI](./crewai.md) — 同大类对照：CrewAI 按「角色分工」编排多 agent，ElizaOS 按「角色人格」常驻单 agent——两种「角色」语义。
+- [CrewAI](./crewai.md) — 同大类对照：CrewAI 按「角色分工」编排多 agent，ElizaOS 按「角色人格」常驻单 agent。两种「角色」语义。
 - [Hermes Agent](./hermes-agent.md) — 同大类对照：同为常驻通用 agent 运行时，Hermes 走模型厂商线，ElizaOS 走社区插件线。
-- [ChatGPT](../../chat/products/chatgpt.md) — 跨大类对照：ChatGPT 的「自定义 GPT」也是人格化角色但跑在官方托管里；ElizaOS 把角色跑在你自己的进程与渠道里。
+- [ChatGPT](../../chat/products/chatgpt.md) — 跨大类对照：ChatGPT 的「自定义 GPT」也是人格化角色但跑在官方托管里。ElizaOS 把角色跑在你自己的进程与渠道里。

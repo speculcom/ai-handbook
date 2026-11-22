@@ -21,7 +21,7 @@ axes:
 
     内置后端（Cloud）由 Lovable 托管。基于 Supabase 开源底座 （官方 cloud 页明示：数据库/认证/存储/edge functions，无需自建 Supabase）。
 
-    官方「部署托管与所有权」页口径「you are never locked in」：可导出代码、迁移数据、自托管部分或全部栈。
+    官方「部署托管与所有权」页口径「you are never locked in」。可导出代码、迁移数据、自托管部分或全部栈。
   background: >-
     托管面是产品语义一部分。应用托管随流量自动扩、数据库实例可调（官方 cloud 页）。project monitoring 按计划检查应用抓 bug 与访客错误。
 
@@ -43,15 +43,15 @@ axes:
 
     项目可见性（私有/内部/公开）与 RLS 行级安全策略控制数据访问。个人 2FA。
   fit: >-
-    适合：从想法到带数据库/认证/托管的全栈应用一条龙、要 Git 双向同步把代码放进自己仓库、 企业治理叙事（SSO/SCIM/审计/EU inference）。
+    适合：从想法到带数据库/认证/托管的全栈应用一条龙。要 Git 双向同步把代码放进自己仓库。 企业治理叙事（SSO/SCIM/审计/EU inference）。
 
-    不适合：要指定构建模型（官方明示不能）、要免费把代码下载回本地（Download codebase 是付费计划功能）。
+    不适合：要指定构建模型（官方明示不能）。要免费把代码下载回本地（Download codebase 是付费计划功能）。
 pitfalls:
-  - 构建侧模型不能指定（官方 FAQ：Lovable 为 Build/Plan/Chat 模式选模型并自动更新）——
-    与 IDE 类工具的「模型选择器」体验完全不同；能选的是你应用内的 AI 功能模型
-  - 训练政策按计划分层：官方 FAQ 明示 2026-09-09 起 Free/Pro 的客户数据默认可能用于训练（可在账户设置关闭），
-    Business/Enterprise 默认排除——数据边界别按「一个产品一个答案」推断
-  - 「代码可导出」不等于「后端可白拿」：内置后端是 Lovable 托管的 Supabase 开源底座，
+  - 构建侧模型不能指定（官方 FAQ：Lovable 为 Build/Plan/Chat 模式选模型并自动更新）。
+    与 IDE 类工具的「模型选择器」体验完全不同。能选的是你应用内的 AI 功能模型
+  - 训练政策按计划分层。官方 FAQ 明示 2026-09-09 起 Free/Pro 的客户数据默认可能用于训练（可在账户设置关闭），
+    Business/Enterprise 默认排除。数据边界别按「一个产品一个答案」推断
+  - 「代码可导出」不等于「后端可白拿」。内置后端是 Lovable 托管的 Supabase 开源底座，
     数据库迁移与外部托管要走官方迁移路径（deployment-hosting-ownership 页给路径与边界）
 
 tags: [海外, 免费+付费, Web, 桌面, 移动, 全栈, Supabase底座, MCP, Git同步, 企业治理]
@@ -90,12 +90,12 @@ cn:
   origin_note: Lovable（瑞典斯德哥尔摩，2023 年创立，前身 GPT Engineer——官方 FAQ 自述）。
   origin_note_en: Lovable (Stockholm, Sweden; founded 2023, formerly GPT Engineer — per the official FAQ).
   direct: yes
-  direct_note: docs.lovable.dev 大陆直连实测 200；lovable.dev 首页对脚本请求返回 403（bot 防护），
+  direct_note: docs.lovable.dev 大陆直连实测 200。lovable.dev 首页对脚本请求返回 403（bot 防护），
     浏览器访问路径未由本档实测。
   direct_note_en: docs.lovable.dev measured 200 direct from mainland; the lovable.dev homepage returns
     403 to scripted requests (bot protection); the browser access path was not measured by this site.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-22 检索）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-22 检索）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (searched 2026-10-22); the product does not serve
     the mainland public, so filing does not apply.
   verified: 2026-10-22
@@ -105,11 +105,11 @@ cn:
 
 **Lovable 是瑞典 Lovable 的全栈 AI 建站平台**：自然语言生成带前端/数据库/认证/托管的完整应用，内置后端基于 Supabase 开源底座。
 
-Git 双向同步把代码放进你自己的仓库——官方口径「never locked in」，但构建模型不能指定、训练数据政策按计划分层。
+Git 双向同步把代码放进你自己的仓库。官方口径「never locked in」，但构建模型不能指定、训练数据政策按计划分层。
 
 ## 适合与不适合
 
-适合：想法到上线一条龙、Git 同步进自己仓库、企业治理（SSO/SCIM/审计/EU inference）。
+适合：想法到上线一条龙。Git 同步进自己仓库。企业治理（SSO/SCIM/审计/EU inference）。
 不适合：要指定构建模型、要免费把代码下载回本地。
 
 ## 实测记录

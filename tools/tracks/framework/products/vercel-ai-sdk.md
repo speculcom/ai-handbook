@@ -4,9 +4,9 @@ form: harness
 family: orchestration
 # 支持哪些模型 provider（本站第一决策点）
 providers:
-  - 通过 provider 包接多家模型供应商；官方文档列出主流商业与开源模型
+  - 通过 provider 包接多家模型供应商。官方文档列出主流商业与开源模型
   - AI SDK 7 的 harness adapters 可驱动 Claude Code、Codex、Pi、Cline 等既有 agent 运行时
-  - provider 与 harness 是两层：模型接入由 provider 决定，运行时由 harness 决定
+  - provider 与 harness 是两层。模型接入由 provider 决定，运行时由 harness 决定
 name: Vercel AI SDK 7
 nameEn: Vercel AI SDK 7
 vendor: Vercel
@@ -38,7 +38,7 @@ axes:
 
     要 Python 生态（看 LangGraph/Agno）。
 pitfalls:
-  - 把 HarnessAgent 当成「内置 Claude Code」——它是适配层，仍需相应 harness 与运行环境
+  - 把 HarnessAgent 当成「内置 Claude Code」。它是适配层，仍需相应 harness 与运行环境
   - 以为换 harness 不用改权限模型——不同 harness 的工具面与沙箱边界不同
   - 把库当成托管服务——AI SDK 不替你跑任务队列
 
@@ -65,24 +65,24 @@ cn:
   origin_note: Vercel（美国）。
   origin_note_en: Vercel (US).
   direct: yes
-  direct_note: vercel.com 大陆直连未核验；官方文档与 npm 包通常可经镜像获取。
+  direct_note: vercel.com 大陆直连未核验。官方文档与 npm 包通常可经镜像获取。
   direct_note_en: Direct reachability from mainland not verified; official docs and npm packages are usually available through mirrors.
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-11-03 检索）；开源库未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-11-03 检索）。开源库未面向大陆公众提供服务，备案不适用。
   filing_note_en: Not in the CAC public registry (searched 2026-11-03); the open-source library does not serve the mainland public, so filing does not apply.
   verified: 2026-11-03
 ---
 
 ## 一句话定位
 
-AI SDK 7 是 TypeScript/JS 的 agent 应用工具箱：统一的模型调用、工具调用与流式输出，
+AI SDK 7 是 TypeScript/JS 的 agent 应用工具箱。统一的模型调用、工具调用与流式输出，
 新增 HarnessAgent 后还能把 Claude Code、Codex、Pi 等既有 agent 运行时当成可切换后端。
 
 跨大类对照：[Cursor](../coding/cursor.html)。
 
 ## 适合与不适合
 
-适合：TypeScript/JS 团队自建 agent 应用。想保留业务代码、只切换模型或 harness。不适合：要成品 agent（看 coding/chat 类产品）。要 Python 生态（看 LangGraph、Agno）。
+适合：TypeScript/JS 团队自建 agent 应用。想保留业务代码。只切换模型或 harness。不适合：要成品 agent（看 coding/chat 类产品）。要 Python 生态（看 LangGraph、Agno）。
 
 ## 实测记录
 
@@ -97,5 +97,5 @@ AI SDK 7 是 TypeScript/JS 的 agent 应用工具箱：统一的模型调用、�
 
 ## 相关条目
 
-- [OpenAI Agents SDK](./openai-agents-sdk.md) — 同为 agent 应用框架；AI SDK 偏 TS/JS 与多 harness
+- [OpenAI Agents SDK](./openai-agents-sdk.md) — 同为 agent 应用框架。AI SDK 偏 TS/JS 与多 harness
 - [Claude Agent SDK](./claude-agent-sdk.md) — 单一 harness 的编程接口，与 AI SDK 的多 harness 路线对照
