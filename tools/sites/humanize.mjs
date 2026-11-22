@@ -146,8 +146,20 @@ const clip = (s, n = 84) => {
   const t = plain(s, n * 2);
   if (t.length <= n) return t;
   let cut = t.slice(0, n - 1).trimEnd();
-  const space = cut.lastIndexOf(' ');
-  if (space >= Math.floor(n * 0.55)) cut = cut.slice(0, space);
+  /* 中文优先收在句号等句子边界；其次才是逗号、顿号；都没有才按空格。 */
+  const strong = Math.max(...['。', '！', '？', '；'].map(ch => cut.lastIndexOf(ch)));
+  const weak = Math.max(...['：', '，', '、'].map(ch => cut.lastIndexOf(ch)));
+  let endedStrong = false;
+  if (strong >= Math.floor(n * 0.45)) {
+    cut = cut.slice(0, strong + 1);
+    endedStrong = true;
+  } else if (weak >= Math.floor(n * 0.45)) {
+    cut = cut.slice(0, weak + 1);
+  } else {
+    const space = cut.lastIndexOf(' ');
+    if (space >= Math.floor(n * 0.55)) cut = cut.slice(0, space);
+  }
+  if (endedStrong) return cut;
   return cut.replace(/[,;:，、；：\-—]$/, '') + '…';
 };
 const pct = (n, max) => max ? Math.max(4, Math.round((n / max) * 100)) : 4;
