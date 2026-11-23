@@ -1243,5 +1243,15 @@
     "Assuming the M365 licence includes premium connectors or hosted RPA — it usually does not",
     "Treating desktop flows as cloud flows — they need a Windows machine and a licensed attended or unattended runtime",
     "Believing Copilot/AI Builder model choices are fully disclosed — the underlying models are not itemised"
+  ],
+  "devin-bots": [
+    "Treating a Bot as an auto-dispatched Devin task — it owns an outcome, not a ticket",
+    "Assuming it has its own model or separate billing — it runs on the Devin platform, and the official pages do not itemise billing",
+    "Handing over control without an acceptance signal — the official guidance says to define success criteria and feedback first"
+  ],
+  "vercel-eve": [
+    "Treating eve as a hosted runtime — it is a framework; Workflows, Sandbox and Connect are a separate managed layer",
+    "Reading 1.0 as just a version number — 1.0 carries breaking changes; read the changelog before upgrading",
+    "Using GitHub stars as a production-maturity signal — this is a new framework that went from public preview to 1.0; run your own evaluation first"
   ]
 }

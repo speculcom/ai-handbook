@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>2026 工具协议增补 | 工具</title>
+  <meta name="description" content="2026 工具协议增补：MCP Apps、Agent Skills、AG-UI 1.0、MCP 无状态核心。" />
+  <link rel="canonical" href="https://tools.specul.com/2026.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="2026 工具协议增补 | 工具" />
+  <meta property="og:url" content="https://tools.specul.com/2026.html" />
+  <meta property="og:title" content="2026 工具协议增补 | 工具" />
+  <meta property="og:description" content="2026 工具协议增补：MCP Apps、Agent Skills、AG-UI 1.0、MCP 无状态核心。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://tools.specul.com/2026.html" />
+  <link rel="alternate" hreflang="en" href="https://tools.specul.com/2026.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://tools.specul.com/2026.html" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=bb632b891131"></script>
+  <link rel="stylesheet" href="brand.css?v=bb632b891131" />
+  <link rel="stylesheet" href="site.css" />
+  <style>
+.u26-hero{padding:24px 0 14px}
+.u26-kicker{margin:0 0 8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:650}
+.u26-h1{margin:0;max-width:20ch;font-size:clamp(30px,4.3vw,52px);line-height:1.1;letter-spacing:-.03em;color:var(--ink)}
+.u26-lede{margin:12px 0 0;max-width:70ch;font-size:15px;line-height:1.62;color:var(--ink-mid)}
+.u26-note{margin:12px 0 0;max-width:72ch;padding:10px 12px;border-left:2px solid var(--cyan);background:var(--brand-soft);font-size:13px;line-height:1.6;color:var(--ink-mid)}
+.u26-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.u26-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--ink-mid);background:var(--bg-panel)}
+.u26-chip b{color:var(--cyan);font-variant-numeric:tabular-nums}
+.u26-section{padding:24px 0;border-top:1px solid var(--line)}
+.u26-h2{margin:0 0 6px;font-size:clamp(22px,2.8vw,32px);line-height:1.2;color:var(--ink)}
+.u26-sub{margin:0 0 12px;font-size:13px;line-height:1.6;color:var(--ink-faint);max-width:68ch}
+.u26-figure{margin:0 0 14px;padding:12px 12px 8px;border:1px solid var(--line);border-radius:14px;background:var(--bg-panel)}
+.u26-figure figcaption{margin-top:6px;font-size:11px;line-height:1.5;color:var(--ink-faint)}
+.u26-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px}
+.u26-card{grid-column:span 6;min-width:0;padding:14px 14px 12px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--bg-panel),var(--bg-inset))}
+.u26-card.wide{grid-column:span 12}
+.u26-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:6px}
+.u26-badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:6px;border:1px solid var(--brand-line);background:var(--brand-soft);color:var(--cyan);font-size:11px;font-variant-numeric:tabular-nums}
+.u26-tag{font-size:11px;color:var(--ink-faint)}
+.u26-card h2{margin:0 0 6px;font-size:17px;line-height:1.3;color:var(--ink)}
+.u26-card .u26-p{margin:0;font-size:13px;line-height:1.62;color:var(--ink-mid)}
+.u26-dl{display:grid;grid-template-columns:auto 1fr;gap:5px 10px;margin:10px 0 0;padding:8px 0 2px;border-top:1px dashed var(--line);font-size:12px;line-height:1.5}
+.u26-dl dt{color:var(--ink-faint)}
+.u26-dl dd{margin:0;color:var(--ink)}
+.u26-block{margin-top:9px;padding-top:7px;border-top:1px dashed var(--line)}
+.u26-block b{display:block;margin-bottom:3px;font-size:11px;letter-spacing:.04em;color:var(--cyan)}
+.u26-block p{margin:0;font-size:12px;line-height:1.6;color:var(--ink-mid)}
+.u26-boundary{border-left:2px solid var(--warn);padding-left:9px}
+.u26-src{margin:10px 0 0;font-size:11px;line-height:1.6;color:var(--ink-faint);overflow-wrap:anywhere}
+.u26-src a{color:var(--ink-mid);text-decoration:none;border-bottom:1px solid var(--line)}
+.u26-brief{display:grid;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-panel)}
+.u26-row{display:grid;grid-template-columns:82px 1fr auto;gap:10px;align-items:start;padding:10px 12px;border-bottom:1px solid var(--line)}
+.u26-row:last-child{border-bottom:0}
+.u26-row time{font-size:11px;color:var(--cyan);font-variant-numeric:tabular-nums;padding-top:2px}
+.u26-row b{display:block;font-size:14px;line-height:1.4;color:var(--ink)}
+.u26-row p{margin:3px 0 0;font-size:12px;line-height:1.55;color:var(--ink-mid)}
+.u26-row a{font-size:11px;color:var(--ink-faint);text-decoration:none;white-space:nowrap}
+.u26-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.u26-two .u26-card{grid-column:auto}
+.u26-quote{margin:10px 0 0;padding:9px 10px;border-left:2px solid var(--brand-line);background:var(--bg-inset);font-size:12px;line-height:1.6;color:var(--ink-mid);overflow-wrap:anywhere}
+.u26-list{display:grid;gap:6px;margin:10px 0 0}
+.u26-list div{display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:12px;line-height:1.55;color:var(--ink-mid)}
+.u26-list b{color:var(--cyan);font-variant-numeric:tabular-nums}
+.u26-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:2px 0 14px}
+.u26-lane{padding:12px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--bg-panel),var(--bg-inset))}
+.u26-lane>b{display:block;font-size:12px;letter-spacing:.06em;color:var(--cyan)}
+.u26-lane>span{display:block;margin:3px 0 9px;font-size:11px;line-height:1.5;color:var(--ink-faint)}
+.u26-lane a{display:grid;grid-template-columns:48px 1fr;gap:8px;padding:6px 0;border-top:1px dashed var(--line);font-size:11px;line-height:1.5;color:var(--ink-mid)}
+.u26-lane a time{color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.u26-lane a:hover{color:var(--ink)}
+.u26-chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 14px;counter-reset:step}
+.u26-chain div{position:relative;padding:11px 10px 10px;border:1px solid var(--line);border-radius:12px;background:var(--bg-panel)}
+.u26-chain div:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--ink-faint)}
+.u26-chain b{display:block;font-size:11px;letter-spacing:.05em;color:var(--cyan)}
+.u26-chain span{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:var(--ink)}
+.nf-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:clamp(24px,5vw,56px);align-items:center}
+.nf-art{opacity:.95}
+.nf-art svg{display:block;width:100%;height:auto}
+@media(max-width:900px){.u26-card{grid-column:span 12}.u26-two{grid-template-columns:1fr}.u26-row{grid-template-columns:70px 1fr}.u26-row a{display:none}.u26-map{grid-template-columns:1fr}.u26-chain{grid-template-columns:1fr 1fr}.u26-chain div:nth-child(2)::after{content:none}.nf-grid{grid-template-columns:1fr}.nf-art{max-width:200px;margin:8px auto 0}}
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"2026 工具协议增补 | 工具","description":"2026 工具协议增补：MCP Apps、Agent Skills、AG-UI 1.0、MCP 无状态核心。","url":"https://tools.specul.com/2026.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/" aria-current="page"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/" aria-current="page"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+
+      <section class="u26-hero"><div class="container">
+    <p class="u26-kicker"><span data-zh>工具 · 2026 增补 · 2026-11-18</span><span data-en>Tools · 2026 additions · 2026-11-18</span></p>
+    <h1 class="u26-h1"><span data-zh>Agent 工具的接线，在 2026 年换了四次</span><span data-en>Agent tool wiring changed four times in 2026</span></h1>
+    <p class="u26-lede"><span data-zh>MCP Apps 让工具返回界面；Agent Skills 把能力打包成文件夹；AG-UI 补上 Agent 到用户的事件流；MCP 下一版把 session 从核心拿掉。四条都不是「新模型」，但都会改变工具站的选型。</span><span data-en>MCP Apps lets tools return a UI; Agent Skills packages capabilities as folders; AG-UI adds the agent-to-user event stream; the next MCP removes sessions from the core. None is a new model, but each changes tool selection.</span></p>
+    <p class="u26-note"><span data-zh>只列有官方规范 / 官方公告的节点；协议版本不等于产品已采用。「候选」与「正式」分开写。</span><span data-en>Only nodes with an official spec or announcement; a protocol version does not mean adoption. “Candidate” and “final” are labelled separately.</span></p>
+    
+  </div></section>
+      <section class="u26-section"><div class="container">
+        <figure class="u26-figure"><svg class="vz-svg" viewBox="0 0 760 210" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
+      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-01-26</text>
+      <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
+      <circle cx="120" cy="22" r="6" style="fill:var(--cat-blue)"/>
+      <text x="140" y="27" class="vz-t-strong">MCP Apps</text>
+      <text data-zh x="140" y="47" class="vz-t-dim">协议 / MCP</text><text data-en x="140" y="47" class="vz-t-dim">Protocols / MCP</text>
+      <text x="104" y="75" class="vz-t-dim" text-anchor="end">2026-10-22</text>
+      <line x1="120" y1="58" x2="120" y2="102" class="vz-axis"/>
+      <circle cx="120" cy="70" r="6" style="fill:var(--cat-blue)"/>
+      <text x="140" y="75" class="vz-t-strong">Agent Skills</text>
+      <text data-zh x="140" y="95" class="vz-t-dim">标准 / 技能</text><text data-en x="140" y="95" class="vz-t-dim">Standards / Skills</text>
+      <text x="104" y="123" class="vz-t-dim" text-anchor="end">2026-11</text>
+      <line x1="120" y1="106" x2="120" y2="150" class="vz-axis"/>
+      <circle cx="120" cy="118" r="6" style="fill:var(--cat-blue)"/>
+      <text x="140" y="123" class="vz-t-strong">AG-UI 1.0</text>
+      <text data-zh x="140" y="143" class="vz-t-dim">协议 / 前端</text><text data-en x="140" y="143" class="vz-t-dim">Protocols / front end</text>
+      <text x="104" y="171" class="vz-t-dim" text-anchor="end">2026-07-28</text>
+      <line x1="120" y1="154" x2="120" y2="198" class="vz-axis"/>
+      <circle cx="120" cy="166" r="6" style="fill:var(--cat-blue)"/>
+      <text data-zh x="140" y="171" class="vz-t-strong">MCP 下一版</text><text data-en x="140" y="171" class="vz-t-strong">Next MCP</text>
+      <text data-zh x="140" y="191" class="vz-t-dim">协议 / MCP 下一版</text><text data-en x="140" y="191" class="vz-t-dim">Protocols / next MCP</text></svg><figcaption><span data-zh>MCP Apps 与 Agent Skills 已有正式规范；MCP 下一版仍是候选。</span><span data-en>MCP Apps and Agent Skills have final specs; the next MCP is still a candidate.</span></figcaption></figure>
+        <div class="u26-grid"><article class="u26-card" id="mcp-apps">
+    <div class="u26-meta"><span class="u26-badge">2026-01-26</span><span class="u26-tag"><span data-zh>协议 / MCP</span><span data-en>Protocol / MCP</span></span></div>
+    <h2><span data-zh>MCP Apps：工具可以返回一个界面</span><span data-en>MCP Apps: a tool can return a UI</span></h2>
+    <p class="u26-p"><span data-zh>SEP-1865 定稿：工具结果可以带 ui:// 资源，客户端在沙箱 iframe 里渲染，并通过 JSON-RPC 回传交互；必须保留文本回退。</span><span data-en>SEP-1865 is final: a tool result can carry a ui:// resource, the client renders it in a sandboxed iframe and receives interactions over JSON-RPC; a text fallback is required.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>规范</span><span data-en>spec</span></dt><dd>SEP-1865</dd><dt><span data-zh>资源</span><span data-en>resource</span></dt><dd>ui://</dd><dt><span data-zh>渲染</span><span data-en>render</span></dt><dd>sandboxed iframe</dd><dt><span data-zh>回退</span><span data-en>fallback</span></dt><dd>text required</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它把「工具返回一段 JSON」升级为「工具返回一个可交互面板」，是 2026 年 Agent 工具体验最大的一次接口变化；图表、表单、审批都能在对话里完成。</span><span data-en>It upgrades “a tool returns JSON” to “a tool returns an interactive panel”, the biggest interface change for agent tools in 2026; charts, forms and approvals can happen inside the conversation.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>不是所有客户端都支持；iframe 带来权限与注入风险；文本回退是硬要求。它没主张「MCP Apps 取代普通工具调用」或「所有 UI 都能安全嵌入」。</span><span data-en>Not every client supports it; iframes bring permission and injection risk; text fallback is mandatory. It does not claim MCP Apps replaces ordinary tool calls, or that every UI can be embedded safely.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/" target="_blank" rel="noopener"><span data-zh>MCP Apps 官方博客</span><span data-en>MCP Apps official blog</span></a> · <a href="https://modelcontextprotocol.io/specification" target="_blank" rel="noopener"><span data-zh>MCP 规范</span><span data-en>MCP spec</span></a></p>
+  </article><article class="u26-card" id="agent-skills">
+    <div class="u26-meta"><span class="u26-badge">2026-10-22</span><span class="u26-tag"><span data-zh>标准 / 技能</span><span data-en>Standard / skills</span></span></div>
+    <h2><span data-zh>Agent Skills：一个文件夹就是一项能力</span><span data-en>Agent Skills: a folder is a capability</span></h2>
+    <p class="u26-p"><span data-zh>2025-12 发布，2026-10-22 捐给 AAIF；用 SKILL.md + 脚本/资产描述一项可复用能力，按需加载，70+ 平台接入（厂商口径）。</span><span data-en>Released in December 2025 and donated to the AAIF on 2026-10-22; a reusable capability described by SKILL.md plus scripts/assets, loaded on demand, with 70+ platforms (vendor figure).</span></p>
+    <dl class="u26-dl"><dt><span data-zh>形态</span><span data-en>form</span></dt><dd>folder + SKILL.md</dd><dt><span data-zh>加载</span><span data-en>loading</span></dt><dd>progressive disclosure</dd><dt><span data-zh>治理</span><span data-en>governance</span></dt><dd>AAIF（2026-10-22）</dd><dt><span data-zh>平台</span><span data-en>platforms</span></dt><dd>70+（厂商口径）</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它把「提示词 + 脚本 + 权限」打包成可移植单元，是工具站从「一个个 API」转向「一组组能力」的关键；对做内部 Agent 平台的人，比再写一个 prompt 模板更可维护。</span><span data-en>It packages prompt, scripts and permissions into a portable unit, the key shift from “APIs” to “capabilities”; for internal agent platforms it is more maintainable than another prompt template.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>SKILL.md 不是运行时，也不是安全沙箱；脚本权限仍由宿主决定；「70+ 平台」是厂商统计。它没主张「装上技能就自动安全」或「技能可以替代工具权限设计」。</span><span data-en>SKILL.md is not a runtime or a security sandbox; script permissions still belong to the host; “70+ platforms” is a vendor count. It does not claim installing a skill makes it safe, or that skills replace tool-permission design.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.anthropic.com/news/agent-skills-aaif" target="_blank" rel="noopener"><span data-zh>Anthropic 公告</span><span data-en>Anthropic announcement</span></a> · <a href="https://agentskills.io/" target="_blank" rel="noopener"><span data-zh>Agent Skills 文档</span><span data-en>Agent Skills docs</span></a></p>
+  </article><article class="u26-card" id="ag-ui">
+    <div class="u26-meta"><span class="u26-badge">2026-11</span><span class="u26-tag"><span data-zh>协议 / 前端</span><span data-en>Protocol / frontend</span></span></div>
+    <h2><span data-zh>AG-UI 1.0：Agent 到用户的事件流</span><span data-en>AG-UI 1.0: an event stream from agent to user</span></h2>
+    <p class="u26-p"><span data-zh>一条有序事件流，把 token、工具调用、共享状态与中断送到前端；HTTP + SSE，定义 RunAgentInput 与事件类型。</span><span data-en>One ordered event stream carrying tokens, tool calls, shared state and interrupts to the frontend; HTTP + SSE, with RunAgentInput and typed events.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>规范</span><span data-en>spec</span></dt><dd>AG-UI 1.0</dd><dt><span data-zh>传输</span><span data-en>transport</span></dt><dd>HTTP + SSE</dd><dt><span data-zh>输入</span><span data-en>input</span></dt><dd>RunAgentInput</dd><dt><span data-zh>定位</span><span data-en>role</span></dt><dd>Agent ↔ 用户</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>MCP 管工具、A2A 管 Agent 之间，AG-UI 补上「Agent 怎么把过程展示给人」；做聊天式 Agent 前端时，它比自造 WebSocket 事件协议更可维护。</span><span data-en>MCP handles tools, A2A handles agent-to-agent; AG-UI adds how an agent shows its process to a person. For chat-style agent frontends it is more maintainable than a home-grown WebSocket event protocol.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>它是事件协议，不是模型或运行时；SSE 不等于适合所有场景（双向低延迟可换其他传输）；1.0 不等于所有前端框架已适配。它没主张「取代 MCP / A2A」。</span><span data-en>It is an event protocol, not a model or runtime; SSE is not right for every case (use another transport for low-latency bidirectional); 1.0 does not mean every frontend framework is adapted. It does not claim to replace MCP or A2A.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://docs.ag-ui.com/" target="_blank" rel="noopener"><span data-zh>AG-UI 文档</span><span data-en>AG-UI docs</span></a></p>
+  </article><article class="u26-card" id="mcp-stateless">
+    <div class="u26-meta"><span class="u26-badge">2026-07-28</span><span class="u26-tag"><span data-zh>协议 / MCP 下一版</span><span data-en>Protocol / next MCP</span></span></div>
+    <h2><span data-zh>MCP 下一版：无状态核心 + 扩展</span><span data-en>Next MCP: stateless core + extensions</span></h2>
+    <p class="u26-p"><span data-zh>2026-07-28 规范候选把协议级 session 从核心移除，改为无状态请求；Extensions 与 Tasks 作为可选能力，降低水平扩展与多租户接入成本。</span><span data-en>The 2026-07-28 spec candidate removes protocol-level sessions from the core in favour of stateless requests; Extensions and Tasks become optional capabilities, lowering horizontal-scaling and multi-tenant costs.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>版本</span><span data-en>version</span></dt><dd>2026-07-28 RC</dd><dt><span data-zh>核心</span><span data-en>core</span></dt><dd>stateless</dd><dt><span data-zh>扩展</span><span data-en>extensions</span></dt><dd>Extensions / Tasks</dd><dt><span data-zh>状态</span><span data-en>status</span></dt><dd>候选</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>无状态核心让 MCP 服务器更像普通 HTTP 服务，能直接放进负载均衡与多租户网关；对工具站里 32 个 MCP 对象，这是部署方式的改变，不只是协议细节。</span><span data-en>A stateless core makes MCP servers look more like ordinary HTTP services that fit load balancers and multi-tenant gateways; for the 32 MCP objects on the tools site, it changes deployment, not just spec detail.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>这是候选版本，不是已冻结标准；session 状态移到应用层，意味着应用要自己管会话与重放；Tasks 仍是扩展，客户端支持度不齐。它没主张「MCP 不再需要状态」或「所有服务器都应改成无状态」。</span><span data-en>A candidate, not a frozen standard; moving session state to the application means the app must handle sessions and replay; Tasks is still an extension with uneven client support. It does not claim MCP no longer needs state, or that every server should go stateless.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://modelcontextprotocol.io/specification/2026-07-28" target="_blank" rel="noopener"><span data-zh>MCP 规范</span><span data-en>MCP spec</span></a> · <a href="https://blog.modelcontextprotocol.io/" target="_blank" rel="noopener"><span data-zh>MCP 博客</span><span data-en>MCP blog</span></a></p>
+  </article></div>
+        <p class="u26-note"><b><span data-zh>下一步</span><span data-en>Next</span>：</b><a href="https://tools.specul.com/"><span data-zh>回到工具站看全部条目</span><span data-en>Back to all tool entries</span> →</a></p>
+      </div></section>
+    
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
+    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
+    <a href="https://tools.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
+    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
+    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</nav>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"607d161cc706403ca572977b0411117f","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

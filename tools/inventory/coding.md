@@ -34,6 +34,7 @@
 | Windsurf（Devin Desktop） | Cognition | https://windsurf.com | 已有 | windsurf | ⚠ 归属已换 Cognition，档案 vendor 已记 |
 | Zed | Zed Industries | https://zed.dev | 已有 | zed | |
 | Devin | Cognition | https://devin.ai | 已有 | devin | P1 · 云异步 agent，与 Windsurf 同厂 |
+| Devin Bots | Cognition | https://devin.ai/bots | 已有 | devin-bots | 2026-11-23 建档；持久 Agent、Needs You inbox；团队版边界未核验 |
 | Replit Agent | Replit | https://replit.com | 已有 | replit-agent | P1 · 云 IDE+agent |
 | Lovable | Lovable（瑞典） | https://lovable.dev | 已有 | lovable | P2 · vibe 建站，产物是可导出代码库（与 Dify 判例区分）；2026-10-22 建档 |
 | Bolt.new | StackBlitz | https://bolt.new | 已有 | bolt-new | P2 · 同上；浏览器内 WebContainers 底座；2026-10-22 建档 |
@@ -63,5 +64,5 @@
 ## 备注
 
 - nav `cat=coding` 里的 AutoGPT / Dify / Coze / Manus / LangGraph / CrewAI / Relevance AI / Superagent / Botpress / SmythOS **不归本大类**——按 categories.md 边界裁决分别落 framework（T10）/ automation（T12）清单，nav 分类≠本站大类。
-- 「已有」41 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
+- 「已有」42 行 = `tracks/coding/products/` 现有档案全集（孤儿检查会守这条）。
 - 待建 4 行按 P2→P3 排批次——T24（coding +5）落地 P1 五份（Devin/Replit Agent/CodeBuddy/Antigravity/Trae）；P1 第六份通义灵码已于 2026-10-22 建档（更名 Qoder CN，档案 id `qoder-cn`）；常态 M2（2026-10-22）落地 vibe 建站三件套（Lovable/Bolt.new/v0）；常态 M3（2026-10-22）落地 P2 收尾——建档 3（Qoder 国际线/Augment Code/Amazon Q Developer）、只进nav 1（Qodo 转型评审平台，CodeRabbit 判例）、不收 1（Tabnine 独立产品终结，nav 标 retired）；常态 M4（2026-10-22）落地 P3 收尾——建档 2（Kilo Code/文心快码）、不收 2（Roo Code 扩展关停+repo archived、CodeGeeX 插件市场全撤）；待建清零，coding 清单转入维护常态。

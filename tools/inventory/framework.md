@@ -25,6 +25,7 @@
 | LangChain4j | LangChain4j 社区 | https://docs.langchain4j.dev/ | 已有 | langchain4j | P3 · Java/JVM 系 agent 框架 |
 | Spring AI | Spring（VMware/Broadcom） | https://docs.spring.io/spring-ai/reference/ | 已有 | spring-ai | P3 · Spring Boot 官方路线 |
 | Vercel AI SDK 7 | Vercel | https://vercel.com/blog/ai-sdk-7 | 已有 | vercel-ai-sdk | P2 · HarnessAgent 与多 harness 适配 |
+| Vercel eve 1.0 | Vercel | https://github.com/vercel/eve | 已有 | vercel-eve | 2026-11-23 建档；filesystem-first TypeScript agent 框架，durable session / subagents；团队版配额未核验 |
 | DSPy | Stanford NLP / Databricks | https://dspy.ai | 已有 | dspy | P2 · 编程语言模型而非手搭 prompt |
 | Haystack | deepset | https://haystack.deepset.ai | 已有 | haystack | P2 · RAG 管线出身，现含 agent 层 |
 | AgentScope | 阿里巴巴（魔搭） | https://agentscope.io | 已有 | agentscope | P2 · 国产（L5 只转述官方） |
@@ -62,5 +63,5 @@
 - nav 里 Dify / Coze / AutoGPT / Flowise / Langflow / n8n / Manus / Relevance AI / Superagent / Botpress / SmythOS / 百宝箱 **不归本大类**——低代码搭 agent 应用归 `automation`（T12 清单收编）。
 - T23 建档批已落地 7 份（P1 1 + P2 5 + P3 补位 1：Letta）。Strands 仓现名 strands-agents/harness-sdk（旧 sdk-python redirect，2026-10-21 直抓核验）。
 - **C6-6（2026-10-31）：P3 最后 5 行全部建档（22→27）——framework 大类 inventory 全部销账**，转入维护常态。
-- 「已有」27 行 = `tracks/framework/products/` 现有档案全集（孤儿检查守）。
+- 「已有」43 行 = `tracks/framework/products/` 现有档案全集（孤儿检查守）。
 - completeness 现值 framework 94/120 的 26 缺口全部是「官方未声明/未知」类合法终态（见 2026-10-21 日志），不影响去向判定。

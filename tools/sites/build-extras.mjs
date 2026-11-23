@@ -49,13 +49,22 @@ function skillCard(s) {
 </article>`;
 }
 
+const TITLE_EN = {
+  'what-is': 'What Skills are: capability packages, not prompts',
+  structure: 'Anatomy of a Skill: SKILL.md, scripts, resources, triggers',
+  'build-test': 'How to build and test: start from the smallest runnable version',
+  review: 'Reviewing a third-party Skill: start with what it touches',
+};
+const biText = (zh, en) => `<span data-zh>${zh}</span><span data-en>${en}</span>`;
+const pageTitle = (p) => biText(esc(p.title), esc(TITLE_EN[p.id] || p.title));
+
 function skillNav(current) {
-  return `<nav class="sec-nav" aria-label="Skills 页面">
-  <a href="index.html"${current === 'index' ? ' aria-current="page"' : ''}>是什么</a>
-  <a href="structure.html"${current === 'structure' ? ' aria-current="page"' : ''}>结构</a>
-  <a href="build-test.html"${current === 'build-test' ? ' aria-current="page"' : ''}>怎么写 / 怎么测</a>
-  <a href="review.html"${current === 'review' ? ' aria-current="page"' : ''}>审第三方</a>
-  <a href="../index.html">回工具站</a>
+  return `<nav class="sec-nav" aria-label="Skills pages">
+  <a href="index.html"${current === 'index' ? ' aria-current="page"' : ''}>${biText('是什么', 'What')}</a>
+  <a href="structure.html"${current === 'structure' ? ' aria-current="page"' : ''}>${biText('结构', 'Structure')}</a>
+  <a href="build-test.html"${current === 'build-test' ? ' aria-current="page"' : ''}>${biText('怎么写 / 怎么测', 'Build &amp; test')}</a>
+  <a href="review.html"${current === 'review' ? ' aria-current="page"' : ''}>${biText('审第三方', 'Review')}</a>
+  <a href="../index.html">${biText('回工具站', 'Tools home')}</a>
 </nav>`;
 }
 
@@ -63,7 +72,7 @@ function renderPage(p, current) {
   return `<div class="container">
 <header class="sec-head">
   <p class="eyebrow">Tools · Skills</p>
-  <h1>${esc(p.title)}</h1>
+  <h1>${pageTitle(p)}</h1>
   <p class="lede">${esc(p.lede)}</p>
 </header>
 ${skillNav(current)}
@@ -80,7 +89,7 @@ ${p.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((x) => `<p>${x}</p>`).joi
   const body = `<div class="container">
 <header class="sec-head">
   <p class="eyebrow">Tools · Skills</p>
-  <h1>${esc(what.title)}</h1>
+  <h1>${pageTitle(what)}</h1>
   <p class="lede">${esc(what.lede)}</p>
 </header>
 ${skillNav('index')}
@@ -105,7 +114,7 @@ ${what.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((x) => `<p>${x}</p>`).
 for (const p of pages.filter((x) => x.id !== 'what-is')) {
   fs.writeFileSync(path.join(out, 'skills', `${p.slug}.html`), page({
     title: `${p.title} · Skills · AI 工具`,
-    desc: p.lede,
+    desc: `${p.lede} 含步骤、检查点与失败分支。`,
     canonical: url(`skills/${p.slug}.html`),
     body: renderPage(p, p.slug)
   }));
@@ -131,7 +140,7 @@ for (const p of pages.filter((x) => x.id !== 'what-is')) {
   const body = `<div class="container">
 <header class="sec-head">
   <p class="eyebrow">Tools · Prompts</p>
-  <h1>提示词：6 篇指南 + 24 个案例</h1>
+  <h1>${biText('提示词：6 篇指南 + 24 个案例', 'Prompts: 6 guides + 24 cases')}</h1>
   <p class="lede">先学结构，再照着做。6 篇指南讲角色、上下文、结构化输出、评测、迭代与安全；24 个案例给出完整 prompt、预期输出、检查点与失败分支。案例标注“效果未实测”，照抄前先用你的真实输入跑一遍。</p>
 </header>
 <div class="sec-nav"><a href="../index.html">← 回工具站</a><a href="../skills/index.html">Skills →</a></div>
@@ -145,7 +154,7 @@ for (const p of pages.filter((x) => x.id !== 'what-is')) {
 <h2>案例：按任务找</h2>
 <p>24 个案例覆盖代码、文档、数据、会议、研究、翻译、安全与表格。每个案例都写清输入、prompt、预期输出、检查点和失败分支；没有实测，不承诺效果。</p>
 <div class="sec-grid">${cases.map(itemCard).join('')}</div>
-<div class="sec-sources">说明：案例页在 <a href="../mcp/guides/">工具站 MCP 指南目录</a> 下；本页只做汇总，不复制正文。Prompt 方法的长文在 <a href="https://learn.specul.com/" target="_blank" rel="noopener">学 AI 站</a>。</div>
+<div class="sec-sources">说明：案例页在 <a href="../mcp/">工具站 MCP 板块</a> 的指南目录下；本页只做汇总，不复制正文。Prompt 方法的长文在 <a href="https://learn.specul.com/" target="_blank" rel="noopener">学 AI 站</a>。</div>
 </div>`;
   fs.writeFileSync(path.join(out, 'prompts', 'index.html'), page({
     title: '提示词指南与案例 · AI 工具',
@@ -194,6 +203,15 @@ for (const p of pages.filter((x) => x.id !== 'what-is')) {
   fs.writeFileSync(indexFile, html);
 }
 
+// 2026-11-23：两张手工页从 special/ 复制，不参与模板渲染。
+// 主构建会清空 OUT 后只写生成页；不在这里补，2026.html 首页入口会 404，
+// 404.html 也会丢。2026.html 进 sitemap；404.html 自带 noindex，不进。
+for (const name of ['2026.html', '404.html']) {
+  const src = path.join(here, '..', 'special', name);
+  if (!fs.existsSync(src)) throw new Error(`缺少手工页：${src}`);
+  fs.copyFileSync(src, path.join(out, name));
+}
+
 // sitemap / llms
 {
   const urls = [url('skills/'), url('skills/structure.html'), url('skills/build-test.html'), url('skills/review.html'), url('prompts/')];
@@ -202,6 +220,10 @@ for (const p of pages.filter((x) => x.id !== 'what-is')) {
   const newUrls = urls.filter((u) => !sitemap.includes(`<loc>${u}</loc>`));
   if (newUrls.length) {
     sitemap = sitemap.replace('</urlset>', newUrls.map((u) => `  <url><loc>${u}</loc><lastmod>2026-11-19</lastmod></url>`).join('\n') + '\n</urlset>');
+    fs.writeFileSync(sitemapFile, sitemap);
+  }
+  if (!sitemap.includes(`<loc>${url('2026.html')}</loc>`)) {
+    sitemap = sitemap.replace('</urlset>', `  <url><loc>${url('2026.html')}</loc><priority>0.6</priority></url>\n</urlset>`);
     fs.writeFileSync(sitemapFile, sitemap);
   }
 
