@@ -364,7 +364,7 @@ const WWW_NODES = [
   { label: '论文', value: '110', color: 'var(--cat-rose)' },
   { label: '算力', value: '70', color: 'var(--cat-lime)' },
   { label: '链', value: '46', color: 'var(--cat-violet)' },
-  { label: '演示', value: '348', color: 'var(--cat-rose)' },
+  { label: '演示', value: '375', color: 'var(--cat-rose)' },
   { label: '开源', value: '135', color: 'var(--cat-teal)' },
 ];
 
@@ -374,7 +374,7 @@ function vizWww() {
     { label: 'AI 导航条目', value: 816, color: 'var(--cat-blue)' },
     { label: '学AI词条', value: 299, color: 'var(--cat-teal)' },
     { label: '工具对象', value: 280, color: 'var(--cat-amber)' },
-    { label: '演示作品', value: 348, color: 'var(--cat-rose)' },
+    { label: '演示作品', value: 375, color: 'var(--cat-rose)' },
     { label: '开源仓库', value: 135, color: 'var(--cat-teal)' },
     { label: '硬件条目', value: 70, color: 'var(--cat-lime)' },
     { label: '论文条目', value: 110, color: 'var(--cat-rose)' },
@@ -389,7 +389,7 @@ function vizWww() {
     { date: '10-22', title: 'Agent Skills 捐给 AAIF', desc: '70+ 平台接入；技能成为跨平台标准', color: 'var(--cat-lime)' },
     { date: '10-29', title: 'Mistral Large 4 开放权重', desc: '1.05T 总参 / 49B 激活，128 路由专家', color: 'var(--cat-violet)' },
     { date: '11-12', title: 'AMD MI450X 上市', desc: '288GB HBM4 / 23.3TB/s', color: 'var(--cat-rose)' },
-    { date: '11-19', title: '演示站并入统一外壳', desc: '底栏单排 10 项、2026 与 404 补齐；作品数后续扩到 348', color: 'var(--cat-violet)' },
+    { date: '11-19', title: '演示站并入统一外壳', desc: '底栏单排 10 项、2026 与 404 补齐；作品数后续扩到 375', color: 'var(--cat-violet)' },
   ];
   return section({
     id: 'atlas',
@@ -728,6 +728,7 @@ function vizDemos() {
     ['内容与视觉', 'var(--cat-amber)'],
     ['工具与界面', 'var(--cat-violet)'],
     ['模型演示', 'var(--cat-rose)'],
+    ['游戏', 'var(--cat-rose)'],
     ['办公', 'var(--cat-lime)'],
     ['教育', 'var(--cat-blue)'],
     ['数据', 'var(--cat-teal)'],
@@ -765,9 +766,9 @@ function vizDemos() {
     dek: bi('先按用途和模型看整体，再挑感兴趣的打开。每件作品都标了模型和来源；单件作品不代表模型整体能力。', 'Start with the overall picture by use and model, then open the pieces that catch your eye. Each piece lists its model and source; one piece is not a verdict on the model.'),
     cards: [
       card({
-        span: 7, no: '01', title: '作品都在做什么', sub: bi('八类用途的真实计数', 'eight uses, live counts'),
+        span: 7, no: '01', title: '作品都在做什么', sub: bi('九类用途的真实计数', 'nine uses, live counts'),
         svg: barChart(catRows, { labelW: 150 }),
-        foot: bi(`互动体验 ${catCount['互动体验'] || 0} 件、数据可视化 ${catCount['数据可视化'] || 0} 件、内容与视觉 ${catCount['内容与视觉'] || 0} 件、工具与界面 ${catCount['工具与界面'] || 0} 件、模型演示 ${catCount['模型演示'] || 0} 件、办公 ${catCount['办公'] || 0} 件、教育 ${catCount['教育'] || 0} 件、数据 ${catCount['数据'] || 0} 件。`, `Interaction ${catCount['互动体验'] || 0}, data visualisation ${catCount['数据可视化'] || 0}, content & visual ${catCount['内容与视觉'] || 0}, tools & UI ${catCount['工具与界面'] || 0}, model demos ${catCount['模型演示'] || 0}, office ${catCount['办公'] || 0}, education ${catCount['教育'] || 0}, data ${catCount['数据'] || 0}.`),
+        foot: bi(`互动体验 ${catCount['互动体验'] || 0} 件、数据可视化 ${catCount['数据可视化'] || 0} 件、内容与视觉 ${catCount['内容与视觉'] || 0} 件、工具与界面 ${catCount['工具与界面'] || 0} 件、模型演示 ${catCount['模型演示'] || 0} 件、游戏 ${catCount['游戏'] || 0} 件、办公 ${catCount['办公'] || 0} 件、教育 ${catCount['教育'] || 0} 件、数据 ${catCount['数据'] || 0} 件。`, `Interaction ${catCount['互动体验'] || 0}, data visualisation ${catCount['数据可视化'] || 0}, content & visual ${catCount['内容与视觉'] || 0}, tools & UI ${catCount['工具与界面'] || 0}, model demos ${catCount['模型演示'] || 0}, games ${catCount['游戏'] || 0}, office ${catCount['办公'] || 0}, education ${catCount['教育'] || 0}, data ${catCount['数据'] || 0}.`),
       }),
       card({
         span: 5, no: '02', title: `${modelSorted.length} 组模型 / 实验`, sub: bi('按完整模型名归并；前七组单列，其余合并', 'grouped by full model name; top seven listed, the rest merged'),
@@ -781,7 +782,7 @@ function vizDemos() {
           <div><b>${external}</b><span>${bi('件外链运行', 'link out')}</span><small>${bi('其余作品链回原作者页面；画面空白通常是对方禁止嵌入，不是本站的播放器坏了。', 'The rest link back to the author; a blank frame usually means embedding is blocked, not that the player is broken.')}</small></div>
           <div><b>${noLicence}</b><span>${bi('件许可未声明', 'no declared licence')}</span><small>${bi(`${unknown} 件许可未确认，${freeShare} 件 free-share；未声明许可的完整文件不复制。`, `${unknown} unconfirmed, ${freeShare} free-share; unlicensed full files are never copied.`)}</small></div>
         </div>`,
-        foot: bi(`说明：当前共 ${entries.length} 条作品、${modelRows.length} 组模型/实验、8 类用途；这里的「件」是作品，不是模型数量。`, `Note: ${entries.length} pieces, ${modelRows.length} model/experiment groups and eight uses; “pieces” counts works, not models.`),
+        foot: bi(`说明：当前共 ${entries.length} 条作品、${modelRows.length} 组模型/实验、9 类用途；这里的「件」是作品，不是模型数量。`, `Note: ${entries.length} pieces, ${modelRows.length} model/experiment groups and nine uses; “pieces” counts works, not models.`),
       }),
     ],
     foot: bi('所有数字来自演示站当前数据；按用途与模型筛选，单件作品不写成模型能力结论。', 'All numbers come from the current Playground data. Pieces are filtered by use and model; one piece is never treated as a model-capability verdict.'),
