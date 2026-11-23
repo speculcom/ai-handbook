@@ -103,8 +103,8 @@ function filterUI(prefix, list, showModels = true) {
       <label class="dm-search"><input id="${prefix}-q" type="search" aria-label="搜索作品" data-ui-aria-label-zh="搜索作品" data-ui-aria-label-en="Search pieces" placeholder="搜索标题、标签或描述" data-ui-placeholder-zh="搜索标题、标签或描述" data-ui-placeholder-en="Search title, tags or description" autocomplete="off" /></label>
       <span class="dm-visible"><b id="${prefix}-count">${total}</b>${bi(' 件', ' items')}</span>
     </div>
-    <div class="dm-filter-row"><span class="dm-filter-label">${bi('用途', 'Use')}</span><div class="dm-chips" id="${prefix}-cats" role="group" aria-label="按用途筛选" data-ui-aria-label-zh="按用途筛选" data-ui-aria-label-en="Filter by use"><button type="button" class="dm-chip" data-v="all" aria-pressed="true">${bi('全部', 'All')}<em>${total}</em></button>${listCats.map((k) => `<button type="button" class="dm-chip" data-v="${esc(k)}" aria-pressed="false">${bi(esc(catLabels(k).zh), esc(catLabels(k).en))}<em>${list.filter((e) => e.category === k).length}</em></button>`).join('')}</div></div>
-    ${showModels ? `<div class="dm-filter-row"><span class="dm-filter-label">${bi('模型', 'Model')}</span><div class="dm-chips" id="${prefix}-models" role="group" aria-label="按模型筛选" data-ui-aria-label-zh="按模型筛选" data-ui-aria-label-en="Filter by model"><button type="button" class="dm-chip" data-v="all" aria-pressed="true">${bi('全部', 'All')}<em>${total}</em></button>${listModels.map((m) => `<button type="button" class="dm-chip" data-v="${esc(m.key)}" aria-pressed="false">${bi(esc(m.nameZh || m.name), esc(m.nameEn || m.name))}<em>${m.count}</em></button>`).join('')}</div></div><p class="dm-filter-note">${bi('模型按完整名称分组；每件作品的具体来源在作品页标注。', 'Models are grouped by full name; each piece’s source is noted on its own page.')}</p>` : ''}
+    <div class="dm-filter-row dm-cat-row"><span class="dm-filter-label">${bi('用途', 'Use')}</span><div class="dm-chips" id="${prefix}-cats" role="group" aria-label="按用途筛选" data-ui-aria-label-zh="按用途筛选" data-ui-aria-label-en="Filter by use"><button type="button" class="dm-chip" data-v="all" aria-pressed="true">${bi('全部', 'All')}<em>${total}</em></button>${listCats.map((k) => `<button type="button" class="dm-chip" data-v="${esc(k)}" aria-pressed="false">${bi(esc(catLabels(k).zh), esc(catLabels(k).en))}<em>${list.filter((e) => e.category === k).length}</em></button>`).join('')}</div></div>
+    ${showModels ? `<details class="dm-model-filter"><summary>${bi('按模型筛选', 'Filter by model')}<em>${listModels.length}</em></summary><div class="dm-chips" id="${prefix}-models" role="group" aria-label="按模型筛选" data-ui-aria-label-zh="按模型筛选" data-ui-aria-label-en="Filter by model"><button type="button" class="dm-chip" data-v="all" aria-pressed="true">${bi('全部', 'All')}<em>${total}</em></button>${listModels.map((m) => `<button type="button" class="dm-chip" data-v="${esc(m.key)}" aria-pressed="false">${bi(esc(m.nameZh || m.name), esc(m.nameEn || m.name))}<em>${m.count}</em></button>`).join('')}</div><p class="dm-filter-note">${bi('模型按完整名称分组；每件作品的具体来源在作品页标注。', 'Models are grouped by full name; each piece’s source is noted on its own page.')}</p></details>` : ''}
   </section>`;
 }
 
@@ -122,18 +122,15 @@ bind(catBox,'cat');if(${withModel ? 'true' : 'false'})bind(modelBox,'model');app
 
 const indexBody = `<div class="container demos-page">
   <header class="dm-hero">
-    <p class="kicker">${bi('演示 · 网页作品', 'Playground · web pieces')}</p>
-    <h1>${bi('这些网页作品，点开就能玩', 'Web pieces you can open and play')}</h1>
-    <p class="dm-lead">${bi('能站内打开的直接看，不能嵌入的链回原作者。每件作品的模型、作者、原帖与源码都写在作品页上。', 'Play the ones that run here; the rest link back to the author. Each piece’s model, author, original post and source are noted on its own page.')}</p>
-    <div class="dm-collection-links dm-hero-tools"><a class="dm-collection-link dm-collection-tool" href="compare.html">${bi('并排对照', 'Compare')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="prompts.html">${bi('提示词索引', 'Prompts')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="2026.html">${bi('2026 增补', '2026 patch')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="play.html">${bi('通用播放器', 'Player')} <span aria-hidden="true">&rarr;</span></a></div>
+    <h1>${bi('点开就能玩', 'Open & play')}</h1>
+    <p class="dm-lead">${bi('能站内打开的直接玩；不能嵌入的，链回原作者。', 'Play what runs here; the rest opens on the author page.')}</p>
   </header>
-</div>
-${vizFor('demos')}
-<div class="container demos-page demos-results">
   ${filterUI('dm', entries)}
   <div class="fx-grid dm-grid" id="dm-grid">${displayEntries.map((e) => card(e)).join('\n')}</div>
+  <p class="dm-more-links">${bi('<a href="compare.html">并排对照</a> · <a href="prompts.html">提示词索引</a> · <a href="2026.html">2026 增补</a> · <a href="play.html">通用播放器</a>', '<a href="compare.html">Compare</a> · <a href="prompts.html">Prompts</a> · <a href="2026.html">2026 patch</a> · <a href="play.html">Player</a>')}</p>
   <p class="dm-footnote">${bi('默认顺序按模型轮换，让每个模型都出现在前面；编号仍是原始数据顺序。能在站内打开的就在站内看，不能嵌入的，链回原作者页面。未声明许可的作品不复制文件。', 'The default order rotates across models so every model appears near the front; the numbering still follows the source data. Playable pieces run here; pieces that cannot be embedded link back to the author. Unlicensed files are never copied.')}</p>
 </div>
+${vizFor('demos')}
 ${filterScript('dm', '#dm-grid')}`;
 
 const playBody = `<div class="container demos-page dm-play">
