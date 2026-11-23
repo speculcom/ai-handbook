@@ -964,7 +964,11 @@ function rewriteInternal(href) {
    *    旧代码写的 `blob/main/tracks/agents/tasks/...` 是合并前的旧仓布局残留，
    *    在现仓里是 404 —— 一并修正为 `tools/protocols/<大类>/_protocol.md`。 */
   m = /^(?:\.\.\/)+protocols\/([a-z-]+)\/(_protocol\.md)$/.exec(href);
-  if (m) return `${SITE.repo}/blob/main/tools/protocols/${m[1]}/${m[2]}`;
+  if (m) {
+    // runner 没有独立的实测协议；落回 framework 协议，避免把已存在的 accepted 链接改成死链。
+    const protocolPart = m[1] === 'runner' ? 'framework' : m[1];
+    return `${SITE.repo}/blob/main/tools/protocols/${protocolPart}/${m[2]}`;
+  }
   /* ⚠ **大类索引 `_category.md`** 要映射到**站点自己的大类首页**（v8 T7 接管旧 `_track.md` 规则）。
    *   `_category.md` 只存在于内容仓，但它的**语义目标**正是站上的大类列表页 ✓：
    *     `../_category.md`          → 当前大类首页（v8 T30：大类名从发起页所在目录推）

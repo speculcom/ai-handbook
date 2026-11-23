@@ -48,7 +48,11 @@
       },
       "source": "https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "training",
+      "serving"
+    ]
   },
   {
     "id": "amd-instinct-mi300x",
@@ -221,7 +225,11 @@
       },
       "source": "https://www.amd.com/en/products/specifications/accelerators.html",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "training",
+      "serving"
+    ]
   },
   {
     "id": "amd-instinct-mi450x",
@@ -857,7 +865,11 @@
       },
       "source": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "serving",
+      "finetune"
+    ]
   },
   {
     "id": "google-tpu-v5e",
@@ -913,7 +925,11 @@
       },
       "source": "https://cloud.google.com/tpu/docs/v5e",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "serving",
+      "finetune"
+    ]
   },
   {
     "id": "google-tpu-v6e",
@@ -969,7 +985,11 @@
       },
       "source": "https://cloud.google.com/tpu/docs/v6e",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "training",
+      "serving"
+    ]
   },
   {
     "id": "google-tpu7x",
@@ -1138,7 +1158,11 @@
       },
       "source": "https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "training",
+      "serving"
+    ]
   },
   {
     "id": "intel-gpu-d270",
@@ -1199,7 +1223,10 @@
       },
       "source": "https://www.intel.cn/content/www/us/en/newsroom/news/data-center/why-intel-gpu-d270-belongs-in-the-hpc-conversation.html",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "serving"
+    ]
   },
   {
     "id": "meta-mtia-300-500",
@@ -2285,7 +2312,11 @@
       },
       "source": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "training",
+      "serving"
+    ]
   },
   {
     "id": "nvidia-rubin-cpx",
@@ -2341,7 +2372,10 @@
       },
       "source": "https://nvidianews.nvidia.com/news/nvidia-unveils-rubin-cpx-a-new-class-of-gpu-designed-for-massive-context-inference",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "serving"
+    ]
   },
   {
     "id": "nvidia-rubin-hpc",
@@ -2398,7 +2432,11 @@
       },
       "source": "https://blogs.nvidia.com/blog/rubin-hpc/",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "training",
+      "cluster"
+    ]
   },
   {
     "id": "openai-jalapeno",
@@ -2458,7 +2496,10 @@
       },
       "source": "https://openai.com/zh-Hant-HK/index/openai-broadcom-jalapeno-inference-chip/",
       "checkedAt": "2026-11-21"
-    }
+    },
+    "useCases": [
+      "serving"
+    ]
   },
   {
     "id": "aws-ec2-p5-48xlarge",
@@ -4144,6 +4185,129 @@
       },
       "source": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/",
       "checkedAt": "2026-11-21"
+    }
+  },
+  {
+    "id": "axelera-titania",
+    "title": {
+      "zh": "Axelera Titania",
+      "en": "Axelera Titania"
+    },
+    "category": "accelerator",
+    "url": "https://axelera.ai/ai-accelerators",
+    "license": {
+      "kind": "official-spec-page",
+      "evidenceUrl": "https://axelera.ai/ai-accelerators",
+      "checkedAt": "2026-11-23"
+    },
+    "evidence": [
+      {
+        "url": "https://axelera.ai/ai-accelerators",
+        "quote": "2.5 PFLOPS (FP8) System-in-Package that combines two chiplets and 64 AI-Cores"
+      },
+      {
+        "url": "https://axelera.ai/ai-accelerators",
+        "quote": "TDP400 W per SiP"
+      },
+      {
+        "url": "https://axelera.ai/ai-accelerators",
+        "quote": "Memory128 GB"
+      },
+      {
+        "url": "https://axelera.ai/ai-accelerators",
+        "quote": "Memory bandwidth2,458 GB/s"
+      },
+      {
+        "url": "https://axelera.ai/ai-accelerators",
+        "quote": "Eight SiPs fit in one air-cooled 4U server with 1 TB of memory, enough to run a 1.6-trillion-parameter model."
+      }
+    ],
+    "notes": {
+      "zh": "回答「数据中心的 MoE / 长上下文推理，能不能不上液冷机柜」。Titania 是 2.5 PFLOPS FP8 的 SiP：2 个 chiplet、64 个 AI-core、128GB LPDDR6、2,458GB/s、400W；8 个 SiP 可装进一台 4U 风冷服务器，合计 1TB 内存，官方称可跑 1.6T 参数模型。注意：2.5 PFLOPS 是 FP8 峰值，不是实测吞吐；1.6T 是容量口径，不代表该模型能以理想速度跑；官方页面写 Titania 2028 年才落地，不是已发货产品。",
+      "en": "Answers whether datacenter MoE and long-context inference can avoid a liquid-cooled rack. Titania is a 2.5 PFLOPS FP8 system-in-package: two chiplets, 64 AI-cores, 128 GB LPDDR6, 2,458 GB/s, 400 W. Eight SiPs fit in one air-cooled 4U server with 1 TB total memory, which the vendor says can run a 1.6-trillion-parameter model. Note: 2.5 PFLOPS is FP8 peak, not measured throughput; 1.6T is a capacity figure, not a promise that such a model runs at ideal speed; the page places Titania in 2028, so it is not shipping today."
+    },
+    "verifiedAt": "2026-11-23",
+    "specs": {
+      "FP8 peak": "2.5 PFLOPS per SiP",
+      "AI cores": "64 across 2 chiplets",
+      "memory": "128 GB LPDDR6",
+      "memory bandwidth": "2,458 GB/s",
+      "TDP": "400 W per SiP",
+      "form factors": "PCIe cards, UBB / OAM, OCP boards",
+      "system scale": "8 SiPs per 4U air-cooled server; 1 TB memory; up to 1.6T parameters"
+    },
+    "availability": "announced",
+    "useCases": [
+      "serving",
+      "cluster"
+    ],
+    "price": {
+      "amount": null,
+      "currency": "USD",
+      "kind": "not-published",
+      "note": {
+        "zh": "官方未公布单价；按整机、SiP 或项目询价成交，不拿经销商价冒充官方价。",
+        "en": "No public unit price; sold as systems, SiPs or project quotes, so dealer pricing is not presented as official."
+      },
+      "source": "https://axelera.ai/ai-accelerators",
+      "checkedAt": "2026-11-23"
+    }
+  },
+  {
+    "id": "memryx-mx3-plus",
+    "title": {
+      "zh": "MemryX MX3+",
+      "en": "MemryX MX3+"
+    },
+    "category": "edge",
+    "url": "https://memryx.ai/news/memryx-ai-unveils-mx3-scaling-ai-inference-beyond-1-pops/",
+    "license": {
+      "kind": "official-release",
+      "evidenceUrl": "https://memryx.ai/news/memryx-ai-unveils-mx3-scaling-ai-inference-beyond-1-pops/",
+      "checkedAt": "2026-11-23"
+    },
+    "evidence": [
+      {
+        "url": "https://memryx.ai/news/memryx-ai-unveils-mx3-scaling-ai-inference-beyond-1-pops/",
+        "quote": "up to 10 times more peak AI compute and nearly 10 times more on-chip memory"
+      },
+      {
+        "url": "https://memryx.ai/news/memryx-ai-unveils-mx3-scaling-ai-inference-beyond-1-pops/",
+        "quote": "A 16-chip MX3+ configuration is designed to deliver more than 1 POPS of peak AI compute and 2.16 GB of distributed on-chip memory"
+      },
+      {
+        "url": "https://memryx.ai/news/memryx-ai-unveils-mx3-scaling-ai-inference-beyond-1-pops/",
+        "quote": "engineering samples are targeted for late 2027, with volume production targeted for mid-2028"
+      }
+    ],
+    "notes": {
+      "zh": "回答「MX3+ 比 MX3 大多少、什么时候能用」。官方只给相对倍数：峰值 AI 算力最高 10 倍、片上内存近 10 倍；16 芯片配置合计超过 1 POPS、2.16GB 分布式片上内存。单芯片的绝对 TFLOPS、功耗、内存容量官方尚未公布，所以本卡不拿「10×」乘 MX3 的 6.25 TFLOPS 冒充 MX3+ 规格。工程样片目标 2027 年底，量产目标 2028 年中，现在不能按已上市产品排期。",
+      "en": "Answers how much larger MX3+ is than MX3 and when it arrives. The vendor gives relative gains only: up to 10x peak AI compute and nearly 10x on-chip memory; a 16-chip configuration is targeted at more than 1 POPS and 2.16 GB of distributed on-chip memory. Per-chip absolute TFLOPS, power and memory capacity are not published, so this card does not multiply MX3's 6.25 TFLOPS by 10 and present that as an MX3+ spec. Engineering samples target late 2027 and volume mid-2028, so it cannot be scheduled as a shipping product today."
+    },
+    "verifiedAt": "2026-11-23",
+    "specs": {
+      "relative peak AI compute": "up to 10x MX3",
+      "relative on-chip memory": "nearly 10x MX3",
+      "16-chip peak AI compute": "more than 1 POPS",
+      "16-chip on-chip memory": "2.16 GB distributed",
+      "scaling": "single accelerator to 16-chip systems",
+      "availability": "engineering samples late 2027; volume mid-2028"
+    },
+    "availability": "announced",
+    "useCases": [
+      "edge",
+      "serving"
+    ],
+    "price": {
+      "amount": null,
+      "currency": "USD",
+      "kind": "not-published",
+      "note": {
+        "zh": "官方未公布单价；MX3+ 尚在 early-access / 工程样片阶段，不拿经销商价冒充官方价。",
+        "en": "No public unit price; MX3+ is in early-access / engineering-sample stage, so dealer pricing is not presented as official."
+      },
+      "source": "https://memryx.ai/news/memryx-ai-unveils-mx3-scaling-ai-inference-beyond-1-pops/",
+      "checkedAt": "2026-11-23"
     }
   }
 ]

@@ -143,10 +143,10 @@ tools/ (ai-handbook subtree)
 ├── tracks/
 │   ├── coding/                 AI coding category
 │   │   ├── _category.md        category declaration (criteria + form rulings + object table)
-│   │   └── products/           41 objects
+│   │   └── products/           42 objects
 │   ├── chat/                   chat assistants (21 objects)
 │   ├── image/ · video/ · audio/  three creation categories (15 + 14 + 17 objects)
-│   ├── framework/              agent frameworks & runtimes (42 objects)
+│   ├── framework/              agent frameworks & runtimes (43 objects)
 │   ├── mcp/                    MCP ecosystem (3 additional axes, 32 objects)
 │   └── research/ · automation/ · runner/  search & research, automation, local runners (11 + 23 + 21 objects)
 ├── protocols/                  measurement protocols (coding / framework / mcp)
@@ -267,7 +267,7 @@ are independently designed here.
 
 ## Content index
 
-### AI coding — 41
+### AI coding — 42
 
 Coding agents in your editor, terminal, or a vendor cloud
 
@@ -291,6 +291,7 @@ Coding agents in your editor, terminal, or a vendor cloud
 | [Cursor](tracks/coding/products/cursor.md) | Anysphere | ide | verified | active |
 | [Cursor CLI](tracks/coding/products/cursor-cli.md) | Anysphere | cli | verified | active |
 | [Devin](tracks/coding/products/devin.md) | Cognition | cloud | verified | active |
+| [Devin Bots](tracks/coding/products/devin-bots.md) | Cognition | cloud | partial | active |
 | [Droid](tracks/coding/products/factory-droid.md) | Factory AI | cli | verified | active |
 | [Gemini CLI](tracks/coding/products/gemini-cli.md) | Google | cli | verified | active |
 | [GitHub Copilot](tracks/coding/products/copilot.md) | GitHub / Microsoft | ide | verified | active |
@@ -461,7 +462,7 @@ Visual AI-app builders and workflow automation platforms
 | [Voiceflow](tracks/automation/products/voiceflow.md) | Voiceflow | web | verified | active |
 | [Zapier](tracks/automation/products/zapier.md) | Zapier | web | verified | active |
 
-### Agent frameworks & runtimes — 42
+### Agent frameworks & runtimes — 43
 
 Building blocks for your own agent
 
@@ -508,6 +509,7 @@ Building blocks for your own agent
 | [Strands Agents SDK](tracks/framework/products/strands-agents.md) | AWS | harness | verified | active |
 | [SWE-agent](tracks/framework/products/swe-agent.md) | Princeton / Stanford (academic teams) | harness | verified | active |
 | [Vercel AI SDK 7](tracks/framework/products/vercel-ai-sdk.md) | Vercel | harness | verified | active |
+| [Vercel eve (1.0)](tracks/framework/products/vercel-eve.md) | Vercel | harness | partial | active |
 | [Webots](tracks/framework/products/webots.md) | Cyberbotics | local-app | verified | active |
 
 ### Tools for your AI — 32
@@ -585,8 +587,8 @@ Desktop apps that run open-weight models on your machine
 <!-- STATS:BEGIN generated, do not edit -->
 | Item | Measured value |
 |---|---|
-| Total profiles | 280 |
-| By category | coding 41 · chat 23 · image 15 · video 14 · audio 17 · research 11 · office 15 · automation 24 · framework 42 · mcp 32 · runner 21 · safety 25 |
-| By form | web 108 · harness 39 · mcp 32 · cli 30 · cloud 28 · local-app 23 · ide 19 · app 1 |
+| Total profiles | 282 |
+| By category | coding 42 · chat 23 · image 15 · video 14 · audio 17 · research 11 · office 15 · automation 24 · framework 43 · mcp 32 · runner 21 · safety 25 |
+| By form | web 108 · harness 40 · mcp 32 · cli 30 · cloud 29 · local-app 23 · ide 19 · app 1 |
 | Comparison axes | 8 (the mcp category adds 3 more: transport / auth / scope) |
 <!-- STATS:END -->

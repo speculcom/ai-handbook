@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 搭 RAG 语料"
-en: "[object Object]"
+en: "How to build a RAG corpus with AI"
 kind: "guide"
 station: 3
 ord: 34
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 搭 RAG 语料（[object Object]）
+# 怎么用 AI 搭 RAG 语料（How to build a RAG corpus with AI）
 
 **这份指南解决什么**：RAG 的效果八成取决于语料，而不是模型；先把「收什么、怎么切、怎么测」定下来。
 

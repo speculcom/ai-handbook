@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 分析表格"
-en: "[object Object]"
+en: "How to analyse a spreadsheet with AI"
 kind: "guide"
 station: 3
 ord: 28
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 分析表格（[object Object]）
+# 怎么用 AI 分析表格（How to analyse a spreadsheet with AI）
 
 **这份指南解决什么**：先让 AI 理解字段和口径，再让它写公式或查询，最后用原始表复核关键数字。
 

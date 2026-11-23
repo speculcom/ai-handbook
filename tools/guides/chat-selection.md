@@ -7,7 +7,7 @@ summary: 不排名、不报价格：先定中文、数据、价格、生态四�
 summaryEn: No rankings and no prices: fix four constraints — Chinese, data, price, ecosystem — then narrow to 2–3 candidates by scenario.
 sources:
   - label: OpenAI · ChatGPT Pricing（定价页指针，D9：本站不采价格数字）
-    url: https://openai.com/chatgpt/pricing/
+    url: https://openai.com/chatgpt/
     kind: pricing
   - label: Google · Google AI plans（Gemini 订阅档位指针）
     url: https://one.google.com/about/google-ai-plans

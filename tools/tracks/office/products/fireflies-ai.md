@@ -38,7 +38,7 @@ sources:
     url: https://fireflies.ai/
     kind: official
   - label: Fireflies.ai · 官方更新 / 发布记录
-    url: https://fireflies.ai/changelog
+    url: https://fireflies.ai/blog
     kind: changelog
   - label: Fireflies.ai · 官方帮助 / 文档
     url: https://docs.fireflies.ai/

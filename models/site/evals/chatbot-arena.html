@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="x-default" href="https://models.specul.com/evals/chatbot-arena.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8bbd4e9fb874"></script>
-  <link rel="stylesheet" href="../brand.css?v=8bbd4e9fb874" />
+  <script src="../brand.js?v=bb632b891131"></script>
+  <link rel="stylesheet" href="../brand.css?v=bb632b891131" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Chatbot Arena · 评测基准 · AI 模型","description":"Chatbot Arena：人类偏好胜率与 Elo 分；指标 Elo / 胜率。页内写清污染风险、复现条件、成本与适用边界，读完能判断这个分数能不能直接引用。","url":"https://models.specul.com/evals/chatbot-arena.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
@@ -116,7 +116,9 @@
 </table>
 <div class="sec-body">
   <h2><span data-zh>怎么读</span><span data-en>How to read it</span></h2>
-  <p><span data-zh>[object Object]</span><span data-en>Chatbot Arena measures human preference: users give two anonymous models the same prompt and vote for the better answer, with Elo/Bradley-Terry used to estimate a ranking. It is the closest public signal to real user distribution, but it measures preference, not correctness: longer, more confident or better-formatted answers tend to win, and factual errors are not always penalised.
+  <p><span data-zh>Chatbot Arena 测的是人类偏好：用户给两个匿名模型同一个 prompt，投票选更好的一个，再用 Elo / Bradley-Terry 估排名。它最接近真实用户分布，但测的是「偏好」不是「正确」：更长、更自信、排版更好看的回答容易赢，事实错误不一定被扣分。
+引用时至少写清快照日、总投票量、置信区间和类别榜（代码、数学、中文等）。总榜和类别榜可能给出不同结论；新模型上线初期票数少，排名波动大。用户分布也不是你的用户分布，ToB 长文档、工具调用、严格格式这些场景在 Arena 里权重很低。
+它无法在本地复现同等规模；适合当外部信号，不适合当验收门禁。</span><span data-en>Chatbot Arena measures human preference: users give two anonymous models the same prompt and vote for the better answer, with Elo/Bradley-Terry used to estimate a ranking. It is the closest public signal to real user distribution, but it measures preference, not correctness: longer, more confident or better-formatted answers tend to win, and factual errors are not always penalised.
 When citing it, give at least the snapshot date, total vote count, confidence interval and the category board (code, maths, Chinese, etc.). Overall and category boards can disagree; a new model with few votes moves a lot. The user distribution is not your user distribution either: long enterprise documents, tool calls and strict formats carry little weight in the Arena.
 It cannot be reproduced locally at the same scale; use it as an external signal, not as a release gate.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>

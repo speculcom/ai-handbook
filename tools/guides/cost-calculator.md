@@ -7,7 +7,7 @@ summary: 不给价格数字，只给四条可复算的算式与口径。token、
 summaryEn: No price figures, only four reproducible formulas and conventions — tokens, seats, local power, video seconds — each with an official pricing pointer.
 sources:
   - label: OpenAI · ChatGPT Pricing（官方定价页指针，D9：本站不采价格数字）
-    url: https://openai.com/chatgpt/pricing/
+    url: https://openai.com/chatgpt/
     kind: pricing
   - label: Anthropic · Claude Pricing（官方定价页指针）
     url: https://www.anthropic.com/pricing

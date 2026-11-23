@@ -200,7 +200,7 @@ or faster need benchmarks, and this site makes none.
 | Quant builds (sum of coverage) | 1262 |
 | GGUF files | 1337 |
 | Quantizers | 54 |
-| Family lineage cards (families) | 20 |
+| Family lineage cards (families) | 21 |
 | Closed-model cards (closed) | 7 |
 | Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->

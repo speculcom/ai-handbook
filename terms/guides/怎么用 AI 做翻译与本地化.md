@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 做翻译与本地化"
-en: "[object Object]"
+en: "How to translate and localise with AI"
 kind: "guide"
 station: 3
 ord: 30
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 做翻译与本地化（[object Object]）
+# 怎么用 AI 做翻译与本地化（How to translate and localise with AI）
 
 **这份指南解决什么**：翻译不是逐句替换，而是让目标语言读者觉得这句话本来就该这么说。
 

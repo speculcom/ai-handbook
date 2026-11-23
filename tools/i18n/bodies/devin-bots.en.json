@@ -1,0 +1,26 @@
+{
+  "_comment": "English body for devin-bots (2026-11-23). Axes, runs, unknowns, related and sources align with the Chinese source and official pages.",
+  "axes": {
+    "model_access": "Devin Bots run on Devin's existing model stack; the vendor does not expose model choice to users and does not name the underlying model. This profile does not infer a specific model.",
+    "runtime": "A persistent cloud agent: each Bot has its own name, memory and tools and can lead multiple Devin sessions in parallel. Entry points are the Devin app, Slack and iMessage; the Bot investigates, delegates, evaluates results and decides the next step.",
+    "local_files": "Does not touch local files; it works in authorized repositories and integrations. Cloning, editing and opening PRs still happen in Devin's cloud workspace, with repository scope set by GitHub and other integration grants.",
+    "background": "Always-on: a Bot keeps context across sessions, proactively sends reports and follows up on stuck sessions, and only sends decisions that need human judgement to the Needs You inbox. Multiple Bots can coordinate and roll updates up to one owner.",
+    "tools": "Inherits Devin's existing integrations and permissions: Slack, GitHub, Linear/Jira and others; a Bot can open child Devin sessions, run tests, watch CI and open PRs. Per-item MCP support was not verified for this profile and is marked unknown.",
+    "context": "Each Bot has its own memory for project facts, decisions and review preferences; context is organized around goals and workflows rather than a pasted chat transcript. Bots can share team context.",
+    "permissions": "Uses organization/repository authorization; you can define which systems a Bot can access, what it can change and when approval is required. Spend and release actions can have human gates; teams can share Bots, but final decisions still return to people.",
+    "fit": "Fits teams with continuing engineering goals that need someone to own them end to end (keeping Android/iOS in sync, maintaining open-source repos, managing releases, optimizing inference services), and teams that already have tests, CI and benchmarks as acceptance signals.\n\nNot a fit for one-off small tasks (a direct Devin session is cheaper), teams that want to delegate without acceptance criteria, or teams that require self-hosting or a specific model."
+  },
+  "runs": "This profile did not run an end-to-end Devin Bots project; conclusions cover the official launch page, product entry point and the Devin documentation baseline. The Android, layout-regression and game-studio examples are vendor accounts and were not independently reproduced.",
+  "unknowns": "- The Bot's underlying model and version (not named by the vendor)\n- Per-item status of MCP support (not checked page by page in this pass)\n- Separate billing and quotas for Bots (not listed by the vendor; follows Devin platform terms)",
+  "related": [
+    "Same vendor's base session form: Devin completes a specific task, while Bots own continuing goals and coordinate multiple Devins.",
+    "Another agent-orchestration comparison: the SDK gives code-level orchestration; Bots give a hosted engineering teammate.",
+    "An enterprise agent-platform comparison: Agentforce is anchored in CRM context; Bots are anchored in repositories and engineering outcomes."
+  ],
+  "sources": [
+    "Devin · Introducing Devin Bots (official launch: goals, memory, multiple Devins, Needs You)",
+    "Devin Bots · product entry",
+    "Devin Docs · Release Notes (platform change entry)",
+    "Devin Docs · Introducing Devin (accounts, workspaces, integrations and permission baseline)"
+  ]
+}

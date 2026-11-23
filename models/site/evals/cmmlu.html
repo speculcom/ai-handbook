@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="x-default" href="https://models.specul.com/evals/cmmlu.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8bbd4e9fb874"></script>
-  <link rel="stylesheet" href="../brand.css?v=8bbd4e9fb874" />
+  <script src="../brand.js?v=bb632b891131"></script>
+  <link rel="stylesheet" href="../brand.css?v=bb632b891131" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"CMMLU · 评测基准 · AI 模型","description":"CMMLU：中文知识与推理；指标 准确率。页内写清污染风险、复现条件、成本与适用边界，读完能判断这个分数能不能直接引用。","url":"https://models.specul.com/evals/cmmlu.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
@@ -116,7 +116,9 @@
 </table>
 <div class="sec-body">
   <h2><span data-zh>怎么读</span><span data-en>How to read it</span></h2>
-  <p><span data-zh>[object Object]</span><span data-en>CMMLU is a Chinese multi-subject multiple-choice knowledge benchmark covering 67 topics across humanities, social sciences, STEM and professional fields. It is finer-grained than C-Eval, but still a knowledge test: answering these items is not the same as doing a Chinese task.
+  <p><span data-zh>CMMLU 是中文多学科知识的选择题评测，覆盖 67 个主题，从人文、社科到理工与专业领域。它比 C-Eval 的主题覆盖更细，但仍属于「知识型」评测：会做题不等于会做中文任务。
+读分时固定 shot 数、prompt 模板、答案抽取方式和是否使用中文思维链；不同厂商的「5-shot」实现经常不一致。题目公开且被广泛用于中文训练，污染风险高，尤其是中文基座模型；厂商自评前最好做同源题去重或至少标注风险。
+它适合做中文知识面基线，不适合单独判断写作、检索、工具调用或长文档能力。</span><span data-en>CMMLU is a Chinese multi-subject multiple-choice knowledge benchmark covering 67 topics across humanities, social sciences, STEM and professional fields. It is finer-grained than C-Eval, but still a knowledge test: answering these items is not the same as doing a Chinese task.
 Fix the shot count, prompt template, answer extraction and whether Chinese chain-of-thought is allowed; vendors&#39; “5-shot” implementations often differ. The items are public and widely used in Chinese training, so contamination risk is high, especially for Chinese base models; before citing a vendor score, deduplicate same-source items or at least flag the risk.
 Use it as a Chinese knowledge baseline, not as a standalone test of writing, retrieval, tool use or long-document work.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>

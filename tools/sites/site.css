@@ -31,12 +31,12 @@
    六站主标下边距实测各不相同（0 / 4.8 / 8 / 10 / 12 / 13.8 / 20px），
    h1 属骨架，间距也该由 brand.css 一处决定。 */
 .lede {
-  color: var(--ink-mid); font-size: 17px; line-height: 1.72;
+  color: var(--ink-mid); font-size: 17px; line-height: 1.6;
   max-width: var(--measure-wide); margin: 0;
 }
 .hero-meta {
   display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5);
-  margin-top: var(--sp-5); font-size: var(--fs-xs); color: var(--ink-dim);
+  margin-top: var(--sp-4); font-size: var(--fs-xs); color: var(--ink-dim);
 }
 .hero-meta b {
   color: var(--ink); font-weight: 700; font-size: var(--fs-lg);
@@ -50,8 +50,8 @@
   letter-spacing: -.018em; margin: 0 0 var(--sp-2);
 }
 .section > .section-desc {
-  color: var(--ink-dim); font-size: var(--fs-sm); line-height: 1.72;
-  margin: 0 0 var(--sp-5); max-width: var(--measure);
+  color: var(--ink-dim); font-size: var(--fs-sm); line-height: 1.6;
+  margin: 0 0 var(--sp-4); max-width: var(--measure);
 }
 
 /* ── 「从这里开始」引导区 ────────────────────────────────────────────────
@@ -100,7 +100,7 @@
 /* 为什么这样分——一行灰字，是本文档存在的理由，别删 */
 .guide-why { color: var(--ink-faint); font-size: var(--fs-xs); line-height: 1.62; }
 .guide-foot {
-  font-size: var(--fs-xs); color: var(--ink-dim); line-height: 1.7;
+  font-size: var(--fs-xs); color: var(--ink-dim); line-height: 1.58;
   margin: 0; max-width: var(--measure);
   padding-top: var(--sp-3); border-top: 1px solid var(--line);
 }
@@ -175,7 +175,7 @@ html[data-theme="light"] {
   padding: 3px 7px; border: 1px solid var(--line-mid); border-radius: 999px;
 }
 .fam-head p {
-  margin: 0; font-size: var(--fs-sm); line-height: 1.7;
+  margin: 0; font-size: var(--fs-sm); line-height: 1.58;
   color: var(--ink-dim); max-width: 84ch;
 }
 
@@ -223,7 +223,7 @@ h4.sub-h {
   margin: var(--sp-3) 0 var(--sp-1);
 }
 .status-inner p {
-  font-size: var(--fs-sm); line-height: 1.72;
+  font-size: var(--fs-sm); line-height: 1.6;
   color: var(--ink-mid); margin: 0 0 var(--sp-2);
 }
 .status-inner p:last-child { margin-bottom: 0; }
@@ -326,14 +326,14 @@ h4.sub-h {
  *   与 2026-10-09 宽表格同理——**这是渲染层的错**（档案正文里这类档位名串是合法内容），
  *   全站硬约束就是 `overflow-wrap:anywhere`（guide/rel/part-bar 早已置过，panel 漏了）。 */
 .panel p {
-  font-size: var(--fs-sm); line-height: 1.72;
+  font-size: var(--fs-sm); line-height: 1.6;
   color: var(--ink-mid); margin: 0 0 var(--sp-2);
   overflow-wrap: anywhere;
 }
 .panel p:last-child { margin-bottom: 0; }
 .panel ul { margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
 .panel li {
-  font-size: var(--fs-sm); line-height: 1.7; color: var(--ink-mid);
+  font-size: var(--fs-sm); line-height: 1.58; color: var(--ink-mid);
   padding-left: var(--sp-3); position: relative;
   overflow-wrap: anywhere;
 }
@@ -437,13 +437,13 @@ td a:hover { color: var(--accent, var(--brand)); }
   border-left: 2px solid var(--accent, var(--brand));
   border-radius: 0 var(--r-sm) var(--r-sm) 0;
   background: var(--bg-inset);
-  font-size: var(--fs-base); line-height: 1.74; color: var(--ink);
+  font-size: var(--fs-base); line-height: 1.62; color: var(--ink);
 }
 
 /* ── 工具类（替代内联样式）────────────────────────────────────────── */
 .panel.is-lead { padding-block: var(--sp-3); }
-.panel.is-lead p { font-size: var(--fs-base); line-height: 1.74; }
-.lead { font-size: var(--fs-base); line-height: 1.74; color: var(--ink); margin: 0; }
+.panel.is-lead p { font-size: var(--fs-base); line-height: 1.62; }
+.lead { font-size: var(--fs-base); line-height: 1.62; color: var(--ink); margin: 0; }
 .t-sm.mb-2 { margin-bottom: var(--sp-2); }
 .t-sm.mb-3 { margin-bottom: var(--sp-3); }
 .em { font-size: var(--fs-base); color: var(--ink); }
@@ -554,7 +554,7 @@ th.w-28 { width: 112px; } th.w-52 { width: 208px; }
   margin-bottom: 6px;
 }
 .axis dd {
-  margin: 0; font-size: var(--fs-sm); line-height: 1.74; color: var(--ink);
+  margin: 0; font-size: var(--fs-sm); line-height: 1.62; color: var(--ink);
 }
 /* 维度正文的分段与清单（2026-10-09）。
  * 起因：解析器过去把 `>-` 折叠标量里的空行删掉，于是维度正文永远只有一段，
@@ -587,10 +587,10 @@ dl.cn-rows { margin: 0; }
 }
 .cn-rows dt:first-child { margin-top: 0; }
 .cn-rows dd {
-  margin: 2px 0 0; font-size: var(--fs-sm); line-height: 1.74; color: var(--ink);
+  margin: 2px 0 0; font-size: var(--fs-sm); line-height: 1.62; color: var(--ink);
 }
 .cn-foot {
-  margin: var(--sp-3) 0 0; font-size: var(--fs-xs); color: var(--ink-faint); line-height: 1.7;
+  margin: var(--sp-3) 0 0; font-size: var(--fs-xs); color: var(--ink-faint); line-height: 1.58;
 }
 .panel h2 .panel-note {
   font-size: var(--fs-xs); font-weight: 400; color: var(--ink-faint);

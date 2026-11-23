@@ -17,7 +17,7 @@
 | 腾讯元宝 | 腾讯 | https://yuanbao.tencent.com | 已有 | yuanbao-chat | P1 · 直抓 200 · 元宝是 C 端对话入口（混元是模型品牌，见下行） |
 | 智谱清言 | 智谱 AI | https://chatglm.cn | 已有 | chatglm-chat | P1 · 直抓 200 |
 | 通义千问（对话） | 阿里巴巴 | https://tongyi.aliyun.com | 已有 | tongyi-qianwen | P1 · 直抓 200 |
-| 文心 | 百度 | https://yiyan.baidu.com | 已有 | wenxin | P1 · 直抓 200 · 品牌史：文心一言→文小言（2024-09 App 端）→「文心」统一（2025-11-02），档案要写改名史 |
+| 文心 | 百度 | https://yiyan.baidu.com/ | 已有 | wenxin | P1 · 直抓 200 · 品牌史：文心一言→文小言（2024-09 App 端）→「文心」统一（2025-11-02），档案要写改名史 |
 | Microsoft Copilot | 微软 | https://copilot.microsoft.com | 已有 | microsoft-copilot | P1 · 直抓 200 |
 | Manus | Manus AI（Monica 团队） | https://manus.im | 已有 | manus | P2 · 直抓 200 · T12 移交裁决：通用任务 agent（官方定位「Less structure, more intelligence」，含聊天模式），主轴非编码不归 coding、非搭 agent 底座不归 automation——落 chat |
 | 讯飞星火 | 科大讯飞 | https://xinghuo.xfyun.cn | 已有 | xinghuo-spark | P2 · 直抓 200 |

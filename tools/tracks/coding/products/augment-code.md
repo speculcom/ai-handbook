@@ -119,7 +119,7 @@ sources:
     url: https://docs.augmentcode.com/cosmos/software-factory/overview
     kind: official
   - label: Augment Code 博客 · Augment Code's next chapter（2026-10-08 资产加入 Harness 公告）
-    url: https://www.augmentcode.com/blog/augment-codes-next-chapter
+    url: https://www.augmentcode.com/blog
     kind: official
   - label: Augment Code · Changelog（changelog）
     url: https://www.augmentcode.com/changelog

@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 写邮件与排日程"
-en: "[object Object]"
+en: "How to draft email and schedule with AI"
 kind: "guide"
 station: 3
 ord: 29
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 写邮件与排日程（[object Object]）
+# 怎么用 AI 写邮件与排日程（How to draft email and schedule with AI）
 
 **这份指南解决什么**：把「写一封邮件」变成「说清目的、给出选项、留好退路」，让 AI 帮你把语气和结构拉平。
 

@@ -38,7 +38,7 @@ sources:
     url: https://www.deepl.com/pro
     kind: official
   - label: DeepL Pro · 官方更新 / 发布记录
-    url: https://www.deepl.com/changelog
+    url: https://developers.deepl.com/docs/resources/roadmap-and-release-notes
     kind: changelog
   - label: DeepL Pro · 官方帮助 / 文档
     url: https://support.deepl.com/

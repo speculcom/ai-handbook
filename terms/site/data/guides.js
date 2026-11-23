@@ -2194,7 +2194,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 做会议纪要",
   "zh": "怎么用 AI 做会议纪要",
-  "en": "[object Object]",
+  "en": "How to take meeting notes with AI",
   "kind": "guide",
   "station": 3,
   "ord": 26,
@@ -2235,7 +2235,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 做 PPT",
   "zh": "怎么用 AI 做 PPT",
-  "en": "[object Object]",
+  "en": "How to build a slide deck with AI",
   "kind": "guide",
   "station": 3,
   "ord": 27,
@@ -2278,7 +2278,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 分析表格",
   "zh": "怎么用 AI 分析表格",
-  "en": "[object Object]",
+  "en": "How to analyse a spreadsheet with AI",
   "kind": "guide",
   "station": 3,
   "ord": 28,
@@ -2319,7 +2319,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 写邮件与排日程",
   "zh": "怎么用 AI 写邮件与排日程",
-  "en": "[object Object]",
+  "en": "How to draft email and schedule with AI",
   "kind": "guide",
   "station": 3,
   "ord": 29,
@@ -2360,7 +2360,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 做翻译与本地化",
   "zh": "怎么用 AI 做翻译与本地化",
-  "en": "[object Object]",
+  "en": "How to translate and localise with AI",
   "kind": "guide",
   "station": 3,
   "ord": 30,
@@ -2403,7 +2403,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 审阅合同与长文档",
   "zh": "怎么用 AI 审阅合同与长文档",
-  "en": "[object Object]",
+  "en": "How to review contracts and long documents with AI",
   "kind": "guide",
   "station": 3,
   "ord": 31,
@@ -2446,7 +2446,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 清洗数据",
   "zh": "怎么用 AI 清洗数据",
-  "en": "[object Object]",
+  "en": "How to clean data with AI",
   "kind": "guide",
   "station": 3,
   "ord": 32,
@@ -2489,7 +2489,7 @@ var GUIDES = [
  {
   "id": "怎么给数据集写数据卡",
   "zh": "怎么给数据集写数据卡",
-  "en": "[object Object]",
+  "en": "How to write a dataset card",
   "kind": "guide",
   "station": 3,
   "ord": 33,
@@ -2532,7 +2532,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 搭 RAG 语料",
   "zh": "怎么用 AI 搭 RAG 语料",
-  "en": "[object Object]",
+  "en": "How to build a RAG corpus with AI",
   "kind": "guide",
   "station": 3,
   "ord": 34,
@@ -4305,7 +4305,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 备课",
   "zh": "怎么用 AI 备课",
-  "en": "[object Object]",
+  "en": "How to prepare a lesson with AI",
   "kind": "guide",
   "station": 6,
   "ord": 13,
@@ -4348,7 +4348,7 @@ var GUIDES = [
  {
   "id": "怎么用 AI 出题与批改",
   "zh": "怎么用 AI 出题与批改",
-  "en": "[object Object]",
+  "en": "How to generate questions and grade with AI",
   "kind": "guide",
   "station": 6,
   "ord": 14,
@@ -4391,7 +4391,7 @@ var GUIDES = [
  {
   "id": "怎么设计课堂 AI 互动",
   "zh": "怎么设计课堂 AI 互动",
-  "en": "[object Object]",
+  "en": "How to design AI interaction for the classroom",
   "kind": "guide",
   "station": 6,
   "ord": 15,

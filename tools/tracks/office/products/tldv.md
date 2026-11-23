@@ -38,7 +38,7 @@ sources:
     url: https://tldv.io/
     kind: official
   - label: tl;dv · 官方更新 / 发布记录
-    url: https://tldv.io/changelog
+    url: https://tldv.io/blog
     kind: changelog
   - label: tl;dv · 官方帮助 / 文档
     url: https://help.tldv.io/

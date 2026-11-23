@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "code": "thinkingmachines",
+  "name": {
+    "zh": "Thinking Machines · Inkling",
+    "en": "Thinking Machines · Inkling"
+  },
+  "vendor": {
+    "zh": "Thinking Machines Lab",
+    "en": "Thinking Machines Lab"
+  },
+  "currentGen": {
+    "zh": "Inkling 2 Small",
+    "en": "Inkling 2 Small"
+  },
+  "currentGenDate": "2026-11",
+  "generations": [
+    {
+      "gen": "Inkling 2 Small",
+      "date": "2026-11",
+      "zh": "2026-11-05 发布、11-12 开放权重。594B 总参 / 17B 激活，384 专家 / 8 激活，48 层，1M 上下文，文本 + 图像输入，Apache-2.0；AA Intelligence Index 31。",
+      "en": "Released 2026-11-05 with weights opened on 11-12. 594B total / 17B active, 384 experts with 8 active, 48 layers, 1M context, text + image input, Apache-2.0; AA Intelligence Index 31.",
+      "url": "https://thinkingmachines.ai/model-card/inkling-2-small/"
+    },
+    {
+      "gen": "Inkling 2 Mini",
+      "date": "2026-11",
+      "zh": "2026-11-20 发布。26.4B 总参 / 3.4B 每 token 激活（循环层后约 5.4B 有效），24 层 looped MoE，1M 上下文，Apache-2.0；Unsloth 已给出 7.76–22.87GB GGUF。",
+      "en": "Released 2026-11-20. 26.4B total / 3.4B active per token (about 5.4B effective after looping), 24-layer looped MoE, 1M context, Apache-2.0; Unsloth ships 7.76–22.87GB GGUF files.",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    }
+  ],
+  "sizeTiers": [
+    {
+      "zh": "旗舰 594B-A17B：Inkling 2 Small，多模态，1M 上下文；MXFP8 版需约 800GB 聚合显存，不是单机本地档。",
+      "en": "Flagship 594B-A17B: Inkling 2 Small, multimodal, 1M context; the MXFP8 checkpoint needs about 800GB of aggregate VRAM, not a single-machine local tier."
+    },
+    {
+      "zh": "本地 26.4B-A3.4B：Inkling 2 Mini，24 层循环 MoE，Q4_K_M 16.61GB，24GB 级显卡可跑短中上下文。",
+      "en": "Local 26.4B-A3.4B: Inkling 2 Mini, 24-layer looped MoE, Q4_K_M at 16.61GB, runnable on 24GB-class cards at short-to-medium context."
+    }
+  ],
+  "licenses": [
+    {
+      "id": "apache-2.0",
+      "zh": "Apache-2.0（两个模型权重同许可；另附 acceptable use policy）",
+      "en": "Apache-2.0 for both checkpoints, with an additional acceptable use policy",
+      "url": "https://thinkingmachines.ai/model-card/inkling-2-small/"
+    }
+  ],
+  "claims": [
+    {
+      "zh": "官方模型卡：Inkling 2 Small 为 594B 总参、17B 激活，48 层 decoder-only，384 专家中每 token 激活 8 个，支持 1M token 上下文与文本 + 图像输入。",
+      "en": "Official model card: Inkling 2 Small has 594B total parameters, 17B active, a 48-layer decoder-only transformer routing each token to 8 of 384 experts, 1M-token context and text + image input.",
+      "url": "https://thinkingmachines.ai/model-card/inkling-2-small/"
+    },
+    {
+      "zh": "官方模型卡：MXFP8 checkpoint 需要至少 800GB 聚合显存的 GPU 集群；NVFP4 是另一个更小的 checkpoint。",
+      "en": "Official model card: the MXFP8 checkpoint requires a GPU cluster with at least 800GB of aggregate VRAM; NVFP4 is a separate, smaller checkpoint.",
+      "url": "https://thinkingmachines.ai/model-card/inkling-2-small/"
+    },
+    {
+      "zh": "官方发布页：Inkling 2 Small 在 AA Intelligence Index 得 31 分，权重于 2026-11-12 在 Hugging Face 以 Apache-2.0 开放。",
+      "en": "Official release page: Inkling 2 Small scores 31 on the AA Intelligence Index; weights opened on Hugging Face under Apache-2.0 on 2026-11-12.",
+      "url": "https://www.thinkingmachines.ai/news/inkling-2-small/"
+    },
+    {
+      "zh": "官方模型卡：Inkling 2 Mini 为 26.4B 总参 / 3.4B 激活，24 层 decoder-only，6–17 层循环 3 次，1M 上下文与文本 + 图像输入。",
+      "en": "Official model card: Inkling 2 Mini has 26.4B total / 3.4B active parameters, a 24-layer decoder-only stack with layers 6–17 looped three times, 1M context and text + image input.",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    }
+  ],
+  "positioning": {
+    "zh": "同一代的两条线：Small 是 594B 级旗舰，用来打前沿 Agent / 多模态任务；Mini 是 26B 级本地节点，用循环层换容量。两者都是 Apache-2.0、1M 上下文，但硬件门槛相差一个数量级，不能互相替代。",
+    "en": "Two lines in the same generation: Small is the 594B-class flagship for frontier agent and multimodal work; Mini is the 26B-class local node that trades repeated layers for capacity. Both are Apache-2.0 with 1M context, but their hardware floors differ by an order of magnitude and they do not replace each other."
+  },
+  "onSite": {
+    "series": [],
+    "zh": "这里没有单独的量化系列页：Mini 的 GGUF 档位写进 2026 增补卡，Small 的官方 NVFP4 / MXFP8 权重只作规格记录。",
+    "en": "No separate quantisation series page: Mini's GGUF tiers are recorded in the 2026 patch card, while Small's official NVFP4 / MXFP8 checkpoints are recorded as specs only."
+  },
+  "sources": [
+    {
+      "label": "Inkling 2 Small 官方模型卡",
+      "url": "https://thinkingmachines.ai/model-card/inkling-2-small/",
+      "kind": "docs",
+      "labelEn": "Inkling 2 Small official model card"
+    },
+    {
+      "label": "Inkling 2 Small 官方发布页（2026-11-05，11-12 权重更新）",
+      "url": "https://www.thinkingmachines.ai/news/inkling-2-small/",
+      "kind": "blog",
+      "labelEn": "Inkling 2 Small official release (2026-11-05, weights update 11-12)"
+    },
+    {
+      "label": "Inkling 2 Mini 官方模型卡",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "kind": "docs",
+      "labelEn": "Inkling 2 Mini official model card"
+    },
+    {
+      "label": "Unsloth Inkling 2 Mini GGUF",
+      "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF",
+      "kind": "docs",
+      "labelEn": "Unsloth Inkling 2 Mini GGUF"
+    }
+  ],
+  "last_verified": "2026-11-23",
+  "confidence": "verified",
+  "cn": {
+    "origin": "foreign",
+    "originNote": "出品方为 Thinking Machines Lab（美国）。",
+    "originNoteEn": "Made by Thinking Machines Lab (United States).",
+    "direct": "unknown",
+    "directNote": "官方权重在 Hugging Face；ModelScope 未检索官方镜像（2026-11-23 未做直连实测，故记 unknown 而非 no）。",
+    "directNoteEn": "Official weights are on Hugging Face; no official ModelScope mirror was found (no direct reachability test on 2026-11-23, so unknown rather than no).",
+    "filing": {
+      "status": "not-filed",
+      "name": "",
+      "no": "",
+      "date": "",
+      "note": "公示名单未检索到 Thinking Machines / Inkling 条目（2026-11-23）。",
+      "noteEn": "No Thinking Machines / Inkling entry found in the public registry (2026-11-23)."
+    },
+    "mirror": null,
+    "last_verified": "2026-11-23",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（2026-11-23 检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm",
+        "labelEn": "CAC · filed generative-AI service information (searched 2026-11-23)"
+      }
+    ]
+  }
+}

@@ -222,6 +222,8 @@ axes:
     - 需要确认底层模型的人 —— 官方未公布
     - 非英语地区用户 —— 官方只写桌面与 iOS，**地区表述只到端、不含国家清单**
 
+    **1.0 后新增适配面**：要一个团队共享的常驻 teammate、能自己找活干、在 Slack / Teams / iMessage 里交接工作的团队；Team Bots 共享文件、应用与上下文，但产品级权限与审计仍是短板。
+
 pitfalls:
   - 把「独立用量」当成免费 —— 官方只说与主套餐分开算
   - 期待能查到审批粒度与凭据机制 —— 官方发布页没写，本档案不替它补
@@ -229,10 +231,14 @@ pitfalls:
   - 以为只支持 SuperGrok —— 官方已扩大到全部 Cursor 档
   - 以为能像 Muse 那样直接付款 —— 官方 Grok Bot 页未提支付结账
 
-tags: [编码agent, 云端, 厂商云, 常驻, 并行, beta, 岗位化]
+tags: [编码agent, 云端, 厂商云, 常驻, 并行, 岗位化, 1.0, TeamBots]
 related: [playwright]
 
 sources:
+  - label: xAI · Introducing Grok Bot 1.0（x.ai/news 索引，2026-11-11；Team Bots、主动开工）
+    url: https://x.ai/news
+    kind: official
+
   - label: xAI · Introducing Grok Bot（官方首发页，2026-08-11 beta 上线）
     url: https://x.ai/news/introducing-grok-bot
     kind: official
@@ -253,8 +259,8 @@ link:
   url: https://x.ai/news/introducing-grok-bot
   kind: official
 
-last_verified: 2026-10-23
-last_updated: 2026-10-03
+last_verified: 2026-11-23
+last_updated: 2026-11-23
 lifecycle: active
 confidence: verified
 cn:
@@ -456,6 +462,17 @@ and adds redirect rules.
 - **要求审批机制可查可配置的人** —— 官方材料回答不了，本条最大短板
 - 要本地文件读写的人
 - 要确认底层模型的人
+
+## 1.0 更新（2026-11-11）
+
+xAI 在 2026-11-11 把 Grok Bot 推到 1.0，官方标题下的原话是「Bots now work with your whole team, take on work without being asked, and get more done, faster」。这条更新把产品从「一个人用的常驻 Bot」扩成「团队共享 Bot」：
+
+- **Team Bots**：把文件、应用和领域知识给一个 Bot，再共享给团队，让所有人从同一份上下文开工；Team Bot 会在协作中继续学习。
+- **主动开工**：1.0 明确写「take on work without being asked」，不再只等用户下指令；这与首发页的「keep working 24/7」是同一条线。
+- **岗位化继续扩张**：2026-11-16 的「Grok Bot for Accounting」是 1.0 后的会计团队用例，说明官方在按岗位而不是按功能卖。
+- **仍然没有点名模型**：1.0 页和首发页都没有说 Bot 跑在哪个 Grok 型号上；本档继续不推断。
+
+对选型的影响：如果你要的是「团队共享的常驻工作面」，1.0 比首发版更值得看；如果你要的是可审计的产品级权限配置，1.0 仍未给出完整答案，这一条最大短板没有被 1.0 解决。
 
 ## 采集限制
 

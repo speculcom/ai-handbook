@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="x-default" href="https://models.specul.com/evals/livebench.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8bbd4e9fb874"></script>
-  <link rel="stylesheet" href="../brand.css?v=8bbd4e9fb874" />
+  <script src="../brand.js?v=bb632b891131"></script>
+  <link rel="stylesheet" href="../brand.css?v=bb632b891131" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"LiveBench · 评测基准 · AI 模型","description":"LiveBench：持续更新的多任务能力；指标 各任务准确率。页内写清污染风险、复现条件、成本与适用边界，读完能判断这个分数能不能直接引用。","url":"https://models.specul.com/evals/livebench.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
@@ -116,7 +116,9 @@
 </table>
 <div class="sec-body">
   <h2><span data-zh>怎么读</span><span data-en>How to read it</span></h2>
-  <p><span data-zh>[object Object]</span><span data-en>LiveBench refreshes its items monthly, using newer sources to reduce contamination, and covers maths, code, reasoning, data analysis and other tasks with per-task accuracy. Its point is not one ranking but stability on fresh items.
+  <p><span data-zh>LiveBench 按月刷新题目，用较新的题源降低污染，覆盖数学、代码、推理、数据整理等任务；每个任务单独报准确率。它的重点不是「一次排名」，而是「在新题上是否稳定」。
+跨月比较必须先确认版本：题目换了，难度和分布都会变，分数不能直接连成趋势。部分任务用模型评委或规则评分，评委模型换了也会影响结果；报告要写清版本月份、任务子集、评分脚本与评委模型。
+它适合做「新鲜度检查」，不适合替代真实业务评测；题量有限，细分任务上的波动可能很大。</span><span data-en>LiveBench refreshes its items monthly, using newer sources to reduce contamination, and covers maths, code, reasoning, data analysis and other tasks with per-task accuracy. Its point is not one ranking but stability on fresh items.
 Before comparing across months, confirm the release: when items change, difficulty and distribution change, so scores do not form a trend line. Some tasks use a model judge or rule-based scoring, and swapping the judge changes the result; report the release month, task subset, scoring script and judge model.
 Use it as a freshness check, not a substitute for your own business evaluation; item counts are limited and sub-task scores can swing.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>

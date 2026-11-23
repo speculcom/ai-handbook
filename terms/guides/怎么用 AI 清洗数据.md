@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 清洗数据"
-en: "[object Object]"
+en: "How to clean data with AI"
 kind: "guide"
 station: 3
 ord: 32
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 清洗数据（[object Object]）
+# 怎么用 AI 清洗数据（How to clean data with AI）
 
 **这份指南解决什么**：让 AI 帮你发现脏数据、提出清洗规则，但每一步改动都要可回放、可审计。
 

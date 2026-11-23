@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="x-default" href="https://models.specul.com/evals/gpqa.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8bbd4e9fb874"></script>
-  <link rel="stylesheet" href="../brand.css?v=8bbd4e9fb874" />
+  <script src="../brand.js?v=bb632b891131"></script>
+  <link rel="stylesheet" href="../brand.css?v=bb632b891131" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"GPQA · 评测基准 · AI 模型","description":"GPQA：研究生级科学问答；指标 准确率。页内写清污染风险、复现条件、成本与适用边界，读完能判断这个分数能不能直接引用。","url":"https://models.specul.com/evals/gpqa.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
@@ -116,7 +116,9 @@
 </table>
 <div class="sec-body">
   <h2><span data-zh>怎么读</span><span data-en>How to read it</span></h2>
-  <p><span data-zh>[object Object]</span><span data-en>GPQA measures graduate-level science Q&amp;A: physics, chemistry and biology multiple-choice items written so a non-expert can read them but only a domain expert should answer correctly. The diamond subset is smaller and harder; the extended set is larger but somewhat easier on average.
+  <p><span data-zh>GPQA 测的是「研究生级科学问答」：物理、化学、生物的选择题，题面刻意写得让非专家也能读懂、但只有领域专家才答得对。常用的钻石集更小、更难，扩展集题量更大但平均难度低一些。
+读分时先问三件事：用的是钻石集还是扩展集、几 shot、是否允许模型联网或调用计算工具。允许搜索的分数和闭卷分数不能放在一张表里；钻石集题量小，一两个百分点的波动可能只是抽样噪声，报告置信区间比排名更有用。
+污染要单独看：题目公开、传播广，中文/英文模型都可能在预训练里见过；厂商自评的「零样本」不等于「没污染」。低成本适合快速筛，但不适合单独决定上线。</span><span data-en>GPQA measures graduate-level science Q&amp;A: physics, chemistry and biology multiple-choice items written so a non-expert can read them but only a domain expert should answer correctly. The diamond subset is smaller and harder; the extended set is larger but somewhat easier on average.
 Before citing a score, ask three things: diamond or extended set, how many shots, and whether web search or calculator tools were allowed. A search-enabled score and a closed-book score do not belong in the same table. The diamond set is small enough that one or two points can be sampling noise; a confidence interval is more useful than a rank.
 Treat contamination separately: the items are public and widely circulated, so both Chinese and English models may have seen them. A vendor&#39;s “zero-shot” claim is not proof of no contamination. Low cost makes it a quick filter, not a release decision.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>

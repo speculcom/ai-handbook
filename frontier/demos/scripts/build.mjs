@@ -125,7 +125,7 @@ const indexBody = `<div class="container demos-page">
     <p class="kicker">${bi('演示 · 网页作品', 'Playground · web pieces')}</p>
     <h1>${bi('这些网页作品，点开就能玩', 'Web pieces you can open and play')}</h1>
     <p class="dm-lead">${bi('能站内打开的直接看，不能嵌入的链回原作者。每件作品的模型、作者、原帖与源码都写在作品页上。', 'Play the ones that run here; the rest link back to the author. Each piece’s model, author, original post and source are noted on its own page.')}</p>
-    <div class="dm-collection-links dm-hero-tools"><a class="dm-collection-link dm-collection-tool" href="compare.html">${bi('并排对照', 'Compare')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="prompts.html">${bi('提示词索引', 'Prompts')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="2026.html">${bi('2026 增补', '2026 patch')} <span aria-hidden="true">&rarr;</span></a></div>
+    <div class="dm-collection-links dm-hero-tools"><a class="dm-collection-link dm-collection-tool" href="compare.html">${bi('并排对照', 'Compare')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="prompts.html">${bi('提示词索引', 'Prompts')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="2026.html">${bi('2026 增补', '2026 patch')} <span aria-hidden="true">&rarr;</span></a><a class="dm-collection-link dm-collection-tool" href="play.html">${bi('通用播放器', 'Player')} <span aria-hidden="true">&rarr;</span></a></div>
   </header>
 </div>
 ${vizFor('demos')}
@@ -166,6 +166,8 @@ const workBody = (e) => {
   const openLabel = e.run?.status === 'embedded'
     ? bi('全屏打开作品', 'Open full screen')
     : bi('全屏打开原页', 'Open original');
+  const demoDate = e.run?.date || e.verifiedAt || e.license?.checkedAt || '';
+  const verifyDate = e.verifiedAt || e.license?.checkedAt || '';
   return `<div class="container demos-page dm-play dm-work">
   <p class="kicker"><a href="../index.html">${bi('← 全部作品', '← All pieces')}</a> <span class="dm-sep">/</span> <span>${bi(esc(L.zh), esc(L.en))}</span> <span class="dm-sep">/</span> <span>${esc(index)}</span></p>
   <div class="dm-play-head">
@@ -173,6 +175,7 @@ const workBody = (e) => {
       <div class="dm-card-meta"><span class="dm-card-cat">${bi(esc(L.zh), esc(L.en))}</span><span class="dm-card-num">${esc(index)} / ${entries.length}</span></div>
       <h1>${bi(esc(e.title.zh), esc(e.title.en))}</h1>
       <p class="dm-lead">${bi(`模型：${esc(m.nameZh || m.name)}。原始发布页、源码、prompt 与许可都在下方。`, `Model: ${esc(m.nameEn || m.name)}. Original publisher page, source, prompt and licence are below.`)}</p>
+      ${demoDate ? `<p class="t-sm dm-date">${bi(`演示日期 ${esc(demoDate)}${verifyDate && verifyDate !== demoDate ? ` · 核验 ${esc(verifyDate)}` : ''}`, `Demo date ${esc(demoDate)}${verifyDate && verifyDate !== demoDate ? ` · verified ${esc(verifyDate)}` : ''}`)}</p>` : ''}
     </div>
     <div class="dm-play-actions">
       <a class="dm-btn" href="${esc(localDemo)}" rel="noopener">${openLabel} &nearr;</a>
@@ -195,7 +198,7 @@ const compareBody = `<div class="container demos-page">
   <h1>${bi('并排看两个作品', 'Two pieces, side by side')}</h1>
   <p class="dm-lead">${bi('左右各选一件，先看首屏画面。题目一样，就是同题对照；题目不一样，就只看两种处理方式。缩略图不能点按交互，想试就去原站。', 'Pick one piece on each side and compare the opening frames. Same brief means a controlled pair; different briefs mean a style comparison only. The still is not interactive — open the original site to try it.')}</p>
   <div class="dm-compare-controls"><label>${bi('左边', 'Left')}<select id="dm-left"></select></label><button id="dm-swap" class="dm-btn dm-btn-ghost" type="button">${bi('交换', 'Swap')}</button><label>${bi('右边', 'Right')}<select id="dm-right"></select></label><span id="dm-same" class="dm-same"></span></div>
-  <div class="dm-compare"><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-l-title"></b><small id="dm-l-sub"></small></div><a id="dm-l-open" href="#" rel="noopener"><span data-zh>原站</span><span data-en>Original</span> &nearr;</a></div><a class="dm-pane-shot" id="dm-l-shotlink" href="#" rel="noopener"><img id="dm-l-shot" alt="" loading="lazy" referrerpolicy="no-referrer"></a><div class="dm-pane-links"><a id="dm-l-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-l-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-l-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-r-title"></b><small id="dm-r-sub"></small></div><a id="dm-r-open" href="#" rel="noopener"><span data-zh>原站</span><span data-en>Original</span> &nearr;</a></div><a class="dm-pane-shot" id="dm-r-shotlink" href="#" rel="noopener"><img id="dm-r-shot" alt="" loading="lazy" referrerpolicy="no-referrer"></a><div class="dm-pane-links"><a id="dm-r-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-r-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-r-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section></div>
+  <div class="dm-compare"><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-l-title"></b><small id="dm-l-sub"></small></div><a id="dm-l-open" href="#" rel="noopener"><span data-zh>原站</span><span data-en>Original</span> &nearr;</a></div><a class="dm-pane-shot" id="dm-l-shotlink" href="#" rel="noopener"><img id="dm-l-shot" alt="作品首屏缩略图" loading="lazy" referrerpolicy="no-referrer"></a><div class="dm-pane-links"><a id="dm-l-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-l-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-l-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section><section class="dm-pane"><div class="dm-pane-head"><div><b id="dm-r-title"></b><small id="dm-r-sub"></small></div><a id="dm-r-open" href="#" rel="noopener"><span data-zh>原站</span><span data-en>Original</span> &nearr;</a></div><a class="dm-pane-shot" id="dm-r-shotlink" href="#" rel="noopener"><img id="dm-r-shot" alt="作品首屏缩略图" loading="lazy" referrerpolicy="no-referrer"></a><div class="dm-pane-links"><a id="dm-r-work" href="#"><span data-zh>作品页</span><span data-en>Page</span></a><a id="dm-r-source" href="#" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a><a id="dm-r-prompt" href="#" rel="noopener"><span data-zh>prompt</span><span data-en>Prompt</span></a></div></section></div>
   <p class="dm-note-line">${bi('缩略图只截首屏，不代表完整作品；点画面或「原站」在浏览器里实际体验。并排差异可能来自题目本身，不能当作模型能力结论。', 'The still captures only the opening frame, not the whole piece; click the image or “Original” to try it in the browser. Differences may come from the brief itself and are not a model-capability conclusion.')}</p>
 </div>
 <script>(function(){

@@ -304,6 +304,10 @@ const EVAL_STEPS = {
 };
 for (const e of evals) {
   const steps = EVAL_STEPS[evalGroup(e.id)];
+  /* 2026-11-23：note 是 {zh,en} 对象；直接传对象会被 String() 渲染成 [object Object]。
+     拆成两个字符串再交给 bi()，兼容旧数据里的纯字符串 note。 */
+  const noteZh = typeof e.note === 'string' ? e.note : (e.note?.zh || '');
+  const noteEn = typeof e.note === 'string' ? (e.en?.note || e.note) : (e.note?.en || '');
   if (e.en || e.nameEn) {
     const body = `<div class="container">
 <header class="sec-detail">
@@ -324,7 +328,7 @@ for (const e of evals) {
 </table>
 <div class="sec-body">
   <h2>${bi('怎么读', 'How to read it')}</h2>
-  <p>${bi(e.note, enOf(e, 'note'))}</p>
+  <p>${bi(noteZh, noteEn)}</p>
   <h2>${bi('下一步', 'Next steps')}</h2>
   <ul>
 ${steps.map(([zh, en]) => `    <li>${bi(zh, en)}</li>`).join('\n')}

@@ -52,7 +52,7 @@ sources:
     url: https://www.vidu.com/terms
     kind: official
   - label: Vidu · Blog（官方更新线，changelog，2026-11-21 抓取 200）
-    url: https://www.vidu.com/blog
+    url: https://platform.vidu.com/news/joint
     kind: changelog
   - label: 网信办 · 生成式人工智能服务已备案信息（2025-01 批次，备案号出处，2026-10-22 直抓）
     url: https://www.cac.gov.cn/cms/pub/interact/downloadfile.jsp?filepath=NUtqEIwGiCjGm2Bhl20cvMJN~~~VfG4e3TRGnFD8PfRvz0vHSSJ6sATU6DtmcGo1/SlbWBI5~oROMVCft2OZdVAfqphfFn00jUfFRLdBE5I=&fText=%E7%94%9F%E6%88%90%E5%BC%8F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%B7%B2%E5%A4%87%E6%A1%88%E4%BF%A1%E6%81%AF(2025%E5%B9%B41%E6%9C%88)

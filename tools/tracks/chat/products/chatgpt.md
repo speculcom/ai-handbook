@@ -75,7 +75,7 @@ sources:
     url: https://openai.com/policies/row-terms-of-use/
     kind: docs
   - label: OpenAI · ChatGPT Pricing（定价页指针，D9：按 D9 口径不落价格数字）
-    url: https://openai.com/chatgpt/pricing/
+    url: https://openai.com/chatgpt/
     kind: pricing
   - label: OpenAI Help · Model release notes（2026-11-17：GPT-6.2 Astra / Sol 上线）
     url: https://help.openai.com/zh-hant/articles/9624314-model-release-notes

@@ -51,7 +51,7 @@ sources:
     url: https://docs.helicone.ai/references/open-source
     kind: docs
   - label: Helicone · AI Gateway Introduction（Rust 路由、100+ 模型、云端/自托管、Docker/Kubernetes/bare-metal；2026-11-21 直读 200）
-    url: https://docs.helicone.ai/ai-gateway/introduction
+    url: https://docs.helicone.ai/gateway/overview
     kind: docs
   - label: Helicone · 官方文档（AI Gateway · automatic logging, observability and fallbacks；100+ models；2026-11-06 直读 200）
     url: https://docs.helicone.ai

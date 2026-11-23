@@ -1,7 +1,7 @@
 {
   "_comment": "词条释义英文。键 = md 文件名（不含扩展名），必须与 _data/handbook/terms/terms/ 的文件名一字不差。",
   "_fields": "purpose / def / why，对应源 md 的同名字段。缺字段时英文态回退中文（可接受降级）。",
-  "_progress": "全部译完（299 个正文词条逐条翻译，含 2026-11 新增 7 条；INDEX.md 无释义不译）",
+  "_progress": "全部译完（300 个正文词条逐条翻译，含 2026-11 新增 8 条；INDEX.md 无释义不译）",
   "人工智能": {
     "purpose": "Let machines do what used to need human intelligence — see images, understand speech, write, and decide.",
     "def": [
@@ -2505,5 +2505,15 @@
       "The common pattern is bounded user authority, execution inside that boundary, verification by the merchant and payment provider, and an audit trail afterwards."
     ],
     "why": "Once agents can shop, book tickets and call paid APIs, the assumption that a human clicks “confirm” no longer holds. Without mandates and a chain of responsibility, merchants will not accept the transaction and users will not delegate it."
+  },
+  "Looped Transformer - 循环 Transformer": {
+    "purpose": "The same Transformer block is called repeatedly so that looped depth buys reasoning capacity instead of more parameters.",
+    "def": [
+      "A standard Transformer passes each layer once; a looped Transformer repeats a middle block several times before continuing.",
+      "layers × loops = the number of layer applications actually unrolled, while the weight count stays fixed; compute, activations and KV cache grow.",
+      "It is not MoE: MoE adds expert parameters and routing, while looping repeats the same weights.",
+      "Inkling 2 Mini has 24 layers, with layers 6–17 looped three times for 48 layer applications; 26.4B total, 3.4B active per token and about 5.4B effective active after looping."
+    ],
+    "why": "In 2026 the Inkling 2 Mini / Small line uses looping as a way to add reasoning steps without adding parameters. When you see “effective active”, it folds looped compute into the count rather than inventing another parameter metric. Looping deepens reasoning but does not make the model store more knowledge; latency and KV cache still grow with context."
   }
 }

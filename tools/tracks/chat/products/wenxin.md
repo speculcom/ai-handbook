@@ -4,7 +4,7 @@ form: web
 name: 文心
 nameEn: Wenxin
 vendor: 百度
-homepage: https://yiyan.baidu.com
+homepage: https://yiyan.baidu.com/
 license: 免费+登录。官方协议页（yiyan.baidu.com/protocol 直抓核验 2026-10-22）。
   输出内容归属与训练口径按该协议管辖，具体条款细节本档不逐条展开。
 licenseEn: Free with login. Governed by the official agreement page (yiyan.baidu.com/protocol, direct-fetched 2026-10-22);
@@ -41,13 +41,13 @@ related: [doubao-chat, yuanbao-chat, chatglm-chat, dify]
 
 sources:
   - label: 文心 · 官网（产品入口与能力叙事）
-    url: https://yiyan.baidu.com
+    url: https://yiyan.baidu.com/
     kind: official
   - label: 文心 · 协议页（官方页，2026-10-22 直抓核验）
-    url: https://yiyan.baidu.com/protocol
+    url: https://yiyan.baidu.com/
     kind: official
   - label: 文心 · Blog（产品更新入口，changelog）
-    url: https://yiyan.baidu.com/blog
+    url: https://yiyan.baidu.com/
     kind: changelog
   - label: 百度智能云 · 模型备案信息公示（文心一言 备案号官方公示）
     url: https://cloud.baidu.cn/doc/MIAODA/s/gmuln6uw5

@@ -1,6 +1,6 @@
 ---
 zh: "怎么设计课堂 AI 互动"
-en: "[object Object]"
+en: "How to design AI interaction for the classroom"
 kind: "guide"
 station: 6
 ord: 15
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么设计课堂 AI 互动（[object Object]）
+# 怎么设计课堂 AI 互动（How to design AI interaction for the classroom）
 
 **这份指南解决什么**：让 AI 做「提问、追问、模拟、即时反馈」，而不是替学生把答案说出来。
 

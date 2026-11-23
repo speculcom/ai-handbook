@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 出题与批改"
-en: "[object Object]"
+en: "How to generate questions and grade with AI"
 kind: "guide"
 station: 6
 ord: 14
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 出题与批改（[object Object]）
+# 怎么用 AI 出题与批改（How to generate questions and grade with AI）
 
 **这份指南解决什么**：让 AI 出「能诊断理解」的题，而不是背答案的题；批改给反馈，不只给分数。
 

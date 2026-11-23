@@ -53,6 +53,8 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   阿里巴巴 · 通义千问　当前代 Qwen4-Max（2026-11）　4 代　许可 apache-2.0, other　量化对比：qwen3-8
 - [腾讯混元](https://models.specul.com/families/tencent/): 中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版主打视觉理解、长上下文与长程 agent，Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。正式版参数量官方未在同一页披露，站内不把 preview 的 770B/49B 直接套到正式版。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。
   腾讯　当前代 Hy4 / Hy4 flash（2026-11）　4 代　许可 other　没有它的量化对比
+- [Thinking Machines · Inkling](https://models.specul.com/families/thinkingmachines/): 同一代的两条线：Small 是 594B 级旗舰，用来打前沿 Agent / 多模态任务；Mini 是 26B 级本地节点，用循环层换容量。两者都是 Apache-2.0、1M 上下文，但硬件门槛相差一个数量级，不能互相替代。
+  Thinking Machines Lab　当前代 Inkling 2 Small（2026-11）　2 代　许可 apache-2.0　没有它的量化对比
 
 ## 闭源谱系卡
 

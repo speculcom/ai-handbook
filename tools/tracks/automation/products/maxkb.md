@@ -49,7 +49,7 @@ sources:
     url: https://www.cac.gov.cn/cms/pub/interact/downloadfile.jsp?filepath=NUtqEIwGiCjGm2Bhl20cvBy2HA04djr0wEW/PdA55oAbv1GA808enWaX/u3kfDU0BMF2l/f0eo8c5GOkAvXc~jZS2/Bjnic3oqu3HpPj8kk=&fText=%E5%A2%83%E5%86%85%E6%B7%B1%E5%BA%A6%E5%90%88%E6%88%90%E6%9C%8D%E5%8A%A1%E7%AE%97%E6%B3%95%E5%A4%87%E6%A1%88%E6%B8%85%E5%8D%95%EF%BC%882026%E5%B9%B43%E6%9C%88%EF%BC%89
     kind: filing
   - label: 飞致云官方博客 · MaxKB 通过深度合成服务算法备案（2026-03-12 批次口径+四能力定位，2026-10-30 检索在册）
-    url: https://blog.fit2cloud.com?p=019d00c3-6400-7681-a025-e75e0318ee45/
+    url: https://blog.fit2cloud.com/?p=019d00c3-6400-7681-a025-e75e0318ee45
     kind: official
   - label: MaxKB · 官方文档（docs.fit2cloud.com/maxkb，2026-10-30 直抓 200）
     url: https://docs.fit2cloud.com/maxkb/

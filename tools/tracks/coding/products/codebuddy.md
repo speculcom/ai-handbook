@@ -3,7 +3,7 @@ id: codebuddy
 form: ide
 name: CodeBuddy
 vendor: 腾讯云
-homepage: https://www.codebuddy.cn
+homepage: https://www.codebuddy.cn/
 
 axes:
   model_access: >-
@@ -41,16 +41,16 @@ related: [supabase-mcp, copilot, figma-mcp]
 
 sources:
   - label: CodeBuddy · 官网（三端覆盖/场景叙事）
-    url: https://www.codebuddy.cn
+    url: https://www.codebuddy.cn/
     kind: official
   - label: CodeBuddy 文档 · 插件产品概述（模型信息/备案号公示/RAG 知识库）
-    url: https://www.codebuddy.cn/docs/plugin/产品简介/产品概述
+    url: https://www.codebuddy.ai/docs/cli/plugins-reference
     kind: official
   - label: CodeBuddy IDE · Release Notes（changelog）
-    url: https://www.codebuddy.cn/docs/ide/Release-notes
+    url: https://www.codebuddy.ai/docs/ide/release-notes/release-notes
     kind: changelog
   - label: CodeBuddy 国际版
-    url: https://www.codebuddy.ai
+    url: https://www.codebuddy.ai/
     kind: official
 
 last_verified: 2026-10-30

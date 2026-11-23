@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="x-default" href="https://models.specul.com/evals/livecodebench.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8bbd4e9fb874"></script>
-  <link rel="stylesheet" href="../brand.css?v=8bbd4e9fb874" />
+  <script src="../brand.js?v=bb632b891131"></script>
+  <link rel="stylesheet" href="../brand.css?v=bb632b891131" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"LiveCodeBench · 评测基准 · AI 模型","description":"LiveCodeBench：持续更新的代码生成；指标 pass@1。页内写清污染风险、复现条件、成本与适用边界，读完能判断这个分数能不能直接引用。","url":"https://models.specul.com/evals/livecodebench.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
@@ -116,7 +116,9 @@
 </table>
 <div class="sec-body">
   <h2><span data-zh>怎么读</span><span data-en>How to read it</span></h2>
-  <p><span data-zh>[object Object]</span><span data-en>LiveCodeBench&#39;s selling point is a date split: it keeps collecting new contest problems and evaluates only items published after a model&#39;s release, which lowers training-set contamination. It covers code generation but also self-repair, execution and test-case generation; the usual metric is pass@1.
+  <p><span data-zh>LiveCodeBench 的卖点是「按时间切分」：从竞赛平台持续收新题，只评测模型发布之后出现的题目，从而降低训练集污染。它不只看代码生成，还能测自我修复、代码执行与测试用例生成；指标通常是 pass@1。
+读分时先固定三件事：题目版本/时间窗口、执行环境（语言版本、超时、内存）、pass@1 的采样次数。不同窗口的题难度不同，跨月分数不能直接连成趋势线；竞赛题偏算法，和真实仓库里的改 bug、读文档、跑测试不是同一种能力。
+它适合回答「模型在新题上能不能写对」，不适合回答「能不能维护一个项目」。后者要去看 SWE-bench、Terminal-Bench 或你自己的仓库任务。</span><span data-en>LiveCodeBench&#39;s selling point is a date split: it keeps collecting new contest problems and evaluates only items published after a model&#39;s release, which lowers training-set contamination. It covers code generation but also self-repair, execution and test-case generation; the usual metric is pass@1.
 Fix three things before citing a score: the problem version/time window, the execution environment (language version, timeout, memory) and the number of samples behind pass@1. Difficulty differs by window, so scores from different months do not form a trend line; contest problems are algorithm-heavy and are not the same ability as fixing a bug in a real repo, reading docs or running tests.
 Use it to ask “can the model solve a new problem”, not “can it maintain a project”. For the latter, go to SWE-bench, Terminal-Bench or your own repository tasks.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>

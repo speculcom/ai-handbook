@@ -1,0 +1,26 @@
+{
+  "_comment": "English body for vercel-eve (2026-11-23). Axes, runs, unknowns, related and sources align with the Chinese source and official pages.",
+  "axes": {
+    "model_access": "Any model: eve uses a TypeScript model string to connect to AI SDK / AI Gateway and does not lock you to a vendor. The official wording is \"works with any model\"; the default scaffold's OpenAI model is only an example.",
+    "runtime": "A TypeScript framework with a filesystem-first design: an agent is a directory, and model, instructions, tools, skills and channels are files. Vercel supplies durable execution through Workflows and isolation through Sandbox; Docker, microsandbox and just-bash adapters can host the runtime yourself.",
+    "local_files": "The working object is the agent directory in your repository; tools can read and write files, but production execution happens in a sandbox. It is not a desktop file agent and does not sync your local directories.",
+    "background": "1.0 is built around durable execution: sessions can recover across crashes, sub-agents can run in parallel, and workflows can wait for approval before continuing. The official pitch is a \"durable session for every conversation\"; scheduled and background triggers come from Workflows and channels.",
+    "tools": "A tool is a TypeScript file and a skill is a Markdown file; MCP servers, OAuth/API keys and Slack/GitHub/Discord/Notion/Linear connections come through Vercel Connect. Write actions can require human approval; the model never receives connection URLs or credentials directly.",
+    "context": "Session state is persisted in Workflows; 1.0 adds cross-session memory for user preferences, project facts and work history. Context is organized by session/thread rather than stuffed into a single window.",
+    "permissions": "Three layers: approval gates, sandboxing and a connection broker. Vercel Connect handles OAuth consent and token refresh; on self-hosting, authentication, keys and sandbox isolation are your responsibility. Hosted organization permissions follow Vercel's team model.",
+    "fit": "Fits TypeScript teams shipping production agents (durable sessions, sandboxing, approvals, evals, sub-agents), teams already in the Vercel / AI SDK ecosystem, and teams that want to maintain agents as code rather than clicking through a UI.\n\nNot a fit for teams that only want a chat shell, Python-first teams, or deployments that must be fully offline without Vercel Workflows/Sandbox."
+  },
+  "runs": "This profile did not run an end-to-end agent deployment; conclusions cover official documentation and repository structure only. The 1.0 durable session, sandbox and approval semantics are recorded from the official release wording and were not reproduced locally.",
+  "unknowns": "- Storage backend and retention period for 1.0's built-in memory (official docs do not spell this out)\n- Isolation strength of each sandbox adapter when self-hosting (not tested here)\n- Team/enterprise quotas and pricing (this site does not collect price figures under D9; official entry points only)",
+  "related": [
+    "Same vendor, different layer: AI SDK is a model-calling and streaming UI library; eve is an agent runtime and deployment framework.",
+    "Another agent-framework comparison: Claude Agent SDK centers on Claude's tool loop, while eve centers on the filesystem and the Vercel runtime.",
+    "The product face of a coding agent; eve productizes more of the harness behind it."
+  ],
+  "sources": [
+    "vercel/eve · GitHub repository (Apache-2.0; official README and directory structure, verified 2026-11-23)",
+    "Vercel · Introducing eve (framework positioning, durable execution, Sandbox, Connect)",
+    "Vercel Changelog · Introducing eve, an open-source agent framework",
+    "eve · official documentation entry"
+  ]
+}

@@ -38,10 +38,10 @@ sources:
     url: https://docs.qq.com/ai
     kind: official
   - label: 腾讯文档 AI · 官方更新 / 发布记录
-    url: https://docs.qq.com/help/
+    url: https://docs.qq.com/
     kind: changelog
   - label: 腾讯文档 AI · 官方帮助 / 文档
-    url: https://docs.qq.com/help/
+    url: https://docs.qq.com/
     kind: docs
 
 last_verified: 2026-11-19

@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 备课"
-en: "[object Object]"
+en: "How to prepare a lesson with AI"
 kind: "guide"
 station: 6
 ord: 13
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 备课（[object Object]）
+# 怎么用 AI 备课（How to prepare a lesson with AI）
 
 **这份指南解决什么**：把「找资料」变成「对齐学习目标、设计活动、准备分层材料」的一整套备课流程。
 

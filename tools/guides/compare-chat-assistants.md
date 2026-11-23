@@ -22,7 +22,7 @@ sources:
     url: https://support.microsoft.com/en-us/microsoft-copilot/deep-research-in-microsoft-copilot
     kind: docs
   - label: 各官方定价页（D9：本站不采价格数字，只给档位指针）
-    url: https://openai.com/chatgpt/pricing/
+    url: https://openai.com/chatgpt/
     kind: pricing
 last_verified: 2026-11-03
 confidence: partial

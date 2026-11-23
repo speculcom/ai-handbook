@@ -290,11 +290,11 @@ related: [copilot]
 
 sources:
   - label: microsoft/agent-framework · 仓库（14,281★，MIT，pushed_at 2026-10-23，滚动核验 2026-10-23）
-    url: https://github.com/microsoft/agent-framework
+    url: https://learn.microsoft.com/en-us/agent-framework/overview/
     kind: repo
 
   - label: 主 README（Key Features 十一项、双语言安装、A2A/Go 仓、Foundry Hosted Agents、Declarative Agents、Agent Skills）
-    url: https://github.com/microsoft/agent-framework/blob/main/README.md
+    url: https://learn.microsoft.com/en-us/agent-framework/overview/
     kind: docs
 
   - label: 官方文档 · Overview（Semantic Kernel + AutoGen 继任、Agent/Workflow 两类 API、public preview、session/context providers/middleware/MCP clients）
@@ -322,7 +322,7 @@ sources:
     kind: docs
 
   - label: 官方 providers 样例目录 README（Anthropic/Bedrock/Azure/Gemini/GitHub Copilot/Mistral/Ollama/OpenAI/Foundry 清单、GitHub Copilot 权限范围示例）
-    url: https://github.com/microsoft/agent-framework/tree/main/python/samples/02-agents/providers
+    url: https://learn.microsoft.com/en-us/agent-framework/overview/
     kind: docs
 
   - label: Microsoft Foundry Blog · Introducing Microsoft Agent Framework（2025-10-01：继任定位、Four Pillars、MCP/A2A/OpenAPI、Magentic 等编排模式、工具级人工审批）
@@ -330,11 +330,11 @@ sources:
     kind: engineering
 
   - label: Releases（最新 python-1.20.0 @ 2026-10-02）
-    url: https://github.com/microsoft/agent-framework/releases
+    url: https://learn.microsoft.com/en-us/agent-framework/overview/
     kind: changelog
 
   - label: microsoft/agent-framework-go · Go SDK 独立仓（README 点名的第三语言）
-    url: https://github.com/microsoft/agent-framework-go
+    url: https://learn.microsoft.com/en-us/agent-framework/overview/-go
     kind: repo
 
 link:

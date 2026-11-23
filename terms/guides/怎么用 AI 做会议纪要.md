@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 做会议纪要"
-en: "[object Object]"
+en: "How to take meeting notes with AI"
 kind: "guide"
 station: 3
 ord: 26
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 做会议纪要（[object Object]）
+# 怎么用 AI 做会议纪要（How to take meeting notes with AI）
 
 **这份指南解决什么**：把录音或实时转写变成「决议 + 待办 + 争议点」，而不是一份谁都不会再读的逐字稿。
 

@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 审阅合同与长文档"
-en: "[object Object]"
+en: "How to review contracts and long documents with AI"
 kind: "guide"
 station: 3
 ord: 31
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 审阅合同与长文档（[object Object]）
+# 怎么用 AI 审阅合同与长文档（How to review contracts and long documents with AI）
 
 **这份指南解决什么**：让 AI 做「找条款、标风险、对比版本」，不让他替你下法律结论。
 

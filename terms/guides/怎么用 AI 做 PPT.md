@@ -1,6 +1,6 @@
 ---
 zh: "怎么用 AI 做 PPT"
-en: "[object Object]"
+en: "How to build a slide deck with AI"
 kind: "guide"
 station: 3
 ord: 27
@@ -15,7 +15,7 @@ last_verified: "2026-11-19"
 verified_scope: "refs"
 ---
 
-# 怎么用 AI 做 PPT（[object Object]）
+# 怎么用 AI 做 PPT（How to build a slide deck with AI）
 
 **这份指南解决什么**：让 AI 先做结构、再做文案、最后做视觉，避免一上来就生成一堆套模板的空话。
 

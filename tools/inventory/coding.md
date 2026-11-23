@@ -42,7 +42,7 @@
 | Tabnine | Tricentis（2026-07-30 收购） | https://www.tabnine.com | 不收 | | 官网整站 301 → tricentis.com、Tricentis 产品清单零命中 Tabnine——独立产品终结（Supermaven 判例同款）；nav 旧条目已标 retired。⚠ 旧备注「Salesforce 收购」是错的，收购方是 Tricentis |
 | Augment Code | Augment Code（2026-10 起部分资产并入 Harness） | https://www.augmentcode.com | 已有 | augment-code | P2 · Cosmos 软件工厂/self-hosted；2026-10-08 官方公告 Cosmos/Auggie CLI/Context Engine 加入 Harness；2026-10-22 建档 |
 | Amazon Q Developer | AWS | https://aws.amazon.com/q/developer/ | 已有 | amazon-q-developer | P2 · 官方 EOL：IDE 插件 2027-04-30 停支持、Q CLI 已变 Kiro CLI（官方指向 Kiro）；2026-10-22 建档带 EOL 警示 |
-| CodeBuddy（IDE/CLI/插件） | 腾讯云 | https://www.codebuddy.cn | 已有 | codebuddy | P1 · 国产（L5 只转述官方）；国际版 codebuddy.ai |
+| CodeBuddy（IDE/CLI/插件） | 腾讯云 | https://www.codebuddy.cn/ | 已有 | codebuddy | P1 · 国产（L5 只转述官方）；国际版 codebuddy.ai |
 | Google Antigravity（2.0/CLI/IDE/SDK） | Google | https://antigravity.google | 已有 | google-antigravity | P1 · agent-first 开发平台（原 Gemini Code Assist 线并入，建档时核官方口径） |
 | Trae | 字节跳动 | https://www.trae.ai | 已有 | trae | P1 · 国产（L5） |
 | Qoder（国际版） | 阿里云 | https://qoder.com | 已有 | qoder | P2 · Qoder CN 系列的国际线（国内线档案见 qoder-cn）；官方无两线对照说明页（案例页有「Alibaba Qoder」表述）；2026-10-22 建档 |

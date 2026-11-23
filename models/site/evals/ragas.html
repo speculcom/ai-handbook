@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="x-default" href="https://models.specul.com/evals/ragas.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="../brand.js?v=8bbd4e9fb874"></script>
-  <link rel="stylesheet" href="../brand.css?v=8bbd4e9fb874" />
+  <script src="../brand.js?v=bb632b891131"></script>
+  <link rel="stylesheet" href="../brand.css?v=bb632b891131" />
   <link rel="stylesheet" href="../site.css" />
   <link rel="stylesheet" href="../sections.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RAGAS · 评测基准 · AI 模型","description":"RAGAS：RAG 管线质量；指标 各指标分别评分（含模型评委）。页内写清污染风险、复现条件、成本与适用边界，读完能判断这个分数能不能直接引用。","url":"https://models.specul.com/evals/ragas.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
@@ -116,7 +116,9 @@
 </table>
 <div class="sec-body">
   <h2><span data-zh>怎么读</span><span data-en>How to read it</span></h2>
-  <p><span data-zh>[object Object]</span><span data-en>RAGAS evaluates the RAG pipeline, not the model alone: it scores retrieved context and generated answer separately, with metrics such as context precision/recall, answer faithfulness and answer relevancy. It usually relies on a model judge, so the judge, prompt and metric version all change the result.
+  <p><span data-zh>RAGAS 评的是 RAG 管线，不是模型本身：把「检索到的上下文」和「生成的答案」分开打分，常见指标包括上下文精确率/召回率、答案忠实度、答案相关性。它通常用模型评委，所以评委模型、prompt 和指标版本都会改变结果。
+读分时先固定文档集、问题集、评委模型、嵌入模型与指标定义；跨项目、跨文档集的分数不能直接比。忠实度高只说明「答案没超出上下文」，不说明「上下文本身是对的」；检索召回高也不说明「生成用上了」。
+它适合内部回归与定位问题（是检索差还是生成差），不适合当行业排行榜；评委偏见与长文档截断要单独检查。</span><span data-en>RAGAS evaluates the RAG pipeline, not the model alone: it scores retrieved context and generated answer separately, with metrics such as context precision/recall, answer faithfulness and answer relevancy. It usually relies on a model judge, so the judge, prompt and metric version all change the result.
 Fix the document set, question set, judge model, embedding model and metric definitions; scores across projects or document sets are not comparable. High faithfulness only means the answer stayed within the context, not that the context is correct; high retrieval recall does not mean the generator used it.
 Use it for internal regression and diagnosis (is retrieval or generation the weak link), not as an industry leaderboard; check judge bias and long-document truncation separately.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>

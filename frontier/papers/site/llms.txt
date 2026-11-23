@@ -12,6 +12,7 @@
 - [AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration](https://papers.specul.com/awq-2023.html) — 问题：LLM 低比特权重量化如何保精度、又保持硬件友好，能落到端侧。 证据位置：摘要称只保护 1% 显著权重即可大幅降低量化误差；显著通道要按激活分布而非权重判
 - [Constitutional AI: Harmlessness from AI Feedback](https://papers.specul.com/bai-2022-constitutional-ai.html) — 问题：训练无害助手通常要成千上万条人工无害性标注；能不能只给一小组自然语言原则，让模型自己批评并改写自己的回答，再用模型产生的偏好标签做强化学习。 证据位置：流
 - [Proving and Improving the Platonic Representation Hypothesis with JEPAs](https://papers.specul.com/balestriero-2026-jepa-prh.html) — 问题：不同模态的模型是否在收敛到同一个「柏拉图式」的表征空间？如果会，小模型能否用更好的训练视角追上大模型？ 证据位置：摘要报告一个 109M 参数的文本 JE
+- [Bernini: Latent Semantic Planning for Video Diffusion](https://papers.specul.com/bernini-2026.html) — 问题：多模态 LLM 擅长语义推理，扩散模型擅长像素保真，但两者各做各的；视频生成/编辑仍缺“先规划语义、再渲染像素”的分工。 证据位置：摘要提出 Bernin
 - [The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits](https://papers.specul.com/bitnet158-2024.html) — 问题：大模型权重能否从 16 位压到接近 1 位，同时不靠训练后量化补救，而是在预训练阶段就学会三值权重。 证据位置：摘要定义每个权重取 {-1, 0, 1}，
 - [BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models](https://papers.specul.com/blip2-2023.html) — 问题：视觉语言预训练成本高，能否冻结图像编码器与大语言模型，只训练轻量桥接模块。 证据位置：摘要给出冻结图像编码器与冻结 LLM，用轻量 Querying Tr
 - [Language Models are Few-Shot Learners](https://papers.specul.com/brown-2020-gpt3.html) — 问题：把模型放大之后，不更新任何梯度、只在输入里给几个示例，能不能把任务做到接近专门微调的水平。 证据位置：摘要给出 175B 与「无梯度更新、无微调」的设定；
@@ -20,11 +21,14 @@
 - [ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents](https://papers.specul.com/contextweaver-2026.html) — 问题：编码智能体的上下文越滚越长，滑窗与提示压缩会丢掉后续步骤依赖的早期信息；普通检索只看相似度，看不到推理步骤之间的因果依赖。 证据位置：摘要提出 Conte
 - [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://papers.specul.com/dao-2022-flashattention.html) — 问题：自注意力的时间与显存随序列长度平方增长，瓶颈不在算力而在显存读写；能不能不把 N×N 注意力矩阵写回显存也算出精确结果。 证据位置：摘要给出三档端到端加速
 - [DAPO: An Open-Source LLM Reinforcement Learning System at Scale](https://papers.specul.com/dapo-2025.html) — 问题：o1、R1 这类推理模型的 RL 训练细节大多不公开，社区难以复现；能不能把大规模 LLM 强化学习的关键技巧拆开讲清，并开放代码与数据。 证据位置：摘要
+- [Data Darwinism Part II: DataEvolve — AI can Autonomously Evolve Pretraining Data Curation](https://papers.specul.com/dataevolve-2026.html) — 问题：数据达尔文主义 Part I 给出十级处理阶梯，但策略仍靠人工为单一类目设计；现代语料有数百个异质类目，人工设计不可行。 证据位置：摘要给出闭环进化：识别
+- [DataOrchestra: Learning to Orchestrate Per-Example Curation of Pretraining Data](https://papers.specul.com/dataorchestra-2026.html) — 问题：预训练数据处理通常在语料/领域级定一套固定策略，再一刀切到所有样本；不同样本其实需要不同处理。 证据位置：摘要给出 orchestrator，对每个 ch
 - [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://papers.specul.com/deepseek-r1-2025.html) — 问题：复杂推理长期依赖大量人工标注的思维链示范；能不能只用可验证奖励的强化学习，让模型自己长出反思、验证和策略切换。 证据位置：摘要报告纯 RL 训练，不使用人
 - [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://papers.specul.com/deepseek-v2-2024.html) — 问题：MoE 模型参数多、KV cache 大，推理成本高；能不能在不牺牲能力的情况下，把注意力与专家路由都做得更省。 证据位置：摘要给出 236B 总参数、每
 - [DeepSeek-V3 Technical Report](https://papers.specul.com/deepseek-v3-2024.html) — 问题：把 MoE 语言模型做大以后，怎样同时控制训练成本、推理成本和负载均衡，而不是只堆参数。 证据位置：摘要给出 671B 总参数、每 token 激活 37
 - [QLoRA: Efficient Finetuning of Quantized LLMs](https://papers.specul.com/dettmers-2023-qlora.html) — 问题：§1 指出对 LLaMA 65B 做常规 16-bit 微调需要 780GB 以上显存，单卡放不下；能不能把基座量化到 4-bit、只训练低秩适配器，同时
 - [BERT：面向语言理解的深度双向 Transformer 预训练](https://papers.specul.com/devlin-2019-bert.html) — 问题：此前的语言模型要么是单向的（GPT 式从左到右），要么是两个单向模型拼接（ELMo 式），能不能在一个 Transformer 里同时看左右上下文做预训练
+- [Diff-VF: Training-free High-quality Long Video Generation via Diffusion Model](https://papers.specul.com/diff-vf-2026.html) — 问题：多数视频扩散模型只用短视频训练，外推到长视频时退化：长时间一致性保不住，动作多样性也丢。 证据位置：摘要提出 Diff-VF，免训练、即插即用、模型无关，
 - [Scalable Diffusion Models with Transformers](https://papers.specul.com/dit-2022.html) — 问题：扩散模型能否用 Transformer 替代 U-Net 作为骨干，并像 Gflops 一样可扩展。 证据位置：摘要在潜空间扩散中用 Transforme
 - [ViT：一张图等于 16×16 个词](https://papers.specul.com/dosovitskiy-2021-vit.html) — 问题：Transformer 在 NLP 已经成为标准，但在视觉里通常还要和 CNN 绑定；能不能把图像切成 patch、当成词序列，直接用纯 Transfor
 - [DroidPrefill：用手机 NPU 跑完全本地的 GUI agent](https://papers.specul.com/droidprefill-2026.html) — 问题：手机 GUI agent 多靠云端模型，延迟、隐私、网络都受限；直接把常规 agent 搬到手机 NPU 又低效——NPU 强在 prefill、弱在逐 
@@ -33,11 +37,13 @@
 - [Flamingo: a Visual Language Model for Few-Shot Learning](https://papers.specul.com/flamingo-2022.html) — 问题：多模态模型如何用少量标注示例快速适配新任务，并处理任意交错的图文序列。 证据位置：摘要给出三条架构创新：桥接预训练视觉/语言模型、处理交错图文、摄入图像或
 - [FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision](https://papers.specul.com/flashattention3-2024.html) — 问题：注意力是长上下文模型的核心瓶颈；FlashAttention 系列已减少显存读写，但在 Hopper 上仍未吃满 Tensor Core、TMA 与 FP
 - [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://papers.specul.com/frantar-2022-gptq.html) — 问题：几百亿参数的模型光显存就装不下，训练后量化到低比特往往掉点严重；能不能在不重训的前提下压到 3–4 bit 还基本不掉。 证据位置：175B 模型约 4 
+- [GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models](https://papers.specul.com/gacc-bench-2026.html) — 问题：长上下文压缩通常按“通用重要性”删，但真实应用先给目标、后给问题；压完才发现关键信息没了。 证据位置：摘要给出 500 个目标、2,571 个问题、281
 - [Gemini 4 Carbon Model Card](https://papers.specul.com/gemini-4-carbon-2026.html) — 问题：Carbon 相对 Argon 强在哪里，官方模型卡承认哪些限制。 证据位置：Google DeepMind 模型卡写明 Carbon 面向长程 Agen
 - [Gemma 3 Technical Report](https://papers.specul.com/gemma3-2025.html) — 问题：轻量开源模型要同时具备视觉、多语言与长上下文，但长上下文会让 KV cache 膨胀；能不能靠局部/全局注意力配比，在 1B–27B 上把能力与显存同时守
 - [Generative Agents: Interactive Simulacra of Human Behavior](https://papers.specul.com/generative-agents-2023.html) — 问题：如何用 LLM 构建可信的人类行为代理，让多个 agent 在沙盒里自主社交与计划。 证据位置：摘要给出记忆流、反思、动态检索与计划架构；沙盒 25 个 
 - [GPart: End-to-End Isometric Fine-Tuning via Global Parameter Partitioning](https://papers.specul.com/gpart-2026.html) — 问题：LoRA 的双线性参数化让「可训练参数 → 权重更新」不保距；把低维向量投到 LoRA 参数空间的做法，又会被后续双线性映射破坏端到端等距。 证据位置：摘
 - [GPT-6.2 Astra and GPT-6.2 Sol](https://papers.specul.com/gpt-6-2-2026.html) — 问题：6.2 代的两档到底怎么分工，官方给的规格与边界是什么。 证据位置：2026-11-17 官方发布说明写明 Astra 面向复杂专业工作，Sol 面向多步
+- [GroundSet: A Cadastral-Grounded Dataset for Spatial Understanding with Vector Data](https://papers.specul.com/groundset-2026.html) — 问题：遥感多模态模型在细粒度空间理解上很弱，根因是依赖有限或改用途的旧数据集，标签不可核验。 证据位置：摘要给出以地籍矢量数据为真值的 380 万标注对象、51
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://papers.specul.com/grpo-2024.html) — 问题：用 PPO 做数学推理强化学习时，显存与计算成本高；能否在不引入 critic 的情况下稳定优化。 证据位置：摘要提出 GRPO，作为 PPO 的变体，提
 - [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://papers.specul.com/gu-2023-mamba.html) — 问题：此前的次二次方架构（线性注意力、门控卷积、结构化状态空间模型）在语言这类离散模态上不如注意力，作者判断关键弱点是不能按内容决定记住或忘掉什么；能不能让 S
 - [Hibana：统一内存设备上的快速 agent 推理](https://papers.specul.com/hibana-2026.html) — 问题：统一内存设备（如 DGX Spark）显存容量大但带宽低，vLLM / SGLang 这类数据中心引擎不适配，本地多 agent 长会话又要求并发与状态恢
@@ -46,6 +52,8 @@
 - [Training Compute-Optimal Large Language Models](https://papers.specul.com/hoffmann-2022-chinchilla.html) — 问题：在给定算力预算下，模型参数与训练 token 该怎么分配，才能得到损失最低的模型。 证据位置：三种拟合方法给出的指数在 Table 2（方法一 a=0.5
 - [LoRA: Low-Rank Adaptation of Large Language Models](https://papers.specul.com/hu-2021-lora.html) — 问题：全参数微调大模型要保存全部梯度与优化器状态，显存成本高；能不能只训练一组低秩增量，把主干权重冻住。 证据位置：可训练参数减少约一万倍、显存需求降三倍的总体
 - [Hybrid Reasoning Agents](https://papers.specul.com/hybrid-agents-2026.html) — 问题：文本推理可解释、能调工具，但 token 成本高；latent reasoning 省 token，却缺少原生工具访问与可读性；能不能在同一生成过程里在两
+- [From Inference Engine to Inference Control Plane: Connecting vLLM, llm-d, and the Evolution of Efficient Distributed LLM Serving](https://papers.specul.com/inference-control-plane-2026.html) — 问题：LLM 推理正从“引擎内优化”变成“跨集群的分布式控制”：可复用状态、阶段放置、异构加速器、网络、自动扩缩、可靠性和 SLO 都要一起管。 证据位置：摘要
+- [Interpreting Language Model Parameters](https://papers.specul.com/interpreting-parameters-2026.html) — 问题：机制可解释性在中间表示上找到不少结构，但对“参数与非线性如何在这些表示上计算”进展很少。 证据位置：摘要提出 adVersarial Parameter 
 - [Jamba: A Hybrid Transformer-Mamba Language Model](https://papers.specul.com/jamba-2024.html) — 问题：纯 Transformer 的 KV cache 与长上下文成本高，纯 Mamba 又在部分离散任务上弱；能不能把 Transformer 与 Mamba
 - [Scaling Laws for Neural Language Models](https://papers.specul.com/kaplan-2020-scaling-laws.html) — 问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。 证据位置：三条基本幂律在 §1.2 与 Figu
 - [Kimi K2: Open Agentic Intelligence](https://papers.specul.com/kimi-k2-2025.html) — 问题：开源模型在智能体任务上常落后于闭源模型；能不能用超大规模 MoE、稳定的优化器和智能体数据管线，把工具调用、软件工程与多语言能力做上去。 证据位置：摘要给
@@ -57,31 +65,41 @@
 - [Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale](https://papers.specul.com/ling-ring-26-2026.html) — 问题：万亿级智能体模型既要低延迟，又要深推理，还要能稳定训练与部署；从零训练成本过高，能不能在已有基座上做架构迁移与后训练。 证据位置：摘要把 Ling-2.6
 - [The Llama 3 Herd of Models](https://papers.specul.com/llama3-2024.html) — 问题：一个开放权重的 405B 稠密模型，能不能在多语言、代码、推理和工具使用上接近头部闭源模型，同时把训练与安全评测过程讲清楚。 证据位置：摘要给出 405B
 - [Visual Instruction Tuning](https://papers.specul.com/llava-2023.html) — 问题：多模态指令跟随数据稀缺，能否用纯语言 GPT-4 生成图文指令数据，再训练端到端多模态模型。 证据位置：摘要称首次用 language-only GPT-
+- [Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models](https://papers.specul.com/locate-steer-improve-2026.html) — 问题：现有机制可解释性综述多把 MI 当观察科学，总结分析洞见，却缺一套可执行干预框架。 证据位置：摘要把综述结构化为“Locate（诊断）→ Steer（干预
 - [LoRA Learns Less and Forgets Less](https://papers.specul.com/lora-forgets-2024.html) — 问题：LoRA 省显存是共识，但它相对全参数微调到底少学了多少、又少忘了多少，缺少同条件下的系统对照。 证据位置：摘要在编程与数学两个目标域、约 10 万条指令
 - [Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality](https://papers.specul.com/mamba2-2024.html) — 问题：Transformer 与 SSM 长期被当成两条路线，能不能用结构化半可分矩阵把二者写成同一个理论框架，并据此做出更快的层。 证据位置：摘要提出 sta
+- [Can Mechanistic Interpretability Help Explain LLM Agent Failures? A Case Study on Web Element Hallucination](https://papers.specul.com/mi-agent-failures-2026.html) — 问题：MI 在解释 LLM 内部计算上进展明显，但在解释 LLM 智能体决策失败上还没证明同等有效。 证据位置：摘要聚焦网页智能体“幻觉出不存在的操作”，对 Q
 - [MiniMax-01: Scaling Foundation Models with Lightning Attention](https://papers.specul.com/minimax01-2025.html) — 问题：标准注意力在百万级上下文上成本过高；线性注意力常在能力或工程效率上掉队，能不能把 lightning attention 与 MoE、并行策略结合，真正做
 - [Retrofitting language models to operate over bytes（Byteification）](https://papers.specul.com/minixhofer-2026-byteification.html) — 问题：主流 LLM 先把文本切成子词，字符级信息被遮住；代码、生物序列这类「单个字符/字节有意义」的数据尤其吃亏。字节级模型能避开分词，但此前性能一直落后。 证
+- [MobileWan: Closing the Quality Gap for Mobile Video Diffusion](https://papers.specul.com/mobilewan-2026.html) — 问题：视频扩散靠把 Transformer 扩到数十亿参数提升画质，但移动端模型仍困在 0.4–1.8B 参数，质量上不去。 证据位置：摘要反过来主张“高质量移
 - [Accurate and Efficient Long-Term Memory for LLM Agents](https://papers.specul.com/mosaic-2026.html) — 问题：智能体的长期记忆常用扁平向量库，丢掉事件、人物、关系之间的结构；用 LLM 做记忆分类又太慢，还会在无校验时积累矛盾。 证据位置：摘要提出 MOSAIC，
 - [Muon is Scalable for LLM Training](https://papers.specul.com/muon-2025.html) — 问题：Muon 在小模型上表现好，但缺少大规模训练的可扩展性证据；直接放大时，权重衰减与逐参数更新尺度会让训练不稳。 证据位置：摘要给两个关键修正——加 wei
+- [NariQ: Sub-3-Bit Quantization for Long-Horizon Agentic Tasks](https://papers.specul.com/nariq-2026.html) — 问题：长程 Agent 任务要在 100K+ token 上下文里连续调用工具，但很多低比特量化只在短网页文本上校准、用困惑度验收；Qwen3.8-27B 已有
 - [Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention](https://papers.specul.com/nsa-2025.html) — 问题：长上下文的标准注意力成本随长度平方增长；稀疏注意力往往只在推理阶段可用，或速度提升被内存访问拖掉，能不能做成可端到端预训练的硬件友好稀疏注意力。 证据位置
+- [Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving](https://papers.specul.com/obm-2026.html) — 问题：数据中心 LLM 推理被显存容量与带宽卡住；权重只读且各实例相同，却在数万张加速卡的本地 DRAM 里重复存放，带来资本开支、静态功耗与重复取数能耗。 证
 - [Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion](https://papers.specul.com/omni-diffusion-2026.html) — 问题：多模态大模型几乎都押在自回归骨架上，离散扩散作为统一理解与生成的替代路线仍缺一个完整的任意模态系统。 证据位置：摘要称 Omni-Diffusion 是首
 - [ORPO: Monolithic Preference Optimization without Reference Model](https://papers.specul.com/orpo-2024.html) — 问题：常规偏好对齐要先把 SFT 与偏好优化分成两阶段，还要一个参考模型；能不能在 SFT 里直接加一个 odds ratio 惩罚，把对齐合并成一步。 证据位
 - [OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments](https://papers.specul.com/osworld-2024.html) — 问题：电脑操作智能体缺少统一、可执行评估的真实环境；已有基准要么不交互，要么只覆盖单一应用，测不出跨应用与开放域任务。 证据位置：摘要提出 OSWorld，支持
 - [Training language models to follow instructions with human feedback](https://papers.specul.com/ouyang-2022-instructgpt.html) — 问题：让模型跟着用户意图走，而不只是把下一词预测得更准；做法是用人类偏好数据做监督微调再训奖励模型做强化学习。 证据位置：摘要给出 1.3B 胜过 175B 的
 - [Parameter-Efficient Subspace Optimization for LLM Fine-Tuning](https://papers.specul.com/peso-lora-2026.html) — 问题：LoRA 式分析通常只跟踪低维因子，缺少全参数空间里的收敛保证；子空间方法为何有效、何时该探索新子空间，也缺统一解释。 证据位置：摘要提出 PESO 框架
+- [Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments](https://papers.specul.com/qwen-vla-2026.html) — 问题：具身智能常按任务训专用模型（操作、导航各一套），能力碎片化，跨任务/环境/本体泛化有限。 证据位置：摘要给出 Qwen-VLA，把 Qwen 视觉语言栈经
 - [Qwen2.5-VL Technical Report](https://papers.specul.com/qwen25-vl-2025.html) — 问题：视觉语言模型常把图片缩放到固定分辨率、视频按固定帧率采样，导致小字、表格、长视频事件定位失真；能不能原生长分辨率、原生长时序。 证据位置：摘要提出动态分辨
 - [Qwen3 Technical Report](https://papers.specul.com/qwen3-2025.html) — 问题：推理模型与聊天模型通常是两套权重，用户要在「想得深」和「答得快」之间切换；能不能用一套模型、一个框架同时提供两种模式，并给推理预算。 证据位置：摘要给出 
 - [Qwen4-Max：阿里巴巴新一代旗舰模型](https://papers.specul.com/qwen4-max-2026.html) — 问题：Qwen4-Max 的规模、上下文、模态与开放权重路线是什么。 证据位置：阿里巴巴集团新闻稿写明 2.4 万亿总参、每 token 激活 710 亿（较 
 - [CLIP：用自然语言监督学习可迁移的视觉模型](https://papers.specul.com/radford-2021-clip.html) — 问题：视觉模型通常预测固定类别，换一个概念就要重新标数据；能不能直接用互联网图文对做对比学习，让自然语言成为分类器？ 证据位置：方法在 §2（对比学习、zero
 - [Whisper：用大规模弱监督做稳健语音识别](https://papers.specul.com/radford-2022-whisper.html) — 问题：语音识别通常依赖大量高质量人工转写与领域内微调，换数据集就掉点；能不能用互联网上带噪的转写做弱监督，训练一个不微调也能跨数据集工作的模型？ 证据位置：数据
 - [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://papers.specul.com/rafailov-2023-dpo.html) — 问题：RLHF 要训多个模型、还要在训练循环里从策略采样，流程复杂且成本高；能不能把偏好优化直接写成一个分类损失，跳过显式奖励模型与采样。 证据位置：方法推导与
+- [Relay-Bench: Evaluating LLMs on Multi-Domain Reasoning Chains](https://papers.specul.com/relay-bench-2026.html) — 问题：单域基准已经饱和，但真实任务往往把视觉、代码、数学、检索、数据分析串在一条链上；现有基准很少测“跨域接力”。 证据位置：摘要给出 21 页、7 图的纯文本
 - [LDM：在潜空间里做高分辨率图像合成](https://papers.specul.com/rombach-2022-ldm.html) — 问题：像素空间扩散效果好人尽皆知，但训练要几百 GPU 天、推理要反复过全分辨率网络；能不能先把图像压到潜空间，再在潜空间扩散，以此换效率？ 证据位置：方法在 
-- [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://papers.specul.com/rope-2021.html) — 问题：Transformer 的位置编码如何同时表达绝对位置与相对位置依赖。 证据位置：摘要给出用旋转矩阵编码绝对位置，并在 self-attention 中显
 - [Stop When Memory Suffices: Evidence-Conditioned Progressive Execution for LLM Agents](https://papers.specul.com/router-mem-2026.html) — 问题：长期记忆系统要么压缩历史导致漏掉时序/因果依赖，要么每次都做深度研究导致延迟高；能不能先低成本检索，再判断证据够不够，够了就停。 证据位置：摘要提出 Ro
+- [RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale](https://papers.specul.com/rtp-llm-2026.html) — 问题：模型与推理技术快速演进，模型接入成了反复发生的生产任务，而不是一次性集成；共享推理基础设施要在异构生产环境里同时保持可演进与可靠。 证据位置：摘要给出阿里
+- [RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions](https://papers.specul.com/rynnvla-latent-2026.html) — 问题：VLA 扩展受限于动作标注示范稀缺、不同本体控制空间不兼容；大量异质交互视频有视觉变化却无原生动作标签。 证据位置：摘要给出 RynnLAM 从视觉转移学
 - [s1: Simple test-time scaling](https://papers.specul.com/s1-2025.html) — 问题：测试时扩展被 o1 证明有效，但方法不公开；能不能用很小的数据、很简单的预算控制，复现出强推理并解释哪些因素起作用。 证据位置：摘要用难度、多样性、质量三
+- [ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters](https://papers.specul.com/scalevla-2026.html) — 问题：前沿 VLM 已显示机器人控制潜力，但多数 VLA 策略仍用很小的 VLM 骨干，没吃到规模红利。 证据位置：摘要把 552B DeepSeek-V4.1
 - [Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning](https://papers.specul.com/search-r1-2025.html) — 问题：RAG 通常把检索结果一次性塞进提示，模型不会自己决定何时搜、搜什么、搜几次；能不能用 RL 让模型在逐步推理中自主发查询。 证据位置：摘要提出 Sear
 - [Self-Rewarding Language Models](https://papers.specul.com/self-rewarding-2024.html) — 问题：奖励模型常由人类偏好训练，能力受人类上限约束，且冻结后不能在训练中继续变强；能不能让语言模型自己当评审，在迭代 DPO 中同时提升指令遵循与自评质量。 证
 - [SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture](https://papers.specul.com/sensenova-u1-2026.html) — 问题：多数视觉语言模型把理解与生成当两件事，导致架构分裂、级联管线、表示空间对不齐，难以形成原生多模态能力。 证据位置：摘要提出 NEO-unify 原生统一范
+- [sk-bench: A Native-First Benchmark for Evaluating Large Language Models in Slovak](https://papers.specul.com/sk-bench-2026.html) — 问题：多语言基准常把斯洛伐克语漏掉，或只用机器翻译凑数；屈折丰富的语言一翻译就丢掉形态信息。 证据位置：摘要给出 30 个数据集、33 个计分任务变体、10 类
 - [Strategist：让 agent 自己进化推理策略](https://papers.specul.com/strategist-2026.html) — 问题：agent 的推理流程（prompt、工具顺序、验证步骤）大多手工写，做完一个任务经验不沉淀，下个任务从零再来；模型冻结时，系统另一半能否自己变好？ 证据
 - [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://papers.specul.com/su-2021-roformer.html) — 问题：自注意力本身不带位置信息，已有的绝对与相对位置编码大多把位置向量加到词表示上，因此没法直接用在把注意力改写成线性形式的架构里；能不能让编码既带绝对位置、又
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://papers.specul.com/swe-agent-2024.html) — 问题：语言模型智能体做软件工程时，通用聊天界面并不适合读仓库、改多文件、跑测试；界面设计本身会不会决定成败。 证据位置：摘要提出 agent-computer 
@@ -99,21 +117,3 @@
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://papers.specul.com/yao-2022-react.html) — 问题：推理（思维链）与行动（动作规划）此前被分开研究，能不能让模型交替「想一步、做一步、看结果」再继续。 证据位置：摘要给出 ALFWorld 与 WebSho
 - [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://papers.specul.com/yao-2023-tree-of-thoughts.html) — 问题：LM 推理仍是 token 级、从左到右的决策，在需要探索、策略前瞻或初始决策起关键作用的任务上会失效；能否让 LM 在以「思维」为中间步骤的树上做 de
 - [YaRN: Efficient Context Window Extension of Large Language Models](https://papers.specul.com/yarn-2023.html) — 问题：RoPE 模型超出训练长度后失效，如何用更少 token 与训练步数扩展上下文窗口。 证据位置：摘要称比此前方法少 10× token、少 2.5× 训练
-- [Relay-Bench: Evaluating LLMs on Multi-Domain Reasoning Chains](https://papers.specul.com/relay-bench-2026.html) — 问题：单域基准已经饱和，但真实任务往往把视觉、代码、数学、检索、数据分析串在一条链上；现有基准很少测“跨域接力”。 证据位置：摘要给出 21 页、7 图的纯文本
-- [sk-bench: A Native-First Benchmark for Evaluating Large Language Models in Slovak](https://papers.specul.com/sk-bench-2026.html) — 问题：多语言基准常把斯洛伐克语漏掉，或只用机器翻译凑数；屈折丰富的语言一翻译就丢掉形态信息。 证据位置：摘要给出 30 个数据集、33 个计分任务变体、10 类
-- [GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models](https://papers.specul.com/gacc-bench-2026.html) — 问题：长上下文压缩通常按“通用重要性”删，但真实应用先给目标、后给问题；压完才发现关键信息没了。 证据位置：摘要给出 500 个目标、2,571 个问题、281
-- [DataOrchestra: Learning to Orchestrate Per-Example Curation of Pretraining Data](https://papers.specul.com/dataorchestra-2026.html) — 问题：预训练数据处理通常在语料/领域级定一套固定策略，再一刀切到所有样本；不同样本其实需要不同处理。 证据位置：摘要给出 orchestrator，对每个 ch
-- [Data Darwinism Part II: DataEvolve — AI can Autonomously Evolve Pretraining Data Curation](https://papers.specul.com/dataevolve-2026.html) — 问题：数据达尔文主义 Part I 给出十级处理阶梯，但策略仍靠人工为单一类目设计；现代语料有数百个异质类目，人工设计不可行。 证据位置：摘要给出闭环进化：识别
-- [GroundSet: A Cadastral-Grounded Dataset for Spatial Understanding with Vector Data](https://papers.specul.com/groundset-2026.html) — 问题：遥感多模态模型在细粒度空间理解上很弱，根因是依赖有限或改用途的旧数据集，标签不可核验。 证据位置：摘要给出以地籍矢量数据为真值的 380 万标注对象、51
-- [From Inference Engine to Inference Control Plane: Connecting vLLM, llm-d, and the Evolution of Efficient Distributed LLM Serving](https://papers.specul.com/inference-control-plane-2026.html) — 问题：LLM 推理正从“引擎内优化”变成“跨集群的分布式控制”：可复用状态、阶段放置、异构加速器、网络、自动扩缩、可靠性和 SLO 都要一起管。 证据位置：摘要
-- [RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale](https://papers.specul.com/rtp-llm-2026.html) — 问题：模型与推理技术快速演进，模型接入成了反复发生的生产任务，而不是一次性集成；共享推理基础设施要在异构生产环境里同时保持可演进与可靠。 证据位置：摘要给出阿里
-- [Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving](https://papers.specul.com/obm-2026.html) — 问题：数据中心 LLM 推理被显存容量与带宽卡住；权重只读且各实例相同，却在数万张加速卡的本地 DRAM 里重复存放，带来资本开支、静态功耗与重复取数能耗。 证
-- [Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models](https://papers.specul.com/locate-steer-improve-2026.html) — 问题：现有机制可解释性综述多把 MI 当观察科学，总结分析洞见，却缺一套可执行干预框架。 证据位置：摘要把综述结构化为“Locate（诊断）→ Steer（干预
-- [Interpreting Language Model Parameters](https://papers.specul.com/interpreting-parameters-2026.html) — 问题：机制可解释性在中间表示上找到不少结构，但对“参数与非线性如何在这些表示上计算”进展很少。 证据位置：摘要提出 adVersarial Parameter 
-- [Can Mechanistic Interpretability Help Explain LLM Agent Failures? A Case Study on Web Element Hallucination](https://papers.specul.com/mi-agent-failures-2026.html) — 问题：MI 在解释 LLM 内部计算上进展明显，但在解释 LLM 智能体决策失败上还没证明同等有效。 证据位置：摘要聚焦网页智能体“幻觉出不存在的操作”，对 Q
-- [ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters](https://papers.specul.com/scalevla-2026.html) — 问题：前沿 VLM 已显示机器人控制潜力，但多数 VLA 策略仍用很小的 VLM 骨干，没吃到规模红利。 证据位置：摘要把 552B DeepSeek-V4.1
-- [Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments](https://papers.specul.com/qwen-vla-2026.html) — 问题：具身智能常按任务训专用模型（操作、导航各一套），能力碎片化，跨任务/环境/本体泛化有限。 证据位置：摘要给出 Qwen-VLA，把 Qwen 视觉语言栈经
-- [RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions](https://papers.specul.com/rynnvla-latent-2026.html) — 问题：VLA 扩展受限于动作标注示范稀缺、不同本体控制空间不兼容；大量异质交互视频有视觉变化却无原生动作标签。 证据位置：摘要给出 RynnLAM 从视觉转移学
-- [Bernini: Latent Semantic Planning for Video Diffusion](https://papers.specul.com/bernini-2026.html) — 问题：多模态 LLM 擅长语义推理，扩散模型擅长像素保真，但两者各做各的；视频生成/编辑仍缺“先规划语义、再渲染像素”的分工。 证据位置：摘要提出 Bernin
-- [Diff-VF: Training-free High-quality Long Video Generation via Diffusion Model](https://papers.specul.com/diff-vf-2026.html) — 问题：多数视频扩散模型只用短视频训练，外推到长视频时退化：长时间一致性保不住，动作多样性也丢。 证据位置：摘要提出 Diff-VF，免训练、即插即用、模型无关，
-- [MobileWan: Closing the Quality Gap for Mobile Video Diffusion](https://papers.specul.com/mobilewan-2026.html) — 问题：视频扩散靠把 Transformer 扩到数十亿参数提升画质，但移动端模型仍困在 0.4–1.8B 参数，质量上不去。 证据位置：摘要反过来主张“高质量移
