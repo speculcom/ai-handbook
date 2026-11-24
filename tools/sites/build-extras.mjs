@@ -170,30 +170,17 @@ for (const p of pages.filter((x) => x.id !== 'what-is')) {
   let html = fs.readFileSync(indexFile, 'utf8');
   const block = `<!-- sec-tools:start -->
 <div class="container">
-<div class="sec-doors">
-  <a class="sec-door" href="skills/index.html">
-    <span class="k">Tools · Skills</span>
-    <h2>Skills：装一套能力包</h2>
-    <p>12 条官方与社区技能索引；先看权限、脚本、来源与许可，再决定装不装。</p>
-    <span class="more">看 Skills →</span>
-  </a>
-  <a class="sec-door" href="prompts/index.html">
-    <span class="k">Tools · Prompts</span>
-    <h2>提示词：6 篇指南 + 24 个案例</h2>
-    <p>从结构到评测，再到代码、文档、会议、表格等任务；每个案例都有检查点与失败分支。</p>
-    <span class="more">看提示词 →</span>
-  </a>
-</div>
+  <p class="sec-sources">延伸：<a href="skills/index.html">Skills：12 条能力包索引</a> · <a href="prompts/index.html">提示词：6 篇指南 + 24 个案例</a></p>
 </div>
 <!-- sec-tools:end -->
 `;
   if (html.includes('<!-- sec-tools:start -->')) {
     html = html.replace(/<!-- sec-tools:start -->[\s\S]*?<!-- sec-tools:end -->\n?/, '');
   }
-  /* 2026-11-19：两张入口卡原本插在 <main> 最前面，把首页 H1 顶到了第二屏。
-     现在放到 hero 之后：先看「先看你手里的活，再挑工具」，再决定走 Skills / 提示词。 */
-  if (/<section class="hero">/.test(html)) {
-    html = html.replace(/(<section class="hero">[\s\S]*?<\/section>\n?)/, `$1\n${block}`);
+  /* 2026-11-24：入口卡放在首页最前面会把 H1 顶到第二屏。
+     这里只留一行延伸链接，放在正文末尾；首屏从 H1 直接进入任务矩阵。 */
+  if (/<\/main>/.test(html)) {
+    html = html.replace(/<\/main>/, `${block}\n  </main>`);
   } else {
     html = html.replace('<main id="main">', `<main id="main">\n${block}`);
   }
