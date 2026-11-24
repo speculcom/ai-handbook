@@ -1,10 +1,10 @@
 /* demos 站级样式：作品演示 / 研究集 / 播放器 / 并排对照 / prompt 索引。
    2026-11-18 重整：首页以作品为主，模型只做筛选与来源；卡片不再堆长摘要。 */
-.demos-page{padding-top:clamp(14px,2.4vw,26px);padding-bottom:48px}
+.demos-page{padding-top:clamp(18px,2.4vw,26px);padding-bottom:48px}
 .demos-results{padding-top:0}
 .demos-page h1{max-width:none}
 .dm-hero{max-width:none;margin:0 0 12px}
-.dm-hero h1{font-size:clamp(24px,7.1vw,46px);line-height:1.02;letter-spacing:-.035em;margin:0 0 6px;max-width:none;white-space:nowrap}
+.dm-hero h1{font-size:clamp(24px,7vw,46px);line-height:1.02;letter-spacing:-.035em;margin:0 0 6px;max-width:none;white-space:nowrap}
 .dm-collection .dm-hero h1{font-size:52px;line-height:1.1;letter-spacing:-.03em;max-width:26ch}
 .dm-lead{color:var(--ink-mid);font-size:var(--lede);line-height:1.45;max-width:none;margin:0}
 .dm-lead a{color:var(--ink)}
@@ -119,7 +119,7 @@
 .dm-prompt-card .fx-card-links a:hover{color:var(--brand)}
 
 @media(max-width:760px){
-  .dm-hero h1{font-size:clamp(23px,6.8vw,34px);line-height:1.02;letter-spacing:-.035em;max-width:none}
+  .dm-hero h1{font-size:clamp(24px,7vw,34px);line-height:1.02;letter-spacing:-.035em;max-width:none}
   .dm-collection .dm-hero h1{font-size:30px;line-height:1.1;letter-spacing:-.03em}
   .dm-play-head{display:block}
   .dm-play .dm-card-meta{justify-content:flex-start;gap:12px}

@@ -74,9 +74,6 @@
     const anchor = document.querySelector('#reading-start'); if (!anchor) return;
     const fallback = anchor.querySelector(':scope > p'); if (fallback) fallback.hidden = true;
     host = el('div', '', 'reading-panel start-panel');
-    host.append(el('p', tr('先不用管名词，挑一个最像你的情况', 'Skip the glossary for a second — pick what sounds like you'), 'start-kicker'));
-    host.append(el('h2', tr('你现在最想解决哪件事？', 'What do you want to solve right now?')));
-    host.append(el('p', tr('选一张卡，下面会告诉你这条路大概花多久、学完能做什么。不用按顺序从头读到尾。', 'Pick a card and you will see how long it takes and what you can do afterwards. No need to read everything in order.'), 'start-deck'));
     const choices = [
       ['quick-start', '第一次了解 AI', 'New to AI', '先弄懂 10 个常用词，分清 AI 能做什么、不能做什么。', 'Ten common terms to see what AI can and cannot do.'],
       ['for-consumers', '日常用 AI 少踩坑', 'Everyday AI without the traps', '提问、隐私、假消息，先把日常使用最容易踩的坑避开。', 'Questions, privacy and fake news: avoid the everyday traps first.'],

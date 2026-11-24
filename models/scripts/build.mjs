@@ -1459,10 +1459,9 @@ function indexPage() {
   };
 
   const body = `  <div class="container">
-    <header class="page-head home-head">
-      <p class="eyebrow">${bi('开放权重 · 怎么选','Open weights · how to choose')}</p>
-      <h1><span class="grad-title">${bi('想在自己电脑上跑模型？先选家族，再挑量化版','Run a model on your own machine? Pick a family, then a quantisation')}</span><span class="sub">${bi('先看家族和尺寸，再看显存能跑哪一档','Start with the family and size, then the tier your VRAM can hold')}</span></h1>
-      <p class="lede">${bi('每个模型都给出官方规格、许可和下载体积，方便直接做决定。', 'Every model lists official specs, licence and download size so you can decide.')}</p>
+    <header class="site-hero">
+      <h1>${bi('开放权重模型','Open-weight models')}</h1>
+      <p class="site-hero-deck">${bi(`${familyList.length} 个家族，按尺寸、量化档和许可挑。`, `${familyList.length} families, chosen by size, quantisation and licence.`)}</p>
     </header>
 
 ${vizFor('models')}

@@ -63,7 +63,7 @@ const EN_TITLE = {
   '十个入口，一张生态图': 'Ten doors, one ecosystem map',
   '先看清全貌，再挑一条路走': 'See the whole map, then pick a path',
   '工具越来越多，先按类目看规模': 'More tools than ever; see the category scale first',
-  '开放权重模型，现在走到哪一代': 'Open-weight models: which generation are we on?',
+  '先看家族换代，再挑量化档': 'Generations and quantisation tiers',
   '显存和带宽，决定你能跑多大模型': 'VRAM and bandwidth decide how big a model you can run',
   '这些论文，分别在回答什么问题': 'What question is each paper answering?',
   'AI 自己办事，<br class="br-sm" />先解决「凭什么信它」': 'AI acting on its own:<br class="br-sm" />first, why should you trust it?',
@@ -344,7 +344,6 @@ function section({ id, kicker, title, sub, dek, cards, foot, link }) {
   return `<section class="vz-section" id="${id}">
   <div class="container">
     <div class="vz-head">
-      <p class="vz-kicker">${biText(kicker, EN_SECTION)}</p>
       <h2 class="vz-title">${biText(title, EN_TITLE)} <span class="vz-title-sub">${sub}</span></h2>
       <p class="vz-dek">${dek}</p>
     </div>
@@ -542,9 +541,9 @@ function vizModels() {
   return section({
     id: 'lineage',
     kicker: '模型 · 一张图看全貌',
-    title: '开放权重模型，现在走到哪一代',
+    title: '先看家族换代，再挑量化档',
     sub: 'lineage',
-    dek: bi('看家族换代的节奏、模型仓和量化仓的体量，以及 2026 年新发布的几个模型。先选家族和尺寸，再挑量化版。', 'See the generation cadence, the number of model and quant repos, and the models released in 2026. Pick a family and size first, then a quantisation.'),
+    dek: bi('家族换代节奏、模型仓与量化仓体量，2026 新发布的几个模型也在图上。', 'Generation cadence, model and quant repo counts, plus the models released in 2026.'),
     cards: [
       card({ span: 6, no: '01', title: '家族当前代次的时间分布', sub: bi('按当前代发布日期', 'by current generation date'), svg: columnChart(months, { w: 620, h: 260 }), foot: bi('2026-08 是发布密集月，8 个家族在那个月换代；2025 仍有两个家族停留在旧代。', 'August 2026 was busy: eight families moved generation that month. Two families still sit on 2025 generations.') }),
       card({ span: 3, no: '02', title: '模型仓 vs 量化仓', sub: bi('16 vs 129', '16 vs 129'), svg: donut([
@@ -595,7 +594,7 @@ function vizHardware() {
     kicker: '硬件算力 · 一张图看全貌',
     title: '显存和带宽，决定你能跑多大模型',
     sub: 'silicon',
-    dek: bi('把「能装多大」和「喂得多快」放在一张图上：越靠右上，越适合长上下文和高并发。下面还标了 2026 年值得留意的几个硬件节点。', 'Capacity and bandwidth on one chart: the further up and to the right, the better suited to long context and high concurrency. The 2026 hardware releases are marked below too.'),
+    dek: bi('显存和带宽合看：越靠右上，越适合长上下文和高并发。', 'Capacity against bandwidth: top-right suits long context and high concurrency.'),
     cards: [
       card({ span: 7, no: '01', title: 'HBM 容量 × 带宽', sub: bi('9 个代表型号，对数横轴', '9 representative parts, log x-axis'), svg: scatter(pts), foot: bi('不同厂商的 FP4 口径不同：NVIDIA 写 NVFP4，AMD 写 OCP MXFP4；点的高度只表示官方带宽，不表示算力排名。', 'FP4 formats differ: NVIDIA says NVFP4, AMD says OCP MXFP4. Height encodes official bandwidth only, not a compute ranking.') }),
       card({ span: 5, no: '02', title: '2026 六个硬件节点', sub: bi('发布 / 上市日期', 'release / launch dates'), svg: timeline(tl, { w: 560, rowH: 50 }), foot: bi('B300 的 15 PF 是 dense NVFP4；Rubin 的 50 PF 是 NVFP4 推理性能。两者不能直接横比。', 'B300’s 15 PF is dense NVFP4; Rubin’s 50 PF is NVFP4 inference performance. They are not directly comparable.') }),

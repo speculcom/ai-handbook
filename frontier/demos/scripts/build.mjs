@@ -123,7 +123,7 @@ bind(catBox,'cat');if(${withModel ? 'true' : 'false'})bind(modelBox,'model');app
 const indexBody = `<div class="container demos-page">
   <header class="dm-hero">
     <h1>${bi('点开就能玩', 'Open & play')}</h1>
-    <p class="dm-lead">${bi('能站内打开的直接玩；不能嵌入的，链回原作者。', 'Play what runs here; the rest opens on the author page.')}</p>
+    <p class="dm-lead">${bi('能站内直接玩；不能嵌入的链回作者。', 'Play in-site; if it cannot embed, it links back.')}</p>
   </header>
   ${filterUI('dm', entries)}
   <div class="fx-grid dm-grid" id="dm-grid">${displayEntries.map((e) => card(e)).join('\n')}</div>
@@ -287,6 +287,10 @@ const compactEntries = entries.map((e) => ({
 fs.writeFileSync(path.join(OUT, 'demos-data.json'), JSON.stringify(compactEntries, null, 2), 'utf8');
 fs.copyFileSync(path.join(SRC, 'css/demos.css'), path.join(OUT, 'demos.css'));
 fs.copyFileSync(path.join(ROOT, '_sites/_template/site.css'), path.join(OUT, 'site.css'));
+for (const f of ['brand.css', 'brand.js']) {
+  const src = path.join(ROOT, '_data/handbook/shared/brand', f);
+  if (fs.existsSync(src)) fs.copyFileSync(src, path.join(OUT, f));
+}
 fs.writeFileSync(path.join(OUT, 'CNAME'), 'demos.specul.com\n');
 fs.writeFileSync(path.join(OUT, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: https://demos.specul.com/sitemap.xml\n');
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(([f]) => `  <url><loc>https://demos.specul.com/${f === 'index.html' ? '' : f}</loc></url>`).join('\n')}\n  <url><loc>https://demos.specul.com/2026.html</loc></url>\n${entries.map((e) => `  <url><loc>https://demos.specul.com/${workHref(e)}</loc></url>`).join('\n')}\n</urlset>\n`);

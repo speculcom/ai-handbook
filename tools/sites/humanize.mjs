@@ -383,9 +383,8 @@ export function taskMatrix(entries, catOrder, currentPart) {
   return `<section class="section matrix-section" id="task-map">
       <div class="container">
         <div class="matrix-head">
-          <p class="kicker">${bi('任务 × 类目', 'Job × category')}</p>
           <h2>${bi('你手里的活，落在哪几个类目', 'Where your job lands')}</h2>
-          <p class="section-desc">${bi('电脑上是一张 16×12 的表；手机上看每件事最相关的三个类目。数字是同时符合两者的档案数，点进去就是筛好的列表。空白不是没有需求，是本站还没收。', 'On desktop it is a 16×12 table; on a phone each job lists its three closest categories. The number counts entries that match both; tap it to open a filtered list. A blank means this site has no coverage yet, not that the need does not exist.')}</p>
+          <p class="section-desc">${bi('数字是同时符合两者的档案数，点进去就是筛好的列表。', 'The number counts entries that match both; tap it to open a filtered list.')}</p>
         </div>
         <div class="table-wrap matrix-wrap">
           <table class="task-matrix">
@@ -394,7 +393,7 @@ export function taskMatrix(entries, catOrder, currentPart) {
           </table>
         </div>
         <div class="tm-mobile">
-          <p class="tm-mobile-head">${bi('手机上不横滑：每件事只列最相关的 3 个类目。点类目直接进筛好的列表。', 'No sideways scrolling on a phone: each job lists its three closest categories. Tap one to open a filtered list.')}</p>
+          <p class="tm-mobile-head">${bi('手机每行 3 个类目，点一个就筛选。', 'On phones each job shows three categories; tap one to filter.')}</p>
           ${mobileRows}
         </div>
         <div class="matrix-note">${bi('读法：先找你的任务那一行，再看数字最大的两三个类目。不要从左上角一路读到底——那是把工具目录当成考试题。', 'How to read: find your job row, then look at the two or three categories with the largest numbers. Do not read it corner to corner like an exam.')}</div>

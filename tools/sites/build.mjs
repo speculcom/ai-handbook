@@ -2429,19 +2429,18 @@ ${f.cats.map(catCard).join('\n')}
         </div>`;
   }).join('\n');
 
-  const body = `    <section class="hero">
+  const body = `    <section class="site-hero">
       <div class="container">
-        <p class="kicker">${bi('AI 工具 · 按任务挑', 'AI Tools · pick by task')}</p>
-        <h1 class="t-hero">${bi('先看你手里的活，再挑工具', 'Start with the job, then the tool')}</h1>
-        <p class="lede">${SITE.desc}</p>
+        <h1>${bi('AI 工具', 'AI tools')}</h1>
+        <p class="site-hero-deck">${bi('282 份工具档案，按任务、类目和限制筛。', '282 tool profiles, filtered by task, category and constraint.')}</p>
       </div>
     </section>
 
-${vizFor('tools')}
-
-${decisionStrip()}
+${taskMatrix(allEntries, catOrder)}
 
 ${partitionBar('')}
+
+${vizFor('tools')}
 
     <section class="section" id="collections">
       <div class="container">
@@ -2456,8 +2455,6 @@ ${partitionBar('')}
         </ul>
       </div>
     </section>
-
-${taskMatrix(allEntries, catOrder)}
 
     <section class="section" id="cost-entry">
       <div class="container">
@@ -2649,6 +2646,9 @@ fs.writeFileSync(path.join(OUT, '.nojekyll'), '', 'utf8');
     if (fs.existsSync(p)) fs.unlinkSync(p);
   }
 }
+
+// 自定义 404：rmHtml 会把根级 404 一起清掉，必须在清空后重新放回。
+fs.copyFileSync(path.join(HERE, '404.html'), path.join(OUT, '404.html'));
 
 /* ── 10 张大类页 + 详情页 + guides ───────────────────────────────────── */
 for (const { partKey, site, entries } of loaded) {

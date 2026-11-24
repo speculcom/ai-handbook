@@ -139,10 +139,9 @@ function sceneCard(s) {
   const freshIds = ['openclaw', 'deepseek-harness', 'codex-cli', 'firecrawl'];
   const fresh = freshIds.map((id) => byId[id]).filter(Boolean);
   const body = `<div class="container">
-<header class="page-head">
-  <p class="eyebrow">OSS · Open source AI</p>
-  <h1>${bi('开源 AI 工具，挑能自己跑的', 'Open-source AI tools you can run yourself')}</h1>
-  <p class="lede">别人帮你跑的服务，去 <a href="https://tools.specul.com/">工具站</a>；能拿下来读、改、部署的仓库，在这里。按场景挑，先看它不做什么、许可和依赖，再看 star。</p>
+<header class="site-hero">
+  <h1>${bi('开源 AI', 'Open-source AI')}</h1>
+  <p class="site-hero-deck">${bi('135 个仓库，按场景、许可和能不能自己跑筛。', '135 repositories, filtered by scene, licence and whether you can run it yourself.')}</p>
 </header>
 <form class="oss-search" action="all.html" method="get">
   <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-zh="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-en="Search repos: RAG, video, speech, evals…" aria-label="搜索开源仓库" data-ui-aria-label-zh="搜索开源仓库" data-ui-aria-label-en="Search open-source repositories" />
