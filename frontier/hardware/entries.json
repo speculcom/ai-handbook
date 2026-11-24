@@ -4202,6 +4202,10 @@
     },
     "evidence": [
       {
+        "url": "https://axelera.ai/news/axelera-ai-unveils-titania-architecture-hpc-class-ai-responsiveness-without-liquid-cooled-racks-targeting-110b-underserved-market",
+        "quote": "Axelera AI’s Titania goes into production in Q3 2027 and already has customer deployment commitments through the beginning of 2028."
+      },
+      {
         "url": "https://axelera.ai/ai-accelerators",
         "quote": "2.5 PFLOPS (FP8) System-in-Package that combines two chiplets and 64 AI-Cores"
       },
@@ -4223,8 +4227,8 @@
       }
     ],
     "notes": {
-      "zh": "回答「数据中心的 MoE / 长上下文推理，能不能不上液冷机柜」。Titania 是 2.5 PFLOPS FP8 的 SiP：2 个 chiplet、64 个 AI-core、128GB LPDDR6、2,458GB/s、400W；8 个 SiP 可装进一台 4U 风冷服务器，合计 1TB 内存，官方称可跑 1.6T 参数模型。注意：2.5 PFLOPS 是 FP8 峰值，不是实测吞吐；1.6T 是容量口径，不代表该模型能以理想速度跑；官方页面写 Titania 2028 年才落地，不是已发货产品。",
-      "en": "Answers whether datacenter MoE and long-context inference can avoid a liquid-cooled rack. Titania is a 2.5 PFLOPS FP8 system-in-package: two chiplets, 64 AI-cores, 128 GB LPDDR6, 2,458 GB/s, 400 W. Eight SiPs fit in one air-cooled 4U server with 1 TB total memory, which the vendor says can run a 1.6-trillion-parameter model. Note: 2.5 PFLOPS is FP8 peak, not measured throughput; 1.6T is a capacity figure, not a promise that such a model runs at ideal speed; the page places Titania in 2028, so it is not shipping today."
+      "zh": "回答「数据中心的 MoE / 长上下文推理，能不能不上液冷机柜」。Titania 是 2.5 PFLOPS FP8 的 SiP：2 个 chiplet、64 个 AI-core、128GB LPDDR6、2,458GB/s、400W；8 个 SiP 可装进一台 4U 风冷服务器，合计 1TB 内存，官方称可跑 1.6T 参数模型。注意：2.5 PFLOPS 是 FP8 峰值，不是实测吞吐；1.6T 是容量口径，不代表该模型能以理想速度跑。官方 11-12 新闻稿写 Q3 2027 投产、客户部署延续到 2028 年初；现在不是已发货产品。",
+      "en": "Answers whether datacenter MoE and long-context inference can avoid a liquid-cooled rack. Titania is a 2.5 PFLOPS FP8 system-in-package: two chiplets, 64 AI-cores, 128 GB LPDDR6, 2,458 GB/s, 400 W. Eight SiPs fit in one air-cooled 4U server with 1 TB total memory, which the vendor says can run a 1.6-trillion-parameter model. Note: 2.5 PFLOPS is FP8 peak, not measured throughput; 1.6T is a capacity figure, not a promise that such a model runs at ideal speed. The 11-12 press release says production starts in Q3 2027, with customer deployments running into early 2028; it is not shipping today."
     },
     "verifiedAt": "2026-11-23",
     "specs": {
@@ -4234,7 +4238,8 @@
       "memory bandwidth": "2,458 GB/s",
       "TDP": "400 W per SiP",
       "form factors": "PCIe cards, UBB / OAM, OCP boards",
-      "system scale": "8 SiPs per 4U air-cooled server; 1 TB memory; up to 1.6T parameters"
+      "system scale": "8 SiPs per 4U air-cooled server; 1 TB memory; up to 1.6T parameters",
+      "production": "Q3 2027 (official); customer deployments through early 2028"
     },
     "availability": "announced",
     "useCases": [

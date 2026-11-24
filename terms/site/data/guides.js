@@ -1758,26 +1758,26 @@ var GUIDES = [
   "ord": 16,
   "span": 10,
   "lead": {
-   "zh": "只列官方发布与停运日期，不做新闻、不做预测。用来回答「这个产品现在还是不是这样」：每条都带官方出处与核验日。",
-   "en": "Official update snapshots: distinguish dates, rollout scope and planned shutdowns, with source references."
+   "zh": "只列官方发布与停运日期，不做新闻、不做预测。用来回答「这个产品现在还是不是这样」：每条都带官方出处与核验日；下面按最近日期从新到旧排。",
+   "en": "Official update snapshots: dates, rollout scope and planned shutdowns, with sources; ordered newest event first."
   },
   "points": [
-   "研究线。Google 在 2026-04-21 发布 Deep Research 与 Deep Research Max，基于 Gemini 3.1 Pro，支持 MCP 与自定义来源。",
-   "图像与停运：Nano Banana 2（Gemini 3.1 Flash Image）于 2026-02-26 上线。ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex。微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。",
-   "模型档位：Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出。Claude Duet 于 2026-10-21 向 Pro / Max 开放研究预览。",
    "工具线：Google Opal 计划于 2026-11-17 停用，工作流不会自动迁移。Vercel AI SDK 7 在 2026 changelog 发布。",
-   "研究线 2：Byteification 于 2026-10-07 登上 Nature，49.1B token 把子词模型改成字节级。同月 29 日 JEPA-PRH 预印本给出 109M 文本 JEPA 的跨模态对齐结果。",
-   "模型线：Meta Muse Spark Open（2026-10-15，816B / 42B 激活）、Mistral Large 4（2026-10-29，1.05T / 49B 激活）、小米 MiMo-V2.6（2026-09-22）相继开放权重或开源。",
-   "协议线：Agent Skills 于 2026-10-22 捐给 AAIF。AMD MI450X 于 2026-11-12 上市。本地线 ExLlamaV3 1.6.5 于 2026-10-25 发布。"
+   "协议与硬件：AMD MI450X 于 2026-11-12 上市；Agent Skills 于 2026-10-22 捐给 AAIF；本地线 ExLlamaV3 1.6.5 于 2026-10-25 发布。",
+   "模型线：Mistral Large 4（2026-10-29，1.05T / 49B 激活）、Meta Muse Spark Open（2026-10-15，816B / 42B 激活）、小米 MiMo-V2.6（2026-09-22）相继开放权重或开源。",
+   "研究线 2：JEPA-PRH 预印本于 2026-10-29 给出 109M 文本 JEPA 的跨模态对齐结果。Byteification 于 2026-10-07 登上 Nature，49.1B token 把子词模型改成字节级。",
+   "模型档位：Claude Duet 于 2026-10-21 向 Pro / Max 开放研究预览；Gemini 4 Argon 于 2026-10-13 面向 AI Pro / Ultra 推出。",
+   "图像与停运：微软 C 端 Copilot 的 Deep Research 于 2026-08-18 退役。ChatGPT Atlas 浏览器于 2026-08-09 停运，能力并入 ChatGPT / Codex。Nano Banana 2（Gemini 3.1 Flash Image）于 2026-02-26 上线。",
+   "研究线：Google 在 2026-04-21 发布 Deep Research 与 Deep Research Max，基于 Gemini 3.1 Pro，支持 MCP 与自定义来源。"
   ],
   "pointsEn": [
-   "Research: Google shipped Deep Research and Deep Research Max on 2026-04-21, built on Gemini 3.1 Pro with MCP and custom sources.",
-   "Image: Nano Banana 2 (Gemini 3.1 Flash Image) launched on 2026-02-26 with generation and editing.",
-   "Retirements: the ChatGPT Atlas browser was retired on 2026-08-09 with capabilities moved into ChatGPT/Codex; Microsoft retired consumer Copilot Deep Research on 2026-08-18.",
-   "Model tiers: Gemini 4 Argon rollout for AI Pro/Ultra began on 2026-10-13; Claude Duet opened a Pro/Max research preview on 2026-10-21.",
    "Tools: Opal is scheduled to shut down on 2026-11-17 without automatic workflow migration; preserve prompts and files. Vercel AI SDK 7 appears in its 2026 changelog.",
-   "Local: ExLlamaV3 1.6.5 was released on 2026-10-25 (PyPI); the models snapshot is dated 2026-10-30.",
-   "How to read it: check the date first, then the tier; for retirements, follow where the capability moved."
+   "Protocols and hardware: AMD MI450X launched on 2026-11-12; Agent Skills was donated to AAIF on 2026-10-22; ExLlamaV3 1.6.5 shipped on 2026-10-25.",
+   "Models: Mistral Large 4 (2026-10-29, 1.05T / 49B active), Meta Muse Spark Open (2026-10-15, 816B / 42B active) and Xiaomi MiMo-V2.6 (2026-09-22) opened weights in sequence.",
+   "Research 2: the JEPA-PRH preprint reported cross-modal alignment for a 109M text JEPA on 2026-10-29; Byteification reached Nature on 2026-10-07, converting a subword model to bytes with 49.1B tokens.",
+   "Model tiers: Claude Duet opened a Pro/Max research preview on 2026-10-21; Gemini 4 Argon began rolling out to AI Pro/Ultra on 2026-10-13.",
+   "Image and retirements: Microsoft retired consumer Copilot Deep Research on 2026-08-18; the ChatGPT Atlas browser was retired on 2026-08-09 with capabilities moved into ChatGPT/Codex; Nano Banana 2 launched on 2026-02-26.",
+   "Research: Google shipped Deep Research and Deep Research Max on 2026-04-21, built on Gemini 3.1 Pro with MCP and custom sources."
   ],
   "myth": null,
   "mythEn": null,

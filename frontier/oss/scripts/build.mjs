@@ -141,7 +141,7 @@ function sceneCard(s) {
   const body = `<div class="container">
 <header class="site-hero">
   <h1>${bi('开源 AI', 'Open-source AI')}</h1>
-  <p class="site-hero-deck">${bi('135 个仓库，按场景、许可和能不能自己跑筛。', '135 repositories, filtered by scene, licence and whether you can run it yourself.')}</p>
+  <p class="site-hero-deck">${bi(`${repos.length} 个仓库，按场景、许可和能不能自己跑筛。`, `${repos.length} repositories, filtered by scene, licence and whether you can run it yourself.`)}</p>
 </header>
 <form class="oss-search" action="all.html" method="get">
   <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-zh="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-en="Search repos: RAG, video, speech, evals…" aria-label="搜索开源仓库" data-ui-aria-label-zh="搜索开源仓库" data-ui-aria-label-en="Search open-source repositories" />

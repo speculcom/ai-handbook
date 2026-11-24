@@ -59,7 +59,7 @@
 | models · GGUF 文件（files） | 1337 个 |
 | models · 量化者 | 54 位 |
 | models · 家族谱系卡（families） | 21 张 |
-| models · 闭源谱系卡（closed） | 7 张 |
+| models · 闭源谱系卡（closed） | 8 张 |
 | models · 基座许可分布 | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->
 

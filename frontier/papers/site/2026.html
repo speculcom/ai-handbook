@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>2026 论文增补 | AI 论文</title>
-  <meta name="description" content="2026 论文增补：Byteification、JEPA-PRH、识别—拒答错位、Abstain-R1，附证据位置与边界。" />
+  <meta name="description" content="2026 论文增补：Edit-based training、高风险目标建模、Byteification、JEPA-PRH、识别—拒答错位、Abstain-R1，附证据位置与边界。" />
   <link rel="canonical" href="https://papers.specul.com/2026.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="2026 论文增补 | AI 论文" />
   <meta property="og:url" content="https://papers.specul.com/2026.html" />
   <meta property="og:title" content="2026 论文增补 | AI 论文" />
-  <meta property="og:description" content="2026 论文增补：Byteification、JEPA-PRH、识别—拒答错位、Abstain-R1，附证据位置与边界。" />
+  <meta property="og:description" content="2026 论文增补：Edit-based training、高风险目标建模、Byteification、JEPA-PRH、识别—拒答错位、Abstain-R1，附证据位置与边界。" />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:locale:alternate" content="en_US" />
   <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/2026.html" />
@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="x-default" href="https://papers.specul.com/2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=bb632b891131"></script>
-  <link rel="stylesheet" href="brand.css?v=bb632b891131" />
+  <script src="brand.js?v=260dad419281"></script>
+  <link rel="stylesheet" href="brand.css?v=260dad419281" />
   <link rel="stylesheet" href="site.css" />
   <style>
 .u26-hero{padding:24px 0 14px}
@@ -82,7 +82,7 @@
 .nf-art svg{display:block;width:100%;height:auto}
 @media(max-width:900px){.u26-card{grid-column:span 12}.u26-two{grid-template-columns:1fr}.u26-row{grid-template-columns:70px 1fr}.u26-row a{display:none}.u26-map{grid-template-columns:1fr}.u26-chain{grid-template-columns:1fr 1fr}.u26-chain div:nth-child(2)::after{content:none}.nf-grid{grid-template-columns:1fr}.nf-art{max-width:200px;margin:8px auto 0}}
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"2026 论文增补 | AI 论文","description":"2026 论文增补：Byteification、JEPA-PRH、识别—拒答错位、Abstain-R1，附证据位置与边界。","url":"https://papers.specul.com/2026.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"2026 论文增补 | AI 论文","description":"2026 论文增补：Edit-based training、高风险目标建模、Byteification、JEPA-PRH、识别—拒答错位、Abstain-R1，附证据位置与边界。","url":"https://papers.specul.com/2026.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -159,43 +159,62 @@
   <main id="main">
 
       <section class="u26-hero"><div class="container">
-    <p class="u26-kicker"><span data-zh>AI 论文 · 2026 增补 · 2026-11-18</span><span data-en>Papers · 2026 additions · 2026-11-18</span></p>
-    <h1 class="u26-h1"><span data-zh>四篇论文，四句「它没主张什么」</span><span data-en>Four papers, four “what it does not claim” notes</span></h1>
-    <p class="u26-lede"><span data-zh>Byteification 用 49.1B token 把子词模型改字节级；JEPA-PRH 用 109M 模型检验跨模态对齐；识别—拒答错位把「知道不可答却答了」解释为路由失败；Abstain-R1 用 3B 模型做可校准弃答。</span><span data-en>Byteification converts subword models to bytes with 49.1B tokens; JEPA-PRH tests cross-modal alignment at 109M; recognition–refusal explains “knowing it is unanswerable yet answering” as routing failure; Abstain-R1 does calibrated abstention at 3B.</span></p>
+    <p class="u26-kicker"><span data-zh>AI 论文 · 2026 增补 · 2026-11-24</span><span data-en>Papers · 2026 additions · 2026-11-24</span></p>
+    <h1 class="u26-h1"><span data-zh>六篇论文，六句「它没主张什么」</span><span data-en>Six papers, six “what it does not claim” notes</span></h1>
+    <p class="u26-lede"><span data-zh>Edit-based training 只监督首个失败点；高风险目标建模检查决策依赖；Byteification 用 49.1B token 把子词模型改字节级；JEPA-PRH 用 109M 模型检验跨模态对齐；识别—拒答错位把「知道不可答却答了」解释为路由失败；Abstain-R1 用 3B 模型做可校准弃答。</span><span data-en>Edit-based training supervises only the first failure; high-stakes target formulation checks decision dependency; Byteification converts subword models to bytes with 49.1B tokens; JEPA-PRH tests cross-modal alignment at 109M; recognition–refusal explains “knowing it is unanswerable yet answering” as routing failure; Abstain-R1 does calibrated abstention at 3B.</span></p>
     <p class="u26-note"><span data-zh>论文站只收能落到原文的条目；每篇都写问题、证据位置、作者自陈局限、它没主张的。预印本与同行评审分开标。</span><span data-en>Only entries with text-level evidence; each states the problem, evidence location, author-stated limits and what it does not claim. Preprints and peer review are labelled separately.</span></p>
     
   </div></section>
       <section class="u26-section"><div class="container">
-        <figure class="u26-figure"><svg class="vz-svg" viewBox="0 0 760 210" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
-      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-10-07</text>
+        <figure class="u26-figure"><svg class="vz-svg" viewBox="0 0 760 306" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
+      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-11-19</text>
       <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
       <circle cx="120" cy="22" r="6" style="fill:var(--cat-amber)"/>
-      <text x="140" y="27" class="vz-t-strong">Byteification</text>
-      <text x="140" y="47" class="vz-t-dim">Nature / 架构</text>
-      <text x="104" y="75" class="vz-t-dim" text-anchor="end">2026-10-29</text>
+      <text x="140" y="27" class="vz-t-strong">Edit-based training</text>
+      <text x="140" y="47" class="vz-t-dim">arXiv / 训练</text>
+      <text x="104" y="75" class="vz-t-dim" text-anchor="end">2026-11-18</text>
       <line x1="120" y1="58" x2="120" y2="102" class="vz-axis"/>
       <circle cx="120" cy="70" r="6" style="fill:var(--cat-amber)"/>
-      <text x="140" y="75" class="vz-t-strong">JEPA-PRH</text>
-      <text x="140" y="95" class="vz-t-dim">arXiv / 表征</text>
-      <text x="104" y="123" class="vz-t-dim" text-anchor="end">2026</text>
+      <text x="140" y="75" class="vz-t-strong">LLM 会把预测目标建对吗？</text>
+      <text x="140" y="95" class="vz-t-dim">arXiv / 高风险决策</text>
+      <text x="104" y="123" class="vz-t-dim" text-anchor="end">2026-10-29</text>
       <line x1="120" y1="106" x2="120" y2="150" class="vz-axis"/>
       <circle cx="120" cy="118" r="6" style="fill:var(--cat-amber)"/>
-      <text x="140" y="123" class="vz-t-strong">识别—拒答错位</text>
-      <text x="140" y="143" class="vz-t-dim">EMNLP / 推理</text>
-      <text x="104" y="171" class="vz-t-dim" text-anchor="end">2026</text>
+      <text x="140" y="123" class="vz-t-strong">JEPA-PRH</text>
+      <text x="140" y="143" class="vz-t-dim">arXiv / 表征</text>
+      <text x="104" y="171" class="vz-t-dim" text-anchor="end">2026-10-07</text>
       <line x1="120" y1="154" x2="120" y2="198" class="vz-axis"/>
       <circle cx="120" cy="166" r="6" style="fill:var(--cat-amber)"/>
-      <text x="140" y="171" class="vz-t-strong">Abstain-R1</text>
-      <text x="140" y="191" class="vz-t-dim">ACL / 对齐</text></svg><figcaption><span data-zh>两篇有明确日期，两篇按 2026 年会议 / 预印本记；不虚构具体日。</span><span data-en>Two have exact dates, two are dated by 2026 venue / preprint; no invented dates.</span></figcaption></figure>
-        <div class="u26-grid"><article class="u26-card" id="byteification">
-    <div class="u26-meta"><span class="u26-badge">2026-10-07</span><span class="u26-tag"><span data-zh>Nature / 架构</span><span data-en>Nature / architecture</span></span></div>
-    <h2><span data-zh>Byteification：把子词模型改成字节级</span><span data-en>Byteification: retrofitting subword models to bytes</span></h2>
-    <p class="u26-p"><span data-zh>用不到典型预训练预算 1% 的 49.1B token，把一个已有子词 LLM 转成字节级；报告 Bolmo 7B/1B、Bwen 8B、Blama 8B 在字符级推理上超过早期字节级方法。</span><span data-en>Converts an existing subword LLM to byte level with 49.1B tokens, less than 1% of a typical pretraining budget; reports Bolmo 7B/1B, Bwen 8B and Blama 8B beating earlier byte-level approaches on character-level reasoning.</span></p>
-    <dl class="u26-dl"><dt><span data-zh>DOI</span><span data-en>DOI</span></dt><dd>10.1038/s41586-026-11111-4</dd><dt><span data-zh>预算</span><span data-en>budget</span></dt><dd>49.1B tokens（<1%）</dd><dt><span data-zh>模型</span><span data-en>models</span></dt><dd>Bolmo 7B/1B、Bwen 8B、Blama 8B</dd><dt><span data-zh>复现</span><span data-en>reproduction</span></dt><dd>未复现</dd></dl>
+      <text x="140" y="171" class="vz-t-strong">Byteification</text>
+      <text x="140" y="191" class="vz-t-dim">Nature / 架构</text>
+      <text x="104" y="219" class="vz-t-dim" text-anchor="end">2026</text>
+      <line x1="120" y1="202" x2="120" y2="246" class="vz-axis"/>
+      <circle cx="120" cy="214" r="6" style="fill:var(--cat-amber)"/>
+      <text x="140" y="219" class="vz-t-strong">识别—拒答错位</text>
+      <text x="140" y="239" class="vz-t-dim">EMNLP / 推理</text>
+      <text x="104" y="267" class="vz-t-dim" text-anchor="end">2026</text>
+      <line x1="120" y1="250" x2="120" y2="294" class="vz-axis"/>
+      <circle cx="120" cy="262" r="6" style="fill:var(--cat-amber)"/>
+      <text x="140" y="267" class="vz-t-strong">Abstain-R1</text>
+      <text x="140" y="287" class="vz-t-dim">ACL / 对齐</text></svg><figcaption><span data-zh>按发布日期，最新在上；四篇有明确日期，两篇按 2026 年会议记，不虚构具体日。</span><span data-en>By publication date, newest first; four have exact dates, two are dated by 2026 venue, with no invented day.</span></figcaption></figure>
+        <div class="u26-grid"><article class="u26-card" id="edit-based-training">
+    <div class="u26-meta"><span class="u26-badge">2026-11-19</span><span class="u26-tag"><span data-zh>arXiv / 训练</span><span data-en>arXiv / training</span></span></div>
+    <h2><span data-zh>Edit-based training：只教第一个失败点</span><span data-en>Edit-based training: supervise only the first failure</span></h2>
+    <p class="u26-p"><span data-zh>不再让模型模仿整条推理轨迹，也不只给整条轨迹一个奖励：编辑器先找出「第一个不符合要求的点」，只对最小替换片段做监督。方法可离线也可在线，在线时监督会跟着模型当前失败模式移动。作者在 Qwen3-32B 上用 ReasonIF 验证。</span><span data-en>Instead of imitating a full reasoning trajectory or rewarding the whole completion, an editor locates the first point of failure and supervises only a minimal replacement span. The method works offline or online, with supervision moving to the model’s current failure modes. The authors test it on Qwen3-32B with ReasonIF.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>arXiv</span><span data-en>arXiv</span></dt><dd>2611.26342</dd><dt><span data-zh>模型</span><span data-en>model</span></dt><dd>Qwen3-32B</dd><dt><span data-zh>基准</span><span data-en>benchmark</span></dt><dd>ReasonIF</dd><dt><span data-zh>会议</span><span data-en>venue</span></dt><dd>NeurIPS 2026 workshop</dd><dt><span data-zh>复现</span><span data-en>reproduction</span></dt><dd>未复现</dd></dl>
     
-    <div class="u26-block"><b><span data-zh>证据位置</span><span data-en>Where the evidence sits</span></b><p><span data-zh>摘要给出方法与 49.1B token 的转换成本；正文「Tokenizer transfer and retrofitting」说明两阶段流程；结果段报告字符级任务与实际推理速度。</span><span data-en>The abstract gives the method and the 49.1B-token conversion cost; the “Tokenizer transfer and retrofitting” section describes the two-stage procedure; the results report character-level tasks and practical inference speed.</span></p></div>
-    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>49.1B 虽不到 1%，绝对量仍大；方法依赖已有子词模型当教师；字节级推理需要专门内核；论文不覆盖所有任务。它没主张「字节级全面超过子词」或「tokenizer 无用」。</span><span data-en>49.1B is under 1% but still large in absolute terms; the method needs an existing subword teacher; byte-level inference needs dedicated kernels; the paper does not cover every task. It does not claim byte-level beats subword everywhere, or that tokenisers are obsolete.</span></p></div>
-    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://doi.org/10.1038/s41586-026-11111-4" target="_blank" rel="noopener"><span data-zh>Nature / DOI</span><span data-en>Nature / DOI</span></a></p>
+    <div class="u26-block"><b><span data-zh>证据位置</span><span data-en>Where the evidence sits</span></b><p><span data-zh>摘要报告：相对全轨迹模仿与轨迹级 RL，edit-based training 明显提升对推理指令的遵循，同时大体保留未目标任务的能力；训练信号集中在失败点后的最小替换片段。</span><span data-en>The abstract reports that, versus full-trajectory imitation and trajectory-level RL, edit-based training substantially improves compliance with reasoning instructions while largely preserving untargeted task skills; supervision concentrates on the minimal replacement span after the failure point.</span></p></div>
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>只验证 Qwen3-32B 与 ReasonIF 一个基准，不能外推到所有模型与任务；「第一个失败点」依赖编辑器与判定标准，编辑质量决定上限；论文没有给生产规模或跨语言结果。它没主张「替代 RLHF」或「所有推理任务都适用」。</span><span data-en>Only Qwen3-32B and one benchmark, ReasonIF, are tested; this does not generalise to all models or tasks. The “first failure” depends on the editor and criterion, and edit quality caps the gain; the paper gives no production-scale or cross-lingual results. It does not claim to replace RLHF or to work for every reasoning task.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://arxiv.org/abs/2611.26342" target="_blank" rel="noopener"><span data-zh>arXiv</span><span data-en>arXiv</span></a></p>
+  </article><article class="u26-card" id="llm-target-formulation">
+    <div class="u26-meta"><span class="u26-badge">2026-11-18</span><span class="u26-tag"><span data-zh>arXiv / 高风险决策</span><span data-en>arXiv / high-stakes decisions</span></span></div>
+    <h2><span data-zh>LLM 会把预测目标建对吗？</span><span data-en>Do LLMs formulate the right prediction target?</span></h2>
+    <p class="u26-p"><span data-zh>论文考察 LLM 在儿童福利、医疗、就业等高风险评估里能否正确构造预测问题，重点是「决策依赖」：历史决策会影响被观察到的结果。作者测试 11 个 OpenAI / Anthropic 模型、7 种提示条件，检查生成代码与解释是否处理这一偏差。</span><span data-en>The paper asks whether LLMs correctly formulate prediction problems in child welfare, healthcare and employment, focusing on decision dependency: past decisions shape observed outcomes. It tests 11 OpenAI / Anthropic models under seven prompt conditions, checking whether generated code and explanations handle that bias.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>arXiv</span><span data-en>arXiv</span></dt><dd>2611.23638</dd><dt><span data-zh>模型</span><span data-en>models</span></dt><dd>11 个 OpenAI / Anthropic 模型</dd><dt><span data-zh>条件</span><span data-en>prompts</span></dt><dd>7 种提示</dd><dt><span data-zh>领域</span><span data-en>domains</span></dt><dd>儿童福利 / 医疗 / 就业</dd><dt><span data-zh>复现</span><span data-en>reproduction</span></dt><dd>未复现</dd></dl>
+    
+    <div class="u26-block"><b><span data-zh>证据位置</span><span data-en>Where the evidence sits</span></b><p><span data-zh>摘要：没有提示引导时，LLM 不能可靠处理决策依赖；当提示明确写出目标、所需假设与估计步骤时，目标对齐实现达到 99–100%。前沿模型下，简单描述「决策如何影响结果」似乎足以触发正确实现。</span><span data-en>Abstract: without guidance, LLMs do not reliably address decision dependency; when the prompt specifies the target, the required assumption and the estimation procedure, target-aligned implementation reaches 99–100%. Among frontier models, a simple description of how decisions affect outcomes appears sufficient.</span></p></div>
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>测试集中在三个高风险领域与特定提示，不等于所有数据分析；99–100% 是「目标对齐实现」的比例，不是预测准确性或部署效果；部分回答口头承认决策依赖、代码却没处理。它没主张「LLM 可自动做高风险建模」或「提示工程可替代方法学审查」。</span><span data-en>The tests cover three high-stakes domains and specific prompts, not all data analysis; 99–100% is the share of target-aligned implementations, not predictive accuracy or deployment outcomes; some answers acknowledge decision dependency in prose while failing to handle it in code. It does not claim LLMs can automate high-stakes modelling, or that prompting replaces methodological review.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://arxiv.org/abs/2611.23638" target="_blank" rel="noopener"><span data-zh>arXiv</span><span data-en>arXiv</span></a></p>
   </article><article class="u26-card" id="jepa-prh">
     <div class="u26-meta"><span class="u26-badge">2026-10-29</span><span class="u26-tag"><span data-zh>arXiv / 表征</span><span data-en>arXiv / representation</span></span></div>
     <h2><span data-zh>JEPA-PRH：109M 文本 JEPA 的跨模态对齐</span><span data-en>JEPA-PRH: cross-modal alignment from a 109M text JEPA</span></h2>
@@ -205,6 +224,15 @@
     <div class="u26-block"><b><span data-zh>证据位置</span><span data-en>Where the evidence sits</span></b><p><span data-zh>摘要报告 109M JEPA 与 DINOv2 / CLIP 的对齐结果，以及 42× 样本效率；正文用 JEPA 作为可证明/可改进的实例。</span><span data-en>The abstract reports alignment with DINOv2 / CLIP and the 42× sample efficiency; the body uses JEPA as a provable/improveable instance.</span></p></div>
     <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>预印本；109M 远小于被比较的 LLM；对齐指标不是生成质量；42× 是特定视角与数据条件，不是通用常数。它没主张「小模型全面超过大模型」或「PRH 已被最终证明」。</span><span data-en>A preprint; 109M is far smaller than the compared LLMs; alignment is not generation quality; 42× is specific to views and data, not a universal constant. It does not claim small models beat large models across the board, or that PRH is finally proved.</span></p></div>
     <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://arxiv.org/abs/2610.39302" target="_blank" rel="noopener"><span data-zh>arXiv</span><span data-en>arXiv</span></a></p>
+  </article><article class="u26-card" id="byteification">
+    <div class="u26-meta"><span class="u26-badge">2026-10-07</span><span class="u26-tag"><span data-zh>Nature / 架构</span><span data-en>Nature / architecture</span></span></div>
+    <h2><span data-zh>Byteification：把子词模型改成字节级</span><span data-en>Byteification: retrofitting subword models to bytes</span></h2>
+    <p class="u26-p"><span data-zh>用不到典型预训练预算 1% 的 49.1B token，把一个已有子词 LLM 转成字节级；报告 Bolmo 7B/1B、Bwen 8B、Blama 8B 在字符级推理上超过早期字节级方法。</span><span data-en>Converts an existing subword LLM to byte level with 49.1B tokens, less than 1% of a typical pretraining budget; reports Bolmo 7B/1B, Bwen 8B and Blama 8B beating earlier byte-level approaches on character-level reasoning.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>DOI</span><span data-en>DOI</span></dt><dd>10.1038/s41586-026-11111-4</dd><dt><span data-zh>预算</span><span data-en>budget</span></dt><dd>49.1B tokens（<1%）</dd><dt><span data-zh>模型</span><span data-en>models</span></dt><dd>Bolmo 7B/1B、Bwen 8B、Blama 8B</dd><dt><span data-zh>复现</span><span data-en>reproduction</span></dt><dd>未复现</dd></dl>
+    
+    <div class="u26-block"><b><span data-zh>证据位置</span><span data-en>Where the evidence sits</span></b><p><span data-zh>摘要给出方法与 49.1B token 的转换成本；正文「Tokenizer transfer and retrofitting」说明两阶段流程；结果段报告字符级任务与实际推理速度。</span><span data-en>The abstract gives the method and the 49.1B-token conversion cost; the “Tokenizer transfer and retrofitting” section describes the two-stage procedure; the results report character-level tasks and practical inference speed.</span></p></div>
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>49.1B 虽不到 1%，绝对量仍大；方法依赖已有子词模型当教师；字节级推理需要专门内核；论文不覆盖所有任务。它没主张「字节级全面超过子词」或「tokenizer 无用」。</span><span data-en>49.1B is under 1% but still large in absolute terms; the method needs an existing subword teacher; byte-level inference needs dedicated kernels; the paper does not cover every task. It does not claim byte-level beats subword everywhere, or that tokenisers are obsolete.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://doi.org/10.1038/s41586-026-11111-4" target="_blank" rel="noopener"><span data-zh>Nature / DOI</span><span data-en>Nature / DOI</span></a></p>
   </article><article class="u26-card" id="recognition-refusal">
     <div class="u26-meta"><span class="u26-badge">2026</span><span class="u26-tag"><span data-zh>EMNLP / 推理</span><span data-en>EMNLP / reasoning</span></span></div>
     <h2><span data-zh>识别—拒答错位：知道不可答，却还是答了</span><span data-en>Recognition–refusal misalignment: knowing it is unanswerable, yet answering</span></h2>

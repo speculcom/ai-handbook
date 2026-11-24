@@ -1065,7 +1065,7 @@ repo: 'https://github.com/speculcom/ai-handbook',
  * ⚠ 版式走 css/models.css 的 .m-fam 组件（宪章 1：models 站内一处定义、全家页消费）。
  * ═════════════════════════════════════════════════════════════════════════ */
 function familyPage(f) {
-  const gens = f.generations.map((g) => `
+  const gens = [...f.generations].sort((a, b) => String(b.date || '').replace(/[–—]/g, '-').localeCompare(String(a.date || '').replace(/[–—]/g, '-'))).map((g) => `
         <li class="fam-gen">
           <div class="fam-gen-head"><b>${bi(esc(g.gen), esc(g.genEn || g.gen))}</b><span class="fam-gen-date">${esc(g.date)}</span>${g.gen === f.currentGen.zh || g.gen === f.currentGen.en ? `<span class="fam-gen-cur">${bi('当前代','current')}</span>` : ''}</div>
           <p>${bi(esc(g.zh), esc(g.en || g.zh))}</p>
@@ -1179,7 +1179,7 @@ function closedPage(c) {
     </section>`
     : '';
 
-  const gens = c.generations.map((g) => `
+  const gens = [...c.generations].sort((a, b) => String(b.date || '').replace(/[–—]/g, '-').localeCompare(String(a.date || '').replace(/[–—]/g, '-'))).map((g) => `
         <li class="fam-gen">
           <div class="fam-gen-head"><b>${bi(esc(g.gen), esc(g.genEn || g.gen))}</b><span class="fam-gen-date">${esc(g.date)}</span>${g.date === c.currentGenDate && (c.currentGen.zh.includes(g.gen) || c.currentGen.en.includes(g.gen)) ? `<span class="fam-gen-cur">${bi('当前代','current')}</span>` : ''}</div>
           <p>${bi(esc(g.zh), esc(g.en || g.zh))}</p>

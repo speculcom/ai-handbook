@@ -1,6 +1,63 @@
 {
   "repos": [
     {
+      "id": "loopforge",
+      "name": "LoopForge",
+      "owner": "Tencent",
+      "repo": "LoopForge",
+      "url": "https://github.com/Tencent/LoopForge",
+      "docs": "https://loopforge.cn",
+      "summary": "腾讯轻量云开源的云端自进化研发平台：把 coding agent 的交付流程写成可复用的 SOP，带云端工作区、多角色共享会话、人工审批门与定时 / Issue 自动化。",
+      "why": [
+        "不是再做一个 agent，而是把 CodeBuddy、Codex、Claude Code 等执行器放进同一套工程 SOP 里，交付过程可审计。",
+        "内置五层标准 SOP、客观门禁自愈与 RSI 复盘；适合团队级、重复性的需求交付。",
+        "Go 编写、可自托管；Local 版本可先在单机跑通，再上云端工作区。"
+      ],
+      "notFor": [
+        "只做一次性小改动或单轮问答，SOP 编排会显得过重。",
+        "不想维护服务器、队列与凭据；直接用现成 SaaS coding agent 更省事。"
+      ],
+      "scene": "agent-frameworks",
+      "tier": "start",
+      "order": 2,
+      "catalogOnly": false,
+      "tags": [
+        "Go",
+        "MIT",
+        "coding agent",
+        "SOP",
+        "自托管"
+      ],
+      "alternatives": [
+        "langgraph",
+        "openhands",
+        "deepseek-harness"
+      ],
+      "verifiedAt": "2026-11-23",
+      "firstRun": [
+        "读 README 与 docs，确认 Docker / Go 运行时、模型供应商与凭据要求。",
+        "先用 LoopForge Local 跑一个最小需求，验证工作区、SOP 与人工审批门。",
+        "再接一个真实仓库与 Issue，观察门禁失败后的自愈与回滚路径。"
+      ],
+      "deps": "Go 运行时 / Docker；coding-agent CLI（Codex、CodeBuddy、Claude Code 等）；Git 仓库与模型 API 凭据。",
+      "licenseNote": "仓库根许可为 MIT，但 THIRD_PARTY_NOTICES 列有 Monaco、Code-OSS 与各执行器 CLI 的独立许可；商用前逐项核对。",
+      "summaryEn": "Tencent Cloud's open-source self-hosted delivery platform for coding agents: reusable SOPs with cloud workspaces, shared multi-role sessions, human approval gates and scheduled / issue automation.",
+      "whyEn": [
+        "It does not add another agent; it puts CodeBuddy, Codex, Claude Code and other executors inside one auditable engineering SOP.",
+        "Five-layer SOPs, objective gate self-healing and RSI review suit repeated team-level delivery.",
+        "Written in Go and self-hostable; LoopForge Local lets you validate on one machine before moving to cloud workspaces."
+      ],
+      "notForEn": [
+        "One-off small changes or single-turn Q&A; SOP orchestration is overkill.",
+        "Teams unwilling to run servers, queues and credentials; a hosted coding agent is simpler."
+      ],
+      "firstRunEn": [
+        "Read the README and docs; confirm Docker / Go runtime, model providers and credentials.",
+        "Run one minimal request with LoopForge Local to verify the workspace, SOP and human gate.",
+        "Connect a real repository and issue; observe gate failure, self-healing and rollback."
+      ]
+    },
+    {
       "id": "langgraph",
       "name": "LangGraph",
       "owner": "langchain-ai",

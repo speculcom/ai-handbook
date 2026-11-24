@@ -268,8 +268,9 @@ function donut(parts, { total: totalIn, center, note, w = 460, h = 240 } = {}) {
 
 /* 垂直时间线：rows: [{date,title,desc,color}] */
 function timeline(rows, { w = 720, rowH = 54 } = {}) {
-  const h = rows.length * rowH + 18;
-  const body = rows.map((r, i) => {
+  const ordered = [...rows].sort((a, b) => String(b.date || '').replace(/[–—]/g, '-').localeCompare(String(a.date || '').replace(/[–—]/g, '-')));
+  const h = ordered.length * rowH + 18;
+  const body = ordered.map((r, i) => {
     const y = 22 + i * rowH;
     return `
       ${text(104, y + 5, r.date, 'vz-t-dim', 'end')}

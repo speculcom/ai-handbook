@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "code": "glm",
+  "name": {
+    "zh": "GLM（闭源 API）",
+    "en": "GLM (closed API)"
+  },
+  "vendor": {
+    "zh": "智谱 AI · Z.ai",
+    "en": "Z.ai (Zhipu AI)"
+  },
+  "access": {
+    "zh": "z.ai 与 BigModel 开放平台 API；GLM-5.4 的 API 尚未上线，官方称权重计划在安全加固后开放，当前不可下载或本地部署。",
+    "en": "z.ai and the BigModel platform API; the GLM-5.4 API is not live yet, and the vendor says weights will follow after safety hardening — no download or local deployment today."
+  },
+  "currentGen": {
+    "zh": "GLM-5.4（750B 基座，官方称 2–3T 级智能）",
+    "en": "GLM-5.4 (750B base, vendor-claimed 2–3T-class intelligence)"
+  },
+  "currentGenDate": "2026-11",
+  "review_interval_days": 30,
+  "generations": [
+    {
+      "gen": "GLM-5.4",
+      "date": "2026-11",
+      "zh": "2026-11-23 发布：750B 基座，28 层循环两遍；泛 Coding（视频、游戏、3D）与原生多模态；API 标为 coming soon，权重计划在安全加固后放。",
+      "en": "Announced 2026-11-23: 750B base with 28 layers looped twice; general coding (video, games, 3D) and native multimodality; API marked coming soon, weights planned after safety hardening.",
+      "url": "https://z.ai/blog/glm-5.4"
+    },
+    {
+      "gen": "GLM-5.3",
+      "date": "2026-08",
+      "zh": "上一代开放权重旗舰：754B MoE（激活数未公开）+ 321B Flash 杯；官方自评“开放权重里编码最强”，属厂商自评基准。",
+      "en": "Previous open-weight flagship: 754B MoE (activation undisclosed) plus a 321B Flash tier; officially billed as the strongest open-weights coder, a vendor-run benchmark.",
+      "url": "https://huggingface.co/zai-org/GLM-5.3"
+    },
+    {
+      "gen": "GLM-5 / 5.2",
+      "date": "2026-02–06",
+      "zh": "本代起点与中期迭代；5.2 是 5.3 官方改进幅度的对照。",
+      "en": "Generation opener and mid-cycle refresh; 5.2 is the reference point for the official 5.3 improvement claim.",
+      "url": "https://huggingface.co/zai-org/GLM-5.2"
+    }
+  ],
+  "facts": [
+    {
+      "k": {
+        "zh": "参数与结构",
+        "en": "Parameters and structure"
+      },
+      "v": {
+        "zh": "750B 基座；28 层循环两遍；官方称智能达到 2–3T 级参数模型水平。",
+        "en": "750B base; 28 layers looped twice; vendor claims intelligence on par with 2–3T-class models."
+      },
+      "url": "https://z.ai/blog/glm-5.4"
+    },
+    {
+      "k": {
+        "zh": "能力范围",
+        "en": "Capability scope"
+      },
+      "v": {
+        "zh": "泛 Coding 覆盖视频、游戏与 3D；原生多模态；不是只做代码补全的专用模型。",
+        "en": "General coding spans video, games and 3D; native multimodality; not a code-completion-only model."
+      },
+      "url": "https://z.ai/blog/glm-5.4"
+    },
+    {
+      "k": {
+        "zh": "现在能不能用",
+        "en": "Availability"
+      },
+      "v": {
+        "zh": "API 标为 coming soon；权重计划在安全加固后开放。当前既不能调 API，也不能下载权重。",
+        "en": "API marked coming soon; weights planned after safety hardening. Neither the API nor the weights are available today."
+      },
+      "url": "https://docs.z.ai/guides/llm/glm-5.4"
+    }
+  ],
+  "positioning": {
+    "zh": "GLM-5.4 是闭源首发、开放权重待定的过渡代。把它当“下一代能力预告”看，不要当现在可部署的模型；要本地跑仍看 5.3 与 MIT 的 Flash 杯。",
+    "en": "GLM-5.4 is a closed-first release with open weights pending. Treat it as a preview of the next capability tier, not a deployable model; for local deployment, still use 5.3 and the MIT-licensed Flash tier."
+  },
+  "onSite": {
+    "zh": "开放权重侧的 glm-5 谱系仍跟到 GLM-5.3（含量化对比）；5.4 先记在闭源卡与 2026 增补页。",
+    "en": "The open-weight glm-5 family card still tracks GLM-5.3 (with quantisation comparison); 5.4 is recorded here and on the 2026 supplement page."
+  },
+  "sources": [
+    {
+      "label": "Z.ai GLM-5.4 发布博客（2026-11-23）",
+      "labelEn": "Z.ai GLM-5.4 launch blog (2026-11-23)",
+      "url": "https://z.ai/blog/glm-5.4",
+      "kind": "blog"
+    },
+    {
+      "label": "Z.ai 文档 · GLM-5.4 指南",
+      "labelEn": "Z.ai docs · GLM-5.4 guide",
+      "url": "https://docs.z.ai/guides/llm/glm-5.4",
+      "kind": "docs"
+    }
+  ],
+  "last_verified": "2026-11-24",
+  "confidence": "verified",
+  "cn": {
+    "origin": "domestic",
+    "originNote": "出品方为智谱 AI（北京）。",
+    "originNoteEn": "Made by Zhipu AI (Beijing).",
+    "direct": "yes",
+    "directNote": "z.ai 与 BigModel 平台大陆可访问；GLM-5.4 API 尚未上线。",
+    "directNoteEn": "z.ai and the BigModel platform are reachable from the mainland; the GLM-5.4 API is not live yet.",
+    "filing": {
+      "status": "filed",
+      "name": "智谱清言（ChatGLM）",
+      "no": "Beijing-ChatGLM-20230821",
+      "date": "2023-08-31",
+      "note": "首批第 2 行；备案主体与 GLM 系列一致。",
+      "noteEn": "Row 2 of the first batch; the filing entity matches the GLM line."
+    },
+    "mirror": "",
+    "last_verified": "2026-10-20",
+    "sources": [
+      {
+        "label": "网信办《生成式人工智能服务已备案信息》滚动公告页（13 个批次附件 PDF，2026-10-20 全量下载检索）",
+        "url": "https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm",
+        "labelEn": "CAC · filed generative-AI service information (rolling announcement page, 13 batch attachment PDFs, full download & search on 2026-10-20)"
+      }
+    ]
+  }
+}

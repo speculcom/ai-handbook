@@ -59,7 +59,7 @@ Each subtree has its own `README.md` (content map, field schema, validator); thi
 | models · GGUF files | 1337 |
 | models · Quantizers | 54 |
 | models · Family lineage cards (families) | 21 |
-| models · Closed-model cards (closed) | 7 |
+| models · Closed-model cards (closed) | 8 |
 | models · Base license distribution | apache-2.0 8 · mit 4 · other 3 · openmdw-1.1 1 |
 <!-- STATS:END -->
 

@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>2026 硬件增补 | 硬件算力</title>
-  <meta name="description" content="2026 硬件增补：Rubin、B300、MI455X、MI450X、TPU7x、Helios 的官方规格与边界。" />
+  <meta name="description" content="2026 硬件增补：MN-Core L2000、Titania、Rubin、B300、MI455X、MI450X、TPU7x、Helios 的官方规格与边界。" />
   <link rel="canonical" href="https://hardware.specul.com/2026.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="2026 硬件增补 | 硬件算力" />
   <meta property="og:url" content="https://hardware.specul.com/2026.html" />
   <meta property="og:title" content="2026 硬件增补 | 硬件算力" />
-  <meta property="og:description" content="2026 硬件增补：Rubin、B300、MI455X、MI450X、TPU7x、Helios 的官方规格与边界。" />
+  <meta property="og:description" content="2026 硬件增补：MN-Core L2000、Titania、Rubin、B300、MI455X、MI450X、TPU7x、Helios 的官方规格与边界。" />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:locale:alternate" content="en_US" />
   <link rel="alternate" hreflang="zh-CN" href="https://hardware.specul.com/2026.html" />
@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="x-default" href="https://hardware.specul.com/2026.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
-  <script src="brand.js?v=bb632b891131"></script>
-  <link rel="stylesheet" href="brand.css?v=bb632b891131" />
+  <script src="brand.js?v=260dad419281"></script>
+  <link rel="stylesheet" href="brand.css?v=260dad419281" />
   <link rel="stylesheet" href="site.css" />
   <style>
 .u26-hero{padding:24px 0 14px}
@@ -82,7 +82,7 @@
 .nf-art svg{display:block;width:100%;height:auto}
 @media(max-width:900px){.u26-card{grid-column:span 12}.u26-two{grid-template-columns:1fr}.u26-row{grid-template-columns:70px 1fr}.u26-row a{display:none}.u26-map{grid-template-columns:1fr}.u26-chain{grid-template-columns:1fr 1fr}.u26-chain div:nth-child(2)::after{content:none}.nf-grid{grid-template-columns:1fr}.nf-art{max-width:200px;margin:8px auto 0}}
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"2026 硬件增补 | 硬件算力","description":"2026 硬件增补：Rubin、B300、MI455X、MI450X、TPU7x、Helios 的官方规格与边界。","url":"https://hardware.specul.com/2026.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"2026 硬件增补 | 硬件算力","description":"2026 硬件增补：MN-Core L2000、Titania、Rubin、B300、MI455X、MI450X、TPU7x、Helios 的官方规格与边界。","url":"https://hardware.specul.com/2026.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -159,33 +159,33 @@
   <main id="main">
 
       <section class="u26-hero"><div class="container">
-    <p class="u26-kicker"><span data-zh>硬件算力 · 2026 增补 · 2026-11-20</span><span data-en>Hardware · 2026 additions · 2026-11-20</span></p>
-    <h1 class="u26-h1"><span data-zh>六条 2026 规格，<br>容量、带宽、互联分开看</span><span data-en>Six 2026 specs,<br>with capacity, bandwidth and interconnect kept apart</span></h1>
-    <p class="u26-lede"><span data-zh>Rubin、B300、MI455X、MI450X、TPU7x、Helios。它们经常被压成一句「多少 TOPS」，这一页把单卡容量、带宽、互联、整机架分开写。</span><span data-en>Rubin, B300, MI455X, MI450X, TPU7x, Helios. They are often flattened into “how many TOPS”; this page separates per-GPU capacity, bandwidth, interconnect and rack.</span></p>
-    <p class="u26-note"><span data-zh>只取厂商官方规格页；峰值不是实测。NVFP4 与 MXFP4 不直接横比，单卡与整机架也不混。</span><span data-en>Vendor spec pages only; peaks are not measurements. NVFP4 and MXFP4 are not cross-compared, and per-GPU is not mixed with rack.</span></p>
+    <p class="u26-kicker"><span data-zh>硬件算力 · 2026 增补 · 2026-11-24</span><span data-en>Hardware · 2026 additions · 2026-11-24</span></p>
+    <h1 class="u26-h1"><span data-zh>八条 2026 规格，<br>容量、带宽、互联分开看</span><span data-en>Eight 2026 specs,<br>with capacity, bandwidth and interconnect kept apart</span></h1>
+    <p class="u26-lede"><span data-zh>MN-Core L2000、Titania、Rubin、B300、MI455X、MI450X、TPU7x、Helios。它们经常被压成一句「多少 TOPS」，这一页把单卡容量、带宽、互联、整机架、研发阶段分开写。</span><span data-en>MN-Core L2000, Titania, Rubin, B300, MI455X, MI450X, TPU7x and Helios. They are often flattened into “how many TOPS”; this page separates per-GPU capacity, bandwidth, interconnect, rack and development stage.</span></p>
+    <p class="u26-note"><span data-zh>只取厂商官方规格页；峰值不是实测，设计目标不是量产。NVFP4 与 MXFP4 不直接横比，单卡与整机架也不混。</span><span data-en>Vendor spec pages only; peaks are not measurements, and design targets are not production. NVFP4 and MXFP4 are not cross-compared, and per-GPU is not mixed with rack.</span></p>
     
   </div></section>
       <section class="u26-section"><div class="container">
-        <figure class="u26-figure"><svg class="vz-svg" viewBox="0 0 760 306" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
-      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026</text>
+        <figure class="u26-figure"><svg class="vz-svg" viewBox="0 0 760 402" role="img" aria-label="时间线" data-ui-aria-label-zh="时间线" data-ui-aria-label-en="Timeline" xmlns="http://www.w3.org/2000/svg">
+      <text x="104" y="27" class="vz-t-dim" text-anchor="end">2026-11-17</text>
       <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
       <circle cx="120" cy="22" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="27" class="vz-t-strong">NVIDIA Rubin</text>
-      <text x="140" y="47" class="vz-t-dim">加速卡</text>
-      <text x="104" y="75" class="vz-t-dim" text-anchor="end">2026</text>
+      <text x="140" y="27" class="vz-t-strong">PFN MN-Core L2000</text>
+      <text x="140" y="47" class="vz-t-dim">推理 ASIC / 研发</text>
+      <text x="104" y="75" class="vz-t-dim" text-anchor="end">2026-11-12</text>
       <line x1="120" y1="58" x2="120" y2="102" class="vz-axis"/>
       <circle cx="120" cy="70" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="75" class="vz-t-strong">NVIDIA B300</text>
-      <text x="140" y="95" class="vz-t-dim">加速卡</text>
-      <text x="104" y="123" class="vz-t-dim" text-anchor="end">2026-07-23</text>
+      <text x="140" y="75" class="vz-t-strong">Axelera Titania</text>
+      <text x="140" y="95" class="vz-t-dim">推理加速 / 芯粒</text>
+      <text x="104" y="123" class="vz-t-dim" text-anchor="end">2026-11-12</text>
       <line x1="120" y1="106" x2="120" y2="150" class="vz-axis"/>
       <circle cx="120" cy="118" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="123" class="vz-t-strong">AMD MI455X</text>
+      <text x="140" y="123" class="vz-t-strong">AMD MI450X</text>
       <text x="140" y="143" class="vz-t-dim">加速卡</text>
-      <text x="104" y="171" class="vz-t-dim" text-anchor="end">2026-11-12</text>
+      <text x="104" y="171" class="vz-t-dim" text-anchor="end">2026-07-23</text>
       <line x1="120" y1="154" x2="120" y2="198" class="vz-axis"/>
       <circle cx="120" cy="166" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="171" class="vz-t-strong">AMD MI450X</text>
+      <text x="140" y="171" class="vz-t-strong">AMD MI455X</text>
       <text x="140" y="191" class="vz-t-dim">加速卡</text>
       <text x="104" y="219" class="vz-t-dim" text-anchor="end">2026-04-22</text>
       <line x1="120" y1="202" x2="120" y2="246" class="vz-axis"/>
@@ -195,9 +195,64 @@
       <text x="104" y="267" class="vz-t-dim" text-anchor="end">2026</text>
       <line x1="120" y1="250" x2="120" y2="294" class="vz-axis"/>
       <circle cx="120" cy="262" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="267" class="vz-t-strong">AMD Helios</text>
-      <text x="140" y="287" class="vz-t-dim">整机 / 机架</text></svg><figcaption><span data-zh>按发布 / 上市日期；Helios 为整机架条目，不与单卡同列。</span><span data-en>By release / launch date; Helios is a rack entry, not a per-GPU row.</span></figcaption></figure>
-        <div class="u26-grid"><article class="u26-card" id="nvidia-rubin">
+      <text x="140" y="267" class="vz-t-strong">NVIDIA Rubin</text>
+      <text x="140" y="287" class="vz-t-dim">加速卡</text>
+      <text x="104" y="315" class="vz-t-dim" text-anchor="end">2026</text>
+      <line x1="120" y1="298" x2="120" y2="342" class="vz-axis"/>
+      <circle cx="120" cy="310" r="6" style="fill:var(--cat-rose)"/>
+      <text x="140" y="315" class="vz-t-strong">NVIDIA B300</text>
+      <text x="140" y="335" class="vz-t-dim">加速卡</text>
+      <text x="104" y="363" class="vz-t-dim" text-anchor="end">2026</text>
+      <line x1="120" y1="346" x2="120" y2="390" class="vz-axis"/>
+      <circle cx="120" cy="358" r="6" style="fill:var(--cat-rose)"/>
+      <text x="140" y="363" class="vz-t-strong">AMD Helios</text>
+      <text x="140" y="383" class="vz-t-dim">整机 / 机架</text></svg><figcaption><span data-zh>按发布 / 上市日期，最新在上；Helios 为整机架条目，PFN L2000 为研发节点。</span><span data-en>By release / launch date, newest first; Helios is a rack entry and PFN L2000 is a development milestone.</span></figcaption></figure>
+        <div class="u26-grid"><article class="u26-card" id="pfn-mn-core-l2000">
+    <div class="u26-meta"><span class="u26-badge">2026-11-17</span><span class="u26-tag"><span data-zh>推理 ASIC / 研发</span><span data-en>Inference ASIC / development</span></span></div>
+    <h2><span data-zh>PFN MN-Core L2000：内存带宽目标翻倍</span><span data-en>PFN MN-Core L2000: targeting double the memory bandwidth</span></h2>
+    <p class="u26-p"><span data-zh>PFN 与 SEMIFIVE 合作开发下一代 AI 推理芯片 L2000 系列，目标是内存带宽超过 L1000 的两倍；延续 3D 堆叠逻辑芯片 + DRAM 的路线，计划 2027Q1 tape-out。它不是已上市产品，L1000 本身也计划 2027 年才发售。</span><span data-en>PFN and SEMIFIVE are co-developing the L2000 series, the next generation of AI inference chips, targeting more than twice the memory bandwidth of L1000. It continues the 3D-stacked logic + DRAM route, with tape-out planned for Q1 2027. It is not a shipping product; L1000 itself is planned for 2027.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>路线 / approach</span><span data-en>Approach</span></dt><dd>3D 堆叠逻辑芯片 + DRAM；内存带宽优先</dd><dt><span data-zh>目标 / target</span><span data-en>Target</span></dt><dd>内存带宽 > MN-Core L1000 两倍</dd><dt><span data-zh>进度 / status</span><span data-en>Status</span></dt><dd>2027Q1 tape-out；尚未流片 / 上市</dd><dt><span data-zh>合作 / partner</span><span data-en>Partner</span></dt><dd>PFN + SEMIFIVE；逻辑芯片由三星代工</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>推理的瓶颈越来越从算力转向内存带宽；PFN 把「带宽翻倍」作为 L2000 的第一目标，而不是继续堆 TOPS。对关注非 GPU 推理路线、3D 堆叠与能效的团队，这是一个值得跟踪的架构样本；但 2027 才 tape-out，不能拿它做 2026 的采购决策。</span><span data-en>Inference is shifting from compute to memory bandwidth; PFN makes “double bandwidth” the first goal of L2000 rather than pushing TOPS. It is a useful architecture sample for non-GPU inference, 3D stacking and efficiency — but tape-out is in 2027, so it cannot inform a 2026 procurement decision.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>「两倍带宽」是设计目标，不是实测；tape-out 不等于量产，量产也不等于有软件生态。PFN 没有公布 TOPS、功耗、价格与整机规格。它没主张「替代 GPU」或「2026 可买到」。</span><span data-en>“Double bandwidth” is a design target, not a measurement; tape-out is not volume production, and volume production is not a software ecosystem. PFN has not published TOPS, power, price or system specs. It does not claim to replace GPUs or to be purchasable in 2026.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.preferred.jp/en/news/pr20261116" target="_blank" rel="noopener"><span data-zh>PFN 官方新闻（EN）</span><span data-en>PFN official news (EN)</span></a> · <a href="https://www.preferred.jp/ja/news/pr20261116" target="_blank" rel="noopener"><span data-zh>PFN 官方新闻（JP）</span><span data-en>PFN official news (JP)</span></a></p>
+  </article><article class="u26-card" id="axelera-titania">
+    <div class="u26-meta"><span class="u26-badge">2026-11-12</span><span class="u26-tag"><span data-zh>推理加速 / 芯粒</span><span data-en>Inference / chiplet</span></span></div>
+    <h2><span data-zh>Axelera Titania：2.5 PF FP8 / 128GB LPDDR6</span><span data-en>Axelera Titania: 2.5 PF FP8 / 128GB LPDDR6</span></h2>
+    <p class="u26-p"><span data-zh>数据中心级 AIPU：两个第三代 D-IMC 计算芯粒组成一个 SiP，400W，FP8 2.5 PFLOPS；128GB LPDDR6、2.45TB/s、128MB 共享 SRAM；32 个 RISC-V 核与多格式编解码器。官方目标 2027Q3 量产，已获超 3 亿美元订单。</span><span data-en>A datacenter-class AIPU: two third-generation D-IMC chiplets in one SiP, 400W, 2.5 PFLOPS FP8; 128GB LPDDR6 at 2.45TB/s with 128MB shared SRAM; 32 RISC-V cores and multi-format codecs. Volume production is targeted for Q3 2027, with over $300M in orders claimed.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>形态 / form</span><span data-en>Form</span></dt><dd>2 chiplet / 1 SiP；PCIe AIC 或 OCP OAM</dd><dt><span data-zh>算力 / compute</span><span data-en>Compute</span></dt><dd>2.5 PFLOPS FP8；MXFP4 / MXFP8</dd><dt><span data-zh>内存 / memory</span><span data-en>Memory</span></dt><dd>128GB LPDDR6；2.45TB/s；128MB 共享 SRAM</dd><dt><span data-zh>功耗 / power</span><span data-en>Power</span></dt><dd>400W 设计功耗</dd><dt><span data-zh>进度 / status</span><span data-en>Status</span></dt><dd>2027Q3 量产目标；2026 仅发布架构</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它把「一张卡装 128GB、跑 1.6T MoE」做成风冷 4U 八卡方案，而不是液冷机架；对机房条件有限、又想本地跑大 MoE 的团队，这是一个不同于 GPU 的成本/功耗路线。</span><span data-en>It fits 128GB per card and a 1.6T MoE into an air-cooled 4U eight-card server rather than a liquid-cooled rack; for teams with constrained facilities that still want a large local MoE, it is a different cost/power route from GPUs.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>2.5 PF 是 FP8 峰值，1.6T MoE 是 FP4 精度下的容量口径，二者不能混用；订单与每瓦/ TCO 都是厂商口径，没有第三方实测。2026 只有架构发布，芯片要 2027Q3 才量产，软件栈与模型覆盖仍待验证。它没主张「现在可买」或「全面替代 GPU」。</span><span data-en>2.5 PF is FP8 peak while the 1.6T MoE figure is a capacity claim at FP4; they cannot be mixed. Orders and per-watt/TCO claims are vendor figures without independent measurement. In 2026 only the architecture is announced; silicon is targeted for Q3 2027, and software/model coverage remains unproven. It does not claim current availability or a general GPU replacement.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://axelera.ai/news/axelera-ai-unveils-titania-architecture-hpc-class-ai-responsiveness-without-liquid-cooled-racks-targeting-110b-underserved-market" target="_blank" rel="noopener"><span data-zh>Axelera 官方发布</span><span data-en>Axelera official announcement</span></a> · <a href="https://axelera.ai/" target="_blank" rel="noopener"><span data-zh>Axelera 产品页</span><span data-en>Axelera product page</span></a></p>
+  </article><article class="u26-card" id="amd-mi450x">
+    <div class="u26-meta"><span class="u26-badge">2026-11-12</span><span class="u26-tag"><span data-zh>加速卡</span><span data-en>Accelerator</span></span></div>
+    <h2><span data-zh>AMD MI450X：288GB HBM4 / 23.3TB/s</span><span data-en>AMD MI450X: 288GB HBM4 / 23.3TB/s</span></h2>
+    <p class="u26-p"><span data-zh>与 MI455X 同为 CDNA5、同为 23.3TB/s，但容量为 288GB（8 个 HBM4 stack）；MXFP4 40.3 PFLOPS；2026-11-12 上市。</span><span data-en>Same CDNA5 and 23.3TB/s as MI455X, but 288GB (eight HBM4 stacks); MXFP4 40.3 PFLOPS; launched 2026-11-12.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>HBM</span><span data-en>HBM</span></dt><dd>288GB HBM4（8 stacks）</dd><dt><span data-zh>带宽</span><span data-en>BW</span></dt><dd>23.3TB/s</dd><dt><span data-zh>MXFP4</span><span data-en>MXFP4</span></dt><dd>40.3 PFLOPS</dd><dt><span data-zh>上市</span><span data-en>launch</span></dt><dd>2026-11-12</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它把 MI455X 的带宽/算力保留在 288GB 档，给不需要 432GB 的集群一个更现实的容量点；型号差在容量，不在架构代际。</span><span data-en>It keeps MI455X bandwidth/compute at the 288GB tier, a more realistic capacity point for clusters that do not need 432GB; the difference is capacity, not architecture generation.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>不能因为型号更大就假定 MI455X 更强；两者单卡显存不同，机架配置也不同。MXFP4 与 NVFP4 不可直接横比。</span><span data-en>Do not assume MI455X is stronger just because the number is higher; per-GPU memory and rack configurations differ. MXFP4 and NVFP4 are not directly comparable.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html" target="_blank" rel="noopener"><span data-zh>AMD MI450X 规格页</span><span data-en>AMD MI450X spec page</span></a></p>
+  </article><article class="u26-card" id="amd-mi455x">
+    <div class="u26-meta"><span class="u26-badge">2026-07-23</span><span class="u26-tag"><span data-zh>加速卡</span><span data-en>Accelerator</span></span></div>
+    <h2><span data-zh>AMD MI455X：432GB HBM4 / 23.3TB/s</span><span data-en>AMD MI455X: 432GB HBM4 / 23.3TB/s</span></h2>
+    <p class="u26-p"><span data-zh>单卡 432GB HBM4（12 stack）、23.3TB/s、320B 晶体管；OCP MXFP4 40.3 PFLOPS、FP8 20.1 PFLOPS；UALoE 3.6TB/s；DLC。</span><span data-en>Per GPU: 432GB HBM4 (12 stacks), 23.3TB/s, 320B transistors; OCP MXFP4 40.3 PFLOPS, FP8 20.1 PFLOPS; UALoE 3.6TB/s; direct liquid cooling.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>HBM</span><span data-en>HBM</span></dt><dd>432GB HBM4</dd><dt><span data-zh>带宽</span><span data-en>BW</span></dt><dd>23.3TB/s</dd><dt><span data-zh>MXFP4</span><span data-en>MXFP4</span></dt><dd>40.3 PFLOPS</dd><dt><span data-zh>互联</span><span data-en>scale-up</span></dt><dd>UALoE 3.6TB/s</dd><dt><span data-zh>冷却</span><span data-en>cooling</span></dt><dd>DLC</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>432GB 是当前公开单卡最大容量档；对把超大模型或长 KV 缓存留在单卡上的场景，容量比峰值算力更先决定「能不能跑」。</span><span data-en>432GB is the largest publicly documented per-GPU capacity here; for keeping a very large model or long KV cache on one card, capacity decides feasibility before peak compute.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>40.3 PF 是 OCP MXFP4 峰值，不是实测；不能与 NVIDIA NVFP4 直接横比。DLC 意味着风冷机房不能直接上。</span><span data-en>40.3 PF is OCP MXFP4 peak, not measured; it is not directly comparable with NVIDIA NVFP4. DLC means an air-cooled facility cannot simply take it.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html" target="_blank" rel="noopener"><span data-zh>AMD MI455X 规格页</span><span data-en>AMD MI455X spec page</span></a></p>
+  </article><article class="u26-card" id="google-tpu7x">
+    <div class="u26-meta"><span class="u26-badge">2026-04-22</span><span class="u26-tag"><span data-zh>加速卡 / ASIC</span><span data-en>Accelerator / ASIC</span></span></div>
+    <h2><span data-zh>Google TPU7x（Ironwood）：192GiB / 7.38TB/s</span><span data-en>Google TPU7x (Ironwood): 192GiB / 7.38TB/s</span></h2>
+    <p class="u26-p"><span data-zh>第七代 TPU，单芯片 192GiB HBM3E、约 7.38TB/s、4614 TFLOPS FP8 / 2307 TFLOPS BF16；9,216 chips per pod；ICI 1.2TB/s；JAX / PyTorch 支持，TensorFlow 不支持。</span><span data-en>Seventh-generation TPU: 192GiB HBM3E per chip, about 7.38TB/s, 4614 TFLOPS FP8 / 2307 TFLOPS BF16; 9,216 chips per pod; ICI 1.2TB/s; JAX / PyTorch supported, TensorFlow not.</span></p>
+    <dl class="u26-dl"><dt><span data-zh>HBM</span><span data-en>chip</span></dt><dd>192GiB HBM3E</dd><dt><span data-zh>带宽</span><span data-en>BW</span></dt><dd>约 7.38TB/s</dd><dt><span data-zh>FP8</span><span data-en>FP8</span></dt><dd>4614 TFLOPS</dd><dt><span data-zh>Pod</span><span data-en>Pod</span></dt><dd>9,216 chips</dd><dt><span data-zh>框架</span><span data-en>frameworks</span></dt><dd>JAX / PyTorch</dd></dl>
+    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它是非 GPU 路线里最完整的一档：单芯片容量、Pod 规模与互联都公开；对大规模训练、且能接受 JAX/PyTorch 技术栈的团队，是 GPU 之外的真实选项。</span><span data-en>The most complete non-GPU option: per-chip capacity, pod scale and interconnect are public. For large-scale training with a JAX/PyTorch stack, it is a real alternative to GPUs.</span></p></div>
+    
+    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>Pod 规模不是单卡吞吐；4614 TF 是 FP8 峰值。TensorFlow 不支持是官方明确写的，迁移成本要单算。不能把 TPU 与 GPU 按同一 CUDA 生态逻辑比较。</span><span data-en>Pod scale is not per-card throughput; 4614 TF is FP8 peak. The docs explicitly say TensorFlow is unsupported, so migration cost is separate. TPUs and GPUs cannot be compared through the same CUDA-ecosystem logic.</span></p></div>
+    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://docs.cloud.google.cn/tpu/docs/tpu7x" target="_blank" rel="noopener"><span data-zh>Google Cloud TPU7x 文档</span><span data-en>Google Cloud TPU7x docs</span></a></p>
+  </article><article class="u26-card" id="nvidia-rubin">
     <div class="u26-meta"><span class="u26-badge">2026</span><span class="u26-tag"><span data-zh>加速卡</span><span data-en>Accelerator</span></span></div>
     <h2><span data-zh>NVIDIA Rubin：288GB HBM4 / 22TB/s</span><span data-en>NVIDIA Rubin: 288GB HBM4 / 22TB/s</span></h2>
     <p class="u26-p"><span data-zh>单卡 288GB HBM4（12-Hi stack）、22TB/s、336B 晶体管、224 SM / 896 Tensor Cores；NVFP4 推理最高 50 PFLOPS；NVLink 6 3.6TB/s。</span><span data-en>Per GPU: 288GB HBM4 (12-Hi stacks), 22TB/s, 336B transistors, 224 SM / 896 Tensor Cores; up to 50 PFLOPS NVFP4 inference; NVLink 6 at 3.6TB/s.</span></p>
@@ -215,33 +270,6 @@
     
     <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>15 PF 是 dense NVFP4；不能与 Rubin 的 50 PF 推理数字横比。1400W 是最高 TGP，实际功耗随负载变化。</span><span data-en>15 PF is dense NVFP4 and cannot be compared directly with Rubin’s 50 PF inference figure. 1,400W is max TGP; real power varies with workload.</span></p></div>
     <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era" target="_blank" rel="noopener"><span data-zh>NVIDIA Blackwell Ultra 博客</span><span data-en>NVIDIA Blackwell Ultra blog</span></a></p>
-  </article><article class="u26-card" id="amd-mi455x">
-    <div class="u26-meta"><span class="u26-badge">2026-07-23</span><span class="u26-tag"><span data-zh>加速卡</span><span data-en>Accelerator</span></span></div>
-    <h2><span data-zh>AMD MI455X：432GB HBM4 / 23.3TB/s</span><span data-en>AMD MI455X: 432GB HBM4 / 23.3TB/s</span></h2>
-    <p class="u26-p"><span data-zh>单卡 432GB HBM4（12 stack）、23.3TB/s、320B 晶体管；OCP MXFP4 40.3 PFLOPS、FP8 20.1 PFLOPS；UALoE 3.6TB/s；DLC。</span><span data-en>Per GPU: 432GB HBM4 (12 stacks), 23.3TB/s, 320B transistors; OCP MXFP4 40.3 PFLOPS, FP8 20.1 PFLOPS; UALoE 3.6TB/s; direct liquid cooling.</span></p>
-    <dl class="u26-dl"><dt><span data-zh>HBM</span><span data-en>HBM</span></dt><dd>432GB HBM4</dd><dt><span data-zh>带宽</span><span data-en>BW</span></dt><dd>23.3TB/s</dd><dt><span data-zh>MXFP4</span><span data-en>MXFP4</span></dt><dd>40.3 PFLOPS</dd><dt><span data-zh>互联</span><span data-en>scale-up</span></dt><dd>UALoE 3.6TB/s</dd><dt><span data-zh>冷却</span><span data-en>cooling</span></dt><dd>DLC</dd></dl>
-    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>432GB 是当前公开单卡最大容量档；对把超大模型或长 KV 缓存留在单卡上的场景，容量比峰值算力更先决定「能不能跑」。</span><span data-en>432GB is the largest publicly documented per-GPU capacity here; for keeping a very large model or long KV cache on one card, capacity decides feasibility before peak compute.</span></p></div>
-    
-    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>40.3 PF 是 OCP MXFP4 峰值，不是实测；不能与 NVIDIA NVFP4 直接横比。DLC 意味着风冷机房不能直接上。</span><span data-en>40.3 PF is OCP MXFP4 peak, not measured; it is not directly comparable with NVIDIA NVFP4. DLC means an air-cooled facility cannot simply take it.</span></p></div>
-    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html" target="_blank" rel="noopener"><span data-zh>AMD MI455X 规格页</span><span data-en>AMD MI455X spec page</span></a></p>
-  </article><article class="u26-card" id="amd-mi450x">
-    <div class="u26-meta"><span class="u26-badge">2026-11-12</span><span class="u26-tag"><span data-zh>加速卡</span><span data-en>Accelerator</span></span></div>
-    <h2><span data-zh>AMD MI450X：288GB HBM4 / 23.3TB/s</span><span data-en>AMD MI450X: 288GB HBM4 / 23.3TB/s</span></h2>
-    <p class="u26-p"><span data-zh>与 MI455X 同为 CDNA5、同为 23.3TB/s，但容量为 288GB（8 个 HBM4 stack）；MXFP4 40.3 PFLOPS；2026-11-12 上市。</span><span data-en>Same CDNA5 and 23.3TB/s as MI455X, but 288GB (eight HBM4 stacks); MXFP4 40.3 PFLOPS; launched 2026-11-12.</span></p>
-    <dl class="u26-dl"><dt><span data-zh>HBM</span><span data-en>HBM</span></dt><dd>288GB HBM4（8 stacks）</dd><dt><span data-zh>带宽</span><span data-en>BW</span></dt><dd>23.3TB/s</dd><dt><span data-zh>MXFP4</span><span data-en>MXFP4</span></dt><dd>40.3 PFLOPS</dd><dt><span data-zh>上市</span><span data-en>launch</span></dt><dd>2026-11-12</dd></dl>
-    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它把 MI455X 的带宽/算力保留在 288GB 档，给不需要 432GB 的集群一个更现实的容量点；型号差在容量，不在架构代际。</span><span data-en>It keeps MI455X bandwidth/compute at the 288GB tier, a more realistic capacity point for clusters that do not need 432GB; the difference is capacity, not architecture generation.</span></p></div>
-    
-    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>不能因为型号更大就假定 MI455X 更强；两者单卡显存不同，机架配置也不同。MXFP4 与 NVFP4 不可直接横比。</span><span data-en>Do not assume MI455X is stronger just because the number is higher; per-GPU memory and rack configurations differ. MXFP4 and NVFP4 are not directly comparable.</span></p></div>
-    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://www.amd.com/en/products/accelerators/instinct/mi400/mi450x.html" target="_blank" rel="noopener"><span data-zh>AMD MI450X 规格页</span><span data-en>AMD MI450X spec page</span></a></p>
-  </article><article class="u26-card" id="google-tpu7x">
-    <div class="u26-meta"><span class="u26-badge">2026-04-22</span><span class="u26-tag"><span data-zh>加速卡 / ASIC</span><span data-en>Accelerator / ASIC</span></span></div>
-    <h2><span data-zh>Google TPU7x（Ironwood）：192GiB / 7.38TB/s</span><span data-en>Google TPU7x (Ironwood): 192GiB / 7.38TB/s</span></h2>
-    <p class="u26-p"><span data-zh>第七代 TPU，单芯片 192GiB HBM3E、约 7.38TB/s、4614 TFLOPS FP8 / 2307 TFLOPS BF16；9,216 chips per pod；ICI 1.2TB/s；JAX / PyTorch 支持，TensorFlow 不支持。</span><span data-en>Seventh-generation TPU: 192GiB HBM3E per chip, about 7.38TB/s, 4614 TFLOPS FP8 / 2307 TFLOPS BF16; 9,216 chips per pod; ICI 1.2TB/s; JAX / PyTorch supported, TensorFlow not.</span></p>
-    <dl class="u26-dl"><dt><span data-zh>HBM</span><span data-en>chip</span></dt><dd>192GiB HBM3E</dd><dt><span data-zh>带宽</span><span data-en>BW</span></dt><dd>约 7.38TB/s</dd><dt><span data-zh>FP8</span><span data-en>FP8</span></dt><dd>4614 TFLOPS</dd><dt><span data-zh>Pod</span><span data-en>Pod</span></dt><dd>9,216 chips</dd><dt><span data-zh>框架</span><span data-en>frameworks</span></dt><dd>JAX / PyTorch</dd></dl>
-    <div class="u26-block"><b><span data-zh>为什么值得看</span><span data-en>Why it matters</span></b><p><span data-zh>它是非 GPU 路线里最完整的一档：单芯片容量、Pod 规模与互联都公开；对大规模训练、且能接受 JAX/PyTorch 技术栈的团队，是 GPU 之外的真实选项。</span><span data-en>The most complete non-GPU option: per-chip capacity, pod scale and interconnect are public. For large-scale training with a JAX/PyTorch stack, it is a real alternative to GPUs.</span></p></div>
-    
-    <div class="u26-block u26-boundary"><b><span data-zh>边界 / 它没主张什么</span><span data-en>Boundary / what it does not claim</span></b><p><span data-zh>Pod 规模不是单卡吞吐；4614 TF 是 FP8 峰值。TensorFlow 不支持是官方明确写的，迁移成本要单算。不能把 TPU 与 GPU 按同一 CUDA 生态逻辑比较。</span><span data-en>Pod scale is not per-card throughput; 4614 TF is FP8 peak. The docs explicitly say TensorFlow is unsupported, so migration cost is separate. TPUs and GPUs cannot be compared through the same CUDA-ecosystem logic.</span></p></div>
-    <p class="u26-src"><span data-zh>来源</span><span data-en>Sources</span>：<a href="https://docs.cloud.google.cn/tpu/docs/tpu7x" target="_blank" rel="noopener"><span data-zh>Google Cloud TPU7x 文档</span><span data-en>Google Cloud TPU7x docs</span></a></p>
   </article><article class="u26-card" id="amd-helios">
     <div class="u26-meta"><span class="u26-badge">2026</span><span class="u26-tag"><span data-zh>整机 / 机架</span><span data-en>System / rack</span></span></div>
     <h2><span data-zh>AMD Helios：72× MI455X，31TB HBM4</span><span data-en>AMD Helios: 72× MI455X, 31TB HBM4</span></h2>

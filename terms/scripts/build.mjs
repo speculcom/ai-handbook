@@ -1334,7 +1334,7 @@ ${TABBAR}
       `        <li>${dateSlot ? `<span class="t-atlas-date">${esc(dateSlot)}</span>` : ''}<div class="t-atlas-ev">` +
       `<h3>${bi(titleZh, titleEn)}</h3><p>${bi(noteZh, noteEn)} ` +
       `<a href="${esc(ref[1])}" target="_blank" rel="noopener">${bi(ref[0], ref[2])} ↗</a></p></div></li>`;
-    const timelineHtml = ATLAS.timeline.map((ev) => tlItem(ev.date, ev.zh, ev.en, ev.note.zh, ev.note.en, ev.ref)).join('\n');
+    const timelineHtml = [...ATLAS.timeline].sort((a, b) => b.date.localeCompare(a.date)).map((ev) => tlItem(ev.date, ev.zh, ev.en, ev.note.zh, ev.note.en, ev.ref)).join('\n');
     const termsHtml = ATLAS.terms.map((tm) => tlItem(null, tm.zh, tm.en, tm.note.zh, tm.note.en, tm.ref)).join('\n');
     const orgsHtml = ATLAS.orgs.map((o) =>
       `        <div class="t-atlas-org"><h3>${bi(o.name, o.nameEn || o.name.replace("月之暗面 ", ""))}</h3>` +
