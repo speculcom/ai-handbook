@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { SERIES, QUANTIZER_NOTES, COMPANION, COMPANION_URL_PREFIX } from '../config.js';
 import {syncEditorial} from './sync-editorial.mjs';
 import {capacityWorkbench} from './capacity-workbench.mjs';
+import {buildLicensePage} from './build-license.mjs';
 import { vizFor } from '../../shared/viz.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -2106,5 +2107,8 @@ ${familyList.map((f) => `  <url><loc>${DOMAIN}families/${f.code}/</loc><changefr
 ${closedList.map((c) => `  <url><loc>${DOMAIN}closed/${c.code}/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join('\n')}
 ${guideList.map((g) => `  <url><loc>${DOMAIN}guides/${g.id}.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join('\n')}
 ${seriesList.map((s) => `  <url><loc>${DOMAIN}series/${s.code}/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`).join('\n')}
+  <url><loc>${DOMAIN}license.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
 `);
+
+buildLicensePage();

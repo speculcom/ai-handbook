@@ -28,6 +28,7 @@ import { parseFrontmatter, parseSources, bodyAfter } from '../scripts/yaml.mjs';
 import { vizFor } from '../../shared/viz.mjs';
 import { costWorkbench } from './cost-workbench.mjs';
 import { worksheetWorkbench } from './worksheet-workbench.mjs';
+import { buildDecisionPages } from '../decision/build-pages.mjs';
 
 // 路径解析优先级：环境变量 > 向上查找仓库根 > 脚本位置推导
 //
@@ -2461,8 +2462,25 @@ ${vizFor('tools')}
         <h2>${bi('先算一笔账，再选方案', 'Cost it before you choose')}</h2>
         <p class="section-desc">${bi('同一个任务，云端调用、本地运行与视频按秒计费是三套完全不同的成本结构。计算器不替你猜单价：把合同价或官方计费页的价格填进去，分别算出每组假设，再比较。', 'The same job has three different cost structures: cloud calls, local running and per-second video. The calculator does not guess rates: enter contract or official billing prices, compute each group separately, then compare.')}</p>
         <ul class="reading-actions">
+          <li><a href="/costs/">${bi('先看成本总表：公开价、超额与未包含项', 'Open the cost sheet')}</a></li>
           <li><a href="/mcp/guides/cost-calculator.html#cost-workbench">${bi('打开成本工作台（四组独立计算）', 'Open the cost workbench (four independent groups)')}</a></li>
           <li><a href="/mcp/guides/cost-control.html">${bi('先读成本控制指南：哪些费用常被漏算', 'Read the cost-control guide: what usually gets missed')}</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="decision">
+      <div class="container">
+        <h2>${bi('先选，再算，再按任务做', 'Choose, cost, then follow the task')}</h2>
+        <p class="section-desc">${bi('三篇多源对照页把“谁适合谁”摊开；选型器按任务、预算、国内可用与本地运行收窄；成本总表把订阅、API 与未包含项列清；任务手册中心按你手里的活给步骤。都不做第一方实测。', 'Three multi-source comparisons, a rule-based finder, a cost sheet and task playbooks. No first-party benchmarking.')}</p>
+        <ul class="reading-actions">
+          <li><a href="/compare/ai-search.html">${bi('AI 搜索怎么选：Perplexity / Kagi / 秘塔 / 天工','AI search: Perplexity / Kagi / Metaso / Tiangong')}</a></li>
+          <li><a href="/compare/coding-agents.html">${bi('AI 编程助手怎么选：Cursor / Claude Code / Copilot / Qoder CN','AI coding: Cursor / Claude Code / Copilot / Qoder CN')}</a></li>
+          <li><a href="/compare/meeting-notes.html">${bi('会议转写怎么选：Otter / Fireflies / tl;dv / 飞书 / Whisper','Meeting notes: Otter / Fireflies / tl;dv / Feishu / Whisper')}</a></li>
+          <li><a href="/finder/">${bi('打开 AI 选型器：说三件事，先排掉一半','Open the AI finder')}</a></li>
+          <li><a href="/costs/">${bi('成本总表：订阅、API、超额与未包含项','Cost sheet: subscriptions, API, overage')}</a></li>
+          <li><a href="/guides/">${bi('任务手册中心：按会议/文档/表格/研究/编程分组','Task playbook hub')}</a></li>
+          <li><a href="https://models.specul.com/license.html">${bi('许可证速查：商用、署名、MAU、蒸馏','Licence checker: commercial, attribution, MAU')}</a></li>
         </ul>
       </div>
     </section>
@@ -2632,15 +2650,17 @@ fs.writeFileSync(path.join(OUT, '.nojekyll'), '', 'utf8');
  * （旧结构里有、新映射里没有的 id 页会永远留在产物里）。
  * ⚠ 只清 .html 与旧 README.md，不动 brand 壳 / CNAME / .nojekyll。 */
 {
+  const KEEP_HTML = new Set(['2026.html']);
+  const KEEP_DIR = new Set(['prompts', 'skills']);
   const rmHtml = (dir) => {
     if (!fs.existsSync(dir)) return;
     for (const f of fs.readdirSync(dir, { withFileTypes: true })) {
       const p = path.join(dir, f.name);
-      if (f.isDirectory()) rmHtml(p);
-      else if (f.name.endsWith('.html')) fs.unlinkSync(p);
+      if (f.isDirectory()) { if (!KEEP_DIR.has(f.name)) rmHtml(p); }
+      else if (f.name.endsWith('.html') && !KEEP_HTML.has(f.name)) fs.unlinkSync(p);
     }
   };
-  rmHtml(OUT);   // 全树 .html（含根、harness/、tools/、tools/guides/）
+  rmHtml(OUT);   // 全树 .html（保留手写的 2026 / prompts / skills）
   for (const f of ['harness/README.md', 'tools/README.md']) {
     const p = path.join(OUT, f);
     if (fs.existsSync(p)) fs.unlinkSync(p);
@@ -2749,6 +2769,18 @@ ${SITE.partitions.map(k => {
 /* ── 站点首页（三族 10 卡）：站点根 index.html ───────────────────────── */
 fs.writeFileSync(path.join(OUT, 'index.html'), renderHome(loaded), 'utf8');
 allPages.unshift({ loc: `https://${SITE.domain}/`, pri: '1.0' });
+
+/* 决策页：对照页 / 任务手册中心 / 成本总表 / 选型器。
+ * 必须在 rmHtml(OUT) 之后生成，否则下一次构建会被清掉。 */
+const decisionUrls = buildDecisionPages({
+  shell: buildShell,
+  out: OUT,
+  guides: GUIDES,
+  here: path.join(DATA, 'decision'),
+});
+for (const url of decisionUrls) {
+  allPages.push({ loc: url, pri: url.includes('/finder/') ? '0.9' : '0.8' });
+}
 
 // sitemap：一个站一份——首页 + 10 大类索引 + 全部详情 + guides + 五个横向集合页（桩不进）
 const COLLECTION_PAGES = ['collection-browser', 'collection-memory', 'collection-realtime', 'collection-3d', 'collection-annotation'];

@@ -727,6 +727,14 @@ dl.cn-rows { margin: 0; }
 .cost-field input { min-width: 0; width: 100%; box-sizing: border-box; padding: var(--sp-2); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-sm); font: inherit; }
 #cost-workbench output { overflow-wrap: anywhere; }
 #cost-workbench button { padding: var(--sp-2); font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-sm); cursor: pointer; }
+.cost-presets { margin: var(--sp-4) 0; padding: var(--sp-3); background: var(--bg-inset); border: 1px solid var(--line); border-radius: var(--r-sm); }
+.cost-presets label { display:block; margin-bottom: var(--sp-1); color: var(--ink); font-weight:600; }
+.cost-presets select { width:100%; min-height:44px; padding: var(--sp-2); color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:var(--r-sm); font:inherit; }
+.cost-presets p { margin: var(--sp-2) 0 0; color: var(--ink-faint); line-height:1.6; }
+.cost-breakeven { margin-top: var(--sp-5); padding: var(--sp-4); background: var(--bg-inset); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.cost-breakeven h3 { margin: 0 0 var(--sp-2); font-size: var(--fs-lg); }
+.cost-breakeven p { color: var(--ink-mid); line-height:1.65; }
+.cost-breakeven output { display:block; margin-top: var(--sp-3); padding: var(--sp-3); color: var(--ink); background: var(--bg-panel); border-left: 3px solid var(--brand); border-radius: var(--r-xs); line-height:1.6; }
 
 /* 可填写工作表（worksheet-workbench）窄屏适配：
    两张表是 3~4 列网格，320px 下不处理就会把整页撑出横向滚动。 */

@@ -1,0 +1,58 @@
+/* 模型站许可证速查：与决策页同一套卡片语言，但只保留这一页需要的结构。 */
+.decision-hero { padding: var(--section-pad) 0 var(--sp-5); border-bottom: 1px solid var(--line); }
+.decision-hero h1 { max-width: 22ch; margin: 0 0 var(--sp-3); }
+.decision-hero .lede { max-width: 72ch; }
+.decision-meta { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5); margin-top: var(--sp-4); color: var(--ink-dim); font-size: var(--fs-xs); }
+.decision-meta b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.meta-warn { color: var(--warn-ink); border: 1px solid rgba(251,191,36,.35); border-radius: 999px; padding: 2px 8px; }
+.section-inset { background: var(--bg-raise); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-desc { max-width: 74ch; color: var(--ink-mid); }
+
+.license-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--sp-3); margin-top: var(--sp-4); }
+.license-help { padding: var(--sp-4); background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.license-help h3 { margin: 0 0 var(--sp-2); font-size: var(--fs-lg); }
+.license-help p { margin: 0; color: var(--ink-mid); font-size: var(--fs-sm); line-height: 1.6; }
+
+.license-filters { display: grid; grid-template-columns: auto minmax(160px,1fr) auto minmax(150px,auto) auto minmax(120px,auto) auto; gap: var(--sp-2) var(--sp-3); align-items: center; margin-top: var(--sp-4); padding: var(--sp-4); background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.license-filters label { color: var(--ink-dim); font-size: var(--fs-xs); }
+.license-filters input[type="search"], .license-filters select { min-height: 44px; width: 100%; padding: 8px 10px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-sm); font: inherit; }
+.lic-check { display: flex; align-items: center; gap: 6px; color: var(--ink-mid) !important; white-space: nowrap; }
+.lic-check input { width: 18px; height: 18px; accent-color: var(--brand); }
+
+.license-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--sp-4); }
+.license-card { display: flex; flex-direction: column; padding: var(--sp-5); background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.license-top { display: flex; justify-content: space-between; gap: var(--sp-2); align-items: center; margin-bottom: var(--sp-2); }
+.license-type { color: var(--ink-faint); font-size: var(--fs-micro); }
+.license-status { padding: 2px 8px; border-radius: 999px; font-size: var(--fs-micro); font-weight: 600; }
+.status-ok { color: var(--ok-ink); background: var(--ok-soft); }
+.status-no { color: #ffb4b4; background: rgba(248,113,113,.14); }
+.status-warn { color: var(--warn-ink); background: var(--warn-soft); }
+.license-card h3 { margin: 0 0 4px; font-size: var(--fs-lg); line-height: 1.4; }
+.license-vendor { margin: 0 0 var(--sp-2); color: var(--ink-faint); font-size: var(--fs-xs); }
+.license-id { color: var(--ink-dim); }
+.license-facts { display: grid; grid-template-columns: 78px minmax(0,1fr); gap: var(--sp-1) var(--sp-2); margin: var(--sp-2) 0; font-size: var(--fs-sm); }
+.license-facts dt { color: var(--ink-faint); }
+.license-facts dd { margin: 0; color: var(--ink-mid); }
+.license-quote { margin: var(--sp-3) 0; padding: var(--sp-3); color: var(--ink-dim); background: var(--bg-inset); border-left: 3px solid var(--brand-line); border-radius: var(--r-xs); font-size: var(--fs-xs); line-height: 1.65; }
+.license-links { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-3); margin-top: auto; padding-top: var(--sp-3); border-top: 1px solid var(--line); font-size: var(--fs-xs); }
+.license-links a { color: var(--brand); }
+.license-checked { margin: var(--sp-2) 0 0; color: var(--ink-faint); font-size: var(--fs-micro); }
+
+.next-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--sp-4); margin-top: var(--sp-4); }
+.next-card { padding: var(--sp-5); background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.next-card h3 { margin: 0 0 var(--sp-2); font-size: var(--fs-lg); line-height: 1.4; }
+.next-card p { margin: 0; color: var(--ink-mid); font-size: var(--fs-sm); line-height: 1.65; }
+.decision-disclaimer { margin-top: var(--sp-5); color: var(--ink-faint); font-size: var(--fs-xs); line-height: 1.7; }
+
+@media (max-width: 900px) {
+  .license-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .license-filters { grid-template-columns: 1fr 1fr; }
+  .license-filters label { margin-top: var(--sp-2); }
+  .license-card-grid { grid-template-columns: 1fr; }
+  .next-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .license-grid { grid-template-columns: 1fr; }
+  .license-filters { grid-template-columns: 1fr; }
+  .decision-hero h1 { max-width: none; }
+}

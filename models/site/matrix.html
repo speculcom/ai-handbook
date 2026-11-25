@@ -102,6 +102,7 @@
   <h1><span data-zh>20 个开放权重家族：横向选型矩阵</span><span data-en>20 open-weight families: a comparison matrix</span></h1>
   <p><span data-zh>这张表只做一件事：把「参数、上下文、许可、能不能在本地跑、大概要多少显存」放在同一屏，省得来回点 20 张家族卡。所有数字来自各家族卡与官方模型卡；显存是按 4-bit 权重的粗算，不含 KV 缓存、视觉编码器与并发。</span><span data-en>This table does one thing: put parameters, context, licence, local feasibility and approximate VRAM on one screen so you do not have to open 20 family cards. Figures come from the cards and official model cards; VRAM is a rough 4-bit weight estimate and excludes KV cache, vision encoders and concurrency.</span></p>
   <p class="mx-note"><span data-zh>「单卡可跑」指消费级 24–48 GB 或一张 80 GB 卡能装下最小可用档；「需多卡」指最小档也超过单卡。许可以官方模型卡为准，表里只做归并。</span><span data-en>“Single GPU” means the smallest usable tier fits a 24–48 GB consumer card or one 80 GB card; “multi-GPU” means even that exceeds one card. Licences follow the official model card; the table only groups them.</span></p>
+  <p class="mx-note"><span data-zh>许可不止“开源/不开源”：能不能商用、要不要署名、有没有 MAU 门槛，逐条看 <a href="license.html"><b>许可证速查</b></a>。</span><span data-en>Licences are more than open/closed: commercial use, attribution and MAU thresholds are broken out in the <a href="license.html"><b>licence checker</b></a>.</span></p>
   <div class="mx-chips" id="mx-filter">
     <button type="button" data-f="all" aria-pressed="true"><span data-zh>全部 20</span><span data-en>All 20</span></button>
     <button type="button" data-f="single" aria-pressed="false"><span data-zh>单卡可跑</span><span data-en>Single GPU</span></button>

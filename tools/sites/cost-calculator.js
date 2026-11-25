@@ -52,13 +52,67 @@
   }
   form.addEventListener('input',render);
   form.addEventListener('submit',event => event.preventDefault());
-  form.addEventListener('reset',() => setTimeout(render,0));
-  document.addEventListener('specul:preferences',render);
-  document.querySelector('#cost-export').addEventListener('click',() => {
+  form.addEventListener('reset',() => setTimeout(() => {
+    const preset = document.querySelector('#cost-preset');
+    if (preset) preset.value = '';
     render();
-    const snapshot = {source:location.href,created:new Date().toISOString(),currency:'user-supplied; one currency throughout',tax:'excluded',groups:Object.fromEntries(state)};
+    renderBreakEven();
+  },0));
+
+  const preset = document.querySelector('#cost-preset');
+  if (preset) {
+    preset.addEventListener('change', () => {
+      const values = preset.value === 'claude-intro'
+        ? {inputRate:2, outputRate:10, cachedRate:0.20}
+        : preset.value === 'claude-standard'
+          ? {inputRate:3, outputRate:15, cachedRate:0.30}
+          : null;
+      if (!values) return;
+      for (const [name, n] of Object.entries(values)) {
+        const input = form.querySelector(`input[name="${name}"]`);
+        if (input) input.value = String(n);
+      }
+      render();
+    });
+  }
+
+  function renderBreakEven() {
+    const output = document.querySelector('#be-result');
+    if (!output) return;
+    const ids = ['be-hardware','be-local','be-api'];
+    const els = ids.map(id => document.getElementById(id));
+    const vals = els.map(el => el ? Number(el.value) : NaN);
+    if (els.some(el => !el || el.value.trim() === '') || vals.some(v => !Number.isFinite(v) || v < 0)) {
+      output.textContent = english() ? 'Fill all three nonnegative values.' : '请填三项非负数。';
+      return;
+    }
+    const [hardware, local, api] = vals;
+    const gap = api - local;
+    if (gap <= 0) {
+      output.textContent = english()
+        ? `No payback on savings: API ${format(api)} ≤ local ${format(local)} per month. Local value must come from privacy, offline access or control.`
+        : `不会靠省钱回本：每月 API ${format(api)} ≤ 本地 ${format(local)}。本地的价值只能来自隐私、离线或可控性。`;
+      return;
+    }
+    const months = hardware / gap;
+    output.textContent = english()
+      ? `Payback ≈ ${format(months)} months (${format(months/12)} years). Formula: ${format(hardware)} / (${format(api)} − ${format(local)}).`
+      : `回本约 ${format(months)} 个月（${format(months/12)} 年）。算式：${format(hardware)} ÷（${format(api)} − ${format(local)}）。`;
+  }
+
+  for (const id of ['be-hardware','be-local','be-api']) {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', renderBreakEven);
+  }
+
+  document.addEventListener('specul:preferences',() => { render(); renderBreakEven(); });
+  document.querySelector('#cost-export').addEventListener('click', () => {
+    render();
+    renderBreakEven();
+    const snapshot = {source:location.href,created:new Date().toISOString(),currency:'user-supplied; one currency throughout',tax:'excluded',preset:preset?.value || '',groups:Object.fromEntries(state),breakeven:document.querySelector('#be-result')?.textContent || ''};
     const url = URL.createObjectURL(new Blob([JSON.stringify(snapshot,null,2)],{type:'application/json'}));
-    const link = document.createElement('a');link.href=url;link.download='specul-cost-assumptions.json';link.click();setTimeout(() => URL.revokeObjectURL(url),1000);
+    const link = document.createElement('a');link.href=url;link.download='specul-cost-assumptions.json';link.click();setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
   render();
+  renderBreakEven();
 })();

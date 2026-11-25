@@ -8,6 +8,15 @@ export function costWorkbench() {
   return `<section class="panel is-slim" id="cost-workbench" aria-labelledby="cost-workbench-title">
 <h2 id="cost-workbench-title">${bi('填写你的成本假设', 'Calculate with your own assumptions')}</h2>
 <p>${bi('单价留空，由你从当前合同或官方计费页填写。每组独立计算，不自动相加；所有金额须使用同一种币种，结果未含税。输入不上传、不保存。', 'Prices are blank: enter rates from your current contract or official billing page. Each group is independent and is not automatically added to the others. Use one currency throughout; totals exclude tax. Inputs are neither uploaded nor saved.')}</p>
+<div class="cost-presets">
+  <label for="cost-preset">${bi('官方价快照（可选）', 'Official price snapshot (optional)')}</label>
+  <select id="cost-preset" name="preset">
+    <option value="">${bi('不套用，手动填单价', 'Do not apply; enter rates manually')}</option>
+    <option value="claude-intro">${bi('Claude Sonnet 5 入门价：$2 输入 / $10 输出（至 2026-08-31）', 'Claude Sonnet 5 intro: $2 input / $10 output (until 2026-08-31)')}</option>
+    <option value="claude-standard">${bi('Claude Sonnet 5 标准价：$3 输入 / $15 输出', 'Claude Sonnet 5 standard: $3 input / $15 output')}</option>
+  </select>
+  <p id="cost-preset-note" class="t-xs">${bi('套用只改“云端调用”组的三个 token 单价；缓存写入 $2.50 / 读取 $0.20 只作说明，不自动填。价格核验 2026-11-25，来源：claude.com/pricing。', 'The preset only fills the three token rates in the cloud group. Cache write $2.50 / read $0.20 is noted but not auto-filled. Checked 2026-11-25; source: claude.com/pricing.')}</p>
+</div>
 <form id="cost-workbench-form">
 ${group('api', '云端对话 / Agent 的模型与工具调用', 'Cloud chat / agent model and tool calls',
 field('tasks','期间任务数','Tasks in period','任务','tasks',1)+field('calls','每任务首次模型调用数','Initial model calls per task','调用 / 任务','calls / task',1)+field('retries','每任务额外重试调用数','Additional retry model calls per task','不含首次调用','excludes initial calls',0)+field('input','每次非缓存输入','Uncached input per call','tokens / 调用','tokens / call',1000)+field('cached','每次缓存输入','Cached input per call','不与非缓存输入重复','not included in uncached input',0)+field('output','每次输出','Output per call','tokens / 调用','tokens / call',500)+field('inputRate','非缓存输入单价','Uncached input rate','金额 / 百万 tokens','currency / million tokens')+field('cachedRate','缓存输入单价','Cached input rate','金额 / 百万 tokens；无缓存填 0','currency / million tokens; 0 if unused')+field('outputRate','输出单价','Output rate','金额 / 百万 tokens','currency / million tokens')+field('tools','每任务实际工具调用总数','Total tool calls per task','包括工具重试；不再次乘模型调用数','includes tool retries; not multiplied by model calls',0)+field('toolRate','每次工具费用','Cost per tool call','金额 / 工具调用','currency / tool call'))}
@@ -15,7 +24,18 @@ ${group('team','席位与复核等固定费用','Seats, review and other fixed c
 ${group('local','本地运行每月费用','Monthly local running costs',field('hardware','计入预算的硬件费用','Hardware cost allocated to this use','金额','currency')+field('months','分摊月数','Allocation months','必须大于 0','must exceed 0',24)+field('power','平均功耗','Average power','kW，不是 W','kW, not W')+field('dailyHours','每日运行时数','Daily running hours','小时 / 天，0–24','hours / day, 0–24',8)+field('days','当月运行天数','Running days this month','天，0–31','days, 0–31',30)+field('electricRate','电价','Electricity rate','金额 / kWh','currency / kWh')+field('maintenance','月维护与评估费用','Monthly maintenance and evaluation','金额','currency'))}
 ${group('video','按秒计费的视频预算','Video budget billed per second',field('shots','镜头数','Shots','镜头','shots',1)+field('seconds','每镜头计费秒数','Billed seconds per shot','秒 / 镜头','seconds / shot',5)+field('attempts','每镜头总尝试次数','Total attempts per shot','包括第一次，至少 1','includes first attempt; at least 1',1)+field('secondRate','每秒费用','Rate per second','金额 / 计费秒','currency / billed second')+field('editing','剪辑与素材许可总费用','Total editing and asset-licence costs','金额','currency'))}
 <p><button type="reset">${bi('重置', 'Reset')}</button> <button type="button" id="cost-export">${bi('下载假设与算式', 'Download assumptions and formulas')}</button></p>
-</form><noscript><p>${bi('计算需要 JavaScript；下文保留全部算式，可手工复算。', 'The calculator needs JavaScript. All formulas remain below for manual calculation.')}</p></noscript>
+</form>
+<section class="cost-breakeven" id="cost-breakeven">
+  <h3>${bi('本地 vs API：多久回本？', 'Local vs API: when does it pay back?')}</h3>
+  <p>${bi('只算三笔：一次性硬件、每月本地运行、每月 API 账单。回本月数 = 一次性硬件 ÷（每月 API − 每月本地）。差额小于等于 0 时，本地不会靠省钱回本。', 'Three inputs only: one-time hardware, monthly local running, monthly API bill. Payback months = hardware / (API - local). If the gap is zero or negative, local never pays back on savings alone.')}</p>
+  <div class="cost-fields">
+    <label class="cost-field" for="be-hardware"><span>${bi('一次性硬件投入', 'One-time hardware')}</span><input id="be-hardware" type="number" min="0" step="any" inputmode="decimal" value="" /><span class="t-xs">${bi('金额', 'currency')}</span></label>
+    <label class="cost-field" for="be-local"><span>${bi('每月本地运行成本', 'Monthly local running cost')}</span><input id="be-local" type="number" min="0" step="any" inputmode="decimal" value="" /><span class="t-xs">${bi('电费+维护+折旧', 'power + maintenance + depreciation')}</span></label>
+    <label class="cost-field" for="be-api"><span>${bi('每月 API 账单', 'Monthly API bill')}</span><input id="be-api" type="number" min="0" step="any" inputmode="decimal" value="" /><span class="t-xs">${bi('同任务、同币种', 'same workload and currency')}</span></label>
+  </div>
+  <p><output id="be-result" aria-live="polite" aria-atomic="true">${bi('填三项后显示回本月数。', 'Fill all three to see payback months.')}</output></p>
+</section>
+<noscript><p>${bi('计算需要 JavaScript；下文保留全部算式，可手工复算。', 'The calculator needs JavaScript. All formulas remain below for manual calculation.')}</p></noscript>
 <script src="../../cost-calculator.js?v=${version}" defer></script>
 </section>`;
 }
