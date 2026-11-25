@@ -3,6 +3,7 @@ id: wps-ai
 form: web
 name: WPS AI
 nameEn: WPS AI
+tagline: WPS AI 把写作、表格分析、演示排版和 PDF 处理接进 WPS 套件，适合已经在金山办公生态里工作的团队。
 vendor: 金山办公
 homepage: https://ai.wps.cn/
 license: 官方产品页与条款页为准；本条目只记录能力与边界，不复制价格数字或完整合同。

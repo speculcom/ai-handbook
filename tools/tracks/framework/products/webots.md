@@ -4,6 +4,7 @@ form: local-app
 family: robotics
 name: Webots
 nameEn: Webots
+tagline: Webots 是开源机器人仿真器，带 3D 场景编辑、控制器接口和多种机器人模型，适合教学、原型验证与 ROS 联调。
 vendor: Cyberbotics
 homepage: https://cyberbotics.com/
 mark: WB

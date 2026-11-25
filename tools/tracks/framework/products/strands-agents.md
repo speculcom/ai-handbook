@@ -97,4 +97,4 @@ Strands 是「拿来自己搭的底座」（本大类）。托管线在 automati
 ## 相关条目
 
 - [OpenAI Agents SDK](./openai-agents-sdk.md) — 同为轻量官方 SDK：OpenAI 版绑自家生态浅，Strands 与 Bedrock 绑得深。
-- Bedrock Agents / AgentCore（automation 大类，待建档）— 同厂商两线对照：托管 vs 开源 SDK，选型时先分清。建档上线后在此互链。
+- [Bedrock Agents](../automation/products/bedrock-agents.md) — 同厂商的托管式 Agent 线；与 Strands 的开源 SDK 对照，选型时先分清托管边界与自建边界。

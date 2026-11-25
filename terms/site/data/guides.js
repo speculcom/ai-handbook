@@ -1762,7 +1762,7 @@ var GUIDES = [
    "en": "Official update snapshots: dates, rollout scope and planned shutdowns, with sources; ordered newest event first."
   },
   "points": [
-   "工具线：Google Opal 计划于 2026-11-17 停用，工作流不会自动迁移。Vercel AI SDK 7 在 2026 changelog 发布。",
+   "工具线：Google Opal 已于 2026-11-17 停用，Gems made by Labs 同日关闭；现有工作流与共享链接不再运行，工作流不会自动迁移（2026-11-25 复核）。Vercel AI SDK 7 在 2026 changelog 发布。",
    "协议与硬件：AMD MI450X 于 2026-11-12 上市；Agent Skills 于 2026-10-22 捐给 AAIF；本地线 ExLlamaV3 1.6.5 于 2026-10-25 发布。",
    "模型线：Mistral Large 4（2026-10-29，1.05T / 49B 激活）、Meta Muse Spark Open（2026-10-15，816B / 42B 激活）、小米 MiMo-V2.6（2026-09-22）相继开放权重或开源。",
    "研究线 2：JEPA-PRH 预印本于 2026-10-29 给出 109M 文本 JEPA 的跨模态对齐结果。Byteification 于 2026-10-07 登上 Nature，49.1B token 把子词模型改成字节级。",

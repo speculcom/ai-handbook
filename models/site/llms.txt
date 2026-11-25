@@ -51,7 +51,7 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   微软（Microsoft）　当前代 Phi-4-reasoning 系（2026-08）　3 代　许可 mit　没有它的量化对比
 - [千问 Qwen](https://models.specul.com/families/qwen/): 中文与代码口碑最强的开放权重家族之一；Qwen4-Max 是闭源 API 旗舰，开放权重线仍以 Qwen3.8 为主，许可与硬件门槛分开看待。
   阿里巴巴 · 通义千问　当前代 Qwen4-Max（2026-11）　4 代　许可 apache-2.0, other　量化对比：qwen3-8
-- [腾讯混元](https://models.specul.com/families/tencent/): 中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版主打视觉理解、长上下文与长程 agent，Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。正式版参数量官方未在同一页披露，站内不把 preview 的 770B/49B 直接套到正式版。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。
+- [腾讯混元](https://models.specul.com/families/tencent/): 中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版为 770B 总参 / 49B 激活，主打视觉理解、长上下文与长程 agent；Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。权重于 2026-11-20 开放，许可为 Tencent Hy License，非 OSI 标准许可；这里暂时没有 GGUF 量化收录，选型前先看许可原文与硬件门槛。
   腾讯　当前代 Hy4 / Hy4 flash（2026-11）　4 代　许可 other　没有它的量化对比
 - [Thinking Machines · Inkling](https://models.specul.com/families/thinkingmachines/): 同一代的两条线：Small 是 594B 级旗舰，用来打前沿 Agent / 多模态任务；Mini 是 26B 级本地节点，用循环层换容量。两者都是 Apache-2.0、1M 上下文，但硬件门槛相差一个数量级，不能互相替代。
   Thinking Machines Lab　当前代 Inkling 2 Small（2026-11）　2 代　许可 apache-2.0　没有它的量化对比
@@ -63,11 +63,11 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
 - [Claude（闭源 API）](https://models.specul.com/closed/claude/): 闭源旗舰线（agentic 编码与企业向）：官方模型总览是规格真相源；官方文档将模型 ID 定义为固定版本，而非持续更新的别名；选型时应核对具体 ID。
   Anthropic　当前代 Claude 5.2 代（Fable 5.2 / Mythos 5.2）（2026-11）　5 条官方事实　资料 2026-11-19　复核周期 30 天
 - [豆包（闭源 API）](https://models.specul.com/closed/doubao/): 国产闭源主力：对话产品「豆包」与 API「Doubao-Seed」同族两条线；服务在网信办备案（Beijing-YunQue-20230821，豆包大模型=云雀更名，官方备案公示页确认）。代次更替快，卡片上标了资料时间和复核周期。
-  字节跳动 · 火山引擎　当前代 Doubao-Seed 2.1 系（Pro / Lite / Seed-Evolving）+ SeedRealtime 1.0（2026-11）　6 条官方事实　资料 2026-11-20　复核周期 30 天
+  字节跳动 · 火山引擎　当前代 Doubao-Seed 2.1 系（Pro / Lite / Seed-Evolving）+ SeedRealtime 1.0（2026-11）　6 条官方事实　资料 2026-11-25　复核周期 30 天
 - [Gemini（闭源 API）](https://models.specul.com/closed/gemini/): Google 的闭源旗舰线；与开放权重的 Gemma 是两条线，别混。选型注意官方「预览版」标注——预览意味着规格与价格都可能变，这里只抄快照。
   Google DeepMind　当前代 Gemini 4 系（Carbon / Argon / Neon / Hydrogen）（2026-11）　6 条官方事实　资料 2026-11-20　复核周期 30 天
-- [GLM（闭源 API）](https://models.specul.com/closed/glm/): GLM-5.4 是闭源首发、开放权重待定的过渡代。把它当“下一代能力预告”看，不要当现在可部署的模型；要本地跑仍看 5.3 与 MIT 的 Flash 杯。
-  智谱 AI · Z.ai　当前代 GLM-5.4（750B 基座，官方称 2–3T 级智能）（2026-11）　3 条官方事实　资料 2026-11-24　复核周期 30 天
+- [GLM（闭源 API）](https://models.specul.com/closed/glm/): GLM-5.4 是闭源首发、开放权重待定的过渡代。Coding Plan 用户现在能在工具里用上，公开 API 与权重还要等；要本地跑仍看 5.3 与 MIT 的 Flash 杯。
+  智谱 AI · Z.ai　当前代 GLM-5.4（750B 基座，官方称 2–3T 级智能）（2026-11）　3 条官方事实　资料 2026-11-25　复核周期 30 天
 - [GPT（闭源 API）](https://models.specul.com/closed/gpt/): 闭源旗舰线：能力声明以官方发布页为准，这里只抄规格不背书横评。注意 OpenAI 另有一条开放权重线（gpt-oss），与这条 API 线是两回事——这里两边都有卡。
   OpenAI　当前代 GPT-6.2 代（Astra / Sol）（2026-11）　5 条官方事实　资料 2026-11-19　复核周期 30 天
 - [Grok（闭源 API）](https://models.specul.com/closed/grok/): 闭源旗舰线（代码与 agentic 向）：官方文档规格直抄。诚实标注：2026-10-20 快照里官方文档页自称 SpaceXSI（Memphis 数据中心口径），品牌归属变化这里不推测、只记录页面原文。
@@ -191,8 +191,3 @@ GGUF 量化的模型（MoE 与 dense 都在内）。
   做游戏子域 vg.specul.com 已于 2026-11-07 撤站，游戏内容并入主站主题页，不再存在）
 
 --- 最后更新：2026-10-30
-
-
-## 数据与评测
-- [数据与训练语料](https://models.specul.com/data/) — 40 张数据集卡，8 类；许可、规模、获取方式与使用边界。
-- [评测与榜单](https://models.specul.com/evals/) — 40 个基准，只写测什么与怎么读，不做总分排名。

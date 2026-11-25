@@ -16,7 +16,7 @@
 
 ---
 
-## 2026-11-25 · 数据更新 · Opal 停用状态与 office 收录清单
+## 2026-11-25 · 数据更新 · 内容修正与去旧换新
 
 **涉及**：
 - `tracks/automation/products/opal.md` — 2026-11-17 已停用，lifecycle 改为 archived；更新迁移路径与核验说明
@@ -24,6 +24,10 @@
 - `inventory/office.md` — 新增 office 大类 15 份档案的收录清单
 - `tracks/framework/products/{gazebo,genesis,isaac-lab,isaac-sim,drake,lerobot,moveit2,mujoco,nav2,pybullet,ros2,webots}.md` — 修掉“机器人软件栈对象”套话和被截断的加粗首句；补最小起步说明
 - `tracks/office/products/*.md` — 15 份办公工具的一句话定位改成具体能力，去掉重复的“适合：适合”与空泛“不适合”段
+- `tracks/coding/products/openai-dot.md` — 短信入口从“即将推出”改为 2026-11-13 起 iMessage/RCS 文本 beta，限美国、加拿大、墨西哥部分 Pro 用户；SMS 本身不支持
+- `tracks/coding/products/meta-muse.md` — 对照表的 Dot 接入口同步为短信 beta 口径
+- `tracks/framework/products/strands-agents.md` — Bedrock Agents 已建档，去掉“待建档”占位并补站内链接
+- `tracks/office/products/{feishu-ai,gamma,tencent-docs-ai,tldv,wps-ai}.md`、`tracks/framework/products/{mujoco,webots}.md` — 补长 tagline，修掉 7 条过短的 SEO description
 - `scripts/status.mjs` / `scripts/quality.mjs` / `_audit/link-graph.mjs` — 把 office 与 safety 纳入全量扫描
 - `i18n/bodies/opal.en.json`、`i18n/bodies/*.en.json`（12 个 robotics 页）、`i18n/_leads.en.json`、`i18n/_onelines.en.json`、`i18n/_fits.en.json`、`i18n/_pitfalls-a.en.json`、`i18n/guides/changes-2026-q3-q4.en.json` — 中英同步
 

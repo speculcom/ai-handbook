@@ -3,6 +3,7 @@ id: feishu-ai
 form: cloud
 name: 飞书智能伙伴
 nameEn: Feishu AI
+tagline: 飞书智能伙伴把文档、会议、消息与知识库接上 AI，适合已经把协作和知识沉淀放在飞书里的团队。
 vendor: 飞书
 homepage: https://www.feishu.cn/product/ai
 license: 官方产品页与条款页为准；本条目只记录能力与边界，不复制价格数字或完整合同。

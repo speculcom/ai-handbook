@@ -1993,9 +1993,10 @@
     "category": "scaling",
     "url": "https://www.kimi.com/news/kimi-k3-1-pro",
     "license": {
-      "kind": "official-release",
-      "evidenceUrl": "https://www.kimi.com/news/kimi-k3-1-pro",
-      "checkedAt": "2026-11-19"
+      "kind": "official-model-card",
+      "spdx": "LicenseRef-kimi-k3.1-pro",
+      "evidenceUrl": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "checkedAt": "2026-11-25"
     },
     "evidence": [
       {
@@ -2007,22 +2008,32 @@
         "quote": "我们同步推出高速版模型 Kimi K3.1 Pro Highspeed，同等智能，输出速度约 2~3 倍。"
       },
       {
-        "url": "https://www.kimi.com/news/kimi-k3-1-pro",
-        "quote": "完整模型权重将于 11 月 4 日前发布。"
+        "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+        "quote": "Kimi K3.1 Pro is an open-weight, natively multimodal agentic model, and our most capable 3T-class model to date."
+      },
+      {
+        "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+        "quote": "Total Parameters | 2.8T ... Activated Parameters | 104B ... Context Length | 1048576"
+      },
+      {
+        "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+        "quote": "Kimi K3.1 Pro is released under the Kimi K3.1 Pro License."
       }
     ],
     "notes": {
-      "zh": "问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。\n证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍；完整权重承诺在 11 月 4 日前发布。\n作者自陈局限：发布页没有给训练数据、算力、完整评测口径与失败案例；权重发布是承诺时点，是否兑现需另行核验；评测图表为厂商自述。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 3T 规模；不是权重已经开放。",
-      "en": "Problem: what are K3.1 Pro’s scale, context and product split, and which verifiable facts does the official release promise?\nWhere the evidence sits: the official announcement says K3.1 Pro is the first model in the K3.1 line, with 3T-class parameters and 1M context; a Highspeed variant is launched with roughly 2–3x output speed; full weights are promised by November 4.\nWhat the authors say about limits: the page does not disclose training data, compute, full evaluation protocols or failure cases; the weight release is a promised date and must be verified separately; benchmark charts are vendor-reported.\nWhat it does not claim: a first place in independent third-party evaluations; that every task benefits from 3T scale; that weights are already open."
+      "zh": "问题：K3.1 Pro 的规模、上下文与产品分工是什么，权重和许可到底开放到什么程度。\n证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍。Hugging Face 官方模型卡进一步给出 2.8T 总参、104B 激活、1,048,576 token 上下文，并写明「open-weight」与自定义 Kimi K3.1 Pro License。发布页承诺的「11 月 4 日前发布完整权重」已兑现，权重文件已上架。\n作者自陈局限：发布页没有给训练数据、算力与完整评测口径；模型卡里的评测为厂商自报，部分为内部 benchmark；许可为自定义条款，商用前需读原文。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 2.8T 规模；开放权重不等于可商用无限制。",
+      "en": "Problem: what are K3.1 Pro's scale, context and product split, and how open are the weights and licence?\nWhere the evidence sits: the official announcement says K3.1 Pro is the first model in the K3.1 line, with 3T-class parameters and 1M context; a Highspeed variant launches with roughly 2–3x output speed. The official Hugging Face model card gives 2.8T total parameters, 104B active and a 1,048,576-token context, and states that it is an open-weight model under the custom Kimi K3.1 Pro License. The launch-page promise of full weights by November 4 was kept; the files are published.\nWhat the authors say about limits: the page does not disclose training data, compute or full evaluation protocols; model-card benchmarks are vendor-reported and some are internal; the licence is custom, so read the text before commercial use.\nWhat it does not claim: a first place in independent third-party evaluations; that every task benefits from 2.8T scale; that open weights mean unrestricted commercial use."
     },
-    "verifiedAt": "2026-11-19",
+    "verifiedAt": "2026-11-25",
     "specs": {
       "发布 / release": "2026-10-24（官方发布页）",
-      "规模 / scale": "3 万亿级参数",
-      "上下文 / context": "100 万 tokens",
+      "规模 / scale": "2.8T 总参 / 104B 激活（HF 模型卡）",
+      "上下文 / context": "1,048,576 tokens",
       "产品分工 / variants": "K3.1 Pro / K3.1 Pro Highspeed（输出约 2–3 倍）",
-      "证据位置 / evidence": "发布页首段与权重承诺段",
-      "复现状态 / reproduction": "未复现（只读官方发布页）"
+      "权重 / weights": "已开放（Hugging Face，2026-11-04）",
+      "许可 / licence": "Kimi K3.1 Pro License（自定义）",
+      "证据位置 / evidence": "发布页首段；HF 模型卡 Model Summary 与 License",
+      "复现状态 / reproduction": "未复现（只读官方发布页与模型卡）"
     }
   },
   {
@@ -3848,15 +3859,16 @@
   {
     "id": "tencent-hy4-2026",
     "title": {
-      "zh": "腾讯 Hy4：正式版与开源路线",
-      "en": "Tencent Hy4: Production Release and Open-Source Path"
+      "zh": "腾讯 Hy4：正式版与开放权重",
+      "en": "Tencent Hy4: Production Release and Open Weights"
     },
     "category": "scaling",
     "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
     "license": {
-      "kind": "official-release",
-      "evidenceUrl": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
-      "checkedAt": "2026-11-20"
+      "kind": "official-model-card",
+      "spdx": "LicenseRef-Tencent-Hy-License",
+      "evidenceUrl": "https://huggingface.co/tencent/Hy4",
+      "checkedAt": "2026-11-25"
     },
     "evidence": [
       {
@@ -3868,22 +3880,33 @@
         "quote": "The new model also introduces visual understanding capabilities for the first time, alongside major improvements in instruction following, long-context comprehension and long-horizon agentic tasks"
       },
       {
-        "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
-        "quote": "Tencent Hy plans to release model weights and system cards in the coming days"
+        "url": "https://huggingface.co/tencent/Hy4",
+        "quote": "The language backbone comprises 770B total parameters, of which 49B are activated per token."
+      },
+      {
+        "url": "https://huggingface.co/tencent/Hy4",
+        "quote": "We open-source Hy4, Hy4-FP8, and the pre-trained Hy4 base model weights on Hugging Face, ModelScope, and GitCode."
+      },
+      {
+        "url": "https://huggingface.co/tencent/Hy4",
+        "quote": "Hy4 is released under the Tencent Hy License."
       }
     ],
     "notes": {
-      "zh": "问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。\n证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升；同页称将随后发布模型权重与 system card。\n作者自陈局限：发布页没有披露 Hy4 正式版的总参 / 激活数；「770B 总参 / 49B 激活」只出现在 Hy4 flash 发布页对 Hy4 Preview 的对照段，不能直接套到正式版；benchmark 图表与排名为厂商口径；权重与 system card 是承诺，需按后续发布核验。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 Hy4 正式版；不是发布当天已开放全部权重。",
-      "en": "Problem: how is production Hy4 positioned, which verifiable facts does the official release promise, and can its parameter count be quoted directly?\nWhere the evidence sits: Tencent’s release says Hy4 launched on 2026-11-04, adds visual understanding for the first time and improves instruction following, long-context comprehension and long-horizon agentic tasks; it also says model weights and system cards will follow.\nWhat the authors say about limits: the release does not disclose production Hy4’s total / active parameter count; \"770B total / 49B active\" appears only as the Hy4 Preview comparison in the Hy4 flash release and must not be copied onto production Hy4; benchmark charts and rankings are vendor-reported; weights and system cards are promises to verify later.\nWhat it does not claim: first place in independent third-party evaluation; that every task suits production Hy4; that all weights were open on launch day."
+      "zh": "问题：Hy4 正式版是什么定位，参数量能不能直接引用，权重和 system card 是否已经放出。\n证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升。Hugging Face 官方模型卡写明语言主干 770B 总参、每 token 激活 49B（视觉另计 1.23B），上下文 1M；并明确 Hy4、Hy4-FP8 与 Hy4 base 权重已在 Hugging Face、ModelScope、GitCode 开放，system card 同时提供。发布页所说「随后发布权重与 system card」已于 2026-11-20 兑现。\n作者自陈局限：发布页没有披露训练数据与算力；benchmark 图表与排名为厂商口径，部分为内部评测；许可为 Tencent Hy License，非 OSI 标准许可，商用前需读原文。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 770B 规模；开放权重不等于无限制商用。",
+      "en": "Problem: how is production Hy4 positioned, can its parameter count be quoted directly, and have the weights and system card shipped?\nWhere the evidence sits: Tencent's release says Hy4 launched on 2026-11-04, adds visual understanding for the first time and improves instruction following, long-context comprehension and long-horizon agentic tasks. The official Hugging Face model card states a 770B-parameter language backbone with 49B activated per token (plus 1.23B vision), a 1M context, and confirms that Hy4, Hy4-FP8 and Hy4 base weights are open on Hugging Face, ModelScope and GitCode with a system card. The launch-page promise that weights and system cards would follow was kept on 2026-11-20.\nWhat the authors say about limits: the release does not disclose training data or compute; benchmark charts and rankings are vendor-reported and some are internal; the licence is the Tencent Hy License, not an OSI-standard licence, so read the text before commercial use.\nWhat it does not claim: first place in independent third-party evaluation; that every task suits 770B scale; that open weights mean unrestricted commercial use."
     },
-    "verifiedAt": "2026-11-20",
+    "verifiedAt": "2026-11-25",
     "specs": {
       "发布 / release": "2026-11-04（腾讯官方发布页）",
-      "规模 / scale": "正式版参数量未在该页披露",
-      "视觉 / vision": "首次引入视觉理解",
+      "规模 / scale": "770B 总参 / 49B 激活（HF 模型卡）",
+      "视觉 / vision": "首次引入视觉理解；视觉激活 1.23B",
+      "上下文 / context": "1,048,576 tokens",
       "能力重点 / focus": "指令跟随、长上下文、长程 agent",
-      "权重 / weights": "官方称随后发布权重与 system card",
-      "复现状态 / reproduction": "未复现（只读官方发布页）"
+      "权重 / weights": "已开放（Hy4 / Hy4-FP8 / Hy4 base，2026-11-20）",
+      "许可 / licence": "Tencent Hy License",
+      "证据位置 / evidence": "腾讯发布页；HF 模型卡 Model Summary 与 License",
+      "复现状态 / reproduction": "未复现（只读官方发布页与模型卡）"
     }
   },
   {

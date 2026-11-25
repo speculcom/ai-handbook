@@ -7,9 +7,10 @@
   "category": "scaling",
   "url": "https://www.kimi.com/news/kimi-k3-1-pro",
   "license": {
-    "kind": "official-release",
-    "evidenceUrl": "https://www.kimi.com/news/kimi-k3-1-pro",
-    "checkedAt": "2026-11-19"
+    "kind": "official-model-card",
+    "spdx": "LicenseRef-kimi-k3.1-pro",
+    "evidenceUrl": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+    "checkedAt": "2026-11-25"
   },
   "evidence": [
     {
@@ -21,21 +22,31 @@
       "quote": "我们同步推出高速版模型 Kimi K3.1 Pro Highspeed，同等智能，输出速度约 2~3 倍。"
     },
     {
-      "url": "https://www.kimi.com/news/kimi-k3-1-pro",
-      "quote": "完整模型权重将于 11 月 4 日前发布。"
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "quote": "Kimi K3.1 Pro is an open-weight, natively multimodal agentic model, and our most capable 3T-class model to date."
+    },
+    {
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "quote": "Total Parameters | 2.8T ... Activated Parameters | 104B ... Context Length | 1048576"
+    },
+    {
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "quote": "Kimi K3.1 Pro is released under the Kimi K3.1 Pro License."
     }
   ],
   "notes": {
-    "zh": "问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。\n证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍；完整权重承诺在 11 月 4 日前发布。\n作者自陈局限：发布页没有给训练数据、算力、完整评测口径与失败案例；权重发布是承诺时点，是否兑现需另行核验；评测图表为厂商自述。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 3T 规模；不是权重已经开放。",
-    "en": "Problem: what are K3.1 Pro’s scale, context and product split, and which verifiable facts does the official release promise?\nWhere the evidence sits: the official announcement says K3.1 Pro is the first model in the K3.1 line, with 3T-class parameters and 1M context; a Highspeed variant is launched with roughly 2–3x output speed; full weights are promised by November 4.\nWhat the authors say about limits: the page does not disclose training data, compute, full evaluation protocols or failure cases; the weight release is a promised date and must be verified separately; benchmark charts are vendor-reported.\nWhat it does not claim: a first place in independent third-party evaluations; that every task benefits from 3T scale; that weights are already open."
+    "zh": "问题：K3.1 Pro 的规模、上下文与产品分工是什么，权重和许可到底开放到什么程度。\n证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍。Hugging Face 官方模型卡进一步给出 2.8T 总参、104B 激活、1,048,576 token 上下文，并写明「open-weight」与自定义 Kimi K3.1 Pro License。发布页承诺的「11 月 4 日前发布完整权重」已兑现，权重文件已上架。\n作者自陈局限：发布页没有给训练数据、算力与完整评测口径；模型卡里的评测为厂商自报，部分为内部 benchmark；许可为自定义条款，商用前需读原文。\n它没主张的：不是独立第三方评测第一；不是所有任务都适合 2.8T 规模；开放权重不等于可商用无限制。",
+    "en": "Problem: what are K3.1 Pro's scale, context and product split, and how open are the weights and licence?\nWhere the evidence sits: the official announcement says K3.1 Pro is the first model in the K3.1 line, with 3T-class parameters and 1M context; a Highspeed variant launches with roughly 2–3x output speed. The official Hugging Face model card gives 2.8T total parameters, 104B active and a 1,048,576-token context, and states that it is an open-weight model under the custom Kimi K3.1 Pro License. The launch-page promise of full weights by November 4 was kept; the files are published.\nWhat the authors say about limits: the page does not disclose training data, compute or full evaluation protocols; model-card benchmarks are vendor-reported and some are internal; the licence is custom, so read the text before commercial use.\nWhat it does not claim: a first place in independent third-party evaluations; that every task benefits from 2.8T scale; that open weights mean unrestricted commercial use."
   },
-  "verifiedAt": "2026-11-19",
+  "verifiedAt": "2026-11-25",
   "specs": {
     "发布 / release": "2026-10-24（官方发布页）",
-    "规模 / scale": "3 万亿级参数",
-    "上下文 / context": "100 万 tokens",
+    "规模 / scale": "2.8T 总参 / 104B 激活（HF 模型卡）",
+    "上下文 / context": "1,048,576 tokens",
     "产品分工 / variants": "K3.1 Pro / K3.1 Pro Highspeed（输出约 2–3 倍）",
-    "证据位置 / evidence": "发布页首段与权重承诺段",
-    "复现状态 / reproduction": "未复现（只读官方发布页）"
+    "权重 / weights": "已开放（Hugging Face，2026-11-04）",
+    "许可 / licence": "Kimi K3.1 Pro License（自定义）",
+    "证据位置 / evidence": "发布页首段；HF 模型卡 Model Summary 与 License",
+    "复现状态 / reproduction": "未复现（只读官方发布页与模型卡）"
   }
 }

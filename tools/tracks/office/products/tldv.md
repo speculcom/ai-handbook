@@ -3,6 +3,7 @@ id: tldv
 form: cloud
 name: tl;dv
 nameEn: tl;dv
+tagline: tl;dv 自动录制会议并生成转写、摘要与可回看的片段，偏客户通话、多语言会议和销售复盘。
 vendor: tl;dv
 homepage: https://tldv.io/
 license: 官方产品页与条款页为准；本条目只记录能力与边界，不复制价格数字或完整合同。

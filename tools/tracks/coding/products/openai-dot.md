@@ -96,7 +96,7 @@ axes:
     - ChatGPT（桌面/网页/移动）
     - Slack
     - Teams
-    - 短信（官方写「即将推出」）
+    - 短信（2026-11-13 起以 iMessage / RCS 文本 beta，限美国、加拿大、墨西哥的部分 Pro 用户；普通 SMS 本身不支持）
     - 语音通话
 
     **跨渠道共享的载体官方写明了是「项目」**：
@@ -192,12 +192,16 @@ sources:
     url: https://help.openai.com/en/articles/6825453-chatgpt-release-notes
     kind: changelog
 
+  - label: OpenAI · Getting started with your dot（2026-11-25 复核：Texting 以 iMessage/RCS beta 开放给美国、加拿大、墨西哥部分 Pro 用户；SMS 不支持）
+    url: https://help.openai.com/en/articles/20001530-getting-started-with-your-dot
+    kind: docs
+
 link:
   url: https://openai.com/index/introducing-dots/
   kind: official
 
-last_verified: 2026-10-23
-last_updated: 2026-10-03
+last_verified: 2026-11-25
+last_updated: 2026-11-25
 lifecycle: active
 confidence: verified
 cn:

@@ -10,8 +10,8 @@
     "en": "Z.ai (Zhipu AI)"
   },
   "access": {
-    "zh": "z.ai 与 BigModel 开放平台 API；GLM-5.4 的 API 尚未上线，官方称权重计划在安全加固后开放，当前不可下载或本地部署。",
-    "en": "z.ai and the BigModel platform API; the GLM-5.4 API is not live yet, and the vendor says weights will follow after safety hardening — no download or local deployment today."
+    "zh": "z.ai / BigModel API（GLM-5.3 及更早）；GLM-5.4 已向 GLM Coding Plan 全量用户开放，可在常用工具中使用，公开 API 需等安全评估完成后开放，权重也计划在安全加固后开放，当前不可下载或本地部署。",
+    "en": "z.ai / BigModel APIs (GLM-5.3 and earlier); GLM-5.4 is already available to all GLM Coding Plan users in supported tools, while the public API awaits safety assessment and weights are planned after safety hardening — no download or local deployment today."
   },
   "currentGen": {
     "zh": "GLM-5.4（750B 基座，官方称 2–3T 级智能）",
@@ -23,8 +23,8 @@
     {
       "gen": "GLM-5.4",
       "date": "2026-11",
-      "zh": "2026-11-23 发布：750B 基座，28 层循环两遍；泛 Coding（视频、游戏、3D）与原生多模态；API 标为 coming soon，权重计划在安全加固后放。",
-      "en": "Announced 2026-11-23: 750B base with 28 layers looped twice; general coding (video, games, 3D) and native multimodality; API marked coming soon, weights planned after safety hardening.",
+      "zh": "2026-11-23 发布：750B 基座，28 层循环两遍；泛 Coding（视频、游戏、3D）与原生多模态；已向 GLM Coding Plan 全量用户开放，公开 API 待安全评估，权重计划在安全加固后放。",
+      "en": "Announced 2026-11-23: 750B base with 28 layers looped twice; general coding (video, games, 3D) and native multimodality; available to all GLM Coding Plan users, with the public API awaiting safety assessment and weights planned after safety hardening.",
       "url": "https://z.ai/blog/glm-5.4"
     },
     {
@@ -71,15 +71,15 @@
         "en": "Availability"
       },
       "v": {
-        "zh": "API 标为 coming soon；权重计划在安全加固后开放。当前既不能调 API，也不能下载权重。",
-        "en": "API marked coming soon; weights planned after safety hardening. Neither the API nor the weights are available today."
+        "zh": "GLM Coding Plan 全量用户已可在常用工具中使用 GLM-5.4（有周限额用户额度提升至 GLM-5.3 的 1.5 倍）；公开 API 将在安全评估完成后开放；权重计划在安全加固后开放，当前不可下载。",
+        "en": "All GLM Coding Plan users can already use GLM-5.4 in supported tools (weekly-quota users get 1.5x the GLM-5.3 allowance); the public API opens after safety assessment; weights are planned after safety hardening and are not downloadable today."
       },
       "url": "https://docs.z.ai/guides/llm/glm-5.4"
     }
   ],
   "positioning": {
-    "zh": "GLM-5.4 是闭源首发、开放权重待定的过渡代。把它当“下一代能力预告”看，不要当现在可部署的模型；要本地跑仍看 5.3 与 MIT 的 Flash 杯。",
-    "en": "GLM-5.4 is a closed-first release with open weights pending. Treat it as a preview of the next capability tier, not a deployable model; for local deployment, still use 5.3 and the MIT-licensed Flash tier."
+    "zh": "GLM-5.4 是闭源首发、开放权重待定的过渡代。Coding Plan 用户现在能在工具里用上，公开 API 与权重还要等；要本地跑仍看 5.3 与 MIT 的 Flash 杯。",
+    "en": "GLM-5.4 is a closed-first release with open weights pending. Coding Plan users can use it in supported tools now, while the public API and weights are still pending; for local deployment, still use 5.3 and the MIT-licensed Flash tier."
   },
   "onSite": {
     "zh": "开放权重侧的 glm-5 谱系仍跟到 GLM-5.3（含量化对比）；5.4 先记在闭源卡与 2026 增补页。",
@@ -97,17 +97,23 @@
       "labelEn": "Z.ai docs · GLM-5.4 guide",
       "url": "https://docs.z.ai/guides/llm/glm-5.4",
       "kind": "docs"
+    },
+    {
+      "label": "智谱 AI 开放文档 · GLM-5.4（Coding Plan 已开放、API 待安全评估；2026-11-25 复核）",
+      "labelEn": "Zhipu AI open docs · GLM-5.4 (Coding Plan live, API awaiting safety assessment; rechecked 2026-11-25)",
+      "url": "https://docs.bigmodel.cn/cn/guide/models/glm-5.4",
+      "kind": "docs"
     }
   ],
-  "last_verified": "2026-11-24",
+  "last_verified": "2026-11-25",
   "confidence": "verified",
   "cn": {
     "origin": "domestic",
     "originNote": "出品方为智谱 AI（北京）。",
     "originNoteEn": "Made by Zhipu AI (Beijing).",
     "direct": "yes",
-    "directNote": "z.ai 与 BigModel 平台大陆可访问；GLM-5.4 API 尚未上线。",
-    "directNoteEn": "z.ai and the BigModel platform are reachable from the mainland; the GLM-5.4 API is not live yet.",
+    "directNote": "z.ai 与 BigModel 平台大陆可访问；GLM-5.4 的公开 API 仍在安全评估阶段，Coding Plan 用户已可在工具中使用。",
+    "directNoteEn": "z.ai and the BigModel platform are reachable from the mainland; the GLM-5.4 public API is still under safety assessment, while Coding Plan users can already use it in supported tools.",
     "filing": {
       "status": "filed",
       "name": "智谱清言（ChatGLM）",

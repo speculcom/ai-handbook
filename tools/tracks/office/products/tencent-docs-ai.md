@@ -3,6 +3,7 @@ id: tencent-docs-ai
 form: web
 name: 腾讯文档 AI
 nameEn: Tencent Docs AI
+tagline: 腾讯文档 AI 把在线文档、表格与演示接上中文写作、数据分析和排版能力，适合已经在腾讯文档里协作的团队。
 vendor: 腾讯
 homepage: https://docs.qq.com/ai
 license: 官方产品页与条款页为准；本条目只记录能力与边界，不复制价格数字或完整合同。

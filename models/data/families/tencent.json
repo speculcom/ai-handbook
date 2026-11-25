@@ -18,8 +18,8 @@
     {
       "gen": "Hy4",
       "date": "2026-11-20",
-      "zh": "2026-11-04 发布、2026-11-20 正式开源：770B 总参 / 49B 激活 MoE，上下文超过 100 万 token，首次加入视觉理解；权重以 Apache-2.0 在 GitHub、Hugging Face、ModelScope、GitCode 同步放出，并附 system card。",
-      "en": "Announced 2026-11-04 and open-sourced 2026-11-20: a 770B-total / 49B-active MoE with over one million tokens of context and first-time visual understanding; Apache-2.0 weights shipped on GitHub, Hugging Face, ModelScope and GitCode with a system card.",
+      "zh": "2026-11-04 发布、2026-11-20 正式开源：770B 总参 / 49B 激活 MoE，上下文 1M token，首次加入视觉理解；权重以 Tencent Hy License 在 GitHub、Hugging Face、ModelScope、GitCode 同步放出，并附 system card。",
+      "en": "Announced 2026-11-04 and open-sourced 2026-11-20: a 770B-total / 49B-active MoE with a 1M-token context and first-time visual understanding; weights shipped under the Tencent Hy License on GitHub, Hugging Face, ModelScope and GitCode with a system card.",
       "url": "https://github.com/Tencent-Hunyuan/Hy4"
     },
     {
@@ -46,8 +46,8 @@
   ],
   "sizeTiers": [
     {
-      "zh": "Hy4：官方发布页未披露总参 / 激活；视觉理解、长上下文与长程 agent 是重点（以模型卡为准）",
-      "en": "Hy4: total / active parameters not disclosed on the release page; visual understanding, long context and long-horizon agents are the focus (model card is authoritative)"
+      "zh": "Hy4：770B 总参 / 49B 激活（HF 模型卡；视觉另计 1.23B），1M 上下文",
+      "en": "Hy4: 770B total / 49B active (HF model card; plus 1.23B vision), 1M context"
     },
     {
       "zh": "Hy4 flash：224B 总参（含 64B Engram，12B 激活），1M 上下文",
@@ -72,8 +72,8 @@
   ],
   "claims": [
     {
-      "zh": "腾讯官方：Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有明显提升；官方称将随后发布模型权重与 system card。",
-      "en": "Tencent official: Hy4 launched on 2026-11-04, adding visual understanding for the first time and claiming clear gains in instruction following, long-context comprehension and long-horizon agentic tasks; weights and system cards were said to follow.",
+      "zh": "腾讯官方：Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有明显提升；HF 模型卡给出的 770B 总参 / 49B 激活与权重、system card 已于 2026-11-20 一并放出。",
+      "en": "Tencent official: Hy4 launched on 2026-11-04, adding visual understanding for the first time and claiming clear gains in instruction following, long-context comprehension and long-horizon agentic tasks; the HF model card's 770B total / 49B active, weights and system card shipped together on 2026-11-20.",
       "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
     },
     {
@@ -93,8 +93,8 @@
     }
   ],
   "positioning": {
-    "zh": "中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版主打视觉理解、长上下文与长程 agent，Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。正式版参数量官方未在同一页披露，站内不把 preview 的 770B/49B 直接套到正式版。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。",
-    "en": "An uncommon large-total/high-active Chinese open-weight family: production Hy4 targets visual understanding, long context and long-horizon agents, while Hy4 flash trades 224B total / 12B active for speed and cost. The production parameter count is not disclosed on the release page, so this site does not copy the preview’s 770B/49B onto it. There is no GGUF coverage yet — read the official licence and hardware floor before choosing."
+    "zh": "中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版为 770B 总参 / 49B 激活，主打视觉理解、长上下文与长程 agent；Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。权重于 2026-11-20 开放，许可为 Tencent Hy License，非 OSI 标准许可；这里暂时没有 GGUF 量化收录，选型前先看许可原文与硬件门槛。",
+    "en": "An uncommon large-total/high-active Chinese open-weight family: production Hy4 is 770B total / 49B active, targeting visual understanding, long context and long-horizon agents, while Hy4 flash trades 224B total / 12B active for speed and cost. Weights opened on 2026-11-20 under the Tencent Hy License, not an OSI-standard licence; there is no GGUF coverage yet — read the licence text and the hardware floor before choosing."
   },
   "onSite": {
     "series": [],
@@ -131,9 +131,15 @@
       "url": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
       "kind": "docs",
       "labelEn": "Tencent · Tencent Launches Hy4 flash (2026-11-16)"
+    },
+    {
+      "label": "Tencent Hunyuan · Hy4 官方模型卡（770B 总参 / 49B 激活、Tencent Hy License、system card；2026-11-25 复核）",
+      "url": "https://huggingface.co/tencent/Hy4",
+      "kind": "model-card",
+      "labelEn": "Tencent Hunyuan · Hy4 official model card (770B total / 49B active, Tencent Hy License, system card; rechecked 2026-11-25)"
     }
   ],
-  "last_verified": "2026-11-20",
+  "last_verified": "2026-11-25",
   "confidence": "verified",
   "cn": {
     "origin": "domestic",

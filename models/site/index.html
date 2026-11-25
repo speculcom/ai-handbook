@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
   <link rel="stylesheet" href="site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"开放权重该怎么选 · AI 模型","url":"https://models.specul.com/","description":"开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。"}</script>
-  <link rel="stylesheet" href="sections.css" />
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -104,24 +103,6 @@
       <p class="site-hero-deck"><span data-zh>21 个家族，按尺寸、量化档和许可挑。</span><span data-en>21 families, chosen by size, quantisation and licence.</span></p>
     </header>
 
-<!-- sec-doors:start -->
-<div class="container">
-<div class="sec-doors">
-  <a class="sec-door" href="data/index.html">
-    <span class="k">Models · Data</span>
-    <h2><span data-zh>数据与训练语料</span><span data-en>Data and training corpora</span></h2>
-    <p><span data-zh>40 张数据集卡，按 8 类整理。先看许可与商用边界，再看规模、语言与任务适配。</span><span data-en>40 dataset cards across 8 categories. Start with licence and commercial boundaries, then size, language and task fit.</span></p>
-    <span class="more"><span data-zh>看数据卡 →</span><span data-en>Open dataset cards →</span></span>
-  </a>
-  <a class="sec-door" href="evals/index.html">
-    <span class="k">Models · Evals</span>
-    <h2><span data-zh>评测与榜单</span><span data-en>Evals and leaderboards</span></h2>
-    <p><span data-zh>40 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</span><span data-en>40 common benchmarks; what they test and how to read them, with no overall score or &quot;best&quot; ranking.</span></p>
-    <span class="more"><span data-zh>看基准卡 →</span><span data-en>Open benchmark cards →</span></span>
-  </a>
-</div>
-</div>
-<!-- sec-doors:end -->
 <section class="vz-section" id="lineage">
   <div class="container">
     <div class="vz-head">
@@ -506,7 +487,7 @@
             <span class="m-famcard-vendor"><span data-zh>腾讯</span><span data-en>Tencent</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>Hy4 / Hy4 flash</span><span data-en>Hy4 / Hy4 flash</span></b> · 2026-11</p>
-          <p class="m-famcard-sum"><span data-zh>中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版主打视觉理解、长上下文与长程 agent，Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。正式版参数量官方未在同一页披露，站内不把 preview 的 770B/49B 直接套到正式版。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。</span><span data-en>An uncommon large-total/high-active Chinese open-weight family: production Hy4 targets visual understanding, long context and long-horizon agents, while Hy4 flash trades 224B total / 12B active for speed and cost. The production parameter count is not disclosed on the release page, so this site does not copy the preview’s 770B/49B onto it. There is no GGUF coverage yet — read the official licence and hardware floor before choosing.</span></p>
+          <p class="m-famcard-sum"><span data-zh>中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版为 770B 总参 / 49B 激活，主打视觉理解、长上下文与长程 agent；Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。权重于 2026-11-20 开放，许可为 Tencent Hy License，非 OSI 标准许可；这里暂时没有 GGUF 量化收录，选型前先看许可原文与硬件门槛。</span><span data-en>An uncommon large-total/high-active Chinese open-weight family: production Hy4 is 770B total / 49B active, targeting visual understanding, long context and long-horizon agents, while Hy4 flash trades 224B total / 12B active for speed and cost. Weights opened on 2026-11-20 under the Tencent Hy License, not an OSI-standard licence; there is no GGUF coverage yet — read the licence text and the hardware floor before choosing.</span></p>
           <div class="m-famcard-meta">
             <span><b>4</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>4</b> <span data-zh>个尺寸档</span><span data-en>size tiers</span></span>
@@ -562,7 +543,7 @@
           <div class="m-famcard-meta">
             <span><b>5</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>6</b> <span data-zh>条官方事实</span><span data-en>official facts</span></span>
-            <span class="t-state is-ok"><span data-zh>资料 2026-11-20</span><span data-en>data as of 2026-11-20</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-25</span><span data-en>data as of 2026-11-25</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="m-famcard-go"><span data-zh>看官方规格快照 →</span><span data-en>Official spec snapshot →</span></p>
@@ -588,11 +569,11 @@
             <span class="m-famcard-vendor"><span data-zh>智谱 AI · Z.ai</span><span data-en>Z.ai (Zhipu AI)</span></span>
           </div>
           <p class="m-famcard-cur"><span data-zh>当前代</span><span data-en>current</span> <b><span data-zh>GLM-5.4（750B 基座，官方称 2–3T 级智能）</span><span data-en>GLM-5.4 (750B base, vendor-claimed 2–3T-class intelligence)</span></b> · 2026-11</p>
-          <p class="m-famcard-sum"><span data-zh>GLM-5.4 是闭源首发、开放权重待定的过渡代。把它当“下一代能力预告”看，不要当现在可部署的模型；要本地跑仍看 5.3 与 MIT 的 Flash 杯。</span><span data-en>GLM-5.4 is a closed-first release with open weights pending. Treat it as a preview of the next capability tier, not a deployable model; for local deployment, still use 5.3 and the MIT-licensed Flash tier.</span></p>
+          <p class="m-famcard-sum"><span data-zh>GLM-5.4 是闭源首发、开放权重待定的过渡代。Coding Plan 用户现在能在工具里用上，公开 API 与权重还要等；要本地跑仍看 5.3 与 MIT 的 Flash 杯。</span><span data-en>GLM-5.4 is a closed-first release with open weights pending. Coding Plan users can use it in supported tools now, while the public API and weights are still pending; for local deployment, still use 5.3 and the MIT-licensed Flash tier.</span></p>
           <div class="m-famcard-meta">
             <span><b>3</b> <span data-zh>代</span><span data-en>generations</span></span>
             <span><b>3</b> <span data-zh>条官方事实</span><span data-en>official facts</span></span>
-            <span class="t-state is-ok"><span data-zh>资料 2026-11-24</span><span data-en>data as of 2026-11-24</span></span>
+            <span class="t-state is-ok"><span data-zh>资料 2026-11-25</span><span data-en>data as of 2026-11-25</span></span>
           </div>
           <div class="m-famcard-cn"><span class="t-tag"><span data-zh>国产</span><span data-en>domestic</span></span> <span class="t-tag is-cyan"><span data-zh>国内可直连</span><span data-en>direct OK</span></span> <span class="t-state is-ok"><span data-zh>已备案</span><span data-en>filed</span></span></div>
           <p class="m-famcard-go"><span data-zh>看官方规格快照 →</span><span data-en>Official spec snapshot →</span></p>

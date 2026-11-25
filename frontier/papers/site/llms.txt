@@ -57,7 +57,7 @@
 - [Jamba: A Hybrid Transformer-Mamba Language Model](https://papers.specul.com/jamba-2024.html) — 问题：纯 Transformer 的 KV cache 与长上下文成本高，纯 Mamba 又在部分离散任务上弱；能不能把 Transformer 与 Mamba
 - [Scaling Laws for Neural Language Models](https://papers.specul.com/kaplan-2020-scaling-laws.html) — 问题：语言模型的交叉熵损失随参数量、数据量、训练算力怎么变，固定算力预算又该怎么分配，能不能写成可外推的公式。 证据位置：三条基本幂律在 §1.2 与 Figu
 - [Kimi K2: Open Agentic Intelligence](https://papers.specul.com/kimi-k2-2025.html) — 问题：开源模型在智能体任务上常落后于闭源模型；能不能用超大规模 MoE、稳定的优化器和智能体数据管线，把工具调用、软件工程与多语言能力做上去。 证据位置：摘要给
-- [Kimi K3.1 Pro：智能前沿，更进一步](https://papers.specul.com/kimi-k3-1-pro-2026.html) — 问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3
+- [Kimi K3.1 Pro：智能前沿，更进一步](https://papers.specul.com/kimi-k3-1-pro-2026.html) — 问题：K3.1 Pro 的规模、上下文与产品分工是什么，权重和许可到底开放到什么程度。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、
 - [SAM：可提示的分割一切模型](https://papers.specul.com/kirillov-2023-sam.html) — 问题：分割任务通常按语义/实例/全景分开训练，换任务就要换模型；能不能定义一个「给提示就出掩码」的通用任务，用一个模型加提示工程覆盖多种分割？ 证据位置：任务、
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://papers.specul.com/kwon-2023-vllm-pagedattention.html) — 问题：服务端要靠批处理提高吞吐，但 KV 缓存占的显存既大又碎片化，批大小上不去；能不能用分页思路管理 KV 缓存。 证据位置：摘要给出 2–4 倍吞吐结论，对
 - [Fast Inference from Transformers via Speculative Decoding](https://papers.specul.com/leviathan-2023-speculative-decoding.html) — 问题：自回归解码是串行的——生成 K 个 token 就要串行跑 K 次大模型；能否不改架构、不重训、也不改变输出分布，就把解码加速。 证据位置：摘要给出 T5
@@ -103,7 +103,7 @@
 - [Strategist：让 agent 自己进化推理策略](https://papers.specul.com/strategist-2026.html) — 问题：agent 的推理流程（prompt、工具顺序、验证步骤）大多手工写，做完一个任务经验不沉淀，下个任务从零再来；模型冻结时，系统另一半能否自己变好？ 证据
 - [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://papers.specul.com/su-2021-roformer.html) — 问题：自注意力本身不带位置信息，已有的绝对与相对位置编码大多把位置向量加到词表示上，因此没法直接用在把注意力改写成线性形式的架构里；能不能让编码既带绝对位置、又
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://papers.specul.com/swe-agent-2024.html) — 问题：语言模型智能体做软件工程时，通用聊天界面并不适合读仓库、改多文件、跑测试；界面设计本身会不会决定成败。 证据位置：摘要提出 agent-computer 
-- [腾讯 Hy4：正式版与开源路线](https://papers.specul.com/tencent-hy4-2026.html) — 问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入
+- [腾讯 Hy4：正式版与开放权重](https://papers.specul.com/tencent-hy4-2026.html) — 问题：Hy4 正式版是什么定位，参数量能不能直接引用，权重和 system card 是否已经放出。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-
 - [用超时级联降低 coding agent 推理成本](https://papers.specul.com/timeout-cascades-2026.html) — 问题：coding agent 很吃 GPU 小时，小模型便宜但怕不稳；能不能先用小模型、失败再升级大模型，在不掉解决率的前提下省钱？ 证据位置：论文在 SWE
 - [Titans: Learning to Memorize at Test Time](https://papers.specul.com/titans-2025.html) — 问题：循环模型把历史压进固定大小隐状态，注意力则保留完整上下文但成本平方增长；能不能加一个在测试时持续学习的长时记忆模块，让注意力专注当前上下文。 证据位置：摘
 - [Toolformer: Language Models Can Teach Themselves to Use Tools](https://papers.specul.com/toolformer-2023.html) — 问题：语言模型会写会读，却在算术、事实查询这类基础功能上不如小工具；能不能让模型自己学会调 API。 证据位置：摘要给出自监督训练目标：选哪个 API、何时调、

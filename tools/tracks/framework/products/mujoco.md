@@ -4,6 +4,7 @@ form: harness
 family: robotics
 name: MuJoCo
 nameEn: MuJoCo
+tagline: MuJoCo 是面向机器人、生物力学与强化学习的物理引擎，提供接触仿真、MJCF 场景格式与 Python/C++ 接口，不含模型或云服务。
 vendor: Google DeepMind
 homepage: https://mujoco.org/
 mark: MJ

@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Kimi K3.1 Pro：智能前沿，更进一步 · AI 论文</title>
-  <meta name="description" content="问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍；完整权重承诺在 11 月 4 日前发布。 作者" />
+  <meta name="description" content="问题：K3.1 Pro 的规模、上下文与产品分工是什么，权重和许可到底开放到什么程度。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍。Hugging Face 官方模型卡进一步给" />
   <link rel="canonical" href="https://papers.specul.com/kimi-k3-1-pro-2026.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kimi K3.1 Pro：智能前沿，更进一步 · AI 论文" />
   <meta property="og:url" content="https://papers.specul.com/kimi-k3-1-pro-2026.html" />
   <meta property="og:title" content="Kimi K3.1 Pro：智能前沿，更进一步 · AI 论文" />
-  <meta property="og:description" content="问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍；完整权重承诺在 11 月 4 日前发布。 作者" />
+  <meta property="og:description" content="问题：K3.1 Pro 的规模、上下文与产品分工是什么，权重和许可到底开放到什么程度。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍。Hugging Face 官方模型卡进一步给" />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:locale:alternate" content="en_US" />
   <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/kimi-k3-1-pro-2026.html" />
@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="papers.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"Kimi K3.1 Pro：智能前沿，更进一步 · AI 论文","description":"问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍；完整权重承诺在 11 月 4 日前发布。 作者","url":"https://papers.specul.com/kimi-k3-1-pro-2026.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"Kimi K3.1 Pro：智能前沿，更进一步 · AI 论文","description":"问题：K3.1 Pro 的规模、上下文与产品分工是什么，权重和许可到底开放到什么程度。 证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍。Hugging Face 官方模型卡进一步给","url":"https://papers.specul.com/kimi-k3-1-pro-2026.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -103,8 +103,8 @@
   <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
   <h1><span data-zh>Kimi K3.1 Pro：智能前沿，更进一步</span><span data-en>Kimi K3.1 Pro: A Step Further at the Intelligence Frontier</span></h1>
   
-  <p class="fx-entry-lead"><span data-zh>问题：K3.1 Pro 的规模、上下文与产品分工是什么，官方承诺了哪些可验证的事实。<br>证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍；完整权重承诺在 11 月 4 日前发布。<br>作者自陈局限：发布页没有给训练数据、算力、完整评测口径与失败案例；权重发布是承诺时点，是否兑现需另行核验；评测图表为厂商自述。<br>它没主张的：不是独立第三方评测第一；不是所有任务都适合 3T 规模；不是权重已经开放。</span><span data-en>Problem: what are K3.1 Pro’s scale, context and product split, and which verifiable facts does the official release promise?<br>Where the evidence sits: the official announcement says K3.1 Pro is the first model in the K3.1 line, with 3T-class parameters and 1M context; a Highspeed variant is launched with roughly 2–3x output speed; full weights are promised by November 4.<br>What the authors say about limits: the page does not disclose training data, compute, full evaluation protocols or failure cases; the weight release is a promised date and must be verified separately; benchmark charts are vendor-reported.<br>What it does not claim: a first place in independent third-party evaluations; that every task benefits from 3T scale; that weights are already open.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发布 / release</dt><dd>2026-10-24（官方发布页）</dd></div><div><dt>规模 / scale</dt><dd>3 万亿级参数</dd></div><div><dt>上下文 / context</dt><dd>100 万 tokens</dd></div><div><dt>产品分工 / variants</dt><dd>K3.1 Pro / K3.1 Pro Highspeed（输出约 2–3 倍）</dd></div><div><dt>证据位置 / evidence</dt><dd>发布页首段与权重承诺段</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读官方发布页）</dd></div></dl></section>
+  <p class="fx-entry-lead"><span data-zh>问题：K3.1 Pro 的规模、上下文与产品分工是什么，权重和许可到底开放到什么程度。<br>证据位置：官方发布页写明 K3.1 Pro 是 K3.1 系列首个模型、3 万亿级参数、100 万上下文；同步推出 Highspeed 高速版，输出速度约 2–3 倍。Hugging Face 官方模型卡进一步给出 2.8T 总参、104B 激活、1,048,576 token 上下文，并写明「open-weight」与自定义 Kimi K3.1 Pro License。发布页承诺的「11 月 4 日前发布完整权重」已兑现，权重文件已上架。<br>作者自陈局限：发布页没有给训练数据、算力与完整评测口径；模型卡里的评测为厂商自报，部分为内部 benchmark；许可为自定义条款，商用前需读原文。<br>它没主张的：不是独立第三方评测第一；不是所有任务都适合 2.8T 规模；开放权重不等于可商用无限制。</span><span data-en>Problem: what are K3.1 Pro&#39;s scale, context and product split, and how open are the weights and licence?<br>Where the evidence sits: the official announcement says K3.1 Pro is the first model in the K3.1 line, with 3T-class parameters and 1M context; a Highspeed variant launches with roughly 2–3x output speed. The official Hugging Face model card gives 2.8T total parameters, 104B active and a 1,048,576-token context, and states that it is an open-weight model under the custom Kimi K3.1 Pro License. The launch-page promise of full weights by November 4 was kept; the files are published.<br>What the authors say about limits: the page does not disclose training data, compute or full evaluation protocols; model-card benchmarks are vendor-reported and some are internal; the licence is custom, so read the text before commercial use.<br>What it does not claim: a first place in independent third-party evaluations; that every task benefits from 2.8T scale; that open weights mean unrestricted commercial use.</span></p>
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发布 / release</dt><dd>2026-10-24（官方发布页）</dd></div><div><dt>规模 / scale</dt><dd>2.8T 总参 / 104B 激活（HF 模型卡）</dd></div><div><dt>上下文 / context</dt><dd>1,048,576 tokens</dd></div><div><dt>产品分工 / variants</dt><dd>K3.1 Pro / K3.1 Pro Highspeed（输出约 2–3 倍）</dd></div><div><dt>权重 / weights</dt><dd>已开放（Hugging Face，2026-11-04）</dd></div><div><dt>许可 / licence</dt><dd>Kimi K3.1 Pro License（自定义）</dd></div><div><dt>证据位置 / evidence</dt><dd>发布页首段；HF 模型卡 Model Summary 与 License</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读官方发布页与模型卡）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Kimi K3.1 Pro 在代码、3D 创作、金融研究和其他长程 Agent 能力上的提升尤为显著。</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://www.kimi.com/news/kimi-k3-1-pro" rel="noopener">https://www.kimi.com/news/kimi-k3-1-pro</a></figcaption>
@@ -114,14 +114,22 @@
         <figcaption><span class="fx-ev-n">2</span> <a href="https://www.kimi.com/news/kimi-k3-1-pro" rel="noopener">https://www.kimi.com/news/kimi-k3-1-pro</a></figcaption>
       </figure>
 <figure class="fx-evidence">
-        <blockquote>完整模型权重将于 11 月 4 日前发布。</blockquote>
-        <figcaption><span class="fx-ev-n">3</span> <a href="https://www.kimi.com/news/kimi-k3-1-pro" rel="noopener">https://www.kimi.com/news/kimi-k3-1-pro</a></figcaption>
+        <blockquote>Kimi K3.1 Pro is an open-weight, natively multimodal agentic model, and our most capable 3T-class model to date.</blockquote>
+        <figcaption><span class="fx-ev-n">3</span> <a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" rel="noopener">https://huggingface.co/moonshotai/Kimi-K3.1-Pro</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>Total Parameters | 2.8T ... Activated Parameters | 104B ... Context Length | 1048576</blockquote>
+        <figcaption><span class="fx-ev-n">4</span> <a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" rel="noopener">https://huggingface.co/moonshotai/Kimi-K3.1-Pro</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>Kimi K3.1 Pro is released under the Kimi K3.1 Pro License.</blockquote>
+        <figcaption><span class="fx-ev-n">5</span> <a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" rel="noopener">https://huggingface.co/moonshotai/Kimi-K3.1-Pro</a></figcaption>
       </figure></section>
   <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-19</dd></div>
-      <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-release</dd></div>
-      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.kimi.com/news/kimi-k3-1-pro" rel="noopener">https://www.kimi.com/news/kimi-k3-1-pro</a></dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-25</dd></div>
+      <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>LicenseRef-kimi-k3.1-pro</dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" rel="noopener">https://huggingface.co/moonshotai/Kimi-K3.1-Pro</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
       
       

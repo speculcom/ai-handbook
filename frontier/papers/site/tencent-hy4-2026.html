@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>腾讯 Hy4：正式版与开源路线 · AI 论文</title>
-  <meta name="description" content="问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升；同页称将随后发布模型权重与 system card。 作者自陈局限：发" />
+  <title>腾讯 Hy4：正式版与开放权重 · AI 论文</title>
+  <meta name="description" content="问题：Hy4 正式版是什么定位，参数量能不能直接引用，权重和 system card 是否已经放出。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升。Hugging Face 官方模型卡写明语言主干 " />
   <link rel="canonical" href="https://papers.specul.com/tencent-hy4-2026.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="腾讯 Hy4：正式版与开源路线 · AI 论文" />
+  <meta property="og:site_name" content="腾讯 Hy4：正式版与开放权重 · AI 论文" />
   <meta property="og:url" content="https://papers.specul.com/tencent-hy4-2026.html" />
-  <meta property="og:title" content="腾讯 Hy4：正式版与开源路线 · AI 论文" />
-  <meta property="og:description" content="问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升；同页称将随后发布模型权重与 system card。 作者自陈局限：发" />
+  <meta property="og:title" content="腾讯 Hy4：正式版与开放权重 · AI 论文" />
+  <meta property="og:description" content="问题：Hy4 正式版是什么定位，参数量能不能直接引用，权重和 system card 是否已经放出。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升。Hugging Face 官方模型卡写明语言主干 " />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:locale:alternate" content="en_US" />
   <link rel="alternate" hreflang="zh-CN" href="https://papers.specul.com/tencent-hy4-2026.html" />
@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="papers.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"腾讯 Hy4：正式版与开源路线 · AI 论文","description":"问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升；同页称将随后发布模型权重与 system card。 作者自陈局限：发","url":"https://papers.specul.com/tencent-hy4-2026.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"腾讯 Hy4：正式版与开放权重 · AI 论文","description":"问题：Hy4 正式版是什么定位，参数量能不能直接引用，权重和 system card 是否已经放出。 证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升。Hugging Face 官方模型卡写明语言主干 ","url":"https://papers.specul.com/tencent-hy4-2026.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -101,10 +101,10 @@
 <div class="container ms-page fx-entry">
   <p class="fx-crumb"><a href="index.html"><span data-zh>← 返回AI 论文</span><span data-en>← Back to AI Papers</span></a></p>
   <div class="fx-top"><span class="fx-badge"><span data-zh>规模律</span><span data-en>Scaling laws</span></span></div>
-  <h1><span data-zh>腾讯 Hy4：正式版与开源路线</span><span data-en>Tencent Hy4: Production Release and Open-Source Path</span></h1>
+  <h1><span data-zh>腾讯 Hy4：正式版与开放权重</span><span data-en>Tencent Hy4: Production Release and Open Weights</span></h1>
   
-  <p class="fx-entry-lead"><span data-zh>问题：Hy4 正式版是什么定位，官方承诺了哪些可验证事实，参数量能不能直接引用。<br>证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升；同页称将随后发布模型权重与 system card。<br>作者自陈局限：发布页没有披露 Hy4 正式版的总参 / 激活数；「770B 总参 / 49B 激活」只出现在 Hy4 flash 发布页对 Hy4 Preview 的对照段，不能直接套到正式版；benchmark 图表与排名为厂商口径；权重与 system card 是承诺，需按后续发布核验。<br>它没主张的：不是独立第三方评测第一；不是所有任务都适合 Hy4 正式版；不是发布当天已开放全部权重。</span><span data-en>Problem: how is production Hy4 positioned, which verifiable facts does the official release promise, and can its parameter count be quoted directly?<br>Where the evidence sits: Tencent’s release says Hy4 launched on 2026-11-04, adds visual understanding for the first time and improves instruction following, long-context comprehension and long-horizon agentic tasks; it also says model weights and system cards will follow.<br>What the authors say about limits: the release does not disclose production Hy4’s total / active parameter count; &quot;770B total / 49B active&quot; appears only as the Hy4 Preview comparison in the Hy4 flash release and must not be copied onto production Hy4; benchmark charts and rankings are vendor-reported; weights and system cards are promises to verify later.<br>What it does not claim: first place in independent third-party evaluation; that every task suits production Hy4; that all weights were open on launch day.</span></p>
-  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发布 / release</dt><dd>2026-11-04（腾讯官方发布页）</dd></div><div><dt>规模 / scale</dt><dd>正式版参数量未在该页披露</dd></div><div><dt>视觉 / vision</dt><dd>首次引入视觉理解</dd></div><div><dt>能力重点 / focus</dt><dd>指令跟随、长上下文、长程 agent</dd></div><div><dt>权重 / weights</dt><dd>官方称随后发布权重与 system card</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读官方发布页）</dd></div></dl></section>
+  <p class="fx-entry-lead"><span data-zh>问题：Hy4 正式版是什么定位，参数量能不能直接引用，权重和 system card 是否已经放出。<br>证据位置：腾讯官方发布页写明 Hy4 于 2026-11-04 发布，首次引入视觉理解，并在指令跟随、长上下文理解与长程 agent 任务上有提升。Hugging Face 官方模型卡写明语言主干 770B 总参、每 token 激活 49B（视觉另计 1.23B），上下文 1M；并明确 Hy4、Hy4-FP8 与 Hy4 base 权重已在 Hugging Face、ModelScope、GitCode 开放，system card 同时提供。发布页所说「随后发布权重与 system card」已于 2026-11-20 兑现。<br>作者自陈局限：发布页没有披露训练数据与算力；benchmark 图表与排名为厂商口径，部分为内部评测；许可为 Tencent Hy License，非 OSI 标准许可，商用前需读原文。<br>它没主张的：不是独立第三方评测第一；不是所有任务都适合 770B 规模；开放权重不等于无限制商用。</span><span data-en>Problem: how is production Hy4 positioned, can its parameter count be quoted directly, and have the weights and system card shipped?<br>Where the evidence sits: Tencent&#39;s release says Hy4 launched on 2026-11-04, adds visual understanding for the first time and improves instruction following, long-context comprehension and long-horizon agentic tasks. The official Hugging Face model card states a 770B-parameter language backbone with 49B activated per token (plus 1.23B vision), a 1M context, and confirms that Hy4, Hy4-FP8 and Hy4 base weights are open on Hugging Face, ModelScope and GitCode with a system card. The launch-page promise that weights and system cards would follow was kept on 2026-11-20.<br>What the authors say about limits: the release does not disclose training data or compute; benchmark charts and rankings are vendor-reported and some are internal; the licence is the Tencent Hy License, not an OSI-standard licence, so read the text before commercial use.<br>What it does not claim: first place in independent third-party evaluation; that every task suits 770B scale; that open weights mean unrestricted commercial use.</span></p>
+  <section class="fx-entry-sec"><h2><span data-zh>关键参数</span><span data-en>Key specs</span></h2><dl class="fx-specs"><div><dt>发布 / release</dt><dd>2026-11-04（腾讯官方发布页）</dd></div><div><dt>规模 / scale</dt><dd>770B 总参 / 49B 激活（HF 模型卡）</dd></div><div><dt>视觉 / vision</dt><dd>首次引入视觉理解；视觉激活 1.23B</dd></div><div><dt>上下文 / context</dt><dd>1,048,576 tokens</dd></div><div><dt>能力重点 / focus</dt><dd>指令跟随、长上下文、长程 agent</dd></div><div><dt>权重 / weights</dt><dd>已开放（Hy4 / Hy4-FP8 / Hy4 base，2026-11-20）</dd></div><div><dt>许可 / licence</dt><dd>Tencent Hy License</dd></div><div><dt>证据位置 / evidence</dt><dd>腾讯发布页；HF 模型卡 Model Summary 与 License</dd></div><div><dt>复现状态 / reproduction</dt><dd>未复现（只读官方发布页与模型卡）</dd></div></dl></section>
   <section class="fx-entry-sec"><h2><span data-zh>官方原文怎么说</span><span data-en>What the source says</span></h2><figure class="fx-evidence">
         <blockquote>Tencent today announced the release of Tencent Hy4, its latest-generation large language model, marking a significant leap in performance and capabilities that now ranks it among the world’s leading open-source AI models.</blockquote>
         <figcaption><span class="fx-ev-n">1</span> <a href="https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/" rel="noopener">https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/</a></figcaption>
@@ -114,14 +114,22 @@
         <figcaption><span class="fx-ev-n">2</span> <a href="https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/" rel="noopener">https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/</a></figcaption>
       </figure>
 <figure class="fx-evidence">
-        <blockquote>Tencent Hy plans to release model weights and system cards in the coming days</blockquote>
-        <figcaption><span class="fx-ev-n">3</span> <a href="https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/" rel="noopener">https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/</a></figcaption>
+        <blockquote>The language backbone comprises 770B total parameters, of which 49B are activated per token.</blockquote>
+        <figcaption><span class="fx-ev-n">3</span> <a href="https://huggingface.co/tencent/Hy4" rel="noopener">https://huggingface.co/tencent/Hy4</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>We open-source Hy4, Hy4-FP8, and the pre-trained Hy4 base model weights on Hugging Face, ModelScope, and GitCode.</blockquote>
+        <figcaption><span class="fx-ev-n">4</span> <a href="https://huggingface.co/tencent/Hy4" rel="noopener">https://huggingface.co/tencent/Hy4</a></figcaption>
+      </figure>
+<figure class="fx-evidence">
+        <blockquote>Hy4 is released under the Tencent Hy License.</blockquote>
+        <figcaption><span class="fx-ev-n">5</span> <a href="https://huggingface.co/tencent/Hy4" rel="noopener">https://huggingface.co/tencent/Hy4</a></figcaption>
       </figure></section>
   <section class="fx-entry-sec"><h2><span data-zh>资料与许可</span><span data-en>Source and licence</span></h2>
     <dl class="fx-specs">
-      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-20</dd></div>
-      <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>official-release</dd></div>
-      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/" rel="noopener">https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/</a></dd></div>
+      <div><dt><span data-zh>资料时间</span><span data-en>Source checked</span></dt><dd>2026-11-25</dd></div>
+      <div><dt><span data-zh>许可 / 类型</span><span data-en>Licence / kind</span></dt><dd>LicenseRef-Tencent-Hy-License</dd></div>
+      <div><dt><span data-zh>许可说明</span><span data-en>Licence evidence</span></dt><dd><a href="https://huggingface.co/tencent/Hy4" rel="noopener">https://huggingface.co/tencent/Hy4</a></dd></div>
       <div><dt><span data-zh>类目</span><span data-en>Category</span></dt><dd><span data-zh>规模律</span><span data-en>Scaling laws</span></dd></div>
       
       

@@ -249,7 +249,7 @@ cn:
 | 审批写得多严 | 「更改密码等特定敏感任务始终需要由你亲自完成」 | 「Nothing Muse does reaches the internet unless the Sentinel approves it」 |
 | 审计面 | 活动视图看进度 | 「complete audit trail of everything it has done **and plans to do**」 |
 | 凭据 | 用已存密码，不向模型暴露 | Secure Credentials Store，且看不到用户自己敲的密码 |
-| 接入口 | ChatGPT / Slack / Teams / 短信 | **WhatsApp**（像给人发消息一样） |
+| 接入口 | ChatGPT / Slack / Teams / 短信（iMessage/RCS beta） | **WhatsApp**（像给人发消息一样） |
 | 能不能付款 | 官方未在发布页写 | **能**，Stripe Link，含购买保障 |
 | 训练开关 | 个人套餐自选 | 帮助中心写「默认开，可关，改动也适用历史交互」 |
 | 后台自主的权限 | **官方明确只读** | **写操作必回前台审批**（由默认档「every write action 需许可」推出，官方无「后台只读」原句） |

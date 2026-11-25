@@ -3,6 +3,7 @@ id: gamma
 form: web
 name: Gamma
 nameEn: Gamma
+tagline: Gamma 用大纲、笔记或一句话生成可继续编辑的演示、网页与一页式文档，适合快速出稿再手工打磨。
 vendor: Gamma
 homepage: https://gamma.app/
 license: 官方产品页与条款页为准；本条目只记录能力与边界，不复制价格数字或完整合同。
