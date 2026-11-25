@@ -122,17 +122,17 @@
   <h2><span data-zh>使用边界</span><span data-en>Use boundaries</span></h2>
   <p class="sec-caveat"><span data-zh>网页语料仍有版权、噪声与重复；过滤模型会带入自身偏差，不能把过滤分当质量真值。</span><span data-en>Web text still carries copyright, noise and duplication. The filter model carries its own bias; a filter score is not a ground-truth quality label.</span></p>
 <h2><span data-zh>第一次使用</span><span data-en>First use</span></h2>
-  <p><span data-zh>先拉 1–5 GB 抽样，跑语言识别、去重、毒性抽检，再决定是否进训练管线。</span><span data-en>先拉 1–5 GB 抽样，跑语言识别、去重、毒性抽检，再决定是否进训练管线。</span></p>
+  <p><span data-zh>先拉 1–5 GB 抽样，跑语言识别、去重、毒性抽检，再决定是否进训练管线。</span><span data-en>Pull a 1–5 GB sample first; run language ID, deduplication and toxicity checks before adding it to a training pipeline.</span></p>
 <h2><span data-zh>常见坑</span><span data-en>Common pitfalls</span></h2>
-  <p><span data-zh>把 DCLM 分数当通用质量真值；忽略 Common Crawl 的 robots 与来源条款。</span><span data-en>把 DCLM 分数当通用质量真值；忽略 Common Crawl 的 robots 与来源条款。</span></p>
+  <p><span data-zh>把 DCLM 分数当通用质量真值；忽略 Common Crawl 的 robots 与来源条款。</span><span data-en>Treating the DCLM score as a universal quality truth; ignoring Common Crawl robots and source terms.</span></p>
 <h2><span data-zh>成本</span><span data-en>Cost</span></h2>
-  <p><span data-zh>全量下载与训练成本高；抽样验证成本低。</span><span data-en>全量下载与训练成本高；抽样验证成本低。</span></p>
+  <p><span data-zh>全量下载与训练成本高；抽样验证成本低。</span><span data-en>Full download and training are expensive; sample validation is cheap.</span></p>
 <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
-  <p><span data-zh>不适合需要逐条授权证明的闭源商用语料。</span><span data-en>不适合需要逐条授权证明的闭源商用语料。</span></p>
+  <p><span data-zh>不适合需要逐条授权证明的闭源商用语料。</span><span data-en>Not for closed-source commercial corpora that require item-by-item licensing proof.</span></p>
 <h2><span data-zh>对比与替代</span><span data-en>Compare and alternatives</span></h2>
-  <p><span data-zh>与 FineWeb 同属网页预训练语料；DCLM 更强调过滤消融，FineWeb 提供教育向子集。</span><span data-en>与 FineWeb 同属网页预训练语料；DCLM 更强调过滤消融，FineWeb 提供教育向子集。</span></p>
+  <p><span data-zh>与 FineWeb 同属网页预训练语料；DCLM 更强调过滤消融，FineWeb 提供教育向子集。</span><span data-en>A web pretraining corpus like FineWeb; DCLM emphasises filter ablations, while FineWeb offers an education-focused subset.</span></p>
 <h2><span data-zh>怎么验证</span><span data-en>How to verify</span></h2>
-  <p><span data-zh>在数据集卡核对 1.0 版本、token 数与许可；抽 100 条看语言与正文质量。</span><span data-en>在数据集卡核对 1.0 版本、token 数与许可；抽 100 条看语言与正文质量。</span></p>
+  <p><span data-zh>在数据集卡核对 1.0 版本、token 数与许可；抽 100 条看语言与正文质量。</span><span data-en>Check version 1.0, token count and licence on the dataset card; sample 100 records for language and body quality.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
     <li><span data-zh>打开来源页，下载数据集卡与许可原文，确认版本与获取条件。</span><span data-en>Open the source page, download the dataset card and licence, and confirm the version and access terms.</span></li>
@@ -143,7 +143,7 @@
 <div class="sec-sources"><span data-zh>来源</span><span data-en>Source</span>：<a href="https://huggingface.co/datasets/mlfoundations/dclm-baseline-1.0" target="_blank" rel="noopener">https://huggingface.co/datasets/mlfoundations/dclm-baseline-1.0</a> · <span data-zh>核验日</span><span data-en>Verified</span> 2026-11-19 · <span data-zh>许可以来源页为准</span><span data-en>Licence terms follow the source page</span></div>
 </div>
   </main>
-      <footer class="site-footer foot-single">
+  <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">

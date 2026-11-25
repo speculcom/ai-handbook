@@ -116,7 +116,7 @@
   <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
   <ul><li><span data-zh>克隆相似度与自然度在开源 TTS 里靠前，推理代码完整。</span><span data-en>Zero-shot cloning from a short reference.</span></li><li><span data-zh>可自己微调，适合做有声内容与角色音色。</span><span data-en>Flow-matching and DiT architecture.</span></li><li><span data-zh>Sway Sampling 等推理技巧有论文与消融，便于复现。</span><span data-en>Training and inference code are available.</span></li></ul>
   <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
-  <p class="warn"><span data-zh>声音克隆涉及声音权与诈骗风险，必须取得授权并披露。</span><span data-en>You need a CPU-only real-time engine.</span><br><span data-zh>不是实时低延迟引擎，长文本要分块。</span><span data-en>You cannot secure consent for cloned voices.</span><br><span data-zh>参考音频的噪声与口音会直接进入输出。</span><span data-en>参考音频的噪声与口音会直接进入输出。</span></p>
+  <p class="warn"><span data-zh>声音克隆涉及声音权与诈骗风险，必须取得授权并披露。</span><span data-en>You need a CPU-only real-time engine.</span><br><span data-zh>不是实时低延迟引擎，长文本要分块。</span><span data-en>You cannot secure consent for cloned voices.</span><br><span data-zh>参考音频的噪声与口音会直接进入输出。</span><span data-en>Noise and accent in the reference audio pass straight into the output.</span></p>
   <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
   <ol><li><span data-zh>按 README 装环境与模型，准备 5-10 秒干净参考音频。</span><span data-en>Clone a consented reference and synthesise one sentence.</span></li><li><span data-zh>用 CLI 生成一句，检查发音与相似度。</span><span data-en>Test Chinese and English with the same voice.</span></li><li><span data-zh>再跑 Gradio demo，试中英混排与语速。</span><span data-en>Compare speed settings for naturalness.</span></li></ol>
   <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>

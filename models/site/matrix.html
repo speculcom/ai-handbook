@@ -119,43 +119,43 @@
     <td><span data-zh>旗舰 218B MoE（25B 激活，多卡/大显存）；上一代 r7b（7B 级，单卡）</span><span data-en>Flagship 218B MoE (25B active; multi-GPU / large VRAM); Previous r7b (7B-class, single card)</span></td>
     <td><span data-zh>128K</span><span data-en>128K</span></td>
     <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
-    <td><span data-zh>多卡 / 120 GB+</span><span data-en>多卡 / 120 GB+</span></td>
+    <td><span data-zh>多卡 / 120 GB+</span><span data-en>Multi-GPU / 120 GB+</span></td>
     <td><span data-zh>Cohere 的企业向 agentic 家族：A+ 放开了 Apache-2.0（上一代还是门控），主打企业场景与多语言。尺寸在 218B 级，本地部署门槛高。这里没有它的量化对比（GGUF 生态太薄，见下）。</span><span data-en>Cohere's enterprise agentic line: A+ opened up under Apache-2.0 (the previous generation was gated), pitched at enterprise and multilingual work. At 218B scale the local-deployment bar is high. This site carries no quantisation comparison (GGUF ecosystem too thin — see below).</span></td>
   </tr>
 <tr data-local="no" data-osi="yes">
     <td><a href="families/deepseek/"><span data-zh>DeepSeek</span><span data-en>DeepSeek</span></a></td>
     <td><span data-zh>V4.1-Flash</span><span data-en>V4.1-Flash</span><br><span class="mx-dim">2026-09</span></td>
     <td><span data-zh>单一MoE大杯：552B 骨干 + 196B Engram 条件记忆 + 视觉塔等（官方卡组件相加约 763B 总参，官方 README 未给单一总参数字），本地可跑性依赖量化与内存</span><span data-en>Single MoE tier: 552B backbone plus a 196B Engram conditional-memory table and a vision tower (the official card's components add up to roughly 763B total; the README gives no single total), local runability depends on quantisation and memory</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
     <td><span data-zh>MIT</span><span data-en>MIT</span></td>
-    <td><span data-zh>集群 / 400 GB+</span><span data-en>集群 / 400 GB+</span></td>
+    <td><span data-zh>集群 / 400 GB+</span><span data-en>Cluster / 400 GB+</span></td>
     <td><span data-zh>MIT 许可 + KV cache 压缩路线鲜明；量化生态活跃（Redis 作者、llama.cpp 生态参与者 antirez 维护过其量化版，这里系列页有记录）。适合追新、能接受大模型的部署者。</span><span data-en>MIT-licensed with a distinctive KV-cache-compression roadmap; an active quantisation ecosystem (antirez, author of Redis and a llama.cpp ecosystem participant, maintains a quantised build; recorded on the series page). For deployers who track the frontier and can host large models.</span></td>
   </tr>
 <tr data-local="yes" data-osi="no">
     <td><a href="families/falcon/"><span data-zh>Falcon</span><span data-en>Falcon</span></a></td>
     <td><span data-zh>Falcon H1R 7B</span><span data-en>Falcon H1R 7B</span><br><span class="mx-dim">2026-01</span></td>
     <td><span data-zh>7B（单卡）；上一代多尺寸（以官方页为准）</span><span data-en>7B (single GPU); Previous multi-size line (see official page)</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
     <td><span data-zh>Falcon TII</span><span data-en>Falcon TII</span></td>
-    <td><span data-zh>单卡 / 6 GB</span><span data-en>单卡 / 6 GB</span></td>
+    <td><span data-zh>单卡 / 6 GB</span><span data-en>Single GPU / 6 GB</span></td>
     <td><span data-zh>TII 的混合架构家族：H1R 7B 用 Transformer-Mamba 混合结构把 7B 做到单卡可跑，适合做长序列与低显存实验。许可不是 OSI，商用前要逐条读；生态规模也小于 Llama/Qwen。</span><span data-en>TII’s hybrid-architecture family: H1R 7B uses a Transformer-Mamba mix to keep 7B runnable on one GPU, suited to long-sequence and low-VRAM experiments. The licence is not OSI, so read it before commercial use; the ecosystem is smaller than Llama or Qwen.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
     <td><a href="families/gemma/"><span data-zh>Gemma</span><span data-en>Gemma</span></a></td>
     <td><span data-zh>Gemma 4</span><span data-en>Gemma 4</span><br><span class="mx-dim">2026-03</span></td>
     <td><span data-zh>端侧 E2B / E4B：手机与浏览器可跑；笔电 12B / 26B-A4B；服务器 31B（密集）</span><span data-en>On-device E2B / E4B: phones and browsers; Laptop 12B / 26B-A4B; Server 31B (dense)</span></td>
-    <td><span data-zh>128K（E 系以模型卡为准）</span><span data-en>128K（E 系以模型卡为准）</span></td>
+    <td><span data-zh>128K（E 系以模型卡为准）</span><span data-en>128K (E series: see model card)</span></td>
     <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
-    <td><span data-zh>端侧 2 GB 起；31B 约 18 GB</span><span data-en>端侧 2 GB 起；31B 约 18 GB</span></td>
+    <td><span data-zh>端侧 2 GB 起；31B 约 18 GB</span><span data-en>From 2 GB on-device; ~18 GB for 31B</span></td>
     <td><span data-zh>尺寸档最全的家族（E2B 到 31B），端侧到服务器一条线；许可是 Apache-2.0 + 使用政策组合，下载前读政策原文。这里的 gemma-4 系列覆盖其中三档。</span><span data-en>The family with the widest size spread (E2B to 31B), one line from edge to server. Licensing is Apache-2.0 plus a use policy — read the policy text before download. This site's gemma-4 series covers three of the tiers.</span></td>
   </tr>
 <tr data-local="no" data-osi="yes">
     <td><a href="families/glm/"><span data-zh>GLM 智谱</span><span data-en>GLM (Z.ai)</span></a></td>
     <td><span data-zh>GLM-5.3</span><span data-en>GLM-5.3</span><br><span class="mx-dim">2026-08</span></td>
     <td><span data-zh>小杯 Flash：MIT 许可，本地部署优先选它；大杯 5.3：754B MoE，服务器级；许可以为发布页原文为准</span><span data-en>Flash tier: MIT-licensed, the first choice for local deployment; Flagship 5.3: 754B MoE, server-class; licence per the release page</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
-    <td><span data-zh>MIT / 厂商许可</span><span data-en>MIT / 厂商许可</span></td>
-    <td><span data-zh>Flash 约 180 GB；5.3 集群</span><span data-en>Flash 约 180 GB；5.3 集群</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
+    <td><span data-zh>MIT / 厂商许可</span><span data-en>MIT / Vendor licence</span></td>
+    <td><span data-zh>Flash 约 180 GB；5.3 集群</span><span data-en>Flash ~180 GB; 5.3 cluster</span></td>
     <td><span data-zh>中文 agent 与代码强项、迭代节奏极快（半年四代）。大杯与 Flash 杯许可不同——本地部署优先 MIT 的 Flash 杯。这里的 glm-5 系列在 GLM-5.3 上。</span><span data-en>Strong at Chinese agentic work and code, with a very fast iteration cadence. Flagship and Flash tiers carry different licences — for local deployment, prefer the MIT Flash tier. This site's glm-5 series tracks GLM-5.3.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
@@ -164,7 +164,7 @@
     <td><span data-zh>本地 20B（21B 总参 / 3.6B 激活，16GB 内）；单卡服务器 120B（117B 总参 / 5.1B 激活，80GB 卡）</span><span data-en>Local 20B (21B total / 3.6B active, within 16GB); Single-GPU server 120B (117B total / 5.1B active, 80GB card)</span></td>
     <td><span data-zh>—</span><span data-en>—</span></td>
     <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
-    <td><span data-zh>20B 约 12–16 GB；120B 约 70 GB</span><span data-en>20B 约 12–16 GB；120B 约 70 GB</span></td>
+    <td><span data-zh>20B 约 12–16 GB；120B 约 70 GB</span><span data-en>20B ~12–16 GB; 120B ~70 GB</span></td>
     <td><span data-zh>OpenAI 首次放出的开放权重 MoE：Apache-2.0、官方就按「量化后交付」设计（MXFP4），单卡可跑是它的主打场景。这里有 gpt-oss 系列的量化对比。</span><span data-en>OpenAI's first open-weight MoE line: Apache-2.0, designed to ship quantized (MXFP4) from the start, single-GPU operation is its headline scenario. This site covers the gpt-oss quantisation comparison.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
@@ -173,16 +173,16 @@
     <td><span data-zh>3B（边缘/单机）；8B（单卡）；30B（多卡/企业）</span><span data-en>3B (edge / single machine); 8B (single GPU); 30B (multi-GPU / enterprise)</span></td>
     <td><span data-zh>128K</span><span data-en>128K</span></td>
     <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
-    <td><span data-zh>3B 约 2 GB；8B 约 5 GB；30B 约 18 GB</span><span data-en>3B 约 2 GB；8B 约 5 GB；30B 约 18 GB</span></td>
+    <td><span data-zh>3B 约 2 GB；8B 约 5 GB；30B 约 18 GB</span><span data-en>3B ~2 GB; 8B ~5 GB; 30B ~18 GB</span></td>
     <td><span data-zh>IBM 的企业向开放权重家族：尺寸克制、许可干净、强调工作流与编码，适合在合规要求高的企业里做私有部署。它不是“跑分最强”路线，优势在许可、可审计与企业集成。</span><span data-en>IBM’s enterprise-oriented open-weight family: restrained sizes, clean licensing, and an emphasis on workflows and coding, suited to private deployment in compliance-heavy enterprises. It is not a benchmark-maximalist line; its advantage is licensing, auditability and enterprise integration.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
     <td><a href="families/kat/"><span data-zh>KAT Coder</span><span data-en>KAT Coder</span></a></td>
     <td><span data-zh>KAT-Coder-V2.5</span><span data-en>KAT-Coder-V2.5</span><br><span class="mx-dim">2026-07</span></td>
     <td><span data-zh>代码专用 35B-A3B（35B 总参 / 3B 激活）</span><span data-en>Code-focused 35B-A3B (35B total / 3B active)</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
     <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
-    <td><span data-zh>约 20 GB</span><span data-en>约 20 GB</span></td>
+    <td><span data-zh>约 20 GB</span><span data-en>~20 GB</span></td>
     <td><span data-zh>快手 Kwaipilot 的代码家族：API 版闭源、Dev 版开放权重。它是这里的「派生模型」代表——官方自己声明基座是 Qwen3.6-35B-A3B，选它等于选 Qwen 谱系 + 快手代码后训练。</span><span data-en>Kuaishou Kwaipilot's coding line: the API build stays closed, the Dev build is open-weight. It is this site's representative &quot;derived model&quot; — the vendor itself declares Qwen3.6-35B-A3B as its base, so choosing it means choosing the Qwen lineage plus Kuaishou's code post-training.</span></td>
   </tr>
 <tr data-local="no" data-osi="no">
@@ -190,53 +190,53 @@
     <td><span data-zh>Kimi K3.1 Pro</span><span data-en>Kimi K3.1 Pro</span><br><span class="mx-dim">2026-10</span></td>
     <td><span data-zh>旗舰 2.8T MoE（K3.1 Pro，104B 激活，1M 上下文）；旗舰 2.8T MoE（K3，激活数官方未逐条公开）；支线 7B–72B（Kimi-Audio / Kimi-Dev 等）</span><span data-en>Flagship 2.8T MoE (K3.1 Pro, 104B active, 1M context); Flagship 2.8T MoE (K3; active count not itemised officially); Branch builds 7B–72B (Kimi-Audio / Kimi-Dev etc.)</span></td>
     <td><span data-zh>1M</span><span data-en>1M</span></td>
-    <td><span data-zh>厂商许可 / 厂商许可</span><span data-en>厂商许可 / 厂商许可</span></td>
-    <td><span data-zh>集群 / 1.4 TB+</span><span data-en>集群 / 1.4 TB+</span></td>
+    <td><span data-zh>厂商许可 / 厂商许可</span><span data-en>Vendor licence / Vendor licence</span></td>
+    <td><span data-zh>集群 / 1.4 TB+</span><span data-en>Cluster / 1.4 TB+</span></td>
     <td><span data-zh>国产开放权重旗舰：K3.1 Pro 把 K3 的后训练推到新一档，2.8T 总参 / 104B 激活、1M 上下文，权重于 2026-11-04 开放，许可为自定义 Kimi K3.1 Pro License。对话产品「Kimi 智能助手」在网信办首批备案；模型权重与备案是两回事。</span><span data-en>The domestic open-weight flagship: K3.1 Pro pushes K3 post-training to a new tier — 2.8T total / 104B active, 1M context — with weights opened on 2026-11-04 under a custom Kimi K3.1 Pro License. The Kimi chat product sits in the CAC first batch; weights and service filing are separate.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
     <td><a href="families/laguna/"><span data-zh>Laguna</span><span data-en>Laguna</span></a></td>
     <td><span data-zh>Laguna 2.1 / XS.2</span><span data-en>Laguna 2.1 / XS.2</span><br><span class="mx-dim">2026-08</span></td>
     <td><span data-zh>本地 XS（33B 总参 / 3B 激活，官方称 36GB Mac 可跑）；更大档 S / M（官方 org 在册）</span><span data-en>Local XS (33B total / 3B active; the vendor says a 36GB Mac runs it); Larger S / M builds (official org)</span></td>
-    <td><span data-zh>262K（XS）</span><span data-en>262K（XS）</span></td>
+    <td><span data-zh>262K（XS）</span><span data-en>262K (XS)</span></td>
     <td><span data-zh>OpenMDW-1.1</span><span data-en>OpenMDW-1.1</span></td>
-    <td><span data-zh>XS 约 20 GB；官方称 36 GB Mac 可跑</span><span data-en>XS 约 20 GB；官方称 36 GB Mac 可跑</span></td>
+    <td><span data-zh>XS 约 20 GB；官方称 36 GB Mac 可跑</span><span data-en>XS ~20 GB; vendor says it runs on a 36 GB Mac</span></td>
     <td><span data-zh>代码专用家族里许可最宽的一族（OpenMDW-1.1 完全宽松）；主打「本地机器跑 agentic coding」，激活 3B 是它的本地性来源。这里有 Laguna XS-2.1 的量化对比。</span><span data-en>The most permissively licensed coding line (OpenMDW-1.1, fully permissive); its pitch is agentic coding on a local machine, with 3B active parameters as the source of that locality. This site covers Laguna XS-2.1 quantisations.</span></td>
   </tr>
 <tr data-local="yes" data-osi="no">
     <td><a href="families/llama/"><span data-zh>Llama</span><span data-en>Llama</span></a></td>
     <td><span data-zh>Llama 4</span><span data-en>Llama 4</span><br><span class="mx-dim">2025-04</span></td>
     <td><span data-zh>小杯 1B / 3B：端侧与视觉小杯；中杯 8B / 70B：本地部署常用档；大杯 405B / 17B-128E MoE：服务器级</span><span data-en>Small 1B / 3B: on-device and vision-small; Medium 8B / 70B: the common local-deployment tiers; Large 405B / 17B-128E MoE: server-class</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
-    <td><span data-zh>厂商许可</span><span data-en>厂商许可</span></td>
-    <td><span data-zh>8B 约 6 GB；70B 约 40 GB</span><span data-en>8B 约 6 GB；70B 约 40 GB</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
+    <td><span data-zh>厂商许可</span><span data-en>Vendor licence</span></td>
+    <td><span data-zh>8B 约 6 GB；70B 约 40 GB</span><span data-en>8B ~6 GB; 70B ~40 GB</span></td>
     <td><span data-zh>全球生态最大的开放权重家族：微调、量化、工具链覆盖最全，但许可是带归属条款（Built with Llama）与规模条款（7 亿 MAU）的社区许可，商用前读全文。</span><span data-en>The largest open-weight ecosystem by far — fine-tunes, quantisations and tooling are everywhere — but the licence is a community licence with attribution (&quot;Built with Llama&quot;) and scale (700M MAU) clauses. Read it fully before commercial use.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
     <td><a href="families/minicpm/"><span data-zh>MiniCPM</span><span data-en>MiniCPM</span></a></td>
     <td><span data-zh>MiniCPM5</span><span data-en>MiniCPM5</span><br><span class="mx-dim">2026-08</span></td>
     <td><span data-zh>端侧 1B / 2B（MiniCPM5-1B / 2B，密集）；上一代 4B–8B（MiniCPM3/4 系）</span><span data-en>On-device 1B / 2B (MiniCPM5-1B / 2B, dense); Previous 4B–8B (MiniCPM3/4 line)</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
     <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
-    <td><span data-zh>1B–2B 约 1–2 GB</span><span data-en>1B–2B 约 1–2 GB</span></td>
+    <td><span data-zh>1B–2B 约 1–2 GB</span><span data-en>1B–2B ~1–2 GB</span></td>
     <td><span data-zh>国产端侧小杯家族：尺寸小、官方连训练数据一起开源，按「自己练一遍」路线能拿到完整起点的中文家族（训练数据也一起放出）。面壁 ChatGLM 之外的另一条国产备案线（MiniCPM 备案编号 Beijing-MiniCPM-202503180058）。</span><span data-en>The domestic on-device small-model family: small sizes plus fully open training data — a Chinese family that gives you for the &quot;train one yourself&quot; route. Alongside Zhipu, another filed domestic line (MiniCPM filing number Beijing-MiniCPM-202503180058).</span></td>
   </tr>
 <tr data-local="partial" data-osi="no">
     <td><a href="families/mistral/"><span data-zh>Mistral</span><span data-en>Mistral</span></a></td>
     <td><span data-zh>Mistral Large 4</span><span data-en>Mistral Large 4</span><br><span class="mx-dim">2026-10</span></td>
     <td><span data-zh>旗舰档：1.05T 总参 / 49B 激活（含嵌入输出 52B）；Small 24B–119B（MoE）：本地可跑的开源杯；Medium 128B：旗舰密集杯</span><span data-en>Flagship tier: 1.05T total / 49B active (52B including embeddings and output); Small 24B-119B (MoE): the locally runnable open tier; Medium 128B: flagship dense tier</span></td>
-    <td><span data-zh>1M（Large 4）</span><span data-en>1M（Large 4）</span></td>
-    <td><span data-zh>Mistral Ecosystem / Apache-2.0 / 厂商许可</span><span data-en>Mistral Ecosystem / Apache-2.0 / 厂商许可</span></td>
-    <td><span data-zh>Large 4 集群；Small 24B 约 15 GB</span><span data-en>Large 4 集群；Small 24B 约 15 GB</span></td>
+    <td><span data-zh>1M（Large 4）</span><span data-en>1M (Large 4)</span></td>
+    <td><span data-zh>Mistral Ecosystem / Apache-2.0 / 厂商许可</span><span data-en>Mistral Ecosystem / Apache-2.0 / Vendor licence</span></td>
+    <td><span data-zh>Large 4 集群；Small 24B 约 15 GB</span><span data-en>Large 4 cluster; Small 24B ~15 GB</span></td>
     <td><span data-zh>欧洲开放权重旗舰：1T 级 MoE + 1M 上下文 + 视觉输入，许可为修改版 MIT（MaaS 需单独授权）。适合需要「开放权重 + 欧洲合规叙事 + 多语言」的部署者；本地运行门槛极高，官方提供 NVFP4 量化档与 DSpark 投机解码草稿头。</span><span data-en>A European open-weight flagship: 1T-class MoE, 1M context and vision input, under a modified MIT licence (separate MaaS grant needed). For deployers who need open weights, a European compliance story and multilingual coverage; local hosting is extremely demanding, and the official release includes an NVFP4 checkpoint and a DSpark speculative-decoding draft head.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
     <td><a href="families/muse/"><span data-zh>Muse</span><span data-en>Muse</span></a></td>
     <td><span data-zh>Muse Glimmer</span><span data-en>Muse Glimmer</span><br><span class="mx-dim">2026-08</span></td>
     <td><span data-zh>30B 密集（Glimmer 档）</span><span data-en>30B dense (Glimmer tier)</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
     <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
-    <td><span data-zh>30B 约 18 GB</span><span data-en>30B 约 18 GB</span></td>
+    <td><span data-zh>30B 约 18 GB</span><span data-en>30B ~18 GB</span></td>
     <td><span data-zh>Meta 在 Llama 之外的新开放权重线（meta-models org）。发布走门控：要先在 HF 登录同意才能下载，这是选型时的硬约束，卡上如实写。这里有 Muse Glimmer 30B 的量化对比。</span><span data-en>Meta's newer open-weight line beside Llama (the meta-models org). Publication is gated: sign in and consent on HF before download — a hard constraint when choosing, stated plainly on the card. This site covers Muse Glimmer 30B quantisations.</span></td>
   </tr>
 <tr data-local="yes" data-osi="no">
@@ -245,7 +245,7 @@
     <td><span data-zh>30B-A3B（单机/低延迟）；120B-A12B（多卡）；550B-A55B（集群）</span><span data-en>30B-A3B (single machine / low latency); 120B-A12B (multi-GPU); 550B-A55B (cluster)</span></td>
     <td><span data-zh>1M</span><span data-en>1M</span></td>
     <td><span data-zh>NVIDIA Open Model</span><span data-en>NVIDIA Open Model</span></td>
-    <td><span data-zh>30B-A3B 约 18–20 GB；120B 约 70 GB</span><span data-en>30B-A3B 约 18–20 GB；120B 约 70 GB</span></td>
+    <td><span data-zh>30B-A3B 约 18–20 GB；120B 约 70 GB</span><span data-en>30B-A3B ~18–20 GB; 120B ~70 GB</span></td>
     <td><span data-zh>NVIDIA 的开放权重 agent 家族：三档 MoE 覆盖单机到集群，主打长上下文、推理与本地 agent。它的价值不在“又一个开源模型”，而在把 NVIDIA 的推理栈、NIM 与硬件适配绑在一起；如果你不用 NVIDIA 硬件，收益会打折。</span><span data-en>NVIDIA’s open-weight agent family: three MoE tiers from a single machine to a cluster, pitched at long context, reasoning and local agents. Its value is not “another open model” but the coupling with NVIDIA’s inference stack, NIM and hardware; without NVIDIA hardware the benefit is smaller.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
@@ -254,44 +254,53 @@
     <td><span data-zh>7B（单卡）；32B（多卡）</span><span data-en>7B (single GPU); 32B (multi-GPU)</span></td>
     <td><span data-zh>65K</span><span data-en>65K</span></td>
     <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
-    <td><span data-zh>7B 约 5 GB；32B 约 20 GB</span><span data-en>7B 约 5 GB；32B 约 20 GB</span></td>
+    <td><span data-zh>7B 约 5 GB；32B 约 20 GB</span><span data-en>7B ~5 GB; 32B ~20 GB</span></td>
     <td><span data-zh>Ai2 的全开放研究家族：真正把数据、代码、检查点和训练配方一起放出，适合做可复现实验与教学。它的优势不是榜单分数，而是“你能从头查到尾”；代价是训练与评测成本要自己承担。</span><span data-en>Ai2’s fully open research family: it releases data, code, checkpoints and the training recipe together, suited to reproducible experiments and teaching. Its advantage is not a leaderboard score but end-to-end inspectability; the cost is that you bear the training and evaluation burden.</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
     <td><a href="families/ornith/"><span data-zh>Ornith</span><span data-en>Ornith</span></a></td>
     <td><span data-zh>Ornith 1.5</span><span data-en>Ornith 1.5</span><br><span class="mx-dim">2026-08</span></td>
     <td><span data-zh>单卡 9B（密集）；主力 35B-A3B（35B 总参 / ~3B 激活）；旗舰 397B</span><span data-en>Single-card 9B (dense); Workhorse 35B-A3B (35B total / ~3B active); Flagship 397B</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
     <td><span data-zh>MIT</span><span data-en>MIT</span></td>
-    <td><span data-zh>9B 约 6 GB；35B 约 22 GB</span><span data-en>9B 约 6 GB；35B 约 22 GB</span></td>
+    <td><span data-zh>9B 约 6 GB；35B 约 22 GB</span><span data-en>9B ~6 GB; 35B ~22 GB</span></td>
     <td><span data-zh>新晋家族（2026 年才出现两代）：MIT 许可 + 三档尺寸覆盖单卡到旗舰。出品主体 DeepReinforce 的注册辖区官方未声明，这里按「国外出品」处理并在属地依据里写明（S52 口径）。</span><span data-en>A newcomer (only two generations so far, both 2026): MIT licence plus three tiers from single-card to flagship. The publisher DeepReinforce's jurisdiction of registration is not officially stated; this site treats it as foreign-made and says so in the origin note (S52 convention).</span></td>
   </tr>
 <tr data-local="yes" data-osi="yes">
     <td><a href="families/phi/"><span data-zh>Phi</span><span data-en>Phi</span></a></td>
     <td><span data-zh>Phi-4-reasoning 系</span><span data-en>Phi-4-reasoning line</span><br><span class="mx-dim">2026-08</span></td>
     <td><span data-zh>端侧 mini 3.8B；单卡 14B–15B（phi-4 密集 / reasoning-vision 15B）</span><span data-en>On-device mini 3.8B; Single-card 14B–15B (phi-4 dense / reasoning-vision 15B)</span></td>
-    <td><span data-zh>以模型卡为准</span><span data-en>以模型卡为准</span></td>
+    <td><span data-zh>以模型卡为准</span><span data-en>See model card</span></td>
     <td><span data-zh>MIT</span><span data-en>MIT</span></td>
-    <td><span data-zh>15B 约 10 GB</span><span data-en>15B 约 10 GB</span></td>
+    <td><span data-zh>15B 约 10 GB</span><span data-en>15B ~10 GB</span></td>
     <td><span data-zh>微软的小尺寸高质量路线：MIT、尺寸集中在 4B–15B、官方主打「合成数据教小模型」。当前代是 reasoning-vision 线（谱系上仍是 phi-4 后训练）。这里没有它的量化对比——当前代 GGUF 生态太薄（见下）。</span><span data-en>Microsoft's small-but-high-quality line: MIT, sizes concentrated at 4B–15B, and the vendor's pitch is &quot;teach small models with synthetic data&quot;. The current line is reasoning-vision (still a phi-4 post-train on the weight lineage). This site carries no quantisation comparison — the current generation's GGUF ecosystem is too thin (see below).</span></td>
   </tr>
 <tr data-local="partial" data-osi="partial">
     <td><a href="families/qwen/"><span data-zh>千问 Qwen</span><span data-en>Qwen</span></a></td>
     <td><span data-zh>Qwen4-Max</span><span data-en>Qwen4-Max</span><br><span class="mx-dim">2026-11</span></td>
     <td><span data-zh>闭源 Max 2.4T：Qwen4-Max，激活 71B，1M 上下文（API 旗舰）；小杯 0.6B–9B：端侧、免费额度、 CPU 可跑；中杯 14B–35B：本地部署主力（27B 密集为当前代代表）；大杯 180B–2.4T：MoE 巨杯，需服务器级显存</span><span data-en>Closed Max 2.4T: Qwen4-Max, 71B active, 1M context (API flagship); Small 0.6B-9B: on-device, free tiers, CPU-capable; Medium 14B-35B: the local-deployment workhorse (27B dense leads this generation); Large 180B-2.4T: MoE flagships needing server-class VRAM</span></td>
-    <td><span data-zh>1M（Max / Qwen4）</span><span data-en>1M（Max / Qwen4）</span></td>
-    <td><span data-zh>Apache-2.0 / 厂商许可</span><span data-en>Apache-2.0 / 厂商许可</span></td>
-    <td><span data-zh>27B 约 16–18 GB；Max 集群</span><span data-en>27B 约 16–18 GB；Max 集群</span></td>
+    <td><span data-zh>1M（Max / Qwen4）</span><span data-en>1M (Max / Qwen4)</span></td>
+    <td><span data-zh>Apache-2.0 / 厂商许可</span><span data-en>Apache-2.0 / Vendor licence</span></td>
+    <td><span data-zh>27B 约 16–18 GB；Max 集群</span><span data-en>27B ~16–18 GB; Max cluster</span></td>
     <td><span data-zh>中文与代码口碑最强的开放权重家族之一；Qwen4-Max 是闭源 API 旗舰，开放权重线仍以 Qwen3.8 为主，许可与硬件门槛分开看待。</span><span data-en>One of the strongest open-weight families for Chinese and code. Qwen4-Max is the closed-API flagship; the open-weight line remains Qwen3.8, and licence and hardware floor should be read separately.</span></td>
   </tr>
 <tr data-local="no" data-osi="no">
     <td><a href="families/tencent/"><span data-zh>腾讯混元</span><span data-en>Tencent Hunyuan</span></a></td>
     <td><span data-zh>Hy4 / Hy4 flash</span><span data-en>Hy4 / Hy4 flash</span><br><span class="mx-dim">2026-11</span></td>
     <td><span data-zh>Hy4：官方发布页未披露总参 / 激活；视觉理解、长上下文与长程 agent 是重点（以模型卡为准）；Hy4 flash：224B 总参（含 64B Engram，12B 激活），1M 上下文；Hy4 Preview：770B 总参 / 49B 激活（Hy4 flash 发布页的对照口径）；Hy3：295B 总参（MoE，21B 激活），256K 上下文</span><span data-en>Hy4: total / active parameters not disclosed on the release page; visual understanding, long context and long-horizon agents are the focus (model card is authoritative); Hy4 flash: 224B total (64B Engram included, 12B active), 1M context; Hy4 Preview: 770B total / 49B active (comparison figure in the Hy4 flash release); Hy3: 295B total (MoE, 21B active), 256K context</span></td>
-    <td><span data-zh>1M（Hy4 flash）</span><span data-en>1M（Hy4 flash）</span></td>
-    <td><span data-zh>厂商许可</span><span data-en>厂商许可</span></td>
-    <td><span data-zh>Hy4 flash 约 120 GB+</span><span data-en>Hy4 flash 约 120 GB+</span></td>
+    <td><span data-zh>1M（Hy4 flash）</span><span data-en>1M (Hy4 flash)</span></td>
+    <td><span data-zh>厂商许可</span><span data-en>Vendor licence</span></td>
+    <td><span data-zh>Hy4 flash 约 120 GB+</span><span data-en>Hy4 flash ~120 GB+</span></td>
     <td><span data-zh>中文开放权重家族里少有的「大总参 + 高激活」路线：Hy4 正式版主打视觉理解、长上下文与长程 agent，Hy4 flash 则用 224B 总参 / 12B 激活换速度与成本。正式版参数量官方未在同一页披露，站内不把 preview 的 770B/49B 直接套到正式版。这里暂时没有 GGUF 量化收录，选型前先看官方许可与硬件门槛。</span><span data-en>An uncommon large-total/high-active Chinese open-weight family: production Hy4 targets visual understanding, long context and long-horizon agents, while Hy4 flash trades 224B total / 12B active for speed and cost. The production parameter count is not disclosed on the release page, so this site does not copy the preview’s 770B/49B onto it. There is no GGUF coverage yet — read the official licence and hardware floor before choosing.</span></td>
+  </tr>
+<tr data-local="partial" data-osi="no">
+    <td><a href="families/thinkingmachines/"><span data-zh>Thinking Machines · Inkling</span><span data-en>Thinking Machines · Inkling</span></a></td>
+    <td><span data-zh>Inkling 2 Small</span><span data-en>Inkling 2 Small</span><br><span class="mx-dim">2026-11</span></td>
+    <td><span data-zh>旗舰 594B-A17B：Inkling 2 Small，多模态，1M 上下文；MXFP8 版需约 800GB 聚合显存，不是单机本地档。；本地 26.4B-A3.4B：Inkling 2 Mini，24 层循环 MoE，Q4_K_M 16.61GB，24GB 级显卡可跑短中上下文。</span><span data-en>Flagship 594B-A17B: Inkling 2 Small, multimodal, 1M context; the MXFP8 checkpoint needs about 800GB of aggregate VRAM, not a single-machine local tier.; Local 26.4B-A3.4B: Inkling 2 Mini, 24-layer looped MoE, Q4_K_M at 16.61GB, runnable on 24GB-class cards at short-to-medium context.</span></td>
+    <td><span data-zh>—</span><span data-en>—</span></td>
+    <td><span data-zh>Apache-2.0</span><span data-en>Apache-2.0</span></td>
+    <td><span data-zh>—</span><span data-en>—</span></td>
+    <td><span data-zh>同一代的两条线：Small 是 594B 级旗舰，用来打前沿 Agent / 多模态任务；Mini 是 26B 级本地节点，用循环层换容量。两者都是 Apache-2.0、1M 上下文，但硬件门槛相差一个数量级，不能互相替代。</span><span data-en>Two lines in the same generation: Small is the 594B-class flagship for frontier agent and multimodal work; Mini is the 26B-class local node that trades repeated layers for capacity. Both are Apache-2.0 with 1M context, but their hardware floors differ by an order of magnitude and they do not replace each other.</span></td>
   </tr></tbody>
     </table>
   </div>
@@ -299,7 +308,7 @@
 </div>
 <script>(function(){var bar=document.getElementById('mx-filter');if(!bar)return;var btns=bar.querySelectorAll('button'),rows=document.querySelectorAll('.mx-table tbody tr');function apply(f){for(var i=0;i<rows.length;i++){var r=rows[i],show=f==='all'||(f==='single'&&r.dataset.local==='yes')||(f==='multi'&&r.dataset.local==='no')||(f==='osi'&&r.dataset.osi==='yes');r.hidden=!show;}for(var j=0;j<btns.length;j++)btns[j].setAttribute('aria-pressed',btns[j].dataset.f===f?'true':'false');}for(var k=0;k<btns.length;k++)btns[k].addEventListener('click',function(){apply(this.dataset.f);});})();</script>
   </main>
-      <footer class="site-footer foot-single">
+  <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">

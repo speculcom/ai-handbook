@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { shell } from '../../../../_sites/_template/shell.mjs';
+import { shell, header, footer, tabbar } from '../../../../_sites/_template/shell.mjs';
 import { parseFrontmatter } from '../scripts/yaml.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -196,7 +196,13 @@ for (const p of pages.filter((x) => x.id !== 'what-is')) {
 for (const name of ['2026.html', '404.html']) {
   const src = path.join(here, '..', 'special', name);
   if (!fs.existsSync(src)) throw new Error(`缺少手工页：${src}`);
-  fs.copyFileSync(src, path.join(out, name));
+  let html = fs.readFileSync(src, 'utf8');
+  html = html
+    .replace(/<div class="nav-scrim"><\/div>\s*<aside class="nav-drawer"[\s\S]*?<\/aside>/g, '')
+    .replace(/<header class="site-header">[\s\S]*?<\/header>/, header('agent'))
+    .replace(/<footer class="site-footer[^"]*">[\s\S]*?<\/footer>/, footer('https://github.com/speculcom/ai-handbook'))
+    .replace(/<nav class="nav-tabbar[^"]*"[\s\S]*?<\/nav>/, tabbar('agent'));
+  fs.writeFileSync(path.join(out, name), html, 'utf8');
 }
 
 // sitemap / llms

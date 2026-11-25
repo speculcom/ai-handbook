@@ -116,7 +116,7 @@
   <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
   <ul><li><span data-zh>GUI 把复杂训练参数摊开，适合个人与小队做角色/风格 LoRA。</span><span data-en>Covers several fine-tuning methods in one toolkit.</span></li><li><span data-zh>脚本成熟，社区教程多，能和 ComfyUI 工作流衔接。</span><span data-en>Dataset tagging utilities reduce manual work.</span></li><li><span data-zh>支持多种基础模型与训练方式，迁移成本低。</span><span data-en>Supports SD1, SDXL and FLUX lines.</span></li></ul>
   <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
-  <p class="warn"><span data-zh>不是一键出图产品；数据清洗、打标与参数调试决定结果。</span><span data-en>You need a hosted training service.</span><br><span data-zh>训练吃显存与时间，云 GPU 成本要算。</span><span data-en>You cannot curate and license a training dataset.</span><br><span data-zh>GUI 封装会隐藏细节，出问题仍要读日志与脚本。</span><span data-en>GUI 封装会隐藏细节，出问题仍要读日志与脚本。</span></p>
+  <p class="warn"><span data-zh>不是一键出图产品；数据清洗、打标与参数调试决定结果。</span><span data-en>You need a hosted training service.</span><br><span data-zh>训练吃显存与时间，云 GPU 成本要算。</span><span data-en>You cannot curate and license a training dataset.</span><br><span data-zh>GUI 封装会隐藏细节，出问题仍要读日志与脚本。</span><span data-en>The GUI hides details; when something breaks you still need the logs and scripts.</span></p>
   <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
   <ol><li><span data-zh>按 README 装 venv 与依赖，启动 gui.py。</span><span data-en>Train a small LoRA on 10 licensed images.</span></li><li><span data-zh>准备 20-50 张同主体图，用 WD14 打标。</span><span data-en>Compare the same seed before and after training.</span></li><li><span data-zh>先跑一个低步数 LoRA，固定 seed 对比基模，确认过拟合前停。</span><span data-en>Check overfitting on a held-out prompt.</span></li></ol>
   <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>

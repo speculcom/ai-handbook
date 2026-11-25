@@ -200,12 +200,12 @@ for (const d of datasets) {
   <p>${bi(d.quality, enOf(d, 'quality'))}</p>
   <h2>${bi('使用边界', 'Use boundaries')}</h2>
   <p class="sec-caveat">${bi(d.caveat, enOf(d, 'caveat'))}</p>
-${d.firstUse ? `<h2>${bi('第一次使用', 'First use')}</h2>\n  <p>${bi(d.firstUse, d.firstUseEn || d.firstUse)}</p>` : ''}
-${d.pitfalls ? `<h2>${bi('常见坑', 'Common pitfalls')}</h2>\n  <p>${bi(d.pitfalls, d.pitfallsEn || d.pitfalls)}</p>` : ''}
-${d.cost ? `<h2>${bi('成本', 'Cost')}</h2>\n  <p>${bi(d.cost, d.costEn || d.cost)}</p>` : ''}
-${d.notFor ? `<h2>${bi('不适合', 'Not for')}</h2>\n  <p>${bi(d.notFor, d.notForEn || d.notFor)}</p>` : ''}
-${d.compare ? `<h2>${bi('对比与替代', 'Compare and alternatives')}</h2>\n  <p>${bi(d.compare, d.compareEn || d.compare)}</p>` : ''}
-${d.verify ? `<h2>${bi('怎么验证', 'How to verify')}</h2>\n  <p>${bi(d.verify, d.verifyEn || d.verify)}</p>` : ''}
+${d.firstUse ? `<h2>${bi('第一次使用', 'First use')}</h2>\n  <p>${bi(d.firstUse, enOf(d, 'firstUse'))}</p>` : ''}
+${d.pitfalls ? `<h2>${bi('常见坑', 'Common pitfalls')}</h2>\n  <p>${bi(d.pitfalls, enOf(d, 'pitfalls'))}</p>` : ''}
+${d.cost ? `<h2>${bi('成本', 'Cost')}</h2>\n  <p>${bi(d.cost, enOf(d, 'cost'))}</p>` : ''}
+${d.notFor ? `<h2>${bi('不适合', 'Not for')}</h2>\n  <p>${bi(d.notFor, enOf(d, 'notFor'))}</p>` : ''}
+${d.compare ? `<h2>${bi('对比与替代', 'Compare and alternatives')}</h2>\n  <p>${bi(d.compare, enOf(d, 'compare'))}</p>` : ''}
+${d.verify ? `<h2>${bi('怎么验证', 'How to verify')}</h2>\n  <p>${bi(d.verify, enOf(d, 'verify'))}</p>` : ''}
   <h2>${bi('下一步', 'Next steps')}</h2>
   <ul>
     <li>${bi('打开来源页，下载数据集卡与许可原文，确认版本与获取条件。', 'Open the source page, download the dataset card and licence, and confirm the version and access terms.')}</li>
@@ -446,7 +446,7 @@ ${g.sections.map((s) => `<h2>${esc(s.h)}</h2>${s.p.map((p) => `<p>${p}</p>`).joi
 // sitemap / llms
 {
   const urls = [];
-  urls.push(url('data/'), url('data/index.html'), url('evals/'), url('evals/index.html'));
+  urls.push(url('data/'), url('evals/'));
   for (const c of CAT_ORDER) urls.push(url(`data/${categoryHref(c)}`));
   for (const d of datasets) urls.push(url(`data/${datasetHref(d.id)}`));
   for (const g of guides) urls.push(url(`data/guides/${g.id}.html`));

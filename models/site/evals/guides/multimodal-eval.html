@@ -109,12 +109,13 @@
 <h2>图像：分辨率与 OCR 是隐藏变量</h2><p>同一张图，缩到 512 和原图 2048，OCR 与细节题分数会差很多。评测卡要写图像长边、压缩方式、是否切图。</p><p>图表题还要看单位、刻度和图例；模型答对数字但读错单位，不能算对。</p>
 <h2>视频：抽帧数与时间戳决定上限</h2><p>视频理解不是“抽几帧给模型看”。抽帧数、采样策略、是否带字幕、是否保留时间戳，都会改变结果。长视频还要看模型能不能定位到具体片段。</p><p>把“视频问答”和“视频生成”分开；前者测理解，后者测生成，分数不能混。</p>
 <h2>文档：ANLS 与精确匹配不是一回事</h2><p>DocVQA 常用 ANLS（归一化编辑距离），对 OCR 小错更宽容；精确匹配更严。报分数时要写指标，不要只写“准确率”。</p><p>文档版面、表格合并单元格、手写体是三个不同难点；抽检时分开看。</p>
+<h2>先做输入口径表</h2><p>同一道题至少跑三种输入：原图、长边 1024、长边 512；视频固定 8/16/32 帧并保留时间戳；文档保留版面与表格结构。把每种输入的分数并列，差值超过 5 分就说明结论依赖预处理，不能只报最高分。</p><p>输入口径表要写清长边、压缩格式、抽帧策略、是否 OCR、是否切图；这些不是实验细节，而是分数的一部分。</p>
+<h2>抽检与失败模式</h2><p>每个模态抽 30 题人工复核：OCR 错、单位错、时间定位错、生成内容与问题无关各留样本。验收要求「指标 + 输入口径 + 失败类型」三件齐全，缺一项就不与其他模型横比。</p><p>视频题额外看时间戳定位：模型答对内容但指向错片段，仍算定位失败；文档题额外看合并单元格与手写体，不能用一个总准确率盖住两类错误。</p>
 </div>
 <div class="sec-sources">参考：<a href="https://mmmu-benchmark.github.io/" target="_blank" rel="noopener">MMMU</a> · <a href="https://video-mme.github.io/" target="_blank" rel="noopener">Video-MME</a> · <a href="https://www.docvqa.org/" target="_blank" rel="noopener">DocVQA</a></div>
 </div>
-  <p class="t-sm" style="margin:12px 0 0;color:var(--ink-faint);font-size:12px"><span data-zh>页面更新 2026-11-23</span><span data-en>Page updated 2026-11-23</span></p>
   </main>
-      <footer class="site-footer foot-single">
+  <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">

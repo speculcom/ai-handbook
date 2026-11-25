@@ -122,17 +122,17 @@
   <h2><span data-zh>使用边界</span><span data-en>Use boundaries</span></h2>
   <p class="sec-caveat"><span data-zh>题集规模不大，子集间难度差异明显；分数高不等于下游 DPO 一定好。</span><span data-en>The set is small and subset difficulty varies. A high score does not guarantee better downstream DPO.</span></p>
 <h2><span data-zh>第一次使用</span><span data-en>First use</span></h2>
-  <p><span data-zh>先确认你的奖励模型输入格式与模板，再跑官方评分脚本。</span><span data-en>先确认你的奖励模型输入格式与模板，再跑官方评分脚本。</span></p>
+  <p><span data-zh>先确认你的奖励模型输入格式与模板，再跑官方评分脚本。</span><span data-en>Confirm your reward-model input format and template, then run the official scoring script.</span></p>
 <h2><span data-zh>常见坑</span><span data-en>Common pitfalls</span></h2>
-  <p><span data-zh>把 RewardBench 分数当生成质量；忽略训练集污染。</span><span data-en>把 RewardBench 分数当生成质量；忽略训练集污染。</span></p>
+  <p><span data-zh>把 RewardBench 分数当生成质量；忽略训练集污染。</span><span data-en>Treating RewardBench scores as generation quality; ignoring training-set contamination.</span></p>
 <h2><span data-zh>成本</span><span data-en>Cost</span></h2>
-  <p><span data-zh>低；单卡可跑。</span><span data-en>低；单卡可跑。</span></p>
+  <p><span data-zh>低；单卡可跑。</span><span data-en>Low; runs on one GPU.</span></p>
 <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
-  <p><span data-zh>不适合单独决定 DPO 配方。</span><span data-en>不适合单独决定 DPO 配方。</span></p>
+  <p><span data-zh>不适合单独决定 DPO 配方。</span><span data-en>Not suitable on its own for deciding a DPO recipe.</span></p>
 <h2><span data-zh>对比与替代</span><span data-en>Compare and alternatives</span></h2>
-  <p><span data-zh>与 HelpSteer2 互补：一个用于训练，一个用于评测奖励模型。</span><span data-en>与 HelpSteer2 互补：一个用于训练，一个用于评测奖励模型。</span></p>
+  <p><span data-zh>与 HelpSteer2 互补：一个用于训练，一个用于评测奖励模型。</span><span data-en>Complementary to HelpSteer2: one is for training, the other for evaluating reward models.</span></p>
 <h2><span data-zh>怎么验证</span><span data-en>How to verify</span></h2>
-  <p><span data-zh>核对子集划分与评分脚本；抽 20 条看 chosen/rejected 是否合理。</span><span data-en>核对子集划分与评分脚本；抽 20 条看 chosen/rejected 是否合理。</span></p>
+  <p><span data-zh>核对子集划分与评分脚本；抽 20 条看 chosen/rejected 是否合理。</span><span data-en>Check subset splits and the scoring script; sample 20 records to see whether chosen/rejected pairs are sensible.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
     <li><span data-zh>打开来源页，下载数据集卡与许可原文，确认版本与获取条件。</span><span data-en>Open the source page, download the dataset card and licence, and confirm the version and access terms.</span></li>
@@ -143,7 +143,7 @@
 <div class="sec-sources"><span data-zh>来源</span><span data-en>Source</span>：<a href="https://huggingface.co/datasets/allenai/reward-bench" target="_blank" rel="noopener">https://huggingface.co/datasets/allenai/reward-bench</a> · <span data-zh>核验日</span><span data-en>Verified</span> 2026-11-19 · <span data-zh>许可以来源页为准</span><span data-en>Licence terms follow the source page</span></div>
 </div>
   </main>
-      <footer class="site-footer foot-single">
+  <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">

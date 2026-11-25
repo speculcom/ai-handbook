@@ -109,12 +109,13 @@
 <h2>先固定环境与工具集</h2><p>同一个任务，在真实网站、复刻环境、Mock API 里难度完全不同。评测卡要写清：环境镜像/版本、起始状态、可用工具、权限边界。</p><p>工具集变了，分数就不能直接比。把工具名、参数 schema、最大调用次数和错误返回都记录下来。</p>
 <h2>步数与成本要一起报</h2><p>只报成功率不报步数，会掩盖“靠大量试错堆出来”的 agent。至少报：平均步数、token 成本、工具调用次数、超时率。</p><p>pass^k 适合看稳定性：同一任务跑 k 次，k 次全对的概率。它比单次 pass@1 更能暴露随机性。</p>
 <h2>评分器决定你测的是什么</h2><p>精确匹配、状态检查、单元测试、LLM judge 是四种不同的尺子。状态检查最硬，但覆盖窄；LLM judge 覆盖宽，但有偏差。</p><p>把失败分类：规划错、工具选错、参数错、环境错、评分错。只看总分，不知道下一步该改什么。</p>
+<h2>一个可复现的最小实验</h2><p>选 20 个任务，固定环境镜像、工具 schema 与步数上限；每个任务跑 3 次，记录 pass@1、pass^3、平均步数、token 成本和工具调用数。验收不是「分数更高」，而是「换模型后同一任务的成功/失败分布能解释」。</p><p>如果 pass@1 高但 pass^3 低，说明它靠运气；如果步数暴涨而成功率只升一点，说明在试错。把这两条写进验收表，再谈模型好坏。</p>
+<h2>失败分类与验收口径</h2><p>把失败分五类：规划错、工具选错、参数错、环境错、评分错；每类至少留 3 个样本，并附原始轨迹。验收时要求「新增失败样本能归因到具体一层」，否则总分再高也不可行动。</p><p>跨模型比较只比同一环境、同一工具集、同一步数上限下的结果；任何一项变了，就当作新实验，不把旧分数直接贴上来。</p>
 </div>
 <div class="sec-sources">参考：<a href="https://github.com/THUDM/AgentBench" target="_blank" rel="noopener">AgentBench</a> · <a href="https://github.com/sierra-research/tau-bench" target="_blank" rel="noopener">τ-bench</a> · <a href="https://os-world.github.io/" target="_blank" rel="noopener">OSWorld</a></div>
 </div>
-  <p class="t-sm" style="margin:12px 0 0;color:var(--ink-faint);font-size:12px"><span data-zh>页面更新 2026-11-23</span><span data-en>Page updated 2026-11-23</span></p>
   </main>
-      <footer class="site-footer foot-single">
+  <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">

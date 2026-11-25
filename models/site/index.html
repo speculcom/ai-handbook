@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
   <link rel="stylesheet" href="site.css" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"开放权重该怎么选 · AI 模型","url":"https://models.specul.com/","description":"开放权重两步选型：家族谱系卡（出品方/代次/尺寸/许可/官方声明）+ 系列页（显存倒推量化版）。不评模型强弱，不排名。"}</script>
+  <link rel="stylesheet" href="sections.css" />
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -103,6 +104,24 @@
       <p class="site-hero-deck"><span data-zh>21 个家族，按尺寸、量化档和许可挑。</span><span data-en>21 families, chosen by size, quantisation and licence.</span></p>
     </header>
 
+<!-- sec-doors:start -->
+<div class="container">
+<div class="sec-doors">
+  <a class="sec-door" href="data/index.html">
+    <span class="k">Models · Data</span>
+    <h2><span data-zh>数据与训练语料</span><span data-en>Data and training corpora</span></h2>
+    <p><span data-zh>40 张数据集卡，按 8 类整理。先看许可与商用边界，再看规模、语言与任务适配。</span><span data-en>40 dataset cards across 8 categories. Start with licence and commercial boundaries, then size, language and task fit.</span></p>
+    <span class="more"><span data-zh>看数据卡 →</span><span data-en>Open dataset cards →</span></span>
+  </a>
+  <a class="sec-door" href="evals/index.html">
+    <span class="k">Models · Evals</span>
+    <h2><span data-zh>评测与榜单</span><span data-en>Evals and leaderboards</span></h2>
+    <p><span data-zh>40 个常用基准，只写“测什么、怎么读”，不做总分与“最强”排名。</span><span data-en>40 common benchmarks; what they test and how to read them, with no overall score or &quot;best&quot; ranking.</span></p>
+    <span class="more"><span data-zh>看基准卡 →</span><span data-en>Open benchmark cards →</span></span>
+  </a>
+</div>
+</div>
+<!-- sec-doors:end -->
 <section class="vz-section" id="lineage">
   <div class="container">
     <div class="vz-head">

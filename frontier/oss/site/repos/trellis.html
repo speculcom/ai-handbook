@@ -116,7 +116,7 @@
   <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
   <ul><li><span data-zh>一个模型支持多种 3D 输出格式，还能做局部编辑，比只出 mesh 的方案灵活。</span><span data-en>One representation supports several 3D outputs.</span></li><li><span data-zh>CVPR 2025 Spotlight，代码与权重开放。</span><span data-en>Open code and weights.</span></li><li><span data-zh>SLAT 表示把几何与外观解耦，便于下游导出与再渲染。</span><span data-en>A strong research baseline for image-to-3D.</span></li></ul>
   <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
-  <p class="warn"><span data-zh>生成的是资产草模，拓扑、UV 与材质仍需美术修。</span><span data-en>You need production-ready asset pipelines with retopology.</span><br><span data-zh>显存与时间门槛高，不是实时工具。</span><span data-en>You need CPU-only inference.</span><br><span data-zh>复杂场景与透明材质仍容易失败。</span><span data-en>复杂场景与透明材质仍容易失败。</span></p>
+  <p class="warn"><span data-zh>生成的是资产草模，拓扑、UV 与材质仍需美术修。</span><span data-en>You need production-ready asset pipelines with retopology.</span><br><span data-zh>显存与时间门槛高，不是实时工具。</span><span data-en>You need CPU-only inference.</span><br><span data-zh>复杂场景与透明材质仍容易失败。</span><span data-en>Complex scenes and transparent materials still fail often.</span></p>
   <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
   <ol><li><span data-zh>按 README 用 conda 建环境，下载预训练权重。</span><span data-en>Run the official image-to-3D example.</span></li><li><span data-zh>先用一张物体图跑 image-to-3D，导出 mesh 与 Gaussian。</span><span data-en>Export the mesh and inspect scale and normals.</span></li><li><span data-zh>再试 text-to-3D 与局部编辑，检查面数与纹理。</span><span data-en>Compare Gaussian and mesh outputs for your use case.</span></li></ol>
   <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>

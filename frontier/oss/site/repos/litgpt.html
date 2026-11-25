@@ -116,7 +116,7 @@
   <h2><span data-zh>为什么选</span><span data-en>Why choose it</span></h2>
   <ul><li><span data-zh>把训练脚本拆成可读配方，适合学习与中小规模微调。</span><span data-en>Recipes are readable and modifiable.</span></li><li><span data-zh>支持多种模型与 LoRA/量化，不必上重型框架。</span><span data-en>Covers pretraining, SFT, LoRA and quantisation.</span></li><li><span data-zh>单卡就能跑通，实验迭代快。</span><span data-en>Designed to run on a single GPU where possible.</span></li></ul>
   <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
-  <p class="warn"><span data-zh>不是大规模分布式训练平台；千卡级训练仍用 Megatron/DeepSpeed。</span><span data-en>You need a large-scale multi-node training framework.</span><br><span data-zh>部分新模型支持滞后，需看版本。</span><span data-en>You want a no-code fine-tuning product.</span><br><span data-zh>配方多，参数与数据格式要按模型逐项核对。</span><span data-en>配方多，参数与数据格式要按模型逐项核对。</span></p>
+  <p class="warn"><span data-zh>不是大规模分布式训练平台；千卡级训练仍用 Megatron/DeepSpeed。</span><span data-en>You need a large-scale multi-node training framework.</span><br><span data-zh>部分新模型支持滞后，需看版本。</span><span data-en>You want a no-code fine-tuning product.</span><br><span data-zh>配方多，参数与数据格式要按模型逐项核对。</span><span data-en>Many recipes; check parameters and data formats model by model.</span></p>
   <h2><span data-zh>最小上手</span><span data-en>Minimum setup</span></h2>
   <ol><li><span data-zh>pip install litgpt；下载一个小模型（如 Llama 3.2 1B 或 Gemma）。</span><span data-en>Run the smallest SFT recipe on one GPU.</span></li><li><span data-zh>跑一次 chat 推理，再用公开小数据集做 LoRA。</span><span data-en>Record memory, throughput and evaluation scores.</span></li><li><span data-zh>导出合并权重，测困惑度与显存。</span><span data-en>Try LoRA and compare quality with full fine-tuning.</span></li></ol>
   <h2><span data-zh>依赖与成本</span><span data-en>Dependencies and cost</span></h2>

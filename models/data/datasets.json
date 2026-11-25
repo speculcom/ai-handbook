@@ -896,7 +896,13 @@
         "Data filtering ablations"
       ],
       "quality": "Cleaned Common Crawl with a DCLM filter model and ablation reports; the emphasis is quality filtering rather than raw scale.",
-      "caveat": "Web text still carries copyright, noise and duplication. The filter model carries its own bias; a filter score is not a ground-truth quality label."
+      "caveat": "Web text still carries copyright, noise and duplication. The filter model carries its own bias; a filter score is not a ground-truth quality label.",
+      "firstUse": "Pull a 1–5 GB sample first; run language ID, deduplication and toxicity checks before adding it to a training pipeline.",
+      "pitfalls": "Treating the DCLM score as a universal quality truth; ignoring Common Crawl robots and source terms.",
+      "cost": "Full download and training are expensive; sample validation is cheap.",
+      "notFor": "Not for closed-source commercial corpora that require item-by-item licensing proof.",
+      "compare": "A web pretraining corpus like FineWeb; DCLM emphasises filter ablations, while FineWeb offers an education-focused subset.",
+      "verify": "Check version 1.0, token count and licence on the dataset card; sample 100 records for language and body quality."
     }
   },
   {
@@ -938,7 +944,13 @@
         "Research baseline"
       ],
       "quality": "A classic 22-subset mixture for small-model ablations and research reproduction.",
-      "caveat": "Built in 2020, so web and code data are dated; several subsets have separate licences and provenance that need review."
+      "caveat": "Built in 2020, so web and code data are dated; several subsets have separate licences and provenance that need review.",
+      "firstUse": "Pick 3–5 subsets for a small ablation first; do not mix the full corpus into a new model.",
+      "pitfalls": "Treating “open source” as “fully commercially usable”; ignoring time and domain skew between subsets.",
+      "cost": "About 800 GB in full; subset sampling is cheap.",
+      "notFor": "Not suitable as the only pretraining corpus for a new 2026 model.",
+      "compare": "Older and smaller than RedPajama-v2 / DCLM, but its clear subset structure makes experiments reproducible.",
+      "verify": "Check each subset’s dataset card and licence; sample 50 records for body text and metadata."
     }
   },
   {
@@ -982,7 +994,13 @@
         "Multi-task mixture"
       ],
       "quality": "A recipe-based mixture of public SFT sets with Tülu 3 training reports and ablations, useful as a reproducible post-training baseline.",
-      "caveat": "The mixture inherits each source’s style and bias, and subset licences differ. Do not rely on the top-level card alone."
+      "caveat": "The mixture inherits each source’s style and bias, and subset licences differ. Do not rely on the top-level card alone.",
+      "firstUse": "Run the official recipe on a small model first; record the template, packing and evaluation protocol.",
+      "pitfalls": "Treating the mixture as universal SFT; ignoring licences and deduplication across subsets.",
+      "cost": "Medium; full SFT needs multiple GPUs.",
+      "notFor": "Not for tasks that need specific industry terminology or native-Chinese style; add domain data separately.",
+      "compare": "Compared with OpenHermes / SmolTalk, Tülu 3 has a more complete recipe and evaluation report.",
+      "verify": "Check the recipe version, subset licences and sample counts; inspect 100 records for template consistency."
     }
   },
   {
@@ -1026,7 +1044,13 @@
         "Small-model post-training"
       ],
       "quality": "A mixture aimed at small-model conversation, covering everyday Q&A, instructions and multi-turn dialogue.",
-      "caveat": "Mostly English everyday dialogue with limited specialist and Chinese coverage; synthetic or rewritten samples can amplify model style."
+      "caveat": "Mostly English everyday dialogue with limited specialist and Chinese coverage; synthetic or rewritten samples can amplify model style.",
+      "firstUse": "Sample 10,000 records first and inspect turn length, system prompts and the share of refusal examples.",
+      "pitfalls": "Mistaking conversational fluency for factual correctness; ignoring truncation in multi-turn context.",
+      "cost": "Low to medium; a small model runs on one machine.",
+      "notFor": "Not for direct SFT in high-risk domains such as law or medicine.",
+      "compare": "Lighter and more conversational than Tülu 3 SFT; less coverage of complex instructions.",
+      "verify": "Check the dataset version and licence; inspect 100 records for multi-turn structure and refusals."
     }
   },
   {
@@ -1070,7 +1094,13 @@
         "DPO"
       ],
       "quality": "Multi-aspect human annotations (helpfulness, correctness, coherence, complexity, verbosity), useful for interpretable reward models.",
-      "caveat": "Annotators and prompts skew English and general-assistant use. It does not directly represent Chinese or industry preferences."
+      "caveat": "Annotators and prompts skew English and general-assistant use. It does not directly represent Chinese or industry preferences.",
+      "firstUse": "Check annotation consistency first, then split train/validation to avoid leaking the same prompt.",
+      "pitfalls": "Equating length with quality; ignoring conflicts between multi-dimensional labels.",
+      "cost": "Low; a reward model runs on one GPU.",
+      "notFor": "Not a direct substitute for preference data from your target users.",
+      "compare": "Smaller than UltraFeedback, but with finer-grained dimension labels.",
+      "verify": "Check label fields and licence; sample 50 records to see whether multi-dimensional ratings agree."
     }
   },
   {
@@ -1112,7 +1142,13 @@
         "Preference diagnostics"
       ],
       "quality": "Preference pairs across chat, reasoning and safety subsets, designed to evaluate reward models rather than generators.",
-      "caveat": "The set is small and subset difficulty varies. A high score does not guarantee better downstream DPO."
+      "caveat": "The set is small and subset difficulty varies. A high score does not guarantee better downstream DPO.",
+      "firstUse": "Confirm your reward-model input format and template, then run the official scoring script.",
+      "pitfalls": "Treating RewardBench scores as generation quality; ignoring training-set contamination.",
+      "cost": "Low; runs on one GPU.",
+      "notFor": "Not suitable on its own for deciding a DPO recipe.",
+      "compare": "Complementary to HelpSteer2: one is for training, the other for evaluating reward models.",
+      "verify": "Check subset splits and the scoring script; sample 20 records to see whether chosen/rejected pairs are sensible."
     }
   },
   {
@@ -1154,7 +1190,13 @@
         "Answer extraction"
       ],
       "quality": "A 500-problem subset of the MATH test set with clear problem and answer structure, often used for quick comparisons.",
-      "caveat": "Problems have been public for a long time, so contamination risk is high. Answer extraction and equivalence checking strongly affect scores."
+      "caveat": "Problems have been public for a long time, so contamination risk is high. Answer extraction and equivalence checking strongly affect scores.",
+      "firstUse": "Fix the prompt, answer extraction and scoring script, then compare with other models under the same protocol.",
+      "pitfalls": "Looking only at final answers, not reasoning; different extractors make scores incomparable.",
+      "cost": "Low; runs on one GPU.",
+      "notFor": "Not representative of competition-level maths or Chinese maths ability.",
+      "compare": "Harder and more competition-oriented than GSM8K; easier to reproduce than AIME.",
+      "verify": "Check the 500-question version and answer fields; hand-check 10 questions to validate scoring."
     }
   },
   {
@@ -1196,7 +1238,13 @@
         "Long-chain reasoning"
       ],
       "quality": "Competition-level problems with unique answers, useful for stress-testing long reasoning and self-checking.",
-      "caveat": "Very few problems, so a single item swings the score; contamination risk rises after public release."
+      "caveat": "Very few problems, so a single item swings the score; contamination risk rises after public release.",
+      "firstUse": "Run multiple times with a fixed template; record variance and the answer-extraction failure rate.",
+      "pitfalls": "Treating a 30-question score as stable ability; ignoring the chance the model has seen the questions.",
+      "cost": "Low, but needs many samples.",
+      "notFor": "Not suitable as the only maths evaluation.",
+      "compare": "Fewer questions but harder than MATH-500; useful as a supplement, not a main leaderboard.",
+      "verify": "Check the year and question numbers; manually verify answers for 5 questions."
     }
   },
   {
@@ -1240,7 +1288,13 @@
         "Reranking"
       ],
       "quality": "Large-scale real search queries and passages for training and evaluating retrievers and rerankers.",
-      "caveat": "Queries and passages skew English web content; answers are not always complete and are not direct generation ground truth."
+      "caveat": "Queries and passages skew English web content; answers are not always complete and are not direct generation ground truth.",
+      "firstUse": "Build a BM25 baseline first, then add vector retrieval; record recall@k and MRR.",
+      "pitfalls": "Treating a retrieval hit as a correct answer; ignoring passage versions and index updates.",
+      "cost": "Medium; a full index needs disk and memory.",
+      "notFor": "Not for Chinese or domain-specific retrieval without a separate corpus.",
+      "compare": "Closer to real search queries and passage retrieval than Natural Questions / HotpotQA.",
+      "verify": "Check the agreement and splits; sample 50 records for query/passage/answer fields."
     }
   },
   {
@@ -1282,7 +1336,13 @@
         "RAG evaluation"
       ],
       "quality": "Trivia questions with evidence documents and answer aliases, useful for retrieval-plus-reading evaluation.",
-      "caveat": "Questions and evidence skew English Wikipedia and web pages; some answers have aliases and time-sensitive facts."
+      "caveat": "Questions and evidence skew English Wikipedia and web pages; some answers have aliases and time-sensitive facts.",
+      "firstUse": "Run a closed-book baseline first, then retrieval augmentation; separate retrieval from reading contributions.",
+      "pitfalls": "Treating alias matching as the only correct answer; ignoring evidence-document versions.",
+      "cost": "Low; runs on one GPU.",
+      "notFor": "Not for Chinese open-domain QA.",
+      "compare": "More trivia-oriented than Natural Questions, with more answer aliases.",
+      "verify": "Check splits and answer aliases; sample 20 records for evidence documents."
     }
   },
   {
@@ -1324,7 +1384,13 @@
         "Image-text QA"
       ],
       "quality": "GPT-generated image-text instructions covering description, reasoning and dialogue; an early multimodal SFT baseline.",
-      "caveat": "Instructions are model-generated and can contain hallucinations and style bias; images come from COCO and carry its terms."
+      "caveat": "Instructions are model-generated and can contain hallucinations and style bias; images come from COCO and carry its terms.",
+      "firstUse": "Sample 1,000 records first to check image-text alignment and instruction diversity before going full.",
+      "pitfalls": "Treating generated instructions as human annotation; ignoring image licences.",
+      "cost": "Medium; multimodal training needs GPU memory.",
+      "notFor": "Not for direct Chinese multimodal or medical imaging work.",
+      "compare": "More instruction-oriented than DataComp / LAION; not a pretraining image-text pair corpus.",
+      "verify": "Check image IDs and instruction fields; sample 50 records for image-text consistency."
     }
   },
   {
@@ -1366,7 +1432,13 @@
         "Multimodal QA"
       ],
       "quality": "Video QA across durations and domains, useful for long-video understanding and temporal grounding.",
-      "caveat": "Video sources and copyright need item-by-item review; contamination risk rises after public release."
+      "caveat": "Video sources and copyright need item-by-item review; contamination risk rises after public release.",
+      "firstUse": "Run the short-video subset first, confirm frame sampling and timestamp conventions, then run full-length videos.",
+      "pitfalls": "Different frame counts make scores incomparable; treating subtitles as visual understanding.",
+      "cost": "High; video decoding and long context need large VRAM.",
+      "notFor": "Not directly representative of Chinese video or professional film understanding.",
+      "compare": "Video-MME emphasises multi-duration and multi-domain coverage more than MVBench / LongVideoBench.",
+      "verify": "Check the video list, questions and licence; inspect 10 clips for timestamps."
     }
   },
   {
@@ -1410,7 +1482,13 @@
         "Code editing"
       ],
       "quality": "Instruction-code pairs filtered from real Git commits, covering multiple languages and realistic edits.",
-      "caveat": "Commit quality varies and includes debug residue and code with unclear licences. Filter by repository."
+      "caveat": "Commit quality varies and includes debug residue and code with unclear licences. Filter by repository.",
+      "firstUse": "Filter by language and licence first, then sample 1,000 records to see whether diffs match the instructions.",
+      "pitfalls": "Treating commits as correct changes; ignoring repository licences and sensitive information.",
+      "cost": "Medium; code-model training is expensive.",
+      "notFor": "Not for directly generating patents or closed-source code.",
+      "compare": "More “edit instruction” than The Stack / StarCoderData; not a pure code corpus.",
+      "verify": "Check the agreement, language distribution and repository filters; sample 50 diffs."
     }
   },
   {
@@ -1452,7 +1530,13 @@
         "Unit-test evaluation"
       ],
       "quality": "Includes problem statements, examples and hidden tests, so it measures whether code passes tests rather than surface similarity.",
-      "caveat": "Statements and tests have been public for years, so contamination risk is high; some tests are incomplete."
+      "caveat": "Statements and tests have been public for years, so contamination risk is high; some tests are incomplete.",
+      "firstUse": "Fix the execution environment and timeout; pass the samples before running hidden tests.",
+      "pitfalls": "Treating pass@1 as real engineering ability; ignoring differences in execution environments.",
+      "cost": "Low to medium; needs sandboxed execution.",
+      "notFor": "Not for evaluating large repository-level changes.",
+      "compare": "More questions and fuller tests than HumanEval / MBPP.",
+      "verify": "Check splits and test cases; run 10 questions locally."
     }
   },
   {
@@ -1494,7 +1578,13 @@
         "Synthetic instructions"
       ],
       "quality": "Instructions and code pairs generated backwards from open-source snippets, emphasising diversity and real code context.",
-      "caveat": "Synthetic instructions carry model style and errors; code snippet licences must be checked repository by repository."
+      "caveat": "Synthetic instructions carry model style and errors; code snippet licences must be checked repository by repository.",
+      "firstUse": "Filter by language first, then sample 500 records to see whether instructions and code are executable.",
+      "pitfalls": "Treating synthetic data as human annotation; ignoring code licences.",
+      "cost": "Low; suitable for small-model code SFT.",
+      "notFor": "Not a direct substitute for real commit data.",
+      "compare": "Cheaper and more controllable than CommitPackFT, but covers fewer real editing scenarios.",
+      "verify": "Check the dataset version and licence; execute 20 code samples."
     }
   },
   {
@@ -1538,7 +1628,13 @@
         "Educational content"
       ],
       "quality": "Synthetic textbooks, stories and Q&A with clear structure, useful for small-model pretraining experiments.",
-      "caveat": "Synthetic text amplifies the generator’s biases and factual errors; it cannot replace real web corpora."
+      "caveat": "Synthetic text amplifies the generator’s biases and factual errors; it cannot replace real web corpora.",
+      "firstUse": "Sample 1,000 articles for fact and duplication checks, then mix a small share into real corpora.",
+      "pitfalls": "Treating synthetic data as real-world knowledge; ignoring the generator’s licence and style.",
+      "cost": "Low to medium; text training cost is manageable.",
+      "notFor": "Not for pretraining that needs current facts or long-tail real knowledge.",
+      "compare": "More pretraining long-form than UltraChat / OpenHermes; not conversational SFT.",
+      "verify": "Check version, token count and generator; sample 50 articles for facts and duplication."
     }
   }
 ]

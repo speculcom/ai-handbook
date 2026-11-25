@@ -122,17 +122,17 @@
   <h2><span data-zh>使用边界</span><span data-en>Use boundaries</span></h2>
   <p class="sec-caveat"><span data-zh>查询与段落偏英文网页；答案不一定完整，不能直接当生成训练真值。</span><span data-en>Queries and passages skew English web content; answers are not always complete and are not direct generation ground truth.</span></p>
 <h2><span data-zh>第一次使用</span><span data-en>First use</span></h2>
-  <p><span data-zh>先做 BM25 基线，再加向量检索，记录 recall@k 与 MRR。</span><span data-en>先做 BM25 基线，再加向量检索，记录 recall@k 与 MRR。</span></p>
+  <p><span data-zh>先做 BM25 基线，再加向量检索，记录 recall@k 与 MRR。</span><span data-en>Build a BM25 baseline first, then add vector retrieval; record recall@k and MRR.</span></p>
 <h2><span data-zh>常见坑</span><span data-en>Common pitfalls</span></h2>
-  <p><span data-zh>把检索命中当答案正确；忽略段落版本与索引更新。</span><span data-en>把检索命中当答案正确；忽略段落版本与索引更新。</span></p>
+  <p><span data-zh>把检索命中当答案正确；忽略段落版本与索引更新。</span><span data-en>Treating a retrieval hit as a correct answer; ignoring passage versions and index updates.</span></p>
 <h2><span data-zh>成本</span><span data-en>Cost</span></h2>
-  <p><span data-zh>中等；全量索引需要磁盘与内存。</span><span data-en>中等；全量索引需要磁盘与内存。</span></p>
+  <p><span data-zh>中等；全量索引需要磁盘与内存。</span><span data-en>Medium; a full index needs disk and memory.</span></p>
 <h2><span data-zh>不适合</span><span data-en>Not for</span></h2>
-  <p><span data-zh>不适合中文或垂直领域检索，需另配语料。</span><span data-en>不适合中文或垂直领域检索，需另配语料。</span></p>
+  <p><span data-zh>不适合中文或垂直领域检索，需另配语料。</span><span data-en>Not for Chinese or domain-specific retrieval without a separate corpus.</span></p>
 <h2><span data-zh>对比与替代</span><span data-en>Compare and alternatives</span></h2>
-  <p><span data-zh>与 Natural Questions / HotpotQA 相比更偏真实搜索查询与段落检索。</span><span data-en>与 Natural Questions / HotpotQA 相比更偏真实搜索查询与段落检索。</span></p>
+  <p><span data-zh>与 Natural Questions / HotpotQA 相比更偏真实搜索查询与段落检索。</span><span data-en>Closer to real search queries and passage retrieval than Natural Questions / HotpotQA.</span></p>
 <h2><span data-zh>怎么验证</span><span data-en>How to verify</span></h2>
-  <p><span data-zh>核对协议与 split；抽 50 条看查询/段落/答案字段。</span><span data-en>核对协议与 split；抽 50 条看查询/段落/答案字段。</span></p>
+  <p><span data-zh>核对协议与 split；抽 50 条看查询/段落/答案字段。</span><span data-en>Check the agreement and splits; sample 50 records for query/passage/answer fields.</span></p>
   <h2><span data-zh>下一步</span><span data-en>Next steps</span></h2>
   <ul>
     <li><span data-zh>打开来源页，下载数据集卡与许可原文，确认版本与获取条件。</span><span data-en>Open the source page, download the dataset card and licence, and confirm the version and access terms.</span></li>
@@ -143,7 +143,7 @@
 <div class="sec-sources"><span data-zh>来源</span><span data-en>Source</span>：<a href="https://huggingface.co/datasets/microsoft/ms_marco" target="_blank" rel="noopener">https://huggingface.co/datasets/microsoft/ms_marco</a> · <span data-zh>核验日</span><span data-en>Verified</span> 2026-11-19 · <span data-zh>许可以来源页为准</span><span data-en>Licence terms follow the source page</span></div>
 </div>
   </main>
-      <footer class="site-footer foot-single">
+  <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">
