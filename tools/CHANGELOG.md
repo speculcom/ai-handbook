@@ -16,6 +16,31 @@
 
 ---
 
+## 2026-11-25 · 数据更新 · Opal 停用状态与 office 收录清单
+
+**涉及**：
+- `tracks/automation/products/opal.md` — 2026-11-17 已停用，lifecycle 改为 archived；更新迁移路径与核验说明
+- `guides/changes-2026-q3-q4.md` — Opal 从“计划停用”改为“已生效”，补 Gems made by Labs 同日关闭与共享链接失效
+- `inventory/office.md` — 新增 office 大类 15 份档案的收录清单
+- `tracks/framework/products/{gazebo,genesis,isaac-lab,isaac-sim,drake,lerobot,moveit2,mujoco,nav2,pybullet,ros2,webots}.md` — 修掉“机器人软件栈对象”套话和被截断的加粗首句；补最小起步说明
+- `tracks/office/products/*.md` — 15 份办公工具的一句话定位改成具体能力，去掉重复的“适合：适合”与空泛“不适合”段
+- `scripts/status.mjs` / `scripts/quality.mjs` / `_audit/link-graph.mjs` — 把 office 与 safety 纳入全量扫描
+- `i18n/bodies/opal.en.json`、`i18n/bodies/*.en.json`（12 个 robotics 页）、`i18n/_leads.en.json`、`i18n/_onelines.en.json`、`i18n/_fits.en.json`、`i18n/_pitfalls-a.en.json`、`i18n/guides/changes-2026-q3-q4.en.json` — 中英同步
+
+**原因**：
+Google 官方 FAQ 与 opal.google 均显示 2026-11-17 已停用；原页仍写“计划停用”，会让读者误以为还能运行。office 大类此前有 15 份档案但缺 inventory，导致 tools-coverage 与若干扫描器只覆盖 267/282。
+
+**依据**：
+- [Google Developers · Opal FAQ](https://developers.google.com/opal/faq) — 2026-11-25 复核
+- [Google Opal · 官方落地页](https://opal.google/) — 2026-11-25 复核
+
+**影响**：
+- 是否影响 `confidence`：否（Opal 仍为 partial；未知项未消除）
+- 是否影响 `lifecycle`：是（maintenance → archived）
+- 是否影响其他条目：是（`changes-2026-q3-q4` 同一事件的状态与迁移说明；office inventory 覆盖范围）
+
+---
+
 ## 2026-09-29 · 仓库配置 · 初始版本
 
 **内容**：

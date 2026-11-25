@@ -61,6 +61,6 @@
 | `tldv` | tl;dv | tl;dv | 厂商云 | 8 项已核 · 活跃 |
 | `wps-ai` | WPS AI | 金山办公 | 网页服务 | 8 项已核 · 活跃 |
 
-> 共 **15** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
+> 共 **15** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

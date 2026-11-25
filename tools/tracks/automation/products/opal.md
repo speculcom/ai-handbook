@@ -14,21 +14,21 @@ axes:
 
     具体模型清单未在官方页逐条列出。
   runtime: >-
-    云端 Web 应用，在 Google Labs 的托管环境运行。工作流文件保存在 Google Drive 的 My Drive > Opal 下（官方 FAQ 写明停用后的文件保留方式）。
+    原为云端 Web 应用，在 Google Labs 的托管环境运行。**已于 2026-11-17 停用**（官方 FAQ）。工作流文件仍保存在 Google Drive 的 My Drive > Opal 下。
   local_files: >-
     工作流与素材存放在 Google 账号侧。本机不跑模型。导入导出与素材保留边界以官方页为准。
   background: >-
-    以交互式搭积木为主。官方 agent step 可按目标触发工具与模型。但没有「关机后续跑」的官方声明。
+    以交互式搭积木为主。官方 agent step 可按目标触发工具与模型。**服务已于 2026-11-17 停用**，不再有后台续跑。
   tools: >-
-    内建 generate 步骤与 agent step。agent step 可调用 Web Search、Veo 等 Google 工具。并可把多步任务串成工作流。第三方工具接入面未逐条核验。
+    原内建 generate 步骤与 agent step。agent step 可调用 Web Search、Veo 等 Google 工具。并可把多步任务串成工作流。**服务停用后这些能力不再可运行**。第三方工具接入面未逐条核验。
   context: >-
     单次工作流的上下文由步骤与模型决定。跨会话记忆与长期状态未在官方页逐条说明。
   permissions: >-
     Google 账号体系。工作流文件在 Drive 内，分享范围按 Drive 权限管理。数据训练用途与商用条款以 Google 服务条款为准，本站未逐条核验。
   fit: >-
-    适合：不写代码。想把「生成 + 搜索 + 视频」串成小应用的人。需要快速做原型并分享。不适合：要自托管。要模型自选。要长期稳定生产（官方已宣布 2026-11-17 停用实验服务）。
+    现在不适合新任务。它曾适合：不写代码、想把「生成 + 搜索 + 视频」串成小应用并分享的人。要自托管、要模型自选、要长期稳定生产，都不适合；官方已于 2026-11-17 停用实验服务。
 pitfalls:
-  - 把 Opal 当成长期生产平台。官方 FAQ 明确 2026-11-17 停用，现有工作流不会自动迁移。需保留提示与文件并按目标任务重新搭建
+  - 把 Opal 当现役工具。官方 FAQ 明确 opal.google 与 Gems made by Labs 已于 2026-11-17 停用；现有工作流与共享链接不再运行，Drive 文件仍保留，提示可复制到 Gemini skills 或 AI Studio 重建
   - 以为它能自选模型。官方叙事是 agent step 自动选工具与模型，不是让用户逐模型配置
   - 把「免费实验」当成「商用授权」——商用范围以 Google 服务条款为准
 
@@ -36,7 +36,7 @@ tags: [无代码, Google, 云端, 实验性]
 related: [coze, dify, langgraph]
 
 sources:
-  - label: Google Opal · 官方落地页（无代码搭 AI mini-app；2026-11-03 取到停运公告）
+  - label: Google Opal · 官方落地页（无代码搭 AI mini-app；2026-11-25 显示已停用公告）
     url: https://opal.google/
     kind: official
   - label: Google blog · Build dynamic agentic workflows in Opal（agent step 自动选工具/模型）
@@ -49,12 +49,12 @@ sources:
     url: https://opal.google/updates
     kind: changelog
 
-  - label: Google Developers · Opal FAQ（仅停用日期、文件保留与不自动迁移；2026-11-04 复核）
+  - label: Google Developers · Opal FAQ（2026-11-17 已停用、Gems 同日关闭、文件保留与不自动迁移；2026-11-25 复核）
     url: https://developers.google.com/opal/faq
     kind: docs
-last_verified: 2026-11-04
-last_updated: 2026-11-04
-lifecycle: maintenance
+last_verified: 2026-11-25
+last_updated: 2026-11-25
+lifecycle: archived
 confidence: partial
 
 cn:
@@ -62,8 +62,8 @@ cn:
   origin_note: Google（美国）。
   origin_note_en: Google (US).
   direct: no
-  direct_note: opal.google 大陆直连未核验。Google 系服务在大陆通常需网络环境。
-  direct_note_en: Direct reachability from mainland not verified; Google services generally need a network path there.
+  direct_note: opal.google 已于 2026-11-17 停用，入口转 FAQ 页；大陆直连不再适用。
+  direct_note_en: opal.google was shut down on 2026-11-17 and now leads to the FAQ; direct mainland reachability no longer applies.
   filing: not-filed
   filing_note: 未见于网信办公示名单（2026-11-03 检索）。该实验产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: Not in the CAC public registry (searched 2026-11-03); the experimental product does not serve the mainland public, so filing does not apply.
@@ -72,21 +72,20 @@ cn:
 
 ## 一句话定位
 
-Opal 是 Google Labs 的无代码 AI mini-app 搭建器。用自然语言描述。就能把生成、搜索、视频等步骤串成可分享的小应用。
+Opal 曾是 Google Labs 的无代码 AI mini-app 搭建器。用自然语言描述。就能把生成、搜索、视频等步骤串成可分享的小应用。
 
-实验服务计划于 2026-11-17 停用，现有工作流不会自动迁移。Drive 文件保留，提示与流程需按目标任务重新搭建。
+**已于 2026-11-17 停用**（官方 FAQ）。现有工作流与共享链接不再运行；Drive 文件仍保留，提示与流程需复制到 Gemini skills 或 AI Studio 重建。
 
 跨大类对照：[LangGraph](../framework/langgraph.html)。
 
 ## 适合与不适合
 
-适合：不写代码、想快速把「生成 + 搜索 + 视频」串成原型并分享的人。
-不适合：要自托管、要模型自选、要长期稳定生产。
-官方已给出停运时间表。
+现在不适合新任务。它曾适合：不写代码、想快速把「生成 + 搜索 + 视频」串成原型并分享的人。
+不适合：要自托管、要模型自选、要长期稳定生产。官方已停用实验服务。
 
 ## 实测记录
 
-本档未跑工作流搭建实测；结论只覆盖平台能力与权限边界。
+本档未跑工作流搭建实测；服务停用后也无法新跑，结论只覆盖历史平台能力与权限边界。
 
 ## 未知项清单
 
@@ -101,6 +100,6 @@ Opal 是 Google Labs 的无代码 AI mini-app 搭建器。用自然语言描述�
 
 ## 核验说明
 
-2026-11-04 仅对照官方 FAQ 复核停用日期、Drive 文件保留及不自动迁移。
+2026-11-25 对照官方 FAQ 与 opal.google 复核：2026-11-17 已停用，Gems made by Labs 同日关闭；现有工作流与共享链接不再运行；Drive 文件保留；工作流不会自动迁移到 skills。
 模型、集成、网络等其他字段保留原有核验范围。
 没有运行或迁移工作流。

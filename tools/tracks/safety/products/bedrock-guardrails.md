@@ -49,7 +49,7 @@ pitfalls:
   - 以为护栏必须跟着模型调用跑。ApplyGuardrail 可脱离模型单独评，计费与接入路径不同
 
 tags: [云端, 商业, guardrails, API, 多后端]
-related: [azure-ai-content-safety, nemo-guardrails, litellm]
+related: [azure-ai-content-safety, nemo-guardrails, litellm, amazon-q-developer]
 
 sources:
   - label: Amazon Bedrock Guardrails · 文档主页（策略清单、ApplyGuardrail、测试窗口，2026-11-06 直抓 200）

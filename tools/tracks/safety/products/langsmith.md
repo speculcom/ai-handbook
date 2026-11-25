@@ -52,7 +52,7 @@ pitfalls:
 
 tags: [云端, 商业平台, 自托管, WebUI, eval, LangChain, 多模型]
 
-related: [braintrust, promptfoo, adobe-content-credentials]
+related: [braintrust, promptfoo, adobe-content-credentials, langgraph]
 
 sources:
   - label: LangSmith · 产品页（自述 Agent 与 LLM Observability Platform；tracing 与 monitoring 与 evaluation；可接任意 LLM 框架；managed cloud 与 BYOC 与 self-hosted，2026-11-06 直抓 200）

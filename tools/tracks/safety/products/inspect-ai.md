@@ -57,7 +57,7 @@ pitfalls:
   - 把「200+ 预置评测」当成现成结论——官方口径是可直接运行的实现。结果仍要你自己跑
 
 tags: [开源, MIT, Python, eval, 沙箱, MCP, 多模型, 自托管]
-related: [openai-evals, ragas, langfuse]
+related: [openai-evals, ragas, langfuse, openai-agents-sdk]
 
 sources:
   - label: Inspect · 官方文档首页（框架定位、模型 provider、沙箱、工具与 MCP、Inspect View；直读 200，2026-11-06）

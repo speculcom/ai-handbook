@@ -52,7 +52,7 @@ pitfalls:
   - 以为能自助开通：官方 getting-started 页在册「不提供 self-serve signup」
 
 tags: [云端, 商业, API, 自动化]
-related: [adobe-content-credentials, azure-ai-content-safety, bedrock-guardrails]
+related: [adobe-content-credentials, azure-ai-content-safety, bedrock-guardrails, adobe-firefly]
 
 sources:
   - label: Truepic · 官网（产品定位为拍摄即验真与检查平台，导航与文档入口在册，2026-11-06 直抓 200）

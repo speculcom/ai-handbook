@@ -82,6 +82,6 @@ AI 安全与评测。给 AI 系统做约束、度量与追责的产品：护栏�
 | `llm-guard` | LLM Guard | Protect AI | 本机应用 | 有未核项 · 已归档 |
 | `rebuff` | Rebuff | Protect AI | 本机应用 | 有未核项 · 已归档 |
 
-> 共 **25** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
+> 共 **25** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

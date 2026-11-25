@@ -49,7 +49,7 @@ pitfalls:
 
 tags: [开源, MIT, 终端, CI, eval, 本地, 多模型]
 
-related: [arize-phoenix, adobe-content-credentials, openai-evals]
+related: [arize-phoenix, adobe-content-credentials, openai-evals, langchain]
 
 sources:
   - label: promptfoo · 文档 intro（自述 open-source CLI and library for evaluating and red-teaming LLM apps；断言含 determinism 与 similarity 与 JSON validity 与 LLM-rubric；BYOK 与多厂商 provider，2026-11-06 直抓 200）

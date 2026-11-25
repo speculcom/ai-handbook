@@ -60,7 +60,7 @@ pitfalls:
   - 以为仓库还在 explodinggradients 名下。官方路径已跳转至 vibrantlabsai/ragas
 
 tags: [开源, Apache-2.0, Python, eval, RAG, 检索, 本地]
-related: [openai-evals, inspect-ai, langfuse]
+related: [openai-evals, inspect-ai, langfuse, llamaindex]
 
 sources:
   - label: vibrantlabsai/ragas · 仓库 README（定位、安装、ragas quickstart、Open Analytics 与关闭开关；jsDelivr 镜像直读官方仓库原文，2026-11-06）

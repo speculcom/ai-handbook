@@ -58,9 +58,9 @@ AI 自动化与工作流。可视化/低代码搭 AI 工作流与 agent 的平�
 | `vertex-agent-builder` | Vertex AI Agent Builder（Gemini Enterprise 平台线） | Google | 网页服务 | 8 项已核 · 活跃 |
 | `voiceflow` | Voiceflow | Voiceflow | 网页服务 | 8 项已核 · 活跃 |
 | `zapier` | Zapier | Zapier | 网页服务 | 8 项已核 · 活跃 |
-| `opal` | Google Opal | Google Labs | 网页服务 | 有未核项 · 更新放缓 |
 | `smythos` | SmythOS | SmythOS | 网页服务 | 有未核项 · 更新放缓 |
+| `opal` | Google Opal | Google Labs | 网页服务 | 有未核项 · 已归档 |
 
-> 共 **24** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
+> 共 **24** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

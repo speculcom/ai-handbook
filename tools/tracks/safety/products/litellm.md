@@ -59,7 +59,7 @@ pitfalls:
   - 以为 100+ provider 等于都能挂护栏。护栏集成是另一份清单，逐 key 控制还要企业版
 
 tags: [本地, 开源, 自托管, 云端, 权限链, webhook, MCP, guardrails]
-related: [nemo-guardrails, azure-ai-content-safety, bedrock-guardrails]
+related: [nemo-guardrails, azure-ai-content-safety, bedrock-guardrails, vercel-ai-sdk]
 
 sources:
   - label: LiteLLM · 文档首页（开源 AI 网关定位、100+ 模型、quickstart、变更记录入口，2026-11-06 直抓 200）

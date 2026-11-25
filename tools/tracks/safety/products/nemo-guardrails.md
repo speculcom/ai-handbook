@@ -55,7 +55,7 @@ pitfalls:
   - 把 catalog 里的第三方 rail 当免费内置能力。接第三方即把送检内容送出你的环境
 
 tags: [本地, 开源, guardrails, 多后端, 自托管, API]
-related: [azure-ai-content-safety, bedrock-guardrails, litellm]
+related: [azure-ai-content-safety, bedrock-guardrails, litellm, langgraph]
 
 sources:
   - label: NeMo Guardrails · Docs Overview（开源 Python 库定位与导航，2026-11-06 直抓 200）

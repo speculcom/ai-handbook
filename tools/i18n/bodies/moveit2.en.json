@@ -8,7 +8,7 @@
     "tools": "MoveIt 2 provides command-line, plugin or ecosystem interfaces (such as ROS topics/services, simulation plugins, policy-training interfaces). MCP integration is outside the command-line/plugin/ROS interfaces listed in the official README.",
     "context": "Not applicable: MoveIt 2 is not a chat model and has no LLM context window; state is carried by configuration, scenes, node state or training checkpoints.",
     "permissions": "Permissions follow the operating system and runtime environment; with robot hardware, device access, network and emergency-stop boundaries also need checking. The official README covers run entry points only and sets no unified permission model; this profile records no local test.",
-    "fit": "Fit: motion/trajectory planning and control analysis. Not fit: production deployment, safety certification or real-hardware guarantees."
+    "fit": "Fits: arm trajectory planning and manipulation pipelines; requires URDF/SRDF and controller configuration. Does not fit mobile-base navigation or policy-training work."
   },
   "sectionTitles": {},
   "sections": {},

@@ -60,7 +60,7 @@ pitfalls:
   - 以为 Python SDK 与 TS SDK 对等。官方路线图把 Python 对等项列为未完成
 
 tags: [开源, 混合]
-related: [llm-guard, canary-scan, nemo-guardrails]
+related: [llm-guard, canary-scan, nemo-guardrails, langchain]
 
 sources:
   - label: Rebuff · 仓库提交历史（最后提交 2024-01-25；无独立 changelog 页）

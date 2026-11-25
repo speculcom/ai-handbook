@@ -67,7 +67,7 @@ pitfalls:
   - 拿它当模型评测或脱敏工具：对象是凭据与身份，既不评模型行为也不提供脱敏算子
 
 tags: [云端, 商业, 自托管, 终端, CI, API]
-related: [nightfall, presidio, pyrit]
+related: [nightfall, presidio, pyrit, github-mcp]
 
 sources:
   - label: GitGuardian · 官网首页（「Credential Layer Security Platform」、ggshield/ggscout 产品名、合规框架清单、pre-commit/pre-push/IDE 覆盖面；直读 200，2026-11-06）

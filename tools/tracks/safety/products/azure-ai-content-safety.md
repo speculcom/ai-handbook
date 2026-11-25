@@ -50,7 +50,7 @@ pitfalls:
   - 以为多语言同等可靠：官方在册部分能力仅以英文训练评估，中文只在部分分类器的训练测试语言里
 
 tags: [云端, 商业, guardrails, API, 多平台]
-related: [nemo-guardrails, bedrock-guardrails, litellm]
+related: [nemo-guardrails, bedrock-guardrails, litellm, openai-agents-sdk]
 
 sources:
   - label: Azure AI Content Safety · 产品页（定位与能力条目，2026-11-06 直抓 200）

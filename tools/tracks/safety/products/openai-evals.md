@@ -55,7 +55,7 @@ pitfalls:
   - 把自定义代码评测直接提 PR——README 明写目前不接受这类贡献
 
 tags: [开源, MIT, Python, eval, 终端, 多模型]
-related: [inspect-ai, ragas, langfuse]
+related: [inspect-ai, ragas, langfuse, openai-agents-sdk]
 
 sources:
   - label: openai/evals · 仓库 README（定位、API key、Git-LFS、pip 安装、Dashboard 指引；jsDelivr 镜像直读官方仓库原文，2026-11-06）

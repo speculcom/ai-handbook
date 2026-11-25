@@ -33,7 +33,7 @@
 | 通用对话产品带代码能力 | 归 `chat`（官方自我定位是通用助手） |
 | 可视化搭 AI 应用的平台（Dify 类） | 归 `automation`（交付物是搭出来的应用） |
 
-## 收录对象（41 份）
+## 收录对象（42 份）
 
 | id | 名称 | 厂商 | 形态 | 状态 |
 |---|---|---|---|---|
@@ -51,6 +51,7 @@
 | `cursor` | Cursor | Anysphere | IDE / 编辑器 | 8 项已核 · 活跃 |
 | `cursor-cli` | Cursor CLI | Anysphere | CLI | 8 项已核 · 活跃 |
 | `devin` | Devin | Cognition | 厂商云 | 8 项已核 · 活跃 |
+| `devin-bots` | Devin Bots | Cognition | 厂商云 | 有未核项 · 活跃 |
 | `factory-droid` | Droid | Factory AI | CLI | 8 项已核 · 活跃 |
 | `gemini-cli` | Gemini CLI | Google | CLI | 8 项已核 · 活跃 |
 | `copilot` | GitHub Copilot | GitHub / Microsoft | IDE / 编辑器 | 8 项已核 · 活跃 |
@@ -79,6 +80,6 @@
 | `amazon-q-developer` | Amazon Q Developer | AWS | IDE / 编辑器 | 有未核项 · 更新放缓 |
 | `continue` | Continue | Continue | IDE / 编辑器 | 8 项已核 · 已归档 |
 
-> 共 **41** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
+> 共 **42** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

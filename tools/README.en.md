@@ -445,7 +445,7 @@ Visual AI-app builders and workflow automation platforms
 | [Dify](tracks/automation/products/dify.md) | LangGenius (China-origin, global-facing) | web | verified | active |
 | [FastGPT](tracks/automation/products/fastgpt.md) | labring (Huanji Cloud, China-origin) | web | verified | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | verified | active |
-| [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | maintenance |
+| [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | archived |
 | [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | verified | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax (formerly Langflow AI) | web | verified | active |
 | [Lindy](tracks/automation/products/lindy.md) | Lindy | web | verified | active |

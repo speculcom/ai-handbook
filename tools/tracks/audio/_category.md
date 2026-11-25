@@ -51,6 +51,6 @@
 | `udio` | Udio | Udio | 网页服务 | 8 项已核 · 活跃 |
 | `whisper` | Whisper | OpenAI（开源） | 本机应用 | 8 项已核 · 活跃 |
 
-> 共 **17** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
+> 共 **17** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

@@ -44,7 +44,7 @@ pitfalls:
   - 选自托管只看到「一个二进制」，忽略完整观测栈还要维护数据库与对象存储
 
 tags: [AI 网关, 观测, 日志, 用量, 多家模型]
-related: [langwatch, litellm]
+related: [langwatch, litellm, vercel-ai-sdk]
 
 sources:
   - label: Helicone · Open Source（Apache License 2.0、自托管与仓库入口；2026-11-21 直读 200）

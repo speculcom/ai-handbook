@@ -56,7 +56,7 @@ pitfalls:
 
 tags: [云端, 商业平台, 自托管, WebUI, eval, 混合, CI]
 
-related: [langsmith, langfuse, adobe-content-credentials]
+related: [langsmith, langfuse, adobe-content-credentials, langgraph]
 
 sources:
   - label: Braintrust · 官方文档首页（自述 active observability platform；trace 采集、人工反馈、实验对照与生产监控的工作流，2026-11-06 直抓 200）

@@ -8,7 +8,7 @@
     "tools": "Nav2 provides command-line, plugin or ecosystem interfaces (such as ROS topics/services, simulation plugins, policy-training interfaces). MCP integration is outside the command-line/plugin/ROS interfaces listed in the official README.",
     "context": "Not applicable: Nav2 is not a chat model and has no LLM context window; state is carried by configuration, scenes, node state or training checkpoints.",
     "permissions": "Permissions follow the operating system and runtime environment; with robot hardware, device access, network and emergency-stop boundaries also need checking. The official README covers run entry points only and sets no unified permission model; this profile records no local test.",
-    "fit": "Fit: mobile-robot navigation and behaviour orchestration. Not fit: production deployment, safety certification or real-hardware guarantees."
+    "fit": "Fits: autonomous mobile-robot navigation and behavior orchestration; requires a TF tree and sensor configuration. Does not fit arm manipulation planning or non-ROS systems."
   },
   "sectionTitles": {},
   "sections": {},

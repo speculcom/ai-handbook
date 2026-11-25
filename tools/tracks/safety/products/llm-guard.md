@@ -49,7 +49,7 @@ pitfalls:
   - Python 版本要求 README 与 PyPI 元数据不一致，装不上先看包元数据
 
 tags: [开源, 本地, 混合]
-related: [rebuff, canary-scan, nemo-guardrails]
+related: [rebuff, canary-scan, nemo-guardrails, langchain]
 
 sources:
   - label: LLM Guard · 文档站更新日志（2026-11-06 确认可达）

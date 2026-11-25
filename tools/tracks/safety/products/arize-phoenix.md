@@ -61,7 +61,7 @@ pitfalls:
 
 tags: [自托管, WebUI, eval, Python, 本地, 混合]
 
-related: [langfuse, adobe-content-credentials, openai-evals]
+related: [langfuse, adobe-content-credentials, openai-evals, langgraph]
 
 sources:
   - label: Arize-ai/phoenix · 仓库 README（自称 open-source AI observability platform，pip 与 Docker、OpenTelemetry、evals library、Arize AX 托管线，2026-11-06 直抓 200）

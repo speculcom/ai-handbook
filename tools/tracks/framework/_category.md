@@ -84,9 +84,10 @@ agent 侧对象几乎全部 `form: harness`。也就是库或框架形态。机�
 | `strands-agents` | Strands Agents SDK | AWS | 框架 / SDK | 8 项已核 · 活跃 |
 | `swe-agent` | SWE-agent | Princeton / Stanford（学术团队） | 框架 / SDK | 8 项已核 · 活跃 |
 | `vercel-ai-sdk` | Vercel AI SDK 7 | Vercel | 框架 / SDK | 8 项已核 · 活跃 |
+| `vercel-eve` | Vercel eve（1.0） | Vercel | 框架 / SDK | 有未核项 · 活跃 |
 | `webots` | Webots | Cyberbotics | 本机应用 | 8 项已核 · 活跃 |
 | `metagpt` | MetaGPT | DeepWisdom（深度赋智，国产） | 框架 / SDK | 有未核项 · 更新放缓 |
 
-> 共 **42** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成。改档案后重跑脚本，不要手改表格。
+> 共 **43** 份。本清单由 `scripts/gen-category-docs.mjs` 从 `products/*.md` 自动生成；改档案后重跑脚本，不要手改表格。
 
 > 状态读法：左边是「这页的证据是否齐」，右边是「上游产品还在不在更新」。停更不等于资料残缺。

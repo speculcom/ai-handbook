@@ -46,7 +46,7 @@ pitfalls:
   - 以为扫描会打开文件确认效果：官方设计恰恰是不用原生查看器打开，以免触发远程引用
 
 tags: [开源, 本地]
-related: [llm-guard, rebuff, garak]
+related: [llm-guard, rebuff, garak, openai-agents-sdk]
 
 sources:
   - label: CanaryScan · Releases（v0.2.0，2026-07-20；v0.1.1 至 v0.1.4 均在 2026-06-26）

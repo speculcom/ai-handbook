@@ -50,7 +50,7 @@ pitfalls:
   - 把它当审核开关：它不拦内容，只产出可验证声明与校验结论
 
 tags: [云端, 本地, 开源, API]
-related: [truepic, azure-ai-content-safety, litellm]
+related: [truepic, azure-ai-content-safety, litellm, adobe-firefly]
 
 sources:
   - label: Content Credentials · 官网（标准归属、pin 与编辑史叙事、采用方叙事，2026-11-06 直抓 200）

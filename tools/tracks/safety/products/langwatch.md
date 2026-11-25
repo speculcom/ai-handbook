@@ -30,7 +30,7 @@ pitfalls:
   - 允许平台记录完整输入输出前，没先确认里面是否含客户数据与密钥
 
 tags: [LLMOps, 追踪, 评测, 提示管理, 可自托管, 开源核心]
-related: [helicone, openai-evals, inspect-ai]
+related: [helicone, openai-evals, inspect-ai, langgraph]
 
 sources:
   - label: LangWatch · 官方文档（tracing / evaluations / agent testing / prompt management，自托管说明）

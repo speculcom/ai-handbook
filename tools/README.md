@@ -430,7 +430,7 @@ framework 的 31 个对象按**抽象层**分三组，这是本站对该大类�
 | [Dify](tracks/automation/products/dify.md) | LangGenius（国产出海） | web | verified | active |
 | [FastGPT](tracks/automation/products/fastgpt.md) | labring（环际云，国产） | web | verified | active |
 | [Flowise](tracks/automation/products/flowise.md) | FlowiseAI, Inc. | web | verified | active |
-| [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | maintenance |
+| [Google Opal](tracks/automation/products/opal.md) | Google Labs | web | partial | archived |
 | [Gumloop](tracks/automation/products/gumloop.md) | Gumloop | web | verified | active |
 | [Langflow](tracks/automation/products/langflow.md) | DataStax（原 Langflow AI） | web | verified | active |
 | [Lindy](tracks/automation/products/lindy.md) | Lindy | web | verified | active |

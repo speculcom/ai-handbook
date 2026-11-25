@@ -49,7 +49,7 @@ pitfalls:
 
 tags: [开源, 自托管, 云端, WebUI, eval, Python, 混合]
 
-related: [promptfoo, adobe-content-credentials, openai-evals]
+related: [promptfoo, adobe-content-credentials, openai-evals, langgraph]
 
 sources:
   - label: Langfuse · 官方文档（自述 open-source AI engineering platform，tracing 与 prompt 与 evaluations 能力面，2026-11-06 直抓 200）
