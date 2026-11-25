@@ -631,7 +631,7 @@
 </div>
 <script>(function(){var bar=document.getElementById('ms-filter');if(!bar)return;var chips=bar.querySelectorAll('[data-filter-cat]');var cards=document.querySelectorAll('.fx-card');var count=document.getElementById('ms-filter-count');function apply(v){var n=0;for(var i=0;i<cards.length;i++){var c=cards[i];var show=(v==='all'||c.getAttribute('data-cat')===v);c.hidden=!show;if(show)n++;}for(var j=0;j<chips.length;j++){var b=chips[j];b.setAttribute('aria-pressed',b.getAttribute('data-filter-cat')===v?'true':'false');}if(count)count.textContent=String(n);}for(var k=0;k<chips.length;k++){chips[k].addEventListener('click',function(){apply(this.getAttribute('data-filter-cat'));});}})();</script>
   </main>
-      <footer class="site-footer foot-single">
+  <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">

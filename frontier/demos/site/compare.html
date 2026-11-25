@@ -119,7 +119,7 @@ function repaint(){if(!state.data)return;var l=left.value||(state.left&&state.le
 fetch('demos-data.json').then(function(r){return r.json();}).then(function(data){state.data=data;var qs=new URLSearchParams(location.search);left.value=qs.get('left')||data[0].id;right.value=qs.get('right')||data.find(function(x){return x.model&&x.model.name!==data[0].model.name;}).id;repaint();left.onchange=function(){pane('left',byId(left.value));};right.onchange=function(){pane('right',byId(right.value));};document.getElementById('dm-swap').onclick=function(){var a=left.value,b=right.value;left.value=b;right.value=a;pane('left',byId(b));pane('right',byId(a));};document.addEventListener('specul:preferences',repaint);}).catch(function(){document.getElementById('dm-same').textContent=en()?'Could not load. Open this page through a local static server.':'载入失败：请通过本地静态服务器打开本页。';});
 })();</script>
   </main>
-      <footer class="site-footer foot-single">
+  <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">

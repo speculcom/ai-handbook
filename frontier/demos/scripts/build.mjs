@@ -123,7 +123,7 @@ bind(catBox,'cat');if(${withModel ? 'true' : 'false'})bind(modelBox,'model');app
 const indexBody = `<div class="container demos-page">
   <header class="dm-hero">
     <h1>${bi('点开就能玩', 'Open & play')}</h1>
-    <p class="dm-lead">${bi('能站内直接玩；不能嵌入的链回作者。', 'Play in-site; if it cannot embed, it links back.')}</p>
+    <p class="dm-lead">${bi('挑一个你想看的作品，点开就能玩；不能嵌入的会链回作者。', 'Pick a piece you want to see and play it here; if it cannot embed, it links back to the author.')}</p>
   </header>
   ${filterUI('dm', entries)}
   <div class="fx-grid dm-grid" id="dm-grid">${displayEntries.map((e) => card(e)).join('\n')}</div>

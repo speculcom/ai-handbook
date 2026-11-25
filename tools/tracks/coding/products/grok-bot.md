@@ -151,7 +151,7 @@ axes:
     1. 回调即审批 —— 「only come back when something needs your approval」、
        「Leaves every send for you to approve in your inbox or navigator」
     2. 例行任务自带保守动词 —— declutterer「Only discards or unsubscribes if
-       you say so」；refunds manager「Comes back with the refund or discount it
+       you say so」。refunds manager「Comes back with the refund or discount it
        recovered」，不自行执行退款，把结果拿回来
     3. 一个值得记的设计 —— Website builder 官方写
        「Helps configure plugins, delivers a live URL, and adds redirect rules」，
@@ -222,7 +222,7 @@ axes:
     - 需要确认底层模型的人 —— 官方未公布
     - 非英语地区用户 —— 官方只写桌面与 iOS，**地区表述只到端、不含国家清单**
 
-    **1.0 后新增适配面**：要一个团队共享的常驻 teammate、能自己找活干、在 Slack / Teams / iMessage 里交接工作的团队；Team Bots 共享文件、应用与上下文，但产品级权限与审计仍是短板。
+    **1.0 后新增适配面**：要一个团队共享的常驻 teammate、能自己找活干、在 Slack / Teams / iMessage 里交接工作的团队。Team Bots 共享文件、应用与上下文，但产品级权限与审计仍是短板。
 
 pitfalls:
   - 把「独立用量」当成免费 —— 官方只说与主套餐分开算
@@ -235,7 +235,7 @@ tags: [编码agent, 云端, 厂商云, 常驻, 并行, 岗位化, 1.0, TeamBots]
 related: [playwright]
 
 sources:
-  - label: xAI · Introducing Grok Bot 1.0（x.ai/news 索引，2026-11-11；Team Bots、主动开工）
+  - label: xAI · Introducing Grok Bot 1.0（x.ai/news 索引，2026-11-11。Team Bots、主动开工）
     url: https://x.ai/news
     kind: official
 
@@ -247,7 +247,7 @@ sources:
     url: https://x.ai/news/grok-bot-more-plans
     kind: changelog
 
-  - label: xAI · Bot 行为治理规范（x.ai/bot公开页，**补上审批必审动作清单**；性质是行为约束非产品文档，见正文「那份治理规范怎么读」）
+  - label: xAI · Bot 行为治理规范（x.ai/bot公开页，**补上审批必审动作清单**。性质是行为约束非产品文档，见正文「那份治理规范怎么读」）
     url: https://x.ai/bot/KZ9xav0Qad1U5QigEn7rh
     kind: docs
 
@@ -271,7 +271,7 @@ cn:
   direct_note: x.ai 大陆直连稳定超时（同日两次 000）。
   direct_note_en: x.ai times out consistently from mainland (000 twice on the same day).
   filing: not-filed
-  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）；该产品未面向大陆公众提供服务，备案不适用。
+  filing_note: 未见于网信办公示名单（2026-10-20 检索 13 批附件，https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm）。该产品未面向大陆公众提供服务，备案不适用。
   filing_note_en: not in the CAC public registry (13 batch attachments searched 2026-10-20, https://www.cac.gov.cn/2024-04/02/c_1713729983803145.htm); the product does not serve the mainland public, so filing does not apply.
   verified: 2026-10-23
 ---
@@ -290,7 +290,7 @@ cn:
 |---|---|
 | OpenAI Dot | Playwright 直抓 openai.com，5,166 字逐节核对 |
 | Meta Muse | Playwright 直抓 about.fb.com，7,655 字逐节核对 |
-| **本条** | **x.ai 直抓 ERR_CONNECTION_TIMED_OUT（连接超时）；正文取自域限定检索（`allowed_domains: x.ai`）返回的官方页内容** |
+| **本条** | **x.ai 直抓 ERR_CONNECTION_TIMED_OUT（连接超时）。正文取自域限定检索（`allowed_domains: x.ai`）返回的官方页内容** |
 
 **为什么仍算官方源：** 检索被限定在 `x.ai` 域内，
 返回的正文是该域页面的内容，不是第三方转述。
@@ -309,8 +309,8 @@ cn:
 
 | | OpenAI Dot | Meta Muse | **Grok Bot** |
 |---|---|---|---|
-| 审批机制 | 自动审核 + 自定义规则 + **敏感动作永远人工** | **独立 Sentinel agent**，系统级隔离 | **发布页未描述**；域内 Bot 规范列了必审动作清单 |
-| 凭据 | 用已存密码不向模型暴露 | Secure Credentials Store | **发布页未描述**；规范只写「Never store credentials」 |
+| 审批机制 | 自动审核 + 自定义规则 + **敏感动作永远人工** | **独立 Sentinel agent**，系统级隔离 | **发布页未描述**。域内 Bot 规范列了必审动作清单 |
+| 凭据 | 用已存密码不向模型暴露 | Secure Credentials Store | **发布页未描述**。规范只写「Never store credentials」 |
 | 审计 | 活动视图 | 完整轨迹，含「plans to do」 | **发布页未描述** |
 
 **「回调即审批」这一层已核验：**
@@ -342,7 +342,7 @@ cn:
 | | 内容 |
 |---|---|
 | 它**是**什么 | 一个 Bot 的**行为约束说明** —— 它自己该怎么做、什么该先问 |
-| ❌ 它**不是**什么 | 不是产品文档；不是产品级的权限机制说明；不代表所有 Bot 都受同一套约束；不能替代「用户界面里能不能配规则」这个问题的答案 |
+| ❌ 它**不是**什么 | 不是产品文档。不是产品级的权限机制说明。不代表所有 Bot 都受同一套约束。不能替代「用户界面里能不能配规则」这个问题的答案 |
 
 **这个区分为什么重要：**
 
@@ -438,7 +438,7 @@ and adds redirect rules.
 | | Dot | Muse | Grok Bot |
 |---|---|---|---|
 | 买什么 | Pro / Business Premium 附带 | 大部分需求免费 + 订阅档 | SuperGrok / Cursor 各档附带 |
-| 与主套餐额度关系 | Dot 对话不计入；派给 Codex 的任务**照常计入** | 官方文档不展开 | **独立用量，与主套餐分开** |
+| 与主套餐额度关系 | Dot 对话不计入。派给 Codex 的任务**照常计入** | 官方文档不展开 | **独立用量，与主套餐分开** |
 
 **三家用三种不同的结构，不要按「厂商云 agent 都一样」来理解。**
 
@@ -467,12 +467,12 @@ and adds redirect rules.
 
 xAI 在 2026-11-11 把 Grok Bot 推到 1.0，官方标题下的原话是「Bots now work with your whole team, take on work without being asked, and get more done, faster」。这条更新把产品从「一个人用的常驻 Bot」扩成「团队共享 Bot」：
 
-- **Team Bots**：把文件、应用和领域知识给一个 Bot，再共享给团队，让所有人从同一份上下文开工；Team Bot 会在协作中继续学习。
-- **主动开工**：1.0 明确写「take on work without being asked」，不再只等用户下指令；这与首发页的「keep working 24/7」是同一条线。
+- **Team Bots**：把文件、应用和领域知识给一个 Bot，再共享给团队，让所有人从同一份上下文开工。Team Bot 会在协作中继续学习。
+- **主动开工**：1.0 明确写「take on work without being asked」，不再只等用户下指令。这与首发页的「keep working 24/7」是同一条线。
 - **岗位化继续扩张**：2026-11-16 的「Grok Bot for Accounting」是 1.0 后的会计团队用例，说明官方在按岗位而不是按功能卖。
-- **仍然没有点名模型**：1.0 页和首发页都没有说 Bot 跑在哪个 Grok 型号上；本档继续不推断。
+- **仍然没有点名模型**：1.0 页和首发页都没有说 Bot 跑在哪个 Grok 型号上。本档继续不推断。
 
-对选型的影响：如果你要的是「团队共享的常驻工作面」，1.0 比首发版更值得看；如果你要的是可审计的产品级权限配置，1.0 仍未给出完整答案，这一条最大短板没有被 1.0 解决。
+对选型的影响：如果你要的是「团队共享的常驻工作面」，1.0 比首发版更值得看。如果你要的是可审计的产品级权限配置，1.0 仍未给出完整答案，这一条最大短板没有被 1.0 解决。
 
 ## 采集限制
 
@@ -480,7 +480,7 @@ xAI 在 2026-11-11 把 Grok Bot 推到 1.0，官方标题下的原话是「Bots 
 |---|---|
 | Introducing Grok Bot | 注意： 直抓超时（ERR_CONNECTION_TIMED_OUT），正文取自 x.ai 域限定检索 |
 | Grok Bot is now included with more plans | 注意： 同上 |
-| Introducing Grok 4.6 | 注意： 同上；**仅用于确认「官方未点名」**，不用于推断模型 |
+| Introducing Grok 4.6 | 注意： 同上。**仅用于确认「官方未点名」**，不用于推断模型 |
 | `x.ai/bot/…` Bot 行为规范 | ✅ **2026-10-03 取到正文**，补上 `permissions` 的审批粒度（性质是行为约束，见正文） |
 
 **三页发布页均页面未给可抓正文复核** —— 这是本条 confidence 定 核验边界之一。
@@ -499,7 +499,7 @@ xAI 在 2026-11-11 把 Grok Bot 推到 1.0，官方标题下的原话是「Bots 
 
 ## 实测记录
 
-本档未跑端到端编码任务；能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
+本档未跑端到端编码任务。能力结论来自官方文档，编码向测量协议见 [protocols/coding/_protocol.md](../../../protocols/coding/_protocol.md)。
 
 **实测建议**：若能订阅 SuperGrok 或 Cursor 任一档，
 本条最该测的是**审批触发点**。
